@@ -14,11 +14,8 @@
 
 ## 步骤3：创建或加入会议
 ### 我要创建会议
-<div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://cloud.tencent.com/document/product/1095/41381#.E9.A2.84.E5.AE.9A.E4.BC.9A.E8.AE.AE" target="_blank"  style="color: white; font-size:16px;"  hotrep="document.guide.3128.btn2">点击查看预定会议</a></div>
-
-<br>
-
-<div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://cloud.tencent.com/document/product/1095/41381#.E5.BF.AB.E9.80.9F.E4.BC.9A.E8.AE.AE" target="_blank"  style="color: white; font-size:16px;"  hotrep="document.guide.3128.btn2">点击查看快速会议</a></div>
+- **[预定会议操作步骤](https://cloud.tencent.com/document/product/1095/41381#.E9.A2.84.E5.AE.9A.E4.BC.9A.E8.AE.AE)**
+- **[快速会议操作步骤](https://cloud.tencent.com/document/product/1095/41381#.E5.BF.AB.E9.80.9F.E4.BC.9A.E8.AE.AE)**
 
 
 
