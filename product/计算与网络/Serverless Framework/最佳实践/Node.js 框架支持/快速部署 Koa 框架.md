@@ -4,14 +4,14 @@ Koa 组件通过使用 serverless-tencent 的基础组件（如 API 网关组件
 ## 操作步骤
 通过 Koa 组件，对一个 Koa 应用进行完整的创建、配置、部署和删除等操作。支持命令如下：
 
-### 安装
+### 1. 安装
 
 通过 npm 安装 Serverless：
 ```console
 $ npm install -g serverless
 ```
 
-### 创建
+### 2. 创建
 
 1.本地创建 `serverless.yml` 文件和 `app.js`文件：
 ```console
@@ -43,7 +43,7 @@ app.use(async (ctx, next) => {
 module.exports = app
 ```
 
-### 配置
+### 3. 配置
 
 在 serverless.yml 中进行如下配置：
 ```yml
@@ -70,7 +70,7 @@ inputs:
 ```
 [查看详细配置文档 >>](https://github.com/serverless-components/tencent-koa/blob/v2/docs/configure.md)
 
-### 部署
+### 4. 部署
 
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
@@ -92,7 +92,7 @@ $ sls deploy
 
 部署完毕后，可以在浏览器中访问返回的链接，看到对应的 Koa 返回值。
 
-### 移除
+### 5. 移除
 
 通过以下命令移除部署的存储桶：
 ```
