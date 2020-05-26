@@ -2,7 +2,7 @@
 本文档指导您如何在 GlassFish 服务器中安装 SSL 证书。
 >?
 >- 本文档以证书名称 `www.domain.com` 为例。
->- GlassFish 版本以 `glassfish5` 为例。
+>- GlassFish 版本以 `glassfish-4.0` 为例。
 >- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
 
 ## 前提条件
@@ -34,25 +34,42 @@
 - 当您申请 SSL 证书时选择了 “粘贴 CSR” 方式，则不提供 Tomcat 证书文件的下载，需要您通过手动转换格式的方式生成密钥库。其操作方法如下： 
  - 访问 [转换工具](https://myssl.com/cert_convert.html)。
  - 将 Nginx 文件夹中的证书文件和私钥文件上传至转换工具中，并填写密钥库密码，单击【提交】，转换为 jks 格式证书。
-- 当前 GlassFish 服务器安装在 `/usr/local` 目录下。
+- 当前 GlassFish 服务器安装在 `/usr/share` 目录下。
 
 
 ## 操作步骤
 1. 已在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载并解压缩 `www.domain.com` 证书文件包到本地目录。
-解压缩后，可获得相关类型的证书文件。其中包含 Tomcat 文件夹和 CSR 文件：
+解压缩后，可获得相关类型的证书文件。其中包含 Apache 文件夹、Tomcat 文件夹和 CSR 文件：
  - **文件夹名称**：Apache
- - **文件夹内容**：
-    - 1_root_bundle.crt 证书文件
     - 2_www.domain.com.crt 证书文件
     - 3_www.domain.com.key 私钥文件
   - **CSR 文件内容**：	`www.domain.com.csr` 文件
   >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 2. 远程登录 GlassFish 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
-3. 进入部署证书步骤，在 `/usr/local/jboss-7.1.1/standalone/configuration` 目录下执行命令 `mkdir cert` 创建 cert 文件夹。
-4. 使用 “WinSCP” （即本地与远程计算机间的复制文件工具）登录 GlassFish 服务器，将已获取到的 `www.domain.com.jks` 密钥库文件从本地目录拷贝至 cert 文件夹。
-5. 编辑在 `/usr/local/jboss-7.1.1/standalone/configuration` 目录下的 `standalone.xml` 文件。修改端口配置，如下内容：
-6. 进入 `/usr/local/jboss-7.1.1/bin` 目录下，执行启动命令 `./standalone.sh`，确保正常启动。如下图所示：
-7. 证书已部署完成，即可使用 `https://www.domain.com` 访问。
-
+3. 进入 `/usr/share/glassfish4/glassfish/bin` 目录下执行命令 `./asadmin`后，需更换 domain 的管理密码，请执行命令 `change-master-password --savemasterpassword=true domain1`。如下图所示：
+>!
+>- domain1 安装默认路径为 `/usr/share/glassfish4/glassfish/domains`，domain 名称请根据实际情况填写。
+>- 默认密码为 changeit，请输入回车后再输入新密码，新密码请填写 Tomcat 文件夹中 keystorePass.txt 文件的密码。
+>
+4. 在 `/usr/share` 目录下执行命令 `mkdir Apache` 创建 Apache 文件夹。
+5.  使用 “WinSCP” （即本地与远程计算机间的复制文件工具）登录 GlassFish 服务器，将 2_www.domain.com.crt 证书文件、3_www.domain.com.key 私钥文件从本地目录拷贝至 Apache 文件夹。
+6. 在 Apache 目录执行以下命令生成 PKCS12 文件，并提示输入密码，请输入 Tomcat 文件夹中 keystorePass.txt 文件的密码。如下所示：
+```
+openssl pkcs12 -export -in 2_www.domain.com.crt -inkey 3_www.domain.com.key -out mycert.p12 -name s1as
+```
+7. 在 Apache 目录执行以下命令确认 PKCS12 文件是否包含您申请的证书，并输入 Tomcat 文件夹中 keystorePass.txt 文件的密码。如下所示：
+```
+keytool -list -keystore mycert.p12
+```
+8. 生成 keystore.jks 文件，请在 Apache 目录执行以下命令，则生成的 keystore.jks 文件显示在此目录下。如下所示：
+```
+keytool -importkeystore -destkeystore keystore.jks -srckeystore mycert.p12 -srcstoretype PKCS12 -alias s1as
+```
+8. 生成 cacert.jks 文件，请在 Apache 目录执行以下命令，则生成的 cacert.jks 文件显示在此目录下。若提示输入密码，则输入 Tomcat 文件夹中 keystorePass.txt 文件的密码。如下所示：
+```
+keytool -importcert -trustcacerts -destkeystore cacerts.jks -file mycert.crt -alias s1as
+```
+9. 将步骤7和步骤8生成的文件替换 `domain1/config` 目录下的 keystore.jks 和 cacert.jks 文件。
+10. 重启 GlassFish 服务器，执行命令xXX，即可使用 `http://www.domain.com` 进行访问
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
 
