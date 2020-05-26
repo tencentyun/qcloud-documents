@@ -1,15 +1,18 @@
-## 步骤一：下载安装
+## 步骤1：下载安装
+如果已下载安装腾讯会议，可忽略此步骤。
 
 <div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://cloud.tencent.com/document/product/1095/41295" target="_blank"  style="color: white; font-size:16px;"  hotrep="document.guide.3128.btn2">点击查看下载安装</a></div>
 
 
-## 步骤二：注册/登录
+## 步骤2：注册/登录
+如果已在腾讯会议完成注册，可直接登录。
+
 <div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://cloud.tencent.com/document/product/1095/41296" target="_blank"  style="color: white; font-size:16px;"  hotrep="document.guide.3128.btn2">点击查看注册登录</a></div>
 
 
 
 
-## 步骤三：创建或加入会议
+## 步骤3：创建或加入会议
 ### 我要创建会议
 <div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://cloud.tencent.com/document/product/1095/41381#.E9.A2.84.E5.AE.9A.E4.BC.9A.E8.AE.AE" target="_blank"  style="color: white; font-size:16px;"  hotrep="document.guide.3128.btn2">点击查看预定会议</a></div>
 
