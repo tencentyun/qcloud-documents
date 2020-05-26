@@ -33,8 +33,8 @@
 5. 单击【提交】，完成消息转储。
 
 >?
->- 通用模板默认将不开启 Ckafka 触发器，选择通用模板需跳转云函数或本地使用 SCF通用模板 进行代码编辑，请创建完成后在消息转储列表跳转到云函数控制台修改相关代码并开启 Ckafka 触发器。
->- 通用转储模板常见的转储应用场景有 Elasticsearch Service、MySQL、PostgreSQL 等。
+>- 通用模板默认将不开启 Ckafka 触发器，选择通用模板需跳转云函数或本地使用 [SCF 通用模板](https://github.com/tencentyun/scf-demo-repo/tree/master/Python2.7-CkafkaTriggerTemplate) 进行代码编辑，请创建完成后在消息转储列表跳转到云函数控制台修改相关代码并开启 Ckafka 触发器。
+>- 通用转储模板常见的转储应用场景有 [Elasticsearch Service](https://cloud.tencent.com/product/es)、[MySQL](https://cloud.tencent.com/product/cdb)、[PostgreSQL](https://cloud.tencent.com/product/postgres) 等。
 
 ### Ckafka 转储角色授权指引
 #### COS 转储角色授权：
