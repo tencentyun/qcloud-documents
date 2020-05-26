@@ -99,9 +99,9 @@
             </virtual-server>
         </subsystem>
 ```
-4. 进入 `/usr/local/jboss-7.1.1/bin` 目录下，执行启动命令 `./standalone.sh`，确保正常启动。如下图所示：
+6. 进入 `/usr/local/jboss-7.1.1/bin` 目录下，执行启动命令 `./standalone.sh`，确保正常启动。如下图所示：
 ![](https://main.qcloudimg.com/raw/0dc9c0ee84b92f7978a7a133d35bcf27.png)
-10. 证书已部署完成，即可使用 `https://www.domain.com` 访问。
+7. 证书已部署完成，即可使用 `https://www.domain.com` 访问。
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
 
