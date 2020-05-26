@@ -1,56 +1,36 @@
 ## 操作场景
-腾讯云 Django Serverless Component，支持 Restful API 服务的部署。
+**腾讯云 Django 组件**通过使用 [Tencent Serverless Framework](https://github.com/serverless/components/tree/cloud)，基于云上 Serverless 服务（如对象存储等），实现“0”配置，便捷开发，极速部署您的 Django 网页应用。
 
-## 前提条件
-**1. 新建一个 Django 服务，并通过 Django 创建一个 app**（本实践中创建了名为 mytest 的 app）。创建方法请参考 [Django 官方文档](https://docs.djangoproject.com/zh-hans/3.0/)。
-创建后可以查看 view.py 内的信息：
-```python
-from django.shortcuts import render
-from django.http import HttpResponse
+Django 特性介绍：
+- **"0"配置**：只需要关心项目代码，之后部署即可，Serverless Framework 会搞定所有配置。
+- **按需付费**：按照请求的使用量进行收费，没有请求时无需付费。
+- **极速部署**：仅需几秒，部署您的网页应用。
+- **便捷协作**：支持开发模式与云端调试，方便多人协作。
+- **拓展广泛** ：支持 Restful API 服务的部署。
 
-# Create your views here.
-
-def hello(request):
-    return HttpResponse("Hello world ! ")
-```
-**2. 增加路由信息**：
-```python
-"""mydjango URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/3.0/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  path('', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
-Including another URLconf
-    1. Import the include() function: from django.urls import include, path
-    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
-"""
-# from django.contrib import admin
-from django.urls import path
-from mytest.views import hello
-
-urlpatterns = [
-    path('hello/', hello),
-    # path('admin/', admin.site.urls),
-]
-```
-**3. 对`settings.py`进行修改**：
-- 注释掉数据库部分，如果有需要可以考虑使用 MySQL 等。
-- `ALLOWED_HOSTS`部分增加`*`：`ALLOWED_HOSTS = ['*']`
 
 ## 操作步骤
-#### 安装
-通过 npm 全局安装 [Serverless CLI](https://github.com/serverless/serverless)：
-```shell
+### 1. 安装
+
+通过 npm 安装最新版本的 Serverless Framework：
+```
 $ npm install -g serverless
 ```
 
-#### 配置
+### 2. 创建
+
+创建并进入一个全新目录：
+```
+$ mkdir myDjangoDemo && cd myDjangoDemo
+```
+
+通过如下命令和模板链接，快速创建一个静态网站托管应用：
+```
+$ serverless create --template-url https://github.com/serverless-tencent/tencent-django/tree/v2/example
+$ cd example
+```
+
+### 3. 配置
 在本地创建`serverless.yml`文件：
 ```shell
 $ touch serverless.yml
@@ -58,57 +38,57 @@ $ touch serverless.yml
 
 在`serverless.yml`中进行如下配置：
 ```yml
-DjangoTest:
-  component: '@serverless/tencent-django'
-  inputs:
-    region: ap-guangzhou
-    functionName: DjangoFunctionTest
-    djangoProjectName: mydjango
-    code: ./
-    functionConf:
-      timeout: 10
-      memorySize: 256
-      environment:
-        variables:
-          TEST: vale
-      vpcConfig:
-        subnetId: ''
-        vpcId: ''
-    apigatewayConf:
-      protocols:
-        - http
-      environment: release
+component: django # (required) name of the component. In that case, it's express.
+name: mydjangoDemo # (required) name of your express component instance.
+org: mydjangoDemo # (optional) serverless dashboard org. default is the first org you created during signup.
+app: mydjangoDemo # (optional) serverless dashboard app. default is the same as the name property.
+stage: dev # (optional) serverless dashboard stage. default is dev.
+
+inputs:
+  region: ap-guangzhou
+  functionName: DjangoFunction 
+  djangoProjectName: mydjangocomponent #您的项目文件夹名称
+  src:
+    bucket: 输入您上传项目的存储桶名称
+    src: ./src
+  functionConf:
+    timeout: 10
+    memorySize: 256
+    environment:
+      variables:
+        TEST: vale
+    vpcConfig:
+      subnetId: ''
+      vpcId: ''
+  apigatewayConf:
+    protocols:
+      - https
+    environment: release
 
 ```
->!这里的 djangoProjectName 必须要和项目名称一致。
-
-并将 Python 所需要的依赖安装到项目目录，例如本实例需要`Django`，所以可以通过`pip`进行安装：
+>!
+如果您自己创建项目，请将 Python 所需要的依赖安装到项目目录，例如本实例需要`Django`，所以可以通过`pip`进行安装：
 ```
 pip install Django -t ./
 ```
-如果因为网络问题，可以考虑使用国内源，例如：
-```
-pip install Django -t ./ -i https://pypi.tuna.tsinghua.edu.cn/simple
-```
-[查看详细配置文档 >>](https://github.com/serverless-tencent/tencent-django/blob/master/docs/configure.md)
 
-#### 部署
+### 4. 部署
 
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
-通过`sls deploy`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息
+通过`sls`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息
 
 ```shell
-$ sls deploy --debug
+$ sls --debug
 ```
 
-#### 移除
+### 5. 移除
 通过以下命令移除部署的服务：
 ```shell
 $ sls remove --debug
 ```
 
-#### 账号配置（可选）
+### 账号配置（可选）
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建`.env`文件：
 ```shell
 $ touch .env # 腾讯云的配置信息

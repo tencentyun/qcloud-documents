@@ -12,7 +12,7 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardErrorCode | 错误码，参见 TEduBoardErrorCode 定义  |
+| code | TEduBoardErrorCode | 错误码，参见 [TEduBoardErrorCode](https://cloud.tencent.com/document/product/1137/39981#teduboarderrorcode) 定义  |
 | msg | NSString * | 错误信息，编码格式为 UTF8  |
 
 
@@ -25,7 +25,7 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardWarningCode | 错误码，参见 TEduBoardWarningCode 定义  |
+| code | TEduBoardWarningCode | 错误码，参见 [TEduBoardWarningCode](https://cloud.tencent.com/document/product/1137/39981#teduboardwarningcode) 定义  |
 | msg | NSString * | 错误信息，编码格式为 UTF8  |
 
 

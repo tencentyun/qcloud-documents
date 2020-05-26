@@ -8,8 +8,8 @@ COSCMD 工具会将大写字符自动转换为小写字符，存储桶名称只�
 
 ### 使用 COSCMD 工具上传/下载根目录文件，是否支持排除某个目录？
 
-支持，需要使用`--ignore /folder/*`参数。例如下载时排除 folder 目录，可使用`coscmd download --ignore /folder/*`命令过滤。当忽略某一类后缀时，必须最后要输入`,` 或者加入`""`。
-
+支持，需要使用`--ignore /folder/*`参数。
+例如下载时排除 folder 目录，可使用`coscmd download --ignore /folder/*`命令过滤。当忽略某一类后缀时，必须最后要输入`,` 或者加入`""`。
 
 
 ### 当需要传输大量文件时，如何提高传输速度？
@@ -24,3 +24,10 @@ coscmd config -m 30
 ```plaintext
 coscmd download prefix/ localpath/ -r
 ```
+
+
+### 如何使用 COSCMD 访问多个存储桶？
+
+可以使用 -b，-r 参数指定多个存储桶，例如`coscmd -b examplebucket-1250000000 examplebucket-1250000001 -r ap-beijing`；或者使用 -c 参数，指定配置文件 cos.conf，在 cos.conf 文件中配置多个存储桶。
+
+

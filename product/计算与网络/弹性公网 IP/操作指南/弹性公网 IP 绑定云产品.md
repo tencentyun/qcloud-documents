@@ -78,7 +78,7 @@
 </tr>
 </tbody></table>
 <img src="https://main.qcloudimg.com/raw/a68a2aa1e681dd3bed4c054942aba27a.png" />
-4. 在弹出的提示框中，单击【确定】，即可完成与云资源的绑定。
+4. 在弹出的“确认绑定”提示框中，单击【确定】，即可完成与云资源的绑定。
 
 ## 后续步骤
 - 若需要为 EIP 解绑云资源，请参见 [EIP 解绑云资源](https://cloud.tencent.com/document/product/1199/41703)。

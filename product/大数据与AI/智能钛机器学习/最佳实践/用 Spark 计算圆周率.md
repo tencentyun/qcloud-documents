@@ -80,7 +80,7 @@ object SparkPi {
  - 配置文件：此案例中无需配置文件（该参数代表的资源文件在代码中可通过 getResourceAsStream('xxx.txt') 获取）。
 
 3. 配置资源参数（用户可根据自身代码调整分配资源）
- - drver节点资源类型：TI.SMALL2.1core2g
+ - driver 节点资源类型：TI.SMALL2.1core2g
  - executor节点资源类型：TI.SMALL2.1core2g
  - num-executors：1
  - spark-conf：本案例中可不填（spark 的配置参数，例如 spark.shuffle.service.enabled=false，用空格或者回车分割多个 conf）

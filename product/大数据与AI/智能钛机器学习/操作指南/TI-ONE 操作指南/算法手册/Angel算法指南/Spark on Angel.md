@@ -13,7 +13,7 @@ Angel 是由腾讯自研并开源的高性能分布式机器学习和图计算�
 3. **配置资源**
  - num-executors：任务启动的 spark executor 个数，可根据数据量来配置，一般训练数据量越大，需要的 worker 个数越多。
  - spark.ps.instances：Angel ps 个数，可根据模型大小来配置，一般模型越大，需要的 PS 个数越多。
- - drive 节点资源类型：请选择合适的 drive 节点机型。
+ - driver 节点资源类型：请选择合适的 drive 节点机型。
  - executor 节点资源类型：请选择合适的 executor 节点机型。
  - master 节点资源类型：请选择合适的 master 节点机型。
  - ps 节点资源类型：请选择合适的 ps 节点机型。

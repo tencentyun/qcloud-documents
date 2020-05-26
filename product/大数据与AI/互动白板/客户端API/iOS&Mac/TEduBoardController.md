@@ -905,7 +905,7 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | NSString * |  |
+| fileId | NSString * | 获取白板中指定文件的文件信息 |
 
 #### 返回
 文件信息 
