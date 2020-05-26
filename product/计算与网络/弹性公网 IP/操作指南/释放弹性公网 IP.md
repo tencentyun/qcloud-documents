@@ -37,7 +37,7 @@
 3. 在弹出的“确定释放所选EIP”窗口中，勾选【确定释放以上IP】，单击【释放】。
 >?找回公网 IP 地址有相应的限制条件，请参见 [使用限制](https://cloud.tencent.com/document/product/1199/41708#.E4.BD.BF.E7.94.A8.E9.99.90.E5.88.B6)，因此 EIP 释放后可能无法找回。
 >
-![](https://main.qcloudimg.com/raw/23eac37af5e7368b9429fac24c9686ee.png)
+![](https://main.qcloudimg.com/raw/9151d8f9623b09ddae25e2e019b7a835.png)
 
 ## 后续步骤
 - 若需要找回使用过、且当前未分配给其他用户的公网 IP 地址，请参见 [找回公网 IP 地址](https://cloud.tencent.com/document/product/1199/41708)。
