@@ -25,12 +25,13 @@
 1. 登录智能钛机器学习平台控制台后，单击菜单栏的【Notebook】，页面跳转至 Notebook 实例列表页面。新增实例，配置参数（以下以广州地域为例说明）：
    - 地区：广州
    - Notebook名称：mnist
-   - 资源选择：TI.MEDIUM4.2core4g
+   - 资源选择：您可按需选择，如 TI.MEDIUM4.2core4g
    - 卷大小：10
    - Root权限：允许
    - 生命周期配置：不使用生命周期脚本
    - Git 存储：无
-   - VPC：无VPC
+   - VPC：无 VPC
+   - CLS 日志服务：关闭
 2. 待 Notebook 实例创建完成后状态为：运行中，单击【打开】进入 Notebook 操作页面
 
 #### 创建 MNIST 手写数字识别项目
