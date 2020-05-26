@@ -8,7 +8,7 @@ EXIF（Exchangeable Image File）全称为可交换图像文件，可记录数�
 
 ## 接口形式
 
-```
+```plaintext
 download_url?exif
 ```
 
@@ -22,7 +22,7 @@ download_url?exif
 
 
 ## 实际案例
-```
+```plaintext
 http://examples-1251000004.cos.ap-shanghai.myqcloud.com/sample.jpeg?exif
 ```
 
