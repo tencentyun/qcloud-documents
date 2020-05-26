@@ -231,6 +231,12 @@ function TEB_GOTOSTEP(Number currentStep, Number totalStep)
 function TEB_RECTSELECTED()
 ```
 
+### TEB_REFRESH
+刷新当前白板 
+``` C++
+function TEB_REFRESH()
+```
+
 
 ## 文件操作回调
 
