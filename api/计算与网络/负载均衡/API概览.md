@@ -2,13 +2,13 @@
 | 接口名 | Action | 功能描述 |
 |---------|---------|---------|
 | [查询负载均衡异步接口的执行结果](https://cloud.tencent.com/document/product/214/4007) | DescribeLoadBalancersTaskResult | 查询负载均衡异步操作接口的执行结果。|
-| [购买负载均衡](https://cloud.tencent.com/document/api/214/1254)  | CreateLoadBalancer | 通过该接口来购买负载均衡。|
-| [查询负载均衡实例价格](https://cloud.tencent.com/document/api/214/1328) | InquiryLBPriceAll | 查询负载均衡实例的价格。|
-| [查询负载均衡实例列表](https://cloud.tencent.com/document/api/214/1261) | DescribeLoadBalancers | 查询负载均衡实例的列表。|
+| [购买负载均衡](https://cloud.tencent.com/document/product/214/1254)  | CreateLoadBalancer | 通过该接口来购买负载均衡。|
+| [查询负载均衡实例价格](https://cloud.tencent.com/document/product/214/1328) | InquiryLBPriceAll | 查询负载均衡实例的价格。|
+| [查询负载均衡实例列表](https://cloud.tencent.com/document/product/214/1261) | DescribeLoadBalancers | 查询负载均衡实例的列表。|
 | [删除负载均衡实例](https://cloud.tencent.com/document/api/214/1257)| DeleteLoadBalancers | 删除负载均衡实例。|
-| [查询负载均衡的监控数据](https://cloud.tencent.com/document/product/214/8801)|GetMonitorData|查询负载均衡的监控数据。|
-| [更换负载均衡的证书](https://cloud.tencent.com/document/product/214/6045)|ReplaceCert|更换负载均衡使用的证书。|
-| [查询证书关联的负载均衡信息](https://cloud.tencent.com/document/product/214/6046)| GetCertListWithLoadBalancer | 查询证书关联的负载均衡信息。|
+| [负载均衡监控接口](https://cloud.tencent.com/document/product/214/8801)|GetMonitorData|查询负载均衡的监控数据。|
+| [更换 HTTPS 类型负载均衡证书](https://cloud.tencent.com/document/product/214/6045)|ReplaceCert|更换负载均衡使用的证书。|
+| [查询证书关联的负载均衡监听器](https://cloud.tencent.com/document/product/214/6046)| GetCertListWithLoadBalancer | 查询证书关联的负载均衡信息。|
 | [查询 COS 中的七层日志](https://cloud.tencent.com/document/product/214/12235)| DescribeLoadBalancerLog | 查询 COS 中的负载均衡七层日志。|
 | [克隆负载均衡](https://cloud.tencent.com/document/product/214/37704)|CloneLB |克隆负载均衡。|
 
