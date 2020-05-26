@@ -20,7 +20,7 @@ java -version
 | Linux    | export JAVA_HOME=/usr/local/java-current                     |
 | Mac OSX  | export JAVA_HOME=/Library/Java/Home                          |
 
-将 Java 编译器地址添加到系统路径中。
+将 Java 编译器地址添加到系统路径中：
 
 | 操作系统 | 输出                                                         |
 | -------- | ------------------------------------------------------------ |
@@ -28,7 +28,7 @@ java -version
 | Linux    | export PATH=$PATH:$JAVA_HOME/bin/                              |
 | Mac OSX  | not required                                                 |
 
-使用上面提到的 **java -version** 命令验证 Java 安装。
+使用上面提到的 `java -version` 命令验证 Java 安装。
 
 ### 2. 安装 Maven 
 #### 2.1 下载  安装 Maven 
@@ -37,11 +37,11 @@ java -version
 #### 2.2 设置 MAVEN_HOME 和 PATH 环境变量
 - Windows 系统下
 ```
-   新建系统变量   MAVEN_HOME  变量值：E:\Maven\apache-maven-3.3.9
+   新建系统变量  MAVEN_HOME   变量值：E:\Maven\apache-maven-3.3.9
    编辑系统变量  Path         添加变量值： ;%MAVEN_HOME%\bin
 ```
 
-- Linux、macOS 系统下
+- Linux / macOS 系统下
 ```
    export MAVEN_HOME=/usr/local/maven/apache-maven-3.3.9
    export PATH=$MAVEN_HOME/bin:$PATH
@@ -126,7 +126,7 @@ java -version
 
 ```
 
-[setting.xml 样例文件下载>> ](https://main.qcloudimg.com/raw/0e3c73b64c4ec64ae9b16d1a347db462/settings.xml) （鼠标右键另存为链接）
+[setting.xml 样例文件下载 >> ](https://main.qcloudimg.com/raw/0e3c73b64c4ec64ae9b16d1a347db462/settings.xml) （鼠标右键另存为链接）
 
 
 #### 3.2 验证配置是否成功
@@ -138,18 +138,16 @@ java -version
 
 ![](https://main.qcloudimg.com/raw/43645276539f8a85703f137ae2bb65fc.png)
 
->执行正确的 Maven 命令后，如果无法下载 qcloud 相关依赖包，请重启 IDE，或者检查 IDE Maven 相关配置。
+>?执行正确的 Maven 命令后，如果无法下载 qcloud 相关依赖包，请重启 IDE，或者检查 IDE Maven 相关配置。
 
 ## 安装 SDK
 
-1. 在您 Java 工程的 `pom.xml` 中添加以下依赖
-
+1. 在您 Java 工程的 `pom.xml` 中添加以下依赖：
 ```xml
 <dependency>
 		<groupId>com.tencent.tdmq</groupId>
 		<artifactId>tdmq-client</artifactId>
 		<version>2.5.0</version>
 </dependency>
-
 ```
-2. 在 `pom.xml` 所在目录执行`mvn clean package`即可下载 TDMQ SDK
+2. 在 `pom.xml` 所在目录执行 `mvn clean package` 即可下载 TDMQ SDK。
