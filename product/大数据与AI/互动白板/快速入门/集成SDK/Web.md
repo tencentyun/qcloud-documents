@@ -52,7 +52,7 @@ var teduBoard = new TEduBoard(initParams);
 
 #### 2. 监听白板关键事件
 
-> 使用on监听白板事件
+> 使用 on 监听白板事件
 
 ```
 // 监听白板错误事件
