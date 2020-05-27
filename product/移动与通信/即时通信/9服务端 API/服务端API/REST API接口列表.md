@@ -1,3 +1,6 @@
+以下视频将帮助您快速了解即时通信 IM 有哪些 REST API 接口：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2544-43222?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 帐号管理
 
 | 功能说明  | 接口 |
