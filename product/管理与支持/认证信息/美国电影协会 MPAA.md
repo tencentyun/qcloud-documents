@@ -6,7 +6,7 @@ MPAA 电影内容安全模板的组件参照了相关的 ISO 标准（27001-2700
 美国电影协会（MPAA）最佳实践标准包括《维护内容安全的最佳实践 - 通用指南》和《维护内容安全的最佳实践 – 应用程序和云端分布式环境安全指南》，阐述了最佳实践控制指南、实施步骤指导。
 ![](https://main.qcloudimg.com/raw/f2527684b0efef739bcf6b850532f174.png)
 
-请参阅有关 [MPAA 的更多信息](https://www.mpaa.org/what-we-do/advancing-creativity/additional-resources/#content-protection-best-practices)。
+请参见有关 [MPAA 的更多信息](https://www.mpaa.org/what-we-do/advancing-creativity/additional-resources/#content-protection-best-practices)。
 
 
 

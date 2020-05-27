@@ -23,7 +23,7 @@ TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和
 
 Demo 基础的版本，只需要成功启动了 pulsar 的集群即可，无需配置其它认证数据。
 
-需要在 Producer 和 Consumer 中配置tdmq的broker地址，如下所示：
+需要在 Producer 和 Consumer 中配置 TDMQ 的 broker 地址，如下所示：
 
 在 consumer.go 文件中配置，替换这部分的地址：
 ![](https://main.qcloudimg.com/raw/d055c9e4e5b339c29f3da9a3dc83342d.png)
