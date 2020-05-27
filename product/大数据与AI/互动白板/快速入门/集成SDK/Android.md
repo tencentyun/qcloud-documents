@@ -106,11 +106,11 @@ public void onCreate() {
 }
 ```
 
-然后在 AndroidManifest.xml文件中，使用以上定义的Application。
+然后在 AndroidManifest.xml 文件中，使用以上定义的 Application。
 
 ``` xml 
 <application
-        android:name="您定义的Application类"
+        android:name="您定义的 Application 类"
         android:allowBackup="true"
         android:icon="@mipmap/ic_icon"
         android:label="@string/app_name"
@@ -190,7 +190,7 @@ TIMSdkConfig timSdkConfig = new TIMSdkConfig(appId)
 TIMManager.getInstance().init(context, timSdkConfig);
 ```
 
-如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 APP 的生命周期保持一致，请在 Application 的 onCreate 方法中初始化 IMSDK，否则请在登录前初始化 IMSDK，在登出后反初始化 IMSDK。
+如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，请在 Application 的 onCreate 方法中初始化 IMSDK，否则请在登录前初始化 IMSDK，在登出后反初始化 IMSDK。
 
 步骤二、登录 IMSDK
 
