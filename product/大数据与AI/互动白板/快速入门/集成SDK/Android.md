@@ -210,7 +210,7 @@ TIMGroupManager.getInstance().login(userId, userSig, new TIMCallBack() {
 
 步骤三、加入群组
 
-登陆 IMSDK 成功后加入白板所在的群组。
+登录 IMSDK 成功后加入白板所在的群组。
 
 ```java
 TIMGroupManager.getInstance().applyJoinGroup(groupId, desc + groupId, new TIMCallBack() {
@@ -276,7 +276,7 @@ mBoard.addSyncData(data);
 mBoard.uninit();
 ```
 
-如果您使用IMSDK作为信令通道，请根据业务的需要决定是否退出群组、退出登陆并反初始化。
+如果您使用IMSDK作为信令通道，请根据业务的需要决定是否退出群组、退出登录并反初始化。
 
 步骤一、退出群组
 
