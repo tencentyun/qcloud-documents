@@ -19,7 +19,7 @@
 * [点击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.4.7.25.zip)
 - 体验优化
     - 接收端涂鸦流畅性优化
-- BUG修复
+- BUG 修复
     - 修复重置数据导致初始状态不正确的问题
 
 ### 2.4.6.20 @ 2020.04.02
