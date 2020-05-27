@@ -18,7 +18,7 @@
 * 链接地址：https://resources-tiw.qcloudtrtc.com/board/2.4.7/TEduBoard.min.js
 
 - BUG 修复
-    - 修复IM信令每次都重复发送一条问题
+    - 修复 IM 信令每次都重复发送一条问题
 - 性能优化
     - 优化房间内其他人涂鸦渲染的流程性
 
