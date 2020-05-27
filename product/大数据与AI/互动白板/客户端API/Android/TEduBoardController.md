@@ -511,7 +511,7 @@ void setBackgroundImage(String url, int mode)
 | mode | int | 要使用的图片填充对齐模式 |
 
 #### 介绍
-当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。 当 URL 是一个网络地址时，默认支持 HTTPS 协议的链接。 在Android5.0以下，默认是采用的MIXED_CONTENT_ALWAYS_ALLOW模式，即总是允许WebView同时加载 HTTPS 和 HTTP； 而从Android5.0开始，默认用MIXED_CONTENT_NEVER_ALLOW模式，即总是不允许WebView同时加载 HTTPS 和 HTTP。 您可以在 getBoardRenderView 获得白板渲染视图控件时， 通过 WebSettings 自行进行设置，如下： WebSettings settings = (WebView) mWebView.getSettings(); if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) { settings.setMixedContentMode(0); } 对于 Android P 以上系统，限制了明文流量的网络请求,非加密的流量请求都会被系统禁止掉，可以参考以下方法解决：
+当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。 当 URL 是一个网络地址时，默认支持 HTTPS 协议的链接。 在 Android5.0 以下，默认是采用的 MIXED_CONTENT_ALWAYS_ALLOW 模式，即总是允许 WebView 同时加载 HTTPS 和 HTTP； 而从 Android5.0 开始，默认用 MIXED_CONTENT_NEVER_ALLOW 模式，即总是不允许 WebView 同时加载 HTTPS 和 HTTP。 您可以在 getBoardRenderView 获得白板渲染视图控件时， 通过 WebSettings 自行进行设置，如下： WebSettings settings = (WebView) mWebView.getSettings(); if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) { settings.setMixedContentMode(0); } 对于 Android P 以上系统，限制了明文流量的网络请求,非加密的流量请求都会被系统禁止掉，可以参考以下方法解决：
 
 
 ### setBackgroundH5
