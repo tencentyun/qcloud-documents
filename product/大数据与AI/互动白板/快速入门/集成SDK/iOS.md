@@ -215,7 +215,7 @@ _boardController = [[TEduBoardController alloc] initWithAuthParam:authParam room
 [_boardController unInit];
 ```
 
-如果您使用 IMSDK 作为信令通道，请根据业务的需要决定是否退出群组、退出登陆并反初始化。
+如果您使用 IMSDK 作为信令通道，请根据业务的需要决定是否退出群组、退出登录并反初始化。
 
 步骤一、退出群组
 
