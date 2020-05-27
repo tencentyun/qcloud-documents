@@ -18,7 +18,7 @@
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/1199" target="_blank">弹性公网 IP<br>（EIP）</a></td>
 <td>单台云服务器可以绑定一个或多个 EIP，以访问公网或被公网访问。</td>
-<td><li>一种可独立购买和持有的 IP 资源，详情请参见 <a href="https://tcloud-doc.isd.com/document/product/1199/41692" target="_blank">弹性公网 IP-计费说明</a>。</li><li>可与云服务器、NAT 网关动态绑定、解绑。</li><li>您可以根据业务随时 <a href="https://cloud.tencent.com/document/product/1199/41705" target="_blank">调整 EIP 的带宽限制</a>。</li></td>
+<td><li>一种可独立购买和持有的 IP 资源，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/41692" target="_blank">弹性公网 IP-计费说明</a>。</li><li>可与云服务器、NAT 网关动态绑定、解绑。</li><li>您可以根据业务随时 <a href="https://cloud.tencent.com/document/product/1199/41705" target="_blank">调整 EIP 的带宽限制</a>。</li></td>
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/552" target="_blank">NAT 网关</a></td>
