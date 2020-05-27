@@ -191,7 +191,7 @@ virtual WINDOW_HANDLE GetBoardRenderView()=0
 virtual void Refresh()=0
 ```
 #### 警告
-如果当前白板包含PPT/H5/图片/视频时，刷新白板将会触发对应的回调 
+如果当前白板包含 PPT/H5/图片/视频时，刷新白板将会触发对应的回调 
 
 
 ### AddSyncData
