@@ -1,3 +1,11 @@
+### 2.6.6 @2020.5.27
+
+**修复**
+
+- 音视频聊天室（AVChatRoom）偶发消息重复上屏。
+- [getMessageList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getMessageList) 遇到空消息时报错。
+- [logout](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#logout) 后再次 [login](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#login)，偶发 [joinGroup](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#joinGroup) 时遇到70001错误。
+
 ### 2.6.4 @2020.5.8
 
 **新增**
