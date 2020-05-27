@@ -213,7 +213,7 @@ _boardController = [[TEduBoardController alloc] initWithAuthParam:authParam room
 [_boardController unInit];
 ```
 
-如果您使用IMSDK作为信令通道，请根据业务的需要决定是否退出群组、退出登陆并反初始化。
+如果您使用 IMSDK 作为信令通道，请根据业务的需要决定是否退出群组、退出登录并反初始化。
 
 步骤一、退出群组
 
@@ -241,4 +241,4 @@ _boardController = [[TEduBoardController alloc] initWithAuthParam:authParam room
 [[TIMManager sharedInstance] unInit];
 ```
 
-如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 APP 的生命周期保持一致，无需调用此接口。
+如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，无需调用此接口。
