@@ -129,9 +129,9 @@ config.sdkAppId = sdkAppId;
 [[TIMManager sharedInstance] initSdk:config];
 ```
 
-如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 APP 的生命周期保持一致，请在 `AppDelegate` 的 `application:didFinishLaunchingWithOptions` 方法中初始化 IMSDK，否则请在登陆前初始化 IMSDK，在登出后反初始化 IMSDK。
+如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，请在 `AppDelegate` 的 `application:didFinishLaunchingWithOptions` 方法中初始化 IMSDK，否则请在登录前初始化 IMSDK，在登出后反初始化 IMSDK。
 
-步骤二、登陆 IMSDK
+步骤二、登录 IMSDK
 
 ```objc
 TIMLoginParam *loginParam = [TIMLoginParam new];
@@ -140,15 +140,15 @@ loginParam.userSig = userSig;
 loginParam.appidAt3rd = [@(_sdkAppId) stringValue];
 __weak typeof(self) ws = self;
 [[TIMManager sharedInstance] login:loginParam succ:^{
-  // 登陆 IMSDK 成功
+  // 登录 IMSDK 成功
 } fail:^(int code, NSString *msg) {
-  // 登陆 IMSDK 失败
+  // 登录 IMSDK 失败
 }];
 ```
 
 步骤三、加入群组
 
-登陆 IMSDK 成功后加入白板所在的群组。
+登录 IMSDK 成功后加入白板所在的群组。
 
 ```objc
 [[TIMGroupManager sharedInstance] joinGroup:group msg:nil succ:^{
