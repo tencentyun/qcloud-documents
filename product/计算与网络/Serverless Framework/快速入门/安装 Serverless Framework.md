@@ -52,5 +52,6 @@ $ serverless -v
 
 >?如果您的环境中没有安装 Node.js，可以参考 [Node.js 安装指南](https://nodejs.org/zh-cn/download/) 根据您的系统环境进行安装。
 
+> 建议您使用 **Node.js10.0** 及以上版本，否则 Component V2 部署有可能报错
 
 
