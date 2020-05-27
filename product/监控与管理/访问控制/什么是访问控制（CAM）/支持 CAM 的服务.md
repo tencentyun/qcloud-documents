@@ -35,7 +35,7 @@
 
  | 服务                                                          | 授权粒度 | 控制台  | 根据标签进行授权 |  服务角色 |	参考文档 |	
 | ------------------------------------------------------------ | ------ | --------  | ------- | ---- |	---- |	
-| [对象存储](https://cloud.tencent.com/document/product/436) | 资源级 | &#10003;       | -  | &#10003;   |	[访问管理指南](https://cloud.tencent.com/document/product/436/12473)   |
+| [对象存储](https://cloud.tencent.com/document/product/436) | 资源级 | &#10003;       | &#10003; <sup>1</sup> | &#10003;   |	[访问管理指南](https://cloud.tencent.com/document/product/436/12473)   |
 | [文件存储](https://cloud.tencent.com/document/product/582) | 资源级 | &#10003;        | -  |  &#10003;    |[访问管理指南](https://cloud.tencent.com/document/product/582/14679)   |	
 | [归档存储](https://cloud.tencent.com/document/product/572) | 资源级 | -        | -  |  -    |	-    |
 | [云 HDFS](https://cloud.tencent.com/document/product/1105) | 资源级 |&#10003;       | -  | -    |	[访问管理指南](https://cloud.tencent.com/document/product/1105/37238)    |	
@@ -43,6 +43,7 @@
 | [云硬盘](https://cloud.tencent.com/document/product/362) | 资源级  | &#10003;       | &#10003;  |  -    |-    |	
 | [云数据迁移](https://cloud.tencent.com/document/product/623)  | 服务级 | &#10003;        | -  |  - | - |	
 | [日志服务](https://cloud.tencent.com/document/product/614)  | 资源级 | &#10003;        | -  | &#10003; |[访问管理指南](https://cloud.tencent.com/document/product/614/35564)    |	
+> ?<sup>1</sup> 对象存储中 GetService 和 PutBucket 暂未支持标签授权，需要单独进行自定义策略授权。
 
 ## 网络	
 
@@ -66,7 +67,7 @@
 
  | 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 |	参考文档 |	
 | ------------------------------------------------------------ | ------ | --------| --------- | ---- |	---- |
-| [云数据库 MySQL](https://cloud.tencent.com/document/product/236)  | 资源级 | &#10003; | -  |  &#10003; |	[访问管理指南](https://cloud.tencent.com/document/product/236/14465) |	
+| [云数据库 MySQL](https://cloud.tencent.com/document/product/236)  | 资源级 | &#10003; | &#10003;  |  &#10003; |	[访问管理指南](https://cloud.tencent.com/document/product/236/14465) |	
 | [云数据库 CynosDB](https://cloud.tencent.com/document/product/1003)  | 资源级 | &#10003; | -  |  - |	[访问管理指南](https://cloud.tencent.com/document/product/1003/38067) |	
 | [云数据库 MariaDB](https://cloud.tencent.com/document/product/237)  |资源级 | &#10003;  | -    | &#10003;    |[访问管理指南](https://cloud.tencent.com/document/product/237/30940) |	
 | [ 云数据库 SQL Server](https://cloud.tencent.com/document/product/238)  |资源级 | &#10003;  | -    | -     |[访问管理指南](https://cloud.tencent.com/document/product/238/38874) |	
