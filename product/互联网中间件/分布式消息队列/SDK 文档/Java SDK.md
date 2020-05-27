@@ -32,7 +32,7 @@
            "com.tencent.tdmq.client.impl.auth.AuthenticationCloudCam", authParams)
            .serviceUrl("pulsar://tdmq.åtencentcloud.example.com:6650").build();
 ```
-#### 使用多个 broker的访问方式，broker之间用逗号隔开
+#### 使用多个 broker 的访问方式，broker 之间用逗号隔开
 
 ```java
   Map<String, String> authParams = new HashMap<>();
@@ -88,9 +88,9 @@ producer.newMessage()
 
 | Mode   |   Description |
 | ------------ | ------------ |
-|   RoundRobinPartition |  如果消息没有指定 key，为了达到最大吞吐量，消息会以 round-robin 方式被路由所有分区。 请注意round-robin并不是作用于每条单独的消息，而是作用于延迟处理的批次边界，以确保批处理有效。 如果为消息指定了key，发往分区的消息会被分区生产者根据 key 做 hash，然后分散到对应的分区上。 这是默认的模式。 |
-|   SinglePartition |  如果消息没有指定 key，生产者将会随机选择一个分区，并发送所有消息。 如果为消息指定了key，发往分区的消息会被分区生产者根据 key 做 hash，然后分散到对应的分区上。 |
-|   CustomPartition  |  使用自定义消息路由，可以定制消息如何进入特定的分区。 可以使用 Java client 或实现MessageRouter 接口来实现自定义的路由模式。|
+|   RoundRobinPartition |  如果消息没有指定 key，为了达到最大吞吐量，消息会以 round-robin 方式被路由所有分区。 请注意 round-robin 并不是作用于每条单独的消息，而是作用于延迟处理的批次边界，以确保批处理有效。 如果为消息指定了 key，发往分区的消息会被分区生产者根据 key 做 hash，然后分散到对应的分区上。 这是默认的模式。 |
+|   SinglePartition |  如果消息没有指定 key，生产者将会随机选择一个分区，并发送所有消息。 如果为消息指定了 key，发往分区的消息会被分区生产者根据 key 做 hash，然后分散到对应的分区上。 |
+|   CustomPartition  |  使用自定义消息路由，可以定制消息如何进入特定的分区。 可以使用 Java client 或实现 MessageRouter 接口来实现自定义的路由模式。|
 
 - 顺序保证
 
