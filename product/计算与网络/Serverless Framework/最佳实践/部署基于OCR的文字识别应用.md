@@ -1,9 +1,9 @@
 腾讯云文字识别（OCR）基于行业前沿的深度学习技术，将图片上的文字内容智能识别成为可编辑的文本，支持多场景下的印刷体、手写体文字识别，覆盖不同场景下的文字识别需求。
-通过 Serverless Framework Component 和 OCR SDK， 您可快速部署一个基于 COS+API+SCF 的通用文字识别应用，主要包含以下组件：
+通过 Serverless Framework Component 和 OCR SDK， 您可快速部署一个基于 COS + API + SCF 的通用文字识别应用，主要包含以下组件：
 
 - **Serverless RESTful API：** 通过云函数和 API 网关构建的 Express 框架实现  RESTful API。
-- **Serverless 静态网站：** 前端通过托管 React 静态页面到 COS 对象存储中。
-- **COS 云端存储:** 用户通过自己创建存储桶来存放目标图像
+- **Serverless 静态网站：** 前端通过托管 React 静态页面到对象存储 COS 中。
+- **COS 云端存储:** 用户通过自己创建存储桶来存放目标图像。
 
 ## 前提条件
 
@@ -114,7 +114,7 @@ frontend:
 
 ```
 
-部署成功后，您可以使用浏览器访问项目产生的 website 链接，即可看到生成的网站，点击上传图片，项目即可通过OCR SDK完成文字识别。
+部署成功后，您可以使用浏览器访问项目产生的 website 链接，即可看到生成的网站，单击【上传图片】，项目即可通过 OCR SDK 完成文字识别。
 
 
 2.执行 `sls remove --all`，可移除项目。
