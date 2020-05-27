@@ -92,6 +92,12 @@ virtual void onTEBRedoStatusChanged(bool canRedo)
 virtual void onTEBRectSelected()
 ```
 
+### onTEBRefresh
+刷新白板回调 
+``` C++
+virtual void onTEBRefresh()
+```
+
 ### onTEBOffscreenPaint
 白板离屏渲染回调 
 ``` C++
