@@ -284,3 +284,27 @@ awsCC.region = "ap-guangzhou";
 awsCC.endpointOverride = "cos.ap-guangzhou.myqcloud.com"; 
 Aws::S3::S3Client s3_client(awsCC);
 ```
+
+## Ruby
+
+安装 aws-sdk-s3
+
+```ruby
+gem 'aws-sdk-s3'
+```
+
+使用：
+
+```ruby
+s3 = Aws::S3::Resource.new(
+  :endpoint => 'https://cos.ap-nanjing.myqcloud.com',
+  :region => 'ap-nanjing',
+  :force_path_style => true,
+  :signature_version => 's3',
+  :credentials => Aws::Credentials.new(
+    ENV['COS_ID'],
+    ENV['COS_KEY']
+  )
+)
+s3.bucket('hp-1251748787').object('a/b/c.hello').upload_file('./hello')
+```
