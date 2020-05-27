@@ -315,4 +315,4 @@ TIMManager.getInstance().logout(new TIMCallBack() {
 TIMManager.getInstance().unInit();
 ```
 
-如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 APP 的生命周期保持一致，无需调用此接口。
+如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，无需调用此接口。
