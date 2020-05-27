@@ -20,16 +20,16 @@
 通过 npm 全局安装 [Serverless Framework](https://github.com/serverless/serverless)：
 
 ```shell
-$ npm install -g serverless
+npm install -g serverless
 ```
 
 如果之前您已经安装过 Serverless Framework，可以通过下列命令升级到最新版：
 
 ```shell
-$ npm update -g serverless
+npm update -g serverless
 ```
 
-安装完毕后，通过运行 serverless -v 命令，查看 Serverless Framework 的版本信息，确保版本信息不低于以下版本：
+安装完毕后，通过运行 serverless -v 命令，查看 Serverless Framework 的版本信息，确保版本信息不低于以下版本。返回结果如下所示：
 
 ```shell
 $ serverless –v
@@ -44,7 +44,7 @@ Components: 2.30.1
 1.新建一个本地文件夹，使用`create --template-url`命令，下载相关 template。
 
 ```console
-$ serverless create --template-url https://github.com/serverless-components/tencent-fullstack
+serverless create --template-url https://github.com/serverless-components/tencent-fullstack
 ```
 
 2.在项目模板中找到.env.example 文件，修改名称为.env，并在其中配置对应的腾讯云 SecretId、SecretKey、地域和可用区信息。
@@ -68,12 +68,12 @@ ZONE=ap-guangzhou-2 //资源部署可用区 ，该项目中指 DB 部署所在�
 3.通过执行以下命令，安装所需依赖：
 
 ```bash
-$ npm run bootstrap
+npm run bootstrap
 ```
 
 ### 部署
 
-1.执行以下命令进行部署：
+1.执行sls deploy --all命令进行部署。返回信息如下所示：
 
 ```console
 $ sls deploy --all
@@ -126,7 +126,7 @@ fullstack-frontend:
 
 >?本项目云函数因 VPC，导致无法直接访问外网，如需访问外网请参考 [云函数网络配置]( https://cloud.tencent.com/document/product/583/38202 )。
 
-2.执行 npm run info 查看部署信息，该项目部署的信息：vpc、db、api、frontend（前端网站）。
+2.执行 npm run info 查看部署信息，该项目部署的信息：vpc、db、api、frontend（前端网站）。返回信息如下所示：
 
 ```bash
 $ npm run info
@@ -222,7 +222,7 @@ fullstack-frontend › Info successfully loaded
 ```
 
 
-3.执行 `sls remove --all`，可移除项目。
+3.执行 `sls remove --all`，可移除项目。返回信息如下所示：
 
 ```bash
 $  sls remove --all
