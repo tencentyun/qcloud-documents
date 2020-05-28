@@ -70,7 +70,15 @@ keytool -importcert -trustcacerts -destkeystore cacerts.jks -file 2_www.domain.c
 执行命令后若提示是否信任此证书，请按图示进行操作。如下图所示：
 ![](https://main.qcloudimg.com/raw/aee68705e1e8b135d47bda9af499e15f.png)
 9. 将步骤7和步骤8生成的文件替换 `domain1/config` 目录下的 keystore.jks 和 cacert.jks 文件。
-10. 重启 GlassFish 服务器，即可使用 `https://www.domain.com` 进行访问。如下图所示：
+10. 编辑 `/usr/share/glassfish4/glassfish/domains/domain1/config` 目录下的 domain.xml 文件，修改端口号。如下所示：
+```
+<network-listeners>
+          <network-listener port="80" protocol="http-listener-1" transport="tcp" name="http-listener-1" thread-pool="http-thread-pool"></network-listener>
+          <network-listener port="443" protocol="http-listener-2" transport="tcp" name="http-listener-2" thread-pool="http-thread-pool"></network-listener>
+          <network-listener port="4848" protocol="admin-listener" transport="tcp" name="admin-listener" thread-pool="admin-thread-pool"></network-listener>
+        </network-listeners>
+```
+11. 重启 GlassFish 服务器，即可使用 `https://www.domain.com` 进行访问。如下图所示：
 ![](https://main.qcloudimg.com/raw/fcdf919a22f0c9b07bc837e4d9a5e269.png)
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
