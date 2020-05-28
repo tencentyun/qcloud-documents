@@ -41,7 +41,7 @@ message HealthCheckResponse {
 | 字段名       | 类型 | 说明                              |
 | ------------ | ---- | --------------------------------- |
 | healthStatus | bool | 进程健康则返回 true，否则返回 false |
-|              |      |                                   |
+
 
 #### 使用示例
 
