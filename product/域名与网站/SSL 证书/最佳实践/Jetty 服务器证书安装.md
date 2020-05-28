@@ -51,10 +51,10 @@
 4. 使用 “WinSCP” （即本地与远程计算机间的复制文件工具）登录 Jetty 服务器，将已获取到的 `cloud.tencent.com.jks` 密钥库文件从本地目录拷贝至 cert 文件夹。
 5. 编辑 `/usr/local/jetty/jetty-distribution-9.4.28.v20200408/etc` 目录下的 `jetty-ssl-context.xml` 文件，如下所示：
 >?
->- **KeyStorePath**：填写默认值 default 为证书存放的路径。
->- **KeyStorePassword**：填写默认值 default 为密钥库密码，指定 keystore 的密码。申请证书时若设置了私钥密码，请填写私钥密码；若申请证书时未设置私钥密码，请填写 Tomcat 文件夹中 keystorePass.txt 文件的密码。
+>- **KeyStorePath**：默认值 default 请填写证书存放的路径。
+>- **KeyStorePassword**：默认值 default 请填写密钥库密码，指定 keystore 的密码。申请证书时若设置了私钥密码，请填写私钥密码；若申请证书时未设置私钥密码，请填写 Tomcat 文件夹中 keystorePass.txt 文件的密码。
 >- **KeyManagerPassword**：请填写 Tomcat 文件夹中 keystorePass.txt 文件的密码。
->- **TrustStorePath**：填写默认值 default 为证书存放的路径。
+>- **TrustStorePath**：默认值 default 请填写证书存放的路径。
 >
 ```
 <?xml version="1.0"?><!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_3.dtd">
