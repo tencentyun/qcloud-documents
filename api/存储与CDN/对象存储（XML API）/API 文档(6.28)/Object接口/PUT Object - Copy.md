@@ -22,7 +22,7 @@ PUT Object - Copy 接口请求创建一个已存在 COS 的对象的副本，即
 
 #### 请求示例
 
-```shell
+```plaintext
 PUT /<ObjectKey> HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -31,7 +31,7 @@ Content-Length: 0
 Authorization: Auth String
 ```
 
-> ? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求参数
 
@@ -53,31 +53,32 @@ Authorization: Auth String
 
 **目标对象元数据相关头部**
 
-在复制对象时可以通过指定下列请求头部来设置目标对象的元数据信息，此时请求头部 x-cos-metadata-directive 需指定为 Replaced。
+在复制对象时可以通过指定下列请求头部来设置目标对象的元数据信息，此时请求头部 x-cos-metadata-directive 需指定为 Replaced，否则目标对象将使用源对象的元数据信息且不能指定下列任何头部。
 
-| 名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述                                                         | 类型   | 是否必选 |
+| 名称                                                         | 描述                                                         | 类型   | 是否必选 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------ | -------- |
-| Cache-Control                                                | RFC 2616 中定义的缓存指令，将作为对象元数据保存              | string | 否       |
-| Content-Disposition                                          | RFC 2616 中定义的文件名称，将作为对象元数据保存              | string | 否       |
-| Content-Encoding                                             | RFC 2616 中定义的编码格式，将作为对象元数据保存              | string | 否       |
-| Expires                                                      | RFC 2616 中定义的缓存失效时间，将作为对象元数据保存          | string | 否       |
-| x-cos-meta-\*                                                | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为对象元数据保存，大小限制为2KB。<br>**注意：**用户自定义元数据信息支持下划线`_`，但用户自定义元数据头部后缀不支持下划线，仅支持减号`-` | string | 否       |
+| Cache-Control                                                | RFC 2616 中定义的缓存指令，将作为目标对象元数据保存          | string | 否       |
+| Content-Disposition                                          | RFC 2616 中定义的文件名称，将作为目标对象元数据保存          | string | 否       |
+| Content-Encoding                                             | RFC 2616 中定义的编码格式，将作为目标对象元数据保存          | string | 否       |
+| Content-Type                                                 | RFC 2616 中定义的 HTTP 请求内容类型（MIME），此头部用于描述目标对象的内容类型，将作为目标对象元数据保存。<br>例如 `text/html` 或 `image/jpeg`。 | string | 是       |
+| Expires                                                      | RFC 2616 中定义的缓存失效时间，将作为目标对象元数据保存      | string | 否       |
+| x-cos-meta-\*                                                | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为目标对象元数据保存，大小限制为2KB<br>**注意：**用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-） | string | 否       |
 
 **目标对象访问控制列表（ACL）相关头部**
 
 在复制对象时可以通过指定下列请求头部来设置目标对象的访问权限：
 
-| 名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述                                                         | 类型   | 是否必选 |
+| 名称                                                         | 描述                                                         | 类型   | 是否必选 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------ | -------- |
-| x-cos-acl                                                    | 定义对象的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中对象的预设 ACL 部分，例如 default，private，public-read 等，默认为 default<br>**注意：**当前访问策略条目限制为1000条，如果您不需要进行对象 ACL 控制，请设置为 default 或者此项不进行设置，默认继承存储桶权限 | Enum   | 否       |
-| x-cos-grant-read                                             | 赋予被授权者读取对象的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
-| x-cos-grant-read-acp                                         | 赋予被授权者读取对象的访问控制列表（ACL）的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
-| x-cos-grant-write-acp                                        | 赋予被授权者写入对象的访问控制列表（ACL）的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
-| x-cos-grant-full-control                                     | 赋予被授权者操作对象的所有权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
+| x-cos-acl                                                    | 定义目标对象的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中对象的预设 ACL 部分，例如 default，private，public-read 等，默认为 default<br>**注意：**当前访问策略条目限制为1000条，如果您不需要进行对象 ACL 控制，请设置为 default 或者此项不进行设置，默认继承存储桶权限 | Enum   | 否       |
+| x-cos-grant-read                                             | 赋予被授权者读取目标对象的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
+| x-cos-grant-read-acp                                         | 赋予被授权者读取目标对象的访问控制列表（ACL）的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
+| x-cos-grant-write-acp                                        | 赋予被授权者写入目标对象的访问控制列表（ACL）的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
+| x-cos-grant-full-control                                     | 赋予被授权者操作目标对象的所有权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
 
 **源对象服务端加密（SSE）相关头部**
 
-如果源对象使用了服务端加密且加密方式为 SSE-C 时，则需要指定下列请求头部来解密对象：
+如果源对象使用了服务端加密且加密方式为 SSE-C 时，则需要指定下列请求头部来解密源对象：
 
 | 名称                                                        | 描述                                                         | 类型   | 是否必选&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                          |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | ------ | ----------------------------------- |
@@ -115,7 +116,7 @@ Authorization: Auth String
 
 查询成功，返回 **application/xml** 数据，包含对象复制结果信息。
 
-```shell
+```plaintext
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
 	<ETag>string</ETag>
@@ -152,7 +153,7 @@ Authorization: Auth String
 
 #### 请求
 
-```shell
+```plaintext
 PUT /exampleobject HTTP/1.1
 Host: destinationbucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Apr 2020 18:20:30 GMT
@@ -164,7 +165,7 @@ Connection: close
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 219
@@ -185,7 +186,7 @@ x-cos-request-id: NWU5MGI4ZWVfNzljMDBiMDlfMWM3MjlfMWQ1****
 
 #### 请求
 
-```shell
+```plaintext
 PUT /exampleobject HTTP/1.1
 Host: destinationbucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Apr 2020 18:20:41 GMT
@@ -200,7 +201,7 @@ Connection: close
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 219
@@ -221,7 +222,7 @@ x-cos-request-id: NWU5MGI4ZjlfYTZjMDBiMDlfN2Y1YV8xYjI4****
 
 #### 请求
 
-```shell
+```plaintext
 PUT /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Apr 2020 18:20:52 GMT
@@ -236,7 +237,7 @@ Connection: close
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 219
@@ -259,7 +260,7 @@ x-cos-request-id: NWU5MGI5MDRfNmRjMDJhMDlfZGNmYl8yMDVh****
 
 #### 请求
 
-```shell
+```plaintext
 PUT /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Apr 2020 18:21:02 GMT
@@ -273,7 +274,7 @@ Connection: close
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 219
@@ -294,7 +295,7 @@ x-cos-request-id: NWU5MGI5MGVfN2RiNDBiMDlfMTk1MjhfMWZm****
 
 #### 请求
 
-```shell
+```plaintext
 PUT /exampleobject HTTP/1.1
 Host: destinationbucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Apr 2020 18:21:12 GMT
@@ -307,7 +308,7 @@ Connection: close
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 219
@@ -329,7 +330,7 @@ x-cos-server-side-encryption: AES256
 
 #### 请求
 
-```shell
+```plaintext
 PUT /exampleobject HTTP/1.1
 Host: destinationbucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Apr 2020 18:21:23 GMT
@@ -344,7 +345,7 @@ Connection: close
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 219
@@ -367,7 +368,7 @@ x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085***
 
 #### 请求
 
-```shell
+```plaintext
 PUT /exampleobject HTTP/1.1
 Host: destinationbucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Apr 2020 18:21:44 GMT
@@ -385,7 +386,7 @@ Connection: close
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 219
@@ -408,7 +409,7 @@ x-cos-server-side-encryption-customer-key-MD5: hRasmdxgYDKV3nvbahU1MA==
 
 #### 请求
 
-```shell
+```plaintext
 PUT /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Apr 2020 18:22:05 GMT
@@ -424,7 +425,7 @@ Connection: close
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 219
@@ -445,7 +446,7 @@ x-cos-request-id: NWU5MGI5NGRfOWFjOTJhMDlfMjg2NDdfMTA0****
 
 #### 请求
 
-```shell
+```plaintext
 PUT /exampleobject HTTP/1.1
 Host: destinationbucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Sat, 11 Apr 2020 17:51:35 GMT
@@ -457,7 +458,7 @@ Connection: close
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 219
@@ -479,7 +480,7 @@ x-cos-request-id: NWU5MjAzYTdfMWZjMDJhMDlfNTE4N18zNGU2****
 
 #### 请求
 
-```shell
+```plaintext
 PUT /exampleobject HTTP/1.1
 Host: destinationbucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Sat, 11 Apr 2020 17:51:56 GMT
@@ -491,7 +492,7 @@ Connection: close
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 272
