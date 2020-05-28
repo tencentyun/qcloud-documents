@@ -57,19 +57,21 @@
 ```
 openssl pkcs12 -export -in 2_www.domain.com.crt -inkey 3_www.domain.com.key -out mycert.p12 -name s1as
 ```
-7. 在 Apache 目录执行以下命令确认 PKCS12 文件是否包含您申请的证书，并输入 Tomcat 文件夹中 keystorePass.txt 文件的密码。如下所示：
-```
-keytool -list -keystore mycert.p12
-```
+7. 在 “WinSCP” 上查看 Apache 目录下确认 PKCS12 文件是否包含您申请的证书。如下图所示：
+![](https://main.qcloudimg.com/raw/f9c2d7cd419555109b28642771f8a752.png)
 8. 生成 keystore.jks 文件，请在 Apache 目录执行以下命令，则生成的 keystore.jks 文件显示在此目录下。如下所示：
 ```
 keytool -importkeystore -destkeystore keystore.jks -srckeystore mycert.p12 -srcstoretype PKCS12 -alias s1as
 ```
 8. 生成 cacert.jks 文件，请在 Apache 目录执行以下命令，则生成的 cacert.jks 文件显示在此目录下。若提示输入密码，则输入 Tomcat 文件夹中 keystorePass.txt 文件的密码。如下所示：
 ```
-keytool -importcert -trustcacerts -destkeystore cacerts.jks -file mycert.crt -alias s1as
+keytool -importcert -trustcacerts -destkeystore cacerts.jks -file 2_www.domain.com.crt -alias s1as
 ```
+执行命令后若提示是否信任此证书，请按图示进行操作。如下图所示：
+![](https://main.qcloudimg.com/raw/aee68705e1e8b135d47bda9af499e15f.png)
 9. 将步骤7和步骤8生成的文件替换 `domain1/config` 目录下的 keystore.jks 和 cacert.jks 文件。
-10. 重启 GlassFish 服务器，执行命令xXX，即可使用 `http://www.domain.com` 进行访问
+10. 重启 GlassFish 服务器，即可使用 `https://www.domain.com` 进行访问。如下图所示：
+![](https://main.qcloudimg.com/raw/fcdf919a22f0c9b07bc837e4d9a5e269.png)
+
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
 
