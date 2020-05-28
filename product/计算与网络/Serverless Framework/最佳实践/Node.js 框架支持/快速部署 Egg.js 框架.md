@@ -4,6 +4,8 @@
 
 ## 前提条件
 
+>!建议您使用 Node.js10.0 及以上版本，否则 Component V2 部署有可能报错。
+
 #### 初始化 Egg 项目
 ```shell
 $ mkdir serverless-egg && cd serverless-egg

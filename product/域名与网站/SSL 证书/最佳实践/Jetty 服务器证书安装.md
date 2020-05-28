@@ -1,7 +1,7 @@
 ## 操作场景
 本文档指导您如何在 Jetty 服务器中安装 SSL 证书。
 >?
->- 本文档以证书名称 `www.domain.com` 为例。
+>- 本文档以证书名称 `cloud.tencent.com` 为例。
 >- Jetty 版本以 `jetty-distribution-9.4.28.v20200408` 为例。
 >- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
 
@@ -38,23 +38,23 @@
 
 
 ## 操作步骤
-1. 已在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载并解压缩 `www.domain.com` 证书文件包到本地目录。
+1. 已在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
 解压缩后，可获得相关类型的证书文件。其中包含 Tomcat 文件夹和 CSR 文件：
  - **文件夹名称**：Tomcat
  - **文件夹内容**：
-    - `www.domain.com.jks` 密钥库
+    - `cloud.tencent.com.jks` 密钥库
     - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
-  - **CSR 文件内容**：	`www.domain.com.csr` 文件
+  - **CSR 文件内容**：	`cloud.tencent.com.csr` 文件
   >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 2. 远程登录 Jetty 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
 3. 进入部署证书步骤，在 `/usr/local/jetty/jetty-distribution-9.4.28.v20200408/etc` 目录下执行命令 `mkdir cert` 创建 cert 文件夹。
-4. 使用 “WinSCP” （即本地与远程计算机间的复制文件工具）登录 Jetty 服务器，将已获取到的 `www.domain.com.jks` 密钥库文件从本地目录拷贝至 cert 文件夹。
+4. 使用 “WinSCP” （即本地与远程计算机间的复制文件工具）登录 Jetty 服务器，将已获取到的 `cloud.tencent.com.jks` 密钥库文件从本地目录拷贝至 cert 文件夹。
 5. 编辑 `/usr/local/jetty/jetty-distribution-9.4.28.v20200408/etc` 目录下的 `jetty-ssl-context.xml` 文件，如下所示：
 >?
->- **KeyStorePath**：填写默认值 default 为证书存放的路径。
->- **KeyStorePassword**：填写默认值 default 为密钥库密码，指定 keystore 的密码。申请证书时若设置了私钥密码，请填写私钥密码；若申请证书时未设置私钥密码，请填写 Tomcat 文件夹中 keystorePass.txt 文件的密码。
+>- **KeyStorePath**：默认值 default 请填写证书存放的路径。
+>- **KeyStorePassword**：默认值 default 请填写密钥库密码，指定 keystore 的密码。申请证书时若设置了私钥密码，请填写私钥密码；若申请证书时未设置私钥密码，请填写 Tomcat 文件夹中 keystorePass.txt 文件的密码。
 >- **KeyManagerPassword**：请填写 Tomcat 文件夹中 keystorePass.txt 文件的密码。
->- **TrustStorePath**：填写默认值 default 为证书存放的路径。
+>- **TrustStorePath**：默认值 default 请填写证书存放的路径。
 >
 ```
 <?xml version="1.0"?><!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure_9_3.dtd">
@@ -65,12 +65,12 @@
 -->
 <Configure id="sslContextFactory" class="org.eclipse.jetty.util.ssl.SslContextFactory$Server">
   <Set name="Provider"><Property name="jetty.sslContext.provider"/></Set>
-  <Set name="KeyStorePath"><Property name="jetty.base" default="." />/<Property name="jetty.sslContext.keyStorePath" deprecated="jetty.keystore" default="etc/cert/zz.qcloudnewshow.com.jks"/></Set>
+  <Set name="KeyStorePath"><Property name="jetty.base" default="." />/<Property name="jetty.sslContext.keyStorePath" deprecated="jetty.keystore" default="etc/cert/cloud.tencent.com.jks"/></Set>
   <Set name="KeyStorePassword"><Property name="jetty.sslContext.keyStorePassword" deprecated="jetty.keystore.password" default="4d5jtdq238j1l"/></Set>
   <Set name="KeyStoreType"><Property name="jetty.sslContext.keyStoreType" default="JKS"/></Set>
   <Set name="KeyStoreProvider"><Property name="jetty.sslContext.keyStoreProvider"/></Set>
   <Set name="KeyManagerPassword"><Property name="jetty.sslContext.keyManagerPassword" deprecated="jetty.keymanager.password" default="4d5jtdq238j1l"/></Set>
-  <Set name="TrustStorePath"><Property name="jetty.base" default="." />/<Property name="jetty.sslContext.trustStorePath" deprecated="jetty.truststore" default="etc/cert/zz.qcloudnewshow.com.jks"/></Set>
+  <Set name="TrustStorePath"><Property name="jetty.base" default="." />/<Property name="jetty.sslContext.trustStorePath" deprecated="jetty.truststore" default="etc/cert/cloud.tencent.com.jks"/></Set>
   <Set name="TrustStorePassword"><Property name="jetty.sslContext.trustStorePassword" deprecated="jetty.truststore.password"/></Set>
   <Set name="TrustStoreType"><Property name="jetty.sslContext.trustStoreType"/></Set>
   <Set name="TrustStoreProvider"><Property name="jetty.sslContext.trustStoreProvider"/></Set>
@@ -139,11 +139,12 @@ etc/jetty-ssl.xml
 etc/jetty-ssl-context.xml
 etc/jetty-https.xml
 ```
-8. 证书已部署完成，在 jetty 根目录下，执行命令 `java -jar start.jar`，即可使用 `https://www.domain.com` 访问。
+8. 证书已部署完成，在 jetty 根目录下，执行启动命令 `java -jar start.jar`，即可使用 `https://cloud.tencent.com` 访问。
 
 ## 注意事项
-证书部署成功后，使用 `https://www.domain.com` 访问若显示如下：
-您可以将 `/usr/local/jetty/jetty-distribution-9.4.28.v20200408/demo-base/webapps` 目录下的 ROOT 文件复制到 `/usr/local/jetty/jetty-distribution-9.4.28.v20200408/webapps` 目录下，重启 jetty，即可访问成功。
+证书部署成功后，使用 `https://cloud.tencent.com` 访问若显示如下：
+![](https://main.qcloudimg.com/raw/2ad181d6ed021958c214b04df9fa67a6.png)
+解决方案：您可以将 `/usr/local/jetty/jetty-distribution-9.4.28.v20200408/demo-base/webapps` 目录下的 ROOT 文件复制到 `/usr/local/jetty/jetty-distribution-9.4.28.v20200408/webapps` 目录下，重启 jetty，即可访问成功。
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
 

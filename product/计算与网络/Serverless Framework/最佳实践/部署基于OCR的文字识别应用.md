@@ -7,7 +7,8 @@
 
 ## 前提条件
 
-已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于8.6版本，建议使用Node.js10.0 及以上版本）
+- 已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于8.6版本，建议使用 Node.js10.0 及以上版本）
+- 已开通 [OCR 通用文字识别](https://cloud.tencent.com/product/generalocr) 服务
 
 ## 操作步骤
 
@@ -36,24 +37,20 @@ Components: 2.30.1
 ```
 
 ### 创建存储桶
+
 1. 登录 [COS 控制台](https://console.cloud.tencent.com/cos5)，创建新的 **公有存储桶**（参考 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)） ，用于存放上传的图像，注意地域的选择。
 2. 在桶列表的【基础配置】中，为存储桶 [配置跨域访问 CORS](https://cloud.tencent.com/document/product/436/13318)，具体配置如下：
-```
-来源 Origin：*
-操作 Methods：PUT，GET，POST
-Allow-Headers：*
-超时 Max-Age：*
-```
+![](https://main.qcloudimg.com/raw/7c397d30e8231ce983c1fce44abd7326.png)
 
 ### 配置
 
 1.新建一个本地文件夹，使用`create --template-url`命令，下载相关 template。
 
 ```console
-$ serverless create --template-url https://github.com/yugasun/serverless-ocr
+$ serverless create --template-url https://github.com/serverless-tencent/serverless-demos/serverless-ocr
 ```
 
-2.创建 `.env` 文件，在里面输入您的账户、密钥信息和指定存储桶（此存储桶用于存放上传的图像）。
+2.在模版中找到 `.env.example` 文件，并改名为 `.env` ，在里面输入您的账户、密钥信息和指定存储桶（此存储桶用于存放上传的图像）。
 
 ```
 # .env
