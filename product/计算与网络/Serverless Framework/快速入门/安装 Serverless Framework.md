@@ -5,7 +5,7 @@
 ### 方式一：二进制安装
 
 如果您的本地环境没有安装 Node.js，您可以直接使用二进制的方式进行安装：
->?建议您使用 Node.js10.0 及以上版本，否则 Component V2 部署有可能报错。
+>!建议您使用 Node.js10.0 及以上版本，否则 Component V2 部署有可能报错。
 
 #### MacOS/Linux 系统 
 
@@ -33,7 +33,7 @@ $ choco upgrade serverless
 
 <span id="npm"></span>
 ### 方式二：NPM 安装
->?建议您使用 Node.js10.0 及以上版本，否则 Component V2 部署有可能报错。
+>!建议您使用 Node.js10.0 及以上版本，否则 Component V2 部署有可能报错。
 
 在命令行中运行如下命令：
 ```sh
