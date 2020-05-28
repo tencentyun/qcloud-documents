@@ -138,7 +138,7 @@ func (s *rpcService) OnStartGameServerSession(ctx context.Context, req *grpcsdk.
 
 #### 接口说明
 
-在缩容阶段或者健康检查持续失败，GSE 会调用该接口，通知游戏进程需结束进程，游戏进程收到请求后，需要结束其上在 [OnStartGameServerSession](#OnStartGameServerSession) 承载的游戏会话，并调用 GSE 实现的两个接口 [TerminateGameServerSession](#TerminateGameServerSession) 和[ProcessEnding](#ProcessEnding)，通知 GSE 需结束该游戏会话和结束进程。
+在缩容阶段或者健康检查持续失败，GSE 会调用该接口，通知游戏进程需结束进程，游戏进程收到请求后，需要结束其上在 [OnStartGameServerSession](#OnStartGameServerSession) 承载的游戏会话，并调用 GSE 实现的两个接口 [TerminateGameServerSession](#TerminateGameServerSession) 和 [ProcessEnding](#ProcessEnding)，通知 GSE 需结束该游戏会话和结束进程。
 
 #### 请求消息体
 
@@ -340,7 +340,7 @@ message GseResponse
 
 #### 字段说明
 
-使用示例请参见 [AcceptPlayerSession](AcceptPlayerSession)。
+使用示例请参见 [AcceptPlayerSession](#AcceptPlayerSession)。
 
 #### 使用示例
 
@@ -530,7 +530,7 @@ func (r *rpcClient) TerminateGameServerSession(gameServerSessionId string) (*grp
 
 游戏进程需要调用该接口通知 GSE 该游戏进程正在关闭。
 
-#### 请求结构体：
+#### 请求结构体
 
 ```
 message ProcessEndingRequest {
