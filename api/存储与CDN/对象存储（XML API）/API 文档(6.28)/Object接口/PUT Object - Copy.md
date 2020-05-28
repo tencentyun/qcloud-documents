@@ -44,12 +44,12 @@ Authorization: Auth String
 | 名称                                  | 描述                                                         | 类型   | 是否必选 |
 | ------------------------------------- | ------------------------------------------------------------ | ------ | -------- |
 | x-cos-copy-source                     | 源对象的 URL，其中对象键需经过 URLEncode，可以通过 versionId 参数指定源对象的版本，例如：<br>`sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg`<br>或`sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg?versionId=MTg0NDUxNzYzMDc0NDMzNDExOTc` | string | 是       |
-| x-cos-metadata-directive              | 是否复制源对象的元数据信息，枚举值：Copy，Replaced，默认为 Copy。<br><li>如果标记为 Copy，则复制源对象的元数据信息。<li>如果标记为 Replaced，则按本次请求的请求头中的元数据信息作为目标对象的元数据信息。<br>当目标对象和源对象为同一对象时，即用户试图修改元数据时，则标记必须为 Replaced。 | Enum   | 否       |
-| x-cos-copy-source-If-Modified-Since   | 当对象在指定时间后被修改，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed）。 | string | 否       |
-| x-cos-copy-source-If-Unmodified-Since | 当对象在指定时间后未被修改，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed）。 | string | 否       |
-| x-cos-copy-source-If-Match            | 当对象的 ETag 与指定的值一致，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed）。 | string | 否       |
-| x-cos-copy-source-If-None-Match       | 当对象的 ETag 与指定的值不一致，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed）。 | string | 否       |
-| x-cos-storage-class                   | 目标对象的存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE。默认值：STANDARD。 | Enum   | 否       |
+| x-cos-metadata-directive              | 是否复制源对象的元数据信息，枚举值：Copy，Replaced，默认为 Copy：<br><li>如果标记为 Copy，则复制源对象的元数据信息<li>如果标记为 Replaced，则按本次请求的请求头中的元数据信息作为目标对象的元数据信息<br>当目标对象和源对象为同一对象时，即用户试图修改元数据时，则标记必须为 Replaced | Enum   | 否       |
+| x-cos-copy-source-If-Modified-Since   | 当对象在指定时间后被修改，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
+| x-cos-copy-source-If-Unmodified-Since | 当对象在指定时间后未被修改，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
+| x-cos-copy-source-If-Match            | 当对象的 ETag 与指定的值一致，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
+| x-cos-copy-source-If-None-Match       | 当对象的 ETag 与指定的值不一致，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
+| x-cos-storage-class                   | 目标对象的存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE。默认值：STANDARD | Enum   | 否       |
 
 **目标对象元数据相关头部**
 
