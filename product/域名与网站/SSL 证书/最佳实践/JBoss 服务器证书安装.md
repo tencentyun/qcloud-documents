@@ -1,7 +1,7 @@
 ## 操作场景
 本文档指导您如何在 JBoss 服务器中安装 SSL 证书。
 >?
->- 本文档以证书名称 `www.domain.com` 为例。
+>- 本文档以证书名称 `cloud.tencent.com` 为例。
 >- JBoss 版本以 `jboss-7.1.1` 为例。
 >- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
 
@@ -38,17 +38,17 @@
 
 
 ## 操作步骤
-1. 已在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载并解压缩 `www.domain.com` 证书文件包到本地目录。
+1. 已在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
 解压缩后，可获得相关类型的证书文件。其中包含 Tomcat 文件夹和 CSR 文件：
  - **文件夹名称**：Tomcat
  - **文件夹内容**：
-    - `www.domain.com.jks` 密钥库
+    - `cloud.tencent.com.jks` 密钥库
     - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
-  - **CSR 文件内容**：	`www.domain.com.csr` 文件
+  - **CSR 文件内容**：	`cloud.tencent.com.csr` 文件
   >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 2. 远程登录 JBoss 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
 3. 进入部署证书步骤，在 `/usr/local/jboss-7.1.1/standalone/configuration` 目录下执行命令 `mkdir cert` 创建 cert 文件夹。
-4. 使用 “WinSCP” （即本地与远程计算机间的复制文件工具）登录 JBoss 服务器，将已获取到的 `www.domain.com.jks` 密钥库文件从本地目录拷贝至 cert 文件夹。
+4. 使用 “WinSCP” （即本地与远程计算机间的复制文件工具）登录 JBoss 服务器，将已获取到的 `cloud.tencent.com.jks` 密钥库文件从本地目录拷贝至 cert 文件夹。
 5. 编辑在 `/usr/local/jboss-7.1.1/standalone/configuration` 目录下的 `standalone.xml` 文件。修改端口配置，如下所示：
  - 第一部分：
 ```
@@ -91,7 +91,7 @@
 <subsystem xmlns="urn:jboss:domain:web:1.1" default-virtual-server="default-host" native="false">
             <connector name="http" protocol="HTTP/1.1" scheme="http" socket-binding="http"/>
 			<connector name="https" protocol="HTTP/1.1" scheme="https" socket-binding="https" secure="true">
-                <ssl name="https" password="******" certificate-key-file="../standalone/configuration/cert/www.domain.com.jks" cipher-suite="TLS_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,SSL_RSA_WITH_3DES_EDE_CBC_SHA,SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA,SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA" protocol="TLSv1,TLSv1.1,TLSv1.2"/>
+                <ssl name="https" password="******" certificate-key-file="../standalone/configuration/cert/cloud.tencent.com.jks" cipher-suite="TLS_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA,TLS_DHE_DSS_WITH_AES_128_CBC_SHA,SSL_RSA_WITH_3DES_EDE_CBC_SHA,SSL_DHE_RSA_WITH_3DES_EDE_CBC_SHA,SSL_DHE_DSS_WITH_3DES_EDE_CBC_SHA" protocol="TLSv1,TLSv1.1,TLSv1.2"/>
             </connector>
             <virtual-server name="default-host" enable-welcome-root="true">
                 <alias name="localhost"/>
@@ -101,7 +101,7 @@
 ```
 6. 进入 `/usr/local/jboss-7.1.1/bin` 目录下，执行启动命令 `./standalone.sh`，确保正常启动。如下图所示：
 ![](https://main.qcloudimg.com/raw/0dc9c0ee84b92f7978a7a133d35bcf27.png)
-7. 证书已部署完成，即可使用 `https://www.domain.com` 访问。
+7. 证书已部署完成，即可使用 `https://cloud.tencent.com` 访问。
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
 
