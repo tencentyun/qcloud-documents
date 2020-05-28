@@ -1,8 +1,9 @@
 
 ## 简介
-游戏进程和 GSE 通过 grpc 通信，通信 pb 的协议见 GameServerGrpcSdkService.proto和GseGrpcSdkService.proto。
+游戏进程和 GSE 通过 grpc 通信，通信 pb 的协议见 GameServerGrpcSdkService.proto 和 GseGrpcSdkService.proto。
 
-其中 GameServerGrpcSdkService.proto 定义了三个服务接口，需要由游戏进程来实现；GseGrpcSdkService.proto 定义的服务接口 GSE 来实现，游戏进程需要在合适的时机调用对应的接口，GSE 接口监听的 grpc 端口为5758。游戏开发者根据需要，生成对应语言的 pb 文件。
+GameServerGrpcSdkService.proto 定义了三个服务接口，需要由游戏进程来实现。
+GseGrpcSdkService.proto 定义的服务接口 GSE 来实现，游戏进程需要在合适的时机调用对应的接口，GSE 接口监听的 grpc 端口为5758。游戏开发者根据需要，生成对应语言的 pb 文件。
 
 >?
 - gproxy 的使用可以参考 [中文版](http://doc.oschina.net/grpc) 和 [英文版](https://www.grpc.io/)。
