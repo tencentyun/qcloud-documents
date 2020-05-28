@@ -1,4 +1,5 @@
 ## 接口描述
+
 本接口（UpdateCfsRule）用于更新权限规则。
 接口请求域名：`cfs.api.qcloud.com`
 
@@ -46,7 +47,7 @@ https://cfs.test.api.qcloud.com/v2/index.php?Action=UpdateCfsRule
 
 #### 输出
 
-```
+```plaintext
 {
     "code": 0,
     "message": "",
