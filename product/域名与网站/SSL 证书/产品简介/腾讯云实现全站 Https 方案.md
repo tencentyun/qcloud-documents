@@ -15,7 +15,7 @@
 3. 选择验证方式。
 ![](https://main.qcloudimg.com/raw/98753e63341655f8391629922ec8f552.png)
   - **选择自动 DNS 验证**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/4142#.E8.87.AA.E5.8A.A8-dns-.E9.AA.8C.E8.AF.81)。
- >?如果所申请域名成功添加 [云解析平台](https://console.cloud.tencent.com/cns/domains)，可以支持自动 DNS 验证。
+ >?如果所申请域名成功添加 [DNS 解析平台](https://console.cloud.tencent.com/cns/domains)，可以支持自动 DNS 验证。
  >
  - **选择手动 DNS 验证**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/4142#.E6.89.8B.E5.8A.A8-dns-.E9.AA.8C.E8.AF.81)。
  - **选择文件验证**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/4142#.E6.96.87.E4.BB.B6.E9.AA.8C.E8.AF.81)。
@@ -26,10 +26,12 @@
 ![](https://main.qcloudimg.com/raw/2937bb05b1b5ab8a18b3f61b79b6c992.png)
 
 ## 步骤2：部署证书到负载均衡
+>!操作之前，请确认您的 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3) 是否有实例，若没有实例，则部署至负载均衡的【选择 CLB 实例】列表为空，请您先创建实例。
+>
 1. 成功申请获取证书（参考 [如何免费申请域名型证书](https://cloud.tencent.com/document/product/400/6814)）。
 2. 选择您需要部署的证书，展开【更多】，选择【部署到负载均衡】。如下图所示：
 ![](https://main.qcloudimg.com/raw/960f64d92b01370e9c1ca40fa3521e1d.png)
-3. 根据项目和地区筛选 LB 实例，且只能选择一个实例。如下图所示：
+3. 根据项目和地区筛选 CLB 实例，且只能选择一个实例。如下图所示：
 >!目前不支持华南地区-深圳金融。
 >
 ![](https://main.qcloudimg.com/raw/9961c5b54e4d72aaa4897fe92a187e76.png)

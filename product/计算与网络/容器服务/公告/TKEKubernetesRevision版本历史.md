@@ -5,6 +5,16 @@
 </thead>
 <tbody>
 <tr>
+    <td>2020.04.20</td>	
+    <td>v1.16.3-tke.5</td>	
+    <td>合入<a href="https://github.com/kubernetes/kubernetes/pull/69047"> pr69047</a>，解决向后兼容 <code>node.Spec.Unschedulable</code> 的问题（此修复在合入 in-tree cbs 代码时被覆盖了）。</td>
+</tr>
+<tr>
+    <td>2020.04.14</td>
+    <td>v1.16.3-tke.4</td>
+    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87913"> pr87913</a>，修复 CVE-2020-8551：Kubelet DoS 攻击问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87669"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li>容器服务支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87467"> pr87467</a>，修复授权用户发送恶意 YAML 导致 kubectl 在解析 YAML 时消耗过多 CPU 问题。</li></ul></td>
+</tr>
+<tr>
 	<td>2020-03-11</td>
 	<td>v1.16.3-tke.3</td>
 	<td><ul class="params"><li>cbs intree 解决磁盘不存在时继续卸载磁盘，导致大量无效请求的问题。</li> <li>metadata 增加本地缓存。</li></ul></td>
@@ -27,6 +37,16 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+<tr>
+    <td>2020.04.14</td>
+    <td>v1.14.3-tke.11</td>
+    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/75442"> pr75442</a>，将 bandwidth 单位从 Kb 修正为 b。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/86583"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li> <li>容器服务支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
+</tr>
+<tr>
+    <td>2020.04.14</td>
+    <td>v1.14.3-tke.10</td>
+    <td>cbs intree 解决磁盘不存在时继续卸载磁盘导致大量无效请求的问题。</td>
+</tr>
 <tr>
 	<td>2020-01-13</td>
 	<td>v1.14.3-tke.9</td>
@@ -76,6 +96,16 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+<tr>
+    <td>2020.04.14</td>	
+    <td>v1.12.4-tke.18</td>
+    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/73401"> pr73401</a>、<a href="https://github.com/kubernetes/kubernetes/pull/73606">pr73606</a>、<a href="https://github.com/kubernetes/kubernetes/pull/76060">pr76060</a>，删除分配到不存在的节点上的 DaemonSet Pod。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/68619"> pr68619</a>，解决 cpumanager 脏数据问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87669"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li> 容器服务支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
+    </tr>
+<tr>
+    <td>2020.02.14</td>	
+    <td>v1.12.4-tke.17</td>	
+    <td><ul class="params"><li> cbs V2 接口升级到 V3。</li><li>cbs intree 解决磁盘不存在时继续卸载磁盘导致大量无效请求的问题。</li></ul></td>
+    </tr>
 <tr>
 	<td>2020-01-13</td>
 	<td>v1.12.4-tke.16</td>
@@ -159,7 +189,24 @@
 <thead>
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
+    <td>2020.04.29</td>
+	<td>v1.10.5-tke.17</td>
+    <td>合并<a href="https://github.com/kubernetes/kubernetes/pull/75622"> pr75622</a>，解决在集群存在大量 sts（>2000）工作负载的情况下，sts 同步到 Pod 延迟大（~20s）的问题。 </td>
+    </tr>
+<tr>
+    <td>2020.04.14</td>
+    <td>v1.10.5-tke.16</td>
+    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/68619"> pr68619</a>，解决 cpumanager 脏数据问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87669"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li>容器服务支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
+    </tr>
+<tr>
+    <td>2020.02.14</td>	
+    <td>v1.10.5-tke.15</td>
+    <td><ul class="params"><li> cbs V2 接口升级到 V3。</li><li>cbs intree 解决磁盘不存在时继续卸载磁盘，导致大量无效请求的问题。</li></ul></td>
+    </tr>
+<tr>
+<tr>
 	<td>2020-01-13</td>
 	<td>v1.10.5-tke.14</td>
 	<td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/2359" target="_blank"> pr2359 </a>解决获取不到 docker root 造成的监控缺失问题。</li><li> 合并<a href="https://github.com/kubernetes/kubernetes/pull/86583" target="_blank"> pr86583 </a>提高 iptables 不支持 random-fully 时的日志输出级别，避免产生过多日志。</li><li> kube-scheduler 支持动态设置日志级别。</li><li> 绕过 cbs 出现的 device path（/dev/disk/by-id/virtio-xxx/...）缺失的问题，让用户能正常使用 cbs。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/86230" target="_blank"> pr86230</a>，在 pod 调度过程中，跳过更新assumed pod 的调度。</li></ul></td>

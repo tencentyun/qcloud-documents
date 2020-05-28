@@ -63,9 +63,9 @@ Topic 监控：
 
 ### CKafka 监控 API 文档
 CKafka 监控 API 详情可参见如下文档：
-- [主题监控](https://cloud.tencent.com/document/product/248/17296)
-- [实例监控](https://cloud.tencent.com/document/product/248/17297) 
-- [消费分组监控](https://cloud.tencent.com/document/product/248/17298)
+- [主题监控](https://cloud.tencent.com/document/product/248/35239)
+- [实例监控](https://cloud.tencent.com/document/product/248/35240) 
+- [消费分组监控](https://cloud.tencent.com/document/product/248/35241)
 
 ## CKafka 告警策略
 在 CKafka 状态改变时，可以创建告警来及时通知您采取措施。创建的告警会将一定周期内监控的指标与给定阈值的情况进行比对，从而判断是否需要触发相关通知。

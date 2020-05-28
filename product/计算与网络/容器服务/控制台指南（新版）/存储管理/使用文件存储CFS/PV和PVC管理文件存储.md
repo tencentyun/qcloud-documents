@@ -16,7 +16,7 @@
 
 
 ### 通过控制台创建 StorageClass<span id="createStorageClass"></span>
-由于静态创建文件存储类型的 PV 时，需要绑定同类型可用 StorageClass，请参考 [通过控制台创建 StorageClass](https://tcloud-doc.isd.com/document/product/457/44235#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.88.9B.E5.BB.BA-storageclass) 完成创建。
+由于静态创建文件存储类型的 PV 时，需要绑定同类型可用 StorageClass，请参考 [通过控制台创建 StorageClass](https://cloud.tencent.com/document/product/457/44235#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.88.9B.E5.BB.BA-storageclass) 完成创建。
 
 ### 创建文件存储<span id="createCFS"></span>
 1. 登录[ 文件存储控制台](https://console.cloud.tencent.com/cfs/fs?rid=1)，进入“文件系统”页面。

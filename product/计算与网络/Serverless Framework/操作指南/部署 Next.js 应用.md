@@ -11,9 +11,8 @@ Next.js 特性介绍：
 
 
 ## 前提条件
-
-#### 初始化 Next.js 项目
-在本地创建一个 Next.js 项目并初始化：
+- 已安装 Node.js（参考 [Node.js 安装指南](https://nodejs.org/zh-cn/download/)）。
+- 在本地创建一个 Next.js 项目并初始化：
 ```bash
 $ mkdir serverless-next && cd serverless-next
 $ npm init next-app src
@@ -27,7 +26,7 @@ $ npm install -g serverless
 ```
 
 ### 2. 配置
-在项目根目录创建 `serverless.yml` 文件：
+在项目根目录（此例中为 serverless-next）下创建 `serverless.yml` 文件：
 ```bash
 $ touch serverless.yml
 ```
@@ -41,12 +40,13 @@ app: appDemo # (可选) 该 next.js 应用名称
 stage: dev # (可选) 用于区分环境信息，默认值是 dev
 
 inputs:
-  src: ./src
+  src: 
+	src: ./src
+    exclude:
+      - .env
   functionName: nextjsDemo
   region: ap-guangzhou
   runtime: Nodejs10.15
-  exclude:
-    - .env
   apigatewayConf:
     protocols:
       - http
@@ -58,12 +58,15 @@ inputs:
 
 ### 3. 部署
 #### 3.1 构建静态资源
+
+进入到 next 项目目录下，构建静态资源：
+
 ```bash
-$ npm run build
+$ cd src && npm run build
 ```
 
 #### 3.2 部署到云端
-在 serverless.yml 文件下的目录中运行以下指令进行部署：
+回到 serverless.yml 文件所在的项目根目录，运行以下指令进行部署：
 ```bash
 $ sls deploy
 ```
@@ -84,7 +87,7 @@ $ serverless info
 ```
 
 ### 6. 移除
-在 `serverless.yml` 文件所在的目录下，通过以下命令移除部署通过以下命令移除部署的 API 网关，移除后该组件会对应删除云上部署时所创建的所有相关资源。
+在 `serverless.yml` 文件所在的目录下，通过以下命令移除部署的 API 网关，移除后该组件会对应删除云上部署时所创建的所有相关资源。
 ```bash
 $ sls remove
 ```

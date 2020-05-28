@@ -1,10 +1,10 @@
 ## 操作场景
 
-本文档指导您如何使用小游戏联机对战引擎 SDK。
+本文档指导您如何使用游戏联机对战引擎 SDK。
 
 ## 前提条件
 
-- 已在小游戏联机对战引擎控制台创建小游戏实例，并 [开通联机对战服务](https://cloud.tencent.com/document/product/1038/33299#.E5.BC.80.E9.80.9A.E8.81.94.E6.9C.BA.E5.AF.B9.E6.88.98.E6.9C.8D.E5.8A.A1)。
+- 已在游戏联机对战引擎控制台创建小游戏实例，并 [开通联机对战服务](https://cloud.tencent.com/document/product/1038/33299#.E5.BC.80.E9.80.9A.E8.81.94.E6.9C.BA.E5.AF.B9.E6.88.98.E6.9C.8D.E5.8A.A1)。
 - 已获取游戏 gameID 和 secretKey。SDK 需要对这两个参数进行校验。
 
 ## 操作步骤

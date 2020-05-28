@@ -22,7 +22,7 @@ HTTPS 回源：源站更新证书，CDN 节点也需要同步更新。客户端�
 要把网站的 HTTPS 证书上传到 CDN，操作如下：
 1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，单击左侧导航栏的 【域名管理】 进入域名管理页面。单击域名右侧【管理】按钮，进入管理页面。
 ![图片描述](https://main.qcloudimg.com/raw/9f5202ff57eb14f40dee3b15e4a37cdf.png)
-2. 单击【高级配置】，找到 HTTPS 配置模块。单击【前往配置】，跳转至证书管理页面配置证书。配置流程请参阅  [证书管理](https://cloud.tencent.com/document/product/228/41687#.E5.9F.9F.E5.90.8D.E9.85.8D.E7.BD.AE) 。![图片描述](https://main.qcloudimg.com/raw/f8c4570d1a4847aab84c30ff0dc2e22d.png)
+2. 单击【高级配置】，找到 HTTPS 配置模块。单击【前往配置】，跳转至证书管理页面配置证书。配置流程请参阅  [证书配置](https://cloud.tencent.com/document/product/228/41687#.E8.AF.81.E4.B9.A6.E9.85.8D.E7.BD.AE) 。![图片描述](https://main.qcloudimg.com/raw/f8c4570d1a4847aab84c30ff0dc2e22d.png)
 3. 证书配置成功后，会出现【强制跳转 HTTPS】开关。开启后，即使用户发起 HTTP 请求，也会强制跳转为 HTTPS 请求进行访问：
 ![图片描述](https://main.qcloudimg.com/raw/da5fb8ee7294231e27d65cd177dfd992.png)
 

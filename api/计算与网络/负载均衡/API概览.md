@@ -1,18 +1,25 @@
-## 负载均衡相关接口
-### 通用接口
+## 通用接口
 | 接口名 | Action | 功能描述 |
 |---------|---------|---------|
 | [查询负载均衡异步接口的执行结果](https://cloud.tencent.com/document/product/214/4007) | DescribeLoadBalancersTaskResult | 查询负载均衡异步操作接口的执行结果。|
+| [购买负载均衡](https://cloud.tencent.com/document/product/214/1254)  | CreateLoadBalancer | 通过该接口来购买负载均衡。|
+| [查询负载均衡实例价格](https://cloud.tencent.com/document/product/214/1328) | InquiryLBPriceAll | 查询负载均衡实例的价格。|
+| [查询负载均衡实例列表](https://cloud.tencent.com/document/product/214/1261) | DescribeLoadBalancers | 查询负载均衡实例的列表。|
+| [删除负载均衡实例](https://cloud.tencent.com/document/api/214/1257)| DeleteLoadBalancers | 删除负载均衡实例。|
+| [负载均衡监控接口](https://cloud.tencent.com/document/product/214/8801)|GetMonitorData|查询负载均衡的监控数据。|
+| [更换 HTTPS 类型负载均衡证书](https://cloud.tencent.com/document/product/214/6045)|ReplaceCert|更换负载均衡使用的证书。|
+| [查询证书关联的负载均衡监听器](https://cloud.tencent.com/document/product/214/6046)| GetCertListWithLoadBalancer | 查询证书关联的负载均衡信息。|
+| [查询 COS 中的七层日志](https://cloud.tencent.com/document/product/214/12235)| DescribeLoadBalancerLog | 查询 COS 中的负载均衡七层日志。|
+| [克隆负载均衡](https://cloud.tencent.com/document/product/214/37704)|CloneLB |克隆负载均衡。|
 
+
+## 负载均衡相关接口
 ### 负载均衡实例相关接口
 
 | 接口名 | Action | 功能描述 |
 |---------|---------| ---------|
-| [购买负载均衡](https://cloud.tencent.com/document/api/214/1254)  | CreateLoadBalancer | 通过该接口来购买负载均衡。|
-| [查询负载均衡实例价格](https://cloud.tencent.com/document/api/214/1328) | InquiryLBPriceAll | 查询负载均衡实例的价格。|
-| [查询负载均衡实例列表](https://cloud.tencent.com/document/api/214/1261) | DescribeLoadBalancers | 查询负载均衡实例的列表。|
 |  [修改负载均衡的名称](https://cloud.tencent.com/document/product/214/13295) | ModifyForwardLBName | 修改负载均衡的名称。|
-| [删除负载均衡实例](https://cloud.tencent.com/document/api/214/1257)| DeleteLoadBalancers | 删除负载均衡实例。|
+
 
 ### 监听器相关接口
 
@@ -29,10 +36,10 @@
 
 | 接口名 | Action ID | 功能描述 |
 |---------|---------| ---------|
-| [创建负载均衡七层监听器转发规则的能力](https://cloud.tencent.com/document/product/214/9011) | CreateForwardLBListenerRules |创建负载均衡七层监听器转发规则的能力。|
-| [修改负载均衡七层监听器下的域名](https://cloud.tencent.com/document/product/214/9007) | ModifyForwardLBRulesDomain | 修改负载均衡七层监听器下的域名。|
-|[ 修改负载均衡七层监听器转发规则的健康检查及转发路径](https://cloud.tencent.com/document/product/214/9008) | ModifyLoadBalancerRulesProbe |修改负载均衡七层监听器转发规则的健康检查及转发路径。| 
-| [删除负载均衡实例七层监听器的转发规则](https://cloud.tencent.com/document/product/214/9012) | DeleteForwardLBListenerRules |删除负载均衡实例七层监听器的转发规则。| 
+| [创建负载均衡监听器转发规则](https://cloud.tencent.com/document/product/214/9011) | CreateForwardLBListenerRules |创建负载均衡七层监听器转发规则的能力。|
+| [修改负载均衡监听器转发规则的域名](https://cloud.tencent.com/document/product/214/9007) | ModifyForwardLBRulesDomain | 修改负载均衡七层监听器下的域名。|
+|[修改负载均衡监听器转发规则的健康检查及转发路径](https://cloud.tencent.com/document/product/214/9008) | ModifyLoadBalancerRulesProbe |修改负载均衡七层监听器转发规则的健康检查及转发路径。| 
+| [删除七层负载均衡监听器规则](https://cloud.tencent.com/document/product/214/9012) | DeleteForwardLBListenerRules |删除负载均衡实例七层监听器的转发规则。| 
 
 ### 云服务器相关接口
 
@@ -54,11 +61,6 @@
 |---------|---------| ---------|
 | [查询负载均衡实例的健康检查](https://cloud.tencent.com/document/product/214/8995) | DescribeForwardLBHealthStatus | 查询负载均衡实例的健康检查。|
 
-### 负载均衡监控接口
-| 接口名 | Action ID | 功能描述 |
-|---------|---------| ---------|
-| [查询负载均衡的监控数据](https://cloud.tencent.com/document/product/214/8801)|GetMonitorData|查询负载均衡的监控数据。|
-
 ### 重定向相关接口
 
 | 接口名 | Action ID | 功能描述 |
@@ -68,13 +70,6 @@
 | [手动添加负载均衡的重定向关系](https://cloud.tencent.com/document/product/214/9015) | ManualRewrite | 手动添加负载均衡的重定向关系。|
 | [自动生成负载均衡的重定向关系](https://cloud.tencent.com/document/product/214/9017) | AutoRewrite | 自动生成负载均衡的重定向关系。|
 
-### 其他接口
-| 接口名 | Action | 功能描述 |
-|---------|---------|---------|
-| [更换负载均衡的证书](https://cloud.tencent.com/document/product/214/6045)|ReplaceCert|更换负载均衡使用的证书。|
-| [查询证书关联的负载均衡信息](https://cloud.tencent.com/document/product/214/6046)| GetCertListWithLoadBalancer | 查询证书关联的负载均衡信息。|
-| [查询负载均衡应用层日志](https://cloud.tencent.com/document/product/214/12235)| DescribeLoadBalancerLog | 查询负载均衡应用层日志。|
-| [克隆负载均衡](https://cloud.tencent.com/document/product/214/37704)|CloneLB |克隆负载均衡。|
 
 ## 传统型负载均衡相关接口
 ### 实例相关接口

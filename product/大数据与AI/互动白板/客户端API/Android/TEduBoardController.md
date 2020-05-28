@@ -30,7 +30,7 @@ void addCallback(TEduBoardCallback callback)
 | callback | TEduBoardCallback | 事件回调监听  |
 
 #### 警告
-建议在 Init 之前调用该方法以支持错误处理 
+建议在 init 之前调用该方法以支持错误处理 
 
 
 ### removeCallback
@@ -96,10 +96,13 @@ View getBoardRenderView()
 
 
 ### refresh
-对白板刷新 
+刷新当前页白板，触发 onTEBRefresh 回调 
 ``` Java
 void refresh()
 ```
+#### 警告
+如果当前白板包含PPT/H5/图片/视频时，刷新白板将会触发对应的回调 
+
 
 ### addSyncData
 添加白板同步数据 
@@ -262,7 +265,7 @@ void setBackgroundColor(TEduBoardColor color)
 | color | TEduBoardColor | 要设置的背景色 |
 
 #### 介绍
-白板页创建以后的默认背景色由 SetDefaultBackgroundColor 接口设定 
+白板页创建以后的默认背景色由 setDefaultBackgroundColor 接口设定 
 
 
 ### getBackgroundColor
@@ -508,7 +511,7 @@ void setBackgroundImage(String url, int mode)
 | mode | int | 要使用的图片填充对齐模式 |
 
 #### 介绍
-当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS 
+当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。 当 URL 是一个网络地址时，默认支持 HTTPS 协议的链接。 在 Android5.0 以下，默认是采用的 MIXED_CONTENT_ALWAYS_ALLOW 模式，即总是允许 WebView 同时加载 HTTPS 和 HTTP； 而从 Android5.0 开始，默认用 MIXED_CONTENT_NEVER_ALLOW 模式，即总是不允许 WebView 同时加载 HTTPS 和 HTTP。 您可以在 getBoardRenderView 获得白板渲染视图控件时， 通过 WebSettings 自行进行设置，如下： WebSettings settings = (WebView) mWebView.getSettings(); if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) { settings.setMixedContentMode(0); } 对于 Android P 以上系统，限制了明文流量的网络请求,非加密的流量请求都会被系统禁止掉，可以参考以下方法解决：
 
 
 ### setBackgroundH5
@@ -523,7 +526,7 @@ void setBackgroundH5(String url)
 | url | String | 要设置的背景 H5 页面 URL |
 
 #### 介绍
-该接口与 SetBackgroundImage 接口互斥 
+该接口与 setBackgroundImage 接口互斥 
 
 
 ### undo
@@ -731,7 +734,7 @@ void setBoardRatio(String ratio)
 String getBoardRatio()
 ```
 #### 返回
-白板宽高比，格式与 SetBoardRatio 接口参数格式一致 
+白板宽高比，格式与 setBoardRatio 接口参数格式一致 
 
 
 ### setBoardScale
@@ -831,7 +834,7 @@ void getFileTranscodeProgress(final String taskId)
 | taskId | final String | 通过 onTEBFileTranscodeProgress 回调拿到的转码任务 taskId  |
 
 #### 警告
-该接口仅用于特殊业务场景下主动查询文件转码进度，调用 ApplyFileTranscode 后，SDK 内部将会自动定期触发 onTEBFileTranscodeProgress 回调，正常情况下您不需要主动调用此接口 
+该接口仅用于特殊业务场景下主动查询文件转码进度，调用 applyFileTranscode 后，SDK 内部将会自动定期触发 onTEBFileTranscodeProgress 回调，正常情况下您不需要主动调用此接口 
 
 #### 介绍
 转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
@@ -857,7 +860,7 @@ String addTranscodeFile(final TEduBoardTranscodeFileResult result)
 
 #### 介绍
 TEduBoardTranscodeFileResult 的字段信息主要来自：
-1. 使用客户端 ApplyFileTranscode 转码，直接将转码结果用于调用此接口
+1. 使用客户端 applyFileTranscode 转码，直接将转码结果用于调用此接口
 2. （推荐）使用服务端 REST API 转码，只需传入转码回调结果的四个字段（title，resolution，url，pages），其服务端->客户端字段的对应关系为 Title->title、Resolution->resolution、ResultUrl->url、Pages->pages 字段 [转码文档](https://cloud.tencent.com/document/product/1137/40260)
 
 
@@ -948,7 +951,7 @@ TEduBoardFileInfo getFileInfo(String fid)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fid | String |  |
+| fid | String | 获取白板中指定文件的文件信息 |
 
 #### 返回
 文件信息 
