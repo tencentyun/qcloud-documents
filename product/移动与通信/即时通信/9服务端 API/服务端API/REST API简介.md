@@ -32,8 +32,8 @@ https://console.tim.qq.com/$ver/$servicename/$command?sdkappid=$SDKAppID&identif
 | contenttype   |请求格式     | 固定值为`json`                   |
 
 >!
->1. App 服务端在调用 REST API 时，identifier 必须为 App 管理员帐号。
->2. App 可以在每次调用 REST API 时都生成管理员帐号的 usersig，亦可生成一个固定的 usersig 重复使用，但请特别注意 usersig 的有效期。
+>- App 服务端在调用 REST API 时，identifier 必须为 App 管理员帐号。
+>- App 可以在每次调用 REST API 时都生成管理员帐号的 UserSig，亦可生成一个固定的 UserSig 重复使用，但请特别注意 UserSig 的有效期。
 
 ### HTTP 请求包体格式
 REST API 仅支持 POST 方法，其请求包体为 JSON 格式，具体的包体格式参见每个 API 的详细描述。
