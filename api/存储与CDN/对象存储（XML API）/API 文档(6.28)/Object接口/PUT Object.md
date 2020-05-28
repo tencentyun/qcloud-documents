@@ -3,7 +3,6 @@
 PUT Object 接口请求可以将本地的对象（Object）上传至指定存储桶中。该 API 的请求者需要对存储桶有写入权限。
 
 > ?
->
 > - PUT Object 接口最大支持上传5GB文件。如需上传大于5GB的文件，请使用 [分块上传](https://cloud.tencent.com/document/product/436/14112) 的 API 接口。
 > - 如果请求头的 Content-Length 值小于实际请求体（body）中传输的数据长度，COS 仍将成功创建文件，但对象大小只等于 Content-Length 中定义的大小，其他数据将被丢弃。
 > - 如果试图添加已存在的同名对象且没有启用版本控制，则新上传的对象将覆盖原来的对象，成功时返回200 OK。
@@ -44,7 +43,7 @@ Authorization: Auth String
 | Cache-Control                                                | RFC 2616 中定义的缓存指令，将作为对象元数据保存              | string | 否       |
 | Content-Disposition                                          | RFC 2616 中定义的文件名称，将作为对象元数据保存              | string | 否       |
 | Content-Encoding                                             | RFC 2616 中定义的编码格式，将作为对象元数据保存              | string | 否       |
-| Content-Type                                                 | RFC 2616 中定义的 HTTP 请求内容类型（MIME），此头部用于描述待上传对象的内容类型，将作为对象元数据保存。<br>例如 `text/html` 或 `image/jpeg`。 | string | 是       |
+| Content-Type                                                 | RFC 2616 中定义的 HTTP 请求内容类型（MIME），此头部用于描述待上传对象的内容类型，将作为对象元数据保存。<br>例如`text/html`或`image/jpeg` | string | 是       |
 | Expires                                                      | RFC 2616 中定义的缓存失效时间，将作为对象元数据保存          | string | 否       |
 | Transfer-Encoding                                            | 如果希望在上传时分块传输，则指定 Transfer-Encoding: chunked 请求头部，此时请求体遵循 RFC 2616 中定义的传输编码格式，且不能指定 Content-Length 请求头部 | string | 否       |
 | x-cos-meta-\*                                                | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为对象元数据保存，大小限制为2KB<br>**注意：**用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-） | string | 否       |
