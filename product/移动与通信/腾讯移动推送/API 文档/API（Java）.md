@@ -2,17 +2,7 @@
 本 SDK 提供 TPNS 服务端接口的 Java 封装，与腾讯移动推送后台通信。使用时引用 XingeApp 包即可, 本 sdk 封装的主要是 V3 推送相关接口。
 ## 集成方式
 Maven  依赖引用方式：
-资源库配置
-``` xml
- <repositories>
-        <repository>
-            <id>xingePush</id>
-           <url>https://raw.githubusercontent.com/xingePush/maven-repository/snapshot/</url>
-     </repository>
-    </repositories>
-```
 
-依赖配置
 ```
 <dependency>
             <groupId>com.github.xingePush</groupId>
