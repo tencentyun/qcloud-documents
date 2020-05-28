@@ -28,13 +28,13 @@ const config = (exports = {
 
 
 ## 操作步骤
-#### 安装
+### 1. 安装
 通过 npm 全局安装 [Serverless CLI](https://github.com/serverless/serverless)：
 ```shell
 $ npm install -g serverless
 ```
 
-#### 配置
+### 2. 配置
 在项目根目录创建`serverless.yml`文件：
 ```shell
 $ touch serverless.yml
@@ -63,7 +63,7 @@ inputs:
 
 [查看详细配置文档 >>](https://github.com/serverless-components/tencent-egg/blob/v2/docs/configure.md)
 
-#### 部署
+### 3. 部署
 
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
@@ -82,7 +82,7 @@ $ sls deploy
   32s › MyComponent › done
 ```
 
-#### 移除
+### 4. 移除
 
 通过以下命令移除部署的 API 网关和云函数：
 ```shell
@@ -99,7 +99,7 @@ $ sls remove --debug
 
 ```
 
-#### 账号配置（可选）
+### 账号配置（可选）
 
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建 `.env` 文件：
 
@@ -121,5 +121,5 @@ TENCENT_SECRET_KEY=123
 
 通常初始化的 egg 项目，会自动创建 app/public 目录。但是在打包压缩时，如果该目录为空，则部署后，该目录不会存在。所以 egg 项目启动时会自动创建，但是云函数是没有操作权限的，建议可以在 app/public 目录下创建一个空文件 .gitkeep，来解决此问题。
 
-#### 更多组件
+## 更多组件
 可以在 [Serverless Components](https://github.com/serverless/components) repo 中查询更多组件的信息。

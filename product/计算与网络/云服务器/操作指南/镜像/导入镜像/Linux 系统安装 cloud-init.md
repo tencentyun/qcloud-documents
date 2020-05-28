@@ -76,8 +76,8 @@ python setup.py install --init-system systemd
 #### 修改 cloud-init 配置文件
 
 1. 根据不同操作系统，下载 cloud.cfg。
- - [点此下载](http://cloudinit-1251783334.cosgz.myqcloud.com/ubuntu-cloud.cfg) Ubuntu 操作系统的 cloud.cfg。
- - [点此下载](http://cloudinit-1251783334.cosgz.myqcloud.com/centos-cloud.cfg) CentOS 操作系统的 cloud.cfg。
+ - [点此下载](https://cloudinit-1251783334.cos.ap-guangzhou.myqcloud.com/ubuntu/cloud.cfg) Ubuntu 操作系统的 cloud.cfg。
+ - [点此下载](https://cloudinit-1251783334.cos.ap-guangzhou.myqcloud.com/centos/cloud.cfg) CentOS 操作系统的 cloud.cfg。
 2. 将 `/etc/cloud/cloud.cfg` 的内容替换为已下载的 cloud.cfg 文件内容。
 
 #### 添加 syslog 用户
@@ -183,8 +183,8 @@ apt-get/yum install cloud-init
 
 #### 修改 cloud-init 配置文件
 1. 根据不同操作系统，下载 cloud.cfg。
- - [点此下载](http://cloudinit-1251740579.cosgz.myqcloud.com/ubuntu-cloud.cfg) Ubuntu 操作系统的 cloud.cfg。
- - [点此下载](http://cloudinit-1251740579.cosgz.myqcloud.com/centos-cloud.cfg) CentOS 操作系统的 cloud.cfg。
+ - [点此下载](https://cloudinit-1251783334.cos.ap-guangzhou.myqcloud.com/ubuntu/cloud.cfg) Ubuntu 操作系统的 cloud.cfg。
+ - [点此下载](https://cloudinit-1251783334.cos.ap-guangzhou.myqcloud.com/centos/cloud.cfg) CentOS 操作系统的 cloud.cfg。
 2. 将 `/etc/cloud/cloud.cfg` 的内容替换为已下载的 cloud.cfg 文件内容。
 
 ## 相关操作

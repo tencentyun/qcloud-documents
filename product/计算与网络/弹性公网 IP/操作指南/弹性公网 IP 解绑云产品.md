@@ -42,7 +42,7 @@
 > - NAT 网关至少需绑定一个 EIP，因此，若与 EIP 解绑的云资源为 NAT 网关，且该 EIP 为 NAT 网关绑定的唯一 EIP，则无法解绑。
 > - 对于非带宽上移账户，可以在解绑时勾选【解绑时免费分配普通公网 IP】。
 >
-![](https://main.qcloudimg.com/raw/3959162ca37f6fa0fb114c8e79dd7867.png)
+![](https://main.qcloudimg.com/raw/1b08a8d041eaf1a22d801ff268b9dd5f.png)
 4. 在弹出的提示框中，单击【确定】，即可完成与云资源的解绑。
 
 ## 后续步骤

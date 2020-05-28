@@ -5,19 +5,19 @@ Django 特性介绍：
 - **"0"配置**：只需要关心项目代码，之后部署即可，Serverless Framework 会搞定所有配置。
 - **按需付费**：按照请求的使用量进行收费，没有请求时无需付费。
 - **极速部署**：仅需几秒，部署您的网页应用。
-- **便捷协作**：支持开发模式与云端调试，方便多人协作
-- **拓展广泛** ：支持 Restful API 服务的部署
+- **便捷协作**：支持开发模式与云端调试，方便多人协作。
+- **拓展广泛** ：支持 Restful API 服务的部署。
 
 
 ## 操作步骤
-#### 1. 安装
+### 1. 安装
 
 通过 npm 安装最新版本的 Serverless Framework：
 ```
 $ npm install -g serverless
 ```
 
-#### 2. 创建
+### 2. 创建
 
 创建并进入一个全新目录：
 ```
@@ -30,7 +30,7 @@ $ serverless create --template-url https://github.com/serverless-tencent/tencent
 $ cd example
 ```
 
-#### 3. 配置
+### 3. 配置
 在本地创建`serverless.yml`文件：
 ```shell
 $ touch serverless.yml
@@ -72,7 +72,7 @@ inputs:
 pip install Django -t ./
 ```
 
-#### 4.部署
+### 4. 部署
 
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
@@ -82,13 +82,13 @@ pip install Django -t ./
 $ sls --debug
 ```
 
-#### 5.移除
+### 5. 移除
 通过以下命令移除部署的服务：
 ```shell
 $ sls remove --debug
 ```
 
-#### 账号配置（可选）
+### 账号配置（可选）
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建`.env`文件：
 ```shell
 $ touch .env # 腾讯云的配置信息

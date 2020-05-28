@@ -63,7 +63,7 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 <td>每个账户每个地域（Region）可申请：20个。</td>
 </tr>
 <tr>
-<td colspan="2">单台云服务器绑定公网 IP 数配额请参见 <a href="https://cloud.tencent.com/document/product/1199/41648?!#.E7.BB.91.E5.AE.9A.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.99.90.E5.88.B6" target="_blank">绑定云服务器限制
+<td colspan="2">每台云服务器绑定公网 IP （包括普通公网 IP 和 EIP）数配额请参见 <a href="https://cloud.tencent.com/document/product/1199/41648?!#.E7.BB.91.E5.AE.9A.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.99.90.E5.88.B6" target="_blank">绑定云服务器限制
 </a>。
 </td>
 </tr>
@@ -75,9 +75,9 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 </tr>
 <tr>
 <td>更换 IP</td>
-<td>可以直接更换普通公网 IP，
+<td>普通公网 IP 可以直接更换，
 详情请参见 <a href="https://cloud.tencent.com/document/product/213/16642" target="_blank"> 更换公网 IP 地址</a>。</td>
-<td>不可以直接更换弹性公网 IP，您可以解绑并释放后，申请新的弹性公网 IP 并绑定。</td>
+<td>弹性公网 IP 不可以直接更换，您可以解绑并释放后，申请新的弹性公网 IP 并绑定。</td>
 </tr>
 <tr>
 <td>释放 IP</td>

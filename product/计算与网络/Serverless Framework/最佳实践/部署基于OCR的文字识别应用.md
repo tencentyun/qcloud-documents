@@ -1,12 +1,13 @@
-腾讯云文字识别（OCR）基于行业前沿的深度学习技术，将图片上的文字内容智能识别成为可编辑的文本。支持多场景下的印刷体、手写体文字识别，覆盖不同场景下的文字识别需求。通过 Serverless Framework Component 和 OCR SDK， 您可快速部署一个基于 COS+API+SCF 的通用文字识别应用，主要包含以下组件：
+腾讯云文字识别（OCR）基于行业前沿的深度学习技术，将图片上的文字内容智能识别成为可编辑的文本，支持多场景下的印刷体、手写体文字识别，覆盖不同场景下的文字识别需求。
+通过 Serverless Framework Component 和 OCR SDK， 您可快速部署一个基于 COS + API + SCF 的通用文字识别应用，主要包含以下组件：
 
-- **Serverless RESTful API：** 通过云函数和 API 网关构建的Express框架实现 RESTful API。
-- **Serverless 静态网站：** 前端通过托管 React 静态页面到 COS 对象存储中。
-- **COS 云端存储:** 用户通过自己创建存储桶来存放目标图像
+- **Serverless RESTful API：** 通过云函数和 API 网关构建的 Express 框架实现  RESTful API。
+- **Serverless 静态网站：** 前端通过托管 React 静态页面到对象存储 COS 中。
+- **COS 云端存储:** 用户通过自己创建存储桶来存放目标图像。
 
 ## 前提条件
 
-- 已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于 8.6，建议使用Node.js10.0 及以上版本）
+已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于8.6版本，建议使用Node.js10.0 及以上版本）
 
 ## 操作步骤
 
@@ -24,7 +25,7 @@ $ npm install -g serverless
 $ npm update -g serverless
 ```
 
-安装完毕后，通过运行 serverless -v 命令，查看 Serverless Framework 的版本信息，确保版本信息不低于以下版本：
+安装完毕后，通过运行 `serverless -v` 命令，查看 Serverless Framework 的版本信息，确保版本信息不低于以下版本：
 
 ```shell
 $ serverless –v
@@ -35,13 +36,10 @@ Components: 2.30.1
 ```
 
 ### 创建存储桶
-登录[COS控制台](https://console.cloud.tencent.com/cos5)，创建新的 **公有存储桶** ，用于存放上传的图像，注意地域的选择。
-接下来，点开**基础配置**，为存储桶[配置跨域访问 CORS](https://cloud.tencent.com/document/product/436/13318)，具体配置如下：
 
-<center>
-<img src="https://static-yugasun-com-1251556596.file.myqcloud.com/sls/cos-cors-setup.png" alt="CORS config" width="300">
-</center>
-
+1. 登录 [COS 控制台](https://console.cloud.tencent.com/cos5)，创建新的 **公有存储桶**（参考 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)） ，用于存放上传的图像，注意地域的选择。
+2. 在桶列表的【基础配置】中，为存储桶 [配置跨域访问 CORS](https://cloud.tencent.com/document/product/436/13318)，具体配置如下：
+![](https://main.qcloudimg.com/raw/7c397d30e8231ce983c1fce44abd7326.png)
 
 ### 配置
 
@@ -51,7 +49,7 @@ Components: 2.30.1
 $ serverless create --template-url https://github.com/serverless-tencent/serverless-demos/serverless-ocr
 ```
 
-2.在模版中找到 `.env.example` 文件，并改名为 `.env` ，在里面输入您的账户、密钥信息和指定存储桶(此存储桶用于存放上传的图像)
+2.在模版中找到 `.env.example` 文件，并改名为 `.env` ，在里面输入您的账户、密钥信息和指定存储桶（此存储桶用于存放上传的图像）
 
 ```
 # .env
@@ -64,28 +62,24 @@ REGION=ap-guangzhou
 # bucket name, using to store upload pictures
 BUCKET=ocr-images
 ```
-> 注:您需要先创建一个公开存储桶，用于存放上传的图像
+>?您需要先创建一个公有存储桶，用于存放上传的图像。
 
-3.下载所有npm依赖
+3.下载所有 npm 依赖。
 
 ```console
 $ npm run bootstrap
 ```
 ### 本地调试
 
-输入以下指令启动服务端:
-
+1. 输入以下指令启动服务端：
 ```
 $ cd server && npm run start
 ```
-
-输入以下指令启动前端:
-
+2. 输入以下指令启动前端：
 ```
 $ cd frontend && npm run start
 ```
-
-您可通过 http://localhost:3000 登录前端页面进行本地调试
+3. 通过 http://localhost:3000 登录前端页面进行本地调试。
 
 ### 部署
 
@@ -116,7 +110,7 @@ frontend:
 
 ```
 
-部署成功后，您可以使用浏览器访问项目产生的 website 链接，即可看到生成的网站，点击上传图片，项目即可通过OCR SDK完成文字识别。
+部署成功后，您可以使用浏览器访问项目产生的 website 链接，即可看到生成的网站，单击【上传图片】，项目即可通过 OCR SDK 完成文字识别。
 
 
 2.执行 `sls remove --all`，可移除项目。
