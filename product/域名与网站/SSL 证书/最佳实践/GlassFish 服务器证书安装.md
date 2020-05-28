@@ -46,24 +46,24 @@
   - **CSR 文件内容**：	`cloud.tencent.com.csr` 文件
   >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 2. 远程登录 GlassFish 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
-3. 进入 `/usr/share/glassfish4/glassfish/bin` 目录下执行命令 `./asadmin`后，需更换 domain 的管理密码，请执行命令 `change-master-password --savemasterpassword=true domain1`。如下图所示：
+3. 进入 `/usr/share/glassfish4/glassfish/bin` 目录下执行命令 `./asadmin` 后，需更换 domain 的管理密码，请执行命令 `change-master-password --savemasterpassword=true domain1`。如下图所示：
 >!
 >- domain1 安装默认路径为 `/usr/share/glassfish4/glassfish/domains`，domain 名称请根据实际情况填写。
 >- 默认密码为 changeit，请输入回车后再输入新密码，新密码请填写申请证书时设置的**私钥密码**。
 >- 若申请证书时未设置私钥密码，则填写 Tomcat 文件夹中 `keystorePass.txt` 文件的密码。
 >
-4. 在 `/usr/share` 目录下执行命令 `mkdir Apache` 创建 Apache 文件夹。
-5.  使用 “WinSCP” （即本地与远程计算机间的复制文件工具）登录 GlassFish 服务器，将 `2_cloud.tencent.com.crt` 证书文件、`3_cloud.tencent.com.key` 私钥文件从本地目录拷贝至 Apache 文件夹。
-6. 在 Apache 目录执行以下命令生成 PKCS12 文件，并提示输入密码，请输入新设置的密码，即私钥密码。如下所示：
+4. 在 `/usr/share` 目录下执行命令 `mkdir temp` 创建 temp 文件夹。
+5.  使用 “WinSCP” （即本地与远程计算机间的复制文件工具）登录 GlassFish 服务器，将 `2_cloud.tencent.com.crt` 证书文件、`3_cloud.tencent.com.key` 私钥文件从本地目录拷贝至 temp 文件夹。
+6. 在 temp 目录执行以下命令生成 PKCS12 文件，并提示输入密码，请输入新设置的密码，即私钥密码。如下所示：
 ```
 openssl pkcs12 -export -in 2_cloud.tencent.com.crt -inkey 3_cloud.tencent.com.key -out mycert.p12 -name s1as
 ```
-7. 在 Apache 目录下执行命令 `ls -l` 确认 PKCS12 文件是否包含您申请的证书。
-8. 生成 `keystore.jks` 文件，请在 Apache 目录执行以下命令，则生成的 `keystore.jks` 文件显示在此目录下。如下所示：
+7. 在 temp 目录下执行命令 `ls -l` 确认 PKCS12 文件是否包含您申请的证书。
+8. 生成 `keystore.jks` 文件，请在 temp 目录执行以下命令，则生成的 `keystore.jks` 文件显示在此目录下。如下所示：
 ```
 keytool -importkeystore -destkeystore keystore.jks -srckeystore mycert.p12 -srcstoretype PKCS12 -alias s1as
 ```
-8. 生成 `cacert.jks` 文件，请在 Apache 目录执行以下命令，则生成的 `cacert.jks` 文件显示在此目录下。若提示输入密码，输入新设置的密码，即私钥密码。如下所示：
+8. 生成 `cacert.jks` 文件，请在 temp 目录执行以下命令，则生成的 `cacert.jks` 文件显示在此目录下。若提示输入密码，输入新设置的密码，即私钥密码。如下所示：
 ```
 keytool -importcert -trustcacerts -destkeystore cacerts.jks -file 2_cloud.tencent.com.crt -alias s1as
 ```
