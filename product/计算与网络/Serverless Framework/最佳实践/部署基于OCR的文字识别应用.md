@@ -49,7 +49,7 @@ Components: 2.30.1
 $ serverless create --template-url https://github.com/serverless-tencent/serverless-demos/serverless-ocr
 ```
 
-2.在模版中找到 `.env.example` 文件，并改名为 `.env` ，在里面输入您的账户、密钥信息和指定存储桶（此存储桶用于存放上传的图像）
+2.在模版中找到 `.env.example` 文件，并改名为 `.env` ，在里面输入您的账户、密钥信息和指定存储桶（此存储桶用于存放上传的图像）。
 
 ```
 # .env
