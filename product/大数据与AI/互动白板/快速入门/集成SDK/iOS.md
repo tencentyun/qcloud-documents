@@ -1,6 +1,6 @@
 ## 集成 SDK
 
-本文主要介绍如何快速的将腾讯云 TEduBoard SDK 集成到您的项目中。如果您使用互动课堂方案，请前往[互动课堂集成文档](https://github.com/tencentyun/TIC/blob/master/PaaS/Docs/SDK%E6%96%87%E6%A1%A3/iOS/%E4%BA%92%E5%8A%A8%E8%AF%BE%E5%A0%82%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3.md)。
+本文主要介绍如何快速的将腾讯云 TEduBoard SDK 集成到您的项目中。如果您使用互动课堂方案，请前往[互动课堂集成文档](https://github.com/tencentyun/TIC/blob/master/iOS/%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3.md)。
 
 ## 开发环境
 
