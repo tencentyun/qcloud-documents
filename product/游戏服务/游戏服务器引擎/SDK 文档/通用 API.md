@@ -460,7 +460,7 @@ message GseResponse
 | 字段名                         | 类型   | 说明                                                         |
 | ------------------------------ | ------ | ------------------------------------------------------------ |
 | gameServerSessionId            | string | 对应 GameServerSession 结构的 GameServerSessionId，唯一标记一次游戏会话 |
-| newPlayerSessionCreationPolicy | string | 更新后的策略，可选值有**ACCEPT_ALL**（接受所有新玩家会话） 和**DENY_ALL** （拒绝所有新玩家会话） |
+| newPlayerSessionCreationPolicy | string | 更新后的策略<li>可选值有**ACCEPT_ALL**（接受所有新玩家会话）<li>**DENY_ALL** （拒绝所有新玩家会话） |
 
 #### 使用示例
 
