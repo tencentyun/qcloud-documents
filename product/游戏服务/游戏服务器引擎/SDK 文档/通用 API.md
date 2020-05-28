@@ -6,7 +6,7 @@
 
 >?
 - gproxy 的使用可以参考 [中文版](http://doc.oschina.net/grpc) 和 [英文版](https://www.grpc.io/)。
-- 使用示例基于 go 语言，proto 生成的包名为 grpcsdk。 示例使用的公共函数 getContext，常量 LOCAL_ADDRESS 以及 message GseResponse 结构体请参见 [其他部分](#其他)。
+- 使用示例基于 go 语言，proto 生成的包名为 grpcsdk。 示例使用的公共函数 getContext，常量 LOCAL_ADDRESS 以及 message GseResponse 结构体请参见 [其他部分](#other)。
 
 
 
@@ -180,7 +180,7 @@ func (s *rpcService) OnProcessTerminates(ctx context.Context, req *grpcsdk.Proce
 }
 ```
 
-<span id="GSE 相关接口"></span>
+<span id="GSE"></span>
 ## GSE 相关接口
 
 <span id="ProcessReady"></span>
@@ -607,11 +607,13 @@ func (r *rpcClient) ReportCustomData(currentCustomCount, maxCustomCount int32) (
 }
 ```
 
+
+<span id="other"></span>
 ## 其他
 
 ### 请求 meta
 
-在游戏进程通过 grpc 调用 [GSE 相关接口](#GSE 相关接口) 时，需要在 grpc 请求的 meta 里添加两个字段。
+在游戏进程通过 grpc 调用 [GSE 相关接口](#GSE) 时，需要在 grpc 请求的 meta 里添加两个字段。
 
 | 字段      | 含义                                      | 类型   |
 | --------- | ----------------------------------------- | ------ |
