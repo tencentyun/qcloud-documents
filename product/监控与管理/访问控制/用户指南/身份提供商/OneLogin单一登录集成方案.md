@@ -9,9 +9,9 @@ OneLogin 是一家云身份访问管理解决方案提供商，可以通过其�
 > 
 1. 登录并访问 [OneLogin 网站](https://app.onelogin.com/login)，单击【Applications】，进入应用管理页。<span id="app"></span>
 2. 在应用管理页，单击右上角【ADD APP】。
-2. 在搜索框中输入 “SAML”，按 “Enter”，并在结果列表中单击【 Pilot Catastrophe SAML( IdP )】。如下图所示：
+3. 在搜索框中输入 “SAML”，按 “Enter”，并在结果列表中单击【 Pilot Catastrophe SAML( IdP )】。如下图所示：
 ![](https://main.qcloudimg.com/raw/2f80d98e0a6f05a589bd6a87323e56f7.png)
-3. 在 “Display Name” 中输入应用名 ，并单击右上角【SAVE】，即可完成应用程序的创建。如下图所示：
+4. 在 “Display Name” 中输入应用名 ，并单击右上角【SAVE】，即可完成应用程序的创建。如下图所示：
 ![](https://main.qcloudimg.com/raw/a1bf87f51c2ff62838a1253e9e035bd1.png)
 
 <span id="cam"></span>
@@ -23,7 +23,6 @@ OneLogin 是一家云身份访问管理解决方案提供商，可以通过其�
 1. 在 [OneLogin 应用管理页](#app)，选择您已创建的应用【test】。
 2. 单击右上角【MORE ACTION】，选择【SAML Matedata】，下载 IDP 云数据文档。如下图所示：
 ![](https://main.qcloudimg.com/raw/b109cd83a34d2f264a3697257d281715.png)
-
 3. 创建腾讯云 CAM 身份提供商以及角色，详细操作请参考 [创建身份提供商](https://cloud.tencent.com/document/product/598/30290)、[创建角色](https://cloud.tencent.com/document/product/598/19381)-为身份提供商创建角色。
 
 ### 配置 OneLogin 单点登录
