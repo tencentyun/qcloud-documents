@@ -1,11 +1,10 @@
 ## 接入准备
 
 ### SDK 获取
-一句话识别 C++ SDK 以及 Demo 的下载地址：[C++ SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/c%2B%2B_sentence_sdk.tar.gz )。
+一句话识别 C++ SDK 以及 Demo 的下载地址：[C++ SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/sentence/c%2B%2B_sentence_sdk.zip)。
 
 ### 接入须知
 开发者在调用前请先查看一句话语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308)，了解接口的**使用要求**和**使用步骤**。
-
 
 ### 开发环境
 + **编译 Demo**，如失败需确认以下环境：
@@ -53,7 +52,7 @@ sudo make install
 
 + **openssl**  
 
-本 SDK 提供，目录为：c++_realtime\_asr\_sdk/lib。如果不适合客户系统，请客户自行安装方法，版本1.0.2f，下载 [wget 源码]( http://www.openssl.org/source/openssl-1.0.2f.tar.gz) 并执行以下命令：
+本 SDK 提供，目录为：c++_realtime\_asr\_sdk/lib。如果不适合客户系统，请客户自行安装方法，版本1.0.2f，下载 [wget 源码](https://www.openssl.org/source/old/1.0.2/openssl-1.0.2.tar.gz) 并执行以下命令：
 
 ```
 1. 更新 zlib
@@ -73,7 +72,7 @@ sudo make install
 ### <span id="开发流程">开发流程介绍</span>
 **配置用户信息**
 
-+ 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey 信息，并按如下步骤配置用户信息和请求 URL 参数。
++ 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 获取 AppID、SecretId、SecretKey 信息，并按如下步骤配置用户信息和请求 URL 参数。
 	
 ```
 //需要配置成用户账号信息 c++_sentence_asr_sdk/src/TCloudSASR.h

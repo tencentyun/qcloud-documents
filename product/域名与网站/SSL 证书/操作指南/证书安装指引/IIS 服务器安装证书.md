@@ -1,7 +1,7 @@
 ## 操作场景
 本文档指导您如何在 IIS 中安装 SSL 证书。
 >?
->- 本文档以证书名称 `www.domain.com` 为例。
+>- 本文档以证书名称 `www.domain.com` 为例，实际名称请以您申请的证书为准。
 >- 本文档以操作系统 Windows10 为例。由于操作系统的版本不同，详细操作步骤略有区别。
 >
 
@@ -28,7 +28,7 @@
 ![](https://main.qcloudimg.com/raw/b2567cb66ba2315837e8c18adab2287c.png)
 6. 在弹出的 “网站绑定” 窗口中，单击【添加】。如下图所示：
 ![](https://main.qcloudimg.com/raw/84020faaf7c2899ff6290372acc4c608.png)
-7. 在 “添加网站绑定” 的窗口中，将网站类型设置为 https，端口设置为443，并指定对应的 SSL 证书，单击【确定】。如下图所示：
+7. 在 “添加网站绑定” 的窗口中，将网站类型设置为 https，端口设置为443，主机名请填写您当前申请证书的域名，并指定对应的 SSL 证书，单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/12dde01596ff7a5cd3e39a47b225cc36.png)
 8. 添加完成后，即可在 “网站绑定” 窗口中查看到新添加的内容。如下图所示：
 ![](https://main.qcloudimg.com/raw/db2ab433f6868e775535bb20febf63db.png)

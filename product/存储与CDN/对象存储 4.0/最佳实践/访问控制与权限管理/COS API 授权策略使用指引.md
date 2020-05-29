@@ -463,7 +463,7 @@ API 接口为 PUT Object，若授予其操作权限，则策略的 action为 nam
 
 ### 分块上传 
 
-分块上传包含 Initiate Multipart Upload，List Multipart Uploads，List Parts，Upload Part，Complete Multipart Upload，Abort Multipart Upload。若授予其操作权限，则策略的 action 为： `"name/cos:InitiateMultipartUpload","name/cos:ListMultipartUpload","name/cos:ListParts","name/cos:UploadPart","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"`的集合。
+分块上传包含 Initiate Multipart Upload，List Multipart Uploads，List Parts，Upload Part，Complete Multipart Upload，Abort Multipart Upload。若授予其操作权限，则策略的 action 为： `"name/cos:InitiateMultipartUpload","name/cos:ListMultipartUploads","name/cos:ListParts","name/cos:UploadPart","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"`的集合。
 
 #### 示例 
 
@@ -476,7 +476,7 @@ API 接口为 PUT Object，若授予其操作权限，则策略的 action为 nam
     {
       "action": [
         "name/cos:InitiateMultipartUpload",
-        "name/cos:ListMultipartUpload",
+        "name/cos:ListMultipartUploads",
         "name/cos:ListParts",
         "name/cos:UploadPart",
         "name/cos:CompleteMultipartUpload",
@@ -604,7 +604,7 @@ API 接口为 Put Object Copy，若授予其操作权限，则策略的目标对
 
 ### 复制分块
 
-API 接口为 Upload Part - Copy，若授予其操作权限，则策略的目标对象的 action 为 action 为`"name/cos:InitiateMultipartUpload","name/cos:ListMultipartUpload","name/cos:ListParts","name/cos:PutObject","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"`集合， 和源对象的 action 为 name/cos:GetObject。
+API 接口为 Upload Part - Copy，若授予其操作权限，则策略的目标对象的 action 为 action 为`"name/cos:InitiateMultipartUpload","name/cos:ListMultipartUploads","name/cos:ListParts","name/cos:PutObject","name/cos:CompleteMultipartUpload","name/cos:AbortMultipartUpload"`集合， 和源对象的 action 为 name/cos:GetObject。
 
 #### 示例 
 
@@ -617,7 +617,7 @@ API 接口为 Upload Part - Copy，若授予其操作权限，则策略的目标
     {
       "action": [
         "name/cos:InitiateMultipartUpload",
-        "name/cos:ListMultipartUpload",
+        "name/cos:ListMultipartUploads",
         "name/cos:ListParts",
         "name/cos:PutObject",
         "name/cos:CompleteMultipartUpload",

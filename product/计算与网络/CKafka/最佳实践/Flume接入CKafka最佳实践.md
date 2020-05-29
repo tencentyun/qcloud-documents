@@ -54,7 +54,7 @@ tier1.sources.source1.kafka.consumer.group.id = custom.g.id
 | type	| 必须为：org.apache.flume.sink.kafka.KafkaSink |
 | kafka.bootstrap.servers	| Kafka Broker 的服务器 |
 |kafka.topics	| Kafka 中数据来源 Topic|
-|flumeBatchSize	| 每次写入的 Bacth 大小 |
+|kafka.flumeBatchSize	| 每次写入的 Bacth 大小 |
 |kafka.producer.acks	 | 	Kafka 生产者的生产策略 |
 
 示例：
@@ -76,11 +76,10 @@ a1.sinks.k1.kafka.producer.acks = 1
 
 ### Ckafka 相关配置
 1. 在【[消息队列 Ckafka 控制台](https://console.cloud.tencent.com/ckafka?rid=1) 】中，单击实例名称，可以看到实例分配的具体信息。
-![](https://main.qcloudimg.com/raw/f4baef6daae62629b0c747e1a89ce235.png)
+![](https://main.qcloudimg.com/raw/5ac5b251945f95ee976413adab63a2ce.png)
 >?图中的内网IP与端口作为后续的 Server IP。
 2. 单击【Topic管理】>【新建】，创建一个 Topic，此处名字为 flume_test。
- ![](https://mc.qcloudimg.com/static/img/9f069263c59539be5dcf845bba0b0455/44.png)
-
+![](https://main.qcloudimg.com/raw/39b46eba678dc1af2a51739a3b7d393e.png)
 
 ### Flume 相关配置
 #### 1. 解压已下载的 Apache Flume 压缩包

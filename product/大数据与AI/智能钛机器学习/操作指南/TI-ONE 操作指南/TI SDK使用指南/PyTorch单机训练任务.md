@@ -65,7 +65,9 @@ estimator.fit({'training': 'cos://path/to/input'})
 #### 工作流程
 调用 fit 方法启动训练任务后，TI 后台会执行以下操作：
 - 启动`train_instance_count`数量的`train_instance_type`对应的算力
+
 在每台实例上，执行以下步骤
+
 1. 拉取预置 Pytorch 镜像启动容器
 2. 下载训练数据集
 3. 设置训练相关的环境变量

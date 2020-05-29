@@ -26,7 +26,7 @@ CFS 文件存储提供了标准型及性能型两种类型的文件系统，以�
     <li>最大 IOPS 60K（4KB大小文件随机读写），毫秒级时延</li>
     </td>
     <td nowrap="nowrap"><li>高吞吐<br><li>高 IOPS</td>
-    <td>大量小文件的随机 IO 密集型工作负载，例如高性能计算、媒资渲染、机器学习、DevOps、办公 OA 等</td>
+    <td>IO 密集型工作负载，例如高性能计算、媒资渲染、机器学习、DevOps、办公 OA 等</td>
  </tr>
 </table>
 

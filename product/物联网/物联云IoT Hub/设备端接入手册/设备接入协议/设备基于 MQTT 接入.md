@@ -36,7 +36,7 @@ username字段的格式为：
  - devicename： 设备名称。
  - sdkappid：固定填12010126。
  - connid ：一个随机字符串。
- - 过期时间 ：表示签名的有效期， 从1970年1月1日00:00:00 UTC 时间至今秒数的 UTF8 字符串。
+ - expiry ：表示签名的有效期， 从1970年1月1日00:00:00 UTC 时间至今秒数的 UTF8 字符串。
 3. 用 base64 对设备私钥进行解码得到原始密钥 raw_key。
 4. 用第3步生成的 raw_key，通过 HMAC-SHA1 或者 HMAC-SHA256 算法对 username 生成一串摘要，简称 token。
 5. 按照物联网通信约束生成 password 字段，password 字段格式为：
@@ -91,4 +91,8 @@ python IotHmac.py "YOUR_PRODUCTID" "YOUR_DEVICENAME" "YOUR_PSK"
  3. 将 password 填入到 mqtt 的 password 字段，即可接入到物联云通信平台。
 
 
->!通过 psk 方式接入端口默认为`1883`。若客户端支持 ca 证书，您也可以使用`8883`端口接入。    
+>!
+- 通过 psk 方式接入端口默认为`1883`。若客户端支持 ca 证书，您也可以使用`8883`端口接入。  
+- MQTT 连接服务器地址请参见 [MQTT.fx 接入指南-参数说明部分](https://cloud.tencent.com/document/product/634/14630#.E5.8F.82.E6.95.B0.E8.AF.B4.E6.98.8E)。
+
+

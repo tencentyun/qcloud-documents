@@ -13,12 +13,12 @@
 <tbody><tr>
 <td>普通公网 IP</td>
 <td>支持云服务器访问公网或用户从公网访问云服务器。</td>
-<td>只有在购买云服务器时可以选择是否分配普通公网 IP，如购买时未分配，可使用 <a href="https://cloud.tencent.com/document/product/213/5733" target="_blank">弹性公网 IP</a> 或 <a href="https://cloud.tencent.com/document/product/552" target="_blank">NAT 网关</a>。</td>
+<td>只有在购买云服务器时可以选择是否分配普通公网 IP，如购买时未分配，可使用 <a href="https://cloud.tencent.com/document/product/1199" target="_blank">弹性公网 IP</a> 或 <a href="https://cloud.tencent.com/document/product/552" target="_blank">NAT 网关</a>。</td>
 </tr>
 <tr>
-<td><a href="https://cloud.tencent.com/document/product/213/5733" target="_blank">弹性公网 IP<br>（EIP）</a></td>
+<td><a href="https://cloud.tencent.com/document/product/1199" target="_blank">弹性公网 IP<br>（EIP）</a></td>
 <td>单台云服务器可以绑定一个或多个 EIP，以访问公网或被公网访问。</td>
-<td><li>一种可独立购买和持有的 IP 资源，详情请参见 <a href="https://cloud.tencent.com/document/product/213/17156" target="_blank">EIP 计费</a>。</li><li>可与云服务器、NAT 网关动态绑定、解绑。</li><li>您可以根据业务随时 <a href="https://cloud.tencent.com/document/product/213/16586#.E8.B0.83.E6.95.B4.E5.B8.A6.E5.AE.BD" target="_blank">调整 EIP 的带宽限制</a>。</li></td>
+<td><li>一种可独立购买和持有的 IP 资源，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/41692" target="_blank">弹性公网 IP-计费说明</a>。</li><li>可与云服务器、NAT 网关动态绑定、解绑。</li><li>您可以根据业务随时 <a href="https://cloud.tencent.com/document/product/1199/41705" target="_blank">调整 EIP 的带宽限制</a>。</li></td>
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/552" target="_blank">NAT 网关</a></td>
@@ -80,3 +80,9 @@
 |---------|---------|---------|
 | 基础网络互通| 将基础网络内的云服务器关联至指定私有网络，使基础网络中的云服务器可以与私有网络内的云服务器、数据库等云服务通信。 |<li>基础网络中的云服务器可以访问私有网络中的云服务器、云数据库、内网负载均衡、云缓存等云资源。</li> <li>私有网络内的云服务器，仅能访问互通的基础网络云服务器，无法访问基础网络中的其他计算资源。</li>|
 |终端连接|实现私有网络内实例通过内网与基础网络内非云服务器实例通信的功能。|<li>支持连接的基础网络产品包括：CLB、MySQL、Memcached、Redis、MongoDB。</li><li>终端连接不支持跨地域、跨账号，如您有建立终端连接的需要，请提交 <a href="https://console.cloud.tencent.com/workorder/category" target="_blank">工单申请</a>。</li>|
+
+## 后续操作
+- 如何通过普通公网 IP、弹性公网 IP、NAT 网关、负载均衡等实现访问公网（Internet），详情请参见 [连接公网](https://cloud.tencent.com/document/product/215/36697)。
+- 如何通过对等连接、云联网实现连接不同的 VPC，详情请参见 [连接其它 VPC](https://cloud.tencent.com/document/product/215/36698)。
+- 如何通过 VPN 连接、专线接入、云联网实现 VPC 与本地数据中心的通信，详情请参见 [连接本地数据中心](https://cloud.tencent.com/document/product/215/36699)。
+- 如何通过基础网络互通实现 VPC 与基础网络通信，详情请参见 [与基础网络通信](https://cloud.tencent.com/document/product/215/38124)。

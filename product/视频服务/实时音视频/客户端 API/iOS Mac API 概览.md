@@ -14,7 +14,7 @@
 
 | API | 描述 |
 |-----|-----|
-| [enterRoom](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a96152963bf6ac4bc10f1b67155e04f8d) | 进入房间。 |
+| [enterRoom](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a96152963bf6ac4bc10f1b67155e04f8d) | 进入房间，若房间不存在，系统将自动创建一个新房间。 |
 | [exitRoom](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a715f5b669ad1d7587ae19733d66954f3) | 离开房间。 |
 | [switchRole](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a5f4598c59a9c1e66938be9bfbb51589c) | 切换角色，仅适用于直播场景（TRTCAppSceneLIVE 和 TRTCAppSceneVoiceChatRoom）。 |
 | [connectOtherRoom](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a062bc48550b479a6b7c1662836b8c4a5) | 请求跨房通话（主播 PK）。 |
@@ -40,12 +40,12 @@
 | [startLocalPreview](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a3fc1ae11b21944b2f354db258438100e) | 开启本地视频的预览画面 (iOS 版本)。 |
 | [startLocalPreview](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a3fc1ae11b21944b2f354db258438100e2) | 开启本地视频的预览画面 (Mac 版本)。 |
 | [stopLocalPreview](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a01ee967e3180a5e2fc0e37e9e99e85b3) | 停止本地视频采集及预览。 |
-| [muteLocalVideo](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#af85ea151beebda2f86c3802f3a6a9e82) | 是否停止推送本地的视频数据。 |
+| [muteLocalVideo](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#af85ea151beebda2f86c3802f3a6a9e82) | 暂停/恢复推送本地的视频数据。 |
 | [startRemoteView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#af85283710ba6071e9fd77cc485baed49) | 开始显示远端视频画面。 |
 | [stopRemoteView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2b7e96e4b527798507ff743c61a6a066) | 停止显示远端视频画面，同时不再拉取该远端用户的视频数据流。 |
 | [stopAllRemoteView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aaa75cd1b98c226bb7b8a19412b204d2b) | 停止显示所有远端视频画面，同时不再拉取远端用户的视频数据流。 |
-| [muteRemoteVideoStream](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aaf4376c4822aa9924733f8f165f17683) | 暂停接收指定的远端视频流。 |
-| [muteAllRemoteVideoStreams](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#adf7cd002366760749c6f4d1ee9291db1) | 停止接收所有远端视频流。 |
+| [muteRemoteVideoStream](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aaf4376c4822aa9924733f8f165f17683) | 暂停/恢复接收指定的远端视频流。 |
+| [muteAllRemoteVideoStreams](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#adf7cd002366760749c6f4d1ee9291db1) | 暂停/恢复接收所有远端视频流。 |
 | [setVideoEncoderParam](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a57938e5b62303d705da2ceecf119d74e) | 设置视频编码器相关参数。 |
 | [setNetworkQosParam](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ac72a8a85131cb7716b1eec799250aba9) | 设置网络流控相关参数。 |
 | [setLocalViewFillMode](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a961596f832657bfca81fd675878a2d15) | 设置本地图像的渲染模式。 |
@@ -69,10 +69,10 @@
 |-----|-----|
 | [startLocalAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a3177329bc84e94727a1be97563800beb) | 开启本地音频的采集和上行。 |
 | [stopLocalAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ab78601c38f1b872b03b662e6856be84c) | 关闭本地音频的采集和上行。 |
-| [muteLocalAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a4ada386a75d8042a432da05fde5552d9) | 静音本地的音频。 |
+| [muteLocalAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a4ada386a75d8042a432da05fde5552d9) | 静音/取消静音本地的音频。 |
 | [setAudioRoute](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa62f2af2d86a64c0ebc7b9f00e4a54fe) | 设置音频路由。 |
-| [muteRemoteAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#afede3cc79a8d68994857b410fb5572d2) | 静音某一个用户的声音，同时不再拉取该远端用户的音频数据流。 |
-| [muteAllRemoteAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a75148bf8a322c852965fe774cbc7dd14) | 静音所有用户的声音，同时不再拉取远端用户的音频数据流。 |
+| [muteRemoteAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#afede3cc79a8d68994857b410fb5572d2) | 静音/取消静音指定的远端用户的声音。 |
+| [muteAllRemoteAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a75148bf8a322c852965fe774cbc7dd14) | 静音/取消静音所有用户的声音。 |
 | [setAudioCaptureVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a5475b81c1712323257c10baaf7ad6969) | 设置 SDK 采集音量。 |
 | [getAudioCaptureVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a7ce26486575e72bc445432929fdff26c) | 获取 SDK 采集音量。 |
 | [setAudioPlayoutVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#af2602b1e9dfe932c89dd411f2f227192) | 设置 SDK 播放音量。 |
@@ -123,28 +123,26 @@
 | API | 描述 |
 |-----|-----|
 | [getBeautyManager](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a4fb05ae6b5face276ace62558731280a) | 获取美颜管理对象。 |
-| [setFilter](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a1b0c2a9e82a408881281c7468a74f2c0) | 设置指定素材滤镜特效。 |
-| [setFilterConcentration](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a3b0d7db70674f961c14b316f4e8e7a2b) | 设置滤镜浓度。 |
 | [setWatermark](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ad0bedbddf415d26cff8242d5842a0908) | 添加水印。 |
-| [setGreenScreenFile](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ab4682edfc605ba06e24fd7b3e758ce5d) | 设置绿幕背景视频，该接口仅在 [企业版 SDK](https://cloud.tencent.com/document/product/647/32689#Enterprise) 中生效。 |
 
 
-### 辅流相关接口函数（Mac）
+### 屏幕分享相关接口函数
 
 | API | 描述 |
 |-----|-----|
-| [startRemoteSubStreamView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a68d048ccd0d018995e33e9e714e14474) | 开始显示远端用户的屏幕分享画面。 |
-| [stopRemoteSubStreamView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#acab6e31898857af876af66e779216203) | 停止显示远端用户的屏幕分享画面。 |
-| [setRemoteSubStreamViewFillMode](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a487b3cd9a6b41581d4b45c752c5ede4c) | 设置屏幕分享画面的显示模式。 |
-| [setRemoteSubStreamViewRotation](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a72c66b67eacd24a0e796a3213219fb6d) | 设置屏幕分享画面的顺时针旋转角度。 |
-| [getScreenCaptureSourcesWithThumbnailSize](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa8e5286e1035b64b7d2bf8fadd721123) | 枚举可分享的屏幕窗口。 |
-| [selectScreenCaptureTarget](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a01ead6fb3106ea266caa922f5901bf18) | 设置屏幕共享参数，该方法在屏幕共享过程中也可以调用。 |
-| [startScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a9a4b3b61c39c1c65e3426b35b0ace95f) | 启动屏幕分享。 |
+| [startScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a31146b5e41a451b6259c9d357e01113f) | 启动屏幕分享（iOS）。 |
+| [startScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a59b16baa51d86cc0465dc6edd3cbfc97) | 启动屏幕分享（Mac）。 |
 | [stopScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa8ea0235691fc9cde0a64833249230bb) | 停止屏幕采集。 |
 | [pauseScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a6f536bcc3df21b38885809d840698280) | 暂停屏幕分享。 |
 | [resumeScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#af257a8fb6969fe908ca68a039e6dba15) | 恢复屏幕分享。 |
-| [setSubStreamEncoderParam](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#abc0f3cd5c320d0e65163bd07c3c0a735) | 设置屏幕分享的编码器参数。 |
-| [setSubStreamMixVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a18d3fb6535c9884784c5ad5f8dfd0b12) | 设置屏幕分享的混音音量大小。 |
+| [getScreenCaptureSourcesWithThumbnailSize](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa8e5286e1035b64b7d2bf8fadd721123) | 枚举可分享的屏幕窗口，仅支持 Mac OS 平台，建议在 startScreenCapture 之前调用。 |
+| [selectScreenCaptureTarget](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a01ead6fb3106ea266caa922f5901bf18) | 设置屏幕分享参数，仅支持 Mac OS 平台，该方法在屏幕分享过程中也可以调用。 |
+| [startRemoteSubStreamView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a68d048ccd0d018995e33e9e714e14474) | 开始显示远端用户的辅路画面（TRTCVideoStreamTypeSub，一般用于屏幕分享）。 |
+| [stopRemoteSubStreamView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#acab6e31898857af876af66e779216203) | 停止显示远端用户的辅路画面（TRTCVideoStreamTypeSub，一般用于屏幕分享）。 |
+| [setRemoteSubStreamViewFillMode](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a487b3cd9a6b41581d4b45c752c5ede4c) | 设置辅路画面（TRTCVideoStreamTypeSub，一般用于屏幕分享）的显示模式。 |
+| [setRemoteSubStreamViewRotation](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a72c66b67eacd24a0e796a3213219fb6d) | 设置辅路画面（TRTCVideoStreamTypeSub，一般用于屏幕分享）的顺时针旋转角度。 |
+| [setSubStreamEncoderParam](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#abc0f3cd5c320d0e65163bd07c3c0a735) | 设置屏幕分享的编码器参数，仅适用 Mac 平台。 |
+| [setSubStreamMixVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a18d3fb6535c9884784c5ad5f8dfd0b12) | 设置屏幕分享的混音音量大小，仅适用 Mac 平台。 |
 
 
 ### 自定义采集和渲染
@@ -241,6 +239,10 @@
 | [setNoseSlimLevel](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ae94b107a9c476337585906c79b42ee95) | 设置瘦鼻级别，该接口仅在 [企业版 SDK](https://cloud.tencent.com/document/product/647/32689#Enterprise) 中生效。 |
 | [selectMotionTmpl](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a3aa8c561d744e3d921dff6186a6e4ade) | 选择使用哪一款 AI 动效挂件，该接口仅在 [企业版 SDK](https://cloud.tencent.com/document/product/647/32689#Enterprise) 中生效。 |
 | [setMotionMute](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa6689d734b9f46cb84a848b7e8f39cbd) | 设置动效静音，该接口仅在 [企业版 SDK](https://cloud.tencent.com/document/product/647/32689#Enterprise) 中生效。 |
+| [startScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a9a4b3b61c39c1c65e3426b35b0ace95f2) | 启动屏幕分享。 |
+| [setFilter](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a1b0c2a9e82a408881281c7468a74f2c0) | 设置指定素材滤镜特效。 |
+| [setFilterConcentration](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a3b0d7db70674f961c14b316f4e8e7a2b) | 设置滤镜浓度。 |
+| [setGreenScreenFile](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ab4682edfc605ba06e24fd7b3e758ce5d) | 设置绿幕背景视频，该接口仅在 [企业版 SDK](https://cloud.tencent.com/document/product/647/32689#Enterprise) 中生效。 |
 
 
 ## TRTCCloudDelegate @ TXLiteAVSDK
@@ -270,9 +272,9 @@
 |-----|-----|
 | [onRemoteUserEnterRoom](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a390831928a4d2a7977c4c1572da8be58) | 有用户加入当前房间。 |
 | [onRemoteUserLeaveRoom](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#afa7d16e1e4c66d938fc2bc69f3e34c28) | 有用户离开当前房间。 |
-| [onUserVideoAvailable](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a533d6ea3982a922dd6c0f3d05af4ce80) | 用户是否开启摄像头视频。 |
-| [onUserSubStreamAvailable](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#ac45fb0751f7dbd2466a35c8828c9911b) | 用户是否开启屏幕分享。 |
-| [onUserAudioAvailable](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a8c885eeb269fc3d2e085a5711d4431d5) | 用户是否开启音频上行。 |
+| [onUserVideoAvailable](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a533d6ea3982a922dd6c0f3d05af4ce80) | 远端用户是否存在可播放的主路画面（一般用于摄像头）。 |
+| [onUserSubStreamAvailable](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#ac45fb0751f7dbd2466a35c8828c9911b) | 远端用户是否存在可播放的辅路画面（一般用于屏幕分享）。 |
+| [onUserAudioAvailable](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a8c885eeb269fc3d2e085a5711d4431d5) | 远端用户是否存在可播放的音频数据。 |
 | [onFirstVideoFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a7fc7fd0144af2bc4ce0797f9de530d96) | 开始渲染本地或远程用户的首帧画面。 |
 | [onFirstAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#aafc4536f552199368e48c8527783c410) | 开始播放远程用户的首帧音频（本地声音暂不通知）。 |
 | [onSendFirstLocalVideoFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a17567554f413629a80b5970bdffdff7b) | 首帧本地视频数据已经被送出。 |
@@ -305,7 +307,7 @@
 | [onCameraDidReady](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#aaa74021e5fd2564afb2df50e25eedeff) | 摄像头准备就绪。 |
 | [onMicDidReady](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#afdac7dee94451913a4dc9982badc8035) | 麦克风准备就绪。 |
 | [onAudioRouteChanged](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a1859305732dfd03de63c9b780f99d513) | 音频路由发生变化（仅 iOS），音频路由即声音由哪里输出（扬声器或听筒）。 |
-| [onUserVoiceVolume](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a7775c3fbd84b8da3b7a75bdea27ed5c5) | 提示音量大小的回调，包括每个 userId 的音量和远端总音量。 |
+| [onUserVoiceVolume](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a7775c3fbd84b8da3b7a75bdea27ed5c5) | 用于提示音量大小的回调，包括每个 userId 的音量和远端总音量。 |
 | [onDevice](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a0152908c497bd5ee5225251d9e93e500) | 本地设备通断回调。 |
 
 

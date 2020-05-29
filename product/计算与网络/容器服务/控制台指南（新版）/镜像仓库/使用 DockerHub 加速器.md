@@ -33,6 +33,7 @@ $ sudo systemctl daemon-reload
 ```
 ```
 $ sudo systemctl restart docker
+# Ubuntu16.04 请执行 sudo systemctl restart dockerd 命令
 ```
 
 ### Windows 10

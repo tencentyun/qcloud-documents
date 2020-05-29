@@ -35,10 +35,10 @@ Authorization: Auth
 
 | 名称                       | 描述                                                         | 类型      |
 | -------------------------- | ------------------------------------------------------------ | --------- |
-| NotificationConfiguration  | 说明本Bucket回调请求的所有内容，支持覆盖，当内容为空时，意为删除原有配置 | Container |
+| NotificationConfiguration  | 说明本 Bucket 回调请求的所有内容，支持覆盖，当内容为空时，意为删除原有配置 | Container |
 | CloudFunctionConfiguration | 配置的回调请求，支持配置一条或多条 Configuration，不可以使用重叠前缀，不可以使用重叠后缀<br> 父节点：NotificationConfiguration | Container |
-| Id                         | 用来标示回调规则的 ID <br>父节点：CloudFunctionConfiguration      | String    |
-| Filter                     | 应用回调规则的目录范围，不指定则为根目录<br> 父节点：CloudFunctionConfiguration | Container |
+| Id                         | 用来标示回调规则的 ID<br>父节点：CloudFunctionConfiguration      | String    |
+| Filter                     | 应用回调规则的目录范围，不指定则为根目录<br>父节点：CloudFunctionConfiguration | Container |
 | S3Key                      | 包含多条 FilterRule <br>父节点：Filter                            | Container |
 | FilterRule                 | 包含具体的前缀或者后缀策略，支持配置一个或两个 FilterRule<br> 父节点：S3Key | Container |
 | Name                       | FilterRule的类型，枚举值：Prefix，Suffix<br> 父节点：FilterRule  | String    |

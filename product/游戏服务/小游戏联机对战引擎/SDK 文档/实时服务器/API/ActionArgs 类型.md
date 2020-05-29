@@ -43,12 +43,12 @@ export interface ActionArgs<T> {
 ### gameData 属性
 
 **描述**
-该属性类型为 GameData，表示游戏数据，开发者可以用来实现游戏状态同步等功能。在第一次执行 gameServer.onRecvFromClient 时会被初始化，在执行 gameServer.onDestroyRoom 时会被销毁。
+该属性类型为 GameData，表示游戏数据，开发者可以用来实现游戏状态同步等功能。在第一次执行 gameServer.onCreateRoom 时会被初始化，在执行 gameServer.onDestroyRoom 时会被销毁。
 
 ### room 属性
 
 **描述**
-该属性类型为 IRoomInfo，表示当前房间信息。
+该属性类型为 [IRoomInfo](https://cloud.tencent.com/document/product/1038/34991#oninitgamedata-.E6.8E.A5.E5.8F.A3)，表示当前房间信息。
 
 ### exports 属性
 
@@ -58,7 +58,10 @@ export interface ActionArgs<T> {
 如果开发者需要重新给 gameData 赋值，可以参考以下代码：
 
 ```
-exports.data = {};
+const newData = {};
+exports.data = newData;
+// ...
+// 执行完回调函数之后，gameData 指向 newData
 ```
 
 ### SDK 属性
@@ -78,7 +81,7 @@ exports.data = {};
 |data|{ playerIdList: string[]; data: UserDefinedData; }|消息内容|
 
 >?
-- data.playerIdList 表示接收消息的玩家列表。数组为空表示发给房间内全部玩家。
+- data.playerIdList 表示接收消息的玩家 ID 列表。数组为空表示发给房间内全部玩家。
 - data.data 为具体消息，类型为 UserDefinedData，即 object。
 
 **返回值说明**
@@ -88,8 +91,14 @@ exports.data = {};
 **使用示例**
 
 ```
-let data =  { playerIdList: [], data: { msg: "hello" } };
-SDK.sendData(data);
+// 例子1：发给房间列表中第一个玩家
+const id = room.playerList[0].id;
+let data1 =  { playerIdList: [id], data: { msg: "hello" } };
+SDK.sendData(data1);
+
+// 例子2：发给房间全部玩家
+let data2 =  { playerIdList: [], data: { msg: "hello" } };
+SDK.sendData(data2);
 ```
 
 #### SDK.dispatchAction 方法
@@ -191,7 +200,8 @@ IGetRoomByRoomIdRsp 定义如下：
 
 |属性名|类型/值|描述|
 |:---|---|---|
-|roomInfo|IRoomInfo|房间信息|
+|roomInfo|[IRoomInfo](https://cloud.tencent.com/document/product/1038/34991#oninitgamedata-.E6.8E.A5.E5.8F.A3)|房间信息|
+
 
 **返回值说明**
 
@@ -205,6 +215,11 @@ IGetRoomByRoomIdRsp 定义如下：
 const getRoomByRoomIdPara = { roomId: "xxx", };
 SDK.getRoomByRoomId(getRoomByRoomIdPara, event => {
     console.log(event.code, event.data);
+
+    if (event.code === 0) {
+        // 操作成功
+        const roomInfo = event.data.roomInfo;
+    }
 });
 ```
 
@@ -226,7 +241,7 @@ IChangeRoomPara 定义如下：
 |:---|---|---|---|
 |roomId|string|房间 ID||
 |roomName|string|房间名称|是|
-|owner|string|房主ID|是|
+|owner|string|房主 ID|是|
 |isPrivate|boolean|是否私有|是|
 |isForbidJoin|boolean|是否禁止加入房间|是|
 |customProperties|string|自定义房间属性|是|
@@ -235,7 +250,7 @@ IChangeRoomRsp 定义如下：
 
 |属性名|类型/值|描述|
 |:---|---|---|
-|roomInfo|IRoomInfo|房间信息|
+|roomInfo|[IRoomInfo](https://cloud.tencent.com/document/product/1038/34991#oninitgamedata-.E6.8E.A5.E5.8F.A3)|房间信息|
 
 **返回值说明**
 
@@ -249,6 +264,11 @@ IChangeRoomRsp 定义如下：
 const changeRoomPara = { roomId: "xxx", roomName: "xxx" };
 SDK.changeRoom(changeRoomPara, event => {
     console.log(event.code, event.data);
+
+    if (event.code === 0) {
+        // 操作成功
+        const roomInfo = event.data.roomInfo;
+    }
 });
 ```
 
@@ -276,7 +296,7 @@ IChangeCustomPlayerStatusRsp 定义如下：
 
 |属性名|类型/值|描述|
 |:---|---|---|
-|roomInfo|IRoomInfo|房间信息|
+|roomInfo|[IRoomInfo](https://cloud.tencent.com/document/product/1038/34991#oninitgamedata-.E6.8E.A5.E5.8F.A3)|房间信息|
 
 **返回值说明**
 
@@ -290,6 +310,11 @@ IChangeCustomPlayerStatusRsp 定义如下：
 const changeCustomPlayerStatusPara = { roomId: "xxx", playerId: "xxx", customPlayerStatus: 1 };
 SDK.changeCustomPlayerStatus(changeCustomPlayerStatusPara, event => {
     console.log(event.code, event.data);
+
+    if (event.code === 0) {
+        // 操作成功
+        const roomInfo = event.data.roomInfo;
+    }
 });
 ```
 
@@ -316,7 +341,7 @@ IRemovePlayerRsp 定义如下：
 
 |属性名|类型/值|描述|
 |:---|---|---|
-|roomInfo|IRoomInfo|房间信息|
+|roomInfo|[IRoomInfo](https://cloud.tencent.com/document/product/1038/34991#oninitgamedata-.E6.8E.A5.E5.8F.A3)|房间信息|
 
 **返回值说明**
 
@@ -330,6 +355,11 @@ IRemovePlayerRsp 定义如下：
 const removePlayerPara = { roomId: "xxx", removePlayerId: "xxx" };
 SDK.removePlayer(removePlayerPara, event => {
     console.log(event.code, event.data);
+
+    if (event.code === 0) {
+        // 操作成功
+        const roomInfo = event.data.roomInfo;
+    }
 });
 ```
 

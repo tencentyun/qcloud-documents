@@ -32,14 +32,14 @@ WordPress 个人站点可搭建在 PHP 5.6.20及之后版本和 MySQL 5.0及之�
 
 1. 下载 WordPress，并将 WordPress 安装包解压至云服务器中。
 例如，将 WordPress 安装包解压至 `C:\wordpress` 目录下。
-2. 右键单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: 0;">，选择【运行】，输入 **cmd**，按 **Enter**，打开命令行工具。
-3. 在命令行工具中，执行以下命令，创建 WordPress 数据库。
+2. 单击 <img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: 0;"> >  <img src="https://main.qcloudimg.com/raw/ca83b4e70e201fe9ff98dc1f2b207cee.png" style="margin: 0;"> > 【MySQL 5.6 Command Line Client】，打开 MySQL 命令行客户端。
+3. 在 MySQL 命令行客户端中，执行以下命令，创建 WordPress 数据库。
 例如，创建 “wordpress” 数据库。
 ```
 create database wordpress;
 ```
 4. 在 WordPress 的解压安装路径下，找到并复制 `wp-config-sample.php` 文件，并将该文件重命名为 `wp-config.php`。
-5. 使用文本编辑器打开 `wp-config.php` 文件，并将相关配置信息修改为 [步骤4：搭建 MySQL 数据库](#Step04) 的内容。如下图所示：
+5. 使用文本编辑器打开 `wp-config.php` 文件，并将相关配置信息修改为 [步骤3：安装 MySQL 数据库](https://cloud.tencent.com/document/product/213/10190) 的内容。如下图所示：
 ![](https://main.qcloudimg.com/raw/ed808064e32f8c6c133e74472c934c0b.png)
 6. 保存 `wp-config.php` 文件。
 7. 单击 <img src="https://main.qcloudimg.com/raw/f779581f1ce3edfead8c725ce1504009.png" style="margin: 0;">，打开服务器管理器。
@@ -57,7 +57,7 @@ create database wordpress;
 13. 在 PHP 的解压安装路径下，打开 `php.ini` 文件，并修改以下内容。
  1. 根据 PHP 版本不同，修改相应的配置参数：
      - 针对 PHP 版本为5.X版本，找到`extension=php_mysql.dll`，删除前面的`;`。
-     - 针对 PHP 版本为7.X版本，找到`extension=php_mysqli.dll` ，删除前面的`;`。
+     - 针对 PHP 版本为7.X版本，找到`extension=mysqli` ，删除前面的`;`。
  2. 找到`extension_dir = "ext"`，删除前面的`;`。
 14. 保存 `php.ini` 文件。
 
@@ -82,7 +82,7 @@ create database wordpress;
 1. 通过腾讯云 [购买域名](https://dnspod.cloud.tencent.com/?from=qcloud)，具体操作请参考 [域名注册](https://cloud.tencent.com/document/product/242/9595)。
 2. 进行 [网站备案](https://cloud.tencent.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。
 域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云免费进行备案，审核时长请参考 [备案审核](https://cloud.tencent.com/document/product/243/19650)。
-3. 通过腾讯云 [云解析](https://cloud.tencent.com/product/cns?from=qcloudHpHeaderCns&fromSource=qcloudHpHeaderCns) 配置域名解析。具体操作请参考 [A 记录](https://cloud.tencent.com/document/product/302/3449)，将域名指向一个 IP 地址（外网地址）。
+3. 通过腾讯云 [DNS解析 DNSPod](https://cloud.tencent.com/product/cns?from=qcloudHpHeaderCns&fromSource=qcloudHpHeaderCns) 配置域名解析。具体操作请参考 [A 记录](https://cloud.tencent.com/document/product/302/3449)，将域名指向一个 IP 地址（外网地址）。
 
 ## 常见问题
 如果您在使用云服务器的过程中遇到问题，可参考以下文档并结合实际情况分析并解决问题：

@@ -1,5 +1,5 @@
-您可通过如下视频了解网络 ACL 的相关信息。
-<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1807-20616?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+您可通过如下视频了解使用网络 ACL 实现访问控制的相关概念。
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2354-35387?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 网络访问控制列表（Access Control List，ACL）是一种子网级别的可选安全层，用于控制进出子网的数据流，可以精确到协议和端口粒度。
 ![](https://main.qcloudimg.com/raw/ece35157aa40118a18adb1a4885c14ce.png)

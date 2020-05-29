@@ -15,15 +15,16 @@ HTTP 触发是云开发为开发者提供的 HTTP 访问服务，让开发者可
 
 1. 登录腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb)，选择需要管理的环境。
 2. 单击左侧菜单栏【云函数】，进入云函数页面。
-3. 选中需要配置的函数，编辑【函数配置】，配置访问路径。
-<img src="https://main.qcloudimg.com/raw/65e60093283d48b6bee0b05277ea8cd2.jpg" width="80%"></img>
+3. 单击需要配置的函数名称，进入【函数配置】页，单击右上角【编辑】配置访问路径，然后单击【保存】。
+![](https://main.qcloudimg.com/raw/bd0652fba6b63d5ff09dce048b905800.png)
 
 
 ### 绑定自定义域名
 
 1. 单击左侧菜单栏【云函数】，进入云函数页面。
 2. 单击【HTTP 触发】，在 HTTP 触发配置窗口中进行配置。
-![](https://main.qcloudimg.com/raw/d57783a65d625708f45f628eddbe9139.jpg)
+![](https://main.qcloudimg.com/raw/183c3cf5ff9281ed0df93866faab82d4.png)
+
 >!
 >- 每个环境最多绑定5个自定义域名。
 >- 云开发提供默认域名供体验和测试该特性，域名规范如：`${envId}.service.tcloudbase.com`。
@@ -220,4 +221,4 @@ content-length: 9897
 <binary payload...>
 ```
 
-**云函数配置 HTTP 触发后，可以很轻松地托管 Node.js 服务端程序，详情请查看文档 [托管 NodeJS Server](https://tencentcloudbase.github.io/2019-09-03-hosting-nodejs-server/#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C)。**
+**云函数配置 HTTP 触发后，可以很轻松地托管 Node.js 服务端程序，详情请查看文档 [托管 NodeJS Server](https://cloud.tencent.com/document/product/876/41777)。**

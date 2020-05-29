@@ -1,3 +1,7 @@
+>?
+>- TSF Serverless 是微服务的应用托管平台，主要支持东西向微服务框架（如 Spring Cloud 和 Service Mesh）。
+>- Web 服务（Express、Koa）推荐使用 [Serverless Framework](https://cloud.tencent.com/product/sls)。
+
 ## 创建 Nodejs Express 项目
 1. 根据实际需求，选择目录路径，并在该路径下创建新的目录，用作于项目目录。
    例如，创建一个名称为 helloexpress 的项目目录。
@@ -42,44 +46,55 @@ zip code.zip * -r
 ```
 
 ## 创建 Hello World 服务
-1. 登录 [TSF 控制台](https://console.cloud.tencent.com/tsf)，选择地域（本文以广州为例）。
-2. 在左侧导航栏，选择【[应用管理](https://console.cloud.tencent.com/tsf/app?rid=1)】，单击【新建应用】。
-3. 在【新建应用】页面，填写应用基本信息，单击【提交】。
- - **应用名**：填写 helloexpress。
- - **部署方式**：选择"Serverless部署"。
-  使用 Serverless 部署，用户不需要关系应用部署的计算资源，系统自动提供资源调度、资源计算、弹性伸缩能力。
- - **运行环境**：TSF Serverless目前仅支持 Nodejs8.9。
- - **备注**：填写备注信息。
-4. 应用创建完成后，按照提示前往【程序包管理】上传程序包。
-![](https://main.qcloudimg.com/raw/f0ab9af0dcad281051ee4ecb24016301.png)
-5. 单击【上传程序包】，填写基本信息，单击【提交】。
-![](https://main.qcloudimg.com/raw/baa94f117949086b7665a1854f51d51c.png)
- - **上传程序包**：之前在本地打包完成的压缩包。您可以在 [这里](链接到tsf serverless使用须知的上传程序包要求) 查看程序包的要求。
- - **程序包版本**：填写版本信息。
- - **备注**：填写备注信息。
-6. 程序包上传完成后，前往【部署组】创建部署组。
-![](https://main.qcloudimg.com/raw/63f50aaf7a50823b3960b908e50a58ba.png)
-7. 选择之前上传的程序包，创建新的部署组。
- - 部署组可以认为是一个特定版本程序的部署实例。一个应用可以有多个部署组，从而实现版本灰度发布。
- - 当前 TSF Serverless 尚未支持版本灰度功能，所以限制一个应用只能有一个部署组。后续会放开限制。
-![](https://main.qcloudimg.com/raw/211d0a9b418379440bba1821c4715ce8.png)
- * **名称**：填写部署组名称。
- * **选择程序包**：选择之前上传的程序包。
- * **开启访问 VPC**：如果**您的程序需要访问 VPC 内云资源，例如访问 VPC 内的数据库**，那么您可以开启访问 VPC，并配置 VPC 信息。
-8. 部署组创建完成后，您可以在【访问管理】配置外网访问。
-![](https://main.qcloudimg.com/raw/55c0ca30e160ac1d35fbc82452cb2cbb.png)
-TSF Serverless 的外网访问是通过关联创建 API 网关实现的。**您可以前往 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=1) 查看关联创建的 API 网关资源，并在 API 网关控制台使用其他高级功能，如自定义域名**。
-9. 您可以单击部署组操作栏的【部署应用】来更新部署组的程序包版本。
-![](https://main.qcloudimg.com/raw/f5d47e1c5db8c8aaa3dd8e733e18ab76.png)
-10. 您可以单击部署组操作栏的【查看日志】来查看实时日志和历史日志。
- * **实时日志**：当【自动刷新】开启时，将从**当前时刻起拉取实时日志（当前时刻之前的日志不显示）**。
- * **历史日志**：关闭【自动刷新】后，可以选择时间段查看历史日志。
-11. 您可以单击【监控信息】来查看监控数据。当前支持以下维度的监控：
- * 请求数（次）：请求次数。
- * 请求耗时（ms）：请求的整体耗时，单位为 ms。
- * 前台错误数（次）：这里是 API 网关的概念，前台错误数是请求未到达后端Serverless应用即出 现的错误的请求数量（4xx、5xx）。
- * 后台错误数（次）：这里是 API 网关的概念，后台错误数是由用户的业务代码直接返回错误的请求数量（4xx、5xx）。
- * 长连接数（条）：TCP 长连接数。
 
+### 步骤1：新建 Serverless 集群
+
+首先您需要创建 Serverless 集群。集群是实例、Serverless 等云资源的集合。
+
+1. 登录 [TSF 控制台](https://console.cloud.tencent.com/tsf/index)。
+2. 在左侧导航栏中，单击【[集群](https://console.cloud.tencent.com/tsf/cluster?rid=1)】，进入集群列表页。
+3. 在集群列表页，单击【新建集群】。
+4. 设置集群的基本信息。
+ - **集群类型**：选择 **Serverless集群**。
+ - **集群名称**：集群名称，不超过60个字符。
+ - **集群网络**：为集群内主机分配在云服务器网络地址范围内的 IP 地址。参阅 [私有网络和子网](https://cloud.tencent.com/document/product/215/20046)。
+ - **集群描述**：集群的描述，不超过200个字符。
+
+
+### 步骤2：创建 Serverless 应用
+
+1. 在左侧导航栏，单击【[应用管理](https://console.cloud.tencent.com/tsf/app?rid=1)】，进入应用列表。
+2. 在应用列表上方单击【新建应用】。
+3. 设置应用信息后，单击【提交】。
+   - 部署方式：选择 **Serverless部署**
+   - 运行环境：选择 **Nodejs** 
+   
+
+### 步骤3：上传程序包
+
+1. 在 [应用管理列表](https://console.cloud.tencent.com/tsf/app) 页 ，单击目标应用的**ID/应用名**，进入应用详情页。
+2. 在应用详情页的上方，单击**程序包管理**标签页，单击【上传程序包】。
+![](https://main.qcloudimg.com/raw/2be5327d84d9b323e016d84085bbd36f.png)
+3. 在**上传程序包**对话框中填写相关参数。
+  - 上传程序包：单击【选择文件】，选择编译为 jar 格式的程序包
+  - 程序包版本：填写版本号，或单击【用时间戳作为版本号】
+  - 备注：填写备注  
+4. 单击【提交】，程序包上传成功后出现在程序包列表中。
+
+### 步骤4：创建部署组并添加实例
+1. 在 [应用管理列表](https://console.cloud.tencent.com/tsf/app) 页 ，单击目标应用的**ID/应用名**，进入应用详情页。
+2. 单击【新建部署组】，设置部署组相关信息：
+  - 部署组名称：部署组的名称，不超过60个字符。
+  - 集群：选择**步骤1**中创建的集群。
+  - 命名空间：选择集群关联的系统命名空间。
+  - 日志配置项：应用的日志配置项用于指定 TSF 采集应用的日志路径。参考 [日志服务](https://cloud.tencent.com/document/product/649/13697)。
+3. 单击【提交】。
+
+### 步骤5：部署应用
+1. 在上步操作中单击【下一步】即可完成部署，如部署失败，可在部署组列表页的右侧，单击【部署应用】重试。
+![](https://main.qcloudimg.com/raw/ee0e779344c6f058fd181fb24c8582bc.png)
+2. 选择**步骤3**中已上传成功的程序包后，单击【提交】。
+3. 应用部署成功后，部署组中**运行实例数**的数值发生变化。
+![](https://main.qcloudimg.com/raw/8071674f9caf0a623058be7d5844e8e8.png)
 
 

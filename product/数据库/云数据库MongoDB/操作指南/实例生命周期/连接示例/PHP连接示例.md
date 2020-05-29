@@ -1,15 +1,15 @@
 ### 相关说明
-腾讯云 MongoDB 默认提供了 “rwuser” 和 “mongouser” 两个用户名分别支持 “MONGODB-CR” 和 “SCRAM-SHA-1” 两种认证方式，对于这两种认证方式，连接 URI 需要做不同的处理，具体参见 [连接示例](https://cloud.tencent.com/doc/product/240/3563) 文档。
+云数据库 MongoDB 默认提供 rwuser 和 mongouser 两个用户名，分别支持 MONGODB-CR 和 SCRAM-SHA-1 两种认证方式，对于这两种认证方式，连接 URI 需要做不同的处理，具体参见 [连接实例](https://cloud.tencent.com/document/product/240/7092)。
 
 在 PHP 里，有 [两套驱动](https://docs.mongodb.com/ecosystem/drivers/php/) 可用于连接操作 MongoDB 数据库，它们分别是：
-- mongodb ([PHP官网文档](http://php.net/manual/en/set.mongodb.php))  - MongoDB 官方推荐 mongodb 驱动，但需要 PHP 5.4 以上版本。
-- mongo ([PHP官网文档](http://php.net/manual/en/book.mongo.php)) - mongo 比较老旧，但也可以用，如果要用请选择 1.6 版本。
+- mongodb（[PHP 官网文档](http://php.net/manual/en/set.mongodb.php)）- MongoDB 官方推荐 mongodb 驱动，但需要 PHP 5.4 以上版本。
+- mongo（[PHP 官网文档](http://php.net/manual/en/book.mongo.php)）- mongo 比较旧，但也可以用，如果要用请选择 1.6 版本。
 
-下面分别用上述两个驱动演示连接腾讯云 MongoDB 并进行读写。
+下面分别用上述两个驱动演示连接云数据库 MongoDB 并进行读写。
 
 ### 使用 mongodb 驱动
 mongodb 安装方法参考 [官方安装步骤](http://php.net/manual/zh/mongodb.installation.php)。
-**mongodb 驱动可以用 “MONGODB-CR” 和 “SCRAM-SHA-1” 两种认证方式**，具体参见 [连接示例](https://cloud.tencent.com/doc/product/240/3563)。
+**mongodb 驱动可以用 MONGODB-CR 和 SCRAM-SHA-1 两种认证方式**，具体参见 [连接实例](https://cloud.tencent.com/doc/product/240/3563)。
 
 示例代码:
 ```
@@ -38,14 +38,14 @@ $result = $manager->executeBulkWrite('tsdb.table1', $bulk);
 // 查询
 $filter = ['_id' => $_id1];
 $query = new MongoDB\Driver\Query($filter);
-$rows = $manager->executeQuery('tsdb.table1', $query); // 也可以选择优先从从库读哦，具体请参阅文档
+$rows = $manager->executeQuery('tsdb.table1', $query); // 也可选择优先从从库读
 foreach($rows as $r){
    print_r($r);
 }
 
 
 ```
-**输出：**
+输出：
 ```
 stdClass Object
 (
@@ -62,7 +62,7 @@ stdClass Object
 
 
 ### 使用 mongo 驱动
-**mongo 驱动只支持 “MONGODB-CR” 认证**，对应的只能用 “rwuser” 进行连接，具体参见 [连接示例](https://cloud.tencent.com/doc/product/240/3563)。
+**mongo 驱动只支持 MONGODB-CR 认证**，对应的只能用 rwuser 进行连接，具体参见 [连接实例](https://cloud.tencent.com/document/product/240/7092)。
 
 示例代码:
 
@@ -123,7 +123,7 @@ $document = $collection->findOne(['name' => 'gomez']);
 var_dump($document);
 
 ```
-输出
+输出：
 ```
 Inserted 1 document(s)
 object(MongoDB\BSON\ObjectID)#11 (1) {

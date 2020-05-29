@@ -11,7 +11,7 @@
 |DedeCMS plus/search.php SQL 注入漏洞	| 高	| SQL 注入 |
 |DedeCMS V5.7 SP1 /member/mtypes.php SQL 注入漏洞	| 高	| SQL 注入 |
 |Discuz X2.5 /source/class/class_image.php 命令执行漏洞	| 高	| 远程代码执行 |
-|Discuz!X ≤3.4 任意文件删除漏洞	| 高	| 任意文件删除 |
+|Discuz!X ≤ 3.4 任意文件删除漏洞	| 高	| 任意文件删除 |
 |Discuz!X 后台任意代码执行漏洞	| 高	| 远程代码执行 |
 |Discuz7.2 /faq.php SQL 注入漏洞	| 高	| 远程代码执行 |
 |Drupal < 7.32 Pre Auth SQL 注入	| 高	| SQL 注入 |

@@ -1,10 +1,13 @@
 ## 操作场景
 
-本文档指导您通过使用 FTP 通道，将文件从本地服务器上传到云服务器中。
+本文档指导您如何在 Windows 系统的本地机器上使用 FTP 服务，将文件从本地上传到云服务器中。
 
 ## 前提条件
 
-已在云服务器中 [搭建 FTP 服务](https://cloud.tencent.com/document/product/213/10414)。
+已在云服务器中搭建 FTP 服务。
+- 如果您的云服务器为 Linux 操作系统，具体操作请参考 [Linux 云服务器搭建 FTP 服务](https://cloud.tencent.com/document/product/213/10912)。
+- 如果您的云服务器为 Windows 操作系统，具体操作请参考 [Windows 云服务器搭建 FTP 服务](https://cloud.tencent.com/document/product/213/10414)。
+
 
 ## 操作步骤
 

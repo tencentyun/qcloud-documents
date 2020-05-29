@@ -86,17 +86,12 @@
 <td>微信登录态无效</td><td>104</td><td>检查 wxtoken 参数，是否已经失效。</td>
 </tr>
 <tr>
-<td rowspan=5>环境风险</td><td>环境异常</td><td>201</td><td>操作 IP/设备/环境存在异常。当前 IP 为非常用 IP 或恶意 IP 段。</td>
-</tr>
-<tr>
-<td>JS 上报异常</td><td>202</td><td>需要用户在前端部署 JS 方有效。</td>
-</tr>
-<tr>
-<td>撞库</td><td>203</td><td>该账号有过“撞库”的历史行为。</td>
+<td rowspan=2>环境风险</td><td>环境异常</td><td>201</td><td>操作 IP/设备/环境存在异常。当前 IP 为非常用 IP 或恶意 IP 段。</td>
 </tr>
 <tr>
 <td>非公网有效 IP</td><td>205</td><td>传进来的 IP 地址为内网 IP 地址或者 IP 保留地址 。</td>
 </tr>
+ <tr><td >设备风险</td><td>设备异常</td><td>206</td><td>该设备存在异常的使用行为。</td></tr>
 </table>
 
 ## 示例代码

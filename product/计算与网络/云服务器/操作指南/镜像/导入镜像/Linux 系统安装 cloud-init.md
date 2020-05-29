@@ -1,7 +1,7 @@
 ## 操作场景
 
 Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果导入的镜像没有安装 cloud-init 服务，基于该镜像启动的实例将无法被正常初始化，导致该镜像导入失败。本文档指导您安装 cloud-init 服务。
-安装 cloud-init 有以下两种方式：
+安装 cloud-init 推荐以下两种方式：
 - 通过 [手工下载 cloud-init 源码包方式](#ManualDown) 
 - 通过 [使用软件源上的 cloud-init 包方式](#SoftSources)
 
@@ -17,7 +17,9 @@ Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果
 ### 手工下载 cloud-init 源码包方式
 
 #### 下载 cloud-init 源码包
->?  在正常安装的情况下，cloud-init-17.1 版本与腾讯云的兼容性最佳，可以保证使用该镜像创建的云服务器的所有配置项都可以正常初始化。建议选择 **cloud-init-17.1.tar.gz** 安装版本。您也可以 [点此获取](https://launchpad.net/cloud-init/+download) 其他版本的 cloud-init 源码包。本文以 cloud-init-17.1 版本为例。
+>?  
+> - 在正常安装的情况下，cloud-init-17.1 版本与腾讯云的兼容性最佳，可以保证使用该镜像创建的云服务器的所有配置项都可以正常初始化。建议选择 **cloud-init-17.1.tar.gz** 安装版本。您也可以 [点此获取](https://launchpad.net/cloud-init/+download) 其他版本的 cloud-init 源码包。本文以 cloud-init-17.1 版本为例。
+> - 如使用 cloud-init-17.1 或其他版本的 cloud-init 源码包安装不成功，您还可以通过 [手工下载绿色版 cloud-init 包方式](#greeninitCloudInit) 进行安装。
 >
 执行以下命令，下载 cloud-init 源码包。
 ```
@@ -74,8 +76,8 @@ python setup.py install --init-system systemd
 #### 修改 cloud-init 配置文件
 
 1. 根据不同操作系统，下载 cloud.cfg。
- - [点此下载](http://cloudinit-1251783334.cosgz.myqcloud.com/ubuntu-cloud.cfg) Ubuntu 操作系统的 cloud.cfg。
- - [点此下载](http://cloudinit-1251783334.cosgz.myqcloud.com/centos-cloud.cfg) CentOS 操作系统的 cloud.cfg。
+ - [点此下载](https://cloudinit-1251783334.cos.ap-guangzhou.myqcloud.com/ubuntu/cloud.cfg) Ubuntu 操作系统的 cloud.cfg。
+ - [点此下载](https://cloudinit-1251783334.cos.ap-guangzhou.myqcloud.com/centos/cloud.cfg) CentOS 操作系统的 cloud.cfg。
 2. 将 `/etc/cloud/cloud.cfg` 的内容替换为已下载的 cloud.cfg 文件内容。
 
 #### 添加 syslog 用户
@@ -166,6 +168,7 @@ chkconfig cloud-config on
 chkconfig cloud-final on 
 ```
 
+
 <span id="SoftSources"></span>
 ### 使用软件源上的 cloud-init 包方式
 
@@ -180,8 +183,8 @@ apt-get/yum install cloud-init
 
 #### 修改 cloud-init 配置文件
 1. 根据不同操作系统，下载 cloud.cfg。
- - [点此下载](http://cloudinit-1251740579.cosgz.myqcloud.com/ubuntu-cloud.cfg) Ubuntu 操作系统的 cloud.cfg。
- - [点此下载](http://cloudinit-1251740579.cosgz.myqcloud.com/centos-cloud.cfg) CentOS 操作系统的 cloud.cfg。
+ - [点此下载](https://cloudinit-1251783334.cos.ap-guangzhou.myqcloud.com/ubuntu/cloud.cfg) Ubuntu 操作系统的 cloud.cfg。
+ - [点此下载](https://cloudinit-1251783334.cos.ap-guangzhou.myqcloud.com/centos/cloud.cfg) CentOS 操作系统的 cloud.cfg。
 2. 将 `/etc/cloud/cloud.cfg` 的内容替换为已下载的 cloud.cfg 文件内容。
 
 ## 相关操作
@@ -202,3 +205,28 @@ rm -rf /etc/network/interfaces.d/50-cloud-init.cfg
 # and how to activate them. For more information, see interfaces(5).
 source /etc/network/interfaces.d/*
 ```
+
+## 附录
+
+<span id="greeninitCloudInit"></span>
+### 手工下载绿色版 cloud-init 包方式
+若通过 [手工下载 cloud-init 源码包方式](#ManualDown) 安装不成功，可通过以下操作进行安装：
+1. [点此获取](https://image-tools-1251783334.cos.ap-guangzhou.myqcloud.com/greeninit-x64-beta.tgz) 绿色版 cloud-init 包。
+2. 执行以下命令，解压绿色版 cloud-init 包。
+```
+tar xvf greeninit-x64-beta.tgz 
+```
+3. 执行以下命令，进入已解压的绿色版 cloud-init 包目录（即进入 greeninit 目录）。
+```
+cd greeninit
+```
+4. 执行以下命令，安装 cloud-init。
+```
+sh install.sh 
+```
+
+
+
+
+
+

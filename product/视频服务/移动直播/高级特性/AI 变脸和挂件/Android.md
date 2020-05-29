@@ -6,7 +6,7 @@
 
 ### 1. 申请企业版 License
 
-登录 [美颜特效 SDK（优图美视）控制台](https://cloud.tencent.com/product/x-magic) ，单击【立即申请】，如实填写相关信息并完成申请。
+登录腾讯云，进入 [美颜特效服务开通申请页](https://cloud.tencent.com/product/x-magic)，如实填写相关信息并完成申请。
 请着重检查 **iOS bundle ID** 和 **Android 应用包名称（package name）**信息是否填写正确，License 需要校验您的 App 安装包名称是否跟申请时一致。
 ![](https://main.qcloudimg.com/raw/db664311438d0449ef167776b9afcb42.png)
 
@@ -129,9 +129,9 @@ packagingOptions {
 }
 ```
 
-## 功能接口
+## 功能调用
 
-### 美妆接口（大眼、瘦脸）
+### 高级美颜接口（大眼、瘦脸）
 
 美妆接口使用 [TXBeautyManager](https://cloud.tencent.com/document/product/454/39382)，只需要对指定的接口调用0 - 9之间的一个数值即可，0表示关闭，数值越大，效果越明显。
 
@@ -194,11 +194,14 @@ public void setLipsThicknessLevel(int lipsThicknessLevel);
 public void setFaceBeautyLevel(int faceBeautyLevel);
 ```
 
-### AI 贴纸
+<span id="beauty_dynamic"></span>
+### 美颜动效（动效贴纸、AI抠图、美妆、手势）
+购买美颜动效素材后，您可以获得对应效果的素材包。每一个素材包就是一个独立的目录，目录里包含了很多资源文件。每个素材包因其复杂度不同，文件数量和大小尺寸也各不相同。
 
-购买企业版 License 后，您可以获得20个 AI 贴纸素材包。每一个素材包就是一个独立的目录，目录里包含了很多资源文件。每个素材包因其复杂度不同，文件数量和大小尺寸也各不相同。
 为了节省安装包体积，我们建议您将素材包上传到您的服务器上，并将下载地址配置在您的 App 中，例如：`http://yourcompany.com/hudongzhibo/AISpecial/**/{动效名}.zip`。
-在 App 启动后，下载并解压素材包到手机任意目录（推荐下载并解压在 App 的 data 目录）。完成解压后，即可通过以下接口开启动效效果：
+在 App 启动后，下载并解压素材包到 Resource 目录下。完成解压后，即可通过以下接口开启动效效果：
+
+
 ```java
 /**
  * 选择使用哪一款 AI 动效挂件（企业版有效，其它版本设置此参数无效）
@@ -254,3 +257,49 @@ public void onCreate() {
 ```
 
 若您需要其他协助，可将打印出来的 Licence 信息保存，并联系我们的技术支持。
+
+### 集成遇到异常怎么解决？
+
+```
+java.lang.UnsatisfiedLinkError: No implementation found for void com.tencent.ttpic.util.youtu.YTFaceDetectorBase.nativeSetRefine(boolean) (tried Java_com_tencent_ttpic_util_youtu_YTFaceDetectorBase_nativeSetRefine and Java_com_tencent_ttpic_util_youtu_YTFaceDetectorBase_nativeSetRefine__Z)
+        at com.tencent.ttpic.util.youtu.YTFaceDetectorBase.nativeSetRefine(Native Method)
+```
+
+请检查 build.gradle 中是否存在如下配置，如果您的项目存在多层 module 结构，例如 app module 引用了 lvb module，lvb module 中引用了腾讯云 SDK，那么您需要在 app module 和 lvb module 中都添加如下配置。
+
+```
+packagingOptions {
+        pickFirst '**/libc++_shared.so'
+        doNotStrip "*/armeabi/libYTCommon.so"
+        doNotStrip "*/armeabi-v7a/libYTCommon.so"
+        doNotStrip "*/x86/libYTCommon.so"
+        doNotStrip "*/arm64-v8a/libYTCommon.so"
+}
+```
+
+添加配置后，请先 clean 工程再重新 build。
+
+### 美容（例如大眼瘦脸）、动效等功能不起作用怎么解决？
+
+1. 请检查移动直播 Licence 的有效期`TXLiveBase.getInstance().getLicenceInfo(mContext)`。
+2. 请检查优图实验室 Licence 有效期（购买时通过商务获取）。
+3. 请检查您下载的 SDK 版本是否为企业版 SDK（移动直播只有企业版支持 AI 特效）。
+	如果您调用接口时发现不生效，请查看 Logcat 是否存在 log 为：`support EnterPrise above!!!`；如果存在，说明下载的 SDK 版本和您使用的 Licence 版本不匹配。
+
+>! 美颜动效请使用最新接口`TXLivePusher getBeautyManager()`。
+
+[查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) 是一个 xcode 工程，目前仅支持在 Mac 上使用，后续会开放其他查询方式。
+
+### 采用动态加载 jar + so 方式集成注意事项
+```
+YTFaceDetectorBase: (GLThread 5316)
+com.tencent.ttpic.util.youtu.YTFaceDetectorBase(54)[c]: nativeInitCommon, ret = -2
+YTFaceDetectorBase: (GLThread 5316)com.tencent.ttpic.util.youtu.YTFaceDetectorBase(57)[c]: nativeInitCommon failed, ret = -1001
+YTFaceDetectorBase: (GLThread 5316)com.tencent.ttpic.util.youtu.YTFaceDetectorBase(26)[a]: initCommon, ret = -1001
+YTFaceDetectorBase: (GLThread 5316)com.tencent.ttpic.util.youtu.YTFaceDetectorBase(28)[a]: initCommon failed, ret = -1001
+```
+**若您出现以上问题，请检查如下几点：**
+1. 检查动态下发的 so 包个数是否存在下发不全的情况，通过`TXLiveBase.setLibraryPath(soPath)`，设置 so 包地址。
+>! 不可以部分放到本地，部分动态下发，只能全部动态下发或全部本地集成。
+2. jar + so 方式解压开资源分为`assets-static`和`assets-dynamic`两类，其中`assets-static`只能放到本地，不可以动态下发，`asset-dynamic`需要保证动态下发跟 so 同一个目录下。
+3. SDK 6.8 以后，不要自己通过系统的方法加载 so 包，SDK 内部会保证 so 包的加载顺序。

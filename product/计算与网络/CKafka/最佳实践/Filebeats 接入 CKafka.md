@@ -1,7 +1,7 @@
-## Filebeats 简介
+## Filebeat 简介
 [Beats 平台](https://www.elastic.co/cn/products/beats) 集合了多种单一用途数据采集器。这些采集器安装后可用作轻量型代理，从成百上千或成千上万台机器向目标发送采集数据。
 ![](https://main.qcloudimg.com/raw/e48ad4b5a9d1d4576bbb5f574125b8aa.png)
-Beats 有多种采集器，您可以根据自身的需求下载对应的采集器。本文以 Filebeats（轻量型日志采集器）为例，向您介绍 Filebeats 接入 CKafka 的操作指方法，及接入后常见问题的解决方法。
+Beats 有多种采集器，您可以根据自身的需求下载对应的采集器。本文以 Filebeat（轻量型日志采集器）为例，向您介绍 Filebeat 接入 CKafka 的操作指方法，及接入后常见问题的解决方法。
 
 
 ## 操作步骤

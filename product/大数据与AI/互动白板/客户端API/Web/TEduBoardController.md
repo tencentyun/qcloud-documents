@@ -62,10 +62,9 @@ void addSyncData(Object data)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| data | Object | 【必填】接收到的房间内其他人发送的同步数据 |
+| data | Object | 【必填】接收到的房间内其他人发送的同步数据  |
 
-#### 介绍
-该接口用于多个白板间的数据同步，使用内置 IM 作为信令通道时，不需要调用该接口 
+>? 该接口用于多个白板间的数据同步 
 
 
 ### getVersion
@@ -456,7 +455,7 @@ void setBackgroundImage(String url, TEduBoardImageFitMode mode)
 
 
 ### setBackgroundH5
-设置当前白板页的背景H5页面 
+设置当前白板页的背景 H5 页面 
 ``` Javascript
 void setBackgroundH5(String url)
 ```
@@ -742,18 +741,36 @@ String addTranscodeFile(TEduBoardTranscodeFileResult result, bool needSwitch)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| result | TEduBoardTranscodeFileResult | 【必填】文件转码结果  |
+| result | TEduBoardTranscodeFileResult | 文件转码结果  |
 | needSwitch | bool | Boolean 添加转码文件，是否需要立刻跳转到该文件，默认为 true  |
 
 #### 返回
-文件ID 
+文件 ID 
 
 #### 警告
 当传入文件的 URL 重复时，文件 ID 返回为空字符串 
 在收到对应的 TEB_TRANSCODEPROGRESS 回调前，无法用返回的文件 ID 查询到文件信息
 
 #### 介绍
-本接口只处理传入参数结构体的 title、resolution、url、pages 字段 调用该接口后，SDK 会在后台进行文件加载，期间用户可正常进行其它操作，加载成功或失败后会触发相应回调 文件加载成功后，将自动切换到该文件 
+TEduBoardTranscodeFileResult 的字段信息主要来自：
+1. 使用客户端 ApplyFileTranscode 转码，直接将转码结果用于调用此接口
+2. 使用服务端 REST API 转码，只需传入转码回调结果的四个字段，其服务端->客户端字段的对应关系为 Title->title、Resolution->resolution、ResultUrl->url、Pages->pages 字段 [转码文档](https://cloud.tencent.com/document/product/1137/40260)
+
+
+### addImagesFile
+批量导入图片到白板 
+``` Javascript
+String addImagesFile(String urls, bool needSwitch)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| urls | String | 要使用的背景图片URL列表，编码格式为 UTF8  |
+| needSwitch | bool | Boolean 添加转码文件，是否需要立刻跳转到该文件，默认为 true  |
+
+#### 返回
+新增加文件 Id 
 
 
 ### deleteFile
@@ -765,10 +782,9 @@ void deleteFile(String fileId)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | String | 【可选】要删除的文件 ID |
+| fileId | String | 【可选】要删除的文件 ID  |
 
-#### 介绍
-文件 ID 为 null 时表示当前文件，默认文件无法删除 
+>? 文件 ID 为 null 时表示当前文件，默认文件无法删除 
 
 
 ### switchFile
@@ -780,7 +796,7 @@ void switchFile(String fileId, String boardId, Number stepIndex)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | String | 【必填】要切换到的文件ID  |
+| fileId | String | 【必填】要切换到的文件 ID  |
 | boardId | String | 【可选】切换文件并跳转到这个白板页  |
 | stepIndex | Number | 【可选】跳转到白板页并切换到这个动画  |
 
@@ -867,6 +883,27 @@ void clearFileDraws(String fileId)
 | fileId | String | 【必填】文件 ID  |
 
 
+### hasVideoPermission
+是否授权视频文件播放 
+``` Javascript
+boolean hasVideoPermission()
+```
+#### 返回
+是否授权 
+
+#### 警告
+手机端如果要播放视频文件必须在初始化白板前引导用户点击授权，否则无法播放。 
+
+
+### applyVideoPermission
+授权视频文件播放 
+``` Javascript
+String applyVideoPermission()
+```
+#### 警告
+手机端h5如果要播放视频文件必须在初始化白板前引导用户点击授权，否则无法播放。 
+
+
 ### addVideoFile
 添加视频文件 
 ``` Javascript
@@ -884,15 +921,16 @@ String addVideoFile(String url)
 #### 警告
 需要引入以下 js 文件 
 ``` 
-<script src="https://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.2.js" charset="utf-8"></script>
+<script src="https://resources-tiw.qcloudtrtc.com/board/third/videojs/video.min.js"></script>
+<link href="https://resources-tiw.qcloudtrtc.com/board/third/videojs/video-js.min.css" rel="stylesheet">
 ```
  
 
->? 移动端支持 mp4/m3u8，桌面端支持 mp4/m3u8/flv/rtmp）；触发状态改变回调 TEB_VIDEO_STATUS_CHANGED 
+>? 支持 mp4/m3u8/hls；触发状态改变回调 TEB_VIDEO_STATUS_CHANGED。 
 
 
 ### addVODFile
-添加视频文件 
+添加视频文件（内部接口） 
 ``` Javascript
 String addVODFile(String appId, String vodId, String extParam)
 ```
@@ -983,6 +1021,21 @@ void seekVideo(float time)
 只对当前文件有效 @info 触发状态改变回调 TEB_VIDEO_STATUS_CHANGED，一般情况在使用自定义视频控制栏时使用 
 
 
+### muteVideo
+静音 
+``` Javascript
+void muteVideo(boolean muted)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| muted | boolean | 是否静音  |
+
+#### 警告
+只对当前文件有效，静音不会影响远端 @info 由于用户隐私政策限制，微信浏览器以及手机浏览器默认静音播放 
+
+
 ### setSyncVideoStatusEnable
 是否同步本地视频操作状态到远端 
 ``` Javascript
@@ -1056,7 +1109,7 @@ void addImageElement(String url)
 | url | String | 【必填】要设置的图片元素 URL，编码格式为 UTF8 |
 
 #### 介绍
-除了设置一个在线图片为图片元素外，您也可以选择上传一个本地图片作为图片元素，此时url参数可以传一个 Object 类型，格式如下： 
+除了设置一个在线图片为图片元素外，您也可以选择上传一个本地图片作为图片元素，此时 url参数可以传一个 Object 类型，格式如下： 
 ``` 
 {
    data: document.getElementById('uploadFile').files[0], //取自 input 标签的 fileObject 对象
@@ -1066,4 +1119,35 @@ void addImageElement(String url)
  
 
 
+### setHandwritingEnable
+设置白板是否开启笔锋 
+``` Javascript
+void setHandwritingEnable(Boolean enable)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | Boolean | 【必填】是否开启，true 表示开启，false 表示关闭 |
+
+#### 介绍
+白板创建后默认为关闭 
+
+
+### isHandwritingEnable
+获取白板是否开启笔锋 
+``` Javascript
+Boolean isHandwritingEnable()
+```
+#### 返回
+是否开启笔锋 
+
+
+### refresh
+刷新当前页白板，触发 TEB_REFRESH 回调 
+``` Javascript
+void refresh()
+```
+#### 警告
+如果当前白板包含 PPT/H5/图片/视频时，刷新白板将会触发对应的回调 
 

@@ -31,7 +31,7 @@
 ### 步骤2：主备子机安装 keepalived（1.2.24版本及以上）
 以 CentOS 为例：
 - yum 安装方式
-  `yum list keepalived` 查看版本号是否符合要求。若是，下一步。若否，用源码包安装方式`yum –y install keepalived`。
+  `yum list keepalived` 查看版本号是否符合要求。若是，下一步。若否，用 yum 指令安装软件包 `yum –y install keepalived`。
 - 源码包安装方式
 ```
 tar zxvf keepalived-1.2.24.tar.gz

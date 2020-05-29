@@ -1,3 +1,8 @@
+>?
+>- TSF Serverless 是微服务的应用托管平台，主要支持东西向微服务框架（如 Spring Cloud 和 Service Mesh）。
+>- Web 服务（Express、Koa）推荐使用 [Serverless Framework](https://cloud.tencent.com/product/sls)。
+
+## 操作步骤
 1. 根据实际需求，选择目录路径，并在该路径下创建新的目录，用作于项目目录。
    例如，创建一个名称为 hellokoa 的项目目录。
 2. 进入 hellokoa 目录，并在该目录下执行以下命令，初始化 node 项目。

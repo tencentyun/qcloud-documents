@@ -6,6 +6,9 @@
 - 已注册腾讯云账户。若未注册腾讯云账户，可 [点此](https://cloud.tencent.com/register) 进入注册页面。
 - 已安装对应的开发语言（如 Node 开发，需要安装 Node.js 等）。
 - (可选) 安装并启动 Docker（使用  [本地调用云函数 local invoke](https://cloud.tencent.com/document/product/583/35401) 时需要）。
+-  请确保您当前使用的账户已完成了以下授权操作：
+ 1. 参考 [角色与授权](https://cloud.tencent.com/document/product/583/32389) 完成 SCF 默认角色配置。
+ 2. 新建角色 `QCS_SCFExcuteRole` ，并参考 [用户与权限](https://cloud.tencent.com/document/product/583/40142) 完成预设策略关联。
 
 
 
@@ -143,29 +146,29 @@ REPORT RequestId: 2f258903-95d0-4992-9321-0d720867a383 Duration: 0 ms Billed Dur
     由于已创建的函数是基于 API 网关触发，所以需要在模板文件里（文件路径：hello_world / template.yaml）添加 API 网关触发事件。完整 `template.yaml` 内容如下：
 ```yaml
 Resources:
-  default:
-    Type: TencentCloud::Serverless::Namespace
-    hello_world:
-      Type: TencentCloud::Serverless::Function
-      Properties:
-        CodeUri: ./
-        Type: Event
-        Description: This is a template function
-        Environment:
-          Variables:
-            ENV_FIRST: env1
-            ENV_SECOND: env2
-        Handler: index.main_handler
-        MemorySize: 128
-        Runtime: Python2.7
-        Timeout: 3
-        Events:
-           hello_world_apigw:  # ${FunctionName} + '_apigw'
-             Type: APIGW
-             Properties:
-             StageName: release
-             ServiceId: 
-             HttpMethod: ANY
+     default:
+       Type: TencentCloud::Serverless::Namespace
+       hello_world:
+         Type: TencentCloud::Serverless::Function
+         Properties:
+           CodeUri: ./
+           Type: Event
+           Description: This is a template function
+           Environment:
+             Variables:
+               ENV_FIRST: env1
+               ENV_SECOND: env2
+           Handler: index.main_handler
+           MemorySize: 128
+           Runtime: Python2.7
+           Timeout: 3
+           Events:
+               hello_world_apigw:  # ${FunctionName} + '_apigw'
+                   Type: APIGW
+                   Properties:
+                       StageName: release
+                       ServiceId: 
+                       HttpMethod: ANY
 ```
 更多模板文件规范请参阅 [腾讯云无服务器应用模型](https://cloud.tencent.com/document/product/583/36198)。
 2. 在项目目录下执行命令`scf deploy`，将本地代码包及函数配置部署到云端。
@@ -221,8 +224,8 @@ Report RequestId: 37fe28ff-bfdb-11e9-acc7-5254008a4f10 Duration:0ms Memory:128MB
 3. 在已创建函数的详情页面，选择【监控信息】，即可查看函数调用次数/运行时间等情况。如下图所示：
 >!监控统计的粒度最小为1分钟。您需要等待1分钟后，才可查看当次的监控记录。
 >
->![](https://main.qcloudimg.com/raw/acc4d768c7a23e424fd65e065b1c043f.png)
->更多关于监控信息请参见 [监控指标说明](https://cloud.tencent.com/document/product/583/32686)。
+![](https://main.qcloudimg.com/raw/acc4d768c7a23e424fd65e065b1c043f.png)
+更多关于监控信息请参见 [监控指标说明](https://cloud.tencent.com/document/product/583/32686)。
 
 
 ### 配置告警

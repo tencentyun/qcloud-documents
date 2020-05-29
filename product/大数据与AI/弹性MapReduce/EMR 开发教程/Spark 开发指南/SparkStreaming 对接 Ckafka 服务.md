@@ -6,7 +6,7 @@
 
 ## 1. 开发准备
 - 因为任务中需要访问腾讯云消息队列 CKafka，所以需要先创建一个 CKafka 实例，具体见 [消息队列 CKafka](https://cloud.tencent.com/product/CKafka)。
-- 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择 Spark 组件。
+- 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群时需要在软件配置界面选择 Spark 组件。
 
 ## 2. 在 EMR 集群使用 Kafka 工具包
 首先需要查看 CKafka 的内网 IP 与端口号。登录消息队列 CKafka 的控制台，选择您要使用的 CKafka 实例，在基本消息中查看其内网 IP 为 $kafkaIP，而端口号一般默认为9092。在 topic 管理界面新建一个 topic 为 spark_streaming_test。
@@ -24,14 +24,14 @@
 [hadoop@172 data]$ tar -xzvf kafka_2.10-0.10.2.0.tgz
 [hadoop@172 data]$ mv kafka_2.10-0.10.2.0 /opt/
 ```
-解压完成之后，Kafka 工具直接能使用。可以使用`telnet`命令来测试 EMR 集群是否能够连接到 CKafka 实例：
+解压完成后，Kafka 工具直接能使用。可以使用`telnet`命令来测试 EMR 集群是否能够连接到 CKafka 实例：
 ```
 [hadoop@172 kafka_2.10-0.10.2.0]$ telnet $kafkaIP 9092
 Trying $kafkaIP...
 Connected to $kafkaIP.
 ```
-
 其中 $kafkaIP 为您创建的 CKafka 实例的内网 IP 地址。
+
 下面可以简单测试 Kafka 工具包，同时用两个 WebShell 登录 EMR 集群并切换到 Hadoop 用户，进入 Kafka 的安装路径：
 ```
 [root@172 ~]# su hadoop
@@ -54,6 +54,7 @@ this is a message
 
 ## 3. 使用 SparkStreaming 对接 CKafka 服务
 在消费者一端，我们利用 Spark Streaming 从 CKafka 中不断拉取数据进行词频统计，即对流数据进行 WordCount 的工作。在生产者一端，也采用程序不断的产生数据，来不断输送给 CKafka。
+
 首先 [下载并安装 Maven](http://maven.apache.org/download.cgi)，配置好 Maven 的环境变量，如果您使用 IDE，请在 IDE 中设置好 Maven 相关配置。
 
 ### 创建 Spark Streamin 消费者工程
@@ -63,7 +64,8 @@ mvn   archetype:generate   -DgroupId=$yourgroupID   -DartifactId=$yourartifactID
 -DarchetypeArtifactId=maven-archetype-quickstart
 ```
 其中 $yourgroupID 即为您的包名。$yourartifactID 为您的项目名称，maven-archetype-quickstart 表示创建一个 Maven Java 项目。工程创建过程中需要下载一些文件，请保持网络通畅。
-创建成功之后，在`D://mavenWorkplace`目录下就会生成一个名为 $yourartifactID 的工程文件夹。其中的文件结构如下所示：
+
+创建成功后，在`D://mavenWorkplace`目录下就会生成一个名为 $yourartifactID 的工程文件夹。其中的文件结构如下所示：
 ```
 simple
 　　　---pom.xml　　　　核心配置，项目根下
@@ -200,6 +202,7 @@ public class KafkaTest {
 mvn package
 ```
 显示 build success 表示操作成功，在工程目录下的 target 文件夹中能够看到打包好的文件。
+
 使用 scp 或者 sftp 工具来把打包好的文件上传到 EMR 集群，注意一定要上传依赖一起打包的 jar 包：
 ```
 scp $localfile root@公网IP地址:$remotefolder
@@ -310,6 +313,7 @@ public class SendData {
 **修改其中的 $kafkaIP 为您的 CKafka 的内网 IP 地址**。
 
 这个程序每10秒向 CKafka 发送10条消息从 value_0 到 value_9，其开始的顺序随机。程序中的参数信息参考消费者程序。
+
 使用本地命令行进入工程目录，执行以下指令对工程进行编译打包：
 ```
 mvn package
@@ -323,7 +327,8 @@ scp $localfile root@公网IP地址:$remotefolder
 
 ### 使用程序消费 CKafka 的数据
 使用两个界面分别登录 EMR 集群的 Web Shell。
-**第一个界面** 登录 EMR 集群的 Master 节点，并且切换到 Hadoop 用户如2节中所示，使用以下命令执行样例：
+
+**第一个界面：**登录 EMR 集群的 Master 节点，并且切换到 Hadoop 用户如2节中所示，使用以下命令执行样例：
 ```
 [hadoop@172 ~]$ bin/spark-submit --class KafkaTest --master yarn-cluster $consumerpackage 
 ```
@@ -336,11 +341,11 @@ scp $localfile root@公网IP地址:$remotefolder
 ```
 [hadoop@172 ~]$ yarn application –list
 ```
-**第二个界面** 登录 EMR 的 Web Shell，然后运行生产者程序，以便 Spark Streaming 能够从中取数据消费。
+**第二个界面：**登录 EMR 的 Web Shell，然后运行生产者程序，以便 Spark Streaming 能够从中取数据消费。
 ```
 [hadoop@172 spark]$ bin/spark-submit --class SendData $producerpackage
 ```
-其中 $producerpackage 为您的生产者打包后的包名。等待一段时间之后，会在指定的 HDFS 文件夹中输出 wordcount 的结果，可以到 HDFS 中查看 Spark Streaming 消费 CKafka 数据后输出的结果：
+其中 $producerpackage 为您的生产者打包后的包名。等待一段时间后，会在指定的 HDFS 文件夹中输出 wordcount 的结果，可以到 HDFS 中查看 Spark Streaming 消费 CKafka 数据后输出的结果：
 ```
 [hadoop@172 root]$ hdfs dfs -ls /user
 Found 9 items
@@ -366,4 +371,5 @@ drwxr-xr-x - hadoop supergroup 0 2018-07-05 20:25 /user/sparkstreamingtest-15307
 [hadoop@172 ~]$ yarn application –kill $Application-Id
 ```
 其中 $Application-Id 为使用`yarn application –list`命令查找到的 ID。
+
 更多 Kafka 的相关信息请查看 [官方文档](http://kafka.apache.org/)。

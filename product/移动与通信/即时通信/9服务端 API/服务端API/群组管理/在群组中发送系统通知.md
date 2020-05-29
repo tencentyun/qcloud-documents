@@ -65,7 +65,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/send_group_system_notification
 | 字段 | 类型 | 属性 | 说明 |
 |---------|---------|---------|---------|
 | GroupId | String | 必填 |向哪个群组发送系统通知 |
-| ToMembers_Account | Array | 选填 |接收者群成员列表，不填或为空表示全员下发  |
+| ToMembers_Account | Array | 选填 |接收者群成员列表，请填写接收者 UserID，不填或为空表示全员下发  |
 | Content | String | 必填 |系统通知的内容  |
 
 ### 应答包体示例

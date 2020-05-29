@@ -12,7 +12,7 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardErrorCode | 错误码，参见 TEduBoardErrorCode 定义  |
+| code | TEduBoardErrorCode | 错误码，参见 [TEduBoardErrorCode](https://cloud.tencent.com/document/product/1137/39981#teduboarderrorcode) 定义  |
 | msg | NSString * | 错误信息，编码格式为 UTF8  |
 
 
@@ -25,7 +25,7 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardWarningCode | 错误码，参见 TEduBoardWarningCode 定义  |
+| code | TEduBoardWarningCode | 错误码，参见 [TEduBoardWarningCode](https://cloud.tencent.com/document/product/1137/39981#teduboardwarningcode) 定义  |
 | msg | NSString * | 错误信息，编码格式为 UTF8  |
 
 
@@ -59,7 +59,7 @@
 | data | NSString * | 白板同步数据（JSON 格式字符串） |
 
 #### 介绍
-收到该回调时需要将回调数据通过信令通道发送给房间内其他人，接受者收到后调用 AddSyncData 接口将数据添加到白板以实现数据同步 该回调用于多个白板间的数据同步，使用腾讯云 IMSDK 进行实时数据同步时，不会收到该回调 
+收到该回调时需要将回调数据通过信令通道发送给房间内其他人，接受者收到后调用 addSyncData 接口将数据添加到白板以实现数据同步 该回调用于多个白板间的数据同步，使用腾讯云 IMSDK 进行实时数据同步时，不会收到该回调 
 
 
 ### onTEBUndoStatusChanged:
@@ -148,7 +148,7 @@
 
 
 
-## 白板页操作回调
+## 白板操作回调
 
 ### onTEBAddBoard:fileId:
 增加白板页回调 
@@ -201,6 +201,21 @@
 | currentStep | uint32_t | 当前白板页动画步数，取值范围 [0, totalStep)  |
 | totalStep | uint32_t | 当前白板页动画总步数  |
 
+
+### onTEBRectSelected
+框选工具选中回调 
+``` Objective-C
+- (void)onTEBRectSelected
+```
+#### 介绍
+只有框选中涂鸦或图片元素后触发回调 
+
+
+### onTEBRefresh
+刷新白板回调 
+``` Objective-C
+- (void)onTEBRefresh
+```
 
 
 ## 文件操作回调
@@ -291,7 +306,7 @@
 
 
 ### onTEBH5FileStatusChanged:status:
-H5文件状态回调 
+H5 文件状态回调 
 ``` Objective-C
 - (void)onTEBH5FileStatusChanged:(NSString *)fileId status:(TEduBoardH5FileStatus)status 
 ```
@@ -316,6 +331,21 @@ H5文件状态回调
 | status | TEduBoardVideoStatus | 文件状态  |
 | progress | CGFloat | 当前进度（秒）（仅支持 mp4 格式）  |
 | duration | CGFloat | 总时长（秒）（仅支持 mp4 格式）  |
+
+
+### onTEBAddImagesFile:
+增加批量图片文件回调 
+``` Objective-C
+- (void)onTEBAddImagesFile:(NSString *)fileId 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fileId | NSString * | 增加的文件 ID |
+
+#### 介绍
+文件加载完成后会触发该回调 
 
 
 

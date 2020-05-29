@@ -7,7 +7,7 @@
 
 ### 1. 申请企业版 License
 
-登录 [美颜特效 SDK（优图美视）控制台](https://cloud.tencent.com/product/x-magic) ，单击【立即申请】，如实填写相关信息并完成申请。
+登录腾讯云，进入 [美颜特效服务开通申请页](https://cloud.tencent.com/product/x-magic)，如实填写相关信息并完成申请。
 请着重检查 **iOS bundle ID** 和 **Android 应用包名称（package name）**信息是否填写正确，License 需要校验您的 App 安装包名称是否跟申请时一致。
 
 ![](https://main.qcloudimg.com/raw/b817277d40d37fcb6bdd86e851ad5caa.png)
@@ -44,9 +44,9 @@ Metal.framework
   ![](https://main.qcloudimg.com/raw/41cb5945d9298763319e8ebba597f345.jpg)
 5. 添加动效资源：
  >!请正确添加下述资源，否则切换到换脸类素材时会发生 Crash 等问题。
- >
+ 
   将 SDK/Resource 下的文件以`groups`的形式添加到工程中。
-  ![](https://main.qcloudimg.com/raw/9b5be44e52ac02c9a877a19157d67e55.jpg)
+ ![](https://main.qcloudimg.com/raw/222ead2a8eef518ab7d0893a233715cb.png)
   添加完成后，效果如图所示：
   ![](https://main.qcloudimg.com/raw/36848f4b6b7cb1a34368c9bc38b11ffe.jpg)
   
@@ -74,9 +74,9 @@ Metal.framework
 @end
 ```
 
-## 功能接口
+## 功能调用
 
-### 美妆接口（大眼、瘦脸等）
+### 高级美颜接口（大眼、瘦脸等）
 美妆接口的设置对象可以通过 TXLivePusher 的 [getBeautyManager](https://cloud.tencent.com/document/product/454/34772#getbeautymanager) 方法获取。
 美妆接口的调用比较简单，只需要对指定的接口调用0 - 9之间的一个数值即可，0表示关闭，数值越大，效果越明显。
 
@@ -241,11 +241,13 @@ Metal.framework
 - (void)setFaceBeautyLevel:(float)level;
 ```
 
-### AI 贴纸
+<span id="beauty_dynamic"></span>
+### 美颜动效（动效贴纸、AI抠图、美妆、手势）
+购买美颜动效素材后，您可以获得对应效果的素材包。每一个素材包就是一个独立的目录，目录里包含了很多资源文件。每个素材包因其复杂度不同，文件数量和大小尺寸也各不相同。
 
-购买企业版 License 后，您可以获得20个 AI 贴纸素材包。每一个素材包就是一个独立的目录，目录里包含了很多资源文件。每个素材包因其复杂度不同，文件数量和大小尺寸也各不相同。
 为了节省安装包体积，我们建议您将素材包上传到您的服务器上，并将下载地址配置在您的 App 中，例如：`http://yourcompany.com/hudongzhibo/AISpecial/**/{动效名}.zip`。
 在 App 启动后，下载并解压素材包到 Resource 目录下。完成解压后，即可通过以下接口开启动效效果：
+
 
 ```objective-c
 /**
@@ -283,6 +285,10 @@ Metal.framework
 - 检查工程是否已配置 -ObjC。
 - 检查 Metal API Validation 是否被设置为 Disabled。
 
+如果您出现如下提示，请检查以上配置：
+```
+[UIDevice wmcUniqueGlobalDeviceIdentifier]: unrecognized selector sent to instance
+```
 ### 工程特效不生效？  
 - 检查是否已调用`+[TXLiveBase setLicenceURL:key:]`方法，以及参数是否正确。
 - 调用 TXLiveBase 的 getLicenseInfo() 方法，带有动效的 Licence 会包含`pituLicense`字段。

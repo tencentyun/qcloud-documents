@@ -12,7 +12,7 @@ function TEB_ERROR(TEduBoardErrorCode code, String msg)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardErrorCode | 错误码，参见 TEduBoardErrorCode 定义  |
+| code | TEduBoardErrorCode | 错误码，参见 [TEduBoardErrorCode](https://cloud.tencent.com/document/product/1137/40003#teduboarderrorcode) 定义  |
 | msg | String | 错误信息，编码格式为 UTF8  |
 
 
@@ -25,7 +25,7 @@ function TEB_WARNING(TEduBoardWarningCode code, String msg)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardWarningCode | 错误码，参见 TEduBoardWarningCode 定义  |
+| code | TEduBoardWarningCode | 错误码，参见 [TEduBoardWarningCode](https://cloud.tencent.com/document/product/1137/40003#teduboardwarningcode) 定义  |
 | msg | String | 错误信息，编码格式为 UTF8  |
 
 
@@ -148,7 +148,7 @@ function TEB_ADDIMAGEELEMENT(String fileName, String fileUrl, String userData)
 
 
 ### TEB_H5BACKGROUND_STATUS_CHANGED
-设置白板背景H5状态改变回调 
+设置白板背景 H5 状态改变回调 
 ``` C++
 function TEB_H5BACKGROUND_STATUS_CHANGED(TEduBoardBackgroundH5Status status, Object data)
 ```
@@ -224,6 +224,18 @@ function TEB_GOTOSTEP(Number currentStep, Number totalStep)
 | currentStep | Number | 当前白板页动画步数，取值范围 [0, totalStep)  |
 | totalStep | Number | 当前白板页动画总步数  |
 
+
+### TEB_RECTSELECTED
+框选工具选中回调，只有框选中涂鸦或图片元素后触发回调 
+``` C++
+function TEB_RECTSELECTED()
+```
+
+### TEB_REFRESH
+刷新当前白板 
+``` C++
+function TEB_REFRESH()
+```
 
 
 ## 文件操作回调
@@ -355,6 +367,47 @@ data 参数格式如下：
      userData: "xx", //透传上传接口的 userData
      fid: "xxx"      //文件 ID
 }
+```
+ 
+
+
+### TEB_ADDIMAGESFILE
+增加转码文件回调 
+``` C++
+function TEB_ADDIMAGESFILE(String fileId)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fileId | String | 增加的文件 ID |
+
+#### 介绍
+文件加载完成后才会触发该回调 
+
+
+### TEB_VIDEO_STATUS_CHANGED
+设置H5文件回调 
+``` C++
+function TEB_VIDEO_STATUS_CHANGED(Object data)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| data | Object | 回调数据 data 参数格式如下：  |
+
+``` 
+   {
+        fileId: '',     //文件 ID
+        status: 1,      //文件状态 TEduBoardH5FileStatus
+   }
+
+  
+   只有本地调用 addH5File 时会收到该回调
+  
+function TEB_H5FILE_STATUS_CHANGED(Object data);
+
 ```
  
 

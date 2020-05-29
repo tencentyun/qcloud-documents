@@ -12,7 +12,7 @@ virtual void onTEBError(TEduBoardErrorCode code, const char *msg)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardErrorCode | 错误码，参见 TEduBoardErrorCode 定义  |
+| code | TEduBoardErrorCode | 错误码，参见 [TEduBoardErrorCode](https://cloud.tencent.com/document/product/1137/39987#teduboarderrorcode) 定义  |
 | msg | const char * | 错误信息，编码格式为 UTF8  |
 
 
@@ -25,7 +25,7 @@ virtual void onTEBWarning(TEduBoardWarningCode code, const char *msg)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardWarningCode | 错误码，参见 TEduBoardWarningCode 定义  |
+| code | TEduBoardWarningCode | 错误码，参见 [TEduBoardWarningCode](https://cloud.tencent.com/document/product/1137/39987#teduboardwarningcode) 定义  |
 | msg | const char * | 错误信息，编码格式为 UTF8  |
 
 
@@ -86,21 +86,80 @@ virtual void onTEBRedoStatusChanged(bool canRedo)
 | canRedo | bool | 白板当前是否还能执行 Redo 操作  |
 
 
+### onTEBRectSelected
+框选工具选中回调 只有框选中涂鸦或图片元素后触发回调 
+``` C++
+virtual void onTEBRectSelected()
+```
+
+### onTEBRefresh
+刷新白板回调 
+``` C++
+virtual void onTEBRefresh()
+```
+
 ### onTEBOffscreenPaint
 白板离屏渲染回调 
 ``` C++
-virtual void onTEBOffscreenPaint(const void *buffer, uint32_t width, uint32_t height)
+virtual void onTEBOffscreenPaint(const void *buffer, uint32_t width, uint32_t height, const TEduBoardRect *dirtyRects, uint32_t dirtyRectCount)
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| buffer | const void * | 白板像素数据，大小为 width * height * 4，像素以白板左上方为原点从左到右从上到下按 BGRA 排列  |
+| buffer | const void * | 白板数据  |
 | width | uint32_t | 白板像素数据的宽度  |
-| height | uint32_t | 白板像素数据的高度 |
+| height | uint32_t | 白板像素数据的高度  |
+| dirtyRects | const TEduBoardRect * | 需要重绘的矩形区域数组（可能有多个）  |
+| dirtyRectCount | uint32_t | 需要重绘的矩形区域数组个数  |
+
+#### 警告
+该回调不会从统一回调线程触发，可能来自不同线程调用
 
 #### 介绍
-该回调只有在启用离屏渲染时才会被触发 
+该回调只有在启用离屏渲染时才会被触发 当width != 0 || height != 0时，buffer指向白板像素数据，大小为 width * height * 4，像素以白板左上方为原点从左到右从上到下按 BGRA 排列 
+
+
+### onTEBAudioCallbackStarted
+白板音频开始回调 
+``` C++
+virtual void onTEBAudioCallbackStarted(uint32_t channels, uint32_t channelSize, uint32_t sampleRate)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| channels | uint32_t | 回调的音频声道数  |
+| channelSize | uint32_t | 回调的每个声道的采样点个数  |
+| sampleRate | uint32_t | 回调的音频采样率  |
+
+#### 警告
+该回调不会从统一回调线程触发，可能来自不同线程调用 
+
+
+### onTEBAudioCallbackPacket
+白板音频包回调 
+``` C++
+virtual void onTEBAudioCallbackPacket(const float **buffer, int64_t pts)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| buffer | const float ** | 音频数据数组，格式为 buffer[channels][channelSize]  |
+| pts | int64_t | 音频包时间戳  |
+
+#### 警告
+该回调不会从统一回调线程触发，可能来自不同线程调用 
+
+
+### onTEBAudioCallbackStopped
+白板音频停止回调 
+``` C++
+virtual void onTEBAudioCallbackStopped()
+```
+#### 警告
+该回调不会从统一回调线程触发，可能来自不同线程调用 
 
 
 
@@ -241,6 +300,21 @@ virtual void onTEBFileTranscodeProgress(const char *path, const char *errorCode,
 增加转码文件回调 
 ``` C++
 virtual void onTEBAddTranscodeFile(const char *fileId)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fileId | const char * | 增加的文件 ID |
+
+#### 介绍
+文件加载完成后才会触发该回调 
+
+
+### onTEBAddImagesFile
+增加批量图片文件回调 
+``` C++
+virtual void onTEBAddImagesFile(const char *fileId)
 ```
 #### 参数
 

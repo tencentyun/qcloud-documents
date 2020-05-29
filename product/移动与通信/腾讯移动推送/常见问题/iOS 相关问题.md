@@ -96,5 +96,42 @@ iOS 设备收到一条推送消息，用户点击推送消息打开应用时，�
 
 
 
-### iOS13 在的开发环境下，注册偶现不返回 DeviceToken？
-此问题现象是由于 APNs 服务不稳定导致的，可通过重启设备解决，详情请参见 [文档](https://stackoverflow.com/questions/58264338/not-getting-apns-device-token-on-ios-13) 。
+### iOS13 开发环境下，注册偶现不返回 DeviceToken？
+此问题现象是由于 APNs 服务不稳定导致的，可尝试通过以下方式解决：
+1. 给手机插入 SIM 卡后使用4G网络测试。
+2. 卸载重装、重启 App、关机重启后测试。
+3. 打生产环境的包测试。
+4. 换别的 iOS 13 系统的手机测试  。
+
+
+### iOS 如何在测试设备有限的情况下扩大测试规模？
+1. 企业级证书签名
+申请企业级签名证书和企业级推送证书，发布方式如下：
+使用企业级签名证书构建并发布App，体验者可以通过企业内部开放的渠道下载安装App。
+2. AppStore 发布证书签名
+使用当前 AppStore 的发布签名证书，发布方式如下：
+TestFlight 发布预览版，先将 ipa 包上传到 [App Store Connect](https://appstoreconnect.apple.com)，然后通过 TestFlight 创建一个灰度版本，并在 TestFlight 上设置指定版本的体验人员名单(Apple ID)，最后体验者可以通过苹果官方【TestFlight】App 下载安装。
+
+
+### iOS 如何只更改角标而不弹出信息？
+可使用 API 在创建推送时使用通知栏消息类型，且标题内容设为空，同时只设置 badge_type 即可，详情可参考 [API 文档说明](https://cloud.tencent.com/document/product/548/39064#.E5.8F.AF.E9.80.89.E5.8F.82.E6.95.B0)。
+示例如下：
+```
+{
+    "platform": "ios",
+    "audience_type": "token",
+    "environment":"dev",
+        "token_list": [
+    "05a8ea6924590dd3a94480fa1c9fc8448b4e"],
+    "message_type":"notify",
+    "message":{
+    "ios":{
+        "aps": {
+            "badge_type":-2
+        }
+    }
+ }
+}
+```
+
+

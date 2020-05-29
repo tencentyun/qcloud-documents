@@ -1,8 +1,11 @@
+以下视频将为您介绍如何设置 A 记录：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2304-33503?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 操作场景
 通过添加 A 记录可将域名指向一个 IP 地址（外网地址），本文档指导您如何添加 A 记录。
 
 ## 操作步骤
-1. 登录 [腾讯云云解析控制台](https://console.cloud.tencent.com/cns)。
+1. 登录 [腾讯云 DNS 解析控制台](https://console.cloud.tencent.com/cns)。
 2. 在 “域名解析列表” 中，选择需要进行 A 记录转发的域名，单击操作栏的【解析】，进入该域名的【记录管理】页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/fa9054c8c02692fdca478c621dfb4abf.png)
 3. 单击【添加记录】，填写以下记录信息。如下图所示：

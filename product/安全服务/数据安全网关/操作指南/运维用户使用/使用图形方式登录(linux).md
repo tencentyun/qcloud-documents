@@ -10,11 +10,15 @@
 
 1. 登录腾讯云 [堡垒机控制台](https://console.cloud.tencent.com/cds/dasb)。
 2. 运维用户登录堡垒机。
-3. 在“单点登录”选项卡下，单击相应的授权岗位，进入运维类岗位列表，您可查看有权限访问的资源，如下图所示。
-![](https://main.qcloudimg.com/raw/4ea457d6ea0a0c1d5d189a1912ab3856.png)
-4. 找到您需要登录的 Linux 资源，单击【配置登录】，在弹出的窗口中，配置如下信息。
- - **登录方式**：选择“图形登录”。
- - **协议**：VNC 和 X-window 两种协议，请根据实际环境选择。
- - **端口**：访问协议对应的访问端口，请根据实际环境选择。
-![](https://main.qcloudimg.com/raw/adae04c51f89271757976832d99ede85.png)
+3. 单击【授权列表】，进入资源列表页。
+4. 找到您需要登录的 Linux 资源，在其右侧单击【登录】，在弹出的窗口中，进行登录配置。
+![](https://main.qcloudimg.com/raw/14a7a6915d5351e455764f8354a234c9.jpeg)
+5. 在配置登录窗口，配置如下：
+	- 协议：Linux 资源建议选择 SSH2 协议。
+	- 账号：输入 Linux 资源的账号。
+	- 口令：输入 Linux 资源账号的密码。
+	- 工具：选择 PuTTY 工具。
+	- 超时时间：连接 Linux 资源的超时时间，默认为5秒。
+![](https://main.qcloudimg.com/raw/354b562b2a723ffeb27372aa08fe34e6.jpeg)
 5. 确认配置信息无误后，单击【登录】，登录到目标资源后，即可对资源进行运维操作。
+![](https://main.qcloudimg.com/raw/1b92cf0b8084298bc0f573c39891dcef.jpeg)

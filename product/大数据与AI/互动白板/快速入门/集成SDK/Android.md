@@ -1,6 +1,6 @@
 ## 集成 SDK
 
-本文主要介绍如何快速的将腾讯云 TEduBoard SDK 集成到您的项目中。
+本文主要介绍如何快速的将腾讯云 TEduBoard SDK 集成到您的项目中。如果您使用互动课堂方案，请前往 [互动课堂集成文档](https://github.com/tencentyun/TIC/blob/master/Android/%E6%8E%A5%E5%85%A5%E6%96%87%E6%A1%A3.md) 。
 
 ## 开发环境
 
@@ -10,7 +10,7 @@
 
 ## 集成 TEduBoard SDK
 
-您可以选择使用 Gradle 自动加载的方式，或者手动下载 aar 再将其导入到您当前的工程项目中。由于TEduBoard SDK 内部使用 TIMSDK 作为内部信令通道，您还需自动或手动添加 TIMSDK 依赖项。
+您可以选择使用 Gradle 自动加载的方式，或者手动下载 aar 再将其导入到您当前的工程项目中。由于 TEduBoard SDK  内部使用 TIMSDK 作为内部信令通道，您还需自动或手动添加 TIMSDK 依赖项。
 
 
 
@@ -39,7 +39,7 @@ dependencies {
 
 #### 1. 下载 SDK
 
-单击下载最新版 [TEduBaord SDK](https://tic-res-1259648581.cos.ap-shanghai.myqcloud.com/sdk/Android.zip)。前往 [即时通讯官网](https://cloud.tencent.com/document/product/269/36887) 下载 TIMSDK。
+单击下载最新版 [TEduBaord SDK](https://tic-res-1259648581.cos.ap-shanghai.myqcloud.com/sdk/Android.zip) 。前往 [即时通讯官网](https://cloud.tencent.com/document/product/269/36887) 下载 TIMSDK。
 
 
 #### 2. 导入 SDK
@@ -84,18 +84,9 @@ dependencies {
 
 
 
-
 ## 使用 TEduBoard SDK
 
-#### 1. `#import` SDK
-
-在项目需要使用 SDK API 的文件里，引入具体的头文件
-
-```objc
-#import <TEduBoard/TEduBoard.h>
-```
-
-#### 2. 创建白板控制器
+#### 1. 创建白板控制器
 
 使用如下代码创建并初始化白板控制器：
 
@@ -107,14 +98,21 @@ TEduBoardController.TEduBoardAuthParam authParam = new TEduBoardController.TEduB
 //（2）白板默认配置
 TEduBoardController.TEduBoardInitParam initParam = new TEduBoardController.TEduBoardInitParam(); 
 mBoard = new TEduBoardController(context);
-mBoard.init(authParam, classId, initParam);
+
 //（3）添加白板事件回调
 mBoard.addCallback(callback);
+
+//（4）进行初始化
+mBoard.init(authParam, classId, initParam);
+
 ```
 
 其中 `sdkAppId`、`userId`、`userSig`、`classId`为需要您自己填写的参数。
 
-#### 3. 白板窗口获取及显示
+注意事项
+请在主进程中执行初始化操作，如果您的 App 使用了多进程，请注意注意避免重复初始化。
+
+#### 2. 白板窗口获取及显示
 在 `onTEBInit`  回调方法内，使用如下代码获取并显示白板视图：
 
 ```java
@@ -136,7 +134,7 @@ container.addView(boardview, layoutParams);
 
 SDK 所有回调都在主线程内执行，因此可以在回调里直接执行 UI 操作。
 
-#### 4. 白板数据同步
+#### 3. 白板数据同步
 
 白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 支持两种不同的数据同步模式。
 
@@ -151,6 +149,72 @@ initParam.timSync = true;
 ```
 
 >! 您需要自行实现 IMSDK 的登录、加入群组等操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
+
+步骤一、初始化 IMSDK
+
+```java
+TIMSdkConfig timSdkConfig = new TIMSdkConfig(appId)
+    .enableLogPrint(true)
+    .setLogLevel(TIMLogLevel.DEBUG); 
+    //TODO::在正式发布时，设TIMLogLevel.OFF
+TIMManager.getInstance().init(context, timSdkConfig);
+```
+
+如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，请在 Application 的 onCreate 方法中初始化 IMSDK，否则请在登录前初始化 IMSDK，在登出后反初始化 IMSDK 。
+
+步骤二、登录 IMSDK
+
+```java
+TIMGroupManager.getInstance().login(userId, userSig, new TIMCallBack() {
+      @Override
+      public void onSuccess(String s) {
+        // 创建 IM 群组成功
+      }
+
+      @Override
+      public void onError(int errCode, String errMsg) {
+        // 创建 IM 群组失败        
+});
+```
+```
+
+步骤三、加入群组
+
+登录 IMSDK 成功后加入白板所在的群组。
+
+```java
+TIMGroupManager.getInstance().applyJoinGroup(groupId, desc + groupId, new TIMCallBack() {
+      @Override
+      public void onSuccess(String s) {
+        // 加入 IM 群组成功
+        // 此时可以调用白板初始化接口创建白板
+      }
+
+      @Override
+      public void onError(int errCode, String errMsg) {
+        // 加入 IM 群组失败 
+});
+```
+
+如果 IM 群组不存在，请先创建群组。
+
+```java
+TIMGroupManager.getInstance().createGroup(param, new TIMValueCallBack<String>() {
+      @Override
+      public void onSuccess(String s) {
+        // 创建 IM 群组成功
+      }
+
+      @Override
+      public void onError(int errCode, String errMsg) {
+        // 创建 IM 群组失败        
+});
+```
+
+注意事项
+
+1. 推荐业务后台使用 [IM REST API](https://cloud.tencent.com/document/product/269/1615) 提前创建群组。
+2. 不同的群组类型，群组功能以及成员数量有所区别，具体请查看 [IM 群组系统](https://cloud.tencent.com/document/product/269/1502)。
 
 **使用自定义的数据通道同步数据**
 
@@ -172,3 +236,54 @@ mBoard.addSyncData(data);
 ```
 
 >! 实时录制功能在自定义数据通道模式下不可用
+
+
+#### 4. 销毁白板
+
+调用 `unInit` 方法后，内部将彻底销毁白板并停止计费，请您确保此接口的调用。
+
+```java
+mBoard.uninit();
+```
+
+如果您使用 IMSDK 作为信令通道，请根据业务的需要决定是否退出群组、退出登录并反初始化。
+
+步骤一、退出群组
+
+```java
+TIMGroupManager.getInstance().quitGroup(groupId, new TIMCallBack() {//NOTE:在被挤下线时，不会回调
+    @Override
+    public void onSuccess() {
+      // 退出 IM 群组成功
+    }
+    @Override
+    public void onError(int errorCode, String errInfo) {
+      // 退出 IM 群组成功
+    }
+
+});
+```
+
+步骤二、登出 IMSDK
+
+```java
+TIMManager.getInstance().logout(new TIMCallBack() {
+    @Override
+    public void onSuccess() {
+      // 登出 IMSDK 成功
+    }
+    @Override
+    public void onError(int errorCode, String errInfo) {
+      // 登出 IMSDK 失败
+    }
+});
+```
+
+步骤三、反初始化 IMSDK
+
+```java
+TIMManager.getInstance().unInit();
+```
+
+如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，无需调用此接口。
+

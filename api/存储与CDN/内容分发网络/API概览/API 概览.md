@@ -28,7 +28,7 @@
 | -------------------- | ------------------------------------------------------------ | ------------------ | -------------- |
 | 域名列表查询         | [DescribeCdnHosts](https://cloud.tencent.com/document/product/228/3937) | 域名配置查询       | 暂不支持子账号 |
 | 域名配置查询（域名） | [GetHostInfoByHost](https://cloud.tencent.com/document/product/228/3938) | 指定域名查询配置   | 支持子账号     |
-| 域名配置查询（Id）   | [GetHostInfoById](https://cloud.tencent.com/document/product/228/3939) | 指定域名 ID 查询配置 | 支持子账号     |
+| 域名配置查询（ID）   | [GetHostInfoById](https://cloud.tencent.com/document/product/228/3939) | 指定域名 ID 查询配置 | 支持子账号     |
 
 ## 数据查询
 

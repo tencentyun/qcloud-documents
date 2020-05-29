@@ -1,0 +1,76 @@
+TcaplusDB 使用 Google Protocol Buffers 数据描述语言进行表格定义，支持 proto2 和 proto3 的语法规范，如下是 Proto 建表文件的规则描述。
+
+## 表描述语言概述
+TcaplusDB 创建表，首先需要使用表描述语言定义表的格式，将表格定义内容写入文件中，此文件被称之为表的 IDL 描述文件。
+表的 IDL 描述文件根据 Protocol Buffers 的规则来进行表格定义。
+主要分为3类定义：
+- 文件定义信息
+- 表定义信息
+- 嵌套类型信息
+
+### 文件定义信息
+文件定义信息区域主要定义当前表描述文件的公共信息，主要涉及3种类型的内容。
+
+| 选项名称 | 功能说明 | 值示例 | 是否必填 |
+| --- | --- | --- | --- |
+|syntax|指明当前文件书写的语法规范版本|支持proto2、proto3|是|
+|package|指明当前文件自定义包名，包名可以避免对 message 类型之间的名字冲突|包名信息|是|
+|import| 引入 Tcaplus 表的一些公共信息，必须在您的表定义中被引用|tcaplusservice.optionv1.proto|是|
+
+
+### 表定义信息
+表定义信息主要通过 message 定义表的格式，在 message 中可对表的扩展信息进行定义，也可以对表的字段信息进行定义。
+
+#### 扩展信息定义
+表定义信息也可在 protobuf 语法基础上通过 option 进行扩展，可以实现更丰富的语义功能，可定义的内容如下表。
+详细的定义格式为：`option(tcaplusservice.选项) = "值";`
+
+| 选项名称 | 功能说明 | 设置示例 | 是否必填 |
+| --- | --- | --- | --- |
+| tcaplus_primary_key | 设置 TcaplusDB 表主键字段 | `option(tcaplusservice.tcaplus_primary_key) = "uin,name,region";` | 是 |
+| tcaplus_index | 设置 TcaplusDB 表索引键字段 | `option(tcaplusservice.tcaplus_index) = "index_1(uin,region)";` | 否 |
+| tcaplus_sharding_key | 用户可以自定义表分片键 | `option(tcaplusservice.tcaplus_sharding_key) = "uin";` | 否 |
+| tcaplus_field_cipher_suite | 如果需要使用字段加密功能，需要进行设置，用户需要指定自己的加密算法 | `option(tcaplusservice.tcaplus_field_cipher_suite) = "DefaultAesCipherSuite";` | 否 |
+| tcaplus_cipher_md5 | 如果需要使用字段加密功能，需要设置用户侧保存加密密码字符串的 MD5 | `option(tcaplusservice.tcaplus_cipher_md5)= "62fee3b53619b7f303c939964c6f2c4b";` | 否 |
+
+#### 字段信息定义
+TcaplusDB 定义字段的格式为：`字段修饰符 字段类型 字段名称 = 标识号[特殊定义];`
+
+- **字段修饰符**
+proto2 支持3种类型的限定修饰符，proto3 不再支持 required 修饰，默认为 optional 类型。
+ - required：表示字段为必填字段，proto2 中主键字段必须被 required 修饰。
+ - optional：表示字段为可选字段，支持设定字段的默认值。
+ - repeated：表示字段可以包含0 - N个元素。其特性与 optional 一样，但是每一次可以包含多个值，可以看作是在传递一个数组的值，必须指定 [packed = true] 的特殊定义。
+
+- **字段类型**
+TcaplusDB 支持普通字段以及嵌套型字段。
+
+- **字段名称**
+针对当前属性而对字段进行命名，支持大小写字母、数字与下划线。建议字段的命名采用驼峰式命名方式，不能以数字开头。
+
+- **标识号**
+标识号使用范围：[1,2^29 - 1]
+不可使用[19000－19999]标识号， 因为 Protobuf 协议实现中对这些标识号进行了预留。如若使用，则会报错。
+每个字段在进行编码时都会占用内存，而占用内存大小取决于标识号：
+ - 范围[1,15]标识号的字段在编码时占用1个字节。
+ - 范围[16,2047]标识号的字段 在编码时占用2个字节。
+
+- **特殊定义**
+ - 当 repeated 修饰的字段需要指定 packed=true 选项。用法如下：
+```
+repeated int64 lockid = 6 [packed = true]; 
+```
+ - 使用 optional 修饰的字段可以通过 default = 1 指定其默认值。用法如下：
+```
+optional int32 logintime = 5 [default = 1];
+```
+ - 字段类型为 string 和 bytes 类型的字段可以指定为加密字段。用法如下：
+```
+required string name = 2[(tcaplusservice.tcaplus_crypto) = true];
+```
+
+### 嵌套类型信息
+TcaplusDB 支持嵌套类型，嵌套类型可以包含另一个嵌套类型作为其字段，也可以在嵌套类型内定义一个新的嵌套类型。
+嵌套类型的定义与表的定义相似，均是通过 message 进行声明，但是结构体中不能包含扩展信息定义，如“主键”，“索引”等定义。
+
+TcaplusDB 支持最多128层连续嵌套，但是不建议大量使用嵌套，嵌套层数过多会导致数据访问性能降低。

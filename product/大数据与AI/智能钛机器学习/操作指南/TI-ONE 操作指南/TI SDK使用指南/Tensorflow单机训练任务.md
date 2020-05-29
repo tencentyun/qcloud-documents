@@ -49,18 +49,18 @@ tf_estimator.fit('cos://bucket/path/to/training/data')
 
 #### 必须参数
 - inputs：存储训练数据集的 COS 路径，可以采用以下两种数据结构。
-- `str`：例如：`cos://my-bucket/my-training-data`，COS URI，表示数据集的路径。
-- `dict[str, str]`：例如`{'train': 'cos://my-bucket/my-training-data/train', 'test': 'cos://my-bucket/my-training-data/test'}`，可以指定多个通道的数据集。
+  - `str`：例如：`cos://my-bucket/my-training-data`，COS URI，表示数据集的路径。
+  - `dict[str, str]`：例如`{'train': 'cos://my-bucket/my-training-data/train', 'test': 'cos://my-bucket/my-training-data/test'}`，可以指定多个通道的数据集。
 
 #### 可选参数
-- `wait (bool)`：默认为 True，是否在阻塞直到训练完成。如果设置为 False,`fit`立即返回，训练任务后台异步执行，后面仍可通过`attach`方法附加。
+- `wait (bool)`：默认为 True，是否阻塞直到训练完成。如果设置为 False,`fit`立即返回，训练任务后台异步执行，后面仍可通过`attach`方法附加。
 - `logs (bool)`：默认为 True，是否打印训练任务产生的日志。只有在`wait`为 True 时才生效。
 - `run_tensorboard_locally (bool)`：如果设置为 True，将打印 Tensorboard。
 - `job_name (str)`：训练任务名称。如果未指定，则 Estimator 将根据训练镜像名和时间戳生成默认名字。
 
 #### 工作流程
 调用 fit 方法启动训练任务后，TI 后台会执行以下操作：
-- 启动`train_instance_count`数量的`train_instance_type`对应的 CVM 实例在每台实例上，执行以下步骤：
+- 启动`train_instance_count`数量的`train_instance_type`对应的 CVM 实例在每台实例上：
 1. 拉取预置 Tensorflow 镜像启动容器。
 2. 下载训练数据集。
 3. 设置训练相关的环境变量。

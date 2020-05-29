@@ -14,7 +14,7 @@
 | 所属平台 | GitHub 地址 | 关键类 |
 |:---------:|:--------:|:---------:|
 | iOS | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/CameraPush) | CameraPushViewController.m |
-| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/camerapush) | CameraPusherActivity.java |
+| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/lvb/src/main/java/com/tencent/liteav/demo/lvb/camerapush) | CameraPusherActivity.java |
 
 
 ## 功能对接
@@ -22,7 +22,7 @@
 ### 1. 下载 SDK 开发包
 [下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照 [SDK 集成指引](https://cloud.tencent.com/document/product/454/7876) 将 SDK 嵌入您的 App 工程中。
 
-
+<span id="step2"></span>
 ### 2. 给 SDK 配置 License 授权
 单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用的 License，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
 
@@ -51,8 +51,9 @@
  TXLivePush *_pusher = [[TXLivePush alloc] initWithConfig: _config]; // config 参数不能为空
 ```
 
+<span id="step4"></span>
 ### 4. 开启摄像头预览
-调用 TXLivePush 中的`startPreview`接口可以开启当前手机的摄像头预览。您需要为`startPreview` 接口提供一个用于显示视频画面的 view 对象。
+调用 [TXLivePush](https://cloud.tencent.com/document/product/454/34755) 中的`startPreview`接口可以开启当前手机的摄像头预览。您需要为`startPreview` 接口提供一个用于显示视频画面的 view 对象。
 
 ```objectivec   
  //创建一个 view 对象，并将其嵌入到当前界面中
@@ -87,16 +88,15 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    //此处填写您的 rtmp
 [_pusher stopPush];
 ```
 
--  **如何获取可用的推流 URL**
->开通直播服务后，可以使用 [直播控制台 > 辅助工具 > 地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
->![](https://main.qcloudimg.com/raw/0ec9d83f340454c287d96f83eec3a3e4.png)
-
-- **返回 -5 的原因**
->如果 `startPush` 接口返回 -5，则代表您的 License 校验失败了，请检查第2步“给 SDK 配置   License 授权”中的工作是否有问题。
+-  **如何获取可用的推流 URL？**
+开通直播服务后，可以使用 [直播控制台 > 辅助工具 > 地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
+![](https://main.qcloudimg.com/raw/0ec9d83f340454c287d96f83eec3a3e4.png)
+- **返回 -5 的原因？**
+如果 `startPush` 接口返回 -5，则代表您的 License 校验失败了，请检查 [第2步“给 SDK 配置   License 授权”](#step2) 中的工作是否有问题。
 
 
 ### 6. 纯音频推流
-如果您的直播场景是纯音频直播，不需要视频画面，那么您可以不执行第4步中的操作，取而代之的是开启 TXLivePushConfig 中的`enablePureAudioPush`配置。
+如果您的直播场景是纯音频直播，不需要视频画面，那么您可以不执行 [第4步](#step4) 中的操作，取而代之的是开启 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) 中的`enablePureAudioPush`配置。
 
 ```objectivec
 //通过修改 enablePureAudioPush 开关，开启纯音频推流
@@ -164,7 +164,7 @@ TXLivePush 提供了一组 API 用户控制摄像头的行为：
 ![](https://main.qcloudimg.com/raw/45ef7c9d0f1ecfc9bfab7735d92ec641.jpg)
 
 ### 12. 横屏推流
-大多数情况下，主播习惯以“竖屏持握”手机进行直播拍摄，观众端看到的也是竖屏分辨率的画面（例如 540 x 960 这样的分辨率）；有时主播也会“横屏持握”手机，这时观众端期望能看到是横屏分辨率的画面（例如 960 x 540 这样的分辨率），如下图所示：
+大多数情况下，主播习惯以“竖屏持握”手机进行直播拍摄，观众端看到的也是竖屏分辨率的画面（例如 540 × 960 这样的分辨率）；有时主播也会“横屏持握”手机，这时观众端期望能看到是横屏分辨率的画面（例如 960 × 540 这样的分辨率），如下图所示：
 ![](https://main.qcloudimg.com/raw/d42f32ad9deef5b3eba3ccb271fe05e8.png)
 
 TXLivePush 默认推出的是竖屏分辨率的视频画面，如果希望推出横屏分辨率的画面，需要：
@@ -256,7 +256,7 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 设置 TXLivePushConfig 中的`watermark`可以让 SDK 在推出的视频流中增加一个水印，水印的位置位由`watermarkNormalization`选项决定。
 
 - SDK 所要求的水印图片格式为 png 而不是 jpg，因为 png 这种图片格式有透明度信息，因而能够更好地处理锯齿等问题（将 jpg 图片在 Windows 下修改后缀名是不起作用的）。
-- `watermarkNormalization`设置的是水印图片相对于推流分辨率的归一化坐标。假设推流分辨率为：540 x 960，该字段设置为：（0.1，0.1，0.1，0.0），那么水印的实际像素坐标为：（540 × 0.1，960 × 0.1，水印宽度 × 0.1，水印高度会被自动计算）。
+- `watermarkNormalization`设置的是水印图片相对于推流分辨率的归一化坐标。假设推流分辨率为：540 × 960，该字段设置为：（0.1，0.1，0.1，0.0），那么水印的实际像素坐标为：（540 × 0.1，960 × 0.1，水印宽度 × 0.1，水印高度会被自动计算）。
 
 ```objectivec
 //设置视频水印
@@ -320,7 +320,7 @@ NSString* msg = @"test";
 
 ## 事件处理
 ### 1. 事件监听
-SDK 通过 TXLivePushListener 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表请参见 [错误码表](https://cloud.tencent.com/document/product/454/17246) 。需要注意的是：**TXLivePushListener 只能监听得到 PUSH\_ 前缀的推流事件**。
+SDK 通过 [TXLivePushListener](https://cloud.tencent.com/document/product/454/34757) 代理来监听推流相关的事件通知和错误通知，详细的事件表和错误码表请参见 [错误码表](https://cloud.tencent.com/document/product/454/17246) 。需要注意的是：**TXLivePushListener 只能监听得到 PUSH\_ 前缀的推流事件**。
 
 ### 2. 常规事件 
 一次成功的推流都会通知的事件有（例如，收到1003就意味着摄像头的画面开始渲染）：

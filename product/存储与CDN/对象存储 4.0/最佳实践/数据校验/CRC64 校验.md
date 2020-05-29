@@ -8,14 +8,14 @@ COS 会对新上传的对象进行 CRC64 计算，并将结果作为对象的属
 
 目前支持 CRC64 的 API 如下：
 
+- 简单上传接口
+	- [PUT Object](https://cloud.tencent.com/document/product/436/7749) 和 [POST Object](https://cloud.tencent.com/document/product/436/14690)：用户可在返回的响应头中获得文件 CRC64 校验值。
 - 分块上传接口
-	- Upload Part：用户可以根据 COS 返回的 CRC64 值与本地计算的数值进行比较验证。
-	- Complete Multipart Upload：如果每个分块都有 CRC64 属性，则会返回整个对象的 CRC64 值，如果某些分块不具备 CRC64 值，则不返回。
-	- 执行 Upload Part - Copy 时，会返回对应的 CRC64 值。
-- 执行 PUT Object - Copy 时，如果源对象存在 CRC64 值，则返回 CRC64，否则不返回。
-- 执行 HEAD Object 和 GET Object 时，如果对象存在 CRC64，则返回。用户可以根据 COS 返回的 CRC64 值和本地计算的 CRC64 进行比较验证。
-
-> !目前 COS 简单上传接口 PUT Object、POST Object 暂不支持 CRC64。
+	- [Upload Part](https://cloud.tencent.com/document/product/436/7750)：用户可以根据 COS 返回的 CRC64 值与本地计算的数值进行比较验证。
+	- [Complete Multipart Upload](https://cloud.tencent.com/document/product/436/7742)：如果每个分块都有 CRC64 属性，则会返回整个对象的 CRC64 值，如果某些分块不具备 CRC64 值，则不返回。
+- 执行 [Upload Part - Copy](https://cloud.tencent.com/document/product/436/8287) 时，会返回对应的 CRC64 值。
+- 执行 [PUT Object - Copy](https://cloud.tencent.com/document/product/436/10881) 时，如果源对象存在 CRC64 值，则返回 CRC64，否则不返回。
+- 执行 [HEAD Object](https://cloud.tencent.com/document/product/436/7745) 和 [GET Object](https://cloud.tencent.com/document/product/436/7753) 时，如果对象存在 CRC64，则返回。用户可以根据 COS 返回的 CRC64 值和本地计算的 CRC64 进行比较验证。
 
 ## API 接口示例
 

@@ -324,7 +324,7 @@ __介绍__
 
 ### switchStream
 
-多清晰度切换。
+FLV 多清晰度切换。
 ```
 int switchStream(String playUrl)
 ```
@@ -599,7 +599,7 @@ __参数__
 
 __介绍__
 
-待废弃，此接口仅针对点播视频使用，对直播视频无效；若您想使用点播功能，请使用 [TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#step-2.3A-.E5.88.9B.E5.BB.BAplayer) 进行点播播放。
+待废弃，此接口仅针对点播视频使用，对直播视频无效；若您想使用点播功能，请使用 [TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#.E5.AF.B9.E6.8E.A5.E6.94.BB.E7.95.A5) 进行点播播放。
 
 ***
 
@@ -618,7 +618,7 @@ __参数__
 
 __介绍__
 
-待废弃，此接口仅针对点播视频使用，对直播视频无效；若您想使用点播功能，请使用 [TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#step-2.3A-.E5.88.9B.E5.BB.BAplayer) 进行点播播放。
+待废弃，此接口仅针对点播视频使用，对直播视频无效；若您想使用点播功能，请使用 [TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#.E5.AF.B9.E6.8E.A5.E6.94.BB.E7.95.A5) 进行点播播放。
 
 ***
 
@@ -747,5 +747,4 @@ __参数__
 |-----|-----|-----|
 | volume | int | 音量大小, 取值范围 [0，100]。 |
 
-***
 

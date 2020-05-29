@@ -29,12 +29,11 @@ Spark Streaming 将连续数据抽象成 DStream（Discretized Stream），而 D
 登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)，创建一个 CKafka 实例（参考 [创建实例](https://cloud.tencent.com/document/product/597/30931)）。
 >?确认网络类型是否与当前使用网络相符。
 
-![Alt text](https://mc.qcloudimg.com/static/img/d7ee601da4d342cb2651d6a39db99e45/1501596501359.png)
-
+![](https://main.qcloudimg.com/raw/41cdd13de9e1fe2f602f9e66daf46da7.png)
 
 ### 创建 Topic
 在实例下创建一个 Topic（参考 [创建 Topic](https://cloud.tencent.com/document/product/597/40415)）。
-![Alt text](https://mc.qcloudimg.com/static/img/2d07bc5d5cac3be1ff03e7da099783f1/1501596195835.png)
+![](https://main.qcloudimg.com/raw/175cc4f3defcb58ef5e7166d07b929f5.png)
 内网 IP 与端口：是生产消费需要用到的 bootstrap-server。
 这里创建了一个名为 spark_test 的 Topic，接下来将以该 Topic 为例介绍如何生产消费。
 

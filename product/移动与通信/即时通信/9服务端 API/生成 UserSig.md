@@ -1,5 +1,8 @@
 UserSig 是用户登录即时通信 IM 的密码，其本质是对 UserID 等信息加密后得到的密文，本文将指导您如何生成 UserSig。
 
+以下视频将帮助您快速了解如何生成 UserSig：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2332-34428?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 获取密钥 
 
 1. 登录即时通信 IM [控制台](https://console.cloud.tencent.com/im)。

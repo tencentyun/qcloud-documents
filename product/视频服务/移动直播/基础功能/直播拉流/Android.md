@@ -34,7 +34,7 @@ SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，�
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:visibility="gone"/>
+            android:visibility="visible"/>
 ```
 
 ### step 2: 创建 Player
@@ -63,8 +63,8 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐 FLV
 | PLAY_TYPE_LIVE_RTMP_ACC | 5 | 低延迟链路地址（仅适合于连麦场景） |
 | PLAY_TYPE_VOD_HLS | 3 | 传入的 URL 为 HLS（m3u8）播放地址 |
 
-> **关于 HLS(m3u8)**
-> 在 App 上我们不推荐使用 HLS 这种播放协议播放直播视频源（虽然它很适合用做点播），因为延迟太高。在 App 上推荐使用 LIVE_FLV 或者 LIVE_RTMP 播放协议。
+**关于 HLS(m3u8)**
+在 App 上我们不推荐使用 HLS 这种播放协议播放直播视频源（虽然它很适合用做点播），因为延迟太高。在 App 上推荐使用 LIVE_FLV 或者 LIVE_RTMP 播放协议。
 
 ### step 4: 画面调整
 
@@ -107,7 +107,6 @@ mLivePlayer.resume();
 
 ### step 6: 结束播放
 结束播放时**记得销毁 view 控件**，尤其是在下次 startPlay 之前，否则会产生大量的内存泄露以及闪屏问题。
-
 同时，在退出播放界面时，记得一定要调用渲染 View 的 `onDestroy()` 函数，否则可能会产生内存泄露和“Receiver not registered”报警。
 ```java
 @Override
@@ -119,7 +118,6 @@ public void onDestroy() {
 ```
 
 stopPlay 的布尔型参数含义为—— “是否清除最后一帧画面”。早期版本的 RTMP SDK 的直播播放器没有 pause 的概念，所以通过这个布尔值来控制最后一帧画面的清除。
-
 如果是点播播放结束后，也想保留最后一帧画面，您可以在收到播放结束事件后什么也不做，默认停在最后一帧。
 
 <h3 id="Message">step 7: 消息接收</h3>
@@ -187,8 +185,8 @@ mLivePlayer.startRecord(int recordType);
 mLivePlayer.stopRecord();
 ```
 
-- 录制的进度以时间为单位，由 ITXVideoRecordListener 的 onRecordProgress 通知出来。
-- 录制好的文件以 MP4 文件的形式，由 ITXVideoRecordListener 的 onRecordComplete 通知出来。
+- 录制的进度以时间为单位，由 ITXVideoRecordListener 的 `onRecordProgress` 通知出来。
+- 录制好的文件以 MP4 文件的形式，由 ITXVideoRecordListener 的 `onRecordComplete` 通知出来。
 - 视频的上传和发布由 TXUGCPublish 负责，具体使用方法可以参考 [视频上传（Android）](https://cloud.tencent.com/document/product/584/15535)。
 
 ### step 10: 清晰度无缝切换
@@ -236,7 +234,6 @@ mLivePlayer.seek(600); // 从第10分钟开始播放
 | 流畅模式 | 卡顿率最低 | ≥ 5s | 游戏直播（企鹅电竞） | 对于超大码率的游戏直播（例如绝地求生）非常适合，卡顿率最低|
 | 自动模式 | 网络自适应 | 2s - 8s | 混合场景 | 观众端的网络越好，延迟就越低；观众端网络越差，延迟就越高 |
 
-
 - **三种模式的对接代码**
 
 ```java
@@ -261,14 +258,11 @@ mLivePlayer.setConfig(mPlayConfig);
 //设置完成之后再启动播放
 ```
 
-> 更多关于卡顿和延迟优化的技术知识，可以阅读 [如何优化视频卡顿？](https://cloud.tencent.com/document/product/454/7946)
+>? 更多关于卡顿和延迟优化的技术知识，可以阅读 [如何优化视频卡顿？](https://cloud.tencent.com/document/product/454/7946)
 
 <h2 id="RealTimePlay">超低延时播放</h2>
 
 支持**400ms**左右的超低延迟播放是腾讯云直播播放器的一个特点，它可以用于一些对时延要求极为苛刻的场景，例如**远程夹娃娃**或者**主播连麦**等，关于这个特性，您需要知道：
-
-- **该功能是不需要开通的**
-该功能并不需要提前开通，但是要求直播流必须位于腾讯云。
 
 - **播放地址需要带防盗链**
 播放 URL 不能用普通的 CDN URL，必须要带防盗链签名和 bizid 参数，防盗链签名的计算方法请参见 [防盗链计算](https://cloud.tencent.com/document/product/267/32735)。
@@ -279,17 +273,14 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 则加速流地址为：
 `rtmp://domain/live/test?txTime=5c2acacc&txSecret=b77e812107e1d8b8f247885a46e1bd34&bizid=2157`
 
->?这里的防盗链计算要用推流防盗链Key
+>? 防盗链计算默认使用推流防盗链 Key，如果有自定义播放防盗链 Key 则需要使用播放防盗链 Key。
 
 - **播放类型需要指定 ACC**
 在调用 startPlay 函数时，需要指定 type 为 **PLAY_TYPE_LIVE_RTMP_ACC**，SDK 会使用 RTMP-UDP 协议拉取直播流。
-
 - **该功能有并发播放限制**
 目前最多同时10路并发播放，设置这个限制的原因并非是技术能力限制，而是希望您只考虑在互动场景中使用（例如连麦时只给主播使用，或者夹娃娃直播中只给操控娃娃机的玩家使用），避免因为盲目追求低延时而产生不必要的费用损失（低延迟线路的价格要贵于 CDN 线路）。
-
 - **Obs 的延时是不达标的**
 推流端如果是 [TXLivePusher](https://cloud.tencent.com/document/product/454/7885)，请使用 [setVideoQuality](https://cloud.tencent.com/document/product/454/7885#7.-.E8.AE.BE.E5.AE.9A.E7.94.BB.E9.9D.A2.E6.B8.85.E6.99.B0.E5.BA.A6) 将 `quality`  设置为 MAIN_PUBLISHER 或者 VIDEO_CHAT。
-
 - **该功能按播放时长收费**
 本功能按照播放时长收费，费用跟拉流的路数有关系，跟音视频流的码率无关，具体价格请参考 [价格总览](https://cloud.tencent.com/document/product/454/8008#ACC)。
 
@@ -307,18 +298,18 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 | PLAY_EVT_PLAY_BEGIN    |  2004|  视频播放开始，如果您自己做 loading，会需要它 | 
 | PLAY_EVT_PLAY_PROGRESS    |  2005|  播放进度，如果您在直播中收到此消息，说明错用成了 TXVodPlayer |
 | PLAY_EVT_PLAY_END    |  2006|  播放结束，HTTP-FLV 的直播流是不抛这个事件的 |
-| PLAY_EVT_PLAY_LOADING	|  2007|  视频播放进入缓冲状态，缓冲结束之后会有 PLAY_BEGIN 事件|  
-| PLAY_EVT_START_VIDEO_DECODER	|  2008| 视频解码器开始启动（2.0 版本以后新增） |  
-| PLAY_EVT_CHANGE_RESOLUTION	|  2009|  视频分辨率发生变化（分辨率在 EVT_PARAM 参数中）|  
-| PLAY_EVT_GET_PLAYINFO_SUCC	|  2010|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
-| PLAY_EVT_CHANGE_ROTATION	|  2011|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
-| PLAY_EVT_GET_MESSAGE	|  2012|  获取夹在视频流中的自定义 SEI 消息，消息的发送需使用 TXLivePusher |  
-| PLAY_EVT_VOD_PLAY_PREPARED	|  2013|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
-| PLAY_EVT_VOD_LOADING_END	|  2014|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
-| PLAY_EVT_STREAM_SWITCH_SUCC	|  2015|  直播流切换完成，请参考 [清晰度无缝切换](https://cloud.tencent.com/document/product/881/20212#step-10.3A-.E6.B8.85.E6.99.B0.E5.BA.A6.E6.97.A0.E7.BC.9D.E5.88.87.E6.8D.A2)|  
+| PLAY_EVT_PLAY_LOADING |  2007|  视频播放进入缓冲状态，缓冲结束之后会有 PLAY_BEGIN 事件|  
+| PLAY_EVT_START_VIDEO_DECODER  |  2008| 视频解码器开始启动（2.0 版本以后新增） |  
+| PLAY_EVT_CHANGE_RESOLUTION    |  2009|  视频分辨率发生变化（分辨率在 EVT_PARAM 参数中）|  
+| PLAY_EVT_GET_PLAYINFO_SUCC    |  2010|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
+| PLAY_EVT_CHANGE_ROTATION  |  2011|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
+| PLAY_EVT_GET_MESSAGE  |  2012|  获取夹在视频流中的自定义 SEI 消息，消息的发送需使用 TXLivePusher |  
+| PLAY_EVT_VOD_PLAY_PREPARED    |  2013|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
+| PLAY_EVT_VOD_LOADING_END  |  2014|  如果您在直播中收到此消息，说明错用成了 TXVodPlayer|  
+| PLAY_EVT_STREAM_SWITCH_SUCC   |  2015|  直播流切换完成，请参考 [清晰度无缝切换](https://cloud.tencent.com/document/product/881/20212#step-10.3A-.E6.B8.85.E6.99.B0.E5.BA.A6.E6.97.A0.E7.BC.9D.E5.88.87.E6.8D.A2)|  
 
->**不要在收到 PLAY_LOADING 后隐藏播放画面**
->因为 PLAY_LOADING -> PLAY_BEGIN 的等待时间长短是不确定的，可能是5s也可能是5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个背景透明的 loading 动画。
+**不要在收到 PLAY_LOADING 后隐藏播放画面**
+因为 `PLAY_LOADING -> PLAY_BEGIN` 的等待时间长短是不确定的，可能是5s也可能是5ms，有些客户考虑在 LOADING 时隐藏画面， BEGIN 时显示画面，会造成严重的画面闪烁（尤其是直播场景下）。推荐的做法是在视频播放画面上叠加一个背景透明的 loading 动画。
 
 ### 结束事件
 | 事件ID                 |    数值  |  含义说明                    |   
@@ -326,10 +317,9 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 |PLAY_EVT_PLAY_END      |  2006|  视频播放结束      | 
 |PLAY_ERR_NET_DISCONNECT |  -2301  |  网络断连，且经多次重连亦不能恢复，更多重试请自行重启播放 | 
 
-> **如何判断直播已结束？**
-> RTMP 协议中规定了直播结束事件，但是 HTTP-FLV 则没有，如果您在播放 FLV 的地址时直播结束了，可预期的 SDK 的表现是：SDK 会很快发现数据流拉取失败（WARNING_RECONNECT），然后开始重试，直至三次重试失败后抛出 PLAY_ERR_NET_DISCONNECT 事件。
->
-> 所以`2006`和`-2301`都要监听，用来作为直播结束的判定事件。
+ **如何判断直播已结束？**
+RTMP 协议中规定了直播结束事件，但是 HTTP-FLV 则没有，如果您在播放 FLV 的地址时直播结束了，可预期的 SDK 的表现是：SDK 会很快发现数据流拉取失败（WARNING_RECONNECT），然后开始重试，直至三次重试失败后抛出 PLAY_ERR_NET_DISCONNECT 事件。
+所以`2006`和`-2301`都要监听，用来作为直播结束的判定事件。
 
 
 ### 警告事件
@@ -351,7 +341,6 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 
 ## 获取视频分辨率
 通过 onPlayEvent 通知的 **PLAY_EVT_CHANGE_RESOLUTION** 事件可以获取视频流当前的宽高比，这是获取视频流分辨率的最快速办法，大约会在启动播放后的100ms - 200ms左右就能得到。
-
 视频的宽高信息位于 TXLivePlayListener 的 `onPlayEvent(int event, Bundle param)` 通知中的 **param** 参数中。
 
 | 参数 | 含义 | 数值 |
@@ -368,10 +357,10 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 | NET_STATUS_CPU_USAGE     | 当前瞬时 CPU 使用率 | 
 | NET_STATUS_VIDEO_WIDTH  | 视频分辨率 - 宽 |
 | NET_STATUS_VIDEO_HEIGHT| 视频分辨率 - 高 |
-|	NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
-|	NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定 |
-|	NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
-|	NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
-|	NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
-|	NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为0，说明离卡顿就不远了|
+|   NET_STATUS_NET_SPEED     | 当前的网络数据接收速度 |
+|   NET_STATUS_NET_JITTER    | 网络抖动情况，抖动越大，网络越不稳定 |
+|   NET_STATUS_VIDEO_FPS     | 当前流媒体的视频帧率    |
+|   NET_STATUS_VIDEO_BITRATE | 当前流媒体的视频码率，单位 kbps|
+|   NET_STATUS_AUDIO_BITRATE | 当前流媒体的音频码率，单位 kbps|
+|   NET_STATUS_CACHE_SIZE    | 缓冲区（jitterbuffer）大小，缓冲区当前长度为0，说明离卡顿就不远了|
 | NET_STATUS_SERVER_IP | 连接的服务器 IP | 

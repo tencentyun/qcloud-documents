@@ -1,5 +1,5 @@
 ## 1. 功能介绍
-HttpDns 的主要功能是为了有效的避免由于运营商传统 LocalDns 解析导致的无法访问最佳接入点的方案。原理为使用 HTTP 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
+HTTPDNS 的主要功能是为了有效的避免由于运营商传统 LocalDns 解析导致的无法访问最佳接入点的方案。原理为使用 HTTP 加密协议替代传统的 DNS 协议，整个过程不使用域名，大大减少劫持的可能性。
 
 ## 2. 安装包结构
 压缩文件中包含 demo 工程，其中包含：
@@ -10,7 +10,7 @@ HttpDns 的主要功能是为了有效的避免由于运营商传统 LocalDns �
 | MSDKDns_C11.framework | 适用于该两项配置分别为 **“GNU++11”** 和 **“libc++(LLVM C++ standard library with C++11 support)”** 的工程。 |
 
 ## 3. SDK 集成
-HttpDns 提供两种集成方式供 iOS 开发者选择：
+HTTPDNS 提供两种集成方式供 iOS 开发者选择：
 - 通过 CocoaPods 集成。
 - 手动集成。
 
@@ -32,7 +32,7 @@ HttpDns 提供两种集成方式供 iOS 开发者选择：
 仅需引入位于 HTTPDNSLibs 目录下的 MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）即可。
 
 #### 3.2.2 未接入灯塔（Beacon）的业务
-灯塔（beacon）SDK 是腾讯灯塔团队开发的用于移动应用统计分析的 SDK，HttpDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据，辅助定位问题。
+灯塔（beacon）SDK 是腾讯灯塔团队开发的用于移动应用统计分析的 SDK，HTTPDNS SDK 使用灯塔（beacon）SDK 收集域名解析质量数据，辅助定位问题。
 - 引入依赖库（位于 HTTPDNSLibs 目录下）：
 	- BeaconAPI_Base.framework
 	- MSDKDns.framework（或 MSDKDns_C11.framework，根据工程配置选其一）
@@ -277,7 +277,7 @@ if (sArray != null && sArray.Length > 1) {
 ![](https://main.qcloudimg.com/raw/f9a10fb9306f73cfd99c6dde705fc956.jpg)
 ![](https://main.qcloudimg.com/raw/5e34886a01bb50d17df72be53db03984.jpg)
 
-### 6.2 HTTPS 场景下（非 SNI）使用 HttpDns 解析结果
+### 6.2 HTTPS 场景下（非 SNI）使用 HTTPDNS 解析结果
 
 #### 原理
 
@@ -408,13 +408,13 @@ const char* WWWDelegateClassName = "UnityWWWConnectionSelfSignedCertDelegate";
 //const char* WWWDelegateClassName = "UnityWWWConnectionDelegate";
 ```
 
-### 6.3 SNI（单 IP 多 HTTPS 证书）场景下使用 HttpDns 解析结果
+### 6.3 SNI（单 IP 多 HTTPS 证书）场景下使用 HTTPDNS 解析结果
 
 SNI（Server Name Indication）是为了解决一个服务器使用多个域名和证书的 SSL/TLS 扩展。它的工作原理如下：
 - 在连接到服务器建立 SSL 链接之前先发送要访问站点的域名（Hostname）。
 - 服务器根据这个域名返回一个合适的证书。
 
-上述过程中，当客户端使用 HttpDns 解析域名时，请求 URL 中的 host 会被替换成 HttpDns 解析出来的 IP，导致服务器获取到的域名为解析后的 IP，无法找到匹配的证书，只能返回默认的证书或者不返回，所以会出现 SSL/TLS 握手不成功的错误。
+上述过程中，当客户端使用 HTTPDNS 解析域名时，请求 URL 中的 host 会被替换成 HTTPDNS 解析出来的 IP，导致服务器获取到的域名为解析后的 IP，无法找到匹配的证书，只能返回默认的证书或者不返回，所以会出现 SSL/TLS 握手不成功的错误。
 
 由于 iOS 上层网络库 NSURLConnection/NSURLSession 没有提供接口进行 SNI 字段的配置，因此可以考虑使用 NSURLProtocol 拦截网络请求，然后使用 CFHTTPMessageRef 创建 NSInputStream 实例进行 Socket 通信，并设置其 kCFStreamSSLPeerName 的值。
 

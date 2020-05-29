@@ -7,8 +7,8 @@
   </tr>
   <tr align="center">
      <td>版本</td>
-        <td style="text-align:center">SDK（6.9.8341） @ 2020-01-14</td>
-        <td style="text-align:center">SDK（6.9.8321） @ 2020-01-14</td>
+        <td style="text-align:center">SDK（7.2.8932） @ 2020-04-26</td>
+        <td style="text-align:center">SDK（7.2.8927） @ 2020-04-26</td>
   </tr>
   <tr align="center">
     <td>小窗播放</td>
@@ -102,9 +102,8 @@
 
 
 ## 技术交流
-关注公众号“腾讯云视频”，在聊天窗口发送“技术支持”，将有专人和您联系。
-
-![公众号二维码](https://main.qcloudimg.com/raw/1c414d4d70e910289eac02b2e14e8c03.jpg)
+关注公众号“腾讯云视频云”，在聊天窗口发送“技术支持”，将有专人和您联系。
+<img src="https://main.qcloudimg.com/raw/1c414d4d70e910289eac02b2e14e8c03.jpg" width="150">
 
 <script>
   var _mtac = {"senseHash":0};

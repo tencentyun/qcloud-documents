@@ -1,5 +1,5 @@
 ## 接口描述
-协议：HTTPS Post
+协议：HTTPS GET/POST
 域名：`csec.api.qcloud.com`
 接口名：ActivityAntiRush
 
@@ -37,7 +37,7 @@
 | businessId         | 否      | Uint     | 业务 ID 网站或应用在多个业务中使用此服务，通过此 ID 区分统计数据。 |
 | wxSubType  | 否      | int      |<li>1：微信公众号。</li><li>2：微信小程序。</li>                                |
 | randNum        | 否      | String   | Token 签名随机数，微信小程序必填，建议16个字符。                |
-| wxToken       | 否      | String   | <li>如果是微信小程序，该字段为以 ssesion_key 为 key 去签名随机数 randNum 得到的值（hmac_sha256 签名算法）。</li><li>如果是微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，具体看 [微信官方文档](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842)）。</li> |
+| wxToken       | 否      | String   | <li>wxSubType = 2：微信小程序场景，该字段为以 ssesion_key 为 key 去签名随机数 radnNum 得到的值（ hmac_sha256 签名算法）。</li><li>wxSubType = 1：微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，具体看 [微信官方文档](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842)），而且获取网页版本的 access_token 时，scope 字段必需填写 snsapi_userinfo。</li> |
 | checkDevice  | 否      | Int      | 是否识别设备异常：<li>0：不识别。</li><li>1：识别。</li>                             |
 
 ## 输出参数
@@ -85,20 +85,12 @@
 <td>微信登录态无效</td><td>104</td><td>检查 wxtoken 参数，是否已经失效。</td>
 </tr>
 <tr>
-<td rowspan=5>环境风险</td><td>环境异常</td><td>201</td><td>操作 IP/设备/环境存在异常。当前 IP 为非常用 IP 或恶意 IP 段。</td>
-</tr>
-<tr>
-<td>JS 上报异常</td><td>202</td><td>需要用户在前端部署 JS 方有效。</td>
-</tr>
-<tr>
-<td>撞库</td><td>203</td><td>该账号有过“撞库”的历史行为。</td>
+<td rowspan=2>环境风险</td><td>环境异常</td><td>201</td><td>操作 IP/设备/环境存在异常。当前 IP 为非常用 IP 或恶意 IP 段。</td>
 </tr>
 <tr>
 <td>非公网有效 IP</td><td>205</td><td>传进来的 IP 地址为内网 IP 地址或者 IP 保留地址 。</td>
 </tr>
-<tr>
-<td>设备异常</td><td>206</td><td>该设备存在异常的使用行为。</td>
-</tr>
+<tr><td >设备风险</td><td>设备异常</td><td>206</td><td>该设备存在异常的使用行为。</td></tr>
 </table>
 
 ## 示例代码

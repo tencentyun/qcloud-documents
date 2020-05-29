@@ -5,7 +5,7 @@
 - ACL 访问控制列表（Access Control List），帮助用户定义一组权限规则，允许/拒绝用户 user 通过 IP 读/写 Topic 资源  resource。
 
 ## 前提条件
-该功能目前处于灰度测试阶段，如需试用请通过 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=335&source=0&data_title=%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97CMQ/CKAFKA/IoT%20MQ&step=1) 的方式开通白名单。
+该功能目前处于灰度测试阶段，如需试用请通过 [提交内测申请](https://cloud.tencent.com/apply/p/70089qycbxa) 的方式开通白名单,申请提交后我们将在5个工作日内进行审核并与您取得联系。
 
 ## 操作步骤
 
@@ -18,7 +18,7 @@
 
 ####  Client 端配置
 1. 在 CKafka 实例的用户管理页面，单击【新建】，创建用户。
-![](https://main.qcloudimg.com/raw/f164bde6857b4a0a23b69ccfd41f5c8e.png)
+![](https://main.qcloudimg.com/raw/43fc21203648cbb27b91ba1d37b218f2.png)
 2. 输入用户名和密码信息，单击【提交】完成用户新增。
 ![](https://main.qcloudimg.com/raw/8c8e2e57d320ba2b25e0aecf0dbb3b28.png)
 
@@ -92,8 +92,8 @@ Properties props = new Properties();
 props.put("bootstrap.servers", "yourbrokers");
 props.put("security.protocol", "SASL_PLAINTEXT");
 props.put("sasl.mechanism", "PLAIN");
-props.put("key.serializer", "org.apache.kafka.common.serialization.IntegerSerializer");
-props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 props.put("session.timeout.ms", 30000)
 props.put("sasl.jaas.config", "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"yourinstance#yourusername\" password=\"yourpassword\";");
 org.apache.kafka.clients.consumer.KafkaConsumer<Integer, String> consumer = new org.apache.kafka.clients.consumer.KafkaConsumer<>(props);
@@ -175,6 +175,6 @@ consumer = KafkaConsumer (
     api_version=(0,10,0)
 )
 ```
-更多配置及用法请参考 [Python-Kafka 文档](https://kafka-python.readthedocs.io/en/master/apidoc/modules.html) 。
+更多配置及用法请参考 [Python-Kafka 文档](https://kafka-python.readthedocs.io/en/master/apidoc/modules.html)。
 
 

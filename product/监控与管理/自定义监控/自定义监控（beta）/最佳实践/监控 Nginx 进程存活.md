@@ -1,4 +1,4 @@
->!新版自定义监控已灰度上线，目前处于内测阶段，如需使用可进入 [申请页面](https://url.cn/5OoeGnQ) 申请内测体验。
+>!新版自定义监控已灰度上线，如需使用可进入 [申请页面](https://url.cn/5OoeGnQ) 申请体验。
 若在使用过程中遇到任何问题，您可以加入自定义监控交流 QQ 群（793979710）进行咨询，我们将竭诚为您服务！  
 
 
@@ -73,7 +73,7 @@ nohup ./test.sh &
 ## 配置告警
 
 1. 确认用户消息通道已验证，可在 [CAM 鉴权](https://console.cloud.tencent.com/cam) 页面查看验证情况。
-![](https://main.qcloudimg.com/raw/0f20a82b975918addf2858a13a67991f.jpg)
+![](https://main.qcloudimg.com/raw/98f7a88cb0821ea4681abaf0c696da92.jpg)
 2. 进入自定义监控 [指标视图](https://console.cloud.tencent.com/monitor/indicator-view) 页面，在指标视图右上角【配置告警】。
 ![](https://main.qcloudimg.com/raw/e7d880dc8c7dc23fbb7719be863b4555.png)
 3. 根据背景需求配置告警规则，更详细的配置操作可参阅 [配置告警策略](https://cloud.tencent.com/document/product/397/40223)。

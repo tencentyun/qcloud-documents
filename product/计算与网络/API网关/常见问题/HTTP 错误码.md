@@ -46,6 +46,7 @@
 | 404    | There is no api match uri[$uri].                              | 在该请求地址对应的服务下找不到对应 URI 匹配的 API。               |
 | 404    | Not allow use HTTPS protocol或者Not allow use HTTP protocol.  | 该请求地址对应的服务并不支持对应 HTTP 协议类型。                 |
 | 404    | Found no api.                                                 | 请求没有匹配到 API。                                            |
+| 405    | Method Not Allowed.                                           | 不允许的 HTTP 请求方法。                                        |
 | 426    | Not allow use HTTPS protocol.                                 | 不允许用 HTTPS 协议。                                            |
 | 426    | Not allow use HTTP protocol.                                  | 不允许用 HTTP 协议。                                             |
 | 426    | Not allow use xxx protocol.                                   | 不允许用 xxx 协议。                                              |

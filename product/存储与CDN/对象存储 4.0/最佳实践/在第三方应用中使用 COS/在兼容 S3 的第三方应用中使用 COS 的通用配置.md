@@ -1,11 +1,11 @@
-Amazon Simple Storage Service (Amazon S3，下文简称 S3) 是 AWS 最早推出的云服务之一，经过多年的发展，S3 协议在对象存储行业事实上已经成为标准。腾讯云对象存储 COS（下文简称 COS）提供了兼容 S3 的实现方案，因此您可以在大部分兼容 S3 应用中直接使用 COS 服务。本文将重点介绍如何将此类应用配置为使用 COS 服务。
+Amazon Simple Storage Service（Amazon S3，下文简称 S3）是 AWS 最早推出的云服务之一，经过多年的发展，S3 协议在对象存储行业事实上已经成为标准。腾讯云对象存储 COS（下文简称 COS）提供了兼容 S3 的实现方案，因此您可以在大部分兼容 S3 应用中直接使用 COS 服务。本文将重点介绍如何将此类应用配置为使用 COS 服务。
 
 ## 准备工作
 
 ### 确认应用是否可以使用 COS 服务
 
-- 如果您在应用的说明中看到类似`S3 Compatible`字样，那么大多数情况是可以使用 COS 服务的。如果您在实际使用过程中发现应用的某些功能无法正常使用，您可以向我们 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询，在提交工单时，请说明您是从该文档中看到的指引，并提供相关应用的名称和截图等信息，以便我们可以更快的帮您解决问题。
-- 如果您的应用只说明支持`Amazon S3`，这表明该应用可以使用 S3 服务，但能否使用 COS 服务，还要在相关的配置中进一步尝试，本文也会在后续的配置说明中做进一步的说明。
+- 如果您在应用的说明中看到类似`S3 Compatible`字样，那么大多数情况可以使用 COS 服务。如果您在实际使用过程中发现应用的某些功能无法正常使用，您可以向我们 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行咨询，在提交工单时，请说明您是从该文档中看到的指引，并提供相关应用的名称和截图等信息，以便我们可以更快的帮您解决问题。
+- 如果您的应用只说明支持`Amazon S3`，这表明该应用可以使用 S3 服务，但能否使用 COS 服务，还需要在相关的配置中进一步尝试，本文也会在后续的配置说明中做进一步的说明。
 
 ### 准备 COS 服务
 
@@ -32,6 +32,7 @@ Amazon Simple Storage Service (Amazon S3，下文简称 S3) 是 AWS 最早推出
 
 在访问管理控制台的 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面中获取并记录 **APPID**、**SecretId** 和 **SecretKey**。
 
+![](https://main.qcloudimg.com/raw/9a328839005ea842f917fcd04acdd118.png)
 
 <span id="step5"></span>
 #### 步骤5：创建存储桶
@@ -70,7 +71,7 @@ Amazon Simple Storage Service (Amazon S3，下文简称 S3) 是 AWS 最早推出
 </tr>
 <tr>
 <td>服务端点/服务地址/服务&nbsp;URL/Endpoint/Custom Endpoint/Server URL 等</td>
-<td>这里用于填写 S3 兼容服务的服务地址，在使用 COS 服时，这里填写 COS 的服务地址，形式为：<code>cos.&lt;Region&gt;.myqcloud.com</code>或<br><code>https://cos.&lt;Region&gt;.myqcloud.com</code>。<br>是否需要填写<code>https://</code>，根据具体的应用有所不同，您可以自行尝试。其中<code>&lt;Region&gt;</code>代表 COS 的可用地域，在应用中，您只能在服务地址中指定的地域创建或选择存储桶。<br>例如您的存储桶在广州地域，那么服务地址应当配置为 <code>cos.ap-guangzhou.myqcloud.com</code>，如果您配置成其他地域，那么在应用中您无法找到广州地域下的存储桶。</td>
+<td>这里用于填写 S3 兼容服务的服务地址，在使用 COS 服务时，这里填写 COS 的服务地址，形式为：<code>cos.&lt;Region&gt;.myqcloud.com</code>或<br><code>https://cos.&lt;Region&gt;.myqcloud.com</code>。<br>是否需要填写<code>https://</code>，根据具体的应用有所不同，您可以自行尝试。其中<code>&lt;Region&gt;</code>代表 COS 的可用地域。<br>在应用中，您只能在服务地址中指定的地域创建或选择存储桶。<br><li>例如您的存储桶在广州地域，那么服务地址应当配置为<code>cos.ap-guangzhou.myqcloud.com</code>，如果您配置成其他地域，那么在应用中您无法找到广州地域下的存储桶。<br><li>如果应用的服务提供商中只能选择<code>Amazon S3</code>，并且服务端点是可以配置的，那么您可以将服务端点修改为前述的<code>cos.&lt;Region>.myqcloud.com</code>或<code>https://cos.&lt;Region>.myqcloud.com</code>。<br><li>如果服务端点是不可配置的或没有服务端点配置项，那么您的应用不能使用 COS 服务。</td>
 </tr>
 <tr>
 <td>Access Key/Access Key ID 等</td>

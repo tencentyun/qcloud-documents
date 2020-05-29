@@ -2,7 +2,7 @@
 对于腾讯云提供注册服务的域名后缀，您可以在腾讯云 [域名查询（WHOIS）](https://whois.cloud.tencent.com/) 页面，输入待查询域名后，单击<span ><img src="https://main.qcloudimg.com/raw/0cc93679f33e50d7c6b3fea4d9110cc1.png" style="margin-bottom:-5px;"/></span>，即可查询域名相关信息。如下图所示：
 >!根据 ICANN 《通用顶级域名注册数据临时政策细则（Temporary Specification for gTLD Registration Data）》和欧盟《通用数据保护条例》合规要求，腾讯云域名信息（WHOIS）查询结果中将不再展示域名所有者、所有者联系邮箱等信息。
 >
-![](https://main.qcloudimg.com/raw/1eedec4e66bf7a7ec083cd897cf71084.png)
+![](https://main.qcloudimg.com/raw/e66d0944a393ef999c40b575808c75a4.png)
  - **域名所有者**：不进行展示，如您需要获取，请联系域名注册商。
  - **所有者联系邮箱**：不进行展示，如您需要获取，请联系域名注册商。
  - **注册商**：域名当前的注册商，例如 DNSPod。

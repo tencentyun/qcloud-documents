@@ -28,8 +28,8 @@ string GenerateSignURL(PreSignatureStruct preSignatureStruct);
 | preSignatureStruct | PreSignatureStruct           | 预签名 URL 实例                 |
 | method             | string                       | HTTP 请求方法                   |
 | path               | string                       | HTTP 请求路径，即对象键         |
-| headers            | `Dictionary<string, string>` | 签名是否校验 header             |
-| queryParameters    | `Dictionary<string, string>` | 签名是否校验请求 url 中查询参数 |
+| headers            | `Dictionary<string, string>` | 签名的请求头             |
+| queryParameters    | `Dictionary<string, string>` | 签名的请求参数 |
 | signDurationSecond | long                         | 签名有效期时长（单位为秒），例如签名有效时期为1分钟：60          |
 
 #### PreSignatureStruct 结构体说明
@@ -44,8 +44,8 @@ string GenerateSignURL(PreSignatureStruct preSignatureStruct);
 | method             | string                       | HTTP 请求方法                      |
 | isHttps            | bool                         | <li>true：HTTPS 请求<br><li>false：HTTP 请求 |
 | key                | string                       | 对象键                             |
-| headers            | `Dictionary<string, string>` | 签名是否校验 header                |
-| queryParameters    | `Dictionary<string, string>` | 签名是否校验请求 url 中查询参数    |
+| headers            | `Dictionary<string, string>` | 签名的请求头                |
+| queryParameters    | `Dictionary<string, string>` | 签名的请求参数    |
 | signDurationSecond | long                         | 签名有效期时长（单位为秒），例如签名有效时期为1分钟：60               |
 
 ## 请求示例

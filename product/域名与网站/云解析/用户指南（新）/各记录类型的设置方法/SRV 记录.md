@@ -2,7 +2,7 @@
 SRV 记录用来标识某台服务器使用了某个服务，常见于微软系统的目录管理。本文档指导您如何添加 SRV 记录。
 
 ## 操作步骤
-1. 登录 [腾讯云云解析控制台](https://console.cloud.tencent.com/cns)。
+1. 登录 [腾讯云 DNS 解析控制台](https://console.cloud.tencent.com/cns)。
 2. 在 “域名解析列表” 中，选择需要进行 SRV 记录转发的域名，单击操作栏的【解析】，进入该域名的【记录管理】页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/d0c0dcc9a394c646f71f5695b673659c.png)
 3. 单击【添加记录】，填写以下记录信息。如下图所示：

@@ -45,15 +45,15 @@ SELECT 或 VALUES 命令会提供供游标返回的行。
 如果游标在 UPDATE 或 DELETE 命令的 WHERE CURRENT OF 子句中使用，该 SELECT 命令必须要满足以下条件：
 - 不能引用视图或者外部表。
 - 仅引用一张表。
-该表必须是可更新的，例如，以下是不可更新的：表函数，设置了返回值的函数，仅附加表，列表。
+该表必须是可更新的，例如，以下是不可更新的：表函数，设置了返回值的函数，仅附加表、列表。
 - 不能包含任何以下的：
  - 分组语句
  例如 UNION ALL 或 UNION DISTINCT 的集合操作。
  - 排序子句
  - 窗口子句
  - 连接或者左连接
-指定 FOR UPDATE 子句在 SELECT 命令中可以阻止元组在获取和更新之间被其他会话更改行。没有该 FOR UPDATE 子句，那么随后（同会话中）带有 WHERE CURRENT OF 子句的 UPDATE 或 DELETE 命令就不起作用了，如果该行在创建游标之前已经更改（被其他会话更改）。（如数据删除之后用户去更新会找不到）
->!指定 FOR UPDATE 子句在 SELECT 命令中锁定的是整个表，而不是仅仅是用户选择的行。
+指定 FOR UPDATE 子句在 SELECT 命令中可以阻止元组在获取和更新之间被其他会话更改行。没有该 FOR UPDATE 子句，那么随后（同会话中）带有 WHERE CURRENT OF 子句的 UPDATE 或 DELETE 命令就不起作用了，如果该行在创建游标之前已经更改（被其他会话更改，如数据删除之后用户去更新会找不到）。
+>!指定 FOR UPDATE 子句在 SELECT 命令中锁定的是整个表，而不仅是用户选择的行。
 
 FOR READ ONLY
 FOR READ ONLY 指明该游标仅仅用于只读模式。

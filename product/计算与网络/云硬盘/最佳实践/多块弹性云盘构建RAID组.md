@@ -40,7 +40,7 @@ RAID 可以将多个磁盘组合起来构成一个磁盘阵列组，提高数据
          <td>先用多个盘构建成 RAID 0，再用多个 RAID 0 构建成 RAID 1。</td>
 		 <td><ul><li><b>优点</b>：同时具备 RAID 0 和 RAID 1 的优点。</li>
 		 <li><b>缺点</b>：<ul><li>成本相对较高，至少需要使用四块盘。</li><li>单磁盘的损坏会导致同组的磁盘都不可用。</li></td>
-		 <td   rowspan="2">推荐使用 RAID 10。</td>
+		 <td   rowspan="2">-</td>
      </tr>
 	 <tr>
          <td>RAID 10</td>

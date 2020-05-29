@@ -10,7 +10,10 @@ Spark 框架面向使用 Scala/Java 的 Spark 用户，用户编写 Spark 应用
 整体工作流如下：
 <img src="https://main.qcloudimg.com/raw/cc3b3d871a4fd1e5eeac3da1a23f04a6.png" style="zoom:50%;" />
 
+>!您可以按需自行配置资源参数，不同资源实例类型对应的价格不同。选择资源时，您可以参看资源参数右上角的**计费说明**。
+
 ## 详细流程
+
 #### 一、本地准备
 1. 下载代码
 本案例使用的计算圆周率代码来自 Spark 官方：[利用 Spark 框架计算圆周率](https://github.com/apache/spark/blob/master/examples/src/main/scala/org/apache/spark/examples/SparkPi.scala)，您也可通过链接下载，或直接拷贝以下代码到本地进行编译。
@@ -77,7 +80,7 @@ object SparkPi {
  - 配置文件：此案例中无需配置文件（该参数代表的资源文件在代码中可通过 getResourceAsStream('xxx.txt') 获取）。
 
 3. 配置资源参数（用户可根据自身代码调整分配资源）
- - drver节点资源类型：TI.SMALL2.1core2g
+ - driver 节点资源类型：TI.SMALL2.1core2g
  - executor节点资源类型：TI.SMALL2.1core2g
  - num-executors：1
  - spark-conf：本案例中可不填（spark 的配置参数，例如 spark.shuffle.service.enabled=false，用空格或者回车分割多个 conf）

@@ -17,9 +17,9 @@
 
 迁移操作步骤如下：
 
-1. 登录 [迁移服务平台控制台](https://console.cloud.tencent.com/msp)。
-2. 单击左侧菜单栏中的【迁移工具】，找到“文件迁移工具”入口并单击【立即使用】。
-3. 新建迁移任务并配置任务信息。
+1. 登录 [迁移服务平台 MSP](https://console.cloud.tencent.com/msp)。
+2. 在左导航栏中单击【对象存储迁移】，进入对象存储迁移页面。
+3. 单击【新建任务】，新建迁移任务并配置任务信息。
 4. 启动任务。
 
 具体操作可参见 [腾讯云 COS 间迁移](https://cloud.tencent.com/document/product/659/38010)。

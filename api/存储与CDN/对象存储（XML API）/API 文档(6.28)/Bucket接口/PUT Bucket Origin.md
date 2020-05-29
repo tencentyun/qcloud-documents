@@ -13,6 +13,7 @@ Date:date
 Authorization: Auth String
 ```
 
+>?
 > - Authorization: Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 > - 该请求需结合请求体一起使用。
 
@@ -20,7 +21,7 @@ Authorization: Auth String
 
 #### 公共头部
 
-该请求操作的实现使用公共请求头，了解公共请求头详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 非公共头部
 
@@ -30,7 +31,7 @@ Authorization: Auth String
 
 请求的请求体为回源规则。
 
-```http
+```plaintext
 <?xml version="1.0" encoding="UTF-8"?>
 <OriginConfiguration>
   <OriginRule>
@@ -97,7 +98,7 @@ Container 节点 OriginInfo 的内容：
 
 #### 公共响应头
 
-该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 特有响应头
 
@@ -119,7 +120,7 @@ Container 节点 OriginInfo 的内容：
 
 ### 请求
 
-```http
+```plaintext
 PUT /?origin= HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-shanghai.myqcloud.com
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484639384;32557535384&q-key-time=1484639384;32557535384&q-header-list=host&q-url-param-list=&q-signature=5c07b7c67d56497d9aacb1adc19963135b7d00dc
@@ -140,7 +141,7 @@ Content-Length: 347
 
 ### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 0

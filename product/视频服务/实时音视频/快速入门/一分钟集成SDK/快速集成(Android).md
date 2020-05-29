@@ -1,7 +1,7 @@
 本文主要介绍如何快速地将腾讯云 TRTC SDK(Android) 集成到您的项目中，只要按照如下步骤进行配置，就可以完成 SDK 的集成工作。
 
 ## 开发环境要求
-- Android Studio 2.0+。
+- Android Studio 3.5+。
 - Android 4.1（SDK API 16）及以上系统。
 
 ## 集成 SDK（aar）
@@ -10,97 +10,86 @@
 
 ### 方法一：自动加载（aar）
 TRTC SDK 已经发布到 jcenter 库，您可以通过配置 gradle 自动下载更新。
-只需要用 Android Studio 打开需要集成 SDK 的工程（本文以 [TRTC SDK Demo](https://github.com/tencentyun/TRTCSDK/tree/master/Android) 为例），然后通过简单的三个步骤修改 app/build.gradle 文件，就可以完成 SDK 集成：
-![](https://main.qcloudimg.com/raw/05caa51b138e99ac32b177201c02f649.jpg)
+只需要用 Android Studio 打开需要集成 SDK 的工程（本文以 [TRTCSimpleDemo](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCSimpleDemo) 为例），然后通过简单的三个步骤修改 app/build.gradle 文件，就可以完成 SDK 集成：
+![](https://main.qcloudimg.com/raw/cc46fbc16ad95c8166af4ff99647e4c6.png)
 
-- **第一步：添加 SDK 依赖**   
-在 dependencies 中添加 TRTCSDK 的依赖。
+1. 在 dependencies 中添加 TRTCSDK 的依赖。
+ - 若使用3.x版本的 com.android.tools.build:gradle 工具，请执行以下命令：
 ```
 dependencies {
-    compile 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release'
+         implementation 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release'
 }
 ```
-
-- **第二步：指定 App 使用架构**
-在 defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a)  。
+ - 若使用2.x版本的 com.android.tools.build:gradle 工具，请执行以下命令：
 ```
-   defaultConfig {
-        ndk {
-            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
-        }
-    }
+dependencies {
+         compile 'com.tencent.liteav:LiteAVSDK_TRTC:latest.release'
+}
 ```
-
-- **第三步：同步 SDK**
-单击 Sync Now 按钮，如果您的网络连接 jcenter 没有问题，很快 SDK 就会自动下载集成到工程里。
+2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
+```
+defaultConfig {
+       ndk {
+           abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+       }
+}
+```
+>?目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a。
+>
+3.单击【Sync Now】，自动下载 SDK 并集成到工程里。
 
 
 ### 方法二：手动下载（aar）
-如果您的网络连接 jcenter 有问题，也可以手动下载 SDK 集成到工程里：
+如果您的网络连接 jcenter 有问题，您也可以手动下载 SDK 集成到工程里：
 
-- **第一步：下载 TRTC SDK**  
-在 Github 上可以下载到最新版本的 [TRTC SDK](https://github.com/tencentyun/TRTCSDK/tree/master/Android/SDK)：
-![](https://main.qcloudimg.com/raw/75434db66f21ed185b30528d45128cd4.png)
-
-- **第二步：拷贝 TRTC SDK 到工程目录**  
-将下载到的 aar 文件拷贝到工程的 **app/libs** 目录下：
-![](https://main.qcloudimg.com/raw/bdbc00b67ae7d087769d25a31dd6beed.png)
-
-- **第三步：指定本地仓库路径**
-在工程根目录下的 build.gradle 中，添加 **flatDir**，指定本地仓库路径。
-![](https://main.qcloudimg.com/raw/2bd3f6fc086314f300b0c2eddafb9215.jpg)
-
-- **第四步：添加 TRTC SDK 依赖**   
-在 app/build.gradle 中，添加引用 aar 包的代码。
-![](https://main.qcloudimg.com/raw/98b4806ed2484e96d47eb1ad165e900d.jpg)
-
-- **第五步：指定 App 使用架构**
-在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a)  。
+1. 下载最新版本 [TRTC SDK](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.zip)。
+2. 将下载到的 aar 文件拷贝到工程的 **app/libs** 目录下。
+3. 在工程根目录下的 build.gradle 中，添加 **flatDir**，指定本地仓库路径。
+![](https://main.qcloudimg.com/raw/bc3215028103fe980aedcbf011b97b02.png)
+4. 在 app/build.gradle 中，添加引用 aar 包的代码。
+![](https://main.qcloudimg.com/raw/a21f50100e881d53f4d502d2a1c8c5aa.png)
+5.在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构。
 ```
-   defaultConfig {
-        ndk {
-            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
-        }
-    }
+defaultConfig {
+       ndk {
+           abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+       }
+}
 ```
-
-- **第六步：同步 SDK**
-单击【Sync Now】，完成 TRTC SDK 的集成工作。
+>?目前 TRTC SDK 支持 armeabi ， armeabi-v7a 和 arm64-v8a。
+>
+6. 单击【Sync Now】，完成 TRTC SDK 的集成工作。
 
 
 ## 集成 SDK（jar）
 如果您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 TRTC SDK：
 
-- **第一步：下载解压 TRTC SDK**
-在 Github 上可以 [下载](https://github.com/tencentyun/TRTCSDK/tree/master/Android) 到最新版本的 jar 压缩包，文件名一般为 LiteAV_TRTC_xxx.zip（其中 xxx 为 TRTC SDK 的版本号）：
-![](https://main.qcloudimg.com/raw/8a97ef2b6a0cb2860b57b220d0684328.png)
-解压后得到 libs 目录，里面主要包含 jar 文件和 so 文件夹，文件清单如下：
-![](https://main.qcloudimg.com/raw/7b8efbef6d003896e91730b8f68abf76.png)
-
-- **第二步：拷贝 SDK 文件到工程目录**
-将解压得到的 jar文件和 armeabi， armeabi-v7a， arm64-v8a 文件夹拷贝到 app/libs 目录下。
-![](https://main.qcloudimg.com/raw/9af01cf965bbaf3dd9bcb23216eb0e6b.png)
-
-- **第三步：引用 jar 库**
-在 app/build.gradle 中，添加引用 jar 库的代码。
-![](https://main.qcloudimg.com/raw/f9cbdca4a493c0bf1e12557a15974b9d.jpg)			
-
-- **第四步：引用 so 库**
-在 app/build.gradle 中，添加引用 so 库的代码。
-![](https://main.qcloudimg.com/raw/10003cdc49d4856ee4feb840f24680a7.jpg)
-
-- **第五步：指定 App 使用架构**
-在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构(目前 TRTC SDK 支持 armeabi， armeabi-v7a 和 arm64-v8a) 。 
+1. [下载](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.zip) 最新版本的 jar 压缩包，文件路径为`SDK/LiteAVSDK_TRTC_xxx.zip` （其中 xxx 为 TRTC SDK 的版本号）。
+2. 解压后得到 libs 目录，里面主要包含 jar 文件和 so 文件夹。
+3. 将解压得到的 jar 文件和 armeabi， armeabi-v7a， arm64-v8a 文件夹拷贝到 app/libs 目录下。
+![](https://main.qcloudimg.com/raw/5bf82ca89b3a14cca470fcedc048d7fa.png)
+4. 在 app/build.gradle 中，添加引用 jar 库的代码。
+![](https://main.qcloudimg.com/raw/6ffbb4b79c06555376b137c849b43bb7.png)	
+5. 在 app/build.gradle 中，添加引用 so 库的代码。
 ```
-   defaultConfig {
-        ndk {
-            abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
-        }
-    }
+sourceSets {
+       main {
+           jniLibs.srcDirs = ['libs']
+       }
+}
 ```
-
-- **第六步：同步 SDK**
-单击 Sync Now 按钮，完成 TRTC SDK 的集成工作。
+![](https://main.qcloudimg.com/raw/299eeb5b3e8961e816f3ce17b97b4339.png)
+6. 在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构。 
+```
+defaultConfig {
+       ndk {
+           abiFilters "armeabi", "armeabi-v7a", "arm64-v8a"
+       }
+}
+```
+>?目前 TRTC SDK 支持 armeabi， armeabi-v7a 和 arm64-v8a。
+>
+7. 单击【Sync Now】，完成 TRTC SDK 的集成工作。
 
 
 ## 配置 App 权限
@@ -117,7 +106,7 @@ dependencies {
 <uses-permission android:name="android.permission.BLUETOOTH" />
 <uses-permission android:name="android.permission.CAMERA" />
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-<uses-feature android:name="android.hardware.Camera"/>
+<uses-feature android:name="android.hardware.camera" />
 <uses-feature android:name="android.hardware.camera.autofocus" />
 ```
 
@@ -128,6 +117,17 @@ dependencies {
 -keep class com.tencent.** { *; }
 ```
 ## 设置 App 打包参数
-![](https://main.qcloudimg.com/raw/dabfd69ee06e4d38bb3b51fc436c0ad1.png)
+在 app/build.gradle 下，添加如下信息：
+
+```
+packagingOptions {
+	pickFirst '**/libc++_shared.so'
+	doNotStrip "*/armeabi/libYTCommon.so"
+	doNotStrip "*/armeabi-v7a/libYTCommon.so"
+	doNotStrip "*/x86/libYTCommon.so"
+	doNotStrip "*/arm64-v8a/libYTCommon.so"
+}
+```
+![](https://main.qcloudimg.com/raw/e40d5c294a59d56a1f89f20960c7e4c1.png)
 
 

@@ -1,17 +1,18 @@
 如需实现单网卡多 IP，您可为弹性网卡申请辅助内网 IP，操作如下：
+## 步骤一：分配辅助内网 IP
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 单击左侧目录中的【IP 与网卡】>【弹性网卡】，进入弹性网卡列表页。
 3. 单击需要申请辅助内网 IP 的实例 ID，进入详情页。
-4. 单击选项卡中的【IPv4 地址管理】，查看已绑定的内网 IP 和弹性公网 IP。
+4. 单击选项卡中的【IPv4 地址管理】，查看内网 IP 信息。
 ![](https://main.qcloudimg.com/raw/c360781a44e6a7f976c5fd3bf0b87bd0.png)
-5. 单击【分配内网 IP】，在弹出框中选择自动分配，或手动填写要分配的内网 IP 地址。
+5. 单击【分配内网 IP】，在弹出框中选择自动分配，或手动填写要分配的内网 IP 地址，单击【确定】即可。
 >?如果您选择手动填写，请确认填写内网 IP 在所属子网网段内，且不属于系统保留 IP。
 >例如，所属子网网段为：`10.0.0.0/24`，则可填的内网 IP 范围 为：`10.0.0.2 - 10.0.0.254`。
 >
 ![](https://main.qcloudimg.com/raw/1c9e2d055fb464d22559bf7e1d922a64.png)
 
-## 配置辅助内网 IP
-登录上述弹性网卡绑定的云服务器，配置已分配的辅助内网 IP 使其生效，可参考如下操作：
+## 步骤二：配置辅助内网 IP
+登录上述弹性网卡绑定的云服务器，配置辅助内网 IP 使其生效，可参考如下操作：
 ### Linux 云服务器
 1. 在云服务器中执行如下命令配置辅助内网 IP：
 ```
@@ -22,7 +23,7 @@ ip addr add 辅助内网IP/CIDR位数 dev eth0
 ![](https://main.qcloudimg.com/raw/98b7e2e0d683644e9694390c4b0ef733.png)
 
 ### Windows 云服务器
-1. <span id="step1" />执行如下步骤，查找云服务器的 IP 地址、子网掩码和默认网关和 DNS 服务器：
+1. <span id="step1" />执行如下步骤，查看云服务器的 IP 地址、子网掩码和默认网关和 DNS 服务器：
  1. 在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width:25px">，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -3px 0px;">，打开 “Windows PowerShell” 窗口，执行如下命令：
 ```
 ipconfig /all
@@ -66,7 +67,7 @@ ipconfig /all
 <img src="https://main.qcloudimg.com/raw/26fca0d8901235e7be62234c3e684e17.png" />
 6. 单击【高级】，配置辅助内网 IP。
 7. 在“高级 TCP/IP 设置”弹窗中的 “IP 地址”模块下，单击【添加】。
-8. 在 “TCP/IP 地址”弹窗中，填写辅助内网 IP，上述 [步骤1](#step1) 中的子网掩码，单击【确定】，如下图所示。 
+8. 在 “TCP/IP 地址”弹窗中，填写辅助内网 IP，上述 [步骤1](#step1) 中的子网掩码，单击【添加】，如下图所示。 
 ![](https://main.qcloudimg.com/raw/1fdcb2fa24e45057c5874dfbb20652bc.png)
 9. 在 “Internet 协议版本4（TCP/IPv4）属性”弹窗中，单击【确定】。
 10. 在“以太网属性”弹窗中，单击【确定】即可完成配置。

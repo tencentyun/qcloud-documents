@@ -1,14 +1,13 @@
-
 ## 短视频 SDK 各版本下载
 <table>
    <tr>
       <th width="85px" style="text-align:center">功能模块</td>
       <th width="85px" style="text-align:center">功能项</td>
       <th width="0px"  style="text-align:center">功能简介</td>
-      <th width="92px" style="text-align:center">精简版</td>
-      <th width="92px" style="text-align:center">基础版</td>
-      <th width="92px" style="text-align:center">企业版</td>
-      <th width="92px" style="text-align:center">企业版 Pro</td>
+      <th width="92px" style="text-align:center">精简版 License</td>
+      <th width="92px" style="text-align:center">基础版 License</td>
+      <th width="92px" style="text-align:center">企业版 License</td>
+      <th width="92px" style="text-align:center">企业版 Pro License</td>
    </tr>
    <tr>
       <td>界面</td>
@@ -160,7 +159,7 @@
    </tr>
    <tr>
       <td>绿幕抠像</td>
-      <td>将画面中的绿色元素(例如纯绿背景)抠除，替换成其他的元素，例如动态背景/PPT 等。</td>
+      <td>将画面中的绿色元素（例如纯绿背景）抠除，替换成其他的元素，例如动态背景/PPT 等。</td>
       <td style="text-align:center">×</td>
       <td style="text-align:center">×</td>
       <td style="text-align:center">×</td>
@@ -327,9 +326,9 @@
    <tr>
       <td>套餐价格</td>
       <td>SDK 的一年使用权（精简版和基础版含腾讯云点播流量套餐）。</td>
-      <td style="text-align:center">￥2345/年</td>
-      <td style="text-align:center">￥10050/年</td>
-      <td style="text-align:center">￥35W/年 </td>
+      <td style="text-align:center">￥1699元/年</td>
+      <td style="text-align:center">￥8399元/年</td>
+      <td style="text-align:center">￥15W/年 </td>
       <td style="text-align:center">￥50W/年 </td>
    </tr>
 </table>

@@ -25,7 +25,7 @@
 ![](https://main.qcloudimg.com/raw/4b5735b3ef4ecbe9a0d131927112d4ba.png)
 3. 在“网络信息”栏，查看实例是否配置了公网 IP。
  - 是，请 [检查安全组设置](#CheckSecurityGroupSetting)。
- - 否，请 [绑定弹性公网 IP](https://cloud.tencent.com/document/product/213/16586#.E5.BC.B9.E6.80.A7.E5.85.AC.E7.BD.91-ip-.E7.BB.91.E5.AE.9A.E4.BA.91.E4.BA.A7.E5.93.81)。
+ - 否，请 [EIP 绑定云资源](https://cloud.tencent.com/document/product/1199/41702)。
 
 <span id="CheckSecurityGroupSetting"></span>
 ### 检查安全组设置
@@ -62,7 +62,7 @@ cat /proc/sys/net/ipv4/icmp_echo_ignore_all
  - 若返回结果为1，表示系统禁止所有的 ICMP Echo 请求，请执行 [步骤3](#Linux_step03)。
 3. <span id="Linux_step03">执行以下命令，修改内核参数 icmp_echo_ignore_all 的设置。</span>
 ```
-echo "1" >/proc/sys/net/ipv4/icmp_echo_ignore_all
+echo "0" >/proc/sys/net/ipv4/icmp_echo_ignore_all
 ```
 
 <span id="CheckLinuxFirewall"></span>

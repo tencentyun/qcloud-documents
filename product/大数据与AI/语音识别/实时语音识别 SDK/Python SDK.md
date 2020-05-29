@@ -1,7 +1,7 @@
 ## 接入准备
 
 ### SDK 获取
-实时语音识别 Python SDK 以及 Demo 的下载地址：[Python3 SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/python_realtime_asr_sdk_v3.tar.gz)、[Python2 SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/python_realtime_asr_sdk.tar.gz)。
+实时语音识别 Python SDK 以及 Demo 的下载地址：[Python3 SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/python_realtime_asr_sdk_v3.zip)、[Python2 SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/python_realtime_asr_sdk_v2.zip)。
 
 ### 接入须知
 开发者在调用前请先查看实时语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37138)，了解接口的**使用要求**和**使用步骤**。
@@ -11,7 +11,7 @@
 该接口支持 Python3 和 Python2.7 版本,请用户根据需要选择。
 - **安装 requests**
 方法1：pip install requests 。
-方法2：先下载 [requests](https://2.python-requests.org//zh_CN/latest/user/install.html#install)，然后进入下载目录执行：python setup.py install 。
+方法2：先下载 [requests](https://pypi.org/project/requests/)，然后进入下载目录执行：python setup.py install 。
 
 ## 快速接入
 1. 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 获取 AppID、SecretId、SecretKey 并将```Python_realtime_asr_sdk/src/Config.py```中的配置项按需改成自己的值。

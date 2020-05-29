@@ -13,6 +13,7 @@
 | apiName                                  | 否    | String  | 用户自定义的 API 名称。                             |
 | apiDesc                                  | 否    | String  | 用户自定义的 API 接口描述。                           |
 | apiType                                  | 否    | String  | API 接口类型，当前只有 NORMAL，后续还会增加其他类型的 API。       |
+| authType | 否 | String  | 鉴权类型，可选值为 SECRET（密钥对鉴权）、NONE（免鉴权）。默认为 NONE。|
 | authRequired                             | 否    | String  | 是否需要签名认证，TRUE表示需要，FALSE 表示不需要。默认为 TRUE。如果需要开放在云市场的 API，必须选择 TRUE。 |
 | enableCORS                               | 否    | String  | 是否需要开启跨域，TRUE 表示需要，FALSE 表示不需要。默认为 FALSE。    |
 | requestConfig.path                       | 是    | String  | API的前端路径，如/path。                         |
@@ -28,6 +29,8 @@
 | serviceConfig.url                        | 否    | String  | API 的后端服务 URL。如果 serviceType 是 HTTP，则此参数必传，例如 http://api.tencentcs.com/apigw。   |
 | serviceConfig.path                       | 否    | String  | API 的后端服务路径，如 /path。如果 serviceType 是 HTTP，则此参数必传。前后端的路径可不同。API 网关会对路径做映射。 |
 | serviceConfig.method                     | 否    | String  | API 的后端服务请求方法，如 GET。如果 serviceType 是 HTTP，则此参数必传。前后端的方法可不同。API 网关会对方法做映射。 |
+| serviceConfig.uniqVpcId                  | 否    | String  | 使用 VPC 时需填写，代表唯一 vpcId。 |
+| serviceConfig.product                    | 否    | String  | 和 uniqVpcId 同时使用，目前仅支持 clb 场景，填写“clb”。 |
 | serviceParameters.n.name                 | 否    | String  | API 的后端服务参数名称。只有 serviceType 是 HTTP 才会用到此参数。后端服务的参数名称可与前端参数名称不同。API 网关会对参数名称做映射。但后端参数值与前端参数值相同。 |
 | serviceParameters.n.position             | 否    | String  | API 的后端服务参数位置，如 head。只有 serviceType 是 HTTP 才会用到此参数。后端服务的位置名称可与前端参数位置不同。API 网关会对参数位置做映射。 |
 | serviceParameters.n.relevantRequestParameterName | 否    | String  | API 的后端服务参数对应的前端参数名称。只有 serviceType 是 HTTP 才会用到此参数。 |
@@ -38,7 +41,8 @@
 | constantParameters.n.position            | 否    | String  | 常量参数位置。目前仅支持 header 与 query。只有serviceType 是 HTTP 才会用到此参数。 | 
 | constantParameters.n.defaultValue        | 否    | String  | 常量参数默认值。只有 serviceType 是 HTTP 才会用到此参数。       |
 | serviceMockReturnMessage                 | 否    | String  | API 的后端 Mock 返回信息。如果 serviceType 是 Mock，则此参数必传。 |
-| serviceScfFunctionName                   | 否    | String  | API 的后端SCF函数名称。如果serviceType是Scf，则此参数必传。  |
+| serviceScfFunctionName                   | 否    | String  | API 的后端 SCF 函数名称。如果 serviceType 是 SCF，则此参数必传。  |
+| serviceScfFunctionNamespace              | 否    | String  | API 的后端 SCF 函数所属的命名空间。如果 serviceType 是 SCF，则此参数必传。  |
 | serviceScfIsIntegratedResponse                   | 否    | String  | 是否启用 SCF 集成响应，TRUE 表示开启，FALSE 表示关闭。只有后端是 SCF 类型此参数才有效，默认为 FALSE。  |
 | serviceScfFunctionQualifier                  | 否    | String  | SCF 版本号，默认为 $LATEST。  |
 | responseType                             | 否    | String  | 自定义响应配置返回类型，现在只支持 HTML、JSON、TEST、BINARY、XML（此配置仅用于生成 API 文档提示调用者）。 |

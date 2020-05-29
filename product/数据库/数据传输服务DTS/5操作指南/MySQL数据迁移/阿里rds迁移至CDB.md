@@ -1,12 +1,11 @@
 ## 操作场景
-本文将指导您使用腾讯云提供的数据迁移产品 DTS 将阿里云数据库（RDS）的数据迁移到腾讯云云数据库中。
+本文将指导您使用腾讯云数据迁移产品 DTS 将阿里云数据库（RDS）的数据迁移至 TencentDB for MySQL。
 
 ## 源数据库要求
 阿里云云数据库 MySQL 5.6 或 5.7。
->!数据传输过程中，腾讯云数据库的数据复制方式必须为异步复制，如需修改数据复制方式，在数据传输完成后升级即可。
+>!数据传输过程中，TencentDB 的数据复制方式必须为异步复制，如需修改数据复制方式，在数据传输完成后升级即可。
 
 ## 操作步骤
-
 ### 1. 获取源数据库基本信息和 AccessKey 
 1.1 登录 [RDS 管理控制台](https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Frdsnew.console.aliyun.com%2F%3Fspm%3Da2c4g.11186623.2.5.cdjgiR)，选择目标实例。
 1.2 在目标实例的基础信息页即可获取我们所需的信息，具体如图所示：
@@ -16,9 +15,8 @@
 1.3 将鼠标悬停于右上方头像处，在出现的下拉菜单中选择【accesskeys】，进入页面后即可获取所需的 Accesskey。
 ![](https://main.qcloudimg.com/raw/2d67bd05558d5762c322d0c33d344332.png)
 	
-### 2. 创建腾讯云云数据库的 DTS 任务
+### 2. 创建 TencentDB 的 DTS 任务
 登录 [DTS 控制台](https://console.cloud.tencent.com/dtsnew/migrate/page)，进入数据迁移页面，单击【新建任务】，跳转页面后，填写任务设置、源库设置和目标库设置。
-
 
 #### 2.1 任务设置
 - 任务名称：为任务指定名称。
@@ -31,15 +29,16 @@
 >- 有公网 IP 的 MySQL 腾讯云的映射，您需要将相对应的地区外网 IP 添加到阿里云的白名单中。
 >-  DTS 配置时源库类型为“专线”或者“VPN”会在任务生成后出现对外映射的 IP，需将此 IP 添加到阿里云白名单中。
 >
-![](https://main.qcloudimg.com/raw/b099d7a519f80fcdb450e8476a17d314.png)
+![](https://main.qcloudimg.com/raw/d2f196a6ae1b18e0c31e071aa9610d43.png)
 
 #### 2.3 目标库信息
 目标实例类型选择 TencentDB 实例，填写对应的目标库链接信息。
 ![](https://main.qcloudimg.com/raw/28b1998fd0b7e512be01c281490703bb.png)
 
 #### 2.4 选择所要迁移的数据库
-选择要迁移的数据库,创建并检查迁移任务信息。
+选择要迁移的数据库，创建并检查迁移任务信息。
 ![](https://main.qcloudimg.com/raw/ed8274a0b47d81ecf1466adea1fac10c.png)
+
 #### 2.5 数据一致性检测
 选择数据检测类型（可选择全部检测或不检测）。
 >!选择部分检测选项时，需填写检测比例。
@@ -81,7 +80,7 @@
 
 
 ### 6. 完成迁移
-当迁移进度达到100%时，可单击右侧【完成】，完成迁移任务，或调用 DTS 云 [API](https://cloud.tencent.com/document/product/571/18122) 断开同步，完成迁移任务。。
+当迁移进度达到100%时，可单击右侧【完成】，完成迁移任务，或调用 DTS 云 [API](https://cloud.tencent.com/document/product/571/18122) 断开同步，完成迁移任务。
 ![](https://main.qcloudimg.com/raw/30dbf7018d72cee1daef076323dd5377.png)
 >!当迁移处于【未结束】状态时，迁移任务将一直进行，数据库数据同步。
 

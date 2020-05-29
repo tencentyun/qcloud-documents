@@ -3,6 +3,7 @@
 
 ## 前提条件
 1. 已下载安装 [控件](https://cloud.tencent.com/document/product/1025/32034)。
+2. 已下载安装 WinSCP 工具。
 2. 拥有访问 Windows 资源权限，若无权限，请联系管理员进行配置。
 
 
@@ -10,11 +11,15 @@
 
 1. 登录腾讯云 [堡垒机控制台](https://console.cloud.tencent.com/cds/dasb)。
 2. 运维用户登录堡垒机系统。
-3. 在“单点登录”选项卡下，单击相应的授权岗位，进入运维类岗位列表，您可查看有权限访问的资源，如下图所示。
-![](https://main.qcloudimg.com/raw/6aa90e7497ab4c65cdfab32ab29dc9e1.png)
-4. 找到您需要登录的 Windows 资源，单击【配置登录】，在弹出的窗口中，配置如下信息。
- - **登录方式**：选择“XFTP 登录”。
- - **协议**：FTP 和 SMB 两种协议，请根据实际环境选择。
- - **端口**：选择访问协议对应的访问端口。
-![](https://main.qcloudimg.com/raw/e78aca2fbecbe06fd311fcc1198d61a0.png)
-5. 确认配置信息无误后，单击【登录】，系统将根据配置，调用相关的工具连接到目标资源，目标资源连接成功后即可上传、下载文件。
+3. 单击【授权列表】，进入资源列表页。
+4. 找到您需要登录的 Windows 资源，在其右侧单击【登录】，进行登录配置。
+![](https://main.qcloudimg.com/raw/79d15860a43e5da647a596d86707cdd0.jpeg)
+5. 在配置窗口中，配置如下。
+	- 协议：选择“FTP”。
+	- 账号：输入 Windows 的系统账号。
+	- 口令：输入 Windows 账号的密码。
+	- 工具：选择 XFTP 工具。
+	- 选择分辨率：默认为 1024 x 768。
+	- 超时时间：连接 Windows 资源的超时时间，默认为5秒。
+![](https://main.qcloudimg.com/raw/9d9d0d7af7c432ac0c86f30d7dbb83ae.jpeg)
+5. 确认配置信息无误后，单击【登录】，系统将根据配置，调用本地的 WinSCP 工具连接到目标资源，目标资源连接成功后即可上传、下载文件。

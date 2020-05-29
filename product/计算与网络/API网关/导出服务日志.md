@@ -1,0 +1,51 @@
+## 操作场景
+本文指导您通过 API 网关控制台导出服务日志，便于您更加灵活的进行数据分析和问题定位。
+
+## 操作步骤
+1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index)，在左侧导航中单击【服务】，进入服务列表页。
+2. 在服务列表页，单击服务名，进入该服务的详情页面。
+3. 选择【服务日志】，打开该服务的日志界面。
+4. 单击图中红框处的【导出】，即可成功导出服务日志。
+![](https://main.qcloudimg.com/raw/2bc105c70ba9a31e157301639d92d8ba.png)
+
+>? 
+>- 导出日志的时间范围与当前查询日志的时间范围保持一致。您可以通过修改查询日志的时间范围来修改导出日志的时间范围。
+>- 导出日志的格式为 csv，文件统一命名为：服务日志-服务 ID（开始时间 - 结束时间）。
+
+
+## 日志格式说明
+导出后的服务日志格式如下：
+```
+log_format  
+'[$app_id][$env_name][$service_id][$http_host][$api_id][$uri][$scheme][rsp_st:$status][ups_st:$upstream_status]'
+'[cip:$remote_addr][uip:$upstream_addr][vip:$server_addr][rsp_len:$bytes_sent][req_len:$request_length]' 
+'[req_t:$request_time][ups_rsp_t:$upstream_response_time][ups_conn_t:$upstream_connect_time][ups_head_t:$upstream_header_time]'
+'[err_msg:$err_msg][tcp_rtt:$tcpinfo_rtt][$pid][$time_local][req_id:$request_id]';
+```
+各参数说明如下：
+
+| 参数名称 | 说明 |
+|---------|---------|
+| app_id | 用户 ID。 | 
+| env_name |环境名称。|
+| service_id | 服务 ID。|
+| http_host | 域名。|
+| api_id | API 的 ID。 |
+| uri |请求的路径。|
+| scheme |  HTTP/HTTPS 协议。|
+| rsp_st | 请求响应状态码。 |
+| ups_st | 后端业务服务器的响应状态码（如果请求透传到后端，改变量不为空。如果请求在 APIGW 就被拦截了，那么该变量显示为 `-`）。|
+| cip |    客户端 IP。|
+| uip |     后端业务服务（upstream）的 IP。
+| vip |    请求访问的 VIP。|
+| rsp_len | 响应长度。 |
+| req_len | 请求长度。| 
+| req_t | 请求响应的总时间。|
+| ups_rsp_t | 后端响应的总时间（APIGW 建立连接到接收到后端响应的时间）。|
+| ups_conn_t |与后端业务服务器连接建立成功时间。|
+| ups_head_t |后端响应的头部到达时间。|
+| err_msg |   错误信息。|
+| tcp_rtt |   客户端 TCP 连接信息，RTT（Round Trip Time）由三部分组成：链路的传播时间（propagation delay）、末端系统的处理时间、路由器缓存中的排队和处理时间（queuing delay）。|
+| pid | 进程 ID。 |
+| time_local | 发生请求的时间。 |
+| req_id | 请求 ID。 |

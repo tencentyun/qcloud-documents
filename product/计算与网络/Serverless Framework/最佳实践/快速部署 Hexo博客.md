@@ -1,5 +1,5 @@
 ## 操作场景
-该任务通过 Serverless Website 组件快速构建一个 Serverless Hexo 站点。 
+该任务指导您通过 Serverless Website 组件，快速构建一个 Serverless Hexo 站点。 
 
 ## 前提条件
 - 已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于8.6，建议使用 Node.js10.0 及以上版本）
@@ -73,13 +73,13 @@ myWebsite:
 ```
 .
 ├── .serverless
-├── hexo
-|   ├── public
-|   ├── ...
-|   ├── _config.yml
-|   ├── ...
-|   └── source
-└── serverless.yml
+└── hexo
+    ├── public
+    ├── ...
+    ├── serverless.yml 
+    ├── ...
+    └── source
+
 ```
 
 #### 部署

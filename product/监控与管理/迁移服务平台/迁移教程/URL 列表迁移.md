@@ -20,20 +20,19 @@
 
 ## 操作步骤
 #### 登录迁移服务平台
-1.	登录 [迁移服务平台](https://console.cloud.tencent.com/msp) ，在左导航栏中单击进入【迁移工具】页面。
-2.	找到【文件迁移工具】模块，单击【立即使用】，进入文件迁移工具配置页面。
+1. 登录 [迁移服务平台](https://console.cloud.tencent.com/msp)。
+2. 在左导航栏中单击【对象存储迁移】，进入对象存储迁移页面。
+
 
 #### 新建迁移任务
-1. 在文件迁移工具页面，单击【新建任务】，进入新建文件迁移任务界面，进行迁移参数的设置。
+1.	在对象存储迁移页面，单击【新建任务】，进入对象存储迁移任务配置页面，进行迁移参数的设置。
 2. 设置迁移任务名称。
 ![](https://main.qcloudimg.com/raw/9709f9932688e7f639c0b3d080ace061.jpg)
 任务名称：字符长度为1至60个字符，允许的字符为中文、英文、0-9、\_、-。此处设置的名称，将用于在任务列表中查看迁移状态和迁移进度。
 3. 设置要迁移的文件来源。
 此处迁移源服务提供商应选择 URL 列表。MSP 支持本地上传 URL 列表文件和添加 URL 列表文件下载地址两种方式。如果文件记录数较多，URL 列表文件较大，浏览器上传可能会超时，建议先将 URL 列表文件保存到 COS，选择【提供 URL 列表文件下载地址】，填写此文件的 COS URL 访问地址。文件列表请在 txt 文件中请按行列出。
-例如：
-`http://xxx.xxx.xxx/xxx/l.jpg`
-`http://xxx.xxx.xxx/xxx/xxx/xxxxxx/test.mp4`
-![](https://main.qcloudimg.com/raw/afa00a5039e915355b1f2e1270edbfb3.jpg)
+例如：选择“提供 URL 列表文件下载地址”的使用方式，下载地址为`http://xxx.xxx.xxx/url.txt`，其中`url.txt`包含 URL `http://xxx.xxx.xxx/xxx/l.jpg`和`http://xxx.xxx.xxx/xxx/xxx/xxxxxx/test.mp4`，那么届时迁移服务平台将会对`l.jpg`和`test.mp4`进行迁移。
+![](https://main.qcloudimg.com/raw/4a1161e800d9e047397c52522a5b51b3.jpg)
 4. 设置任务执行时间。
 数据迁移会占用源厂商的网络资源，您可以根据自身业务情况，在此处灵活设置迁移任务的开始执行时间。
 ![](https://main.qcloudimg.com/raw/ad178b139fc842d6f885f6e0d23f55a4.jpg)
@@ -41,7 +40,7 @@
 您可以使用本功能限制数据迁移的速度上限，从而避免额外的 CDN 带宽成本。实际迁移速度受网络波动影响会在设定值上下波动。
 ![](https://main.qcloudimg.com/raw/b5ec9c811a1fba7e82e2d30a7110de83.jpg)
 6. 选择要迁移到的目标位置。
- 在迁移目标信息中，输入用于迁移的腾讯云子用户 SecretId，SecretKey。填入密钥后，单击下拉框右侧刷新按钮，即可获取目标对象存储桶列表。
+ 在迁移目标信息中，输入用于迁移的腾讯云子用户 SecretId，SecretKey。填入密钥后，单击下拉框右侧**刷新**按钮，即可获取目标对象存储桶列表。
 ![](https://main.qcloudimg.com/raw/822a116d325c52d12416cb30c93e7477.jpg)
 7. 指定迁移到目标桶的指定目录。
  - 保存到根目录： 直接将源桶中的文件按原始相对路径保存到目标桶的根目录。

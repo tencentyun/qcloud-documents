@@ -3,10 +3,10 @@ Android SDK 接入请观看视频：
 
 ## 接入准备
 ### SDK 获取
-实时语音识别 Android SDK 及 Demo 下载地址：[Android SDK](https://main.qcloudimg.com/raw/1bbacff857c8fd10ecb14005889ba82f/aai-android-sdk-v2.1.5-master.zip)。
+实时语音识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Realtime_Android.zip)。
 
 ### 接入须知
-+ 开发者在调用前请先查看实时语音识别的[ 接口说明](https://cloud.tencent.com/document/product/1093/37138)，了解接口的**使用要求**和**使用步骤**。
++ 开发者在调用前请先查看实时语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37138)，了解接口的**使用要求**和**使用步骤**。
 + 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 等），且系统为 **Android 4.0** 及其以上版本。
 
 ### 开发环境

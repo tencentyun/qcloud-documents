@@ -1,7 +1,7 @@
 腾讯云云服务器使用 KMS 方式对 Windows 服务器进行授权。
 >! 
 > - 此文档只针对腾讯云提供的 Windows Server 公共镜像，自定义镜像或外部导入镜像不能采用本文的激活方式。
-> - Windows Server 2008 和 Windows Server 2012 需要进行此方式的授权，Windows Server 2016 公共镜像中默认配置的 KMS 地址（kms.tencentyun.com:1668）是正确的，无需做修改。
+> - Windows Server 2008 和 Windows Server 2012 需要进行此方式的授权，Windows Server 2016 和 Windows Server 2019 公共镜像中默认配置的 KMS 地址（kms.tencentyun.com:1668）是正确的，无需做修改。
 
 
 ## 激活前须知
@@ -37,7 +37,7 @@ w32tm /resync
 1. 登录 Windows 云服务器。
 2. 在操作系统界面，单击【开始】>【运行】，输入`cmd.exe`，打开控制台窗口。
 3. 在控制台窗口依次执行以下命令，即可完成手工运行激活。
- - Windows Server 2008 和 Windows Server 2012 服务器依次执行的命令如下：
+ - Windows Server 2008、Windows Server 2012 和 Windows Server 2019 服务器依次执行的命令如下：
 ```
 cscript /nologo %windir%/system32/slmgr.vbs -skms kms.tencentyun.com:1688
 cscript /nologo %windir%/system32/slmgr.vbs -ato

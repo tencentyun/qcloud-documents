@@ -1,6 +1,6 @@
 ## 功能描述
 
-该接口用于新增转码模板。
+CreateMediaTemplate 接口用于新增转码模板。
 
 ## 请求
 
@@ -13,6 +13,7 @@ Date: <GMT Date>
 Authorization: <Auth String>
 Content-Length: <length>
 Content-Type: application/xml
+
 <body>
 ```
 
@@ -20,7 +21,7 @@ Content-Type: application/xml
 
 #### 请求头
 
-此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
 
 #### 请求体
 
@@ -58,7 +59,6 @@ Content-Type: application/xml
       <Count></Count>
    </Snapshot>
 </Request>
-
 ```
 
 具体数据描述如下：
@@ -149,7 +149,7 @@ Container 类型 Container 的具体数据描述如下：
       <th>父节点</th>
       <th>描述</th>
       <th>类型</th>
-      <th>必选</th>
+      <th>是否必选</th>
       <th>默认值</th>
       <th>限制</th>
    </tr>
@@ -292,46 +292,6 @@ Container 类型 Video 的具体数据描述如下：
    </tr>
 </table>
 
-Container 类型 Audio 的具体数据描述如下(预留节点):
-
-<table width="100%">
-   <tr>
-      <th nowrap="nowrap">节点名称（关键字）</th>
-      <th>父节点</th>
-      <th>描述</th>
-      <th>类型</th>
-      <th>是否必选</th>
-      <th>默认值</th>
-      <th>限制</th>
-   </tr>
-   <tr>
-      <td>Remove</td>
-      <td>Request.Audio</td>
-      <td>是否删除音频流</td>
-      <td>String</td>
-      <td>否</td>
-      <td>无</td>
-      <td>
-        1. true、false<br>
-        2. 预留节点
-      </td>
-   </tr>
-</table>
-
-Container 类型 TransConfig 的具体数据描述如下(预留节点)：
-
-<table width="100%">
-   <tr>
-      <th nowrap="nowrap">节点名称（关键字）</th>
-      <th>父节点</th>
-      <th>描述</th>
-      <th>类型</th>
-      <th>是否必选</th>
-      <th>默认值</th>
-      <th>限制</th>
-   </tr>
-</table>
-
 Container 类型 TimeInterval 的具体数据描述如下：
 
 <table width="100%">
@@ -469,7 +429,7 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 #### 响应头
 
-此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。 
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 文档。 
 
 #### 响应体
 
@@ -491,11 +451,6 @@ Container 类型 Snapshot 的具体数据描述如下：
          <Fps>1-60</Fps>
          <Remove>false</Remove>
       </Video>
-      <Audio>
-         <Remove>true</Remove>
-      </Audio>
-      <TransConfig>
-      </TransConfig>
       <TimeInterval>
          <Start></Start>
          <Duration></Duration>
@@ -508,13 +463,13 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 具体的数据内容如下：
 
-| 节点名称（关键字） | 父节点 | 描述                                                      | 类型      |
-| :----------------- | :----- | :-------------------------------------------------------- | :-------- |
-| Response           | 无     | 保存结果的容器，同 GETTemplate 中的 Response.TemplateList | Container |
+| 节点名称（关键字） | 父节点 | 描述                                                         | 类型      |
+| :----------------- | :----- | :----------------------------------------------------------- | :-------- |
+| Response           | 无     | 保存结果的容器，同 DescribeMediaTemplates 中的 Response.TemplateList | Container |
 
 #### 错误码
 
-该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/8523) 文档。
+该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
 
 ## 实际案例
 
@@ -542,15 +497,6 @@ Content-Type: application/xml
         <Fps>1-60</Fps>
         <Remove>false</Remove>
     </Video>
-    <Audio>
-        <Remove>true</Remove>
-    </Audio>
-    <TransConfig>
-        <TransMode>onepass</TransMode>
-        <IsCheckReso>true</IsCheckReso>
-        <IsCheckVideoBitrate>true</IsCheckVideoBitrate>
-        <IsCheckAudioBitrate>true</IsCheckAudioBitrate>
-    </TransConfig>
     <TimeInterval>
         <Start></Start>
         <Duration></Duration>
@@ -584,11 +530,6 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
          <Fps>1-60</Fps>
          <Remove>false</Remove>
       </Video>
-      <Audio>
-         <Remove>true</Remove>
-      </Audio>
-      <TransConfig>
-      </TransConfig>
       <TimeInterval>
          <Start></Start>
          <Duration></Duration>
@@ -606,7 +547,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 ```shell
 POST /template HTTP/1.1
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
-Host:examplebucketbucket-1250000000.ci.ap-beijing.myqcloud.com
+Host:examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 1666
 Content-Type: application/xml
 

@@ -1,4 +1,4 @@
-流式语音合成 C++ SDK [下载地址](https://ruskin-1256085166.cos.ap-guangzhou.myqcloud.com/tts_sdk/c%2B%2B_stream_tts_sdk.tar.gz )。
+流式语音合成 C++ SDK [下载地址](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/tts/c%2B%2B_stream_tts_sdk.zip)。
 
 >! 此 SDK 目前仅支持在 Linux 平台上使用。 
 
@@ -114,7 +114,7 @@ SecretKey=kFpw***************************
 | ModelType | 否 | Int | 模型类型，1：默认模型，此字段只需设置为1即可。|
 | Volume | 否 | Float | 音量大小，范围：[0，10]，分别对应11个等级的音量，默认值为0，代表正常音量。没有静音选项。<br>输入除以上整数之外的其他参数不生效，按默认值处理。|
 | Speed | 否 | Int | 语速，范围：[-2，2]分别对应不同语速：<br>-2代表0.6倍 <br>-1代表0.8倍<br>0代表1.0倍（默认）<br>1代表1.2倍<br>2代表1.5倍<br>输入除以上整数之外的其他参数不生效，按默认值处理。|
-| VoiceType | 否 | Int | 音色选择：<br>0-云小宁，亲和女声（默认）<br>1-云小奇，亲和男声<br>2-云小晚，成熟男声<br>4-云小叶，温暖女声<br>5-云小欣，情感女声<br>6-云小龙，情感男声<br>1000-智侠、情感男声（新）<br>1001-智瑜，情感女声（新）<br>1002-智聆，通用女声（新）<br>1003-智美，客服女声（新）<br>1050-WeJack，英文男声（新）<br>1051-WeRose，英文女声（新）|
+| VoiceType | 否 | Int | 详见：[语音合成 API 文档中的 VoiceType 参数](https://cloud.tencent.com/document/product/1073/37995)。|
 | PrimaryLanguage | 否 | Int | 主语言类型：<br>1：中文（默认）<br>2：英文 |
 | SampleRate | 否 | Int | 音频采样率：<br>16000：16k（默认）<br>8000：8k |
 | Codec | 否 | String | 返回音频格式：<br>opus：返回多段含 opus 压缩分片音频，数据量小，建议使用（默认）。<br>pcm：返回二进制 pcm 音频，使用简单，但数据量大。|
