@@ -1,6 +1,6 @@
 ### 2.4.8.5 @ 2020.05.21
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.4.8.5.zip)
-* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_Mac_2.4.8.5.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.4.8.5.zip)
 
 - 新增接口
     - 新增 refresh 接口刷新当前白板
