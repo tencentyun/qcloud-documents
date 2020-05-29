@@ -48,7 +48,7 @@ Namespace=QCE/SQLSERVER
 
 | 参数名称                       | 维度名称   | 维度解释          | 格式                                          |
 | ------------------------------ | ---------- | ----------------- | --------------------------------------------- |
-| Instances.N.Dimensions.0.Name  | resourceId | 实例的 resourceId  | 输入String 类型维度名称，例如 resourceId        |
+| Instances.N.Dimensions.0.Name  | resourceId | 实例的 resourceId  | 输入 String 类型维度名称，例如 resourceId        |
 | Instances.N.Dimensions.0.Value | resourceId | 实例具体的资源 ID | 输入实例的具体 resourceId，例如 mssql-dh0123456 |
 
   
