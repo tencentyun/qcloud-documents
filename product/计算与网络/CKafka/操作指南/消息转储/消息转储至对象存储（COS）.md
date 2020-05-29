@@ -1,7 +1,7 @@
 ## 操作场景
 消息队列 CKafka 支持用户转储消息的能力，您可以将 Ckafka 消息转储至 COS 以便于对数据进行分析与下载等操作。
 处理流程及架构如下：
-![](https://main.qcloudimg.com/raw/7dd98365a907a200053d323191d6101a.png)
+![](https://main.qcloudimg.com/raw/8fdf8c6f74a3d4597688fddd4a3bffd4.svg)
 
 ## 前提条件
 该功能目前依赖云函数（SCF）、对象存储（COS）等产品，使用时需开通相关产品功能。
