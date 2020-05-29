@@ -8,7 +8,6 @@
 
 ## 操作步骤
 
-### Ckafka 转储对象存储（COS）
 1. 登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在实例列表页，单击目标实例 ID，进入**topic 管理**标签页。
 3. 在 topic 管理标签页，单击操作列的【消息转储】。
