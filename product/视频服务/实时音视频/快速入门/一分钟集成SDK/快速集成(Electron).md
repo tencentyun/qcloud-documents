@@ -84,7 +84,7 @@ $ npm install native-ext-loader@latest --save-dev
 
 
 
-1. 在 `webpack.config.js` 文件中 `module.exports` 之前添加以下代码，使 webpack 在构建时可以接收名为 `--target_platform` 的命令行参数，以使代码构建过程按不同的目录平台特点正确打包：
+1. 首先使 `webpack.config.js` 在构建时可以接收名为 `--target_platform` 的命令行参数，以使代码构建过程按不同的目标平台特点正确打包，在 module.exports 之前添加以下代码：
 
 
 ```js
