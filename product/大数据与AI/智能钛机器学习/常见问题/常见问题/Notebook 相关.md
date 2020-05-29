@@ -4,7 +4,7 @@
 ### Notebook 运行到一半变为失败状态，是怎么回事？
 - 若 Notebook 使用过程中出现内存或磁盘溢出，Notebook 会被停止，需要调大资源后重启下。
 - 大家注意在使用 Notebook 中合理控制内存开销，同时关注磁盘大小。额外添加的存储资源挂载在 /home/tione/notebook 下面，尽量往该目录下存放数据和结果。
-- 针对内存溢出，建议大家减小batch size, 数据分批读内存。
+- 针对内存溢出，建议大家减小 batch size，数据分批读内存。
 
 ###  停止 Notebook 实例失败，长时间停止不成功，该怎么办？
 如遇此种情况，可多次刷新页面，查看 Notebook 实例状态，若长时间停止不成功，请及时[提交工单](https://console.cloud.tencent.com/workorder/category)联系工作人员处理。
