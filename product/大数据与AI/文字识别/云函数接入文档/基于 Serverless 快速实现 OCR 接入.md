@@ -12,7 +12,7 @@
 ## 前提条件
 
 - 已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于 8.6，建议使用 Node.js 10.0 及以上版本）
-- 已开通 OCR 服务
+- 已开通 OCR 服务，单击 [立即开通](https://console.cloud.tencent.com/ocr) 
 
 ## 接入效果
 应用页面如下，通过单击“Select”，完成本地图像上传，后台云函数将通过 OCR 完成文字识别工作。
