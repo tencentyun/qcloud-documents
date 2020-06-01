@@ -80,3 +80,4 @@ Hyperledger Fabric 文档地址：https://hyperledger-fabric.readthedocs.io/en/l
 ### TBaaS 未来会支持以太坊吗？
 
 **答**：按照国内相关法规要求，TBaaS 不会对以太坊、比特币等开放式区块链进行支持，也不支持用户在 TBaaS 上发行任何数字货币。
+
