@@ -6,34 +6,6 @@
 
 ## 前置要求
 已经开通云开发。
-## 扩展配置信息
-您可以配置以下参数：
-- 环境 ID：选择要部署的环境，在哪个环境下使用。
-
-## 计费
-此扩展使用其他云开发或其他腾讯云服务，可能会产生相关费用：
-
-- 云函数（[产品定价](https://buy.cloud.tencent.com/price/tcb) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
-- 云数据库（[产品定价](https://buy.cloud.tencent.com/price/tcb) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
-
-当您使用云开发扩展时，您只需要为您使用的云资源付费；云开发与云上其他资源分开计费，您可以在 [费用中心](https://console.cloud.tencent.com/expense/bill/overview) 查看具体信息。
-
-## 创建的资源
--  __Type:__  Cloud Function
- __Description:__  借用云开发 http service 能力，渲染 web 页面，方便开发者体验云开发能力。
--  __Type:__  Cloud DB
- __Description:__  存储用户操作数据，借用实时数据库能力，监听数据变更，实现数据多端同步。
-
-## 权限授予
-### 主账户
-该扩展能力使用云开发自有资源即可完成，无需再授予其他权限。
-
-### 子账户
-如果想让子账户也能使用该扩展，需要为子账户授予如下权限才能使用：
-
--  __策略:__  QcloudAccessForTCBRole
- __描述:__  云开发（TCB）对云资源的访问权限。
-
 ## 安装扩展
 >! 微信小程序开发者请使用【其他登录方式】-【微信公众号登录】登录，再选择关联的小程序账户登录；QQ小程序开发者可直接通过QQ小程序开发者IDE【云开发】按钮登录，也可以通过关联的腾讯云账户登录。
 
@@ -70,3 +42,32 @@ const cloud = tcb.init({
 5.在 web 或小程序中拖动数字，即可在另一端看到相同的变化。
 
 >!该扩展为示例 Demo，请按照使用指引来完成配置。注册安全来源时要以 `touristappid`来注册；在小程序中体验时，不需要配置 `AppID`，填入`touristappid`对应的版本及凭证信息即可。
+
+## 其他
+### 扩展配置信息
+您可以配置以下参数：
+- 环境 ID：选择要部署的环境，在哪个环境下使用。
+
+### 计费
+此扩展使用其他云开发或其他腾讯云服务，可能会产生相关费用：
+
+- 云函数（[产品定价](https://buy.cloud.tencent.com/price/tcb) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
+- 云数据库（[产品定价](https://buy.cloud.tencent.com/price/tcb) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
+
+当您使用云开发扩展时，您只需要为您使用的云资源付费；云开发与云上其他资源分开计费，您可以在 [费用中心](https://console.cloud.tencent.com/expense/bill/overview) 查看具体信息。
+
+### 创建的资源
+-  __Type:__  Cloud Function
+ __Description:__  借用云开发 http service 能力，渲染 web 页面，方便开发者体验云开发能力。
+-  __Type:__  Cloud DB
+ __Description:__  存储用户操作数据，借用实时数据库能力，监听数据变更，实现数据多端同步。
+
+### 权限授予
+#### 主账户
+该扩展能力使用云开发自有资源即可完成，无需再授予其他权限。
+
+#### 子账户
+如果想让子账户也能使用该扩展，需要为子账户授予如下权限才能使用：
+
+-  __策略:__  QcloudAccessForTCBRole
+ __描述:__  云开发（TCB）对云资源的访问权限。
