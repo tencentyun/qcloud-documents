@@ -49,7 +49,7 @@ Components: 2.30.1
 
 ### 创建存储桶
 登录 [COS 控制台](https://console.cloud.tencent.com/cos5)，创建新的 **公有存储桶** ，用于存放上传的图像，注意地域的选择。
-接下来，点开**基础配置**，为存储桶[配置跨域访问 CORS](https://cloud.tencent.com/document/product/436/13318)，具体配置如下：
+接下来，点开 **基础配置**，为存储桶 [配置跨域访问 CORS](https://cloud.tencent.com/document/product/436/13318)，具体配置如下：
 
 <center>
 <img src="https://main.qcloudimg.com/raw/10187a76dfa158af6150acf02548d157/cos-cors-setup.png" alt="CORS config" width="300">
