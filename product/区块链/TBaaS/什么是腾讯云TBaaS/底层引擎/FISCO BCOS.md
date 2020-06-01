@@ -35,4 +35,3 @@ FISCO BCOS 分层架构设计如下图所示：
 ## 常见问题
 
 FISCO BCOS FAQ 文档：`https://fisco-bcos-documentation.readthedocs.io/zh_CN/release-2.0/docs/faq.html`
-
