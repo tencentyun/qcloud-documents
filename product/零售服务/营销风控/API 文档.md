@@ -17,7 +17,7 @@
       <td>accountType</td>
       <td>必须</td>
       <td>Uint</td>
-      <td>用户账号类型（QQ 开放帐号、微信开放账号需要 <a href =https://console.cloud.tencent.com/workorder/category >提交工单</a> 由腾讯云进行资格审核）：<li>1：QQ 开放帐号。</li><li>2：微信开放账号。</li><li>4：手机号。</li><li>8：设备号（imei/imeiMD5/idfa/idfaMd5）。</li><li>0：其他。</li><li>10004：手机号 MD5。</li></td>
+      <td>用户账号类型（默认开通 QQ 开放账号、手机号，手机 MD5 账号类型查询。如需使用微信开放账号，需要 <a href =https://console.cloud.tencent.com/workorder/category >提交工单</a> 由腾讯云进行资格审核，审核通过后方可正常使用微信开放账号）：<li>1：QQ 开放帐号。</li><li>2：微信开放账号。</li><li>4：手机号。</li><li>8：设备号（imei/imeiMD5/idfa/idfaMd5）。</li><li>0：其他。</li><li>10004：手机号 MD5。</li></td>
    </tr>
    <tr>
       <td>uid</td>
