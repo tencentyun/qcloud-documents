@@ -192,7 +192,7 @@ rules: [
 > -   `main` ：Electron 的入口文件，一般情况下可以自由配置。但如果项目使用 `create-react-app` 脚手架创建，则入口文件必须配置为 `public/electron.js` 。
 > -   `build.win.extraFiles` ：打包 Windows 程序时，`electron-builder` 会把 `from` 所指目录下的所有文件复制到 bin/win-unpacked/resources（全小写）。
 > -   `build.mac.extraFiles` ：打包 Mac 程序时，`electron-builder` 会把 `from` 指向的 `trtc_electron_sdk.node` 文件复制到 bin/mac/your-app-name.app/Contents/Resources（首字母大写）。
-> -   `build.directories.output` ：打包文件的输出路径。比如这个配置会输出到 `bin` 目录下，可根据实际需要修改。
+> -   `build.directories.output` ：打包文件的输出路径。例如这个配置会输出到 `bin` 目录下，可根据实际需要修改。
 > -   `build.scripts.build:mac` ：以 Mac 平台为目标构建脚本。
 > -   `build.scripts.build:win` ：以 Windows 平台为目标构建脚本。
 > -   `build.scripts.compile:mac` ：编译为 Mac 下的 .dmg 安装文件。
@@ -218,7 +218,7 @@ $ npm run pack:win64
 成功执行后，打包工具会生成 `bin/your-app-name Setup 0.1.0.exe` 安装文件，请选择此文件发布。
 
 >!
->TRTC Electron SDK 暂不支持跨平台打包（比如在 Mac 下打包 Windows 的 .exe 文件，或在 Windows 平台下打包 Mac 的 .dmg 文件）。目前我们正在研究跨平台打包方案，敬请期待。
+>TRTC Electron SDK 暂不支持跨平台打包（例如在 Mac 下打包 Windows 的 .exe 文件，或在 Windows 平台下打包 Mac 的 .dmg 文件）。目前我们正在研究跨平台打包方案，敬请期待。
 
 ## 常见问题
 
@@ -228,7 +228,7 @@ $ npm run pack:win64
 
 ### 2. Electron 安装或打包异常
 
-如果您在集成 Electron 过程中遇到异常：比如安装超时或失败，打包后出现 trtc_electron_sdk.node 文件加载失败等情况，请参考 [Electron 常见问题收录](https://cloud.tencent.com/developer/article/1616668)。
+如果您在集成 Electron 过程中遇到异常：例如安装超时或失败，打包后出现 trtc_electron_sdk.node 文件加载失败等情况，请参考 [Electron 常见问题收录](https://cloud.tencent.com/developer/article/1616668)。
 
 
 
