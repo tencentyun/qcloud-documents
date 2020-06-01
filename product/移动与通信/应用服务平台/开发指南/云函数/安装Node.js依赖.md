@@ -40,7 +40,7 @@ module.exports = {
                 envVariables: {
                     key: 'value'
                 },
-                runtime: 'Nodejs8.9',
+                runtime: 'Nodejs10.15',
                 installDependency: true
             },
             // 调用云函数时的输入参数
