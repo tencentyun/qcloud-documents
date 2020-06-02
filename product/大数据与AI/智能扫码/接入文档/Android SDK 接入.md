@@ -1,4 +1,4 @@
-﻿## Android SDK 介绍
+## Android SDK 介绍
 
 ### 内容
 - QBarCode-v0.1.1.aar - aar文件，封装了扫码接口、so 文件和模型文件。
