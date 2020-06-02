@@ -75,7 +75,7 @@
 | 源库类型 | 说明 | 
 |---------|---------|
 | 有公网 IP 的 MySQL | 能够通过公网 IP 访问的 MySQL 数据库，所需信息：<li> MySQL 主机地址<li> MySQL 端口<li> MySQL 账号<li> MySQL 密码	 | 
-| 云服务器上的自建 MySQL | 支持基础网络和私有网络两种环境下基于 CVM 的自建 MySQL 数据库。使用时需要指定 CVM 的实例 ID。所需信息：<li>所属地域：CVM 自建 MySQL 均可通过腾讯云内网迁移到云数据库 MySQL<li>云服务器实例 ID<li>MySQL 端口<li> MySQL 账号<li>MySQL 密码			 | 
+| 云服务器上的自建 MySQL | 支持基础网络和私有网络两种环境下基于 CVM 的自建 MySQL 数据库，使用时需要指定 CVM 的实例 ID，所需信息：<li>所属地域：CVM 自建 MySQL，均可通过腾讯云内网迁移到云数据库 MySQL<li>云服务器实例 ID<li>MySQL 端口<li> MySQL 账号<li>MySQL 密码			 | 
 | 专线接入腾讯云的 MySQL | 本地 IDC 自建 MySQL 使用 [专线接入 DC](https://cloud.tencent.com/product/dc) 服务与腾讯云相连接后，可使用DTS数据迁移至腾讯云。所需信息：<li>专线网关：接入腾讯云的数据库服务器所使用的专线网关，了解 [专线网关](https://cloud.tencent.com/document/product/216/19256)<li>私有网络：专线网关所属的私有网络<li>MySQL 主机地址：IDC 内的 MySQL 主机地址，DTS 数据迁移将通过专线网关映射 IP 后访问<li> MySQL 端口<li> MySQL 账号<li> MySQL 密码 | 
 | VPN 接入的 MySQL | 本地 IDC 自建 MySQL 通过 [腾讯云 VPN 连接服务](https://cloud.tencent.com/product/vpn) 或云服务器上自建 VPN 服务接入与腾讯云相连接后，可使用 DTS 数据迁移至腾讯云。所需信息：<li>所属地域：目前仅支持同地域内的 VPN 服务<li>VPN 类型：云 VPN 服务或云服务器上自建 VPN <li>VPN 网关：仅云 VPN 服务需要补充 VPN 网关信息，了解 [VPN](https://cloud.tencent.com/document/product/215/20084)<li> 私有网络：VPN 服务所属的私有网络 <li> MySQL 主机地址：IDC 内的 MySQL 主机地址，DTS 数据迁移将通过专线网关映射 IP 后访问<li> MySQL 端口<li> MySQL 账号<li> MySQL 密码	 | 
 
