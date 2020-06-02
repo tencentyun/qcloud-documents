@@ -58,8 +58,7 @@ Fabric 中，排序服务是模块化设计的，具备开发能力的用户可�
 在当前 Fabric 可用的版本中，对交易进行排序使用基于 Kafka 和 Zookerper 的 CFT 排序服务。随后的版本中，Fabric 将实现 etcd/Raft 中的 Raft 排序服务，以及完全分布式的 BFT 排序服务供用户选择。
 
 ## 系统框架
-
-![](https://main.qcloudimg.com/raw/c25fc1a23ec6024ab54504e73fb8a4b4/%E7%B3%BB%E7%BB%9F%E6%A1%86%E6%9E%B6.png)
+![](https://main.qcloudimg.com/raw/bd20e27e9cb0c140417c250989de560f.jpg)
 
 ## 开源社区
 
