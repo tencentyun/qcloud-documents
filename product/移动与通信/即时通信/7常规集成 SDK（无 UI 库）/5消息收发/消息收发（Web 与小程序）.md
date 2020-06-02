@@ -317,44 +317,13 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
   <span class="hljs-comment">// 发送失败</span>
   <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
 });
-<<<<<<< HEAD
 
-// Web 端发送文件消息示例2- 传入 File 对象
-// 先在页面上添加一个 id 为 "testPasteInput" 的消息输入框，如 <input type="text" id="testPasteInput" placeholder="截图后粘贴到输入框中" size="30" />
-document.getElementById('testPasteInput').addEventListener('paste', function(e) {
-  let clipboardData = e.clipboardData;
-  let file;
-  let fileCopy;
-  if (clipboardData && clipboardData.files && clipboardData.files.length > 0) {
-    file = clipboardData.files[0];
-    // 图片消息发送成功后，file 指向的内容可能被浏览器清空，如果接入侧有额外的渲染需求，可以提前复制一份数据
-    fileCopy = file.slice();
-  }
-  if (typeof file === 'undefined') {
-    console.warn('file 是 undefined，请检查代码或浏览器兼容性！');
-    return;
-  }
-  // 1. 创建消息实例，接口返回的实例可以上屏
-  let message = tim.createFileMessage({
-    to: 'user1',
-    conversationType: TIM.TYPES.CONV_C2C,
-    payload: {
-      file: file
-    },
-    onProgress: function(event) { console.log('file uploading:', event) }
-  });
-  // 2. 发送消息
-  let promise = tim.sendMessage(message);
-  promise.then(function(imResponse) {
-    // 发送成功
-    console.log(imResponse);
-  }).catch(function(imError) {
-    // 发送失败
-    console.warn('sendMessage error:', imError);
-  });
-});
+
+
+
+
 ```
-=======
+
 <span class="hljs-comment">// Web 端发送文件消息示例2- 传入 File 对象</span>
 <span class="hljs-comment">// 先在页面上添加一个 ID 为 "testPasteInput" 的消息输入框，如 &lt;input type="text" id="testPasteInput" placeholder="截图后粘贴到输入框中" size="30" /&gt;</span>
 <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'testPasteInput'</span>).addEventListener(<span class="hljs-string">'paste'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
@@ -693,14 +662,11 @@ tim.sendMessage(options)
     <span class="hljs-attribute">description</span>: <span class="hljs-string">''</span>, <span class="hljs-comment">// 离线推送内容</span>
     <span class="hljs-attribute">androidOPPOChannelID</span>: <span class="hljs-string">''</span> <span class="hljs-comment">// 离线推送设置 OPPO 手机 8.0 系统及以上的渠道 ID</span>
   }
-<<<<<<< HEAD
-});
+
 
 ```
-=======
-});</code></pre>
 
->>>>>>> c7ed2445cbf2bb363dee78ff4c23a09b716eb52a
+});</code></pre>
 
 **返回**
 
