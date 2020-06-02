@@ -1,4 +1,4 @@
-﻿## 命名空间
+## 命名空间
 
 Namespace=QCE/NAT_GATEWAY
 
@@ -18,13 +18,13 @@ Namespace=QCE/NAT_GATEWAY
 
 | 参数名称               | 维度名称             | 维度解释          | 格式                            |
 | ------------------ | ---------------- | ------------- | ----------------------------- |
-| Instances.N.Dimensions.0.Name  | natId                     | NAT 网关 ID的维度名称 | 输入String 类型维度名称：natId       |
-| Instances.N.Dimensions.0.Value | natId                     | NAT 网关具体 ID       | 输入具体 natId，例如： nat-4d545d  |
+| Instances.N.Dimensions.0.Name  | natId                     | NAT 网关 ID 的维度名称 | 输入String 类型维度名称：natId       |
+| Instances.N.Dimensions.0.Value | natId                     | NAT 网关具体 ID       | 输入具体 natId，例如：nat-4d545d  |
 
 ## 入参说明
 
-查询私有网络NAT网关监控数据，入参取值如下：<br>
-&Namespace=QCE/NAT_GATEWAY<br>
-&Instances.N.Dimensions.0.Name=natId<br>
-&Instances.N.Dimensions.0.Value 为 NAT 网关 ID<br>
+查询私有网络 NAT 网关监控数据，入参取值如下：
+&Namespace=QCE/NAT_GATEWAY
+&Instances.N.Dimensions.0.Name=natId
+&Instances.N.Dimensions.0.Value 为 NAT 网关 ID
 
