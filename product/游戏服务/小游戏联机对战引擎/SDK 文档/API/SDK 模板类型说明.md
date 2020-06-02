@@ -45,6 +45,7 @@ interface BroadcastEvent<T> {
 如 ```MGOBE.types.BroadcastEvent<MGOBE.types.DismissRoomBst>``` 定义了解散房间广播消息，其中 data 的类型为```MGOBE.types.DismissRoomBst```。
 
 ### 响应回调函数 MGOBE.types.ReqCallback
+
 #### MGOBE.types.ReqCallback 的 TypeScript  定义如下：
 ```
 ReqCallback<T> = (event: MGOBE.types.ResponseEvent<T>) => any;

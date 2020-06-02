@@ -10,4 +10,3 @@
 
 3. 下载一个 cdh.csv 文件到本地，文件内容如下图所示。
   ![导出文件](https://main.qcloudimg.com/raw/c72af223902dea5849485dd6941c93d8.png)
-

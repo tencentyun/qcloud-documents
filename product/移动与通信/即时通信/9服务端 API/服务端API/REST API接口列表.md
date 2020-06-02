@@ -1,3 +1,6 @@
+以下视频将帮助您快速了解即时通信 IM 有哪些 REST API 接口：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2544-43222?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 帐号管理
 
 | 功能说明  | 接口 |
@@ -54,27 +57,27 @@
 | 功能说明               | 接口                                                         |
 | ---------------------- | ------------------------------------------------------------ |
 | 创建群组               | [v4/group_open_http_svc/create_group](https://cloud.tencent.com/document/product/269/1615) |
-| 获取群组详细资料       | [v4/group_open_http_svc/get_group_info](https://cloud.tencent.com/document/product/269/1616) |
+| 获取群详细资料       | [v4/group_open_http_svc/get_group_info](https://cloud.tencent.com/document/product/269/1616) |
 | 获取群成员详细资料     | [v4/group_open_http_svc/get_group_member_info](https://cloud.tencent.com/document/product/269/1617) |
-| 修改群组基础资料       | [v4/group_open_http_svc/modify_group_base_info](https://cloud.tencent.com/document/product/269/1620) |
-| 增加群组成员           | [v4/group_open_http_svc/add_group_member](https://cloud.tencent.com/document/product/269/1621) |
-| 删除群组成员           | [v4/group_open_http_svc/delete_group_member](https://cloud.tencent.com/document/product/269/1622) |
-| 修改群组成员资料       | [v4/group_open_http_svc/modify_group_member_info](https://cloud.tencent.com/document/product/269/1623) |
+| 修改群基础资料       | [v4/group_open_http_svc/modify_group_base_info](https://cloud.tencent.com/document/product/269/1620) |
+| 增加群成员           | [v4/group_open_http_svc/add_group_member](https://cloud.tencent.com/document/product/269/1621) |
+| 删除群成员           | [v4/group_open_http_svc/delete_group_member](https://cloud.tencent.com/document/product/269/1622) |
+| 修改群成员资料       | [v4/group_open_http_svc/modify_group_member_info](https://cloud.tencent.com/document/product/269/1623) |
 | 解散群组               | [v4/group_open_http_svc/destroy_group ](https://cloud.tencent.com/document/product/269/1624) |
 | 获取用户所加入的群组   | [v4/group_open_http_svc/get_joined_group_list](https://cloud.tencent.com/document/product/269/1625) |
 | 查询用户在群组中的身份 | [v4/group_open_http_svc/get_role_in_group](https://cloud.tencent.com/document/product/269/1626) |
 | 批量禁言和取消禁言     | [v4/group_open_http_svc/forbid_send_msg](https://cloud.tencent.com/document/product/269/1627) |
-| 获取群组被禁言用户列表 | [v4/group_open_http_svc/get_group_shutted_uin](https://cloud.tencent.com/document/product/269/2925) |
+| 获取被禁言群成员列表 | [v4/group_open_http_svc/get_group_shutted_uin](https://cloud.tencent.com/document/product/269/2925) |
 | 在群组中发送普通消息   | [v4/group_open_http_svc/send_group_msg](https://cloud.tencent.com/document/product/269/1629) |
 | 在群组中发送系统通知   | [v4/group_open_http_svc/send_group_system_notification](https://cloud.tencent.com/document/product/269/1630) |
-| 群组消息撤回           | [v4/group_open_http_svc/group_msg_recall](https://cloud.tencent.com/document/product/269/12341) |
+| 撤回群消息           | [v4/group_open_http_svc/group_msg_recall](https://cloud.tencent.com/document/product/269/12341) |
 | 转让群主               | [v4/group_open_http_svc/change_group_owner](https://cloud.tencent.com/document/product/269/1633) |
 | 导入群基础资料         | [v4/group_open_http_svc/import_group](https://cloud.tencent.com/document/product/269/1634) |
 | 导入群消息             | [v4/group_open_http_svc/import_group_msg ](https://cloud.tencent.com/document/product/269/1635) |
 | 导入群成员             | [v4/group_open_http_svc/import_group_member](https://cloud.tencent.com/document/product/269/1636) |
 | 设置成员未读消息计数   | [v4/group_open_http_svc/set_unread_msg_num](https://cloud.tencent.com/document/product/269/1637) |
 | 删除指定用户发送的消息 | [v4/group_open_http_svc/delete_group_msg_by_sender](https://cloud.tencent.com/document/product/269/2359) |
-| 拉取群漫游消息         | [v4/group_open_http_svc/group_msg_get_simple](https://cloud.tencent.com/document/product/269/2738) |
+| 拉取群历史消息         | [v4/group_open_http_svc/group_msg_get_simple](https://cloud.tencent.com/document/product/269/2738) |
 
 
 ## 全局禁言管理

@@ -57,7 +57,6 @@ Service 定义访问后端 Pod 的访问方式，并提供固定的虚拟访问 
   - 只能使用通过 CLB 控制台创建的负载均衡器，不支持复用由 TKE 自动创建的 CLB。
   - 复用 CLB 的 Service 端口不能冲突
   - 不支持跨集群 Service 复用 CLB
-  - 复用 CLB 的 Service 不支持开启 local 访问。
   - 删除 Service，复用 CLB 绑定的后端云服务器需要自行解绑，同时会保留一个 tag tke-clusterId: cls-xxxx，需自行清理。
 
 

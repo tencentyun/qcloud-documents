@@ -1,3 +1,27 @@
+### 2.4.8.108 @2020.05.21
+* [点击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.4.8.108.zip)
+
+- 新增接口
+    - 新增 refresh 接口刷新当前白板
+- 新增回调
+    - TEduBoardImageStatus 新增 TEDU_BOARD_IMAGE_STATUS_READ_ERROR
+    - 新增刷新回调 onTEBRefresh
+- 功能优化
+    - 视频文件 url 支持携带签名信息
+    - 优化选框功能，框内点击即可移动
+- BUG 修复
+    - 修复视频切换进度错误问题
+    - 修复激光笔闪烁问题
+    - 修复激光笔跳变问题
+
+### 2.4.7.106 @2020.04.30
+* [点击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.4.7.106.zip)
+
+- BUG 修复
+    - 修复 IM 信令每次都重复发送一条问题
+- 性能优化
+    - 优化房间内其他人涂鸦渲染的流程性
+
 ### 2.4.6.94 @ 2020.04.02
 - 新增回调
     - TEduBoardImageStatus 新增三个状态回调

@@ -958,11 +958,11 @@ tim.getMessageList(options)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-| Name               | Type     | Attributes   | Description                                                  |
-| ------------------ | -------- | ------------ | ------------------------------------------------------------ |
-| `conversationID`   | `String` | `<optional>` | 会话 ID。会话 ID 组成方式：C2C+userID（单聊）GROUP+groupID（群聊）@TIM#SYSTEM（系统通知会话） |
-| `nextReqMessageID` | `String` | `<optional>` | 用于分页续拉的消息 ID。第一次拉取时该字段可不填，每次调用该接口会返回该字段，续拉时将返回字段填入即可 |
-| `count`            | `Number` | `<optional>` | 需要拉取的消息数量，默认值和最大值为15，即一次拉取至多返回15条消息 |
+| Name               | Type     | **Attributes** | Description                                                  |
+| ------------------ | -------- | -------------- | ------------------------------------------------------------ |
+| `conversationID`   | `String` | `<optional>`   | 会话 ID。会话 ID 组成方式：C2C+userID（单聊）GROUP+groupID（群聊）@TIM#SYSTEM（系统通知会话） |
+| `nextReqMessageID` | `String` | `<optional>`   | 用于分页续拉的消息 ID。第一次拉取时该字段可不填，每次调用该接口会返回该字段，续拉时将返回字段填入即可。 |
+| `count`            | `Number` | `<optional>`   | 需要拉取的消息数量，默认值和最大值为15，即一次拉取至多返回15条消息。 |
 
 **示例**
 

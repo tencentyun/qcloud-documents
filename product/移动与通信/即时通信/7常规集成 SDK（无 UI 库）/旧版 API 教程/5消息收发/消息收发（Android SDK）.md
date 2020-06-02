@@ -1,3 +1,6 @@
+以下视频将帮助您快速了解 Android SDK 的消息收发相关功能：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2627-51223?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 消息发送
 
 ### 通用消息发送

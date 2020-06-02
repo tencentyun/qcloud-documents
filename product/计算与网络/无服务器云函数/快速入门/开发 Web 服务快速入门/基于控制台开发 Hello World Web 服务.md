@@ -1,3 +1,5 @@
+
+
 ## 操作场景
 本文介绍如何通过腾讯云云函数（Serverless Cloud Function，SCF）控制台开发简单的 Hello World Web 服务。
 
@@ -9,7 +11,7 @@
 ### 编写函数
 1. 单击左侧导航栏【函数服务】，进入“函数服务”页面。
 2. 在页面上方选择**广州**地域，单击【新建】。如下图所示：
-![](https://main.qcloudimg.com/raw/3336661866d7dd0fce459b0d49fb9ee3.png)
+![](https://main.qcloudimg.com/raw/c928ecb63d2a5b073287a75653831d76.png)
 3. 在“新建函数”页面填写函数基础信息，单击【下一步】。如下图所示： 
 ![](https://main.qcloudimg.com/raw/d953a84b5987bb26799afda56cc08206.png)
  - 函数名称：命名为 “helloworld”。

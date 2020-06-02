@@ -41,7 +41,7 @@ python lr.py --input_dim 148
 - 资源参数
     - num-executors：任务启动的 spark executor 个数，可根据数据量来配置，一般训练数据量越大，需要的 worker 个数越多。
     - spark.ps.instances：Angel ps 个数，可根据模型大小来配置，一般模型越大，需要的 PS 个数越多。
-    - drive 节点资源类型：请选择合适的 drive 节点机型。
+    - driver 节点资源类型：请选择合适的 drive 节点机型。
     - executor 节点资源类型：请选择合适的 executor 节点机型。
     - master 节点资源类型：请选择合适的 master 节点机型。
     - ps 节点资源类型：请选择合适的 ps 节点机型。
@@ -103,7 +103,7 @@ python fm.py --input_dim 148 --embedding_dim 10
 - 资源参数
     - num-executors：任务启动的 spark executor 个数，可根据数据量来配置，一般训练数据量越大，需要的 worker 个数越多。
     - spark.ps.instances：Angel ps 个数，可根据模型大小来配置，一般模型越大，需要的 PS 个数越多。
-    - drive 节点资源类型：请选择合适的 drive 节点机型。
+    - driver 节点资源类型：请选择合适的 drive 节点机型。
     - executor 节点资源类型：请选择合适的 executor 节点机型。
     - master 节点资源类型：请选择合适的 master 节点机型。
     - ps 节点资源类型：请选择合适的 ps 节点机型。
@@ -161,7 +161,7 @@ python deepfm.py --input_dim 148 --n_fields 13 --embedding_dim 10 --fc_dims 10 5
 - 资源参数
     - num-executors：任务启动的 spark executor 个数，可根据数据量来配置，一般训练数据量越大，需要的 worker 个数越多。
     - spark.ps.instances：Angel ps 个数，可根据模型大小来配置，一般模型越大，需要的 PS 个数越多。
-    - drive 节点资源类型：请选择合适的 drive 节点机型。
+    - driver 节点资源类型：请选择合适的 drive 节点机型。
     - executor 节点资源类型：请选择合适的 executor 节点机型。
     - master 节点资源类型：请选择合适的 master 节点机型。
     - ps 节点资源类型：请选择合适的 ps 节点机型。
@@ -218,7 +218,7 @@ python deepandwide.py --input_dim 148 --n_fields 13 --embedding_dim 10 --fc_dims
 - 资源参数
     - num-executors：任务启动的 spark executor 个数，可根据数据量来配置，一般训练数据量越大，需要的 worker 个数越多。
     - spark.ps.instances：Angel ps 个数，可根据模型大小来配置，一般模型越大，需要的 PS 个数越多。
-    - drive 节点资源类型：请选择合适的 drive 节点机型。
+    - driver 节点资源类型：请选择合适的 drive 节点机型。
     - executor 节点资源类型：请选择合适的 executor 节点机型。
     - master 节点资源类型：请选择合适的 master 节点机型。
     - ps 节点资源类型：请选择合适的 ps 节点机型。
@@ -275,7 +275,7 @@ python dcn.py --input_dim 148 --n_fields 13 --embedding_dim 10 --cross_depth 3 -
 - 资源参数
     - num-executors：任务启动的 spark executor 个数，可根据数据量来配置，一般训练数据量越大，需要的 worker 个数越多。
     - spark.ps.instances：Angel ps 个数，可根据模型大小来配置，一般模型越大，需要的 PS 个数越多。
-    - drive 节点资源类型：请选择合适的 drive 节点机型。
+    - driver 节点资源类型：请选择合适的 drive 节点机型。
     - executor 节点资源类型：请选择合适的 executor 节点机型。
     - master 节点资源类型：请选择合适的 master 节点机型。
     - ps 节点资源类型：请选择合适的 ps 节点机型。
@@ -336,7 +336,7 @@ python attention_net.py --input_dim 148 --n_fields 13 --embedding_dim 10 --fc_di
 - 资源参数
     - num-executors：任务启动的 spark executor 个数，可根据数据量来配置，一般训练数据量越大，需要的 worker 个数越多。
     - spark.ps.instances：Angel ps 个数，可根据模型大小来配置，一般模型越大，需要的 PS 个数越多。
-    - drive 节点资源类型：请选择合适的 drive 节点机型。
+    - driver 节点资源类型：请选择合适的 drive 节点机型。
     - executor 节点资源类型：请选择合适的 executor 节点机型。
     - master 节点资源类型：请选择合适的 master 节点机型。
     - ps 节点资源类型：请选择合适的 ps 节点机型。
@@ -397,7 +397,7 @@ python attention_fm.py --input_dim 148 --n_fields 13 --embedding_dim 10 --attent
 - 资源参数
     - num-executors：任务启动的 spark executor 个数，可根据数据量来配置，一般训练数据量越大，需要的 worker 个数越多。
     - spark.ps.instances：Angel ps 个数，可根据模型大小来配置，一般模型越大，需要的 PS 个数越多。
-    - drive 节点资源类型：请选择合适的 drive 节点机型。
+    - driver 节点资源类型：请选择合适的 drive 节点机型。
     - executor 节点资源类型：请选择合适的 executor 节点机型。
     - master 节点资源类型：请选择合适的 master 节点机型。
     - ps 节点资源类型：请选择合适的 ps 节点机型。
@@ -459,7 +459,7 @@ python xdeepfm.py --input_dim 148 --n_fields 13 --embedding_dim 10 --fc_dims 10 
 - 资源参数
     - num-executors：任务启动的 spark executor 个数，可根据数据量来配置，一般训练数据量越大，需要的 worker 个数越多。
     - spark.ps.instances：Angel ps 个数，可根据模型大小来配置，一般模型越大，需要的 PS 个数越多。
-    - drive 节点资源类型：请选择合适的 drive 节点机型。
+    - driver 节点资源类型：请选择合适的 drive 节点机型。
     - executor 节点资源类型：请选择合适的 executor 节点机型。
     - master 节点资源类型：请选择合适的 master 节点机型。
     - ps 节点资源类型：请选择合适的 ps 节点机型。
@@ -519,7 +519,7 @@ python pnn.py --input_dim 148 --n_fields 13 --embedding_dim 10 --fc_dims 10 5 1
 - 资源参数
  - num-executors：任务启动的 spark executor 个数，可根据数据量来配置，一般训练数据量越大，需要的 worker 个数越多。
  - spark.ps.instances：Angel ps 个数，可根据模型大小来配置，一般模型越大，需要的 PS 个数越多。
- - drive 节点资源类型：请选择合适的 drive 节点机型。
+ - driver 节点资源类型：请选择合适的 drive 节点机型。
  - executor 节点资源类型：请选择合适的 executor 节点机型。
  - master 节点资源类型：请选择合适的 master 节点机型。
  - ps 节点资源类型：请选择合适的 ps 节点机型。
