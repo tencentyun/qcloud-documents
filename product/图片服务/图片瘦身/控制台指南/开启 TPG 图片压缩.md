@@ -4,7 +4,7 @@ TPG 是腾讯推出的自研图片格式，在保证图片观感的情况下实�
 
 >! 
 >- TPG 为腾讯自研图片格式，如需使用请确认图片加载环境支持 TPG 解码，腾讯云音视频实验室提供集成 TPG 解码器的[ IOS、Android、Windows 终端 SDK](https://cloud.tencent.com/document/product/875/18366)，可帮助您快速接入和使用 TPG。
->- TPG 压缩是付费服务，具体费用可查看 [计费项](https://cloud.tencent.com/document/product/1236/44561)。
+>- TPG 压缩是付费服务，具体费用可查看 [计费项](https://cloud.tencent.com/document/product/1236/44811)。
 
 
 ## 操作步骤

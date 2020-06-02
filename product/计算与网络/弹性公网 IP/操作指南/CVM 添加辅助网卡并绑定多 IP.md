@@ -18,17 +18,19 @@
 >例如，所属子网网段为：`10.0.0.0/24`，则可填的内网 IP 范围 为：`10.0.0.2 - 10.0.0.254`，本次操作以手动填写 `10.0.0.7` 为主 IP，`10.0.0.8`为辅助 IP 为例。
 >
 ![](https://main.qcloudimg.com/raw/99c25b7fd0708218cd385fd06a459643.png)
-5. 在“弹性网卡”页面，单击 <img src="https://main.qcloudimg.com/raw/57a0c76b72cd97bd80bf857cd30c867a.png" style="margin: 0;">，以展开绑定的辅助网卡信息。
+
+### 步骤二：绑定 EIP
+1. 在“弹性网卡”页面，单击 <img src="https://main.qcloudimg.com/raw/57a0c76b72cd97bd80bf857cd30c867a.png" style="margin: 0;">，以展开绑定的辅助网卡信息。
 ![](https://main.qcloudimg.com/raw/5032fdfa89ef927aadf89ef03fe997ba.png)
-6. 在分配的 IP 的“已绑定公网 IP”栏下，单击【绑定】，分别为分配的 IP 绑定 EIP。
-7. 在弹出的“绑定弹性公网IP”窗口中：
+2. 在分配的 IP 的“已绑定公网 IP”栏下，单击【绑定】，分别为分配的 IP 绑定 EIP。
+3. 在弹出的“绑定弹性公网IP”窗口中：
  - 若有可选的 EIP，选中并单击【确定】即可。
- - 若无可选的 EIP，可单击弹框上方的【新建】进行申请，详情请参见 [申请 EIP](1199/41698)，申请成功后返回弹出框并单击【刷新】，即可看见申请的 EIP，选中并单击【确定】即可。
+ - 若无可选的 EIP，可单击弹框上方的【新建】进行申请，详情请参见 [申请 EIP](https://cloud.tencent.com/document/product/1199/41698)，申请成功后返回弹出框并单击【刷新】，即可看见申请的 EIP，选中并单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/a31ebe5ad4ac8bc6924af36279e2eb63.png)
-8. 在辅助网卡的列表中，即可查看相关内网 IP 绑定公网 IP 的信息。
+4. 在辅助网卡的列表中，即可查看相关内网 IP 绑定公网 IP 的信息。
 ![](https://main.qcloudimg.com/raw/6768e7a3ce6052cbc4439459da9b764b.png)
 
-### 步骤二：配置网卡
+### 步骤三：配置网卡
 请根据您的云服务器操作系统类型，选择对应的配置网卡操作：
 - [Linux 云服务器](#Linux)
 - [Windows 云服务器](#Win)
@@ -41,7 +43,7 @@
  - **子网掩码：**如下图所示，所属子网的 CIDR 位数为/24，即子网掩码为 `255.255.255.0`。
  - **网关：**如果您未更改其他设置，则网关为子网网段的首个 IP，如下图中的所属子网网段的首个 IP 即为 `10.0.0.1`。
 ![](https://main.qcloudimg.com/raw/130af7fd24d0c052661bec7679545112.png)
-4. 登录云服务器，具体操作请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://tcloud-doc.isd.com/document/product/213/5436)。
+4. 登录云服务器，具体操作请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 5. 执行如下命令，复制主网卡文件。
 ```
 cp /etc/sysconfig/network-scripts/ifcfg-eth{0,1}
@@ -167,7 +169,7 @@ ipconfig /all
 12. 在“以太网 2 状态”弹窗中，单击【详细信息】，可查看已配置的 IP 信息，如下图所示。
 ![](https://main.qcloudimg.com/raw/23f9f5bd806787314efa7f8ec28ab5af.png)
 
-### 步骤三：结果验证
+### 步骤四：结果验证
 登录其他云服务器，执行 `ping <辅助网卡公网地址>`命令，若显示以下信息证明绑定成功。
 >?若执行命令未得到以下结果，请检查 CVM 安全组配置是否开放 ICMP 协议。
 >

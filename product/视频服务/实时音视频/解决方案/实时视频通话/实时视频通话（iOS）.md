@@ -153,7 +153,7 @@ TRTCVideoCall.shared.delegate = self
 
 // 接听/拒绝电话
 // 此时 B 如果也登录了IM系统，会收到 onInvited(A, null, false) 回调
-// 可以调用 TRTCVideoCall.shared.accept 接受 / TRTCAudioCall.shared.reject 拒绝
+// 可以调用 TRTCVideoCall.shared.accept 接受 / TRTCVideoCall.shared.reject 拒绝
 func onInvited(sponsor: String, userIds: [String], isFromGroup: Bool) {
 	TRTCVideoCall.shared.accept()
 }
@@ -204,7 +204,7 @@ callList.append("b")
 callList.append("c")
 callList.append("d")
 // 如果您不是在一个 IM 群里发起的, groupId 可以传一个空串；
-TRTCAudioCall.shared.groupCall(userIDs: callList, groupID: "#groupId#")
+TRTCVideoCall.shared.groupCall(userIDs: callList, groupID: "#groupId#")
 
 //打开自己的摄像头
 TRTCVideoCall.shared.openCamera(frontCamera: true, view: localPreView)  

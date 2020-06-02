@@ -1,5 +1,5 @@
 
-为方便开发者接入小游戏联机对战引擎产品，在下载 SDK 前，请查阅 [产品动态](https://cloud.tencent.com/document/product/1038/42138)。
+为方便开发者接入游戏联机对战引擎产品，在下载 SDK 前，请查阅 [产品动态](https://cloud.tencent.com/document/product/1038/42138)。
 
 
 | 平台 | 更新时间 | 版本 | SDK下载|文档|

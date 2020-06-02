@@ -1,3 +1,6 @@
+### Redis 集群版的 hash 算法如何使用？
+Redis 集群版的 hash 算法同社区 Redis Cluster 一致，HASH_SLOT = CRC16(key) mod 16384，参考 [官方文档](https://redis.io/topics/cluster-spec)。
+
 ### 单实例最高支持多大容量？
 
 | 版本 | 规格范围 |

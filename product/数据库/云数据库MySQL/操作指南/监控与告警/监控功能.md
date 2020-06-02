@@ -53,8 +53,8 @@
 |查询使用率|query_rate|%|每秒执行操作数 QPS/推荐每秒操作数|
 |磁盘使用空间|real_capacity|MB|仅包括 MySQL 数据目录，不含 binlog、relaylog、undolog、errorlog、slowlog 日志空间|
 |磁盘占用空间|capacity|MB|包括 MySQL 数据目录和 binlog、relaylog、undolog、errorlog、slowlog 日志空间|
-|发送数据量|bytes_sent|MB/秒|每秒发送的字节数|
-|接收数据量|bytes_received|MB/秒|每秒接受的字节数|
+|内网出流量|bytes_sent|Byte/秒|每秒发送的字节数|
+|内网入流量|bytes_received|Byte/秒|每秒接受的字节数|
 |磁盘利用率|volume_rate|%|磁盘使用空间/实例购买空间|
 |查询缓存命中率|qcache_hit_rate|%|查询缓存命中率|
 |查询缓存使用率|qcache_use_rate|%|查询缓存使用率|

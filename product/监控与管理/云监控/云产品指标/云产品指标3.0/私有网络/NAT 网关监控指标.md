@@ -1,0 +1,30 @@
+﻿## 命名空间
+
+Namespace=QCE/NAT_GATEWAY
+
+## 监控指标
+
+| 指标英文名      | 指标中文名 | 单位   | 维度          |
+| ------------ | ----- | ---- | ----------- |
+| Outbandwidth | 外网出带宽 | Mbps | natId |
+| Inbandwidth  | 外网入带宽 | Mbps | natId |
+| Outpkg       | 出包量   | 个/秒  | natId |
+| Inpkg        | 入包量   | 个/秒  | natId |
+| Conns        | 连接数   | 个/秒  | natId |
+
+> ?每个指标对应的统计粒度（Period）可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度信息。
+
+## 各维度对应参数总览
+
+| 参数名称               | 维度名称             | 维度解释          | 格式                            |
+| ------------------ | ---------------- | ------------- | ----------------------------- |
+| Instances.N.Dimensions.0.Name  | natId                     | NAT 网关 ID的维度名称 | 输入String 类型维度名称：natId       |
+| Instances.N.Dimensions.0.Value | natId                     | NAT 网关具体 ID       | 输入具体 natId，例如： nat-4d545d  |
+
+## 入参说明
+
+查询私有网络NAT网关监控数据，入参取值如下：<br>
+&Namespace=QCE/NAT_GATEWAY<br>
+&Instances.N.Dimensions.0.Name=natId<br>
+&Instances.N.Dimensions.0.Value 为 NAT 网关 ID<br>
+

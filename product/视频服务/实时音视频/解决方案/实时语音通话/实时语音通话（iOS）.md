@@ -176,7 +176,7 @@ TRTCAudioCall.shared.destroy()
 5. 如果需要离开当前多人通话可以调用 `hangup()` 方法。
 6. 如果通话中有用户中途加入或离开，那么其他用户均会接收到 `onUserEnter()` 或  `onUserLeave()` 回调。
 
->?接口 `groupCall()` 中的 `groupID` 参数是 IM SDK 中的群组 ID，如果填写该参数，那么通话请求消息是通过群消息系统广播出去的，这种消息广播方式比较简单可靠。如果不填写，那么 `TRTCVideoCall` 组件会采用单发消息逐一通知。
+>?接口 `groupCall()` 中的 `groupID` 参数是 IM SDK 中的群组 ID，如果填写该参数，那么通话请求消息是通过群消息系统广播出去的，这种消息广播方式比较简单可靠。如果不填写，那么 `TRTCAudioCall` 组件会采用单发消息逐一通知。
 
 ```
 // 前面省略...

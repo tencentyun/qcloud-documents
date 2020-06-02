@@ -1,5 +1,5 @@
 ## OAuth2.0 概述
-OAuth 2.0 是一个开放授权标准，它允许用户让**第三方应用**访问该用户在某服务的**特定私有资源**但是**不提供账号密码信息**给第三方应用。
+OAuth2.0 是一个开放授权标准，它允许用户让**第三方应用**访问该用户在某服务的**特定私有资源**但是**不提供账号密码信息**给第三方应用。
 >?OAuth2.0 是一个授权协议，不是认证协议。
 
 ### OAuth2.0 角色说明
@@ -33,8 +33,8 @@ OAuth2.0 有以下四个角色：
 - Client Credentials ：客户端凭据，客户端提供自己的身份参数直接获得 Token。
 
 ###  OIDC 说明
-- OIDC（OpenID Connect） 是在 OOAuth2.0 上构建的一个身份层，是一个基于 OAuth2.0 协议的身份认证标准协议。
-- OAuth 2.0 定义了一些机制用于获取和使用访问令牌来访问受保护资源，但未定义用于提供标识信息的标准方法。 
+- OIDC（OpenID Connect） 是在 OAuth2.0 上构建的一个身份层，是一个基于 OAuth2.0 协议的身份认证标准协议。
+- OAuth2.0 定义了一些机制用于获取和使用访问令牌来访问受保护资源，但未定义用于提供标识信息的标准方法。 
 - OIDC 以 id_token 的形式提供有关最终用户的信息，可验证用户的标识，并提供有关用户的基本配置文件信息。
 
 #### id_token
@@ -47,7 +47,7 @@ OAuth2.0 有以下四个角色：
 |---------|---------|---------|---------|---------|
 | iss | Issuer Identifier | 是 | 提供认证信息者的唯一标识。 | 一般是一个 HTTPS 的 URL（不包含 querystring 和 fragment 部分）
 | ѕub | Ѕubjесt ldеntіfіеr | 是 | iss 提供的 EU 的标识，在 iss 范围内唯一。它会被 RP 用来标识唯一 的用户。| 最长为255个 ASCII 字符|
-| aud | Audience(s) | 是 | 标识 ID Token 的受众。 | 必须包含 OAuth2 的 client_id |
+| aud | Audience(s) | 是 | 标识 ID Token 的受众。 | 必须包含 OAuth2.0 的 client_id |
 | exp | Expiration time | 是 | 过期时间，超过此时间的 ID Token 会作废不再被验证通过。 | - |
 | iat | Issued At Time | 是 | JWT 构建的时间。 | - |
 | auth_ time | AuthenticationTime | 否 | EU 完成认证的时间 。如果 RP 发送 AuthN 请求的时候携带 max_age 的参数，则此 Claim 是必须的。| - |

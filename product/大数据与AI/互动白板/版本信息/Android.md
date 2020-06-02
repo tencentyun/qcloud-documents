@@ -1,4 +1,30 @@
+### 2.4.8.31 @ 2020.05.21
+* [点击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.4.8.31.zip)
+
+- 新增接口
+    - 新增 refresh 接口刷新当前白板
+- 新增回调
+    - TEduBoardImageStatus 新增 TEDU_BOARD_IMAGE_STATUS_READ_ERROR
+    - 新增刷新回调 onTEBRefresh
+- 功能优化
+    - 视频文件 url 支持携带签名信息
+    - 优化选框功能，框内点击即可移动
+- BUG修复
+    - 修复视频切换进度错误问题
+    - 修复激光笔闪烁问题
+    - 修复激光笔跳变问题
+    
+    
+### 2.4.7.25 @ 2020.04.30
+* [点击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.4.7.25.zip)
+- 体验优化
+    - 接收端涂鸦流畅性优化
+- BUG 修复
+    - 修复重置数据导致初始状态不正确的问题
+
 ### 2.4.6.20 @ 2020.04.02
+* [点击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.4.6.20.zip)
+
 - 新增回调
     - TEduBoardImageStatus 新增三个状态回调
         - TEDU_BOARD_IMAGE_STATUS_LOAD_ABORT 图片加载中断

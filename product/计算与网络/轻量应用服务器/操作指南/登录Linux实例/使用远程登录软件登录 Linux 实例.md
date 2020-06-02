@@ -3,6 +3,8 @@
 
 ## 适用本地操作系统
 Windows
+>? 如果您的本地计算机为 Linux 或者 MacOS 操作系统，请 [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44643)。
+>
 
 ## 鉴权方式
 **密码**或**密钥**

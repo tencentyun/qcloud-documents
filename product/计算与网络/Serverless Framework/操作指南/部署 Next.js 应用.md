@@ -18,6 +18,8 @@ $ mkdir serverless-next && cd serverless-next
 $ npm init next-app src
 ```
 
+>!建议您使用 Node.js10.0 及以上版本，否则 Component V2 部署有可能报错。
+
 ## 操作步骤
 ### 1. 安装
 通过 npm 全局安装 [Serverless CLI](https://github.com/serverless/serverless)：
@@ -26,7 +28,7 @@ $ npm install -g serverless
 ```
 
 ### 2. 配置
-在项目根目录创建 `serverless.yml` 文件：
+在项目根目录（此例中为 serverless-next）下创建 `serverless.yml` 文件：
 ```bash
 $ touch serverless.yml
 ```
@@ -40,12 +42,13 @@ app: appDemo # (可选) 该 next.js 应用名称
 stage: dev # (可选) 用于区分环境信息，默认值是 dev
 
 inputs:
-  src: ./src
+  src: 
+	src: ./src
+    exclude:
+      - .env
   functionName: nextjsDemo
   region: ap-guangzhou
   runtime: Nodejs10.15
-  exclude:
-    - .env
   apigatewayConf:
     protocols:
       - http
@@ -57,12 +60,15 @@ inputs:
 
 ### 3. 部署
 #### 3.1 构建静态资源
+
+进入到 next 项目目录下，构建静态资源：
+
 ```bash
-$ npm run build
+$ cd src && npm run build
 ```
 
 #### 3.2 部署到云端
-在 serverless.yml 文件下的目录中运行以下指令进行部署：
+回到 serverless.yml 文件所在的项目根目录，运行以下指令进行部署：
 ```bash
 $ sls deploy
 ```

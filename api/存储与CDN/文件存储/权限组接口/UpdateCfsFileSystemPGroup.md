@@ -36,7 +36,7 @@ https://cfs.test.api.qcloud.com/v2/index.php?Action=UpdateCfsFileSystemPGroup
 
 #### 输出
 
-```
+```plaintext
 {
     "code": 0,
     "message": "",
@@ -47,7 +47,6 @@ https://cfs.test.api.qcloud.com/v2/index.php?Action=UpdateCfsFileSystemPGroup
         "app_id": 1250000000
     }
 }
-
 ```
 
 

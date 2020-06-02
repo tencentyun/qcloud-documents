@@ -1,4 +1,32 @@
+### 2.4.8.5 @ 2020.05.21
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.4.8.5.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.4.8.5.zip)
+
+- 新增接口
+    - 新增 refresh 接口刷新当前白板
+- 新增回调
+    - TEduBoardImageStatus 新增 TEDU_BOARD_IMAGE_STATUS_READ_ERROR
+    - 新增刷新回调 onTEBRefresh
+- 功能优化
+    - 视频文件 url 支持携带签名信息
+    - 优化选框功能，框内点击即可移动
+- BUG 修复
+    - 修复视频切换进度错误问题
+    - 修复激光笔闪烁问题
+    - 修复激光笔跳变问题
+    
+### 2.4.7.2 @ 2020.05.08
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.4.7.2.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.4.7.2.zip)
+
+- 体验优化
+    - 接收端涂鸦流畅性优化
+- BUG 修复
+    - 修复重置数据导致初始状态不正确的问题
+
 ### 2.4.6.1 @ 2020.04.02
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.4.6.1.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.4.6.1.zip)
 
 - 新增回调
     - TEduBoardImageStatus 新增三个状态回调
@@ -17,6 +45,8 @@
     
 
 ### 2.4.4.2 @ 2020.03.14
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.4.4.2.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.4.4.2.zip)
 
 - BUG 修复
     - 白板中播放视频时，学生端自动播放的问题
@@ -24,6 +54,8 @@
     - 去掉 onGotoBoard 多余回调，在一页 PPT 内有多个步时，只在最后一步/最前一步时才回调
 
 ### 2.4.4.1 @ 2020.03.09
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.4.4.1.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.4.4.1.zip)
 
 - 替换内部 mp4 播放器为 videojs
 - 新增接口
@@ -41,10 +73,14 @@
     - TEDU_BOARD_VIDEO_STATUS_PLAYING 变更为 TEDU_BOARD_VIDEO_STATUS_TIMEUPDATE
 
 ### 2.4.1.2 @ 2020.02.19
+* [点击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.4.1.2.zip)
+* [点击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.4.1.2.zip)
 
 - 内部日志优化
     
 ### 2.4.1.1 @ 2020.01.08
+* [点击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.4.1.1.zip)
+* [点击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.4.1.1.zip)
 
 - 回调变更
     - onTEBFileUploadProgress 回调参数 fileId 变更为 path

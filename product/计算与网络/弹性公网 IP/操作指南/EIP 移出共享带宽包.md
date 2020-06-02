@@ -2,7 +2,7 @@
 
 ## 前提条件
 - 目前共享带宽包处于内测阶段，使用前，请确保您的 [内测申请](https://cloud.tencent.com/apply/p/8o8lmsr5nj8) 已通过 。
-- 仅带宽上移账户支持本操作。
+- 请确保您的账户类型为：带宽上移账户，若您无法确定账户类型，请参见 [账户类型区分](https://cloud.tencent.com/document/product/1199/41692#judge)。
 
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)，单击左侧导航的【共享带宽包】。

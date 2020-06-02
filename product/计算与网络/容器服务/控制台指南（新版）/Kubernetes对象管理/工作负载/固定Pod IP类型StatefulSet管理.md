@@ -86,3 +86,4 @@ tke.cloud.tencent.com/eni-ip: "1"
 - metadata.annotations：创建固定 IP 的 StatefulSet，您需要设置 annotations，即`tke.cloud.tencent.com/enable-static-ip`。
 - spec.template.annotations：创建 VPC-CNI 模式的 Pod，您需要设置 annotations，即`tke.cloud.tencent.com/networks`。
 - spec.template.spec.containers.0.resources：创建 VPC-CNI 模式的 Pod，您需要添加 requests 和 limits 限制，即`tke.cloud.tencent.com/eni-ip`。
+
