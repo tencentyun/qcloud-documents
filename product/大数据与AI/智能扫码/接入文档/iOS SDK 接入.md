@@ -22,18 +22,18 @@ SDK 可在 [智能扫码控制台](https://console.cloud.tencent.com/ocr/is) 申
 
 ```
 - ImageIo.framework
-- CoreTelephony.framework
+    - CoreTelephony.framework
 - security.framework
-- SystemConfiguration.framework
+    - SystemConfiguration.framework
+    - Accelerate.framework
+    - CoreVideo.framework
+    - CoreMedio.framework
+    - Foundation.framework
+    - UIKit.framework
+    - AVFoundation.framework
+    - QuartzCore.framework
 - Accelerate.framework
-- CoreVideo.framework
-- CoreMedio.framework
-- Foundation.framework
-- UIKit.framework
-- AVFoundation.framework
-- QuartzCore.framework
-- Accelerate.framework
-- CoreGraphics.framework
+    - CoreGraphics.framework
 
 ```
 
