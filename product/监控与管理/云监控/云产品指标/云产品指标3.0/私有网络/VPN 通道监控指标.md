@@ -1,4 +1,4 @@
-﻿## 命名空间
+## 命名空间
 
 Namespace=QCE/VPNX
 
@@ -20,12 +20,12 @@ Namespace=QCE/VPNX
 
 | 参数名称                       | 维度名称  | 维度解释             | 格式                                     |
 | ------------------------------ | --------- | -------------------- | ---------------------------------------- |
-| Instances.N.Dimensions.0.Name  | vpnConnId | VPN 通道ID的维度名称 | 输入String 类型维度名称：vpnConnId       |
-| Instances.N.Dimensions.0.Value | vpnConnId | VPN 通道具体ID       | 输入VPN 通道具体ID，例如 ：vpnx-12345678 |
+| Instances.N.Dimensions.0.Name  | vpnConnId | VPN 通道 ID 的维度名称 | 输入 String 类型维度名称：vpnConnId       |
+| Instances.N.Dimensions.0.Value | vpnConnId | VPN 通道具体 ID       | 输入 VPN 通道具体 ID，例如：vpnx-12345678 |
 
 ## 入参说明
 
-查询私有网络VPN通道监控数据，入参取值如下：<br>
-&Namespace=QCE/VPNX<br>
-&Instances.N.Dimensions.0.Name=vpnConnId<br>
-&Instances.N.Dimensions.0.Value 为 VPN 通道 ID<br>
+查询私有网络 VPN 通道监控数据，入参取值如下：
+&Namespace=QCE/VPNX
+&Instances.N.Dimensions.0.Name=vpnConnId
+&Instances.N.Dimensions.0.Value 为 VPN 通道 ID
