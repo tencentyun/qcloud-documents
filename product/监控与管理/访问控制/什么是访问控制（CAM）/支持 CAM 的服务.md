@@ -110,6 +110,7 @@
 | ------------------------------------------------------------ | ------ | --------| ----- | ---- |	---- |	
 | [网站备案](https://cloud.tencent.com/document/product/243)   | 服务级    | &#10003;   | -   |  - |	- |	
 | [SSL证书](https://cloud.tencent.com/document/product/400)   | 资源级    | &#10003;   | -   |  - |	[访问管理指南](https://cloud.tencent.com/document/product/400/40432) |	
+| [移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379)   | 操作级    | &#10003;   | -   |  - |	- |	
 
 ## 网络安全	
 
