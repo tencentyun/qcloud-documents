@@ -7,7 +7,7 @@
 <tr>
     <td>2020-05-18</td>	
     <td>v1.16.3-tke.6</td>	
-    <td>tke 可感知单个 node 可挂载 qcloudcbs 的最大数量，kubelet 侧不去 patch node。</td>
+    <td>tke 可感知单个 node 可挂载 qcloudcbs 的最大数量，不支持动态获取最大值。</td>
 </tr>
 <tr>
     <td>2020-04-20</td>	
@@ -17,7 +17,7 @@
 <tr>
     <td>2020-04-14</td>
     <td>v1.16.3-tke.4</td>
-    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87913"> pr87913</a>，修复 CVE-2020-8551：Kubelet DoS 攻击问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87669"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li>容器服务支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87467"> pr87467</a>，修复授权用户发送恶意 YAML 导致 kubectl 在解析 YAML 时消耗过多 CPU 问题。</li></ul></td>
+    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87913"> pr87913</a>，修复 CVE-2020-8551：Kubelet DoS 攻击问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87669"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li>tke 支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87467"> pr87467</a>，修复授权用户发送恶意 YAML 导致 kubectl 在解析 YAML 时消耗过多 CPU 问题。</li></ul></td>
 </tr>
 <tr>
 	<td>2020-03-11</td>
@@ -45,12 +45,12 @@
 <tr>
     <td>2020-05-18</td>	
     <td>v1.14.3-tke.12</td>	
-    <td>tke 可感知单个 node 可挂载 qcloudcbs 的最大数量，kubelet 侧不去 patch node。</td>
+    <td>tke 可感知单个 node 可挂载 qcloudcbs 的最大数量，不支持动态获取最大值。</td>
 </tr>
 <tr>
     <td>2020-04-14</td>
     <td>v1.14.3-tke.11</td>
-    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/75442"> pr75442</a>，将 bandwidth 单位从 Kb 修正为 b。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/86583"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li> <li>容器服务支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
+    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/75442"> pr75442</a>，将 bandwidth 单位从 Kb 修正为 b。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/86583"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li> <li>tke 支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
 </tr>
 <tr>
     <td>2020-04-14</td>
@@ -109,12 +109,12 @@
 <tr>
     <td>2020-05-18</td>	
     <td>v1.12.4-tke.19</td>	
-    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/77802"> pr77802</a>，Disable graceful termination for UDP traffic。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/68741"> pr68741</a>，解决软链 /var/lib/kubelet 及使用 subpath 时，删除 pod 后主机无法解挂导致挂载点泄露以及 pod 一直 terminating 的问题。</li><li>tke 感知单个 node 可挂载 qcloudcbs 的最大数量，kubelet 侧不去 patch node。</li></ul></td>
+    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/77802"> pr77802</a>，Disable graceful termination for UDP traffic。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/68741"> pr68741</a>，解决软链 /var/lib/kubelet 及使用 subpath 时，删除 pod 后主机无法解挂导致挂载点泄露以及 pod 一直 terminating 的问题。</li><li>tke 可感知单个 node 可挂载 qcloudcbs 的最大数量，不支持动态获取最大值。</li></ul></td>
 </tr>
 <tr>
     <td>2020-04-14</td>	
     <td>v1.12.4-tke.18</td>
-    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/73401"> pr73401</a>、<a href="https://github.com/kubernetes/kubernetes/pull/73606">pr73606</a>、<a href="https://github.com/kubernetes/kubernetes/pull/76060">pr76060</a>，删除分配到不存在的节点上的 DaemonSet Pod。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/68619"> pr68619</a>，解决 cpumanager 脏数据问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87669"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li> 容器服务支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
+    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/73401"> pr73401</a>、<a href="https://github.com/kubernetes/kubernetes/pull/73606">pr73606</a>、<a href="https://github.com/kubernetes/kubernetes/pull/76060">pr76060</a>，删除分配到不存在的节点上的 DaemonSet Pod。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/68619"> pr68619</a>，解决 cpumanager 脏数据问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87669"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li> tke 支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
     </tr>
 <tr>
     <td>2020-02-14</td>	
@@ -217,7 +217,7 @@
 <tr>
     <td>2020-04-14</td>
     <td>v1.10.5-tke.16</td>
-    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/68619"> pr68619</a>，解决 cpumanager 脏数据问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87669"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li>容器服务支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
+    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/68619"> pr68619</a>，解决 cpumanager 脏数据问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87669"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li>tke 支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
     </tr>
 <tr>
     <td>2020-02-14</td>	
