@@ -57,14 +57,14 @@ SSL 加密并不保护数据本身，而是确保了来往于数据库和服务�
 
 ## 连接启用连接加密的实例
 ### MySQL/MariaDB 客户端
-- 方案一（取决于当前客户端默认配置）：
+使用 SSL 连接加密的方式连接数据库：
 ```
-mysql -h9.30.17.168 -P24082  -utest -ptest123 
+mysql -P 3306 -h 10.xx.xx.168  -u test -p --ssl
 ```
-- 方案二（显式指定加密协议）：
-```
-mysql -h9.30.17.168 -P24082  -utest -ptest123 --tls-version=TLSv1.2
-```
+登录成功后，可以使用`\s`命令查询当前登录状态：
+![](https://main.qcloudimg.com/raw/1734747ce35e0c2f38e98934597ebf05.png)
+其中`SSL: Cipher in use is AES256-GCM-SHA384`表示该用户是使用 SSL 连接至 MySQL 服务器。
+
 
 ### Navicat 等图形化客户端
 直接选择【使用 SSL】，无需选择【使用验证】即可连接。
