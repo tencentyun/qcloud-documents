@@ -1,4 +1,4 @@
-﻿## 命名空间
+## 命名空间
 
 Namespace=QCE/VPNGW
 
@@ -18,13 +18,13 @@ Namespace=QCE/VPNGW
 
 | 参数名称                       | 维度名称 | 维度解释              | 格式                                     |
 | ------------------------------ | -------- | --------------------- | ---------------------------------------- |
-| Instances.N.Dimensions.0.Name  | vpnGwId  | VPN 网关 ID的维度名称 | 输入String 类型维度名称：vpnGwId         |
-| Instances.N.Dimensions.0.Value | vpnGwId  | VPN 网关具体 ID       | 输入vpn网关具体 ID，例如：vpngw-q7v069tf |
+| Instances.N.Dimensions.0.Name  | vpnGwId  | VPN 网关 ID 的维度名称 | 输入 String 类型维度名称：vpnGwId         |
+| Instances.N.Dimensions.0.Value | vpnGwId  | VPN 网关具体 ID       | 输入 VPN 网关具体 ID，例如：vpngw-q7v069tf |
 
 ## 入参说明
 
-查询私有网络VPN网关监控数据，入参取值如下：<br>
-&Namespace=QCE/VPNGW<br>
-&Instances.N.Dimensions.0.Name=vpnGwId<br>
-&Instances.N.Dimensions.0.Value为 VPN 网关 ID<br>
+查询私有网络 VPN 网关监控数据，入参取值如下：
+&Namespace=QCE/VPNGW
+&Instances.N.Dimensions.0.Name=vpnGwId
+&Instances.N.Dimensions.0.Value为 VPN 网关 ID
 
