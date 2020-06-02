@@ -62,7 +62,7 @@ SSL 加密并不保护数据本身，而是确保了来往于数据库和服务�
 mysql -P 3306 -h 10.xx.xx.168  -u test -p --ssl
 ```
 登录成功后，可以使用`\s`命令查询当前登录状态：
-![](https://main.qcloudimg.com/raw/1734747ce35e0c2f38e98934597ebf05.png)
+![](https://main.qcloudimg.com/raw/a4cf3caf8a32c8a174e247700275876b.png)
 其中`SSL: Cipher in use is AES256-GCM-SHA384`表示该用户是使用 SSL 连接至 MySQL 服务器。
 
 
