@@ -1,4 +1,4 @@
-﻿## iOS SDK 介绍
+## iOS SDK 介绍
 
 ### 内容
 - libQBarCode.a - 静态文件，是主要扫码逻辑库
