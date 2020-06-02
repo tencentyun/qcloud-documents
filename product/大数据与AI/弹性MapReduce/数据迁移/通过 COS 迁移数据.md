@@ -38,8 +38,8 @@
 ```
 5. 验证运行命令后，输出如下日志
 ```
-[Folder Operation Result : [ 53(sum)/ 53(ok) / 0(fail)]
-[File Operation Result: [22(sum)/ 22(ok) / 0(fail) / 0(skip)]
+[Folder Operation Result : [ 53(sum)/ 53(ok) / 0(fail)]]
+[File Operation Result: [22(sum)/ 22(ok) / 0(fail) / 0(skip)]]
 [Used Time: 3 s]
 ```
  - sum 表示总共需要迁移的文件数。
