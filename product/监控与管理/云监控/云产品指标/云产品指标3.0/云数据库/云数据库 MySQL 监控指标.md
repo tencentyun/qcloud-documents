@@ -6,7 +6,7 @@ Namespace=QCE/CDB
 
 | 指标英文名                   | 指标中文名                               | 含义                                                         | 单位    | 维度                     |
 | ---------------------------- | ---------------------------------------- | ------------------------------------------------------------ | ------- | ------------------------ |
-| CPUUseRate                   | CPU利用率                                | 允许闲时超用，CPU 利用率可能大于100%                         | %       | InstanceId、InstanceType |
+| CPUUseRate                   | CPU 利用率                                | 允许闲时超用，CPU 利用率可能大于100%                         | %       | InstanceId、InstanceType |
 | MemoryUseRate                | 内存利用率                               | 允许闲时超用，内存利用率可能大于100%                         | %       | InstanceId、InstanceType |
 | MemoryUse                    | 内存占用                                 | 允许闲时超用，实际内存占用可能大于购买规格                   | MB      | InstanceId、InstanceType |
 | VolumeRate                   | 磁盘使用率                               | 磁盘使用空间/实例购买空间                                    | %       | InstanceId、InstanceType |
@@ -30,14 +30,14 @@ Namespace=QCE/CDB
 | QueryRate                    | 查询使用率                               | 每秒执行操作数 QPS/推荐每秒操作数                            | %       | InstanceId、InstanceType |
 | CreatedTmpTables             | 临时表数量                               | 创建临时表的数量                                             | 次/秒   | InstanceId、InstanceType |
 | TableLocksWaited             | 等待表锁次数                             | 不能立即获得的表的锁的次数                                   | 次/秒   | InstanceId、InstanceType |
-| InnodbCacheUseRate           | innodb缓存使用率                         | Innodb 引擎的缓存使用率                                      | %       | InstanceId、InstanceType |
-| InnodbCacheHitRate           | innodb缓存命中率                         | Innodb 引擎的缓存命中率                                      | %       | InstanceId、InstanceType |
-| InnodbOsFileReads            | innodb读磁盘数量                         | Innodb 引擎每秒读磁盘文件的次数                              | 次/秒   | InstanceId、InstanceType |
-| InnodbOsFileWrites           | innodb写磁盘数量                         | Innodb 引擎每秒写磁盘文件的次数                              | 次/秒   | InstanceId、InstanceType |
-| InnodbOsFsyncs               | innodb fsync数量                         | Innodb 引擎每秒调用 fsync 函数次数                           | 次/秒   | InstanceId、InstanceType |
-| InnodbNumOpenFiles           | 当前InnoDB打开表的数量                   | Innodb 引擎当前打开表的数量                                  | 个      | InstanceId、InstanceType |
-| KeyCacheUseRate              | myisam缓存使用率                         | myisam 引擎的缓存命中率                                      | %       | InstanceId、InstanceType |
-| KeyCacheHitRate              | myisam缓存命中率                         | myisam 引擎的缓存使用率                                      | %       | InstanceId、InstanceType |
+| InnodbCacheUseRate           | innodb 缓存使用率                         | Innodb 引擎的缓存使用率                                      | %       | InstanceId、InstanceType |
+| InnodbCacheHitRate           | innodb 缓存命中率                         | Innodb 引擎的缓存命中率                                      | %       | InstanceId、InstanceType |
+| InnodbOsFileReads            | innodb 读磁盘数量                         | Innodb 引擎每秒读磁盘文件的次数                              | 次/秒   | InstanceId、InstanceType |
+| InnodbOsFileWrites           | innodb 写磁盘数量                         | Innodb 引擎每秒写磁盘文件的次数                              | 次/秒   | InstanceId、InstanceType |
+| InnodbOsFsyncs               | innodb fsync 数量                         | Innodb 引擎每秒调用 fsync 函数次数                           | 次/秒   | InstanceId、InstanceType |
+| InnodbNumOpenFiles           | 当前 InnoDB 打开表的数量                   | Innodb 引擎当前打开表的数量                                  | 个      | InstanceId、InstanceType |
+| KeyCacheUseRate              | myisam 缓存使用率                         | myisam 引擎的缓存命中率                                      | %       | InstanceId、InstanceType |
+| KeyCacheHitRate              | myisam 缓存命中率                         | myisam 引擎的缓存使用率                                      | %       | InstanceId、InstanceType |
 | ComCommit                    | 提交数                                   | 每秒提交次数                                                 | 次/秒   | InstanceId、InstanceType |
 | ComRollback                  | 回滚数                                   | 每秒回滚次数                                                 | 次/秒   | InstanceId、InstanceType |
 | ThreadsCreated               | 已创建的线程数                           | 创建用来处理连接的线程数                                     | 个      | InstanceId、InstanceType |
@@ -47,20 +47,20 @@ Namespace=QCE/CDB
 | HandlerReadRndNext           | 读下一行请求数                           | 每秒读取下一行的请求次数                                     | 次/秒   | InstanceId、InstanceType |
 | HandlerRollback              | 内部回滚数                               | 每秒事务被回滚的次数                                         | 次/秒   | InstanceId、InstanceType |
 | HandlerCommit                | 内部提交数                               | 每秒事务提交的次数                                           | 次/秒   | InstanceId、InstanceType |
-| InnodbBufferPoolPagesFree    | InnoDB空页数                             | Innodb 引擎内存空页个数                                      | 个      | InstanceId、InstanceType |
-| InnodbBufferPoolPagesTotal   | InnoDB总页数                             | Innodb 引擎占用内存总页数                                    | 个      | InstanceId、InstanceType |
-| InnodbBufferPoolReadRequests | InnoDB逻辑读                             | Innodb 引擎每秒已经完成的逻辑读请求次数                      | 次/秒   | InstanceId、InstanceType |
-| InnodbBufferPoolReads        | InnoDB物理读                             | Innodb 引擎每秒已经完成的物理读请求次数                      | 次/秒   | InstanceId、InstanceType |
-| InnodbDataReads              | InnoDB总读取量                           | Innodb 引擎每秒已经完成读取数据的字节数                      | 次/秒   | InstanceId、InstanceType |
-| InnodbDataRead               | InnoDB读取量                             | Innodb 引擎每秒已经完成读取数据的次数                        | Byte/秒 | InstanceId、InstanceType |
-| InnodbDataWrites             | InnoDB总写入量                           | Innodb 引擎每秒已经完成写数据的次数                          | 次/秒   | InstanceId、InstanceType |
-| InnodbDataWritten            | InnoDB写入量                             | Innodb 引擎每秒已经完成写数据的字节数                        | Byte/秒 | InstanceId、InstanceType |
-| InnodbRowsDeleted            | InnoDB行删除量                           | Innodb 引擎每秒删除的行数                                    | 次/秒   | InstanceId、InstanceType |
-| InnodbRowsInserted           | InnoDB行插入量                           | Innodb 引擎每秒插入的行数                                    | 次/秒   | InstanceId、InstanceType |
-| InnodbRowsUpdated            | InnoDB行更新量                           | Innodb 引擎每秒更新的行数                                    | 次/秒   | InstanceId、InstanceType |
-| InnodbRowsRead               | InnoDB行读取量                           | Innodb 引擎每秒读取的行数                                    | 次/秒   | InstanceId、InstanceType |
-| InnodbRowLockTimeAvg         | InnoDB平均获取行锁时间                   | Innodb 引擎行锁定的平均时长                                  | 毫秒    | InstanceId、InstanceType |
-| InnodbRowLockWaits           | InnoDB等待行锁次数                       | Innodb 引擎每秒等待行锁定的次数                              | 次/秒   | InstanceId、InstanceType |
+| InnodbBufferPoolPagesFree    | InnoDB 空页数                             | Innodb 引擎内存空页个数                                      | 个      | InstanceId、InstanceType |
+| InnodbBufferPoolPagesTotal   | InnoDB 总页数                             | Innodb 引擎占用内存总页数                                    | 个      | InstanceId、InstanceType |
+| InnodbBufferPoolReadRequests | InnoDB 逻辑读                             | Innodb 引擎每秒已经完成的逻辑读请求次数                      | 次/秒   | InstanceId、InstanceType |
+| InnodbBufferPoolReads        | InnoDB 物理读                             | Innodb 引擎每秒已经完成的物理读请求次数                      | 次/秒   | InstanceId、InstanceType |
+| InnodbDataReads              | InnoDB 总读取量                           | Innodb 引擎每秒已经完成读取数据的字节数                      | 次/秒   | InstanceId、InstanceType |
+| InnodbDataRead               | InnoDB 读取量                             | Innodb 引擎每秒已经完成读取数据的次数                        | Byte/秒 | InstanceId、InstanceType |
+| InnodbDataWrites             | InnoDB 总写入量                           | Innodb 引擎每秒已经完成写数据的次数                          | 次/秒   | InstanceId、InstanceType |
+| InnodbDataWritten            | InnoDB 写入量                             | Innodb 引擎每秒已经完成写数据的字节数                        | Byte/秒 | InstanceId、InstanceType |
+| InnodbRowsDeleted            | InnoDB 行删除量                           | Innodb 引擎每秒删除的行数                                    | 次/秒   | InstanceId、InstanceType |
+| InnodbRowsInserted           | InnoDB 行插入量                           | Innodb 引擎每秒插入的行数                                    | 次/秒   | InstanceId、InstanceType |
+| InnodbRowsUpdated            | InnoDB 行更新量                           | Innodb 引擎每秒更新的行数                                    | 次/秒   | InstanceId、InstanceType |
+| InnodbRowsRead               | InnoDB 行读取量                           | Innodb 引擎每秒读取的行数                                    | 次/秒   | InstanceId、InstanceType |
+| InnodbRowLockTimeAvg         | InnoDB 平均获取行锁时间                   | Innodb 引擎行锁定的平均时长                                  | 毫秒    | InstanceId、InstanceType |
+| InnodbRowLockWaits           | InnoDB 等待行锁次数                       | Innodb 引擎每秒等待行锁定的次数                              | 次/秒   | InstanceId、InstanceType |
 | KeyBlocksUnused              | 键缓存内未使用的块数量                   | myisam 引擎未使用键缓存块的个数                              | 个      | InstanceId、InstanceType |
 | KeyBlocksUsed                | 键缓存内使用的块数量                     | myisam 引擎已使用键缓存块的个数                              | 个      | InstanceId、InstanceType |
 | KeyReadRequests              | 键缓存读取数据块次数                     | myisam 引擎每秒读取键缓存块的次数                            | 次/秒   | InstanceId、InstanceType |
@@ -71,25 +71,27 @@ Namespace=QCE/CDB
 | TableLocksImmediate          | 立即释放的表锁数                         | 立即释放的表锁个数                                           | 个      | InstanceId、InstanceType |
 | OpenFiles                    | 打开文件总数                             | 当前数据库打开文件总数                                       | 个      | InstanceId、InstanceType |
 | LogCapacity                  | 日志使用量                               | 当前数据库日志使用量                                         | MB      | InstanceId、InstanceType |
-| SlaveIoRunning               | IO线程状态                               | Slave下 IO 线程状态                                          | —       | InstanceId、InstanceType |
-| SlaveSqlRunning              | SQL线程状态                              | Slave下 ISQL线程状态                                         | —       | InstanceId、InstanceType |
+| SlaveIoRunning               | IO 线程状态                               | Slave下 IO 线程状态                                          | —       | InstanceId、InstanceType |
+| SlaveSqlRunning              | SQL 线程状态                              | Slave下 ISQL 线程状态                                         | —       | InstanceId、InstanceType |
 | MasterSlaveSyncDistance      | 主从延迟距离                             | 主从 binlog 差距                                             | MB      | InstanceId、InstanceType |
 | SecondsBehindMaster          | 主从延迟时间                             | 主从延迟时间                                                 | MB      | InstanceId、InstanceType |
 
-> ?每个指标的统计粒度（Period）可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度。
+>?每个指标的统计粒度（Period）可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度。
 
 ## 各维度对应参数总览
 
 | 参数名称                       | 维度名称     | 维度解释                                                     | 格式                                     |
 | ------------------------------ | ------------ | ------------------------------------------------------------ | ---------------------------------------- |
-| Instances.N.Dimensions.0.Name  | InstanceId   | 数据库的实例 ID名称                                          | 输入String类型维度名称，如：topicId      |
-| Instances.N.Dimensions.0.Value | InstanceId   | 数据库的具体ID                                               | 输入具体实例ID，如 ：topic-i4p4k0u0      |
-| Instances.N.Dimensions.1.Name  | InstanceType | 数据库实例类型                                               | 输入String类型维度名称，如：InstanceType |
-| Instances.N.Dimensions.1.Value | InstanceType | 数据库实例类型，默认取值为1，表示拉取master监控数据。当需要拉取slave的SlaveIoRunning、SlaveSqlRunning、MasterSlaveSyncDistance、SecondsBehindMaster的监控数据时，需将InstanceType的值设置为2 | 输入实例类型取值，默认取值为1            |
-
+| Instances.N.Dimensions.0.Name  | InstanceId   | 数据库的实例 ID名称                                          | 输入 String 类型维度名称，例如：topicId      |
+| Instances.N.Dimensions.0.Value | InstanceId   | 数据库的具体ID                                               | 输入具体实例ID，例如：topic-i4p4k0u0      |
+| Instances.N.Dimensions.1.Name  | InstanceType | 数据库实例类型                                               | 输入 String 类型维度名称，例如：InstanceType |
+  | Instances.N.Dimensions.1.Value | InstanceType | 数据库实例类型，默认取值为1：<br><li>取值为1：表示拉取 master 监控数据<br><li>取值为2：表示拉取 slave 的 SlaveIoRunning、SlaveSqlRunning、MasterSlaveSyncDistance、SecondsBehindMaster 监控数据 | 输入实例类型，默认取值为1                |
+	
+	
+	
 ## 入参说明
 
 查询云数据库（MySQL）产品监控数据，入参取值如下：
 &Namespace=QCE/CDB
 &Instances.N.Dimensions.0.Name=InstanceId
-&Instances.N.Dimensions.0.Value=数据库的具体ID 
+&Instances.N.Dimensions.0.Value=数据库的具体 ID 
