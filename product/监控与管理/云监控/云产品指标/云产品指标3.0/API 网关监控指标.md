@@ -1,6 +1,6 @@
 ## 命名空间
 
- Namespace=QCE/APIGATEWAY 
+Namespace=QCE/APIGATEWAY 
 
 ## 指标名称
 
@@ -17,32 +17,31 @@
 | Serviceservererror404 | 后台404错误数 | 请求后端服务失败，请求所希望的资源未被在后端服务器上发现，此类错误个数的统计 | 按照所选择的时间粒度统计求和 | 次   |
 | Serviceservererror502 | 后台502错误数 | API 网关尝试执行后端请求时，从后端服务器接收到无效的响应，此类错误个数的统计 | 按照所选择的时间粒度统计求和 | 次   |
 
-> ?API网关监控指标支持所有维度，您可根据相关 [维度说明](#weidu) 进行监控指标的维度筛选。
->
+> ?API 网关监控指标支持所有维度，您可根据相关 [维度说明](#weidu) 进行监控指标的维度筛选。
 > 每个指标对应的统计粒度（Period）可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度及维度信息。
 
 ## 各维度对应参数总览
 
 | 参数名称                       | 维度名称        | 维度解释                      | 格式                                     |
 | ------------------------------ | --------------- | ----------------------------- | ---------------------------------------- |
-| Instances.N.Dimensions.0.Name  | serviceId       | API 网关服务 ID的维度名称     | 输入String 类型维度名称：serviceId       |
-| Instances.N.Dimensions.0.Value | serviceId       | 具体的API 网关服务 ID         | 输入具体服务ID，例如：service-12345jy    |
-| Instances.N.Dimensions.1.Name  | environmentName | 环境维度名称                  | 输入String 类型维度名称：environmentName |
+| Instances.N.Dimensions.0.Name  | serviceId       | API 网关服务 ID 的维度名称     | 输入 String 类型维度名称：serviceId       |
+| Instances.N.Dimensions.0.Value | serviceId       | 具体的 API 网关服务 ID         | 输入具体服务 ID，例如：service-12345jy    |
+| Instances.N.Dimensions.1.Name  | environmentName | 环境维度名称                  | 输入 String 类型维度名称：environmentName |
 | Instances.N.Dimensions.1.Value | environmentName | 具体环境名称                  | 输入环境名称，例如：release、test、repub |
-| Instances.N.Dimensions.2.Name  | apiid/key       | APIid 或者SecretKey的维度名称 | 输入String类型维度名称：apiid/key        |
-| Instances.N.Dimensions.2.Value | apiid/secretid  | 具体的APIid 或者secretid      | 输入具体的 apiid 或者 secretid           |
+| Instances.N.Dimensions.2.Name  | apiid/key       | APIid 或者 SecretKey 的维度名称 | 输入 String 类型维度名称：apiid/key        |
+| Instances.N.Dimensions.2.Value | apiid/secretid  | 具体的 APIid 或者 Secretid      | 输入具体的 APIid 或者 secretid           |
 
 <span id="weidu">
 
-### 维度说明
+## 维度说明
 
 </span>
 
- API网关提供了获取以下三种级别监控数据的组合 ：环境维度、API维度、密钥对（secretid和SecretKey）维度。
+ API网关提供了获取以下三种级别监控数据的组合 ：环境维度、API 维度、密钥对（Secretid 和 SecretKey）维度。
 
 以下为API网关的三种维度组合的查询方式 ：
 
-#### 1.环境维度，入参取值
+#### 1. 环境维度，入参取值
 
 &Namespace=QCE/APIGATEWAY
 &Instances.N.Dimensions.0.Name=serviceId
@@ -50,7 +49,7 @@
 &Instances.N.Dimensions.1.Name=environmentName
 &Instances.N.Dimensions.1.Value=为环境名
 
-#### 2.API 维度，入参取值
+#### 2. API 维度，入参取值
 
 &Namespace=QCE/APIGATEWAY
 &Instances.N.Dimensions.0.Name=serviceId
@@ -60,7 +59,7 @@
 &Instances.N.Dimensions.2.Name=apiid
 &Instances.N.Dimensions.2.Value= 为 API 的 ID
 
-#### 3.密钥对维度，入参取值（需要开启白名单）
+#### 3. 密钥对维度，入参取值（需要开启白名单）
 
 &Namespace=QCE/APIGATEWAY
 &Instances.N.Dimensions.0.Name=serviceId
