@@ -31,7 +31,8 @@ promise.then(function(imResponse) {
 
 
 ### 获取其他用户资料
- 此接口会同时获取标配资料和 [自定义资料](https://cloud.tencent.com/document/product/269/1500#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)。
+
+此接口会同时获取标配资料和 [自定义资料](https://cloud.tencent.com/document/product/269/1500#.E8.87.AA.E5.AE.9A.E4.B9.89.E8.B5.84.E6.96.99.E5.AD.97.E6.AE.B5)。
 
 > !
 >
