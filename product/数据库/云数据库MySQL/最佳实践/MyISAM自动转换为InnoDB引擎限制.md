@@ -29,7 +29,7 @@
  name varchar(19), 
  value varchar(10), 
  primary key (name,id),
- key key_id (id)
+ key key_id (id)  ## 为自增列创建索引
  ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 ```
 如下图创建成功：
