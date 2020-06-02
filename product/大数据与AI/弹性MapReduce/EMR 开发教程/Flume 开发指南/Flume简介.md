@@ -50,6 +50,7 @@ bin/flume-ng agent --conf conf --conf-file example.conf --name a1 -Dflume.root.l
 ```
 
 ### 配置测试样例
+配置后将会看到之前启动的 Flume Agent 向终端打印。
 ```bash
 telnet localhost 44444
 Trying 127.0.0.1...
@@ -58,4 +59,4 @@ Escape character is '^]'.
 Hello world! <ENTER>
 OK
 ```
-配置后将会看到之前启动的 Flume Agent 向终端打印。
+
