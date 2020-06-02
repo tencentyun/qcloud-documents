@@ -132,7 +132,7 @@ tim.createGroup(options);
 | ------------------- | -------- | ------------ | ------------------------------------------------------------ |
 | `userID`            | `String` | -            | 必填，群成员的 UserID                                        |
 | `role`              | `String` | `<optional>` | 成员身份，可选值只有 Admin，表示添加该成员并设置为管理员     |
-| `memberCustomField` | `Array`  | <optional>`` | 群成员维度的自定义字段，默认没有自定义字段，如需开通请参见 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
+| `memberCustomField` | `Array`  | `<optional>` | 群成员维度的自定义字段，默认没有自定义字段，如需开通请参见 [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
 **返回值**
 
