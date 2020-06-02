@@ -12,12 +12,14 @@ SDK 可在 [智能扫码控制台](https://console.cloud.tencent.com/ocr/is) 申
 ## Android SDK 接入
 1. 使用 AAR 接入，将 QBarCode-v0.1.1.aar 包添加到接入方 App 中的 libs 目录下，如 Demo 所示。
 2. 配置 build
+
 1）权限设置
 
 ```
 <uses-permissionandroid:name="android.permission.CAMERA"android:required="true" /><uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /><uses-feature android:name="android.hardware.camera" /><uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
 ```
+
 
 2）在接入方 App 的 build.gradle 中进行如下配置：
 
