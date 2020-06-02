@@ -44,7 +44,7 @@ Namespace=QCE/CMONGO
 | Instances.N.Dimensions.0.Value | target   | 视查询维度而定 | 请参考 [取值参照表](#dimensions.0.value-.E5.8F.96.E5.80.BC.E5.8F.82.E7.85.A7.E8.A1.A8) 取值 |
 
 > ?**云数据库 Instances.N.Dimensions.0.Value 的取值:**
-> 腾讯云提供的 MongoDB 为集群服务，可以查询“整个集群”、“某个副本集”、“某个节点”三个维度的监控数据。
+> 腾讯云提供的 MongoDB 为集群服务，可以查询“整个集群”、“某个副本集”、“某个节点”三个维度的监控数据：
 > - “整个集群”维度：代表了您所购买的某一个 MongoDB 实例，这个维度可以查询整个实例的读写请求次数、容量使用率、超时请求等。
 > - “某个副本集”维度：可查询集群下的某一个副本集内部的容量使用率和主从延迟。副本集实例本身只包含一个副本集，分片实例的每一片都是一个副本。
 > - “某个节点”维度：可以查询集群内的任意节点的 CPU、内存等信息。
@@ -55,7 +55,7 @@ Namespace=QCE/CMONGO
 | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 实例 ID   | cmgo-6ielucen                                                | 实例 ID，一个 MongoDB 实例的唯一标识：<br><li>可以在 [MongoDB 控制台](https://console.cloud.tencent.com/mongodb) 获取<br><li>或者调用 MognoDB 的 API 获取 |
 | 副本集 ID | <li>cmgo-6ielucen_0<br><li>cmgo-6ielucen_2                               | 在实例 ID 后面拼接 “\_索引号”可以得到副本集 ID。<br>“索引号”从0开始，最大值为副本集个数-1；副本集实例只有一个副本集，所以固定拼接“\_0”即可；分片实例有多个片，每一片都是副本集，例如：第3个片的副本集 ID 就是拼接“\_2” |
-| 节点 ID   | <li>cmgo-6ielucen_0-node-primary<br><li>cmgo-6ielucen_1-node-slave0<br><li>cmgo-6ielucen_3-node-slave2 | <br><li>在副本集 ID 后面拼接“-node-primary”得到该副本集的主节点 ID<br><li>在副本集 ID 后面拼接“-node-slave 从节点索引号”可得到对应的从节点的 ID，“从节点索引号”从0开始，最大值为从节点个数-1 |
+| 节点 ID   | <li>cmgo-6ielucen_0-node-primary<br><li>cmgo-6ielucen_1-node-slave0<br><li>cmgo-6ielucen_3-node-slave2 | <li>在副本集 ID 后面拼接“-node-primary”得到该副本集的主节点 ID<br><li>在副本集 ID 后面拼接“-node-slave 从节点索引号”可得到对应的从节点的 ID，“从节点索引号”从0开始，最大值为从节点个数-1 |
 
 ## 入参说明
 
