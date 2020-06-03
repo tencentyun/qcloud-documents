@@ -31,7 +31,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 
 |  适用平台 | 文件源码链接 | 文件相对路径 |
 |:---------:|:---------:|:---------:|
-| iOS | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCScenesDemo/TRTCScenesDemo/debug/GenerateTestUserSig.h)|iOS/TRTCScenesDemo/TRTCScenesDemo/debug/GenerateTestUserSig.h|
+| iOS | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCScenesDemo/TXLiteAVDemo/Debug/GenerateTestUserSig.h)|iOS/TRTCScenesDemo/TXLiteAVDemo/Debug/GenerateTestUserSig.h|
 | Mac  | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/Mac/TRTCScenesDemo/TRTCDemo/TRTC/GenerateTestUserSig.h)|Mac/TRTCScenesDemo/TRTCDemo/TRTC/GenerateTestUserSig.h|
 | Android | [Github](https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTCScenesDemo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java) | Android/TRTCScenesDemo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java |
 | Windows(C++) | [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Windows/DuilibDemo/GenerateTestUserSig.h)| Windows/DuilibDemo/GenerateTestUserSig.h |
