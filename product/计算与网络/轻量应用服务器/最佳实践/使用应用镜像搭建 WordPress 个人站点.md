@@ -6,7 +6,6 @@ WordPress 是全球最流行的开源的博客和内容管理网站的建站平�
 >
 
 ## 操作步骤
-您可以参考以下步骤使用 WordPress 搭建个人或企业网站。
 
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)。
 2. 单击【新建】，进入轻量应用服务器购买页面。
