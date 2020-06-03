@@ -459,7 +459,7 @@ tim.createVideoMessage(options)
 
 | Name   | Type                               | Description                                                  |
 | ------ | ---------------------------------- | ------------------------------------------------------------ |
-| `text` | `HTMLInputElement`、`File` 或 `Object` | 用于选择视频文件的 DOM 节点（Web）或者 File 对象（Web），或微信小程序录制或者从相册选择的视频文件。SDK 会读取其中的数据并上传 |
+| `file` | `HTMLInputElement`、`File` 或 `Object` | 用于选择视频文件的 DOM 节点（Web）或者 File 对象（Web），或微信小程序录制或者从相册选择的视频文件。SDK 会读取其中的数据并上传 |
 
 **示例**
 

@@ -1,4 +1,5 @@
-﻿## 命名空间
+## 命名空间
+
 Namespace=QCE/POSTGRES
 
 ## 监控指标
@@ -13,7 +14,7 @@ Namespace=QCE/POSTGRES
 | OutFlow         | 	输出流量       | 实例读写输出的流量 | KB/秒   |resourceId|
 | Iops          | 	磁盘 IOPS  | 实例的 IOPS（每秒的请求次数) | 次/秒  |resourceId|
 | Memory          | 内存占用   | 实例占用磁盘的可用空间 | KB  |resourceId|
-| OtherCalls          | 	其他请求数   | 除了读和写以外的请求总数（如 Drop），按分钟累加 | 次/分钟  |resourceId|
+| OtherCalls          | 	其他请求数   | 除了读和写以外的请求总数（例如 Drop），按分钟累加 | 次/分钟  |resourceId|
 | Qps             | 	每秒查询数       | 每秒查询次数 | 次/秒  |resourceId|
 | WriteCalls        | 	写请求数       | 写请求每分钟总数 | 次/分钟    |resourceId|
 | ReadCalls           | 读请求数       |读请求每分钟总数  |次/分钟  |resourceId|
@@ -33,8 +34,8 @@ Namespace=QCE/POSTGRES
 
 | 参数名称               | 维度名称             | 维度解释          | 格式                            |
 | ------------------ | ---------------- | ------------- | ----------------------------- |
-| Instances.N.Dimensions.0.Name  | resourceId              | resourceId维度名称   | 输入String类型维度名称：resourceId         |
-| Instances.N.Dimensions.0.Value | resourceId              | 实例具体的resourceId       | 输入实例的具体resourceId，例如：postgres-123456       |
+| Instances.N.Dimensions.0.Name  | resourceId              | resourceId 维度名称   | 输入 String 类型维度名称：resourceId         |
+| Instances.N.Dimensions.0.Value | resourceId              | 实例具体的 resourceId       | 输入实例的具体 resourceId，例如：postgres-123456       |
 
 
 ## 入参说明

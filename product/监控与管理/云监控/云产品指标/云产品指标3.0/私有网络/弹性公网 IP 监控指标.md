@@ -1,5 +1,4 @@
-﻿## 命名空间
-
+## 命名空间
 
 Namespace=QCE/LB
 
@@ -18,12 +17,12 @@ Namespace=QCE/LB
 
 | 参数名称                       | 维度名称 | 维度解释              | 格式                                 |
 | ------------------------------ | -------- | --------------------- | ------------------------------------ |
-| Instances.N.Dimensions.0.Name  | eip      | 弹性公网 IP的维度名称 | 输入String 类型维度名称：eip         |
-| Instances.N.Dimensions.0.Value | eip      | 弹性公网 具体IP 地址  | 输入具体IP地址，例如：111.111.111.11 |
+| Instances.N.Dimensions.0.Name  | eip      | 弹性公网 IP 的维度名称 | 输入String 类型维度名称：eip         |
+| Instances.N.Dimensions.0.Value | eip      | 弹性公网 具体 IP 地址  | 输入具体 IP 地址，例如：111.111.111.11 |
 
 ## 入参说明
 
-查询私有网络弹性公网 IP 监控接口监控数据，入参取值如下：<br>
-&Namespace=QCE/LB<br>
-&Instances.N.Dimensions.0.Name=eip<br>
-&Instances.N.Dimensions.0.Value 为弹性公网IP的唯一 ID<br>
+查询私有网络弹性公网 IP 监控接口监控数据，入参取值如下：
+&Namespace=QCE/LB
+&Instances.N.Dimensions.0.Name=eip
+&Instances.N.Dimensions.0.Value 为弹性公网IP的唯一 ID

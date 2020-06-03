@@ -1,4 +1,4 @@
-﻿### 云数据库 SQL Server
+
 
 ## 命名空间：
 
@@ -44,12 +44,12 @@ Namespace=QCE/SQLSERVER
 
 > ?每个指标的统计粒度（Period）可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度。
 
-## 各维度对应参数总览：
+## 各维度对应参数总览
 
 | 参数名称                       | 维度名称   | 维度解释             | 格式                                            |
 | ------------------------------ | ---------- | -------------------- | ----------------------------------------------- |
-| Instances.N.Dimensions.0.Name  | resourceId | 实例资源ID的维度名称 | 输入String类型维度名称：resourceId              |
-| Instances.N.Dimensions.0.Value | resourceId | 实例具体的资源 ID    | 输入实例的具体resourceId，例如：mssql-dh0123456 |
+| Instances.N.Dimensions.0.Name  | resourceId | 实例资源 ID 的维度名称 | 输入 String 类型维度名称：resourceId              |
+| Instances.N.Dimensions.0.Value | resourceId | 实例具体的资源 ID    | 输入实例的具体 resourceId，例如：mssql-dh0123456 |
 
 ## 入参说明
 

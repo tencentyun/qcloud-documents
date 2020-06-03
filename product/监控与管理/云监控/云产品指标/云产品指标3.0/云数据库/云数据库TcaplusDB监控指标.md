@@ -1,4 +1,4 @@
-﻿## 命名空间
+## 命名空间
 Namespace=QCE/TCAPLUS
 
 ## 监控指标
@@ -19,16 +19,16 @@ Namespace=QCE/TCAPLUS
 
 | 参数名称               | 维度名称             | 维度解释          | 格式                            |
 | ------------------ | ---------------- | ------------- | ----------------------------- |
-| Instances.N.Dimensions.0.Name  | TableInstanceId              | 数据库实例ID维度名称 | 输入String类型维度名称：TableInstanceId  |
-| Instances.N.Dimensions.0.Value | TableInstanceId | 数据库的具体的实例ID | 输入具体实例ID，例如： tcaplus-123abc456 |
-| Instances.N.Dimensions.1.Name  | ClusterId           | 集群ID维度名称 | 输入String类型维度名称：clusterId        |
-| Instances.N.Dimensions.1.Value | ClusterId     | 具体集群ID |输入具体的集群ID，例如：clus-12345  |
+| Instances.N.Dimensions.0.Name  | TableInstanceId              | 数据库实例 ID 维度名称 | 输入 String 类型维度名称：TableInstanceId  |
+| Instances.N.Dimensions.0.Value | TableInstanceId | 数据库的具体的实例 ID | 输入具体实例 ID，例如：tcaplus-123abc456 |
+| Instances.N.Dimensions.1.Name  | ClusterId           | 集群 ID 维度名称 | 输入 String 类型维度名称：clusterId        |
+| Instances.N.Dimensions.1.Value | ClusterId     | 具体集群 ID |输入具体的集群 ID，例如：clus-12345  |
 
 ## 入参说明
 
-查询游戏数据库 TcaplusDB监控数据，入参取值如下：
+查询游戏数据库 TcaplusDB 监控数据，入参取值如下：
 &Namespace=QCE/TCAPLUS
 &Instances.N.Dimensions.0.Name=TableInstanceId
-&Instances.N.Dimensions.0.Value=数据库的具体ID
+&Instances.N.Dimensions.0.Value=数据库的具体 ID
 &Instances.N.Dimensions.1.Name=ClusterId
-&Instances.N.Dimensions.1.Value=具体集群ID
+&Instances.N.Dimensions.1.Value=具体集群 ID
