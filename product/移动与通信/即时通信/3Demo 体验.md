@@ -1,4 +1,4 @@
-即时通信 IM Demo 将于**2020年06月03日中午12:00至2020年06月05日上午08:00**进行服务器更新，更新期间暂停 Demo 体验服务，您可以继续 [下载](https://cloud.tencent.com/document/product/269/36887) Demo 源代码进行测试开发。
+>!即时通信 IM Demo 将于**2020年06月03日中午12:00至2020年06月05日上午08:00**进行服务器更新，更新期间暂停 Demo 体验服务，您可以继续 [下载](https://cloud.tencent.com/document/product/269/36887) Demo 源代码进行测试开发。
 
 
 **Android/iOS 基本功能演示**
