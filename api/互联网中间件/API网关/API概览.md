@@ -43,7 +43,7 @@
 | [启用密钥](https://cloud.tencent.com/document/product/628/14918) | EnableApiKey | 用于启动一对被禁用的 API 密钥。 |
 | [更换密钥](https://cloud.tencent.com/document/product/628/14919) | UpdateApiKey | 用于更换用户已创建的一对 API 密钥。|
 | [查询密钥列表](https://cloud.tencent.com/document/product/628/14920) |DescribeApiKeysStatus | 用于查询一个或多个 API 密钥信息，该接口不会显示密钥 Key。| 
-| [查询密钥详情](https://cloud.tencent.com/document/product/628/14940) | DescribeApiKey | 查询一个 API 密钥的详情，该接口会显示密钥 Key。|
+| [查询密钥详情](https://cloud.tencent.com/document/product/628/14940) | DescribeApiKey | 用于查询一个 API 密钥的详情，该接口会显示密钥 Key。|
 | [禁用密钥](https://cloud.tencent.com/document/product/628/14941) | DisableApiKey | 用于禁用一对 API 密钥。|
 
 ## 使用计划相关接口
@@ -57,7 +57,7 @@
 | [删除使用计划](https://cloud.tencent.com/document/product/628/14948) |  DeleteUsagePlan | 用于删除使用计划。|
 | [查询使用计划状态](https://cloud.tencent.com/document/product/628/14949) | DescribeUsagePlansStatus | 用于查询一个或多个使用计划列表。可查询到这些使用计划的名称、描述、QPS 等信息。|
 | [查询使用计划绑定密钥列表](https://cloud.tencent.com/document/product/628/14950) | DescribeUsagePlanSecretIds | 用于查询使用计划绑定的密钥列表。|
-| [查询使用计划绑定环境列表](https://cloud.tencent.com/document/product/628/14951) | DescribeUsagePlanEnvironments | 用语查询使用计划绑定的所有服务的环境。|
+| [查询使用计划绑定环境列表](https://cloud.tencent.com/document/product/628/14951) | DescribeUsagePlanEnvironments | 用于查询使用计划绑定的所有服务的环境。|
 | [查询使用计划详情](https://cloud.tencent.com/document/product/628/14952) | DescribeUsagePlan | 用于查询一个使用计划的详细信息，包括名称、QPS、创建时间绑定的环境等。|
 | [绑定使用计划到服务环境](https://cloud.tencent.com/document/product/628/14953) | BindEnvironment | 用于绑定使用计划到服务环境。|
 | [服务级别使用计划降级](https://cloud.tencent.com/document/product/628/18899) |  DemoteServiceUsagePlan | 用于将某个服务在某个环境的使用计划，降级到 API上。|
