@@ -24,13 +24,13 @@ WordPress 是全球最流行的开源的博客和内容管理网站的建站平�
 8. 在“应用内软件信息”栏中，单击【登录】。
 ![](https://main.qcloudimg.com/raw/3d708a759349e2322d48c99ca7423587.png)
 9. 在弹出的登录窗口中，粘贴 [步骤7](#step7) 复制的管理员密码，按 **Enter**。
-即可获取 WordPress 管理员帐号（admin ）和对应的密码。
+即可获取 WordPress 管理员账号（admin ）和对应的密码。
 ![](https://main.qcloudimg.com/raw/2b3a5ac10481b8d63111769fb7f85f4a.png)
-10. <span id="step10"></span>复制并记录 WordPress 管理员帐号和密码。
+10. <span id="step10"></span>复制并记录 WordPress 管理员账号和密码。
 11. 关闭登录窗口，并返回该实例的应用管理详情页。
 12. 在“应用内软件信息”栏中，单击 WordPress 的【管理员登录地址】。
 ![](https://main.qcloudimg.com/raw/ba04ff5b56a76e9272edc9425b5b60ba.png)
-13. 在新打开的浏览器窗口中，输入 [步骤10](#step10) 记录的帐号和密码，单击【登录】。
+13. 在新打开的浏览器窗口中，输入 [步骤10](#step10) 记录的账号和密码，单击【登录】。
 ![](https://main.qcloudimg.com/raw/3fc36b90b8c5022d5a46ac6b718e30db.png)
 即可根据实际需要，对 WordPress 进行管理、自定义和配置。
 
