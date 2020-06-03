@@ -575,11 +575,11 @@ String extContent = paramMap.get("ext");
 您需要在 [添加证书](#meizuStep1_2) 时选择【打开应用内指定界面】并输入需要打开的 Activity 的完整类名，例如 `com.tencent.qcloud.tim.demo.chat.ChatActivity`。
 ![](https://main.qcloudimg.com/raw/64d67e324cc53b0ff0631586d9ec1ef5.png)
 
-<span id="xiaomi_custom"></span>
+<span id="meizu_custom"></span>
 
 ### 透传自定义内容
 
-[添加证书](#Step2) 时设置【点击通知后】为【打开应用】或【打开应用内指定界面】操作才支持透传自定义内容。
+[添加证书](#meizuStep1_2) 时设置【点击通知后】为【打开应用】或【打开应用内指定界面】操作才支持透传自定义内容。
 
 **步骤1：发送端设置自定义内容**
 在发消息前设置每条消息的通知栏自定义内容。
@@ -632,17 +632,13 @@ String extContent = bundle.getString("ext");
 
 1. 打开 [Firebase 云消息传递](https://firebase.google.com) 注册账号并创建应用。
    <span id="fcmStep1_2"></span>
-2. 登录 [Firebase 控制台](https://console.firebase.google.com)，单击您的应用卡片，进入应用配置页面。单击 Project Overview 右侧的 <img src="https://main.qcloudimg.com/raw/0d062411405553c9fae29f8e0daf02ad.png"  style="margin:0;">，选择【项目设置】>【云消息传递】，记录**旧版服务器密钥**和**发送者 ID**。
-   <span id="fcmStep1_2"></span>
-3. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击【Android平台推送设置】区域的【添加证书】。根据 [步骤1](#fcmStep1_2) 中获取的信息设置以下参数：
+2. 登录 [Firebase 控制台](https://console.firebase.google.com)，单击您的应用卡片，进入应用配置页面。单击 Project Overview 右侧的 <img src="https://main.qcloudimg.com/raw/0d062411405553c9fae29f8e0daf02ad.png"  style="margin:0;">，选择【项目设置】>【服务帐号】，点击**生成新的秘钥**按钮下载秘钥文件。
+   <span id="fcmStep1_3"></span>
+3. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击【Android平台推送设置】区域的【添加证书】。上传 [步骤1](#fcmStep1_2) 中获取的秘钥文件。
 
- - **推送平台**：选择**Google**
- - **应用包名称**：填写客户 App 的包名
- - **发送者ID**：填写 Google 推送服务应用的**发送者 ID**
- - **旧版服务器密钥**：填写 Google 推送服务应用的**旧版服务器密钥**
-   ![](https://main.qcloudimg.com/raw/2e051e4e8f0b4b5f123b768f3355e260.png)
+   ![](https://main.qcloudimg.com/raw/b18e2414561c6733b24c56cd1e866f21.png)
    单击【确认】保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
-    ![](https://main.qcloudimg.com/raw/bb07b06f5ab9dee0ce17a3eee65101e8.png)
+   ![](https://main.qcloudimg.com/raw/2199bbf955cf52f09b78af6a97ab8122.png)
 
 ### 集成推送 SDK
 
@@ -651,17 +647,12 @@ String extContent = bundle.getString("ext");
 
 成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后将消息通过小米推送通知到用户端。
 
-<span id="xiaomi_custom"></span>
+<span id="fcm_custom"></span>
 
 ### 透传自定义内容
 
-[添加证书](#Step2) 时设置【点击通知后】为【打开应用】或【打开应用内指定界面】操作才支持透传自定义内容。
-
 **步骤1：发送端设置自定义内容**
 在发消息前设置每条消息的通知栏自定义内容。
-
->!
->OPPO 要求自定义的数据必须是 json 格式，否则收不到推送。
 
 - Android 端示例：
 
