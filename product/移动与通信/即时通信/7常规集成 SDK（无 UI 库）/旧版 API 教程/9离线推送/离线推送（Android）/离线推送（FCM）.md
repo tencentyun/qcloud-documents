@@ -29,7 +29,7 @@
  >
  ![](https://main.qcloudimg.com/raw/aaa40b3c7e43f99b7e36c8b7589e54e0.png)
  
-3. 上传 [步骤1](#Step1) 中获取秘钥文件：
+3. 上传 [步骤1](#Step1) 中获取的秘钥文件：
  ![](https://main.qcloudimg.com/raw/b18e2414561c6733b24c56cd1e866f21.png)
 4. 单击【确认】保存信息，证书信息保存后10分钟内生效。
 5. 待推送证书信息生成后，记录证书的**`ID`**。
