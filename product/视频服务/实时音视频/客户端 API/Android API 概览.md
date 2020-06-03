@@ -185,27 +185,27 @@
 | [setNoseSlimLevel](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3f806534b2596d7e29ea0ea6c070b591) | 设置瘦鼻级别，该接口仅在 [企业版 SDK](https://cloud.tencent.com/document/product/647/32689#Enterprise) 中生效。 |
 | [selectMotionTmpl](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a521a0446d0922d480a1eec4b86f1ecb2) | 选择使用哪一款 AI 动效挂件，该接口仅在 [企业版 SDK](https://cloud.tencent.com/document/product/647/32689#Enterprise) 中生效。 |
 | [setMotionMute](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a066cbf8f4f6c1cd23fe9451b82c5a073) | 设置动效静音，该接口仅在 [企业版 SDK](https://cloud.tencent.com/document/product/647/32689#Enterprise) 中生效。 |
-| [setFilter](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a925323ab809957ccaeb4cef30841cb72) | 设置指定素材滤镜特效。v7.2 版本弃用，请使用 TXBeautyManager 设置滤镜功能。 |
-| [setFilterConcentration](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a5fb4c8bc9948e61a75b9ef85f618309d) | 设置滤镜浓度。v7.2 版本弃用，请使用 TXBeautyManager 设置滤镜浓度功能。 |
-| [setGreenScreenFile](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aef56a36b901d5e525ee539e7d5642063) | 设置绿幕背景视频（企业版有效，其它版本设置此参数无效）。v7.2 版本弃用，请使用 TXBeautyManager 设置绿幕功能。 |
-| [playBGM](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3df738557f5c658c37174ac9aeae9684) | 启动播放背景音乐。v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [stopBGM](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3ee7bdd15de4ba9010aa5ece3abff0ab) | 停止播放背景音乐。v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [pauseBGM](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a21ddee03e6f4cec028a24e5d5e30955e) | 暂停播放背景音乐。v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [resumeBGM](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aaa8b34ef2b334bd22a1cb6541a4c6702) | 继续播放背景音乐。v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [getBGMDuration](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ae7342a8bcfda22a872aa684f06a4677f) | 获取音乐文件总时长，单位毫秒。v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [setBGMPosition](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a78f901b6175352a31b0236776bfdc661) | 设置 BGM 播放进度。v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [setBGMVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ada9c2b4aaf9a1a9ab9cd846593fdf9e6) | 设置背景音乐播放音量的大小。v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [setBGMPlayoutVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ab1e1c94c9efd967dbffb46d3ba08fef5) | 设置背景音乐本地播放音量的大小。v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [setBGMPublishVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a535eab48f9df390f4de5ebd5afcd59e3) | 设置背景音乐远端播放音量的大小。v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [setReverbType](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a6f4f89be3c810acfa2430ad65fd7ea68) | 设置混响效果。v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [setVoiceChangerType](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a37acaf3b2539e0b1c18123a646e91189) | 设置变声类型。v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [playAudioEffect](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ad1ed7667282eccfac1992c1e547a5aeb) | 播放音效。v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [setAudioEffectVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a214846db40c2d1be2fe8008c6637f631) | 设置音效的音量。v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [stopAudioEffect](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a18e4ca6939d005a1d67cef397ee8b8d4) | 停止音效。v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [stopAllAudioEffects](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a770543c80d3a5629a26d1382535fb6c4) | 停止所有音效。v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [setAllAudioEffectsVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a9bb41c4ff1a5b24ca742fe3ce45a2bc0) | 设置所有音效的音量。v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [pauseAudioEffect](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ab32923d04ce164b82879b3e05833959f) | 暂停音效。v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [resumeAudioEffect](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a33ab6e798d3da245435166464b702d4f) | 恢复音效。v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
+| [setFilter](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a925323ab809957ccaeb4cef30841cb72) | 设置指定素材滤镜特效。v7.2 版本弃用，请使用 [TXBeautyManager](http://doc.qcloudtrtc.com/group__TXBeautyManager__android.html) 设置滤镜功能。 |
+| [setFilterConcentration](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a5fb4c8bc9948e61a75b9ef85f618309d) | 设置滤镜浓度。v7.2 版本弃用，请使用 [TXBeautyManager](http://doc.qcloudtrtc.com/group__TXBeautyManager__android.html) 设置滤镜浓度功能。 |
+| [setGreenScreenFile](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aef56a36b901d5e525ee539e7d5642063) | 设置绿幕背景视频（企业版有效，其它版本设置此参数无效）。v7.2 版本弃用，请使用 [TXBeautyManager](http://doc.qcloudtrtc.com/group__TXBeautyManager__android.html) 设置绿幕功能。 |
+| [playBGM](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3df738557f5c658c37174ac9aeae9684) | 启动播放背景音乐。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
+| [stopBGM](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3ee7bdd15de4ba9010aa5ece3abff0ab) | 停止播放背景音乐。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
+| [pauseBGM](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a21ddee03e6f4cec028a24e5d5e30955e) | 暂停播放背景音乐。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
+| [resumeBGM](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aaa8b34ef2b334bd22a1cb6541a4c6702) | 继续播放背景音乐。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
+| [getBGMDuration](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ae7342a8bcfda22a872aa684f06a4677f) | 获取音乐文件总时长，单位毫秒。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
+| [setBGMPosition](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a78f901b6175352a31b0236776bfdc661) | 设置 BGM 播放进度。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
+| [setBGMVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ada9c2b4aaf9a1a9ab9cd846593fdf9e6) | 设置背景音乐播放音量的大小。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
+| [setBGMPlayoutVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ab1e1c94c9efd967dbffb46d3ba08fef5) | 设置背景音乐本地播放音量的大小。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
+| [setBGMPublishVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a535eab48f9df390f4de5ebd5afcd59e3) | 设置背景音乐远端播放音量的大小。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
+| [setReverbType](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a6f4f89be3c810acfa2430ad65fd7ea68) | 设置混响效果。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
+| [setVoiceChangerType](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a37acaf3b2539e0b1c18123a646e91189) | 设置变声类型。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
+| [playAudioEffect](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ad1ed7667282eccfac1992c1e547a5aeb) | 播放音效。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
+| [setAudioEffectVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a214846db40c2d1be2fe8008c6637f631) | 设置音效的音量。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
+| [stopAudioEffect](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a18e4ca6939d005a1d67cef397ee8b8d4) | 停止音效。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
+| [stopAllAudioEffects](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a770543c80d3a5629a26d1382535fb6c4) | 停止所有音效。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
+| [setAllAudioEffectsVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a9bb41c4ff1a5b24ca742fe3ce45a2bc0) | 设置所有音效的音量。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
+| [pauseAudioEffect](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ab32923d04ce164b82879b3e05833959f) | 暂停音效。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
+| [resumeAudioEffect](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a33ab6e798d3da245435166464b702d4f) | 恢复音效。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
 
 
 ### 播放背景音乐的回调接口
