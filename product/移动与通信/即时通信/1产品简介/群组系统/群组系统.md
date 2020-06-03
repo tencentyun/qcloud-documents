@@ -132,8 +132,8 @@
 |GroupId|String|群组的唯一标识|只读<br>群组 ID，App 内保证唯一，其格式前缀为 @TGS#。另外，App 亦可自定义群组 ID|
 |Type|String|群组形态|只读<br>默认支持五种产品形态：Private、Public 、ChatRoom、AVChatRoom、BChatRoom， 详情请参阅上文群组形态介绍|
 |Name|String|群组名称|可读可写。最长30字节，不可调整|
-|Introduction|String|群组简介|可读可写。最长120字节，不可调整|
-|Notification|String|群组公告|可读可写。最长150字节，不可调整|
+|Introduction|String|群组简介|可读可写。最长240字节，不可调整|
+|Notification|String|群组公告|可读可写。最长300字节，不可调整|
 |FaceUrl|String|群组头像 URL|可读可写。最长100字节，不可调整|
 |Owner_Account|String|群主 ID|只读|
 |CreateTime|Integer|群组的创建时间|只读|

@@ -4,7 +4,7 @@
 ## 配置指南
 ### 查看配置
 
-登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面最后一栏【高级配置】中，查看指定域名的 HTTPS 配置情况：
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面【高级配置】中，查看指定域名的 HTTPS 配置情况：
 ![](https://main.qcloudimg.com/raw/26221c274317ff782a5408b9a9a2322a.png)
 也可前往左侧菜单栏【证书管理】页面，查看账号下所有配置了 HTTPS 加速的域名列表：
 ![](https://main.qcloudimg.com/raw/ee27b41bc508d85ce92b6642b167cb11.png)

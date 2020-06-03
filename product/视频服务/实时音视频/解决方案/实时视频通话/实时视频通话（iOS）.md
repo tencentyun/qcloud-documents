@@ -33,10 +33,10 @@
 <span id="ui.step3"></span>
 ### 步骤3：配置 Demo 工程文件
 1. 解压 [步骤2](#ui.step2) 中下载的源码包。
-2. 找到并打开 `iOS/TRTCScenesDemo/TRTCScenesDemo/debug/GenerateTestUserSig.h` 文件。
+2. 找到并打开 `iOS/TRTCScenesDemo/TXLiteAVDemo/Debug/GenerateTestUserSig.h` 文件。
 3. 设置 `GenerateTestUserSig.h` 文件中的相关参数：
-  <ul><li>SDKAPPID：默认为占位符，请设置为实际的 SDKAppID。</li>
-  <li>SECRETKEY：默认为占位符，请设置为实际的密钥信息。</li></ul> 
+  <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
+  <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
     <img src="https://main.qcloudimg.com/raw/15d986c5f4bc340e555630a070b90d63.png">
 4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
 5. 单击【关闭指引，进入控制台管理应用】。
@@ -46,11 +46,11 @@
 
 <span id="ui.step4"></span>
 ### 步骤4：运行 Demo
-使用 Xcode（11.0及以上的版本）打开源码工程 `trtcScenesDemo`，单击【运行】即可开始调试本 Demo。
+使用 Xcode（11.0及以上的版本）打开源码工程 `iOS/TRTCScenesDemo/TXLiteAVDemo.xcworkspace`，单击【运行】即可开始调试本 Demo。
 
 <span id="ui.step5"></span>
 ### 步骤5：修改 Demo 源代码
-源码文件夹 `trtcvideocalldemo` 中包含两个子文件夹 ui 和 model，其中 ui 文件夹中均为界面代码：
+源码文件夹 `TRTCVideoCallDemo` 中包含两个子文件夹 ui 和 model，其中 ui 文件夹中均为界面代码：
 
 | 文件或文件夹 | 功能描述 |
 |:-------:|:--------|

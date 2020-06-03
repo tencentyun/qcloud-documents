@@ -90,7 +90,7 @@
 
 ### 迁移步骤
 1. 创建新版消息转储。
-登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)，在目标实例的**topic 管理**页，单击操作列的【消息转储】。详细操作可参考 [Ckafka 转储对象存储（COS）](https://cloud.tencent.com/document/product/597/43448#ckafka-.E8.BD.AC.E5.82.A8.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8.EF.BC.88cos.EF.BC.89)。
+登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)，在目标实例的**topic 管理**页，单击操作列的【消息转储】。详细操作可参考 [Ckafka 转储对象存储（COS）](https://cloud.tencent.com/document/product/597/43448)。
 2. 设置时间粒度，选择与之前相同的 Bucket 信息。
 ![](https://main.qcloudimg.com/raw/a726f2c29d7c9fb59321c7b4b411f02b.png)
 >?新版 COS 转储新增“起始位置”，可根据迁移需求自行选择 Topic 消费位置。
