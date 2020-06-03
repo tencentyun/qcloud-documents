@@ -26,7 +26,7 @@
 | 了解策略的基本结构       | [策略语法](https://cloud.tencent.com/document/product/598/10603) |
 | 了解还有哪些产品支持 CAM | [支持 CAM 的产品](https://cloud.tencent.com/document/product/598/10588) |
 
-## 支持资源进授权的 API 列表
+## 支持资源级授权的 API 列表
 
 TDMQ 支持资源级授权，您可以指定子账号拥有特定资源的接口权限。
 
