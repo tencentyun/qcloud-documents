@@ -1,20 +1,13 @@
 ## 创建 SDK 实例
-<<<<<<< HEAD
-### Web 项目
-=======
 
 ### Web 项目
 
->>>>>>> 586ba853fda7f02d0e7d5d225ad491d00784e805
 <pre>
 import TIM from 'tim-js-sdk';
 // 发送图片、文件等消息需要的 COS SDK
 import COS from "cos-js-sdk-v5";
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 586ba853fda7f02d0e7d5d225ad491d00784e805
 let options = {
   SDKAppID: 0 // 接入时需要将0替换为您的即时通信 IM 应用的 SDKAppID
 };
@@ -30,19 +23,13 @@ tim.registerPlugin({'cos-js-sdk': COS});
 </pre>
 
 ### 小程序项目
-<<<<<<< HEAD
-=======
 
->>>>>>> 586ba853fda7f02d0e7d5d225ad491d00784e805
 <pre>
 import TIM from 'tim-wx-sdk';
 // 发送图片、文件等消息需要的 COS SDK
 import COS from "cos-wx-sdk-v5";
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 586ba853fda7f02d0e7d5d225ad491d00784e805
 let options = {
   SDKAppID: 0 // 接入时需要将0替换为您的即时通信 IM 应用的 SDKAppID
 };
@@ -58,20 +45,14 @@ tim.registerPlugin({'cos-wx-sdk': COS});
 </pre>
 
 ## 设置日志级别
-<<<<<<< HEAD
-=======
 
->>>>>>> 586ba853fda7f02d0e7d5d225ad491d00784e805
 <pre>
 // 设置 SDK 日志输出级别，详细分级请参见 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#setLogLevel">setLogLevel 接口的说明</a>
 tim.setLogLevel(0);
 </pre>
 
 ## 事件绑定
-<<<<<<< HEAD
-=======
 
->>>>>>> 586ba853fda7f02d0e7d5d225ad491d00784e805
 <pre>
 // 监听事件，例如：
 tim.on(TIM.EVENT.SDK_READY, function(event) {
@@ -79,10 +60,7 @@ tim.on(TIM.EVENT.SDK_READY, function(event) {
   // event.name - TIM.EVENT.SDK_READY
 });
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 586ba853fda7f02d0e7d5d225ad491d00784e805
 tim.on(TIM.EVENT.MESSAGE_RECEIVED, function(event) {
   // 收到推送的单聊、群聊、群提示、群系统通知的新消息，可通过遍历 event.data 获取消息列表数据并渲染到页面
   // event.name - TIM.EVENT.MESSAGE_RECEIVED
@@ -169,11 +147,7 @@ tim.on(TIM.EVENT.KICKED_OUT, function(event) {
 
 | Name       | Type     | Description             |
 | ---------- | -------- | ----------------------- |
-<<<<<<< HEAD
-| `SDKAppID` | `Number` | 云通信应用的 `SDKAppID` |
-=======
 | `SDKAppID` | `Number` | 即时通信 IM 应用的 `SDKAppID` |
->>>>>>> 586ba853fda7f02d0e7d5d225ad491d00784e805
 
 更详细的初始化流程和 API 使用介绍请参见 [SDK 初始化](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html)。
 
@@ -245,13 +219,7 @@ tim.logout();
 **返回值**
 
 该接口返回`Promise`对象：
-<<<<<<< HEAD
-
 - `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data`为空对象。表示成功登出。
-
-=======
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data`为空对象。表示成功登出。
->>>>>>> 586ba853fda7f02d0e7d5d225ad491d00784e805
 - `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
 
 **示例**
@@ -263,9 +231,5 @@ promise.then(function(imResponse) {
 }).catch(function(imError) {
   console.warn('logout error:', imError);
 });
-<<<<<<< HEAD
-```
-=======
 ```
 
->>>>>>> 586ba853fda7f02d0e7d5d225ad491d00784e805
