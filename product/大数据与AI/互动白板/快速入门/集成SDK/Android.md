@@ -98,7 +98,7 @@ dependencies {
 
 #### 3.  添加 SDK 依赖
 
-在 app/build.gradle 中，添加引用 jar 包以及不带 TBS 模块的白板SDK。
+在 app/build.gradle 中，添加引用 jar 包以及不带 TBS 模块的白板 SDK。
 
 ```grovy
 dependencies {
@@ -109,7 +109,7 @@ dependencies {
 ```
 ![](https://main.qcloudimg.com/raw/233c90a563a5288e1654eb6e459f313a.png)
 
-注意，这种情况下不能依赖带 TBS 模块的白板SDK，否则会导致依赖冲突，无法编译通过。
+注意，这种情况下不能依赖带 TBS 模块的白板 SDK，否则会导致依赖冲突，无法编译通过。
 
 ## 配置 App 权限
 
