@@ -1,4 +1,4 @@
-本文主要介绍如何快速运行腾讯云 TRTCSimpleDemo（Electron）。
+本文主要介绍如何快速运行腾讯云 TRTC Demo（Electron）。
 ![演示](https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/electron/livemode.gif)
 
 ## 前提条件
@@ -25,7 +25,7 @@
 <span id="step3" name="step3"> </span>
 
 ### 步骤3：配置 Demo 工程文件
-1.  解压 [步骤2](#step2) 中下载的源码包，找到 `TRTCSDK/Electron/TRTCSimpleDemo/`目录，此为 TRTCSimpleDemo **项目目录**，下文中提到的<span id="projectFolder" name="projectFolder"> “项目目录”</span>，指的即是 `TRTCSDK/Electron/TRTCSimpleDemo/`目录。
+1.  解压 [步骤2](#step2) 中下载的源码包，找到 `TRTCSDK/Electron/TRTCSimpleDemo/`目录，此为 **项目目录**，下文中提到的<span id="projectFolder" name="projectFolder"> “项目目录”</span>，指的即是 `TRTCSDK/Electron/TRTCSimpleDemo/`目录。
 
 2.  找到项目目录中的 `debug/gen-test-user-sig.js` 文件，并打开。
 
@@ -95,7 +95,7 @@
 
 3. 如果 Electron 安装较慢甚至超时，您可以参考文章：[Electron 常见问题收录](#https://cloud.tencent.com/developer/article/1616668) 中的 “安装时遇到的问题” 章节和 “附录：手动离线安装 Electron” 章节来完成 Electron 安装。
 
-4.  待 npm 的依赖包都安装完成后，继续在命令行窗口执行以下命令，运行 TRTCSimpleDemo。
+4.  待 npm 的依赖包都安装完成后，继续在命令行窗口执行以下命令，运行 Demo。
 
     ```shell
     $ npm run start  # 首次运行，稍等片刻后，窗口中才会出现 UI
@@ -133,7 +133,7 @@
     
     ![mac下安装](https://main.qcloudimg.com/raw/3f8e92e9c59ff1bdb9fd0b2a0f34852a.png)
     
-5.  待 npm 的依赖包都安装完成后，继续在命令行窗口执行以下命令，即可快速运行 TRTCSimpleDemo 项目。
+5.  待 npm 的依赖包都安装完成后，继续在命令行窗口执行以下命令，运行 Demo。
 
     ```shell
     $ npm run start # 首次运行，稍等片刻后，窗口中才会出现 UI
@@ -145,7 +145,7 @@
 
 | 命令 | 说明 |
 |--|--|
-| npm run start | 以开发环境运行项目 |
+| npm run start | 以开发环境运行 Demo |
 | npm run pack:mac | 打包 Mac 的 .dmg 安装文件 |
 | npm run pack:win64 | 打包 Windows 64 位的 .exe 安装文件 |
 ## 常见问题
