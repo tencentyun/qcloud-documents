@@ -1,16 +1,16 @@
 ## 操作场景
 
-本文档指导您如何使用游戏联机对战引擎 SDK。
+本文档指导您如何使用游戏联机对战引擎 JS SDK。
 
 ## 前提条件
 
 - 已在游戏联机对战引擎控制台创建小游戏实例，并 [开通联机对战服务](https://cloud.tencent.com/document/product/1038/33299#.E5.BC.80.E9.80.9A.E8.81.94.E6.9C.BA.E5.AF.B9.E6.88.98.E6.9C.8D.E5.8A.A1)。
-- 已获取游戏 gameID 和 secretKey。SDK 需要对这两个参数进行校验。
+- 已获取游戏 gameID 和 secretKey。JS SDK 需要对这两个参数进行校验。
 
 ## 操作步骤
 
 ### 设置请求域名
->!出于安全考虑，微信小程序/小游戏会限制请求域名，所有的 HTTPS、WebSocket、上传、下载请求域名都需要在 [微信公众平台](https://mp.weixin.qq.com) 进行配置。因此，在正式接入游戏联机对战引擎 SDK 前，需要开发者在微信公众平台配置合法域名。
+>!出于安全考虑，微信小程序/小游戏会限制请求域名，所有的 HTTPS、WebSocket、上传、下载请求域名都需要在 [微信公众平台](https://mp.weixin.qq.com) 进行配置。因此，在正式接入游戏联机对战引擎 JS SDK 前，需要开发者在微信公众平台配置合法域名。
 
 1. 需要配置的域名包含两条 socket 域名和一条 request 域名记录。开发者在 MGOBE 控制台上获取域名后，需要配置该域名的默认端口、 5443 端口两条记录。
 ```
@@ -26,7 +26,7 @@ xxx.wxlagame.com:5443
 ![微信公共平台](https://main.qcloudimg.com/raw/e17421702e5e79ade528a074b047b184.png)
 
 ### 导入 SDK
-SDK 文件包含 MGOBE.js 和 MGOBE.d.ts，即源代码文件和定义文件。在 MGOBE.js 中，SDK 接口被全局注入到 window 对象下。因此，只需要在使用 SDK 接口之前执行 MGOBE.js 文件即可。单击进入 [SDK 下载](https://cloud.tencent.com/document/product/1038/33406) 页面。
+JS SDK 文件包含 MGOBE.js 和 MGOBE.d.ts，即源代码文件和定义文件。在 MGOBE.js 中，SDK 接口被全局注入到 window 对象下。因此，只需要在使用 JS SDK 接口之前执行 MGOBE.js 文件即可。单击进入 [SDK 下载](https://cloud.tencent.com/document/product/1038/33406) 页面。
 
 #### 微信小游戏原生环境
 
@@ -67,7 +67,7 @@ const { Room, Listener, ErrCode, ENUM, DebuggerLog } = require("./js/libs/MGOBE.
 
 #### TypeScript 环境
 
-在 Laya、Cocos 等支持直接使用 TypeScript 进行开发的集成环境中，您可以使用 TypeScript 自带的 import 语法导入 SDK。由于 TypeScript 支持 .d.ts 定义文件，为了方便开发，您可以将 MGOBE.js 和 MGOBE.d.ts 一同复制到项目中，再调用 import 语句即可。以 Cocos Creator 和 LayaAir IDE 为例：
+在 Laya、Cocos 等支持直接使用 TypeScript 进行开发的集成环境中，您可以使用 TypeScript 自带的 import 语法导入 JS SDK。由于 TypeScript 支持 .d.ts 定义文件，为了方便开发，您可以将 MGOBE.js 和 MGOBE.d.ts 一同复制到项目中，再调用 import 语句即可。以 Cocos Creator 和 LayaAir IDE 为例：
 
 **Cocos Creator：**
 
@@ -109,7 +109,7 @@ const { Room, Listener, ErrCode, ENUM, DebuggerLog } = MGOBE;
 界面示例如下图所示：
 ![LayaAir IDE](https://main.qcloudimg.com/raw/d789bacefb48b0a2b0a37ebdd644e260.png)
 
-此外，在 LayaAir IDE 中，您也可以直接在 bin/index.js 中直接使用 loadLib 函数导入 MGOBE.js，让 SDK 文件先执行一遍即可。
+此外，在 LayaAir IDE 中，您也可以直接在 bin/index.js 中直接使用 loadLib 函数导入 MGOBE.js，让 JS SDK 文件先执行一遍即可。
 在 TypeScript 环境中，您也可以使用 import/from 语法导入 MGOBE.js，但由于 TS 导入 .d.ts 的优先级高于导入 .js，所以您需要将 MGOBE.js 和 MGOBE.d.ts 文件放在不同文件夹，并使用 import/from 导入 .js 文件。
 >! 使用 import/from 语法方式导入 .js 将无法使用 .d.ts 提示。
 
