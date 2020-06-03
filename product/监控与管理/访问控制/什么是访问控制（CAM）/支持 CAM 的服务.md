@@ -120,7 +120,7 @@
 | [样本智能分析平台](https://cloud.tencent.com/document/product/1012)  |资源级 | -   |  &#10003;   |  - |- |
 | [云防火墙](https://cloud.tencent.com/document/product/1132)    | 操作级      |&#10003;    | -   |  &#10003;    |- |
 | [宙斯盾安全防护](https://cloud.tencent.com/document/product/685)    | -      | -   | -   |  &#10003;    |- |
-> ?<sup>1</sup> DDOS 防护（大禹）中 [DDoS 基础防护](https://cloud.tencent.com/document/product/1020)、 [BGP 高防包](https://cloud.tencent.com/document/product/1021)、[BGP 高防 IP](https://cloud.tencent.com/document/product/1014)、[高防 IP 专业版](https://cloud.tencent.com/document/product/1005)、 [棋牌盾](https://cloud.tencent.com/document/product/1022) 均已支持使用 CAM。
+> ?<sup>1</sup> DDOS 防护（大禹）中 [DDoS 基础防护](https://cloud.tencent.com/document/product/1020)、 [BGP 高防包](https://cloud.tencent.com/document/product/1021)、[BGP 高防 IP](https://cloud.tencent.com/document/product/1014) 均已支持使用 CAM。
 
 ## 数据安全
 
