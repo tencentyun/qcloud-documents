@@ -218,12 +218,6 @@
 | [resumeAudioEffect](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a23b65446d7dd9835da888b5285867629) | 恢复音效。 |
 
 
-### 创建与销毁 ITRTCCloud 单例
-
-| API | 描述 |
-|-----|-----|
-| [getTRTCShareInstance](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ga2fc755520711d5d8fd469f93bc9c2dc6) | 用于动态加载 dll 时，获取 [ITRTCCloud](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#classTRTC_1_1ITRTCCloud) 对象指针。 |
-| [destroyTRTCShareInstance](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ga1b494c61ef1fe41531ce283aae4e015d) | 释放 [ITRTCCloud](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#classTRTC_1_1ITRTCCloud) 单例对象。 |
 
 
 ## TRTCCloudCallback @ TXLiteAVSDK
