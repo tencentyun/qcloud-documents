@@ -15,7 +15,7 @@ npm install -g live-server
 
 #### 2. 在 Demo 目录下执行 live-server 命令
 
-命令运行完成后，会自动在浏览器中打开 Demo 首页
+命令运行完成后，会自动在浏览器中打开 Demo 首页。
 ```
 live-server
 ```
