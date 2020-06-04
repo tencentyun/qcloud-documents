@@ -19,7 +19,7 @@
 2. 请参考 [FCM 测试指引](https://firebase.google.com/docs/cloud-messaging/android/first-message?authuser=0) 测试通知消息，确保已成功集成 FCM。
 3. 登录 [Firebase 控制台](https://console.firebase.google.com)，单击您的应用卡片，进入应用配置页面。
 4. 单击 Project Overview 右侧的<img src="https://main.qcloudimg.com/raw/0d062411405553c9fae29f8e0daf02ad.png"  style="margin:0;">，选择【项目设置】>【服务帐号】。
-5. 单击**生成新的私钥**按钮下载私钥文件。
+5. 单击【生成新的私钥】下载私钥文件。
 
 <span id="Step2"></span>
 ### 步骤2：托管证书信息到即时通信 IM 
