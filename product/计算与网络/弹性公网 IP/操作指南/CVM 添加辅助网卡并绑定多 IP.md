@@ -25,7 +25,7 @@
 2. 在分配的 IP 的“已绑定公网 IP”栏下，单击【绑定】，分别为分配的 IP 绑定 EIP。
 3. 在弹出的“绑定弹性公网IP”窗口中：
  - 若有可选的 EIP，选中并单击【确定】即可。
- - 若无可选的 EIP，可单击弹框上方的【新建】进行申请，详情请参见 [申请 EIP](1199/41698)，申请成功后返回弹出框并单击【刷新】，即可看见申请的 EIP，选中并单击【确定】即可。
+ - 若无可选的 EIP，可单击弹框上方的【新建】进行申请，详情请参见 [申请 EIP](https://cloud.tencent.com/document/product/1199/41698)，申请成功后返回弹出框并单击【刷新】，即可看见申请的 EIP，选中并单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/a31ebe5ad4ac8bc6924af36279e2eb63.png)
 4. 在辅助网卡的列表中，即可查看相关内网 IP 绑定公网 IP 的信息。
 ![](https://main.qcloudimg.com/raw/6768e7a3ce6052cbc4439459da9b764b.png)
@@ -43,7 +43,7 @@
  - **子网掩码：**如下图所示，所属子网的 CIDR 位数为/24，即子网掩码为 `255.255.255.0`。
  - **网关：**如果您未更改其他设置，则网关为子网网段的首个 IP，如下图中的所属子网网段的首个 IP 即为 `10.0.0.1`。
 ![](https://main.qcloudimg.com/raw/130af7fd24d0c052661bec7679545112.png)
-4. 登录云服务器，具体操作请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://tcloud-doc.isd.com/document/product/213/5436)。
+4. 登录云服务器，具体操作请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 5. 执行如下命令，复制主网卡文件。
 ```
 cp /etc/sysconfig/network-scripts/ifcfg-eth{0,1}

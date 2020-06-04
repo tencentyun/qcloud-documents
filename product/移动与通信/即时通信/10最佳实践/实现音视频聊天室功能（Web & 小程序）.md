@@ -1,4 +1,4 @@
-音视频聊天室（AVChatRoom）有以下特点：
+即时通信 IM 的直播群（AVChatRoom）有以下特点：
 - **适用于互动直播场景，群成员人数无上限**。
 - **支持针对涉黄、涉政以及不雅词的安全打击，满足安全监管需求**。
 - 支持向全体在线用户推送消息（群系统通知）。
@@ -32,8 +32,7 @@
 - [更新日志（Web & 小程序）](https://cloud.tencent.com/document/product/269/38492)
 - [SDK 手册](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/TIM.html)
 - [集成 SDK（Web & 小程序）](https://cloud.tencent.com/document/product/269/37413)
-- [初始化（Web & 小程序）](https://cloud.tencent.com/document/product/269/37416)
-- [登录（Web & 小程序）](https://cloud.tencent.com/document/product/269/37445)
+- [初始化与登录（Web & 小程序）](https://cloud.tencent.com/document/product/269/37416)
 - [消息收发（Web & 小程序）](https://cloud.tencent.com/document/product/269/37448)
 - [群组管理（Web & 小程序）](https://cloud.tencent.com/document/product/269/37459)
 

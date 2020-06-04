@@ -3,6 +3,8 @@
 
 ## 适用本地操作系统
 Linux 或 MacOS
+>? 如果您的本地计算机为 Windows 操作系统，请 [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44578)。
+>
 
 ## 鉴权方式
 **密码**或**密钥**

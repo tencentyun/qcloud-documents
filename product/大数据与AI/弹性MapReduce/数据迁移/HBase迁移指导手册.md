@@ -1,5 +1,5 @@
 Hbase 表是基于 hadoop HDFS 构建，所以 Hbase 的迁移可从两个维度来看，基于 hadoop HDFS 的 distcp 的迁移方式和基于 Hbase 表结构的 Hbase 层面提供的相关工具迁移。
- ![](https://main.qcloudimg.com/raw/36f02c654c9434b2ec5db05d77781b56.png)
+![](https://main.qcloudimg.com/raw/8bd3437f00d8ee078449d393e167c437.png)
 如上图所示，HBase 迁移有多种方案，其中基于 Snapshot 的迁移方式是推荐的迁移方案。
 
 ### HBase 基于 Snapshot 迁移

@@ -1,4 +1,29 @@
+### 2.4.8 @ 2020.05.21
+* 链接地址：https://resources-tiw.qcloudtrtc.com/board/2.4.8/TEduBoard.min.js
+
+- 新增接口
+    - 新增 refresh 接口刷新当前白板
+- 新增回调
+    - TEduBoardImageStatus 新增 TEDU_BOARD_IMAGE_STATUS_READ_ERROR
+    - 新增刷新回调 onTEBRefresh
+- 功能优化
+    - 视频文件 url 支持携带签名信息
+    - 优化选框功能，框内点击即可移动
+- BUG 修复
+    - 修复视频切换进度错误问题
+    - 修复激光笔闪烁问题
+    - 修复激光笔跳变问题
+
+### 2.4.7 @2020.04.30
+* 链接地址：https://resources-tiw.qcloudtrtc.com/board/2.4.7/TEduBoard.min.js
+
+- BUG 修复
+    - 修复 IM 信令每次都重复发送一条问题
+- 性能优化
+    - 优化房间内其他人涂鸦渲染的流程性
+
 ### 2.4.6 @ 2020.04.02
+* 链接地址：https://resources-tiw.qcloudtrtc.com/board/2.4.6/TEduBoard.min.js
 
 - 新增回调
     - TEduBoardImageStatus 新增两个状态回调
@@ -12,6 +37,7 @@
     - 修复加载相同图片没有回调问题
 
 ### 2.4.4 @ 2020.03.14
+* 链接地址：https://resources-tiw.qcloudtrtc.com/board/2.4.4/TEduBoard.min.js
 
 - 批量导入图片组时，对 URL 字符串长度进行限制(总长7K)，超长时同步返回空串，同时回调错误 TEDU_BOARD_ERROR_DATA_TOO_LARGE
 - 替换内部 mp4 播放器为 videojs
@@ -29,6 +55,7 @@
     - TEDU_BOARD_VIDEO_STATUS_PLAYING 变更为 TEDU_BOARD_VIDEO_STATUS_TIMEUPDATE
     
 ### 2.4.1 @ 2020.01.08
+* 链接地址：https://resources-tiw.qcloudtrtc.com/board/2.4.1/TEduBoard.min.js
 
 - 接口变更
     - addImageElement 支持添加本地图片
@@ -36,6 +63,7 @@
     - 增加添加图片元素回调 onTEBAddImageElement
 
 ### 2.4.0 @ 2019.12.06
+* 链接地址：https://resources-tiw.qcloudtrtc.com/board/2.4.0/TEduBoard.min.js
 
 - 增加接口
     - 添加视频文件 addVideoFile
@@ -65,6 +93,7 @@
 
 
 ### 2.3.5 @ 2019.10.30
+* 链接地址：https://resources-tiw.qcloudtrtc.com/board/2.3.5/TEduBoard.min.js
 
 - 新增接口 getThumbnailImages 获取文件缩略图
 - 新增步数回调 TEB_GOTOSTEP

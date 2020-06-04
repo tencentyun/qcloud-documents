@@ -22,6 +22,8 @@ $ npx create-nuxt-app src
 ```
 >!本教程中的 Nuxt 项目使用 JavaScript 与 Npm 安装包进行构建，初始化项目的时候请选择相应的选项。
 
+>!建议您使用 Node.js10.0 及以上版本，否则 Component V2 部署有可能报错。
+
 ## 操作步骤
 ### 1. 安装
 通过 npm 全局安装 [Serverless CLI](https://github.com/serverless/serverless)：

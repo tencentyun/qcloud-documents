@@ -27,7 +27,7 @@ https://api.tpns.sgp.tencent.com/v3/statistics/get_push_record
 
 | 参数名称  | 必选 | 类型   | 描述       |
 | --------- | ---- | ------ | ---------- |
-| startDate | 是   | string | 查询起始日期，<li>格式：YYYY-MM-DD<li>查询限制：当前日期3个月内 |
+| startDate | 是   | string | 查询起始日期，<li>格式：YYYY-MM-DD<li>查询限制：当前日期1个月内 |
 | endDate | 是 | string | 查询截止日期，格式：YYYY-MM-DD |
 | msgType | 否 | string | 消息类型：<li>notify：通知<li>message：静默消息 |
 | pushType | 否 | string | 推送类型：<li>all：全推<li>tag：标签推<li>token：设备列表/设备单推<li>account：账号列表/账号单推 |
