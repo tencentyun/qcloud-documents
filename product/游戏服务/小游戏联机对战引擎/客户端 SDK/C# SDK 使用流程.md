@@ -73,7 +73,7 @@ Room.GetMyRoom (eve => {
 ```
 
 后续的创建房间、加房、匹配等接口调用直接利用 room 实例即可。
->GetMyRoom、GetRoomList、GetRoomByRoomId 接口是 Room 对象的静态方法，您需要使用 Room.GetMyRoom、Room.GetRoomList、Room.GetRoomByRoomId 进行调用。Room 的实例无法直接访问 GetMyRoom、GetRoomList、GetRoomByRoomId。
+>?GetMyRoom、GetRoomList、GetRoomByRoomId 接口是 Room 对象的静态方法，您需要使用 Room.GetMyRoom、Room.GetRoomList、Room.GetRoomByRoomId 进行调用。Room 的实例无法直接访问 GetMyRoom、GetRoomList、GetRoomByRoomId。
 
 ### Room 接收广播
 
