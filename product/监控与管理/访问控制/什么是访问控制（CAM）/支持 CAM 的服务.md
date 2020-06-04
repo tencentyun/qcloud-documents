@@ -29,7 +29,7 @@
 | [批量计算](https://cloud.tencent.com/document/product/599)  | 资源级 | &#10003;         |  -  | -    |[访问管理指南](https://cloud.tencent.com/document/product/599/40011)   |	
 | [边缘计算机器](https://cloud.tencent.com/document/product/1108)  | 资源级 | &#10003;         |  -  | -    |-    |	
 | [容器镜像服务](https://cloud.tencent.com/document/product/1141)  | 资源级 | &#10003;         |  -  | &#10003;     |[访问管理指南](https://cloud.tencent.com/document/product/1141/40718)    |	
-> ?<sup>1</sup> 云服务器中 [GPU云服务器](https://cloud.tencent.com/document/product/560)、[ FPGA 云服务器](https://cloud.tencent.com/document/product/565)、[专用宿主机](https://cloud.tencent.com/document/product/416)  均已支持使用 CAM。
+> ?<sup>1</sup> 云服务器中 [GPU 云服务器](https://cloud.tencent.com/document/product/560)、[ FPGA 云服务器](https://cloud.tencent.com/document/product/565)、[专用宿主机](https://cloud.tencent.com/document/product/416)  均已支持使用 CAM。
 
 ## 存储	
 
@@ -97,7 +97,7 @@
 | [消息队列 CKafka](https://cloud.tencent.com/document/product/597) | 资源级 | &#10003; | - | &#10003;   |[访问管理指南](https://cloud.tencent.com/document/product/597/31528)|
 | [API 网关](https://cloud.tencent.com/document/product/628)     | 资源级  | &#10003;  | -  | &#10003; |[访问管理指南](https://cloud.tencent.com/document/product/628/34267)|
 | [腾讯微服务平台](https://cloud.tencent.com/document/product/649)  | 资源级  | &#10003;  | - |  &#10003; |[访问管理指南](https://cloud.tencent.com/document/product/649/38327) |
-| [分布式消息队列](https://cloud.tencent.com/document/product/1179)  | 资源级  | &#10003;  | - |   |[访问管理指南](https://cloud.tencent.com/document/product/1179/45125) |
+| [分布式消息队列](https://cloud.tencent.com/document/product/1179)  | 资源级  | &#10003;  | - |  - |[访问管理指南](https://cloud.tencent.com/document/product/1179/45125) |
 
 ## 数据处理	
 
