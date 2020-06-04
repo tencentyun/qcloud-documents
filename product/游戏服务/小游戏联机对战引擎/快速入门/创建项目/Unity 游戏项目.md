@@ -40,35 +40,33 @@ using Lagame;
 1. 在 main.cs 中输入以下代码，完成 SDK 初始化，获得 room 实例。
 ```c#
 GameInfoPara gameInfo = new GameInfoPara {
-    // 替换 为控制台上的“游戏ID”
-    GameId = "XXXXXXXXXXXXXX",
-    // 玩家 openId
-    OpenId = "openid_123_test",
-    //替换 为控制台上的“游戏Key”
-    SecretKey = "XXXXXXXXXXXXXX"
+	// 替换 为控制台上的“游戏ID”
+	GameId = "XXXXXXXXXXXXXX",
+	// 玩家 openId
+	OpenId = "openid_123_test",
+	//替换 为控制台上的“游戏Key”
+	SecretKey = "XXXXXXXXXXXXXX"
 };
-
 ConfigPara config = new ConfigPara {
-    // 替换 为控制台上的“域名”
-    Url = "XXXXXXX.wxlagame.com",
-    ReconnectMaxTimes = 5,
-    ReconnectInterval = 1000,
-    ResendInterval = 1000,
-    ResendTimeout = 10000
+	// 替换 为控制台上的“域名”
+	Url = "XXXXXXX.wxlagame.com",
+	ReconnectMaxTimes = 5,
+	ReconnectInterval = 1000,
+	ResendInterval = 1000,
+	ResendTimeout = 10000
 };
-
 // 初始化监听器 Listener
-  Listener.Init (gameInfo, config, (ResponseEvent eve) => {
-      if (eve.Code == 0) {
-          Debug.Log ("初始化成功");
-    // 初始化成功之后才能调用其他 API
-    var room = new Room(null);
-    // ...
-  }
-  // 初始化广播回调事件
-
+Listener.Init (gameInfo, config, (ResponseEvent eve) => {
+		if (eve.Code == 0) {
+				Debug.Log ("初始化成功");
+	// 初始化成功之后才能调用其他 API
+	var room = new Room(null);
+	// ...
+}
+// 初始化广播回调事件
 });
 ```
+
 2. 修改初始化回调函数，调用 room 对象的查询房间接口（getRoomDetail），即可验证是否成功接入对战平台。示例代码如下所示：
 ```c#
  // 初始化监听器 Listener
@@ -99,4 +97,5 @@ Listener.Init (gameInfo, config, (ResponseEvent eve) => {
     // 初始化广播回调事件
 });
 ```
+
 3. 编译并运行项目，控制台中输出“查询成功”信息即表示接入成功。
