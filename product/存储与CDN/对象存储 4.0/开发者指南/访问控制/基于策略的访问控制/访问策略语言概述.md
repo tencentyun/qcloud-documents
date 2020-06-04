@@ -151,7 +151,6 @@ resource |描述具体资源详情，在 COS 服务中使用存储桶 XML API �
 | date_greater_than       | 时间大于     | qcs:current_time | {" date_greater_than ":{"qcs:current_time":"2016-06-01T00:01:00Z"}} |
 | date_greater_than_equal | 时间大于等于 | qcs:current_time | {" date_greater_than_equal ":{"qcs:current_time":"2016-06-01T00:01:00Z"}} |
 | date_less_than          | 时间小于     | qcs:current_time | {" date_less_than ":{"qcs:current_time":"2016-06-01T 00:01:00Z"}} |
-| date_less_than_equal    | 时间小于等于 | qcs:current_time | {" date_less_than ":{"qcs:current_time":"2016-06-01T 00:01:00Z"}} |
 | date_less_than_equal    | 时间小于等于 | qcs:current_time | {"date_less_than_equal ":{"qcs:current_time":"2016-06-01T00:01:00Z"}} |
 
 下面是满足来访 IP 为 10.121.2.0/24 网段内的示例。
