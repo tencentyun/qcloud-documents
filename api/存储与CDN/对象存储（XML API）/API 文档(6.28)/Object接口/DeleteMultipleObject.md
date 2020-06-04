@@ -38,11 +38,7 @@ Authorization: Auth String
 
 #### 请求头
 
-此接口除使用公共请求头部外，还支持以下请求头部，了解公共请求头部详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
-
-| 名称 | 描述 | 类型 | 是否必选 |
-| --- | --- | --- | --- |
-| Content-MD5 | RFC 1864 中定义的经过 Base64 编码的请求体内容 MD5 哈希值，用于完整性检查，验证请求体在传输过程中是否发生变化 | string | 是 |
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 请求体
 
