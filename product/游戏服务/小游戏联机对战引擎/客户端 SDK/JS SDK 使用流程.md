@@ -25,8 +25,8 @@ xxx.wxlagame.com:5443
 4. 进入开发设置详情页，在 “服务器域名” 中添加合法域名记录。如下图所示：
 ![微信公共平台](https://main.qcloudimg.com/raw/e17421702e5e79ade528a074b047b184.png)
 
-### 导入 SDK
-JS SDK 文件包含 MGOBE.js 和 MGOBE.d.ts，即源代码文件和定义文件。在 MGOBE.js 中，SDK 接口被全局注入到 window 对象下。因此，只需要在使用 JS SDK 接口之前执行 MGOBE.js 文件即可。单击进入 [SDK 下载](https://cloud.tencent.com/document/product/1038/33406) 页面。
+### 导入 JS SDK
+JS SDK 文件包含 MGOBE.js 和 MGOBE.d.ts，即源代码文件和定义文件。在 MGOBE.js 中，JS SDK 接口被全局注入到 Window 对象下。因此，只需要在使用 JS SDK 接口之前执行 MGOBE.js 文件即可。单击进入 [SDK 下载](https://cloud.tencent.com/document/product/1038/33406) 页面。
 
 #### 微信小游戏原生环境
 
@@ -76,7 +76,7 @@ import { gameInfo, config } from "./Global";
 
 const {ccclass, property} = cc._decorator;
 
-// 使用 MGOBE 接口前导入 SDK
+// 使用 MGOBE 接口前导入 JS SDK
 import "./MGOBE/MGOBE.js";
 
 const Listener = MGOBE.Listener;
@@ -139,7 +139,7 @@ const { Room, Listener, ErrCode, ENUM, DebuggerLog } = MGOBE;
 
 ### 初始化监听器 Listener
 
-在使用 MGOBE API 接口时，主要用到 Listener 对象和 Room 对象。导入 SDK 后，需要先初始化 Listener 对象。
+在使用 MGOBE API 接口时，主要用到 Listener 对象和 Room 对象。导入 JS SDK 后，需要先初始化 Listener 对象。
 
 ```
 const gameInfo = {
