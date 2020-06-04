@@ -99,5 +99,4 @@ Listener.Init (gameInfo, config, (ResponseEvent eve) => {
     // 初始化广播回调事件
 });
 ```
-
 3. 编译并运行项目，控制台中输出“查询成功”信息即表示接入成功。
