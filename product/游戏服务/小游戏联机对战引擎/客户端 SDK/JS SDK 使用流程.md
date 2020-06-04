@@ -26,11 +26,11 @@ xxx.wxlagame.com:5443
 ![微信公共平台](https://main.qcloudimg.com/raw/e17421702e5e79ade528a074b047b184.png)
 
 ### 导入 JS SDK
-JS SDK 文件包含 MGOBE.js 和 MGOBE.d.ts，即源代码文件和定义文件。在 MGOBE.js 中，JS SDK 接口被全局注入到 Window 对象下。因此，只需要在使用 JS SDK 接口之前执行 MGOBE.js 文件即可。单击进入 [SDK 下载](https://cloud.tencent.com/document/product/1038/33406) 页面。
+JS SDK 文件包含 MGOBE.js 和 MGOBE.d.ts，即源代码文件和定义文件。在 MGOBE.js 中，JS SDK 接口被全局注入到 Window 对象下。因此，只需要在使用 JS SDK 接口之前执行 MGOBE.js 文件即可。单击进入 JS [SDK 下载](https://cloud.tencent.com/document/product/1038/33406) 页面。
 
 #### 微信小游戏原生环境
 
-在微信原生环境中，您只需将 MGOBE.js 放到项目下任意位置，在 game.js 中 import SDK 文件后即可使用 MGOBE 的方法。导入示例代码如下：
+在微信原生环境中，您只需将 MGOBE.js 放到项目下任意位置，在 game.js 中 import JS SDK 文件后即可使用 MGOBE 的方法。导入示例代码如下：
 
 ```
 // 只需要在使用 MGOBE 之前 import 一次该文件
@@ -111,7 +111,7 @@ const { Room, Listener, ErrCode, ENUM, DebuggerLog } = MGOBE;
 
 此外，在 LayaAir IDE 中，您也可以直接在 bin/index.js 中直接使用 loadLib 函数导入 MGOBE.js，让 JS SDK 文件先执行一遍即可。
 在 TypeScript 环境中，您也可以使用 import/from 语法导入 MGOBE.js，但由于 TS 导入 .d.ts 的优先级高于导入 .js，所以您需要将 MGOBE.js 和 MGOBE.d.ts 文件放在不同文件夹，并使用 import/from 导入 .js 文件。
->! 使用 import/from 语法方式导入 .js 将无法使用 .d.ts 提示。
+>!使用 import/from 语法方式导入 .js 将无法使用 .d.ts 提示。
 
 ```
 
@@ -202,7 +202,7 @@ Room.getMyRoom(event => {
 ```
 
 后续的创建房间、加房、匹配等接口调用直接利用 room 实例即可。
->! getMyRoom、getRoomList、getRoomByRoomId 接口是 Room 对象的静态方法，您需要使用 Room.getMyRoom、Room.getRoomList、Room.getRoomByRoomId 进行调用。Room 的实例无法直接访问 getMyRoom、getRoomList、getRoomByRoomId。
+>!getMyRoom、getRoomList、getRoomByRoomId 接口是 Room 对象的静态方法，您需要使用 Room.getMyRoom、Room.getRoomList、Room.getRoomByRoomId 进行调用。Room 的实例无法直接访问 getMyRoom、getRoomList、getRoomByRoomId。
 
 ### Room 接收广播
 
@@ -239,7 +239,6 @@ Listener.remove(room);
 ```
 
 ### 游戏对战
-
 如果玩家已经加入房间，可以通过帧同步功能进行游戏对战。游戏过程中用到的接口有发送帧消息、帧广播，开发者可以利用这两个接口进行帧同步。帧广播的开始、结束需要使用房间的 startFrameSync、stopFrameSync 接口。
 
 
