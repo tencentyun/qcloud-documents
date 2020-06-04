@@ -11,7 +11,6 @@ Namespace=QCE/TXMR_HDFS
 ### HDFS-Overview、HDFS-OverviewAggregation 
 
 > ?
->
 > 1. 查询 HDFS-Overview 的指标时，需加上前缀“EmrHdfsOverview”。
 > 2. 查询 HDFS-OverviewAggregation 的指标时，需加上前缀“EmrHdfsOverviewAggregation”。
 
@@ -291,10 +290,10 @@ Namespace=QCE/TXMR_HDFS
 
 | 参数名称                       | 维度名称          | 维度解释                  | 格式                                       |
 | ------------------------------ | ----------------- | ------------------------- | ------------------------------------------ |
-| Instances.N.Dimensions.0.Name  | id4hdfsdatanode   | EMR 实例ID的维度名称      | 输入String 类型维度名称：id4hdfsdatanode   |
-| Instances.N.Dimensions.0.Value | id4hdfsdatanode   | EMR 实例具体ID            | 输入EMR具体实例 ID，例如 ：emr-mm8bs222    |
-| Instances.N.Dimensions.0.Name  | host4hdfsdatanode | EMR实例中节点IP的维度名称 | 输入String 类型维度名称：host4hdfsdatanode |
-| Instances.N.Dimensions.0.Value | host4hdfsdatanode | EMR实例中具体节点IP       | 输入具体节点IP ，例如：1.1.1.1             |
+| Instances.N.Dimensions.0.Name  | id4hdfsdatanode   | EMR 实例 ID 的维度名称      | 输入 String 类型维度名称：id4hdfsdatanode   |
+| Instances.N.Dimensions.0.Value | id4hdfsdatanode   | EMR 实例具体 ID            | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222    |
+| Instances.N.Dimensions.0.Name  | host4hdfsdatanode | EMR 实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4hdfsdatanode |
+| Instances.N.Dimensions.0.Value | host4hdfsdatanode | EMR 实例中具体节点 IP       | 输入具体节点 IP ，例如：1.1.1.1             |
 
 
 
