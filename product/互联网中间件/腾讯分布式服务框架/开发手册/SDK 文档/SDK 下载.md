@@ -62,7 +62,7 @@ java -version
 #### 3.1 添加私服配置
 找到 Maven 所使用的配置文件，一般在`~/.m2/settings.xml`中，在 settings.xml 中加入如下配置 ：
 
-您也可以下载 [setting.xml 样例文件>> ](https://main.qcloudimg.com/raw/0e3c73b64c4ec64ae9b16d1a347db462/settings.xml) （鼠标右键另存为链接）。
+您也可以下载 [setting.xml 样例文件>> ](https://main.qcloudimg.com/raw/0e3c73b64c4ec64ae9b16d1a347db462/settings.xml)（鼠标右键另存为链接）。
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
