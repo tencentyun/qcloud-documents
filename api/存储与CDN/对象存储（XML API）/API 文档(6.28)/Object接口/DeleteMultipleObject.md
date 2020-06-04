@@ -48,7 +48,7 @@ Authorization: Auth String
 
 提交 **application/xml** 请求数据，包含要删除的对象信息。
 
-```shell
+```xml
 <Delete>
 	<Quiet>boolean</Quiet>
 	<Object>
@@ -89,9 +89,9 @@ Authorization: Auth String
 
 #### 响应体
 
-查询成功，返回 **application/xml** 数据，包含删除结果信息。
+请求成功，返回 **application/xml** 数据，包含删除结果信息。
 
-```shell
+```xml
 <DeleteResult>
 	<Deleted>
 		<Key>string</Key>
