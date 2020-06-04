@@ -42,7 +42,7 @@ Namespace=QCE/APIGATEWAY
 
 以下为API网关的三种维度组合的查询方式 ：
 
-#### 1. 环境维度，入参取值
+#### 1.  环境维度，入参取值
 
 &Namespace=QCE/APIGATEWAY
 &Instances.N.Dimensions.0.Name=serviceId
@@ -50,7 +50,7 @@ Namespace=QCE/APIGATEWAY
 &Instances.N.Dimensions.1.Name=environmentName
 &Instances.N.Dimensions.1.Value=为环境名
 
-#### 2. API 维度，入参取值
+#### 2.  API 维度，入参取值
 
 &Namespace=QCE/APIGATEWAY
 &Instances.N.Dimensions.0.Name=serviceId
