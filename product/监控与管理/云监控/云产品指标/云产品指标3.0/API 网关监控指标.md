@@ -17,8 +17,9 @@ Namespace=QCE/APIGATEWAY
 | Serviceservererror404 | 后台404错误数 | 请求后端服务失败，请求所希望的资源未被在后端服务器上发现，此类错误个数的统计 | 按照所选择的时间粒度统计求和 | 次   |
 | Serviceservererror502 | 后台502错误数 | API 网关尝试执行后端请求时，从后端服务器接收到无效的响应，此类错误个数的统计 | 按照所选择的时间粒度统计求和 | 次   |
 
-> ?API 网关监控指标支持所有维度，您可根据相关 [维度说明](#weidu) 进行监控指标的维度筛选。
-> 每个指标对应的统计粒度（Period）可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度及维度信息。
+> ?
+> - API 网关监控指标支持所有维度，您可根据相关 [维度说明](#weidu) 进行监控指标的维度筛选。
+> - 每个指标对应的统计粒度（Period）可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度及维度信息。
 
 ## 各维度对应参数总览
 
