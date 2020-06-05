@@ -1,14 +1,15 @@
-Github 泄露事件监测是腾讯云为用户免费提供的 API 泄露监测安全能力。通过与 Github 官方合作，可秒级发现含 API 密钥的风险代码并进行风险告警。
+Github API 泄露事件监测是腾讯云为用户免费提供的 API 泄露监测安全能力。通过与 Github 官方合作，可秒级发现含 API 密钥的风险代码并进行风险告警。
 
 ## 操作步骤
-1. 登录 [安全运营中心控制台](https://console.cloud.tencent.com/ssav2/monitor)，在左侧导航栏，单击【泄露监测】，在泄露检测页面单击【Github API 泄露监测】，进入Github API 泄露监测页面。
-2. 在 Github API 泄露监测页面可以查看当前风险状态，泄露统计、泄露事件。
+1. 登录 [安全运营中心控制台](https://console.cloud.tencent.com/ssav2/monitor)，在左侧导航栏，单击【泄露监测】，进入泄露检测页面。
+2. 在泄露检测页面单击【Github API 泄露监测】，进入Github API 泄露监测页面。
+2. 在 Github API 泄露监测页面可以查看当前风险状态、泄露统计、泄露事件。
 	- **风险状态**：展示了您的账号在 Github 泄露监测事件中的风险状态（危险或安全），同时可进行相应处理操作。
 		- **危险**：存在待处理的 Github API 泄露事件。
 		- **安全**：不存在待处理的 Github API 泄露事件。
 		- **立即处理**：单击【立即处理】可查看最新泄露事件详情。
 		- **密钥配置最佳实践**：单击【密钥配置最佳实践】可查看相关说明文档。
-![](https://main.qcloudimg.com/raw/02fc25b8efee0a9f8c42ed3036652866.png)
+![](https://main.qcloudimg.com/raw/409dbbf3338c08e948c3e82202a21927.png)
 	- **泄露统计**：展示了待处理泄露事件数、历史总泄露数、近一月泄露数。
 		- **待处理泄露事件数**：未在安全运营中心确认处理的 Github API 泄露事件数。
 		- **历史总泄露数**：历史发生过的 Github API 泄露事件数。
