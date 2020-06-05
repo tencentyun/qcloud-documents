@@ -29,7 +29,7 @@ pod 'TPNS-iOS'
 ```
 >?
  - 首次下载需要登录 [仓库地址](https://git.code.tencent.com/users/sign_in)，并在【账户】菜单栏中 [设置用户名和密码](https://code.tencent.com/help/productionDoc/profile#password)。设置成功后，在 Terminal 输入对应的用户名和密码，后续即可正常使用，当前 PC 不需要再次登录。
- - 由于仓库地址变更，如果 pod 提示`Unable to find a specification for 'TPNS-iOS'`，那么需要执行以下命令，并更新仓库确认版本：
+ - 由于仓库地址变更，如果 pod 提示 `Unable to find a specification for 'TPNS-iOS'`，那么需要执行以下命令，并更新仓库确认版本：
 ``` 
 pod repo update
 pod search TPNS-iOS
@@ -139,6 +139,7 @@ withCompletionHandler:(void (^)(void))completionHandler {
 ## 通知服务扩展插件集成
 为了实现抵达数据上报和富媒体消息的功能，SDK 提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达和发送富媒体消息。
 >!如果未集成此接口，则统计数据中消息`抵达数`与`点击数`一致。
+
 ### 接入方式（二选一）
 #### 方式一：Cocoapods 导入
 通过 Cocoapods 下载地址：
@@ -208,7 +209,7 @@ TPNS iOS SDK 1.2.5.3 以下版本，在调试阶段建议实现协议中的此�
 >!在推送单个目标设备时请使用 XG 36位的 Token。
 
 ## 统一接收消息及点击消息回调说明
-- 高于iOS 10.0 的系统版本，点击消息，此函数将被调用。
+- 高于 iOS 10.0 的系统版本，点击消息，此函数将被调用：
 
 ```objective-c
 - (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler;
@@ -242,14 +243,14 @@ TPNS iOS SDK 1.2.5.3 以下版本，在调试阶段建议实现协议中的此�
 
 #### 用法
 
-- 引入头文件: `XGForFreeVersion.h` 
+- 引入头文件：`XGForFreeVersion.h` 。
 - 在 `startXGWithAppID:appKey:delegate:` 之前调用此接口，参考示例：
 
 ```objective-c
 [XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
 [[XGPush defaultManager] startXGWithAppID: <#your tpns access ID#>appKey:<#your tpns access key#> delegate:<#your delegate#>];
 ```
->!如果未做以上配置，则在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
+>!如果未做以上配置，在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
 
 
 <span id="QHToken"></span>
