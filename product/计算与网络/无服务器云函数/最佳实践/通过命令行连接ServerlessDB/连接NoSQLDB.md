@@ -1,7 +1,7 @@
 ## 操作场景
 通过 [Serverless Framework 组件](https://cloud.tencent.com/document/product/1154/39270)，您可轻松完成 Serverless DB 的创建部署管理，并通过 SDK 在云函数中轻松完成数据库的连接访问，基于云上 Serverless 服务，实现“0”配置，极速部署，便捷开发，助力业务实现。
 
-Serverless Framework 目前支持 **PostgreSQL** 与 **NoSQL** 两个类型数据库的部署连接，本文介绍如何使用云函数连接 NoSQL 数据库。
+Serverless Framework 目前支持 **PostgreSQL** 与 **NoSQL** 两个类型数据库的部署连接，本文介绍如何使用云函数连接 NoSQL DB。
 
 
 ## 前提条件
@@ -22,9 +22,9 @@ Components: 2.30.1
 
 
 ## 操作步骤
-本文以 Node.js 开发语言的函数为例，介绍如何通过 Serverless Framework 组件编写创建函数，创建并访问 NoSQL 数据库。配置流程如下：
-1. 创建云开发环境：通过 [Serverless Framework 组件](https://cloud.tencent.com/document/product/1154/39271) 创建云开发环境，在其中创建并使用 NoSQL 数据库。
-2. 通过 Serverless DB SDK 调用数据库：云函数支持直接调用 Serverless DB SDK，创建 NoSQL 数据库并进行管理操作。
+本文以 Node.js 开发语言的函数为例，介绍如何通过 Serverless Framework 组件编写创建函数，创建并访问 NoSQL DB。配置流程如下：
+1. 创建云开发环境：通过 [Serverless Framework 组件](https://cloud.tencent.com/document/product/1154/39271) 创建云开发环境，在其中创建并使用 NoSQL DB。
+2. 通过 Serverless DB SDK 调用数据库：云函数支持直接调用 Serverless DB SDK，创建 NoSQL DB 并进行管理操作。
   
 
 
@@ -151,4 +151,4 @@ sls remove --all
 serverless ⚡ framework
 4s › test-NoSQL › Success
 ```
-更多 NoSQL 数据库用法，请参考 [基于 NoSQL 全栈网站最佳实践](https://cloud.tencent.com/document/product/1154/44073)。
+更多 NoSQL DB 用法，请参考 [基于 NoSQL 全栈网站最佳实践](https://cloud.tencent.com/document/product/1154/44073)。
