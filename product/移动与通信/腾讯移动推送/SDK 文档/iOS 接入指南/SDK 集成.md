@@ -1,6 +1,6 @@
 ## 简介
 本文档提供关于 SDK 接入以及开启推送服务的示例代码（SDK 版本：V1.0+ 版本）。
->!如果您是从信鸽平台（https:// xg.qq.com）迁移至腾讯移动推送平台，请务必：
+>!如果您是从 [信鸽平台](https://xg.qq.com) 迁移至腾讯移动推送平台，请务必：
 1.实现 [注销信鸽平台推送服务接口](#zhuxiao)。
 2.参考 [iOS 迁移指南](https://cloud.tencent.com/document/product/548/41610)  文档，根据您 App 的集成情况，实现相应的变更，完成后返回当前文档。
 3.完成下述文档的集成工作。
@@ -81,6 +81,17 @@ github "xingePush/carthage-TPNS-iOS"
 ``` object-c
 [[XGPush defaultManager] configureHost:@"https://api.tpns.hk.tencent.com" port:0]
 ```
+3. 配置统计域名：
+新加坡服务接入点
+**示例**
+``` object-c
+[[XGPush defaultManager] configureStatReportHost:@"https://api.tpns.sgp.tencent.com" port:0];
+```
+中国香港服务接入点
+**示例**
+``` object-c
+[[XGPush defaultManager] configureStatReportHost:@"https://api.tpns.hk.tencent.com" port:0];
+```
 
 ### 接入样例
 调用启动腾讯移动推送的 API，并根据需要实现 `XGPushDelegate` 协议中的方法，开启推送服务。
@@ -127,6 +138,7 @@ withCompletionHandler:(void (^)(void))completionHandler {
 
 ## 通知服务扩展插件集成
 为了实现抵达数据上报和富媒体消息的功能，SDK 提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达和发送富媒体消息。
+>!如果未集成此接口，则统计数据中消息`抵达数`与`点击数`一致。
 ### 接入方式（二选一）
 #### 方式一：Cocoapods 导入
 通过 Cocoapods 下载地址：
@@ -135,7 +147,7 @@ withCompletionHandler:(void (^)(void))completionHandler {
 pod 'TPNS-iOS-Extension' 
 ```
  - **使用说明：**
-1. 创建类型为`Application Extension`的`Notification Service Extension`TARGET，例如`XXServiceExtension`。
+1. 创建类型为` Application Extension `的` Notification Service Extension `TARGET，例如`XXServiceExtension`。
 2. 在 Podfile 新增 XXServiceExtension 的配置栏目。
  - **示例**
 Podfile 中增加配置项目后展示效果：
@@ -150,7 +162,7 @@ end
 
 #### 方式二：手动导入
 接入指南请参见 [通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
->!如果未集成此接口，则统计数据中消息`抵达数`与`点击数`一致。
+
 
 
 ## 调试方法
