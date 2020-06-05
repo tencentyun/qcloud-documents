@@ -11,7 +11,7 @@
         <td>SDK 1.1.6.3版本发布</td>
         <td> 第三方厂商通道集成优化</td>
         <td>2020-06-04</td>
-        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载SDK</a></td>
+        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载 SDK</a></td>
     </tr>
 </table>
 
