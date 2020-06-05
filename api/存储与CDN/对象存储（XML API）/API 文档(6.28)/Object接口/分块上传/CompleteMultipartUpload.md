@@ -9,7 +9,7 @@ Complete Multipart Upload 接口请求用来实现完成整个分块上传。当
 - 当请求 Body 中的块信息没有按序号从小到大排列的时候，在调用该 API 时，会返回400 InvalidPartOrder。
 - 当 UploadId 不存在的时候，在调用该 API 时，会返回404 NoSuchUpload。
 
-> ! 建议您及时完成分块上传或者舍弃分块上传，因为已上传但是未终止的块会占用存储空间进而产生存储费用。
+>! 建议您及时完成分块上传或者舍弃分块上传，因为已上传但是未终止的块会占用存储空间进而产生存储费用。
 
 #### 版本控制
 
@@ -32,7 +32,7 @@ Authorization: Auth String
 [Request Body]
 ```
 
-> ? Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>? Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求参数
 
@@ -122,8 +122,8 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点                        | 描述                                                         | 类型   |
 | ------------------ | ----------------------------- | ------------------------------------------------------------ | ------ |
-| Location           | CompleteMultipartUploadResult | 分块上传完成的对象位置，格式为 `<BucketName-APPID>.cos.<Region>.myqcloud.com/<ObjectKey>`，例如 `examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleobject`。 | string |
-| Bucket             | CompleteMultipartUploadResult | 分块上传的目标存储桶，格式为 `<BucketName-APPID>`，例如 `examplebucket-1250000000`。 | string |
+| Location           | CompleteMultipartUploadResult | 分块上传完成的对象位置，格式为`<BucketName-APPID>.cos.<Region>.myqcloud.com/<ObjectKey>`，例如`examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleobject` | string |
+| Bucket             | CompleteMultipartUploadResult | 分块上传的目标存储桶，格式为`<BucketName-APPID>`，例如`examplebucket-1250000000` | string |
 | Key                | CompleteMultipartUploadResult | 对象键                                                       | string |
 | ETag               | CompleteMultipartUploadResult | 分块合并后的对象 ETag 值                                     | string |
 
