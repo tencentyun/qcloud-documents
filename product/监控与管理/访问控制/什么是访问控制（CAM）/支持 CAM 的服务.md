@@ -145,7 +145,7 @@
 | [天御业务安全防护](https://cloud.tencent.com/document/product/295)<sup>1</sup>    | 服务级  | &#10003; | -   |  - | - |
 | [流量反欺诈](https://cloud.tencent.com/document/product/1031)| 操作级  | &#10003; | -   |  - | - |
 | [内容安全](https://cloud.tencent.com/document/product/669) <sup>2</sup>   | 服务级  | &#10003; | -   |  - | - |
-| [联邦学习](https://cloud.tencent.com/document/product/1192)  | 服务级  | &#10003; | -   |  - | - |
+| [联邦学习](https://cloud.tencent.com/document/product/1192)  | 服务级  | - | -   |  - | - |
 > ?<sup>1</sup> 天御业务安全防护中活动防刷、登录保护、注册保护、行业风险评估、置信度评分均已支持使用 CAM。
 > <sup>2</sup> 内容安全中  [图片内容安全](https://cloud.tencent.com/document/product/1125)、 [文本内容安全](https://cloud.tencent.com/document/product/1124) 均已支持使用 CAM。
 
