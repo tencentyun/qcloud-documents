@@ -53,7 +53,7 @@ UserSig 计算函数中主要包括 SDKAppID、UserID 以及 UserSig 有效期�
 | sdkappid | 应用 SDKAppID，可在即时通信 IM [控制台](https://console.cloud.tencent.com/im) 的应用卡片中获取。 |
 |  userId  | 用户 ID，旧称为 Identifier。   |
 |  expire   | UserSig 的有效期，单位为秒。  |
-|  userbuf | 即时通信 IM 中均使用不带 UserBuf 的接口，即该参数默认填写为`null`。<br>实时音视频的部分使用场景中可能需要用到带 UserBuf 的接口，例如进房时。 |
+|  userbuf | 即时通信 IM 中均默认使用不带 UserBuf 的接口，即该参数默认填写为`null`。<br>实时音视频的部分使用场景中可能需要使用带 UserBuf 的接口，例如进房时。 |
 |  key  | 密钥信息，可在即时通信 IM [控制台](https://console.cloud.tencent.com/im) 的应用详情页面中获取，具体操作请参见 [获取密钥](#getkey)。   |
 
 
