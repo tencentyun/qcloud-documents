@@ -68,7 +68,7 @@ exports.main = async (event, context, callback) => {
 
 ###    云函数的运行机制
 
-[深入理解云函数-云函数的运行机制](/cloud-function/deep-priciple.md)
+[深入理解云函数-云函数的运行机制](https://cloud.tencent.com/document/product/876/41764)
 
 
 ###    私有网络VPC
