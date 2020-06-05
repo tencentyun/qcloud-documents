@@ -1,4 +1,4 @@
-Github API 泄露事件监测是腾讯云为用户免费提供的 API 泄露监测安全能力。通过与 Github 官方合作，可秒级发现含 API 密钥的风险代码并进行风险告警。
+Github API 泄露监测是腾讯云为用户免费提供的 API 泄露监测安全能力。通过与 Github 官方合作，可秒级发现含 API 密钥的风险代码并进行风险告警。
 
 ## 操作步骤
 1. 登录 [安全运营中心控制台](https://console.cloud.tencent.com/ssav2/monitor)，在左侧导航栏，单击【泄露监测】，进入泄露检测页面。
