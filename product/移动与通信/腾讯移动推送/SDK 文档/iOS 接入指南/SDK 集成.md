@@ -74,22 +74,13 @@ github "xingePush/carthage-TPNS-iOS"
 如需接入新加坡服务接入点则将 `HOST`设置为 `https://api.tpns.sgp.tencent.com`, `PORT`设置为0。
 **示例**
 ``` object-c
-[[XGPush defaultManager] configureHost:@"https://api.tpns.sgp.tencent.com" port:0]
+[[XGPush defaultManager] configureHost:@"https://api.tpns.sgp.tencent.com" port:0];
+[[XGPush defaultManager] configureStatReportHost:@"https://api.tpns.sgp.tencent.com" port:0];
 ```
 如需接入中国香港服务接入点则将 `HOST` 设置为 `https://api.tpns.hk.tencent.com`, `PORT `设置为0。
 **示例**
 ``` object-c
-[[XGPush defaultManager] configureHost:@"https://api.tpns.hk.tencent.com" port:0]
-```
-3. 配置统计域名：
-新加坡服务接入点
-**示例**
-``` object-c
-[[XGPush defaultManager] configureStatReportHost:@"https://api.tpns.sgp.tencent.com" port:0];
-```
-中国香港服务接入点
-**示例**
-``` object-c
+[[XGPush defaultManager] configureHost:@"https://api.tpns.hk.tencent.com" port:0];
 [[XGPush defaultManager] configureStatReportHost:@"https://api.tpns.hk.tencent.com" port:0];
 ```
 
