@@ -18,6 +18,7 @@ Date: GMT Date
 Content-Length: 0
 Authorization: Auth String
 ```
+
 **示例二**
 ```plaintext
 PUT / HTTP/1.1
@@ -54,7 +55,7 @@ Authorization: Auth String
 
 仅当需要创建多 AZ 存储桶时提交 **application/xml** 请求数据，包含创建存储桶的配置信息，否则无需传入请求体。
 
-```plaintext
+```xml
 <CreateBucketConfiguration>
 	<BucketAZConfig>string</BucketAZConfig>
 </CreateBucketConfiguration>
