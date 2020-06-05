@@ -14,7 +14,9 @@
 ![](https://main.qcloudimg.com/raw/06f8ee3fc006896d15e443f828874bf3.png)
 转发成功后,MySQL 中显示的信息如下图所示:
 ![](https://main.qcloudimg.com/raw/85fe76843afc299408448a10e6a78930.png)
-5. 授权成功后，需要配置 MySQL 实例信息和写入的字段信息，配置分为如下几个步骤：
+
+## 配置说明
+授权成功后，需要配置 MySQL 实例信息和写入的字段信息，配置分为如下几个步骤：
  1. 选择地区和 MySQL 实例。
  2. 输入刚创建的 MySQL 实例的用户名。     
  3. 输入实例的登录密码。
