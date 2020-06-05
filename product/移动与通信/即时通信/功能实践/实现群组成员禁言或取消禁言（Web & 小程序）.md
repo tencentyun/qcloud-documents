@@ -3,13 +3,13 @@
 
 ## 使用限制
 
-- 群组形态限制
+- 群组类型限制
  <table>
 <tr>
-<th width="25%">私有群</th>
-<th width="25%">公开群</th>
-<th width="25%">聊天室</th>
-<th width="25%">音视频聊天室</th>
+<th width="25%">好友工作群（Work / Private）</th>
+<th width="25%">陌生人交友群（Public）</th>
+<th width="25%">临时会议群（Meeting / ChatRoom）</th>
+<th width="25%">直播群（AvChatRoom）</th>
 </tr>
 <tr>
 <td><strong>不支持</strong></td>
@@ -18,6 +18,7 @@
 <td>支持</td>
 </tr>
 </table>
+
 - 成员角色限制
 <table>
 <tr>
@@ -45,8 +46,8 @@
 ## 操作步骤
 
 ### 步骤1：确认操作权限
-1. 调用 [getGroupProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupProfile) 接口查看所在群的类型，确认是否支持禁言/取消禁言操作。
- >!若为 Private（私有群）则不支持禁言。
+1. 调用 [getGroupProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupProfile) 接口查看所在群组类型，确认是否支持禁言/取消禁言操作。
+ >!若为 群组类型为 Private 或 Work（好友工作群）则不支持禁言。
  >
 2. 调用 [getGroupMemberProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberProfile) 接口查看指定的 userID 在当前群的成员角色，确认是否有权限进行禁言/取消禁言操作。
 
