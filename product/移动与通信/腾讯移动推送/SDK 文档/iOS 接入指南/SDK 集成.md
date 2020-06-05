@@ -253,8 +253,8 @@ TPNS iOS SDK 1.2.5.3 以下版本，在调试阶段建议实现协议中的此�
 
 
 <span id="QHToken"></span>
-### 获取 Token 交互建议
-建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 Token，该操作便于我们后续进行问题排查。
+### 获取 TPNS Token 交互建议
+建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 TPNS Token，控制台和 Restful API 推送需要根据 TPNS Token 进行 Token 推送，后续问题排查也需要根据 TPNS Token 进行定位。
 
 #### 示例代码
 ```objective-c
