@@ -290,6 +290,9 @@
 ```
 
 ## 注销信鸽平台推送服务
+>! - 如果未做以下配置，则在【旧版信鸽】和】【腾讯移动推送】两个平台上同时推送时，可能会出现重复消息。
+- 如果您的应用确定不再使用【旧版信鸽】进行推送，可忽略上方配置。
+
 如果 App 的推送服务是从信鸽平台（https://xg.qq.com）迁移到腾讯移动推送平台， 需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在信鸽平台中进行反注册。
 
 #### 接口
@@ -309,4 +312,4 @@
 [XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
 [[XGPush defaultManager] startXGWithAppID: <#your tpns access ID#>appKey:<#your tpns access key#> delegate:<#your delegate#>];
 ```
->! 如果未做以上配置，则在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
+
