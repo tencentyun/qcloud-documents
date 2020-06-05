@@ -27,8 +27,7 @@
 2. 单击【Android平台推送设置】区域的【添加证书】。
  >?如果您原来已有证书只需变更信息，可以单击对应证书区域的【编辑】进行修改更新。
  >
- ![](https://main.qcloudimg.com/raw/aaa40b3c7e43f99b7e36c8b7589e54e0.png)
- 
+ ![](https://main.qcloudimg.com/raw/aaa40b3c7e43f99b7e36c8b7589e54e0.png) 
 3. 上传 [步骤1](#Step1) 中获取的私钥文件：
  ![](https://main.qcloudimg.com/raw/b18e2414561c6733b24c56cd1e866f21.png)
 4. 单击【确认】保存信息，证书信息保存后10分钟内生效。
