@@ -67,8 +67,8 @@ github "xingePush/carthage-TPNS-iOS"
 ![](https://main.qcloudimg.com/raw/b0b74cec883f69fb0287fedc7bad4140.png)
 如 checkTargetOtherLinkFlagForObjc 报错，是因为 build setting 中，Other link flags 未添加 -ObjC。
 
->! 如果你的应用服务接入点为广州，SDK默认实现该配置。
->如果你的应用服务接入点为新加坡或者中国香港，请按照下文“境外服务接入点配置“”步骤完成配置。
+>! 如果您的应用服务接入点为广州，SDK 默认实现该配置。
+>如果您的应用服务接入点为新加坡或者中国香港，请按照下文“境外服务接入点配置”步骤完成配置。
 
 **境外服务接入点配置**
 1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
