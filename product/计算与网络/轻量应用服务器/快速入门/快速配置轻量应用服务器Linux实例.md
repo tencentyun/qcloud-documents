@@ -10,7 +10,7 @@
 
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
 2. 单击【新建】，进入轻量应用服务器购买页面。
-![](https://main.qcloudimg.com/raw/72d00950b7fd8529e2e45831cec908a3.png)
+![](https://main.qcloudimg.com/raw/615da48bd86d97fda2bbc71a8f4e7485.png)
  - 地域：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，地域选择 “广州”。
  - 镜像：选择您需要的轻量应用服务器操作系统。此处我们选择 “WordPress 5.3.2” 应用镜像（CentOS 7.6 64位操作系统）。
  - 实例套餐：按照所需的服务器配置（CPU、内存、系统盘、峰值带宽、每月流量），选择一种实例套餐。
