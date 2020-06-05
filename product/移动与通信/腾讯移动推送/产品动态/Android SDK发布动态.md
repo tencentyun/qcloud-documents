@@ -1,3 +1,20 @@
+## 2020年6月
+
+<table>
+<tr>
+    <th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+</tr>
+    <tr>
+        <td>SDK 1.1.6.3版本发布</td>
+        <td> 第三方厂商通道集成优化</td>
+        <td>2020-06-04</td>
+        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载SDK</a></td>
+    </tr>
+</table>
+
 ## 2020年4月
 
 <table>
@@ -11,7 +28,7 @@
         <td>SDK 1.1.6.1版本发布</td>
         <td>修复 HTTPS 证书校验漏洞</td>
         <td>2020-04-28</td>
-        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载SDK</a></td>
+        <td>-</a></td>
     </tr>
     <tr>
         <td>SDK 1.1.6.0版本发布</td>
@@ -26,7 +43,6 @@
         <td>-</td>
     </tr>
 </table>
-
 
 ## 2020年3月
 <table>
@@ -152,3 +168,4 @@
         <td><a href="https://cloud.tencent.com/document/product/548/36652#.E9.9B.86.E6.88.90.E6.96.B9.E6.B3.95">音视频富媒体配置方法</a></td>
     </tr>
 </table>
+
