@@ -43,12 +43,10 @@ require 'vendor/autoload.php';
 ```
 
 ### 通过源码包安装
-1. 下载源码压缩包：
- - 方法一：通过 git clone 下载源码。
+1. 通过 git clone 下载源码。
  ```
 git clone https://github.com/tencentcloud/tencentcloud-sdk-php
 ```
- - 方法二：访问 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-php/tencentcloud-sdk-php.zip) 下载源码压缩包。
 2. 解压源码包到您项目合适的位置。
 3. 添加以下引用代码，引用方法可参考 [示例代码](#example)。
 ```

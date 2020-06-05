@@ -4,8 +4,7 @@
 >!不同地域所支持的文件存储能力有一定差异，请按需选择。详情请参见[ 文件存储类型和性能规格](https://cloud.tencent.com/document/product/582/38112)。
 
 
-## 操作步骤
-
+## 准备工作
 ### 安装文件存储扩展组件
 >?
 >- 使用扩展组件功能前需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
@@ -17,8 +16,7 @@
 
 
 ### 通过控制台创建 StorageClass<span id="createStorageClass"></span>
-由于静态创建文件存储类型的 PV 时，需要绑定同类型可用 StorageClass，请参考 [通过控制台创建 StorageClass](https://tcloud-doc.isd.com/document/product/457/44235#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.88.9B.E5.BB.BA-storageclass) 完成创建。
-
+由于静态创建文件存储类型的 PV 时，需要绑定同类型可用 StorageClass，请参考 [通过控制台创建 StorageClass](https://cloud.tencent.com/document/product/457/44235#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.88.9B.E5.BB.BA-storageclass) 完成创建。
 
 ### 创建文件存储<span id="createCFS"></span>
 1. 登录[ 文件存储控制台](https://console.cloud.tencent.com/cfs/fs?rid=1)，进入“文件系统”页面。
@@ -40,6 +38,8 @@
 		- 若未拥有标签，则可前往 [标签控制台](https://console.cloud.tencent.com/tag/taglist) 创建所需要的标签，再为文件系统绑定标签。或可在文件系统创建完成后，再为文件系统添加标签。
 3. 单击【新建】，等待创建成功即可。
 
+
+
 ### 获取文件系统子目录<span id="getPath"></span>
 1. 在“文件系统”页面，单击需获取子目标路径的文件系统 ID，进入该文件系统详情页。
 2. 选择【挂载点信息】页签，从 “Linux下挂载” 获取该文件系统子目录路径 `/subfolder`。如下图所示：
@@ -48,6 +48,8 @@
 	-  `subfolder`：指用户在文件存储的文件系统里创建的子目录，则该文件系统子目录路径即为 `/subfolder`。
 
 
+
+## 操作步骤
 
 
 ### 静态创建 PV
@@ -81,7 +83,7 @@
    - **读写权限**：文件存储仅支持多机读写。
    - **StorageClass**：按需选择合适的 StorageClass。本文以选择在 [通过控制台创建 StorageClass](#createStorageClass) 步骤中创建的 `cfs-storageclass` 为例。
 3. 单击【创建PersistentVolumeClaim】，即可完成创建。
-> ? 若已有 PV 不足，系统将自动创建新的 PV。
+> ? 系统在创建 PVC 时，若发现已有 PV 不足，则将自动创建新的 PV。
 
 ### 创建 Workload 使用 PVC 数据卷
 >?该步骤以创建工作负载 Deployment 为例。

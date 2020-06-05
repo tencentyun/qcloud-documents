@@ -11,7 +11,7 @@
 </tr>
 </table>
 
-如需快速实现语音通话功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCVideoCall 组件并实现自定义 UI 界面。
+如需快速实现语音通话功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCAudioCall 组件并实现自定义 UI 界面。
 
 <span id="ui"> </span>
 ## 复用 Demo 的 UI 界面
@@ -31,7 +31,7 @@
 <span id="ui.step3"></span>
 ### 步骤3：配置 Demo 工程文件
 1. 解压 [步骤2](#ui.step2) 中下载的源码包。
-2. 找到并打开 `Android/TRTCDemo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java` 文件。
+2. 找到并打开 `Android/TRTCScenesDemo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java` 文件。
 3. 设置 `GenerateTestUserSig.java` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
@@ -114,7 +114,7 @@ defaultConfig {
 <uses-permission android:name="android.permission.BLUETOOTH" />
 <uses-permission android:name="android.permission.CAMERA" />
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-<uses-feature android:name="android.hardware.Camera"/>
+<uses-feature android:name="android.hardware.camera"/>
 <uses-feature android:name="android.hardware.camera.autofocus" />
 ```
 
@@ -174,7 +174,7 @@ sCall.login(1400000123, "userA", "xxxx", new ActionCallback());
 ITRTCAudioCall sCall =  TRTCAudioCallImpl.sharedInstance(context);
 sCall.init();
 //2. 注册监听器
-sCall.addListener(new TRTCVideoCallListener() {
+sCall.addListener(new TRTCAudioCallListener() {
 	//...省略一些监听代码
 	public void onInvited(String sponsor, final List<String> userIdList, boolean isFromGroup, int callType) {
 		// 收到来自 sponsor 发过来的通话请求，此处代码选择接听，您也可以调用 reject() 拒绝之。
@@ -199,7 +199,7 @@ sCall.login(sdkappid, "aaa", usersig, new ActionCallback() {
 5. 如果需要离开当前多人通话可以调用 `hangup()` 方法。
 6. 如果通话中有用户中途加入或离开，那么其他用户均会接收到 `onUserEnter()` 或  `onUserLeave()` 事件通知。
 
->?接口 `groupCall()` 中的 `groupID` 参数是 IM SDK 中的群组 ID，如果填写该参数，那么通话请求消息是通过群消息系统广播出去的，这种消息广播方式比较简单可靠。如果不填写，那么 `TRTCVideoCall` 组件会采用单发消息逐一通知。
+>?接口 `groupCall()` 中的 `groupID` 参数是 IM SDK 中的群组 ID，如果填写该参数，那么通话请求消息是通过群消息系统广播出去的，这种消息广播方式比较简单可靠。如果不填写，那么 `TRTCAudioCall` 组件会采用单发消息逐一通知。
 
 ```
 // 前面省略...
@@ -230,7 +230,7 @@ TRTCAudioCall 组件的 API 接口列表如下：
 |---------|---------|
 | init | 在使用所有功能之前，需要调用该函数进行必要的初始化 | 
 | destroy | 销毁实例 |
-| addListener | 增加 TRTCVideoCallListener 监听器，用户可以通过该监听器获取状态通知 |
+| addListener | 增加 TRTCAudioCallListener 监听器，用户可以通过该监听器获取状态通知 |
 | removeListener | 移除监听器 |
 | login | 登录 IM，所有功能需要先进行登录后才能使用 |
 | logout | 登出 IM，登出后无法再进行拨打操作 |
@@ -241,3 +241,7 @@ TRTCAudioCall 组件的 API 接口列表如下：
 | hangup | 结束通话 |
 | setMicMute | 是否静音 mic |
 | setHandsFree | 是否开启免提 |
+
+## 学习视频
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2328-34109?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+

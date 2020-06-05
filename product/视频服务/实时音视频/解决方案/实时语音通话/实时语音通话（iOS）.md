@@ -32,10 +32,10 @@
 <span id="ui.step3"></span>
 ### 步骤3：配置 Demo 工程文件
 1. 解压 [步骤2](#ui.step2) 中下载的源码包。
-2. 找到并打开 `iOS/TRTCScenesDemo/TRTCScenesDemo/debug/GenerateTestUserSig.h` 文件。
+2. 找到并打开 `iOS/TRTCScenesDemo/TXLiteAVDemo/Debug/GenerateTestUserSig.h` 文件。
 3. 设置 `GenerateTestUserSig.h` 文件中的相关参数：
-  <ul><li>SDKAPPID：默认为占位符，请设置为实际的 SDKAppID。</li>
-  <li>SECRETKEY：默认为占位符，请设置为实际的密钥信息。</li></ul> 
+  <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
+  <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
     <img src="https://main.qcloudimg.com/raw/15d986c5f4bc340e555630a070b90d63.png">
 4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
 5. 单击【关闭指引，进入控制台管理应用】。
@@ -45,7 +45,7 @@
 
 <span id="ui.step4"></span>
 ### 步骤4：运行 Demo
-使用 Xcode（11.0及以上的版本）打开源码工程 `trtcScenesDemo`，单击【运行】即可开始调试本 Demo。
+使用 Xcode（11.0及以上的版本）打开源码工程 `iOS/TRTCScenesDemo/TXLiteAVDemo.xcworkspace`，单击【运行】即可开始调试本 Demo。
 
 ### 步骤5：修改 Demo 源代码
 源码文件夹 `TRTCAudioCallDemo` 中包含两个子文件夹 ui 和 model，其中 ui 文件架中均为界面代码：
@@ -176,7 +176,7 @@ TRTCAudioCall.shared.destroy()
 5. 如果需要离开当前多人通话可以调用 `hangup()` 方法。
 6. 如果通话中有用户中途加入或离开，那么其他用户均会接收到 `onUserEnter()` 或  `onUserLeave()` 回调。
 
->?接口 `groupCall()` 中的 `groupID` 参数是 IM SDK 中的群组 ID，如果填写该参数，那么通话请求消息是通过群消息系统广播出去的，这种消息广播方式比较简单可靠。如果不填写，那么 `TRTCVideoCall` 组件会采用单发消息逐一通知。
+>?接口 `groupCall()` 中的 `groupID` 参数是 IM SDK 中的群组 ID，如果填写该参数，那么通话请求消息是通过群消息系统广播出去的，这种消息广播方式比较简单可靠。如果不填写，那么 `TRTCAudioCall` 组件会采用单发消息逐一通知。
 
 ```
 // 前面省略...

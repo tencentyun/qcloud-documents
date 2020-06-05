@@ -1,6 +1,11 @@
+
+以下视频将为您介绍修改 DNS 服务器地址的相关操作：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2303-33501?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 操作场景
 
 若您的 DNS 服务器不正确，需将域名 DNS 修改为提示的 DNS 地址，解析方可生效。
+>!新注册的域名 DNS 服务器地址默认为免费套餐对应的 DNS 服务器地址，若您不需要升级套餐，则无需调整 DNS 服务器地址。
 
 ## 操作步骤
 
@@ -16,7 +21,7 @@
 如果域名在腾讯云注册，或者已转入腾讯云，可以通过以下步骤修改 DNS 服务器：
 1. 登录 [腾讯云域名管理控制台](https://console.cloud.tencent.com/domain/)，进入 “我的域名” 页面。
 2. 选择待修改 DNS 的域名，单击【管理】。如下图所示：
-![](https://main.qcloudimg.com/raw/c7990910028acc9fb863bf77704ba9be.png)
+![](https://main.qcloudimg.com/raw/4d4176b985b22d48860279a72ef53222.png)
 3. 在 “基本信息” 栏中，单击 “DNS 服务器” 的【修改】。如下图所示：
 ![](https://main.qcloudimg.com/raw/f5926d507764039315a0c6f48c44738c.png)
 4. 在弹出的 “修改 DNS 服务器” 窗口中，填写您套餐对应的 DNS 服务器地址，单击【提交】，完成修改。如下图所示：

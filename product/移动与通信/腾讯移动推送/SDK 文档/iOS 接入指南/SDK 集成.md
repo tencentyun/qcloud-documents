@@ -12,20 +12,27 @@
 
 
 
-## 集成步骤
-1. 登录 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏【产品管理】。
-2. 进入产品管理页面，单击【新增产品】。
-3. 进入新增产品页面，填写产品名称、产品详情，选择产品分类，单击【确定】，即可完成产品新增。
-4. 产品创建完成后，选择左侧菜单【配置管理】，在应用信息一栏中，获取应用`Access ID` 和 `SECRET KEY`。
-5. 导入 SDK：
+## SDK 集成
+### 接入前准备
+1. 接入 SDK 之前，需要您前往腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
+![](https://main.qcloudimg.com/raw/c07fde02517072a093ac48482e92e9ea.png)
+2. 应用创建完成后，您可以参考 [申请试用](https://cloud.tencent.com/document/product/548/37241#.E7.94.B3.E8.AF.B7.E8.AF.95.E7.94.A8) / [购买推送服务](https://cloud.tencent.com/document/product/548/37242) 操作文档，为您的应用申请试用或者购买推送服务。
+![](https://main.qcloudimg.com/raw/c0324b24ada1e1ffc40d72aa77d3c30f.png)
+3. 在【配置管理】页面上传推送证书，您可以参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664) 操作获取推送证书。
+ ![](https://main.qcloudimg.com/raw/a00e9000d53aa4a3ccb0294ef9e719de.png)
+![](https://main.qcloudimg.com/raw/c4eaeb3f2d9c3fbb42dbb75f2c5c12dc.png)
+
+4. 证书上传完成后，在应用信息一栏中，获取应用Access ID 和 Access KEY。
+
+### 导入 SDK
  -  **方式一：Cocoapods 导入**
 通过 Cocoapods 下载地址：
 ``` 
  pod 'TPNS-iOS' 
 ```
  >?
-    - 首次下载需要登录 [仓库地址](https://git.code.tencent.com/users/sign_in)，并在【账户】菜单栏中设置账号和密码，然后在 Terminal 输入对应的账号和密码。后续即可正常使用，当前 PC 不需要再次登录。
-    - 由于仓库地址变更，pod 如果提示`Unable to find a specification for 'TPNS-iOS'`，需要执行以下命令，并更新仓库确认版本：
+  - 首次下载需要登录 [仓库地址](https://git.code.tencent.com/users/sign_in)，并在【账户】菜单栏中[设置用户名和密码](https://code.tencent.com/help/productionDoc/profile#password)，然后在 Terminal 输入对应的用户名和密码。后续即可正常使用，当前 PC 不需要再次登录。
+  - 由于仓库地址变更，pod 如果提示`Unable to find a specification for 'TPNS-iOS'`，需要执行以下命令，并更新仓库确认版本：
 ``` 
 pod repo update
 pod search TPNS-iOS
@@ -37,34 +44,35 @@ pod install //安装SDK
 ```
  github "xingePush/carthage-TPNS-iOS"
 ```
- 
- - **方式三：手动导入**
+ -  **方式三：手动导入**
 进入腾讯移动推送控制台，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏【下载】即可。
-
-6. 打开 demo 目录下的 SDK 文件夹，将 XGPush.h 及 libXG-SDK-Cloud.a 添加到工程，打开 XGPushStatistics 文件夹，获取 XGMTACloud.framework。
-7. 在 Build Phases 下，添加以下 Framework：
-```
- * XGMTACloud.framework
- * CoreTelephony.framework
- * SystemConfiguration.framework
- * UserNotifications.framework
- * libXG-SDK-Cloud.a 
- * libz.tbd
- * CoreData.framework
- * CFNetwork.framework
- * libc++.tbd
-```
-8. 添加完成后，库的引用如下：
+  - 打开 demo 目录下的 SDK 文件夹，将 XGPush.h 及 libXG-SDK-Cloud.a 添加到工程，打开 ---XGPushStatistics 文件夹，获取 XGMTACloud.framework。
+  - 在 Build Phases 下，添加以下 Framework：
+ 
+        ```
+                * XGMTACloud.framework
+                * CoreTelephony.framework
+                * SystemConfiguration.framework
+                * UserNotifications.framework
+                * libXG-SDK-Cloud.a 
+                * libz.tbd
+                * CoreData.framework
+                * CFNetwork.framework
+                * libc++.tbd
+        ```
+  - 添加完成后，库的引用如下：
 ![](https://main.qcloudimg.com/raw/92f32ba9287713e009988ba8ee962ec8.png)
-9. 在工程配置和后台模式中打开推送，如下图所示：
-![](https://main.qcloudimg.com/raw/549acb8c1cf61c1d2f41de4762baf47b.png)
-10. 添加编译参数 `-ObjC` 。
-![](https://main.qcloudimg.com/raw/b0b74cec883f69fb0287fedc7bad4140.png)
 
+### 工程配置
+1. 在工程配置和后台模式中打开推送，如下图所示：
+![](https://main.qcloudimg.com/raw/549acb8c1cf61c1d2f41de4762baf47b.png)
+2. 添加编译参数 `-ObjC` 。
+![](https://main.qcloudimg.com/raw/b0b74cec883f69fb0287fedc7bad4140.png)
 >! 如 checkTargetOtherLinkFlagForObjc 报错，是因为 build setting 中，Other link flags 未添加 -ObjC。
 
-11. 调用启动腾讯移动推送的 API，并根据需要实现 `XGPushDelegate` 协议中的方法，开启推送服务。
-	1. 启动腾讯移动推送服务， `AppDelegate` 示例如下：
+### 接入样例
+调用启动腾讯移动推送的 API，并根据需要实现 `XGPushDelegate` 协议中的方法，开启推送服务。
+1. 启动腾讯移动推送服务， `AppDelegate` 示例如下：
    ```Objective-C
 @interface AppDelegate () <XGPushDelegate>
 @end 
@@ -78,9 +86,9 @@ pod install //安装SDK
 [[XGPush defaultManager] startXGWithAppID:<#your appID#> appKey:<#your appKey#>  delegate:<#your delegate#>];
 return YES;
 }
-   ```
-	2. 在 `AppDelegate` 中，选择实现 `XGPushDelegate ` 协议中的方法：
-		```objective-c
+ ```
+2. 在 `AppDelegate` 中，选择实现 `XGPushDelegate ` 协议中的方法：
+ ```objective-c
 		/// 统一收到通知消息的回调
 		/// @param notification 消息对象
 		/// @param completionHandler 完成回调
@@ -100,10 +108,38 @@ return YES;
                                                          /// code
 	}
 	#endif
-			 ```
+  ```
 
 
-#### 境外集群接入方法
+## 通知服务扩展插件集成
+为了实现抵达数据上报和富媒体消息的功能，SDK 提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达和发送富媒体消息。
+### 接入方式
+#### 方式一：Cocoapods 导入
+通过 Cocoapods 下载地址：
+
+``` 
+pod 'TPNS-iOS-Extension' 
+```
+**使用说明：**
+1. 创建类型为`Application Extension`的`Notification Service Extension`TARGET，例如`XXServiceExtension`。
+2. 在 Podfile 新增 XXServiceExtension 的配置栏目。
+
+**示例**
+Podfile中增加配置项目后展示效果
+```
+target ‘XXServiceExtension'do
+     pod 'TPNS-iOS-Extension' , '~>1.2.6.1' 
+end
+```
+>? 建议配合 pod 'TPNS-iOS' version 1.2.6.1 及以上版本使用。
+
+
+#### 方式二：手动导入
+接入指南请参见 [通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
+
+>!如果未集成此接口，则统计数据中消息`抵达数`与`点击数`一致。
+
+#### 境外服务接入指引
 1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
 2. 调用头文件中的配置 `HOST` 接口：
  - 如需接入新加坡集群则将 `HOST`设置为 `https://api.tpns.sgp.tencent.com`, `PORT`设置为0。
@@ -116,8 +152,6 @@ return YES;
 >?配置 `HOST` 接口需要在 `startXGWithAppID` 方法之前调用。
 
 
-
-
 ## 调试方法
 #### 开启 Debug 模式
 打开 Debug 模式，即可在终端查看详细的腾讯移动推送 Debug 信息，方便定位问题。
@@ -127,8 +161,6 @@ return YES;
 //打开debug开关
 [[XGPush defaultManager] setEnableDebug:YES];
 ```
-
-
 
 #### 实现 `XGPushDelegate` 协议
 
@@ -196,13 +228,11 @@ return YES;
 ```
 >!如果未做以上配置，则在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
 
-## 集成建议
-#### 通知服务扩展功能（必选）
-为了实现抵达数据上报和富媒体消息的功能，SDK 提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达和发送富媒体消息，强烈建议您实现此接口，接入指南请参见 [通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
->!如果未集成此接口，则统计数据中消息`抵达数`与`点击数`一致。
 
+
+## 集成建议
 <span id="QHToken"></span>
-#### 获取 Token （非必选）
+### 获取 Token
 建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 Token，该操作便于我们后续进行问题排查。
 
 #### 示例代码

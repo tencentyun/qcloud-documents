@@ -3,13 +3,11 @@
 - Encryption Context 的有效值是一个总长度在8192个字符数以内的json字符串，并且只能是 String-String 形式的。当您直接调用 API 填 Encryption Context 的时候，请注意转义的问题。
 
 **无效的 Encryption Context 举例**
-
 ```
-[{"Key":"Value"}] //json数组
-{"Key":12345} //String-int
-{"Key":["value1","value2"]} //String-数组
+[{"Key":"Value"}] //j son数组
+{"Key":12345} // String-int
+{"Key":["value1","value2"]} // String-数组
 ```
-
 
 **等价的 Encryption Context**
 

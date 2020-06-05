@@ -3,11 +3,15 @@
 
 | 资源类型 | 授权策略中资源描述方法 |
 |---------|---------|
-| 当前主账号下的所有的密钥资源 | `qcs::kms:$region:$account:key/*` | 
-|当前子账号下的所有密钥资源|`qcs::kms:$region:$account:key/$creatorAccount/*`|
-|某个特定的密钥资源|`qcs::kms:$region:$account:key/$creatorAccount/$keyId`|
+| 所有的密钥资源 | `qcs::kms:$region:uin/$uin:key/*` | 
+|账号 $creatorUin 创建的所有密钥资源|`qcs::kms:$region:uin/$uin:key/creatorUin/$creatorUin/*`|
+|账号 $creatorUin 创建的 ID 为 $keyId 的密钥资源|`qcs::kms:$region:uin/$uin:key/creatorUin/$creatorUin/$keyId`|
 
-
+其中以$为前缀的单词均为代称：
+- $uin 指代主账号 ID。
+- $region 指代地域。
+- $creatorUin 指代创建该资源的账号 ID。
+- $keyId 指代密钥 ID。
 
 ## 支持资源级授权的 API 列表
 密钥管理系统部分接口支持资源级授权，您可以指定子账号拥有特定资源的接口权限。

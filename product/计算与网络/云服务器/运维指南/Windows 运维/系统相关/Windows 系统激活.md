@@ -37,7 +37,7 @@ w32tm /resync
 1. 登录 Windows 云服务器。
 2. 在操作系统界面，单击【开始】>【运行】，输入`cmd.exe`，打开控制台窗口。
 3. 在控制台窗口依次执行以下命令，即可完成手工运行激活。
- - Windows Server 2008 和 Windows Server 2012 服务器依次执行的命令如下：
+ - Windows Server 2008、Windows Server 2012 和 Windows Server 2019 服务器依次执行的命令如下：
 ```
 cscript /nologo %windir%/system32/slmgr.vbs -skms kms.tencentyun.com:1688
 cscript /nologo %windir%/system32/slmgr.vbs -ato

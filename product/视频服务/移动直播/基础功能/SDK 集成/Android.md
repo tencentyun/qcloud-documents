@@ -46,7 +46,7 @@ defaultConfig {
    下载 [LiveAVSDK](https://cloud.tencent.com/document/product/454/7873) ，下载完成后进行解压。
  
 - **第二步：拷贝 LiteAVSDK 到工程目录**  
-  将下载解压缩之后 SDK 目录下的 aar 文件拷贝到工程的 **app/libs** 目录下：
+  将下载文件解压之后 SDK 目录下的 aar 文件拷贝到工程的 **app/libs** 目录下：
   ![](https://main.qcloudimg.com/raw/0550edd82139cbbfaba3cc656b4fdd9e.png)
   
 - **第三步：指定本地仓库路径**

@@ -4,6 +4,7 @@
 >- 本文档以证书名称 `www.domain.com` 为例。
 >- Nginx 版本以 `nginx/1.16.0` 为例。
 >- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
+>- 安装 SSL 证书前，请您在 Apache 服务器上开启 “443” 端口，避免证书安装后无法启用 HTTPS。判断是否已开启 “443” 端口，可参考 [如何验证443端口是否开启？](https://cloud.tencent.com/document/product/400/45144)
 >
 ## 前提条件
 - 已准备文件远程拷贝软件，例如 WinSCP（建议从官方网站获取最新版本）。
@@ -44,8 +45,7 @@
   - **CSR 文件内容**：	`www.domain.com.csr` 文件
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 2. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Nginx 服务器。
-3. 将已获取到的 `1_www.domain.com_bundle.crt` 证书文件和 `2_www.domain.com.key` 私钥文件从本地目录拷贝到 Nginx 服务器的 `/usr/local/nginx/conf` 目录（此处为默认安装目录，请根据实际情况操作）下。
->? 若无 `/usr/local/nginx/conf` 目录，可通过执行 `mkdir -p /usr/local/nginx/conf` 命令行创建。
+3. 将已获取到的 `1_www.domain.com_bundle.crt` 证书文件和 `2_www.domain.com.key` 私钥文件从本地目录拷贝到 Nginx 服务器的 `/usr/local/nginx/conf` 目录（此处为 Nginx 默认安装目录，请根据实际情况操作）下。
 4. 远程登录 Nginx 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
 5. 编辑 Nginx 根目录下的 `conf/nginx.conf` 文件。修改内容如下：
 >?
@@ -81,7 +81,7 @@ server {
 ```
  - 若存在，请您重新配置或者根据提示修改存在问题。
  - 若不存在，请执行 [步骤7](#step7)。
-<span id="step6"></span>
+<span id="step7"></span>
 7. 重启 Nginx，即可使用 `https://www.domain.com` 进行访问。
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
@@ -92,6 +92,10 @@ server {
  - 在后端程序中添加重定向。
  - 通过 Web 服务器实现跳转。
  - Nginx 支持 rewrite 功能。若您在编译时没有去掉 pcre，您可在 HTTP 的 server 中增加 `return 301 https://$host$request_uri;`，即可将默认80端口的请求重定向为 HTTPS。修改如下内容：
+ >?
+>- 未添加注释的配置语句，您按照下述配置即可。
+>- 由于版本问题，配置文件可能存在不同的写法。例如：Nginx 版本为 `nginx/1.15.0` 以上请使用 `listen 443 ssl` 代替 `listen 443` 和 `ssl on`。
+>
 ```
 server {
    listen 443 ssl;
@@ -120,7 +124,6 @@ server {
     return 301 https://$host$request_uri; 
 }
 ``` 
->?未添加注释的配置语句，您按照上述配置即可。
 2. 若修改完成，重启 Nginx。即可使用 `http://www.domain.com` 进行访问。
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。

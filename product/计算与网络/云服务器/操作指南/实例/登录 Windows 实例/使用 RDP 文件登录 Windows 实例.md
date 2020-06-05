@@ -1,4 +1,6 @@
 ## 操作场景
+以下视频介绍了如何登录 Windows 实例：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2445-39745?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 RDP 是 Remote Desktop Protocol 的缩写，是微软开发的一个多通道的协议，帮助您的本地计算机连上远程计算机。RDP 作为腾讯云推荐登录您 Windows 云服务器的方式。本文介绍如何使用 RDP 文件登录 Windows 实例。
 

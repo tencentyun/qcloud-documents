@@ -6,9 +6,9 @@ OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上
 
 >?
 - OPPO 通道暂不支持应用内消息的发送，此类型的消息会以通知的形式展示。
-- OPPO 通道对应用的每日推送量（包含通知和透传消息）有一定的限制，限制量官方未给出明确说明，超过限制部分会走 TPNS 自建通道进行补推发送。
+- OPPO 通道对应用的每日推送量（包含通知和透传消息）有一定的限制，限制量官方未给出明确说明，超过限制部分会走 TPNS 通道进行补推发送。
 - OPPO 通道需要 OPPO 手机系统 ColorOS V3.1 及以上支持。
-- 应用安装在 OPPO 手机上时，默认通知栏权限是关闭的，可以选择调用 [通知栏权限请求](#qqtz) 接口或自行在应用内引导用户手动开启。
+
 
 
 ## 操作步骤
@@ -27,7 +27,7 @@ Opush 申请开通成功后，您可在 [OPPO 推送平台](https://push.oppo.co
 具体内容为：
 - “通道 ID”：“default_message”
 - “通道名称”：“默认通知”
-        
+
 
 
 ###  配置内容
@@ -61,7 +61,7 @@ implementation 'com.tencent.tpns:oppo:[VERSION]-release'//oppo推送 [VERSION] �
             <action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE"/>
         </intent-filter>
     </service>
-    
+
     <service
         android:name="com.heytap.mcssdk.AppPushService"
         android:permission="com.heytap.mcs.permission.SEND_MCS_MESSAGE">
@@ -73,22 +73,11 @@ implementation 'com.tencent.tpns:oppo:[VERSION]-release'//oppo推送 [VERSION] �
 </application>
 ```
 
-<span id="qqtz"></span>
-### 请求通知栏权限
-1. 在调用腾讯移动推送 `XGPushManager.registerPush`前，调用以下代码：
-```java
-XGPushConfig.enableOppoNotification(getApplicationContext(), true);
-```
-在应用首次启动时弹出通知栏权限请求窗口，应用安装周期内，提示弹窗仅展示一次。需 TPNS-OPPO 依赖包版本在 1.1.5.1 及以上支持，系统 ColorOS 5.0 以上有效。
-
-
-
-
 ### 开启 OPPO 推送
 在调用腾讯移动推送 ```XGPushManager.registerPush``` 之前，调用以下代码：
 ```java
 // 注意这里填入的是 Oppo 的 AppKey，不是AppId
-XGPushConfig.setOppoPushAppId(getApplicationContext(), "Oppo的AppKey"); 
+XGPushConfig.setOppoPushAppId(getApplicationContext(), "Oppo的AppKey");
 // 注意这里填入的是 Oppo 的 AppSecret，不是 AppKey
 XGPushConfig.setOppoPushAppKey(getApplicationContext(), "Oppo的AppSecret");
 //打开第三方推送

@@ -8,7 +8,7 @@
 >- 由于配置访问日志到 COS 功能于2020-06-30 00:00:00正式下线，建议您使用 CLS 存储负载均衡访问日志。
 >- 当前负载均衡仅七层协议（HTTP/HTTPS）支持配置访问日志到 CLS，四层协议（TCP/UDP/TCP SSL）不支持配置访问日志到 CLS。
 - 负载均衡访问日志无需额外付费，您仅需要支付日志服务（CLS）的费用。
-- 当前配置访问日志到 CLS 支持的地域包括：广州、上海、成都、上海金融、深圳金融、香港、多伦多，可直接在控制台使用或通过 API 配置；南京、北京、重庆、新加坡、孟买、硅谷灰度中，如有需求，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
+- 支持配置负载均衡访问日志到 CLS 的地域包括：广州、上海、南京、北京、重庆、成都、上海金融、深圳金融、香港、新加坡、孟买、硅谷、多伦多、法兰克福，可直接在控制台使用或通过 API 配置。
 - 目前 [日志服务（CLS）](https://cloud.tencent.com/document/product/614) 处在内测中，使用前，请提交 [内测申请](https://cloud.tencent.com/act/apply/cloudlog)，并确认审核结果。
 
 ## 开启访问日志
@@ -25,22 +25,33 @@
 ## 查询访问日志
 ### 步骤1：配置日志主题的索引
 >?日志主题必须配置索引，否则检索不到日志。
+>
+建议配置的索引如下：
 
+| 键值索引    | 字段类型 | 分词符 |
+| :---------- | :------- | :----- |
+| server_addr | text     | 无需配置分词符     |
+| server_name | text     | 无需配置分词符     |
+| http_host   | text     | 无需配置分词符     |
+| status      | long     | -     |
+| vip_vpcid   | long     | -     |
+
+具体操作如下：
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。
 2. 在左侧导航中，选择【日志集管理】，进入“日志集管理”列表页。
 3. 单击日志集 ID，进入日志集详情页。
 4. 在日志集详情页，单击日志主题 ID，进入日志主题详情页。
 ![](https://main.qcloudimg.com/raw/2ac7b3725bf4a598a4f9668ed3c80c1c.png)
 5. 在日志主题详情页，选择【索引配置】选项卡，您可以在日志变量中选取部分变量，按需配置索引字段，配置说明请参见 [开启索引](https://cloud.tencent.com/document/product/614/16981)。
-![](https://main.qcloudimg.com/raw/aff66a76b27f5ec0366028e1e9a6ed08.png)
+![](https://main.qcloudimg.com/raw/59262eff6c7f55929aa2b6ad652ec60c.png)
 6. 索引配置完成后结果如下图所示。
-![](https://main.qcloudimg.com/raw/a5c1dfd312827c8fd3945cb0945616fb.png)
+![](https://main.qcloudimg.com/raw/191ba6e00fa17439094f61504433b84f.png)
 
 ### 步骤2：检索访问日志
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)。
 2. 在左侧导航中，选择【检索分析】，进入“检索分析”页面。
 3. 在“检索分析 ”页面中，选择日志集、日志主题和时间范围，单击【检索分析】，即可检索 CLB 上报到 CLS 的访问日志。检索语法详情请参见 [语法与规则](https://cloud.tencent.com/document/product/614/16982)。
-![](https://main.qcloudimg.com/raw/57f74355eb469e59fca7efbe1994d9d0.png)
+![](https://main.qcloudimg.com/raw/1be3bc335e74f30538453133c34349db.png)
 
 ## 日志变量说明
 <table class="table"><thead><tr><th>变量名</th><th>说明</th></tr></thead>

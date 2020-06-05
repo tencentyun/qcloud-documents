@@ -22,7 +22,7 @@ TDSQL 实现水平分表，业务只需在创建表时指定一个分表字段�
 - 视图，存储过程，触发器，游标。
 - 外键，自建分区。
 - 复合语句，如 BEGIN END，LOOP，UNION。
-- 子查询，having 字句（但支持带 shardkey 的 derived table）。
+- 子查询，having 子句（但支持带 shardkey 的 derived table）。
 
 
 ## 语言结构

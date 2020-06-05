@@ -266,13 +266,17 @@ Serverless DB SDK 具备以下特点：
 const database = require('scf-nodejs-serverlessdb-sdk').database;
 
 exports.main_handler = async (event, context, callback) => {
-  let connection = await database().connection();
-  let result = await connection.queryAsync('select * from name');
-  console.log(result);
+  let pool = await database('TESTDB2').pool()
+  pool.query('select * from coffee',(err,results)=>{
+    console.log('db2 callback query result:',results)
+  })
+  // no need to release pool
+ 
+  console.log('db2 query result:',result)
 }
 ```
 
->?Node.js 已知 Bug 需要在函数返回前自行释放连接，在函数结束时调用 `connection.close()`，此 Bug 将在下一个版本修复。
+>?Node.js SDK 具体使用方法请参考 [云函数 Serverless DB Node SDK](https://www.npmjs.com/package/scf-nodejs-serverlessdb-sdk)。
 
 
 ### Python SDK
