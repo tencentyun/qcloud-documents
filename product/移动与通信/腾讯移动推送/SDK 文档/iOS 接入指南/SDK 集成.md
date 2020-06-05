@@ -225,8 +225,8 @@ TPNS iOS SDK 1.2.5.3 以下版本，在调试阶段建议实现协议中的此�
 ```
 
 >!
-- 应用在前台收到消息后，不管点不点击消息都会走 xgPushDidReceiveRemoteNotification 统一接收消息回调。 
-- 不建议自行实现接口 application:didReceiveRemoteNotification:fetchCompletionHandler ，SDK 内部已处理。
+- 当应用在前台收到通知消息时，会触发统一接收消息回调 xgPushDidReceiveRemoteNotification。
+- 如实现了统一接收消息回调 xgPushDidReceiveRemoteNotification 请不要再实现 application:didReceiveRemoteNotification:fetchCompletionHandler。
 
 ## 高级配置（可选）
 <span id="zhuxiao"></span>
