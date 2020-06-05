@@ -12,7 +12,7 @@
 | uid                | 是      | String   | 用户 ID 不同的 accountType 对应不同的用户 ID。如果是 QQ，则填入对应的 openid，微信用户则填入对应的 openid/unionid，手机号则填入对应真实用户手机号（如13123456789）。<br>accountType 为8时，支持 imei、idfa、imeiMD5、idfaMD5 入参。<br>注：imeiMd5 加密方式为：imei 明文小写后，进行 MD5 加密，加密后取小写值。IdfaMd5 加密方式为：idfa 明文大写后，进行 MD5 加密，加密后取小写值。     |
 | userIp             | 是      | String   | 用户领取奖励时的真实外网 IP。                                   |
 | postTime           | 是      | Uint     | 用户操作时间戳，单位秒（格林威治时间精确到秒，如1501590972）。 |
-| appId              | 否      | String   | accountType 是QQ或微信开放账号时，该参数必填，表示 QQ 或微信分配给网站或应用的 AppID，用来唯一标识网站或应用。 |
+| appId              | 否      | String   | accountType 是 QQ 开放账号时，该参数必填，表示 QQ 开放平台分配给网站或应用的 AppID，用来唯一标识网站或应用。 |
 | nickName           | 否      | String   | 昵称，UTF-8 编码。                                             |
 | phoneNumber        | 否      | String   | 手机号。若 accountType 选4（手机号）、或10004（手机号 MD5），则无需重复填写。否则填入对应的手机号（如15912345687）。 |
 | emailAddress       | 否      | String   | 用户邮箱地址（非系统自动生成）。                               |
