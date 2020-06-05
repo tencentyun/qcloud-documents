@@ -45,9 +45,30 @@ dependencies {
 }
 ```
 
->!1. 如果您的应用服务接入点为广州，SDK 默认实现该配置。
-2. 如果您的应用服务接入点为新加坡或者中国香港，请按照下文“境外服务接入点配置”步骤完成配置。
+>!
+1. 服务接入点
+ - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
+ - 如果您的应用服务接入点为新加坡或者中国香港，请按照下文 [境外服务接入点配置](#jingwai) 步骤完成配置。
+2. 其他提示
+ - 如在添加以上 abiFilter 配置后， Android Studio 出现以下提示：
+NDK integration is deprecated in the current plugin. Consider trying the new experimental plugin，则在 Project 根目录的 gradle.properties 文件中添加  `android.useDeprecatedNdk=true`。
+ - 如需监听消息请参考 XGPushBaseReceiver 接口或 demo 的 MessageReceiver 类。自行继承 XGPushBaseReceiver 并且在配置文件中配置如下内容（请勿在 receiver  里处理耗时操作）：
+```xml
+<receiver android:name="com.tencent.android.xg.cloud.demo.MessageReceiver">
+    <intent-filter>
+        <!-- 接收消息透传 -->
+        <action android:name="com.tencent.android.xg.vip.action.PUSH_MESSAGE" />
+        <!-- 监听注册、反注册、设置/删除标签、通知被点击等处理结果 -->
+        <action android:name="com.tencent.android.xg.vip.action.FEEDBACK" />
+    </intent-filter>
+</receiver>
+```
+ - 如需兼容 Android P，需要添加使用 Apache HTTP client 库，在 AndroidManifest 的 application 节点内添加以下配置即可。
+```
+<uses-library android:name="org.apache.http.legacy" android:required="false"/>
+```
 
+<span id="jingwai"></span>
 #### 境外服务接入点配置
 1. 在 Androidanifest 文件 application 标签内添加以下元数据：
 ```
@@ -67,24 +88,8 @@ dependencies {
 2. 境外域名:
  - 中国香港：`https://api.tpns.hk.tencent.com`。
  - 新加坡：`https://api.tpns.sgp.tencent.com`。
-3. 注意事项：
- - 如在添加以上 abiFilter 配置后， Android Studio 出现以下提示：
-NDK integration is deprecated in the current plugin. Consider trying the new experimental plugin，则在 Project 根目录的 gradle.properties 文件中添加  `android.useDeprecatedNdk=true`。
- - 如需监听消息请参考 XGPushBaseReceiver 接口或 demo 的 MessageReceiver 类。自行继承 XGPushBaseReceiver 并且在配置文件中配置如下内容（请勿在 receiver  里处理耗时操作）：
-```xml
-<receiver android:name="com.tencent.android.xg.cloud.demo.MessageReceiver">
-    <intent-filter>
-        <!-- 接收消息透传 -->
-        <action android:name="com.tencent.android.xg.vip.action.PUSH_MESSAGE" />
-        <!-- 监听注册、反注册、设置/删除标签、通知被点击等处理结果 -->
-        <action android:name="com.tencent.android.xg.vip.action.FEEDBACK" />
-    </intent-filter>
-</receiver>
-```
- - 如需兼容 Android P，需要添加使用 Apache HTTP client 库，在 AndroidManifest 的 application 节点内添加以下配置即可。
-```
-<uses-library android:name="org.apache.http.legacy" android:required="false"/>
-```
+
+
 
 
 ###  Android Studio 手动集成
