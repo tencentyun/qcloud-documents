@@ -1,9 +1,6 @@
 ## 操作场景
 
-NTPD（Network Time Protocol daemon）是 Linux 操作系统的一个守护进程，用于校正本地系统与时钟源服务器之前的时间，完整的实现了 NTP 协议。NTPD 与 NTPDate 的区别是 NTPD 是步进式的逐渐校正时间，不会出现时间跳变，而 NTPDate 是断点更新。本文档以 CentOS 7.5 操作系统云服务器为例，介绍如何安装和配置 NTPD，以及如何将 NTPDate 转换为 NTPD。
-- 如果您的云服务器未安装 NTPD 或者 NTPDate，请参阅 [安装和配置 NTPD](#InstallAndConfigureNTPD)。
-- 如果您的云服务器安装了 NTPDate，现在想转换为 NTPD，请参阅 [将 NTPDate 转换为 NTPD](#ConvertNTPDateToNTPD)。
-
+NTPD（Network Time Protocol daemon）是 Linux 操作系统的一个守护进程，用于校正本地系统与时钟源服务器之前的时间，完整的实现了 NTP 协议。NTPD 与 NTPDate 的区别是 NTPD 是步进式的逐渐校正时间，不会出现时间跳变，而 NTPDate 是断点更新。本文档以 CentOS 7.5 操作系统云服务器为例，介绍如何安装和配置 NTPD。
 
 ## 注意事项
 
@@ -15,9 +12,7 @@ NTPD（Network Time Protocol daemon）是 Linux 操作系统的一个守护进�
 
 ## 操作步骤
 
-<span id="InstallAndConfigureNTPD"></span>
-### 安装和配置 NTPD
-#### 安装 NTPD
+### 安装 NTPD
 
 执行以下命令，判断是否安装 NTPD。
 ```
@@ -31,7 +26,7 @@ yum -y install ntp
 ```
 NTPD 默认为客户端运行方式。
 
-#### 配置 NTP
+### 配置 NTP
 1. 执行以下命令，打开 NTP 服务配置文件。
 ```
 vi /etc/ntp.conf
@@ -40,14 +35,14 @@ vi /etc/ntp.conf
 ![server设置](https://main.qcloudimg.com/raw/643dc5bbd2a42307ec10b5d38f756dda.png)
 3. 按 **Esc**，输入 **:wq**，保存文件并返回。
 
-#### 启动 NTPD
+### 启动 NTPD
 
 执行以下命令，重启 NTPD 服务。
 ```
 systemctl restart ntpd.service
 ```
 
-#### 检查 NTPD 状态
+### 检查 NTPD 状态
 
 根据实际需求，执行以下不同的命令，检查 NTPD 的状态。 
 - 执行以下命令，查看 NTP 服务端口 UDP 123 端口是否被正常监听。
@@ -85,7 +80,7 @@ ntpq -p
  - **offset**：主机通过 NTP 时钟同步与所同步时间源的时间偏移量，单位为毫秒（ms）。offset 越接近于0，主机和 NTP 服务器的时间越接近。
  - **jitter**：用来做统计的值。统计在特定连续的连接数里 offset 的分布情况。即 jitter 数值的绝对值越小，主机的时间就越精确。
 
-#### 设置 NTPD 为开机启动
+### 设置 NTPD 为开机启动
 
 1. 执行以下命令，将 NTPD 设置为开机自启动。
 ```
@@ -101,7 +96,7 @@ chrony 与 NTPD 冲突，可能引起 NTPD 开机启动失败。
 systemctl disable chronyd.service
 ```
 
-#### 增强 NTPD 安全性
+### 增强 NTPD 安全性
 
 依次执行以下命令，为 `/etc/ntp.conf` 配置文件增加安全性。
 ```
@@ -110,47 +105,3 @@ interface ignore wildcard
 ```
 interface listen eth0
 ```
-
-<span id="ConvertNTPDateToNTPD"></span>
-### 将 NTPDate 转换为 NTPD
-NTPDate 为断点更新，NTPD 为步进式的逐渐校正时间。对新购实例，您可以使用 NTPDate 同步时间。对已经承载有运行中业务的实例，建议您使用 NTPD 同步时间。
-
-#### 手动将 NTPDate 转换为 NTPD
-##### 关闭 NTPDate
-1. 执行以下命令，导出 crontab 配置，并过滤 NTPDate。
-```
-crontab -l |grep -v ntpupdate > /tmp/cronfile
-```
-2. 执行以下命令，更新 NTPDate 配置。
-```
-crontab /tmp/cronfile
-```
-3. 执行以下命令，修改 `rc.local` 文件。
-```
-vim rc.local
-```
-4. 按 “**i**” 切换至编辑模式，删除 ntpupdate 配置行。
-5. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
-
-##### 配置 NTPD
-1. 执行以下命令，打开 NTP 服务配置文件。
-```
-vi /etc/ntp.conf
-```
-2. 按 **i** 切换至编辑模式，找到 server 相关配置，将 server 修改为您需要设置的目标 NTP 时钟源服务器（例如 `time1.tencentyun.com`），并删除暂时不需要的 NTP 时钟源服务器。如下图所示：
-![server设置](https://main.qcloudimg.com/raw/643dc5bbd2a42307ec10b5d38f756dda.png)
-3. 按 **Esc**，输入 **:wq**，保存文件并返回。
-
-
-#### 自动将 NTPDate 转换为 NTPD
-1. 下载 `ntpd_enable.sh` 脚本。
-```
-wget https://image-10023284.cos.ap-shanghai.myqcloud.com/ntpd_enable.sh
-```
-2. 执行以下命令，使用 `ntpd_enable.sh` 脚本将 NTPDate 转换为 NTPD。
-```
-sh ntpd_enable.sh
-```
-
-
-
