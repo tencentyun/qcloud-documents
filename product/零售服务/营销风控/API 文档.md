@@ -287,7 +287,7 @@
 https://csec.api.qcloud.com/v2/index.php?
 Action=IntelligentQRCode
 &<公共请求参数>
-&secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
+&secretId=AKI*****************************q4Zw
 &accountType=1
 &cookie = "asdasldkjaslkjdsfjlsad" //用户 HTTP 请求中的 cookie 进行2次 hash 的值
 &goodInfo="good"  //业务侧自定义内容
