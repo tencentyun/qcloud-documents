@@ -41,7 +41,7 @@
       <td>appId</td>
       <td>可选</td>
       <td>String</td>
-      <td>accountType 是 QQ 或微信开放账号时，该参数必填，表示 QQ 或微信分配给网站或应用的 appId，用来唯一标识网站或应用。</td>
+      <td>accountType 是 QQ 开放账号时，该参数必填，表示 QQ 开放平台分配给网站或应用的 AppID，用来唯一标识网站或应用。</td>
    </tr>
    <tr>
       <td>goodInfo</td>
