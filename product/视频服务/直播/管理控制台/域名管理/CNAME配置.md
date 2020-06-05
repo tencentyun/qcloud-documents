@@ -138,4 +138,4 @@
 ![](https://main.qcloudimg.com/raw/8bad41428852a7c32111933b33e8853c.png)
 
 
->!若 CNAME 设置完成后长时间未显示成功，可参考 [CNAME 配置问题定位。](https://cloud.tencent.com/document/product/267/30010#.E9.85.8D.E7.BD.AE.E5.AE.8C.E6.88.90-cname-.E5.90.8E.EF.BC.8C.E4.BE.9D.E6.97.A7.E6.98.BE.E7.A4.BA-cname-.E6.9C.AA.E9.85.8D.E7.BD.AE.E6.98.AF.E4.BB.80.E4.B9.88.E5.8E.9F.E5.9B.A0.EF.BC.9F)
+>!若 CNAME 设置完成后长时间未显示成功，可参考 [CNAME 配置问题定位。](https://cloud.tencent.com/document/product/267/45252)
