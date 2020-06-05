@@ -80,7 +80,7 @@ inputs:
 
 
 ### 编写业务代码
-1. 在 `test-postgreSQL` 创建文件夹 `api`，用于存放业务逻辑代码和相关依赖项。
+1. 在 `test-postgreSQL` 下创建文件夹 `api`，用于存放业务逻辑代码和相关依赖项。
 2. 在文件夹 `api` 下创建文件夹 `src`，并进入该目录。
 3. 在 `src` 文件夹下，创建 `index.js` 文件，并输入如下示例代码。在函数中通过 Serverless DB SDK 创建连接池，并调用数据库。
 ```
