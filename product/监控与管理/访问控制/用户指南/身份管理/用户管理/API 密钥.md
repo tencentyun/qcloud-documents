@@ -13,14 +13,14 @@
  > - API 密钥是构建腾讯云 API 请求的重要凭证，为了您的财产和服务安全，请妥善保存和定期更换密钥，当您更换密钥后，请及时删除旧密钥。
  
 ### 查看子用户/协作者 API 密钥
-您可以查看和复制子用户/协作者 API 密钥的 SecretId 和 SecretKey 信息，子用户/协作者可通过 SecretId 和 SecretKey 在权限范围内使用 API、SDK 或其他开发工管理主账号下的资源。
+您可以查看和复制子用户/协作者 API 密钥的 SecretId 和 SecretKey 信息，子用户/协作者可通过 SecretId 和 SecretKey 在权限范围内使用 API、SDK 或其他开发工具管理主账号下的资源。
 1. 在用户详情页面，单击【API 密钥】，进入 API 密钥管理页面。
 2. 在 API 密钥管理页面，进行以下操作可以查看和复制 API 密钥的 SecretId 和 SecretKey 信息，API 密钥是构建腾讯云 API 请求的重要凭证，为了您的财产和服务安全，请妥善保存和定期更换密钥，当您更换密钥后，请及时删除旧密钥。
  > - SecretId：在密钥列可直接查看，单击 ![](https://main.qcloudimg.com/raw/f76547dfc5a0b8982a714011026f3244.png) 可复制保存相关信息。
  > - SecretKey：在密钥列单击【显示】，完成身份验证后，可直接查看，单击 ![](https://main.qcloudimg.com/raw/f76547dfc5a0b8982a714011026f3244.png) 可复制保存相关信息。
 
 ### 查看当前子用户/协作者 API 密钥
-具有 **QcloudCollApiKeyReadOnlyAccess 策略** 权限的用户可以查看和复制当前账号 API 密钥的 SecretId 和 SecretKey 信息，通过 SecretId 和 SecretKey 在权限范围内使用 API、SDK 或其他开发工管理主账号下的资源。
+具有 **QcloudCollApiKeyReadOnlyAccess 策略** 权限的用户可以查看和复制当前账号 API 密钥的 SecretId 和 SecretKey 信息，通过 SecretId 和 SecretKey 在权限范围内使用 API、SDK 或其他开发工具管理主账号下的资源。
 1. 进入 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，在密钥对列可直接获取复制 SecretId。
 2. 在密钥对列，单击【显示】，完成身份验证，可以获取复制SecretKey。
 

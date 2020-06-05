@@ -1,4 +1,4 @@
->! 为保障基础服务的稳定性，TRTC 的官方 Demo 近期进行例行技术维护，未来几天将暂停服务，请耐心等待。
+
 
 <table style="text-align:center;vertical-align:middle;">
   <tr>
