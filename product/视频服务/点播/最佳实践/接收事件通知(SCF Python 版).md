@@ -96,7 +96,7 @@ ubuntu@VM-69-2-ubuntu:~$ export SECRET_ID=AKxxxxxxxxxxxxxxxxxxxxxxx; export SECR
 ### 系统框架
 
 Key 防盗链主要涉及四个组成部分：控制台、API 网关、云函数和云点播，其中 API 网关和云函数即是本 Demo 的部署对象。如下图所示：
-<img src="https://main.qcloudimg.com/raw/f8c60cfc1592f5fa752b77996dad8324.png" width="550">
+<img src="https://main.qcloudimg.com/raw/f8c60cfc1592f5fa752b77996dad8324.png" width="500">
 
 ### 接口协议
 
