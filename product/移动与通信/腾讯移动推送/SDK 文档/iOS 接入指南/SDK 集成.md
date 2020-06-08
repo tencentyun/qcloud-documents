@@ -139,7 +139,7 @@ withCompletionHandler:(void (^)(void))completionHandler {
 pod 'TPNS-iOS-Extension' 
 ```
  - **使用说明：**
-1. 创建类型为` Application Extension `的` Notification Service Extension `TARGET，例如`XXServiceExtension`。
+1. 创建类型为 `Application Extension` 的 `Notification Service Extension` TARGET，例如 `XXServiceExtension`。
 2. 在 Podfile 新增 XXServiceExtension 的配置栏目。
  - **示例**
 Podfile 中增加配置项目后展示效果：
@@ -154,7 +154,6 @@ end
 
 #### 方式二：手动导入
 接入指南请参见 [通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
-
 
 
 ## 调试方法
