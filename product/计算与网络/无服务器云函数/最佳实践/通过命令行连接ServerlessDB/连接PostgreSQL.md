@@ -17,9 +17,12 @@ Components: 2.30.1
 
 ## 操作步骤
 本文以 Node.js 开发语言的函数为例，介绍如何通过 Serverless Framework 组件编写创建函数，并访问 PostgreSQL 数据库。配置流程如下：
-1. 创建私有网络：通过 [Serverless Framework VPC 组件](https://cloud.tencent.com/document/product/1154/43005) 创建 **VPC** 和 **子网**，支持云函数和数据库的网络打通和使用。
-2. 创建 PostgreSQL 实例：通过 [Serverless Framework PostgreSQL 组件](https://cloud.tencent.com/document/product/1154/43004 ) 创建 PostgreSQL 实例，为云函数项目提供数据库服务。
-3. 通过 Serverless DB SDK 调用数据库：云函数支持直接调用 Serverless DB SDK，连接 PostgreSQL 数据库进行管理操作。
+1. **配置身份信息**：在本地配置腾讯云账户信息。
+1. **配置私有网络**：通过 [Serverless Framework VPC 组件](https://cloud.tencent.com/document/product/1154/43005) 创建 **VPC** 和 **子网**，支持云函数和数据库的网络打通和使用。
+2. **配置 Serverless DB**：通过 [Serverless Framework PostgreSQL 组件](https://cloud.tencent.com/document/product/1154/43004 ) 创建 PostgreSQL 实例，为云函数项目提供数据库服务。
+3. **编写业务代码**：通过 Serverless DB SDK 调用数据库，云函数支持直接调用 Serverless DB SDK，连接 PostgreSQL 数据库进行管理操作。
+4. **部署与调试**：通过 Serverless Framework 部署项目至云端，并通过云函数控制台进行测试。
+5. **移出项目**：可通过 Serverless Framework 移除项目。
 
 
 ### 配置身份信息
@@ -129,7 +132,7 @@ inputs:
 ```
 
 ### 部署与调试
-1. 使用命令行在 `test-postgreSQL` 下，执行以下命令进行部署。
+1. 通过命令行，在 `test-postgreSQL` 目录下，执行以下命令进行部署。
 ```
 sls deploy --all
 ```
