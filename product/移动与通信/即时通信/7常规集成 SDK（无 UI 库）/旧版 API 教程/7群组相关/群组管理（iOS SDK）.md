@@ -377,7 +377,7 @@ fail | 失败回调
 - **私有群：**全员可退出群组。
 - **公开群、聊天室、直播大群：**群主不能退出。
 
-详情请参见 [群成员操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E6.88.90.E5.91.98.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。
+详情请参见 [成员管理能力差异](https://cloud.tencent.com/document/product/269/1502#.E6.88.90.E5.91.98.E7.AE.A1.E7.90.86.E8.83.BD.E5.8A.9B.E5.B7.AE.E5.BC.82)。
 
 **原型：**
 
@@ -420,7 +420,7 @@ fail | 失败回调
 群组成员也可以删除其他成员，函数参数信息与加入群组相同。
 
 **权限说明：**
-详情请参见 [群成员操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E6.88.90.E5.91.98.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。
+详情请参见 [成员管理能力差异](https://cloud.tencent.com/document/product/269/1502#.E6.88.90.E5.91.98.E7.AE.A1.E7.90.86.E8.83.BD.E5.8A.9B.E5.B7.AE.E5.BC.82)。
 
 **原型：**
 
