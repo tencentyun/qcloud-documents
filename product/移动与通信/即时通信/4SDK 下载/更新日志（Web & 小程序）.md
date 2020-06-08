@@ -1,3 +1,15 @@
+### 2.7.0 @2020.6.8
+
+**新增**
+
+支持 C2C 消息已读回执（即对端是否阅读了你发的消息），详细请参考事件 [TIM.EVENT.MESSAGE_READ_BY_PEER](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_READ_BY_PEER)，对端已读的 [消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)，`isPeerRead` 属性值为 `true`。
+
+**修复**
+
+- 加入聊天室(ChatRoom)后新创建的会话没有展示最近一条消息。
+- 登录后未加入音视频聊天室（AVChatRoom）却可以向音视频聊天室（AVChatRoom） 发送消息。
+
+
 ### 2.6.6 @2020.5.27
 
 **修复**
