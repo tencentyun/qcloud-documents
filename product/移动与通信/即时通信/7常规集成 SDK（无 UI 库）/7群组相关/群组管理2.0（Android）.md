@@ -308,7 +308,7 @@ public void getGroupMemberList(long nextSeq) {
 
 
 ### 获取群成员资料
-调用 [getGroupMembersInfo](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMGroupManager.html#adb08e1c4fa9aff407c7b2678757f66d5) 可以获取群成员资料，该接口支持批量获取，您可以一次传入多个 `userID` 获取多个群的群资料，从而提升网络传输效率。
+调用 [getGroupMembersInfo](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMGroupManager.html#adb08e1c4fa9aff407c7b2678757f66d5) 可以获取群成员资料，该接口支持批量获取，您可以一次传入多个 `userID` 获取多个群成员的资料，从而提升网络传输效率。
 
 ### 修改群成员的群名片
 群主或管理员可以调用 [setGroupMemberInfo](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMGroupManager.html#a6f1cf8ede41348b4cd7b63b8e4caa77b) 接口修改群成员的群名片（`nameCard`）、 群成员角色（`role`）以及禁言时间（`muteUntil`）等与群相关的资料。
