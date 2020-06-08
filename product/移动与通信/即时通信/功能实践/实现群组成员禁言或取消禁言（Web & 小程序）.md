@@ -6,9 +6,9 @@
 - 群组类型限制
  <table>
 <tr>
-<th width="25%">好友工作群（Work，或旧版的 Private）</th>
+<th width="25%">好友工作群（Work 或旧版的 Private）</th>
 <th width="25%">陌生人交友群（Public）</th>
-<th width="25%">临时会议群（Meeting，或旧版的 ChatRoom）</th>
+<th width="25%">临时会议群（Meeting 或旧版的 ChatRoom）</th>
 <th width="25%">直播群（AvChatRoom）</th>
 </tr>
 <tr>
