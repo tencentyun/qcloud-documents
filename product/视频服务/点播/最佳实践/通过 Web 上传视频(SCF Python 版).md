@@ -4,7 +4,9 @@
 
 ### Demo 功能介绍
 
-本 Demo 主要用于向开发者展示云点播（VOD）[Web 上传 SDK](https://cloud.tencent.com/document/product/266/9239)  的使用方法。Demo 基于云函数（SCF） 搭建了两个 HTTP 服务：第一个服务用于接收来自浏览器的获取 [客户端上传签名](https://cloud.tencent.com/document/product/266/9221) 请求，计算上传签名并返回；第二个服务用于提供一个 Web 页面，用户可以通过浏览器访问该页面，并上传本地视频到 VOD。
+本 Demo 主要用于向开发者展示云点播（VOD）[Web 上传 SDK](https://cloud.tencent.com/document/product/266/9239) 的使用方法。Demo 基于云函数（SCF）搭建了两个 HTTP 服务：
+- 第一个服务用于接收来自浏览器获取 [客户端上传签名](https://cloud.tencent.com/document/product/266/9221) 的请求，计算上传签名并返回。
+- 第二个服务用于提供一个 Web 页面，用户可以通过浏览器访问该页面，并上传本地视频到 VOD。
 
 ### 费用
 
