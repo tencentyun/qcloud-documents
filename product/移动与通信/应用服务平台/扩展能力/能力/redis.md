@@ -60,7 +60,7 @@ exports.main = async (event, context, callback) => {
 
 ## 其它
 ### 云函数的运行机制
-云函数的运行机制，请参考 [深入理解云函数](https://cloud.tencent.com/document/product/876/41764)
+云函数的运行机制，请参考 [深入理解云函数](https://cloud.tencent.com/document/product/876/41764)。
 
 
 ### 私有网络
@@ -71,10 +71,10 @@ exports.main = async (event, context, callback) => {
 
 关于 Redis 连接，推荐阅读 Redis 官方博客的博文 [Redis Clients Handling](https://redis.io/topics/clients)。
 
-Redis 连接数的配置参数 `maxclients`，默认是10000，如果需要修改请联系客服。
+Redis 连接数的配置参数 `maxclients`，默认是10000，如果需要修改请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
 
-云函数中使用 Redis，每个云函数实例与 Redis Server 都会有连接，那么此云函数与 Redis 的最大连接数是，单个实例的最大连接数 \* 实际运行的最大并发数；在配置 Redis 的 `maxclients` 的时候，此参数应该大于使用此数据库的所有云函数的最大连接数之和。
+云函数中使用 Redis 时，每个云函数实例与 Redis Server 都会有连接，那么此云函数与 Redis 的最大连接数是，单个实例的最大连接数 \* 实际运行的最大并发数；在配置 Redis 的 `maxclients` 的时候，此参数应该大于使用此数据库的所有云函数的最大连接数之和。
 
 因此，在云函数中使用 Redis，建议您将使用到同一个 Redis 实例的所有读写 Redis 的代码集中到一个云函数中，这样做有两个好处：
-- 云函数出现冷启动的概率比较低
+- 云函数出现冷启动的概率比较低。
 - Redis 的最大连接数较小，减少连接数多内存的占用。
