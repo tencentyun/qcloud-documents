@@ -1,4 +1,5 @@
 <head><link rel="stylesheet" href="https://doc-archer-1255486055.cos.ap-nanjing.myqcloud.com/archer.css"></head>
+
 您可将弹性公网 IP（EIP）绑定到 CVM 实例、NAT 网关等云资源上，利用 EIP 灵活地容灾与提供公网通信服务等。
 
 ## 费用说明
@@ -17,7 +18,7 @@
 <td>EIP 本身不收取任何费用，仅在 CVM 上收取 <a href="https://cloud.tencent.com/document/product/213/10578" target="_blank">公网网络费用</a>。</td>
 </tr>
 <tr>
-<td rowspan="3">带宽上移账户</td>
+<td rowspan="4">带宽上移账户</td>
 <td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#1" target="_blank">按流量</a></td>
 <td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a>。</td>
 </tr>
@@ -28,6 +29,10 @@
 <tr>
 <td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#2" target="_blank">按小时带宽</a></td>
 <td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a>。</td>
+</tr>
+<tr>
+<td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#.E5.85.B1.E4.BA.AB.E5.B8.A6.E5.AE.BD.E5.8C.85" target="_blank">共享带宽包</a></td>
+<td>该 EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a>。若该共享带宽包中还加入了其他 EIP，其他 EIP 的收费不受影响。</td>
 </tr>
 </tbody></table>
 
@@ -40,8 +45,7 @@
 ## 操作步骤
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)。
 2. 在 EIP 管理页面，选择需要绑定云资源的 EIP 的地域，并在对应 EIP 的操作栏下，单击【更多】>【绑定】。
->? 若绑定时，EIP 已绑定云资源，请先解绑，例如，需更换故障 CVM 实例的 EIP 到健康的 CVM 实例上。
->
+> ? 若绑定时，EIP 已绑定云资源，请先解绑，例如，需更换故障 CVM 实例的 EIP 到健康的 CVM 实例上。
 3. 在弹出的“绑定资源”窗口中，选择 EIP 要绑定的云资源，单击【确定】。
  <table>
 <thead>
