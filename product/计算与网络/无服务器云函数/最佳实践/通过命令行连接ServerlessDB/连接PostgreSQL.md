@@ -113,6 +113,7 @@ org: fullstack
 app: fullstack-serverless-db
 stage: dev
 component: scf
+name: fullstack-serverless-db
 inputs:
      name: ${app}
      src:
