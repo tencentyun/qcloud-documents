@@ -3,7 +3,7 @@
 TPG 是腾讯推出的自研图片格式，可在保证图片观感的情况下实现有效压缩，支持 JPG、PNG、WEBP、GIF 等格式的转换。您可通过数据万象控制台开通服务，开通后，对于当前存储桶中的图片资源，使用相应的图片压缩接口即可实现下载时处理。
 
 >!
-> - TPG 是腾讯自研的图片格式，如需使用请确认图片加载环境支持 TPG 解码，腾讯云音视频实验室提供集成 TPG 解码器的 IOS、Android、Windows 终端 SDK，可帮助您快速接入和使用 TPG，详见 [SDK 下载](https://cloud.tencent.com/document/product/875/18366) 文档。
+> - TPG 是腾讯自研的图片格式，如需使用请确认图片加载环境支持 TPG 解码，腾讯云音视频实验室提供集成 TPG 解码器的 iOS、Android、Windows 终端 SDK，可帮助您快速接入和使用 TPG，详见 [SDK 下载](https://cloud.tencent.com/document/product/875/18366) 文档。
 > - TPG 压缩为付费服务，具体费用可查看 [计费项](https://cloud.tencent.com/document/product/1246/45274)。
 
 ## 操作步骤
