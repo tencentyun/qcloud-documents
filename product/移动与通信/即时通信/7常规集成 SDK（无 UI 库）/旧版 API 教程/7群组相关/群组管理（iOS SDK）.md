@@ -253,7 +253,7 @@ fail|失败回调
 
 **权限说明：**
 
-详情请参见 [群成员操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E6.88.90.E5.91.98.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。 
+详情请参见 [加群方式差异](https://cloud.tencent.com/document/product/269/1502#.E5.8A.A0.E7.BE.A4.E6.96.B9.E5.BC.8F.E5.B7.AE.E5.BC.82)。 
 
 **原型：**
 
@@ -476,7 +476,7 @@ NSMutableArray * members = [[NSMutableArray alloc] init];
 - **任何群组类型：**都可以获取成员列表。
 - **直播大群：**只能拉取部分成员（包括群主、管理员和部分成员）。
 
-详情请参见 [群组操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E7.BB.84.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。 
+详情请参见 [群组基础能力操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E7.BB.84.E5.9F.BA.E7.A1.80.E8.83.BD.E5.8A.9B.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。 
 
 **原型：**
 
