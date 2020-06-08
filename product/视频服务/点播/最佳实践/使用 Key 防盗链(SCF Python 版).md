@@ -1,7 +1,11 @@
-本 Demo 主要用于向开发者展示云点播（VOD）[Key 防盗链](https://cloud.tencent.com/document/product/266/14047)  机制的使用方法。Demo 基于云函数（SCF）搭建了一个 HTTP 服务，用于接收来自客户端获取防盗链的签名请求。服务从请求 Body 中获取 VOD 的视频原始 URL，计算防盗链签名，并返回带防盗链签名的 URL 给客户端。
+
 
 ## 使用须知
 
+### Demo 功能介绍
+本 Demo 主要用于向开发者展示云点播（VOD）[Key 防盗链](https://cloud.tencent.com/document/product/266/14047)  机制的使用方法。Demo 基于云函数（SCF）搭建了一个 HTTP 服务，用于接收来自客户端获取防盗链的签名请求。服务从请求 Body 中获取 VOD 的视频原始 URL，计算防盗链签名，并返回带防盗链签名的 URL 给客户端。
+
+### 费用
 本文提供的云点播 Key 防盗链签名派发服务 Demo 是免费开源的，但在搭建和使用的过程中可能会产生以下费用：
 
 - 购买腾讯云云服务器（CVM）用于执行服务部署脚本，详见 [CVM 计费](https://cloud.tencent.com/document/product/213/2180)。
