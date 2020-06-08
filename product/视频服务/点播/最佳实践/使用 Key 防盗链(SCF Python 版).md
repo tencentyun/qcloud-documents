@@ -1,10 +1,6 @@
+本 Demo 主要用于向开发者展示云点播（VOD）[Key 防盗链](https://cloud.tencent.com/document/product/266/14047)  机制的使用方法。Demo 基于云函数（SCF）搭建了一个 HTTP 服务，用于接收来自客户端获取防盗链的签名请求。服务从请求 Body 中获取 VOD 的视频原始 URL，计算防盗链签名，并返回带防盗链签名的 URL 给客户端。
+
 ## 使用须知
-
-### Demo 功能介绍
-
-本 Demo 主要用于向开发者展示云点播（VOD）[Key 防盗链](https://cloud.tencent.com/document/product/266/14047)  机制的使用方法。Demo 基于云函数（SCF） 搭建了一个 HTTP 服务，用于接收来自客户端的获取防盗链签名请求。服务从请求 Body 中获取 VOD 的视频原始 URL，计算防盗链签名，并返回带防盗链签名的 URL 给客户端。
-
-### 费用
 
 本文提供的云点播 Key 防盗链签名派发服务 Demo 是免费开源的，但在搭建和使用的过程中可能会产生以下费用：
 
@@ -28,18 +24,15 @@
 购买 CVM 的方法请参见 [操作指南 - 创建实例](https://cloud.tencent.com/document/product/213/4855)。重装系统的方法请参见 [操作指南 - 重装系统](https://cloud.tencent.com/document/product/213/4933)。
 
 >!
->
 >- Key 防盗链签名派发服务 Demo 本身并不依赖于 CVM，仅使用 CVM 来执行部署脚本。
->
 >- 如果您没有符合上述条件的腾讯云 CVM，也可以在其它带外网的 Linux（如 CentOS、Debian 等）或 Mac 机器上执行部署脚本，但需根据操作系统的区别修改脚本中的个别命令，具体修改方式请开发者自行搜索。
 
 ### 步骤2：开通云点播并配置 Key 防盗链<span id="p2"></span>
 
-请参考 [快速入门 - 步骤1](https://cloud.tencent.com/document/product/266/8757#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E5.BC.80.E9.80.9A.E4.BA.91.E7.82.B9.E6.92.AD) 开通云点播服务。在开通完成之后，请参考 [Key 防盗链设置](https://cloud.tencent.com/document/product/266/33469) 文档启用防盗链，并记录下防盗链 Key：
-
-![配置防盗链](https://main.qcloudimg.com/raw/f6ad1073b1498e95f7746ac9b2867dbe.png)
-
-> !注意：此处是开通 Key 防盗链，而非开通 Referer 防盗链。如果您同步开通了 Referer 防盗链，那么下文的测试方法有可能因为不符合 Referer 防盗链的要求而导致请求失败。
+1. 参考 [快速入门 - 步骤1](https://cloud.tencent.com/document/product/266/8757#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E5.BC.80.E9.80.9A.E4.BA.91.E7.82.B9.E6.92.AD) 开通云点播服务。
+2. 开通完成后，参考 [设置防盗链](https://cloud.tencent.com/document/product/266/33469) 文档启用 Key 防盗链，并记录下防盗链 Key：
+![](https://main.qcloudimg.com/raw/04d1a39b76fdb3bef5acebe57f3edb16.png)
+>!此处是开通 Key 防盗链，而非开通 Referer 防盗链。如果您同步开通了 Referer 防盗链，那么下文的测试方法有可能因为不符合 Referer 防盗链的要求而导致请求失败。
 
 ### 步骤3：获取 API 密钥和 APPID<span id="p3"></span>
 
@@ -57,7 +50,7 @@ Key 防盗链签名派发服务 Demo 的部署和运行过程需要使用到开�
 ubuntu@VM-69-2-ubuntu:~$ export SECRET_ID=AKxxxxxxxxxxxxxxxxxxxxxxx; export SECRET_KEY=xxxxxxxxxxxxxxxxxxxxx;export APPID=125xxxxxxx;export ANTI_LEECH_KEY=xxxx;git clone https://github.com/tencentyun/vod-server-demo.git ~/vod-server-demo; bash ~/vod-server-demo/installer/anti_leech_sign_scf.sh
 ```
 
->?请将命令中的 SECRET_ID、SECRET_KEY 和 APPID 赋值为 [步骤3](#p3) 中获取到的内容；将 ANTI_LEECH_KEY 赋值为 [步骤2](#p2) 中的防盗链 Key。
+>?请将命令中的 SECRET_ID、SECRET_KEY 和 APPID 赋值为 [步骤3](#p3) 中获取到的内容；将 ANTI_LEECH_KEY 赋值为 [步骤2](#p2) 中获取到的防盗链 Key。
 
 该命令将从 Github 下载 Demo 源码并自动执行安装脚本。安装过程需几分钟（具体取决于 CVM 网络状况），期间远程终端会打印如下示例的信息：
 
@@ -76,18 +69,15 @@ ubuntu@VM-69-2-ubuntu:~$ export SECRET_ID=AKxxxxxxxxxxxxxxxxxxxxxxx; export SECR
 复制输出日志中的签名派发服务地址（示例中的`https://service-xxxxxxxx-125xxxxxxx.gz.apigw.tencentcs.com/release/anti_leech_sign`）。
 
 > !如果输出日志中出现如下所示的警告，一般是由于 CVM 无法立即解析刚部署好的服务域名，可尝试忽略该警告。
->
 > ```
 > [2020-04-25 17:18:44]警告：Key 防盗链签名派发服务测试不通过。
 > ```
 
 ### 步骤5：测试 Key 防盗链
 
-按照 [控制台上传本地视频](https://cloud.tencent.com/document/product/266/2841#.E6.9C.AC.E5.9C.B0.E4.B8.8A.E4.BC.A0.E6.AD.A5.E9.AA.A4) 的说明，上传一个测试视频到到云点播。上传完成后，点击【快捷查看】，在页面右侧点击【复制地址】复制该视频的 URL，如下图：
-
-![获取视频 URL](https://main.qcloudimg.com/raw/e6a04ddcf4f777a85ac301b833074d0d.png)
-
-在 CVM 命令行执行 `curl` 命令尝试直接访问该 URL，会因不符合 Key 防盗链规则而被服务器拒绝访问（HTTP 返回码为403。测试时请将命令中的 URL 替换为实际 URL，下同）：
+按照 [上传视频 - 本地上传步骤](https://cloud.tencent.com/document/product/266/2841#.E6.9C.AC.E5.9C.B0.E4.B8.8A.E4.BC.A0.E6.AD.A5.E9.AA.A4) 的说明，上传一个测试视频到云点播。上传完成后，单击【快捷查看】，然后单击右侧【复制地址】复制该视频的 URL。
+![](https://main.qcloudimg.com/raw/b93899bb2d2335ce3212ca9c024df10a.png)
+在 CVM 命令行执行`curl`命令尝试直接访问该 URL，结果会因不符合 Key 防盗链规则而被服务器拒绝访问，HTTP 返回码为403（测试时，请将命令中的 URL 替换为实际 URL，下同）：
 
 ```
 ubuntu@VM-69-2-ubuntu:~$ curl -I "http://125xxxxxxx.vod2.myqcloud.com/f888c998vodcq125xxxxxxx/c849148f528xxxxxxxxxxxxxxxx/xxxxxxxxxx.mp4"
@@ -98,16 +88,12 @@ Date: Thu, 04 Jun 2020 08:27:54 GMT
 Content-Type: text/plain
 Content-Length: 14
 ```
-
-在 CVM 命令行执行 `curl` 命令请求步骤4中部署的服务，获取带防盗链签名的 URL（`-d` 表示使用 POST 方式发起请求，所带的参数为视频 URL）：
-
+在 CVM 命令行执行`curl`命令来请求步骤4中部署的服务，获取带防盗链签名的 URL（`-d`表示使用 POST 方式发起请求，所带的参数为视频 URL）：
 ```
 ubuntu@VM-69-2-ubuntu:~$ curl -d 'http://125xxxxxxx.vod2.myqcloud.com/f888c998vodcq125xxxxxxx/c849148f528xxxxxxxxxxxxxxxx/xxxxxxxxxx.mp4' https://service-xxxxxxxx-125xxxxxxx.gz.apigw.tencentcs.com/release/anti_leech_sign; echo
 http://125xxxxxxx.vod2.myqcloud.com/f888c998vodcq125xxxxxxx/c849148f528xxxxxxxxxxxxxxxx/xxxxxxxxxx.mp4?t=5ed8b8d2&exper=0&rlimit=0&us=455041&sign=fe6394007c2e7aef39fc70a02e897f69
 ```
-
-再次使用 `curl` 命令访问上一步得到的带防盗链签名的 URL，能够正常访问（HTTP 返回码为200）：
-
+再次使用`curl`命令访问上一步得到的带防盗链签名的 URL，能够正常访问（HTTP 返回码为200）：
 ```
 ubuntu@VM-69-2-ubuntu:~$ curl -I "http://125xxxxxxx.vod2.myqcloud.com/f888c998vodcq125xxxxxxx/c849148f528xxxxxxxxxxxxxxxx/xxxxxxxxxx.mp4?t=5ed8b8d2&exper=0&rlimit=0&us=455041&sign=fe6394007c2e7aef39fc70a02e897f69"
 HTTP/1.1 200 OK
@@ -128,18 +114,14 @@ Access-Control-Allow-Headers: Origin,No-Cache,X-Requested-With,If-Modified-Since
 Access-Control-Allow-Methods: GET,POST,OPTIONS
 Access-Control-Allow-Origin: *
 ```
-
-> ?您也可以在浏览器中访问带防盗链签名的 URL，通过播放视频的方式来验证防盗链签名。但这种方式对视频格式有要求，一般来说使用 H.264 编码的 MP4 文件具有较好的兼容性，建议选用这类视频。
->
-> 您也可以使用 Postman 等第三方工具来发送 HTTP 请求，具体用法请自行搜索。 
+>?您可以在浏览器中访问带防盗链签名的 URL，通过播放视频的方式来验证防盗链签名。但这种方式对视频格式有要求，一般来说使用 H.264 编码的 MP4 文件具有较好的兼容性，建议选用这类视频；您也可以使用 Postman 等第三方工具来发送 HTTP 请求，具体用法请自行搜索。 
 
 ## 系统设计说明
 
 ### 系统框架
 
 Key 防盗链主要涉及五个组成部分：播放器、开发者业务后台（上文未提及）、API 网关、云函数和云点播，其中 API 网关和云函数即是本 Demo 的部署对象，这两者在逻辑上可以认为属于开发者业务后台的一部分。如下图所示：
-
-![Key 防盗链框架](https://main.qcloudimg.com/raw/7002d6150957db5ac0fed37417a548d7.png)
+<img src="https://main.qcloudimg.com/raw/7002d6150957db5ac0fed37417a548d7.png" width="600">
 
 ### 接口协议
 
@@ -153,7 +135,6 @@ Key 防盗链签名派发云函数通过 API 网关对外提供接口，具体�
 
 1. `main_handler()`为入口函数。
 2. 调用`parse_conf_file()`，从`config.json`文件中读取配置信息。配置项说明如下（详细参数请参见 [Key 防盗链签名参数](https://cloud.tencent.com/document/product/266/14047#.E9.98.B2.E7.9B.97.E9.93.BE-url-.E7.94.9F.E6.88.90.E6.96.B9.E5.BC.8F)）：
-
 <table>
 <thead>
 <tr>
@@ -171,27 +152,24 @@ Key 防盗链签名派发云函数通过 API 网关对外提供接口，具体�
 <tr>
 <td>t</td>
 <td>Integer</td>
-  <td>签名有效时间，单位：秒。在处理请求时，该参数与 SCF 服务器</br>的当前时间相加后，才是防盗链参数中的 t。</td>
+  <td>签名有效时间，单位：秒。在处理请求时，该参数与 SCF 服务器的当前时间相加后，才是防盗链参数中的 t</td>
 </tr>
 <tr>
 <td>exper</td>
 <td>Integer</td>
-<td>试看时长。</td>
+<td>试看时长</td>
 </tr>
 <tr>
 <td>rlimit</td>
 <td>Integer</td>
-<td>签名最多允许被多少个客户端 IP 访问。</td>
+<td>签名最多允许被多少个客户端 IP 访问</td>
 </tr>
 </tbody></table>
-
-3. 从请求 Body 中解析出 `Dir` 参数，本地生成 `t` 和 `us` 参数，从配置文件中读取 `exper` 和 `rlimit` 参数：
-
-   ```
+3. 从请求 Body 中解析出`Dir`参数，本地生成`t`和`us`参数，从配置文件中读取`exper`和`rlimit`参数：
+```
        original_url = event["body"]
        parse_result = urlparse(original_url)
        directory = path.split(parse_result.path)[0] + '/'
-   
        # 签名参数
        timestamp = int(time.time())
        rand = random.randint(0, 999999)
@@ -202,21 +180,16 @@ Key 防盗链签名派发云函数通过 API 网关对外提供接口，具体�
            "us": rand
        }	
    ```
-
-4. 调用 `generate_sign()` 计算防盗链签名，详细算法请参见 [Key 防盗链签名](https://cloud.tencent.com/document/product/266/14047#.E9.98.B2.E7.9B.97.E9.93.BE-url-.E7.94.9F.E6.88.90.E6.96.B9.E5.BC.8F)。
-
+4. 调用`generate_sign()`计算防盗链签名，详细算法请参见 [Key 防盗链签名](https://cloud.tencent.com/document/product/266/14047#.E9.98.B2.E7.9B.97.E9.93.BE-url-.E7.94.9F.E6.88.90.E6.96.B9.E5.BC.8F)。
 5. 生成 QueryString，拼接在原始 URL 后组成带防盗链签名的 URL：
-
-   ```
+```
        sign_para["sign"] = signature
        query_string = urlencode(sign_para)
        new_parse_result = parse_result._replace(query=query_string)
        signed_url = urlunparse(new_parse_result)
    ```
-
 6. 返回签名。返回的数据格式及含义请参见 [云函数集成响应](https://cloud.tencent.com/document/product/583/12513#.E9.9B.86.E6.88.90.E5.93.8D.E5.BA.94.E4.B8.8E.E9.80.8F.E4.BC.A0.E5.93.8D.E5.BA.94)。
-
-   ```
+```
        return {
            "isBase64Encoded": False,
            "statusCode": 200,
