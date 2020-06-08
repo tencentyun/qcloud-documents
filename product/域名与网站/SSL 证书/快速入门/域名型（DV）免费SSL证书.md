@@ -23,4 +23,4 @@
  
 ## 下载和部署
 完成域名审核后，颁发的证书可下载到本地，或者部署到腾讯云相关云服务。如下图所示：
-![](https://main.qcloudimg.com/raw/f73c0ed613560b0a574f59f636d4a722.png)
+![](https://main.qcloudimg.com/raw/573219f8f6e954e681d27c8f0eb79746.png)
