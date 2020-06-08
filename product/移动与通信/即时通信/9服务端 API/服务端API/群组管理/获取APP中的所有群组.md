@@ -49,10 +49,10 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?sdkappid=
 ```
 |Private|支持，同新版本中的Work(好友工作群)|
 |Public|支持|
-|ChatRoom|支持，同新版本中的Meeting(会议群)|
+|ChatRoom|支持，同新版本中的Meeting(临时会议群)|
 |AVChatRoom|不支持|
 - **指定群组形态**
-可以指定拉取的群组所属的群组类型，如 Public(陌生人社交群)，Private(同新版本中的Work，好友工作群)，ChatRoom(同新版本中的Meeting，会议群)、AVChatRoom(直播群)。
+可以指定拉取的群组所属的群组类型，如 Public(陌生人社交群)，Private(同新版本中的Work，好友工作群)，ChatRoom(同新版本中的Meeting，临时会议群)、AVChatRoom(直播群)。
 ```
 {
     "GroupType" : "Public" // 拉取哪种群组类型，不填为拉取所有
@@ -74,7 +74,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?sdkappid=
 |---------|---------|---------|---------|
 | Limit | Integer | 选填| 本次获取的群组 ID 数量的上限，不得超过 10000。如果不填，默认为最大值 10000 |
 | Next | Integer | 选填 | 群太多时分页拉取标志，第一次填0，以后填上一次返回的值，返回的 Next 为0代表拉完了 |
-| GroupType | String | 选填 |如果仅需要返回特定群组类型的群组，可以通过 GroupType 进行过滤，但此时返回的 TotalCount 的含义就变成了 App 中属于该群组类型的群组总数。不填为获取所有类型的群组。<br>群组类型包括 Public(陌生人社交群)，Private(同新版本中的Work，好友工作群)，ChatRoom(同新版本中的Meeting，会议群)、AVChatRoom(直播群)|
+| GroupType | String | 选填 |如果仅需要返回特定群组类型的群组，可以通过 GroupType 进行过滤，但此时返回的 TotalCount 的含义就变成了 App 中属于该群组类型的群组总数。不填为获取所有类型的群组。<br>群组类型包括 Public(陌生人社交群)，Private(同新版本中的Work，好友工作群)，ChatRoom(同新版本中的Meeting，临时会议群)、AVChatRoom(直播群)|
 
 ### 应答包体示例
 ```
