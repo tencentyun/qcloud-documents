@@ -151,10 +151,11 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 #### 魅族通道排查路径
 与小米通道的排查方法类似，参考小米通道的排查路径即可。
 
+### Flyme 6.0 及以下版本的魅族手机，为何消息抵达设备却不在通知栏展示？
+1.  Flyme 6.0 及以下版本的魅族手机，使用手动集成方式。
+2.  Flyme 6.0 及以下版本的魅族手机，使用自动集成方式，且使用的 TPNS Android SDK 为1.1.4.0 以下的版本。
 
-
-### 魅族 Flyme6.0 及低版本手机，为何消息抵达设备却不在通知栏展示？
-高版本魅族手机不再需要设置状态栏图标，如果 Android SDK 版本低于1.1.4.0，请在相应的 drawable 不同分辨率文件夹下放置一张名称必须为 stat_sys_third_app_notify 的图片。
+以上两种情况，需要在 drawable 不同分辨率的文件夹下对应放置一张名称必须为 stat_sys_third_app_notify 的图片，详情请参考 [TPNS Android SDK](https://console.cloud.tencent.com/tpns/sdkdownload) 中的 flyme-notification-res 文件夹。
 
 
 ### 集成华为推送通道时遇到组件依赖冲突如何解决?
