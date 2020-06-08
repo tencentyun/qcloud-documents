@@ -22,7 +22,7 @@ Components: 2.30.1
 2. **配置 Serverless DB**：通过 [Serverless Framework PostgreSQL 组件](https://cloud.tencent.com/document/product/1154/43004 ) 创建 PostgreSQL 实例，为云函数项目提供数据库服务。
 3. **编写业务代码**：通过 Serverless DB SDK 调用数据库，云函数支持直接调用 Serverless DB SDK，连接 PostgreSQL 数据库进行管理操作。
 4. **部署与调试**：通过 Serverless Framework 部署项目至云端，并通过云函数控制台进行测试。
-5. **移出项目**：可通过 Serverless Framework 移除项目。
+5. **移除项目**：可通过 Serverless Framework 移除项目。
 
 
 ### 配置身份信息
