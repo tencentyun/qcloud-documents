@@ -4,7 +4,7 @@
 ## 接口调用说明
 ### 适用的群组类型
 即时通信 IM 内置五种群组类型，详情请参见 [群组系统](https://cloud.tencent.com/document/product/269/1502)。
-自定义的群组类型，详情请参见 [自定义群组形态](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81)。
+自定义的群组类型，详情请参见 [自定义群组形态](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E7.BE.A4.E7.BB.84.E7.B1.BB.E5.9E.8B)。
 
 ### 请求 URL示例
 ```
