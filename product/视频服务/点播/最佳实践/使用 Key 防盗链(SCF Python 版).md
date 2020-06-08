@@ -1,6 +1,12 @@
 ## 使用须知
 
-本文提供的云点播 Key 防盗链签名派发 Demo 是免费开源的，但在搭建和使用的过程中可能会产生以下费用：
+### Demo 功能介绍
+
+本 Demo 主要用于向开发者展示云点播（VOD）[Key 防盗链](https://cloud.tencent.com/document/product/266/14047)  机制的使用方法。Demo 基于云函数（SCF） 搭建了一个 HTTP 服务，用于接收来自客户端的获取防盗链签名请求。服务从请求 Body 中获取 VOD 的视频原始 URL，计算防盗链签名，并返回带防盗链签名的 URL 给客户端。
+
+### 费用
+
+本文提供的云点播 Key 防盗链签名派发服务 Demo 是免费开源的，但在搭建和使用的过程中可能会产生以下费用：
 
 - 购买腾讯云云服务器（CVM）用于执行服务部署脚本，详见 [CVM 计费](https://cloud.tencent.com/document/product/213/2180)。
 - 使用腾讯云云函数（SCF）提供签名派发服务，详见 [SCF 计费](https://cloud.tencent.com/document/product/583/12284) 和 [SCF 免费额度](https://cloud.tencent.com/document/product/583/12282)。
@@ -8,7 +14,7 @@
 - 消耗云点播（VOD）存储用于存储上传的视频，详见 [存储计费](https://cloud.tencent.com/document/product/266/14666#.E8.A7.86.E9.A2.91.E5.AD.98.E5.82.A8) 和 [存储资源包](https://cloud.tencent.com/document/product/266/14667#1.-.E5.AD.98.E5.82.A8.E8.B5.84.E6.BA.90.E5.8C.85)。
 - 消耗云点播流量用于播放视频，详见 [流量计费](https://cloud.tencent.com/document/product/266/14666#.E8.A7.86.E9.A2.91.E5.8A.A0.E9.80.9F) 和 [流量资源包](https://cloud.tencent.com/document/product/266/14667#2.-.E6.B5.81.E9.87.8F.E8.B5.84.E6.BA.90.E5.8C.85)。
 
-## 启用 Key 防盗链
+## 快速部署 Key 防盗链签名派发服务
 
 ### 步骤1：准备腾讯云 CVM<span id="p1"></span>
 
@@ -23,7 +29,7 @@
 
 >!
 >
->- Key 防盗链签名派发 Demo 服务本身并不依赖于 CVM，仅使用 CVM 来执行部署脚本。
+>- Key 防盗链签名派发服务 Demo 本身并不依赖于 CVM，仅使用 CVM 来执行部署脚本。
 >
 >- 如果您没有符合上述条件的腾讯云 CVM，也可以在其它带外网的 Linux（如 CentOS、Debian 等）或 Mac 机器上执行部署脚本，但需根据操作系统的区别修改脚本中的个别命令，具体修改方式请开发者自行搜索。
 
@@ -37,7 +43,7 @@
 
 ### 步骤3：获取 API 密钥和 APPID<span id="p3"></span>
 
-Key 防盗链签名派发 Demo 服务的部署和运行过程需要使用到开发者的 API 密钥（即 SecretId 和 SecretKey）和 APPID。
+Key 防盗链签名派发服务 Demo 的部署和运行过程需要使用到开发者的 API 密钥（即 SecretId 和 SecretKey）和 APPID。
 
 - 如果还未创建过密钥，请参见 [创建密钥文档](https://cloud.tencent.com/document/product/598/40488#.E5.88.9B.E5.BB.BA.E4.B8.BB.E8.B4.A6.E5.8F.B7-api-.E5.AF.86.E9.92.A5) 生成新的 API 密钥；如果已创建过密钥，请参见 [查看密钥文档](https://cloud.tencent.com/document/product/598/40488#.E6.9F.A5.E7.9C.8B.E4.B8.BB.E8.B4.A6.E5.8F.B7-api-.E5.AF.86.E9.92.A5) 获取 API 密钥。
 - 在控制台 [账号信息](https://console.cloud.tencent.com/developer) 页面可以查看 APPID，如下图所示：
