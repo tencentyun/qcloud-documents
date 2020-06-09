@@ -24,7 +24,7 @@ curl -sS https://getcomposer.org/installer | php
 composer require tencentcloud/tencentcloud-sdk-php
 ```
 3. 在代码中添加以下引用代码。
->!本文仅为示例，composer 会在项目根目录下生成 vendor 目录，`/path/to/`为项目根目录的实际绝对路径，如果是在当前目录执行，可以省略绝对路径。
+>!本文仅为示例，composer 会在项目根目录下生成 vendor 目录，`/path/to/`为项目根目录的实际绝对路径，如果是在项目根目录执行，可以省略绝对路径。
 >
 ```
 require '/path/to/vendor/autoload.php';
