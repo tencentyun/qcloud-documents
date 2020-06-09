@@ -27,7 +27,7 @@ Components: 2.30.1
 
 ### 配置身份信息
 1. 在本地建立目录，用于存放代码及依赖模块。本文以 `test-postgreSQL` 为例。 
-2. 在 `test-postgreSQL` 下创建 `.env` 文件，并按照以下格式在文件中配置您的的腾讯云 SecretId、SecretKey、地域和可用区信息。
+2. 在 `test-postgreSQL` 下创建 `.env` 文件，并按照以下格式在文件中配置您的腾讯云 SecretId、SecretKey、地域和可用区信息。
 ```text
  # .env
  TENCENT_SECRET_ID=xxx  // 您账号的 SecretId
