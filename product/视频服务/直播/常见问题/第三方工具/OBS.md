@@ -36,10 +36,9 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 ![](https://main.qcloudimg.com/raw/d370f4fbf0f9a57116eee0543ea6a59e.png)
 2. 单击【+】按钮，按需选择输入源，例如：显示器捕获。
  ![](https://main.qcloudimg.com/raw/c59eff44ffd2ac4c785fe4e4e3bd79b8.png)
-
 **常用直播来源输入介绍**
 <table>
-<thead><tr><th width="16%">输入源</th><th>说明</th></tr></thead>
+<thead><tr><th width="20%">输入源</th><th>说明</th></tr></thead>
 <tbody><tr>
 <td>图像</td>
 <td>适用于单张图像直播。</td>
