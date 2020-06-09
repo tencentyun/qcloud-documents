@@ -34,7 +34,7 @@
  - 在分析页，可查看和复制具体 SQL 语句，根据给出的优化建议或说明来优化 SQL 语句。
  ![](https://main.qcloudimg.com/raw/15701507c5a29080aa9b5c1d4d11f55f.png)
  在【分析】弹窗中，单击右上角的【优化对比】，可以查看 SQL 执行计划、索引建议、表结构以及 SQL 优化前后代价对比，SQL 代价通过可视化图表清晰反映了优化前后开销的变化。
- SQL 代价通过分析 SQL 相关库表的统计信息、OPTIMIZER_SWITCH 配置、及索引字段区分度进行估算，对优化后的 SQL 语句待机进行整体代价估计，使用可视化图表直观呈现 SQL 优化后降低的效果，您也可通过优化前后的执行计划比对进一步验证优化的效果。
+ SQL 代价通过分析 SQL 相关库表的统计信息、OPTIMIZER_SWITCH 配置、及索引字段区分度进行估算，对优化后的 SQL 语句代价进行整体估计，使用可视化图表直观呈现 SQL 优化后降低的效果，您也可通过优化前后的执行计划比对进一步验证优化的效果。
  ![](https://main.qcloudimg.com/raw/51a9d788e0083a5802c3e286d74ef9ed.png)
  - 在统计页，可查看该类 SQL 在 Host、User、SQL Code 维度的统计分析和执行时间轨迹。
 ![](https://main.qcloudimg.com/raw/1d18bfadaec8f62f78d959af4d065d49.png)
