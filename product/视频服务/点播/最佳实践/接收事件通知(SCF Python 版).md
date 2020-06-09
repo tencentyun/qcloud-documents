@@ -2,7 +2,7 @@
 
 ### Demo 功能介绍
 
-本 Demo 以对 [视频上传完成事件通知](https://cloud.tencent.com/document/product/266/7830) 的接收和处理为例，向开发者展示云点播（VOD）[事件通知机制](https://cloud.tencent.com/document/product/266/33779)  的使用方法。Demo 基于云函数（SCF）搭建了一个 HTTP 服务，用于接收来自 VOD 的事件通知请求。服务处理类型为`NewFileUpload`的事件，在解析事件通知内容后，调用 VOD 的 [`ProcessMedia`](https://cloud.tencent.com/document/product/266/33427) 接口对新上传的视频发起转码，使用的转码模板为 [系统预置模板](https://cloud.tencent.com/document/product/266/33476#.E9.A2.84.E7.BD.AE.E8.BD.AC.E7.A0.81.E6.A8.A1.E6.9D.BF) 100010和100020。
+本 Demo 以对 [视频上传完成事件通知](https://cloud.tencent.com/document/product/266/7830) 的接收和处理为例，向开发者展示云点播（VOD）[事件通知机制](https://cloud.tencent.com/document/product/266/33779)  的使用方法。Demo 基于云函数（SCF）搭建了一个 HTTP 服务，用于接收来自 VOD 的事件通知请求。服务处理类型为`NewFileUpload`的事件，在解析事件通知内容后，调用 VOD 的 [ProcessMedia](https://cloud.tencent.com/document/product/266/33427) 接口对新上传的视频发起转码，使用的转码模板为 [系统预置模板](https://cloud.tencent.com/document/product/266/33476#.E9.A2.84.E7.BD.AE.E8.BD.AC.E7.A0.81.E6.A8.A1.E6.9D.BF) 100010和100020。
 
 ### 费用
 
