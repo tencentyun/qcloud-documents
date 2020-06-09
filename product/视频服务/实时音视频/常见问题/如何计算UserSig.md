@@ -1,5 +1,5 @@
 
-<h3 id="UserSig"> 什么是 UserSig？</h2>
+<h3 id="UserSig">什么是 UserSig？</h3>
 
 UserSig 是腾讯云设计的一种安全保护签名，目的是为了阻止恶意攻击者盗用您的云服务使用权。
 目前，腾讯云的实时音视频（TRTC）、即时通信（IM）以及移动直播（MLVB）等服务都采用了该套安全保护机制。要使用这些服务，您都需要在相应 SDK 的初始化或登录函数中提供 SDKAppID，UserID 和 UserSig 三个关键信息。
@@ -12,7 +12,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
                                  base64(userid + sdkappid + currtime + expire)))
 ```
 
-<h3 id="Key">如何获取密钥？</h2>
+<h3 id="Key">如何获取密钥？</h3>
 
 1. 登录实时音视频 [控制台](https://console.cloud.tencent.com/rav)，单击应用卡片，进入【快速上手】页面。
 2. 单击【第二步 获取签发UserSig的密钥】区域的【查看密钥】，即可获取用于计算 UserSig 的加密密钥。
@@ -20,7 +20,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
  ![](https://main.qcloudimg.com/raw/d0b780f7b28833533e12807d1b11d8be.png)
 
 
-<h3 id="Client">客户端如何计算 UserSig？</h2>
+<h3 id="Client">客户端如何计算 UserSig？</h3>
 
 我们在 TRTC SDK 的示例代码中提供了一个叫做 `GenerateTestUserSig` 的开源模块，您只需要将其中的 SDKAPPID、EXPIRETIME 和 SECRETKEY 三个成员变量修改成您自己的配置，就可以调用 `genTestUserSig()` 函数获取计算好的 UserSig，从而快速跑通 SDK 的相关功能：
 
@@ -40,7 +40,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 >
 >正确的做法是将 UserSig 的计算代码放在您的业务服务器上，然后由您的 App 在需要的时候向您的服务器获取实时算出的 UserSig。
 
-<h3 id="Server">服务端如何计算 UserSig？</h2>
+<h3 id="Server">服务端如何计算 UserSig？</h3>
 
 采用服务端计算 UserSig 的方案，可以最大限度地保障计算 UserSig 用的密钥不被泄露，因为攻破一台服务器的难度要高于逆向一款 App。具体的做法如下：
 
