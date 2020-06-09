@@ -8,7 +8,7 @@
 如您未安装上述应用程序，可以参考 [Hexo 安装说明](https://hexo.io/zh-cn/docs/)。
 
 ## 操作步骤
-#### 安装
+### 1. 安装
 通过 npm 安装 Serverless Framework：
 ```
 $ npm install -g serverless
@@ -49,7 +49,7 @@ $ hexo g   # generate
 $ hexo s   # server
 ```
 
-#### 配置
+### 2. 配置
 在`hexo`目录下，创建`serverless.yml`文件：
 ```
 $ touch serverless.yml
@@ -60,7 +60,7 @@ $ touch serverless.yml
 
 component: website # (必填) 引用 component 的名称，当前用到的是 tencent-website 组件
 name: hexodemo # (必填) 该 website 组件创建的实例名称
-org: test # (可选) 用于记录组织信息，默认值为您的腾讯云账户 appid
+org: test # (可选) 用于记录组织信息，默认值为您的腾讯云账号 APPID
 app: websiteApp # (可选) 该 website 应用名称
 stage: dev # (可选) 用于区分环境信息，默认值是 dev
 
@@ -90,7 +90,7 @@ inputs:
 
 ```
 
-#### 部署
+### 3. 部署
 通过`sls deploy`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息。
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 ```
@@ -106,11 +106,11 @@ website: https://my-bucket-1258834142.cos-website.ap-guangzhou.myqcloud.com
 25s › hexodemo › Success
 ```
 
-访问命令行输出的 website url，即可查看您的 Serverless Hexo 站点
+访问命令行输出的 Website URL，即可查看您的 Serverless Hexo 站点。
 
 >!如果希望更新 Hexo 站点中的文章，需要在本地重新运行`hexo g`进行生成静态页面，再运行`serverless`更新到页面。
 
-#### 移除
+### 4. 移除
 
 通过以下命令移除 Hexo 网站：
 ```console
@@ -128,7 +128,7 @@ $ sls remove --debug
 
 ```
 
-#### 账号配置（可选）
+### 账号配置（可选）
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建 `.env` 文件：
 ```
 $ touch .env # 腾讯云的配置信息
