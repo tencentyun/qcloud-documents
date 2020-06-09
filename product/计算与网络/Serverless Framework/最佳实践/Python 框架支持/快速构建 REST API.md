@@ -5,20 +5,19 @@ REST API 模板使用 Tencent SCF 组件及其触发器能力，方便的在腾�
 
 ### 1. 安装
 
-**安装 Serverless Framework**
-
+安装 Serverless Framework：
 ```console
 $ npm install -g serverless
 ```
 
 ### 2. 配置
 
-通过如下命令直接下载该例子，目录结构如下：
+通过如下命令直接下载示例：
 
 ```console
 serverless create --template-url https://github.com/serverless/components/tree/v1/templates/tencent-python-rest-api
 ```
-
+目录结构如下：
 ```
 .
 ├── code
@@ -26,7 +25,7 @@ serverless create --template-url https://github.com/serverless/components/tree/v
 └── serverless.yml
 ```
 
-目前 scf 组件已支持 v2 版本，因此修改 serverless.yml 文件，改为以下内容：
+目前 SCF 组件已支持 v2 版本，因此修改了 serverless.yml 文件，改为以下内容：
 
 ```yml
 # serverless.yml 
@@ -114,9 +113,9 @@ def main_handler(event, context):
 
 ### 3. 部署
 
-通过`sls deploy`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息
+通过`sls deploy`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息。
 
-如您的账号未[登陆](https://cloud.tencent.com/login)或[注册](https://cloud.tencent.com/register)腾讯云，您可以直接通过`微信`扫描命令行中的二维码进行授权登陆和注册。
+如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
 
 ```text
 $ sls deploy
@@ -139,9 +138,9 @@ Triggers:
 
 ### 4. 测试
 
-通过如下命令测试 REST API 的返回情况：
+通过以下命令测试 REST API 的返回情况：
 
-> 注：如 windows 系统中未安装`curl`，也可以直接通过浏览器打开对应链接查看返回情况
+>?如果 Windows 系统中未安装`curl`，也可以直接通过浏览器打开对应链接查看返回情况。
 
 ```console
 $ curl -XGET http://service-9t28e0tg-1250000000.gz.apigw.tencentcs.com/release/users/teacher/go
@@ -157,7 +156,7 @@ $ curl -PUT http://service-9t28e0tg-1250000000.gz.apigw.tencentcs.com/release/us
 
 ### 5. 移除
 
-可以通过以下命令移除 REST API 应用
+可以通过以下命令移除 REST API 应用：
 
 ```console
 $ sls remove --debug
@@ -174,17 +173,17 @@ $ sls remove --debug
 
 ### 账号配置（可选）
 
-当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/秘钥信息，也可以本地创建 `.env` 文件
+当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建 `.env` 文件。
 
 ```console
 $ touch .env # 腾讯云的配置信息
 ```
 
-在 `.env` 文件中配置腾讯云的 SecretId 和 SecretKey 信息并保存
+在 `.env` 文件中配置腾讯云的 SecretId 和 SecretKey 信息并保存。
 
-如果没有腾讯云账号，可以在此[注册新账号](https://cloud.tencent.com/register)。
-
-如果已有腾讯云账号，可以在[API 密钥管理](https://console.cloud.tencent.com/cam/capi)中获取 `SecretId` 和`SecretKey`.
+>?
+>- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
+>- 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取  SecretId 和 SecretKey。
 
 ```
 # .env
