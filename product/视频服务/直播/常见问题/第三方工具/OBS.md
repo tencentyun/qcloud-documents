@@ -18,7 +18,7 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 
 ![](https://main.qcloudimg.com/raw/64c3815306c68daebb5fc7d53bb43164.png)
 
-## OBS 推流在线推流<span id="normal"></span>
+## OBS 在线推流<span id="normal"></span>
 ### 步骤一：设置推流地址<span id="step1"></span>
 1. 打开 OBS，您可通过底部工具栏的【控件】>【设置】按钮进入设置界面。
 ![](https://main.qcloudimg.com/raw/56e4c19f24d08df7b8f8815f1ffb6857.png)
