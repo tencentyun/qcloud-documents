@@ -13,7 +13,7 @@
 2. 运维用户登录堡垒机系统。
 3. 单击【授权列表】，进入资源列表页。
 4. 找到您需要登录的 Windows 资源，在其右侧单击【登录】，进行登录配置。
-![](https://main.qcloudimg.com/raw/493233a6f1291a5046b76f9b5a314c3c.png)
+![](https://main.qcloudimg.com/raw/1d3663b79d1db2d3484fff9e5dec48bb.png)
 5. 在配置窗口中，配置如下。
 	- 协议：选择“FTP”。
 	- 账号：输入 Windows 的系统账号。
