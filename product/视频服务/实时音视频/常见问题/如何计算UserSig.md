@@ -1,14 +1,10 @@
 
-<h2 id="UserSig"> UserSig 介绍 </h2>
+<h3 id="UserSig"> 什么是 UserSig？</h2>
 
 UserSig 是腾讯云设计的一种安全保护签名，目的是为了阻止恶意攻击者盗用您的云服务使用权。
-
 目前，腾讯云的实时音视频（TRTC）、即时通信（IM）以及移动直播（MLVB）等服务都采用了该套安全保护机制。要使用这些服务，您都需要在相应 SDK 的初始化或登录函数中提供 SDKAppID，UserID 和 UserSig 三个关键信息。
-
 其中 SDKAppID 用于标识您的应用，UserID 用于标识您的用户，而 UserSig 则是基于前两者计算出的安全签名，它由 **HMAC SHA256** 加密算法计算得出。只要攻击者不能伪造 UserSig，就无法盗用您的云服务流量。
-
 UserSig 的计算原理如下图所示，其本质就是对 SDKAppID、UserID、ExpireTime 等关键信息进行了一次哈希加密：
-
 ```Cpp
 //UserSig 计算公式，其中 secretkey 为计算 usersig 用的加密密钥
 
@@ -16,16 +12,15 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
                                  base64(userid + sdkappid + currtime + expire)))
 ```
 
-<h2 id="Key">密钥获取</h2>
+<h3 id="Key">如何获取密钥？</h2>
 
-访问腾讯实时音视频 [控制台](https://console.cloud.tencent.com/rav)可以查询计算 UserSig 用的密钥，方法如下：
-1. 单击应用卡片，进入【快速上手】页面。
+1. 登录实时音视频 [控制台](https://console.cloud.tencent.com/rav)，单击应用卡片，进入【快速上手】页面。
 2. 单击【第二步 获取签发UserSig的密钥】区域的【查看密钥】，即可获取用于计算 UserSig 的加密密钥。
 3. 单击【复制密钥】，将密钥拷贝到剪贴板中。
  ![](https://main.qcloudimg.com/raw/d0b780f7b28833533e12807d1b11d8be.png)
 
 
-<h2 id="Client">客户端计算</h2>
+<h3 id="Client">客户端如何计算 UserSig？</h2>
 
 我们在 TRTC SDK 的示例代码中提供了一个叫做 `GenerateTestUserSig` 的开源模块，您只需要将其中的 SDKAPPID、EXPIRETIME 和 SECRETKEY 三个成员变量修改成您自己的配置，就可以调用 `genTestUserSig()` 函数获取计算好的 UserSig，从而快速跑通 SDK 的相关功能：
 
@@ -45,7 +40,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 >
 >正确的做法是将 UserSig 的计算代码放在您的业务服务器上，然后由您的 App 在需要的时候向您的服务器获取实时算出的 UserSig。
 
-<h2 id="Server">服务端计算</h2>
+<h3 id="Server">服务端如何计算 UserSig？</h2>
 
 采用服务端计算 UserSig 的方案，可以最大限度地保障计算 UserSig 用的密钥不被泄露，因为攻破一台服务器的难度要高于逆向一款 App。具体的做法如下：
 
@@ -71,7 +66,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 | C# | HMAC-SHA256 | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-cs/blob/master/tls-sig-api-v2-cs/TLSSigAPIv2.cs) | [Github](https://github.com/tencentyun/tls-sig-api-v2-cs)|
 
 
-## 老版本算法
+### 老版本算法如何计算 UserSig？
 
 为了简化签名计算难度，方便客户更快速地使用腾讯云服务，实时音视频自2019.07.19开始启用新的签名算法，从之前的 ECDSA-SHA256 升级为 HMAC-SHA256，也就是从2019.07.19之后创建的 SDKAppID 均会采用新的 HMAC-SHA256 算法。
 
