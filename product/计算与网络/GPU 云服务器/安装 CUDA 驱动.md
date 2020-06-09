@@ -6,7 +6,7 @@ GPU 云服务器采用 NVIDIA 显卡，则需要安装 CUDA 开发运行环境�
 
 ## 操作步骤
 ### Linux 系统指引
-1. 前往 [CUDA 驱动下载](https://developer.nvidia.com/cuda-toolkit-archive) 页面或访问`https://developer.nvidia.com/cuda-toolkit-archive`。
+1. 前往 [CUDA 驱动下载](https://developer.nvidia.com/cuda-toolkit-archive) 页面或访问 `https://developer.nvidia.com/cuda-toolkit-archive`。
 2. 选择对应的 CUDA 版本，本文以 CUDA Toolkit 10.1 为例。如下图所示：
 ![](https://main.qcloudimg.com/raw/1bff72aeaceb4ad6a930861c5a5d74f0.png)
 3. 按照页面上的提示，依次选择操作系统和安装包。本文选择方式如下图所示：
