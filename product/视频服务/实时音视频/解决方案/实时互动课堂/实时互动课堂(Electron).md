@@ -1,12 +1,12 @@
 ## 效果展示
-您可以下载安装我们的Demo体验远程在线教育的能力效果，包括语音、视频、屏幕分享等上课方式，还封装了老师开始问答、学生举手、老师邀请学生上台回答、结束回答等相关能力。
+您可以下载安装我们的 Demo 体验实时互动课堂的能力效果，包括语音、视频、屏幕分享等上课方式，还封装了老师开始问答、学生举手、老师邀请学生上台回答、结束回答等相关能力。
 
 - 教师端
  ![](https://main.qcloudimg.com/raw/35d33cb6003bd3575ee6bbfb0cbe6450.png)
 - 学生端
  ![](https://main.qcloudimg.com/raw/30e62d5c96c1ba31fc24c113ecfdb395.png)
 
-如需快速实现远程在线教育功能，可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 trtc-electron-education 组件并实现自定义 UI 界面。
+如需快速实现实时互动课堂功能，可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 [trtc-electron-education](https://cloud.tencent.com/document/product/647/45466) 组件并实现自定义 UI 界面。
 
 ## 复用 Demo 的 UI 界面
 ### 步骤1：创建新的应用
@@ -24,9 +24,9 @@
 1.解压 [步骤2](#ui.step2) 中下载的源码包。
 2.找到并打开 `TRTCEducation/app/debug/GenerateTestUserSig.js` 文件。
 3.设置 `GenerateTestUserSig.js` 文件中的相关参数：
- <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
+  <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-<img src="https://main.qcloudimg.com/raw/a82e1c7c3b4edde3b9ac1326b2556147.png">
+	<img src="https://main.qcloudimg.com/raw/1732ea2401af6111b41259a78b5330a4.png">
 4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
 5. 单击【关闭指引，进入控制台管理应用】。
 
@@ -70,7 +70,7 @@ Demo 所用框架技术如下：
 | app/components/UserList.tsx|教室-成员列表 UI 的实现代码|
 
 ## 实现自定义 UI 界面
-您可以使用封装好的 trtc-electron-education 组件实现自定义 UI 界面。
+您可以使用封装好的 [trtc-electron-education](https://cloud.tencent.com/document/product/647/45466) 组件实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/e00d38bf3869a41be809d8bf80cee248.png)
 
 ### 步骤1：集成 SDK
@@ -83,20 +83,20 @@ npm i trtc-electron-education --save
 ```
 
 ### 步骤2：初始化组件
-初始化组件，其中几个关键参数的填写请参考下表：
+初始化组件，其中几个必填的关键参数介绍如下表所示。
 
-| 参数 |类型|默认值|说明|
-| ----- | ----- | ----- | ----- |
-|sdkAppId|number|-|必填参数，您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。|
-|userID|string|-|必填参数，用户 ID，可以由您的帐号体系指定。|
-|userSig|string|-|必填参数，身份签名（相当于登录密码），由 userID 计算得出，具体计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。|
+| 参数 |类型|说明|
+| ----- | ----- | ----- |
+|sdkAppId|number|必填参数，您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。|
+|userID|string|必填参数，用户 ID，可以由您的帐号体系指定。|
+|userSig|string|必填参数，身份签名（相当于登录密码），由 userID 计算得出，具体计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。|
 
 ```typescript
 import TrtcElectronEducation from 'trtc-electron-education';
 const rtcClient = new TrtcElectronEducation({
-     sdkAppId: 1400***803,
-     userID: '123'
-     userSig: 'eJwtzM9****-reWMQw_'
+   sdkAppId: 1400***803,
+   userID: '123'
+   userSig: 'eJwtzM9****-reWMQw_'
  });
 ```
 
@@ -104,8 +104,8 @@ const rtcClient = new TrtcElectronEducation({
 1. 老师端调用组件 createRoom 方法创建教室。
 ```typescript
 const params = {
-   classId, // 教室 ID
-   nickName // 昵称
+      classId, // 教室 ID
+      nickName // 昵称
 }
 rtcClient.createRoom(params).then(() => {
 	//成功创建教室
@@ -114,8 +114,8 @@ rtcClient.createRoom(params).then(() => {
 2. 老师端调用组件的 enterRoom 方法开始上课。
 ```typescript
 rtcClient.enterRoom({
-   role: 'teacher', // 角色
-   classId // 教室 ID
+      role: 'teacher', // 角色
+      classId // 教室 ID
 })
 ```
 3. 老师端调用组件的 openCamera 方法打开自己的摄像头。
@@ -131,9 +131,9 @@ const screenList = rtcClient.getScreenShareList()
 b. 调用组件的 startScreenCapture 开始推屏幕分享的流。
 ```typescript
 rtcClient.startScreenCapture({
-    type,// 采集源类型
-    sourceId,// 采集源 ID，对于窗口，该字段指示窗口句柄；对于屏幕，该字段指示屏幕 ID
-    sourceName // 采集源名称，UTF8 编码
+      type,// 采集源类型
+      sourceId,// 采集源 ID，对于窗口，该字段指示窗口句柄；对于屏幕，该字段指示屏幕 ID
+      sourceName // 采集源名称，UTF8 编码
  })
 ```
 5. 上课过程中，老师如果想提问与学生互动，可以调用组件的 startQuestionTime 方法开启问答时间，学生端收到该指令后，可以举手申请回答问题。
@@ -153,8 +153,8 @@ rtcClient.finishAnswering(userID)// 禁麦学生的 userID
 1. 学生端调用组件的 enterRoom 方法进入教室，准备听课。
 ```typescript
 rtcClient.enterRoom({
-   role: 'student', // 角色
-   classId // 教室 ID
+      role: 'student', // 角色
+      classId // 教室 ID
 })
 ```
 2. 老师端开放举手问答后，学生端可调用组件的 raiseHand 方法申请发言。
