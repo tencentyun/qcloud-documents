@@ -50,7 +50,7 @@ make
 ```
 如返回结果显示 Result=PASS，则表示 CUDA 安装成功。
 若执行 `make` 命令后，出现如下图所示错误。
-![](https://main.qcloudimg.com/raw/5806df458bae9565139d790881c45520.png)
+![](https://main.qcloudimg.com/raw/b3df38239f2a3e208bde1ce97df660f8.png)
 则执行以下命令，安装对应的 gcc 包即可。
 ```
 yum install -y gcc-c++
