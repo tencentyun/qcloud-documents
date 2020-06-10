@@ -66,13 +66,13 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 </table>
 
 
->?**可用区域**：精确到城市级，细分区域详见实例配置信息。
+>?**可用区域**：精确到城市级，细分区域详见下文中的实例配置信息。
 
 
 
 ## NVIDIA 系列选型推荐
 
-腾讯云提供了类型丰富的 GPU 计算实例，可满足不同业务应用场景的需求。请参考下表，结合实际需求选择合适的计算实例。
+腾讯云提供了类型丰富的 GPU 计算实例，可满足不同业务应用场景的需求。请参考下表，并结合实际需求选择合适的计算实例。
 
 **GPU 云服务器 NVIDIA 系列选型推荐**如下表，其中 **✓** 为支持，**★** 为推荐。
 
@@ -178,19 +178,19 @@ NVIDIA GN* 系列其他实例（GN2 除外）可以通过安装 GRID Driver 的�
 **NVIDIA 实例 GN10X/GN10Xp** 不仅适用于深度学习、科学计算等 GPU 通用计算场景，也适用于图形图像处理（3D 渲染，视频编解码）场景。
 
 ### 适用场景
-GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深度学习训练，推理和科学计算场景。例如：
-- 深度学习
-- 高性能数据库
-- 计算流体动力学
-- 计算金融
-- 地震分析
-- 分子建模
-- 基因组学及其他
-
-同样可用于图形图像处理。例如：
-- 图形图像处理
-- 视频编解码
-- 图形数据库
+GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景：
+- 大规模深度学习训练，推理和科学计算场景。例如：
+	- 深度学习
+	- 高性能数据库
+	- 计算流体动力学
+	- 计算金融
+	- 地震分析
+	- 分子建模
+	- 基因组学及其他
+- 图形图像处理场景。例如：
+	- 图形图像处理
+	- 视频编解码
+	- 图形数据库
 
 
 
@@ -208,10 +208,10 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 		<thead>
 		<tr>
 			<th width=10%>型号</th>
-			<th width=10%>GPU<br>(NVIDIA<br>Tesla V100 NVLink 32G)</th>
-            <th width=12%>GPU 显存<br>(HBM2)</th>
+			<th width=10%>GPU<br>（NVIDIA<br>Tesla V100 NVLink 32G）</th>
+            <th width=12%>GPU 显存<br>（HBM2）</th>
 			<th width=8%>vCPU</th>
-			<th>内存<br>(DDR4)</th>
+			<th>内存<br>（DDR4）</th>
             <th width=10%>内网带宽</th>
             <th>网络收发包</th>
             <th>队列数</th>
@@ -338,15 +338,14 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 
 ### 适用场景
 
-适用于深度学习的推理和训练场景。例如：
-- 大吞吐量的 AI 推理
-- 深度学习
-
-同样可用于图形图像处理。例如：
-
-- 图形图像处理
-- 视频编解码
-- 图形数据库
+适用于如下场景：
+- 深度学习的推理和训练场景。例如：
+	- 大吞吐量的 AI 推理
+	- 深度学习
+- 图形图像处理场景。例如：
+	- 图形图像处理
+	- 视频编解码
+	- 图形数据库
 
 
 
@@ -364,10 +363,10 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 		<thead>
 		<tr>
 			<th width=10%>型号</th>
-			<th width=10%>GPU<br>(NVIDIA<br>Tesla P40)</th>
-            <th width=12%>GPU 显存<br>(GDDR5)</th>
+			<th width=10%>GPU<br>（NVIDIA<br>Tesla P40）</th>
+            <th width=12%>GPU 显存<br>（GDDR5）</th>
 			<th width=8%>vCPU</th>
-			<th>内存<br>(DDR4)</th>
+			<th>内存<br>（DDR4）</th>
             <th width=10%>内网带宽</th>
             <th>网络收发包</th>
             <th>队列数</th>
@@ -424,15 +423,14 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 **NVIDIA 实例 GN7** 不仅适用于深度学习等 GPU 通用计算场景，也适用于图形图像处理（3D 渲染，视频编解码）场景。
 
 ### 适用场景
-性价比高 ，适用于深度学习的推理场景和小规模训练场景。例如：
-- 大规模部署的 AI 推理
-- 深度学习小规模训练
-
-同样可用于图形图像处理。例如：
-
-- 图形图像处理
-- 视频编解码
-- 图形数据库
+性价比高 ，适用于如下场景：
+- 深度学习的推理场景和小规模训练场景。例如：
+	- 大规模部署的 AI 推理
+	- 深度学习小规模训练
+- 图形图像处理场景。例如：
+	- 图形图像处理
+	- 视频编解码
+	- 图形数据库
 
 
 
@@ -450,10 +448,10 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 		<thead>
 		<tr>
 			<th width=10%>型号</th>
-			<th width=10%>GPU<br>(NVIDIA<br>Tesla T4)</th>
-            <th width=12%>GPU 显存<br>(GDDR6)</th>
+			<th width=10%>GPU<br>（NVIDIA<br>Tesla T4）</th>
+            <th width=12%>GPU 显存<br>（GDDR6）</th>
 			<th width=8%>vCPU</th>
-			<th>内存<br>(DDR4)</th>
+			<th>内存<br>（DDR4）</th>
             <th width=10%>内网带宽</th>
             <th>网络收发包</th>
             <th>队列数</th>
@@ -545,14 +543,14 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 
 ### 适用场景
 
-性价比高 ，适用于深度学习的推理场景和小规模训练场景。例如：
-- 大规模部署的 AI 推理
-- 深度学习小规模训练
-
-同样可用于图形图像处理。例如：
-- 图形图像处理
-- 视频编解码
-- 图形数据库
+性价比高 ，适用于如下场景：
+- 深度学习的推理场景和小规模训练场景。例如：
+	- 大规模部署的 AI 推理
+	- 深度学习小规模训练
+- 图形图像处理场景。例如：
+	- 图形图像处理
+	- 视频编解码
+	- 图形数据库
 
 
 ### 硬件规格
@@ -569,10 +567,10 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 		<thead>
 		<tr>
 			<th width=10%>型号</th>
-			<th width=14%>GPU<br>(NVIDIA<br>Tesla P4)</th>
-            <th width=10%>GPU 显存<br>(GDDR5)</th>
+			<th width=14%>GPU<br>（NVIDIA<br>Tesla P4）</th>
+            <th width=10%>GPU 显存<br>（GDDR5）</th>
 			<th width=8%>vCPU</th>
-			<th>内存<br>(DDR4)</th>
+			<th>内存<br>（DDR4）</th>
             <th width=10%>内网带宽</th>
             <th>网络收发包</th>
             <th>队列数</th>
@@ -659,8 +657,8 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 		<thead>
 		<tr>
 			<th width=10%>型号</th>
-			<th width=14%>GPU<br>(NVIDIA<br>Tesla M40)</th>
-            <th width=10%>GPU 显存<br>(GDDR5)</th>
+			<th width=14%>GPU<br>（NVIDIA<br>Tesla M40）</th>
+            <th width=10%>GPU 显存<br>（GDDR5）</th>
 			<th width=8%>vCPU</th>
 			<th>内存<br>(DDR4)</th>
             <th width=10%>内网带宽</th>
@@ -741,10 +739,10 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 		<thead>
 		<tr>
 			<th width=10%>型号</th>
-			<th width=10%>GPU<br>(NVIDIA<br>Tesla T4)</th>
-            <th width=12%>GPU 显存<br>(GDDR6)</th>
+			<th width=10%>GPU<br>（NVIDIA<br>Tesla T4）</th>
+            <th width=12%>GPU 显存<br>（GDDR6）</th>
 			<th width=8%>vCPU</th>
-			<th>内存<br>(DDR4)</th>
+			<th>内存<br>（DDR4）</th>
             <th width=10%>内网带宽</th>
             <th>网络收发包</th>
             <th>队列数</th>
