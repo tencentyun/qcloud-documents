@@ -11,14 +11,14 @@ SCF 组件特性介绍：
 - **便捷协作**：通过云端的状态信息和部署日志，方便的进行多人协作开发。
 
 ## 操作步骤
-#### 1. 安装
+### 1. 安装
 
 通过 npm 安装最新版本的 Serverless Framework：
 ```
 $ npm install -g serverless
 ```
 
-#### 2. 创建
+### 2. 创建
 
 创建并进入一个全新目录：
 ```
@@ -38,7 +38,7 @@ $ cd example
 └──  serverless.yml
 ```
 
-#### 3. 部署
+### 3. 部署
 
 在`serverless.yml`文件下的目录中运行`serverless deploy`进行云函数的部署部署完毕后，您可以在命令行的输出中查看到对应云函数的网关触发器提供的 URL 地址，点击地址即可查看云函数的部署效果。
 
@@ -47,7 +47,7 @@ $ cd example
 如果希望查看更多部署过程的信息，可以通过`sls deploy --debug` 命令查看部署过程中的实时日志信息（`sls`是 `serverless` 命令的缩写）。
 
 
-#### 4. 配置
+### 4. 配置
 
 腾讯云 SCF 组件支持“0”配置部署，也就是可以直接通过配置文件中的默认值进行部署。但您依然可以修改更多可选配置来进一步开发该项目。
 
@@ -65,7 +65,7 @@ stage: dev # (可选) 用于区分环境信息，默认值是 dev
 inputs:
   name: scfFunctionName
   src: ./src
-  runtime: Nodejs10.15 # 云函数的运行时环境。除 Nodejs10.15 外，可选值为：Python2.7、Python3.6、Nodejs6.10、Nodejs8.9、PHP5、PHP7、Golang1、Java8。
+  runtime: Nodejs10.15 # 云函数的运行时环境。除 Nodejs10.15 外，可选值为：Python2.7、Python3.6、Nodejs6.10、Nodejs8.9、Nodejs12.16、PHP5、PHP7、Golang1、Java8。
   region: ap-guangzhou
   handler: index.main_handler
   events:
@@ -87,7 +87,7 @@ inputs:
 
 当您根据该配置文件更新配置字段后，再次运行 `serverless deploy` 或者 `serverless` 就可以更新配置到云端。
 
-#### 5. 开发调试
+### 5. 开发调试
 
 部署了该云函数 SCF 应用后，可以通过开发调试能力对该项目进行二次开发，从而开发一个生产应用。在本地修改和更新代码后，不需要每次都运行 `serverless deploy` 命令来反复部署。您可以直接通过 `serverless dev` 命令对本地代码的改动进行检测和自动上传。
 
@@ -97,7 +97,7 @@ inputs:
 
 除了实时日志输出之外，针对 Node.js 应用，当前也支持云端调试能力。在开启 `serverless dev` 命令之后，将会自动监听远端端口，并将函数的超时时间临时配置为 900s。此时您可以通过访问 chrome://inspect/#devices 查找远端的调试路径，并直接对云端代码进行断点等调试。在调试模式结束后，需要再次部署从而将代码更新并将超时时间设置为原来的值。详情请参考 [开发模式和云端调试](https://cloud.tencent.com/document/product/1154/43220)。
 
-#### 6. 查看状态
+### 6. 查看状态
 
 在`serverless.yml`文件所在的目录下，通过如下命令查看部署状态：
 
@@ -105,7 +105,7 @@ inputs:
 $ serverless info
 ```
 
-#### 7. 移除
+### 7. 移除
 
 在`serverless.yml`文件所在的目录下，通过以下命令移除部署 SCF 应用。移除后该组件会对应删除云上部署时所创建的所有相关资源。
 
@@ -115,7 +115,7 @@ $ serverless remove
 
 和部署类似，支持通过 `sls remove --debug` 命令查看移除过程中的实时日志信息，`sls`是 `serverless` 命令的缩写。
 
-## 账号配置
+### 账号配置（可选）
 
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建 `.env` 文件：
 
