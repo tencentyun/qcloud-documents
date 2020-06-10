@@ -1,12 +1,12 @@
 ## 操作场景
-消息队列 CKafka 支持用户转储消息的能力，您可以将 Ckafka 消息转储同步转储至消息队列Ckafka，用于Ckafka集群间的数据同步。
+消息队列 CKafka 支持用户转储消息的能力，您可以将 Ckafka 消息转储同步转储至消息队列 Ckafka，用于 Ckafka 集群间的数据同步。
 
 ## 前提条件
-该功能目前依赖云函数（SCF）、消息队列（Ckafka）服务。使用时需提前开通云函数 SCF 相关服务及功能。
+该功能目前依赖云函数（SCF）、消息队列 Ckafka 服务。使用时需提前开通云函数 SCF 相关服务及功能。
 
 ## 操作步骤
 
-转储 消息队列（Ckafka）的方案将使用 SCF 的 Ckafka 触发器进行，通过 Ckafka 触发器将消息同步至消息队列另一个集群内。
+转储消息队列 Ckafka 的方案将使用 SCF 的 Ckafka 触发器进行，通过 Ckafka 触发器将消息同步至消息队列另一个集群内。
 1. 登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在实例列表页，单击目标实例 ID，进入**topic 管理**标签页。
 3. 在 topic 管理标签页，单击操作列的【消息转储】。
