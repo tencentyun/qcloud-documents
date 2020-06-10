@@ -13,54 +13,56 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 **GPU 云服务器 NVIDIA 系列提供以下实例：**
 
 <table>
-		<thead>
-		<tr>
-			<th width=10%>类型</th>
-			<th width=16%>实例<br>(NVIDIA)</th>
-            <th width=16%>GPU 类型</th>
-			<th width=30%>GPU 性能</th>
-			<th>可用区域</th>
-		</tr>
-		</thead>
-		<tbody>
+        <thead>
+        <tr>
+            <th width="10%">类型</th>
+            <th width="15%">实例<br>(NVIDIA)</th>
+            <th width="15%">GPU 类型</th>
+            <th width="34%">GPU 性能</th>
+            <th style="
+    width: 26%;
+">可用区域</th>
+        </tr>
+        </thead>
+        <tbody>
             <tr>
                 <td rowspan="6">计算型</td>
-				<td>GN10X/GN10Xp</td> 
+                <td>GN10X/GN10Xp</td> 
                 <td>Tesla V100 NVLink 32G</td>
-								<td><ul class="params"><li>15.7TFLOPS 单精度浮点计算</li><li>7.8TFLOPS 双精度浮点计算</li><li>125TFLOPS Tensor Core 深度学习加速</li><li>300GB/s NVLink</li></ul></td>
-                <td><ul class="params"><li>GN10X：广州、上海、南京、北京、成都、重庆、新加坡、硅谷</li><li>GN10Xp：广州、上海、南京、北京、成都、重庆</li></td>
-			</tr>
+                                <td><ul class="params"><li>15.7TFLOPS 单精度浮点计算</li><li>7.8TFLOPS 双精度浮点计算</li><li>125TFLOPS Tensor Core 深度学习加速</li><li>300GB/s NVLink</li></ul></td>
+                <td><ul class="params"><li>GN10X：广州、上海、南京、北京、成都、重庆、新加坡、硅谷</li><li>GN10Xp：广州、上海、南京、北京、成都、重庆</li></ul></td>
+            </tr>
             <tr>
-				<td>GN8</td> 
+                <td>GN8</td> 
                 <td>Tesla P40</td>
-				<td><ul class="params"><li>12TFLOPS 单精度浮点计算</li><li>47INT8 TOPS</li></td>
+                <td><ul class="params"><li>12TFLOPS 单精度浮点计算</li><li>47INT8 TOPS</li></ul></td>
                 <td>香港、广州、上海、北京、成都、重庆、硅谷</td>
-			</tr>
+            </tr>
             <tr>
-				<td>GN7</td> 
+                <td>GN7</td> 
                 <td>Tesla T4</td>
-								<td><ul class="params"><li>8.1TFLOPS 单精度浮点计算</li><li>130INT8 TOPS</li><li>260INT4 TOPS</li></td>
+                                <td><ul class="params"><li>8.1TFLOPS 单精度浮点计算</li><li>130INT8 TOPS</li><li>260INT4 TOPS</li></ul></td>
                 <td>广州、上海、南京、北京、成都、重庆、新加坡、硅谷</td>
-            <tr>
-            <tr>
-				<td>GN6/GN6S</td> 
+            </tr><tr>
+            </tr><tr>
+                <td>GN6/GN6S</td> 
                 <td>Tesla P4</td>
-				<td><ul class="params"><li>5.5TFLOPS 单精度浮点计算</li><li>22INT8 TOPS</td>
-                <td><ul class="params"><li>GN6：成都</li><li>GN6S：广州、上海、北京</li></td>
-			</tr>
-                <td>GN2</td> 
+                <td><ul class="params"><li>5.5TFLOPS 单精度浮点计算</li><li>22INT8 TOPS</li></ul></td>
+                <td><ul class="params"><li>GN6：成都</li><li>GN6S：广州、上海、北京</li></ul></td>
+            </tr>
+                <tr><td>GN2</td> 
                 <td>Tesla M40</td>
-				<td><ul class="params"><li>7TFLOPS 单精度浮点计算（GPU Boost 加速）</li><li>0.2TFLOPS 双精度浮点计算</li></td>
+                <td><ul class="params"><li>7TFLOPS 单精度浮点计算（GPU Boost 加速）</li><li>0.2TFLOPS 双精度浮点计算</li></ul></td>
                 <td>广州、北京、上海</td>
-			</tr>
-			<tr>
-				<td>渲染型</td>
-				<td>GN7vw</td> 
+            </tr>
+            <tr>
+                <td>渲染型</td>
+                <td>GN7vw</td> 
                 <td>Tesla T4</td>
-				<td><ul class="params"><li>8.1TFLOPS 单精度浮点计算</li><li>130INT8 TOPS</li><li>260INT4 TOPS</li></td>
+                <td><ul class="params"><li>8.1TFLOPS 单精度浮点计算</li><li>130INT8 TOPS</li><li>260INT4 TOPS</li></ul></td>
                 <td>-</td>
-			</tr>
-		</tbody>
+            </tr>
+        </tbody>
 </table>
 
 
@@ -75,64 +77,64 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 **GPU 云服务器 NVIDIA 系列选型推荐**如下表，其中 **✓** 为支持，**★** 为推荐。
 
 <table>
-		<thead>
-		<tr>
-			<th width=15%>功能\实例</th>
-			<th width=15%>GN2</th>
-            <th width=15%>GN6/GN6S</th>
-			<th width=15%>GN7</th>
-			<th width=15%>GN8</th>
-            <th width=15%>GN10X/GN10Xp</th>
-            <th width=15%>GN7vw</th>
-		</tr>
-		</thead>
-		<tbody>
+        <thead>
+        <tr>
+            <th width="20%">功能\实例</th>
+            <th width="13%">GN2</th>
+            <th width="13%">GN6/GN6S</th>
+            <th width="13%">GN7</th>
+            <th width="13%">GN8</th>
+            <th width="13%">GN10X/GN10Xp</th>
+            <th width="13%">GN7vw</th>
+        </tr>
+        </thead>
+        <tbody>
             <tr>
-				<td>图形图像处理</td>
-				<td>-</td> 
+                <td>图形图像处理</td>
+                <td>-</td> 
                 <td>✓</td>
-				<td>✓</td>
-				<td>✓</td>
                 <td>✓</td>
-				<td>★</td>
-			</tr>
+                <td>✓</td>
+                <td>✓</td>
+                <td>★</td>
+            </tr>
             <tr>
                 <td>视频编解码</td>
-				<td>✓</td> 
+                <td>✓</td> 
                 <td>✓</td>
-				<td>★</td>
-				<td>✓</td>
-                <td>✓</td>
-				<td>★</td>
-			</tr>
-			<tr>
-				<td>深度学习训练</td>
-				<td>✓</td> 
-                <td>✓</td>
-				<td>✓</td>
-				<td>★</td>
                 <td>★</td>
-				<td>-</td>
-			</tr>
-            <tr>
-				<td>深度学习推理</td>
-				<td>✓</td> 
-                <td>★</td>
-				<td>★</td>
-				<td>★</td>
                 <td>✓</td>
-				<td>-</td>
-			</tr>
+                <td>✓</td>
+                <td>★</td>
+            </tr>
             <tr>
-				<td>科学计算</td>
-				<td>✓</td> 
+                <td>深度学习训练</td>
+                <td>✓</td> 
+                <td>✓</td>
+                <td>✓</td>
+                <td>★</td>
+                <td>★</td>
                 <td>-</td>
-				<td>-</td>
-				<td>-</td>
+            </tr>
+            <tr>
+                <td>深度学习推理</td>
+                <td>✓</td> 
                 <td>★</td>
-				<td>-</td>
-			</tr>
-		</tbody>
+                <td>★</td>
+                <td>★</td>
+                <td>✓</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>科学计算</td>
+                <td>✓</td> 
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td>★</td>
+                <td>-</td>
+            </tr>
+        </tbody>
 </table>
 
 >?GN2 视频编解码支持 H.264，不支持Ｈ.265。详情请参见 [视频编码和解码 GPU 支持列表](https://developer.nvidia.com/video-encode-decode-gpu-support-matrix)。
@@ -206,7 +208,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 		<thead>
 		<tr>
 			<th width=10%>型号</th>
-			<th width=10%>GPU<br>(NVIDIA Tesla V100 NVLink 32G)</th>
+			<th width=10%>GPU<br>(NVIDIA<br>Tesla V100 NVLink 32G)</th>
             <th width=12%>GPU 显存<br>(HBM2)</th>
 			<th width=8%>vCPU</th>
 			<th>内存<br>(DDR4)</th>
@@ -219,7 +221,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 		<tbody>
             <tr>
 				<td>GN10X.2XLARGE40</td>
-				<td>1 颗</td> 
+				<td>1颗</td> 
                 <td>1 * 32GB</td>
 				<td>8核</td>
 				<td>40GB</td>
@@ -324,7 +326,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 		</tbody>
 </table>
 
-> **vGPU**：GN10X 实例簇提供支持 vGPU 的实例类型。目前 vGPU 类型处于内测阶段，如需使用，请前往 [申请页面](https://cloud.tencent.com/apply/p/itgrxpby8al)。vGPU 的类型为 vComputeServer，仅支持 CUDA 计算 API。
+>?**vGPU**：GN10X 实例簇提供支持 vGPU 的实例类型。目前 vGPU 类型处于内测阶段，如需使用，请前往 [申请页面](https://cloud.tencent.com/apply/p/itgrxpby8al)。vGPU 的类型为 vComputeServer，仅支持 CUDA 计算 API。
 
 
 
@@ -362,8 +364,8 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 		<thead>
 		<tr>
 			<th width=10%>型号</th>
-			<th width=10%>GPU<br>(NVIDIA Tesla P40)</th>
-            <th width=12%>GPU显存<br>(GDDR5)</th>
+			<th width=10%>GPU<br>(NVIDIA<br>Tesla P40)</th>
+            <th width=12%>GPU 显存<br>(GDDR5)</th>
 			<th width=8%>vCPU</th>
 			<th>内存<br>(DDR4)</th>
             <th width=10%>内网带宽</th>
@@ -448,8 +450,8 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 		<thead>
 		<tr>
 			<th width=10%>型号</th>
-			<th width=10%>GPU<br>(NVIDIA Tesla T4)</th>
-            <th width=12%>GPU显存<br>(GDDR6)</th>
+			<th width=10%>GPU<br>(NVIDIA<br>Tesla T4)</th>
+            <th width=12%>GPU 显存<br>(GDDR6)</th>
 			<th width=8%>vCPU</th>
 			<th>内存<br>(DDR4)</th>
             <th width=10%>内网带宽</th>
@@ -567,8 +569,8 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 		<thead>
 		<tr>
 			<th width=10%>型号</th>
-			<th width=14%>GPU<br>(NVIDIA Tesla P4)</th>
-            <th width=10%>GPU显存<br>(GDDR5)</th>
+			<th width=14%>GPU<br>(NVIDIA<br>Tesla P4)</th>
+            <th width=10%>GPU 显存<br>(GDDR5)</th>
 			<th width=8%>vCPU</th>
 			<th>内存<br>(DDR4)</th>
             <th width=10%>内网带宽</th>
@@ -657,8 +659,8 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 		<thead>
 		<tr>
 			<th width=10%>型号</th>
-			<th width=14%>GPU<br>(NVIDIA Tesla M40)</th>
-            <th width=10%>GPU显存<br>(GDDR5)</th>
+			<th width=14%>GPU<br>(NVIDIA<br>Tesla M40)</th>
+            <th width=10%>GPU 显存<br>(GDDR5)</th>
 			<th width=8%>vCPU</th>
 			<th>内存<br>(DDR4)</th>
             <th width=10%>内网带宽</th>
@@ -739,8 +741,8 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 		<thead>
 		<tr>
 			<th width=10%>型号</th>
-			<th width=10%>GPU<br>(NVIDIA Tesla T4)</th>
-            <th width=12%>GPU显存<br>(GDDR6)</th>
+			<th width=10%>GPU<br>(NVIDIA<br>Tesla T4)</th>
+            <th width=12%>GPU 显存<br>(GDDR6)</th>
 			<th width=8%>vCPU</th>
 			<th>内存<br>(DDR4)</th>
             <th width=10%>内网带宽</th>
