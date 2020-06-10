@@ -15,8 +15,8 @@
  起始位置：转储时历史消息的处理方式，topic offset 设置。
 5. 创建完成后单击【函数管理】链接，进入云函数控制台进行下一步操作。
 ![](https://main.qcloudimg.com/raw/c0a47a3ed0d59d92af8f80f7f74d8ec1.png)
-6. 在云函数控制台上传 CkafkaToCkafka 模板代码 [Github下载地址](https://github.com/tencentyun/scf-demo-repo/tree/master/Python2.7-CkafkaToCkafka)
-![](https://main.qcloudimg.com/raw/41dce628f44c633eb8ff83a2197f97e8.png)。
+6. 在云函数控制台上传 CkafkaToCkafka 模板代码 [Github下载地址](https://github.com/tencentyun/scf-demo-repo/tree/master/Python2.7-CkafkaToCkafka)。
+![](https://main.qcloudimg.com/raw/41dce628f44c633eb8ff83a2197f97e8.png)
 7. 在云函数的【函数代码】中添加修改如下内容：
 ![](https://main.qcloudimg.com/raw/47205fb8eadbe4694b693c6a40b77c41.png)
 ```
