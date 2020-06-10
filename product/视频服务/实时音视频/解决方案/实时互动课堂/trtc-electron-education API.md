@@ -99,7 +99,7 @@ rtcClient.destroyRoom(classId)
 ```
 
 #### enterRoom(params: EnterRoomParams)
-老师开始上课；学生进入教室，准备听课。
+老师开始上课，学生进入教室，准备听课。
 参数：
 
 |参数名|	类型	| 说明|
@@ -122,7 +122,7 @@ rtcClient.enterRoom(params).then(() => {
 ```
 
 #### exitRoom(role:string, classId: number)
-老师下课；学生退出课堂。
+老师下课，学生退出课堂。
 参数：
 
 |参数名|	类型	| 	说明|
@@ -360,7 +360,7 @@ rtcClient.getCameraList()
 
 |参数名|	类型	| 说明|
 | ----- | ----- |  ---- |
-|deviceId|string|	-|设备ID|
+|deviceId|string| 设备 ID|
 
 示例：
 ```typescript
