@@ -168,7 +168,7 @@ rtcClient.raiseHand()
 ```typescript
 const params = {
    classId: classId, // 教室 ID
-   message: '你好' // 消息文本
+   message: '您好' // 消息文本
 }
 rtcClient.sendTextMessage(params) // 发送聊天室消息
 ```
