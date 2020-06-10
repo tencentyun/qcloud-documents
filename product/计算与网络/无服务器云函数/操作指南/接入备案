@@ -27,8 +27,7 @@ ICP 备案号以工信部网站公共查询为准：[查询入口](http://www.be
 使用微信扫一扫小程序码进入备案小程序，并登录您的腾讯云账号。
 
 单击【开始备案】，进入验证备案类型流程。如下图所示：     
-
-![](https://qqadapt.qpic.cn/txdocpic/0/2f1bd5cc6ff5c84c4dd9370791ebf23d/0)
+![](https://main.qcloudimg.com/raw/21144d9b3e7d7e0e210ae449f1b7f90b.png)
 
 ### 二. 验证备案类型
 
@@ -37,8 +36,7 @@ ICP 备案号以工信部网站公共查询为准：[查询入口](http://www.be
 说明：
 
 上传营业执照或身份证后，系统会自动识别并填充证件号码。如系统识别有误，请自行修正。
-
-![](https://qqadapt.qpic.cn/txdocpic/0/dc8ec38a3ac3133f54251365b921a057/0)
+![](https://main.qcloudimg.com/raw/df185e306deaf31313def207581e8763.png)
 
 | 字段名称 | 说明 |
 |:----|:----|
@@ -55,8 +53,7 @@ ICP 备案号以工信部网站公共查询为准：[查询入口](http://www.be
 ### 三. 填写主体信息
 
 填写主体信息。如下图所示：
-
-![](https://qqadapt.qpic.cn/txdocpic/0/bdd9ae4f99375409d108f899af7e61b1/0)
+![](https://main.qcloudimg.com/raw/cf846bc50b7e6aea2a947e7ec458f5fc.png)
 
 | 字段名称 | 说明 |
 |:----|:----|
@@ -75,8 +72,7 @@ ICP 备案号以工信部网站公共查询为准：[查询入口](http://www.be
 若您的账号实名认证信息不符合备案要求，您可以根据备案要求修改您的账号实名认证信息。详情请查看 [实名认证变更指引](https://cloud.tencent.com/document/product/378/34075) 。
 
 填写主体负责人信息。如下图所示：
-
-![](https://qqadapt.qpic.cn/txdocpic/0/71dca171ecb935f27e15524977c22cf0/0)
+![](https://main.qcloudimg.com/raw/aec174bb2aeb9bf1557b114539330c6d.png)
 
 | 字段名称 | 说明 |
 |:----|:----|
@@ -101,11 +97,7 @@ ICP 备案号以工信部网站公共查询为准：[查询入口](http://www.be
 
 填写网站信息。如下图所示：
 
-备案前请先开启云函数备案，在备案类型中选择 Serverless 即可：
-
-![](https://qqadapt.qpic.cn/txdocpic/0/622e14e9ac27206cd77e1923b6664e41/0)
-
-![](https://qqadapt.qpic.cn/txdocpic/0/7d21fe70b4601da9647ffe9ca913d96d/0)
+备案前请先开启云函数备案，在备案类型中选择 Serverless 即可
 
 | 字段名称 | 说明 |
 |:----|:----|
@@ -124,7 +116,7 @@ ICP 备案号以工信部网站公共查询为准：[查询入口](http://www.be
 
 本操作步骤仅针对单位备案，若您的备案属于个人备案，则无需操作此步骤。
 
-![](https://qqadapt.qpic.cn/txdocpic/0/3731eed890957746724e145021a192f3/0)
+![](https://main.qcloudimg.com/raw/2d1a2f2264f62dc2947faf6b6d390816.png)
 
 | 字段名称 | 说明 |
 |:----|:----|
@@ -141,7 +133,7 @@ ICP 备案号以工信部网站公共查询为准：[查询入口](http://www.be
 
 如需备案多个网站，则可单击【添加网站备案】，添加新的网站信息。如下图所示：
 
-![](https://qqadapt.qpic.cn/txdocpic/0/844e72b6484746c3c61270547abc466c/0)
+![](https://main.qcloudimg.com/raw/b080d24eada5300f8f8e9892f1acc8b3.png)
 
 单击【下一步】，进入核验及上传材料流程。
 
@@ -166,7 +158,6 @@ ICP 备案号以工信部网站公共查询为准：[查询入口](http://www.be
 请仔细核对您的备案信息，确认无误后，阅读和勾选
 
 阅读并同意《相关条款》和《腾讯云隐私声明》，并单击【提交】。如下图所示：
-
 ![](https://qqadapt.qpic.cn/txdocpic/0/adc9d55c2b5153b911d0f2b07af7e41e/0)
 
 注意：
