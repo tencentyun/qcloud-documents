@@ -137,7 +137,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
         </tbody>
 </table>
 
->?GN2 视频编解码支持 H.264，不支持Ｈ.265。详情请参见 [视频编码和解码 GPU 支持列表](https://developer.nvidia.com/video-encode-decode-gpu-support-matrix)。
+>?GN2 视频编解码支持 H.264，不支持 Ｈ.265。详情请参见 [视频编码和解码 GPU 支持列表](https://developer.nvidia.com/video-encode-decode-gpu-support-matrix)。
 
 ### 图形图像处理
 推荐使用 GN7vw，免除了 vDWS License 申请及搭建服务器步骤，是图形图像处理应用场景的首选。目前 GN7vw 处于内测阶段，如需使用，请前往 [申请](https://cloud.tencent.com/apply/p/l133eutcwd9) 页面。
@@ -339,7 +339,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 ### 适用场景
 
 适用于深度学习的推理和训练场景。例如：
-- 大吞吐量的AI推理
+- 大吞吐量的 AI 推理
 - 深度学习
 
 同样可用于图形图像处理。例如：
@@ -425,7 +425,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 
 ### 适用场景
 性价比高 ，适用于深度学习的推理场景和小规模训练场景。例如：
-- 大规模部署的AI推理
+- 大规模部署的 AI 推理
 - 深度学习小规模训练
 
 同样可用于图形图像处理。例如：
@@ -546,7 +546,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 ### 适用场景
 
 性价比高 ，适用于深度学习的推理场景和小规模训练场景。例如：
-- 大规模部署的AI推理
+- 大规模部署的 AI 推理
 - 深度学习小规模训练
 
 同样可用于图形图像处理。例如：
@@ -592,9 +592,9 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
         <td rowspan="2">成都一区</td>
 			</tr>
             <tr>
-                <td>GN6.14XLARGE96</td>
+         <td>GN6.14XLARGE96</td>
 				<td>2颗</td> 
-                <td>16GB</td>
+        <td>16GB</td>
 				<td>56核</td>
 				<td>96GB</td>
         <td>10Gbps</td>
@@ -604,7 +604,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 			<tr>
 				<td>GN6S.LARGE20</td>
 				<td>1颗</td> 
-                <td>8GB</td>
+        <td>8GB</td>
 				<td>4核</td>
 				<td>20GB</td>
          <td>7Gbps</td>
@@ -643,12 +643,12 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 - 分子建模
 - 基因组学及其他
 
-部分适用于图形图像处理。例如，视频编解码。支持H.264，不支持Ｈ.265。详情请参见 [视频编码和解码 GPU 支持列表](https://developer.nvidia.com/video-encode-decode-gpu-support-matrix)。
+部分适用于图形图像处理。例如，视频编解码，支持 H.264，不支持 Ｈ.265。详情请参见 [视频编码和解码 GPU 支持列表](https://developer.nvidia.com/video-encode-decode-gpu-support-matrix)。
 
 ### 硬件规格
 
-- **CPU：** Intel<sup>®</sup> Xeon<sup>®</sup> E5-2680 v4 (Broadwell)，主频 2.4 GHz 。
-- **GPU：** NVIDIA<sup>®</sup> Tesla<sup>®</sup> Ｍ40（GPU Boost加速下单精度浮点计算７ TFLOPS，0.2 TFLOPS 双精度浮点计算）。
+- **CPU：** Intel<sup>®</sup> Xeon<sup>®</sup> E5-2680 v4 (Broadwell)，主频2.4GHz 。
+- **GPU：** NVIDIA<sup>®</sup> Tesla<sup>®</sup> Ｍ40（GPU Boost加速下单精度浮点计算７TFLOPS，0.2TFLOPS 双精度浮点计算）。
 - **内存：** DDR4 ，内存带宽达2666MT/s。
 - **存储：** 本地 SSD 硬盘，本机型暂不支持购买云硬盘。	 
 - **网络：** 默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
