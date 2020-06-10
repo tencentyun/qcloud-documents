@@ -787,4 +787,6 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于大规模深
 >?**vGPU**：GN7、GN7vw 实例簇提供支持 vGPU 的实例类型。其中 GN7vw vGPU 的类型为 vDWS，仅支持 DirectX 和 OpenGL 等图形 API。
 
 
-
+<style>
+	.params{margin:0px !important}
+</style>
