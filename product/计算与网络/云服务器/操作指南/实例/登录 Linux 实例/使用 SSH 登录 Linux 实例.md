@@ -1,6 +1,6 @@
 ## 操作场景
 
-本文介绍如何在 Linux 或者 Mac OS 系统的本地电脑中通过 SSH 登录 Linux 实例。
+本文介绍如何在 Linux、Mac OS 或者 Windows 系统的本地电脑中通过 SSH 登录 Linux 实例。
 
 ## 适用本地操作系统
 
