@@ -16,7 +16,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
         <thead>
         <tr>
             <th width="10%">类型</th>
-            <th width="15%">实例<br>(NVIDIA)</th>
+            <th width="15%">实例<br>（NVIDIA）</th>
             <th width="15%">GPU 类型</th>
             <th width="34%">GPU 性能</th>
             <th style="
