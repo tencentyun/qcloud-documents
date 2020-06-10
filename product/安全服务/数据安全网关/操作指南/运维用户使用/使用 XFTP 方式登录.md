@@ -19,7 +19,6 @@
 	- 账号：输入 Windows 的系统账号。
 	- 口令：输入 Windows 账号的密码。
 	- 工具：选择 XFTP 工具。
-	- 选择分辨率：默认为 1024 x 768。
 	- 超时时间：连接 Windows 资源的超时时间，默认为5秒。
 ![](https://main.qcloudimg.com/raw/bf7bdfec613dc093b79c9dbc93a95fdf.png)
 5. 确认配置信息无误后，单击【登录】，系统将根据配置，调用本地的 WinSCP 工具连接到目标资源，目标资源连接成功后即可上传、下载文件。
