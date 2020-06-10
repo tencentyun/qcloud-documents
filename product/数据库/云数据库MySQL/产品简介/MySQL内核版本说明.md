@@ -1,5 +1,5 @@
 ## MySQL 5.7
-### 20190830版本
+### 20190830
 #### 新特性：
 - 支持 binlog 文件损坏时跳过继续解析的功能，在主实例及 binlog 均损坏的场景下，可最大程度在备库中恢复数据并提供使用。
 - 支持非 GTID 模式到 GTID 模式的数据同步。
@@ -17,11 +17,11 @@
 - 修复删除 event 导致其他 event 不按时执行的问题。
 - 修复汇总查询结果错误的问题。
 
-### 20190615版本
+### 20190615
 #### 新特性：
 - 支持透明数据加密功能。
 
-### 20190430版本
+### 20190430
 #### 修复：
 - 修复在子查询中使用长文本功能时的空指针引用问题。
 - 修复 Hash Scan 所引起的主备中断问题。
@@ -30,7 +30,7 @@
 - 修复字符集引起的 illegal mix of collation 问题。
 
 
-### 20190203版本
+### 20190203
 #### 新特性：
 - 支持异步删除大表：异步、缓慢地清理文件，进而避免因删除大表导致业务性能出现抖动情况，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 - 支持 CATS 锁调度方式。
@@ -45,7 +45,7 @@
 - 修复 GTID 空洞造成复制中断且不能恢复的问题。
    
 
-### 20180918版本
+### 20180918
 #### 新特性：
 - 支持自动 kill 空闲任务，减少资源冲突，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 - Memory 引擎自动转换为 InnoDB 引擎：如果全局变量 cdb_convert_memory_to_innodb 为 ON，则创建/修改表时会将表引擎从 Memory 转换为 InnoDB。
@@ -62,7 +62,7 @@
 - 修复 Loose index scans 所导致查询结果错误的问题。
 
 
-### 20180530版本
+### 20180530
 #### 新特性：
 - 支持 SQL 审计功能。
 - 支持表级别的并行复制，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
@@ -76,7 +76,7 @@
 - 修复 Crash on UPDATE ON DUPLICATE KEY 产生的 Crash 问题。
 - 修复由于 JSON 列导入时引起的 “Invalid escape character in string.” 错误。
    
-### 20171130版本
+### 20171130
 #### 新特性：
 - 支持 information_schema.metadata_locks 视图，查询当前实例中的 MDL 授予和等待状态。
 - 支持语法 ALTER TABLE NO_WAIT | TIMEOUT，给 DDL 操作赋予等待超时，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
@@ -88,7 +88,7 @@
 
    
 ## MySQL 5.6
-### 20190930版本
+### 20190930
 #### 新特性：
 - 用户可通过 show full processlist 查询“用户线程内存使用信息”，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。  
 
@@ -101,14 +101,14 @@
 - 修复因主库 binlog 切换导致 slave 节点 I/O 线程中断的问题。
 - 修复 innodb_log_checusum 所导致备份不兼容的问题。
 
-### 20190530版本
+### 20190530
 #### 修复：
 - 修复 RC 模式下读到脏数据的问题。
 - 修复删除临时表会导致备机回放失败的问题。
 - 修复高并发下死锁的问题。
    
 
-### 20190203版本
+### 20190203
 #### 新特性：
 - 异步删除大表：异步、缓慢地清理文件，进而避免因删除大表导致业务性能出现抖动情况，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 - 支持非 super 权限用户 kill 其他用户会话的功能，通过 cdb_kill_user_extra 参数进行设置，默认值为 root@%。
@@ -122,7 +122,7 @@
 - 修复热点记录更新挂起的问题。
 - 修复并行复制下 Seconds_Behind_Master 值异常的问题。
 
-### 20180915版本
+### 20180915
 #### 新特性：
 - MEMORY  引擎自动转换为 InnoDB 引擎：如果全局变量 cdb_convert_memory_to_innodb 为 ON，则创建、修改表时会将表引擎从 MEMORY 转换为 InnoDB。
 - 自动 kill 空闲任务，减少资源冲突，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
@@ -132,7 +132,7 @@
 - 修复 decimal 精度问题所导致主备时间数据不一致的问题。
 
 
-### 20180130版本
+### 20180130
 #### 新特性：
 - 支持线程池功能，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 - slave 节点支持动态修改复制过滤条件。
@@ -143,7 +143,7 @@
 #### 修复：
 - 修复认证密码串导致数据库 crash 的问题。
    
-### 20180122版本
+### 20180122
 #### 新特性：
 - 支持 SQL 审计功能。
 
@@ -152,19 +152,19 @@
 - 修复使用全文索引查询出错的问题。
 - 修复复制时 slave 机 crash 问题。
 	
-### 20170830版本
+### 20170830
 #### 修复：
 - 修复异步模式下 binlog 限速失效的问题。
 - 修复 buffer_pool 状态异常的问题。
 - 修复 SEQUENCE 与隐含主键冲突的问题。
    
-### 20170228版本
+### 20170228
 #### 修复：
 - 修复 drop table 中的字符编码 bug。
 - 修复 replicate-wild-do-table 无法正确过滤 db 或者 table 中含有小数点等特殊字符的问题。
 - 修复备库产生的 rotate 事件后，导致 SQL 线程提前退出的问题。
   
-### 20161130版本
+### 20161130
 #### 性能优化：
 - lock_log 锁拆分，减少 lock log 占用的时间，提高并发性能。
 - 主库 ACK 线程独立出来，提升响应时间。

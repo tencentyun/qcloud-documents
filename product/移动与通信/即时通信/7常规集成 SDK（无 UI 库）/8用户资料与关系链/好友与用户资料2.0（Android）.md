@@ -8,9 +8,10 @@
 
 ### 查询和修改好友的资料
 **查询指定的好友资料**接口为 [getFriendsInfo](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMFriendshipManager.html#a88732b0f7a5e77a9dd34403fe7bbdd21)，从回调信息中通过 `V2TIMFriendInfoResult` 的 `getRelation()` 可以得到该用户与自己的关系：
-- `V2TIMCheckFriendResult.V2TIM_FRIEND_RELATION_TYPE_NONE` 表示不是好友。
-- `V2TIMCheckFriendResult.V2TIM_FRIEND_RELATION_TYPE_BOTH_WAY` 表示互为好友。
-- `V2TIMCheckFriendResult.V2TIM_FRIEND_RELATION_TYPE_IN_MY_FRIEND_LIST` 表示对方在我的好友列表中。
+- `V2TIMFriendCheckResult.V2TIM_FRIEND_RELATION_TYPE_NONE` 表示不是好友。
+- `V2TIMFriendCheckResult.V2TIM_FRIEND_RELATION_TYPE_BOTH_WAY` 表示互为好友。
+- `V2TIMFriendCheckResult.V2TIM_FRIEND_RELATION_TYPE_IN_MY_FRIEND_LIST` 表示对方在我的好友列表中。
+- `V2TIMFriendCheckResult.V2TIM_FRIEND_RELATION_TYPE_IN_OTHER_FRIEND_LIST` 表示我在对方的好友列表中。
 
 **修改指定的好友信息**接口为 [setFriendInfo](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMFriendshipManager.html#a151b7de6219d966b4194ad7fcc8450fe) ，可修改好友备注等资料。
 

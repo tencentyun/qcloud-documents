@@ -10,7 +10,7 @@ MFA，Multi-FactorAuthentication，即多因子认证，是一种简单有效的
 
 ### 账号绑定了 MFA，如果手机丢了，如何登录账号？
 - **方法1：有其他腾讯云账号**
-请您登录其他账号 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请解绑：“账号中心 > 账号安全设置（MFA）问题。
+请您登录其他账号 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请解绑：账号中心 > 账号安全设置（MFA）问题。
  
 - **方法2：没有其他腾讯云账号**
 您可以致电官方客服 95716 咨询解绑。

@@ -146,7 +146,7 @@ tcaplus>load hehe from test1;
 
 
 ## 通过 C++ SDK 接口访问 TcaplusDB 数据
-SDK 工具支持 C++ 以及 Java 两种语言，[C++ SDK 接口说明](https://cloud.tencent.com/document/product/596/31665)
+支持 [C++ 语言](https://cloud.tencent.com/document/product/596/31665) 通过 SDK 工具访问 TcaplusDB 数据。
 
 ## 通过 RESTFul API 接口访问 TcaplusDB 数据
 [RESTFul API 接口说明](https://cloud.tencent.com/document/product/596/31664)

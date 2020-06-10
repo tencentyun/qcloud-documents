@@ -11,4 +11,5 @@ TrustSQL 针对行业场景特点，以提供更好的、有效的、自主创�
 - 提供用户身份管理设施：提供用户身份与公钥、地址之间的映射关系保存设施，同时可由颁发机构生成数字证书，满足法律效力要求。
 
 ## 系统框架
-![](https://main.qcloudimg.com/raw/7c7e4f6407b4f40f7903d89c57319ec1.png)
+![](https://main.qcloudimg.com/raw/2329a8264e019d40d0b9d72bc681a0a7.jpg)
+

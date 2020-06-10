@@ -12,7 +12,6 @@
 
 ## 获取安装
 
-### 通过 Composer 安装（推荐）
 [Composer](https://www.phpcomposer.com) 是 PHP 的依赖管理工具，支持您项目所需的依赖项，并将其安装到项目中。
 1. 安装 Composer。
  - Windows 环境：请访问 [Composer 官网](https://getcomposer.org/download/) 下载安装包并进行安装。
@@ -20,29 +19,15 @@
 ```
 curl -sS https://getcomposer.org/installer | php
 ```
-2. 在 composer.json 的 require 结构体中加入依赖。
->!**以下版本号仅为示例，请替换成 Composer 仓库上查看到最新的版本号。**
+2. 添加依赖。
+```
+composer require tencentcloud/tencentcloud-sdk-php
+```
+3. 在代码中添加以下引用代码。
+>!本文仅为示例，composer 会在项目根目录下生成 vendor 目录，`/path/to/`为项目根目录的实际绝对路径，如果是在项目根目录执行，可以省略绝对路径。
 >
 ```
-"tencentcloud/tencentcloud-sdk-php": "3.0.*"
-```
-3. 运行 composer install 下载安装 PHP SDK。
-4. 添加以下引用代码，引用方法可参考 [示例](#example)。
-```
-require 'vendor/autoload.php';
-```
-
-### 通过源码包安装
-1. 下载源码压缩包：
- - **方法一**：通过 git clone 下载源码。
- ```
-git clone https://github.com/tencentcloud/tencentcloud-sdk-php
-```
- - **方法二**：访问 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-php/tencentcloud-sdk-php.zip) 下载源码压缩包。
-2. 解压源码包到您项目合适的位置。
-3. 添加以下引用代码，引用方法可参考 [示例](#example)。
-```
-require_once '../TCloudAutoLoader.php';
+require '/path/to/vendor/autoload.php';
 ```
 
 <span id="example"></span>
@@ -51,24 +36,24 @@ require_once '../TCloudAutoLoader.php';
 
 ```php
 <?php
-require_once '../../../TCloudAutoLoader.php';
-// 导入对应产品模块的 client
+require 'vendor/autoload.php';
+// 导入对应产品模块的client
 use TencentCloud\Cvm\V20170312\CvmClient;
-// 导入要请求接口对应的 Request 类
+// 导入要请求接口对应的Request类
 use TencentCloud\Cvm\V20170312\Models\DescribeZonesRequest;
 use TencentCloud\Common\Exception\TencentCloudSDKException;
 use TencentCloud\Common\Credential;
 try {
-    // 实例化一个证书对象，入参需要传入腾讯云账户 secretId，secretKey
+    // 实例化一个证书对象，入参需要传入腾讯云账户secretId，secretKey
     $cred = new Credential("secretId", "secretKey");
 
-    // 实例化要请求产品（以 CVM 为例）的 client 对象
+    // # 实例化要请求产品(以cvm为例)的client对象
     $client = new CvmClient($cred, "ap-guangzhou");
 
     // 实例化一个请求对象
     $req = new DescribeZonesRequest();
 
-    // 通过 client 对象调用想要访问的接口，需要传入请求对象
+    // 通过client对象调用想要访问的接口，需要传入请求对象
     $resp = $client->DescribeZones($req);
 
     print_r($resp->toJsonString());
@@ -78,9 +63,21 @@ catch(TencentCloudSDKException $e) {
 }
 ```
 
-## 相关配置
+## 常见问题
 ### 代理
-在有代理的环境下，需要设置系统环境变量 `https_proxy`，否则可能无法正常调用，抛出连接超时的异常。
+在有代理的环境下，需要设置系统环境变量`https_proxy`，否则可能无法正常调用，抛出连接超时的异常。
+或使用 GuzzleHttp 代理配置：
+```php
+$cred = new Credential("secretId", "secretKey");
+
+$httpProfile = new HttpProfile();
+$httpProfile->setProxy('https://ip:port');
+
+$clientProfile = new ClientProfile();
+$clientProfile->setHttpProfile($httpProfile);
+
+$client = new OcrClient($cred, 'ap-beijing', $this->clientProfile);
+```
 
 ### 证书问题
 如果 PHP 环境证书有问题，遇到类似`cURL error 60: See http://curl.haxx.se/libcurl/c/libcurl-errors.html`报错，请尝试参照以下步骤解决：
@@ -91,6 +88,11 @@ catch(TencentCloudSDKException $e) {
 ### php_curl 扩展
 SDK 依赖的 GuzzleHttp 需要开启 php_curl 扩展，查看环境上的`php.ini`环境确认是否已启用。
 例如，在 Linux 环境下，PHP 7.1 版本，托管在 apache 下的服务，可以打开`/etc/php/7.1/apache2/php.ini`中查看`extension=php_curl.dll`配置项是否被注释，请删除该项配置前的注释符并重启 apache。
+
+### Web 访问异常
+命令行下执行正常，但是放在 Web 服务器执行则报错：cURL error 0: The cURL request was retried 3 times and did not succeed. The most likely reason for the failure is that cURL was unable to rewind the body of the request and subsequent retries resulted in the same error. Turn on the debug option to see what went wrong. See https://bugs.php.net/bug.php?id=47204 for more information. (see http://curl.haxx.se/libcurl/c/libcurl-errors.html)。
+此问题出现情况不一，可以运行 `php -r "echo sys_get_temp_dir();"` 打印系统默认临时目录绝对路径，然后在`php.ini`配置`sys_temp_dir`为打印出的路径，尝试是否能解决。
+
 
 ## 旧版 SDK
 旧版本的 SDK 存放于 QcloudApi 目录，详细使用说明请参考 [旧版 PHP SDK](https://github.com/QcloudApi/qcloudapi-sdk-php)，但不再维护更新，推荐使用新版 SDK。

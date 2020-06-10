@@ -266,13 +266,17 @@ Serverless DB SDK 具备以下特点：
 const database = require('scf-nodejs-serverlessdb-sdk').database;
 
 exports.main_handler = async (event, context, callback) => {
-  let connection = await database().connection();
-  let result = await connection.queryAsync('select * from name');
-  console.log(result);
+  let pool = await database('TESTDB2').pool()
+  pool.query('select * from coffee',(err,results)=>{
+    console.log('db2 callback query result:',results)
+  })
+  // no need to release pool
+ 
+  console.log('db2 query result:',result)
 }
 ```
 
->?Node.js 已知 Bug 需要在函数返回前自行释放连接，在函数结束时调用 `connection.close()`，此 Bug 将在下一个版本修复。
+>?Node.js SDK 具体使用方法请参考 [云函数 Serverless DB Node SDK](https://www.npmjs.com/package/scf-nodejs-serverlessdb-sdk)。
 
 
 ### Python SDK
@@ -299,8 +303,9 @@ def main_handler(event, context):
  - 新增**环境变量**，请参考以下表格填写，如下图所示：
 ![](https://main.qcloudimg.com/raw/46c8b2aab4d4463dd16e1e063b318e36.png)
 >!
->- 环境变量 key 格式为`DB_{引用}_XXX`，您可通过 `mysql.database(引用).connection()` 获得已初始化的数据库连接。
+>- 环境变量 key 格式为`DB_{引用}_XXX`，您可通过 `mysql.database(引用).connection()` 获得已初始化的数据库连接（引用为此数据库的标识）。
 >- 若您设置添加环境变量 `DB_DEFAULT` 为 `DB1`，则 `mysql.database()` 默认使用 `DB1`，否则需要指定引用 `mysql.database("DB1")`。
+>- 更多关于环境变量相关信息，请参见 [环境变量](https://cloud.tencent.com/document/product/583/30228)。
 >
 <table>
 <tr>

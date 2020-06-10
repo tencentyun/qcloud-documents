@@ -770,6 +770,15 @@ SDK 版本号
 是否开启笔锋 
 
 
+### refresh
+刷新当前页白板，触发 onRefresh 回调 
+``` Objective-C
+- (void)refresh
+```
+#### 警告
+如果当前白板包含 PPT/H5/图片/视频时，刷新白板将会触发对应的回调 
+
+
 
 ## 文件操作接口
 
@@ -905,7 +914,7 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fileId | NSString * |  |
+| fileId | NSString * | 获取白板中指定文件的文件信息 |
 
 #### 返回
 文件信息 

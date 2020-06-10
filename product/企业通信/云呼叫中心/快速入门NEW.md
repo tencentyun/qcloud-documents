@@ -117,7 +117,7 @@
 <span id="Step3"></span>
 ## 步骤3：配置呼叫中心客服
 - 如果您需要体验腾讯云呼叫中心 Demo，请参见 [快速上手](https://cloud.tencent.com/document/product/679/41404)。
- >?呼叫中心 Demo 目前仅支持 Chrome 69及以上版本的浏览器。
+ >?呼叫中心 Demo 目前仅支持 Chrome 70及以上版本的浏览器。
  >
 - 如果您需要自研呼叫中心，请联系我们（QQ：2982200247）提供接口支撑。
 

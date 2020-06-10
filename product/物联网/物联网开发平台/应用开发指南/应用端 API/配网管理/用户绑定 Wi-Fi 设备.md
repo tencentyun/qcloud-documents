@@ -72,7 +72,7 @@ content-type: application/json
 |InvalidParameterValue.TokenNotExist|Token 不存在|
 |InvalidParameterValue.TokenIsExpire|Token 已过期|
 |InvalidParameterValue.ReadTokenInfoError|Token 读错误|
-|InvalidParameterValue.TokenNotBind|Token 未绑定|
+|InvalidParameterValue.TokenNotBind|Token 未绑定，即在上一步接口 AppGetDeviceBindTokenState 查询返回状态为初始状态，非可使用状态|
 |InvalidParameterValue.FamilyDeviceCountReadError|读设备数量错误|
 |UnauthorizedOperation|无操作权限|
 |UnauthorizedOperation.APPNoPermissionToStudioProduct|App 对操作该产品无权限|

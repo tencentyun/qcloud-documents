@@ -6,7 +6,7 @@
 - 请确保您单网卡绑定内网 IP 数在限额数内，具体限额请参见 [弹性网卡-使用限制](https://cloud.tencent.com/document/product/576/18527)。
 
 ## 操作步骤
-### <span id="bindEIP" />步骤一：绑定 EIP
+### 步骤一：分配内网 IP
 1. 登录 [CVM 控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=4)。
 2. 在实例列表中单击您的 CVM ID，在详细信息页面，选择【弹性网卡】。
 ![](https://main.qcloudimg.com/raw/1e9965343cd6e71b2b48a6f27e01f5b6.png)
@@ -16,17 +16,19 @@
 >例如，所属子网网段为：`10.0.0.0/24`，则可填的内网 IP 范围 为：`10.0.0.2 - 10.0.0.254`，本次操作以手动填写 `10.0.0.3` 为例。
 >
 ![](https://main.qcloudimg.com/raw/230608e14e90b0b4848661eb337e4d0c.png)
-5. 在“弹性网卡”页面，单击 <img src="https://main.qcloudimg.com/raw/57a0c76b72cd97bd80bf857cd30c867a.png" style="margin: 0;">，以展开主网卡信息。
+
+### <span id="bindEIP" />步骤二：绑定 EIP
+1. 在“弹性网卡”页面，单击 <img src="https://main.qcloudimg.com/raw/57a0c76b72cd97bd80bf857cd30c867a.png" style="margin: 0;">，以展开主网卡信息。
 ![](https://main.qcloudimg.com/raw/ffa35df2be28027b390413f0d54176e4.png)
-6. 在分配的类型为辅助 IP 的内网 IP 所在行，单击“已绑定公网 IP”栏下的【绑定】。
-7. 在弹出的“绑定弹性公网IP”窗口中：
+2. 在分配的类型为辅助 IP 的内网 IP 所在行，单击“已绑定公网 IP”栏下的【绑定】。
+3. 在弹出的“绑定弹性公网IP”窗口中：
  - 若有可选的 EIP，选中并单击【确定】即可。
- - 若无可选的 EIP，可单击弹框上方的【新建】进行申请，详情请参见 [申请 EIP](1199/41698)，申请成功后返回弹出框并单击【刷新】，即可看见申请的 EIP，选中并单击【确定】即可。
+ - 若无可选的 EIP，可单击弹框上方的【新建】进行申请，详情请参见 [申请 EIP](https://cloud.tencent.com/document/product/1199/41698)，申请成功后返回弹出框并单击【刷新】，即可看见申请的 EIP，选中并单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/ac5172d56f2dc436a5b0c16d1be5ece1.png)
-8. 在主网卡的列表中，即可查看相关内网 IP 绑定公网 IP 的信息。
+4. 在主网卡的列表中，即可查看相关内网 IP 绑定公网 IP 的信息。
 ![](https://main.qcloudimg.com/raw/4898e542a669a4591fcde007fc554aee.png)
 
-### 步骤二：配置网卡
+### 步骤三：配置网卡
 请根据您的云服务器操作系统类型，选择对应的配置网卡操作：
 - [Linux 云服务器](#Linux)
 - [Windows 云服务器](#Win)
@@ -39,7 +41,7 @@
  - **子网掩码：**如下图所示，所属子网的 CIDR 位数为/24，即子网掩码为 `255.255.255.0`。
  - **网关：**如果您未更改其他设置，则网关为子网网段的首个 IP，如下图中的所属子网网段的首个 IP 即为 `10.0.0.1`。
 ![](https://main.qcloudimg.com/raw/130af7fd24d0c052661bec7679545112.png)
-4. 登录云服务器，具体操作请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://tcloud-doc.isd.com/document/product/213/5436)。
+4. 登录云服务器，具体操作请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 5. 执行如下命令，备份网卡信息。
 ```
 cp /etc/sysconfig/network-scripts/ifcfg-eth0{,.bak}
@@ -78,10 +80,12 @@ GATEWAY=10.0.0.1 # 步骤3中所记录的网关，请根据实际填写
 #
 NM_CONTROLLED=no
 ONBOOT=yes
+PERSISTENT_DHCLIENT=yes
 TYPE=Ethernet
 USERCTL=no
-PERSISTENT_DHCLIENT=yes
 ```
+修改后，示例如下：
+![](https://main.qcloudimg.com/raw/bbc5a78eab53c430eb3e0edcc04287aa.png)
 8. 完成修改后，按 **Esc**，输入 **:wq!** 并回车，保存配置并返回。
 9. 执行如下命令，重启网络服务。
 ```
@@ -140,14 +144,14 @@ ipconfig /all
 <img src="https://main.qcloudimg.com/raw/b18a69d6b39f097af3d52e498d0dcfb7.png" />
 7. 单击【高级】，配置辅助内网 IP。
 8. 在“高级 TCP/IP 设置”弹窗中的 “IP 地址”模块下，单击【添加】。
-9. 在 “TCP/IP 地址”弹窗中，填写 [步骤一：绑定 EIP](#bindEIP) 配置的辅助内网 IP，上述 [步骤2](#step2) 中的子网掩码，单击【添加】。若有多个辅助 IP，请重复上一步与当前步骤。
+9. 在 “TCP/IP 地址”弹窗中，填写 [步骤二：绑定 EIP](#bindEIP) 配置的辅助内网 IP，上述 [步骤2](#step2) 中的子网掩码，单击【添加】。若有多个辅助 IP，请重复上一步与当前步骤。
 ![](https://main.qcloudimg.com/raw/8bcb61eff44159b253eee726017e9744.png)
 10. 在 “Internet 协议版本4（TCP/IPv4）属性”弹窗中，单击【确定】。
 11. 在“以太网属性”弹窗中，单击【确定】即可完成配置。
 12. 在“以太网状态”弹窗中，单击【详细信息】，可查看已配置的 IP 信息，如下图所示。
 ![](https://main.qcloudimg.com/raw/f6d04372be9fc71d59725e1d173cc1f3.png)
 
-### 步骤三：结果验证
+### 步骤四：结果验证
 登录其他云服务器，执行 `ping <辅助 IP 外网地址>`命令，若显示以下信息证明绑定成功。
 >?若执行命令未得到以下结果，请检查 CVM 安全组配置是否开放 ICMP 协议。
 >

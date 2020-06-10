@@ -486,6 +486,8 @@ promise.then(function(imResponse) {
 >- 低于v2.6.2版本时，该接口获取的群成员列表中的资料仅包括头像、昵称等，能够满足群成员列表的渲染需求。如需查询群成员禁言截止时间戳（muteUntil）等详细资料，请使用 [getGroupMemberProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberProfile)。
 >- 该接口是分页拉取群成员，不能直接用于获取群的总人数。获取群的总人数（memberNum）请使用 [getGroupProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupProfile) 。
 
+更多详情请参见 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
+
 **接口名**
 
 ```js
@@ -540,6 +542,8 @@ promise.then(function(imResponse) {
 >- 使用该接口前，需要将 SDK 版本升级至v2.2.0或以上。
 >- 每次查询的用户数上限为50。如果传入的数组长度大于50，则只取前50个用户进行查询，其余丢弃。 
 
+更多详情请参见 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
+
 **接口名**
 
 ```js
@@ -569,6 +573,8 @@ tim.getGroupMemberProfile(options);
 -  TIM.TYPES.GRP_PRIVATE 私有群：任何群成员都可邀请他人加群，且无需被邀请人同意，直接将其拉入群组中。
 -  TIM.TYPES.GRP_PUBLIC 公开群/ TIM.TYPES.GRP_CHATROOM 聊天室：只有 App 管理员可以邀请他人入群，且无需被邀请人同意，直接将其拉入群组中。
 -  TIM.TYPES.GRP_AVCHATROOM 音视频聊天室：不允许任何人邀请他人入群（包括 App 管理员）。
+
+更多详情请参见 [Group](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Group.html)[GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html) 和 [加群方式差异](https://cloud.tencent.com/document/product/269/1502#.E5.8A.A0.E7.BE.A4.E6.96.B9.E5.BC.8F.E5.B7.AE.E5.BC.82)。
 
 **接口名**
 

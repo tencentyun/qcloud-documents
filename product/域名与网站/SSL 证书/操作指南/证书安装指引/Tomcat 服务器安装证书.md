@@ -4,6 +4,7 @@
 >- 本文档以证书名称 `www.domain.com` 为例。
 >- Tomcat 版本以 `tomcat7.0.94` 为例。
 >- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
+>- 安装 SSL 证书前，请您在 Tomcat 服务器上开启 “443” 端口，避免证书安装后无法启用 HTTPS。判断是否已开启 “443” 端口，可参考 [如何验证443端口是否开启？](https://cloud.tencent.com/document/product/400/45144)
 
 ## 前提条件
 - 已准备文件远程拷贝软件，例如 WinSCP（建议从官方网站获取最新版本）。
@@ -141,13 +142,13 @@
     </user-data-constraint>
     </security-constraint>
 ```
-3. 编辑 `/usr/*/conf` 目录下的 `server.xml` 文件，将 redirectPort 参数修改为 SSL 的 connector 的端口，即8443端口修改为443端口。如下所示：
+3. 编辑 `/usr/*/conf` 目录下的 `server.xml` 文件，将 redirectPort 参数修改为 SSL 的 connector 的端口，即443端口。如下所示：
 ```
 <Connector port="80" protocol="HTTP/1.1"
   connectionTimeout="20000"
   redirectPort="443" />
 ```
->? 此修改操作可将非 SSL 的 connector 可以跳转到 SSL 的 connector 中。
+>? 此修改操作可将非 SSL 的 connector 跳转到 SSL 的 connector 中。
 >
 4. 在` /usr/*/bin` 目录下执行以下命令，关闭 Tomcat 服务器。
 ```

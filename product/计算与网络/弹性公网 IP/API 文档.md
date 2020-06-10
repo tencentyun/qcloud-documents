@@ -34,7 +34,7 @@
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/api/215/16703" target="_blank">DisassociateAddress</a></td>
-<td>解绑定 EIP</td>
+<td>解绑 EIP</td>
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/api/215/16704" target="_blank">ModifyAddressAttribute</a></td>
@@ -50,7 +50,7 @@
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/api/215/16706" target="_blank">TransformAddress</a></td>
-<td>普通公网 IP转 EIP</td>
+<td>普通公网 IP 转 EIP</td>
 </tr>
 </tbody>
 </table>

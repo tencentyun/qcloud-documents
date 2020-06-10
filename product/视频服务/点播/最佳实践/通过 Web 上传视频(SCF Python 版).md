@@ -2,6 +2,14 @@
 
 ## 使用须知
 
+### Demo 功能介绍
+
+本 Demo 主要用于向开发者展示云点播（VOD）[Web 上传 SDK](https://cloud.tencent.com/document/product/266/9239) 的使用方法。Demo 基于云函数（SCF）搭建了两个 HTTP 服务：
+- 第一个服务用于接收来自浏览器获取 [客户端上传签名](https://cloud.tencent.com/document/product/266/9221) 的请求，计算上传签名并返回。
+- 第二个服务用于提供一个 Web 页面，用户可以通过浏览器访问该页面，并上传本地视频到 VOD。
+
+### 费用
+
 本文提供的云点播 Web 上传 Demo 是免费开源的（含 Web 页面代码和业务后台代码），但在搭建和使用的过程中可能会产生以下费用：
 
 - 购买腾讯云云服务器（CVM）用于执行服务部署脚本，详见 [CVM 计费](https://cloud.tencent.com/document/product/213/2180)。
@@ -26,7 +34,7 @@ Web 上传 Demo 部署在 SCF 上，并由 API 网关提供服务入口。为了
 购买 CVM 的方法请参见 [操作指南 - 创建实例](https://cloud.tencent.com/document/product/213/4855)。重装系统的方法请参见 [操作指南 - 重装系统](https://cloud.tencent.com/document/product/213/4933)。
 
 >!
->- **Web 上传 Demo 服务本身并不依赖于 CVM，仅使用 CVM 来执行部署脚本**。
+>- **Web 上传 Demo 本身并不依赖于 CVM，仅使用 CVM 来执行部署脚本**。
 >- 如果您没有符合上述条件的腾讯云 CVM，也可以在其它带外网的 Linux（如 CentOS、Debian 等）或 Mac 机器上执行部署脚本，但需根据操作系统的区别修改脚本中的个别命令，具体修改方式请开发者自行搜索。
 
 ### 步骤2：开通云点播
@@ -98,17 +106,18 @@ Web 上传主要涉及四个组成部分：浏览器、API 网关、云函数和
 
 ### 接口协议及测试
 
-**上传页面**和**上传签名派发**两个云函数都通过 API 网关对外提供接口，具体接口协议如下。
+**上传页面**和**上传签名派发**两个云函数都通过 API 网关对外提供接口，具体接口协议如下：
 
-| 服务         | 云函数名        | 接口形式  | 返回内容  |    
-| ------------ | --------------- | --------- | --------- | 
-| 上传页面     | web_upload_html | HTTP GET  | HTML 页面 |   
-| 上传签名派发 | ugc_upload_sign | HTTP POST | 上传签名  |   
+| 服务         | 云函数名        | 接口形式  | 返回内容  |
+| ------------ | --------------- | --------- | --------- |
+| 上传页面     | web_upload_html | HTTP GET  | HTML 页面 |
+| 上传签名派发 | ugc_upload_sign | HTTP POST | 上传签名  |
 
 #### 上传页面<span id="p6"></span>
 
 您可以访问 [SCF 服务列表](https://console.cloud.tencent.com/scf/list) 来查看上传页面服务的详细信息：
 <img src="https://main.qcloudimg.com/raw/8480a9211c7d7cecebd105bb211858db.png" width="750">
+
 >?
 >- Demo 使用的两个 SCF 部署在广州地域，命名空间为 vod_demo。
 >- 控制台上需要选择对应地域和命名空间才能看到部署好的云函数。
@@ -154,7 +163,7 @@ VYapc9EYdoZLzGx0CglRW4N6kuhzZWNyZXRJZD1BS0lEZk5xMzl6dG5tYW1tVzBMOXFvZERia25hUjdZ
       for key, value in keys.items():
           html = html.replace("${" + key + "}", value)
       return html
- ```
+```
 <table>
 <thead>
 <tr>
