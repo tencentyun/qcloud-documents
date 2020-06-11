@@ -66,7 +66,7 @@ DROP EXTENSION IF EXISTS cos_ext;
                   [([QUOTE [AS] 'quote']
                   [DELIMITER [AS] 'delimiter']
                   [NULL [AS] 'null string']
-                  [FORCE QUOTE column [, ...]] ]
+                  [FORCE QUOTE column [, ...] ]
                   [ESCAPE [AS] 'escape'] )]
    [ ENCODING 'encoding' ]
    [ DISTRIBUTED BY (column, [ ... ] ) | DISTRIBUTED RANDOMLY ]
@@ -85,8 +85,8 @@ cos://cos_endpoint/bucket/prefix secretId=id secretKey=key compressType=[none|gz
 | URL          | <li>COS V4：`cos://cos.{REGION}.myqcloud.com/{BUCKET}/{PREFIX}`<li>COS V5：`cos:// {BUCKET}-{APPID}.cos.{REGION}.myqcloud.com/{PREFIX}`  | 是   | 参见 [URL 参数说明](#url)                |
 | secretId     | 无         | 是   | 访问 API 使用的密钥 ID，参见 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) |
 | secretKey    | 无     | 是   | 访问 API 使用的密钥 ID，参见 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) |
-| HTTPS        | ture &Iota; false       | 否   | 是否使用 HTTPS 访问 COS， 默认为 true        |
-| compressType | gzip            | 否   | COS 文件是否压缩， 默认为空， 不压缩            |
+| HTTPS        | ture &Iota; false       | 否   | 是否使用 HTTPS 访问 COS，默认为 true        |
+| compressType | gzip            | 否   | COS 文件是否压缩，默认为空，不压缩            |
 
 
 #### URL 参数说明<a id="url"></a>
@@ -115,7 +115,6 @@ prefix 为空时，读取 bucket 下所有文件；prefix 以斜杠(/) 结尾时
     read-bucket/simple_a.csv
     read-bucket/simple_b.csv
     read-bucket/simple_b.csv
-
 
 ## 使用示例
 ### 导入 COS 数据
