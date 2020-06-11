@@ -73,7 +73,7 @@ DROP EXTENSION IF EXISTS cos_ext;
 ```
 3. cos_ext_params 说明
 ```
-cos://cos_endpoint/bucket/prefix secretId=id secretKey=key compressiontype=[none|gzip] https=[true|false]
+cos://cos_endpoint/bucket/prefix secretId=id secretKey=key compressType=[none|gzip] https=[true|false]
 ```
 
 
