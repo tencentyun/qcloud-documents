@@ -69,7 +69,7 @@ http://119.29.29.29/d?dn=www.dnspod.cn&clientip=1
 ## 根据域名查询 Ipv6 地址
 
 数据请求和应答均使用 HTTP 协议。
-请求格式为:
+请求格式为：
 ```
 http://119.29.29.29/d?dn=www.qq.com&type=AAAA
 ```
