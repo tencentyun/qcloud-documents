@@ -43,3 +43,10 @@
 
 完成以上配置后，单击【购买】进行支付，支付成功后 EMR 集群进入创建过程，在大约10分钟后即可在 EMR 控制台中找到刚创建的集群。
 >!您可以在 CVM 控制台中查看各节点的实例信息，为保证 EMR 集群的正常运行，请不要在 CVM 控制台中更改这些实例的配置信息。
+
+
+## 后续步骤
+- [登录集群](https://cloud.tencent.com/document/product/589/34358)
+- 配置集群：[软件配置](https://cloud.tencent.com/document/product/589/35655)、[挂载 CHDFS](https://cloud.tencent.com/document/product/589/40541)、[统一 HIVE 元数据](https://cloud.tencent.com/document/product/589/44835)
+- 管理集群：[设置标签](https://cloud.tencent.com/document/product/589/39085)、设置 [引导操作](https://cloud.tencent.com/document/product/589/35656)、[集群销毁](https://cloud.tencent.com/document/product/589/34370)
+
