@@ -34,6 +34,7 @@ const rtcClient = new TrtcElectronEducation({
 
 ## 组件概览
 ### 基础函数
+
 #### on(EventCode, handler, context)
 用于监听组件派发的事件。  
 参数：
@@ -49,6 +50,7 @@ const rtcClient = new TrtcElectronEducation({
 const EVENT = rtcClient.EVENT
 rtcClient.on(EVENT.MESSAGE_RECEIVED, onMessageReceived);
 ```
+
 #### off(EventCode, handler)
 取消事件监听。  
 参数：
@@ -64,6 +66,7 @@ const EVENT = rtcClient.EVENT
 rtcClient.off(EVENT.MESSAGE_RECEIVED, onMessageReceived);
 ```
 
+<span id="createRoom"></span>
 #### createRoom(params: CreateRoomParams)
 老师创建教室。  
 参数：
@@ -98,6 +101,7 @@ rtcClient.createRoom(params).then(() => {
 rtcClient.destroyRoom(classId)
 ```
 
+<span id="enterRoom"></span>
 #### enterRoom(params: EnterRoomParams)
 老师开始上课，学生进入教室，准备听课。
 参数：
@@ -136,6 +140,7 @@ rtcClient.exitRoom(role, classId);
 ```
 
 ### 举手操作环节函数
+<span id="startQuestionTime"></span>
 #### startQuestionTime(classId: number)
 老师开始问答时间，老师端广播通知，学生收到开始问答事件， 开启举手功能。
 参数：
@@ -149,6 +154,7 @@ rtcClient.exitRoom(role, classId);
 rtcClient.startQuestionTime(classId)
 ```
 
+<span id="raiseHand"></span>
 #### raiseHand()
 学生举手，学生发送举手通知，老师端收到学生举手通知。  
 参数：无
@@ -157,6 +163,7 @@ rtcClient.startQuestionTime(classId)
 rtcClient.raiseHand()
 ```
 
+<span id="inviteToPlatform"></span>
 #### inviteToPlatform(userID: string)
 老师邀请学生上台回答，老师端选择举手列表里的学生 userID ，发送邀请通知，学生端收到邀请上台回答事件，受邀请的学生开麦。如果没有学生举手，老师直接点名回答，学生端收到邀请上台回答事件，被点名的学生开麦。
 参数：
@@ -171,6 +178,7 @@ rtcClient.inviteToPlatform(userID).then(() => {
 })
 ```
 
+<span id="finishAnswering"></span>
 #### finishAnswering(userID: string)
 结束回答，老师端结束学生端回答，学生收到结束回答的通知，指定的学生停止连麦。
 参数：
@@ -199,6 +207,7 @@ rtcClient.stopQuestionTime(classId)
 ```
 
 ### 推拉流操作相关函数
+<span id="getScreenShareList"></span>
 #### getScreenShareList()
 获取屏幕分享窗口列表。
 参数：无
@@ -207,6 +216,8 @@ rtcClient.stopQuestionTime(classId)
 rtcClient.getScreenShareList();
 ```
 
+
+<span id="startScreenCapture"></span>
 #### startScreenCapture(source: SourceParam)
 选择分享屏幕，开始推流。
 参数：
@@ -231,6 +242,7 @@ rtcClient.startScreenCapture({
  })
 ```
 
+<span id="startRemoteView"></span>
 #### startRemoteView(params: RemoteParams) 
 开始显示远端视频画面或屏幕分享画面。
 参数：
