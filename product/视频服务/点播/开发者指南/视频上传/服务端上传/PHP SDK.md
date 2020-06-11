@@ -159,6 +159,76 @@ try {
 }
 ```
 
+### 使用临时证书上传
+传入临时证书的相关密钥信息，使用临时证书验证身份并进行上传。
+```
+<?php
+require 'vendor/autoload.php';
+
+use Vod\VodUploadClient;
+use Vod\Model\VodUploadRequest;
+
+$client = new VodUploadClient("Credentials TmpSecretId", "Credentials TmpSecretKey", "Credentials Token");
+$req = new VodUploadRequest();
+$req->MediaFilePath = "/data/videos/Wildlife.wmv";
+try {
+    $rsp = $client->upload("ap-guangzhou", $req);
+    echo "FileId -> ". $rsp->FileId . "\n";
+    echo "MediaUrl -> ". $rsp->MediaUrl . "\n";
+} catch (Exception $e) {
+    // 处理上传异常
+    echo $e;
+}
+```
+
+
+### 设置代理上传
+设置上传代理，涉及协议及数据都会经过代理进行处理，开发者可以借助代理在自己公司内网上传文件到腾讯云。
+```
+<?php
+require 'vendor/autoload.php';
+
+use Vod\VodUploadClient;
+use Vod\Model\VodUploadRequest;
+use Vod\Model\VodUploadHttpProfile;
+
+$client = new VodUploadClient("your secretId", "your secretKey");
+$uploadHttpProfile = new VodUploadHttpProfile("your proxy addr");
+$client->setHttpProfile($uploadHttpProfile);
+$req = new VodUploadRequest();
+$req->MediaFilePath = "/data/videos/Wildlife.wmv";
+try {
+    $rsp = $client->upload("ap-guangzhou", $req);
+    echo "FileId -> ". $rsp->FileId . "\n";
+    echo "MediaUrl -> ". $rsp->MediaUrl . "\n";
+} catch (Exception $e) {
+    // 处理上传异常
+    echo $e;
+}
+```
+
+### 流媒体文件上传
+目前支持的流媒体文件包括 M3U8 文件及 MPD 文件，索引文件下的传输流文件（如 TS 文件）路径必须为相对路径且处于同级目录或者下级目录内。在上传流媒体文件时候只需指定索引文件路径（如 M3U8 文件），相关传输流文件会一并进行上传。
+```
+<?php
+require 'vendor/autoload.php';
+
+use Vod\VodUploadClient;
+use Vod\Model\VodUploadRequest;
+
+$client = new VodUploadClient("your secretId", "your secretKey");
+$req = new VodUploadRequest();
+$req->MediaFilePath = "/data/videos/prog_index.m3u8";
+try {
+    $rsp = $client->upload("ap-guangzhou", $req);
+    echo "FileId -> ". $rsp->FileId . "\n";
+    echo "MediaUrl -> ". $rsp->MediaUrl . "\n";
+} catch (Exception $e) {
+    // 处理上传异常
+    echo $e;
+}
+```
+
 ## 接口描述
 上传客户端类`VodUploadClient`
 
