@@ -131,6 +131,46 @@ client.upload("ap-guangzhou", req, function (err, data) {
 });
 ```
 
+### 使用临时证书上传
+传入临时证书的相关密钥信息，使用临时证书验证身份并进行上传。
+```
+const { VodUploadClient, VodUploadRequest } = require('vod-node-sdk');
+
+client = new VodUploadClient("Credentials TmpSecretId", "Credentials TmpSecretKey", "Credentials Token");
+let req = new VodUploadRequest();
+req.MediaFilePath = "/data/file/Wildlife.mp4";
+client.upload("ap-guangzhou", req, function (err, data) {
+    if (err) {
+        // 处理业务异常
+        console.log(err)
+    } else {
+        // 获取上传成功后的信息
+        console.log(data.FileId);
+        console.log(data.MediaUrl);
+    }
+});
+```
+
+### 流媒体文件上传
+目前支持的流媒体文件包括 M3U8 文件及 MPD 文件，索引文件下的传输流文件（如 TS 文件）路径必须为相对路径且处于同级目录或者下级目录内。在上传流媒体文件时候只需指定索引文件路径（如 M3U8 文件），相关传输流文件会一并进行上传。
+```
+const { VodUploadClient, VodUploadRequest } = require('vod-node-sdk');
+
+client = new VodUploadClient("your secretId", "your secretKey");
+let req = new VodUploadRequest();
+req.MediaFilePath = "/data/file/prog_index.m3u8";
+client.upload("ap-guangzhou", req, function (err, data) {
+    if (err) {
+        // 处理业务异常
+        console.log(err)
+    } else {
+        // 获取上传成功后的信息
+        console.log(data.FileId);
+        console.log(data.MediaUrl);
+    }
+});
+```
+
 ## 接口描述
 上传客户端类`VodUploadClient`
 
