@@ -70,7 +70,7 @@ Demo 所用框架技术如下：
 | app/components/UserList.tsx|教室-成员列表 UI 的实现代码|
 
 ## 实现自定义 UI 界面
-您可以使用封装好的 [trtc-electron-education](https://cloud.tencent.com/document/product/647/45466) 组件实现自定义 UI 界面。
+如果 Demo 中默认实现的 UI 不符合您的预期，您可以按需实现自己的用户界面，即只使用我们封装好的 [trtc-electron-education](https://www.npmjs.com/package/trtc-electron-education) 组件所提供的音视频能力，自行实现 UI 部分。
 ![](https://main.qcloudimg.com/raw/e00d38bf3869a41be809d8bf80cee248.png)
 
 ### 步骤1：集成 SDK
@@ -101,7 +101,7 @@ const rtcClient = new TrtcElectronEducation({
 ```
 
 ### 步骤3：实现老师端开课
-1. 老师端调用组件 createRoom 方法创建教室。
+1. 老师端调用组件 [createRoom](https://cloud.tencent.com/document/product/647/45466#createRoom) 方法创建教室。
 ```typescript
 const params = {
       classId, // 教室 ID
@@ -111,24 +111,24 @@ rtcClient.createRoom(params).then(() => {
 	//成功创建教室
 })
 ```
-2. 老师端调用组件的 enterRoom 方法开始上课。
+2. 老师端调用组件的 [enterRoom](https://cloud.tencent.com/document/product/647/45466#enterRoom) 方法开始上课。
 ```typescript
 rtcClient.enterRoom({
       role: 'teacher', // 角色
       classId // 教室 ID
 })
 ```
-3. 老师端调用组件的 openCamera 方法打开自己的摄像头。
+3. 老师端调用组件的 [openCamera](https://cloud.tencent.com/document/product/647/45466#openCamera) 方法打开自己的摄像头。
 ```typescript
 const domEle = document.getElementById('test');
 rtcClient.openCamera(domEle)
 ```
 4. 老师端可共享自己的屏幕给学生端观看，例如播放 PPT、课件等。
- a. 需要先调用组件的 getScreenShareList 方法获取窗口列表。
+ a. 需要先调用组件的 [getScreenShareList](https://cloud.tencent.com/document/product/647/45466#getScreenShareList) 方法获取窗口列表。
 ```typescript
 const screenList = rtcClient.getScreenShareList()
 ```
-b. 调用组件的 startScreenCapture 开始推屏幕分享的流。
+b. 调用组件的 [startScreenCapture](https://cloud.tencent.com/document/product/647/45466#startScreenCapture) 开始推屏幕分享的流。
 ```typescript
 rtcClient.startScreenCapture({
       type,// 采集源类型
@@ -136,28 +136,28 @@ rtcClient.startScreenCapture({
       sourceName // 采集源名称，UTF8 编码
  })
 ```
-5. 上课过程中，老师如果想提问与学生互动，可以调用组件的 startQuestionTime 方法开启问答时间，学生端收到该指令后，可以举手申请回答问题。
+5. 上课过程中，老师如果想提问与学生互动，可以调用组件的 [startQuestionTime](https://cloud.tencent.com/document/product/647/45466#startQuestionTime) 方法开启问答时间，学生端收到该指令后，可以举手申请回答问题。
 ```typescript
 rtcClient.startQuestionTime(classId) // classId 是教室 ID
 ```
-6. 学生举手后，老师端可调用组件的 inviteToPlatform 方法邀请学生上台发言，被邀请的学生自动开麦。
+6. 学生举手后，老师端可调用组件的 [inviteToPlatform](https://cloud.tencent.com/document/product/647/45466#inviteToPlatform) 方法邀请学生上台发言，被邀请的学生自动开麦。
 ```typescript
 rtcClient.inviteToPlatform(userID) // 邀请学生上台的 userID
 ```
-7. 老师端可调用组件的 finishAnswering 方法禁学生的麦克风。
+7. 老师端可调用组件的 [finishAnswering](https://cloud.tencent.com/document/product/647/45466#finishAnswering) 方法禁学生的麦克风。
 ```typescript
 rtcClient.finishAnswering(userID)// 禁麦学生的 userID
 ```
 
 ### 步骤4：实现学生端听课
-1. 学生端调用组件的 enterRoom 方法进入教室，准备听课。
+1. 学生端调用组件的 [enterRoom](https://cloud.tencent.com/document/product/647/45466#enterRoom) 方法进入教室，准备听课。
 ```typescript
 rtcClient.enterRoom({
       role: 'student', // 角色
       classId // 教室 ID
 })
 ```
-2. 老师端开放举手问答后，学生端可调用组件的 raiseHand 方法申请发言。
+2. 老师端开放举手问答后，学生端可调用组件的 [raiseHand](https://cloud.tencent.com/document/product/647/45466#raiseHand) 方法申请发言。
 ```typescript
 rtcClient.raiseHand()
 ```
