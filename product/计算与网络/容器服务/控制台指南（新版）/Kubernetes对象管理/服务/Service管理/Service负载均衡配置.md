@@ -1,17 +1,16 @@
 
 ## TkeServiceConfig
-### 简介
-TkeServiceConfig 是腾讯云容器服务提供的自定义资源 CRD， 通过 TkeServiceConfig 能够帮助您更灵活的配置 LoadBalancer 类型的 Service 管理中负载均衡的各种配置。
+TkeServiceConfig 是腾讯云容器服务提供的自定义资源 CRD， 通过 TkeServiceConfig 能够帮助您更灵活的配置 LoadBalancer 类型的 Service ，及管理其中负载均衡的各种配置。
 
 ### 使用场景
 Service YAML 的语义无法定义的负载均衡的参数和功能，可以通过 TkeServiceConfig 进行配置。
 
 
 ### 配置说明
-使用 `TkeServiceConfig` 能够帮您快速进行负载均衡器的配置。通过 Service 注解 `service.cloud.tencent.com/tke-service-config:<config-name>`，您可以指定目标配置并应用到 Service 中。
+使用 `TkeServiceConfig` 能够帮您快速进行负载均衡器的配置。通过 Service 注解 **service.cloud.tencent.com/tke-service-config:&lt;config-name&gt;**，您可以指定目标配置并应用到 Service 中。
 >!`TkeServiceConfig` 资源需要与 Service 处于同一命名空间。
 >
-`TkeServiceConfig` 并不会帮您配置并修改协议和端口，您需要在配置中描述协议和端口以便指定配置下发的监听器。在一个 `TkeServiceConfig` 中可以声明多组监听器配置，目前主要针对负载均衡的健康检查以及对后端访问提供配置。
+`TkeServiceConfig` 并不会帮您直接配置并修改协议和端口，您需要在配置中描述协议和端口以便指定配置下发的监听器。在一个 `TkeServiceConfig` 中可以声明多组监听器配置，目前主要针对负载均衡的健康检查以及对后端访问提供配置。
 通过指定协议和端口，配置能够被准确的下发到对应监听器：
   * `spec.loadBalancer.l4Listeners.protocol`：四层协议
   * `spec.loadBalancer.l4Listeners.port`：监听端口
@@ -20,7 +19,7 @@ Service YAML 的语义无法定义的负载均衡的参数和功能，可以通�
 * 当用户在 Service 中添加配置注解时，负载均衡将会立即进行设置同步。
 * 当用户在 Service 中删除配置注解时，负载均衡将会保持不变。
 * 修改 `TkeServiceConfig` 配置时，引用该配置 Service 的负载均衡将会根据新的 `TkeServiceConfig` 进行设置同步。
-* 当 Service 的监听器未找到对应配置时，该监听器将不会进行修改。
+* Service 的监听器未找到对应配置时，该监听器将不会进行修改。
 * Service 的监听器找到对应配置时，若配置中没有声明的属性，该监听器将不会进行修改。
 
 
