@@ -46,6 +46,7 @@
 
 
 ## 后续步骤
+集群创建成功后，您可根据自身情况登录集群后，对集群进行进一步的配置等操作，具体操作可参考如下文档：
 - [登录集群](https://cloud.tencent.com/document/product/589/34358)
 - 配置集群：[软件配置](https://cloud.tencent.com/document/product/589/35655)、[挂载 CHDFS](https://cloud.tencent.com/document/product/589/40541)、[统一 HIVE 元数据](https://cloud.tencent.com/document/product/589/44835)
 - 管理集群：[设置标签](https://cloud.tencent.com/document/product/589/39085)、设置 [引导操作](https://cloud.tencent.com/document/product/589/35656)、[集群销毁](https://cloud.tencent.com/document/product/589/34370)
