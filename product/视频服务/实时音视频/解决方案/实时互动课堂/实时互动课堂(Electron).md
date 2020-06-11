@@ -1,5 +1,5 @@
 ## Demo 体验
-<table style="text-align:center;vertical-align:middle;">
+<table style="text-align:center;vertical-align:middle;width: 300px">
   <tr>
     <th width="150px">Mac OS</th>
     <th width="150px">Windows</th>
