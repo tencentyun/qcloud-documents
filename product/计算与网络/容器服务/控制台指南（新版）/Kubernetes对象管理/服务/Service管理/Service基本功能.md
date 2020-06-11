@@ -50,14 +50,14 @@ spec:
   type: LoadBalancer
 ```
 
-- kind：标识 Service 资源类型。
-- metadata：Service 的名称、Label等基本信息。
-- metadata.annotations: Service 的额外说明，可通过该参数设置腾讯云 TKE 的额外增强能力。
-- spec.type：标识 Service 的被访问形式
-  - ClusterIP：在集群内部公开服务，可用于集群内部访问。
-  - NodePort：使用节点的端口映射到后端 Service，集群外可以通过节点 IP:NodePort 访问。
-  - LoadBalancer：使用腾讯云提供的负载均衡器公开服务，默认创建公网 CLB， 指定 annotations 可创建内网 CLB。
-  - ExternalName：将服务映射到 DNS，仅适用于 kube-dns1.7及更高版本。
+- **kind**：标识 Service 资源类型。
+- **metadata**：Service 的名称、Label 等基本信息。
+- **metadata.annotations**：Service 的额外说明，可通过该参数设置腾讯云容器服务的额外增强能力。
+- **spec.type**：标识 Service 的被访问形式。
+  - **ClusterIP**：在集群内部公开服务，可用于集群内部访问。
+  - **NodePort**：使用节点的端口映射到后端 Service，集群外可以通过节点 `IP:NodePort` 访问。
+  - **LoadBalancer**：使用腾讯云提供的负载均衡器公开服务，默认创建公网负载均衡，指定 annotations 可创建内网负载均衡。
+  - **ExternalName**：将服务映射到 DNS，仅适用于 kube-dns1.7及更高版本。
 
 
 
