@@ -24,10 +24,10 @@ Hadoop-COS 上传可选择 buffer 类型，使用 fs.cosn.upload.buffer 参数�
 ### buffer 类型为 mapped_disk 时提示创建 buffer 失败？提示 create buffer failed. buffer type: mapped_disk, buffer factory:org.apache.hadoop.fs.buffer.CosNMappedBufferFactory？
 
 **可能原因**
-mapped_disk 类型的默认本地临时目录是：/tmp/hadoop_cos，没有赋予读写权限。
+当前用户对 Hadoop-COS 使用的临时目录没有读写访问权限。Hadoop-COS 默认使用的临时目录是：/tmp/hadoop_cos。也可由用户配置 fs.cosn.tmp.dir 来指定。
 
 **解决办法**
-对 fs_cosn.tmp.dir 配置的临时目录赋予读写权限。
+为当前用户赋予 /tmp/hadoop_cos 或者 fs.cosn.tmp.dir 指定的临时文件目录赋予读写权限。
 
 ### 加载的时候提示没有找到类 CosFileSystem？
 提示：Error: java.lang.RuntimeException: java.lang.ClassNotFoundException: Class org.apache.hadoop.fs.CosFileSystem not found
@@ -43,12 +43,12 @@ mapped_disk 类型的默认本地临时目录是：/tmp/hadoop_cos，没有赋�
 
 Hadoop-COS 维护了官方 Hadoop 版本和 Hadoop-COS 版本，对应的 fs.cosn.impl 和 fs.AbstractFileSystem.cosn.impl 配置不同。
  - 官方 Hadoop 配置：
-```plaintext
+```xml
 fs.cosn.impl:  org.apache.hadoop.fs.cosn.CosNFileSystem
-fs.AbstractFileSystem.cosn.impl:    org.apache.hadoop.fs.cosn.CosN
+fs.AbstractFileSystem.cosn.impl:  org.apache.hadoop.fs.cosn.CosN
 ```
  - tencent cos 配置：
- ```plaintext
+ ```xml
 fs.cosn.impl: org.apache.hadoop.fs.CosFileSystem
 fs.AbstractFileSystem.cosn.impl:  org.apache.hadoop.fs.CosN
 ```
@@ -81,7 +81,7 @@ net.ipv4.tcp_max_tw_buckets = 10240          #TIME_WAIT 状态 Socket 的数量�
 **解决方法**
 
 可以更改如下配置：
-```plaintext
+```xml
 fs.cosn.upload.buffer: mapped_disk
 fs.cosn.upload.buffer.size: -1
 ```
