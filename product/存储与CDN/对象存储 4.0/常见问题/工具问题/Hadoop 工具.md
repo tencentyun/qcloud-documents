@@ -10,7 +10,7 @@ Hadoop-COS 内部通过分块并发上传来处理大文件，通过配置 fs.co
 在大数据场景并发度较高的情况可能会触发 COS 的频控后会抛出503 Reduce your request rate 错误异常。您可以通过配置 fs.cosn.maxRetries 参数来对错误请求进行重试，该参数默认是200次。
 
 ### 为什么设置了带宽限速没有生效？
-新版本支持限速配置 fs.cosn.traffic.limit(b/s)，该配置在 tag 为5.8.3及之后的版本才支持设置，可前往 [Github仓库](https://github.com/tencentyun/hadoop-cos) 查看。
+新版本支持限速配置 fs.cosn.traffic.limit(b/s)，该配置在 tag 为5.8.3及之后的版本才支持设置，可前往 [Github 仓库](https://github.com/tencentyun/hadoop-cos) 查看。
 
 ### 为什么在上传较大文件时查看 COS 上的文件可能会有延迟，不会实时地显示出来？
 Hadoop-COS 对于大文件，即超过一个 blockSize（fs.cosn.upload.part.size) 的文件都采用分块上传，只有所有分块上传到 COS 完成后文件才可见。COS 暂时不支持 Append 操作。
@@ -43,13 +43,12 @@ mapped_disk 类型的默认本地临时目录是：/tmp/hadoop_cos，没有赋�
 
 Hadoop-COS 维护了官方 Hadoop 版本和 Hadoop-COS 版本，对应的 fs.cosn.impl 和 fs.AbstractFileSystem.cosn.impl 配置不同。
  - 官方 Hadoop 配置：
-```
+```plaintext
 fs.cosn.impl:  org.apache.hadoop.fs.cosn.CosNFileSystem
 fs.AbstractFileSystem.cosn.impl:    org.apache.hadoop.fs.cosn.CosN
 ```
- 
  - tencent cos 配置：
- ```
+ ```plaintext
 fs.cosn.impl: org.apache.hadoop.fs.CosFileSystem
 fs.AbstractFileSystem.cosn.impl:  org.apache.hadoop.fs.CosN
 ```
@@ -82,7 +81,7 @@ net.ipv4.tcp_max_tw_buckets = 10240          #TIME_WAIT 状态 Socket 的数量�
 **解决方法**
 
 可以更改如下配置：
-```
+```plaintext
 fs.cosn.upload.buffer: mapped_disk
 fs.cosn.upload.buffer.size: -1
 ```
