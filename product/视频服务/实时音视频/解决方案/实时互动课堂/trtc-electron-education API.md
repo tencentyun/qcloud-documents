@@ -338,6 +338,7 @@ rtcClient.sendGroupCustomMessage(classId, JSON.stringify(params))
 ```
 
 ### 设备操作相关函数
+<span id="openCamera"></span>
 #### openCamera(view: HTMLElement)
 打开摄像头。
 参数：
@@ -359,6 +360,8 @@ rtcClient.openCamera(domEle);
 ```typescript
 rtcClient.closeCamera();
 ```
+
+<span id="getCameraList"></span>
 #### getCameraList()
 获取摄像头列表。
 参数：无
@@ -366,6 +369,8 @@ rtcClient.closeCamera();
 ```typescript
 rtcClient.getCameraList()
 ```
+
+<span id="setCurrentCamera"></span>
 #### setCurrentCamera(deviceId:string)
 设置摄像头，参数是从 getCameraDevicesList 中得到的设备 ID。
 参数：
@@ -379,6 +384,7 @@ rtcClient.getCameraList()
 rtcClient.setCurrentCamera(deviceId)
 ```
 
+<span id="openMicrophone"></span>
 #### openMicrophone()
 打开麦克风。
 参数：无
@@ -386,6 +392,8 @@ rtcClient.setCurrentCamera(deviceId)
 ```typescript
 rtcClient.openMicrophone();
 ```
+
+<span id="closeMicrophone"></span>
 #### closeMicrophone()
 关闭麦克风。
 参数：无
@@ -393,6 +401,9 @@ rtcClient.openMicrophone();
 ```typescript
 rtcClient.closeMicrophone();
 ```
+
+
+<span id="getMicrophoneList"></span>
 #### getMicrophoneList()
 获取麦克风设备列表。  
 参数：无
@@ -413,6 +424,7 @@ rtcClient.getMicrophoneList()
 rtcClient.setCurrentMicDevice(micId)
 ```
 
+<span id="setBeautyStyle"></span>
 #### setBeautyStyle(params: BeautyParams) 
 设置美颜、美白、红润效果级别。 
 参数：
