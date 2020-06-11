@@ -20,7 +20,7 @@ http://119.29.29.29/d?dn=www.dnspod.cn.&ip=1.1.1.1
 ![返回值一](https://main.qcloudimg.com/raw/8ee0fc1e70b755d078e153ac55cf1202.png)
 
 ### 域名不存在
-如果域名不存在，HTTPDNS 无法查询到最终的IP指向，则返回空。
+如果域名不存在，HTTPDNS 无法查询到最终的 IP 指向，则返回空。
 以下列请求为例：
 ```
 http://119.29.29.29/d?dn=www.dnspod2.cn.&ip=1.1.1.1
@@ -65,4 +65,23 @@ http://119.29.29.29/d?dn=www.dnspod.cn&clientip=1
 ```
 113.96.208.81|14.17.22.47
 ```
+
+## 根据域名查询 Ipv6 地址
+
+数据请求和应答均使用 HTTP 协议。
+请求格式为:
+```
+http://119.29.29.29/d?dn=www.qq.com&type=AAAA
+```
+其中，`type=AAAA` 表示要求返回域名解析结果的 Ipv6 地址。
+
+以下列请求为例，表示要求返回域名解析结果的 Ipv6 地址：
+```
+http://119.29.29.29/d?dn=www.qq.com&type=AAAA
+```
+返回值如下，表示域名解析结果的 Ipv6 地址为：
+```
+40e:ff:f101:10::15f;240e:ff:f101:10::14d
+```
+>?要查询的域名需支持 Ipv6，否则返回为空。
 
