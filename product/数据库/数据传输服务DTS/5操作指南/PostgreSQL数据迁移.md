@@ -6,7 +6,7 @@
 ## 操作步骤
 
 ### 新建 DTS 数据迁移任务
-登录 [DTS 控制台](https://console.cloud.tencent.com/dtsnew/migrate/page)，进入数据迁移页，单击【新建任务】。
+登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration/setup)，新建迁移任务。
 
 
 ### 设置源和目标数据库
