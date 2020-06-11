@@ -1,7 +1,7 @@
 ## 操作场景
 本文档介绍如何为子用户/协作者创建、禁用/启用、删除 API 密钥以及查看 API 密钥信息。
 ## 前提条件
-已登录访问管理控制台，进入 [用户列表控制台](https://console.cloud.tencent.com/cam) 页面找到需要设置的子用户/协作者，单击【用户名称】，进入用户详情页面。
+已使用 [协作者](https://cloud.tencent.com/document/product/598/36621) 或 [子用户](https://cloud.tencent.com/document/product/598/39133) 登录访问管理控制台，进入 [用户列表控制台](https://console.cloud.tencent.com/cam) 页面找到需要设置的子用户/协作者，单击【用户名称】，进入用户详情页面。
 ## 操作步骤
 
 ### 创建子用户/协作者 API 密钥
