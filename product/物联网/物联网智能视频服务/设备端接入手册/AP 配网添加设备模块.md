@@ -16,7 +16,7 @@ SDK 内部集成 AP 模式时数据传输功能，如果需要内部获取 Wi-Fi
 该功能模块提供以下接口：
 - iv_ad_ap_init：AP 模块初始化。
 - iv_ad_ap_exit：AP 模块去初始化。
-- iv_ad_ap_recv_config_info_cb：接收用户自定义配网信息回调
+- iv_ad_ap_recv_config_info_cb：接收用户自定义配网信息回调。
 
 #### iv_ap_init
 
