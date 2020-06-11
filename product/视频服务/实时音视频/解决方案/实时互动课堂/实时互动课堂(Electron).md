@@ -30,13 +30,13 @@
 
 <span id="ui.step2"></span>
 ### 步骤2：下载 SDK 和 Demo 源码
-1.单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/Electron/TRTCScenesDemo/TRTCEducation)】跳转至 Github，下载相关 SDK 及配套的 Demo 源码。
-2.下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
+1. 单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/Electron/TRTCScenesDemo/TRTCEducation)】跳转至 Github，下载相关 SDK 及配套的 Demo 源码。
+2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
 
 ### 步骤3：配置 Demo 工程文件
-1.解压 [步骤2](#ui.step2) 中下载的源码包。
-2.找到并打开 `TRTCEducation/app/debug/GenerateTestUserSig.js` 文件。
-3.设置 `GenerateTestUserSig.js` 文件中的相关参数：
+1. 解压 [步骤2](#ui.step2) 中下载的源码包。
+2. 找到并打开 `TRTCEducation/app/debug/GenerateTestUserSig.js` 文件。
+3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
   <ul style="margin:0;"><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
   <img src="https://main.qcloudimg.com/raw/1732ea2401af6111b41259a78b5330a4.png">
