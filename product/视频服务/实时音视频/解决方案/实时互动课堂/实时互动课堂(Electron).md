@@ -37,9 +37,9 @@
 1.解压 [步骤2](#ui.step2) 中下载的源码包。
 2.找到并打开 `TRTCEducation/app/debug/GenerateTestUserSig.js` 文件。
 3.设置 `GenerateTestUserSig.js` 文件中的相关参数：
-  <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
+  <ul style="margin:0;"><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-	<img src="https://main.qcloudimg.com/raw/1732ea2401af6111b41259a78b5330a4.png">
+  <img src="https://main.qcloudimg.com/raw/1732ea2401af6111b41259a78b5330a4.png">
 4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
 5. 单击【关闭指引，进入控制台管理应用】。
 
