@@ -91,7 +91,7 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
 
 ## 迁移过程
 ### 1. 新建迁移任务
-1）登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration/setup)，新建迁移任务。
+1）登录 [DTS 控制台](https://console.cloud.tencent.com/dts )，在数据迁移页，单击【新建迁移任务】。
 2）在“链路地域”选择对应地域，单击【0元购买】。
 
 ### 2. 设置任务
