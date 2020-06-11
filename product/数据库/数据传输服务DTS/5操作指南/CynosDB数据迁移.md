@@ -19,7 +19,7 @@ FLUSH PRIVILEGES;
 
 ## 操作步骤
 ### 1. 新建迁移任务
-1）登录 [DTS 控制台](https://console.cloud.tencent.com/dtsnew/migrate/page) ，在数据迁移列表，单击【新建迁移任务】创建迁移任务。
+1）登录 [DTS 控制台](https://console.cloud.tencent.com/dts/migration/setup)，新建迁移任务。
 2）在“链路地域”选择对应地域，单击【0元购买】。
 
 ### 2. 设置迁移任务
