@@ -643,7 +643,7 @@ String extContent = bundle.getString("ext");
 1. 请参考 [Firebase 云消息传递](https://firebase.google.com/docs/cloud-messaging/android/client) 设置 Firebase，集成 FCM SDK。参考 [FCM 测试指引](https://firebase.google.com/docs/cloud-messaging/android/first-message?authuser=0) 测试通知消息，确保已成功集成 FCM。
 2. 调用 `FirebaseInstanceId.getInstance().getInstanceId()` 后，在回调里获取当前 App 的唯一标识 token。当登录 IM SDK 成功后，需要调用 [setOfflinePushConfig](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 将**证书 ID** 和 **token** 上报到即时通信 IM 服务端。
 
-成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后将消息通过小米推送通知到用户端。
+成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后将消息通过 FCM 推送通知到用户端。
 
 <span id="fcm_custom"></span>
 
