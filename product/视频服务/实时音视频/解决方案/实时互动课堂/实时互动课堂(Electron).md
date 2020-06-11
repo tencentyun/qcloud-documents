@@ -1,3 +1,16 @@
+## Demo 体验
+<table style="text-align:center;vertical-align:middle;">
+  <tr>
+    <th width="150px">Mac OS</th>
+    <th width="150px">Windows</th>
+  </tr>
+  <tr>
+    <td><a href="https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/electron_sdk/solution/education/TRTC_Education_Demo-1.1.0.dmg"><img width="125px" height="125px" src="https://main.qcloudimg.com/raw/d03160ca4e5342a96464aaba1de97923.png"></a></td>
+    <td><a href="https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/electron_sdk/solution/education/TRTC_Education_Demo%20Setup%201.1.0.exe"><img width="125px" height="125px" src="https://main.qcloudimg.com/raw/d03160ca4e5342a96464aaba1de97923.png"></a></td>
+  </tr>
+</table>
+
+
 ## 效果展示
 您可以下载安装我们的 Demo 体验实时互动课堂的能力效果，包括语音、视频、屏幕分享等上课方式，还封装了老师开始问答、学生举手、老师邀请学生上台回答、结束回答等相关能力。
 
