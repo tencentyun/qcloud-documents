@@ -41,7 +41,7 @@
       <td>appId</td>
       <td>可选</td>
       <td>String</td>
-      <td>accountType 是 QQ 或微信开放账号时，该参数必填，表示 QQ 或微信分配给网站或应用的 appId，用来唯一标识网站或应用。</td>
+      <td>accountType 是 QQ 开放账号时，该参数必填，表示 QQ 开放平台分配给网站或应用的 AppID，用来唯一标识网站或应用。</td>
    </tr>
    <tr>
       <td>goodInfo</td>
@@ -287,7 +287,7 @@
 https://csec.api.qcloud.com/v2/index.php?
 Action=IntelligentQRCode
 &<公共请求参数>
-&secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
+&secretId=AKI*****************************q4Zw
 &accountType=1
 &cookie = "asdasldkjaslkjdsfjlsad" //用户 HTTP 请求中的 cookie 进行2次 hash 的值
 &goodInfo="good"  //业务侧自定义内容

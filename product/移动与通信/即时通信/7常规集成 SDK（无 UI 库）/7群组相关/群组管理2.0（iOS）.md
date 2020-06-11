@@ -270,7 +270,7 @@ succ:^(uint64_t nextSeq, NSArray<V2TIMGroupMemberInfo *> *memberList) {
 
 
 ### 获取群成员资料
-调用 [getGroupMembersInfo](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Group_08.html#a1ab284b80811bcc697d689d7b97edf04) 可以获取群成员资料，该接口支持批量获取，您可以一次传入多个 `userID` 获取多个群的群资料，从而提升网络传输效率。
+调用 [getGroupMembersInfo](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Group_08.html#a1ab284b80811bcc697d689d7b97edf04) 可以获取群成员资料，该接口支持批量获取，您可以一次传入多个 `userID` 获取多个群成员的资料，从而提升网络传输效率。
 
 ### 修改群成员的群名片
 群主或者管理员可以调用 [setGroupMemberInfo](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Group_08.html#a40b97ee4b138f93e1b2073d1bdff3756) 接口修改群成员的群名片（`nameCard`）、 群成员角色（`role`）以及禁言时间（`muteUntil`）等与群相关的资料。

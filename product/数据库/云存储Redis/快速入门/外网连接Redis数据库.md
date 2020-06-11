@@ -16,7 +16,7 @@ echo 1 > /proc/sys/net/ipv4/ip_forward
 iptables -t nat -A PREROUTING -p tcp --dport 10001 -j DNAT --to-destination 10.0.0.5:6379
 iptables -t nat -A POSTROUTING -d 10.0.0.5 -p tcp --dport 6379 -j MASQUERADE
 ```
-3. 配置 [云服务器安全组](https://cloud.tencent.com/document/product/213/18197)，放开云服务器外网端口的访问权限，安全组规则建议仅放开需要访问的源地址。
+3. 配置 [云服务器安全组](https://cloud.tencent.com/document/product/213/39740)，放开云服务器外网端口的访问权限，安全组规则建议仅放开需要访问的源地址。
 4. 在访问端通过外网地址（本示例即26.xx.xx.2:10001）连接内网 Redis 实例，连接命令与内网连接命令一致，命令请参见 [连接实例](https://cloud.tencent.com/document/product/239/30877#.E8.BF.9E.E6.8E.A5.E5.AE.9E.E4.BE.8B)。
 5. 连接 Redis 后，执行`info`命令返回数据库相关信息即表示连接成功。
 

@@ -15,7 +15,7 @@ $ npm install -g serverless
 
 ### 2. 创建
 
-1.本地创建 `serverless.yml` 文件和 `app.js`文件：
+1.本地创建一个 `serverless.yml` 文件：
 ```console
 $ touch serverless.yml
 ```
@@ -24,7 +24,7 @@ $ touch serverless.yml
 npm init              # 创建后持续回车
 npm i --save koa  # 安装 koa
 ```
-3.创建一个 `sls.js`文件：
+3.本地创建一个 `app.js` 文件：
 ```console
 $ touch app.js
 ```

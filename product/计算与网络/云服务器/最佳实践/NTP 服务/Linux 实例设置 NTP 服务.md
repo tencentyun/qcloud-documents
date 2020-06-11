@@ -1,6 +1,6 @@
 ## 操作场景
 
-NTPD（Network Time Protocol daemon）是 Linux 操作系统的一个守护进程，用于校正本地系统与时钟源服务器之前的时间，完整的实现了 NTP 协议。NTPD 与 NTPDate 的区别是 NTPD 是步进式的逐渐校正时间，不会出现时间跳变，而 NTPDate 是断点更新。本文档以 CentOS7.5 操作系统云服务器为例，介绍 NTPD 的安装和使用。
+NTPD（Network Time Protocol daemon）是 Linux 操作系统的一个守护进程，用于校正本地系统与时钟源服务器之前的时间，完整的实现了 NTP 协议。NTPD 与 NTPDate 的区别是 NTPD 是步进式的逐渐校正时间，不会出现时间跳变，而 NTPDate 是断点更新。本文档以 CentOS 7.5 操作系统云服务器为例，介绍如何安装和配置 NTPD。
 
 ## 注意事项
 
@@ -11,6 +11,7 @@ NTPD（Network Time Protocol daemon）是 Linux 操作系统的一个守护进�
 若未开放该端口，请参考 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740) 进行放行。
 
 ## 操作步骤
+
 ### 安装 NTPD
 
 执行以下命令，判断是否安装 NTPD。
@@ -30,7 +31,7 @@ NTPD 默认为客户端运行方式。
 ```
 vi /etc/ntp.conf
 ```
-2. 按 **i** 切换至编辑模式，找到 server 相关配置，将 server 修改为您需要设置的目标 NTP 时钟源服务器，并删除暂时不需要的 NTP 时钟源服务器。如下图所示：
+2. 按 **i** 切换至编辑模式，找到 server 相关配置，将 server 修改为您需要设置的目标 NTP 时钟源服务器（例如 `time1.tencentyun.com`），并删除暂时不需要的 NTP 时钟源服务器。如下图所示：
 ![server设置](https://main.qcloudimg.com/raw/643dc5bbd2a42307ec10b5d38f756dda.png)
 3. 按 **Esc**，输入 **:wq**，保存文件并返回。
 
@@ -95,4 +96,12 @@ chrony 与 NTPD 冲突，可能引起 NTPD 开机启动失败。
 systemctl disable chronyd.service
 ```
 
+### 增强 NTPD 安全性
 
+依次执行以下命令，为 `/etc/ntp.conf` 配置文件增加安全性。
+```
+interface ignore wildcard
+```
+```
+interface listen eth0
+```

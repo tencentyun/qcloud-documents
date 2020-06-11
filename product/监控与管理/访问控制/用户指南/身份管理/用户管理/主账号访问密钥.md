@@ -13,7 +13,7 @@
  > - API 密钥是构建腾讯云 API 请求的重要凭证，为了您的财产和服务安全，请妥善保存和定期更换密钥，当您更换密钥后，请及时删除旧密钥。
  
 ### 查看主账号 API 密钥
-您可以查看和复制主账号 API 密钥的 SecretId 和 SecretKey 信息，您可以通过 SecretId 和 SecretKey 使用 API、SDK 或其他开发工管理账号下的资源。
+您可以查看和复制主账号 API 密钥的 SecretId 和 SecretKey 信息，您可以通过 SecretId 和 SecretKey 使用 API、SDK 或其他开发工具管理账号下的资源。
 1. 在 API 密钥管理页面，密钥操作列下的可直接获取复制 SecretId。
 2. 在密钥操作列，单击【显示】，完成身份验证，可以获取复制SecretKey。
 

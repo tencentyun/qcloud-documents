@@ -26,7 +26,7 @@ cd example
 成功创建后，目录结构如下所示：
 ```
 |- src
-|   └── index.py
+|   └── index.js
 └──  serverless.yml
 ```
 

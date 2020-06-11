@@ -1,10 +1,8 @@
 ## 操作场景
-本文介绍如何在 Linux 或者 Mac OS 系统的本地计算机中通过 SSH 登录 Linux 实例。
+本文介绍如何在 Linux、Mac OS 或者 Windows 系统的本地计算机中通过 SSH 登录 Linux 实例。
 
 ## 适用本地操作系统
-Linux 或 MacOS
->? 如果您的本地计算机为 Windows 操作系统，请 [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44578)。
->
+Linux、Mac OS 或 Windows（Windows 10 和 Windows Server 2019 版本）
 
 ## 鉴权方式
 **密码**或**密钥**
@@ -25,6 +23,7 @@ Linux 或 MacOS
 >? 
 > - 如果您的本地计算机使用非桌面版的 Linux 系统，可直接在系统界面执行以下命令。
 > - 如果您的本地计算机使用桌面版 Linux 系统或 MacOS 系统，请先打开系统自带的终端（如 MacOS 的 Terminal），再执行以下命令。
+> - 如果您的本地电脑为 Windows 10 或 Windows Server 2019 系统，需先打开命令提示符（CMD），再执行以下命令。
 >
 ```
 ssh <username>@<IP address or domain name>
@@ -40,6 +39,7 @@ ssh <username>@<IP address or domain name>
 >? 
 > - 如果您的本地计算机使用非桌面版的 Linux 系统，可直接在系统界面执行以下命令。
 > - 如果您的本地计算机使用桌面版 Linux 系统或 MacOS 系统，请先打开系统自带的终端（如 MacOS 的 Terminal），再执行以下命令。
+> - 如果您的本地电脑为 Windows 10 或 Windows Server 2019 系统，需先打开命令提示符（CMD），再执行以下命令。
 >
 ```
 chmod 400 <已下载的与实例关联的私钥文件的路径>

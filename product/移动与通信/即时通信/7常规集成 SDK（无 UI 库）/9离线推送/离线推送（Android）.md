@@ -629,16 +629,14 @@ String extContent = bundle.getString("ext");
 ### 集成 SDK
 
 <span id="fcmStep1_1"></span>
-
 1. 打开 [Firebase 云消息传递](https://firebase.google.com) 注册账号并创建应用。
-   <span id="fcmStep1_2"></span>
-2. 登录 [Firebase 控制台](https://console.firebase.google.com)，单击您的应用卡片，进入应用配置页面。单击 Project Overview 右侧的 <img src="https://main.qcloudimg.com/raw/0d062411405553c9fae29f8e0daf02ad.png"  style="margin:0;">，选择【项目设置】>【服务帐号】，点击**生成新的秘钥**按钮下载秘钥文件。
-   <span id="fcmStep1_3"></span>
-3. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击【Android平台推送设置】区域的【添加证书】。上传 [步骤1](#fcmStep1_2) 中获取的秘钥文件。
-
-   ![](https://main.qcloudimg.com/raw/b18e2414561c6733b24c56cd1e866f21.png)
-   单击【确认】保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
-   ![](https://main.qcloudimg.com/raw/2199bbf955cf52f09b78af6a97ab8122.png)
+<span id="fcmStep1_2"></span>
+2. 登录 [Firebase 控制台](https://console.firebase.google.com)，单击您的应用卡片，进入应用配置页面。单击 Project Overview 右侧的 <img src="https://main.qcloudimg.com/raw/0d062411405553c9fae29f8e0daf02ad.png"  style="margin:0;">，选择【项目设置】>【服务帐号】，单击【生成新的私钥】下载私钥文件。
+<span id="fcmStep1_3"></span>
+3. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击【Android平台推送设置】区域的【添加证书】。上传 [步骤2](#fcmStep1_2) 中获取的私钥文件。
+ ![](https://main.qcloudimg.com/raw/b18e2414561c6733b24c56cd1e866f21.png)
+4. 单击【确认】保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
+ ![](https://main.qcloudimg.com/raw/2199bbf955cf52f09b78af6a97ab8122.png)
 
 ### 集成推送 SDK
 

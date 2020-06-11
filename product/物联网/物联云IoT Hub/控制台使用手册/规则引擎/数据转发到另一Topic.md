@@ -14,10 +14,10 @@ WHERE house="tencent" AND temperature > 40
 ```
 
 此规则从消息中提取了 `t` 和 `house` 这两个字段的值，假定 `house` 字段的内容为 `tencent`。
-此时如果定义了转发给 `house_monitor/${house}/app这个 Topic，那么规则引擎则会将这个 Topic 中的 `${house}` 变量替换为 "tencent"， 从而将 `t` 和 `house` 的字段内容发送给 `house_monitor/tencent/app/` 这个 Topic。
+此时如果定义了转发给 `house_monitor/${house}/app这个 Topic，那么规则引擎则会将这个 Topic 中的 `${house}` 变量替换为 "tencent"， 从而将 `t` 和 `house` 的字段内容发送给 `house_monitor/tencent/app` 这个 Topic。
 
 转发全过程如下图所示：
-![image](https://main.qcloudimg.com/raw/db85f6a267cbe7a242665aa941f03e68.png)
+![image](https://main.qcloudimg.com/raw/d4914e4b87c30f9240bbfcd62411be8a.png)
 
 ## 配置
 1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，选择左侧菜单栏【规则引擎】，单击需要配置的规则。
