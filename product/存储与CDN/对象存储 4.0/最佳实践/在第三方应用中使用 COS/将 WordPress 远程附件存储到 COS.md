@@ -26,11 +26,11 @@ WordPress 功能强大、扩展性强，这主要得益于其插件众多，易�
 
 ## 安装并配置插件
 
-### 安装插件
+### 安装 Sync Qcloud COS 插件
 
 在 WordPress 后台，单击【插件】>【安装插件】，开始安装插件。您可通过下面两种方式获取插件并安装：
 
- - 后台直接搜索`Sync QCloud COS`进行安装（推荐使用）。
+ - 后台直接搜索 **Sync QCloud COS** 进行安装（推荐使用）。
  - 您也可以从 [Github](https://github.com/sy-records/wordpress-qcloud-cos/releases/latest) 下载最新 releases 源码，通过 WordPress 后台上传安装，或者直接将源码上传到 WordPress 插件目录`wp-content/plugins`，然后在后台启用。
 
 ### 配置 Sync Qcloud COS 插件
