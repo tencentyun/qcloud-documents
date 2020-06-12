@@ -1,6 +1,6 @@
 <table style="text-align:center;vertical-align:middle;">
   <tr>
-    <th style="text-align:center" width="25%"><b>Android</b></th>
+    <th style="text-align:center" width="25%"><b>Android（请使用手机浏览器或应用宝等扫码）</b></th>
     <th style="text-align:center" width="25%"><b>iOS（安装密码：123）</b></th>
     <th style="text-align:center" width="25%"><b>小程序</b></th>
 		<th style="text-align:center" width="25%"><b>直播电商解决方案</b></th>
@@ -14,8 +14,6 @@
     <td style="text-align:center"><input type="button" value="单击体验" style="background-color: #008CBA; border: none; color: white; padding: 12px 26px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; border-radius: 5px;" onclick="window.open('https://webim-1252463788.file.myqcloud.com/demo/index.html?_ga=1.46776807.1921342650.1563864524')" /></td>
   </tr>
 </table>
-
->?Android 端二维码请使用手机浏览器或应用宝等 App 扫码。
 
 **Android/iOS 基本功能演示**
 
