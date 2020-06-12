@@ -59,17 +59,11 @@ Kubernetes 提供了 Service 特性 `ExternalTrafficPolicy`。当 `ExternalTraff
 * 缺点：
   - 没有工作负载的节点，NodePort 将无法提供服务。
 
-
-默认情况下，当 Service 开启 Local 模式之后，仍会按默认方式挂载几乎所有节点的 NodePort 作为后端。负载均衡会根据健康检查的结果，避免流量进入没有工作负载的后端节点。为了避免这些没有工作负载的后端被绑定，用户可以通过 `service.kubernetes.io/local-svc-only-bind-node-with-pod: "true"` 注解，在 Local 模式下指定绑定有工作负载节点作为后端。更多信息请参考 [Kubernetes Service Local](https://kubernetes.io/zh/docs/tutorials/services/source-ip/)。
-
-
 ### 注意事项
 负载均衡的同步是需要时间的。当 Local 类型的服务工作负载数量很少时，工作负载的飘移或滚动更新会很快。此时后端如未来得及同步，后端的服务可能会出现不可用的情况。
 
 
-
-### 示例
-#### Service 开启 Local 转发（externalTrafficPolicy: Local）
+#### 示例：Service 开启 Local 转发（externalTrafficPolicy: Local）
 ```
 apiVersion: v1
 kind: Service
@@ -88,7 +82,10 @@ spec:
 ```
 
 
-#### Service 开启 Local 转发并开启 Local 绑定
+### Local 默认后端选择
+默认情况下，当 Service 开启 Local 模式之后，仍会按默认方式挂载几乎所有节点的 NodePort 作为后端。负载均衡会根据健康检查的结果，避免流量进入没有工作负载的后端节点。为了避免这些没有工作负载的后端被绑定，用户可以通过 `service.kubernetes.io/local-svc-only-bind-node-with-pod: "true"` 注解，在 Local 模式下指定绑定有工作负载节点作为后端。更多信息请参考 [Kubernetes Service Local](https://kubernetes.io/zh/docs/tutorials/services/source-ip/)。
+
+#### 示例：Service 开启 Local 转发并开启 Local 绑定
 ```
 apiVersion: v1
 kind: Service
@@ -108,10 +105,10 @@ spec:
   type: LoadBalancer
 ```
 
-
-
-#### Service 开启 Local 转发，并开启 Local 绑定与 Local 加权平衡
 由于 Local 模式下，进入节点的请求流量不会在节点间转发。所以当节点上的工作负载数量不一致的时候，同样的后端权重可能会使得每一个节点上的负载不平均。此时用户可以通过 `service.cloud.tencent.com/local-svc-weighted-balance: "true"` 进行加权平衡。使用此注解时，NodePort 后端的权重将由节点上工作负载的数量决定，从而避免不同节点上工作负载数量不同带来的负载不均的问题。其中，**Local 加权平衡必须和 Local 绑定同时使用**。示例如下：
+
+
+#### 示例：Service 开启 Local 转发，并开启 Local 绑定与 Local 加权平衡
 ```
 apiVersion: v1
 kind: Service
