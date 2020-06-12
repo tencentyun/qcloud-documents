@@ -74,7 +74,7 @@
 7.单击【Sync Now】，完成 LiteAVSDK 的集成工作。
 
 ### 4. 给 SDK 配置 License 授权
-申请企业版 License 成功后，您会获得两个字符串：licenseURL 和解密 key。在您的 App 调用企业版 SDK 相关功能前需进行如下设置：
+申请 [企业版 License](https://cloud.tencent.com/document/product/454/34750) 成功后，您会获得两个字符串：licenseURL 和解密 key。在您的 App 调用企业版 SDK 相关功能前需进行如下设置：
 >?建议配置在 Application 类中。
 
 ```java
