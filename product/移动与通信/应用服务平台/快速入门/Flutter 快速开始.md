@@ -27,7 +27,7 @@ dependencies:
 flutter pub get
 ```
 
-## 第 3 步: 创建移动应用安全来源的凭证
+## 第 3 步：创建移动应用安全来源的凭证
 
 打开[安全设置页面](https://console.cloud.tencent.com/tcb/env/setting?tab=safetyConfig)中，在移动应用安全来源里**添加应用**. 
 
@@ -35,7 +35,7 @@ flutter pub get
 
 >? 因为 Flutter 是跨端开发框架, 所以需要为 Android 和 iOS 各申请一个应用凭证。 应用标识应该是 Android包名 和 iOS Bundle ID。
 
-## 第 4 步： 开启匿名登录
+## 第 4 步：开启匿名登录
 
 在[环境设置页面](https://console.cloud.tencent.com/tcb/env/setting)中，点击“登录方式”，然后**启用匿名登录**：
 
@@ -51,9 +51,9 @@ import 'package:cloudbase_auth/cloudbase_auth.dart';
 
 // 初始化 CloudBase
 CloudBaseCore core = CloudBaseCore.init({
-    // 填写你的云开发 env
+    // 填写您的云开发 env
     'env': 'your-env-id',
-    // 填写你的移动应用安全来源凭证
+    // 填写您的移动应用安全来源凭证
     // 这里应该判断平台，来填写对应的凭证
     'appAccess': {
       // 凭证

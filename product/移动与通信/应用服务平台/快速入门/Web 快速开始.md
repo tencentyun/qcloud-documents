@@ -45,7 +45,7 @@ mkdir my-cloudbase-app && cd my-cloudbase-app && touch index.html && touch cloud
     <script src="https://imgcache.qq.com/qcloud/tcbjs/1.3.5/tcb.js"></script>
     <script>
       const app = tcb.init({
-        env: '你的环境ID'  // 此处填入你的环境ID
+        env: '您的环境ID'  // 此处填入您的环境ID
       });
       app.auth().signInAnonymously().then(() => {
         alert('登录云开发成功！')
@@ -61,7 +61,7 @@ mkdir my-cloudbase-app && cd my-cloudbase-app && touch index.html && touch cloud
 以下是 `cloudbaserc.json` 的内容：
 ```json
 {
-    "envId": "此处填入你的环境ID"
+    "envId": "此处填入您的环境ID"
 }
 ```
 
@@ -87,7 +87,7 @@ npx serve
 
 即可打开一个本地静态服务器，然后访问 [http://localhost:5000](http://localhost:5000)
 
->? 如果 SDK 成功使用匿名身份登录，那么你应该可以看到一个弹窗。
+>? 如果 SDK 成功使用匿名身份登录，那么您应该可以看到一个弹窗。
 
 登录成功后，便可以访问和使用云开发的各类资源，详情请参看 [Web SDK 文档](https://docs.cloudbase.net/api-reference/web/authentication.html)
 
@@ -110,6 +110,6 @@ cloudbase hosting:deploy
 > cloudbase login
 > ```
 
-3. 使用 *envId*.tcloudbaseapp.com 访问你的网站
+3. 使用 *envId*.tcloudbaseapp.com 访问您的网站
 
 详情请参考[静态网站托管](https://cloud.tencent.com/document/product/876/40270)相关文档
