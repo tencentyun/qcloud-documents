@@ -27,9 +27,7 @@
 1. 开通腾讯云直播服务。
 2. 已添加推流域名和播放域名，具体操作请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
 3. 一台已经连接好的“Insta360 Pro 2”相机，具体连接操作步骤可参见 [Insta360 Pro2 说明书](https://onlinemanual.insta360.com/pro2/zh-cn/live/prepare/3)。
-4. 下载 Insta360 Pro 软件，可通过以下两种方式：
-	- 通过苹果 App Store 或安卓市场搜索『Insta360 Pro』。
-	- 通过[【Insta360 官网】](http://insta360.com/download/insta360-pro2?locale=zh-cn)下载手机端、 Windows 或 Mac 桌面端控制软件。
+4.  通过[【Insta360 官网】](http://insta360.com/download/insta360-pro2?locale=zh-cn)下载 Android/iOS 手机端、Windows 端 或 Mac 端的相机控制软件。
  ![](https://main.qcloudimg.com/raw/d36bcf1b1f00c2b85889ef04f538530e.png)
 5. 软件下载完成之后需要对相机进行调试，调试方法参见 [基础拍摄准备-相机调试](https://onlinemanual.insta360.com/pro2/zh-cn/basic/prepare/adjustment)。
 
