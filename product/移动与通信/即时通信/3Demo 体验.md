@@ -1,7 +1,7 @@
 <table>
   <tr>
-    <th align="center" width="25%">Android（使用浏览器或应用宝等扫码）</th>
-    <th align="center" width="25%">iOS（安装密码：123）</th>
+    <th align="center" width="25%">Android<br>使用浏览器或应用宝等扫码</th>
+    <th align="center" width="25%">iOS<br>安装密码：123</th>
     <th align="center" width="25%">小程序</th>
     <th align="center" width="25%">直播电商解决方案</th>
     <th align="center" width="25%">Web</th>
