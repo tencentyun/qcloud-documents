@@ -40,4 +40,4 @@ Namespace=QCE/CES
 查询 Elasticsearch Service 监控数据，入参取值如下：
 &Namespace=QCE/CES
 &Instances.N.Dimensions.0.Name=uInstanceId
-&Instances.N.Dimensions.0.Value= ES 具体实例 ID
+&Instances.N.Dimensions.0.Value=ES 具体实例 ID
