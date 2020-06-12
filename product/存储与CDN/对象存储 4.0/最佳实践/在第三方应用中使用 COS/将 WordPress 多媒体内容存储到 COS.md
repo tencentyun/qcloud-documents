@@ -30,7 +30,7 @@ WordPress 功能强大、扩展性强，这主要得益于其插件众多，易�
 
 在 WordPress 后台，单击【插件】>【安装插件】页面，开始安装插件。您可通过下面两种方式获取插件并安装：
 
- - 您可从 [Github](https://github.com/sy-records/wordpress-qcloud-cos/releases/tag/v1.8.3) 下载最新 releases 源码，通过 WordPress 后台上传安装，或者直接将源码上传到 WordPress 插件目录 `wp-content/plugins`，然后在后台启用。
+ - 您可从 [Github](https://github.com/sy-records/wordpress-qcloud-cos/releases/latest) 下载最新 releases 源码，通过 WordPress 后台上传安装，或者直接将源码上传到 WordPress 插件目录 `wp-content/plugins`，然后在后台启用。
  - 后台直接搜索 `Sync QCloud COS` 进行安装（推荐使用）。
 
 #### 配置 Sync Qcloud COS 插件
@@ -57,7 +57,7 @@ WordPress 功能强大、扩展性强，这主要得益于其插件众多，易�
 ### 扩展
 
 1. 使用 CDN 加速访问
-存储桶如果需要配置 CDN 加速，可参见 [CDN 加速配置](https://cloud.tencent.com/document/product/436/18670) 文档。在腾讯云 COS 设置中将 URL 前缀修改为默认 CDN 加速域名或自定义加速域名即可。
+存储桶如果需要配置 CDN 加速，可参见 [CDN 加速配置](https://cloud.tencent.com/document/product/436/18670) 文档。在插件设置中将 URL 前缀修改为默认 CDN 加速域名或自定义加速域名即可。
 2. 替换数据库中的资源地址
 如果不是新创建的站点，数据库当中必定是旧的资源链接地址，我们需要将资源地址进行替换，插件提供了替换功能，请在首次替换前记得备份。
  - 旧域名填写原资源域名，例如 `https://example.com/`
@@ -84,4 +84,3 @@ Access-Control-Allow-Origin: https://example.com
 
 开启回源设置后，当客户端首次访问 COS 源文件时，COS 发现无法命中对象，对客户端返回 302 HTTP 状态码并跳转至回源地址对应的地址，此时对象由源站提供给客户端，从而保证访问。同时 COS 从源站复制该文件并保存至存储桶对应的目录中；第二次访问时，COS 直接命中对象并返回给客户端。
 
->?由于 WordPress 设计问题，在后台媒体库上传资源会占用文章 ID，不推荐用户在后台上传。
