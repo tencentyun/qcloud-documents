@@ -2,20 +2,32 @@
 
 <span id="keyword"></span>
 ## 关键词说明
-| 关键词               | 描述                                                   |
-| -------------------- | ------------------------------------------------------------ |
-| 360°全景拍摄         | 360°全方位无死角记录周围环境。                               |
-| 360°3D全景拍摄       | 立体呈现周围环境，带给观看者沉浸式体验。                     |
-| RTMP                 | 是 Adobe Systems 公司为 Flash 播放器和服务器之间音频、视频和数据传输开发的开放协议。目前腾讯云仅支持该协议。 |
-| 直播同时保存画面视频 | 保存当前直播输出视频到本地 SD 卡中。                           |
-| 保存6镜头原片        | 使用 Pro 2 机内拼接推流4K 2D直播时，支持存储直播视频流或单镜头高分辨率原片后期拼接8K 2D。机内拼接推流4K 3D直播时，支持存储直播视频流或单镜头高分辨率原片后期拼接6K 3D。 |
+<table>
+<thead><tr><th width="24%">关键词</th><th>描述</th></tr></thead>
+<tbody><tr>
+<td>360°全景拍摄</td>
+<td>360°全方位无死角记录周围环境。</td>
+</tr><tr>
+<td>360°3D全景拍摄</td>
+<td>立体呈现周围环境，带给观看者沉浸式体验。</td>
+</tr><tr>
+<td>RTMP</td>
+<td>是 Adobe Systems 公司为 Flash 播放器和服务器之间音频、视频和数据传输开发的开放协议。目前腾讯云仅支持该协议。</td>
+</tr><tr>
+<td>直播同时保存画面视频</td>
+<td>保存当前直播输出视频到本地 SD 卡中。</td></tr>
+<tr>
+<td>保存6镜头原片</td>
+<td>使用 Pro 2 机内拼接推流4K 2D直播时，支持存储直播视频流或单镜头高分辨率原片后期拼接8K 2D。机内拼接推流4K 3D直播时，支持存储直播视频流或单镜头高分辨率原片后期拼接6K 3D。</td>
+</tr>
+</tbody></table>
 
 
 ## 准备工作 
 1. 开通腾讯云直播服务。
 2. 已添加推流域名和播放域名，具体操作请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
 3. 一台已经连接好的“Insta360 Pro 2”相机，具体连接操作步骤可参见 [Insta360 Pro2 说明书](https://onlinemanual.insta360.com/pro2/zh-cn/live/prepare/3)。
-4.下载 Insta360 Pro 软件，可通过以下两种方式：
+4. 下载 Insta360 Pro 软件，可通过以下两种方式：
 	- 通过苹果 App Store 或安卓市场搜索『Insta360 Pro』。
 	- 通过[【Insta360 官网】](http://insta360.com/download/insta360-pro2?locale=zh-cn)下载手机端、 Windows 或 Mac 桌面端控制软件。
  ![](https://main.qcloudimg.com/raw/d36bcf1b1f00c2b85889ef04f538530e.png)
