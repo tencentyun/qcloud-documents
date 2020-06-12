@@ -48,6 +48,10 @@ FLUSH PRIVILEGES;
 >1. 目前仅支持 Table（及其 Index）和 View 两类数据对象的迁移；即使选择整个实例迁移，也仅支持前述两类数据对象。
 >2. 源实例的参数设置、账号、系统库表等不在迁移范围内。
 >3. DTS 不做 View 的依赖合法性检查和依赖的自动选择。请用户迁移 View 时，注意同时选择 View 所依赖的对象，否则迁移可能失败。
+>4. 在增量迁移的过程中：
+>  - 如果源库上选定的迁移对象之中执行了支持的 DDL 操作（包括 CREATE TABLE、ALTER TABLE、RENAME TABLE、TRUNCATE TABLE、DROP TABLE、CREATE VIEW、DROP VIEW、CREATE INDEX、DROP INDEX），则对应的结构变化及其中的数据变化也同样会在目标库中执行。
+>  - 如果源库上执行了 DTS 不支持的 DDL 操作，可能导致数据迁移失败。
+>
 >
 ![](https://main.qcloudimg.com/raw/db61f5bb7acd4b6d5b48224bb2a96600.png)
 
@@ -81,7 +85,3 @@ FLUSH PRIVILEGES;
 ![](https://main.qcloudimg.com/raw/910362f18b51708a66dccc18148e382c.png)
 结合源数据库与目标库之间的数据差距情况，当您认为增量数据已经完成同步时，您可以在 DTS 任务的“操作”列，选择【更多】>【完成】，在弹出对话框单击【确定】，完成迁移任务。
 ![](https://main.qcloudimg.com/raw/544a905d29c6efba4259582a122ef7e1.png)
-
-
-
-
