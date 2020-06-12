@@ -189,7 +189,7 @@ wal_receiver_status_interval = 1s  # 从节点向主节点报告自身状态的�
 hot_standby_feedback = on          # 如果有错误的数据复制向主进行反馈
 ```
 13. 按 **Esc**，输入 **:wq**，保存文件返回。
-14. 执行以下命令，
+14. 执行以下命令，修改数据目录的属组和属主。
 ```
 chown -R postgres.postgres /var/lib/pgsql/11/data
 ```
