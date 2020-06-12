@@ -1,14 +1,14 @@
 <table>
   <tr>
-    <th align="center" width="25%">Android</th>
-    <th align="center" width="25%">iOS</th>
+    <th align="center" width="25%">Android（使用浏览器或应用宝扫码）</th>
+    <th align="center" width="25%">iOS（安装密码：123）</th>
     <th align="center" width="25%">小程序</th>
     <th align="center" width="25%">直播电商解决方案</th>
     <th align="center" width="25%">Web</th>
   </tr>
   <tr>
-    <td align="center">请使用浏览器或应用宝等扫码<img  style="width:140px;height:140px" src="https://main.qcloudimg.com/raw/52312cb24233de9d3ba3b2d13e52c295.png"  /></td>
-    <td align="center">安装密码：123<img style="width:140px;height:140px" src="https://main.qcloudimg.com/raw/b3f119b2cb0e92721bcf49ea6acd0e8c.png" /></td>
+    <td align="center"><img  style="width:160px;height:160px" src="https://main.qcloudimg.com/raw/52312cb24233de9d3ba3b2d13e52c295.png"  /></td>
+    <td align="center"><img style="width:160px;height:160px" src="https://main.qcloudimg.com/raw/b3f119b2cb0e92721bcf49ea6acd0e8c.png" /></td>
     <td align="center"><img style="width:160px;height:160px" src="https://main.qcloudimg.com/raw/5e734fcb0e05a938bde732d2e8c95c51.png" /></td>
     <td align="center"><img style="width:160px;height:160px" src="https://main.qcloudimg.com/raw/20b20cc0b2f5c5cc65d0f5a93f26cd55.png" /></td>
     <td align="center"><input type="button" value="单击体验" style="background-color: #008CBA; border: none; color: white; padding: 12px 26px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; border-radius: 5px;" onclick="window.open('https://webim-1252463788.file.myqcloud.com/demo/index.html?_ga=1.46776807.1921342650.1563864524')" /></td>
