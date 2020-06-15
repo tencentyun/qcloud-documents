@@ -116,7 +116,7 @@ vim /var/lib/pgsql/11/data/postgresql.conf
 ```
 21. 按 **i** 进入编辑模式，分别找到以下参数，并将参数修改为以下内容：
 ```
-listen_addresses = xxx.xxx.xxx.xxx   #监听的内网 IP 地址
+listen_addresses = 'xxx.xxx.xxx.xxx'   #监听的内网 IP 地址
 max_connections = 100    #最大连接数，从库的 max_connections 必须要大于主库的
 wal_level = hot_standby  #启用热备模式
 synchronous_commit = on  #开启同步复制
@@ -182,7 +182,8 @@ vim /var/lib/pgsql/11/data/postgresql.conf
 ```
 12. 按 **i** 切换至编辑模式，分别找到如下参数，并修改为如下内容：
 ```
-max_connections = 1000             # 最大连接数，从节点需设置比主节点大
+listen_addresses= 'xxx.xx.xx.xx'   #监听的内网 IP 地址
+max_connections = 1000             # 最大连接数，从库的 max_connections 必须要大于主库的
 hot_standby = on                   # 开启热备
 max_standby_streaming_delay = 30s  # 数据流备份的最大延迟时间
 wal_receiver_status_interval = 1s  # 从节点向主节点报告自身状态的最长间隔时间
@@ -193,17 +194,7 @@ hot_standby_feedback = on          # 如果有错误的数据复制向主进行�
 ```
 chown -R postgres.postgres /var/lib/pgsql/11/data
 ```
-15. 执行以下命令，打开 `postgresql.conf` 文件。
-```
-vim /var/lib/pgsql/11/data/postgresql.conf
-```
-16. 按 **i** 切换至编辑模式，分别找到如下参数，并修改为如下内容：
-```
-listen_addresses= xxx.xx.xx.xx #监听的内网 IP 地址
-max_connections = 600 #最大连接数，从库的 max_connections 必须要大于主库的
-```
-17. 按 **Esc**，输入 **:wq**，保存文件返回。
-18. 执行以下命令，启动服务。
+15. 执行以下命令，启动服务。
 ```
 systemctl start postgresql-11
 ```
