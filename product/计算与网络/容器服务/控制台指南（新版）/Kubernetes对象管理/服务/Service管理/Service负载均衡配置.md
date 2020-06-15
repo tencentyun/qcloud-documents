@@ -177,12 +177,12 @@ NAME    TYPE           CLUSTER-IP       EXTERNAL-IP       PORT(S)               
 jetty   LoadBalancer   10.127.255.209   150.158.220.237   80:31338/TCP,443:32373/TCP   2m47s
 
 # 获取TkeServiceConfig配置列表
-➜ kubectl get TkeServiceConfigs.cloud.tencent.com
+➜ kubectl get tkeserviceconfigs.cloud.tencent.com
 NAME                   AGE
 jetty-service-config   52s
 
 # 更新修改TkeServiceConfig配置
 ➜ kubectl edit tkeserviceconfigs.cloud.tencent.com jetty-service-config
-tkeserviceconfigs.cloud.tencent.com/jetty-service-config edited
+TkeServiceConfig.cloud.tencent.com/jetty-service-config edited
 ```
 
