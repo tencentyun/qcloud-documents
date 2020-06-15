@@ -182,7 +182,7 @@ NAME                   AGE
 jetty-service-config   52s
 
 # 更新修改TkeServiceConfig配置
-➜ kubectl edit TkeServiceConfigs.cloud.tencent.com jetty-service-config
-TkeServiceConfig.cloud.tencent.com/jetty-service-config edited
+➜ kubectl edit tkeserviceconfigs.cloud.tencent.com jetty-service-config
+tkeserviceconfigs.cloud.tencent.com/jetty-service-config edited
 ```
 
