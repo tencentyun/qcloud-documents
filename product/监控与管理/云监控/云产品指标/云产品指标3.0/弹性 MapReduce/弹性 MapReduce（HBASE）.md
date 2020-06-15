@@ -16,10 +16,10 @@ Namespace=QCE/TXMR_HBASE
 | EmrHbaseOverview<br/>HbaseMasterRsnumsNum<br>deadregionservers | 集群 RS 数量_numDeadRegionServers             | 个       | 集群  RS 数量               | host4hbaseoverview、<br/>id4hbaseoverview |
 | EmrHbaseOverview<br/>HbaseMaster<br>BytesReceivedbytes       | 集群读写数量_receivedBytes                    | bytes/s  | 集群读写数量                | host4hbaseoverview、<br/>id4hbaseoverview |
 | EmrHbaseOverview<br/>HbaseMaster<br>BytesSentbytes           | 集群读写数量_sentBytes                        | bytes/s  | 集群读写数量                | host4hbaseoverview、<br/>id4hbaseoverview |
-| EmrHbaseOverview<br/>HbaseMasterReq<br>Clusterrequests       | 集群总请求数量_clusterRequests                | 个/s     | 集群总请求数量              | host4hbaseoverview、<br/>id4hbaseoverview |
-| EmrHbaseOverview<br/>HbaseMaster<br>Assignmentmanager<br>OpsAssignNumOps | 集群 Assignment 管理器操作_Assign_num_ops     | 次       | 集群  Assignment 管理器操作 | host4hbaseoverview、<br/>id4hbaseoverview |
-| EmrHbaseOverview<br/>HbaseMaste<br>rAssignmentmanager<br>OpsBulkassignNumOps | 集群 Assignment 管理器操作_BulkAssign_num_ops | 次       | 集群  Assignment 管理器操作 | host4hbaseoverview、<br/>id4hbaseoverview |
-| EmrHbaseOverview<br/>HbaseMasterBalancerOps<br>BalancerclusterNumOps | 集群读写数量_receivedBytes                    | 次       | 集群负载均衡次数            | host4hbaseoverview、<br/>id4hbaseoverview |
+| EmrHbaseOverview<br/>HbaseMasterReq<br>Clusterrequests       | 集群总请求数量\_clusterRequests                | 个/s     | 集群总请求数量              | host4hbaseoverview、<br/>id4hbaseoverview |
+| EmrHbaseOverview<br/>HbaseMaster<br>Assignmentmanager<br>OpsAssignNumOps | 集群 Assignment 管理器操作\_Assign_num_ops     | 次       | 集群  Assignment 管理器操作 | host4hbaseoverview、<br/>id4hbaseoverview |
+| EmrHbaseOverview<br/>HbaseMaste<br>rAssignmentmanager<br>OpsBulkassignNumOps | 集群 Assignment 管理器操作\_BulkAssign_num_ops | 次       | 集群  Assignment 管理器操作 | host4hbaseoverview、<br/>id4hbaseoverview |
+| EmrHbaseOverview<br/>HbaseMasterBalancerOps<br>BalancerclusterNumOps | 集群读写数量\_receivedBytes                    | 次       | 集群负载均衡次数            | host4hbaseoverview、<br/>id4hbaseoverview |
 | EmrHbaseOverview<br/>HbaseMasterServerPlan<br>Mergeplancount | 集群 Plan_mergePlanCount                      | 个       | 集群  Plan                  | host4hbaseoverview、<br/>id4hbaseoverview |
 | EmrHbaseOverview<br/>HbaseMasterServerPlan<br>Splitplancount | 集群 Plan_splitPlanCount                      | 个       | 集群  Plan                  | host4hbaseoverview、<br/>id4hbaseoverview |
 
@@ -36,8 +36,8 @@ Namespace=QCE/TXMR_HBASE
 | EmrHbaseOverviewAggregation<br/>HbaseMaster BytesReceivedbytes | 集群读写数量_receivedBytes                    | bytes/s  | 集群读写数量                | id4hbaseoverview |
 | EmrHbaseOverviewAggregation<br/>HbaseMaster<br>BytesSentbytes | 集群读写数量_sentBytes                        | bytes/s  | 集群读写数量                | id4hbaseoverview |
 | EmrHbaseOverviewAggregation<br/>HbaseMasterReq<br>Clusterrequests | 集群总请求数量_clusterRequests                | 个/s     | 集群总请求数量              | id4hbaseoverview |
-| EmrHbaseOverviewAggregation<br/>HbaseMasterAssign<br>mentmanagerOpsAssignNumOps | 集群 Assignment 管理器操作_Assign_num_ops     | 次       | 集群  Assignment 管理器操作 | id4hbaseoverview |
-| EmrHbaseOverviewAggregation<br/>HbaseMasterAssign<br/>mentmanagerOpsBulkassignNumOps | 集群 Assignment 管理器操作_BulkAssign_num_ops | 次       | 集群  Assignment 管理器操作 | id4hbaseoverview |
+| EmrHbaseOverviewAggregation<br/>HbaseMasterAssign<br>mentmanagerOpsAssignNumOps | 集群 Assignment 管理器操作\_Assign_num_ops     | 次       | 集群  Assignment 管理器操作 | id4hbaseoverview |
+| EmrHbaseOverviewAggregation<br/>HbaseMasterAssign<br/>mentmanagerOpsBulkassignNumOps | 集群 Assignment 管理器操作\_BulkAssign_num_ops | 次       | 集群  Assignment 管理器操作 | id4hbaseoverview |
 | EmrHbaseOverviewAggregation<br/>HbaseMasterBalancerOps<br>BalancerclusterNumOps | 集群读写数量_receivedBytes                    | 次       | 集群负载均衡次数            | id4hbaseoverview |
 | EmrHbaseOverviewAggregation<br/>HbaseMasterServerPlan<br>Mergeplancount | 集群 Plan_mergePlanCount                      | 个       | 集群  Plan                  | id4hbaseoverview |
 | EmrHbaseOverviewAggregation<br/>HbaseMasterServerPlan<br>Splitplancount | 集群 Plan_splitPlanCount                      | 个       | 集群  Plan                  | id4hbaseoverview |
@@ -138,41 +138,41 @@ Namespace=QCE/TXMR_HBASE
 | HbaseRegionserver<br>HlogsizeHlogfilesize                    | WAL 文件大小_hlogFileSize                               | Byte     | WAL 文件大小       | host4hbaseregionserver、<br/>id4hbaseregionserver  |
 | HbaseRegionserver<br>MemstroreMemstoresize                   | Memstore 大小_memStoreSize                              | MB       | Memstore 大小      | host4hbaseregionserver、<br/>id4hbaseregionserver  |
 | HbaseRegionserver<br>StoreCountStorecount                    | Store 个数_storeCount                                   | 个       | Store 个数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>StorefilecountStorefilecount            | Storefile 个数_storeFileCount                           | 个       | Storefile 个数     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>StorefilesizeStorefilesize              | Storefile 大小_storeFileSize                            | MB       | Storefile 大小     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerCellsFlushedcellssize             | 写磁盘速率_flushedCellsSize                             | bytes/s  | 写磁盘速率         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerDelayAppendMean                   | 平均延时_Append_mean                                    | ms       | 平均延时           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerDelayReplayMean                   | 平均延时_Replay_mean                                    | ms       | 平均延时           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerDelayGetMean                      | 平均延时_Get_mean                                       | ms       | 平均延时           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerDelayUpdatesblockedtime           | 平均延时<br/>_updatesBlockedTime                        | ms       | 平均延时           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerFlushFlushtimeNumOps              | RS 写磁盘次数<br/>_FlushTime_num_ops                    | 次       | RS 写磁盘次数      | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerQueueSplitqueuelength             | 操作队列请求数<br/>_splitQueueLength                    | 个       | 操作队列请求数     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerQueueCompaction<br>queuelength    | 操作队列请求数_compactionQueueLength                    | 个       | 操作队列请求数     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerQueueFlushqueuelength             | 操作队列请求数<br/>_flushQueueLength                    | 个       | 操作队列请求数     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerReplayReplayNumOps                | Replay 操作次数<br/>_Replay_num_ops                     | 次       | Replay 操作次数    | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerSlowSlowappendcount               | 慢操作次数<br/>_slowAppendCount                         | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerSlowSlowdeletecount               | 慢操作次数_slowDeleteCount                              | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerSlowSlowgetcount                  | 慢操作次数<br/>_slowGetCount                            | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerSlowSlowincrementcount            | 慢操作次数<br/>_slowIncrementCount                      | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerSlowSlowputcount                  | 慢操作次数_slowPutCount                                 | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerSplitSplitrequestcount            | split 请求_splitRequestCount                            | 次       | split 请求         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerSplitSplitsuccesscount            | split 请求_splitSuccessCount                            | 次       | split 请求         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerBlockcacheCountBlock<br>cachecount | 缓存块数量<br/>_blockCacheCount                         | 个       | 缓存块数量         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerBlockcacheCountBlock<br>cachehitcount | 缓存块数量<br/>_blockCacheHitCount                      | 个       | 缓存块数量         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerBlockcacheCountBlock<br>cachemisscount | 缓存块数量<br/>_blockCacheMissCount                     | 个       | 缓存块数量         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerBlockcachePercent<br>Blockcacheexpresshi | 读缓存命中率<br/>_blockCacheExpress<br/>HitPercent      | %        | 读缓存命中率       | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerBlockcacheSize<br>Blockcachesize  | 缓存块内存占用大小_blockCacheSize                       | Byte     | 缓存块内存占用大小 | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerIndexStaticbloomsize              | 索引大小_staticBloomSize                                | Byte     | 索引大小           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerIndexStaticindexsize              | 索引大小_staticIndexSize                                | Byte     | 索引大小           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerIndexStorefileindexsize           | 索引大小_storeFileIndexSize                             | Byte     | 索引大小           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>IpcBytesReceivedbytes                   | 读写流量_receivedBytes                                  | bytes/s  | 读写流量           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>IpcBytesSentbytes                       | 读写流量_sentBytes                                      | bytes/s  | 读写流量           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseMasterJvm<br>LogTotalLogerror                           | 读写请求量_Total                                        | 个/s     | 读写请求量         | host4hbaseregionserver、<br>id4hbaseregionserver   |
-| HbaseMasterJvmThreads<br>Threadsblocked                      | JVM 线程数量<br/>_ThreadsBlocked                        | 个/s     | 读写请求量         | host4hbaseregionserver、<br>id4hbaseregionserver   |
-| HbaseRegionserver<br>ReqcountWrite                           | 读写请求量 _Write                                       | 个/s     | 读写请求量         | host4hbaseregionserver、<br>id4hbaseregionserver   |
-| HbaseRegionserver<br>ReqcountAppendNumOps                    | 读写请求量_Append_num_ops                               | 个/s     | 读写请求量         | host4hbaseregionserver、<br>id4hbaseregionserver   |
-| HbaseRegionserver<br>ServerMutationCount<br>Mutationswithoutwalcoun | muation 个数_mutationsWithout<br/>WALCount              | 个       | mutation 个数      | host4hbaseregionserver、<br>id4hbaseregionserver   |
-| HbaseRegionserver<br>ServerMutationSizeMutation<br>swithoutwalsize | mutation大小_mutationsWithout<br/>WALSize               | Byte     | mutation 大小      | host4hbaseregionserver、<br>id4hbaseregionserver   |
+| HbaseRegionserver<br>StorefilecountStorefilecount            | Storefile 个数\_storeFileCount                           | 个       | Storefile 个数     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>StorefilesizeStorefilesize              | Storefile 大小\_storeFileSize                            | MB       | Storefile 大小     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerCellsFlushedcellssize             | 写磁盘速率\_flushedCellsSize                             | bytes/s  | 写磁盘速率         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerDelayAppendMean                   | 平均延时\_Append_mean                                    | ms       | 平均延时           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerDelayReplayMean                   | 平均延时\_Replay_mean                                    | ms       | 平均延时           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerDelayGetMean                      | 平均延时\_Get_mean                                       | ms       | 平均延时           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerDelayUpdatesblockedtime           | 平均延时<br/>\_updatesBlockedTime                        | ms       | 平均延时           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerFlushFlushtimeNumOps              | RS 写磁盘次数<br/>\_FlushTime_num_ops                   | 次       | RS 写磁盘次数      | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerQueueSplitqueuelength             | 操作队列请求数<br/>\_splitQueueLength                    | 个       | 操作队列请求数     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerQueueCompaction<br>queuelength    | 操作队列请求数\_compactionQueueLength                    | 个       | 操作队列请求数     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerQueueFlushqueuelength             | 操作队列请求数<br/>\_flushQueueLength                    | 个       | 操作队列请求数     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerReplayReplayNumOps                | Replay 操作次数<br/>\_Replay_num_ops                     | 次       | Replay 操作次数    | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerSlowSlowappendcount               | 慢操作次数<br/>\_slowAppendCount                         | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerSlowSlowdeletecount               | 慢操作次数\_slowDeleteCount                              | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerSlowSlowgetcount                  | 慢操作次数<br/>\_slowGetCount                            | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerSlowSlowincrementcount            | 慢操作次数<br/>\_slowIncrementCount                      | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerSlowSlowputcount                  | 慢操作次数\_slowPutCount                                 | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerSplitSplitrequestcount            | split 请求\_splitRequestCount                            | 次       | split 请求         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerSplitSplitsuccesscount            | split 请求\_splitSuccessCount                            | 次       | split 请求         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerBlockcacheCountBlock<br>cachecount | 缓存块数量<br/>\_blockCacheCount                         | 个       | 缓存块数量         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerBlockcacheCountBlock<br>cachehitcount | 缓存块数量<br/>\_blockCacheHitCount                      | 个       | 缓存块数量         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerBlockcacheCountBlock<br>cachemisscount | 缓存块数量<br/>\_blockCacheMissCount                     | 个       | 缓存块数量         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerBlockcachePercent<br>Blockcacheexpresshi | 读缓存命中率<br/>\_blockCacheExpress<br/>HitPercent      | %        | 读缓存命中率       | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerBlockcacheSize<br>Blockcachesize  | 缓存块内存占用大小\_blockCacheSize                       | Byte     | 缓存块内存占用大小 | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerIndexStaticbloomsize              | 索引大小\_staticBloomSize                                | Byte     | 索引大小           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerIndexStaticindexsize              | 索引大小\_staticIndexSize                                | Byte     | 索引大小           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerIndexStorefileindexsize           | 索引大小\_storeFileIndexSize                             | Byte     | 索引大小           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>IpcBytesReceivedbytes                   | 读写流量\_receivedBytes                                  | bytes/s  | 读写流量           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>IpcBytesSentbytes                       | 读写流量\_sentBytes                                      | bytes/s  | 读写流量           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseMasterJvm<br>LogTotalLogerror                           | 读写请求量\_Total                                        | 个/s     | 读写请求量         | host4hbaseregionserver、<br>id4hbaseregionserver   |
+| HbaseMasterJvmThreads<br>Threadsblocked                      | JVM 线程数量<br/>\_ThreadsBlocked                        | 个/s     | 读写请求量         | host4hbaseregionserver、<br>id4hbaseregionserver   |
+| HbaseRegionserver<br>ReqcountWrite                           | 读写请求量\_Write                                       | 个/s     | 读写请求量         | host4hbaseregionserver、<br>id4hbaseregionserver   |
+| HbaseRegionserver<br>ReqcountAppendNumOps                    | 读写请求量\_Append_num_ops                               | 个/s     | 读写请求量         | host4hbaseregionserver、<br>id4hbaseregionserver   |
+| HbaseRegionserver<br>ServerMutationCount<br>Mutationswithoutwalcoun | muation 个数\_mutationsWithout<br/>WALCount              | 个       | mutation 个数      | host4hbaseregionserver、<br>id4hbaseregionserver   |
+| HbaseRegionserver<br>ServerMutationSizeMutation<br>swithoutwalsize | mutation 大小\_mutationsWithoutWALSize               | Byte     | mutation 大小      | host4hbaseregionserver、<br>id4hbaseregionserver   |
 | HbaseRegionserver<br>StarttimeRegionserverstarttime          | 进程启动时间_regionServerStartTime                      | s        | 进程启动时间       | host4hbaseregionserver、<br>id4hbaseregionserver   |
 
 ## 各维度对应参数总览
@@ -196,26 +196,26 @@ Namespace=QCE/TXMR_HBASE
 
 弹性 MapReduce（HBASE）支持以下四种维度组合的查询方式，四种入参取值如下： 
 
-**1.查询  Hbase-OverviewAggregation  的指标监控数据，入参取值如下：**
+**1. 查询  Hbase-OverviewAggregation  的指标监控数据，入参取值如下：**
 &Namespace=QCE/TXMR_HBASE
 &Instances.N.Dimensions.0.Name=id4hbaseoverview
 &Instances.N.Dimensions.0.Value=EMR 实例 ID
 
-**2.查询 Hbase-Overview  的指标监控数据，入参取值如下：**
+**2. 查询 Hbase-Overview  的指标监控数据，入参取值如下：**
 &Namespace=QCE/TXMR_HBASE
 &Instances.N.Dimensions.0.Name=id4hbaseoverview
 &Instances.N.Dimensions.0.Value=EMR 实例 ID 
 &Instances.N.Dimensions.1.Name=host4hbaseoverview
 &Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP
 
-**3.查询  HBASE-HMaster 的指标监控数据，入参取值如下：**
+**3. 查询  HBASE-HMaster 的指标监控数据，入参取值如下：**
 &Namespace=QCE/TXMR_HBASE
 &Instances.N.Dimensions.0.Name=id4hbasehmaster
 &Instances.N.Dimensions.0.Value=EMR 实例 ID 
 &Instances.N.Dimensions.1.Name= host4hbasehmaster
 &Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP
 
-**4.查询  HBASE-RegionServer  的指标监控数据，入参取值如下：**
+**4. 查询  HBASE-RegionServer  的指标监控数据，入参取值如下：**
 &Namespace=QCE/TXMR_HBASE
 &Instances.N.Dimensions.0.Name=id4hbaseregionserver 
 &Instances.N.Dimensions.0.Value=EMR 实例 ID
