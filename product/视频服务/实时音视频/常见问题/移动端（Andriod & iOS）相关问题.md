@@ -9,6 +9,9 @@
 ### 在小程序端创建了一个房间，移动端能否进入该房间？
 可以，实时音视频支持全平台互通。
 
+### TRTC 移动端怎么实现录屏（屏幕分享）？	
+从7.2版本开始，Android 端支持手机录屏，iOS 端支持 App 内录屏，可以直接参考 [官方 Demo](https://github.com/tencentyun/TRTCSDK) 源码。
+
 ### TRTC Android 端能不能支持64位的 arm64-v8a 架构？
 TRTC 6.3 版本开始已提供 arm64-v8a 架构 ABI 支持。
 
