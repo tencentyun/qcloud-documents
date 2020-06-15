@@ -12,7 +12,6 @@ SDK 所有接口的具体参数与方法说明，请参考 [API 参考](https://
 [//]: # (.cssg-snippet-get-presign-upload-url)
 ```java
 try {
-
     String bucket = "examplebucket-1250000000"; //存储桶名称
     String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。
     String method = "PUT"; //请求 HTTP 方法
