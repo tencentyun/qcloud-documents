@@ -146,7 +146,7 @@ Content-MD5: MD5
 PUT /?lifecycle HTTP/1.1
 Host:examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed, 16 Aug 2017 11:59:33 GMT
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1502855771;1502935771&q-key-time=1502855771;1502935771&q-header-list=content-md5;host&q-url-param-list=lifecycle&q-signature=f3aa2c708cfd8d4d36d658de56973c9cf1c24654
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1502855771;1502935771&q-key-time=1502855771;1502935771&q-header-list=content-md5;host&q-url-param-list=lifecycle&q-signature=f3aa2c708cfd8d4d36d658de56973c9cf1c2****
 Content-MD5: LcNUuow8OSZMrEDnvndw1Q==
 Content-Length: 348
 Content-Type: application/x-www-form-urlencoded
@@ -184,5 +184,5 @@ Content-Type: application/xml
 Content-Length: 0
 Date: Wed, 16 Aug 2017 11:59:33 GMT
 Server: tencent-cos
-x-cos-request-id: NTk5NDMzYTRfMjQ4OGY3Xzc3NGRfMWY=
+x-cos-request-id: NTk5NDMzYTRfMjQ4OGY3Xzc3NGRf****
 ```
