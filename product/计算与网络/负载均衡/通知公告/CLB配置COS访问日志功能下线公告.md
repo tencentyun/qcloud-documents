@@ -2,9 +2,9 @@
 
 CLB 配置访问日志到 COS 的功能将逐步下线，具体计划如下：
 <table class="table"><thead><tr><th>时间</th><th>下线计划</th></tr></thead>
-<tbody><tr><td>2020-04-26 00:00:00 </td><td><strong>广州</strong>地域无法新增配置访问日志到 COS，存量已配置的 COS 日志不受影响。</td></tr>
-<tr><td>2020-05-15 00:00:00 </td><td> <strong>北京、上海、香港、上海金融、深圳金融</strong>地域无法新增配置访问日志到 COS，存量已配置的 COS 日志不受影响。 </td></tr>
-<tr><td>2020-06-30 00:00:00 </td><td> <strong>正式下线</strong>所有地域 CLB 配置访问日志到 COS 的功能，所有 CLB 不再提供该功能。 </td></tr></tbody></table>
+<tbody><tr><td>2020-04-26 00:00:00 </td><td><strong>广州</strong>地域无法<strong>新增配置</strong>访问日志到 COS，存量已配置的 COS 日志不受影响。</td></tr>
+<tr><td>2020-05-15 00:00:00 </td><td> <strong>北京、上海、香港、上海金融、深圳金融</strong>地域无法<strong>新增配置</strong>访问日志到 COS，存量已配置的 COS 日志不受影响。 </td></tr>
+<tr><td>2020-06-30 00:00:00 </td><td> <strong>正式下线所有地域 CLB 配置访问日志到 COS 的功能，所有 CLB 不再提供该功能。</strong> </td></tr></tbody></table>
 
 
 
