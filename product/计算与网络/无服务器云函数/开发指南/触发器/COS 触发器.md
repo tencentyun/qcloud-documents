@@ -49,7 +49,7 @@ COS 触发器具有以下特点：
 			"cosObject": {
 				"url": "http://testpic-1253970026.cos.ap-chengdu.myqcloud.com/testfile",
 				"meta": {
-					"x-cos-request-id": "NWMxOWY4MGFfMjViMjU4NjRfMTUyMV8yNzhhZjM=",
+					"x-cos-request-id": "NWMxOWY4MGFfMjViMjU4NjRfMTUyMVxxxxxxxxx=",
 					"Content-Type": "",
 					"x-cos-meta-mykey": "myvalue"
 				},
@@ -72,7 +72,7 @@ COS 触发器具有以下特点：
 			"requestParameters": {
 				"requestSourceIP": "192.168.15.101",
 				"requestHeaders": {
-					"Authorization": "q-sign-algorithm=sha1&q-ak=AKIDQm6iUh2NJ6jL41tVUis9KpY5Rgv49zyC&q-sign-time=1545205709;1545215769&q-key-time=1545205709;1545215769&q-header-list=host;x-cos-storage-class&q-url-param-list=&q-signature=098ac7dfe9cf21116f946c4b4c29001c2b449b14"
+					"Authorization": "q-sign-algorithm=sha1&q-ak=xxxxxxxxxxxxxx&q-sign-time=1545205709;1545215769&q-key-time=1545205709;1545215769&q-header-list=host;x-cos-storage-class&q-url-param-list=&q-signature=xxxxxxxxxxxxxxx"
 				}
 			},
 			"eventQueue": "qcs:0:scf:cd:appid/1253970026:default.printevent.$LATEST",
