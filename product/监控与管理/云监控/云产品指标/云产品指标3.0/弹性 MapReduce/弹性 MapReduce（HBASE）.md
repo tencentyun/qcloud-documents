@@ -1,5 +1,3 @@
-
-
 ## 命名空间
 
 Namespace=QCE/TXMR_HBASE
@@ -90,109 +88,109 @@ Namespace=QCE/TXMR_HBASE
 
 ### HBASE-RegionServer
 
-| 指标中文名                                                   | 指标中文名                                          | 指标单位 | 指标含义           | 维度                                               |
-| :----------------------------------------------------------- | --------------------------------------------------- | -------- | ------------------ | -------------------------------------------------- |
-| HbaseHsGcUtilGcCountYgc                                      | GC 次数_YGC                                         | 次       | GC 次数            | host4hbaseregionserver、<br>id4hbaseregionserver   |
-| HbaseHsGcUtilGcCountFgc                                      | GC 次数_FGC                                         | 次       | GC 次数            | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseHsGcUtilGcTimeFgct                                      | GC 时间_FGCT                                        | s        | GC 时间            | host4hbaseregionserver、<br>id4hbaseregionserver   |
-| HbaseHsGcUtilGcTimeGct                                       | GC 时间_GCT                                         | s        | GC 时间            | host4hbaseregionserver、<br>id4hbaseregionserver   |
-| HbaseHsGcUtilGcTimeYgct                                      | GC 时间_YGCT                                        | s        | GC 时间            | host4hbaseregionserver<br>id4hbaseregionserver     |
-| HbaseHsGcUtilMemoryS0                                        | 内存区域占比_S0                                     | %        | 内存区域占比       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseHsGcUtilMemoryE                                         | 内存区域占比_E                                      | %        | 内存区域占比       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseHsGcUtilMemoryCcs                                       | 内存区域占比_CCS                                    | %        | 内存区域占比       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseHsGcUtilMemoryS1                                        | 内存区域占比_S1                                     | %        | 内存区域占比       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseHsGcUtilMemoryO                                         | 内存区域占比_O                                      | %        | 内存区域占比       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseHsGcUtilMemoryM                                         | 内存区域占比_M                                      | %        | 内存区域占比       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterJvmLog<br>TotalLogfatal                           | JVM 日志数量_LogFatal                               | 次       | JVM 日志数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterJvmLog<br>TotalLogerror                           | JVM 日志数量_LogError                               | 次       | JVM 日志数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterJvmLog<br>TotalLogwarn                            | JVM 日志数量_LogWarn                                | 次       | JVM 日志数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterJvmLog<br>TotalLoginfo                            | JVM 日志数量_LogInfo                                | 次       | JVM 日志数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterJvmMem<br>Memnonheapusedm                         | JVM 内存_MemNonHeapUsedM                            | MB       | JVM 内存           | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterJvmMem<br>Memnonheapcommittedm                    | JVM 内存_MemNonHeapCommittedM                       | MB       | JVM 内存           | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterJvmMem<br>Memheapmaxm                             | JVM 内存_MemHeapMaxM                                | MB       | JVM 内存           | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterJvmMem<br>Memheapusedm                            | JVM 内存_MemHeapUsedM                               | MB       | JVM 内存           | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterJvmMemMem<br>heapcommittedm                       | JVM 内存_MemHeapCommittedM                          | MB       | JVM 内存           | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterJvmMemMem<br>heapmaxm                             | JVM 内存_MemHeapMaxM                                | MB       | JVM 内存           | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterJvmMem<br>Memmaxm                                 | JVM 内存_MemMaxM                                    | MB       | JVM 内存           | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterJvm<br>ThreadsThreadsnew                          | JVM 线程数量_ThreadsNew                             | 个       | JVM 线程数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterJvmThreads<br>Threadsrunnable                     | JVM 线程数量_ThreadsRunnable                        | 个       | JVM 线程数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterJvmThreads<br>Threadsblocked                      | JVM 线程数量_ThreadsBlocked                         | 个       | JVM 线程数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterJvmThreads<br>Threadswaiting                      | JVM 线程数量_ThreadsWaiting                         | 个       | JVM 线程数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterJvmThreads<br>Threadstimedwaiting                 | JVM 线程数量_ThreadsTimedWaiting                    | 个       | JVM 线程数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterJvmThreads<br>Threadsterminated                   | JVM 线程数量_ThreadsTerminated                      | 个       | JVM 线程数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseRegionserver<br>AvgsizeAverageregionsize                | Region 平均大小_averageRegionSize                   | Byte     | Region 平均大小    | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseRegionserver<br>RegionCountRegioncount                  | Region 个数_regionCount                             | 个       | Region 个数        | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerHfilesPercentPercent<br>fileslocalsecond | Region 副本本地化_percentFilesLocalSecondaryRegions | %        | Region 副本本地化  | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseRegionserver<br>IpcAuthentication<br>Authenticationfailures | RPC 认证次数_authenticationFailures                 | 次       | RPC 认证次数       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseRegionserver<br>IpcAuthentication<br>Authenticationsuccesses | RPC 认证次数_authenticationSuccesses                | 次       | RPC 认证次数       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterIpcConnections<br>Numopenconnections              | RPC 连接数_numOpenConnections                       | 个       | RPC 连接数         | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterIpcException<br>Failedsanitycheckexception        | RPC 异常次数_FailedSanityCheckException             | 次       | RPC 异常次数       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterIpcException<br>Notservingregionexception         | RPC 异常次数_NotServingRegionException              | 次       | RPC 异常次数       | host4hbaseregionserver、<br> id4hbaseregionserver  |
-| HbaseMasterIpcException<br>Outoforderscannernextexception    | RPC 异常次数_OutOfOrderScannerNextException         | 次       | RPC 异常次数       | host4hbaseregionserver、<br/> id4hbaseregionserver |
-| HbaseMasterIpcException<br>Regionmovedexception              | RPC 异常次数_RegionMovedException                   | 次       | RPC 异常次数       | host4hbaseregionserver、<br/> id4hbaseregionserver |
-| HbaseMasterIpcException<br>Regiontoobusyexception            | RPC 异常次数_RegionTooBusyException                 | 次       | RPC 异常次数       | host4hbaseregionserver、<br/> id4hbaseregionserver |
-| HbaseMasterIpcException<br>Unknownscannerexception           | RPC 异常次数_UnknownScannerException                | 次       | RPC 异常次数       | host4hbaseregionserver、<br/> id4hbaseregionserver |
-| HbaseRegionserver<br>IpcHandlerNumactivehandler              | RPC 句柄数_numActiveHandler                         | 个       | RPC 句柄数         | host4hbaseregionserver、<br/> id4hbaseregionserver |
-| HbaseMasterIpcQueue<br>Numcallsinpriorityqueue               | RPC 队列请求数_numCallsInPriorityQueue              | 个       | RPC 队列请求数     | host4hbaseregionserver、<br/> id4hbaseregionserver |
-| HbaseMasterIpcQueue<br>Numcallsinreplicationqueue            | RPC 队列请求数_numCallsInReplicationQueue           | 个       | RPC 队列请求数     | host4hbaseregionserver、<br/> id4hbaseregionserver |
-| HbaseRegionserver<br>IpcQueueNumcalls<br>ingeneralqueue      | RPC 队列请求数_numCallsInGeneralQueue               | 个       | RPC 队列请求数     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>HlogcountHlogfilecount                  | WAL 文件数量_hlogFileCount                          | 个       | WAL 文件数量       | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>HlogsizeHlogfilesize                    | WAL 文件大小_hlogFileSize                           | Byte     | WAL 文件大小       | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>MemstroreMemstoresize                   | Memstore 大小_memStoreSize                          | MB       | Memstore 大小      | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>StoreCountStorecount                    | Store 个数_storeCount                               | 个       | Store 个数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>StorefilecountStorefilecount            | Storefile 个数_storeFileCount                       | 个       | Storefile 个数     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>StorefilesizeStorefilesize              | Storefile 大小_storeFileSize                        | MB       | Storefile 大小     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerCellsFlushedcellssize             | 写磁盘速率_flushedCellsSize                         | bytes/s  | 写磁盘速率         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerDelayAppendMean                   | 平均延时_Append_mean                                | ms       | 平均延时           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerDelayReplayMean                   | 平均延时_Replay_mean                                | ms       | 平均延时           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerDelayGetMean                      | 平均延时_Get_mean                                   | ms       | 平均延时           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerDelayUpdatesblockedtime           | 平均延时_updatesBlockedTime                         | ms       | 平均延时           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerFlushFlushtimeNumOps              | RS 写磁盘次数_FlushTime_num_ops                     | 次       | RS 写磁盘次数      | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerQueueSplitqueuelength             | 操作队列请求数_splitQueueLength                     | 个       | 操作队列请求数     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerQueueCompaction<br>queuelength    | 操作队列请求数_compactionQueueLength                | 个       | 操作队列请求数     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerQueueFlushqueuelength             | 操作队列请求数_flushQueueLength                     | 个       | 操作队列请求数     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerReplayReplayNumOps                | Replay 操作次数_Replay_num_ops                      | 次       | Replay 操作次数    | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerSlowSlowappendcount               | 慢操作次数_slowAppendCount                          | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerSlowSlowdeletecount               | 慢操作次数_slowDeleteCount                          | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerSlowSlowgetcount                  | 慢操作次数_slowGetCount                             | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerSlowSlowincrementcount            | 慢操作次数_slowIncrementCount                       | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerSlowSlowputcount                  | 慢操作次数_slowPutCount                             | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerSplitSplitrequestcount            | split 请求_splitRequestCount                        | 次       | split 请求         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerSplitSplitsuccesscount            | split 请求_splitSuccessCount                        | 次       | split 请求         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerBlockcacheCountBlock<br>cachecount | 缓存块数量_blockCacheCount                          | 个       | 缓存块数量         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerBlockcacheCountBlock<br>cachehitcount | 缓存块数量_blockCacheHitCount                       | 个       | 缓存块数量         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerBlockcacheCountBlock<br>cachemisscount | 缓存块数量_blockCacheMissCount                      | 个       | 缓存块数量         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerBlockcachePercent<br>Blockcacheexpresshi | 读缓存命中率_blockCacheExpressHitPercent            | %        | 读缓存命中率       | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerBlockcacheSize<br>Blockcachesize  | 缓存块内存占用大小_blockCacheSize                   | Byte     | 缓存块内存占用大小 | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerIndexStaticbloomsize              | 索引大小_staticBloomSize                            | Byte     | 索引大小           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerIndexStaticindexsize              | 索引大小_staticIndexSize                            | Byte     | 索引大小           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>ServerIndexStorefileindexsize           | 索引大小_storeFileIndexSize                         | Byte     | 索引大小           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>IpcBytesReceivedbytes                   | 读写流量_receivedBytes                              | bytes/s  | 读写流量           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseRegionserver<br>IpcBytesSentbytes                       | 读写流量_sentBytes                                  | bytes/s  | 读写流量           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
-| HbaseMasterJvm<br>LogTotalLogerror                           | 读写请求量_Total                                    | 个/s     | 读写请求量         | host4hbaseregionserver、<br>id4hbaseregionserver   |
-| HbaseMasterJvmThreads<br>Threadsblocked                      | JVM 线程数量_ThreadsBlocked                         | 个/s     | 读写请求量         | host4hbaseregionserver、<br>id4hbaseregionserver   |
-| HbaseRegionserver<br>ReqcountWrite                           | 读写请求量 _Write                                   | 个/s     | 读写请求量         | host4hbaseregionserver、<br>id4hbaseregionserver   |
-| HbaseRegionserver<br>ReqcountAppendNumOps                    | 读写请求量_Append_num_ops                           | 个/s     | 读写请求量         | host4hbaseregionserver、<br>id4hbaseregionserver   |
-| HbaseRegionserver<br>ServerMutationCount<br>Mutationswithoutwalcoun | muation 个数_mutationsWithoutWALCount               | 个       | mutation 个数      | host4hbaseregionserver、<br>id4hbaseregionserver   |
-| HbaseRegionserver<br>ServerMutationSizeMutation<br>swithoutwalsize | mutation大小_mutationsWithoutWALSize                | Byte     | mutation 大小      | host4hbaseregionserver、<br>id4hbaseregionserver   |
-| HbaseRegionserver<br>StarttimeRegionserverstarttime          | 进程启动时间_regionServerStartTime                  | s        | 进程启动时间       | host4hbaseregionserver、<br>id4hbaseregionserver   |
+| 指标中文名                                                   | 指标中文名                                              | 指标单位 | 指标含义           | 维度                                               |
+| :----------------------------------------------------------- | ------------------------------------------------------- | -------- | ------------------ | -------------------------------------------------- |
+| HbaseHsGcUtilGcCountYgc                                      | GC 次数_YGC                                             | 次       | GC 次数            | host4hbaseregionserver、<br>id4hbaseregionserver   |
+| HbaseHsGcUtilGcCountFgc                                      | GC 次数_FGC                                             | 次       | GC 次数            | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseHsGcUtilGcTimeFgct                                      | GC 时间_FGCT                                            | s        | GC 时间            | host4hbaseregionserver、<br>id4hbaseregionserver   |
+| HbaseHsGcUtilGcTimeGct                                       | GC 时间_GCT                                             | s        | GC 时间            | host4hbaseregionserver、<br>id4hbaseregionserver   |
+| HbaseHsGcUtilGcTimeYgct                                      | GC 时间_YGCT                                            | s        | GC 时间            | host4hbaseregionserver<br>id4hbaseregionserver     |
+| HbaseHsGcUtilMemoryS0                                        | 内存区域占比_S0                                         | %        | 内存区域占比       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseHsGcUtilMemoryE                                         | 内存区域占比_E                                          | %        | 内存区域占比       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseHsGcUtilMemoryCcs                                       | 内存区域占比_CCS                                        | %        | 内存区域占比       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseHsGcUtilMemoryS1                                        | 内存区域占比_S1                                         | %        | 内存区域占比       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseHsGcUtilMemoryO                                         | 内存区域占比_O                                          | %        | 内存区域占比       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseHsGcUtilMemoryM                                         | 内存区域占比_M                                          | %        | 内存区域占比       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterJvmLog<br>TotalLogfatal                           | JVM 日志数量_LogFatal                                   | 次       | JVM 日志数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterJvmLog<br>TotalLogerror                           | JVM 日志数量_LogError                                   | 次       | JVM 日志数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterJvmLog<br>TotalLogwarn                            | JVM 日志数量_LogWarn                                    | 次       | JVM 日志数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterJvmLog<br>TotalLoginfo                            | JVM 日志数量_LogInfo                                    | 次       | JVM 日志数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterJvmMem<br>Memnonheapusedm                         | JVM 内存<br/>_MemNonHeapUsedM                           | MB       | JVM 内存           | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterJvmMem<br>Memnonheapcommittedm                    | JVM 内存<br/>_MemNonHeapCommittedM                      | MB       | JVM 内存           | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterJvmMem<br>Memheapmaxm                             | JVM 内存<br/>_MemHeapMaxM                               | MB       | JVM 内存           | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterJvmMem<br>Memheapusedm                            | JVM 内存<br/>_MemHeapUsedM                              | MB       | JVM 内存           | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterJvmMemMem<br>heapcommittedm                       | JVM 内存<br/>_MemHeapCommittedM                         | MB       | JVM 内存           | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterJvmMemMem<br>heapmaxm                             | JVM 内存_MemHeapMaxM                                    | MB       | JVM 内存           | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterJvmMem<br>Memmaxm                                 | JVM 内存_MemMaxM                                        | MB       | JVM 内存           | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterJvm<br>ThreadsThreadsnew                          | JVM 线程数量_ThreadsNew                                 | 个       | JVM 线程数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterJvmThreads<br>Threadsrunnable                     | JVM 线程数量<br/>_ThreadsRunnable                       | 个       | JVM 线程数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterJvmThreads<br>Threadsblocked                      | JVM 线程数量<br/>_ThreadsBlocked                        | 个       | JVM 线程数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterJvmThreads<br>Threadswaiting                      | JVM 线程数量<br/>_ThreadsWaiting                        | 个       | JVM 线程数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterJvmThreads<br>Threadstimedwaiting                 | JVM 线程数量_ThreadsTimedWaiting                        | 个       | JVM 线程数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterJvmThreads<br>Threadsterminated                   | JVM 线程数量_ThreadsTerminated                          | 个       | JVM 线程数量       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseRegionserver<br>AvgsizeAverageregionsize                | Region 平均大小_averageRegionSize                       | Byte     | Region 平均大小    | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseRegionserver<br>RegionCountRegioncount                  | Region 个数_regionCount                                 | 个       | Region 个数        | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerHfilesPercentPercent<br>fileslocalsecond | Region 副本本地化_percentFilesLocal<br>SecondaryRegions | %        | Region 副本本地化  | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseRegionserver<br>IpcAuthentication<br>Authenticationfailures | RPC 认证次数_authenticationFailures                     | 次       | RPC 认证次数       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseRegionserver<br>IpcAuthentication<br>Authenticationsuccesses | RPC 认证次数_authenticationSuccesses                    | 次       | RPC 认证次数       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterIpcConnections<br>Numopenconnections              | RPC 连接数<br/>_numOpenConnections                      | 个       | RPC 连接数         | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterIpcException<br>Failedsanitycheckexception        | RPC 异常次数<br/>_FailedSanityCheckException            | 次       | RPC 异常次数       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterIpcException<br>Notservingregionexception         | RPC 异常次数<br/>_NotServingRegionException             | 次       | RPC 异常次数       | host4hbaseregionserver、<br> id4hbaseregionserver  |
+| HbaseMasterIpcException<br>Outoforderscannernextexception    | RPC 异常次数<br/>_OutOfOrderScannerNext<br/>Exception   | 次       | RPC 异常次数       | host4hbaseregionserver、<br/> id4hbaseregionserver |
+| HbaseMasterIpcException<br>Regionmovedexception              | RPC 异常次数_RegionMovedException                       | 次       | RPC 异常次数       | host4hbaseregionserver、<br/> id4hbaseregionserver |
+| HbaseMasterIpcException<br>Regiontoobusyexception            | RPC 异常次数<br/>_RegionTooBusyException                | 次       | RPC 异常次数       | host4hbaseregionserver、<br/> id4hbaseregionserver |
+| HbaseMasterIpcException<br>Unknownscannerexception           | RPC 异常次数<br/>_UnknownScannerException               | 次       | RPC 异常次数       | host4hbaseregionserver、<br/> id4hbaseregionserver |
+| HbaseRegionserver<br>IpcHandlerNumactivehandler              | RPC 句柄数<br/>_numActiveHandler                        | 个       | RPC 句柄数         | host4hbaseregionserver、<br/> id4hbaseregionserver |
+| HbaseMasterIpcQueue<br>Numcallsinpriorityqueue               | RPC 队列请求数<br/>_numCallsInPriorityQueue             | 个       | RPC 队列请求数     | host4hbaseregionserver、<br/> id4hbaseregionserver |
+| HbaseMasterIpcQueue<br>Numcallsinreplicationqueue            | RPC 队列请求数<br/>_numCallsInReplicationQueue          | 个       | RPC 队列请求数     | host4hbaseregionserver、<br/> id4hbaseregionserver |
+| HbaseRegionserver<br>IpcQueueNumcalls<br>ingeneralqueue      | RPC 队列请求数<br/>_numCallsInGeneralQueue              | 个       | RPC 队列请求数     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>HlogcountHlogfilecount                  | WAL 文件数量_hlogFileCount                              | 个       | WAL 文件数量       | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>HlogsizeHlogfilesize                    | WAL 文件大小_hlogFileSize                               | Byte     | WAL 文件大小       | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>MemstroreMemstoresize                   | Memstore 大小_memStoreSize                              | MB       | Memstore 大小      | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>StoreCountStorecount                    | Store 个数_storeCount                                   | 个       | Store 个数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>StorefilecountStorefilecount            | Storefile 个数_storeFileCount                           | 个       | Storefile 个数     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>StorefilesizeStorefilesize              | Storefile 大小_storeFileSize                            | MB       | Storefile 大小     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerCellsFlushedcellssize             | 写磁盘速率_flushedCellsSize                             | bytes/s  | 写磁盘速率         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerDelayAppendMean                   | 平均延时_Append_mean                                    | ms       | 平均延时           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerDelayReplayMean                   | 平均延时_Replay_mean                                    | ms       | 平均延时           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerDelayGetMean                      | 平均延时_Get_mean                                       | ms       | 平均延时           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerDelayUpdatesblockedtime           | 平均延时<br/>_updatesBlockedTime                        | ms       | 平均延时           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerFlushFlushtimeNumOps              | RS 写磁盘次数<br/>_FlushTime_num_ops                    | 次       | RS 写磁盘次数      | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerQueueSplitqueuelength             | 操作队列请求数<br/>_splitQueueLength                    | 个       | 操作队列请求数     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerQueueCompaction<br>queuelength    | 操作队列请求数_compactionQueueLength                    | 个       | 操作队列请求数     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerQueueFlushqueuelength             | 操作队列请求数<br/>_flushQueueLength                    | 个       | 操作队列请求数     | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerReplayReplayNumOps                | Replay 操作次数<br/>_Replay_num_ops                     | 次       | Replay 操作次数    | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerSlowSlowappendcount               | 慢操作次数<br/>_slowAppendCount                         | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerSlowSlowdeletecount               | 慢操作次数_slowDeleteCount                              | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerSlowSlowgetcount                  | 慢操作次数<br/>_slowGetCount                            | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerSlowSlowincrementcount            | 慢操作次数<br/>_slowIncrementCount                      | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerSlowSlowputcount                  | 慢操作次数_slowPutCount                                 | 次       | 慢操作次数         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerSplitSplitrequestcount            | split 请求_splitRequestCount                            | 次       | split 请求         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerSplitSplitsuccesscount            | split 请求_splitSuccessCount                            | 次       | split 请求         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerBlockcacheCountBlock<br>cachecount | 缓存块数量<br/>_blockCacheCount                         | 个       | 缓存块数量         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerBlockcacheCountBlock<br>cachehitcount | 缓存块数量<br/>_blockCacheHitCount                      | 个       | 缓存块数量         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerBlockcacheCountBlock<br>cachemisscount | 缓存块数量<br/>_blockCacheMissCount                     | 个       | 缓存块数量         | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerBlockcachePercent<br>Blockcacheexpresshi | 读缓存命中率<br/>_blockCacheExpress<br/>HitPercent      | %        | 读缓存命中率       | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerBlockcacheSize<br>Blockcachesize  | 缓存块内存占用大小_blockCacheSize                       | Byte     | 缓存块内存占用大小 | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerIndexStaticbloomsize              | 索引大小_staticBloomSize                                | Byte     | 索引大小           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerIndexStaticindexsize              | 索引大小_staticIndexSize                                | Byte     | 索引大小           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>ServerIndexStorefileindexsize           | 索引大小_storeFileIndexSize                             | Byte     | 索引大小           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>IpcBytesReceivedbytes                   | 读写流量_receivedBytes                                  | bytes/s  | 读写流量           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseRegionserver<br>IpcBytesSentbytes                       | 读写流量_sentBytes                                      | bytes/s  | 读写流量           | host4hbaseregionserver、<br/>id4hbaseregionserver  |
+| HbaseMasterJvm<br>LogTotalLogerror                           | 读写请求量_Total                                        | 个/s     | 读写请求量         | host4hbaseregionserver、<br>id4hbaseregionserver   |
+| HbaseMasterJvmThreads<br>Threadsblocked                      | JVM 线程数量<br/>_ThreadsBlocked                        | 个/s     | 读写请求量         | host4hbaseregionserver、<br>id4hbaseregionserver   |
+| HbaseRegionserver<br>ReqcountWrite                           | 读写请求量 _Write                                       | 个/s     | 读写请求量         | host4hbaseregionserver、<br>id4hbaseregionserver   |
+| HbaseRegionserver<br>ReqcountAppendNumOps                    | 读写请求量_Append_num_ops                               | 个/s     | 读写请求量         | host4hbaseregionserver、<br>id4hbaseregionserver   |
+| HbaseRegionserver<br>ServerMutationCount<br>Mutationswithoutwalcoun | muation 个数_mutationsWithout<br/>WALCount              | 个       | mutation 个数      | host4hbaseregionserver、<br>id4hbaseregionserver   |
+| HbaseRegionserver<br>ServerMutationSizeMutation<br>swithoutwalsize | mutation大小_mutationsWithout<br/>WALSize               | Byte     | mutation 大小      | host4hbaseregionserver、<br>id4hbaseregionserver   |
+| HbaseRegionserver<br>StarttimeRegionserverstarttime          | 进程启动时间_regionServerStartTime                      | s        | 进程启动时间       | host4hbaseregionserver、<br>id4hbaseregionserver   |
 
 ## 各维度对应参数总览
 
-| 参数名称                       | 维度名称               | 维度解释                     | 格式                                            |
-| :----------------------------- | :--------------------- | :--------------------------- | :---------------------------------------------- |
-| Instances.N.Dimensions.0.Name  | id4hbaseoverview       | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hbaseoverview      |
-| Instances.N.Dimensions.0.Value | id4hbaseoverview       | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222       |
+| 参数名称                       | 维度名称               | 维度解释                     | 格式                                             |
+| :----------------------------- | :--------------------- | :--------------------------- | :----------------------------------------------- |
+| Instances.N.Dimensions.0.Name  | id4hbaseoverview       | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hbaseoverview       |
+| Instances.N.Dimensions.0.Value | id4hbaseoverview       | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222        |
 | Instances.N.Dimensions.1.Name  | host4hbaseoverview     | EMR 实例中节点 IP 的维度名称 | 输入 String 类型维度名称：host4hbaseoverview     |
-| Instances.N.Dimensions.1.Value | host4hbaseoverview     | EMR 实例中具体节点 IP        | 输入具体节点 IP ，例如：1.1.1.1                 |
-| Instances.N.Dimensions.0.Name  | id4hbasehmaster        | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hbasehmaster       |
-| Instances.N.Dimensions.0.Value | id4hbasehmaster        | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222       |
+| Instances.N.Dimensions.1.Value | host4hbaseoverview     | EMR 实例中具体节点 IP        | 输入具体节点 IP ，例如：1.1.1.1                  |
+| Instances.N.Dimensions.0.Name  | id4hbasehmaster        | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hbasehmaster        |
+| Instances.N.Dimensions.0.Value | id4hbasehmaster        | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222        |
 | Instances.N.Dimensions.1.Name  | host4hbasehmaster      | EMR 实例中节点 IP 的维度名称 | 输入 String 类型维度名称：host4hbasehmaster      |
-| Instances.N.Dimensions.1.Value | host4hbasehmaster      | EMR 实例中具体节点 IP        | 输入具体节点 IP ，例如：1.1.1.1                 |
-| Instances.N.Dimensions.0.Name  | id4hbaseregionserver   | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hbaseregionserver  |
-| Instances.N.Dimensions.0.Value | id4hbaseregionserver   | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222       |
+| Instances.N.Dimensions.1.Value | host4hbasehmaster      | EMR 实例中具体节点 IP        | 输入具体节点 IP ，例如：1.1.1.1                  |
+| Instances.N.Dimensions.0.Name  | id4hbaseregionserver   | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4hbaseregionserver   |
+| Instances.N.Dimensions.0.Value | id4hbaseregionserver   | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如 ：emr-mm8bs222        |
 | Instances.N.Dimensions.1.Name  | host4hbaseregionserver | EMR 实例中节点 IP 的维度名称 | 输入 String 类型维度名称：host4hbaseregionserver |
-| Instances.N.Dimensions.1.Value | host4hbaseregionserver | EMR 实例中具体节点 IP        | 输入具体节点 IP ，例如：1.1.1.1                 |
+| Instances.N.Dimensions.1.Value | host4hbaseregionserver | EMR 实例中具体节点 IP        | 输入具体节点 IP ，例如：1.1.1.1                  |
 
 ## 入参说明
 
