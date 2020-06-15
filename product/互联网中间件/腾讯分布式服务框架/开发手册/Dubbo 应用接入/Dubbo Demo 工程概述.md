@@ -1,5 +1,5 @@
 ## 获取 Demo
-- 基于 Alibaba Dubbo 版本 SDK 的 [Demo 下载](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/demo/dubbo/tsf-dubbo-alibaba-demo-1.1.7.zip)
+基于 Alibaba Dubbo 版本 SDK 的 [Demo 下载](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/demo/dubbo/tsf-dubbo-alibaba-demo-1.1.7.zip) 
 
 ## 工程目录
 `tsf-dubbo-xxx-demo`的工程目录如下：
