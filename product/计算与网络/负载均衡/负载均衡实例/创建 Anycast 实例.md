@@ -44,7 +44,7 @@ Anycast CLB 在游戏加速中的应用也非常广泛，游戏请求就近接�
 
 ## 操作指南
 ### 前提条件
-本功能内测中，操作前请确保您的 [内测申请](https://cloud.tencent.com/act/apply/aia) 已通过。
+本功能内测中，操作前请确保您的 [内测申请](https://cloud.tencent.com/apply/p/47mdddtoc56) 已通过。
 ### 操作步骤
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在左侧导航栏中，单击 【[弹性公网IP ](https://console.cloud.tencent.com/cvm/eip2)】，进入 “弹性公网IP” 管理页面。
