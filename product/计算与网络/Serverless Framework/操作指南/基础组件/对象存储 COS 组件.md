@@ -69,7 +69,6 @@ Full details: https://serverless.cloud.tencent.com/instances/appDemo%3Adev%3Acos
 
 >?
 >
->- 请确认您已经开通 [内容分发网络](https://console.cloud.tencent.com/cdn) 服务。
 >- 微信扫码授权部署有过期时间，如果想要持久授权，请参考[账号配置](#账号配置（可选）)。
 
 #### 移除
