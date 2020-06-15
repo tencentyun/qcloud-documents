@@ -95,7 +95,7 @@ pg_table = "t_user"
 | data_dir      | 存放一些记录文件，例如进程号和 bin_log 同步 pos |
 | statsd_host   | statsd 监控地址（如果部署）                    |
 | statsd_port   | statsd 监控端口（如果部署）                   |
-| statsd_prefix | dbsync                                      |
+| statsd_prefix | statsd 指标前缀                                   |
 
 | 字段               | 说明                                                         |
 | ------------------ | ------------------------------------------------------------ |
