@@ -11,15 +11,14 @@ COS 支持用户以生命周期配置的方式来管理 Bucket 中 Object 的生
 PUT Bucket lifecycle 用于为 Bucket 创建一个新的生命周期配置。如果该 Bucket 已配置生命周期，使用该接口创建新的配置的同时则会覆盖原有的配置。
 
 > !
->
 > - 同一条生命周期规则中不可同时支持 Days 和 Date 参数，请分成两条规则分别传入，具体请参见下文 [实际案例](#.E5.AE.9E.E9.99.85.E6.A1.88.E4.BE.8B)。
-> - 开启了多 AZ 配置的存储桶，目前仅支持过期删除功能，不支持过期沉降为低频或者归档存储类型。
+> - 开启了 [多 AZ](https://cloud.tencent.com/document/product/436/40548) 配置的存储桶，目前仅支持过期删除功能，不支持过期沉降为低频或者归档存储类型。
 
 ## 请求
 
 #### 请求示例
 
-```shell
+```plaintext
 PUT /?lifecycle HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Content-Length: length
@@ -49,7 +48,7 @@ Content-MD5: MD5
 
 该 API 接口请求的请求体具体节点内容为：
 
-```shell
+```xml
 <LifecycleConfiguration>
   <Rule>
     <ID></ID>
@@ -143,11 +142,11 @@ Content-MD5: MD5
 
 #### 请求
 
-```shell
+```plaintext
 PUT /?lifecycle HTTP/1.1
 Host:examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed, 16 Aug 2017 11:59:33 GMT
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1502855771;1502935771&q-key-time=1502855771;1502935771&q-header-list=content-md5;host&q-url-param-list=lifecycle&q-signature=f3aa2c708cfd8d4d36d658de56973c9cf1c24654
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1502855771;1502935771&q-key-time=1502855771;1502935771&q-header-list=content-md5;host&q-url-param-list=lifecycle&q-signature=f3aa2c708cfd8d4d36d658de56973c9cf1c2****
 Content-MD5: LcNUuow8OSZMrEDnvndw1Q==
 Content-Length: 348
 Content-Type: application/x-www-form-urlencoded
@@ -179,11 +178,11 @@ Content-Type: application/x-www-form-urlencoded
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 0
 Date: Wed, 16 Aug 2017 11:59:33 GMT
 Server: tencent-cos
-x-cos-request-id: NTk5NDMzYTRfMjQ4OGY3Xzc3NGRfMWY=
+x-cos-request-id: NTk5NDMzYTRfMjQ4OGY3Xzc3NGRf****
 ```

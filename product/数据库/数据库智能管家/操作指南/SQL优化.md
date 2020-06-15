@@ -21,6 +21,7 @@ SQL 优化为用户提供一键优化 SQL 语句功能，并给出对应执行�
  - 单击【执行计划】，查看 SQL 预执行详情。
 ![](https://main.qcloudimg.com/raw/e593433f2b4c6a6fdd137dd736892f18.png)
  - 单击【优化建议】，可查看 SQL 的执行计划、索引建议、表结构及 SQL 代价，SQL 代价通过可视化图表清晰展示优化前后开销的变化。
+SQL 代价通过分析 SQL 相关库表的统计信息、OPTIMIZER_SWITCH 配置、及索引字段区分度进行估算，对优化后的 SQL 语句代价进行整体估计，使用可视化图表直观呈现 SQL 优化后降低的效果，您也可通过优化前后的执行计划比对进一步验证优化的效果。
 ![](https://main.qcloudimg.com/raw/a6fb122ba26743cd8085515af23b3b03.png)
 
 

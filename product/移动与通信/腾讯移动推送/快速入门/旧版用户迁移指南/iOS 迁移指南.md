@@ -1,5 +1,5 @@
 ## 版本迁移指南
-如您接入的是信鸽平台的2.x的版本，请参考 [SDK集成文档](https://cloud.tencent.com/document/product/548/36663) 接入。
+如您接入的是信鸽平台的2.x的版本，请参考 [SDK 集成文档](https://cloud.tencent.com/document/product/548/36663) 接入。
 为保障迁移后的正常使用，请您升级至 iOS V1.2.5.3 及以上版本，以下是针对从信鸽平台的 3.x 版本迁移到腾讯移动推送 TPNS iOS V1.2.5.3 及以上版本的变更说明：
 
 ## 自动集成方式
@@ -275,7 +275,7 @@
 
 变更前：
 
-信鸽平台使用 Device Token(长度为64位)对指定设备进行推送，获取 Device Token 代码示例:
+信鸽平台使用 Device Token（长度为64位）对指定设备进行推送，获取 Device Token 代码示例:
 
 ```objective-c
 //获取 APNS 生成的 Token
@@ -290,7 +290,11 @@
 ```
 
 ## 注销信鸽平台推送服务
-如果 App 的推送服务是从信鸽平台（https://xg.qq.com）迁移到腾讯移动推送平台， 需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在信鸽平台中进行反注册。
+>! 
+- 如果未做以下配置，在【旧版信鸽】和【腾讯移动推送】两个平台上同时推送时，可能会出现重复消息。
+- 如果您的应用确定不再使用【旧版信鸽】进行推送，可忽略上方配置。
+
+如果 App 的推送服务是从 [信鸽平台](https://xg.qq.com) 迁移到腾讯移动推送平台， 需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在信鸽平台中进行反注册。
 
 #### 接口
 
@@ -309,4 +313,4 @@
 [XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
 [[XGPush defaultManager] startXGWithAppID: <#your tpns access ID#>appKey:<#your tpns access key#> delegate:<#your delegate#>];
 ```
->! 如果未做以上配置，则在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
+

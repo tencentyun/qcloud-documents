@@ -1,4 +1,5 @@
 Spark 为结构化数据处理引入了一个称为 Spark SQL 的编程模块。它提供了一个称为 DataFrame 的编程抽象，并且可以充当分布式 SQL 查询引擎。
+
 ## 1. 开发准备
 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置见面选择了 Spark 组件。
  
@@ -16,42 +17,37 @@ Spark 为结构化数据处理引入了一个称为 Spark SQL 的编程模块。
 ```
 其中 --master 表示您的 master URL，--num-executors 表示 executor 数量，--executor-memory 表示 executor 的储存容量。以上参数也可以根据您的实际情况作出修改，您也可以通过`sbin/start-thriftserver.sh` 或者`sbin/stop-thriftserver.sh`来启动或者停止一个 SparkSQLthriftserver。
 
-下面介绍一些 SparkSQL 的基本操作。
-
-
-新建一个数据库并查看：
+**下面介绍一些 SparkSQL 的基本操作：**
+- 新建一个数据库并查看：
 ```
 spark-sql> create database sparksql;
 Time taken: 0.907 seconds
-
 spark-sql> show databases;
 default
 sparksql
 test
 Time taken: 0.131 seconds, Fetched 5 row(s)
 ```
-在新建的数据库中新建一个表，并进行查看：
+- 在新建的数据库中新建一个表，并进行查看：
 ```
 spark-sql> use sparksql;
 Time taken: 0.076 seconds
-
 spark-sql> create table sparksql_test(a int,b string);
 Time taken: 0.374 seconds
-
 spark-sql> show tables;
 sparksql_test	false
 Time taken: 0.12 seconds, Fetched 1 row(s)
 ```
-向表中插入两行数据并查看：
+- 向表中插入两行数据并查看：
 ```
 spark-sql> insert into sparksql_test values (42,'hello'),(48,'world');
 Time taken: 2.641 seconds
-
 spark-sql> select * from sparksql_test;
 42	hello
 48	world
 Time taken: 0.503 seconds, Fetched 2 row(s)
 ```
+
 更多命令行参数使用教程请参考 [社区文档](http://spark.apache.org/docs/latest/sql-programming-guide.html)。
 
 ## 3. 使用 Maven 创建工程

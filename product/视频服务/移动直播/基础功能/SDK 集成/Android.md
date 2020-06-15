@@ -46,7 +46,7 @@ defaultConfig {
    下载 [LiveAVSDK](https://cloud.tencent.com/document/product/454/7873) ，下载完成后进行解压。
  
 - **第二步：拷贝 LiteAVSDK 到工程目录**  
-  将下载解压缩之后 SDK 目录下的 aar 文件拷贝到工程的 **app/libs** 目录下：
+  将下载文件解压之后 SDK 目录下的 aar 文件拷贝到工程的 **app/libs** 目录下：
   ![](https://main.qcloudimg.com/raw/0550edd82139cbbfaba3cc656b4fdd9e.png)
   
 - **第三步：指定本地仓库路径**
@@ -56,7 +56,10 @@ defaultConfig {
 - **第四步：添加 LiteAVSDK 依赖**   
   在 app/build.gradle 中，添加引用 aar 包的代码。
   ![](https://main.qcloudimg.com/raw/2333ec86f332907e7bf45b6cf83ee7b3.png)
-  
+```
+implementation(name:'LiteAVSDK_Smart_6.4.7265', ext:'aar')
+```
+
 - **第五步：指定 App 使用架构**
   在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 支持 armeabi 、armeabi-v7a 和 arm64-v8a）。
 ```
@@ -146,7 +149,7 @@ dependencies{
 
 ## 配置 License 授权
 
-单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 License，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
+单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 License，具体操作请参见 [测试版 License](https://cloud.tencent.com/document/product/454/34750#.E6.B5.8B.E8.AF.95.E7.89.88-license)。您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
 
 在您的 App 调用企业版 SDK 相关功能之前（建议在 Application类中）进行如下设置：
 

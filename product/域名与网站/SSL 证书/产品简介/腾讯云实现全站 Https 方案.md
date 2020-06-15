@@ -7,11 +7,11 @@
 
 腾讯云 SSL 证书服务支持域名型（DV） SSL 证书的免费申请。**企业型（OV）、企业增强型（EV）等付费证书支持线上选购申请**。
 1. 登录 [SSL证书管理控制台](https://console.cloud.tencent.com/ssl) ，单击【申请免费证书】。如下图所示：
-![](https://main.qcloudimg.com/raw/0957a3c2d374c8edf34501c7bd834f62.png)
+![](https://main.qcloudimg.com/raw/b9981ce2e8e43fe3c69980cf8c9a6b8c.png)
 2. 填写申请域名，例如`qcloud.com`，`cloud.tencent.com`，`demo.test.qlcoud.com`。单击【下一步】。如下图所示：
 >!如果需要部署到腾讯云负载均衡、CDN 等云服务，请勿填写私钥密码。
 >
- ![](https://main.qcloudimg.com/raw/52bb576a87623c002ec283447d7fe7a3.png)
+ ![](https://main.qcloudimg.com/raw/c0cb628b14eb80ae2e2f6b307ad95e79.png)
 3. 选择验证方式。
 ![](https://main.qcloudimg.com/raw/98753e63341655f8391629922ec8f552.png)
   - **选择自动 DNS 验证**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/4142#.E8.87.AA.E5.8A.A8-dns-.E9.AA.8C.E8.AF.81)。
@@ -21,7 +21,7 @@
  - **选择文件验证**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/4142#.E6.96.87.E4.BB.B6.E9.AA.8C.E8.AF.81)。
 4. 单击【确认申请】。
  - 若提交申请成功，需要单击【查看证书详情】获取 TXT 记录尽快添加解析，方可通过 CA 机构审核。如下图所示：
-![证书详情](https://main.qcloudimg.com/raw/5a7aed167ebeba8e7c71ff0553fe86dc.png)
+![证书详情](https://main.qcloudimg.com/raw/50bb84362840d4db1bf03b5a6d114c71.png)
  - 若提交申请失败，提交域名未通过 CA 机构安全审核，具体原因参考 [安全审核失败原因](https://cloud.tencent.com/doc/product/400/5439)。如下图所示：
 ![](https://main.qcloudimg.com/raw/2937bb05b1b5ab8a18b3f61b79b6c992.png)
 
@@ -30,16 +30,16 @@
 >
 1. 成功申请获取证书（参考 [如何免费申请域名型证书](https://cloud.tencent.com/document/product/400/6814)）。
 2. 选择您需要部署的证书，展开【更多】，选择【部署到负载均衡】。如下图所示：
-![](https://main.qcloudimg.com/raw/960f64d92b01370e9c1ca40fa3521e1d.png)
+![](https://main.qcloudimg.com/raw/b7247eeb60ff726ec997a7fe763e87f5.png)
 3. 根据项目和地区筛选 CLB 实例，且只能选择一个实例。如下图所示：
 >!目前不支持华南地区-深圳金融。
 >
-![](https://main.qcloudimg.com/raw/9961c5b54e4d72aaa4897fe92a187e76.png)
+![部署到负载均衡](https://main.qcloudimg.com/raw/482a085c5807ffa4b1cac12cab36be04.png)
 4. 跳转到 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3)，进入【实例管理】页面。
 5. 选择待配置的【ID/名称】，进入该实例的管理页面，选择【监听器管理】页签。
 6. 在【HTTP/HTTPS 监听器】中单击【新建】，弹出【创建监听器】弹窗。
 7. 将【监听协议端口】切换到 HTTPS，服务器证书为已选中的证书，然后完成剩余的基本配置。如下图所示：
-![](https://main.qcloudimg.com/raw/973fcd163b990873e7328f934761a98f.png)
+![](https://main.qcloudimg.com/raw/6beb94b001fb5ead265e4fff72b6674f.png)
 8. 继续完成创建监听器的其他配置，即可实现负载均衡的 HTTPS。
 
 ## 步骤3：部署证书到 CDN
@@ -50,10 +50,10 @@
  
 1. 成功申请获取证书（参考 [如何免费申请域名型证书](https://cloud.tencent.com/document/product/400/6814)）。
 2. 选择您需要部署的证书，展开【更多】，选择【部署到国内 CDN】。如下图所示：
-![](https://main.qcloudimg.com/raw/c084b875cd98d1d0759cb39236811c88.png)
+![](https://main.qcloudimg.com/raw/c7d0e9639449b66760b7c706027f889b.png)
 3. 跳转到 CDN 控制台，进入【配置证书】详情页，已显示对应的域名、证书来源以及证书 ID。
 4. 选择回源协议方式，您可以选择 CDN 节点回源站获取资源时的回源方式。如下图所示：
-![](https://main.qcloudimg.com/raw/65460a967c7fc9fc07f849efb1b2cf78.png)
+![](https://main.qcloudimg.com/raw/890219d7c165edf23c7fe64d14fa9c65.png)
  - 选择 **HTTP** 回源配置成功后，用户至 CDN 节点请求支持 HTTPS/HTTP，CDN 节点回源站请求均为 HTTP。
  - 选择 **协议跟随** 回源配置，您的源站需要部署有效证书，否则将导致回源失败。配置成功后，用户至 CDN 节点请求为 HTTP 时，CDN 节点回源请求也为 HTTP。用户至 CDN 节点请求为 HTTPS 时，CDN 节点回源请求也为 HTTPS。
  - 若域名源站修改 HTTPS 端口为非 443 端口，会导致配置失败。

@@ -56,7 +56,7 @@
  - **运行环境**：选择 “Node.js 8.9”。
  - **创建方式**：选择“空白函数”。
  若您选择创建方式为“模板函数”，请前往“函数代码”页面通过 Git 拉取代码。
-![](https://main.qcloudimg.com/raw/46c0da164697a959679f1f65e76375f5.png)
+![](https://main.qcloudimg.com/raw/b9375bc943bbb78ccb6c0c83c8d06dfe.png)
 4. 在“函数配置”页面，“提交方法”选择“通过git上传代码包”，并填写您使用的 Git 仓库相关信息。
 ![](https://main.qcloudimg.com/raw/8992b7bc2e06f9135164f5cb69783817.png)
 5.单击【完成】，即可成功拉取代码并创建函数。
