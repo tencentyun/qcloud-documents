@@ -252,13 +252,13 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 
 ## 常见问题
 
-### 1、自己发送的消息，`Message.nick` 和 `Message.nick` 都是空，该怎么处理才能在界面上正常展示昵称和头像？
+### 1. 自己发送的消息 `Message.nick` 和 `Message.nick` 都是空的，该怎么处理才能在界面上正常展示昵称和头像？
 
-调用 [getMyProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getMyProfile) 获取自己的昵称和头像。
+可以通过调用 [getMyProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getMyProfile) 获取自己的昵称和头像。
 
-### 2、有没有开源的直播组件，可以直接看视频和聊天互动？
+### 2. 有没有开源的直播组件，可以直接看视频和聊天互动？
 
-有的，且代码开源，请参考 [腾讯云 Web 直播互动组件](https://github.com/tencentyun/TWebLive)。
+有的，且代码开源，详情请参考 [腾讯云 Web 直播互动组件](https://github.com/tencentyun/TWebLive)。
 
 
 
