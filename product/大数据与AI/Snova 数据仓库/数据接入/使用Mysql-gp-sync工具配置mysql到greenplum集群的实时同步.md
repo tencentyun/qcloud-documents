@@ -21,7 +21,7 @@ show variables like 'binlog_format';
 腾讯云 binlog 设置文档，可参考 [开启 MySQL 的 binlog 功能](https://cloud.tencent.com/developer/article/1464748)。
 
 ## mysql-gp-sync 服务部署
-下载安装包`mysql-gp-sync.zip`，并部署在一台 linux 服务器上，然后解压安装包。解压后可看到多个文件，其中 mysql-gp-sync.toml 是服务配置文件，配置文件示例如下：
+下载安装包`mysql-gp-sync.zip`，并部署在一台 Linux 服务器上，然后解压安装包。解压后可看到多个文件，其中 mysql-gp-sync.toml 是服务配置文件，配置文件示例如下：
 ```toml
 # 需要进行同步数据的源端 mysql
 mysql_addr = "127.0.0.1:3306"
