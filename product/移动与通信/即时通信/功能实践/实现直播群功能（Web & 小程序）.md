@@ -252,7 +252,7 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 
 ## 常见问题
 
-### 1. 自己发送的消息 `Message.nick` 和 `Message.nick` 都是空的，该怎么处理才能在界面上正常展示昵称和头像？
+### 1. 自己发送的消息 `Message.nick` 和 `Message.avatar` 都是空的，该怎么处理才能在界面上正常展示昵称和头像？
 
 可以通过调用 [getMyProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getMyProfile) 获取自己的昵称和头像。
 
