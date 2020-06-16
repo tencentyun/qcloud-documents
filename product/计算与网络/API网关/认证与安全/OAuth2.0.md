@@ -26,15 +26,15 @@ OAuth2.0 有以下四个角色：
 
 ### 授权服务器的搭建
 [代码路径 >>]( https://github.com/TencentCloud/apigateway-demo/tree/master/apigateway-oauth-python-demo)
-1. 生成 RSA 公私钥、文件 produce_key.py、依赖库 python-jwt
-执行以下代码，将生成三个文件：public_pem（pem 格式的公钥）、priv_pem（pem 格式的私钥）和 pulic（json 格式的公钥），该文件的内容用于配置 API 网关的授权 API，用于验证 JWT 签名，具体格式如下：
+1. 生成 RSA 公钥和私钥。使用 Python3 运行 produce_key.py，生成三个文件：
+ - public_pem ：pem 格式的公钥
+ - priv_pem ：pem 格式的私钥
+ - pulic ：json 格式的公钥，该文件的内容用于配置 API 网关的授权 API。具体格式如下：：
 ```
 {"e":"AQAB","kty":"RSA","n":"43nSuC6lmGLogEPgFVwaaxAmPDzmZcocRB4Jed_dHc-sV7rcAcNB0iHyuGfNkfOAE2uhHVjdXuO6DBYGz4pnTwRZ5_wFrW0DlrlJQAXSvg6B2N1uda_aqySNw3rrvdh38rVG7HxFmyPbLXcpJtyfkiRNyZ1WhSpH0NciIRrFbW2mKRtOZsBGfBgmNqPGcGrMA71cuqNAQ9RMKmAF37iGXkx0tWMBQ_PL2aviHhtsiPbT3zIO7qUG3cleBHnS61kid3K8F38z9-5Hj-1zdTIP8iS4rAt4FmhvKvtOocRPYGq0W_dLLxmi4DYgIV2GJE93WyZ1EUvgRGhpcHvyT65z4w"}
 ```
-私钥： AS 保存。
 
-2. 运行授权服务， 文件 server.py
-以下的服务是基于 bottle 搭建，运行前安装 bottle，pip3 install bottle
+2. 启动服务。安装 bottle 库、pip3 install bottle 后，使用 Python3 运行 server.py。
 首先执行 produce_key.py 生成三个文件后，再执行 server.py，用于提供 token，执行后可以简单验证生成 token是否成功。
 ```
 curl localhost:8080/token 
