@@ -141,7 +141,7 @@ db.collection("articles")
   .get();
 ```
 
-获取到内容数据就可以在各种场景使用了，比如在小程序/ Web 中构建应用和网站。
+获取到内容数据就可以在各种场景使用了，例如在小程序/ Web 中构建应用和网站。
 ![](https://main.qcloudimg.com/raw/1b8fc44b2ec3d6a3cf151d7abe2b6e0e/api-result.png)
 
 ## 常见问题
