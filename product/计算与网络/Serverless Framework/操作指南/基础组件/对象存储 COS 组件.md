@@ -4,11 +4,11 @@
 
 ## 前提条件
 
-- 已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于 8.6，建议使用Node.js10.0 及以上版本）
+已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于 8.6，建议使用 Node.js10.0 及以上版本）
 
 ## 操作步骤
 
-#### 安装
+### 安装
 
 通过 npm 安装 Serverless：
 
@@ -22,7 +22,7 @@ npm install -g serverless
 npm update -g serverless
 ```
 
-####  配置
+###  配置
 
 本地创建 `serverless.yml` 文件，在其中进行如下配置：
 
@@ -44,10 +44,10 @@ inputs:
   region: ap-guangzhou
 
 ```
-[查看详细配置文档>>]( https://github.com/serverless-components/tencent-cos/blob/v2/docs/configure.md )
+[查看详细配置文档 >>]( https://github.com/serverless-components/tencent-cos/blob/v2/docs/configure.md )
 
 
-#### 部署
+### 部署
 
 执行以下命令进行部署，返回信息如下： 
 
@@ -67,11 +67,9 @@ Full details: https://serverless.cloud.tencent.com/instances/appDemo%3Adev%3Acos
 
 ```
 
->?
->
->- 微信扫码授权部署有过期时间，如果想要持久授权，请参考[账号配置](#账号配置（可选）)。
+>?微信扫码授权部署有过期时间，如果想要持久授权，请参考 [账号配置](#account)。
 
-#### 移除
+### 移除
 
 执行`sls remove`命令移除部署的存储桶，返回信息如下：
 
@@ -84,8 +82,8 @@ Action: "remove" - Stage: "dev" - App: "appDemo" - Instance: "cosDemo"
 3s › cosDemo › Success
 ```
 
-
-####  账号配置（可选）
+<span id="account "></span>
+###  账号配置（可选）
 
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建 `.env` 文件：
 
@@ -101,4 +99,4 @@ TENCENT_SECRET_KEY=123
 ```
 >?
 > - 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
-> - 如果已有腾讯云账号，可以在 [API密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
+> - 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
