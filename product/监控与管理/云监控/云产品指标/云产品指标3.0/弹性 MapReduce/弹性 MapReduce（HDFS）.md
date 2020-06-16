@@ -339,37 +339,45 @@ Namespace=QCE/TXMR_HDFS
 
 弹性 MapReduce（HDFS）支持以下六种维度组合的查询方式，六种入参取值如下： 
 
-**1.查询  HDFS-OverviewAggregation  的指标监控数据，入参取值如下：**<br>&Namespace=QCE/TXMR_HDFS<br>
-&Instances.N.Dimensions.0.Name= id4hdfsoverview <br>
-&Instances.N.Dimensions.0.Value为 EMR 实例ID <br>
+**1. 查询  HDFS-OverviewAggregation  的指标监控数据，入参取值如下：**
+&Namespace=QCE/TXMR_HDFS
+&Instances.N.Dimensions.0.Name=id4hdfsoverview 
+&Instances.N.Dimensions.0.Value=EMR 实例 ID 
 
-**2.查询 HDFS-Overview  的指标监控数据，入参取值如下：**<br>&Namespace=QCE/TXMR_HDFS<br>
-&Instances.N.Dimensions.0.Name=id4hdfsoverview<br>
-&Instances.N.Dimensions.0.Value为 EMR 实例ID <br>
-&Instances.N.Dimensions.1.Name=host4hdfsoverview<br>
-&Instances.N.Dimensions.1.Value EMR实例中具体节点IP <br>
+**2. 查询 HDFS-Overview  的指标监控数据，入参取值如下：**
+&Namespace=QCE/TXMR_HDFS
+&Instances.N.Dimensions.0.Name=id4hdfsoverview
+&Instances.N.Dimensions.0.Value=EMR 实例 ID 
+&Instances.N.Dimensions.1.Name=host4hdfsoverview
+&Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP 
 
-**3.查询  HDFS-NameNode 的指标监控数据，入参取值如下：**<br>&Namespace=QCE/TXMR_HDFS<br>
-&Instances.N.Dimensions.0.Name=id4hdfsnamenode<br>
-&Instances.N.Dimensions.0.Value为 EMR 实例ID <br>&Instances.N.Dimensions.1.Name= host4hdfsnamenode<br>
-&Instances.N.Dimensions.1.Value EMR实例中具体节点IP <br>
+**3. 查询  HDFS-NameNode 的指标监控数据，入参取值如下：**
+&Namespace=QCE/TXMR_HDFS
+&Instances.N.Dimensions.0.Name=id4hdfsnamenode
+&Instances.N.Dimensions.0.Value=EMR 实例 ID 
+&Instances.N.Dimensions.1.Name=host4hdfsnamenode
+&Instances.N.Dimensions.1.Value=EMR实例中具体节点 IP 
 
-**4.查询  HDFS-DataNode 的指标监控数据，入参取值如下：**<br>&Namespace=QCE/TXMR_HDFS<br>
-&Instances.N.Dimensions.0.Name=id4hdfsdatanode <br>
-&Instances.N.Dimensions.0.Value为 EMR 实例ID <br>&Instances.N.Dimensions.1.Name= host4hdfsdatanode <br>
-&Instances.N.Dimensions.1.Value EMR实例中具体节点IP <br>
+**4. 查询  HDFS-DataNode 的指标监控数据，入参取值如下：**
+&Namespace=QCE/TXMR_HDFS
+&Instances.N.Dimensions.0.Name=id4hdfsdatanode
+&Instances.N.Dimensions.0.Value=EMR 实例 ID 
+&Instances.N.Dimensions.1.Name=host4hdfsdatanode 
+&Instances.N.Dimensions.1.Value=EMR实例中具体节点 IP 
 
-**5.查询  HDFS-Journal Node 的指标监控数据，入参取值如下：**<br>&Namespace=QCE/TXMR_HDFS 
+**5. 查询  HDFS-Journal Node 的指标监控数据，入参取值如下：**
+&Namespace=QCE/TXMR_HDFS 
 &Instances.N.Dimensions.0.Name=id4hdfsjournalnode
 &Instances.N.Dimensions.0.Value=EMR 实例具体 ID
 &Instances.N.Dimensions.1.Name=host4hdfsjournalnode
-&Instances.N.Dimensions.1.Value EMR 实例中具体节点 IP 
+&Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP 
 
-**6.查询  HDFS-ZKFC 的指标监控数据，入参取值如下：**<br>&Namespace=QCE/TXMR_HDFS 
+**6. 查询  HDFS-ZKFC 的指标监控数据，入参取值如下：**
+&Namespace=QCE/TXMR_HDFS 
 &Instances.N.Dimensions.0.Name=id4hdfszkfailovercontroller
 &Instances.N.Dimensions.0.Value=EMR 实例具体 ID
 &Instances.N.Dimensions.1.Name=host4hdfszkfailovercontroller
-&Instances.N.Dimensions.1.Value EMR 实例中具体节点 IP 
+&Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP 
 
 
 
