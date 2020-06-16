@@ -264,7 +264,7 @@ Namespace=QCE/TXMR_YARN
 &Instances.N.Dimensions.1.Name=host4yarnjobhistoryserver
 &Instances.N.Dimensions.1.Value=EMR实例中具体节点 IP 
 
-**5.查询  YARN-NodeManager 的指标监控数据，入参取值如下：**
+**5. 查询 YARN-NodeManager 的指标监控数据，入参取值如下：**
 &Namespace=QCE/TXMR_YARN
 &Instances.N.Dimensions.0.Name=id4yarnnodemanager 
 &Instances.N.Dimensions.0.Value=EMR 实例 ID 
