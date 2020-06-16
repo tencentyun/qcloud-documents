@@ -20,12 +20,15 @@ OAuth2.0 有以下四个角色：
 
 
 ## API 网关 OAuth2.0 操作方法
-   腾讯云API 网关对外提供了 OAuth2.0 功能，为了能够快速的使用该功能，首先提供简化版的使用方式，准备以下：
- - 分发 token 的授权服务器（当前提供python3的Demo），
- - API网关配置，同一个服务下创建一个授权API，一个业务API，其中授权API是用来校验请求业务API中携带的 token 是否合法，以及提供获取token的链接，
+   腾讯云 API 网关对外提供了 OAuth2.0 功能，为了能够快速的使用该功能，首先提供简化版的使用方式，准备以下：
+ - 分发 token 的授权服务器（当前提供 Python3 和 Golang 的 Demo）。
+ - API 网关配置，同一个服务下创建一个授权 API、一个业务 API，其中授权 API 是用来校验请求业务API 中携带的 token 是否合法，以及提供获取 token 的链接。
 
 ### 授权服务器的搭建
-[代码路径 >>]( https://github.com/TencentCloud/apigateway-demo/tree/master/apigateway-oauth-python-demo)
+- [Python Demo](https://github.com/TencentCloud/apigateway-demo/tree/master/apigateway-oauth-python-demo)（下文以该 Demo 为例进行说明）
+- [Golang Demo](https://github.com/TencentCloud/apigateway-demo/tree/master/apigateway-oauth-golang-demo/AS)
+
+
 1. 生成 RSA 公钥和私钥。使用 Python3 运行 produce_key.py，生成三个文件：
  - public_pem ：pem 格式的公钥
  - priv_pem ：pem 格式的私钥
