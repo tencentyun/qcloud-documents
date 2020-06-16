@@ -80,8 +80,7 @@ sls deploy
 sls remove
 ```
 
-<span id="
-account "></span>
+<span id="account"></span>
 #### 账号配置（可选）
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建 `.env` 文件：
 ```shell
