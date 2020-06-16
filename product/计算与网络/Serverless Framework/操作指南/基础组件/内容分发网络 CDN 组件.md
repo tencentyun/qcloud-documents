@@ -3,8 +3,8 @@
 
 ## 前提条件
 
-- 已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于 8.6，建议使用Node.js10.0 及以上版本
-- 需要开通[内容分发网络](https://console.cloud.tencent.com/cdn) 服务。
+- 已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于 8.6，建议使用 Node.js10.0 及以上版本。
+- 需要开通 [内容分发网络](https://console.cloud.tencent.com/cdn) 服务。
 
 ## 操作步骤
 
@@ -43,7 +43,7 @@ inputs:
   domain: mysite.com #域名
   origin:
     origins:
-      - xxx.cos.ap-guangzhou.myqcloud.com  #源站，可以是域名或IP
+      - xxx.cos.ap-guangzhou.myqcloud.com  #源站，可以是域名或 IP
     originType: cos
     originPullProtocol: https
   serviceType: web
@@ -70,9 +70,8 @@ sls deploy
 ```
 
 >?
->
 >- 请确认您已经开通 [内容分发网络](https://console.cloud.tencent.com/cdn) 服务。
->- 微信扫码授权部署有过期时间，如果想要持久授权，请参考[账号配置](#账号配置（可选）)。
+>- 微信扫码授权部署有过期时间，如果想要持久授权，请参考 [账号配置](#account)。
 
 #### 移除
 
@@ -81,6 +80,8 @@ sls deploy
 sls remove
 ```
 
+<span id="
+account "></span>
 #### 账号配置（可选）
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建 `.env` 文件：
 ```shell
