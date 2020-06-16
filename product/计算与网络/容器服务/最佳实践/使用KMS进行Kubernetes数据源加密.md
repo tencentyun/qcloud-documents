@@ -18,7 +18,7 @@
 
 ### 创建 KMS 密钥并获取 ID<span id="createKMS"></span>
 
-1. 登录 [密钥管理系统（合规）](https://console.cloud.tencent.com/kms2) 控制台，进入“用户密钥”页面。
+1. 登录 [密钥管理系统（合规）](https://console.cloud.tencent.com/kms2)控制台，进入“用户密钥”页面。
 2. 在“用户密钥”页面上方，选择需要创建密钥的区域并单击【新建】。
 3. 在弹出的“新建密钥”窗口，参考以下信息进行配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/2082bac6e37c381f6d14e1717fa6e401.png)
@@ -36,7 +36,7 @@
 >
 1. 登录[ 访问管理控制台](https://console.cloud.tencent.com/cam/overview)，选择左侧导航栏中的【访问管理】>【API密钥管理】，进入 “API密钥管理”页面。
 2. 在 “API密钥管理”页面中，单击【新建密钥】并等待创建完成。
-3. 创建完成即可在 “API密钥管理”页面查看该密钥信息，包含`SecretId`、`SecretKey`。如下图所示：
+3. 创建完成即可在 “API密钥管理”页面查看该密钥信息，包含 `SecretId`、`SecretKey`。如下图所示：
 ![](https://main.qcloudimg.com/raw/106be1fd3e9f52f0d112b7f583b2d7df.png)
 
 ### 创建 DaemonSet 并部署 tke-kms-plugin
@@ -47,7 +47,7 @@
 > ? 请根据实际情况替换以下参数：
 > - `{{REGION}}`：KMS 密钥所在地域，有效值可取： `ap-beijing`、`ap-guangzhou`、`ap-shanghai`。
 > - `{{KEY_ID}}`：输入 [创建 KMS 密钥并获取 ID](#createKMS) 步骤中所获取的 KMS 密钥 ID。
-> - `{{SECRET_ID}}` and `{{SECRET_KEY}}`：输入 [#创建并获取访问密钥](#createCAM) 步骤中创建的 SecretID and SecretKey。
+> - `{{SECRET_ID}}` and `{{SECRET_KEY}}`：输入 [创建并获取访问密钥](#createCAM) 步骤中创建的 SecretID and SecretKey。
 > - `images: ccr.ccs.tencentyun.com/tke-plugin/tke-kms-plugin:1.0.0`：tke-kms-plugin 镜像地址。当您需要使用自己制作的 tke-kms-plugin 镜像时，可自行进行更换。
 > 
 ```
