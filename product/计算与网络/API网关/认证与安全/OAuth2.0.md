@@ -48,11 +48,11 @@ eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1OTIyNzgwODksImZvbyI6ImJhciIsIml
 #### 配置腾讯云 API 网关的授权 API 
 1. 创建授权 API（参考 [创建通用 API](https://cloud.tencent.com/document/product/628/11797)），前端配置时，鉴权类型选择 OAuth2.0，OAuth 模式选择授权 API。
 ![](https://main.qcloudimg.com/raw/15e1037c697b18395be29a7520d7f403.png)
-2. 后端配置时，认证服务器选择自己的个人服务器地址，token 位置选择 Header，公钥为4.1中执行文件produce_key.py 生成的 public 文件中的内容，创建完成后单击【完成】。
+2. 后端配置时，认证服务器选择自己的个人服务器地址，token 位置选择 Header，公钥为执行文件 produce_key.py 生成的 public 文件中的内容，创建完成后单击【完成】。
 ![](https://main.qcloudimg.com/raw/2cd37daa0975fd88cbddf0eddc722a38.png)
 
 #### 配置腾讯云 API 网关的业务 API 
-1. 创建授权 API（参考 [创建通用 API](https://cloud.tencent.com/document/product/628/11797)），前端配置时，鉴权类型选择 OAuth2.0，OAuth 模式选择业务 API，关联授权API选择刚刚创建的授权API。
+1. 创建业务 API（参考 [创建通用 API](https://cloud.tencent.com/document/product/628/11797)），前端配置时，鉴权类型选择 OAuth2.0，OAuth 模式选择业务 API，关联授权 API 选择刚刚创建的授权API。
 ![](https://main.qcloudimg.com/raw/51e5340d331fb6b75cd0cf79115ebd82.png)
 2. 后端配置时，后端类型选择 Mock 类型，返回 hello world。
 ![](https://main.qcloudimg.com/raw/1f9d8c12673aacf852c4d618d518c933.png)
