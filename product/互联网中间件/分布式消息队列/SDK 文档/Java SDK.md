@@ -31,6 +31,8 @@
   Map<String, String> authParams = new HashMap<>();
   authParams.put("secretId", "***********************************************");
   authParams.put("secretKey", "***********************************************");
+  authParams.put("ownerUin", "***************");//主账号
+  authParams.put("uin", "****************");//子账号;
   authParams.put("region", "ap-guangzhou");//地域信息
   PulsarClient client = PulsarClient.builder().authenticationCloud(
            "org.apache.pulsar.client.impl.auth.AuthenticationCloudCam", authParams)
@@ -42,6 +44,8 @@
   Map<String, String> authParams = new HashMap<>();
   authParams.put("secretId", "***********************************************");
   authParams.put("secretKey", "***********************************************");
+  authParams.put("ownerUin", "***************");//主账号
+  authParams.put("uin", "****************");//子账号
   authParams.put("region", "ap-guangzhou");//地域信息
   PulsarClient client = PulsarClient.builder().authenticationCloud(
            "org.apache.pulsar.client.impl.auth.AuthenticationCloudCam", authParams)
@@ -52,6 +56,8 @@
   Map<String, String> authParams = new HashMap<>();
   authParams.put("secretId", "***********************************************");
   authParams.put("secretKey", "***********************************************");
+  authParams.put("ownerUin", "***************");//主账号
+  authParams.put("uin", "****************");//子账号
   authParams.put("region", "ap-guangzhou");//地域信息
   PulsarClient client = PulsarClient.builder().authenticationCloud(
            "org.apache.pulsar.client.impl.auth.AuthenticationCloudCam", authParams)
