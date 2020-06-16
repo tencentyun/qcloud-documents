@@ -239,27 +239,34 @@ Namespace=QCE/TXMR_YARN
 
 弹性 MapReduce（YARN）支持以下五种维度组合的查询方式，五种入参取值如下： 
 
-**1.查询  Yarn-Overview Aggregation 、YARN-Cluster 的指标监控数据，入参取值如下：**<br>&Namespace=QCE/TXMR_YARN<br>
-&Instances.N.Dimensions.0.Name=id4yarnoverview<br>
-&Instances.N.Dimensions.0.Value为 EMR 实例ID <br>
+**1. 查询 Yarn-Overview Aggregation 、YARN-Cluster 的指标监控数据，入参取值如下：**&Namespace=QCE/TXMR_YARN
+&Instances.N.Dimensions.0.Name=id4yarnoverview
+&Instances.N.Dimensions.0.Value=EMR 实例 ID
 
-**2.查询  Yarn-Overview 的指标监控数据，入参取值如下：**<br>&Namespace=QCE/TXMR_YARN<br>
-&Instances.N.Dimensions.0.Name=id4yarnoverview<<br>
-&Instances.N.Dimensions.0.Value为 EMR 实例ID <br>
-&Instances.N.Dimensions.1.Name= host4yarnoverview<br>
-&Instances.N.Dimensions.1.Value EMR实例中具体节点IP <br>
+**2. 查询 Yarn-Overview 的指标监控数据，入参取值如下：**
+&Namespace=QCE/TXMR_YARN
+&Instances.N.Dimensions.0.Name=id4yarnoverview
+&Instances.N.Dimensions.0.Value=EMR 实例 ID
+&Instances.N.Dimensions.1.Name=host4yarnoverview
+&Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP 
 
-**3.查询  YARN-ResourceManager  的指标监控数据，入参取值如下：**<br>&Namespace=QCE/TXMR_YARN<br>
-&Instances.N.Dimensions.0.Name=id4yarnresourcemanager<br>
-&Instances.N.Dimensions.0.Value为 EMR 实例ID <br>&Instances.N.Dimensions.1.Name= host4yarnresourcemanager<br>
-&Instances.N.Dimensions.1.Value EMR实例中具体节点IP <br>
+**3. 查询 YARN-ResourceManager  的指标监控数据，入参取值如下：**
+&Namespace=QCE/TXMR_YARN
+&Instances.N.Dimensions.0.Name=id4yarnresourcemanager
+&Instances.N.Dimensions.0.Value=EMR 实例 ID 
+&Instances.N.Dimensions.1.Name=host4yarnresourcemanager
+&Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP
 
-**4.查询  YARN-JobHistoryServer   的指标监控数据，入参取值如下：**<br>&Namespace=QCE/TXMR_YARN<br>
-&Instances.N.Dimensions.0.Name=id4yarnjobhistoryserver  <br>
-&Instances.N.Dimensions.0.Value为 EMR 实例ID <br>&Instances.N.Dimensions.1.Name= host4yarnjobhistoryserver<br>
-&Instances.N.Dimensions.1.Value EMR实例中具体节点IP <br>
+**4. 查询 YARN-JobHistoryServer   的指标监控数据，入参取值如下：**
+&Namespace=QCE/TXMR_YARN
+&Instances.N.Dimensions.0.Name=id4yarnjobhistoryserver 
+&Instances.N.Dimensions.0.Value=EMR 实例 ID 
+&Instances.N.Dimensions.1.Name=host4yarnjobhistoryserver
+&Instances.N.Dimensions.1.Value=EMR实例中具体节点 IP 
 
-**5.查询  YARN-NodeManager 的指标监控数据，入参取值如下：**<br>&Namespace=QCE/TXMR_YARN<br>
-&Instances.N.Dimensions.0.Name=id4yarnnodemanager  <br>
-&Instances.N.Dimensions.0.Value为 EMR 实例ID <br>&Instances.N.Dimensions.1.Name= host4yarnnodemanager<br>
-&Instances.N.Dimensions.1.Value EMR实例中具体节点IP <br>
+**5.查询  YARN-NodeManager 的指标监控数据，入参取值如下：**
+&Namespace=QCE/TXMR_YARN
+&Instances.N.Dimensions.0.Name=id4yarnnodemanager 
+&Instances.N.Dimensions.0.Value=EMR 实例 ID 
+&Instances.N.Dimensions.1.Name=host4yarnnodemanager
+&Instances.N.Dimensions.1.Value=EMR实例中具体节点 IP 
