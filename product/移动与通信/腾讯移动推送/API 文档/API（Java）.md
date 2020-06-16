@@ -17,12 +17,12 @@ Maven  依赖引用方式：
 
 | 参数名 | 类型 | 必需 | 默认值 | 参数描述 |
 | --- | --- | --- | --- | --- |
-| appId | int | 是 | 无 | 推送目标 accessID（Android 应用为1500开头的十位数，iOS 为1600开头） |
+| appId | Integer | 是 | 无 | 推送目标 accessID（Android 应用为1500开头的十位数，iOS 为1600开头） |
 | secretKey | String | 是 | 无 | 推送密钥 |
 | proxy | Proxy | 否 | Proxy.NO\_PROXY | 如果需要设置代理可以设定该参数 |
-| connectTimeOut | int | 否 | 10s | 链接超时时间设置 |
-| readTimeOut | int | 否 | 10s | 请求超时时间设置 |
-| domainUrl | String | 否 | https://openapi.xg.qq.com/ | 请求接口服务域名地址默认请求信鸽平台的接口地址，使用时需要更改为 https://api.tpns.tencent.com/|
+| connectTimeOut | Integer | 否 | 10s | 链接超时时间设置 |
+| readTimeOut | Integer | 否 | 10s | 请求超时时间设置 |
+| domainUrl | String | 否 | https://openapi.xg.qq.com/ | 请求接口服务域名地址默认请求信鸽平台的接口地址，使用时需要更改为 `https://api.tpns.tencent.com/`|
 
 ### 示例
 ``` java
@@ -38,6 +38,7 @@ PushAppRequest pushAppRequest = new PushAppRequest();
 JSONObject ret =  xingeApp.pushApp(pushAppRequest );
 ```
 ### pushAppRequest 接口说明
-该类提供封装好的推送消息体，各参数说明及使用方法可参考 [推送接口说明](https://cloud.tencent.com/document/product/548/39064)
+该类提供封装好的推送消息体，各参数说明及使用方法可参考 [推送接口说明](https://cloud.tencent.com/document/product/548/39064)。
+
 ## 服务端返回码
-ret_code 含义可参考 [服务端错误码](https://cloud.tencent.com/document/product/548/39080)
+ret_code 含义可参考 [服务端错误码](https://cloud.tencent.com/document/product/548/39080)。
