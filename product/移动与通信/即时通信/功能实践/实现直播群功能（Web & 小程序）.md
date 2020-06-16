@@ -259,7 +259,8 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 ### 2. 有没有开源的直播组件，可以直接看视频和聊天互动？
 
 有的，且代码开源，详情请参考 [腾讯云 Web 直播互动组件](https://github.com/tencentyun/TWebLive)。
-
+您也可以直接扫码体验腾讯云 Web 直播互动组件：
+![](https://main.qcloudimg.com/raw/7ebc3e270add5ec6d62f6f8972c61249.png)
 
 
 
