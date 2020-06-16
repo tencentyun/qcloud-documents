@@ -10,6 +10,11 @@
 		<artifactId>tdmq-client</artifactId>
 		<version>${tdmq.version}</version>
 	</dependency>
+	<dependency>
+		<groupId>com.tencent.tdmq</groupId>
+		<artifactId>tdmq-client-auth-cloud_cam</artifactId>
+		<version>${tdmq.version}</version>
+	</dependency>
 ```
 
 ## 接入步骤
