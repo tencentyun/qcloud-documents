@@ -2,16 +2,24 @@
 
 对象存储 COS 组件是 serverless-tencent 组件库中的基础组件之一。通过对象存储 COS 组件，可以快速且方便的创建、配置和管理腾讯云的 COS 存储桶。
 
-## 操作步骤
+## 前提条件
 
-通过 COS 组件，对一个 COS 存储桶进行完整的创建、配置、部署和删除等操作。支持命令如下：
+- 已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于 8.6，建议使用Node.js10.0 及以上版本）
+
+## 操作步骤
 
 #### 安装
 
 通过 npm 安装 Serverless：
 
 ```console
-$ npm install -g serverless
+npm install -g serverless
+```
+
+如果之前您已经安装过 Serverless Framework，可以通过下列命令升级到最新版： 
+
+```console
+npm update -g serverless
 ```
 
 ####  配置
@@ -19,64 +27,61 @@ $ npm install -g serverless
 本地创建 `serverless.yml` 文件，在其中进行如下配置：
 
 ```console
-$ touch serverless.yml
+touch serverless.yml
 ```
 
 ```yml
 # serverless.yml
 
-myBucket:
-  component: '@serverless/tencent-cos'
-  inputs:
-    bucket: my-bucket
-    region: ap-guangzhou
+org: orgDemo
+app: appDemo
+stage: dev
+component: cos
+name: cosDemo
+
+inputs:
+  bucket: my-bucket
+  region: ap-guangzhou
 
 ```
-[查看详细配置文档>>](https://github.com/serverless-tencent/tencent-cos/blob/master/docs/configure.md)
+[查看详细配置文档>>]( https://github.com/serverless-components/tencent-cos/blob/v2/docs/configure.md )
 
 
 #### 部署
 
-如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
+执行以下命令进行部署，返回信息如下： 
 
-通过`sls`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息：
+```console
+[root@iZh8dhuyhmexn3Z demo]# sls deploy
+
+serverless ⚡ framework
+Action: "deploy" - Stage: "dev" - App: "appDemo" - Instance: "cosDemo"
+
+region: ap-guangzhou
+bucket: my-bucket-xxxxxxx
+url:    http://my-bucket-xxxxxxx.cos.ap-guangzhou.myqcloud.com
+
+Full details: https://serverless.cloud.tencent.com/instances/appDemo%3Adev%3AcosDemo
+
+3s › cosDemo › Success
 
 ```
-$ sls --debug
 
-  DEBUG ─ Resolving the template's static variables.
-  DEBUG ─ Collecting components from the template.
-  DEBUG ─ Downloading any NPM components found in the template.
-  DEBUG ─ Analyzing the template's components dependencies.
-  DEBUG ─ Creating the template's components graph.
-  DEBUG ─ Syncing template state.
-  DEBUG ─ Executing the template's components graph.
-  DEBUG ─ Deploying "my-bucket-1300415943" bucket in the "ap-guangzhou" region.
-  DEBUG ─ "my-bucket-1300415943" bucket was successfully deployed to the "ap-guangzhou" region.
-  DEBUG ─ Setting ACL for "my-bucket-1300415943" bucket in the "ap-guangzhou" region.
-  DEBUG ─ Ensuring no CORS are set for "my-bucket-1300415943" bucket in the "ap-guangzhou" region.
-  DEBUG ─ Ensuring no Tags are set for "my-bucket-1300415943" bucket in the "ap-guangzhou" region.
-
-  myBucket: 
-    bucket: my-bucket-1300415943
-    region: ap-guangzhou
-
-  10s › myBucket › done
-```
+>?
+>
+>- 微信扫码授权部署有过期时间，如果想要持久授权，请参考[账号配置](#账号配置（可选）)。
 
 #### 移除
 
-通过以下命令移除部署的存储桶：
+执行`sls remove`命令移除部署的存储桶，返回信息如下：
 
 ```
-$ sls remove --debug
+[root@iZh8dhuyhmexn3Z demo]# sls remove
 
-  DEBUG ─ Flushing template state and removing all components.
-  DEBUG ─ Removing files from the "my-bucket-1300415943" bucket.
-  DEBUG ─ Removing "my-bucket-1300415943" bucket from the "ap-guangzhou" region.
-  DEBUG ─ "my-bucket-1300415943" bucket was successfully removed from the "ap-guangzhou" region.
+serverless ⚡ framework
+Action: "remove" - Stage: "dev" - App: "appDemo" - Instance: "cosDemo"
 
-  2s › myBucket › done
+3s › cosDemo › Success
 ```
 
 
@@ -85,7 +90,7 @@ $ sls remove --debug
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建 `.env` 文件：
 
 ```console
-$ touch .env # 腾讯云的配置信息
+touch .env # 腾讯云的配置信息
 ```
 
 在 `.env` 文件中配置腾讯云的 SecretId 和 SecretKey 信息并保存。
@@ -96,5 +101,4 @@ TENCENT_SECRET_KEY=123
 ```
 >?
 > - 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
-> - 如果已有腾讯云账号，可以在 [API密钥管理
-](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
+> - 如果已有腾讯云账号，可以在 [API密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
