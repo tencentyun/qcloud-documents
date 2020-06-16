@@ -2,9 +2,6 @@
 
 本文主要进行腾讯云容器服务 TKE 与原生 Kubernetes 名词对照。如下表：
 
-
-本文主要进行腾讯云容器服务 TKE 与原生 Kubernetes 名词对照。如下表：
-
 <table>
 <thead>
 <tr>
