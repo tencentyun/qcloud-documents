@@ -32,9 +32,8 @@
   authParams.put("secretId", "***********************************************");
   authParams.put("secretKey", "***********************************************");
   authParams.put("region", "ap-guangzhou");//地域信息
-  authParams.put("apiUrl", "");//腾讯云CAM地址
   PulsarClient client = PulsarClient.builder().authenticationCloud(
-           "com.tencent.tdmq.client.impl.auth.AuthenticationCloudCam", authParams)
+           "org.apache.pulsar.client.impl.auth.AuthenticationCloudCam", authParams)
            .serviceUrl("pulsar://tdmq.åtencentcloud.example.com:6650").build();
 ```
 #### 使用多个 broker 的访问方式，broker 之间用逗号隔开
@@ -44,12 +43,21 @@
   authParams.put("secretId", "***********************************************");
   authParams.put("secretKey", "***********************************************");
   authParams.put("region", "ap-guangzhou");//地域信息
-  authParams.put("apiUrl", "");//腾讯云CAM地址
   PulsarClient client = PulsarClient.builder().authenticationCloud(
-           "com.tencent.tdmq.client.impl.auth.AuthenticationCloudCam", authParams)
+           "org.apache.pulsar.client.impl.auth.AuthenticationCloudCam", authParams)
            .serviceUrl("pulsar://host1:6650,host2:6650").build();
 ```
-
+#### 根据不同的网络环境，自定义netModelKey访问
+```java
+  Map<String, String> authParams = new HashMap<>();
+  authParams.put("secretId", "***********************************************");
+  authParams.put("secretKey", "***********************************************");
+  authParams.put("region", "ap-guangzhou");//地域信息
+  PulsarClient client = PulsarClient.builder().authenticationCloud(
+           "org.apache.pulsar.client.impl.auth.AuthenticationCloudCam", authParams)
+           .netModelKey("customNetModelKey")#管理台上显示的routeid
+           .serviceUrl("pulsar://host1:6650,host2:6650").build();
+ ```
 ### 生产消息
 创建好 Client 之后，通过创建一个 Producer，就可以生产消息到指定的 Topic 中。
 ```java
