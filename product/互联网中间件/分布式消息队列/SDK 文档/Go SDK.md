@@ -41,10 +41,9 @@ Demo 基础的版本，只需要成功启动了 pulsar 的集群即可，无需�
 
 则 Go 版本的 SDK Demo 运行成功。
 
-### 配置CAM认证
+### 配置 CAM 认证
 
-配置CAM认证方式访问TDMQ的集群需要在创建Client的时候配置AuthCloud参数，CAM认证的配置方式示例如下，需要正确配置需要的参数：
-
+配置 CAM 认证方式访问 TDMQ 的集群需要在创建 Client 的时候配置 AuthCloud 参数，CAM 认证的配置方式示例如下，需要正确配置需要的参数：
 ```go 
 authParams := make(map[string]string)
 authParams["secretId"] = "AKxxxxxxxxxxCx"
@@ -62,10 +61,9 @@ if err != nil {
 defer client.Close()
 ```
 
-配置完成之后，就可以正常创建生产者和消费者来使用我们的TDMQ了，创建的方式如下所示：
-
+配置完成之后，即可正常创建生产者和消费者来使用 TDMQ 服务，创建的方式如下所示：
 ```go
-//创建Producer
+//创建 Producer
 producer, err := client.CreateProducer(pulsar.ProducerOptions{
 	DisableBatching: true,
 	Topic:           "persistent://xx/xx/topic1",
@@ -75,7 +73,7 @@ if err != nil {
 }
 defer producer.Close()
 
-//创建Consumer
+//创建 Consumer
 consumer, err := client.Subscribe(pulsar.ConsumerOptions{
 	Topics:           []string{"topic-1", "topic-2"},
 	SubscriptionName: "my-sub",
