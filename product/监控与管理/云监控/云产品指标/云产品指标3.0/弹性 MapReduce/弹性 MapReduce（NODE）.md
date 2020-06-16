@@ -142,44 +142,53 @@ Namespace=QCE/TXMR_NODE
 | Instances.N.Dimensions.1.Name  | host4nodememory     | EMR  实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4nodememory     |
 | Instances.N.Dimensions.1.Name  | host4nodememory     | EMR  实例中具体节点 IP        | 输入具体节点  IP ，例如：1.1.1.1             |
 | Instances.N.Dimensions.0.Name  | id4nodenetwork      | EMR  实例 ID 的维度名称       | 输入 String 类型维度名称： id4nodenetwork    |
-| Instances.N.Dimensions.0.Value | id4nodenetwork      | EMR  实例具体 ID              | 输入具体实例  ID，例如：emr-abcdef88         |
-| Instances.N.Dimensions.1.Name  | host4nodenetwork    | EMR  实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4nodenetwork    |
-| Instances.N.Dimensions.1.Name  | host4nodenetwork    | EMR  实例中具体节点 IP        | 输入具体节点  IP ，例如：1.1.1.1             |
-| Instances.N.Dimensions.0.Name  | id4nodefilehandle   | EMR  实例 ID 的维度名称       | 输入 String 类型维度名称：id4nodefilehandle  |
-| Instances.N.Dimensions.0.Value | id4nodefilehandle   | EMR  实例具体 ID              | 输入具体实例  ID，例如：emr-abcdef88         |
-| Instances.N.Dimensions.1.Name  | host4nodefilehandle | EMR  实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4nodefilehandle |
-| Instances.N.Dimensions.1.Name  | host4nodefilehandle | EMR  实例中具体节点 IP        | 输入具体节点  IP ，例如：1.1.1.1             |
-| Instances.N.Dimensions.0.Name  | id4nodeprocess      | EMR  实例 ID 的维度名称       | 输入 String 类型维度名称： id4nodeprocess    |
-| Instances.N.Dimensions.0.Value | id4nodeprocess      | EMR  实例具体 ID              | 输入具体实例  ID，例如：emr-abcdef88         |
-| Instances.N.Dimensions.1.Name  | host4nodeprocess    | EMR  实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4nodeprocess    |
-| Instances.N.Dimensions.1.Name  | host4nodeprocess    | EMR  实例中具体节点 IP        | 输入具体节点  IP ，例如：1.1.1.1             |
+| Instances.N.Dimensions.0.Value | id4nodenetwork      | EMR  实例具体 ID              | 输入具体实例 ID，例如：emr-abcdef88         |
+| Instances.N.Dimensions.1.Name  | host4nodenetwork    | EMR 实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4nodenetwork    |
+| Instances.N.Dimensions.1.Name  | host4nodenetwork    | EMR 实例中具体节点 IP        | 输入具体节点  IP ，例如：1.1.1.1             |
+| Instances.N.Dimensions.0.Name  | id4nodefilehandle   | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4nodefilehandle  |
+| Instances.N.Dimensions.0.Value | id4nodefilehandle   | EMR 实例具体 ID              | 输入具体实例  ID，例如：emr-abcdef88         |
+| Instances.N.Dimensions.1.Name  | host4nodefilehandle | EMR 实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4nodefilehandle |
+| Instances.N.Dimensions.1.Name  | host4nodefilehandle | EMR 实例中具体节点 IP        | 输入具体节点  IP ，例如：1.1.1.1             |
+| Instances.N.Dimensions.0.Name  | id4nodeprocess      | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称： id4nodeprocess    |
+| Instances.N.Dimensions.0.Value | id4nodeprocess      | EMR 实例具体 ID              | 输入具体实例  ID，例如：emr-abcdef88         |
+| Instances.N.Dimensions.1.Name  | host4nodeprocess    | EMR 实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4nodeprocess    |
+| Instances.N.Dimensions.1.Name  | host4nodeprocess    | EMR 实例中具体节点 IP        | 输入具体节点  IP ，例如：1.1.1.1             |
 
 ## 入参说明
 
 弹性 MapReduce（NODE）支持以下五种维度组合的查询方式，五种入参取值如下： 
 
-**1.查询  主机-CPU  的指标监控数据，入参取值如下：**<br>&Namespace=QCE/TXMR_NODE<br>
-&Instances.N.Dimensions.0.Name=id4nodecpu<br>
-&Instances.N.Dimensions.0.Value为 EMR 实例ID <br>&Instances.N.Dimensions.1.Name= host4nodecpu<br>
-&Instances.N.Dimensions.1.Value EMR实例中具体节点IP <br>
+**1. 查询主机-CPU  的指标监控数据，入参取值如下：**
+&Namespace=QCE/TXMR_NODE
+&Instances.N.Dimensions.0.Name=id4nodecpu
+&Instances.N.Dimensions.0.Value=EMR 实例 ID 
+&Instances.N.Dimensions.1.Name=host4nodecpu
+&Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP
 
-**2.查询 主机-内存 的指标监控数据，入参取值如下：**<br>&Namespace=QCE/TXMR_NODE<br>
-&Instances.N.Dimensions.0.Name=id4nodememory<br>
-&Instances.N.Dimensions.0.Value为 EMR 实例ID <br>
-&Instances.N.Dimensions.1.Name= host4nodememory<br>
-&Instances.N.Dimensions.1.Value EMR实例中具体节点IP <br>
+**2. 查询主机-内存 的指标监控数据，入参取值如下：**
+&Namespace=QCE/TXMR_NODE
+&Instances.N.Dimensions.0.Name=id4nodememory
+&Instances.N.Dimensions.0.Value=EMR 实例 ID
+&Instances.N.Dimensions.1.Name=host4nodememory
+&Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP 
 
-**3.查询  主机-网络的指标监控数据，入参取值如下：**<br>&Namespace=QCE/TXMR_NODE<br>
-&Instances.N.Dimensions.0.Name= id4nodenetwork<br>
-&Instances.N.Dimensions.0.Value为 EMR 实例ID <br>&Instances.N.Dimensions.1.Name= host4nodenetwork<br>
-&Instances.N.Dimensions.1.Value EMR实例中具体节点IP <br>
+**3. 查询主机-网络的指标监控数据，入参取值如下：**
+&Namespace=QCE/TXMR_NODE
+&Instances.N.Dimensions.0.Name=id4nodenetwork
+&Instances.N.Dimensions.0.Value=EMR 实例 ID 
+&Instances.N.Dimensions.1.Name=host4nodenetwork
+&Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP
 
-**4.查询  主机- Filehandle  的指标监控数据，入参取值如下：**<br>&Namespace=QCE/TXMR_NODE<br>
-&Instances.N.Dimensions.0.Name=id4nodefilehandle<br>
-&Instances.N.Dimensions.0.Value为 EMR 实例ID <br>&Instances.N.Dimensions.1.Name= host4nodefilehandle<br>
-&Instances.N.Dimensions.1.Value EMR实例中具体节点IP <br>
+**4. 查询主机-Filehandle  的指标监控数据，入参取值如下：**
+&Namespace=QCE/TXMR_NODE
+&Instances.N.Dimensions.0.Name=id4nodefilehandle
+&Instances.N.Dimensions.0.Value=EMR 实例 ID 
+&Instances.N.Dimensions.1.Name=host4nodefilehandle
+&Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP
 
-**5.查询  主机—PROCESS  的指标监控数据，入参取值如下：**<br>&Namespace=QCE/TXMR_NODE<br>
-&Instances.N.Dimensions.0.Name= id4nodeprocess<br>
-&Instances.N.Dimensions.0.Value为 EMR 实例ID <br>&Instances.N.Dimensions.1.Name= host4nodeprocess<br>
-&Instances.N.Dimensions.1.Value EMR实例中具体节点IP <br>
+**5. 查询主机-PROCESS  的指标监控数据，入参取值如下：**
+&Namespace=QCE/TXMR_NODE
+&Instances.N.Dimensions.0.Name= id4nodeprocess
+&Instances.N.Dimensions.0.Value=EMR 实例 ID 
+&Instances.N.Dimensions.1.Name=host4nodeprocess
+&Instances.N.Dimensions.1.Value=EMR 实例中具体节点 IP
