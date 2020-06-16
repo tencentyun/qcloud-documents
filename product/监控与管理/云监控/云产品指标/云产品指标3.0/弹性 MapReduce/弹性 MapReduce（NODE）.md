@@ -45,17 +45,17 @@ Namespace=QCE/TXMR_NODE
 
 | 指标英文名                                    | 指标中文名                           | 单位     | 指标含义                                                     | 维度                                  |
 | --------------------------------------------- | ------------------------------------ | -------- | ------------------------------------------------------------ | ------------------------------------- |
-| NodeNetworkTcp<br>ListenExtListendrops        | TCPLISTEN 异常_ListenDrops            | 次/s     | 任何原因导致的丢弃传入连接（SYN 包）的次数                   | host4nodenetwork、<br>id4nodenetwork  |
-| NodeNetworkTcpListen<br>ExtListenoverflows    | TCPLISTEN 异常_ListenOverflows        | 次/s     | 三次握手最后一步完成之后，Accept 队列超过上限的次数          | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkTcpSyncookies<br>Syncookiesfailed  | TCPSyncookies_SyncookiesFailed       | 次/s     | 收到携带无效 SYN Cookie 信息的包的个数                       | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkTcpSyncookies<br>Syncookiesrecv    | TCPSyncookies_SyncookiesRecv         | 次/s     | 收到携带有效 SYN Cookie 信息的包的个数                       | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkTcpSyncookies<br>Syncookiessent    | TCPSyncookies_SyncookiesSent         | 次/s     | 使用 SYN Cookie 发送的 SYN/ACK 包个数                        | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkTcpAbort<br>Tcpabortontimeout      | TCP 链接异常Abort_TCPAbortOnTimeout   | 次/s     | 因各种计时器（RTO/PTO/keepalive）的重传次数超过上限而关闭连接的 | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkTcpAbort<br>Tcpabortondata         | TCP 链接异常Abort_TCPAbortOnData      | 次/s     | socket 收到未知数据导致被关闭的次数                          | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkTcpAbort<br>Tcpabortonclose        | TCP 链接异常Abort_TCPAbortOnClose     | 次/s     | 用户态程序在缓冲区内还有数据时关闭 socket 的次数             | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkTcpAbort<br>Tcpabortonmemory       | TCP 链接异常Abort_TCPAbortOnMemory    | 次/s     | 因内存问题关闭连接的次数                                     | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkTcpAbort<br>Tcpabortonlinger       | TCP 链接异常Abort_TCPAbortOnLinger    | 次/s     | 关闭后，在徘徊状态中止的连接的次数                           | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkTcpAbort<br>Tcpabortfailed         | TCP 链接异常Abort_TCPAbortFailed      | 次/s     | 尝试结束连接失败的次数                                       | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcp<br>ListenExtListendrops        | TCPLISTEN<br> 异常_ListenDrops            | 次/s     | 任何原因导致的丢弃传入连接（SYN 包）的次数                   | host4nodenetwork、<br>id4nodenetwork  |
+| NodeNetworkTcpListen<br>ExtListenoverflows    | TCPLISTEN<br> 异常_ListenOverflows        | 次/s     | 三次握手最后一步完成之后，Accept 队列超过上限的次数          | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcpSyncookies<br>Syncookiesfailed  | TCPSyncookies_Syncook<br>iesFailed       | 次/s     | 收到携带无效 SYN Cookie 信息的包的个数                       | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcpSyncookies<br>Syncookiesrecv    | TCPSyncookies_Syncook<br>iesRecv         | 次/s     | 收到携带有效 SYN Cookie 信息的包的个数                       | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcpSyncookies<br>Syncookiessent    | TCPSyncookies_Syncook<br>iesSent         | 次/s     | 使用 SYN Cookie 发送的 SYN/ACK 包个数                        | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcpAbort<br>Tcpabortontimeout      | TCP 链接异常 Abort_TCPAbort<br>OnTimeout   | 次/s     | 因各种计时器（RTO/PTO/keepalive）的重传次数超过上限而关闭连接的 | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcpAbort<br>Tcpabortondata         | TCP 链接异常 Abort_TCPAbort<br>OnData      | 次/s     | socket 收到未知数据导致被关闭的次数                          | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcpAbort<br>Tcpabortonclose        | TCP 链接异常 Abort_TCPAbort<br>OnClose     | 次/s     | 用户态程序在缓冲区内还有数据时关闭 socket 的次数             | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcpAbort<br>Tcpabortonmemory       | TCP 链接异常 Abort_TCPAbort<br>OnMemory    | 次/s     | 因内存问题关闭连接的次数                                     | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcpAbort<br>Tcpabortonlinger       | TCP 链接异常 Abort_TCPAbort<br>OnLinger    | 次/s     | 关闭后，在徘徊状态中止的连接的次数                           | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcpAbort<br>Tcpabortfailed         | TCP 链接异常 Abort_TCPAbortFailed      | 次/s     | 尝试结束连接失败的次数                                       | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkTcpState<br>Activeopens            | TCP 建立链接_ActiveOpens              | 个/s     | 主动建立 TCP 连接数量                                        | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkTcp<br>StateCurrestab              | TCP 建立链接_CurrEstab                | 个/s     | 当前已建立 TCP 连接数量                                      | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkTcpState<br>Passiveopens           | TCP 建立链接_PassiveOpens             | 个/s     | 被动建立 TCP 连接数量                                        | host4nodenetwork、<br/>id4nodenetwork |
@@ -75,28 +75,28 @@ Namespace=QCE/TXMR_NODE
 | NodeNetworkTcpRtoStat<br>Tcptimeouts          | TCPRTO_TCPTimeouts                   | 次/s     | RTO timer 第一次超时次数                                     | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkTcpRtoStat<br>Tcpspuriousrtos      | TCPRTO_TCPSpuriousRTOs               | 次/s     | 通过 F-RTO 机制发现的虚假超时次数                            | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkTcpRtoStat<br>Tcplossprobes        | TCPRTO_TCPLossProbes                 | 次/s     | Probe Timeout(PTO) 导致发送 Tail Loss Probe(TLP) 包的次数    | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkTcpRtoStat<br>Tcplossproberecovery | TCPRTO_TCPLossProbeRecovery          | 次/s     | 丢失包刚好被 TLP 探测包修复的次数                            | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkTcpRtoStat<br>Tcprenorecoveryfail  | TCPRTO_TCPRenoRecoveryFail           | 次/s     | 先进入 Recovery 阶段，然后又 RTO 的次数，对端不支持 SACK 选项 | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkTcpRtoStat<br>Tcprenorecoveryfail  | TCPRTO_TCPRenoRecoveryFail           | 次/s     | 先进入 Recovery 阶段，然后又 RTO 的次数，对端支持 SACK 选项  | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkTcpRtoStat<br>Tcprenofailures      | TCPRTO_TCPRenoFailures               | 次/s     | 先进 TCP_CA_Disorder 阶段，然后又 RTO 超时的次数，对端不支持 SACK 选项 | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkTcpRtoStat<br>Tcpsackfailures      | TCPRTO_TCPSackFailures               | 次/s     | 先进 TCP_CA_Disorder 阶段，然后又 RTO 超时的次数，对端支持 SACK 选项 | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkTcp<br>RtoStatTcplossfailures      | TCPRTO_TCPLossFailures               | 次/s     | 先进 TCP_CA_Loss 阶段，然后又 RTO 超时的次数                 | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcpRtoStat<br>Tcplossproberecovery | TCPRTO_TCPLossProbe<br>Recovery          | 次/s     | 丢失包刚好被 TLP 探测包修复的次数                            | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcpRtoStat<br>Tcprenorecoveryfail  | TCPRTO_TCPReno<br>RecoveryFail           | 次/s     | 先进入 Recovery 阶段，然后又 RTO 的次数，对端不支持 SACK 选项 | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcpRtoStat<br>Tcprenorecoveryfail  | TCPRTO_TCPReno<br>RecoveryFail           | 次/s     | 先进入 Recovery 阶段，然后又 RTO 的次数，对端支持 SACK 选项  | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcpRtoStat<br>Tcprenofailures      | TCPRTO_TCPReno<br>Failures               | 次/s     | 先进 TCP_CA_Disorder 阶段，然后又 RTO 超时的次数，对端不支持 SACK 选项 | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcpRtoStat<br>Tcpsackfailures      | TCPRTO_TCPSack<br>Failures               | 次/s     | 先进 TCP_CA_Disorder 阶段，然后又 RTO 超时的次数，对端支持 SACK 选项 | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcp<br>RtoStatTcplossfailures      | TCPRTO_TCPLoss<br>Failures               | 次/s     | 先进 TCP_CA_Loss 阶段，然后又 RTO 超时的次数                 | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkTcpRto<br>ConstRtoalgorithm        | TCPRTO 常数_RtoAlgorithm              | 1/s      | 转发未答复对象的延时的算法的数                               | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkTcp<br>RtoConstRtomax              | TCPRTO 常数_RtoMax                    | 1/s      | TCP 延迟重发的最大值                                         | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkTcp<br>RtoConstRtomin              | TCPRTO 常数_RtoMin                    | 1/s      | TCP 延迟重发的最小值                                         | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkTcpRetrans<br>Tcplostretransmit    | TCP 重传_TCPLostRetransmit            | 次/s     | 丢失重传 SKB 的次数                                          | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkTcpRetrans<br>Tcpfastretrans       | TCP 重传_TCPFastRetrans               | 次/s     | 快重传 SKB 次数                                              | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkTcpRetrans<br>Tcpforwardretrans    | TCP 重传_TCPForwardRetrans            | 次/s     | 一般重传 SKB 次数                                            | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkTcpRetrans<br>Tcpslowstartretrans  | TCP 重传_TCPSlowStartRetrans          | 次/s     | 成功慢启动重传 SKB 数量                                      | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcpRetrans<br>Tcplostretransmit    | TCP 重传_TCPLost<br>Retransmit            | 次/s     | 丢失重传 SKB 的次数                                          | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcpRetrans<br>Tcpfastretrans       | TCP 重传_TCPFast<br>Retrans               | 次/s     | 快重传 SKB 次数                                              | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcpRetrans<br>Tcpforwardretrans    | TCP 重传_TCPForward<br>Retrans            | 次/s     | 一般重传 SKB 次数                                            | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcpRetrans<br>Tcpslowstartretrans  | TCP 重传_TCPSlowStart<br>Retrans          | 次/s     | 成功慢启动重传 SKB 数量                                      | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkTcpRetrans<br>Tcpretransfail       | TCP 重传_TCPRetransFail               | 次/s     | 尝试重传失败次数                                             | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkUdp<br>DgIndatagrams               | UDP 数据报_InDatagrams                | 个/s     | 发送 UDP 数据报文数量                                        | host4nodenetwork、<br/>id4nodenetwork |
 | INodeNetworkUdpDg<br>Outdatagrams             | UDP 数据报_OutDatagrams               | 个/s     | 接收 UDP 数据报文数量                                        | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkRwBytes<br>Eth0TransmitBytes       | 网卡收发数据速率\_eth0-transmit_bytes | MB/s     | 网卡发送数据量                                               | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkPackets<br>Eth0ReceiveDrop         | 网卡数据包率\_eth0-receive_drop       | packet/s | 网卡接收丢弃数据量                                           | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkPackets<br>Eth0ReceiveErrs         | 网卡数据包率\_eth0-receive_errs       | packet/s | 网卡接收异常数量                                             | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkPackets<br>Eth0TransmitDrop        | 网卡数据包率\_eth0-transmit_drop      | packet/s | 网卡发送丢弃数据量                                           | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkPackets<br>Eth0TransmitErrs        | 网卡数据包率\_eth0-transmit_errs      | packet/s | 网卡发送异常数据量                                           | host4nodenetwork、<br/>id4nodenetwork |
-| NodeNetworkPackets<br>Eth0TransmitPackets     | 网卡数据包率\_eth0_transmit_packets   | packet/s | 网卡发送包数量                                               | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkRwBytes<br>Eth0TransmitBytes       | 网卡收发数据速率<br>\_eth0-transmit_bytes | MB/s     | 网卡发送数据量                                               | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkPackets<br>Eth0ReceiveDrop         | 网卡数据包率<br>\_eth0-receive_drop       | packet/s | 网卡接收丢弃数据量                                           | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkPackets<br>Eth0ReceiveErrs         | 网卡数据包率<br>\_eth0-receive_errs       | packet/s | 网卡接收异常数量                                             | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkPackets<br>Eth0TransmitDrop        | 网卡数据包率<br>\_eth0-transmit_drop      | packet/s | 网卡发送丢弃数据量                                           | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkPackets<br>Eth0TransmitErrs        | 网卡数据包率<br>\_eth0-transmit_errs      | packet/s | 网卡发送异常数据量                                           | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkPackets<br>Eth0TransmitPackets     | 网卡数据包率<br>\_eth0_transmit_packets   | packet/s | 网卡发送包数量                                               | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkTcp<br>SocketTcpInuse              | TCP 套接字\_TCP_inuse                  | 个       | 在使用（正在侦听）的 TCP 套接字数量                          | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkTcp<br>SocketTcpOrphan             | TCP套接字\_TCP_orphan                 | 个       | 等待关闭的 TCP 连接数                                        | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetwork<br>TcpSocketTcpTw                 | TCP 套接字\_TCP_tw                     | 个       | 待销毁的 TCP socket 数                                       | host4nodenetwork、<br/>id4nodenetwork |
