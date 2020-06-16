@@ -22,6 +22,8 @@ TRTC 6.3 版本开始已提供 arm64-v8a 架构 ABI 支持。
 ### 在 iOS 端是否支持 Swift 集成？
 支持，直接按照支持集成三方库的流程集成 SDK 即可，还可以参考 [跑通Demo(iOS&Mac)](https://cloud.tencent.com/document/product/647/32396)。
 
+### iOS端 SDK 与其它三方库冲突报错问题该如何解决？
+详情请参见 [iOS 端 TXLiteAVSDK 与其它三方库冲突报错问题](https://cloud.tencent.com/developer/article/1499740)。
 
 ### TRTC SDK 是否支持 iOS 后台运行？
 支持，您只需选中当前工程项目，在 **Capabilities** 下的设置  **Background Modes** 为 **ON**，并勾选 **Audio，AirPlay and Picture in Picture**即可实现后台运行，详情如下图所示：
