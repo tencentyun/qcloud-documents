@@ -47,7 +47,7 @@
 > ? 请根据实际情况替换以下参数：
 > - `{{REGION}}`：KMS 密钥所在地域，有效值可取： `ap-beijing`、`ap-guangzhou`、`ap-shanghai`。
 > - `{{KEY_ID}}`：输入 [创建 KMS 密钥并获取 ID](#createKMS) 步骤中所获取的 KMS 密钥 ID。
-> - `{{SECRET_ID}}` and `{{SECRET_KEY}}`：输入 [创建并获取访问密钥](#createCAM) 步骤中创建的 SecretID and SecretKey。
+> - `{{SECRET_ID}}` 和 `{{SECRET_KEY}}`：输入 [创建并获取访问密钥](#createCAM) 步骤中创建的 SecretID 和 SecretKey。
 > - `images: ccr.ccs.tencentyun.com/tke-plugin/tke-kms-plugin:1.0.0`：tke-kms-plugin 镜像地址。当您需要使用自己制作的 tke-kms-plugin 镜像时，可自行进行更换。
 > 
 ```
