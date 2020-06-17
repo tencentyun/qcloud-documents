@@ -90,7 +90,7 @@
 <td>HPA</td>
 </tr>
 <tr>
-<td>虚拟集群IP</td>
+<td>虚拟集群 IP</td>
 <td>Cluster IP</td>
 </tr>
 <tr>
