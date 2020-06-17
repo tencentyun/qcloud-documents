@@ -11,7 +11,7 @@
 已创建符合以下条件的容器服务**独立集群**：
 - Kubernetes 版本为1.10.0及以上。
 - Etcd 版本为3.0及以上。
->?如需检查版本，可登录节点并执行 `kubectl version` 命令进行查看。
+>?如需检查版本，可前往  “[集群管理](https://console.cloud.tencent.com/tke2/cluster)” 页面，选择集群 ID 并进入集群“基本信息”页面进行查看。
 
 
 ## 操作步骤
