@@ -29,8 +29,7 @@ Hadoop-COS 上传可选择 buffer 类型，使用 fs.cosn.upload.buffer 参数�
 **解决办法**
 为当前用户赋予 /tmp/hadoop_cos 或者 fs.cosn.tmp.dir 指定的临时文件目录赋予读写权限。
 
-### 加载的时候提示没有找到类 CosFileSystem？
-提示：Error: java.lang.RuntimeException: java.lang.ClassNotFoundException: Class org.apache.hadoop.fs.CosFileSystem not found
+### 加载的时候提示没有找到类 CosFileSystem？提示 Error: java.lang.RuntimeException: java.lang.ClassNotFoundException: Class org.apache.hadoop.fs.CosFileSystem not found。
 
 **可能原因**
 配置已经正确加载，但是 hadoop classpath 没有包含 Hadoop-COS jar 包位置。
@@ -42,16 +41,29 @@ Hadoop-COS 上传可选择 buffer 类型，使用 fs.cosn.upload.buffer 参数�
 ### 在使用官方 Hadoop 的时候提示没有找到类 CosFileSystem？
 
 Hadoop-COS 维护了官方 Hadoop 版本和 Hadoop-COS 版本，对应的 fs.cosn.impl 和 fs.AbstractFileSystem.cosn.impl 配置不同。
- - 官方 Hadoop 配置：
+- 官方 Hadoop 配置：
 ```xml
-fs.cosn.impl:  org.apache.hadoop.fs.cosn.CosNFileSystem
-fs.AbstractFileSystem.cosn.impl:  org.apache.hadoop.fs.cosn.CosN
+<property>
+        <name>fs.cosn.impl</name>
+        <value>org.apache.hadoop.fs.cosn.CosNFileSystem</value>
+</property>
+<property>
+        <name>fs.AbstractFileSystem.cosn.impl</name>
+        <value>org.apache.hadoop.fs.cosn.CosN</value>
+</property>
 ```
- - tencent cos 配置：
- ```xml
-fs.cosn.impl: org.apache.hadoop.fs.CosFileSystem
-fs.AbstractFileSystem.cosn.impl:  org.apache.hadoop.fs.CosN
+- tencent cos 配置：
+```xml
+<property>
+        <name>fs.cosn.impl</name>
+        <value>org.apache.hadoop.fs.CosFileSystem</value>
+</property>
+<property>
+        <name>fs.AbstractFileSystem.cosn.impl</name>
+        <value>org.apache.hadoop.fs.CosN</value>
+</property>
 ```
+
 
 ### 在执行计算任务过程中抛出异常信息 java.net.ConnectException: Cannot assign requested address (connect failed) (state=42000,code=40000)，该如何处理？
 
@@ -82,8 +94,14 @@ net.ipv4.tcp_max_tw_buckets = 10240          #TIME_WAIT 状态 Socket 的数量�
 
 可以更改如下配置：
 ```xml
-fs.cosn.upload.buffer: mapped_disk
-fs.cosn.upload.buffer.size: -1
+<property>
+        <name>fs.cosn.upload.buffer</name>
+        <value>mapped_disk</value>
+</property>
+<property>
+        <name>fs.cosn.upload.buffer.size</name>
+        <value>-1</value>
+</property>
 ```
 
 ### 自建 Hadoop 如何使用 Hadoop-COS jar 包？

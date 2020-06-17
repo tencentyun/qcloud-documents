@@ -55,7 +55,7 @@
 
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击目标应用卡片。
 2. 在左侧导航栏选择【群组管理】，单击【添加群组】。
-3. 输入群名称，选填群主 ID，选择【群类型】为【互动直播聊天室】。
+3. 输入群名称，选填群主 ID，选择【群类型】为【直播群】。
 4. 单击【确定】，待群组创建成功后，记录其【群ID】（本文以`@TGS#aC72FIKG3`为例）。
 
 
@@ -252,14 +252,15 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 
 ## 常见问题
 
-### 1. 自己发送的消息 `Message.nick` 和 `Message.nick` 都是空的，该怎么处理才能在界面上正常展示昵称和头像？
+### 1. 自己发送的消息 `Message.nick` 和 `Message.avatar` 都是空的，该怎么处理才能在界面上正常展示昵称和头像？
 
 可以通过调用 [getMyProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getMyProfile) 获取自己的昵称和头像。
 
 ### 2. 有没有开源的直播组件，可以直接看视频和聊天互动？
 
 有的，且代码开源，详情请参考 [腾讯云 Web 直播互动组件](https://github.com/tencentyun/TWebLive)。
-
+您也可以直接扫码体验腾讯云 Web 直播互动组件：
+![](https://main.qcloudimg.com/raw/7ebc3e270add5ec6d62f6f8972c61249.png)
 
 
 
