@@ -9,8 +9,8 @@
 
 ## 前提条件
 已创建符合以下条件的容器服务**独立集群**：
-- Kubernetes 版本为 1.10.0 及以上。
-- Etcd 版本为 3.0 及以上。
+- Kubernetes 版本为1.10.0及以上。
+- Etcd 版本为3.0及以上。
 >?如需检查版本，可登录节点并执行 `kubectl version` 命令进行查看。
 
 
@@ -18,7 +18,7 @@
 
 ### 创建 KMS 密钥并获取 ID<span id="createKMS"></span>
 
-1. 登录 [密钥管理系统（合规）](https://console.cloud.tencent.com/kms2)控制台，进入“用户密钥”页面。
+1. 登录 [密钥管理系统（合规）](https://console.cloud.tencent.com/kms2) 控制台，进入“用户密钥”页面。
 2. 在“用户密钥”页面上方，选择需要创建密钥的区域并单击【新建】。
 3. 在弹出的“新建密钥”窗口，参考以下信息进行配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/2082bac6e37c381f6d14e1717fa6e401.png)
