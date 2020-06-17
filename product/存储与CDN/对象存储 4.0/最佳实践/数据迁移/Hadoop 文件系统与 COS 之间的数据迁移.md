@@ -47,7 +47,7 @@ hadoop distcp cosn://hdfs-test-1250000000/test hdfs://10.0.0.3:9000/
 >?该命令行配置支持双向操作，可支持 HDFS 数据迁移到 COS，也可以将 COS 数据迁移到 HDFS。
 
 用户可直接配置以下命令：
-```
+```plaintext
 hadoop distcp -Dfs.cosn.impl=org.apache.hadoop.fs.CosFileSystem -Dfs.cosn.bucket.region=ap-XXX  -Dfs.cosn.userinfo.secretId=AK**XXX  -Dfs.cosn.userinfo.secretKey=XXXX  -libjars /home/hadoop/hadoop-cos-2.6.5-shaded.jar  cosn://bucketname-appid/test/ hdfs:///test/
 ```
 
