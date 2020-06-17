@@ -101,7 +101,7 @@ find data -type d -exec chmod 770 {} \;
         常用口语（Iamagoodboy）
 4. 使用以下命令检查主机有哪些端口开放，关闭非业务端口。
 ```
-netstat -anltp
+netstat -antp
 ```
 5. 通过**腾讯云-安全组防火墙**限制仅允许制定 IP 访问管理或通过编辑`/etc/hosts.deny`、`/etc/hosts.allow`两个文件来限制 IP。
 6. 应用程序尽量不使用 **root** 权限。
