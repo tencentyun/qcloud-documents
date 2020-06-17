@@ -3,7 +3,7 @@
 
 ## 前提条件
 
-- 已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于 8.6，建议使用 Node.js10.0 及以上版本。
+- 已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于 8.6，建议使用 Node.js10.0 及以上版本）。
 - 需要开通 [内容分发网络](https://console.cloud.tencent.com/cdn) 服务。
 
 ## 操作步骤
