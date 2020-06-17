@@ -14,8 +14,7 @@
 1. 检查 DNS 是否被修改，可以通过执行如下命令行进行排查： 
 	- 基础网络环境（非 VPC 服务器）：telnet s.yd.qcloud.com 5574。
 	- VPC 网络和黑石服务器环境：telnet s.yd.tencentyun.com 5574。
- 
  正常情况下返回如下图所示结果：
-	![](https://main.qcloudimg.com/raw/50e39ceadcb275a72738b235e9637b4c.png)
-
+![](https://main.qcloudimg.com/raw/50e39ceadcb275a72738b235e9637b4c.png)
 2. 防火墙策略限制，需要开放 TCP 端口：5574、8080、80、9080。
+3. 如果主机安全进程存在，且不是由于网络原因导致的客户端离线，请打包客户端日志（日志路径：`C:\Program Files\QCloud\YunJing\log`）[提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=141&level2_id=635&source=0&data_title=T-Sec-%E4%B8%BB%E6%9C%BA%E5%AE%89%E5%85%A8&level3_id=640&radio_title=%E4%B8%BB%E5%8A%A8%E6%9C%8D%E5%8A%A1&queue=3233&scene_code=30899&step=2) 进行反馈。
