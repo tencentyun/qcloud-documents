@@ -153,6 +153,8 @@ vim /etc/kubernetes/encryption-provider-config.yaml
 vi /etc/kubernetes/manifests/kube-apiserver.yaml
 ```
 6. 按 **i** 切换至编辑模式，对应实际使用的 K8s 版本，将以下内容添加至 `args`。
+>?K8s v1.10.5 版本的独立集群，需要先将 `kube-apiserver.yaml`  移出 `/etc/kubernetes/manifests` 目录，编辑完成之后再移入。
+>  
  - K8s v1.13+：
 ```
  --encryption-provider-config=/etc/kubernetes/encryption-provider-config.yaml
@@ -161,8 +163,6 @@ vi /etc/kubernetes/manifests/kube-apiserver.yaml
 ```
 --experimental-encryption-provider-config=/etc/kubernetes/encryption-provider-config.yaml
 ```
->?对于 K8s v1.10.5 版本的独立集群，需要先将 `kube-apiserver.yaml`  移出 `/etc/kubernetes/manifests` 目录，编辑完成之后再移入。
->     
 7. 为 `/var/run/tke-kms-plugin/server.sock` 添加 Volume 指令，其中添加位置及内容如下所示：
 > ?`/var/run/tke-kms-plugin/server.sock` 是 tke kms server 启动时监听的一个 unix socket，kube apiserver 会通过访问该 socket 来访问 tke kms server。
 > 
