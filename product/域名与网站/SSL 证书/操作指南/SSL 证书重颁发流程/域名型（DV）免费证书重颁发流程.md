@@ -21,10 +21,17 @@
 > - 如果私钥密码不慎遗忘，请 [工单联系](https://console.cloud.tencent.com/workorder/category) 腾讯云工程师删除该证书，然后重新申请该域名证书。
 > 
 ![](https://main.qcloudimg.com/raw/7a327a794549e0eb36d42565eee23be0.png)
-4. 查看域名身份验证方式，系统会采用该证书首次申请时的域名验证方式，请您按照原来的方式进行验证即可。
-例如，您之前申请该证书的域名验证方式为 “自动 DNS 验证”，重颁发过程则仍使用 “自动 DNS 验证”。验证方法可查看 [域名验证指引](https://cloud.tencent.com/document/product/400/4142)。
+4. 选择域名身份验证方式，并单击【确认申请】。
+>?系统会采用该证书首次申请时的域名验证方式，请您按照原来的方式进行验证即可。
+>
+例如，您之前申请该证书的域名验证方式为 “手动 DNS 验证”，重颁发过程则仍使用 “手动 DNS 验证”。如下图所示：
 ![](https://main.qcloudimg.com/raw/22fe4e45b4c936c41f563424ce798c37.png)
-5. 单击【确认申请】，提交证书重颁发申请。
+5. 单击【查看证书详情】查看重颁发证书详情。如下图所示：
+![](https://main.qcloudimg.com/raw/6f58c9a2498853af99cb21f48fedc1bc.png)
+6. 请您根据证书详情进行域名身份验证。验证方法可查看 [域名验证指引](https://cloud.tencent.com/document/product/400/4142)。如下图所示：
+>?不同验证方法提示界面不一致，请您按照指引进行操作。
+>
+![](https://main.qcloudimg.com/raw/252603897d87f052e9bb8cc3a90b3895.png)
 
 >! 证书重颁发中，该证书的重颁发功能关闭，不能再次申请重颁发。
 
