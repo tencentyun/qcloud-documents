@@ -10,7 +10,7 @@ TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和
 1. 安装 IDE
 您可以 [安装 GoLand](https://www.jetbrains.com/zh-cn/go/promo) 或其它的 Go IDE 来运行这个 Demo，本文以 Go Land 为例。
 
-2. 下载 TDMQ 的 [Demo 工程](https://github.com/apache/pulsar-client-go) 到本地。
+2. 下载 TDMQ 的 [Demo 工程](https://github.com/TencentCloud/tdmq-go-client) 到本地。
 
 ### 配置 Demo工程
 
@@ -21,23 +21,49 @@ TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和
 ![](https://main.qcloudimg.com/raw/e8d04b09e65f7781dc230180b93a5561.png)
 
 
-Demo 基础的版本，只需要成功启动了 pulsar 的集群即可，无需配置其它认证数据。
+Demo 基础的版本，只需要成功启动了 TDMQ的集群即可，无需配置其它认证数据。
 
-需要在 Producer 和 Consumer 中配置 TDMQ 的 broker 地址，如下所示：
+在 consumer.go 和producer.go文件中相关代码处配置Broker服务的地址：
 
-在 consumer.go 文件中配置，替换这部分的地址：
-![](https://main.qcloudimg.com/raw/d055c9e4e5b339c29f3da9a3dc83342d.png)
-
-在 producer.go 中也要进行类似配置：
-![](https://main.qcloudimg.com/raw/d6e35344b08612843df526cb292f28fc.png)
+```go
+client, err := pulsar.NewClient(pulsar.ClientOptions{
+	URL: "pulsar://localhost:6650",  //这里的改成Broker的服务地址
+})
+if err != nil {
+	log.Fatal(err)
+}
+defer client.Close()
+```
 
 之后先启动 consumer.go，再启动 producer.go，观察控制台消息：
 
-在 producer 的控制台可以看到消息发送成功：
-![](https://main.qcloudimg.com/raw/e021cf6b299ea35ef55c66ab2450cca3.png)
+在 producer.go运行的控制台可以看到有10条消息发送成功：
 
-在 consumer 的控制台可以看到消息被成功接收：
-![](https://main.qcloudimg.com/raw/a06c89f3d03ca28af53c14cc471d2d4e.png)
+```bash
+2020/02/20 20:20:20 Published message:  &{581 0 0 0 <nil> <nil>}
+2020/02/20 20:20:20 Published message:  &{581 1 0 0 <nil> <nil>}
+2020/02/20 20:20:20 Published message:  &{581 2 0 0 <nil> <nil>}
+2020/02/20 20:20:20 Published message:  &{581 3 0 0 <nil> <nil>}
+2020/02/20 20:20:21 Published message:  &{581 4 0 0 <nil> <nil>}
+2020/02/20 20:20:21 Published message:  &{581 5 0 0 <nil> <nil>}
+2020/02/20 20:20:21 Published message:  &{581 6 0 0 <nil> <nil>}
+2020/02/20 20:20:21 Published message:  &{581 7 0 0 <nil> <nil>}
+2020/02/20 20:20:21 Published message:  &{581 8 0 0 <nil> <nil>}
+2020/02/20 20:20:22 Published message:  &{581 9 0 0 <nil> <nil>}
+```
+
+在 consumer.go运行的控制台可以看到消息被成功接收并打印出来：
+```bash
+Received message msgId: &pulsar.messageID{ledgerID:581, entryID:0, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 0' -- topic : 'persistent://public/default/topic-1'
+
+Received message msgId: &pulsar.messageID{ledgerID:581, entryID:1, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 1' -- topic : 'persistent://public/default/topic-1'
+
+Received message msgId: &pulsar.messageID{ledgerID:581, entryID:2, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 2' -- topic : 'persistent://public/default/topic-1'
+
+Received message msgId: &pulsar.messageID{ledgerID:581, entryID:3, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 3' -- topic : 'persistent://public/default/topic-1'
+
+...//后续省略
+```
 
 则 Go 版本的 SDK Demo 运行成功。
 
