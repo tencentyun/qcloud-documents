@@ -42,4 +42,16 @@ CAM 中可对日志资源进行授权的操作名称（action）如下：
 | listConsumerGroup         | 获取消费组列表                 |
 | modifyConsumerGroupCursor | 修改消费组游标                 |
 | listPartitions            | 获取主题分区列表               |
+| CreateChart               | 创建图表                       |
+| ModifyChart               | 修改图表                       |
+| DeleteChart               | 删除图表                       |
+| GetChart                  | 获取图表信息                   |
+| ListChart                 | 获取图表列表                   |
+| CreateDashboard           | 创建仪表盘                     |
+| ModifyDashboard           | 修改仪表盘                     |
+| DeleteDashboard           | 删除仪表盘                     |
+| ListDashboard             | 获取仪表盘列表                 |
+| GetDashboard              | 获取仪表盘信息                 |
+| GetHistogram              | 获取日志条数分布图             |
+| GetFastAnalysis           | 获取快速分析结果               |
 

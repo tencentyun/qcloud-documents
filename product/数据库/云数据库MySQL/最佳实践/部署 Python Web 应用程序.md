@@ -137,7 +137,7 @@ DATABASES = {
     }
 }
 ```
-2. 配置完成后可以使用以下命令测试数据库连接。
+2. 配置完成后，在`/usr/local/projectname/projectname`目录下，可以使用以下命令测试数据库连接。
 ```
 $python manage.py validate/check
 ```

@@ -18,7 +18,7 @@ update time: 5593 us
 ### 读取数据
 使用 select 命令读取部分字段数据。
 语法为：`select 字段[,字段2…] from 表 where 主键字段=值 [and 主键字段2=值];`
-输入数据中的 recDataVersion 列指当前记录的版本号。
+输出显示中的 recDataVersion 列指当前记录的版本号。
 ```
 tcaplus>select gamesvrid, logintime from tb_online where uin=1024 and name="tcaplus_user" and region=10;
 +------+--------------+--------+------------------+--------------+-----------+

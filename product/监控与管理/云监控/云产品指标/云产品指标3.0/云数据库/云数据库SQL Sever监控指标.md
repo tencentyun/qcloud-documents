@@ -1,16 +1,15 @@
 
-
-## 命名空间：
+## 命名空间
 
 Namespace=QCE/SQLSERVER
 
-## 监控指标：
+## 监控指标
 
 ### 常见指标
 
 | 指标英文名           | 指标中文名          | 含义  | 单位 | 维度 |
 |---------|---------|---------|---------|---------|
-| Cpu                 | CPU利用率 |实例 CPU 消耗的百分比                     | %     | resourceId |
+| Cpu                 | CPU 利用率 |实例 CPU 消耗的百分比                     | %     | resourceId |
 | Transactions        | 事务数 | 平均每秒的事务数                          | 次/秒 |resourceId |
 | Connections         | 连接数 |平均每秒用户连接数据库的个数              | 个    |resourceId |
 | Requests            |  请求数  |每秒请求次数                              | 次/秒 | resourceId |
@@ -18,7 +17,7 @@ Namespace=QCE/SQLSERVER
 | Logouts             | 登出次数  | 每秒登出次数                              | 次/秒 | resourceId |
 | Storage             | 已用存储空间 |实例数据库文件和日志文件占用的空间总和    | GB    |resourceId |
 | InFlow              | 输入流量|所有连接输入包大小总和                    | KB/s  |resourceId |
-| OutFlow             | 输入流量|所有连接输出包大小总和                    | KB/s  |resourceId |
+| OutFlow             | 输出流量|所有连接输出包大小总和                    | KB/s  |resourceId |
 | Iops                | 磁盘 IOPS|每秒磁盘读写次数                              | 次/秒 |resourceId |
 | DiskReads           |读取磁盘次数 |每秒读取磁盘次数                          | 次/秒 |resourceId |
 | DiskWrites          | 写入磁盘次数 |每秒写入磁盘次数                          | 次/秒 | resourceId |
@@ -32,13 +31,13 @@ Namespace=QCE/SQLSERVER
 | BlockedProcesses    | 阻塞数 | 当前阻塞数量                              | 个    | resourceId |
 | LockRequests        | 锁请求次数 |平均每秒锁请求的次数                      | 次/秒 | resourceId |
 | UserErrors          | 用户错误数|平均每秒错误数   | 次/秒 | resourceId |
-| SqlCompilations     |  SQL编译数 |平均每秒 SQL 编译次数                     | 次/秒 | resourceId |
-| SqlRecompilations   | SQL重编译数 |平均每秒 SQL 重编译次数                   | 次/秒 |resourceId |
-| FullScans           | 每秒钟SQL做全表扫描数目 |每秒不受限制的完全扫描数 | 次/秒 |resourceId |
+| SqlCompilations     |  SQL 编译数 |平均每秒 SQL 编译次数                     | 次/秒 | resourceId |
+| SqlRecompilations   | SQL 重编译数 |平均每秒 SQL 重编译次数                   | 次/秒 |resourceId |
+| FullScans           | 每秒钟 SQL 做全表扫描数目 |每秒不受限制的完全扫描数 | 次/秒 |resourceId |
 | BufferCacheHitRatio | 缓冲区缓存命中率 |数据缓存（内存）命中率                    | %     | resourceId |
 | LatchWaits          | 闩锁等待数量 |每秒闩锁等待数量                          | 次/秒 | resourceId |
 | LockWaits           | 平均锁等待延迟 |每个导致等待的锁请求的平均等待时间       | Ms    | resourceId |
-| NetworkIoWaits  |  IO延迟时间|平均网络 IO 延迟时间                      | Ms    | resourceId |
+| NetworkIoWaits  |  IO 延迟时间|平均网络 IO 延迟时间                      | Ms    | resourceId |
 | PlanCacheHitRatio   | 执行缓存缓存命中率  |每个 SQL 有一个执行计划，执行计划的命中率 | %     | resourceId |
 |FreeStorage| 硬盘剩余容量 | 硬盘剩余容量百分比 |  %  | resourceId |
 

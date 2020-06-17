@@ -10,7 +10,7 @@ Namespace=QCE/CMONGO
 | Reads             | 读取请求                   | 单位时间内读取次数                          | 次    | target（实例 ID）   |
 | Updates           | 更新请求                   | 单位时间内更新次数                          | 次    | target（实例 ID）   |
 | Deletes           | 删除请求                   | 单位时间内删除次数                          | 次    | target（实例 ID）   |
-| Counts            | count 请求                 | 单位时间内 ount 次数                          | 次    | target（实例 ID）   |
+| Counts            | count 请求                 | 单位时间内 count 次数                          | 次    | target（实例 ID）   |
 | Aggregates        | Aggregates 请求            | 单位时间内 aggregates 次数                    | 次    | target（实例 ID）   |
 | ClusterConn       | 集群连接数                 | 集群总连接数，指当前集群 proxy 收到的连接数 | 次    | target（实例 ID）   |
 | Commands          | 命令请求数量               | 命令请求数量                                | 次    | target（实例 ID）   |

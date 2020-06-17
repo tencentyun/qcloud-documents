@@ -18,7 +18,7 @@ Demo 基于云函数（SCF） 搭建了一个 HTTP 服务，用于接收来自 V
 
 ### 避免影响生产环境<span id="p0"></span>
 
-事件通知接收服务 Demo 的业务逻辑使用到 VOD 事件通知机制，因此部署过程中需要开发者配置事件通知地址。如果该账号已经有基于 VOD 的生产环境，变更事件通知地址可能造成业务异常。**操作前请务必确认不会影响生产环境，如果您不能确定，请更换一个全新账号来部署 Demo**。
+事件通知接收服务 Demo 的业务逻辑使用到 VOD 事件通知机制，因此部署过程中需要开发者配置事件通知地址。如果该账号已有基于 VOD 的生产环境，那么变更事件通知地址可能造成业务异常。**操作前请务必确认不会影响生产环境，如果您无法确定，请更换一个全新账号来部署 Demo**。
 
 ## 快速部署事件通知接收服务
 
@@ -34,9 +34,7 @@ Demo 基于云函数（SCF） 搭建了一个 HTTP 服务，用于接收来自 V
 购买 CVM 的方法请参见 [操作指南 - 创建实例](https://cloud.tencent.com/document/product/213/4855)。重装系统的方法请参见 [操作指南 - 重装系统](https://cloud.tencent.com/document/product/213/4933)。
 
 >!
->
 >- 事件通知接收服务 Demo 本身并不依赖于 CVM，仅使用 CVM 来执行部署脚本。
->
 >- 如果您没有符合上述条件的腾讯云 CVM，也可以在其它带外网的 Linux（如 CentOS、Debian 等）或 Mac 机器上执行部署脚本，但需根据操作系统的区别修改脚本中的个别命令，具体修改方式请开发者自行搜索。
 
 ### 步骤2：开通云点播<span id="p2"></span>
@@ -51,7 +49,7 @@ Demo 基于云函数（SCF） 搭建了一个 HTTP 服务，用于接收来自 V
 - 在控制台 [账号信息](https://console.cloud.tencent.com/developer) 页面可以查看 APPID，如下图所示：
   ![](https://main.qcloudimg.com/raw/0e7dda93add5f53b2da07d16cf6f4406.png)
 
-### 步骤4：部署事件通知接收服务
+### 步骤4：部署事件通知接收服务<span id="p4"></span>
 
 登录 [步骤1准备的 CVM](#p1)（登录方法详见 [操作指南 - 登录 Linux](https://cloud.tencent.com/document/product/213/5436)），在远程终端输入以下命令并运行：
 
@@ -78,7 +76,6 @@ ubuntu@VM-69-2-ubuntu:~$ export SECRET_ID=AKxxxxxxxxxxxxxxxxxxxxxxx; export SECR
 复制输出日志中的事件通知接收服务地址（示例中的`https://service-xxxxxxxx-125xxxxxxx.gz.apigw.tencentcs.com/release/callback`）。
 
 > !如果输出日志中出现如下所示的警告，一般是由于 CVM 无法立即解析刚部署好的服务域名，可尝试忽略该警告。
->
 > ```
 > [2020-04-25 17:18:44]警告：事件通知接收服务测试不通过。
 > ```
@@ -87,7 +84,9 @@ ubuntu@VM-69-2-ubuntu:~$ export SECRET_ID=AKxxxxxxxxxxxxxxxxxxxxxxx; export SECR
 
 如 [避免影响生产环境](#p0) 一节所述，操作之前请先确认您的线上业务不依赖于 VOD 事件通知。
 
-登录 [VOD 控制台](https://console.cloud.tencent.com/vod/callback)，点击【设置】，回调模式选择【普通回调】，回调 URL 填写步骤4中获得的事件通知接收服务地址，回调事件全部勾选，然后点击【确定】。如下图所示：
+登录 [云点播控制台](https://console.cloud.tencent.com/vod/callback)，单击【设置】，回调模式选择【普通回调】，回调 URL 填写 [步骤4](#p4) 中获得的事件通知接收服务地址，回调事件全部勾选，然后单击【确定】。如下图所示：
+![](https://main.qcloudimg.com/raw/d2814df6ab35d47f3ba83608851666ff.png)
+>!如果您在控制台同时看到两个回调 URL 设置（2.0版本格式和3.0版本格式），请填写3.0版本。如下图所示：
 
 ![配置回调](https://main.qcloudimg.com/raw/80b4639ebd125e1f491f1f8fc2e48693.png)
 
@@ -136,7 +135,6 @@ Key 防盗链主要涉及四个组成部分：控制台、、API 网关、云函
 
 1. `main_handler()`为入口函数。
 2. 调用`parse_conf_file()`，从`config.json`文件中读取配置信息。配置项说明如下：
-
 <table>
 <thead>
 <tr>
@@ -158,12 +156,12 @@ Key 防盗链主要涉及四个组成部分：控制台、、API 网关、云函
 <tr>
 <td>region</td>
 <td>String</td>
-<td>云 API 请求地域，对 VOD 来说可以随意填写。</td>
+<td>云 API 请求地域，对于 VOD 可随意填写</td>
 </tr>
 <tr>
 <td>definitions</td>
 <td>Array of Integer</td>
-<td>转码模版</td>
+<td>转码模板</td>
 </tr>
 <tr>
 <td>subappid</td>

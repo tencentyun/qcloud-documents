@@ -4,7 +4,7 @@
 ----- | ---
 [PutCoffer](https://cloud.tencent.com/document/product/1232/44720) | 创建保险箱|
 [DeleteCoffer](https://cloud.tencent.com/document/product/1232/44721) | 删除保险箱|
-[GetService](https://cloud.tencent.com/document/product/1232/44718) | 查询保险箱列表|
+[GetService](https://cloud.tencent.com/document/product/1232/44719) | 查询保险箱列表|
 
 ## 文件管理
 

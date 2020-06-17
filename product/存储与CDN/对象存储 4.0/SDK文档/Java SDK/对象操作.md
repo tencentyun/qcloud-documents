@@ -1069,7 +1069,9 @@ public AccessControlList getObjectAcl(String bucketName, String key)
 // 存储桶的命名格式为 BucketName-APPID
 String bucketName = "examplebucket-1250000000";
 String key = "exampleobject";
-AccessControlList acl = cosClient.getObjectAcl(bucketName, key);
+AccessControlList accessControlList = cosclient.getObjectAcl(bucketName, key);
+// 将文件权限转换为预设 ACL, 可选值为：Private, PublicRead, Default
+CannedAccessControlList cannedAccessControlList = accessControlList.getCannedAccessControl();
 ```
 
 ## 高级接口（推荐）
