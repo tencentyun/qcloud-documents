@@ -82,8 +82,6 @@ $ npm install native-ext-loader@latest --save-dev
 - 如您的工程文件经过了定制化，还请自行查找 webpack 配置。
 
 
-
-
 1. 首先使 `webpack.config.js` 在构建时可以接收名为 `--target_platform` 的命令行参数，以使代码构建过程按不同的目标平台特点正确打包，在 `module.exports` 之前添加以下代码：
 
 
@@ -129,9 +127,13 @@ rules: [
 ####  步骤3：修改 package.json 配置
 `package.json` 位于项目的根目录，其中包含了项目打包所必须的信息。但默认情况下，`package.json`  中的路径是需要修改才能顺利实现打包的，我们可以按如下步骤修改此文件： 
 
-1. 修改 `main` 配置，推荐使用 `public/electron.js`。
+1. 修改 `main` 配置。
 
-```json
+```javascript
+// 多数情况下，main 文件名称可以任意配置，例如 TRTCSimpleDemo 中的可以配置为：
+"main": "main.electron.js",
+  
+// 但是，使用 create-react-app 脚手架创建的项目，main 文件必须配置为：
 "main": "public/electron.js",
 ```
 2. 复制以下 `build` 配置，添加到您的 `package.json` 文件中，这是 `electron-builder` 需要读取到的配置信息。
@@ -192,7 +194,7 @@ rules: [
 > -   `main` ：Electron 的入口文件，一般情况下可以自由配置。但如果项目使用 `create-react-app` 脚手架创建，则入口文件必须配置为 `public/electron.js` 。
 > -   `build.win.extraFiles` ：打包 Windows 程序时，`electron-builder` 会把 `from` 所指目录下的所有文件复制到 bin/win-unpacked/resources（全小写）。
 > -   `build.mac.extraFiles` ：打包 Mac 程序时，`electron-builder` 会把 `from` 指向的 `trtc_electron_sdk.node` 文件复制到 bin/mac/your-app-name.app/Contents/Resources（首字母大写）。
-> -   `build.directories.output` ：打包文件的输出路径。例如这个配置会输出到 `bin` 目录下，可根据实际需要修改。
+> -   `build.directories.output` ：打包文件的输出路径。比如这个配置会输出到 `bin` 目录下，可根据实际需要修改。
 > -   `build.scripts.build:mac` ：以 Mac 平台为目标构建脚本。
 > -   `build.scripts.build:win` ：以 Windows 平台为目标构建脚本。
 > -   `build.scripts.compile:mac` ：编译为 Mac 下的 .dmg 安装文件。
@@ -218,7 +220,7 @@ $ npm run pack:win64
 成功执行后，打包工具会生成 `bin/your-app-name Setup 0.1.0.exe` 安装文件，请选择此文件发布。
 
 >!
->TRTC Electron SDK 暂不支持跨平台打包（例如在 Mac 下打包 Windows 的 .exe 文件，或在 Windows 平台下打包 Mac 的 .dmg 文件）。目前我们正在研究跨平台打包方案，敬请期待。
+>TRTC Electron SDK 暂不支持跨平台打包（比如在 Mac 下打包 Windows 的 .exe 文件，或在 Windows 平台下打包 Mac 的 .dmg 文件）。目前我们正在研究跨平台打包方案，敬请期待。
 
 ## 常见问题
 
@@ -229,6 +231,7 @@ $ npm run pack:win64
 ### 2. Electron 安装或打包异常
 
 如果您在集成 Electron 过程中遇到异常：例如安装超时或失败，打包后出现 trtc_electron_sdk.node 文件加载失败等情况，请参考 [Electron 常见问题收录](https://cloud.tencent.com/developer/article/1616668)。
+
 
 
 
