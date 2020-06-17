@@ -77,7 +77,7 @@ echo '172.21.17.69 demo.tencentcloudcr.com' >> /etc/hosts
 4. 进入“新建Namespace” 页面，勾选“自动下发容器镜像服务企业版访问凭证”，并选择该集群需访问的 TCR 实例。如下图所示：
 ![](https://main.qcloudimg.com/raw/d4c21b05217a1b2d715fd3632e77a241.png)
 5. 单击【创建Namespace】进行创建。
-创建完成后，该实例的访问凭证将自动下发至该命名空间。可选择左侧的【配置管理】>【Secret】，进入 “Secret” 页面即可查看该访问凭证。
+创建完成后，该实例的访问凭证将自动下发至该命名空间。可选择左侧的【配置管理】>【Secret】，进入 “Secret” 页面即可查看该访问凭证。例如 `1000090225xx-tcr-m3ut3qxx-dockercfg`。其中，`1000090225xx` 为创建命名空间的子账号 uin，`tcr-m3ut3qxx` 为所选实例的实例 ID。
 
 
 #### 向已有命名空间下发访问凭证
@@ -104,8 +104,8 @@ echo '172.21.17.69 demo.tencentcloudcr.com' >> /etc/hosts
  - **镜像访问凭证**：选择【添加镜像访问凭证】，并选择 [下发 TCR 实例的访问凭证](#issued) 步骤中已下发的访问凭证。如下图所示：
 ![](https://main.qcloudimg.com/raw/788c33fe1f2a6042f06c0daded949494.png)
 4. 完成其他参数设置后，单击【创建workload】后查看该工作负载的部署进度。
-部署成功后，可在 “” 页面查看该工作负载的“运行/期望Pod数量”为“1/1”。如下图所示：
-
+部署成功后，可在 “Deployment” 页面查看该工作负载的“运行/期望Pod数量”为“1/1”。如下图所示：
+![](https://main.qcloudimg.com/raw/0223f408f2a3434f8a61389f4b6d8d87.png)
 如果出现镜像无法拉取等问题，请确认 [配置 TKE 集群访问 TCR 实例](#deployTKE) 及 [下发 TCR 实例的访问凭证](#issued) 步骤是否已完成。
 
 
