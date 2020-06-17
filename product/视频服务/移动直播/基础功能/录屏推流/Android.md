@@ -3,7 +3,7 @@
 手机录屏直播，即可以直接把主播的手机画面作为直播源，同时可以叠加摄像头预览，应用于游戏直播、移动端 App 演示等需要手机屏幕画面的场景。
 >?直播中叠加摄像头预览，即通过在手机上添加浮框，显示摄像头预览画面。录屏的时候会把浮框预览画面一并录制下来，达到叠加摄像头预览的效果。具体实现方法可参见  [小直播源码](https://github.com/tencentyun/MLVBSDK/blob/master/Android/XiaoZhiBo/app/src/main/java/com/tencent/qcloud/xiaozhibo/anchor/screen/widget/FloatingCameraView.java)。
 
-![](https://main.qcloudimg.com/raw/c8b39da129043f471c44bdb4396111c4.jpg)
+![](https://main.qcloudimg.com/raw/5be5fa0002348a29614bb129084455a5.png)
 
 ## 限制说明
 - Android 5.0 系统以后开始支持录屏功能。
