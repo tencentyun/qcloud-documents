@@ -2,7 +2,9 @@
 
 ### Demo 功能介绍
 
-本 Demo 以对 [视频上传完成事件通知](https://cloud.tencent.com/document/product/266/7830) 的接收和处理为例，向开发者展示云点播（VOD）[事件通知机制](https://cloud.tencent.com/document/product/266/33779)  的使用方法。Demo 基于云函数（SCF） 搭建了一个 HTTP 服务，用于接收来自 VOD 的事件通知请求。服务仅处理类型为 `NewFileUpload` 的事件，在解析事件通知内容后，调用 VOD 的 [`ProcessMedia`](https://cloud.tencent.com/document/product/266/33427) 接口对刚上传的视频发起转码，使用的转码模版为 [系统预置模版](https://cloud.tencent.com/document/product/266/33476#.E9.A2.84.E7.BD.AE.E8.BD.AC.E7.A0.81.E6.A8.A1.E6.9D.BF) 100010和100020。
+本 Demo 以视频文件的上传-->事件通知-->发起转码->-事件通知流程为例，向开发者展示云点播（VOD）[事件通知机制](https://cloud.tencent.com/document/product/266/33779)  的使用方法。
+
+Demo 基于云函数（SCF） 搭建了一个 HTTP 服务，用于接收来自 VOD 的事件通知请求。该服务通过对 NewFileUpload（[视频上传完成事件通知](https://cloud.tencent.com/document/product/266/7830)）和 ProcedureStateChanged（[任务流状态变更](https://cloud.tencent.com/document/product/266/9636)）的处理，实现了发起视频转码和获取转码结果。
 
 ### 费用
 
@@ -12,7 +14,7 @@
 - 使用 SCF 提供签名派发服务，详见 [SCF 计费](https://cloud.tencent.com/document/product/583/12284) 和 [SCF 免费额度](https://cloud.tencent.com/document/product/583/12282)。
 - 使用腾讯云 API 网关为 SCF 提供外网接口，详见 [API 网关计费](https://cloud.tencent.com/document/product/628/39300)。
 - 消耗 VOD 存储用于存储上传的视频，详见 [存储计费](https://cloud.tencent.com/document/product/266/14666#.E8.A7.86.E9.A2.91.E5.AD.98.E5.82.A8) 和 [存储资源包](https://cloud.tencent.com/document/product/266/14667#1.-.E5.AD.98.E5.82.A8.E8.B5.84.E6.BA.90.E5.8C.85)。
-- 消耗云点播转码时长用于对视频进行转码，详见 [转码计费](https://cloud.tencent.com/document/product/266/14666#.E8.A7.86.E9.A2.91.E8.BD.AC.E7.A0.81.3Cspan-id-.3D.22p2.22.3E.3C.2Fspan.3E) 和 [转码资源包](https://cloud.tencent.com/document/product/266/14667#3.-.E6.99.AE.E9.80.9A.E8.BD.AC.E7.A0.81.E5.8C.85)。
+- 消耗 VOD 转码时长用于对视频进行转码，详见 [转码计费](https://cloud.tencent.com/document/product/266/14666#.E8.A7.86.E9.A2.91.E8.BD.AC.E7.A0.81.3Cspan-id-.3D.22p2.22.3E.3C.2Fspan.3E) 和 [转码资源包](https://cloud.tencent.com/document/product/266/14667#3.-.E6.99.AE.E9.80.9A.E8.BD.AC.E7.A0.81.E5.8C.85)。
 
 ### 避免影响生产环境<span id="p0"></span>
 
@@ -81,9 +83,9 @@ ubuntu@VM-69-2-ubuntu:~$ export SECRET_ID=AKxxxxxxxxxxxxxxxxxxxxxxx; export SECR
 > [2020-04-25 17:18:44]警告：事件通知接收服务测试不通过。
 > ```
 
-### 步骤5：配置事件通知地址并测试
+### 步骤5：配置事件通知地址
 
-如 [避免影响生产环境](#p0) 一节所述，操作之前请先确认您的线上业务不依赖于 VOD 普通回调。
+如 [避免影响生产环境](#p0) 一节所述，操作之前请先确认您的线上业务不依赖于 VOD 事件通知。
 
 登录 [VOD 控制台](https://console.cloud.tencent.com/vod/callback)，点击【设置】，回调模式选择【普通回调】，回调 URL 填写步骤4中获得的事件通知接收服务地址，回调事件全部勾选，然后点击【确定】。如下图所示：
 
@@ -93,21 +95,38 @@ ubuntu@VM-69-2-ubuntu:~$ export SECRET_ID=AKxxxxxxxxxxxxxxxxxxxxxxx; export SECR
 
 ![3.0版本格式回调配置](https://main.qcloudimg.com/raw/a6fba35464ce4e4ef4ddd37b1cfd55ce.png)
 
-按照 [控制台上传本地视频](https://cloud.tencent.com/document/product/266/2841#.E6.9C.AC.E5.9C.B0.E4.B8.8A.E4.BC.A0.E6.AD.A5.E9.AA.A4) 的说明，上传一个测试视频到到云点播。上传完成后，在【已上传】标签页可以看到该视频的状态为“处理中”：
+### 步骤6：测试 Demo
 
-![视频处理中](https://main.qcloudimg.com/raw/f680a8a99bb2e5ff1a1a8b96cd87aa7c.png)
+- 按照 [控制台上传本地视频](https://cloud.tencent.com/document/product/266/2841#.E6.9C.AC.E5.9C.B0.E4.B8.8A.E4.BC.A0.E6.AD.A5.E9.AA.A4) 的说明，上传一个测试视频到到云点播，注意上传过程选择默认的【只上传，暂不进行视频处理】。上传完成后，在【已上传】标签页可以看到该视频的状态为“处理中”，说明 Demo 接收到了 NewFileUpload 事件通知并发起了转码请求。
 
-等待视频处理完成（状态变为“正常”）后，点击【快捷查看】，在页面右侧可以看到该视频有两个转码视频，如下图：
+![视频处理中](https://main.qcloudimg.com/raw/434e2f4c6f672468526358788a64ce61.png)
 
-![获取视频 URL](https://main.qcloudimg.com/raw/91453a70fcc57c6e55ac95bc952a9d9f.png)
+- 等待视频处理完成（状态变为“正常”）后，点击【快捷查看】，在页面右侧可以看到该视频有两个转码视频，如下图：
 
-## 系统设计说明
+
+![转码完成](https://main.qcloudimg.com/raw/137c2507d88b91689e9ca2b60782018a.png)
+
+- 登录 [SCF 控制台日志页面](https://console.cloud.tencent.com/scf/list-detail?rid=1&ns=vod_demo&id=callback&menu=log) 查看 SCF 日志记录，在最新的一条日志中，可以看到两个转码文件的 URL 已经打印出来，在实际应用场景中，开发者可以通过 SCF 将 URL 记录在自己的数据库，或者通过其它渠道发布给观众。
+
+  ![SCF 日志](https://main.qcloudimg.com/raw/2c4c4e00332ef4d56075c0baef5fd88e.png)
+
+  > ?SCF 日志可能会有些许延迟，如果在页面上没有看到日志请耐心等待一两分钟，然后点击【重置】按钮刷新。
+
+## 系统设计说明<span id="design"></span>
 
 ### 系统框架
 
 Key 防盗链主要涉及四个组成部分：控制台、、API 网关、云函数和云点播，其中 API 网关和云函数即是本 Demo 的部署对象。如下图所示：
 
-![Key 防盗链框架](https://main.qcloudimg.com/raw/f8c60cfc1592f5fa752b77996dad8324.png)
+![事件通知框架](https://main.qcloudimg.com/raw/3378f245707667a8af518889da4b3784.png)
+
+具体业务流程为：
+
+- 在控制台上传一个视频到 VOD；
+- VOD 后台发起 NewFileUpload 事件通知请求给 Demo；
+- Demo 解析事件通知内容，调用 VOD 的 [`ProcessMedia`](https://cloud.tencent.com/document/product/266/33427) 接口对刚上传的视频发起转码，使用的转码模版为 [系统预置模版](https://cloud.tencent.com/document/product/266/33476#.E9.A2.84.E7.BD.AE.E8.BD.AC.E7.A0.81.E6.A8.A1.E6.9D.BF) 100010和100020；
+- VOD 完成转码任务后，发起 ProcedureStateChanged 事件通知请求给 Demo；
+- Demo 解析事件通知内容，将转码输出文件的 URL 打印到 SCF 日志中。
 
 ### 接口协议
 
@@ -153,29 +172,24 @@ Key 防盗链主要涉及四个组成部分：控制台、、API 网关、云函
 </tr>
 </tbody></table>
 
-3. 解析请求 Body，判断是否视频上传完成事件通知，是的话从中取出新上传视频的 FileId：
+3. 针对 NewFileUpload 类型的事件通知调用`deal_new_file_event()`解析请求，从中取出新上传视频的 FileId：
 
    ```
-           body = json.loads(event["body"])
-   
-           event_type = body.get("EventType", None)
            if event_type == "NewFileUpload":
-               upload_event = body.get("FileUploadEvent", None)
-               if upload_event is None:
+               fileid = deal_new_file_event(body)
+               if fileid is None:
                    return ERR_RETURN
-               fileid = upload_event.get("FileId", None)
    ```
-
+   
 4. 调用 `trans_media()` 发起转码，输出云 API 的回包到 SCF 日志，并回包给 VOD 的事件通知服务：
 
    ```
-           rsp = trans_media(configuration, fileid)
-           if rsp is not None:
+               rsp = trans_media(configuration, fileid)
+               if rsp is None:
+                   return ERR_RETURN
                print(rsp)
-           
-           return OK_RETURN
    ```
-
+   
 5. `trans_media()` 中，调用云 API SDK 发起 `ProcessMedia` 请求：
 
 ```
@@ -191,3 +205,13 @@ Key 防盗链主要涉及四个组成部分：控制台、、API 网关、云函
         return rsp
 ```
 
+6. 针对 ProcedureStateChanged 类型的事件通知调用`deal_procedure_event()`解析请求，从中取出转码输出视频的 URL 并打印（到 SCF 日志）：
+
+   ```
+           elif event_type == "ProcedureStateChanged":
+               rsp = deal_procedure_event(body)
+               if rsp is None:
+                   return ERR_RETURN
+   ```
+
+   
