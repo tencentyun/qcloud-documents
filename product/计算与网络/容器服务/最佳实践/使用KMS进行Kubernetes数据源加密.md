@@ -154,7 +154,7 @@ vi /etc/kubernetes/manifests/kube-apiserver.yaml
 ```
 6. 按 **i** 切换至编辑模式，对应实际使用的 K8s 版本，将以下内容添加至 `args`。
 >?K8s v1.10.5 版本的独立集群，需要先将 `kube-apiserver.yaml`  移出 `/etc/kubernetes/manifests` 目录，编辑完成之后再移入。
->  
+>
  - K8s v1.13+：
 ```
  --encryption-provider-config=/etc/kubernetes/encryption-provider-config.yaml
