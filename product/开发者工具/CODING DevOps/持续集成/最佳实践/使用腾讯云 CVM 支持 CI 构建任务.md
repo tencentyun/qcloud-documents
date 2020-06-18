@@ -46,7 +46,7 @@ curl -sSL https://get.daocloud.io/docker | sh
 待 Docker 安装完成后，前往 CODING 进入【项目】>【持续集成】>【构建节点】，在构建节点页复制配置命令。
 ![](https://main.qcloudimg.com/raw/5d1168f061bd1f37cad89f86abfddfd2.png)
 等待一小会，等镜像构建完成后便会提示构建成功。
-![](https://main.qcloudimg.com/raw/8b7ae706e2c887cb1bf946c85a4878fb.png)
+![](https://main.qcloudimg.com/raw/9e0424cbfa6b0713ab6d606110948bba.png)
 在 CODING 构建节点页也可以看到新注册上线的服务器。
 ![](https://main.qcloudimg.com/raw/92ee62f7a5c076f445e151a49b1bf1aa.png)
 
@@ -66,7 +66,7 @@ wget https://coding-public-generic.pkg.coding.net/cci/release/cci-agent/install.
 ```
 
 等待配置运行安装完成。
-![](https://main.qcloudimg.com/raw/b5caca68453177323c2743b9b2700522.png)
+![](https://main.qcloudimg.com/raw/1b6cfc63815a42cf227f7548a1949254.png)
 配置完成后会出现在节点池中。
 ![](https://main.qcloudimg.com/raw/8c0653db3bd8058e630afc71928a7f6c.png)
 在安装过程中，节点状态会不断变化。关于节点的状态说明：
