@@ -15,7 +15,7 @@ TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和
 ### 配置 Demo工程
 
 使用 IDE 打开 Demo 项目，如下：
-![](https://main.qcloudimg.com/raw/2baca719f9cf4e56b9ba0d2f6561680d.png)
+![](https://main.qcloudimg.com/raw/fbb70f343c0f1b394c3c75555f7d7695.png)
 
 需要关注的是其中的 example 包中的 Demo工程。
 ![](https://main.qcloudimg.com/raw/e8d04b09e65f7781dc230180b93a5561.png)
