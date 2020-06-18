@@ -74,7 +74,7 @@ ntpq -p
 ```
 返回类似如下结果：
 ![](https://main.qcloudimg.com/raw/ca9ef4caf98b49ed2c9110198a66e7c3.png)
- - **\*** : 表示目前使用的 ntp server，这里选择的本机。
+ - **\*** : 表示目前使用的 ntp server。
  - **remote**：响应这个请求的 NTP 服务器的名称。
  - **refid**：NTP 服务器使用的上一级 NTP 服务器。
  - **st**：remote 远程服务器的级别。服务器从高到低级别设定为1 - 16，为了减缓负荷和网络堵塞，原则上建议避免直接连接到级别为1的服务器。
