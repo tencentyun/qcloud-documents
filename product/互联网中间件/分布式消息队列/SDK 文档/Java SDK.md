@@ -1,20 +1,20 @@
 ## 前提条件
-已完成 Java SDK 的下载和安装（参考 [Java SDK 下载方式](https://cloud.tencent.com/document/product/1179/44914) ）。
+已完成 Java SDK 的下载和安装（参考 [Java SDK 下载方式](https://cloud.tencent.com/document/product/1179/44914)）。
 
 ## 添加依赖
 在 pom.xml 文件中添加依赖：
 
 ```xml
-	<dependency>
-		<groupId>com.tencent.tdmq</groupId>
-		<artifactId>tdmq-client</artifactId>
-		<version>${tdmq.version}</version>
-	</dependency>
-	<dependency>
-		<groupId>com.tencent.tdmq</groupId>
-		<artifactId>tdmq-client-auth-cloud_cam</artifactId>
-		<version>${tdmq.version}</version>
-	</dependency>
+<dependency>
+	<groupId>com.tencent.tdmq</groupId>
+	<artifactId>tdmq-client</artifactId>
+	<version>${tdmq.version}</version>
+</dependency>
+<dependency>
+	<groupId>com.tencent.tdmq</groupId>
+	<artifactId>tdmq-client-auth-cloud_cam</artifactId>
+	<version>${tdmq.version}</version>
+</dependency>
 ```
 
 ## 接入步骤
@@ -51,7 +51,7 @@
            "org.apache.pulsar.client.impl.auth.AuthenticationCloudCam", authParams)
            .serviceUrl("pulsar://host1:6650,host2:6650").build();
 ```
-#### 根据不同的网络环境，自定义netModelKey访问
+#### 根据不同的网络环境，自定义 netModelKey 访问
 ```java
   Map<String, String> authParams = new HashMap<>();
   authParams.put("secretId", "***********************************************");
@@ -61,9 +61,10 @@
   authParams.put("region", "ap-guangzhou");//地域信息
   PulsarClient client = PulsarClient.builder().authenticationCloud(
            "org.apache.pulsar.client.impl.auth.AuthenticationCloudCam", authParams)
-           .netModelKey("customNetModelKey")#管理台上显示的routeid
+           .netModelKey("customNetModelKey")#管理台上显示的 routeid
            .serviceUrl("pulsar://host1:6650,host2:6650").build();
  ```
+
 ### 生产消息
 创建好 Client 之后，通过创建一个 Producer，就可以生产消息到指定的 Topic 中。
 ```java
@@ -88,12 +89,12 @@ producer.newMessage()
 	.send();
 ```
 
-- 消息延迟传递
+消息延迟传递：
 ```java
 producer.newMessage().deliverAfter(3L, TimeUnit.Minute).value("Hello Tdmq!").send();
 ```
 
-- 设置消息标签（TAG）
+设置消息标签（TAG）：
 ```java
 producer.newMessage()
 	.key("my-message-key")
@@ -103,7 +104,7 @@ producer.newMessage()
 	.send();
 ```
 
-- 路由模式
+路由模式：
 
 | Mode   |   Description |
 | ------------ | ------------ |
@@ -111,7 +112,7 @@ producer.newMessage()
 |   SinglePartition |  如果消息没有指定 key，生产者将会随机选择一个分区，并发送所有消息。 如果为消息指定了 key，发往分区的消息会被分区生产者根据 key 做 hash，然后分散到对应的分区上。 |
 |   CustomPartition  |  使用自定义消息路由，可以定制消息如何进入特定的分区。 可以使用 Java client 或实现 MessageRouter 接口来实现自定义的路由模式。|
 
-- 顺序保证
+顺序保证：
 
 | 顺序保证  | Description  |路由策略与消息 Key|
 | ------------ | ------------ |------------ |
