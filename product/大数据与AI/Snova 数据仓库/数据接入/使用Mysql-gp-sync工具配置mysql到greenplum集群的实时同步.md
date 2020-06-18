@@ -58,9 +58,6 @@ statsd_prefix = "dbsync"
 server_id = 1001
 flavor = "mysql"
 
-# 是否忽略没有主键的表
-skip_no_pk_table = false
-
 # 并发配置
 # 并发线程数
 concurrent_size = 6
