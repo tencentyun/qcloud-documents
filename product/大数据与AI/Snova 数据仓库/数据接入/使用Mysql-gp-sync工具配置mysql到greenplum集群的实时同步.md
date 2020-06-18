@@ -1,6 +1,6 @@
 ## 背景说明
 目前现网 CDW 集群需要实时同步来自 mysql 的数据变更，这里提供一个实时同步工具。
-- 此工具是根据 [Sync MySQL data into elasticsearch](github.com/siddontang/go-mysql-elasticsearch) 和 [Sync MySQL data into elasticsearch or postgresql](github.com/frainmeng/go-mysql-elasticsearch) 的 mysql 开源工具修改扩展而来，可支持根据 mysql 数据库的 bin_log 实时同步 DML 变更到对应的 CDW 集群中。
+- 此工具是根据 [Sync MySQL data into elasticsearch](https://github.com/siddontang/go-mysql-elasticsearch) 和 [Sync MySQL data into elasticsearch or postgresql](https://github.com/frainmeng/go-mysql-elasticsearch) 的 mysql 开源工具修改扩展而来，可支持根据 mysql 数据库的 bin_log 实时同步 DML 变更到对应的 CDW 集群中。
 - 此工具仅支持一个 mysql 源和一个 CDW 集群之间的同步，目前仅支持表粒度的同步，并且无法同步表 DDL 结构变更，在开启实时同步前需要预先在 CDW 集群迁移历史数据。
 
 #### 工具下载
