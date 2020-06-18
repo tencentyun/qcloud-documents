@@ -100,6 +100,14 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 >
 ![](https://main.qcloudimg.com/raw/4a3ce8f1a47572dd214f104ef3086398.png)
 
+### 推流转码相关设置
+若您在推流过程中需要修改视频的码率，具体操作如下：
+1. 通过底部的【控件】>【设置】按钮进入设置界面。
+2. 单击【输出】页签，填写视频比特率。单击【确定】即可。
+![](https://main.qcloudimg.com/raw/3cbeecf4eb6517563f5a6ee5ff879498.png)
+
+
+
 
 ## 更多操作说明
 ### 纯音频推流
