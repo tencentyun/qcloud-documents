@@ -12,7 +12,7 @@ GET Object tagging 接口用于查询指定对象下已有的对象标签。
 
 #### 请求示例
 
-```http
+```plaintext
 GET /<ObjectKey>?tagging&VersionId=VersionId HTTP 1.1
 Host:<BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -63,7 +63,7 @@ Authorization: Auth String
 
 如下请求申请查询存储桶`examplebucket-1250000000`中的对象`exampleobject.txt`下的标签信息，COS 解析该请求后并返回该存储桶下已有的`{age:18}`和`{name:xiaoming}`两个标签。
 
-```shell
+```plaintext
 GET /exampleobject.txt?tagging HTTP/1.1
 User-Agent: curl/7.29.0
 Accept: */*
@@ -76,7 +76,7 @@ Content-Type: application/xml
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Connection: close
