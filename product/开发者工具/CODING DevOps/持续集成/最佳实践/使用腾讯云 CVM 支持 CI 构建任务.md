@@ -35,7 +35,7 @@ CODING 中提供了内置云服务器用来执行持续集成（CI）中的构�
 使用 Docker 的前提是服务器上已经安装了 Docker。需要注意的是，部分 openVZ 虚拟化的服务器因内核较低，无法成功安装 Docker，当然我们的腾讯云 CVM 是没有这个问题的。下面使用 `curl` 命令安装 Docker。
 
 ```curl
-curl -sSL https://get.daocloud.io/docker | sh
+curl -fsSL https://get.docker.com/ | sh
 ```
 
 如果提示 curl: command not found，那是因为服务还没有安装`curl`，相应的安装命令：
@@ -51,15 +51,13 @@ curl -sSL https://get.daocloud.io/docker | sh
 ![](https://main.qcloudimg.com/raw/92ee62f7a5c076f445e151a49b1bf1aa.png)
 
 ### 手动接入 cci-agent
-
-在终端中输入 cci-agent 下载命令。
-
-```wget
-wget https://coding-public-generic.pkg.coding.net/cci/release/cci-agent/install.sh
-```
-
 在 CODING 的构建节点页一键生成初始化命令，并在服务器中运行该命令。
 ![](https://main.qcloudimg.com/raw/1ac3342107d23ec4d87e7f701edea878.png)
+执行 cci-agent 启动命令。
+```cci-agent
+./cci-agent up -d
+```
+
 等待配置运行安装完成。
 ![](https://main.qcloudimg.com/raw/1b6cfc63815a42cf227f7548a1949254.png)
 配置完成后会出现在节点池中。
