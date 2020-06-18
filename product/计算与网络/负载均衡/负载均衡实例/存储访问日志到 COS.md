@@ -16,8 +16,8 @@
 ## 开启访问日志存入 COS
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3)。
 2. 单击需进行配置的负载均衡 ID，进入“负载均衡基本信息”页面。
-3. 在“日志访问”模块，编辑日志存入 COS。
-![](https://main.qcloudimg.com/raw/4929ec08f86278f8bdbc7cf2df48b25f.png)
+3. 在“访问日志”模块，编辑日志存入 COS。
+![](https://main.qcloudimg.com/raw/948ca531935af6a102885d3a941852e0.png)
 4. 在弹出框中，开启访问日志，并选择相应 COS 中的存放 bucket。如您没有创建COS 的 bucket，请 [新建 bucket](https://console.cloud.tencent.com/cos4/bucket) 后，选取相应的存储位置。
 ![](https://main.qcloudimg.com/raw/e8f3506ade5fe73c2267c3f294c957b4.png)
 5. 单击【提交】，则请求日志会自动在 bucket 下创建 lb-id 为名称的文件夹进行存储。
@@ -26,12 +26,12 @@
 ## 关闭访问日志存入 COS
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3)。
 2. 单击需进行配置的负载均衡 ID，进入“负载均衡基本信息”页面。
-3. 在“日志访问”模块，编辑日志存入 COS。
+3. 在“访问日志”模块，编辑日志存入 COS。
 ![](https://main.qcloudimg.com/raw/948ca531935af6a102885d3a941852e0.png)
 4. 在弹出框中，关闭访问日志， 单击【提交】 即可 。
-![](https://main.qcloudimg.com/raw/7cbda6b2db1733068b1dc21359513440.png)
+![](https://main.qcloudimg.com/raw/86dbea54d3b697a03ed449b398679461.png)
 5. 配置完成后如下，关闭后将不支持再开启 COS 日志， 详见 [关于CLB配置访问日志到COS下线的公告](https://cloud.tencent.com/document/product/214/43659)。
-![](https://main.qcloudimg.com/raw/36eb160ab7585f5a9be551662d6a1384.png)
+![](https://main.qcloudimg.com/raw/43a489e82953e4b27acca5a541912704.png)
 
 ## 日志格式及变量说明
 ### 日志格式
