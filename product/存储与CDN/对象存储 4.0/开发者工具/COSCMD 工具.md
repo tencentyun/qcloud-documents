@@ -11,8 +11,7 @@
 支持 Windows、Linux 和 macOS 系统。
 
 > ?
->
-> - 请保证本地字符格式为 UTF-8，否则操作中文件会出现异常。
+> - 请保证本地字符格式为 UTF-8，否则操作中文版的文件会出现异常。
 > - 请确保本机时间已经与国际标准时间校准，如误差过大，将导致无法正常使用。
 
 #### 软件依赖
@@ -178,7 +177,7 @@ coscmd config -a AChT4ThiXAbpBDEFGhT4ThiXAbp**** -s WE54wreefvds3462refgwewe****
 | -t               | 临时密钥 token，当使用临时密钥时需要配置，设置 x-cos-security-token 头部 | 否       | 字符串 |
 | -b               | 指定的存储桶名称，存储桶的命名格式为 BucketName-APPID，请参见 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) | 是       | 字符串 |
 | -r               | 存储桶所在地域，请参见 [地域和访问域名](https://cloud.tencent.com/doc/product/436/6224) | 是       | 字符串 |
-| -e               | 设置请求的 ENDPOINT，设置 ENDPOINT 参数后，REGION 参数会失效 | 否       | 字符串 |
+| -e               | 设置请求的 ENDPOINT，设置 ENDPOINT 参数后，REGION 参数会失效。当您使用的是默认域名，则此处配置格式为`cos.<region>.myqcloud.com`；当您使用全球加速域名，则配置为 `cos.accelerate.myqcloud.com` | 否       | 字符串 |
 | -m               | 多线程操作的最大线程数（默认为5，范围为1 - 30）              | 否       | 数字   |
 | -p               | 分块操作的单块大小（单位MB，默认为1MB，范围为1 - 1000）      | 否       | 数字   |
 | --do-not-use-ssl | 使用 HTTP 协议，而不使用 HTTPS                               | 否       | 字符串 |
