@@ -14,7 +14,7 @@ COS 支持为已存在的对象设置标签。PUT Object tagging 接口通过为
 
 #### 请求示例
 
-```http
+```plaintext
 PUT /<ObjectKey>?tagging&VersionId=VersionId HTTP 1.1
 Host:<BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -79,7 +79,7 @@ Authorization: Auth String
 
 如下请求向存储桶`examplebucket-1250000000`中的对象`exampleobject.txt`写入了`{age:18}`和`{name:xiaoming}`两个标签。COS 配置标签成功并返回204成功请求。
 
-```shell
+```plaintext
 PUT /exampleobject.txt?tagging HTTP/1.1
 User-Agent: curl/7.29.0
 Accept: */*
@@ -105,7 +105,7 @@ Content-Type: application/xml
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 204 No Content
 Content-Type: application/xml
 Content-Length: 0
