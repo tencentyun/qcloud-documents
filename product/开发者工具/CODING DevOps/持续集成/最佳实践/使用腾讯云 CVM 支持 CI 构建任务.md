@@ -60,11 +60,6 @@ wget https://coding-public-generic.pkg.coding.net/cci/release/cci-agent/install.
 
 在 CODING 的构建节点页一键生成初始化命令，并在服务器中运行该命令。
 ![](https://main.qcloudimg.com/raw/1ac3342107d23ec4d87e7f701edea878.png)
-执行 cci-agent 启动命令。
-```cci-agent
-./cci-agent up -d
-```
-
 等待配置运行安装完成。
 ![](https://main.qcloudimg.com/raw/1b6cfc63815a42cf227f7548a1949254.png)
 配置完成后会出现在节点池中。
