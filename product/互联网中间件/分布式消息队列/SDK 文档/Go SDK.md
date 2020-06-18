@@ -21,9 +21,9 @@ TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和
 ![](https://main.qcloudimg.com/raw/e8d04b09e65f7781dc230180b93a5561.png)
 
 
-Demo 基础的版本，只需要成功启动了 TDMQ的集群即可，无需配置其它认证数据。
+Demo 基础的版本，只需要成功启动了 TDMQ 的集群即可，无需配置其它认证数据。
 
-在 consumer.go 和producer.go文件中相关代码处配置Broker服务的地址：
+在 consumer.go 和 producer.go 文件中相关代码处配置 Broker 服务的地址：
 
 ```go
 client, err := pulsar.NewClient(pulsar.ClientOptions{
@@ -37,7 +37,7 @@ defer client.Close()
 
 之后先启动 consumer.go，再启动 producer.go，观察控制台消息：
 
-在 producer.go运行的控制台可以看到有10条消息发送成功：
+在 producer.go 运行的控制台可以看到有10条消息发送成功：
 
 ```bash
 2020/02/20 20:20:20 Published message:  &{581 0 0 0 <nil> <nil>}
