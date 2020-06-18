@@ -12,7 +12,7 @@ DELETE Object tagging 接口用于删除指定对象下已有的对象标签。
 
 #### 请求示例
 
-```shell
+```plaintext
 DELETE /<ObjecKey>?tagging&VersionId=VersionId HTTP 1.1
 Host:<BucketName-APPID>.cos.<Region>.myqcloud.com
 Date:date
@@ -57,7 +57,7 @@ Authorization: Auth String
 
 如下请求申请删除存储桶`examplebucket-1250000000`中的对象`exampleobject.txt`下已有的标签信息。COS 解析该请求后删除该对象中的所有标签。
 
-```shell
+```plaintext
 DELETE /exampleobject.txt?tagging HTTP/1.1
 User-Agent: curl/7.29.0
 Accept: */*
@@ -69,7 +69,7 @@ Content-Type: application/xml
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 204 No Content
 Content-Type: application/xml
 Connection: close
@@ -82,7 +82,7 @@ Date: Fri, 19 Jan 2020 11:40:22 GMT
 
 如下请求申请删除存储桶`examplebucket-1250000000`中的对象`exampleobject.txt`下已有的标签信息，删除时指定对象版本号为`MTg0NDUxNTgwODg2MTEzMTQyOTI `。COS解析该请求后删除该版本的对象中的所有标签。
 
-```shell
+```plaintext
 DELETE /exampleobject.txt?tagging&VersionId=MTg0NDUxNTgwODg2MTEzMTQyOTI  HTTP/1.1
 User-Agent: curl/7.29.0
 Accept: */*
@@ -94,7 +94,7 @@ Content-Type: application/xml
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 204 No Content
 Content-Type: application/xml
 Connection: close
