@@ -44,7 +44,7 @@ Content-Length: Content Length
 | success_action_redirect | 上传成功时重定向的目标 URL 地址，如果设置，那么在上传成功时将返回 HTTP 状态码为303（Redirect）及 Location 响应头部，Location 响应头部的值为该字段指定的 URL 地址，并附加 bucket、key 和 etag 参数，相关示例请参见本文档的 [案例八](#step8) | string | 否       |
 | success_action_status   | 上传成功时返回的 HTTP 状态码，可选200、201或204，默认为204。如果指定了 success_action_redirect 字段，则此字段会被忽略。相关示例请参见本文档的 [案例九](#step9) | number | 否       |
 | x-cos-meta-\*           | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为对象元数据保存，大小限制为2KB<br>**注意：**用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-） | string | 否       |
-| x-cos-storage-class     | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD、STANDARD_IA，ARCHIVE。默认值：STANDARD | Enum   | 否       |
+| x-cos-storage-class     | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD、MAZ_STANDARD_IA、STANDARD_IA、ARCHIVE。默认值：STANDARD | Enum   | 否       |
 | Content-MD5             | 经过 Base64 编码的文件内容 MD5 哈希值，用于完整性检查，验证文件内容在传输过程中是否发生变化 | string | 否       |
 
 **访问控制列表（ACL）相关表单字段**
