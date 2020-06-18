@@ -85,7 +85,7 @@ inputs:
 ```
 npm install npm
 ```
-3. 在 `src` 文件夹下，创建 `index.js` 文件，并输入如下示例代码。在函数中通过 Serverless DB SDK 创建连接池，并调用数据库。
+3. 在 `src` 文件夹下，创建 `index.js` 文件，并输入如下示例代码。在函数中通过 PostgreSQL SDK 创建连接池，并调用数据库。
 ```
 'use strict';
 const { Pool } = require('pg');
