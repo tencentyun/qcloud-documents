@@ -1,5 +1,6 @@
 ## 操作场景
 本文为您介绍通过云数据库 MySQL 控制台进入 phpMyAdmin（PMA）控制台的操作。
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2525-42989?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 操作步骤
 1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb)，在实例列表，选择状态为运行中的实例，在操作列单击【登录】。
