@@ -1,5 +1,12 @@
 ## 效果展示
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 Demo 体验多人视频会议的效果，包括屏幕分享、美颜、低延时会议等 TRTC 在多人视频会议场景下的相关能力。
+<table>
+<tr>
+<td><img width="260" height="561" src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/enterroom.gif"/></td>
+<td><img width="260" height="561" src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/screencapture.gif"/></td>
+</tr>
+</table>
+
 如需快速接入多人视频会议功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCMeeting 组件并实现自定义 UI 界面。
 
 <span id="DemoUI"> </span>
@@ -53,7 +60,7 @@
 ## 实现自定义 UI 界面
 
 源码中的 trtcmeetingdemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCMeeting，您可以在`TRTCMeeting.java` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
-![](https://main.qcloudimg.com/raw/b0c39e5b7ce3a6b1decb1fbbf7ec4ff1.png)
+![](https://main.qcloudimg.com/raw/393f3bf79f3eff1fd7d0debc0e3a3b70.png)
 
 <span id="model.step1"> </span>
 ### 步骤1：集成 SDK
