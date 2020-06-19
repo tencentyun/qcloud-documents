@@ -98,6 +98,10 @@ uploadId|使用上传分块文件，必须先初始化分块上传。在初始�
 | ETag             | 返回对象的 MD5 算法校验值，ETag 的值可以用于检查 Object 的内容是否发生变化 | String |
 | LastModified     | 返回对象最后修改时间，GMT 格式        | String |
 
+#### 错误码
+
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+
 ## 实际案例
 #### 请求
 
