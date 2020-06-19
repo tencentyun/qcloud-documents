@@ -58,6 +58,10 @@ Container 节点 LoggingEnabled 的内容：
 | TargetBucket | LoggingEnabled | 存放日志的目标存储桶，可以是同一个存储桶（但不推荐），或同一账户下、同一地域的存储桶  |  String |
 | TargetPrefix | LoggingEnabled | 日志存放在目标存储桶的指定路径 |  String |
 
+#### 错误码
+
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+
 ## 实际案例
 
 #### 请求
