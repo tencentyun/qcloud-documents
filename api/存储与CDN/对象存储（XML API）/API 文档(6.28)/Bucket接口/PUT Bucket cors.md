@@ -1,5 +1,5 @@
 ## 功能描述
-PUT Bucket cors 接口用于请求设置 Bucket 的跨域资源共享权限，您可以通过传入 XML 格式的配置文件来实现配置，文件大小限制为64KB。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。
+PUT Bucket cors 接口用于请求设存储桶的跨域资源共享权限，您可以通过传入 XML 格式的配置文件来实现配置，文件大小限制为64KB。默认情况下，存储桶持有者直接有权限使用该 API 接口，存储桶持有者也可以将权限授予其他用户。
 
 ## 请求
 #### 请求示例
@@ -17,14 +17,13 @@ Authorization: Auth String
 
 >?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
+#### 请求参数
 
+此接口无请求参数。
 #### 请求头
 
-此接口除使用公共请求头部外，还支持以下必选请求头部，了解公共请求头部详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-|名称	|描述	|类型|	是否必选|
-|---|---|----|----|
-|Content-MD5|	RFC 1864 中定义的经过 Base64 编码的请求体内容 MD5 哈希值，用于完整性检查，验证请求体在传输过程中是否发生变化   |	string	|  是 |
 
 
 #### 请求体
@@ -79,10 +78,7 @@ Container 节点 CORSRule 的内容：
 
 #### 错误码
 
-|错误码|描述|HTTP 状态码|
-|---|---|---|
-|SignatureDoesNotMatch|提供的签名不符合规则，返回该错误码|403 [Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3) |
-|NoSuchBucket|如果试图添加的规则所在的 Bucket 不存在，返回该错误码|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) |
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 

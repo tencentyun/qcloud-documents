@@ -68,14 +68,9 @@ request body
 
 该响应体为空。
 
-#### 错误分析
+#### 错误码
 
-该请求可能会发生的一些常见的特殊错误如下，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
-
-| 错误代码           | 描述                                                 | 状态码          |
-| ------------------ | ---------------------------------------------------- | --------------- |
-| InvalidBucketState | 当前存储桶未开启版本控制，导致无法开启跨地域复制功能 | 409 Conflict    |
-| InvalidArgument    | 不合法的参数内容                                     | 400 Bad Request |
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
