@@ -52,6 +52,11 @@ Access-Control-Request-Headers|string|模拟跨域访问的请求头部|否
 #### 响应体
 此接口响应体为空。
 
+#### 错误码
+
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+
+
 ## 实际案例
 
 #### 请求
