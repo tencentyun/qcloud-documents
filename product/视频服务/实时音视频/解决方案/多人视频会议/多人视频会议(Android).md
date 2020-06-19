@@ -1,9 +1,9 @@
 ## 效果展示
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 Demo 体验多人视频会议的效果，包括屏幕分享、美颜、低延时会议等 TRTC 在多人视频会议场景下的相关能力。
-<table width=300px>
+<table>
 <tr>
-<td><img width="260" height="561" src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/enterroom.gif"/></td>
-<td><img width="260" height="561" src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/screencapture.gif"/></td>
+<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/enterroom.gif"/></td>
+<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/screencapture.gif"/></td>
 </tr>
 </table>
 
