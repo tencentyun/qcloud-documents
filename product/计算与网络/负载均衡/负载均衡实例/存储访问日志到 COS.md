@@ -30,6 +30,7 @@
 ![](https://main.qcloudimg.com/raw/948ca531935af6a102885d3a941852e0.png)
 4. 在弹出框中，关闭访问日志， 点击【提交】 即可 。
 ![](https://main.qcloudimg.com/raw/86dbea54d3b697a03ed449b398679461.png)  
+<br/>  
   配置完成如下，关闭后将不支持再开启 COS 日志， 详见 [关于CLB配置访问日志到COS下线的公告](https://cloud.tencent.com/document/product/214/43659)。
 ![](https://main.qcloudimg.com/raw/43a489e82953e4b27acca5a541912704.png)
 
