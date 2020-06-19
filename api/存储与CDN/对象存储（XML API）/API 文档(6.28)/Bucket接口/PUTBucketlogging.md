@@ -65,6 +65,10 @@ Container 节点 LoggingEnabled 的内容：
 #### 响应体
 该响应体为空。
 
+#### 错误码
+
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+
 ## 实际案例
 
 #### 请求
