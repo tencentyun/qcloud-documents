@@ -9,7 +9,9 @@ TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和
 
 1. 安装 IDE
 您可以 [安装 GoLand](https://www.jetbrains.com/zh-cn/go/promo) 或其它的 Go IDE 来运行这个 Demo，本文以 Go Land 为例。
-2. 打开命令控制台，运行以下命令：
+2. 配置GCC环境
+因为现在的SDK依赖了CGO的库，所以需要本地配置64位GCC，可以通过[MinGW](http://mingw-w64.org/)来安装。
+3. 打开命令控制台，运行以下命令：
 
 ```bash
 go get -u github.com/TencentCloud/tdmq-go-client
