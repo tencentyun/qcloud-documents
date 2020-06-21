@@ -86,7 +86,7 @@ void (* iv_ad_ap_recv_config_info_cb)(char *data, uint32_t length);
 
 | 返回值 | 描述 |
 | ------ | ---- |
-| void   | 略   |
+| void   | -   |
 
 ##  数据结构
 
