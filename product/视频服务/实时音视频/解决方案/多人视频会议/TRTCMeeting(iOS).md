@@ -1,15 +1,13 @@
 # TRTCMeeting（iOS）
-
 TRTCMeeting 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持以下功能：
-
 - 主持人创建会议房间，参会人员输入房间号后进入会议。
 - 参会人员之间进行屏幕分享。
 - 支持发送各种文本消息和自定义消息。
 
 TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见[多人会议（iOS）]()。
 
-- TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时会议组件。
-- IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 AVChatroom 实现聊天室的功能。
+- TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时视频会议组件。
+- IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 MeetingRoom 实现会议中聊天室的功能。
 
 ## TRTCMeeting API 概览
 
@@ -92,7 +90,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | API                                                 | 描述              |
 | --------------------------------------------------- | ----------------- |
-| [getLiveBroadcastingURL](###getLiveBroadcastingURL) | 获取cdn分享链接。 |
+| [getLiveBroadcastingURL](###getLiveBroadcastingURL) | 获取CDN分享链接。 |
 
 ### 消息发送相关接口函数
 
@@ -503,7 +501,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | ---- | ---- | ------------ |
 | fps  | int  | 视频采集帧率 |
 
-> 【推荐取值】 15fps或20fps，5fps以下，卡顿感明显。10fps以下，会有轻微卡顿感。20fps以上，则过于浪费（电影的帧率为24fps）。
+>? 【推荐取值】 15fps或20fps，5fps以下，卡顿感明显。10fps以下，会有轻微卡顿感。20fps以上，则过于浪费（电影的帧率为24fps）。
 
 ### setVideoBitrate
 
@@ -639,7 +637,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | ------ | ------------------------ | ------------------------------------------------------------ |
 | params | TRTCAudioRecordingParams | 镜像模式。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html) |
 
-> 该方法调用后， SDK 会将通话过程中的所有音频（包括本地音频，远端音频，BGM 等）录制到一个文件里。无论是否进房，调用该接口都生效。如果调用 exitMeeting 时还在录音，录音会自动停止。
+>? 该方法调用后， SDK 会将通话过程中的所有音频（包括本地音频，远端音频，BGM 等）录制到一个文件里。无论是否进房，调用该接口都生效。如果调用 exitMeeting 时还在录音，录音会自动停止。
 
 ### stopFileDumping
 
@@ -663,7 +661,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | ------ | ---- | ---------------------- |
 | enable | BOOL | true 打开 false 关闭。 |
 
-> 开启后会在 onUserVolumeUpdate 中获取到 SDK 对音量大小值的评估。
+>? 开启后会在 onUserVolumeUpdate 中获取到 SDK 对音量大小值的评估。
 
 
 
@@ -683,7 +681,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | ------ | ----------------- | ------------------------------------------------------------ |
 | params | TRTCVideoEncParam | 设置屏幕分享时的编码参数，推荐采用上述推荐配置，如果您指定 encParams 为 nil，则使用您调用 startScreenCapture 之前的编码参数设置。 |
 
->详情请参见[TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a92330045ce479f3b5e5c6b366731c7ff)
+>? 详情请参见[TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a92330045ce479f3b5e5c6b366731c7ff)
 
 ### stopScreenCapture
 
@@ -715,7 +713,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ### getLiveBroadcastingURL
 
-获取cdn分享链接。
+获取 CDN 分享链接。
 
 ```objective-c
 - (NSString *)getLiveBroadcastingURL;
@@ -725,7 +723,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 返回值 | 类型     | 含义          |
 | ------ | -------- | ------------- |
-| url    | NSString | CDN分享链接。 |
+| url    | NSString | CDN 分享链接。 |
 
 
 
@@ -837,7 +835,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | localQuality  | TRTCQualityInfo            | 上行网络质量。 |
 | remoteQuality | NSArray<TRTCQualityInfo *> | 下行网络质量。 |
 
->详情请参见[TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a723002319845fbfc03db501aa9da6c28)
+>? 详情请参见[TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a723002319845fbfc03db501aa9da6c28)
 
 ### onUserVolumeUpdate
 
@@ -862,7 +860,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 新成员进房通知。
 
-```java
+```objective-c
 - (void)onUserEnterRoom:(NSString *)userId;
 ```
 
@@ -877,7 +875,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 成员退房通知。
 
-```java
+```objective-c
 - (void)onUserLeaveRoom:(NSString *)userId;
 ```
 
@@ -895,7 +893,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 成员开启/关闭摄像头的通知。
 
-```java
+```objective-c
 - (void)onUserVideoAvailable:(NSString *)userId available:(BOOL)available;
 ```
 
@@ -910,7 +908,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 成员开启/关闭麦克风的通知。
 
-```java
+```objective-c
 - (void)onUserAudioAvailable:(NSString *)userId available:(BOOL)available;
 ```
 
@@ -929,7 +927,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 收到文本消息。
 
-```java
+```objective-c
 - (void)onRecvRoomTextMsg:(NSString* _Nullable)message userInfo:(TRTCMeetingUserInfo *)userInfo;
 ```
 
@@ -944,7 +942,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 收到自定义消息。
 
-```java
+```objective-c
 - (void)onRecvRoomCustomMsg:(NSString* _Nullable)cmd message:(NSString* _Nullable)message userInfo:(TRTCMeetingUserInfo *)userInfo;
 ```
 

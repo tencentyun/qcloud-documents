@@ -4,8 +4,8 @@ TRTCMeeting 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务
 - 支持发送各种文本消息和自定义消息。
 
 TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [多人视频会议（Android）](https://cloud.tencent.com/document/product/647/45667)。
-- TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时直播组件。
-- IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 AVChatroom 实现直播聊天室的功能，同时，通过 IM 消息串联主播间的连麦流程。
+- TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时视频会议组件。
+- IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 MeetingRoom 实现会议中聊天室的功能。
 
 
 <h2 id="TRTCMeeting">TRTCMeeting API 概览</h2>
@@ -85,7 +85,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 |-----|-----|
 | [getBeautyManager](#getbeautymanager) | 获取美颜管理对象 [TXBeautyManager](http://doc.qcloudtrtc.com/group__TXBeautyManager__android.html#classcom_1_1tencent_1_1liteav_1_1beauty_1_1TXBeautyManager)。|
 
-### 调试相关接口函数
+### 分享相关接口
 
 | API | 描述 |
 |-----|-----|
@@ -106,7 +106,6 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | API | 描述 |
 |-----|-----|
 | [onError](#onerror) | 错误回调。|
-| [onNetworkQuality](#onnetworkquality) | 网络状态回调。|
 
 ### 会议房间事件回调
 
@@ -256,13 +255,13 @@ public abstract void createMeeting(int roomId, TRTCMeetingCallback.ActionCallbac
 | callback | ActionCallback | 创建房间的结果回调，成功时 code 为0。 |
 
 主持人正常调用流程如下： 
-1. 【主持人】调用 `createMeeting()` 创建会议，会议房间创建成功与否会通过 ActionCallback 通知给主播。
+1. 【主持人】调用 `createMeeting()` 创建会议，会议房间创建成功与否会通过 ActionCallback 通知给主持人。
 2. 【主持人】调用 `startCameraPreview()` 打开摄像头预览，此时可以调整美颜参数。 
 3. 【主持人】调用 `startMicrophone()` 打开麦克风采集。
 
    
 
-### destroyRoom
+### destroyMeeting
 
 销毁会议房间（主持人调用）。主持人在创建会议后，可以调用该函数来销毁会议。
 ```java
@@ -311,6 +310,7 @@ public abstract void leaveMeeting(TRTCMeetingCallback.ActionCallback callback);
 | callback | ActionCallback | 退出房间的结果回调，成功时 code 为0。 |
 
    
+## 远端用户相关接口
 
 ### getUserInfoList
 
@@ -342,7 +342,101 @@ public abstract void getUserInfo(String userId, TRTCMeetingCallback.UserListCall
 | userListCallback | UserListCallback | 用户详细信息回调。 |
 
 
-## 推拉流相关接口函数
+### startRemoteView
+
+播放指定成员的远端视频画面。在 `onUserVideoAvailable()` 为true回调时，调用该接口。
+```java
+public abstract void startRemoteView(String userId, TXCloudVideoView view, final TRTCMeetingCallback.ActionCallback callback);
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | String | 对方的用户信息。|
+| view | TXCloudVideoView | 承载视频画面的 view 控件。|
+| callback | ActionCallback | 操作回调。|
+
+### stopRemoteView
+
+停止渲染远端视频画面。在 `onUserVideoAvailable()` 为false回调时，调用该接口。
+```java
+public abstract void stopRemoteView(String userId, final TRTCMeetingCallback.ActionCallback callback);
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | String | 对方的用户信息。|
+| callback | ActionCallback | 操作回调。|
+
+### setRemoteViewFillMode
+
+根据用户id和设置远端图像的渲染模式。
+```java
+public abstract void setRemoteViewFillMode(String userId, int fillMode);
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | String | 对方的用户信息。|
+| fillMode | int  | 填充或适应模式，默认值：填充（FILL） 详情请参见(TRTC SDK)[http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ab4197bc2efb62b471b49f926bab9352f] |
+   
+
+
+### setRemoteViewRotation
+
+设置远端图像的顺时针旋转角度。
+```java
+public abstract void setRemoteViewRotation(String userId, int rotation);
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | String | 对方的用户信息。|
+| rotation | int  | 顺时针旋转角度, 详情请参见[TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a87fd1307871debc7c051de4878eb6d69) |
+   
+
+
+### muteRemoteAudio
+
+静音远端音频。
+```java
+public abstract void muteRemoteAudio(String userId, boolean mute);
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | String | 远端的用户 ID。 |
+| mute | boolean | true：开启静音；false：关闭静音。|
+
+   
+
+### muteRemoteVideoStream
+
+屏蔽指定成员的视频流。
+```java
+public abstract void muteRemoteVideoStream(String userId, boolean mute);
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | String | 远端的用户 ID。 |
+| mute | boolean | true：屏蔽；false：解除屏蔽。|
+
+   
+      
+
+## 本地视频操作接口
 ### startCameraPreview
 
 开启本地视频的预览画面。
@@ -393,11 +487,9 @@ public abstract void setVideoResolution(int resolution);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| resolution | int | 视频分辨率, 详细请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#aa3b72c532f3ffdf64c6aacab26be5f87) |
+| resolution | int | 视频分辨率, 详细请参见 (TRTC SDK)[http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#aa3b72c532f3ffdf64c6aacab26be5f87] |
 
 
-
-   
 
 ### setVideoFps
 
@@ -415,167 +507,69 @@ public abstract void setVideoFps(int fps);
 >?【推荐取值】 15fps或20fps，5fps以下，卡顿感明显。10fps以下，会有轻微卡顿感。20fps以上，则过于浪费（电影的帧率为24fps）。
 
 
-### stopPlay
+### setVideoBitrate
 
-停止渲染远端视频画面。需在 `onAnchorExit()` 回调时，调用该接口。
+设置码率
 ```java
-public abstract void stopPlay(String userId, TRTCLiveRoomCallback.ActionCallback callback);
+public abstract void setVideoBitrate(int bitrate);
 ```
 
 参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 对方的用户信息。|
-| callback | ActionCallback | 操作回调。|
-   
+| bitrate | int | 码率，SDK 会按照目标码率进行编码，只有在网络不佳的情况下才会主动降低视频码率。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html) |
 
-## 主播和观众连麦
-### requestJoinAnchor
+>? 【推荐取值】请参考本 TRTCVideoResolution 在各档位注释的最佳码率，也可以在此基础上适当调高。 比如 TRTC_VIDEO_RESOLUTION_1280_720 对应 1200kbps 的目标码率，您也可以设置为 1500kbps 用来获得更好的清晰度观感。
 
-观众请求连麦。
+
+
+### setLocalViewMirror
+
+设置本地画面镜像预览模式
 ```java
-public abstract void requestJoinAnchor(String reason, TRTCLiveRoomCallback.ActionCallback callback);
+public abstract void setLocalViewMirror(int type);
 ```
 
 参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| reason | String | 连麦原因。 |
-| responseCallback | ActionCallback | 主播响应回调。 |
+| type | int | 镜像模式。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa353b5cf5662c43252eb8e5132f041c1) |
 
+## 本地音频操作接口
 
-主播和观众的连麦流程如下：
-1. 【观众】调用 `requestJoinAnchor()` 向主播发起连麦请求。
-2. 【主播】会收到 `TRTCLiveRoomDelegate` 的 `onRequestJoinAnchor()` 回调通知。
-3. 【主播】调用 `responseJoinAnchor()` 决定是否接受来自观众的连麦请求。
-4. 【观众】会收到 responseCallback 回调通知，该通知会携带主播的处理结果。
-5. 【观众】如果请求被同意，则调用 `startCameraPreview()` 开启本地摄像头。
-6. 【观众】然后调用 `startPublish()` 正式进入推流状态。
-7. 【主播】一旦观众进入连麦状态，主播会收到 `TRTCLiveRoomDelegate` 的 `onAnchorEnter()` 通知。
-8. 【主播】主播调用 `startPlay()` 即可看到连麦观众的视频画面。
-9. 【观众】如果直播间里已有其他观众正在跟主播连麦，新加入的连麦观众会收到 `onAnchorEnter()` 通知，调用 `startPlay()` 播放其他连麦者的视频画面。
+### startMicrophone
 
-   
-
-### responseJoinAnchor
-
-主播处理连麦请求。主播在收到 `TRTCLiveRoomDelegate` 的 `onRequestJoinAnchor()` 回调后需要调用此接口来处理观众的连麦请求。
+开启麦克风采集
 ```java
-public abstract void responseJoinAnchor(String userId, boolean agree, String reason);
+public abstract void startMicrophone();
+```
+
+### stopMicrophone
+
+停止麦克风采集
+```java
+public abstract void stopMicrophone();
+```
+
+### setAudioQuality
+
+设置音质
+```java
+public abstract void setAudioQuality(int quality);
 ```
 
 参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 观众 ID。 |
-| agree | boolean | true：同意；false：拒绝。 |
-| reason | String | 同意/拒绝连麦的原因描述。 |
-   
+| quality | int | 音频质量。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a955cccaddccb0c993351c656067bee55) |
 
-### kickoutJoinAnchor
-
-主播踢除连麦观众。主播调用此接口踢除连麦观众后，被踢连麦观众会收到 `TRTCLiveRoomDelegate` 的 `onKickoutJoinAnchor()` 回调通知。
-
-```java
-public abstract void kickoutJoinAnchor(String userId, TRTCLiveRoomCallback.ActionCallback callback);
-```
-
-参数如下表所示：
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| userId | String | 连麦观众 ID。 |
-| callback | ActionCallback | 操作回调。|
-  
-
-
-## 主播跨房间 PK
-### requestRoomPK
-
-主播请求跨房 PK。
-```java
-public abstract void requestRoomPK(int roomId, String userId, TRTCLiveRoomCallback.ActionCallback callback);
-```
-
-参数如下表所示：
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| roomId | int | 被邀约房间 ID。 |
-| userId | String | 被邀约主播 ID。 |
-| responseCallback | ActionCallback | 请求跨房 PK 的结果回调。 |
-
-主播和主播之间可以跨房间 PK，两个正在直播中的主播 A 和 B 之间的跨房 PK 流程如下：
-1. 【主播 A】调用 `requestRoomPK()` 向主播 B 发起连麦请求。
-2. 【主播 B】会收到 `TRTCLiveRoomDelegate` 的 `onRequestRoomPK()` 回调通知。
-3. 【主播 B】调用 `responseRoomPK()` 决定是否接受主播 A 的 PK 请求。
-4. 【主播 B】如果接受主播 A 的要求，等待 `TRTCLiveRoomDelegate` 的 `onAnchorEnter()` 通知，然后调用 `startPlay()` 来显示主播 A 的视频画面。
-5. 【主播 A】会收到 `responseCallback` 回调通知，该通知会携带来自主播 B 的处理结果。
-6. 【主播 A】如果请求被同意，等待 `TRTCLiveRoomDelegate` 的 `onAnchorEnter()` 通知，然后调用 `startPlay()` 显示主播 B 的视频画面。
-
-   
-
-### responseRoomPK
-
-主播响应跨房 PK 请求。主播响应后，对方主播会收到 `requestRoomPK` 传入的 `responseCallback` 回调。
-```java
-public abstract void responseRoomPK(String userId, boolean agree, String reason);
-```
-
-参数如下表所示：
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| userId | String | 发起 PK 请求的主播 ID。 |
-| agree | boolean | true：同意；false：拒绝。 |
-| reason | String | 同意/拒绝 PK 的原因描述。 |
-   
-
-### quitRoomPK
-
-退出跨房 PK。PK 中的任何一个主播退出跨房 PK 状态后，另一个主播会收到 `TRTCLiveRoomDelegate` 的 `onQuitRoomPk()` 回调通知。
-```java
-public abstract void quitRoomPK(TRTCLiveRoomCallback.ActionCallback callback);
-```
-
-参数如下表所示：
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| callback | ActionCallback | 操作回调。|
-   
-
-## 音视频控制相关接口函数
-### switchCamera
-
-切换前后摄像头。
-```java
-public abstract void switchCamera();
-```
-
-   
-
-### setMirror
-
-设置是否镜像展示。
-```java
-public abstract void setMirror(boolean isMirror);
-```
-
-参数如下表所示：
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| isMirror | boolean | 开启/关闭镜像。 |
-
-   
 
 ### muteLocalAudio
 
-静音本地音频。
+静音/取消静音本地的音频
 ```java
 public abstract void muteLocalAudio(boolean mute);
 ```
@@ -584,49 +578,141 @@ public abstract void muteLocalAudio(boolean mute);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mute | boolean | true：开启静音；false：关闭静音。|
+| mute | boolean | 静音/取消静音。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86) |
 
-   
 
-### muteRemoteAudio
 
-静音远端音频。
+### setSpeaker
+
+设置开启扬声器
 ```java
-public abstract void muteRemoteAudio(String userId, boolean mute);
+public abstract void setSpeaker(boolean useSpeaker);
 ```
 
 参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 远端的用户 ID。 |
-| mute | boolean | true：开启静音；false：关闭静音。|
+| useSpeaker | boolean | true:扬声器 false:听筒 |
 
-   
 
-### muteAllRemoteAudio
 
-静音所有远端音频。
+### setAudioCaptureVolume
+
+设置麦克风采集音量
 ```java
-public abstract void muteAllRemoteAudio(boolean mute);
+public abstract void setAudioCaptureVolume(int volume);
 ```
 
 参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| mute | boolean | true：开启静音；false：关闭静音。|
+| volume | int | 采集音量，0-100， 默认100。 |
 
-   
 
-## 背景音乐音效相关接口函数
-### getAudioEffectManager
+### setAudioPlayoutVolume
 
-获取背景音乐音效管理对象 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。
+设置播放音量
 ```java
-public abstract TXAudioEffectManager getAudioEffectManager();
+public abstract void setAudioPlayoutVolume(int volume);
 ```
-   
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| volume | int | 播放音量，0-100， 默认100。 |
+
+
+### startFileDumping
+
+开始录音
+```java
+public abstract void startFileDumping(TRTCCloudDef.TRTCAudioRecordingParams trtcAudioRecordingParams);
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| trtcAudioRecordingParams | TRTCCloudDef.TRTCAudioRecordingParams | 镜像模式。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCAudioRecordingParams) |
+
+>? 该方法调用后， SDK 会将通话过程中的所有音频（包括本地音频，远端音频，BGM 等）录制到一个文件里。无论是否进房，调用该接口都生效。如果调用 exitMeeting 时还在录音，录音会自动停止。
+
+### stopFileDumping
+
+停止录音
+```java
+public abstract void stopFileDumping();
+```
+
+### enableAudioEvaluation
+
+启用音量大小提示
+```java
+public abstract void enableAudioEvaluation(boolean enable);
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| enable | boolean |  true 打开 false 关闭。 |
+
+>? 开启后会在 onUserVolumeUpdate 中获取到 SDK 对音量大小值的评估。
+
+## 录屏接口
+### startScreenCapture
+
+启动屏幕分享。
+```java
+public abstract void startScreenCapture(TRTCCloudDef.TRTCVideoEncParam encParams, TRTCCloudDef.TRTCScreenShareParams screenShareParams);
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| encParams | TRTCCloudDef.TRTCVideoEncParam | 设置屏幕分享时的编码参数，推荐采用上述推荐配置，如果您指定 encParams 为 null，则使用您调用 startScreenCapture 之前的编码参数设置。 |
+| screenShareParams | TRTCCloudDef.TRTCScreenShareParams | 设置屏幕分享的特殊配置，其中推荐设置 floatingView，一方面可以避免 App 被系统强杀；另一方面也能助于保护用户隐私。 |
+
+>? 详情请参见[TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa6671fc587513dad7df580556e43be58)
+
+### stopScreenCapture
+
+停止屏幕采集。
+```java
+public abstract void stopScreenCapture();
+```
+
+### pauseScreenCapture
+
+暂停屏幕分享。
+```java
+public abstract void pauseScreenCapture();
+```
+
+### resumeScreenCapture
+
+恢复屏幕分享。
+```java
+public abstract void resumeScreenCapture();
+```
+
+## 分享接口
+### getLiveBroadcastingURL
+
+获取 CDN 分享链接。
+```java
+public abstract String getLiveBroadcastingURL();
+```
+
+返回值如下表所示：
+
+| 返回值 | 类型 | 含义 |
+|-----|-----|-----|
+| url  | String  | CDN 分享链接。 |
 
 ## 美颜滤镜相关接口函数
 ### getBeautyManager
@@ -637,7 +723,7 @@ public abstract TXBeautyManager getBeautyManager();
 ```
 
 通过美颜管理，您可以使用以下功能：
-- 设置“美颜风格”、“美白”、“红润”、“大眼”、“瘦脸”、“V 脸”、“下巴”、“短脸”、“小鼻”、“亮眼”、“白牙”、“祛眼袋”、“祛皱纹”、“祛法令纹”等美容效果。
+- 设置“美颜风格”、“美白”、“红润”、“大眼”、“瘦脸”、“V脸”、“下巴”、“短脸”、“小鼻”、“亮眼”、“白牙”、“祛眼袋”、“祛皱纹”、“祛法令纹”等美容效果。
 - 调整“发际线”、“眼间距”、“眼角”、“嘴形”、“鼻翼”、“鼻子位置”、“嘴唇厚度”、“脸型”。
 - 设置人脸挂件（素材）等动态效果。
 - 添加美妆。
@@ -647,9 +733,9 @@ public abstract TXBeautyManager getBeautyManager();
 ## 消息发送相关接口函数
 ### sendRoomTextMsg
 
-在房间中广播文本消息，一般用于弹幕聊天。
+在房间中广播文本消息。
 ```java
-public abstract void sendRoomTextMsg(String message, TRTCLiveRoomCallback.ActionCallback callback);
+public abstract void sendRoomTextMsg(String message, TRTCMeetingCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -665,7 +751,7 @@ public abstract void sendRoomTextMsg(String message, TRTCLiveRoomCallback.Action
 
 发送自定义文本消息。
 ```java
-public abstract void sendRoomCustomMsg(String cmd, String message, TRTCLiveRoomCallback.ActionCallback callback);
+public abstract void sendRoomCustomMsg(String cmd, String message, TRTCMeetingCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
@@ -678,23 +764,7 @@ public abstract void sendRoomCustomMsg(String cmd, String message, TRTCLiveRoomC
 
    
 
-## 调试相关接口函数
-### showVideoDebugLog
-
-是否在界面中展示debug信息。
-```java
-public abstract void showVideoDebugLog(boolean isShow);
-```
-
-参数如下表所示：
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| isShow | boolean | 开启/关闭 Debug 信息显示。 |
-
-   
-
-## TRTCLiveRoomDelegate事件回调
+## TRTCMeetingDelegate 事件回调
 
 ## 通用事件回调
 ### onError
@@ -714,42 +784,11 @@ void onError(int code, String message);
 | message | String | 错误信息。 |
    
 
-### onWarning
-
-警告回调。
-```java
-void onWarning(int code, String message);
-```
-
-参数如下表所示：
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| code | int | 错误码。 |
-| message | String | 警告信息。 |
-
-   
-
-### onDebugLog
-
-Log 回调。
-```java
-void onDebugLog(String message);
-```
-
-参数如下表所示：
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| message | String | 日志信息。 |
-
-   
-
 
 ## 房间事件回调
 ### onRoomDestroy
 
-房间被销毁的回调。主播退房时，房间内的所有用户都会收到此通知。
+房间被销毁的回调。主持人退房时，房间内的所有用户都会收到此通知。
 ```java
 void onRoomDestroy(String roomId);
 ```
@@ -760,135 +799,109 @@ void onRoomDestroy(String roomId);
 |-----|-----|-----|
 | roomId | String | 房间 ID。 |
 
-### onRoomInfoChange
+### onNetworkQuality
 
-直播房间信息变更回调。多用于直播连麦、PK下房间状态变化通知场景。
+网络状态回调。
 ```java
-void onRoomInfoChange(TRTCLiveRoomDef.TRTCLiveRoomInfo roomInfo);
+ void onNetworkQuality(TRTCCloudDef.TRTCQuality localQuality, List<TRTCCloudDef.TRTCQuality> remoteQuality);
 ```
 
 参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomInfo | TRTCLiveRoomInfo | 房间信息。 |
+| localQuality | TRTCCloudDef.TRTCQuality | 上行网络质量。 |
+| remoteQuality | List<TRTCCloudDef.TRTCQuality> | 下行网络质量。 |
 
-## 主播和观众进出事件回调
-### onAnchorEnter
+>? 详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#aba07d4191391dadef900422521f34e5b)
 
-收到新主播进房通知。连麦观众和跨房 PK 主播进房后观众会收到新主播的进房事件，您可以调用 `TRTCLiveRoom` 的 `startPlay()` 显示该主播的视频画面。
-```java
-void onAnchorEnter(String userId);
-```
-
-参数如下表所示：
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| userId | String | 新进房主播 ID。 |
-   
-
-### onAnchorExit
-
-收到主播退房通知。房间内的主播（和连麦中的观众）会收到新主播的退房事件，您可以调用 `TRTCLiveRoom` 的 `stopPlay()` 关闭该主播的视频画面。
-```java
-void onAnchorExit(String userId);
-```
-
-参数如下表所示：
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| userId | String | 退房用户 ID。 |
-   
-
-### onAudienceEnter
-
-收到观众进房通知。
-```java
-void onAudienceEnter(TRTCLiveRoomDef.TRTCLiveUserInfo userInfo);
-```
-
-参数如下表所示：
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| userInfo | TRTCLiveUserInfo | 进房观众信息。 |
 
    
 
-### onAudienceExit
+### onUserVolumeUpdate
 
-收到观众退房通知。
+启用音量大小提示，会通知每个成员的音量大小
 ```java
-void onAudienceExit(TRTCLiveRoomDef.TRTCLiveUserInfo userInfo);
+void onUserVolumeUpdate(String userId, int volume);
 ```
 
 参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userInfo | TRTCLiveUserInfo | 退房观众信息。 |
-
+| userId | String | 用户信息。 |
+| volume | int | 音量大小，取值0-100。 |
    
 
 
-## 主播和观众连麦事件回调
-### onRequestJoinAnchor
+## 成员进出事件回调
+### onUserEnterRoom
 
-主播收到观众连麦请求时的回调。
+新成员进房通知。
 ```java
-void onRequestJoinAnchor(TRTCLiveRoomDef.TRTCLiveUserInfo userInfo, String reason, int timeOut);
+void onUserEnterRoom(String userId);
 ```
 
 参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userInfo | TRTCLiveUserInfo | 请求连麦观众信息。|
-| reason | String | 连麦原因描述。|
-| timeout | int | 处理请求的超时时间，如果上层超过该时间没有处理，则会自动将该次请求废弃。 |
-
+| userId | String | 新进房成员 ID。 |
    
 
-### onKickoutJoinAnchor
+### onUserLeaveRoom
 
-连麦观众收到被踢出连麦的通知。连麦观众收到被主播踢除连麦的消息，您需要调用 `TRTCLiveRoom` 的 `stopPublish()` 退出连麦。
+成员退房通知。
 ```java
-void onKickoutJoinAnchor();
-```
-  
-
-
-## 主播 PK 事件回调
-### onRequestRoomPK
-
-收到请求跨房 PK 通知。主播收到其他房间主播的 PK 请求，如果同意 PK ，您需要等待 `TRTCLiveRoomDelegate` 的 `onAnchorEnter()` 通知，然后调用 `startPlay()` 来播放邀约主播的流。
-```java
-void onRequestRoomPK(TRTCLiveRoomDef.TRTCLiveUserInfo userInfo, int timeout);
+void onUserLeaveRoom(String userId);
 ```
 
 参数如下表所示：
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userInfo | TRTCLiveUserInfo | 发起跨房连麦的主播信息。|
-| timeout | int | 处理请求的超时时间。 |
+| userId | String | 退房成员 ID。 |
+   
+   
+## 成员音视频事件回调
+### onUserVideoAvailable
+
+成员开启/关闭摄像头的通知。
+```java
+void onUserVideoAvailable(String userId, boolean available);
+```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | String | 用户信息。 |
+| available | boolean | true：用户打开摄像头；false：用户关闭摄像头。 |
+
    
 
-### onQuitRoomPK
+### onUserAudioAvailable
 
-收到断开跨房 PK 通知。
+成员开启/关闭麦克风的通知。
 ```java
-void onQuitRoomPK();
+void onUserAudioAvailable(String userId, boolean available);
 ```
+
+参数如下表所示：
+
+| 参数 | 类型 | 含义 |
+|-----|-----|-----|
+| userId | String | 用户信息。 |
+| available | boolean | true：用户打开麦克风；false：用户关闭麦克风。 |
+
+   
 
 ## 消息事件回调
 ### onRecvRoomTextMsg
 
 收到文本消息。
 ```java
-void onRecvRoomTextMsg(String message, TRTCLiveRoomDef.TRTCLiveUserInfo userInfo);
+void onRecvRoomTextMsg(String message, TRTCMeetingDef.UserInfo userInfo);
 ```
 
 参数如下表所示：
@@ -896,7 +909,7 @@ void onRecvRoomTextMsg(String message, TRTCLiveRoomDef.TRTCLiveUserInfo userInfo
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | message | String | 文本消息。|
-| user | TRTCLiveUserInfo | 发送者用户信息。|
+| user | UserInfo | 发送者用户信息。|
 
    
 
@@ -904,7 +917,7 @@ void onRecvRoomTextMsg(String message, TRTCLiveRoomDef.TRTCLiveUserInfo userInfo
 
 收到自定义消息。
 ```java
-void onRecvRoomCustomMsg(String cmd, String message, TRTCLiveRoomDef.TRTCLiveUserInfo userInfo);
+void onRecvRoomCustomMsg(String cmd, String message, TRTCMeetingDef.UserInfo userInfo);
 ```
 
 参数如下表所示：
@@ -913,4 +926,5 @@ void onRecvRoomCustomMsg(String cmd, String message, TRTCLiveRoomDef.TRTCLiveUse
 |-----|-----|-----|
 | command | String | 命令字，由开发者自定义，主要用于区分不同消息类型。|
 | message | String | 文本消息。|
-| user | TRTCLiveUserInfo | 发送者用户信息。 |
+| user | UserInfo | 发送者用户信息。 |
+
