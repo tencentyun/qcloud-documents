@@ -50,11 +50,11 @@
 | 文件或文件夹 | 功能描述 |
 |:-------:|:--------|
 | SegmentVC | 设置界面相关UI实现代码。 |
-| TRTCBroadcastExtensionLauncher.swift | 录屏弹窗相关UI实现代码。 |
-| TRTCMeetingNewViewController | 视频会议创建界面UI实现代码。 |
-| TRTCMeetingMainViewController | 视频房间界面UI实现代码。 |
-| TRTCMeetingMemberViewController | 成员列表界面UI实现代码。 |
-| TRTCMeetingMoreViewController | 设置界面相关UI实现代码。 |
+| TRTCBroadcastExtensionLauncher.swift | 录屏弹窗相关 UI 实现代码。 |
+| TRTCMeetingNewViewController | 视频会议创建界面 UI 实现代码。 |
+| TRTCMeetingMainViewController | 视频房间界面 UI 实现代码。 |
+| TRTCMeetingMemberViewController | 成员列表界面 UI 实现代码。 |
+| TRTCMeetingMoreViewController | 设置界面相关 UI 实现代码。 |
 
 
 <span id="model"> </span>
@@ -172,7 +172,7 @@ trtcMeeting.createMeeting(roomId) { (code, msg) in
 // 1.参会成员设置昵称和头像
 trtcMeeting.setSelfProfile(name: "A", avatarURL: "faceUrl", callback: nil)
 
-// 2.enterMeeting函数实现
+// 2.enterMeeting 函数实现
 trtcMeeting.enterMeeting(roomId) { (code, msg) in
    if code == 0{
      trtcMeeting.startCameraPreview(true, view: localPreviewView)
@@ -186,7 +186,7 @@ trtcMeeting.enterMeeting(roomId) { (code, msg) in
 ```swift
 let renderView = getRenderView(userId: userId)
 if available && renderView != nil {
-  //收到回调，并调用startRemoteView，传入userId开始播放
+  //收到回调，并调用 startRemoteView，传入 userId 开始播放
   TRTCMeeting.sharedInstance().startRemoteView(userId, view: renderView!) { (code, message) in
    debugPrint("startRemoteView" + "\(code)" + message!)
   }
