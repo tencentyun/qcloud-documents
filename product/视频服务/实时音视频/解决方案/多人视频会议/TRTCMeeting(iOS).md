@@ -4,7 +4,7 @@ TRTCMeeting 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务
 - 参会人员之间进行屏幕分享。
 - 支持发送各种文本消息和自定义消息。
 
-TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见[多人会议（iOS）]()。
+TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [多人视频会议（iOS）](https://cloud.tencent.com/document/product/647/45681)。
 
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时视频会议组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 MeetingRoom 实现会议中聊天室的功能。
@@ -171,7 +171,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ### sharedInstance
 
-获取 [TRTCMeeting]() 单例对象。
+获取 [TRTCMeeting](https://cloud.tencent.com/document/product/647/45681) 单例对象。
 
 ```objective-c
 + (instancetype)sharedInstance;
@@ -193,7 +193,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ### delegate
 
-[TRTCMeeting]() 事件回调，您可以通过 TRTCMeetingDelegate 获得 [TRTCMeeting]() 的各种状态通知。
+[TRTCMeeting](https://cloud.tencent.com/document/product/647/45681) 事件回调，您可以通过 TRTCMeetingDelegate 获得 [TRTCMeeting](https://cloud.tencent.com/document/product/647/45681) 的各种状态通知。
 
 ### login
 
