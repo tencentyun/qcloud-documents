@@ -177,7 +177,7 @@ trtcMeeting.createMeeting(roomId) { (code, msg) in
 // 1.参会成员设置昵称和头像
 trtcMeeting.setSelfProfile(name: "A", avatarURL: "faceUrl", callback: nil)
 
-// 2.enterMeeting函数实现
+// 2.enterMeeting 函数实现
 trtcMeeting.enterMeeting(roomId) { (code, msg) in
    if code == 0{
       self.view.makeToast("会议进入成功")
@@ -192,7 +192,7 @@ trtcMeeting.enterMeeting(roomId) { (code, msg) in
 ```swift
 let renderView = getRenderView(userId: userId)
 if available && renderView != nil {
-    //收到回调，并调用startRemoteView，传入userId开始播放
+    //收到回调，并调用 startRemoteView，传入 userId 开始播放
     TRTCMeeting.sharedInstance().startRemoteView(userId, view: renderView!) { (code, message) in
                 debugPrint("startRemoteView" + "\(code)" + message!)
     }
@@ -243,8 +243,8 @@ shareScreen.rx.controlEvent(.touchUpInside).subscribe(onNext: { [weak self] in
 
 <span id="model.step8"> </span>
 ### 步骤8：实现文字聊天和禁言消息
-* 通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到`onRecvRoomTextMsg`回调。
-* 即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
+- 通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到`onRecvRoomTextMsg`回调。
+即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
 
 ```objective-c
 - (void)sendRoomTextMsg:(NSString *)message callback:(TRTCMeetingCallback)callback {
@@ -262,11 +262,11 @@ shareScreen.rx.controlEvent(.touchUpInside).subscribe(onNext: { [weak self] in
 
 ```swift
 func onRecvRoomCustomMsg(_ cmd: String?, message: String?, userInfo: TRTCMeetingUserInfo) {
-        debugPrint("📳 onRecvRoomCustomMsg: \(String(describing: cmd)) message:\(String(describing: message)) from userId: \(String(describing: userInfo.userId))")
+        debugPrint("onRecvRoomCustomMsg: \(String(describing: cmd)) message:\(String(describing: message)) from userId: \(String(describing: userInfo.userId))")
 }
 ```
 
-* 通过`sendRoomCustomMsg`可以发送自定义（信令）的消息，所有在该房间内的主持人和与会观众均可以收到`onRecvRoomCustomMsg`回调。
+- 通过`sendRoomCustomMsg`可以发送自定义（信令）的消息，所有在该房间内的主持人和与会观众均可以收到`onRecvRoomCustomMsg`回调。
   自定义消息常用于传输自定义信令，例如用于禁言之类的会场控制等。
 
 ```objective-c
@@ -282,10 +282,9 @@ func onRecvRoomCustomMsg(_ cmd: String?, message: String?, userInfo: TRTCMeeting
     }];
 }
 ```
-
 ```swift
 func onRecvRoomCustomMsg(_ cmd: String?, message: String?, userInfo: TRTCMeetingUserInfo) {
-        debugPrint("📳 onRecvRoomCustomMsg: \(String(describing: cmd)) message:\(String(describing: message)) from userId: \(String(describing: userInfo.userId))")
+        debugPrint("onRecvRoomCustomMsg: \(String(describing: cmd)) message:\(String(describing: message)) from userId: \(String(describing: userInfo.userId))")
 }
 ```
 
