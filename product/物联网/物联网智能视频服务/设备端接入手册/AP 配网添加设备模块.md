@@ -93,27 +93,7 @@ void (* iv_ad_ap_recv_config_info_cb)(char *data, uint32_t length);
 该模块提供以下数据结构：
 
 - iv_ad_ap_init_parm_s：AP 模块初始化参数结构体。
-- IV_AD_AP_MAX_WIFI_SSID_LEN：最大 Wi-Fi SSID 长度。
-- IV_AD_AP_MAX_WIFI_PASSWORD_LEN：最大 Wi-Fi password 长度。
 
-#### IV_AD_AP_MAX_WIFI_SSID_LEN
-
-**接口描述**
-
-最大 Wi-Fi  SSID 长度
-
-```
-#define IV_AD_AP_MAX_WIFI_PASSWORD_LEN 128
-```
-
-#### IV_AP_MAX_WIFI_PASSWORD_LEN
-
-**接口描述**
-最大 Wi-Fi  SSID 长度
-
-```
-#define IV_AP_MAX_WIFI_PASSWORD_LEN 128
-```
 
 #### iv_ad_ap_init_parm_s
 
