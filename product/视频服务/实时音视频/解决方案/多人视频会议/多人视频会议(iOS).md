@@ -51,7 +51,7 @@
 |:-------:|:--------|
 | SegmentVC | 设置界面相关UI实现代码。 |
 | TRTCBroadcastExtensionLauncher.swift | 录屏弹窗相关UI实现代码。 |
-| TRTCMeetingNewViewController | 视频会议登陆界面UI实现代码。 |
+| TRTCMeetingNewViewController | 视频会议登录界面UI实现代码。 |
 | TRTCMeetingMainViewController | 视频房间界面UI实现代码。 |
 | TRTCMeetingMemberViewController | 成员列表界面UI实现代码。 |
 | TRTCMeetingMoreViewController | 设置界面相关UI实现代码。 |
@@ -124,7 +124,7 @@ let userSig = GenerateTestUserSig.genTestUserSig(userID)
 
 TRTCMeeting.sharedInstance().login(SDKAPPID, userId: userID, userSig: userSig, callback: { code, message in
     if code == 0 {
-        //登陆成功
+        //登录成功
     }
 })
 ```
