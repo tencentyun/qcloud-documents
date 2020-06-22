@@ -83,7 +83,7 @@
 ![](https://main.qcloudimg.com/raw/457e6bfae36185ca47d5511058d3b67c.png)
 
 
-## 其它 VR 设备参考
+## VR 设备参考建议
 | 设备                | 下载地址                                                     |
 | ------------------- | ------------------------------------------------------------ |
 | Insta360 pro2       | [云市场链接](https://market.cloud.tencent.com/products/20303) |
