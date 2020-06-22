@@ -38,6 +38,6 @@ table th:nth-of-type(3) {
 | 消息驱动        | Kafka                  | 兼容       | 提供调用链传递到腾讯云消息队列 CMQ、Ckafka、开源 Kafka       |
 | 安全              | Spring Cloud Security         | 兼容       | -                                                           |
 | 微服务网关    | <li>Spring Cloud Gateway</li><li>NetflixZuul</li> | 兼容 Zuul、Spring Cloud Gateway | -                           |
-| 熔断降级       |Spring Cloud Hystrix                   | 自研  |TSF 采用官方推荐的 Resilience4J 作为底层实现，扩展支持实例、API和服务级别的熔断|
+| 熔断降级       |Spring Cloud Hystrix                   | 自研  |TSF 采用官方推荐的 Resilience4J 作为底层实现，扩展支持实例、API 和服务级别的熔断|
 
 
