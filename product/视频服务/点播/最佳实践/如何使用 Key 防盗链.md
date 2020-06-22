@@ -3,7 +3,22 @@
 ## 使用须知
 
 ### Demo 功能介绍
-本 Demo 主要用于向开发者展示云点播（VOD）[Key 防盗链](https://cloud.tencent.com/document/product/266/14047)  机制的使用方法。Demo 基于云函数（SCF）搭建了一个 HTTP 服务，用于接收来自客户端获取防盗链的签名请求。服务从请求 Body 中获取 VOD 的视频原始 URL，计算防盗链签名，并返回带防盗链签名的 URL 给客户端。
+本 Demo 向开发者展示云点播（VOD）[Key 防盗链](https://cloud.tencent.com/document/product/266/14047)  机制的使用方法，包括在控制台启用 Key 防盗链、搭建一个防盗链签名派发服务、以及使用防盗链签名播放视频。
+
+### 架构和流程
+
+Demo 基于云函数（SCF）搭建了一个 HTTP 服务，用于接收来自客户端的获取防盗链签名请求。服务从请求 Body 中获取 VOD 的视频原始 URL，计算防盗链签名，并返回带防盗链签名的 URL 给客户端。
+
+系统主要涉及四个组成部分：开发者、API 网关、云函数和云点播，其中 API 网关和云函数即是本 Demo 的部署对象，如下图所示：
+<img src="https://main.qcloudimg.com/raw/e2397093b8cd9d0aabf228ef41ecac45.png" width="600">
+
+具体业务流程为：
+
+- 开发者在 VOD 控制台上获取到视频的原始 URL（实际生产环境中，应当是由播放器向业务后台请求视频的 URL，本文为了简化流程由开发者模拟该业务行为）；
+- 开发者使用视频原始 URL 向 SCF 请求防盗链签名；
+- 开发者使用带防盗链签名的视频 URL 请求 VOD CDN，播放视频。
+
+> ?Demo 中的 SCF 代码使用 Python3.6 进行开发，此外 SCF 还支持 Python2.7、Node.js、Golang、PHP 和 Java 等多种编程语言，开发者可以根据情况自由选择，具体请参考 [SCF 开发指南](https://cloud.tencent.com/document/product/583/11061)。
 
 ### 费用
 本文提供的云点播 Key 防盗链签名派发服务 Demo 是免费开源的，但在搭建和使用的过程中可能会产生以下费用：
@@ -122,11 +137,6 @@ Access-Control-Allow-Origin: *
 
 ## 系统设计说明
 
-### 系统框架
-
-Key 防盗链主要涉及五个组成部分：播放器、开发者业务后台（上文未提及）、API 网关、云函数和云点播，其中 API 网关和云函数即是本 Demo 的部署对象，这两者在逻辑上可以认为属于开发者业务后台的一部分。如下图所示：
-<img src="https://main.qcloudimg.com/raw/7002d6150957db5ac0fed37417a548d7.png" width="600">
-
 ### 接口协议
 
 Key 防盗链签名派发云函数通过 API 网关对外提供接口，具体接口协议如下：
@@ -183,7 +193,7 @@ Key 防盗链签名派发云函数通过 API 网关对外提供接口，具体�
            "rlimit": configuration['rlimit'],
            "us": rand
        }	
-   ```
+```
 4. 调用`generate_sign()`计算防盗链签名，详细算法请参见 [Key 防盗链签名](https://cloud.tencent.com/document/product/266/14047#.E9.98.B2.E7.9B.97.E9.93.BE-url-.E7.94.9F.E6.88.90.E6.96.B9.E5.BC.8F)。
 5. 生成 QueryString，拼接在原始 URL 后组成带防盗链签名的 URL：
 ```
@@ -191,7 +201,7 @@ Key 防盗链签名派发云函数通过 API 网关对外提供接口，具体�
        query_string = urlencode(sign_para)
        new_parse_result = parse_result._replace(query=query_string)
        signed_url = urlunparse(new_parse_result)
-   ```
+```
 6. 返回签名。返回的数据格式及含义请参见 [云函数集成响应](https://cloud.tencent.com/document/product/583/12513#.E9.9B.86.E6.88.90.E5.93.8D.E5.BA.94.E4.B8.8E.E9.80.8F.E4.BC.A0.E5.93.8D.E5.BA.94)。
 ```
        return {
@@ -202,6 +212,6 @@ Key 防盗链签名派发云函数通过 API 网关对外提供接口，具体�
                        "Access-Control-Allow-Methods": "POST,OPTIONS"},
            "body": signed_url
        }
-   ```
+```
 
    

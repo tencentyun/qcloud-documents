@@ -1,12 +1,24 @@
-本文将指导您如何搭建自己的 Web 上传服务。在搭建服务之前，请仔细阅读本章节。
-
 ## 使用须知
 
 ### Demo 功能介绍
 
-本 Demo 主要用于向开发者展示云点播（VOD）[Web 上传 SDK](https://cloud.tencent.com/document/product/266/9239) 的使用方法。Demo 基于云函数（SCF）搭建了两个 HTTP 服务：
+本 Demo 向开发者展示如何通过 Web 页面将视频上传到云点播。Demo 基于云函数（SCF）搭建了两个 HTTP 服务：
+
 - 第一个服务用于接收来自浏览器获取 [客户端上传签名](https://cloud.tencent.com/document/product/266/9221) 的请求，计算上传签名并返回。
-- 第二个服务用于提供一个 Web 页面，用户可以通过浏览器访问该页面，并上传本地视频到 VOD。
+- 第二个服务使用 VOD [Web 上传 SDK](https://cloud.tencent.com/document/product/266/9239) 实现一个页面，用户可以通过浏览器访问该页面，并上传本地视频到 VOD。
+
+### 架构和流程
+
+系统主要涉及四个组成部分：浏览器、API 网关、云函数和云点播，其中 API 网关和云函数即是本 Demo 的部署对象，如下图所示：
+<img src="https://main.qcloudimg.com/raw/ec886cea3098ad0256869ccdab22acb3.png" width="500">
+
+主要业务流程为：
+
+- 浏览器向 SCF 请求上传页面；
+- 用户在上传页面进行操作，选中本地视频后点击上传，由浏览器向 SCF 请求上传签名；
+- 浏览器使用上传签名向 VOD 发起上传请求，完成后在上传页面上展示上传结果。
+
+> ?Demo 中的 SCF 代码使用 Python3.6 进行开发，此外 SCF 还支持 Python2.7、Node.js、Golang、PHP 和 Java 等多种编程语言，开发者可以根据情况自由选择，具体请参考 [SCF 开发指南](https://cloud.tencent.com/document/product/583/11061)。
 
 ### 费用
 
@@ -98,11 +110,6 @@ ubuntu@VM-69-2-ubuntu:~$ export SECRET_ID=AKxxxxxxxxxxxxxxxxxxxxxxx; export SECR
 >?您可根据页面提示，对上传页面的其它功能进行体验。
 
 ## 系统设计说明
-
-### 系统框架
-
-Web 上传主要涉及四个组成部分：浏览器、API 网关、云函数和云点播，其中 API 网关和云函数即是本 Demo 的部署对象，如下图所示：
-<img src="https://main.qcloudimg.com/raw/ec886cea3098ad0256869ccdab22acb3.png" width="500">
 
 ### 接口协议及测试
 
