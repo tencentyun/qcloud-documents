@@ -31,18 +31,8 @@ Content-MD5: MD5
 
 #### 请求头
 
-#### 公共头部
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-该请求操作的实现使用公共请求头，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
-
-#### 非公共头部
-
-**必选头部**
-该请求操作的实现使用如下必选头部：
-
-| 名称        | 描述                                                         | 类型   | 是否必选 |
-| ----------- | ------------------------------------------------------------ | ------ | -------- |
-| Content-MD5 | RFC 1864中定义的经过 Base64 编码的请求体内容 MD5 哈希值，用于完整性检查，验证请求体在传输过程中是否发生变化 | String | 是       |
 
 #### 请求体
 
@@ -125,18 +115,11 @@ Content-MD5: MD5
 
 #### 响应体
 
-该响应体返回为空。
+该响应体为空。
 
 #### 错误码
 
-以下描述此请求可能会发生的一些特殊的且常见的错误情况。具体的错误原因可参考返回的 message 进行排查。获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
-
-| 错误码          | HTTP 状态码     | 描述                                                         |
-| --------------- | --------------- | ------------------------------------------------------------ |
-| NoSuchBucket    | 404 Not Found   | 当访问的 Bucket 不存在                                       |
-| MalformedXML    | 400 Bad Request | XML 格式不合法，请跟 RESTful API 文档仔细比对                |
-| InvalidRequest  | 400 Bad Reques  | 请求不合法，如果错误描述中显示"Conflict lifecycle rule"，那么表示 xml 数据中的多条 rule 有相互冲突的部分 |
-| InvalidArgument | 400 Bad Reques  | 请求参数不合法，如果错误描述中显示"Rule ID must be unique. Found same ID for more than one rule"， 那么表示有多个 Rule 的 ID 字段相同 |
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 

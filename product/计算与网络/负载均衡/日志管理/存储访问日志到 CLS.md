@@ -53,6 +53,9 @@
 3. 在“检索分析 ”页面中，选择日志集、日志主题和时间范围，单击【检索分析】，即可检索 CLB 上报到 CLS 的访问日志。检索语法详情请参见 [语法与规则](https://cloud.tencent.com/document/product/614/16982)。
 ![](https://main.qcloudimg.com/raw/1be3bc335e74f30538453133c34349db.png)
 
+### 步骤3：投递到 COS
+使用 CLS 方案后，可以按需[从 CLS 投递到 COS ](https://cloud.tencent.com/document/product/614/37908)。
+
 ## 日志格式及变量说明
 ### 日志格式
 ```

@@ -35,8 +35,10 @@ XG register push success with token:6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 若未搜索到 Token，请查看注册接口返回的错误码，根据 [错误码对照表](https://cloud.tencent.com/document/product/548/36660) 排查。
 
 ## 厂商通道快速接入
-1.在配置管理页面打开厂商推送通道开关并配置好应用的 AppId、SecretKey 等信息，申请方式可单击查看各厂商通道的说明文档。
-![](https://main.qcloudimg.com/raw/f357a18e6615782c54839f9777e7c97b.png)
+1.在配置管理页面打开厂商推送通道开关并配置好应用的 AppId、SecretKey 等信息，申请方式可查看各厂商通道的说明文档。
+ - 单击【查看说明文档】，可查看厂商通道说明。
+ - 在右侧 AppId、AppKey、AppSecret 处可配置厂商通道信息。
+![](https://main.qcloudimg.com/raw/054128d0cbc0304e512cc67e36999138.png)
 2.厂商通道信息配置完成后，单击页面上方【配置文件下载】按钮，下载包含厂商通道配置信息的配置文件，然后用该配置文件替换工程文件中旧的配置文件即可。
 ![](https://main.qcloudimg.com/raw/4dfa37ac471c1c3b18cc559d5780a6be.png)
 

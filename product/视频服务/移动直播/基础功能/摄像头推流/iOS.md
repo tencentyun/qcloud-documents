@@ -210,25 +210,26 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 
 - **step3: 监听 App 的前后台切换事件**
 如果 App 在切到后台后就被 iOS 系统彻底休眠掉，SDK 将无法继续推流，观众端就会看到主播画面进入黑屏或者冻屏状态。您可以使用下面的代码让 App 在切到后台后还可再跑几分钟。
+
 ```objectivec
-    // 注册 App 被切到后台的处理函数
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppDidEnterBackground:)
-		                                         name:UIApplicationDidEnterBackgroundNotification object:nil];
-    // 注册 App 被切回前台的处理函数 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppWillEnterForeground:) 
-		                                         name:UIApplicationWillEnterForegroundNotification object:nil];
-    // App 被切到后台的处理函数																				 
-    -(void)onAppDidEnterBackground:(NSNotification *)notification {
-        [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{}];
-        _appIsBackground = YES;
-        [_pusher pausePush];
-    }
-    // App 被切回前台的处理函数																			 
-    -(void)onAppWillEnterForeground:(NSNotification *)notification {
-        if (_appIsBackground ){
-            [_pusher resumePush];
-        }
-    }		
+// 注册应用监听事件
+ NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+[center addObserver:self selector:@selector(willResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
+[center addObserver:self selector:@selector(didBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+
+
+// 具体实现. _livePuser 为当前TXLivePush实例对象
+#pragma mark - 前后台切换
+- (void)willResignActive:(NSNotification *)notification {
+    [_livePusher pausePush];
+    _inBackground = YES;
+}
+
+- (void)didBecomeActive:(NSNotification *)notification {
+    [_livePusher resumePush];
+    _inBackground = NO;
+    // 其他唤醒业务逻辑
+}
 ```
 
 >! 请注意调用顺序：startPush => ( pausePush => resumePush ) => stopPush，错误的调用顺序会导致 SDK 表现异常，因此使用成员变量对执行顺序进行保护是很有必要的。

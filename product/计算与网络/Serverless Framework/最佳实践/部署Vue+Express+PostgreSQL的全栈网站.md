@@ -12,6 +12,7 @@
 ## 前提条件
 
 - 已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于 8.6，建议使用Node.js10.0 及以上版本）
+- 账号已经配置 **QcloudPostgreSQLFullAccess** 策略，配置方法详见 [账号和权限配置](https://cloud.tencent.com/document/product/1154/43006)
 
 ## 操作步骤
 

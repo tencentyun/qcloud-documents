@@ -11,8 +11,7 @@
 支持 Windows、Linux 和 macOS 系统。
 
 > ?
->
-> - 请保证本地字符格式为 UTF-8，否则操作中文件会出现异常。
+> - 请保证本地字符格式为 UTF-8，否则操作中文版的文件会出现异常。
 > - 请确保本机时间已经与国际标准时间校准，如误差过大，将导致无法正常使用。
 
 #### 软件依赖
@@ -31,7 +30,7 @@
 
 执行`pip`命令进行安装：
 
-```shell
+```plaintext
 pip install coscmd
 ```
 
@@ -41,7 +40,7 @@ pip install coscmd
 
 执行`pip`命令进行更新：
 
-```sh
+```plaintext
 pip install coscmd -U
 ```
 
@@ -51,7 +50,7 @@ pip install coscmd -U
 
 源码下载地址：[单击此处](https://github.com/tencentyun/coscmd.git)。
 
-```shell
+```plaintext
 git clone https://github.com/tencentyun/coscmd.git
 cd coscmd
 python setup.py install
@@ -80,13 +79,13 @@ pip install coscmd --no-index -f coscmd-packages
 
 用户可通过`-h`或`--help`命令来查看工具的 help 信息。
 
-```shell
+```plaintext
 coscmd -h  //查看当前版本信息
 ```
 
 help 信息如下所示：
 
-```shell
+```plaintext
 usage: coscmd [-h] [-d] [-b BUCKET] [-r REGION] [-c CONFIG_PATH] [-l LOG_PATH]
               [-v]
               
@@ -139,7 +138,7 @@ optional arguments:
 
 除此之外，用户还可以在每个命令后（不加参数）输入`-h`查看该命令的具体用法，例如：
 
-```shell
+```plaintext
 coscmd upload -h  //查看 upload 命令使用方法
 ```
 
@@ -147,7 +146,7 @@ coscmd upload -h  //查看 upload 命令使用方法
 
 COSCMD 工具在使用前需要进行参数配置，用户可以通过如下命令来配置：
 
-```shell
+```plaintext
 coscmd config [OPTION]...<FILE>...
 			  [-h] --help
 			  [-a] <SECRET_ID>
@@ -178,7 +177,7 @@ coscmd config -a AChT4ThiXAbpBDEFGhT4ThiXAbp**** -s WE54wreefvds3462refgwewe****
 | -t               | 临时密钥 token，当使用临时密钥时需要配置，设置 x-cos-security-token 头部 | 否       | 字符串 |
 | -b               | 指定的存储桶名称，存储桶的命名格式为 BucketName-APPID，请参见 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) | 是       | 字符串 |
 | -r               | 存储桶所在地域，请参见 [地域和访问域名](https://cloud.tencent.com/doc/product/436/6224) | 是       | 字符串 |
-| -e               | 设置请求的 ENDPOINT，设置 ENDPOINT 参数后，REGION 参数会失效 | 否       | 字符串 |
+| -e               | 设置请求的 ENDPOINT，设置 ENDPOINT 参数后，REGION 参数会失效。当您使用的是默认域名，则此处配置格式为`cos.<region>.myqcloud.com`；当您使用全球加速域名，则配置为`cos.accelerate.myqcloud.com` | 否       | 字符串 |
 | -m               | 多线程操作的最大线程数（默认为5，范围为1 - 30）              | 否       | 数字   |
 | -p               | 分块操作的单块大小（单位MB，默认为1MB，范围为1 - 1000）      | 否       | 数字   |
 | --do-not-use-ssl | 使用 HTTP 协议，而不使用 HTTPS                               | 否       | 字符串 |
@@ -187,7 +186,7 @@ coscmd config -a AChT4ThiXAbpBDEFGhT4ThiXAbp**** -s WE54wreefvds3462refgwewe****
 > ?
 1. 可以直接编辑`~/.cos.conf`文件 （在 Windows 环境下，该文件是位于【我的文档】下的一个隐藏文件），该文件初始时不存在，是通过`coscmd config`命令生成，用户也可以手动创建。
 配置完成之后的`.cos.conf`文件内容示例如下所示：
-```shell
+```plaintext
  [common]
 secret_id = AChT4ThiXAbpBDEFGhT4ThiXAbp****
 secret_key = WE54wreefvds3462refgwewe****
@@ -208,41 +207,38 @@ schema = https
 - 存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式。
 - 通过`-r <region>`指定 Region， 可以指定特定的 Region。
 
-```shell
+```plaintext
 #命令格式
 coscmd -b <BucketName-APPID> -r <region> <action> ...
 #操作示例-创建bucket
 coscmd -b examplebucket-1250000000 -r ap-beijing createbucket
 #操作示例-上传文件
 coscmd -b examplebucket-1250000000 -r ap-beijing upload exampleobject exampleobject
-
 ```
 
 ### 创建存储桶
 
 - 建议配合`-b <BucketName-APPID>`指定 Bucket 和`-r <region>`指定 Region 使用。
 
-```shell
+```plaintext
 #命令格式
 coscmd -b <BucketName-APPID> createbucket
 #操作示例
 coscmd createbucket
 coscmd -b examplebucket-1250000000 -r ap-beijing createbucket
-
 ```
 
 ### 删除存储桶
 
 - 建议配合`-b <BucketName-APPID>`指定 Bucket 和`-r <region>`指定 Region 使用。
 
-```shell
+```plaintext
 #命令格式
 coscmd -b <BucketName-APPID> deletebucket
 #操作示例
 coscmd deletebucket
 coscmd -b examplebucket-1250000000 -r ap-beijing deletebucket
 coscmd -b examplebucket-1250000000 -r ap-beijing deletebucket -f
-
 ```
 
 - 使用`-f`参数则会强制删除该存储桶，包括所有文件、开启版本控制之后历史文件夹、上传产生的碎片。
@@ -251,7 +247,7 @@ coscmd -b examplebucket-1250000000 -r ap-beijing deletebucket -f
 
 - 上传文件命令如下：
 
-```shell
+```plaintext
 #命令格式
 coscmd upload <localpath> <cospath>
 #操作示例
@@ -267,7 +263,7 @@ coscmd upload /data/exampleobject data/exampleobject -H "{'x-cos-meta-example':'
 
 - 上传文件夹命令如下：
 
-```shell
+```plaintext
 #命令格式
 coscmd upload -r <localpath> <cospath>
 #操作示例
@@ -300,18 +296,17 @@ coscmd upload -rs /data/examplefolder data/examplefolder --ignore *.txt,*.doc
 
 - 下载文件命令如下：
 
-```shell
+```plaintext
 #命令格式
 coscmd download <cospath> <localpath>
 #操作示例
 coscmd download data/exampleobject /data/exampleobject
 coscmd download data/exampleobject /data/
-
 ```
 
 - 下载文件夹命令如下：
 
-```shell
+```plaintext
 #命令格式
 coscmd download -r <cospath> <localpath>
 #操作示例
@@ -330,7 +325,6 @@ coscmd download -rs / /data/examplefolder --ignore *.txt,*.doc
 请将 "<>" 中的参数替换为您需要下载的 COS 上文件的路径（cospath），以及本地存储路径（localpath）。
 
 > !
->
 > - 老版本的 mget 接口已经废除，download 接口使用分块下载，请使用 download 接口。
 > - 若本地存在同名文件，则会下载失败，需要使用`-f`参数覆盖本地文件。
 > - 使用 `-s` 或者 `--sync` 参数，可以在下载文件夹时跳过本地已存在的相同文件（前提是下载的文件是通过 COSCMD 的 upload 接口上传的，文件携带有 `x-cos-meta-md5` 头部）。
@@ -340,7 +334,7 @@ coscmd download -rs / /data/examplefolder --ignore *.txt,*.doc
 
 - 删除文件命令如下：
 
-```shell
+```plaintext
 #命令格式
 coscmd delete <cospath>
 #操作示例
@@ -350,7 +344,7 @@ coscmd delete data/exampleobject
 
 - 删除文件夹命令如下：
 
-```shell
+```plaintext
 #命令格式
 coscmd delete -r <cospath>
 #操作示例
@@ -366,7 +360,7 @@ coscmd delete -r /
 
 - 命令如下：
 
-```shell
+```plaintext
 #命令格式
 coscmd listparts <cospath>
 #操作示例
@@ -377,7 +371,7 @@ coscmd listparts examplefolder/
 
 - 命令如下：
 
-```shell
+```plaintext
 #命令格式
 coscmd abort
 #操作示例
@@ -388,7 +382,7 @@ coscmd abort
 
 - 复制文件命令如下：
 
-```shell
+```plaintext
 #命令格式
 coscmd copy <sourcepath> <cospath> 
 #操作示例
@@ -402,7 +396,7 @@ coscmd -b examplebucket1-1250000000 -r ap-guangzhou copy examplebucket2-12500000
 
 - 复制文件夹命令如下：
 
-```shell
+```plaintext
 #命令格式
 coscmd copy -r <sourcepath> <cospath>
 #操作示例
@@ -423,7 +417,7 @@ coscmd -b examplebucket1-1250000000 -r ap-guangzhou copy -r examplebucket2-12500
 
 查询命令如下：
 
-```shell
+```plaintext
 #命令格式
 coscmd list <cospath>
 
@@ -446,7 +440,7 @@ coscmd list examplefolder/  -ar
 
 命令如下：
 
-```shell
+```plaintext
 #命令格式
 coscmd info <cospath> 
 
@@ -460,7 +454,7 @@ coscmd info exampleobject
 
 命令如下：
 
-```shell
+```plaintext
 #命令格式
 coscmd signurl <cospath>
 
@@ -476,7 +470,7 @@ coscmd signurl exampleobject -t 100
 
 命令如下：
 
-```shell
+```plaintext
 #命令格式
 coscmd putbucketversioning <status>
 
@@ -495,7 +489,7 @@ coscmd putbucketversioning Suspended
 
 - 恢复归档文件命令如下：
 
-```shell
+```plaintext
 #命令格式
 coscmd restore <cospath>
 #操作示例
@@ -504,7 +498,7 @@ coscmd restore -d 3 -t Expedited exampleobject
 
 - 批量恢复归档文件命令如下：
 
-```shell
+```plaintext
 #命令格式
 coscmd restore -r <cospath>
 #操作示例
@@ -520,7 +514,7 @@ coscmd restore -r -d 3 -t Expedited examplefolder/
 
 在各命令前加上`-d`或者`--debug`，在命令执行的过程中，会显示详细的操作信息 。示例如下：
 
-```shell
+```plaintext
 #显示 upload 的详细操作信息，命令格式：
 coscmd -d upload <localpath> <cospath>
 
