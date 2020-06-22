@@ -202,7 +202,7 @@
  - **应用包名称**：填写华为推送服务应用的**包名**
  - **AppID**：填写华为推送服务应用的 **APP ID**
  - **AppSecret**：填写华为推送服务应用的 **APP SECRET**
- - **角标参数**：填写应用入口完整 `Activity` 类名，用作华为桌面应用角标显示，请参考 [华为桌面角标开发指导书](https://developer.huawei.com/consumer/cn/doc/development/system-References/30802)。
+ - **角标参数**：填写应用入口完整 `Activity` 类名，用作华为桌面应用角标显示，请参考 [华为桌面角标开发指导书](https://developer.huawei.com/consumer/cn/doc/development/system-References/30802)
  - **点击通知后**：选择点击通知栏消息后的响应操作， 支持**打开应用**、**打开网页**和**打开应用内指定界面**，更多详情请参见 [配置点击通知栏消息事件](#huawei_click)
    当设置为【打开应用】或【打开应用内指定界面】操作时，支持 [透传自定义内容](#huawei_custom)。
     ![](https://main.qcloudimg.com/raw/852b40d2a8a5aacd4327f94130976563.png)

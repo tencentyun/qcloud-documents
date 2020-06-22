@@ -50,7 +50,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | ------------------------------------------- | -------------------------- |
 | [startCameraPreview](#startCameraPreview) | 开启本地视频的预览画面。   |
 | [stopCameraPreview](#stopCameraPreview)   | 停止本地视频采集及预览。   |
-| [stopCameraPreview](#stopCameraPreview)   | 切换前后摄像头。           |
+| [switchCamera](#switchCamera)   | 切换前后摄像头。           |
 | [setVideoResolution](#setVideoResolution) | 设置分辨率。               |
 | [setVideoFps](#setVideoFps)               | 设置帧率。                 |
 | [setVideoBitrate](#setVideoBitrate)       | 设置码率。                 |

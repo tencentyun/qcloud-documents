@@ -49,12 +49,12 @@
 
 | 文件或文件夹 | 功能描述 |
 |:-------:|:--------|
-| SegmentVC | 设置界面相关UI实现代码。 |
-| TRTCBroadcastExtensionLauncher.swift | 录屏弹窗相关UI实现代码。 |
-| TRTCMeetingNewViewController | 视频会议登录界面UI实现代码。 |
-| TRTCMeetingMainViewController | 视频房间界面UI实现代码。 |
-| TRTCMeetingMemberViewController | 成员列表界面UI实现代码。 |
-| TRTCMeetingMoreViewController | 设置界面相关UI实现代码。 |
+| SegmentVC | 设置界面相关 UI 实现代码。 |
+| TRTCBroadcastExtensionLauncher.swift | 录屏弹窗相关 UI 实现代码。 |
+| TRTCMeetingNewViewController | 视频会议创建界面 UI 实现代码。 |
+| TRTCMeetingMainViewController | 视频房间界面 UI 实现代码。 |
+| TRTCMeetingMemberViewController | 成员列表界面 UI 实现代码。 |
+| TRTCMeetingMoreViewController | 设置界面相关 UI 实现代码。 |
 
 
 <span id="model"> </span>
@@ -95,7 +95,7 @@ pod 'TXLiteAVSDK_TRTC'
 1. 调用`sharedInstance`接口可以创建一个 TRTCMeeting 组件的实例对象。
 2. 调用`setDelegate`函数注册组件的事件通知。
 3. 调用`login`函数完成组件的登录，请参考下表填写关键参数：
-<table>	
+<table> 
 <tr>
 <th>参数名</th>
 <th>作用</th>
@@ -145,21 +145,16 @@ trtcMeeting.setSelfProfile(name: "A", avatarURL: "faceUrl", callback: nil)
 
 // 2.主播创建房间
 trtcMeeting.createMeeting(roomId) { (code, msg) in
-   if code == 0 {
+ if code == 0 {
    // 创建房间成功
-   self.view.makeToast("会议创建成功")
-   TRTCMeeting.sharedInstance().setAudioQuality(TRTCAudioQuality(rawValue: startConfig.audioQuality)!)
-   TRTCMeeting.sharedInstance().enableAudioEvaluation(true)
-   if startConfig.isVideoOn {
-       let localPreviewView = getRenderView(userId: selfUserId)!
-       TRTCMeeting.sharedInstance().startCameraPreview(true, view: localPreviewView)
-   }
-   TRTCMeeting.sharedInstance().startMicrophone();
-   TRTCMeeting.sharedInstance().muteLocalAudio(!startConfig.isAudioOn)
-   // 使用默认的美颜参数
-   beautyPannel.resetAndApplyValues()
-   return;
-   }
+  let localPreviewView=getRenderView(userId: selfUserId)!
+  TRTCMeeting.sharedInstance().startCameraPreview(true, view: localPreviewView)
+  TRTCMeeting.sharedInstance().startMicrophone();
+  
+  // 使用默认的美颜参数
+  beautyPannel.resetAndApplyValues()
+  return;
+ }
 }
 ```
 
@@ -180,9 +175,8 @@ trtcMeeting.setSelfProfile(name: "A", avatarURL: "faceUrl", callback: nil)
 // 2.enterMeeting 函数实现
 trtcMeeting.enterMeeting(roomId) { (code, msg) in
    if code == 0{
-      self.view.makeToast("会议进入成功")
-     	trtcMeeting.startCameraPreview(true, view: localPreviewView)
-     	trtcMeeting.startMicrophone()
+     trtcMeeting.startCameraPreview(true, view: localPreviewView)
+     trtcMeeting.startMicrophone()
    } else {
       self.view.makeToast("会议进入失败：" + msg!)
    }
@@ -192,14 +186,14 @@ trtcMeeting.enterMeeting(roomId) { (code, msg) in
 ```swift
 let renderView = getRenderView(userId: userId)
 if available && renderView != nil {
-    //收到回调，并调用 startRemoteView，传入 userId 开始播放
-    TRTCMeeting.sharedInstance().startRemoteView(userId, view: renderView!) { (code, message) in
-                debugPrint("startRemoteView" + "\(code)" + message!)
-    }
+  //收到回调，并调用 startRemoteView，传入 userId 开始播放
+  TRTCMeeting.sharedInstance().startRemoteView(userId, view: renderView!) { (code, message) in
+   debugPrint("startRemoteView" + "\(code)" + message!)
+  }
 } else {
-   TRTCMeeting.sharedInstance().stopRemoteView(userId) { (code, message) in
-       debugPrint("stopRemoteView" + "\(code)" + message!)
-    }
+ TRTCMeeting.sharedInstance().stopRemoteView(userId) { (code, message) in
+   debugPrint("stopRemoteView" + "\(code)" + message!)
+  }
 }
 //刷新当前界面
 renderView?.refreshVideo(isVideoAvailable: available)
@@ -214,31 +208,20 @@ renderView?.refreshVideo(isVideoAvailable: available)
 
 ```swift
 // 1.按钮点击实现屏幕分享
-shareScreen.rx.controlEvent(.touchUpInside).subscribe(onNext: { [weak self] in
-            guard let self = self else {return}
-            
-            // 防止重复设置
-            if !self.isScreenPushing {
-                self.isOpenCamera = self.getRenderView(userId: self.selfUserId)!.isVideoAvailable()
-                
-                // 录屏前必须先关闭摄像头采集
-                self.setLocalVideo(isVideoAvailable: false)
-            }
-            
-            self.isScreenPushing = true
-            
-            if #available(iOS 12.0, *) {
-                // 屏幕分享
-                let params = TRTCVideoEncParam()
-                params.videoResolution = TRTCVideoResolution._960_540
-                params.videoFps = 10
-                params.videoBitrate = 1600
-                TRTCMeeting.sharedInstance().startScreenCapture(params)
-                TRTCBroadcastExtensionLauncher.launch()
-            } else {
-                self.view.makeToast("系统版本低于12.0，请升级系统")
-            }
-        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: disposeBag)
+if #available(iOS 12.0, *) {
+  // 录屏前必须先关闭摄像头采集
+  self.setLocalVideo(isVideoAvailable: false)
+  
+  // 屏幕分享
+  let params = TRTCVideoEncParam()
+  params.videoResolution = TRTCVideoResolution._1280_720
+  params.videoFps = 10
+  params.videoBitrate = 1800
+  TRTCMeeting.sharedInstance().startScreenCapture(params)
+  TRTCBroadcastExtensionLauncher.launch()
+} else {
+  self.view.makeToast("系统版本低于12.0，请升级系统")
+}     
 ```
 
 <span id="model.step8"> </span>
@@ -246,45 +229,34 @@ shareScreen.rx.controlEvent(.touchUpInside).subscribe(onNext: { [weak self] in
 - 通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到`onRecvRoomTextMsg`回调。
 即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
 
-```objective-c
-- (void)sendRoomTextMsg:(NSString *)message callback:(TRTCMeetingCallback)callback {
-    __weak __typeof(self) weakSelf = self;
-    [[TXRoomService sharedInstance] sendRoomTextMsg:message callback:^(NSInteger code, NSString *message) {
-        __strong __typeof(weakSelf) self = weakSelf;
-        if (self && callback) {
-            [self asyncRunOnDelegateQueue:^{
-                callback(code, message);
-            }];
-        }
-    }];
-}
-```
-
 ```swift
-func onRecvRoomCustomMsg(_ cmd: String?, message: String?, userInfo: TRTCMeetingUserInfo) {
-        debugPrint("onRecvRoomCustomMsg: \(String(describing: cmd)) message:\(String(describing: message)) from userId: \(String(describing: userInfo.userId))")
+// 发送端：发送文本消息
+TRTCMeeting.sharedInstance().sendRoomTextMsg("Hello Word!") { (code, message) in
+  debugPrint("send result: ", code)
+}
+
+// 接收端：监听文本消息
+func onRecvRoomTextMsg(_ message: String?, userInfo: TRTCMeetingUserInfo) {
+  debugPrint("收到来自:\(String(describing: userInfo.userId))的消息\(String(describing: message))")
 }
 ```
 
 - 通过`sendRoomCustomMsg`可以发送自定义（信令）的消息，所有在该房间内的主持人和与会观众均可以收到`onRecvRoomCustomMsg`回调。
-  自定义消息常用于传输自定义信令，例如用于禁言之类的会场控制等。
+自定义消息常用于传输自定义信令，例如用于禁言之类的会场控制等。
 
-```objective-c
-- (void)sendRoomCustomMsg:(NSString *)cmd message:(NSString *)message callback:(TRTCMeetingCallback)callback {
-    __weak __typeof(self) weakSelf = self;
-    [[TXRoomService sharedInstance] sendRoomCustomMsg:cmd message:message callback:^(NSInteger code, NSString *message) {
-        __strong __typeof(weakSelf) self = weakSelf;
-        if (self && callback) {
-            [self asyncRunOnDelegateQueue:^{
-                callback(code, message);
-            }];
-        }
-    }];
-}
-```
 ```swift
+// 发送端：您可以通过自定义 Cmd 来区分禁言通知
+// eg:"CMD_MUTE_AUDIO"表示禁言通知
+TRTCMeeting.sharedInstance().sendRoomCustomMsg("CMD_MUTE_AUDIO", message: "1") { (code, message) in
+  debugPrint("send result: ", code)
+}
+
+// 接收端：监听自定义消息
 func onRecvRoomCustomMsg(_ cmd: String?, message: String?, userInfo: TRTCMeetingUserInfo) {
-        debugPrint("onRecvRoomCustomMsg: \(String(describing: cmd)) message:\(String(describing: message)) from userId: \(String(describing: userInfo.userId))")
+  if cmd == "CMD_MUTE_AUDIO" {
+    debugPrint("收到来自:\(String(describing: userInfo.userId))的禁言通知:\(String(describing: message))")
+    TRTCMeeting.sharedInstance().muteLocalAudio(message == "1")
+  }
 }
 ```
 

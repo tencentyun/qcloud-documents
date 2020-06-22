@@ -1,12 +1,6 @@
-目前腾讯云标准直播、云点播已全面适配 VR 全景视频源。您通过全景硬件设备采集视频后，可直接经过标准直播、云点播进行正常下行分发。本文将以“Insta360 pro2”相机为例介绍如何基于 VR 全景相机通过标准直播完成 VR 直播。
+目前腾讯云标准直播、云点播已全面适配 VR 全景视频源。您可通过购买市面上的全景硬件设备，将采集到的 VR 视频传至腾讯云端后，直接经过标准直播、云点播进行正常下行分发。本文将以“Insta360 pro2”相机为例介绍如何基于 VR 全景相机与标准直播完成一次 VR 直播。
 
-## VR 设备参考建议
-| 设备                | 下载地址                                                     |
-| ------------------- | ------------------------------------------------------------ |
-| Insta360 pro2       | [云市场链接](https://market.cloud.tencent.com/products/20303) |
-| Insta360 影石 Titan | [云市场链接](https://market.cloud.tencent.com/products/20302) |
-| Insta360 影石       | [云市场链接](https://market.cloud.tencent.com/products/20148) |
-| 圆周率              | [云市场链接](https://market.cloud.tencent.com/products/15866 ) |
+
 
 <span id="keyword"></span>
 ## 关键词说明
@@ -20,7 +14,7 @@
 <td>立体呈现周围环境，带给观看者沉浸式体验。</td>
 </tr><tr>
 <td>RTMP</td>
-<td>是 Adobe Systems 公司为 Flash 播放器和服务器之间音频、视频和数据传输开发的开放协议。目前标准直播支持 RTMP 协议进行推流拉流播放。</td>
+<td>是 Adobe Systems 公司为 Flash 播放器和服务器之间音频、视频和数据传输开发的开放协议。<br>目前标准直播支持 RTMP 协议进行推流，支持 RTMP、 FLV 和 HLS 多种协议拉流播放。</td>
 </tr><tr>
 <td>直播同时保存画面视频</td>
 <td>保存当前直播输出视频到本地 SD 卡中。</td></tr>
@@ -35,7 +29,7 @@
 1. 开通腾讯云直播服务。
 2. 已添加推流域名和播放域名，具体操作请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
 3. 一台已经连接好的“Insta360 Pro 2”相机，具体连接操作步骤可参见 [Insta360 Pro2 说明书](https://onlinemanual.insta360.com/pro2/zh-cn/live/prepare/3)。
-4.  通过[【Insta360 官网】](http://insta360.com/download/insta360-pro2?locale=zh-cn)下载 Android/iOS 手机端、Windows 端 或 Mac 端的相机控制软件。
+4. 通过[【Insta360 官网】](http://insta360.com/download/insta360-pro2?locale=zh-cn)下载 Android/iOS 手机端、Windows 端 或 Mac 端的相机控制软件。
  ![](https://main.qcloudimg.com/raw/d36bcf1b1f00c2b85889ef04f538530e.png)
 5. 软件下载完成之后需要对相机进行调试，调试方法参见 [基础拍摄准备-相机调试](https://onlinemanual.insta360.com/pro2/zh-cn/basic/prepare/adjustment)。
 
@@ -72,9 +66,8 @@
 <td><a href="#keyword">保存6镜头原片</a></td><td>根据个人需求勾选，是否边播边保存相关数据到机身 SD 卡中。</td>
 </tr>
 </tbody></table>
-
-8.完成以上设置后即可单击红色的【Live】按键开始推流。
-9.当【LIve】按钮变成白色就说明推流成功，即可将视频流推送到设置的推流地址中。
+3. 完成以上设置后即可单击红色的【Live】按键开始推流。
+4. 当【LIve】按钮变成白色就说明推流成功，即可将视频流推送到设置的推流地址中。
 ![](https://main.qcloudimg.com/raw/e5efed214c114b51004aa798c89282c0.png)
 
 
@@ -82,8 +75,8 @@
 
 ## 步骤2：直播播放
 1. 通过云直播控制台的【地址生成器】生成对应流的播放地址，具体操作请参见 [生成播放域名](https://cloud.tencent.com/document/product/267/35257#play)。
->?播放地址 StreamName要与推流地址 StreamName 一致才能播放对应的流。
-2. 通过[【Insta360 官网】](https://www.insta360.com/download/insta360-one)下载 Android/iOS 手机端、Windows 端 或 Mac 端的全景视频播放器软件。
+>?播放地址 StreamName 要与推流地址 StreamName 一致才能播放对应的流。
+2. 通过[【Insta360 官网】](https://www.insta360.com/download/insta360-one)下载 Android/iOS 手机端、Windows 端或 Mac 端的全景视频播放器软件。
 ![](https://main.qcloudimg.com/raw/a63a315890bb83f4cab383656a3c72a9.png)
 3. 进入【Insta360 Player】界面，选择【文件】>【播放流媒体】。
 ![](https://main.qcloudimg.com/raw/d6faa10c3236315ca585d320e8f461ea.png)
@@ -92,7 +85,13 @@
 
 
 
-
+## VR 设备参考建议
+| 设备                | 详情查看                                                     |
+| ------------------- | ------------------------------------------------------------ |
+| Insta360 pro2       | [单击前往](https://market.cloud.tencent.com/products/20303) |
+| Insta360 影石 Titan | [单击前往](https://market.cloud.tencent.com/products/20302) |
+| Insta360 影石       | [单击前往](https://market.cloud.tencent.com/products/20148) |
+| 圆周率 Pilot Era              | [单击前往](https://market.cloud.tencent.com/products/15866 ) |
 
 
 
