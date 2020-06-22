@@ -1,4 +1,4 @@
-# TRTCMeeting（iOS）
+
 TRTCMeeting 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持以下功能：
 - 主持人创建会议房间，参会人员输入房间号后进入会议。
 - 参会人员之间进行屏幕分享。
@@ -517,7 +517,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | ------- | ---- | ------------------------------------------------------------ |
 | bitrate | int  | 码率，SDK 会按照目标码率进行编码，只有在网络不佳的情况下才会主动降低视频码率。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#a21a93f89a608f4642ecc9d81ef25a454) |
 
->【推荐取值】请参考本 TRTCVideoResolution 在各档位注释的最佳码率，也可以在此基础上适当调高。 比如 TRTC_VIDEO_RESOLUTION_1280_720 对应 1200kbps 的目标码率，您也可以设置为 1500kbps 用来获得更好的清晰度观感。
+>?【推荐取值】请参考 TRTCVideoResolution 在各档位注释的最佳码率，也可以在此基础上适当调高。 例如 TRTC_VIDEO_RESOLUTION_1280_720 对应 1200kbps 的目标码率，您也可以设置为1500kbps用来获得更好的清晰度观感。
 
 ### setLocalViewMirror
 
