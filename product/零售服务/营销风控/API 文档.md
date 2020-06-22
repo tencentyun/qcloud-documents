@@ -143,7 +143,7 @@
       <td>wxToken</td>
       <td>可选</td>
       <td>String</td>
-      <td><li>如果是微信小程序，该字段为以 ssesion_key 为 key 去签名随机数 radnNum 得到的值（hmac_sha256签名算法）。</li><li>如果是微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，详细请参阅官方 <a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842">说明文档</a>。</li></td>
+      <td><li>如果是微信小程序，该字段为以 ssesion_key 为 key 去签名随机数 randNum 得到的值（hmac_sha256签名算法）。</li><li>如果是微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，详细请参阅官方 <a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842">说明文档</a>。</li></td>
    </tr>
 </table>
 
