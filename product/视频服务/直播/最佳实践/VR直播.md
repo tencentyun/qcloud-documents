@@ -1,12 +1,6 @@
 目前腾讯云标准直播、云点播已全面适配 VR 全景视频源。您可通过购买市面上的全景硬件设备，将采集到的 VR 视频传至腾讯云端后，直接经过标准直播、云点播进行正常下行分发。本文将以“Insta360 pro2”相机为例介绍如何基于 VR 全景相机与标准直播完成一次 VR 直播。
 
-## VR 设备参考建议
-| 设备                | 下载地址                                                     |
-| ------------------- | ------------------------------------------------------------ |
-| Insta360 pro2       | [云市场链接](https://market.cloud.tencent.com/products/20303) |
-| Insta360 影石 Titan | [云市场链接](https://market.cloud.tencent.com/products/20302) |
-| Insta360 影石       | [云市场链接](https://market.cloud.tencent.com/products/20148) |
-| 圆周率              | [云市场链接](https://market.cloud.tencent.com/products/15866 ) |
+
 
 <span id="keyword"></span>
 ## 关键词说明
@@ -91,7 +85,13 @@
 
 
 
-
+## VR 设备参考建议
+| 设备                | 详情查看                                                     |
+| ------------------- | ------------------------------------------------------------ |
+| Insta360 pro2       | [单击前往](https://market.cloud.tencent.com/products/20303) |
+| Insta360 影石 Titan | [单击前往](https://market.cloud.tencent.com/products/20302) |
+| Insta360 影石       | [单击前往](https://market.cloud.tencent.com/products/20148) |
+| 圆周率 Pilot Era              | [单击前往](https://market.cloud.tencent.com/products/15866 ) |
 
 
 
