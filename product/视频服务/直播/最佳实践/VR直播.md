@@ -1,5 +1,13 @@
 目前腾讯云标准直播、云点播已全面适配 VR 全景视频源。您通过全景硬件设备采集视频后，可直接经过标准直播、云点播进行正常下行分发。本文将以“Insta360 pro2”相机为例介绍如何基于 VR 全景相机通过标准直播完成 VR 直播。
 
+## VR 设备参考建议
+| 设备                | 下载地址                                                     |
+| ------------------- | ------------------------------------------------------------ |
+| Insta360 pro2       | [云市场链接](https://market.cloud.tencent.com/products/20303) |
+| Insta360 影石 Titan | [云市场链接](https://market.cloud.tencent.com/products/20302) |
+| Insta360 影石       | [云市场链接](https://market.cloud.tencent.com/products/20148) |
+| 圆周率              | [云市场链接](https://market.cloud.tencent.com/products/15866 ) |
+
 <span id="keyword"></span>
 ## 关键词说明
 <table>
@@ -33,7 +41,7 @@
 
 
 
-## VR 相机推流设置
+## 步骤1：VR 相机推流设置
 <span id="step1"> </span> 
 1. 进入云直播控制台的【地址生成器】生成推流地址，具体操作请参见 [生成推流域名](https://cloud.tencent.com/document/product/267/35257#push)。
 2. 打开软件之后，选择界面上的直播按钮，然后通过右上方基础设置开始设置相机参数。
@@ -72,7 +80,7 @@
 
 >? 若您需要进行更多设置，可参考 [Insta360 相机拍摄进阶说明](https://onlinemanual.insta360.com/pro2/zh-cn/live/production/1)。
 
-## 直播播放
+## 步骤2：直播播放
 1. 通过云直播控制台的【地址生成器】生成对应流的播放地址，具体操作请参见 [生成播放域名](https://cloud.tencent.com/document/product/267/35257#play)。
 >?播放地址 StreamName要与推流地址 StreamName 一致才能播放对应的流。
 2. 通过[【Insta360 官网】](https://www.insta360.com/download/insta360-one)下载 Android/iOS 手机端、Windows 端 或 Mac 端的全景视频播放器软件。
@@ -83,13 +91,7 @@
 ![](https://main.qcloudimg.com/raw/457e6bfae36185ca47d5511058d3b67c.png)
 
 
-## VR 设备参考建议
-| 设备                | 下载地址                                                     |
-| ------------------- | ------------------------------------------------------------ |
-| Insta360 pro2       | [云市场链接](https://market.cloud.tencent.com/products/20303) |
-| Insta360 影石 Titan | [云市场链接](https://market.cloud.tencent.com/products/20302) |
-| Insta360 影石       | [云市场链接](https://market.cloud.tencent.com/products/20148) |
-| 圆周率              | [云市场链接](https://market.cloud.tencent.com/products/15866 ) |
+
 
 
 
