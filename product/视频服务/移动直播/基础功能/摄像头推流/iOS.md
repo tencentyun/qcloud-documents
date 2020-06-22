@@ -121,7 +121,8 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";
 | BEAUTY_STYLE_SMOOTH | 光滑风格，算法更加注重皮肤的光滑程度，适合秀场直播类场景下使用。 |
 | BEAUTY_STYLE_NATURE| 自然风格，算法更加注重保留皮肤细节，适合对真实性要求更高的主播。|
 
-![](https://main.qcloudimg.com/raw/61ef817e3c12944665f1b7098c584ee3.jpg)
+![](https://main.qcloudimg.com/raw/65a8ca85f71b41fa0cb3fa3f46eb8782.png)
+
 
 ```objectivec
 //     beautyStyle     : 美颜算法，目前支持 自然 和 光滑 两种。
@@ -138,7 +139,7 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";
 调用 TXLivePush 中的`setSpecialRatio`接口可以设定滤镜的浓度，设置的浓度越高，滤镜效果也就越明显。
 
 从手机 QQ 和 Now 直播的经验来看，单纯通过`setBeautyStyle`调整磨皮效果是不够的，只有将美颜效果和`setFilter`配合使用才能达到更加多变的美颜效果。所以，我们的设计师团队提供了17种默认的色彩滤镜，并将其默认打包在 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo) 中供您使用。
-![](https://main.qcloudimg.com/raw/51623e68291ef31a462318414e0a50e6.jpg)
+![](https://main.qcloudimg.com/raw/ef097190798fc104d8fec9cc40a13bf8.png)
 
 ```objectivec
 NSString * path = [[NSBundle mainBundle] pathForResource:@"FilterResource" ofType:@"bundle"];
@@ -209,32 +210,33 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 
 - **step3: 监听 App 的前后台切换事件**
 如果 App 在切到后台后就被 iOS 系统彻底休眠掉，SDK 将无法继续推流，观众端就会看到主播画面进入黑屏或者冻屏状态。您可以使用下面的代码让 App 在切到后台后还可再跑几分钟。
+
 ```objectivec
-    // 注册 App 被切到后台的处理函数
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppDidEnterBackground:)
-		                                         name:UIApplicationDidEnterBackgroundNotification object:nil];
-    // 注册 App 被切回前台的处理函数 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppWillEnterForeground:) 
-		                                         name:UIApplicationWillEnterForegroundNotification object:nil];
-    // App 被切到后台的处理函数																				 
-    -(void)onAppDidEnterBackground:(NSNotification *)notification {
-        [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{}];
-        _appIsBackground = YES;
-        [_pusher pausePush];
-    }
-    // App 被切回前台的处理函数																			 
-    -(void)onAppWillEnterForeground:(NSNotification *)notification {
-        if (_appIsBackground ){
-            [_pusher resumePush];
-        }
-    }		
+// 注册应用监听事件
+ NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+[center addObserver:self selector:@selector(willResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
+[center addObserver:self selector:@selector(didBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+
+
+// 具体实现. _livePuser 为当前TXLivePush实例对象
+#pragma mark - 前后台切换
+- (void)willResignActive:(NSNotification *)notification {
+    [_livePusher pausePush];
+    _inBackground = YES;
+}
+
+- (void)didBecomeActive:(NSNotification *)notification {
+    [_livePusher resumePush];
+    _inBackground = NO;
+    // 其他唤醒业务逻辑
+}
 ```
 
 >! 请注意调用顺序：startPush => ( pausePush => resumePush ) => stopPush，错误的调用顺序会导致 SDK 表现异常，因此使用成员变量对执行顺序进行保护是很有必要的。
 
 ### 14. 背景混音
 调用 TXLivePush 中的 BGM 相关接口可以实现背景混音功能。背景混音是指主播在直播时可以选取一首歌曲伴唱，歌曲会在主播的手机端播放出来，同时也会被混合到音视频流中被观众端听到，所以被称为“混音”。
-![](https://main.qcloudimg.com/raw/dea3d833cd284f79a1cc0818fa97d566.jpg)
+![](https://main.qcloudimg.com/raw/0bbeb0cc7e6001a7c2fe68723b943540.png)
 
 | 接口 | 说明 |
 |-------|---------|

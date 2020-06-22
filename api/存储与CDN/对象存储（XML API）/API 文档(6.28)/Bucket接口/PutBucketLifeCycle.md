@@ -11,15 +11,14 @@ COS 支持用户以生命周期配置的方式来管理 Bucket 中 Object 的生
 PUT Bucket lifecycle 用于为 Bucket 创建一个新的生命周期配置。如果该 Bucket 已配置生命周期，使用该接口创建新的配置的同时则会覆盖原有的配置。
 
 > !
->
 > - 同一条生命周期规则中不可同时支持 Days 和 Date 参数，请分成两条规则分别传入，具体请参见下文 [实际案例](#.E5.AE.9E.E9.99.85.E6.A1.88.E4.BE.8B)。
-> - 开启了多 AZ 配置的存储桶，目前仅支持过期删除功能，不支持过期沉降为低频或者归档存储类型。
+> - 开启了 [多 AZ](https://cloud.tencent.com/document/product/436/40548) 配置的存储桶，目前仅支持过期删除功能，不支持过期沉降为低频或者归档存储类型。
 
 ## 请求
 
 #### 请求示例
 
-```shell
+```plaintext
 PUT /?lifecycle HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Content-Length: length
@@ -32,24 +31,14 @@ Content-MD5: MD5
 
 #### 请求头
 
-#### 公共头部
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-该请求操作的实现使用公共请求头，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
-
-#### 非公共头部
-
-**必选头部**
-该请求操作的实现使用如下必选头部：
-
-| 名称        | 描述                                                         | 类型   | 是否必选 |
-| ----------- | ------------------------------------------------------------ | ------ | -------- |
-| Content-MD5 | RFC 1864中定义的经过 Base64 编码的请求体内容 MD5 哈希值，用于完整性检查，验证请求体在传输过程中是否发生变化 | String | 是       |
 
 #### 请求体
 
 该 API 接口请求的请求体具体节点内容为：
 
-```shell
+```xml
 <LifecycleConfiguration>
   <Rule>
     <ID></ID>
@@ -126,28 +115,21 @@ Content-MD5: MD5
 
 #### 响应体
 
-该响应体返回为空。
+该响应体为空。
 
 #### 错误码
 
-以下描述此请求可能会发生的一些特殊的且常见的错误情况。具体的错误原因可参考返回的 message 进行排查。获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
-
-| 错误码          | HTTP 状态码     | 描述                                                         |
-| --------------- | --------------- | ------------------------------------------------------------ |
-| NoSuchBucket    | 404 Not Found   | 当访问的 Bucket 不存在                                       |
-| MalformedXML    | 400 Bad Request | XML 格式不合法，请跟 RESTful API 文档仔细比对                |
-| InvalidRequest  | 400 Bad Reques  | 请求不合法，如果错误描述中显示"Conflict lifecycle rule"，那么表示 xml 数据中的多条 rule 有相互冲突的部分 |
-| InvalidArgument | 400 Bad Reques  | 请求参数不合法，如果错误描述中显示"Rule ID must be unique. Found same ID for more than one rule"， 那么表示有多个 Rule 的 ID 字段相同 |
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
 #### 请求
 
-```shell
+```plaintext
 PUT /?lifecycle HTTP/1.1
 Host:examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed, 16 Aug 2017 11:59:33 GMT
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1502855771;1502935771&q-key-time=1502855771;1502935771&q-header-list=content-md5;host&q-url-param-list=lifecycle&q-signature=f3aa2c708cfd8d4d36d658de56973c9cf1c24654
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1502855771;1502935771&q-key-time=1502855771;1502935771&q-header-list=content-md5;host&q-url-param-list=lifecycle&q-signature=f3aa2c708cfd8d4d36d658de56973c9cf1c2****
 Content-MD5: LcNUuow8OSZMrEDnvndw1Q==
 Content-Length: 348
 Content-Type: application/x-www-form-urlencoded
@@ -179,11 +161,11 @@ Content-Type: application/x-www-form-urlencoded
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 0
 Date: Wed, 16 Aug 2017 11:59:33 GMT
 Server: tencent-cos
-x-cos-request-id: NTk5NDMzYTRfMjQ4OGY3Xzc3NGRfMWY=
+x-cos-request-id: NTk5NDMzYTRfMjQ4OGY3Xzc3NGRf****
 ```

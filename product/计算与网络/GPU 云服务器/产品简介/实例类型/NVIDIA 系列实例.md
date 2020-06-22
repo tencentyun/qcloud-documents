@@ -765,7 +765,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 				<td>GN7vw.2XLARGE32</td>
 				<td>1/2颗</td> 
         <td>8GB vGPU</td>
-				<td> 核</td>
+				<td>8核</td>
 				<td>32GB</td>
         <td>4Gbps</td>
 				<td>80万PPS</td>
@@ -776,7 +776,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 				<td>1颗</td> 
         <td>1 * 16GB</td>
 				<td>16核</td>
-				<td>4GB</td>
+				<td>64GB</td>
         <td>7Gbps</td>
 				<td>150万PPS</td>
         <td>16</td>

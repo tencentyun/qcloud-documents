@@ -1,5 +1,5 @@
 ## 开发前准备
-在执行安装脚本之前，请确保您的机器上已经安装了 Java 和 Maven。
+在执行安装脚本之前，请确保您的机器上已经安装了 Java（≥1.8版本）和 Maven。
 
 ### 1. 安装 Java
 #### 1.1 检查 Java 安装
@@ -12,11 +12,11 @@ java -version
 
 #### 1.2 设置 Java 环境
 设置`JAVA_HOME`环境变量，并指向您机器上的 Java 安装目录。 
-以 Java 1.6.0_21 版本为例，操作系统的输出如下：
+以 Java jdk1.8.0_20 版本为例，操作系统的输出如下：
 
 | 操作系统 | 输出                                                         |
 | -------- | ------------------------------------------------------------ |
-| Windows  | Set the environment variable JAVA_HOME to <br/>C:\Program Files\Java\jdk1.6.0_21 |
+| Windows  | Set the environment variable JAVA_HOME to <br/>C:\Program Files\Java\jdkjdk1.8.0_20 |
 | Linux    | export JAVA_HOME=/usr/local/java-current                     |
 | Mac OSX  | export JAVA_HOME=/Library/Java/Home                          |
 
@@ -24,7 +24,7 @@ java -version
 
 | 操作系统 | 输出                                                         |
 | -------- | ------------------------------------------------------------ |
-| Windows  | 将字符串“;C:\Program Files\Java\jdk1.6.0_21\bin”添加到系统变量“Path”的末尾 |
+| Windows  | 将字符串“;C:\Program Files\Java\jdk1.8.0_20\bin”添加到系统变量“Path”的末尾 |
 | Linux    | export PATH=$PATH:$JAVA_HOME/bin/                              |
 | Mac OSX  | not required                                                 |
 
@@ -147,6 +147,11 @@ java -version
 <dependency>
 		<groupId>com.tencent.tdmq</groupId>
 		<artifactId>tdmq-client</artifactId>
+		<version>2.5.0</version>
+</dependency>
+<dependency>
+		<groupId>com.tencent.tdmq</groupId>
+		<artifactId>tdmq-client-auth-cloud_cam</artifactId>
 		<version>2.5.0</version>
 </dependency>
 ```

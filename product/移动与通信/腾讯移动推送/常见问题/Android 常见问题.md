@@ -16,6 +16,8 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
        android:exported="false" />    
 ```
 
+若控制台有以下日志打印，则表明联合保活功能已经关闭：`I/TPNS: [ServiceUtil] disable pull up other app`。
+
 ### 推送消息为何收不到？
 登录 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns) ，使用已获取的 Token 进行推送。如无法收到推送，请根据以下情况进行排查：
 - 请确保 SDK 版本是否为最新版本，如是旧版本出现问题，在新版本可能已经修复。

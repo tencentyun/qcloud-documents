@@ -54,7 +54,7 @@ COS API 授权策略（policy）是一种 JSON 字符串。例如，授予 APPID
 | version  | 策略语法版本，默认为2.0                                      |
 | effect   | 有 allow （允许）和 deny （显式拒绝）两种情况                |
 | resource | 授权操作的具体数据，可以是任意资源、指定路径前缀的资源、指定绝对路径的资源或它们的组合 |
-| action   | 此处是指 COS API，根据需求指定一个或者一序列操作的组合或所有操作(*)       |
+| action   | 此处是指 COS API，根据需求指定一个或者一序列操作的组合或所有操作(`*`)，例如 action 为 `name/cos:GetService`，**请注意区分英文大小写**       |
 |condition|约束条件，可以不填，具体说明请参见 [condition](https://cloud.tencent.com/document/product/598/10603#6.-.E7.94.9F.E6.95.88.E6.9D.A1.E4.BB.B6.EF.BC.88condition.EF.BC.89) 说明  |
 
 下面列出了各 COS API 设置授权策略的示例。

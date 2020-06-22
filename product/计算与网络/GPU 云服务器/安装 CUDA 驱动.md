@@ -1,7 +1,7 @@
 ## 操作场景
 CUDA（Compute Unified Device Architecture）是显卡厂商 NVIDIA 推出的运算平台。CUDA™ 是一种由 NVIDIA 推出的通用并行计算架构，该架构使 GPU 能够解决复杂的计算问题。它包含了 CUDA 指令集架构（ISA）以及 GPU 内部的并行计算引擎。 开发人员目前可使用 C 语言、C++ 及 FORTRAN 来为 CUDA™ 架构编写程序，所编写出的程序可在支持 CUDA™ 的处理器上以超高性能运行。
 
-GPU 云服务器采用 NVIDIA 显卡，则需要安装 CUDA 开发运行环境。本文以目前最常用的 CUDA 7.5 为例，您可参考以下步骤进行安装。
+GPU 云服务器采用 NVIDIA 显卡，则需要安装 CUDA 开发运行环境。本文以目前最常用的 CUDA 10.1 为例，您可参考以下步骤进行安装。
 
 
 ## 操作步骤

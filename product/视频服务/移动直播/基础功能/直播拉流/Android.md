@@ -72,18 +72,27 @@ mLivePlayer.startPlay(flvUrl, TXLivePlayer.PLAY_TYPE_LIVE_FLV); //推荐 FLV
 如需修改画面的大小及位置，直接调整 [step1](#step_1) 中添加的`video_view`控件的大小和位置即可。
 
 - **setRenderMode：铺满or适应**
-
-| 可选值 | 含义  |
-|---------|---------|
-| RENDER_MODE_FULL_FILL_SCREEN | 将图像等比例铺满整个屏幕，多余部分裁剪掉，此模式下画面不会留黑边，但可能因为部分区域被裁剪而显示不全。 | 
-| RENDER_MODE_ADJUST_RESOLUTION | 将图像等比例缩放，适配最长边，缩放后的宽和高都不会超过显示区域，居中显示，画面可能会留有黑边。 | 
+<table>
+<thead><tr><th>可选值</th><th>含义</th></tr></thead>
+<tbody><tr>
+<td>RENDER_MODE_FULL_FILL_SCREEN</td>
+<td>将图像等比例铺满整个屏幕，多余部分裁剪掉，此模式下画面不会留黑边，但可能因为部分区域被裁剪而显示不全。</td>
+</tr><tr>
+<td>RENDER_MODE_ADJUST_RESOLUTION</td>
+<td>将图像等比例缩放，适配最长边，缩放后的宽和高都不会超过显示区域，居中显示，画面可能会留有黑边。</td></tr>
+</tbody></table>
 
 - **setRenderRotation：画面旋转**
-
-| 可选值 | 含义  |
-|---------|---------|
-| RENDER_ROTATION_PORTRAIT | 正常播放（Home 键在画面正下方） | 
-| RENDER_ROTATION_LANDSCAPE | 画面顺时针旋转 270 度（Home 键在画面正左方） | 
+<table>
+<thead><tr><th>可选值</th><th>含义</th></tr>
+</thead>
+<tbody><tr>
+<td>RENDER_ROTATION_PORTRAIT</td>
+<td>正常播放（Home 键在画面正下方）</td>
+</tr><tr>
+<td>RENDER_ROTATION_LANDSCAPE</td>
+<td>画面顺时针旋转 270 度（Home 键在画面正左方）</td></tr>
+</tbody></table>
 
 ```Java
 // 设置填充模式
@@ -199,7 +208,7 @@ mLivePlayer.stopRecord();
 // 现切换到码率为900kbps的新流上
 mLivePlayer.switchStream("http://5815.liveplay.myqcloud.com/live/5815_62fe94d692ab11e791eae435c87f075e_900.flv");
 ```
-当 switchStream() 方法没有回调时，则需要检查返回值，如果 URL 相同或上一个切换没完成，则切换时会返回错误。
+当 switchStream() 方法没有回调时，则需要检查返回值，如果 URL 相同或上一个切换没完成，则切换时会返回错误。错误码解析请参见 [错误码表](https://cloud.tencent.com/document/product/454/17246)。
 
 ### step 11: 直播回看
 时移功能是腾讯云推出的特色能力，可以在直播过程中，随时观看回退到任意直播历史时间点，并能在此时间点一直观看直播。非常适合游戏、球赛等互动性不高，但观看连续性较强的场景。
@@ -227,15 +236,30 @@ mLivePlayer.seek(600); // 从第10分钟开始播放
 腾讯云 SDK 的直播播放（LVB）功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场、游戏以及混合场景。
 
 - **三种模式的特性对比**
-
-| 控制模式 | 卡顿率 | 平均延迟 | 适用场景 | 原理简述 |
-|---------|---------|---------| ------ | ----- |
-| 极速模式 | 较流畅偏高 | 2s - 3s | 美女秀场（冲顶大会）| 在延迟控制上有优势，适用于对延迟大小比较敏感的场景|
-| 流畅模式 | 卡顿率最低 | ≥ 5s | 游戏直播（企鹅电竞） | 对于超大码率的游戏直播（例如绝地求生）非常适合，卡顿率最低|
-| 自动模式 | 网络自适应 | 2s - 8s | 混合场景 | 观众端的网络越好，延迟就越低；观众端网络越差，延迟就越高 |
+<table>
+<thead><tr><th>控制模式</th><th>卡顿率</th><th>平均延迟</th><th>适用场景</th><th>原理简述</th></tr></thead>
+<tbody><tr>
+<td>极速模式</td>
+<td>较流畅偏高</td>
+<td>2s - 3s</td>
+<td>美女秀场（冲顶大会）</td>
+<td>在延迟控制上有优势，适用于对延迟大小比较敏感的场景</td>
+</tr><tr>
+<td>流畅模式</td>
+<td>卡顿率最低</td>
+<td>≥ 5s</td>
+<td>游戏直播（企鹅电竞）</td>
+<td>对于超大码率的游戏直播（例如绝地求生）非常适合，卡顿率最低</td>
+</tr><tr>
+<td>自动模式</td>
+<td>网络自适应</td>
+<td>2s - 8s</td>
+<td>混合场景</td>
+<td>观众端的网络越好，延迟就越低；观众端网络越差，延迟就越高</td>
+</tr>
+</tbody></table>
 
 - **三种模式的对接代码**
-
 ```java
 TXLivePlayConfig mPlayConfig = new TXLivePlayConfig();
 //
