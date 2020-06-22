@@ -20,7 +20,7 @@
 <td>立体呈现周围环境，带给观看者沉浸式体验。</td>
 </tr><tr>
 <td>RTMP</td>
-<td>是 Adobe Systems 公司为 Flash 播放器和服务器之间音频、视频和数据传输开发的开放协议。目前标准直播支持 RTMP 协议进行推流拉流播放。</td>
+<td>是 Adobe Systems 公司为 Flash 播放器和服务器之间音频、视频和数据传输开发的开放协议。<br>目前标准直播支持 RTMP 协议进行推流，支持 RTMP、 FLV 和 HLS 多种协议拉流播放。</td>
 </tr><tr>
 <td>直播同时保存画面视频</td>
 <td>保存当前直播输出视频到本地 SD 卡中。</td></tr>
