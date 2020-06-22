@@ -33,7 +33,7 @@ security.protocol=SASL_PLAINTEXT
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="instanceId#admin" password="admin";
 ```
 其中，sasl.jaas.config 部分的 username 和 password 说明如下： 
- - username：包含实例 ID 和用户名，使用`#`拼接，实例 ID 为客户端需要连接的 CKafka 实例（可通过腾讯云控制台可查看该实例），用户名可通过**控制台 ACL 策略管理模块**进行设置。
+ - username：包含实例 ID 和用户名，**使用`#`拼接**，实例 ID 为客户端需要连接的 CKafka 实例（可通过腾讯云控制台可查看该实例），用户名可通过**控制台 ACL 策略管理模块**进行设置。
  - password：部分为用户名对应的密码。
  
 **配置文件示例**<span id="配置文件示例"></span>
