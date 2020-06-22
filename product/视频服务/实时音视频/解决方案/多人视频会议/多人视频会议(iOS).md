@@ -49,7 +49,7 @@
 
 | 文件或文件夹 | 功能描述 |
 |:-------:|:--------|
-| SegmentVC | 设置界面相关UI实现代码。 |
+| SegmentVC | 设置界面相关 UI 实现代码。 |
 | TRTCBroadcastExtensionLauncher.swift | 录屏弹窗相关 UI 实现代码。 |
 | TRTCMeetingNewViewController | 视频会议创建界面 UI 实现代码。 |
 | TRTCMeetingMainViewController | 视频房间界面 UI 实现代码。 |
