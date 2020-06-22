@@ -1,4 +1,4 @@
-基于腾讯云与腾讯多媒体强大的 VR 与视频技术，融合腾讯云基础建设。多平台设备于一体，提供从全景视频采集到播放完整闭环的解决方案。结合 4K VR 视频相机“Insta360 pro2”，即刻完成拼接。无需添购额外拼接服务器设备，完善了 VR 影视制作流程。
+目前腾讯云标准直播、云点播已全面适配 VR 全景视频源。您通过全景硬件设备采集视频后，可直接经过标准直播、云点播进行正常下行分发。本文将以“Insta360 pro2”相机为例介绍如何基于 VR 全景相机通过标准直播完成 VR 直播。
 
 <span id="keyword"></span>
 ## 关键词说明
@@ -12,7 +12,7 @@
 <td>立体呈现周围环境，带给观看者沉浸式体验。</td>
 </tr><tr>
 <td>RTMP</td>
-<td>是 Adobe Systems 公司为 Flash 播放器和服务器之间音频、视频和数据传输开发的开放协议。目前腾讯云仅支持该协议。</td>
+<td>是 Adobe Systems 公司为 Flash 播放器和服务器之间音频、视频和数据传输开发的开放协议。目前标准直播支持 RTMP 协议进行推流拉流播放。</td>
 </tr><tr>
 <td>直播同时保存画面视频</td>
 <td>保存当前直播输出视频到本地 SD 卡中。</td></tr>
@@ -81,3 +81,16 @@
 ![](https://main.qcloudimg.com/raw/d6faa10c3236315ca585d320e8f461ea.png)
 4. 填写【播放地址】，单击【观看】开始播放。如播放地址可正常拉流，则会直接播放。
 ![](https://main.qcloudimg.com/raw/457e6bfae36185ca47d5511058d3b67c.png)
+
+
+## 其它 VR 设备参考
+| 设备                | 下载地址                                                     |
+| ------------------- | ------------------------------------------------------------ |
+| Insta360 pro2       | [云市场链接](https://market.cloud.tencent.com/products/20303) |
+| Insta360 影石 Titan | [云市场链接](https://market.cloud.tencent.com/products/20302) |
+| Insta360 影石       | [云市场链接](https://market.cloud.tencent.com/products/20148) |
+| 圆周率              | [云市场链接](https://market.cloud.tencent.com/products/15866 ) |
+
+
+
+
