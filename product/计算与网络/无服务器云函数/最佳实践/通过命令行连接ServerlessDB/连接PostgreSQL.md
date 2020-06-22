@@ -5,14 +5,14 @@ Serverless Framework 目前支持 **PostgreSQL** 与 **NoSQL** 两个类型数�
 
 
 ## 前提条件
-已安装 Serverless Framework，且不低于以下版本。如未安装，请参考 [安装 Serverless Framework](https://cloud.tencent.com/document/product/583/44753) 完成安装。
+- 已安装 Serverless Framework，且不低于以下版本。如未安装，请参考 [安装 Serverless Framework](https://cloud.tencent.com/document/product/583/44753) 完成安装。
 ```
 Framework Core: 1.67.3
 Plugin: 3.6.6
 SDK: 2.3.0
 Components: 2.30.1
 ```
-
+-  请确保当前使用账号已配置 **QcloudPostgreSQLFullAccess** 策略。配置方法请参见 [授权管理](https://cloud.tencent.com/document/product/598/10602)。
 
 
 ## 操作步骤
