@@ -5,19 +5,19 @@
 - 为不同的域名绑定不同的证书，改善服务器与客户端 SSL/TLS。
 
 ## 注意事项
-- 需提前创建需配置的证书，详情请参见 [通过控制台新建服务器证书]()。
-- 需使用 Secret 形式来设置 Ingress 证书。TKE Ingress 会默认创建同名 Secret，其内容包含证书 ID。
+- 需提前创建需配置的证书，详情请参见 [通过控制台新建服务器证书](#create)。
+- 需使用 Secret 形式来设置 Ingress 证书。腾讯云容器服务 TKE Ingress 会默认创建同名 Secret，其内容包含证书 ID。
 - Secret 证书资源需和 Ingress 资源放置在同一个 Namespace 下。
 - 由于控制台默认会创建同名 Secret 证书资源，若同名 Secret 资源已存在，则 Ingress 将无法创建。
-- 通常情况下，在创建 Ingress 时，不会复用 Secret 关联的证书资源。但支持在创建 Ingress 复用 Secret 关联的证书资源。更新 Secret 时，会同步更新所有引用该 Secret 的 Ingress 的证书。
-- 为域名增加匹配证书后，将同步开启 CLB SNI 功能（不支持关闭）。若删除证书对应的域名，该证书将默认匹配 Ingress 所对应的 HTTPS 域名。
+- 通常情况下，在创建 Ingress 时，不会复用 Secret 关联的证书资源。但仍支持在创建 Ingress 复用 Secret 关联的证书资源，更新 Secret 时，会同步更新所有引用该 Secret 的 Ingress 的证书。
+- 为域名增加匹配证书后，将同步开启负载均衡 CLB SNI 功能（不支持关闭）。若删除证书对应的域名，则该证书将默认匹配 Ingress 所对应的 HTTPS 域名。
 - 传统型负载均衡不支持基于域名和 URL 的转发，由传统型负载均衡创建的 Ingress 不支持配置多证书。
 
 
 
 
 ## 相关示例
-腾讯云容器服务 TKE 支持通过 Ingress 中的 `spec.tls` 的字段，为 Ingress 创建的负载均衡 CLB HTTPS 监听器配置证书。其中，secretName 为包含腾讯云证书 ID 的 Kubernetes Secret 资源。 示例如下：
+TKE 支持通过 Ingress 中的 `spec.tls` 的字段，为 Ingress 创建的 CLB HTTPS 监听器配置证书。其中，secretName 为包含腾讯云证书 ID 的 Kubernetes Secret 资源。 示例如下：
 - **ingress**
 ```yaml
 spec:
@@ -66,7 +66,7 @@ spec:
 - 对已使用多个证书的 Ingress 进行更新时，TKE Ingress controller 将进行以下行为判断：
    - HTTPS 的 rules.host 无任何匹配时，若判断不通过，则不能提交更新。
    - HTTPS 的 rules.host 匹配中单个 TLS 时，可提交更新，并为该 host 配置对 Secret 中对应的证书。
-   - 修改 TLS 的 SecretName 时仅校验 SecretName 的存在性，而不校验 Secret 内容， Secret 存在就能提交更新。
+   - 修改 TLS 的 SecretName 时仅校验 SecretName 的存在性，而不校验 Secret 内容， Secret 存在即可提交更新。
    > ! 请确保 Secret 中证书 ID 符合要求。
 
 
@@ -74,8 +74,8 @@ spec:
 
 
 ## 操作步骤
-### 通过控制台新建服务器证书
->?如果您已具备需配置的证书，则请跳过此步骤。
+### 通过控制台新建服务器证书<span id="create"></span>
+>?若您已具备需配置的证书，则请跳过此步骤。
 >
 1. 登录负载均衡控制台，选择左侧导航栏中的【[证书管理](https://console.cloud.tencent.com/clb/cert)】。
 2. 在“证书管理”页面中，单击【新建】。
@@ -83,25 +83,24 @@ spec:
  - **证书名称**：自定义设置。
  - **证书类型**：提供“服务器证书”和“客户端CA证书”两种类型，请按需选择。
     - **服务器证书**：即 SSL 证书（SSL Certificates）。基于 SSL 证书，可将站点由 HTTP（Hypertext Transfer Protocol）切换到 HTTPS（Hyper Text Transfer Protocol over Secure Socket Layer），即基于安全套接字层（SSL）进行安全数据传输的加密版 HTTP 协议。
-   - **证书内容**：根据实际情况填写证书内容，证书格式要求请参见文档[ SSL 证书格式要求及格式转换说明 ](https://cloud.tencent.com/document/product/214/5369)。
-   - **密钥内容**：仅当证书类型选择为“服务器证书”时，该选项才会显示。请参考文档[ SSL 证书格式要求及格式转换说明 ](https://cloud.tencent.com/document/product/214/5369)添加相关密钥内容。
+   - **证书内容**：根据实际情况填写证书内容，证书格式要求请参见文档[ SSL 证书格式要求及格式转换说明](https://cloud.tencent.com/document/product/214/5369)。
+   - **密钥内容**：仅当证书类型选择为“服务器证书”时，该选项才会显示。请参考文档[ SSL 证书格式要求及格式转换说明](https://cloud.tencent.com/document/product/214/5369) 添加相关密钥内容。
 4. 单击【提交】即可完成创建。
 
 ### 创建使用证书的 Ingress 对象
-参考 [创建 Ingress ](https://cloud.tencent.com/document/product/457/31711#.E5.88.9B.E5.BB.BA-ingress) 完成 Ingress 新建。其中监听端口勾选【Https:443】。
+参考 [创建 Ingress ](https://cloud.tencent.com/document/product/457/31711#.E5.88.9B.E5.BB.BA-ingress) 完成 Ingress 新建，其中监听端口勾选【Https:443】。
 
 >!
 >- 当控制台创建的 Ingress 开启 HTTPS 服务，会先创建同名的 Secret 资源用于存放证书 ID，并在 Ingress 中使用并监听该 Secret。
-- 当修改证书时，会修改对应当前 Ingress 的证书资源。需注意的是，如用户的多个 Ingress 配置使用同一个 Secret 资源，那么这些 Ingress 对应 CLB 的证书会同步变更。
 - TLS 配置域名与证书的对应关系如下：
  - 可以使用一级泛域名统配。
- - 若域名匹配中多个不同的证书，将随机选择一个证书。强烈不建议您相同域名使用不同证书
- - 您必须为所有 HTTPS 域名配置证书.否则创建不通过。
+ - 若域名匹配中多个不同的证书，将随机选择一个证书，不建议相同域名使用不同证书。
+ - 需为所有 HTTPS 域名配置证书，否则会创建不通过。
 
 
 ### 修改证书
 >! 
->- 如果您需要修改证书， 请确认所有使用该证书的 Ingress， 修改证书会导致您所有使用该证书的 Ingress 同步更新证书。 
+>- 如果您需要修改证书， 请确认所有使用该证书的 Ingress。如用户的多个 Ingress 配置使用同一个 Secret 资源，那么这些 Ingress 对应 CLB 的证书会同步变更。
 >- 证书需要通过修改 Secret 进行修改， Secret 内容中包含您使用的腾讯云证书的 ID。
 >
 1. 执行以下命令，使用默认编辑器打开需修改的 Secret。其中，`[secret-name]` 需更换为需修改的 Secret 的名称。
