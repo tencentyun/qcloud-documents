@@ -15,7 +15,7 @@
 
 **Android 平台**
 
-- 为兼容 android Q 版本，修改日志默认存储位置为 /sdcard/Android/data/包名/files/log/tencent/imsdk
+- 为兼容 Android Q 版本，修改日志默认存储位置为 /sdcard/Android/data/包名/files/log/tencent/imsdk
 
 **Windows 平台**
 
@@ -25,12 +25,12 @@
 
 **iOS**
 
-- tuikit 替换 api 2.0接口
+- TUIkit 替换 API 2.0接口
 - 结合 TRTC 实现了音视频通话功能
 - 增加了深色模式
 
 **Android**
-- tuikit 替换 api 2.0接口
+- TUIkit 替换 API 2.0接口
 - 结合 TRTC 实现了音视频通话功能
 - 支持 AndroidX
 
