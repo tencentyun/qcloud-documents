@@ -1,8 +1,4 @@
-## 智能扫码控制台申请信息指引
-
-### Android 端接入信息获取
-
-#### 获取 Android PackageName
+## 获取 Android PackageName
 
 - 在项目的 App 模块中 src/main 目录下的 AndroidManifest.xml 注册文件里找到 package 的值。
 
@@ -10,7 +6,7 @@
 
 - 代码获取：Context.getPackageName();(例子：com.tencent.cloud)
 
-#### 获取 App 签名哈希值(Android)
+## 获取 App 签名哈希值(Android)
 
 - 第一步：在终端输入下面命令：keytool –list –v –keystore <签名文件路径>
 
