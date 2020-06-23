@@ -1,8 +1,4 @@
-## 智能扫码控制台申请信息获取
-
-### iOS 端接入信息获取
-
-#### 获取 iOS Bundle ID
+## 获取 iOS Bundle ID
 
 - 使用开发者工具 XCode，在 TARGETS->General->Identity->Bundle Identifier 中获取 (例子：cloud.QBTestDemo)
 
@@ -10,7 +6,7 @@
 
 - 代码获取：[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleIdentifier"];
 
-#### iOS DEVELOPMENT_TEAM
+## iOS DEVELOPMENT_TEAM
 
 - 方法1：cd 到工程文件 **aaa.xcodeproj** 目录下，执行以下命令。
 ```
