@@ -66,7 +66,7 @@ recognizer.setCallback(this);
 ```
 
 + ##### 通过语音数据调用
-```
+```  
   AssetManager am = getResources().getAssets();
   is = am.open("test1.mp3");
   int length = is.available();
