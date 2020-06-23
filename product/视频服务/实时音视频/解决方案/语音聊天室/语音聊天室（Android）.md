@@ -1,5 +1,15 @@
 ## 效果展示
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 Demo 体验语音聊天室的能力，包括麦位管理、低延时语音互动、文字聊天等 TRTC 在语音聊天场景下的相关能力。
+<table>
+     <tr>
+         <th>主播麦位操作</th>  
+         <th>观众麦位操作</th>  
+     </tr>
+<tr>
+<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/voiceroom_pick_seat.gif"/></td>
+<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/voiceroom_enter_seat.gif"/></td>
+</tr>
+</table>
 
 如需快速接入语音聊天室功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCVoiceRoom 组件并实现自定义 UI 界面。
 
@@ -45,7 +55,7 @@
 |-------|--------|
 | base | UI 使用的基础类。 |
 | list | 列表页和创建房间页。 |
-| room | 主房间页面，包括房主和观众两种界面。 |
+| room | 主房间页面，包括主播和观众两种界面。 |
 | widget | 通用控件。 |
 
 <span id="model"> </span>
