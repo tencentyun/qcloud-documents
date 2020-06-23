@@ -292,3 +292,6 @@ Bytes Read=36
 File Output Format Counters
 Bytes Written=40
 ```
+
+## 常见问题
+如果您在使用 Hadoop 工具过程中，有相关的疑问，请参见 [Hadoop 工具类常见问题](https://cloud.tencent.com/document/product/436/36897)。

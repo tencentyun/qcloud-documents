@@ -18,12 +18,14 @@
  - UNIX 环境：执行以下命令安装。
 ```
 curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer
 ```
-2. 添加依赖。
+2. 建议中国大陆地区的用户设置腾讯云镜像源：`composer config -g repos.packagist composer https://mirrors.tencent.com/composer/`
+3. 添加依赖：
 ```
 composer require tencentcloud/tencentcloud-sdk-php
 ```
-3. 在代码中添加以下引用代码。
+4. 在代码中添加以下引用代码。
 >!本文仅为示例，composer 会在项目根目录下生成 vendor 目录，`/path/to/`为项目根目录的实际绝对路径，如果是在项目根目录执行，可以省略绝对路径。
 >
 ```

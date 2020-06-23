@@ -1,6 +1,7 @@
 ## 操作场景
 设备通过 softAP 方式创建一个 Wi-Fi 热点，手机连接该热点，再通过数据通道例如 TCP/UDP 通讯，将目标 Wi-Fi 路由器的 SSID/PSW 传递该设备，设备获取后，即可连接 Wi-Fi 路由器从而连接互联网。同时，为了对设备进行绑定，手机 App 可以利用该 TCP/UDP 数据通道，将后台提供的配网 Token 发送给设备，并由设备转发至物联网后台，依据 Token 可以进行设备绑定。本文档主要指导您如何使用softAP 方式配网开发。
 
+腾讯连连小程序已经支持 softAP 配网，并提供了相应的 [小程序 SDK](https://github.com/tencentyun/qcloud-iotexplorer-appdev-miniprogram-sdk)。
 基于 Token 的 softAP 方式配网及设备绑定的示例流程图，如下图所示：
 <img src="https://main.qcloudimg.com/raw/a146b79d88299a59507d81eaad99137c.jpg" width="90%">
 
@@ -10,7 +11,7 @@
 ### softAP 配网协议示例 
 本示例基于 ESP8266 腾讯云定制模组配合腾讯连连小程序。
 
-1. 腾讯连连小程序进入配网模式后，则可以在物联网开发平台服务获取到当次配网的 Token。
+1. 腾讯连连小程序进入配网模式后，则可以在物联网开发平台服务获取到当次配网的 Token。小程序相关操作可以参考 [生成 Wi-Fi 设备配网 Token](https://cloud.tencent.com/document/product/1081/44044)
 2. 使 Wi-Fi 设备进入 softAP 配网模式，若设备有指示灯在快闪，则说明进入配网模式成功。    
 3. 小程序按照提示依次获取 Wi-Fi 列表，输入家里目标路由器的 SSID/PSW，再选择设备 softAP 热点的 SSID/PSW。
 4. 手机连接设备 softAP 热点成功后，小程序作为 UDP 客户端会连接 Wi-Fi 设备上面的 UDP 服务（默认 IP 为**192.168.4.1**，端口为**8266**）
@@ -21,9 +22,9 @@
 发送完成后，等待设备 UDP 回复设备信息及配网协议版本号：
 ```   
    {"cmdType":2,"productId":"OSPB5ASRWT","deviceName":"dev_01","protoVersion":"2.0"}
-```   
+```
 6. 如果2秒之内，没有收到设备回复，则重复步骤5，UDP 客户端重复发送目标 Wi-Fi 路由器的 SSID/PSW 及配网 Token。（如果重复发送5次，都没有收到回复，则认为配网失败，Wi-Fi 设备有异常。）      
-7. 如果步骤5收到设备回复，则说明设备端已收到 Wi-Fi 路由器的 SSID/PSW 及 Token，正在连接 Wi-Fi 路由器，并上报 Token。此时小程序会提示手机也将连接 Wi-Fi 路由器，并通过 Token 轮询物联网后台，来确认配网及设备绑定是否成功。
+7. 如果步骤5收到设备回复，则说明设备端已收到 Wi-Fi 路由器的 SSID/PSW 及 Token，正在连接 Wi-Fi 路由器，并上报 Token。此时小程序会提示手机也将连接 Wi-Fi 路由器，并通过 Token 轮询物联网后台，来确认配网及设备绑定是否成功。小程序相关操作可以参考 [查询配网Token状态](https://cloud.tencent.com/document/product/1081/44045)
 8. 设备端在成功连接 Wi-Fi 路由器后，需要通过 MQTT 连接物联网后台，并将小程序发送的配网 Token，通过下面 MQTT 报文上报给后台服务：
 ```
     topic: $thing/up/service/ProductID/DeviceName
@@ -76,9 +77,9 @@ AT+TCSAP="ESP8266-SAP","12345678"
 #### 代码设计说明
 配网代码将核心逻辑与平台相关底层操作分离，便于移植到不同的硬件设备上。
 
-| 代码 | 设计说明 | 
+| 代码 | 设计说明 |
 |---------|---------|
-| `qcloud_wifi_config.c` | 配网相关接口实现，包括 UDP 服务及 MQTT 连接及 Token 上报，主要依赖腾讯云物联网 C-SDK 及 FreeRTOS/lwIP 运行环境。 | 
+| `qcloud_wifi_config.c` | 配网相关接口实现，包括 UDP 服务及 MQTT 连接及 Token 上报，主要依赖腾讯云物联网 C-SDK 及 FreeRTOS/lwIP 运行环境。 |
 |`wifi_config_esp.c`|设备硬件 Wi-Fi 操作相关接口实现，依赖于 ESP8266 RTOS，当使用其他硬件平台时，需要进行移植适配。|
 |`wifi_config_error_handle.c`|设备错误日志处理，主要依赖于 FreeRTOS。|
 

@@ -16,6 +16,8 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
        android:exported="false" />    
 ```
 
+若控制台有以下日志打印，则表明联合保活功能已经关闭：`I/TPNS: [ServiceUtil] disable pull up other app`。
+
 ### 推送消息为何收不到？
 登录 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns) ，使用已获取的 Token 进行推送。如无法收到推送，请根据以下情况进行排查：
 - 请确保 SDK 版本是否为最新版本，如是旧版本出现问题，在新版本可能已经修复。
@@ -43,8 +45,6 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 - Android 端在应用退出腾讯移动推送 Service 和腾讯移动推送的服务器断开连接后，此时给这个设备下发的消息，会变成离线消息，离线消息最多保存72小时，每个设备最多保存两条，如果有多条离线消息。在关闭应用期间推送的消息，如开启应用无法收到，请检查是否调用了反注册接口：XGPushManager.unregisterPush\(this\)。
 
 
-
-
 ### 如何设置消息点击事件？
 TPNS 推荐使用 Intent 方式进行跳转（注：SDK 点击消息默认支持点击事件，触发后打开主界面，如果在 onNotifactionClickedResult 设置跳转操作会与管理台/API中指定的自定义跳转冲突，导致自定义的跳转失效）。
 **使用 Intent 方式跳转指引：**
@@ -64,7 +64,7 @@ android:path="/notify_detail" />
 </activity>
 ```
  - 若使用腾讯移动推送管理台设置 Intent 进行跳转，填写方式如下：
-![](https://main.qcloudimg.com/raw/58bb9b0105dd6ba00f6524e29efb12fb.png)
+![](https://main.qcloudimg.com/raw/a904c7c7917fb7d69bf741f7b6e52099.png)
  - 若使用服务端 SDK ，设置 Intent 进行跳转，可设置 Intent 为（以 Java SDK 为例）：
 ```
 action.setIntent("xgscheme://com.xg.push/notify_detail");

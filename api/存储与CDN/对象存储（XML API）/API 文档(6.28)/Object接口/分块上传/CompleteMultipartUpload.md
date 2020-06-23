@@ -127,6 +127,11 @@ Authorization: Auth String
 | Key                | CompleteMultipartUploadResult | 对象键                                                       | string |
 | ETag               | CompleteMultipartUploadResult | 分块合并后的对象 ETag 值                                     | string |
 
+#### 错误码
+
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+
+
 ## 实际案例
 
 此接口响应默认为 Transfer-Encoding: chunked 编码方式，为了方便阅读，本文档实际案例均采用无 Transfer-Encoding 的方式展示，在使用过程中，不同语言和库可以自动处理这种编码形式，请开发者注意识别和处理，更多信息请查阅语言和库的相关文档。

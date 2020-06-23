@@ -3,8 +3,8 @@
 
 ## 前提条件
 
-- 已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于 8.6，建议使用Node.js10.0 及以上版本
-- 需要开通[内容分发网络](https://console.cloud.tencent.com/cdn) 服务。
+- 已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于 8.6，建议使用 Node.js10.0 及以上版本）。
+- 需要开通 [内容分发网络](https://console.cloud.tencent.com/cdn) 服务。
 
 ## 操作步骤
 
@@ -43,7 +43,7 @@ inputs:
   domain: mysite.com #域名
   origin:
     origins:
-      - xxx.cos.ap-guangzhou.myqcloud.com  #源站，可以是域名或IP
+      - xxx.cos.ap-guangzhou.myqcloud.com  #源站，可以是域名或 IP
     originType: cos
     originPullProtocol: https
   serviceType: web
@@ -70,9 +70,8 @@ sls deploy
 ```
 
 >?
->
 >- 请确认您已经开通 [内容分发网络](https://console.cloud.tencent.com/cdn) 服务。
->- 微信扫码授权部署有过期时间，如果想要持久授权，请参考[账号配置](#账号配置（可选）)。
+>- 微信扫码授权部署有过期时间，如果想要持久授权，请参考 [账号配置](#account)。
 
 #### 移除
 
@@ -96,5 +95,3 @@ TENCENT_SECRET_KEY=123
 >?
 >- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
 >- 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
-
-
