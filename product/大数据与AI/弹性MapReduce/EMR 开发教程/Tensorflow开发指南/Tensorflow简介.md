@@ -38,4 +38,4 @@ exit()
 ```
 python test.py
 ```
-更多用法请参考 [Tensorflow 官网](https://www.tensorflow.org/)。
+更多用法请参考 Tensorflow 官网。

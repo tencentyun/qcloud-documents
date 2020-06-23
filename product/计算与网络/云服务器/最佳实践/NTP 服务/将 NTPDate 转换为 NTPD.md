@@ -1,21 +1,21 @@
 ## 操作场景
 
-NTPDate 为断点更新，NTPD 为步进式的逐渐校正时间。对新购实例，您可以使用 NTPDate 同步时间。对已经承载有运行中业务的实例，建议您使用 NTPD 同步时间。本文档以 CentOS 7.5 操作系统云服务器为例，介绍如何将 NTPDate 转换为 NTPD。
+ntpdate 为断点更新，ntpd 为步进式的逐渐校正时间。对新购实例，您可以使用 ntpdate 同步时间。对已经承载有运行中业务的实例，建议您使用 ntpd 同步时间。本文档以 CentOS 7.5 操作系统云服务器为例，介绍如何将 ntpdate 转换为 ntpd。
 
 ## 前提条件
 NTP 服务的通信端口为 UDP 123，转换为 NTP 服务之前，请确保您已经开放 UDP 123端口。
 若未开放该端口，请参考 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740) 进行放行。
 
 ## 操作步骤
-您可选择 [手动](#manual) 或者 [自动](#automatic) 的方式将 NTPDate 转换为 NTPD。
+您可选择 [手动](#manual) 或者 [自动](#automatic) 的方式将 ntpdate 转换为 ntpd。
 
-### 手动将 NTPDate 转换为 NTPD<span id="manual"></span>
-#### 关闭 NTPDate
-1. 执行以下命令，导出 crontab 配置，并过滤 NTPDate。
+### 手动将 ntpdate 转换为 ntpd<span id="manual"></span>
+#### 关闭 ntpdate
+1. 执行以下命令，导出 crontab 配置，并过滤 ntpdate。
 ```
 crontab -l |grep -v ntpupdate > /tmp/cronfile
 ```
-2. 执行以下命令，更新 NTPDate 配置。
+2. 执行以下命令，更新 ntpdate 配置。
 ```
 crontab /tmp/cronfile
 ```
@@ -26,7 +26,7 @@ vim /etc/rc.local
 4. 按 “**i**” 切换至编辑模式，删除 ntpupdate 配置行。
 5. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 
-#### 配置 NTPD
+#### 配置 ntpd
 1. 执行以下命令，打开 NTP 服务配置文件。
 ```
 vi /etc/ntp.conf
@@ -36,45 +36,39 @@ vi /etc/ntp.conf
 3. 按 **Esc**，输入 **:wq**，保存文件并返回。
 
 
-### 自动将 NTPDate 转换为 NTPD<span id="automatic"></span>
+### 自动将 ntpdate 转换为 ntpd<span id="automatic"></span>
 1. 下载 `ntpd_enable.sh` 脚本。
 ```
 wget https://image-10023284.cos.ap-shanghai.myqcloud.com/ntpd_enable.sh
 ```
-2. 执行以下命令，使用 `ntpd_enable.sh` 脚本将 NTPDate 转换为 NTPD。
+2. 执行以下命令，使用 `ntpd_enable.sh` 脚本将 ntpdate 转换为 ntpd。
 ```
 sh ntpd_enable.sh
 ```
 
 ## 相关操作
-### 检查 NTPD 状态
-请根据实际需求，执行对应命令，以检查 NTPD 的状态。
+### 检查 ntpd 状态
+请根据实际需求，执行对应命令，以检查 ntpd 的状态。
 - 执行以下命令，查看 NTP 服务端口 UDP 123 端口是否被正常监听。
 ```
 netstat -nupl
 ```
 返回类似如下结果，表示监听正常。
 ![netstat -nupl](https://main.qcloudimg.com/raw/d7da764d05135959154920b81fa9f1e4.png)
-- 执行以下命令，查看 NTPD 状态是否正常。
+- 执行以下命令，查看 ntpd 状态是否正常。
 ```
 service ntpd status
 ```
-返回类似如下结果，表示 NTPD 状态正常。
+返回类似如下结果，表示 ntpd 状态正常。
 ![ntpd status](https://main.qcloudimg.com/raw/321e56d0f7797f382d9f6903c0315f96.png)
-- 执行以下命令，查看 NTP 是否正常启动以及是否配置到正确的 NTP 时钟源服务器。
-```
-ntpstat
-```
-输出当前 NTP 时钟源服务器的 IP 地址。此 IP 地址应为上述配置的 NTP 时钟源服务器的 IP 地址。如下图所示：
-![](https://main.qcloudimg.com/raw/a99f5da438bafb1d148e9b033f48afad.png)
-您也可以通过执行 `nslookup 域名` 命令，获取域名对应的 IP 地址。
+
 - 执行以下命令，获取更详细的 NTP 服务信息。
 ```
 ntpq -p
 ```
 返回类似如下结果：
 ![](https://main.qcloudimg.com/raw/ca9ef4caf98b49ed2c9110198a66e7c3.png)
- - **\*** : 表示目前使用的 ntp server。
+ - **\*** : 表示目前使用的 NTP 服务器。
  - **remote**：响应这个请求的 NTP 服务器的名称。
  - **refid**：NTP 服务器使用的上一级 NTP 服务器。
  - **st**：remote 远程服务器的级别。服务器从高到低级别设定为1 - 16，为了减缓负荷和网络堵塞，原则上建议避免直接连接到级别为1的服务器。

@@ -63,7 +63,7 @@ localStream.initialize().then(() => {
 ```
 // 使用一个独立的用户 ID 进行推送屏幕分享
 const shareId = 'share-userId';
-const shareClient = TRTC.createClient({ mode: 'videoCall', sdkAppId, userId, shareId, userSig });
+const shareClient = TRTC.createClient({ mode: 'rtc', sdkAppId, userId, shareId, userSig });
 
 // 指明该 shareClient 默认不接收任何远端流 （它只负责发送屏幕分享流）
 shareClient.setDefaultMuteRemoteStreams(true);
