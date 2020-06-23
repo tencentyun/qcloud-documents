@@ -289,7 +289,7 @@ void onFailure(AudioRecognizeRequest request, ClientException clientException, S
 
 ```
 AudioRecognizeConfiguration audioRecognizeConfiguration = new AudioRecognizeConfiguration.Builder()
-	.setSilentDetectTimeOut(true)// 是否使能静音检测，false表示不检查静音部分
+	.setSilentDetectTimeOut(true)// 是否使能静音检测，false 表示不检查静音部分
         .audioFlowSilenceTimeOut(5000) // 静音检测超时停止录音
         .minAudioFlowSilenceTime(2000) // 语音流识别时的间隔时间
     	.minVolumeCallbackTime(80) // 音量回调时间
@@ -449,13 +449,13 @@ void start() throws AudioRecognizerException;
 ```
 void stop();
 ```
--获取sdk Pcm格式录音源文件路径。
+-获取 sdk Pcm 格式录音源文件路径。
 
 ```
 void savePcmFileCallBack(String filePath);
 ```
 
--获取sdk wav格式录音源文件路径。
+-获取 sdk wav 格式录音源文件路径。
 
 ```
 void saveWaveFileCallBack(String filePath);
