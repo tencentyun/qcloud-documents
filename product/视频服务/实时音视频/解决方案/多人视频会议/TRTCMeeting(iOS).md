@@ -15,89 +15,89 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | API                                 | 描述                     |
 | ----------------------------------- | ------------------------ |
-| [sharedInstance](#sharedInstance) | 获取单例对象。           |
-| [delegateQueue](#delegateQueue)   | 设置事件回调所在的线程。 |
+| [sharedInstance](#sharedinstance) | 获取单例对象。           |
+| [delegateQueue](#delegatequeue)   | 设置事件回调所在的线程。 |
 | [delegate](#delegate)             | 设置事件回调。           |
 | [login](#login)                   | 登录。                   |
 | [logout](#logout)                 | 登出。                   |
-| [setSelfProfile](#setSelfProfile) | 设置用户信息。           |
+| [setSelfProfile](#setselfprofile) | 设置用户信息。           |
 
 ### 会议房间相关接口函数
 
 | API                                 | 描述                           |
 | ----------------------------------- | ------------------------------ |
-| [createMeeting](#createMeeting)   | 创建会议房间（主持人调用）。   |
-| [destroyMeeting](#destroyMeeting) | 销毁会议房间（主持人调用）。   |
-| [enterMeeting](#enterMeeting)     | 进入会议房间（参会成员调用）。 |
-| [leaveMeeting](#leaveMeeting)     | 离开会议房间（参会成员调用）。 |
+| [createMeeting](#createmeeting)   | 创建会议房间（主持人调用）。   |
+| [destroyMeeting](#destroymeeting) | 销毁会议房间（主持人调用）。   |
+| [enterMeeting](#entermeeting)     | 进入会议房间（参会成员调用）。 |
+| [leaveMeeting](#leavemeeting)     | 离开会议房间（参会成员调用）。 |
 
 ### 远端用户接口
 
 | API                                               | 描述                                                         |
 | ------------------------------------------------- | ------------------------------------------------------------ |
-| [getUserInfoList](#getUserInfoList)             | 获取房间内所有的人员列表，enterMeeting() 成功后调用才有效。  |
-| [getUserInfo](#getUserInfo)                     | 获取房间内指定人员的详细信息，enterMeeting() 成功后调用才有效。 |
-| [startRemoteView](#startRemoteView)             | 播放指定成员的远端视频画面。                                 |
-| [stopRemoteView](#stopRemoteView)               | 停止播放远端视频画面。                                       |
-| [setRemoteViewFillMode](#setRemoteViewFillMode) | 根据用户id和设置远端图像的渲染模式。                         |
-| [setRemoteViewRotation](#setRemoteViewRotation) | 设置远端图像的顺时针旋转角度。                               |
-| [muteRemoteAudio](#muteRemoteAudio)             | 屏蔽远端指定成员的声音。                                     |
-| [muteRemoteVideoStream](#muteRemoteVideoStream) | 屏蔽远端指定成员的视频流。                                   |
+| [getUserInfoList](#getuserinfolist)             | 获取房间内所有的人员列表，enterMeeting() 成功后调用才有效。  |
+| [getUserInfo](#getuserinfo)                     | 获取房间内指定人员的详细信息，enterMeeting() 成功后调用才有效。 |
+| [startRemoteView](#startremoteview)             | 播放指定成员的远端视频画面。                                 |
+| [stopRemoteView](#stopremoteview)               | 停止播放远端视频画面。                                       |
+| [setRemoteViewFillMode](#setremoteviewfillmode) | 根据用户id和设置远端图像的渲染模式。                         |
+| [setRemoteViewRotation](#setremoteviewrotation) | 设置远端图像的顺时针旋转角度。                               |
+| [muteRemoteAudio](#muteremoteaudio)             | 屏蔽远端指定成员的声音。                                     |
+| [muteRemoteVideoStream](#muteremotevideostream) | 屏蔽远端指定成员的视频流。                                   |
 
 ### 本地视频操作接口
 
 | API                                         | 描述                       |
 | ------------------------------------------- | -------------------------- |
-| [startCameraPreview](#startCameraPreview) | 开启本地视频的预览画面。   |
-| [stopCameraPreview](#stopCameraPreview)   | 停止本地视频采集及预览。   |
-| [switchCamera](#switchCamera)   | 切换前后摄像头。           |
-| [setVideoResolution](#setVideoResolution) | 设置分辨率。               |
-| [setVideoFps](#setVideoFps)               | 设置帧率。                 |
-| [setVideoBitrate](#setVideoBitrate)       | 设置码率。                 |
-| [setLocalViewMirror](#setLocalViewMirror) | 设置本地画面镜像预览模式。 |
+| [startCameraPreview](#startcamerapreview) | 开启本地视频的预览画面。   |
+| [stopCameraPreview](#stopcamerapreview)   | 停止本地视频采集及预览。   |
+| [switchCamera](#switchcamera)   | 切换前后摄像头。           |
+| [setVideoResolution](#setvideoresolution) | 设置分辨率。               |
+| [setVideoFps](#setvideofps)               | 设置帧率。                 |
+| [setVideoBitrate](#setvideobitrate)       | 设置码率。                 |
+| [setLocalViewMirror](#setlocalviewmirror) | 设置本地画面镜像预览模式。 |
 
 ### 本地音频操作接口
 
 | API                                               | 描述                 |
 | ------------------------------------------------- | -------------------- |
-| [startMicrophone](#startMicrophone)             | 开启麦克风采集。     |
-| [stopMicrophone](#stopMicrophone)               | 停止麦克风采集。     |
-| [setAudioQuality](#setAudioQuality)             | 设置音质。           |
-| [muteLocalAudio](#muteLocalAudio)               | 开启本地静音。       |
-| [setSpeaker](#setSpeaker)                       | 设置开启扬声器。     |
-| [setAudioCaptureVolume](#setAudioCaptureVolume) | 设置麦克风采集音量。 |
-| [setAudioPlayoutVolume](#setAudioPlayoutVolume) | 设置播放音量。       |
-| [startFileDumping](#startFileDumping)           | 开始录音。           |
-| [stopFileDumping](#stopFileDumping)             | 停止录音。           |
-| [enableAudioEvaluation](#enableAudioEvaluation) | 启用音量大小提示。   |
+| [startMicrophone](#startmicrophone)             | 开启麦克风采集。     |
+| [stopMicrophone](#stopmicrophone)               | 停止麦克风采集。     |
+| [setAudioQuality](#setaudioquality)             | 设置音质。           |
+| [muteLocalAudio](#mutelocalaudio)               | 开启本地静音。       |
+| [setSpeaker](#setspeaker)                       | 设置开启扬声器。     |
+| [setAudioCaptureVolume](#setaudiocapturevolume) | 设置麦克风采集音量。 |
+| [setAudioPlayoutVolume](#setaudioplayoutvolume) | 设置播放音量。       |
+| [startFileDumping](#startfiledumping)           | 开始录音。           |
+| [stopFileDumping](#stopfiledumping)             | 停止录音。           |
+| [enableAudioEvaluation](#enableaudioevaluation) | 启用音量大小提示。   |
 
 ### 录屏接口
 
 | API                                           | 描述           |
 | --------------------------------------------- | -------------- |
-| [startScreenCapture](#startScreenCapture)   | 启动屏幕分享。 |
-| [stopScreenCapture](#stopScreenCapture)     | 停止屏幕采集。 |
-| [pauseScreenCapture](#pauseScreenCapture)   | 暂停屏幕分享。 |
-| [resumeScreenCapture](#resumeScreenCapture) | 恢复屏幕分享。 |
+| [startScreenCapture](#startscreencapture)   | 启动屏幕分享。 |
+| [stopScreenCapture](#stopscreencapture)     | 停止屏幕采集。 |
+| [pauseScreenCapture](#pausescreencapture)   | 暂停屏幕分享。 |
+| [resumeScreenCapture](#resumescreencapture) | 恢复屏幕分享。 |
 
 ### 美颜滤镜相关接口函数
 
 | API                                     | 描述                                                         |
 | --------------------------------------- | ------------------------------------------------------------ |
-| [getBeautyManager](#getBeautyManager) | 获取美颜管理对象 [TXBeautyManager](http://doc.qcloudtrtc.com/group__TXBeautyManager__ios.html)。 |
+| [getBeautyManager](#getbeautymanager) | 获取美颜管理对象 [TXBeautyManager](http://doc.qcloudtrtc.com/group__TXBeautyManager__ios.html)。 |
 
 ### 分享接口
 
 | API                                                 | 描述              |
 | --------------------------------------------------- | ----------------- |
-| [getLiveBroadcastingURL](###getLiveBroadcastingURL) | 获取CDN分享链接。 |
+| [getLiveBroadcastingURL](#getlivebroadcastingurl) | 获取 CDN 分享链接。 |
 
 ### 消息发送相关接口函数
 
 | API                                       | 描述                                                       |
 | ----------------------------------------- | ---------------------------------------------------------- |
-| [sendRoomTextMsg](#sendRoomTextMsg)     | 在房间中广播文本消息，一般用于文本聊天                     |
-| [sendRoomCustomMsg](#sendRoomCustomMsg) | 在房间中广播自定义（信令）消息，一般用于广播点赞和礼物消息 |
+| [sendRoomTextMsg](#sendroomtextmsg)     | 在房间中广播文本消息，一般用于文本聊天                     |
+| [sendRoomCustomMsg](#sendroomcustommsg) | 在房间中广播自定义（信令）消息。 |
 
 ## TRTCMeetingDelegate API 概览
 
@@ -105,66 +105,68 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | API                   | 描述       |
 | --------------------- | ---------- |
-| [onError](#onError) | 错误回调。 |
+| [onError](#onerror) | 错误回调。 |
 
 ### 会议房间事件回调
 
 | API                                         | 描述                   |
 | ------------------------------------------- | ---------------------- |
-| [onRoomDestroy](#onRoomDestroy)           | 会议房间被销毁的回调。 |
-| [onNetworkQuality](#onNetworkQuality)     | 网络状态回调。         |
-| [onUserVolumeUpdate](#onUserVolumeUpdate) | 用户通话音量回调。     |
+| [onRoomDestroy](#onroomdestroy)           | 会议房间被销毁的回调。 |
+| [onNetworkQuality](#onnetworkquality)     | 网络状态回调。         |
+| [onUserVolumeUpdate](#onuservolumeupdate) | 用户通话音量回调。     |
 
 ### 成员进出事件回调
 
 | API                                   | 描述                 |
 | ------------------------------------- | -------------------- |
-| [onUserEnterRoom](#onUserEnterRoom) | 收到新成员进房通知。 |
-| [onUserLeaveRoom](#onUserLeaveRoom) | 收到成员退房通知。   |
+| [onUserEnterRoom](#onuserenterroom) | 收到新成员进房通知。 |
+| [onUserLeaveRoom](#onuserleaveroom) | 收到成员退房通知。   |
 
 ### 成员音视频事件回调
 
 | API                                             | 描述                        |
 | ----------------------------------------------- | --------------------------- |
-| [onUserVideoAvailable](#onUserVideoAvailable) | 成员开启/关闭摄像头的通知。 |
-| [onUserAudioAvailable](#onUserAudioAvailable) | 成员开启/关闭麦克风的通知。 |
-
-### 消息事件回调
-
-| API                                           | 描述             |
-| --------------------------------------------- | ---------------- |
-| [onRecvRoomTextMsg](#onRecvRoomTextMsg)     | 收到文本消息。   |
-| [onRecvRoomCustomMsg](#onRecvRoomCustomMsg) | 收到自定义消息。 |
+| [onUserVideoAvailable](#onuservideoavailable) | 成员开启/关闭摄像头的通知。 |
+| [onUserAudioAvailable](#onuseraudioavailable) | 成员开启/关闭麦克风的通知。 |
 
 ### 录屏事件回调
 
 | API                                                 | 描述           |
 | --------------------------------------------------- | -------------- |
-| [onScreenCaptureStarted](#onScreenCaptureStarted) | 录屏开始通知。 |
-| [onScreenCapturePaused](#onScreenCapturePaused)   | 录屏暂停回调。 |
-| [onScreenCaptureResumed](#onScreenCaptureResumed) | 录屏恢复回调。 |
-| [onScreenCaptureStoped](#onScreenCaptureStoped)   | 录屏停止回调。 |
+| [onScreenCaptureStarted](#onscreencapturestarted) | 录屏开始通知。 |
+| [onScreenCapturePaused](#onscreencapturepaused)   | 录屏暂停回调。 |
+| [onScreenCaptureResumed](#onscreencaptureresumed) | 录屏恢复回调。 |
+| [onScreenCaptureStoped](#onscreencapturestoped)   | 录屏停止回调。 |
+
+### 消息事件回调
+
+| API                                           | 描述             |
+| --------------------------------------------- | ---------------- |
+| [onRecvRoomTextMsg](#onrecvroomtextmsg)     | 收到文本消息。   |
+| [onRecvRoomCustomMsg](#onrecvroomcustommsg) | 收到自定义消息。 |
+
+### 录屏事件回调
+
+| API                                                 | 描述           |
+| --------------------------------------------------- | -------------- |
+| [onScreenCaptureStarted](#onscreencapturestarted) | 录屏开始通知。 |
+| [onScreenCapturePaused](#onscreencapturepaused)   | 录屏暂停回调。 |
+| [onScreenCaptureResumed](#onscreencaptureresumed) | 录屏恢复回调。 |
+| [onScreenCaptureStoped](#onscreencapturestoped)   | 录屏停止回调。 |
 
 ## TRTCMeetingDef API 概览
-
-### TXUserInfo 用户基本信息
-
-| 属性                      | 描述               |
-| ------------------------- | ------------------ |
-| [userId](#userId)       | 用户ID。           |
-| [userName](#userName)   | 用户名称（昵称）。 |
-| [avatarURL](#avatarURL) | 用户头像URL。      |
 
 ### TRTCMeetingUserInfo 会议用户信息
 
 | 属性                                    | 描述                                   |
 | --------------------------------------- | -------------------------------------- |
-| [roomId](#roomId)                     | 房间号。                               |
-| [isVideoAvailable](#isVideoAvailable) | 用户是否打开了视频。                   |
-| [isAudioAvailable](#isAudioAvailable) | 用户是否打开音频。                     |
-| [isMuteVideo](#isMuteVideo)           | 是否对用户静画（不播放该用户的视频）。 |
-| [isMuteAudio](#isMuteAudio)           | 是否对用户静音（不播放改用户的音频）。 |
-
+| [userId](#userid)       | 用户ID。           |
+| [userName](#username)   | 用户名称（昵称）。 |
+| [avatarURL](#avatarurl) | 用户头像URL。      |
+| [isVideoAvailable](#isvideoavailable) | 用户是否打开了视频。                   |
+| [isAudioAvailable](#isaudioavailable) | 用户是否打开音频。                     |
+| [isMuteVideo](#ismutevideo)           | 是否对用户静画（不播放该用户的视频）。 |
+| [isMuteAudio](#ismuteaudio)           | 是否对用户静音（不播放改用户的音频）。 |
 
 
 ## SDK 基础函数
@@ -295,6 +297,11 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | roomId   | UInt32              | 房间标识，需要由您分配并进行统一管理。 |
 | callback | TRTCMeetingCallback | 进入房间的结果回调，成功时 code 为0。  |
 
+参会成员进入会议的正常调用流程如下： 
+1. 【参会成员】调用`enterMeeting`并传入 roomId 即可进入会议房间。
+2. 【参会成员】调用 `startCameraPreview()` 打开摄像头预览，调用 `startMicrophone()` 打开麦克风采集。
+3. 【参会成员】收到`onUserVideoAvailable`的事件，调用`startRemoteView(userId)`并传入成员的 userId 开始播放。
+   
 ### leaveMeeting
 
 离开会议（参会成员调用）。
@@ -1012,7 +1019,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ## TRTCMeetingDef 相关属性
 
-## TXUserInfo
+## TRTCMeetingUserInfo
 
 ### userId
 
@@ -1037,10 +1044,6 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 ```objective-c
 @property (nonatomic, strong) NSString *avatarURL;
 ```
-
-
-
-## TRTCMeetingUserInfo
 
 ### roomId
 
@@ -1076,7 +1079,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ### isMuteAudio
 
-是否对用户静音（不播放改用户的音频）。
+是否对用户静音（不播放该用户的音频）。
 
 ```objective-c
 @property (nonatomic, assign) BOOL isMuteAudio;
