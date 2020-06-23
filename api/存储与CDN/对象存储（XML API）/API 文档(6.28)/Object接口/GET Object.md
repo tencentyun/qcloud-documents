@@ -43,7 +43,7 @@ Authorization: Auth String
 
 | 名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述                                                         | 类型   | 是否必选 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------ | -------- |
-| Range                                                        | RFC 2616 中定义的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于0开始的偏移量。例如 bytes=0-9，表示下载对象的开头10个字节的数据，此时返回 HTTP 状态码206（Partial Content）及 Content-Range 响应头部。如果不指定，则表示下载整个对象 | string | 否       |
+| Range                                                        | RFC 2616 中定义的字节范围，范围值必须使用 bytes=first-last 格式且仅支持单一范围，不支持多重范围。first 和 last 都是基于0开始的偏移量。例如 bytes=0-9，表示下载对象的开头10个字节的数据；bytes=5-9，表示下载对象的第6到第10个字节。此时返回 HTTP 状态码206（Partial Content）及 Content-Range 响应头部。如果 first 超过对象的大小，则返回 HTTP 状态码416（Requested Range Not Satisfiable）错误。如果不指定，则表示下载整个对象。 | string | 否       |
 | If-Modified-Since                                            | 当对象在指定时间后被修改，则返回对象，否则返回 HTTP 状态码为304（Not Modified） | string | 否       |
 | If-Unmodified-Since                                          | 当对象在指定时间后未被修改，则返回对象，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
 | If-Match                                                     | 当对象的 ETag 与指定的值一致，则返回对象，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
