@@ -388,7 +388,7 @@ public abstract void setRemoteViewFillMode(String userId, int fillMode);
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 对方的用户信息。|
-| fillMode | int  | 填充或适应模式，默认值：填充（FILL） 详情请参见[TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ab4197bc2efb62b471b49f926bab9352f) |
+| fillMode | int  | 填充或适应模式，默认值：填充（FILL） 详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ab4197bc2efb62b471b49f926bab9352f) |
    
 
 
