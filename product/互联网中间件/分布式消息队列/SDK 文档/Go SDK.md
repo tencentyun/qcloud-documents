@@ -57,7 +57,7 @@ func main() {
 
 	producer, err := client.CreateProducer(pulsar.ProducerOptions{
 		DisableBatching: true,
-		Topic:           "topic-1",
+		Topic:           "persistent://appid/namespace/topic-1",
 	})
 	if err != nil {
 		log.Fatal(err)
@@ -140,13 +140,13 @@ func main() {
 
 在 consumer.go运行的控制台可以看到消息被成功接收并打印出来：
 ```bash
-Received message msgId: &pulsar.messageID{ledgerID:581, entryID:0, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 0' -- topic : 'persistent://public/default/topic-1'
+Received message msgId: &pulsar.messageID{ledgerID:581, entryID:0, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 0' -- topic : 'persistent://appid/namespace/topic-1'
 
-Received message msgId: &pulsar.messageID{ledgerID:581, entryID:1, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 1' -- topic : 'persistent://public/default/topic-1'
+Received message msgId: &pulsar.messageID{ledgerID:581, entryID:1, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 1' -- topic : 'persistent://appid/namespace/topic-1'
 
-Received message msgId: &pulsar.messageID{ledgerID:581, entryID:2, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 2' -- topic : 'persistent://public/default/topic-1'
+Received message msgId: &pulsar.messageID{ledgerID:581, entryID:2, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 2' -- topic : 'persistent://appid/namespace/topic-1'
 
-Received message msgId: &pulsar.messageID{ledgerID:581, entryID:3, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 3' -- topic : 'persistent://public/default/topic-1'
+Received message msgId: &pulsar.messageID{ledgerID:581, entryID:3, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 3' -- topic : 'persistent://appid/namespace/topic-1'
 
 ...//后续省略
 ```
@@ -178,7 +178,7 @@ defer client.Close()
 //创建 Producer
 producer, err := client.CreateProducer(pulsar.ProducerOptions{
 	DisableBatching: true,
-	Topic:           "persistent://xx/xx/topic1",
+	Topic:           "persistent://appid/namespace/topic-1",
 })
 if err != nil {
 	log.Fatal(err)
@@ -187,7 +187,7 @@ defer producer.Close()
 
 //创建 Consumer
 consumer, err := client.Subscribe(pulsar.ConsumerOptions{
-	Topics:           []string{"topic-1", "topic-2"},
+	Topics:           []string{"persistent://appid/namespace/topic-1", "persistent://appid/namespace/topic-2"},
 	SubscriptionName: "my-sub",
 	Type:             pulsar.Shared,	
 })
@@ -203,10 +203,10 @@ defer consumer.Close()
 
 ```go
 consumer, err := client.Subscribe(pulsar.ConsumerOptions{
-	Topics:           []string{"topic-1"},
+	Topics:           []string{"persistent://appid/namespace/topic-1"},
 	SubscriptionName: "my-sub",
 	Type:             pulsar.Shared,
-    TagMapTopicNames: map[string]string{"topic-1":"a||b"},
+    TagMapTopicNames: map[string]string{"persistent://appid/namespace/topic-1":"a||b"},
 })
 if err != nil {
 	log.Fatal(err)
@@ -219,7 +219,7 @@ defer consumer.Close()
 ```go
 // 创建Producer对象
 producer, err := client.CreateProducer(pulsar.ProducerOptions{
-	Topic:           "topic-1",
+	Topic:           "persistent://appid/namespace/topic-1",
 })
 if err != nil {
 	log.Fatal(err)
@@ -246,7 +246,7 @@ for j := 0; j < 10; j++ {
 
 ```go
 consumer, err := client.Subscribe(pulsar.ConsumerOptions{
-	Topics:           []string{"topic-9999"},
+	Topics:           []string{"persistent://appid/namespace/topic-1"},
 	SubscriptionName: "my-sub",
 	Type:             pulsar.Shared,
     //EnableRetry设为true是必须的，否则默认关闭Retry功能
