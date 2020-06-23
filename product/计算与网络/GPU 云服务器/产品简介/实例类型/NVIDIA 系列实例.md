@@ -717,8 +717,13 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 ## 渲染型 GN7vw
 
 **NVIDIA 实例 GN7vw** 是在 GN7 基础上配置 vDWS License 服务器并安装 GRID driver 的渲染型实例，适用于图形图像处理（3D 渲染，视频编解码）场景。使用该实例，您可免除手动配置 GPU 图形图像处理基础环境。
->?GPU 渲染型 GN7vw 现处于内测阶段，如需使用，请前往 [申请](https://cloud.tencent.com/apply/p/l133eutcwd9) 页面。
->
+>?
+>- GPU 渲染型 GN7vw 现处于内测阶段，目前仅提供试用版 vDWS License。如需使用，请前往 [申请](https://cloud.tencent.com/apply/p/l133eutcwd9) 页面。
+>- 结束内测并切换正式版本前，会进行通知（邮件、短信、站内信等方式），请您关注。切换到正式版本后，需要您使用适配的镜像重装实例的操作系统，以适应新版本中 GRID 驱动。
+
+
+
+
 
 ### 适用场景
 适用于图形图像处理。例如：
