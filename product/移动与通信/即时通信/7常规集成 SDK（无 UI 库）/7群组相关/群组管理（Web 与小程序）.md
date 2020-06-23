@@ -96,7 +96,7 @@ promise.then(function(imResponse) {
 
 更多详情请参见 [Group](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Group.html)。
 
->!该接口创建 TIM.TYPES.GRP_AVCHATROOM（音视频聊天室） 后，需调用 [joinGroup](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#joinGroup) 接口加入群组后，才能进行消息收发流程。
+>!该接口创建 TIM.TYPES.GRP_AVCHATROOM（直播群） 后，需调用 [joinGroup](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#joinGroup) 接口加入群组后，才能进行消息收发流程。
 
 **接口名**
 
@@ -111,14 +111,14 @@ tim.createGroup(options);
 | 名称             | 类型           | 属性       | 默认值                               | 描述                                                         |
 | :--------------- | :------------- | :--------- | :----------------------------------- | :----------------------------------------------------------- |
 | `name`           | `String`         |       -     |                        -              | 必填，群组名称，最长30字节                                   |
-| `type`             | `String`         | `<optional>` | `TIM.TYPES.GRP_PRIVATE`              | 群组类型，包括： <li>TIM.TYPES.GRP_PRIVATE：私有群，默认</li><li>TIM.TYPES.GRP_PUBLIC：公开群</li><li>TIM.TYPES.GRP_CHATROOM：聊天室</li><li>TIM.TYPES.GRP_AVCHATROOM：互动直播聊天室</li> |
+| `type`             | `String`         | `<optional>` | `TIM.TYPES.GRP_PRIVATE`              | 群组类型，包括： <li>TIM.TYPES.GRP_WORK：好友工作群，默认</li><li>TIM.TYPES.GRP_PUBLIC：陌生人社交群</li><li>TIM.TYPES.GRP_MEETING：临时会议群</li><li>TIM.TYPES.GRP_AVCHATROOM：直播群</li> |
 | `groupID`          | `String`         | `<optional>` |                      -                | 群组 ID。不填该字段时，会自动为群组创建一个唯一的群 ID        |
 | `introduction`     | `String`         | `<optional>` |                  -                    | 群简介，最长240字节                                          |
 | `notification`    | `String`         | `<optional>` |                      -                | 群公告，最长300字节                                          |
 | `avatar`           | `String`         | `<optional>` |                 -                     | 群头像 URL，最长100字节                                      |
-| `maxMemberNum`     | `Number`         | `<optional>` |                      -                | 最大群成员数量，默认值：私有群为200，公开群为2000，聊天室为6000，音视频聊天室无限制 |
-| `joinOption`       | `String`         | `<optional>` | `TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS` | 申请加群处理方式。**创建私有群/聊天室/音视频聊天室时不能填写该字段。**私有群该字段固定为：禁止申请加群，聊天室和音视频聊天室该字段固定为：自由加入<br><li>TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS：自由加入</li><li>TIM.TYPES.JOIN_OPTIONS_NEED_PERMISSION：需要验证</li><li>TIM.TYPES.JOIN_OPTIONS_DISABLE_APPLY：禁止加群</li> |
-| `memberList`       | `Array<Object>` | `<optional>`|                            -          | 初始群成员列表，最多500个。创建音视频聊天室时不能添加成员。详情请参见下方 [memberList 参数说明](#memberList) |
+| `maxMemberNum`     | `Number`         | `<optional>` |                      -                | 最大群成员数量，默认值：好友工作群为200，陌生人社交群为2000，临时会议群为6000，直播群无限制 |
+| `joinOption`       | `String`         | `<optional>` | `TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS` | 申请加群处理方式。**创建好友工作群/临时会议群/直播群时不能填写该字段。**好友工作群该字段固定为：禁止申请加群，临时会议群和直播群该字段固定为：自由加入<br><li>TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS：自由加入</li><li>TIM.TYPES.JOIN_OPTIONS_NEED_PERMISSION：需要验证</li><li>TIM.TYPES.JOIN_OPTIONS_DISABLE_APPLY：禁止加群</li> |
+| `memberList`       | `Array<Object>` | `<optional>`|                            -          | 初始群成员列表，最多500个。创建直播群时不能添加成员。详情请参见下方 [memberList 参数说明](#memberList) |
 | `groupCustomField` | `Array<Object>` | `<optional>` |                     -                 | 群组维度的自定义字段，默认没有自定义字段，如需开通请参见 [群成员资料](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
 <span id="memberList"></span>
@@ -155,7 +155,7 @@ promise.then(function(imResponse) { // 创建成功
 ### 解散群组
 
 群主可调用该接口解散群组。
->!群主不能解散私有群。
+>!群主不能解散好友工作群。
 
 **接口名**
 
@@ -206,7 +206,7 @@ tim.updateGroupProfile(options);
 | `introduction`     | `Object`         | `<optional>` |                       -               | 群简介，最长240字节                                          |
 | `notification`     | `Object`         | `<optional>` |                    -                  | 群公告，最长300字节                                          |
 | `maxMemberNum`     | `Number`         | `<optional>` |                      -                | 最大群成员数量，最大为6000                                   |
-| `joinOption`       | `String`         | `<optional>` | `TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS` | 申请加群处理方式<br>**修改私有群/聊天室/音视频聊天室的群资料时不能设置该字段**，私有群该字段固定为：禁止申请加群，聊天室和音视频聊天室该字段固定为：自由加入<li>TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS：自由加入</li><li>TIM.TYPES.JOIN_OPTIONS_NEED_PERMISSION：需要验证</li><li>TIM.TYPES.JOIN_OPTIONS_DISABLE_APPLY：禁止加群</li> |
+| `joinOption`       | `String`         | `<optional>` | `TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS` | 申请加群处理方式<br>**修改好友工作群/临时会议群/直播群的群资料时不能设置该字段**，好友工作群该字段固定为：禁止申请加群，临时会议群和直播群该字段固定为：自由加入<li>TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS：自由加入</li><li>TIM.TYPES.JOIN_OPTIONS_NEED_PERMISSION：需要验证</li><li>TIM.TYPES.JOIN_OPTIONS_DISABLE_APPLY：禁止加群</li> |
 | `groupCustomField` | `Array<Object>` | `<optional>` |                 -                     | 群自定义字段，详情请参见下方[`groupCustomField`参数说明](#groupCustomField)<br>默认没有自定义字段，如需开通请参见  [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
 <span id="groupCustomField"></span>
@@ -242,7 +242,7 @@ promise.then(function(imResponse) {
 
 ### 申请加群
 
-私有群不能申请加入，只能由群成员邀请加入。
+好友工作群不能申请加入，只能由群成员邀请加入。
 
 **接口名**
 
@@ -258,7 +258,7 @@ tim.joinGroup(options);
 | :------------- | :----- | :--------- | :----------------------------------------------------------- |
 | `groupID`      | `String` |     -       |                       -                                       |
 | `applyMessage` | `String` |    -        | 附言                                                         |
-| `type`         | `String` | `<optional>` | 待加入的群组的类型，加入音视频聊天室时该字段必填。可选值：<br/><li>TIM.TYPES.GRP_PUBLIC：公开群</li><li>TIM.TYPES.GRP_CHATROOM：聊天室</li><li>TIM.TYPES.GRP_AVCHATROOM：音视频聊天室</li> |
+| `type`         | `String` | `<optional>` | 待加入的群组的类型，加入直播群时该字段必填。可选值：<br/><li>TIM.TYPES.GRP_PUBLIC：陌生人社交群</li><li>TIM.TYPES.GRP_MEETING：临时会议群</li><li>TIM.TYPES.GRP_AVCHATROOM：直播群</li> |
 
 **返回值**
 
@@ -300,7 +300,7 @@ promise.then(function(imResponse) {
 
 ### 退出群组
 
-群主只能退出私有群，退出后该私有群无群主。
+群主只能退出好友工作群，退出后该好友工作群无群主。
 
 **接口名**
 
@@ -333,7 +333,7 @@ promise.then(function(imResponse) {
 
 ### 根据群 ID 搜索群组
 
-私有群不能被搜索。
+好友工作群不能被搜索。
 
 **接口名**
 
@@ -365,7 +365,7 @@ promise.then(function(imResponse) {
 ```
 
 ### 转让群组
-只有群主拥有转让的权限，音视频聊天室不能转让。
+只有群主拥有转让的权限，直播群不能转让。
 
 **接口名**
 
@@ -570,9 +570,9 @@ tim.getGroupMemberProfile(options);
 ### 添加群成员
 
 详细规则如下：
--  TIM.TYPES.GRP_PRIVATE 私有群：任何群成员都可邀请他人加群，且无需被邀请人同意，直接将其拉入群组中。
--  TIM.TYPES.GRP_PUBLIC 公开群/ TIM.TYPES.GRP_CHATROOM 聊天室：只有 App 管理员可以邀请他人入群，且无需被邀请人同意，直接将其拉入群组中。
--  TIM.TYPES.GRP_AVCHATROOM 音视频聊天室：不允许任何人邀请他人入群（包括 App 管理员）。
+-  TIM.TYPES.GRP_WORK 好友工作群：任何群成员都可邀请他人加群，且无需被邀请人同意，直接将其拉入群组中。
+-  TIM.TYPES.GRP_PUBLIC 陌生人社交群/ TIM.TYPES.GRP_MEETING 临时会议群：只有 App 管理员可以邀请他人入群，且无需被邀请人同意，直接将其拉入群组中。
+-  TIM.TYPES.GRP_AVCHATROOM 直播群：不允许任何人邀请他人入群（包括 App 管理员）。
 
 更多详情请参见 [Group](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Group.html)[GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html) 和 [加群方式差异](https://cloud.tencent.com/document/product/269/1502#.E5.8A.A0.E7.BE.A4.E6.96.B9.E5.BC.8F.E5.B7.AE.E5.BC.82)。
 
@@ -686,7 +686,7 @@ promise.then(function(imResponse) {
 
 ### 禁言或取消禁言
 
-设置群成员的禁言时间，可以禁言群成员，也可取消禁言。TIM.TYPES.GRP_PRIVATE 类型的群组（即私有群）不能禁言。
+设置群成员的禁言时间，可以禁言群成员，也可取消禁言。TIM.TYPES.GRP_WORK 类型的群组（即好友工作群）不能禁言。
 >?只有群主和管理员拥有该操作权限：
 >- 群主可以禁言/取消禁言管理员和普通群成员。
 >- 管理员可以禁言/取消禁言普通群成员。
