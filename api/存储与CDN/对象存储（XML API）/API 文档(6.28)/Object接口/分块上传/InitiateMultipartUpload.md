@@ -33,7 +33,7 @@ Authorization: Auth String
 | Content-Type        | RFC 2616 中定义的 HTTP 请求内容类型（MIME），此头部用于描述待上传对象的内容类型，将作为对象元数据保存。<br>例如`text/html`或 `image/jpeg` | string | 是       |
 | Expires             | RFC 2616 中定义的缓存失效时间，将作为对象元数据保存          | string | 否       |
 | x-cos-meta-\*       | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为对象元数据保存，大小限制为2KB<br>**注意：**用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-） | string | 否       |
-| x-cos-storage-class | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD，STANDARD_IA，ARCHIVE。默认值：STANDARD | Enum   | 否       |
+| x-cos-storage-class | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD，MAZ_STANDARD_IA，STANDARD_IA，ARCHIVE。默认值：STANDARD | Enum   | 否       |
 
 **访问控制列表（ACL）相关头部**
 

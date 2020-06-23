@@ -147,6 +147,42 @@ except Exception as err:
     print(err)
 ```
 
+### 使用临时证书上传
+传入临时证书的相关密钥信息，使用临时证书验证身份并进行上传。
+```
+from qcloud_vod.vod_upload_client import VodUploadClient
+from qcloud_vod.model import VodUploadRequest
+
+client = VodUploadClient("Credentials TmpSecretId", "Credentials TmpSecretKey", "Credentials Token")
+request = VodUploadRequest()
+request.MediaFilePath = "/data/file/Wildlife.mp4"
+try:
+    response = client.upload("ap-guangzhou", request)
+    print(response.FileId)
+    print(response.MediaUrl)
+except Exception as err:
+    // 处理业务异常
+    print(err)
+```
+
+### 流媒体文件上传
+目前支持的流媒体文件包括 M3U8 文件及 MPD 文件，索引文件下的传输流文件（如 TS 文件）路径必须为相对路径且处于同级目录或者下级目录内。在上传流媒体文件时候只需指定索引文件路径（如 M3U8 文件），相关传输流文件会一并进行上传。
+```
+from qcloud_vod.vod_upload_client import VodUploadClient
+from qcloud_vod.model import VodUploadRequest
+
+client = VodUploadClient("your secretId", "your secretKey")
+request = VodUploadRequest()
+request.MediaFilePath = "/data/file/prog_index.mp4"
+try:
+    response = client.upload("ap-guangzhou", request)
+    print(response.FileId)
+    print(response.MediaUrl)
+except Exception as err:
+    // 处理业务异常
+    print(err)
+```
+
 ## 接口描述
 上传客户端类`VodUploadClient`：
 

@@ -13,16 +13,25 @@
 - 在支持配置访问日志到 COS 的地域中，若您不开启访问日志，腾讯云默认为您保留3天的日志；若您开启访问日志，存储时间则依 COS 存储而定。其他地域暂不支持配置访问日志。
 
 
-## 开启访问日志
+## 开启访问日志存入 COS
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3)。
-2. 单击需进行配置的负载均衡 ID，进入“负载均衡基本信息”页面。
-3. 在“日志访问”模块，编辑日志存入 COS。
-![](https://main.qcloudimg.com/raw/4929ec08f86278f8bdbc7cf2df48b25f.png)
+2. 在"负载均衡"列表页面，单击想要配置的负载均衡 ID，进入“负载均衡基本信息”页面。
+3. 在“访问日志”模块，编辑日志存入 COS。
+![](https://main.qcloudimg.com/raw/948ca531935af6a102885d3a941852e0.png)
 4. 在弹出框中，开启访问日志，并选择相应 COS 中的存放 bucket。如您没有创建COS 的 bucket，请 [新建 bucket](https://console.cloud.tencent.com/cos4/bucket) 后，选取相应的存储位置。
 ![](https://main.qcloudimg.com/raw/e8f3506ade5fe73c2267c3f294c957b4.png)
-5. 单击【提交】，则请求日志会自动在 bucket 下创建 lb-id 为名称的文件夹进行存储。
+5. 点击【提交】，请求日志会自动在 bucket 下，创建以 lb-id 为名称的文件夹进行存储。
 6. 配置完成后，单击 bucket 地址可以直接跳转到日志下载页面。
-7. <span id="close" />（可选）若想关闭访问日志，可再次编辑日志存入 COS，在弹框中进行关闭并提交即可。
+
+## 关闭访问日志存入 COS
+1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3)。
+2. 在"负载均衡"列表页面，单击想要配置的负载均衡 ID，进入“负载均衡基本信息”页面。
+3. 在“访问日志”模块，编辑日志存入 COS。
+![](https://main.qcloudimg.com/raw/948ca531935af6a102885d3a941852e0.png)
+4. 在弹出框中，关闭访问日志， 点击【提交】 即可 。
+![](https://main.qcloudimg.com/raw/86dbea54d3b697a03ed449b398679461.png)   
+ 配置完成如下，关闭后将不支持再开启 COS 日志， 详见 [关于CLB配置访问日志到COS下线的公告](https://cloud.tencent.com/document/product/214/43659)。
+![](https://main.qcloudimg.com/raw/43a489e82953e4b27acca5a541912704.png)
 
 ## 日志格式及变量说明
 ### 日志格式
@@ -61,3 +70,4 @@
 | ssl_cipher| SSL 加密套件。|
 | ssl_protocol	| SSL 协议版本。 |
 | ssl_session_reused |SSL SESSION 复用。|	 
+

@@ -202,11 +202,12 @@
  - **应用包名称**：填写华为推送服务应用的**包名**
  - **AppID**：填写华为推送服务应用的 **APP ID**
  - **AppSecret**：填写华为推送服务应用的 **APP SECRET**
+ - **角标参数**：填写应用入口完整 `Activity` 类名，用作华为桌面应用角标显示，请参考 [华为桌面角标开发指导书](https://developer.huawei.com/consumer/cn/doc/development/system-References/30802)
  - **点击通知后**：选择点击通知栏消息后的响应操作， 支持**打开应用**、**打开网页**和**打开应用内指定界面**，更多详情请参见 [配置点击通知栏消息事件](#huawei_click)
    当设置为【打开应用】或【打开应用内指定界面】操作时，支持 [透传自定义内容](#huawei_custom)。
-    ![](https://main.qcloudimg.com/raw/5f5386db721ac107b9ab3da421decb49.png)
-   单击【确认】保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
-   ![](https://main.qcloudimg.com/raw/bcce6ae63e5e7f221256463445165f90.png)
+    ![](https://main.qcloudimg.com/raw/852b40d2a8a5aacd4327f94130976563.png)
+   单击【保存】保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
+   ![](https://main.qcloudimg.com/raw/4f4b2a5c01c524d13434f0b5ca4c4b2c.png)
 
 ### 集成推送 SDK
 
@@ -643,7 +644,7 @@ String extContent = bundle.getString("ext");
 1. 请参考 [Firebase 云消息传递](https://firebase.google.com/docs/cloud-messaging/android/client) 设置 Firebase，集成 FCM SDK。参考 [FCM 测试指引](https://firebase.google.com/docs/cloud-messaging/android/first-message?authuser=0) 测试通知消息，确保已成功集成 FCM。
 2. 调用 `FirebaseInstanceId.getInstance().getInstanceId()` 后，在回调里获取当前 App 的唯一标识 token。当登录 IM SDK 成功后，需要调用 [setOfflinePushConfig](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 将**证书 ID** 和 **token** 上报到即时通信 IM 服务端。
 
-成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后将消息通过小米推送通知到用户端。
+成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后将消息通过 FCM 推送通知到用户端。
 
 <span id="fcm_custom"></span>
 

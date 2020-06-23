@@ -10,7 +10,7 @@
 <dependency>
     <groupId>com.qcloud</groupId>
     <artifactId>vod_api</artifactId>
-    <version>2.1.2</version>
+    <version>2.1.4</version>
 </dependency>
 ```
 
@@ -20,7 +20,7 @@
 
 | jar 文件         | 说明    |
 | ------------ | ------------ | 
-| vod_api-2.1.2.jar | 云点播 SDK。 |
+| vod_api-2.1.4.jar | 云点播 SDK。 |
 | jackson-annotations-2.9.0.jar,jackson-core-2.9.7.jar,jackson-databind-2.9.7.jar,gson-2.2.4.jar       | 开源的 JSON 相关库。 |
 | cos_api-5.4.10.jar            | 腾讯云对象存储服务 COS SDK。                          |
 | tencentcloud-sdk-java-3.1.2.jar             | 腾讯云 API SDK。                        |
@@ -133,6 +133,56 @@ VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
 VodUploadRequest request = new VodUploadRequest();
 request.setMediaFilePath("/data/videos/Wildlife.wmv");
 request.setConcurrentUploadNumber(5);
+try {
+    VodUploadResponse response = client.upload("ap-guangzhou", request);
+    logger.info("Upload FileId = {}", response.getFileId());
+} catch (Exception e) {
+    // 业务方进行异常处理
+    logger.error("Upload Err", e);
+}
+```
+
+### 使用临时证书上传
+传入临时证书的相关密钥信息，使用临时证书验证身份并进行上传。
+```
+VodUploadClient client = new VodUploadClient("Credentials TmpSecretId", "Credentials TmpSecretKey", "Credentials Token");
+VodUploadRequest request = new VodUploadRequest();
+request.setMediaFilePath("/data/videos/Wildlife.wmv");
+try {
+    VodUploadResponse response = client.upload("ap-guangzhou", request);
+    logger.info("Upload FileId = {}", response.getFileId());
+} catch (Exception e) {
+    // 业务方进行异常处理
+    logger.error("Upload Err", e);
+}
+```
+
+
+### 设置代理上传
+设置上传代理，涉及协议及数据都会经过代理进行处理，开发者可以借助代理在自己公司内网上传文件到腾讯云。
+```
+VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
+VodUploadRequest request = new VodUploadRequest();
+request.setMediaFilePath("/data/videos/Wildlife.wmv");
+HttpProfile httpProfile = new HttpProfile();
+httpProfile.setProxyHost("your proxy ip");
+httpProfile.setProxyPort(8080); //your proxy port
+client.setHttpProfile(httpProfile);
+try {
+    VodUploadResponse response = client.upload("ap-guangzhou", request);
+    logger.info("Upload FileId = {}", response.getFileId());
+} catch (Exception e) {
+    // 业务方进行异常处理
+    logger.error("Upload Err", e);
+}
+```
+
+### 流媒体文件上传
+目前支持的流媒体文件包括 M3U8 文件及 MPD 文件，索引文件下的传输流文件（如 TS 文件）路径必须为相对路径且处于同级目录或者下级目录内。在上传流媒体文件时候只需指定索引文件路径（如 M3U8 文件），相关传输流文件会一并进行上传。
+```
+VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
+VodUploadRequest request = new VodUploadRequest();
+request.setMediaFilePath("/data/videos/prog_index.m3u8");
 try {
     VodUploadResponse response = client.upload("ap-guangzhou", request);
     logger.info("Upload FileId = {}", response.getFileId());

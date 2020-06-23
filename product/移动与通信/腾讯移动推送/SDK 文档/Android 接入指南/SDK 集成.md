@@ -320,6 +320,8 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 -keep class com.tencent.tpns.dataacquisition.** {*;}
 ```
 
+>!如果 TPNS SDK 被包含在 App 的公共 SDK 里，即使公共 SDK 有增加配置混淆规则，主工程 App 也必须要同时增加配置混淆规则。
+
 ## 高级配置（可选）
 ### 音视频富媒体使用方法
 1. 在 App 的 layout 目录下，新建一个 xml 文件，命名为 xg_notification。
