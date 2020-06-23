@@ -96,7 +96,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | API | 描述 |
 |-----|-----|
 | [sendRoomTextMsg](#sendroomtextmsg) | 在房间中广播文本消息，一般用于聊天。|
-| [sendRoomCustomMsg](#sendroomcustommsg) | 发送自定义文本消息。|
+| [sendRoomCustomMsg](#sendroomcustommsg) | 发送自定义自定义（信令）消息。|
 
 
 <h2 id="TRTCMeetingDelegate">TRTCMeetingDelegate API 概览</h2>
@@ -112,11 +112,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | API | 描述 |
 |-----|-----|
 | [onRoomDestroy](#onroomdestroy) | 会议房间被销毁的回调。|
-
-### 会议房间事件回调
-
-| API | 描述 |
-|-----|-----|
+| [onNetworkQuality](#onnetworkquality)     | 网络状态回调。   |
 | [onUserVolumeUpdate](#onuservolumeupdate) | 用户通话音量回调。|
 
 ### 成员进出事件回调
@@ -141,6 +137,15 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | [onRecvRoomTextMsg](#onrecvroomtextmsg) | 收到文本消息。|
 | [onRecvRoomCustomMsg](#onrecvroomcustommsg) | 收到自定义消息。|
 
+### 录屏事件回调
+
+| API                                                 | 描述           |
+| --------------------------------------------------- | -------------- |
+| [onScreenCaptureStarted](#onscreencapturestarted) | 录屏开始通知。 |
+| [onScreenCapturePaused](#onscreencapturepaused)   | 录屏暂停回调。 |
+| [onScreenCaptureResumed](#onscreencaptureresumed) | 录屏恢复回调。 |
+| [onScreenCaptureStoped](#onscreencapturestoped)   | 录屏停止回调。 |
+
 ## SDK 基础函数
 
 <span id="sharedInstance"></span>
@@ -156,7 +161,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 |-----|-----|-----|
 | context | Context | Android 上下文，内部会转为 ApplicationContext 用于系统 API 调用 |
 
-   
+
 
 ### destroySharedInstance
 
@@ -383,7 +388,7 @@ public abstract void setRemoteViewFillMode(String userId, int fillMode);
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | userId | String | 对方的用户信息。|
-| fillMode | int  | 填充或适应模式，默认值：填充（FILL） 详情请参见(TRTC SDK)[http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ab4197bc2efb62b471b49f926bab9352f] |
+| fillMode | int  | 填充或适应模式，默认值：填充（FILL） 详情请参见[TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ab4197bc2efb62b471b49f926bab9352f) |
    
 
 
@@ -487,7 +492,7 @@ public abstract void setVideoResolution(int resolution);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| resolution | int | 视频分辨率, 详细请参见 (TRTC SDK)[http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#aa3b72c532f3ffdf64c6aacab26be5f87] |
+| resolution | int | 视频分辨率, 详细请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#aa3b72c532f3ffdf64c6aacab26be5f87) |
 
 
 
@@ -928,3 +933,43 @@ void onRecvRoomCustomMsg(String cmd, String message, TRTCMeetingDef.UserInfo use
 | message | String | 文本消息。|
 | user | UserInfo | 发送者用户信息。 |
 
+
+## 录屏事件回调
+
+### onScreenCaptureStarted
+
+录屏开始通知。
+
+```java
+void onScreenCaptureStarted();
+```
+
+### onScreenCapturePaused
+
+录屏暂停通知。
+
+```java
+void onScreenCapturePaused();
+```
+
+### onScreenCaptureResumed
+
+录屏恢复通知。
+
+```java
+void onScreenCaptureResumed();
+```
+
+### onScreenCaptureStoped
+
+录屏停止通知。
+
+```java
+void onScreenCaptureStopped(int reason);
+```
+
+参数如下表所示：
+
+| 参数   | 类型 | 含义                                               |
+| ------ | ---- | -------------------------------------------------- |
+| reason | int  | 停止原因，0：用户主动停止；1：被其他应用抢占导致停止 |

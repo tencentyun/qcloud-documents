@@ -64,7 +64,7 @@
 ## 实现自定义 UI 界面
 
 源码中的 trtcmeetingdemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCMeeting，您可以在`TRTCMeeting.java` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
-![](https://main.qcloudimg.com/raw/393f3bf79f3eff1fd7d0debc0e3a3b70.png)
+![](https://main.qcloudimg.com/raw/bee48f1b790fd81a60f73d07fdb5ecc5.png)
 
 <span id="model.step1"> </span>
 ### 步骤1：集成 SDK
@@ -187,7 +187,7 @@ trtcMeeting.login(SDKAPPID, userId, userSig, new TRTCMeetingCallback.ActionCallb
 4. 如果主持人有美颜的需求，界面上可以配置美颜调节按钮调用，通过`getBeautyManager`进行美颜设置。
 >?非企业版 SDK 不支持变脸和贴图挂件功能。
 >
-![](https://main.qcloudimg.com/raw/482fccb1aab14bb8dd323ca699c5ea79.jpg)
+![](https://main.qcloudimg.com/raw/6e0cf097f46a8953cbebcf9995ba28c1.png)
 
 ```java
 // 1.主持人设置昵称和头像
@@ -217,7 +217,7 @@ trtcMeeting.createMeeting(roomId, new TRTCMeetingCallback.ActionCallback() {
 2. 参会成员调用`enterMeeting`并传入会议房间号即可进入会议房间。
 3. 参会成员可以调用`startCameraPreview`进行视频画面的采集，调用`startMicrophone`进行声音的采集。
 4. 如果有其他的参会成员打开了摄像头，会收到`onUserVideoAvailable`的事件，此时可以调用`startRemoteView`并传入 userId 开始播放。
-![](https://main.qcloudimg.com/raw/ef4fc16291ffb8d504859a8252478968.jpg)
+![](https://main.qcloudimg.com/raw/d8b796bbe41c9da1af40740916e84d70.png)
 
 ```java
 // 1.参会成员设置昵称和头像
