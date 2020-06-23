@@ -111,7 +111,7 @@ tim.createGroup(options);
 | 名称             | 类型           | 属性       | 默认值                               | 描述                                                         |
 | :--------------- | :------------- | :--------- | :----------------------------------- | :----------------------------------------------------------- |
 | `name`           | `String`         |       -     |                        -              | 必填，群组名称，最长30字节                                   |
-| `type`             | `String`         | `<optional>` | `TIM.TYPES.GRP_PRIVATE`              | 群组类型，包括： <li>TIM.TYPES.GRP_WORK：好友工作群，默认</li><li>TIM.TYPES.GRP_PUBLIC：陌生人社交群</li><li>TIM.TYPES.GRP_MEETING：临时会议群</li><li>TIM.TYPES.GRP_AVCHATROOM：直播群</li> |
+| `type`             | `String`         | `<optional>` | `TIM.TYPES.GRP_WORK`              | 群组类型，包括： <li>TIM.TYPES.GRP_WORK：好友工作群，默认</li><li>TIM.TYPES.GRP_PUBLIC：陌生人社交群</li><li>TIM.TYPES.GRP_MEETING：临时会议群</li><li>TIM.TYPES.GRP_AVCHATROOM：直播群</li> |
 | `groupID`          | `String`         | `<optional>` |                      -                | 群组 ID。不填该字段时，会自动为群组创建一个唯一的群 ID        |
 | `introduction`     | `String`         | `<optional>` |                  -                    | 群简介，最长240字节                                          |
 | `notification`    | `String`         | `<optional>` |                      -                | 群公告，最长300字节                                          |
@@ -139,9 +139,9 @@ tim.createGroup(options);
 **示例**
 
 ```js
-// 创建私有群
+// 创建好友工作群
 let promise = tim.createGroup({
-  type: TIM.TYPES.GRP_PRIVATE,
+  type: TIM.TYPES.GRP_WORK,
   name: 'WebSDK',
   memberList: [{userID: 'user1'}, {userID: 'user2'}] // 如果填写了 memberList，则必须填写 userID
 });
