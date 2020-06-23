@@ -217,6 +217,7 @@ trtcMeeting.createMeeting(roomId, new TRTCMeetingCallback.ActionCallback() {
 2. 参会成员调用`enterMeeting`并传入会议房间号即可进入会议房间。
 3. 参会成员可以调用`startCameraPreview`进行视频画面的采集，调用`startMicrophone`进行声音的采集。
 4. 如果有其他的参会成员打开了摄像头，会收到`onUserVideoAvailable`的事件，此时可以调用`startRemoteView`并传入 userId 开始播放。
+
 ![](https://main.qcloudimg.com/raw/d8b796bbe41c9da1af40740916e84d70.png)
 
 ```java
