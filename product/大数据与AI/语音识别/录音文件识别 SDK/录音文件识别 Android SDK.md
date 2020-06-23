@@ -66,7 +66,7 @@ recognizer.setCallback(this);
 ```
 
 + ##### 通过语音数据调用
-```  
+```
   AssetManager am = getResources().getAssets();
   is = am.open("test1.mp3");
   int length = is.available();
@@ -81,7 +81,6 @@ recognizer.setCallback(this);
                     params.setConvertNumMode(1);//1：默认状态 根据场景智能转换为阿拉伯数字；0：全部转为中文数字。
                     params.setHotwordId(""); // 热词 id。用于调用对应的热词表，如果在调用语音识别服务时，不进行单独的热词 id 设置，自动生效默认热词；如果进行了单独的热词 id 设置，那么将生效单独设置的热词 id。
                     fileRecognizer.recognize(params);
-  
 ```
 
 
