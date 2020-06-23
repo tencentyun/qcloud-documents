@@ -25,12 +25,12 @@
 
 **iOS**
 
-- TUIkit 替换 API 2.0接口
+- TUIKit 替换 API 2.0接口
 - 结合 TRTC 实现了音视频通话功能
 - 增加了深色模式
 
 **Android**
-- TUIkit 替换 API 2.0接口
+- TUIKit 替换 API 2.0接口
 - 结合 TRTC 实现了音视频通话功能
 - 支持 AndroidX
 
