@@ -21,7 +21,7 @@ go get -u github.com/TencentCloud/tdmq-go-client
 
 ### 创建 Demo工程
 
-使用 IDE 创建一个新工程，在文件夹中创建go.mod文件并编辑如下：
+使用 IDE 创建一个新工程，注意，如果是在云环境中使用的话需要配置CAM权限认证，在文件夹中创建go.mod文件并编辑如下：
 
 ```go
 module zyuanyuz/godemo
