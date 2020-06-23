@@ -1,7 +1,7 @@
 ## 混合规则
-默认场景下，当Ingress 中不配置 TLS 时，服务将以 HTTP 协议的方式对外暴露。当 Ingress 配置 TLS 时，服务将以 HTTPS 协议的方式对外暴露。Ingress 描述的服务只能以其中一种协议暴露服务，基于此规则的局限性，腾讯云容器服务 TKE 提供了混合协议的支持。
+默认场景下，当 Ingress 中不配置 TLS 时，服务将以 HTTP 协议的方式对外暴露。当 Ingress 配置 TLS 时，服务将以 HTTPS 协议的方式对外暴露。Ingress 描述的服务只能以其中一种协议暴露服务，基于此规则的局限性，腾讯云容器服务 TKE 提供了混合协议的支持。
 
-用户需要同时暴露 HTTP 及 HTTPS 服务时，只需要按参考本文，开启混合协议并配置所有的转发规则到 `kubernetes.io/ingress.http-rules` 及 `kubernetes.io/ingress.https-rules` 注解中即可。
+用户需要同时暴露 HTTP 及 HTTPS 服务时，只需参考本文，开启混合协议并配置所有的转发规则到 `kubernetes.io/ingress.http-rules` 及 `kubernetes.io/ingress.https-rules` 注解中即可。
 
 ## 规则格式
 `kubernetes.io/ingress.http-rules` 及 `kubernetes.io/ingress.https-rules` 的规则格式是一个 `Json Array`。每个对象的格式如下：
@@ -17,7 +17,7 @@
 ```
 
 ## 混合规则配置步骤
-`TKE Ingress Controller` 支持混合配置 `HTTP` 及 `HTTPS`规则，步骤如下：
+`TKE Ingress Controller` 支持混合配置 `HTTP` 及 `HTTPS` 规则，步骤如下：
 
 1. **开启混合规则**    
     在 Ingress 中添加注解 `kubernetes.io/ingress.rule-mix`，并设置为 true。
