@@ -15,11 +15,11 @@
 
 **Android 平台**
 
-- 为兼容 Android Q 版本，修改日志默认存储位置为 /sdcard/Android/data/包名/files/log/tencent/imsdk
+为兼容 Android Q 版本，修改日志默认存储位置为 /sdcard/Android/data/包名/files/log/tencent/imsdk
 
 **Windows 平台**
 
-- 修复建群时群成员角色问题
+修复建群时群成员角色问题
 
 ### TUIKit & Demo
 
