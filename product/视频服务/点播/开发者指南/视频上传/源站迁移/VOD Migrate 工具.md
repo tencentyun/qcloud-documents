@@ -16,10 +16,6 @@ VOD Migrate Tool 是一个集成了数据迁移功能的一体化工具。通过
 
 支持 Windows、Linux 和 macOS 系统。
 
-> ?
->
-> - 请保证本地字符格式为 UTF-8，否则操作中文件会出现异常。
-
 #### 软件依赖
 
 - Python 2.7/3.4+。
@@ -36,12 +32,12 @@ pip install vodmigrate
 
 
 ### 通过源码包安装
-源码下载地址：[单击此处](https://github.com/tencentyun/vodmigrate.git)。
+源码下载地址：[单击此处](https://github.com/tencentyun/vod-migrate.git)。
 下载最新代码，解压后：
 
 ```shell
-git clone https://github.com/tencentyun/vodmigrate.git
-cd vodmigrate
+git clone https://github.com/tencentyun/vod-migrate.git
+cd vod-migrate
 python setup.py install
 ```
 
@@ -50,11 +46,10 @@ python setup.py install
 vodmigrate config.toml
 
 > ?
-> - 该工具定位为一次性的迁移工具；迁移分为：源站文件扫描、迁移中、迁移完成，三个阶段。文件扫描完成后，如果配置需变更，这时候需将db文件清空（删除migrate.db或者修改db存储路径），以规避配置文件md5校验报错。
 > - 迁移完成后，结果将输出到配置项"migrateResultOutputPath"对应的目录，文件名为: vod_migrate_result.txt。
 
 ## 配置文件说明
-配置文件采用toml格式（参考：[config_template.toml](https://github.com/tencentyun/vodmigrate/blob/master/test/config_template.toml)），内容可以分为以下几部分：
+配置文件采用toml格式（参考：[config_template.toml](https://github.com/tencentyun/vod-migrate/blob/master/test/config_template.toml)，请确保文件为UTF-8编码），内容可以分为以下几部分：
 
 #### 1. 配置迁移类型
 
@@ -214,3 +209,9 @@ prefix = ''
 | accessKeySecret |                   将 SecretKey 替换为用户的密钥                    |
 | endPoint        |                 七牛下载地址，对应 downloadDomain                  |
 | prefix          | 要迁移的路径的前缀，如果是迁移 Bucket 下所有的数据，则 prefix 为空 |
+
+## 限制说明
+- 该工具定位为一次性的迁移工具；迁移分为：源站文件扫描、迁移中、迁移完成，三个阶段。文件扫描完成后，如果配置需变更，这时候需将db文件清空（删除migrate.db或者修改db存储路径），以规避配置文件md5校验报错；
+- 迁移的文件必须显示的带后缀；
+- 暂不支持HLS/DASH迁移；
+- 迁移后无法维持原视频的目录关系、每个视频都是独立的 FileId，相互无关联。
