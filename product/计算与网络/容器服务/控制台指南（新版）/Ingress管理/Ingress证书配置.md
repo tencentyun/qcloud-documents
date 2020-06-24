@@ -16,7 +16,7 @@
 
 
 
-## 相关示例
+## 示例
 TKE 支持通过 Ingress 中的 `spec.tls` 的字段，为 Ingress 创建的 CLB HTTPS 监听器配置证书。其中，secretName 为包含腾讯云证书 ID 的 Kubernetes Secret 资源。 示例如下：
 - **ingress**
 ```yaml
@@ -122,7 +122,7 @@ kubectl edit secrets [secret-name]
 6. 单击【更新转发配置】即可完成更新操作。
 
 #### 通过 yaml 更新
-执行以下命令，使用默认编辑器打开需修改的 Secret。
+执行以下命令，使用默认编辑器打开需修改的 ingress，修改 yaml 文件并保存即可完成更新操作。
 ```
 kubectl edit ingress <ingressname> -n <namespaces>
 ```
