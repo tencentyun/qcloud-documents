@@ -119,7 +119,7 @@ tim.createGroup(options);
 | `notification`    | `String`         | `<optional>` |                      -                | 群公告，最长300字节                                          |
 | `avatar`           | `String`         | `<optional>` |                 -                     | 群头像 URL，最长100字节                                      |
 | `maxMemberNum`     | `Number`         | `<optional>` |                      -                | 最大群成员数量，缺省时的默认值：好友工作群是6000，陌生人社交群是6000，临时会议群是6000，直播群无限制 |
-| `joinOption`       | `String`         | `<optional>` | `TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS` | 申请加群处理方式。**创建好友工作群/临时会议群/直播群时不能填写该字段。**好友工作群该字段固定为：禁止申请加群，临时会议群和直播群该字段固定为：自由加入<br><li>TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS：自由加入</li><li>TIM.TYPES.JOIN_OPTIONS_NEED_PERMISSION：需要验证</li><li>TIM.TYPES.JOIN_OPTIONS_DISABLE_APPLY：禁止加群</li><br/>!创建 TIM.TYPES.GRP_WORK, TIM.TYPES.GRP_MEETING, TIM.TYPES.GRP_AVCHATROOM 类型的群组不能填写该字段。好友工作群禁止申请加群，临时会议群和直播群自由加入。 |
+| `joinOption`       | `String`         | `<optional>` | `TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS` | 申请加群处理方式。**创建好友工作群/临时会议群/直播群时不能填写该字段。**好友工作群该字段固定为：禁止申请加群，临时会议群和直播群该字段固定为：自由加入<br><li>TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS：自由加入</li><li>TIM.TYPES.JOIN_OPTIONS_NEED_PERMISSION：需要验证</li><li>TIM.TYPES.JOIN_OPTIONS_DISABLE_APPLY：禁止加群</li><br/>创建 TIM.TYPES.GRP_WORK, TIM.TYPES.GRP_MEETING, TIM.TYPES.GRP_AVCHATROOM 类型的群组不能填写该字段。好友工作群禁止申请加群，临时会议群和直播群自由加入。 |
 | `memberList`       | `Array<Object>` | `<optional>`|                            -          | 初始群成员列表，最多500个。创建直播群时不能添加成员。详情请参见下方 [memberList 参数说明](#memberList) |
 | `groupCustomField` | `Array<Object>` | `<optional>` |                     -                 | 群组维度的自定义字段，默认没有自定义字段，如需开通请参见 [群成员资料](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 
@@ -247,14 +247,13 @@ promise.then(function(imResponse) {
 
 申请加群的接口，申请加入某个群组时调用。
 
-> 注意：
-
-1. 好友工作群不允许申请加群，只能通过 [addGroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#addGroupMember) 方式添加
-2. TIM.TYPES.GRP_AVCHATROOM（直播群）有两种加群方式：
-   2.1 正常加群，即登录加群。此时 SDK 内的所有接口都能正常调用。
-   2.2 匿名加群，即不登录加群。此时只能收消息，其他任何需要鉴权的接口都不能调用。
-3. 只有 TIM.TYPES.GRP_AVCHATROOM（直播群） 支持匿名加群，其他类型的群组不支持。
-4. 同一用户同时只能加入一个直播群。【例如】用户已在直播群 A 中，再加入直播群 B，SDK 会先退出直播群 A，然后加入直播群 B
+>!
+- 好友工作群不允许申请加群，只能通过 [addGroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#addGroupMember) 方式添加。
+- TIM.TYPES.GRP_AVCHATROOM（直播群）有两种加群方式：
+ - 正常加群，即登录加群。此时 SDK 内的所有接口都能正常调用。
+ - 匿名加群，即不登录加群。此时只能收消息，其他任何需要鉴权的接口都不能调用。
+- 只有 TIM.TYPES.GRP_AVCHATROOM（直播群） 支持匿名加群，其他类型的群组不支持。
+- 同一用户同时只能加入一个直播群。【例如】用户已在直播群 A 中，再加入直播群 B，SDK 会先退出直播群 A，然后加入直播群 B。
 
 **接口名**
 
@@ -422,7 +421,7 @@ promise.then(function(imResponse) { // 转让成功
 
 处理申请加群（同意或拒绝）
 
-> 注意：如果一个群有多位管理员，当有人申请加群时，所有在线的管理员都会收到[申请加群](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload)的群系统通知。如果某位管理员处理了这个申请（同意或者拒绝），则其他管理员无法重复处理（即不能修改处理的结果）。
+>!如果一个群有多位管理员，当有人申请加群时，所有在线的管理员都会收到 [申请加群](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload)的群系统通知。如果某位管理员处理了这个申请（同意或者拒绝），则其他管理员无法重复处理（即不能修改处理的结果）。
 
 **接口名**
 
