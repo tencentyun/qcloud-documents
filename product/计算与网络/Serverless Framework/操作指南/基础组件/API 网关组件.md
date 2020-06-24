@@ -47,7 +47,7 @@ inputs:
         functionName: myFunction
 ```
 
-* [查看详细配置文档>>]( https://github.com/serverless-components/tencent-apigateway/blob/v2/docs/configure.md )
+[查看详细配置文档>>]( https://github.com/serverless-components/tencent-apigateway/blob/v2/docs/configure.md )
 
 #### 部署
 
@@ -57,9 +57,7 @@ inputs:
 sls deploy
 ```
 
->?
->
->- 微信扫码授权部署有过期时间，如果想要持久授权，请参考[账号配置](#账号配置（可选）)。
+>?微信扫码授权部署有过期时间，如果想要持久授权，请参考 [账号配置](#account)。
 
 #### 移除
 
@@ -69,6 +67,7 @@ sls deploy
 sls remove
 ```
 
+<span id="account"></span>
 #### 账号配置（可选）
 
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建 `.env` 文件：
@@ -86,7 +85,6 @@ TENCENT_SECRET_KEY=123
 ```
 
 >?
->
 >- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
 >- 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
 
