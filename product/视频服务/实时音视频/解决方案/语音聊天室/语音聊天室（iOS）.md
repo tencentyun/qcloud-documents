@@ -51,9 +51,9 @@
 ### 步骤5：修改 Demo 源代码
 源码中的 trtcvoiceroomdemo 文件夹包含两个子文件夹 ui 和 model，ui 文件夹中均为界面代码以及涉及界面相关的逻辑，如下表格列出了各个 swift 文件或文件夹及其所对应的 UI 界面，以便于您进行二次调整：
 
-| 文件或文件夹 | 功能描述 |
+| 文件夹 | 功能描述 |
 |:-------:|:--------|
-|TRTCVoiceRoomEnteryController|该文件包含所有ViewController的初始化获取方法，您可以通过该实例，快速获取ViewController对象|
+| TRTCVoiceRoomEnteryController |该文件包含所有 ViewController 的初始化获取方法，您可以通过该实例，快速获取 ViewController 对象 |
 | NetworkRoomManager | 业务后台交互相关。 | 
 | TRTCCreateVoiceRoomViewController | 创建语音聊天室页面逻辑。 | 
 | TRTCVoiceRoomListViewController | 列表页面逻辑。 | 
@@ -61,7 +61,7 @@
 备注：每个`TRTC'XXXX'ViewController`文件夹下，均包含`ViewController`,`RootView`,`ViewModel`,下标列出了各个文件的作用：
 | 文件 | 功能描述 |
 |:-------:|:--------|
-| ViewController | 页面控制器，负责页面路由工作，以及RootView和ViweModel的绑定工作 | 
+| ViewController | 页面控制器，负责页面路由工作，以及 RootView 和 ViweModel 的绑定工作 | 
 | RootView | 视图，所有的视图布局 | 
 | ViewModel | 视图控制器，负责响应视图交互，返回视图响应状态 | 
 
