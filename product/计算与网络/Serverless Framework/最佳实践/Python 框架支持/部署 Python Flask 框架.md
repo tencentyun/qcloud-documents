@@ -1,9 +1,7 @@
 
 ## 操作场景
 腾讯云 [Flask](https://github.com/pallets/flask) Serverless Component，支持 Restful API 服务的部署，不支持 Flask Command。
->!
->
->- 任何支持 WSGI（Web Server Gateway Interface，即 Web 服务器网关接口）的 Python 服务端框架都可以通过该组件进行部署，例如 Falcon 框架等。
+>!任何支持 WSGI（Web Server Gateway Interface，即 Web 服务器网关接口）的 Python 服务端框架都可以通过该组件进行部署，例如 Falcon 框架等。
 
 ## 前提条件
  在使用此组件之前，需要先初始化一个 Flask 项目，然后将 `Flask` 和 `werkzeug` 添加到依赖文件 `requirements.txt` 中，如下： 
@@ -11,7 +9,7 @@
 Flask==1.0.2
 werkzeug==0.16.0
 ```
- 同时新增 API 服务 `app.py`，下面代码仅供参考: 
+ 同时新增 API 服务 `app.py`，下面代码仅供参考：
 ```python
 from flask import Flask, jsonify
 app = Flask(__name__)
@@ -80,9 +78,7 @@ inputs:
 sls deploy
 ```
 
->?
->
->- 微信扫码授权部署有过期时间，如果想要持久授权，请参考[账号配置](#账号配置（可选）)。
+>? 微信扫码授权部署有过期时间，如果想要持久授权，请参考[账号配置](#账号配置（可选）)。
 
 #### 移除
 
@@ -109,7 +105,6 @@ TENCENT_SECRET_KEY=123
 ```
 
 >?
->
 >- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
 >- 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
 
