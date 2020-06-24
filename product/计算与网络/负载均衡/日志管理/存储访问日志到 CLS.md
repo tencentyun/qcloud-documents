@@ -11,7 +11,7 @@
 - 支持配置负载均衡访问日志到 CLS 的地域包括：广州、上海、南京、北京、重庆、成都、上海金融、深圳金融、香港、新加坡、孟买、硅谷、多伦多、法兰克福，可直接在控制台使用或通过 API 配置。
 - 目前 [日志服务（CLS）](https://cloud.tencent.com/document/product/614) 处在内测中，使用前，请提交 [内测申请](https://cloud.tencent.com/apply/p/vi5fj9634if)，并确认审核结果。
 
-## 开启访问日志
+## 开启访问日志存入 CLS
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3)。
 2. 单击需进行配置的负载均衡 ID，进入“负载均衡基本信息”页面。
 3. 在“日志访问”模块，编辑日志服务 CLS。
@@ -21,6 +21,7 @@
 5. 单击【提交】，访问日志会被收集在对应的主题中。
 6. 配置完成后单击日志集或日志主题将跳转到 CLS 的日志检索页面。
 7. （可选）若想关闭访问日志，可再次编辑日志服务 CLS，在弹框中进行关闭并提交即可。
+> ? 使用 CLS 方案后，用户可根据业务成本、使用等多因素，将访问日志再存储到 COS， 详情请参见 [投递简介 ](https://cloud.tencent.com/document/product/614/37908)。
 
 ## 查询访问日志
 ### 步骤1：配置日志主题的索引
@@ -53,7 +54,7 @@
 3. 在“检索分析 ”页面中，选择日志集、日志主题和时间范围，单击【检索分析】，即可检索 CLB 上报到 CLS 的访问日志。检索语法详情请参见 [语法与规则](https://cloud.tencent.com/document/product/614/16982)。
 ![](https://main.qcloudimg.com/raw/1be3bc335e74f30538453133c34349db.png)
 
-## 存储访问日志
+## 将访问日志投递到 COS
 
 使用 CLS 方案后，可以将访问日志存储到 COS，详情请参见 [投递简介 ](https://cloud.tencent.com/document/product/614/37908)。
 
