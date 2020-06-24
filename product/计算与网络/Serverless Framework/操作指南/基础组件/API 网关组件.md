@@ -9,7 +9,7 @@ API 网关组件是 serverless-tencent 组件库中的基础组件之一，您�
 通过 npm 安装 Serverless：
 
 ```console
- npm install -g serverless
+npm install -g serverless
 ```
 
 #### 配置
