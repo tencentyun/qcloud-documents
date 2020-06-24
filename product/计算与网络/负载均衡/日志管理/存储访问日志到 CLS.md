@@ -56,7 +56,7 @@
 ## 存储访问日志
 投递到 COS  
 
-使用 CLS 方案后，可以将访问日志存储到 COS，详情请参见[链接文档 ](https://cloud.tencent.com/document/product/614/37908)。
+使用 CLS 方案后，可以将访问日志存储到 COS，详情请参见 [链接文档 ](https://cloud.tencent.com/document/product/614/37908)。
 
 ## 日志格式及变量说明
 ### 日志格式
