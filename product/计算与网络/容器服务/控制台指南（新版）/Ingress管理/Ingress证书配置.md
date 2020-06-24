@@ -21,20 +21,20 @@ TKE 支持通过 Ingress 中的 `spec.tls` 的字段，为 Ingress 创建的 CLB
 - **ingress**
 ```yaml
 spec:
-  tls:
-  - hosts:
-    - www.abc.com
-    secretName: secret-tls-2
+    tls:
+    - hosts:
+      - www.abc.com
+      secretName: secret-tls-2
 ```
 - **Sercret**
 ```yaml
 apiVersion: v1
 stringData:
-       qcloud_cert_id: Xxxxxxxx ## 配置证书 ID 为 Xxxxxxxx
+         qcloud_cert_id: Xxxxxxxx ## 配置证书 ID 为 Xxxxxxxx
 kind: Secret
 metadata:
-       name: tencent-com-cert
-       namespace: default
+         name: tencent-com-cert
+         namespace: default
 type: Opaque
 ```
 
@@ -42,26 +42,26 @@ type: Opaque
 - 仅配置单个 `spec.secretName` 且未配置 hosts 的情况下，将会为所有的 HTTPS 的转发规则配置该证书。示例如下：
 ```yaml
 spec:
-    secretName: secret-tls
+      secretName: secret-tls
 ```
 - 支持配置一级泛域名统配。 示例如下：
 ```yaml
 spec:
-  tls: 
-  - hosts:
-    - *.abc.com
-    secretName: secret-tls
+    tls: 
+    - hosts:
+      - *.abc.com
+      secretName: secret-tls
 ```
-- （不推荐）若域名匹配中多个不同的证书，将随机选择一个证书。 示例如下：
+-  若同时配置证书与泛域名证书，将优先选择一个证书。 示例如下，`www.abc.com` 将会使用 `secret-tls-2` 中描述的证书。
 ```yaml
 spec:
-  tls: 
-  - hosts:
-    - *.abc.com
-    secretName: secret-tls-1
-  - hosts:
-    - www.abc.com
-    secretName: secret-tls-2
+    tls: 
+    - hosts:
+      - *.abc.com
+      secretName: secret-tls-1
+    - hosts:
+      - www.abc.com
+      secretName: secret-tls-2
 ```
 - 对已使用多个证书的 Ingress 进行更新时，TKE Ingress controller 将进行以下行为判断：
    - HTTPS 的 rules.host 无任何匹配时，若判断不通过，则不能提交更新。
