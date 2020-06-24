@@ -7,3 +7,4 @@ TXSQL 不仅对 innodb 存储引擎、查询优化、复制性能等方面进行
 - [内核版本更新动态](https://cloud.tencent.com/document/product/236/42539)
 - [快速加列功能](https://cloud.tencent.com/document/product/236/43732)
 - [升级内核小版本](https://cloud.tencent.com/document/product/236/45522)
+- [查看内核小版本](https://cloud.tencent.com/document/product/236/42538)
