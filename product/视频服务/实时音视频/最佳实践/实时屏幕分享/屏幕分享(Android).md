@@ -12,12 +12,10 @@
 |  &#10003; |  &#10003; |  &#10003;  |&#10003;  |   &#10003;  |   ×   |  &#10003;  |
 
 ## 启动屏幕分享
+要开启 Android 端的屏幕分享，只需调用 `TRTCCloud` 中的  [startScreenCapture()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa6671fc587513dad7df580556e43be58) 接口即可。但如果要达到稳定和清晰的分享效果，您需要关注如下两个问题：
 
-调用 `TRTCCloud` 中的  [startScreenCapture()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa6671fc587513dad7df580556e43be58) 接口即可启动屏幕分享，这里详细说明一下需要传入的两个关键参数：
-
-#### 视频编码参数：TRTCVideoEncParam
-设置屏幕分享时的编码参数，如果您指定 encParams 为 null，则使用您调用 startScreenCapture 之前的编码参数设置。
-我们推荐的用于 Android 屏幕分享的编码参数是：
+#### 设定视频编码参数
+通过设置 [startScreenCapture()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa6671fc587513dad7df580556e43be58)  中的首个参数 `encParams` ，您可以指定屏幕分享的编码质量。如果您指定 `encParams` 为 null，SDK 会自动使用之前设定的编码参数，我们推荐的参数设定如下：
 
 | 参数项 | 参数名称 | 常规推荐值 |  文字教学场景 |
 |---------|---------|---------|-----|
@@ -30,7 +28,7 @@
 - 如果您要分享的屏幕内容包含大量文字，可以适当提高分辨率和码率设置。
 - 最高码率（videoBitrate）是指画面在剧烈变化时的最高输出码率，如果屏幕内容变化较少，实际编码码率会比较低。
 
-#### 屏幕分享参数：TRTCScreenShareParams
+#### 弹出悬浮窗以避免被强杀
 从 Android 7.0 系统开始，切入到后台运行的普通 App 进程，但凡有 CPU 活动，都很容易会被系统强杀掉。 所以当 App 在切入到后台默默进行屏幕分享时，通过弹出悬浮窗的方案，可以避免被系统强杀掉。 同时，在手机屏幕上显示悬浮窗也有利于告知用户当前正在做屏幕分享，避免用户泄漏个人隐私。
 
 - **方案1：弹出普通的悬浮窗**
