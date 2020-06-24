@@ -81,8 +81,8 @@ spec:
 2. 在“证书管理”页面中，单击【新建】。
 3. 在弹出的“新建证书”窗口中，参考以下信息进行设置。
  - **证书名称**：自定义设置。
- - **证书类型**：提供“服务器证书”和“客户端CA证书”两种类型，请按需选择。
-    - **服务器证书**：即 SSL 证书（SSL Certificates）。基于 SSL 证书，可将站点由 HTTP（Hypertext Transfer Protocol）切换到 HTTPS（Hyper Text Transfer Protocol over Secure Socket Layer），即基于安全套接字层（SSL）进行安全数据传输的加密版 HTTP 协议。
+ - **证书类型**：选择“服务器证书”。
+**服务器证书**：即 SSL 证书（SSL Certificates）。基于 SSL 证书，可将站点由 HTTP（Hypertext Transfer Protocol）切换到 HTTPS（Hyper Text Transfer Protocol over Secure Socket Layer），即基于安全套接字层（SSL）进行安全数据传输的加密版 HTTP 协议。
    - **证书内容**：根据实际情况填写证书内容，证书格式要求请参见文档[ SSL 证书格式要求及格式转换说明](https://cloud.tencent.com/document/product/214/5369)。
    - **密钥内容**：仅当证书类型选择为“服务器证书”时，该选项才会显示。请参考文档[ SSL 证书格式要求及格式转换说明](https://cloud.tencent.com/document/product/214/5369) 添加相关密钥内容。
 4. 单击【提交】即可完成创建。
