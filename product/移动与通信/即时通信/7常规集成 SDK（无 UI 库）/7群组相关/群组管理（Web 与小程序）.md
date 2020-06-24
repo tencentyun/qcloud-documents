@@ -118,7 +118,7 @@ tim.createGroup(options);
 | `introduction`     | `String`         | `<optional>` |                  -                    | 群简介，最长240字节                                          |
 | `notification`    | `String`         | `<optional>` |                      -                | 群公告，最长300字节                                          |
 | `avatar`           | `String`         | `<optional>` |                 -                     | 群头像 URL，最长100字节                                      |
-| `maxMemberNum`     | `Number`         | `<optional>` |                      -                | 最大群成员数量，缺省时的默认值：好友工作群是200，陌生人社交群是2000，临时会议群是10000，直播群无限制 |
+| `maxMemberNum`     | `Number`         | `<optional>` |                      -                | 最大群成员数量，缺省时的默认值：好友工作群是6000，陌生人社交群是6000，临时会议群是6000，直播群无限制 |
 | `joinOption`       | `String`         | `<optional>` | `TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS` | 申请加群处理方式。**创建好友工作群/临时会议群/直播群时不能填写该字段。**好友工作群该字段固定为：禁止申请加群，临时会议群和直播群该字段固定为：自由加入<br><li>TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS：自由加入</li><li>TIM.TYPES.JOIN_OPTIONS_NEED_PERMISSION：需要验证</li><li>TIM.TYPES.JOIN_OPTIONS_DISABLE_APPLY：禁止加群</li><br/>!创建 TIM.TYPES.GRP_WORK, TIM.TYPES.GRP_MEETING, TIM.TYPES.GRP_AVCHATROOM 类型的群组不能填写该字段。好友工作群禁止申请加群，临时会议群和直播群自由加入。 |
 | `memberList`       | `Array<Object>` | `<optional>`|                            -          | 初始群成员列表，最多500个。创建直播群时不能添加成员。详情请参见下方 [memberList 参数说明](#memberList) |
 | `groupCustomField` | `Array<Object>` | `<optional>` |                     -                 | 群组维度的自定义字段，默认没有自定义字段，如需开通请参见 [群成员资料](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
