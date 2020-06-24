@@ -37,10 +37,10 @@
 我们在 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCSimpleDemo/) 中的 **Screen** 目录下放置了一份跨应用分享的示例代码，其包含如下一些文件：
 
 ```
-├─ TRTCSimpleDemo                // TRTC 精简化 Demo
-|  ├─ Screen                     // 演示跨应用屏幕分享功能
-|  |  ├─ RTC                     // 演示 TRTC 以通话模式运行的示例代码，该模式下无角色的概念
-|  |  |  ├─ TXReplayKit_Screen   // 录屏进程 Broadcast Upload Extension 代码详见步骤2
+├─ TRTCSimpleDemo              // TRTC 精简化 Demo
+|  ├─ Screen                   // 演示跨应用屏幕分享功能
+|  |  ├─ RTC                   // 演示 TRTC 以通话模式运行的示例代码，该模式下无角色的概念
+|  |  |  ├─ TXReplayKit_Screen // 录屏进程 Broadcast Upload Extension 代码详见步骤2
 |  |  |  |  ├─ SampleHandler.swift // 用于接收来自系统的录屏数据
 |  |  |  |  ├─ Info.plist                          
 |  |  |  |  ├─ TXReplayKit_Screen.entitlements //用于设置进程间通信的 AppGroup 信息
