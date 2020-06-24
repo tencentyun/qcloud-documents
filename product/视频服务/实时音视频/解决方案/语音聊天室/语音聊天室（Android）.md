@@ -301,7 +301,7 @@ public void onAnchorEnterSeat(TRTCVoiceRoomDef.UserInfo userInfo) {
 1. `enterSeat`传入对应的麦位后，可以进行上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
 2. `leaveSeat`主动下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
 
-![](https://main.qcloudimg.com/raw/244ce867e63b1e404bc4a5bd5747ecc6.png)
+![](https://main.qcloudimg.com/raw/3ac11818d7d23f61104600ea7235867d.png)
 
 麦位操作后的事件通知顺序如下：
 callback > onSeatListChange > onAnchorEnterSeat 等独立事件
