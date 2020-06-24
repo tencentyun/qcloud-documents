@@ -54,7 +54,6 @@
 ![](https://main.qcloudimg.com/raw/1be3bc335e74f30538453133c34349db.png)
 
 ## 存储访问日志
-投递到 COS  
 
 使用 CLS 方案后，可以将访问日志存储到 COS，详情请参见 [投递简介 ](https://cloud.tencent.com/document/product/614/37908)。
 
