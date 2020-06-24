@@ -292,20 +292,19 @@ public void onAnchorEnterSeat(TRTCVoiceRoomDef.UserInfo userInfo) {
 主播端：
 1. `pickSeat`传入对应的麦位和观众 userId, 可以抱人上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
 2. `kickSeat`传入对应麦位后，可以踢人下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
-3. `muteSeat`传入对应麦位后，可以静音/解禁对应麦位的麦克风，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
+3. `muteSeat`传入对应麦位后，可以静音/解除静音，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
 4. `closeSeat`传入对应麦位后，可以封禁/解禁某个麦位，封禁后观众端将不能再上麦，房间内所有成员会收到`onSeatListChange`和`onSeatClose`的事件通知。
+
+![](https://main.qcloudimg.com/raw/299e62ae7d20d10622197ad8685d4639.png)
 
 观众端：
 1. `enterSeat`传入对应的麦位后，可以进行上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
 2. `leaveSeat`主动下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
 
+(https://main.qcloudimg.com/raw/244ce867e63b1e404bc4a5bd5747ecc6.png)
+
 麦位操作后的事件通知顺序如下：
 callback > onSeatListChange > onAnchorEnterSeat 等独立事件
-
-
-| 主播端麦位管理 | 观众端麦位管理 |
-|---------|---------|
-|  ![](https://main.qcloudimg.com/raw/299e62ae7d20d10622197ad8685d4639.png) | ![](https://main.qcloudimg.com/raw/244ce867e63b1e404bc4a5bd5747ecc6.png) | 
 
 ```java
 // case1: 主播抱人上1号麦位
