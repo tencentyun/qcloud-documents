@@ -56,7 +56,7 @@ done
 |             fs.cosn.tmp.dir              | 请设置一个实际存在的本地目录，运行过程中产生的临时文件会暂时放于此处。 |                       /tmp/hadoop_cos                        |   否   |
 |            fs.cosn.block.size            | CosN 文件系统每个 block 的大小，也是分块上传的每个 part size 的大小。由于 COS 的分块上传最多只能支持10000块，因此需要预估最大可能使用到的单文件大小。例如，block size 为8MB时，最大能够支持78GB的单文件上传。 block size 最大可以支持到2GB，即单文件最大可支持19TB。 |                        8388608（8MB）                        |   否   |
 |        fs.cosn.upload_thread_pool        | 文件流式上传到 COS 时，并发上传的线程数目。                  |                        CPU核心数 X 5                         |   否   |
-|         fs.cosn.copy_thread_pool         | 目录拷贝操作时，可用于并发拷贝文件的线程数目。               |                       CPU核心数目 X 3                        |   否   |
+|         fs.cosn.copy_thread_pool         | 目录拷贝操作时，可用于并发拷贝和删除文件的线程数目。               |                       CPU核心数目 X 3                        |   否   |
 |      fs.cosn.read.ahead.block.size       | 预读块的大小。                                               |                        1048576（1MB）                        |   否   |
 |      fs.cosn.read.ahead.queue.size       | 预读队列的长度。                                             |                              8                               |   否   |
 |            fs.cosn.maxRetries            | 访问 COS 出现错误时，最多重试的次数。                        |                             200                              |   否   |
