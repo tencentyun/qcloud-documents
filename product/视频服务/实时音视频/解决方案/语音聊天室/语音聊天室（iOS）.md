@@ -59,7 +59,7 @@
 | TRTCVoiceRoomListViewController | 列表页面逻辑。 | 
 | TRTCVoiceRoomViewController | 主房间页面，包括主播和观众两种界面。 | 
 
-每个`TRTC'XXXX'ViewController`文件夹下，均包含`ViewController`,`RootView`,`ViewModel`,下标列出了各个文件的作用：
+每个`TRTC'XXXX'ViewController`文件夹下均包含`ViewController`、`RootView`和`ViewModel`，各个文件的作用如下表所示：
 
 | 文件 | 功能描述 |
 |:-------:|:--------|
