@@ -237,7 +237,7 @@ public abstract void setSelfProfile(String userName, String avatarURL, TRTCMeeti
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| name | String | 昵称。 |
+| userName | String | 昵称。 |
 | avatarURL | String | 头像地址。 |
 | callback | ActionCallback | 个人信息设置回调，成功时 code 为0。 |
 
@@ -277,6 +277,7 @@ public abstract void destroyMeeting(int roomId, TRTCMeetingCallback.ActionCallba
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
+| roomId | int | 会议房间标识，需要由您分配并进行统一管理。 |
 | callback | ActionCallback | 销毁房间的结果回调，成功时 code 为0。 |
    
 
@@ -291,7 +292,7 @@ public abstract void enterMeeting(int roomId, TRTCMeetingCallback.ActionCallback
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomId | int | 房间标识。 |
+| roomId | int | 会议房间标识。 |
 | callback | ActionCallback | 进入房间的结果回调，成功时 code 为0。 |
 
 
@@ -344,6 +345,7 @@ public abstract void getUserInfo(String userId, TRTCMeetingCallback.UserListCall
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
+| userId | String | 用户 ID。|
 | userListCallback | UserListCallback | 用户详细信息回调。 |
 
 
@@ -358,13 +360,13 @@ public abstract void startRemoteView(String userId, TXCloudVideoView view, final
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 对方的用户信息。|
+| userId | String | 需要播放的用户 ID。|
 | view | TXCloudVideoView | 承载视频画面的 view 控件。|
 | callback | ActionCallback | 操作回调。|
 
 ### stopRemoteView
 
-停止渲染远端视频画面。在 `onUserVideoAvailable()` 为false回调时，调用该接口。
+停止播放远端视频画面。在 `onUserVideoAvailable()` 为false回调时，调用该接口。
 ```java
 public abstract void stopRemoteView(String userId, final TRTCMeetingCallback.ActionCallback callback);
 ```
@@ -373,7 +375,7 @@ public abstract void stopRemoteView(String userId, final TRTCMeetingCallback.Act
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 对方的用户信息。|
+| userId | String | 需要停止播放的用户 ID。|
 | callback | ActionCallback | 操作回调。|
 
 ### setRemoteViewFillMode
@@ -387,7 +389,7 @@ public abstract void setRemoteViewFillMode(String userId, int fillMode);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 对方的用户信息。|
+| userId | String | 用户 ID。|
 | fillMode | int  | 填充或适应模式，默认值：填充（FILL） 详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ab4197bc2efb62b471b49f926bab9352f) |
    
 
@@ -403,7 +405,7 @@ public abstract void setRemoteViewRotation(String userId, int rotation);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 对方的用户信息。|
+| userId | String | 用户 ID。 |
 | rotation | int  | 顺时针旋转角度, 详情请参见[TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a87fd1307871debc7c051de4878eb6d69) |
    
 
@@ -419,7 +421,7 @@ public abstract void muteRemoteAudio(String userId, boolean mute);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 远端的用户 ID。 |
+| userId | String | 用户 ID。 |
 | mute | boolean | true：开启静音；false：关闭静音。|
 
    
@@ -435,7 +437,7 @@ public abstract void muteRemoteVideoStream(String userId, boolean mute);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 远端的用户 ID。 |
+| userId | String | 用户 ID。 |
 | mute | boolean | true：屏蔽；false：解除屏蔽。|
 
    
@@ -641,7 +643,7 @@ public abstract void startFileDumping(TRTCCloudDef.TRTCAudioRecordingParams trtc
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| trtcAudioRecordingParams | TRTCCloudDef.TRTCAudioRecordingParams | 镜像模式。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCAudioRecordingParams) |
+| trtcAudioRecordingParams | TRTCCloudDef.TRTCAudioRecordingParams | 录音参数。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCAudioRecordingParams) |
 
 >? 该方法调用后， SDK 会将通话过程中的所有音频（包括本地音频，远端音频，BGM 等）录制到一个文件里。无论是否进房，调用该接口都生效。如果调用 exitMeeting 时还在录音，录音会自动停止。
 
@@ -834,7 +836,7 @@ void onUserVolumeUpdate(String userId, int volume);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户信息。 |
+| userId | String | 用户 ID。 |
 | volume | int | 音量大小，取值0-100。 |
    
 
@@ -851,7 +853,7 @@ void onUserEnterRoom(String userId);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 新进房成员 ID。 |
+| userId | String | 新进房成员的用户 ID。 |
    
 
 ### onUserLeaveRoom
@@ -865,7 +867,7 @@ void onUserLeaveRoom(String userId);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 退房成员 ID。 |
+| userId | String | 退房成员的用户 ID。 |
    
    
 ## 成员音视频事件回调
@@ -880,7 +882,7 @@ void onUserVideoAvailable(String userId, boolean available);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户信息。 |
+| userId | String | 用户 ID。 |
 | available | boolean | true：用户打开摄像头；false：用户关闭摄像头。 |
 
    
@@ -896,7 +898,7 @@ void onUserAudioAvailable(String userId, boolean available);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户信息。 |
+| userId | String | 用户 ID。 |
 | available | boolean | true：用户打开麦克风；false：用户关闭麦克风。 |
 
    
