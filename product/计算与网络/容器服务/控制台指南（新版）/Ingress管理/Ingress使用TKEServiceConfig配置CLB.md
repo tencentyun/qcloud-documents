@@ -161,7 +161,7 @@ spec:
         rules:
         - url: "/"
           session:
-            enabled: ture
+            enabled: true
             sessionExpireTime: 3600
           healthCheck:
             enabled: true
