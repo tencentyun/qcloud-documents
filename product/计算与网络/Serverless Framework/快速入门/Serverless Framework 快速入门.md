@@ -89,14 +89,11 @@ Action: "remove" - Stage: "dev" - App: "scfApp" - Instance: "scfdemo"
 ## 常见问题
 如您的环境配置了代理，可能会出现以下问题：
 
-1、输入`serverless`时没有默认弹出中文引导。
+- 问题1：输入 `serverless` 时没有默认弹出中文引导。
+解决方案： 在 .env 文件中增加配置 SERVERLESS_PLATFORM_VENDOR=tencent 即可。
 
-解决： 在`.env`文件中增加配置 SERVERLESS_PLATFORM_VENDOR=tencent 即可。
-
-2、输入sls deploy后部署报网络错误。
-
-解决：在.env文件中增加代理配置。
-
+- 问题2：输入 `sls deploy` 后部署报网络错误。
+解决方案：在 .env 文件中增加以下代理配置。
 ```
 HTTP_PROXY=http://127.0.0.1:12345 #您的代理
 HTTPS_PROXY=http://127.0.0.1:12345 #您的代理
