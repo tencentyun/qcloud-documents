@@ -1,5 +1,9 @@
+腾讯云 TRTC 支持屏幕分享功能，Mac 平台下的屏幕分享支持主路分享和辅路分享两种方案：
+- **辅路分享**
+在 TRTC 中，我们可以单独为屏幕分享开启一路上行的视频流，并称之为“辅路（**substream**）”。辅路分享即主播同时上行摄像头画面和屏幕画面两路画面。这是腾讯会议的使用方案，您可以在调用 `startScreenCapture` 接口时，通过将 `TRTCVideoStreamType` 参数指定为 `TRTCVideoStreamTypeSub ` 来启用该模式。观看该路画面需要使用专门的 `startRemoteSubStreamView` 接口。
 
-腾讯云 TRTC 服务支持屏幕分享功能，屏幕分享的画面走单独的一路音视频流，与摄像头的画面可以并行，而且支持音画同步。一般而言，我们称摄像头这一路画面为“主路（或主画面）”，屏幕分享这一路画面为“辅路（**substream**）”。本文主要介绍在 Mac OS 平台下如何使用 TRTC SDK 提供的屏幕分享功能。
+- **主路分享**
+在 TRTC 中，我们一般把摄像头走的通道叫做“主路（**bigstream**）”，主路分享即用摄像头通道分享屏幕。该模式下，主播只有一路上行视频流，要么上行摄像头画面，要么上行屏幕画面，两者是互斥的。您可以在调用 `startScreenCapture` 接口时，通过将 `TRTCVideoStreamType` 参数指定为 `TRTCVideoStreamTypeBig` 来启用该模式。
 
 ## 支持的平台
 
@@ -8,7 +12,7 @@
 |  &#10003; |  &#10003; |  &#10003;  |&#10003;  |   &#10003;  |   ×   |  &#10003;  |
 
 ## 获取分享目标
-通过 `getScreenCaptureSourcesWithThumbnailSize` 可以枚举可共享的窗口列表，每一个可共享的目标都是一个`TRTCScreenCaptureSourceInfo` 对象。
+通过 [getScreenCaptureSourcesWithThumbnailSize](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa8e5286e1035b64b7d2bf8fadd721123) 可以枚举可共享的窗口列表，每一个可共享的目标都是一个`TRTCScreenCaptureSourceInfo` 对象。
 
 Mac OS 里的桌面屏幕也是一个可共享目标，普通的 Mac 窗口的 type 为 `TRTCScreenCaptureSourceTypeWindow`，桌面屏幕的 type 为 `TRTCScreenCaptureSourceTypeScreen`。
 
@@ -27,7 +31,7 @@ Mac OS 里的桌面屏幕也是一个可共享目标，普通的 Mac 窗口的 t
 ![](https://main.qcloudimg.com/raw/ae43c4ec148a0e25368fea0ea20063b7.jpg)
 
 ## 选择分享目标
-TRTC SDK 支持三种分享模式，您可以通过 `selectScreenCaptureTarget` 来指定：
+TRTC SDK 支持三种分享模式，您可以通过 [selectScreenCaptureTarget](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a01ead6fb3106ea266caa922f5901bf18) 来指定：
 
 - **整个屏幕分享**：
 即把整个屏幕窗口分享出去，支持多显示器分屏的情况。需要指定一个 type 为 `TRTCScreenCaptureSourceTypeScreen` 的 screenSource 参数 ，并将 rect 设为 { 0, 0, 0, 0 }。
@@ -46,8 +50,8 @@ TRTC SDK 支持三种分享模式，您可以通过 `selectScreenCaptureTarget` 
 
 ## 开始屏幕分享
 
- - 选取分享目标之后，使用 `startScreenCapture` 接口可以启动屏幕分享。
- - 两个函数 `pauseScreenCapture` 和  `stopScreenCapture` 的区别在于 pause 会停止屏幕内容的采集，并以暂停那一刻的画面垫片，所以在远端看到一直都是最后一帧画面，直到 resume。
+ - 选取分享目标之后，使用 [startScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a59b16baa51d86cc0465dc6edd3cbfc97) 接口可以启动屏幕分享。
+ - 两个函数 [pauseScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a6f536bcc3df21b38885809d840698280) 和  [stopScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa8ea0235691fc9cde0a64833249230bb) 的区别在于 pause 会停止屏幕内容的采集，并以暂停那一刻的画面垫片，所以在远端看到一直都是最后一帧画面，直到 [resumeScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#af257a8fb6969fe908ca68a039e6dba15)。
  
 ```Objective-C
  /**
@@ -77,7 +81,7 @@ TRTC SDK 支持三种分享模式，您可以通过 `selectScreenCaptureTarget` 
 ```
 
 ## 设定画面质量
-您可以通过 `setSubStreamEncoderParam` 接口设定屏幕分享的画面质量，包括分辨率、码率和帧率，我们提供如下建议参考值：
+您可以通过 [setSubStreamEncoderParam](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#abc0f3cd5c320d0e65163bd07c3c0a735) 接口设定屏幕分享的画面质量，包括分辨率、码率和帧率，我们提供如下建议参考值：
 
 | 清晰度级别 | 分辨率 | 帧率 | 码率 | 
 |:-------------:|:---------:|:---------:| :---------: | 
@@ -87,7 +91,7 @@ TRTC SDK 支持三种分享模式，您可以通过 `selectScreenCaptureTarget` 
 
 ## 观看屏幕分享
 当房间里有一个用户启动了屏幕分享之后，房间里的其他用户会通过 TRTCCloudDelegate 的 `onUserSubStreamAvailable` 获得这个通知。
-之后，希望观看屏幕分享的用户可以通过 `startRemoteSubStreamView` 来启动渲染远端用户辅流画面。
+之后，希望观看屏幕分享的用户可以通过 [startRemoteSubStreamView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a68d048ccd0d018995e33e9e714e14474) 来启动渲染远端用户辅流画面。
 
 ```Objective-C
 //示例代码：观看屏幕分享的画面
