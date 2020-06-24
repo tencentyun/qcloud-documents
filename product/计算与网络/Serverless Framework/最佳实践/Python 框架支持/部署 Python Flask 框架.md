@@ -29,14 +29,14 @@ def user(id):
 ```
 
 ## 操作步骤
-#### 安装
+### 安装
 通过 npm 全局安装 [Serverless CLI](https://github.com/serverless/serverless)：
 
 ```shell
 npm install -g serverless
 ```
 
-#### 配置
+### 配置
 在项目根目录下创建 `serverless.yml` 文件：
 ```shell
 touch serverless.yml
@@ -70,7 +70,7 @@ inputs:
 
 [查看详细配置文档 >>]( https://github.com/serverless-components/tencent-flask/blob/v2/docs/configure.md )
 
-#### 部署
+### 部署
 
 执行以下命令进行扫码授权部署：
 
@@ -80,7 +80,7 @@ sls deploy
 
 >?微信扫码授权部署有过期时间，如果想要持久授权，请参考 [账号配置](#account)。
 
-#### 移除
+### 移除
 
 执行以下命令移除部署的服务：
 
@@ -89,7 +89,7 @@ sls remove
 ```
 
 <span id="account"></span>
-#### 账号配置（可选）
+### 账号配置（可选）
 
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建 `.env` 文件：
 
