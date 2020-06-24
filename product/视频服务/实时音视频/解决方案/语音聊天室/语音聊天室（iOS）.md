@@ -19,7 +19,7 @@
 <span id="ui.step1"></span>
 ### 步骤1：创建新的应用
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 单击【立即开始】，输入应用名称，例如 `TestVoiceRoom` ，单击【创建应用】。
+2. 单击【立即开始】，输入应用名称，例如`TestVoiceRoom` ，单击【创建应用】。
 
 >?本功能需同时使用 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PAAS 服务，开通实时音视频后会同步开通即时通信 IM 服务。
 
@@ -53,21 +53,23 @@
 
 | 文件或文件夹 | 功能描述 |
 |:-------:|:--------|
-|TRTCVoiceRoomEnteryController|该文件包含所有ViewController的初始化获取方法，您可以通过该实例，快速获取ViewController对象|
+|TRTCVoiceRoomEnteryController|该文件包含所有 ViewController 的初始化获取方法，您可以通过该实例，快速获取 ViewController 对象。|
 | NetworkRoomManager | 业务后台交互相关。 | 
 | TRTCCreateVoiceRoomViewController | 创建语音聊天室页面逻辑。 | 
 | TRTCVoiceRoomListViewController | 列表页面逻辑。 | 
 | TRTCVoiceRoomViewController | 主房间页面，包括主播和观众两种界面。 | 
-备注：每个`TRTC'XXXX'ViewController`文件夹下，均包含`ViewController`,`RootView`,`ViewModel`,下标列出了各个文件的作用：
+
+每个`TRTC'XXXX'ViewController`文件夹下，均包含`ViewController`,`RootView`,`ViewModel`,下标列出了各个文件的作用：
+
 | 文件 | 功能描述 |
 |:-------:|:--------|
-| ViewController | 页面控制器，负责页面路由工作，以及RootView和ViweModel的绑定工作 | 
-| RootView | 视图，所有的视图布局 | 
-| ViewModel | 视图控制器，负责响应视图交互，返回视图响应状态 | 
+| ViewController | 页面控制器，负责页面路由工作，以及 RootView 和 ViweModel 的绑定工作。 | 
+| RootView | 视图，所有的视图布局。 | 
+| ViewModel | 视图控制器，负责响应视图交互，返回视图响应状态。 | 
 
 <span id="model"> </span>
 ## 实现自定义 UI 界面
-源码中的 trtcvoiceroomdemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCVoiceRoom，您可以在`TRTCVoiceRoom.swift` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
+源码中的 trtcvoiceroomdemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCVoiceRoom，您可以在`TRTCVoiceRoom.swift`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/0ebcbb27843bf03a790a945a8c92d560.png)
 
 
@@ -80,7 +82,7 @@
 pod 'TXIMSDK_iOS'
 pod 'TXLiteAVSDK_TRTC'
 ```
->两个 SDK 产品的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
+>?两个 SDK 产品的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
 
 **方法二：通过本地依赖**
 如果您的开发环境访问 cocoapods 仓库较慢，您可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
@@ -126,8 +128,9 @@ pod 'TXLiteAVSDK_TRTC'
 <td>登录回调，成功时 code 为0。</td>
 </tr>
 </table>
+
 ```Swift
-// Swift示例
+// Swift 示例
 // 您代码里负责业务逻辑的类
 class YourController {
     // 计算属性获取单例对象
@@ -138,10 +141,10 @@ class YourController {
     // 其他代码逻辑
     ......
 }
-// 设置voiceroom代理
+// 设置 voiceroom 代理
 self.vocieRoom. setDelegate(delegate: voiceRoomDelegate)
 
-// 调用方式如下,闭包内建议使用 weak self 防止循环引用（下面示例代码省略weak self示例）
+// 调用方式如下,闭包内建议使用 weak self 防止循环引用（下面示例代码省略 weak self 示例）
 self.vocieRoom.login(sdkAppId: sdkAppID, userId: userId, userSig: userSig) { [weak self] (code, message) in
     guard let `self` = self else { return }
     // 您的回调业务逻辑        
