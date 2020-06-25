@@ -394,6 +394,7 @@ func onReceiveNewInvitation(identifier: String, inviter: String, cmd: String, co
 ### 步骤9：实现文字聊天和弹幕消息
 - 通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到`onRecvRoomTextMsg`回调。
 即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
+
 ```Swift
 // 发送端：发送文本消息
 self.voiceRoom.sendRoomTextMsg(message: message) { (code, message) in
@@ -406,6 +407,7 @@ func onRecvRoomTextMsg(message: String, userInfo: VoiceRoomUserInfo) {
 ```
 - 通过`sendRoomCustomMsg`可以发送自定义（信令）的消息，所有在该房间内的主播和观众均可以收到`onRecvRoomCustomMsg`回调。
  自定义消息常用于传输自定义信令，例如用于点赞消息的发送和广播。
+ 
 ```swift
 // 例如：发送端：您可以通过自定义Cmd来区分弹幕和点赞消息
 // eg:"CMD_DANMU"表示弹幕消息，"CMD_LIKE"表示点赞消息
