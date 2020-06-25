@@ -345,7 +345,8 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 参数如下表所示：
 
 | 参数     | 类型                        | 含义               |
-| -------- | --------------------------- | ------------------ |
+| -------- | --------------------------- | ----------- |
+| userId | NSString | 远端的用户 ID。                   |
 | callback | TRTCMeetingUserListCallback | 用户详细信息回调。 |
 
 ### startRemoteView
@@ -360,7 +361,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 参数     | 类型                | 含义                       |
 | -------- | ------------------- | -------------------------- |
-| userId   | NSString            | 需要观看的用户id。         |
+| userId   | NSString            | 需要观看的用户 ID。         |
 | view     | UIView              | 承载视频画面的 view 控件。 |
 | callback | TRTCMeetingCallback | 操作回调。                 |
 
@@ -376,7 +377,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 参数     | 类型                | 含义             |
 | -------- | ------------------- | ---------------- |
-| userId   | NSString            | 对方的用户信息。 |
+| userId   | NSString            | 需要停止播放的用户 ID。 |
 | callback | TRTCMeetingCallback | 操作回调。       |
 
 ### setRemoteViewFillMode
@@ -391,7 +392,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 参数     | 类型              | 含义                                                         |
 | -------- | ----------------- | ------------------------------------------------------------ |
-| userId   | NSString          | 对方的用户信息。                                             |
+| userId   | NSString          | 用户 ID。                                             |
 | fillMode | TRTCVideoFillMode | 填充或适应模式，默认值：填充（TRTCVideoFillMode_Fill） 详情请参见[TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#afda6658d1bf7dc9bc1445838b95d21ff) |
 
 ### setRemoteViewRotation
@@ -406,7 +407,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 参数     | 类型      | 含义                                                         |
 | -------- | --------- | ------------------------------------------------------------ |
-| userId   | NSString  | 对方的用户信息。                                             |
+| userId   | NSString  | 对方的用户 ID。                                             |
 | rotation | NSInteger | 顺时针旋转角度, 详情请参见[TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2ef26a9ede0ba4fa6c5739229e1eee90) |
 
 ### muteRemoteAudio
@@ -642,7 +643,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 参数   | 类型                     | 含义                                                         |
 | ------ | ------------------------ | ------------------------------------------------------------ |
-| params | TRTCAudioRecordingParams | 镜像模式。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html) |
+| params | TRTCAudioRecordingParams | 录音参数。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCAudioRecordingParams) |
 
 >? 该方法调用后， SDK 会将通话过程中的所有音频（包括本地音频，远端音频，BGM 等）录制到一个文件里。无论是否进房，调用该接口都生效。如果调用 exitMeeting 时还在录音，录音会自动停止。
 
@@ -856,7 +857,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 参数   | 类型      | 含义                  |
 | ------ | --------- | --------------------- |
-| userId | NSString  | 用户信息。            |
+| userId | NSString  | 用户 ID。            |
 | volume | NSInteger | 音量大小，取值0-100。 |
 
 
@@ -875,7 +876,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 参数   | 类型     | 含义            |
 | ------ | -------- | --------------- |
-| userId | NSString | 新进房成员 ID。 |
+| userId | NSString | 新进房成员的用户 ID。 |
 
 
 ### onUserLeaveRoom
@@ -890,7 +891,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 参数   | 类型     | 含义          |
 | ------ | -------- | ------------- |
-| userId | NSString | 退房成员 ID。 |
+| userId | NSString | 退房成员的用户 ID。 |
 
 
 
@@ -908,7 +909,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 参数      | 类型     | 含义                                          |
 | --------- | -------- | --------------------------------------------- |
-| userId    | NSString | 用户信息。                                    |
+| userId    | NSString | 用户 ID。                                    |
 | available | BOOL     | true：用户打开摄像头；false：用户关闭摄像头。 |
 
 ### onUserAudioAvailable
@@ -923,7 +924,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 参数      | 类型     | 含义                                          |
 | --------- | -------- | --------------------------------------------- |
-| userId    | NSString | 用户信息。                                    |
+| userId    | NSString | 用户 ID。                                    |
 | available | BOOL     | true：用户打开麦克风；false：用户关闭麦克风。 |
 
    
