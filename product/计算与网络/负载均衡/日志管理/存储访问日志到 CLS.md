@@ -21,7 +21,7 @@
 5. 单击【提交】，访问日志会被收集在对应的主题中。
 6. 配置完成后单击日志集或日志主题将跳转到 CLS 的日志检索页面。
 7. （可选）若想关闭访问日志，可再次编辑日志服务 CLS，在弹框中进行关闭并提交即可。
-> ? 使用 CLS 方案后，用户可根据业务成本、使用等多因素，将访问日志再存储到 COS， 详情请参见 [投递简介 ](https://cloud.tencent.com/document/product/614/37908)。
+> ? 使用 CLS 方案后，用户可根据业务成本、使用等实际需求，将访问日志再存储到 COS， 详情请参见 [投递简介 ](https://cloud.tencent.com/document/product/614/37908)。
 
 ## 查询访问日志
 ### 步骤1：配置日志主题的索引
@@ -54,9 +54,6 @@
 3. 在“检索分析 ”页面中，选择日志集、日志主题和时间范围，单击【检索分析】，即可检索 CLB 上报到 CLS 的访问日志。检索语法详情请参见 [语法与规则](https://cloud.tencent.com/document/product/614/16982)。
 ![](https://main.qcloudimg.com/raw/1be3bc335e74f30538453133c34349db.png)
 
-## 将访问日志投递到 COS
-
-使用 CLS 方案后，可以将访问日志存储到 COS，详情请参见 [投递简介 ](https://cloud.tencent.com/document/product/614/37908)。
 
 ## 日志格式及变量说明
 ### 日志格式
