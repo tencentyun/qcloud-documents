@@ -36,13 +36,14 @@
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 
-执行下列步骤前请下载安装 [rewrite 模块](https://www.iis.net/downloads/microsoft/url-rewrite)。
 >?
 >- 正常跳转可按照下列编辑规则。若您有其他需求可以自己设置。
 >- HTTP 跳转 HTTPS 过程中，如果您的网站元素中存在外部链接或者使用的 HTTP 协议，导致整个页面不完全是 HTTPS 协议。部分浏览器会因为这些因素报不安全的提示，例如链接不安全。您可以单击不安全页面中的 “详细信息” 查看报错原因。
 >
 1. 打开 IIS 服务管理器。
 2. 选择网站下的站点名称，双击打开 “URL 重写”。如下图所示：
+>!执行该步骤前请下载安装 [rewrite 模块](https://www.iis.net/downloads/microsoft/url-rewrite)。
+>
 ![](https://main.qcloudimg.com/raw/3333c80eaa29a208346541cd55d298c9.png)
 3. 进入 “URL 重写” 页面，并单击右侧 “操作” 栏的【添加规则】。如下图所示：
 ![](https://main.qcloudimg.com/raw/089257c578a3afec51eda00fedd61ac6.png)
