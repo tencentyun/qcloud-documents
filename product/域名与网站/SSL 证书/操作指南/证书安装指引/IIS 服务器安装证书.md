@@ -1,7 +1,7 @@
 ## 操作场景
 本文档指导您如何在 IIS 中安装 SSL 证书。
 >?
->- 本文档以证书名称 `www.domain.com` 为例，实际名称请以您申请的证书为准。
+>- 本文档以证书名称 `cloud.tencent.com` 为例，实际名称请以您申请的证书为准。
 >- 本文档以操作系统 Windows10 为例。由于操作系统的版本不同，详细操作步骤略有区别。
 >- 安装 SSL 证书前，请您在 IIS 服务器上开启 “443” 端口，避免证书安装后无法启用 HTTPS。判断是否已开启 “443” 端口，可参考 [如何验证443端口是否开启？](https://cloud.tencent.com/document/product/400/45144)
 >
@@ -9,13 +9,13 @@
 ## 操作步骤
 
 ### 证书安装
-1. 已在 SSL 证书管理控制台 中下载并解压缩 `www.domain.com` 证书文件包到本地目录。
+1. 已在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
 解压缩后，可获得相关类型的证书文件。其中包含 IIS 文件夹和 CSR 文件：
  - 文件夹名称：IIS
  - 文件夹内容：
-    - `www.domain.com.pfx` 证书文件
+    - `cloud.tencent.com.pfx` 证书文件
     - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
-  - CSR 文件内容：	`www.domain.com.csr` 文件
+  - CSR 文件内容：	`cloud.tencent.com.csr` 文件
   >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 2. 打开 IIS 服务管理器，选择计算机名称，双击打开 “服务器证书”。如下图所示：
 ![](https://main.qcloudimg.com/raw/3fff5cb577517b57995680b0b5ffa089.png)
@@ -61,6 +61,6 @@
 	  - 重定向 URL：`https://{HTTP_HOST}/{R:1}`。
 	  - 重定向类型：选择参阅其他（303）。
 6. 单击 "操作" 栏的【应用】保存。
-7. 返回网站首页，单击右侧 “管理网站” 栏的【重新启动】。即可使用 `http://www.domain.com` 进行访问。
+7. 返回网站首页，单击右侧 “管理网站” 栏的【重新启动】。即可使用 `http://cloud.tencent.com` 进行访问。
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
