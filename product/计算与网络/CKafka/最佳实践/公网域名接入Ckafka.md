@@ -8,11 +8,11 @@
 
 控制台在实例基本信息中添加路由策略-公网域名接入，接入方式目前只支持SASL_PLAINTEXT，单击提交即可。
 
-![image-20200628170809176](/Users/hugo/Library/Application Support/typora-user-images/image-20200628170809176.png)
+![image-20200628170809176](https://main.qcloudimg.com/raw/aa16bacebc80525a74daec5991825803.png)
 
-![image-20200628170957505](/Users/hugo/Library/Application Support/typora-user-images/image-20200628170957505.png)
+![image-20200628170957505](https://main.qcloudimg.com/raw/c5011c43de887de55add986b35fb90ed.png)
 
-![image-20200628171401978](/Users/hugo/Library/Application Support/typora-user-images/image-20200628171401978.png)
+![image-20200628171401978](https://main.qcloudimg.com/raw/06ba59f2e488f8656d0740bc3188488e.png)
 
 
 
@@ -20,11 +20,11 @@
 
 实例-用户管理中新增用户信息(包括用户名、密码)，用于SASL访问用户认证，单击提交即可
 
-![image-20200628171441925](/Users/hugo/Library/Application Support/typora-user-images/image-20200628171441925.png)
+![image-20200628171441925](https://main.qcloudimg.com/raw/b1aa8bd6d5e9c4198b3d83693b977cad.png)
 
-![image-20200628171505915](/Users/hugo/Library/Application Support/typora-user-images/image-20200628171505915.png)
+![image-20200628171505915](https://main.qcloudimg.com/raw/b3002e02076596065f1ac04671895a9f.png)
 
-![image-20200628171551902](/Users/hugo/Library/Application Support/typora-user-images/image-20200628171551902.png)
+![image-20200628171551902](https://main.qcloudimg.com/raw/693da4a3b9911538e5e418f71cfa1411.png)
 
 ### ACL策略授权
 
@@ -32,21 +32,21 @@
 
 1.控制台实例-ACL策略管理，选择topic对其编辑ACL策略
 
-![image-20200628171918152](/Users/hugo/Library/Application Support/typora-user-images/image-20200628171918152.png)
+![image-20200628171918152](https://main.qcloudimg.com/raw/b2a4fd86a79983b309ecb89f4dfd6b61.png)
 
 2.新增ACL策略，给用户赋予资源topic权限，提交即可
 
 
 
-![image-20200628172004517](/Users/hugo/Library/Application Support/typora-user-images/image-20200628172004517.png)
+![image-20200628172004517](https://main.qcloudimg.com/raw/2d94449b247b8bdf46d8890b7add4a50.png)
 
-![image-20200628172040636](/Users/hugo/Library/Application Support/typora-user-images/image-20200628172040636.png)
+![image-20200628172040636](https://main.qcloudimg.com/raw/bc9ea3849a576b6333b00a19744baae5.png)
 
-![image-20200628172127637](/Users/hugo/Library/Application Support/typora-user-images/image-20200628172127637.png)
+![image-20200628172127637](https://main.qcloudimg.com/raw/1c3982f3297c7f9091b2e9f16152782d.png)
 
 >?
 >
->Ckafka相关SASL和ACL，用户管理访问控制详情见（https://cloud.tencent.com/document/product/597/31528）文档。
+>Ckafka相关SASL和ACL，用户管理访问控制详情见（https://cloud.tencent.com/document/product/597/31528 ）文档。
 ### 公网生产和消费
 
 控制台操作完成后，即可使用用户名和密码在公网访问实例资源
