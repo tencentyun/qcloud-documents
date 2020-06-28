@@ -1,4 +1,4 @@
-﻿## 步骤1：设置密钥
+## 步骤1：设置密钥
 
 使用 Android Studio 打开下载好的 Demo 工程文件，在 MainActivity 的 SECRET_ID和SECRET_KEY 中填入您的专属密钥。
 
