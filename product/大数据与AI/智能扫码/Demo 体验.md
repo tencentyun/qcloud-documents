@@ -1,4 +1,4 @@
-﻿智能扫码提供了 iOS 端和 Android 端的应用体验，欢迎安装体验。
+智能扫码提供了 iOS 端和 Android 端的应用体验，欢迎安装体验。
 
 <table style="text-align:center;vertical-align:middle;">
   <tr>
