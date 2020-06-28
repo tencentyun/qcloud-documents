@@ -14,7 +14,7 @@
 ![](https://main.qcloudimg.com/raw/c89ee6950e10c1c50c2b7bfb478023e9.png)
 >?数据库购买完成后，默认开启并分配内网 IPv6 地址。
 
-### （可选）步骤二：获取 IPv6 外网访问
+### （可选）步骤二：开启 IPv6 外网地址
 1. 登录 [云数据库控制台](https://console.cloud.tencent.com/cdb)，在左侧导航栏选择对应数据库。
 2. 在实例列表，单击实例名进入详情页，在“外网IPv6地址”处，单击【开启】，即可开启并分配外网 IPv6 地址。
 ![](https://main.qcloudimg.com/raw/f4f38e65fd7985e04c92022318465408.png)
