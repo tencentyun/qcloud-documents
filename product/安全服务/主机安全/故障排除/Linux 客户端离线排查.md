@@ -10,7 +10,7 @@
  - 可执行命令：`/usr/local/qcloud/YunJing/YDEyes/YDService` 手动运行客户端。
 
 ## 网络故障排查
-如果进程存在，但主机安全不在线，大部分原因是网络不通，请按照以下操作进行排查：
+如果进程存在，但主机安全不在线，大部分原因是网络不通，请按照以下操作进行排查：    
 1. 检查 DNS 是否被修改，可以通过执行如下命令行进行排查： 
 	- 基础网络环境（非 VPC 服务器）：telnet s.yd.qcloud.com 5574。
 	- VPC 网络和黑石服务器环境：telnet s.yd.tencentyun.com 5574。
