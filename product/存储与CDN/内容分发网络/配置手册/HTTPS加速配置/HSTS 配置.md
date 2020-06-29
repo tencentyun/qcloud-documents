@@ -6,7 +6,7 @@ HSTS 即 HTTP Strict Transport Security，是国际互联网工程组织 IETE �
 
 ## 配置约束
 
-- expireTime 约束为0 - 365天，配置时单位为。
+- expireTime 约束为0 - 365天，配置时单位为秒。
 - 可通过勾选是否包含子域名，来控制 includeSubDomain 参数。
 - 开启 HSTS 配置需要先完成 HTTPS 加速配置。
 
