@@ -1,6 +1,6 @@
 ## 操作背景
 - Notebook 是智能钛机器学习平台为开发者量身打造的灵活的交互式开发工具，您可以在智能钛 Notebook 中完成数据准备、数据预处理、算法调试与模型训练，无需多平台切换，更多详情请见 [Notebook 简介](https://cloud.tencent.com/document/product/851/44449)。
-- 为了方便您有效地使用智能钛机器学习平台的 Notebook，本文档将通过一个案例向您演示使用流程。
+- 为了方便您有效地使用智能钛机器学习平台的 Notebook，本文档将通过一个案例向您演示notebook使用流程。
 - 在使用之前，请确保您已经完成了 [注册与开通服务](https://cloud.tencent.com/document/product/851/39086)。
 
 ## 操作步骤
