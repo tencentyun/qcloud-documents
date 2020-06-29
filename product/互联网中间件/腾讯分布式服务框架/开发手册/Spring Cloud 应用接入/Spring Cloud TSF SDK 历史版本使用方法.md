@@ -133,3 +133,16 @@ public class ProviderApplication {
    	}
    }
    ```
+
+### API 注册
+
+在 pom.xml 中添加以下代码：
+```xml
+<dependency>
+    <groupId>com.tencent.tsf</groupId>
+    <artifactId>spring-cloud-tsf-swagger</artifactId> 
+    <version><!-- 调整为 SDK 最新版本号 --></version>
+    <scope>compile</scope>
+</dependency>
+```
+添加依赖包后，TSF API 注册功能即生效。
