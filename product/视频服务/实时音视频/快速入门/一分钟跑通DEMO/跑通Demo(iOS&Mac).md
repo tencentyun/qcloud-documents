@@ -32,7 +32,7 @@
   </tr>
 <tr>
       <td>iOS</td>
-<td>iOS/TRTCScenesDemo/TRTCScenesDemo/debug/GenerateTestUserSig.h</td>
+<td>iOS/TRTCScenesDemo/TXLiteAVDemo/Debug/GenerateTestUserSig.h</td>
   </tr>
 <tr>
     <td>Mac</td>
@@ -49,9 +49,9 @@
 >正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 ### 步骤4：编译运行
-1. 在终端窗口进入 TRTCSDK iOS/Mac Demo Podfile 文件所在目录。
+1. 在终端窗口进入源码的 TRTCSimpleDemo > Podfile 文件所在目录。
 2. 执行`pod install`命令安装 TRTC SDK，或者执行`pod update`命令，更新本地库版本。
-3. 使用 XCode（11.0及以上的版本）打开源码目录下的 TRTCDemo.xcworkspace 工程，编译并运行 Demo 工程即可。
+3. 使用 XCode（11.0及以上的版本）打开源码目录下的 TXLiteAVDemo.xcworkspace 工程，编译并运行 Demo 工程即可。
 
 ## 常见问题
 

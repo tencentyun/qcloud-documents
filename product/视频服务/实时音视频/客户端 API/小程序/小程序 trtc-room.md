@@ -363,7 +363,7 @@ function onRemoteVideoAdd(event) {
 trtcRoomContext.on(trtcRoomContext.EVENT.REMOTE_VIDEO_ADD, onRemoteVideoAdd)
 ```
 
-#### unsubscribeRemoteVideo(params)
+### unsubscribeRemoteVideo(params)
 **说明：**
 
 取消订阅远端用户的视频并停止播放。

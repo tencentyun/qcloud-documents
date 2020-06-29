@@ -116,3 +116,4 @@ TSF 应用可以使用 Jenkins 构建持续集成方案。
 		![](https://main.qcloudimg.com/raw/94af219b1278ae8a104bd444d6c81fde.png)
 		
 3. 容器部署成功日志信息 如果部署失败，需要分析 Jenkins console 日志。
+

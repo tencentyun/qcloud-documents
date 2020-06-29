@@ -7,7 +7,7 @@
 
 本文主要介绍如何配置上述参数，使 TRTC SDK 的画质效果符合您的项目需要。
 您也可以参考以下 Demo：
-- [iOS: TRTCVideoCall+Room.swift](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCScenesDemo/TRTCScenesDemo/TRTCVideoCallDemo/model/TRTCVideoCall%2BRoom.swift)
+- [iOS: TRTCVideoCall+Room.swift](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCVideoCallDemo/model/TRTCVideoCall%2Bmodel.swift)
 - [Android: TRTCVideoCallImpl.java](https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTCScenesDemo/trtcvideocalldemo/src/main/java/com/tencent/liteav/trtcvideocalldemo/model/TRTCVideoCallImpl.java)
 - [Windows: TRTCMainViewController.cpp](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/MFCDemo/TRTCMainViewController.cpp)
 
@@ -15,7 +15,7 @@
 
 | iOS | Android | Mac OS | Windows |  桌面浏览器 | Electron|微信小程序 |
 |:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|:-------:|
-| &#10003; | &#10003;   | &#10003;  |  &#10003;   | &#10003;  |&#10003;  |   ×  |
+| &#10003; | &#10003;   | &#10003;  |  &#10003;   | &#10003;  |&#10003;  |   &#10003;  |
 
 桌面浏览器端设定画面质量的详细操作，请参见 [设定指引](https://www.qcloudtrtc.com/trtc-web-sdk/docs/api/tutorial-04-advanced-set-video-profile.html)。
 
@@ -88,7 +88,7 @@
 ## TRTCNetworkQosParam
 ### QosPreference
 
-在网络带宽比较充裕的情况下，清晰和流畅是可以兼顾的，但当用户的网络并不理想时，究竟是优先保证清晰还是优先保证流畅？您可以通过制定 TRTCNetworkQosParam 中的 preference 参数来做出选择。 
+在网络带宽比较充裕的情况下，清晰和流畅是可以兼顾的，但当用户的网络并不理想时，究竟是优先保证清晰还是优先保证流畅？您可以通过指定 TRTCNetworkQosParam 中的 preference 参数来做出选择。 
 
 - **流畅优先（TRTCVideoQosPreferenceSmooth）**
 在用户遭遇弱网环境时，画面会变得模糊，且会有较多马赛克，但可以保持流畅或轻微卡顿。

@@ -338,7 +338,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 | -7004   | 不是身份证反面照片(请使用身份证反面进行扫描)           |
 | -7005   | 确保扫描证件图像清晰                        |
 | -7006   | 请避开灯光直射在证件表面                      |
-| -9100   | 身份证日期不合法                          |
 | -9101   | 身份证边框不完整                          |
+| -9100   | 身份证日期不合法                          |
 
 更多其他 API 错误码请查看 [错误码说明](https://cloud.tencent.com/document/product/866/17733)。

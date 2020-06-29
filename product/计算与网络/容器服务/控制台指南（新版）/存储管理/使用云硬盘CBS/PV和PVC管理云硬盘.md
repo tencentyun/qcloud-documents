@@ -15,7 +15,7 @@
 ### 控制台操作指引
 
 #### 通过控制台创建 StorageClass<span id="create"></span>
-由于静态创建云硬盘类型的 PV 时，需要绑定同类型可用 StorageClass，请参考 [创建 StorageClass](https://tcloud-doc.isd.com/document/product/457/44239?!preview&!editLang=zh#create) 完成创建。
+由于静态创建云硬盘类型的 PV 时，需要绑定同类型可用 StorageClass，请参考 [创建 StorageClass](https://cloud.tencent.com/document/product/457/44239#create) 完成创建。
 
 
 #### 静态创建 PV

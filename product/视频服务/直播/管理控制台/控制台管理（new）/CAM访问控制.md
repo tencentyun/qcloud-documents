@@ -12,14 +12,14 @@
 详细定义和权限请参见 [CAM 用户](https://cloud.tencent.com/document/product/598/13665)。
 
 ## 操作步骤
-### 第一步：新建子用户/用户组
+### 步骤1：新建子用户/用户组
 
 主账号可以创建一个或多个子用户，以为其分配特定的角色和策略。子用户有确定的身份 ID 和身份凭证，可登录控制台并完成设置，同时具有 API 访问权限。登录腾讯云控制台，进入 [访问管理](https://console.cloud.tencent.com/cam/) 页面，可新建用户，如下图所示：
 
 ![](https://main.qcloudimg.com/raw/ba0f63ed813555c644a7846c678ae954.png)
 详细步骤请参见访问管理 [子用户](https://cloud.tencent.com/document/product/598/13674) 和 [用户组](https://cloud.tencent.com/document/product/598/14985)。
 
-### 第二步：为用户/用户组添加策略
+### 步骤2：为用户/用户组添加策略
 
 用户/用户组管理和策略管理页均可完成策略添加和授权，详细请参见 [授权管理](https://cloud.tencent.com/document/product/598/10602)，简述如下：
 
@@ -54,7 +54,7 @@ qcs::${ApiModule}:${Region}:uin/:domain/${DomainName}
 >?若需将接口授权给子用户，且适用所有域名，在【资源】项中填写\*即可。
 
 
-### 第三步：子账号使用
+### 步骤3：子账号使用
 
 使用子账号身份（主账号创建的子账号 ID 和密码），调用已授权的 API 接口（例如：“查询域名列表”等），可以获取相应的云直播信息（例如：该账号下的所有域名）。
 

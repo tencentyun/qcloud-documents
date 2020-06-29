@@ -88,7 +88,7 @@ ImSDK.framework
 
 ## 引用 IM SDK
 项目代码中使用 SDK 有两种方式：
-- 方式一： 在Xcode -> Build Setting -> Herader Search Paths 设置 ImSDK.framework/Headers 路径，在项目需要使用 SDK API 的文件里，直接引用头文件"ImSDK.h":
+- 方式一： 在Xcode -> Build Setting -> Header Search Paths 设置 ImSDK.framework/Headers 路径，在项目需要使用 SDK API 的文件里，直接引用头文件"ImSDK.h":
 ```
 #import "ImSDK.h"
 ```
