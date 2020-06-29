@@ -46,14 +46,12 @@ OKR 能够适用于多种行业，但使用好 OKR 并非易事。与传统视�
 
 ![](https://main.qcloudimg.com/raw/50b7be61601a3914693b662adab0beae.png)
 
->!仅企业拥有者或管理员具备目标周期的管理权限。
 
 ### 创建目标
 
 在目标管理控制台的右侧单击【创建目标】。
 ![](https://main.qcloudimg.com/raw/dbd2db6d24a688c1951d362b46c35ff8.png)
 
->!仅企业拥有者或管理员具备目标管理的编辑权限。
 
 创建目标的时候需要填写如下属性：
 
