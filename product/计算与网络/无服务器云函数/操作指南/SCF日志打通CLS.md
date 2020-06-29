@@ -41,6 +41,6 @@
 >
 1. 登录 CLS 控制台，选择左侧导航栏中的【[检索分析](https://console.cloud.tencent.com/cls/search)】。
 2. 在“检索分析”页面选择需检索的日志主题和时间，并在输入框中填写检索语法，本文以 `START` 为例。
-检索语法支持关键词检索、模糊检索、范围检索等方式，详情请参考 [语法规则](https://cloud.tencent.com/document/product/614/16981)。
+检索语法支持关键词检索、模糊检索、范围检索等方式，详情请参考 [语法与规则](https://cloud.tencent.com/document/product/614/16982)。
 3. 单击【检索分析】即可查看实时日志信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/34a93bc5fbdfdc9038811c222014fea0.png)
