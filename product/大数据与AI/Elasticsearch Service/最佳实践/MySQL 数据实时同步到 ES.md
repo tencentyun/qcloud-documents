@@ -223,9 +223,9 @@ UNLOCK TABLES;
 9. 测试：向 MySQL 中插入、修改、删除数据，都可以反映到 ES 中。
 
 ### 使用体验
-* `go-mysql-elasticsearch`完成了最基本的 MySQL 实时同步数据到 ES 的功能，业务如果需要更深层次的功能如允许运行中修改 MySQL 表结构，可以进行自行定制化开发。
-* 异常处理不足，解析 binlog event 失败直接抛出异常。
-* 据作者描述，该项目并没有被其应用于生产环境中，所以使用过程中建议通读源码，知其利弊。
+- `go-mysql-elasticsearch`完成了最基本的 MySQL 实时同步数据到 ES 的功能，业务如果需要更深层次的功能如允许运行中修改 MySQL 表结构，可以进行自行定制化开发。
+- 异常处理不足，解析 binlog event 失败直接抛出异常。
+- 据作者描述，该项目并没有被其应用于生产环境中，所以使用过程中建议通读源码，知其利弊。
 
 ## 使用 mypipe 同步数据到 ES 集群
 mypipe 是一个 mysql binlog 同步工具，在设计之初是为了能够将 binlog event 发送到 kafka，根据业务的需要也可以将数据同步到任意的存储介质中。mypipe [github 地址](https://github.com/mardambey/mypipe)。
@@ -235,7 +235,7 @@ mypipe 是一个 mysql binlog 同步工具，在设计之初是为了能够将 b
 1. mysql binlog 必须是 ROW 模式。
 2. 要赋予用于连接 MySQL 的账户 REPLICATION 权限。
 ```
- GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'elastic'@'%' IDENTIFIED BY 'Elastic_123'
+GRANT REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'elastic'@'%' IDENTIFIED BY 'Elastic_123'
 ```
 3. mypipe 只是将 binlog 日志内容解析后编码成 Avro 格式推送到 kafka broker，并不是将数据推送到 kafka。如果需要同步到 ES 集群，可以从 kafka 消费数据后，再写入 ES。
 4. 消费 kafka 中的消息（MySQL 的操作日志），需要对消息内容进行 Avro 解析，获取到对应的数据操作内容，进行下一步处理。mypipe 封装了一个`KafkaGenericMutationAvroConsumer`类，可以直接继承该类使用，或者自行解析。
@@ -294,18 +294,17 @@ mypipe 是一个 mysql binlog 同步工具，在设计之初是为了能够将 b
 ``` 
 4. 配置`mypipe-api/src/main/resources/reference.conf`，修改`include-event-condition`选项，指定需要同步的 database 和 table。
 ```
-	include-event-condition = """ db == "webservice" && table =="building" """
+include-event-condition = """ db == "webservice" && table =="building" """
 ```
 5. 在 kafka broker 端创建`topic: webservice_building_generic`，默认情况下 mypipe 以`${db}_${table}_generic`为 topic 名，向该 topic 发送数据。
 6. 执行命令`./sbt "project runner" "runMain mypipe.runner.PipeRunner"`。
 7. 测试：向 mysql building 表中插入数据，写一个简单的 consumer 消费 mypipe 推送到 kafka 中的消息。
 8. 消费到没有经过解析的数据如下：
 ```
-	ConsumerRecord(topic=u'webservice_building_generic', partition=0, offset=2, timestamp=None, timestamp_type=None, key=None, value='\x00\x01\x00\x00\x14webservice\x10building\xcc\x01\x02\x91,\xae\xa3fc\x11\xe8\xa1\xaaRT\x00Z\xf9\xab\x00\x00\x04\x18BuildingName\x06xxx\x14BuildingId\nId-10\x00\x02\x04Id\xd4%\x00', checksum=128384379, serialized_key_size=-1, serialized_value_size=88)
+ConsumerRecord(topic=u'webservice_building_generic', partition=0, offset=2, timestamp=None, timestamp_type=None, key=None, value='\x00\x01\x00\x00\x14webservice\x10building\xcc\x01\x02\x91,\xae\xa3fc\x11\xe8\xa1\xaaRT\x00Z\xf9\xab\x00\x00\x04\x18BuildingName\x06xxx\x14BuildingId\nId-10\x00\x02\x04Id\xd4%\x00', checksum=128384379, serialized_key_size=-1, serialized_value_size=88)
 ```
 
 ### 使用体验
-
-* mypipe 相比 go-mysql-elasticsearch 更成熟，支持运行时 ALTER TABLE，同时解析 binlog 异常发生时，可通过配置不同的策略处理异常。
-* mypipe 不能同步存量数据，如果需要同步存量数据可通过其它方式先全量同步后，再使用 mypipe 进行增量同步。
-* mypipe 只同步 binlog，需要同步数据到 ES 需要另行开发。
+- mypipe 相比 go-mysql-elasticsearch 更成熟，支持运行时 ALTER TABLE，同时解析 binlog 异常发生时，可通过配置不同的策略处理异常。
+- mypipe 不能同步存量数据，如果需要同步存量数据可通过其它方式先全量同步后，再使用 mypipe 进行增量同步。
+- mypipe 只同步 binlog，若要同步数据到 ES，则需另行开发。

@@ -10,7 +10,10 @@ Express.js 特性介绍：
 - **便捷协作**：通过云端的状态信息和部署日志，方便的进行多人协作开发。
 - **自定义域名**：支持配置自定义域名及 HTTPS 访问。
 
+## 前提条件
+已安装 Node.js（参考 [Node.js 安装指南](https://nodejs.org/zh-cn/download/)）。
 
+>!建议您使用 Node.js10.0 及以上版本，否则 Component V2 部署有可能报错。
 
 ## 操作步骤
 #### 1. 安装
@@ -48,8 +51,30 @@ $ cd src && npm install
 
 #### 3. 部署
 
-在`serverless.yml`文件下的目录中运行`serverless deploy`进行 Express 项目的部署。第一次部署可能耗时相对较久，但后续的二次部署会在几秒钟之内完成。部署完毕后，您可以在命令行的输出中查看到您的 Express 应用的 URL 地址，点击地址即可访问您的 Express 项目。
+在`serverless.yml`文件下的目录中运行`sls deploy`进行 Express 项目的部署。第一次部署可能耗时相对较久，但后续的二次部署会在几秒钟之内完成。部署完毕后，您可以在命令行的输出中查看到您的 Express 应用的 URL 地址，点击地址即可访问您的 Express 项目。
+```
+$ sls deploy
 
+Please scan QR code login from wechat. 
+Wait login...
+Login successful for TencentCloud. 
+
+serverless ⚡ framework
+Action: "deploy" - Stage: "dev" - App: "appDemo" - Instance: "expressDemo"
+
+region: ap-guangzhou
+apigw: 
+  serviceId:   service-xxxxxxxx
+  subDomain:   service-xxxxxxxx-1250000000.gz.apigw.tencentcs.com
+  environment: release
+  url:         https://service-xxxxxxxx-1250000000.gz.apigw.tencentcs.com/release/
+scf: 
+  functionName: expressDemo
+  runtime:      Nodejs10.15
+  namespace:    default
+
+23s › expressDemo › Success
+```
 >!
 - 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，请先通过**微信**扫描命令行中的二维码进行授权登录和注册。
 - 如果出现了`internal server error`的报错，请检查是否在创建模板后没有运行`npm install`。

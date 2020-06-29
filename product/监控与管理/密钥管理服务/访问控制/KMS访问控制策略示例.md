@@ -7,7 +7,7 @@
 |账号 $creatorUin 创建的所有密钥资源|`qcs::kms:$region:uin/$uin:key/creatorUin/$creatorUin/*`|
 |账号 $creatorUin 创建的 ID 为 $keyId 的密钥资源|`qcs::kms:$region:uin/$uin:key/creatorUin/$creatorUin/$keyId`|
 
->!以$为前缀的单词均为代称：
+其中以$为前缀的单词均为代称：
 - $uin 指代主账号 ID。
 - $region 指代地域。
 - $creatorUin 指代创建该资源的账号 ID。

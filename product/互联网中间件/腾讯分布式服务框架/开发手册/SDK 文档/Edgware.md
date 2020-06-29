@@ -1,5 +1,6 @@
+基于 Spring Cloud Edgware 版本 SDK，支持 Spring Boot 1.5.x。
 
-基于 Spring Cloud Edgware 版本 SDK，支持 springboot 1.5.x。
+>!2020年5月19日起，TSF 主要支持 Greenwich 和 Finchley 版本的功能更新，Edgware 版本主要进行缺陷修复，建议您优先使用 Finchley和 Greenwich 版本（[社区 Edgware 版本](https://spring.io/blog/2019/05/29/spring-cloud-edgware-sr6-released) 于2019年8月停止更新）。
 
 ## 1.22.0-Edgware-RELEASE（2020-04-29）
 

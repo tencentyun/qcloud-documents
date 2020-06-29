@@ -1,14 +1,10 @@
-
-
-## 操作场景
+## 简介
 Android SDK 是腾讯移动推送服务为客户端实现消息推送而提供给开发者的接口，本文将提供 AndroidStudio Gradle 自动集成和 Android Studio 手动集成两种方式。
->!如果您是从信鸽平台（https://xg.qq.com）迁移至腾讯移动推送平台，请务必使用 [Android 迁移指南](https://cloud.tencent.com/document/product/548/41609) 调整集成配置。
+>!如果您是从 [信鸽平台](https://xg.qq.com) 迁移至腾讯移动推送平台，请务必使用 [Android 迁移指南](https://cloud.tencent.com/document/product/548/41609) 调整集成配置。
 
-
-## 操作步骤
-### 集成方法
-#### AndroidStudio Gradle 自动集成
-
+## SDK 集成（二选一）
+### AndroidStudio Gradle 自动集成
+#### 操作步骤
 >!在配置 SDK 前，确保已创建 Android 平台的应用。
 
 1. 登录 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns)，选择左侧菜单【配置管理】，获取应用的包名、AccessID、AccessKey。
@@ -32,7 +28,7 @@ android {
 
         manifestPlaceholders = [
 
-            XG_ACCESS_ID:"注册应用的accessid",
+            XG_ACCESS_ID : "注册应用的accessid",
             XG_ACCESS_KEY : "注册应用的accesskey",
         ]
         ......
@@ -44,45 +40,63 @@ dependencies {
     ......
     //添加以下依赖
     implementation 'com.tencent.jg:jg:1.1'
-    implementation 'com.tencent.tpns:tpns:[VERSION]-release' //  TPNS 推送 [VERSION] 为当前SDK版本号,版本号可在SDK下载页查看
+    implementation 'com.tencent.tpns:tpns:[VERSION]-release' //  TPNS 推送 [VERSION] 为当前SDK版本号,版本号可在 SDK 下载页查看
 
 }
 ```
-4. 境外集群接入方法请参考下文 [境外集群接入方法](https://cloud.tencent.com/document/product/548/36652#JWjieru)。
 
 >!
-- 如在添加以上 abiFilter 配置后， Android Studio 出现以下提示：
-NDK integration is deprecated in the current plugin. Consider trying the new experimental plugin。则在 Project 根目录的 gradle.properties 文件中添加  android.useDeprecatedNdk=true。
-- 如需监听消息请参考 XGPushBaseReceiver 接口或是 demo 的 MessageReceiver 类。自行继承 XGPushBaseReceiver 并且在配置文件中配置如下内容（请勿在 receiver  里处理耗时操作）：
-```xml
-    <receiver android:name="com.tencent.android.xg.cloud.demo.MessageReceiver">
-            <intent-filter>
-                <!-- 接收消息透传 -->
-                <action android:name="com.tencent.android.xg.vip.action.PUSH_MESSAGE" />
-                <!-- 监听注册、反注册、设置/删除标签、通知被点击等处理结果 -->
-                <action android:name="com.tencent.android.xg.vip.action.FEEDBACK" />
-            </intent-filter>
-        </receiver>
+ - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
+ - 如果您的应用服务接入点为新加坡或者中国香港，请按照下文步骤完成境外服务接入点配置。
+在 Androidanifest 文件 application 标签内添加以下元数据：
 ```
-- 如需兼容 Android P，需要添加使用 Apache HTTP client 库，在 AndroidManifest 的 application 节点内添加以下配置即可。
+    <application>
+        // 其他安卓组件
+        <meta-data
+            android:name="XG_GUID_SERVER"
+            android:value="境外域名/guid/api/GetGuidAndMqttServer" />
+        <meta-data
+            android:name="XG_STAT_SERVER"
+            android:value="境外域名/log/statistics/push" />
+        <meta-data
+            android:name="XG_LOG_SERVER"
+            android:value="境外域名/v3/mobile/log/upload" />
+    </application>
+```
+境外域名如下:
+中国香港：`https://api.tpns.hk.tencent.com`。
+新加坡：`https://api.tpns.sgp.tencent.com`。
+
+
+#### 注意事项
+ - 如在添加以上 abiFilter 配置后， Android Studio 出现以下提示：
+NDK integration is deprecated in the current plugin. Consider trying the new experimental plugin，则在 Project 根目录的 gradle.properties 文件中添加  `android.useDeprecatedNdk=true`。
+ - 如需监听消息请参考 XGPushBaseReceiver 接口或 demo 的 MessageReceiver 类。自行继承 XGPushBaseReceiver 并且在配置文件中配置如下内容（请勿在 receiver  里处理耗时操作）：
+```xml
+<receiver android:name="com.tencent.android.xg.cloud.demo.MessageReceiver">
+    <intent-filter>
+        <!-- 接收消息透传 -->
+        <action android:name="com.tencent.android.xg.vip.action.PUSH_MESSAGE" />
+        <!-- 监听注册、反注册、设置/删除标签、通知被点击等处理结果 -->
+        <action android:name="com.tencent.android.xg.vip.action.FEEDBACK" />
+    </intent-filter>
+</receiver>
+```
+ - 如需兼容 Android P，需要添加使用 Apache HTTP client 库，在 AndroidManifest 的 application 节点内添加以下配置即可。
 ```
 <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 ```
 
 
-
-####  Android Studio 手动集成
-
-**工程配置**
+###  Android Studio 手动集成
+#### 工程配置
 将 SDK 导入到工程的步骤为：
-
-1. 创建或打开 Android 工程（关于如何创建 Android 工程，请参照开发环境的章节）。
+1. 创建或打开 Android 工程。
 2. 将腾讯移动推送 SDK 目录下的 libs 目录所有 .jar 文件拷贝到工程的 libs（或 lib）目录下。
-3. .so 文件是腾讯移动推送必须的组件，支持armeabi、armeabi-v7a、arm64-v8a、mips、mips64、x86、x86_64平台，请根据自己当前 .so 支持的平台添加
-4. 打开 Androidmanifest.xml，添加以下配置（建议参考下载包的 Demo 修改），其中 YOUR_ACCESS_ID和YOUR_ACCESS_KEY 替换为 App 对应的 AccessId 和 AccessKey，请确保按照要求配置，否则可能导致服务不能正常使用。
+3. .so 文件是腾讯移动推送必须的组件，支持 armeabi、armeabi-v7a、arm64-v8a、mips、mips64、x86、x86_64平台，请根据自己当前 .so 支持的平台添加
+4. 打开 Androidmanifest.xml，添加以下配置（建议参考下载包的 Demo 修改），其中 YOUR_ACCESS_ID 和YOUR_ACCESS_KEY 替换为 App 对应的 AccessId 和 AccessKey，请确保按照要求配置，否则可能导致服务不能正常使用。
 
-
-**权限配置**
+#### 权限配置
 腾讯移动推送 SDK 正常运行所需要的权限。示例代码如下：
 ```xml
     <!-- 【必须】 腾讯移动推送SDK VIP版本所需权限 -->
@@ -104,12 +118,11 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
     <uses-permission android:name="android.permission.GET_TASKS" /> 
 ```
 
-
-| 权限                                       | 是否必需 | 说明                           |
+| 权限                                       | 是否必须 | 说明                           |
 | ---------------------------------------- | ---- | ---------------------------- |
-| android.permission.INTERNET              | **必需**   | 允许程序访问网络连接，可能产生 GPRS 流量        |
-| android.permission.ACCESS_WIFI_STATE     | **必需**   | 允许程序获取当前 Wi-Fi 接入的状态以及 WLAN 热点的信息 |
-| android.permission.ACCESS_NETWORK_STATE  | **必需**   | 允许程序获取网络信息状态                 |
+| android.permission.INTERNET              | **必须**   | 允许程序访问网络连接，可能产生 GPRS 流量        |
+| android.permission.ACCESS_WIFI_STATE     | **必须**   | 允许程序获取当前 Wi-Fi 接入的状态以及 WLAN 热点的信息 |
+| android.permission.ACCESS_NETWORK_STATE  | **必须**   | 允许程序获取网络信息状态                 |
 | android.permission.WAKE_LOCK             | 可选  | 允许程序在手机屏幕关闭后，后台进程仍然运行         |
 | android.permission.VIBRATE               | 可选   | 允许应用震动                       |
 | android.permission.READ_PHONE_STATE      | 可选   | 允许应用访问手机状态                   |
@@ -238,13 +251,13 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
-<hr>
 
-<span id="JWjieru"></span>
-#### 境外集群接入方法
-如需将推送集群切换为新加坡或者中国香港，请按照上述步骤正常集成后，在 Androidanifest 文件 application 标签内添加以下元数据：
+>! 
+- 如果您的应用服务接入点为广州，SDK 默认实现该配置。
+- 如果您的应用服务接入点为新加坡或者中国香港，请按照下文步骤完成境外服务接入点配置。
+在 Androidanifest 文件 application 标签内添加以下元数据：
 ```
-<application>
+    <application>
         // 其他安卓组件
         <meta-data
             android:name="XG_GUID_SERVER"
@@ -255,13 +268,62 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
         <meta-data
             android:name="XG_LOG_SERVER"
             android:value="境外域名/v3/mobile/log/upload" /> 
-</application>
+    </application>
 ```
-**境外域名如下：**
-中国香港：`https://api.tpns.hk.tencent.com`
-新加坡：`https://api.tpns.sgp.tencent.com`
+境外域名如下：
+中国香港：`https://api.tpns.hk.tencent.com`。
+新加坡：`https://api.tpns.sgp.tencent.com`。
 
-#### 音视频富媒体使用方法（可选）
+
+
+## 调试及设备注册
+### 开启 Debug 日志数据
+>!上线时请设置为 false。
+
+```java
+XGPushConfig.enableDebug(this,true);
+```
+
+
+### Token 注册
+
+```java
+XGPushManager.registerPush(this, new XGIOperateCallback() {
+    @Override
+    public void onSuccess(Object data, int flag) {
+        //token在设备卸载重装的时候有可能会变
+        Log.d("TPush", "注册成功，设备token为：" + data);
+    }
+
+    @Override
+    public void onFail(Object data, int errCode, String msg) {
+        Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + msg);
+    }
+});
+```
+过滤 "TPush" 注册成功的日志如下：
+
+```xml
+XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
+```
+
+
+## 代码混淆
+如果您的项目中使用 proguard 等工具，已做代码混淆，请保留以下选项，否则将导致腾讯移动推送服务不可用：
+
+```xml
+-keep public class * extends android.app.Service
+-keep public class * extends android.content.BroadcastReceiver
+-keep class com.tencent.android.tpush.** {*;}
+-keep class com.tencent.bigdata.baseapi.** {*;}
+-keep class com.tencent.bigdata.mqttchannel.** {*;}
+-keep class com.tencent.tpns.dataacquisition.** {*;}
+```
+
+>!如果 TPNS SDK 被包含在 App 的公共 SDK 里，即使公共 SDK 有增加配置混淆规则，主工程 App 也必须要同时增加配置混淆规则。
+
+## 高级配置（可选）
+### 音视频富媒体使用方法
 1. 在 App 的 layout 目录下，新建一个 xml 文件，命名为 xg_notification。
 2. 复制以下代码到文件中：
 ```
@@ -284,9 +346,8 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 ```
 
 
-#### 关闭联合保活
-
-如果需要关闭TPNS的保活功能，若您使用 gradle 自动集成方式，请在自身应用的 AndroidManifest.xml 文件 <application> 标签下配置如下结点，其中 ```xxx``` 为任意自定义名称；如果使用手动集成方式，请修改如下节点属性：
+### 关闭联合保活
+如果需要关闭 TPNS 的保活功能，若您使用 gradle 自动集成方式，请在自身应用的 AndroidManifest.xml 文件 “application” 标签下配置如下结点，其中 `xxx` 为任意自定义名称；如果使用手动集成方式，请修改如下节点属性：
 
 ```xml
    <!-- 在自身应用的AndroidManifest.xml文件中添加如下结点，其中 xxx 为任意自定义名称: -->
@@ -295,63 +356,15 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
        android:name="com.tencent.android.tpush.XGPushProvider"
        tools:replace="android:authorities"
        android:authorities="应用包名.xxx.XGVIP_PUSH_AUTH"
-       android:exported="false" />    
+       android:exported="false" />     
 ```
 
-### 调试及设备注册
-
-**开启 Debug 日志数据**
->!上线时请设置为false
-
-```java
-XGPushConfig.enableDebug(this,true);
-```
-
-
-**Token 注册**
-
-```java
-XGPushManager.registerPush(this, new XGIOperateCallback() {
-    @Override
-    public void onSuccess(Object data, int flag) {
-        //token在设备卸载重装的时候有可能会变
-        Log.d("TPush", "注册成功，设备token为：" + data);
-    }
-
-    @Override
-    public void onFail(Object data, int errCode, String msg) {
-        Log.d("TPush", "注册失败，错误码：" + errCode + ",错误信息：" + msg);
-    }
-});
-```
-过滤 "TPush" 注册成功的日志如下：
-
-```xml
-XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
-```
-<hr>
-
-### 代码混淆
-
-如果您的项目中使用 proguard 等工具，已做代码混淆，请保留以下选项，否则将导致腾讯移动推送服务不可用。
-
-```xml
--keep public class * extends android.app.Service
--keep public class * extends android.content.BroadcastReceiver
--keep class com.tencent.android.tpush.** {*;}
--keep class com.tencent.bigdata.baseapi.** {*;}
--keep class com.tencent.bigdata.mqttchannel.** {*;}
--keep class com.tencent.tpns.dataacquisition.** {*;}
-```
-
-
-### 集成建议
-<span id="HQToken"></span>
-#### 获取 Token（非必选）
-建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 Token，该操作便于我们后续进行问题排查。
+### 获取 TPNS Token 交互建议
+建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 TPNS Token，控制台和 Restful API 推送需要根据 TPNS Token 进行 Token 推送，后续问题排查也需要根据 TPNS Token 进行定位。
 示例代码如下：
 ```java
 //获取 Token
 XGPushConfig.getToken(getApplicationContext());
 ```
 ![](https://main.qcloudimg.com/raw/854020af14428df9972629e7dbbee55f.png)
+

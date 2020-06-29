@@ -1,10 +1,12 @@
 ## 操作场景
 该任务指导您通过 TSF 控制台查看 JVM 进程监控详情。
->!使用JVM监控功能时，实例的 tsf-agent 需为1.21.0或以上版本。
+>!
+>- 使用 JVM 监控功能时，实例的 tsf-agent 需为1.21.0或以上版本。
+>- 如果您在使用时遇到问题，请参考 [JVM 监控常见问题](https://cloud.tencent.com/document/product/649/42891)。
 
 ## 操作步骤
 ### 进入 JVM 进程监控详情页
-1. 登录 [TSF控制台](https://console.cloud.tencent.com/tsf/index) 
+1. 登录 [TSF 控制台](https://console.cloud.tencent.com/tsf/index) 
 2. 在左侧菜单栏中，单击运维中心分类下的【监控】>【JVM 监控】。
 3. 在 JVM 监控的查询条件中，选择查询条件后，单击【查询】，符合条件的实例列表将会呈列在实例列表中。
  - 命名空间：选择您所需要查询的服务所在的命名空间
@@ -13,7 +15,7 @@
 4.  从列表中，选择目标实例，单击操作列的【监控详情】，进入该实例的 JVM 进程监控详情页。
 ![](https://main.qcloudimg.com/raw/be7ecc42bd362246b5614bc7d9b99c18.png)
 
->?如果您在使用时遇到问题，请参考 [JVM 监控常见问题](https://cloud.tencent.com/document/product/649/42891)。
+
 
 ### 查看实例 JVM 进程监控的基本信息
 您可在【基本信息】标签页中，查看实例的基本信息、实时的指标信息以及近一小时的 CPU 使用率、堆内存使用量、活动线程数、已加载类数的时间变化曲线（曲线时间粒度为1分钟）

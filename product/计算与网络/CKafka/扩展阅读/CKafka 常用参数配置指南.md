@@ -31,6 +31,7 @@ log.retention.check.interval.ms=300000
 ```
 >?其他未列出的 Broker 配置参考 [开源 Kafka 默认配置](http://kafka.apache.org/0102/documentation.html#brokerconfigs)。
 
+<span id="topic"></span>
 ## Topic 配置参数说明
 #### 1. 选取合适的分区数量
 

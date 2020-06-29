@@ -10,8 +10,8 @@
 
 ### 方法一：自动加载（aar）
 TRTC SDK 已经发布到 jcenter 库，您可以通过配置 gradle 自动下载更新。
-只需要用 Android Studio 打开需要集成 SDK 的工程（本文以 [TRTCSimpleDemo](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCSimpleDemo) 为例），然后通过简单的三个步骤修改 app/build.gradle 文件，就可以完成 SDK 集成：
-![](https://main.qcloudimg.com/raw/cc46fbc16ad95c8166af4ff99647e4c6.png)
+只需要用 Android Studio 打开需要集成 SDK 的工程（本文以 [TRTCScenesDemo](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCScenesDemo) 为例），然后通过简单的三个步骤修改 app/build.gradle 文件，就可以完成 SDK 集成：
+![](https://main.qcloudimg.com/raw/763847f3b613649d7f2354ceb8c47d38.png)
 
 1. 在 dependencies 中添加 TRTCSDK 的依赖。
  - 若使用3.x版本的 com.android.tools.build:gradle 工具，请执行以下命令：
@@ -45,9 +45,9 @@ defaultConfig {
 1. 下载最新版本 [TRTC SDK](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.zip)。
 2. 将下载到的 aar 文件拷贝到工程的 **app/libs** 目录下。
 3. 在工程根目录下的 build.gradle 中，添加 **flatDir**，指定本地仓库路径。
-![](https://main.qcloudimg.com/raw/bc3215028103fe980aedcbf011b97b02.png)
+![](https://main.qcloudimg.com/raw/3b07d38f105167ae52ffdda9a1712cec.png)
 4. 在 app/build.gradle 中，添加引用 aar 包的代码。
-![](https://main.qcloudimg.com/raw/a21f50100e881d53f4d502d2a1c8c5aa.png)
+![](https://main.qcloudimg.com/raw/a5658a2b3c888513215093a04dd76a25.png)
 5.在 app/build.gradle的defaultConfig 中，指定 App 使用的 CPU 架构。
 ```
 defaultConfig {
@@ -67,9 +67,9 @@ defaultConfig {
 1. [下载](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.zip) 最新版本的 jar 压缩包，文件路径为`SDK/LiteAVSDK_TRTC_xxx.zip` （其中 xxx 为 TRTC SDK 的版本号）。
 2. 解压后得到 libs 目录，里面主要包含 jar 文件和 so 文件夹。
 3. 将解压得到的 jar 文件和 armeabi， armeabi-v7a， arm64-v8a 文件夹拷贝到 app/libs 目录下。
-![](https://main.qcloudimg.com/raw/5bf82ca89b3a14cca470fcedc048d7fa.png)
+![](https://main.qcloudimg.com/raw/c7b498b40bff8c248cd72fcd01f07933.png)
 4. 在 app/build.gradle 中，添加引用 jar 库的代码。
-![](https://main.qcloudimg.com/raw/6ffbb4b79c06555376b137c849b43bb7.png)	
+![](https://main.qcloudimg.com/raw/5369b8c9bbb855622b22c7843a591e2e.png)	
 5. 在 app/build.gradle 中，添加引用 so 库的代码。
 ```
 sourceSets {
@@ -78,7 +78,7 @@ sourceSets {
        }
 }
 ```
-![](https://main.qcloudimg.com/raw/299eeb5b3e8961e816f3ce17b97b4339.png)
+![](https://main.qcloudimg.com/raw/7aa7eea5d26086b0b9c54ef7a910c6dd.png)
 6. 在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构。 
 ```
 defaultConfig {
@@ -106,7 +106,7 @@ defaultConfig {
 <uses-permission android:name="android.permission.BLUETOOTH" />
 <uses-permission android:name="android.permission.CAMERA" />
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-<uses-feature android:name="android.hardware.Camera"/>
+<uses-feature android:name="android.hardware.camera" />
 <uses-feature android:name="android.hardware.camera.autofocus" />
 ```
 
@@ -128,6 +128,6 @@ packagingOptions {
 	doNotStrip "*/arm64-v8a/libYTCommon.so"
 }
 ```
-![](https://main.qcloudimg.com/raw/e40d5c294a59d56a1f89f20960c7e4c1.png)
+![](https://main.qcloudimg.com/raw/b847d95fc05d2b97f85ffdb0b89438cc.png)
 
 

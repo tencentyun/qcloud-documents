@@ -24,10 +24,10 @@
 <span id="step3"></span>
 ### 步骤3：配置 Demo 工程文件
 1. 解压 [步骤2](#step2) 中下载的源码包。
-2. 找到并打开`Android/TRTCScenesDemo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java`文件。
+2. 找到并打开`LiteAVSDK_TRTC_Android_版本号/TRTCScenesDemo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java`文件。
 3. 设置`GenerateTestUserSig.java`文件中的相关参数：
-  <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
-  <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
+  <ul><li>SDKAPPID：默认为 PLACEHOLDER ，请设置为实际的 SDKAppID。</li>
+  <li>SECRETKEY：默认为 PLACEHOLDER ，请设置为实际的密钥信息。</li></ul> 
 	<img src="https://main.qcloudimg.com/raw/345c3e8915ef988eb158833d1655d0c5.png">
 4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
 5. 单击【关闭指引，进入控制台管理应用】。
@@ -36,7 +36,7 @@
 >正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 ### 步骤4：编译运行
-使用 Android Studio（3.5及以上的版本）打开源码工程`TRTCDemo`，单击【运行】即可。
+使用 Android Studio（3.5及以上的版本）打开源码工程`TRTCScenesDemo`，单击【运行】即可。
 
 ## 常见问题
 ### 1. 查看密钥时只能获取公钥和私钥信息，该如何获取密钥？

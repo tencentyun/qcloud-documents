@@ -38,8 +38,7 @@
 
 ### 如何保持公网 IP 地址不变？
 当您需要保留账户中的某个特定公网 IP 时，可将其转换为弹性公网 IP，绑定设备后，即可使用该 IP 进行公网访问。只要您不进行“释放”操作，该弹性公网 IP 便一直保留在您的账户中。
-
-相关操作指引，请参见 [公网 IP 转弹性 IP](https://cloud.tencent.com/document/product/213/16586#.E5.85.AC.E7.BD.91-ip-.E8.BD.AC.E5.BC.B9.E6.80.A7-ip)。
+相关操作指引，请参见 [普通公网 IP 转 EIP](https://cloud.tencent.com/document/product/1199/41706)。
 
 ### 弹性公网 IP 能否再转换为普通公网 IP？
 弹性公网 IP 无法再次转换为普通公网 IP。
