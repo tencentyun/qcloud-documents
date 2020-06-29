@@ -1,6 +1,6 @@
 
 
-对于不具备网络通讯能力的 MCU，一般采用 MCU+ 通讯模组的方式，通讯模组（包括 WiFi/2G/4G/NB-IoT）一般提供了基于串口的 AT 指令协议供 MCU 进行网络通讯。针对这种场景，C-SDK 封装了 AT-socket 网络层，网络层之上的核心协议和服务层无须移植。本文阐述针对 MCU（FreeRTOS）+通用 TCP AT 模组的目标环境，如何移植 C-SDK 并接入腾讯云物联网平台。
+对于不具备网络通讯能力的 MCU，一般采用 MCU+ 通讯模组的方式，通讯模组（包括 Wi-Fi/2G/4G/NB-IoT）一般提供了基于串口的 AT 指令协议供 MCU 进行网络通讯。针对这种场景，C-SDK 封装了 AT-socket 网络层，网络层之上的核心协议和服务层无须移植。本文阐述针对 MCU（FreeRTOS）+通用 TCP AT 模组的目标环境，如何移植 C-SDK 并接入腾讯云物联网平台。
 
 ## SDK 下载
 下载最新版本设备端 [C-SDK](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c)。
@@ -13,7 +13,7 @@
 | BUILD_TYPE                       | debug/release| 根据需要设置  |
 | EXTRACT_SRC                      | ON       | 使能代码抽取                                               |
 | COMPILE_TOOLS                    | gcc/MSVC      | 根据需要设置，IDE 情况不关注            |
-| PLATFORM                         | linux/windows | 根据需要设置，IDE 情况不关注                |
+| PLATFORM                         | Linux/Windows | 根据需要设置，IDE 情况不关注                |
 | FEATURE_OTA_COMM_ENABLED         | ON/OFF       | 根据需要设置                     |
 | FEATURE_AUTH_MODE                | KEY      | 资源受限设备认证方式建议选密钥认证    |
 | FEATURE_AUTH_WITH_NOTLS          | ON/OFF        | 根据需要是否使能 TLS             |
@@ -55,4 +55,5 @@ cmake ..
 ## 业务逻辑开发
 
 您可参考 SDK samples 目录下的例程进行开发。
+
 

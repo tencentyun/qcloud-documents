@@ -13,7 +13,7 @@
 | BUILD_TYPE                       | debug/release| 根据需要设置  |
 | EXTRACT_SRC                      | ON       | 使能代码抽取                                               |
 | COMPILE_TOOLS                    | gcc/MSVC      | 根据需要设置，IDE 情况不关注            |
-| PLATFORM                         | linux/windows | 根据需要设置，IDE 情况不关注                |
+| PLATFORM                         | Linux/Windows | 根据需要设置，IDE 情况不关注                |
 | FEATURE_OTA_COMM_ENABLED         | ON/OFF       | 根据需要设置                     |
 | FEATURE_AUTH_MODE                | KEY      | 资源受限设备认证方式建议选密钥认证    |
 | FEATURE_AUTH_WITH_NOTLS          | ON/OFF        | 根据需要是否使能 TLS             |
@@ -55,4 +55,5 @@ cmake ..
 ## 业务逻辑开发
 
 您可参考 SDK samples 目录下的例程进行开发。
+
 

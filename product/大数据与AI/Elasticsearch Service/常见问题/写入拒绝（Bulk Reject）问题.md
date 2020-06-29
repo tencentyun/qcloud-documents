@@ -1,7 +1,7 @@
 ### 出现写入拒绝（Bulk Reject）问题如何解决？
 
 #### 问题现象
-集群在某些情况下会出现写入拒绝率增大（bulk reject）的现象，具体表现为，bulk 写入的时候，会有以下类似报错：
+集群在某些情况下会出现写入拒绝率增大（bulk reject）的现象，具体表现为 bulk 写入时，会有类似以下报错：
 ```
 [2019-03-01 10:09:58][ERROR]rspItemError: {"reason":"rejected execution of org.elasticsearch.transport.TransportService$7@5436e129 on EsThreadPoolExecutor[bulk, queue capacity = 1024, org.elasticsearch.common.util.concurrent.EsThreadPoolExecutor@6bd77359[Running, pool size = 12, active threads = 12, queued tasks = 2390, completed tasks = 20018208656]]","type":"es_rejected_execution_exception"}
 ```
@@ -24,7 +24,7 @@ GET _cat/shards?index=index_name&v
 ![](https://main.qcloudimg.com/raw/551e6cb4aaccd8391f619f0ecef0129d.png)
 2. 检查分片数是否分布不均匀
 集群中的节点分片分布不均匀，有的节点分配的 shard 过多，有的分配的 shard 少。
- - 可在 ES 控制台集群详情页的【集群监控】>【节点状态】查看，具体操作可参见 [查看监控](https://cloud.tencent.com/document/product/845/16995#1023983810)。
+ - 可在 ES 控制台集群详情页的【集群监控】>【节点状态】查看，具体操作可参见 [查看监控](https://cloud.tencent.com/document/product/845/16995)。
  - 也可通过 curl 客户端，查看集群各个节点的分片个数。
 ```
 curl "$p:$port/_cat/shards?index={index_name}&s=node,store:desc" | awk '{print $8}' | sort | uniq -c | sort
@@ -33,7 +33,6 @@ curl "$p:$port/_cat/shards?index={index_name}&s=node,store:desc" | awk '{print $
 ![](https://main.qcloudimg.com/raw/62d75ef4823d87934ab64a9eb243a556.png)
 
 #### 解决方案
-
 1. 设置分片大小
 分片大小可以通过 index 模版下的 number_of_shards 参数进行配置（模板创建完成后，再次新创建索引时生效，老的索引不能调整）。
 2. 调整分片数据不均匀

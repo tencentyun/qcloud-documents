@@ -29,7 +29,7 @@ __介绍__
 接口说明：
 - 默认值：HOME_ORIENTATION_DOWN（竖屏推流）。
 - 常用的还有 HOME_ORIENTATION_RIGHT 和 HOME_ORIENTATION_LEFT，也就是横屏推流。
-- 改变该字段的设置以后，本地摄像头的预览画面方向也会发生改变，请调用 TXLivePush 的 setRenderRotation 进行矫正。
+- 改变该字段的设置以后，本地摄像头的预览画面方向也会发生改变，请调用 TXLivePush 的 [setRenderRotation](https://cloud.tencent.com/document/product/454/34775#setrenderrotation) 进行矫正。
 
 ***
 
@@ -284,7 +284,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| bitrate | int | 视频编码码率。 |
+| bitrate | int | 视频编码码率，单位：kbps。 |
 
 __介绍__
 
@@ -353,7 +353,7 @@ __介绍__
 
 接口说明：
 - 默认值：false。
-- 开启后，SDK会根据网络情况自动调节视频码率，调节范围在（videoBitrateMin - videoBitrateMax）。
+- 开启后，SDK会根据网络情况自动调节视频码率，调节范围在（[videoBitrateMin](https://cloud.tencent.com/document/product/454/34774#setminautoadjustcachetime) - [videoBitrateMax](https://cloud.tencent.com/document/product/454/34774#setmaxautoadjustcachetime)）。
 
 ***
 
@@ -416,7 +416,7 @@ __介绍__
 
 接口说明：
 - 默认值：1。
-- 其他值：1、2、4。
+- 其他值：1、2。
 
 ***
 

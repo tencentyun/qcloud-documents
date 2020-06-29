@@ -44,4 +44,4 @@ client.get("redis", function (err, reply) {
 ```
 
 **运行结果**：
-![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/NodeJS-1.jpg)
+![](https://main.qcloudimg.com/raw/be497d7a1db66bebccde00fc63a98d68.jpg)

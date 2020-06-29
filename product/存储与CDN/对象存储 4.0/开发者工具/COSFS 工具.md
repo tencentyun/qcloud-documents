@@ -53,7 +53,7 @@ brew cask install osxfuse
 
 #### 2. 获取源码 
 
-您需要从 GitHub 上将 [COSFS 源码](https://github.com/tencentyun/cosfs) 下载到指定目录，下面以目录`/usr/cosfs`为例：
+您需要从 GitHub 上将 [COSFS 源码](https://github.com/tencentyun/cosfs) 下载到指定目录，下面以目录`/usr/cosfs`为例（实际操作下，建议您根据具体操作环境选择目录）：
 ```shell
 git clone https://github.com/tencentyun/cosfs /usr/cosfs
 ```
@@ -146,23 +146,25 @@ chmod 640 /etc/passwd-cosfs
 将已经在密钥文件中配置好信息的存储桶挂载到指定目录，可以使用如下命令行：
 
 ```shell
-cosfs <BucketName-APPID> <MountPoint> -ourl=<CosDomainName> -odbglevel=info
+cosfs <BucketName-APPID> <MountPoint> -ourl=<CosDomainName> -odbglevel=info -oallow_other
 ```
 其中：
 - &lt;MountPoint&gt; 为本地挂载目录（例如`/mnt`）。
-- &lt;CosDomainName&gt; 为存储桶对应的访问域名，形式为`http://cos.<Region>.myqcloud.com` （适用于XML API，请勿在该参数中携带存储桶名称），其中 &lt;Region&gt; 为地域简称， 例如 ap-guangzhou 、 eu-frankfurt 等。更多地域信息，请参见 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
+- &lt;CosDomainName&gt; 为存储桶对应的访问域名，形式为`http://cos.<Region>.myqcloud.com` （适用于 XML API，请勿在该参数中携带存储桶名称），其中 &lt;Region&gt; 为地域简称， 例如 ap-guangzhou 、 eu-frankfurt 等。更多地域信息，请参见 [可用地域](https://cloud.tencent.com/document/product/436/6224)。
 - -odbglevel 指定日志级别。
+- -oallow_other 允许非挂载用户访问挂载文件夹。
+
 
 **示例：**
 
 ```shell
 mkdir -p /mnt/cosfs
-cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr
+cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr -oallow_other
 ```
 
 >!v1.0.5 之前版本 COSFS 的挂载命令如下：
 ```shell
-cosfs <APPID>:<BucketName> <MountPoint> -ourl=<CosDomainName>
+cosfs <APPID>:<BucketName> <MountPoint> -ourl=<CosDomainName> -oallow_other
 ```
 v1.0.5 之前版本 COSFS 的配置文件格式是：
 ```shell

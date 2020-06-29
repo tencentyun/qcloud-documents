@@ -1,6 +1,6 @@
 
 ## 操作场景
-本文档提供关于  SDK 的接入以及开启推送服务的示例代码（SDK 版本：V1.0+版本）。
+本文档提供关于 SDK 接入以及开启推送服务的示例代码（SDK 版本：V1.0+ 版本）。
 
 
 
@@ -14,7 +14,7 @@
 1. 登录 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏【产品管理】。
 2. 进入产品管理页面，单击【新增产品】。
 3. 进入新增产品页面，填写产品名称、产品详情，选择产品分类，单击【确定】，即可完成产品新增。
-4. 产品创建完成后，选择【应用管理】>【[应用列表](https://console.cloud.tencent.com/tpns/applist)】，进入应用列表，获取产品 AppID 和 AppKey。（AppID 即 Access ID，AppKey 即 Access Key）
+4. 产品创建完成后，选择左侧菜单【配置管理】，在应用信息一栏中获取应用`Access ID` 和 `SECRET KEY`。
 5. 导入 SDK：
  - **方式一：Cocoapods 导入**
 通过 Cocoapods 下载地址：
@@ -109,7 +109,9 @@ pod 'TPNS-macOS'
 服务器(192.168.1.1)返回正确， 注册设备Token 成功
 ```
 
+<span id="QHToken"></span>
 
+## 集成建议
 #### 获取 Token （非必选）
 建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 Token，该操作便于我们后续进行问题排查。
 

@@ -15,38 +15,11 @@ Content-Length:length
 Content-MD5:MD5
 ```
 
->?Authorization：Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。 
+>?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。 
 
 #### 请求头
 
-#### 公共头部
-
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
-
-#### 非公共头部
-
-**必选头部**
-
-<table>
-   <tr>
-      <th>名称</th>
-      <th>描述</th>
-      <th>类型</th>
-      <th>必选</th>
-   </tr>
-   <tr>
-      <td nowrap="nowrap">Content-Length</td>
-      <td>RFC 2616中定义的 HTTP 请求内容长度（字节）</td>
-      <td>String</td>
-      <td>是</td>
-   </tr>
-   <tr>
-      <td>Content-MD5</td>
-      <td>RFC 1864中定义的经过 Base64 编码的 128-bit 内容的 MD5 校验值，此头部用来校验文件内容是否发生变化</td>
-      <td>String</td>
-      <td>是</td>
-   </tr>
-</table>
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 
 #### 请求体
@@ -88,7 +61,7 @@ Content-MD5:MD5
 
 #### 错误码
 
-该请求操作无特殊错误信息，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 

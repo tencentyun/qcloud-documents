@@ -1,3 +1,6 @@
+以下视频将帮助您快速了解如何快速集成 IM SDK：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2334-34826?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 若需在您的 App 中集成 IM SDK 达到如下图所示效果，仅仅需要三步：
 ![](https://main.qcloudimg.com/raw/8e62583eda69db2f6f1baade7ab8540a.png)
 
@@ -10,7 +13,7 @@
 ## 步骤2：集成 SDK
 TUIKit 是对 IM SDK 封装的一层 UI 组件，包含常用的 IM 操作，例如聊天面板、会话列表、联系人等。
 - 如果您想快速集成体验 SDK ，请参见 [极速集成 SDK（含 UI 库）](https://cloud.tencent.com/document/product/269/37059)。
-- 如果您想直接使用 SDK 的接口实现完全自定义界面，请参见 [常规集成 SDK（无 UI 库）](https://cloud.tencent.com/document/product/269/9227)。
+- 如果您想直接使用 SDK 的接口实现完全自定义界面，请参见 [常规集成 SDK（无 UI 库）](https://cloud.tencent.com/document/product/269/32679)。
 
 <a name="EvGSB"></a>
 ## 步骤3：集成服务端 REST API

@@ -1,4 +1,4 @@
-对于在服务端上传视频的场景，云点播提供 NodeJS SDK 来实现。上传流程请参见 [服务端上传指引](https://cloud.tencent.com/document/product/266/9759)。
+对于在服务端上传视频的场景，云点播提供 Node.js SDK 来实现。上传流程请参见 [服务端上传指引](https://cloud.tencent.com/document/product/266/9759)。
 
 ## 集成方式
 
@@ -11,7 +11,7 @@ npm i vod-node-sdk --save
 如果项目中没有使用 npm 工具进行依赖管理，可以直接下载源码导入项目中使用：
 
 * [从 Github 访问](https://github.com/tencentyun/vod-node-sdk)
-* [单击下载 NodeJS SDK](https://github.com/tencentyun/vod-node-sdk/archive/master.zip)
+* [单击下载 Node.js SDK](https://github.com/tencentyun/vod-node-sdk/archive/master.zip)
 
 ##  简单视频上传
 ### 初始化上传对象
@@ -131,6 +131,48 @@ client.upload("ap-guangzhou", req, function (err, data) {
 });
 ```
 
+### 使用临时证书上传
+传入临时证书的相关密钥信息，使用临时证书验证身份并进行上传。
+```
+const { VodUploadClient, VodUploadRequest } = require('vod-node-sdk');
+
+client = new VodUploadClient("Credentials TmpSecretId", "Credentials TmpSecretKey", "Credentials Token");
+let req = new VodUploadRequest();
+req.MediaFilePath = "/data/file/Wildlife.mp4";
+client.upload("ap-guangzhou", req, function (err, data) {
+    if (err) {
+        // 处理业务异常
+        console.log(err)
+    } else {
+        // 获取上传成功后的信息
+        console.log(data.FileId);
+        console.log(data.MediaUrl);
+    }
+});
+```
+
+### 自适应码流文件上传
+
+本 SDK 支持上传的自适应码流格式包括 HLS 和 DASH，同时要求 manifest（M3U8 或 MPD）所引用的媒体文件必须为相对路径（即不可以是 URL 和绝对路径），且位于 manifest 的同级目录或者下级目录（即不可以使用`../`）。在调用 SDK 上传接口时，`MediaFilePath`参数填写 manifest 路径，SDK 会解析出相关的媒体文件列表一并上传。
+
+```
+const { VodUploadClient, VodUploadRequest } = require('vod-node-sdk');
+
+client = new VodUploadClient("your secretId", "your secretKey");
+let req = new VodUploadRequest();
+req.MediaFilePath = "/data/file/prog_index.m3u8";
+client.upload("ap-guangzhou", req, function (err, data) {
+    if (err) {
+        // 处理业务异常
+        console.log(err)
+    } else {
+        // 获取上传成功后的信息
+        console.log(data.FileId);
+        console.log(data.MediaUrl);
+    }
+});
+```
+
 ## 接口描述
 上传客户端类`VodUploadClient`
 
@@ -143,13 +185,13 @@ client.upload("ap-guangzhou", req, function (err, data) {
 
 | 属性名称      | 属性描述                   | 类型      | 必填   |
 | --------- | ---------------------- | ------- | ---- |
-| MediaFilePath   | 待上传的媒体文件路径。必须为本地路径，不支持 URL。| String | 是    |
+| MediaFilePath   | 待上传的媒体文件路径。必须为本地路径（用户服务器上的路径），不支持 URL。| String | 是    |
 | MediaType   | 待上传的媒体文件类型，可选类型请参见 [视频上传综述](/document/product/266/9760#.E6.96.87.E4.BB.B6.E7.B1.BB.E5.9E.8B)，若 MediaFilePath 路径带后缀可不填。        | String | 否    |
 | MediaName   | 上传后的媒体名称，若不填默认采用 MediaFilePath 的文件名。      | String | 否    |
-| CoverFilePath   | 待上传的封面文件路径。必须为本地路径，不支持 URL。| String | 否    |
+| CoverFilePath   | 待上传的封面文件路径。必须为本地路径（用户服务器上的路径），不支持 URL。| String | 否    |
 | CoverType   | 待上传的封面文件类型，可选类型请参见 [视频上传综述](/document/product/266/9760#.E5.B0.81.E9.9D.A2.E7.B1.BB.E5.9E.8B)，若 CoverFilePath 路径带后缀可不填。        | String | 否    |
 | Procedure   | 上传后需要自动执行的任务流名称，该参数在创建任务流（[API 方式](/document/product/266/33897) 或 [控制台方式](https://console.cloud.tencent.com/vod/video-process/taskflow)）时由用户指定。具体请参考 [任务流综述](https://cloud.tencent.com/document/product/266/33475#.E4.BB.BB.E5.8A.A1.E6.B5.81)。        | String | 否    |
-| ExpireTime   | 媒体文件过期时间，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#iso-.E6.97.A5.E6.9C.9F.E6.A0.BC.E5.BC.8F)。        | String | 否    |
+| ExpireTime   | 媒体文件过期时间，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#52)。        | String | 否    |
 | ClassId   | 分类 ID，用于对媒体进行分类管理，可通过 [创建分类](https://cloud.tencent.com/document/product/266/31772) 接口，创建分类，获得分类 ID。        | Integer | 否    |
 | SourceContext   | 来源上下文，用于透传用户请求信息，上传回调接口将返回该字段值，最长250个字符。        | String | 否    |
 | SubAppId   | 云点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID，否则无需填写该字段。        | Integer | 否    |

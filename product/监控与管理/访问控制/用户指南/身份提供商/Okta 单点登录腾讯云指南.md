@@ -13,9 +13,9 @@ Okta 是身份识别与访问管理解决方案提供商。腾讯云支持基于
 4. 在应用管理页面，单击【Add Application】。进入添加应用页面。
 5. 在添加应用页面，单击【Create New APP】。如下图所示：
 ![](https://main.qcloudimg.com/raw/c79f6042d72f01434555222f9e6079fd.png)
-6. 在弹出的 创建应用程序/Create a New Application Integration 窗口，选择 Platform 及 Sign on method，其中 Sign on method 设置为 SAML 2.0，单击【Create】，如下图所示：
+6. 在弹出的创建应用程序/Create a New Application Integration 窗口，选择 Platform 及 Sign on method，其中 Sign on method 设置为 SAML 2.0，单击【Create】，如下图所示：
 ![](https://main.qcloudimg.com/raw/8126a0a697e4014e64138d7e8b0e5cab.png)
-7. 在 通用设置/General Settings 页面，补充 App name、App logo（可选）、App visibility（可选）信息，单击【Next】，此应用程序可以用于和腾讯云进行集成，实现 Okta 帐户自动登录（单一登录）腾讯云控制台管理腾讯云的资源。
+7. 在通用设置/General Settings 页面，补充 App name、App logo（可选）、App visibility（可选）信息，单击【Next】，此应用程序可以用于和腾讯云进行集成，实现 Okta 帐户自动登录（单一登录）腾讯云控制台管理腾讯云的资源。
 
 
 ### <span id="stepCAM"></span>为 Okta 应用程序配置 SAML
@@ -47,7 +47,7 @@ Audience URL(SP Entity ID)：intl.cloud.tencent.com
 >? 
 >在 Value 中 {AccountID}，{RoleName}，{ProviderName} 分别替换内容下：
  - {AccountID} 替换为您的腾讯云帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
- - {RoleName}替换您在腾讯云为身份提供商所创建的角色名称（点击查看如何在腾讯云  [为身份提供商创建的角色](https://cloud.tencent.com/document/product/598/19381#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.88.9B.E5.BB.BA)），角色名称可前往 [角色 - 控制台](https://console.cloud.tencent.com/cam/role) 查看，如需要添加更多可按照该格式添加：qcs::cam::uin/{AccountID}:roleName/{RoleName} ，以 ; 隔开。
+ - {RoleName}替换您在腾讯云为身份提供商所创建的角色名称（单击查看如何在腾讯云  [为身份提供商创建的角色](https://cloud.tencent.com/document/product/598/19381#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.88.9B.E5.BB.BA)），角色名称可前往 [角色 - 控制台](https://console.cloud.tencent.com/cam/role) 查看，如需要添加更多可按照该格式添加：qcs::cam::uin/{AccountID}:roleName/{RoleName} ，以 ; 隔开。
  - {ProviderName} 替换您在腾讯云创建的 SAML 身份提供商名称，可前往  [身份提供商 - 控制台](https://console.cloud.tencent.com/cam/idp) 查看。
 >
 5. 单击【Next】，进入反馈/Feedback 页面，选择以下信息之后单击【Finish】，完成配置 CAM 操作。如下图所示：

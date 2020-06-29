@@ -29,7 +29,7 @@ IKE 配置详情
 | IKESet.exchangeMode | 否 | String | IKE 配置，协商模式：可选值：'aggressive','main'，默认为 main，更多详见产品说明文档。 |
 | IKESet.localIdentity | 否 | String | IKE 配置，本端标识类型：可选值：'address','fqdn'，默认为 address，更多详见产品说明文档。 |
 | IKESet.remoteIdentity | 否 | String | IKE 配置，对端标识类型：可选值：'address','fqdn'，默认为 address，更多详见产品说明文档。 |
-| IKESet.localAddress | 否 | String | IKE 配置，本端标识，当 localIdentity 选为 address 时，localAddress 必填。localAddress默认为vpn网关公网IP，更多详见产品说明文档。 |
+| IKESet.localAddress | 否 | String | IKE 配置，本端标识，当 localIdentity 选为 address 时，localAddress 必填。localAddress 默认为 VPN 网关公网 IP，更多详见产品说明文档。 |
 | IKESet.remoteAddress | 否 | String | IKE 配置，对端标识，当 remoteIdentity 选为 address 时，remoteAddress 必填，更多详见产品说明文档。 |
 | IKESet.localFqdnName | 否 | String | IKE 配置，本端标识，当 localIdentity 选为 fqdn 时，localFqdnName 必填，更多详见产品说明文档。 |
 | IKESet.remoteFqdnName | 否 | String | IKE 配置，对端标识，当 remoteIdentity 选为 fqdn 时，remoteFqdnName 必填，更多详见产品说明文档。 |

@@ -1,12 +1,8 @@
-
-
-
-
 ## 特权说明
 
-- 除在[续费管理](https://console.cloud.tencent.com/account/renewal)中设置为【到期不续】**以外的**所有预付费资源，系统会在资源到期前8天为您自动续费，续费时长为1个月。
+- 除在[续费管理](https://console.cloud.tencent.com/account/renewal)中设置为【到期不续】**以外的**所有预付费资源，手动续费资源和自动续费资源系统会在资源到期当天为您自动续费，即您可以缺省设置自动续费，续费时长为1个月。
 
-- 可支持的预付费产品包括：云服务器，云数据库MySQL，云数据库SQL Server，云数据库TDSQL，云数据库PostgreSQL，云数据库MongoDB，云数据库MongoDB分片，云数据库HBase，云存储Redis，黑石物理服务器，云硬盘CBS，专用宿主机，独享集群数据库，分布式数据库DCDB，BGP高防服务包，BGP高防IP。
+- 可支持的预付费产品包括：云服务器，黑石物理服务器，云数据库 SQL Server，云数据库 MySQL，云数据库 PostgreSQL，云数据库 MongoDB 分片，云数据库 Redis，腾讯云数据仓库套件 Sparkling，云硬盘 CBS，BGP 高防服务包，BGP 高防 IP，DDoS 高防 IP，人脸核身，即时通信 IM。
 
 
 - 账户余额充足时，扣除账户余额进行续费；账户余额不足时，系统会自动垫付足够款项以保证续费成功。
@@ -15,7 +11,7 @@
 
 ## 特权关闭风险
 
-- 关闭SVIP预付费不停服特权后，系统将停止提前8天自动续费和停止自动垫付。
+- 关闭 SVIP 预付费不停服特权后，系统将停止特权相应的自动续费和停止自动垫付，手动续费资源将不会在资源到期当天为您自动续费。
 
 - 预付费资源到期时，若您没有及时手动续费，或您设置了自动续费但账户余额不足时，资源到期后会停服回收。
 
@@ -25,7 +21,7 @@
 
 ## 特权关闭方式
 
-- 如果您的某些资源不需要SVIP预付费不停服特权保障，您可前往 [续费管理](https://console.cloud.tencent.com/account/renewal) 页面，将其设置为到期不续。相关操作可参考文档[续费管理](https://cloud.tencent.com/document/product/555/7454)。
+- 如果您的某些资源不需要 SVIP 预付费不停服特权保障，您可前往 [续费管理](https://console.cloud.tencent.com/account/renewal) 页面，将其设置为到期不续。相关操作可参考文档[续费管理](https://cloud.tencent.com/document/product/555/7454)。
 ![](https://main.qcloudimg.com/raw/453e5b2f33a53c5cbf941d6f9d0f679d.png)
 
 

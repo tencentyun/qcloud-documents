@@ -1,51 +1,46 @@
-
-TDSQL 提供和 MySQL 兼容的连接方式，用户通过 IP 地址、端口号以及用户名、密码连接 TDSQL 系统：
+TDSQL 提供和 MySQL 兼容的连接方式，用户可通过 IP 地址、端口号以及用户名、密码连接 TDSQL 系统：
 ```
 mysql -hxxx.xxx.xxx.xxx -Pxxxx -uxxx -pxxx -c
 ```	
->!TDSQL 不支持4.0以下的版本以及压缩协议，建议在**使用客户端的时候增加`-c`选项**，以便于使用某些高级功能。
+>!TDSQL 不支持4.0以下的版本以及压缩协议，建议在使用客户端的时候增加`-c`选项，以便于使用某些高级功能。
 
-
-### 概述
-TDSQL 实现水平分表，业务只需在创建表的时候指定一个分表字段，后续操作对业务透明，由TDSQL负责数据的路由以及汇总。
-
--   提供了灵活的读写分离模式
-- 	支持全局的 order by，group by，limit 操作；
-- 	聚合函数支持 sum，count，avg，min，max(其他聚合函数不支持)
-- 	支持单 set 的 join，基于分组以及小表在一定程度上实现跨set的join；
-- 	支持预处理协议；
-- 	支持全局唯一字段；
-- 	提供特定的 sql 查询整个集群的配置和状态；
-- 	支持分布式事务
-- 	支持两级分区
+## 概述
+TDSQL 实现水平分表，业务只需在创建表时指定一个分表字段，后续操作对业务透明，由 TDSQL 负责数据的路由以及汇总。
+-  提供灵活的读写分离模式。
+- 支持全局的 order by，group by，limit 操作。
+- 聚合函数支持 sum，count，avg，min，max（其他聚合函数不支持）。
+- 支持单 set 的 join，基于分组以及小表在一定程度上实现跨 set 的 join。
+- 支持预处理协议。
+- 支持全局唯一字段。
+- 提供特定的 sql 查询整个集群的配置和状态。
+- 支持分布式事务。
+- 支持两级分区。
 
 
 不支持 MySQL 的一些特性：
+- 自定义函数。
+- 视图，存储过程，触发器，游标。
+- 外键，自建分区。
+- 复合语句，如 BEGIN END，LOOP，UNION。
+- 子查询，having 子句（但支持带 shardkey 的 derived table）。
 
-- 自定义函数
-- 视图、存储过程、触发器，游标
-- 外键，自建分区
-- 复合语句，如 BEGIN END，LOOP，UNION
-- 子查询，having 字句，（但支持带 shardkey 的 derived table）
 
-
-### 语言结构
-
+## 语言结构
 TDSQL 支持所有 MySQL 使用的文字格式，包括：
 ```
-	String Literals
-	Numeric Literals
-	Date and Time Literals
-	Hexadecimal Literals
-	Bit-Value Literals
-	Boolean Literals
-	NULL Values
+  String Literals
+  Numeric Literals
+  Date and Time Literals
+  Hexadecimal Literals
+  Bit-Value Literals
+  Boolean Literals
+  NULL Values
 ```
-#### String Literals
 
-String Literals 是一个 bytes 或者 characters 的序列，两端被单引号'或者双引号"包围，目前 TDSQL 不支持 ANSI_QUOTES SQL MODE，双引号"包围的始终认为是String Literals，而不是 identifier
+### String Literals
+String Literals 是一个 bytes 或者 characters 的序列，两端被单引号'或者双引号"包围，目前 TDSQL 不支持 ANSI_QUOTES SQL MODE，双引号"包围的始终认为是 String Literals，而不是 identifier。
 
-不支持 character set introducer，即[_charset_name]'string' [COLLATE collation_name]这种格式
+不支持 character set introducer，即 [_charset_name]'string' [COLLATE collation_name] 这种格式。
 
 支持的转义字符：
 ```	
@@ -62,19 +57,14 @@ String Literals 是一个 bytes 或者 characters 的序列，两端被单引号
 	\_: _
 ```
 
-#### Numeric Literals
-
-数值字面值包括 integer 跟 Decimal 类型跟浮点数字面值。
-
-integer 可以包括 . 作为小数点分隔，数字前可以有 - 或者 + 来表示正数或者负数。
-
-精确数值字面值可以表示为如下格式：1, .2, 3.4, -5, -6.78, +9.10.
-
+### Numeric Literals
+数值字面值包括 integer、Decimal 类型及浮点数字面值。
+integer 可以包括`.`作为小数点分隔，数字前可以有`-`或`+`来表示正数或负数。
+精确数值字面值可以表示为如下格式：1, .2, 3.4, -5, -6.78, +9.10。
 科学记数法，如下格式：1.2E3, 1.2E-3, -1.2E3, -1.2E-3。
 
-#### Date and Time Literals
-
-DATE支持如下格式：
+### Date and Time Literals
+DATE 支持如下格式：
 ```
 	'YYYY-MM-DD' or 'YY-MM-DD'
 	'YYYYMMDD' or 'YYMMDD'
@@ -90,8 +80,8 @@ DATETIME，TIMESTAMP支持如下格式：
 
 	如'2012-12-31 11:30:45', '2012^12^31 11+30+45', '2012/12/31 11*30*45',  '2012@12@31 11^30^45'，19830905132800 
 ```
-#### Hexadecimal Literals
 
+### Hexadecimal Literals
 支持格式如下：
 ```
 	X'01AF'
@@ -101,17 +91,17 @@ DATETIME，TIMESTAMP支持如下格式：
 	0x01AF
 	0x01af
 ```
-#### Bit-Value Literals
 
+### Bit-Value Literals
 支持格式如下：
 ```
 	b'01'
 	B'01'
 	0b01
 ```
-#### Boolean Literals
 
-常量 TRUE 和 FALSE 等于 1 和 0，它是大小写不敏感的。
+### Boolean Literals
+常量 TRUE 和 FALSE 等于1和0，大小写不敏感。
 ```	
 	mysql>  SELECT TRUE, true, FALSE, false;
 	+------+------+-------+-------+
@@ -121,16 +111,13 @@ DATETIME，TIMESTAMP支持如下格式：
 	+------+------+-------+-------+
 	1 row in set (0.03 sec)
 ```
-#### NULL Values
-	
-NULL 代表数据为空，它是大小写不敏感的，与 \N(大小写敏感) 同义。
 
-需要注意的是 NULL 跟 0 并不一样，跟空字符串 '' 也不一样。
+### NULL Values
+NULL 代表数据为空，大小写不敏感，与 \N(大小写敏感) 同义。
+需要注意的是 NULL 跟0并不一样，跟空字符串`''`也不一样。
 
-
-### 字符集和时区
-
-TDSQL 在后端存储支持 MySQL 的所有字符集和字符序
+## 字符集和时区
+TDSQL 在后端存储支持 MySQL 的所有字符集和字符序：
 ```
 	mysql> show character set;
 	+----------+---------------------------------+---------------------+--------+
@@ -180,6 +167,7 @@ TDSQL 在后端存储支持 MySQL 的所有字符集和字符序
 	+----------+---------------------------------+---------------------+--------+
 	41 rows in set (0.02 sec)
 ```
+
 查看当前连接的字符集：
 ```
 	mysql> show variables like "%char%";
@@ -196,6 +184,7 @@ TDSQL 在后端存储支持 MySQL 的所有字符集和字符序
 	| character_sets_dir       | /data/tdsql_run/8812/percona-5.7.17/share/charsets/ |
 	+--------------------------+-----------------------------------------------------+
 ```	
+
 设置当前连接相关的字符集：
 ```
 	mysql> set names utf8;
@@ -216,10 +205,10 @@ TDSQL 在后端存储支持 MySQL 的所有字符集和字符序
 	+--------------------------+-----------------------------------------------------+
 ```
 
-note：TDSQL 不支持设置全局参数，需要调用 OSS 接口设置
+>?TDSQL 不支持设置全局参数，需要调用 OSS 接口设置。
 
 
-支持通过设置 time_zone 变量修改时区相关的属性
+支持通过设置 time_zone 变量修改时区相关的属性：
 ```
 	mysql> show variables like '%time_zone%';
 	+------------------+--------+
@@ -266,13 +255,12 @@ note：TDSQL 不支持设置全局参数，需要调用 OSS 接口设置
 
 
 ```
-### 数据类型
 
-TDSQL支持MySQL的所有数据类型，包括数字，字符，日期，空间类型，Json
+## 数据类型
+TDSQL 支持 MySQL 的所有数据类型，包括数字、字符、日期、空间类型、JSON。
 
-#### 数字
-
-整型支持 INTEGER, INT, SMALLINT, TINYINT, MEDIUMINT, BIGINT
+### 数字
+整型支持 INTEGER、INT、SMALLINT、TINYINT、MEDIUMINT、BIGINT。
 ```
 | Type      | 字节数  | 最小值(有符号/无符号)           | 最大值(有符号/无符号)                             |
 | --------- | ---- | ---------------------- | ---------------------------------------- |
@@ -283,14 +271,12 @@ TDSQL支持MySQL的所有数据类型，包括数字，字符，日期，空间�
 | BIGINT    | 8    | -9223372036854775808/0 | 9223372036854775807/18446744073709551615 |
 
 ```
-浮点类型支持 FLOAT 和 DOUBLE，格式`FLOAT(M,D)` 或者`REAL(M,D)` 或者` DOUBLE PRECISION(M,D)`
+浮点类型支持 FLOAT 和 DOUBLE，格式`FLOAT(M,D)` 或者`REAL(M,D)` 或者` DOUBLE PRECISION(M,D)`。
+定点类型支持 DECIMAL 和 NUMERIC，格式`DECIMAL(M,D)`。
 
-定点类型支持 DECIMAL 和 NUMERIC，格式`DECIMAL(M,D)`
 
-
-#### 字符
-
-支持如下字符类型
+### 字符
+支持如下字符类型：
 ```
 	CHAR 和 VARCHAR Types
 	BINARY 和 VARBINARY Types
@@ -299,17 +285,17 @@ TDSQL支持MySQL的所有数据类型，包括数字，字符，日期，空间�
 	ENUM Type
 	SET Type
 ```
-#### 日期
 
-支持如下时间类型
+### 日期
+支持如下时间类型：
 ```
 	DATE, DATETIME,  TIMESTAMP Types
 	TIME Type
 	YEAR Type
 ```
-#### 空间
 
-支持如下空间类型
+### 空间
+支持如下空间类型：
 ```
 	GEOMETRY
 	POINT
@@ -321,9 +307,9 @@ TDSQL支持MySQL的所有数据类型，包括数字，字符，日期，空间�
 	MULTIPOLYGON
 	GEOMETRYCOLLECTION
 ```
-#### Json
 
-支持存储 Json 格式的数据，使得对 Json 处理更加有效，同时又能提早检查错误
+### JSON
+支持存储 JSON 格式的数据，使得对 JSON 处理更加有效，同时又能提早检查错误：
 ```
 	mysql>  CREATE TABLE t1 (jdoc JSON,a int) shardkey=a;
 	Query OK, 0 rows affected (0.30 sec)
@@ -342,49 +328,48 @@ TDSQL支持MySQL的所有数据类型，包括数字，字符，日期，空间�
 	1 row in set (0.03 sec)
 
 ```
-针对 json 类型的 orderby 不支持混合类型排序，如不能将 string 类型和 int 类型做比较，同类型排序只支持数值类型，string 类型，其它类型排序不处理
+针对 JSON 类型的 orderby 不支持混合类型排序，如不能将 string 类型和 int 类型做比较，同类型排序只支持数值类型，string 类型，其它类型排序不处理。
 
 
-### SQL 语句语法
-
-#### 建表
-
-普通的分表创建时必须在最后面指定 shardkey 的值，该值为表中的一个字段名字，会用于后续 sql 的路由选择：
+## SQL 语句语法
+### 建表
+普通的分表创建时，必须在最后面指定 shardkey 的值，该值为表中的一个字段名字，会用于后续 sql 的路由选择：
 ```
 	mysql> create table test1 ( a int, b int, c char(20),primary key (a,b),unique key u_1(a,c) ) shardkey=a;
 	Query OK, 0 rows affected (0.07 sec)
 ```
-由于在TDSQL下，shardkey对应后端数据库的分区字段，因此必须是主键以及所有唯一索引的一部分，否则没法创建表：
+
+由于在 TDSQL 下，shardkey 对应后端数据库的分区字段，因此必须是主键以及所有唯一索引的一部分，否则无法创建表：
 ```
 	mysql> create table test1 ( a int, b int, c char(20),primary key (a,b),unique key u_1(a,c),unique key u_2(b,c) ) shardkey=a;;
 ```
-	此时有一个唯一索引u_2不包含shardkey，没法创建表，会报如下错误：
-	`ERROR 1105 (HY000): A UNIQUE INDEX must include all columns in the table's partitioning function`
-	因为主键索引或者 unique key 索引意味着需要全局唯一，而要实现全局唯一索引则必须包含shardkey字段
+此时有一个唯一索引 u_2 不包含 shardkey，没法创建表，会报如下错误：
+`ERROR 1105 (HY000): A UNIQUE INDEX must include all columns in the table's partitioning function`
+因为主键索引或者 unique key 索引意味着需要全局唯一，而要实现全局唯一索引则必须包含 shardkey 字段。
 
 
-除了上面的限制外，shardkey 字段还有如下要求：
+除上面的限制外，shardkey 字段还有如下要求：
+- shardkey 字段的类型必须是 int,bigint,smallint/char/varchar。
+- shardkey 字段的值不应该有中文，网关不会转换字符集，所以不同字符集可能会路由到不同的分区。
+- 不要 update shardkey 字段的值。
+- shardkey=a 放在 sql 的最后面。
+- 访问数据尽量都能带上shardkey 字段，这个不是强制要求，但不带 shardkey 的 sql 会路由到所有节点，消耗较多资源。
 
-	1.shardkey 字段的类型必须是int,bigint,smallint/char/varchar
-	2.shardkey 字段的值不应该有中文，网关不会转换字符集，所以不同字符集可能会路由到不同的分区
-	3.不要 update shardkey 字段的值
-	4.shardkey=a 放在 sql 的最后面
-	5.访问数据尽量都能带上shardkey 字段，这个不是强制要求，但是不带shardkey的sql会路由到所有节点，消耗较多资源
 
-
-支持建小表（广播表），此时该表在所有set中都是全量数据，这个主要方便于跨 set 的 join 操作，同时通过分布式事务保证修改操作的原子性，使得所有 set 的数据是完全一致的
+支持建小表（广播表），此时该表在所有 set 中都是全量数据，这个主要方便于跨 set 的 join 操作，同时通过分布式事务保证修改操作的原子性，使得所有 set 的数据完全一致。
 ```
 	mysql> create table global_table ( a int, b int key) shardkey=noshardkey_allset;
 	Query OK, 0 rows affected (0.06 sec)
 ```
-支持建立普通的表，语法和mysql完全一样，此时该表的数据全量存在第一个 set 中，所有该类型的表都放在第一个set中：
+
+支持建立普通的表，语法和 MySQL 完全一样，此时该表的数据全量存在第一个 set 中，所有该类型的表都放在第一个set中。
 ```
 	mysql> create table noshard_table ( a int, b int key);
 	Query OK, 0 rows affected (0.02 sec)
 ```
 
-#### 普通 sql
-select：最好带上 shardkey 字段，否则就需要全表扫描，然后网关进行结果集聚合，影响执行效率：
+### 普通 sql
+select：最好带上 shardkey 字段，否则需要全表扫描，然后网关进行结果集聚合，影响执行效率：
 ```
 	mysql> select * from test1 where a=2;
 	+------+------+---------+
@@ -395,7 +380,8 @@ select：最好带上 shardkey 字段，否则就需要全表扫描，然后网�
 	+------+------+---------+
 	2 rows in set (0.00 sec)
 ```	
-insert/replace：字段必须包含shardkey，否则会拒绝执行该sql，因为Proxy不知道把该sql发往哪个后端数据库：
+
+insert/replace：字段必须包含 shardkey，否则会拒绝执行该 sql，因为 Proxy 不知道把该 sql 发往哪个后端数据库：
 ```
 	mysql> insert into test1 (b,c) values(4,"record3");
 	ERROR 810 (HY000): Proxy ERROR:sql is too complex,need to send to only noshard table.
@@ -404,7 +390,8 @@ insert/replace：字段必须包含shardkey，否则会拒绝执行该sql，因�
 	mysql> insert into test1 (a,c) values(4,"record3");
 	Query OK, 1 row affected (0.01 sec)
 ```	
-delete/update：为了安全考虑，执行该类sql的时候必须带有where条件，否则拒绝执行该sql命令：
+
+delete/update：为安全考虑，执行该类 sql 时，必须带有 where 条件，否则拒绝执行该 sql 命令：
 ```
 	mysql> delete from test1;
 	ERROR 810 (HY000): Proxy ERROR:sql is too complex,need to send to only noshard table.
@@ -413,35 +400,36 @@ delete/update：为了安全考虑，执行该类sql的时候必须带有where�
 	mysql> delete from test1 where a=1;
 	Query OK, 1 row affected (0.01 sec)
 ```
-#### 聚合
 
-TDSQL支持如下全局聚合函数和全局的排序分组：sum，min，max，count，avg，order by和group by
+### 聚合
+TDSQL 支持如下全局聚合函数和全局的排序分组：sum，min，max，count，avg，order by 和 group by。
 
-使用方式和单机mysql一样，对于order by和group by对应的字段需要在select列表中显示指定
+使用方式和单机 MySQL 一样，对于 order by 和 group by 对应的字段需要在 select 列表中显示指定。
 ```
         mysql> select count(*),b from test group by b;
         
         mysql> select a,b from test order by b;
 ```
-#### 透传sql
 
-在TSQL，proxy会对sql进行语法解析，会有比较严格的限制，如果用户想在某个set中执行sql，可以使用透传sql的功能：
+### 透传 sql
+在 TSQL，proxy 会对 sql 进行语法解析，会有比较严格的限制，如果用户想在某个 set 中执行 sql，可以使用透传 sql 的功能：
 ```
 	mysql> select * from test1 where a in (select a from test1);
 	ERROR 808 (HY000): Proxy ERROR:sql should has one shardkey
 	mysql> /*set_1*/select * from test1 where a in (select a from test1);
 	Empty set (0.00 sec)
 ```
+
 具体语法：
 ```	
 	sets:set_1,set_2（set名字可以通过/*proxy*/show status查询）   
 	sets:allsets   
 	shardkey:10,支持透传sql到对应的一个或者多个set，透传到shardkey对应的set，
 ```
-note：透传sql时，proxy不会解析sql，所以如果是往两个set进行透传写操作的话，不会使用分布式事务，极端情况下会发生不一致的问题，因此对于写操作建议一次透传一个set
+>?透传 sql 时，proxy 不会解析 sql，所以如果是往两个 set 进行透传写操作的话，不会使用分布式事务，极端情况下会发生不一致的问题，因此对于写操作建议一次透传一个 set。
 
-#### JOIN
-支持单个set内的join操作，单个set意味着在一个事务内的所有sql必须操作同一个set，因此必须指定shardkey字段
+### JOIN
+支持单个 set 内的 join 操作，单个 set 意味着在一个事务内的所有 sql 必须操作同一个 set，因此必须指定 shardkey 字段：
 ```
 	mysql> create table test1 ( a int key, b int, c char(20) ) shardkey=a;
 	Query OK, 0 rows affected (1.56 sec)
@@ -466,7 +454,8 @@ note：透传sql时，proxy不会解析sql，所以如果是往两个set进行�
 	1 row in set (0.00 sec)
 
 ```
-支持带条件的跨set inner join
+
+支持带条件的跨 set inner join：
 ```
 	mysql>  select * from test1 join test2 on test1.a=test2.a;
 	+---+------+---------+---+------+---------------+
@@ -479,11 +468,11 @@ note：透传sql时，proxy不会解析sql，所以如果是往两个set进行�
 ```
 
 但有如下前置条件：
-- 	必须是inner join
-- 	inner join的条件必须是所有表的shardkey字段相等，支持on，using以及where格式
+- 必须是 inner join。
+- inner join 的条件必须是所有表的 shardkey 字段相等，支持 on，using 以及 where 格式。
 
 
-对于小表和noshard表相关的join，对shardkey没有限制：
+对于小表和 noshard 表相关的 join，对 shardkey 没有限制：
 ```
 	mysql> create table noshard_table ( a int, b int key);
 	Query OK, 0 rows affected (0.02 sec)
@@ -513,10 +502,10 @@ note：透传sql时，proxy不会解析sql，所以如果是往两个set进行�
 	+------+---+------+----+
 	4 rows in set (0.00 sec)
 ```
-目前不支持noshard表和shard进行join操作
+目前不支持 noshard 表和 shard 进行 join 操作。
 
 
-#### 分布式事务
+### 分布式事务
 支持分布式事务，并且对客户端透明，业务像使用单机事务一样使用。
 ```
 	begin; //开启事务
@@ -528,28 +517,25 @@ note：透传sql时，proxy不会解析sql，所以如果是往两个set进行�
 ```
 
 新增sql用于查询特定事务的信息：
-```
-	1)	select gtid()，获取当前分布式事务的gtid(事务的全局唯一性标识)，如果该事务不是分布式事务则返回空；
-		gtid的格式：
-			‘网关id’-‘网关随机值’-‘序列号’-‘时间戳’-‘分区号’，例如 c46535fe-b6-dd-595db6b8-25
+1. select gtid()，获取当前分布式事务的 gtid(事务的全局唯一性标识)，如果该事务不是分布式事务则返回空。
+gtid 的格式：
+‘网关id’-‘网关随机值’-‘序列号’-‘时间戳’-‘分区号’，例如 c46535fe-b6-dd-595db6b8-25。
 
-	2)	select gtid_state(“gtid”)，获取“gtid”的状态，可能的结果有：
-		a)	“COMMIT”，标识该事务已经或者最终会被提交
-		b)	“ABORT”，标识该事务最终会被回滚
-		c)  空，由于事务的状态会在一个小时之后清除，因此有以下两种可能：
-				1) 一个小时之后查询，标识事务状态已经清除
-				2) 一个小时以内查询，标识事务最终会被回滚
-				
-		注意： 当commit执行超时或者失败的时候，应该等待几秒之后再调用该接口来查询事务的状态
+2. select gtid_state(“gtid”)，获取 “gtid” 的状态，可能的结果有：
+ - “COMMIT”，标识该事务已经或者最终会被提交。
+ - “ABORT”，标识该事务最终会被回滚。
+ - 空，由于事务的状态会在一个小时之后清除，因此有以下两种可能：
+1) 一个小时之后查询，标识事务状态已经清除。
+2) 一个小时以内查询，标识事务最终会被回滚		。		
+注意：当 commit 执行超时或者失败时，应该等待几秒之后再调用该接口来查询事务的状态。
 		
-	3) 运维命令：
-		xa recover：向后端set发送xa recover命令，并进行汇总
-		xa lockwait：显示当前分布式事务的等待关系（可以使用dot命令将输出转化为等待关系图）
-		xa show：当前网关上正在运行的分布式事务
+3. 运维命令：
+ -	xa recover：向后端 set 发送 xa recover 命令，并进行汇总。
+ -	xa lockwait：显示当前分布式事务的等待关系（可以使用 dot 命令将输出转化为等待关系图）。
+ -	xa show：当前网关上正在运行的分布式事务。
 		
-```			
-#### 全局唯一字段
 
+### 全局唯一字段
 支持一定意义上的自增字段，保证某个字段全局唯一，但是不保证单调递增，具体使用方法如下：
 
 创建：
@@ -557,6 +543,7 @@ note：透传sql时，proxy不会解析sql，所以如果是往两个set进行�
 	mysql> create table auto_inc (a int,b int,c int auto_increment,d int,key auto(c),primary key p(a,d)) shardkey=d;
 	Query OK, 0 rows affected (0.12 sec)
 ```
+
 插入：
 ```
 	mysql>  insert into shard.auto_inc ( a,b,d,c) values(1,2,3,0),(1,2,4,0);
@@ -573,7 +560,7 @@ note：透传sql时，proxy不会解析sql，所以如果是往两个set进行�
 	2 rows in set (0.03 sec)
 ```
 
-值得说明的是，如果在proxy调度切换、重启等过程中，自增长字段中间会有空洞，例如：
+值得说明的是，如果在 proxy 调度切换、重启等过程中，自增长字段中间会有空洞，例如：
 ```
     mysql> insert into shard.auto_inc ( a,b,d,c) values(11,12,13,0),(21,22,23,0);
     Query OK, 2 rows affected (0.03 sec)
@@ -587,13 +574,14 @@ note：透传sql时，proxy不会解析sql，所以如果是往两个set进行�
     | 11 | 12 | 2001 | 13 |
     +‐‐‐‐‐‐+‐‐‐‐‐‐+‐‐‐‐‐‐+‐‐‐‐‐‐+
     4 rows in set (0.01 sec)
- ```   
-更改当前值
+```   
+
+更改当前值：
 ```
 	alter table auto_inc auto_increment=100
 ```
 
-如果用户不指定自增值，可以通过select last_insert_id()获取
+如果用户不指定自增值，可以通过 select last_insert_id() 获取：
 ```	
 	mysql> insert into auto_inc ( a,b,d,c) values(1,2,3,0),(1,2,4,0);
 	Query OK, 2 rows affected (0.73 sec)
@@ -615,13 +603,11 @@ note：透传sql时，proxy不会解析sql，所以如果是往两个set进行�
 	+------------------+
 	1 row in set (0.00 sec)
 ```
-note：目前`select last_insert_id()`只能跟shard表的自增字段一起使用，不支持noshard表和广播小表
+>?目前`select last_insert_id()`只能跟 shard 表的自增字段一起使用，不支持 noshard 表和广播小表。
 
-#### 数据库管理语句
-
+### 数据库管理语句
 状态查询
-
-通过sql可以查看proxy的配置以及状态信息，目前支持如下命令：
+通过 sql 可以查看 proxy 的配置以及状态信息，目前支持如下命令：
 ```
 	mysql> /*proxy*/help;
 	+-----------------------+-------------------------------------------------------+
@@ -673,7 +659,7 @@ note：目前`select last_insert_id()`只能跟shard表的自增字段一起使�
 ```
 
 
-同时proxy增强了explain的返回结果，显示proxy修改后的sql
+同时 proxy 增强了 explain 的返回结果，显示 proxy 修改后的 sql：
 ```
 	mysql> explain select * from test1;
 	+------+-------------+-------+------+---------------+------+---------+------+------+-------+-----------------------------------------+
@@ -684,19 +670,17 @@ note：目前`select last_insert_id()`只能跟shard表的自增字段一起使�
 	+------+-------------+-------+------+---------------+------+---------+------+------+-------+-----------------------------------------+
 	2 rows in set (0.03 sec)
 ```
-#### 数据导入导出
 
-支持mysqldump导出数据：
-    
+### 数据导入导出
+支持 mysqldump 导出数据： 
 导出前设置`net_write_timeout`参数：`set global net_write_timeout=28800`
 ```
 	mysqldump --compact --single-transaction --no-create-info -c
                      shard sbtest1  -uxxx -hxxx.xxx.xxx.xxx -Pxxxx -pxxx
 ```
+具体参数根据实际情况选择，如果导出的数据要导入到另外一套 TDSQL 环境的话，必须加上 -c 选项。
 
-具体参数根据实际情况选择，如果导出的数据要导入到另外一套TDSQL环境的话，必须加上-c选项
-
-如果要导入数据的话，提供专门的导入工具，完成load data outfile对应数据的导入：
+如果要导入数据的话，提供专门的导入工具，完成 load data outfile 对应数据的导入：
 ```
 	[tdengine@TENCENT64 ~/]$./load_data
 	
@@ -714,19 +698,17 @@ note：目前`select last_insert_id()`只能跟shard表的自增字段一起使�
 	note:field_terminate may have more than one char,filed_enclosed must have only one char,all can not have ',do not support escape char
 	
 ```
-#### 预处理
 
-Sql类型的支持：
-
+### 预处理
+sql 类型的支持：
 - PREPARE Syntax
 - EXECUTE Syntax
 
 二进制协议的支持：
-
 - `COM_STMT_PREPARE`
 - `COM_STMT_EXECUTE`
 
-例子：
+示例：
 ```
 	mysql> select * from test1;
 	+---+------+
@@ -754,9 +736,8 @@ Sql类型的支持：
 	1 row in set (0.06 sec)
 ```
 
-#### 子查询
-
-TDSQL对于子查询这块支持比较有限，目前只支持带shardkey的derived table
+### 子查询
+TDSQL 对于子查询支持比较有限，目前只支持带 shardkey 的 derived table：
 ```
 	mysql> select a from (select * from test1) as t;
 	ERROR 7012 (HY000): Proxy ERROR:sql should has one shardkey
@@ -769,13 +750,12 @@ TDSQL对于子查询这块支持比较有限，目前只支持带shardkey的deri
 	1 row in set (0.00 sec)
 ```
 
-#### 两级分区
+### 两级分区
+TDSQL 只用 HASH 方式进行数据拆分，不利于删除特定条件的数据，如流水类型，删除旧的数据，为解决这个问题，可以使用两级分区。
 
-TDSQL只用HASH方式进行数据拆分，不利于删除特定条件的数据，如流水类型，删除旧的数据，为了解决这个问题，可以使用两级分区。
+TDSQL 支持 range 和 list 格式的两级分区，具体建表语法和 MySQL 分区语法类似。
 
-TDSQL支持range和list格式的两级分区，具体建表语法和mysql分区语法类似
-
-range支持类型
+range 支持类型：
 ```
 	DATE，DATETIME，TIMESTAMP
 		支持year，month，day函数，函数为空和day函数一样
@@ -785,10 +765,10 @@ range支持类型
 
 		函数为空则直接使用该int值和分表信息对比
 ```
-例子：
-```
-	如果hired是date类型，则查询插入对应的值格式为 '20160101 10:20:20' ,20160101 
 
+示例：
+如果 hired 是 date 类型，则查询插入对应的值格式为 '20160101 10:20:20' ,20160101 
+```
 	CREATE TABLE employees_int (
 	    id INT key NOT NULL,
 	    fname VARCHAR(30),
@@ -806,7 +786,7 @@ range支持类型
 	);
 ```
 	
-如果hired是int类型，则查询插入对应的值格式为1474961034，proxy首先会转换成对应的date格式，20160927，然后和分表信息对比
+如果 hired 是 int 类型，则查询插入对应的值格式为1474961034，proxy 首先会转换成对应的date格式，20160927，然后和分表信息对比：
 ```
 	CREATE TABLE employees_int (
 	    id INT key NOT NULL,
@@ -826,7 +806,7 @@ range支持类型
 ```
 
 
-list支持类型
+list 支持类型：
 ```
 	DATE，DATETIME，TIMESTAMP ，支持年月日函数
 
@@ -850,12 +830,10 @@ list支持类型
 	);
 
 ```
-注意：分区使用的是小于符号，因此如果要存储当年的数据的话（2017），需要创建<2018的分区，用户只需创建到当前的时间分区，TDSQL会自动增加后续分区，默认往后创建3个分区，以YEAR为例，TDSQL会自动创建2018，2019，2020的分区，后续也会自动增减
+注意：分区使用的是小于符号，因此如果要存储当年的数据的话（2017），需要创建 < 2018的分区，用户只需创建到当前的时间分区，TDSQL 会自动增加后续分区，默认往后创建3个分区，以 YEAR 为例，TDSQL 会自动创建2018，2019，2020的分区，后续也会自动增减。
 
 
-
-#### 函数支持
-
+### 函数支持
 ```
 Control Flow Functions
 
@@ -1073,17 +1051,13 @@ Cast Functions and Operators
 ```
 
 ## 读写分离
-
-TDSQL支持三种模式的读写分离。
-
-- TDSQL开启语法解析的配置，通过语法解析过滤出用户的select读请求，默认把读请求直接发给备机；(该功能风险较大，需提交工单方能开启)
-- 通过增加slave注释标记，将指定的sql发往备机。即在sql中添加/*slave*/这样的标记，该sql会发送给备机；
-- 由只读帐号发送的请求会根据配置的属性发给备机
-	
+TDSQL 支持三种模式的读写分离。
+- TDSQL 开启语法解析的配置，通过语法解析过滤出用户的 select 读请求，默认把读请求直接发给备机，该功能风险较大，需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开启。
+- 通过增加 slave 注释标记，将指定的 sql 发往备机，即在 sql 中添加`/*slave*/`这样的标记，该 sql 会发送给备机。
+- 由只读帐号发送的请求会根据配置的属性发给备机。
 
 ## 错误码和错误信息
-
-proxy增加如下错误编码
+proxy 增加如下错误编码：
 ```
 	enum proxy_error
 	{
@@ -1121,5 +1095,3 @@ proxy增加如下错误编码
 	};
 ```
 其中900以上为系统错误，会通过监控平台进行告警。
-
-

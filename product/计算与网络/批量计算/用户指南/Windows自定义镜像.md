@@ -7,16 +7,10 @@
 
 ## 操作步骤
 ### 通过官方基础镜像创建云服务器
-1. 进入 [云服务器购买页](https://buy.cloud.tencent.com/cvm)。
-2. 选择【镜像市场】>【从镜像市场选择】。如下图所示：
-弹出“选择镜像”窗口。
-![](https://main.qcloudimg.com/raw/bd6bbe11ae49f5a398612d495422086f.png)
-3. 在“选择镜像”窗口的左侧搜索框中，输入批量计算并单击<image src="https://main.qcloudimg.com/raw/124eb3377f07070061fa6cd419f49abf.png" stylee="margin:-3px 0;"/>。如下图所示：
->?单击镜像名可查看镜像详情，您也可以前往 [云市场](https://market.cloud.tencent.com/products/5310) 查看。
->
-![](https://main.qcloudimg.com/raw/bc50a4cdb9d4598c3bef56add3f0dfea.png)
-4. 单击【免费使用】。
-5. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成云服务器的购买。
+1. 前往云市场，进入 [批量计算 Windows Server 2012 R2（64位中文）基础镜像](https://market.cloud.tencent.com/products/5310) 页面。
+2. 单击【免费使用】，进入云服务器购买页面。
+3. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成云服务器的购买。
+
 
 
 ### 在云服务器上安装业务需要的软件
@@ -67,7 +61,7 @@ tccli batch SubmitJob --version 2017-03-12 --Job '{
     "Zone": "ap-guangzhou-2"    // 可用区（可能需替换）
 }'
 ```
-您可使用以下示例代码，参考 [作业配置简介](https://cloud.tencent.com/document/product/599/10523?!preview&!editLang=zh#.E4.BD.9C.E4.B8.9A.E9.85.8D.E7.BD.AE.E7.AE.80.E4.BB.8B) 并补充其中**待替换**信息，将其中的 ImageId 替换为您的自定义镜像 ID。
+您可使用以下示例代码，参考 [作业配置简介](https://cloud.tencent.com/document/product/599/10523#.E4.BD.9C.E4.B8.9A.E9.85.8D.E7.BD.AE.E7.AE.80.E4.BB.8B) 并补充其中**待替换**信息，将其中的 ImageId 替换为您的自定义镜像 ID。
 ```
 tccli batch SubmitJob --version 2017-03-12  --Job '{"JobName": "TestJob",  "JobDescription": "for test", "Priority": "1", "Tasks": [{"TaskName": "Task1",  "TaskInstanceNum": 1,  "Application": {"DeliveryForm": "LOCAL", "Command":  "python -c \"fib=lambda n:1 if n<=2 else fib(n-1)+fib(n-2); print(fib(20))\" "},  "ComputeEnv": {"EnvType":  "MANAGED", "EnvData": {"InstanceType": "S1.SMALL1",  "ImageId": "待替换" }  }, "RedirectInfo": {"StdoutRedirectPath": "待替换", "StderrRedirectPath":   "待替换"}, "MaxRetryCount":  1 } ] }' --Placement '{"Zone": "ap-guangzhou-2"}'
 ```

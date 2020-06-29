@@ -1,5 +1,5 @@
 当您已经拥有所要调用 API 的 secret_id 和 secret_key，并且了解相关 API 的 URL 及所需参数等，即可进行调用。
-当您在调用 API 时，无论使用 HTTP 还是 HTTPS，都需要在请求头中包含签名信息，有关签名的计算详见 [密钥对计算](https://cloud.tencent.com/document/product/628/11819)。
+当您在调用 API 时，无论使用 HTTP 还是 HTTPS，都需要在请求头中包含签名信息，有关签名的计算详见 [密钥对认证](https://cloud.tencent.com/document/product/628/11819)。
 
 具体步骤如下：
 ## 请求

@@ -1,4 +1,5 @@
-
+### TPNS SDK 1.2.5.4及以下的版本模拟器提示找不到 XGForFreeVersion 符号？
+1.2.5.4及以下版本不支持模拟器请使用真机调试，如需使用模拟器调试请升级到最新版本。
 
 ### 推送消息无法收到？
 消息推送是一个涉及到很多关联模块协作的任务，每一个环节出现异常都可能会导致消息收不到，以下是最为常见的问题：
@@ -22,7 +23,7 @@ SDK 接入问题，在接入 SDK 之后，请确保能够获取到接收消息�
 
 
 **推送证书排查**
-腾讯移动推送服务器在向 APNs 请求消息下发的时候，需要使用两个必需的参数：消息推送证书和设备标识（Device Token），在进行消息推送的时候，请确保消息推送证书是有效的。关于消息推送证书的设置请参见 [iOS 推送证书说明](https://cloud.tencent.com/document/product/548/36664)。
+腾讯移动推送服务器在向 APNs 请求消息下发的时候，需要使用两个必需的参数：消息推送证书和设备标识（Device Token），在进行消息推送的时候，请确保消息推送证书是有效的。关于消息推送证书的设置请参见 [iOS 推送证书获取指引](https://cloud.tencent.com/document/product/548/36664)。
 
 
 
@@ -34,7 +35,6 @@ SDK 接入问题，在接入 SDK 之后，请确保能够获取到接收消息�
 
 
 ### 终端出现未找到应用程序的 “aps-environment” 的授权字符串错误？
-
 请检查 Xcode 工程中配置的 bundle id 是否和设置的 Provision Profile 文件匹配，且对应 App 的 Provision Profile 文件是否已配置了消息推送能力。
 
 
@@ -59,7 +59,7 @@ iOS 设备收到一条推送消息，用户点击推送消息打开应用时，�
 	```objective-c
 	- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
 	```
- - 基于 iOS 10.0+ 的系统版本，如果是使用 Remote Notification 特性，那么处理函数建议使用新增 UserNotifications Framework 来进行处理，在 iOS XG SDK3.1.0 之后的版本，腾讯移动推送 SDK 对新增的框架进行了封装，请使用 XGPushDelegate 协议中的以下两个方法，示例代码如下：
+ - 基于 iOS 10.0+ 的系统版本，如果是使用 Remote Notification 特性，那么处理函数建议使用新增 UserNotifications Framework 来进行处理，请使用 XGPushDelegate 协议中的以下两个方法，示例代码如下：
 	```objective-c
 	- (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
 		NSLog(@"[XGDemo] click notification");
@@ -88,8 +88,7 @@ iOS 设备收到一条推送消息，用户点击推送消息打开应用时，�
 
 ### 为何 iOS 没有抵达数据？
 - iOS 9.x 之前的版本，操作系统未提供 API 接口来监听消息抵达终端，故而无法统计。  
-- iOS 10.0+ 的版本，操作系统提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达，但目前腾讯移动推送 iOS 消息统计数据未计算这部分数据。
-
+- iOS 10.0+ 的版本，操作系统提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达。
 
 
 ### 使用腾讯移动推送服务端 SDK ，如何创建静默推送？
@@ -98,7 +97,42 @@ iOS 设备收到一条推送消息，用户点击推送消息打开应用时，�
 
 
 
-### iOS13 在的开发环境下，注册偶现不返回 DeviceToken？
-此问题现象是由于 APNs 服务不稳定导致的，可通过重启设备解决。
+### iOS13 开发环境下，注册偶现不返回 DeviceToken？
+此问题现象是由于 APNs 服务不稳定导致的，可尝试通过以下方式解决：
+1. 给手机插入 SIM 卡后使用4G网络测试。
+2. 卸载重装、重启 App、关机重启后测试。
+3. 打生产环境的包测试。
+4. 换别的 iOS 13 系统的手机测试  。
+
+
+### iOS 如何在测试设备有限的情况下扩大测试规模？
+1. 企业级证书签名
+申请企业级签名证书和企业级推送证书，发布方式如下：
+使用企业级签名证书构建并发布App，体验者可以通过企业内部开放的渠道下载安装App。
+2. AppStore 发布证书签名
+使用当前 AppStore 的发布签名证书，发布方式如下：
+TestFlight 发布预览版，先将 ipa 包上传到 [App Store Connect](https://appstoreconnect.apple.com)，然后通过 TestFlight 创建一个灰度版本，并在 TestFlight 上设置指定版本的体验人员名单(Apple ID)，最后体验者可以通过苹果官方【TestFlight】App 下载安装。
+
+
+### iOS 如何只更改角标而不弹出信息？
+可使用 API 在创建推送时使用通知栏消息类型，且标题内容设为空，同时只设置 badge_type 即可，详情可参考 [API 文档说明](https://cloud.tencent.com/document/product/548/39064#.E5.8F.AF.E9.80.89.E5.8F.82.E6.95.B0)。
+示例如下：
+```
+{
+    "platform": "ios",
+    "audience_type": "token",
+    "environment":"dev",
+        "token_list": [
+    "05a8ea6924590dd3a94480fa1c9fc8448b4e"],
+    "message_type":"notify",
+    "message":{
+    "ios":{
+        "aps": {
+            "badge_type":-2
+        }
+    }
+ }
+}
+```
 
 

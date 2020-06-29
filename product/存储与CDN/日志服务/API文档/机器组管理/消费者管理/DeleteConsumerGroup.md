@@ -8,7 +8,7 @@
 
 ```shell
 DELETE /consumergroup?topic_id=xxxx-xx-xx-xx-xxxx&consumer_group=cls_demo_consumer_group HTTP/1.1
-Host: <Region>.cls.myqcloud.com
+Host: <Region>.cls.tencentyun.com
 Authorization: <AuthorizationString>
 ```
 

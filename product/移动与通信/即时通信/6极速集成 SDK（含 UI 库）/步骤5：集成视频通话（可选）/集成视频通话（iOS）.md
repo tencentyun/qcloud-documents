@@ -128,7 +128,7 @@ public class videoCallMessageData {
 ## 步骤5：进入视频房间
  [Demo](https://github.com/tencentyun/TIMSDK) 中的 Chat/Meeting 文件夹中已包含视频房间进入/退出逻辑，您可以直接拷贝到当前项目工程中。
 
-进入视频房间示例代码如下，更多详情请参见 [TRTCParams 配置](https://cloud.tencent.com/document/product/647/32261#trtcparams)。
+进入视频房间示例代码如下，更多详情请参见 [TRTCParams 配置](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCParams)。
 
 ```
 - (void)_enterMeetingRoom {

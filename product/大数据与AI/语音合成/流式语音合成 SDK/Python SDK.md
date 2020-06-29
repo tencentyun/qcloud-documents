@@ -1,4 +1,4 @@
-流式语音合成 Python3 SDK [下载地址](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/python_stream_tts_sdk_v3.tar.gz)、Python2 SDK [下载地址](https://ruskin-1256085166.cos.ap-guangzhou.myqcloud.com/tts_sdk/python_stream_tts_sdk.tar.gz )。
+流式语音合成 Python3 SDK [下载地址](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/tts/python_stream_tts_sdk_v3.zip)、Python2 SDK [下载地址](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/tts/python_stream_tts_sdk_v2.zip)。
 
 接口请求域名：tts.cloud.tencent.com/stream  
 
@@ -42,10 +42,10 @@ SecretKey=kFpwo**************************
 | ModelType | 否 | Int | 模型类型，1：默认模型，此字段只需设置为1即可。|
 | Volume | 否 | Float | 音量大小，范围：[0，10]，分别对应11个等级的音量，默认值为0，代表正常音量。没有静音选项。<br>输入除以上整数之外的其他参数不生效，按默认值处理。|
 | Speed | 否 | Int | 语速，范围：[-2，2]分别对应不同语速：<br>-2代表0.6倍 <br>-1代表0.8倍<br>0代表1.0倍（默认）<br>1代表1.2倍<br>2代表1.5倍<br>输入除以上整数之外的其他参数不生效，按默认值处理。|
-| VoiceType | 否 | Int | 音色选择：<br>0：亲和女声（默认）<br>1：亲和男声<br>2：成熟男声<br>4：温暖女声<br>5：情感女声<br>6：情感男声|
+| VoiceType | 否 | Int | 详见：[语音合成 API 文档中的 VoiceType 参数](https://cloud.tencent.com/document/product/1073/37995)。|
 | PrimaryLanguage | 否 | Int | 主语言类型：<br>1：中文（默认）<br>2：英文 |
 | SampleRate | 否 | Int | 音频采样率：<br>16000:16k（默认）<br>8000:8k |
-| Codec | 否 | String | 返回音频格式：<br>opus：返回多段含 opus 压缩分片音频，数据量小，建议使用（默认）。<br>pcm：返回二进制 pcm 音频，使用简单，但数据量大。|
+| Codec | 否 | String | 返回音频格式：pcm 音频|
 | ProjectId | 否 | Int | 项目ID，可以根据控制台-账号中心-项目管理中的配置填写，如无配置请填写默认项目ID:0 。|
 | Timestamp | 是 | Int | 当前 UNIX 时间戳，可记录发起 API 请求的时间。如果与当前时间相差过大，会引起签名过期错误。SDK 会自动赋值当前时间戳。|
 | Expired | 是 | Int | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；Expired 必须大于 Timestamp 且 Expired-Timestamp 小于90天。SDK默认设置1小时。|
@@ -57,9 +57,19 @@ SecretKey=kFpwo**************************
 python tcloud_tts.py
 ```
 ### Python 快速入门例子
-参考 python_tts_sdk/tcloud_tts.py
+参考 tcloud_tts.py
 
 ```
+# coding=UTF-8
+import requests
+import wave
+import json
+import base64
+import time
+import collections
+
+from request_util import request, authorization
+
 def task_process():
     req = request()
     req.init()
@@ -68,7 +78,7 @@ def task_process():
 
     #request_data = collections.OrderedDict()
     request_data = dict()
-    request_data['Action'] = req.Action
+    request_data['Action'] = 'TextToStreamAudio'
     request_data['AppId'] = auth.AppId
     request_data['Codec'] = req.Codec
     request_data['Expired'] = int(time.time()) + auth.Expired
@@ -89,7 +99,7 @@ def task_process():
         "Content-Type": "application/json",
         "Authorization": str(signature)
     }
-    url = "https://aai.cloud.tencent.com/tts"
+    url = "https://tts.cloud.tencent.com/stream"
 
     r = requests.post(url, headers=header, data=json.dumps(request_data), stream = True)
     '''
@@ -108,6 +118,9 @@ def task_process():
         wavfile.writeframes(chunk)
         
     wavfile.close()
+
+    
+task_process()
 ```
 
 

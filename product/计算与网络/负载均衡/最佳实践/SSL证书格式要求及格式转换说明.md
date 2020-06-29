@@ -35,7 +35,7 @@ RSA 私钥规则：
 - [——-BEGIN RSA PRIVATE KEY——-, ——-END RSA PRIVATE KEY——-] 开头结尾，请将这些内容一并上传。
 - 每行64字符，最后一行长度可以不足64字符。
 
-如果您不是按照上述方案生成私钥，得到[——-BEGIN PRIVATE KEY——-, ——-END PRIVATE KEY——-] 这种样式的私钥，您可以按照如下方式转换：
+如果您不是按照上述方案生成 [——-BEGIN PRIVATE KEY——-, ——-END PRIVATE KEY——-] 这种格式的可用私钥，您可以按照如下方式转换成可用私钥：
 ```
 openssl rsa -in old_server_key.pem -out new_server_key.pem
 ```
@@ -43,7 +43,7 @@ openssl rsa -in old_server_key.pem -out new_server_key.pem
 
 ## 3. 证书转换为 PEM 格式说明
 
-目前负载均衡只支持 PEM 格式的证书，其他格式的证书需要转换成 PEM 格式后才能上传到负载均衡中，建议通过 openssl  工具进行转换。下面是几种比较流行的证书格式转换为 PEM 格式的方法。
+目前负载均衡仅支持 PEM 格式的证书，其他格式的证书需要转换成 PEM 格式后才能上传到负载均衡中，建议通过 openssl  工具进行转换。下面是几种比较流行的证书格式转换为 PEM 格式的方法。
 
 ### 3.1 DER 格式证书转换为 PEM 格式
 

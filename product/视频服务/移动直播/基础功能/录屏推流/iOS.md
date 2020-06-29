@@ -1,21 +1,21 @@
 
 ## 概述
 
-录屏功能是 iOS 10 新推出的特性，苹果在 iOS 9 的 ReplayKit 保存录屏视频的基础上，增加了视频流实时直播功能，官方介绍见 [Go Live with ReplayKit](http://devstreaming.apple.com/videos/wwdc/2016/601nsio90cd7ylwimk9/601/601_go_live_with_replaykit.pdf)。iOS 11 增强为 [ReplayKit2](https://developer.apple.com/videos/play/wwdc2017/606/)，进一步提升了 Replaykit 的易用性和通用性，并且可以对整个手机实现屏幕录制，而非某些做了支持 ReplayKit 功能的 App，因此录屏推流建议直接使用 iOS 11 的 ReplayKit2 屏幕录制方式。系统录屏采用的是扩展方式，扩展程序有单独的进程，iOS 系统为了保证系统流畅，给扩展程序的资源相对较少，扩展程序内存占用过大也会被 Kill 掉。腾讯云 LiteAV SDK 在原有直播的高质量、低延迟的基础上，进一步降低系统消耗，保证了扩展程序稳定。
+录屏功能是 iOS 10 新推出的特性，苹果在 iOS 9 的 ReplayKit 保存录屏视频的基础上，增加了视频流实时直播功能，官方介绍见 [Go Live with ReplayKit](http://devstreaming.apple.com/videos/wwdc/2016/601nsio90cd7ylwimk9/601/601_go_live_with_replaykit.pdf)。iOS 11 增强为 [ReplayKit2](https://developer.apple.com/videos/play/wwdc2017/606/)，进一步提升了 Replaykit 的易用性和通用性，并且可以对整个手机实现屏幕录制，并非只是支持 ReplayKit 功能，因此录屏推流建议直接使用 iOS 11 的 ReplayKit2 屏幕录制方式。系统录屏采用的是扩展方式，扩展程序有单独的进程，iOS 系统为了保证系统流畅，给扩展程序的资源相对较少，扩展程序内存占用过大也会被 Kill 掉。腾讯云 LiteAV SDK 在原有直播的高质量、低延迟的基础上，进一步降低系统消耗，保证了扩展程序稳定。
 
->!本文主要介绍 iOS 11 的 ReplayKit2 录屏使用 SDK 推流的方法，涉及 SDK 的使用介绍同样适用于其它方式的自定义推流。更详细的使用可参考 Demo 里 ReplaykitUpload 文件夹的示例代码。
+>!本文主要介绍 iOS 11 的 ReplayKit2 录屏使用 SDK 推流的方法，涉及 SDK 的使用介绍同样适用于其它方式的自定义推流。更详细的使用可参考 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo) 里 ReplaykitUpload 文件夹的示例代码。
 
 ## 功能体验
 
 体验 iOS 录屏可以单击安装 [视频云工具包](https://itunes.apple.com/cn/app/%E8%A7%86%E9%A2%91%E4%BA%91%E5%B7%A5%E5%85%B7%E5%8C%85/id1152295397?mt=8) 或通过扫码进行安装。
-![扫码安装](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/1529471216.png)
+![](https://main.qcloudimg.com/raw/386c06636b522fbd0f85714acf73209b.png)
 >!录屏推流功能仅11.0以上系统可体验。
 
 使用步骤：
 1. 打开控制中心，长按屏幕录制按钮，选择【视频云工具包】。
-2. 打开【视频云工具包】>【录屏幕推流】，输入推流地址或单击【New】自动获取推流地址，单击【开始推流】。
+2. 打开【视频云工具包】>【录屏直播】，输入推流地址或单击【New】自动获取推流地址，单击【开始推流】。
 
-![ScreenRecord](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/out.png)
+![](https://main.qcloudimg.com/raw/24bb380c6d9a747db4305b3f3edb1b5e.png)
 
 推流设置成功后，顶部通知栏会提示推流开始，此时您可以在其它设备上看到该手机的屏幕画面。单击手机状态栏的红条，即可停止推流。
 
@@ -28,9 +28,7 @@ Xcode 9 及以上的版本，手机也必须升级至 iOS 11 以上，否则模�
 ### 创建直播扩展
 
 在现有工程选择【New】>【Target…】，选择【Broadcast Upload Extension】，如图所示。
-
-![4](//mc.qcloudimg.com/static/img/9d18eb52c817ba14bbd707be56adb84c/image.png)
-
+![](https://main.qcloudimg.com/raw/c4c0b0ee049c733640f813a318a25adb.png)
 配置好 Product Name。单击【Finish】后可以看到，工程多了所输 Product Name 的目录，目录下有个系统自动生成的 SampleHandler 类，这个类负责录屏的相关处理。
 
 ### 导入 LiteAV SDK
@@ -316,7 +314,7 @@ ReplayKit2 录屏只唤起 upload 直播扩展，直播扩展不能进行 UI 操
 通过此通知可以提示用户回到主 App 设置推流信息、启动推流等。
 
 **2. 进程间的通知 CFNotificationCenter**
-扩展与宿主 App 之间还经常需要实时的交互处理，本地通知需要用户点知横幅才能触发代码处理，因此不能通过本地通知的方式。而 NSNotificationCenter 不能跨进程，因此可以利用 CFNotificationCenter 在宿主 App 与扩展之前通知发送，但此通知不能通过其中的 userInfo 字段进行数据传递，需要通过配置 App Group 方式使用 NSUserDefault 进行数据传递（也可以使用剪贴板，但剪贴板有时不能实时在进程间获取数据，需要加些延迟规避），如主 App 在获取好推流 URL 等后，通知扩展可以进行推流时，可通过 CFNotificationCenter 进行通知发送直播扩展开始推流：
+扩展与宿主 App 之间还经常需要实时的交互处理，本地通知需要用户点击横幅才能触发代码处理，因此不能通过本地通知的方式。而 NSNotificationCenter 不能跨进程，因此可以利用 CFNotificationCenter 在宿主 App 与扩展之前通知发送，但此通知不能通过其中的 userInfo 字段进行数据传递，需要通过配置 App Group 方式使用 NSUserDefault 进行数据传递（也可以使用剪贴板，但剪贴板有时不能实时在进程间获取数据，需要加些延迟规避），如主 App 在获取好推流 URL 等后，通知扩展可以进行推流时，可通过 CFNotificationCenter 进行通知发送直播扩展开始推流：
 
 ```
  CFNotificationCenterPostNotification(CFNotificationCenterGetDarwinNotifyCenter(),kDarvinNotificationNamePushStart,NULL,nil,YES);
@@ -370,20 +368,20 @@ static void onDarwinReplayKit2PushStart(CFNotificationCenterRef center,
 
 ## 常见问题
 ReplayKit2 屏幕录制在 iOS 11 新推出功能，比较少官方文档并且存在着一些问题每个版本的系统都在不断修复完善中。以下是一些使用中的常见现象或问题：
-1. **系统有声音在播放但观众端无法听到声音**
+1. **系统有声音在播放但观众端无法听到声音？**
 系统在做屏幕音频采集时，在从 home 界面切到有声音播放的 App 时才会采集声音，从有声音播放的 App 切换到无声音播放的 App 时，即使原 App 还在播放声音系统也不会进行音频采集，此时需要从 home 界面重新进入到有声音播放的 App 时系统才会重新采集。
 
-2. **收到推送信息观众端有时听不到声音**
+2. **收到推送信息观众端有时听不到声音？**
 这个是 ReplayKit2 在早期系统中存在的问题，收到推送消息后会停止屏幕录制的声音采集或采集到的是静音数据，需要重新从 home 界面切回到有时间的 App 才能恢复音频采集。在11.3之后的版本系统修复了这个问题。
 
-3. **打开麦克风录制时系统播放声音会变小**
+3. **打开麦克风录制时系统播放声音会变小？**
 这个是属于系统机制：打开麦克风采集时系统音频处于录制模式，会自动将其它的 App 播放的声音变为听筒模式，中途关闭麦克风采集也不会恢复，只有关闭或重新启动无麦克风录制时才会恢复为扬声器的播放。这个机制不影响 App 那路声音的录制，即观众端声音听到的声音大小不受影响。
 
-4. **屏幕录制何时自动会停止**
+4. **屏幕录制何时自动会停止？**
 系统在锁屏或有电话打入时，会自动停止屏幕录制，此时 SampleHandler 里的 broadcastFinished 函数会被调用，可在此函数发通知提示用户。
 
-5. **采集推流过程中有时屏幕录制会自动停止问题**
+5. **采集推流过程中有时屏幕录制会自动停止问题？**
 通常是因为设置的推流分辨率过高时在做横竖屏切换过程中容易出现。ReplayKit2 的直播扩展目前是有50M的内存使用限制，超过此限制系统会直接杀死扩展进程，因此 ReplayKit2 上建议推流分辨率不高于720P。另外不建议使用 autoSampleBufferSize 时做横竖屏切换，因为 Plus 的手机的分辨率可达1080 \* 1920，容易触发系统内存限制而被强制停止。
 
-6. **iPhoneX 手机的兼容性与画面变形问题**
+6. **iPhoneX 手机的兼容性与画面变形问题？**
 iPhoneX 手机因为有刘海，屏幕采集的画面分辨率不是9：16，如果设了推流输出分辨率为9 : 16的比例如高清里是为960 \* 540的分辨率，这时因为源分辨率不是9：16的，推出去的画面就会稍有变形。建议设置分辨率时根据屏幕分辨率比例来设置，拉流端用 AspectFit 显示模式 iPhoneX 的屏幕采集推流会有黑边是正常现象，AspectFill 看画面会不全。

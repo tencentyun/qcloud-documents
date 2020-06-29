@@ -14,18 +14,50 @@
 
 <span id="step03"></span>
 ### 创建云函数 SCF
-1. 登录[【云函数控制台】](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，进入【函数服务】页面。
+1. 登录【[云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)】，进入【函数服务】页面。
 2. 选择**北京**地域，单击【新建】，进入新建函数页面。
 3. 填写以下参数信息，单击【下一步】。如下图所示：
- - 创建方式：选择 “模板函数”。
- - 函数名称：命名为 “LogAnalysis”。
- - 模板搜索：选择 “语言” 为 “Python 2.7” 的 “日志分析写数据库” 模板。
- - 鼠标移至模板函数上，可查看模板函数详情，支持下载操作。
+ - **创建方式**：选择 “模板函数”。
+ - **函数名称**：命名为 “LogAnalysis”。
+ - **模板搜索**：选择 “语言” 为 “Python 2.7” 的 “日志分析写数据库” 模板。
+ 鼠标移至模板函数上，可查看模板函数详情，支持下载操作。
  ![](https://main.qcloudimg.com/raw/88e11b73bdd2bfb1c30997dea17e9c8c.jpg) 
 4. 保持默认配置，单击【完成】，完成函数的创建。
-5. 在使用本模板函数时，您需要按照提示在函数配置中，添加环境变量。切换到【函数配置】页面，单击【编辑】，新增环境变量： dbhost、dbport、dbuser、dbpwd、dbname 和 cosregion。
+5. 在使用本模板函数时，您需要按照提示在函数配置中，添加环境变量。
+ 进入已创建的云函数“函数配置”页面，单击右上角【编辑】，新增环境变量参考表格进行填写。如下图所示：
+ ![](https://main.qcloudimg.com/raw/bc7fba886447ed59aa4efb55046b98ea.jpg)
+<table>
+  <tbody><tr>
+          <th>key</th>
+          <th>value</th>
+      </tr>
+      <tr>
+          <td>dbhost</td>
+          <td rowspan="2">请参考 <a href="https://cloud.tencent.com/document/product/236/3130" target="_blank">访问 MySQL 数据库</a> 获取。</td>
+      </tr>
+      <tr>
+          <td>dbport</td>
+      </tr>
+      <tr>
+          <td>dbuser</td>
+          <td>已创建的 MySQL 数据库的用户名。</td>
+      </tr>
+			<tr>
+          <td>dbpwd</td>
+          <td>已设置的 MySQL 帐号密码。</td>
+      </tr>
+      <tr>
+          <td>dbname</td>
+          <td>需备份的数据库名称，本文以 <code>mason_demo</code> 为例。</td>
+      </tr>
+       <tr>
+      <td>cosregion</td>
+      <td> Bucket 所在地域。</td>
+      </tr>
+  </tbody></table>
+	
 >? 如果数据库使用的是内网地址，则函数也需要在【函数配置】页面中，选择和数据库相同的 VPC 和子网。如下图所示：
-![](https://main.qcloudimg.com/raw/7fbca3ed985c75064e55d4faaced2669.jpg) 
+![](https://main.qcloudimg.com/raw/0e798bf2be15c78ccd186b5a8803afed.jpg)
 
 <span id="step04"></span>
 #### 配置 COS 触发器

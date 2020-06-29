@@ -19,7 +19,7 @@
 | visibilityTimeout| 否| Int| 消息可见性超时。取值范围1 - 43200秒（即12小时内），默认值30。|
 | maxMsgSize| 否| Int| 消息最大长度。取值范围1024 - 1048576 Byte（即1 - 1024K），默认值65536。|
 | msgRetentionSeconds| 否| Int| 消息生命周期。取值范围60 - 1296000秒（1min-15天），默认值345600 (4天)。|
-|rewindSeconds|否|Int|队列是否开启回溯消息能力，该参数取值范围 0-msgRetentionSeconds，即最大的回溯时间为消息在队列中的保留周期，0表示不开启。|
+|rewindSeconds|否|Int|回溯队列的消息回溯时间最大值，取值范围0 - 43200秒，0表示不开启消息回溯。|
 
 ## 输出参数
 

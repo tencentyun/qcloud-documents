@@ -1,30 +1,37 @@
-
 ## 操作场景
 腾讯云支持基于 SAML 2.0（安全断言标记语言 2.0）的联合身份验证，SAML 2.0 是许多身份验证提供商（Identity Provider， IdP）使用的一种开放标准。您可以通过基于 SAML 2.0 联合身份验证将身份提供商与腾讯云进行集成，从而实现身份提供商用户自动登录（单一登录）腾讯云控制台管理腾讯云的资源，不必为企业或组织中的每一个成员都创建一个 CAM 子用户。
 
 ## 操作步骤
 您可以通过本步骤创建一个或多个角色作为身份提供商的载体登录腾讯云管理控制台，授予权限后可以在权限范围内通过腾讯云控制台管理主账号下的资源。
+
 1. 通过浏览器访问身份提供商的门户网站，并选择跳转到腾讯云管理控制台。
 2. 该门户网站可以验证当前用户的身份。
 3. 验证成功后，该门户网站会生成一个 SAML 2.0 身份验证响应，其中包括识别用户身份的断言以及用户的相关属性。该门户网站将此响应发送到客户端浏览器。
-4. 该客户端浏览器将被重定向到腾讯云单一登录终端节点并发布 SAML 断言。 
+4. 该客户端浏览器将被重定向到腾讯云单一登录终端节点并发布 SAML 断言。
 5. 终端节点将代表用户请求临时安全凭证，并创建一个使用这些凭证的控制台登录 URL。
 6. 腾讯云将登录 URL 作为重定向发回客户端。
 7. 该客户端浏览器将重定向到腾讯云管理控制台。如果 SAML 2.0 身份验证响应包含映射到多个 CAM 角色的属性，则系统将首先提示用户选择要用于访问控制台的角色。
 
 从用户的角度来看，整个流程以透明的方式进行：用户在您企业组织的内部门户网站开始操作，在腾讯云管理控制台结束操作，无需提供任何腾讯云凭证。有关如何配置此行为的概述以及指向详细步骤的链接，请参阅以下章节。
-### <span id="step配置身份提供商"></span>在企业组织中配置基于 SAML 2.0 的身份提供商
-在您的企业组织中，配置身份存储（例如 Azure Active Directory）以使用基于 SAML 2.0 的身份提供商，例如 Azure Active Directory、OneLogin、Okta 等。通过使用身份提供商，可以生成一个元数据文档。该文档将您的企业组织描述为包含身份验证密钥的身份提供商，会把您企业组织的门户网站配置为将访问腾讯云管理控制台的用户请求路由至腾讯云终端节点，以便使用 SAML 2.0 断言进行身份验证。如何配置您的身份提供商来生成 metadata.xml 文件取决于您的身份提供商。请参阅您的 IdP 文档以获得指示，或参阅以下文档。 
->- [Azure Active Directory 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/35713)
->- [OneLogin 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/35817)
->- [Okta 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/37658)
+
+### 在企业组织中配置基于 SAML 2.0 的身份提供商
+在您的企业组织中，配置身份存储（例如 Azure Active Directory）以使用基于 SAML 2.0 的身份提供商，例如 Azure Active Directory、OneLogin、Okta 等。通过使用身份提供商，可以生成一个元数据文档。该文档将您的企业组织描述为包含身份验证密钥的身份提供商，会把您企业组织的门户网站配置为将访问腾讯云管理控制台的用户请求路由至腾讯云终端节点，以便使用 SAML 2.0 断言进行身份验证。如何配置您的身份提供商来生成 metadata.xml 文件取决于您的身份提供商。请参阅您的 IdP 文档以获得指示，或参阅以下文档。
+
+- [Azure Active Directory 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/35713)
+- [OneLogin 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/35817)
+- [Okta 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/37658)
+- [ADFS 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/42702)
+
 ### 在 CAM 中创建 SAML 身份提供商
-您可以在访问管理（CAM）控制台创建一个 SAML 2.0 身份提供商，该身份提供商是访问管理（CAM）中的一个实体，可以认为是外部授信账号集合。基于 SAML 2.0 联合身份验证的身份提供商描述了支持 SAML 2.0（安全断言标记语言 2.0）标准的身份提供商服务。在创建过程中，您可以上传在 [在企业组织中配置基于 SAML 2.0 的身份提供商](#step配置身份提供商) 中的身份提供商的元数据文档。详细请参阅 [创建身份提供商](https://cloud.tencent.com/document/product/598/30290)。 
+您可以在访问管理（CAM）控制台创建一个 SAML 2.0 身份提供商，该身份提供商是访问管理（CAM）中的一个实体，可以认为是外部授信账号集合。基于 SAML 2.0 联合身份验证的身份提供商描述了支持 SAML 2.0（安全断言标记语言 2.0）标准的身份提供商服务。在创建过程中，您可以上传在 [在企业组织中配置基于 SAML 2.0 的身份提供商](https://cloud.tencent.com/document/product/598/38058#.E5.9C.A8.E4.BC.81.E4.B8.9A.E7.BB.84.E7.BB.87.E4.B8.AD.E9.85.8D.E7.BD.AE.E5.9F.BA.E4.BA.8E-saml-2.0-.E7.9A.84.E8.BA.AB.E4.BB.BD.E6.8F.90.E4.BE.9B.E5.95.86) 中的身份提供商的元数据文档。详细请参阅 [创建身份提供商](https://cloud.tencent.com/document/product/598/30290)。
+
 ### 在腾讯云中为 SAML 提供商用户配置权限
 您可以创建一个角色，用于建立您企业组织中的身份提供商和腾讯云的互信关系。在 SAML 2.0 断言上下文中，角色可分配给身份提供商验证身份的联合身份用户使用。此角色允许身份提供商请求临时安全证书进行腾讯云资源访问。在此过程中，您可以为该角色关联策略和设置角色的使用条件，从而决定联合身份用户在腾讯云资源的访问范围及使用条件。详细请参阅 [为身份提供商创建角色](https://cloud.tencent.com/document/product/598/19381#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.88.9B.E5.BB.BA)。
 
 ### 配置身份提供商的单一登录
-下载并保存腾讯云联合元数据 XML文档：http://cloud.tencent.com/saml.xml， 将您企业组织中的身份提供商属性映射到腾讯云的属性，建立您企业组织中的身份提供商和腾讯云的互信关系。安装该文件的方式取决于您的身份提供商。一些提供商为您提供了键入该 URL 的选项，此时，身份提供商将为您获取并安装该文件。另一些提供商则要求您从该 URL 处下载该文件，然后将其作为本地文件提供。请参阅您的 IdP 文档以获得指示，或参阅以下文档。 
->- [Azure Active Directory 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/35713)
->- [OneLogin 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/35817)
->- [Okta 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/37658)
+下载并保存腾讯云联合元数据 XML文档：http://cloud.tencent.com/saml.xml， 将您企业组织中的身份提供商属性映射到腾讯云的属性，建立您企业组织中的身份提供商和腾讯云的互信关系。安装该文件的方式取决于您的身份提供商。一些提供商为您提供了键入该 URL 的选项，此时，身份提供商将为您获取并安装该文件。另一些提供商则要求您从该 URL 处下载该文件，然后将其作为本地文件提供。请参阅您的 IdP 文档以获得指示，或参阅以下文档。
+
+- [Azure Active Directory 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/35713)
+- [OneLogin 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/35817)
+- [Okta 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/37658)
+- [ADFS 单点登录腾讯云指南](https://cloud.tencent.com/document/product/598/42702)

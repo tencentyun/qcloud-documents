@@ -1,31 +1,26 @@
 ## 接入准备
-###  SDK 获取
-录音文件识别 C++ SDK 以及 Demo 的下载地址：[C++ SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/c%2B%2B_record_asr_sdk.tar.gz)。
-###  接入须知
-开发者在调用前请先查看录音文件识别的[ 接口说明](https://cloud.tencent.com/document/product/1093/37139)，了解接口的**使用要求**和**使用步骤**。
+### SDK 获取
+录音文件识别 C++ SDK 以及 Demo 的下载地址：[C++ SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/record/c%2B%2B_record_asr_sdk.zip)
+
+### 接入须知
+开发者在调用前请先查看录音文件识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37139)，了解接口的**使用要求**和**使用步骤**。
+
 ### 开发环境
-+ **编译 Demo**，如失败需确认以下环境：
+**需要64位 Linux 系统，如果用户使用的是32位系统，则需自行安装编译 extern 中的依赖库**。  
+
+* 编译 demo，如果失败则参考对应的提示安装依赖工具。
 
 ```
-//下载sdk
-tar -xzf c++_record_asr_sdk.tar.gz
+//下载 sdk 并解压
+unzip c++_record_asr_sdk.zip
 cd c++_record_asr_sdk
+cmake ./
 make clean
 make
 //如果编译并未报错则跳过以下环境检测，否则可根据错误类型去校验库
 ```
-+ **安装 gcc、g++**   
 
-```
-1.RedHat系列系统:
-yum install -y gcc gcc-c++ make automake
-//安装 gcc 等必备程序包（已安装则略过此步）
-yum install -y wget
-	
-2.Debian系列系统：
-apt-get install gcc g++
-```
-+ **安装 CMake 工具**
+* 安装 CMake 工具
 
 ```
 // cmake 版本要大于3.5
@@ -37,24 +32,37 @@ sudo make
 sudo make install
 ```
 
-+ **依赖库安装及编译**
+* 安装 gcc g++
 
-客户需自行安装版本大于7.44.0的 **curl**。下载 [curl 文件](https://curl.haxx.se/download.html)，解压并进入源码目录执行如下命令：
-	
 ```
+1.RedHat 系列系统:
+yum install -y gcc gcc-c++ make automake
+//安装 gcc 等必备程序包（已安装则略过此步）
+yum install -y wget
+
+2.Debian 系列系统：
+apt-get install gcc g++
+```
+
+**编译安装 extern 依赖库（编译 demo 正常则跳过）**
+
+* 安装 curl  [下载地址](https://curl.haxx.se/download.html)
+
+```
+解压，并进入目录
 sudo ./configure
 sudo cmake ./
 sudo make
 sudo make install
 ```
-+ **openssl**
 
-本 SDK 会提供，目录为：c++\_record\_asr\_sdk/lib。如果不适合客户系统，请客户自行安装方法，版本1.0.2f，下载地址: [wget 源码](http://www.openssl.org/source/openssl-1.0.2f.tar.gz) 。
-	
+* 安装 openssl [下载地址](http://www.openssl.org/source/openssl-1.0.2f.tar.gz)
+
 ```
-1.更新zlib
+1.更新 zlib
 RedHat 系列:yum install -y zlib
 Debian 系列:sudo apt-get install zlib1g zlib1g.dev
+
 2.安装
 tar zxf openssl-1.0.2f.tar.gz
 cd openssl-1.0.2f
@@ -64,190 +72,215 @@ sudo make install
 自行替换 c++_record_asr_sdk/lib 下面的库文件
 ```
 
+
 ## 快速接入
 ### 开发流程介绍
-**配置用户信息**
-+ 进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey 信息，并按如下步骤配置用户信息和请求 URL 参数。
-	
-```
-#需要配置成用户账号信息 c++_realtime_asr_sdk/config/TCloudRealtimeASRConfig.ini
-[tcloud_config]
-#用户Appid
-appid=1256******* 
-#用户SecretId
-secretid=AKID****************************
-#用户 SecretKey，此处若担心存在密钥泄露风险，可在调用接口中传入，参考下面的“设置用户密钥”
-secretkey=670m***************************
-#需要配置成用户实际的参数，参见接口说明中的请求 URL 参数说明
-[tcloud_asr]
-projectid=0
-sub_service_type=0
-engine_model_type=16k_0
-callback_url=http://www.qq.com
-source_type=0
-channel_num=1
-res_text_format=0
-res_type=0
-```
-
-**初始化请求参数**  
-+ 调用 Init 接口初始化请求参数。  
-+ 参考接口 [TCloudRecordASR::Init](#init)。
-
-**设置用户密钥**    
-+ 调用 SetSecretKey 接口设置密钥。  
-+ 参考接口 [TCloudRecordASR::SetSecretKey](#SetSecretKey)。
-
-**传入音频获取结果**  
-+ **方法一：传入音频 URL(建议使用)**  
-调用 SetUrl 接口获取结果，对应参数设置为 URL 模式。
-参考接口 [TCloudRecordASR::SetUrl](#setdata)。   
-+ **方法二：传入音频数据**  
-调用 SetData 或者 SetFile 接口获取结果，对应配置参数为 post 音频。  
-参考接口 [TCloudRecordASR::SetData](#seturl) 与 [TCloudRecordASR::SetFile](#setfile)。
-
-**SDK 已提供各个接口源码，用户可根据自身需要进行更改。**
-
-### 主要接口方法说明
- 
-**<span id="init"></span>TCloudRecordASR::Init**
+* 配置用户信息，进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 获取 AppID、SecretId、SecretKey 信息，并配置用户信息
 
 ```
-/* 
-** 初始化公共请求参数，此类参数较稳定不变
-** config 公共请求参数结构体
+#用户配置信息文件：tcloud_auth.ini
+AppId=Your AppId
+SecretId=Your SecretId
+SecretKey=Your SecretKey
+```
+
+* 配置请求参数
+
+```
+#用户请求参数配置文件：request_parameter.ini
+#引擎类型。
+EngineModelType = 16k_0
+#语音声道数。1：单声道；2：双声道（仅在电话 8k 通用模型下支持）。
+ChannelNum = 1
+#识别结果文本编码方式。0：UTF-8。
+ResTextFormat = 0
+#语音数据来源。0：语音 URL；1：语音数据（post body）。
+SourceType = 1 
+#回调 URL，用户自行搭建的用于接收识别结果的服务器地址，长度小于2048字节。
+CallbackUrl = http://test.qq.com
+```
+
+* 创建和初始化请求
+
+```
+//创建一个具体的请求
+TCloudRecordASR asrReq;
+//初始化请求参数
+asrReq.InitCommonParam("./conf/request_parameter.ini");
+//初始化用户信息
+asrReq.InitAuth("./conf/tcloud_auth.ini");
+```
+
+* 传入音频发送请求，有本地音频上传和音频 URL 上传两种方式
+
+```
+//本地音频方式
+//将sourcetype设置为1
+asrReq.SetSourceType(1);
+//传入本地音频文件路径
+asrReq.CreateRecTask("./test.wav");
+```
+
+```
+//音频URL方式
+//将sourcetype设置为0
+asrReq.SetSourceType(0);
+//传入本地音频文件路径
+asrReq.CreateRecTask("http://***.wav");
+```
+
+* 获取请求结果，支持轮询或者回调
+
+```
+//获取请求结果
+string  taskRsp = asrReq.GetResponse();
+//成功请求则返回 taskId,可根据 taskId 查询识别结果
+```
+
+* 查询识别结果（轮询方式）
+
+```
+//根据 taskId 轮询查询识别结果
+string strRsp;
+asrReq.DescribeTaskStatus(taskId, strRsp);
+```
+
+* 获取识别结果（回调方式）  
+
+```
+此方式需要客户自行搭建接收识别结果的服务，并将 服务 URL 传入参数 CallbackUrl
+```
+
+### 主要接口说明
+**SDK 已提供各个接口源码，用户可根据自身需要进行更改。**  
+
+* TCloudRecordASR::InitCommonParam
+
+```
+/* 初始化公共请求参数，此类参数较稳定不变
+** configPath 参数文件路径
+** time 鉴权的有效时间
 ** Output int 返回结果
 */
-int Init(TCloudRecordASRConfig config);
+int InitCommonParam(string configPath);
+```
 
-/* 
-** 初始化公共请求参数，此类参数较稳定不变
-** strPath 配置文件路径
+* TCloudRecordASR::InitAuth
+
+```
+/* 初始化用户信息
+** stAuth 用户信息结构体
+** time 鉴权的有效时间
 ** Output int 返回结果
 */
-int Init(TCloudRecordASRConfig strPath);
-```
+int InitAuth(TCloudRecordASRAuth stAuth);
 
-**<span id="SetSecretKey">TCloudRecordASR::SetSecretKey</span>**
-
-```
-/* 
-** 设置用户密钥
-** strSecretKey 用户密钥
+/* 初始化用户信息
+** configPath 参数文件路径
+** time 鉴权的有效时间
 ** Output int 返回结果
 */
-int SetSecretKey(string strSecretKey);
+int InitAuth(string configPath);
 ```
 
-**TCloudRecordASR::BuildRequest**
+* TCloudRecordASR::SetSourceType
 
 ```
-/* 
-** 构造一个完整的请求
+/* 设置 SourceType
+** type 0 音频url， 1本地音频
+** Output void
+*/
+void SetSourceType(int type);
+```
+
+* TCloudRecordASR::CreateRecTask
+
+```
+/* 创建识别请求
+** fileURI 音频的本地地址或者音频的 URL 链接 
 ** Output int 返回结果
 */
-int BuildRequest();
+int CreateRecTask(string fileURI);
 ```
 
-**<span id="setdata">TCloudRecordASR::SetData</span>**
+* TCloudRecordASR::GetResponse
 
 ```
-/* 
-** 传入语音数据
-** pPCMData pcm格式语音数据
-** length 音频长度，字节
+/* 获取任务结果
+** Output string 任务返回 json 包
+*/
+string GetResponse();
+```
+
+* TCloudRecordASR::DescribeTaskStatus
+
+```
+/* 轮询查询识别结果
+** taskId  任务 Id
+** rsp   查询结果
 ** Output int 返回结果
 */
-int SetData(char* pPCMData, int length);
+int DescribeTaskStatus(int taskId, string &rsp);
 ```
 
-**<span id="seturl">TCloudRecordASR::SetUrl</span>**
+### 接入示例
 
 ```
-/* 
-** 设置可以获取音频的 URL
-** strAudioURL 音频 URL
-** Output int 返回结果
-*/
-int SetUrl(string strAudioURL);
+//进入 demo 文件夹
+//编译
+./compile
+//创建任务 参数：sourceType fileURI
+./run_create_task 1 test.wav
+//查询识别结果 参数：taskId
+./run_describe_task 12345678
 ```
+### 参考代码
 
-**<span id="setfile">TCloudRecordASR::SetFile</span>**
-
+#### 识别请求 demo
 ```
-/* 
-** 添加音频文件
-** strFile 音频文件路径
-** Output int 返回结果
-*/
-int SetFile(string strFile);
-```
+#include "TCloudRecordASR.h"
+#include <iostream>
 
-**CServerConf::ParseFile()**
-
-```
-/* 
-** 初始化配置文件
-** szConfigFile 文件路径
-** Output int 返回结果
-*/
-int ParseFile(const char* szConfigFile);
-```
-
-**TSpeexEncoder::Encode**
-
-```
-/* 
-** pcm格式音频speex压缩
-** inputBuffer 需压缩音频数据
-** inputSize 需压缩音频长度 字节
-** strRsp 压缩完成的音频串
-** Output bool 返回结果
-*/
-bool Encode(const char* inputBuffer, int inputSize, string& strRsp);
-```
-
-**请求 demo**
-```
-make
-./run.sh
-```
-### 入门示例
-参考 c++\_record\_asr\_sdk/src/demo.cpp  
-```
-int RunReacordASR()
-{
-	TCloudRecordASR recordASR;
-	int ret = recordASR.Init("./config/TCloudRecordASRConfig.ini");
-	
-	if(ret != 0)
-	{
-		printf("Record ASR Init Error, Code:%d\n", ret);
-		return ret;
-	}
-
-	
-	
-	string strURL = "https://test-audio-1256085166.cos.ap-guangzhou.myqcloud.com/123.wav";
-	recordASR.SetUrl(strURL);
-
-	/* 本地文件
-	FILE* fp = fopen("bin/test.wav", "rb");
-	if (fp == NULL)
-	{
-		printf("file open failed\n");
-	}
-
-	char* buffer = new char[FILE_BUFFER_LEN];
-	int seq = 0;
-	
-	memset(buffer, 0, FILE_BUFFER_LEN);
-	int readLength = fread(buffer, 1, FILE_BUFFER_LEN, fp);
-	
-	recordASR.SetData(buffer, readLength);
-	
-	TCloudRecordASRResponse response = recordASR.Run();
-	*/
-	return 0;
+using namespace std;
+int main(int argc, char ** argv){
+    if(argc < 3){
+        cout << "use ./run_create_task source_type uri" << endl;
+    }
+    int sourceType = atoi(argv[1]);
+    string uri = string(argv[2]);
+    TCloudRecordASR asrReq;
+    //初始化请求参数
+    asrReq.InitCommonParam("./conf/request_parameter.ini");
+    //初始化用户信息
+    asrReq.InitAuth("./conf/tcloud_auth.ini");
+    asrReq.SetSourceType(sourceType);
+    asrReq.CreateRecTask(uri);
+    string  taskRsp = asrReq.GetResponse();
+    cout << "rsp: " << taskRsp << endl;
+    return 0;
 }
+```
+
+#### 轮询查询结果 demo
+```
+#include "TCloudRecordASR.h"
+#include <iostream>
+
+using namespace std;
+int main(int argc, char ** argv){
+    if(argc < 2){
+        cout << "use ./run_describe_task taskId" << endl;
+    }
+    int taskId = atoi(argv[1]);
+    TCloudRecordASR asrReq;
+    //初始化请求参数
+    asrReq.InitCommonParam("./conf/request_parameter.ini");
+    //初始化用户信息
+    asrReq.InitAuth("./conf/tcloud_auth.ini");
+    string strRsp;
+    asrReq.DescribeTaskStatus(taskId, strRsp);
+    cout << "rsp: " << strRsp << endl;
+    return 0;
+}
+
 ```

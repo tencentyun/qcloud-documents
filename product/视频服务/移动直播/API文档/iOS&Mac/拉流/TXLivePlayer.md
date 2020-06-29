@@ -43,7 +43,7 @@ __介绍__
 ***
 ### config
 
-设置 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34760#txliveplayconfig) 播放配置项，见`TXLivePlayConfig.h`文件中的详细定义。
+设置 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34760) 播放配置项，见`TXLivePlayConfig.h`文件中的详细定义。
 ```
 @property (nonatomic, copy) TXLivePlayConfig * config
 ```
@@ -81,7 +81,7 @@ __参数__
 
 __介绍__
 
-变更历史：1.5.2版本将参数 frame 废弃，设置此参数无效，控件大小与参数 view 的大小保持一致，如需修改控件的大小及位置，请调整父 view 的大小及位置。 请参见 [绑定渲染界面](https://cloud.tencent.com/document/product/454/7880#step-2.3A-.E6.B8.B2.E6.9F.93-view)。
+变更历史：1.5.2版本将参数 frame 废弃，设置此参数无效，控件大小与参数 view 的大小保持一致，如需修改控件的大小及位置，请调整父 view 的大小及位置。 请参见 [绑定渲染界面](https://cloud.tencent.com/document/product/454/7880#step-2.EF.BC.9A.E6.B8.B2.E6.9F.93-view)。
 
 ***
 
@@ -280,7 +280,7 @@ __参数__
 
 __介绍__
 
-开启后会在 volumeEvaluationListener 中获取到 SDK 对音量大小值的评估
+开启后会在 volumeEvaluationListener 中获取到 SDK 对音量大小值的评估。
 
 ***
 
@@ -305,7 +305,7 @@ __返回__
 
 __介绍__
 
-使用时移功能需在播放开始后调用此方法，否则时移失败。时移的使用请参见 [超级播放器](https://cloud.tencent.com/document/product/881/20208#.E6.97.B6.E7.A7.BB.E6.92.AD.E6.94.BE)。
+使用时移功能需在播放开始后调用此方法，否则时移失败。时移的使用请参见 [时移播放](https://cloud.tencent.com/document/product/881/20208#.E6.97.B6.E7.A7.BB.E6.92.AD.E6.94.BE)。
 
 >!非腾讯云直播地址不能时移。
 
@@ -468,7 +468,7 @@ __功能__
 
 支持的直播和点播类型。
 
->?新版本的点播 SDK，推荐参考 TXVodPlayer.h。
+>?点播播放请使用 [TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#.E5.AF.B9.E6.8E.A5.E6.94.BB.E7.95.A5) 播放器，具体请参见头文件 TXVodPlayer.h。
 
 | 枚举 | 含义 |
 |-----|-----|

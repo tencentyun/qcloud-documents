@@ -13,7 +13,7 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
->?Authorization：Auth String （详请请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>?Authorization：Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 
 #### 请求头
@@ -44,9 +44,9 @@ Authorization: Auth String
 </RefererConfiguration>
 ```
 
-具体的数据内容如下：
+具体的节点描述如下：
 
-| 名称                    | 父节点               | 描述                                                         | 类型      | 必选 |
+| 名称                    | 父节点               | 描述                                                         | 类型      | 是否必选 |
 | ----------------------- | -------------------- | ------------------------------------------------------------ | --------- | ---- |
 | RefererConfiguration    | 无                   | 防盗链配置信息                                               | Container | 是   |
 | Status                  | RefererConfiguration | 是否开启防盗链，枚举值：Eabled，Disabled                 | String    | 是   |
@@ -57,7 +57,7 @@ Authorization: Auth String
 
 #### 错误码
 
-该请求操作无特殊错误信息，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 

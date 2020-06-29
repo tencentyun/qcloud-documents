@@ -1,12 +1,12 @@
 ## 接入准备
 ### SDK获取
-一句话语音识别 Java SDK 安装及相关环境说明 [Java SDK 安装及相关环境说明](https://cloud.tencent.com/document/sdk/Java)。
+一句话识别 Java SDK 获取，请参考：[Java SDK 依赖环境及获取安装说明](https://cloud.tencent.com/document/sdk/Java)。
 
 ### 接入须知
-开发者在调用前请先查看一句话语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308)，了解接口的**使用要求**和**使用步骤**。
+开发者在调用前请先查看一句话识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308)，了解接口的**使用要求**和**使用步骤**。
 
 ## 快速接入
-以下分别是通过**语音 URL** 和**本地语音上传**请求方式的 demo，来帮助客户快速接入。
+以下分别是通过**语音 URL** 和**本地语音上传**请求方式的 demo，来帮助用户快速接入。  
 
 + **通过语音 URL 方式请求**
 
@@ -30,7 +30,7 @@ public class SentenceRecognition
     public static void main(String [] args) throws IOException {
     	 // 采用语音URL方式调用
         try{
-    		  //重要：<Your SecretId>、<Your SecretKey>需要替换成客户自己的账号信息
+    		  //重要：<Your SecretId>、<Your SecretKey>需要替换成用户自己的账号信息
     		  //请参考接口说明中的使用步骤1进行获取。 
             Credential cred = new Credential("Your SecretId", "Your SecretKey");
             
@@ -82,8 +82,9 @@ public class SentenceRecognition
         
         //采用本地语音上传方式调用
     	try{
-    		  //重要：<Your SecretId>、<Your SecretKey>需要替换成客户自己的账号信息
-    		  //请参考接口说明中的使用步骤1进行获取。 
+            //重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
+	        //https://cloud.tencent.com/document/product/441/6203
+ 	        //具体路径：点控制台右上角您的账号-->选：访问管理-->点左边菜单的：访问密钥-->API 密钥管理
             Credential cred = new Credential("Your SecretId", "Your SecretKey");
             
             HttpProfile httpProfile = new HttpProfile();
@@ -91,7 +92,7 @@ public class SentenceRecognition
 
             ClientProfile clientProfile = new ClientProfile();
             clientProfile.setHttpProfile(httpProfile);            
-            
+            clientProfile.setSignMethod("TC3-HMAC-SHA256");  
             AsrClient client = new AsrClient(cred, "ap-shanghai", clientProfile);
             
             String params = "{\"ProjectId\":0,\"SubServiceType\":2,\"EngSerViceType\":\"16k\",\"SourceType\":1,\"Url\":\"\",\"VoiceFormat\":\"wav\",\"UsrAudioKey\":\"session-123\"}";

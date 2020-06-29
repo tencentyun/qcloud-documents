@@ -5,21 +5,13 @@
 [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700) 时，提示无法连接或者连接失败。
 
 ## 故障定位及处理
-### 第一步 查看安全组配置
+### 步骤1：查看安全组规则配置
 
-1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。
-2. 在实例的管理页面，选择需要排查故障的实例，单击【更多】>【安全组】>【配置安全组】。如下图所示：
-![](https://main.qcloudimg.com/raw/deff7af1803cc95cfd45036b850a9cb6.png)
-3. 在弹出的 “配置安全组” 窗口中，单击已配置（已勾选）的安全组 ID。如下图所示：
-进入该实例绑定的安全组页面。
-![](https://main.qcloudimg.com/raw/8beddaae54897226d160c7d54c488990.png)
-4. 在安全组规则的入站规则页面，单击【一键放通】。
-5. 在弹出的提示框中，单击【确定】。
-6. 重新 [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)，查看是否可以登录成功。
- - 是，任务结束。
- - 否，请执行 [步骤7](#step07)。
+通过 [安全组（端口）验通工具](https://console.cloud.tencent.com/vpc/helper) 进行检查安全组规则设置是否正确。
+- 如果确定为安全组端口设置问题，可通过工具中的【一键放通】功能放通端口。您也可以根据实际需要，自定义设置安全组规则，请参考 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740) 重新配置安全组规则。
+- 如果安全组端口设置没有问题，请执行 [下一步](#step07)。
  
-###  第二步 查看 sshd 服务端口
+###  步骤2：查看 sshd 服务端口
 1. <span id="step07">[使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。</span>
 2. 在操作系统界面，执行以下命令，查看是否含有 sshd 服务监听的端口。
 ```
@@ -31,7 +23,7 @@ tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      
 ```
  - 若无输出，则可能是 sshd 服务未启动，请执行 [下一步](#step09)。
  
-###  第三步 查看 sshd 服务是否启动
+###  步骤3：查看 sshd 服务是否启动
 <span id="step09">执行以下命令，查看 sshd 服务是否启动。</span>
 ```
 systemctl status sshd.service

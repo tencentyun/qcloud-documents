@@ -24,7 +24,7 @@ Agent 半托管模式如果是通过专线迁移，需要确保阿里云侧主�
 	3.	新建子用户，勾选编程访问及腾讯云控制台访问。
 	4.	搜索并勾选 QcloudCOSAccessForMSPRole 及 QcloudCOSFullAccess 策略。
 	5.	完成子用户创建并保存子用户名，访问登录密码，SecretId，SecretKey。
-- 单击 [这里](https://main.qcloudimg.com/raw/7579efd7d2839e0dfbcff6be0ac2e22b/agent.zip) 下载 Agent。
+- 单击 [这里](https://migrate-1256125716.cos.ap-guangzhou.myqcloud.com/agent/agent.zip) 下载 Agent。
 
 >?迁移服务也可以使用主账号操作，但是出于安全考虑，建议新建子账号并使用子账号 API 密钥进行迁移，迁移完成后删除。
 

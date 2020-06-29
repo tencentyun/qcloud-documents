@@ -11,22 +11,23 @@
 CentOS 官方只针对当前所发行主要版本的最新次要版本维护软件与漏洞的更新，腾讯云与 CentOS 官方维护原则保持一致，只针对官方维护周期内各主要版本的最新次要版本进行定期漏洞修复和高危漏洞紧急修复。
 
 腾讯云现有 CentOS 版本镜像维护说明：
-- Centos 7.5 64位（Centos 官方维持支持）
-- Centos 7.4 64位（Centos 官方维持支持）
-- Centos 7.3 64位（Centos 官方维持支持）
-- Centos 7.2 64位（Centos 官方维持支持）
-- Centos 7.1 64位（Centos 官方停止支持）
-- Centos 7.0 64位（Centos 官方停止支持）
-- Centos 6.9 32/64位（Centos 官方维持支持到下一个版本发布）
-- Centos 6.8 32/64位（Centos 官方停止支持）
-- Centos 6.7 32/64位（Centos 官方停止支持）
-- Centos 6.6 32/64位（Centos 官方停止支持）
-- Centos 6.5 32/64位（Centos 官方停止支持）
-- Centos 6.4 32/64位（Centos 官方停止支持）
-- Centos 6.3 32/64位（Centos 官方停止支持）
-- Centos 6.2 64位（Centos 官方停止支持）
-- Centos 5.11 32/64位（Centos 官方停止支持）
-- Centos 5.8 32/64位（Centos 官方停止支持）
+- CentOS 7.6 64位（CentOS 官方维持支持）
+- CentOS 7.5 64位（CentOS 官方维持支持）
+- CentOS 7.4 64位（CentOS 官方维持支持）
+- CentOS 7.3 64位（CentOS 官方维持支持）
+- CentOS 7.2 64位（CentOS 官方维持支持）
+- CentOS 7.1 64位（CentOS 官方停止支持）
+- CentOS 7.0 64位（CentOS 官方停止支持）
+- CentOS 6.9 32/64位（CentOS 官方维持支持到下一个版本发布）
+- CentOS 6.8 32/64位（CentOS 官方停止支持）
+- CentOS 6.7 32/64位（CentOS 官方停止支持）
+- CentOS 6.6 32/64位（CentOS 官方停止支持）
+- CentOS 6.5 32/64位（CentOS 官方停止支持）
+- CentOS 6.4 32/64位（CentOS 官方停止支持）
+- CentOS 6.3 32/64位（CentOS 官方停止支持）
+- CentOS 6.2 64位（CentOS 官方停止支持）
+- CentOS 5.11 32/64位（CentOS 官方停止支持）
+- CentOS 5.8 32/64位（CentOS 官方停止支持）
 
 ### Ubuntu
 Ubuntu 官方提供对 LTS 版本系统的长期软件与漏洞更新维护，每个 LTS 系统的服务器版本将维持 5 年的更新，腾讯云官方提供各个 LTS 版本服务器系统，并与 Ubuntu 发行官方保持一致，对维护周期内的镜像进行定期漏洞更新和高危漏洞紧急修复。

@@ -1,6 +1,8 @@
 ## 功能介绍
 
 腾讯云 Web 超级播放器 TCPlayerLite 是为了解决在手机浏览器和 PC 浏览器上播放音视频流的问题，它使您的视频内容可以不依赖用户安装 App，就能在朋友圈和微博等社交平台进行传播。本文档适合有一定 Javascript 语言基础的开发人员阅读。
+以下视频将为您讲解腾讯云播放器 SDK 的 Web 播放器的功能特性以及对接攻略：
+<div class="doc-video-mod"><iframe src="	https://cloud.tencent.com/edu/learning/quick-play/2496-42186?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 基础知识
 对接前需要了解如下基础知识：
@@ -51,7 +53,7 @@ MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 ```
 http://2157.liveplay.myqcloud.com/2157_358535a.m3u8      // m3u8 播放地址
 ```
-![](//mc.qcloudimg.com/static/img/7923a14be5525bd37719c18d54243403/image.png)
+![](https://main.qcloudimg.com/raw/f5444cbd256ace4033e37bb1206bc90d.png)
 如果要在手机浏览器上播放该 URL 的视频，则 Javascript 代码如下：
 ```javascript
 var player = new TcPlayer('id_test_video', {
@@ -101,7 +103,7 @@ PC 浏览器的视频播放基于 Flash 控件实现，但 **Flash 控件会做�
 
 ### Step4. 给播放器设置封面
 设置封面涉及到 poster 属性，下面将详细介绍 poster 属性的使用方法。
->!**封面功能在部分移动端播放环境下可能失效，因为移动端视频播放环境相对比较复杂，各种浏览器和 App 的 Webview 对 H5 video 实现的方式并不统一，所以如果遇到功能失效的情况，请 [联系我们](https://cloud.tencent.com/document/product/881/20218)。**
+>!封面功能在部分移动端播放环境下可能失效，通常是由于移动端 webview 劫持视频播放造成的，需要 webview 支持 video 叠加元素或者放开劫持视频播放。相关详细说明请参见 [常见问题](https://cloud.tencent.com/document/product/881/20219#.E6.B5.8F.E8.A7.88.E5.99.A8.E5.8A.AB.E6.8C.81.E8.A7.86.E9.A2.91.E6.92.AD.E6.94.BE)。
 
 #### 4.1 简单设置封面
 poster 支持传入图片地址作为播放器的封面，在播放器区域内居中，并且以图片的实际分辨率进行显示。
@@ -125,13 +127,13 @@ style 支持的样式如下：
 使用 cover 方式显示封面。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
 [视频封面](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-poster.html)
 >!
->- **在某些移动端设置封面会无效，具体说明请参见 [常见问题](https://cloud.tencent.com/document/product/881/20219)。**
->- **以上示例链接仅用于文档演示，请勿用于生产环境。**
+>- 在某些移动端设置封面会无效，具体说明请参见 [常见问题](https://cloud.tencent.com/document/product/881/20219)。
+>- 以上示例链接仅用于文档演示，请勿用于生产环境。
 
 ### Step5. 多清晰度支持
 #### 5.1 原理介绍
 同腾讯视频，Web 播放器支持多清晰度，如下图所示：
-![](//mc.qcloudimg.com/static/img/5769d1bd31db2d9ed258d0bf62be3f0f/image.png)
+![](https://main.qcloudimg.com/raw/6badb0db35edb9c11cea363b6c8bcbe2.png)
 **播放器本身是没有能力去改变视频清晰度的**，视频源只有一种清晰度，称之为原画，而原画视频的编码格式和封装格式多种，Web 端无法支持播放所有的视频格式，如点播支持以 H.264 为视频编码，MP4 和 FLV 为封装格式的视频。
 
 **多清晰度的实现依赖于视频云**：
@@ -148,7 +150,7 @@ http://200002949.vod.myqcloud.com/200002949_b6ffc.f240.m3u8         // 原画，
 http://200002949.vod.myqcloud.com/200002949_b6ffc.f230.av.m3u8      // 高清
 http://200002949.vod.myqcloud.com/200002949_b6ffc.f220.av.m3u8      // 标清
 ```
->!**上传后的原始视频是未经过腾讯云转码的，不能直接用于播放。**
+>!上传后的原始视频是未经过腾讯云转码的，不能直接用于播放。
 
 #### 5.2 代码实现
 多清晰度支持的代码实现如下所示：
@@ -164,13 +166,12 @@ var player = new TcPlayer('id_test_video', {
 ```
 
 #### 5.3 实现用例
-使用多种分辨率的设置及切换功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
-[分辨率切换](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-clarity.html)
+使用多种分辨率的设置及切换功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：[分辨率切换](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-clarity.html)
 正常情况将看到如下效果：
-![](//mc.qcloudimg.com/static/img/68c513d931214e86549dd9c0426efe04/image.png)
+![](https://main.qcloudimg.com/raw/99c05e75f0d417df33942d18dad2f509.jpg)
 >!
- - **PC 端现已支持多种清晰度播放及切换的功能，移动端尚未支持。**
- - **以上示例链接仅用于文档演示，请勿用于生产环境**
+> - PC 端现已支持多种清晰度播放及切换的功能，移动端尚未支持。
+ >- 以上示例链接仅用于文档演示，请勿用于生产环境
 
 ### Step6. 定制错误提示语
 Web 播放器支持提示语定制。
@@ -195,7 +196,7 @@ var player = new TcPlayer('id_test_video', {
 ```
 https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-error.html
 ```
->!**以上示例链接仅用于文档演示，请勿用于生产环境。**
+>!以上示例链接仅用于文档演示，请勿用于生产环境。
 
 #### 6.3 错误码表
 | Code  | 提示语|说明                                       |
@@ -215,13 +216,13 @@ https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-error.html
 | 2048	| 无法加载视频文件，跨域访问被拒绝。 | 请求 M3U8 文件失败，可能是网络错误或者跨域问题。<br>Flash 提示的错误。 |
 
 >?
->- **Code 1 - 4 对应的是 H5 原生事件。**
->- **由于 Flash 的黑盒特性以及 H5 视频播放标准的不确定性，错误提示语会不定期更新。**
+>- Code 1 - 4 对应的是 H5 原生事件。
+>- 由于 Flash 的黑盒特性以及 H5 视频播放标准的不确定性，错误提示语会不定期更新。
 
 ## 源码参考
 如下是一个线上示例代码，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
 [播放示例](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer.html)
->!**以上示例链接仅用于文档演示，请勿用于生产环境。**
+>!以上示例链接仅用于文档演示，请勿用于生产环境。
 
 ## 参数列表
 播放器支持的所有参数，如下所示：
@@ -283,7 +284,7 @@ https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-error.html
 |switchClarity()  | {String}[必选]         |  无                        | 切换清晰度，传值 "od"、"hd"、"sd" [v2.2.1+]。 | player.switchClarity('od')  |
 |load(url)        | {String}[必选]         |  无                        |  通过视频地址加载视频。<br>（**备注：该方法只能加载对应播放模式下支持的视频格式，Flash 模式支持切换 RTMP、FLV、HLS 和 MP4 ，H5 模式支持 MP4、HLS 和 FLV（HLS、FLV 取决于浏览器是否支持）** [v2.2.2+]） | player.load(`http://xxx.mp4`)  |
 
->!**以上方法必须是`TcPlayer`的实例化对象，且需要初始化完毕才可以调用（即 load 事件触发后）。**
+>!以上方法必须是`TcPlayer`的实例化对象，且需要初始化完毕才可以调用（即 load 事件触发后）。
 
 ## 进阶攻略
 下面介绍播放器 SDK 的进阶使用方法。
@@ -330,14 +331,15 @@ volumechange
 >- Web 播放器的事件，依赖浏览器内置的解码器和 Flash 插件触发，Web 播放器仅透传事件。
 >- Web 播放器监听不到直播停止推流的事件，需要通过额外的接口来确认推流状态，请参见 [查询流状态](https://cloud.tencent.com/document/product/267/20470)。
 - Flash 模式下特有的事件：netStatus
->?**由于 Flash 的黑盒特性以及 H5 视频播放标准在各个平台终端的实现不一致性，事件的触发方式和结果会有差异。**
+>?由于 Flash 的黑盒特性以及 H5 视频播放标准在各个平台终端的实现不一致性，事件的触发方式和结果会有差异。
 
 在非自动播放的条件下，加载视频至待播放状态，移动端和 PC Flash 触发的事件区别。
 **移动端：**
-![移动端](//mc.qcloudimg.com/static/img/ddf4e9ff5998dc84b1887fba0e94d446/image.png)
+![](https://main.qcloudimg.com/raw/f0bf0532e253c6f14f8c65dc5fd3a5c2.png)
+
 **PC Flash：**
-![PC Flash](//mc.qcloudimg.com/static/img/f49d8aa8ef678b63ac73e69f254c20bb/image.png)
->?**以上是两种平台的差异，然而在移动端的各种设备和 App 之间同样存在差异。**
+![](https://main.qcloudimg.com/raw/0ff02cdc2ef70b2f8917decddec3cab8.png)
+>?以上是两种平台的差异，然而在移动端的各种设备和 App 之间同样存在差异。
 
 事件监听函数返回的 msg 对象介绍：
 

@@ -1,19 +1,23 @@
 ## 概述
-qcloud-iot-explorer-sdk-embedded-c 是针对嵌入式设备接入使用腾讯 IoT Explorer 平台提供的 C 语言版本 SDK。
+腾讯云物联网开发平台针对不同的设备开发场景，提供了多版本语言的设备 SDK 供客户使用：
+- `qcloud-iot-explorer-sdk-embedded-c`是针对嵌入式设备接入使用腾讯 IoT Explorer 平台提供的 C 语言版本 SDK。
+- `qcloud-iot-explorer-sdk-android` 是针对智能设备接入使用腾讯 IoT Explorer 平台的 Android 版本 SDK。
 
 
-## 代码托管
+## C SDK 代码托管
 
-- 自 V3.1.0 版本开始，使用独立的 [Github](https://github.com/tencentyun/qcloud-iot-explorer-sdk-embedded-c.git) 托管代码。
+- 自 V3.1.0 版本开始，使用独立的 [Github](https://github.com/tencentyun/qcloud-iot-explorer-sdk-embedded-c.git) 托管 C 设备 SDK 代码。
 - 请下载最新版 [C-SDK](https://github.com/tencentyun/qcloud-iot-explorer-sdk-embedded-c/releases)。
-- SDK 3.1.0之前的 SDK 版本 [访问此处](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/releases)。
+- SDK 3.1.0之前的 C SDK 版本 [访问此处](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/releases)。
 
 >! V3.1.0之前的版本相较于3.1.0及以后的版本代码 Git 路径不一样，同时与平台交互协议有较大区别。
 
 
+## Android SDK 代码托管
+自 V3.1.0 版本开始，使用独立的 [Github](https://github.com/tencentyun/qcloud-iot-explorer-sdk-android) 托管 Android 设备 SDK 代码。
 
 
-## 使用说明
+## C SDK 使用说明
 SDK 分四层设计，从上至下分别为平台服务层、核心协议层、网络层、硬件抽象层。
 - 设备侧和 IoT Explorer 平台交互的核心协议为 MQTT，基于此核心协议，实现了数据模板和 OTA 功能。平台通过对 IoT 设备的通用抽象定义了 [数据模板协议](https://cloud.tencent.com/document/product/1081/34916)，云端和设备基于 MQTT 的 payload 承载的数据实现数据模板协议数据流交互。OTA 功能的升级命令、版本及固件信息通过 MQTT 协议通道交互，固件下载通过 HTTPS 协议通道交互。
 

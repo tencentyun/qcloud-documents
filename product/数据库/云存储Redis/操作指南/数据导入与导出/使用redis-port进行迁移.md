@@ -1,15 +1,15 @@
 ## 工具介绍
-[下载 redis-port（linux64 位）](https://main.qcloudimg.com/raw/47154504189a8941250f57b60f1e2fcb/redis-port.tgz)
+[下载 redis-port（Linux 64 位）](https://main.qcloudimg.com/raw/47154504189a8941250f57b60f1e2fcb/redis-port.tgz)
 
 redis-port 是一组开源工具集合，主要用于 Redis 节点间的数据库同步、数据导入、数据导出，支持 Redis 的跨版本数据迁移，工具集中包括以下工具：
 - redis-sync：支持在 Redis 实例之间进行数据迁移。
-- redis-resotre：支持将 Redis 的备份文件（RDB）导入到指定 Redis 实例。
+- redis-restore：支持将 Redis 的备份文件（RDB）导入到指定 Redis 实例。
 - redis-dump：支持将 Redis 的数据备份为 RDB 格式文件。
 - redis-decode：支持将 Redis 备份文件（RDB）解析为可读的文件。
 
 ## 兼容版本
-- 支持源 Redis 2.8、3.0、3.2、4.0 版本。
-- 支持目标实例为 Redis 2.8、3.0、3.2、4.0 版本，以及云数据库的所有版本，包括 Redis 标准版（社区）、集群版（社区）、标准版（CKV）、集群版（CKV）。
+- 支持源 Redis 2.8、3.0、3.2、4.0、5.0 版本。
+- 支持目标实例为 Redis 2.8、3.0、3.2、4.0、5.0 版本，以及云数据库的所有版本，包括 Redis 内存版、CKV 版。
 
 
 ## 使用 redis-sync 在线迁移
@@ -45,13 +45,13 @@ redis-port 是一组开源工具集合，主要用于 Redis 节点间的数据�
 ```
 
 **使用说明**：
-- 目标实例的 db 数据要求大于源实例的 db 数量，否则迁移将失败。
+- 目标实例的 db 数量要求大于源实例的 db 数量，否则迁移将失败。
 - 如果迁移中途因为网络中断或者其他原因断开，需要先清空目标实例然后再次执行迁移，否则可能出现脏数据。
 - 迁移的进度，日志显示 "sync: rdb = 9063349 - [100.00%]" 该内容表示全量数据已经完成同步，正在进行增量数据同步，"speed=(0/0,0/0,0)" 表示增量数据已经完成同步。
 - 停止迁移，通过 Ctrl+C 命令或者其他方式终止工具的执行，即可停止数据同步。
 
 ## 使用 redis-restore 导入数据
-redis-restore 工具支持将 Redis 的备份文件（RDB）导入到指定 Redis 实例，同时也支持导入 AOF 文件，支持 Redis 2.8、3.0、3.2、4.0 版本的 RDB 文件格式。
+redis-restore 工具支持将 Redis 的备份文件（RDB）导入到指定 Redis 实例，同时也支持导入 AOF 文件，支持 Redis 2.8、3.0、3.2、4.0、5.0 版本的 RDB 文件格式。
 
 **参数说明**：
 - -n：并发写入的任务数量，建议不设置或者设置为 CPU 核心数量 * 2。

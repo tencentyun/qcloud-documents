@@ -1,5 +1,5 @@
 ## 接口描述
-协议：HTTPS POST
+协议：HTTPS GET/POST
 域名：`csec.api.qcloud.com`
 接口名：IntelligentQRCode
 
@@ -17,13 +17,13 @@
       <td>accountType</td>
       <td>必须</td>
       <td>Uint</td>
-      <td>用户账号类型（QQ 开放帐号、微信开放账号需要 <a href =https://console.cloud.tencent.com/workorder/category >提交工单</a> 由腾讯云进行资格审核）：<li>1：QQ 开放帐号。</li><li>2：微信开放账号。</li><li>4：手机号。</li><li>0：其他。</li><li>10004：手机号 MD5。</li></td>
+      <td>用户账号类型（默认开通 QQ 开放账号、手机号，手机 MD5 账号类型查询。如需使用微信开放账号，需要 <a href =https://console.cloud.tencent.com/workorder/category >提交工单</a> 由腾讯云进行资格审核，审核通过后方可正常使用微信开放账号）：<li>1：QQ 开放帐号。</li><li>2：微信开放账号。</li><li>4：手机号。</li><li>8：设备号（imei/imeiMD5/idfa/idfaMd5）。</li><li>0：其他。</li><li>10004：手机号 MD5。</li></td>
    </tr>
    <tr>
       <td>uid</td>
       <td>必须</td>
       <td>String</td>
-      <td>用户 ID 不同的 accountType 对应不同的用户 ID。如果是 QQ，则填入对应的 openid，微信用户则填入对应的 openid/unionid，手机号则填入对应真实用户手机号（如13123456789）。</td>
+      <td>用户 ID 不同的 accountType 对应不同的用户 ID。如果是 QQ，则填入对应的 openid，微信用户则填入对应的 openid/unionid，手机号则填入对应真实用户手机号（如13123456789）。<br>accountType 为8时，支持 imei、idfa、imeiMD5、idfaMD5 入参。<br>注：imeiMd5 加密方式为：imei 明文小写后，进行 MD5 加密，加密后取小写值。IdfaMd5 加密方式为：idfa 明文大写后，进行 MD5 加密，加密后取小写值。</td>
    </tr>
    <tr>
       <td>userIp</td>
@@ -41,7 +41,7 @@
       <td>appId</td>
       <td>可选</td>
       <td>String</td>
-      <td>accountType 是 QQ 或微信开放账号时，该参数必填，表示 QQ 或微信分配给网站或应用的 appId，用来唯一标识网站或应用。</td>
+      <td>accountType 是 QQ 开放账号时，该参数必填，表示 QQ 开放平台分配给网站或应用的 AppID，用来唯一标识网站或应用。</td>
    </tr>
    <tr>
       <td>goodInfo</td>
@@ -125,7 +125,7 @@
       <td>loginSource</td>
       <td>可选</td>
       <td>UInt</td>
-      <td>登录来源：<li>0：其他 。</li><li>1：PC网页。</li><li>2：移动页面。</li><li>3：APP。</li><li>4：微信公众号。</li></td>
+      <td>登录来源：<li>0：其他 。</li><li>1：PC 网页。</li><li>2：移动页面。</li><li>3：App。</li><li>4：微信公众号。</li></td>
    </tr>
    <tr>
       <td>wxSubType</td>
@@ -143,7 +143,7 @@
       <td>wxToken</td>
       <td>可选</td>
       <td>String</td>
-      <td><li>如果是微信小程序，该字段为以 ssesion_key 为 key 去签名随机数 radnNum 得到的值（hmac_sha256签名算法）。</li><li>如果是微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，详细请参阅官方 <a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842">说明文档</a>。</li></td>
+      <td><li>如果是微信小程序，该字段为以 ssesion_key 为 key 去签名随机数 randNum 得到的值（hmac_sha256签名算法）。</li><li>如果是微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，详细请参阅官方 <a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842">说明文档</a>。</li></td>
    </tr>
 </table>
 
@@ -264,26 +264,17 @@
       <td>检查 wxtoken 参数，是否已经失效。</td>
    </tr>
    <tr>
-      <td rowspan="4">环境风险</td>
+      <td rowspan="2">环境风险</td>
       <td>环境异常</td>
       <td>201</td>
       <td>操作 IP、设备、环境存在异常。如当前 IP 为非常用 IP 或恶意 IP 段。</td>
-   </tr>
-   <tr>
-      <td>JS 上报异常</td>
-      <td>202</td>
-      <td>需用户在前端部署 JS 方有效。</td>
-   </tr>
-   <tr>
-      <td>撞库</td>
-      <td>203</td>
-      <td>有过撞库记录。</td>
    </tr>
    <tr>
       <td>非公网有效 IP</td>
       <td>205</td>
       <td>传进来的 IP 地址为内网 IP 地址，或者为 IP 保留地址。 </td>
    </tr>
+ <tr> <td >设备风险</td><td>设备异常</td><td>206</td><td>该设备存在异常的使用行为。</td></tr>
 </table>
 
 
@@ -296,7 +287,7 @@
 https://csec.api.qcloud.com/v2/index.php?
 Action=IntelligentQRCode
 &<公共请求参数>
-&secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
+&secretId=AKI*****************************q4Zw
 &accountType=1
 &cookie = "asdasldkjaslkjdsfjlsad" //用户 HTTP 请求中的 cookie 进行2次 hash 的值
 &goodInfo="good"  //业务侧自定义内容

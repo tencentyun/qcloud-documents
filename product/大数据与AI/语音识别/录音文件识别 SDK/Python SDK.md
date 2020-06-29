@@ -1,36 +1,119 @@
 ## 接入准备
-### SDK 获取
-录音文件识别 Python SDK 以及 Demo 的下载地址：[Python3 SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/python_record_asr_sdk_v3.tar.gz)、[Python2 SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/python_record_asr_sdk.tar.gz)。
+### SDK获取
+录音文件语音识别 Python SDK 获取，请参考： [Python SDK 安装及相关环境说明](https://cloud.tencent.com/document/sdk/Python)
+
 ### 接入须知
-开发者在调用前请先查看录音文件识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37139)，了解接口的**使用要求**和**使用步骤**。
-### 开发环境
-- **环境依赖**
-<br>该接口支持 Python3 和 Python2.7 版本,请用户根据需要选择。
-- **安装 requests**
-<br>方法1：pip install requests 。
-<br>方法2：先下载 [requests](https://2.python-requests.org//zh_CN/latest/user/install.html#install)，然后进入下载目录执行：python setup.py install 。
+开发者在调用前请先查看录音文件语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37823)，了解接口的**使用要求**和**使用步骤**。
 
-## 快速接入
-1. 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 获取 AppID、SecretId、SecretKey，并将```Python_record_asr_sdk/src/Config.py```中的配置项按需改成自己的值。
-2. 参考 ```python_record_asr_sdk/src/OfflineClient.py``` 接入：
+##  快速接入
+以下分别是通过**语音 URL**和**本地语音上传**请求方式的 demo，以及**轮询接口**查询识别结果，来帮助客户快速接入。
+
+1. 通过下面的录音文件识别请求中的两种接入方式的 demo快速请求，进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 获取 AppID、SecretId、SecretKey，并在代码中对应的位置配置好用户参数。
+2. 然后在项目中使用以下的 demo，来快速获取识别结果。  
+
+
+- **通过语音 URL 方式请求**
 
 ```
-# 说明：请先将 Config.py 中的配置项按需改成自己的值，然后再开始使用。
+# -*- coding: utf-8 -*-
+from tencentcloud.common import credential
+from tencentcloud.common.profile.client_profile import ClientProfile
+from tencentcloud.common.profile.http_profile import HttpProfile
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException 
+from tencentcloud.asr.v20190614 import asr_client, models 
+import base64
 
-# 音频文件路径。每调用一次task_process方法，可发出一份请求。
-# 语音 URL，公网可下载。当 source_type值为 0时须填写该字段，为 1时不填；长度大于 0，小于 2048
-audio_url = "https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav"
-# 调用语音识别函数获得识别结果
-result = offlineSdk.task_process(audio_url)
-print (result)
+#音频 URL 方式
+try: 
+    #此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息
+    cred = credential.Credential("Your SecretId", "Your SecretKey") 
+    httpProfile = HttpProfile()
+    httpProfile.endpoint = "asr.tencentcloudapi.com"
+    clientProfile = ClientProfile()
+    clientProfile.httpProfile = httpProfile
+    clientProfile.signMethod = "TC3-HMAC-SHA256"  
+    client = asr_client.AsrClient(cred, "ap-shanghai", clientProfile) 
+    req = models.CreateRecTaskRequest()
+    params = {"EngineModelType":"16k_0","ChannelNum":1,"ResTextFormat":0,"SourceType":0,"Url":"http://ttsgz-1255628450.cos.ap-guangzhou.myqcloud.com/20190813/cbf318cd-273e-4b7c-bab0-50a1885c9b96.wav"}
+    req._deserialize(params)
+    resp = client.CreateRecTask(req) 
+    print(resp.to_json_string()) 
+    #windows 系统使用下面一行替换上面一行
+    #print(resp.to_json_string().decode('UTF-8').encode('GBK') )
 
-# ------------------------------------------------------------------------------------
-# 若需中途调整参数值，可直接修改，然后继续发请求即可。例如：
-Config.config.CALLBACK_URL = ""
-Config.config.ENGINE_MODEL_TYPE = "16k_0"
-# ......
-audio_url = "https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav"
-result = offlineSdk.task_process(audio_url)
-print (result)
+except TencentCloudSDKException as err: 
+    print(err) 
 ```
 
+- **通过本地语音上传方式请求**
+
+```
+# -*- coding: utf-8 -*-
+from tencentcloud.common import credential
+from tencentcloud.common.profile.client_profile import ClientProfile
+from tencentcloud.common.profile.http_profile import HttpProfile
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException 
+from tencentcloud.asr.v20190614 import asr_client, models 
+import base64
+
+#本地音频方式
+try: 
+    #此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息
+    cred = credential.Credential("Your SecretId", "Your SecretKey") 
+    httpProfile = HttpProfile()
+    httpProfile.endpoint = "asr.tencentcloudapi.com"
+    clientProfile = ClientProfile()
+    clientProfile.httpProfile = httpProfile
+    clientProfile.signMethod = "TC3-HMAC-SHA256"  
+    client = asr_client.AsrClient(cred, "ap-shanghai", clientProfile) 
+
+
+    #读取文件以及 base64
+    fwave = open('./test.wav', mode='r')
+    data = str(fwave.read())
+    dataLen = len(data)
+    base64Wav = base64.b64encode(data)
+
+    req = models.CreateRecTaskRequest()
+    params = {"EngineModelType":"16k_0","ChannelNum":1,"ResTextFormat":0,"SourceType":1,"Data":base64Wav,"DataLen":dataLen}
+    req._deserialize(params)
+    resp = client.CreateRecTask(req) 
+    print(resp.to_json_string()) 
+    #windows 系统使用下面一行替换上面一行
+    #print(resp.to_json_string().decode('UTF-8').encode('GBK') )
+
+except TencentCloudSDKException as err: 
+    print(err) 
+
+except TencentCloudSDKException as err: 
+    print(err) 
+```
+
+- **查询录音文件识别结果**
+
+```
+from tencentcloud.common import credential
+from tencentcloud.common.profile.client_profile import ClientProfile
+from tencentcloud.common.profile.http_profile import HttpProfile
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException 
+from tencentcloud.asr.v20190614 import asr_client, models 
+try: 
+    #此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息
+    cred = credential.Credential("Your SecretId", "Your SecretKey") 
+    httpProfile = HttpProfile()
+    httpProfile.endpoint = "asr.tencentcloudapi.com"
+
+    clientProfile = ClientProfile()
+    clientProfile.httpProfile = httpProfile
+    client = asr_client.AsrClient(cred, "ap-shanghai", clientProfile) 
+
+    req = models.DescribeTaskStatusRequest()
+    params = '{"TaskId":123456}'
+    req.from_json_string(params)
+
+    resp = client.DescribeTaskStatus(req) 
+    print(resp.to_json_string()) 
+
+except TencentCloudSDKException as err: 
+    print(err) 
+```

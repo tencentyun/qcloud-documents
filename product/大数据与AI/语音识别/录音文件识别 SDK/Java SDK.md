@@ -1,167 +1,164 @@
 ## 接入准备
-
-### SDK 获取
-录音文件识别 Java SDK 以及 Demo 的下载地址：[Java SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/java_record_asr_sdk.tar.gz)。
+### SDK获取
+录音文件识别 Java SDK 获取，请参考：[Java SDK 依赖环境及获取安装](https://cloud.tencent.com/document/sdk/Java)。
 
 ### 接入须知
-开发者在调用前请先查看录音文件识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37139)，了解接口的**使用要求**和**使用步骤**。
-
-### 开发环境
-
-**环境依赖**
-该接口需要的 JDK 版本要满足1.8及以上。 
-
-**安装 SDK**
-
-+ 本文件夹包含了 jar 包和源码。源码可通过 Eclipse 直接打开，或将 src 拷至 IDEA 等软件中。   
-+ jar 包使用步骤如下：
-	+ 找到 out 和 lib 文件夹中的 jar 文件，将所有的 jar文件复制到您的工程文件夹中。如果第三方 jar文件和您已使用的 jar文件有重复，可选择其一。   
-	+ 右键单击 Eclipse 选择【您的项目】>【Properties】>【Java Build Path】>【Add JARs】。   
-	+ 将 jar 文件 include 到您的项目中。包括 out 文件夹中的 off\_asr\_sdk\_1.0.jar 和 lib 中的所有依赖工具包。
-+ 添加完成后用户即可在工程中使用录音文件识别 SDK 。
+开发者在调用前请先查看录音文件语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37823)，了解接口的**使用要求**和**使用步骤**。
 
 ## 快速接入
+以下分别是通过**语音 URL** 和**本地语音上传**请求方式的 demo 以及**轮询**识别结果的 demo ，来帮助客户快速接入。 
 
-### 开发流程介绍
-
-录音文件识别支持以下两种数据上传方式。
-
-**指定 Url，发出请求**：
++ **通过语音 URL 方式请求**
 
 ```
-//指定语音文件的 Url，发出请求。建议使用此方法。
-OasrRequesterSender oasrRequesterSender = new OasrRequesterSender();
-OasrBytesRequest oasrBytesRequest = new OasrBytesRequest("http://xxx.xx.xxx",
-		"https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav");
-//发送请求
-OasrResponse oasrResponse = oasrRequesterSender.send(oasrBytesRequest);
-```
+import com.tencentcloudapi.common.Credential;
+import com.tencentcloudapi.common.profile.ClientProfile;
+import com.tencentcloudapi.common.profile.HttpProfile;
+import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 
-**以 HttpBody 方式，发出请求**：
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Base64;
 
-```
-// 从文件中读取语音数据，通过HttpBody发出请求。语音文件大小需小于5兆才可使用此方法。
-OasrRequesterSender oasrRequesterSender = new OasrRequesterSender();
-byte[] content = ByteUtils.inputStream2ByteArray("test_wav/8k/8k.wav");
-OasrBytesRequest oasrBytesRequest = new OasrBytesRequest("http://xxx.xx.xxx", content);
-//发送请求
-OasrResponse oasrResponse = oasrRequesterSender.send(oasrBytesRequest);
-```
+import com.tencentcloudapi.asr.v20190614.AsrClient;
 
-### 主要接口方法说明
+import com.tencentcloudapi.asr.v20190614.models.CreateRecTaskRequest;
+import com.tencentcloudapi.asr.v20190614.models.CreateRecTaskResponse;
 
-**initBaseParameters**
+public class CreateRecTask
+{
+    public static void main(String [] args) throws IOException {
+        //采用音频 URL 方式
+        try{
+            //重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
+    	   //请参考接口说明（https://cloud.tencent.com/document/product/1093/37139）中的使用步骤 1 进行获取。
+            Credential cred = new Credential("Your SecretId", "Your SecretKey");
+            
+            HttpProfile httpProfile = new HttpProfile();
+            httpProfile.setEndpoint("asr.tencentcloudapi.com");
 
-进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取您的 AppID、SecretId、SecretKey。
-
-```
-/*
-** 初始化基础参数, 请将下面的参数值配置成您自己的值。
-** 
-** 参数获取方法可参考： <a href="https://cloud.tencent.com/document/product/441/6203">签名鉴权 获取签名所需信息</a>
-*/
-private static void initBaseParameters() {
-	// required, 必须配置
-	// AsrBaseConfig.appId = "YOUR_APP_ID_SET_HERE";
-	// AsrBaseConfig.secretId = "YOUR_SECRET_ID";
-	// AsrBaseConfig.secretKey = "YOUR_SECRET_KEY";
-	AsrInternalConfig.SUB_SERVICE_TYPE = 0; // 0表示离线识别
-
-	// optional，根据自身需求配置值
-	AsrPersonalConfig.engineModelType = EngineModelType._8k_0;
-	AsrPersonalConfig.voiceFormat = VoiceFormat.wav;
-}
-```
-**sendUrlRequest**
-
-```
-/*
-** 指定语音文件的Url，发出请求。建议使用此方法。
-*/
-private void sendUrlRequest() {
-	OasrBytesRequest oasrBytesRequest = new OasrBytesRequest("http://xxx.xx.xxx",
-			"https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav");
-	// oasrBytesRequest.setChannelNum(2); //设置为2声道语音，默认为1声道。目前仅8K语音支持2声道。
-	OasrResponse oasrResponse = this.oasrRequesterSender.send(oasrBytesRequest);
-	this.printReponse(oasrResponse);
-}
-```
-**sendBytesRequest**
-
-```
-/*
-** 从文件中读取语音数据，通过 HttpBody 发出请求。语音文件大小需小于5兆才可使用此方法。
-*/
-private void sendBytesRequest() {
-	byte[] content = ByteUtils.inputStream2ByteArray("test_wav/8k/8k.wav");
-	OasrBytesRequest oasrBytesRequest = new OasrBytesRequest("http://xxx.xx.xxx", content);
-	//特别设置为2声道，默认为1声道。目前仅8K语音支持2声道。
-	oasrBytesRequest.setChannelNum(2); 
-	OasrResponse oasrResponse = this.oasrRequesterSender.send(oasrBytesRequest);
-	this.printReponse(oasrResponse);
-}
-```
-**start**
-
-```
-/*
-** 启动服务
-*/
-private void start() {
-	this.sendUrlRequest();
-	System.exit(0);
+            ClientProfile clientProfile = new ClientProfile();
+            clientProfile.setHttpProfile(httpProfile);            
+            
+            AsrClient client = new AsrClient(cred, "ap-shanghai", clientProfile);
+            
+            String params = "{\"EngineModelType\":\"16k_0\",\"ChannelNum\":1,\"ResTextFormat\":0,\"SourceType\":0,\"Url\":\"http://ttsgz-1255628450.cos.ap-guangzhou.myqcloud.com/20190813/cbf318cd-273e-4b7c-bab0-50a1885c9b96.wav\"}";
+            CreateRecTaskRequest req = CreateRecTaskRequest.fromJsonString(params, CreateRecTaskRequest.class);
+            
+            CreateRecTaskResponse resp = client.CreateRecTask(req);
+            
+            System.out.println(CreateRecTaskRequest.toJsonString(resp));
+        } catch (TencentCloudSDKException e) {
+                System.out.println(e.toString());
+        }
+    }
 }
 ```
 
-### 入门示例
++ **通过本地语音上传方式请求**
 
 ```
-public class OasrRequestSample {
+import com.tencentcloudapi.common.Credential;
+import com.tencentcloudapi.common.profile.ClientProfile;
+import com.tencentcloudapi.common.profile.HttpProfile;
+import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 
-	private OasrRequesterSender oasrRequesterSender = new OasrRequesterSender();
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Base64;
 
-	static {
-		initBaseParameters();
-	}
+import com.tencentcloudapi.asr.v20190614.AsrClient;
 
-	public static void main(String[] args) {
-		OasrRequestSample rasrRequestSample = new OasrRequestSample();
-		rasrRequestSample.start();
-	}
+import com.tencentcloudapi.asr.v20190614.models.CreateRecTaskRequest;
+import com.tencentcloudapi.asr.v20190614.models.CreateRecTaskResponse;
 
-	private void start() {
-		this.sendUrlRequest();
-		System.exit(0);
-	}
+public class CreateRecTask
+{
+    public static void main(String [] args) throws IOException {
+        //通过本地音频方式
+        try{
+             //重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
+    	    //请参考接口说明（https://cloud.tencent.com/document/product/1093/37139）中的使用步骤 1 进行获取。
+            Credential cred = new Credential("Your SecretId", "Your SecretKey");
+            
+            HttpProfile httpProfile = new HttpProfile();
+            httpProfile.setEndpoint("asr.tencentcloudapi.com");
 
-	/**
-	 * 指定语音文件的 Url，发出请求。建议使用此方法。
-	 */
-	private void sendUrlRequest() {
-		OasrBytesRequest oasrBytesRequest = new OasrBytesRequest("http://xxx.xx.xxx",
-				"https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav");
-		OasrResponse oasrResponse = this.oasrRequesterSender.send(oasrBytesRequest);
-		this.printReponse(oasrResponse);
-	}
+            ClientProfile clientProfile = new ClientProfile();
+            clientProfile.setHttpProfile(httpProfile);            
+            
+            AsrClient client = new AsrClient(cred, "ap-shanghai", clientProfile);
+            
+            String params = "{\"EngineModelType\":\"16k_0\",\"ChannelNum\":1,\"ResTextFormat\":0,\"SourceType\":1}";
+            CreateRecTaskRequest req = CreateRecTaskRequest.fromJsonString(params, CreateRecTaskRequest.class);
 
-	private void printReponse(OasrResponse oasrResponse) {
-		if (oasrResponse != null)
-			System.out.println("Result is: " + oasrResponse.getOriginalText());
-		else
-			System.out.println("Result is null.");
-	}
+            File file = new File("/Users/ruskinli/eclipse-workspace/TencentSentence/src/test.wav");
+            FileInputStream inputFile = new FileInputStream(file);
+            byte[] buffer = new byte[(int)file.length()];
+            req.setDataLen(file.length());
+            inputFile.read(buffer);
+            inputFile.close();
+            String encodeData = Base64.getEncoder().encodeToString(buffer);
+            req.setData(encodeData);
+            CreateRecTaskResponse resp = client.CreateRecTask(req);
+            System.out.println(CreateRecTaskRequest.toJsonString(resp));
+        } catch (TencentCloudSDKException e) {
+                System.out.println(e.toString());
+        }
 
-	/**
-	 * 初始化基础参数, 请将下面的参数值配置成您自己的值。
-	 * 
-	 * 参数获取方法可参考： <a href="https://cloud.tencent.com/document/product/441/6203">签名鉴权 获取签名所需信息</a>
-	 */
-	private static void initBaseParameters() {
-		AsrInternalConfig.SUB_SERVICE_TYPE = 0; // 0表示离线识别
-		// optional，根据自身需求配置值
-		AsrPersonalConfig.engineModelType = EngineModelType._8k_0;
-		AsrPersonalConfig.voiceFormat = VoiceFormat.wav;
-	}
-
+    }
+    
 }
 ```
+
++ **查询录音文件语音识别结果**
+
+```
+import com.tencentcloudapi.common.Credential;
+import com.tencentcloudapi.common.profile.ClientProfile;
+import com.tencentcloudapi.common.profile.HttpProfile;
+import com.tencentcloudapi.common.exception.TencentCloudSDKException;
+
+import com.tencentcloudapi.asr.v20190614.AsrClient;
+
+import com.tencentcloudapi.asr.v20190614.models.DescribeTaskStatusRequest;
+import com.tencentcloudapi.asr.v20190614.models.DescribeTaskStatusResponse;
+
+public class DescribeTaskStatus
+{
+    public static void main(String [] args) {
+        try{
+
+            //重要，此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息，获取方法：
+    	   //请参考接口说明（https://cloud.tencent.com/document/product/1093/37139）中的使用步骤 1 进行获取。
+            Credential cred = new Credential("Your SecretId", "Your SecretKey");
+            
+            HttpProfile httpProfile = new HttpProfile();
+            httpProfile.setEndpoint("asr.tencentcloudapi.com");
+
+            ClientProfile clientProfile = new ClientProfile();
+            clientProfile.setHttpProfile(httpProfile);            
+            
+            AsrClient client = new AsrClient(cred, "ap-shanghai", clientProfile);
+            
+            String params = "{\"TaskId\":123456}";
+            DescribeTaskStatusRequest req = DescribeTaskStatusRequest.fromJsonString(params, DescribeTaskStatusRequest.class);
+            
+            DescribeTaskStatusResponse resp = client.DescribeTaskStatus(req);
+            
+            System.out.println(DescribeTaskStatusRequest.toJsonString(resp));
+        } catch (TencentCloudSDKException e) {
+                System.out.println(e.toString());
+        }
+
+    }
+    
+}
+```
+

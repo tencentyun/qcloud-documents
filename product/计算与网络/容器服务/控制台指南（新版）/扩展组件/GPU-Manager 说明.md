@@ -6,8 +6,8 @@
 GPU Manager 提供一个 All-in-One 的 GPU 管理器，基于 Kubernetes DevicePlugin 插件系统实现，该管理器提供了分配并共享 GPU、GPU 指标查询、容器运行前的 GPU 相关设备准备等功能，支持用户在 Kubernetes 集群中使用 GPU 设备。
 
 ### 组件功能
-- **拓扑分配**：提供基于 GPU 拓扑分配功能，当用户分配超过1张 GPU 卡的的应用，可以选择拓扑连接最快的方式分配 GPU 设备。
-- **GPU 共享**：允许用户提交小于1张卡资源的的任务，并提供 QoS 保证。
+- **拓扑分配**：提供基于 GPU 拓扑分配功能，当用户分配超过1张 GPU 卡的应用，可以选择拓扑连接最快的方式分配 GPU 设备。
+- **GPU 共享**：允许用户提交小于1张卡资源的任务，并提供 QoS 保证。
 - **应用 GPU 指标的查询**：用户可以访问主机端口（默认为 5678）的 `/metrics` 路径，可以为 Prometheus 提供 GPU 指标的收集功能，访问 `/usage` 路径可以进行可读性的容器状况查询。
 
 ### 部署在集群内的 kubernetes 对象
@@ -49,7 +49,7 @@ GPU Manager 提供一个 All-in-One 的 GPU 管理器，基于 Kubernetes Device
 
 
 #### 方式二：通过 yaml 创建
->?在提交时通过 yaml 为容器设置 GPU 的的使用资源，核资源需要在 resource 上填写 `tencent.com/vcuda-core`，显存资源需要在 resource 上填写 `tencent.com/vcuda-memory`。
+>?在提交时通过 yaml 为容器设置 GPU 的使用资源，核资源需要在 resource 上填写 `tencent.com/vcuda-core`，显存资源需要在 resource 上填写 `tencent.com/vcuda-memory`。
 
 下面给出 yaml 示例：
 - 使用1张卡的 P4 设备：
@@ -75,3 +75,4 @@ resources:
 tencent.com/vcuda-core: 30
 tencent.com/vcuda-memory: 20
 ```
+

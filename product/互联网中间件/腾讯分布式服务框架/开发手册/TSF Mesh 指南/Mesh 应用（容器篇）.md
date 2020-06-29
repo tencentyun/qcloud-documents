@@ -1,7 +1,9 @@
+<span id="zb"></span>
 ## 准备工作
-1. 下载 TSF Mesh 提供的 Demo（该步骤预计耗时1min）。
-2. 在 TSF 控制台上已创建容器集群并添加节点，详情参考 [集群](https://cloud.tencent.com/document/product/649/13684) （对于未创建容器集群和添加节点的用户，该步骤预计耗时10min）。
-3. 用户的开发机上已安装`docker`环境（用于推送镜像到镜像仓库。对于本地无`docker`环境的用户，该步骤预计耗时20min）。
+1. 下载 TSF 提供的 Python Mesh Demo（docker）（该步骤预计耗时1min）。
+2. 解压 Demo 压缩包，分别进入二级目录（如 `demo-mesh-promotion` 目录），执行 `docker build` 命令制作容器镜像。
+3. 在 TSF 控制台上已创建容器集群并添加节点，详情参考 [集群](https://cloud.tencent.com/document/product/649/13684) （对于未创建容器集群和添加节点的用户，该步骤预计耗时10min）。
+4. 用户的开发机上已安装`docker`环境（用于推送镜像到镜像仓库。对于本地无`docker`环境的用户，该步骤预计耗时20min）。
 
 ## 一、创建并部署 Mesh 应用
 ### 1. 创建应用
@@ -15,10 +17,11 @@
 1.4 单击【提交】，完成应用创建。
 
 <span id="步骤2"></span>
+
 ### 2. 将镜像推送到仓库
 
 2.1  在左侧导航，单击【[镜像仓库](https://console.cloud.tencent.com/tsf/image)】，进入镜像列表页。首次使用时，您需要设置镜像仓库密码（该密码与腾讯云官网账号密码独立）。
-2.2 在镜像列表页，单击【[应用管理](https://console.cloud.tencent.com/tsf/app)】>【ID/应用名】>【镜像】，单击【使用指引】，根据指引中的命令将 Python demo 应用的镜像推送到镜像仓库中（详请参见 [镜像仓库使用指引](https://cloud.tencent.com/document/product/649/16695)）。
+2.2 在镜像列表页，单击【[应用管理](https://console.cloud.tencent.com/tsf/app)】>【ID/应用名】>【镜像】，单击【使用指引】，根据指引中的命令将 Python demo 应用的镜像（参考 [准备工作](#zb) 中的第2步）推送到镜像仓库中（详请参见 [镜像仓库使用指引](https://cloud.tencent.com/document/product/649/16695)）。
 
 
 
@@ -83,3 +86,4 @@ curl -XGET <云主机 IP>:<NodePort>/api/v6/user/account/query
   
 - **依赖拓扑**界面：选择集群和命名空间后，调整时间范围，使其覆盖服务运行期间的时间范围，正常情况下，将出现服务之间相互依赖的界面。
 ![](https://main.qcloudimg.com/raw/6aca4040cf351441da2eaf5f7890902c.png)
+

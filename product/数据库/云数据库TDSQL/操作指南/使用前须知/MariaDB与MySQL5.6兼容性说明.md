@@ -10,13 +10,11 @@ MariaDB 与 MySQL 5.6 高度兼容，已用于 MySQL 数据库的代码、应用
 - 可使用 MySQL 客户端连接到 MariaDB。
 
 ## MariaDB 和 MySQL 5.6 的不兼容性
-MariaDB 的 Binlog 默认采用 row 格式，而原生 MySQL、原生 MariaDB 默认采用 statement 格式。
-
 ### 1. GTID 不兼容
 MariaDB 的 GTID 和 MySQL 5.6 的 GTID 不兼容，即 MySQL 不能作为 MariaDB 的从库。
 
 ### 2. Binlog 默认配置不同
-MariaDB 的 Binlog 默认采用 row 格式，MySQL、MariaDB 默认采用 statement 格式。
+MariaDB 的 Binlog 默认采用 row 格式，而原生 MySQL 5.6 和原生 MariaDB 10.2.3 之前的版本，都默认采用 statement 格式。
 
 ### 3. CREAT TABLE ... SELECT 命令在基于行模式复制和基于命令模式复制
 为使 CREAT TABLE ... SELECT 命令在基于行模式复制和基于命令模式复制的情况下都能正常工作，MariaDB 中的 CREAT TABLE ... SELECT 命令在从库上将会被转化为 CREAT OR RPLACE 命令执行，好处是即使从库中途宕机恢复后仍然能够正常工作。
@@ -119,8 +117,8 @@ mysql> SELECT email FROM t2 LEFT JOIN t1  ON kid = t2.id WHERE t1.id IS NULL ord
 
 #### 4.2 Auto_increment 字段溢出后的处理方式不同
 INNODB 特定的未定义行为：
-- 在所有自增列锁定模式下(0，1，2），如果给自增列字段指定负数，自增机制的行为是未定义的。
-- 在所有自增列锁定模式下(0，1，2），如果自增列字段值大于该自增列整数类型可以存储的最大整数值，那么自增机制的行为是未定义的。
+- 在所有自增列锁定模式下（0，1，2），如果给自增列字段指定负数，自增机制的行为是未定义的。
+- 在所有自增列锁定模式下（0，1，2），如果自增列字段值大于该自增列整数类型可以存储的最大整数值，那么自增机制的行为是未定义的。
 
 >?请不要向自增列随意插入（错误）数字。
 
@@ -159,13 +157,13 @@ MySQL 5.7 和 MariaDB 中 date 类型的变量仍然为 date，所以在和 year
 SELECT CAST(CAST('10:11:12.098700' AS TIME) AS DECIMAL(20,6));
 CAST(CAST('10:11:12.098700' AS TIME) AS DECIMAL(20,6))
 ``` 	
-出现类似语句时，MySQL 5.5、5.6 与 MariaDB10.1、MySQL5.7 之间采用不同的处理方式：
+出现类似语句时，MySQL 5.5、5.6 与 MariaDB 10.1、MySQL 5.7 之间采用不同的处理方式：
 - 在 MySQL 5.5、5.6 中返回101112.098700，仍然能够保持精度。
 - 在 MySQL 5.7 和 MariaDB 10.1 中返回101112.000000，这是因为该语句没有指定 TIME 的精度，而 TIME 的默认精度为0，因此“CAST('10:11:12.098700' AS TIME)”会丢失小数点后面的数值。
 
 为了保证时间的精度不变，可以使用如下语句。
 ```
-SELECT CAST(CAST('10:11:12.098700' (6)) AS DECIMAL(20,6));
+SELECT CAST(CAST('10:11:12.098700' AS TIME(6)) AS DECIMAL(20,6));
 +-----------------------------------------------------------+
 | CAST(CAST('10:11:12.098700' AS TIME(6)) AS DECIMAL(20,6)) |
 +-----------------------------------------------------------+

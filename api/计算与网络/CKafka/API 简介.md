@@ -1,3 +1,7 @@
+>?
+>- 当前页面接口为旧版 API，未来可能停止维护。消息队列 CKafka API3.0 版本接口定义更加规范，访问时延下降显著，建议使用 [消息队列 CKafka API3.0](https://cloud.tencent.com/document/product/597/40823)。
+>- 如果您需要访问消息队列 CKafka 旧版 API，可参见 [API 概览](https://cloud.tencent.com/document/product/597/10076)。
+
 欢迎使用消息队列 CKafka。
 
 消息队列 CKafka 运行在腾讯数据中心，它提供了可以弹性伸缩的消息队列服务。

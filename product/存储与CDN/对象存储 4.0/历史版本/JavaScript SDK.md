@@ -1,3 +1,6 @@
+>!目前查阅的是历史版本 SDK 文档，后续不再更新和维护，我们建议您查阅新版 [SDK 文档](https://cloud.tencent.com/document/product/436/6474) 。
+
+
 ## 开发准备
 
 ### SDK 获取
@@ -69,8 +72,8 @@ COS 服务的 JS SDK V4 版本的 [GitHub 地址](https://github.com/tencentyun/
 
 | **参数名**        | **类型**   | **是否必填** | **默认值** | **参数描述**                                 |
 | -------------- | -------- | -------- | ------- | ---------------------------------------- |
-| appid          | int      | 是        | 无       | appid                                    |
-| bucket         | String   | 是        | 无       | bucket名称，bucket 创建参见[创建Bucket](https://cloud.tencent.com/document/product/436/6245#.E5.88.9B.E5.BB.BA.E5.AD.98.E5.82.A8.E6.A1.B6) |
+| appid          | int      | 是        | 无       | APPID                                    |
+| bucket         | String   | 是        | 无       | bucket 名称|
 | region         | String   | 是        | 'gz'    | 地域信息，必填参数，华南地区填gz 华东填sh 华北填tj            |
 | getAppSign     | Function | 是        | 无       | 获取多次签名的函数，建议从服务器端获取签名字符串                 |
 | getAppSignOnce | Function | 是        | 无       | 获取单次签名的函数，建议从服务器端获取签名字符串                 |
@@ -84,7 +87,7 @@ COS 服务的 JS SDK V4 版本的 [GitHub 地址](https://github.com/tencentyun/
 
 ### 普通文件上传
 
-接口说明：通常用于较小文件(一般小于20MB)的上传，可以通过此接口上传较小的文件并获得文件的url，如果文件大于20M则本接口内部会去调用分片上传接口。
+接口说明：通常用于较小文件（一般小于20MB）的上传，可以通过此接口上传较小的文件并获得文件的 url，如果文件大于20M则本接口内部会去调用分片上传接口。
 
 #### 方法原型
 
@@ -113,8 +116,8 @@ cos.uploadFile(successCallBack, errorCallBack, progressCallBack, bucket, path, f
 | code               | Int    | 是          | 错误码，成功时为0                  |
 | message            | String | 是          | 提示信息                       |
 | data               | Object | 是          | 返回数据                       |
-| data.access_url    | String | 是          | 生成的文件CDN下载url              |
-| data.source_url    | String | 是          | 生成的文件COS源站url              |
+| data.access_url    | String | 是          | 生成的文件 CDN 下载 url              |
+| data.source_url    | String | 是          | 生成的文件 COS 源站 url              |
 | data.url           | String | 是          | 操作文件的url                   |
 | data.resource_path | String | 是          | 资源路径，格式：/appid/bucket/xxx |
 

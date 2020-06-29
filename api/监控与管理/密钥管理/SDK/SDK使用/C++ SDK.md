@@ -1,7 +1,7 @@
 ## 开发准备
 
 ### 相关资源
--[GitHub地址](https://github.com/tencentyun/kms-cpp-sdk.git)，欢迎贡献代码以及反馈问题。
+[GitHub地址](https://github.com/tencentyun/kms-cpp-sdk.git)，欢迎贡献代码以及反馈问题。
 
 ### 开发环境
 1. [安装 openssl 的库和头文件](http://www.openssl.org/source/)。
@@ -53,7 +53,7 @@ void create_key(KeyMetadata & meta,const string &Description="",const string & A
 
 | 参数名 | 类型 | 默认值 | 参数描述 |
 |---------|---------|---------|---------|
-|KeyMetadata|struct||主密钥属性结构体，该参数返回创建的主密钥属性结构| 
+|KeyMetadata|struct|-|主密钥属性结构体，该参数返回创建的主密钥属性结构| 
 |Description|string|None|主密钥描述|
 |Alias|string|空字符串|主密钥别名|
 |KeyUsage|string|'ENCRYPT/DECRYPT'|主密钥用途：默认是加解密|

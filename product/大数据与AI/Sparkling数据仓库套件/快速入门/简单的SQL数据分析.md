@@ -36,6 +36,7 @@ select * from new_table
 ![](https://main.qcloudimg.com/raw/80ff8ed287fc30028d24d0f557f16f7f.png)
 
 ### 4. 数据可视化分析
+
 执行以下命令获取以 enabled 分组的检索行数，将结果绘制饼图如下：
 ```
 select enabled,count(1) from new_table group by enabled

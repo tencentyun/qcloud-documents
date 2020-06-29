@@ -1,54 +1,126 @@
 ## 接入准备
-
-### SDK 获取
-
-录音文件识别 PHP SDK 以及 Demo 的下载地址：[PHP SDK ](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/php_record_asr_sdk.tar.gz)。
-
+### SDK获取
+录音文件语音识别 PHP SDK 获取，请参考： [PHP SDK 安装及相关环境说明](https://cloud.tencent.com/document/sdk/PHP)。
 
 ### 接入须知
+开发者在调用前请先查看录音文件语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37823)，了解接口的**使用要求**和**使用步骤**。
+## 快速接入
 
-开发者在调用前请先查看录音文件识别的[ 接口说明](https://cloud.tencent.com/document/product/1093/37139)，了解接口的**使用要求**和**使用步骤**。
+以下分别是通过**语音 URL** 和**本地语音上传**请求方式的 demo，来帮助客户快速接入。
+1. 通过下面的录音文件识别请求中的两种接入方式的 demo快速请求，进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 获取 AppID、SecretId、SecretKey，并在代码中对应的位置配置好用户参数。
+2. 然后在项目中使用以下的 demo，来快速获取识别结果。
 
-### 开发环境
 
-+ **环境依赖**
-
-此版本 SDK 适用于 PHP 5.4.16 及以上版本。
-
-+ **安装 SDK**
-
-根据下载地址下载源码，将源码中的 * .php 复制到项目中即可使用。
-
-##  快速接入
-1. 进入[ API 密钥管理页面 ](https://console.cloud.tencent.com/cam/capi)获取 AppID、SecretId、SecretKey，并将```php_record_asr_sdk/Config.py```中的配置项按需改成自己的值。
-2. 参考```php_record_asr_sdk/OfflineClient.php``` 接入 
+- **通过语音 URL 方式请求**
 
 ```
 <?php
-require ('OfflineSdk.php');
+require_once './tencentcloud-sdk-php/TCloudAutoLoader.php';  
+use TencentCloud\Common\Credential;
+use TencentCloud\Common\Profile\ClientProfile;
+use TencentCloud\Common\Profile\HttpProfile;
+use TencentCloud\Common\Exception\TencentCloudSDKException;
+use TencentCloud\Asr\V20190614\AsrClient;
+use TencentCloud\Asr\V20190614\Models\CreateRecTaskRequest;
+//通过音频 URL 方式请求
+try {
+    //此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息
+    $cred = new Credential("Your SecretId", "Your SecretKey");
+    $httpProfile = new HttpProfile();
+    $httpProfile->setEndpoint("asr.tencentcloudapi.com");
+      
+    $clientProfile = new ClientProfile();
+    $clientProfile->setHttpProfile($httpProfile);
+    $clientProfile->setSignMethod("TC3-HMAC-SHA256");  
+    $client = new AsrClient($cred, "ap-shanghai", $clientProfile);
 
-# 1. 先修改好Config.php文件中的配置值。也可以直接在下面修改，例如：
-Config :: $ENGINE_MODEL_TYPE = "8k_0";
-Config :: $VOICE_FORMAT = 1;
+    $req = new CreateRecTaskRequest();
+    
+    $params = '{"EngineModelType":"16k_0","ChannelNum":1,"ResTextFormat":0,"SourceType":0,"Url":"http://ttsgz-1255628450.cos.ap-guangzhou.myqcloud.com/20190813/cbf318cd-273e-4b7c-bab0-50a1885c9b96.wav"}';
+    $req->fromJsonString($params);
 
-# 2. 然后开始调用：
-// 方法1： 指定音频的url（识别服务器会主动去下载），发送请求，推荐使用此方法。
-$audio_url = "https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav";
-$result = sendUrlRequest("http://yyy.yy.yyy", $audio_url);
-echo "\n<br>8K UrlRequest result is: " . $result;
+    $resp = $client->CreateRecTask($req);
 
-// 方法2：直接上传音频文件，文件大小不能超过5兆。
-$filepath = "test_wav/8k/8k.wav";
-$result = sendFileRequest("http://xxx.xx.xxx", $filepath);
-echo "\n<br>8K FileRequest result is: " . $result;
+    print_r($resp->toJsonString());
+}
+catch(TencentCloudSDKException $e) {
+    echo $e;
+}
+```
 
-# ---------------------------------------------------------------------
-# 3. 若需中途调整参数值，可直接修改，然后继续发请求即可。例如：
-Config :: $ENGINE_MODEL_TYPE = "16k_0";
+- **通过本地语音上传方式请求**
 
-$filepath = "test_wav/16k/16k.wav";
-$result = sendFileRequest("http://xxx.xx.xxx", $filepath);
-echo "\n<br>16K FileRequest result is: " . $result;
+```
+<?php
+require_once './tencentcloud-sdk-php/TCloudAutoLoader.php';
+use TencentCloud\Common\Credential;
+use TencentCloud\Common\Profile\ClientProfile;
+use TencentCloud\Common\Profile\HttpProfile;
+use TencentCloud\Common\Exception\TencentCloudSDKException;
+use TencentCloud\Asr\V20190614\AsrClient;
+use TencentCloud\Asr\V20190614\Models\CreateRecTaskRequest;
+//通过本地音频方式请求
+try {
+    //此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息
+    $cred = new Credential("Your SecretId", "Your SecretKey");
+    $httpProfile = new HttpProfile();
+    $httpProfile->setEndpoint("asr.tencentcloudapi.com");
+      
+    $clientProfile = new ClientProfile();
+    $clientProfile->setHttpProfile($httpProfile);
+    $clientProfile->setSignMethod("TC3-HMAC-SHA256");  
+    $client = new AsrClient($cred, "ap-shanghai", $clientProfile);
 
-?>
+    $req = new CreateRecTaskRequest();
+    
+    $params = '{"EngineModelType":"16k_0","ChannelNum":1,"ResTextFormat":0,"SourceType":1}';
+    $req->fromJsonString($params);
+    $data = file_get_contents('./test.wav');
+    $encodeData = base64_encode($data);
+    $req->Data = $encodeData;
+    $req->DataLen = strlen($data);
+
+    $resp = $client->CreateRecTask($req);
+
+    print_r($resp->toJsonString());
+}
+catch(TencentCloudSDKException $e) {
+    echo $e;
+}
+```
+
+- **查询识别结果**
+
+```
+<?php
+require_once '../../../TCloudAutoLoader.php';
+use TencentCloud\Common\Credential;
+use TencentCloud\Common\Profile\ClientProfile;
+use TencentCloud\Common\Profile\HttpProfile;
+use TencentCloud\Common\Exception\TencentCloudSDKException;
+use TencentCloud\Asr\V20190614\AsrClient;
+use TencentCloud\Asr\V20190614\Models\DescribeTaskStatusRequest;
+try {
+    //此处<Your SecretId><Your SecretKey>需要替换成客户自己的账号信息
+    $cred = new Credential("Your SecretId", "Your SecretKey");
+    $httpProfile = new HttpProfile();
+    $httpProfile->setEndpoint("asr.tencentcloudapi.com");
+      
+    $clientProfile = new ClientProfile();
+    $clientProfile->setHttpProfile($httpProfile);
+    $client = new AsrClient($cred, "ap-shanghai", $clientProfile);
+
+    $req = new DescribeTaskStatusRequest();
+    
+    $params = '{"TaskId":123456}';
+    $req->fromJsonString($params);
+
+
+    $resp = $client->DescribeTaskStatus($req);
+
+    print_r($resp->toJsonString());
+}
+catch(TencentCloudSDKException $e) {
+    echo $e;
+}
 ```

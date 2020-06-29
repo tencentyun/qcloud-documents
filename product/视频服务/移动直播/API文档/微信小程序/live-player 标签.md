@@ -6,10 +6,10 @@
 - 微信 App Android 最低版本要求：6.5.19。
 - 小程序基础库最低版本要求：1.7.0。
 
->?通过 wx.getSystemInfo 可以获取当前基础库版本信息。
+>?通过 wx.getSystemInfo 可以获取当前基础库版本信息。 
 
 ## 使用限制
-出于政策和合规的考虑，微信暂时没有放开所有小程序对 &lt;live-pusher&gt; 和 &lt;live-player&gt; 标签的支持：
+出于政策和合规的考虑，微信暂时没有放开所有小程序对[ &lt;live-pusher&gt;](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html) 和 [&lt;live-player&gt;](https://developers.weixin.qq.com/miniprogram/dev/component/live-player.html) 标签的支持：
 
 - 个人账号和企业账号的小程序暂时只开放如下表格中的类目：
 
@@ -28,7 +28,7 @@
 
 - 符合类目要求的小程序，需要在小程序管理后台的【设置】>【接口设置】中自助开通该组件权限，如下图所示：
 
-![](https://mc.qcloudimg.com/static/img/a34df5e3e86c9b0fcdfba86f8576e06a/weixinset.png)
+![](https://main.qcloudimg.com/raw/6fd7e3b1f42f0bb6cbb6f61f81bf0e27.png)
 
 >!如果以上设置都正确，但小程序依然不能正常工作，可能是微信内部的缓存没更新，请删除小程序并重启微信后，再进行尝试。
 
@@ -67,7 +67,7 @@
 &lt;live-player&gt; 的 RTC 模式支持500ms以内的超低时延链路，可以应用在视频通话和远程遥控等场景中，要使用超低时延播放，需要注意如下几点：
 （1）推流端如果是微信小程序，请使用 &lt;live-pusher&gt; 的 RTC 模式。
 （2）推流端如果是 iOS 或者 Android SDK，请使用 setVideoQuality 的 MAIN_PUBLISHER 模式。
-（3）推流端如果是 Windows，请不要使用 OBS，延时太高，可以使用我们的 [Windows SDK](https://cloud.tencent.com/document/product/454/7873#Windows)。
+（3）推流端如果是 Windows，请不要使用 OBS，延时太高，可以使用我们的 [Windows SDK](https://cloud.tencent.com/document/product/454/7873)。
 （4）&lt;live-player&gt; 的 min-cache 和 max-cache 请不要自行设置，使用默认值。
 （5）播放地址请使用超低延时播放地址，也就是带了防盗链签名的`rtmp://`地址，如下：
 
@@ -79,7 +79,7 @@
 
 ## 属性详解
 - **src**
-用于音视频下行的播放 URL，支持 RTMP 协议（URL 以 “rtmp://” 打头）和 FLV 协议（URL 以 “http://” 打头且以 “.flv” 结尾） ，腾讯云推流 URL 的获取方法见 [DOC](https://cloud.tencent.com/document/product/454/7915)。
+用于音视频下行的播放 URL，支持 RTMP 协议（URL 以`rtmp://`打头）和 FLV 协议（URL 以`http://`打头且以`.flv`结尾） ，腾讯云推流 URL 的获取方法见 [如何生成推流 URL](https://cloud.tencent.com/document/product/454/7915)。
 >? &lt;live-player&gt; 标签是不支持 HLS（m3u8）协议的，因为 &lt;video&gt; 已经支持 HLS（m3u8）播放协议了。但直播观看不推荐使用 HLS（m3u8）协议，延迟要比 RTMP 和 FLV 协议高一个数量级。
 
 - **mode**
@@ -110,7 +110,7 @@ live 模式主要用于直播类场景，例如赛事直播、在线教育、远
 设置播放模式，可设值为：ear 与 speaker，ear 代表使用听筒播放， speaker 代表使用扬声器，默认为扬声器。
 
 - **debug**
- 调试音视频相关功能，如果没有很好的工具会是一个噩梦，所以小程序为 live-pusher 标签支持了 debug 模式，开始 debug 模式之后，原本用于渲染视频画面的窗口上，会显示一个半透明的 log 窗口，用于展示各项音视频指标和事件，降低您调试相关功能的难度，具体使用方法我们在 [FAQ](https://cloud.tencent.com/document/product/454/7946#2.-.E5.8F.91.E7.8E.B0.E9.97.AE.E9.A2.98.E7.9A.84.E2.80.9C.E7.9C.BC.E7.9D.9B.E2.80.9D) 中有详细说明。
+ 调试音视频相关功能，如果没有很好的工具会是一个噩梦，所以小程序为 live-pusher 标签支持了 debug 模式，开始 debug 模式之后，原本用于渲染视频画面的窗口上，会显示一个半透明的 log 窗口，用于展示各项音视频指标和事件，降低您调试相关功能的难度，具体使用方法我们在 [FAQ](https://cloud.tencent.com/document/product/454/7946) 中有详细说明。
 
 
 ## 对象操作

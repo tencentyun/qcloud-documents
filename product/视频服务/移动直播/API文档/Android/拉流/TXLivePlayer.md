@@ -41,7 +41,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| config | [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774#txliveplayconfig) | 播放器配置项了，请参见 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774#txliveplayconfig)。 |
+| config | [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774) | 播放器配置项，请参见 [TXLivePlayConfig](https://cloud.tencent.com/document/product/454/34774)。 |
 
 ***
 
@@ -56,7 +56,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| listener | [ITXLivePlayListener](https://cloud.tencent.com/document/product/454/34773#itxliveplaylistener) | 播放器回调，请参见 [ITXLivePlayListener](https://cloud.tencent.com/document/product/454/34773#itxliveplaylistener)。 |
+| listener | [ITXLivePlayListener](https://cloud.tencent.com/document/product/454/34773) | 播放器回调，请参见 [ITXLivePlayListener](https://cloud.tencent.com/document/product/454/34773)。 |
 
 ***
 
@@ -324,7 +324,7 @@ __介绍__
 
 ### switchStream
 
-多清晰度切换。
+FLV 多清晰度切换。
 ```
 int switchStream(String playUrl)
 ```
@@ -355,7 +355,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| listener | [ITXAudioVolumeEvaluationListener](#ITXAudioVolumeEvaluationListener) | 音量大小回调接口。 |
+| listener | [ITXAudioVolumeEvaluationListener](#itxaudiovolumeevaluationlistener) | 音量大小回调接口。 |
 
 ***
 
@@ -374,7 +374,7 @@ __参数__
 
 __介绍__
 
-开启后会在 [onAudioVolumeEvaluationNotify](#onAudioVolumeEvaluationNotify) 中获取到 SDK 对音量大小值的评估
+开启后会在 [onAudioVolumeEvaluationNotify](#onAudioVolumeEvaluationNotify) 中获取到 SDK 对音量大小值的评估。
 
 ***
 
@@ -599,7 +599,7 @@ __参数__
 
 __介绍__
 
-待废弃，此接口仅针对点播视频使用，对直播视频无效；若您想使用点播功能，请使用 TXVodPlayer 进行点播播放。
+待废弃，此接口仅针对点播视频使用，对直播视频无效；若您想使用点播功能，请使用 [TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#.E5.AF.B9.E6.8E.A5.E6.94.BB.E7.95.A5) 进行点播播放。
 
 ***
 
@@ -618,7 +618,7 @@ __参数__
 
 __介绍__
 
-待废弃，此接口仅针对点播视频使用，对直播视频无效；若您想使用点播功能，请使用 TXVodPlayer 进行点播播放。
+待废弃，此接口仅针对点播视频使用，对直播视频无效；若您想使用点播功能，请使用 [TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#.E5.AF.B9.E6.8E.A5.E6.94.BB.E7.95.A5) 进行点播播放。
 
 ***
 
@@ -747,5 +747,4 @@ __参数__
 |-----|-----|-----|
 | volume | int | 音量大小, 取值范围 [0，100]。 |
 
-***
 

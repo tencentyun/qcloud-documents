@@ -1,5 +1,5 @@
 Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情可以参考 [API 接口代码实现](https://github.com/hyperledger/fabric/blob/v1.4.1/core/chaincode/shim/chaincode.go)。
-从逻辑方面划分，可将 type 为 haincodeStub 的 API 划分为以下类型：
+从逻辑方面划分，可将 type 为 ChaincodeStub 的 API 划分为以下类型：
 - [交易信息提取](#informationExtraction)
 - [账本交互](#accountInteraction)
 - [参数处理](#parametersProcess)
