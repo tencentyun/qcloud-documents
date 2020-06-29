@@ -9,7 +9,7 @@ TI 支持**参数服务器**和 **Horovod** 两种类型的分布式训练框架
 
 如果指定 parameter_server 作为 distributions 参数的值，容器会在训练集群上启动参数服务器。
 
-以下例子中创建了一个使用2台实例的参数服务器训练任务
+以下例子中创建了一个使用2台实例的参数服务器训练任务   
 
 ```python
 tf_estimator = TensorFlow(role=role,

@@ -18,14 +18,16 @@ Components: 2.30.1
 
 ## 注意事项
 - 请确保您使用的账户下的 `SLS_QcsRole` 的运行角色已具备 `QcloudTCBFullAccess` 策略。如未具备，请前往 [访问管理控制台](https://console.cloud.tencent.com/cam/role) 进行配置。
-- 目前 TCB 端仅支持每月最多创建销毁**4**次环境，请谨慎创建，若超过4次部署将会报错。
+- 目前云开发 TCB 端仅支持每月最多创建销毁**4**次环境，请谨慎创建，若超过4次部署将会报错。
 
 
 ## 操作步骤
 本文以 Node.js 开发语言的函数为例，介绍如何通过 Serverless Framework 组件编写创建函数，创建并访问 NoSQL DB。配置流程如下：
-1. 创建云开发环境：通过 [Serverless Framework 组件](https://cloud.tencent.com/document/product/1154/39271) 创建云开发环境，在其中创建并使用 NoSQL DB。
-2. 通过 Serverless DB SDK 调用数据库：云函数支持直接调用 Serverless DB SDK，创建 NoSQL DB 并进行管理操作。
-  
+1. **身份信息配置**：在本地配置腾讯云账户信息。
+1. **创建云开发环境配置文件**：通过 [Serverless Framework 组件](https://cloud.tencent.com/document/product/1154/39271) 创建云开发环境，在其中创建并使用 NoSQL DB。
+2. **编写业务代码**：通过 Serverless DB SDK 调用数据库，云函数支持直接调用 Serverless DB SDK，创建 NoSQL DB 并进行管理操作。
+4. **部署与调试**：通过 Serverless Framework 部署项目至云端，并通过云函数控制台进行测试。
+5. **移除项目**：可通过 Serverless Framework 移除项目。
 
 
 
@@ -44,7 +46,7 @@ TENCENT_SECRET_KEY=xxx // 您账号的 SecretKey
 ```
 >?
 > - 如果没有腾讯云账号，请 [注册新账号](https://cloud.tencent.com/register)。
-> - 如果已有腾讯云账号，请确保您的账号已经授权了 `AdministratorAccess` 权限。 同时，您可在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
+> - 如果已有腾讯云账号，请确保您的账号已经授权了 `AdministratorAccess` 权限。同时，您可在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
 >
 
 
@@ -59,7 +61,7 @@ org: anycodes
 app: mongoDBAPP
 stage: dev
 inputs:
-  name: Mydemo
+     name: Mydemo
 ```
 
 ### 编写业务代码
@@ -81,11 +83,11 @@ const db = app.database()
 const _ = db.command
 exports.main = async (event, context) => {
 	await db.createCollection('serverless')
-	const username = JSON.parse(event.body).username
+	const username = 'serverless'
 	const collection = db.collection('serverless')
 	if (username) {
-			await collection.add({username: username})	
-		}
+			await collection.add({username: username})
+				}
 		const userList = await collection.get()
 		return userList
 }
@@ -100,16 +102,16 @@ org: anycodes
 app: mongoDBAPP
 stage: dev
 inputs:
-  name: MongoDBDemo
-  src: ./src
-  runtime: Nodejs8.9
-  region: ap-guangzhou
-  handler: index.main
-  environment:
-    variables:
-      SecretId: 请填入您的SecretId
-      SecretKey: 请填入您的SecretKey
-      MongoId: ${output:${stage}:${app}:mongoDBDemoMongo.EnvId}
+     name: MongoDBDemo
+     src: ./src
+     runtime: Nodejs8.9
+     region: ap-guangzhou
+     handler: index.main
+     environment:
+       variables:
+         SecretId: 请填入您的SecretId
+         SecretKey: 请填入您的SecretKey
+         MongoId: ${output:${stage}:${app}:mongoDBDemoMongo.EnvId}
 ```
 
 
@@ -123,17 +125,17 @@ sls deploy --all
 ```
 serverless ⚡ framework
 mongoDBDemoMongo:
-  Region:    ap-guangzhou
-  Name:      Mydemo
-  EnvID:     Mydemo-dyxfxv
-  FreeQuota: basic
+     Region:    ap-guangzhou
+     Name:      Mydemo
+     EnvID:     Mydemo-dyxfxv
+     FreeQuota: basic
 mongoDBDemoSCF: 
-  FunctionName: MongoDBDemo
-  Description:  
-    Namespace:    default
-    Runtime:      Nodejs8.9
-    Handler:      index.main
-    MemorySize:   128
+     FunctionName: MongoDBDemo
+     Description:  
+       Namespace:    default
+       Runtime:      Nodejs8.9
+       Handler:      index.main
+       MemorySize:   128
 25s › tcbdemo › Success
 ```
 2. 部署成功后，您可通过 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=1)，查看并进行函数调试。测试步骤请参见 [云端测试](https://cloud.tencent.com/document/product/583/37509#.E4.BA.91.E7.AB.AF.E6.B5.8B.E8.AF.95)，测试成功如下图所示：

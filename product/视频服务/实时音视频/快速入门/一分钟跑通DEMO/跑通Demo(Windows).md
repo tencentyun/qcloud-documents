@@ -54,10 +54,10 @@
 
 ### 步骤4：编译运行
 - **Windows（C++）**
-使用 Visual Stuido（建议 VS2015）打开源码目录下的`DuilibDemo\TRTCDuilibDemo.sln`工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
+使用 Visual Studio（建议 VS2015）打开源码目录下的`DuilibDemo\TRTCDuilibDemo.sln`工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
 
 - **Windows（C#）**
-使用 Visual Stuido（建议 VS2017）打开源码目录下的`CSharpDemo\TRTCCSharpDemo.sln`工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
+使用 Visual Studio（建议 VS2017）打开源码目录下的`CSharpDemo\TRTCCSharpDemo.sln`工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
 
 ## 常见问题
 

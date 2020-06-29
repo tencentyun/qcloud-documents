@@ -320,6 +320,8 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 -keep class com.tencent.tpns.dataacquisition.** {*;}
 ```
 
+>!如果 TPNS SDK 被包含在 App 的公共 SDK 里，即使公共 SDK 有增加配置混淆规则，主工程 App 也必须要同时增加配置混淆规则。
+
 ## 高级配置（可选）
 ### 音视频富媒体使用方法
 1. 在 App 的 layout 目录下，新建一个 xml 文件，命名为 xg_notification。
@@ -357,8 +359,8 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
        android:exported="false" />     
 ```
 
-### 获取 Token 交互建议
-建议您完成 SDK 集成后，在 App 的“关于”、“意见反馈”等比较不常用的 UI 中，通过手势或者其他方式显示 Token，该操作便于我们后续进行问题排查。
+### 获取 TPNS Token 交互建议
+建议您完成 SDK 集成后，在 App 的【关于】、【意见反馈】等比较不常用的 UI 中，通过手势或者其他方式显示 TPNS Token，控制台和 Restful API 推送需要根据 TPNS Token 进行 Token 推送，后续问题排查也需要根据 TPNS Token 进行定位。
 示例代码如下：
 ```java
 //获取 Token

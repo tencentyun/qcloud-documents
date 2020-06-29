@@ -251,10 +251,11 @@ Maven 依赖如下：
  - 开启内网访问，并选择和数据库相同的私有网络和子网。如下图所示：
 ![](https://main.qcloudimg.com/raw/d2f7b877fbb62c92ca2749ffd79ea650.png)
 
-## 使用 Serverless DB SDK 连接数据库的操作步骤
-为了方便使用，云函数团队将上述 Node.js 和 Python 连接池最佳实践封装成了 Serverless DB SDK，并且内置到了运行时中，不需要在依赖文件中导入依赖。支持 MySQL，CynosDB，TDSQL 等 MySQL 协议的数据库。
+## 使用 SCF DB SDK for MySQL 连接数据库的操作步骤
+为了方便使用，云函数团队将上述 Node.js 和 Python 连接池最佳实践封装成了 SCF DB SDK for MySQL，并且内置到了运行时中，不需要在依赖文件中导入依赖。支持 MySQL，CynosDB 及 TDSQL 三种 MySQL 协议的数据库。
+>!SCF DB SDK 主要支持 MySQL 协议的数据库，如果您需使用腾讯云 Serverless DB（PostgreSQL 及 NoSQL），推荐使用 [Serverless Framework 组件](https://cloud.tencent.com/document/product/583/45363)。
 
-Serverless DB SDK 具备以下特点：
+SCF DB SDK for MySQL 具备以下特点：
 - 自动从环境变量初始化数据库客户端。
 - SDK 会在全局维护一个数据库长连接，并处理连接中断后的重连。
 - 云函数团队会持续关注 issue，确保获得连接即可用，不需要关注数据库连接。
@@ -276,7 +277,7 @@ exports.main_handler = async (event, context, callback) => {
 }
 ```
 
->?Node.js SDK 具体使用方法请参考 [云函数 Serverless DB Node SDK](https://www.npmjs.com/package/scf-nodejs-serverlessdb-sdk)。
+>?Node.js SDK 具体使用方法请参考 [SCF DB SDK for MySQL](https://www.npmjs.com/package/scf-nodejs-serverlessdb-sdk)。
 
 
 ### Python SDK
@@ -297,14 +298,15 @@ def main_handler(event, context):
 ```
 
 ### 配置环境变量和私有网络
-若您使用 Serverless DB SDK，请按照以下步骤进行配置：
+若您使用 SCF DB SDK for MySQL，请按照以下步骤进行配置：
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏中的【函数服务】。
 2. 单击需连接数据库的函数 ID，进入该函数的“函数配置”页面，参考以下信息进行配置。
  - 新增**环境变量**，请参考以下表格填写，如下图所示：
 ![](https://main.qcloudimg.com/raw/46c8b2aab4d4463dd16e1e063b318e36.png)
 >!
->- 环境变量 key 格式为`DB_{引用}_XXX`，您可通过 `mysql.database(引用).connection()` 获得已初始化的数据库连接。
+>- 环境变量 key 格式为`DB_{引用}_XXX`，您可通过 `mysql.database(引用).connection()` 获得已初始化的数据库连接（引用为此数据库的标识）。
 >- 若您设置添加环境变量 `DB_DEFAULT` 为 `DB1`，则 `mysql.database()` 默认使用 `DB1`，否则需要指定引用 `mysql.database("DB1")`。
+>- 更多关于环境变量相关信息，请参见 [环境变量](https://cloud.tencent.com/document/product/583/30228)。
 >
 <table>
 <tr>

@@ -1,55 +1,287 @@
 ## 操作场景
 TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和消费。
 
-本文主要介绍 Go SDK 的使用方式，提供 Demo 工程的安装、下载、配置及运行示例，帮助工程师快速搭建 TDMQ 测试工程。
+本文主要介绍 Go SDK 的使用方式，提供 Demo 工程的环境配置、下载、代码编写及运行示例，帮助工程师快速搭建 TDMQ 测试工程。
+
+## 前提条件
+已经在本地安装 Golang 开发环境（[下载地址](https://studygolang.com/dl)）。
 
 ## 操作步骤
 
 ### 准备 Demo 环境
 
 1. 安装 IDE
-您可以 [安装 GoLand](https://www.jetbrains.com/zh-cn/go/promo) 或其它的 Go IDE 来运行这个 Demo，本文以 Go Land 为例。
+您可以 [安装 GoLand](https://www.jetbrains.com/zh-cn/go/promo) 或其它的 Go IDE 来运行这个 Demo（本文以 Go Land 为例）。
 
-2. 下载 TDMQ 的 [Demo 工程](https://github.com/apache/pulsar-client-go) 到本地。
+2. 配置 GCC 环境
+因为现在的 SDK 依赖了 CGO 的库，所以需要本地配置64位 GCC，可以通过 [MinGW](http://mingw-w64.org/) 来安装。
 
-### 配置 Demo工程
+3. 打开命令控制台，运行以下命令：
+```bash
+go get -u github.com/TencentCloud/tdmq-go-client
+```
 
-使用 IDE 打开 Demo 项目，如下：
-![](https://main.qcloudimg.com/raw/2baca719f9cf4e56b9ba0d2f6561680d.png)
+>?如果国内网络环境下载比较慢，可以通过配置 [Go Proxy](https://goproxy.io/zh/) 来解决。
 
-需要关注的是其中的 example 包中的 Demo工程。
-![](https://main.qcloudimg.com/raw/e8d04b09e65f7781dc230180b93a5561.png)
+### 创建 Demo工程
 
+1.使用 IDE 创建一个新工程（如果是在云环境中使用，则需要 [配置 CAM 权限认证](#cam)），在文件夹中创建 go.mod 文件并编辑如下：
 
-Demo 基础的版本，只需要成功启动了 pulsar 的集群即可，无需配置其它认证数据。
+```go
+module zyuanyuz/godemo
 
-需要在 Producer 和 Consumer 中配置 TDMQ 的 broker 地址，如下所示：
+go 1.12
 
-在 consumer.go 文件中配置，替换这部分的地址：
-![](https://main.qcloudimg.com/raw/d055c9e4e5b339c29f3da9a3dc83342d.png)
+require github.com/TencentCloud/tdmq-go-client latest
+```
 
-在 producer.go 中也要进行类似配置：
-![](https://main.qcloudimg.com/raw/d6e35344b08612843df526cb292f28fc.png)
+Demo 基础的版本，只需要成功启动了 TDMQ 的集群即可，无需配置其它认证数据。
 
-之后先启动 consumer.go，再启动 producer.go，之后观察控制台消息：
+2.创建 producer.go 和 consumer.go 测试 Demo 文件。
+- producer.go 代码内容如下：
 
-在 producer 的控制台可以看到消息发送成功：
-![](https://main.qcloudimg.com/raw/e021cf6b299ea35ef55c66ab2450cca3.png)
+```go
+package main
 
-在 consumer 的控制台可以看到消息被成功接收：
-![](https://main.qcloudimg.com/raw/a06c89f3d03ca28af53c14cc471d2d4e.png)
+import (
+	"context"
+	"github.com/TencentCloud/tdmq-go-client/pulsar"
+	"log"
+	"strconv"
+)
+
+func main() {
+	client, err := pulsar.NewClient(pulsar.ClientOptions{
+		URL: "pulsar://localhost:6650",   //这里配置为 TDMQ 集群的 Broker 地址
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer client.Close()
+
+	producer, err := client.CreateProducer(pulsar.ProducerOptions{
+		DisableBatching: true,
+		Topic:           "persistent://appid/namespace/topic-1",
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer producer.Close()
+
+	ctx := context.Background()
+
+	for j := 0; j < 10; j++ {
+		if msgId, err := producer.Send(ctx, &pulsar.ProducerMessage{
+			Payload: []byte("Hello " + strconv.Itoa(j)),
+		}); err != nil {
+			log.Fatal(err)
+		} else {
+			log.Println("Published message: ", msgId)
+		}
+	}
+}
+```
+
+- consumer.go 的代码内容如下：
+
+```go
+package main
+
+import (
+	"context"
+	"fmt"
+	"github.com/TencentCloud/tdmq-go-client/pulsar"
+	"log"
+)
+
+func main() {
+
+	client, err := pulsar.NewClient(pulsar.ClientOptions{
+		URL: "pulsar://localhost:6650",   //这里配置为 TDMQ 集群的 Broker 地址
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer client.Close()
+
+	consumer, err := client.Subscribe(pulsar.ConsumerOptions{
+		Topics:           []string{"topic-1"},
+		SubscriptionName: "my-sub",
+		Type:             pulsar.Shared,
+	})
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer consumer.Close()
+
+	for ; ; {
+		msg, err := consumer.Receive(context.Background())
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Printf("Received message msgId: %#v -- content: '%s' -- topic : '%v'\n",
+			msg.ID(), string(msg.Payload()), msg.Topic())
+	}
+}
+```
+
+3.先启动 consumer.go，再启动 producer.go，观察控制台消息：
+
+在 producer.go 运行的控制台可以看到有10条消息发送成功：
+```bash
+2020/02/20 20:20:20 Published message:  &{581 0 0 0 <nil> <nil>}
+2020/02/20 20:20:20 Published message:  &{581 1 0 0 <nil> <nil>}
+2020/02/20 20:20:20 Published message:  &{581 2 0 0 <nil> <nil>}
+2020/02/20 20:20:20 Published message:  &{581 3 0 0 <nil> <nil>}
+2020/02/20 20:20:21 Published message:  &{581 4 0 0 <nil> <nil>}
+2020/02/20 20:20:21 Published message:  &{581 5 0 0 <nil> <nil>}
+2020/02/20 20:20:21 Published message:  &{581 6 0 0 <nil> <nil>}
+2020/02/20 20:20:21 Published message:  &{581 7 0 0 <nil> <nil>}
+2020/02/20 20:20:21 Published message:  &{581 8 0 0 <nil> <nil>}
+2020/02/20 20:20:22 Published message:  &{581 9 0 0 <nil> <nil>}
+```
+
+在 consumer.go 运行的控制台可以看到消息被成功接收并打印出来：
+```bash
+Received message msgId: &pulsar.messageID{ledgerID:581, entryID:0, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 0' -- topic : 'persistent://appid/namespace/topic-1'
+
+Received message msgId: &pulsar.messageID{ledgerID:581, entryID:1, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 1' -- topic : 'persistent://appid/namespace/topic-1'
+
+Received message msgId: &pulsar.messageID{ledgerID:581, entryID:2, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 2' -- topic : 'persistent://appid/namespace/topic-1'
+
+Received message msgId: &pulsar.messageID{ledgerID:581, entryID:3, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 3' -- topic : 'persistent://appid/namespace/topic-1'
+
+...//后续省略
+```
 
 则 Go 版本的 SDK Demo 运行成功。
 
-### 配置 Token 认证
+<span id="cam"></span>
+### 配置 CAM 认证
 
-在生产环境中我们绝大多数情况下需要认证用户操作，即需要在pulsar集群中启用 authentication，具体的认证配置这里不展开说明。
+配置 CAM 认证方式访问 TDMQ 的集群需要在创建 Client 的时候配置 AuthCloud 参数，CAM 认证的配置方式示例如下，需要正确配置需要的参数：
+```go 
+authParams := make(map[string]string)
+authParams["secretId"] = "AKxxxxxxxxxxCx"
+authParams["secretKey"] = "SDxxxxxxxxxxCb"
+authParams["region"] = "ap-guangzhou"
+authParams["ownerUin"] = "xxxxxxxxxx"
+authParams["uin"] = "xxxxxxxxxx"
+client, err := pulsar.NewClient(pulsar.ClientOptions{
+	URL:       "pulsar://9.xx.xx.8:6650",
+	AuthCloud: pulsar.NewAuthenticationCloudCam(authParams), //在这里配置CAM认证
+})
+if err != nil {
+	log.Fatal(err)
+}
+defer client.Close()
+```
 
-我们在 pulsar 集群中启用了 authentication 的认证之后会得到一个 jason web token 串，在使用时需要将其配置在客户端选项中，如下所示部分：
-![](https://main.qcloudimg.com/raw/39b3001c69c58c72ba3d814b7dd471a4.png)
+配置完成之后，即可正常创建生产者和消费者来使用 TDMQ 服务，创建的方式如下所示：
+```go
+//创建 Producer
+producer, err := client.CreateProducer(pulsar.ProducerOptions{
+	DisableBatching: true,
+	Topic:           "persistent://appid/namespace/topic-1",
+})
+if err != nil {
+	log.Fatal(err)
+}
+defer producer.Close()
 
-若是配置正确，会如上文所示，消息的发送和消费会成功。
+//创建 Consumer
+consumer, err := client.Subscribe(pulsar.ConsumerOptions{
+	Topics:           []string{"persistent://appid/namespace/topic-1", "persistent://appid/namespace/topic-2"},
+	SubscriptionName: "my-sub",
+	Type:             pulsar.Shared,	
+})
+if err != nil {
+	log.Fatal(err)
+}
+defer consumer.Close()
+```
 
-若是配置错误的话，消息控制台会显示如下信息：
-![](https://main.qcloudimg.com/raw/8994db9e3ee7a538270dc8ca361fc6c8.png)
+### Tag 功能
+
+为了配置 Go SDK 的 Tag 支持，需要在消费者订阅的时候配置相应的 Tag 参数，如下：
+
+```go
+consumer, err := client.Subscribe(pulsar.ConsumerOptions{
+	Topics:           []string{"persistent://appid/namespace/topic-1"},
+	SubscriptionName: "my-sub",
+	Type:             pulsar.Shared,
+    TagMapTopicNames: map[string]string{"persistent://appid/namespace/topic-1":"a||b"},
+})
+if err != nil {
+	log.Fatal(err)
+}
+defer consumer.Close()
+```
+
+不同的 Tag 之间用“||”符号分隔，此时创建的 consumer 就会只消费 Tag 中包含 a 或 b 的消息，如下创建 producer 并发送消息：
+
+```go
+// 创建 Producer 对象
+producer, err := client.CreateProducer(pulsar.ProducerOptions{
+	Topic:           "persistent://appid/namespace/topic-1",
+})
+if err != nil {
+	log.Fatal(err)
+}
+defer producer.Close()
+// 发送消息
+for j := 0; j < 10; j++ {
+	if msgId, err := producer.Send(ctx, &pulsar.ProducerMessage{
+		Payload: []byte("Hello " + strconv.Itoa(j)),
+		Tags:    []string{"a","b"},
+	}); err != nil {
+		log.Fatal(err)
+	} else {
+		log.Println("Published message: ", msgId)
+	}
+}
+```
+
+可以用 consumer 来接收消息，完成消费。
+
+### 消息延迟重试
+
+有时我们接收到一条消息时希望能在可控的延迟时间之后再次消费这个消息，这个功能现在也集成在 SDK 中，首先我们需要在创建 consumer 时配置相应的参数：
+
+```go
+consumer, err := client.Subscribe(pulsar.ConsumerOptions{
+	Topics:           []string{"persistent://appid/namespace/topic-1"},
+	SubscriptionName: "my-sub",
+	Type:             pulsar.Shared,
+    //EnableRetry 设为 true 是必须的，否则默认关闭 Retry 功能
+	EnableRetry:      true,
+    //DelayLevelUtil 不是必须配置的，系统会有缺省值
+	DelayLevelUtil:   pulsar.NewDelayLevelUtil("1s 5s 10s 30s 1m 2m 3m 4m 5m 6m 7m 8m"),
+})
+if err != nil {
+	log.Fatal(err)
+}
+defer consumer.Close()
+```
+
+在消息重试的时候，我们提供了两个接口，分别是异步和同步的方式来重试，示例如下：
+
+```go
+//同步的方式
+err = consumer.ReconsumeLater(msg,pulsar.NewReconsumeOptionsWithLevel(2))
+if err != nil{
+    log.Fatal(err)
+}
+//异步的方式，提供了一个回调方法，会在 Retry 消息发送出去后进行调用
+consumer.ReconsumeLaterAsync(msg, pulsar.NewReconsumeOptionsWithLevel(2), func(id pulsar.MessageID, message *pulsar.ProducerMessage, err error) {
+	if err != nil {
+		fmt.Printf("Error %v when send retry msg", err)
+	} else {
+		fmt.Printf("Retry message send success with id : %v", id)
+	}
+})
+```
+
+
+
 

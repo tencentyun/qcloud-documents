@@ -70,13 +70,14 @@
 | [云数据库 MySQL](https://cloud.tencent.com/document/product/236)  | 资源级 | &#10003; | &#10003;  |  &#10003; |	[访问管理指南](https://cloud.tencent.com/document/product/236/14465) |	
 | [云数据库 CynosDB](https://cloud.tencent.com/document/product/1003)  | 资源级 | &#10003; | -  |  - |	[访问管理指南](https://cloud.tencent.com/document/product/1003/38067) |	
 | [云数据库 MariaDB](https://cloud.tencent.com/document/product/237)  |资源级 | &#10003;  | -    | &#10003;    |[访问管理指南](https://cloud.tencent.com/document/product/237/30940) |	
-| [ 云数据库 SQL Server](https://cloud.tencent.com/document/product/238)  |资源级 | &#10003;  | -    | -     |[访问管理指南](https://cloud.tencent.com/document/product/238/38874) |	
+| [云数据库 SQL Server](https://cloud.tencent.com/document/product/238)  |资源级 | &#10003;  | -    | -     |[访问管理指南](https://cloud.tencent.com/document/product/238/38874) |	
+| [云数据库 PostgreSQL](https://cloud.tencent.com/document/product/409)  |资源级 | &#10003;  | -    | -     |[访问管理指南](https://cloud.tencent.com/document/product/409/45388) |	
 | [分布式数据库 TDSQL](https://cloud.tencent.com/document/product/557)  |资源级 | &#10003;  | -    | -    |[访问管理指南](https://cloud.tencent.com/document/product/557/30965) |	
 | [云数据库 Redis](https://cloud.tencent.com/document/product/239)   | 资源级| &#10003; | -  | - |[访问管理指南](https://cloud.tencent.com/document/product/239/38687) |	
 | [云数据库 MongoDB](https://cloud.tencent.com/document/product/240) |资源级 | &#10003; | -   |&#10003;|[访问管理指南](https://cloud.tencent.com/document/product/240/38703) |	
 | [云数据库 Memcached](https://cloud.tencent.com/document/product/241)  |资源级 | &#10003;  | -    | -    |[访问管理指南](https://cloud.tencent.com/document/product/241/38708) |	
 | [时序数据库 CTSDB](https://cloud.tencent.com/document/product/652)  |资源级 | &#10003;  | -    | -    |[访问管理指南](https://cloud.tencent.com/document/product/652/42494) |	
-| [游戏数据库 TcaplusDB](https://cloud.tencent.com/document/product/596)  |资源级 | &#10003;  | -    | -    |[访问管理指南](https://cloud.tencent.com/document/product/596/42901) |	
+| [游戏数据库 TcaplusDB](https://cloud.tencent.com/document/product/596)  |资源级 | &#10003;  | &#10003;     | -    |[访问管理指南](https://cloud.tencent.com/document/product/596/42901) |	
 | [数据库智能管家 DBbrain](https://cloud.tencent.com/document/product/1130)  |资源级 | &#10003;  | -    | -    |[访问管理指南](https://cloud.tencent.com/document/product/1130/39344)|	
 | [数据传输服务](https://cloud.tencent.com/document/product/571)  | 资源级 |  &#10003;  | -    | &#10003;    |[访问管理指南](https://cloud.tencent.com/document/product/571/38480)|	
 | [分布式HTAP数据库 TBase](https://cloud.tencent.com/document/product/1129)  | 资源级 |  &#10003;  | -    | -   |[访问管理指南](https://cloud.tencent.com/document/product/1129/39783) |	
@@ -134,6 +135,7 @@
 | [云加密机](https://cloud.tencent.com/document/product/639)    | 服务级  | &#10003; | -   | - | - |
 | [密钥管理系统](https://cloud.tencent.com/document/product/573) | 资源级   | &#10003;  | -  |  -     |[访问管理指南](https://cloud.tencent.com/document/product/573/10126) |	
 | [凭据管理系统](https://cloud.tencent.com/document/product/1140)    | 资源级  | &#10003; | -   | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1140/40869)|
+| [数据保险箱](https://cloud.tencent.com/document/product/1232)    | 操作级  | &#10003; | -   | &#10003; |- |
 
 ## 业务安全
 

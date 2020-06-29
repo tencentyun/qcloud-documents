@@ -82,8 +82,6 @@ $ npm install native-ext-loader@latest --save-dev
 - 如您的工程文件经过了定制化，还请自行查找 webpack 配置。
 
 
-
-
 1. 首先使 `webpack.config.js` 在构建时可以接收名为 `--target_platform` 的命令行参数，以使代码构建过程按不同的目标平台特点正确打包，在 `module.exports` 之前添加以下代码：
 
 
@@ -129,9 +127,13 @@ rules: [
 ####  步骤3：修改 package.json 配置
 `package.json` 位于项目的根目录，其中包含了项目打包所必须的信息。但默认情况下，`package.json`  中的路径是需要修改才能顺利实现打包的，我们可以按如下步骤修改此文件： 
 
-1. 修改 `main` 配置，推荐使用 `public/electron.js`。
+1. 修改 `main` 配置。
 
-```json
+```javascript
+// 多数情况下，main 文件名称可以任意配置，例如 TRTCSimpleDemo 中的可以配置为：
+"main": "main.electron.js",
+  
+// 但是，使用 create-react-app 脚手架创建的项目，main 文件必须配置为：
 "main": "public/electron.js",
 ```
 2. 复制以下 `build` 配置，添加到您的 `package.json` 文件中，这是 `electron-builder` 需要读取到的配置信息。
@@ -162,7 +164,7 @@ rules: [
 },
 ```
 
-4. 在 `scripts` 节点下添加以下构建和打包的命令脚本：
+3. 在 `scripts` 节点下添加以下构建和打包的命令脚本：
 
  本文以 `create-react-app` 和 `vue-cli` 项目为例，其它工具创建的项目也可以参考此配置：
 
@@ -198,7 +200,7 @@ rules: [
 > -   `build.scripts.compile:mac` ：编译为 Mac 下的 .dmg 安装文件。
 > -   `build.scripts.compile:win64` ：编译为 Windows 下的 .exe 安装文件。
 > -   `build.scripts.pack:mac` ：先调用 build:mac 构建代码，再调用 compile:mac 打包成 .dmg 安装文件。
-> -   `build.scripts.pack:win64` ：先调用 compile:win64 构建代码，再调用 compile:win64 打包成 .exe 安装文件。
+> -   `build.scripts.pack:win64` ：先调用 build:win 构建代码，再调用 compile:win64 打包成 .exe 安装文件。
 
 ####  步骤4：执行打包命令
 - 打包 Mac .dmg 安装文件：
@@ -217,8 +219,7 @@ $ npm run pack:win64
 ```
 成功执行后，打包工具会生成 `bin/your-app-name Setup 0.1.0.exe` 安装文件，请选择此文件发布。
 
->!
->TRTC Electron SDK 暂不支持跨平台打包（例如在 Mac 下打包 Windows 的 .exe 文件，或在 Windows 平台下打包 Mac 的 .dmg 文件）。目前我们正在研究跨平台打包方案，敬请期待。
+>!TRTC Electron SDK 暂不支持跨平台打包（例如在 Mac 下打包 Windows 的 .exe 文件，或在 Windows 平台下打包 Mac 的 .dmg 文件）。目前我们正在研究跨平台打包方案，敬请期待。
 
 ## 常见问题
 
@@ -229,6 +230,7 @@ $ npm run pack:win64
 ### 2. Electron 安装或打包异常
 
 如果您在集成 Electron 过程中遇到异常：例如安装超时或失败，打包后出现 trtc_electron_sdk.node 文件加载失败等情况，请参考 [Electron 常见问题收录](https://cloud.tencent.com/developer/article/1616668)。
+
 
 
 

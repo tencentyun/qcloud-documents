@@ -5,26 +5,29 @@ Serverless Framework 目前支持 **PostgreSQL** 与 **NoSQL** 两个类型数�
 
 
 ## 前提条件
-已安装 Serverless Framework，且不低于以下版本。如未安装，请参考 [安装 Serverless Framework](https://cloud.tencent.com/document/product/583/44753) 完成安装。
+- 已安装 Serverless Framework，且不低于以下版本。如未安装，请参考 [安装 Serverless Framework](https://cloud.tencent.com/document/product/583/44753) 完成安装。
 ```
 Framework Core: 1.67.3
 Plugin: 3.6.6
 SDK: 2.3.0
 Components: 2.30.1
 ```
-
+-  请确保当前使用账号已配置 **QcloudPostgreSQLFullAccess** 策略。配置方法请参见 [授权管理](https://cloud.tencent.com/document/product/598/10602)。
 
 
 ## 操作步骤
 本文以 Node.js 开发语言的函数为例，介绍如何通过 Serverless Framework 组件编写创建函数，并访问 PostgreSQL 数据库。配置流程如下：
-1. 创建私有网络：通过 [Serverless Framework VPC 组件](https://cloud.tencent.com/document/product/1154/43005) 创建 **VPC** 和 **子网**，支持云函数和数据库的网络打通和使用。
-2. 创建 PostgreSQL 实例：通过 [Serverless Framework PostgreSQL 组件](https://cloud.tencent.com/document/product/1154/43004 ) 创建 PostgreSQL 实例，为云函数项目提供数据库服务。
-3. 通过 Serverless DB SDK 调用数据库：云函数支持直接调用 Serverless DB SDK，连接 PostgreSQL 数据库进行管理操作。
+1. **配置身份信息**：在本地配置腾讯云账户信息。
+1. **配置私有网络**：通过 [Serverless Framework VPC 组件](https://cloud.tencent.com/document/product/1154/43005) 创建 **VPC** 和 **子网**，支持云函数和数据库的网络打通和使用。
+2. **配置 Serverless DB**：通过 [Serverless Framework PostgreSQL 组件](https://cloud.tencent.com/document/product/1154/43004 ) 创建 PostgreSQL 实例，为云函数项目提供数据库服务。
+3. **编写业务代码**：通过 Serverless DB SDK 调用数据库，云函数支持直接调用 Serverless DB SDK，连接 PostgreSQL 数据库进行管理操作。
+4. **部署与调试**：通过 Serverless Framework 部署项目至云端，并通过云函数控制台进行测试。
+5. **移除项目**：可通过 Serverless Framework 移除项目。
 
 
 ### 配置身份信息
 1. 在本地建立目录，用于存放代码及依赖模块。本文以 `test-postgreSQL` 为例。 
-2. 在 `test-postgreSQL` 下创建 `.env` 文件，并按照以下格式在文件中配置您的的腾讯云 SecretId、SecretKey、地域和可用区信息。
+2. 在 `test-postgreSQL` 下创建 `.env` 文件，并按照以下格式在文件中配置您的腾讯云 SecretId、SecretKey、地域和可用区信息。
 ```text
  # .env
  TENCENT_SECRET_ID=xxx  // 您账号的 SecretId
@@ -80,9 +83,9 @@ inputs:
 1. 在 `test-postgreSQL` 下创建文件夹 `api`，用于存放业务逻辑代码和相关依赖项。
 2. 在文件夹 `api` 下创建文件夹 `src`，并在命令行中进入 `src` 目录，执行以下命令，安装 [PostgreSQL 依赖包](https://www.npmjs.com/package/pg)。
 ```
-npm install npm
+npm install pg
 ```
-3. 在 `src` 文件夹下，创建 `index.js` 文件，并输入如下示例代码。在函数中通过 Serverless DB SDK 创建连接池，并调用数据库。
+3. 在 `src` 文件夹下，创建 `index.js` 文件，并输入如下示例代码。在函数中通过 PostgreSQL SDK 创建连接池，并调用数据库。
 ```
 'use strict';
 const { Pool } = require('pg');
@@ -110,6 +113,7 @@ org: fullstack
 app: fullstack-serverless-db
 stage: dev
 component: scf
+name: fullstack-serverless-db
 inputs:
      name: ${app}
      src:
@@ -129,7 +133,7 @@ inputs:
 ```
 
 ### 部署与调试
-1. 使用命令行在 `test-postgreSQL` 下，执行以下命令进行部署。
+1. 通过命令行，在 `test-postgreSQL` 目录下，执行以下命令进行部署。
 ```
 sls deploy --all
 ```

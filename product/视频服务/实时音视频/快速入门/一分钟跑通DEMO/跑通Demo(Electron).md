@@ -148,6 +148,7 @@
 | npm run start | 以开发环境运行 Demo |
 | npm run pack:mac | 打包 Mac 的 .dmg 安装文件 |
 | npm run pack:win64 | 打包 Windows 64 位的 .exe 安装文件 |
+
 ## 常见问题
 
 ### 1. 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？

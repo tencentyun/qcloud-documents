@@ -4,7 +4,7 @@
 
 ##  购买步骤
 本文以渲染型 **GA2 实例**为例，指导您按照以下步骤快速购买一台 GPU 云服务器。
->?GPU 渲染型 GA2 现处于内测阶段，如需使用，请前往 [内测申请](https://cloud.tencent.com/act/apply/ga2)。
+>?GPU 渲染型 GA2 现处于内测阶段，如需使用，请前往 [内测申请](https://cloud.tencent.com/apply/p/0pz3p9aubg29)。
 
 ### 步骤1：登录购买页面
 <div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/cvm?regionId=8&zoneId=800002&generation=v2&deviceType=ga&tabIndex=1" target="_blank"  style="color: white; font-size:16px;" hotrep="document.guide.2764.btn2">点此进入购买页面</a></div>

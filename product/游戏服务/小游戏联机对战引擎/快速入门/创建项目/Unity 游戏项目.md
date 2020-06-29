@@ -13,20 +13,21 @@ Unity Editor 版本： 2019.1.9+。
 ## 操作步骤
 ### 创建游戏项目
 1. 打开 Unity Hub，创建一个游戏项目。如下图所示：
-![](https://tva1.sinaimg.cn/large/007S8ZIlgy1get4lqc9haj31bl0u047r.jpg)
+![](https://main.qcloudimg.com/raw/4ef6bac33e204456e4a0870f8ff0186c.jpg)
 2. 单击【创建】，进入项目开发界面：
-![](https://tva1.sinaimg.cn/large/007S8ZIlgy1get4ni1sl2j31c00u0tfs.jpg)
+![](https://main.qcloudimg.com/raw/714a449465bec007689a6c2325712356.jpg)
+
 
 
 ### 导入 Mgobe Package
 1. 将 com.unity.Mgobe.unitypackage 拖入 editor 中的 Project 栏，单击【import】进行 package 导入。 单击进入 [Package 下载](https://cloud.tencent.com/document/product/1038/33406) 页面。
-![](https://tva1.sinaimg.cn/large/007S8ZIlgy1get5f4ycq5j31bu0n87ba.jpg)
-![](https://tva1.sinaimg.cn/large/007S8ZIlgy1get5ug7wg4j30yj0u0tip.jpg)
+![](https://main.qcloudimg.com/raw/77671c4601cd26f2cffdce577b802528.jpg)
+![](https://main.qcloudimg.com/raw/2cc301f6917c6a7026558fb2ca920079.jpg)
 2. 在 Assets 目录下创建 “Scripts” 文件夹，并新建 Scripts/main.cs 文件。
 3. 在 Hierachy 视图下，右击 SampleScene，选中 GameObject > CreateEmpty，新建一个空的游戏对象。
-![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gf4jabgegvj30k00eojs7.jpg)
+![](https://main.qcloudimg.com/raw/333414f0b3ef02515c56d3546eb161aa.jpg)
 4. 选中新建的 GameObject，拖动 main.cs，添加为该 GameObject 的 Component。
-![](https://tva1.sinaimg.cn/large/007S8ZIlgy1gf4jcjjhomj31c00u010v.jpg)
+![](https://main.qcloudimg.com/raw/b83a9b0bbf7e46ebe09dca89383b016f.jpg)
 5. 参考以下示例代码，将 mgobe package 导入 main.cs。
 ```c#
 using Packages.com.unity.mgobe.Runtime.src;
