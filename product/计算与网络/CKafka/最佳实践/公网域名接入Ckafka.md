@@ -1,6 +1,6 @@
 ## 操作场景
 
-需要通过公网访问消息队列CKAFKA服务时，可以通过管控台增加公网路由，并通过配置SASL鉴权和ACL规则实现公网访问CKAFKA Topic的生产和消费消息。
+需要通过公网访问消息队列CKafka服务时，可以通过管控台增加公网路由，并通过配置SASL鉴权和ACL规则实现公网访问CKafka Topic的生产和消费消息。
 
 ## 操作步骤
 
@@ -46,7 +46,7 @@
 
 >?
 >
->Ckafka相关SASL和ACL，用户管理访问控制详情见（https://cloud.tencent.com/document/product/597/31528 ）文档。
+>CKafka相关SASL和ACL，用户管理访问控制详情见（https://cloud.tencent.com/document/product/597/31528 ）文档。
 ### 公网生产和消费
 
 控制台操作完成后，即可使用用户名和密码在公网访问实例资源
