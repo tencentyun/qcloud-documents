@@ -35,7 +35,7 @@ def user(id):
 通过 npm 全局安装 [Serverless CLI](https://github.com/serverless/serverless)：
 
 ```shell
- npm install -g serverless
+npm install -g serverless
 ```
 
 #### 配置
