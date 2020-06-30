@@ -212,12 +212,12 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
     <!-- MQTT START-->
     <service android:exported="false"
              android:process=":xg_vip_service"
-             android:name="com.tencent.bigdata.mqttchannel.services.MqttService" />
+             android:name="com.tencent.tpns.mqttchannel.services.MqttService" />
 
     <!--【注意】authorities修改为 包名.XG_SETTINGS_PROVIDER, 如demo的包名为：com.tencent.android.xg.cloud.demo -->
     <provider
         android:exported="false"
-        android:name="com.tencent.bigdata.baseapi.base.SettingsContentProvider"
+        android:name="com.tencent.tpns.baseapi.base.SettingsContentProvider"
         android:authorities="应用包名.XG_SETTINGS_PROVIDER" />
 
     <!-- MQTT END-->
@@ -258,16 +258,9 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 在 Androidanifest 文件 application 标签内添加以下元数据：
 ```
     <application>
-        // 其他安卓组件
         <meta-data
-            android:name="XG_GUID_SERVER"
-            android:value="境外域名/guid/api/GetGuidAndMqttServer" />           
-        <meta-data
-            android:name="XG_STAT_SERVER"
-            android:value="境外域名/log/statistics/push" />        
-        <meta-data
-            android:name="XG_LOG_SERVER"
-            android:value="境外域名/v3/mobile/log/upload" /> 
+            android:name="XG_SERVER_SUFFIX"
+            android:value="境外域名" />
     </application>
 ```
 境外域名如下：
@@ -315,8 +308,8 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 -keep public class * extends android.app.Service
 -keep public class * extends android.content.BroadcastReceiver
 -keep class com.tencent.android.tpush.** {*;}
--keep class com.tencent.bigdata.baseapi.** {*;}
--keep class com.tencent.bigdata.mqttchannel.** {*;}
+-keep class com.tencent.tpns.baseapi.** {*;}  //1.2.0.1以下版本配置为  -keep class com.tencent.tpns.baseapi.** {*;}
+-keep class com.tencent.tpns.mqttchannel.** {*;} //1.2.0.1以下版本配置为 -keep class com.tencent.bigdata.mqttchannel.** {*;}
 -keep class com.tencent.tpns.dataacquisition.** {*;}
 ```
 
