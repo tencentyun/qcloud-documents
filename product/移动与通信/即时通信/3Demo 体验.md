@@ -1,17 +1,17 @@
 <table>
   <tr>
-    <th style="text-align:center;" width="20%"><b>Android<br></b>使用浏览器或应用宝等扫码</th>
-    <th style="text-align:center;" width="20%"><b>iOS</b><br>安装密码：123</th>
-    <th style="text-align:center;" width="20%"><b>小程序</b></th>
-    <th style="text-align:center;" width="20%"><b>直播电商解决方案</b></th>
-    <th style="text-align:center;" width="20%"><b>Web</b></th>
+    <th style="text-align:center;" width="180px"><b>Android<br></b>使用浏览器或应用宝等扫码</th>
+    <th style="text-align:center;" width="180px"><b>iOS</b><br>安装密码：123</th>
+    <th style="text-align:center;" width="180px"><b>小程序</b></th>
+    <th style="text-align:center;" width="180px"><b>直播电商解决方案</b></th>
+    <th style="text-align:center;" width="180px"><b>Web</b></th>
   </tr>
   <tr>
-    <td style="text-align:center;"><img style="width:160px" src="https://main.qcloudimg.com/raw/7c531362f989f850b595fa64ae8dff18.png"  /></td>
-    <td style="text-align:center;"><img style="width:160px" src="https://main.qcloudimg.com/raw/2fd3f34c83c959c7e0fbc28c6c7b568f.png" /></td>
-    <td style="text-align:center;"><img style="width:160px" src="https://main.qcloudimg.com/raw/ecc8843a39470b716bf674c5cadb495d.png" /></td>
-    <td style="text-align:center;"><img style="width:160px" src="https://main.qcloudimg.com/raw/af499aa747901047493c8bf6b509da4b.png" /></td>
-    <td><a href="https://webim-1252463788.file.myqcloud.com/demo/index.html?_ga=1.46776807.1921342650.1563864524"><img style="width:160px" src="https://main.qcloudimg.com/raw/2945a240c80ad283000970fb7139081e.png"></a></td>
+    <td><img style="width:180px" src="https://main.qcloudimg.com/raw/3673b5c90904fef45fc8c7e75a4a5285.png"  /></td>
+    <td><img style="width:180px" src="https://main.qcloudimg.com/raw/34826a9f7beab5b088ef7ac388404bd9.png" /></td>
+    <td><img style="width:180px" src="https://main.qcloudimg.com/raw/d705f9bd3ec330c34329e1763c8added.png" /></td>
+    <td><img style="width:180px" src="https://main.qcloudimg.com/raw/f8f2140b89e536ead4a410fea7eee5fd.png" /></td>
+    <td><a href="https://webim-1252463788.file.myqcloud.com/demo/index.html?_ga=1.46776807.1921342650.1563864524"><img style="width:180px" src="https://main.qcloudimg.com/raw/c6eb8a4208e7b4ac2e8e4fb04c01b81c.png"></a></td>
   </tr>
 </table>
 
