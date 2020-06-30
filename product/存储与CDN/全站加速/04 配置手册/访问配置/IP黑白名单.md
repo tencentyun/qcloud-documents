@@ -8,7 +8,7 @@
 
 ### 查看配置
 
-登录 [ECDN 控制台](https://console.cloud.tencent.com/ecdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面，第二栏【访问配置】中可看到 IP 黑白名单配置：
+登录 [ECDN 控制台](https://console.cloud.tencent.com/ecdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面，【访问配置】中可看到 IP 黑白名单配置：
 ![](https://main.qcloudimg.com/raw/232a95e0cfc751ef39e5ef426644b177.png)
 
 ### 修改配置
