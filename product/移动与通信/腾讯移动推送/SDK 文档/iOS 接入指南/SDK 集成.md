@@ -76,7 +76,7 @@ github "xingePush/carthage-TPNS-iOS"
 ``` object-c
  [[XGPush defaultManager] configureClusterDomainName:@"tpns.sgp.tencent.com"];
 ```
-如需接入香港服务接入点 则将域名设置为```tpns.hk.tencent.com```。
+如需接入中国香港服务接入点 则将域名设置为```tpns.hk.tencent.com```。
 **示例**
 ``` object-c
  [[XGPush defaultManager] configureClusterDomainName:@"tpns.hk.tencent.com"];
