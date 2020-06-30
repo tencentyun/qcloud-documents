@@ -130,7 +130,7 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
     
  **模式二：已封装好扫码页面，无需用户自定义**
 
-<ul>SDK 初始化</ul>
+    - SDK 初始化
 
     ```objective-c
     //当扫码 SDK 正确导入项目时
@@ -163,7 +163,7 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
 
     - 结果回调：
 
-```objective-c
+    ```objective-c
     - (void)onResultBack:(nonnull NSDictionary *)result { //结果回调可能不在主线程
         NSString *errCode = result[@"errorcode"];
         if ([errCode isEqualToString:@"0"]) {
@@ -191,5 +191,5 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
         }
     }
 
-```
+    ```
 
