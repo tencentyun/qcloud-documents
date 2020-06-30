@@ -17,3 +17,4 @@ CoAP 消息发送到 URI，URI 的格式为`/${productId}/${deviceName}/xxx`，p
 2. `${productId}/${deviceName}/control`订阅。
 
 即 URI 与 MQTT Topic 相对应。
+

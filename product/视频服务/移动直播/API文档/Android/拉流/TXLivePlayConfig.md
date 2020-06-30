@@ -283,7 +283,7 @@ __参数__
 
 __介绍__
 
-待废弃，如果您需要使用点播播放器，推荐您使用：[TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#step-2.3A-.E5.88.9B.E5.BB.BAplayer)。
+待废弃，如果您需要使用点播播放器，推荐您使用：[TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#.E5.AF.B9.E6.8E.A5.E6.94.BB.E7.95.A5)。
 
 ***
 
@@ -302,7 +302,7 @@ __参数__
 
 __介绍__
 
-待废弃，用于点播视频下载；如果您需要使用点播播放器，推荐您使用：[TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#step-2.3A-.E5.88.9B.E5.BB.BAplayer)。
+待废弃，用于点播视频下载；如果您需要使用点播播放器，推荐您使用：[TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#.E5.AF.B9.E6.8E.A5.E6.94.BB.E7.95.A5)。
 
 ***
 

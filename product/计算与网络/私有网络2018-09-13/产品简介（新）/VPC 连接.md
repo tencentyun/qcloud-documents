@@ -1,4 +1,7 @@
-腾讯云为您提供丰富的解决方案，可以满足 VPC 内的云服务器、数据库等实例连接公网（Internet）、连接其他 VPC 内实例、或与本地数据中心（IDC）互联的需求。
+腾讯云为您提供丰富的解决方案，可以满足 VPC 内的云服务器、数据库等实例连接公网（Internet）、连接其他 VPC 内实例、或与本地数据中心（IDC）互联的需求。您可通过如下视频了解私有网络 VPC 及其多种连接方式。
+
+ <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2571-44483?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+ 
 ## 连接公网
 您可使用如下产品或功能，实现 VPC 与公网间的访问。
 
@@ -13,12 +16,12 @@
 <tbody><tr>
 <td>普通公网 IP</td>
 <td>支持云服务器访问公网或用户从公网访问云服务器。</td>
-<td>只有在购买云服务器时可以选择是否分配普通公网 IP，如购买时未分配，可使用 <a href="https://cloud.tencent.com/document/product/213/5733" target="_blank">弹性公网 IP</a> 或 <a href="https://cloud.tencent.com/document/product/552" target="_blank">NAT 网关</a>。</td>
+<td>只有在购买云服务器时可以选择是否分配普通公网 IP，如购买时未分配，可使用 <a href="https://cloud.tencent.com/document/product/1199" target="_blank">弹性公网 IP</a> 或 <a href="https://cloud.tencent.com/document/product/552" target="_blank">NAT 网关</a>。</td>
 </tr>
 <tr>
-<td><a href="https://cloud.tencent.com/document/product/213/5733" target="_blank">弹性公网 IP<br>（EIP）</a></td>
+<td><a href="https://cloud.tencent.com/document/product/1199" target="_blank">弹性公网 IP<br>（EIP）</a></td>
 <td>单台云服务器可以绑定一个或多个 EIP，以访问公网或被公网访问。</td>
-<td><li>一种可独立购买和持有的 IP 资源，详情请参见 <a href="https://cloud.tencent.com/document/product/213/17156" target="_blank">EIP 计费</a>。</li><li>可与云服务器、NAT 网关动态绑定、解绑。</li><li>您可以根据业务随时 <a href="https://cloud.tencent.com/document/product/213/16586#.E8.B0.83.E6.95.B4.E5.B8.A6.E5.AE.BD" target="_blank">调整 EIP 的带宽限制</a>。</li></td>
+<td><li>一种可独立购买和持有的 IP 资源，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/41692" target="_blank">弹性公网 IP-计费说明</a>。</li><li>可与云服务器、NAT 网关动态绑定、解绑。</li><li>您可以根据业务随时 <a href="https://cloud.tencent.com/document/product/1199/41705" target="_blank">调整 EIP 的带宽限制</a>。</li></td>
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/552" target="_blank">NAT 网关</a></td>

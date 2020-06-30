@@ -6,7 +6,7 @@
 - 微信 App Android 最低版本要求：6.5.19。
 - 小程序基础库最低版本要求：1.7.0。
 
->?通过 wx.getSystemInfo 可以获取当前基础库版本信息。
+>?通过 wx.getSystemInfo 可以获取当前基础库版本信息。 
 
 ## 使用限制
 出于政策和合规的考虑，微信暂时没有放开所有小程序对[ &lt;live-pusher&gt;](https://developers.weixin.qq.com/miniprogram/dev/component/live-pusher.html) 和 [&lt;live-player&gt;](https://developers.weixin.qq.com/miniprogram/dev/component/live-player.html) 标签的支持：

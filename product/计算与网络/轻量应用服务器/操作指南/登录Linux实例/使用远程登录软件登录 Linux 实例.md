@@ -3,6 +3,8 @@
 
 ## 适用本地操作系统
 Windows
+>? 如果您的本地计算机为 Linux 或者 MacOS 操作系统，请 [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44643)。
+>
 
 ## 鉴权方式
 **密码**或**密钥**
@@ -10,10 +12,13 @@ Windows
 ## 前提条件
 
 - 您已获取登录实例的用户名及密码（或密钥）。
->! 首次通过本地远程登录软件登录 Linux 实例之前，您需要重置用户名（root）的密码，或者绑定密钥。具体操作请参考 [重置密码](https://cloud.tencent.com/document/product/1207/44575) 或 [管理密钥](https://cloud.tencent.com/document/product/1207/44573) 文档。
+>! 首次通过本地远程登录软件登录 Linux 实例之前，您需要重置用户名（如 `root`、`ubuntu`）的密码，或者绑定密钥。具体操作请参考 [重置密码](https://cloud.tencent.com/document/product/1207/44575) 或 [管理密钥](https://cloud.tencent.com/document/product/1207/44573) 文档。
 >
 - 请确认本地计算机与实例之间的网络连通正常，以及实例的防火墙已放行22端口（创建实例时默认已开通22端口）。
 
+## 注意事项
+
+使用 Ubuntu 镜像创建的实例默认禁用 `root` 用户名通过密码的方式登录实例。如需开启，请参考 [Ubuntu 系统如何使用 root 用户登录实例？](https://cloud.tencent.com/document/product/213/17278#ubuntu-.E7.B3.BB.E7.BB.9F.E5.A6.82.E4.BD.95.E4.BD.BF.E7.94.A8-root-.E7.94.A8.E6.88.B7.E7.99.BB.E5.BD.95.E5.AE.9E.E4.BE.8B.EF.BC.9F)。
 
 ## 操作步骤
 
@@ -60,6 +65,9 @@ PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
  - Connect type：选择 “SSH”。
  - Saved Sessions：填写会话名称，例如 test。
 配置 “Host Name” 后，再配置 “Saved Sessions” 并保存，则后续使用时您可直接双击 “Saved Sessions” 下保存的会话名称即可登录服务器。
-10. 单击【Open】，发起登录请求。
+10. 单击【Open】，进入 “PuTTY” 的运行界面，提示 “login as:”。
+11. 在 “login as” 后输入用户名，如 `root`，按 **Enter**。如下图所示：
+![](https://main.qcloudimg.com/raw/2a3db2fed5e901ce11f87e8583e182a0.png)
+
 
 

@@ -75,3 +75,4 @@ resources:
 tencent.com/vcuda-core: 30
 tencent.com/vcuda-memory: 20
 ```
+

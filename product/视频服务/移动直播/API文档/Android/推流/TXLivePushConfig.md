@@ -284,7 +284,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| bitrate | int | 视频编码码率。 |
+| bitrate | int | 视频编码码率，单位：kbps。 |
 
 __介绍__
 
@@ -353,7 +353,7 @@ __介绍__
 
 接口说明：
 - 默认值：false。
-- 开启后，SDK会根据网络情况自动调节视频码率，调节范围在（videoBitrateMin - videoBitrateMax）。
+- 开启后，SDK会根据网络情况自动调节视频码率，调节范围在（[videoBitrateMin](https://cloud.tencent.com/document/product/454/34774#setminautoadjustcachetime) - [videoBitrateMax](https://cloud.tencent.com/document/product/454/34774#setmaxautoadjustcachetime)）。
 
 ***
 

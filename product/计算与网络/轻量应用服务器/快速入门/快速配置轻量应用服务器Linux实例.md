@@ -10,9 +10,9 @@
 
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
 2. 单击【新建】，进入轻量应用服务器购买页面。
-![](https://main.qcloudimg.com/raw/69a2a306c68abeac8713d9b1f5bfbb76.png)
+![](https://main.qcloudimg.com/raw/615da48bd86d97fda2bbc71a8f4e7485.png)
  - 地域：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，地域选择 “广州”。
- - 镜像：选择您需要的轻量应用服务器操作系统。此处我们选择 “WordPress 5.3.2” 应用镜像（基于 CenteOS 7.6 64位操作系统）。
+ - 镜像：选择您需要的轻量应用服务器操作系统。此处我们选择 “WordPress 5.3.2” 应用镜像（CentOS 7.6 64位操作系统）。
  - 实例套餐：按照所需的服务器配置（CPU、内存、系统盘、峰值带宽、每月流量），选择一种实例套餐。
  - 购买时长：默认1个月。
  - 服务器数量：默认1台。
@@ -24,5 +24,6 @@
 ## 步骤3：登录轻量应用服务器 Linux 实例
 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，在服务器列表中找到刚购买的服务器，单击【登录】。
 Linux 实例将通过 Webshell 终端并以免密方式登录。
->? 如果您需要使用本地的 SSH 工具远程连接 Linux 实例，请先重置密码或设置密钥。
+![](https://main.qcloudimg.com/raw/71162a6e915198b66810b7919dfcdb66.png)
+>? 如果您需要使用 SSH 或者远程登录软件连接 Linux 实例，请先 [重置密码](https://cloud.tencent.com/document/product/1207/44575) 或 [设置密钥](https://cloud.tencent.com/document/product/1207/44573)。
 >
