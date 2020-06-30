@@ -20,7 +20,7 @@ Namespace=QCE/BM_LB
 | Instances.N.Dimensions.0.Name  | vip      | 弹性公网 IP 地址的维度名称 | 输入 String 类型维度名称：vip                                 |
 | Instances.N.Dimensions.0.Value | vip      | 弹性公网具体IP 地址       | 输入具体 EIP 地址，例如：115.115.115.115，可以通过查询接口 [DescribeEipBm](https://cloud.tencent.com/document/api/1028/32853) 查看自己账户已申请的 EIP 列表 |
 
-## 入参维度
+## 入参说明
 
 查询黑石弹性公网 IP（EIP）监控数据，入参取值如下：
 
