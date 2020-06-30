@@ -9,9 +9,7 @@
 
 ### 方法一：自动加载（aar）
 LiteAVSDK 已经发布到 jcenter 库，您可以通过配置 gradle 自动下载更新。
-
 只需要用 Android Studio 打开需要集成 SDK 的工程，然后通过简单的三个步骤修改`app/build.gradle`文件，就可以完成 SDK 集成：
-
 ![](https://main.qcloudimg.com/raw/eb6bcb3cb1dff43f459245ed9045e685.png)
 
 - **第一步：添加 SDK 依赖**   
@@ -21,8 +19,8 @@ dependencies {
      implementation 'com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release'
 }
 ```
- 或
- ```
+或
+```
 dependencies {
      implementation 'com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release@aar'
 }
@@ -37,7 +35,7 @@ defaultConfig {
 }
 ```
 - **第三步：同步 SDK**
-  单击 Sync Now 按钮，如果您的网络连接 jcenter 没有问题，很快 SDK 就会自动下载集成到工程里。
+  单击![](https://main.qcloudimg.com/raw/d6b018054b535424bb23e42d33744d03.png) Sync Now 按钮，如果您的网络连接 jcenter 没有问题，很快 SDK 就会自动下载集成到工程里。
 
 ### 方法二：手动下载（aar）
 如果您的网络连接 jcenter 有问题，也可以手动下载 SDK 集成到工程里：
@@ -46,7 +44,7 @@ defaultConfig {
    下载 [LiveAVSDK](https://cloud.tencent.com/document/product/454/7873) ，下载完成后进行解压。
  
 - **第二步：拷贝 LiteAVSDK 到工程目录**  
-  将下载解压缩之后 SDK 目录下的 aar 文件拷贝到工程的 **app/libs** 目录下：
+  将下载文件解压之后 SDK 目录下的 aar 文件拷贝到工程的 **app/libs** 目录下：
   ![](https://main.qcloudimg.com/raw/0550edd82139cbbfaba3cc656b4fdd9e.png)
   
 - **第三步：指定本地仓库路径**
@@ -56,7 +54,10 @@ defaultConfig {
 - **第四步：添加 LiteAVSDK 依赖**   
   在 app/build.gradle 中，添加引用 aar 包的代码。
   ![](https://main.qcloudimg.com/raw/2333ec86f332907e7bf45b6cf83ee7b3.png)
-  
+```
+implementation(name:'LiteAVSDK_Smart_6.4.7265', ext:'aar')
+```
+
 - **第五步：指定 App 使用架构**
   在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 支持 armeabi 、armeabi-v7a 和 arm64-v8a）。
 ```
@@ -68,7 +69,7 @@ defaultConfig {
 ```
 
 - **第六步：同步 SDK**
-  单击 Sync Now 按钮，完成 LiteAVSDK 的集成工作。
+  单击 Sync Now按钮，完成 LiteAVSDK 的集成工作。
 
 ## 集成 SDK（jar）
 如果您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 LiteAVSDK：
@@ -146,7 +147,7 @@ dependencies{
 
 ## 配置 License 授权
 
-单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 License，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
+单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 License，具体操作请参见 [测试版 License](https://cloud.tencent.com/document/product/454/34750#.E6.B5.8B.E8.AF.95.E7.89.88-license)。您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
 
 在您的 App 调用企业版 SDK 相关功能之前（建议在 Application类中）进行如下设置：
 

@@ -65,7 +65,7 @@ public class DemoApplication extends Application {
 
        // 配置 Config，请按需配置
        TUIKitConfigs configs = TUIKit.getConfigs();
-       configs.setSdkConfig(new TIMSdkConfig(SDKAPPID));
+       configs.setSdkConfig(new V2TIMSDKConfig());
        configs.setCustomFaceConfig(new CustomFaceConfig());
        configs.setGeneralConfig(new GeneralConfig());
 

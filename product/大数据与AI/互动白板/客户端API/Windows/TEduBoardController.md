@@ -108,18 +108,6 @@ EDUSDK_API bool EnableTEduBoardOffscreenRender(uint32_t maxFps = 30)
 启用离屏渲染时，SDK 不再创建白板 VIEW，而是通过 onTEBOffscreenPaint 回调接口将白板离屏渲染的像素数据抛出 
 
 
-### DisableTEduBoardCrashReport
-禁用白板 Crash 上报 
-``` C++
-EDUSDK_API bool DisableTEduBoardCrashReport()
-```
-#### 返回
-禁用白板 Crash 上报是否成功 
-
-#### 警告
-该接口必须要在第一次调用 CreateTEduBoardController 之前调用才有效，否则将会失败 
-
-
 ### GetTEduBoardRenderProcessHandler
 获取 SDK 内部的 CefRenderProcessHandler 
 ``` C++
@@ -197,6 +185,15 @@ virtual WINDOW_HANDLE GetBoardRenderView()=0
 白板渲染 View 
 
 
+### Refresh
+刷新当前页白板，触发 onTEBRefresh 回调 
+``` C++
+virtual void Refresh()=0
+```
+#### 警告
+如果当前白板包含 PPT/H5/图片/视频时，刷新白板将会触发对应的回调 
+
+
 ### AddSyncData
 添加白板同步数据 
 ``` C++
@@ -246,7 +243,7 @@ virtual void Reset()=0
 
 
 ### SetBoardRenderViewPos
-设置白板渲染View的位置和大小 
+设置白板渲染 View 的位置和大小 
 ``` C++
 virtual void SetBoardRenderViewPos(int32_t x, int32_t y, uint32_t width, uint32_t height)=0
 ```

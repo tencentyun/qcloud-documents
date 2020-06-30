@@ -11,8 +11,8 @@ Hue 是一个开源的 Apache Hadoop UI 系统，由 Cloudera Desktop 演化而�
 
 ## 登录 Hue 控制台
 使用 Hue 组件管理工作流时，请先登录 Hue 控制台页面，具体步骤如下：
-1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在左侧导航选择【组件管理】页面。
-2. 在列表页找到 Hue 组件，单击【原生WebUI访问地址】进入 Hue 页面。
+1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，单击对应集群 ID/名称，进入集群详情页面，然后单击【集群服务】。
+2. 在列表页找到 Hue 组件，单击【WebUI访问地址】进入 Hue 页面。
 3. 首次登录 Hue 控制台页面，请使用 root 帐号，密码为创建集群时提供的密码。
 ![](https://main.qcloudimg.com/raw/ae62e428871fd46c2ce6509fd31cde63.png)
 >!由于 EMR 产品的组件启动帐号为 hadoop。请在首次以 root 帐号登录 Hue 控制台后，新建 hadoop 帐号。后续所有作业需通过 hadoop 帐号来提交。

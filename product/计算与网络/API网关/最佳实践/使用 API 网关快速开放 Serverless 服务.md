@@ -1,7 +1,7 @@
 ## 操作场景
 Serverless 是近年来比较流行的架构，通过 Serverless 函数计算平台，您无需购买和管理服务器，只需要关注业务的核心逻辑，就能够便捷地运行代码。在 Serverless 模式下，使用 API 网关可以对外开放服务，并能实现安全防护、流量控制、日志监控、上架云市场、自动生成 SDK 和文档等高级功能。
 
-腾讯云 API 网关与腾讯云云函数 SCF 高度整合，本文展示了以 API 网关为入口，通过 [云函数 SCF](https://cloud.tencent.com/document/product/583) 实现动态接口、 [对象存储 COS](https://cloud.tencent.com/document/product/628/11787) 存储静态资源，快速搭建 Web 站点。
+腾讯云 API 网关与腾讯云云函数 SCF 高度整合，本文展示了以 API 网关为入口，通过 [云函数 SCF](https://cloud.tencent.com/document/product/583) 实现动态接口、 [对象存储 COS](https://cloud.tencent.com/document/product/436) 存储静态资源，快速搭建 Web 站点。
 
 您可以参考这种方式，在云上使用 API 网关快速开放 Serverless 服务，以体验到 Serverless 的魅力。
 
@@ -25,7 +25,7 @@ Serverless 是近年来比较流行的架构，通过 Serverless 函数计算平
 ### 步骤一：创建 COS 存储桶，存储静态资源
 
 1. 登录 [对象存储 COS 控制台](https://console.cloud.tencent.com/cos5/bucket) ，按下图填写信息，创建一个存储桶（参考 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档）。
-![](https://main.qcloudimg.com/raw/1c820c445a74ebd57c97ea7ebfdcb55d.png)
+![](https://main.qcloudimg.com/raw/88b9a367ee03acace0169ec846e294d1.png)
 2. 在存储桶中，上传网站源码（参考 [上传对象](https://cloud.tencent.com/document/product/436/13321)），目录结构与原文件保持一致。
 ![](https://main.qcloudimg.com/raw/f86586fffc201da9169ce5f055555d06.png)
 
@@ -49,7 +49,7 @@ exports.main_handler = async(event, context, callback) => {
 ### 步骤三：创建 API 网关服务
 
 1. 登录 [ API 网关控制台](https://console.cloud.tencent.com/apigateway) ，按下图填写信息，创建一个API 网关服务（参考 [创建服务](https://cloud.tencent.com/document/product/628/11787)）。
-![](https://main.qcloudimg.com/raw/0cf49ba223cc661cf6f6dac75253afb7.png)
+![](https://main.qcloudimg.com/raw/dd9c3047e63809163dba36f26d98755f.png)
 2. 创建成功后，单击服务列表里的服务名称，进入服务详情页。
 3. 在服务详情页单击【管理 API】，进入 API 管理页。接下来，您需要在 API 管理页创建三个API，分别指向对应的后端资源。
 

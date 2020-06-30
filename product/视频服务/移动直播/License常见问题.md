@@ -8,7 +8,7 @@
 	android:versionName="1.0">
 ```
 
-### 2、iOS 下如何获取 boundle？
+### 2、iOS 下如何获取 Bundle ID？
 iOS 可在工程配置中的`General->Identity`中获取，如下图所示：
 ![](https://main.qcloudimg.com/raw/56571d560da04bf6563ccae91d32b75a.png)
 
@@ -17,7 +17,7 @@ iOS 可在工程配置中的`General->Identity`中获取，如下图所示：
 
 ### 4、测试版 License 能否更改 Android 的 Package Name 和 iOS 的 Bundle ID?
 测试版 License 能更改 Android 的 Package Name 和 iOS 的 Bundle ID。
-具体操作：登录控制台，单击测试版 License 信息右侧的【编辑】，进入编辑页面即可修改 Android 的 Package Name 和 iOS 的 Bundle ID。
+具体操作：进入【云直播控制台】>[【移动直播License】](https://console.cloud.tencent.com/live/license)，单击测试版 License 信息右侧的【编辑】，进入编辑页面即可修改 Android 的 Package Name 和 iOS 的 Bundle ID。
 
 ### 5、正式版 License 能否更改 Android 的 Package Name 和 iOS 的 Bundle ID?
 正式版 License 不能更改 Package Name 和 Bundle ID。

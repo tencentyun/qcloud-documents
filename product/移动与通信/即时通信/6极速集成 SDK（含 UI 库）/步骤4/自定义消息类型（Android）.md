@@ -1,6 +1,7 @@
 
 TUIKit 已经在内部完成了基本消息的渲染工作，您可以很简单地通过属性设置来调节消息展示样式，也可以重新自定义消息样式。
 
+
 ## 基本消息类型
 TUIKit 基本消息类型请参见 [MessageInfo.java](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/message/MessageInfo.html)。
 <table>
