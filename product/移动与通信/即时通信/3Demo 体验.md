@@ -7,11 +7,11 @@
     <th style="text-align:center;" width="20%"><b>Web</b></th>
   </tr>
   <tr>
-    <td style="text-align:center;"><img  style="width:160px" src="https://main.qcloudimg.com/raw/52312cb24233de9d3ba3b2d13e52c295.png"  /></td>
-    <td style="text-align:center;"><img style="width:160px" src="https://main.qcloudimg.com/raw/b3f119b2cb0e92721bcf49ea6acd0e8c.png" /></td>
-    <td style="text-align:center;"><img style="width:160px" src="https://main.qcloudimg.com/raw/5e734fcb0e05a938bde732d2e8c95c51.png" /></td>
-    <td style="text-align:center;"><img style="width:160px" src="https://main.qcloudimg.com/raw/20b20cc0b2f5c5cc65d0f5a93f26cd55.png" /></td>
-    <td style="text-align:center;"><input type="button" value="单击体验" style="background-color: #008CBA; border: none; color: white; padding: 12px 26px; text-align: center; text-decoration: none; display: inline-block; font-size: 13px; border-radius: 5px;" onclick="window.open('https://webim-1252463788.file.myqcloud.com/demo/index.html?_ga=1.46776807.1921342650.1563864524')" /></td>
+    <td style="text-align:center;"><img style="width:160px" src="https://main.qcloudimg.com/raw/7c531362f989f850b595fa64ae8dff18.png"  /></td>
+    <td style="text-align:center;"><img style="width:160px" src="https://main.qcloudimg.com/raw/2fd3f34c83c959c7e0fbc28c6c7b568f.png" /></td>
+    <td style="text-align:center;"><img style="width:160px" src="https://main.qcloudimg.com/raw/ecc8843a39470b716bf674c5cadb495d.png" /></td>
+    <td style="text-align:center;"><img style="width:160px" src="https://main.qcloudimg.com/raw/af499aa747901047493c8bf6b509da4b.png" /></td>
+    <td><a href="https://webim-1252463788.file.myqcloud.com/demo/index.html?_ga=1.46776807.1921342650.1563864524"><img style="width:160px" src="https://main.qcloudimg.com/raw/2945a240c80ad283000970fb7139081e.png"></a></td>
   </tr>
 </table>
 
