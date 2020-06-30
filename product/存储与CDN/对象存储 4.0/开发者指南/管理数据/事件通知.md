@@ -21,7 +21,7 @@ COS 事件通知具有以下特点：
 | cos:ObjectCreated:Post                    | 使用 POST Object 接口创建文件时触发云函数                    |
 | cos:ObjectCreated:Copy                    | 使用 PUT Object - Copy 接口创建文件时触发云函数              |
 | cos:ObjectCreated:CompleteMultipartUpload | 使用  Complete Multipart Upload  接口创建文件时触发云函数    |
-| cos:ObjectCreated:Origin                  | 发生 CDN 回源时触发云函数                                    |
+| cos:ObjectCreated:Origin                  | 发生镜像回源时触发云函数                                    |
 | cos:ObjectCreated:Replication             | 通过跨地域复制创建对象时触发云函数                           |
 | cos:ObjectRemove:*                        | 以下提到的所有删除事件均可触发云函数                         |
 | cos:ObjectRemove:Delete                   | 在未开启版本控制的存储桶下，使用 DELETE Object 接口删除对象，或者使用 versionid 删除指定版本的对象时触发云函数 |
