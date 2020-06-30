@@ -35,7 +35,7 @@
 ```xml
 <view class="container-box">
 <view class="player-view">
-  <live-room-play version={{version} liveAppID="{{liveAppID}}" playUrl="{{playUrl}}" orientation="{{orientation}}" objectFit="{{objectFit}}"
+  <live-room-play version="{{version}}" liveAppID="{{liveAppID}}" playUrl="{{playUrl}}" orientation="{{orientation}}" objectFit="{{objectFit}}"
     minCache="{{minCache}}" maxCache="{{maxCache}}" mode="{{mode}}" muted="{{muted}}" debug="{{debug}}" bindPlayEvent="onPlayEvent" >
   </live-room-play>
 </view>
@@ -53,7 +53,7 @@
 ```
 在 page 的`.wxml`文件加载上一步引入的`live-room-push`组件。
 ```xml
-<live-room-push version={{version} liveAppID="{{liveAppID}}" pushUrl="{{pushUrl}}" orientation="{{orientation}}" muted="{{muted}}" mode="{{mode}}" waitingImage="{{waitingImage}}" enableCamera="{{enableCamera}}" beauty="{{beauty}}" whiteness="{{whiteness}}" backgroundMute="{{backgroundMute}}"
+<live-room-push version="{{version}}" liveAppID="{{liveAppID}}" pushUrl="{{pushUrl}}" orientation="{{orientation}}" muted="{{muted}}" mode="{{mode}}" waitingImage="{{waitingImage}}" enableCamera="{{enableCamera}}" beauty="{{beauty}}" whiteness="{{whiteness}}" backgroundMute="{{backgroundMute}}"
   debug="{{debug}}" autoFocus="{{autoFocus}}" aspect="{{aspect}}" minBitrate="{{minBitrate}}" maxBitrate="{{maxBitrate}}" zoom="{{zoom}}" devicePosition="{{devicePosition}}" sdkAppID="{{sdkAppID}}" accountType="{{accountType}}" userID="{{userID}}" userSig="{{userSig}}"
   roomID="{{roomID}}" nickName="{{nickName}}" avatar="{{avatar}}" bindPushEvent="onPushEvent" bindIMEvent="onIMEvent">
 ```
