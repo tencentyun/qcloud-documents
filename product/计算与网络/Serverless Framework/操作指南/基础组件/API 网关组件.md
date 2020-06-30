@@ -4,7 +4,7 @@ API 网关组件是 serverless-tencent 组件库中的基础组件之一，您�
 ## 操作步骤
 通过 API 网关组件，您可以对一个 API 服务/接口进行完整的创建、配置、部署和删除等操作，支持的命令如下：
 
-#### 安装
+### 安装
 
 通过 npm 安装 Serverless：
 
@@ -12,7 +12,7 @@ API 网关组件是 serverless-tencent 组件库中的基础组件之一，您�
 npm install -g serverless
 ```
 
-#### 配置
+### 配置
 
 本地创建 `serverless.yml` 文件：
 
@@ -47,9 +47,9 @@ inputs:
         functionName: myFunction
 ```
 
-* [查看详细配置文档>>]( https://github.com/serverless-components/tencent-apigateway/blob/v2/docs/configure.md )
+[查看详细配置文档>>]( https://github.com/serverless-components/tencent-apigateway/blob/v2/docs/configure.md )
 
-#### 部署
+### 部署
 
 执行以下命令进行扫码授权部署：
 
@@ -57,11 +57,9 @@ inputs:
 sls deploy
 ```
 
->?
->
->- 微信扫码授权部署有过期时间，如果想要持久授权，请参考[账号配置](#账号配置（可选）)。
+>?微信扫码授权部署有过期时间，如果想要持久授权，请参考 [账号配置](#account)。
 
-#### 移除
+### 移除
 
 执行以下命令移除部署的服务：
 
@@ -69,7 +67,8 @@ sls deploy
 sls remove
 ```
 
-#### 账号配置（可选）
+<span id="account"></span>
+### 账号配置（可选）
 
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建 `.env` 文件：
 
@@ -86,7 +85,6 @@ TENCENT_SECRET_KEY=123
 ```
 
 >?
->
 >- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
 >- 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
 

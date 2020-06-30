@@ -34,3 +34,5 @@
 2. 在“日志采集”管理页面上方，选择地域及已安装 LogCollector 的集群，并单击【新建】创建日志采集规则。如下图所示：
 ![](https://main.qcloudimg.com/raw/7285a504bcef8d1370e3f9e0abab1d0c.png)
 3. 在“新建日志采集规则”页面，参考 [日志采集](https://cloud.tencent.com/document/product/457/36771) 创建规则后开始使用。
+
+

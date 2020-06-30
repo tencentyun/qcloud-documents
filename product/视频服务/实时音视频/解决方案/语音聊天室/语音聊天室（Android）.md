@@ -1,5 +1,15 @@
 ## 效果展示
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 Demo 体验语音聊天室的能力，包括麦位管理、低延时语音互动、文字聊天等 TRTC 在语音聊天场景下的相关能力。
+<table>
+     <tr>
+         <th>主播麦位操作</th>  
+         <th>观众麦位操作</th>  
+     </tr>
+<tr>
+<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/voiceroom_pick_seat.gif"/></td>
+<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/voiceroom_enter_seat.gif"/></td>
+</tr>
+</table>
 
 如需快速接入语音聊天室功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCVoiceRoom 组件并实现自定义 UI 界面。
 
@@ -45,13 +55,13 @@
 |-------|--------|
 | base | UI 使用的基础类。 |
 | list | 列表页和创建房间页。 |
-| room | 主房间页面，包括房主和观众两种界面。 |
+| room | 主房间页面，包括主播和观众两种界面。 |
 | widget | 通用控件。 |
 
 <span id="model"> </span>
 ## 实现自定义 UI 界面
 
-源码中的 trtcvoiceroomdemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCVoiceRoom，您可以在`TRTCVoiceRoom.java`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
+[源码](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCScenesDemo/trtcvoiceroomdemo/src/main/java/com/tencent/liteav/trtcvoiceroom) 中的 trtcvoiceroomdemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCVoiceRoom，您可以在`TRTCVoiceRoom.java`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/0ebcbb27843bf03a790a945a8c92d560.png)
 
 <span id="model.step1"> </span>
@@ -282,20 +292,19 @@ public void onAnchorEnterSeat(TRTCVoiceRoomDef.UserInfo userInfo) {
 主播端：
 1. `pickSeat`传入对应的麦位和观众 userId, 可以抱人上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
 2. `kickSeat`传入对应麦位后，可以踢人下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
-3. `muteSeat`传入对应麦位后，可以静音/解禁对应麦位的麦克风，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
+3. `muteSeat`传入对应麦位后，可以静音/解除静音，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
 4. `closeSeat`传入对应麦位后，可以封禁/解禁某个麦位，封禁后观众端将不能再上麦，房间内所有成员会收到`onSeatListChange`和`onSeatClose`的事件通知。
+
+![](https://main.qcloudimg.com/raw/299e62ae7d20d10622197ad8685d4639.png)
 
 观众端：
 1. `enterSeat`传入对应的麦位后，可以进行上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
 2. `leaveSeat`主动下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
 
+![](https://main.qcloudimg.com/raw/3ac11818d7d23f61104600ea7235867d.png)
+
 麦位操作后的事件通知顺序如下：
 callback > onSeatListChange > onAnchorEnterSeat 等独立事件
-
-
-| 主播端麦位管理 | 观众端麦位管理 |
-|---------|---------|
-|  ![](https://main.qcloudimg.com/raw/299e62ae7d20d10622197ad8685d4639.png) | ![](https://main.qcloudimg.com/raw/244ce867e63b1e404bc4a5bd5747ecc6.png) | 
 
 ```java
 // case1: 主播抱人上1号麦位
@@ -375,7 +384,7 @@ public void onReceiveNewInvitation(final String id, String inviter, String cmd, 
 }
 ```
 
-如果您的主播需要申请才能抱观众上麦：
+如果您的主播需要发送邀请才能抱观众上麦：
 1. 主播端调用`sendInvitation`传入观众的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
 2. 观众端收到`onReceiveNewInvitation`的事件通知，此时 UI 可以弹窗并询问观众是否同意上麦。
 3. 观众选择同意后，调用`acceptInvitation`并传入 inviteId。
@@ -401,7 +410,7 @@ public void onInviteeAccepted(String id, String invitee) {
  @Override
 public void onReceiveNewInvitation(final String id, String inviter, String cmd, final String content) {
     if (cmd.equals("PICK_SEAT")) {
-        // 3.主播同意观众请求
+        // 3.观众同意主播请求
          mTRTCVoiceRoom.acceptInvitation(id, null);
     }
 }

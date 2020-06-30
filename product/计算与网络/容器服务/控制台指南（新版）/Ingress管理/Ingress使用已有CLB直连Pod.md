@@ -1,5 +1,5 @@
 腾讯云容器服务 TKE 具备通过 `kubernetes.io/ingress.existLbId: <LoadBalanceId>` 注解使用已有负载均衡的功能，您可使用该注解指定 Ingress 关联的负载均衡实例。
->?与 Service 的区别：Ingress 不支持多个实例使用同一个负载均衡实例，即不支持复用功能。
+>? Ingress 与 Service 的区别：Ingress 不支持多个实例使用同一个负载均衡实例，即不支持复用功能。
 
 ## 注意事项
 - 请确保您的容器业务不与云服务器 CVM 业务共用一个负载均衡资源。

@@ -21,3 +21,4 @@ openssl pkcs12 -export -out www.domain.com.pfx -inkey 2_www.domain.com.key -in 1
 ![](https://main.qcloudimg.com/raw/6be29b8e77f8d6d4b2460a7f73dd8644.png)
 >!Export Password 不需要的情况下，请直接回车不进行输入。
 4. 在 D:\ 已生成的 `www.domain.com.pfx` 文件，可以继续完成在 IIS 管理器中的证书安装。
+

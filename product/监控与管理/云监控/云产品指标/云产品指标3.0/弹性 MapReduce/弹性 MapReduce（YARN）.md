@@ -47,7 +47,7 @@ Namespace=QCE/TXMR_YARN
 
 ### YARN-ResourceManager
 
-| 指标中文名                                         | 指标中文名                               | 指标单位 | 指标含义           | 维度                                                  |
+| 指标英文名                                         | 指标中文名                               | 指标单位 | 指标含义           | 维度                                                  |
 | -------------------------------------------------- | ---------------------------------------- | -------- | ------------------ | ----------------------------------------------------- |
 | YarnRmRpcAuth5000<br> Rpcauthenticationfailures    | RPC认证授权数_RpcAuthenticationSuccesses | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br>id4yarnresourcemanager  |
 | YarnRmRpcAuth5000<br> Rpcauthenticationsuccesses   | RPC认证授权数_RpcAuthorizationFailures   | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |

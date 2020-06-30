@@ -164,7 +164,7 @@ rules: [
 },
 ```
 
-4. 在 `scripts` 节点下添加以下构建和打包的命令脚本：
+3. 在 `scripts` 节点下添加以下构建和打包的命令脚本：
 
  本文以 `create-react-app` 和 `vue-cli` 项目为例，其它工具创建的项目也可以参考此配置：
 
@@ -200,7 +200,7 @@ rules: [
 > -   `build.scripts.compile:mac` ：编译为 Mac 下的 .dmg 安装文件。
 > -   `build.scripts.compile:win64` ：编译为 Windows 下的 .exe 安装文件。
 > -   `build.scripts.pack:mac` ：先调用 build:mac 构建代码，再调用 compile:mac 打包成 .dmg 安装文件。
-> -   `build.scripts.pack:win64` ：先调用 compile:win64 构建代码，再调用 compile:win64 打包成 .exe 安装文件。
+> -   `build.scripts.pack:win64` ：先调用 build:win 构建代码，再调用 compile:win64 打包成 .exe 安装文件。
 
 ####  步骤4：执行打包命令
 - 打包 Mac .dmg 安装文件：

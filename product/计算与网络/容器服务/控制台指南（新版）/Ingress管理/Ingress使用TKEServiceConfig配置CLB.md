@@ -132,7 +132,7 @@ spec:
   - secretName: jetty-cert-secret
 ```
 该示例包含以下配置：
-- 使用了混合协议，使用默认域名（公网 IP）暴露了一个 HTTP 服务，使用 `sample.tencent.com` 域名暴露了一个 HTTPS 服务。详情请参见 [Ingress 混合使用 HTTP 及 HTTPS 协议]()。
+- 使用了混合协议，使用默认域名（公网 IP）暴露了一个 HTTP 服务，使用 `sample.tencent.com` 域名暴露了一个 HTTPS 服务。<!-- 详情请参见 [Ingress 混合使用 HTTP 及 HTTPS 协议]()。-->
 - HTTP 服务的转发路径是 `/health`，HTTPS 服务的转发路径是`/`。
 - 使用了 `jetty-ingress-config` 负载均衡配置。
 
@@ -161,7 +161,7 @@ spec:
         rules:
         - url: "/"
           session:
-            enabled: ture
+            enabled: true
             sessionExpireTime: 3600
           healthCheck:
             enabled: true

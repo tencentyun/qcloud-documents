@@ -1,9 +1,9 @@
 ## 简介
 本文档提供关于 SDK 接入以及开启推送服务的示例代码（SDK 版本：V1.0+ 版本）。
 >!如果您是从 [信鸽平台](https://xg.qq.com) 迁移至腾讯移动推送平台，请务必：
-1.实现 [注销信鸽平台推送服务接口](#zhuxiao)。
-2.参考 [iOS 迁移指南](https://cloud.tencent.com/document/product/548/41610)  文档，根据您 App 的集成情况，实现相应的变更，完成后返回当前文档。
-3.完成下述文档的集成工作。
+1. 实现 [注销信鸽平台推送服务接口](#zhuxiao)。
+2. 参考 [iOS 迁移指南](https://cloud.tencent.com/document/product/548/41610)  文档，根据您 App 的集成情况，实现相应的变更，完成后返回当前文档。
+3. 完成下述文档的集成工作。
 
 ## SDK 组成
 - doc 文件夹：腾讯移动推送 iOS SDK 开发指南。
@@ -70,18 +70,16 @@ github "xingePush/carthage-TPNS-iOS"
 >! 如果您的应用服务接入点为广州，SDK 默认实现该配置。
 如果您的应用服务接入点为新加坡或者中国香港，请按照下文步骤完成境外服务接入点配置。
 1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
-2. 在 `startXGWithAppID` 方法之前调用头文件中的配置 `HOST` 接口：
-如需接入新加坡服务接入点则将 `HOST`设置为 `https://api.tpns.sgp.tencent.com`, `PORT`设置为0。
+2. 在 `startXGWithAppID` 方法之前调用头文件中的配置 `域名` 接口：
+如需接入新加坡服务接入点 则将域名设置为```tpns.sgp.tencent.com```。
 **示例**
 ``` object-c
-[[XGPush defaultManager] configureHost:@"https://api.tpns.sgp.tencent.com" port:0];
-[[XGPush defaultManager] configureStatReportHost:@"https://api.tpns.sgp.tencent.com" port:0];
+ [[XGPush defaultManager] configureClusterDomainName:@"tpns.sgp.tencent.com"];
 ```
-如需接入中国香港服务接入点则将 `HOST` 设置为 `https://api.tpns.hk.tencent.com`, `PORT `设置为0。
+如需接入香港服务接入点 则将域名设置为```tpns.hk.tencent.com```。
 **示例**
 ``` object-c
-[[XGPush defaultManager] configureHost:@"https://api.tpns.hk.tencent.com" port:0];
-[[XGPush defaultManager] configureStatReportHost:@"https://api.tpns.hk.tencent.com" port:0];
+ [[XGPush defaultManager] configureClusterDomainName:@"tpns.hk.tencent.com"];
 ```
 
 ### 接入样例
@@ -92,13 +90,13 @@ github "xingePush/carthage-TPNS-iOS"
 @interface AppDelegate () <XGPushDelegate>
 @end 
 /**
-@param appID  通过 TPNS 管理台申请的 AccessID
-@param appKey  通过 TPNS 管理台申请的 AccessKey
+@param AccessID  通过 TPNS 管理台申请的 AccessID
+@param AccessKey  通过 TPNS 管理台申请的 AccessKey
 @param delegate 回调对象
 **/
 -(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
 {
-[[XGPush defaultManager] startXGWithAppID:<#your appID#> appKey:<#your appKey#>  delegate:<#your delegate#>];
+  [[XGPush defaultManager] startXGWithAccessID:<your AccessID> accessKey:<your AccessKey> delegate:self];
 return YES;
 }
 ```
@@ -106,55 +104,27 @@ return YES;
 2. 在 `AppDelegate` 中，选择实现 `XGPushDelegate ` 协议中的方法：
 
 ```objective-c
-/// 统一收到通知消息的回调
-/// @param notification 消息对象
-/// @param completionHandler 完成回调
+/// 统一接收消息的回调
+/// @param notification 消息对象(有2种类型NSDictionary和UNNotification具体解析参考示例代码)
+/// @note 此回调为前台收到通知消息及所有状态下收到静默消息的回调（消息点击需使用统一点击回调）
 /// 区分消息类型说明：xg字段里的msgtype为1则代表通知消息msgtype为2则代表静默消息
-/// notification消息对象说明：有2种类型NSDictionary和UNNotification具体解析参考示例代码
 - (void)xgPushDidReceiveRemoteNotification:(nonnull id)notification withCompletionHandler:(nullable void (^)(NSUInteger))completionHandler{
-/// code
+ /// code
 } 
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
-/// iOS 10 新增 API
-/// iOS 10 会走新 API, iOS 10 以前会走到老 API
-/// App 用户点击通知和用户选择通知中的行为
-/// 无论本地推送还是远程推送都会走这个回调
-- (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center
-didReceiveNotificationResponse:(UNNotificationResponse *)response
-withCompletionHandler:(void (^)(void))completionHandler {
-/// code
+ /// 统一点击回调
+/// @param response 如果iOS 10+/macOS 10.14+则为UNNotificationResponse，低于目标版本则为NSDictionary
+- (void)xgPushDidReceiveNotificationResponse:(nonnull id)response withCompletionHandler:(nonnull void (^)(void))completionHandler {
+  /// code
 }
-#endif
 ```
 
 ## 通知服务扩展插件集成
-为了实现抵达数据上报和富媒体消息的功能，SDK 提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达和发送富媒体消息。
->!如果未集成此接口，则统计数据中消息`抵达数`与`点击数`一致。
+SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使用以下扩展功能：
+- 精准统计消息抵达。
+- 接收图片、音视频富媒体消息。
 
-### 接入方式（二选一）
-#### 方式一：Cocoapods 导入
-通过 Cocoapods 下载地址：
-
-``` 
-pod 'TPNS-iOS-Extension' 
-```
- - **使用说明：**
-1. 创建类型为 `Application Extension` 的 `Notification Service Extension` TARGET，例如 `XXServiceExtension`。
-2. 在 Podfile 新增 XXServiceExtension 的配置栏目。
- - **示例**
-Podfile 中增加配置项目后展示效果：
-```
-target ‘XXServiceExtension'do
-pod 'TPNS-iOS-Extension' , '~>1.2.6.1' 
-end
-```
-
->? 建议配合 pod 'TPNS-iOS' version 1.2.6.1 及以上版本使用。
-
-
-#### 方式二：手动导入
-接入指南请参见 [通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
-
+接入步骤请参考文档 [通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
+>!如果未集成此接口，则统计数据中消息“抵达数”与“点击数”一致。
 
 ## 调试方法
 #### 开启 Debug 模式
@@ -167,28 +137,24 @@ end
 ```
 
 #### 实现 `XGPushDelegate` 协议
-TPNS iOS SDK 1.2.5.3 以上版本，在调试阶段建议实现协议中的此方法，即可获取更详细的调试信息：
-
+在调试阶段建议实现协议中的此方法，即可获取更详细的调试信息：
 ```objective-c
 /**
 @brief 注册推送服务回调
 @param deviceToken APNs 生成的 Device Token
 @param xgToken TPNS 生成的 Token，推送消息时需要使用此值。TPNS 维护此值与 APNs 的 Device Token 的映射关系
 @param error 错误信息，若 error 为 nil 则注册推送服务成功
+@note TPNS SDK1.2.5.3+
 */
 - (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken xgToken:(nullable NSString *)xgToken error:(nullable NSError *)error;
+
+/// 注册推送服务失败回调
+/// @param error 注册失败错误信息
+/// @note TPNS SDK1.2.7.1+
+- (void)xgPushDidFailToRegisterDeviceTokenWithError:(nullable NSError *)error {
+}
 ```
 
-TPNS iOS SDK 1.2.5.3 以下版本，在调试阶段建议实现协议中的此方法，即可获取更详细的调试信息：
-```objective-c
-/**
-@brief 设备token注册信鸽服务的回调
-
-@param deviceToken 当前设备的token
-@param error 错误信息
-*/
-- (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken error:(nullable NSError *)error;
-```
 #### 观察日志
 如果 Xcode 控制台，显示如下相似日志，表明客户端已经正确集成 SDK。
 
@@ -199,20 +165,13 @@ TPNS iOS SDK 1.2.5.3 以下版本，在调试阶段建议实现协议中的此�
 >!在推送单个目标设备时请使用 XG 36位的 Token。
 
 ## 统一接收消息及点击消息回调说明
-- 高于 iOS 10.0 的系统版本，点击消息，此函数将被调用：
-
-```objective-c
-- (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler;
-```
-- 低于 iOS 10.0 的系统版本，点击消息，此函数将被调用：
-
+统一接收消息回调，当应用在前台收到通知消息，以及所有状态（前台、后台、关闭）下收到静默消息会走此回调。
 ```objective-c
 - (void)xgPushDidReceiveRemoteNotification:(nonnull id)notification withCompletionHandler:(nullable void (^)(NSUInteger))completionHandler;
 ```
-- 若收到的是静默消息，此函数将被调用：
-
+统一点击消息回调，此回调方法为应用所有状态（前台、后台、关闭）下的通知消息点击回调。
 ```objective-c
-- (void)xgPushDidReceiveRemoteNotification:(nonnull id)notification withCompletionHandler:(nullable void (^)(NSUInteger))completionHandler;
+- (void)xgPushDidReceiveNotificationResponse:(nonnull id)response withCompletionHandler:(nonnull void (^)(void))completionHandler;
 ```
 
 >!
