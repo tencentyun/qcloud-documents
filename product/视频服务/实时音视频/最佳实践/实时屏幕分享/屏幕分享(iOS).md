@@ -200,7 +200,7 @@ iOS 系统上的跨应用屏幕分享，需要增加 Extension 录屏进程以�
 ![](https://main.qcloudimg.com/raw/4a759043c613a558400cce8b539fd7d9.png)
 
 1. 在 [Demo](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCSimpleDemo/Screen) 中寻找 `TRTCBroadcastExtensionLauncher` 这个类，并将其加入到您的工程中。
-2. 在您的界面上放置一个按钮，并在按钮的响应函数中调用 `TRTCBroadcastExtensionLauncher` 中的的 `launch` 函数，就可以唤起屏幕分享功能了。
+2. 在您的界面上放置一个按钮，并在按钮的响应函数中调用 `TRTCBroadcastExtensionLauncher` 中的 `launch` 函数，就可以唤起屏幕分享功能了。
 
 ```
 // 自定义按钮响应方法

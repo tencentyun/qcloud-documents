@@ -9,6 +9,6 @@ DNS 劫持检测功能可用于检测域名是否被劫持，并且能实时监�
 2. 单击【添加域名】，弹出域名信息填写窗口。 输入待检测的域名及域名对应的权威 IP 地址，单击【添加】即可。若有多个权威 IP 地址，请单击【+添加一行】进行添加。
  ![](https://main.qcloudimg.com/raw/cb85a0fd66a915c6aa1a55be53566501.png)
 3. DNS 劫持检测配置成功，基础配置页面显示域名相关记录。
-![](https://main.qcloudimg.com/raw/1803a7822cc6d285b77b2152044ba883.png)
+![](https://main.qcloudimg.com/raw/1803a7822cc6d285b77b2152044ba883.png)   
 
 <a href="https://cloud.tencent.com/document/product/627/11709">下一步：CC 防护设置</a>

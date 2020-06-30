@@ -61,7 +61,7 @@
 <span id="model"> </span>
 ## 实现自定义 UI 界面
 
-源码中的 trtcvoiceroomdemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCVoiceRoom，您可以在`TRTCVoiceRoom.java`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
+[源码](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCScenesDemo/trtcvoiceroomdemo/src/main/java/com/tencent/liteav/trtcvoiceroom) 中的 trtcvoiceroomdemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCVoiceRoom，您可以在`TRTCVoiceRoom.java`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/0ebcbb27843bf03a790a945a8c92d560.png)
 
 <span id="model.step1"> </span>
@@ -301,7 +301,7 @@ public void onAnchorEnterSeat(TRTCVoiceRoomDef.UserInfo userInfo) {
 1. `enterSeat`传入对应的麦位后，可以进行上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
 2. `leaveSeat`主动下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
 
-![](https://main.qcloudimg.com/raw/244ce867e63b1e404bc4a5bd5747ecc6.png)
+![](https://main.qcloudimg.com/raw/3ac11818d7d23f61104600ea7235867d.png)
 
 麦位操作后的事件通知顺序如下：
 callback > onSeatListChange > onAnchorEnterSeat 等独立事件

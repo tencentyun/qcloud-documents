@@ -49,7 +49,7 @@
 
 <span id="ui.step5"></span>
 ### 步骤5：修改 Demo 源代码
-源码中的 trtcvoiceroomdemo 文件夹包含两个子文件夹 ui 和 model，ui 文件夹中均为界面代码以及涉及界面相关的逻辑，如下表格列出了各个 swift 文件或文件夹及其所对应的 UI 界面，以便于您进行二次调整：
+源码中的 TRTCVoiceRoomDemo 文件夹包含两个子文件夹 ui 和 model，ui 文件夹中均为界面代码以及涉及界面相关的逻辑，如下表格列出了各个 swift 文件或文件夹及其所对应的 UI 界面，以便于您进行二次调整：
 
 | 文件或文件夹 | 功能描述 |
 |:-------:|:--------|
@@ -69,7 +69,7 @@
 
 <span id="model"> </span>
 ## 实现自定义 UI 界面
-源码中的 trtcvoiceroomdemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCVoiceRoom，您可以在`TRTCVoiceRoom.swift`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
+[源码](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCVoiceRoomDemo) 中的 TRTCVoiceRoomDemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCVoiceRoom，您可以在`TRTCVoiceRoom.swift`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/0ebcbb27843bf03a790a945a8c92d560.png)
 
 
@@ -217,7 +217,7 @@ func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
 ### 步骤6：观众端观看
 1. 观众端执行 [步骤4](#model.step4) 登录后，可以调用`setSelfProfile`设置自己的昵称和头像。
 2. 观众端向业务后台获取最新的语音聊天室房间列表。
- > Demo 中的语音聊天室列表仅做演示使用，语音聊天室列表的业务逻辑千差万别，腾讯云暂不提供语音聊天室列表的管理服务，请自行管理您的语音聊天室列表。
+ >?Demo 中的语音聊天室列表仅做演示使用，语音聊天室列表的业务逻辑千差万别，腾讯云暂不提供语音聊天室列表的管理服务，请自行管理您的语音聊天室列表。
 3. 观众端调用`getRoomInfoList`获取房间的详细信息，该信息是在主播端调用`createRoom`创建语音聊天室时设置的简单描述信息。
  >!如果您的语音聊天室列表包含了足够全面的信息，可跳过调用`getRoomInfoList`相关步骤。
 4. 观众选择一个语音聊天室，调用`enterRoom`并传入房间号即可进入该房间。
@@ -279,7 +279,8 @@ func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
 观众端：
 1. `enterSeat`传入对应的麦位后，可以进行上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
 2. `leaveSeat`主动下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
-![](https://main.qcloudimg.com/raw/244ce867e63b1e404bc4a5bd5747ecc6.png)
+
+![](https://main.qcloudimg.com/raw/3ac11818d7d23f61104600ea7235867d.png)
 
 麦位操作后的事件通知顺序如下：
 callback > onSeatListChange > onAnchorEnterSeat 等独立事件
@@ -393,6 +394,7 @@ func onReceiveNewInvitation(identifier: String, inviter: String, cmd: String, co
 ### 步骤9：实现文字聊天和弹幕消息
 - 通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到`onRecvRoomTextMsg`回调。
 即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
+
 ```Swift
 // 发送端：发送文本消息
 self.voiceRoom.sendRoomTextMsg(message: message) { (code, message) in
@@ -405,6 +407,7 @@ func onRecvRoomTextMsg(message: String, userInfo: VoiceRoomUserInfo) {
 ```
 - 通过`sendRoomCustomMsg`可以发送自定义（信令）的消息，所有在该房间内的主播和观众均可以收到`onRecvRoomCustomMsg`回调。
  自定义消息常用于传输自定义信令，例如用于点赞消息的发送和广播。
+ 
 ```swift
 // 例如：发送端：您可以通过自定义Cmd来区分弹幕和点赞消息
 // eg:"CMD_DANMU"表示弹幕消息，"CMD_LIKE"表示点赞消息

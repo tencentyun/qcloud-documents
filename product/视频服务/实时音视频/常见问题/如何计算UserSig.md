@@ -20,7 +20,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
  ![](https://main.qcloudimg.com/raw/d0b780f7b28833533e12807d1b11d8be.png)
 
 ### 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
-TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法 ECDSA-SHA256](https://cloud.tencent.com/document/product/647/17275#.E8.80.81.E7.89.88.E6.9C.AC.E7.AE.97.E6.B3.95)，如已升级，您按需切换为新旧算法。
+TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法 ECDSA-SHA256](https://cloud.tencent.com/document/product/647/17275#Old)，如已升级，您按需切换为新旧算法。
 
 升级/切换操作：
  1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)。
@@ -80,7 +80,7 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 | Python | HMAC-SHA256 | [gen_sig](https://github.com/tencentyun/tls-sig-api-v2-python/blob/master/TLSSigAPIv2.py) | [Github](https://github.com/tencentyun/tls-sig-api-v2-python)|
 | C# | HMAC-SHA256 | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-cs/blob/master/tls-sig-api-v2-cs/TLSSigAPIv2.cs) | [Github](https://github.com/tencentyun/tls-sig-api-v2-cs)|
 
-
+<span id="Old"></span>
 ### 老版本算法如何计算 UserSig？
 
 为了简化签名计算难度，方便客户更快速地使用腾讯云服务，实时音视频自2019.07.19开始启用新的签名算法，从之前的 ECDSA-SHA256 升级为 HMAC-SHA256，也就是从2019.07.19之后创建的 SDKAppID 均会采用新的 HMAC-SHA256 算法。

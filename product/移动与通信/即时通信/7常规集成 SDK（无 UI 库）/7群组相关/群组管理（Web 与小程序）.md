@@ -208,7 +208,7 @@ tim.updateGroupProfile(options);
 | `introduction`     | `Object`         | `<optional>` |                       -               | 群简介，最长240字节                                          |
 | `notification`     | `Object`         | `<optional>` |                    -                  | 群公告，最长300字节                                          |
 | `maxMemberNum`     | `Number`         | `<optional>` |                      -                | 最大群成员数量，最大为6000                                   |
-| `muteAllMembers` | `Boolean` |  |  | 设置全体禁言，true 表示全体禁言，false 表示取消全体禁言，v2.6.2 起支持 |
+| `muteAllMembers` | `Boolean` | - | - | 设置全体禁言，true 表示全体禁言，false 表示取消全体禁言，v2.6.2 起支持 |
 | `joinOption`       | `String`         | `<optional>` | `TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS` | 申请加群处理方式<br><li>TIM.TYPES.JOIN_OPTIONS_FREE_ACCESS：自由加入</li><li>TIM.TYPES.JOIN_OPTIONS_NEED_PERMISSION：需要验证</li><li>TIM.TYPES.JOIN_OPTIONS_DISABLE_APPLY：禁止加群</li><br/>!TIM.TYPES.GRP_WORK, TIM.TYPES.GRP_MEETING, TIM.TYPES.GRP_AVCHATROOM 类型群组的该属性不允许修改。好友工作群禁止申请加群，临时会议群和直播群自由加入。 |
 | `groupCustomField` | `Array<Object>` | `<optional>` |                 -                     | 群自定义字段，详情请参见下方[`groupCustomField`参数说明](#groupCustomField)<br>默认没有自定义字段，如需开通请参见  [自定义字段](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E5.AD.97.E6.AE.B5) |
 

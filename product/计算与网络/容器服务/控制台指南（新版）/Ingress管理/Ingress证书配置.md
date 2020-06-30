@@ -30,11 +30,11 @@ spec:
 ```yaml
 apiVersion: v1
 stringData:
-         qcloud_cert_id: Xxxxxxxx ## 配置证书 ID 为 Xxxxxxxx
+    qcloud_cert_id: Xxxxxxxx ## 配置证书 ID 为 Xxxxxxxx
 kind: Secret
 metadata:
-         name: tencent-com-cert
-         namespace: default
+    name: tencent-com-cert
+    namespace: default
 type: Opaque
 ```
 
@@ -42,7 +42,8 @@ type: Opaque
 - 仅配置单个 `spec.secretName` 且未配置 hosts 的情况下，将会为所有的 HTTPS 的转发规则配置该证书。示例如下：
 ```yaml
 spec:
-      secretName: secret-tls
+    tls:
+    - secretName: secret-tls
 ```
 - 支持配置一级泛域名统配。 示例如下：
 ```yaml
