@@ -27,7 +27,7 @@
 >! 微信小程序开发者请使用【其他登录方式】-【微信公众号登录】登录，再选择关联的小程序账户登录；QQ小程序开发者可直接通过QQ小程序开发者IDE【云开发】按钮登录，也可以通过关联的腾讯云账户登录。
 
 
-- 打开 [云开发控制台](https://console.cloud.tencent.com/tcb/add)；
+- 打开 [云开发控制台](https://console.cloud.tencent.com/tcb/cloudaccess)；
 - 选择目标按量计费环境 `CustomEnv` 后，在更多扩展能力下单击【安装】【CMS内容管理系统】扩展，并按提示完成扩展安装。
 ![安装示例](https://main.qcloudimg.com/raw/4e19184dd90965783a267754440cfd93.png)
 ## 使用扩展
