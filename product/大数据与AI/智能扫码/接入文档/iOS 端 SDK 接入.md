@@ -61,6 +61,7 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
 - 将 **Other Linker Flags** 设置为 **\-lz**
 
 
+
 4. 权限设置
 
    需要手机网络权限、 摄像头权限、访问相册权限。
@@ -77,7 +78,10 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
    <string>扫码需要您开启相册权限，浏览您的照片</string>
    ```
 
--     **模式一：仅调用接口返回数据，需要自定义 view 和接口解码**
+
+5. 接入 SDK
+
+     **模式一：仅调用接口返回数据，需要自定义 view 和接口解码**
 
     需导入头文件 **QBarCode.h** 和模型文件(**detect_model.bin**、**detect_model.param**、**srnet.bin**、**srnet.param**)
 
