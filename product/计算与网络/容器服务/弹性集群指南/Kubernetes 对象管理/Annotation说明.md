@@ -165,6 +165,4 @@ spec:
   type: LoadBalancer
 ```
 
-<style>
-	.params{margin:0px !important}
-</style>
+
