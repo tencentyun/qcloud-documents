@@ -21,8 +21,8 @@
 
 ## 5G SDK代码托管
 
-腾讯云物联开发平台 (IoT Explorer) 5G SDK是腾讯5G物联开发套件的设备端组件，通过与IoT Explorer配合，为宽带物联应用提供5G模组远程运维，接入腾讯边缘接入和网络加速平台(TSEC)实现VPN组网，空口加速等功能，降低用户使用5G网络及边缘计算的门槛。
-自V0.1.0 版本开始，使用独立的[Github](https://github.com/tencentyun/qcloud-iot-explorer-5G-sdk-embedded)托管5G SDK代码。
+腾讯云物联开发平台 （IoT Explorer） 5G SDK 是腾讯5G物联开发套件的设备端组件，通过与 IoT Explorer 配合，为宽带物联应用提供5G模组远程运维，接入腾讯边缘接入和网络加速平台（TSEC）实现 VPN 组网，空口加速等功能，降低用户使用5G网络及边缘计算的门槛。
+自 V0.1.0 版本开始，使用独立的 [Github](https://github.com/tencentyun/qcloud-iot-explorer-5G-sdk-embedded) 托管 5G SDK 代码。
 
 
 ## C SDK 使用说明
