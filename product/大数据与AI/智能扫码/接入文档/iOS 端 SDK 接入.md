@@ -81,7 +81,7 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
 
 5. 接入 SDK
 
-     模式一：仅调用接口返回数据，需要自定义 view 和接口解码
+     **模式一：仅调用接口返回数据，需要自定义 view 和接口解码**
 	需导入头文件 **QBarCode.h** 和模型文件(**detect_model.bin**、**detect_model.param**、**srnet.bin**、**srnet.param**)
 
  - SDK 初始化
@@ -130,7 +130,7 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
     }];
     ```
 
-   模式二：已封装好扫码页面，无需用户自定义
+   **模式二：已封装好扫码页面，无需用户自定义**
 
  - SDK 初始化
 
