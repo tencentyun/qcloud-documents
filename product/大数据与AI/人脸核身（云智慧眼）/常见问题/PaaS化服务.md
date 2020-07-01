@@ -1,4 +1,4 @@
-﻿### PaaS 化服务中，如何获取动作顺序与数字验证码？
+### PaaS 化服务中，如何获取动作顺序与数字验证码？
 您需要调用以下对应的接口，以获取动作顺序或数字验证码（**除地域信息外，无需传其他参数**）：
 - [获取动作顺序](https://cloud.tencent.com/document/product/1007/31822)。
 - [获取数字验证码](https://cloud.tencent.com/document/product/1007/31821)。
