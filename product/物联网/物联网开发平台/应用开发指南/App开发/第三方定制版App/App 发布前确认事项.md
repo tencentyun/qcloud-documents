@@ -2,11 +2,10 @@
 
 - 确认填写用户自己的 Bundle ID 和 对应发布证书。   
 - 用户需要使用从物联网平台自建应用所获得的 **TencentIotLinkAppkey** 和 **TencentIotLinkAppSecrecy**，来替换 App Demo 中相对应的字符串，如下图所示：
-	![](https://main.qcloudimg.com/raw/73e543ee3373cab9a93e2322321f4dba.jpg)
+	![](https://main.qcloudimg.com/raw/430891c54c779cc0094f4f3fc554c31e.png)
 - 用户需要使用从腾讯推送平台自建应用所获得的 **XgAccessId** 和 **XgAccessKey**，来替换 App Demo 中相对应的字符串。     
-	![](https://main.qcloudimg.com/raw/ac095b8e85d272d9521251e1b574c8c2.jpg)
-- 用户需要使用从微信开发平台自建应用所获得的 **WXAccessAppId**，来替换 App Demo 中相对应的字符串，如下图。详情可参见 [移动应用微信登录开发指南](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Development_Guide.html)。          
-  <img src="https://main.qcloudimg.com/raw/015e14483c561991f8b23993ccd30ee2/image-20200622184257.png" alt="image-20200622184257" style="zoom:67%;" />
+	<img src="https://main.qcloudimg.com/raw/ae293ea8790abac2c956f77c1d62d18c/image-20200622182507.png" alt="image-20200622182507" style="zoom:67%;" />
+- 用户需要使用从微信开发平台自建应用所获得的 **WXAccessAppId**，来替换 App Demo 中相对应的字符串，如下图。详情可参见 [移动应用微信登录开发指南]<img src="https://main.qcloudimg.com/raw/72f8b8a7b4ccfd117abee395cd722c69/image-20200622184257.png" alt="image-20200622184257" style="zoom:67%;" />
 - 如果用户确认接入 Firebase，用户需要使用从 Firebase 官网自建应用获得 **GoogleService-Info.plist**，替换 App Demo 中原有相对应的文件，如下图所示：<br>
   <img src="https://main.qcloudimg.com/raw/7c17279a720b92ffb875e1b7ed46e89c/image-20200622184506.png" alt="image-20200622184506" style="zoom:67%;" />
 
