@@ -174,7 +174,7 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
             if ([contentArr count] >0) {
             msg = [contentArr objectAtIndex:0];
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                // UI线程
+                // UI 线程
                 [self showAlertView:msg];//识别成功 json 数据
             }];
             } else {
