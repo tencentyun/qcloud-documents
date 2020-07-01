@@ -308,7 +308,7 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 -keep public class * extends android.app.Service
 -keep public class * extends android.content.BroadcastReceiver
 -keep class com.tencent.android.tpush.** {*;}
--keep class com.tencent.tpns.baseapi.** {*;}  //1.2.0.1以下版本配置为  -keep class com.tencent.tpns.baseapi.** {*;}
+-keep class com.tencent.tpns.baseapi.** {*;}  //1.2.0.1以下版本配置为  -keep class com.tencent.bigdata.baseapi.** {*;}
 -keep class com.tencent.tpns.mqttchannel.** {*;} //1.2.0.1以下版本配置为 -keep class com.tencent.bigdata.mqttchannel.** {*;}
 -keep class com.tencent.tpns.dataacquisition.** {*;}
 ```
