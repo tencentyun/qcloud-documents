@@ -1,4 +1,4 @@
-﻿### SaaS 化服务中，如何获取 RuleId？
+### SaaS 化服务中，如何获取 RuleId？
 
 RuleId 在 SaaS 化服务调用中使用，您在申请开通腾讯云慧眼服务后，可在 [人脸核身控制台](https://console.cloud.tencent.com/faceid) 创建流程，审核通过后即可调用。详细生成具体方式可参考：[快速入门](https://cloud.tencent.com/product/faceid/getting-started)。
 
