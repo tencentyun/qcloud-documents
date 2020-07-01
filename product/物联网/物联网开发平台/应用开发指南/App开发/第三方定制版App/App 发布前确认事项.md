@@ -2,9 +2,9 @@
 
 - 确认填写用户自己的 Bundle ID 和 对应发布证书。   
 - 用户需要使用从物联网平台自建应用所获得的 **TencentIotLinkAppkey** 和 **TencentIotLinkAppSecrecy**，来替换 App Demo 中相对应的字符串，如下图所示：
-  <img src="https://main.qcloudimg.com/raw/76f28e72ec12fc564d0c6211e040e8ba/image-20200622182228.png" alt="image-20200622182228" style="zoom:67%;" />    
+	![](https://main.qcloudimg.com/raw/73e543ee3373cab9a93e2322321f4dba.jpg)
 - 用户需要使用从腾讯推送平台自建应用所获得的 **XgAccessId** 和 **XgAccessKey**，来替换 App Demo 中相对应的字符串。     
-  <img src="https://main.qcloudimg.com/raw/5fb69539e1a55ba6ac2e6183c9a39e2e/image-20200622182507.png" alt="image-20200622182507" style="zoom:67%;" />      
+	![](https://main.qcloudimg.com/raw/ac095b8e85d272d9521251e1b574c8c2.jpg)
 - 用户需要使用从微信开发平台自建应用所获得的 **WXAccessAppId**，来替换 App Demo 中相对应的字符串，如下图。详情可参见 [移动应用微信登录开发指南](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Development_Guide.html)。          
   <img src="https://main.qcloudimg.com/raw/015e14483c561991f8b23993ccd30ee2/image-20200622184257.png" alt="image-20200622184257" style="zoom:67%;" />
 - 如果用户确认接入 Firebase，用户需要使用从 Firebase 官网自建应用获得 **GoogleService-Info.plist**，替换 App Demo 中原有相对应的文件，如下图所示：<br>
