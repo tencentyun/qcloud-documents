@@ -175,6 +175,8 @@
 
 <span id="Step4"></span>
 ## 步骤4：购买套餐包
+如需使用呼出功能，需先购买套餐包才能使用。
+
 1. 登录 [套餐包购买页](https://buy.cloud.tencent.com/ccc_pkg)。
 2. 根据实际需求设置以下参数：
  <table>

@@ -11,7 +11,7 @@
 - 已有的业务使用了 MySQL，业务迁移到云开发中，希望继续使用 MySQL。
 
 ## 安装程序
-您可以通过 [云开发控制台](https://console.cloud.tencent.com/tcb/add)，来安装和管理该能力。
+您可以通过 [云开发控制台](https://console.cloud.tencent.com/tcb/cloudaccess)，来安装和管理该能力。
 >! 
 - 微信小程序开发者请使用【其他登录方式】>【微信公众号登录】登录，选择关联的小程序账户登录。
 - QQ 小程序开发者可直接通过 QQ 小程序开发者 IDE【云开发】登录，也可以通过关联的腾讯云账户登录。
