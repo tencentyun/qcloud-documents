@@ -57,7 +57,7 @@ Authorization: Auth String
 | Content-Encoding                                             | RFC 2616 中定义的编码格式，仅当对象元数据包含此项时才会返回该头部 | string |
 | Expires                                                      | RFC 2616 中定义的缓存失效时间，仅当对象元数据包含此项时才会返回该头部 | string |
 | x-cos-meta-\*                                                | 包括用户自定义元数据头部后缀和用户自定义元数据信息           | string |
-| x-cos-storage-class                                          | 对象存储类型，枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD，STANDARD_IA，ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | Enum   |
+| x-cos-storage-class                                          | 对象存储类型，枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD，MAZ_STANDARD_IA，STANDARD_IA，ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | Enum   |
 
 #### 归档类型对象相关头部
 
@@ -264,7 +264,6 @@ Server: tencent-cos
 x-cos-hash-crc64ecma: 16749565679157681890
 x-cos-request-id: NWU5MGI4OThfN2RiNDBiMDlfMTk1MTBfMWZj****
 x-cos-version-id: MTg0NDUxNTc1MzA5NzU4ODg1Mjg
-
 ```
 
 #### 案例七：归档存储正在恢复中
@@ -277,7 +276,6 @@ Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 27 Dec 2019 08:19:35 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1577434775;1577441975&q-key-time=1577434775;1577441975&q-header-list=date;host&q-url-param-list=&q-signature=72408a09a5fc00d77d389559a0cfa5c98e31****
 Connection: close
-
 ```
 
 #### 响应
