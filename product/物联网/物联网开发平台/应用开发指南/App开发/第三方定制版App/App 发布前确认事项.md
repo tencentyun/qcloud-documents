@@ -3,7 +3,7 @@
 - 确认填写用户自己的 Bundle ID 和 对应发布证书。   
 - 用户需要使用从物联网平台自建应用所获得的 **TencentIotLinkAppkey** 和 **TencentIotLinkAppSecrecy**，来替换 App Demo 中相对应的字符串，如下图所示：
   <img src="https://main.qcloudimg.com/raw/76f28e72ec12fc564d0c6211e040e8ba/image-20200622182228.png" alt="image-20200622182228" style="zoom:67%;" />    
-- 用户需要使用从腾讯推送平台自建应用所获得的 **XgAccessId** 和 **XgAccessKey**，来替换 App Demo 中相对应的字符串     
+- 用户需要使用从腾讯推送平台自建应用所获得的 **XgAccessId** 和 **XgAccessKey**，来替换 App Demo 中相对应的字符串。     
   <img src="https://main.qcloudimg.com/raw/5fb69539e1a55ba6ac2e6183c9a39e2e/image-20200622182507.png" alt="image-20200622182507" style="zoom:67%;" />      
 - 用户需要使用从微信开发平台自建应用所获得的 **WXAccessAppId**，来替换 App Demo 中相对应的字符串，如下图。详情可参见 [移动应用微信登录开发指南](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Development_Guide.html)。          
   <img src="https://main.qcloudimg.com/raw/015e14483c561991f8b23993ccd30ee2/image-20200622184257.png" alt="image-20200622184257" style="zoom:67%;" />
@@ -31,7 +31,7 @@ config.json 需要配置的内容，如下图所示：
  - **TencentMapSDKValue** 请使用腾讯地图开放平台申请并获得的 **key**，详情可参见 [创建工程](https://lbs.qq.com/mobile/androidLocationSDK/androidGeoGuide/androidGeoCreat)。
 
 2. 项目配置了 **Firebase** 插件。
- - 若用户确认使用 Firebase 功能，需通过 Firebase 官网创建应用并获取 **google-services.json**；将 google-services.json 文件放置在 app 目录下，如截图所示位置。<br>
+ - 若用户确认使用 Firebase 功能，需通过 Firebase 官网创建应用并获取 **google-services.json**；将 google-services.json 文件放置在 app 目录下，如截图所示位置：<br>
 		<img src="https://main.qcloudimg.com/raw/76bf90532ea498a57a7280cf3ce5e165/image-20200619150459211.png" alt="image-20200619150459211" style="zoom:67%;" /><br>
  - 若不使用 Firebase 功能，请注释截图中标注的内容即可，如下图所示：<br>
 		<img src="https://main.qcloudimg.com/raw/18586d6e1d6a46b3be59478f3efcee82/image-20200619150752594.png" alt="image-20200619150752594" style="zoom: 50%;" />
