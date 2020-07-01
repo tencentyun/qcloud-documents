@@ -2,7 +2,7 @@
 
 - 确认填写用户自己的 Bundle ID 和 对应发布证书。   
 - 用户需要使用从物联网平台自建应用所获得的 **TencentIotLinkAppkey** 和 **TencentIotLinkAppSecrecy**，来替换 App Demo 中相对应的字符串，如下图所示：
-	![](https://main.qcloudimg.com/raw/430891c54c779cc0094f4f3fc554c31e.png)
+	![](https://main.qcloudimg.com/raw/f7d36664333f13ddf725bd8bf078edaf.png)
 - 用户需要使用从腾讯推送平台自建应用所获得的 **XgAccessId** 和 **XgAccessKey**，来替换 App Demo 中相对应的字符串。     
 	<img src="https://main.qcloudimg.com/raw/ae293ea8790abac2c956f77c1d62d18c/image-20200622182507.png" alt="image-20200622182507" style="zoom:67%;" />
 - 用户需要使用从微信开发平台自建应用所获得的 **WXAccessAppId**，来替换 App Demo 中相对应的字符串，如下图。详情可参见 [移动应用微信登录开发指南]<img src="https://main.qcloudimg.com/raw/72f8b8a7b4ccfd117abee395cd722c69/image-20200622184257.png" alt="image-20200622184257" style="zoom:67%;" />
