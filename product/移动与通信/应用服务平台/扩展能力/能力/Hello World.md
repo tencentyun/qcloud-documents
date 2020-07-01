@@ -9,7 +9,7 @@
 ## 安装扩展
 >! 微信小程序开发者请使用【其他登录方式】-【微信公众号登录】登录，再选择关联的小程序账户登录；QQ小程序开发者可直接通过QQ小程序开发者IDE【云开发】按钮登录，也可以通过关联的腾讯云账户登录。
 
-您可以通过 [云开发控制台](https://console.cloud.tencent.com/tcb/add)，来安装和管理扩展。
+您可以通过 [云开发控制台](https://console.cloud.tencent.com/tcb/cloudaccess)，来安装和管理扩展。
 
 ## 使用扩展
 1. 进入 [云开发控制台](https://console.cloud.tencent.com/tcb)，单击需安装扩展的环境（下文以 `custom_env` 指代对应的环境ID），单击左侧菜单栏【环境设置】页进入环境设置页：
