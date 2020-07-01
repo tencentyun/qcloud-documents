@@ -21,14 +21,9 @@
  *  鉴权 Token
  */
 @property(nonatomic,retain) NSString* userSig;
-/**
- *  App 用户使用 OAuth 授权体系分配的 Appid
- */
-@property(nonatomic,retain) NSString* appidAt3rd;
+
 @end
 ```
-
-在自有帐号情况下，`appidAt3rd` 字段与 `SDKAppID` 相同，其他字段 `UserID`、`UserSig` 填写相应内容。
 
 ```
 /**
@@ -60,8 +55,6 @@ TIMLoginParam * login_param = [[TIMLoginParam alloc ]init];
 login_param.identifier = @"iOS_001";
 //userSig 为用户登录凭证
 login_param.userSig = @"usersig";
-//appidAt3rd App 用户使用 OAuth 授权体系分配的 Appid，在私有帐号情况下，填写与 SDKAppID 一样
-login_param.appidAt3rd = @"123456";
 [[TIMManager sharedInstance] login: login_param succ:^(){
     NSLog(@"Login succ");
 } fail:^(int code, NSString * err) {

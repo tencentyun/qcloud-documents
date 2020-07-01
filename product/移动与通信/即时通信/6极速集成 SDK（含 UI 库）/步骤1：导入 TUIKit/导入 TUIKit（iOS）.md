@@ -14,6 +14,8 @@ TUIKit 支持 CocoaPods 方式和手动集成两种方式。我们推荐使用 C
 
 1. 在 Podfile 中增加以下内容。
 ```
+#use_frameworks!   // TUIKit 使用到了第三方静态库，这个设置需要屏蔽
+use_modular_headers!
 pod 'TXIMSDK_TUIKit_iOS'
 ```
 2. 执行以下命令，安装 TUIKit。
@@ -30,13 +32,21 @@ pod install
 
 1. 在 Framework Search Path 中加上 ImSDK 的文件路径，手动地将 TUIKit 和 ImSDK 目录添加到您的工程。
 2. 手动将 TUIKit 使用的第三方库添加到您的工程：
- - [MMLayout](https://github.com/annidy/MMLayout)
- - [SDWebImage](https://github.com/SDWebImage/SDWebImage)
- - [ReactiveObjC](https://github.com/ReactiveCocoa/ReactiveObjC.git)
- - [Toast](https://github.com/scalessec/Toast)
- - [ISVImageScrollView](https://github.com/yuriiik/ISVImageScrollView)
+ - [MMLayout - Tag : 0.2.0](https://github.com/annidy/MMLayout)
+ - [SDWebImage - Tag : 5.5.2](https://github.com/SDWebImage/SDWebImage)
+ - [ReactiveObjC - Tag  : 3.1.1](https://github.com/ReactiveCocoa/ReactiveObjC.git)
+ - [Toast - Tag  : 4.0.0](https://github.com/scalessec/Toast)
+ - [ISVImageScrollView - Tag : 0.1.2](https://github.com/yuriiik/ISVImageScrollView)
+ - [SnapKit](https://github.com/SnapKit/SnapKit)
+ - [Toast-Swift](https://github.com/scalessec/Toast-Swift)
+ - [RxSwift](https://github.com/ReactiveX/RxSwift)
+ - [RxCocoa](https://github.com/ReactiveX/RxSwift/tree/master/RxCocoa)
+ - [NVActivityIndicatorView](https://github.com/ninjaprox/NVActivityIndicatorView)
+ - [Material](https://github.com/CosmicMind/Material)
+ - [Alamofire](https://github.com/Alamofire/Alamofire)
+ - [TXLiteAVSDK_TRTC](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/SDK)
 
-**以上依赖库请使用库的最新 Tag 集成。**
+**未标注 Tag 的依赖库请使用库的最新 Tag 集成。**
 
 ## 引用 TUIKit
 
