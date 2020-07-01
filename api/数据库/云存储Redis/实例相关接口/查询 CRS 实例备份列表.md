@@ -3,7 +3,7 @@
 本接口(GetRedisBackupList)用于查询 Redis 实例的备份列表。
 接口请求域名：<font style='color:red'>redis.api.qcloud.com </font>
 
-- 目前备份只保留7天，所以只能查询到最近7天以内的备份，包括用户发起的手动备份和凌晨的系统备份。
+目前备份只保留7天，所以只能查询到最近7天以内的备份，包括用户发起的手动备份和凌晨的系统备份。
 
 ## 2. 输入参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='https://cloud.tencent.com/document/product/213/6976' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的 Action 字段为GetRedisBackupList。

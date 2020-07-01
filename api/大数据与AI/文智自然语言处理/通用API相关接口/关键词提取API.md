@@ -1,3 +1,8 @@
+>!
+- 腾讯文智自然语言处理已于2019年7月09日全新升级为 [新版](https://cloud.tencent.com/document/product/271/3317)，接口功能更全面，服务更加稳定，且公测期间免费使用。
+- 老版本接口将不再继续维护，将于2019年11月16日零点下线，建议您使用 [新版 API ](https://cloud.tencent.com/document/product/271/35484)，体验更优服务。
+- 接口切换过程中，若您有相关问题，可加入官方 QQ 群（330130409）详细咨询。
+
 ## 1. 接口描述
 接口请求域名：wenzhi.api.qcloud.com
 本接口（TextKeywords）基于关键词抽取平台，为用户实现诸如新闻内容关键词自动提取、评论关键词提取等提供基础服务。目前已经接入的业务包括腾讯新闻客户端、手机腾讯网等。
@@ -140,7 +145,7 @@
 <td rowspan="4">腾讯云公共参数 </td><td> Action </td><td> 方法名 </td><td> 是 </td><td> TextKeywords
 </td></tr>
 <tr>
-<td> SecretId </td><td> SecretId </td><td> 是 </td><td> AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA
+<td> SecretId  </td><td> Secret 的 ID </td><td> 是 </td><td> AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA
 </td></tr>
 <tr>
 <td> Timestamp </td><td> 当前时间戳 </td><td> 是 </td><td> 1408704141

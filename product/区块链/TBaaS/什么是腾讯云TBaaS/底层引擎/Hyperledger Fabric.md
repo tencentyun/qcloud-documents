@@ -1,7 +1,7 @@
 
 ## 概述
 
-Hyperledger Fabric 是一个企业级的区块链框架实现，是 Linux 基金会旗下托管的 Hyperledger 开源项目之一，具有高度的模块化、可配置设计，拥有完备的成员管理和治理措施，支持可插拔的共识协议。比如银行、保险、医疗、供应链等行业可以根据自身特色灵活配置使用 Fabric、各种主流编程语言来开发智能合约，将其与自身的业务进行对接。
+Hyperledger Fabric 是一个企业级的区块链框架实现，是 Linux 基金会旗下托管的 Hyperledger 开源项目之一，具有高度的模块化、可配置设计，拥有完备的成员管理和治理措施，支持可插拔的共识协议。例如银行、保险、医疗、供应链等行业可以根据自身特色灵活配置使用 Fabric、各种主流编程语言来开发智能合约，将其与自身的业务进行对接。
 Hyperledger Fabric 不需要利用传统的发币、挖矿、PoW 工作量证明等手段来激励参与方。针对联盟链场景，差异化设计使得 Fabric 成为当前性能优秀、广受认可的区块链底层引擎。
 
 
@@ -27,7 +27,7 @@ Hyperledger Fabric 具备如下特色：
 
 ### 智能合约
 
-Hyperledger Fabric 中的智能合约被称为 “链码” 或者 “链代码”，可以使用主流的开发语言比如 Go、NodeJS、Java 来开发智能合约，并在对应的容器环境中执行。
+Hyperledger Fabric 中的智能合约被称为 “链码” 或者 “链代码”，可以使用主流的开发语言例如 Go、NodeJS、Java 来开发智能合约，并在对应的容器环境中执行。
 
 传统的区块链中，智能合约的执行使用 “排序-执行” 的架构，其执行结果必须是确定性的，否则共识可能无法达成。为了解决非确定性问题，许多平台要求智能合约使用特性的脚本或者特定的语言（例如：Solidity）进行编写，这需要开发人员熟悉特定语言的开发，否则可能会带来不可预知的各种错误。此外，由于所有节点上都无差别地顺序执行多笔交易，因此性能和规模受到限制，所有节点必须具备完善的防护措施来抵御恶意合约带来的影响。
 
@@ -58,8 +58,8 @@ Fabric 中，排序服务是模块化设计的，具备开发能力的用户可�
 在当前 Fabric 可用的版本中，对交易进行排序使用基于 Kafka 和 Zookerper 的 CFT 排序服务。随后的版本中，Fabric 将实现 etcd/Raft 中的 Raft 排序服务，以及完全分布式的 BFT 排序服务供用户选择。
 
 ## 系统框架
+![](https://main.qcloudimg.com/raw/5e55a8ea8caf64bc38673754ba889b5f.jpg)
 
-![](https://main.qcloudimg.com/raw/c25fc1a23ec6024ab54504e73fb8a4b4/%E7%B3%BB%E7%BB%9F%E6%A1%86%E6%9E%B6.png)
 
 ## 开源社区
 
@@ -71,7 +71,7 @@ Hyperledger Fabric 文档地址：https://hyperledger-fabric.readthedocs.io/en/l
 
 ### TBaaS 目前支持哪个版本的 Hyperledger Fabric？
 
-**答**： Hyperledger Fabric v1.1。
+**答**： Hyperledger Fabric v1.4。
 	
 ### TBaaS 为什么选择率先支持 Hyperledger Fabric 平台而不是其他区块链？
 
@@ -80,3 +80,4 @@ Hyperledger Fabric 文档地址：https://hyperledger-fabric.readthedocs.io/en/l
 ### TBaaS 未来会支持以太坊吗？
 
 **答**：按照国内相关法规要求，TBaaS 不会对以太坊、比特币等开放式区块链进行支持，也不支持用户在 TBaaS 上发行任何数字货币。
+

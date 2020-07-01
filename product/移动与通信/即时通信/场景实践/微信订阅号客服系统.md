@@ -1,0 +1,366 @@
+本文以使用 Node.js 开发一个简单常见的客服场景 Demo 为例，介绍微信订阅号集成腾讯云即时通信 IM 的基本流程。
+>?示例仅供参考，正式上线前需要进一步完善，例如服务器负载均衡、接口并发控制、信息持久化存储等。此类优化操作不在本文介绍范围内，请开发者根据实际情况自行实现。
+
+## 场景流程及效果图
+本文 Demo 场景的基本流程如下：
+1. 客户通过某服装电商订阅号询问“童装啥时候上新？”。
+2. 客户的咨询消息经过腾讯云 IM 系统传输至此服装电商的坐席客服。
+3. 客服人员回复“5月份会上新，敬请关注！”，消息经过腾讯云 IM 系统和微信传输推送给客户。
+
+客户侧效果图如下：
+![](https://main.qcloudimg.com/raw/155fe5984115665314d9305c53b0a619.jpg)
+坐席客服侧效果图如下：
+![](https://main.qcloudimg.com/raw/f69848510053e9ee1ebf046854229fd6.png)
+场景流程图如下：
+![](https://main.qcloudimg.com/raw/00c46f548d19ab7e3a5335d902ecd0f7.png)
+
+## 注意事项
+- 消息传输链路较长，可能会影响消息收发耗时。
+- 个人注册的订阅号，不能使用微信公众平台的【客服消息】接口向订阅者主动推送消息。
+
+## 前提条件
+
+- 准备一台可以运行 Node.js 的公网开发服务器或云服务器。
+- [注册](https://mp.weixin.qq.com/cgi-bin/registermidpage?action=index&lang=zh_CN&token=) 微信订阅号或服务号。
+- 详细阅读 [微信公众平台开发文档](https://developers.weixin.qq.com/doc/offiaccount/Basic_Information/Access_Overview.html)。
+- 已 [创建即时通信 IM 应用](https://cloud.tencent.com/document/product/269/32577)。
+- 需提前 [逐个导入](https://cloud.tencent.com/document/product/269/1608) 或 [批量导入](https://cloud.tencent.com/document/product/269/4919) 即时通信 IM 用户帐号，例如 user0 和 user1。
+
+## 参考文档
+
+- [API 文档](https://cloud.tencent.com/document/product/269/1519)
+- [第三方回调](https://cloud.tencent.com/document/product/269/1522)
+- [微信公众平台开发指南](https://developers.weixin.qq.com/doc/offiaccount/Getting_Started/Overview.html)
+- [Express 框架教程](https://expressjs.com/zh-cn/)
+
+## 操作步骤
+
+### 步骤1：创建开发项目并安装依赖
+
+```javascript
+npm init -y
+
+// express 框架
+npm i express@latest --save 
+
+// 加密模块
+npm i crypto@latest --save
+
+// 解析 xml 的工具
+npm i xml2js@latest --save
+
+// 发起 http 请求
+npm i axios@latest --save
+
+// 计算 userSig
+npm i tls-sig-api-v2@latest --save
+```
+
+### 步骤2：填入 IM 应用信息并计算 UserSig
+
+<pre><code><span class="hljs-comment">// ------------ IM ------------</span>
+<span class="hljs-keyword">const</span> IMAxios = axios.create({
+  <span class="hljs-attr">timeout</span>: <span class="hljs-number">10000</span>,
+  <span class="hljs-attr">headers</span>: {
+    <span class="hljs-string">'Content-Type'</span>: <span class="hljs-string">'application/x-www-form-urlencoded;charset=UTF-8'</span>,
+  },
+});
+
+<span class="hljs-comment">// 已导入 IM 帐号系统的用户 ID 映射表，非持久化存储，作 Demo 快速检索用，生产环境请用别的技术方案</span>
+<span class="hljs-keyword">const</span> importedAccountMap = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+<span class="hljs-comment">// IM 应用及 App 管理员信息，请登录 <a href="https://console.cloud.tencent.com/im">即时通信 IM 控制台</a> 获取</span>
+<span class="hljs-keyword">const</span> SDKAppID = <span class="hljs-number">0</span>; <span class="hljs-comment">// 填入 IM 应用的 SDKAppID</span>
+<span class="hljs-keyword">const</span> secrectKey = <span class="hljs-string">''</span>; <span class="hljs-comment">// 填入 IM 应用的密钥</span>
+<span class="hljs-keyword">const</span> AppAdmin = <span class="hljs-string">'user0'</span>; <span class="hljs-comment">// 设置 user0 为 App 管理员帐号</span>
+<span class="hljs-keyword">const</span> kfAccount1 = <span class="hljs-string">'user1'</span>; <span class="hljs-comment">// 设置 user1 为一个坐席客服帐号</span>
+<span class="hljs-comment">// 计算 UserSig，调用 REST API 时需要用到，详细操作请参考 <a href="https://github.com/tencentyun/tls-sig-api-v2-node">Github</a></span>
+<span class="hljs-keyword">const</span> api = <span class="hljs-keyword">new</span> TLSSigAPIv2.Api(SDKAppID, secrectKey);
+<span class="hljs-keyword">const</span> userSig = api.genSig(AppAdmin, <span class="hljs-number">86400</span>*<span class="hljs-number">180</span>);
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">'userSig:'</span>, userSig);</code></pre>
+
+### 步骤3：配置 URL 和 Token
+>?此指引文档是直接参考微信公众平台开发指南所写，若有变动，请以 [接入指南](https://mp.weixin.qq.com/wiki) 为准。
+
+1. 登录订阅号管理后台。
+2. 选择【基本配置】，勾选协议成为开发者。
+3. 单击【修改配置】，填写相关信息：
+ - URL：服务器地址，用作接收微信消息和事件的接口 URL，必填参数。
+ - Token：可任意填写，用作生成签名，该 Token 会和接口 URL 中包含的 Token 进行比对，从而验证安全性，必填参数。
+ - EncodingAESKey：手动填写或随机生成，用作消息体加解密密钥，选填参数。
+
+### 步骤4：启动 Web 服务监听端口，并正确响应微信发送的 Token 验证
+
+<pre><code><span class="hljs-keyword">const</span> express = <span class="hljs-keyword">require</span>(<span class="hljs-string">'express'</span>); <span class="hljs-comment">// express 框架 </span>
+<span class="hljs-keyword">const</span> crypto =  <span class="hljs-keyword">require</span>(<span class="hljs-string">'crypto'</span>); <span class="hljs-comment">// 加密模块</span>
+<span class="hljs-keyword">const</span> util = <span class="hljs-keyword">require</span>(<span class="hljs-string">'util'</span>);
+<span class="hljs-keyword">const</span> xml2js = <span class="hljs-keyword">require</span>(<span class="hljs-string">'xml2js'</span>); <span class="hljs-comment">// 解析 xml</span>
+<span class="hljs-keyword">const</span> axios = <span class="hljs-keyword">require</span>(<span class="hljs-string">'axios'</span>); <span class="hljs-comment">// 发起 http 请求</span>
+<span class="hljs-keyword">const</span> TLSSigAPIv2 = <span class="hljs-keyword">require</span>(<span class="hljs-string">'tls-sig-api-v2'</span>); <span class="hljs-comment">// 计算 userSig</span>
+
+<span class="hljs-comment">// ------------ Web 服务 ------------</span>
+<span class="hljs-keyword">var</span> app = express();
+<span class="hljs-comment">// Token 需在【订阅号管理后台】&gt;【基本配置】设置</span>
+
+<span class="hljs-comment">// 处理所有进入80端口的 get 请求</span>
+app.get(<span class="hljs-string">'/'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(req, res)</span> </span>{
+  <span class="hljs-comment">// ------------ 接入微信公众平台 ------------</span>
+  <span class="hljs-comment">// 详细请参考 <a href="https://developers.weixin.qq.com/doc/offiaccount/Getting_Started/Overview.html">微信官方文档</a> </span>
+  <span class="hljs-comment">// 获取微信服务器 Get 请求的参数 signature、timestamp、nonce、echostr</span>
+  <span class="hljs-keyword">var</span> signature = req.query.signature; <span class="hljs-comment">// 微信加密签名</span>
+  <span class="hljs-keyword">var</span> timestamp = req.query.timestamp; <span class="hljs-comment">// 时间戳</span>
+  <span class="hljs-keyword">var</span> nonce = req.query.nonce; <span class="hljs-comment">// 随机数</span>
+  <span class="hljs-keyword">var</span> echostr = req.query.echostr; <span class="hljs-comment">// 随机字符串</span>
+
+  <span class="hljs-comment">// 将 token、timestamp、nonce 三个参数进行字典序排序</span>
+  <span class="hljs-keyword">var</span> <span class="hljs-keyword">array</span> = [myToken, timestamp, nonce];
+  <span class="hljs-keyword">array</span>.sort();
+
+  <span class="hljs-comment">// 将三个参数字符串拼接成一个字符串进行 sha1 加密</span>
+  <span class="hljs-keyword">var</span> tempStr = <span class="hljs-keyword">array</span>.join(<span class="hljs-string">''</span>);
+  <span class="hljs-keyword">const</span> hashCode = crypto.createHash(<span class="hljs-string">'sha1'</span>); <span class="hljs-comment">// 创建加密类型 </span>
+  <span class="hljs-keyword">var</span> resultCode = hashCode.update(tempStr,<span class="hljs-string">'utf8'</span>).digest(<span class="hljs-string">'hex'</span>); <span class="hljs-comment">// 对传入的字符串进行加密</span>
+
+  <span class="hljs-comment">// 开发者获得加密后的字符串可与 signature 对比，标识该请求来源于微信</span>
+  <span class="hljs-keyword">if</span> (resultCode === signature) {
+    res.send(echostr);
+  } <span class="hljs-keyword">else</span> {
+    res.send(<span class="hljs-string">'404 not found'</span>);
+  }
+});
+
+<span class="hljs-comment">// 监听80端口</span>
+app.listen(<span class="hljs-number">80</span>);</code></pre>
+
+### 步骤5：实现开发者服务器侧业务逻辑
+
+- 收到微信推送的关注事件时，调用 [导入单个帐号](https://cloud.tencent.com/document/product/269/1608) 或 [导入多个帐号](https://cloud.tencent.com/document/product/269/4919) API 向帐号系统导入帐号。
+- 收到微信推送的关注事件时，被动回复消息。
+- 收到微信推送的取消关注事件时，调用 [删除帐号](https://cloud.tencent.com/document/product/269/36443) API 将该帐号从帐号系统删除。
+- 收到微信推送的普通消息时，调用 [单发单聊消息](https://cloud.tencent.com/document/product/269/2282) API 向客服帐号发单聊消息。
+
+```javascript
+const genRandom = function() {
+  return  Math.floor(Math.random() * 10000000);
+}
+
+// 生成 wx 文本回复的 xml
+const genWxTextReplyXML = function(to, from, content) {
+  let xmlContent = '<xml><ToUserName><![CDATA[' + to + ']]></ToUserName>'
+  xmlContent += '<FromUserName><![CDATA[' + from + ']]></FromUserName>'
+  xmlContent += '<CreateTime>' + new Date().getTime() + '</CreateTime>'
+  xmlContent += '<MsgType><![CDATA[text]]></MsgType>'
+  xmlContent += '<Content><![CDATA[' + content + ']]></Content></xml>';
+
+  return xmlContent;
+}
+
+/**
+ * 向 IM 帐号系统导入用户
+ * @param {String} userID 要导入的用户 ID
+ */
+const importAccount = function(userID) {
+  console.log('importAccount:', userID);
+  return new Promise(function(resolve, reject) {
+    var url = util.format('https://console.tim.qq.com/v4/im_open_login_svc/account_import?sdkappid=%s&identifier=%s&usersig=%s&random=%s&contenttype=json',
+      SDKAppID, AppAdmin, userSig, genRandom());
+    console.log('importAccount url:', url);
+    IMAxios({
+      url: url,
+      data: {
+        "Identifier": userID
+      },
+      method: 'POST'
+    }).then((res) => {
+      if (res.data.ErrorCode === 0) {
+        console.log('importAccount ok.', res.data);
+        resolve();
+      } else {
+        reject(res.data);
+      }
+    }).catch((error) => {
+      console.log('importAccount failed.', error);
+      reject(error);
+    })
+  });
+}
+
+/**
+ * 从 IM 帐号系统删除用户
+ * @param {String} userID 要删除的用户 ID
+ */
+const deleteAccount = function(userID) {
+  console.log('deleteAccount', userID);
+  return new Promise(function(resolve, reject) {
+    var url = util.format('https://console.tim.qq.com/v4/im_open_login_svc/account_delete?sdkappid=%s&identifier=%s&usersig=%s&random=%s&contenttype=json',
+      SDKAppID, AppAdmin, userSig, genRandom());
+    console.log('deleteAccount url:', url);
+    IMAxios({
+      url: url,
+      data: {
+        "DeleteItem": [
+          {
+            "UserID": userID,
+          },
+        ]
+      },
+      method: 'POST'
+    }).then((res) => {
+      if (res.data.ErrorCode === 0) {
+        console.log('deleteAccount ok.', res.data);
+        resolve();
+      } else {
+        reject(res.data);
+      }
+    }).catch((error) => {
+      console.log('deleteAccount failed.', error);
+      reject(error);
+    })
+  });
+}
+
+/**
+ * 单发单聊消息
+ */
+const sendC2CTextMessage = function(userID, content) {
+  console.log('sendC2CTextMessage:', userID, content);
+  return new Promise(function(resolve, reject) {
+    var url = util.format('https://console.tim.qq.com/v4/openim/sendmsg?sdkappid=%s&identifier=%s&usersig=%s&random=%s&contenttype=json',
+      SDKAppID, AppAdmin, userSig, genRandom());
+    console.log('sendC2CTextMessage url:', url);
+    IMAxios({
+      url: url,
+      data: {
+        "SyncOtherMachine": 2, // 消息不同步至发送方。若希望将消息同步至 From_Account，则 SyncOtherMachine 填写1。
+        "To_Account": userID,
+        "MsgLifeTime":60, // 消息保存60秒
+        "MsgRandom": 1287657,
+        "MsgTimeStamp": Math.floor(Date.now() / 1000), // 单位为秒，且必须是整数
+        "MsgBody": [
+          {
+            "MsgType": "TIMTextElem",
+            "MsgContent": {
+              "Text": content
+            }
+          }
+        ]
+      },
+      method: 'POST'
+    }).then((res) => {
+      if (res.data.ErrorCode === 0) {
+        console.log('sendC2CTextMessage ok.', res.data);
+        resolve();
+      } else {
+        reject(res.data);
+      }
+    }).catch((error) => {
+      console.log('sendC2CTextMessage failed.', error);
+      reject(error);
+    });
+  });
+}
+
+// 处理微信的 post 请求
+app.post('/', function(req, res) {
+  var buffer = [];
+  // 监听 data 事件，用于接收数据
+  req.on('data', function(data) {
+    buffer.push(data);
+  });
+  // 监听 end 事件，用于处理接收完成的数据
+  req.on('end', function() {
+    const tmpStr = Buffer.concat(buffer).toString('utf-8');
+    xml2js.parseString(tmpStr, { explicitArray: false }, function(err, result) {
+      if (err) {
+        console.log(err);
+        res.send("success");
+      } else {
+        if (!result) {
+          res.send("success");
+          return;
+        }
+        console.log('wx post data:', result.xml);
+        var wxXMLData = result.xml;
+        var toUser = wxXMLData.ToUserName; // 接收方微信
+        var fromUser = wxXMLData.FromUserName;// 发送仿微信
+        if (wxXMLData.Event) {  // 处理事件类型
+          switch (wxXMLData.Event) {
+            case "subscribe": // 关注订阅号
+              res.send(genWxTextReplyXML(fromUser, toUser, '欢迎关注，XX竭诚为您服务！'));
+              importAccount(fromUser).then(() => {
+                // 记录已导入用户的 ID
+                importedAccountMap.set(fromUser, 1);
+              });
+              break;
+            case "unsubscribe": // 取消关注
+              deleteAccount(fromUser).then(() => {
+                importedAccountMap.delete(fromUser);
+              });
+              res.send("success");
+              break;
+          }
+        } else { // 处理消息类型
+          switch (wxXMLData.MsgType) {
+            case "text":
+              // 处理文本消息
+              sendC2CTextMessage(kfAccount1, '来自微信订阅号的咨询：' + wxXMLData.Content).then(() => {
+                console.log('发送C2C消息成功');
+              }).catch((error) => {
+                console.log('发送C2C消息失败');
+              });
+              break;
+            case "image":
+              // 处理图片消息
+              break;
+            case "voice":
+              // 处理语音消息
+              break;
+            case "video":
+              // 处理视频消息
+              break;
+            case "shortvideo":
+              // 处理小视频消息
+              break;
+            case "location":
+              // 处理发送地理位置
+              break;
+            case "link":
+              // 处理点击链接消息
+              break;
+            default:
+              break;  
+          }
+          res.send(genWxTextReplyXML(fromUser, toUser, '正在为您转接人工客服，请稍等'));
+        }
+      }
+    })
+  });
+});
+```
+
+### 步骤6：注册并处理 IM 第三方回调
+
+<pre><code><span class="hljs-comment">// 处理 IM 第三方回调的 post 请求</span>
+app.post(<span class="hljs-string">'/imcallback'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">req, res</span>) </span>{
+  <span class="hljs-keyword">var</span> buffer = [];
+  <span class="hljs-comment">// 监听 data 事件 用于接收数据</span>
+  req.on(<span class="hljs-string">'data'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+    buffer.push(data);
+  });
+  <span class="hljs-comment">// 监听 end 事件 用于处理接收完成的数据</span>
+  req.on(<span class="hljs-string">'end'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">const</span> tmpStr = Buffer.concat(buffer).toString(<span class="hljs-string">'utf-8'</span>);
+    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'imcallback'</span>, tmpStr);
+    <span class="hljs-keyword">const</span> imData = <span class="hljs-built_in">JSON</span>.parse(tmpStr);
+    <span class="hljs-comment">// kfAccount1 发的消息推送给客户</span>
+    <span class="hljs-keyword">if</span> (imData.From_Account === kfAccount1) {
+      <span class="hljs-comment">// 组包消息，并通过微信的【客服消息】接口，向指定的用户推送消息</span>
+      <span class="hljs-comment">// 注意！个人注册的订阅号不支持使用此接口，详情请参见 <a href="https://developers.weixin.qq.com/doc/offiaccount/Message_Management/Service_Center_messages.html">客服消息</a></span>
+    }
+
+    res.send({
+      <span class="hljs-string">"ActionStatus"</span>: <span class="hljs-string">"OK"</span>,
+      <span class="hljs-string">"ErrorInfo"</span>: <span class="hljs-string">""</span>,
+      <span class="hljs-string">"ErrorCode"</span>: <span class="hljs-number">0</span> <span class="hljs-comment">// 0表示允许发言，1表示拒绝发言</span>
+    });
+  });
+});</code></pre>

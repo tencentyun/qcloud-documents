@@ -1,8 +1,10 @@
 
-> 如果您期望阅读或下载全量开发文档，请参考[《TDSQL 开发指南》](https://cloud.tencent.com/document/product/557/7714)。
+如您需要阅读或下载全量开发文档，请参见 [TDSQL 开发指南](https://cloud.tencent.com/document/product/557/7714)。
 
+通过如下视频，您可以了解 DML 语句的使用：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2681-51971?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
-### DML语句语法（部分）
+### DML 语句语法（部分）
 
 **SELECT**：建议在条件中带上 shardkey 字段，否则 TDSQL 无法判断 SQL 应该路由至哪些节点，需要进行全表扫描，然后在网关聚合，容易影响执行效率：
 ```
@@ -24,7 +26,7 @@
 	mysql> insert into test1 (a,c) values(4,"record3");
 	Query OK, 1 row affected (0.01 sec)
 ```
-**DELETE/UPDATE**：同上，为了安全考虑，**在分表和广播表执行该类 sql 的时候必须带有 where 条件**，否则拒绝执行该 sql 命令：
+**DELETE/UPDATE**：同上，为安全考虑，在分表和广播表执行该类 sql 时必须带有 where 条件，否则拒绝执行该 sql 命令：
 ```
 	mysql> delete from test1;
 	ERROR 810 (HY000): Proxy ERROR:sql is too complex,need to send to only noshard table.

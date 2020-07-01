@@ -1,0 +1,79 @@
+
+
+## 添加账号
+SCF CLI 可通过 `scf configure add`  命令添加账号信息，账号添加完成后会写入 `~/.tcli_config.ini` 文件中。
+
+
+<span id="para"></span>
+### 参数说明
+ `scf configure add` 命令支持的参数如下：
+
+| 参数       | 简写 | 必填 | 描述                                                         | 示例            |
+| ---------- | ---- | ---- | ------------------------------------------------------------ | --------------- |
+| appid      | -a   | 是   | 可从控制台中的【账号中心】>【[账号信息](https://console.cloud.tencent.com/developer)】获取 | -a 12xxxxxx     |
+| secret-id  | -si  | 是   | 可从【云 API 密钥】>【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】获取 | -si xxxx        |
+| secret-key | -sk  | 是   | 可从【云 API 密钥】>【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】获取 | -sk xxxx        |
+| region     | -r   | 是   | 指定函数所在区域，可参见 [地域列表](https://cloud.tencent.com/document/product/583/17238#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)                                             | -r ap-shanghai |
+| using-cos  | -uc  | 否   | 使用 COS 部署速度会快很多，建议开启。但在部署频次和包很大时，可能会产生 COS 计费 | -uc y               |
+
+### 使用示例
+- 执行以下命令，指定 SCF CLI 以交互的方式添加账号信息。
+```bash
+$ scf configure add 
+TencentCloud appid: 233333
+TencentCloud region: ap-guangzhou
+TencentCloud secret_id: xxxxxxxxxxxxxxxxxxxx
+TencentCloud secret_key: xxxxxxxxxxxxxxxxxxxx
+Deploy SCF function by COS, it will be faster. (y/n): y
+[o] Add User USER_2 success!
+[>] USER_2
+[>] UserId     AppId           region          secret_id       secret_key      using_cos 
+[>] 2          1255721742      ap-guangzhou    ***cEr7         ***mkYA         False     
+[>] You can use `scf configure change -u 2` to switch user.
+```
+- 补充相关参数信息后，执行以下命令，添加账号信息。
+>?请参考 [参数说明](#para)，填写相关参数信息。
+>
+```bash
+$ scf configure add -a xxxx -si xxxx -sk xxxxx -r ap-shanghai -uc y 
+[o] Add User USER_3 success!
+[>] USER_3
+[>] UserId     AppId           region          secret_id       secret_key      using_cos 
+[>] 3          xxxx            ap-shanghai     ***             ***             True      
+[>] You can use `scf configure change -u 3` to switch user.
+```
+
+
+
+## 切换账号
+SCF CLI 可通过 `scf configure change` 命令切换账号。
+
+### 参数说明
+`scf configure change` 命令支持的参数如下：
+ 
+| 参数   | 简写 | 必填 | 描述   | 示例 |
+| ------ | ---- | ---- | ------ | ---- |
+| userid | -u   | 否   | 账号 ID | -u 2    |
+
+
+
+### 使用示例
+- 执行以下命令，并输入您想切换的账号数字，即可进行切换。
+```bash
+$ scf configure change
+[>] Your current user is USER_2
+[>] UserId     AppId           region          secret_id       secret_key      using_cos 
+[>] 1          1253970226      ap-guangzhou    ***eS6X         ***8g7K         True      
+[>] 2          1255721742      ap-guangzhou    ***cEr7         ***mkYA         False     
+[>] 3          xxxx            ap-shanghai     ***             ***             True      
+Please choice UserId to change: 2
+[o] Your current user has switched to USER_2
+```
+- 您也可以执行 `scf configure change -u 2` 命令，进行账号切换。输出结果如下：
+```bash
+$ scf configure change -u 2
+[o] Your current user has switched to USER_2
+```
+
+
+

@@ -1,0 +1,366 @@
+## 启动腾讯移动推送服务
+
+#### 接口说明
+通过使用在腾讯移动推送官网注册的应用信息，启动腾讯移动推送服务。
+
+```objective-c
+- (void)startXGWithAccessID:(uint32_t)accessID accessKey:(nonnull NSString *)accessKey delegate:(nullable id<XGPushDelegate>)delegate；
+```
+
+#### 参数说明
+- accessID：通过前台申请的AccessID。
+- accessKey： 通过前台申请的 AccessKey。
+- Delegate：回调对象。 
+
+>!接口所需参数必须要正确填写，反之腾讯移动推送服务将不能正确为应用推送消息。
+
+#### 示例代码
+```Objective-C
+ [[XGPush defaultManager] startXGWithAccessID:<your AccessID> accessKey:<your AccessKey> delegate:self];
+```
+
+## 终止腾讯移动推送服务
+
+#### 接口说明
+终止腾讯移动推送服务后，将无法通过腾讯移动推送服务向设备推送消息，如再次需要接收腾讯移动推送服务的消息推送，则必须需要再次调用 `startXGWithAppID:appKey:delegate:` 方法重启腾讯移动推送服务。
+```objective-c
+- (void)stopXGNotification;
+```
+
+#### 示例代码
+```Objective-C
+[[XGPush defaultManager] stopXGNotification];
+```
+
+## 自定义通知栏消息行为
+
+### 创建消息支持的行为
+
+#### 接口说明
+在通知消息中创建一个可以点击的事件行为。
+
+```objective-c
++ (nullable id)actionWithIdentifier:(nonnull NSString *)identifier title:(nonnull NSString *)title options:(XGNotificationActionOptions)options;
+```
+
+#### 参数说明
+- identifier：行为唯一标识。 
+- title：行为名称。 
+- options：行为支持的选项。
+
+
+#### 示例代码
+```objective-c
+XGNotificationAction *action1 = [XGNotificationAction actionWithIdentifier:@"xgaction001" title:@"xgAction1" options:XGNotificationActionOptionNone];
+```
+
+>!通知栏带有点击事件的特性，只有在 iOS8.0 + 以上支持，iOS 7.x or earlier 的版本，此方法返回空。
+
+### 创建分类对象
+
+#### 接口说明
+创建分类对象，用以管理通知栏的 Action 对象。
+```objective-c
++ (nullable id)categoryWithIdentifier:(nonnull NSString *)identifier actions:(nullable NSArray<id> *)actions intentIdentifiers:(nullable NSArray<NSString *> *)intentIdentifiers options:(XGNotificationCategoryOptions)options
+```
+
+#### 参数说明
+- identifier：分类对象的标识。
+- actions：当前分类拥有的行为对象组。
+- intentIdentifiers：用以表明可以通过 Siri 识别的标识。
+- options：分类的特性。
+
+>!通知栏带有点击事件的特性，只有在iOS8+以上支持，iOS 8 or earlier的版本，此方法返回空。
+
+
+#### 示例代码
+```Objective-C
+XGNotificationCategory *category = [XGNotificationCategory categoryWithIdentifier:@"xgCategory" actions:@[action1, action2] intentIdentifiers:@[] options:XGNotificationCategoryOptionNone];
+```
+
+### 创建配置类
+#### 接口说明
+管理推送消息通知栏的样式和特性。
+```objective-c
++ (nullable instancetype)configureNotificationWithCategories:(nullable NSSet<id> *)categories types:(XGUserNotificationTypes)types;
+```
+
+#### 参数说明
+- categories：通知栏中支持的分类集合。 
+- types：注册通知的样式。
+
+#### 示例代码
+```objective-c
+XGNotificationConfigure *configure = [XGNotificationConfigure configureNotificationWithCategories:[NSSet setWithObject:category] types:XGUserNotificationTypeAlert|XGUserNotificationTypeBadge|XGUserNotificationTypeSound];
+```
+
+
+## 角标自动加1
+
+#### 接口说明
+调用此接口上报当前 App 角标数到腾讯移动推送服务器，客户端配置完成即可使用“iOS 角标自动加1”的功能，此功能在管理台位置（创建推送 > 通知栏消息 > 常用设置 > 角标数字）。
+
+```objective-c
+- (void)setBadge:(NSInteger)badgeNumber;
+```
+
+#### 参数说明
+badgeNumber： 应用的角标数。
+
+ 
+>!此接口必须本地调用，否则管理台使用“iOS 角标自动加1”功能时，角标会默认不变。  
+
+
+#### 示例代码
+```Objective-C
+[[XGPush defaultManager] setBadge:7];
+```
+
+## 管理应用角标
+
+#### 接口说明
+管理 App 显示的角标数量，此接口需要在主线程中调用。
+```objective-c
+@property (nonatomic) NSInteger xgApplicationBadgeNumber;
+```
+
+#### 示例代码
+```objective-c
+// 设置应用角标
+[[XGPush defaultManager] setXgApplicationBadgeNumber:0];
+
+// 获取应用角标
+NSInteger number = [[XGPush defaultManager] xgApplicationBadgeNumber];
+```
+
+
+
+## 管理设备 Token
+
+### 查询设备 Token
+
+#### 接口说明
+查询当前应用从 APNs 获取的 Token 字符串。
+```objective-c
+@property (copy, nonatomic, nullable, readonly) NSString *deviceTokenString;
+```
+
+#### 示例代码
+```objective-c
+NSString *token = [[XGPushTokenManager defaultTokenManager] deviceTokenString];
+```
+
+
+### 查询 XGToken
+#### 接口说明
+查询当前应用从腾讯移动推送服务器生成的 Token 字符串。
+```objective-c
+@property (copy, nonatomic, nullable, readonly) NSString *xgTokenString;
+```
+
+#### 示例代码
+```objective-c
+NSString *token = [[XGPushTokenManager defaultTokenManager] xgTokenString];
+```
+
+### 注册结果回调
+#### 接口说明
+SDK 的启动方法自动注册设备从 APNs 获取的 Token 到腾讯移动推送服务器，注册结果会在 `XGPushDelegate` \(以下\)的回调方法返回。
+
+```objective-c
+- (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken xgToken:(nullable NSString *)xgToken error:(nullable NSError *)error
+```
+>? 若 error 为 nil 则表示注册成功。
+
+### 注册失败回调
+#### 接口说明
+SDK 1.2.7.1 新增，当注册推送服务失败会走此回调。
+
+```objective-c
+- (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken xgToken:(nullable NSString *)xgToken error:(nullable NSError *)error
+```
+
+## 账号/标签功能
+### 绑定/解绑标签和账号
+#### 接口说明
+开发者可以针对不同的用户绑定标签/账号，然后对该标签/账号进行推送。
+
+>?
+- 此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用
+- 单个应用最多可以有10000个自定义tag， 每个设备token最多可绑定100个自定义tag，如需提高该限制，请与我们客服联系，每个自定义tag可绑定的设备token数量无限制。
+
+#### 操作接口 
+```Objective-C
+- (void)bindWithIdentifiers:(nonnull NSArray *)identifiers type:(XGPushTokenBindType)type;
+- (void)unbindWithIdentifers:(nonnull NSArray *)identifiers type:(XGPushTokenBindType)type;
+```
+
+#### 参数说明
+- identifiers：指定绑定标识，标签字符串不允许有空格或者是 tab 字符。
+- type：绑定类型。
+
+>?
+- 对于标签操作 identifiers 为标签字符串数组（标签字符串不允许有空格或者是 tab 字符）。
+- 对于账号操作，需要使用字典数组且 key 是固定要求。
+- Objective-C 的写法 : @[@{@"account":identifier, @"accountType":@(0)}]。
+- Swift 的写法：["account":identifier, "accountType":NSNumber(0)]。
+- 更多 accountType 请参照 XGPushTokenAccountType 枚举。
+
+
+#### 示例代码
+```Objective-C
+//绑定标签：
+[[XGPushTokenManager defaultTokenManager] bindWithIdentifiers:@[identifier] type:XGPushTokenBindTypeTag];
+
+//解绑标签
+[[XGPushTokenManager defaultTokenManager] unbindWithIdentifers:@[identifier] type:XGPushTokenBindTypeTag];
+
+//绑定账号：
+[[XGPushTokenManager defaultTokenManager] bindWithIdentifiers:@[@{@"account":identifier, @"accountType":@(0)}] type:XGPushTokenBindTypeAccount];
+
+//解绑账号：
+[[XGPushTokenManager defaultTokenManager] unbindWithIdentifers:@[@{@"account":identifier, @"accountType":@(0)}]type:XGPushTokenBindTypeAccount];
+```
+
+### 批量更新标签/账号
+#### 接口说明
+覆盖原有的标识（标签/账号），若之前没有绑定标识，则会执行新增标识。
+
+>?此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
+
+
+```Objective-C
+- (void)updateBindedIdentifiers:(nonnull NSArray *)identifiers bindType:(XGPushTokenBindType)type;
+```
+
+####  参数说明 
+- identifiers：标签标识字符串数组，标签字符串不允许有空格或者是 tab 字符。
+- type：标识类型。
+
+>?
+- 对于标签操作 identifiers 为标签字符串数组（标签字符串不允许有空格或者是 tab 字符）。
+- 对于账号操作，需要使用字典数组且 key 是固定要求。
+- Objective-C的写法 : @[@{@"account":identifier, @"accountType":@(0)}]。
+- Swift 的写法：["account":identifier, "accountType":NSNumber(0)]。
+- 更多 accountType 请参照 XGPushTokenAccountType 枚举。
+
+>!若指定为标签类型，此接口会将当前 Token 对应的旧有的标签全部替换为当前的标签；若指定账号类型，此接口仅取 identifiers 列表中第一个。
+
+### 清除全部标签/账号
+
+#### 接口说明
+根据标识类型，清除所有标识。
+
+>?此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
+
+```Objective-C
+- (void)clearAllIdentifiers:(XGPushTokenBindType)type;
+```
+**参数说明**
+type：标识类型。
+
+
+### 查询绑定的标签和账号
+#### 接口说明
+根据指定类型查询当前 Token 对象绑定的标识。
+
+>?此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
+
+```objective-c
+- (nullable NSArray<NSString *> *)identifiersWithType:(XGPushTokenBindType)type;
+```
+
+#### 示例代码
+```objective-c
+// 查询标签
+[[XGPushTokenManager defaultTokenManager] identifiersWithType:XGPushTokenBindTypeTag];
+// 查询账号
+[[XGPushTokenManager defaultTokenManager] identifiersWithType:XGPushTokenBindTypeAccount];
+```
+
+## 查询设备通知权限
+#### 接口说明
+查询设备通知权限是否被用户允许。 
+
+
+```objective-c
+- (void)deviceNotificationIsAllowed:(nonnull void (^)(BOOL isAllowed))handler;
+```
+
+#### 参数说明
+handler：查询结果的返回方法。
+
+
+#### 示例代码
+```objective-c
+[[XGPush defaultManager] deviceNotificationIsAllowed:^(BOOL isAllowed) {
+        <#code#>
+    }];
+```
+
+## 查询 SDK 版本
+#### 接口说明
+查询当前 SDK 的版本。
+
+```objective-c
+- (nonnull NSString *)sdkVersion;
+```
+
+#### 示例代码
+```objective-c
+[[XGPush defaultManager] sdkVersion];
+```
+
+
+## 日志上报接口
+#### 接口说明
+开发者如果发现推送相关功能异常，可以调用该接口，触发本地 push 日志的上报，反馈问题时，请将文件地址提供给我们，便于排查问题。
+```
+- (void)uploadLogCompletionHandler:(nullable void(^)(BOOL result,  NSString * _Nullable errorMessage))handler;
+```
+#### 参数说明
+-  @brief：上报日志信息 （SDK1.2.4.1+）。
+-  @param handler：上报回调。
+
+#### 示例代码
+```
+[[XGPush defaultManager] uploadLogCompletionHandler:nil];
+```
+
+## 注销信鸽平台推送服务
+
+#### 接口说明
+背景：如果 App 的推送服务是从信鸽平台（https://xg.qq.com）迁移到腾讯移动推送平台，在两个平台同时推送时，可能会出现重复消息。因此需要调用 TPNS SDK(1.2.5.3+) 的接口将设备信息在信鸽平台中进行反注册。
+引入头文件：XGForFreeVersion.h，在 startXGWithAppID 之前调用：
+```
+@property uint32_t freeAccessId;
+```
+#### 参数说明
+-  @freeAccessId 信鸽平台的 accessId（SDK1.2.5.3+）。
+
+#### 示例代码
+```
+[XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
+```
+## TPNS 日志托管
+
+#### 接口说明
+可以在此方法获取TPNS的log日志。此方法和XGPush->enableDebug无关。
+#### 参数说明
+-  logInfo 日志信息
+
+#### 示例代码
+
+```
+- (void)xgPushLog:(nullable NSString *)logInfo;
+```
+	
+
+## 本地推送
+本地推送相关功能请参考 [苹果开发者文档](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SchedulingandHandlingLocalNotifications.html#//apple_ref/doc/uid/TP40008194-CH5-SW1)。
+
+
+
+
+
+

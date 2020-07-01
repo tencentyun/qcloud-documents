@@ -4,70 +4,62 @@ DELETE Bucket website 请求用于删除存储桶中的静态网站配置。
 
 ## 请求
 
-### 请求示例
+#### 请求示例
 
-```HTTP
+```plaintext
 DELETE /?website HTTP/1.1
-Host:<BucketName-APPID>.<Region>.myqcloud.com
-Date:date
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
+Date: GMT Date
 Authorization: Auth String
 ```
 
-> Authorization：Auth String（详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>? Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
-### 请求头
+#### 请求参数
 
-#### 公共头部
+此接口无请求参数。
 
-该请求操作的实现使用公共请求头，了解公共请求头详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+#### 请求头
 
-#### 非公共头部
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-该请求操作无特殊的请求头部信息。
+#### 请求体
 
-### 请求体
-
-该请求的请求体为空。
+此接口无请求体。
 
 ## 响应
 
-### 响应头
+#### 响应头
 
-#### 公共响应头
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
-该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+#### 响应体
 
-#### 特有响应头
+此接口响应体为空。
 
-该响应无特殊的响应头。
+#### 错误码
 
-### 响应体
-
-该响应体为空。
-
-### 错误码
-
-该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
-### 请求
+#### 请求
 
-```
+```plaintext
 DELETE /?website HTTP/1.1
-Host: examplebucket-1250000000.cos.ap-shanghai.myqcloud.com
-Date:Thu, 21 Sep 2017 13:21:09 +0000
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484816036;32557712036&q-key-time=1484816036;32557712036&q-header-list=host&q-url-param-list=website&q-signature=e92eecbf0022fe7e5fd39b2c500b22da062be50a
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Tue, 19 May 2020 07:57:10 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1589875030;1589882230&q-key-time=1589875030;1589882230&q-header-list=date;host&q-url-param-list=website&q-signature=e000543b192f0739b36f420456708fcfb553****
+Connection: close
 ```
 
-### 响应
+#### 响应
 
-```
+```plaintext
 HTTP/1.1 204 No Content
-Content-Type: application/xml
-Content-Length: 0
-Connection: keep-alive
-Date: Thu, 21 Sep 2017 13:21:18 GMT
+Connection: close
+Date: Tue, 19 May 2020 07:57:10 GMT
 Server: tencent-cos
-x-cos-request-id: NTljM2JjY2RfMjQ4OGY3MGFfNzk4OV84Mw==
+x-cos-request-id: NWVjMzkxNTZfY2ZhZjJhMDlfNWI2OV8yYWFh****
+Content-Length: 0
 ```

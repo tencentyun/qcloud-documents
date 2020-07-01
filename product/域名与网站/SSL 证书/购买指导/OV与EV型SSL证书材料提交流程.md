@@ -1,56 +1,51 @@
-企业型OV（包括企业型专业版OV Pro）与增强型EV（包括增强型专业版EV Pro）SSL证书在购买成功后（详情见购买流程），需要进行相关材料提交，
-CA认证审核通过后，会正式颁发证书，用户可下载付费证书进行安装。
+企业型 OV（包括企业型专业版 OV Pro）与增强型 EV（包括增强型专业版 EV Pro）SSL 证书在购买成功后（详情见购买流程），需要进行相关材料提交。
+CA 认证审核通过后，会正式颁发证书，您可下载付费证书进行安装。
 
-### 1. 证书材料提交入口
+### 证书材料提交入口
+1. 登录 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl)。
+2. 在 “证书列表” 页面，选择已购买到的证书行，单击【提交资料】。
 
-#### 1.1 进入SSL证书管理控制台
-![](https://mc.qcloudimg.com/static/img/cc02150cffb5b1cf56860e0f62a8926e/image.png)
+### 填写域名
+根据实际需求，选择 CSR 生成方式（择一）。
+- 选择 “在线生成 CSR” 方式，执行 [在线生成 CSR 的操作](#csr1)（**推荐，可生成 CSR 和私钥**）。
+- 选择 “粘贴 CSR” 方式，执行 [粘贴 CSR 的操作](#csr2)（**自行上传，不可生成私钥**）。
 
-#### 1.2 付费证书材料提交
-购买到的证书会显示在证书管理列表中，单击“提交资料”
-![](https://mc.qcloudimg.com/static/img/fc5f7d29404a706b050716b182d9fde4/image.png)
+**在线生成 CSR**<span id="csr1"></span>
+>?不同域名类型的证书，需填写信息略有不同。本操作以多域名证书为例。
 
-### 2. 填写域名
+1. 填写域名信息。如下图所示：
+![](https://main.qcloudimg.com/raw/c973dd082b16a1d973408866e4303b25.png)
+主要参数信息如下：
+ - 通用名称：填写绑定证书的域名/泛域名。
+ - 域名：填写与通用名称不同的其它域名/泛域名。
+>?单个域名证书无此参数。
+ - 私钥密码：可选填，填写后不可更改。
+2. 填写公司信息。
+>?请如实填写公司名称（全称），公司部门，公司所在城市与地址以及公司固话号码。
+>
+3. 单击【下一步】，[补充信息](#message)。
 
-#### 2.1 CSR生成
-CSR生成分两种方式，可任选一种进行CSR生成   在线生成CSR，可选填私钥密码（填写后不可更改）   
-![](https://mc.qcloudimg.com/static/img/643f2295b86f75bb18bd067bb8b56a8d/image.png)
+**粘贴 CSR**<span id="csr2"></span>
+>?不同域名类型的证书，需填写信息略有不同。本操作以单个带通配符的域名为例。
 
-用户也可粘贴已生成的CSR进行上传
-![](https://mc.qcloudimg.com/static/img/a06c3db5e3636805d7d282f647347b9e/image.png)
+1. 将已准备好的 CSR 信息粘贴至文本框中，输入 “域名信息”，并如实填写公司名称（全称），公司部门，公司所在城市与地址以及公司固话号码等公司相关信息。如下图所示：
+![](https://main.qcloudimg.com/raw/14bbc52c1daca7daf7ca8a41a30225af.png)
+2. 单击【下一步】，[补充信息](#message)。
 
-#### 2.2 域名信息
-##### 2.2.1	单个域名证书
-【通用名称】填写绑定证书的域名
-![](https://mc.qcloudimg.com/static/img/20dc6aa55cb7bc2c7e925f79f82e7036/image.png)
+<span id="message"></span>
+### 补充信息
+1. 填写管理人信息与联系人信息。如果两者信息一致，可勾选 “与管理人相同”。如下图所示：
+![](https://main.qcloudimg.com/raw/b5e7c7efcf8def5adf61996d98fa35f4.png)
+2. 单击【下一步】。
+3. 在弹出的 “提交CSR” 窗口中，单击【确定】，进行 CSR 提交。如下图所示：
+![](https://main.qcloudimg.com/raw/03a63c1b4ec5d213f5f7cf0fcfaa414e.png)
 
-##### 2.2.2 多域名证书
-【通用名称】填写绑定证书的域名   
-【域名】填写与通用名称不同的其它域名
-![](https://mc.qcloudimg.com/static/img/9c82c45ecd4e0822a0bada2178c585a9/image.png)
+### 上传审核
+>!GlobalSign EV 证书相关盖章文件在您递交审核后，证书审核机构会在2 - 3个工作日内通过邮件发送给您，不需要控制台上传。
 
-##### 2.2.3 通配符证书
-【通用名称】填写绑定证书的泛域名
-![](https://mc.qcloudimg.com/static/img/c68baca733d5c2edf5f64b153f217252/image.png)
-
-> 注：用户在选择粘贴CSR时，通用名称会从CSR文件中自动读取，不可更改。
-
-### 3. 公司信息
-
-请如实填写公司名称（全称），公司部门，公司所在城市与地址以及公司固话号码。
-
-### 4. 补充信息
-
-填写管理人信息与联系人信息。如果两者信息一致，可勾选“与管理人相同”
-![](https://mc.qcloudimg.com/static/img/d71c3c62e79d8bddd4f5ca935546bae1/image.png)
-
-单击下一步，进行CSR提交   
-![](https://mc.qcloudimg.com/static/img/6f6388814fc389df39659f7f1b0c9da1/image.png)
-
-### 5. 上传审核
-CSR提交后，用户还需提交确认函。单击【下载确认函】，进行确认函信息补充填写。   
-用户完成确认函填写后，加盖公章进行文件扫描，单击【上传审核】进行确认函上传
-![](https://mc.qcloudimg.com/static/img/7c00a8b91c5b38f8eb4697940ff8b1b4/image.png)
-
-提交后，进行弹窗提示，等待线下亚洲诚信工作人员与CA机对提交材料进行确认与审核
-![](https://mc.qcloudimg.com/static/img/fec0289a468d6af05f5fa6caa93ee819/image.png)
+1. 单击【下载确认函】，进行确认函信息补充填写。如下图所示：
+![](https://main.qcloudimg.com/raw/69417f911eddb7ad1c5075fe2395e83c.png)
+2. 完成确认函填写后，加盖公章，并进行文件扫描。
+3. 单击【上传审核】，确认函上传。
+4. 在弹出的 “已提交” 窗口中，确认信息，单击【确定】，并等待线下亚洲诚信工作人员与 CA 机构对提交材料进行确认与审核。如下图所示：
+![](https://main.qcloudimg.com/raw/c00cefc4715f18964aec82eee1d02f59.png)

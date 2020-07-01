@@ -1,34 +1,19 @@
-CDN 为后付费产品，需要通过实名认证。新用户登陆 [CDN 控制台](https://console.cloud.tencent.com/cdn) 可以看到实名认证指引，单击【前往认证】：
-![](https://mccdn.qcloud.com/static/img/f3f533ced611121c7cbe90d2117dd4c9/image.jpg)
+CDN 为后付费产品，您需要通过实名认证以及选择计费方式以开通 CDN 服务。 
+## 完成实名认证
+1. 新用户登录 [CDN 控制台](https://console.cloud.tencent.com/cdn) 可以看到实名认证指引，单击 【前往认证】 可进行实名认证。
+ ![](https://main.qcloudimg.com/raw/8ade7faa62b1158393100f5feabccad5.png)
+2. 您也可以进入 [帐号中心](https://console.cloud.tencent.com/developer) ，单击【提交认证】进行认证。
+![](https://main.qcloudimg.com/raw/24bc11aadb6e94a45cc65096bd116b44.png)
+3. 详细认证流程请参见 [实名认证指引](https://cloud.tencent.com/doc/product/378/3629) 。个人认证会在提交审核后立即完成。企业认证约一个工作日完成，且认证成功后您将收到短信通知。您可以 [提交工单](https://console.cloud.tencent.com/workorder/category/create?level1_id=1&level2_id=41&level1_name=%E5%85%AC%E5%85%B1%E5%9F%BA%E7%A1%80%E7%B1%BB%E9%97%AE%E9%A2%98&level2_name=%E8%B4%A6%E5%8F%B7%E7%B1%BB) 咨询实名认证进度。
 
-您可以提交工单咨询实名认证进度。
+## 补充服务信息
+完成实名认证后，进入 [CDN 控制台](https://console.cloud.tencent.com/cdn)，受相关部门要求，您需要补充更多 CDN 服务相关信息。
+确认您的实名认证信息及选择服务内容，完成后单击 【下一步】。
+![](https://main.qcloudimg.com/raw/799e2d9d0b5dff6a04142ea28a2c1752.png)
 
-## 实名认证
-您可以选择使用【个人认证】或【企业认证】方式进行资质认证：
-![](https://mccdn.qcloud.com/static/img/91fc4b8872a34b4d29b1b3d839d2fc01/image.jpg)
-
-### 个人实名认证
-您可以选择使用多种方式进行个人实名制认证：
-![](https://mccdn.qcloud.com/static/img/a2be798f2d1d2223e92459d87c0690d5/image.jpg)
-
-### 企业实名认证
-您也可以选择多种方式进行企业实名认证：
-![](https://mccdn.qcloud.com/static/img/904675155e5a64ce42c0884587f57d8d/image.jpg)
-
-您也可以通过进入 [个人中心](https://console.cloud.tencent.com/developer) ，单击【实名认证】进行：
-![](https://mccdn.qcloud.com/static/img/94ba2e042edfedaab33e4e655da3d60d/image.png)
-
-
-## 选择计费方式
-完成资质认证后，进入 CDN 控制台，可对计费方式进行选择：
-![](https://mccdn.qcloud.com/static/img/f5d3235f86db2992ad6d01d1e3d07d04/image.png)
-详细计费价格计算说明可以参考[价格总览](https://cloud.tencent.com/document/product/228/562)。
-
-
-
-## 开始使用
-开通后您的 CDN 首页为 CDN 概览页，您可以通过概览页了解 CDN 整体情况：
-![](https://mc.qcloudimg.com/static/img/32d4023b7f8124dcc013dd94ecd75880/image.png)
-
-单击左侧菜单中【域名管理】，添加加速域名，开始使用 CDN 加速服务：
-![](https://mc.qcloudimg.com/static/img/38d9cc8f405327157d16ca54b5c32889/image.png)
+## 选择付费方式
+CDN 提供了两种计费方式：流量计费、带宽计费，您可以根据业务模型选择合适的计费方式，更多详细说明，请参见 [计费说明](https://cloud.tencent.com/doc/product/228/2949)。
+勾选同意服务条款后，单击【开通 CDN】，即可开始使用加速服务。
+![](https://main.qcloudimg.com/raw/d3913b3dc5ad769a6d8135a977a756db.png)
+成功开通后，您可在概览页面看到您所选择的计费模式。
+![](https://main.qcloudimg.com/raw/a7e7da71ea365f6ee501178167ff072a.png)

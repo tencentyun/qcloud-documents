@@ -1,0 +1,39 @@
+目前，云数据库PostgreSQL已经支持自主创建插件插件（ create extension pluginName ）；支持的插件列表如下（PostgreSQL 10 版本由于功能更强大，部分插件不再支持）：
+
+ - [fdw插件]() （pg 10版本暂不支持）
+ - postgis
+ - pl/pgsql
+ - pl/tcl
+ - pl/perl
+ - hstore
+ - postgres_fdw
+ - pg_stat_statements
+ - pgrowlocks
+ - citext
+ - btree_gin
+ - ltree
+ - btree_gist
+ - pgcrypto
+ - chkpass
+ - cube
+ - pg_trgm
+ - dict_int　　　
+ - tablefunc
+ - fuzzystrmatch
+ - tsearch2 （pg 10版本不再支持）
+ - unaccent
+ - intarray
+ - isn
+ - intagg
+ - earthdistance
+ - sslinfo 
+ - pg_prewarm 
+ - jsonbx （pg 10版本不再支持）
+ - pg_hint_plan （pg 10版本不再支持）
+ - "uuid-ossp"
+ - plcoffee
+ - plls
+ - plv8
+ - zhparser （pg 10版本不再支持）
+ - pgrouting
+ - postgis_tiger_geocoder

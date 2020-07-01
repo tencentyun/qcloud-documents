@@ -1,5 +1,5 @@
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【云计算与网络】>【私有网络】，进入私有网络控制台。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 单击左侧目录中的【云联网】，进入云联网管理页面。
 3. 在列表中，单击要调整的云联网 ID，进入详情页。
-4. 单击【监控】标签页，进入详情页，即可查看各地域的出带宽限制。
- ![1](https://main.qcloudimg.com/raw/17eae682837e84fc27f977b3694c50a9.png)
+4. 单击【带宽管理】标签页，进入详情页，即可查看已设置的地域出带宽限制。
+![](https://main.qcloudimg.com/raw/2636b0562c7932853ed0662150c64838.png)

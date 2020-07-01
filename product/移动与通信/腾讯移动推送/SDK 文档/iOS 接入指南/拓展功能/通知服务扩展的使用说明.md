@@ -1,0 +1,70 @@
+## 简介
+为了精准统计消息抵达率和接收富媒体消息，SDK 提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达和接收富媒体消息，您可以按以下指引使用此功能。
+
+## 创建通知拓展 Target
+1. 在 xcode 菜单栏，选择 【File】>【New】> 【Target】。
+2. 进入 Target 页面，选择【Notification Service Extension】， 单击【Next】。  
+![](https://main.qcloudimg.com/raw/329e2575a43a5bb168bb958df16b6110.jpg)
+3. 输入 Product Name，单击【Finish】。
+![](https://main.qcloudimg.com/raw/3cb4636238cf51b60afb9f5d05874077.png)
+
+## 添加 TPNS 扩展库（二选一）
+### 方式一：Cocoapods 导入
+通过 Cocoapods 下载地址：
+
+``` 
+pod 'TPNS-iOS-Extension' 
+```
+ **使用说明：**
+1. 创建类型为 `Application Extension` 的 `Notification Service Extension` TARGET，例如 `XXServiceExtension`。
+2. 在 Podfile 新增 XXServiceExtension 的配置栏目。
+**示例**
+Podfile 中增加配置项目后展示效果：
+```
+target ‘XXServiceExtension'do
+pod 'TPNS-iOS-Extension' , '~>1.2.7.1' 
+end
+```
+
+>? 建议配合 pod 'TPNS-iOS' version 1.2.7.1 及以上版本使用。
+
+
+### 方式二：手动导入
+选中通知扩展Target，添加依赖库文件：
+ - 添加系统库：libz.tbd, libsqlite3.tbd
+ - TPNS 扩展库：libXGExtension.a![](https://main.qcloudimg.com/raw/7587b8d1f108828b6289b402124b200b.jpg)
+ 
+## 使用方式
+### 调用 SDK 统计上报接口
+报推送消息回执，此接口的目的是统计推送消息是否抵达终端。
+```objective-c
+/**
+ @brief TPNS处理抵达到终端的消息，即消息回执
+
+ @param request 推送请求
+ @param accessID TPNS应用 accessId
+ @param accessKey TPNS应用 accessKey
+ @param handler 处理消息的回调，回调方法中处理关联的富媒体文件
+ */
+- (void)handleNotificationRequest:(nonnull UNNotificationRequest *)request
+                            accessID:(uint32_t)accessID
+                           accessKey:(nonnull NSString *)accessKey
+                   contentHandler:(nullable void (^)(NSArray<UNNotificationAttachment *> *_Nullable attachments, NSError *_Nullable error))handler；
+```
+
+#### 示例代码
+
+```Objective-C
+- (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent *_Nonnull))contentHandler {
+    self.contentHandler = contentHandler;
+    self.bestAttemptContent = [request.content mutableCopy];
+    /// 境外集群，请开启对应集群配置（非境外集群无需使用）
+//    [XGExtension defaultManager].reportDomainName = @"tpns.hk.tencent.com"; /// 中国香港集群
+//    [XGExtension defaultManager].reportDomainName = @"tpns.sgp.tencent.com";  /// 新加坡集群
+    [[XGExtension defaultManager] handleNotificationRequest:request accessID:<your accessID> accessKey:<your accessKey
+		> contentHandler:^(NSArray<UNNotificationAttachment *> * _Nullable attachments, NSError * _Nullable error) {
+        self.bestAttemptContent.attachments = attachments;
+        self.contentHandler(self.bestAttemptContent);
+    }];
+}
+	```

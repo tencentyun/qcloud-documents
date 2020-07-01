@@ -1,3 +1,6 @@
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。黑石物理服务器1.0 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/386/18637" target="_blank">黑石物理服务器1.0 API 3.0</a>。**
+>
+
 ## 功能描述
 
 GetOutBandVPNAuthInfo接口用来获取带外VPN认证信息。用户使用带外SSL VPN客户端登录VPN时，用获取到的信息作为VPN客户端输入的信息。
@@ -28,10 +31,10 @@ GET https://bmeip.api.qcloud.com/v2/index.php?
     "codeDesc": "Success",
     "data": {
         "authInfo": {
-            "vpnGwAddr": <带外vpn地址>,
-            "userName": <带外vpn用户名>,
-            "userGroup": <带外vpn用户域信息>,
-            "be_first": <true or false>
+            "vpnGwAddr": "<带外vpn地址>",
+            "userName": "<带外vpn用户名>",
+            "userGroup": "<带外vpn用户域信息>",
+            "be_first": "<true or false>"
         }
     }
 }

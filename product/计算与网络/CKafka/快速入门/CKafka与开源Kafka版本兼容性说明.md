@@ -1,4 +1,4 @@
-CKafka 兼容0.9系列和0.10系列的生产/消费接口，如果接入低版本（如0.8版本）的自建 Kafka，您需要对接口进行相应改造。本文将从生产端和消费端对比0.8版本 Kafka 和高版本 Kafka，并提供造方式。
+CKafka 兼容0.9系列和0.10系列的生产/消费接口，如果接入低版本（如0.8版本）的自建 Kafka，您需要对接口进行相应改造。本文将从生产端和消费端对比0.8版本 Kafka 和高版本 Kafka，并提供改造方式。
 
 ## Kafka Producer 
 ### 概述
@@ -71,7 +71,7 @@ Kafka 0.9.x 版本引入了 New Consumer，其融合了 Old Consumer 两种 Cons
 
 **优势：**
 - Coordinator 引入
-当前版本的 High Level Consumer 存在 Herd Effect 和 Split Brain 的问题。将失败探测和 Rebalance 的逻辑放到一个高可用的中心 Coordinator，那么这两个问题即可解决。同时还可大大减少 ZooKeeper 的负载。
+当前版本的 High Level Consumer 存在 Herd Effect 和 Split Brain 的问题。将失败探测和 Rebalance 的逻辑放到一个高可用的中心 Coordinator，那么这两个问题即可解决。同时还可很大程度的减少 ZooKeeper 的负载。
 - 允许自己分配 Partition
 为了保持本地每个分区的一些状态不变，所以需要将 Partition 的映射也保持不变。另外一些场景是为了让 Consumer 与地域相关的 Broker 关联。
 - 允许自己管理 Offset
