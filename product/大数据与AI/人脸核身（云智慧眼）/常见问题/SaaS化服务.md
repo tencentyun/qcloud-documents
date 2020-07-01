@@ -17,7 +17,7 @@ RuleId 在 SaaS 化服务调用中使用，您在申请开通腾讯云慧眼服�
 ### SaaS 化服务中，“ckv 数据有误”是什么问题?
 
 ckv 数据有误，一般是 bizToken 错误。需要检查下 DetectAuth 生成的 bizToken 是否正确。
-iOS App：拉起人脸核身时，initWithServerUrl 需要设置为`https:\\\faceid.qq.com`。
+iOS App：拉起人脸核身时，initWithServerUrl 需要设置为`https:\\faceid.qq.com`。
 
 >!不能是测试环境地址。
 
