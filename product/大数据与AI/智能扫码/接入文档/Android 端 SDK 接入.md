@@ -56,9 +56,7 @@ SDK 文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接�
 
 
 3. 接入 SDK
-
-
-   **模式一：仅调用接口返回数据，需要自定义布局和接口解码** 
+**模式一：仅调用接口返回数据，需要自定义布局和接口解码** 
 
    - sdk 初始化：
 
@@ -113,7 +111,6 @@ SDK 文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接�
    ```java
    List<QBar.QBarResult> results = qBarCodeKit.qbarDecodeWithImage(bitmap, MainActivity.this);
    ```
-   
    
    **模式二：已封装好扫码页面，无需用户自定义**
    
