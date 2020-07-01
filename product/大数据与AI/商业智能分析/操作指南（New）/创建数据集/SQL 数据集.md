@@ -6,12 +6,12 @@ SQL 数据集主要是通过 JDBC 和 ODBC 与目前主流数据库相联系。J
 
 ## 创建 SQL 数据集
 1. 登录 [BI 控制台](https://console.cloud.tencent.com/bi) 主页面。
-![](https://main.qcloudimg.com/raw/79e0c3bf79a7b95ee4fe0902cd050ad9.png)
+![](https://main.qcloudimg.com/raw/d92b188616f1fb54e178bc800383d5d7.jpg)
 2. 通过以下两种方式进入创建 SQL 数据集界面：
  - 选择导航栏【创建数据集】，在新打开的页面上选择【SQL 数据集】。
  - 如果您有已打开的数据集界面，选择菜单栏【创建数据集】>【SQL 数据集】。
-3.  用户在数据集界面上，单击菜单栏上的【新建】，选择 SQL 数据集，即可打开 SQL 数据集界面。
-![](https://main.qcloudimg.com/raw/038190d0de46c5c34a8187fb33eb08fb.png)
+3. 用户在数据集界面上，在右侧新建数据集区域，选择 SQL 数据集，即可打开 SQL 数据集界面。
+![](https://main.qcloudimg.com/raw/a7bfcc8c942a1985e1a68aae898bab3b.png)
 也可以单击首页上的 SQL 数据集，进入 SQL 数据集新建界面。
  
 ## 使用存储过程创建 SQL 数据集
