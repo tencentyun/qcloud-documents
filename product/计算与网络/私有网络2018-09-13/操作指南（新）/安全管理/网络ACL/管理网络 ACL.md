@@ -41,7 +41,7 @@
 5. 在弹出框中，选择需要关联的子网，单击【确定】即可。
 ![2](https://main.qcloudimg.com/raw/a7a608ebaf447a6fc24a6f9f313d14e6.png)
 
-## 子网解关联网络 ACL
+## 子网解除关联网络 ACL
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 单击左侧目录中的【安全】>【网络 ACL】，进入管理页面。
 3. 在列表中，找到需要解除关联的网络 ACL，单击其 ID，进入详情页。

@@ -1,4 +1,6 @@
 ## 操作场景
+以下视频介绍了如何登录 Windows 实例：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2445-39745?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 RDP 是 Remote Desktop Protocol 的缩写，是微软开发的一个多通道的协议，帮助您的本地计算机连上远程计算机。RDP 作为腾讯云推荐登录您 Windows 云服务器的方式。本文介绍如何使用 RDP 文件登录 Windows 实例。
 
@@ -20,7 +22,7 @@ Windows，Linux 和 Mac OS 都可以使用 RDP 方式登录云服务器。
 ![](https://main.qcloudimg.com/raw/038fce530c6c6827796e51d896306a93.png)
 3. 在弹出的【登录Windows实例】窗口中，选择【使用 RDP 文件登录】，单击【下载RDP文件】，将 RDP 文件下载到本地。
 ![](https://main.qcloudimg.com/raw/9bcfe6774b483261d61f648968efe5ee.png)
-4. 双击已下载到本地的 RDP 文件，即可远程连接到 Windows 云服务器。
+4. 双击打开已下载到本地的 RDP 文件，输入密码，单击【确定】，即可远程连接到 Windows 云服务器。
  - 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
  - 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 

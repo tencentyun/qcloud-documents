@@ -67,11 +67,11 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 ### 手动集成
 1. 下载 [TRTC - SDK ](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/SDK) ，下载完成后进行解压。
 2. 打开您的 Xcode 工程项目，选择要运行的 target , 选中 **Build Phases** 项。
- ![](https://main.qcloudimg.com/raw/2719ff925e92de21a2ba370a8ba5a32c.jpg)
+ ![](https://main.qcloudimg.com/raw/85509cc24bd958e7b9978e11937597c5.png)
 3. 单击 **Link Binary with Libraries** 项展开，单击底下的“+”号图标去添加依赖库。
- ![](https://main.qcloudimg.com/raw/2e3b382fccadb0fe9e1038fffa1ef12f.jpg)
-4. 依次添加所下载的 TRTC SDK Framework 及其所需依赖库 **libc++** 。
- ![](https://main.qcloudimg.com/raw/0327c1ab6562e0f6e7f17b2e0fbe96dd.jpg)
+ ![](https://main.qcloudimg.com/raw/54be71cc14ec79ce642216612544a8a4.png)
+ 4. 依次添加所下载的 TRTC SDK Framework 及其所需依赖库 **libc++** 、**Accelerate.framework**。
+ ![](https://main.qcloudimg.com/raw/2fa94b7f81c7e9c4ac09733782e79c10.png)
 
 
 ## 授权摄像头和麦克风使用权限

@@ -38,7 +38,7 @@ public class MongodbDemo {
 
             // 读取数据
             BsonDocument filter = new BsonDocument();
-            filter.append("username", new BsonString("username"));
+            filter.append("username", new BsonString("jack"));
             MongoCursor<Document> cursor = collection.find(filter).iterator();
             while (cursor.hasNext()) {
                 System.out.println("find document: " + cursor.next());

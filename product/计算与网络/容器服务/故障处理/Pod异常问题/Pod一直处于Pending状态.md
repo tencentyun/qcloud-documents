@@ -59,43 +59,35 @@ $ kubectl describe nodes host1
 Taints:             special=true:NoSchedule
 ...
 ```
+Node 上已设置的污点可通过手动或自动的方式添加，详情请参见 [添加污点](#addTaints)。
 
 #### 解决方法
-污点可通过手动或自动的方式添加：
 
-- **手动添加污点**
-通过以下或类似方式，可以手动为节点添加指定污点：
-``` bash
-$ kubectl taint node host1 special=true:NoSchedule
-node "host1" tainted
+本文提供以下两种方法，通常选择方法2解决该问题：
+- 方法1：删除污点
+执行以下命令，删除污点 `special`。
 ```
->?在某些场景下，可能期望新加入的节点在调整好某些配置之前默认不允许调度 Pod。此时，可以给该新节点添加 `node.kubernetes.io/unschedulable` 污点。
-
-- **自动添加污点**
-从 v1.12 开始，Beta 默认开启 `TaintNodesByCondition` 特性，controller manager 将会检查 Node 的 Condition。Node 运行状态异常时，当检查的 Condition 符合如下条件（即符合 Condition 与 Taints 的对应关系），将自动给 Node 加上相应的污点。
-例如，检查 Condition 为 `OutOfDisk` 且 Value 为 `True`，则 Node 会自动添加 `node.kubernetes.io/out-of-disk` 污点。
-Condition 与污点的对应关系如下：
+kubectl taint nodes host1 special-
 ```
-Conditon               Value       Taints
- --------               -----       ------
-OutOfDisk              True        node.kubernetes.io/out-of-disk
-Ready                  False       node.kubernetes.io/not-ready
-Ready                  Unknown     node.kubernetes.io/unreachable
-MemoryPressure         True        node.kubernetes.io/memory-pressure
-PIDPressure            True        node.kubernetes.io/pid-pressure
-DiskPressure           True        node.kubernetes.io/disk-pressure
-NetworkUnavailable     True        node.kubernetes.io/network-unavailable
+- 方法2：在 Pod 上增加污点容忍
+  >?本文以向 Deployment 中已创建的 Pod（名称为 `nginx`）添加容忍为例。
+  >
+  1. 参考 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)，登录 `nginx` 所在的云服务器。 
+  4. 执行以下命令，编辑 Yaml。
+  ```
+	kubectl edit deployment nginx
+	```
+  4. 在 Yaml 文件 `template` 中的 `spec` 处添加容忍。例如，增加已存在 `special` 污点所对应的容忍：
+```yaml
+	tolerations:
+	- key: "special"
+	  operator: "Equal"
+	  value: "true"
+	  effect: "NoSchedule"
 ```
-当每种 Condition 取特定的值时，将表示以下含义：
-	* `OutOfDisk` 为 True，表示节点磁盘空间不足。
-	* `Ready` 为 False，表示节点不健康。
-	* `Ready `为 Unknown，表示节点失联。在 `node-monitor-grace-period` 所确定的时间周期内（默认40s）若节点没有上报状态，controller-manager 就会将 Node 状态置为 Unknown。
-	* `MemoryPressure` 为 True，表示节点内存压力大，实际可用内存很少。
-	* `PIDPressure` 为 True，表示节点上运行了太多进程，PID 数量不足。
-	* `DiskPressure` 为 True，表示节点上的磁盘可用空间不足。
-	* `NetworkUnavailable` 为 True，表示节点上的网络没有正确配置，无法跟其他 Pod 正常通信。
->?上述情况一般属于被动添加污点，但在容器服务中，存在一个主动添加/移出污点的过程：
->在新增节点时，首先为该节点添加 `node.cloudprovider.kubernetes.io/uninitialized` 污点，待节点初始化成功后再自动移除此污点，以避免 Pod 被调度到未初始化好的节点。
+添加完成后如下图所示：
+![](https://main.qcloudimg.com/raw/2cee1098136df94cdc64039792da17d7.png)
+  5. 保存并退出编辑即可成功创建容忍。
 
 ### 检查是否存在低版本 kube-scheduler 的 bug
 
@@ -111,3 +103,40 @@ Pod 一直处于 Pending 状态可能是低版本 `kube-scheduler` 的 bug 导�
 
 限制已挂载磁盘的 Pod 不能调度到其他可用区的节点的原因如下：
 云上磁盘允许被动态挂载到同一个数据中心上的不同机器，为了有效避免网络时延极大地降低 IO 速率，通常不允许跨数据中心挂载磁盘设备。
+
+
+## 相关操作
+### 添加污点<span id="addTaints"></span>
+#### 手动添加污点
+通过以下或类似方式，可以手动为节点添加指定污点：
+``` bash
+$ kubectl taint node host1 special=true:NoSchedule
+node "host1" tainted
+```
+>?在某些场景下，可能期望新加入的节点在调整好某些配置之前默认不允许调度 Pod。此时，可以给该新节点添加 `node.kubernetes.io/unschedulable` 污点。
+
+#### 自动添加污点
+从 v1.12 开始，Beta 默认开启 `TaintNodesByCondition` 特性，controller manager 将会检查 Node 的 Condition。Node 运行状态异常时，当检查的 Condition 符合如下条件（即符合 Condition 与 Taints 的对应关系），将自动给 Node 加上相应的污点。
+例如，检查 Condition 为 `OutOfDisk` 且 Value 为 `True`，则 Node 会自动添加 `node.kubernetes.io/out-of-disk` 污点。
+Condition 与污点的对应关系如下：
+```
+Conditon               Value       Taints
+ --------               -----       ------
+OutOfDisk              True        node.kubernetes.io/out-of-disk
+Ready                  False       node.kubernetes.io/not-ready
+Ready                  Unknown     node.kubernetes.io/unreachable
+MemoryPressure         True        node.kubernetes.io/memory-pressure
+PIDPressure            True        node.kubernetes.io/pid-pressure
+DiskPressure           True        node.kubernetes.io/disk-pressure
+NetworkUnavailable     True        node.kubernetes.io/network-unavailable
+```
+当每种 Condition 取特定的值时，将表示以下含义：
+* `OutOfDisk` 为 True，表示节点磁盘空间不足。
+* `Ready` 为 False，表示节点不健康。
+* `Ready `为 Unknown，表示节点失联。在 `node-monitor-grace-period` 所确定的时间周期内（默认40s）若节点没有上报状态，controller-manager 就会将 Node 状态置为 Unknown。
+* `MemoryPressure` 为 True，表示节点内存压力大，实际可用内存很少。
+* `PIDPressure` 为 True，表示节点上运行了太多进程，PID 数量不足。
+* `DiskPressure` 为 True，表示节点上的磁盘可用空间不足。
+* `NetworkUnavailable` 为 True，表示节点上的网络没有正确配置，无法跟其他 Pod 正常通信。
+>?上述情况一般属于被动添加污点，但在容器服务中，存在一个主动添加/移出污点的过程：
+>在新增节点时，首先为该节点添加 `node.cloudprovider.kubernetes.io/uninitialized` 污点，待节点初始化成功后再自动移除此污点，以避免 Pod 被调度到未初始化好的节点。

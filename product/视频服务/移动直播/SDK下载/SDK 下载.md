@@ -1,7 +1,7 @@
->? 扫码关注公众号，了解 SDK 的版本更新以及最新的技术动态。
->![](https://main.qcloudimg.com/raw/23242df893a3ecb11779a59ed9a5629c.jpg)
-
 移动直播 SDK 提供了3种版本的 SDK，了解3个版本 SDK 的关系和对应的 License 使用可参见 [功能说明](https://cloud.tencent.com/document/product/454/19075)。
+以下视频将为您介绍3个 SDK 之间的区别和各自的特点：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2343-35187?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 
 <h2 id="Smart">直播基础版（Smart）</h2>
 
@@ -46,6 +46,10 @@
    </tr>
 </table>
 
+>? 扫码关注公众号，了解 SDK 的版本更新以及最新的技术动态。
+>![](https://main.qcloudimg.com/raw/23242df893a3ecb11779a59ed9a5629c.jpg)
+
+
 <h2 id="Professional">专业版（Professional）</h2>
 
 专业版集合了包含移动直播在内的多个音视频相关的核心功能，这包括 [实时音视频 SDK](https://cloud.tencent.com/product/trtc)、[超级播放器（Player+）](https://cloud.tencent.com/product/player) 和 [短视频（UGSV）](https://cloud.tencent.com/product/ugsv) 等，由于底层模块的高度复用，集成专业版的体积增量要小于同时集成两个独立的 SDK，并且可以避免符号冲突（symbol duplicate）的困恼。
@@ -86,7 +90,7 @@
 <h2 id="Enterprise">企业版（Enterprise）</h2>
 
 企业版除了包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力。
-下载企业版 SDK 后需要解压密码和授权 License 才能运行，解压密码和企业版 License 先[申请企业版 License](https://cloud.tencent.com/product/x-magic)，或请 [联系腾讯云商务](https://cloud.tencent.com/apply/p/h1qsz5vhvko) 进行申请。
+下载企业版 SDK 后需要解压密码和授权 License 才能运行，获取解压密码和企业版 License，需要先 [申请企业版 License](https://cloud.tencent.com/product/x-magic)，或请 [联系腾讯云商务](https://cloud.tencent.com/apply/p/h1qsz5vhvko) 进行申请。
 
 <table>
    <tr>
@@ -112,7 +116,7 @@
    </tr>
 </table>
 
->! 动效贴纸、AI抠图、美妆特效和手势动作特效需要通过额外的素材解锁功能。
+>! 动效贴纸、AI抠图、美妆特效和手势动作特效需通过额外的素材来使用功能。
 
 ## 各版本差异对照表
 

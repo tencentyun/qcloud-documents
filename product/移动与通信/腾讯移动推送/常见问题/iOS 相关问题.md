@@ -1,4 +1,5 @@
-
+### TPNS SDK 1.2.5.4及以下的版本模拟器提示找不到 XGForFreeVersion 符号？
+1.2.5.4及以下版本不支持模拟器请使用真机调试，如需使用模拟器调试请升级到最新版本。
 
 ### 推送消息无法收到？
 消息推送是一个涉及到很多关联模块协作的任务，每一个环节出现异常都可能会导致消息收不到，以下是最为常见的问题：
@@ -111,3 +112,27 @@ iOS 设备收到一条推送消息，用户点击推送消息打开应用时，�
 2. AppStore 发布证书签名
 使用当前 AppStore 的发布签名证书，发布方式如下：
 TestFlight 发布预览版，先将 ipa 包上传到 [App Store Connect](https://appstoreconnect.apple.com)，然后通过 TestFlight 创建一个灰度版本，并在 TestFlight 上设置指定版本的体验人员名单(Apple ID)，最后体验者可以通过苹果官方【TestFlight】App 下载安装。
+
+
+### iOS 如何只更改角标而不弹出信息？
+可使用 API 在创建推送时使用通知栏消息类型，且标题内容设为空，同时只设置 badge_type 即可，详情可参考 [API 文档说明](https://cloud.tencent.com/document/product/548/39064#.E5.8F.AF.E9.80.89.E5.8F.82.E6.95.B0)。
+示例如下：
+```
+{
+    "platform": "ios",
+    "audience_type": "token",
+    "environment":"dev",
+        "token_list": [
+    "05a8ea6924590dd3a94480fa1c9fc8448b4e"],
+    "message_type":"notify",
+    "message":{
+    "ios":{
+        "aps": {
+            "badge_type":-2
+        }
+    }
+ }
+}
+```
+
+

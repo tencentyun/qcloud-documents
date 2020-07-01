@@ -81,21 +81,19 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 1. 在文件右侧的操作栏下，单击【**...**】，在下拉菜单中，单击【分享】。
 ![](https://main.qcloudimg.com/raw/0866f3ee75a68082ff767205e6796b11.jpg)
 2. 在弹出的自定义复制链接窗口中，配置文件链接。此处文件为私有读写权限，则需要选择【复制带签名的临时链接....】，链接在指定的时间内有效。
-![](https://main.qcloudimg.com/raw/86ad4bd873bf67ac9b4e0a944946a014.jpg)
+![](https://main.qcloudimg.com/raw/e8317ff57b37391f2bcc0dfe88aabacc.jpg)
 3. 单击【复制】，复制临时文件链接。您即可通过该链接访问文件。
-
 
 
 
 ## 更多功能
 
-除以上功能外，COSBrowser 还拥有其它更丰富的功能，例如修改存储桶访问权限，文件预览等，详情请参见 [COSBrowser 桌面端](https://cloud.tencent.com/document/product/436/11366#cosbrowser-.E6.A1.8C.E9.9D.A2.E7.AB.AF) 文档。
+除以上功能外，COSBrowser 还拥有其它更丰富的功能，例如修改存储桶访问权限，文件预览等，详情请参见 [桌面端功能列表](https://cloud.tencent.com/document/product/436/11366#.E6.A1.8C.E9.9D.A2.E7.AB.AF.E5.8A.9F.E8.83.BD.E5.88.97.E8.A1.A8) 文档。
 
 
 ## 遇到问题？
 
-非常抱歉您在使用时遇到问题，您可以第一时间通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
-
+非常抱歉您在使用时遇到问题，您可以通过 [智能客服](https://cloud.tencent.com/act/event/smarty-service?from=smarty-service) 及时寻找答案或通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 的方式联系我们。
 
 ## 相关文档
 

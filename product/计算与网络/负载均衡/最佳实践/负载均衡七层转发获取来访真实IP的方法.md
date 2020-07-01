@@ -1,7 +1,7 @@
 ## 负载均衡获取客户端真实 IP 的说明
 CLB 的四层（TCP/UDP/TCP SSL）和七层（HTTP/HTTPS）服务均支持直接在后端 CVM 上获取客户端真实 IP，无需进行额外配置。
 - 四层负载均衡，在后端 CVM 上获取的源 IP 即为客户端 IP。
-- 七层负载均衡，您可以通过 `X-Forwarded-For` 或 `remote_addr` 字段来直接获取客户端 IP。七层负载均衡的访问日志请参见 [配置访问日志到 COS](https://cloud.tencent.com/document/product/214/10329)。 
+- 七层负载均衡，您可以通过 `X-Forwarded-For` 或 `remote_addr` 字段来直接获取客户端 IP。七层负载均衡的访问日志请参见 [配置访问日志到 CLS](https://cloud.tencent.com/document/product/214/41379)。 
 
 >?
 - 对于 CLB 来说，无需在后端 CVM 上做额外配置即可获取客户端 IP。
@@ -79,7 +79,7 @@ fastcgi buffer_size 64k;
 fastcgi buffers 4 64k;
 fastcgi busy_buffers_size 128k;
 fastcgi temp_file_write_size 128k;
-<font color="red">
+<font color="#f2777a">
 set_real_ip_from IP地址;（这个IP地址首先不是负载均衡提供的公网IP，具体IP多少可以查看之前nginx日志，如果有多个都要写上。）
 real_ip_header X-Forwarded-For;
  </font>

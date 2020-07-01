@@ -2,6 +2,9 @@
 - 您可以通过 NPM 和 Script 方式将 IM SDK 集成到您的 Web 项目中，推荐使用 NPM 集成。
 - 您可以通过 NPM 方式将 IM SDK 集成到您的小程序项目中。
 
+以下视频将帮助您快速了解如何将 IM SDK 集成到您的 Web 或者小程序项目中：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2545-43224?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 准备工作
 - 已创建即时通信 IM 应用并获取 SDKAppID。
 - 已获取密钥信息。

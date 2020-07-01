@@ -26,7 +26,7 @@ ROLLBACK;
 ```
 
 ## 兼容性
-SQL 标准中只指定了两种形式 ROLLBACK 和 ROLLBACK WORK。其他方面，该命令完全符合 SQL 标准。
+SQL 标准中只指定了两种形式 ROLLBACK 和 ROLLBACK WORK，其他方面，该命令完全符合 SQL 标准。
 
 ## 另见
 BEGIN、COMMIT、SAVEPOINT、ROLLBACK TO SAVEPOINT

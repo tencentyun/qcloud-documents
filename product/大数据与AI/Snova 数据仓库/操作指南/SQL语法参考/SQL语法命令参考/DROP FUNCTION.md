@@ -20,7 +20,7 @@ name
 存在函数的名称（可选方案限定）。
 
 argmode
-参数的模式：IN、OUT、INOUT 或 VARIADIC。 如果省略，则默认是 IN。注意 DROP FUNCTION 实际上并不会注意 OUT 参数，因为仅需要输入参数就能决定函数的身份。索引列出 IN、INOUT 和 VARIADIC 参数就足够了。
+参数的模式：IN、OUT、INOUT 或 VARIADIC。如果省略，则默认是 IN。注意 DROP FUNCTION 实际上并不会注意 OUT 参数，因为仅需要输入参数就能决定函数的身份。索引列出 IN、INOUT 和 VARIADIC 参数就足够了。
 
 argname
 参数的名字。注意 DROP FUNCTION 实际上并不注意参数名字，因为仅需要参数数据类型就能决定函数的身份。

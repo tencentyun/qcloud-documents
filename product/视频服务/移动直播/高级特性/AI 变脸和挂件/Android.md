@@ -1,6 +1,6 @@
 ## 功能说明
 腾讯云直播团队与优图实验室、天天 P 图团队进行深度合作，结合**人脸识别技术与美妆技术**，开发了**大眼、瘦脸、瘦鼻、动效贴纸、AI 抠背以及绿幕**等特效功能，并整合到 LiteAVSDK 的图像处理流程中，以实现更好的视频效果。
-![](https://main.qcloudimg.com/raw/6fa6d2c76e389ddaaf2540f547061b90.jpg)
+![](https://main.qcloudimg.com/raw/82924e0c29ee2caee9749dca9fb62e9e.jpg)
 
 ## 接入准备
 
@@ -74,7 +74,7 @@
 7.单击【Sync Now】，完成 LiteAVSDK 的集成工作。
 
 ### 4. 给 SDK 配置 License 授权
-申请企业版 License 成功后，您会获得两个字符串：licenseURL 和解密 key。在您的 App 调用企业版 SDK 相关功能前需进行如下设置：
+申请 [企业版 License](https://cloud.tencent.com/document/product/454/34750) 成功后，您会获得两个字符串：licenseURL 和解密 key。在您的 App 调用企业版 SDK 相关功能前需进行如下设置：
 >?建议配置在 Application 类中。
 
 ```java
@@ -129,7 +129,7 @@ packagingOptions {
 }
 ```
 
-## 功能接口
+## 功能调用
 
 ### 高级美颜接口（大眼、瘦脸）
 
@@ -194,11 +194,14 @@ public void setLipsThicknessLevel(int lipsThicknessLevel);
 public void setFaceBeautyLevel(int faceBeautyLevel);
 ```
 
-### AI 贴纸
+<span id="beauty_dynamic"></span>
+### 美颜动效（动效贴纸、AI抠图、美妆、手势）
+购买美颜动效素材后，您可以获得对应效果的素材包。每一个素材包就是一个独立的目录，目录里包含了很多资源文件。每个素材包因其复杂度不同，文件数量和大小尺寸也各不相同。
 
-购买企业版 License 后，您可以获得20个 AI 贴纸素材包。每一个素材包就是一个独立的目录，目录里包含了很多资源文件。每个素材包因其复杂度不同，文件数量和大小尺寸也各不相同。
 为了节省安装包体积，我们建议您将素材包上传到您的服务器上，并将下载地址配置在您的 App 中，例如：`http://yourcompany.com/hudongzhibo/AISpecial/**/{动效名}.zip`。
-在 App 启动后，下载并解压素材包到手机任意目录（推荐下载并解压在 App 的 data 目录）。完成解压后，即可通过以下接口开启动效效果：
+在 App 启动后，下载并解压素材包到 Resource 目录下。完成解压后，即可通过以下接口开启动效效果：
+
+
 ```java
 /**
  * 选择使用哪一款 AI 动效挂件（企业版有效，其它版本设置此参数无效）
@@ -211,7 +214,7 @@ public void setMotionTmpl(String motionPath);
 ### 绿幕功能
 
 如果要使用绿幕功能，需要先让主播站在一个绿色背景前。开启绿幕功能以后，SDK 会识别出图像中的绿色区域，并将其替换成视频内容。
-![](https://main.qcloudimg.com/raw/f1b345135deb4c01ed2a691958ce34f2.jpg)
+![](https://main.qcloudimg.com/raw/9af89ec09a300f49821e2b936cb9243d.png)
 您需要先准备一个用于播放的 mp4 文件，然后通过调用如下接口即可开启绿幕效果：
 
 ```java

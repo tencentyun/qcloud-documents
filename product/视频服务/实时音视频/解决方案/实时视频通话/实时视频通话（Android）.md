@@ -31,7 +31,7 @@
 <span id="ui.step3"></span>
 ### 步骤3：配置 Demo 工程文件
 1. 解压 [步骤2](#ui.step2) 中下载的源码包。
-2. 找到并打开 `Android/TRTCDemo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java` 文件。
+2. 找到并打开 `Android/TRTCScenesDemo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java` 文件。
 3. 设置 `GenerateTestUserSig.java` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
@@ -60,13 +60,13 @@
 <span id="model"> </span>
 ## 实现自定义 UI 界面
 
-源码文件夹 `trtcvideocalldemo` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们实现的可重用开源组件 TRTCVideoCall，您可以在  `ITRTCVideoCall.java`  文件中看到该组件提供的接口函数。
+[源码](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCScenesDemo/trtcvideocalldemo/src/main/java/com/tencent/liteav/trtcvideocalldemo) 文件夹 `trtcvideocalldemo` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们实现的可重用开源组件 TRTCVideoCall，您可以在  `ITRTCVideoCall.java`  文件中看到该组件提供的接口函数。
 ![](https://main.qcloudimg.com/raw/1a75796f96e4d715372f68338d5651c9.jpg)
 
 您可以使用开源组件 TRTCVideoCall 实现自己的 UI 界面，即只复用 model 部分，自行实现 UI 部分。
 
 <span id="model.step1"> </span>
-### 步骤1：集成SDK
+### 步骤1：集成 SDK
 视频通话组件 TRTCVideoCall 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
 **方法一：通过 Maven 仓库依赖**
@@ -115,7 +115,7 @@ defaultConfig {
 <uses-permission android:name="android.permission.BLUETOOTH" />
 <uses-permission android:name="android.permission.CAMERA" />
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-<uses-feature android:name="android.hardware.Camera"/>
+<uses-feature android:name="android.hardware.camera"/>
 <uses-feature android:name="android.hardware.camera.autofocus" />
 ```
 
@@ -146,7 +146,7 @@ trtcvideocalldemo/src/main/java/com/tencent/liteav/trtcvideocalldemo/model
 </tr>
 <tr>
 <td>SDKAppID</td>
-<td>您可以在实时音视频控制台 > 【<a href="https://console.cloud.tencent.com/trtc/app">应用管理</a>】> 应用信息中查看 SDKAppID。</td>
+<td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>
 </tr>
 <tr>
 <td>userId</td>

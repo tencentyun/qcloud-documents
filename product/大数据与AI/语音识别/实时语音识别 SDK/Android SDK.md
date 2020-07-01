@@ -279,12 +279,9 @@ void onFailure(AudioRecognizeRequest request, ClientException clientException, S
 
 | 参数名称 | 类型 | 是否必填 |参数描述 |默认值 |
 |---------|---------|---------|---------|---------|
-| enableSilentDetect | Boolean | 否 | 是否开启静音检测，开启后说话前的静音部分不进行识别 | true |
-| enableFirstAudioFlow | Boolean | 否 | 是否开启检测说话启始超时，开启后超时会自动停止录音 | false |
-| enableNextAudioFlow | Boolean | 否 | 是否开启检测说话结束超时，开启后超时会自动停止录音 | false |
-| minAudioFlowSilenceTime | Int | 否 | 两个语音流最短分割时间 | 1500ms |
-| maxAudioFlowSilenceTime | Int | 否 | 语音终点超时时间 | 10000ms |
-| maxAudioStartSilenceTime | Int | 否 | 语音起点超时时间 | 2000ms |
+| setSilentDetectTimeOut | Boolean | 否 | 是否开启静音检测，开启后说话前的静音部分不进行识别 | true |
+| audioFlowSilenceTimeOut | Int | 否 | 开启检测说话启始超时，开启后超时会自动停止录音 | 5000ms |
+| minAudioFlowSilenceTime | Int | 否 | 两个语音流最短分割时间 | 2000ms |
 | minVolumeCallbackTime | Int | 否 | 音量回调时间 | 80ms |
 | sensitive | float | 否 | 语音识别敏感度，越小越敏感(范围1 - 5) | 3 |
 
@@ -292,15 +289,12 @@ void onFailure(AudioRecognizeRequest request, ClientException clientException, S
 
 ```
 AudioRecognizeConfiguration audioRecognizeConfiguration = new AudioRecognizeConfiguration.Builder()
-	.enableAudioStartTimeout(true) // 是否使能起点超时停止录音
-    .enableAudioEndTimeout(true) // 是否使能终点超时停止录音
-    .enableSilentDetect(true) // 是否使能静音检测，true 表示不检查静音部分
-    .minAudioFlowSilenceTime(1000) // 语音流识别时的间隔时间
-    .maxAudioFlowSilenceTime(10000) // 语音终点超时时间
-    .maxAudioStartSilenceTime(2000) // 语音起点超时时间
-    .minVolumeCallbackTime(80) // 音量回调时间
+	.setSilentDetectTimeOut(true)// 是否使能静音检测，false 表示不检查静音部分
+        .audioFlowSilenceTimeOut(5000) // 静音检测超时停止录音
+        .minAudioFlowSilenceTime(2000) // 语音流识别时的间隔时间
+    	.minVolumeCallbackTime(80) // 音量回调时间
 	.sensitive(2.8) // 识别敏感度
-    .build();
+    	.build();
 
 // 启动语音识别
 new Thread(new Runnable() {
@@ -454,6 +448,17 @@ void start() throws AudioRecognizerException;
 
 ```
 void stop();
+```
+-获取 sdk Pcm 格式录音源文件路径。
+
+```
+void savePcmFileCallBack(String filePath);
+```
+
+-获取 sdk wav 格式录音源文件路径。
+
+```
+void saveWaveFileCallBack(String filePath);
 ```
 - 设置语音识别器每次最大读取数据量。
 

@@ -1,15 +1,20 @@
 UBA（User Behavior Analysis）是腾讯云安全运营中心对您所有用户的行为分析，用户包括您的主账号、子账号、协作者。
 ## 前提条件
 UBA 功能目前正在试用中，已 [开通安全运营中心高级版](https://buy.cloud.tencent.com/soc) 的用户可获得试用资格。
+
 ## 操作步骤
 1. 登录 [安全运营中心控制台](https://console.cloud.tencent.com/ssav2/account)，在左侧导航栏，单击【UBA】，进入 UBA 页面。
 2. 如您未创建服务预设角色并授予安全运营中心相关权限，在 UBA 概览页，单击【前往访问管理】，进入角色管理页面，单击【同意授权】即可，如您已授权请跳过此步。
 2. 创建云审计跟踪集
+>!创建云审计跟踪集时，需在云审计所支持的区域进行创建。您可登录 [云审计控制台](https://console.cloud.tencent.com/cloudaudit/audit) ，单击【创建】，在“存储位置”中查看云审计所支持的区域。
+>
 	1. 在创建云审计跟踪集页面，单击【立即前往】，进入 [云审计控制台](https://console.cloud.tencent.com/cloudaudit/audit)。
 ![](https://main.qcloudimg.com/raw/b67c7263d0611d78d2d58d2c48258dc3.png)
 	2. 在云审计控制台，左侧导航栏中，单击【跟踪集】，在跟踪集页面，单击【创建】，打开创建跟踪集页面。
 		![](https://main.qcloudimg.com/raw/98ab88c79330a5c33c54608ec4ae4c49.png)
 	3. 在创建跟踪集页面，填写跟踪集名称、管理事件（选择全部，包含只读和只写）及 cos 存储桶位置，填写完成后，单击【完成创建】即可。
+	>!请选择云审计支持的区域创建跟踪集存储桶。
+	>
 		![](https://main.qcloudimg.com/raw/9ba869f1ec824f953369a9e39b2cd7fd.png)
 	<span id="fuzhi"></span>
 2. 查看跟踪集存储桶 ID

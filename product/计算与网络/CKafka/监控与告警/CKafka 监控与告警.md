@@ -40,21 +40,32 @@ Topic 监控：
 | 已占用磁盘容量（MB）| Topic 实际占用磁盘的消息总量（不包含副本），按照所选择的时间粒度取最新值。|
 | 落盘消息条数（条）|Topic 的实际的落盘的消息总条数（不包含副本），按照所选择的时间粒度取最新值。|
 
-消费分组：
+消费分组-Topic 监控：
 
 | 监控指标 | 说明 | 
 |---------|---------|
-| 当前消费 offset | 消费分组当前消费 offset。|
-| 当前分区最大 offset |消费分组对应当前 Topic 最大 offset。|
-| 未消费的消息条数（条） |消费分组未消费消息数。|
+| 主题最大 offset | 当前主题中所有分区的最大 offset。|
+| 主题消费 offset（区分 offset 最大值）| 当前主题所有分区中消费组消费的最大 offset。|
+| 主题未消费消息数（条） |当前主题所有分区消费组未消费消息总和。|
+| 主题消费速度（条/分钟） |当前主题所有分区消费组消费速率总和。|
+
+消费分组-Partition 监控：
+
+| 监控指标 | 说明 | 
+|---------|---------|
+| 分区消费速度（条/分钟） | 消费分组在该分区的消费速率（条/分钟）。|
+| 当前消费 offset | 消费分组该分区当前消费 offset。|
+| 当前分区最大 offset |当前 分区 最大 offset。|
+| 未消费的消息条数（条） |消费分组在该分区下未消费消息数。|
+
 
 指标中英文对照详情参见文档 [CKafka 监控指标](https://cloud.tencent.com/document/product/248/12154)。
 
 ### CKafka 监控 API 文档
 CKafka 监控 API 详情可参见如下文档：
-- [主题监控](https://cloud.tencent.com/document/product/248/17296)
-- [实例监控](https://cloud.tencent.com/document/product/248/17297) 
-- [消费分组监控](https://cloud.tencent.com/document/product/248/17298)
+- [主题监控](https://cloud.tencent.com/document/product/248/35239)
+- [实例监控](https://cloud.tencent.com/document/product/248/35240) 
+- [消费分组监控](https://cloud.tencent.com/document/product/248/35241)
 
 ## CKafka 告警策略
 在 CKafka 状态改变时，可以创建告警来及时通知您采取措施。创建的告警会将一定周期内监控的指标与给定阈值的情况进行比对，从而判断是否需要触发相关通知。
@@ -85,3 +96,4 @@ CKafka 监控 API 详情可参见如下文档：
 | 监控指标 | 说明 | 
 |---------|---------|
 | 未消费的消息条数（条） | 消费分组未消费消息数。|
+

@@ -34,7 +34,7 @@ pg_roles.rolresqueue=pg_resqueue.oid;
 ```
 
 ## 示例
-从一个资源队列中移除一个角色（同时移动该角色到默认的资源队列，pg_default）：
+从一个资源队列中移除一个角色（同时移动该角色到默认的资源队列 pg_default）：
 
 ```sql
 ALTER ROLE bob RESOURCE QUEUE NONE;

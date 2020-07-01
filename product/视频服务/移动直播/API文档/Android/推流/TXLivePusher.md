@@ -11,7 +11,7 @@ __介绍__
 - 针对腾讯云的推流地址，会采用 QUIC 协议进行加速，配合改进后的 BBR2 带宽测算方案，可以最大限度的利用主播的上行带宽，降低直播卡顿率。
 - 内嵌套的 Qos 流量控制技术具备上行网络自适应能力，可以根据主播端网络的具体情况实时调节音视频数据量。
 - 内嵌多套美颜磨皮算法（自然&光滑）和多款色彩空间滤镜（支持自定义滤镜），可以根据需要自行选择。
-- 商业版包含了基于优图 AI 人脸识别技术的大眼、瘦脸、隆鼻以及动效挂架，只需要购买**优图 License** 就可以零成本集成。
+- 企业版 SDK 包含了大眼、瘦脸以及隆鼻等功能，配合高级美颜动效素材，可快速地完成功能集成。
 - 支持自定义的音视频采集和渲染，让您可以根据项目需要选择自己的音视频数据源。
 
 
@@ -393,60 +393,6 @@ public TXBeautyManager getBeautyManager()
 
 ***
 
-### setFilter
-
-设置指定素材滤镜特效。
-```
-void setFilter(Bitmap bmp)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| bmp | Bitmap | 滤镜图片。 |
-
->?滤镜图片一定要用 png 格式，demo 用到的滤镜查找表图片位于 app/src/main/res/drawable-xxhdpi/ 中。
-
-***
-
-### setSpecialRatio
-
-设置滤镜浓度。
-```
-void setSpecialRatio(float ratio)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| ratio | float | 取值范围0 - 1的浮点型数字，取值越大滤镜效果越明显，默认取值0.5。 |
-
-__介绍__
-
-在美女秀场等应用场景里，滤镜浓度的要求会比较高，以便更加突显主播的差异。 我们默认的滤镜浓度是0.5，如果您觉得滤镜效果不明显，可以使用下面的接口进行调节。
-
-***
-
-### setGreenScreenFile
-
-设置绿幕背景视频（商业版有效，其它版本设置此参数无效）。
-```
-boolean setGreenScreenFile(String file)
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| file | String | 视频文件路径。支持 MP4；null 表示关闭特效。 |
-
-__介绍__
-
-此处的绿幕功能并非智能抠背，它需要被拍摄者的背后有一块绿色的幕布来辅助产生特效。
-
-***
 ## 音频相关接口
 ### setMute
 
@@ -920,7 +866,7 @@ __参数__
 ## 更多实用接口
 ### sendMessageEx
 
-发送 SEI 消息，播放端 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34775#txliveplayer) 通过 onPlayEvent(EVT_PLAY_GET_MESSAGE) 来接收该消息。
+发送 SEI 消息，播放端 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34775#txliveplayer) 通过 onPlayEvent(PLAY_EVT_GET_MESSAGE) 来接收该消息。
 ```
 boolean sendMessageEx(byte [] msg)
 ```

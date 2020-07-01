@@ -1,16 +1,17 @@
-目前负载均衡支持 A 记录和 CNAME 的绑定，用户可通过注册域名并添加 A 记录和 CNAME 记录进行访问。详情请参见 [云解析 A 记录操作指南](https://cloud.tencent.com/document/product/302/3449)，[云解析 CNAME 记录操作指南](https://cloud.tencent.com/document/product/302/3450)。
+## 域名注册
+您可以进入 [域名注册页面](https://dnspod.cloud.tencent.com/)，进行域名查询和注册。
+具体操作可参见 [如何注册域名](https://cloud.tencent.com/doc/product/242/3717)。
+目前负载均衡支持 A 记录和 CNAME 的绑定，用户可通过注册域名并添加 A 记录和 CNAME 记录进行访问。详情请参见 [DNS 解析 DNSPod A 记录操作指南](https://cloud.tencent.com/document/product/302/3449)，[DNS 解析 DNSPod CNAME 记录操作指南](https://cloud.tencent.com/document/product/302/3450)。
 
 ## 1. 域名注册
-
 注册域名可以通过 [域名注册页面](https://console.cloud.tencent.com/domain/mydomain) 进行域名查询和注册。
 
 相关文档可以参考 [如何注册域名](https://cloud.tencent.com/doc/product/242/3717)。
 
 ## 2. 添加 CNAME 记录
-
 ### 2.1. 进入域名解析页面
-登录腾讯云 [云解析控制台](https://console.cloud.tencent.com/cns)，在操作拦中单击【解析】。
-![](https://main.qcloudimg.com/raw/14a23a600162daaee162f246dd081eef.png)
+登录腾讯云 [DNS 解析 DNSPod 控制台](https://console.cloud.tencent.com/cns)，在操作拦中单击【解析】。
+![](https://main.qcloudimg.com/raw/0a87e33ba29b12dc8eb6129f9e7b3f7b.png)
 
 ### 2.2. 添加 CNAME 记录
 
@@ -19,9 +20,9 @@
 2. 用户可以添加 CNAME 记录，操作指引如下：
  1. 主机记录可以按照需求说明填写。
  主机记录就是域名前缀，常见用法有：
-    - www：解析后的域名为` www.qcloudtest.com`
-    - @：直接解析主域名 `qcloudtest.com`
-     - \*：泛解析，匹配其他所有域名 `*.qcloudtest.com`
+    - www：解析后的域名为` www.example.com`
+    - @：直接解析主域名 `example.com`
+     - \*：泛解析，匹配其他所有域名 `*.example.com`
 
  2. 记录类型用户可选 `CNAME` 记录
 ![](https://main.qcloudimg.com/raw/29564b0e024351387aa0a54fada5ae78.png)
@@ -62,5 +63,7 @@
 ![](https://main.qcloudimg.com/raw/a86ac1086efaba7b4ad76f56d40e868a.png)
 
 ### 2.4. 测试解析结果
-用户为测试域名是否解析正常，可以直接访问绑定后的 CNAME 域名（如例子中的`www.qcloudtest.com` ）。
+用户为测试域名是否解析正常，可以直接访问绑定后的 CNAME 域名（如例子中的`www.example.com` ）。
 >?解析大概需要十分钟左右生效。
+
+

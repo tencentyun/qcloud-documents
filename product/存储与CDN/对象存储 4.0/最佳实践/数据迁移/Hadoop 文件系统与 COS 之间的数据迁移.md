@@ -42,7 +42,28 @@ Hadoop Distcp 是一个支持不同集群和文件系统之间复制数据的工
 hadoop distcp cosn://hdfs-test-1250000000/test hdfs://10.0.0.3:9000/
 ```
 
+### 指定配置 Distcp 命令行参数进行 HDFS 和 COS 之间的数据迁移
+
+>?该命令行配置支持双向操作，可支持 HDFS 数据迁移到 COS，也可以将 COS 数据迁移到 HDFS。
+
+用户可直接配置以下命令：
+```plaintext
+hadoop distcp -Dfs.cosn.impl=org.apache.hadoop.fs.CosFileSystem -Dfs.cosn.bucket.region=ap-XXX  -Dfs.cosn.userinfo.secretId=AK**XXX  -Dfs.cosn.userinfo.secretKey=XXXX  -libjars /home/hadoop/hadoop-cos-2.6.5-shaded.jar  cosn://bucketname-appid/test/ hdfs:///test/
+```
+
+参数说明如下：
+
+- Dfs.cosn.impl：始终配置为 org.apache.hadoop.fs.CosFileSystem。
+- Dfs.cosn.bucket.region：填写存储桶所在地域，可在 COS 控制台存储桶列表中查看。
+- Dfs.cosn.userinfo.secretId：填写存储桶拥有者账号下的 SecretId，可前往 [云 API 密钥](https://console.cloud.tencent.com/capi) 中获取。
+- Dfs.cosn.userinfo.secretKey：填写存储桶拥有者账号下的 secretKey，可前往 [云 API 密钥](https://console.cloud.tencent.com/capi) 中获取。
+- libjars：指定 Hadoop-COS jar 包位置。Hadoop-COS jar 包可前往 [Github 仓库](https://github.com/tencentyun/hadoop-cos) 中的 dep 目录下进行下载。
+
+>?其他参数请参考 [Hadoop 工具](https://cloud.tencent.com/document/product/436/6884) 文档。
+
+
 ## Hadoop distcp 的扩展参数
 
-Hadoop distcp 工具支持丰富的运行参数，例如，可以通过`-m`来指定最大用于并行复制的 Map 任务数目，`-bandwidth`来限制每个 map 所使用的最大带宽等。具体可参考 Apache Hadoop distcp 工具的官方文档：[DistCp Guide](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html)。
+Hadoop distcp 工具支持丰富的运行参数。例如，可以通过`-m`来指定最大用于并行复制的 Map 任务数目，`-bandwidth`来限制每个 map 所使用的最大带宽等。具体可参考 Apache Hadoop distcp 工具的官方文档：[DistCp Guide](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html)。
+
 

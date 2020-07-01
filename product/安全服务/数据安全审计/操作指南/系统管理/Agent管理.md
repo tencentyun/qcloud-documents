@@ -16,7 +16,7 @@
 >- 如未添加 IP 信息却部署了会导致 Agent 无法启动。
 >- 如有新的机器要部署请重新下载安装包并填写机器的 IP 信息。
 >
-![](https://main.qcloudimg.com/raw/03226f7bb2c59657708e1caafb718939.png)
+![](https://main.qcloudimg.com/raw/3e822fe28ace8d60fe55f610c27169c0.png)
 		- 单击【Linux 批量部署】 ，输入部署地址，支持按 IP 或按 IP 段部署，支持添加多行，输入服务器 IP 、SSH 端口号、用户名、密码， 输入完成后单击【确定】即可。
 		![](https://main.qcloudimg.com/raw/95a28667e75dce962ce3b2ae747c9c20.png)
 		

@@ -216,7 +216,7 @@ trtcRoomContext.off(trtcRoomContext.EVENT.LOCAL_JOIN, onLocalJoin)
 
 | 参数名 | 类型   | 默认值 | 说明                                         |
 |:-------|:-------|:-------|:-------------------------------------------|
-| roomID | String | -      | 房间 ID，由您的系统决定，取值范围1 - 4294967295 |
+| roomID | Number | -      | 房间 ID，由您的系统决定，取值范围1 - 4294967295 |
 
 **返回值：**
 Promise
@@ -233,6 +233,8 @@ trtcRoomContext.enterRoom({roomID: 2233}).catch((error)=>{
 **说明：**
 
 停止推流和取消订阅所有远端音视频，并退出房间。
+
+>! 由于微信最新版本小程序引擎限制，请勿在 onHide() 回调函数中调用 exitRoom()，会导致各种状态紊乱的 bug。
 
 **参数：**
 
@@ -361,7 +363,7 @@ function onRemoteVideoAdd(event) {
 trtcRoomContext.on(trtcRoomContext.EVENT.REMOTE_VIDEO_ADD, onRemoteVideoAdd)
 ```
 
-#### unsubscribeRemoteVideo(params)
+### unsubscribeRemoteVideo(params)
 **说明：**
 
 取消订阅远端用户的视频并停止播放。
@@ -933,7 +935,7 @@ trtcRoomContext.sendC2CCustomMessage({
 
 | 参数名  | 类型   | 默认值 | 说明                     |
 |:--------|:-------|:-------|:-----------------------|
-| roomID  | String | -      | 必填参数，房间 ID。    |
+| roomID  | Number | -      | 必填参数，房间 ID。    |
 | message | String | -      | 必填参数，需要发送的文本消息。  |
 
 **返回值：**
@@ -958,7 +960,7 @@ trtcRoomContext.sendGroupTextMessage({
 
 | 参数名  | 类型   | 默认值 | 说明                  |
 |:--------|:-------|:-------|:--------------------|
-| roomID  | String | -      | 必填参数，房间 ID。  |
+| roomID  | Number | -      | 必填参数，房间 ID。  |
 | payload | Object | -      | 必填参数，自定义消息的载体。 |
 
 payload 支持三个参数：

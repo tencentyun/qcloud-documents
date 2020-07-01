@@ -1,3 +1,22 @@
+### 如何关闭TPNS的保活功能？
+
+TPNS默认开启联合保活能力，请在应用初始化的时候，如Application或LauncherActivity 的onCreate中 调用如下接口，并传递 false 值:
+```java
+XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
+```
+若您使用 gradle 自动集成方式，请在自身应用的 AndroidManifest.xml 文件 <application> 标签下配置如下结点，其中 ```xxx``` 为任意自定义名称；如果使用手动集成方式，请修改如下节点属性：
+ 
+```xml
+   <!-- 在自身应用的AndroidManifest.xml文件中添加如下结点，其中 xxx 为任意自定义名称: -->     
+   <!-- 关闭与 TPNS 应用的联合保活功能，请配置 -->
+   <provider
+       android:name="com.tencent.android.tpush.XGPushProvider"
+       tools:replace="android:authorities"
+       android:authorities="应用包名.xxx.XGVIP_PUSH_AUTH"
+       android:exported="false" />    
+```
+
+若控制台有以下日志打印，则表明联合保活功能已经关闭：`I/TPNS: [ServiceUtil] disable pull up other app`。
 
 ### 推送消息为何收不到？
 登录 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns) ，使用已获取的 Token 进行推送。如无法收到推送，请根据以下情况进行排查：
@@ -26,13 +45,9 @@
 - Android 端在应用退出腾讯移动推送 Service 和腾讯移动推送的服务器断开连接后，此时给这个设备下发的消息，会变成离线消息，离线消息最多保存72小时，每个设备最多保存两条，如果有多条离线消息。在关闭应用期间推送的消息，如开启应用无法收到，请检查是否调用了反注册接口：XGPushManager.unregisterPush\(this\)。
 
 
-
-
 ### 如何设置消息点击事件？
-由于目前 SDK 点击消息默认拥有点击事件，默认的点击事件是打开主界面。所以在终端点击消息回调的 onNotifactionClickedResult 方法内设置跳转操作时，自定义的跳转和默认的点击事件造成冲突。结果是点击后，会跳转到指定界面过后再回到主界面，因此不能在 onNotifactionClickedResult 内设置跳转。
-
-
-**使用 Intent 来跳转指定页面**
+TPNS 推荐使用 Intent 方式进行跳转（注：SDK 点击消息默认支持点击事件，触发后打开主界面，如果在 onNotifactionClickedResult 设置跳转操作会与管理台/API中指定的自定义跳转冲突，导致自定义的跳转失效）。
+**使用 Intent 方式跳转指引：**
 在客户端 App 的 manifest 上，配置需要跳转的页面：
  - 如要跳转 AboutActivity 指定页面，示例代码如下：
 ```
@@ -49,7 +64,7 @@ android:path="/notify_detail" />
 </activity>
 ```
  - 若使用腾讯移动推送管理台设置 Intent 进行跳转，填写方式如下：
-![](https://main.qcloudimg.com/raw/58bb9b0105dd6ba00f6524e29efb12fb.png)
+![](https://main.qcloudimg.com/raw/a904c7c7917fb7d69bf741f7b6e52099.png)
  - 若使用服务端 SDK ，设置 Intent 进行跳转，可设置 Intent 为（以 Java SDK 为例）：
 ```
 action.setIntent("xgscheme://com.xg.push/notify_detail");
@@ -102,7 +117,7 @@ Uri uri = getIntent().getData();
 ### 在调试过程中遇到 otherpushToken = null 的问题，如何解决？
 #### 小米通道排查路径
 - 检查 App 包名是否和小米开放推送平台的包名一致。
-- 检查是否在小米小米开放推送平台开启消息推送服务。
+- 检查是否在小米开放推送平台开启消息推送服务。
 - 如果是手动接入的方式请根据开发文档检查 manifest 文件配置，尤其是需要修改包名的地方是否修改：
 ```
 <permission android:name="com.example.mipushtest.permission.MIPUSH_RECEIVE" android:protectionLevel="signature" />
@@ -128,7 +143,7 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 - 按照开发文档华为通道接入指南部分检查 manifest 文件配置。
 - 在腾讯移动推送注册之前是否启动了第三方推送，以及华为 AppID 是否配置正确。
 - App 的包名和华为推送官网、腾讯移动推送管理台注册包名是否一致。
-- 在注册代码之前调用：XGPushConfig.setHuaweiDebug\(true\)，手动确认给应用存储权限，然后查看 SD 卡目录下的 huawei.txt 文件内输出的华为注册失败的错误原因，然后根据华为开发文档对应的错误码查找原因。
+- 在注册代码之前调用：XGPushConfig.setHuaweiDebug\(true\)，手动确认给应用存储权限，然后查看 SD 卡目录下的 huawei.txt 文件内输出的华为注册失败的错误原因，然后根据华为开发文档对应的 [错误码](https://developer.huawei.com/consumer/cn/doc/development/HMS-2-References/hmssdk_huaweipush_api_reference_errorcode ) 查找原因。
 - cmd 里执行 ```adb shell setprop log.tag.hwpush VERBOSE 和
   adb shell logcat -v time &gt; D:/log.txt``` 开始抓日志，然后进行测试，测完再关闭 cmd 窗口。将 log 发给技术支持。
 
@@ -136,10 +151,11 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 #### 魅族通道排查路径
 与小米通道的排查方法类似，参考小米通道的排查路径即可。
 
+### Flyme 6.0 及以下版本的魅族手机，为何消息抵达设备却不在通知栏展示？
+1.  Flyme 6.0 及以下版本的魅族手机，使用手动集成方式。
+2.  Flyme 6.0 及以下版本的魅族手机，使用自动集成方式，且使用的 TPNS Android SDK 为1.1.4.0 以下的版本。
 
-
-### 魅族 Flyme6.0 及低版本手机，为何消息抵达设备却不在通知栏展示？
-高版本魅族手机不再需要设置状态栏图标，如果 Android SDK 版本低于1.1.4.0，请在相应的 drawable 不同分辨率文件夹下放置一张名称必须为 stat_sys_third_app_notify 的图片。
+以上两种情况，需要在 drawable 不同分辨率的文件夹下对应放置一张名称必须为 stat_sys_third_app_notify 的图片，详情请参考 [TPNS Android SDK](https://console.cloud.tencent.com/tpns/sdkdownload) 中的 flyme-notification-res 文件夹。
 
 
 ### 集成华为推送通道时遇到组件依赖冲突如何解决?
@@ -184,9 +200,3 @@ public final class StrUtils {
 3. 在项目的 External Libraries 中查看是否有相关依赖。
 ![](https://main.qcloudimg.com/raw/485c7595f1b478a6fad725d38deb87b4.png)
 
-### Android 是否支持设置通知角标？
-通知角标目前都是遵从各厂商的默认逻辑，其中：
-- 小米：支持角标数值展示，默认按 1 自动增减；自建通道通知可通过系统 API 另外设置，详情请参考 [小米开发文档](https://dev.mi.com/console/doc/detail?pId=939)。
-- 华为：支持角标数值展示，默认无展示；自建通道可通过系统 API 另外设置，详情请参考 [华为开发文档](https://developer.huawei.com/consumer/cn/doc/30802)。
-- 魅族：仅支持红点展示，系统默认逻辑，有通知则展示，无则不展示；不支持自定义。
-- OPPO、vivo ：只对指定应用开启，如 QQ、微信，需向官方进行权限申请，暂无明确适配说明。  

@@ -1,3 +1,56 @@
+### 2.7.2 @2020.6.30
+
+**修复**
+
+- 偶现 [joinGroup](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#joinGroup) 时 SDK 提示“已在群内”，实际未在群内，导致无法正常收发消息的问题。
+- 临时会议群发消息数量统计错误。
+
+### 2.7.0 @2020.6.8
+
+**新增**
+
+支持 C2C 消息已读回执（即对端是否阅读了您发的消息），详细请参考事件 [TIM.EVENT.MESSAGE_READ_BY_PEER](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_READ_BY_PEER)，对端已读的 [消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)，`isPeerRead` 属性值为 `true`。
+
+**修复**
+
+- 加入聊天室(ChatRoom)后新创建的会话没有展示最近一条消息。
+- 登录后未加入音视频聊天室（AVChatRoom）却可以向音视频聊天室（AVChatRoom） 发送消息。
+
+
+### 2.6.6 @2020.5.27
+
+**修复**
+
+- 音视频聊天室（AVChatRoom）偶发消息重复上屏。
+- [getMessageList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getMessageList) 遇到空消息时报错。
+- [logout](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#logout) 后再次 [login](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#login)，偶发 [joinGroup](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#joinGroup) 时遇到70001错误。
+
+### 2.6.4 @2020.5.8
+
+**新增**
+
+[sendMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口增加发送选项，支持发送在线消息（即不存离线和漫游，AVChatRoom 和 BChatRoom 不允许使用）和配置 [离线推送](https://cloud.tencent.com/document/product/269/3604)。
+
+### 2.6.3 @2020.4.26
+
+**修复**
+
+- [createCustomMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createCustomMessage) 的 payload.data payload.extension 类型传入不正确导致的消息内容丢失问题。
+- 单次请求回包多条消息时可能存在的乱序问题。
+- 偶发 C2C 会话未读数溢出导致的上报已读后未读计数无法清零。
+- 偶发 [TIM.EVENT.ERROR](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.ERROR) event.data.code 和 event.data.undefined 为 undefined。
+
+### 2.6.2 @2020.4.16
+
+**新增**
+
+- [updateGroupProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateGroupProfile) 支持全体禁言和取消全体禁言。
+- [getGroupMemberList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberList) 支持拉取群成员禁言截止时间戳（[muteUntil](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)）。
+
+**修复**
+
+群最新的消息是群提示消息时导致的未读计数无法清零。
+
 ### 2.6.1 @2020.4.8
 
 **修复**

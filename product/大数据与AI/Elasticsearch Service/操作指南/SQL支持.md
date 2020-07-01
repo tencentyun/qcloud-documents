@@ -16,10 +16,21 @@ POST /_xpack/sql?format=txt
 更多原生 SQL 解析器的 API 及使用方法请参见 [官方文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/sql-rest.html)。
  
 ### 开源 SQL 解析插件
+- 7.5.1版本：
 ```
-POST /_sql
-"select * from my_index"
+POST /_nlpcn/sql 
+{
+"sql":"select * from test_index"
+}
 ```
+- 其他版本：
+```
+POST /_sql 
+{
+"sql":"select * from test_index"
+}
+```
+
 更多 SQL 插件的 API 及使用方法请参见 [文档](https://github.com/NLPchina/elasticsearch-sql/blob/master/README.md)。
 
 ### SQL JDBC 访问

@@ -1,5 +1,5 @@
 ## 适用场景
-CDN 观看，也叫 “CDN 旁路直播”，由于 TRTC 采用 UDP 协议进行传输音视频数据，而标准直播 CDN 则采用的 RTMP\HLS\FLV 等协议进行数据传输，所以需要将 TRTC 中的音视频数据**旁路**到直播 CDN 中，才能在让观众通过直播 CDN 进行观看。
+CDN 直播观看，也叫 “CDN 旁路直播”，由于 TRTC 采用 UDP 协议进行传输音视频数据，而标准直播 CDN 则采用的 RTMP\HLS\FLV 等协议进行数据传输，所以需要将 TRTC 中的音视频数据**旁路**到直播 CDN 中，才能在让观众通过直播 CDN 进行观看。
 
 给 TRTC 对接 CDN 观看，一般被用于解决如下两类问题：
 - **问题一：超高并发观看**
@@ -29,11 +29,11 @@ TRTC 最擅长的领域就是音视频互动连麦，如果一个房间里同时
 ## 使用步骤
 
 <span id="step1"></span>
-### 步骤1：开通旁路直播服务
+### 步骤1：开通旁路推流服务
 
 1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)。
 2. 在左侧导航栏选择【应用管理】，单击目标应用所在行的【功能配置】。
-3. 单击【启动自动旁路直播】右侧的<img src="https://main.qcloudimg.com/raw/8f08eba741586e96dbe3b30c6804e9b6.png"  style="margin:0;">，在弹出的【开启自动旁路直播】对话框中，单击【确定】即可开通。
+3. 在【旁路推流配置】中，单击【自动旁路推流】右侧的<img src="https://main.qcloudimg.com/raw/8f08eba741586e96dbe3b30c6804e9b6.png"  style="margin:0;">，在弹出的【开启自动旁路推流】对话框中，单击【确定】即可开通。
 
 <span id="step2"></span>
 ### 步骤2：配置播放域名并完成 CNAME
@@ -48,7 +48,7 @@ TRTC 最擅长的领域就是音视频互动连麦，如果一个房间里同时
 
 <span id="step3"></span>
 ### 步骤3：关联 TRTC 的音视频流到直播 streamId
-开启旁路直播功能后， TRTC 房间里的每一路画面都配备一路对应的播放地址，该地址的格式如下：
+开启旁路推流功能后， TRTC 房间里的每一路画面都配备一路对应的播放地址，该地址的格式如下：
 ```
 http://播放域名/live/[streamId].flv
 ```
@@ -72,7 +72,7 @@ param.streamId = @"stream1001";  // 流 ID
 userSig 的计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 
 #### 方式二：系统指定 streamId
-开启自动旁路直播后，如果您没有自定义指定 streamId，系统会默认为您生成一个缺省的 streamId，生成规则如下：
+开启自动旁路推流后，如果您没有自定义指定 streamId，系统会默认为您生成一个缺省的 streamId，生成规则如下：
 
 - **拼装 streamId 用到的字段**
   - SDKAppID：您可以在 [控制台](https://console.cloud.tencent.com/trtc/app) >【应用管理】>【应用信息】中查找到。
@@ -134,7 +134,7 @@ http://播放域名/live/[streamId].flv
 |:-------:|:-------:|:-------:|-------|
 | iOS App| [接入指引](https://cloud.tencent.com/document/product/454/7880) | [TXLivePlayer(iOS)](https://cloud.tencent.com/document/product/454/34762)  | 推荐 FLV |
 | Android App | [接入指引](https://cloud.tencent.com/document/product/454/7886) | [TXLivePlayer(Android)](https://cloud.tencent.com/document/product/454/34775) | 推荐 FLV |
-| Web浏览器 | [接入指引](https://cloud.tencent.com/document/product/454/7880) | - |  桌面端 Chrome 浏览器支持 FLV <br> Mac 端 Safari和移动端手机浏览器仅支持 HLS |
+| Web 浏览器 | [接入指引](https://cloud.tencent.com/document/product/454/7503) | - |  桌面端 Chrome 浏览器支持 FLV <br> Mac 端 Safari和移动端手机浏览器仅支持 HLS |
 |微信小程序| [接入指引](https://cloud.tencent.com/document/product/454/34931) | [&lt;live-player&gt; 标签](https://developers.weixin.qq.com/miniprogram/dev/component/live-player.html)| 推荐 FLV |
 
 
@@ -169,6 +169,23 @@ http://播放域名/live/[streamId].flv
     [player setConfig:config];
     // 启动直播播放
 ```
+
+<span id="expense"></span>
+## 相关费用
+
+实现 CDN 直播观看的费用包括**观看费用**和**转码费用**，观看费用为基础费用，转码费用仅在启用 [多路画面混合](#mixCDN) 时才会收取。
+
+>!本文中的价格为示例，仅供参考。若价格与实际不符，请以 [云直播 > 标准直播](https://cloud.tencent.com/document/product/267/2818) 的计费说明为准。
+
+### 观看费用：通过直播 CDN 观看时产生的费用
+
+通过直播 CDN 观看时，**云直播**将向您收取因观看产生的下行流量/带宽费用，可以根据实际需要选择适合自己的计费方式，默认采用流量计费，详情请参见 [云直播 > 标准直播 > 流量带宽](https://cloud.tencent.com/document/product/267/34175#.E6.B5.81.E9.87.8F.E5.B8.A6.E5.AE.BD) 计费说明。
+
+
+### 转码费用：启用多路画面混合时收取
+如果您启用了 [多路画面混合](#mixCDN) ，混流需要进行解码和编码，因此会产生额外的混流转码费用。混流转码根据分辨率大小和转码时长进行计费，主播用的分辨率越高，连麦时间（通常在连麦场景才需要混流转码）越长，费用越高，详情请参见 [云直播 > 标准直播 > 直播转码](https://cloud.tencent.com/document/product/267/34175#.E6.A0.87.E5.87.86.E8.BD.AC.E7.A0.81) 计费说明。
+
+>例如，您通过 [setVideoEncodrParam()](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCVideoEncParam) 设置主播的码率（videoBitrate）为1500kbps，分辨率为720P。如果有一位主播跟观众连麦了1个小时，连麦期间开启了 [多路画面混合](#mixCDN) ，那么产生的转码费用为`0.0325元/分钟 × 60分钟 = 1.95元`。
 
 ## 常见问题
 **为什么房间里只有一个人时画面又卡又模糊?**

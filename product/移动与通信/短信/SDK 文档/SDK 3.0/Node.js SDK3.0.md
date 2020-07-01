@@ -80,7 +80,7 @@ clientProfile.signMethod = "HmacSHA256";
 clientProfile.httpProfile = httpProfile;
 
 /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
- * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+ * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com *
  * 实例化 SMS 的 client 对象
  * 第二个参数是地域信息，可以直接填写字符串 ap-guangzhou，或者引用预设的常量 */
 let client = new smsClient(cred, "ap-guangzhou", clientProfile);
@@ -162,7 +162,7 @@ clientProfile.signMethod = "HmacSHA256";
 clientProfile.httpProfile = httpProfile;
 
 /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
- * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+ * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com *
  * 实例化 SMS 的 client 对象
  * 第二个参数是地域信息，可以直接填写字符串 ap-guangzhou，或者引用预设的常量 */
 let client = new smsClient(cred, "ap-guangzhou", clientProfile);
@@ -192,7 +192,7 @@ req.SenderId = "";
 req.SessionContext = "";
 /* 下发手机号码，采用 e.164 标准，+[国家或地区码][手机号]
  * 例如+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号，最多不要超过200个手机号*/
-req.PhoneNumberSet = ["+8613711112222"];
+req.PhoneNumberSet = ["+8613711112222", "+8613711333222", "+8613711144422"];
 /* 模板 ID: 必须填写已审核通过的模板 ID，可登录 [短信控制台] 查看模板 ID */
 req.TemplateID = "449739";
 /* 模板参数: 若无模板参数，则设置为空*/
@@ -249,7 +249,7 @@ clientProfile.signMethod = "HmacSHA256";
 clientProfile.httpProfile = httpProfile;
 
 /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
- * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+ * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com *
  * 实例化 SMS 的 client 对象
  * 第二个参数是地域信息，可以直接填写字符串 ap-guangzhou，或者引用预设的常量 */
 let client = new smsClient(cred, "ap-guangzhou", clientProfile);
@@ -323,7 +323,7 @@ clientProfile.signMethod = "HmacSHA256";
 clientProfile.httpProfile = httpProfile;
 
 /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
- * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+ * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com *
  * 实例化 SMS 的 client 对象
  * 第二个参数是地域信息，可以直接填写字符串 ap-guangzhou，或者引用预设的常量 */
 let client = new smsClient(cred, "ap-guangzhou", clientProfile);

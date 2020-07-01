@@ -1,5 +1,5 @@
 ## 效果展示
-您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 Demo 体验互动直播的能力效果，包括互动连麦、主播PK、低延时观看、弹幕聊天等 TRTC 在互动直播场景下的相关能力。
+您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 Demo 体验互动直播的能力效果，包括互动连麦、主播 PK、低延时观看、弹幕聊天等 TRTC 在互动直播场景下的相关能力。
 
 <table>
 <tr>
@@ -31,10 +31,10 @@
 <span id="ui.step3"></span>
 ### 步骤3：配置 Demo 工程文件
 1. 解压 [步骤2](#ui.step2) 中下载的源码包。
-2. 找到并打开 `iOS/TRTCScenesDemo/TRTCScenesDemo/debug/GenerateTestUserSig.h` 文件。
+2. 找到并打开 `iOS/TRTCScenesDemo/TXLiteAVDemo/Debug/GenerateTestUserSig.h` 文件。
 3. 设置 `GenerateTestUserSig.h` 文件中的相关参数：
-  <ul><li>SDKAPPID：默认为占位符，请设置为实际的 SDKAppID。</li>
-  <li>SECRETKEY：默认为占位符，请设置为实际的密钥信息。</li></ul> 
+  <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
+  <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
     <img src="https://main.qcloudimg.com/raw/15d986c5f4bc340e555630a070b90d63.png">
 4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
 5. 单击【关闭指引，进入控制台管理应用】。
@@ -44,7 +44,7 @@
 
 <span id="ui.step4"></span>
 ### 步骤4：运行 Demo
-使用 Xcode（11.0及以上的版本）打开源码工程 `TRTCScenesDemo`，单击【运行】即可开始调试本 Demo。
+使用 Xcode（11.0及以上的版本）打开源码工程 `iOS/TRTCScenesDemo/TXLiteAVDemo.xcworkspace`，单击【运行】即可开始调试本 Demo。
 
 <span id="ui.step5"></span>
 ### 步骤5：修改 Demo 源代码
@@ -62,12 +62,13 @@
 
 <span id="model"> </span>
 ## 实现自定义 UI 界面
-源码中的 trtcliveroomdemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCLiveRoom，您可以在`TRTCLiveRoom.swift` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
+
+[源码](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCLiveRoomDemo) 中的 trtcliveroomdemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCLiveRoom，您可以在`TRTCLiveRoom.swift` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/b0c39e5b7ce3a6b1decb1fbbf7ec4ff1.png)
 
 
 <span id="model.step1"> </span>
-### 步骤1：集成SDK
+### 步骤1：集成 SDK
 视频通话组件 TRTCLiveRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
 **方法一：通过 cocoapods 仓库依赖**
@@ -91,14 +92,14 @@ pod 'TXLiteAVSDK_TRTC'
 
 <span id="model.step3"> </span>
 ### 步骤3：导入 TRTCLiveRoom 组件
-拷贝`iOS/TRTCScenesDemo/TRTCScenesDemo/TRTCLiveRoomDemo/model`目录中的所有文件到您的项目中。
+拷贝`iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCLiveRoomDemo/model`目录中的所有文件到您的项目中。
 
 <span id="model.step4"> </span>
 ### 步骤4：创建并登录组件
 1. 调用 TRTCLiveRoomImpl 的`init`接口可以创建一个 TRTCLiveRoom 组件的实例对象。
 2. 创建一个`TRTCLiveRoomConfig`对象，该对象可以设置  useCDNFirst 和 CDNPlayDomain 属性：
  - useCDNFirst 属性：用于设置观众观看方式。true 表示普通观众通过 CDN 观看，计费便宜但延时较高。false 表示普通观众通过低延时观看，计费价格介于 CDN 和连麦之间，但延迟可控制在1s以内。
- - CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会失效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】页面中进行设置。
+ - CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会生效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】页面中进行设置。
 3. 调用`login`函数完成组件的登录，请参考下表填写关键参数：
 <table>	
 <tr>
@@ -107,7 +108,7 @@ pod 'TXLiteAVSDK_TRTC'
 </tr>
 <tr>
 <td>sdkAppId</td>
-<td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">控制台</a> >【应用管理】>【应用信息】中查找到。</td>
+<td>您可以在 <a href="https://console.cloud.tencent.com/trtc/app">实时音视频控制台</a> 中查看 SDKAppID。</td>
 </tr>
 <tr>
 <td>userId</td>
@@ -121,7 +122,7 @@ pod 'TXLiteAVSDK_TRTC'
 <td>config</td>
 <td>全局配置信息，请在登录时初始化，登录之后不可变更。<ul style="margin:0;">
 <li>useCDNFirst 属性：用于设置观众观看方式。true 表示普通观众通过 CDN 观看，计费便宜但延时较高。false 表示普通观众通过低延时观看，计费价格介于 CDN 和连麦之间，但延迟可控制在1s以内。</li>
-<li>CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会失效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >【<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>】页面中进行设置。</li>
+<li>CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会生效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >【<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>】页面中进行设置。</li>
 </ul></td>
 </tr>
 <tr>

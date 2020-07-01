@@ -1,4 +1,4 @@
-本文主要介绍如何快速运行腾讯云 TRTC Web SDK Demo。
+本文主要介绍如何快速运行腾讯云 TRTC 桌面浏览器 SDK Demo。
 
 ## 支持的平台
 
@@ -20,12 +20,12 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 
 >! 
 >- 您可以在浏览器中打开 [WebRTC 能力测试](https://www.qcloudtrtc.com/webrtc-samples/abilitytest/index.html) 页面进行检测是否完整支持 WebRTC。例如公众号等浏览器环境。
->- 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC 的 Web 版 SDK 的正常运行。
+>- 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC 桌面浏览器端 SDK 的正常运行。
 
 <span id="requirements"></span>
 ## 环境要求
 - 请使用最新版本的 Chrome 浏览器。
-- TRTC Web SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Demo](https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html) 检查配置是否生效。
+- TRTC 桌面浏览器 SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Demo](https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html) 检查配置是否生效。
  - TCP 端口：8687
  - UDP 端口：8000，8800，843，443
  - 域名：qcloud.rtc.qq.com
@@ -64,7 +64,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 
 >!
 > - 一般情况下体验 Demo 需要部署至服务器，通过`https://域名/xxx`访问，或者直接在本地搭建服务器，通过`localhost:端口`访问。
-> - 目前桌面端 Chrome 浏览器支持 TRTC Web SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
+> - 目前桌面端 Chrome 浏览器支持 TRTC 桌面浏览器 SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 
 Demo 运行界面如图所示：
 ![](https://main.qcloudimg.com/raw/e989c968446e6e3bdcc19c58e40e2b86.png)
@@ -79,18 +79,24 @@ Demo 运行界面如图所示：
 ## 常见问题
 
 ### 1. 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
-TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法 ECDSA-SHA256](https://cloud.tencent.com/document/product/647/17275#.E8.80.81.E7.89.88.E6.9C.AC.E7.AE.97.E6.B3.95)。
+TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法 ECDSA-SHA256](https://cloud.tencent.com/document/product/647/17275#Old)，如已升级，您按需切换为新旧算法。
 
-升级操作：
-1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)。
-2. 在左侧导航栏选择【应用管理】，单击目标应用所在行的【应用信息】。
-3. 选择【快速上手】页签，单击【第二步 获取签发UserSig的密钥】区域的【点此升级】。
+升级/切换操作：
+ 1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)。
+ 2. 在左侧导航栏选择【应用管理】，单击目标应用所在行的【应用信息】。
+ 3. 选择【快速上手】页签，单击【第二步 获取签发UserSig的密钥】区域的【点此升级】、【非对称式加密】或【HMAC-SHA256】。
+  - 升级：
+   ![](https://main.qcloudimg.com/raw/69bd0957c99e6a6764368d7f13c6a257.png)
+  - 切换回老版本算法 ECDSA-SHA256：
+   ![](https://main.qcloudimg.com/raw/f89c00f4a98f3493ecc1fe89bea02230.png)
+  - 切换为新版本算法 HMAC-SHA256：
+   ![](https://main.qcloudimg.com/raw/b0412153935704abc9e286868ad8a916.png)
 
 ### 2. 出现客户端错误：“RtcError: no valid ice candidate found”该如何处理？
-出现该错误说明 TRTC Web SDK 在 STUN 打洞失败，请根据 [环境要求](#requirements) 检查防火墙配置。
+出现该错误说明 TRTC 桌面浏览器 SDK 在 STUN 打洞失败，请根据 [环境要求](#requirements) 检查防火墙配置。
 
 ### 3. 出现客户端错误："RtcError: ICE/DTLS Transport connection failed" 或 “RtcError: DTLS Transport connection timeout”该如何处理？
-出现该错误说明 TRTC Web SDK 在建立媒体传输通道时失败，请根据 [环境要求](#requirements) 检查防火墙配置。
+出现该错误说明 TRTC 桌面浏览器 SDK 在建立媒体传输通道时失败，请根据 [环境要求](#requirements) 检查防火墙配置。
 
 ### 4. 出现10006 error 该如何处理？
 如果出现"Join room failed result: 10006 error: service is suspended,if charge is overdue,renew it"，请确认您的实时音视频应用的服务状态是否为可用状态。

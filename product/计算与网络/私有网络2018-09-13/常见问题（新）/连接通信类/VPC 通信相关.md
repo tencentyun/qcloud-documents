@@ -12,7 +12,7 @@ VPC 中云服务器与数据库的内网通信在网络层面均为内网 IP 通
 >! 同 VPC 下不同子网间（不论是否在同一可用区），**内网默认互通**，如果不通，请优先排查 [安全组](https://cloud.tencent.com/document/product/213/12452) 及 [网络 ACL](https://cloud.tencent.com/document/product/215/20088) 等防火墙策略。
 
 
-### 如何处理因 VPC 网段冲突而无法建立对等连接的问题？
+### 如何处理因 VPC 网段冲突而无法建立对等连接的问题？ 
 建立对等连接时，要求两端 VPC 的 CIDR 不可以重叠，否则无法建立对等连接。
 
 - 如果您需要通信的两个 VPC 网段有重叠，但具体的子网网段不重叠，可以使用 [云联网](https://cloud.tencent.com/product/ccn) 来实现通信。云联网可以将 VPC 通信时的网段限制缩小到子网层面。
