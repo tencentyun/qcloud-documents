@@ -17,9 +17,9 @@
 ```bash
 pip install tencentcloud-sdk-python
 ```
->!
->- 中国大陆地区的用户可以使用国内镜像源提高下载速度，例如`pip install -i https://mirrors.tencent.com/pypi/simple/ --upgrade tencentcloud-sdk-python`。
->- 如果同时有 python2 和 python3 环境， python3 环境需要使用 pip3 命令安装。
+3. 中国大陆地区的用户可以使用国内镜像源提高下载速度，例如`pip install -i https://mirrors.tencent.com/pypi/simple/ --upgrade tencentcloud-sdk-python`。
+
+>!如果同时有 python2 和 python3 环境， python3 环境需要使用 pip3 命令安装。
 
 ### 通过源码包安装
 1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-python) 或者 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-python/tencentcloud-sdk-python.zip) 下载最新代码。
