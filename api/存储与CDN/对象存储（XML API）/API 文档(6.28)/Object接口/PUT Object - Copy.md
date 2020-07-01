@@ -32,7 +32,7 @@ Content-Length: 0
 Authorization: Auth String
 ```
 
->? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> ? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求参数
 
@@ -56,36 +56,36 @@ Authorization: Auth String
 
 在复制对象时可以通过指定下列请求头部来设置目标对象的元数据信息，此时请求头部 x-cos-metadata-directive 需指定为 Replaced，否则目标对象将使用源对象的元数据信息且不能指定下列任何头部。
 
-| 名称                                                         | 描述                                                         | 类型   | 是否必选 |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------ | -------- |
-| Cache-Control                                                | RFC 2616 中定义的缓存指令，将作为目标对象元数据保存          | string | 否       |
-| Content-Disposition                                          | RFC 2616 中定义的文件名称，将作为目标对象元数据保存          | string | 否       |
-| Content-Encoding                                             | RFC 2616 中定义的编码格式，将作为目标对象元数据保存          | string | 否       |
-| Content-Type                                                 | RFC 2616 中定义的 HTTP 请求内容类型（MIME），此头部用于描述目标对象的内容类型，将作为目标对象元数据保存。<br>例如 `text/html` 或 `image/jpeg`。 | string | 是       |
-| Expires                                                      | RFC 2616 中定义的缓存失效时间，将作为目标对象元数据保存      | string | 否       |
-| x-cos-meta-\*                                                | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为目标对象元数据保存，大小限制为2KB<br>**注意：**用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-） | string | 否       |
+| 名称                | 描述                                                         | 类型   | 是否必选 |
+| ------------------- | ------------------------------------------------------------ | ------ | -------- |
+| Cache-Control       | RFC 2616 中定义的缓存指令，将作为目标对象元数据保存          | string | 否       |
+| Content-Disposition | RFC 2616 中定义的文件名称，将作为目标对象元数据保存          | string | 否       |
+| Content-Encoding    | RFC 2616 中定义的编码格式，将作为目标对象元数据保存          | string | 否       |
+| Content-Type        | RFC 2616 中定义的 HTTP 请求内容类型（MIME），此头部用于描述目标对象的内容类型，将作为目标对象元数据保存。<br>例如 `text/html` 或 `image/jpeg`。 | string | 是       |
+| Expires             | RFC 2616 中定义的缓存失效时间，将作为目标对象元数据保存      | string | 否       |
+| x-cos-meta-\*       | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为目标对象元数据保存，大小限制为2KB<br>**注意：**用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-） | string | 否       |
 
 **目标对象访问控制列表（ACL）相关头部**
 
 在复制对象时可以通过指定下列请求头部来设置目标对象的访问权限：
 
-| 名称                                                         | 描述                                                         | 类型   | 是否必选 |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------ | -------- |
-| x-cos-acl                                                    | 定义目标对象的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中对象的预设 ACL 部分，例如 default，private，public-read 等，默认为 default<br>**注意：**当前访问策略条目限制为1000条，如果您不需要进行对象 ACL 控制，请设置为 default 或者此项不进行设置，默认继承存储桶权限 | Enum   | 否       |
-| x-cos-grant-read                                             | 赋予被授权者读取目标对象的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
-| x-cos-grant-read-acp                                         | 赋予被授权者读取目标对象的访问控制列表（ACL）的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
-| x-cos-grant-write-acp                                        | 赋予被授权者写入目标对象的访问控制列表（ACL）的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
-| x-cos-grant-full-control                                     | 赋予被授权者操作目标对象的所有权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
+| 名称                     | 描述                                                         | 类型   | 是否必选 |
+| ------------------------ | ------------------------------------------------------------ | ------ | -------- |
+| x-cos-acl                | 定义目标对象的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中对象的预设 ACL 部分，例如 default，private，public-read 等，默认为 default<br>**注意：**当前访问策略条目限制为1000条，如果您不需要进行对象 ACL 控制，请设置为 default 或者此项不进行设置，默认继承存储桶权限 | Enum   | 否       |
+| x-cos-grant-read         | 赋予被授权者读取目标对象的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
+| x-cos-grant-read-acp     | 赋予被授权者读取目标对象的访问控制列表（ACL）的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
+| x-cos-grant-write-acp    | 赋予被授权者写入目标对象的访问控制列表（ACL）的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
+| x-cos-grant-full-control | 赋予被授权者操作目标对象的所有权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
 
 **源对象服务端加密（SSE）相关头部**
 
 如果源对象使用了服务端加密且加密方式为 SSE-C 时，则需要指定下列请求头部来解密源对象：
 
-| 名称                                                        | 描述                                                         | 类型   | 是否必选&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                          |
-| ----------------------------------------------------------- | ------------------------------------------------------------ | ------ | ----------------------------------- |
-| x-cos-copy-source-server-side-encryption-customer-algorithm | 服务端加密算法，目前仅支持 AES256                            | string | 源对象使用 SSE-C 时，此头部是必选项 |
-| x-cos-copy-source-server-side-encryption-customer-key       | 服务端加密密钥的 Base64 编码，例如<code>MDEyMzQ1Njc4OUFCQ<br>0RFRjAxMjM0NTY3ODlBQkNERUY=</code> | string | 源对象使用 SSE-C 时，此头部是必选项 |
-| x-cos-copy-source-server-side-encryption-customer-key-MD5   | 服务端加密密钥的 MD5 哈希值，使用 Base64 编码，<br>例如`U5L61r7jcwdNvT7frmUG8g==` | string | 源对象使用 SSE-C 时，此头部是必选项 |
+| 名称                                                        | 描述                                                         | 类型   | 是否必选&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
+| ----------------------------------------------------------- | ------------------------------------------------------------ | ------ | ------------------------------------------------------------ |
+| x-cos-copy-source-server-side-encryption-customer-algorithm | 服务端加密算法，目前仅支持 AES256                            | string | 源对象使用 SSE-C 时，此头部是必选项                          |
+| x-cos-copy-source-server-side-encryption-customer-key       | 服务端加密密钥的 Base64 编码，例如<code>MDEyMzQ1Njc4OUFCQ<br>0RFRjAxMjM0NTY3ODlBQkNERUY=</code> | string | 源对象使用 SSE-C 时，此头部是必选项                          |
+| x-cos-copy-source-server-side-encryption-customer-key-MD5   | 服务端加密密钥的 MD5 哈希值，使用 Base64 编码，<br>例如`U5L61r7jcwdNvT7frmUG8g==` | string | 源对象使用 SSE-C 时，此头部是必选项                          |
 
 **目标对象服务端加密（SSE）相关头部**
 
@@ -271,6 +271,7 @@ x-cos-copy-source: examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleo
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586542862;1586550062&q-key-time=1586542862;1586550062&q-header-list=content-length;date;host;x-cos-copy-source;x-cos-metadata-directive;x-cos-storage-class&q-url-param-list=&q-signature=8726a359b342cb1cace6945812ee8379c3ad****
 Connection: close
+
 ```
 
 #### 响应
@@ -290,6 +291,7 @@ x-cos-request-id: NWU5MGI5MGVfN2RiNDBiMDlfMTk1MjhfMWZm****
 	<CRC64>16749565679157681890</CRC64>
 	<LastModified>2020-04-10T18:21:55Z</LastModified>
 </CopyObjectResult>
+
 ```
 
 #### 案例五：将未加密的对象复制为使用 SSE-COS 加密的目标对象
@@ -305,6 +307,7 @@ x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586542872;1586550072&q-key-time=1586542872;1586550072&q-header-list=content-length;date;host;x-cos-copy-source;x-cos-server-side-encryption&q-url-param-list=&q-signature=ee94ef60dfb512882b368be12c6d47526433****
 Connection: close
+
 ```
 
 #### 响应
@@ -325,6 +328,7 @@ x-cos-server-side-encryption: AES256
 	<CRC64>16749565679157681890</CRC64>
 	<LastModified>2020-04-10T18:21:13Z</LastModified>
 </CopyObjectResult>
+
 ```
 
 #### 案例六：将未加密的对象复制为使用 SSE-KMS 加密的目标对象
@@ -342,6 +346,7 @@ x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586542883;1586550083&q-key-time=1586542883;1586550083&q-header-list=content-length;date;host;x-cos-copy-source;x-cos-server-side-encryption;x-cos-server-side-encryption-context;x-cos-server-side-encryption-cos-kms-key-id&q-url-param-list=&q-signature=28055a7cf07d7dde858fd924d6c0963b0c68****
 Connection: close
+
 ```
 
 #### 响应
@@ -363,6 +368,7 @@ x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085***
 	<CRC64>16749565679157681890</CRC64>
 	<LastModified>2020-04-10T18:22:16Z</LastModified>
 </CopyObjectResult>
+
 ```
 
 #### 案例七：复制 SSE-C 加密的对象并更换密钥
@@ -383,6 +389,7 @@ x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586542904;1586550104&q-key-time=1586542904;1586550104&q-header-list=content-length;date;host;x-cos-copy-source;x-cos-copy-source-server-side-encryption-customer-algorithm;x-cos-copy-source-server-side-encryption-customer-key;x-cos-copy-source-server-side-encryption-customer-key-md5;x-cos-server-side-encryption-customer-algorithm;x-cos-server-side-encryption-customer-key;x-cos-server-side-encryption-customer-key-md5&q-url-param-list=&q-signature=dece274320f748bb0c736b13e5409cd1c35f****
 Connection: close
+
 ```
 
 #### 响应
@@ -404,6 +411,7 @@ x-cos-server-side-encryption-customer-key-MD5: hRasmdxgYDKV3nvbahU1MA==
 	<CRC64>16749565679157681890</CRC64>
 	<LastModified>2020-04-10T18:22:31Z</LastModified>
 </CopyObjectResult>
+
 ```
 
 #### 案例八：将 SSE-C 加密的对象修改为不加密
@@ -422,6 +430,7 @@ x-cos-copy-source: examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleo
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586542925;1586550125&q-key-time=1586542925;1586550125&q-header-list=content-length;date;host;x-cos-copy-source;x-cos-copy-source-server-side-encryption-customer-algorithm;x-cos-copy-source-server-side-encryption-customer-key;x-cos-copy-source-server-side-encryption-customer-key-md5;x-cos-metadata-directive&q-url-param-list=&q-signature=b57bc8f6d666e9d722d30ad7d3ab442d9c43****
 Connection: close
+
 ```
 
 #### 响应
@@ -441,6 +450,7 @@ x-cos-request-id: NWU5MGI5NGRfOWFjOTJhMDlfMjg2NDdfMTA0****
 	<CRC64>16749565679157681890</CRC64>
 	<LastModified>2020-04-10T18:22:58Z</LastModified>
 </CopyObjectResult>
+
 ```
 
 #### 案例九：指定源对象的版本
@@ -455,6 +465,7 @@ x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example.
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586627495;1586634695&q-key-time=1586627495;1586634695&q-header-list=content-length;date;host;x-cos-copy-source&q-url-param-list=&q-signature=da80bd079b2c1fdb0dd961dea8568ee8d998****
 Connection: close
+
 ```
 
 #### 响应
@@ -475,6 +486,7 @@ x-cos-request-id: NWU5MjAzYTdfMWZjMDJhMDlfNTE4N18zNGU2****
 	<CRC64>16749565679157681890</CRC64>
 	<LastModified>2020-04-11T17:51:35Z</LastModified>
 </CopyObjectResult>
+
 ```
 
 #### 案例十：复制对象到启用版本控制的存储桶
@@ -489,6 +501,7 @@ x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example.
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586627516;1586634716&q-key-time=1586627516;1586634716&q-header-list=content-length;date;host;x-cos-copy-source&q-url-param-list=&q-signature=2c79d63b6078ace6fc9430fb6533b9a9ade1****
 Connection: close
+
 ```
 
 #### 响应
@@ -509,5 +522,6 @@ x-cos-request-id: NWU5MjAzYmNfNjRiMDJhMDlfOTE3N18yYWI4****
 	<LastModified>2020-04-11T17:51:56Z</LastModified>
 	<VersionId>MTg0NDUxNTc0NDYxOTI4MzU0MDI</VersionId>
 </CopyObjectResult>
+
 ```
 
