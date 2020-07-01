@@ -2,7 +2,7 @@
 
 **修复**
 
-使用 RESTAPI [创建好友工作群](https://cloud.tencent.com/document/product/269/1615)并指定群成员，创建成功后群成员发消息失败。
+使用 REST API [创建好友工作群](https://cloud.tencent.com/document/product/269/1615) 并指定群成员，创建成功后群成员发消息失败。
 
 
 ### 2.7.2 @2020.6.30
