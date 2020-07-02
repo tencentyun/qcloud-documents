@@ -33,7 +33,7 @@ Content-Type: application/xml
         <Name>demo</Name>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Snapshot_1581665960537,Animation_1581665960538,Animation_1581665960539</Start>
+               <Start>Snapshot_1581665960536,Snapshot_1581665960537,Animation_1581665960538,Animation_1581665960539</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
                 <Snapshot_1581665960537>End</Snapshot_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
@@ -126,15 +126,15 @@ Container 类型 MediaWorkflow 的具体数据描述如下：
 | 节点名称（关键字） | 父节点                | 描述       | 类型      | 是否必选 | 限制                                        |
 | ------------------ | --------------------- | ---------- | --------- | -------- | ------------------------------------------- |
 | Name               | Request.MediaWorkflow | 工作流名称 | String    | 是       | 支持中文、英文、数字、—和_，长度限制128字符 |
-| Topology           | Request.MediaWorkflow | 拓扑信息   | Container | 是       |                                             |
-| State              | Request.MediaWorkflow | 工作流状态 | String    | 是       | 1. Active <br/> 2. Paused<br/>              |
+| Topology           | Request.MediaWorkflow | 拓扑信息   | Container | 是       | 无                                          |
+| State              | Request.MediaWorkflow | 工作流状态 | String    | 是       | 1. Active <br/>2. Paused                    |
 
 Container 类型 Topology 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                         | 描述         | 类型      | 是否必选 | 限制 |
 | ------------------ | ------------------------------ | ------------ | --------- | -------- | ---- |
-| Dependencies       | Request.MediaWorkflow.Topology | 节点依赖关系 | Container | 是       |      |
-| Nodes              | Request.MediaWorkflow.Topology | 节点列表     | Container | 是       |      |
+| Dependencies       | Request.MediaWorkflow.Topology | 节点依赖关系 | Container | 是       | 无   |
+| Nodes              | Request.MediaWorkflow.Topology | 节点列表     | Container | 是       | 无   |
 
 Container 类型 Nodes 的具体数据描述如下：
 
@@ -149,80 +149,80 @@ Container 类型 Start 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                                     | 描述     | 类型      | 是否必选 | 限制 |
 | ------------------ | ------------------------------------------ | -------- | --------- | -------- | ---- |
-| Type               | Request.MediaWorkflow.Topology.Nodes.Start | 节点类型 | String    | 是       |      |
-| Input              | Request.MediaWorkflow.Topology.Nodes.Start | 输入信息 | Container | 是       |      |
+| Type               | Request.MediaWorkflow.Topology.Nodes.Start | 节点类型 | String    | 是       | 无   |
+| Input              | Request.MediaWorkflow.Topology.Nodes.Start | 输入信息 | Container | 是       | 无   |
 
 Container 类型 Input 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                                           | 描述        | 类型   | 是否必选 | 限制 |
-| ------------------ | ------------------------------------------------ | ----------- | ------ | -------- | ---- |
-| ObjectPrefix       | Request.MediaWorkflow.Topology.Nodes.Start.Input | Object 前缀 | String | 是       |      |
-| QueueId            | Request.MediaWorkflow.Topology.Nodes.Start.Input | 队列 ID     | String | 是       |      |
+| 节点名称（关键字） | 父节点                                                | 描述        | 类型   | 是否必选 | 限制 |
+| ------------------ | ----------------------------------------------------- | ----------- | ------ | -------- | ---- |
+| ObjectPrefix       | Request.MediaWorkflow.Topology.Nod<br/>es.Start.Input | Object 前缀 | String | 是       | 无   |
+| QueueId            | Request.MediaWorkflow.Topology.Nod<br/>es.Start.Input | 队列 ID     | String | 是       | 无   |
 
 Container 类型 Animation_*** 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                                             | 描述     | 类型      | 是否必选 | 限制         |
-| ------------------ | -------------------------------------------------- | -------- | --------- | -------- | ------------ |
-| Type               | Request.MediaWorkflow.Topology.Nodes.Animation_*** | 节点类型 | String    | 是       | 动图类型节点 |
-| Operation          | Request.MediaWorkflow.Topology.Nodes.Animation_*** | 操作规则 | Container | 是       |              |
+| 节点名称（关键字） | 父节点                                                  | 描述     | 类型      | 是否必选 | 限制         |
+| ------------------ | ------------------------------------------------------- | -------- | --------- | -------- | ------------ |
+| Type               | Request.MediaWorkflow.Topology.Nod<br/>es.Animation_*** | 节点类型 | String    | 是       | 动图类型节点 |
+| Operation          | Request.MediaWorkflow.Topology.Nod<br/>es.Animation_*** | 操作规则 | Container | 是       | 无           |
 
 Container 类型 Operation 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                                                       | 描述     | 类型      | 是否必选 | 限制 |
 | ------------------ | ------------------------------------------------------------ | -------- | --------- | -------- | ---- |
-| TemplateId         | Request.MediaWorkflow.Topology.Nodes.Animation_***.Operation | 模板 ID  | String    | 是       |      |
-| Output             | Request.MediaWorkflow.Topology.Nodes.Animation_***.Operation | 输出地址 | Container | 是       |      |
+| TemplateId         | Request.MediaWorkflow.Topology.Nod<br/>es.Animation_***.Operation | 模板 ID  | String    | 是       | 无   |
+| Output             | Request.MediaWorkflow.Topology.Nod<br/>es.Animation_***.Operation | 输出地址 | Container | 是       | 无   |
 
 Container 类型 Output 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                                                       | 描述         | 类型   | 是否必选 | 限制                                                         |
-| ------------------ | ------------------------------------------------------------ | ------------ | ------ | -------- | ------------------------------------------------------------ |
-| Region             | Request.MediaWorkflow.Topology.Nodes.Animation_***.Operation.Output | 存储桶的地域 | String | 是       |                                                              |
-| Bucket             | Request.MediaWorkflow.Topology.Nodes.Animation_***.Operation.Output | 存储桶的名称 | String | 是       |                                                              |
-| Object             | Request.MediaWorkflow.Topology.Nodes.Animation_***.Operation.Output | 结果文件名称 | String | 是       | 1、bcd/${RunId}/bcd.gif <br\> 2、bcd/${RunId}/bcd.webp <br\> |
+| 节点名称（关键字） | 父节点                                                       | 描述         | 类型   | 是否必选 | 限制                                                 |
+| ------------------ | ------------------------------------------------------------ | ------------ | ------ | -------- | ---------------------------------------------------- |
+| Region             | Request.MediaWorkflow.Topology.Nod<br/>es.Animation_***.Operation.Output | 存储桶的地域 | String | 是       | 无                                                   |
+| Bucket             | Request.MediaWorkflow.Topology.Nod<br/>es.Animation_***.Operation.Output | 存储桶的名称 | String | 是       | 无                                                   |
+| Object             | Request.MediaWorkflow.Topology.Nod<br/>es.Animation_***.Operation.Output | 结果文件名称 | String | 是       | 1. bcd/${RunId}/bcd.gif <br>2. bcd/${RunId}/bcd.webp |
 
 Container 类型 Snapshot_*** 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                                               | 描述     | 类型      | 是否必选 | 限制         |
-| ------------------ | ---------------------------------------------------- | -------- | --------- | -------- | ------------ |
-| Type               | Request.MediaWorkflow.Topology.Nodes.Snapshot_****** | 节点类型 | String    | 是       | 动图类型节点 |
-| Operation          | Request.MediaWorkflow.Topology.Nodes.Snapshot_****** | 操作规则 | Container | 是       |              |
-
-Container 类型 Operation 的具体数据描述如下：
-
-| 节点名称（关键字） | 父节点                                                      | 描述     | 类型      | 是否必选 | 限制 |
-| ------------------ | ----------------------------------------------------------- | -------- | --------- | -------- | ---- |
-| TemplateId         | Request.MediaWorkflow.Topology.Nodes.Snapshot_***.Operation | 模板 ID  | String    | 是       |      |
-| Output             | Request.MediaWorkflow.Topology.Nodes.Snapshot_***.Operation | 输出地址 | Container | 是       |      |
-
-Container 类型 Output 的具体数据描述如下：
-
-| 节点名称（关键字） | 父节点                                                       | 描述         | 类型   | 是否必选 | 限制                                                         |
-| ------------------ | ------------------------------------------------------------ | ------------ | ------ | -------- | ------------------------------------------------------------ |
-| Region             | Request.MediaWorkflow.Topology.Nodes.Snapshot_***.Operation.Output | 存储桶的地域 | String | 是       |                                                              |
-| Bucket             | Request.MediaWorkflow.Topology.Nodes.Snapshot_***.Operation.Output | 存储桶的名称 | String | 是       |                                                              |
-| Object             | Request.MediaWorkflow.Topology.Nodes.Snapshot_***.Operation.Output | 结果文件名称 | String | 是       | abc/${RunId}/snapshot-${number}.${Ext} <br\> 2、bcd/${RunId}/snapshot-${number}.jpg <br\> |
-
-Container 类型 SmartCover_*** 的具体数据描述如下：
-
-| 节点名称（关键字） | 父节点                                              | 描述     | 类型      | 是否必选 | 限制         |
-| ------------------ | --------------------------------------------------- | -------- | --------- | -------- | ------------ |
-| Type               | Request.MediaWorkflow.Topology.Nodes.SmartCover_*** | 节点类型 | String    | 是       | 动图类型节点 |
-| Operation          | Request.MediaWorkflow.Topology.Nodes.SmartCover_*** | 操作规则 | Container | 是       |              |
+| 节点名称（关键字） | 父节点                                                    | 描述     | 类型      | 是否必选 | 限制         |
+| ------------------ | --------------------------------------------------------- | -------- | --------- | -------- | ------------ |
+| Type               | Request.MediaWorkflow.Topology.Nod<br/>es.Snapshot_****** | 节点类型 | String    | 是       | 动图类型节点 |
+| Operation          | Request.MediaWorkflow.Topology.Nod<br/>es.Snapshot_****** | 操作规则 | Container | 是       | 无           |
 
 Container 类型 Operation 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                                                       | 描述     | 类型      | 是否必选 | 限制 |
 | ------------------ | ------------------------------------------------------------ | -------- | --------- | -------- | ---- |
-| Output             | Request.MediaWorkflow.Topology.Nodes.SmartCover_***.Operation | 输出地址 | Container | 是       |      |
+| TemplateId         | Request.MediaWorkflow.Topology.Nod<br/>es.Snapshot_***.Operation | 模板 ID  | String    | 是       | 无   |
+| Output             | Request.MediaWorkflow.Topology.Nod<br/>es.Snapshot_***.Operation | 输出地址 | Container | 是       | 无   |
 
 Container 类型 Output 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                                                       | 描述         | 类型   | 是否必选 | 限制                                   |
-| ------------------ | ------------------------------------------------------------ | ------------ | ------ | -------- | -------------------------------------- |
-| Region             | Request.MediaWorkflow.Topology.Nodes.SmartCover_***.Operation.Output | 存储桶的地域 | String | 是       |                                        |
-| Bucket             | Request.MediaWorkflow.Topology.Nodes.SmartCover_***.Operation.Output | 存储桶的名称 | String | 是       |                                        |
-| Object             | Request.MediaWorkflow.Topology.Nodes.SmartCover_***.Operation.Output | 结果文件名称 | String | 是       | 必须包含 ${Number} ${RunId}参数。<br\> |
+| 节点名称（关键字） | 父节点                                                       | 描述         | 类型   | 是否必选 | 限制                                                         |
+| ------------------ | ------------------------------------------------------------ | ------------ | ------ | -------- | ------------------------------------------------------------ |
+| Region             | Request.MediaWorkflow.Topology.Nod<br/>es.Snapshot_***.Operation.Output | 存储桶的地域 | String | 是       | 无                                                           |
+| Bucket             | Request.MediaWorkflow.Topology.Nod<br/>es.Snapshot_***.Operation.Output | 存储桶的名称 | String | 是       | 无                                                           |
+| Object             | Request.MediaWorkflow.Topology.Nod<br/>es.Snapshot_***.Operation.Output | 结果文件名称 | String | 是       | 1. abc/${RunId}/snapshot-${number}.${Ext} 2. bcd/${RunId}/snapshot-${number}.jpg |
+
+Container 类型 SmartCover_*** 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                   | 描述     | 类型      | 是否必选 | 限制         |
+| ------------------ | -------------------------------------------------------- | -------- | --------- | -------- | ------------ |
+| Type               | Request.MediaWorkflow.Topology.Nod<br/>es.SmartCover_*** | 节点类型 | String    | 是       | 动图类型节点 |
+| Operation          | Request.MediaWorkflow.Topology.Nod<br/>es.SmartCover_*** | 操作规则 | Container | 是       | 无           |
+
+Container 类型 Operation 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                       | 描述     | 类型      | 是否必选 | 限制 |
+| ------------------ | ------------------------------------------------------------ | -------- | --------- | -------- | ---- |
+| Output             | Request.MediaWorkflow.Topology.Nod<br/>es.SmartCover_***.Operation | 输出地址 | Container | 是       | 无   |
+
+Container 类型 Output 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                                                       | 描述         | 类型   | 是否必选 | 限制                            |
+| ------------------ | ------------------------------------------------------------ | ------------ | ------ | -------- | ------------------------------- |
+| Region             | Request.MediaWorkflow.Topology.Nod<br/>es.SmartCover_***.Operation.Output | 存储桶的地域 | String | 是       | 无                              |
+| Bucket             | Request.MediaWorkflow.Topology.Nod<br/>es.SmartCover_***.Operation.Output | 存储桶的名称 | String | 是       | 无                              |
+| Object             | Request.MediaWorkflow.Topology.Nod<br/>es.SmartCover_***.Operation.Output | 结果文件名称 | String | 是       | 必须包含 ${Number} ${RunId}参数 |
 
 ## 响应
 
