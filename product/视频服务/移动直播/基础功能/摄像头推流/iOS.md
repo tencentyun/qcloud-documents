@@ -13,7 +13,7 @@
 
 | 所属平台 | GitHub 地址 | 关键类 |
 |:---------:|:--------:|:---------:|
-| iOS | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/CameraPush) | CameraPushViewController.m |
+| iOS | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LivePusherDemo/CameraPushDemo) | CameraPushViewController.m |
 | Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/lvb/src/main/java/com/tencent/liteav/demo/lvb/camerapush) | CameraPusherActivity.java |
 
 
