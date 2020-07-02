@@ -10,7 +10,7 @@
 <tr>
         <td>SDK 1.2.0.2 版本发布</td>
        <td><li>  内部逻辑优化 </li> </td>
-        <td>2020-06-23</td>
+        <td>2020-07-01</td>
         <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载 SDK</a></td>
     </tr>
 </table>
