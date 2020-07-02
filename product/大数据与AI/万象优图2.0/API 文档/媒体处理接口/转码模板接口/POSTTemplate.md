@@ -186,7 +186,7 @@ Container 类型 Video 的具体数据描述如下：
 
 | 节点名称（关键字）         | 父节点        | 描述                   | 类型   | 是否必选 | 默认值       | 限制                                                         |
 | -------------------------- | ------------- | ---------------------- | ------ | -------- | ------------ | ------------------------------------------------------------ |
-| Codec                      | Request.Video | 编解码格式             | String | 否       | 无           | h.264、gif、webp                                              |
+| Codec                      | Request.Video | 编解码格式             | String | 否       | 无           | H.264、gif、webp                                              |
 | Width                      | Request.Video | 宽                     | String | 否       | 视频原始宽度 | 1.  值范围：[128，4096]<br>2. 单位：px<br>3. 若只设置 Width 时，按照视频原始比例计算 Height |
 | Height                     | Request.Video | 高                     | String | 否       | 视频原始高度 | 1. 值范围：[128，4096]<br>2. 单位：px<br>3. 若只设置 Height 时，按照视频原始比例计算 Width |
 | Fps                        | Request.Video | 帧率                   | String | 否       | 视频原始帧率 | 1.  值范围：(0，60]<br>2. 单位：fps<br>3. 帧率超过60时，设置为60 <br> 4. 用户可以设置 fps，如果不设置，那么播放速度按照原来的时间戳。这里设置 fps 为动图的播放帧率 |
@@ -195,11 +195,11 @@ Container 类型 Video 的具体数据描述如下：
 | AnimateTimeIntervalOfFrame | Request.Video | 动图抽帧间隔时间       | String | 否       | 无           | 1.  （0，视频时长] <br>  2. 动图抽帧时间间隔 <br> 3. 若设置 TimeInterval.Duration，则小于该值 |
 | AnimateFramesPerSecond     | Request.Video | Animation 每秒抽帧帧数 | String | 否       | 无           | 1.（0，视频帧率)    <br>2. 动图抽帧频率 <br>3. 优先级：AnimateFramesPerSecond > AnimateOnlyKeepKeyFrame >  AnimateTimeIntervalOfFrame |
 | Quality                    | Request.Video | 设置相对质量           | String | 否       | 无           | 1. [1,  100)  <br>2. webp 图像质量设定生效，gif 没有质量参数 |
-| Profile                    | Request.Video | 编码级别               | String | 否       | high         | 1. 支持 baseline、main、high  <br>2. baseline：适合移动设备  <br>3. main：适合标准分辨率设备 <br>4. high：适合高分辨率设备 <br>5. 仅h.264支持此参数 |
+| Profile                    | Request.Video | 编码级别               | String | 否       | high         | 1. 支持 baseline、main、high  <br>2. baseline：适合移动设备  <br>3. main：适合标准分辨率设备 <br>4. high：适合高分辨率设备 <br>5. 仅H.264支持此参数 |
 | Bitrate                    | Request.Video | 视频输出文件的码率     | String | 否       | 无           | 1. 值范围：[10，50000]  <br>2.  单位：Kbps                   |
 | Crf                        | Request.Video | 码率-质量控制因子      | String | 否       | 26           | 1. 值范围：[0，51]  <br>2. 如果设置了 Crf，则 Bitrate 的设置失效 |
 | Gop                        | Request.Video | 关键帧间最大帧数       | String | 否       | 无           | 值范围：[0，100000]                                          |
-| Preset                     | Request.Video | 视频算法器预置         | String | 否       | medium       | 1. 仅h.264支持该参数   <br>2. 取值 veryfast、fast、medium、slow、slower |
+| Preset                     | Request.Video | 视频算法器预置         | String | 否       | medium       | 1. 仅H.264支持该参数   <br>2. 取值 veryfast、fast、medium、slow、slower |
 | Bufsize                    | Request.Video | 缓冲区大小             | String | 否       | 0            | 1. 值范围：[1000，128000] <br>2. 单位：Kb  <br>3. 默认值为0表示不使用 Bufsize |
 | Maxrate                    | Request.Video | 视频码率峰值           | String | 否       | 0            | 1. 值范围：[10，50000]  <br>2. 单位：Kbps  <br>3. 默认值0表示不使用此参数 |
 
