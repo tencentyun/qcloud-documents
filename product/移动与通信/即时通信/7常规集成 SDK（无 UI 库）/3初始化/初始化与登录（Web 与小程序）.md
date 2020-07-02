@@ -72,7 +72,7 @@ tim.on(TIM.EVENT.MESSAGE_REVOKED, function(event) {
 });
 
 tim.on(TIM.EVENT.MESSAGE_READ_BY_PEER, function(event)) {
-  // SDK 收到对端已读消息的通知，即已读回执。使用前需要将SDK版本升级至v2.7.0或以上。仅支持单聊会话。
+  // SDK 收到对端已读消息的通知，即已读回执。使用前需要将 SDK 版本升级至 v2.7.0 或以上。仅支持单聊会话。
   // event.name - TIM.EVENT.MESSAGE_READ_BY_PEER
   // event.data - event.data - 存储 Message 对象的数组 - [Message] - 每个 Message 对象的 isPeerRead 属性值为 true
 });
