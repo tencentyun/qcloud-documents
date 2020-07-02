@@ -32,10 +32,10 @@ Content-Type: application/xml
    <Tag>Animation</Tag>
    <Name>Template Name</Name>
    <Container>
-      <Format>gif</Format>
+      <Format>mp4</Format>
    </Container>
    <Video>
-      <Codec>GIF</Codec>
+      <Codec>H.264</Codec>
       <Width>128-4096</Width>
       <Height>128-4096</Height>
       <Fps>1-60</Fps>
@@ -97,7 +97,7 @@ Container 类型 Request 的具体数据描述如下：
       <td>模板类型 Animation，Snapshot，Transcode</td>
       <td>String</td>
       <td>是</td>
-      <td>长度限制100字符</td>
+      <td>无</td>
    </tr>
    <tr>
       <td>Name</td>
@@ -370,13 +370,13 @@ Container 类型 TransConfig 的具体数据描述如下：
 <Response>
     <Name>Template Name</Name>
     <TemplateID></TemplateID>
-    <Tag>Animation</Tag>
+    <Tag></Tag>
     <TransTpl>
       <Container>
          <Format>mp4</Format>
       </Container>
       <Video>
-         <Codec>GIF</Codec>
+         <Codec>H.264</Codec>
          <Width>128-4096</Width>
          <Height>128-4096</Height>
          <Fps>1-60</Fps>
@@ -417,12 +417,12 @@ Content-Type: application/xml
 
 <Request>
     <Name>Template Name</Name>
-    <Tag>Animation</Tag>
+    <Tag></Tag>
     <Container>
         <Format>mp4</Format>
     </Container>
     <Video>
-        <Codec>GIF</Codec>
+        <Codec>H.264</Codec>
         <Width>128-4096</Width>
         <Height>128-4096</Height>
         <Fps>1-60</Fps>
@@ -447,7 +447,7 @@ Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 <Response>
-    <Tag>Animation</Tag>
+    <Tag></Tag>
     <Name>Template Name</Name>
     <TemplateID></TemplateID>
     <TransTpl>
@@ -455,7 +455,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
          <Format>mp4</Format>
       </Container>
       <Video>
-         <Codec>GIF</Codec>
+         <Codec>H.264</Codec>
          <Width>128-4096</Width>
          <Height>128-4096</Height>
          <Fps>1-60</Fps>
