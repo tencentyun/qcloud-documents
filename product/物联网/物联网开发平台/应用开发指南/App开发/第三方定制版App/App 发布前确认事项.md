@@ -1,13 +1,13 @@
 ## iOS
 
-- 确认填写用户自己的 Bundle ID 和 对应发布证书。   
-- 用户需要使用从物联网平台自建应用所获得的 **TencentIotLinkAppkey** 和 **TencentIotLinkAppSecrecy**，来替换 App Demo 中相对应的字符串，如下图所示：
+1. 确认填写用户自己的 Bundle ID 和 对应发布证书。   
+2. 用户需要使用从 [物联网开发平台](https://console.cloud.tencent.com/iotexplorer) 自建应用所获得的 **TencentIotLinkAppkey** 和 **TencentIotLinkAppSecrecy**，来替换 App Demo 中相对应的字符串，如下图所示：
 	![](https://main.qcloudimg.com/raw/f7d36664333f13ddf725bd8bf078edaf.png)
-- 用户需要使用从腾讯推送平台自建应用所获得的 **XgAccessId** 和 **XgAccessKey**，来替换 App Demo 中相对应的字符串，如下图所示：
+3. 用户需要使用从 [腾讯推送平台](https://console.cloud.tencent.com/tpns) 自建应用所获得的 **XgAccessId** 和 **XgAccessKey**，来替换 App Demo 中相对应的字符串，如下图所示：
 ![](https://main.qcloudimg.com/raw/3eb506a9945405c92a367eecd2ff9062.png)
-- 用户需要使用从微信开发平台自建应用所获得的 **WXAccessAppId**，来替换 App Demo 中相对应的字符，详情可参见 [移动应用微信登录开发指南](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Development_Guide.html)。
+4. 用户需要使用从 [微信开放平台](https://open.weixin.qq.com/cgi-bin/frame?t=home/app_tmpl&lang=zh_CN) 自建应用所获得的 **WXAccessAppId**，来替换 App Demo 中相对应的字符，详情可参见 [移动应用微信登录开发指南](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Development_Guide.html)。
 ![](https://main.qcloudimg.com/raw/e96694bd1962970c785d1b1fcd68b51b.png)
-- 如果用户确认接入 Firebase，用户需要使用从 Firebase 官网自建应用获得 **GoogleService-Info.plist**，替换 App Demo 中原有相对应的文件，如下图所示：<br>
+5. 如果用户确认接入 Firebase，用户需要使用从 Firebase 官网自建应用获得 **GoogleService-Info.plist**，替换 App Demo 中原有相对应的文件，如下图所示：<br>
   <img src="https://main.qcloudimg.com/raw/7c17279a720b92ffb875e1b7ed46e89c/image-20200622184506.png" alt="image-20200622184506" style="zoom:85%;" />
 
 
