@@ -141,9 +141,9 @@ Container 类型 Nodes 的具体数据描述如下：
 | 节点名称（关键字） | 父节点                               | 描述         | 类型      | 是否<br>必选 | 限制                                               |
 | ------------------ | ------------------------------------ | ------------ | --------- | ------------ | -------------------------------------------------- |
 | Start              | Request.MediaWorkflow.Topology.Nodes | 开始节点     | Container | 是           | 只有唯一一个开始节点                               |
-| Animation_***      | Request.MediaWorkflow.Topology.Nodes | 动图类型节点 | Container | 是           | 节点名称以 Animation 为前缀，可能多个动图节点      |
-| Snapshot_***       | Request.MediaWorkflow.Topology.Nodes | 截图类型节点 | Container | 是           | 节点名称以 Snapshot 为前缀，可能多个截图节点       |
-| SmartCover_***     | Request.MediaWorkflow.Topology.Nodes | 智能封面节点 | Container | 是           | 节点名称以 SmartCover 为前缀，可能多个智能封面节点 |
+| Animation_***      | Request.MediaWorkflow.Topology.Nodes | 动图类型节点 | Container | 是           | 节点名称以 Animation 为前缀，可能有多个动图节点      |
+| Snapshot_***       | Request.MediaWorkflow.Topology.Nodes | 截图类型节点 | Container | 是           | 节点名称以 Snapshot 为前缀，可能有多个截图节点       |
+| SmartCover_***     | Request.MediaWorkflow.Topology.Nodes | 智能封面节点 | Container | 是           | 节点名称以 SmartCover 为前缀，可能有多个智能封面节点 |
 
 Container 类型 Start 的具体数据描述如下：
 
