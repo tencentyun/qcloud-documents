@@ -8,15 +8,16 @@ CDW 常见使用场景是将消息中间件的信息同步到 CDW 后再进行�
 - 该云函数目前只能将 CDW 中的某一张表作为目标数据写入，如果有多张表的需求，请按照以下流程每张表创建对应的云函数。
 
 ## 使用步骤
-1. 创建函数
-在 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=4) 中选择【函数服务】>【新建】，在“新建函数”页面中选择【运行环境】为“Python3.6”，【模糊搜索】中搜索关键词“ckafka”，选择模板函数“CKafka 数据加载到 CDW”，如下图所示：
-![](https://main.qcloudimg.com/raw/70e55179550b09935832dd996dbac934.png)
-2. 配置函数
-函数配置过程，如下图所示：
-![](https://main.qcloudimg.com/raw/ddf1c9b61872c38bc06e3249c26202c5.png)
+
+###  步骤一：创建函数
+
+在 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=4) 中选择【函数服务】>【新建】，在“新建函数”页面中选择【运行环境】为“Python3.6”，【模糊搜索】中搜索关键词“ckafka”，选择模板函数“CKafka 数据加载到 CDW”，设置完成后单击【下一步】。
+![](https://main.qcloudimg.com/raw/6115e15c0f228d08caeea72f59961262.png)
+进入“函数配置”页面后，在“高级配置”中进行【环境配置】和【网络配置】，配置如下：
+- **环境配置**
  - 内存：根据实际运行情况来设置，默认为128MB。当导入过程中出现内存不足的问题时，需调大内存。
  - 环境变量：
- <table>
+<table>
 	<thead>
 	<tr>
 	<th>参数</th>
@@ -67,10 +68,16 @@ CDW 常见使用场景是将消息中间件的信息同步到 CDW 后再进行�
 	</tr>
 </tbody>
 </table>
- - 网络：建议启用私有网络，并将 VPC 和子网的值配置的与 CDW 相同，如下图为 CDW 对应的值。
+- **网络配置**
+ - 私有网络：建议**启用**私有网络，并将 VPC 和子网的值配置的与 CDW 相同。
+ ![](https://main.qcloudimg.com/raw/528bf58229140b1e263bd2135d0a59c6.png)
+ 下图为 CDW 对应的值。
 ![](https://main.qcloudimg.com/raw/69f95bd32b0a9057f9880dd6bf22e859.png)
-3. 配置触发管理
-触发器配置过程，如下图所示：
+ - 公网访问：建议同时**启用**公网访问。
+
+### 步骤二：配置触发器
+
+在 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=4) 的【函数服务】列表中，单击函数列表新建的函数名，进入函数详情页面。选择页面左侧【触发管理】>【创建触发器】创建新触发器。其中【触发方式】需设置为“Ckafka 触发”，如下图所示：
 ![](https://main.qcloudimg.com/raw/3ad13178a24acf0e9a5cee2d630b3457.png)
 
 关于触发器参数配置可以参考 [CKafka 触发器](https://cloud.tencent.com/document/product/583/17530)。

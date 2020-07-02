@@ -12,7 +12,7 @@ virtual void onTEBError(TEduBoardErrorCode code, const char *msg)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardErrorCode | 错误码，参见 TEduBoardErrorCode 定义  |
+| code | TEduBoardErrorCode | 错误码，参见 [TEduBoardErrorCode](https://cloud.tencent.com/document/product/1137/39987#teduboarderrorcode) 定义  |
 | msg | const char * | 错误信息，编码格式为 UTF8  |
 
 
@@ -25,7 +25,7 @@ virtual void onTEBWarning(TEduBoardWarningCode code, const char *msg)=0
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardWarningCode | 错误码，参见 TEduBoardWarningCode 定义  |
+| code | TEduBoardWarningCode | 错误码，参见 [TEduBoardWarningCode](https://cloud.tencent.com/document/product/1137/39987#teduboardwarningcode) 定义  |
 | msg | const char * | 错误信息，编码格式为 UTF8  |
 
 
@@ -90,6 +90,12 @@ virtual void onTEBRedoStatusChanged(bool canRedo)
 框选工具选中回调 只有框选中涂鸦或图片元素后触发回调 
 ``` C++
 virtual void onTEBRectSelected()
+```
+
+### onTEBRefresh
+刷新白板回调 
+``` C++
+virtual void onTEBRefresh()
 ```
 
 ### onTEBOffscreenPaint

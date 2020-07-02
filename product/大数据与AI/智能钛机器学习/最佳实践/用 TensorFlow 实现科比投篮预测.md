@@ -49,7 +49,7 @@
 
 ## 整体流程 
 该 Demo 的整体流程如下： 
-![](https://main.qcloudimg.com/raw/c00fd14e7e4d2f5f14d7147b830deba9.png)
+<img src="https://main.qcloudimg.com/raw/2d53e3facc1f39457fd33196853e5b4d.png" style="zoom:50%;" />
 
 >!您可以按需自行配置资源参数，不同资源实例类型对应的价格不同。选择资源时，您可以参看资源参数右上角的**计费说明**。
 
@@ -62,20 +62,21 @@
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【输入】>【数据源】>【 本地数据】，拖入画布中 。
 2. 选中【本地数据】，右侧栏会出现节点信息，单击算法 IO 参数中的【数据文件】 上传【案例相关材料】的 kobe.csv。 
 3. 修改 COS 路径： 
-目标 COS 路径本为自动生成，无需修改，但支持用户自定义修改，如此处修改为`${cos}/kobe_predict/`。 
-请务必复制修改此处“目标 COS 路径”，否则后续运行系统会报找不到文件的错误 。
-![](https://main.qcloudimg.com/raw/b1d91140cf7b3d1da9d4f04a6866c248.png)
-![](https://main.qcloudimg.com/raw/f5a45bade44051748c46de9484f0ca00.png)
+目标 COS 路径支持用户自定义修改，请将此处修改为`${cos}/kobe_predict/`，否则后续运行系统会报找不到文件的错误。
+
+<img src="https://main.qcloudimg.com/raw/2d97b53fcfed54e383c94259165a10b9.png" style="zoom:50%;" />
+<img src="https://main.qcloudimg.com/raw/f5a45bade44051748c46de9484f0ca00.png" style="zoom:78%;" />
+
 
 #### 二. 数据清洗
 此数据清洗功能由【案例相关材料】中的清洗代码 data_cleaning.py 提供，所以此处主要向用户展示如何将自行编写的代码融入工作流中： 
 1. 在智能钛机器学习平台控制台的左侧导航栏，选择【框架】>【深度学习】>【 TensorFlow】。 
-2. 将【 TensorFlow】拖入画布中，并右键单击重命名为“数据清洗”。 
+2. 将【TensorFlow】拖入画布中，并右键单击重命名为“数据清洗”。 
 3. 填写参数： 
  - 【组件参数】中的“程序脚本”：上传文件 `data_cleaning.py`详见【案例相关材料】。 
- - Python 版本：选择 Python 3.5。 
  - 其余参数均可默认。 
-![](https://main.qcloudimg.com/raw/39365bc8f7b5c442455b2537bbdf30e2.png)
+
+<img src="https://main.qcloudimg.com/raw/2a022e929416c1e031f3d3dc431afbd4.png" style="zoom:50%;" />
 
 
 #### 三. 特征转换
@@ -83,9 +84,9 @@
 2. 将【 TensorFlow】拖入画布中，并右键重命名为“特征转换”。 
 3. 填写参数： 
  - 程序脚本：上传文件 `data_transformation.py`详见【案例相关材料】。 
- - Python 版本：选择 `Python 3.5`。 
  - 其余参数均可默认。 
-![](https://main.qcloudimg.com/raw/fdb1dd43fad2041f71aa2e67e58506be.png)
+
+<img src="https://main.qcloudimg.com/raw/5cebb60df22010b6611f3a37cc1e3832.png" style="zoom:50%;" />
 
 #### 四. 特征选择
 此特征选择功能亦由【案例相关材料】中的相关代码 feature_selection.py 提供： 
@@ -93,9 +94,10 @@
 2. 将【TensorFlow】拖入画布中，并右键单击重命名为“特征选择”。 
 3. 填写参数： 
  - 程序脚本：上传文件 `feature_selection.py` 详见【案例相关材料】。 
- - Python 版本：选择 Python 3.5。 
  - 其余参数均可默认。 
-![](https://main.qcloudimg.com/raw/f26e78155ccf2700af19bc8d6c7ab851.png)
+
+<img src="https://main.qcloudimg.com/raw/ed656a7d739db690b1449b3840db4b47.png" style="zoom:50%;" />
+
 
 #### 五. 分类器
 此分类器功能亦由【案例相关材料】中的相关代码`classifier.py`提供： 
@@ -103,9 +105,9 @@
 2. 将【TensorFlow】拖入画布中，并右键重命名为“分类器”。 
 3. 填写参数： 
  - 程序脚本：上传文件 `classifier.py` 详见【案例相关材料】。 
- - Python 版本：选择 `Python 3.5`。 
  - 其余参数均可默认。 
-![](https://main.qcloudimg.com/raw/1e352cfdcdf69d56236f1f0c7e895a96.png)
+
+<img src="https://main.qcloudimg.com/raw/b0bee0859c870ab74c477281e02ebb46.png" style="zoom:50%;" />
 
 #### 六. 模型评估
 1. 在智能钛机器学习平台控制台的左侧导航栏下方，搜索【二分类任务评估】，并拖入画布中。 
@@ -117,10 +119,13 @@
  - 输入数据分隔符：空格。
  - 预测列：1。
  - 其余参数可默认。 
-![](https://main.qcloudimg.com/raw/e47a6f66e6a5231835426da21946bde9.png)
-![](https://main.qcloudimg.com/raw/d5feafd51b37fd376472f3234f95dd7d.png)
+
+<img src="https://main.qcloudimg.com/raw/2d53e3facc1f39457fd33196853e5b4d.png" style="zoom:50%;" />
+<img src="https://main.qcloudimg.com/raw/354e800405376785e4f9d9f656bff412.png" style="zoom:50%;" />
+
 
 #### 七. 运行调度及模型评估
 单击画布上方运行按钮可运行工作流，详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/34007)。 
 运行成功后，右键单击【二分类任务评估】>【评估指标】，即可查看模型效果。
 ![](https://main.qcloudimg.com/raw/2e2d3809a2bf48bba481a2393c7822da.png)
+<img src="https://main.qcloudimg.com/raw/2d53e3facc1f39457fd33196853e5b4d.png" style="zoom:50%;" />

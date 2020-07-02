@@ -41,7 +41,7 @@ make
 
 ```c++
 "AppID":1251668577,
-"SecretID":"AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO",
+"SecretID":"AKIDWtTCBYjM5OwLB9CAwA1Qb*******",
 "SecretKey":"FZjRSu0mJ9YJijVXXY57MAdCl4uylaA7",
 "Region":"sh",                    //所属 COS 区域，上传下载操作的 URL 均与该参数有关
 "SignExpiredTime":360,            //签名超时时间，单位：秒

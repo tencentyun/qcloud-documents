@@ -12,7 +12,7 @@ function TEB_ERROR(TEduBoardErrorCode code, String msg)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardErrorCode | 错误码，参见 TEduBoardErrorCode 定义  |
+| code | TEduBoardErrorCode | 错误码，参见 [TEduBoardErrorCode](https://cloud.tencent.com/document/product/1137/40003#teduboarderrorcode) 定义  |
 | msg | String | 错误信息，编码格式为 UTF8  |
 
 
@@ -25,7 +25,7 @@ function TEB_WARNING(TEduBoardWarningCode code, String msg)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardWarningCode | 错误码，参见 TEduBoardWarningCode 定义  |
+| code | TEduBoardWarningCode | 错误码，参见 [TEduBoardWarningCode](https://cloud.tencent.com/document/product/1137/40003#teduboardwarningcode) 定义  |
 | msg | String | 错误信息，编码格式为 UTF8  |
 
 
@@ -229,6 +229,12 @@ function TEB_GOTOSTEP(Number currentStep, Number totalStep)
 框选工具选中回调，只有框选中涂鸦或图片元素后触发回调 
 ``` C++
 function TEB_RECTSELECTED()
+```
+
+### TEB_REFRESH
+刷新当前白板 
+``` C++
+function TEB_REFRESH()
 ```
 
 

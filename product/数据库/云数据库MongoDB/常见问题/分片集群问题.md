@@ -17,7 +17,7 @@
 
 ### MongoDB 分片集群扩容方式有哪些？
 目前只支持将所有节点进行统一扩容，暂不支持通过添加节点的方式进行扩容。
-在 [控制台](https://console.cloud.tencent.com/mongodb/sharding) 实例列表页单击【扩容】，选择需要扩到的容量规格，单击【升级】。
+在 [控制台](https://console.cloud.tencent.com/mongodb/sharding) 实例列表页单击【配置调整】，选择需要扩到的容量规格。
 
 ### MongoDB 如何实现分片集群实例监控？
 云数据库 MongoDB 分片集群实例提供三个维度的监控指标，来进行整个集群的数据监控。

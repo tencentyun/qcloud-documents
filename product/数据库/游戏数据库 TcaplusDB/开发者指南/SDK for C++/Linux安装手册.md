@@ -1,12 +1,12 @@
 ## 操作场景
-本文档指导您在 Linux 系统环境下安装和使用 TcaplusDB Pb 表。
+本文档指导您在 Linux 系统环境下安装和使用 TcaplusDB PB 表。
 
 ## 运行环境
 Linux 2.6、Suse 12 64 位。
 
 ## 前提条件
-安装和使用 TcaplusDB Pb 前需安装 Protobuf，若已安装可忽略此节。
-Protobuf 是 Google 推出的一种混合语言数据标准，是一种轻便的结构化数据存储格式。TcaplusDB 系统支持使用 Protobuf 格式定义文件（.proto）定义数据表。使用 TcaplusDB Pb API 之前，需要在开发服务器上安装 Protobuf，推荐使用源代码进行 Protobuf 安装，安装方法如下：
+安装和使用 TcaplusDB PB 前需安装 Protobuf，TcaplusDB 当前支持 Protocol Buffers 2.6.1 版本以及3.5.0版本。
+Protobuf 是 Google 推出的一种混合语言数据标准，是一种轻便的结构化数据存储格式。TcaplusDB 系统支持使用 Protobuf 格式定义文件（.proto）定义数据表。使用 TcaplusDB PB API 之前，需要在开发服务器上安装 Protobuf，推荐使用源代码进行 Protobuf 安装，安装方法如下：
 1. 准备云服务器环境。
 首先需要准备安装了 CentOS6- x86_64 或 CentOS7-x86_64 版本操作系统的服务器。为了编译构建 Protobuf，需要安装以下软件，安装方法请自行查询：
  - autoconf
@@ -16,7 +16,7 @@ Protobuf 是 Google 推出的一种混合语言数据标准，是一种轻便的
  - make
  - g++
  - unzip
-2. 下载 [Protobuf 源码安装包](https://github.com/protocolbuffers/protobuf/releases)。
+2. 下载 Protobuf 源码安装包，请参见 [SDK 下载](https://cloud.tencent.com/document/product/596/31925)。
 3. 请根据实际需求安装指定版本的 ProtoBuf，下文以 protobuf 2.6.1 版本为例。
 4. 执行以下命令，解压源码安装包，并进入源码根目录下。
 ```
@@ -60,7 +60,7 @@ tar –xzf <安装包路径> -C <安装目录>，
 ### 运行 example 访问 TcaplusDB
 GameSvr 游戏服务器中对应数据访问逻辑的开发，可以参考 example 中的各接口示例。
 
-1. 解压 TcaplusDB Pb API 发布包。
+1. 解压 TcaplusDB PB API 发布包。
 ```
 tar -xzvf TcaplusPbApi3.36.0.152096.x86_64_release_20170712.tar.gz
 ```
@@ -83,7 +83,7 @@ cd TcaplusPbApi3.36.0.152096.x86_64_release_20170712/release/x86_64/examples/tca
 ```
 cd TcaplusPbApi3.18.0.152096.x86_64_release_20170712/release/x86_64/examples/tcaplus/C++_pb2_coroutine_simpletable/SingleOperation/set
 ```
-协程方式 Set 示例的所有代码都在该目录中。修改 envcfg.env 文件，将 PROTOBUF_HOME 环境变量设置为本机 protobuf 的安装路径（--prefix指定），并将 TCAPLUS_HOME 环境变量设置为 Tcaplus Pb API 包下 release/x86_64 目录的绝对路径，如下图：
+协程方式 Set 示例的所有代码都在该目录中。修改 envcfg.env 文件，将 PROTOBUF_HOME 环境变量设置为本机 protobuf 的安装路径（--prefix指定），并将 TCAPLUS_HOME 环境变量设置为 Tcaplus PB API 包下 release/x86_64 目录的绝对路径，如下图：
 ![](https://mc.qcloudimg.com/static/img/093250c857a6c77847fd14bd037dc7e9/image.png)
 4. 设置环境变量，在代码目录下执行如下命令：
 ```

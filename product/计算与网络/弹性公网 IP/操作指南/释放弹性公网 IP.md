@@ -1,4 +1,4 @@
-若您不再需要使用弹性公网 IP（EIP），可在控制台将其释放，释放后将不再收取 EIP 的任何费用。
+若您不再使用弹性公网 IP（EIP），可在控制台将其释放，释放后将不再收取 EIP 的任何费用。
 
 ## 费用说明
 释放 EIP 后，不同类型账户的费用说明如下：
@@ -16,7 +16,7 @@
 <td>EIP 不收取任何费用。</td>
 </tr>
 <tr>
-<td rowspan="3">带宽上移账户</td>
+<td rowspan="4">带宽上移账户</td>
 <td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#1" target="_blank">按流量</a></td>
 <td>EIP 不收取任何费用。</td>
 </tr>
@@ -28,16 +28,19 @@
 <td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#2" target="_blank">按小时带宽</a></td>
 <td>EIP 不收取 IP 资源费用，且停止收取公网网络费用。</td>
 </tr>
+<tr>
+<td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#.E5.85.B1.E4.BA.AB.E5.B8.A6.E5.AE.BD.E5.8C.85" target="_blank">共享带宽包</a></td>
+<td>该 EIP 不收取 IP 资源费用，且停止收取公网网络费用。若该共享带宽包中还加入了其他 EIP，其他 EIP 的收费不受影响。</td>
+</tr>
 </tbody></table>
 
 ## 操作步骤
-
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)。
 2. 在 EIP 管理页面，选择需要释放的 EIP 地域，并在对应 EIP 所在行的操作栏下，选择【更多】>【释放】。
-3. 在弹出的“确定释放所选EIP”窗口中，勾选【确定释放以上IP】，单击【释放】。
->?找回公网 IP 地址有相应的限制条件，请参见 [使用限制](https://cloud.tencent.com/document/product/1199/41708#.E4.BD.BF.E7.94.A8.E9.99.90.E5.88.B6)，因此 EIP 释放后可能无法找回。
+3. 在弹出的“确定释放所选EIP?”窗口中，勾选【确定释放以上IP】，单击【释放】。
+> ?找回公网 IP 地址有相应的限制条件，请参见 [使用限制](https://cloud.tencent.com/document/product/1199/41708#.E4.BD.BF.E7.94.A8.E9.99.90.E5.88.B6)，因此 EIP 释放后可能无法找回。
 >
-![](https://main.qcloudimg.com/raw/23eac37af5e7368b9429fac24c9686ee.png)
+![](https://main.qcloudimg.com/raw/9151d8f9623b09ddae25e2e019b7a835.png)
 
 ## 后续步骤
 - 若需要找回使用过、且当前未分配给其他用户的公网 IP 地址，请参见 [找回公网 IP 地址](https://cloud.tencent.com/document/product/1199/41708)。

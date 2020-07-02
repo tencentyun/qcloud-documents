@@ -3,7 +3,6 @@
 POST Object 接口请求可以将本地不超过5GB的对象（Object）以网页表单（HTML Form）的形式上传至指定存储桶中。该 API 的请求者需要对存储桶有写入权限。
 
 > !
->
 > - POST Object 接口不使用 COS 对象存储统一的请求签名，而是拥有自己的签名要求，请参见本文档的 [签名保护](#id1) 及相关字段的描述。
 > - 如果试图添加已存在的同名对象且没有启用版本控制，则新上传的对象将覆盖原来的对象，成功时按照指定的返回方式正常返回。
 
@@ -44,7 +43,7 @@ Content-Length: Content Length
 | success_action_redirect | 上传成功时重定向的目标 URL 地址，如果设置，那么在上传成功时将返回 HTTP 状态码为303（Redirect）及 Location 响应头部，Location 响应头部的值为该字段指定的 URL 地址，并附加 bucket、key 和 etag 参数，相关示例请参见本文档的 [案例八](#step8) | string | 否       |
 | success_action_status   | 上传成功时返回的 HTTP 状态码，可选200、201或204，默认为204。如果指定了 success_action_redirect 字段，则此字段会被忽略。相关示例请参见本文档的 [案例九](#step9) | number | 否       |
 | x-cos-meta-\*           | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为对象元数据保存，大小限制为2KB<br>**注意：**用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-） | string | 否       |
-| x-cos-storage-class     | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD、STANDARD_IA，ARCHIVE。默认值：STANDARD | Enum   | 否       |
+| x-cos-storage-class     | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD、MAZ_STANDARD_IA、STANDARD_IA、ARCHIVE。默认值：STANDARD | Enum   | 否       |
 | Content-MD5             | 经过 Base64 编码的文件内容 MD5 哈希值，用于完整性检查，验证文件内容在传输过程中是否发生变化 | string | 否       |
 
 **访问控制列表（ACL）相关表单字段**
@@ -240,7 +239,7 @@ c. 拼接签名有效时间，格式为`StartTimestamp;EndTimestamp`，即为 Ke
 
 #### 错误码
 
-此接口无特殊错误信息，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -449,6 +448,7 @@ Server: tencent-cos
 x-cos-request-id: NWQ2NzgxMzdfMTljMDJhMDlfNTg4ZF84Njgx****
 x-cos-server-side-encryption: AES256
 
+
 ```
 
 <span id="step4"></span>
@@ -508,6 +508,7 @@ Content-Disposition: form-data; name="q-signature"
 0273a4b4ede39d0e5162758e145ea0c3e9ef****
 ------WebKitFormBoundaryYa6H7Gd4xuhlyfJb--
 
+
 ```
 
 #### 响应
@@ -523,6 +524,7 @@ Server: tencent-cos
 x-cos-request-id: NWQ2NzgxMzhfMzdiMDJhMDlfNDA4YV84MzQx****
 x-cos-server-side-encryption-customer-algorithm: AES256
 x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
+
 
 ```
 
@@ -571,6 +573,7 @@ Content-Disposition: form-data; name="q-signature"
 699ad0ce7780eb559b75e88f77e95743d829****
 ------WebKitFormBoundaryJspR3QIUhGJLALwf--
 
+
 ```
 
 #### 响应
@@ -585,6 +588,7 @@ Location: http://examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleobj
 Server: tencent-cos
 x-cos-request-id: NWQ2NzgxNTdfNzFiNDBiMDlfMmE3ZmJfODQ1****
 x-cos-version-id: MTg0NDUxNzcwMDkzMDE3NDQ0MDU
+
 
 ```
 
@@ -633,6 +637,7 @@ Content-Disposition: form-data; name="q-signature"
 bb04222322bfb17f4d1f43833bbbac0a03aa****
 ------WebKitFormBoundaryX8hd2lxTMzIBk5Li--
 
+
 ```
 
 #### 响应
@@ -646,6 +651,7 @@ ETag: "ee8de918d05640145b18f70f4c3aa602"
 Location: http://examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleobject
 Server: tencent-cos
 x-cos-request-id: NWQ2NzgxNzZfMjFjOTBiMDlfMWY3YTFfNjY2****
+
 ```
 
 <span id="step7"></span>
@@ -692,6 +698,7 @@ Content-Disposition: form-data; name="q-signature"
 
 3cc37f8c81e36f57506efa02d0a3b6c9d551****
 ------WebKitFormBoundaryHrAMWZO4BNyT0rca--
+
 ```
 
 #### 响应
@@ -705,6 +712,7 @@ ETag: "ee8de918d05640145b18f70f4c3aa602"
 Location: http://examplebucket-1250000000.cos.ap-beijing.myqcloud.com/folder/subfolder/photo.jpg
 Server: tencent-cos
 x-cos-request-id: NWQ2N2M2N2NfNWZhZjJhMDlfNmUzMV84OTg4****
+
 ```
 
 <span id="step8"></span>

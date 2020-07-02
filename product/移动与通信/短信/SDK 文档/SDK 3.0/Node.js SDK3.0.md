@@ -80,7 +80,7 @@ clientProfile.signMethod = "HmacSHA256";
 clientProfile.httpProfile = httpProfile;
 
 /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
- * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+ * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com *
  * 实例化 SMS 的 client 对象
  * 第二个参数是地域信息，可以直接填写字符串 ap-guangzhou，或者引用预设的常量 */
 let client = new smsClient(cred, "ap-guangzhou", clientProfile);
@@ -162,7 +162,7 @@ clientProfile.signMethod = "HmacSHA256";
 clientProfile.httpProfile = httpProfile;
 
 /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
- * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+ * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com *
  * 实例化 SMS 的 client 对象
  * 第二个参数是地域信息，可以直接填写字符串 ap-guangzhou，或者引用预设的常量 */
 let client = new smsClient(cred, "ap-guangzhou", clientProfile);
@@ -249,7 +249,7 @@ clientProfile.signMethod = "HmacSHA256";
 clientProfile.httpProfile = httpProfile;
 
 /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
- * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+ * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com *
  * 实例化 SMS 的 client 对象
  * 第二个参数是地域信息，可以直接填写字符串 ap-guangzhou，或者引用预设的常量 */
 let client = new smsClient(cred, "ap-guangzhou", clientProfile);
@@ -323,7 +323,7 @@ clientProfile.signMethod = "HmacSHA256";
 clientProfile.httpProfile = httpProfile;
 
 /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
- * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+ * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com *
  * 实例化 SMS 的 client 对象
  * 第二个参数是地域信息，可以直接填写字符串 ap-guangzhou，或者引用预设的常量 */
 let client = new smsClient(cred, "ap-guangzhou", clientProfile);

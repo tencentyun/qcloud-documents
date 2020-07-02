@@ -1,0 +1,105 @@
+除了默认角色 SLS_QcsRole 外，主账号还可自行创建多个角色，并将它们分配给每个子用户，各子用户根据自身业务需求只具有相应角色所赋予的策略，达到权限收缩的目的，流程图如下：
+![](https://main.qcloudimg.com/raw/62356e8842cc10f98cd5712cd7e89c5c.png)
+
+## 主账号配置过程
+创建子账号配置角色，并为该角色赋予相应策略。以部署 API 网关触发的 SCF 函数为例：
+
+### 创建子账号角色
+1. 主账号登录 [CAM 控制台](https://console.cloud.tencent.com/cam/role)，在左侧导航栏中，单击【角色】。
+2. 在角色页面中，单击【新建角色】，并选择角色载体为**腾讯云产品服务**。
+3. 在支持角色的服务中，选择【Serverless Framework (sls)】，单击【下一步】。
+4. 选择预设策略 **QcloudCOSFullAccess**、	**QcloudAPIGWFullAccess**、**QcloudSCFFullAccess**，单击【下一步】。
+5. 填写角色名称（如 test-role1），单击【完成】。
+单击角色名，可以查看配置完成后角色页面：
+![](https://main.qcloudimg.com/raw/ce63c1427c1e032bf618bddd067accac.png)
+
+
+### 配置角色策略
+1. 在左侧导航栏，单击【[策略](https://console.cloud.tencent.com/cam/policy)】进入策略管理页。
+2. 在策略管理页，单击【新建自定义策略】，并选择**按策略语法创建**。
+3. 在策略模板中，选择【空白模板】，单击【下一步】。
+4. 填写策略名和内容，并单击【完成】。
+绑定角色策略，其中 “resource” 参数填入需要给子账号绑定的角色六段式：
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": [
+                "cam:PassRole"
+            ],
+            "resource": [
+                # 角色六段式（例："qcs::cam::uin/123456789:roleName/test-role1"）
+            ],
+            "effect": "allow"
+        }
+    ]
+}
+```
+>?角色资源描述可以在角色信息页面获取。
+
+
+### 关联子用户策略
+1. 在左侧导航栏，单击【用户】>【[用户列表](https://console.cloud.tencent.com/cam)】，进入用户列表页。
+2. 选择需要授权的子用户，单击操作列的【授权】。
+3. 从策略列表中筛选出创建的策略与预设策略**QcloudSLSFullAccess** ，单击【确定】，将策略赋予目标子账号，完成角色绑定。
+4. **（可选）**如认为 QcloudSLSFullAccess 权限过大，您也可以自己创建自定义策略，为指定资源赋予 SLS 调用权限，策略模版如下：
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": [
+                "sls:*"
+            ],
+            "resource": [
+                #填入项目资源名称（例："qcs::sls:ap-guangzhou::appname/*"）
+            ],
+            "effect": "allow"
+        }
+    ]
+}
+```
+>?项目资源描述严格按照 CAM 规范进行，您也可以对资源再进行进一步细化，具体到函数名称或者 stage 名称。
+
+## 子账号配置过程
+  本地创建 Serverless 项目，在配置文件 serverless.yaml 中添加全局配置项 configRole，输入角色名称，后台通过权限检测后即可完成部署：
+```
+# serverless.yml
+
+component: scf # (必填) 引用 component 的名称，当前用到的是 tencent-scf 组件
+name: scfdemo # (必填) 该组件创建的实例名称
+org: test # (可选) 用于记录组织信息，默认值为您的腾讯云账户 appid
+app: scfApp # (可选) 该 SCF 应用名称
+stage: dev # (可选) 用于区分环境信息，默认值是 dev
+
+globalOptions:
+   configRole: test-role1     # (可选) 填入指定角色名称
+
+inputs:
+  name: scfFunctionName
+  src: ./src
+  runtime: Nodejs10.15 # 云函数的运行时环境。除 Nodejs10.15 外，可选值为：Python2.7、Python3.6、Nodejs6.10、Nodejs8.9、PHP5、PHP7、Go1、Java8。
+  region: ap-guangzhou
+  handler: index.main_handler
+  events:
+    - apigw:
+        name: serverless_api
+        parameters:
+          protocols:
+            - http
+            - https
+          serviceName:
+          description: The service of Serverless Framework
+          environment: release
+          endpoints:
+            - path: /index
+              method: GET
+
+```   
+>!
+>- 如果不绑定角色，子账号默认使用 SLS_QcsRole 进行 SLS 部署，配置文件中无需填 configRole 参数。
+>- 一旦绑定角色，请仔细核对 yaml 文件中 configRole 名称，填错或不填都会报错，子账号只支持使用绑定的角色，无权使用其它角色。
+
+## 子账号添加权限
+子账号如果需要添加权限，需要将角色名称与需要添加的策略名称一起提供给主账号，主账号在 [CAM 控制台](https://console.cloud.tencent.com/cam/role) >【角色】中完成权限添加。
