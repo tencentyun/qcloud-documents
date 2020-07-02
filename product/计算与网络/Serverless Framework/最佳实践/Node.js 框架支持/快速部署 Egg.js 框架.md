@@ -61,7 +61,7 @@ inputs:
     environment: release
 ```
 
-[查看详细配置文档 >>](https://github.com/serverless-components/tencent-egg/blob/v2/docs/configure.md)
+[查看详细配置文档 >>](https://github.com/serverless-components/tencent-egg/blob/master/docs/configure.md)
 
 ### 3. 部署
 
