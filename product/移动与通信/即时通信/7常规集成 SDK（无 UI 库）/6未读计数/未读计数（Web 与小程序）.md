@@ -11,12 +11,12 @@
 
 当用户阅读某个会话的消息后，需要进行会话消息的已读上报，IM SDK 根据会话中最后一条阅读的消息，设置会话中之前所有消息为已读。建议在单击进行切换会话时进行消息的已读上报。
 
->?已读上报只会改变会话的未读计数，不会向消息发送者推送回执状态。
+>?已读上报会改变会话的未读计数。v2.7.0起，设置 `C2C` 会话消息已读，会向对端推送已读回执，请参考事件 [TIM.EVENT.MESSAGE_READ_BY_PEER](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_READ_BY_PEER)。
 
 **接口**
 
 ```javascript
-tim.setMessageRead(options)
+tim.setMessageRead(options);
 ```
 
 **参数**
@@ -33,7 +33,7 @@ tim.setMessageRead(options)
 // 将某会话下所有未读消息已读上报
 let promise = tim.setMessageRead({conversationID: 'C2Cexample'});
 promise.then(function(imResponse) {
-  // 已读上报成功
+  // 已读上报成功，指定 ID 的会话的 unreadCount 属性值被置为0
 }).catch(function(imError) {
   // 已读上报失败
   console.warn('setMessageRead error:', imError);
