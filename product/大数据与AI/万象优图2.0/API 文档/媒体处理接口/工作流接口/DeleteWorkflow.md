@@ -35,7 +35,7 @@ Content-Type: application/xml
 
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-```xml
+```plaintext
 <Response>
     <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhf****</RequestId>
     <WorkflowId>A</WorkflowId>
