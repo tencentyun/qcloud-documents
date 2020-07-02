@@ -31,7 +31,7 @@ try {
 }
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/qcloud-sdk-android/tree/master/Demo/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg//ObjectPresignUrl.java) 查看。
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/qcloud-sdk-android/tree/master/Demo/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/ObjectPresignUrl.java) 查看。
 
 #### 获取预签名下载 URL 请求示例
 
@@ -51,4 +51,4 @@ try {
 }
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/qcloud-sdk-android/tree/master/Demo/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg//ObjectPresignUrl.java) 查看。
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/qcloud-sdk-android/tree/master/Demo/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/ObjectPresignUrl.java) 查看。
