@@ -37,7 +37,7 @@ npm i im-live-sells --save
 ## 初始化示例
 
 ```javascript
-import TIMLivesell from 'im-live-sell'
+import TIMLiveSell from 'im-live-sell'
 import TIM from 'tim-js-sdk' //Web 环境
 // import TIM from 'tim-wx-sdk' 小程序环境
 const tls = new TIMLiveSell({
