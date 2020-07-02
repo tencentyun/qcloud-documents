@@ -91,4 +91,8 @@ python IotHmac.py "YOUR_PRODUCTID" "YOUR_DEVICENAME" "YOUR_PSK"
  3. 将 password 填入到 mqtt 的 password 字段，即可接入到物联云通信平台。
 
 
->!通过 psk 方式接入端口默认为`1883`。若客户端支持 ca 证书，您也可以使用`8883`端口接入。    
+>!
+- 通过 psk 方式接入端口默认为`1883`。若客户端支持 ca 证书，您也可以使用`8883`端口接入。  
+- MQTT 连接服务器地址请参见 [MQTT.fx 接入指南-参数说明部分](https://cloud.tencent.com/document/product/634/14630#.E5.8F.82.E6.95.B0.E8.AF.B4.E6.98.8E)。
+
+

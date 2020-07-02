@@ -1,4 +1,41 @@
-## 最新版本 4.8.10 @2020.05.15
+## 最新版本 4.8.50 @2020.06.22
+
+### SDK
+
+**通用变更点**
+
+- 修复 API 2.0 接口有人进入直播群（AVChatRoom）后没有回调 onMemberEnter 问题
+- API 2.0 接口的 onGroupInfoChanged 和 onMemberInfoChanged 回调增加 groupID 参数
+- 修复 C2C 消息发送成功后没有回调会话更新的问题
+- 修复切换帐号加入同一个直播群（AVChatRoom）后收不到消息的问题
+- 修复偶现登录后同步未读消息回调顺序不对的问题
+- 增加信令接口
+- 直播群（AVChatRoom）增加群自定义属性接口
+- 修复已知崩溃问题
+
+**Android 平台**
+
+为兼容 Android Q 版本，修改日志默认存储位置为 /sdcard/Android/data/包名/files/log/tencent/imsdk
+
+**Windows 平台**
+
+修复建群时群成员角色问题
+
+### TUIKit & Demo
+
+**iOS**
+
+- TUIKit 替换 API 2.0接口
+- 结合 TRTC 实现了音视频通话功能
+- 增加了深色模式
+
+**Android**
+- TUIKit 替换 API 2.0接口
+- 结合 TRTC 实现了音视频通话功能
+- 支持 AndroidX
+
+
+## 4.8.10 @2020.05.15
 
 ### SDK
 
@@ -11,7 +48,7 @@
 **iOS & Mac 平台**
 
 - 修复 iOS 发送大文件必现失败问题
-- 修复消息拉取发送者好友备注异常的问题
+- 修复 V2TIMMessage 消息中拉取发送者好友备注 getFriendRemark 异常的问题
 
 **Android 平台**
 

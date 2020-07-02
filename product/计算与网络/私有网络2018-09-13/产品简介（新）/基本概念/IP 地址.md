@@ -53,12 +53,9 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 <td><li>独立享有的 IP 资源，可随时与云服务器、NAT 网关等绑定、解绑。</li><li>不再需要时可以释放。</li></td>
 </tr>
 <tr>
-<td colspan="2" >IP 费用</td>
+<td colspan="2" >IP 资源费用</td>
 <td>普通公网 IP 可免费使用。</td>
-<td><li>绑定：有绑定资源（如云服务器、NAT 网关）时，不收取 <a href="https://cloud.tencent.com/document/product/1199/41692#ip" target="_blank">IP 资源费用</a>。</li>
-<li>未绑定：收取 IP 资源费用。</li>
-<li>释放：不再收取任何费用。</li>
-</td>
+<td>IP 资源费用是弹性公网 IP 费用组成的一部分，根据非带宽上移和带宽上移不同类型的账户收费情况不同，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/41692#.E8.B4.B9.E7.94.A8.E7.BB.84.E6.88.90">费用组成</a>。</td>
 </tr>
 <tr>
 <td colspan="2" rowspan="2">配额</td>
@@ -66,7 +63,7 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 <td>每个账户每个地域（Region）可申请：20个。</td>
 </tr>
 <tr>
-<td colspan="2">单台云服务器绑定公网 IP 数配额请参见 <a href="https://cloud.tencent.com/document/product/1199/41648?!#.E7.BB.91.E5.AE.9A.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.99.90.E5.88.B6" target="_blank">绑定云服务器限制
+<td colspan="2">每台云服务器绑定公网 IP（包括普通公网 IP 和 EIP）数配额请参见 <a href="https://cloud.tencent.com/document/product/1199/41648?!#.E7.BB.91.E5.AE.9A.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.99.90.E5.88.B6" target="_blank">绑定云服务器限制
 </a>。
 </td>
 </tr>
@@ -78,9 +75,9 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 </tr>
 <tr>
 <td>更换 IP</td>
-<td>可以直接更换普通公网 IP，
+<td>普通公网 IP 可以直接更换，
 详情请参见 <a href="https://cloud.tencent.com/document/product/213/16642" target="_blank"> 更换公网 IP 地址</a>。</td>
-<td>不可以直接更换弹性公网 IP，您可以解绑并释放后，申请新的弹性公网 IP 并绑定。</td>
+<td>弹性公网 IP 不可以直接更换，您可以解绑并释放后，申请新的弹性公网 IP 并绑定。</td>
 </tr>
 <tr>
 <td>释放 IP</td>

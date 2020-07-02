@@ -22,7 +22,7 @@ public static TIMGroupManager getInstance()
 
 ### 创建群组
 
-即时通信 IM 中内置了**私有群（Private）、公开群（Public）、 聊天室（ChatRoom）、音视频聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）**这几种群组类型，详情请参见 [群组形态介绍](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81.E4.BB.8B.E7.BB.8D)。
+即时通信 IM 中内置了**私有群（Private）、公开群（Public）、 聊天室（ChatRoom）、音视频聊天室（AVChatRoom）和在线成员广播大群（BChatRoom）**这几种群组类型，详情请参见 [群组类型介绍](https://cloud.tencent.com/document/product/269/1502#GroupType)。
 
 - **音视频聊天室（AVChatRoom）：**也叫直播大群，此类型群对于加入人数不做限制，但是有一些能力上的限制，如不能拉人进去，不能查询总人数等。
 - 可通过 `TIMGroupManager` 中的接口 `createGroup` 接口创建群组，创建时可指定一些群资料（例如群组类型、群组名称、群简介、加入的用户列表等，甚至可以指定群 ID），创建成功后返回群组 ID，可通过群组 ID 获取 Conversation 收发消息等。
@@ -142,7 +142,7 @@ TIMGroupManager.getInstance().createGroup(param, new TIMValueCallBack<String>() 
 
 **权限说明：**
 
-详情请参见 [群成员操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E6.88.90.E5.91.98.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。 
+详情请参见 [加群方式差异](https://cloud.tencent.com/document/product/269/1502#.E5.8A.A0.E7.BE.A4.E6.96.B9.E5.BC.8F.E5.B7.AE.E5.BC.82)。 
 
 **原型：**
 
@@ -218,7 +218,7 @@ TIMGroupManager.getInstance().inviteGroupMember(
 
 **权限说明：**
 
-详情请参见 [群成员操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E6.88.90.E5.91.98.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。
+详情请参见 [加群方式差异](https://cloud.tencent.com/document/product/269/1502#.E5.8A.A0.E7.BE.A4.E6.96.B9.E5.BC.8F.E5.B7.AE.E5.BC.82)。
 
 **原型：**
 
@@ -259,7 +259,7 @@ TIMGroupManager.getInstance().applyJoinGroup("@TGS#1JYSZEAEQ", "some reason", ne
 - **私有群：**全员可退出群组。
 - **公开群、聊天室和直播大群：**群主不能退出。
 
-详情请参见 [群成员操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E6.88.90.E5.91.98.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。
+详情请参见 [成员管理能力差异](https://cloud.tencent.com/document/product/269/1502#.E6.88.90.E5.91.98.E7.AE.A1.E7.90.86.E8.83.BD.E5.8A.9B.E5.B7.AE.E5.BC.82)。
 
 **原型：**
 
@@ -300,7 +300,7 @@ TIMGroupManager.getInstance().quitGroup(
 函数参数信息与加入群组相同，删除群组成员的接口由 `TIMGroupManager` 提供。
 
 **权限说明：**
-详情请参见 [群成员操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E6.88.90.E5.91.98.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。
+详情请参见 [成员管理能力差异](https://cloud.tencent.com/document/product/269/1502#.E6.88.90.E5.91.98.E7.AE.A1.E7.90.86.E8.83.BD.E5.8A.9B.E5.B7.AE.E5.BC.82)。
 
 **原型：**
 
@@ -373,7 +373,7 @@ TIMGroupManager.getInstance().deleteGroupMember(param, new TIMValueCallBack<List
 - **任何群组类型：**可以获取成员列表。
 - **直播大群：**只能拉取部分成员列表，包括群主、管理员和部分成员。
 
-详情请参见 [群组操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E7.BB.84.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。 
+详情请参见 [群组基础能力操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E7.BB.84.E5.9F.BA.E7.A1.80.E8.83.BD.E5.8A.9B.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。 
 
 **原型：**
 
@@ -498,7 +498,7 @@ TIMGroupManager.getInstance().getGroupList(cb);
  解散群组的接口由`TIMGroupManager`提供。
 
 **权限说明：**
-详情请参见 [群组操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E7.BB.84.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。 
+详情请参见 [群组基础能力操作差异](https://cloud.tencent.com/document/product/269/1502#.E7.BE.A4.E7.BB.84.E5.9F.BA.E7.A1.80.E8.83.BD.E5.8A.9B.E6.93.8D.E4.BD.9C.E5.B7.AE.E5.BC.82)。 
 
 **原型：**
 

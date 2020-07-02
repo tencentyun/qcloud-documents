@@ -158,5 +158,3 @@ grep -E "virtio.*" < /lib/modules/"$(uname -r)"/modules.builtin
 
 
 
-
-

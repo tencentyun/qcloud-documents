@@ -10,20 +10,22 @@
 
 
 ## 申请 CFS 文件存储资源并获取挂载点 IP
+
 - 若您还未拥有文件系统，则请按照 [创建 CFS 文件系统](https://cloud.tencent.com/document/product/582/9132) 指引创建一个文件系统，创建时请注意 VPC 网络的选择需要与您的容器母机在相同的 VPC 下，以保障网络的互通。 
 - 若您已经拥有与容器服务同在一个 VPC 下的文件系统，您可以前往 “[文件系统详情](https://console.cloud.tencent.com/cfs)” 页面获取挂载点 IP 。
 
 ## 配置挂载 CFS 文件系统
+
 #### 步骤1：Node 上启动 NFS 客户端
 
 挂载前，请确保系统中已经安装了`nfs-utils`或`nfs-common`，安装方法如下：
 
 - CentOS
-```shell
+```plaintext
 sudo yum install nfs-utils
 ```
 - Ubuntu 
-```shell
+```plaintext
 sudo apt-get install nfs-common
 ```
 
@@ -34,7 +36,7 @@ sudo apt-get install nfs-common
 >1. nfs.server：为上面已经获取到的 CFS 文件系统的挂载点 IP，本例子中假设文件系统 IP 为10.0.1.41。
 >2. nfs.path：为 CFS 文件系统的根目录或者子目录，本案例以根目录为例。
 
-```
+```plaintext
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -57,7 +59,7 @@ spec:
 #### 步骤3：创建 PVC
 接下来，创建 PersistentVolumeClaim ，来请求绑定已经创建好的 PersistentVolume。
 
-```
+```plaintext
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
@@ -75,7 +77,7 @@ spec:
 #### 步骤4：创建 pod
 创建一个 Pod 应用来申明挂载使用该数据卷。
 
-```
+```plaintext
 kind: Pod
 apiVersion: v1
 metadata:

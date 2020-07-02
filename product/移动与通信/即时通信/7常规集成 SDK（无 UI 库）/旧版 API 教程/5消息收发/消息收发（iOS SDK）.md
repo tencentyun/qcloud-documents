@@ -469,7 +469,9 @@ TIMMessage * msg = [[TIMMessage alloc] init];
 ---|---
 data | 自定义消息二进制数据
 
-以下示例中拼接一段 XML 消息，具体展示由开发者决定。**示例：**
+以下示例中拼接一段 XML 消息，具体展示由开发者决定。
+
+**示例：**
 
 ```
 // XML 协议的自定义消息
@@ -480,6 +482,7 @@ TIMCustomElem * custom_elem = [[TIMCustomElem alloc] init];
 [custom_elem setData:data];
 TIMMessage * msg = [[TIMMessage alloc] init];
 [msg addElem:custom_elem];
+TIMConversation *conversation = [[TIMManager sharedInstance] getConversation:TIM_C2C receiver:@"yahaha"];
 [conversation sendMessage:msg succ:^(){
 	NSLog(@"SendMsg Succ");
 }fail:^(int code, NSString * err) {

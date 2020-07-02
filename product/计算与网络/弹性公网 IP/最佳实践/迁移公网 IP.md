@@ -19,10 +19,10 @@ EIP 拥有普通公网 IP 不具备的灵活绑定与解绑能力，若云服务
 ### <span id="step2" />步骤二：云服务器 A 解绑 EIP
 将云服务器 A 与 EIP 进行解绑，解绑后，云服务器 A 将因为没有公网 IP 而无法访问公网。
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=1)。
-2. 在实例的管理页面，选择云服务器 A 的地域，并在所在行的操作栏下，单击【更多】>【IP/网卡】>【解绑弹性公网IP】。
+2. 在实例的管理页面，选择云服务器 A 的地域，并在所在行的操作栏下，单击【更多】>【IP/网卡】>【解绑弹性IP】。
 ![](https://main.qcloudimg.com/raw/346f3844b9ec334d3081520417ea3236.png)
-3. 在弹出的“解绑EIP”窗口中，单击【确定】。
-![](https://main.qcloudimg.com/raw/1129aeba2d7c8ee7d357b80324eb6278.png)
+3. 在弹出的“解绑弹性公网IP”窗口中，单击【确定】。
+![](https://main.qcloudimg.com/raw/2934137c578408e591a1d9042b7a3a3c.png)
 4. 在弹出的提示框中，单击【确定】，完成 EIP 的解绑操作。
 >?EIP 解绑后，请尽快执行步骤三，以节省 IP 资源费，IP 资源费按小时计费，精确到秒级，不足一小时，按闲置时间占比收取费用。
 

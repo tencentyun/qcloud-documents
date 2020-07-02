@@ -1,5 +1,8 @@
 **新接入的开发者推荐使用 [新版本 API](https://cloud.tencent.com/document/product/269/44498)。**
 
+以下视频将帮助您快速了解即时通信 IM 的旧版 Android SDK API：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2624-51217?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## TIMManager
 
 IM SDK 主核心模块，负责 IM SDK 的初始化、登录、创建会话以及管理推送等功能。

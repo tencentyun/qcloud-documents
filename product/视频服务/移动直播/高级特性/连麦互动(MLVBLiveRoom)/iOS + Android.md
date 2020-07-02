@@ -18,7 +18,7 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 - **Android**
   下载 [apk](http://dldir1.qq.com/hudongzhibo/xiaozhibo/xiaozhibo.apk) 安装包，安装“小直播”，注册一个账号即可开始体验。
 - **微信小程序**
-  打开微信，选择【发现】>【小程序】，搜索“腾讯视频云”，单击“手机直播”功能即可体验。
+  打开微信，选择【发现】>【小程序】，搜索“腾讯视频云”，单击“移动直播”功能即可体验。
 
 ![](https://main.qcloudimg.com/raw/5b6184f8857bdfb1501632951403f8d0.jpg)
 
@@ -35,7 +35,7 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 
 | 所属平台 |   LiteAVSDK   |     TIMSDK     |  MLVBLiveRoom 组件    |   示例代码  |
 | :------: | :---------: | :-----------: | :------------: | :----------: |
-|   iOS    | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/iOS/ImSDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/LiveRoom/LiveRoom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/LiveRoom/LiveRoomUI) |
+|   iOS    | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/iOS/ImSDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/MLVBLiveRoomDemo/LiveRoom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/MLVBLiveRoomDemo/LiveRoomUI) |
 | Android  | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/SDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/lvb/src/main/java/com/tencent/liteav/demo/lvb/liveroom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/lvb/src/main/java/com/tencent/liteav/demo/lvb/liveroom/ui) |
 
 

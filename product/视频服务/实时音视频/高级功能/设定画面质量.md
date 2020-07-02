@@ -7,7 +7,7 @@
 
 本文主要介绍如何配置上述参数，使 TRTC SDK 的画质效果符合您的项目需要。
 您也可以参考以下 Demo：
-- [iOS: TRTCVideoCall+Room.swift](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCScenesDemo/TRTCScenesDemo/TRTCVideoCallDemo/model/TRTCVideoCall%2BRoom.swift)
+- [iOS: TRTCVideoCall+Room.swift](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCVideoCallDemo/model/TRTCVideoCall%2Bmodel.swift)
 - [Android: TRTCVideoCallImpl.java](https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTCScenesDemo/trtcvideocalldemo/src/main/java/com/tencent/liteav/trtcvideocalldemo/model/TRTCVideoCallImpl.java)
 - [Windows: TRTCMainViewController.cpp](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/MFCDemo/TRTCMainViewController.cpp)
 

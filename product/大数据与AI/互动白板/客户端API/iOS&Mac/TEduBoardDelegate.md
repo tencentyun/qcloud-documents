@@ -12,7 +12,7 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardErrorCode | 错误码，参见 TEduBoardErrorCode 定义  |
+| code | TEduBoardErrorCode | 错误码，参见 [TEduBoardErrorCode](https://cloud.tencent.com/document/product/1137/39981#teduboarderrorcode) 定义  |
 | msg | NSString * | 错误信息，编码格式为 UTF8  |
 
 
@@ -25,7 +25,7 @@
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardWarningCode | 错误码，参见 TEduBoardWarningCode 定义  |
+| code | TEduBoardWarningCode | 错误码，参见 [TEduBoardWarningCode](https://cloud.tencent.com/document/product/1137/39981#teduboardwarningcode) 定义  |
 | msg | NSString * | 错误信息，编码格式为 UTF8  |
 
 
@@ -59,7 +59,7 @@
 | data | NSString * | 白板同步数据（JSON 格式字符串） |
 
 #### 介绍
-收到该回调时需要将回调数据通过信令通道发送给房间内其他人，接受者收到后调用 AddSyncData 接口将数据添加到白板以实现数据同步 该回调用于多个白板间的数据同步，使用腾讯云 IMSDK 进行实时数据同步时，不会收到该回调 
+收到该回调时需要将回调数据通过信令通道发送给房间内其他人，接受者收到后调用 addSyncData 接口将数据添加到白板以实现数据同步 该回调用于多个白板间的数据同步，使用腾讯云 IMSDK 进行实时数据同步时，不会收到该回调 
 
 
 ### onTEBUndoStatusChanged:
@@ -210,6 +210,12 @@
 #### 介绍
 只有框选中涂鸦或图片元素后触发回调 
 
+
+### onTEBRefresh
+刷新白板回调 
+``` Objective-C
+- (void)onTEBRefresh
+```
 
 
 ## 文件操作回调

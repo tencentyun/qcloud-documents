@@ -23,7 +23,7 @@ Namespace=QCE/TXMR_HDFS
 | HdfsNnBlockCapacity<br>UsedNonDFS           | 集群存储容量_CapacityUsedNonDFS           | GB   | 集群非 HDFS 使用容量                          | InstanceId、NodeIP |
 | HdfsNnBlockTotalLoad                        | 集群负载_TotalLoad                        | 个   | 当前连接数                                    | InstanceId、NodeIP |
 | HdfsNnBlockFilesTotal                       | 群文件总数量_FilesTotal                   | 个   | 总文件数量                                    | InstanceId、NodeIP |
-| HdfsNnBlockBlockstotal                      | BLOCKS数量_BlocksTotal                    | 个   | 总 BLOCK 数量                                 | InstanceId、NodeIP |
+| HdfsNnBlockBlockstotal                      | BLOCKS 数量_BlocksTotal                    | 个   | 总 BLOCK 数量                                 | InstanceId、NodeIP |
 | HdfsNnBlockPending<br>ReplicationBlocks     | BLOCKS 数量_PendingReplicationBlocks      | 个   | 等待被备份的块数量                            | InstanceId、NodeIP |
 | HdfsNnBlockUnder<br>ReplicatedBlocks        | BLOCKS 数量 _UnderReplicatedBlocks        | 个   | 副本数不够的块数量                            | InstanceId、NodeIP |
 | HdfsNnBlockBlocksCorruptblocks              | BLOCKS 数量 _CorruptBlocks                | 个   | 坏块数量                                      | InstanceId、NodeIP |
@@ -32,7 +32,7 @@ Namespace=QCE/TXMR_HDFS
 | HdfsNnBlockCorruptblocks                    | BLOCKS 数量 _CorruptBlocks                | 个   | 多于的块数量                                  | InstanceId、NodeIP |
 | HdfsNnBlockPostponed<br>MisreplicatedBlocks | BLOCKS 数量 _PostponedMisreplicatedBlocks | 个   | 被推迟处理的异常块数量                        | InstanceId、NodeIP |
 | HdfsNnBlockBlockCapacity                    | BLOCK 容量 _BlockCapacity                 | 个   | BLOCK 容量                                    | InstanceId、NodeIP |
-| HdfsNnBlockNumLiveDataNodes                 | 集群数据节点 _NumLiveDataNodes            | 个   | 个活的数据节点数量                            | InstanceId、NodeIP |
+| HdfsNnBlockNumLiveDataNodes                 | 集群数据节点 _NumLiveDataNodes            | 个   | 存活的数据节点数量                            | InstanceId、NodeIP |
 | HdfsNnBlockNumDeadDataNodes                 | 集群数据节点 _NumDeadDataNodes            | 个   | 已经标记为 Dead 状态的数据节点数量            | InstanceId、NodeIP |
 | HdfsNnBlockNum<br>DecomLiveDataNodes        | 集群数据节点 _NumDecomLiveDataNodes       | 个   | 下线且 Live 的节点数量                        | InstanceId、NodeIP |
 | HdfsNnBlockNum<br>DecomDeadDataNodes        | 集群数据节点 _NumDecomDeadDataNodes       | 个   | 下线且 Dead 的节点数量                        | InstanceId、NodeIP |
@@ -293,3 +293,13 @@ Namespace=QCE/TXMR_HDFS
 | Instances.N.Dimensions.0.Value | InstanceId | EMR 实例 ID           | 输入EMR具体实例 ID，例如 ins-mm8bs222         |
 | Instances.N.Dimensions.1.Name  | CoreIp     | EMR 实例中具体节点 IP | 输入String 类型维度名称，例如 InstanceId      |
 | Instances.N.Dimensions.1.Value | CoreIp     | EMR 实例中具体节点 IP | 输入具体节点IP ，例如 host4hdfsdatanode       |
+
+
+## 入参说明
+查询 弹性 MapReduce（HDFS）监控数据，入参取值如下：
+&Namespace=QCE/TXMR_HDFS 
+&Instances.N.Dimensions.0.Name=id4hdfsdatanode
+&Instances.N.Dimensions.0.Value=EMR 实例具体 ID
+&Instances.N.Dimensions.1.Name=host4hdfsdatanode
+&Instances.N.Dimensions.1.Value EMR 实例中具体节点 IP 
+

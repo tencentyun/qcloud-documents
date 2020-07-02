@@ -6,7 +6,7 @@ Upload Part - Copy  请求用于实现将一个对象的分块内容从源路径
 >- 如果目标对象和源对象不属于同一个地域，且目标对象分块会超过5GB，那么需要使用分块上传或者分块拷贝的接口来复制对象。
 >- 使用上传分块对象，必须先初始化分块上传。在初始化分块上传的响应中，会返回一个唯一的描述符（upload ID），您需要在分块上传请求中携带此 ID。
 
-#### 版本
+#### 版本控制
 当存储桶启用了版本控制，x-cos-copy-source 标识被复制的对象的当前版本。如果当前版本是删除标记，并且 x-cos-copy-source 不指定版本，则对象存储会认为该对象已删除并返回404错误。如果您在 x-cos-copy-source 中指定 versionId 且 versionId 是删除标记，则对象存储会返回 HTTP 400错误，因为删除标记不允许作为 x-cos-copy-source 的版本。
 
 ## 请求
@@ -39,7 +39,7 @@ x-cos-copy-source-if-modified-since: time_stamp
 
 该请求操作的实现使用如下必选头部：
 
-| 名称         | 描述           | 类型     | 必选   |
+| 名称         | 描述           | 类型     | 是否必选   |
 | ----------- | ----------- | ------------- | ---- |
 | x-cos-copy-source     | 源对象 URL 路径，可以通过 versionid 子资源指定历史版本         | String | 是    |
 
@@ -48,7 +48,7 @@ x-cos-copy-source-if-modified-since: time_stamp
 
 该请求操作的实现使用如下推荐请求头部信息：
 
-| 名称          | 描述      | 类型     | 必选   |
+| 名称          | 描述      | 类型     | 是否必选   |
 | ---------------- | ---------- | ------ | -------- |
 | x-cos-copy-source-range                    | 源对象的字节范围，范围值必须使用 bytes=first-last 格式，first 和 last 都是基于 0 开始的偏移量。<br>例如 bytes=0-9 表示您希望拷贝源对象的开头10个字节的数据，如果不指定，则表示拷贝整个对象       | String  | 否   |
 | x-cos-copy-source-If-Modified-Since   | 当 Object 在指定时间后被修改，则执行操作，否则返回412，<br>可与 x-cos-copy-source-If-None-Match 一起使用，与其他条件联合使用返回冲突 | String | 否    |
@@ -58,7 +58,7 @@ x-cos-copy-source-if-modified-since: time_stamp
 
 #### 请求参数
 
- 名称|描述|类型|必选
+ 名称|描述|类型|是否必选
 ---|---|---|---
 partNumber|分块拷贝的块号|String|是
 uploadId|使用上传分块文件，必须先初始化分块上传。在初始化分块上传的响应中，会返回一个唯一的描述符（upload ID），您需要在分块上传请求中携带此 ID|String|是
@@ -90,13 +90,17 @@ uploadId|使用上传分块文件，必须先初始化分块上传。在初始�
 </CopyPartResult>
 ```
 
-具体的数据内容如下：
+具体的节点描述如下：
 
 | 名称          | 描述             | 类型     |
 | ---------- | ------------------- | ------ |
 | CopyPartResult | 返回复制结果信息           | String |
 | ETag             | 返回对象的 MD5 算法校验值，ETag 的值可以用于检查 Object 的内容是否发生变化 | String |
 | LastModified     | 返回对象最后修改时间，GMT 格式        | String |
+
+#### 错误码
+
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 #### 请求
@@ -108,7 +112,7 @@ Accept: */*
 x-cos-copy-source:examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/exampleobject1
 x-cos-copy-source-range: bytes=10-100
 Host: examplebucket-1250000000.cos.ap-shanghai.myqcloud.com
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1507530223;1508530223&q-key-time=1507530223;1508530223&q-header-list=&q-url-param-list=&q-signature=d02640c0821c49293e5c289fa07290e6b2f05cb2
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3M****&q-sign-time=1507530223;1508530223&q-key-time=1507530223;1508530223&q-header-list=&q-url-param-list=&q-signature=d02640c0821c49293e5c289fa07290e6b2f0****
 ```
 
 #### 响应
@@ -120,7 +124,7 @@ Content-Length: 133
 Connection: keep-alive 
 Date: Mon, 04 Sep 2017 04:45:45 GMT
 Server: tencent-cos
-x-cos-request-id: NTlkYjFjYWJfMjQ4OGY3MGFfNGIzZV9k
+x-cos-request-id: NTlkYjFjYWJfMjQ4OGY3MGFfNGIz****
 
 <CopyPartResult>
    <ETag>"ba82b57cfdfda8bd17ad4e5879ebb4fe"</ETag>

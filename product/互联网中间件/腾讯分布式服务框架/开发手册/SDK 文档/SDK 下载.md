@@ -58,12 +58,29 @@ java -version
 若出现正常的版本号信息后，说明 Maven 安装成功。
 
 
-
 ### 3. Maven 配置 TSF 私服地址 
 #### 3.1 添加私服配置
-找到 Maven 所使用的配置文件，一般在`~/.m2/settings.xml`中，在 settings.xml 中加入如下配置：
+找到 Maven 所使用的配置文件，一般在`~/.m2/settings.xml`中，在 settings.xml 中加入如下配置 ：
+
+您也可以下载 [setting.xml 样例文件>> ](https://main.qcloudimg.com/raw/0e3c73b64c4ec64ae9b16d1a347db462/settings.xml)（鼠标右键另存为链接）。
 ```xml
- <profiles>
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <!-- localRepository
+   | The path to the local repository maven will use to store artifacts.
+   |
+   | Default: ${user.home}/.m2/repository
+  <localRepository>/path/to/local/repo</localRepository>
+  -->
+  
+  <pluginGroups></pluginGroups>
+  <proxies></proxies>
+  <servers></servers>
+  <mirrors></mirrors>
+ 
+  <profiles>
       <profile>
         <id>nexus</id>
         <repositories>
@@ -126,9 +143,9 @@ java -version
     <activeProfile>qcloud-repo</activeProfile>
  </activeProfiles>
 
-```
+</settings>
 
-[setting.xml 样例文件下载>> ](https://main.qcloudimg.com/raw/0e3c73b64c4ec64ae9b16d1a347db462/settings.xml) （鼠标右键另存为链接）
+```
 
 #### 3.2 验证配置是否成功
 在命令行执行如下命令`mvn help:effective-settings` 。
@@ -143,4 +160,3 @@ java -version
 最新 SDK 版本请参考 [SDK 更新日志](https://cloud.tencent.com/document/product/649/38983)。
 
 >!如果无法下载相关依赖，请检查网络是否有防火墙限制。
-

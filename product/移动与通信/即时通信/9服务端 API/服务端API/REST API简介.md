@@ -1,6 +1,8 @@
 REST API 是即时通信 IM 提供给 App 后台的 HTTP 管理接口，其主要目的在于为 App 后台提供一个后台管理入口。目前即时通信 IM 支持的 REST API 请参见 [REST API 接口列表](https://cloud.tencent.com/document/product/269/1520)。
 除了 REST API，App 控制台也可实现简单的数据管理、单发/群发消息，开发者可以在控制台进行简单的数据管理、查看及测试。相比之下，REST API 接口较为原始，但管理能力却更为强大。
 为了安全性，REST API 仅提供 HTTPS 接口。
+以下视频将帮助您快速了解即时通信 IM 的 REST API 接口：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2543-43220?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 前提条件
 要调用 REST API，您必须已完成：
@@ -32,8 +34,8 @@ https://console.tim.qq.com/$ver/$servicename/$command?sdkappid=$SDKAppID&identif
 | contenttype   |请求格式     | 固定值为`json`                   |
 
 >!
->1. App 服务端在调用 REST API 时，identifier 必须为 App 管理员帐号。
->2. App 可以在每次调用 REST API 时都生成管理员帐号的 usersig，亦可生成一个固定的 usersig 重复使用，但请特别注意 usersig 的有效期。
+>- App 服务端在调用 REST API 时，identifier 必须为 App 管理员帐号。
+>- App 可以在每次调用 REST API 时都生成管理员帐号的 UserSig，亦可生成一个固定的 UserSig 重复使用，但请特别注意 UserSig 的有效期。
 
 ### HTTP 请求包体格式
 REST API 仅支持 POST 方法，其请求包体为 JSON 格式，具体的包体格式参见每个 API 的详细描述。

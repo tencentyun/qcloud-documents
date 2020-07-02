@@ -22,7 +22,7 @@ http://{Tcaplus_REST_URL}/{Version}/apps/{AppId}/zones/{ZoneId}/tables/{TableNam
 
 示例：
 ```
-http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_rest_test/records
+http://10.123.9.70/ver1.0/apps/2/zones/1/tables/tb_rest_test/records
 ```
 
 ### HTTP 头
@@ -154,11 +154,11 @@ GET /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records?keys={JSON
 ##### URL
 - URL 未 UrlEncode 结果：
 ```
-http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys={'region': 101, 'name': 'calvinshao', 'uin': 100}
+http://10.123.9.70/ver1.0/apps/2/zones/1/tables/tb_example/records?keys={'region': 101, 'name': 'calvinshao', 'uin': 100}
 ```
 - URL UrlEncode 结果：
 ```
-http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys=%7B%22region%22%3A%20101%2C%20%22name%22%3A%20%22calvinshao%22%2C%20%22uin%22%3A%20100%7D
+http://10.123.9.70/ver1.0/apps/2/zones/1/tables/tb_example/records?keys=%7B%22region%22%3A%20101%2C%20%22name%22%3A%20%22calvinshao%22%2C%20%22uin%22%3A%20100%7D
 ```
 
 ##### 请求 HTTP 头
@@ -231,7 +231,7 @@ SetRecord操作支持resultflag设置以下取值：
 #### 示例
 ##### URL
 ```
-http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
+http://10.123.9.70/ver1.0/apps/2/zones/1/tables/tb_example/records
 ```
 
 ##### 请求 HTTP 头
@@ -338,7 +338,7 @@ AddRecord 操作支持 resultflag 设置以下取值：
 
 ##### URL
 ```
- http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
+ http://10.123.9.70/ver1.0/apps/2/zones/1/tables/tb_example/records
 ```
 
 ##### 请求 HTTP 头
@@ -441,7 +441,7 @@ DeleteRecord 操作支持 resultflag 设置以下取值：
 
 ##### URI
 ```
-http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
+http://10.123.9.70/ver1.0/apps/2/zones/1/tables/tb_example/records
 ```
 
 ##### 请求 HTTP 头
@@ -499,12 +499,12 @@ GET /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records?keys={JSON
 
 ##### URL 未 UrlEncode 结果
 ```
-http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys={'region': 101, 'name': 'calvinshao', 'uin': 100}&select=['gamesvrid', 'lockid', 'pay.auth.pay_keys', 'pay.total_money']
+http://10.123.9.70/ver1.0/apps/2/zones/1/tables/tb_example/records?keys={'region': 101, 'name': 'calvinshao', 'uin': 100}&select=['gamesvrid', 'lockid', 'pay.auth.pay_keys', 'pay.total_money']
 ```
 
 ##### URL UrlEncode 结果
 ```
-http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys=%7B%22region%22%3A%20101%2C%20%22name%22%3A%20%22calvinshao%22%2C%20%22uin%22%3A%20100%7D&select=%5B%22gamesvrid%22%2C%20%22lockid%22%2C%20%22pay.auth.pay_keys%22%2C%20%22pay.total_money%22%5D
+http://10.123.9.70/ver1.0/apps/2/zones/1/tables/tb_example/records?keys=%7B%22region%22%3A%20101%2C%20%22name%22%3A%20%22calvinshao%22%2C%20%22uin%22%3A%20100%7D&select=%5B%22gamesvrid%22%2C%20%22lockid%22%2C%20%22pay.auth.pay_keys%22%2C%20%22pay.total_money%22%5D
 ```
 
 ##### 请求 HTTP 头
@@ -569,10 +569,8 @@ FieldSetRecord 操作支持 resultflag 设置以下取值：
 #### 示例
 
 ##### URL
-
 ```
-http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
-
+http://10.123.9.70/ver1.0/apps/2/zones/1/tables/tb_example/records
 ```
 
 ##### 请求 HTTP 头
@@ -665,7 +663,7 @@ SetRecord 操作支持 resultflag 设置以下取值：
 #### 示例
 ##### URL
 ```
-http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records
+http://10.123.9.70/ver1.0/apps/2/zones/1/tables/tb_example/records
 ```
 
 ##### 请求 HTTP 头
@@ -749,12 +747,12 @@ limit 和 offset 是用于记录部分返回控制的参数。
 #### 示例
 ##### URL 未 UrlEncode 结果
 ```
-http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys={'name': 'calvinshao', 'uin': 100}&select=['gamesvrid', 'lockid', 'pay.total_money', 'pay.auth.pay_keys']
+http://10.123.9.70/ver1.0/apps/2/zones/1/tables/tb_example/records?keys={'name': 'calvinshao', 'uin': 100}&select=['gamesvrid', 'lockid', 'pay.total_money', 'pay.auth.pay_keys']
 ```
 
 ##### URL UrlEncode 结果
 ```
-http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys=%7B%22name%22%3A%20%22calvinshao%22%2C%20%22uin%22%3A%20100%7D&select=%5B%22gamesvrid%22%2C%20%22lockid%22%2C%20%22pay.total_money%22%2C%20%22pay.auth.pay_keys%22%5D
+http://10.123.9.70/ver1.0/apps/2/zones/1/tables/tb_example/records?keys=%7B%22name%22%3A%20%22calvinshao%22%2C%20%22uin%22%3A%20100%7D&select=%5B%22gamesvrid%22%2C%20%22lockid%22%2C%20%22pay.total_money%22%2C%20%22pay.auth.pay_keys%22%5D
 ```
 
 ##### 请求 HTTP 头

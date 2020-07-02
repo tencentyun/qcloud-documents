@@ -8,7 +8,7 @@
 1. 打开 Cocos Creator，新建一个“腾讯云联机对战游戏范例”工程。（您也可下载 [游戏范例工程代码](https://mgobe-1258556906.cos.ap-shanghai.myqcloud.com/cocos-mgobe.zip)，自行导入工程）
 ![](https://main.qcloudimg.com/raw/7d64a73714f259c1b588521f57c45361.png)
 2. 新建完成后，您将得到一个工程包，结构如下图所示：
- - **assets**：该目录下为所有客户端代码，小游戏联机对战引擎的客户端 SDK 已导入该目录。所有的客户端逻辑，可在 assets\script 目录下查看。
+ - **assets**：该目录下为所有客户端代码，游戏联机对战引擎的客户端 SDK 已导入该目录。所有的客户端逻辑，可在 assets\script 目录下查看。
  - **serverless**：该目录为工程的服务端代码，包括游戏联机对战引擎的实时服务器框架。
 ![](https://main.qcloudimg.com/raw/ab2ed4f6a7194067a139fd081ab4b89f.png)
 3. 进入 Cocos Creator 主界面，单击顶部工具栏的“![](https://main.qcloudimg.com/raw/09071d4fabcf9239a2ce8f2d96972dac.png)”按键，运行当前 DEMO。通过浏览器打开的界面如下图所示：

@@ -19,7 +19,7 @@ Namespace=QCE/SQLSERVER
 | Logouts      | 登出次数     | 每秒登出次数                           | 次/秒 | resourceId |
 | Storage      | 已用存储空间 | 实例数据库文件和日志文件占用的空间总和 | GB    | resourceId |
 | InFlow       | 输入流量     | 所有连接输入包大小总和                 | KB/s  | resourceId |
-| OutFlow      | 输入流量     | 所有连接输出包大小总和                 | KB/s  | resourceId |
+| OutFlow      | 输出流量     | 所有连接输出包大小总和                 | KB/s  | resourceId |
 | Iops         | 磁盘 IOPS    | 每秒磁盘读写次数                       | 次/秒 | resourceId |
 | DiskReads    | 读取磁盘次数 | 每秒读取磁盘次数                       | 次/秒 | resourceId |
 | DiskWrites   | 写入磁盘次数 | 每秒写入磁盘次数                       | 次/秒 | resourceId |
@@ -48,7 +48,7 @@ Namespace=QCE/SQLSERVER
 
 | 参数名称                       | 维度名称   | 维度解释          | 格式                                          |
 | ------------------------------ | ---------- | ----------------- | --------------------------------------------- |
-| Instances.N.Dimensions.0.Name  | resourceId | 实例的 resourceId  | 输入String 类型维度名称，例如 resourceId        |
+| Instances.N.Dimensions.0.Name  | resourceId | 实例的 resourceId  | 输入 String 类型维度名称，例如 resourceId        |
 | Instances.N.Dimensions.0.Value | resourceId | 实例具体的资源 ID | 输入实例的具体 resourceId，例如 mssql-dh0123456 |
 
   
