@@ -1,0 +1,330 @@
+# Quick Start - DTF Demo
+
+## 准备工作
+
+参考[准备工作](http://www.tencent.com)章节进行。
+
+## 下载DTF示例工程
+
+此处可以下载DTF的[示例工程](http://www.tencent.com)，以便于快速上手分布式事务研发工作。
+
+## 初始化数据库（MySQL即可）
+
+需要准备一台DB。
+
+> 该步骤获取`MySQLHost`，`MySQLPort`。
+
+执行[示例工程初始化脚本: 00_init.sql](http://www.tencent.com)。
+
+如果需要使用FMT，在每个业务库中，执行[FMT初始化脚本: 01_init_fmt_tables.sql](http://www.tencent.com)。
+
+``` sql
+CREATE TABLE `dtf_undo_log` (
+  `group_id` varchar(20) NOT NULL COMMENT '事务分组ID',
+  `tx_id` BIGINT(20) NOT NULL COMMENT '主事务ID',
+  `branch_id` BIGINT(20) NOT NULL COMMENT '分支事务ID',
+  `undo_info` BLOB NULL COMMENT 'UNDO信息',
+  `creation_time` BIGINT(20) NULL COMMENT '创建时间',
+  PRIMARY KEY (`group_id`, `tx_id`, `branch_id`))
+ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT = 'Tencent DTF事务UNDO日志表';
+
+CREATE TABLE `dtf_global_line_lock` (
+  `lock_hash` binary(16) NOT NULL COMMENT '行锁的Hash值',
+  `group_id` varchar(20) NOT NULL COMMENT '事务分组ID',
+  `tx_id` bigint(20) NOT NULL COMMENT '主事务ID',
+  `branch_id_stack` text NOT NULL COMMENT '分支事务ID栈',
+  `branch_id` bigint(20) NOT NULL COMMENT '栈顶分支事务ID',
+  PRIMARY KEY (`lock_hash`),
+  KEY (`group_id`, `tx_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Tencent DTF事务全局锁表';
+```
+
+## 工程依赖及应用配置
+
+DTF可以在`非Spring`，`Spring Boot`，`Spring Cloud`三种环境中运行。分别需要使用不同的Maven POM配置和应用配置进行启动。
+
+> 注：下列示例中的`${dtf.version}`可以根据[Release Note](http://www.tencent.com)选择`最新(推荐)`或指定的版本。
+>
+> 注：下列示例中，每个`场景`都可以`单独`部署使用。
+
+---
+
+### 非Spring应用
+
+示例工程：
+
+`single-transfer`
+
+修改示例工程中`com.tencent.cloud.dtf.demo.TransferApplication`类的以下内容。
+
+> 设置的值请在[准备工作](http://www.tencent.com)步骤中获取。
+
+``` java
+/**
+ * 设置启动参数
+ */
+private static void initEnv() {
+    // 应用唯一标识，具有相同标识的应用节点被视作对等节点
+    DtfEnv.setServer("single-transfer");
+    // 腾讯云API密钥：SecretId
+    DtfEnv.setSecretId("${SecretId}");
+    // 腾讯云API密钥：SecretKey
+    DtfEnv.setSecretKey("${SecretKey}");
+    // 事务分组ID，事务协调器BrokerList。
+    DtfEnv.addTxmBroker("${GroupId}", "${BorkerList}");
+}
+```
+
+修改示例工程中`com.tencent.cloud.dtf.demo.transfer.util.DBUtil`类的以下内容。
+
+> 设置的值请在[初始化数据库（MySQL即可）](http://www.tencent.com)步骤中获取。
+
+``` java
+private static final String URL1 = "jdbc:mysql://${MySQLHost}:${MySQLPort}/dtf_demo_account_1?useSSL=false&characterEncoding=utf8&serverTimezone=GMT";
+
+private static final String URL2 = "jdbc:mysql://${MySQLHost}:${MySQLPort}/dtf_demo_account_2?useSSL=false&characterEncoding=utf8&serverTimezone=GMT";
+```
+
+示例工程测试方法：启动后自动执行，不需要外部触发。
+
+---
+
+### Spring Boot应用 - 单应用多数据源场景
+
+示例工程：
+
+TCC模式：
+
+`single-transfer-spring-boot`
+
+FMT模式：
+
+`single-transfer-fmt-spring-boot`
+
+修改示例工程中的application.yml文件。
+
+> 设置的值请在[准备工作](http://www.tencent.com)，[初始化数据库（MySQL即可）](http://www.tencent.com)两个步骤中获取。
+
+``` yaml
+spring:
+  application:
+    name: single-transfer
+  datasource:
+    primary:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbcUrl: jdbc:mysql://${MySQLHost}:${MySQLPort}/dtf_demo_account_1?useSSL=false&characterEncoding=utf8&serverTimezone=GMT
+      username: dtf_demo_account_1
+      password: 1q2w3e4r@TX
+    secondary:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbcUrl: jdbc:mysql://${MySQLHost}:${MySQLPort}/dtf_demo_account_2?useSSL=false&characterEncoding=utf8&serverTimezone=GMT
+      username: dtf_demo_account_2
+      password: 1q2w3e4r@TX
+dtf:
+  env:
+    groups:
+      ${GroupId}: ${BorkerList}
+    secretId: ${SecretId}
+    secretKey: ${SecretKey}
+```
+
+示例工程测试方法：启动后自动执行，不需要外部触发。
+
+---
+
+### Spring Boot应用 - 多应用场景
+
+> 注：该组示例中TCC与FMT节点可以混布。
+
+示例工程：
+
+TCC模式：
+
+`spring-boot-order`，`spring-boot-inventory`，`spring-boot-payment`，`spring-boot-point`
+
+FMT模式
+
+`spring-boot-fmt-order`，`spring-boot-fmt-inventory`，`spring-boot-fmt-payment`，`spring-boot-fmt-point`
+
+远程调用场景：
+
+``` shell
+Order .......................... spring-boot-order/spring-boot-fmt-order
+  ├ Inventory .................. spring-boot-inventory/spring-boot-fmt-inventory
+  └ Payment .................... spring-boot-payment/spring-boot-fmt-payment
+      └ Point .................. spring-boot-point/spring-boot-fmt-point
+```
+
+修改示例工程中的application.yml文件的以下部分。
+
+> 设置的值请在[准备工作](http://www.tencent.com)，[初始化数据库（MySQL即可）](http://www.tencent.com)两个步骤中获取。
+
+``` yaml
+spring:
+  datasource:
+    url: jdbc:mysql://${MySQLHost}:${MySQLPort}/dtf_demo_inventory?useSSL=false&characterEncoding=utf8&serverTimezone=GMT
+dtf:
+  env:
+    groups:
+      ${GroupId}: ${BorkerList}
+    secretId: ${SecretId}
+    secretKey: ${SecretKey}
+```
+
+> 注：Spring Boot应用没有服务注册发现，所以需要手动配置远程调用地址。
+
+修改`spring-boot-order`，`spring-boot-fmt-order`工程的以下内容：
+
+`com.tencent.cloud.dtf.demo.order.proxy.InventoryRestTemplate`类
+
+> `${inventory-host}`为部署`spring-boot-inventory`或`spring-boot-fmt-inventory`的主机地址。
+
+``` java
+public Boolean deduct(Order order) {
+    Inventory inventory = new Inventory();
+    inventory.setProductId(order.getProductId());
+    inventory.setQty(order.getQty());
+    return restTemplate.postForObject("http://${inventory-host}:19001/deduct", inventory, Boolean.class);
+}
+```
+
+`com.tencent.cloud.dtf.demo.order.proxy.PaymentRestTemplate`类
+
+> `${payment-host}`为部署`spring-boot-payment`或`spring-boot-fmt-payment`的主机地址。
+
+``` java
+public Boolean pay(Order order) {
+    Payment payment = new Payment();
+    payment.setAccountId(order.getAccountId());
+    payment.setBalance(order.getQty());
+    return restTemplate.postForObject("http://${payment-host}:19002/pay", payment, Boolean.class);
+}
+```
+
+修改`spring-boot-payment`，`spring-boot-fmt-payment`工程的以下内容：
+
+`com.tencent.cloud.dtf.demo.payment.proxy.PointRestTemplate`类
+
+> `${point-host}`为部署`spring-boot-point`或`spring-boot-fmt-point`的主机地址。
+
+``` java
+public boolean point(Payment payment) {
+    Point point = new Point();
+    point.setAccountId(payment.getAccountId());
+    point.setPoint(payment.getBalance());
+    return restTemplate.postForObject("http://${point-host}:19003/point", point, Boolean.class);
+}
+```
+
+示例工程测试方法：
+
+需要手工调用Order工程的下单接口：
+
+> `${order-host}`为部署`spring-boot-order`或`spring-boot-fmt-order`的主机地址。
+
+``` sh
+curl --location --request POST 'http://${order-host}:19000/order' \
+--header 'Content-Type: application/json' \
+-d '{
+	"productId": 4,
+	"qty": 1,
+	"accountId": 1
+}'
+```
+
+---
+
+### Spring Cloud应用 - 多应用场景
+
+> 注：该组示例中TCC与FMT节点可以混布。
+
+示例工程：
+
+TCC模式：
+
+`spring-cloud-order`，`spring-cloud-inventory`，`spring-cloud-payment`，`spring-cloud-point`
+
+FMT模式
+
+`spring-cloud-fmt-order`，`spring-cloud-fmt-inventory`，`spring-cloud-fmt-payment`，`spring-cloud-fmt-point`
+
+远程调用场景：
+
+``` shell
+Order .......................... spring-cloud-order/spring-cloud-fmt-order
+  ├ Inventory .................. spring-cloud-inventory/spring-cloud-fmt-inventory
+  └ Payment .................... spring-cloud-payment/spring-cloud-fmt-payment
+      └ Point .................. spring-cloud-point/spring-cloud-fmt-point
+```
+
+修改示例工程中的application.yml文件的以下部分。
+
+> 设置的值请在[准备工作](http://www.tencent.com)，[初始化数据库（MySQL即可）](http://www.tencent.com)两个步骤中获取。
+
+``` yaml
+spring:
+  datasource:
+    url: jdbc:mysql://${MySQLHost}:${MySQLPort}/dtf_demo_inventory?useSSL=false&characterEncoding=utf8&serverTimezone=GMT
+dtf:
+  env:
+    groups:
+      ${GroupId}: ${BorkerList}
+    secretId: ${SecretId}
+    secretKey: ${SecretKey}
+```
+
+示例工程测试方法：
+
+需要手工调用Order工程的下单接口：
+
+> `${order-host}`为部署`spring-boot-order`或`spring-boot-fmt-order`的主机地址。
+
+``` sh
+curl --location --request POST 'http://${order-host}:19000/order' \
+--header 'Content-Type: application/json' \
+-d '{
+	"productId": 4,
+	"qty": 1,
+	"accountId": 1
+}'
+```
+
+---
+
+## 打包示例工程
+
+在示例工程`根目录`下使用以下脚本打包示例工程。
+
+``` sh
+mvn clean package
+```
+
+---
+
+## 部署应用
+
+在CVM或TSF中部署刚刚打包好的示例工程jar包。
+
+### TSF中部署（推荐）
+
+
+
+### CVM中部署
+
+上传jar包到指定服务器（服务器需要安装JDK 1.8或以上版本）。
+
+使用以下命令启动程序包。
+
+> ${jar_file}为`打包示例工程`时生成的jar包。
+
+``` sh
+nohup java -jar ${jar_file} > root.log &
+```
+
+---
+
+## 检查运行结果
+
+在[DTF控制台](http://www.tencent.com)上检查事务分组的对应数据。
+
+在业务日志中检查执行过程产生的日志。

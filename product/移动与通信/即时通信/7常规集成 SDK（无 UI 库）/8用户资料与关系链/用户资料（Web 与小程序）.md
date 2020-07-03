@@ -8,7 +8,7 @@
 **接口名**
 
 ```js
-tim.getMyProfile()
+tim.getMyProfile();
 ```
 
 **返回值**
@@ -41,7 +41,7 @@ promise.then(function(imResponse) {
 **接口名**
 
 ```js
-tim.getUserProfile(options)
+tim.getUserProfile(options);
 ```
 
 **请求参数**
@@ -80,7 +80,7 @@ promise.then(function(imResponse) {
 **接口名**
 
 ```js
-tim.updateMyProfile(options)
+tim.updateMyProfile(options);
 ```
 
 **请求参数**
@@ -177,7 +177,7 @@ promise.then(function(imResponse) {
 **接口名**
 
 ```js
-tim.getBlacklist()
+tim.getBlacklist();
 ```
 
 **请求参数**
@@ -215,7 +215,7 @@ promise.then(function(imResponse) {
 **接口名**
 
 ```js
-tim.addToBlacklist(options)
+tim.addToBlacklist(options);
 ```
 
 **请求参数**
@@ -252,7 +252,7 @@ promise.then(function(imResponse) {
 **接口名**
 
 ```js
-tim.removeFromBlacklist(options)
+tim.removeFromBlacklist(options);
 ```
 
 **请求参数**
