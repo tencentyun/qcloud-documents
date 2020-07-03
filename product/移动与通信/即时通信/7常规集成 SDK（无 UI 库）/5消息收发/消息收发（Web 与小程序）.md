@@ -1,4 +1,10 @@
+本文将为您详细介绍消息收发（Web & 小程序），以下为视频介绍：
+
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2766-53356?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
+
 ## 发送消息
+
 
 ### 创建文本消息
 
