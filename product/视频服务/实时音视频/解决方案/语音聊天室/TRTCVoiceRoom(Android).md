@@ -1013,7 +1013,7 @@ void onInviteeRejected(String id, String invitee);
 | id      | String | 邀请 ID。           |
 | invitee | String | 被邀请人的用户 ID。 |
 
-### onReceiveNewInvitation
+### onInvitationCancelled
 
 邀请人取消邀请。
 
