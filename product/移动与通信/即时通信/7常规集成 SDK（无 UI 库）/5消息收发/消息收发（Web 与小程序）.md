@@ -113,7 +113,8 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imError</span>) </span>{
   <span class="hljs-comment">// 发送失败</span>
   <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
-});
+});</code></pre>
+
 
 
 <pre><code class="language-javascript"><span class="hljs-comment">// Web 端发送图片消息示例2- 传入 File 对象</span>
@@ -320,7 +321,8 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imError</span>) </span>{
   <span class="hljs-comment">// 发送失败</span>
   <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
-});
+});</code></pre>
+
 
 <pre><code class="language-javascript"><span class="hljs-comment">// Web 端发送文件消息示例2- 传入 File 对象</span>
 <span class="hljs-comment">// 先在页面上添加一个 ID 为 "testPasteInput" 的消息输入框，如 &lt;input type="text" id="testPasteInput" placeholder="截图后粘贴到输入框中" size="30" /&gt;</span>
