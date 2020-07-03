@@ -18,8 +18,10 @@
 
 
 ### 查看实例 JVM 进程监控的基本信息
-您可在【实例概览】标签页中，查看实例的基本信息、实时的指标信息以及近一小时的 CPU 使用率、堆内存使用量、活动线程数、已加载类数的时间变化曲线（曲线时间粒度为1分钟）
+您可在【实例概览】标签页中，查看实例的基本信息、实时的指标信息以及近一小时的 CPU 使用率、堆内存使用量、活动线程数、已加载类数的时间变化曲线（曲线时间粒度为1分钟）。
+基本信息：
 ![](https://main.qcloudimg.com/raw/3f2b2a1f39a14feff8cd5f75cf3b342d.png)
+JVM 监控概览：
 ![](https://main.qcloudimg.com/raw/0f018976ddcadfe74a5bea116a3a3efe.png)
 
 ### 查看实例 JVM 进程的内存信息
@@ -35,7 +37,7 @@
 - Old Space（MB）
 - Meta Space（MB）
 
-堆内存的【max】展示的是堆内存真实可用的最大值（会扣除 to_space内存），而不是配置的xmx参数；JDK1.8版本部分 GC 算法（如 G1GC 的 Survivor space），其 max 值会设置为 max_int 值，此时值会显示为-1。
+堆内存的【max】展示的是堆内存真实可用的最大值（会扣除 to_space内存），而不是配置的 xmx 参数；JDK1.8版本部分 GC 算法（如 G1GC 的 Survivor space），其 max 值会设置为 max_int 值，此时值会显示为-1。
 
 ![](https://main.qcloudimg.com/raw/4336c4e415aad5835e6dc65817035a26.png)
 ![](https://main.qcloudimg.com/raw/3bce78368b01aaf84b462092cc201033.png)
