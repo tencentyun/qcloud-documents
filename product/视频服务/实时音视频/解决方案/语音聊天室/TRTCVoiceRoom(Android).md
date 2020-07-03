@@ -698,7 +698,7 @@ public abstract void rejectInvitation(String id, TRTCVoiceRoomCallback.ActionCal
 
 | 参数 | 类型   | 含义     |
 | ---- | ------ | -------- |
-| id   | String | 邀请ID。 |
+| id   | String | 邀请 ID。 |
 | callback | ActionCallback | 发送结果回调。|
 
 
