@@ -2,11 +2,11 @@
 本文档提供移动推送 TPNS  Android 应用快速接入指引。只需四步，即可在您的 Android 应用上面使用移动推送 TPNS 服务。
 ## 接入前准备
 1. 接入 SDK 之前，需要您前往移动推送 TPNS  [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 Android 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
- ![](https://main.qcloudimg.com/raw/968f59dd893bd3cb2bf9a7ffc03a0dd3.png)
-2. 应用创建完成后，您可以参考 [申请试用](https://cloud.tencent.com/document/product/548/37241#.E7.94.B3.E8.AF.B7.E8.AF.95.E7.94.A8) / [购买推送服务](https://cloud.tencent.com/document/product/548/37242) 操作文档，为当前应用申请试用权限或者购买推送服务。
-![](https://main.qcloudimg.com/raw/f416f06c1763d71940b971c53a241dbb.png)
+![](https://main.qcloudimg.com/raw/07e885397acb20ccd811ae1934359697.png)
+2. 应用创建完成后，您可以参考 [购买推送服务](https://cloud.tencent.com/document/product/548/37242) 操作文档，为当前应用购买推送服务。
+![](https://main.qcloudimg.com/raw/f2b1b8e5cf49baf3bddd8b96cfb9d86e.png)
 3. 完成以上步骤后，进入应用的【配置管理】页面，准备接入。
-![](https://main.qcloudimg.com/raw/bb9646ff16123b2bb5b7634976489e7b.png)
+![](https://main.qcloudimg.com/raw/2cc4df2b94dfeb10a0f4aa09a3b6a15f.png)
 
 ## 开始接入
 1.在【配置管理】页面中， 单击【快速接入】按钮。
