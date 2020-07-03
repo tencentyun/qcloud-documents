@@ -116,7 +116,7 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 });
 
 
-<pre><code class="language-javascript"><span class="hljs-comment">// Web 端发送图片消息示例2- 传入 File 对象</span>
+<span class="hljs-comment">// Web 端发送图片消息示例2- 传入 File 对象</span>
 <span class="hljs-comment">// 先在页面上添加一个 ID 为 "testPasteInput" 的消息输入框，例如 &lt;input type="text" id="testPasteInput" placeholder="截图后粘贴到输入框中" size="30" /&gt;</span>
 <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'testPasteInput'</span>).addEventListener(<span class="hljs-string">'paste'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
   <span class="hljs-keyword">let</span> clipboardData = e.clipboardData;
@@ -322,7 +322,7 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
   <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
 });
 
-<pre><code class="language-javascript"><span class="hljs-comment">// Web 端发送文件消息示例2- 传入 File 对象</span>
+<span class="hljs-comment">// Web 端发送文件消息示例2- 传入 File 对象</span>
 <span class="hljs-comment">// 先在页面上添加一个 ID 为 "testPasteInput" 的消息输入框，如 &lt;input type="text" id="testPasteInput" placeholder="截图后粘贴到输入框中" size="30" /&gt;</span>
 <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'testPasteInput'</span>).addEventListener(<span class="hljs-string">'paste'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
   <span class="hljs-keyword">let</span> clipboardData = e.clipboardData;
