@@ -115,7 +115,8 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
   <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
 });
 
-<span class="hljs-comment">// Web 端发送图片消息示例2- 传入 File 对象</span>
+
+<pre><code class="language-javascript"><span class="hljs-comment">// Web 端发送图片消息示例2- 传入 File 对象</span>
 <span class="hljs-comment">// 先在页面上添加一个 ID 为 "testPasteInput" 的消息输入框，例如 &lt;input type="text" id="testPasteInput" placeholder="截图后粘贴到输入框中" size="30" /&gt;</span>
 <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'testPasteInput'</span>).addEventListener(<span class="hljs-string">'paste'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
   <span class="hljs-keyword">let</span> clipboardData = e.clipboardData;
@@ -126,13 +127,11 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
     <span class="hljs-comment">// 图片消息发送成功后，file 指向的内容可能被浏览器清空，如果接入侧有额外的渲染需求，可以提前复制一份数据</span>
     fileCopy = file.slice();
   }
-
   <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> file === <span class="hljs-string">'undefined'</span>) {
     <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'file 是 undefined，请检查代码或浏览器兼容性！'</span>);
     <span class="hljs-keyword">return</span>;
   }
-
-  <span class="hljs-comment">// 1. 创建消息实例，接口返回的实例可以上屏</span>
+   <span class="hljs-comment">// 1. 创建消息实例，接口返回的实例可以上屏</span>
   <span class="hljs-keyword">let</span> message = tim.createImageMessage({
     <span class="hljs-attr">to</span>: <span class="hljs-string">'user1'</span>,
     <span class="hljs-attr">conversationType</span>: TIM.TYPES.CONV_C2C,
@@ -140,8 +139,7 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
       <span class="hljs-attr">file</span>: file
     },
     <span class="hljs-attr">onProgress</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'file uploading:'</span>, event) }
-  });
-
+  });  
   <span class="hljs-comment">// 2. 发送消息</span>
   <span class="hljs-keyword">let</span> promise = tim.sendMessage(message);
   promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imResponse</span>) </span>{
@@ -324,7 +322,7 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
   <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
 });
 
-<span class="hljs-comment">// Web 端发送文件消息示例2- 传入 File 对象</span>
+<pre><code class="language-javascript"><span class="hljs-comment">// Web 端发送文件消息示例2- 传入 File 对象</span>
 <span class="hljs-comment">// 先在页面上添加一个 ID 为 "testPasteInput" 的消息输入框，如 &lt;input type="text" id="testPasteInput" placeholder="截图后粘贴到输入框中" size="30" /&gt;</span>
 <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'testPasteInput'</span>).addEventListener(<span class="hljs-string">'paste'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
   <span class="hljs-keyword">let</span> clipboardData = e.clipboardData;
@@ -358,6 +356,7 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
     <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
   });
 });</code></pre>
+
 
 **返回**
 
