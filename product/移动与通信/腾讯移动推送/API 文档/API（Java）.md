@@ -1,5 +1,5 @@
 ## SDK 说明
-本 SDK 提供 TPNS 服务端接口的 Java 封装，与腾讯移动推送后台通信。使用时引用 XingeApp 包即可, 本 sdk 封装的主要是 V3 推送相关接口。
+本 SDK 提供 TPNS 服务端接口的 Java 封装，与移动推送 TPNS 后台通信。使用时引用 XingeApp 包即可, 本 sdk 封装的主要是 V3 推送相关接口。
 ## 集成方式
 Maven  依赖引用方式：
 

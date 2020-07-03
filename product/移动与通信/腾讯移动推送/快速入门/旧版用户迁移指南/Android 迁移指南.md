@@ -1,11 +1,11 @@
-为保障迁移后的正常使用，请您升级至 Android V1.1.5.5 及以上版本，以下是针对从信鸽平台 4.x 版本迁移到腾讯移动推送平台 Android V1.1.5.5 及以上版本的变更说明。
+为保障迁移后的正常使用，请您升级至 Android V1.1.5.5 及以上版本，以下是针对从信鸽平台 4.x 版本迁移到移动推送 TPNS 平台 Android V1.1.5.5 及以上版本的变更说明。
 
 ## 注销信鸽平台推送服务
 >! 
-- 如果未做以下配置，在【旧版信鸽】和【腾讯移动推送】两个平台上同时推送时，可能会出现重复消息。
+- 如果未做以下配置，在【旧版信鸽】和【移动推送 TPNS 】两个平台上同时推送时，可能会出现重复消息。
 - 如果您的应用确定不再使用【旧版信鸽】进行推送，可忽略上方配置。
 
-如果 App 的推送服务是从信鸽平台（https://xg.qq.com）迁移到腾讯移动推送平台，TPNS 版本需要增加以下配置：
+如果 App 的推送服务是从信鸽平台（https://xg.qq.com）迁移到移动推送 TPNS 平台，TPNS 版本需要增加以下配置：
 - 在 AndroidManifest 上添加的 application 节点内添加以下配置，填写信鸽平台的 ACCESS ID
 ```xml
 <meta-data
@@ -65,7 +65,7 @@ implementation 'com.tencent.tpns:tpns:[VERSION]-release'
 
 ## 手动集成方式
 ####  依赖包变更
-请前往 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns/sdkdownload)，下载 Android SDK 压缩包、解压并按照以下步骤替换依赖包文件：
+请前往 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns/sdkdownload)，下载 Android SDK 压缩包、解压并按照以下步骤替换依赖包文件：
 - 删除信鸽 4.x 版本所使用的全部 .jar 文件，使用 libs 目录下的所有 .jar 文件替换。
 - 删除信鸽 4.x 版本所使用的全部 .so 文件，在 Other-Platform-SO 目录下，按照当前 .so 支持的平台添加 .so 文件。
 
@@ -241,7 +241,7 @@ implementation 'com.tencent.tpns:fcm:[VERSION]-release'
 implementation  'com.google.firebase:firebase-messaging:17.6.0'
 ```
 - 手动集成的方式需要替换 .jar 文件
-前往 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns/sdkdownload)，下载 Android SDK 压缩包、并解压目录 Other-Push-jar 下，找到对应厂商通道所需 .jar 文件，替换信鸽 4.x 版本使用的厂商通道 .jar 文件。
+前往 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns/sdkdownload)，下载 Android SDK 压缩包、并解压目录 Other-Push-jar 下，找到对应厂商通道所需 .jar 文件，替换信鸽 4.x 版本使用的厂商通道 .jar 文件。
 
 
 ## 代码混淆保留变更
