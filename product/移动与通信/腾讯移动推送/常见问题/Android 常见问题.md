@@ -1,4 +1,4 @@
-### 如何关闭TPNS的保活功能？
+### 如何关闭 TPNS 的保活功能？
 
 TPNS默认开启联合保活能力，请在应用初始化的时候，如Application或LauncherActivity 的onCreate中 调用如下接口，并传递 false 值:
 ```java
