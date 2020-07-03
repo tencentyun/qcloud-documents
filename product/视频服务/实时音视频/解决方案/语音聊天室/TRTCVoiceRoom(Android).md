@@ -147,7 +147,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 ### sharedInstance
 
-获取 [TRTCVoiceRoom]() 单例对象。
+获取 [TRTCVoiceRoom](https://cloud.tencent.com/document/product/647/45737) 单例对象。
 
 ```java
  public static synchronized TRTCVoiceRoom sharedInstance(Context context);
@@ -163,7 +163,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 ### destroySharedInstance
 
-销毁 [TRTCVoiceRoom]() 单例对象。
+销毁 [TRTCVoiceRoom](https://cloud.tencent.com/document/product/647/45737) 单例对象。
 
 >?销毁实例后，外部缓存的 TRTCVoiceRoom 实例无法再使用，需要重新调用 [sharedInstance](#sharedInstance) 获取新实例。
 
@@ -173,7 +173,7 @@ public static void destroySharedInstance();
 
 ### setDelegate
 
-[TRTCVoiceRoom]() 事件回调，您可以通过 TRTCVoiceRoomDelegate 获得 [TRTCVoiceRoom]() 的各种状态通知。
+[TRTCVoiceRoom](https://cloud.tencent.com/document/product/647/45737) 事件回调，您可以通过 TRTCVoiceRoomDelegate 获得 [TRTCVoiceRoom](https://cloud.tencent.com/document/product/647/45737) 的各种状态通知。
 
 ```java
 public abstract void setDelegate(TRTCVoiceRoomDelegate delegate);
@@ -692,7 +692,6 @@ public abstract void acceptInvitation(String id, TRTCVoiceRoomCallback.ActionCal
 
 ```java
 public abstract void rejectInvitation(String id, TRTCVoiceRoomCallback.ActionCallback callback);
-
 ```
 
 参数如下表所示：
@@ -700,8 +699,7 @@ public abstract void rejectInvitation(String id, TRTCVoiceRoomCallback.ActionCal
 | 参数 | 类型   | 含义     |
 | ---- | ------ | -------- |
 | id   | String | 邀请ID。 |
-
-| callback | ActionCallback | 发送结果回调。|### acceptInvitation
+| callback | ActionCallback | 发送结果回调。|
 
 
 ### cancelInvitation
