@@ -1,7 +1,7 @@
 ## 简介
-本文档提供腾讯移动推送 Android 应用快速接入指引。只需四步，即可在您的 Android 应用上面使用腾讯移动推送服务。
+本文档提供移动推送 TPNS  Android 应用快速接入指引。只需四步，即可在您的 Android 应用上面使用移动推送 TPNS 服务。
 ## 接入前准备
-1. 接入 SDK 之前，需要您前往腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 Android 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
+1. 接入 SDK 之前，需要您前往移动推送 TPNS  [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 Android 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
  ![](https://main.qcloudimg.com/raw/968f59dd893bd3cb2bf9a7ffc03a0dd3.png)
 2. 应用创建完成后，您可以参考 [申请试用](https://cloud.tencent.com/document/product/548/37241#.E7.94.B3.E8.AF.B7.E8.AF.95.E7.94.A8) / [购买推送服务](https://cloud.tencent.com/document/product/548/37242) 操作文档，为当前应用申请试用权限或者购买推送服务。
 ![](https://main.qcloudimg.com/raw/f416f06c1763d71940b971c53a241dbb.png)

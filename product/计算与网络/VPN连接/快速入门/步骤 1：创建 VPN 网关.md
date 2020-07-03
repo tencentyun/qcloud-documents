@@ -6,5 +6,5 @@
 3. 选择地域，如示例中的**广州**，单击【+新建】。
 >? 若【+新建】显示灰色，且鼠标移至上方时显示“无可用私有网络”，请 [创建私有网络](https://cloud.tencent.com/document/product/215/36515#.E5.88.9B.E5.BB.BA-vpc) 后再进行新建 VPN 网关。 
 >
-4. 填写 VPN 网关名称（如 TomVPNGw），选择所属网络（如示例中的 TomVPC）、带宽上限、计费方式，单击【创建】即可。VPN 网关创建完成后，系统随机分配公网 IP，如：`203.195.147.82`。
-![](https://main.qcloudimg.com/raw/616899eccb1084250097e680d9b79c97.png)
+4. 填写 VPN 网关名称（如 TomVPNGw），选择关联网络、所属网络、带宽上限、计费方式，单击【创建】即可。VPN 网关创建完成后，系统随机分配公网 IP，如：`203.195.147.82`。
+![](https://main.qcloudimg.com/raw/3e05017cb9f2ba96b9c99688b71f2393.png)

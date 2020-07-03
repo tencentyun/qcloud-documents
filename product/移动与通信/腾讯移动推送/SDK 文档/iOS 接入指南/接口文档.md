@@ -1,7 +1,7 @@
-## 启动腾讯移动推送服务
+## 启动移动推送 TPNS 服务
 
 #### 接口说明
-通过使用在腾讯移动推送官网注册的应用信息，启动腾讯移动推送服务。
+通过使用在移动推送 TPNS 官网注册的应用信息，启动移动推送 TPNS 服务。
 
 ```objective-c
 - (void)startXGWithAccessID:(uint32_t)accessID accessKey:(nonnull NSString *)accessKey delegate:(nullable id<XGPushDelegate>)delegate；
@@ -12,17 +12,17 @@
 - accessKey： 通过前台申请的 AccessKey。
 - Delegate：回调对象。 
 
->!接口所需参数必须要正确填写，反之腾讯移动推送服务将不能正确为应用推送消息。
+>!接口所需参数必须要正确填写，反之移动推送 TPNS 服务将不能正确为应用推送消息。
 
 #### 示例代码
 ```Objective-C
  [[XGPush defaultManager] startXGWithAccessID:<your AccessID> accessKey:<your AccessKey> delegate:self];
 ```
 
-## 终止腾讯移动推送服务
+## 终止移动推送 TPNS 服务
 
 #### 接口说明
-终止腾讯移动推送服务后，将无法通过腾讯移动推送服务向设备推送消息，如再次需要接收腾讯移动推送服务的消息推送，则必须需要再次调用 `startXGWithAppID:appKey:delegate:` 方法重启腾讯移动推送服务。
+终止移动推送 TPNS 服务后，将无法通过移动推送 TPNS 服务向设备推送消息，如再次需要接收移动推送 TPNS 服务的消息推送，则必须需要再次调用 `startXGWithAppID:appKey:delegate:` 方法重启移动推送 TPNS 服务。
 ```objective-c
 - (void)stopXGNotification;
 ```
@@ -98,7 +98,7 @@ XGNotificationConfigure *configure = [XGNotificationConfigure configureNotificat
 ## 角标自动加1
 
 #### 接口说明
-调用此接口上报当前 App 角标数到腾讯移动推送服务器，客户端配置完成即可使用“iOS 角标自动加1”的功能，此功能在管理台位置（创建推送 > 通知栏消息 > 常用设置 > 角标数字）。
+调用此接口上报当前 App 角标数到移动推送 TPNS 服务器，客户端配置完成即可使用“iOS 角标自动加1”的功能，此功能在管理台位置（创建推送 > 通知栏消息 > 常用设置 > 角标数字）。
 
 ```objective-c
 - (void)setBadge:(NSInteger)badgeNumber;
@@ -153,7 +153,7 @@ NSString *token = [[XGPushTokenManager defaultTokenManager] deviceTokenString];
 
 ### 查询 XGToken
 #### 接口说明
-查询当前应用从腾讯移动推送服务器生成的 Token 字符串。
+查询当前应用从移动推送 TPNS 服务器生成的 Token 字符串。
 ```objective-c
 @property (copy, nonatomic, nullable, readonly) NSString *xgTokenString;
 ```
@@ -165,7 +165,7 @@ NSString *token = [[XGPushTokenManager defaultTokenManager] xgTokenString];
 
 ### 注册结果回调
 #### 接口说明
-SDK 的启动方法自动注册设备从 APNs 获取的 Token 到腾讯移动推送服务器，注册结果会在 `XGPushDelegate` \(以下\)的回调方法返回。
+SDK 的启动方法自动注册设备从 APNs 获取的 Token 到移动推送 TPNS 服务器，注册结果会在 `XGPushDelegate` \(以下\)的回调方法返回。
 
 ```objective-c
 - (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken xgToken:(nullable NSString *)xgToken error:(nullable NSError *)error
@@ -330,7 +330,7 @@ handler：查询结果的返回方法。
 ## 注销信鸽平台推送服务
 
 #### 接口说明
-背景：如果 App 的推送服务是从信鸽平台（https://xg.qq.com）迁移到腾讯移动推送平台，在两个平台同时推送时，可能会出现重复消息。因此需要调用 TPNS SDK(1.2.5.3+) 的接口将设备信息在信鸽平台中进行反注册。
+背景：如果 App 的推送服务是从信鸽平台（https://xg.qq.com）迁移到移动推送 TPNS 平台，在两个平台同时推送时，可能会出现重复消息。因此需要调用 TPNS SDK(1.2.5.3+) 的接口将设备信息在信鸽平台中进行反注册。
 引入头文件：XGForFreeVersion.h，在 startXGWithAppID 之前调用：
 ```
 @property uint32_t freeAccessId;

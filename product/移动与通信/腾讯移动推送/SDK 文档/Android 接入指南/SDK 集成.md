@@ -1,13 +1,13 @@
 ## 简介
-Android SDK 是腾讯移动推送服务为客户端实现消息推送而提供给开发者的接口，本文将提供 AndroidStudio Gradle 自动集成和 Android Studio 手动集成两种方式。
->!如果您是从 [信鸽平台](https://xg.qq.com) 迁移至腾讯移动推送平台，请务必使用 [Android 迁移指南](https://cloud.tencent.com/document/product/548/41609) 调整集成配置。
+Android SDK 是移动推送 TPNS 服务为客户端实现消息推送而提供给开发者的接口，本文将提供 AndroidStudio Gradle 自动集成和 Android Studio 手动集成两种方式。
+>!如果您是从 [信鸽平台](https://xg.qq.com) 迁移至移动推送 TPNS 平台，请务必使用 [Android 迁移指南](https://cloud.tencent.com/document/product/548/41609) 调整集成配置。
 
 ## SDK 集成（二选一）
-### AndroidStudio Gradle 自动集成
+### Android Studio Gradle 自动集成
 #### 操作步骤
 >!在配置 SDK 前，确保已创建 Android 平台的应用。
 
-1. 登录 [腾讯移动推送控制台](https://console.cloud.tencent.com/tpns)，选择左侧菜单【配置管理】，获取应用的包名、AccessID、AccessKey。
+1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，选择左侧菜单【配置管理】，获取应用的包名、AccessID、AccessKey。
 2. 在 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面，获取当前最新版本号。
 3. 在 app build.gradle 文件下，配置以下内容：
 
@@ -92,25 +92,25 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 #### 工程配置
 将 SDK 导入到工程的步骤为：
 1. 创建或打开 Android 工程。
-2. 将腾讯移动推送 SDK 目录下的 libs 目录所有 .jar 文件拷贝到工程的 libs（或 lib）目录下。
-3. .so 文件是腾讯移动推送必须的组件，支持 armeabi、armeabi-v7a、arm64-v8a、mips、mips64、x86、x86_64平台，请根据自己当前 .so 支持的平台添加
+2. 将移动推送 TPNS  SDK 目录下的 libs 目录所有 .jar 文件拷贝到工程的 libs（或 lib）目录下。
+3. .so 文件是移动推送 TPNS 必须的组件，支持 armeabi、armeabi-v7a、arm64-v8a、mips、mips64、x86、x86_64平台，请根据自己当前 .so 支持的平台添加
 4. 打开 Androidmanifest.xml，添加以下配置（建议参考下载包的 Demo 修改），其中 YOUR_ACCESS_ID 和YOUR_ACCESS_KEY 替换为 App 对应的 AccessId 和 AccessKey，请确保按照要求配置，否则可能导致服务不能正常使用。
 
 #### 权限配置
-腾讯移动推送 SDK 正常运行所需要的权限。示例代码如下：
+移动推送 TPNS  SDK 正常运行所需要的权限。示例代码如下：
 ```xml
-    <!-- 【必须】 腾讯移动推送SDK VIP版本所需权限 -->
+    <!-- 【必须】 移动推送 TPNS SDK VIP版本所需权限 -->
     <permission
         android:name="应用包名.permission.XGPUSH_RECEIVE"
         android:protectionLevel="signature" />
     <uses-permission android:name="应用包名.permission.XGPUSH_RECEIVE" />
 
-    <!-- 【必须】 腾讯移动推送 SDK 所需权限 -->
+    <!-- 【必须】 移动推送 TPNS  SDK 所需权限 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!-- 【常用】 腾讯移动推送SDK所需权限 -->
+    <!-- 【常用】 移动推送 TPNS SDK所需权限 -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
@@ -139,7 +139,7 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 <application>
     <!-- 应用的其它配置 -->
     <uses-library android:name="org.apache.http.legacy" android:required="false"/> 
-    <!-- 【必须】 腾讯移动推送默认通知 -->
+    <!-- 【必须】 移动推送 TPNS 默认通知 -->
     <activity
         android:name="com.tencent.android.tpush.XGPushActivity">
         <intent-filter>
@@ -147,12 +147,12 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
         </intent-filter>
     </activity>
 
-    <!-- 【必须】 腾讯移动推送receiver广播接收 -->
+    <!-- 【必须】 移动推送 TPNS receiver广播接收 -->
     <receiver
         android:name="com.tencent.android.tpush.XGPushReceiver"
         android:process=":xg_vip_service">
         <intent-filter android:priority="0x7fffffff">
-            <!-- 【必须】 腾讯移动推送SDK的内部广播 -->
+            <!-- 【必须】 移动推送 TPNS SDK的内部广播 -->
             <action android:name="com.tencent.android.xg.vip.action.SDK" />
             <action android:name="com.tencent.android.xg.vip.action.INTERNAL_PUSH_MESSAGE" />
             <action android:name="com.tencent.android.xg.vip.action.ACTION_SDK_KEEPALIVE" />
@@ -160,14 +160,14 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
             <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             <!-- 【可选】 系统广播：开屏 -->
             <action android:name="android.intent.action.USER_PRESENT" />
-            <!-- 【可选】 一些常用的系统广播，增强腾讯移动推送service的复活机会，请根据需要选择。当然，您也可以添加App自定义的一些广播让启动service -->
+            <!-- 【可选】 一些常用的系统广播，增强移动推送 TPNS service的复活机会，请根据需要选择。当然，您也可以添加App自定义的一些广播让启动service -->
             <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
             <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
             <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
         </intent-filter>
     </receiver>
 
-    <!-- 【必须】 腾讯移动推送service -->
+    <!-- 【必须】 移动推送 TPNS service -->
     <service
         android:name="com.tencent.android.tpush.service.XGVipPushService"
         android:persistent="true"
@@ -233,19 +233,19 @@ NDK integration is deprecated in the current plugin. Consider trying the new exp
 
 </application>
 
-<!-- 【必须】 腾讯移动推送SDK5.0版本所需权限 -->
+<!-- 【必须】 移动推送 TPNS SDK5.0版本所需权限 -->
 <permission
     android:name="应用包名.permission.XGPUSH_RECEIVE"
     android:protectionLevel="signature" />
 <uses-permission android:name="应用包名.permission.XGPUSH_RECEIVE" />
 
-<!-- 【必须】 腾讯移动推送SDK所需权限 -->
+<!-- 【必须】 移动推送 TPNS SDK所需权限 -->
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 <uses-permission android:name="android.permission.WAKE_LOCK" />
 
-<!-- 【常用】 腾讯移动推送SDK所需权限 -->
+<!-- 【常用】 移动推送 TPNS SDK所需权限 -->
 <uses-permission android:name="android.permission.VIBRATE" />
 <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -302,13 +302,13 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 
 
 ## 代码混淆
-如果您的项目中使用 proguard 等工具，已做代码混淆，请保留以下选项，否则将导致腾讯移动推送服务不可用：
+如果您的项目中使用 proguard 等工具，已做代码混淆，请保留以下选项，否则将导致移动推送 TPNS 服务不可用：
 
 ```xml
 -keep public class * extends android.app.Service
 -keep public class * extends android.content.BroadcastReceiver
 -keep class com.tencent.android.tpush.** {*;}
--keep class com.tencent.tpns.baseapi.** {*;}  //1.2.0.1以下版本配置为  -keep class com.tencent.tpns.baseapi.** {*;}
+-keep class com.tencent.tpns.baseapi.** {*;}  //1.2.0.1以下版本配置为  -keep class com.tencent.bigdata.baseapi.** {*;}
 -keep class com.tencent.tpns.mqttchannel.** {*;} //1.2.0.1以下版本配置为 -keep class com.tencent.bigdata.mqttchannel.** {*;}
 -keep class com.tencent.tpns.dataacquisition.** {*;}
 ```

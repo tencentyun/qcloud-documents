@@ -4,19 +4,17 @@
 - [获取数字验证码](https://cloud.tencent.com/document/product/1007/31821)。
 
 ### PaaS 化服务中，传入视频大于5M，如何进行压缩？
-您可以使用 FFMpeg 工具进行压缩，推荐压缩参数设置如下：   
-方案一：码率压缩
-`ffmpeg -i old.mp4 -b 500k new.mp4`
--i:视频输入 -b:设置码率   
-方案二：视频长度裁剪：
-`ffmpeg -ss 0:0:1 -t 0:0:2 -i old.mp4 -vcodec copy -acodec copy new.mp4`
--ss：裁剪起始时间 -t:：视频裁剪的时长 -i：视频输入 -vcodec copy -acodec copy：保持原有音视频编码。
+视频格式：H264编码标准的视频格式（如mp4,mov,avi,webm）,
+分辨率支持270p~1080p, (推荐wxh=320x*), 视频大小不超过8M ，
+如果前端手机录制H5视频过大，推荐使用 ffmpeg 先进行压缩再传到核身服务中；
+
+推荐压缩命令：`./ffmpeg -y -v error -i SRC_VIDEO_FILE_PATH -preset veryfast -b:v 1048576 -vf format=pix_fmts=yuv420p,fps=25,scale=320:-16  DEST_VIDEO_FILE_NAME（只需要调整SRC_VIDEO_FILE_PATH, DEST_VIDEO_FILE_NAME两个参数）`
 
 ### PaaS 化服务中，数字活体模式中的四位数字可否自定义？
 不支持，四位数字需要调用 GetLiveCode 接口随机生成，调用接口可保证数字时实时生成而非事先规定，可以一定程度上防止攻击者提前录制相同数字的视频进行攻击。
 
 ### 接口并发是否有限制？
-默认 QPIS 限制20次/秒，如果客户评估不能满足需求，可以添加小助手微信（faceid001）沟通扩容。
+默认 QPS 限制20次/秒，如果客户评估不能满足需求，可以添加小助手微信（faceid001）沟通扩容。
 
 ### 验证结果信息量太大时，如何拉取成功？
 

@@ -5,13 +5,13 @@
 
 ## 步骤2：更改 Bundle ID
 
-找到 **TAGETS -> General ->Identity**，将其中 Bundle Identifier 的内容修改为申请密钥时填写的 iOS Bundle id。
+找到 **TARGETS -> General ->Identity**，将其中 Bundle Identifier 的内容修改为申请密钥时填写的 iOS Bundle id。
 
 ![](https://main.qcloudimg.com/raw/ee60603d7b2af826eebb2ad2a294dac7.png)
 
 ## 步骤3：更改 Development Team
 
-找到 **TAGETS -> Build Settings ->Signing**，将其中 Development Team 的内容修改为申请密钥时填写的 iOS DEVELOPMENT_TEAM。
+找到 **TARGETS -> Build Settings ->Signing**，将其中 Development Team 的内容修改为申请密钥时填写的 iOS DEVELOPMENT_TEAM。
 
 ![](https://main.qcloudimg.com/raw/4f40c89e100e8661603372516d901aee.png)
 

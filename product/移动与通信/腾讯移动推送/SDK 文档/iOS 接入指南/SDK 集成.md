@@ -1,17 +1,17 @@
 ## 简介
 本文档提供关于 SDK 接入以及开启推送服务的示例代码（SDK 版本：V1.0+ 版本）。
->!如果您是从 [信鸽平台](https://xg.qq.com) 迁移至腾讯移动推送平台，请务必：
+>!如果您是从 [信鸽平台](https://xg.qq.com) 迁移至移动推送 TPNS 平台，请务必：
 1. 实现 [注销信鸽平台推送服务接口](#zhuxiao)。
 2. 参考 [iOS 迁移指南](https://cloud.tencent.com/document/product/548/41610)  文档，根据您 App 的集成情况，实现相应的变更，完成后返回当前文档。
 3. 完成下述文档的集成工作。
 
 ## SDK 组成
-- doc 文件夹：腾讯移动推送 iOS SDK 开发指南。
-- demo 文件夹：包含样例工程，腾讯移动推送 SDK（仅包含 OC demo，Swift Demo 请前往 [腾讯工蜂](https://git.code.tencent.com/tpns/XG-Demo-Swift) 进行下载）。 
+- doc 文件夹：移动推送 TPNS  iOS SDK 开发指南。
+- demo 文件夹：包含样例工程，移动推送 TPNS  SDK（仅包含 OC demo，Swift Demo 请前往 [腾讯工蜂](https://git.code.tencent.com/tpns/XG-Demo-Swift) 进行下载）。 
 
 ## SDK 集成
 ### 接入前准备
-1. 接入 SDK 之前，请前往腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
+1. 接入 SDK 之前，请前往移动推送 TPNS  [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
 ![](https://main.qcloudimg.com/raw/c07fde02517072a093ac48482e92e9ea.png)
 2. 应用创建完成后，您可以参考 [申请试用](https://cloud.tencent.com/document/product/548/37241#.E7.94.B3.E8.AF.B7.E8.AF.95.E7.94.A8) 或 [购买推送服务](https://cloud.tencent.com/document/product/548/37242) ，为您的应用申请试用或者购买推送服务。
 ![](https://main.qcloudimg.com/raw/c0324b24ada1e1ffc40d72aa77d3c30f.png)
@@ -43,7 +43,7 @@ github "xingePush/carthage-TPNS-iOS"
 ```
 
 #### 方式三：手动导入
-1. 进入腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏中【下载】即可。
+1. 进入移动推送 TPNS  [控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏中【下载】即可。
 2. 打开 demo 目录下的 SDK 文件夹，将 XGPush.h 及 libXG-SDK-Cloud.a 添加到工程，打开 ---XGPushStatistics 文件夹，获取 XGMTACloud.framework。
 3. 在 Build Phases 下，添加以下 Framework：
  ```
@@ -83,8 +83,8 @@ github "xingePush/carthage-TPNS-iOS"
 ```
 
 ### 接入样例
-调用启动腾讯移动推送的 API，并根据需要实现 `XGPushDelegate` 协议中的方法，开启推送服务。
-1. 启动腾讯移动推送服务， `AppDelegate` 示例如下：
+调用启动移动推送 TPNS 的 API，并根据需要实现 `XGPushDelegate` 协议中的方法，开启推送服务。
+1. 启动移动推送 TPNS 服务， `AppDelegate` 示例如下：
 
 ```Objective-C
 @interface AppDelegate () <XGPushDelegate>
@@ -128,7 +128,7 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 
 ## 调试方法
 #### 开启 Debug 模式
-打开 Debug 模式，即可在终端查看详细的腾讯移动推送 Debug 信息，方便定位问题。
+打开 Debug 模式，即可在终端查看详细的移动推送 TPNS  Debug 信息，方便定位问题。
 
 #### 示例代码
 ```
@@ -181,7 +181,7 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 ## 高级配置（可选）
 <span id="zhuxiao"></span>
 ### 注销信鸽平台推送服务
-如果 App 的推送服务是从 [信鸽平台](https://xg.qq.com) 迁移到腾讯移动推送平台， 需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在信鸽平台中进行反注册。
+如果 App 的推送服务是从 [信鸽平台](https://xg.qq.com) 迁移到移动推送 TPNS 平台， 需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在信鸽平台中进行反注册。
 
 #### 接口
 
@@ -199,7 +199,7 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 [XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
 [[XGPush defaultManager] startXGWithAppID: <#your tpns access ID#>appKey:<#your tpns access key#> delegate:<#your delegate#>];
 ```
->!如果未做以上配置，在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
+>!如果未做以上配置，在信鸽和移动推送 TPNS 两个平台上同时推送时，可能会出现重复消息。
 
 
 <span id="QHToken"></span>

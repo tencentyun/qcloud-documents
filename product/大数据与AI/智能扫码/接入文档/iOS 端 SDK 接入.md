@@ -82,10 +82,9 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
 5. 接入 SDK
 
      **模式一：仅调用接口返回数据，需要自定义 view 和接口解码**
+	需导入头文件 **QBarCode.h** 和模型文件(**detect_model.bin**、**detect_model.param**、**srnet.bin**、**srnet.param**)
 
-    需导入头文件 **QBarCode.h** 和模型文件(**detect_model.bin**、**detect_model.param**、**srnet.bin**、**srnet.param**)
-
-    - SDK 初始化
+ - SDK 初始化
 
     ```objective-c
     #import "QBarCode.h"
@@ -106,7 +105,7 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
     }];
     ```
 
-    - 视频流数据解码：
+ - 视频流数据解码：
 
     ```objective-c
     /**
@@ -119,7 +118,7 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
     }];
     ```
 
-    - 图片解码：
+ - 图片解码：
 
     ```objective-c
     /**
@@ -131,8 +130,7 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
     }];
     ```
 
-    
- **模式二：已封装好扫码页面，无需用户自定义**
+   **模式二：已封装好扫码页面，无需用户自定义**
 
  - SDK 初始化
 
@@ -159,15 +157,15 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
     }
     ```
 
-    - 进入扫码 SDK 页面：
+   - 进入扫码 SDK 页面：
 
     ```objective-c
     [sdk startQBarScanWithParentViewController:self];// [vc.navigationController pushViewController:scanViewController animated:YES];
     ```
 
-    - 结果回调：
+   - 结果回调：
 
-```objective-c
+    ```objective-c
     - (void)onResultBack:(nonnull NSDictionary *)result { //结果回调可能不在主线程
         NSString *errCode = result[@"errorcode"];
         if ([errCode isEqualToString:@"0"]) {
@@ -176,7 +174,7 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
             if ([contentArr count] >0) {
             msg = [contentArr objectAtIndex:0];
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                // UI线程
+                // UI 线程
                 [self showAlertView:msg];//识别成功 json 数据
             }];
             } else {
@@ -194,7 +192,5 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
             }];
         }
     }
-
-```
-
+    ```
 
