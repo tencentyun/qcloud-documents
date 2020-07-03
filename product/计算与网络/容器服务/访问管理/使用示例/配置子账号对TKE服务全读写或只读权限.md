@@ -15,8 +15,8 @@
 
 ### 配置只读权限
 1. 登录访问管理控制台，选择左侧导航栏中的【[策略](https://console.cloud.tencent.com/cam/policy)】。
-2. 在“策略”管理页面，选择 **QcloudCCSReadOnlyAccess** 策略行的【关联用户/组】。如下图所示：
-![](https://main.qcloudimg.com/raw/a0d2f9d01cdd55dcf42215087b075cd1.png)
+2. 在“策略”管理页面，选择 **QcloudTKEReadOnlyAccess** 策略行的【关联用户/组】。如下图所示：
+![](https://main.qcloudimg.com/raw/f2c2a0b9282f0e3d0c40be313801c1fc.png)
 4. 在弹出的“关联用户/用户组”窗口中，勾选需对 TKE 服务拥有只读权限的账号，并单击【确定】，即可完成子账号对 TKE 服务只读权限的配置。
 5. 在策略管理页面中，单击 **QcloudCCRReadOnlyAccess** 策略行的【关联用户/组】。如下图所示：
 ![](https://main.qcloudimg.com/raw/18dd6bf93dea77deb9919274edab2e8e.png)
