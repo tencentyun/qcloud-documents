@@ -177,4 +177,107 @@ consumer = KafkaConsumer (
 ```
 更多配置及用法请参考 [Python-Kafka 文档](https://kafka-python.readthedocs.io/en/master/apidoc/modules.html)。
 
+#### Go 客户端
+
+```
+package main
+
+import (
+    "fmt"
+    "log"
+    "os"
+    "os/signal"
+    "time"
+
+    "github.com/Shopify/sarama"
+    cluster "github.com/bsm/sarama-cluster"
+)
+
+
+
+func main() {
+
+    server := []string{"yourbrokers"}
+    groupId := "yourgroupid"
+    topic := []string{"yourtopic"}
+
+    // #### producer
+    proConfig := sarama.NewConfig()
+    proConfig.Net.SASL.Enable = true
+    proConfig.Net.SASL.User = "yourinstance#yourusername"
+    proConfig.Net.SASL.Password = "yourpassword"
+
+    proClient, err := sarama.NewClient(server, proConfig)
+    if err != nil {
+        log.Fatalf("unable to create kafka client: %q", err)
+    }
+    defer proClient.Close()
+    producer, err := sarama.NewAsyncProducerFromClient(proClient)
+    if err != nil {
+        log.Fatalln("failed to start Sarama producer:", err)
+    }
+    defer producer.Close()
+
+    go func() {
+        ticker := time.NewTicker(time.Second)
+        for {
+            select {
+            case t := <-ticker.C:
+                msg := &sarama.ProducerMessage{
+                    Topic: "yourtopic",
+                    Key:   sarama.StringEncoder(t.Second()),
+                    Value: sarama.StringEncoder("yourmessage"),
+                }
+                producer.Input() <- msg
+            }
+        }
+    }()
+
+
+    // #### Consumer
+    config := cluster.NewConfig()
+    config.Net.SASL.Enable = true
+    config.Net.SASL.User = "yourinstance#yourusername"
+    config.Net.SASL.Password = "yourpassword"
+    config.Consumer.Offsets.CommitInterval = 1
+
+    client, err := cluster.NewClient(server, config)
+    if err != nil {
+        log.Fatalf("unable to create kafka client: %q", err)
+    }
+    defer func() { _ = client.Close() }()
+
+    consumer, err := cluster.NewConsumerFromClient(client, groupId, topic)
+    if err != nil {
+        panic(err)
+    }
+    defer func() { _ = consumer.Close() }()
+
+    signals := make(chan os.Signal, 1)
+    signal.Notify(signals, os.Interrupt)
+
+    // Count how many message processed
+    msgCount := 0
+
+    // Get signnal for finish
+    doneCh := make(chan struct{})
+    go func() {
+        for {
+            select {
+            case err := <-consumer.Errors():
+                fmt.Println(err)
+            case msg := <-consumer.Messages():
+                msgCount++
+                fmt.Println("Received messages", string(msg.Key), string(msg.Value))
+            case <-signals:
+                fmt.Println("Interrupt is detected")
+                doneCh <- struct{}{}
+            }
+        }
+    }()
+
+    <-doneCh
+    fmt.Println("Processed", msgCount, "messages")
+}
+```
 
