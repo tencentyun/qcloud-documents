@@ -7,7 +7,7 @@
 <tr>
     <td>2020-06-17</td>	
     <td>v1.16.3-tke.9</td>	
-    <td>临时修复 AWS 问题 <a href="https://github.com/kubernetes/kubernetes/issues/92162">pr92162</a>，不再注册 AWS Credential Provider，避免由它引起的节点启动变慢问题。</td>
+    <td>临时修复 AWS 问题 <a href="https://github.com/kubernetes/kubernetes/issues/92162">pr92162</a>。不再注册 AWS Credential Provider，避免由它引起的节点启动变慢问题。</td>
 </tr>
 <tr>
     <td>2020-06-11</td>	
@@ -134,7 +134,7 @@
 <tr>
     <td>2020-06-10</td>	
     <td>v1.12.4-tke.21</td>	
-    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/73915"> pr73915</a>Automated cherry pick of #70735 #73845 upstream release 1.12</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89794">pr89794</a>，清理 kube-controller-manager 的错误日志，避免 CVE-2020-8555 的 Half-Blind SSRF 攻击。</li></ul></td>
+    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/73915"> pr73915</a>，避免 watcher 收到开始 watch 之前的事件。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91252">pr91252</a>，忽略其他组件产生的 Pod Condition 更新，以免进行不必要的调度。</li><li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/89794">pr73915</a>，清理 kube-controller-manager 的错误日志，避免 CVE-2020-8555 的 Half-Blind SSRF 攻击。</li></ul></td>
 </tr>
 <tr>
     <td>2020-06-04</td>
