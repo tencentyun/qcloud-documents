@@ -26,8 +26,10 @@
 ![](https://main.qcloudimg.com/raw/f5926d507764039315a0c6f48c44738c.png)
 4. 在弹出的 “修改 DNS 服务器” 窗口中，填写您套餐对应的 DNS 服务器地址，单击【提交】，完成修改。如下图所示：
 ![](https://main.qcloudimg.com/raw/d3a64c15a902f476a64b990dad7e25a2.png)
- - **使用 DNSPod**：自动匹配该域名的 DNS 服务器地址。例如，您使用的是腾讯云企业基础版套餐，则匹配的地址为 `ns3.dnsv3.com` 与 `ns4.dnsv3.com`。
->?如无法识别则使用默认地址：`f1g1ns1.dnspod.net` 与 `f1g1ns2.dnspod.net` ，请确保您已在 [DNSPod 控制台](https://console.cloud.tencent.com/cns) 添加解析。  
+ - **使用 DNSPod**：自动匹配该域名的 DNS 服务器地址。
+>?
+>- 如无法识别则使用默认地址：`f1g1ns1.dnspod.net` 与 `f1g1ns2.dnspod.net` ，请确保您已在 [DNSPod 控制台](https://console.cloud.tencent.com/cns) 添加解析。  
+>- 使用 DNSPod 会匹配当前解析所属的套餐。例如，您使用的是企业基础版套餐，则匹配的地址为 `ns3.dnsv3.com` 与 `ns4.dnsv3.com`。
  - **自定义 DNS**： 填写您需要设置的 DNS 服务器地址。
 >?
  >- 需要在腾讯云进行解析的域名，修改 DNS 服务器地址请参考 [各个套餐对应的 DNS 服务器地址](https://cloud.tencent.com/document/product/302/9070)。  
