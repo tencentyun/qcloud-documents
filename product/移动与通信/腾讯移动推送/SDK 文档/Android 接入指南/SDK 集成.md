@@ -56,17 +56,17 @@ dependencies {
    在 Androidanifest 文件 application 标签内添加以下元数据：
 
 ```
-    <application>
-        // 其他安卓组件
-        <meta-data
-            android:name="XG_SERVER_SUFFIX"
-            android:value="境外域名" />
-    </application>
+<application>
+	// 其他安卓组件
+	<meta-data
+			android:name="XG_SERVER_SUFFIX"
+			android:value="境外域名" />
+</application>
 ```
 
-境外域名如下:
-中国香港：`tpns.hk.tencent.com`
-新加坡：`tpns.sgp.tencent.com`
+境外域名如下：
+- 中国香港：`tpns.hk.tencent.com`
+- 新加坡：`tpns.sgp.tencent.com`
 
 #### 注意事项
 
@@ -108,23 +108,23 @@ dependencies {
 移动推送 TPNS  SDK 正常运行所需要的权限。示例代码如下：
 
 ```xml
-    <!-- 【必须】 移动推送 TPNS SDK VIP版本所需权限 -->
-    <permission
-        android:name="应用包名.permission.XGPUSH_RECEIVE"
-        android:protectionLevel="signature" />
-    <uses-permission android:name="应用包名.permission.XGPUSH_RECEIVE" />
+<!-- 【必须】 移动推送 TPNS SDK VIP版本所需权限 -->
+<permission
+		android:name="应用包名.permission.XGPUSH_RECEIVE"
+		android:protectionLevel="signature" />
+<uses-permission android:name="应用包名.permission.XGPUSH_RECEIVE" />
 
-    <!-- 【必须】 移动推送 TPNS SDK 所需权限 -->
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+<!-- 【必须】 移动推送 TPNS SDK 所需权限 -->
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!-- 【常用】 移动推送 TPNS SDK所需权限 -->
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.GET_TASKS" /> 
+<!-- 【常用】 移动推送 TPNS SDK所需权限 -->
+<uses-permission android:name="android.permission.WAKE_LOCK" />
+<uses-permission android:name="android.permission.VIBRATE" />
+<uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+<uses-permission android:name="android.permission.GET_TASKS" /> 
 ```
 
 | 权限                                      | 是否必须 | 说明                                                  |
@@ -281,9 +281,9 @@ dependencies {
 </application>
 ```
 
-境外域名如下:
-中国香港：`tpns.hk.tencent.com`
-新加坡：`tpns.sgp.tencent.com`
+境外域名如下：
+- 中国香港：`tpns.hk.tencent.com`
+- 新加坡：`tpns.sgp.tencent.com`
 
 
 
