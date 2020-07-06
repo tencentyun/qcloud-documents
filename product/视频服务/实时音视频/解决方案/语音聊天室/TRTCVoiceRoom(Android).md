@@ -1,10 +1,10 @@
-TRTCVoiceRoom 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持以下功能：
+TRTCVoiceRoom 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的组件，支持以下功能：
 
 - 主播创建新的语音聊天室开播，观众进入语聊房间收听/互动。
-- 主播可以邀请观众上麦、将座位上的观众踢下麦。
+- 主播可以邀请观众上麦、将座位上的麦上主播踢下麦。
 - 主播还能对座位进行封禁，其他观众就不能再进行申请上麦了。
 - 观众可以申请上麦，变成麦上主播，可以和其他人语音互动，也可以随时下麦成为普通的观众。
-- 支持发送各种文本消息和自定义消息，自定义消息可用于实现弹幕、点赞和礼物。
+- 支持发送各种文本消息和自定义消息，自定义消息可用于实现弹幕、点赞和礼物等。
 
 TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [语音聊天室（Android）](https://cloud.tencent.com/document/product/647/45737)。
 
@@ -45,7 +45,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | [leaveSeat](#leaveseat) | 主动下麦（观众端和主播均可调用）。    |
 | [pickSeat](#pickseat)   | 抱人上麦(主播调用)。                  |
 | [kickSeat](#kickseat)   | 踢人下麦(主播调用)。                  |
-| [muteSeat](#muteseat)   | 静音/解禁对应麦位的麦克风(主播调用)。 |
+| [muteSeat](#muteseat)   | 静音/解除静音某个麦位(主播调用)。 |
 | [closeSeat](#closeseat) | 封禁/解禁某个麦位(主播调用)。         |
 
 ### 本地音频操作接口
@@ -55,7 +55,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | [startMicrophone](#startmicrophone)             | 开启麦克风采集。     |
 | [stopMicrophone](#stopmicrophone)               | 停止麦克风采集。     |
 | [setAudioQuality](#setaudioquality)             | 设置音质。           |
-| [muteLocalAudio](#mutelocalaudio)               | 开启本地静音。       |
+| [muteLocalAudio](#mutelocalaudio)               | 开启/关闭本地静音。       |
 | [setSpeaker](#setspeaker)                       | 设置开启扬声器。     |
 | [setAudioCaptureVolume](#setaudiocapturevolume) | 设置麦克风采集音量。 |
 | [setAudioPlayoutVolume](#setaudioplayoutvolume) | 设置播放音量。       |
@@ -65,8 +65,8 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                                       | 描述                 |
 | ----------------------------------------- | -------------------- |
-| [muteRemoteAudio](#muteremoteaudio)       | 屏蔽指定成员的声音。 |
-| [muteAllRemoteAudio](#muteallremoteaudio) | 静音所有用户的声音。 |
+| [muteRemoteAudio](#muteremoteaudio)       | 静音/解除静音指定成员。 |
+| [muteAllRemoteAudio](#muteallremoteaudio) | 静音/解除静音所有成员。 |
 
 ### 背景音乐音效相关接口
 
@@ -136,10 +136,10 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                                               | 描述             |
 | ------------------------------------------------- | ---------------- |
-| [onReceiveNewInvitation](#onreceivenewinvitation) | 收到文本消息。   |
-| [onInviteeAccepted](#oninviteeaccepted)           | 收到文本消息。   |
-| [onInviteeRejected](#oninviteerejected)           | 收到文本消息。   |
-| [onInvitationCancelled](#oninvitationcancelled)   | 收到自定义消息。 |
+| [onReceiveNewInvitation](#onreceivenewinvitation) | 收到新的邀请请求。   |
+| [onInviteeAccepted](#oninviteeaccepted)           | 被邀请人接受邀请。   |
+| [onInviteeRejected](#oninviteerejected)           | 被邀请人拒绝邀请。   |
+| [onInvitationCancelled](#oninvitationcancelled)   | 邀请人取消邀请。 |
 
 ## SDK 基础函数
 
@@ -448,9 +448,9 @@ public abstract void kickSeat(int seatIndex, TRTCVoiceRoomCallback.ActionCallbac
 
 ### muteSeat
 
-静音/解禁对应麦位的麦克风(主播调用)。
+静音/解除静音某个麦位(主播调用)。
 
->? 主播静音/解禁对应麦位的麦克风，房间内所有成员会收到`onSeatListChange`和`onSeatMute`的事件通知。
+>? 静音/解除静音某个麦位，房间内所有成员会收到`onSeatListChange`和`onSeatMute`的事件通知。
 
 ```java
 public abstract void muteSeat(int seatIndex, boolean isMute, TRTCVoiceRoomCallback.ActionCallback callback);
@@ -581,10 +581,24 @@ public abstract void setAudioPlayoutVolume(int volume);
 | ------ | ---- | --------------------------- |
 | volume | int  | 播放音量，0 - 100， 默认100。 |
 
+### muteRemoteAudio
+
+静音/解除静音指定成员。
+
+```java
+public abstract void muteRemoteAudio(String userId, boolean mute);
+```
+
+参数如下表所示：
+
+| 参数 | 类型    | 含义                              |
+| ---- | ------- | --------------------------------- |
+| userId | String | 指定的用户 ID。 |
+| mute | boolean | true：开启静音；false：关闭静音。 |
 
 ### muteAllRemoteAudio
 
-静音所有远端音频。
+静音/解除静音所有成员。
 
 ```java
 public abstract void muteAllRemoteAudio(boolean mute);
