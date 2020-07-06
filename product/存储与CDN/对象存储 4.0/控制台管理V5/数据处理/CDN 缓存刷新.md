@@ -12,10 +12,9 @@ CDN 缓存刷新是腾讯云对象存储 COS 基于 [云函数服务 SCF](https:
 
 1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5)。
 2. 在左侧导航中，单击【存储桶列表】，选择并单击需要添加 CDN 缓存刷新规则的存储桶，进入存储桶管理页。
-3. 单击左侧的【函数计算】，然后找到**CDN 缓存刷新函数**配置页面。
-> !如果您尚未开通云函数SCF服务，请前往 [云函数 SCF 控制台](https://console.cloud.tencent.com/scf) 开通 SCF 服务，按照提示完成服务授权即可。
-
-![](https://main.qcloudimg.com/raw/f9a345cee1b1a1477803264d3acddf1d.png)
+3. 单击左侧的【函数计算】，然后找到【CDN缓存刷新函数】配置项。
+![](https://main.qcloudimg.com/raw/9ed7c6369bdfc9619e96422059897237.jpg)
+> !如果您尚未开通云函数 SCF 服务，请前往 [云函数 SCF 控制台](https://console.cloud.tencent.com/scf) 开通 SCF 服务，按照提示完成服务授权即可。
 4. 单击【添加函数】，在弹出的窗口中配置如下信息：
 	- **函数名称**：函数名称作为函数的唯一标识名称，创建后不可修改。您可以在 [云函数 SCF](https://console.cloud.tencent.com/scf/list?rid=1&ns=default) 控制台上查看该函数。
 	- **事件类型**：事件是指触发云函数的操作。以上传操作为例，上传的方式可能是调用 [PUT Object](https://cloud.tencent.com/document/product/436/7749) 接口，也可能是调用 [Post Object](https://cloud.tencent.com/document/product/436/14690) 接口。当选择事件为`PUT 类型`时，只有通过`PUT Object`接口上传文件的操作会触发云函数，从而刷新 CDN 边缘节点的缓存。
