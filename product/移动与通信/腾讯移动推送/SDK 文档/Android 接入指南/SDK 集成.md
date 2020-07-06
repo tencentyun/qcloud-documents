@@ -73,7 +73,6 @@ dependencies {
  - 如在添加以上 abiFilter 配置后， Android Studio 出现以下提示：
    NDK integration is deprecated in the current plugin. Consider trying the new experimental plugin，则在 Project 根目录的 gradle.properties 文件中添加  `android.useDeprecatedNdk=true`。
  - 如需监听消息请参考 XGPushBaseReceiver 接口或 demo 的 MessageReceiver 类。自行继承 XGPushBaseReceiver 并且在配置文件中配置如下内容（请勿在 receiver  里处理耗时操作）：
-
 ```xml
 <receiver android:name="com.tencent.android.xg.cloud.demo.MessageReceiver">
     <intent-filter>
@@ -86,7 +85,6 @@ dependencies {
 ```
 
  - 如需兼容 Android P，需要添加使用 Apache HTTP client 库，在 AndroidManifest 的 application 节点内添加以下配置即可。
-
 ```
 <uses-library android:name="org.apache.http.legacy" android:required="false"/>
 ```
@@ -127,11 +125,11 @@ dependencies {
 <uses-permission android:name="android.permission.GET_TASKS" /> 
 ```
 
-| 权限                                      | 是否必须 | 说明                                                  |
+| 权限                                      | 是否必选 | 说明                                                  |
 | ----------------------------------------- | -------- | ----------------------------------------------------- |
-| android.permission.INTERNET               | **必须** | 允许程序访问网络连接，可能产生 GPRS 流量              |
-| android.permission.ACCESS_WIFI_STATE      | **必须** | 允许程序获取当前 Wi-Fi 接入的状态以及 WLAN 热点的信息 |
-| android.permission.ACCESS_NETWORK_STATE   | **必须** | 允许程序获取网络信息状态                              |
+| android.permission.INTERNET               | 必选 | 允许程序访问网络连接，可能产生 GPRS 流量              |
+| android.permission.ACCESS_WIFI_STATE      | 必选 | 允许程序获取当前 Wi-Fi 接入的状态以及 WLAN 热点的信息 |
+| android.permission.ACCESS_NETWORK_STATE   | 必选 | 允许程序获取网络信息状态                              |
 | android.permission.WAKE_LOCK              | 可选     | 允许程序在手机屏幕关闭后，后台进程仍然运行            |
 | android.permission.VIBRATE                | 可选     | 允许应用震动                                          |
 | android.permission.READ_PHONE_STATE       | 可选     | 允许应用访问手机状态                                  |
