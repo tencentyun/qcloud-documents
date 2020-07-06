@@ -43,10 +43,10 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | ----------------------- | ------------------------------------- |
 | [enterSeat](#enterseat) | 主动上麦（观众端和主播均可调用）。    |
 | [leaveSeat](#leaveseat) | 主动下麦（观众端和主播均可调用）。    |
-| [pickSeat](#pickseat)   | 抱人上麦(主播调用)。                  |
-| [kickSeat](#kickseat)   | 踢人下麦(主播调用)。                  |
-| [muteSeat](#muteseat)   | 静音/解除静音某个麦位(主播调用)。 |
-| [closeSeat](#closeseat) | 封禁/解禁某个麦位(主播调用)。         |
+| [pickSeat](#pickseat)   | 抱人上麦（主播调用）。                  |
+| [kickSeat](#kickseat)   | 踢人下麦（主播调用）。                  |
+| [muteSeat](#muteseat)   | 静音/解除静音某个麦位（主播调用）。 |
+| [closeSeat](#closeseat) | 封禁/解禁某个麦位（主播调用）。         |
 
 ### 本地音频操作接口
 
@@ -113,8 +113,8 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | API                                     | 描述                                |
 | --------------------------------------- | ----------------------------------- |
 | [onSeatListChange](#onseatlistchange)   | 全量的麦位列表变化。                |
-| [onAnchorEnterSeat](#onanchorenterseat) | 有成员上麦(主动上麦/主播抱人上麦)。 |
-| [onAnchorLeaveSeat](#onanchorleaveseat) | 有成员下麦(主动下麦/主播踢人下麦)。 |
+| [onAnchorEnterSeat](#onanchorenterseat) | 有成员上麦（主动上麦/主播抱人上麦）。 |
+| [onAnchorLeaveSeat](#onanchorleaveseat) | 有成员下麦（主动下麦/主播踢人下麦）。 |
 | [onSeatMute](#onseatmute)               | 主播禁麦。                          |
 | [onSeatClose](#onseatclose)             | 主播封麦。                          |
 
@@ -375,7 +375,7 @@ public abstract void getUserInfoList(List<String> userIdList, TRTCVoiceRoomCallb
 
 主动上麦（观众端和主播均可调用）。
 
->? 上麦成功后，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
+>?上麦成功后，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
 
 ```java
 public abstract void enterSeat(int seatIndex, TRTCVoiceRoomCallback.ActionCallback callback);
@@ -408,7 +408,7 @@ public abstract void leaveSeat(TRTCVoiceRoomCallback.ActionCallback callback);
 
 ### pickSeat
 
-抱人上麦(主播调用)。
+抱人上麦（主播调用）。
 
 >? 主播抱人上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
 
@@ -429,7 +429,7 @@ public abstract void pickSeat(int seatIndex, String userId, TRTCVoiceRoomCallbac
 
 ### kickSeat
 
-踢人下麦(主播调用)。
+踢人下麦（主播调用）。
 
 >? 主播踢人下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
 
@@ -448,7 +448,7 @@ public abstract void kickSeat(int seatIndex, TRTCVoiceRoomCallback.ActionCallbac
 
 ### muteSeat
 
-静音/解除静音某个麦位(主播调用)。
+静音/解除静音某个麦位（主播调用）。
 
 >? 静音/解除静音某个麦位，房间内所有成员会收到`onSeatListChange`和`onSeatMute`的事件通知。
 
@@ -468,7 +468,7 @@ public abstract void muteSeat(int seatIndex, boolean isMute, TRTCVoiceRoomCallba
 
 ### closeSeat
 
-封禁/解禁某个麦位(主播调用)。
+封禁/解禁某个麦位（主播调用）。
 
 >? 主播封禁/解禁对应麦位，房间内所有成员会收到`onSeatListChange`和`onSeatClose`的事件通知。
 
@@ -616,7 +616,7 @@ public abstract void muteAllRemoteAudio(boolean mute);
 
 ### getAudioEffectManager
 
-获取背景音乐音效管理对象  [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。
+获取背景音乐音效管理对象 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。
 
 ```java
 public abstract TXAudioEffectManager getAudioEffectManager();
