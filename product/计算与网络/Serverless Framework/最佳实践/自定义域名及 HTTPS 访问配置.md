@@ -104,7 +104,7 @@ inputs:
 >? `sls` 是 `serverless` 命令的简写。
 
 ```bash
-$ sls deploy --debug
+$ sls deploy 
   restApi: 
     protocols: 
       - http
