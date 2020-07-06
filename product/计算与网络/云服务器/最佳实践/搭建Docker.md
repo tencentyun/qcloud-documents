@@ -64,13 +64,13 @@ systemctl stop docker
 ```
 systemctl restart docker
 ```
-- 管理镜像。本文以腾讯云仓库的 Nginx 镜像为例。
+- 管理镜像。本文以 Docker Hub 的 Nginx 镜像为例。
 ```
-docker pull ccr.ccs.tencentyun.com/qcloud/nginx 
+docker pull nginx 
 ```
  - 修改标签：您可以修改镜像标签以便记忆区分。
 ```
-docker tag ccr.ccs.tencentyun.com/qcloud/nginx:latest tencentyun:nginx
+docker tag docker.io/nginx:latest tencentyun/nginx:v1
 ```
  - 查看已有镜像：
 ```
@@ -78,7 +78,7 @@ docker images
 ```
  - 强制删除镜像：
 ```
-docker rmi -f ccr.ccs.tencentyun.com/qcloud/nginx
+docker rmi -f tencentyun/nginx:v1
 ```
 - 管理容器。
  - 进入容器：
@@ -89,7 +89,7 @@ docker run -it ImageId /bin/bash
  - 退出容器：执行 `exit` 命令，退出当前容器。
  - 进入后台运行的容器：
 ```
-docker exec -it nginx /bin/bash
+docker exec -it 容器 ID /bin/bash
 ```
  - 将容器做成镜像：
 ```
@@ -97,7 +97,7 @@ docker commit <容器 ID 或容器名> [<仓库名>[:<标签>]]
 ```
 例如：
 ```
-docker commit 1c23456cd7**** tencentyun:nginx
+docker commit 1c23456cd7**** tencentyun/nginx:v2
 ```
 
 ### 制作镜像
@@ -131,7 +131,7 @@ docker logs CONTAINER ID/IMAGE   #如未查看到刚才运行的容器，则用�
 ```
 6. 依次执行以下命令，制作镜像。
 ```
-docker commit fb2844b6**** nginxweb:v1 #commit 参数后添加容器 ID 和构建新镜像的名称和版本号。
+docker commit fb2844b6**** nginxweb:v2 #commit 参数后添加容器 ID 和构建新镜像的名称和版本号。
 docker images                    #列出本地（已下载的和本地创建的）镜像。
 ```
 7. 执行以下命令，将镜像推送至远程仓库。
