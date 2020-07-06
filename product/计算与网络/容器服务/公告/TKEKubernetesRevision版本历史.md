@@ -139,7 +139,7 @@
 <tr>
     <td>2020-06-04</td>
     <td>v1.12.4-tke.20</td>
-    <td><ul class="params"><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/90260"> pr90260</a>，修复 containerd 集群网络监控缺失问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/79451">pr79451</a>，修复 restartPolicy 为 Never 时 kubelet 创建 SandBox 失败后不重新创建的问题。</li></td>
+    <td><ul class="params"><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/90260"> pr90260</a>，修复 containerd 集群网络监控缺失问题。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/79451">pr79451</a>，修复 restartPolicy 为 Never 时 kubelet 创建 SandBox 失败后不重新创建的问题。</li></td>
 <tr>
     <td>2020-05-18</td>	
     <td>v1.12.4-tke.19</td>	
