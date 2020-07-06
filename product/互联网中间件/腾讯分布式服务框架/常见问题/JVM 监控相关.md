@@ -1,6 +1,7 @@
 ### JVM 监控功能为何无法使用？
 使用 JVM 监控功能时，实例的 tsf-agent 需为 1.21.0 或以上版本。如果 agent 版本过低，JVM 监控功能无法使用，您需要对 agent 进行升级。
-### JVM 如何升级tsf-agent？
+
+### JVM 如何升级 tsf-agent？
 升级操作：
 - VM 场景：您需要把实例移出集群后，再重新移入集群，重新部署服务实例。
 - 容器场景：您需重新编写 dockerfile，生成新的镜像后重新部署服务实例，详情请参考 [制作容器镜像](https://cloud.tencent.com/document/product/649/17007)。
