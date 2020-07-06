@@ -20,9 +20,6 @@ sudo su root
 ```
 apt-get update
 ```
-```
-apt-get upgrade
-```
 4. 执行以下命令，安装 VNC。
 ```
 apt-get install vnc4server
