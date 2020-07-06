@@ -24,7 +24,7 @@
 ![](https://main.qcloudimg.com/raw/4d4176b985b22d48860279a72ef53222.png)
 3. 在 “基本信息” 栏中，单击 “DNS 服务器” 的【修改】。如下图所示：
 ![](https://main.qcloudimg.com/raw/f5926d507764039315a0c6f48c44738c.png)
-4. 在弹出的 “修改 DNS 服务器” 窗口中，填写您套餐对应的 DNS 服务器地址，单击【提交】，完成修改。如下图所示：
+4. 在弹出的 “修改 DNS 服务器” 窗口中，选择您需要修改域名 DNS 服务器方式。如下图所示：
 ![](https://main.qcloudimg.com/raw/d3a64c15a902f476a64b990dad7e25a2.png)
  - **使用 DNSPod**：自动为该域名匹配 DNSPod 服务器的 DNS 地址。
 >?
