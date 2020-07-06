@@ -23,7 +23,7 @@ QUIC 使用 UDP协议，会占用 CLB 的 UDP 端口：
 > - 当前只有公网负载均衡支持 QUIC 协议，内网负载均衡和传统型负载均衡暂不支持。
 
 ## 操作步骤
-1. 创建 HTTPS 监听器时。
+1. 创建 HTTPS 监听器。
 ![](https://main.qcloudimg.com/raw/1ac3f012eaafb629fc0e10a8aee2ad57.png)
 2. 创建七层规则，并打开 QUIC 协议，单击【下一步】，继续完成健康检查和会话保持的配置。
 ![](https://main.qcloudimg.com/raw/3c4f93680b2aaf134037e5d80a4c6830.png)
