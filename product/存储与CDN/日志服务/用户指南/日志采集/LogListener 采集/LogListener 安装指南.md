@@ -126,9 +126,8 @@ wget https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener-lin
 /etc/init.d/loglistenerd status 
 ```
 
-LogListener 正常情况会运行三个进程：
-
-![](https://main.qcloudimg.com/raw/57535ce1ef5fec44b84e9b5f169bb869.png)
+LogListener 正常情况会运行两个进程：
+![](https://main.qcloudimg.com/raw/e28d0d88d14a65567ce46794979dfc94.png)
 
 #### 检查 LogListener 心跳及配置
 
