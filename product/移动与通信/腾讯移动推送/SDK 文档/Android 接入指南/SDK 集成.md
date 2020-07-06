@@ -51,7 +51,6 @@ dependencies {
 ```
 
 >!
-
  - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
  - 如果您的应用服务接入点为新加坡或者中国香港，请按照下文步骤完成境外服务接入点配置。
    在 Androidanifest 文件 application 标签内添加以下元数据：
@@ -66,8 +65,8 @@ dependencies {
 ```
 
 境外域名如下:
-中国香港：`tpns.hk.tencent.com`。
-新加坡：`tpns.sgp.tencent.com`。
+中国香港：`tpns.hk.tencent.com`
+新加坡：`tpns.sgp.tencent.com`
 
 #### 注意事项
 
@@ -269,23 +268,22 @@ dependencies {
 ```
 
 >!
-
  - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
  - 如果您的应用服务接入点为新加坡或者中国香港，请按照下文步骤完成境外服务接入点配置。
    在 Androidanifest 文件 application 标签内添加以下元数据：
 
 ```
-    <application>
-        // 其他安卓组件
-        <meta-data
-            android:name="XG_SERVER_SUFFIX"
-            android:value="境外域名" />
-    </application>
+<application>
+	// 其他安卓组件
+	<meta-data
+			android:name="XG_SERVER_SUFFIX"
+			android:value="境外域名" />
+</application>
 ```
 
 境外域名如下:
-中国香港：`tpns.hk.tencent.com`。
-新加坡：`tpns.sgp.tencent.com`。
+中国香港：`tpns.hk.tencent.com`
+新加坡：`tpns.sgp.tencent.com`
 
 
 
