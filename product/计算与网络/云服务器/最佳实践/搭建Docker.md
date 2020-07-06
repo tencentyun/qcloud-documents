@@ -108,7 +108,7 @@ vim Dockerfile
 ```
 2. 按 **i** 切换至编辑模式，添加如下内容。
 ```
-FROM tencentyun:nginx  #声明基础镜像来源。
+FROM tencentyun/nginx:v2  #声明基础镜像来源。
 MAINTAINER DTSTACK #声明镜像拥有者。
 RUN mkdir /dtstact # RUN 后面接容器运行前需要执行的命令，由于 Dockerfile 文件不能超过127行，因此当命令较多时建议写到脚本中执行。
 ENTRYPOINT ping https://cloud.tencent.com/ #开机启动命令，此处最后一个命令需要是可在前台持续执行的命令，否则容器后台运行时会因为命令执行完而退出。
@@ -137,11 +137,11 @@ docker images                    #列出本地（已下载的和本地创建的�
 7. 执行以下命令，将镜像推送至远程仓库。
 默认推送到 Docker Hub。您需要先登录 Docker，为镜像绑定标签，将镜像命名为 `Docker 用户名/镜像名:标签`的格式，最终完成推送。
 ```
-docker login --username=dtstack_plus ccr.ccs.tencentyun.com #执行后输入镜像仓库密码
-docker tag [ImageId] ccr.ccs.tencentyun.com/qcloud/nginx:[标签]
-docker push ccr.ccs.tencentyun.com/qcloud/nginx:[标签]
+docker login #执行后输入镜像仓库用户名及密码
+docker tag [镜像名]:[标签] [用户名]:[标签]
+docker push [用户名]:[标签]
 ```
-
+推送完成后，即可使用浏览器登录 Docker Hub 官网进行查看。
 
 
 
