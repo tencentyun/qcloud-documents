@@ -1,25 +1,28 @@
+App 应用发布前注意事项如下：
+
+
 ## iOS
 
-- 确认填写用户自己的 Bundle ID 和 对应发布证书。   
-- 用户需要使用从物联网平台自建应用所获得的 **TencentIotLinkAppkey** 和 **TencentIotLinkAppSecrecy**，来替换 App Demo 中相对应的字符串，如下图所示：
-	![](https://main.qcloudimg.com/raw/73e543ee3373cab9a93e2322321f4dba.jpg)
-- 用户需要使用从腾讯推送平台自建应用所获得的 **XgAccessId** 和 **XgAccessKey**，来替换 App Demo 中相对应的字符串。     
-	![](https://main.qcloudimg.com/raw/ac095b8e85d272d9521251e1b574c8c2.jpg)
-- 用户需要使用从微信开发平台自建应用所获得的 **WXAccessAppId**，来替换 App Demo 中相对应的字符串，如下图。详情可参见 [移动应用微信登录开发指南](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Development_Guide.html)。          
-  <img src="https://main.qcloudimg.com/raw/015e14483c561991f8b23993ccd30ee2/image-20200622184257.png" alt="image-20200622184257" style="zoom:67%;" />
-- 如果用户确认接入 Firebase，用户需要使用从 Firebase 官网自建应用获得 **GoogleService-Info.plist**，替换 App Demo 中原有相对应的文件，如下图所示：<br>
-  <img src="https://main.qcloudimg.com/raw/7c17279a720b92ffb875e1b7ed46e89c/image-20200622184506.png" alt="image-20200622184506" style="zoom:67%;" />
+1. 确认填写用户自己的 Bundle ID 和 对应发布证书。   
+2. 用户需要使用从 [物联网开发平台](https://console.cloud.tencent.com/iotexplorer) 自建应用所获得的 **TencentIotLinkAppkey** 和 **TencentIotLinkAppSecrecy**，来替换 App Demo 中相对应的字符串，如下图所示：
+	![](https://main.qcloudimg.com/raw/f7d36664333f13ddf725bd8bf078edaf.png)
+3. 用户需要使用从 [腾讯推送平台](https://console.cloud.tencent.com/tpns) 自建应用所获得的 **XgAccessId** 和 **XgAccessKey**，来替换 App Demo 中相对应的字符串，如下图所示：
+![](https://main.qcloudimg.com/raw/3eb506a9945405c92a367eecd2ff9062.png)
+4. 用户需要使用从 [微信开放平台](https://open.weixin.qq.com/cgi-bin/frame?t=home/app_tmpl&lang=zh_CN) 自建应用所获得的 **WXAccessAppId**，来替换 App Demo 中相对应的字符，详情可参见 [移动应用微信登录开发指南](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Development_Guide.html)。
+![](https://main.qcloudimg.com/raw/e96694bd1962970c785d1b1fcd68b51b.png)
+5. 如果用户确认接入 Firebase，用户需要使用从 [Firebase 官网](https://firebase.google.com/) 自建应用获得 **GoogleService-Info.plist**，替换 App Demo 中原有相对应的文件，如下图所示：<br>
+  <img src="https://main.qcloudimg.com/raw/7c17279a720b92ffb875e1b7ed46e89c/image-20200622184506.png" alt="image-20200622184506" style="zoom:85%;" />
 
 
 
 
 ## Android
 
-1. 请根据实际情况调整 **config.json** 中的内容，config.json 位于项目的根目录，如截图所示位置：
+1. 请根据实际情况调整 **config.json** 中的内容，config.json 位于项目的根目录，如下截图所示位置：
 <img src="https://main.qcloudimg.com/raw/49cd7841a58e80f80db1dbf43e6f36e2/image-20200619141407513.png" alt="image-20200619141407513" style="zoom: 67%;" /><br>
 config.json 需要配置的内容，如下图所示：
 ![](https://main.qcloudimg.com/raw/35bbf3f276f93336136572bdc6a1d7fa.jpg)
-	- **TencentIotLinkAppkey** 和 **TencentIotLinkAppSecrecy** 请使用在物联网平台创建应用时生成的 **APP Key** 和 **APP Secret**。     
+	- **TencentIotLinkAppkey** 和 **TencentIotLinkAppSecrecy** 请使用在物联网平台创建应用时生成的 **App Key** 和 **App Secret**。     
 	- **XgAccessId** 和 **XgAccessKey** 请使用在信鸽推送平台申请获得的 **AccessID** 和 **AccessKey**，详情可见 [腾讯移动推送入门](https://cloud.tencent.com/product/tpns/getting-started)。   
 	- **WXAccessAppId** 请使用在微信开放平台申请并获得的 **AppID**；可通过在微信开放平台注册开发者帐号，创建移动应用，审核通过后，即可获得相应的 AppID 和 AppSecret，详情可参见 [移动应用微信登录开发指南](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Development_Guide.html)。
 

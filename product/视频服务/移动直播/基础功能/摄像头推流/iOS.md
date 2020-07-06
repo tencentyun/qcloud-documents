@@ -13,8 +13,8 @@
 
 | 所属平台 | GitHub 地址 | 关键类 |
 |:---------:|:--------:|:---------:|
-| iOS | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/CameraPush) | CameraPushViewController.m |
-| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/lvb/src/main/java/com/tencent/liteav/demo/lvb/camerapush) | CameraPusherActivity.java |
+| iOS | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LivePusherDemo/CameraPushDemo) | CameraPushViewController.m |
+| Android | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/Android/Demo/livepusherdemo/src/main/java/com/tencent/liteav/demo/livepusher/cameralivepush) | CameraPusherActivity.java |
 
 
 ## 功能对接
@@ -34,7 +34,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSString * const licenceURL = @"<获取到的licenseUrl>";
     NSString * const licenceKey = @"<获取到的key>";
-		
+        
     //TXLiveBase 位于 "TXLiveBase.h" 头文件中
     [TXLiveBase setLicenceURL:licenceURL key:licenceKey]; 
     NSLog(@"SDK Version = %@", [TXLiveBase getSDKVersionStr]);
@@ -204,7 +204,7 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
     _config.pauseFps = 10;
     // 设置后台推流的默认图片，默认为黑色背景, 图片最大尺寸不能超过1920*1920。
     _config.pauseImg = [UIImage imageNamed:@"pause_publish.jpg"];
-		
+        
     TXLivePush *_pusher = [[TXLivePush alloc] initWithConfig: _config]; 
 ```
 
@@ -292,12 +292,12 @@ _config.watermarkNormalization = CGRectMake(0.1f，0.1f，0.1f，0.0f);
 - (void)onPushEvent:(int)evtID withParam:(NSDictionary *)param {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (evtID == PUSH_ERR_NET_DISCONNECT || evtID == PUSH_ERR_INVALID_ADDRESS) {
-		    //...
+            //...
         } else if (evtID == PUSH_WARNING_NET_BUSY) {
             [_notification displayNotificationWithMessage:
                 @"您当前的网络环境不佳，请尽快更换网络保证正常直播" forDuration:5];
         }
-		//...
+        //...
     });
 }
 ```

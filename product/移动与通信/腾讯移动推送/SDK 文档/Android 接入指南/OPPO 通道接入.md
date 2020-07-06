@@ -42,7 +42,7 @@ implementation 'com.tencent.tpns:oppo:[VERSION]-release'//oppo推送 [VERSION] �
 
 
 #### Eclipes 集成方法
-获取腾讯移动推送 OPPO 通道 SDK 包后，按照腾讯移动推送官网手动集成方法，在配置好腾讯移动推送主版本的基础下，进行以下设置。
+获取移动推送 TPNS  OPPO 通道 SDK 包后，按照移动推送 TPNS 官网手动集成方法，在配置好移动推送 TPNS 主版本的基础下，进行以下设置。
 
 1. 导入 OPPO 推送相关 jar 包，将 oppo4tpns1.1.2.1.jar 导入项目工程中。
 2. 在 ```Androidmanifest.xml``` 文件中新增如下配置：
@@ -74,7 +74,7 @@ implementation 'com.tencent.tpns:oppo:[VERSION]-release'//oppo推送 [VERSION] �
 ```
 
 ### 开启 OPPO 推送
-在调用腾讯移动推送 ```XGPushManager.registerPush``` 之前，调用以下代码：
+在调用移动推送 TPNS  ```XGPushManager.registerPush``` 之前，调用以下代码：
 ```java
 // 注意这里填入的是 Oppo 的 AppKey，不是AppId
 XGPushConfig.setOppoPushAppId(getApplicationContext(), "Oppo的AppKey");
