@@ -63,7 +63,7 @@
 <span id="model"> </span>
 ## 实现自定义 UI 界面
 
-源码中的 trtcliveroomdemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCLiveRoom，您可以在`TRTCLiveRoom.java` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
+[源码](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCScenesDemo/trtcliveroomdemo/src/main/java/com/tencent/liteav/liveroom) 中的 trtcliveroomdemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCLiveRoom，您可以在`TRTCLiveRoom.java` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/b0c39e5b7ce3a6b1decb1fbbf7ec4ff1.png)
 
 <span id="model.step1"> </span>
@@ -124,7 +124,7 @@ defaultConfig {
 <uses-permission android:name="android.permission.BLUETOOTH" />
 <uses-permission android:name="android.permission.CAMERA" />
 <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-<uses-feature android:name="android.hardware.Camera"/>
+<uses-feature android:name="android.hardware.camera"/>
 <uses-feature android:name="android.hardware.camera.autofocus" />
 ```
 
@@ -145,7 +145,7 @@ src/main/java/com/tencent/liteav/liveroom/model
 1. 调用`sharedInstance`接口可以创建一个 TRTCLiveRoom 组件的实例对象。
 2. 创建一个`TRTCLiveRoomConfig`对象，该对象可以设置  useCDNFirst 和 CDNPlayDomain 属性：
  - useCDNFirst 属性：用于设置观众观看方式。true 表示普通观众通过 CDN 观看，计费便宜但延时较高。false 表示普通观众通过低延时观看，计费价格介于 CDN 和连麦之间，但延迟可控制在1s以内。
- - CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会失效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】页面中进行设置。
+ - CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会生效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】页面中进行设置。
 3. 调用 `login` 函数完成组件的登录，请参考下表填写关键参数：
  <table>
 <tr>
@@ -168,7 +168,7 @@ src/main/java/com/tencent/liteav/liveroom/model
 <td>config</td>
 <td>全局配置信息，请在登录时初始化，登录之后不可变更。<ul style="margin:0;">
 <li>useCDNFirst 属性：用于设置观众观看方式。true 表示普通观众通过 CDN 观看，计费便宜但延时较高。false 表示普通观众通过低延时观看，计费价格介于 CDN 和连麦之间，但延迟可控制在1s以内。</li>
-<li>CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会失效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >【<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>】页面中进行设置。</li>
+<li>CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会生效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >【<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>】页面中进行设置。</li>
 </ul></td>
 </tr>
 <tr>

@@ -11,7 +11,7 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
->?Authorization: Auth String（详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求头
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
@@ -42,7 +42,7 @@ Authorization: Auth String
 </CORSConfiguration>
 ```
 
-具体的数据描述如下：
+具体的节点描述如下：
 
 节点名称（关键字）|父节点|描述|类型
 ---|---|---|--
@@ -67,7 +67,8 @@ ExposeHeader|CORSConfiguration.CORSRule|设置浏览器可以接收到的来自�
 
 
 #### 错误码
-该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -77,7 +78,7 @@ ExposeHeader|CORSConfiguration.CORSRule|设置浏览器可以接收到的来自�
 GET /?cors HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed, 28 Oct 2016 21:32:00 GMT
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484815944;32557711944&q-key-time=1484815944;32557711944&q-header-list=host&q-url-param-list=cors&q-signature=a2d28e1b9023d09f9277982775a4b3b705d0e23e
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUj****&q-sign-time=1484815944;32557711944&q-key-time=1484815944;32557711944&q-header-list=host&q-url-param-list=cors&q-signature=a2d28e1b9023d09f9277982775a4b3b705d0****
 ```
 
 #### 响应
@@ -89,7 +90,7 @@ Content-Length: 345
 Connection: keep-alive
 Date: Wed, 28 Oct 2016 21:32:00 GMT
 Server: tencent-cos
-x-cos-request-id: NTg4MDdlNGZfNDYyMDRlXzM0YWFfZTBh
+x-cos-request-id: NTg4MDdlNGZfNDYyMDRlXzM0YWFf****
 
 <CORSConfiguration>
     <CORSRule>

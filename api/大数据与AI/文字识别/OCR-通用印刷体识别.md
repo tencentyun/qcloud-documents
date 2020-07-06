@@ -165,7 +165,7 @@ Content-Type: application/json
 | -1301 | 参数为空                       |
 | -1304 | 参数过长                       |
 | -1308 | 图片下载失败                     |
-| -9003 | OCR 识别失败                   |
 | -9021 | 未检测到文本 |
+| -9003 | OCR 识别失败                   |
 
 更多其他 API 错误码请查看 [错误码说明](https://cloud.tencent.com/document/product/866/17733) 。

@@ -9,7 +9,7 @@
 
 执行如下命令，安装云开发 cli 工具以及 Hexo：
 ```
-npm i -g \@cloudbase/cli hexo-cli
+npm i -g @cloudbase/cli hexo-cli
 ```
 ### 步骤2：在本地初始化一个 Hexo 项目
 首先，我们创建一个 Hexo 项目，执行如下命令：
@@ -43,7 +43,6 @@ hexo s
 
  当您看到这样的界面时，就说明已经开通好了。
 ![](https://main.qcloudimg.com/raw/64f31f5655bfcce0506262c3f7f9163c.png)
-![](9.png)
 
  您现在可以通过上传文件手动上传一个文件测试，稍后，我们将会用云开发 CLI 来完成上传。
 
@@ -69,14 +68,15 @@ tcb login
 ![](https://main.qcloudimg.com/raw/24f9830110b6bb10c661e07b128ea74b.png)
 文件生成完成后，可以执行如下命令来进行部署（需要将 EnvID 替换为前面您的环境 ID）
 ```
-cd publictcb hosting:deploy ./ -e EnvID
+cd public
+tcb hosting:deploy ./ -e EnvID
 ```
 稍等片刻，部署完成，接下来就可以预览了。
 ![](https://main.qcloudimg.com/raw/11710d7039ea7d3c1cef4bdcb33dbd13.png)
 
 ### 步骤5：浏览 Hexo
 
-打开腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击左侧菜单栏中的【静态网站托管】>【设置】，进入设置页面，可以找到默认的的域名，单击域名，就可以看到您刚刚部署的 Hexo。
+打开腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击左侧菜单栏中的【静态网站托管】>【设置】，进入设置页面，可以找到默认的域名，单击域名，就可以看到您刚部署的 Hexo。
 ![](https://main.qcloudimg.com/raw/439da24bfa3827fb41b8305c2ac1a5ae.png)
 
 

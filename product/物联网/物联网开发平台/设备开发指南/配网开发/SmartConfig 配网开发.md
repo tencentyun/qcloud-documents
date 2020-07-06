@@ -9,7 +9,8 @@ SmartConfig 方式配网，每个厂商编码方式和报文选择上有自己�
 - 基于该协议，设备端在连接 Wi-Fi 路由器成功后，会告知手机端自己的 IP 地址。
 - 此时手机端可以通过数据通道，例如，TCP/UDP 通讯将后台提供的配网 Token 发送给设备，并由设备转发至物联网后台，依据 Token 可以进行设备绑定。
 
-目前腾讯连连小程序已支持采用 ESP-TOUCH 协议进行 SmartConfig 配网，SmartConfig 方式配网及设备绑定的示例流程图如下：
+目前腾讯连连小程序已支持采用 ESP-TOUCH 协议进行 SmartConfig 配网，并提供了相应的 [小程序 SDK](https://github.com/tencentyun/qcloud-iotexplorer-appdev-miniprogram-sdk)。
+SmartConfig 方式配网及设备绑定的示例流程图如下：
 <img src="https://main.qcloudimg.com/raw/60a5a3f9973135430a592bbeb5d591b6.jpg" width="90%">
 
 
@@ -17,7 +18,7 @@ SmartConfig 方式配网，每个厂商编码方式和报文选择上有自己�
 ### SmartConfig 配网协议示例
 SmartConfig 配网设备端与腾讯连连小程序及后台交互的数据协议操作如下：
 
-1. 腾讯连连小程序进入配网模式后，则可以在物联网开发平台服务获取到当次配网的 Token。
+1. 腾讯连连小程序进入配网模式后，则可以在物联网开发平台服务获取到当次配网的 Token。小程序相关操作可以参考 [生成 Wi-Fi 设备配网 Token](https://cloud.tencent.com/document/product/1081/44044)
 2. 使 Wi-Fi 设备进入 SmartConfig 配网模式，若设备有指示灯在快闪，则说明进入配网模式成功。
 3. 小程序按照提示依次获取 Wi-Fi 列表，输入家里目标路由器的 SSID/PSW，按下一步后，将通过 SmartConfig 方式发送报文。
 4. 设备端通过监听捕获 SmartConfig 报文，解析出目标路由器的 SSID/PSW 并进行联网，联网成功后，设备会告知小程序自己的 IP 地址，同时开始连接物联网后台。
@@ -30,7 +31,7 @@ SmartConfig 配网设备端与腾讯连连小程序及后台交互的数据协�
    {"cmdType":2,"productId":"OSPB5ASRWT","deviceName":"dev_01","protoVersion":"2.0"}
 ```
 6. 如果2秒之内没有收到设备回复，则重复步骤5，UDP 客户端重复发送配网 Token。（如果重复发送5次都没有收到回复，则认为配网失败，Wi-Fi 设备有异常。）
-7. 如果步骤5收到设备回复，则说明设备端已经收到 Token，并准备上报 Token。此时小程序会开始通过 Token 轮询物联网后台来确认配网及设备绑定是否成功。
+7. 如果步骤5收到设备回复，则说明设备端已经收到 Token，并准备上报 Token。此时小程序会开始通过 Token 轮询物联网后台来确认配网及设备绑定是否成功。小程序相关操作可以参考 [查询配网Token状态](https://cloud.tencent.com/document/product/1081/44045)
 8. 设备端在成功连接 Wi-Fi 路由器后，需要通过 MQTT 连接物联网后台，并将小程序发送来的配网 Token 通过下面 MQTT 报文上报给后台服务：
 ```
     topic: $thing/up/service/ProductID/DeviceName
@@ -82,9 +83,9 @@ AT+TCSTARTSMART
 #### 代码设计说明
 配网代码将核心逻辑与平台相关底层操作分离，便于移植到不同的硬件设备上。
 
-| 代码 | 设计说明 | 
+| 代码 | 设计说明 |
 |---------|---------|
-| `qcloud_wifi_config.c` | 配网相关接口实现，包括 UDP 服务及 MQTT 连接及 token 上报，主要依赖腾讯云物联网 C-SDK 及 FreeRTOS/lwIP运行环境 | 
+| `qcloud_wifi_config.c` | 配网相关接口实现，包括 UDP 服务及 MQTT 连接及 Token 上报，主要依赖腾讯云物联网 C-SDK 及 FreeRTOS/lwIP 运行环境 |
 |`wifi_config_esp.c`|设备硬件 Wi-Fi 操作相关接口实现，依赖于 ESP8266 RTOS，当使用其他硬件平台时，需要进行移植适配|
 |`wifi_config_error_handle.c`|设备错误日志处理，主要依赖于 FreeRTOS|
 

@@ -56,9 +56,8 @@ Authorization: Auth String
 | Content-Disposition                                          | RFC 2616 中定义的文件名称，仅当对象元数据包含此项时才会返回该头部 | string |
 | Content-Encoding                                             | RFC 2616 中定义的编码格式，仅当对象元数据包含此项时才会返回该头部 | string |
 | Expires                                                      | RFC 2616 中定义的缓存失效时间，仅当对象元数据包含此项时才会返回该头部 | string |
-| x-cos-hash-crc64ecma                                         | 对象的 CRC64 值，详情请参见 [CRC64 校验](https://cloud.tencent.com/document/product/436/40334) 文档。 | number |
 | x-cos-meta-\*                                                | 包括用户自定义元数据头部后缀和用户自定义元数据信息           | string |
-| x-cos-storage-class                                          | 对象存储类型，枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD，STANDARD_IA，ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | Enum   |
+| x-cos-storage-class                                          | 对象存储类型，枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD，MAZ_STANDARD_IA，STANDARD_IA，ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | Enum   |
 
 #### 归档类型对象相关头部
 
@@ -87,7 +86,7 @@ Authorization: Auth String
 
 #### 错误码
 
-此接口无特殊错误信息，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -205,6 +204,7 @@ x-cos-hash-crc64ecma: 16749565679157681890
 x-cos-request-id: NWU5MGI4ODFfN2NiODJhMDlfMmFmYTVfMWRh****
 x-cos-server-side-encryption-customer-algorithm: AES256
 x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
+
 ```
 
 #### 案例五：请求对象最新版本（启用版本控制）
@@ -217,6 +217,7 @@ Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Apr 2020 18:19:15 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586542755;1586549955&q-key-time=1586542755;1586549955&q-header-list=date;host&q-url-param-list=&q-signature=7909dc19780873dfaa51c8b238254098ca1a****
 Connection: close
+
 ```
 
 #### 响应
@@ -233,6 +234,7 @@ Server: tencent-cos
 x-cos-hash-crc64ecma: 11596229263574363878
 x-cos-request-id: NWU5MGI4YTNfZDZjODJhMDlfYmU0MV8xM2Y5****
 x-cos-version-id: MTg0NDUxNTc1MzA5NjQ2ODI5MTg
+
 ```
 
 #### 案例六：请求对象指定版本（启用版本控制）
@@ -245,6 +247,7 @@ Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Apr 2020 18:19:04 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586542744;1586549944&q-key-time=1586542744;1586549944&q-header-list=date;host&q-url-param-list=versionid&q-signature=1307acd3e8649087c738ecca452a54fa5a79****
 Connection: close
+
 ```
 
 #### 响应

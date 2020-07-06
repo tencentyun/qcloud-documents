@@ -134,7 +134,7 @@ iOS SDK 压缩包名称为：QCloudSDK_v2.0.7.zip，压缩包中包含 Sample Co
 ```objective-c
  (void)recognizeWithUrl {
     QCloudFileRecognizeParams *params = [QCloudFileRecognizeParams defaultRequestParams];
-    params.audioUrl = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
+    params.audioUrl = @"https://asr-audio-1256237915.cos.ap-shanghai.myqcloud.com/30s.wav";
     [_recognizer recognize:params];
 }
 ```

@@ -15,7 +15,7 @@
 
 ```
 <?php
-require_once './tencentcloud-sdk-php/TCloudAutoLoader.php';
+require_once './tencentcloud-sdk-php/TCloudAutoLoader.php';  
 use TencentCloud\Common\Credential;
 use TencentCloud\Common\Profile\ClientProfile;
 use TencentCloud\Common\Profile\HttpProfile;

@@ -5,7 +5,7 @@ vivo 通道是由 vivo 官方提供的系统级推送通道。在 vivo 手机上
 >?
 - 如遇到 debug 版本点击通知后无法拉起 App，请在权限设置中找到后台弹出界面，并开启当前应用的权限开关。
 - vivo 通道暂不支持应用内消息，此类型的消息会以通知的形式展示。
-- vivo 通道对应用的每日推送量（包含通知和透传消息）有一定的限制，限制量官方未给出明确说明，超过限制部分会走 TPNS 自建通道进行补推发送。
+- vivo 通道对应用的每日推送量（包含通知和透传消息）有一定的限制，限制量官方未给出明确说明，超过限制部分会走 TPNS 通道进行补推发送。
 
 ## 操作步骤
 ### 获取密钥
@@ -14,7 +14,7 @@ vivo 通道是由 vivo 官方提供的系统级推送通道。在 vivo 手机上
 ###  配置内容
 #### AndroidStudio 集成方法
 
-在 App 模块下的 build.gradle 文件内，完成腾讯移动推送所需的配置后，再增加以下节点：
+在 App 模块下的 build.gradle 文件内，完成移动推送 TPNS 所需的配置后，再增加以下节点：
 1. 配置 vivo 的 AppID 和 AppKey。示例代码如下：
 ```xml
  manifestPlaceholders = [
@@ -31,7 +31,7 @@ implementation 'com.tencent.tpns:vivo:[VERSION]-release' // vivo  推送 [VERSIO
 
 
 #### Eclipes 集成方法
-获取腾讯移动推送 vivo 通道 SDK 包后，按照腾讯移动推送官网手动集成方法，在配置好腾讯移动推送主版本的基础下，进行以下设置：
+获取移动推送 TPNS  vivo 通道 SDK 包后，按照移动推送 TPNS 官网手动集成方法，在配置好移动推送 TPNS 主版本的基础下，进行以下设置：
 
 1. 导入 vivo 推送相关 jar 包，将 vivo4tpns1.1.2.1.jar 导入项目工程中。
 2. 在 ```Androidmanifest.xml``` 文件中，新增如下配置：
@@ -69,7 +69,7 @@ implementation 'com.tencent.tpns:vivo:[VERSION]-release' // vivo  推送 [VERSIO
 
 
 ### 开启 vivo 推送
-在调用腾讯移动推送 ```XGPushManager.registerPush``` 之前，开启第三方推送接口：
+在调用移动推送 TPNS  ```XGPushManager.registerPush``` 之前，开启第三方推送接口：
 
 ```java
 //打开第三方推送

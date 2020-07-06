@@ -10,7 +10,7 @@ POST Object restore 接口请求可以对一个归档存储（ARCHIVE）类型�
 
 #### 请求示例
 
-```shell
+```plaintext
 POST /<ObjectKey>?restore HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -26,21 +26,19 @@ Authorization: Auth String
 
 #### 请求参数
 
-此接口无请求参数。
+| 名称                         | 描述                                                         | 类型   | 是否必选 |
+| ---------------------------- | ------------------------------------------------------------ | ------ | -------- |
+| versionId                    | 当启用版本控制时，指定要恢复的版本 ID，如不指定则恢复对象的最新版本 | string | 否       |
 
 #### 请求头
 
-此接口除使用公共请求头部外，还支持以下请求头部，了解公共请求头部详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
-
-| 名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述 | 类型 | 是否必选 |
-| --- | --- | --- | --- |
-| Content-MD5 | RFC 1864 中定义的经过 Base64 编码的请求体内容 MD5 哈希值，用于完整性检查，验证请求体在传输过程中是否发生变化 | string | 是 |
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 ####  请求体
 
 提交 **application/xml** 请求数据，包含恢复操作的具体参数。
 
-```shell
+```plaintext
 <RestoreRequest>
    <Days>number</Days>
    <CASJobParameters>
@@ -80,11 +78,7 @@ Authorization: Auth String
 
 #### 错误码
 
-此接口的特殊错误信息如下所述，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
-
-| 错误码                   | 描述                               | HTTP 状态码  |
-| ------------------------ | ---------------------------------- | ------------ |
-| RestoreAlreadyInProgress | 指定的对象已经在恢复中             | 409 Conflict |
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -92,7 +86,7 @@ Authorization: Auth String
 
 #### 请求
 
-```shell
+```plaintext
 POST /exampleobject?restore HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 27 Dec 2019 08:19:29 GMT
@@ -112,7 +106,7 @@ Connection: close
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 202 Accepted
 Content-Length: 0
 Connection: close
@@ -125,7 +119,7 @@ x-cos-request-id: NWUwNWJlOTFfMjljOTBiMDlfMTQ2MmNfNzAw****
 
 #### 请求
 
-```shell
+```plaintext
 POST /exampleobject?restore&versionId=MTg0NDUxNjQ1NjM4OTkzNzY3NDk HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Mon, 20 Jan 2020 08:43:40 GMT
@@ -145,7 +139,7 @@ Connection: close
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 202 Accepted
 Content-Length: 0
 Connection: close

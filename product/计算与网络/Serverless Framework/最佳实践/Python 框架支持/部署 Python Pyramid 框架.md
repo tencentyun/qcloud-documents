@@ -1,5 +1,6 @@
 ## 操作场景
 腾讯云 Pyramid Serverless Component，支持 Restful API 服务的部署。
+>!目前该组件**仅支持 Component V1 版本**，V2 版本仍在研发中，我们推荐您使用 [Django 组件](https://cloud.tencent.com/document/product/1154/41843) 完成 Python 框架开发工作。
 
 ## 前提条件
 **1. 安装 Pyramid，新建 Python 文件**，例如`app.py`：

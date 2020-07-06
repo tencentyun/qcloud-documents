@@ -19,7 +19,7 @@ download_url?imageMogr2/quality/<Quality>
 | 参数                | 含义                                                         |
 | ------------------- | ------------------------------------------------------------ |
 | download_url | 文件的访问链接，具体构成为`<BucketName-APPID>.cos.<picture region>.<domain>.com/<picture name>`，<br>例如`examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/picture.jpeg`。 |
-| /quality/&lt;Quality>  | 图片质量，取值范围0 - 100 ，默认值为原图质量；取原图质量和指定质量的最小值；&lt;Quality&gt;后面加“!”表示强制使用指定值，例如：`90!`。 |
+| /quality/&lt;Quality>  | 图片的绝对质量，取值范围0 - 100 ，默认值为原图质量；取原图质量和指定质量的最小值；&lt;Quality&gt;后面加“!”表示强制使用指定值，例如：`90!`。 |
 | /rquality/&lt;quality> | 图片的相对质量，取值范围0 - 100 ，数值以原图质量为标准。例如原图质量为80，将 rquality 设置为80后，得到处理结果图的图片质量为64（80x80%）。 |
 | /lquality/&lt;quality> | 图片的最低质量，取值范围0 - 100 ，设置结果图的质量参数最小值。<br><li>例如原图质量为85，将 lquality 设置为80后，处理结果图的图片质量为85。<br><li>例如原图质量为60，将 lquality 设置为80后，处理结果图的图片质量会被提升至80。 |
 

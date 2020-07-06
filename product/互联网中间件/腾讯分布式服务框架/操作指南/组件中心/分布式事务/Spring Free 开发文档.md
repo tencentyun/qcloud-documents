@@ -1,14 +1,17 @@
 ## 准备工作
 - 在 [分布式事务控制台中](https://console.cloud.tencent.com/tsf/transaction) 创建一个事务分组（参考 [分布式事务-控制台基本操作](https://cloud.tencent.com/document/product/649/31208)）。
-- 获取账号的 SecretID 和 SecretKey（该账号能够在控制台中查询到事务分组即可）。
-- 需要能够连接到 Maven。
+- 在 [访问密钥](https://console.cloud.tencent.com/cam/capi) 中获取账号的 SecretID 和 SecretKey（该账号能够在控制台中查询到事务分组即可）。
+若您还没有创建密钥，单击【新建密钥】即可完成创建。直接复制 SecretID 和 SecretKey 即可。 
+- 需要能够连接到 Maven（请参考 [SDK 下载](https://cloud.tencent.com/document/product/649/20231)，安装相关依赖）。
+- 下载 Demo（[Demo 地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/dtf-demo/dts-demo-release_0.0.1.zip)）。
+- 创建数据库（参考 Demo 文件中的 sql 文件），并自行修改各 application.yml 中的数据库对应信息。
 
 
 
 ## 开发步骤
 ### 1. 引入 DTS SDK
 
-通过以下方式引入 Spring Free 版本的 DTS SDK。version 填写 Release Note 中的最新版本即可。
+通过以下方式引入 Spring Cloud 版本的 DTS SDK。version 填写 Release Note 中的最新版本即可。请在 pom.xml 中修改。
 ``` xml
 <dependency>
     <groupId>com.tencent.cloud</groupId>
@@ -20,7 +23,7 @@
 
 ### 2. 客户端配置
 
-在客户端中，使用以下方式添加基本配置。
+在客户端中，支持以下配置自定义 ，请在工程中的 application.yml 中配置。
 
 ``` java
 private static void initEnv() {

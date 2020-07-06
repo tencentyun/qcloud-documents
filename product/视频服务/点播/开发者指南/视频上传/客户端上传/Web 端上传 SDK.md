@@ -15,7 +15,7 @@
 - **使用 CDN 资源**
 	使用 CDN 资源，可直接按以下方式引入：
 ```html
-<script src="//cdn-go.cn/cdn/vod-js-sdk-v6/latest/vod-js-sdk-v6.js"></script>
+<script src="https://cdn-go.cn/cdn/vod-js-sdk-v6/latest/vod-js-sdk-v6.js"></script>
 ```
 
 请 [单击此处](https://tencentyun.github.io/vod-js-sdk-v6/) 查看 script 方式引入的 Demo，请 [单击此处](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html) 查看 Demo 源码。

@@ -1,3 +1,43 @@
+### 2.7.5 @2020.7.2
+
+**修复**
+
+使用 REST API [创建好友工作群](https://cloud.tencent.com/document/product/269/1615) 并指定群成员，创建成功后群成员发消息失败。
+
+
+### 2.7.2 @2020.6.30
+
+**修复**
+
+- 偶现 [joinGroup](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#joinGroup) 时 SDK 提示“已在群内”，实际未在群内，导致无法正常收发消息的问题。
+- 临时会议群发消息数量统计错误。
+
+### 2.7.0 @2020.6.8
+
+**新增**
+
+支持 C2C 消息已读回执（即对端是否阅读了您发的消息），详细请参考事件 [TIM.EVENT.MESSAGE_READ_BY_PEER](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_READ_BY_PEER)，对端已读的 [消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)，`isPeerRead` 属性值为 `true`。
+
+**修复**
+
+- 加入聊天室(ChatRoom)后新创建的会话没有展示最近一条消息。
+- 登录后未加入音视频聊天室（AVChatRoom）却可以向音视频聊天室（AVChatRoom） 发送消息。
+
+
+### 2.6.6 @2020.5.27
+
+**修复**
+
+- 音视频聊天室（AVChatRoom）偶发消息重复上屏。
+- [getMessageList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getMessageList) 遇到空消息时报错。
+- [logout](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#logout) 后再次 [login](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#login)，偶发 [joinGroup](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#joinGroup) 时遇到70001错误。
+
+### 2.6.4 @2020.5.8
+
+**新增**
+
+[sendMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#sendMessage) 接口增加发送选项，支持发送在线消息（即不存离线和漫游，AVChatRoom 和 BChatRoom 不允许使用）和配置 [离线推送](https://cloud.tencent.com/document/product/269/3604)。
+
 ### 2.6.3 @2020.4.26
 
 **修复**

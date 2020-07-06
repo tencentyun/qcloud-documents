@@ -126,7 +126,7 @@ trtcCloud.setVideoEncoderParam(encParam);
         -   `TRTCBeautyStyle.TRTCBeautyStyleNature`: 自然，磨皮算法更多地保留了面部细节，主观感受上会更加自然。
     -   beauty：美颜级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显
     -   white：美白级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显
-    -   ruddiness：红润级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显，该参数 windows 平台暂未生效
+    -   ruddiness：红润级别，取值范围0 - 9，0表示关闭，1 - 9值越大，效果越明显，该参数 Windows 平台暂未生效
 
 ```javascript
 // 开启美颜 

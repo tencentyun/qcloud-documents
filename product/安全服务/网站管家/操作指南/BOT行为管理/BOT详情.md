@@ -70,9 +70,9 @@
 		- **会话基础信息：**提供会话次数、会话持续时间、时序行为异常指数等信息检出值。
 		- **BOT 基础信息：**BOT 行为特征基础信息，BOT 类型不同，信息略有差异。
 		- **IP 基础信息：**提供 IP 地理位置、经纬度、类型和运营商等信息。
-		- **UA 信息：**UA 检出信息，包括 UA 种类数、存在比、重复比等信息。
+		- **UA 信息：**UA 检出信息，包括 UA 种类数、存在比等信息。
 		- **其他 HTTP 头部信息：**提供 Accept、Accept-Language、Accept-Encoding 和 Connectiton 是否存在的信息。
-		- **请求参数信息：**提供 URL 存在比、重复比和请求最多 URL 等信息。
+		- **请求参数信息：**提供 URL 重复比和请求最多 URL 等信息。
 		- **COOKIE 信息：**提供 COOKIE 存在比、COOKIE 种类数和出现最多的 COOKIE 等信息。
 		- **Referer 信息：**提供 Referer 存在比、Referer 种类数和是否存在 Referer 滥用等信息。
 		- **操作说明：**在 IP 基础信息配置项下的访问源 IP 右侧，单击【添加黑白名单】可将 IP 添加到【IP管理】>【[IP 黑白名单](https://console.cloud.tencent.com/guanjia/ip/list)】模块。
