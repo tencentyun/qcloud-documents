@@ -4,13 +4,12 @@
 
 ## 接入前准备
 1. 接入 SDK 之前，需要您前往移动推送 TPNS  [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
-![](https://main.qcloudimg.com/raw/c07fde02517072a093ac48482e92e9ea.png)
-2. 应用创建完成后，您可以参考 [申请试用](https://cloud.tencent.com/document/product/548/37241#.E7.94.B3.E8.AF.B7.E8.AF.95.E7.94.A8) / [购买推送服务](https://cloud.tencent.com/document/product/548/37242) 操作文档，为您的应用申请试用或者购买推送服务。
-![](https://main.qcloudimg.com/raw/c0324b24ada1e1ffc40d72aa77d3c30f.png)
+![](https://main.qcloudimg.com/raw/52ecf4480a05d0dcdf763d5eed1e00b0.png)
+2. 应用创建完成后，您可以参考 [购买推送服务](https://cloud.tencent.com/document/product/548/37242) 操作文档，为您的应用购买推送服务。
+![](https://main.qcloudimg.com/raw/af77fc2e5e3e9b6d5ed0cfd6a45faacb.png)
 3. 在【配置管理】页面上传推送证书，您可以参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664) 操作获取推送证书。
- ![](https://main.qcloudimg.com/raw/a00e9000d53aa4a3ccb0294ef9e719de.png)
+![](https://main.qcloudimg.com/raw/faa5730f37544023c953f559a76d8f9a.png)
 ![](https://main.qcloudimg.com/raw/c4eaeb3f2d9c3fbb42dbb75f2c5c12dc.png)
-
 4. 完成以上步骤后，单击快速接入，下载快速集成工具。
 ![](https://main.qcloudimg.com/raw/bbe22b0a4ea25ed313c5c3785814f922.png)
 5. 解压缩文件包，双击 TPNS Smart Tool。
