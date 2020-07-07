@@ -2,7 +2,7 @@
 该任务指导您在 FMT 模式下进行 Spring Boot 开发。
 
 FMT 事务，也可以理解为框架托管事务。需要用户仅需要在 **FMT 规范**下正常实现业务逻辑即可实现分布式事务。相对于 TCC事务，省去了编写 Confirm、Cancel 的代码工作。
-FMT 事务的实现原理：代理用户执行 PrepareStatement 和 CreateStatement 操作，对执行的 DML 语句进行解析，记录前后象，并生成UNDO信息。鉴于此，FMT 对用户使用的数据库和 SQL 语句会有一定的要求，详见  [FMT规范](http://www.tencent.com)。
+FMT 事务的实现原理：代理用户执行 PrepareStatement 和 CreateStatement 操作，对执行的 DML 语句进行解析，记录前后象，并生成UNDO信息。鉴于此，FMT 对用户使用的数据库和 SQL 语句会有一定的要求，详见  [FMT规范](https://cloud.tencent.com/document/product/1224/46038)。
 
 ## 准备工作
 - 参考 [准备工作](https://cloud.tencent.com/document/product/1224/45966) 文档，完成环境配置和开发前准备。
