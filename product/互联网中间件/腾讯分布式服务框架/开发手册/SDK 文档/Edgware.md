@@ -4,10 +4,10 @@
 
 ## 1.21.2-Edgware-RELEASE（2020-07-06）
 ### Bug 修复
-- 处理 tomcat 组件开源漏洞风险。
-  - 升级 org.apache.tomcat.embed.tomcat-embed-core 到8.5.56版本。
-  - 升级 org.apache.tomcat.embed.tomcat-embed-el 到8.5.56版本。
-  - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到8.5.56版本。
+处理 tomcat 组件开源漏洞风险。
+- 升级 org.apache.tomcat.embed.tomcat-embed-core 到8.5.56版本。
+- 升级 org.apache.tomcat.embed.tomcat-embed-el 到8.5.56版本。
+- 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到8.5.56版本。
 
 ### 优化
 - 调整泳道标签的传递属性。
