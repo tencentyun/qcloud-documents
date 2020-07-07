@@ -35,7 +35,6 @@ pod 'TPNS-iOS'
 ```
 
 >?
-
  - 首次下载需要登录 [仓库地址](https://git.code.tencent.com/users/sign_in)，并在【账户】菜单栏中 [设置用户名和密码](https://code.tencent.com/help/productionDoc/profile#password)。设置成功后，在 Terminal 输入对应的用户名和密码，后续即可正常使用，当前 PC 不需要再次登录。
  - 由于仓库地址变更，如果 pod 提示 `Unable to find a specification for 'TPNS-iOS'`，那么需要执行以下命令，并更新仓库确认版本：
 
@@ -77,19 +76,15 @@ pod install //安装 SDK
 
 >! 如果您的应用服务接入点为广州，SDK 默认实现该配置。
 >如果您的应用服务接入点为新加坡或者中国香港，请按照下文步骤完成境外服务接入点配置。
-
 1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
 2. 在 `startXGWithAppID` 方法之前调用头文件中的配置 `HOST` 接口：
    如需接入新加坡服务接入点则将 `HOST`设置为 `https://api.tpns.sgp.tencent.com`, `PORT`设置为0。
    **示例**
-
 ``` object-c
 [[XGPush defaultManager] configureHost:@"https://api.tpns.sgp.tencent.com" port:0]
 ```
-
 如需接入中国香港服务接入点则将 `HOST` 设置为 `https://api.tpns.hk.tencent.com`, `PORT `设置为0。
-**示例**
-
+   **示例**
 ``` object-c
 [[XGPush defaultManager] configureHost:@"https://api.tpns.hk.tencent.com" port:0]
 ```
@@ -97,14 +92,11 @@ pod install //安装 SDK
 3. 配置统计域名：
    新加坡服务接入点
    **示例**
-
 ``` object-c
 [[XGPush defaultManager] configureStatReportHost:@"https://api.tpns.sgp.tencent.com" port:0];
 ```
-
 中国香港服务接入点
 **示例**
-
 ``` object-c
 [[XGPush defaultManager] configureStatReportHost:@"https://api.tpns.hk.tencent.com" port:0];
 ```
@@ -264,7 +256,6 @@ TPNS iOS SDK 1.2.5.3 以下版本，在调试阶段建议实现协议中的此�
 ```
 
 >!
-
 - 当应用在前台收到通知消息时，会触发统一接收消息回调 xgPushDidReceiveRemoteNotification。
 - 如实现了统一接收消息回调 xgPushDidReceiveRemoteNotification 请不要再实现 application:didReceiveRemoteNotification:fetchCompletionHandler。
 
