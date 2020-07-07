@@ -84,11 +84,11 @@ tim.createImageMessage(options)
 
 | Name               | Type       | Attributes   | Default                         | Description                                                |
 | ------------------ | ---------- | ------------ | ------------------------------- | ---------------------------------------------------------- |
-| `to`               | `String`   |              |                                 | 消息的接收方                                               |
+| `to`               | `String`   |     -         |            -                     | 消息的接收方                                               |
 | `conversationType` | `String`   |              |                                 | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `priority`         | `String`   | `<optional>` | `TIM.TYPES.MSG_PRIORITY_NORMAL` | 消息优先级                                                 |
-| `payload`          | `Object`   |              |                                 | 消息内容的容器                                             |
-| `onProgress`       | `function` |              |                                 | 获取上传进度的回调函数                                     |
+| `payload`          | `Object`   |           -   |                  -               | 消息内容的容器                                             |
+| `onProgress`       | `function` |          -    |                  -               | 获取上传进度的回调函数                                     |
 
 `paylaod`的描述如下表所示：
 
@@ -206,10 +206,10 @@ tim.createAudioMessage(options)
 
 | Name               | Type     | Attributes   | Default                         | Description                                                |
 | ------------------ | -------- | ------------ | ------------------------------- | ---------------------------------------------------------- |
-| `to`               | `String` |              |                                 | 消息的接收方                                               |
-| `conversationType` | `String` |              |                                 | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
+| `to`               | `String` |      -        |              -                   | 消息的接收方                                               |
+| `conversationType` | `String` |       -       |               -                  | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `priority`         | `String` | `<optional>` | `TIM.TYPES.MSG_PRIORITY_NORMAL` | 消息优先级                                                 |
-| `payload`          | `Object` |              |                                 | 消息内容的容器                                             |
+| `payload`          | `Object` |       -       |            -                     | 消息内容的容器                                             |
 
 `paylaod`的描述如下表所示：
 
@@ -290,11 +290,11 @@ tim.createFileMessage(options)
 
 | Name               | Type       | Attributes   | Default                         | Description                                                  |
 | ------------------ | ---------- | ------------ | ------------------------------- | ------------------------------------------------------------ |
-| `to`               | `String`   |              |                                 | 消息接收方的 userID 或 groupID                               |
-| `conversationType` | `String`   |              |                                 | 会话类型，取值`TIM.TYPES.CONV_C2C`（端到端会话）或`TIM.TYPES.CONV_GROUP`（群组会话） |
+| `to`               | `String`   |        -      |           -                      | 消息接收方的 userID 或 groupID                               |
+| `conversationType` | `String`   |          -    |                                 | 会话类型，取值`TIM.TYPES.CONV_C2C`（端到端会话）或`TIM.TYPES.CONV_GROUP`（群组会话） |
 | `priority`         | `String`   | `<optional>` | `TIM.TYPES.MSG_PRIORITY_NORMAL` | 消息优先级                                                   |
-| `payload`          | `Object`   |              |                                 | 消息内容的容器                                               |
-| `onProgress`       | `function` |              |                                 | 获取上传进度的回调函数                                       |
+| `payload`          | `Object`   |       -       |           -                      | 消息内容的容器                                               |
+| `onProgress`       | `function` |       -       |               -                  | 获取上传进度的回调函数                                       |
 
 `payload`的描述如下表所示：
 
@@ -389,10 +389,10 @@ tim.createCustomMessage(options)
 
 | Name               | Type     | Attributes   | Default                         | Description                                                  |
 | ------------------ | -------- | ------------ | ------------------------------- | ------------------------------------------------------------ |
-| `to`               | `String` |              |                                 | 消息接收方的 userID 或 groupID                               |
-| `conversationType` | `String` |              |                                 | 会话类型，取值`TIM.TYPES.CONV_C2C`（端到端会话）或`TIM.TYPES.CONV_GROUP`（群组会话） |
+| `to`               | `String` |       -       |            -                     | 消息接收方的 userID 或 groupID                               |
+| `conversationType` | `String` |       -       |             -                    | 会话类型，取值`TIM.TYPES.CONV_C2C`（端到端会话）或`TIM.TYPES.CONV_GROUP`（群组会话） |
 | `priority`         | `String` | `<optional>` | `TIM.TYPES.MSG_PRIORITY_NORMAL` | 消息优先级                                                   |
-| `payload`          | `Object` |              |                                 | 消息内容的容器                                               |
+| `payload`          | `Object` |      -        |                 -                | 消息内容的容器                                               |
 
 `payload`的描述如下表所示：
 
@@ -461,10 +461,10 @@ tim.createVideoMessage(options)
 
 | Name               | Type     | Attributes   | Default                         | Description                                                |
 | ------------------ | -------- | ------------ | ------------------------------- | ---------------------------------------------------------- |
-| `to`               | `String` |              |                                 | 消息的接收方                                               |
-| `conversationType` | `String` |              |                                 | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
+| `to`               | `String` |      -        |                -                 | 消息的接收方                                               |
+| `conversationType` | `String` |       -       |                  -               | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `priority`         | `String` | `<optional>` | `TIM.TYPES.MSG_PRIORITY_NORMAL` | 消息优先级                                                 |
-| `payload`          | `Object` |              |                                 | 消息内容的容器                                             |
+| `payload`          | `Object` |       -       |                    -             | 消息内容的容器                                             |
 
 `payload`的描述如下表所示：
 
@@ -548,10 +548,10 @@ tim.createFaceMessage(options)
 
 | Name               | Type     | Attributes     | Default                         | Description                                                  |
 | ------------------ | -------- | -------------- | ------------------------------- | ------------------------------------------------------------ |
-| `to`               | `String` |                |                                 | 消息接收方的 userID 或 groupID                               |
-| `conversationType` | `String` |                |                                 | 会话类型，取值`TIM.TYPES.CONV_C2C`（端到端会话）或`TIM.TYPES.CONV_GROUP`（群组会话） |
+| `to`               | `String` |           -     |             -                    | 消息接收方的 userID 或 groupID                               |
+| `conversationType` | `String` |          -      |              -                   | 会话类型，取值`TIM.TYPES.CONV_C2C`（端到端会话）或`TIM.TYPES.CONV_GROUP`（群组会话） |
 | `priority`         | `String` | ``<optional>`` | `TIM.TYPES.MSG_PRIORITY_NORMAL` | 消息优先级                                                   |
-| `payload`          | `Object` |                |                                 | 消息内容的容器                                               |
+| `payload`          | `Object` |      -          |               -                  | 消息内容的容器                                               |
 
 `payload`的描述如下表所示：
 
@@ -964,7 +964,7 @@ tim.getMessageList(options)
 
 | Name               | Type     | Attributes   | Description                                                  |
 | ------------------ | -------- | ------------ | --------------------------------------------------------- |
-| `conversationID`   | `String` | `<optional>` | 会话 ID。会话 ID 组成方式：C2C+userID（单聊）GROUP+groupID（群聊）@TIM#SYSTEM（系统通知会话）                                                      |
+| `conversationID`   | `String` | `<optional>` | 会话 ID。会话 ID 组成方式：C2C+userID（单聊）GROUP+groupID（群聊）@TIM#SYSTEM（系统通知会话）                        |
 | `nextReqMessageID` | `String` | `<optional>` | 用于分页续拉的消息 ID。第一次拉取时该字段可不填，每次调用该接口会返回该字段，续拉时将返回字段填入即可 |
 | `count`            | `Number` | `<optional>` | 需要拉取的消息数量，默认值和最大值为15，即一次拉取至多返回15条消息 |
 
