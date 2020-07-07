@@ -19,11 +19,9 @@ QUIC 使用 UDP协议，会占用 CLB 的 UDP 端口：
 ## 前提条件
 CLB 支持 QUIC 协议。
 1. 当前属于内测期间，操作之前，请先提交 [内测申请](https://cloud.tencent.com/apply/p/9e084vdqdw)。
-2. 在操作之前先 [购买负载均衡实例](https://buy.cloud.tencent.com/lb)。
-
->? 购买的负载均衡实例应满足：
-> - 当前支持 QUIC 的地域为：孟买。
-> - 当前只有公网负载均衡支持 QUIC 协议，内网负载均衡和传统型负载均衡暂不支持。
+2. 在操作之前先 [购买负载均衡实例](https://buy.cloud.tencent.com/lb)，购买的负载均衡实例应满足：
+  - 当前支持 QUIC 的地域为：孟买。
+  - 当前只有公网负载均衡支持 QUIC 协议，内网负载均衡和传统型负载均衡暂不支持。
 
 <span id="making"></span>
 ## 操作步骤
