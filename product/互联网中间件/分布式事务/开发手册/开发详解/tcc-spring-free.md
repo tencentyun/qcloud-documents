@@ -4,13 +4,13 @@ TCC事务，也可以理解为手动事务。需要用户提供Try，Confirm，C
 
 ## 准备工作
 
-参考[准备工作](http://www.tencent.com)章节进行。
+参考[准备工作](https://tcloud-doc.isd.com/document/product/1224/45966)章节进行。
 
 ## Maven配置
 
 通过配置业务代码的pom.xml文件，可以引入DTF的SDK到您的工程中。
 
-> 配置中的${dtf.version}可以参考[Release Note](http://www.tencent.com)中，选择`最新版本（推荐）`或指定版本。
+> 配置中的${dtf.version}可以参考[Release Note](https://tcloud-doc.isd.com/document/product/1224/44764)中，选择`最新版本（推荐）`或指定版本。
 
 ``` xml
 <dependency>
@@ -43,7 +43,7 @@ DtfEnv.addTxmBroker(String groupId, String txmBrokerList);
 
 例如：
 
-用户A，创建了一个事务分组`group-x3k9s0ns`，在[分布式事务控制台](http://www.tencent.com)获取该分组的TC集群地址为`127.0.0.1:8080;127.0.0.1:8081;127.0.0.1:8082`。该用户访问密钥的SecretId为`SID`，SecretKey为`SKEY`。需要在业务应用`app-test`上使用该事物时，配置样例为：
+用户A，创建了一个事务分组`group-x3k9s0ns`，在[分布式事务控制台](https://console.cloud.tencent.com/dtf/)获取该分组的TC集群地址为`127.0.0.1:8080;127.0.0.1:8081;127.0.0.1:8082`。该用户访问密钥的SecretId为`SID`，SecretKey为`SKEY`。需要在业务应用`app-test`上使用该事物时，配置样例为：
 
 ``` java
 DtfEnv.setServer("app-test");
