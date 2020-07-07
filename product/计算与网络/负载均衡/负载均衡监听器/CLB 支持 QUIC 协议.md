@@ -28,7 +28,7 @@ QUIC 使用 UDP 协议，会占用 CLB 的 UDP 端口：
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)，在左侧导航栏，单击【实例管理】，进入“实例管理”页面。
 2. 在“实例管理”页面中，单击【负载均衡】，进入“负载均衡”标签页。
 3. 在“负载均衡”标签页中，找到创建地域为“孟买”的公网负载均衡实例，在右侧操作栏，单击【配置监听器】，进入“监听器管理”页面。
-![](https://main.qcloudimg.com/raw/d8912367f9090d70c2c7b0c3a3c48eb5.png)
+![](https://main.qcloudimg.com/raw/75be8dabe196036bd401a3f874fbf194.png)
 4. 在“监听器管理”页面的 "HTTP/HTTPS 监听器" 下，单击【新建】，进入“创建监听器”页面。
 ![](https://main.qcloudimg.com/raw/c84fbc4b37c063b8c13625d87e332df0.png)
 5. 在“创建监听器”页面，切换监听协议端口为 HTTPS，根据需要填写完后，单击【提交】，如下图所示。
