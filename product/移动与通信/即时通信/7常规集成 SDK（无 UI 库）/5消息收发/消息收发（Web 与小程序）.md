@@ -85,7 +85,7 @@ tim.createImageMessage(options)
 | Name               | Type       | Attributes   | Default                         | Description                                                |
 | ------------------ | ---------- | ------------ | ------------------------------- | ---------------------------------------------------------- |
 | `to`               | `String`   |     -         |            -                     | 消息的接收方                                               |
-| `conversationType` | `String`   |              |                                 | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
+| `conversationType` | `String`   |       -       |              -                   | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
 | `priority`         | `String`   | `<optional>` | `TIM.TYPES.MSG_PRIORITY_NORMAL` | 消息优先级                                                 |
 | `payload`          | `Object`   |           -   |                  -               | 消息内容的容器                                             |
 | `onProgress`       | `function` |          -    |                  -               | 获取上传进度的回调函数                                     |
