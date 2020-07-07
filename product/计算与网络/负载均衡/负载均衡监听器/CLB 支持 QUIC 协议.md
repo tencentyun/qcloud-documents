@@ -1,8 +1,8 @@
 ## 什么是 QUIC
 快速 UDP 互联网连接（quick udp internet connection，QUIC）是由 Google 提出的使用 UDP 进行多路并发传输的协议。QUIC 相比现在广泛应用的 TCP+TLS+HTTP2 协议有如下优势：
-- 避免队头阻塞的多路复用；
 - 减少了连接建立的时间；
 - 改善拥塞控制；
+- 避免队头阻塞的多路复用；
 - 连接迁移。
 
 使用 QUIC 协议后，APP 访问速度将得到大幅提升，在弱网络、Wi-Fi 和4G 频繁切换等场景下，不需要重连即可实现多路复用。
@@ -17,20 +17,21 @@ QUIC 使用 UDP协议，会占用 CLB 的 UDP 端口：
 - 创建新的 HTTPS 监听器时，支持开启QUIC；创建完后，QUIC可以自由的开关。创建时没有开启 QUIC 的监听器，不能再开启 QUIC，更不可能关闭 QUIC。
 
 ## 前提条件
-CLB 支持 QUIC 协议。
-1. 当前属于内测期间，操作之前，请先提交 [内测申请](https://cloud.tencent.com/apply/p/9e084vdqdw)。
-2. 在操作之前先 [购买负载均衡实例](https://buy.cloud.tencent.com/lb)，购买的负载均衡实例应满足：
-  - 当前支持 QUIC 的地域为：孟买。
-  - 当前只有公网负载均衡支持 QUIC 协议，内网负载均衡和传统型负载均衡暂不支持。
+- 当前 CLB 中的 QUIC 协议正在内测中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/9e084vdqdw) 进行使用。
+- 在使用 CLB 中的 QUIC 协议前，需已 [购买负载均衡实例](https://buy.cloud.tencent.com/lb)。
+>? 购买的负载均衡实例应满足：
+> - 当前支持 QUIC 的地域为：孟买。
+> - 当前只有公网负载均衡支持 QUIC 协议，内网负载均衡和传统型负载均衡暂不支持。
 
 <span id="making"></span>
 ## 操作步骤
-1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)。
-2. 在左侧导航栏，选择【实例管理】。
-3. 在 CLB 实例列表页单击需配置的实例 ID，进入实例详情页。
-4. 单击【监听器管理】标签页，您也可以在列表页的操作栏中单击【配置监听器】。
-![](https://main.qcloudimg.com/raw/851e459588fd6f0d48712b9802e727cb.png)
-5. 在 "HTTP/HTTPS 监听器" 下，点击【新建】进入“创建监听器”页面，切换监听协议端口为 HTTPS，如下图所示。
+1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)，在左侧导航栏，单击【实例管理】，进入“实例管理”页面。
+3. 在“实例管理”页面中，单击【负载均衡】，进入负载均衡标签页。
+4. 在负载均衡标签页中，找到创建地域为“孟买”的公网负载均衡实例，在右侧操作栏，单击【配置监听器】，进入“监听器管理”页面。
+![](https://main.qcloudimg.com/raw/d8912367f9090d70c2c7b0c3a3c48eb5.png)
+5. 在“监听器管理”页面的 "HTTP/HTTPS 监听器" 下，单击【新建】，进入“创建监听器”页面。
+![](https://main.qcloudimg.com/raw/145776ba4ee1cf0b09efbc63a15a88c2.png)
+6. 在“创建监听器”页面，切换监听协议端口为 HTTPS，如下图所示。
 ![](https://main.qcloudimg.com/raw/c1e32add2ab92d9f7866934784179923.png)
 6. 根据需要填写完后，单击【提交】，回到【监听器管理】标签页，单击该新建监听器的【+】符号，如下图所示。
 ![](https://main.qcloudimg.com/raw/86f40fdc541275da88128727661542ed.png)
