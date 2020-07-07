@@ -41,10 +41,8 @@ DtfEnv.addTxmBroker(String groupId, String txmBrokerList);
 | secretKey     | String   | 是   | 无     | 用户的腾讯云 SecretKey                                        |
 | server        | String   | 是   | 无     | 客户端服务标识，一个事务分组下，同一服务需要使用相同的标识 |
 
->?通常情况下，仅需要在使用`DtfEnv.addTxmBroker()`配置一个事务分组。
-
-配置示例：
-用户 A，创建了一个事务分组`group-x3k9s0ns`，在 [DTF 控制台](https://console.cloud.tencent.com/dtf/) 获取该分组的 TC 集群地址为`127.0.0.1:8080;127.0.0.1:8081;127.0.0.1:8082`。该用户访问密钥的 SecretId 为`SID`，SecretKey为`SKEY`。需要在业务应用`app-test`上使用该事物时，配置示例如下：
+通常情况下，仅需要在使用`DtfEnv.addTxmBroker()`配置一个事务分组。例如：
+用户 A，创建了一个事务分组`group-x3k9s0ns`，在 [分布式事务控制台](https://console.cloud.tencent.com/dtf/) 获取该分组的 TC 集群地址为`127.0.0.1:8080;127.0.0.1:8081;127.0.0.1:8082`。该用户访问密钥的 SecretId 为`SID`，SecretKey 为`SKEY`。需要在业务应用`app-test`上使用该事物时，配置样例为：
 ``` java
 DtfEnv.setServer("app-test");
 DtfEnv.setSecretId("SID");
