@@ -1,6 +1,6 @@
 您在使用 QUIC 协议后，App 访问速度将得到大幅提升，在弱网络、Wi-Fi 和4G频繁切换等场景下，不需要重连即可实现多路复用。本文档将为您介绍，如何在负载均衡控制台中，配置 QUIC 协议。
 ## 背景信息
-快速 UDP 互联网连接（Quick Udp Internet Connection，QUIC）是由 Google 提出的使用 UDP 进行多路并发传输的协议，具有减少了连接建立的时间、改善拥塞控制、避免队头阻塞的多路复用等优势。
+快速 UDP 互联网连接（Quick Udp Internet Connection，QUIC）是由 Google 提出的使用 UDP 进行多路并发传输的协议，具有减少连接建立时间、改善拥塞控制、避免队头阻塞的多路复用等优势。
 
 CLB 开启 QUIC 后，客户端可以和 CLB 之间建立 QUIC 连接，当二者协商无法建立 QUIC 连接时自动降级到 HTTPS 或 HTTP/2，但 CLB 和后端服务器之间仍然使用 HTTP1.x 协议。
 >?当前 CLB 支持的 QUIC 版本是 Q044 及以下版本。
