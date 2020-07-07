@@ -1,3 +1,4 @@
+快速 UDP 互联网连接（QUIC）可根据您的需要，及时调整，实时生效。
 ## 什么是 QUIC
 快速 UDP 互联网连接（quick udp internet connection，QUIC）是由 Google 提出的使用 UDP 进行多路并发传输的协议。QUIC 相比现在广泛应用的 TCP+TLS+HTTP2 协议有如下优势：
 - 减少了连接建立的时间。
