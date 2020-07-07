@@ -4,7 +4,9 @@ FMT事务，也可以理解为框架托管事务。需要用户仅需要在`FMT�
 
 ## 准备工作
 
-参考[准备工作](http://www.tencent.com)章节进行。
+参考[准备工作](https://tcloud-doc.isd.com/document/product/1224/45966)章节进行。
+
+参考[快速部署](https://tcloud-doc.isd.com/document/product/1224/45967#.E5.88.9D.E5.A7.8B.E5.8C.96.E6.95.B0.E6.8D.AE.E5.BA.93.EF.BC.88mysql.E5.8D.B3.E5.8F.AF.EF.BC.89)，执行FMT初始化脚本。
 
 ## FMT规范
 
@@ -14,7 +16,7 @@ FMT事务的实现原理是：代理用户执行`PrepareStatement`和`CreateStat
 
 通过配置业务代码的pom.xml文件，可以引入DTF的SDK到您的工程中。
 
-> 配置中的${dtf.version}可以参考[Release Note](http://www.tencent.com)中，选择`最新版本（推荐）`或指定版本。
+> 配置中的${dtf.version}可以参考[Release Note](https://tcloud-doc.isd.com/document/product/1224/44764)中，选择`最新版本（推荐）`或指定版本。
 
 ``` xml
 <dependency>
@@ -49,7 +51,7 @@ dtf:
 
 例如：
 
-用户A，创建了一个事务分组`group-x3k9s0ns`，在[分布式事务控制台](http://www.tencent.com)获取该分组的TC集群地址为`127.0.0.1:8080;127.0.0.1:8081;127.0.0.1:8082`。该用户访问密钥的SecretId为`SID`，SecretKey为`SKEY`。需要在业务应用`app-test`上使用该事物时，配置样例为：
+用户A，创建了一个事务分组`group-x3k9s0ns`，在[分布式事务控制台](https://console.cloud.tencent.com/dtf/)获取该分组的TC集群地址为`127.0.0.1:8080;127.0.0.1:8081;127.0.0.1:8082`。该用户访问密钥的SecretId为`SID`，SecretKey为`SKEY`。需要在业务应用`app-test`上使用该事物时，配置样例为：
 
 ``` yaml
 spring:
@@ -282,7 +284,7 @@ DTF-Last-Branch-ID: ${LastBranchId}
 
 ### 主调 - 手动处理
 
-可以参考[Spring Free开发指导](http://www.tencnet.com)中的`远程请求时传递分布式事务上下文`章节。
+可以参考[Spring Free开发指导](https://tcloud-doc.isd.com/document/product/1224/45970#.E8.BF.9C.E7.A8.8B.E8.AF.B7.E6.B1.82.E6.97.B6.E4.BC.A0.E9.80.92.E5.88.86.E5.B8.83.E5.BC.8F.E4.BA.8B.E5.8A.A1.E4.B8.8A.E4.B8.8B.E6.96.87)中的`远程请求时传递分布式事务上下文`章节。
 
 ### 被调 - Spring MVC - Controller
 
@@ -301,7 +303,7 @@ DTF-Last-Branch-ID: ${LastBranchId}
 
 ### 被调 - 手动处理
 
-可以参考[Spring Free开发指导](http://www.tencnet.com)中的`远程请求时传递分布式事务上下文`章节。
+可以参考[Spring Free开发指导](https://tcloud-doc.isd.com/document/product/1224/45970#.E8.BF.9C.E7.A8.8B.E8.AF.B7.E6.B1.82.E6.97.B6.E4.BC.A0.E9.80.92.E5.88.86.E5.B8.83.E5.BC.8F.E4.BA.8B.E5.8A.A1.E4.B8.8A.E4.B8.8B.E6.96.87)中的`远程请求时传递分布式事务上下文`章节。
 
 ## 与TSF结合使用
 
