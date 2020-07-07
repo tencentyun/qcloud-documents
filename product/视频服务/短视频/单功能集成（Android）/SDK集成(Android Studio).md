@@ -12,16 +12,16 @@ SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有（A
 - Android Studio（推荐您也使用 Android Studio，当然您也可以使用 Eclipse + ADT）
 
 ### 3. 集成攻略
-#### 3.1 集成攻略（aar集成方式）
+#### 3.1 集成攻略（aar 集成方式）
 1. **新建工程**
 ![](https://main.qcloudimg.com/raw/ca473c3bf484da3d7d959dbb83b192b1.png)
 
-3. **工程配置**
+2. **工程配置**
 	1. 在工程 App 目录下的 build.gradle 中，添加引用 aar 包的代码：
 ```
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    // 导入短视频SDK aar，LiteAVSDK_UGC_x.y.zzzz 请自行修改为最新版本号
+    // 导入短视频 SDK aar，LiteAVSDK_UGC_x.y.zzzz 请自行修改为最新版本号
     compile(name: 'LiteAVSDK_UGC_7.4.9211', ext: 'aar')
     ...
 }
@@ -48,7 +48,7 @@ defaultConfig {
 ```
 	4. 最后点击 Sync Now，编译工程。
 
-#### 3.2 集成攻略（jar+so集成方式）
+#### 3.2 集成攻略（jar+so 集成方式）
 1. **库说明**
 解压 zip 压缩包后得到 libs 目录，里面主要包含 jar 文件和 so 文件，文件清单如下：
 <table border=0 cellpadding="0" cellspacing="0">
