@@ -13,6 +13,16 @@
 
 支持向后兼容，建议全量升级。
 
+## 1.21.2-Edgware-RELEASE (2020-07-06)
+### Bug 修复
+- 处理tomcat组件开源漏洞风险。
+  - 升级org.apache.tomcat.embed.tomcat-embed-core到8.5.56版本。
+  - 升级org.apache.tomcat.embed.tomcat-embed-el到8.5.56版本。
+  - 升级org.apache.tomcat.embed.tomcat-embed-websocket到8.5.56版本。
+### 优化
+- 调整泳道标签的传递属性
+- 调整泳道入口行为
+
 ## 1.21.1-Edgware-RELEASE（2020-04-29）
 
 ### Bug 修复
@@ -199,7 +209,7 @@ API 注册兼容从环境变量和启动参数中读取 TSF 参数信息。
 ### 版本建议
 
 支持向后兼容，建议全量升级。
-  
+
 ## 1.12.4-Edgware-RELEASE（2019-08-15）
 
 ### Bug 修复
