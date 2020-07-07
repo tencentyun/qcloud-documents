@@ -77,19 +77,15 @@ pod install //安装 SDK
 
 >! 如果您的应用服务接入点为广州，SDK 默认实现该配置。
 >如果您的应用服务接入点为新加坡或者中国香港，请按照下文步骤完成境外服务接入点配置。
-
 1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
 2. 在 `startXGWithAppID` 方法之前调用头文件中的配置 `域名` 接口：
    如需接入新加坡服务接入点 则将域名设置为```tpns.sgp.tencent.com```。
    **示例**
-
 ``` object-c
  [[XGPush defaultManager] configureClusterDomainName:@"tpns.sgp.tencent.com"];
 ```
-
 如需接入中国香港服务接入点 则将域名设置为```tpns.hk.tencent.com```。
 **示例**
-
 ``` object-c
  [[XGPush defaultManager] configureClusterDomainName:@"tpns.hk.tencent.com"];
 ```
