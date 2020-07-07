@@ -39,16 +39,16 @@
 
 ### shardkey 不等条件（性能有损失）
 ```
-        mysql>  select * from test1  join test2;
-        +---+------+---------+---+------+---------------+
-        | a | b    | c       | a | d    | e             |
-        +---+------+---------+---+------+---------------+
-        | 1 |    2 | record1 | 1 |    3 | test2_record1 |
-        | 2 |    3 | record2 | 1 |    3 | test2_record1 |
-        | 1 |    2 | record1 | 2 |    3 | test2_record2 |
-        | 2 |    3 | record2 | 2 |    3 | test2_record2 |
-        +---+------+---------+---+------+---------------+
-        4 rows in set (0.06 sec)
+  mysql>  select * from test1  join test2;
+  +---+------+---------+---+------+---------------+
+  | a | b    | c       | a | d    | e             |
+  +---+------+---------+---+------+---------------+
+  | 1 |    2 | record1 | 1 |    3 | test2_record1 |
+  | 2 |    3 | record2 | 1 |    3 | test2_record1 |
+  | 1 |    2 | record1 | 2 |    3 | test2_record2 |
+  | 2 |    3 | record2 | 2 |    3 | test2_record2 |
+  +---+------+---------+---+------+---------------+
+  4 rows in set (0.06 sec)
 ```
 
 ### 广播表和单表（普通表）相关的 join
