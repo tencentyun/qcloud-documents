@@ -34,6 +34,6 @@ QUIC 使用 UDP 协议，会占用 CLB 的 UDP 端口：
 5. 在“创建监听器”页面，切换监听协议端口为 HTTPS，根据需要填写完后，单击【提交】，如下图所示。
 ![](https://main.qcloudimg.com/raw/c1e32add2ab92d9f7866934784179923.png)
 6. 在【监听器管理】标签页，单击该新建监听器的【+】符号，如下图所示。
-![](https://main.qcloudimg.com/raw/43cee855ee3e29f86053285b6bfe2f28.png)
+![](https://main.qcloudimg.com/raw/9fdb02a7a98cddbf6eafa1c95c36b93a.png)
 7. 进入“创建转发规则”页面，打开 QUIC 协议，创建七层规则，单击【下一步】，继续完成健康检查和会话保持的配置。
 ![](https://main.qcloudimg.com/raw/53dae3e54d774586d7e3ac31d7431b6c.png)
