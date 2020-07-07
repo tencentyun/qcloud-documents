@@ -60,4 +60,3 @@
 |平台/引擎  | 更新时间        |SDK 下载|Demo 下载|文档|
 |-------------| ------------- | ------------- |------------- |------------- |
 |		 		H5 		|2020/02/18|[下载](http://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.5.2/GME_H5_Audio_SDK_2.5.2.120.zip)			|[下载](http://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.5.2/GME_H5_Audio_Sample_2.5.2.120.zip)		| [接口文档](https://cloud.tencent.com/document/product/607/32157)|
->?H5暂未提供 SDK v2.5.4 版本更新。
