@@ -53,4 +53,11 @@
 | Android       | 2020/07/07 | [下载](http://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.5.4/Android/GME_android_audio_sdk_2.5.4.29.b960be1.zip) | [下载](http://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.5.4/Android/GME_android_audio_demo_2.5.4.29.b960be1.zip) | [快速入门](https://cloud.tencent.com/document/product/607/18158) [接口文档](https://cloud.tencent.com/document/product/607/15210) |
 | macOS         | 2020/07/07 | [下载](http://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.5.4/Mac/GME_mac_audio_sdk_2.5.4.27.b960be1dc.zip) | [下载](http://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.5.4/Mac/GME_mac_audio_demo_2.5.4.27.b960be1dc.zip) | [快速入门](https://cloud.tencent.com/document/product/607/18738) [接口文档](https://cloud.tencent.com/document/product/607/18739) |
 
+## SDK v2.5.2 版本下载
 
+
+
+|平台/引擎  | 更新时间        |SDK 下载|Demo 下载|文档|
+|-------------| ------------- | ------------- |------------- |------------- |
+|		 		H5 		|2020/02/18|[下载](http://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.5.2/GME_H5_Audio_SDK_2.5.2.120.zip)			|[下载](http://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.5.2/GME_H5_Audio_Sample_2.5.2.120.zip)		| [接口文档](https://cloud.tencent.com/document/product/607/32157)|
+>?H5暂未提供 SDK v2.5.4 版本更新。
