@@ -88,7 +88,6 @@ pod install //安装 SDK
 ``` object-c
 [[XGPush defaultManager] configureHost:@"https://api.tpns.hk.tencent.com" port:0]
 ```
-
 3. 配置统计域名：
    新加坡服务接入点
    **示例**
