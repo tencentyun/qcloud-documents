@@ -17,7 +17,7 @@
 </thead>
 <tbody><tr>
 <td>实时语音服务</td>
-<td ><li>优化进房流程，提高弱网环境下进房成功率<li>降低Android机型采集延迟</td> 
+<td ><li>优化进房流程，提高弱网环境下进房成功率<li>降低 Android 机型采集延迟</td> 
 </thead>
 <tbody><tr>
 <td>语言转文字服务</td>
