@@ -43,8 +43,8 @@
 </tr>
 <tr>
 <td nowrap="nowrap">支持的存储类型</td>
-<td>标准（MAZ-STANDARD）</td>
-<td>标准（STANDARD）<br>低频（STANDARD-IA）<br>归档（ARCHIVE）</td>
+<td>标准（MAZ_STANDARD）<br>低频（MAZ_STANDARD_IA）</td>
+<td>标准（STANDARD）<br>低频（STANDARD_IA）<br>归档（ARCHIVE）</td>
 </tr>
 </tbody></table>
 
@@ -66,7 +66,7 @@
 
 目前对象存储 COS 仅支持上传多 AZ 标准存储类型（MAZ_STANDARD），因此涉及存储类型变更相关的功能同样存在限制，相关功能限制说明如下：
 
-- 存储类型限制：当前仅支持多 AZ 标准存储类型（MAZ_STANDARD）。多 AZ 低频存储类型（MAZ_STANDARD_IA）和多 AZ 归档存储类型（MAZ_ARCHIVE）后续将会支持。
+- 存储类型限制：当前仅支持多 AZ 标准存储类型（MAZ_STANDARD）和多 AZ 低频存储类型（MAZ_STANDARD_IA）。多 AZ 归档存储类型（MAZ_ARCHIVE）后续将会支持。
 - 操作限制：当前仅支持对象的上传、下载和删除操作；支持对象复制到多 AZ 的存储桶，不支持复制到单 AZ 的存储桶。
 - 生命周期限制：当前仅支持对象的过期删除，不支持沉降为其他存储类型。
 - 跨地域复制限制：暂不支持跨地域复制配置。
