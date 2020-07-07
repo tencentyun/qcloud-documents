@@ -16,7 +16,10 @@ QUIC 使用 UDP协议，会占用 CLB 的 UDP 端口：
 - 当前在一个 HTTPS 监听器中，只能对一个域名开启 QUIC 协议。
 - 创建新的 HTTPS 监听器时，支持开启QUIC；创建完后，QUIC可以自由的开关。创建时没有开启 QUIC 的监听器，不能再开启 QUIC，更不可能关闭 QUIC。
 ## 前提条件
-CLB 支持 QUIC 协议。当前内测中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/9e084vdqdw)。并在操作之前 [购买负载均衡实例](https://buy.cloud.tencent.com/lb)。
+CLB 支持 QUIC 协议。
+1. 当前属于内测期间，操作之前，请先提交 [内测申请](https://cloud.tencent.com/apply/p/9e084vdqdw)。
+2. 在操作之前先 [购买负载均衡实例](https://buy.cloud.tencent.com/lb)。
+
 >? 购买的负载均衡实例应满足：
 > - 当前支持 QUIC 的地域为：孟买。
 > - 当前只有公网负载均衡支持 QUIC 协议，内网负载均衡和传统型负载均衡暂不支持。
