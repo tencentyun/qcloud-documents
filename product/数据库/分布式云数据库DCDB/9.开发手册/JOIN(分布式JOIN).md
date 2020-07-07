@@ -1,8 +1,8 @@
-如您需要阅读或下载全量开发文档，请参见 [TDSQL开发指南](https://cloud.tencent.com/document/product/557/7714)。
+如您需要阅读或下载全量开发文档，请参见 [TDSQL 开发指南](https://cloud.tencent.com/document/product/557/7714)。
 
-由于 TDSQL 存在多个物理节点，部分 join 操作可能涉及到多个物理节点的数据，这种跨物理节点数据的 JOIN，一般叫做分布式 JOIN。
+由于 TDSQL 存在多个物理节点，部分 join 操作可能涉及到多个物理节点的数据，这种跨物理节点数据的 join，一般叫做分布式 join。
 
-- 如果 join 相关的表有 shardkey 相等条件（如下示例），由于分表的一致性原则，会让这部分数据自动存储到同一物理节点，此时相当于单机 JOIN，性能最好。此处涉及到分表 shardkey 的选择，可以参考 [常见问题](https://cloud.tencent.com/document/product/557/10572)，帮助您更好的判断。
+- 如果 join 相关的表有 shardkey 相等条件（如下示例），由于分表的一致性原则，会让这部分数据自动存储到同一物理节点，此时相当于单机 join，性能最好。此处涉及到分表 shardkey 的选择，可以参考 [常见问题](https://cloud.tencent.com/document/product/557/10572)，帮助您更好的判断。
 - 如果涉及到跨物理节点数据，此时 proxy 会先从其他节点拉取数据并缓存，由于涉及到网络数据传输，性能会损失。
 
 ### shardkey 相等条件（性能无损失）
@@ -39,7 +39,6 @@
 
 ### shardkey 不等条件（性能有损失）
 ```
-
         mysql>  select * from test1  join test2;
         +---+------+---------+---+------+---------------+
         | a | b    | c       | a | d    | e             |
@@ -50,16 +49,10 @@
         | 2 |    3 | record2 | 2 |    3 | test2_record2 |
         +---+------+---------+---+------+---------------+
         4 rows in set (0.06 sec)
-
 ```
 
-### 对于广播表和单表（普通表）相关的 join
-如果是单表（普通表）与单表（普通表）JOIN，相当于单机 JOIN，性能无损失。
-如果是广播表与分表 JOIN，相当于单机 JOIN，性能无损失。
-广播表与广播表 JOIN，相当于单机 JOIN，性能无损失。
-
->?目前暂不支持“单表（普通表）”和“分表”进行 join 操作。
-
+### 广播表和单表（普通表）相关的 join
+-  支持单表（普通表）与单表（普通表）join，相当于单机 join，性能无损失。
 ```
 	mysql> create table noshard_table ( a int, b int key);
 	Query OK, 0 rows affected (0.02 sec)
@@ -88,4 +81,25 @@
 	|    3 | 4 |   30 | 40 |
 	+------+---+------+----+
 	4 rows in set (0.00 sec)
+```
+- 支持广播表与分表 join，相当于单机 join，性能无损失。
+- 支持广播表与广播表 join，相当于单机 join，性能无损失。
+- 支持单表（普通表）与分表进行 join 操作。
+```
+  mysql> CREATE TABLE `a1` (
+    `a` int(11) NOT NULL,
+    `b` int(11) DEFAULT NULL,
+    `c` char(20) COLLATE utf8_bin DEFAULT NULL,
+    PRIMARY KEY (`a`)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin shardkey=a
+
+  mysql> DROP TABLE IF EXISTS TABLE_10;
+  CREATE TABLE TABLE_10 (
+      INTEGER_ID INTEGER,
+      CHARACTER_COL VARCHAR(20),
+      CHARACTER_1 CHAR(1),
+      PRIMARY KEY(INTEGER_ID)
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+  mysql> select * from TABLE_10 left join a1 on TABLE_10.INTEGER_ID=a1.a;
 ```
