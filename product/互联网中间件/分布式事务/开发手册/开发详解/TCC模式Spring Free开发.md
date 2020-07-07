@@ -7,7 +7,7 @@ TCC 事务，也可以理解为手动事务。需要用户提供 Try、Confirm�
 ## 准备工作
 参考 [准备工作](https://cloud.tencent.com/document/product/1224/45966) 文档。
 
-## 操作步骤
+## 开发步骤
 ### Maven 配置
 通过配置业务代码的 pom.xml 文件，可以引入 DTF 的 SDK 到您的工程中。
 
