@@ -1,8 +1,8 @@
 ## 什么是 QUIC
 快速 UDP 互联网连接（quick udp internet connection，QUIC）是由 Google 提出的使用 UDP 进行多路并发传输的协议。QUIC 相比现在广泛应用的 TCP+TLS+HTTP2 协议有如下优势：
+- 避免队头阻塞的多路复用；
 - 减少了连接建立的时间；
 - 改善拥塞控制；
-- 避免队头阻塞的多路复用；
 - 连接迁移。
 
 使用 QUIC 协议后，APP 访问速度将得到大幅提升，在弱网络、Wi-Fi 和4G 频繁切换等场景下，不需要重连即可实现多路复用。
@@ -15,6 +15,7 @@ QUIC 使用 UDP协议，会占用 CLB 的 UDP 端口：
 - HTTPS 监听器开启 QUIC 协议后，自动占用对用的 UDP 端口。例如当 HTTPS:443 监听器开启 QUIC 协议后，该规则会同时占用 TCP:443 和 UDP:443 端口，您不能再创建 TCP:443 和 UDP:443 监听器。
 - 当前在一个 HTTPS 监听器中，只能对一个域名开启 QUIC 协议。
 - 创建新的 HTTPS 监听器时，支持开启QUIC；创建完后，QUIC可以自由的开关。创建时没有开启 QUIC 的监听器，不能再开启 QUIC，更不可能关闭 QUIC。
+
 ## 前提条件
 CLB 支持 QUIC 协议。
 1. 当前属于内测期间，操作之前，请先提交 [内测申请](https://cloud.tencent.com/apply/p/9e084vdqdw)。
