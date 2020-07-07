@@ -29,11 +29,15 @@ QUIC 使用 UDP 协议，会占用 CLB 的 UDP 端口：
 2. 在“实例管理”页面中，单击【负载均衡】，进入“负载均衡”标签页。
 3. 在“负载均衡”标签页中，找到创建地域为“孟买”的公网负载均衡实例，在右侧操作栏，单击【配置监听器】，进入“监听器管理”页面。
 ![](https://main.qcloudimg.com/raw/75be8dabe196036bd401a3f874fbf194.png)
+
 4. 在“监听器管理”页面的 "HTTP/HTTPS 监听器" 下，单击【新建】，进入“创建监听器”页面。
 ![](https://main.qcloudimg.com/raw/c84fbc4b37c063b8c13625d87e332df0.png)
+
 5. 在“创建监听器”页面，切换监听协议端口为 HTTPS，根据需要填写完后，单击【提交】，如下图所示。
 ![](https://main.qcloudimg.com/raw/c1e32add2ab92d9f7866934784179923.png)
+
 6. 在【监听器管理】标签页，单击该新建监听器的【+】符号，如下图所示。
 ![](https://main.qcloudimg.com/raw/9fdb02a7a98cddbf6eafa1c95c36b93a.png)
+
 7. 进入“创建转发规则”页面，打开 QUIC 协议，创建七层规则，单击【下一步】，继续完成健康检查和会话保持的配置。
 ![](https://main.qcloudimg.com/raw/53dae3e54d774586d7e3ac31d7431b6c.png)
