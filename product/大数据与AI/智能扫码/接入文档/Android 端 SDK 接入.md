@@ -53,7 +53,7 @@ SDK 文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接�
 
 3. 权限申请
 
-   需要在 AndroidManifest.xml 文件中声明权限
+   需要在 **AndroidManifest.xml** 文件中声明权限
 
 ```xml
    <!--摄像头使用权限-->
@@ -66,7 +66,7 @@ SDK 文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接�
    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 ```
 
-对于需要兼容 Android 6.0 以上的用户，以上权限除了需要在 AndroidManifest.xml 文件中声明权限以外，还需使用代码动态申请权限。
+对于需要兼容 Android 6.0 以上的用户，以上权限除了需要在 **AndroidManifest.xml** 文件中声明权限以外，还需使用代码动态申请权限。
 
 
 
@@ -74,7 +74,7 @@ SDK 文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接�
 
 ##### SDK 初始化：
 
-用户初始化智能扫码 SDK，SECRET_ID 与 SECRET_KEY 传入云服务后台申请的密钥信息（申请地址：[智能扫码申请](https://console.cloud.tencent.com/ocr/is)）。
+用户初始化智能扫码 SDK，**SECRET_ID** 与 **SECRET_KEY** 传入云服务后台申请的密钥信息（申请地址：[智能扫码申请](https://console.cloud.tencent.com/ocr/is)）。
 
    ```java
    private QBarCodeKit qBarCodeKit;
@@ -92,7 +92,7 @@ SDK 文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接�
 
 ##### 摄像头数据实时识别：
 
-扫描 SDK 提供了 ScanCodeDetectView，用来方便您在自定义的 UI 界面里使用智能扫描功能。首先您需要在 UI 界面的布局文件中添加 ScanCodeDetectView：
+扫描 SDK 提供了 **ScanCodeDetectView**，用来方便您在自定义的 UI 界面里使用智能扫描功能。首先您需要在 UI 界面的布局文件中添加 **ScanCodeDetectView**：
 
 ```xml
 <com.tencent.scanlib.ui.ScanCodeDetectView
@@ -102,7 +102,7 @@ SDK 文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接�
    app:show="false"/><!--show 设置 false-->
 ```
 
-然后只需要在对应的界面代码中为 ScanCodeDetectView 设置结果回调即可。
+然后只需要在对应的界面代码中为 **ScanCodeDetectView** 设置结果回调即可。
 
 ```java
 scanView.setScanCallBack(new ScanCodeView.ScanCallBack() {
@@ -117,7 +117,7 @@ scanView.setScanCallBack(new ScanCodeView.ScanCallBack() {
 scanView.onCreate(); // 构建 ScanCodeDetectView
 ```
 
-ScanCodeDetectView 的声明周期如下，请在对应的声明周期阶段进行调用。
+**ScanCodeDetectView** 的声明周期如下，请在对应的声明周期阶段进行调用。
 
    ```java
 //scanView Life cycle
