@@ -27,33 +27,33 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
 
 #### 接入步骤
 
-1. 将 **ncnn.framework**、**libQBarCode.a**、**QbarCodeRes.bundle** 添加至项目中，并且 include 头文件也添加到项目中。
+1. 将 **ncnn.framework**、**libQBarCode.a**、**QbarCodeRes.bundle** 添加至项目中，并且 **include** 头文件也添加到项目中。
 
 2. 引入系统的 framework 
 
-   CoreTelephony.framework
+   **CoreTelephony.framework**
 
-   Security.framework
+   **Security.framework**
 
-   SystemConfiguration.framework
+   **SystemConfiguration.framework**
 
-   Accelerate.framework
+   **Accelerate.framework**
 
-   CoreVideo.framework
+   **CoreVideo.framework**
 
-   CoreMedio.framework
+   **CoreMedio.framework**
 
-   Foundation.framework
+   **Foundation.framework**
 
-   UIKit.framework
+   **UIKit.framework**
 
-   AVFoundation.framework
+   **AVFoundation.framework**
 
-   QuartzCore.framework
+   **QuartzCore.framework**
 
-   Accelerate.framework
+   **Accelerate.framework**
    
-   CoreGraphics.framework
+   **CoreGraphics.framework**
 
    ![img](https://main.qcloudimg.com/raw/fa45a18ac4b6287c4aa0053996c948ed.png)            
 
@@ -92,7 +92,7 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
 
 ##### SDK 初始化：
 
-用户初始化智能扫码 SDK，SECRET_ID 与 SECRET_KEY 传入云服务后台申请的密钥信息（申请地址：[智能扫码申请](https://console.cloud.tencent.com/ocr/is)），同时需要导入 QBarCodeKit.h 和 模型文件(**detect_model.bin**、**detect_model.param**、**srnet.bin**、**srnet.param**)。
+用户初始化智能扫码 SDK，**SECRET_ID** 与 **SECRET_KEY** 传入云服务后台申请的密钥信息（申请地址：[智能扫码申请](https://console.cloud.tencent.com/ocr/is)），同时需要导入 **QBarCodeKit.h** 和 模型文件(**detect_model.bin**、**detect_model.param**、**srnet.bin**、**srnet.param**)。
 
 ```objective-c
 #import "QBarCodeKit.h"
