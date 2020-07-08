@@ -14,8 +14,8 @@
 | cause        | false     | String | 描述                |
 | begTimeStr   | true      | String | 开始时间            |
 | endTimeStr   | true      | String | 结束时间            |
-| applicantUid | true      | String | 申请人UID           |
-| designUid    | true      | String | 审批人UID           |
+| applicantUid | true      | String | 申请人 UID           |
+| designUid    | true      | String | 审批人 UID           |
 
 
 ## 请求示例
@@ -44,7 +44,7 @@
 ```shell
 {
 	"result": "ok",
-"status": 200
+        "status": 200
 }
 
 ```
