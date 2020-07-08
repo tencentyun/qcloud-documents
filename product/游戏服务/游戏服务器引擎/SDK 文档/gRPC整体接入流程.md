@@ -16,9 +16,9 @@
 6. 客户端连接 GSE 的 gRPC 服务端。
 
 >?
-- C++ 语言的具体调用逻辑,请您参考[gRPC-C++教程](https://cloud.tencent.com/document/product/1165/46153)。
-- C# 语言的具体调用逻辑,请您参考[gRPC-C#教程](https://cloud.tencent.com/document/product/1165/46152)。
-- Go 语言的具体调用逻辑,请您参考[gRPC-Go教程](https://cloud.tencent.com/document/product/1165/46154)。
-- Java 语言的具体调用逻辑,请您参考[gRPC-Java教程](https://cloud.tencent.com/document/product/1165/46155)。
-- Lua 语言的具体调用逻辑,请您参考[gRPC-Lua教程](https://cloud.tencent.com/document/product/1165/46156)。
-- Nodejs 语言的具体调用逻辑,请您参考[gRPC-Nodejs教程](https://cloud.tencent.com/document/product/1165/46157)。
+- C++ 语言的具体调用逻辑,请您参考 [gRPC-C++教程](https://cloud.tencent.com/document/product/1165/46153)。
+- C# 语言的具体调用逻辑,请您参考 [gRPC-C#教程](https://cloud.tencent.com/document/product/1165/46152)。
+- Go 语言的具体调用逻辑,请您参考 [gRPC-Go教程](https://cloud.tencent.com/document/product/1165/46154)。
+- Java 语言的具体调用逻辑,请您参考 [gRPC-Java教程](https://cloud.tencent.com/document/product/1165/46155)。
+- Lua 语言的具体调用逻辑,请您参考 [gRPC-Lua教程](https://cloud.tencent.com/document/product/1165/46156)。
+- Nodejs 语言的具体调用逻辑,请您参考 [gRPC-Nodejs教程](https://cloud.tencent.com/document/product/1165/46157)。
