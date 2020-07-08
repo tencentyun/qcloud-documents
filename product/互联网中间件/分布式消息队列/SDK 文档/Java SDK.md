@@ -8,37 +8,27 @@
 <dependency>
 	<groupId>com.tencent.tdmq</groupId>
 	<artifactId>tdmq-client</artifactId>
-	<version>${tdmq.version}</version>
+	<version>2.5.0</version>
 </dependency>
 <dependency>
 	<groupId>com.tencent.tdmq</groupId>
 	<artifactId>tdmq-client-auth-cloud_cam</artifactId>
-	<version>${tdmq.version}</version>
+	<version>2.5.0</version>
 </dependency>
 ```
 
 ## 接入步骤
 ### 接入准备
-1. 创建实例或直接接入公用集群
-2. 获取集群访问 URL：`pulsar://tdmq.tencentcloud.example.com:6650`
-3. 获取访问授权
+1. 配置VPC接入点，获取集群访问地址
+2. 获取CAM访问授权（如果您使用的是子账号，需要先请主账号协助开通TDMQ的CAM权限）
 
 
 ### 创建 Client
-#### 使用域名的访问模式
 
-```java
-  Map<String, String> authParams = new HashMap<>();
-  authParams.put("secretId", "***********************************************");
-  authParams.put("secretKey", "***********************************************");
-  authParams.put("ownerUin", "***************");//主账号
-  authParams.put("uin", "****************");//子账号;
-  authParams.put("region", "ap-guangzhou");//地域信息
-  PulsarClient client = PulsarClient.builder().authenticationCloud(
-           "org.apache.pulsar.client.impl.auth.AuthenticationCloudCam", authParams)
-           .serviceUrl("pulsar://tdmq.åtencentcloud.example.com:6650").build();
-```
-#### 使用多个 broker 的访问方式，broker 之间用逗号隔开
+根据控制台上的信息创建 Client 对象。其中的参数值均可以在【环境管理】的接入点列表中获取，路由ID即netModelKey，地址即serviceUrl。
+![](https://main.qcloudimg.com/raw/4edd20db5dabb96bbc42df441a5bebdf.png)
+
+> 注意：请根据客户端部署的云服务器或其他资源所在的私有网络选择正确的接入点来复制参数信息，否则会有无法连接的问题
 
 ```java
   Map<String, String> authParams = new HashMap<>();
@@ -49,28 +39,19 @@
   authParams.put("region", "ap-guangzhou");//地域信息
   PulsarClient client = PulsarClient.builder().authenticationCloud(
            "org.apache.pulsar.client.impl.auth.AuthenticationCloudCam", authParams)
-           .serviceUrl("pulsar://host1:6650,host2:6650").build();
-```
-#### 根据不同的网络环境，自定义 netModelKey 访问
-```java
-  Map<String, String> authParams = new HashMap<>();
-  authParams.put("secretId", "***********************************************");
-  authParams.put("secretKey", "***********************************************");
-  authParams.put("ownerUin", "***************");//主账号
-  authParams.put("uin", "****************");//子账号
-  authParams.put("region", "ap-guangzhou");//地域信息
-  PulsarClient client = PulsarClient.builder().authenticationCloud(
-           "org.apache.pulsar.client.impl.auth.AuthenticationCloudCam", authParams)
-           .netModelKey("customNetModelKey")#管理台上显示的 routeid
-           .serviceUrl("pulsar://host1:6650,host2:6650").build();
+           .netModelKey("1300*****0/vpc-******/subnet-********")#填写接入点的路由ID
+           .serviceUrl("pulsar://*.*.*.*")#填写接入点的地址
+	   .build();
  ```
 
 ### 生产消息
 创建好 Client 之后，通过创建一个 Producer，就可以生产消息到指定的 Topic 中。
+
 ```java
-Producer<byte[]> producer = client.newProducer().topic("my-topic").create();
+Producer<byte[]> producer = client.newProducer().topic("persistent://1300****30/default/mytopic").create();
 producer.send("My message".getBytes());
 ```
+> 注意：Topic名称需要填入完整路径，即“persistent://appid/environment/Topic”，appid/environment/topic的部分可以从控制台上【Topic管理】页面直接复制。![](https://main.qcloudimg.com/raw/5a1fe96ea23b1d4906b7067a3abfd7b5.png)
 
 这种生产方式是阻塞的方式生产消息到指定的 Topic 中，我们还可以使用异步发送的方式生产消息。
 ```java
@@ -126,7 +107,7 @@ producer.newMessage()
 - 主动拉取
 ```java
 Consumer consumer = client.newConsumer()
-	.topic("my-topic")
+	.topic("persistent://1300****30/default/mytopic")
 	//.subscriptionType(SubscriptionType.Shared)
 	//.enableRetry(true)默认关闭，如果需要重试则开启
 	.subscriptionName("my-subscription")
@@ -154,7 +135,7 @@ while (true) {
 - 被动接收
 ```java
 Consumer<byte[]> consumer = client.newConsumer()
-   .topic("my-topic")
+   .topic("persistent://1300****30/default/mytopic")
    .messageListener(new  MessageListener<byte[]> () {
           @Override
            public void received(Consumer<byte[]> consumer, Message<byte[]> msg) {
@@ -168,7 +149,7 @@ Consumer<byte[]> consumer = client.newConsumer()
 - 指定标签（TAG） 
 ```java
 Consumer consumer = client.newConsumer()
-		.topicByTag(”my-topic“, "TagA || TagB")
+		.topicByTag(”persistent://1300****30/default/mytopic“, "TagA || TagB")
 		//.topic(”my-topic“, "*") 订阅所有
 		//.topicByTagsPattern(”my-topic“, "Tag.*")正则表达式
 		.subscriptionName("my-subscription")
@@ -188,7 +169,7 @@ System.out.printf("Message received: %s", new String(msg.get().getData()));
 
 ```java
 Consumer consumer = client.newConsumer() 
-	.topic("my-topic") 
+	.topic("persistent://1300****30/default/mytopic") 
 	.subscriptionName("my-subscription") 
 	.batchReceivePolicy(BatchReceivePolicy.builder() 
 	.maxNumMessages(100) 
@@ -207,30 +188,31 @@ consumer.acknowledge(messages)
 - 订阅指定的 Topic 列表：
 ```java
 List<String> topics = Arrays.asList(
-        "topic-1",
-        "topic-2",
-        "topic-3"
+        "persistent://1300****30/default/mytopic1",
+        "persistent://1300****30/default/mytopic2",
+        "persistent://1300****30/default/mytopic3"
 );
 Consumer multiTopicConsumer = consumerBuilder
         .topics(topics)
         .subscribe();
 ```
 
-- 订阅一个 namaspace 下的所有 Topic：
+- 订阅一个 namaspace (即控制台中的环境)下的所有 Topic：
 ```java
-Pattern allTopicsInNamespace = Pattern.compile("persistent://public/default/.*");
+Pattern allTopicsInNamespace = Pattern.compile("persistent://1300****30/default/.*");
 Consumer allTopicsConsumer = consumerBuilder
 	.topicsPattern(allTopicsInNamespace)
 	.subscribe();
 ```
 
-- 订阅一个 namaspace 下匹配的 Topic：
+- 通过一个正则表达式订阅一个 namaspace (即控制台中的环境)下匹配的 Topic：
 ```java
-Pattern someTopicsInNamespace = Pattern.compile("persistent://public/default/foo.*");
+Pattern someTopicsInNamespace = Pattern.compile("persistent://1300****30/default/foo.*");
 Consumer allTopicsConsumer = consumerBuilder
         .topicsPattern(someTopicsInNamespace)
         .subscribe();
 ```
+> 注意：这种方式只支持匹配同一个环境（Namespace）下的 Topic，Namespace不能做正则匹配
 
 #### Reader
 通过 Reader 的订阅模式，可以从指定的消息开始读取消息。
