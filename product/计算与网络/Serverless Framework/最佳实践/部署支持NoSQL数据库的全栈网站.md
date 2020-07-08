@@ -33,14 +33,12 @@ Components: 2.30.1
 ```bash
 $ sls init -t fullstack-nosql
 ```
-   
-2.在项目目录中找到**function->serverless.yaml**文件，填入自己的 SecretId 和 SecretKey。  
 >?
 >- 如果没有腾讯云账号，请先[注册新账号](https://cloud.tencent.com/register)。
 >- 如果已有腾讯云账号，可以在[ API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取**SecretId**和**SecretKey**。
 >- 目前 sls 支持在国内区域访问 TCB，部署时请注意 yaml 文件里的地域设置，其他地域可能会报错。
    
-3.在`function->src`文件夹目录下，通过以下命令安装所需依赖：
+2.在`backend->src`文件夹目录下，通过以下命令安装所需依赖：
 ```bash
 $ npm install
 ```
