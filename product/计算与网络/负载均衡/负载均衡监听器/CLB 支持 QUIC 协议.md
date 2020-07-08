@@ -1,6 +1,6 @@
 QUIC 协议能帮您大幅提升 App 访问速度，在弱网络、Wi-Fi 和4G频繁切换等场景下，无需重连即可实现多路复用。本文档将为您介绍，如何在负载均衡控制台中，配置 QUIC 协议。
 ## QUIC 概述
-[快速 UDP 互联网连接](https://www.chromium.org/quic)（Quick Udp Internet Connection，QUIC）是由 Google 提出的使用 UDP 进行多路并发传输的协议，QUIC 相比现在广泛应用的 TCP+TLS+HTTP2 协议有如下优势：
+[QUIC](https://www.chromium.org/quic)（Quick UDP Internet Connection），又称为快速 UDP 互联网连接，是由 Google 提出的使用 UDP 进行多路并发传输的协议，QUIC 相比现在广泛应用的 TCP+TLS+HTTP2 协议有如下优势：
 - 减少连接建立时间。
 - 改善拥塞控制。
 - 避免队头阻塞的多路复用。
