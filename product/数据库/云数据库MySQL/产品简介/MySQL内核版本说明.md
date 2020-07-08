@@ -4,7 +4,7 @@
 - 新增官方 MySQL 5.7.22 版本的 JSON 系列函数。
 - 基于电商秒杀场景的热点更新功能，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 - SQL 限流，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
-- 数据加密功能支持 KMS 自定义密钥加密，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
+- 数据加密功能支持 KMS 自定义密钥加密。
 
 #### 官方 bug 修复：
 - 修复全文索引中，词组查找（phrase search）在多字节字符集下存在的崩溃问题。
