@@ -23,7 +23,7 @@ ping 不可达告警原因和处理方法对照表：
 
 1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor)。 
 2. 单击【云服务器】>告警相关的【实例名称】，查看 CPU 利用率、内存利用率是否达到100%、外网出带宽是否过高或者是否有监控数据断点。
-   - 若PU利用率、内存利用率是达到100%或监控数据断点，则说明机器高负载导致的 “ping不可达” 告警，您可以参考 [云服务器 CPU 或内存占用过高]( https://cloud.tencent.com/document/product/248/44698  )  或 [云服务器带宽使用率过高 ]( https://cloud.tencent.com/document/product/248/44701 ) 处理机器高负载故障。
+   - 若 CPU 利用率、内存利用率是达到100%或监控数据断点，则说明机器高负载导致的 “ping不可达” 告警，您可以参考 [云服务器 CPU 或内存占用过高]( https://cloud.tencent.com/document/product/248/44698  )  或 [云服务器带宽使用率过高 ]( https://cloud.tencent.com/document/product/248/44701 ) 处理机器高负载故障。
    - 若没有异常请进行下一步骤：[检查云服务器实例状态是否异常](#cvmstate)。
 ![](https://main.qcloudimg.com/raw/daaa0bcbf567ca455256997f91445cc9.png)
 ![](https://main.qcloudimg.com/raw/6880845d6a445a8716919832d93e9118.png)
