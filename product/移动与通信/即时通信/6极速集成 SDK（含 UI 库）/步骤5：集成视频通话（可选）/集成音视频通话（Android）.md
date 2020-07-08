@@ -1,12 +1,12 @@
 TUIKit 组件在 4.8.50 版本之后基于 [TRTC](https://cloud.tencent.com/document/product/647/16788) 实现了单聊和群组的视频通话和语音通话功能， 并且实现了 iOS 和 Android 平台的互通，参考本篇文档，您只需要简单几步就可以快速集成。
-<table>
+<table style="text-align:center;vertical-align:middle;width: 360px">
   <tr>
     <th style="text-align:center;" width="180px"><b>视频通话<br></b></th>
     <th style="text-align:center;" width="180px"><b>语音通话</b><br></th>
   </tr>
   <tr>
-    <td><img src="https://main.qcloudimg.com/raw/59713f77fc8e0dbe4787288aba0898f7.jpeg"  />    </td>
-    <td><img src="https://main.qcloudimg.com/raw/9c20238b4af83283fb677059b8693380.jpeg" />     </td>
+    <td><img style="width:180px" src="https://main.qcloudimg.com/raw/59713f77fc8e0dbe4787288aba0898f7.jpeg"  />    </td>
+    <td><img style="width:180px" src="https://main.qcloudimg.com/raw/9c20238b4af83283fb677059b8693380.jpeg" />     </td>
 	 </tr>
 </table>
 
@@ -62,14 +62,14 @@ TUIKit.login(userID, userSig, new IUIKitCallBack() {
 
 ## 步骤6：接受视频或语音通话
 
-<table>
+<table style="text-align:center;vertical-align:middle;width: 360px">
   <tr>
     <th style="text-align:center;" width="180px"><b>接受视频通话<br></b></th>
     <th style="text-align:center;" width="180px"><b>接受语音通话</b><br></th>
   </tr>
   <tr>
-    <td><img src="https://main.qcloudimg.com/raw/d4f0d5c7f208932055588c1ac59b9a91.jpg"  />    </td>
-    <td><img src="https://main.qcloudimg.com/raw/a621580a0553271c70a9fec0738400c5.jpg" />     </td>
+    <td><img style="width:180px" src="https://main.qcloudimg.com/raw/d4f0d5c7f208932055588c1ac59b9a91.jpg"  />    </td>
+    <td><img style="width:180px" src="https://main.qcloudimg.com/raw/a621580a0553271c70a9fec0738400c5.jpg" />     </td>
 	 </tr>
 </table>
 
