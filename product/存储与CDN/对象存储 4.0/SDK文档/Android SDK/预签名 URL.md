@@ -3,7 +3,7 @@
 
 ## API 参考
 
-SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](https://cos-android-sdk-doc-1253960454.cos-website.ap-shanghai.myqcloud.com/)。
+SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](https://cos-android-sdk-doc-1253960454.file.myqcloud.com/)。
 
 ## 获取预签名 URL 请求示例
 
