@@ -1,3 +1,37 @@
+### 2.5.0.8 @ 2020.07.2
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.5.0.8.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.5.0.8.zip)
+
+- 功能变更
+    - addVideoFile/addTranscodeFile/addImagesFile添加已存在文件，返回该文件ID
+    - 统一各个平台视频播放控制栏的界面
+- 功能支持
+    - 支持PPT超链接点击同步功能
+- bug fix
+    - 修复涂鸦过程中擦除涂鸦导致涂鸦不同步问题
+    - 修复视频文件在特定场景下新增多余白板问题
+    - 修复iOS8播放视频失败问题
+- 性能优化
+
+### 2.4.9.7 @ 2020.06.10
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.4.9.7.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.4.9.7.zip)
+
+- 新增接口
+    - 新增白板同步和刷新接口 syncAndReload
+    - 新增白板快照接口 snapshot
+- 新增回调
+    - 新增 onTEBSnapshot 回调
+- 新增错误码
+    - TEDU_BOARD_ERROR_PATH_INVALID  路径非法
+    - TEDU_BOARD_ERROR_WRITE_ERROR 文件写入错误
+- BUG 修复
+    - 修复视频频繁操作导致权限错乱问题
+    - 解决文字工具在底部点击输入无效问题
+    - 修复清空偶现残留问题
+    - iOS/Mac 修复断网情况初始化白板没有回调问题
+
+
 ### 2.4.8.5 @ 2020.05.21
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.4.8.5.zip)
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.4.8.5.zip)
