@@ -141,6 +141,6 @@ options 提供以下配置参数：
 <tr>
 <td>ready</td>
 <td>Function</td>
-<td>验证码加载完成的回调，回调参数为验证码实际的宽高：<br> <code>{"sdkView": {</code><br>&nbsp;&nbsp;<code>"width": number,</code><br>&nbsp;&nbsp;<code>"height": number</code><br><code>}</code><br>手机原生端可根据此值设置弹框大小。</td>
+<td>验证码加载完成的回调，回调参数为验证码实际的宽高：<br> <code>{"sdkView": {</code><br>&nbsp;&nbsp;<code>"width": number,</code><br>&nbsp;&nbsp;<code>"height": number</code><br><code>}}</code><br>手机原生端可根据此值设置弹框大小。</td>
 </tr>
 </tbody></table>
