@@ -115,6 +115,32 @@ TencentCaptcha 的实例提供一些操作验证码的常用方法：
 ### 配置参数
 options 提供以下配置参数：
 
-| 配置名 | 值类型 | 说明 |
-|---------|---------|---------|
-| bizState | Any | 自定义透传参数，业务可用该字段传递少量数据，该字段的内容会被带入 callback 回调的对象中。 |
+<table>
+<thead>
+<tr>
+<th>配置名</th>
+<th>值类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>bizState</td>
+<td>Any</td>
+<td>自定义透传参数，业务可用该字段传递少量数据，该字段的内容会被带入callback回调的对象中</td>
+</tr>
+<tr>
+<td>enableDarkMode</td>
+<td>Boolean</td>
+<td>开启自适应深夜模式</td>
+</tr>
+<tr>
+<td>sdkOpts</td>
+<td>Object</td>
+<td>示例 <code>{"width": 140, "height": 140}</code> <br>移动端原生webview调用时传入，为设置的验证码弹框大小。<br>注意：手机原生端页面弹框通过 webview 加载验证码时须设置此值。若使用验证码 Web 的 loading，可设置一个小的值，然后在 ready 回调后重新设置尺寸。若自己实现 loading，此值可随意设置，等待 ready 回调后，再设置实际大小。</td>
+</tr>
+<tr>
+<td>ready</td>
+<td>Function</td>
+<td>验证码加载完成的回调，回调参数为验证码实际的宽高：<br> <code>{"sdkView": {</code><br>&nbsp;&nbsp;<code>"width": number,</code><br>&nbsp;&nbsp;<code>"height": number</code><br><code>}</code><br>手机原生端可根据此值设置弹框大小。</td>
+</tr>
+</tbody></table>
