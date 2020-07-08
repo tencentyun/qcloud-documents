@@ -30,7 +30,7 @@ https://ip/iam/api/user?uid=test
 
 ```shell
 {
-	"result": "ok",
-"status": 200
+  "result": "ok",
+  "status": 200
 }
 ```
