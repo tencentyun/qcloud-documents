@@ -1,4 +1,4 @@
-TUIKit 组件在 4.8.50 版本之后基于 [TRTC](https://cloud.tencent.com/document/product/647/16788) 实现了单聊和群组的视频通话和语音通话功能， 并且实现了 iOS 和 Android 平台的互通，参考本篇文档，您只需要简单几步就可以快速集成。
+TUIKit 组件在 4.8.50 版本之后基于 [TRTC](https://cloud.tencent.com/document/product/647/16788) 实现了单聊和群组的视频通话和语音通话功能， 并且实现了 iOS 和 Android 平台的互通，参考本文您只需要简单几步就可以快速集成。
 <table style="text-align:center;vertical-align:middle;width: 400px">
   <tr>
     <th style="text-align:center;" width="180px"><b>视频通话<br></b></th>
@@ -31,7 +31,7 @@ implementation project(':tuikit')
 
 <span id="Step3"></span>
 ## 步骤3：初始化 TUIKit 
-初始化 TUIKit 需要传入 [步骤1](#Step1) 生成的 SDKAppID 。
+初始化 TUIKit 需要传入 [步骤1](#Step1) 生成的 SDKAppID。
 ```
 TUIKitConfigs configs = TUIKit.getConfigs();
 TUIKit.init(this, SDKAPPID, configs);
@@ -58,7 +58,7 @@ TUIKit.login(userID, userSig, new IUIKitCallBack() {
 ## 步骤5：发起视频或语音通话
 <img style="width:180px" src="https://main.qcloudimg.com/raw/17698afaedf9ba86045c03ef85159bec.png"  /> 
 
-当用户点击聊天界面的视频通话或则语音通话的时候，TUIKit 会自动展示通话邀请 UI，并给对方发起通话邀请请求。
+当用户点击聊天界面的视频通话或则语音通话时，TUIKit 会自动展示通话邀请 UI，并给对方发起通话邀请请求。
 
 ## 步骤6：接受视频或语音通话
 
@@ -73,23 +73,24 @@ TUIKit.login(userID, userSig, new IUIKitCallBack() {
 	 </tr>
 </table>
 
-- 当用户**在线**收到通话邀请的时候，TUIKit 会自动展示通话接收 UI，用户可以选择同意或则拒绝通话。
-- 当用户**离线**收到通话邀请的时候，是没法感知的，通话邀请目前暂不支持离线推送能力。
+- 当用户**在线**收到通话邀请时，TUIKit 会自动展示通话接收 UI，用户可以选择同意或则拒绝通话。
+- 当用户**离线**收到通话邀请时，是没法感知的，通话邀请目前暂不支持离线推送能力。
 
 ## 常见问题
 ### 1. 若已分别创建实时音视频 SDKAppID 和即时通信 SDKAppID，现需要同时集成 IM SDK 和 TRTC SDK，需要注意什么?
 若已分别创建实时音视频 SDKAppID 和即时通信 SDKAppID，即 SDKAppID 不一致场景，则二者帐号与鉴权不可复用，您需要生成实时音视频 SDKAppID 对应的 UserSig 进行鉴权。生成 UserSig 的具体操作请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
-获取音视频的 SDKAppID 和 UserSig 之后，您需要替换 `TRTCAVCallImpl` 源码中对应的值：
- ```
+获取实时音视频的 SDKAppID 和 UserSig 后，您需要替换 `TRTCAVCallImpl` 源码中对应的值：
+```
  private void enterTRTCRoom() {
 	 ...
 	 TRTCCloudDef.TRTCParams TRTCParams = new TRTCCloudDef.TRTCParams(mSdkAppId, mCurUserId, mCurUserSig, mCurRoomID, "", "");
 	 ...
  }
- ```
+```
  
 ### 2. 通话邀请的超时时间默认是多久？怎么修改默认超时时间？
- 通话邀请的默认超时时间是30s，您可以修改 `TRTCAVCallImpl` 里的 `TIME_OUT_COUNT` 字段来自定义超时时间。
+通话邀请的默认超时时间是30s，您可以修改 `TRTCAVCallImpl` 里的 `TIME_OUT_COUNT` 字段来自定义超时时间。
  
 ### 3. 在邀请超时时间内，被邀请者如果离线再上线，能否收到邀请？
-如果是单聊通话邀请，被邀请者离线再上线可以收到通话邀请，如果是群聊通话邀请，被邀请者离线再上线不能收到通话邀请。
+- 如果是单聊通话邀请，被邀请者离线再上线可以收到通话邀请。
+- 如果是群聊通话邀请，被邀请者离线再上线不能收到通话邀请。
