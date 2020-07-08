@@ -9,7 +9,7 @@
 
 | 请求参数     | 必选/可选 | 类型   | 说明              |
 | ------------ | --------- | ------ | ----------------- |
-| X-Auth-Token | true      | String | 认证API获取 token |
+| X-Auth-Token | true      | String | 认证 API 获取 token |
 | resroleName  | true      | String | 工作组名称        |
 
 ## 请求示例
