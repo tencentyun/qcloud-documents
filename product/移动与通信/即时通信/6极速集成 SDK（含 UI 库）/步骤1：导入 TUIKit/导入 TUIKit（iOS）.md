@@ -37,16 +37,15 @@ pod install
  - [ReactiveObjC - Tag  : 3.1.1](https://github.com/ReactiveCocoa/ReactiveObjC.git)
  - [Toast - Tag  : 4.0.0](https://github.com/scalessec/Toast)
  - [ISVImageScrollView - Tag : 0.1.2](https://github.com/yuriiik/ISVImageScrollView)
- - [SnapKit](https://github.com/SnapKit/SnapKit)
- - [Toast-Swift](https://github.com/scalessec/Toast-Swift)
- - [RxSwift](https://github.com/ReactiveX/RxSwift)
- - [RxCocoa](https://github.com/ReactiveX/RxSwift/tree/master/RxCocoa)
- - [NVActivityIndicatorView](https://github.com/ninjaprox/NVActivityIndicatorView)
- - [Material](https://github.com/CosmicMind/Material)
- - [Alamofire](https://github.com/Alamofire/Alamofire)
+ - [AFNetworking - Tag : 4.0.1](https://github.com/AFNetworking/AFNetworking)
+ - [SnapKit - Tag : 4.2.0](https://github.com/SnapKit/SnapKit)
+ - [Toast-Swift - Tag :5.0.1](https://github.com/scalessec/Toast-Swift)
+ - [RxSwift - Tag :5.1.1](https://github.com/ReactiveX/RxSwift)
+ - [RxCocoa - Tag :5.1.1](https://github.com/ReactiveX/RxSwift/tree/master/RxCocoa)
+ - [NVActivityIndicatorView - Tag :4.8.0](https://github.com/ninjaprox/NVActivityIndicatorView)
+ - [Material - Tag :3.1.8](https://github.com/CosmicMind/Material)
+ - [Alamofire - Tag :4.9.1](https://github.com/Alamofire/Alamofire)
  - [TXLiteAVSDK_TRTC](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/SDK)
-
-**未标注 Tag 的依赖库请使用库的最新 Tag 集成。**
 
 ## 引用 TUIKit
 
