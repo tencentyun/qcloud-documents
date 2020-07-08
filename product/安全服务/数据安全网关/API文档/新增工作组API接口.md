@@ -34,8 +34,8 @@
 
 ```shell
 {
-	"result": "ok",
-"status": 200
+   "result": "ok",
+   "status": 200
 }
 
 ```
