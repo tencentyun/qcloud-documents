@@ -43,7 +43,7 @@
 
 ```shell
 {
-	"result": "ok",
+    "result": "ok",
     "status": 200
 }
 
