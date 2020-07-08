@@ -29,10 +29,9 @@ Components: 2.30.1
    
 ### 配置
    
-1.新建一个本地文件夹，使用`create --template-url`命令，下载相关 template：
+1.通过 sls init 初始化模版：
 ```bash
-$ mkdir my_tcbdemo && cd my_tcbdemo
-$ serverless create --template-url https://github.com/serverless-components/tencent-mongodb/tree/master/example/fullstack-demo
+$ sls init -t fullstack-nosql
 ```
    
 2.在项目目录中找到**function->serverless.yaml**文件，填入自己的 SecretId 和 SecretKey。  
