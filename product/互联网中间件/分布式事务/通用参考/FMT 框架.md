@@ -1,4 +1,4 @@
-﻿## 概述
+## 概述
 FMT（Framework-managed Transaction）模式下，DTF 通过框架解析您的 SQL 语句，免去了编写 Confirm/Cancel 方法的烦恼，接入使用便捷，对代码无侵入，助您高效完成业务分布式事务的开发。
 FMT 模式与 TCC 模式的事务协调器 TC 并无差异，仅在 RM 操作层面与 TCC 产生差异。
 
