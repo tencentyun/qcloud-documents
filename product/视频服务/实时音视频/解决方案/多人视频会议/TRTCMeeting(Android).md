@@ -96,7 +96,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | API | 描述 |
 |-----|-----|
 | [sendRoomTextMsg](#sendroomtextmsg) | 在房间中广播文本消息，一般用于聊天。|
-| [sendRoomCustomMsg](#sendroomcustommsg) | 发送自定义文本消息。|
+| [sendRoomCustomMsg](#sendroomcustommsg) | 发送自定义自定义（信令）消息。|
 
 
 <h2 id="TRTCMeetingDelegate">TRTCMeetingDelegate API 概览</h2>
@@ -112,11 +112,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | API | 描述 |
 |-----|-----|
 | [onRoomDestroy](#onroomdestroy) | 会议房间被销毁的回调。|
-
-### 会议房间事件回调
-
-| API | 描述 |
-|-----|-----|
+| [onNetworkQuality](#onnetworkquality)     | 网络状态回调。   |
 | [onUserVolumeUpdate](#onuservolumeupdate) | 用户通话音量回调。|
 
 ### 成员进出事件回调
@@ -141,6 +137,15 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | [onRecvRoomTextMsg](#onrecvroomtextmsg) | 收到文本消息。|
 | [onRecvRoomCustomMsg](#onrecvroomcustommsg) | 收到自定义消息。|
 
+### 录屏事件回调
+
+| API                                                 | 描述           |
+| --------------------------------------------------- | -------------- |
+| [onScreenCaptureStarted](#onscreencapturestarted) | 录屏开始通知。 |
+| [onScreenCapturePaused](#onscreencapturepaused)   | 录屏暂停回调。 |
+| [onScreenCaptureResumed](#onscreencaptureresumed) | 录屏恢复回调。 |
+| [onScreenCaptureStoped](#onscreencapturestoped)   | 录屏停止回调。 |
+
 ## SDK 基础函数
 
 <span id="sharedInstance"></span>
@@ -156,7 +161,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 |-----|-----|-----|
 | context | Context | Android 上下文，内部会转为 ApplicationContext 用于系统 API 调用 |
 
-   
+
 
 ### destroySharedInstance
 
@@ -232,7 +237,7 @@ public abstract void setSelfProfile(String userName, String avatarURL, TRTCMeeti
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| name | String | 昵称。 |
+| userName | String | 昵称。 |
 | avatarURL | String | 头像地址。 |
 | callback | ActionCallback | 个人信息设置回调，成功时 code 为0。 |
 
@@ -272,6 +277,7 @@ public abstract void destroyMeeting(int roomId, TRTCMeetingCallback.ActionCallba
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
+| roomId | int | 会议房间标识，需要由您分配并进行统一管理。 |
 | callback | ActionCallback | 销毁房间的结果回调，成功时 code 为0。 |
    
 
@@ -286,7 +292,7 @@ public abstract void enterMeeting(int roomId, TRTCMeetingCallback.ActionCallback
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| roomId | int | 房间标识。 |
+| roomId | int | 会议房间标识。 |
 | callback | ActionCallback | 进入房间的结果回调，成功时 code 为0。 |
 
 
@@ -339,6 +345,7 @@ public abstract void getUserInfo(String userId, TRTCMeetingCallback.UserListCall
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
+| userId | String | 用户 ID。|
 | userListCallback | UserListCallback | 用户详细信息回调。 |
 
 
@@ -353,13 +360,13 @@ public abstract void startRemoteView(String userId, TXCloudVideoView view, final
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 对方的用户信息。|
+| userId | String | 需要播放的用户 ID。|
 | view | TXCloudVideoView | 承载视频画面的 view 控件。|
 | callback | ActionCallback | 操作回调。|
 
 ### stopRemoteView
 
-停止渲染远端视频画面。在 `onUserVideoAvailable()` 为false回调时，调用该接口。
+停止播放远端视频画面。在 `onUserVideoAvailable()` 为false回调时，调用该接口。
 ```java
 public abstract void stopRemoteView(String userId, final TRTCMeetingCallback.ActionCallback callback);
 ```
@@ -368,7 +375,7 @@ public abstract void stopRemoteView(String userId, final TRTCMeetingCallback.Act
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 对方的用户信息。|
+| userId | String | 需要停止播放的用户 ID。|
 | callback | ActionCallback | 操作回调。|
 
 ### setRemoteViewFillMode
@@ -382,8 +389,8 @@ public abstract void setRemoteViewFillMode(String userId, int fillMode);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 对方的用户信息。|
-| fillMode | int  | 填充或适应模式，默认值：填充（FILL） 详情请参见(TRTC SDK)[http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ab4197bc2efb62b471b49f926bab9352f] |
+| userId | String | 用户 ID。|
+| fillMode | int  | 填充或适应模式，默认值：填充（FILL） 详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ab4197bc2efb62b471b49f926bab9352f) |
    
 
 
@@ -398,7 +405,7 @@ public abstract void setRemoteViewRotation(String userId, int rotation);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 对方的用户信息。|
+| userId | String | 用户 ID。 |
 | rotation | int  | 顺时针旋转角度, 详情请参见[TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a87fd1307871debc7c051de4878eb6d69) |
    
 
@@ -414,7 +421,7 @@ public abstract void muteRemoteAudio(String userId, boolean mute);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 远端的用户 ID。 |
+| userId | String | 用户 ID。 |
 | mute | boolean | true：开启静音；false：关闭静音。|
 
    
@@ -430,7 +437,7 @@ public abstract void muteRemoteVideoStream(String userId, boolean mute);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 远端的用户 ID。 |
+| userId | String | 用户 ID。 |
 | mute | boolean | true：屏蔽；false：解除屏蔽。|
 
    
@@ -487,7 +494,7 @@ public abstract void setVideoResolution(int resolution);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| resolution | int | 视频分辨率, 详细请参见 (TRTC SDK)[http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#aa3b72c532f3ffdf64c6aacab26be5f87] |
+| resolution | int | 视频分辨率, 详细请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#aa3b72c532f3ffdf64c6aacab26be5f87) |
 
 
 
@@ -636,7 +643,7 @@ public abstract void startFileDumping(TRTCCloudDef.TRTCAudioRecordingParams trtc
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| trtcAudioRecordingParams | TRTCCloudDef.TRTCAudioRecordingParams | 镜像模式。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCAudioRecordingParams) |
+| trtcAudioRecordingParams | TRTCCloudDef.TRTCAudioRecordingParams | 录音参数。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCAudioRecordingParams) |
 
 >? 该方法调用后， SDK 会将通话过程中的所有音频（包括本地音频，远端音频，BGM 等）录制到一个文件里。无论是否进房，调用该接口都生效。如果调用 exitMeeting 时还在录音，录音会自动停止。
 
@@ -829,7 +836,7 @@ void onUserVolumeUpdate(String userId, int volume);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户信息。 |
+| userId | String | 用户 ID。 |
 | volume | int | 音量大小，取值0-100。 |
    
 
@@ -846,7 +853,7 @@ void onUserEnterRoom(String userId);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 新进房成员 ID。 |
+| userId | String | 新进房成员的用户 ID。 |
    
 
 ### onUserLeaveRoom
@@ -860,7 +867,7 @@ void onUserLeaveRoom(String userId);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 退房成员 ID。 |
+| userId | String | 退房成员的用户 ID。 |
    
    
 ## 成员音视频事件回调
@@ -875,7 +882,7 @@ void onUserVideoAvailable(String userId, boolean available);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户信息。 |
+| userId | String | 用户 ID。 |
 | available | boolean | true：用户打开摄像头；false：用户关闭摄像头。 |
 
    
@@ -891,7 +898,7 @@ void onUserAudioAvailable(String userId, boolean available);
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| userId | String | 用户信息。 |
+| userId | String | 用户 ID。 |
 | available | boolean | true：用户打开麦克风；false：用户关闭麦克风。 |
 
    
@@ -928,3 +935,43 @@ void onRecvRoomCustomMsg(String cmd, String message, TRTCMeetingDef.UserInfo use
 | message | String | 文本消息。|
 | user | UserInfo | 发送者用户信息。 |
 
+
+## 录屏事件回调
+
+### onScreenCaptureStarted
+
+录屏开始通知。
+
+```java
+void onScreenCaptureStarted();
+```
+
+### onScreenCapturePaused
+
+录屏暂停通知。
+
+```java
+void onScreenCapturePaused();
+```
+
+### onScreenCaptureResumed
+
+录屏恢复通知。
+
+```java
+void onScreenCaptureResumed();
+```
+
+### onScreenCaptureStoped
+
+录屏停止通知。
+
+```java
+void onScreenCaptureStopped(int reason);
+```
+
+参数如下表所示：
+
+| 参数   | 类型 | 含义                                               |
+| ------ | ---- | -------------------------------------------------- |
+| reason | int  | 停止原因，0：用户主动停止；1：被其他应用抢占导致停止 |

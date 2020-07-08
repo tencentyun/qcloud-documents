@@ -1,5 +1,28 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+## 1.23.0-Finchley-RELEASE（2020-07-06）
+
+### 新特性
+- spring-cloud-tsf-msgw：
+  - 新增网关路径重写配置功能。
+  - 新增网关微信小程序登录插件功能。
+- spring-cloud-tsf-sleuth：
+  - 新增调用链支持 RocketMQ。
+  - 修复 Kafka 中的类型转发错误。
+- spring-cloud-tsf-core：
+  - 监控数据结构中增加 HTTP 请求方法、以及请求模版路径。
+  - 调用链数据结构中增加 HTTP 请求方法。
+
+### Bug 修复
+
+- spring-cloud-tsf-msgw：
+  - 修复数据同步时，可能会短暂获取到错误数据的问题。
+  - 修复 SCG Tag 中数据未正确清除的问题。
+- 处理tomcat组件开源漏洞风险：
+  - 升级 org.apache.tomcat.embed.tomcat-embed-core 到8.5.56版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-el 到8.5.56版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到8.5.56版本。
+
 ## 1.22.1-Finchley-RELEASE（2020-05-06）
 
 ### 优化
@@ -26,6 +49,21 @@
 
 - 优化默认日志配置支持容器部署场景。
 - 优化 TSF MSGW zuul 依赖。
+
+## 1.21.2-Finchley-RELEASE (2020-07-06)
+
+### Bug 修复
+
+- 处理tomcat组件开源漏洞风险。
+  - 升级org.apache.tomcat.embed.tomcat-embed-core到8.5.56版本。
+  - 升级org.apache.tomcat.embed.tomcat-embed-el到8.5.56版本。
+  - 升级org.apache.tomcat.embed.tomcat-embed-websocket到8.5.56版本。
+
+
+### 优化
+
+- 调整泳道标签的传递属性
+- 调整泳道入口行为
 
 ## 1.21.1-Finchley-RELEASE（2020-04-29）
 
@@ -139,7 +177,7 @@ spring-cloud-tsf-sleuth bug fixed：
   - 调用链输出用户自定义 Tag和Metadata。
   - 修复 druid 连接池事务兼容问题。
   - 修复同时依赖多个数据库连接池问题。
- 
+
 ## 1.16.1-Finchley-RELEASE（2019-12-3）
 
 ### Bug 修复

@@ -19,9 +19,9 @@
 1. 登录 SCF 控制台，选择左侧导航栏中的【[函数服务](https://console.cloud.tencent.com/scf/list)】。
 2. 在页面上方选择函数所在地域及命名空间，并在列表中单击需实时采集日志的函数名。
 3. 在“函数配置”页面，单击右上角的【编辑】。如下图所示：
-![](https://main.qcloudimg.com/raw/28d3fa31668d9280acb7de553050d008.png)
-4. 在“日志投递”中，选择已为该函数创建的日志集和日志主题，本文以 `SCF-test` 为例。如下图所示：
-![](https://main.qcloudimg.com/raw/984025711efc018826ce93f86f922102.png)
+![](https://main.qcloudimg.com/raw/4f9b8fa8271b8fefe31255d7ec6e311d.png)
+4. 在“日志投递”中，勾选“启用”并选择已为该函数创建的日志集和日志主题，本文以 `SCF-test` 为例。如下图所示：
+![](https://main.qcloudimg.com/raw/8db5276ee8e1eef29a0e74df1b3bda8d.png)
 5. 单击【保存】即可成功接入 CLS 平台。
 
 ### 开启索引
@@ -39,8 +39,8 @@
 ### 实时检索示例
 >?在使用实时检索功能前，请确保您的函数服务日志已接入 CLS 平台，并且需检索的日志主题已开启索引。
 >
-1. 登录 CLS 控制台，选择左侧导航栏中的【[日志检索](https://console.cloud.tencent.com/cls/search)】。
+1. 登录 CLS 控制台，选择左侧导航栏中的【[检索分析](https://console.cloud.tencent.com/cls/search)】。
 2. 在“检索分析”页面选择需检索的日志主题和时间，并在输入框中填写检索语法，本文以 `START` 为例。
-检索语法支持关键词检索、模糊检索、范围检索等方式，详情请参考 [语法规则](https://cloud.tencent.com/document/product/614/16981)。
-3. 单击【查询分析】即可查看实时日志信息。如下图所示：
-![](https://main.qcloudimg.com/raw/e7e49246fb6867a7295480fab166541d.png)
+检索语法支持关键词检索、模糊检索、范围检索等方式，详情请参考 [语法与规则](https://cloud.tencent.com/document/product/614/16982)。
+3. 单击【检索分析】即可查看实时日志信息。如下图所示：
+![](https://main.qcloudimg.com/raw/34a93bc5fbdfdc9038811c222014fea0.png)

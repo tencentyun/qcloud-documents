@@ -3,7 +3,7 @@ var querystring = require("querystring");
 var crypto = require('crypto');
 
 // Step 1: Obtain required information for signature as follows
-var secret_id = "AKIDUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv";
+var secret_id = "AKIDxxxxxxxxUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv";
 var secret_key = "bLcPnl88WU30VY57ipRhSePfPdOfSruK";
 
 // Step 2: Set the validity period of the signature

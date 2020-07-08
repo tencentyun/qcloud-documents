@@ -13,5 +13,5 @@
  ![](https://main.qcloudimg.com/raw/c370884071d8dd5424be80bbef1e9aec.png)
 7. （可选）配置 IPsec 参数，如果不需要配置，可直接单击【完成】。
  ![](https://main.qcloudimg.com/raw/6c67f435c015fb6d2e03ed96dc61b7f7.png)
-8. 创建成功后，返回 VPN 通道列表页，单击【下载配置文件】并完成下载。
- ![](https://main.qcloudimg.com/raw/7cb33ec9d68cfcf3db78aa5ed99b665c.png)
+8. 创建成功后，返回 VPN 通道列表页，单击【更多】，选择【下载配置文件】并完成下载。
+ ![](https://main.qcloudimg.com/raw/970810f4cedff81c64e62534680a504d.png)

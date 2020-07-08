@@ -14,10 +14,11 @@ npm install -g @cloudbase/cli
 > ```sh
 > sudo npm install -g @cloudbase/cli
 > ```
+> 
 
 ## 第 1 步：创建初始项目
 
-**MacOS或Linux**
+**"MacOS 或 Linux"**
 
 使用命令行创建目录 my-cloudbase-app，和其下的两个文件。
 
@@ -45,11 +46,14 @@ mkdir my-cloudbase-app && cd my-cloudbase-app && touch index.html && touch cloud
     <script src="https://imgcache.qq.com/qcloud/tcbjs/1.3.5/tcb.js"></script>
     <script>
       const app = tcb.init({
-        env: '您的环境ID'  // 此处填入您的环境ID
+        env: "您的环境ID" // 此处填入您的环境ID
       });
-      app.auth().signInAnonymously().then(() => {
-        alert('登录云开发成功！')
-      });
+      app
+        .auth()
+        .signInAnonymously()
+        .then(() => {
+          alert("登录云开发成功！");
+        });
     </script>
   </head>
   <body>
@@ -59,15 +63,16 @@ mkdir my-cloudbase-app && cd my-cloudbase-app && touch index.html && touch cloud
 ```
 
 以下是 `cloudbaserc.json` 的内容：
+
 ```json
 {
-    "envId": "此处填入您的环境ID"
+  "envId": "此处填入您的环境ID"
 }
 ```
 
 ## 第 2 步：添加安全域名
 
-登录腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb)，选择左侧菜单栏【环境】>【环境设置】，单击【安全配置】，将域名添加到【Web安全域名】中。
+登录腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb)，选择左侧菜单栏【环境】>【环境设置】，单击【安全配置】，将域名添加到【Web 安全域名】中。
 
 ![](https://main.qcloudimg.com/raw/0ef6eeaccb59ae6091081c7e2dd4f6e5.png)
 
@@ -91,17 +96,18 @@ npx serve
 
 登录成功后，便可以访问和使用云开发的各类资源，详情请参看 [Web SDK 文档](https://docs.cloudbase.net/api-reference/web/authentication.html)
 
-* [登录认证](https://docs.cloudbase.net/api-reference/web/authentication.html)
-* [云函数](https://docs.cloudbase.net/api-reference/web/functions.html)
-* [数据库](https://docs.cloudbase.net/api-reference/web/database.html)
-* [文件存储](https://docs.cloudbase.net/api-reference/web/storage.html)
+- [登录认证](https://docs.cloudbase.net/api-reference/web/authentication.html)
+- [云函数](https://docs.cloudbase.net/api-reference/web/functions.html)
+- [数据库](https://docs.cloudbase.net/api-reference/web/database.html)
+- [文件存储](https://docs.cloudbase.net/api-reference/web/storage.html)
 
 ## 第 5 步（可选）：使用云开发部署静态页面
+
 1. 开通 [静态网站服务](https://console.cloud.tencent.com/tcb/hosting)
 2. 在项目根目录下运行以下命令，上传网站文件：
 
 ```sh
-cloudbase hosting:deploy
+cloudbase hosting:deploy index.html
 ```
 
 >? 在运行 `cloudbase hosting:deploy` 之前，请先登录命令行工具：
@@ -109,7 +115,8 @@ cloudbase hosting:deploy
 > ```sh
 > cloudbase login
 > ```
+> 
 
-3. 使用 *envId*.tcloudbaseapp.com 访问您的网站
+3. 使用 _envId_.tcloudbaseapp.com 访问您的网站
 
 详情请参考[静态网站托管](https://cloud.tencent.com/document/product/876/40270)相关文档

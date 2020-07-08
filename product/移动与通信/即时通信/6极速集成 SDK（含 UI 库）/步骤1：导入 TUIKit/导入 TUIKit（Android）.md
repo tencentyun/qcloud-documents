@@ -1,19 +1,20 @@
 ## 开发环境要求
 
-- Android Studio 3.3.2
-- Gradle-4.1
+- Android Studio 3.6.1
+- Gradle-5.1.1
 
 
 ## 集成说明
 
 TUIKit 支持 gradle 接入、aar 集成和 module 源码集成。
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2765-53354?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ### gradle 接入集成
 
 ```
 dependencies {
     ...
-     compile 'com.tencent.imsdk:tuikit:xxx版本'
+    implementation 'com.tencent.imsdk:tuikit:xxx版本'
     ...
 }
 ```
@@ -65,7 +66,7 @@ public class DemoApplication extends Application {
 
        // 配置 Config，请按需配置
        TUIKitConfigs configs = TUIKit.getConfigs();
-       configs.setSdkConfig(new TIMSdkConfig(SDKAPPID));
+       configs.setSdkConfig(new V2TIMSDKConfig());
        configs.setCustomFaceConfig(new CustomFaceConfig());
        configs.setGeneralConfig(new GeneralConfig());
 
