@@ -29,10 +29,10 @@ https://ip/iam/api/resrole/user_res_policy?resroleName=测试
 | userType   | String | 用户类型                                                     |
 | reses      | Array  | 资源列表                                                     |
 | resName    | String | 资源名称                                                     |
-| ipv4       | String | IPV4                                                         |
+| ipv4       | String | IPv4                                                         |
 | policies   | Array  | 策略列表                                                     |
 | firstType  | int    | 一级类型：<ul><li> 2：普通策略<li>4：控制策略<li>8：审计策略 |
-| secondType | int    | 二级类型：<ul><li>2：时间策略<li>4：账号策略<li>8：字符命令控制策略<li>16：图形控制策略<li>32：FTP控制策略<li>64：字符审计策略<li>128：图形审计策略<li>256：FTP审计策略 |
+| secondType | int    | 二级类型：<ul><li>2：时间策略<li>4：账号策略<li>8：字符命令控制策略<li>16：图形控制策略<li>32：FTP 控制策略<li>64：字符审计策略<li>128：图形审计策略<li>256：FTP 审计策略 |
 | policyName | String | 策略名称                                                     |
 | result     | String | 操作结果标识：<ul><li>ok：成功<li>fail：失败                 |
 | status     | int    | 状态码：<ul><li>200：处理成功<li>210：处理成功数据不存在<li>405：参数异常 |
