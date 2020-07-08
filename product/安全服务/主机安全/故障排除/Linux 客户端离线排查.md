@@ -19,7 +19,7 @@
 		1. 可以尝试修改`dns nameserver`字段：`vim /etc/resolv.conf`
 		`nameserver 183.60.83.19`
 		`nameserver 183.60.82.98`
-		2. 修改完成后，重新执行telnet s.yd.tencentyun.com 5574检测能否连通。
+		2. 修改完成后，重新执行`telnet s.yd.tencentyun.com 5574`检测能否连通。
 		![](https://main.qcloudimg.com/raw/1ca906db209a6ddacaad46146a7355b8.png)
 		3. 如果可以连通，等待几分钟后（时间长短根据网络情况而定），控制台将能看到对应服务器重新上线。
 	- 基础网络环境（非 VPC 服务器）：`telnet s.yd.qcloud.com 5574`。
