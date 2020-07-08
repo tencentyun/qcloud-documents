@@ -27,7 +27,7 @@ https://ip/iam/api/user/user_res
 | userType   | String | 用户类型                                                     |
 | reses      | Array  | 资源列表                                                     |
 | resName    | String | 资源名称                                                     |
-| ipv4       | String | IPV4                                                         |
+| ipv4       | String | IPv4                                                         |
 | result     | String | 操作结果标识：<ul><li>ok：成功</li><li>fail：失败 </li>      |
 | status     | int    | 状态码：<ul><li>200：处理成功<li>210：处理成功数据不存在<li>405：参数异常</ul> |
 
