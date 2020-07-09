@@ -306,19 +306,19 @@ type gsemanager struct {
 
 ## Go DEMO
  1. [单击这里](https://gsegrpcdemo-1301007756.cos.ap-guangzhou.myqcloud.com/go-demo.zip)，您可下载 Go DEMO 代码。
- 2. 生成 gRPC 代码
+ 2. 生成 gRPC 代码。
 Go DEMO 代码示例里已生成 gRPC 代码，在 go-demo/grpcsdk 目录下，不需要额外生成。
- 3. 启动服务端，供 GSE 调用
+ 3. 启动服务端，供 GSE 调用。
   - 服务端实现。
 在 go-demo/api 目录下的 grpcserver.go，实现了服务端的三个接口。
   - 服务端运行。
 在 go-demo/api 目录下的grpcserver.go，将 GrpcServer 启动起来。
- 4. 客户端连接GSE的gRPC服务端
+ 4. 客户端连接GSE的gRPC服务端。
   - 客户端实现。
 在 go-demo/gsemanager 目录下的 gsemanager.go，实现了客户端的九个接口。
   - 连接服务端。
 创建一个 gRPC 频道，指定我们要连接的主机名和服务器端口，然后用这个频道创建存根实例。
- 5. 编译运行
+ 5. 编译运行。
   - 在 go-demo 目录下，执行``` go mod vendor```，生成 vendor 目录。
   - 编译命令：```go build -mod=vendor main.go```，会生成对应的 go-demo 可执行文件 main.go。
   - 将可执行文件 main.go 打包为 [生成包](https://cloud.tencent.com/document/product/1165/41030)，启动路径配置 main，无启动参数。
