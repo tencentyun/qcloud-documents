@@ -99,7 +99,7 @@ Status GameServerGrpcSdkServiceImpl::OnHealthCheck(ServerContext* context, const
         return Status::OK;
 }
 ```
-### 3.因为 Client 调用 [CreateGameServerSession](https://cloud.tencent.com/document/product/1165/42067) 接口创建一个游戏服务器会话，将该游戏服务器会话分配给一个进程，所以触发 GSE 调用该进程的 onStartGameServerSession 接口，并且将 GameServerSession 状态更改为“激活中”。
+### 3. 因为 Client 调用 [CreateGameServerSession](https://cloud.tencent.com/document/product/1165/42067) 接口创建一个游戏服务器会话，将该游戏服务器会话分配给一个进程，所以触发 GSE 调用该进程的 onStartGameServerSession 接口，并且将 GameServerSession 状态更改为“激活中”。
 ```
 Status GameServerGrpcSdkServiceImpl::OnStartGameServerSession(ServerContext* context, const StartGameServerSessionRequest* request,  GseResponse* reply)
 {
@@ -113,7 +113,7 @@ Status GameServerGrpcSdkServiceImpl::OnStartGameServerSession(ServerContext* con
         return Status::OK;
 }
 ```
-### 4.当 Game Server 收到 onStartGameServerSession，您自行处理一些逻辑或资源分配，准备就绪后，Game Server 就调用 ActivateGameServerSession 接口,通知 GSE 游戏服务器会话已分配给一个进程，现在已准备好接收玩家请求，将服务器状态更改为“活跃”。
+### 4. 当 Game Server 收到 onStartGameServerSession，您自行处理一些逻辑或资源分配，准备就绪后，Game Server 就调用 ActivateGameServerSession 接口,通知 GSE 游戏服务器会话已分配给一个进程，现在已准备好接收玩家请求，将服务器状态更改为“活跃”。
 ```
 Status GseManager::ActivateGameServerSession(std::string gameServerSessionId, int maxPlayers, GseResponse& reply)
 {
@@ -130,7 +130,7 @@ Status GseManager::ActivateGameServerSession(std::string gameServerSessionId, in
         return stub_->ActivateGameServerSession(&context, request, &reply);
 }
 ```
-### 5.当 Client 调用 [JoinGameServerSession](https://cloud.tencent.com/document/product/1165/42061) 接口玩家加入后，Game Server 调用 AcceptPlayerSession 接口验证玩家合法性，如果连接被接受，则将 PlayerSession 状态设置为“活跃”。如果 Client 调用 JoinGameServerSession 接口在60秒内未收到响应，则将 PlayerSession 状态更改为“超时”，然后重新调用 JoinGameServerSession。
+### 5. 当 Client 调用 [JoinGameServerSession](https://cloud.tencent.com/document/product/1165/42061) 接口玩家加入后，Game Server 调用 AcceptPlayerSession 接口验证玩家合法性，如果连接被接受，则将 PlayerSession 状态设置为“活跃”。如果 Client 调用 JoinGameServerSession 接口在60秒内未收到响应，则将 PlayerSession 状态更改为“超时”，然后重新调用 JoinGameServerSession。
 ```
 Status GseManager::AcceptPlayerSession(std::string playerSessionId, GseResponse& reply)
 {
@@ -144,7 +144,7 @@ Status GseManager::AcceptPlayerSession(std::string playerSessionId, GseResponse&
         return stub_->AcceptPlayerSession(&context, request, &reply);
 }
 ```
-### 6.游戏结束或者玩家退出后，Game Server 调用 RemovePlayerSession 接口移除玩家，将 playersession 状态更改为“已完成” ，并预留游戏服务器会话中的玩家位置。
+### 6. 游戏结束或者玩家退出后，Game Server 调用 RemovePlayerSession 接口移除玩家，将 playersession 状态更改为“已完成” ，并预留游戏服务器会话中的玩家位置。
 ```
 Status GseManager::RemovePlayerSession(std::string playerSessionId, GseResponse& reply)
 {
@@ -159,7 +159,7 @@ Status GseManager::RemovePlayerSession(std::string playerSessionId, GseResponse&
         return stub_->RemovePlayerSession(&context, request, &reply);
 }
 ```
-### 7.当一个游戏服务器会话（一组游戏对局或一个服务）结束后，Game Server 调用 TerminateGameServerSession 接口结束 GameServerSession，将 GameServerSession 状态更改为“已终止”。
+### 7. 当一个游戏服务器会话（一组游戏对局或一个服务）结束后，Game Server 调用 TerminateGameServerSession 接口结束 GameServerSession，将 GameServerSession 状态更改为“已终止”。
 ```
 Status GseManager::TerminateGameServerSession(GseResponse& reply)
 {
@@ -173,7 +173,7 @@ Status GseManager::TerminateGameServerSession(GseResponse& reply)
         return stub_->TerminateGameServerSession(&context, request, &reply);
 }
 ```
-### 8.当健康检查失败或缩容时，GSE 调用 OnProcessTerminate 接口结束游戏进程，缩容时依据是您在 GSE 控制台配置的 [保护策略](https://cloud.tencent.com/document/product/1165/41028#网络)。
+### 8. 当健康检查失败或缩容时，GSE 调用 OnProcessTerminate 接口结束游戏进程，缩容时依据是您在 GSE 控制台配置的 [保护策略](https://cloud.tencent.com/document/product/1165/41028#网络)。
 ```
 Status GameServerGrpcSdkServiceImpl::OnProcessTerminate(ServerContext* context, const ProcessTerminateRequest* request,  GseResponse* reply)
 {
@@ -194,7 +194,7 @@ Status GameServerGrpcSdkServiceImpl::OnProcessTerminate(ServerContext* context, 
         return Status::OK;
 }
 ```
-### 9.Game Server 调用 ProcessEnding 接口会立刻结束进程，将服务器进程状态更改为“已终止”，并回收资源。
+### 9. Game Server 调用 ProcessEnding 接口会立刻结束进程，将服务器进程状态更改为“已终止”，并回收资源。
 ```
 //主动调用：一局游戏对应一个进程，当一局游戏结束后主动调用ProcessEnding接口
 //被动调用：当缩容或进程异常健康检查失败时，根据保护策略被动调用ProcessEnding接口，配置完全保护和时限保护策略时需要先判断游戏服务器会话上有无玩家，再被动调用
@@ -209,7 +209,7 @@ Status GseManager::ProcessEnding(GseResponse& reply)
         return stub_->ProcessEnding(&context, request, &reply);
 }
 ```
-### 10.Game Server 调用 DescribePlayerSessions 接口获取游戏服务器会话下的玩家信息（根据业务可选）。
+### 10. Game Server 调用 DescribePlayerSessions 接口获取游戏服务器会话下的玩家信息（根据业务可选）。
 
 ```
 Status GseManager::DescribePlayerSessions(std::string gameServerSessionId, std::string  playerId, std::string  playerSessionId,
@@ -230,7 +230,7 @@ Status GseManager::DescribePlayerSessions(std::string gameServerSessionId, std::
         return stub_->DescribePlayerSessions(&context, request, &reply);
 }
 ```
-### 11.Game Server 调用 UpdatePlayerSessionCreationPolicy 接口更新玩家会话的创建策略，设置是否接受新玩家，即游戏会话里是否允许加入人（根据业务可选）。
+### 11. Game Server 调用 UpdatePlayerSessionCreationPolicy 接口更新玩家会话的创建策略，设置是否接受新玩家，即游戏会话里是否允许加入人（根据业务可选）。
 ```
 Status GseManager::UpdatePlayerSessionCreationPolicy(std::string newpolicy, GseResponse& reply)
 {
@@ -245,7 +245,7 @@ Status GseManager::UpdatePlayerSessionCreationPolicy(std::string newpolicy, GseR
         return stub_->UpdatePlayerSessionCreationPolicy(&context, request, &reply);
 }
 ```
-### 12.Game Server 调用 ReportCustomData 接口告知 GSE 的自定义数据，在查询游戏服务器会话时可以查到（根据业务可选）。
+### 12. Game Server 调用 ReportCustomData 接口告知 GSE 的自定义数据，在查询游戏服务器会话时可以查到（根据业务可选）。
 ```
 Status GseManager::ReportCustomData(int currentCustomCount, int maxCustomCount, GseResponse& reply)
 {
@@ -311,7 +311,7 @@ C++ DEMO 代码示例里已生成 gRPC 代码，在 cpp-demo/source/grpcsdk 目�
 在 cpp-demo/source/api 目录下的 grpcserver.cpp，将 GrpcServer 启动起来。
 
 
-### 4.客户端连接 GSE 的 gRPC 服务端
+### 4. 客户端连接 GSE 的 gRPC 服务端
 
 - 客户端实现。
 在 cpp-demo/source/gsemanager 目录下的 gsemanager.cpp，实现了客户端的九个接口。
