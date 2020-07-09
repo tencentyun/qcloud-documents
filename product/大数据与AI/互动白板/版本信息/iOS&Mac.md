@@ -3,10 +3,10 @@
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.5.0.8.zip)
 
 - 功能变更
-    - addVideoFile/addTranscodeFile/addImagesFile添加已存在文件，返回该文件ID
+    - addVideoFile/addTranscodeFile/addImagesFile 添加已存在文件，返回该文件 ID
     - 统一各个平台视频播放控制栏的界面
 - 功能支持
-    - 支持PPT超链接点击同步功能
+    - 支持 PPT 超链接点击同步功能
 - bug fix
     - 修复涂鸦过程中擦除涂鸦导致涂鸦不同步问题
     - 修复视频文件在特定场景下新增多余白板问题
