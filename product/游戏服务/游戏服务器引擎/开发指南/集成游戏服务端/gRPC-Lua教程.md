@@ -1,30 +1,25 @@
 
 
 ## 安装gRPC
-1. 安装 gRPC，安装完后会生成grpc_cpp_plugin可执行程序，该程序在生成gRPC 代码时需要。
-2. 安装protocol buffers。
-
- >?
-具体安装流程请您参考[安装 gRPC Lua的说明](https://github.com/grpc/grpc/blob/master/BUILDING.md)，[安装protocol buffers的说明](https://github.com/protocolbuffers/protobuf/blob/master/src/README.md)。
+1. 安装 gRPC，安装完后会生成 grpc_cpp_plugin 可执行程序，该程序在生成 gRPC 代码时需要。
+2. 安装 protocol buffers。
+ >?具体安装流程请您参考 [安装 gRPC Lua 的说明](https://github.com/grpc/grpc/blob/master/BUILDING.md)，[安装 protocol buffers 的说明](https://github.com/protocolbuffers/protobuf/blob/master/src/README.md)。
 
 ## 定义服务
  gRPC 通过 protocol buffers 实现定义一个服务：一个 RPC 服务通过参数和返回类型来指定可以远程调用的方法。
-
- >?
-我们提供定义服务的proto文件，请您在[proto文件](#proto文件)里下载使用，无需自己生成。
+ >?我们提供定义服务的 proto 文件，请您在 [ proto 文件](https://cloud.tencent.com/document/product/1165/46111) 里下载使用，无需自己生成。
 
 ## 生成 gRPC 代码
 1. 定义好服务后，通过 protocol buffer 编译器 protoc 生成客户端和服务端的代码（任意 gRPC 支持的语言）。 
 2. 生成的代码包括客户端的存根和服务端要实现的抽象接口。
 3. 生成 gRPC 代码步骤：
-    Lua DEMO 依赖C++框架，步骤同C++ DEMO一样，在proto目录下执行：
-     - ```protoc --cpp_out=. *.proto``` 生成pb.cc和pb.h 文件。
-     - ```protoc --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` *.proto```生成对应的gRPC代码。
+    Lua DEMO 依赖 C++ 框架，步骤同 C++ DEMO 一样，在 proto 目录下执行：
+     - ```protoc --cpp_out=. *.proto``` 生成 pb.cc 和 pb.h 文件。
+     - ```protoc --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` *.proto```生成对应的 gRPC 代码。
      - 将生成的8个文件移到项目合适的位置。    
 
 ## 游戏进程集成流程
-![](1.png)
-
+![](https://main.qcloudimg.com/raw/e499c0b753c8c2c144a6253c3ccb9ed4.png)
 #### 服务端接口列表
 
 | 接口名称 | 接口功能|
@@ -32,6 +27,7 @@
 |[OnHealthCheck](#健康检查)| 健康检查|
 |[OnStartGameServerSession](#接收游戏服务器会话)|接收游戏服务器会话|
 |[OnProcessTerminate](#结束游戏进程)|结束游戏进程|
+
 #### 客户端接口列表
 
 | 接口名称 | 接口功能 |
@@ -46,16 +42,16 @@
 |[ProcessEnding](#结束进程)|结束进程|
 |[ReportCustomData](#上报自定义数据)|上报自定义数据|
 
-####其他
+#### 其他
 
- 请求 meta，在游戏进程通过 gRPC 调用 [GSE 相关接口](#  调用GSE相关接口) 时，需要在 gRPC 请求的 meta 里添加两个字段。
+ 请求 meta，在游戏进程通过 gRPC 调用  GSE 相关接口时，需要在 gRPC 请求的 meta 里添加两个字段。
 
 | 字段      | 含义                                      | 类型   |
 | --------- | ----------------------------------------- | ------ |
 | pid       | 当前游戏进程的 pid                         | string |
 | requestId | 当前请求的 requestId，已使用唯一标记一次请求 | string |
 
-###1.一般在服务端初始化后，进程检查自身是否可对外提供服务，Game Server 调用 ProcessReady 接口，告知 GSE 进程准备就绪，已准备好托管游戏服务器会话，GSE 接收到后，将服务器实例状态更改为“活跃”。
+### 1. 一般在服务端初始化后，进程检查自身是否可对外提供服务，Game Server 调用 ProcessReady 接口，告知 GSE 进程准备就绪，已准备好托管游戏服务器会话，GSE 接收到后，将服务器实例状态更改为“活跃”。
 ```
 static bool luaProcessReady(std::vector <std::string> &logPath, int clientPort, int grpcPort) {
     GseResponse reply;
@@ -69,7 +65,7 @@ static bool luaProcessReady(std::vector <std::string> &logPath, int clientPort, 
     return true;
 }
 ```
-###2. 进程准备就绪后，GSE调用OnHealthCheck接口，对Game Server进行健康检查，每1分钟检查1次，连续3次失败就判定该进程不健康，不会分配游戏服务器会话至该进程。
+### 2. 进程准备就绪后，GSE 调用 OnHealthCheck 接口，对 Game Server 进行健康检查，每1分钟检查1次，连续3次失败就判定该进程不健康，不会分配游戏服务器会话至该进程。
 ```
 Status GameServerGrpcSdkServiceImpl::OnHealthCheck(ServerContext* context, const HealthCheckRequest* request,  HealthCheckResponse* reply)
 {
@@ -79,26 +75,23 @@ Status GameServerGrpcSdkServiceImpl::OnHealthCheck(ServerContext* context, const
     return Status::OK;
 }
 ```
-### 3.因为 Client 调用[CreateGameServerSession](https://cloud.tencent.com/document/product/1165/42067)接口创建一个游戏服务器会话，将该游戏服务器会话分配给一个进程，所以触发 GSE 调用该进程的onStartGameServerSession接口，并且将GameServerSession状态更改为“激活中”。
+### 3. 因为 Client 调用 [CreateGameServerSession](https://cloud.tencent.com/document/product/1165/42067) 接口创建一个游戏服务器会话，将该游戏服务器会话分配给一个进程，所以触发 GSE 调用该进程的 onStartGameServerSession 接口，并且将 GameServerSession 状态更改为“激活中”。
 ```
 Status GameServerGrpcSdkServiceImpl::OnStartGameServerSession(ServerContext* context, const StartGameServerSessionRequest* request,  GseResponse* reply)
 {
     auto gameServerSession = request->gameserversession();
     GGseManager->SetGameServerSession(gameServerSession);
-```
-```
+
     std::ostringstream o;
     o << "return OnStartGameServerSession('" << gameServerSession.gameserversessionid() << "'," << gameServerSession.maxplayers() << ")";
     std::string luaCmd = o.str();
-```
-```
+
     bool res = GSESDK()->exec(luaCmd);
-```
-```
+
     return Status::OK;
 }
 ```
-### 4.当Game Server收到onStartGameServerSession，您自行处理一些逻辑或资源分配，准备就绪后，Game Server就调用ActivateGameServerSession接口,通知GSE游戏服务器会话已分配给一个进程，现在已准备好接收玩家请求，将服务器状态更改为“活跃”。
+### 4. 当 Game Server 收到 onStartGameServerSession，您自行处理一些逻辑或资源分配，准备就绪后，Game Server 就调用ActivateGameServerSession 接口，通知 GSE 游戏服务器会话已分配给一个进程，现在已准备好接收玩家请求，将服务器状态更改为“活跃”。
 ```
 static bool luaActivateGameServerSession(const std::string &gameServerSessionId, int maxPlayers) {
     GseResponse reply;
@@ -110,7 +103,7 @@ static bool luaActivateGameServerSession(const std::string &gameServerSessionId,
     return true;
 }
 ```
-### 5.当Client调用[JoinGameServerSession](https://cloud.tencent.com/document/product/1165/42061)接口玩家加入后，Game Server调用AcceptPlayerSession接口验证玩家合法性，如果连接被接受，则将PlayerSession 状态设置为“活跃”。如果Client调用JoinGameServerSession接口在60秒内未收到响应，则将PlayerSession状态更改为“超时”，然后重新调用JoinGameServerSession。
+### 5. 当 Client 调用 [JoinGameServerSession](https://cloud.tencent.com/document/product/1165/42061)  接口玩家加入后，Game Server 调用 AcceptPlayerSession 接口验证玩家合法性，如果连接被接受，则将 PlayerSession 状态设置为“活跃”。如果 Client 调用 JoinGameServerSession 接口在60秒内未收到响应，则将 PlayerSession 状态更改为“超时”，然后重新调用 JoinGameServerSession。
 ```
 static bool luaAcceptPlayerSession(const std::string &gameServerSessionId, const std::string &playerSessionId) {
     GseResponse reply;
@@ -121,8 +114,8 @@ static bool luaAcceptPlayerSession(const std::string &gameServerSessionId, const
     }
     return true;
 }
-```
-### 6.游戏结束或者玩家退出后，Game Server 调用RemovePlayerSession接口移除玩家，将playersession状态更改为“已完成” ，并预留游戏服务器会话中的玩家位置。
+``` 
+### 6. 游戏结束或者玩家退出后，Game Server 调用 RemovePlayerSession 接口移除玩家，将 playersession 状态更改为“已完成” ，并预留游戏服务器会话中的玩家位置。
 ```
 static bool luaRemovePlayerSession(const std::string &gameServerSessionId, const std::string &playerSessionId) {
     GseResponse reply;
@@ -134,7 +127,7 @@ static bool luaRemovePlayerSession(const std::string &gameServerSessionId, const
     return true;
 }
 ```
-### 7.当一个游戏服务器会话（一组游戏对局/一个服务）结束后，Game Server 调用TerminateGameServerSession接口结束GameServerSession，将GameServerSession 状态更改为“已终止”。
+### 7. 当一个游戏服务器会话（一组游戏对局或一个服务）结束后，Game Server 调用 TerminateGameServerSession 接口结束 GameServerSession，将 GameServerSession 状态更改为“已终止”。
 ```
 static bool luaTerminateGameServerSession(const std::string &gameServerSessionId) {
     GseResponse reply;
@@ -146,7 +139,7 @@ static bool luaTerminateGameServerSession(const std::string &gameServerSessionId
     return true;
 }
 ```
-### 8.当健康检查失败或缩容时，GSE 调用 OnProcessTerminate 接口结束游戏进程，缩容时依据是您在 GSE 控制台配置的[保护策略](https://cloud.tencent.com/document/product/1165/41028#网络)。
+### 8. 当健康检查失败或缩容时，GSE 调用 OnProcessTerminate 接口结束游戏进程，缩容时依据是您在 GSE 控制台配置的 [保护策略](https://cloud.tencent.com/document/product/1165/41028#网络)。
 ```
 Status GameServerGrpcSdkServiceImpl::OnProcessTerminate(ServerContext* context, const ProcessTerminateRequest* request,  GseResponse* reply)
 {
@@ -155,15 +148,13 @@ Status GameServerGrpcSdkServiceImpl::OnProcessTerminate(ServerContext* context, 
     std::ostringstream o;
     o << "OnProcessTerminate(" << terminationTime << ")";
     std::string luaCmd = o.str();
-```
-```
+
     GSESDK()->execWithNilResult(luaCmd);
-```
-```
+
     return Status::OK;
 }
 ```
-### 9.Game Server调用ProcessEnding接口会立刻结束进程，将服务器进程状态更改为“已终止”，并回收资源。
+### 9. Game Server 调用 ProcessEnding 接口会立刻结束进程，将服务器进程状态更改为“已终止”，并回收资源。
 ```
 //主动调用：一局游戏对应一个进程，当一局游戏结束后主动调用ProcessEnding接口
 //被动调用：当缩容或进程异常健康检查失败时，根据保护策略被动调用ProcessEnding接口，配置完全保护和时限保护策略时需要先判断游戏服务器会话上有无玩家，再被动调用
@@ -177,7 +168,7 @@ static bool luaProcessEnding() {
     return true;
 }
 ```
-### 10.Game Server调用DescribePlayerSessions接口获取游戏服务器会话下的玩家信息（根据业务可选）。
+### 10. Game Server 调用 DescribePlayerSessions 接口获取游戏服务器会话下的玩家信息（根据业务可选）。
 ```
 static bool luaDescribePlayerSessions(const std::string &gameServerSessionId, const std::string &playerId,
                                       const std::string &playerSessionId,
@@ -193,7 +184,7 @@ static bool luaDescribePlayerSessions(const std::string &gameServerSessionId, co
     return true;
 }
 ```
-### 11.Game Server调用UpdatePlayerSessionCreationPolicy接口更新玩家会话的创建策略，设置是否接受新玩家，即游戏会话里是否允许加入人（根据业务可选）。
+### 11. Game Server 调用 UpdatePlayerSessionCreationPolicy 接口更新玩家会话的创建策略，设置是否接受新玩家，即游戏会话里是否允许加入人（根据业务可选）。
 ```
 static bool luaUpdatePlayerSessionCreationPolicy(const std::string &newpolicy) {
     GseResponse reply;
@@ -205,7 +196,7 @@ static bool luaUpdatePlayerSessionCreationPolicy(const std::string &newpolicy) {
     return true;
 }
 ```
-### 12.Game Server调用ReportCustomData接口告知 GSE 的自定义数据（根据业务可选）。
+### 12. Game Server 调用 ReportCustomData 接口告知 GSE 的自定义数据（根据业务可选）。
 ```
 static bool luaReportCustomData(int currentCustomCount, int maxCustomCount) {
     GseResponse reply;
@@ -217,9 +208,9 @@ static bool luaReportCustomData(int currentCustomCount, int maxCustomCount) {
     return true;
 }
 ```
-## 启动服务端，供GSE调用
+## 启动服务端，供 GSE 调用
 
-服务端运行:将GrpcServer启动起来。
+服务端运行：将 GrpcServer 启动起来。
 ```
 // 启动grpc server
     std::thread tGrpc(&GameServerGrpcSdkServiceImpl::StartGrpcServer, GGameServerGrpcSdkService);
@@ -227,8 +218,8 @@ static bool luaReportCustomData(int currentCustomCount, int maxCustomCount) {
     auto grpcPort = GGameServerGrpcSdkService->GetGrpcPort();
 ```
 
-## 客户端连接GSE的gRPC服务端
-连接服务端:创建一个 gRPC 频道，指定我们要连接的主机名和服务器端口，然后用这个频道创建存根实例。
+## 客户端连接 GSE 的 gRPC 服务端
+连接服务端：创建一个 gRPC 频道，指定我们要连接的主机名和服务器端口，然后用这个频道创建存根实例。
 ```
 void GseManager::InitStub() {
         auto channel = grpc::CreateChannel("127.0.0.1:5758", grpc::InsecureChannelCredentials());
@@ -237,30 +228,30 @@ void GseManager::InitStub() {
 ```
 
 ## Lua DEMO
-### 1.[单击这里](https://gsegrpcdemo-1301007756.cos.ap-guangzhou.myqcloud.com/lua-demo.zip)，您可下载Lua DEMO代码。
-### 2.生成 gRPC 代码
-Lua DEMO 依赖C++框架，已生成的 gRPC 代码在cpp-demo/source/grpcsdk目录下，不需要额外生成。
-### 3.启动服务端，供GSE调用
+### 1. [单击这里](https://gsegrpcdemo-1301007756.cos.ap-guangzhou.myqcloud.com/lua-demo.zip)，您可下载 Lua DEMO 代码。
+### 2. 生成 gRPC 代码
+Lua DEMO 依赖 C++ 框架，已生成的 gRPC 代码在 cpp-demo/source/grpcsdk 目录下，不需要额外生成。
+### 3. 启动服务端，供 GSE 调用
 
 - 服务端实现。
-在lua-demo/source/api目录下的grpcserver.cpp，实现了服务端的三个接口。
+在 lua-demo/source/api 目录下的 grpcserver.cpp，实现了服务端的三个接口。
 
 - 服务端运行。
-在lua-demo目录下的main.cpp，将GrpcServer启动起来。
+在 lua-demo 目录下的 main.cpp，将 GrpcServer 启动起来。
 
-### 4.客户端连接GSE的gRPC服务端
+### 4. 客户端连接 GSE 的 gRPC 服务端
 
 - 客户端实现。
-在lua-demo/source/lua目录下的GSESdkHandleWrapper.cpp，实现了客户端的九个接口。
+在 lua-demo/source/lua 目录下的 GSESdkHandleWrapper.cpp，实现了客户端的九个接口。
 
 - 连接服务端。
 创建一个 gRPC 频道，指定我们要连接的主机名和服务器端口，然后用这个频道创建存根实例。
 
 
-### 5.编译运行
-- 安装cmake。
-- 安装gcc，版本要求4.9以上。
-- 安装luajit开发包和boost开发包：
+### 5. 编译运行
+- 安装 cmake。
+- 安装 gcc，版本要求4.9以上。
+- 安装 luajit 开发包和 boost 开发包：
  
  ```
 yum install -y luajit-devel
@@ -268,7 +259,7 @@ yum install -y boost-devel
 yum install -y cmake
 ```
 
-- 将代码下载，在lua-demo目录下，执行以下命令：
+- 将代码下载，在 lua-demo 目录下，执行以下命令：
  ```
    mkdir build
    cd build
@@ -277,6 +268,6 @@ yum install -y cmake
    cp ../source/lua/gse.lua .
     ```
     
-  会生成对应的lua-demo可执行文件，执行 ./lua-demo 启动。
-- 将可执行文件lua-demo.cpp打包为[生成包](https://cloud.tencent.com/document/product/1165/41030)，启动路径配置lua-demo，无启动参数。
-- 然后[创建服务器舰队](https://cloud.tencent.com/document/product/1165/41028)，将生成包部署在服务器舰队上，后续可进行[扩缩容](https://cloud.tencent.com/document/product/1165/45709)等一系列操作。
+  会生成对应的 lua-demo 可执行文件，执行 ./lua-demo 启动。
+- 将可执行文件 lua-demo.cpp 打包为 [生成包](https://cloud.tencent.com/document/product/1165/41030)，启动路径配置 lua-demo，无启动参数。
+- 然后 [创建服务器舰队](https://cloud.tencent.com/document/product/1165/41028)，将生成包部署在服务器舰队上，后续可进行 [扩缩容](https://cloud.tencent.com/document/product/1165/45709) 等一系列操作。
