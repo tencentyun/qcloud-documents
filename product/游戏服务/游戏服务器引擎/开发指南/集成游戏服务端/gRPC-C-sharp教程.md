@@ -297,7 +297,7 @@ C# DEMO 代码示例里已生成 gRPC 代码，在 proto/csharp-demo 目录下�
 在 csharp-demo 目录下的 Program.cs，将 GrpcServer 启动起来。
 
 
-### 4.客户端连接 GSE 的 gRPC 服务端
+### 4. 客户端连接 GSE 的 gRPC 服务端
 
 - 客户端实现。
 在 csharp-demo/Models 目录下的 GseManager.cs，实现了客户端的九个接口。
