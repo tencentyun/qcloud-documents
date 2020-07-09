@@ -140,7 +140,7 @@ params对象有效字段描述：
 | nack            | string | 客户端重传次数。                             |
 | packet_lost     | string | 客户端丢包次数。                             |
 | packet_received | string | 客户端收到的包总数。                         |
-| rtt             | number | 客户端到云端，网络端数据包往返耗时，。       |
+| rtt             | number | 客户端到云端，网络端数据包往返耗时。         |
 | timestamp       | number | 此数据回调的时间戳，单位：ms。               |
 
 
