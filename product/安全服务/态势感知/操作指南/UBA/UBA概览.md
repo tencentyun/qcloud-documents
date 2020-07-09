@@ -1,6 +1,6 @@
 ## 前提条件
  - UBA 功能目前正在试用中，已 [开通安全运营中心高级版](https://buy.cloud.tencent.com/soc) 的用户可获得试用资格。
- - 在使用 UBA 功能前，需已完成 [UAB 初始化配置](https://cloud.tencent.com/document/product/664/41790)。
+ - 在使用 UBA 功能前，需已完成 [UBA 初始化配置](https://cloud.tencent.com/document/product/664/41790)。
 
 ## 操作步骤
 1. 登录 [安全运营中心控制台](https://console.cloud.tencent.com/ssav2/account)，在左侧导航栏，单击【UBA】，在 UBA 页面中，单击【概览】，进入 UBA 概览页。
