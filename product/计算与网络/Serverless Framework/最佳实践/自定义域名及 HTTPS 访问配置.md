@@ -94,7 +94,7 @@ inputs:
     - path: /users
       method: POST
       function:
-        functionName: myFunction
+        functionName: myFunction # 网关所连接函数名
         
 ```
 [查看完整配置项说明>>](https://github.com/serverless-components/tencent-apigateway/blob/master/docs/configure.md)
