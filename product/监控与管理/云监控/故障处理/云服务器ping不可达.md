@@ -10,7 +10,7 @@ ping 不可达告警原因和处理方法对照表：
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 云服务器宕机、内核故障或带宽高负载                           | 参考 [排查步骤一](#buzhou1) 排查并处理异常或 [关闭告警功能](#guanbi)。 |
 | 云服务器处于关机状态                                         | 参考 [排查步骤二](#buzhou2) 排查并开启云服务器或 [关闭告警功能](#guanbi)。 |
-| 云服务器实例关联的安全组限制 ICMP                            | 参考 [排查步骤三](#buzhou3) 排查并修改安全组 ICMP 配置 或 [关闭告警功能](#guanbi)。 |
+| 云服务器实例关联的安全组限制 ICMP                            | 参考 [排查步骤三](#buzhou3) 排查并修改安全组 ICMP 配置或 [关闭告警功能](#guanbi)。 |
 | 云服务器 Windows 防火墙限制、<br>Linux 内核参数或 iptables 限制 ICMP | 参考 [排查步骤四](#buzhou4) 排查并关闭相关限制或 [关闭告警功能](#guanbi)。 |
 
 >?云服务器 ping 网络状态由云监控告警系统自动监测，与您是否配置云服务器公网 IP 无关。
@@ -96,7 +96,7 @@ iptables -L
 	- 若返回结果如下图所示，则表示 iptables 的 ICMP 未限制。
 		![](https://main.qcloudimg.com/raw/4edec2beb0d2cc175dddadd64ca6c51f.png)
 	- 若返回如下图所示，则表示 iptables 的 ICMP 被限制。说明  Linux iptables 的 ICMP 限制到导致的 “ping 不可达” 告警。请参考下文步骤2关闭 iptables 的 ICMP 限制。
-	![](https://main.qcloudimg.com/raw/b4ac8726529d4d40a80b2f2c9c87954d.png)
+	![](https://main.qcloudimg.com/raw/004ce1d45e02a4dc5faa2ad0d3c56a9d.png)
 <span id="LinuxIptables"></span>
 2. 请执行以下命令，关闭 iptables 的 ICMP 限制。
 ```plaintext
@@ -122,7 +122,7 @@ iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 
 ### 仅关闭事件告警
 
-若您还需要该告警策略的指标告警功能，可以参考以下下步骤关闭事件告警功能。
+若您还需要该告警策略的指标告警功能，可以参考以下步骤关闭事件告警功能。
 
 1. 进入 [云监控控制台-告警策略]( https://console.cloud.tencent.com/monitor/policylist )。
 2. 找到产生告警策略名称，单击该告警策略名称，进入管理告警策略页。
