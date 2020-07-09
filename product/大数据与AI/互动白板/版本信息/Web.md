@@ -2,10 +2,10 @@
 * 链接地址：https://res.qcloudtiw.com/board/2.5.0/TEduBoard.min.js
 
 - 功能变更
-    - addVideoFile/addTranscodeFile/addImagesFile添加已存在文件，返回该文件ID
+    - addVideoFile/addTranscodeFile/addImagesFile 添加已存在文件，返回该文件 ID
     - 统一各个平台视频播放控制栏的界面
 - 功能支持
-    - 支持PPT超链接点击同步功能
+    - 支持 PPT 超链接点击同步功能
 - bug fix
     - 修复涂鸦过程中擦除涂鸦导致涂鸦不同步问题
     - 修复视频文件在特定场景下新增多余白板问题
@@ -22,7 +22,7 @@
     - 新增截图回调
     ```
     teduBoard.on(TEduBoard.EVENT.TEB_SNAPSHOT, ({image, userData}) => {
-        //image 为 base64格式图片， userdata为透传字段
+        //image 为 base64格式图片， userdata 为透传字段
     });
     ```
 - BUG 修复
