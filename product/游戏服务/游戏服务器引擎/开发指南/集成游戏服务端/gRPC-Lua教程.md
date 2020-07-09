@@ -24,23 +24,23 @@
 
 | 接口名称 | 接口功能|
 |-----|----|
-|[OnHealthCheck](#健康检查)| 健康检查|
-|[OnStartGameServerSession](#接收游戏服务器会话)|接收游戏服务器会话|
-|[OnProcessTerminate](#结束游戏进程)|结束游戏进程|
+|[OnHealthCheck](https://cloud.tencent.com/document/product/1165/46116)| 健康检查|
+|[OnStartGameServerSession](https://cloud.tencent.com/document/product/1165/46118)|接收游戏服务器会话|
+|[OnProcessTerminate](https://cloud.tencent.com/document/product/1165/46121)|结束游戏进程|
 
 #### 客户端接口列表
 
 | 接口名称 | 接口功能 |
 |-----|----|
-|[ProcessReady](#进程已就绪)|进程准备就绪|
-|[ActivateGameServerSession](#激活游戏服务器会话)|激活游戏服务器会话|
-|[AcceptPlayerSession](#接收玩家会话)|接收玩家会话|
-|[RemovePlayerSession](#移除玩家会话)|移除玩家会话|
-|[DescribePlayerSessions](#获取玩家会话信息)|获取玩家会话列表|
-|[UpdatePlayerSessionCreationPolicy](#更新玩家会话的创建策略)|更新玩家会话的创建策略|
-|[TerminateGameServerSession](#结束游戏服务器会话)|结束游戏服务器会话|
-|[ProcessEnding](#结束进程)|结束进程|
-|[ReportCustomData](#上报自定义数据)|上报自定义数据|
+|[ProcessReady](https://cloud.tencent.com/document/product/1165/46122)|进程准备就绪|
+|[ActivateGameServerSession](https://cloud.tencent.com/document/product/1165/46115)|激活游戏服务器会话|
+|[AcceptPlayerSession](https://cloud.tencent.com/document/product/1165/46117)|接收玩家会话|
+|[RemovePlayerSession](https://cloud.tencent.com/document/product/1165/46125)|移除玩家会话|
+|[DescribePlayerSessions](https://cloud.tencent.com/document/product/1165/46114)|获取玩家会话列表|
+|[UpdatePlayerSessionCreationPolicy](https://cloud.tencent.com/document/product/1165/46113)|更新玩家会话的创建策略|
+|[TerminateGameServerSession](https://cloud.tencent.com/document/product/1165/46120)|结束游戏服务器会话|
+|[ProcessEnding](https://cloud.tencent.com/document/product/1165/46119)|结束进程|
+|[ReportCustomData](https://cloud.tencent.com/document/product/1165/46124)|上报自定义数据|
 
 #### 其他
 
