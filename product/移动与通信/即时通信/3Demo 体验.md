@@ -4,7 +4,7 @@
     <th style="text-align:center;" width="180px"><b>iOS</b><br>安装密码：123</th>
     <th style="text-align:center;" width="180px"><b>小程序</b></th>
     <th style="text-align:center;" width="180px"><b>小程序直播电商场景</b></th>
-    <th style="text-align:center;" width="180px"><b>Web 端</b></th>
+    <th style="text-align:center;" width="180px"><b>Web</b></th>
   </tr>
   <tr>
     <td><img style="width:180px" src="https://main.qcloudimg.com/raw/3673b5c90904fef45fc8c7e75a4a5285.png"  /></td>
