@@ -200,7 +200,7 @@ virtual void Refresh()=0
 virtual void SyncAndReload()=0
 ```
 #### 警告
-Reload等同于重新加载历史数据，会触发白板初始化时除onTEBInit之外的所有回调。 
+Reload 等同于重新加载历史数据，会触发白板初始化时除 onTEBInit 之外的所有回调。 
 
 #### 介绍
 接口用途：此接口主要用于网络恢复后，同步本地数据到远端，拉取远端数据到本地 调用时机：在网络恢复后调用 使用限制：如果历史数据还没有加载完成，则不允许重复调用，否则回调告警 TEDU_BOARD_WARNING_ILLEGAL_OPERATION 
