@@ -771,12 +771,36 @@ SDK 版本号
 
 
 ### refresh
-刷新当前页白板，触发 onRefresh 回调 
+刷新当前页白板，触发 onTEBRefresh 回调 
 ``` Objective-C
 - (void)refresh
 ```
 #### 警告
 如果当前白板包含 PPT/H5/图片/视频时，刷新白板将会触发对应的回调 
+
+
+### syncAndReload
+同步本地发送失败的数据到远端并刷新本地数据 
+``` Objective-C
+- (void)syncAndReload
+```
+#### 警告
+Reload等同于重新加载历史数据，会触发白板初始化时除onTEBInit之外的所有回调。 
+
+#### 介绍
+接口用途：此接口主要用于网络恢复后，同步本地数据到远端，拉取远端数据到本地 调用时机：在网络恢复后调用 使用限制： （1）仅支持2.4.9及以上版本 （2）如果历史数据还没有加载完成，则不允许重复调用，否则回调告警 TEDU_BOARD_WARNING_ILLEGAL_OPERATION 
+
+
+### snapshot:
+白板快照 
+``` Objective-C
+- (void)snapshot:(TEduBoardSnapshotInfo *)info 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| info | TEduBoardSnapshotInfo * | 快照信息  |
 
 
 
@@ -834,7 +858,7 @@ SDK 版本号
 文件ID 
 
 #### 警告
-当传入文件的 URL 重复时，文件 ID 返回为空字符串 
+当传入文件的 URL 重复时，返回 URL 对应的 文件 ID 
 在收到对应的 onTEBAddTranscodeFile 回调前，无法用返回的文件 ID 查询到文件信息 
 
 #### 介绍
@@ -995,7 +1019,10 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 | url | NSString * | 文件播放地址  |
 
 #### 返回
-文件 ID
+文件 ID 
+
+#### 警告
+当传入文件的 URL 重复时，返回 URL 对应的 文件 ID
 
 #### 介绍
 支持 mp4/m3u8/hls，触发状态改变回调 onTEBVideoStatusChanged 
@@ -1135,3 +1162,5 @@ play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认�
 #### 返回
 新增加文件Id 
 
+#### 警告
+当传入文件的 URL 重复时，返回 URL 对应的 文件 ID 

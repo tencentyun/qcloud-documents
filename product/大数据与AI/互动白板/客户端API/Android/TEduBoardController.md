@@ -58,7 +58,7 @@ void init(TEduBoardAuthParam authParam, int roomId, final TEduBoardInitParam ini
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | authParam | TEduBoardAuthParam | 授权参数  |
-| roomId | int | 课堂 ID  |
+| roomId | int | 课堂 ID，32位整型，取值范围[1, 4294967294]  |
 | initParam | final TEduBoardInitParam | 可选参数，指定用于初始化白板的一系列属性值  |
 
 #### 警告
@@ -93,15 +93,6 @@ View getBoardRenderView()
 
 #### 介绍
 在调用此接口获取 View 后，加入到视图树中后，在结束时需要 removeView 
-
-
-### refresh
-刷新当前页白板，触发 onTEBRefresh 回调 
-``` Java
-void refresh()
-```
-#### 警告
-如果当前白板包含PPT/H5/图片/视频时，刷新白板将会触发对应的回调 
 
 
 ### addSyncData
@@ -511,7 +502,7 @@ void setBackgroundImage(String url, int mode)
 | mode | int | 要使用的图片填充对齐模式 |
 
 #### 介绍
-当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。 当 URL 是一个网络地址时，默认支持 HTTPS 协议的链接。 在 Android5.0 以下，默认是采用的 MIXED_CONTENT_ALWAYS_ALLOW 模式，即总是允许 WebView 同时加载 HTTPS 和 HTTP； 而从 Android5.0 开始，默认用 MIXED_CONTENT_NEVER_ALLOW 模式，即总是不允许 WebView 同时加载 HTTPS 和 HTTP。 您可以在 getBoardRenderView 获得白板渲染视图控件时， 通过 WebSettings 自行进行设置，如下： WebSettings settings = (WebView) mWebView.getSettings(); if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) { settings.setMixedContentMode(0); } 对于 Android P 以上系统，限制了明文流量的网络请求,非加密的流量请求都会被系统禁止掉，可以参考以下方法解决：
+当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。 当 URL 是一个网络地址时，默认支持 HTTPS 协议的链接。 在 Android 5.0 以下，默认是采用的 MIXED_CONTENT_ALWAYS_ALLOW 模式，即总是允许 WebView 同时加载 HTTPS 和 HTTP； 而从Android5.0开始，默认用MIXED_CONTENT_NEVER_ALLOW模式，即总是不允许WebView同时加载 HTTPS 和 HTTP。 您可以在 getBoardRenderView 获得白板渲染视图控件时， 通过 WebSettings 自行进行设置，如下： WebSettings settings = (WebView) mWebView.getSettings(); if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) { settings.setMixedContentMode(0); } 对于 Android P 以上系统，限制了明文流量的网络请求,非加密的流量请求都会被系统禁止掉，可以参考以下方法解决：
 
 
 ### setBackgroundH5
@@ -785,6 +776,27 @@ int getBoardContentFitMode()
 白板内容自适应模式 
 
 
+### refresh
+刷新当前页白板，触发 onTEBRefresh 回调 
+``` Java
+void refresh()
+```
+#### 警告
+如果当前白板包含PPT/H5/图片/视频时，刷新白板将会触发对应的回调 
+
+
+### syncAndReload
+同步本地发送失败的数据到远端并刷新本地数据 
+``` Java
+void syncAndReload()
+```
+#### 警告
+Reload等同于重新加载历史数据，会触发白板初始化时除onTEBInit之外的所有回调。 
+
+#### 介绍
+接口用途：此接口主要用于网络恢复后，同步本地数据到远端，拉取远端数据到本地 调用时机：在网络恢复后调用 使用限制： （1）仅支持2.4.9及以上版本 （2）如果历史数据还没有加载完成，则不允许重复调用，否则回调告警 TEDU_BOARD_WARNING_ILLEGAL_OPERATION 
+
+
 
 ## 文件操作接口
 
@@ -801,6 +813,9 @@ String addImagesFile(List< String > urls)
 
 #### 返回
 新增加文件 Id 
+
+#### 警告
+当传入文件的 URL 重复时，返回 URL 对应的 文件 ID 
 
 
 ### applyFileTranscode
@@ -855,7 +870,7 @@ String addTranscodeFile(final TEduBoardTranscodeFileResult result)
 文件 ID 
 
 #### 警告
-当传入文件的 URL 重复时，文件 ID 返回为空字符串 
+当传入文件的 URL 重复时，返回 URL 对应的 文件 ID 
 在收到对应的 onTEBAddTranscodeFile 回调前，无法用返回的文件 ID 查询到文件信息 
 
 #### 介绍
@@ -1016,6 +1031,7 @@ String addVideoFile(String url)
 文件 ID 
 
 #### 警告
+当传入文件的 URL 重复时，返回 URL 对应的 文件 ID 
 在 TBS 环境下，受限于 X5 内核和视频资源I帧间隔，在 Android 平台下无法精准同步。例如：10秒的视频，I帧间隔5秒，seek 到4秒位置，在 TBS 上从0秒开始播放。 移动端支持 mp4/m3u8，桌面端支持 mp4/m3u8/flv/rtmp；触发状态改变回调 onTEBVideoStatusChange 
 
 
@@ -1139,6 +1155,15 @@ String addH5File(String url)
 只支持展示，不支持互动 
 
 
+### snapshot
+白板快照 
+``` Java
+void snapshot(TEduBoardSnapshotInfo info)
+```
+#### 参数
 
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| info | TEduBoardSnapshotInfo | 快照信息  |
 
 
