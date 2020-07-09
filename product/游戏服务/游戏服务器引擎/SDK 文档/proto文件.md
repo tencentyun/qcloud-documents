@@ -1,5 +1,3 @@
-## proto文件
-
 1. 游戏进程和 GSE 通过 gRPC 通信，通信 proto 的协议见 GameServerGrpcSdkService.proto 和 GseGrpcSdkService.proto。
 ![](https://main.qcloudimg.com/raw/78d21ea5d272ea87489fa4fd94edf8f3.png)
 2. GameServerGrpcSdkService.proto 定义的三个服务接口，由游戏进程来实现，而 GSE 需要在合适的时机调用对应的接口。
