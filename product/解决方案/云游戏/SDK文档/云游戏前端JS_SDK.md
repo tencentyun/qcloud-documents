@@ -69,60 +69,51 @@
 
 ### TCGSDK.init(params) 
 
-```
-初始化云游戏SDK，params对象有效字段如下：
-    {
-        mount: 'mount-point',// 必填，页面挂载点的HTML元素id
-        appid: 123456789,// 必填，用户的腾讯云appid，见https://console.cloud.tencent.com/developer
-        debug: false,// 可选，默认为false, 如果为true，则自动显示webrtc状态信息，否则需要按“CTRL+~”快捷键显示
-        standalone: false,// 可选，默认为false, 如果为true，则页面自行请求webrtc接口，仅用于云游戏体验，正式上线必须走云API，云API对接文档看后面的《后端与云API对接实例》
-        isArmBoard: false,// 可选，默认为false，只针对远端设备是安卓板子的情况，如无特殊情况，禁止修改此项，否则触控坐标会有问题
-        isArmServer: false,// 可选，默认false，只针对远端设备是armserver
-        ordered: true, // 可选，默认为true，关闭此选项可以略微降低输入延迟，但是存在输入丢失风险
-        showLogo: true,// 可选，默认为true，false则隐藏logo
-        mask: true,// 可选，默认为true，false则隐藏click to start蒙层
-        preloadTime: 3000,// 可选，游戏预加载时间，提前加载游戏的时间，单位为毫秒，默认为3000ms
-        mic: false, // 可选，开启麦克风，默认为false
-        nativeCursor: true, // 可选，默认为true，是否显示本地鼠标
-        forceShowCursor: false, // 可选，默认为false, 强制显示鼠标，这时候忽略服务端下发的鼠标状态信息
-        tabletMode: false, // 可选，默认为false，true则使用平板滑动鼠标模式，false为绝对映射模式，这个参数只针对移动端，PC端忽略该参数
-        clickToFullscreen: true, // 可选，默认为true，是否启动点击全屏操作
-        idleThreshold: true, // 可选，单位为秒，默认为300，空闲时间阈值，空闲超过这个时间将触发onNetworkChange事件，消息为{status: 'idle', times: 1}
-        keepLastFrame: false,// 可选，断开的时候是否保留最后一帧画面，true-保留，false-不保留，默认false，如果需要保留最后一帧画面并重连，不能再次调用init函数，而是先调用destroy()接口，再调用start()接口
-        reconnect: true, // 可选，默认为true，true-帧率掉0或者异常断开自动重连一次，false-不重连
-        channel: 'product', // 可选，默认为'product', 'dev'-测试环境，'product'-正式环境
-        loadingText: '加载中', // 可选，加载中的文字提示，默认为'正在启动云游戏'
-        baseUrl: '',// 可选，webrtc请求的host部分，如http://cloud-gaming.myqcloud.com；但如果是本地html文件直接打开，则此参数必填；
-        onGamepadConnectChange: function(){...},// 可选，手柄连接/断开事件回调
-        onOrientationchange: function(res){...},// 可选，屏幕方向变化事件回调
-        onConnectFail: function(res){...},// 可选，连接失败回调，调用start接口成功后才会触发
-        onConnectSucc: function(res){...},// 可选，连接成功回调，调用start接口成功后才会触发
-        onDisconnect: function(res){...},// 可选，断开/被踢触发此回调，调用start接口成功后才会触发
-        onTouchEvent: function(event){...},// 可选，移动端触摸事件回调，调用start接口成功后才会触发, event结构如下：
-        onWebrtcStat: function(ret){...},// 可选，webrtc状态回调，调用start接口成功后才会触发，设置这个回调后，如果webrtc请求返回错误，SDK不再自动弹出默认自带的错误提示框
-        onInitSuccess: function(res){...},// 可选，初始化完毕的回调，触发此回调之后才能调用后面的API
-        onNetworkChange: function(event){...},// 可选，网络状态变化，有以下状态，消息event分别对应如下：
-        onInputStatusChanged: function(oldStatus, newStatus){...},// 可选，云端输入状态改变，有点击事件的时候都会触发，需要判断新旧状态
-        onCursorShowStatChanged: function(oldStatus, newStatus){...},// 可选，云端鼠标显示/隐藏，只在变化的时候回调
-        onLog: function(logText) {...}// 可选，日志回调函数，用于外部获取日志，作用与setLogHandler接口一致
-    }    
-```
+params对象有效字段描述：
+
+| 参数                    | 类型     | 是否可选 | 描述                                                         |
+| ----------------------- | -------- | -------- | ------------------------------------------------------------ |
+| mount                   | string   | 必填     | 页面挂载点的 HTML 元素 ID。                                  |
+| appid                   | number   | 必填     | 用户的腾讯云 [APPID](https://console.cloud.tencent.com/developer)。 |
+| debug                   | boolean  | 可选     | 默认值：false。<br>如果为 true，则自动显示 webrtc 状态信息，否则需要按`CTRL+~`快捷键显示。 |
+| showLogo                | boolean  | 可选     | 默认值为 true。<br />隐藏腾讯云 Logo。                       |
+| mask                    | boolean  | 可选     | 默认值为 true，false 则隐藏 `click to start` 蒙层。          |
+| mic                     | boolean  | 可选     | 开启本地麦克风，默认值：false。                              |
+| nativeCursor            | boolean  | 可选     | 是否显示本地鼠标。默认值：true。                             |
+| tabletMode              | boolean  | 可选     | true 为使用平板滑动鼠标模式，false 为绝对映射模式。默认值：false。<br />该参数只针对移动端，PC 端忽略该参数。 |
+| clickToFullscreen       | boolean  | 可选     | 是否启动点击全屏操作，默认值：true。                         |
+| idleThreshold           | number   | 可选     | 用户操作空闲时间阈值，单位为秒。空闲超过这个时间将触发 `onNetworkChange`事件，消息为`{status: 'idle', times: 1}`。默认值：300s。 |
+| keepLastFrame           | boolean  | 可选     | 断开的时候是否保留最后一帧画面，如果需要保留最后一帧画面并重连，不能再次调用 init 函数，而是先调用 `destroy()` 接口，再调用 `start()` 接口。默认值：false。 |
+| reconnect               | boolean  | 可选     | true：帧率掉0或者异常断开自动重连一次，false：不重连。默认值：true。 |
+| channel                 | string   | 可选     | 'dev'：测试环境，'product'：正式环境。默认值：'product'。    |
+| loadingText             | string   | 可选     | 加载中的文字提示内容，默认值：'正在启动云游戏'。             |
+| baseUrl                 | string   | 可选     | webrtc 请求的 host 部分。                                    |
+| onGamepadConnectChange  | function | 可选     | 手柄连接/断开事件回调。                                      |
+| onOrientationchange     | function | 可选     | 屏幕方向变化事件回调。                                       |
+| onConnectFail           | function | 可选     | 连接失败回调，调用 start 接口成功后才会触发。                |
+| onConnectSucc           | function | 可选     | 连接成功回调，调用 start 接口成功后才会触发。                |
+| onDisconnect            | function | 可选     | 断开/被踢触发此回调，调用 start 接口成功后才会触发。         |
+| onTouchEvent            | function | 可选     | 移动端触摸事件回调，调用 start 接口成功后才会触发。          |
+| onWebrtcStat            | function | 可选     | webrtc 状态回调，调用 start 接口成功后才会触发，设置这个回调后，如果 webrtc 请求返回错误，SDK 不再自动弹出默认自带的错误提示框。 |
+| onInitSuccess           | function | 可选     | 初始化完毕的回调，触发此回调之后才能调用后面的 API。         |
+| onNetworkChange         | function | 可选     | 网络状态变化。                                               |
+| onInputStatusChanged    | function | 可选     | 云端输入状态改变，有点击事件的时候都会触发，需要判断新旧状态。 |
+| onCursorShowStatChanged | function | 可选     | 云端鼠标显示/隐藏，只在变化的时候回调。                      |
+| onLog                   | function | 可选     | 日志回调函数，用于外部获取日志，作用与setLogHandler 接口一致。 |
 
 #### onTouchEvent 事件字段描述
 
-```
-    {
-        id: integer,// 触控事件的id
-        type: string,// 事件类型，'touchstart','touchmove','touchend'三种之一
-        cursorShow: boolean, // 云端鼠标是否隐藏
-        x: integer,// 触控点在云端视频内的x坐标
-        y: integer,// 触控点在云端视频内的y坐标
-        pageX: integer,// 触控点在当前网页内的x坐标
-        pageY: integer,// 触控点在当前网页内的y坐标
-        movementX: integer,// 触控点相对上次坐标的x偏移值
-        movementY: integer// 触控点相对上次坐标的y偏移值
-    }
-```
+| 字段       | 类型    | 描述                                                         |
+| ---------- | ------- | ------------------------------------------------------------ |
+| id         | number  | 触控事件的 ID。                                              |
+| type       | string  | 事件类型，`'touchstart'`，`'touchmove'`，`'touchend'`三种之一。 |
+| cursorShow | boolean | 云端鼠标是否隐藏。                                           |
+| x          | number  | 触控点在视频区域内的 x 坐标。                                |
+| y          | number  | 触控点在视频区域内的 y 坐标。                                |
+| pageX      | number  | 触控点在当前网页内的 x 坐标。                                |
+| pageY      | number  | 触控点在当前网页内的 y 坐标。                                |
+| movementX  | number  | 触控点相对上次坐标的 x 偏移值。                              |
+| movementY  | number  | 触控点相对上次坐标的 y 偏移值。                              |
 
 #### onNetworkChange 网络事件类型
 
@@ -155,36 +146,31 @@
 
 #### <span id="onWebrtcStat_wrong">onWebrtcStat 错误码汇总</span>
 
-| 错误码 | 说明                       |
-| ------ | -------------------------- |
-| code=0 | 请求正常                   |
-| code=1 | 系统繁忙                   |
-| code=2 | 票据不合法                 |
-| code=3 | 用户带宽不足               |
-| code=4 | 资源不足，没有可用机器     |
-| code=5 | session 失效，需要重新登录 |
-| code=6 | 媒体描述信息错误           |
-| code=7 | 游戏拉起失败               |
+| 错误码 | 说明                         |
+| ------ | ---------------------------- |
+| code=0 | 请求正常。                   |
+| code=1 | 系统繁忙。                   |
+| code=2 | 票据不合法。                 |
+| code=3 | 用户带宽不足。               |
+| code=4 | 资源不足，没有可用机器。     |
+| code=5 | session 失效，需要重新登录。 |
+| code=6 | 媒体描述信息错误。           |
+| code=7 | 游戏拉起失败。               |
 
 #### onDisconnect 错误码汇总
 
-| 错误码 | 说明     |
-| ------ | -------- |
-| code=0 | 被踢     |
-| code=1 | 系统繁忙 |
+| 错误码 | 说明       |
+| ------ | ---------- |
+| code=0 | 被踢。     |
+| code=1 | 系统繁忙。 |
 
 ### TCGSDK.getClientSession()
 
-获取 client 端的会话信息，用于请求用户后端得到 serverSession，调用实例可以参照 demo.html 和本文档后面。
+客户端获取 Client 端的会话信息，后续供业务 Server 调用 [CreateSession(clientsession)](https://cloud.tencent.com/document/product/1162/40740) 使用。
 
 ### TCGSDK.start(serverSession)
 
-> 注意：这一段没看懂~~
-> 前端先请求用户后端接口拿到 serverSession，并调用此接口开启游戏，serverSession 由用户后端请求云API生成，云API接口文档参见腾讯文档分享的《腾讯云云游戏》及本文档后面的《后端与云API对接实例》;
-
-| 参数          | 参数类型 | 说明 |
-| ------------- | -------- | ---- |
-| serverSession |          |      |
+ 业务 Server 调用 [CreateSession](https://cloud.tencent.com/document/product/1162/40740) 获取到 serversession 后调用该接口启动云游戏。
 
 ### TCGSDK.destroy(msg)
 
@@ -192,7 +178,7 @@
 
 | 参数 | 参数类型 | 说明                                                         |
 | ---- | -------- | ------------------------------------------------------------ |
-| msg  |          | 默认错误弹窗的提示内容，结构为：`{"code": Number, "message": "your message"}`，msg 可以为 null。 |
+| msg  | object   | 默认错误弹窗的提示内容，结构为：`{"code": Number, "message": "your message"}`，msg 可以为 null。 |
 
 > ! 如果 init 时设置了 onWebrtcState 回调，SDK 将不再自动弹出错误提示。
 
@@ -210,8 +196,8 @@
 
 | 参数     | 参数类型 | 说明     |
 | -------- | -------- | -------- |
-| callback |          | 调用结果 |
-| retry    |          | 重发次数 |
+| callback | function | 调用结果 |
+| retry    | number   | 重发次数 |
 
 ### TCGSDK.loginHelper(params, callback);
 
@@ -219,8 +205,8 @@
 
 | 参数     | 参数类型 | 说明                                                         |
 | -------- | -------- | ------------------------------------------------------------ |
-| params   |          | 辅助登录的参数，主要参数如下：<br>gameid：游戏 ID。<br>acc：帐号字符串。<br />pwd：密码字符串。 |
-| callback |          | 执行结果回调。                                               |
+| params   | object   | 辅助登录的参数，主要参数如下：<li>gameid：游戏 ID。<li>acc：帐号字符串。<li>pwd：密码字符串。 |
+| callback | function | 执行结果回调                                                 |
 
 **callback 的原型：**
 
@@ -247,8 +233,8 @@ function(res) {
 
 | 参数     | 参数类型 | 说明           |
 | -------- | -------- | -------------- |
-| gameid   |          | 游戏 ID        |
-| callback |          | 执行结果回调。 |
+| gameid   | string   | 游戏 ID        |
+| callback | function | 执行结果回调。 |
 
 **callback 的原型如下：**
 
@@ -277,7 +263,7 @@ function(res) {
 
 | 参数  | 参数类型 | 说明                                          |
 | ----- | -------- | --------------------------------------------- |
-| event |          | 对象结构：`{key: Integer, down: true/false }` |
+| event | object   | 对象结构：`{key: Integer, down: true/false }` |
 
 
 ### TCGSDK.sendRawEvent(event)
@@ -313,9 +299,9 @@ function(res) {
 
 设置鼠标或者触摸移动的敏感度，value为[0.01, 100.0]之间的的浮点数。
 
-| 参数   | 参数类型 | 说明                                    |
-| ------ | -------- | --------------------------------------- |
-| events | float    | 取值范围：[0.01, 100.0]之间的的浮点数。 |
+| 参数  | 参数类型 | 说明                                    |
+| ----- | -------- | --------------------------------------- |
+| value | number   | 取值范围：[0.01, 100.0]之间的的浮点数。 |
 
 
 ### TCGSDK.sendSeqRawEvents(events)
@@ -324,7 +310,7 @@ function(res) {
 
 | 参数   | 参数类型 | 说明                                                         |
 | ------ | -------- | ------------------------------------------------------------ |
-| events |          | 事件数组，如：如`` events = [{type: "mouseleft", down: true},{type: "mouseleft", down: true},...]``，数组最大限制10事件。 |
+| events | object   | 事件数组，如：如`` events = [{type: "mouseleft", down: true},{type: "mouseleft", down: true},...]``，数组最大限制10事件。 |
 
 > ? event 的对象结构参考 [TCGSDK.sendRawEvent](#tcgsdk.sendrawevent(event)) 的描述。
 
@@ -343,10 +329,10 @@ function(res) {
 
 | 参数       | 参数类型 | 说明                                                         |
 | ---------- | -------- | ------------------------------------------------------------ |
-| identifier | int      | 触控点的 ID，多点触控时每个触控点id不能相等，同个触控点的所有事件的触控点id必须一致。 |
+| identifier | number   | 触控点的 ID，多点触控时每个触控点id不能相等，同个触控点的所有事件的触控点id必须一致。 |
 | type       | string   | 触控事件类型，值为`touchstart`、`touchmove`、`touchend`、`touchcancel`中的一个，对于同一个触控点，touchstart 必须且只对应一个 `touchend` 或 `touchcancel`。 |
-| x          | float    | 填写数字，触控点的 x 坐标，但是如果传浮点数，则按逻辑坐标处理。 |
-| y          | float    | 填写数字，触控点的 y 坐标，但是如果传浮点数，则按逻辑坐标处理。 |
+| x          | number   | 填写数字，触控点的 x 坐标，但是如果传浮点数，则按逻辑坐标处理。 |
+| y          | number   | 填写数字，触控点的 y 坐标，但是如果传浮点数，则按逻辑坐标处理。 |
 | isLogic    | boolean  | true 代表逻辑坐标，false或者不传则代表的是物理坐标（像素绝对坐标）。 |
 
 >! 调用此接口无需额外处理显示区域偏移、灵敏度和坐标缩放。
@@ -367,7 +353,7 @@ function(res) {
 
 | 参数 | 参数类型 | 说明                                                         |
 | ---- | -------- | ------------------------------------------------------------ |
-| mode |          | 目前支持三种鼠标样式：<br>mode=0：页面渲染的固定鼠标图片。<br/>mode=1：云端下发鼠标图片，由浏览器页面渲染。<br/>mode=2：云端画面内渲染鼠标图片，此时会隐藏本地渲染的鼠标，兼容性最好，但是有延时。 |
+| mode | number   | 目前支持三种鼠标样式：<br>mode=0：页面渲染的固定鼠标图片。<br/>mode=1：云端下发鼠标图片，由浏览器页面渲染。<br/>mode=2：云端画面内渲染鼠标图片，此时会隐藏本地渲染的鼠标，兼容性最好，但是有延时。 |
 
 ### TCGSDK.setCursorShowStat(show)
 
@@ -387,7 +373,7 @@ function(res) {
 
 | 参数 | 参数类型 | 说明                                  |
 | ---- | -------- | ------------------------------------- |
-| val  |          | 放大系数，默认是1.0，与云端大小一致。 |
+| val  | number   | 放大系数，默认是1.0，与云端大小一致。 |
 
 ### TCGSDK.setRemoteCursorStyle(style)
 
@@ -395,7 +381,7 @@ function(res) {
 
 | 参数  | 参数类型 | 说明                                                         |
 | ----- | -------- | ------------------------------------------------------------ |
-| style |          | 样式字符串，值为以下的值之一：<ul syule="margin:0"><li>standard：系统默认鼠标样式，较小。</li><li>default_huge：系统超大鼠标样式，较大。</li></ul> |
+| style | string   | 样式字符串，值为以下的值之一：<ul syule="margin:0"><li>standard：系统默认鼠标样式，较小。</li><li>default_huge：系统超大鼠标样式，较大。</li></ul> |
 
 
 ### TCGSDK.clearRemoteKeys()
@@ -414,8 +400,8 @@ function(res) {
 
 | 参数   | 参数类型 | 说明                            |
 | ------ | -------- | ------------------------------- |
-| enable |          | 打开日志和状态。                |
-| userid |          | 用户的 ID，主要是用于过滤日志。 |
+| enable | boolean  | 打开日志和状态。                |
+| userid | string   | 用户的 ID，主要是用于过滤日志。 |
 
 ### TCGSDK.reportLog()
 
@@ -427,7 +413,7 @@ function(res) {
 
 | 参数    | 参数类型 | 说明                                     |
 | ------- | -------- | ---------------------------------------- |
-| handler |          | 日志回调函数，原型：function (logText)。 |
+| handler | function | 日志回调函数，原型：function (logText)。 |
 
 
 
@@ -439,9 +425,9 @@ function(res) {
 
 | 参数     | 参数类型 | 说明                                                         |
 | -------- | -------- | ------------------------------------------------------------ |
-| profile  | int      | 目前可用参数如下：<br>fps：帧率，范围[10,60]，单位帧。<br>max_bitrate：最大码率，范围[1,15]，单位：Mbps。<br>min_bitrate：最小码率，范围[1,15], 单位：Mbps。 |
-| callback |          | 设置结果回调函数，可为 null。                                |
-| retry    |          | 重试次数，可不填。                                           |
+| profile  | number   | 目前可用参数如下：<br>fps：帧率，范围[10,60]，单位帧。<br>max_bitrate：最大码率，范围[1,15]，单位：Mbps。<br>min_bitrate：最小码率，范围[1,15], 单位：Mbps。 |
+| callback | function | 设置结果回调函数，可为 null。                                |
+| retry    | number   | 重试次数，可不填。                                           |
 
 ### TCGSDK.getDisplayRect()
 
@@ -453,7 +439,7 @@ function(res) {
 
 | 参数 | 参数类型 | 说明                          |
 | ---- | -------- | ----------------------------- |
-| val  | float    | 取值范围：[0,1]之间的浮点数。 |
+| val  | number   | 取值范围：[0,1]之间的浮点数。 |
 
 ### TCGSDK.getVolume()
 
