@@ -61,7 +61,7 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   annotations:
-    kubernetes.io/ingress.class: qcloud ## 可选值：qcloud（CLB类型ingress）, nginx（nginx-ingress）
+    kubernetes.io/ingress.class: qcloud ## 可选值：qcloud（CLB类型ingress）, nginx（nginx-ingress）,traefik 
 	## kubernetes.io/ingress.existLbId： lb-xxxxxxxx	  ##指定使用已有负载均衡器创建公网/内网访问的Ingress
     ## kubernetes.io/ingress.subnetId: subnet-xxxxxxxx  ##若是创建CLB类型内网ingress需指定该条annotation
   name: my-ingress
