@@ -21,8 +21,8 @@
 | 接口名称                                                     | 接口描述                   |
 | ------------------------------------------------------------ | -------------------------- |
 | [TCGSDK.gameRestart(callback, retry)](#tcgsdk.gamerestart(callback.2C-retry)) | 重启当前运行的游戏进程     |
-| [TCGSDK.loginHelper(params, callback) ](#tcgsdk.loginhelper(params.2C-callback).3B) | 辅助登陆                   |
-| [TCGSDK.getLoginWindowStat(gameid, callback)](#tcgsdk.getloginwindowstat(gameid.2C-callback)) | 获取当前窗口是否为登陆窗口 |
+| [TCGSDK.loginHelper(params, callback) ](#tcgsdk.loginhelper(params.2C-callback).3B) | 辅助登录    |
+| [TCGSDK.getLoginWindowStat(gameid, callback)](#tcgsdk.getloginwindowstat(gameid.2C-callback)) | 获取当前窗口是否为登录窗口 |
 
 ### 鼠标键盘控制相关接口
 
