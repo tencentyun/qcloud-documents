@@ -5,14 +5,11 @@
   ```
   $ sudo apt install -y cmake
   ```
- 
   - MAC OS
   ```
   $ brew install cmake
-  ```
-  
-2. 在本地 安装 gRPC 和 protocol buffers。
-
+  ```  
+2. 在本地安装 gRPC 和 protocol buffers。
  >?具体安装流程请您参考 [安装 CMake](https://cmake.org/install)，[安装 gRPC C ++ 的说明](https://github.com/grpc/grpc/blob/master/BUILDING.md)，[安装 protocol buffers 的说明](https://github.com/protocolbuffers/protobuf/blob/master/src/README.md)。
 
 ## 定义服务
@@ -64,7 +61,6 @@ gRPC 通过 protocol buffers 实现定义一个服务：一个 RPC 服务通过�
 | requestId | 当前请求的 requestId，已使用唯一标记一次请求 | string |
 
 1. 一般在服务端初始化后，进程检查自身是否可对外提供服务，Game Server 调用 ProcessReady 接口，告知 GSE 进程准备就绪，已准备好托管游戏服务器会话，GSE 接收到后，将服务器实例状态更改为“活跃”。
-
 ```
 Status GseManager::ProcessReady(std::vector<std::string> &logPath, int clientPort, int grpcPort, GseResponse& reply)
 {
@@ -89,9 +85,7 @@ Status GseManager::ProcessReady(std::vector<std::string> &logPath, int clientPor
         return stub_->ProcessReady(&context, request, &reply);
 }
 ```
-
 2. 进程准备就绪后，GSE 调用 OnHealthCheck 接口，对 Game Server 进行健康检查，每1分钟检查1次，连续3次失败就判定该进程不健康，不会分配游戏服务器会话至该进程。
-
 ```
 Status GameServerGrpcSdkServiceImpl::OnHealthCheck(ServerContext* context, const HealthCheckRequest* request,  HealthCheckResponse* reply)
 {
@@ -100,7 +94,6 @@ Status GameServerGrpcSdkServiceImpl::OnHealthCheck(ServerContext* context, const
 }
 ```
 3. 因为 Client 调用 [CreateGameServerSession](https://cloud.tencent.com/document/product/1165/42067) 接口创建一个游戏服务器会话，将该游戏服务器会话分配给一个进程，所以触发 GSE 调用该进程的 onStartGameServerSession 接口，并且将 GameServerSession 状态更改为“激活中”。
-
 ```
 Status GameServerGrpcSdkServiceImpl::OnStartGameServerSession(ServerContext* context, const StartGameServerSessionRequest* request,  GseResponse* reply)
 {
@@ -115,7 +108,6 @@ Status GameServerGrpcSdkServiceImpl::OnStartGameServerSession(ServerContext* con
 }
 ```
 4. 当 Game Server 收到 onStartGameServerSession，您自行处理一些逻辑或资源分配，准备就绪后，Game Server 就调用 ActivateGameServerSession 接口,通知 GSE 游戏服务器会话已分配给一个进程，现在已准备好接收玩家请求，将服务器状态更改为“活跃”。
-
 ```
 Status GseManager::ActivateGameServerSession(std::string gameServerSessionId, int maxPlayers, GseResponse& reply)
 {
@@ -133,7 +125,6 @@ Status GseManager::ActivateGameServerSession(std::string gameServerSessionId, in
 }
 ```
 5. 当 Client 调用 [JoinGameServerSession](https://cloud.tencent.com/document/product/1165/42061) 接口玩家加入后，Game Server 调用 AcceptPlayerSession 接口验证玩家合法性，如果连接被接受，则将 PlayerSession 状态设置为“活跃”。如果 Client 调用 JoinGameServerSession 接口在60秒内未收到响应，则将 PlayerSession 状态更改为“超时”，然后重新调用 JoinGameServerSession。
-
 ```
 Status GseManager::AcceptPlayerSession(std::string playerSessionId, GseResponse& reply)
 {
@@ -148,7 +139,6 @@ Status GseManager::AcceptPlayerSession(std::string playerSessionId, GseResponse&
 }
 ```
 6. 游戏结束或者玩家退出后，Game Server 调用 RemovePlayerSession 接口移除玩家，将 playersession 状态更改为“已完成” ，并预留游戏服务器会话中的玩家位置。
-
 ```
 Status GseManager::RemovePlayerSession(std::string playerSessionId, GseResponse& reply)
 {
@@ -164,7 +154,6 @@ Status GseManager::RemovePlayerSession(std::string playerSessionId, GseResponse&
 }
 ```
 7. 当一个游戏服务器会话（一组游戏对局或一个服务）结束后，Game Server 调用 TerminateGameServerSession 接口结束 GameServerSession，将 GameServerSession 状态更改为“已终止”。
- 
 ```
 Status GseManager::TerminateGameServerSession(GseResponse& reply)
 {
@@ -180,7 +169,6 @@ Status GseManager::TerminateGameServerSession(GseResponse& reply)
 ```
 
 8. 当健康检查失败或缩容时，GSE 调用 OnProcessTerminate 接口结束游戏进程，缩容时依据是您在 GSE 控制台配置的 [保护策略](https://cloud.tencent.com/document/product/1165/41028#网络)。
- 
 ```
 Status GameServerGrpcSdkServiceImpl::OnProcessTerminate(ServerContext* context, const ProcessTerminateRequest* request,  GseResponse* reply)
 {
@@ -203,7 +191,6 @@ Status GameServerGrpcSdkServiceImpl::OnProcessTerminate(ServerContext* context, 
 ```
 
 9. Game Server 调用 ProcessEnding 接口会立刻结束进程，将服务器进程状态更改为“已终止”，并回收资源。
-
 ```
 //主动调用：一局游戏对应一个进程，当一局游戏结束后主动调用ProcessEnding接口
 //被动调用：当缩容或进程异常健康检查失败时，根据保护策略被动调用ProcessEnding接口，配置完全保护和时限保护策略时需要先判断游戏服务器会话上有无玩家，再被动调用
@@ -219,7 +206,6 @@ Status GseManager::ProcessEnding(GseResponse& reply)
 }
 ```
 10. Game Server 调用 DescribePlayerSessions 接口获取游戏服务器会话下的玩家信息（根据业务可选）。
-
 ```
 Status GseManager::DescribePlayerSessions(std::string gameServerSessionId, std::string  playerId, std::string  playerSessionId,
     std::string playerSessionStatusFilter, std::string nextToken, int limit, DescribePlayerSessionsResponse& reply)
@@ -240,7 +226,6 @@ Status GseManager::DescribePlayerSessions(std::string gameServerSessionId, std::
 }
 ```
 11. Game Server 调用 UpdatePlayerSessionCreationPolicy 接口更新玩家会话的创建策略，设置是否接受新玩家，即游戏会话里是否允许加入人（根据业务可选）。
-
 ```
 Status GseManager::UpdatePlayerSessionCreationPolicy(std::string newpolicy, GseResponse& reply)
 {
@@ -256,7 +241,6 @@ Status GseManager::UpdatePlayerSessionCreationPolicy(std::string newpolicy, GseR
 }
 ```
 12. Game Server 调用 ReportCustomData 接口告知 GSE 的自定义数据，在查询游戏服务器会话时可以查到（根据业务可选）。
-
 ```
 Status GseManager::ReportCustomData(int currentCustomCount, int maxCustomCount, GseResponse& reply)
 {
@@ -317,25 +301,21 @@ C++ DEMO 代码示例里已生成 gRPC 代码，在 cpp-demo/source/grpcsdk 目�
 在 cpp-demo/source/api 目录下的 grpcserver.cpp，实现了服务端的三个接口。
   - 服务端运行。
 在 cpp-demo/source/api 目录下的 grpcserver.cpp，将 GrpcServer 启动起来。
-
 4. 客户端连接 GSE 的 gRPC 服务端。
   - 客户端实现。
 在 cpp-demo/source/gsemanager 目录下的 gsemanager.cpp，实现了客户端的九个接口。
   - 连接服务端。
 创建一个 gRPC 频道，指定我们要连接的主机名和服务器端口，然后用这个频道创建存根实例。
-
-
- 5. 编译运行。
-- 安装 cmake。
-- 安装 gcc，版本要求4.9以上。
-- 将代码下载，在 cpp-demo 目录下，执行以下命令：
+5. 编译运行。
+	- 安装 cmake。
+	- 安装 gcc，版本要求4.9以上。
+	- 将代码下载，在 cpp-demo 目录下，执行以下命令：
   ```
   mkdir build
   cmake ..
   make
   ```
-  
  会生成对应的 cpp-demo 可执行文件。
-- 将 cpp-demo 可执行文件打包为 [生成包](https://cloud.tencent.com/document/product/1165/41030)，启动路径配置 cpp-demo，无启动参数。
-- 然后 [创建服务器舰队](https://cloud.tencent.com/document/product/1165/41028)，将生成包部署在服务器舰队上，后续可进行 [扩缩容](https://cloud.tencent.com/document/product/1165/45709) 等一系列操作。
+	- 将 cpp-demo 可执行文件打包为 [生成包](https://cloud.tencent.com/document/product/1165/41030)，启动路径配置 cpp-demo，无启动参数。
+	- 然后 [创建服务器舰队](https://cloud.tencent.com/document/product/1165/41028)，将生成包部署在服务器舰队上，后续可进行 [扩缩容](https://cloud.tencent.com/document/product/1165/45709) 等一系列操作。
 
