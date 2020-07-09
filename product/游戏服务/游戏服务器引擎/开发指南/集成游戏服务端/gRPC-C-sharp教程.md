@@ -280,19 +280,19 @@ public class GrpcClient
 
 ## C# DEMO
 1. [单击这里](https://gsegrpcdemo-1301007756.cos.ap-guangzhou.myqcloud.com/csharp-demo.zip)，您可下载 C# DEMO 代码。
-2. 生成 gRPC 代码
+2. 生成 gRPC 代码。
 C# DEMO 代码示例里已生成 gRPC 代码，在 proto/csharp-demo 目录下，不需要额外生成。
-3. 启动服务端，供 GSE 调用
+3. 启动服务端，供 GSE 调用。
  - 服务端实现。
 在 csharp-demo/api 目录下的 gameserversdk.cs，实现了服务端的三个接口。
  - 服务端运行。
 在 csharp-demo 目录下的 Program.cs，将 GrpcServer 启动起来。
-4. 客户端连接 GSE 的 gRPC 服务端
+4. 客户端连接 GSE 的 gRPC 服务端。
  - 客户端实现。
 在 csharp-demo/Models 目录下的 GseManager.cs，实现了客户端的九个接口。
  - 连接服务端。
 创建一个 gRPC 频道，指定我们要连接的主机名和服务器端口，然后用这个频道创建存根实例。
-5. 编译运行
+5. 编译运行。
  - 生成可执行文件及依赖
   ```
   dotnet publish -c Release -r linux-x64 --self-contained true 
