@@ -17,7 +17,7 @@
 ```yml         
 # serverless.yml
 
-component: tencent-website
+component: website
 name: myWebsite
 org: test
 app: websiteApp
