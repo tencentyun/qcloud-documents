@@ -1,10 +1,10 @@
 
-## 简介
+
 客户端 API 以云 API 的形式提供，具体调用方式有以下三种。
 
 ### 1.SDK 调用
 通过腾讯云开发者工具套件（SDK）3.0 调用客户端云 API，支持语言包括 PHP、Python、Java、Go、.NET、Node.js、C++。 
- >? GSE已支持 SDK 3.0版本，具体操作请参见 [SDK简介](https://cloud.tencent.com/document/sdk/Description)。
+ >? GSE 已支持 SDK 3.0版本，具体操作请参见 [SDK 简介](https://cloud.tencent.com/document/sdk/Description)。
 
 ### 2.在线调试
 通过 API Explorer 工具调用客户端云 API，该工具提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。
@@ -14,4 +14,4 @@
 ### 3.直接封装
 通过域名、接口名的 HTTP 请求方法调用客户端云 API。
 
- >?GSE 的云 API 已升级到3.0版本，具体操作请参见 [云API调用方式](https://cloud.tencent.com/document/api/1165/42052)。
+ >?GSE 的云 API 已升级到3.0版本，具体操作请参见 [云 API 调用方式](https://cloud.tencent.com/document/api/1165/42052)。
