@@ -168,7 +168,7 @@ Status GseManager::TerminateGameServerSession(GseResponse& reply)
 }
 ```
 
-8. 当健康检查失败或缩容时，GSE 调用 OnProcessTerminate 接口结束游戏进程，缩容时依据是您在 GSE 控制台配置的 [保护策略](https://cloud.tencent.com/document/product/1165/41028#网络)。
+8. 当健康检查失败或缩容时，GSE 调用 OnProcessTerminate 接口结束游戏进程，缩容时依据是您在 GSE 控制台配置的 [保护策略](https://cloud.tencent.com/document/product/1165/41028#test12)。
 ```
 Status GameServerGrpcSdkServiceImpl::OnProcessTerminate(ServerContext* context, const ProcessTerminateRequest* request,  GseResponse* reply)
 {
@@ -307,15 +307,15 @@ C++ DEMO 代码示例里已生成 gRPC 代码，在 cpp-demo/source/grpcsdk 目�
   - 连接服务端。
 创建一个 gRPC 频道，指定我们要连接的主机名和服务器端口，然后用这个频道创建存根实例。
 5. 编译运行。
-	- 安装 cmake。
-	- 安装 gcc，版本要求4.9以上。
-	- 将代码下载，在 cpp-demo 目录下，执行以下命令：
+ 1. 安装 cmake。
+ 2. 安装 gcc，版本要求4.9以上。
+ 3. 将代码下载，在 cpp-demo 目录下，执行以下命令：
   ```
   mkdir build
   cmake ..
   make
   ```
  会生成对应的 cpp-demo 可执行文件。
-	- 将 cpp-demo 可执行文件打包为 [生成包](https://cloud.tencent.com/document/product/1165/41030)，启动路径配置 cpp-demo，无启动参数。
-	- 然后 [创建服务器舰队](https://cloud.tencent.com/document/product/1165/41028)，将生成包部署在服务器舰队上，后续可进行 [扩缩容](https://cloud.tencent.com/document/product/1165/45709) 等一系列操作。
+ 4. 将 cpp-demo 可执行文件打包为 [生成包](https://cloud.tencent.com/document/product/1165/41030)，启动路径配置 cpp-demo，无启动参数。
+ 5. 然后 [创建服务器舰队](https://cloud.tencent.com/document/product/1165/41028)，将生成包部署在服务器舰队上，后续可进行 [扩缩容](https://cloud.tencent.com/document/product/1165/45709) 等一系列操作。
 
