@@ -249,7 +249,7 @@ function TEB_SNAPSHOT(Object data)
 | data | Object | 快照数据 |
 
 #### 介绍
-data参数格式如下： 
+data 参数格式如下： 
 ``` 
 {
      image: "",          //base64
