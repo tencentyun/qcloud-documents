@@ -82,10 +82,10 @@ params对象有效字段描述：
 | nativeCursor            | boolean  | 可选     | 是否显示本地鼠标。默认值：true。                             |
 | tabletMode              | boolean  | 可选     | true 为使用平板滑动鼠标模式，false 为绝对映射模式。默认值：false。<br />该参数只针对移动端，PC 端忽略该参数。 |
 | clickToFullscreen       | boolean  | 可选     | 是否启动点击全屏操作，默认值：true。                         |
-| idleThreshold           | number   | 可选     | 用户操作空闲时间阈值，单位为秒。空闲超过这个时间将触发 `onNetworkChange`事件，消息为`{status: 'idle', times: 1}`。默认值：300s。 |
+| idleThreshold           | number   | 可选     | 用户操作空闲时间阈值，单位为秒。空闲超过这个时间将触发 `onNetworkChange` 事件，消息为 `{status: 'idle', times: 1}`。默认值：300s。 |
 | keepLastFrame           | boolean  | 可选     | 断开的时候是否保留最后一帧画面，如果需要保留最后一帧画面并重连，不能再次调用 init 函数，而是先调用 `destroy()` 接口，再调用 `start()` 接口。默认值：false。 |
 | reconnect               | boolean  | 可选     | true：帧率掉0或者异常断开自动重连一次，false：不重连。默认值：true。 |
-| channel                 | string   | 可选     | 'dev'：测试环境，'product'：正式环境。默认值：'product'。    |
+| channel                 | string   | 可选     | `'dev'`：测试环境，`'product'`：正式环境。默认值：`'product'`。 |
 | loadingText             | string   | 可选     | 加载中的文字提示内容，默认值：'正在启动云游戏'。             |
 | baseUrl                 | string   | 可选     | webrtc 请求的 host 部分。                                    |
 | onGamepadConnectChange  | function | 可选     | 手柄连接/断开事件回调。                                      |
@@ -99,14 +99,14 @@ params对象有效字段描述：
 | onNetworkChange         | function | 可选     | 网络状态变化。                                               |
 | onInputStatusChanged    | function | 可选     | 云端输入状态改变，有点击事件的时候都会触发，需要判断新旧状态。 |
 | onCursorShowStatChanged | function | 可选     | 云端鼠标显示/隐藏，只在变化的时候回调。                      |
-| onLog                   | function | 可选     | 日志回调函数，用于外部获取日志，作用与setLogHandler 接口一致。 |
+| onLog                   | function | 可选     | 日志回调函数，用于外部获取日志，作用与 setLogHandler 接口一致。 |
 
 #### onTouchEvent 事件字段描述
 
 | 字段       | 类型    | 描述                                                         |
 | ---------- | ------- | ------------------------------------------------------------ |
 | id         | number  | 触控事件的 ID。                                              |
-| type       | string  | 事件类型，`'touchstart'`，`'touchmove'`，`'touchend'`三种之一。 |
+| type       | string  | 事件类型，可选择 `'touchstart'`，`'touchmove'`，`'touchend'` 三种之一。 |
 | cursorShow | boolean | 云端鼠标是否隐藏。                                           |
 | x          | number  | 触控点在视频区域内的 x 坐标。                                |
 | y          | number  | 触控点在视频区域内的 y 坐标。                                |
@@ -126,9 +126,9 @@ params对象有效字段描述：
 | 外网IP变化          | {"status": "ipchanged"}                                      |
 | 连接loading时间过长 | {"status": "noflow"}                                         |
 | 已连接但帧率掉0     | {"status": "noflowcenter"}                                   |
-| 实时状态数据        | {"status": "stats", "stats": {...}}，stats字段的结构请参见  [stats 字段描述](#stats)。 |
+| 实时状态数据        | {"status": "stats", "stats": {...}}，stats字段的结构请参见  [stats 字段描述](#stats_cpde)。 |
 
-####  <span id="stats ">stats 字段描述</span>
+####  <span id="stats_cpde">stats 字段描述</span>
 
 | 字段            | 类型   | 描述                                         |
 | --------------- | ------ | -------------------------------------------- |
@@ -194,10 +194,10 @@ params对象有效字段描述：
 
 重启当前运行的游戏进程。
 
-| 参数     | 参数类型 | 说明     |
-| -------- | -------- | -------- |
-| callback | function | 调用结果 |
-| retry    | number   | 重发次数 |
+| 参数     | 参数类型 | 说明       |
+| -------- | -------- | ---------- |
+| callback | function | 调用结果。 |
+| retry    | number   | 重发次数。 |
 
 ### TCGSDK.loginHelper(params, callback);
 
@@ -205,8 +205,8 @@ params对象有效字段描述：
 
 | 参数     | 参数类型 | 说明                                                         |
 | -------- | -------- | ------------------------------------------------------------ |
-| params   | object   | 辅助登录的参数，主要参数如下：<li>gameid：游戏 ID。<li>acc：帐号字符串。<li>pwd：密码字符串。 |
-| callback | function | 执行结果回调                                                 |
+| params   | object   | 辅助登录的参数，主要参数如下：<li>gameid：游戏 ID。</li><li>acc：帐号字符串。</li><li>pwd：密码字符串。</li> |
+| callback | function | 执行结果回调。                                               |
 
 **callback 的原型：**
 
@@ -233,7 +233,7 @@ function(res) {
 
 | 参数     | 参数类型 | 说明           |
 | -------- | -------- | -------------- |
-| gameid   | string   | 游戏 ID        |
+| gameid   | string   | 游戏 ID。      |
 | callback | function | 执行结果回调。 |
 
 **callback 的原型如下：**
@@ -250,8 +250,8 @@ function(res) {
 {code:0, data:{bottom: number, found: 1/0, left: number, name: 'xxxx', right: number, top: number, capslock: 0/1}}
 ```
 
-  - found: 0表示当前不是登录窗口，1表示是登录窗口。
-  - capslock: 0表示当前是小写，1表示是大写。
+- found：0表示当前不是登录窗口，1表示是登录窗口。
+- capslock：0表示当前是小写，1表示是大写。
 
 
 
@@ -259,11 +259,11 @@ function(res) {
 
 ### TCGSDK.sendKeyboardEvent(event)
 
-对 [sendRawEvent(event)](#tcgsdk.sendrawevent(event)) 的包装，省掉 type 参数，可以用 html 元素定义一些虚拟按键，demo.html 有简单的例子。事件触发后调用 sendKeyboardEvent 发送按键消息，您可从 [键盘码查看网](https://keycode.info/) 中获取键盘的键位值。
+对 [sendRawEvent(event)](#tcgsdk.sendrawevent(event)) 的包装，省掉 type 参数，可以用 html 元素定义一些虚拟按键，[demo.html](https://tcgsdk-1258344699.cos.ap-guangzhou.myqcloud.com/download/tcgsdk-latest.tar.gz) 有简单的例子。事件触发后调用 sendKeyboardEvent 发送按键消息，您可从 [键盘码查看网](https://keycode.info/) 中获取键盘的键位值。
 
-| 参数  | 参数类型 | 说明                                          |
-| ----- | -------- | --------------------------------------------- |
-| event | object   | 对象结构：`{key: Integer, down: true/false }` |
+| 参数  | 参数类型 | 说明                                            |
+| ----- | -------- | ----------------------------------------------- |
+| event | object   | 对象结构：`{key: Integer, down: true/false }`。 |
 
 
 ### TCGSDK.sendRawEvent(event)
@@ -271,33 +271,33 @@ function(res) {
 更底层的发送函数，允许定义 event 的类型。event 对象结构如下：
 
    - 鼠标偏移（用于无边框限制的鼠标移动事件）：``{ type: "mousedeltamove", x: Number, y: Number }``，x、y坐标值均为整数。
-   - 鼠标移动：``{ type: "mousemove", x: Number, y: Number }``，x、y坐标值均为整数
-   - 鼠标左键点击：``{ type: "mouseleft", down: true/false }``
-   - 鼠标右键点击：``{ type: "mouseright", down: true/false }``
-   - 鼠标滚动：``{ type: "mousescroll", delta: Number }``
+   - 鼠标移动：``{ type: "mousemove", x: Number, y: Number }``，x、y 坐标值均为整数。
+   - 鼠标左键点击：``{ type: "mouseleft", down: true/false }``。
+   - 鼠标右键点击：``{ type: "mouseright", down: true/false }``。
+   - 鼠标滚动：``{ type: "mousescroll", delta: Number }``。
    - 键盘按键事件：``{ type: "keyboard", key: Integer, down: true/false }``
    - 手柄事件：
-     1. 手柄连接事件：``{ type: "gamepadconnect" }``，发送操作按键前必须先发送这个事件
+     1. 手柄连接事件：``{ type: "gamepadconnect" }``，发送操作按键前必须先发送这个事件。
      2. 手柄断开事件：``{ type: "gamepaddisconnect" }``
      3. 手柄按键事件：``{ type: "gamepadkey", key: Number, down: true/false }``
-        方向键：up->0x01, down->0x02, left->0x04, right->0x08
-        按键：X->0x4000, Y->0x8000, A->0x1000, B->0x2000
-        select：0x20
-        start：0x10
-     4. 手柄左摇杆事件：``{ type: "axisleft", x: [-32767~32767], y: [-32767~32767] }``，原浮点（-1~1）数值
-     5. 手柄右摇杆事件：``{ type: "axisright", x: [-32767~32767], y: [-32767~32767] }``，原浮点（-1~1）数值
-     6. 手柄左触发键（L1）事件：``{type: "gamepadkey", key: 0x100, down: true/false}``
-     7. 手柄右触发键（R1）事件：``{type: "gamepadkey", key: 0x200, down: true/false}``
-     8. 手柄左触发键（L2）事件：``{ type: "lt", x: [0-255], down: true/false }``，原浮点（0~1）数值：255
-     9. 手柄右触发键（R2）事件：``{ type: "rt", x: [0-255], down: true/false }``，原浮点（0~1）数值：255
-     10. 手柄左摇杆垂直按下（L3）事件：``{type: "gamepadkey", key: 0x80, down: true/false}``
-     11. 手柄右摇杆垂直按下（R3）事件：``{type: "gamepadkey", key: 0x40, down: true/false}``
+        - 方向键：up->`0x01`，down->`0x02`, left->`0x04`，right->`0x08`。
+        - 按键：X->`0x4000`，Y->`0x8000`，A->`0x1000`，B->`0x2000`。
+        - select：0x20。
+        - start：0x10。
+     4. 手柄左摇杆事件：``{ type: "axisleft", x: [-32767~32767], y: [-32767~32767] }``，原浮点（-1~1）数值。
+     5. 手柄右摇杆事件：``{ type: "axisright", x: [-32767~32767], y: [-32767~32767] }``，原浮点（-1~1）数值。
+     6. 手柄左触发键（L1）事件：``{type: "gamepadkey", key: 0x100, down: true/false}``。
+     7. 手柄右触发键（R1）事件：``{type: "gamepadkey", key: 0x200, down: true/false}``。
+     8. 手柄左触发键（L2）事件：``{ type: "lt", x: [0-255], down: true/false }``，原浮点（0~1）数值：255。
+     9. 手柄右触发键（R2）事件：``{ type: "rt", x: [0-255], down: true/false }``，原浮点（0~1）数值：255。
+     10. 手柄左摇杆垂直按下（L3）事件：``{type: "gamepadkey", key: 0x80, down: true/false}``。
+     11. 手柄右摇杆垂直按下（R3）事件：``{type: "gamepadkey", key: 0x40, down: true/false}``。
 
 > ! 如果直接调用此接口发送鼠标移动/偏移事件，需额外处理显示区域偏移、灵敏度和坐标缩放，灵敏度设置 API 也无效，因此建议调用后面的 mouseMove 接口。
 
 ### TCGSDK.setMoveSensitivity(value)
 
-设置鼠标或者触摸移动的敏感度，value为[0.01, 100.0]之间的的浮点数。
+设置鼠标或者触摸移动的敏感度。
 
 | 参数  | 参数类型 | 说明                                    |
 | ----- | -------- | --------------------------------------- |
@@ -329,8 +329,8 @@ function(res) {
 
 | 参数       | 参数类型 | 说明                                                         |
 | ---------- | -------- | ------------------------------------------------------------ |
-| identifier | number   | 触控点的 ID，多点触控时每个触控点id不能相等，同个触控点的所有事件的触控点id必须一致。 |
-| type       | string   | 触控事件类型，值为`touchstart`、`touchmove`、`touchend`、`touchcancel`中的一个，对于同一个触控点，touchstart 必须且只对应一个 `touchend` 或 `touchcancel`。 |
+| identifier | number   | 触控点的 ID，多点触控时每个触控点id不能相等，同个触控点的所有事件的触控点 ID 必须一致。 |
+| type       | string   | 触控事件类型，值为`touchstart`、`touchmove`、`touchend`、`touchcancel`中的一个，对于同一个触控点，`touchstart` 必须且只对应一个 `touchend` 或 `touchcancel`。 |
 | x          | number   | 填写数字，触控点的 x 坐标，但是如果传浮点数，则按逻辑坐标处理。 |
 | y          | number   | 填写数字，触控点的 y 坐标，但是如果传浮点数，则按逻辑坐标处理。 |
 | isLogic    | boolean  | true 代表逻辑坐标，false或者不传则代表的是物理坐标（像素绝对坐标）。 |
@@ -353,7 +353,7 @@ function(res) {
 
 | 参数 | 参数类型 | 说明                                                         |
 | ---- | -------- | ------------------------------------------------------------ |
-| mode | number   | 目前支持三种鼠标样式：<br>mode=0：页面渲染的固定鼠标图片。<br/>mode=1：云端下发鼠标图片，由浏览器页面渲染。<br/>mode=2：云端画面内渲染鼠标图片，此时会隐藏本地渲染的鼠标，兼容性最好，但是有延时。 |
+| mode | number   | 目前支持三种鼠标样式：<li>mode=0：页面渲染的固定鼠标图片。</li><li>mode=1：云端下发鼠标图片，由浏览器页面渲染。</li>mode=2：云端画面内渲染鼠标图片，此时会隐藏本地渲染的鼠标，兼容性最好，但是有延时。</li> |
 
 ### TCGSDK.setCursorShowStat(show)
 
@@ -381,7 +381,7 @@ function(res) {
 
 | 参数  | 参数类型 | 说明                                                         |
 | ----- | -------- | ------------------------------------------------------------ |
-| style | string   | 样式字符串，值为以下的值之一：<ul syule="margin:0"><li>standard：系统默认鼠标样式，较小。</li><li>default_huge：系统超大鼠标样式，较大。</li></ul> |
+| style | string   | 样式字符串，值为以下的值之一：<li>standard：系统默认鼠标样式，较小。</li><li>default_huge：系统超大鼠标样式，较大。</li> |
 
 
 ### TCGSDK.clearRemoteKeys()
@@ -392,7 +392,7 @@ function(res) {
 
 重置云端大小写状态为小写。
 
-## **调试及日志相关接口**
+## 调试及日志相关接口
 
 ### TCGSDK.setDebugMode(enable, userid)
 
@@ -411,9 +411,9 @@ function(res) {
 
 设置日志回调函数，便于外部获取详细日志，作用与 init 时传的 onLog 回调一致。
 
-| 参数    | 参数类型 | 说明                                     |
-| ------- | -------- | ---------------------------------------- |
-| handler | function | 日志回调函数，原型：function (logText)。 |
+| 参数    | 参数类型 | 说明                                       |
+| ------- | -------- | ------------------------------------------ |
+| handler | function | 日志回调函数，原型：`function (logText)`。 |
 
 
 
@@ -425,7 +425,7 @@ function(res) {
 
 | 参数     | 参数类型 | 说明                                                         |
 | -------- | -------- | ------------------------------------------------------------ |
-| profile  | number   | 目前可用参数如下：<br>fps：帧率，范围[10,60]，单位帧。<br>max_bitrate：最大码率，范围[1,15]，单位：Mbps。<br>min_bitrate：最小码率，范围[1,15], 单位：Mbps。 |
+| profile  | number   | 目前可用参数如下：<li>fps：帧率，范围[10,60]，单位帧。</li><li>max_bitrate：最大码率，范围[1,15]，单位：Mbps。</li><li>min_bitrate：最小码率，范围[1,15], 单位：Mbps。</li> |
 | callback | function | 设置结果回调函数，可为 null。                                |
 | retry    | number   | 重试次数，可不填。                                           |
 
