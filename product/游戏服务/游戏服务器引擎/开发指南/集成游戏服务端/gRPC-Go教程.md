@@ -3,7 +3,7 @@
 
 ## 安装 gRPC
 1. 使用 gRPC Go 时，需要先安装 Go 的最新主要版本。
-2. 其次安装 Protocol buffer 编辑器，版本为 protoc3。
+2. 安装 Protocol buffer 编辑器，版本为 protoc3。
 3. 安装 Protocol buffer 编辑器里 Go 插件。
   - 使用以下命令为 Go（protoc-gen-go）安装 Protocol buffer 编译器插件：
   ```
@@ -55,7 +55,7 @@ $ export PATH="$PATH:$(go env GOPATH)/bin"
 
 #### 其他
 
- 请求 meta，在游戏进程通过 gRPC 调用 GSE 相关接口 时，需要在 gRPC 请求的 meta 里添加两个字段。
+ 请求 meta，在游戏进程通过 gRPC 调用客户端接口时，需要在 gRPC 请求的 meta 里添加两个字段。
 
 | 字段      | 含义                                      | 类型   |
 | --------- | ----------------------------------------- | ------ |
@@ -315,8 +315,14 @@ Go DEMO 代码示例里已生成 gRPC 代码，在 go-demo/grpcsdk 目录下，�
   - 连接服务端。
 创建一个 gRPC 频道，指定我们要连接的主机名和服务器端口，然后用这个频道创建存根实例。
  5. 编译运行。
-  1. 在 go-demo 目录下，执行``` go mod vendor```，生成 vendor 目录。
-  - 编译命令：```go build -mod=vendor main.go```，会生成对应的 go-demo 可执行文件 main.go。
+  1. 在 go-demo 目录下，执行
+  ```
+	go mod vendor```
+	生成 vendor 目录。
+  - 编译命令：
+  ```
+	go build -mod=vendor main.go```
+	会生成对应的 go-demo 可执行文件 main.go。
   - 将可执行文件 main.go 打包为 [生成包](https://cloud.tencent.com/document/product/1165/41030)，启动路径配置 main，无启动参数。
   - 然后 [创建服务器舰队](https://cloud.tencent.com/document/product/1165/41028)，将生成包部署在服务器舰队上，后续可进行 [扩缩容](https://cloud.tencent.com/document/product/1165/45709) 等一系列操作。
   
