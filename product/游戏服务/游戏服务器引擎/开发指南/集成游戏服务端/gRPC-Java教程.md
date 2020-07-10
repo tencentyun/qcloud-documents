@@ -25,33 +25,36 @@ protoc --plugin=protoc-gen-grpc-java=`which protoc-gen-grpc-java` --grpc-java_ou
  - 方法二：使用 maven 工具生成 gRPC 代码，在 maven 中增加编译 grpc 代码的 maven 插件，详细信息请您参考 [gRPC-Java-RPC 库和框架](https://github.com/grpc/grpc-java)。
 ``` 
 <build>
-  <extensions>
-    <extension>
-      <groupId>kr.motd.maven</groupId>
-      <artifactId>os-maven-plugin</artifactId>
-      <version>1.6.2</version>
-    </extension>
-  </extensions>
-  <plugins>
-    <plugin>
-      <groupId>org.xolstice.maven.plugins</groupId>
-      <artifactId>protobuf-maven-plugin</artifactId>
-      <version>0.6.1</version>
-      <configuration>
-        <protocArtifact>com.google.protobuf:protoc:3.12.0:exe:${os.detected.classifier}</protocArtifact>
-        <pluginId>grpc-java</pluginId>
-        <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.30.2:exe:${os.detected.classifier}</pluginArtifact>
-      </configuration>
-      <executions>
-        <execution>
-          <goals>
-            <goal>compile</goal>
-            <goal>compile-custom</goal>
-          </goals>
-        </execution>
-      </executions>
-    </plugin>
-  </plugins>
+		 <extensions>
+			<extension>
+				<groupId>kr.motd.maven</groupId>
+				<artifactId>os-maven-plugin</artifactId>
+				<version>1.6.2</version>
+			</extension>
+		</extensions>
+		<plugins>
+			<plugin>
+				<groupId>org.xolstice.maven.plugins</groupId>
+				<artifactId>protobuf-maven-plugin</artifactId>
+				<version>0.6.1</version>
+				<configuration>
+		
+	<protocArtifact>com.google.protobuf:protoc:3.12.0:exe:${os.detected.classifier}
+	</protocArtifact>
+			<pluginId>grpc-java</pluginId>
+			<pluginArtifact>io.grpc:protoc-gen-grpc-
+	java:1.30.2:exe:${os.detected.classifier}</pluginArtifact>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>compile</goal>
+							<goal>compile-custom</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 </build>
 ``` 
 
