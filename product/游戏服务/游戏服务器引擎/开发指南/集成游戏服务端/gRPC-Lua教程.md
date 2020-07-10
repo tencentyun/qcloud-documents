@@ -1,6 +1,6 @@
 
 
-## 安装gRPC
+## 安装 gRPC
 1. 安装 gRPC，安装完后会生成 grpc_cpp_plugin 可执行程序，该程序在生成 gRPC 代码时需要。
 2. 安装 protocol buffers。
  >?具体安装流程请您参考 [安装 gRPC Lua 的说明](https://github.com/grpc/grpc/blob/master/BUILDING.md)，[安装 protocol buffers 的说明](https://github.com/protocolbuffers/protobuf/blob/master/src/README.md)。
