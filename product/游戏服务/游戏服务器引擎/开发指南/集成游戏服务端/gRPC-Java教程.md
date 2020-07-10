@@ -400,3 +400,4 @@ yum install -y java-1.8.0-openjdk
    ``` 
 - 将可执行文件 gse-gameserver-demo.jar 打包为 [生成包](https://cloud.tencent.com/document/product/1165/41030)，启动路径配置 java，启动参数配置 jar gse-gameserver-demo.jar。
 - 然后 [创建服务器舰队](https://cloud.tencent.com/document/product/1165/41028)，将生成包部署在服务器舰队上，后续可进行 [扩缩容](https://cloud.tencent.com/document/product/1165/45709) 等一系列操作。
+
