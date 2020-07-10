@@ -83,9 +83,9 @@ func (g *gsemanager) ProcessReady(logPath []string, clientPort int32, grpcPort i
 			return err
 	}
 
-    //准备就绪，可对外提供服务
-	logger.Info("ProcessReady success")
-	return nil
+		//准备就绪，可对外提供服务
+		logger.Info("ProcessReady success")
+		return nil
 }
 ```
  2. 进程准备就绪后，GSE 调用 OnHealthCheck 接口，对 Game Server 进行健康检查，每1分钟检查1次，连续3次失败就判定该进程不健康，不会分配游戏服务器会话至该进程。
