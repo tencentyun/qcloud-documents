@@ -212,8 +212,7 @@ Status GseManager::ProcessEnding(GseResponse& reply)
 ```
 10. Game Server 调用 DescribePlayerSessions 接口获取游戏服务器会话下的玩家信息（根据业务可选）。
 ```
-Status GseManager::DescribePlayerSessions(std::string gameServerSessionId, std::string  playerId, std::string  playerSessionId,
-    std::string playerSessionStatusFilter, std::string nextToken, int limit, DescribePlayerSessionsResponse& reply)
+Status GseManager::DescribePlayerSessions(std::string gameServerSessionId, std::string  playerId, std::string  playerSessionId,std::string playerSessionStatusFilter, std::string nextToken, int limit, DescribePlayerSessionsResponse& reply)
 {
         GConsoleLog->PrintOut(true, "start to DescribePlayerSessions\n");
         DescribePlayerSessionsRequest request;
