@@ -1,6 +1,6 @@
 
 
-## 安装gRPC
+## 安装 gRPC
 1. Java gRPC 除了 JDK 外不需要其他工具。
 2. 在本地安装 gRPC Java 库 SNAPSHOT，包括代码生成插件。
 >?具体安装流程请您参考 [安装 gRPC Java的说明](https://github.com/grpc/grpc-java/blob/master/COMPILING.md)。
