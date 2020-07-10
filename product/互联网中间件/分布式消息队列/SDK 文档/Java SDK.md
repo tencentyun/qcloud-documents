@@ -5,7 +5,7 @@ TDMQ 提供了 Java 语言的 SDK 来调用服务，进行消息队列的生产�
 ## 前提条件
 - 已完成 Java SDK 的下载和安装（参考 [Java SDK 下载方式](https://cloud.tencent.com/document/product/1179/44914)）。
 - 已获取调用地址（URL）和路由 ID（NetModel）。
-这两个参数均可以在【[环境管理](https://console.cloud.tencent.com/tdmq/env)】的接入点列表中获取，路由 ID 即`netModel`，地址即`URL`。请根据客户端部署的云服务器或其他资源所在的私有网络选择正确的接入点来复制参数信息，否则会有无法连接的问题。![](https://main.qcloudimg.com/raw/4edd20db5dabb96bbc42df441a5bebdf.png)
+这两个参数均可以在【[环境管理](https://console.cloud.tencent.com/tdmq/env)】的接入点列表中获取。请根据客户端部署的云服务器或其他资源所在的私有网络选择正确的接入点来复制参数信息，否则会有无法连接的问题。![](https://main.qcloudimg.com/raw/4edd20db5dabb96bbc42df441a5bebdf.png)
 - 已在 API 密钥管理页面获取 SecretID 和 SecretKey。
   - SecretID 用于标识 API 调用者的身份。
   - SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥，SecretKey 需妥善保管，避免泄露。
