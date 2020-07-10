@@ -94,10 +94,10 @@ public GseResponseBo processReady(ProcessReadyRequestBo request) {
         logger.info("processReady request=" + new Gson().toJson(request));
         GseResponseBo responseBo = new GseResponseBo();
         GseGrpcSdkServiceOuterClass.ProcessReadyRequest rpcRequest = GseGrpcSdkServiceOuterClass.ProcessReadyRequest
-                //设置端口
+                //设置端口。
                 .newBuilder().setClientPort(request.getClientPort())
                 .setGrpcPort(request.getGrpcPort())
-                //日志路径
+                //日志路径。
                 .addAllLogPathsToUpload(request.getLogPathsToUploadList()).build();
 
         GseGrpcSdkServiceOuterClass.GseResponse rpcResponse;
@@ -107,7 +107,7 @@ public GseResponseBo processReady(ProcessReadyRequestBo request) {
             logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
             return createRpcFailedResponseBo(e.getStatus());
         }
-        //准备就绪，可对外提供服务
+        //准备就绪，可对外提供服务。
         logger.info("processReady response=" + rpcResponse.toString());
         return createResponseBoByRpcResponse(rpcResponse);
 }
@@ -116,7 +116,7 @@ public GseResponseBo processReady(ProcessReadyRequestBo request) {
 ```
 public boolean onHealthCheck() {
         
-        // To add your game server logic for health check.
+        //添加游戏服务器逻辑以进行健康检查。
         boolean res = getGrpcServiceConfig().getGseGrpcSdkServiceClient().isProcessHealth();
         logger.info("onHealthCheck status=" + res);
         return res;
