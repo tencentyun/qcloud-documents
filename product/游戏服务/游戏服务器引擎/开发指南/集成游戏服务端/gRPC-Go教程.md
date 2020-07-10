@@ -26,7 +26,9 @@ $ export PATH="$PATH:$(go env GOPATH)/bin"
 2. 生成的代码包括客户端的存根和服务端要实现的抽象接口。
 3. 生成 gRPC 代码步骤：
     在 proto 目录下执行：
-      -```protoc --go_out=plugins=grpc:. *.proto```，会自动生成包含 proto 的 go_package 路径，而用户可以根据需要修改成适合自己的 go_package 路径，但不能修改 package。
+      ```
+protoc --go_out=plugins=grpc:. *.proto```
+	会自动生成包含 proto 的 go_package 路径，而用户可以根据需要修改成适合自己的 go_package 路径，但不能修改 package。
 
 ## 游戏进程集成流程
 ![](https://main.qcloudimg.com/raw/28647a47df4016381c3f5486a5afdbdb.png)
