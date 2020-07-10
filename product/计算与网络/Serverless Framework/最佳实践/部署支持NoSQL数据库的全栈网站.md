@@ -29,19 +29,16 @@ Components: 2.30.1
    
 ### 配置
    
-1.新建一个本地文件夹，使用`create --template-url`命令，下载相关 template：
+1.通过 sls init 初始化模版：
 ```bash
-$ mkdir my_tcbdemo && cd my_tcbdemo
-$ serverless create --template-url https://github.com/serverless-components/tencent-mongodb/tree/master/example/fullstack-demo
+$ sls init -t fullstack-nosql
 ```
-   
-2.在项目目录中找到**function->serverless.yaml**文件，填入自己的 SecretId 和 SecretKey。  
 >?
 >- 如果没有腾讯云账号，请先[注册新账号](https://cloud.tencent.com/register)。
 >- 如果已有腾讯云账号，可以在[ API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取**SecretId**和**SecretKey**。
 >- 目前 sls 支持在国内区域访问 TCB，部署时请注意 yaml 文件里的地域设置，其他地域可能会报错。
    
-3.在`function->src`文件夹目录下，通过以下命令安装所需依赖：
+2.在`backend->src`文件夹目录下，通过以下命令安装所需依赖：
 ```bash
 $ npm install
 ```

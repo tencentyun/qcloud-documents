@@ -69,8 +69,8 @@ serverless create --template-url https://github.com/serverless/components/tree/v
 - [@serverless/tencent-cos](https://github.com/serverless-components/tencent-cos) - 腾讯云对象存储组件
 - [@serverless/tencent-scf](https://github.com/serverless-components/tencent-scf) - 腾讯云云函数组件
 - [@serverless/tencent-cdn](https://github.com/serverless-components/tencent-cdn) - 腾讯云 CDN 组件
-- [@serverless/tencent-cam-role](https://github.com/serverless-components/tencent-cam-role) - 腾讯云 CAM 角色组件
-- [@serverless/tencent-cam-policy](https://github.com/serverless-components/tencent-cam-policy) - 腾讯云 CAM 策略组件
+- [@serverless/tencent-cos](https://github.com/serverless-components/tencent-cos) - 腾讯云 COS 组件
+- [@serverless/tencent-layer](https://github.com/serverless-components/tencent-layer) - 腾讯云 Layer 组件
 - [@serverless/tencent-vpc](https://github.com/serverless-components/tencent-vpc) - 腾讯云 VPC 私有网络组件
 - [@serverless/tencent-ssl](https://github.com/serverless-tencent/tencent-ssl) - 腾讯云 SSL 证书组件
 
@@ -84,13 +84,8 @@ serverless create --template-url https://github.com/serverless/components/tree/v
 - [@serverless/tencent-koa](https://github.com/serverless-components/tencent-koa) - 快速部署基于 Koa.js 的后端服务到腾讯云函数的组件
 - [@serverless/tencent-flask](https://github.com/serverless-components/tencent-flask) - 腾讯云 Python Flask RESTful API 组件
 - [@serverless/tencent-django](https://github.com/serverless-tencent/tencent-django) - 腾讯云 Python Django RESTful API 组件
-- [@serverless/tencent-tornado](https://github.com/serverless-tencent/tencent-tornado) - 腾讯云 Python Tornado RESTful API 组件
-- [@serverless/tencent-pyramid](https://github.com/serverless-tencent/tencent-pyramid) - 腾讯云 Python Pyramid RESTful API 组件
-- [@serverless/tencent-bottle](https://github.com/serverless-tencent/tencent-bottle) - 腾讯云 Python Bottle RESTful API 组件
 - [@serverless/tencent-laravel](https://github.com/serverless-components/tencent-laravel) - 腾讯云 PHP Laravel RESTful API 组件
-- [@serverless/tencent-thinkphp](https://github.com/serverless-components/tencent-thinkphp) - 腾讯云 ThinkPHP RESTful API 组件
 - [@serverless/tencent-website](https://github.com/serverless-components/tencent-website) - 快速部署静态网站到腾讯云的组件
-- [@serverless/serverless-global](https://github.com/serverless-tencent/serverless-global) - 管理全局变量的组件
 
 第三方贡献：
 - [@authing/serverless-oidc](https://github.com/Authing/serverless-oidc) - 快速部署基于 Authing 的身份认证组件
