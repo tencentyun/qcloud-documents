@@ -38,12 +38,6 @@
 | broker.query.interrupted.count | 次   | number of queries interrupted due to cancellation  or timeout |
 | normal.count                   | 个   | 查询延迟 < 1s的次数                                            |
 | abnormal.count                 | 个   | 查询延迟 >= 1s的次数                                           |
-| normal.count                   | 个   | 查询延迟 < 1s的次数                                            |
-| abnormal.count                 | 个   | 查询延迟 >= 1s的次数                                           |
-| normal.count                   | 个   | 查询延迟 < 1s的次数                                            |
-| abnormal.count                 | 个   | 查询延迟 >= 1s的次数                                           |
-| normal.count                   | 个   | 查询延迟 < 1s的次数                                            |
-| abnormal.count                 | 个   | 查询延迟 >= 1s的次数                                           |
 
 ### Druid- coordinator
 
