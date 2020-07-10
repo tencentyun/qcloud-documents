@@ -181,7 +181,7 @@ func (g *gsemanager) TerminateGameServerSession() (*grpcsdk.GseResponse, error) 
 	return g.rpcClient.TerminateGameServerSession(g.getContext(), req)
 }
 ```
- 8. 当健康检查失败或缩容时，GSE 调用 OnProcessTerminate 接口结束游戏进程，缩容时依据是您在 GSE 控制台配置的 [保护策略](https://cloud.tencent.com/document/product/1165/41028#网络)。
+ 8. 当健康检查失败或缩容时，GSE 调用 OnProcessTerminate 接口结束游戏进程，缩容时依据是您在 GSE 控制台配置的 [保护策略](https://cloud.tencent.com/document/product/1165/41028#test12)。
 ```
 func _GameServerGrpcSdkService_OnProcessTerminate_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ProcessTerminateRequest)
@@ -319,7 +319,7 @@ Go DEMO 代码示例里已生成 gRPC 代码，在 go-demo/grpcsdk 目录下，�
   - 连接服务端。
 创建一个 gRPC 频道，指定我们要连接的主机名和服务器端口，然后用这个频道创建存根实例。
  5. 编译运行。
-  - 在 go-demo 目录下，执行``` go mod vendor```，生成 vendor 目录。
+  1. 在 go-demo 目录下，执行``` go mod vendor```，生成 vendor 目录。
   - 编译命令：```go build -mod=vendor main.go```，会生成对应的 go-demo 可执行文件 main.go。
   - 将可执行文件 main.go 打包为 [生成包](https://cloud.tencent.com/document/product/1165/41030)，启动路径配置 main，无启动参数。
   - 然后 [创建服务器舰队](https://cloud.tencent.com/document/product/1165/41028)，将生成包部署在服务器舰队上，后续可进行 [扩缩容](https://cloud.tencent.com/document/product/1165/45709) 等一系列操作。
