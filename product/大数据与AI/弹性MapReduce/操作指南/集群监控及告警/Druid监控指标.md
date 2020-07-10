@@ -139,12 +139,6 @@
 | historical.query.interrupted.count | 次    | historical 查询被中断次数                                     |
 | normal.count                       | 个    | 查询延迟 < 1s的次数                                            |
 | abnormal.count                     | 个    | 查询延迟 >= 1s的次数                                           |
-| normal.count                       | 个    | 查询延迟 < 1s的次数                                            |
-| abnormal.count                     | 个    | 查询延迟 >= 1s的次数                                           |
-| normal.count                       | 个    | 查询延迟 < 1s的次数                                            |
-| abnormal.count                     | 个    | 查询延迟 >= 1s的次数                                           |
-| normal.count                       | 个    | 查询延迟 < 1s的次数                                            |
-| abnormal.count                     | 个    | 查询延迟 >= 1s的次数                                           |
 
 ### Druid- middleManager
 
