@@ -25,11 +25,11 @@ openssl req -new -nodes -sha256 -newkey rsa:2048 -keyout [$Key_File] -out [$Open
  - **[$OpenSSL_CSR]**：加密后文件的存放路径。
 4. 根据系统返回的提示，输入生成 CSR 文件所需的信息。以下是关于提示的说明：
  - **Organization Name**：公司名称，可以是中文或英文。
- - **Organization Unit Name**：部门名称，可以是中文或英文。
+ - **Organizational Unit Name**：部门名称，可以是中文或英文。
  - **Country Code**：申请单位所属国家，只能是两个字母的国家码。例如，中国填写为 CN。
- - **ate or Province**：州名或省份名称，可以是中文或英文。
- - **cality**：城市名称，可以是中文或英文。
- - **mmon Name**：申请 SSL 证书的具体网站域名。
- - **ail Address**：可选择不输入。
- - **challenge password**：可选择不输入。
+ - **State or Province Name**：州名或省份名称，可以是中文或英文。
+ - **Locality Name**：城市名称，可以是中文或英文。
+ - **Common Name**：申请 SSL 证书的具体网站域名。
+ - **Email Address**：可选择不输入。
+ - **Challenge Password**：可选择不输入。
 5. 按照命令提示输入相应内容后，即可在当前目录下获取密钥文件和 CSR 文件。
