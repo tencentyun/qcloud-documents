@@ -175,16 +175,13 @@ static bool luaProcessEnding() {
  10. Game Server 调用 DescribePlayerSessions 接口获取游戏服务器会话下的玩家信息（根据业务可选）。
 ```
 static bool luaDescribePlayerSessions(const std::string &gameServerSessionId, 
-const std::string &playerId,
-                                      const std::string &playerSessionId,
-                                      const std::string 
-&playerSessionStatusFilter, const std::string &nextToken,
-                                      int limit) {
+											const std::string &playerId,
+											const std::string &playerSessionId,
+											const std::string &playerSessionStatusFilter, const std::string &nextToken,
+                                            int limit) {
 		DescribePlayerSessionsResponse reply;
-		Status status = GGseManager->DescribePlayerSessions(gameServerSessionId, 
-	playerId, playerSessionId,
+		Status status = GGseManager->DescribePlayerSessions(gameServerSessionId,playerId, playerSessionId, playerSessionStatusFilter, nextToken, limit, reply);
 		
- playerSessionStatusFilter, nextToken, limit, reply);
 		GSESDK()->setDescribePlayerSessionsResponse(reply);
 		if (!status.ok()) {
 				return false;
