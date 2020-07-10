@@ -19,7 +19,7 @@
      - 将生成的8个文件移到项目合适的位置。    
 
 ## 游戏进程集成流程
-![](https://main.qcloudimg.com/raw/e499c0b753c8c2c144a6253c3ccb9ed4.png)
+![](https://main.qcloudimg.com/raw/629791cc5d23c89fbbec6ee19d725340.png)
 #### 服务端接口列表
 
 | 接口名称 | 接口功能|
