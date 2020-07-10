@@ -71,8 +71,7 @@ function ProcessReady(param) {
 ```
 function OnHealthCheck(call, callback) {
     console.log("OnHealthCheck.request", call.request);
-```
-```
+
     callback(null, {healthStatus: gsesdkClient.IsProcessHealth() });
 }
 ```
