@@ -18,7 +18,7 @@
 <img src="https://camo.githubusercontent.com/e929bd88c85051d09c2d189db09ca842fa23c6ea/68747470733a2f2f6d61696e2e71636c6f7564696d672e636f6d2f7261772f38383131343838313766613064356532363766653431633261613731663366362e676966" width="400" /><span>
 
 
-完整的功能，请参见 [点播超级播放器 - 能力清单](https://cloud.tencent.com/document/product/266/45539#.E8.83.BD.E5.8A.9B.E6.B8.85.E5.8D.95.3Cspan-id.3D.22p1.22.3E.3C.2Fspan.3E)。
+完整的功能，请参见 [点播超级播放器 - 能力清单](https://cloud.tencent.com/document/product/266/45539#.E8.B6.85.E7.BA.A7.E6.92.AD.E6.94.BE.E5.99.A8)。
 
 ## 集成方式
 
