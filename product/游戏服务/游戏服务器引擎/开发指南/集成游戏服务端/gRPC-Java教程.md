@@ -15,6 +15,8 @@ gRPC 通过 protocol buffers 实现定义一个服务：一个 RPC 服务通过�
  - 方法一：在 java-demo/src/main/proto下执行脚本，需要从 gprc 官网下载 protoc 和 protoc-gen-grpc-java 生成工具：
 ```
 sh gen_pb.sh
+```
+```
 protoc --java_out=../java --proto_path=. GameServerGrpcSdkService.proto
 protoc --plugin=protoc-gen-grpc-java=`which protoc-gen-grpc-java` --grpc-java_out=../java --proto_path=. GameServerGrpcSdkService.proto
 protoc --java_out=../java --proto_path=. GseGrpcSdkService.proto
@@ -79,7 +81,7 @@ protoc --plugin=protoc-gen-grpc-java=`which protoc-gen-grpc-java` --grpc-java_ou
 |[ReportCustomData](https://cloud.tencent.com/document/product/1165/46124)|上报自定义数据|
 
 #### 其他
- 请求 meta，在游戏进程通过 gRPC 调用 GSE 相关接口 时，需要在 gRPC 请求的 meta 里添加两个字段。
+ 请求 meta，在游戏进程通过 gRPC 调用客户端接口时，需要在 gRPC 请求的 meta 里添加两个字段。
 
 | 字段      | 含义                                      | 类型   |
 | --------- | ----------------------------------------- | ------ |
@@ -124,17 +126,17 @@ public boolean onHealthCheck() {
 ```
 public GseResponseBo onStartGameServerSession(GameServerSessionBo gameServerSessionBo) {
         logger.info("onStartGameServerSession gameServerSession=" + new Gson().toJson(gameServerSessionBo));
-        // To add your game server logic for starting a game server session.
+        //添加用于启动游戏服务器会话的游戏服务端逻辑。
 
-        // Save the game server session
+        //保存游戏服务器会话。
         getGrpcServiceConfig().getGseGrpcSdkServiceClient().onStartGameServerSession(gameServerSessionBo);
-        // active game server session
+        //激活游戏服务器会话。
         ActivateGameServerSessionRequestBo activateRequest = new ActivateGameServerSessionRequestBo();
         activateRequest.setGameServerSessionId(gameServerSessionBo.getGameServerSessionId());
         activateRequest.setMaxPlayers(gameServerSessionBo.getMaxPlayers());
         getGrpcServiceConfig().getGseGrpcSdkServiceClient().activateGameServerSession(activateRequest);
 
-        // To add some final logic here.
+        //在此处添加最终逻辑。
         return createResponseBo(0, "SUCCESS");
 }
 ```
@@ -239,10 +241,8 @@ public GseResponseBo terminateGameServerSession(String gameServerSessionId) {
 ```
 public GseResponseBo onProcessTerminate(long terminationTime) {
         logger.info("onProcessTerminate terminationTime=" + terminationTime);
-        // maybe terminate the game server at now.
+        //现在可能结束游戏服务端。
 
-        // call gse-sdk ProcessEnding
-        //gseGrpcSdkServiceClient.processEnding();
         return createResponseBo(0, "SUCCESS");
 }
 ```
@@ -357,12 +357,12 @@ public GseResponseBo reportCustomData(ReportCustomDataRequestBo request) {
 
 ## 客户端连接 GSE 的 gRPC 服务端
 连接服务端：创建一个 gRPC 频道，指定我们要连接的主机名和服务器端口，然后用这个频道创建存根实例。
-```
+```java
 public GseGrpcSdkServiceGrpc.GseGrpcSdkServiceBlockingStub getGseGrpcSdkServiceClient() {
-        // 'channel' here is a Channel, not a ManagedChannel, so it is not this code's responsibility to
-        // shut it down.
+        
+        // 这里的 “channel” 是一个频道，而不是 ManagedChannel，因此，此代码的职责不是关掉它。
 
-        // Passing Channels to code makes code easier to test and makes it easier to reuse Channels.
+        //将频道传递给代码，使代码更易于测试和重用频道。
         if (blockingStub == null) {
             managedChannel = getGrpcChannel(targetAddress);
             blockingStub = GseGrpcSdkServiceGrpc.newBlockingStub(managedChannel);
