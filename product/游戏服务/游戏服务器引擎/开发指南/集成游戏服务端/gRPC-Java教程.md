@@ -48,8 +48,8 @@ protoc --plugin=protoc-gen-grpc-java=`which protoc-gen-grpc-java` --grpc-java_ou
 					<goal>compile</goal>
 					<goal>compile-custom</goal>
 				</goals>
-			</execution>
-		  </executions>
+			 </execution>
+		   </executions>
 		 </plugin>
 		</plugins>
 </build>
@@ -342,7 +342,7 @@ public GseResponseBo reportCustomData(ReportCustomDataRequestBo request) {
 ## 启动服务端，供 GSE 调用
 服务端运行：将 GrpcServer 启动起来。
  ```
-  @Bean(name = "grpcService", initMethod = "startup", destroyMethod = "shutdown")
+@Bean(name = "grpcService", initMethod = "startup", destroyMethod = "shutdown")
     public GrpcService getGrpcService() {
         GrpcServiceConfig grpcServiceConfig = new GrpcServiceConfig();
         grpcServiceConfig.setGseGrpcSdkServiceClient(gseGrpcSdkServiceClient);
