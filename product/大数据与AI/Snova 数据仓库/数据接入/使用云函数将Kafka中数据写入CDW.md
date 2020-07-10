@@ -69,7 +69,7 @@ CDW 常见使用场景是将消息中间件的信息同步到 CDW 后再进行�
 	<tr>
 		<td>MSG_NULL</td>
 		<td>否</td>
-		<td>CKafka 中消费的NULL值，默认是\N</td>
+		<td>CKafka 中消费的 NULL 值，默认是 \N</td>
 	</tr>
 </tbody>
 </table>
