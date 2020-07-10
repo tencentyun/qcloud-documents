@@ -150,7 +150,7 @@ public static GseResponse TerminateGameServerSession()
         return GrpcClient.GseClient.TerminateGameServerSession(req, meta);
 }
 ```
-8. 当健康检查失败或缩容时，GSE 调用 OnProcessTerminate 接口结束游戏进程，缩容时依据是您在 GSE 控制台配置的 [保护策略](https://cloud.tencent.com/document/product/1165/41028#网络)。
+8. 当健康检查失败或缩容时，GSE 调用 OnProcessTerminate 接口结束游戏进程，缩容时依据是您在 GSE 控制台配置的 [保护策略](https://cloud.tencent.com/document/product/1165/41028#test12)。
 ```
  public override Task<GseResponse> OnProcessTerminate(ProcessTerminateRequest request, ServerCallContext context)
 {
@@ -159,8 +159,7 @@ public static GseResponse TerminateGameServerSession()
         GseManager.SetTerminationTime(request.TerminationTime);
         //调以下两个接口，会立即结束游戏服务器会话，建议无玩家或无游戏服务器会话后，再调用processEnding结束进程
         //不调用以下两个接口，根据保护策略调用processEnding结束进程，建议配置时限保护
-```
-```       
+      
         // 终止游戏服务器会话
         GseManager.TerminateGameServerSession();
         // 进程退出
@@ -293,7 +292,7 @@ C# DEMO 代码示例里已生成 gRPC 代码，在 proto/csharp-demo 目录下�
  - 连接服务端。
 创建一个 gRPC 频道，指定我们要连接的主机名和服务器端口，然后用这个频道创建存根实例。
 5. 编译运行。
- - 生成可执行文件及依赖
+ 1. 生成可执行文件及依赖
   ```
   dotnet publish -c Release -r linux-x64 --self-contained true 
   ```
