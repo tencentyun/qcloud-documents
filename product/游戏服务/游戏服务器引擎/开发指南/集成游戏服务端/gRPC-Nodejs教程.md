@@ -54,99 +54,99 @@
  1. 一般在服务端初始化后，进程检查自身是否可对外提供服务，Game Server 调用 ProcessReady 接口，告知 GSE 进程准备就绪，已准备好托管游戏服务器会话，GSE 接收到后，将服务器实例状态更改为“活跃”。
 ```
 function ProcessReady(param) {
-    console.log("ProcessReady.request", param);
-    getGseGrpcSdkServiceClient().ProcessReady({
-        //日志路径
-        logPathsToUpload: param.logPathsToUpload,
-        //设置端口
-        clientPort: param.clientPort,
-        grpcPort: param.grpcPort
-    }, getMetadata(), function (err, response) {
-        //准备就绪，可对外提供服务
-        console.log('ProcessReady.response:', err, response);
-    });
+		console.log("ProcessReady.request", param);
+		getGseGrpcSdkServiceClient().ProcessReady({
+				//日志路径
+				logPathsToUpload: param.logPathsToUpload,
+				//设置端口
+				clientPort: param.clientPort,
+				grpcPort: param.grpcPort
+		}, getMetadata(), function (err, response) {
+				//准备就绪，可对外提供服务
+				console.log('ProcessReady.response:', err, response);
+		});
 }
 ```
  2. 进程准备就绪后，GSE 调用 OnHealthCheck 接口，对 Game Server 进行健康检查，每1分钟检查1次，连续3次失败就判定该进程不健康，不会分配游戏服务器会话至该进程。
 ```
 function OnHealthCheck(call, callback) {
-    console.log("OnHealthCheck.request", call.request);
+		console.log("OnHealthCheck.request", call.request);
 
-    callback(null, {healthStatus: gsesdkClient.IsProcessHealth() });
+		callback(null, {healthStatus: gsesdkClient.IsProcessHealth() });
 }
 ```
  3. 因为 Client 调用 [CreateGameServerSession](https://cloud.tencent.com/document/product/1165/42067) 接口创建一个游戏服务器会话，将该游戏服务器会话分配给一个进程，所以触发 GSE 调用该进程的 onStartGameServerSession 接口，并且将 GameServerSession 状态更改为“激活中”。
 ```
 function OnStartGameServerSession(call, callback) {
-    console.log("OnStartGameServerSession.request", call.request);
-    gsesdkClient.OnStartGameServerSession(call.request);
-    callback(null, {});
+		console.log("OnStartGameServerSession.request", call.request);
+		gsesdkClient.OnStartGameServerSession(call.request);
+		callback(null, {});
 }
 ```
  4. 当 Game Server 收到 onStartGameServerSession，您自行处理一些逻辑或资源分配，准备就绪后，Game Server 就调用ActivateGameServerSession 接口,通知 GSE 游戏服务器会话已分配给一个进程，现在已准备好接收玩家请求，将服务器状态更改为“活跃”。
 ```
 function ActivateGameServerSession(param, w, callback) {
-    console.log("ActivateGameServerSession.request", param);
-    getGseGrpcSdkServiceClient().ActivateGameServerSession({
-        gameServerSessionId: gameServerSession.gameServerSessionId,
-        maxPlayers: param.maxPlayers
-    }, getMetadata(), function (err, response) {
-        console.log('ActivateGameServerSession.response:', err, response);
-        if (callback != null) {
-            callback(w, response);
-        }
-    });
+		console.log("ActivateGameServerSession.request", param);
+		getGseGrpcSdkServiceClient().ActivateGameServerSession({
+				gameServerSessionId: gameServerSession.gameServerSessionId,
+				maxPlayers: param.maxPlayers
+		}, getMetadata(), function (err, response) {
+				console.log('ActivateGameServerSession.response:', err, response);
+				if (callback != null) {
+						callback(w, response);
+				}
+		});
 }
 ```
  5. 当 Client 调用 [JoinGameServerSession](https://cloud.tencent.com/document/product/1165/42061) 接口玩家加入后，Game Server 调用 AcceptPlayerSession 接口验证玩家合法性，如果连接被接受，则将 PlayerSession 状态设置为“活跃”。如果 Client 调用JoinGameServerSession 接口在60秒内未收到响应，则将 PlayerSession 状态更改为“超时”，然后重新调用 JoinGameServerSession。
 ```
 function AcceptPlayerSession(param, w, callback) {
-    console.log("AcceptPlayerSession.request", param);
-    getGseGrpcSdkServiceClient().AcceptPlayerSession({
-        gameServerSessionId: gameServerSession.gameServerSessionId,
-        playerSessionId: param.playerSessionId
-    }, getMetadata(), function (err, response) {
-        console.log('AcceptPlayerSession.response:', err, response);
-        if (callback != null) {
-            callback(w, response);
-        }
-    });
+		console.log("AcceptPlayerSession.request", param);
+		getGseGrpcSdkServiceClient().AcceptPlayerSession({
+				gameServerSessionId: gameServerSession.gameServerSessionId,
+				playerSessionId: param.playerSessionId
+		}, getMetadata(), function (err, response) {
+				console.log('AcceptPlayerSession.response:', err, response);
+				if (callback != null) {
+						callback(w, response);
+				}
+		});
 }
 ```
  6. 游戏结束或者玩家退出后，Game Server 调用 RemovePlayerSession 接口移除玩家，将 playersession 状态更改为“已完成” ，并预留游戏服务器会话中的玩家位置。
 ```
 function RemovePlayerSession(param, w, callback) {
-    console.log("RemovePlayerSession.request", param);
-    getGseGrpcSdkServiceClient().RemovePlayerSession({
-        gameServerSessionId: gameServerSession.gameServerSessionId,
-        playerSessionId: param.playerSessionId
-    }, getMetadata(), function (err, response) {
-        console.log('RemovePlayerSession.response:', err, response);
-        if (callback != null) {
-            callback(w, response);
-        }
-    });
+		console.log("RemovePlayerSession.request", param);
+		getGseGrpcSdkServiceClient().RemovePlayerSession({
+				gameServerSessionId: gameServerSession.gameServerSessionId,
+				playerSessionId: param.playerSessionId
+		}, getMetadata(), function (err, response) {
+				console.log('RemovePlayerSession.response:', err, response);
+				if (callback != null) {
+						callback(w, response);
+				}
+		});
 }
 ```
  7. 当一个游戏服务器会话（一组游戏对局或一个服务）结束后，Game Server 调用 TerminateGameServerSession 接口结束 GameServerSession，将 GameServerSession 状态更改为“已终止”。
 ```
 function TerminateGameServerSession(param, w, callback) {
-    console.log("TerminateGameServerSession.request", param);
-    getGseGrpcSdkServiceClient().TerminateGameServerSession({
-        gameServerSessionId: gameServerSession.gameServerSessionId
-    }, getMetadata(), function (err, response) {
-        console.log('TerminateGameServerSession.response:', response);
-        if (callback != null) {
-            callback(w, response);
-        }
-    });
+		console.log("TerminateGameServerSession.request", param);
+		getGseGrpcSdkServiceClient().TerminateGameServerSession({
+				gameServerSessionId: gameServerSession.gameServerSessionId
+		}, getMetadata(), function (err, response) {
+				console.log('TerminateGameServerSession.response:', response);
+				if (callback != null) {
+						callback(w, response);
+				}
+		});
 }
 ```
  8. 当健康检查失败或缩容时，GSE 调用 OnProcessTerminate 接口结束游戏进程，缩容时依据是您在 GSE 控制台配置的 [保护策略](https://cloud.tencent.com/document/product/1165/41028#test12)。
 ```
 function OnProcessTerminate(call, callback) {
-    console.log("OnProcessTerminate.request", call.request);
-    callback(null, {});
+		console.log("OnProcessTerminate.request", call.request);
+		callback(null, {});
 }
 ```
  9. Game Server 调用 ProcessEnding 接口会立刻结束进程，将服务器进程状态更改为“已终止”，并回收资源。
@@ -154,62 +154,62 @@ function OnProcessTerminate(call, callback) {
 //主动调用：一局游戏对应一个进程，当一局游戏结束后主动调用ProcessEnding接口
 //被动调用：当缩容或进程异常健康检查失败时，根据保护策略被动调用ProcessEnding接口，配置完全保护和时限保护策略时需要先判断游戏服务器会话上有无玩家，再被动调用
 function ProcessEnding(param, callback) {
-    console.log("ProcessEnding.request", param);
-    getGseGrpcSdkServiceClient().ProcessEnding({}, getMetadata(), function (err, response) {
-        console.log('ProcessEnding.response:', response);
-        if (callback != null) {
-            callback(response);
-        }
-    });
+		console.log("ProcessEnding.request", param);
+		getGseGrpcSdkServiceClient().ProcessEnding({}, getMetadata(), function (err, response) {
+				console.log('ProcessEnding.response:', response);
+				if (callback != null) {
+						callback(response);
+				}
+		});
 }
 ```
  10. Game Server 调用 DescribePlayerSessions 接口获取游戏服务器会话下的玩家信息（根据业务可选）。
 ```
 function DescribePlayerSessions(param, w, callback) {
-    console.log("DescribePlayerSessions.request", param);
-    getGseGrpcSdkServiceClient().DescribePlayerSessions({
-        gameServerSessionId: gameServerSession.gameServerSessionId,
-        playerSessionId: param.playerSessionId,
-        playerId: param.playerId,
-        playerSessionStatusFilter: param.playerSessionStatusFilter,
-        nextToken: param.nextToken,
-        limit: param.limit
-    }, getMetadata(), function (err, response) {
-        console.log('DescribePlayerSessions.response:', err, response);
-        if (callback != null) {
-            callback(w, response);
-        }
-    });
+		console.log("DescribePlayerSessions.request", param);
+		getGseGrpcSdkServiceClient().DescribePlayerSessions({
+				gameServerSessionId: gameServerSession.gameServerSessionId,
+				playerSessionId: param.playerSessionId,
+				playerId: param.playerId,
+				playerSessionStatusFilter: param.playerSessionStatusFilter,
+				nextToken: param.nextToken,
+				limit: param.limit
+		}, getMetadata(), function (err, response) {
+				console.log('DescribePlayerSessions.response:', err, response);
+				if (callback != null) {
+						callback(w, response);
+				}
+		});
 }
 ```
  11. Game Server 调用 UpdatePlayerSessionCreationPolicy 接口更新玩家会话的创建策略，设置是否接受新玩家，即游戏会话里是否允许加入人（根据业务可选）。
 ```
 function UpdatePlayerSessionCreationPolicy(param, w, callback) {
-    console.log("UpdatePlayerSessionCreationPolicy.request", param);
-    getGseGrpcSdkServiceClient().UpdatePlayerSessionCreationPolicy({
-        gameServerSessionId: gameServerSession.gameServerSessionId,
-        newPlayerSessionCreationPolicy: param.newPlayerSessionCreationPolicy
-    }, getMetadata(), function (err, response) {
-        console.log('UpdatePlayerSessionCreationPolicy.response:', err, response);
-        if (callback != null) {
-            callback(w, response);
-        }
-    });
+		console.log("UpdatePlayerSessionCreationPolicy.request", param);
+		getGseGrpcSdkServiceClient().UpdatePlayerSessionCreationPolicy({
+				gameServerSessionId: gameServerSession.gameServerSessionId,
+				newPlayerSessionCreationPolicy: param.newPlayerSessionCreationPolicy
+		}, getMetadata(), function (err, response) {
+				console.log('UpdatePlayerSessionCreationPolicy.response:', err, response);
+				if (callback != null) {
+						callback(w, response);
+				}
+		});
 }
 ```
  12. Game Server 调用 ReportCustomData 接口告知 GSE 的自定义数据（根据业务可选）。
 ```
 function ReportCustomData(param, w, callback) {
-    console.log("ReportCustomData.request", param);
-    getGseGrpcSdkServiceClient().ReportCustomData({
-        currentCustomCount: Number(param.currentCustomCount),
-        maxCustomCount: Number(param.maxCustomCount)
-    }, getMetadata(), function (err, response) {
-        console.log('ReportCustomData.response:', response);
-        if (callback != null) {
-            callback(w, response);
-        }
-    });
+		console.log("ReportCustomData.request", param);
+		getGseGrpcSdkServiceClient().ReportCustomData({
+				currentCustomCount: Number(param.currentCustomCount),
+				maxCustomCount: Number(param.maxCustomCount)
+		}, getMetadata(), function (err, response) {
+				console.log('ReportCustomData.response:', response);
+				if (callback != null) {
+						callback(w, response);
+				}
+		});
 }
 ```
 
