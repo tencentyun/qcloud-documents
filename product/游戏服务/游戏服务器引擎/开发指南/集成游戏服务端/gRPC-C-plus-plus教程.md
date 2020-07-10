@@ -58,7 +58,7 @@ protoc --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` *.proto```
 
 #### 其他
 
- 请求 meta，在游戏进程通过 gRPC 调用 GSE 相关接口时，需要在 gRPC 请求的 meta 里添加两个字段。
+ 请求 meta，在游戏进程通过 gRPC 调用客户端接口时，需要在 gRPC 请求的 meta 里添加两个字段。
 
 | 字段      | 含义                                      | 类型   |
 | --------- | ----------------------------------------- | ------ |
@@ -180,8 +180,8 @@ Status GameServerGrpcSdkServiceImpl::OnProcessTerminate(ServerContext* context, 
         auto terminationTime = request->terminationtime();
         GGseManager->SetTerminationTime(terminationTime);
 
-        //调以下两个接口，会立即结束游戏服务器会话，建议无玩家或无游戏服务器会话后，再调用processEnding结束进程
-        //不调用以下两个接口，根据保护策略调用processEnding结束进程，建议配置时限保护
+        //调以下两个接口，会立即结束游戏服务器会话，建议无玩家或无游戏服务器会话后，再调用ProcessEnding结束进程
+        //不调用以下两个接口，根据保护策略调用ProcessEnding结束进程，建议配置时限保护
        
         //结束游戏服务器会话
         GseResponse terminateGameServerSessionReply;
