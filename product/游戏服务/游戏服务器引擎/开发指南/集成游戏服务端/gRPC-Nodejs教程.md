@@ -143,7 +143,7 @@ function TerminateGameServerSession(param, w, callback) {
     });
 }
 ```
- 8. 当健康检查失败或缩容时，GSE 调用 OnProcessTerminate 接口结束游戏进程，缩容时依据是您在 GSE 控制台配置的[保护策略](https://cloud.tencent.com/document/product/1165/41028#网络)。
+ 8. 当健康检查失败或缩容时，GSE 调用 OnProcessTerminate 接口结束游戏进程，缩容时依据是您在 GSE 控制台配置的 [保护策略](https://cloud.tencent.com/document/product/1165/41028#test12)。
 ```
 function OnProcessTerminate(call, callback) {
     console.log("OnProcessTerminate.request", call.request);
@@ -264,7 +264,7 @@ Nodejs版本使用 grpc/proto-loader 直接加载pb文件，不需要生成gRPC-
   - 连接服务端。
 创建一个 gRPC 频道，指定我们要连接的主机名和服务器端口，然后用这个频道创建存根实例。
  5. 编译运行
-  - 安装nodejs，版本不低于v12.16.0。
+  1.  安装nodejs，版本不低于v12.16.0。
   - 安装grpc包
  ```
 cnpm install --save grpc-tools
