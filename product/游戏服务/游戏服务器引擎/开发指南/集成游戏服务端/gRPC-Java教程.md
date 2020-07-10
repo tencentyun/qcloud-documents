@@ -352,8 +352,8 @@ public GseResponseBo reportCustomData(ReportCustomDataRequestBo request) {
         grpcServiceConfig.setGameServerUploadLogPath(gameServerUploadLogPath);
         GrpcService grpcService = new GrpcService(grpcServiceConfig);
         return grpcService;
-}
- ```
+	}
+```
 
 ## 客户端连接 GSE 的 gRPC 服务端
 连接服务端：创建一个 gRPC 频道，指定我们要连接的主机名和服务器端口，然后用这个频道创建存根实例。
