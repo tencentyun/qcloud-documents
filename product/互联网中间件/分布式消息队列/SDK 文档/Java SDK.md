@@ -4,12 +4,13 @@ TDMQ 提供了 Java 语言的 SDK 来调用服务，进行消息队列的生产�
 
 ## 前提条件
 - 已完成 Java SDK 的下载和安装（参考 [Java SDK 下载方式](https://cloud.tencent.com/document/product/1179/44914)）。
-- 已获取调用地址（URL）和路由ID（NetModel），这两个参数均可以在【环境管理】的接入点列表中获取，路由ID即```netModel```，地址即```URL```。请根据客户端部署的云服务器或其他资源所在的私有网络选择正确的接入点来复制参数信息，否则会有无法连接的问题。![](https://main.qcloudimg.com/raw/4edd20db5dabb96bbc42df441a5bebdf.png)
-- 已在API密钥管理页面获取 SecretID 和 SecretKey。
+- 已获取调用地址（URL）和路由 ID（NetModel）。
+这两个参数均可以在【[环境管理](https://console.cloud.tencent.com/tdmq/env)】的接入点列表中获取，路由 ID 即`netModel`，地址即`URL`。请根据客户端部署的云服务器或其他资源所在的私有网络选择正确的接入点来复制参数信息，否则会有无法连接的问题。![](https://main.qcloudimg.com/raw/4edd20db5dabb96bbc42df441a5bebdf.png)
+- 已在 API 密钥管理页面获取 SecretID 和 SecretKey。
   - SecretID 用于标识 API 调用者的身份。
   - SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥，SecretKey 需妥善保管，避免泄露。
 
-
+## 操作步骤
 ### 创建 Client
 
 ```java
@@ -26,7 +27,7 @@ TDMQ 提供了 Java 语言的 SDK 来调用服务，进行消息队列的生产�
 	   .build();
  ```
  
-关于其中authParam参数的详细说明，请参考[认证字段说明](#cam)。
+关于其中 authParam 参数的详细说明，请参考 [认证字段说明](#cam)。
 
 ### 生产消息
 创建好 Client 之后，通过创建一个 Producer，就可以生产消息到指定的 Topic 中。
@@ -35,7 +36,7 @@ TDMQ 提供了 Java 语言的 SDK 来调用服务，进行消息队列的生产�
 Producer<byte[]> producer = client.newProducer().topic("persistent://1300****30/default/mytopic").create();
 producer.send("My message".getBytes());
 ```
-> 注意：Topic名称需要填入完整路径，即“persistent://appid/environment/Topic”，appid/environment/topic的部分可以从控制台上【Topic管理】页面直接复制。![](https://main.qcloudimg.com/raw/5a1fe96ea23b1d4906b7067a3abfd7b5.png)
+Topic 名称需要填入完整路径，即“persistent://appid/environment/Topic”，appid/environment/topic 的部分可以从控制台上【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。![](https://main.qcloudimg.com/raw/5a1fe96ea23b1d4906b7067a3abfd7b5.png)
 
 这种生产方式是阻塞的方式生产消息到指定的 Topic 中，我们还可以使用异步发送的方式生产消息。
 ```java
@@ -196,7 +197,7 @@ Consumer allTopicsConsumer = consumerBuilder
         .topicsPattern(someTopicsInNamespace)
         .subscribe();
 ```
-> 注意：这种方式只支持匹配同一个环境（Namespace）下的 Topic，Namespace不能做正则匹配
+>!这种方式只支持匹配同一个环境（Namespace）下的 Topic，Namespace不能做正则匹配。
 
 #### Reader
 通过 Reader 的订阅模式，可以从指定的消息开始读取消息。
@@ -226,17 +227,16 @@ client.close();
 ```
 
 <span id="cam"></span>
-
 ### 认证信息字段说明
 
-Client进行消息生产或消费时，访问 TDMQ 时会经过 CAM 认证，所以需要在创建 Client 的时候配置 ```AuthCloud``` 参数，```AuthCloud``` 参数由一个map映射```authParam```组成，关于```authParam```参数的字段说明见下表
+Client 进行消息生产或消费时，访问 TDMQ 时会经过 CAM 认证，所以需要在创建 Client 的时候配置`AuthCloud`参数，`AuthCloud`参数由一个 Map 映射`authParam`组成，关于`authParam`参数的字段说明见下表：
 
 | 字段      | 说明                                                         |
 | --------- | ------------------------------------------------------------ |
-| secretId  | 在 [云API密钥](https://console.cloud.tencent.com/capi) 上申请的标识身份的 SecretId，一个 SecretId 对应唯一的 SecretKey ，而 SecretKey 会用来生成请求签名 Signature。 |
-| secretKey | 在 [云API密钥](https://console.cloud.tencent.com/capi) 上由 SecretId生成的一串密钥，一个 SecretId 对应唯一的 SecretKey ，而 SecretKey 会用来生成请求签名 Signature。 |
+| secretId  | 在 [云 API 密钥](https://console.cloud.tencent.com/capi) 上申请的标识身份的 SecretId，一个 SecretId 对应唯一的 SecretKey ，而 SecretKey 会用来生成请求签名 Signature。 |
+| secretKey | 在 [云 API 密钥](https://console.cloud.tencent.com/capi) 上由 SecretId 生成的一串密钥，一个 SecretId 对应唯一的 SecretKey ，而 SecretKey 会用来生成请求签名 Signature。 |
 | region    | 字符串                                                       |
-| ownerUin  | 主账号的账号ID                                               |
-| uin       | 当前账号的账号ID                                             |
+| ownerUin  | 主账号的账号 ID                                               |
+| uin       | 当前账号的账号 ID                                             |
 
 
