@@ -6,10 +6,10 @@
 ```sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm```
  - 安装 .NET Core SDK
  ```sudo yum install dotnet-sdk-3.1```
-2. 除此之外，您还可以以下运行环境 /IDE 中使用 gRPC C＃：
+2. 除此之外，您还可以以下运行环境 /IDE 中使用 gRPC C#：
  - Windows：.NET Framework 4.5以上版本，Visual Studio 2013或更高版本，Visual Studio Code。
- - Linux：Mono 4 +，Visual Studio Code。
- - Mac OS X：Mono 4 +，Visual Studio Code，Visual Studio for Mac。
+ - Linux：Mono 4+，Visual Studio Code。
+ - Mac OS X：Mono4 +，Visual Studio Code，Visual Studio for Mac。
 
  >?具体流程请您参考 [安装 gRPC C# 操作步骤](https://github.com/grpc/grpc/blob/v1.30.0/src/csharp/README.md#prerequisites)。
 
