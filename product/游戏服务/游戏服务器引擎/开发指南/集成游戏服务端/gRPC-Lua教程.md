@@ -14,9 +14,13 @@
 2. 生成的代码包括客户端的存根和服务端要实现的抽象接口。
 3. 生成 gRPC 代码步骤：
     Lua DEMO 依赖 C++ 框架，步骤同 C++ DEMO 一样，在 proto 目录下执行：
-     - ```protoc --cpp_out=. *.proto``` 生成 pb.cc 和 pb.h 文件。
-     - ```protoc --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` *.proto```生成对应的 gRPC 代码。
-     - 将生成的8个文件移到项目合适的位置。    
+ ```
+ protoc --cpp_out=. *.proto``` 
+ 生成 pb.cc 和 pb.h 文件。
+```
+protoc --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` *.proto```
+生成对应的 gRPC 代码。
+将生成的8个文件移到项目合适的位置。    
 
 ## 游戏进程集成流程
 ![](https://main.qcloudimg.com/raw/629791cc5d23c89fbbec6ee19d725340.png)
