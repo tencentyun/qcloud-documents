@@ -1,7 +1,7 @@
 ## 简介
 本文档提供关于获取对象请求预签名 URL 的示例代码。
 
-## API 参考
+## SDK API 参考
 
 SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](https://cos-android-sdk-doc-1253960454.file.myqcloud.com/)。
 
@@ -12,15 +12,17 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](http
 [//]: # (.cssg-snippet-get-presign-upload-url)
 ```java
 try {
-
     String bucket = "examplebucket-1250000000"; //存储桶名称
     String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。
     String method = "PUT"; //请求 HTTP 方法
-    PresignedUrlRequest presignedUrlRequest = new PresignedUrlRequest(bucket, cosPath) {
+    PresignedUrlRequest presignedUrlRequest = new PresignedUrlRequest(bucket
+            , cosPath) {
         @Override
-        public RequestBodySerializer getRequestBody() throws CosXmlClientException {
+        public RequestBodySerializer getRequestBody()
+                throws CosXmlClientException {
             //用于计算 put 等需要带上 body 的请求的签名 URL
-            return RequestBodySerializer.string("text/plain", "this is test");
+            return RequestBodySerializer.string("text/plain",
+                    "this is test");
         }
     };
     presignedUrlRequest.setRequestMethod(method);
@@ -41,7 +43,8 @@ try {
     String bucket = "examplebucket-1250000000"; //存储桶名称
     String cosPath = "exampleobject"; //即对象在存储桶中的位置标识符。
     String method = "GET"; //请求 HTTP 方法.
-    PresignedUrlRequest presignedUrlRequest = new PresignedUrlRequest(bucket, cosPath);
+    PresignedUrlRequest presignedUrlRequest = new PresignedUrlRequest(bucket
+            , cosPath);
     presignedUrlRequest.setRequestMethod(method);
 
     String urlWithSign = cosXmlService.getPresignedURL(presignedUrlRequest);
