@@ -5,9 +5,9 @@
 
 SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](https://cos-android-sdk-doc-1253960454.file.myqcloud.com/)。
 
-## 获取预签名 URL 请求示例
+## 获取预签名 URL
 
-#### 获取预签名上传 URL 请求示例
+#### 示例代码一：获取预签名上传 URL
 
 [//]: # (.cssg-snippet-get-presign-upload-url)
 ```java
@@ -33,7 +33,7 @@ try {
 
 >?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/qcloud-sdk-android/tree/master/Demo/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/ObjectPresignUrl.java) 查看。
 
-#### 获取预签名下载 URL 请求示例
+#### 示例代码二：获取预签名下载 URL
 
 [//]: # (.cssg-snippet-get-presign-download-url)
 ```java
