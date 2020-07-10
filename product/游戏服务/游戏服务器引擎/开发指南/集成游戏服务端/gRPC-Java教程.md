@@ -2,7 +2,7 @@
 
 ## 安装gRPC
 1. Java gRPC 除了 JDK 外不需要其他工具。
-2. 在本地安装 gRPC Java 库 SNAPSHOT，包括代码生成插件
+2. 在本地安装 gRPC Java 库 SNAPSHOT，包括代码生成插件。
 >?具体安装流程请您参考 [安装 gRPC Java的说明](https://github.com/grpc/grpc-java/blob/master/COMPILING.md)。
 ## 定义服务
 gRPC 通过 protocol buffers 实现定义一个服务：一个 RPC 服务通过参数和返回类型来指定可以远程调用的方法。
