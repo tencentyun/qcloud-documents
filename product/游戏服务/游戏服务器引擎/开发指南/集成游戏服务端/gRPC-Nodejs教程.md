@@ -264,8 +264,8 @@ Nodejs版本使用 grpc/proto-loader 直接加载pb文件，不需要生成gRPC-
   - 连接服务端。
 创建一个 gRPC 频道，指定我们要连接的主机名和服务器端口，然后用这个频道创建存根实例。
  5. 编译运行
-  1.  安装nodejs，版本不低于v12.16.0。
-  - 安装grpc包
+  1.  安装 nodejs，版本不低于v12.16.0。
+  - 安装 grpc 包。
  ```
 cnpm install --save grpc-tools
 cnpm install --save google-protobuf 
