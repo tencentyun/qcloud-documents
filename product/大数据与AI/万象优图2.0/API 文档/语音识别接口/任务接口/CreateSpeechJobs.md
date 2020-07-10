@@ -6,7 +6,7 @@ CreateSpeechJobs 接口用于提交一个语音识别任务。
 
 #### 请求示例
 
-```shell
+```plaintext
 POST /asr_jobs HTTP/1.1
 Host: <BucketName-APPID>.ci.<Region>.myqcloud.com
 Date: <GMT Date>
@@ -17,7 +17,7 @@ Content-Type: application/xml
 <body>
 ```
 
-> ?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> ?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求头
 
@@ -27,7 +27,7 @@ Content-Type: application/xml
 
 该请求操作的实现需要有如下请求体。
 
-```shell
+```plaintext
 <Request>
   <Tag>SpeechRecognition</Tag>
   <Input>
@@ -135,12 +135,12 @@ Container 类型 SpeechRecognition 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                      | 描述                                      | 类型      | 是否必选 |
 | ------------------ | :-------------------------- | ----------------------------------------- | --------- | -------- |
-| EngineModelType    | Request.Operation.SpeechRecognition | 引擎模型类型。<br>电话场景： <br>• 8k_zh：电话 8k 中文普通话通用（可用于双声道音频）； <br> • 8k_zh_s：电话 8k 中文普通话话者分离（仅适用于单声道音频）；<br> 非电话场景： <br> • 16k_zh：16k 中文普通话通用；<br> • 16k_zh_video：16k 音视频领域；<br> • 16k_en：16k 英语；<br> • 16k_ca：16k 粤语；   | String | 是       |
-| ChannelNum         | Request.Operation.SpeechRecognition | 语音声道数。1：单声道；2：双声道（仅支持 8k_zh 引擎模型）。        | Integer | 是       |
-| ResTextFormat       | Request.Operation.SpeechRecognition | 识别结果返回形式。0： 识别结果文本(含分段时间戳)； 1：仅支持16k中文引擎，含识别结果详情(词时间戳列表，一般用于生成字幕场景)。 | Integer | 是       |
-| FilterDirty       | Request.Operation.SpeechRecognition | 是否过滤脏词（目前支持中文普通话引擎）。0：不过滤脏词；1：过滤脏词；2：将脏词替换为 * 。默认值为 0。 | Integer | 否       |
-| FilterModal       | Request.Operation.SpeechRecognition | 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0。 | Integer | 否       |
-| ConvertNumMode       | Request.Operation.SpeechRecognition | 是否进行阿拉伯数字智能转换（目前支持中文普通话引擎）。0：不转换，直接输出中文数字，1：根据场景智能转换为阿拉伯数字。默认值为 1。| Integer | 否       |
+| EngineModelType    | Request.Operation.Speech<br>Recognition | 引擎模型类型。<br>电话场景： <br>• 8k_zh：电话 8k 中文普通话通用（可用于双声道音频）； <br> • 8k_zh_s：电话 8k 中文普通话话者分离（仅适用于单声道音频）；<br> 非电话场景： <br> • 16k_zh：16k 中文普通话通用；<br> • 16k_zh_video：16k 音视频领域；<br> • 16k_en：16k 英语；<br> • 16k_ca：16k 粤语。   | String | 是       |
+| ChannelNum         | Request.Operation.Speech<br>Recognition | 语音声道数。1：单声道；2：双声道（仅支持 8k_zh 引擎模型）。        | Integer | 是       |
+| ResTextFormat       | Request.Operation.Speech<br>Recognition | 识别结果返回形式。0： 识别结果文本(含分段时间戳)； 1：仅支持16k中文引擎，含识别结果详情(词时间戳列表，一般用于生成字幕场景)。 | Integer | 是       |
+| FilterDirty       | Request.Operation.Speech<br>Recognition | 是否过滤脏词（目前支持中文普通话引擎）。0：不过滤脏词；1：过滤脏词；2：将脏词替换为 * 。默认值为0。 | Integer | 否       |
+| FilterModal       | Request.Operation.Speech<br>Recognition | 是否过语气词（目前支持中文普通话引擎）。0：不过滤语气词；1：部分过滤；2：严格过滤 。默认值为 0。 | Integer | 否       |
+| ConvertNumMode       | Request.Operation.Speech<br>Recognition | 是否进行阿拉伯数字智能转换（目前支持中文普通话引擎）。0：不转换，直接输出中文数字，1：根据场景智能转换为阿拉伯数字。默认值为1。| Integer | 否       |
 
 Container 类型 Output 的具体数据描述如下：
 
@@ -162,7 +162,7 @@ Container 类型 Output 的具体数据描述如下：
 
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-```shell
+```plaintext
 <Response>
   <JobsDetail>
     <Code></Code>
