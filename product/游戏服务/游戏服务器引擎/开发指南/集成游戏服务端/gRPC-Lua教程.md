@@ -139,7 +139,7 @@ static bool luaTerminateGameServerSession(const std::string &gameServerSessionId
     return true;
 }
 ```
- 8. 当健康检查失败或缩容时，GSE 调用 OnProcessTerminate 接口结束游戏进程，缩容时依据是您在 GSE 控制台配置的 [保护策略](https://cloud.tencent.com/document/product/1165/41028#网络)。
+ 8. 当健康检查失败或缩容时，GSE 调用 OnProcessTerminate 接口结束游戏进程，缩容时依据是您在 GSE 控制台配置的 [保护策略](https://cloud.tencent.com/document/product/1165/41028#test12)。
 ```
 Status GameServerGrpcSdkServiceImpl::OnProcessTerminate(ServerContext* context, const ProcessTerminateRequest* request,  GseResponse* reply)
 {
@@ -243,7 +243,7 @@ Lua DEMO 依赖 C++ 框架，已生成的 gRPC 代码在 cpp-demo/source/grpcsdk
   - 连接服务端。
 创建一个 gRPC 频道，指定我们要连接的主机名和服务器端口，然后用这个频道创建存根实例。
  5. 编译运行。
-  - 安装 cmake。
+  1. 安装 cmake。
   - 安装 gcc，版本要求4.9以上。
   - 安装 luajit 开发包和 boost 开发包：
  ```
