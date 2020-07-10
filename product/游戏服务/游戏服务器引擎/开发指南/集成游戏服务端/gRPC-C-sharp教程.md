@@ -242,7 +242,7 @@ public class Program
                 {
                     webBuilder.ConfigureKestrel(options =>
                     {
-                         // gRPC 端口（设置不带TLS证书的 HTTP/2 端点。）
+                         // gRPC 端口（设置不带TLS证书的 HTTP/2 端点）
                         options.ListenAnyIP(GrpcPort, o => o.Protocols = 
                             HttpProtocols.Http2);
 
