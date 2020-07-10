@@ -352,7 +352,7 @@ public GseResponseBo reportCustomData(ReportCustomDataRequestBo request) {
         grpcServiceConfig.setGameServerUploadLogPath(gameServerUploadLogPath);
         GrpcService grpcService = new GrpcService(grpcServiceConfig);
         return grpcService;
-	}
+}
 ```
 
 ## 客户端连接 GSE 的 gRPC 服务端
