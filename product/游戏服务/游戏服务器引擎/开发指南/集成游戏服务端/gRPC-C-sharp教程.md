@@ -1,6 +1,6 @@
 
 
-## 安装gRPC
+## 安装 gRPC
 1. 使用 gRPC C# 时，需要先安装 .Net Core 3.1 SDK。以 CentOS 操作系统为例，版本不得低于 CentOS 7 或 CentOS 8。
   - 添加签名密钥
 ```sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm```
