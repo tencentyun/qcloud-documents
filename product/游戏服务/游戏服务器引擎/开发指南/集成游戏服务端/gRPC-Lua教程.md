@@ -163,13 +163,13 @@ Status GameServerGrpcSdkServiceImpl::OnProcessTerminate(ServerContext* context, 
 //主动调用：一局游戏对应一个进程，当一局游戏结束后主动调用ProcessEnding接口
 //被动调用：当缩容或进程异常健康检查失败时，根据保护策略被动调用ProcessEnding接口，配置完全保护和时限保护策略时需要先判断游戏服务器会话上有无玩家，再被动调用
 static bool luaProcessEnding() {
-			GseResponse reply;
-			Status status = GGseManager->ProcessEnding(reply);
-			GSESDK()->setReplyStatus(status);
-			if (!status.ok()) {
-					return false;
-			}
-			return true;
+		GseResponse reply;
+		Status status = GGseManager->ProcessEnding(reply);
+		GSESDK()->setReplyStatus(status);
+		if (!status.ok()) {
+				return false;
+		}
+		return true;
 }
 ```
  10. Game Server 调用 DescribePlayerSessions 接口获取游戏服务器会话下的玩家信息（根据业务可选）。
