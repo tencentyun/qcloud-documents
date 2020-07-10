@@ -1,5 +1,4 @@
 ## 操作场景
-
 TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和消费。
 
 本文主要介绍 Go SDK 的使用方式，提供 Demo 工程的环境配置、下载、代码编写及运行示例，帮助工程师快速搭建 TDMQ 测试工程。
@@ -7,10 +6,10 @@ TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和
 ## 前提条件
 
 - 已经在本地安装 Golang 开发环境（[下载地址](https://studygolang.com/dl)）。
-- 已经准备好 Go 1.11+ 的部署环境（云服务器或其他云资源），且该环境所在的VPC已接入TDMQ（参考【VPC接入指南】）
-- 已获取调用地址（URL）和路由ID（NetModel），这两个参数均可以在[【环境管理】](https://console.cloud.tencent.com/tdmq/env?rid=1)的接入点列表中获取，路由ID即```netModel```，地址即```URL```。请根据客户端部署的云服务器或其他资源所在的私有网络选择正确的接入点来复制参数信息，否则会有无法连接的问题。![](https://main.qcloudimg.com/raw/4edd20db5dabb96bbc42df441a5bebdf.png)
-
-- 已在[API密钥管理](https://console.cloud.tencent.com/capi)页面获取 SecretID 和 SecretKey。
+- 已经准备好 Go 1.11+ 的部署环境（云服务器或其他云资源），且该环境所在的 VPC 已接入TDMQ（参考 [VPC 接入指南](https://cloud.tencent.com/document/product/1179/46240)）。
+- 已获取调用地址（URL）和路由 ID（NetModel）。
+这两个参数均可以在【[环境管理](https://console.cloud.tencent.com/tdmq/env?rid=1)】的接入点列表中获取。请根据客户端部署的云服务器或其他资源所在的私有网络选择正确的接入点来复制参数信息，否则会有无法连接的问题。![](https://main.qcloudimg.com/raw/4edd20db5dabb96bbc42df441a5bebdf.png)
+- 已在 [API 密钥管理](https://console.cloud.tencent.com/capi) 页面获取 SecretID 和 SecretKey。
   - SecretID 用于标识 API 调用者的身份。
   - SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥，**SecretKey 需妥善保管，避免泄露**。
 
@@ -19,20 +18,20 @@ TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和
 ### 准备 Demo 环境
 
 1. 安装 IDE
-   您可以 [安装 GoLand](https://www.jetbrains.com/zh-cn/go/promo) 或其它的 Go IDE 来运行这个 Demo，直接通过go run来执行也是可以的。
+   您可以 [安装 GoLand](https://www.jetbrains.com/zh-cn/go/promo) 或其它的 Go IDE 运行这个 Demo，直接通过`go run`执行也可以。
 
 2. 配置 GCC 环境
    因为现在的 SDK 依赖了 CGO 的库，所以需要本地配置64位 GCC，可以通过 [MinGW](http://mingw-w64.org/) 来安装。
 
 3. 打开命令控制台，运行以下命令：
-
 ```bash
 go get -u github.com/TencentCloud/tdmq-go-client
 ```
 
->如果国内网络环境下载比较慢，可以通过配置 [Go Proxy](https://goproxy.io/zh/) 来解决。
 
-若是处于无法连接外网的环境下，需要先行下载依赖文件[压缩包](https://github.com/TencentCloud/tdmq-go-client/releases/download/v0.1.1/download.zip)，将压缩包里的文件放在%GOPATH/pkg/mod/cache/download文件夹下即可，%GOPATH可通过如下指令获取:
+如果国内网络环境下载比较慢，可以通过配置 [Go Proxy](https://goproxy.io/zh/) 来解决。
+如果处于无法连接外网的环境下，需要先行下载依赖文件 [压缩包](https://github.com/TencentCloud/tdmq-go-client/releases/download/v0.1.1/download.zip)，将压缩包里的文件放在`%GOPATH/pkg/mod/cache/download`文件夹下即可，`%GOPATH`可通过如下指令获取：
+
 
 ```bash
 # linux
@@ -44,8 +43,7 @@ go env | findstr GOPATH
 
 ### 创建 Demo工程
 
-使用 IDE 创建一个新工程，在文件夹中创建 go.mod 文件并编辑如下：
-
+1.使用 IDE 创建一个新工程，在文件夹中创建 go.mod 文件并编辑如下：
 ```go
 module example/godemo
 
@@ -54,11 +52,11 @@ go 1.12
 require github.com/TencentCloud/tdmq-go-client v0.1.1
 ```
 
-上述v0.1.1是GO SDK的版本，注意云上资源环境中下载的依赖文件压缩包也需要是同样的版本。
+上述v0.1.1是 GO SDK 的版本，云上资源环境中下载的依赖文件压缩包也需要是同样的版本。
 
-创建 producer.go 和 consumer.go 测试 Demo 文件。
+2.创建 producer.go 和 consumer.go 测试 Demo 文件。
 
-- producer.go 代码内容如下，关于其中``authParam``参数的详细说明，请参考[认证字段说明](#cam)。
+- producer.go 代码内容如下，关于其中``authParam``参数的详细说明，请参考 [认证字段说明](#cam)。
 
 ```go
 package main
@@ -111,7 +109,8 @@ func main() {
 }
 ```
 
-> 其中Topic名称需要填入完整路径，即```persistent://appid/environment/Topic```的组合，其中```appid/environment/topic```的部分可以从控制台[【Topic管理】](https://console.cloud.tencent.com/tdmq/topic)页面直接复制。![](https://main.qcloudimg.com/raw/5a1fe96ea23b1d4906b7067a3abfd7b5.png)
+其中 Topic 名称需要填入完整路径，即`persistent://appid/environment/Topic`的组合，其中`appid/environment/topic`的部分可以从控制台【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。
+![](https://main.qcloudimg.com/raw/5a1fe96ea23b1d4906b7067a3abfd7b5.png)
 
 
 - consumer.go 的代码内容如下：
@@ -291,7 +290,6 @@ consumer.ReconsumeLaterAsync(msg, pulsar.NewReconsumeOptionsWithLevel(2), func(i
 ```
 
 <span id="cam"></span>
-
 ### 认证信息字段说明
 
 Client进行消息生产或消费时，访问 TDMQ 时会经过 CAM 认证，所以需要在创建 Client 的时候配置 ```AuthCloud``` 参数，```AuthCloud``` 参数由一个map映射```authParam```组成，关于```authParam```参数的字段说明见下表
