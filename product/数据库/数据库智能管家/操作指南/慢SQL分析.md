@@ -13,5 +13,5 @@
  - 在分析页，您可查看完整的 SQL 模板、SQL 样例以及优化建议和说明，您可根据 DBbrain 给出的专家建议优化 SQL，提升 SQL 质量，降低延迟。
 ![](https://main.qcloudimg.com/raw/aeefc3396bcdfbdd548ea909b1fbabd8.png)
  - 在统计页，您可根据统计报表的总锁等待时间占比、总扫描行数占比、总返回行数占比，横向分析该条慢 SQL 产生的具体原因，以及进行对应优化，同时您还可以查看该类型的 SQL（聚合后汇总的）运行的时间分布区间，以及来源 IP 的访问占比。
-![](https://main.qcloudimg.com/raw/88fec4ca834a6853838b58544d0089a8.png)
+![](https://main.qcloudimg.com/raw/14c648980260c952c4af8e370a41860a.png)
 
