@@ -166,9 +166,9 @@ func main() {
 
 ### 测试验证
 
-您需要先将demo代码打包上传到云服务器上，且确认该云服务器所在的私有网络VPC和TDMQ中配置的接入点吻合。
+您需要先将 Demo 代码打包上传到云服务器上，且确认该云服务器所在的私有网络 VPC 和 TDMQ 中配置的接入点吻合。
 
-接下来进入 demo 测试，先执行go run指令启动 consumer.go，命令如下：
+接下来进入 Demo 测试，先执行`go run`指令启动`consumer.go`，命令如下：
 
 ```bash
 go run consumer.go
@@ -292,13 +292,13 @@ consumer.ReconsumeLaterAsync(msg, pulsar.NewReconsumeOptionsWithLevel(2), func(i
 <span id="cam"></span>
 ### 认证信息字段说明
 
-Client进行消息生产或消费时，访问 TDMQ 时会经过 CAM 认证，所以需要在创建 Client 的时候配置 ```AuthCloud``` 参数，```AuthCloud``` 参数由一个map映射```authParam```组成，关于```authParam```参数的字段说明见下表
+Client 进行消息生产或消费时，访问 TDMQ 时会经过 [CAM 认证](https://cloud.tencent.com/document/product/1179/45125)，所以需要在创建 Client 的时候配置 `AuthCloud`参数，`AuthCloud`参数由一个map映射`authParam`组成，关于`authParam`参数的字段说明见下表
 
 | 字段      | 说明                                                         |
 | --------- | ------------------------------------------------------------ |
 | secretId  | 在 [云API密钥](https://console.cloud.tencent.com/capi) 上申请的标识身份的 SecretId，一个 SecretId 对应唯一的 SecretKey ，而 SecretKey 会用来生成请求签名 Signature。 |
 | secretKey | 在 [云API密钥](https://console.cloud.tencent.com/capi) 上由 SecretId生成的一串密钥，一个 SecretId 对应唯一的 SecretKey ，而 SecretKey 会用来生成请求签名 Signature。 |
 | region    | 字符串                                                       |
-| ownerUin  | 主账号的账号ID                                               |
-| uin       | 当前账号的账号ID                                             |
+| ownerUin  | 主账号的账号 ID                                               |
+| uin       | 当前账号的账号 ID                                             |
 
