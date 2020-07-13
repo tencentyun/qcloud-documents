@@ -10,7 +10,7 @@
 
 - 请在上海地域执行例子中的代码
 - 推荐使用 kernel: conda_tensorflow_py3
-- 用户需在notebook中同级目录下创建一个名为 code 的文件夹，然后将下载好的 [main.py](https://common-datasets-1259675134.cos.ap-guangzhou.myqcloud.com/kobe_predict/main.py) 文件上传到 code 文件夹中。
+- 用户需在 Notebook 中同级目录下创建一个名为 code 的文件夹，然后将下载好的 [main.py](https://common-datasets-1259675134.cos.ap-guangzhou.myqcloud.com/kobe_predict/main.py) 文件上传到 code 文件夹中。
 
 ### 步骤2：引入依赖
 
