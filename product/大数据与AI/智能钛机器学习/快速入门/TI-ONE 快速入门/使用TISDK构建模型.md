@@ -6,7 +6,7 @@
 ## 操作步骤
 
 ### 步骤1：数据说明
-本案例训练数据已经存放在上海地域的 COS 中 [单击查看](https://tesla-ap-shanghai-1256322946.cos.ap-shanghai.myqcloud.com/cephfs/tesla_common/deeplearning/dataset/contest/demo.zip)，您可以下载到本地或者到Notebook 中使用，在Notebook中使用须知：
+本案例训练数据已经存放在上海地域的 COS 中 [单击查看](https://tesla-ap-shanghai-1256322946.cos.ap-shanghai.myqcloud.com/cephfs/tesla_common/deeplearning/dataset/contest/demo.zip)，您可以下载到本地或者到 Notebook 中使用，在 Notebook 中使用须知：
 
 - 请在上海地域执行例子中的代码
 - 推荐使用 kernel: conda_tensorflow_py3
