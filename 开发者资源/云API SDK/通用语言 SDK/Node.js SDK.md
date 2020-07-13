@@ -15,11 +15,15 @@
 ### 通过 npm 安装（推荐）
 [npm](https://www.npmjs.com/) 是 Node.js 的包管理工具。
 
-1. 执行以下安装命令：
+1. 中国大陆地区的用户可以使用国内镜像源提高下载速度，例如：
+```
+npm config set registry https://mirrors.tencent.com/npm/
+```
+2. 执行以下安装命令：
 ```
 npm install tencentcloud-sdk-nodejs --save
 ```
-2. 在您的代码中引用对应模块代码，可参考 [示例](#example)。
+3. 在您的代码中引用对应模块代码，可参考 [示例](#example)。
 
 ### 通过源码包安装
 1. 前往 [GitHub 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-nodejs) 或者 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-nodejs/tencentcloud-sdk-nodejs.zip)，下载源码压缩包。

@@ -66,6 +66,11 @@ CDW 常见使用场景是将消息中间件的信息同步到 CDW 后再进行�
 		<td>否</td>
 		<td>CKafka 中消费的分隔符，默认为逗号，也就是 csv 格式</td>
 	</tr>
+	<tr>
+		<td>MSG_NULL</td>
+		<td>否</td>
+		<td>CKafka 中消费的 NULL 值，默认是 \N</td>
+	</tr>
 </tbody>
 </table>
 - **网络配置**

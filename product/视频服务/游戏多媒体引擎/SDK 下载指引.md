@@ -21,7 +21,7 @@
 </thead>
 <tbody><tr>
 <td>语言转文字服务</td>
-<td ><li>增加语音转文字服务边说边译功能</td> 
+<td ><li>增加语音转文字服务边说边识别功能</td> 
 </tbody></table>
 
 

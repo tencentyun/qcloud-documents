@@ -1,15 +1,17 @@
 
 
-## 安装gRPC
+## 安装 gRPC
 1. 使用 gRPC C# 时，需要先安装 .Net Core 3.1 SDK。以 CentOS 操作系统为例，版本不得低于 CentOS 7 或 CentOS 8。
   - 添加签名密钥
-```sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm```
+```
+sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-prod.rpm```
  - 安装 .NET Core SDK
- ```sudo yum install dotnet-sdk-3.1```
-2. 除此之外，您还可以以下运行环境 /IDE 中使用 gRPC C＃：
- - Windows：.NET Framework 4.5以上版本，Visual Studio 2013或更高版本，Visual Studio Code。
- - Linux：Mono 4 +，Visual Studio Code。
- - Mac OS X：Mono 4 +，Visual Studio Code，Visual Studio for Mac。
+ ```
+ sudo yum install dotnet-sdk-3.1```
+2. 除此之外，您还可以以下运行环境 /IDE 中使用 gRPC C#：
+ - Windows：.NET Framework 4.5或更高版本，Visual Studio 2013或更高版本，Visual Studio Code。
+ - Linux：Mono 4或更高版本，Visual Studio Code。
+ - Mac OS X：Mono 4或更高版本，Visual Studio Code，Visual Studio for Mac。
 
  >?具体流程请您参考 [安装 gRPC C# 操作步骤](https://github.com/grpc/grpc/blob/v1.30.0/src/csharp/README.md#prerequisites)。
 
@@ -35,7 +37,7 @@
        项目依赖于 proto/csharp-demo 文件夹中的 GameServerGrpcSdkService.proto 和 GseGrpcSdkService.proto 两个 proto 文件。
 
 ## 游戏进程集成流程
-![](https://main.qcloudimg.com/raw/8288c92187f462083fc2d0a81ff4325b.png)
+![](https://main.qcloudimg.com/raw/90eea1630afcd15f09630460b0413ece.png)
 #### 服务端接口列表
 
 | 接口名称 | 接口功能|
@@ -60,7 +62,7 @@
 
 #### 其他
 
- 请求 meta，在游戏进程通过 gRPC 调用 GSE 相关接口时，需要在 gRPC 请求的 meta 里添加两个字段。
+ 请求 meta，在游戏进程通过 gRPC 调用客户端接口时，需要在 gRPC 请求的 meta 里添加两个字段。
 
 | 字段      | 含义                                      | 类型   |
 | --------- | ----------------------------------------- | ------ |
@@ -150,17 +152,16 @@ public static GseResponse TerminateGameServerSession()
         return GrpcClient.GseClient.TerminateGameServerSession(req, meta);
 }
 ```
-8. 当健康检查失败或缩容时，GSE 调用 OnProcessTerminate 接口结束游戏进程，缩容时依据是您在 GSE 控制台配置的 [保护策略](https://cloud.tencent.com/document/product/1165/41028#网络)。
+8. 当健康检查失败或缩容时，GSE 调用 OnProcessTerminate 接口结束游戏进程，缩容时依据是您在 GSE 控制台配置的 [保护策略](https://cloud.tencent.com/document/product/1165/41028#test12)。
 ```
  public override Task<GseResponse> OnProcessTerminate(ProcessTerminateRequest request, ServerCallContext context)
 {
         logger.Println($"OnProcessTerminate, request: {request}");
         // 设置进程终止时间
         GseManager.SetTerminationTime(request.TerminationTime);
-        //调以下两个接口，会立即结束游戏服务器会话，建议无玩家或无游戏服务器会话后，再调用processEnding结束进程
-        //不调用以下两个接口，根据保护策略调用processEnding结束进程，建议配置时限保护
-```
-```       
+        //调以下两个接口，会立即结束游戏服务器会话，建议无玩家或无游戏服务器会话后，再调用ProcessEnding结束进程
+        //不调用以下两个接口，根据保护策略调用ProcessEnding结束进程，建议配置时限保护
+      
         // 终止游戏服务器会话
         GseManager.TerminateGameServerSession();
         // 进程退出
@@ -241,11 +242,11 @@ public class Program
                 {
                     webBuilder.ConfigureKestrel(options =>
                     {
-                        // gRPC Port (Setup a HTTP/2 endpoint without TLS.)
+                         // gRPC 端口（设置不带TLS证书的 HTTP/2 端点）
                         options.ListenAnyIP(GrpcPort, o => o.Protocols = 
                             HttpProtocols.Http2);
 
-                        // HTTP Port
+                        // HTTP 端口
                         options.ListenAnyIP(ClientPort);
                     });
 
@@ -293,7 +294,7 @@ C# DEMO 代码示例里已生成 gRPC 代码，在 proto/csharp-demo 目录下�
  - 连接服务端。
 创建一个 gRPC 频道，指定我们要连接的主机名和服务器端口，然后用这个频道创建存根实例。
 5. 编译运行。
- - 生成可执行文件及依赖
+ 1. 生成可执行文件及依赖
   ```
   dotnet publish -c Release -r linux-x64 --self-contained true 
   ```
