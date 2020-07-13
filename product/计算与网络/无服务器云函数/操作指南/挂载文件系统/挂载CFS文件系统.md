@@ -8,10 +8,10 @@ CFS 成本低廉，采用按量计费模式，以小时为计费周期，您只�
 - 多个函数可共用一个文件系统，实现文件共享。
 
 ## 前提条件
-如需使用 CFS 功能，请参考 [自定义策略](https://cloud.tencent.com/document/product/598/37739) 为 SCF_QcsRole、QcloudSCFReadOnlyAccess 及 QcloudSCFFullAccess 添加以下权限：
+如需使用 CFS 功能，请参考 [自定义策略](https://cloud.tencent.com/document/product/598/37739) 为 SCF_QcsRole、QcloudSCFReadOnlyAccess 及 QcloudSCFFullAccess 角色添加以下策略：
 - cfs:DescribeCfsFileSystems
 - cfs:DescribeMountTargets
-- DescribeCfsServiceStatus
+- cfs:DescribeCfsServiceStatus
 
 
 
@@ -35,7 +35,7 @@ CFS 成本低廉，采用按量计费模式，以小时为计费周期，您只�
 ![](https://main.qcloudimg.com/raw/5df4693e17f05892edb610e04f420de2.png)
  - **用户ID**及**用户组ID**：这两个值等同于 CFS 文件系统中的用户及用户组。云函数默认用户及用户组值为 10000，来操作您的 CFS 文件系统。请按需设置文件的拥有者及相应组的权限，并确保您的 CFS 文件系统已配置相应权限。详情请参见 [权限设置](https://cloud.tencent.com/document/product/582/10951)。
  - **远程目录**：为云函数需访问 CFS 文件系统的远端目录，由文件系统和远端目录两部分组成。
- -  **本地目录**：为本地文件系统的挂载点。您可使用 `mnt` 目录的子目录挂载 CFS 文件系统。
+ -  **本地目录**：为本地文件系统的挂载点。您可使用 `/mnt/` 目录的子目录挂载 CFS 文件系统。
  -  **文件系统ID**：在下拉列表中选择需挂载的文件系统。
  -  **挂载点ID**：在下拉列表中选择对应文件系统的挂载点 ID。
 6.  单击页面下方的【保存】即可完成配置。
