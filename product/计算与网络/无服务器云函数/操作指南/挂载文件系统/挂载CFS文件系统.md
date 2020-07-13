@@ -8,7 +8,7 @@ CFS 成本低廉，采用按量计费模式，以小时为计费周期，您只�
 - 多个函数可共用一个文件系统，实现文件共享。
 
 ## 前提条件
-如需使用 CFS 功能，请参考 [自定义策略](https://cloud.tencent.com/document/product/598/37739) 为 `SCF_QcsRole`、`QcloudSCFReadOnlyAccess` 及 `QcloudSCFFullAccess` 添加以下权限：
+如需使用 CFS 功能，请参考 [自定义策略](https://cloud.tencent.com/document/product/598/37739) 为 SCF_QcsRole、QcloudSCFReadOnlyAccess 及 QcloudSCFFullAccess 添加以下权限：
 - cfs:DescribeCfsFileSystems
 - cfs:DescribeMountTargets
 - DescribeCfsServiceStatus
