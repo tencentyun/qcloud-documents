@@ -426,7 +426,7 @@ trtcRoomContext.on(trtcRoomContext.EVENT.REMOTE_AUDIO_ADD, onRemoteAudioAdd)
 ### unsubscribeRemoteAudio(params)
 **说明：**
 
-取消订阅远端用户的音频并且进行播放。
+取消订阅远端用户的音频并停止播放 。
 
 **参数：**
 
