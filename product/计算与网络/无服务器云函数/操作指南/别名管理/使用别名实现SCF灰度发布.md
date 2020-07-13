@@ -77,6 +77,8 @@ b. 指向函数 B 的默认流量，并发布到 API 服务的 dev stage 中。
 - 用户已 [创建云函数](https://cloud.tencent.com/document/product/583/37509)，且未发布新版本及创建别名。
 - 用户直接使用 API 或 SDK 运行云函数。
 - 用户期望区分测试环境、预发布环境和发布环境。云函数需在每个阶段测试后，再进入下一阶段。且期望发布时灰度流量，以确保平稳过渡上线期。
+总体方案示意图如下：
+![](https://main.qcloudimg.com/raw/81ebc03fcf1b3018ff65adc17a7837d9.png)
 
 #### 初始配置过程
 在云函数 B 中创建别名 release、prepub，可暂时指向 $LATEST 版本。
