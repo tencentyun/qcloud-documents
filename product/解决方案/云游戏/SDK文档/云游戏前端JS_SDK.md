@@ -304,10 +304,10 @@ function(res) {
 <td><code>{ type: "gamepadkey", key: Number, down: true/false }</code><ul style="margin:0"><li>方向键事件值：向上键值为<code>0x01</code>，向下键值为<code>0x02</code>，向左键值为<code>0x04</code>，向右键值为<code>0x08</code></li><li>按键事件值：X 键值为<code>0x4000</code>，Y 键值为<code>0x8000</code>，A 键值为<code>0x1000</code>，B 键值为<code>0x2000</code></li><li>select 事件值：键值为<code>0x20</code></li><li>start 事件值：键值为<code>0x10</code></li></ul></td>
 </tr><tr>
 <td>手柄左摇杆事件</td>
-<td><code>{ type: "axisleft", x: [-32767~32767], y: [-32767~32767] }</code>，原浮点（-1~1）数值</td>
+<td><code>{ type: "axisleft", x: [-32767~32767], y: [-32767~32767] }</code>，原浮点数值为（-1~1），实际返回原浮点数值 * 32767</td>
 </tr><tr>
 <td>手柄右摇杆事件</td>
-<td><code>{ type: "axisright", x: [-32767~32767], y: [-32767~32767] }</code>，原浮点（-1~1）数值</td>
+<td><code>{ type: "axisright", x: [-32767~32767], y: [-32767~32767] }</code>，原浮点数值为（-1~1），实际返回原浮点数值 * 32767</td>
 </tr><tr>
 <td>手柄左触发键（L1）事件</td>
 <td><code>{type: "gamepadkey", key: 0x100, down: true/false}</code></td>
@@ -316,10 +316,10 @@ function(res) {
 <td><code>{type: "gamepadkey", key: 0x200, down: true/false}</code></td>
 </tr><tr>
 <td>手柄左触发键（L2）事件</td>
-<td><code>{ type: "lt", x: [0-255], down: true/false }</code>，原浮点（0~1）数值：255</td>
+<td><code>{ type: "lt", x: [0-255], down: true/false }</code>，原浮点数值为（0~1），实际返回原浮点数值 * 255</td>
 </tr><tr>
 <td>手柄右触发键（R2）事件</td>
-<td><code>{ type: "rt", x: [0-255], down: true/false }</code>，原浮点（0~1）数值：255</td>
+<td><code>{ type: "rt", x: [0-255], down: true/false }</code>，原浮点数值为（0~1），实际返回原浮点数值 * 255</td>
 </tr><tr>
 <td>手柄左摇杆垂直按下（L3）事件</td>
 <td><code>{type: "gamepadkey", key: 0x80, down: true/false}</code></td>
