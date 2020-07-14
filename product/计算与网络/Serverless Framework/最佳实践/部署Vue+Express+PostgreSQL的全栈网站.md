@@ -1,7 +1,6 @@
 ## 操作场景
 
-该模板可以快速部署一个基于 Vue + Express + PostgreSQL 的全栈 Serverless 应用。主
-要包含以下组件：
+该模板可以快速部署一个基于 Vue + Express + PostgreSQL 的全栈 Serverless 应用。主要包含以下组件：
 
 - Serverless RESTful API：通过**云函数**和 **API 网关**构建的 Express 框架实现
   RESTful API。
