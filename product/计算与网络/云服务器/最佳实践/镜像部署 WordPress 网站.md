@@ -35,7 +35,7 @@
 1. 在引导页面中，单击【获取权限】，下载该镜像的相关信息文档到本地。
 >! 该文档包含 WordPress 网站的相关重要信息，请注意保存。
 2. 打开文档，获取 WordPress 网站的管理员登录账号和密码。如下图所示：
-![](https://main.qcloudimg.com/raw/a5bee58ca8c634a01f52b4906864b03c.png)
+![](https://main.qcloudimg.com/raw/ca3d14538ab02e4c58655e850ba58e83.png)
 3. 刷新引导页面，出现 WordPress 的欢迎页面，即表示 WordPress 网站启动成功。
 4. 登录管理页面，自定义网站。
  1. 在欢迎页面右下角的【功能】下，单击【登录】。如下图所示：
