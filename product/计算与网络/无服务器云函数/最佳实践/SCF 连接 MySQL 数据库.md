@@ -15,8 +15,9 @@
 
 ### 创建数据库实例
 1. 参考 [购买方式](http://tapd.oa.com/pro/markdown_wikis/show/#1210114221000482979) 创建 MySQL。
-其中，“网络”请选择在 [创建私有网络 VPC](#createVPC) 步骤中已创建的 VPC。
-2. 参考 [初始化 MySQL 数据库](https://cloud.tencent.com/document/product/236/3128) 完成初始化操作，并获取数据库账户名称及密码。
+>?配置项“网络”请选择在 [创建私有网络 VPC](#createVPC) 步骤中已创建的 VPC。
+>
+2. 参考 [初始化 MySQL 数据库](https://cloud.tencent.com/document/product/236/3128) 完成初始化操作，并获取数据库帐户名称及密码。
 3. 在 “[MySQL - 实例列表](https://console.cloud.tencent.com/cdb)” 页面，选择实例 ID 进入数据库详情页面，获取该数据库的**内网地址**、**所属网络**、**内网端口**信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/bb4109d666fca0405d968293c879e72b.png)
 
@@ -29,9 +30,9 @@
 
 
 
-### 使用 SDK 连接数据库<span id="SDK"></span>
 >?本文提供 [使用 SDK 连接数据库](#SDK) 及 [使用 SCF DB SDK for MySQL 连接数据库](#SCFSDK) 两种方式连接 MySQL 数据库，您可按需进行选择。
 
+### 使用 SDK 连接数据库<span id="SDK"></span>
 
 #### 配置环境变量和私有网络
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏中的【函数服务】。
@@ -241,7 +242,7 @@ public class Http {
 
 
 
-### 通过 SCF DB SDK for MySQL 连接数据库<span id="SCFSDK"></span>
+### 使用 SCF DB SDK for MySQL 连接数据库<span id="SCFSDK"></span>
 为了方便使用，云函数团队将 Node.js 和 Python 连接池最佳实践封装成了 SCF DB SDK for MySQL，请参考 [依赖安装](https://cloud.tencent.com/document/product/583/39780) 进行安装使用。支持 MySQL，CynosDB 及 TDSQL 三种 MySQL 协议的数据库。
 >!SCF DB SDK 主要支持 MySQL 协议的数据库，如果您需使用腾讯云 Serverless DB（支持 PostgreSQL 及 NoSQL），推荐使用 [Serverless Framework 组件](https://cloud.tencent.com/document/product/583/45363)。
 
@@ -256,7 +257,7 @@ SCF DB SDK for MySQL 具备以下特点：
  - 新增**环境变量**，请参考以下表格填写，如下图所示：
 ![](https://main.qcloudimg.com/raw/46c8b2aab4d4463dd16e1e063b318e36.png)
 >!
->- 环境变量 key 格式为`DB_{引用}_XXX`，您可通过 `mysql.database(引用).connection()` 获得已初始化的数据库连接（引用为此数据库的标识）。
+>- 环境变量 key 格式为 `DB_{引用}_XXX`，您可通过 `mysql.database(引用).connection()` 获得已初始化的数据库连接（引用为此数据库的标识）。
 >- 若您设置添加环境变量 `DB_DEFAULT` 为 `DB1`，则 `mysql.database()` 默认使用 `DB1`，否则需要指定引用 `mysql.database("DB1")`。
 >- 更多关于环境变量相关信息，请参见 [环境变量](https://cloud.tencent.com/document/product/583/30228)。
 >
