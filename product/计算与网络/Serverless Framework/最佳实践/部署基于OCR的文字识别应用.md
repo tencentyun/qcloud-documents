@@ -30,10 +30,10 @@ $ npm update -g serverless
 
 ```shell
 $ serverless –v
-Framework Core: 1.67.3
-Plugin: 3.6.6
-SDK: 2.3.0
-Components: 2.30.1
+Framework Core: 1.74.1 (standalone)
+Plugin: 3.6.14
+SDK: 2.3.1
+Components: 2.31.6
 ```
 
 ### 配置
