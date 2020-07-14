@@ -6,9 +6,6 @@ SQL 优化不仅能够为用户提供的专家级别的 SQL 优化建议，同�
 
 >?SQL 优化目前仅支持云数据库 MySQL（不含基础版）。
 
-通过如下视频，您可以了解 DBbrain SQL 优化功能的详细操作：
-<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1915-22597?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
-
 ## 优化器执行
 1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/analysis)，在左侧导航选择【诊断优化】，在上方选择【SQL 优化】页。
 2. 在 SQL 优化页，可以查看数据库表信息、 SQL 详细信息和 SQL 执行信息。
