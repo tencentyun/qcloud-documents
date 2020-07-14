@@ -413,7 +413,7 @@ function(res) {
 
 ### TCGSDK.setRemoteCursorStyle(style)
 
-设置云端的系统鼠标样式，[setRemoteCursor](r#tcgsdk.setremotecursor(mode)) 的 mode 为1和2时生效；
+设置云端的系统鼠标样式，[setRemoteCursor](#tcgsdk.setremotecursor(mode)) 的 mode 为1和2时生效；
 
 | 参数  | 参数类型 | 说明                                                         |
 | ----- | -------- | ------------------------------------------------------------ |
