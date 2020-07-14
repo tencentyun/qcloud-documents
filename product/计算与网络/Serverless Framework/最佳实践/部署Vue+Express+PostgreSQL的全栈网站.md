@@ -34,18 +34,18 @@ npm update -g serverless
 
 ```shell
 $ serverless –v
-Framework Core: 1.67.3
-Plugin: 3.6.6
-SDK: 2.3.0
-Components: 2.30.1
+Framework Core: 1.74.1 (standalone)
+Plugin: 3.6.14
+SDK: 2.3.1
+Components: 2.31.6
 ```
 
 ### 配置
 
-1.新建一个本地文件夹，使用`create --template-url`命令，下载相关 template。
+1.新建一个本地文件夹，使用`serverless init`命令，下载相关 template。
 
 ```console
-serverless create --template-url https://github.com/serverless-components/tencent-fullstack
+serverless init -t fullstack
 ```
 
 2.在项目模板中找到.env.example 文件，修改名称为.env，并在其中配置对应的腾讯云 SecretId、SecretKey、地域和可用区信息。
