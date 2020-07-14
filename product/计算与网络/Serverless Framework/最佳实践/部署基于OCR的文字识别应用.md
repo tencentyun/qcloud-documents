@@ -36,18 +36,12 @@ SDK: 2.3.0
 Components: 2.30.1
 ```
 
-### 创建存储桶
-
-1. 登录 [COS 控制台](https://console.cloud.tencent.com/cos5)，创建新的 **公有存储桶**（参考 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)） ，用于存放上传的图像，注意地域的选择。
-2. 在桶列表的【基础配置】中，为存储桶 [配置跨域访问 CORS](https://cloud.tencent.com/document/product/436/13318)，具体配置如下：
-![](https://main.qcloudimg.com/raw/7c397d30e8231ce983c1fce44abd7326.png)
-
 ### 配置
 
-1.新建一个本地文件夹，使用`create --template-url`命令，下载相关 template。
+1.新建一个本地文件夹，使用`serverless init`命令，下载相关 template。
 
 ```console
-$ serverless create --template-url https://github.com/serverless-tencent/serverless-demos/serverless-ocr
+$ serverless init -t ocr-app
 ```
 
 2.在模版中找到 `.env.example` 文件，并改名为 `.env` ，在里面输入您的账户、密钥信息和指定存储桶（此存储桶用于存放上传的图像）。
@@ -60,10 +54,7 @@ TENCENT_SECRET_KEY=xxx
 
 # region of bucket
 REGION=ap-guangzhou
-# bucket name, using to store upload pictures
-BUCKET=ocr-images
 ```
->?您需要先创建一个公有存储桶，用于存放上传的图像。
 
 3.下载所有 npm 依赖。
 
