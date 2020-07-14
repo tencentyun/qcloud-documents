@@ -26,7 +26,7 @@ SCF DB SDK for MySQL 具备以下特点：
 >
 2. 参考 [初始化 MySQL 数据库](https://cloud.tencent.com/document/product/236/3128) 完成初始化操作，并获取数据库帐户名称及密码。
 3. 在 “[MySQL - 实例列表](https://console.cloud.tencent.com/cdb)” 页面，选择实例 ID 进入数据库详情页面，获取该数据库的**内网地址**、**所属网络**、**内网端口**信息。如下图所示：
-![](https://main.qcloudimg.com/raw/bb4109d666fca0405d968293c879e72b.png)
+![](https://main.qcloudimg.com/raw/6fd6650feb37f558bfc100c7c01936c6.png)
 
 ### 创建安全组（可选）
 可参考 [云数据库安全组](https://cloud.tencent.com/document/product/236/9537) 为您的数据库实例添加安全组。
