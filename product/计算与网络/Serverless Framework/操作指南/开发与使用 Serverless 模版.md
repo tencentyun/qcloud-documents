@@ -6,10 +6,10 @@ Serverless Framework 支持您构建自己的 Serverless 组件或者项目模�
 
 ```shell
 $ serverless –v
-Framework Core: 1.67.3
-Plugin: 3.6.6
-SDK: 2.3.0
-Components: 2.30.1
+Framework Core: 1.74.1 (standalone)
+Plugin: 3.6.14
+SDK: 2.3.1
+Components: 2.31.6
 ```
 
 ## 操作步骤
@@ -47,7 +47,7 @@ Serverless › Find more here: https://registry.serverless.com
 确定了所要使用的项目模板后，您就可以使用内置的 init 命令初始化您的项目。init 命令将会自动从应用中心下载您所选择的模板，并为您创建好项目文件夹，操作如下：
 
 ```
-$ sls init -t fullstack # 使用fullstack项目模板创建项目
+$ sls init fullstack # 使用fullstack项目模板创建项目
 $ cd  fullstack # 进入到项目文件夹
 ```
 
