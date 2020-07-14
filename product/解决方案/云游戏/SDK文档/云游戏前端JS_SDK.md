@@ -76,12 +76,12 @@ params对象有效字段描述：
 | mount                   | string   | 必填     | 页面挂载点的 HTML 元素 ID                                    |
 | appid                   | number   | 必填     | 用户的腾讯云 [APPID](https://console.cloud.tencent.com/developer) |
 | debug                   | boolean  | 可选     | 默认值：false<br>如果为 true，则自动显示 webrtc 状态信息，否则需要按 `CTRL+~` 快捷键显示 |
-| showLogo                | boolean  | 可选     | 隐藏腾讯云 Logo，默认值为 true                               |
+| showLogo                | boolean  | 可选     | 隐藏腾讯云 Logo，true 为隐藏，false 为不隐藏。默认值为 true  |
 | mask                    | boolean  | 可选     | 默认值为 true，false 则隐藏 `click to start` 蒙层            |
-| mic                     | boolean  | 可选     | 开启本地麦克风，默认值：false                                |
-| nativeCursor            | boolean  | 可选     | 是否显示本地鼠标。默认值：true                               |
+| mic                     | boolean  | 可选     | 开启本地麦克风，true 为开启，false 为关闭。默认值为false     |
+| nativeCursor            | boolean  | 可选     | 是否显示本地鼠标。默认值为true。true-显示，false-隐藏        |
 | tabletMode              | boolean  | 可选     | 默认值：false<br />true 为使用平板滑动鼠标模式，false 为绝对映射模式。该参数只针对移动端，PC 端忽略该参数 |
-| clickToFullscreen       | boolean  | 可选     | 是否启动点击全屏操作，默认值：true                           |
+| clickToFullscreen       | boolean  | 可选     | 是否启动点击全屏操作，默认值为true。true-启用，false-禁用    |
 | idleThreshold           | number   | 可选     | 用户操作空闲时间阈值，单位为秒，默认值：300s<br />空闲超过这个时间将触发 `onNetworkChange` 事件，消息为 `{status: 'idle', times: 1}` |
 | keepLastFrame           | boolean  | 可选     | 断开的时候是否保留最后一帧画面，如果需要保留最后一帧画面并重连，不能再次调用 init 函数，而是先调用 `destroy()` 接口，再调用 `start()` 接口。默认值：false |
 | reconnect               | boolean  | 可选     | 默认值：true<br />true：帧率掉0或者异常断开自动重连一次，false：不重连 |
@@ -99,7 +99,7 @@ params对象有效字段描述：
 | onNetworkChange         | function | 可选     | 网络状态变化                                                 |
 | onInputStatusChanged    | function | 可选     | 云端输入状态改变，有点击事件的时候都会触发，需要判断新旧状态 |
 | onCursorShowStatChanged | function | 可选     | 云端鼠标显示/隐藏，只在变化的时候回调                        |
-| onLog                   | function | 可选     | 日志回调函数，用于外部获取日志，作用与 setLogHandler 接口一致 |
+| onLog                   | function | 可选     | 日志回调函数，用于外部获取日志，作用与 [setLogHandler](#tcgsdk.setloghandler(handler)) 接口一致 |
 
 #### onTouchEvent 事件字段描述
 
@@ -107,7 +107,7 @@ params对象有效字段描述：
 | ---------- | ------- | ------------------------------------------------------------ |
 | id         | number  | 触控事件的 ID                                                |
 | type       | string  | 事件类型，可选择 `'touchstart'`，`'touchmove'`，`'touchend'` 三种之一 |
-| cursorShow | boolean | 云端鼠标是否隐藏                                             |
+| cursorShow | boolean | 云端鼠标是否隐藏，true 为显示，false 为隐藏                  |
 | x          | number  | 触控点在视频区域内的 x 坐标                                  |
 | y          | number  | 触控点在视频区域内的 y 坐标                                  |
 | pageX      | number  | 触控点在当前网页内的 x 坐标                                  |
@@ -136,7 +136,7 @@ params对象有效字段描述：
 | cpu             | string | 云端 CPU 占用率，单位：百分比              |
 | delay           | string | 客户端收到图像帧到解码显示的延时，单位：ms |
 | fps             | string | 客户端显示帧率                             |
-| load_cost_time  | number | 云端加载时间                               |
+| load_cost_time  | number | 云端加载时长，单位：ms                     |
 | nack            | string | 客户端重传次数                             |
 | packet_lost     | string | 客户端丢包次数                             |
 | packet_received | string | 客户端收到的包总数                         |
@@ -206,7 +206,7 @@ params对象有效字段描述：
 | 参数     | 参数类型 | 说明                                                         |
 | -------- | -------- | ------------------------------------------------------------ |
 | params   | object   | 辅助登录的参数，主要参数如下：<li>gameid：游戏 ID</li><li>acc：帐号字符串</li><li>pwd：密码字符串</li> |
-| callback | function | 执行结果回调                                               |
+| callback | function | 执行结果回调                                                 |
 
 **callback 的原型：**
 
@@ -270,30 +270,66 @@ function(res) {
 
 更底层的发送函数，允许定义 event 的类型。event 对象结构如下：
 
-   - 鼠标偏移（用于无边框限制的鼠标移动事件）：``{ type: "mousedeltamove", x: Number, y: Number }``，x、y坐标值均为整数。
-   - 鼠标移动：``{ type: "mousemove", x: Number, y: Number }``，x、y 坐标值均为整数。
-   - 鼠标左键点击：``{ type: "mouseleft", down: true/false }``。
-   - 鼠标右键点击：``{ type: "mouseright", down: true/false }``。
-   - 鼠标滚动：``{ type: "mousescroll", delta: Number }``。
-   - 键盘按键事件：``{ type: "keyboard", key: Integer, down: true/false }``
-   - 手柄事件：
-     1. 手柄连接事件：``{ type: "gamepadconnect" }``，发送操作按键前必须先发送这个事件。
-     2. 手柄断开事件：``{ type: "gamepaddisconnect" }``
-     3. 手柄按键事件：``{ type: "gamepadkey", key: Number, down: true/false }``
-        - 方向键：up->`0x01`，down->`0x02`, left->`0x04`，right->`0x08`。
-        - 按键：X->`0x4000`，Y->`0x8000`，A->`0x1000`，B->`0x2000`。
-        - select：0x20。
-        - start：0x10。
-     4. 手柄左摇杆事件：``{ type: "axisleft", x: [-32767~32767], y: [-32767~32767] }``，原浮点（-1~1）数值。
-     5. 手柄右摇杆事件：``{ type: "axisright", x: [-32767~32767], y: [-32767~32767] }``，原浮点（-1~1）数值。
-     6. 手柄左触发键（L1）事件：``{type: "gamepadkey", key: 0x100, down: true/false}``。
-     7. 手柄右触发键（R1）事件：``{type: "gamepadkey", key: 0x200, down: true/false}``。
-     8. 手柄左触发键（L2）事件：``{ type: "lt", x: [0-255], down: true/false }``，原浮点（0~1）数值：255。
-     9. 手柄右触发键（R2）事件：``{ type: "rt", x: [0-255], down: true/false }``，原浮点（0~1）数值：255。
-     10. 手柄左摇杆垂直按下（L3）事件：``{type: "gamepadkey", key: 0x80, down: true/false}``。
-     11. 手柄右摇杆垂直按下（R3）事件：``{type: "gamepadkey", key: 0x40, down: true/false}``。
+<table>
+<thead><tr><th colspan=2>event 对象</th><th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td colspan=2>鼠标偏移（用于无边框限制的鼠标移动事件）</td>
+<td><code>{ type: "mousedeltamove", x: Number, y: Number }</code>，x、y 坐标值均为整数</td>
+</tr><tr>
+<td colspan=2>鼠标移动</td>
+<td><code>{ type: "mousemove", x: Number, y: Number }</code>，x、y 坐标值均为整数</td>
+</tr><tr>
+<td colspan=2>鼠标左键点击</td>
+<td><code>{ type: "mouseleft", down: true/false }</code></td>
+</tr><tr>
+<td colspan=2>鼠标右键点击</td>
+<td><code>{ type: "mouseright", down: true/false }</code></td>
+</tr><tr>
+<td colspan=2>鼠标滚动</td>
+<td><code>{ type: "mousescroll", delta: Number }</code></td>
+</tr><tr>
+<td colspan=2>键盘按键事件</td>
+<td><code>{ type: "keyboard", key: Integer, down: true/false }</code></td>
+</tr><tr>
+<td rowspan=12>手柄事件</td>
+<td>手柄连接事件</td>
+<td><code>{ type: "gamepadconnect" }</code>，发送操作按键前必须先发送这个事件</td>
+</tr><tr>
+<td>手柄断开事件</td>
+<td><code>{ type: "gamepaddisconnect" }</code></td>
+</tr><tr>
+<td>手柄按键事件</td>
+<td><code>{ type: "gamepadkey", key: Number, down: true/false }</code><ul style="margin:0"><li>方向键事件值：向上键值为<code>0x01</code>，向下键值为<code>0x02</code>, 向左键值为<code>0x04</code>，向右键值为<code>0x08</code></li><li>按键事件值：X 键值为<code>0x4000</code>，Y 键值为<code>0x8000</code>，A 键值为<code>0x1000</code>，B 键值为<code>0x2000</code></li><li>select 事件值：键值为<code>0x20</code></li><li>start 事件值：键值为<code>0x10</code></li></ul></td>
+</tr><tr>
+<td>手柄左摇杆事件</td>
+<td><code>{ type: "axisleft", x: [-32767~32767], y: [-32767~32767] }</code>，原浮点（-1~1）数值</td>
+</tr><tr>
+<td>手柄右摇杆事件</td>
+<td><code>{ type: "axisright", x: [-32767~32767], y: [-32767~32767] }</code>，原浮点（-1~1）数值</td>
+</tr><tr>
+<td>手柄左触发键（L1）事件</td>
+<td><code>{type: "gamepadkey", key: 0x100, down: true/false}</code></td>
+</tr><tr>
+<td>手柄右触发键（R1）事件</td>
+<td><code>{type: "gamepadkey", key: 0x200, down: true/false}</code></td>
+</tr><tr>
+<td>手柄左触发键（L2）事件</td>
+<td><code>{ type: "lt", x: [0-255], down: true/false }</code>，原浮点（0~1）数值：255</td>
+</tr><tr>
+<td>手柄右触发键（R2）事件</td>
+<td><code>{ type: "rt", x: [0-255], down: true/false }</code>，原浮点（0~1）数值：255</td>
+</tr><tr>
+<td>手柄左摇杆垂直按下（L3）事件</td>
+<td><code>{type: "gamepadkey", key: 0x80, down: true/false}</code></td>
+</tr><tr>
+<td>手柄右摇杆垂直按下（R3）事件</td>
+<td><code>{type: "gamepadkey", key: 0x40, down: true/false}</code></td>
+</tr>
+</tbody></table>
 
-> ! 如果直接调用此接口发送鼠标移动/偏移事件，需额外处理显示区域偏移、灵敏度和坐标缩放，灵敏度设置 API 也无效，因此建议调用后面的 mouseMove 接口。
+> ! 如果直接调用此接口发送鼠标移动/偏移事件，需额外处理显示区域偏移、灵敏度和坐标缩放，灵敏度设置 API 也无效，因此建议调用后面的 [mouseMove](#tcgsdk.mousemove(identifier.2C-type.2C-x.2C-y.2C-islogic)) 接口。
 
 ### TCGSDK.setMoveSensitivity(value)
 
@@ -320,7 +356,7 @@ function(res) {
 
 ### TCGSDK.setMouseCanLock(true/false)
 
-设置是否允许锁定鼠标，用于用户操作网页控件，默认为 true。
+设置是否允许锁定鼠标，用于用户操作网页控件，其中 true 为允许，false 为禁止。默认为 true。
 
 
 ### TCGSDK.mouseMove(identifier, type, x, y, isLogic)
@@ -329,11 +365,11 @@ function(res) {
 
 | 参数       | 参数类型 | 说明                                                         |
 | ---------- | -------- | ------------------------------------------------------------ |
-| identifier | number   | 触控点的 ID，多点触控时每个触控点id不能相等，同个触控点的所有事件的触控点 ID 必须一致 |
+| identifier | number   | 触控点的 ID，多点触控时每个触控点 ID不能相等，同个触控点的所有事件的触控点 ID 必须一致 |
 | type       | string   | 触控事件类型，值为`touchstart`、`touchmove`、`touchend`、`touchcancel`中的一个，对于同一个触控点，`touchstart` 必须且只对应一个 `touchend` 或 `touchcancel` |
 | x          | number   | 填写数字，触控点的 x 坐标，但是如果传浮点数，则按逻辑坐标处理 |
 | y          | number   | 填写数字，触控点的 y 坐标，但是如果传浮点数，则按逻辑坐标处理 |
-| isLogic    | boolean  | true 代表逻辑坐标，false或者不传则代表的是物理坐标（像素绝对坐标） |
+| isLogic    | boolean  | true 代表逻辑坐标，false 或者不传则代表的是物理坐标（像素绝对坐标） |
 
 >! 调用此接口无需额外处理显示区域偏移、灵敏度和坐标缩放。
 
@@ -371,9 +407,9 @@ function(res) {
 
 移动端设置鼠标放大系数。
 
-| 参数 | 参数类型 | 说明                                |
-| ---- | -------- | ----------------------------------- |
-| val  | number   | 放大系数，默认是1.0，与云端大小一致 |
+| 参数 | 参数类型 | 说明                                                  |
+| ---- | -------- | ----------------------------------------------------- |
+| val  | number   | 放大系数，默认是1.0，与云端大小一致，取值范围[0.1,10] |
 
 ### TCGSDK.setRemoteCursorStyle(style)
 
@@ -386,7 +422,7 @@ function(res) {
 
 ### TCGSDK.clearRemoteKeys()
 
-重置云端所有按键状态，用于卡键场景。
+重置云端所有按键状态，用于云端按键卡住的场景。
 
 ### TCGSDK.resetRemoteCapsLock()
 
@@ -398,10 +434,10 @@ function(res) {
 
 打开或关闭调试模式，打开的情况下将在控制台打印日志。
 
-| 参数   | 参数类型 | 说明                          |
-| ------ | -------- | ----------------------------- |
-| enable | boolean  | 打开日志和状态                |
-| userid | string   | 用户的 ID，主要是用于过滤日志 |
+| 参数   | 参数类型 | 说明                                      |
+| ------ | -------- | ----------------------------------------- |
+| enable | boolean  | 打开日志和状态，true 为打开，false 为隐藏 |
+| userid | string   | 用户的 ID，主要是用于过滤日志             |
 
 ### TCGSDK.reportLog()
 
@@ -425,7 +461,7 @@ function(res) {
 
 | 参数     | 参数类型 | 说明                                                         |
 | -------- | -------- | ------------------------------------------------------------ |
-| profile  | number   | 目前可用参数如下：<li>fps：帧率，范围[10,60]，单位帧</li><li>max_bitrate：最大码率，范围[1,15]，单位：Mbps</li><li>min_bitrate：最小码率，范围[1,15], 单位：Mbps</li> |
+| profile  | number   | 目前可用参数如下：<li>fps：帧率，范围[10,60]，单位：帧</li><li>max_bitrate：最大码率，范围[1,15]，单位：Mbps</li><li>min_bitrate：最小码率，范围[1,15]，单位：Mbps</li> |
 | callback | function | 设置结果回调函数，可为 null                                  |
 | retry    | number   | 重试次数，可不填                                             |
 
