@@ -47,7 +47,7 @@ Serverless › Find more here: https://registry.serverless.com
 确定了所要使用的项目模板后，您就可以使用内置的 init 命令初始化您的项目。init 命令将会自动从应用中心下载您所选择的模板，并为您创建好项目文件夹，操作如下：
 
 ```
-$ sls init fullstack # 使用fullstack项目模板创建项目
+$ sls init fullstack # 使用 fullstack 项目模板创建项目
 $ cd  fullstack # 进入到项目文件夹
 ```
 
