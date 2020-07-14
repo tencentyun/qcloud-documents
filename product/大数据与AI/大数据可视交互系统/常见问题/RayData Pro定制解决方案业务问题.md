@@ -8,8 +8,8 @@
 目前 RayData 系列解决方案目前满足多种接口和的数据接入，但不提供数据处理相关服务。
 
 ### Pro 支持哪些数据格式的接入？
-- 静态数据支持：json、xml、xls、txt；
-- 数据库类型支持：ODBC、MSSQL、OLEDB、Oracle、MySQL
+- 静态数据支持：json、xml、xls、txt。
+- 数据库类型支持：ODBC、MSSQL、OLEDB、Oracle、MySQL。
 - 单纯的数据库数据需要转化为 API 才可实现接入，如果客户提供 URL 则可做定期的获取展示。
 
 ### 开发周期一般为多久？
