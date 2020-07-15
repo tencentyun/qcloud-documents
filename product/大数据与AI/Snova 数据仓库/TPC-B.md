@@ -46,7 +46,7 @@ ALTER DATABASE pgbench SET optimizer = off;
 ```
 
 ## 优化
-根据 Greenplum 官方数据，6.x 在理想环境下能达到5000左右的 TPS，在 CDW 上实测可以达到更高的数据，不过硬件配置需要提高，同时需要修改一些配置，如下：
+根据 Greenplum 官方数据，6.x 在理想环境下能达到5000左右的 TPS，在 CDW 上实测可以达到更高的数据，不过需要调整一些配置，如下：
 <table>
 	<thead>
 	<tr>
