@@ -1,4 +1,4 @@
-﻿智能扫码的 API 主要涉及 QBarCodeKit 对象，下面对其支持的 API 作出说明。
+智能扫码的 API 主要涉及 QBarCodeKit 对象，下面对其支持的 API 作出说明。
 
 ### QBarCodeKit
 
