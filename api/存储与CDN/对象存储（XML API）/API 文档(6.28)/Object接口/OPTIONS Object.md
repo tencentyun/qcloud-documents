@@ -3,7 +3,7 @@
 OPTIONS Object 用于跨域资源共享（CORS）的预检（Preflight）请求。当浏览器发起 CORS 请求时，浏览器会判断是否有必要发起预检请求，如有必要则浏览器会在发起 CORS 请求前自动发出预检请求，所以在正常情况下，前端开发者不需要自己去发起这样的请求。
 - 如果指定存储桶存在 CORS 配置且预检条件符合存储桶的 CORS 配置，则 COS 正常返回，允许浏览器继续 CORS 请求。
 - 如果指定存储桶不存在 CORS 配置或预检条件不符合存储桶的 CORS 配置，则 COS 返回 HTTP 403 Forbidden，此时浏览器将停止 CORS 请求并向前端抛出异常。
-- 有关存储桶的 CORS 配置，可参阅 [PUT Bucket cors](https://cloud.tencent.com/document/product/436/8279) 文档。
+- 有关存储桶的 CORS 配置，可参见 [PUT Bucket cors](https://cloud.tencent.com/document/product/436/8279) 文档。
 
 ## 请求
 
