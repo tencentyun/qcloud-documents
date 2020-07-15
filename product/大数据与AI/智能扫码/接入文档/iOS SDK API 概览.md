@@ -12,6 +12,7 @@
 | [startDefaultQBarScan](#startDefaultQBarScan)                | 启动 SDK 提供的默认界面进行扫码              |
 | [setViewConfig](#setViewConfig)                              | 设置界面配置信息                           |
 
+<span id="sharedInstance"></span>
 #### sharedInstance
 
 ```objective-c
@@ -27,7 +28,7 @@
 QBarCodeKit 的单例对象。
 
 
-
+<span id="getVersion"></span>
 #### getVersion
 
 ```objective-c
@@ -43,7 +44,7 @@ QBarCodeKit 的单例对象。
 当前 SDK 的版本信息。
 
 
-
+<span id="initQBarCodeKit"></span>
 #### initQBarCodeKit
 
 ```objective-c
@@ -63,7 +64,7 @@ QBarCodeKit 的单例对象。
 **handle** 用于接收初始化与鉴权认证的结果回调，并将结果放到 [resultCodeContent](#resultCodeContent) 中
 
 
-
+<span id="decodeImageWithQBar"></span>
 #### decodeImageWithQBar
 
 ```objective-c
@@ -81,7 +82,7 @@ QBarCodeKit 的单例对象。
 **handle** 用于图像识别的结果回调，并将结果放到 [resultCodeContent](#resultCodeContent) 中
 
 
-
+<span id="qBarDecodingWithSampleBuffer"></span>
 #### qBarDecodingWithSampleBuffer
 
 ```objective-c
@@ -99,7 +100,7 @@ QBarCodeKit 的单例对象。
 **handle** 用于摄像头拍摄扫码的结果回调，并将结果放到 [resultCodeContent](#resultCodeContent) 中	
 
 
-
+<span id="startDefaultQBarScan"></span>
 #### startDefaultQBarScan
 
 ```objective-c
@@ -117,7 +118,7 @@ QBarCodeKit 的单例对象。
 **delegate** 接收扫码回调信息的代理 [QBarCodeKitSDKDelegate](#QBarCodeKitSDKDelegate) 对象
 
 
-
+<span id="setViewConfig"></span>
 #### setViewConfig
 
 ```objective-c
@@ -136,6 +137,7 @@ QBarCodeKit 的单例对象。
 
 ### 回调以及代理说明
 
+<span id="QBarCodeKitSDKDelegate"></span>
 #### QBarCodeKitSDKDelegate
 
 ```objective-c
@@ -159,7 +161,7 @@ QBarCodeKit 的单例对象。
 **content** 对应存放扫码结果的 Json 字符串信息
 
 
-
+<span id="resultCodeContent"></span>
 #### resultCodeContent
 
 ```objective-c
