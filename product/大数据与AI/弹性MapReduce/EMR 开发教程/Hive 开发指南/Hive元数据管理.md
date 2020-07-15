@@ -16,7 +16,8 @@
 >4. 需保持关联的 EMR-MetaDB 网络与当前新建集群在同一网络环境下。
 >
 ![](https://main.qcloudimg.com/raw/5c58a791c3a4fe0d6f854b44c92c2b13.png)
-![](https://main.qcloudimg.com/raw/56837d31dfe5ebf11ef2cf7737bd1bcf.png)
+![](https://main.qcloudimg.com/raw/877bfac9c92266aa537a95015e31a085.png)
+
 ## 关联自建 MySQL 共享 Hive 元数据
 关联自己本地自建 MySQL 数据库作为 Hive 元数据存储，也无需单独购买 MetaDB 存储 Hive 元数据节约成本，需准确填写输入以“jdbc:mysql://开头”的本地址、数据库名字、数据库登录密码，并确保网络与当前集群网络打通。
 > !
