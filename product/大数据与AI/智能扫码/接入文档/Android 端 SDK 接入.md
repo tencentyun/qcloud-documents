@@ -1,13 +1,13 @@
-### 开发准备
+## 开发准备
 
 1. 注册腾讯云账号，提交智能扫码服务的申请，等待审核通过后，获得专属密钥。（申请地址：[智能扫码申请](https://console.cloud.tencent.com/ocr/is)）
 2. 从 SDK 下载链接中下载智能扫码 SDK 到本地准备集成。
 
 
 
-### Android 端智能扫码 SDK 接入流程
+## Android 端智能扫码 SDK 接入流程
 
-#### Android 端智能扫码 SDK 介绍
+### Android 端智能扫码 SDK 介绍
 
 SDK 文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接口、so 文件、检测与超分模型的资源文件。
 
@@ -15,13 +15,13 @@ SDK 文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接�
 
 
 
-#### 环境依赖
+### 环境依赖
 
 当前 Android 端智能扫码 SDK 适用于 API 19 (Android 4.4) 及以上版本。
 
 
 
-#### 接入步骤
+### 接入步骤
 
 1. 将 **QBarCode-v0.1.2.aar** 包添加到您的工程文件中的 **libs** 目录下。
 
@@ -70,9 +70,9 @@ SDK 文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接�
 
 
 
-#### SDK 接口说明
+### SDK 接口说明
 
-##### SDK 初始化：
+#### SDK 初始化：
 
 用户初始化智能扫码 SDK，SECRET_ID 与 SECRET_KEY 传入云服务后台申请的密钥信息（申请地址：[智能扫码申请](https://console.cloud.tencent.com/ocr/is)）。
 
@@ -90,7 +90,7 @@ SDK 文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接�
 });
    ```
 
-##### 摄像头数据实时识别：
+#### 摄像头数据实时识别：
 
 扫描 SDK 提供了 ScanCodeDetectView，用来方便您在自定义的UI界面里使用智能扫描功能。首先您需要在 UI 界面的布局文件中添加 ScanCodeDetectView：
 
@@ -127,7 +127,7 @@ scanView.onStop();
 scanView.onDestroy();
    ```
 
-##### 默认扫描界面识别：
+#### 默认扫描界面识别：
 
 如果您只关注扫码功能不需要支持自定义 UI 界面，可以使用智能扫码 SDK 内自带的默认界面完成扫描操作。
 
@@ -141,7 +141,7 @@ qBarCodeKit.startDefaultQBarScan(MainActivity.this, new QBarSdkCallback() {
   }
 });
 ```
-##### 传入图片识别：
+#### 传入图片识别：
 
 除了主动扫描以外，智能扫码 SDK 还支持图片识别功能，只需传入需要识别的图像即可：
 
@@ -181,7 +181,7 @@ List<ScanResult> results = qBarCodeKit.decodeImageWithQBar(bitmap, MainActivity.
 
 
 
-#### 混淆规则配置
+### 混淆规则配置
 
 如果您的应用开启了混淆功能，为确保扫描 SDK 的正常使用，请把以下部分添加到您的混淆文件中。
 
