@@ -26,5 +26,5 @@
 >3. 当选择 Sqoop、Hue、Ranger、Oozie、Presto 一个或多个组件时系统会自动购买一个 MetaDB 用于除 Hive 外的元数据存储。
 >4. 需保证自定义数据库中的 Hive 元数据版本大于等于新集群中的 Hive 版本。
 >
-![](https://main.qcloudimg.com/raw/1cd32465eb0c50eef2811d047d98245f.png)
+![](https://main.qcloudimg.com/raw/5055badf122760846257dd1707c27f7e.png)
 ![](https://main.qcloudimg.com/raw/9482f426e38b9471cc17f89d301cfbfb.png)
