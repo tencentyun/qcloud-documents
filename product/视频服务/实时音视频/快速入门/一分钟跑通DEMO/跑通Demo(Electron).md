@@ -93,7 +93,7 @@
 	
     ![安装](https://main.qcloudimg.com/raw/5aba25ba2d5eddb5d956406ca5b6b9ac.png)
 
-3. 如果 Electron 安装较慢甚至超时，您可以参考文章：[Electron 常见问题收录](#https://cloud.tencent.com/developer/article/1616668) 中的 “安装时遇到的问题” 章节和 “附录：手动离线安装 Electron” 章节来完成 Electron 安装。
+3. 如果 Electron 安装较慢甚至超时，您可以参考文章：[Electron 常见问题收录](https://cloud.tencent.com/developer/article/1616668) 中的 “安装时遇到的问题” 章节和 “附录：手动离线安装 Electron” 章节来完成 Electron 安装。
 
 4.  待 npm 的依赖包都安装完成后，继续在命令行窗口执行以下命令，运行 Demo。
 

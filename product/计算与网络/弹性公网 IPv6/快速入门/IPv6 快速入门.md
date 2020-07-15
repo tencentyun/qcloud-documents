@@ -1,16 +1,18 @@
->? 目前弹性公网 IPv6 处于内测中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/c28sebss8v)。
+
 
 本教程将帮助您搭建一个具有 IPv6 CIDR 的私有网络（VPC），并为 VPC 内的云服务器开启 IPv6，实现 IPv6 的内外网通信。
+## 前提条件
+目前弹性公网 IPv6 处于内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/c28sebss8v)。
 ## 操作场景
-1. 云服务器启用 IPv6，和 VPC 内其他云服务器的 IPv6 内网互通。
-2. 云服务器启用 IPv6，和 Internet 的 IPv6 用户进行双向通信。
+- 云服务器启用 IPv6，和 VPC 内其他云服务器的 IPv6 内网互通。
+- 云服务器启用 IPv6，和 Internet 的 IPv6 用户进行双向通信。
 ![](https://main.qcloudimg.com/raw/245f8acb1bea7b002035193b089bf1b7.png)
 
 ## 操作须知
-1. 在开始使用腾讯云产品前，您需要先 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F)。
-2. 目前支持 IPv6 的地域为北京、上海、广州、上海金融、深圳金融、成都、南京、新加坡，请在这些地域部署 IPv6 服务。
-3. IPv6 地址为 GUA 地址，每个 VPC 分配1个`/56`的 IPv6 CIDR，每个子网分配1个`/64`的 IPv6 CIDR，每个弹性网卡分配1个 IPv6 地址。
-4. 主网卡、辅助网卡均支持申请 IPv6 地址。想要了解更多云服务器和弹性网卡的关系，请参见 [弹性网卡](https://cloud.tencent.com/document/product/576) 产品文档。
+- 在开始使用腾讯云产品前，您需要先 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F)。
+- 目前支持 IPv6 的地域为北京、上海、广州、上海金融、深圳金融、成都、南京、新加坡，请在这些地域部署 IPv6 服务。
+- IPv6 地址为 GUA 地址，每个 VPC 分配1个`/56`的 IPv6 CIDR，每个子网分配1个`/64`的 IPv6 CIDR，每个弹性网卡分配1个 IPv6 地址。
+- 主网卡、辅助网卡均支持申请 IPv6 地址。想要了解更多云服务器和弹性网卡的关系，请参见 [弹性网卡](https://cloud.tencent.com/document/product/576) 产品文档。
 
 ## 操作步骤
 ### <span id="step1" />步骤一：VPC 分配 IPv6 CIDR
@@ -30,7 +32,7 @@
 1. 登录 [云服务器购买页](https://buy.cloud.tencent.com/cvm?tab=cvm)。
 2. 在云服务器购买页上方，选择【自定义配置】。
 3. 选择机型时，请注意如下参数：
- - 地域：仅北京、上海、广州、上海金融云、深圳金融云支持 IPv6。
+ - 地域：北京、上海、广州、上海金融、深圳金融、成都、南京、新加坡。
  - 网络：选择 [步骤一](#step1) 中 VPC 和[ 步骤二](#step2) 中的子网。
  - IPv6 地址：勾选【免费分配 IPv6 地址】。
 4. 完成云服务器各种配置操作后，核对购买的云服务器信息，并进行支付。
@@ -45,7 +47,7 @@
 
 ### 步骤四：为云服务器的 IPv6 地址开通公网（可选）
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
-2. 在左侧目录下选择【IP 与网卡】>【弹性公网 IPv6】。
+2. 在左侧目录下，选择【IP 与网卡】>【弹性公网 IPv6】。
 3. 选择云服务器的所在地域，单击【申请】，进入管理页面。
 4. 勾选云服务器的 IPv6 地址、设置目标带宽上限	，单击【提交】即可。
 >?
@@ -59,10 +61,10 @@
 >?出入方向的安全组规则支持配置来源为单个 IPv6 地址或者 IPv6 CIDR，其中`::/0`代表所有的 IPv6 源地址。
 >
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
-2. 在左侧目录下选择【安全】>【安全组】，在列表页中单击云服务器绑定的安全组 ID，进入详情页。
-3. 选择【入站规则】并单击【添加规则】，添加 IPv6 的入方向安全组规则，单击【完成】即可。
+2. 在左侧目录下，选择【安全】>【安全组】，在列表页中单击云服务器绑定的安全组 ID，进入详情页。
+3. 选择【入站规则】>【添加规则】，添加 IPv6 的入方向安全组规则，单击【完成】即可。
 ![](https://main.qcloudimg.com/raw/73ff04af93a1f13eef92d4f74ac30fc2.png)
-4. 选择【出站规则】并单击【添加规则】，添加 IPv6 的出方向安全组规则，单击【完成】即可。
+4. 选择【出站规则】>【添加规则】，添加 IPv6 的出方向安全组规则，单击【完成】即可。
 ![](https://main.qcloudimg.com/raw/c0d255728fa6b48292f425c5ffb6559f.png)
 
 ### 步骤六：测试 IPv6 的连通性
@@ -109,7 +111,7 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 <th><strong>工具配置<br>（推荐）</strong></th>
 <th><strong>手动配置</strong></th>
 </tr>
-<tr style="text-align:center;">
+<tr >
 <td rowspan="2">CentOS 7.5/CentOS 7.6</td>
 <td>2019-06-30前购买</td>
 <td>否</td>
@@ -117,21 +119,22 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#.E5.B7.A5.E5.85.
 <a href="#unopen">enable_ipv6 工具</a>
 </td>
 <td rowspan="6">
-如下列举了四种常用镜像的操作方法，若不满足您的需求，请提交 <a href="https://console.cloud.tencent.com/workorder/category?step=0" target="_blank">工单申请</a>：
+如下列举了四种常用镜像的操作方法：
 <li><a href="#新购CentOS7.5/CentOS7.6">新购 CentOS 7.5/新购 CentOS 7.6 配置 IPv6</a></li>
 <li><a href="#CentOS6.8">CentOS 6.8 配置 IPv6</a></li>
 <li><a href="#CentOS7.3">CentOS 7.3/存量 CentOS 7.5/存量 CentOS 7.6 配置 IPv6</a></li>
 <li><a href="#Debian8.2">Debian 8.2 配置 IPv6</a></li>
+若不满足您的需求，请 <a href="https://console.cloud.tencent.com/workorder/category?step=0" target="_blank">提交工单</a> 申请。
 </td>
 </tr>
-<tr style="text-align:center;">
+<tr>
 <td>2019-06-30后购买</td>
 <td>是</td>
 <td >
 <a href="#open">config_ipv6 工具</a>
 </td>
 </tr>
-<tr style="text-align:center;">
+<tr>
 <td rowspan="2">CentOS 6/CentOS 7（不含7.5/7.6）<br>
 Ubuntu14.04/Ubuntu 12.04<br>
 Debian 8/Debian 9<br>
@@ -144,20 +147,20 @@ Tencent Linux<br>
 <a href="#unopen">enable_ipv6 工具</a>
 </td>
 </tr>
-<tr style="text-align:center;">
+<tr>
 <td>2019-11-13 01:00后购买</td>
 <td>是</td>
 <td >
 <a href="#open">config_ipv6 工具</a>
 </td>
-<tr style="text-align:center;">
+<tr>
 <td rowspan="2" >FreeBSD、Suse、Ubuntu18
 </td>
 <td>2019-11-13 01:00前购买</td>
 <td>否</td>
 <td rowspan="2">不支持</td>
 </tr>
-<tr style="text-align:center;">
+<tr >
 <td>2019-11-13 01:00后购买</td>
 <td>是</td>
 </tbody></table>
@@ -250,38 +253,38 @@ $install_path eth0
 #### 新购 CentOS7.5 /新购 CentOS7.6 配置 IPv6
 1. 进入 [云服务器控制台](https://console.cloud.tencent.com/cvm) 并登录实例。
 ![](https://main.qcloudimg.com/raw/4d50f2b254367a77eb09724bdbff76f8.png)
-2. 执行如下命令，打开`/etc/sysconfig/network-scripts/`文件夹下的`ifcfg-eth0`文件。
+2. 按以下步骤修改并保存 `ifcfg-eth0` 文件：
+	1. 执行如下命令，打开`/etc/sysconfig/network-scripts/`文件夹下的`ifcfg-eth0`文件。
 ```
 vim /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
-3. 按 “i” 切换至编辑模式，增加如下内容。
+	2. 按 “i” 切换至编辑模式，增加如下内容。
 ```
 DHCPV6C=yes
 ```
 ![](https://main.qcloudimg.com/raw/94b60f6fb3177f5124339e5c017a8ac2.png)
-4. 按 “Esc”，输入 “:wq”，保存文件并返回。
+	3. 按 “Esc”，输入 “:wq”，保存文件并返回。
 5. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
 ```
 # 若云服务器有多个网卡，请执行 dhclient -6 网卡名称，如 dhclient -6 eth0
 dhclient -6 或 dhclient -6 网卡名称
 ifconfig
 ```
+若出现以下报文说明成功获取 IP 地址。
 ![](https://main.qcloudimg.com/raw/25ccd3b27744ad0f056de14a39465724.png)
-6. 执行如下命令，打开 `/etc/ssh/`文件夹下的`sshd_config`文件。
+6. 执行以下步骤修改并保存 `sshd_config`文件。
+ 1. 执行如下命令，打开 `/etc/ssh/`文件夹下的 `sshd_config`文件。
 ```
 vim /etc/ssh/sshd_config
 ```
-7. 按 “i” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
+ 2. 按 “i” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
 ![](https://main.qcloudimg.com/raw/52e9354e072a31f21071acde0262d58d.png)
-8. 按 “Esc”，输入 “:wq”，保存文件并返回。
+ 3. 按 “Esc”，输入 “:wq”，保存文件并返回。
 9. 执行如下命令，重启 ssh 进程。
 ```
 service sshd restart
 ```
-10. 执行如下命令，查看 ssh 是否已经监听 IPv6。
-```
-netstat -tupln
-```
+10. 执行`netstat -tupln`命令，若出现以下报文表示 ssh 已成功监听 IPv6。
 ![](https://main.qcloudimg.com/raw/4b3937053527ea3edd3efedfa0113ca9.png)
 
 <span id="CentOS6.8"/>
@@ -296,75 +299,79 @@ ifconfig | grep inet6
 ```
  - 若实例未开启 IPv6 服务，请根据下文继续开启 IPv6 服务。 
  - 若返回`inet6`相关内容，表示实例已成功开启 IPv6 服务，您可以跳至 [第9步](#step9) 继续操作。
-3. 执行如下命令，打开`/etc/modprobe.d/`文件夹下的`ipv6.conf`文件。
+3. 执行以下步骤修改并保存`ipv6.conf`文件。
+	1. 执行如下命令，打开`/etc/modprobe.d/`文件夹下的`ipv6.conf`文件。
 ```
 vi /etc/modprobe.d/ipv6.conf
 ```
-4. 按 “i” 切换至编辑模式，将如下的内核参数设置为0。
+	2. 按 “i” 切换至编辑模式，将如下的内核参数设置为0。
 ```
 options ipv6 disable=0
 ```
-![](https://main.qcloudimg.com/raw/37a4754fd0a8f6192d5f3818bcd685fe.png)
-5.  按 “Esc”，输入 “:wq”，保存文件并返回。
-6.  执行如下命令，打开`etc`文件夹下的`sysctl.conf.first`文件。
+![](https://main.qcloudimg.com/raw/37a4754fd0a8f6192d5f3818bcd685fe.png) 
+	3.  按 “Esc”，输入 “:wq”，保存文件并返回。
+6.  执行以下步骤修改并保存`sysctl.conf.first`文件。
+	1.  执行如下命令，打开`etc`文件夹下的`sysctl.conf.first`文件。
 ```
 vim /etc/sysctl.conf.first
 ```
-7. 按 “i” 切换至编辑模式，将如下的配置文件参数设置为0。
+ 2. 按 “i” 切换至编辑模式，将如下的配置文件参数设置为0。
 ```
 net.ipv6.conf.all.disable_ipv6 = 0
 ```
 ![](https://main.qcloudimg.com/raw/e5faf656a6aa6fcbd8a4ac190a13759e.png)
-8. 按 “Esc”，输入 “:wq”，保存文件并返回。
-9. <span id="step9" />执行如下命令，打开`/etc/sysconfig/`文件夹下的`network`文件。
+ 3. 按 “Esc”，输入 “:wq”，保存文件并返回。
+9. <span id="step9" />执行以下步骤修改并保存`network`文件。
+ 1. 执行如下命令，打开`/etc/sysconfig/`文件夹下的`network`文件。
 ```
 vi /etc/sysconfig/network
 ```
-10. 按 “i” 切换至编辑模式，增加如下内容。
+ 2. 按 “i” 切换至编辑模式，增加如下内容。
 ```
 NETWORKING_IPV6=yes
 DHCPV6C=yes
 ```
 ![](https://main.qcloudimg.com/raw/477077b3418849b62dc7479df9839859.png)
-11. 按 “Esc”，输入 “:wq”，保存文件并返回。
-12. 执行如下命令，打开或创建`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
+ 3. 按 “Esc”，输入 “:wq”，保存文件并返回。
+12. 执行以下步骤修改并保存`route6-eth0`文件。
+	1. 执行如下命令，打开或创建`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
 ```
 vim /etc/sysconfig/network-scripts/route6-eth0
 ```
-13. 按 “i” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
+	2. 按 “i” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
 ```
 default dev eth0
 ```
 ![](https://main.qcloudimg.com/raw/7bac4ad80fed5cebcdef1fb6ae07cf1b.png)
-14. 按 “Esc”，输入 “:wq”，保存文件并返回。
-15. 重启云服务器，仅通过 `service network restart`，IPv6 无法正常加载。
+	3. 按 “Esc”，输入 “:wq”，保存文件并返回。
+15. 重启云服务器，若仅通过 `service network restart`，IPv6 无法正常加载。
 16. 执行如下命令查看重启后 IPv6 是否已经正常加载。
 ```
 sysctl -a | grep ipv6 | grep disable
 ```
+若出现以下报文说明 IPv6 已经正常加载。
 ![](https://main.qcloudimg.com/raw/866730d160b1f0b893b2c00cd0cb4257.png)
-17. 依次执行如下命令，查看是否已经获取到 IPv6 地址。
+17.  依次执行如下命令，查看是否已经获取到 IPv6 地址。
 ```
 # 若云服务器有多个网卡，请执行 dhclient -6 网卡名称，如 dhclient -6 eth0
 dhclient -6 或 dhclient -6 网卡名称
 ifconfig
 ```
+若出现以下报文说明成功获取 IPv6 地址。
 ![](https://main.qcloudimg.com/raw/cedd7cbd7f5e649c01345356fa0d2688.png)
-18. 执行如下命令，打开 `/etc/ssh/`文件夹下的`sshd_config`文件。
+18. 执行以下步骤修改并保存`route6-eth0`文件。
+	1. 执行如下命令，打开 `/etc/ssh/`文件夹下的`sshd_config`文件。
 ```
 vim /etc/ssh/sshd_config
 ```
-19. 按 “i” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
+	2. 按 “i” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
 ![](https://main.qcloudimg.com/raw/e0d64e3836b704bab4713697df865d81.png)
-20. 按 “Esc”，输入 “:wq”，保存文件并返回。
+ 3. 按 “Esc”，输入 “:wq”，保存文件并返回。
 21. 执行如下命令，重启 ssh 进程。
 ```
 service sshd restart
 ```
-22. 执行如下命令，查看 ssh 是否已经监听 IPv6。
-```
-netstat -tupln
-```
+22. 执行`netstat -tupln`命令，若出现以下报文表示 ssh 已经成功监听 IPv6。
 ![](https://main.qcloudimg.com/raw/4b3937053527ea3edd3efedfa0113ca9.png)
 
 <span id="CentOS7.3"/>
@@ -379,18 +386,20 @@ ifconfig | grep inet6
 ```
  - 若实例未开启 IPv6 服务，请根据下文继续开启 IPv6 服务。 
  - 若返回`inet6`相关内容，表示实例已成功开启 IPv6 服务，您可以跳至 [第8步](#step8) 继续操作。
-3. 执行如下命令，打开`etc`文件夹下的`sysctl.conf`文件。
+3. 执行以下步骤修改并保存`sysctl.conf`文件。
+	1. 执行如下命令，打开`etc`文件夹下的`sysctl.conf`文件。
 ```
 vim /etc/sysctl.conf
 ```
-4. 按 “i” 切换至编辑模式，将如下的 IPv6 相关参数设置为0。
+	2. 按 “i” 切换至编辑模式，将如下的 IPv6 相关参数设置为0。
 ```
 net.ipv6.conf.all.disable_ipv6 = 0
 net.ipv6.conf.default.disable_ipv6 = 0
 net.ipv6.conf.lo.disable_ipv6 = 0
 ```
 ![](https://main.qcloudimg.com/raw/dc1e37e0c3a89b170038ef28d6d0583d.png)
-5. 按 “Esc”，输入 “:wq”，保存文件并返回。
+
+ 3. 按 “Esc”，输入 “:wq”，保存文件并返回。
 6. 执行如下命令，对参数进行加载。
 ```
 sysctl -p
@@ -401,26 +410,28 @@ sysctl -a | grep ipv6 | grep disable
 ```
 显示结果如下，则已成功修改。
 ![](https://main.qcloudimg.com/raw/b1294c92045d0dc5c688c6afc970a412.png)
-8. <sapn id="step8" />执行如下命令，打开或创建`/etc/sysconfig/network-scripts/`文件夹下的`ifcfg-eth0`文件。
+8. <sapn id="step8" />执行以下步骤修改并保存`ifcfg-eth0`文件。
+	1. 执行如下命令，打开`/etc/sysconfig/network-scripts/`文件夹下的`ifcfg-eth0`文件。
 ```
 vim /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
-9. 按 “i” 切换至编辑模式，增加如下内容。
+	2. 按 “i” 切换至编辑模式，增加如下内容。
 ```
 DHCPV6C=yes
 ```
 ![](https://main.qcloudimg.com/raw/7eb7d1dbf6e9773ca3282979587d4f55.png)
-10. 按 “Esc”，输入 “:wq”，保存文件并返回。
-11. 执行如下命令，打开或创建`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
+	3. 按 “Esc”，输入 “:wq”，保存文件并返回。
+11. 执行以下步骤修改并保存`route6-eth0`文件。
+	1. 执行如下命令，打开`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
 ```
 vim /etc/sysconfig/network-scripts/route6-eth0
 ```
-12. 按 “i” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
+	2. 按 “i” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
 ```
 default dev eth0
 ```
 ![](https://main.qcloudimg.com/raw/88a185a9dec922e4142c8ad8ffe4a354.png)
-13. 按 “Esc”，输入 “:wq”，保存文件并返回。
+	3. 按 “Esc”，输入 “:wq”，保存文件并返回。
 14. 执行如下命令，重新启动网卡。
 ```
 service network restart
@@ -433,22 +444,21 @@ systemctl restart network
 dhclient -6 或 dhclient -6 网卡名称
 ifconfig
 ```
+若出现以下报文表示已成功获取到 IPv6 地址。
 ![](https://main.qcloudimg.com/raw/2e42f1a5e7b9672d60461fe05edfed52.png)
-16. 执行如下命令，打开 `/etc/ssh/`文件夹下的`sshd_config`文件。
+16. 执行以下步骤修改并保存`sshd_config`文件。
+	1. 执行如下命令，打开 `/etc/ssh/`文件夹下的`sshd_config`文件。
 ```
 vim /etc/ssh/sshd_config
 ```
-17. 按 “i” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
+	2. 按 “i” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
 ![](https://main.qcloudimg.com/raw/e0d64e3836b704bab4713697df865d81.png)
-18. 按 “Esc”，输入 “:wq”，保存文件并返回。
+	3. 按 “Esc”，输入 “:wq”，保存文件并返回。
 19. 执行如下命令，重启 ssh 进程。
 ```
 service sshd restart
 ```
-20. 执行如下命令，查看 ssh 是否已经监听 IPv6。
-```
-netstat -tupln
-```
+20. 执行`netstat -tupln`命令，若出现以下报文表示查 ssh 已成功监听 IPv6。
 ![](https://main.qcloudimg.com/raw/4b3937053527ea3edd3efedfa0113ca9.png)
 <span id="Debian8.2"/>
 
@@ -462,16 +472,17 @@ ifconfig | grep inet6
 ```
  - 若实例未开启 IPv6 服务，请根据下文继续开启 IPv6 服务。 
  - 若返回`inet6`相关内容，表示实例已成功开启 IPv6 服务，您可以跳至 [第6步](#step6) 继续操作。
-3. 执行如下命令，打开`etc`文件夹下的`sysctl.conf`。
+3. 执行以下步骤修改并保存`sysctl.conf`文件。
+	1. 执行如下命令，打开`etc`文件夹下的`sysctl.conf`。
 ```
 vim /etc/sysctl.conf
 ```
-4. 按 “i” 切换至编辑模式，将如下的 IPv6 相关参数设置为0。
+	2. 按 “i” 切换至编辑模式，将如下的 IPv6 相关参数设置为0。
 ```
 net.ipv6.conf.all.disable_ipv6 = 0
 net.ipv6.conf.default.disable_ipv6 = 0
 ```
-5. 按 “Esc”，输入 “:wq”，保存文件并返回。
+	3. 按 “Esc”，输入 “:wq”，保存文件并返回。
 6. <span id="step6" />执行如下命令，对参数进行加载。
 ```
 sysctl -p
@@ -481,6 +492,7 @@ sysctl -p
 # 若云服务器有多个网卡，请执行 dhclient -6 网卡名称，如 dhclient -6 eth0
 dhclient -6 或 dhclient -6 网卡名称
 ifconfig
+若出现以下保存证明成功获取 IPv6 地址。
 ```
 ![](https://main.qcloudimg.com/raw/cd5a2072c73307c79b7997bbd24cec13.png)
 8. Debian 8.2 系统默认为 ssh（22端口）开启 IPv6 监听，无需特殊配置，您可执行如下命令，进行查看。

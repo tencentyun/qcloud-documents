@@ -1,21 +1,3 @@
-
-## 2020年6月
-
-<table>
-<tr>
-    <th width=20%>动态名称</th>
-    <th width=44%>动态描述</th>
-    <th width=16%>发布时间</th>
-    <th width=20%>相关文档</th>
-</tr>
-    <tr>
-        <td>SDK 1.2.7.1 版本发布</td>
-        <td><li> 减少 SDK 启动耗时</li><li> 新增注册失败的回调接口</li><li>优化账号、标签接口</li><li>修复已知问题</li></td>
-        <td>2020-06-23</td>
-        <td> <a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK下载</a></td>
-    </tr>        
-</table>
-
 ## 2020年5月
 
 <table>
@@ -29,9 +11,10 @@
         <td>SDK 1.2.6.1 版本发布</td>
         <td><li> 提升稳定性，修复已知问题</li><li> 优化接入，新增注册回调方法</li><li>新增TPNS通道，支持TPNS通道下发消息</li><li>优化数据统计</li></td>
         <td>2020-05-06</td>
-        <td><a href="https://cloud.tencent.com/document/product/548/36663#.E8.B0.83.E8.AF.95.E6.96.B9.E6.B3.95">注册回调方法</a></td>
+        <td><li><a href="https://cloud.tencent.com/document/product/548/36663#.E8.B0.83.E8.AF.95.E6.96.B9.E6.B3.95">注册回调方法</a></li><li> <a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK下载</a></li></td>
     </tr>        
 </table>
+
 
 ## 2020年4月
 
@@ -49,6 +32,7 @@
         <td>-</td>
     </tr>
 </table>
+
 
 ## 2020年3月
 
@@ -73,6 +57,7 @@
     </tr>
 </table>
 
+
 ## 2020年2月
 
 <table>
@@ -90,6 +75,7 @@
     </tr>
 </table>
 
+
 ## 2020年1月
 
 <table>
@@ -106,6 +92,7 @@
         <td>-</td>
     </tr>
 </table>
+
 
 ## 2019年12月
 
@@ -141,6 +128,7 @@
         <td>-</td>
     </tr>
 </table>
+
 
 ## 2019年11月
 
@@ -183,6 +171,7 @@
     </tr>
 </table>
 
+
 ## 2019年10月
 
 <table>
@@ -200,6 +189,7 @@
     </tr>
 </table>
 
+
 ## 2019年9月
 
 <table>
@@ -216,6 +206,7 @@
         <td>-</td>
     </tr>
 </table>
+
 
 ## 2019年08月
 
@@ -245,6 +236,7 @@
         <td>-</td>
     </tr>
 </table>
+
 
 ## 2019年7月
 
@@ -286,3 +278,4 @@
         <td>-</td>
     </tr>
 </table>
+

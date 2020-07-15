@@ -1,6 +1,4 @@
-## Flutter SDK
-
-### 开发文档
+## 开发文档
 
 * [安装](https://docs.cloudbase.net/api-reference/flutter/install.html)
 

@@ -29,8 +29,8 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 
 | 语言版本 |  适用平台 | 源码位置 |
 |:---------:|:---------:|:---------:|
-| Objective-C | iOS  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/LiveRoom/Debug/GenerateTestUserSig.h)|
-| Java | Android  | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/lvb/src/main/java/com/tencent/liteav/demo/lvb/liveroom/debug/GenerateTestUserSig.java) |
+| Objective-C | iOS  | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/iOS/Demo/TXLiteAVDemo/Debug/GenerateTestUserSig.h)|
+| Java | Android  | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/Android/Demo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java) |
 | Javascript | 小程序 | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini/pages/mlvb-live-room-demo/debug/GenerateTestUserSig.js)|
 
 ![](https://main.qcloudimg.com/raw/9f2bd1709904f3fd8601f6077d7b7a28.png)

@@ -5,7 +5,7 @@
 1. 使用 Safari 浏览器访问堡垒机网站，Safari 会提示该网站证书存在问题，单击【显示详细信息】，将出现风险提示。
 ![](https://main.qcloudimg.com/raw/2a1d555046e6ea1fd92374bef7bb6f86.png)
 2. 在出现风险提示框中，单击【访问此网站】，将弹出确认框。
-![](https://main.qcloudimg.com/raw/b43bc69eab0a793c0bd536b825c34c49.png)
+![](https://main.qcloudimg.com/raw/672e3792b7473a0aa87fe3eb8090370b.png)
 3. 在确认框中，单击【访问网站】，将弹出验证框。
 ![](https://main.qcloudimg.com/raw/512bae3f279a2eb6bfe9f64bd6222125.png)
 4. 在验证框中，输入用户名及密码。

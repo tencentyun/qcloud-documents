@@ -1,0 +1,45 @@
+## 接口名称
+TerminateGameServerSession 
+<span id="TerminateGameServerSession"></span>
+
+
+## 接口说明	
+
+游戏进程需要调用该接口通知 GSE 其上承载的 GameServerSession 已结束，GSE 后续可以将其他 GameServerSession 重新分配到该进程。
+
+## 请求消息体
+
+```
+message TerminateGameServerSessionRequest {
+    string gameServerSessionId = 1;
+}
+```
+
+## 返回消息体
+
+```
+message GseResponse 
+```
+
+## 字段说明
+
+**TerminateGameServerSessionRequest**
+
+| 字段名              | 类型   | 说明                                                         |
+| ------------------- | ------ | ------------------------------------------------------------ |
+| gameServerSessionId | string | 对应 GameServerSession 结构的 GameServerSessionId，唯一标记一次 GameServerSession |
+
+## 使用示例
+
+```
+func (r *rpcClient) TerminateGameServerSession(gameServerSessionId string) (*grpcsdk.GseResponse, error) {
+   conn, _ := grpc.DialContext(context.Background(), LOCAL_ADDRESS, grpc.WithInsecure())
+   defer conn.Close()
+   req := &grpcsdk.TerminateGameServerSessionRequest{
+      GameServerSessionId: gameServerSessionId,
+   }
+
+   client := grpcsdk.NewGseGrpcSdkServiceClient(conn)
+   return client.TerminateGameServerSession(g.getContext(), req)
+}
+```

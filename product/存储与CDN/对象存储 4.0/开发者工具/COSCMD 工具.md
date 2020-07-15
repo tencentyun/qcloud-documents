@@ -104,6 +104,7 @@ positional arguments:
     delete              Delete file or files on COS
     abort               Aborts upload parts on COS
     copy                Copy file from COS to COS
+	move                move file from COS to COS
     list                List files on COS
     listparts           List upload parts
     info                Get the information of file on COS
@@ -354,7 +355,7 @@ coscmd delete -r /
 
  请将"<>"中的参数替换为您需要删除的 COS 上文件的路径（cospath），工具会提示用户是否确认进行删除操作。
 
-> !批量删除需要输`y`入确定，使用`-f`参数则可以跳过确认直接删除。
+> !批量删除需要输入`y`确定，使用`-f`参数则可以跳过确认直接删除。
 
 ### 查询分块上传文件碎片
 
@@ -412,6 +413,42 @@ coscmd -b examplebucket1-1250000000 -r ap-guangzhou copy -r examplebucket2-12500
 > - sourcepath 的格式为：`<BucketName-APPID>.cos.<region>.myqcloud.com/<cospath>`。
 > - 使用 -d 参数可以设置 `x-cos-metadata-directive` 参数，可选值为 Copy 和 Replaced，默认为 Copy。
 > - 使用 -H 参数设置 HTTP header 时，请务必保证格式为 JSON，示例：`coscmd copy -H -d Replaced "{'x-cos-storage-class':'Archive','Content-Language':'zh-CN'}" <localpath> <cospath>`。更多头部请参见 [PUT Object - Copy](https://cloud.tencent.com/document/product/436/10881) 文档。
+
+### 移动文件或文件夹
+
+- 移动文件命令如下：
+
+```plaintext
+#命令格式
+coscmd move <sourcepath> <cospath> 
+#操作示例
+#移动 examplebucket2-1250000000 存储桶下的 data/exampleobject 对象到 examplebucket1-1250000000 存储桶的 data/examplefolder/exampleobject
+coscmd -b examplebucket1-1250000000 -r ap-guangzhou move examplebucket2-1250000000.ap-beijing.myqcloud.com/data/exampleobject data/examplefolder/exampleobject
+#修改存储类型，将文件类型改为低频
+coscmd -b examplebucket1-1250000000 -r ap-guangzhou move examplebucket2-1250000000.ap-beijing.myqcloud.com/data/exampleobject data/examplefolder/exampleobject -H "{'x-cos-storage-class':'STANDARD_IA'}"
+#修改存储类型，将文件类型改为归档
+coscmd -b examplebucket1-1250000000 -r ap-guangzhou move examplebucket2-1250000000.ap-beijing.myqcloud.com/data/exampleobject data/examplefolder/exampleobject -H "{'x-cos-storage-class':'Archive'}"
+```
+
+- 移动文件夹命令如下：
+
+```plaintext
+#命令格式
+coscmd move -r <sourcepath> <cospath>
+#操作示例
+#移动 examplebucket2-1250000000 存储桶下的 examplefolder 目录到 examplebucket1-1250000000 存储桶的 examplefolder 目录
+coscmd -b examplebucket1-1250000000 -r ap-guangzhou move -r examplebucket2-1250000000.cos.ap-guangzhou.myqcloud.com/examplefolder/ examplefolder
+coscmd -b examplebucket1-1250000000 -r ap-guangzhou move -r examplebucket2-1250000000.cos.ap-guangzhou.myqcloud.com/examplefolder/ examplefolder/
+
+```
+
+请将"<>"中的参数替换为您需要移动的 COS 上文件的路径（sourcepath），和您需要移动到 COS 上文件的路径（cospath）。
+
+> ?
+> - sourcepath 的格式为：`<BucketName-APPID>.cos.<region>.myqcloud.com/<cospath>`。
+> - 使用 -d 参数可以设置 `x-cos-metadata-directive` 参数，可选值为 copy 和 Replaced，默认为 copy。
+> - 使用 -H 参数设置 HTTP header 时，请务必保证格式为 JSON，示例：`coscmd move -H -d Replaced "{'x-cos-storage-class':'Archive','Content-Language':'zh-CN'}" <localpath> <cospath>`。更多头部请参见 [PUT Object - copy](https://cloud.tencent.com/document/product/436/10881) 文档。
+
 
 ### 查询文件列表
 

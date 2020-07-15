@@ -1,58 +1,60 @@
 ## 操作场景
+如果您需要通过公网访问消息队列 CKafka 服务，可以通过控制台增加公网路由，并通过配置 SASL 鉴权和 ACL 规则实现公网访问 CKafka Topic 的生产和消费消息。
 
-需要通过公网访问消息队列CKafka服务时，可以通过管控台增加公网路由，并通过配置SASL鉴权和ACL规则实现公网访问CKafka Topic的生产和消费消息。
+>?公网路由目前处于灰度测试阶段，如需试用请通过 [提交内测申请](https://cloud.tencent.com/apply/p/kg3u9clifnk) 的方式开通白名单，申请提交后我们将在5个工作日内进行审核并与您取得联系。
+
+## 前提条件
+- 已 [创建实例](https://cloud.tencent.com/document/product/597/30931)。
+- 已通过 [内测申请](https://cloud.tencent.com/apply/p/kg3u9clifnk)。
 
 ## 操作步骤
 
 ### 创建公网路由
 
-控制台在实例基本信息中添加路由策略-公网域名接入，接入方式目前只支持SASL_PLAINTEXT，单击提交即可。
+1. 在 CKafka 控制台的 [实例列表](https://console.cloud.tencent.com/ckafka/index?rid=1) 中，单击目标实例 ID，进入实例详情页。
+![](https://main.qcloudimg.com/raw/2a6875c2264661dd8b1e1eb2ba35cb9a.png)
+2. 在基本信息 - 接入方式中，单击【添加路由策略】，选择策略信息：
+ - 路由类型：公网域名接入
+ - 接入方式：目前只支持 SASL_PLAINTEXT
+![](https://main.qcloudimg.com/raw/f737c98fa4afd8134f35d08eec1da27c.png)
+3. 单击【提交】，接入方式下将显示该路由策略。
+![](https://main.qcloudimg.com/raw/aedb241b28d62e1bd0d127016a02d2e2.png)
 
-![image-20200628170809176](https://main.qcloudimg.com/raw/aa16bacebc80525a74daec5991825803.png)
-
-![image-20200628170957505](https://main.qcloudimg.com/raw/c5011c43de887de55add986b35fb90ed.png)
-
-![image-20200628171401978](https://main.qcloudimg.com/raw/06ba59f2e488f8656d0740bc3188488e.png)
 
 
 
 ### 创建用户
 
-实例-用户管理中新增用户信息(包括用户名、密码)，用于SASL访问用户认证，单击提交即可
-
-![image-20200628171441925](https://main.qcloudimg.com/raw/b1aa8bd6d5e9c4198b3d83693b977cad.png)
-
-![image-20200628171505915](https://main.qcloudimg.com/raw/b3002e02076596065f1ac04671895a9f.png)
-
-![image-20200628171551902](https://main.qcloudimg.com/raw/693da4a3b9911538e5e418f71cfa1411.png)
-
-### ACL策略授权
-
-对现有topic进行ACL权限管理(包括读写)，只有拥有权限的用户才能对topic进行相关读写权限操作
-
-1.控制台实例-ACL策略管理，选择topic对其编辑ACL策略
-
-![image-20200628171918152](https://main.qcloudimg.com/raw/b2a4fd86a79983b309ecb89f4dfd6b61.png)
-
-2.新增ACL策略，给用户赋予资源topic权限，提交即可
+1. 【实例列表】>【用户管理】中，单击【新建】。
+![](https://main.qcloudimg.com/raw/8595b76391f29b3eb60db283e6677b3b.png)
+2. 在新建用户的弹窗中，填写以下信息：
+ - 用户名：只能包含字母、数字、下划线、“-”、“.”
+ - 密码：只能包含字母、数字、下划线、“-”、“.”
+ - 确认密码：再次输入密码
+![](https://main.qcloudimg.com/raw/971325c47e11c07ee728f82b50d54a7b.png)
+3. 单击【提交】，新增的用户将显示在用户管理列表中。
+![](https://main.qcloudimg.com/raw/c427790899d8ff8e0d4d8f88ddd126fe.png)
 
 
+### ACL 策略授权
 
-![image-20200628172004517](https://main.qcloudimg.com/raw/2d94449b247b8bdf46d8890b7add4a50.png)
+对现有 Topic 进行 ACL 权限管理（包括读写），只有拥有权限的用户才能对 Topic 进行相关读写权限操作。
 
-![image-20200628172040636](https://main.qcloudimg.com/raw/bc9ea3849a576b6333b00a19744baae5.png)
+1. 【实例列表】>【ACL策略管理】中，单击目标 Topic 操作列的【编辑ACL策略】。
+![](https://main.qcloudimg.com/raw/87d387abe3015d014f429da7830402c0.png)
+2. 单击【新建】，进入新增 ACL 策略页面。
+![](https://main.qcloudimg.com/raw/381ae03c8495d4d57d83202d362b3bea.png)
+4. 在新增 ACL 策略的弹窗中，填选配置用户及 IP，不选为默认所有用户/host 都支持。
+![](https://main.qcloudimg.com/raw/632c3903a52bb1c71860b1dbd40ed43a.png)
+5. 单击【提交】，该策略将显示在目标  Topic  的策略列表中。
+![](https://main.qcloudimg.com/raw/f97473b3031d97efa6ae4aeec16560d9.png)
 
-![image-20200628172127637](https://main.qcloudimg.com/raw/1c3982f3297c7f9091b2e9f16152782d.png)
+>?CKafka 相关 SASL 和 ACL，用户管理访问控制详情见 [用户访问控制（ACL 与用户管理）](https://cloud.tencent.com/document/product/597/31528) 文档。
 
->?
->
->CKafka相关SASL和ACL，用户管理访问控制详情见（https://cloud.tencent.com/document/product/597/31528 ）文档。
 ### 公网生产和消费
-
-控制台操作完成后，即可使用用户名和密码在公网访问实例资源
+控制台操作完成后，即可使用用户名和密码在公网访问实例资源。
 
 #### 生产
-
 ```java
 Properties props = new Properties();
         //公网接入域名地址,即公网路由地址
@@ -80,7 +82,6 @@ Properties props = new Properties();
 
 
 #### 消费
-
 ```java
 Properties props = new Properties();
         //公网接入域名地址
@@ -107,13 +108,10 @@ Properties props = new Properties();
         }
 ```
 
-> ?
+>?除了使用 properties 添加 sasl.jaas.config 配置的方式，您也可以通过 System.setProperty 或 -D 的方式传入。
+> - System.setProperty("java.security.auth.login.config", "/etc/ckafka_client_jaas.conf");
 >
-> 除了使用properties添加 sasl.jaas.config 配置的方式，也可以通过System.setProperty或-D的方式传入。
->
-> System.setProperty("java.security.auth.login.config", "/etc/ckafka_client_jaas.conf");
->
-> ```java
+>- ```java
 > KafkaClient {
 > org.apache.kafka.common.security.plain.PlainLoginModule required
 > username="yourinstance#yourusername"

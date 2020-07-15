@@ -93,6 +93,7 @@ I/XINGE: [h] >> bind OtherPushToken success ack with [accId = 1500xxxxxx  , rsp 
 ```xml
 -keep public class * extends android.app.Service
 -keep class com.heytap.mcssdk.** {*;}
+-keep class com.heytap.msp.push.** { *;}
 ```
 
 >?混淆规则需要放在 App 项目级别的 proguard-rules.pro 文件中。
