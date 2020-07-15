@@ -12,6 +12,7 @@
 | [startDefaultQBarScan()](#startDefaultQBarScan()) | 启动 SDK 提供的默认界面进行扫码              |
 | [decodeImageWithQBar()](#decodeImageWithQBar())   | 可以识别传入图片中存在的二维码、条形码信息 |
 
+<span id="getInstance()"></span>
 #### getInstance()
 
 ```java
@@ -27,7 +28,7 @@ public static QBarCodeKit getInstance()
 QBarCodeKit 的单例对象。
 
 
-
+<span id="getVersion()"></span>
 #### getVersion()
 
 ```java
@@ -43,7 +44,7 @@ public String getVersion()
 当前 SDK 的版本信息。
 
 
-
+<span id="initQBarCodeKit()"></span>
 #### initQBarCodeKit()
 
 ```java
@@ -65,7 +66,7 @@ public void initQBarCodeKit(String secretId, String secretKey, final Context con
 **callback** 初始化与鉴权的结果回调类 [OnSdkKitInitCallback](#OnSdkKitInitCallback)
 
 
-
+<span id="startDefaultQBarScan()"></span>
 #### startDefaultQBarScan()
 
 ```java
@@ -83,7 +84,7 @@ public void startDefaultQBarScan(Activity context, QBarSdkCallback callback)
 **callback**  用来接收扫码结果的回调类 [QBarSdkCallback](#QBarSdkCallback)。
 
 
-
+<span id="decodeImageWithQBar()"></span>
 #### decodeImageWithQBar()
 
 ```java
@@ -130,7 +131,7 @@ ScanCodeDetectView 是智能扫码 SDK 提供的一个支持扫码的 View 组�
 | [onDestroy()](#onDestroy())                     | 生命周期 onDestroy 对应方法                    |
 
 
-
+<span id="setScanCallBack()"></span>
 #### setScanCallBack()
 
 ```java
@@ -146,7 +147,7 @@ public void setScanCallBack(QBarSdkCallback callback)
 **callBack** 识别结果接收回调类 [QBarSdkCallback](#QBarSdkCallback)。
 
 
-
+<span id="setScanTipsTVText()"></span>
 #### setScanTipsTVText()
 
 ```java
@@ -162,7 +163,7 @@ public void setScanTipsTVText(String text)
 **text** 需要显示 tips 的信息。
 
 
-
+<span id="showNoContentResult()"></span>
 #### showNoContentResult()
 
 ```java
@@ -174,7 +175,7 @@ public void showNoContentResult()
 主动在 ScanCodeDetectView 上显示无识别结果的提示。	
 
 
-
+<span id="onCreate()"></span>
 #### onCreate()
 
 ```java
@@ -186,7 +187,7 @@ public void onCreate()
 生命周期 onCreate 对应方法，需在界面的对应生命周期函数内调用。
 
 
-
+<span id="onResume()"></span>
 #### onResume()
 
 ```java
@@ -198,7 +199,7 @@ public void onResume()
 生命周期 onResume 对应方法，需在界面的对应生命周期函数内调用。
 
 
-
+<span id="onPause()"></span>
 #### onPause()
 
 ```java
@@ -210,7 +211,7 @@ public void onPause()
 生命周期 onPause 对应方法，需在界面的对应生命周期函数内调用。
 
 
-
+<span id="onStop()"></span>
 #### onStop()
 
 ```java
@@ -222,7 +223,7 @@ public void onStop()
 生命周期 onStop 对应方法，需在界面的对应生命周期函数内调用。
 
 
-
+<span id="onDestroy()"></span>
 #### onDestroy()
 
 ```java
@@ -237,6 +238,7 @@ public void onDestroy()
 
 ### 回调类说明
 
+<span id="OnSdkKitInitCallback"></span>
 #### OnSdkKitInitCallback
 
 智能扫码初始化接口的回调类，接收初始化鉴权认证的结果。
@@ -257,7 +259,7 @@ public interface OnSdkKitInitCallback {
 ```
 
 
-
+<span id="QBarSdkCallback"></span>
 #### QBarSdkCallback
 
 智能扫码使用默认界面扫码的回调类，接收扫码结果信息。
