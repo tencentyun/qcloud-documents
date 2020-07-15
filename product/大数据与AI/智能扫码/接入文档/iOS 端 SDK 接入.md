@@ -1,4 +1,4 @@
-### 开发准备
+## 开发准备
 
 1. 注册腾讯云账号，提交智能扫码服务的申请，等待审核通过后，获得专属密钥。（申请地址：[智能扫码申请](https://console.cloud.tencent.com/ocr/is)）。
 
@@ -6,9 +6,9 @@
 
    
 
-### iOS 端智能扫码 SDK 接入流程
+## iOS 端智能扫码 SDK 接入流程
 
-#### iOS 端智能扫码 SDK 介绍
+### iOS 端智能扫码 SDK 介绍
 
 SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、**ncnn.framework**、**QbarCodeRes.bundle** 和 **include** 包含的头文件。
 
@@ -19,13 +19,13 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
 
 
 
-#### 环境依赖
+### 环境依赖
 
 当前 iOS 端智能扫码 SDK 版本适用于 iOS 9.0 及以上的版本。
 
 
 
-#### 接入步骤
+### 接入步骤
 
 1. 将 **ncnn.framework**、**libQBarCode.a**、**QbarCodeRes.bundle** 添加至项目中，并且 **include** 头文件也添加到项目中。
 
@@ -88,9 +88,9 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
 
     
 
-#### SDK 接口说明
+### SDK 接口说明
 
-##### SDK 初始化：
+#### SDK 初始化：
 
 用户初始化智能扫码 SDK，**SECRET_ID** 与 **SECRET_KEY** 传入云服务后台申请的密钥信息（申请地址：[智能扫码申请](https://console.cloud.tencent.com/ocr/is)），同时需要导入 **QBarCodeKit.h** 和 模型文件(**detect_model.bin**、**detect_model.param**、**srnet.bin**、**srnet.param**)。
 
@@ -115,7 +115,7 @@ static const NSString *CONTENT = @"content"; // 识别结果信息对应的 Key
 
 
 
-##### 	摄像头数据实时识别：
+#### 	摄像头数据实时识别：
 
 智能扫码 SDK 提供摄像头实时数据扫码功能，满足您在自定义 UI 布局中的使用需求。	
 
@@ -132,7 +132,7 @@ static const NSString *CONTENT = @"content"; // 识别结果信息对应的 Key
 
    
 
-##### 	默认扫描界面识别：
+#### 	默认扫描界面识别：
 
 如果您只关注扫码功能不需支持自定义 UI 界面，可以使用智能扫码 SDK 内自带的默认界面完成扫描操作。
 
@@ -173,7 +173,7 @@ static const NSString *CONTENT = @"content"; // 识别结果信息对应的 Key
 
 
 
-##### 传入图片识别：
+#### 传入图片识别：
 
 除了主动扫描以外，智能扫码 SDK 还支持图片识别功能，只需传入需要识别的图像：
 
@@ -189,7 +189,7 @@ static const NSString *CONTENT = @"content"; // 识别结果信息对应的 Key
 
 
 
-#### 数据声明
+### 数据声明
 
 iOS 识别的数据结果也就是从 CONTENT 中获取的值为 Json 格式，先举例说明其内容格式：
 
