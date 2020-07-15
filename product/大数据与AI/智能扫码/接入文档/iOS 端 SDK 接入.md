@@ -196,7 +196,7 @@ iOS 识别的数据结果也就是从 CONTENT 中获取的值为 Json 格式，�
 ```json
 {
   "charset":"ISO8859-1",
-  "data":"https:\/\/km.tencent.com\/openkm\/url\/oltslu",
+  "data":"https://cloud.tencent.com/",
   "typeName":"QR_CODE"
 }
 ```
