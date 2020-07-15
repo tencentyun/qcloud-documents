@@ -34,7 +34,7 @@ MQTT 协议支持通过设备证书和密钥签名两种方式接入物联网通
 | 证书认证     | MQTT 服务器连接地址，广州域设备填入：${ProductId}.iotcloud.tencentdevices.com，这里 ${ProductId} 为变量参数，用户需填入创建产品时自动生成的产品 ID，例如 1A17RZR3XX.iotcloud.tencentdevices.com；端口：8883 | <li> KeepAlive：保持连接的时间，取值范围为0 - 900s。若超过1.5倍 KeepAlive 时长物联网平台仍没收到客户端的数据，则平台将断开与客户端的连接；<br><li> ClientId：${ProductId}${DeviceName}，产品 ID 和设备名的组合字符串；<br><li>UserName：${productid}${devicename};${sdkappid};${connid};${expiry}，详情见下文中基于 MQTT 的签名认证接入指引 username 部分；<br><li>PassWord：密码（可赋任意值）。 |
 | 密钥认证     | MQTT 服务器连接地址与证书认证一致；端口：1883                | <li>KeepAlive：保持连接的时间，取值范围为0-900s；<br><li>ClientId:${ProductId}${DeviceName}；<br><li>UserName：${productid}${devicename};${sdkappid};${connid};${expiry}，详情见下文中基于 MQTT 的签名认证接入指引 username 部分；<br><li>PassWord：密码，详情见下文中基于 MQTT 的签名认证接入指引 password 部分。 |
 
-> ?采用证书认证的设备接入时会对设备的证书文件，不会对填写的 PassWord 进行验证，证书认证时 PassWord 部分可随意填写。
+> ?采用证书认证的设备接入时不会对填写的 PassWord部分进行验证，证书认证时 PassWord 部分可填写任意值。
 
 ### 证书认证设备接入指引
 
