@@ -50,7 +50,7 @@
  | 服务                                                       | 授权粒度 | 控制台 | 根据标签进行授权  |  服务角色 |	参考文档 |	
 | ------------------------------------------------------------ | ------ | -------- | ------- | ---- |	 ---- |
 | [负载均衡](https://cloud.tencent.com/document/product/214)   | 资源级  | &#10003;      | &#10003;    |    &#10003;  |	[访问管理指南](https://cloud.tencent.com/document/product/214/9776) |	
-| [私有网络](https://cloud.tencent.com/document/product/215)<sup>1</sup>  | 资源级 | &#10003;        | -     | - |	 [访问管理指南](https://cloud.tencent.com/document/product/215/20168) |	
+| [私有网络](https://cloud.tencent.com/document/product/215)<sup>1</sup>  | 资源级 | &#10003;        | &#10003;      | - |	 [访问管理指南](https://cloud.tencent.com/document/product/215/20168) |	
 | [专线接入](https://cloud.tencent.com/document/product/216) | 操作级   | &#10003;       | -       | -  |	 - |	
 > ?<sup>1</sup> 私有网络中 [弹性网卡](https://cloud.tencent.com/document/product/576)、[NAT 网关](https://cloud.tencent.com/document/product/552)、[对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[网络流日志](https://cloud.tencent.com/document/product/682) 、[Anycast 公网加速](https://cloud.tencent.com/document/product/644)、[云联网](https://cloud.tencent.com/document/product/877)、[共享带宽包](https://cloud.tencent.com/document/product/684) 均已支持使用 CAM。
 
