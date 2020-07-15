@@ -12,8 +12,8 @@
 
 ## 接入参数
 
-1.服务器地址为：广州域设备填入，${ProductId}.iotcloud.tencentdevices.com，这里 ${ProductId} 为变量参数，用户需填入创建产品时自动生成的产品 ID。
-2.连接端口为：5684
+1. 服务器地址为：广州域设备填入，${ProductId}.iotcloud.tencentdevices.com，这里 ${ProductId} 为变量参数，用户需填入创建产品时自动生成的产品 ID。
+2. 连接端口为：5684
 
 ## URI 规范
 
