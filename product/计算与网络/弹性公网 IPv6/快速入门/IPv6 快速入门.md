@@ -309,7 +309,7 @@ vi /etc/modprobe.d/ipv6.conf
 options ipv6 disable=0
 ```
 ![](https://main.qcloudimg.com/raw/37a4754fd0a8f6192d5f3818bcd685fe.png) 
-  3.  按 “Esc”，输入 “:wq”，保存文件并返回。
+	3.  按 “Esc”，输入 “:wq”，保存文件并返回。
 6.  执行以下步骤修改并保存`sysctl.conf.first`文件。
 	1.  执行如下命令，打开`etc`文件夹下的`sysctl.conf.first`文件。
 ```
