@@ -21,7 +21,7 @@ SCF DB SDK for MySQL 具备以下特点：
 参考 [快速搭建私有网络](https://cloud.tencent.com/document/product/215/30716) 创建 VPC 和子网。
 
 ### 创建数据库实例
-1. 参考 [购买方式](http://tapd.oa.com/pro/markdown_wikis/show/#1210114221000482979) 创建 MySQL。
+1. 参考 [购买方式](https://cloud.tencent.com/document/product/236/5160) 创建 MySQL。
 >?配置项“网络”请选择在 [创建私有网络 VPC](#createVPC) 步骤中已创建的 VPC。
 >
 2. 参考 [初始化 MySQL 数据库](https://cloud.tencent.com/document/product/236/3128) 完成初始化操作，并获取数据库帐户名称及密码。
