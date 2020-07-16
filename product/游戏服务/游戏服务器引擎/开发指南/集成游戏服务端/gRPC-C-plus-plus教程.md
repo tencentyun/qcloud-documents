@@ -10,7 +10,7 @@
   $ brew install cmake
   ```  
 2. 在本地安装 gRPC 和 protocol buffers。
- >?具体安装流程请您参考 [安装 CMake](https://cmake.org/install)，[安装 gRPC C ++ 的说明](https://github.com/grpc/grpc/blob/master/BUILDING.md)，[安装 protocol buffers 的说明](https://github.com/protocolbuffers/protobuf/blob/master/src/README.md)。
+ >?具体安装流程请您参考 [安装 CMake](https://cmake.org/install)，[安装 gRPC C++ 的说明](https://github.com/grpc/grpc/blob/master/BUILDING.md)，[安装 protocol buffers 的说明](https://github.com/protocolbuffers/protobuf/blob/master/src/README.md)。
 
 ## 定义服务
 gRPC 通过 protocol buffers 实现定义一个服务：一个 RPC 服务通过参数和返回类型来指定可以远程调用的方法。
