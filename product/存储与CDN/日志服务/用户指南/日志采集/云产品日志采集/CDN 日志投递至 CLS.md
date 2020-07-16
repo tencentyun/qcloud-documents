@@ -15,7 +15,7 @@
 	- 一个域名只能绑定到一个日志主题下，不可绑定多个日志主题
 	- 配置信息保存后，配置生效时间大约为15分钟
 ![](https://main.qcloudimg.com/raw/e04e398136dc52192752e866041ca109.png)
-4. 登陆 [日志服务 CLS 控制台](https://console.cloud.tencent.com/cls/)，单击左侧目录的【检索分析】，进入检索分析页面，如下配置：
+4. 登录 [日志服务 CLS 控制台](https://console.cloud.tencent.com/cls/)，单击左侧目录的【检索分析】，进入检索分析页面，如下配置：
  - 选择上海地域
  - 日志集选择 cdn_logset
  - 日志主题选择上述步骤3中创建日志主题的名称
