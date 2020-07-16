@@ -15,6 +15,8 @@
 
 ## 操作步骤
 1. 参考 [创建 Deployment](https://cloud.tencent.com/document/product/457/31705#.E5.88.9B.E5.BB.BA-deployment)，创建 Loadbalancer 类型的 Service。
-2. <span id="Step2"></span>等待 Service 创建成功后，记录生成 CLB 的 ID 及名称。如下图所示： 
+2. 等待 Service 创建成功后，选择类型，进入 CLB 详情页面。如下图所示： 
 ![](https://main.qcloudimg.com/raw/b3188b0c60ca1029d22bf4e5947bc12a.png)
-3. 再次参考 [创建 Deployment](https://cloud.tencent.com/document/product/457/31705#.E5.88.9B.E5.BB.BA-deployment)，使用 [步骤2](#Step2) 中已有的 CLB 创建第二个 Service。
+3. <span id="Step3"></span>在 CLB 详情页记录生成 CLB 的 ID 及名称。如下图所示： 
+![](https://main.qcloudimg.com/raw/7c903b0879244dbe037e69501efd4f1d.png)
+4. 再次参考 [创建 Deployment](https://cloud.tencent.com/document/product/457/31705#.E5.88.9B.E5.BB.BA-deployment)，使用 [步骤3](#Step3) 中已有的 CLB 创建第二个 Service。
