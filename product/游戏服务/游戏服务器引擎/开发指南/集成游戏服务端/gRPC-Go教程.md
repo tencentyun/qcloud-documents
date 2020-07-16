@@ -31,7 +31,7 @@ protoc --go_out=plugins=grpc:. *.proto```
 	会自动生成包含 proto 的 go_package 路径，而用户可以根据需要修改成适合自己的 go_package 路径，但不能修改 package。
 
 ## 游戏进程集成流程
-![](https://main.qcloudimg.com/raw/28647a47df4016381c3f5486a5afdbdb.png)
+![](https://main.qcloudimg.com/raw/af6fae70ec6d55b8e7cb9337e78dc9ce.png)
 
 #### 服务端接口列表
 
