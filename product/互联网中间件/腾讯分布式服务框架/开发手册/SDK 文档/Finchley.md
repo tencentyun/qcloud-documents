@@ -253,6 +253,19 @@ spring-cloud-tsf-sleuth bug fixed：
 
 支持向后兼容，建议全量升级。
 
+## 1.12.5-Finchley-RELEASE（2020-07-17）
+
+### Bug 修复
+
+修复 spring-cloud-tsf-route 包路由不准确问题。
+
+### 优化
+
+调整心跳请求的超时时间，当出现丢包时能够快速重试。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
 ## 1.12.4-Finchley-RELEASE（2019-08-15）
 
 ### Bug 修复
