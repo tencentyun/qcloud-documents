@@ -19,7 +19,7 @@ OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上
 >?仅开发者帐号（主帐号）可查看。
 
 Opush 申请开通成功后，您可在 [OPPO 推送平台](https://push.oppo.com/) > 配置管理 > 应用配置页面，查看 AppKey、AppSecret 和 MasterSecret。详情请参见 [快速接入指引](https://open.oppomobile.com/wiki/doc#id=10195)。
-
+![](https://main.qcloudimg.com/raw/7753e738a004854d63cf4c8e4c07d51c.png)
 
 
 ### 配置推送通道
