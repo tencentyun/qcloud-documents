@@ -1,6 +1,6 @@
 
 
-## 安装gRPC
+## 安装 gRPC
 1. 安装 gRPC，安装完后会生成 grpc_cpp_plugin 可执行程序，该程序在生成 gRPC 代码时需要。
 2. 安装 protocol buffers。
  >?具体安装流程请您参考 [安装 gRPC Lua 的说明](https://github.com/grpc/grpc/blob/master/BUILDING.md)，[安装 protocol buffers 的说明](https://github.com/protocolbuffers/protobuf/blob/master/src/README.md)。
@@ -14,12 +14,16 @@
 2. 生成的代码包括客户端的存根和服务端要实现的抽象接口。
 3. 生成 gRPC 代码步骤：
     Lua DEMO 依赖 C++ 框架，步骤同 C++ DEMO 一样，在 proto 目录下执行：
-     - ```protoc --cpp_out=. *.proto``` 生成 pb.cc 和 pb.h 文件。
-     - ```protoc --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` *.proto```生成对应的 gRPC 代码。
-     - 将生成的8个文件移到项目合适的位置。    
+ ```
+ protoc --cpp_out=. *.proto``` 
+ 生成 pb.cc 和 pb.h 文件。
+```
+protoc --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` *.proto```
+生成对应的 gRPC 代码。
+将生成的8个文件移到项目合适的位置。    
 
 ## 游戏进程集成流程
-![](https://main.qcloudimg.com/raw/e499c0b753c8c2c144a6253c3ccb9ed4.png)
+![](https://main.qcloudimg.com/raw/d4d7b70768507f7f102892befe539428.png)
 #### 服务端接口列表
 
 | 接口名称 | 接口功能|
@@ -44,7 +48,7 @@
 
 #### 其他
 
- 请求 meta，在游戏进程通过 gRPC 调用  GSE 相关接口时，需要在 gRPC 请求的 meta 里添加两个字段。
+ 请求 meta，在游戏进程通过 gRPC 调用客户端接口时，需要在 gRPC 请求的 meta 里添加两个字段。
 
 | 字段      | 含义                                      | 类型   |
 | --------- | ----------------------------------------- | ------ |
@@ -54,104 +58,104 @@
  1. 一般在服务端初始化后，进程检查自身是否可对外提供服务，Game Server 调用 ProcessReady 接口，告知 GSE 进程准备就绪，已准备好托管游戏服务器会话，GSE 接收到后，将服务器实例状态更改为“活跃”。
 ```
 static bool luaProcessReady(std::vector <std::string> &logPath, int clientPort, int grpcPort) {
-    GseResponse reply;
-    //日志路径，设置端口
-    Status status = GGseManager->ProcessReady(logPath, clientPort, grpcPort, reply);
-    //准备就绪，可对外提供服务
-    GSESDK()->setReplyStatus(status);
-    if (!status.ok()) {
-        return false;
-    }
-    return true;
+		GseResponse reply;
+		//日志路径，设置端口
+		Status status = GGseManager->ProcessReady(logPath, clientPort, grpcPort, reply);
+		//准备就绪，可对外提供服务
+		GSESDK()->setReplyStatus(status);
+		if (!status.ok()) {
+			return false;
+		}
+		return true;
 }
 ```
  2. 进程准备就绪后，GSE 调用 OnHealthCheck 接口，对 Game Server 进行健康检查，每1分钟检查1次，连续3次失败就判定该进程不健康，不会分配游戏服务器会话至该进程。
 ```
 Status GameServerGrpcSdkServiceImpl::OnHealthCheck(ServerContext* context, const HealthCheckRequest* request,  HealthCheckResponse* reply)
 {
-    healthStatus = GSESDK()->exec("return OnHealthCheck()");
-    std::cout << "healthStatus=" << healthStatus << std::endl;
-    reply->set_healthstatus(healthStatus);
-    return Status::OK;
+		healthStatus = GSESDK()->exec("return OnHealthCheck()");
+		std::cout << "healthStatus=" << healthStatus << std::endl;
+		reply->set_healthstatus(healthStatus);
+		return Status::OK;
 }
 ```
  3. 因为 Client 调用 [CreateGameServerSession](https://cloud.tencent.com/document/product/1165/42067) 接口创建一个游戏服务器会话，将该游戏服务器会话分配给一个进程，所以触发 GSE 调用该进程的 onStartGameServerSession 接口，并且将 GameServerSession 状态更改为“激活中”。
 ```
 Status GameServerGrpcSdkServiceImpl::OnStartGameServerSession(ServerContext* context, const StartGameServerSessionRequest* request,  GseResponse* reply)
 {
-    auto gameServerSession = request->gameserversession();
-    GGseManager->SetGameServerSession(gameServerSession);
+		auto gameServerSession = request->gameserversession();
+		GGseManager->SetGameServerSession(gameServerSession);
 
-    std::ostringstream o;
-    o << "return OnStartGameServerSession('" << gameServerSession.gameserversessionid() << "'," << gameServerSession.maxplayers() << ")";
-    std::string luaCmd = o.str();
+		std::ostringstream o;
+		o << "return OnStartGameServerSession('" << gameServerSession.gameserversessionid() << "'," << gameServerSession.maxplayers() << ")";
+		std::string luaCmd = o.str();
 
-    bool res = GSESDK()->exec(luaCmd);
+		bool res = GSESDK()->exec(luaCmd);
 
-    return Status::OK;
+		return Status::OK;
 }
 ```
  4. 当 Game Server 收到 onStartGameServerSession，您自行处理一些逻辑或资源分配，准备就绪后，Game Server 就调用ActivateGameServerSession 接口，通知 GSE 游戏服务器会话已分配给一个进程，现在已准备好接收玩家请求，将服务器状态更改为“活跃”。
 ```
 static bool luaActivateGameServerSession(const std::string &gameServerSessionId, int maxPlayers) {
-    GseResponse reply;
-    Status status = GGseManager->ActivateGameServerSession(gameServerSessionId, maxPlayers, reply);
-    GSESDK()->setReplyStatus(status);
-    if (!status.ok()) {
-        return false;
-    }
-    return true;
+		GseResponse reply;
+		Status status = GGseManager->ActivateGameServerSession(gameServerSessionId, maxPlayers, reply);
+		GSESDK()->setReplyStatus(status);
+		if (!status.ok()) {
+				return false;
+		}
+		return true;
 }
 ```
  5. 当 Client 调用 [JoinGameServerSession](https://cloud.tencent.com/document/product/1165/42061)  接口玩家加入后，Game Server 调用 AcceptPlayerSession 接口验证玩家合法性，如果连接被接受，则将 PlayerSession 状态设置为“活跃”。如果 Client 调用 JoinGameServerSession 接口在60秒内未收到响应，则将 PlayerSession 状态更改为“超时”，然后重新调用 JoinGameServerSession。
 ```
 static bool luaAcceptPlayerSession(const std::string &gameServerSessionId, const std::string &playerSessionId) {
-    GseResponse reply;
-    Status status = GGseManager->AcceptPlayerSession(gameServerSessionId, playerSessionId, reply);
-    GSESDK()->setReplyStatus(status);
-    if (!status.ok()) {
-        return false;
-    }
-    return true;
+		GseResponse reply;
+		Status status = GGseManager->AcceptPlayerSession(gameServerSessionId, playerSessionId, reply);
+		GSESDK()->setReplyStatus(status);
+		if (!status.ok()) {
+				return false;
+		}
+		return true;
 }
 ``` 
  6. 游戏结束或者玩家退出后，Game Server 调用 RemovePlayerSession 接口移除玩家，将 playersession 状态更改为“已完成” ，并预留游戏服务器会话中的玩家位置。
 ```
 static bool luaRemovePlayerSession(const std::string &gameServerSessionId, const std::string &playerSessionId) {
-    GseResponse reply;
-    Status status = GGseManager->RemovePlayerSession(gameServerSessionId, playerSessionId, reply);
-    GSESDK()->setReplyStatus(status);
-    if (!status.ok()) {
-        return false;
-    }
-    return true;
+		GseResponse reply;
+		Status status = GGseManager->RemovePlayerSession(gameServerSessionId, playerSessionId, reply);
+		GSESDK()->setReplyStatus(status);
+		if (!status.ok()) {
+				return false;
+		}
+		return true;
 }
 ```
  7. 当一个游戏服务器会话（一组游戏对局或一个服务）结束后，Game Server 调用 TerminateGameServerSession 接口结束 GameServerSession，将 GameServerSession 状态更改为“已终止”。
 ```
 static bool luaTerminateGameServerSession(const std::string &gameServerSessionId) {
-    GseResponse reply;
-    Status status = GGseManager->TerminateGameServerSession(gameServerSessionId, reply);
-    GSESDK()->setReplyStatus(status);
-    if (!status.ok()) {
-        return false;
-    }
-    return true;
+		GseResponse reply;
+		Status status = GGseManager->TerminateGameServerSession(gameServerSessionId, reply);
+		GSESDK()->setReplyStatus(status);
+		if (!status.ok()) {
+				return false;
+		}
+		return true;
 }
 ```
  8. 当健康检查失败或缩容时，GSE 调用 OnProcessTerminate 接口结束游戏进程，缩容时依据是您在 GSE 控制台配置的 [保护策略](https://cloud.tencent.com/document/product/1165/41028#test12)。
 ```
 Status GameServerGrpcSdkServiceImpl::OnProcessTerminate(ServerContext* context, const ProcessTerminateRequest* request,  GseResponse* reply)
 {
-    auto terminationTime = request->terminationtime();
-    std::to_string(terminationTime));
-    std::ostringstream o;
-    o << "OnProcessTerminate(" << terminationTime << ")";
-    std::string luaCmd = o.str();
+		auto terminationTime = request->terminationtime();
+		std::to_string(terminationTime));
+		std::ostringstream o;
+		o << "OnProcessTerminate(" << terminationTime << ")";
+		std::string luaCmd = o.str();
 
-    GSESDK()->execWithNilResult(luaCmd);
+		GSESDK()->execWithNilResult(luaCmd);
 
-    return Status::OK;
+		return Status::OK;
 }
 ```
  9. Game Server 调用 ProcessEnding 接口会立刻结束进程，将服务器进程状态更改为“已终止”，并回收资源。
@@ -159,53 +163,54 @@ Status GameServerGrpcSdkServiceImpl::OnProcessTerminate(ServerContext* context, 
 //主动调用：一局游戏对应一个进程，当一局游戏结束后主动调用ProcessEnding接口
 //被动调用：当缩容或进程异常健康检查失败时，根据保护策略被动调用ProcessEnding接口，配置完全保护和时限保护策略时需要先判断游戏服务器会话上有无玩家，再被动调用
 static bool luaProcessEnding() {
-    GseResponse reply;
-    Status status = GGseManager->ProcessEnding(reply);
-    GSESDK()->setReplyStatus(status);
-    if (!status.ok()) {
-        return false;
-    }
-    return true;
+		GseResponse reply;
+		Status status = GGseManager->ProcessEnding(reply);
+		GSESDK()->setReplyStatus(status);
+		if (!status.ok()) {
+				return false;
+		}
+		return true;
 }
 ```
  10. Game Server 调用 DescribePlayerSessions 接口获取游戏服务器会话下的玩家信息（根据业务可选）。
 ```
-static bool luaDescribePlayerSessions(const std::string &gameServerSessionId, const std::string &playerId,
-                                      const std::string &playerSessionId,
-                                      const std::string &playerSessionStatusFilter, const std::string &nextToken,
-                                      int limit) {
-    DescribePlayerSessionsResponse reply;
-    Status status = GGseManager->DescribePlayerSessions(gameServerSessionId, playerId, playerSessionId,
-                                                        playerSessionStatusFilter, nextToken, limit, reply);
-    GSESDK()->setDescribePlayerSessionsResponse(reply);
-    if (!status.ok()) {
-        return false;
-    }
-    return true;
+static bool luaDescribePlayerSessions(const std::string &gameServerSessionId, 
+											const std::string &playerId,
+											const std::string &playerSessionId,
+											const std::string &playerSessionStatusFilter, const std::string &nextToken,
+                                            int limit) {
+		DescribePlayerSessionsResponse reply;
+		Status status = GGseManager->DescribePlayerSessions(gameServerSessionId,playerId, playerSessionId, playerSessionStatusFilter, nextToken, limit, reply);
+		
+		GSESDK()->setDescribePlayerSessionsResponse(reply);
+		if (!status.ok()) {
+				return false;
+		}
+		return true;
 }
 ```
  11. Game Server 调用 UpdatePlayerSessionCreationPolicy 接口更新玩家会话的创建策略，设置是否接受新玩家，即游戏会话里是否允许加入人（根据业务可选）。
 ```
 static bool luaUpdatePlayerSessionCreationPolicy(const std::string &newpolicy) {
-    GseResponse reply;
-    Status status = GGseManager->UpdatePlayerSessionCreationPolicy(newpolicy, reply);
-    GSESDK()->setReplyStatus(status);
-    if (!status.ok()) {
-        return false;
-    }
-    return true;
+		GseResponse reply;
+		Status status = GGseManager->UpdatePlayerSessionCreationPolicy(newpolicy, reply);
+		GSESDK()->setReplyStatus(status);
+		if (!status.ok()) {
+				return false;
+		}
+		return true;
 }
 ```
  12. Game Server 调用 ReportCustomData 接口告知 GSE 的自定义数据（根据业务可选）。
 ```
 static bool luaReportCustomData(int currentCustomCount, int maxCustomCount) {
-    GseResponse reply;
-    Status status = GGseManager->ReportCustomData(currentCustomCount, maxCustomCount, reply);
-    GSESDK()->setReplyStatus(status);
-    if (!status.ok()) {
-        return false;
-    }
-    return true;
+		GseResponse reply;
+		Status status = GGseManager->ReportCustomData(currentCustomCount, maxCustomCount, reply);
+		GSESDK()->setReplyStatus(status);
+		if (!status.ok()) {
+				return false;
+		}
+		return true;
 }
 ```
 

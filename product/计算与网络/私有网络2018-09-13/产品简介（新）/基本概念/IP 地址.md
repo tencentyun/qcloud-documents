@@ -112,3 +112,9 @@ IPv6 地址开通 IPv6 公网后，即作为公网 IPv6 地址具有了访问 IP
 #### 计费说明
 腾讯云对使用公网 IPv6 地址访问 IPv6 公网产生的公网网络流量，将收取公网网络费用，详情请参见 [弹性公网 IPv6-购买指南](https://cloud.tencent.com/document/product/1142/38129)。
 
+
+## 相关信息
+- 如需快速搭建一个具有 IPv4 CIDR 的私有网络（VPC），请参见 [快速搭建 IPv4 私有网络](https://cloud.tencent.com/document/product/215/30716)。
+- 如需了解弹性公网 IP 相关内容，请参见 [弹性公网 IP](https://cloud.tencent.com/document/product/215/37567)。
+- 如需查询公网 IP 地址的物理归属地和运营商，请参见 [IP 归属地查询](https://cloud.tencent.com/document/product/215/40362)。
+

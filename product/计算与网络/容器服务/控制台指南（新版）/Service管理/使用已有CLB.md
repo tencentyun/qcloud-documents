@@ -8,6 +8,15 @@
 删除监听器时，会校验监听器名称是否被修改。如果用户修改监听器名称，则认为该监听器可能由用户创建，不进行主动删除。
 * 如果 Service 目前正在使用自动创建的负载均衡，那么给它添加使用已有负载均衡的注解，会使得当前负载均衡的生命周期结束并释放，Service 的配置将会与该负载均衡进行同步。反之，如果删除 Service 正在使用的已有负载均衡的注解，Service Controller 组件将会为该 Service 创建负载均衡并进行同步。
 
+
+## 使用已有负载均衡同步腾讯云标签行为
+- 默认情况下，Service 创建的 CLB 均会配置 `tke-createdBy-flag = yes` 标签，Service 会在销毁时删除对应资源。若使用已有 CLB，则不会配置该标签，Service 销毁时也不会删除对应资源。
+- 所有 Service 均会配置 `tke-clusterId = ` 标签，若 ClusterId 正确，则 Service 会在销毁时删除对应标签。
+- 于2020年7月20日起创建的集群，将默认关闭多个 Service 复用相同 CLB 的功能。该日期前后集群内 Service 创建的 CLB 标签配置规则变更情况及详细信息，请参见  [多 Service 复用 CLB](https://cloud.tencent.com/document/product/457/46370)。
+
+
+
+
 ## 注意事项
 - 指定使用的负载均衡需和集群处于同一地域。
 - 请确保您的容器业务不和云服务器 CVM 业务共用一个负载均衡。

@@ -7,9 +7,20 @@ CFS 成本低廉，采用按量计费模式，以小时为计费周期，您只�
 - 函数执行空间不受限。
 - 多个函数可共用一个文件系统，实现文件共享。
 
-
-
 ## 操作步骤
+
+### 关联授权策略
+如需使用 CFS 功能，请参考以下步骤为账号进行授权操作：
+1. 请参考 [修改角色](https://cloud.tencent.com/document/product/598/19389)，为 `SCF_QcsRole` 角色关联 `QcloudCFSReadOnlyAccess` 策略。关联成功则如下图所示：
+如您使用的账号未进行该操作，则可能出现函数无法保存，CFS 相关功能无法使用等问题。
+![](https://main.qcloudimg.com/raw/dec5c3f4d54aeeb25fce8450f584afa4.png)
+2. 如您使用账号为子账号，则请联系主账号并参考 [子用户权限设置](https://cloud.tencent.com/document/product/598/36256) 为您的子账号关联 `QcloudCFSReadOnlyAccess` 策略。关联成功则如下图所示：
+如您使用的子账号未进行该操作，则可能出现无法使用 CFS 相关功能的问题。
+![](https://main.qcloudimg.com/raw/4e83ee59c61f86484b3f56b356ac32d5.png)
+
+
+
+
 ### 创建私有网络 VPC
 请参考 [快速搭建 IPv4 私有网络](https://cloud.tencent.com/document/product/215/30716) 完成 VPC 创建。
 
@@ -27,7 +38,7 @@ CFS 成本低廉，采用按量计费模式，以小时为计费周期，您只�
 ![](https://main.qcloudimg.com/raw/5df4693e17f05892edb610e04f420de2.png)
  - **用户ID**及**用户组ID**：这两个值等同于 CFS 文件系统中的用户及用户组。云函数默认用户及用户组值为 10000，来操作您的 CFS 文件系统。请按需设置文件的拥有者及相应组的权限，并确保您的 CFS 文件系统已配置相应权限。详情请参见 [权限设置](https://cloud.tencent.com/document/product/582/10951)。
  - **远程目录**：为云函数需访问 CFS 文件系统的远端目录，由文件系统和远端目录两部分组成。
- -  **本地目录**：为本地文件系统的挂载点。您可使用 `mnt` 目录的子目录挂载 CFS 文件系统。
+ -  **本地目录**：为本地文件系统的挂载点。您可使用 `/mnt/` 目录的子目录挂载 CFS 文件系统。
  -  **文件系统ID**：在下拉列表中选择需挂载的文件系统。
  -  **挂载点ID**：在下拉列表中选择对应文件系统的挂载点 ID。
 6.  单击页面下方的【保存】即可完成配置。

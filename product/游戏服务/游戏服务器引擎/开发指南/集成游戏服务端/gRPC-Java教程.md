@@ -1,6 +1,6 @@
 
 
-## 安装gRPC
+## 安装 gRPC
 1. Java gRPC 除了 JDK 外不需要其他工具。
 2. 在本地安装 gRPC Java 库 SNAPSHOT，包括代码生成插件。
 >?具体安装流程请您参考 [安装 gRPC Java的说明](https://github.com/grpc/grpc-java/blob/master/COMPILING.md)。
@@ -15,6 +15,8 @@ gRPC 通过 protocol buffers 实现定义一个服务：一个 RPC 服务通过�
  - 方法一：在 java-demo/src/main/proto下执行脚本，需要从 gprc 官网下载 protoc 和 protoc-gen-grpc-java 生成工具：
 ```
 sh gen_pb.sh
+```
+```
 protoc --java_out=../java --proto_path=. GameServerGrpcSdkService.proto
 protoc --plugin=protoc-gen-grpc-java=`which protoc-gen-grpc-java` --grpc-java_out=../java --proto_path=. GameServerGrpcSdkService.proto
 protoc --java_out=../java --proto_path=. GseGrpcSdkService.proto
@@ -23,38 +25,38 @@ protoc --plugin=protoc-gen-grpc-java=`which protoc-gen-grpc-java` --grpc-java_ou
  - 方法二：使用 maven 工具生成 gRPC 代码，在 maven 中增加编译 grpc 代码的 maven 插件，详细信息请您参考 [gRPC-Java-RPC 库和框架](https://github.com/grpc/grpc-java)。
 ``` 
 <build>
-  <extensions>
-    <extension>
-      <groupId>kr.motd.maven</groupId>
-      <artifactId>os-maven-plugin</artifactId>
-      <version>1.6.2</version>
-    </extension>
-  </extensions>
-  <plugins>
-    <plugin>
-      <groupId>org.xolstice.maven.plugins</groupId>
-      <artifactId>protobuf-maven-plugin</artifactId>
-      <version>0.6.1</version>
-      <configuration>
-        <protocArtifact>com.google.protobuf:protoc:3.12.0:exe:${os.detected.classifier}</protocArtifact>
-        <pluginId>grpc-java</pluginId>
-        <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.30.2:exe:${os.detected.classifier}</pluginArtifact>
-      </configuration>
-      <executions>
-        <execution>
-          <goals>
-            <goal>compile</goal>
-            <goal>compile-custom</goal>
-          </goals>
-        </execution>
-      </executions>
-    </plugin>
-  </plugins>
+	   <extensions>
+		 <extension>
+			<groupId>kr.motd.maven</groupId>
+			<artifactId>os-maven-plugin</artifactId>
+			<version>1.6.2</version>
+		 </extension>
+	   </extensions>
+	   <plugins>
+		 <plugin>
+			<groupId>org.xolstice.maven.plugins</groupId>
+			<artifactId>protobuf-maven-plugin</artifactId>
+			<version>0.6.1</version>
+			<configuration>
+				<protocArtifact>com.google.protobuf:protoc:3.12.0:exe:${os.detected.classifier}</protocArtifact>
+				<pluginId>grpc-java</pluginId>
+				<pluginArtifact>io.grpc:protoc-gen-grpc-java:1.30.2:exe:${os.detected.classifier}</pluginArtifact>
+			</configuration>
+			<executions>
+			  <execution>
+				<goals>
+					<goal>compile</goal>
+					<goal>compile-custom</goal>
+				</goals>
+			 </execution>
+		   </executions>
+		 </plugin>
+		</plugins>
 </build>
 ``` 
 
 ## 游戏进程集成流程
-![](https://main.qcloudimg.com/raw/6e5cddb86f90e86818941d845d61bbed.png)
+![](https://main.qcloudimg.com/raw/7573bff913544f74ff384d5f491db735.png)
 
 #### 服务端接口列表
 
@@ -79,7 +81,7 @@ protoc --plugin=protoc-gen-grpc-java=`which protoc-gen-grpc-java` --grpc-java_ou
 |[ReportCustomData](https://cloud.tencent.com/document/product/1165/46124)|上报自定义数据|
 
 #### 其他
- 请求 meta，在游戏进程通过 gRPC 调用 GSE 相关接口 时，需要在 gRPC 请求的 meta 里添加两个字段。
+ 请求 meta，在游戏进程通过 gRPC 调用客户端接口时，需要在 gRPC 请求的 meta 里添加两个字段。
 
 | 字段      | 含义                                      | 类型   |
 | --------- | ----------------------------------------- | ------ |
@@ -92,10 +94,10 @@ public GseResponseBo processReady(ProcessReadyRequestBo request) {
         logger.info("processReady request=" + new Gson().toJson(request));
         GseResponseBo responseBo = new GseResponseBo();
         GseGrpcSdkServiceOuterClass.ProcessReadyRequest rpcRequest = GseGrpcSdkServiceOuterClass.ProcessReadyRequest
-                //设置端口
+                //设置端口。
                 .newBuilder().setClientPort(request.getClientPort())
                 .setGrpcPort(request.getGrpcPort())
-                //日志路径
+                //日志路径。
                 .addAllLogPathsToUpload(request.getLogPathsToUploadList()).build();
 
         GseGrpcSdkServiceOuterClass.GseResponse rpcResponse;
@@ -105,7 +107,7 @@ public GseResponseBo processReady(ProcessReadyRequestBo request) {
             logger.log(Level.WARNING, "RPC failed: {0}", e.getStatus());
             return createRpcFailedResponseBo(e.getStatus());
         }
-        //准备就绪，可对外提供服务
+        //准备就绪，可对外提供服务。
         logger.info("processReady response=" + rpcResponse.toString());
         return createResponseBoByRpcResponse(rpcResponse);
 }
@@ -114,7 +116,7 @@ public GseResponseBo processReady(ProcessReadyRequestBo request) {
 ```
 public boolean onHealthCheck() {
         
-        // To add your game server logic for health check.
+        //添加游戏服务器逻辑以进行健康检查。
         boolean res = getGrpcServiceConfig().getGseGrpcSdkServiceClient().isProcessHealth();
         logger.info("onHealthCheck status=" + res);
         return res;
@@ -124,17 +126,17 @@ public boolean onHealthCheck() {
 ```
 public GseResponseBo onStartGameServerSession(GameServerSessionBo gameServerSessionBo) {
         logger.info("onStartGameServerSession gameServerSession=" + new Gson().toJson(gameServerSessionBo));
-        // To add your game server logic for starting a game server session.
+        //添加用于启动游戏服务器会话的游戏服务端逻辑。
 
-        // Save the game server session
+        //保存游戏服务器会话。
         getGrpcServiceConfig().getGseGrpcSdkServiceClient().onStartGameServerSession(gameServerSessionBo);
-        // active game server session
+        //激活游戏服务器会话。
         ActivateGameServerSessionRequestBo activateRequest = new ActivateGameServerSessionRequestBo();
         activateRequest.setGameServerSessionId(gameServerSessionBo.getGameServerSessionId());
         activateRequest.setMaxPlayers(gameServerSessionBo.getMaxPlayers());
         getGrpcServiceConfig().getGseGrpcSdkServiceClient().activateGameServerSession(activateRequest);
 
-        // To add some final logic here.
+        //在此处添加最终逻辑。
         return createResponseBo(0, "SUCCESS");
 }
 ```
@@ -239,10 +241,8 @@ public GseResponseBo terminateGameServerSession(String gameServerSessionId) {
 ```
 public GseResponseBo onProcessTerminate(long terminationTime) {
         logger.info("onProcessTerminate terminationTime=" + terminationTime);
-        // maybe terminate the game server at now.
+        //现在可能结束游戏服务端。
 
-        // call gse-sdk ProcessEnding
-        //gseGrpcSdkServiceClient.processEnding();
         return createResponseBo(0, "SUCCESS");
 }
 ```
@@ -342,7 +342,7 @@ public GseResponseBo reportCustomData(ReportCustomDataRequestBo request) {
 ## 启动服务端，供 GSE 调用
 服务端运行：将 GrpcServer 启动起来。
  ```
-  @Bean(name = "grpcService", initMethod = "startup", destroyMethod = "shutdown")
+@Bean(name = "grpcService", initMethod = "startup", destroyMethod = "shutdown")
     public GrpcService getGrpcService() {
         GrpcServiceConfig grpcServiceConfig = new GrpcServiceConfig();
         grpcServiceConfig.setGseGrpcSdkServiceClient(gseGrpcSdkServiceClient);
@@ -353,16 +353,16 @@ public GseResponseBo reportCustomData(ReportCustomDataRequestBo request) {
         GrpcService grpcService = new GrpcService(grpcServiceConfig);
         return grpcService;
 }
- ```
+```
 
 ## 客户端连接 GSE 的 gRPC 服务端
 连接服务端：创建一个 gRPC 频道，指定我们要连接的主机名和服务器端口，然后用这个频道创建存根实例。
-```
+```java
 public GseGrpcSdkServiceGrpc.GseGrpcSdkServiceBlockingStub getGseGrpcSdkServiceClient() {
-        // 'channel' here is a Channel, not a ManagedChannel, so it is not this code's responsibility to
-        // shut it down.
+        
+        // 这里的 “channel” 是一个频道，而不是 ManagedChannel，因此，此代码的职责不是关掉它。
 
-        // Passing Channels to code makes code easier to test and makes it easier to reuse Channels.
+        //将频道传递给代码，使代码更易于测试和重用频道。
         if (blockingStub == null) {
             managedChannel = getGrpcChannel(targetAddress);
             blockingStub = GseGrpcSdkServiceGrpc.newBlockingStub(managedChannel);
@@ -400,3 +400,4 @@ yum install -y java-1.8.0-openjdk
    ``` 
 - 将可执行文件 gse-gameserver-demo.jar 打包为 [生成包](https://cloud.tencent.com/document/product/1165/41030)，启动路径配置 java，启动参数配置 jar gse-gameserver-demo.jar。
 - 然后 [创建服务器舰队](https://cloud.tencent.com/document/product/1165/41028)，将生成包部署在服务器舰队上，后续可进行 [扩缩容](https://cloud.tencent.com/document/product/1165/45709) 等一系列操作。
+

@@ -103,7 +103,7 @@ TRTCCloud.exitRoom() 在退房失败时会触发此类错误码，您可以通�
 
 ### 跨房连麦相关错误码
 
-TRTCCloud.ConnectOtherRoom() 在跨放失败时会触发此类错误码，您可以通过回调函数 TRTCCloudDelegate.onConnectOtherRoom() 捕获相关通知。
+TRTCCloud.ConnectOtherRoom() 在跨房失败时会触发此类错误码，您可以通过回调函数 TRTCCloudDelegate.onConnectOtherRoom() 捕获相关通知。
 
 | 符号 | 值 | 含义 |
 |---|---|---|

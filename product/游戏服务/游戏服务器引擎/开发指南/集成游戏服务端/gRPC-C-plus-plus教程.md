@@ -22,12 +22,17 @@ gRPC 通过 protocol buffers 实现定义一个服务：一个 RPC 服务通过�
 2. 生成的代码包括客户端的存根和服务端要实现的抽象接口。
 3. 生成 gRPC 代码步骤：
     在 proto 目录下执行：
-     - ```protoc --cpp_out=. *.proto``` 生成 pb.cc 和 pb.h 文件。
-     - ```protoc --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` *.proto``` 生成对应的 gRPC 代码。
-     - 将生成的8个文件移到项目合适的位置。
+ ```
+ protoc --cpp_out=. *.proto
+ ``` 
+生成 pb.cc 和 pb.h 文件。
+```
+protoc --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` *.proto``` 
+生成对应的 gRPC 代码。
+将生成的8个文件移到项目合适的位置。
 
 ## 游戏进程集成流程
-![](https://main.qcloudimg.com/raw/ff09d95566d173fe18a8301ea1805a65.png)
+![](https://main.qcloudimg.com/raw/9ee6ee1823da180eccb92d8358a36f9c.png)
 
 #### 服务端接口列表
 
@@ -53,7 +58,7 @@ gRPC 通过 protocol buffers 实现定义一个服务：一个 RPC 服务通过�
 
 #### 其他
 
- 请求 meta，在游戏进程通过 gRPC 调用 GSE 相关接口时，需要在 gRPC 请求的 meta 里添加两个字段。
+ 请求 meta，在游戏进程通过 gRPC 调用客户端接口时，需要在 gRPC 请求的 meta 里添加两个字段。
 
 | 字段      | 含义                                      | 类型   |
 | --------- | ----------------------------------------- | ------ |
@@ -175,8 +180,8 @@ Status GameServerGrpcSdkServiceImpl::OnProcessTerminate(ServerContext* context, 
         auto terminationTime = request->terminationtime();
         GGseManager->SetTerminationTime(terminationTime);
 
-        //调以下两个接口，会立即结束游戏服务器会话，建议无玩家或无游戏服务器会话后，再调用processEnding结束进程
-        //不调用以下两个接口，根据保护策略调用processEnding结束进程，建议配置时限保护
+        //调以下两个接口，会立即结束游戏服务器会话，建议无玩家或无游戏服务器会话后，再调用ProcessEnding结束进程
+        //不调用以下两个接口，根据保护策略调用ProcessEnding结束进程，建议配置时限保护
        
         //结束游戏服务器会话
         GseResponse terminateGameServerSessionReply;
@@ -207,8 +212,7 @@ Status GseManager::ProcessEnding(GseResponse& reply)
 ```
 10. Game Server 调用 DescribePlayerSessions 接口获取游戏服务器会话下的玩家信息（根据业务可选）。
 ```
-Status GseManager::DescribePlayerSessions(std::string gameServerSessionId, std::string  playerId, std::string  playerSessionId,
-    std::string playerSessionStatusFilter, std::string nextToken, int limit, DescribePlayerSessionsResponse& reply)
+Status GseManager::DescribePlayerSessions(std::string gameServerSessionId, std::string  playerId, std::string  playerSessionId,std::string playerSessionStatusFilter, std::string nextToken, int limit, DescribePlayerSessionsResponse& reply)
 {
         GConsoleLog->PrintOut(true, "start to DescribePlayerSessions\n");
         DescribePlayerSessionsRequest request;
