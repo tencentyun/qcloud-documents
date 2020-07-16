@@ -18,7 +18,7 @@
   Nodejs 版本使用 grpc/proto-loader 直接加载 pb 文件，不需要生成 gRPC-nodejs 代码。
 
 ## 游戏进程集成流程
-![](https://main.qcloudimg.com/raw/be95451b3a2ecea69ecf3674fe8464c9.png)
+![](https://main.qcloudimg.com/raw/8b0ed25c273421c8365b77d1faf900c5.png)
 
 #### 服务端接口列表
 
