@@ -1,5 +1,5 @@
 
->?仅对白名单用户开放。
+>?连接加密仅对白名单用户开放，如需使用，请 [提交工单](https://console.cloud.tencent.com/workorder/category)。
 
 ## SSL 连接加密简介
 ### SSL 连接加密背景
@@ -33,7 +33,7 @@ SSL 加密并不保护数据本身，而是确保了来往于数据库和服务�
 ## 配置 SSL 连接加密
 
 ### 开启 SSL 连接加密
-为了提高链路安全性，您可以在 [MariaDB 控制台](https://console.cloud.tencent.com/tdsql) 实例管理页的【数据安全性】>【连接安全】中启用 SSL（Secure Sockets Layer）加密。
+为了提高链路安全性，您可以在 [MariaDB 控制台](https://console.cloud.tencent.com/tdsql) 实例管理页的【数据安全性】>【连接加密】中启用 SSL（Secure Sockets Layer）加密。
 
 >?由于启用 SSL 加密依赖当前 SQL 引擎版本，如果 SQL 引擎不匹配，后台会先进行**静默升级**（静默升级优先确保现有连接和实例稳定影响，业务无感知升级过程，升级过程可能历时1 - 2小时或更长）。
 
