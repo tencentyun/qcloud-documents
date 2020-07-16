@@ -9,7 +9,7 @@
 | 80 | HTTP | 用于网站服务例如 IIS、Apache、Nginx 等提供对外访问。|
 | 110 | POP3 | 110端口是为 POP3（邮件协议 3）服务开放的。 |
 | 137、138、139 | NETBIOS 协议 | 其中137、138是 UDP 端口，当通过网上邻居传输文件时用这个端口。<br>而139端口：通过这个端口进入的连接试图获得 NetBIOS/SMB 服务。这个协议被用于 Windows 文件和打印机共享和 SAMBA。 |
-| 143 | IMAP | 143端口主要是用于“Internet Message AccessProtocol”v2（Internet 消息访问协议，简称 IMAP），和 POP3 一样，是用于电子邮件的接收的协议。 |
+| 143 | IMAP | 143端口主要是用于“Internet Message Access Protocol”v2（Internet 消息访问协议，简称 IMAP），和 POP3 一样，是用于电子邮件的接收的协议。 |
 | 443 | HTTPS | 网页浏览端口，能提供加密和通过安全端口传输的另一种 HTTP。 |
 | 1433 | SQL Server | 1433端口，是 SQL Server 默认的端口，SQL Server 服务使用两个端口：TCP-1433、UDP-1434。其中1433用于供 SQL Server 对外提供服务，1434用于向请求者返回 SQL Server 使用了哪个 TCP/IP 端口。 |
 | 3306 | MySQL | 3306端口，是 MySQL 数据库的默认端口，用于 MySQL 对外提供服务。|
