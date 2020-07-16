@@ -50,7 +50,7 @@
 
 
 ### 获取存储桶子目录<span id="getPath"></span>
->
+
 1. 在存储桶列表页面，单击选择刚刚创建的存储桶，进入该存储桶的详情页
 2. 选择需要挂载的子文件夹，单击进入。在页面右上角获取子目录路径`/costest`，如下图所示：
 ![](https://main.qcloudimg.com/raw/1ce440ed5a4de2b6f4d1f1831e082c63.png)
