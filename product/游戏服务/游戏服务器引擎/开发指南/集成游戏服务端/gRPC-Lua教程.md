@@ -23,7 +23,7 @@ protoc --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_cpp_plugin` *.proto```
 将生成的8个文件移到项目合适的位置。    
 
 ## 游戏进程集成流程
-![](https://main.qcloudimg.com/raw/629791cc5d23c89fbbec6ee19d725340.png)
+![](https://main.qcloudimg.com/raw/d4d7b70768507f7f102892befe539428.png)
 #### 服务端接口列表
 
 | 接口名称 | 接口功能|
