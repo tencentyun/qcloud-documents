@@ -93,7 +93,6 @@ SDK 支持 iOS 8.0 以上系统。
 1. **导入 UGCKit 与 BeautyPannel (BeautySettingKit)**
 	1. 将 `Demo/TXLiteAVDemo/UGC/UGCKit` 文件夹拷贝到工程目录中，并将 UGCKit 中的 `UGCKit.xcodeproj` 拖拽到工程中。
 	2. 将 `Demo/TXLiteAVDemo/BeautySettingKit` 文件夹拷贝到工程目录中，并将 BeautySettingKit 中的`TCBeautyPanel.xcodeproj` 拖拽到工程中。
->
 ![](https://main.qcloudimg.com/raw/48fa8833ea243bba61eec09bbdb38d33.png)
 2. **配置依赖关系**   
 单击工程的 Target，选择 Build Phase 标签，在 Dependencies 中单击加号，选择 `UGCKit.framework`、 `UGCKitResources`、`TCBeautyPanel.framework` 和 `TCBeautyPanelResources`，单击【Add】。
@@ -108,7 +107,6 @@ SDK 支持 iOS 8.0 以上系统。
 	1. 单击工程的 Target，选择 Build Phase 标签，展开 Copy Bundle Resources。
 	2. 在左侧目录中依次展开 UGCKit.xcodeproj、Products，拖动 `UGCKitResources.bundle` 到 Copy Bundle Resources 中，而后依次展开 `TCBeautyPannel.xcodeproj`，Products。
 	3. 拖动 `TCBeautyPanelResources.bundle` 到 Copy Bundle Resources中。
->
 ![](https://main.qcloudimg.com/raw/6377d1c7b240e008f240d116e5363a8b.png)
 5. **导入商业版资源（仅用于商业版）**
 将商业版 SDK zip 包中 EnterprisePITU（在App/AppCommon目录下）文件夹拖动到工程中，选择“Create groups"并勾选您的 Target，单击【Finish】。
