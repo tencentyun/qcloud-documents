@@ -1,24 +1,19 @@
 <table style="text-align:center;vertical-align:middle;">
   <tr>
-    <th width="150px">iOS</th>
-    <th width="150px">Android</th>
-    <th width="150px">Mac OS</th>
-    <th width="150px">Windows</th>
-    <th width="150px">桌面浏览器</th>
-    <th width="150px">微信小程序</th>
+    <th>iOS</th><th>Android</th><th >Mac OS</th><th>Windows</th><th>桌面浏览器</th><th>微信小程序</th>
   </tr>
   <tr>
-	  <td><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/b637949cbfc255ecefb060fafbfc70be.png);">
+      <td><div style="width:124px;height: 124px;background-image:url(https://main.qcloudimg.com/raw/b637949cbfc255ecefb060fafbfc70be.png);background-size: cover;">
    </div></td>
-      <td><a onclick="window.open('http://dldir1.qq.com/hudongzhibo/TRTC/Demo/TRTCDemo.apk')"><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/cb4c811e2f4dc4a7c9cc4f759e9ca86b.png);">
+      <td><a onclick="window.open('http://dldir1.qq.com/hudongzhibo/TRTC/Demo/TRTCDemo.apk')"><div style="width:124px;height: 124px;background-image:url(https://main.qcloudimg.com/raw/cb4c811e2f4dc4a7c9cc4f759e9ca86b.png);background-size: cover;">
    </div></a></td>
-      <td><a onclick="window.open('http://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Mac_Demo.tar.bz2')"><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/2a6a6e396cd818a3dd7f61072a59b9f5.png);">
+      <td><a onclick="window.open('http://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Mac_Demo.tar.bz2')"><div style="width:124px;height: 124px;background-image:url(https://main.qcloudimg.com/raw/2a6a6e396cd818a3dd7f61072a59b9f5.png);background-size: cover;">
    </div></a></td>
-      <td><a onclick="window.open('http://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Win_Demo.exe')"><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/2a6a6e396cd818a3dd7f61072a59b9f5.png);">
+      <td><a onclick="window.open('http://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Win_Demo.exe')"><div style="width:124px;height: 124px;background-image:url(https://main.qcloudimg.com/raw/2a6a6e396cd818a3dd7f61072a59b9f5.png);background-size: cover;">
    </div></a></td>
-      <td><a onclick="window.open('https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html')"><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/2a6a6e396cd818a3dd7f61072a59b9f5.png);">
+      <td><a onclick="window.open('https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html')"><div style="width:124px;height: 124px;background-image:url(https://main.qcloudimg.com/raw/2a6a6e396cd818a3dd7f61072a59b9f5.png);background-size: cover;">
    </div></a></td>
-	<td><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/7298c4c6297b3dc6d9fac973c52caf66.png);">
+	<td><div style="width:124px;height: 124px;background-image:url(https://main.qcloudimg.com/raw/7298c4c6297b3dc6d9fac973c52caf66.png);background-size: cover;">
    </div></td>
   </tr>
 </table>
