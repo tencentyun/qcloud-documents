@@ -375,7 +375,7 @@
     <td class="tg-s268">审核日志</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">-</td>
   </tr>  
   <tr>
     <td class="tg-s268">基于属性的权限控制</td>
