@@ -56,7 +56,7 @@ protoc --plugin=protoc-gen-grpc-java=`which protoc-gen-grpc-java` --grpc-java_ou
 ``` 
 
 ## 游戏进程集成流程
-![](https://main.qcloudimg.com/raw/200e20fff033279e5259a9c9f9446d17.png)
+![](https://main.qcloudimg.com/raw/7573bff913544f74ff384d5f491db735.png)
 
 #### 服务端接口列表
 
