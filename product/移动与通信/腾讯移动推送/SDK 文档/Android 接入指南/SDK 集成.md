@@ -152,7 +152,7 @@ dependencies {
             <intent-filter>
                 <data
                     android:scheme="tpns"
-                    android:host="${applicationId}"/>
+                    android:host="${应用包名}"/>
                 <action android:name="android.intent.action.VIEW" />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
@@ -229,7 +229,7 @@ dependencies {
 	<provider
             android:exported="false"
             android:name="com.tencent.tpns.baseapi.base.SettingsContentProvider"
-            android:authorities="${applicationId}.XG_SETTINGS_PROVIDER" />
+            android:authorities="${应用包名}.XG_SETTINGS_PROVIDER" />
 
     <!-- MQTT END-->
 		
