@@ -32,7 +32,7 @@ The following request parameter list only provides API request parameters. Commo
 | data.n.routeTableId | String | The routing table ID assigned by the system, for example, gz_rtb_8849.   |
 | data.n.unRouteTableId | String | New routing table ID assigned by the system. New ID is recommended. For example, rtb-0ox8fuhw.   |
 | data.n.routeTableName | String  | Routing table name.   |
-| data.n.routeTableType | Int  | Type of routing table. 0: default routing table; 1: ordinary routing table. For details on the differences between default routing table and ordinary routing table, refer to <a href="" title="Routing Table Product Overview">Routing Table Product Overview</a>.   |
+| data.n.routeTableType | Int  | Type of routing table. 0: ordinary routing table; 1: default routing table. For details on the differences between default routing table and ordinary routing table, refer to <a href="" title="Routing Table Product Overview">Routing Table Product Overview</a>.   |
 | data.n.routeTableCreateTime | String  | Creation time of routing table, for example: 2015-11-06 17:50:21.   |
 | data.n.subnetNum | Int  | Number of associated subnets.   |
 | data.n.routeTableSet.n | Array  | An array of routing policy information.   |

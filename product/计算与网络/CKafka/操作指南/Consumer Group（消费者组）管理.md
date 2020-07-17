@@ -1,6 +1,6 @@
 ## 查询 Consumer Group
 在 Consumer Group 页面，您可以查看到当前 CKafka 实例的消费组信息。消费组信息包含状态、协议类型、均衡算法及操作。 您可以对消费组订阅 topic 进行 offset 重置，对历史消息进行重新消费。
-![](https://main.qcloudimg.com/raw/1cd6c59ae22fabaa882759c978b4ffac.jpg)
+![](https://main.qcloudimg.com/raw/e91d8d314dfcd7ea6943039f1e6fa658.jpg)
 - 在 Consumer Group 列表页，单击操作列的【查看消费者详情】，可以查看该消费组中的消费者信息，以及具体消费者和订阅 topic 的对应关系。
 - 在 Consumer Group 列表页，单击消费者名称列左侧的小三角，可以展示出该消费者组订阅的主题信息，包含主题名称、分区数目、提交的 offset位置，最大的 offset 位置以及未消费消息条数等。单击操作列的【查看分区详情】可以看到分区级别的 offset 消费情况。
 
@@ -28,6 +28,7 @@
 ![](https://main.qcloudimg.com/raw/f35cb27ac35bef4628df17427e46c912.jpg)
 - Dead：消费者组内无成员并且 Metadata 已经被移除。
 - Empty：消费分组内当前没有任何成员。如果组内所有 offset 都已过期，则会变为 Dead 状态。一般新创建的 Group 默认为 Empty 状态。
+开源 Kafka 0.10.x 版本规定，**当消费分组内没有任何成员且状态持续超过7天，此消费分组将会被自动删除**。
 - Stable：消费分组中各个消费者已经加入，处于稳定状态。
 
 ##  Rebalance 状态详解

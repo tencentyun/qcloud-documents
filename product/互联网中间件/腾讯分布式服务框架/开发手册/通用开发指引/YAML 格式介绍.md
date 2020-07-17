@@ -1,16 +1,11 @@
 YAML 专门用来写配置文件的语言。
 
-
-
 ## 语法规则
 
 YAML 的基本语法规则如下：
-
-
-
 - 大小写敏感。
 - 使用缩进表示层级关系。
-- 缩进时 **不允许** 使用Tab键，只允许使用空格。
+- 缩进时**不允许**使用 Tab 键，只允许使用空格。
 - 缩进的空格数目不重要，只要相同层级的元素左侧对齐即可。
 
 
@@ -50,7 +45,7 @@ bar:
    ruby: scissorses 
 ```
 
-转换为 javascript 代码后
+转换为 JavaScript 代码后：
 
 ```javascript
 { foo: 'whatever',
@@ -116,7 +111,7 @@ that: >
   Bar
 ```
 
-转换为 javascript 代码：
+转换为 JavaScript 代码：
 
 ```javascript
 { this: 'Foo\nBar\n', that: 'Foo Bar\n' }
@@ -126,7 +121,7 @@ that: >
 
 ## 工具
 
-- [Online YAML Parser](http://yaml-online-parser.appspot.com/) 提供了一个 YAML 的 playground，不确定的语法可以在这里进行验证。
+- 提供了一个 [YAML 的格式校验工具](http://www.bejson.com/validators/yaml/)，供参考
 - [YAML 和 Properties 格式互转工具](http://www.toyaml.com/)
 
 ## 参考

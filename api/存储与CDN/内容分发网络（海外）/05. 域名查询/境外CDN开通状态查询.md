@@ -8,7 +8,7 @@
 ## 3. 输出参数
 | 参数名称     | 类型     | 描述                                       |
 | -------- | ------ | ---------------------------------------- |
-| code     | Int    | 公共错误码，0 表示成功，其他值表示失败<br/>详情请参见见错误码页面的 [公共错误码](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) |
+| code     | Int    | 公共错误码，0 表示成功，其他值表示失败<br/>详情请参见错误码页面的 [公共错误码](https://cloud.tencent.com/doc/api/231/5078#1.-.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) |
 | message  | String | 模块错误信息描述，与接口相关                          |
 | codeDesc | String | 英文错误信息，或业务侧错误码                         |
 | data     | String | 计费类型说明，详情请参见下文 “data 字段说明”                                |
@@ -37,7 +37,7 @@ POST 请求时，参数填充在 HTTP Requestbody 中，请求地址：
 ```
 https://cdn.api.qcloud.com/v2/index.php
 ```
-参数支持 formdata、xwwwformurlencoded 等格式，参数数组如下：
+参数支持 form-data、x-www-form-urlencoded 等格式，参数数组如下：
 
 ```
 array (
@@ -55,12 +55,10 @@ array (
 	"code": 0,
 	"message": "",
 	"codeDesc": "Success",
-	"data":[
- {
-		"appId": 123456789
-        "openStatus":"approved"
-	}
-]
+	"data": [{
+		"appId": 123456789,
+		"openStatus": "approved"
+	}]
 
 }
 

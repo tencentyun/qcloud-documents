@@ -1,3 +1,6 @@
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。黑石物理服务器1.0 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/386/18637" target="_blank">黑石物理服务器1.0 API 3.0</a>。**
+>
+
 ## 功能描述
  
 UnbindBmL7LocationVmIp 提供了解绑黑石负载均衡七层转发路径虚机IP功能。
@@ -44,9 +47,9 @@ vmList描述待绑定的主机信息，n为下标，vmList包含字段如下
 
 ```
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
+ "code": 0,
+ "message": "",
+ "codeDesc": "Success"
 }
 ```
 
@@ -94,9 +97,9 @@ GET https://bmlb.api.qcloud.com/v2/index.php?Action=UnbindBmL7LocationVmIp
 
 ```
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
+ "code": 0,
+ "message": "",
+ "codeDesc": "Success"
 }
 
 ```

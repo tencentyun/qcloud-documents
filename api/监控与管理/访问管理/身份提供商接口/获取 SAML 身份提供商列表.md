@@ -54,7 +54,7 @@ https://cam.api.qcloud.com/v2/index.php?Action=ListSAMLProviders
             {
                 "name": "api-test-v2",
                 "desc": "API测试12121",
-                "createTime": "2018-10-30 14:43:37",
+                "createTime": "2018-10-30 14:43:36",
                 "modifyTime": "2018-10-30 14:57:35"
             },
             {
@@ -87,5 +87,5 @@ https://cam.api.qcloud.com/v2/index.php?Action=ListSAMLProviders
 ``` 
 
 ###  错误码
-以下仅列出了接口业务逻辑相关的错误码，其他错误码详见 [公共错误码](https://cloud.tencent.com/document/api/213/15694#.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。
+该接口暂无业务逻辑相关的错误码，其他错误码详见 [公共错误码](https://cloud.tencent.com/document/api/213/15694#.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81)。
 

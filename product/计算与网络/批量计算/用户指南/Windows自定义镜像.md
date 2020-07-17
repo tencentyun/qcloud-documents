@@ -1,36 +1,38 @@
-## 概要信息
+## 操作场景
+基于 Windows 系统的业务，需要从官方提供的 Windows Server 基础镜像来制作自定义镜像。本文介绍了 Windows 自定义镜像制作步骤。
+您可前往 [云市场](https://market.cloud.tencent.com/products/5310) 查看镜像详细信息，镜像 ID 为 **img-er9shcln**。
 
-基于 Windows 系统的业务，需要从官方提供的 Windows Server 基础镜像来制作自定义镜像，官方镜像 [链接>>](https://market.cloud.tencent.com/products/5310)，镜像 ID ``img-er9shcln``
+## 前提条件
+已注册腾讯云账户。若未注册腾讯云账户，可前往 [注册页面](https://cloud.tencent.com/register)。
 
-## Windows 自定义镜像制作步骤
+## 操作步骤
+### 通过官方基础镜像创建云服务器
+1. 前往云市场，进入 [批量计算 Windows Server 2012 R2（64位中文）基础镜像](https://market.cloud.tencent.com/products/5310) 页面。
+2. 单击【免费使用】，进入云服务器购买页面。
+3. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成云服务器的购买。
 
-### 1. 通过官方基础镜像创建云主机
 
-进入[云主机购买页](https://buy.cloud.tencent.com/cvm)。
 
-![](https://mc.qcloudimg.com/static/img/f4c62ba416032b20e17ff9ec3ed15e39/s3.png)
-[云市场链接地址>>](https://market.cloud.tencent.com/products/5310)
+### 在云服务器上安装业务需要的软件
+登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index) 查看已创建的云服务器详细信息，远程登录后将您的业务依赖的软件全部安装到该服务器上，并简单测试相关调用。
 
-选择镜像的时候，选择『服务市场』，在搜索栏里搜索『批量计算』，选择Windows Server 2012 的基础镜像（镜像 ID：img-er9shcln），后续存储、网络、其他设置根据提示选择，最后单击『立即购买』创建云主机。
 
-### 2. 在云主机上安装业务需要的软件
 
-在 [云主机控制台](https://buy.cloud.tencent.com/cvm) 查看刚才的创建的云主机信息，远程登录后将您的业务依赖的软件全部安装到该云主机上，并简单测试相关调用。
+### 制作自定义镜像
+1. 选择云服务器所在行右侧【更多】>【选择镜像】。如下图所示：
+![](https://main.qcloudimg.com/raw/24419aaa4f798add0d0dbcf0c2dcdd3a.png)
+2. 在弹出框中输入镜像名称及描述，单击【制作镜像】即可创建镜像。
+3. 镜像创建完成后，单击左侧导航栏中的【镜像】即可查看自定义镜像。如下图所示：
+>!您可通过查看镜像信息获取自定义镜像 ID。
+>
+![](https://main.qcloudimg.com/raw/811c25501f2a73675a11ee3639faa595.png)
 
-### 3. 制作自定义镜像
 
-![](https://mc.qcloudimg.com/static/img/270d48a5e64e7ec32e1d710f43123b47/s1.png)
 
-在控制台单击``制作镜像``即可，请耐心等待镜像制作完成
-
-![](https://mc.qcloudimg.com/static/img/e939a39dcebe0c7449c7dacdb33e52ea/s2.png)
-
-这个 ID 就是您的自定义镜像 ID，您可以随时到 [镜像控制台](https://console.cloud.tencent.com/cvm/image) 来查看
-
-### 4. 使用自定义镜像提交测试作业
-
+### 使用自定义镜像提交测试作业
+您可获取并修改官方提供的示例，作为个人账号下可执行的 Batch 计算环境。请参考以下内容了解计算环境各项配置的含义：
 ```
-qcloudcli batch SubmitJob --Version 2017-03-12 --Job '{
+tccli batch SubmitJob --version 2017-03-12 --Job '{
     "JobName": "TestJob",       // 作业名称
     "JobDescription": "for test ",    // 作业描述
     "Priority": "1",            // 作业优先级
@@ -59,15 +61,11 @@ qcloudcli batch SubmitJob --Version 2017-03-12 --Job '{
     "Zone": "ap-guangzhou-2"    // 可用区（可能需替换）
 }'
 ```
-
-与快速入门的例子相比，替换其中 ImageId 为您的自定义镜像 ID即可
-
-
+您可使用以下示例代码，参考 [作业配置简介](https://cloud.tencent.com/document/product/599/10523#.E4.BD.9C.E4.B8.9A.E9.85.8D.E7.BD.AE.E7.AE.80.E4.BB.8B) 并补充其中**待替换**信息，将其中的 ImageId 替换为您的自定义镜像 ID。
 ```
-qcloudcli batch SubmitJob --Version 2017-03-12  --Job '{"JobName": "TestJob",  "JobDescription": "for test", "Priority": "1", "Tasks": [{"TaskName": "Task1",  "TaskInstanceNum": 1,  "Application": {"DeliveryForm": "LOCAL", "Command":  "python -c \"fib=lambda n:1 if n<=2 else fib(n-1)+fib(n-2); print(fib(20))\" "},  "ComputeEnv": {"EnvType":  "MANAGED", "EnvData": {"InstanceType": "S1.SMALL1",  "ImageId": "待替换" }  }, "RedirectInfo": {"StdoutRedirectPath": "待替换", "StderrRedirectPath":   "待替换"}, "MaxRetryCount":  1 } ] }' --Placement '{"Zone": "ap-guangzhou-2"}'
+tccli batch SubmitJob --version 2017-03-12  --Job '{"JobName": "TestJob",  "JobDescription": "for test", "Priority": "1", "Tasks": [{"TaskName": "Task1",  "TaskInstanceNum": 1,  "Application": {"DeliveryForm": "LOCAL", "Command":  "python -c \"fib=lambda n:1 if n<=2 else fib(n-1)+fib(n-2); print(fib(20))\" "},  "ComputeEnv": {"EnvType":  "MANAGED", "EnvData": {"InstanceType": "S1.SMALL1",  "ImageId": "待替换" }  }, "RedirectInfo": {"StdoutRedirectPath": "待替换", "StderrRedirectPath":   "待替换"}, "MaxRetryCount":  1 } ] }' --Placement '{"Zone": "ap-guangzhou-2"}'
 ```
 
-实际命令行提交请复制上面这段命令到文本，修改里面的『待替换』部分（3处，镜像 ID 和日志地址）即可。
 
 
 
