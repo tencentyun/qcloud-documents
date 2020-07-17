@@ -51,9 +51,11 @@
 
 ### 获取存储桶子目录<span id="getPath"></span>
 
-1. 在存储桶列表页面，单击选择刚刚创建的存储桶，进入该存储桶的详情页
-2. 选择需要挂载的子文件夹，单击进入。在页面右上角获取子目录路径`/costest`，如下图所示：
-![](https://main.qcloudimg.com/raw/1ce440ed5a4de2b6f4d1f1831e082c63.png)
+1. 在“存储桶列表”页面，选择已创建的存储桶名称，进入该存储桶名称的详情页。
+2. 在存储桶详情页面，选择需要挂载的子文件夹，进入该文件夹详情页。在页面右上角获取子目录路径 `/costest`。如下图所示：
+![](https://main.qcloudimg.com/raw/40426184568dfe55103d98273ecf5e52.png)
+
+
 
 
 
@@ -82,7 +84,7 @@
 >
 1. 在目标集群详情页面，选择左侧菜单栏中的【存储】>【PersistentVolume】，进入 “PersistentVolume” 页面。
 2. 单击【新建】进入“新建PersistentVolume” 页面，参考以下信息创建 PV。如下图所示：
-![](https://main.qcloudimg.com/raw/ca02a5afaa160c6331013e2b88796d97.png) 
+![](https://main.qcloudimg.com/raw/8dd2a6ad66bce8601a57b032a6ca8862.png)
 主要参数信息如下：
 	- **来源设置**：选择【静态创建】。
 	- **名称**：自定义，本文以 `cos-pv` 为例。
