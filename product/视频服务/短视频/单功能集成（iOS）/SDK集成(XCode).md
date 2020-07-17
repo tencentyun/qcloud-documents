@@ -91,25 +91,25 @@ UGCKit 的开发环境要求如下：
 ### 接入步骤
 
 #### 步骤1：集成 UGCKit 
-1. **导入 UGCKit**
-将 Demo/TXLiteAVDemo/UGC/UGCKit 文件夹拷贝到工程目录中，并将 UGCKit 中的 UGCKit.xcodeproj 拖拽到工程中。
-<img src="https://main.qcloudimg.com/raw/4b8ff842eb939cd920eb16b22424ef22.png" width=800px />
+1. **导入 UGCKit 与 BeautyPannel (BeautySettingKit)**
+(1)将 Demo/TXLiteAVDemo/UGC/UGCKit 文件夹拷贝到工程目录中，并将 UGCKit 中的 UGCKit.xcodeproj 拖拽到工程中。
+(2)将 Demo/TXLiteAVDemo/BeautySettingKit 文件夹拷贝到工程目录中，并将 BeautySettingKit 中的TCBeautyPanel.xcodeproj 拖拽到工程中。
+如下图示意：
+<img src="https://main.qcloudimg.com/raw/356a79d0f5232cc757e7855a2f692306.png" width=800px />
 2. **配置依赖关系**   
-单击工程的 Target，选择 Build Phase 标签，在 Dependencies 中单击加号，选择 UGCKit.framework 和 UGCKitResources，单击【Add】。
-<img src="https://main.qcloudimg.com/raw/eadf4d86b3dd62067417d4d449127348.jpg" width=800px /> 
-3. **链接 UGCKit.framework 和 SDK**
-	1. 单击工程的 Target，选择 Build Phase 标签，在 Link Binary With Libraries 中单击加号，选择 UGCKit.framework。
-<img src="https://main.qcloudimg.com/raw/f58b5a64a5074b334b2c97ec010800fc.jpg" width=800px />
-	2. 在 Finder 中打开 SDK 目录，将 SDK 拖动到 Link Binary With Libraries 中。
-<img src="https://main.qcloudimg.com/raw/d20bdbf7167a7dfce3cc5ab5c32f83c9.jpg" width=800px />
-	3. 将 SDK 目录下的 FilterResource.bundle 拖动到工程中并勾选 App Target。
+单击工程的 Target，选择 Build Phase 标签，在 Dependencies 中单击加号，选择 UGCKit.framework 和 UGCKitResources，TCBeautyPanel.framework, TCBeautyPanelResources，单击【Add】。
+<img src="https://main.qcloudimg.com/raw/098808d270672bd4413fbca2d92b7e4a.png" width=800px /> 
+3. **链接 UGCKit.framework, TCBeautyPannel.framework 和 SDK**
+	1. 单击工程的 Target，选择 Build Phase 标签，在 Link Binary With Libraries 中单击加号，选择 UGCKit.framework，TCBeautyPannel.framework 添加。
+<img src="https://main.qcloudimg.com/raw/ad79a4537dad0bb85f9e503cbee1ffa7.jpg" width=800px />
+	2. 在 Finder 中打开 SDK 目录，将 SDK 拖动到 Link Binary With Libraries 中,或者通过下图示例在xcode中找到SDK对应的目录，通过 Add files 添加。
+<img src="https://main.qcloudimg.com/raw/51d8d403608426b2bc7f4e339a0c640b.jpg" width=800px />
+	3. 将 TXLiteAVDemo/App/Resource 目录下的 FilterResource.bundle 拖动到工程中并勾选 App Target。
 4. **导入资源**
-单击工程的 Target，选择 Build Phase 标签，展开 Copy Bundle Resources。然后在左侧目录中依次展开 UGCKit.xcodeproj、Products，拖动 UGCKitResources.bundle 到 Copy Bundle Resources 中。
-<img src="https://main.qcloudimg.com/raw/fbca78b281f8e87cbbaa036c4f208725.jpg" width=800px />
+单击工程的 Target，选择 Build Phase 标签，展开 Copy Bundle Resources。然后在左侧目录中依次展开 UGCKit.xcodeproj、Products，拖动 UGCKitResources.bundle 到 Copy Bundle Resources 中，而后依次展开TCBeautyPannel.xcodeproj, Products, 拖动 TCBeautyPanelResources.bundle 到 Copy Bundle Resources中。
+<img src="https://main.qcloudimg.com/raw/6377d1c7b240e008f240d116e5363a8b.png" width=800px />
 5. **导入商业版资源（仅用于商业版）**
-将商业版 SDK zip 包中 SDK/Resouce 拖动到工程中，选择“Create groups"并勾选您的 Target，单击【Finish】。
-<img src="https://main.qcloudimg.com/raw/5ae899aff95984bf34839653ad2c4b51.jpg" width=800px />
-<img src="https://main.qcloudimg.com/raw/fba634dc19e9e0bf3443f1451a9a2b60.jpg" width=800px />
+将商业版 SDK zip 包中 EnterprisePITU（在App/AppCommon目录下）文件夹拖动到工程中，选择“Create groups"并勾选您的 Target，单击【Finish】。
 
 #### 步骤2：使用 UGCKit
 
