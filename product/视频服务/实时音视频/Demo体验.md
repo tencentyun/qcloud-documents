@@ -11,10 +11,10 @@
   </tr>
   <tr>
     <td><img style="width:150px" src="https://main.qcloudimg.com/raw/b637949cbfc255ecefb060fafbfc70be.png" /></td>
-    <td><img style="width:150px" onclick="window.open('http://dldir1.qq.com/hudongzhibo/TRTC/Demo/TRTCDemo.apk')" style="display: block;cursor: pointer;" src="https://main.qcloudimg.com/raw/cb4c811e2f4dc4a7c9cc4f759e9ca86b.png" /></td>
-    <td><a href="http://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Mac_Demo.tar.bz2"><img style="width:150px" src="https://main.qcloudimg.com/raw/2a6a6e396cd818a3dd7f61072a59b9f5.png"></a></td>
-    <td><a href="http://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Win_Demo.exe"><img style="width:150px" src="https://main.qcloudimg.com/raw/2a6a6e396cd818a3dd7f61072a59b9f5.png"></a></td>
-    <td><a href="https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html"><img style="width:150px" src="https://main.qcloudimg.com/raw/2a6a6e396cd818a3dd7f61072a59b9f5.png"></a></td>
+		<td><a onclick="window.open('http://dldir1.qq.com/hudongzhibo/TRTC/Demo/TRTCDemo.apk')"><img style="width:150px"  style="display: block;cursor: pointer;" src="https://main.qcloudimg.com/raw/cb4c811e2f4dc4a7c9cc4f759e9ca86b.png" /></a></td>
+    <td><a onclick="window.open('http://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Mac_Demo.tar.bz2')"><img style="width:150px" src="https://main.qcloudimg.com/raw/2a6a6e396cd818a3dd7f61072a59b9f5.png"></a></td>
+    <td><a onclick="window.open('http://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Win_Demo.exe')"><img style="width:150px" src="https://main.qcloudimg.com/raw/2a6a6e396cd818a3dd7f61072a59b9f5.png"></a></td>
+    <td><a onclick="window.open('https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html')"><img style="width:150px" src="https://main.qcloudimg.com/raw/2a6a6e396cd818a3dd7f61072a59b9f5.png"></a></td>
     <td><img style="width:150px" src="https://main.qcloudimg.com/raw/7298c4c6297b3dc6d9fac973c52caf66.png" /></td>
   </tr>
 </table>
