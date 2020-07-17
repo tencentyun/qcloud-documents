@@ -78,9 +78,10 @@
 | [云数据库 Memcached](https://cloud.tencent.com/document/product/241)  |资源级 | &#10003;  | -    | -    |[访问管理指南](https://cloud.tencent.com/document/product/241/38708) |	
 | [时序数据库 CTSDB](https://cloud.tencent.com/document/product/652)  |资源级 | &#10003;  | -    | -    |[访问管理指南](https://cloud.tencent.com/document/product/652/42494) |	
 | [游戏数据库 TcaplusDB](https://cloud.tencent.com/document/product/596)  |资源级 | &#10003;  | &#10003;     | -    |[访问管理指南](https://cloud.tencent.com/document/product/596/42901) |	
-| [数据库智能管家 DBbrain](https://cloud.tencent.com/document/product/1130)  |资源级 | &#10003;  | -    | -    |[访问管理指南](https://cloud.tencent.com/document/product/1130/39344)|	
+| [数据库智能管家 DBbrain](https://cloud.tencent.com/document/product/1130) <sup>1</sup> |资源级 | &#10003;  | -    | -    |[访问管理指南](https://cloud.tencent.com/document/product/1130/39344)|	
 | [数据传输服务](https://cloud.tencent.com/document/product/571)  | 资源级 |  &#10003;  | -    | &#10003;    |[访问管理指南](https://cloud.tencent.com/document/product/571/38480)|	
 | [分布式HTAP数据库 TBase](https://cloud.tencent.com/document/product/1129)  | 资源级 |  &#10003;  | -    | -   |[访问管理指南](https://cloud.tencent.com/document/product/1129/39783) |	
+> ?<sup>1</sup> 数据库智能管家中 [数据库管理](https://cloud.tencent.com/document/product/1130/43455) 已支持使用 CAM。
 
 ## Serverless	
 
@@ -390,6 +391,7 @@
 | [在线课堂](https://cloud.tencent.com/document/product/680)  | 服务级 | &#10003;  | -  |  - |- |
 | [数字版权管理解决方案](https://cloud.tencent.com/document/product/1000)  | 操作级 | -  | -  |  - |- |
 | [互动直播](https://cloud.tencent.com/solution/ilvb) | 服务级  | &#10003;   | -   |  -   |	-  |	
+| [云游戏](https://cloud.tencent.com/document/product/1162) | 操作级  | &#10003;   | -   |  -   |	-  |	
 
 ## 开发者工具
 
