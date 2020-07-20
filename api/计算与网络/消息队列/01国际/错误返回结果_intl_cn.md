@@ -1,9 +1,0 @@
-若API调用失败，则最终返回结果中的错误码code不为0，message字段会显示详细错误信息。您可以根据code和message在 [错误码](https://cloud.tencent.com/document/api/406/5903)页面查询具体的错误信息。
-错误返回示例如下：
-
-```
-{
-    "code": 5100,
-    "message": "(100004)projectId不正确",
-}
-```
