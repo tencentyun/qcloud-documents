@@ -53,9 +53,9 @@ Date: Sun, 21 Sep 2017 06:46:04 GMT
 Server: squid/3.5.20
 Connection: close
 Set-Cookie:1P_JAR=2017-09-18-06; expires=Mon, 25-Sep-2017 06:46:04 GMT; path=/; domain=.qq.com
-X-Secret-ID:AKIDCgXXXXXXXX48pN
+X-Secret-ID:AKIDXXXXXXXX48pN
 //密钥对中的 secret_id
-X-UsagePlan-ID:Q6BAxvHtyckhWABJVYSBj
+X-UsagePlan-ID:XXXXXXXX
 //密钥对绑定的使用计划 ID
 X-RateLimit-Limit:500
 //使用计划中的限流配置
