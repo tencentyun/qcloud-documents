@@ -4,6 +4,10 @@
 
 为方便开发者接入腾讯云游戏多媒体引擎产品，在下载 SDK 之前，请查阅 [产品动态](https://cloud.tencent.com/document/product/607/41876)。
 
+## 下载及使用
+
+下载 SDK 及 DEMO 后，如果使用上有问题，可以参考[下载及使用相关文档](https://cloud.tencent.com/document/product/607/30410)，或者 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系腾讯云工作人员。
+
 ## 版本更新
 
 2.6.0 beta 版本更新如下：
@@ -57,6 +61,6 @@
 
 
 
-|平台/引擎  | 更新时间        |SDK 下载|Demo 下载|文档|
-|-------------| ------------- | ------------- |------------- |------------- |
-|		 		H5 		|2020/02/18|[下载](http://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.5.2/GME_H5_Audio_SDK_2.5.2.120.zip)			|[下载](http://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.5.2/GME_H5_Audio_Sample_2.5.2.120.zip)		| [接口文档](https://cloud.tencent.com/document/product/607/32157)|
+| 平台/引擎 | 更新时间   | SDK 下载                                                     | Demo 下载                                                    | 文档                                                         |
+| --------- | ---------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| H5        | 2020/02/18 | [下载](http://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.5.2/GME_H5_Audio_SDK_2.5.2.120.zip) | [下载](http://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.5.2/GME_H5_Audio_Sample_2.5.2.120.zip) | [接口文档](https://cloud.tencent.com/document/product/607/32157) |
