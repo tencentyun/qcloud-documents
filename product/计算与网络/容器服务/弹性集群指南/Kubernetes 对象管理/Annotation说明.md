@@ -73,7 +73,7 @@
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/role-name</td>
-<td>为 Pod 关联 CAM 角色，value 填写 <a href="https://console.cloud.tencent.com/cam/role" target="_blank">CAM 角色名称</a> ，Pod 可获取该 CAM 角色包含的权限策略，方便 Pod 内的程序进行如购买资源、读写存储等云资源操作。</td>
+<td>为 Pod 关联 CAM 角色，value 填写 <a href="https://console.cloud.tencent.com/cam/role" target="_blank">CAM 角色名称</a>，Pod 可获取该 CAM 角色包含的权限策略，方便 Pod 内的程序进行如购买资源、读写存储等云资源操作。</td>
 <td>否。如填写，请确保填写的 CAM 角色名存在。</td>
 </tr>
 </tr>
