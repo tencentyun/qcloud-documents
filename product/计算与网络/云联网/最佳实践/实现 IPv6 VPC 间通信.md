@@ -85,8 +85,8 @@
 
 1. 在 [云联网列表](https://console.cloud.tencent.com/vpc/ccn) 中，单击目标云联网实例 ID。
 2. 在“关联实例”页面，单击【新增实例】。 
-3. 在“关联实例”对话框中，选择“华南地区（广州）”的 IPv6 VPC 实例进行关联。
-![](https://main.qcloudimg.com/raw/ed593d8eb3529df916dfef1507f41dae.png)
+3. 在“关联实例”对话框中，选择北京地域的 IPv6 VPC 实例进行关联。
+![](https://main.qcloudimg.com/raw/628101ceb2fdd088cb8612d0c5bbefc9.png)
 4. 单击【确定】，将所选网络实例加入云联网。
 
 >?如还需关联其他网络实例，可单击【新增实例】继续关联。
