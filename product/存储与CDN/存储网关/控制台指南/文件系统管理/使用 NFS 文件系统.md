@@ -60,18 +60,23 @@ sudo mount -t nfs -o vers=3,nolock,proto=tcp <挂载点IP>:/share/nfs/<文件系
 
 
 #### 示例
-- 挂载文件系统根目录：mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/share/nfs/bucketname /local/test
-- 挂载文件系统子目录 subfolder：mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/share/nfs/bucketname/subfolder /local/test
-
+- 挂载文件系统根目录：
+```plaintext
+mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/share/nfs/bucketname /local/test
+```
+- 挂载文件系统子目录 subfolder：
+```plaintext
+mount -t nfs -o vers=3,nolock,proto=tcp 10.10.19.12:/share/nfs/bucketname/subfolder /local/test
+```
 
 ### 查看挂载点信息 
 
-挂载完成后，请使用如下命令查看已挂载的文件系统，
+挂载完成后，请使用如下命令查看已挂载的文件系统：
 ```plaintext
 mount -l
 ```
 
-也可以使用如下命令查看该文件系统的容量信息，
+也可以使用如下命令查看该文件系统的容量信息：
 ```plaintext
 df -h
 ```
@@ -79,7 +84,7 @@ df -h
 
 ### 卸载共享目录 
 
-当某些情况下需要卸载共享目录，请使用如下命令。其中 "目录名称" 为根目录或者文件系统的完整路径。
+当某些情况下需要卸载共享目录，请使用如下命令。其中“目录名称”为根目录或者文件系统的完整路径。
 ```plaintext
 umount <目录名称>
 // 例如， umount /local/test
@@ -136,10 +141,12 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 关闭注册表并重启 Windows 系统，完成注册表修改。
 
 
-#### 打开 "映射网络驱动器"
-登录到需要挂载文件系统的 Windows 上，在 "开始" 菜单中找到 "计算机"，单击鼠标右键出现菜单，单击菜单中的 "映射网络驱动器"。 
-![](https://mc.qcloudimg.com/static/img/5696d66a83d4e9b35196274f89e07dfc/image.png)
-![](https://mc.qcloudimg.com/static/img/6eeb1c0838e6aab185ed8b76dc736912/image.png)
+#### 打开映射网络驱动器
+1. 登录到需要挂载文件系统的 Windows 上。
+2. 打开“我的电脑”，在菜单栏中单击【映射网络驱动器】。 
+![](https://main.qcloudimg.com/raw/2500de31739754cb03f97b0d1f771c90.jpg)
+
+
 
 #### 输入访问路径
 在弹出的设置窗口中设置 "驱动器" 盘符名称及文件夹（即在 NFS 文件系统中看到的挂载目录）。
