@@ -153,7 +153,7 @@ c. 拼接签名有效时间，格式为`StartTimestamp;EndTimestamp`，即为 Ke
 
 #### 6. 生成 Signature
 
-使用 HMAC-SHA1 以 SignKey 为密钥（字符串形式，非原始二进制），以 StringToSign 为消息，计算消息摘要（哈希值，16进制小写形式），即为 Signature，例如：`7758dc9a832e9d301dca704cacbf9d9f8172fdef`。
+使用 HMAC-SHA1 以 SignKey 为密钥（字符串形式，非原始二进制），以 StringToSign 为消息（字符串形式，非原始二进制），计算消息摘要（哈希值，16进制小写形式），即为 Signature，例如：`7758dc9a832e9d301dca704cacbf9d9f8172fdef`。
 
 #### 7. 将签名附加到表单
 
