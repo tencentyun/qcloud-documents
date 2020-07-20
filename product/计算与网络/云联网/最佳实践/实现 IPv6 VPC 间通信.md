@@ -1,4 +1,4 @@
-云联网可以关联 IPv6 地址的 VPC，支持 IPv6 VPC 之间通信、IPv4 VPC 和 IPv6 VPC 通信、IPv4/Pv6 VPC 和 IDC 间的通信。本文将介绍如何使用云联网实例，以实现同账号下的广州和北京地域的 IPv6 VPC 互通。
+云联网可以关联 IPv6 地址的 VPC，支持 IPv6 VPC 之间通信、IPv4 VPC 和 IPv6 VPC 通信、IPv4/Pv6 VPC 和 IDC 间的通信。本文将介绍如何使用云联网实例，以实现同账号下的广州和北京跨地域的 IPv6 VPC 互通。
 
 ## 背景信息
 
@@ -9,7 +9,7 @@
 
 ## 使用限制
 
-- 云联网课绑定 IPv6 VPC 功能灰度中，请联系腾讯云商务经理申请。
+- 云联网可绑定 IPv6 VPC 功能灰度中，请联系腾讯云商务经理申请。
 - 云联网可绑定 IPv6 VPC 功能仅支持北京、广州地域。
 
 ## 前提条件
@@ -23,7 +23,7 @@
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1) ，在左侧导航栏中，单击【云联网】。
 2. 在云联网实例列表上方，单击【+新建】。
 3. 在“新建云联网实例”对话框中配置以下信息，单击【确定】。
-   ![](https://main.qcloudimg.com/raw/1fb0eda559741723f6574f2a4d43ed60.png)
+![](https://main.qcloudimg.com/raw/2f0cc3b6bac22a45e8bdd6edac167082.png)
 	 **字段说明如下**：
  <table>
  <thead>
@@ -45,7 +45,7 @@
  </tr>
  <tr >
   <td >月95后付费</td>
-  <td>按当月实际使用带宽95削峰计费，适合带宽波动较大业务。</td>
+  <td>按当月实际使用带宽95削峰计费，适合带宽波动较大业务（灰度阶段，如需使用，请提 <a href="https://console.cloud.tencent.com/workorder/category" target="_blank">工单申请</a> ）。</td>
  </tr>
  <tr>
   <td rowspan=3 >服务质量</td>
@@ -85,7 +85,7 @@
 
 1. 在 [云联网列表](https://console.cloud.tencent.com/vpc/ccn) 中，单击目标云联网实例 ID。
 2. 在“关联实例”页面，单击【新增实例】。 
-3. 在“关联实例”对话框中，选择广州地域的 IPv6 VPC 实例进行关联。
+3. 在“关联实例”对话框中，选择“华南地区（广州）”的 IPv6 VPC 实例进行关联。
 ![](https://main.qcloudimg.com/raw/ed593d8eb3529df916dfef1507f41dae.png)
 4. 单击【确定】，将所选网络实例加入云联网。
 
