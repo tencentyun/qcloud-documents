@@ -91,10 +91,15 @@ umount <目录名称>
 
 挂载前，请确保系统已经启动 NFS 服务。此处以 Windows Server 2012 R2 为示例，启动方法如下：
 
-1. 打开【控制面板】>【程序】>【打开或关闭 Windows 功能】>【服务器角色】页签中勾选【NFS server】。
-![](https://mc.qcloudimg.com/static/img/eaeed922e9d1f673e47137d80a88fa70/image.png)
-2. 接着，在【特性】中勾选【NFS 客户端】，勾选 NFS 客户端即可开启 Windows NFS 客户端服务。
-![](https://mc.qcloudimg.com/static/img/4f9d7ac7b877ceffc5bc2b1d7c050a24/image.png)
+1. 打开【控制面板】>【程序和功能】>【启用或关闭 Windows 功能】。
+2. 系统将打开添加角色和功能向导页面，在【开始之前】步骤中，单击【下一步】>【基于角色或基于功能的安装】>【下一步】>【从服务器池中选择服务器】，进入【服务角色】配置项。
+3. 【服务器角色】中，展开【文件和存储服务】>【文件和 iSCSI 服务】，勾选【NFS 服务器】。
+![](https://main.qcloudimg.com/raw/cab72273d76a83e7361f44369a514515.jpg)
+4. 在弹出的小窗口中，单击【添加功能】。
+5. 单击【下一步】，在【功能】配置项中勾选【NFS 客户端】，勾选 NFS 客户端即可开启 Windows NFS 客户端服务。
+![](https://main.qcloudimg.com/raw/b0b33b3424b7d82f81ab24bfaadbf8d5.jpg)
+6. 单击【下一步】>【安装】，等待系统安装 NFS 服务和客户端。
+7. 安装完毕，单击【关闭】关闭窗口即可。
 
 
 
@@ -104,27 +109,27 @@ umount <目录名称>
 ```plaintext
 mount -l
 ```
+![](https://main.qcloudimg.com/raw/eabca9ef64cdd23b6cbefc8b20d6ae6e.jpg)
 
-![](https://mc.qcloudimg.com/static/img/4e4f9db217874ccec91ac1f888c8e451/image.png)
 
 ### 添加匿名访问用户和用户组
 
 #### 打开注册表
-在命令行窗口输入 regedit命令，回车即可打开注册表窗口。
-![](https://mc.qcloudimg.com/static/img/c9fca9a1b123a5b2dbc69b0ce66d539f/image.png)
+在命令行窗口中输入 regedit 命令，回车即可打开注册表窗口。
+
+![](https://main.qcloudimg.com/raw/ece1a8b2acc23c2abb3c6068096d5abf.jpg)
 
 #### 添加配置项 AnonymousUid 和 AnonymousGid
-在打开的注册表中找到如下路径并选中 
-
+1. 在打开的注册表中找到如下路径并选中 
 ```plaintext
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 ```
+2. 在右边空白处右键单击，弹出 "项"，在菜单中选择 "DWORD(32 位) 值"。
+![](https://main.qcloudimg.com/raw/46c8b7898757cb82e228db0df7650c99.jpg)
+3. 此时，在列表中会出现一条新的记录，把名称栏修改为 AnonymousUid 即可，数据值采用默认的0。使用同样方法继续添加一条名称为 AnonymousGid 的记录，数据也采用默认的0。
+![](https://main.qcloudimg.com/raw/e1d244553bbd3a8d0b0084fe832278f3.jpg)
 
-在右边空白处右键单击，弹出 "new", 在菜单中选择 "DWORD(32-bit) Value"。此时，在列表中会出现一条新的记录，把名称栏修改为 AnonymousUid 即可，数据值采用默认的 0。使用同样方法继续添加一条名称为 AnonymousGid 的记录，数据也采用默认的 0。
 
-![](https://mc.qcloudimg.com/static/img/381cdc3b68fb35be5dcceb2a4c962e33/image.png)
-
-![](https://mc.qcloudimg.com/static/img/80bb0cfbffbed939522459a830df3eac/image.png)
 
 #### 重启使配置生效
 
