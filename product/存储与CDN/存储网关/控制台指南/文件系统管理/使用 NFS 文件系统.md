@@ -1,9 +1,9 @@
-﻿## 简介
+## 简介
 
 创建文件系统后，请在客户端上按照如下指引进行配置，挂载该文件系统并使用。NFS 文件网关支持 NFS v3.0 及 NFS v4.0 协议。
 
 您可以在 "文件系统详情" 页面上查看挂载命令。如下图
-![](https://mc.qcloudimg.com/static/img/427c850d61745f04d34e0e4f96f0a9b7/image.png)
+![](https://main.qcloudimg.com/raw/aa3a549b488ec20ed0c1e593a0c97d69.png)
 
 
 ## 在 Linux 上使用 NFS 文件系统
@@ -12,15 +12,20 @@
 
 挂载前，请确保系统中已经安装了 nfs-utils 或 nfs-common，安装方法如下：
 
-- CentOS: sudo yum install nfs-utils
-- Ubuntu 或 Debian: sudo apt-get install nfs-common
-
+- CentOS：
+```plaintext
+sudo yum install nfs-utils
+```
+- Ubuntu 或 Debian：
+```plaintext
+sudo apt-get install nfs-common
+```
 
 ### NFS v4.0 挂载
 
 使用下列命令实现 NFS v4.0 挂载 
 
-```
+```plaintext
 sudo mount -t nfs -o vers=4 <挂载点IP>:/share/nfs/<文件系统名称即bucket名称> <待挂载目标目录>
 ```
 >?
@@ -30,14 +35,20 @@ sudo mount -t nfs -o vers=4 <挂载点IP>:/share/nfs/<文件系统名称即bucke
 - 待挂载目标目录： 在当前服务器上，需要挂载的目标目录，需要用户事先创建。
 
 #### 示例
-- 挂载文件系统根目录：sudo mount -t nfs -o vers=4 10.0.0.1:/share/nfs/bucketname /local/test。
-- 挂载文件系统子目录 subfolder：sudo mount -t nfs -o vers=4 10.10.19.12:/share/nfs/bucketname/subfolder /local/test
+- 挂载文件系统根目录：
+```plaintext
+sudo mount -t nfs -o vers=4 10.0.0.1:/share/nfs/bucketname /local/test
+```
+- 挂载文件系统子目录 subfolder：
+```plaintext
+sudo mount -t nfs -o vers=4 10.10.19.12:/share/nfs/bucketname/subfolder /local/test
+```
 
 
 ### NFS v3.0 挂载
 
 使用下列命令实现 NFS v3.0 挂载 
-```
+```plaintext
 sudo mount -t nfs -o vers=3,nolock,proto=tcp <挂载点IP>:/share/nfs/<文件系统名称即 bucket 名称> <待挂载目标目录>
 ```
 
@@ -56,12 +67,12 @@ sudo mount -t nfs -o vers=3,nolock,proto=tcp <挂载点IP>:/share/nfs/<文件系
 ### 查看挂载点信息 
 
 挂载完成后，请使用如下命令查看已挂载的文件系统，
-```
+```plaintext
 mount -l
 ```
 
 也可以使用如下命令查看该文件系统的容量信息，
-```
+```plaintext
 df -h
 ```
 
@@ -69,7 +80,7 @@ df -h
 ### 卸载共享目录 
 
 当某些情况下需要卸载共享目录，请使用如下命令。其中 "目录名称" 为根目录或者文件系统的完整路径。
-```
+```plaintext
 umount <目录名称>
 // 例如， umount /local/test
 ```
@@ -89,7 +100,7 @@ umount <目录名称>
 ### 验证 NFS 服务是否启动
 
 打开 Windows 下的命令行工具，在面板中敲入如下命令， 若返回 NFS 相关信息则表示 NFS 客户端正常运行中。
-```
+```plaintext
 mount -l
 ```
 
@@ -104,7 +115,7 @@ mount -l
 #### 添加配置项 AnonymousUid 和 AnonymousGid
 在打开的注册表中找到如下路径并选中 
 
-```
+```plaintext
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 ```
 
