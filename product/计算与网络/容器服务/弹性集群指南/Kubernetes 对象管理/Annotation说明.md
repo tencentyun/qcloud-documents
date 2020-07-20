@@ -112,8 +112,8 @@ spec:
         eks.tke.cloud.tencent.com/gpu-type: 1/4*V100
         eks.tke.cloud.tencent.com/mem: 10Gi
         eks.tke.cloud.tencent.com/security-group-id: "sg-dxxxxxx5,sg-zxxxxxxu"
-	eks.tke.cloud.tencent.com/static-ip: "true"
-	eks.tke.cloud.tencent.com/role-name: "cam-role-name"
+        eks.tke.cloud.tencent.com/static-ip: "true"
+        eks.tke.cloud.tencent.com/role-name: "cam-role-name"
       creationTimestamp: null
       labels:
         k8s-app: nginx
