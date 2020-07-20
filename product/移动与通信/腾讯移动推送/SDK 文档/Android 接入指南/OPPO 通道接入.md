@@ -13,12 +13,12 @@ OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上
 
 ## 操作步骤
 ### 开通权限
-使用 OPPO 企业开发者帐号，登录 [OPPO 开发平台](https://open.oppomobile.com/)，在“管理中心 > 应用服务平台 > 移动应用列表 > 选择应用 > 开发服务 > 推送服务”中完成 OPPO PUSH 权限申请。
+使用 OPPO 企业开发者帐号，登录 [OPPO 开发平台](https://open.oppomobile.com/)，在【管理中心】>【应用服务平台】>【移动应用列表】>【选择应用】>【开发服务】>【推送服务】中完成 OPPO PUSH 权限申请。
 
 ### 获取密钥
 >?仅开发者帐号（主帐号）可查看。
 
-Opush 申请开通成功后，您可在 [OPPO 推送平台](https://push.oppo.com/) > 配置管理 > 应用配置页面，查看 AppKey、AppSecret 和 MasterSecret。详情请参见 [快速接入指引](https://open.oppomobile.com/wiki/doc#id=10195)。
+Opush 申请开通成功后，您可在【[OPPO 推送平台](https://push.oppo.com/)】>【配置管理】>【应用配置页面】，查看 AppKey、AppSecret 和 MasterSecret。详情请参见 [快速接入指引](https://open.oppomobile.com/wiki/doc#id=10195)。
 ![](https://main.qcloudimg.com/raw/7753e738a004854d63cf4c8e4c07d51c.png)
 
 
@@ -45,7 +45,7 @@ implementation 'com.tencent.tpns:oppo:[VERSION]-release'//oppo推送 [VERSION] �
 获取移动推送 TPNS  OPPO 通道 SDK 包后，按照移动推送 TPNS 官网手动集成方法，在配置好移动推送 TPNS 主版本的基础下，进行以下设置。
 
 1. 导入 OPPO 推送相关 jar 包，将 oppo4tpns1.1.2.1.jar 导入项目工程中。
-2. 在 ```Androidmanifest.xml``` 文件中新增如下配置：
+2. 在`Androidmanifest.xml`文件中新增如下配置：
 
 ```
 <!--OPPO 推送服务必须权限-->
@@ -74,7 +74,7 @@ implementation 'com.tencent.tpns:oppo:[VERSION]-release'//oppo推送 [VERSION] �
 ```
 
 ### 开启 OPPO 推送
-在调用移动推送 TPNS  ```XGPushManager.registerPush``` 之前，调用以下代码：
+在调用移动推送 TPNS  `XGPushManager.registerPush`之前，调用以下代码：
 ```java
 // 注意这里填入的是 Oppo 的 AppKey，不是AppId
 XGPushConfig.setOppoPushAppId(getApplicationContext(), "Oppo的AppKey");
