@@ -167,7 +167,7 @@ c. 拼接签名有效时间，格式为`StartTimestamp;EndTimestamp`，即为 Ke
 | q-key-time       | 上文所生成的 KeyTime                   | string | 是       |
 | q-signature      | 上文所生成的 Signature                 | string | 是       |
 
-**注意：**签名表单字段需要在 file 表单字段之前。
+>!签名表单字段需要在 file 表单字段之前。
 
 **签名保护实际案例**
 
