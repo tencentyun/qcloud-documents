@@ -27,8 +27,8 @@ With the SecretId and SecretKey, a signature string can be generated. The follow
 ![](//mc.qcloudimg.com/static/img/3a3a616ba175bb95be68123d86715e77/image.png)
 
 Suppose that you have the following SecretId and SecretKey:
-SecretId: AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA
-SecretKey: Gu5t9xGARNpq86cd98joQYCN3Cozk1qA
+SecretId: AKID****J5yKBZQpn74WFkmLPx3gnPhESA
+SecretKey: Gu5t****pq86cd98joQYCN3Cozk1qA
 
 >**Note:**
 >This is just an example. You need to proceed with your actual SecretId, SecretKey and request parameters.
@@ -38,7 +38,7 @@ For example, when you call Tencent Cloud CVM's API [View Instance List](https://
 | Parameter Name | Description | Parameter Value | 
 |---------|---------|---------|
 | Action | Method name | DescribeInstances | 
-| SecretId | Key ID | AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA | 
+| SecretId | Key ID | AKID****J5yKBZQpn74WFkmLPx3gnPhESA | 
 | Timestamp | Current timestamp | 1465185768 | 
 | Nonce | A random positive integer | 11886 | 
 | Region | The region where the instance resides | ap-guangzhou | 
@@ -53,7 +53,7 @@ First, sort all the request parameters in an ascending lexicographical order by 
     "Action" : "DescribeInstances",
     "Nonce" : 11886,
     "Region" : "ap-guangzhou",
-    "SecretId" : "AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA",
+    "SecretId" : "AKID****J5yKBZQpn74WFkmLPx3gnPhESA",
     "SignatureMethod" : "HmacSHA256",
     "Timestamp" : 1465185768,
     "InstanceIds.0" : "ins-09dx96dg"
@@ -74,7 +74,7 @@ Action=DescribeInstances
 &InstanceIds.0=ins-09dx96dg
 &Nonce=11886
 &Region=ap-guangzhou
-&SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA
+&SecretId=AKID****J5yKBZQpn74WFkmLPx3gnPhESA
 &SignatureMethod=HmacSHA256
 &Timestamp=1465185768
 ```
@@ -97,7 +97,7 @@ GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances
 &InstanceIds.0=ins-09dx96dg
 &Nonce=11886
 &Region=ap-guangzhou
-&SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA
+&SecretId=AKID****J5yKBZQpn74WFkmLPx3gnPhESA
 &SignatureMethod=HmacSHA256
 &Timestamp=1465185768
 ```
@@ -113,7 +113,7 @@ In this example, PHP language is used and the signature algorithm is **HmacSHA25
 
 ```php
 $secretKey = 'Gu5t9xGARNpq86cd98joQYCN3Cozk1qA';
-$srcStr = 'GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances&InstanceIds.0=ins-09dx96dg&Nonce=11886&Region=ap-guangzhou&SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA&SignatureMethod=HmacSHA256&Timestamp=1465185768';
+$srcStr = 'GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances&InstanceIds.0=ins-09dx96dg&Nonce=11886&Region=ap-guangzhou&SecretId=AKID****J5yKBZQpn74WFkmLPx3gnPhESA&SignatureMethod=HmacSHA256&Timestamp=1465185768';
 $signStr = base64_encode(hash_hmac('sha256', $srcStr, $secretKey, true));
 echo $signStr;
 ```
@@ -127,7 +127,7 @@ The resulting signature string is as follows:
 Similarly, if you specify **HmacSHA1** as the signature algorithm, the code for generating the signature string is as follows:
 ```
 $secretKey = 'Gu5t9xGARNpq86cd98joQYCN3Cozk1qA';
-$srcStr = 'GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances&InstanceIds.0=ins-09dx96dg&Nonce=11886&Region=ap-guangzhou&SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA&SignatureMethod=HmacSHA1&Timestamp=1465185768';
+$srcStr = 'GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances&InstanceIds.0=ins-09dx96dg&Nonce=11886&Region=ap-guangzhou&SecretId=AKID****J5yKBZQpn74WFkmLPx3gnPhESA&SignatureMethod=HmacSHA1&Timestamp=1465185768';
 $signStr = base64_encode(hash_hmac('sha1', $srcStr, $secretKey, true));
 echo $signStr;
 ```
