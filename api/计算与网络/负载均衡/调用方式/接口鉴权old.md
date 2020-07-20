@@ -10,7 +10,7 @@
 ## 生成签名串
 假设上一步申请的 SecretId 和 SecretKey 分别是：
  - SecretId：AKID****J5yKBZQpn74WFkmLPx3gnPhESA。
- - SecretKey：Gu5t9xGARNpq86cd98joQYCN3Cozk1qA。
+ - SecretKey：Gu5t****pq86cd98joQYCN3Cozk1qA。
 
 以查询 CVM 实例列表请求为例，请求参数为：
 
