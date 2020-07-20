@@ -2,7 +2,7 @@
 
 创建文件系统后，请在客户端上按照如下指引进行配置，挂载该文件系统并使用。NFS 文件网关支持 NFS v3.0 及 NFS v4.0 协议。
 
-您可以在 "文件系统详情" 页面上查看挂载命令。如下图
+您可以在 "文件系统详情" 页面上查看挂载命令，如下图所示：
 ![](https://main.qcloudimg.com/raw/aa3a549b488ec20ed0c1e593a0c97d69.png)
 
 
@@ -91,11 +91,12 @@ umount <目录名称>
 
 挂载前，请确保系统已经启动 NFS 服务。此处以 Windows Server 2012 R2 为示例，启动方法如下：
 
-打开控制面板 -> 程序 -> 打开或关闭 Windows 功能 -> 【服务器角色】页签中勾选 "NFS server" -> 【特性】中勾选 "NFS 客户端"，勾选 NFS 客户端即可开启 Windows NFS 客户端服务.
-
-下图以 Windows Server 2012 R2 为示例。
+1. 打开【控制面板】>【程序】>【打开或关闭 Windows 功能】>【服务器角色】页签中勾选【NFS server】。
 ![](https://mc.qcloudimg.com/static/img/eaeed922e9d1f673e47137d80a88fa70/image.png)
+2. 接着，在【特性】中勾选【NFS 客户端】，勾选 NFS 客户端即可开启 Windows NFS 客户端服务。
 ![](https://mc.qcloudimg.com/static/img/4f9d7ac7b877ceffc5bc2b1d7c050a24/image.png)
+
+
 
 ### 验证 NFS 服务是否启动
 
