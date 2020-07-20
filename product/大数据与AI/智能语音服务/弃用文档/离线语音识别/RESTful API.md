@@ -93,7 +93,7 @@ Base64Encode(HmacSha1(签名原文, SecretKey))
 ```
 UyKZ+Q4xMbdu3gxOmPD7tgnAm1A=
 ```
-请求 headers 为：
+请求 headers 为： 
 ```
 {
 "Content-Type":"application/octet-stream",
