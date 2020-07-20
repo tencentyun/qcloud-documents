@@ -70,7 +70,6 @@
 | bindfullscreenChangeEvent | EventHandle  | null       | 否   | 全屏状态变化事件回调                                         |
 | bindNetStatus             | EventHandle  | null       | 否   | 网络状态变化回调                                             |
 | bindAttachedEvent         | EventHandle  | null       | 否   | 插件加载完成回调                                             |
-| bindIMEvent               | EventHandle  | null       | 否   | 播放组件内置的 IM 事件回调                                   |
 | bindenterpictureinpicture | EventHandle  | null       | 否   | 用户进入小窗口回调                                           |
 | bindleavepictureinpicture | EventHandle  | null       | 否   | 用户离开小窗口回调                                           |
 
