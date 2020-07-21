@@ -17,5 +17,5 @@
 
 
 ## 后续步骤
-通过 Windows 云服务器或 Linux 云服务器，以内外网两种不同的方式连接云数据库 MySQL，请参见 [连接 MySQL 数据库](https://cloud.tencent.com/document/product/236/3130)。
+通过 Windows 云服务器或 Linux 云服务器，以内外网两种不同的方式连接云数据库 MySQL，请参见 [连接 MySQL 实例](https://cloud.tencent.com/document/product/236/3130)。
 
