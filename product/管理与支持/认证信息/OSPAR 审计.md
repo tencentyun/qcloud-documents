@@ -5,4 +5,4 @@
 
 OSPAR由新加坡银行协会（Association of Banks，ABS）发起，基于 Singapore Standard Assurance Engagement （“SSAE 3000”）制定相关准则，旨在对向新加坡金融机构（Financial Institutions，FI clients）的服务商在企业层级控制（Entity Level Controls）、一般信息技术控制（General Information Technology（“IT”）Controls）和服务控制 （Service Controls）三个领域的相关控制设计和操作的有效性进行审核与验证。同时，OSPAR 对新加坡金融管理局（Monetary Authority of Singapore，MAS）的相关监管要求进行了响应，是经过新加坡政府认可的权威审核。
 
-OSPAR 的通过证明腾讯云海外业务的安全控制能力已经达到金融级标准，在国际云服务提供商中处于领先地位。
+OSPAR 的通过证明腾讯云境外业务的安全控制能力已经达到金融级标准，在国际云服务提供商中处于领先地位。
