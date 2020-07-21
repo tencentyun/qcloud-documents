@@ -339,7 +339,7 @@ DHCPV6C=yes
 vim /etc/sysconfig/network-scripts/route6-eth0
 ```
 	2. 按 “i” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
-```
+```shell
 default dev eth0 via fe80::feee:ffff:feff:ffff
 ```
 ![](https://main.qcloudimg.com/raw/3baffe425e598460caf1fc2de45e10d8.png)
@@ -427,7 +427,7 @@ DHCPV6C=yes
 vim /etc/sysconfig/network-scripts/route6-eth0
 ```
 	2. 按 “i” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
-```
+```shell
 default dev eth0 via fe80::feee:ffff:feff:ffff
 ```
 ![](https://main.qcloudimg.com/raw/3baffe425e598460caf1fc2de45e10d8.png)
@@ -501,7 +501,7 @@ netstat -tupln
 ```
 ![](https://main.qcloudimg.com/raw/8bdb6f9672f81d8a6df56b61418fe492.png)
 9. 执行如下命令，配置默认路由。
-```
+```shell
 ip -6 route add default dev eth0 via fe80::feee:ffff:feff:ffff
 ```
 
