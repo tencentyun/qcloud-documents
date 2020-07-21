@@ -23,6 +23,13 @@ FMT 事务的实现原理：代理用户执行 PrepareStatement 和 CreateStatem
 </dependency>
 ```
 
+>?如果需要同时使用 tsf-sleuth 和 druid，需要切换到 spring-boot-dtf-druid 客户端，配置如下：
+```
+<dependency>
+	<groupId>com.tencent.cloud</groupId>
+	<artifactId>spring-boot-dtf-druid</artifactId>
+</dependency>  
+```
 ## 客户端配置
 
 在客户端中，支持以下配置自定义：
@@ -317,10 +324,3 @@ public class OrderApplication {
 }
 ```
 
->?如果需要同时使用 tsf-sleuth 和 druid，需要切换到 spring-boot-dtf-druid 客户端，配置如下：
-```
-<dependency>
-	<groupId>com.tencent.cloud</groupId>
-	<artifactId>spring-boot-dtf-druid</artifactId>
-</dependency>  
-```
