@@ -4,9 +4,8 @@
  - 云服务器和数据库须是同一账号，且同一个[ VPC](https://cloud.tencent.com/document/product/215/20046) 内（保障同一个地域），或同在基础网络内。
  - 内网地址系统默认提供，可在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例列表或实例详情页查看。
 
-- **外网访问**：无法通过内网连接时，可通过外网地址访问云数据库 MySQL。
+- **外网访问**：无法通过内网连接时，可通过外网地址访问云数据库 MySQL。外网地址需 [手动开启](#waiwang)，可在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页查看，不需要时也可关闭。
  - 仅广州、上海、北京、成都、重庆、中国香港、新加坡、首尔、东京、硅谷的实例支持开启外网访问地址。
- - 外网地址需 [手动开启](#waiwang)，可在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页查看，不需要时也可关闭。
  - 开启外网地址，会使您的数据库服务暴露在公网上，可能导致数据库被入侵或攻击。建议您使用内网访问数据库。 
  - 云数据库外网访问适用于开发或辅助管理数据库，不建议正式业务访问使用，因为可能存在不可控因素会导致外网访问不可用（例如 DDOS 攻击、突发大流量访问等）。
 
@@ -17,9 +16,9 @@
 2. 下载一个标准的 SQL 客户端。
 >?推荐您下载 MySQL Workbench，并根据您的系统来下载适配版本的安装程序，下载地址请参见 https://dev.mysql.com/downloads/workbench/。
 >
-![](https://main.qcloudimg.com/raw/25e78e6614b2967e8c70140b8849a6d6.png)
+![](https://main.qcloudimg.com/raw/851ab46468c554097a0cf742017157b7.png)
 3. 界面将提示【Login】、【Sign Up】和【No, thanks, just start my download.】， 选择【No thanks, just start my download.】来快速下载。
-![](https://main.qcloudimg.com/raw/f98f84df777a8f8927bec3375781f517.png)
+![](https://main.qcloudimg.com/raw/21bdd95d425d9df4f4c3c90bf4465b47.png)
 4. 在此台云服务器上安装 MySQL Workbench。
 >?
 >- 此电脑上需要安装 Microsoft .NET Framework 4.5 和 Visual C++ Redistributable for Visual Studio 2015。
@@ -31,9 +30,9 @@
  - Port：内网（或外网）对应端口。
  - Username：默认为 root，外网访问时建议您单独 [创建帐号](https://cloud.tencent.com/document/product/236/35794) 便于访问控制管理。
  - Password：Username 对应的密码，如忘记密码可参见 [重置密码](https://cloud.tencent.com/document/product/236/10305) 进行修改。
-![](https://main.qcloudimg.com/raw/8f2aeea985388e545ccf5da8fec908b7.png)
+![](https://main.qcloudimg.com/raw/946b50fb05de11d7c68c2262ac4fe933.png)
 6. 登录成功的页面如图 所示，在此页面上您可以看到 MySQL 数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
-![](https://main.qcloudimg.com/raw/9ec2f9393a3652727acbb8dfc41ad5b7.png)
+![](https://main.qcloudimg.com/raw/b84c35fee2720afa262ac887b9b74d99.png)
 
 ## 从 Linux 云服务器访问
 1. 登录到 Linux 云服务器，请参见 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">快速配置 Linux 云服务器</a>。
@@ -42,7 +41,7 @@
 yum install mysql
 ```
 提示`Complete!`说明 MySQL 客户端安装完成。
-![](https://main.qcloudimg.com/raw/907e047fed90f6cf68752fb386382927.png)
+![](https://main.qcloudimg.com/raw/5ebc9a87457defd09cc69c4f38164d3c.png)
 3. 根据不同访问方式，选择相应的操作：
  - **内网访问时：**
     1. 执行如下命令登录到 MySQL 数据库实例。
@@ -80,6 +79,6 @@ mysql -h hostname -P port -u username -p
 >?通过开关可以关闭外网访问权限，重新开启外网，域名对应的外网地址不变。
 
 ## 附录2：常见问题排查
-如无法连接云数据库 MySQL，请参见 [无法连接实例问题](https://cloud.tencent.com/document/product/236/32537) 进行排查。
+如无法连接云数据库 MySQL，请参见 [连接失败原因](https://cloud.tencent.com/document/product/236/32537) 进行排查。
 
 
