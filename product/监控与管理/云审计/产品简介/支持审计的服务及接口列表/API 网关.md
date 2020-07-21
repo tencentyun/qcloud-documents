@@ -5,22 +5,22 @@ API 网关（apigw）是 API 托管服务，提供 API 的完整生命周期管�
 | 接口功能                   | 接口名称                     |
 |---------------|--------------------------------------------|
 | 绑定环境          | BindEnvironment                            |
-| 绑定秘钥          | BindSecretIds                              |
+| 绑定密钥          | BindSecretIds                              |
 | 绑定子域名         | BindSubDomain                              |
 | 创建 API         | CreateApi                                  |
-| 创建秘钥          | CreateApiKey                               |
+| 创建密钥          | CreateApiKey                               |
 | 创建服务          | CreateService                              |
 | 创建使用计划        | CreateUsagePlan                            |
 | 删除 API         | DeleteApi                                  |
-| 删除秘钥          | DeleteApiKey                               |
+| 删除密钥          | DeleteApiKey                               |
 | 删除 IP 策略        | DeleteIPStrategy                           |
 | 删除服务          | DeleteService                              |
 | 删除使用计划        | DeleteUsagePlan                            |
 | 使用计划降级        | DemoteServiceUsagePlan                     |
 | 获取 API 详情       | DescribeApi                                |
 | 获取 API 环境策略     | DescribeApiEnvironmentStrategy             |
-| 获取 API 秘钥详情     | DescribeApiKey                             |
-| 获取秘钥列表        | DescribeApiKeysStatus                      |
+| 获取 API 密钥详情     | DescribeApiKey                             |
+| 获取密钥列表        | DescribeApiKeysStatus                      |
 | 查询 API 列表       | DescribeApisStatus                         |
 | 获取 API 使用计划     | DescribeApiUsagePlan                       |
 | 获取服务详情        | DescribeService                            |
@@ -29,10 +29,10 @@ API 网关（apigw）是 API 托管服务，提供 API 的完整生命周期管�
 | 创建服务发布版本      | DescribeServiceReleaseVersion              |
 | 查询服务列表        | DescribeServicesStatus                     |
 | 获取服务子域名列表     | DescribeServiceSubDomains                  |
-| 获取使用计划 API 秘钥   | DescribeUsagePlanSecretIds                 |
+| 获取使用计划 API 密钥   | DescribeUsagePlanSecretIds                 |
 | 查询使用计划列表      | DescribeUsagePlansStatus                   |
-| 禁用秘钥          | DisableApiKey                              |
-| 启用秘钥          | EnableApiKey                               |
+| 禁用密钥          | DisableApiKey                              |
+| 启用密钥          | EnableApiKey                               |
 | 生成 API 文档       | GenerateApiDocument                        |
 | 修改 API         | ModifyApi                                  |
 | 修改 IP 策略        | ModifyIPStrategy                           |
@@ -44,8 +44,8 @@ API 网关（apigw）是 API 托管服务，提供 API 的完整生命周期管�
 | 发布服务          | ReleaseService                             |
 | 调试 API         | RunApi                                     |
 | 解绑环境          | UnBindEnvironment                          |
-| 解绑秘钥          | UnBindSecretIds                            |
+| 解绑密钥          | UnBindSecretIds                            |
 | 解绑子域名         | UnBindSubDomain                            |
 | 环境下线          | UnReleaseService                           |
-| 更新 API 秘钥       | UpdateApiKey                               |
+| 更新 API 密钥       | UpdateApiKey                               |
 | 修改服务          | UpdateService                              |
