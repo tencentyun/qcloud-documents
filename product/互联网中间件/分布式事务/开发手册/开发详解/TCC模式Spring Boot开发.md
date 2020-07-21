@@ -19,6 +19,13 @@ TCC 事务，也可以理解为手动事务。需要用户提供 Try、Confirm�
     <version>${dtf.version}</version>
 </dependency>
 ```
+>?如果需要同时使用 tsf-sleuth 和 druid，需要切换到 spring-boot-dtf-druid 客户端，配置如下：
+```
+<dependency>
+	<groupId>com.tencent.cloud</groupId>
+	<artifactId>spring-boot-dtf-druid</artifactId>
+</dependency>  
+```
 
 ## 客户端配置
 
