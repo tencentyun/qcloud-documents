@@ -107,7 +107,7 @@ https://csec.api.qcloud.com/v2/index.php?Action=LoginProtection
 &loginTime=1553484280（uinx时间戳，仅需要精确到秒）
 ```
 - **响应示例**
-```
+```shell
 {
     "Nonce": 516529719,
     "code": 0,
