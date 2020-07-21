@@ -5,7 +5,7 @@
 <div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/cdb" target="_blank"  style="color: white; font-size:16px;" hotrep="document.guide.3128.btn3">点此进入购买页面</a></div>
 
 ## 操作步骤
-1. 登录 [控制台](https://console.cloud.tencent.com/cdb)，在左侧导航选择【实例列表】，选择对应地域。
+1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb)，在左侧导航选择【实例列表】，选择对应地域。
 2. 在实例列表，选择状态为“未初始化”的实例，在“操作”列单击【初始化】。
 ![](https://main.qcloudimg.com/raw/5161cf5c35bf952ba6b1f0ba77cc6f07.png)
 3. 在弹出的初始化对话框中，配置初始化相关参数，单击【确定】。
