@@ -54,7 +54,7 @@ API Center 是云开发提供通过云开发 API 网管服务访问**云函数�
 
 #### 正常的调用方式
 
-接⼝口名称：**DescribeRestoreTables**。
+接口名称：**DescribeRestoreTables**。
 输入参数：除公共参数外（可参考 [公共请求参数](https://cloud.tencent.com/document/api/876/34812)），输入参数还包含：
 
 
