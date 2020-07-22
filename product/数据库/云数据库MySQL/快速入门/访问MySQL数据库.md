@@ -18,7 +18,7 @@
 >
 ![](https://main.qcloudimg.com/raw/851ab46468c554097a0cf742017157b7.png)
 3. 界面将提示【Login】、【Sign Up】和【No, thanks, just start my download.】， 选择【No thanks, just start my download.】来快速下载。
-![](https://main.qcloudimg.com/raw/21bdd95d425d9df4f4c3c90bf4465b47.png)
+![](https://main.qcloudimg.com/raw/47b195fb37ff584f21038ee54342d362.png)
 4. 在此台云服务器上安装 MySQL Workbench。
 >?
 >- 此电脑上需要安装 Microsoft .NET Framework 4.5 和 Visual C++ Redistributable for Visual Studio 2015。
@@ -32,7 +32,7 @@
  - Password：Username 对应的密码，如忘记密码可参见 [重置密码](https://cloud.tencent.com/document/product/236/10305) 进行修改。
 ![](https://main.qcloudimg.com/raw/946b50fb05de11d7c68c2262ac4fe933.png)
 6. 登录成功的页面如图 所示，在此页面上您可以看到 MySQL 数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
-![](https://main.qcloudimg.com/raw/b84c35fee2720afa262ac887b9b74d99.png)
+![](https://main.qcloudimg.com/raw/33f081e99c384258bbc5ed3683ed4d7d.png)
 
 ## 从 Linux 云服务器访问
 1. 登录到 Linux 云服务器，请参见 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">快速配置 Linux 云服务器</a>。
@@ -41,7 +41,7 @@
 yum install mysql
 ```
 提示`Complete!`说明 MySQL 客户端安装完成。
-![](https://main.qcloudimg.com/raw/5ebc9a87457defd09cc69c4f38164d3c.png)
+![](https://main.qcloudimg.com/raw/16c77e28c40ae9be9a182b1c61843ecd.png)
 3. 根据不同连接方式，选择相应的操作：
  - **内网连接时：**
     1. 执行如下命令登录到 MySQL 数据库实例。
