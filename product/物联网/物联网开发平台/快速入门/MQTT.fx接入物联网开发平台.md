@@ -5,7 +5,7 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows、 Mac、Lin
 
 ## 操作步骤
 
-### 步骤1：连接 IoT Cloud
+### 连接 IoT Cloud
 
 1. 打开 [MQTT.fx 下载页面](http://mqttfx.jensd.de/index.php/download)，找到适合的版本，下载并安装 MQTT.fx 客户端。
 2. 打开 MQTT.fx 客户端程序，单击【设置】。
