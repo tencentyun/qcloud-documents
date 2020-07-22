@@ -7,11 +7,11 @@
 ## 操作步骤
 1. 登录 Outlook 邮箱，单击【文件】>【添加账户】，即可进入 “添加账户” 中。
 2. 在弹出的 “添加账户” 窗口中，选择【手动设置或其他服务器类型】，并单击【下一步】。如下图所示：
-![](https://main.qcloudimg.com/raw/b8f056e86ad2fd39af22d385ce7e5b31.png)
+![](https://main.qcloudimg.com/raw/182f3e81cf158a97023099bbe485ef1b.png)
 3. 在 “选择服务” 页面中，选择【outlook.com 或 Exchange ActiveSync 兼容服务(A)】，并单击【下一步】。如下图所示：
-![](https://main.qcloudimg.com/raw/309a08e9ded857f5816a4b1ce08a999b.png)
+![](https://main.qcloudimg.com/raw/3e979ca1055f13dfdc9b2dc074a2b394.png)
 4. 在 “服务器设置” 页面中，输入姓名、邮箱帐号、邮件服务器以及密码。如下图所示：
-![](https://main.qcloudimg.com/raw/87fe5b60d61c11ac5d72541b40c906cb.png)
+![](https://main.qcloudimg.com/raw/85ffa3b647b38a07024e16634a74f990.png)
     - **您的姓名**：请填写您的姓名。
     - **电子邮件地址**：请填写您的企业邮箱账号。
     - **邮件服务器**：请填写腾讯企业邮件服务器 `ex.exmail.qq.com`。
