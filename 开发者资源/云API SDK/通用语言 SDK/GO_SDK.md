@@ -21,7 +21,7 @@
 <img src="https://main.qcloudimg.com/raw/0946c8544324227a4ba405b0fe4a97ee.png" width="600"><span/>
 - 新建环境变量 GOPATH：
 	- 变量名：GOPATH。
-	- 变量值：按自己的需求指定（该路径是用于保存你所编写的代码） 
+	- 变量值：按自己的需求指定（该路径是用于保存您所编写的代码） 
 ![](https://main.qcloudimg.com/raw/9680006cff76b75cdb8889dd1389693c.png)
 - 新建环境变量 GOROOT：
 	- 变量名：GOROOT。
@@ -148,21 +148,21 @@ func main() {
         // 必要步骤：
         // 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId、secretKey。
         // 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
-        // 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
-        // 以免泄露密钥对危及你的财产安全。
+        // 您也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
+        // 以免泄露密钥对危及您的财产安全。
         credential := common.NewCredential("secretId","secretKey")
 
         // 非必要步骤
         // 实例化一个客户端配置对象，可以指定超时时间等配置
         cpf := profile.NewClientProfile()
         // SDK 默认使用 POST 方法。
-        // 如果你一定要使用 GET 方法，可以在这里设置。GET 方法无法处理一些较大的请求。
+        // 如果您一定要使用 GET 方法，可以在这里设置。GET 方法无法处理一些较大的请求。
         // 如非必要请不要修改默认设置。
         //cpf.HttpProfile.ReqMethod = "GET"
         // SDK 有默认的超时时间，如非必要请不要修改默认设置。
         // 如有需要请在代码中查阅以获取最新的默认值。
         //cpf.HttpProfile.ReqTimeout = 10
-        // SDK 会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务，
+        // SDK 会自动指定域名。通常是不需要特地指定域名的，但是如果您访问的是金融区的服务，
         // 则必须手动指定域名，例如云服务器的上海金融区域名：cvm.ap-shanghai-fsi.tencentcloudapi.com
         cpf.HttpProfile.Endpoint = "cvm.tencentcloudapi.com"
         // SDK 默认用 HmacSHA256 进行签名，它更安全但是会轻微降低性能。
@@ -177,14 +177,14 @@ func main() {
         // 第二个参数是地域信息，可以直接填写字符串 ap-guangzhou，或者引用预设的常量
         client, _ := cvm.NewClient(credential, regions.Guangzhou, cpf)
         // 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
-        // 你可以直接查询 SDK 源码确定 DescribeInstancesRequest 有哪些属性可以设置，
+        // 您可以直接查询 SDK 源码确定 DescribeInstancesRequest 有哪些属性可以设置，
         // 属性可能是基本类型，也可能引用了另一个数据结构。
         // 推荐使用 IDE 进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明。
         request := cvm.NewDescribeInstancesRequest()
 
         // 基本类型的设置。
         // 此接口允许设置返回的实例数量。此处指定为只返回一个。
-        // SDK 采用的是指针风格指定参数，即使对于基本类型你也需要用指针来对参数赋值。
+        // SDK 采用的是指针风格指定参数，即使对于基本类型您也需要用指针来对参数赋值。
         // SDK 提供对基本类型的指针引用封装函数
         request.Limit = common.Int64Ptr(1)
 
@@ -237,7 +237,7 @@ func main() {
 
 ### 忽略服务器证书校验
 
-虽然使用 SDK 调用公有云服务时，必须校验服务器证书，以识别他人伪装的服务器，确保请求的安全。但某些极端情况下，例如测试时，你可能会需要忽略自签名的服务器证书。以下是其中一种可能的方法：
+虽然使用 SDK 调用公有云服务时，必须校验服务器证书，以识别他人伪装的服务器，确保请求的安全。但某些极端情况下，例如测试时，您可能会需要忽略自签名的服务器证书。以下是其中一种可能的方法：
 
 ```
 import "crypto/tls"
