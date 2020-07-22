@@ -10,7 +10,7 @@
 | 查询访问日志下载任务          | waf  | DescribeAccessDownloadRecords  |
 | 查询满足搜索条件的访问日志数量     | waf  | DescribeAccessLogCount         |
 | 查询访问日志              | waf  | DescribeAccessLogs             |
-| Waf Ip 状态统一查询接口      | waf  | DescribeActionedIp             |
+| Waf IP 状态统一查询接口      | waf  | DescribeActionedIp             |
 | 获取 ai 模型状态            | waf  | DescribeAIModelStatus          |
 | waf ai 在线验证          | waf  | DescribeAIVerifyResult         |
 | 获取防篡改 url            | waf  | DescribeAntiFakeUrl            |
