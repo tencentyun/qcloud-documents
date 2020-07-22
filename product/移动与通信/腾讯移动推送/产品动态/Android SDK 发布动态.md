@@ -63,7 +63,7 @@
     </tr>
     <tr>
         <td>SDK 1.1.5.5 版本发布</td>
-        <td><li>解决 App上架 GooglePlay 会出现 DCL 违规问题</li><li>去除调用灯塔获取QIMEI相关信息</li></td>
+        <td><li>解决 App上架 GooglePlay 会出现 DCL 违规问题</li><li>去除调用灯塔获取 QIMEI 相关信息</li></td>
         <td>2020-04-02</td>
         <td>-</td>
     </tr>
