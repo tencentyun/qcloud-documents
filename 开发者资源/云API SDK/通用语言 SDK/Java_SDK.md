@@ -235,7 +235,7 @@ public class DescribeInstances {
             DescribeInstancesRequest req = new DescribeInstancesRequest();
 
             // 填充请求参数，这里 request 对象的成员变量即对应接口的入参
-            // 你可以通过官网接口文档或跳转到 request 对象的定义处查看请求参数的定义
+            // 您可以通过官网接口文档或跳转到 request 对象的定义处查看请求参数的定义
             Filter respFilter = new Filter(); // 创建 Filter 对象, 以 zone 的维度来查询 cvm 实例
             respFilter.setName("zone");
             respFilter.setValues(new String[] { "ap-shanghai-1", "ap-shanghai-2" });
@@ -249,7 +249,7 @@ public class DescribeInstances {
             System.out.println(DescribeInstancesResponse.toJsonString(resp));
 
             // 也可以取出单个值。
-            // 你可以通过官网接口文档或跳转到 response 对象的定义处查看返回字段的定义
+            // 您可以通过官网接口文档或跳转到 response 对象的定义处查看返回字段的定义
             System.out.println(resp.getTotalCount());
         } catch (TencentCloudSDKException e) {
             System.out.println(e.toString());
@@ -316,8 +316,8 @@ SDK 支持 http 协议和 https 协议，通过设置 HttpProfile 的 setProtoco
 log 日志内容从左到右依次为：**日志级别、时间、发起请求的类名、方法名和日志信息**，示例如下：
 
 ```
-DEBUG | 2020-06-23 19:53:45,527 | com.tencentcloudapi.cvm.v20170312.CvmClient | main | send request, request url: http://cvm.ap-shanghai.tencentcloudapi.com/?Nonce=214427340&Action=DescribeInstances&Filters.0.Values.1=ap-shanghai-2&Version=2017-03-12&Filters.0.Values.0=ap-shanghai-1&SecretId=AKIDf6Jcz7nvVHdy7HmsKbcnqhY9mBIdsfM3&Filters.0.Name=zone&RequestClient=SDK_JAVA_3.1.77&Region=ap-shanghai&SignatureMethod=HmacSHA256&Timestamp=1592913225&Signature=4M90tzqzZk2%2Fa6pQv2Tep0gWSO%2FTODAN%2Bb3cLLZW4kw%3D. request headers information: 
-DEBUG | 2020-06-23 19:53:45,685 | com.tencentcloudapi.cvm.v20170312.CvmClient | main | recieve response, response url: http://cvm.ap-shanghai.tencentcloudapi.com/?Nonce=214427340&Action=DescribeInstances&Filters.0.Values.1=ap-shanghai-2&Version=2017-03-12&Filters.0.Values.0=ap-shanghai-1&SecretId=AKIDf6Jcz7nvVHdy7HmsKbcnqhY9mBIdsfM3&Filters.0.Name=zone&RequestClient=SDK_JAVA_3.1.77&Region=ap-shanghai&SignatureMethod=HmacSHA256&Timestamp=1592913225&Signature=4M90tzqzZk2%2Fa6pQv2Tep0gWSO%2FTODAN%2Bb3cLLZW4kw%3D, response headers: Server: nginx;Date: Tue, 23 Jun 2020 11:53:45 GMT;Content-Type: text/html; charset=utf-8;Content-Length: 162;Connection: keep-alive;OkHttp-Selected-Protocol: http/1.1;OkHttp-Sent-Millis: 1592913225648;OkHttp-Received-Millis: 1592913225684;,response body information: com.squareup.okhttp.internal.http.RealResponseBody@86be70a
+DEBUG | 2020-06-23 19:53:45,527 | com.tencentcloudapi.cvm.v20170312.CvmClient | main | send request, request url: http://cvm.ap-shanghai.tencentcloudapi.com/?Nonce=214427340&Action=DescribeInstances&Filters.0.Values.1=ap-shanghai-2&Version=2017-03-12&Filters.0.Values.0=ap-shanghai-1&SecretId=AKIDxxxxxxxxxxhY9mBIdsfM3&Filters.0.Name=zone&RequestClient=SDK_JAVA_3.1.77&Region=ap-shanghai&SignatureMethod=HmacSHA256&Timestamp=1592913225&Signature=4M90tzqzZk2%2Fa6pQv2Tep0gWSO%2FTODAN%2Bb3cLLZW4kw%3D. request headers information: 
+DEBUG | 2020-06-23 19:53:45,685 | com.tencentcloudapi.cvm.v20170312.CvmClient | main | recieve response, response url: http://cvm.ap-shanghai.tencentcloudapi.com/?Nonce=214427340&Action=DescribeInstances&Filters.0.Values.1=ap-shanghai-2&Version=2017-03-12&Filters.0.Values.0=ap-shanghai-1&SecretId=AKIDxxxxxxxxxxdy7HmsKbcnqhY9mBIdsfM3&Filters.0.Name=zone&RequestClient=SDK_JAVA_3.1.77&Region=ap-shanghai&SignatureMethod=HmacSHA256&Timestamp=1592913225&Signature=4M90tzqzZk2%2Fa6pQv2Tep0gWSO%2FTODAN%2Bb3cLLZW4kw%3D, response headers: Server: nginx;Date: Tue, 23 Jun 2020 11:53:45 GMT;Content-Type: text/html; charset=utf-8;Content-Length: 162;Connection: keep-alive;OkHttp-Selected-Protocol: http/1.1;OkHttp-Sent-Millis: 1592913225648;OkHttp-Received-Millis: 1592913225684;,response body information: com.squareup.okhttp.internal.http.RealResponseBody@86be70a
  INFO | 2020-06-23 19:53:45,686 | com.tencentcloudapi.cvm.v20170312.CvmClient | main | response code is 403, n
 ```
 
