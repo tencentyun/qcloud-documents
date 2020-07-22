@@ -1,7 +1,7 @@
 ```php
 <?php
 // Step 1：获取签名所需信息获取得到的签名所需信息，如下
-$secret_id = "AKIDUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv";
+$secret_id = "AKIDxxxxxxxxUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv";
 $secret_key = "bLcPnl88WU30VY57ipRhSePfPdOfSruK";
 
 // Step 2：设置签名有效时间

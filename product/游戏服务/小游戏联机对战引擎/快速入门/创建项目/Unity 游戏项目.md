@@ -30,9 +30,8 @@ Unity Editor 版本： 2019.1.9+。
 ![](https://main.qcloudimg.com/raw/b83a9b0bbf7e46ebe09dca89383b016f.jpg)
 5. 参考以下示例代码，将 mgobe package 导入 main.cs。
 ```c#
-using Packages.com.unity.mgobe.Runtime.src;
-using Packages.com.unity.mgobe.Runtime.src.SDK;
-using Lagame;
+using com.unity.mgobe.src;
+using com.unity.mgobe.src.SDK;  
 ```
 
 

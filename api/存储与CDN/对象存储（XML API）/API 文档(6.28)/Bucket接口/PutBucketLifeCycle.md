@@ -12,7 +12,7 @@ PUT Bucket lifecycle 用于为 Bucket 创建一个新的生命周期配置。如
 
 > !
 > - 同一条生命周期规则中不可同时支持 Days 和 Date 参数，请分成两条规则分别传入，具体请参见下文 [实际案例](#.E5.AE.9E.E9.99.85.E6.A1.88.E4.BE.8B)。
-> - 开启了 [多 AZ](https://cloud.tencent.com/document/product/436/40548) 配置的存储桶，目前仅支持过期删除功能，不支持过期沉降为低频或者归档存储类型。
+> - 开启了 [多 AZ](https://cloud.tencent.com/document/product/436/40548) 配置的存储桶，不支持将多 AZ 存储类型沉降到单 AZ 存储类型。
 
 ## 请求
 

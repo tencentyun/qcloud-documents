@@ -1,7 +1,7 @@
 ## 操作场景
 设备通过 softAP 方式创建一个 Wi-Fi 热点，手机连接该热点，再通过数据通道例如 TCP/UDP 通讯，将目标 Wi-Fi 路由器的 SSID/PSW 传递该设备，设备获取后，即可连接 Wi-Fi 路由器从而连接互联网。同时，为了对设备进行绑定，手机 App 可以利用该 TCP/UDP 数据通道，将后台提供的配网 Token 发送给设备，并由设备转发至物联网后台，依据 Token 可以进行设备绑定。本文档主要指导您如何使用softAP 方式配网开发。
 
-腾讯连连小程序已经支持 softAP 配网，并提供了相应的 [小程序 SDK](https://github.com/tencentyun/qcloud-iotexplorer-appdev-miniprogram-sdk)。
+腾讯连连小程序已经支持 softAP 配网，并提供了相应的 [小程序 SDK](https://www.npmjs.com/package/qcloud-iotexplorer-appdev-sdk)。
 基于 Token 的 softAP 方式配网及设备绑定的示例流程图，如下图所示：
 <img src="https://main.qcloudimg.com/raw/a146b79d88299a59507d81eaad99137c.jpg" width="90%">
 

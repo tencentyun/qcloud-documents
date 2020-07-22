@@ -1,7 +1,7 @@
 ```php
 <?php
 // Step 1: Obtain required information for signature as follows
-$secret_id = "AKIDUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv";
+$secret_id = "AKIDxxxxxxxxUfLUEUigQiXqm7CVSspKJnuaiIKtxqAv";
 $secret_key = "bLcPnl88WU30VY57ipRhSePfPdOfSruK";
 
 // Step 2: Set the validity period of the signature

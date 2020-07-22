@@ -1,10 +1,25 @@
+本文为您介绍 MySQL 内核版本更新动态，如需升级，请参见 [升级内核小版本](https://cloud.tencent.com/document/product/236/45522)。
+## MySQL 8.0
+### 20200630
+TXSQL 本版本以 MySQL 8.0.18 为基准版本进行 8.0 版本的内核开发与支持，此版本为8.0版本的第一版。
+
+#### 新特性：
+- 支持异步删除大表功能。
+- 支持半同步动态开关。
+- 支持自动 kill 长事务。
+
+#### 官方 bug 修复：
+- 修复主从 log_pos 不一致导致主从切换失败的问题。
+- 修复异步落盘所引起的数据文件出错的问题。
+- 其他 bug 修复。
+
 ## MySQL 5.7
 ### 20200331
 #### 新特性：
 - 新增官方 MySQL 5.7.22 版本的 JSON 系列函数。
 - 基于电商秒杀场景的热点更新功能，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 - SQL 限流，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
-- 数据加密功能支持 KMS 自定义密钥加密，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
+- 数据加密功能支持 KMS 自定义密钥加密。
 
 #### 官方 bug 修复：
 - 修复全文索引中，词组查找（phrase search）在多字节字符集下存在的崩溃问题。

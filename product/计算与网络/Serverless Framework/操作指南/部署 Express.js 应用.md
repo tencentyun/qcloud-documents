@@ -32,21 +32,13 @@ $ mkdir tencent-express && cd tencent-express
 
 通过如下命令和模板链接，快速创建一个 Express 应用：
 ```
-$ serverless create --template-url https://github.com/serverless-components/tencent-express/tree/v2/example
+$ serverless create --template-url https://github.com/serverless-components/tencent-express/tree/master/example
 $ cd example
 ```
 
 执行如下命令，安装 Express 应用的对应依赖：
 ```
-$ cd src && npm install
-```
-安装完毕后，目录结构如下所示：
-```
-|- src
-|   ├── sls.js
-|   ├── node_modules
-|   └── package.json
-└──  serverless.yml
+$ npm install
 ```
 
 #### 3. 部署
@@ -121,7 +113,7 @@ inputs:
           - https
 ```
 
-查看 [全量配置及配置说明 >>](https://github.com/serverless-components/tencent-express/blob/v2/docs/configure.md)
+查看 [全量配置及配置说明 >>](https://github.com/serverless-components/tencent-express/blob/master/docs/configure.md)
 
 当您根据该配置文件更新配置字段后，再次运行`serverless deploy`或者`serverless`就可以更新配置到云端。
 
