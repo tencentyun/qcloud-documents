@@ -23,7 +23,8 @@
 > 
 
 ## 5. 开始迁移
- 
+ >? go2tencentcloud 迁移工具具体信息请参见 [迁移工具说明](https://cloud.tencent.com/document/product/213/38783)。
+ > 
 1. 建立源端主机和目标云服务器的连接通道。（可选）  
  - 如果您选择内网迁移模式，则需要通过使用 [VPC 对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[云联网](https://cloud.tencent.com/document/product/877) 或者 [专线接入](https://cloud.tencent.com/document/product/216) 等方式建立源端主机与目标云服务器的连接通道。
  - 如果您选择默认模式，则请跳过此步骤。
