@@ -80,7 +80,7 @@
      命令帮助           httpd -h
     ```
 
-## Apache 支持 PHP
+### Apache 支持 PHP
 
 #### 添加 PHP 模块
 
