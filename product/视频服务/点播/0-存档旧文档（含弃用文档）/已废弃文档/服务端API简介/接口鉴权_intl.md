@@ -16,7 +16,7 @@ To apply for a security credential, please proceed as follows:
 With the Secret ID and Secret Key, signature string can be generated. The following is the detailed process for generating signature string.
 
 Suppose that a user has the following SecretId and SecretKey:
->  SecretId:  AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA
+>  SecretId:  AKIDxxxxxxxxz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA
 >  SecretKey:  Gu5t9xGARNpq86cd98joQYCN3Cozk1qA
 
 **Note: This is just an example. Please proceed with your actual SecretId and SecretKey!**
@@ -26,7 +26,7 @@ Take [Query Instance List](/doc/api/229/查看实例列表) (DescribeInstances) 
 | Parameter name | Description| Parameter Value|
 |---------|---------|---------|
 | Action | Method name | DescribeInstances |
-| SecretId | Key ID | AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA |
+| SecretId | Key ID | AKIDxxxxxxxxz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA |
 | Timestamp | Current time stamp | 1465185768 |
 | Nonce | Random positive integer | 11886 |
 | Region | Indicate the region where the instance is located | gz |
@@ -44,7 +44,7 @@ First, sort all request parameters in ascending lexicographical order by their n
     "Action": "DescribeInstances",
     "Nonce": 11886,
     "Region": "gz",
-    "SecretId": "AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA",
+    "SecretId": "AKIDxxxxxxxxz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA",
     "Timestamp": 1465185768,
     "instanceIds.0": "ins-09dx96dg",
     "limit": 20,
@@ -63,7 +63,7 @@ Format the above sorted parameters as "parameter name=parameter value". Take the
 Then, joint the formatted parameters together using "&" to generate the final request string:
 
 ```
-Action=DescribeInstances&Nonce=11886&Region=gz&SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA&Timestamp=1465185768&instanceIds.0=ins-09dx96dg&limit=20&offset=0
+Action=DescribeInstances&Nonce=11886&Region=gz&SecretId=AKIDxxxxxxxxz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA&Timestamp=1465185768&instanceIds.0=ins-09dx96dg&limit=20&offset=0
 ```
 
 ### Step3: Joining the Original Signature Strings
@@ -81,7 +81,7 @@ Combination rule of original signature string:
 The combination result is as follows:
 
 ```
-GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances&Nonce=11886&Region=gz&SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA&Timestamp=1465185768&instanceIds.0=ins-09dx96dg&limit=20&offset=0
+GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances&Nonce=11886&Region=gz&SecretId=AKIDxxxxxxxxz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA&Timestamp=1465185768&instanceIds.0=ins-09dx96dg&limit=20&offset=0
 ```
 
 ### Generating Signature String
@@ -92,7 +92,7 @@ For example, the codes are as follows if written in PHP:
 
 ```
 $secretKey = 'Gu5t9xGARNpq86cd98joQYCN3Cozk1qA';
-$srcStr = 'GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances&Nonce=11886&Region=gz&SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA&Timestamp=1465185768&instanceIds.0=ins-09dx96dg&limit=20&offset=0';
+$srcStr = 'GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances&Nonce=11886&Region=gz&SecretId=AKIDxxxxxxxxz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA&Timestamp=1465185768&instanceIds.0=ins-09dx96dg&limit=20&offset=0';
 $signStr = base64_encode(hash_hmac('sha1', $srcStr, $secretKey, true));
 echo $signStr;
 ```

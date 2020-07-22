@@ -42,7 +42,7 @@
 |11201|InvalidParameter|业务参数错误|
 |10701|InstanceNotExists|没有找到 serialId 对应的实例|
 |10707|InstanceLockedError|实例已被锁住，暂时不能执行该操作|
-|10702|InstanceStatusAbnormal|实例状态异常,暂时不能执行该操作（比如：流程中或已隔离或已删除）|
+|10702|InstanceStatusAbnormal|实例状态异常,暂时不能执行该操作（例如，流程中或已隔离或已删除）|
 |10501|PasswordEmpty| 密码为空|
 |10712|PasswordError| 密码错误|
 

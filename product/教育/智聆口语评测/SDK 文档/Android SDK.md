@@ -1,7 +1,7 @@
 
 ##  概述
 腾讯云智聆口语评测（Smart Oral Evaluation，SOE）是腾讯云推出的语音评测产品，是基于口语类教育培训场景和腾讯云的语音处理技术，应用特征提取、声学模型和语音识别算法，为儿童和成人提供高准确度的口语发音评测。腾讯云智聆口语评测支持单词、句子和段落模式的评测，多维度反馈口语表现，可广泛应用于中文及英语口语类教学中。
-TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，用户可以快速接入相关产品功能，如数学作业批改、智聆口语评测等。本文档介绍智聆口语评测 Android SDK 相关说明，如需其他产品的调用说明，可在对应产品的产品文档查看。
+TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，用户可以快速接入相关产品功能，如智聆口语评测、数学作业批改等。本文档介绍智聆口语评测 Android SDK 相关说明，如需其他产品的调用说明，可在对应产品的产品文档查看。
 本文档只对 Android SDK 进行描述，详细的网络 API 说明请参见 [API 文档](https://cloud.tencent.com/document/product/884/19309)。
 
 ## 使用前提
@@ -50,7 +50,7 @@ this.oral.setListener(new TAIOralEvaluationListener() {
 TAIOralEvaluationParam param = new TAIOralEvaluationParam();
 param.context = this;
 param.appId = "";
-param.sessionId = String.format("%d", System.currentTimeMillis() / 1000);
+param.sessionId = UUID.randomUUID().toString();
 param.workMode = TAIOralEvaluationWorkMode.ONCE;
 param.evalMode = TAIOralEvaluationEvalMode.SENTENCE;
 param.storageMode = TAIOralEvaluationStorageMode.DISABLE;
@@ -82,7 +82,7 @@ this.oral.stopRecordAndEvaluation(new TAIOralEvaluationCallback() {
 TAIOralEvaluationParam param = new TAIOralEvaluationParam();
 param.context = this;
 param.appId = "";
-param.sessionId = String.format("%d", System.currentTimeMillis() / 1000);
+param.sessionId = UUID.randomUUID().toString();
 param.workMode = TAIOralEvaluationWorkMode.ONCE;
 param.evalMode = TAIOralEvaluationEvalMode.SENTENCE;
 param.storageMode = TAIOralEvaluationStorageMode.DISABLE;
@@ -116,7 +116,23 @@ catch (Exception e){
 
 
 ### 4. 签名
-SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [临时 SecretKey](https://cloud.tencent.com/document/api/598/13895) 或者 SDK 外部签名返回到客户端。
+SecretKey 属于安全敏感参数，线上版本一般由业务后台生成 [临时 SecretKey](https://cloud.tencent.com/document/api/598/13896) 或者 SDK 外部签名返回到客户端。
+临时签名 policy 示例如下：
+```json
+{
+    "version": "2.0",
+    "statement": {
+        "effect": "allow",
+        "action": [
+            "soe:InitOralProcess",
+            "soe:ExtraOralProcess",
+            "soe:TransmitOralProcess",
+            "soe:TransmitOralProcessWithInit"
+        ],
+        "resource": "*"
+    }
+}
+```
 
 - 内部签名：SDK 内部通过用户提供的 SecretKey 和 SecretId 计算签名，用户无需关心签名细节
 - 外部签名：SDK 外部调用 getStringToSign 获取签名字符串，然后根据 [签名规则-计算签名](https://cloud.tencent.com/document/product/884/30657#3.-.E8.AE.A1.E7.AE.97.E7.AD.BE.E5.90.8D) 进行签名。口语评测时需提供 SecretId、timestamp 和 signature 参数。

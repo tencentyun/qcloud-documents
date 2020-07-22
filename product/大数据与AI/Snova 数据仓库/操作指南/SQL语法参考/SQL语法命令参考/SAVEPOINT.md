@@ -17,7 +17,7 @@ savepoint_name
 
 ## 注解
 使用 **ROLLBACK TO SAVEPOINT** 回滚到一个保存点。 
-使用**RELEASE SAVEPOINT**销毁一个保存点，但保持在它被建立之后执行的命令的效果。
+使用 **RELEASE SAVEPOINT** 销毁一个保存点，但保持在它被建立之后执行的命令的效果。
 
 保存点只能在一个事务块内建立。可以在一个事务内定义多个保存点。
 

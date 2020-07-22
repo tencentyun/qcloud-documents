@@ -19,7 +19,7 @@ $client->setTimeout(30);
 ### 调用对应的方法
 创建完对象后，您可以根据实际需求调用对应的操作方法。
 ### 图片识别
-图片识别包括：图片鉴黄、图片标签、OCR - 身份证识别及 OCR - 名片识别。
+图片识别包括：图片鉴黄、图像分析、OCR - 身份证识别及 OCR - 名片识别。
 #### 图片鉴黄
 ```
 //单个或多个图片 URL
@@ -28,7 +28,7 @@ var_dump ($client->pornDetect(array('urls'=>array('http://img3.a0bi.com/upload/t
 //单个或多个图片 file
 var_dump ($client->pornDetect(array('files'=>array('F:\pic\您好.jpg','G:\pic\test2.jpg'))));
 ```
-#### 图片标签
+#### 图像分析
 ```
 //单个图片 URL
 var_dump ($client->tagDetect(array('url'=>'http://img3.a0bi.com/upload/ttq/20160814/1471155260063.png')));

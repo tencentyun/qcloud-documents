@@ -20,7 +20,7 @@
 
 ## Trial of VOD Service
 
-- After completing the application for video service, go to **Tencent Cloud Console** -> **VOD** (or visit https://console.cloud.tencent.com/video).
+- After completing the application for video service, go to **Tencent Cloud Console** -> **VOD** (or visit https://console.cloud.tencent.com/vod).
 
 - For customers who activate Tencent Cloud VOD service for the first time, we provide a 30 CNY voucher for trial use. The voucher is valid for one month.
 

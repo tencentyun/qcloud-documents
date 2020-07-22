@@ -1,5 +1,5 @@
 ## ES CAM 简介
-访问管理（Cloud Access Management，CAM）是腾讯云提供的 Web 服务，主要用于帮助用户安全管理腾讯云账户下的资源的访问权限。用户可以通过 CAM 创建、管理和销毁用户(组)，并使用身份管理和策略管理控制其他用户使用腾讯云资源的权限，CAM 策略的详细信息及使用请参见 [CAM 策略](https://cloud.tencent.com/document/product/598/10601) 。  
+访问管理（Cloud Access Management，CAM）是腾讯云提供的 Web 服务，主要用于帮助用户安全管理腾讯云账户下的资源的访问权限。用户可以通过 CAM 创建、管理和销毁用户(组)，并使用身份管理和策略管理控制其他用户使用腾讯云资源的权限，CAM 策略的详细信息及使用请参见 [CAM 策略](https://cloud.tencent.com/document/product/598/10601)。  
 
 ## ES CAM 策略
 ### 通用权限策略
@@ -23,7 +23,7 @@ ES 可授权的资源类型如下：
 
 | 接口名 | 描述 | 是否关联资源 | 资源描述 |
 | ---|---|---|--- |
-| 获取集群列表、单个集群信息 | DescribeInstances| 否 |  `*` |
+| 获取集群列表、单个集群信息 | DescribeInstances| 是 |  `qcs::es:${Region}:uin/${ownerUin}:instance/${instanceId}` |
 | 创建集群 | CreateInstance| 否 |  `*` |
 | 更新集群 | UpdateInstance| 是| `qcs::es:${Region}:uin/${ownerUin}:instance/${instanceId}` |
 | 重启集群 | RestartInstance| 是| `qcs::es:${Region}:uin/${ownerUin}:instance/${instanceId}` |
@@ -60,7 +60,6 @@ ES 目前支持除了 DescribeInstances 接口之外的其他操作接口来访�
 
 #### 自定义权限示例
 授予某账号指定集群更新操作权限，策略语法如下：
-获取集群列表的接口`DescribeInstances`目前不支持关联资源，需要将该接口中的`resource`配置为`*`。
 ```
 {
     "version": "2.0",
@@ -70,7 +69,7 @@ ES 目前支持除了 DescribeInstances 接口之外的其他操作接口来访�
                 "es:Describe*"
             ],
             "resource": [
-                "*"
+               "qcs::es:ap-guangzhou:uin/$uin:instance/$instanceID"
             ],
             "effect": "allow"
         },

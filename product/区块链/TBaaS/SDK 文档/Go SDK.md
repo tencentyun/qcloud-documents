@@ -30,6 +30,21 @@ go get -u github.com/tencentcloud/tencentcloud-sdk-go
 | Invoke | 新增交易（支持同步模式和异步模式） |
 | Query | 查询交易 |
 | GetInvokeTx | 查询 Invoke 异步调用结果 |
+| GetBlockList | 查询区块列表 |
+| GetBlockTransactionListForUser | 获取区块内的交易列表 |
+| GetClusterSummary | 获取区块链网络概要 |
+| GetLatesdTransactionList | 获取最新交易列表 |
+| GetTransactionDetailForUser | 获取交易详情 |
+| ApplyUserCert | 申请用户证书 |
+| DownloadUserCert | 下载用户证书 |
+| SrvInvoke | trustsql 服务统一接口 |
+| BlockByNumberHandler | 按块高查询区块信息 |
+| DeployDynamicContractHandler | 动态部署合约 |
+| GetBlockListHandler | 查询区块列表 |
+| GetTransByHashHandler | 根据交易哈希查询交易信息 |
+| GetTransListHandler | 查询交易列表 |
+| SendTransactionHandler | 发送交易 |
+| TransByDynamicContractHandler | 根据动态部署的合约发送交易 |
 
 ## 示例
 以新增交易（Invoke）接口为例：
@@ -57,11 +72,11 @@ func main() {
 	// 则必须手动指定域名，例如云服务器的上海金融区域名： tbaas.ap-shanghai-fsi.tencentcloudapi.com
 	cpf.HttpProfile.Endpoint = "tbaas.tencentcloudapi.com"
 	// 实例化Tbaas的client对象
-	// 第二个参数是地域信息，根据资源所属地域填写相应的地域信息，比如广州地域的资源可以直接填写字符串ap-guangzhou，或者引用预设的常量
+	// 第二个参数是地域信息，根据资源所属地域填写相应的地域信息，例如广州地域的资源可以直接填写字符串ap-guangzhou，或者引用预设的常量
 	client, _ := tbaas.NewClient(credential, regions.Guangzhou, cpf)
 	// 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
 	request := tbaas.NewInvokeRequest()
-	params := `{"Module" : "transaction","Operation" : "invoke","ClusterId" : "251005746ctestenv", "Peers" : [{"PeerName": "peer0.pettycorg.ctestenv","OrgName": "pettycOrg"},{"PeerName": "peer0.youtucorg.ctestenv","OrgName": "youtucOrg"},], "ChannelName" : "pettyc1","ChaincodeName" : "pettycc1","FuncName" : "invoke","Args" : ["b","a","25"],"AsyncFlag" : 0}`
+	params := "{\"Module\":\"transaction\",\"Operation\":\"invoke\",\"ClusterId\":\"251005746ctestenv\",\"ChaincodeName\":\"pettycc1\",\"ChannelName\":\"pettyc1\",\"Peers\":[{\"PeerName\":\"peer0.pettycorg.ctestenv\",\"OrgName\":\"pettycOrg\"}],\"FuncName\":\"invoke\",\"Args\":[\"a\",\"b\",\"10\"],\"AsyncFlag\":0,\"GroupName\":\"pettycOrg\"}"
 	err := request.FromJsonString(params)
 	if err != nil {
 		panic(err)

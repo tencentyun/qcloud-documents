@@ -1,5 +1,5 @@
 
-在 [宙斯盾高防产品控制台](https://console.cloud.tencent.com/gamesec) 左侧目录中，选择 “业务域名列表”，在右侧页面中，单击 “创建业务和域名” 创建业务，并自动生成防护域名。用户可通过将业务域名 CNAME 到防护域名接入高防。
+登录 [宙斯盾高防产品控制台](https://console.cloud.tencent.com/gamesec)，在左侧目录中，选择 “业务域名列表”，在右侧页面中，单击 “创建业务和域名” 创建业务，并自动生成防护域名。用户可通过将业务域名 CNAME 到防护域名接入高防。
 
 ## 流程图
 ![](https://main.qcloudimg.com/raw/320d44047dc9745f8d802bbe595b6a17.png)
@@ -24,5 +24,5 @@ BGP 线路优先开关开启时，若有绑定 BGP 线路 IP，则防护域名�
 4. **主域名 CNAME 到防护域名**
 线路解析开启后，业务主域名可通过 CNAME 到防护域名，智能解析到高防 IP。
 ![](https://main.qcloudimg.com/raw/93aa86de5e043c32a2dfde4923d9a4a1.png)
-用户验证，比如在本地用 ping 或者 nslookup 方式检查是否域名能够解析到高防 IP。
+用户验证，例如在本地用 ping 或者 nslookup 方式检查是否域名能够解析到高防 IP。
 ![](https://main.qcloudimg.com/raw/8f99c54ec818af753f277c67d8b12324.png)

@@ -1,7 +1,7 @@
 ## crs-port 简介
 云数据库 Redis（社区版）支持通过 crs-port 工具进行实例数据导入导出：
-- 支持导入 Redis 4.0 及以下版本的 RDB 文件至 Redis 2.8 主从版、4.0 集群版。
-- 支持导出 Redis 2.8 单机版、主从版的数据。
+- 支持导入 Redis 4.0 及以下版本的 RDB 文件至 Redis 2.8 标准版、4.0 集群版。
+- 支持导出 Redis 2.8 单机版、标准版的数据。
 
 **crs-port 工具下载**：[crs-port（Linux 版）](		https://main.qcloudimg.com/raw/8d28dd072a60f1a4b7ed3bc0fe5a3d16/crs-port)
 
@@ -31,7 +31,7 @@ crs-port restore -n 16 -i /data/dump.rdb -t 192.168.0.1:6379 -A pwd
 - dump RDB 文件后文件会被压缩，因此得到的 RDB 文件会比当前使用量小。
 
 ## dump RDB 文件
-从云数据库 Redis 实例的导出数据为 RDB 文件（仅支持 Redis 2.8 单机版、2.8 主从版），命令格式如下：
+从云数据库 Redis 实例的导出数据为 RDB 文件（仅支持 Redis 2.8 单机版、2.8 标准版），命令格式如下：
 ``` 
 crs-port dump -n 16 -f 192.168.0.1:6379 -P pwd -o /data/dump.rdb
 ```

@@ -11,4 +11,4 @@
 
 |接口名称| 接口功能 |
 |---------|---------|
-| TextToStreamAudio |  实时语音合成 |
+| [TextToStreamAudio](https://cloud.tencent.com/document/product/1073/34093) |  实时语音合成 |

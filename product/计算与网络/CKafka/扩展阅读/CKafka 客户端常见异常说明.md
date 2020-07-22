@@ -5,7 +5,7 @@
 | ------ | ------ | ------ |
 | UnknownServerException | 服务器处理请求发生未知错误。| 老版本流控会返回这个错误；新版本则可能是服务器出现 BUG 导致。 |
 | RecordTooLargeException | 消息太大。| 目前配置 message.max.bytes=1000012。 |
-| InvalidRequiredAcksException | 生产者配置的 acks 参数不合法。 | |
+| InvalidRequiredAcksException | 生产者配置的 acks 参数不合法。 | - |
 | InconsistentGroupProtocolException | Group 的协议不一致。| 检查 Consumer 和 Connector 是否配置了相同的 group.id，这两者使用的不同的协议，不能加入相同的组。|
 | InvalidGroupIdException | Consumer Group ID不合法。 | 建议使用 [a-zA-Z0-9._-] 这些字符，长度不超过 128。 |
 | InvalidTopicException | Topic 不合法。| 开启自动创建 Topic 选项后，客户端使用的 Topic 不合法会返回这个异常。检查 Topic 是否使用了不合法的字符或长度是否超过限制。 |
@@ -25,7 +25,9 @@
 | NotLeaderForPartitionException | Partition 的 Leader 不可用。| 由于客户端会缓存 Topic 的 Metadata，所以当 Partition 的 Leader 切换时，生产或消费请求可能仍然发送到旧 Leader 上，此时会返回此错误给客户端，客户端会自动更新 Metadata 信息。 |
 | NetworkException | 客户端连接被服务器端关闭。| 网络异常或连接数超过限制。 |
 | NotEnoughReplicasException | ISR 数量不够。| 在写入数据时 Partition 的 ISR 数量小于 Topic 配置的 min.insync.replicas，可能由于 ISR 抖动导致。 |
-| NotEnoughReplicasAfterAppendException | 数据写入 Broker 本地后，发生 ISR 抖动导致无法满足 min.insync.replicas。 | | 
+| NotEnoughReplicasAfterAppendException | 数据写入 Broker 本地后，发生 ISR 抖动导致无法满足 min.insync.replicas。 | - | 
+| BrokerNotAvailableError |  未找到该分区的 Leader。 | 由于客户端会缓存 Topic 的 Metadata，所以当 Partition 的 Leader 切换时，生产或消费请求可能仍然发送到旧 Leader 上，此时会返回该错误给客户端。客户端会自动更新 Metadata 信息，在 Leader 切换后，新生产的请求发送到老的 Leader 报错应该后会自动调整到新的 Leader 上，理论上不会影响数据写入消费的完整性。 |
+| NotLeaderForPartitionError | 未找到该分区的 Leader。  | 由于客户端会缓存 Topic 的 Metadata，所以当 Partition 的 Leader 切换时，生产或消费请求可能仍然发送到旧 Leader 上，此时会返回此错误给客户端，客户端会自动更新 Metadata 信息，在 Leader 切换后，新生产的请求发送到老的 Leader 报错应该后会自动调整到新的 Leader 上，理论上不会影响数据写入消费的完整性。 |
 
 #### 以下异常在日志配置为 DEBUG 级别会出现，客户端会自动处理。 
 
@@ -37,3 +39,4 @@
 | NotCoordinatorForGroupException | 当前节点不是该 ConsumerGroup的Coordinator，Coordinator 迁移到别的节点。| 服务器端升级时可能短暂出现，客户端会自动重试。 |
 | IllegalGenerationException | ConsumerGroup 的 generation不合法。| 可能心跳超时或有新消费者加入，Consumer 会自动重新尝试加入 ConsumerGroup。 |
 | RebalanceInProgressException | ConsumerGroup 正在进行 rebalance。| 可能心跳超时或有新消费者加入，Consumer 会自动重新尝试加入 ConsumerGroup。 |
+

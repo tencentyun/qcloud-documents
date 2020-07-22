@@ -22,10 +22,10 @@
 >
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在“实例列表”页面中，选择需要 ping 通的实例 ID/实例名，进入该实例的详情页面。如下图所示：
-![](https://main.qcloudimg.com/raw/133d6bd76dd3eb2a4da2ef0e657f7bee.png)
+![](https://main.qcloudimg.com/raw/4b5735b3ef4ecbe9a0d131927112d4ba.png)
 3. 在“网络信息”栏，查看实例是否配置了公网 IP。
  - 是，请 [检查安全组设置](#CheckSecurityGroupSetting)。
- - 否，请 [绑定弹性公网 IP](https://cloud.tencent.com/document/product/213/16586#.E5.BC.B9.E6.80.A7.E5.85.AC.E7.BD.91-ip-.E7.BB.91.E5.AE.9A.E4.BA.91.E4.BA.A7.E5.93.81)。
+ - 否，请 [EIP 绑定云资源](https://cloud.tencent.com/document/product/1199/41702)。
 
 <span id="CheckSecurityGroupSetting"></span>
 ### 检查安全组设置
@@ -34,7 +34,7 @@
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在“实例列表”页面中，选择需要安全组设置的实例 ID/实例名，进入该实例的详情页面。
 3. 选择【安全组】页签，进入该实例的安全组管理页面。如下图所示：
-![](https://main.qcloudimg.com/raw/3885ca805ee77d7d7f4843e28eba68b3.png)
+![](https://main.qcloudimg.com/raw/e413734149ef1a4d09bfb5d3c6fc47f2.png)
 4. 根据查看实例所使用的安全组以及详细的入站和出站规则，判断实例关联的安全组是否允许 ICMP。
  - 是，请 [检查系统设置](#CheckOSSetting)。
  - 否，请将 ICMP 协议策略设置为允许。
@@ -62,7 +62,7 @@ cat /proc/sys/net/ipv4/icmp_echo_ignore_all
  - 若返回结果为1，表示系统禁止所有的 ICMP Echo 请求，请执行 [步骤3](#Linux_step03)。
 3. <span id="Linux_step03">执行以下命令，修改内核参数 icmp_echo_ignore_all 的设置。</span>
 ```
-echo "1" >/proc/sys/net/ipv4/icmp_echo_ignore_all
+echo "0" >/proc/sys/net/ipv4/icmp_echo_ignore_all
 ```
 
 <span id="CheckLinuxFirewall"></span>
@@ -83,7 +83,13 @@ Chain OUTPUT (policy ACCEPT)
 target     prot opt source               destination  
 ACCEPT     icmp --  anywhere             anywhere             icmp echo-request
 ```
-- 若返回结果 ICMP 对应规则被禁止，请启用该规则。
+- 若返回结果 ICMP 对应规则被禁止，请执行以下命令，启用对应规则。
+```
+#Chain INPUT
+iptables -A INPUT -p icmp --icmp-type echo-request -j ACCEPT
+#Chain OUTPUT
+iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
+```
 
 <span id="CheckWindows"></span>
 #### 检查 Windows 防火墙设置
@@ -117,7 +123,7 @@ ping 不通域名的另外一个原因是由于域名解析没有正确地配置
 ![](https://main.qcloudimg.com/raw/c350c1587af72d8a3529bcd7a98da856.png)
 
 <span id="OtherOperations"></span>
-### 其它操作
+### 其他操作
 
 若上述步骤无法解决问题，请参考：
 - 域名 ping 不通，请检查您的网站配置。

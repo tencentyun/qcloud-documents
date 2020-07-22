@@ -15,7 +15,7 @@ public class UgcSign {
 	public String m_strFileType;
 	public int m_iRandom;
 
-	public String m_strSecId = "AKIDR20GpXsc4fixxxxxxxbuWQCeTpw9ljzt";
+	public String m_strSecId = "AKIDxxxxxxxxR20GpXsc4fixxxxxxxbuWQCeTpw9ljzt";
 	public String m_strSecKey = "wGxKo4cu6WFBWxxxxxxxbH7BTTiUn4bV";
 
 	public int m_isTrans = 0;
@@ -81,7 +81,7 @@ class Test {
 	public static void main(String[] args) {
 		UgcSign sign = new UgcSign();
 		//从https://console.cloud.tencent.com/capi获取，分别对应SecretId和SecretKey
-		sign.m_strSecId = "AKIDR20GpXsc4fixxxxxxxbuWQCeTpw9ljzt";
+		sign.m_strSecId = "AKIDxxxxxxxxR20GpXsc4fixxxxxxxbuWQCeTpw9ljzt";
 		sign.m_strSecKey = "wGxKo4cu6WFBWxxxxxxxbH7BTTiUn4bV";
 		
 		//当前时间

@@ -1,8 +1,8 @@
 ## 简介
-Python SDK 提供获取签名，获取请求预签名 URL 接口以及获取对象下载预签名 URL 接口。使用永久秘钥或临时秘钥获取预签名URL的调用方法相同，使用临时秘钥时需要在header或query_string中加上x-cos-security-token。
+Python SDK 提供获取签名，获取请求预签名 URL 接口以及获取对象下载预签名 URL 接口。使用永久密钥或临时密钥获取预签名 URL 的调用方法相同，使用临时密钥时需要在 header 或 query_string 中加上 x-cos-security-token。
 
 
-### 签名获取
+## 获取签名
 
 #### 功能说明
 获取指定操作的签名，常用于移动端的签名分发。
@@ -15,6 +15,7 @@ get_auth(Method, Bucket, Key, Expired=300, Headers={}, Params={})
 
 #### 上传请求示例
 
+[//]: # (.cssg-snippet-get-authorization-upload)
 ```python
 response = client.get_auth(
     Method='PUT',
@@ -25,6 +26,7 @@ response = client.get_auth(
 
 #### 下载请求示例
 
+[//]: # (.cssg-snippet-get-authorization-download)
 ```python
 response = client.get_auth(
     Method='GET',
@@ -55,9 +57,9 @@ response = client.get_auth(
 
 | 参数名称   | 参数描述   |类型 | 必填 | 
 | -------------- | -------------- |---------- | ----------- |
- | Method  |对应操作的method, 可选值为'PUT','POST','GET','DELETE','HEAD'|  String |  是 | 
+ | Method  |对应操作的 Method, 可选值为 'PUT'，'POST'，'GET'，'DELETE'，'HEAD'|  String |  是 | 
  | Bucket  |存储桶名称，由 BucketName-APPID 构成 |  String |  是 | 
- | Key  | bucket 操作填入根路径/，object 操作填入文件的路径| String | 是| 
+ | Key  | Bucket 操作填入根路径`/`，object 操作填入文件的路径| String | 是| 
  |Expired| 签名过期时间，单位为秒| Int| 否|
  |Headers| 需要签入签名的请求头部| Dict| 否|
  |Params | 需要签入签名的请求参数| Dict| 否|
@@ -65,13 +67,14 @@ response = client.get_auth(
 #### 返回结果说明
 该方法返回值为对应操作的签名值。
 
-### 获取预签名链接
+## 获取预签名 URL
 
 #### 功能说明
 获取预签名链接用于分发。
 
 #### 上传请求示例
 
+[//]: # (.cssg-snippet-get-presign-upload-url)
 ```python
 response = client.get_presigned_url(
     Method='PUT',
@@ -82,6 +85,7 @@ response = client.get_presigned_url(
 
 #### 下载请求示例
 
+[//]: # (.cssg-snippet-get-presign-download-url)
 ```python
 response = client.get_presigned_url(
     Method='GET',
@@ -119,8 +123,8 @@ response = client.get_presigned_url(
 | 参数名称   | 参数描述   |类型 | 必填 | 
 | -------------- | -------------- |---------- | ----------- |
  | Bucket  |存储桶名称，由 BucketName-APPID 构成 |  String |  是 | 
- | Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 ` bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg ` 中，对象键为 doc1/pic1.jpg | String | 是 | 
- | Method  |对应操作的method, 可选值为'PUT'，'POST'，'GET'，'DELETE'，'HEAD'|  String |  是 | 
+ | Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | String | 是 | 
+ | Method  |对应操作的 Method, 可选值为 'PUT'，'POST'，'GET'，'DELETE'，'HEAD'|  String |  是 | 
  |Expired| 签名过期时间，单位为秒| Int| 否|
  |Params| 签名中要签入的请求参数| Dict| 否|
  |Headers| 签名中要签入的请求头部| Dict| 否|
@@ -129,7 +133,7 @@ response = client.get_presigned_url(
 #### 返回结果说明
 该方法返回值为预签名的 URL。
 
-### 获取预签名下载链接
+## 获取预签名下载 URL
 
 #### 功能说明
 获取预签名下载链接用于直接下载。
@@ -141,6 +145,7 @@ get_presigned_download_url(Bucket, Key, Expired=300, Params={}, Headers={})
 ```
 #### 请求示例
 
+[//]: # (.cssg-snippet-get-presign-download-url-alias)
 ```python
 response = client.get_presigned_download_url(
     Bucket='examplebucket-1250000000',
@@ -152,7 +157,7 @@ response = client.get_presigned_download_url(
 | 参数名称   | 参数描述   |类型 | 必填 | 
 | -------------- | -------------- |---------- | ----------- |
  | Bucket  |存储桶名称，由 BucketName-APPID 构成 |  String |  是 | 
- | Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 ` bucket1-1250000000.cos.ap-guangzhou.myqcloud.com/doc1/pic1.jpg ` 中，对象键为 doc1/pic1.jpg | String | 是 | 
+ | Key  | 对象键（Key）是对象在存储桶中的唯一标识。例如，在对象的访问域名 `examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/doc/pic.jpg` 中，对象键为 doc/pic.jpg | String | 是 | 
  |Expired| 签名过期时间，单位为秒| Int| 否|
  |Params| 签名中要签入的请求参数| Dict| 否|
  |Headers| 签名中要签入的请求头部| Dict| 否|

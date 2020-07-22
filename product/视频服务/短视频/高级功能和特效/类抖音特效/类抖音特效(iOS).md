@@ -7,7 +7,7 @@
 - (void) startEffect:(TXEffectType)type  startTime:(float)startTime;
 - (void) stopEffect:(TXEffectType)type  endTime:(float)endTime;
 
-//特效的类型（type参数），在常量 TXEffectType 中有定义：
+//特效的类型（type 参数），在常量 TXEffectType 中有定义：
 typedef  NS_ENUM(NSInteger,TXEffectType)
 {
     TXEffectType_ROCK_LIGHT,  //动感光波
@@ -30,7 +30,7 @@ typedef  NS_ENUM(NSInteger,TXEffectType)
 调用 deleteAllEffect()  删除所有设置的滤镜特效。
 
 Demo 示例：
-在 1-2s 之间应用第一种滤镜特效；在 3-4s 之间应用第2种滤镜特效；删除 3-4s 设置的滤镜特效
+在1 - 2s之间应用第一种滤镜特效；在3 - 4s之间应用第2种滤镜特效；删除3 - 4s设置的滤镜特效。
 
 ```
 //在1-2s之间应用第一种滤镜特效
@@ -67,7 +67,7 @@ typedef NS_ENUM(NSInteger, TXSpeedLevel) {
 Demo 示例：
 
 ```
-// SDK拥有支持多段变速的功能。 此DEMO仅展示一段慢速播放
+// SDK 拥有支持多段变速的功能。 此 Demo 仅展示一段慢速播放
   TXSpeed *speed =[[TXSpeed alloc] init];
   speed.startTime = 1.0;
   speed.endTime = 3.0;
@@ -88,7 +88,7 @@ Demo 示例：
 
 ## 重复视频片段
 您可以设置重复播放一段视频画面，声音不会重复播放。  
-设置重复片段方法：
+设置重复片段方法： 
 
 ```
 - (void) setRepeatPlay:(NSArray *)repeatList;

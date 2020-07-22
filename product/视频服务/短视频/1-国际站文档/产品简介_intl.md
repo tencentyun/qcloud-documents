@@ -216,7 +216,7 @@ You can call the number starting with 400 or [submit a ticket](https://console.c
 | Phone | Mobile number | 
 
 - **Basic edition LICENSE**
-After purchasing Tencent Cloud VOD package Ultimate 2 or Ultimate 3, you can obtain a one-year LICENSE for Short Video Basic SDK. For more information on VOD packages, please see [VOD Packages](https://cloud.tencent.com/document/product/266/14667). After purchasing a package, you can log in to Tencent Cloud [VOD Console](https://console.cloud.tencent.com/video/license) to obtain the basic edition LICENSE.
+After purchasing Tencent Cloud VOD package Ultimate 2 or Ultimate 3, you can obtain a one-year LICENSE for Short Video Basic SDK. For more information on VOD packages, please see [VOD Packages](https://cloud.tencent.com/document/product/266/14667). After purchasing a package, you can log in to Tencent Cloud [VOD Console](https://console.cloud.tencent.com/vod/license) to obtain the basic edition LICENSE.
 ![](https://main.qcloudimg.com/raw/3465ba589d5d152174f48d746b380afd.png)
 ![](https://main.qcloudimg.com/raw/408839df3a1f3929f3b6f927a313d626.png)
 

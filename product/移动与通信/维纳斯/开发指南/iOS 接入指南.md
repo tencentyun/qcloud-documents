@@ -1,9 +1,9 @@
-## Sdk 目录结构说明
+## SDK 目录结构说明
 WnsSDK：包含 WnsSDK4Cloud.framework
 WnsSDKDemo：示例工程，演示了如何使用 WnsSDK
 Doc：
     WnsSDK 使用说明：本文档
-    http 端接入说明：从控制台配置到 sdk 的流程来演示http服务的接入
+    HTTP 端接入说明：从控制台配置到 sdk 的流程来演示 HTTP 服务的接入
 
 ## 系统环境要求和限制
 适用于 iOS 5.0 及以上的系统版本
@@ -11,9 +11,9 @@ sdk 接口字符类型参数限制长度为 256 字节
 sdk 发送数据限制长度为 512K 字节
 sdk 接受数据限制长度为 512K 字节
 应用程序工程需要包含以下库(可以参考 demo)：
-![](//mccdn.qcloud.com/static/img/dab523fae1934af9d3ad1d5ff872e9e4/image.png)
 
-## Sdk 使用说明
+
+## SDK 使用说明
 ### 名词解释
 **appID**：为开发商在控制台申请的应用 ID。
 **appVersion**：是开发商应用程序的版本号，如"1.0"等。
@@ -68,10 +68,10 @@ AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfi
 
 然后您在需要用 Wns 发送的请求用 NSURLProtocol 的方法来给这个请求打上标志```[NSURLProtocol setProperty:@(YES) forKey:ShouldUseWns inRequest:req]```, 然后使用系统的 NSURLConnection 或者 AFNetworking 等第三方库来发送请求即可, Wns 会对打上标志的请求使用 Wns 的通道来发送.
 
-注意， 如果使用 NSURLSessionDataTask 或者使用了该类的第三方库(比如 AFNetworking)，需要对 request 做以下设置：
+如果使用 NSURLSessionDataTask 或者使用了该类的第三方库(例如 AFNetworking)，需要对 request 做以下设置：
 
 ```
-// 当请求的方法是POST时, 如果使用NSURLSessionDataTask或者使用了改类的第三方库(比如AFNetworking)时,
+// 当请求的方法是POST时, 如果使用NSURLSessionDataTask或者使用了改类的第三方库(例如AFNetworking)时,
 // 自定义的NSURLProtocol获取到的NSURLRequest的HTTPBody为nil(系统bug, 对应的radar链接: rdar://15993891 )
 // 所以, 在使用相关类发送前, 需要加上以下语句, 这样WnsURLProtocol才能获取到可用的HTTPBody
 if (request.HTTPBody)
@@ -79,15 +79,15 @@ if (request.HTTPBody)
     [NSURLProtocol setProperty:request.HTTPBody forKey:WnsHTTPBody inRequest:request];
 }
 ```
->注意：
->如果使用 NSURLSessionDataTask 或者使用了该类的第三方库(比如 AFNetworking), 还需要对 request 做以下设置
+
+>!如果使用 NSURLSessionDataTask 或者使用了该类的第三方库(例如 AFNetworking), 还需要对 request 做以下设置
 
 **2. Wns Sdk 接口方案**
 调用接口 sendHTTPRequest 来收发 Http(s)数据。
 
 开发商终端需要修改老的接口，替换为 Wns 的收发接口(该接口不支持 http 的 301，302 跳转)
->注意：
-**此模式下，sdk 会自动将 url 设置为 cmd，wns 会统计每 个cmd 的成功率等信息，对应的，需要在控制台配置 url 域名对应的路由。路由配置请参考：[控制台说明](https://cloud.tencent.com/document/product/276/3005)。**
+
+**此模式下，sdk 会自动将 url 设置为 cmd，wns 会统计每 个cmd 的成功率等信息，对应的，需要在控制台配置 url 域名对应的路由。路由配置请参考：[控制台说明](https://cloud.tencent.com/document/product/276/15283)。**
 
 ```
             NSString *cmd = @"user.qzone.qq.com/xunren";  
@@ -141,8 +141,8 @@ NSData *data = [NSData dataWithBytes:"abcdefg" length:7];
             }];
         }
 ```
->注意：
->**cmd 必须是细化到接口，wns 会统计每个 cmd 的成功率等信息，对应的，需要在控制台配置域名 user.qzone.qq.com 对应的路由。路由配置请参考：[控制台说明](https://cloud.tencent.com/document/product/276/3005)。**
+
+**cmd 必须是细化到接口，wns 会统计每个 cmd 的成功率等信息，对应的，需要在控制台配置域名 user.qzone.qq.com 对应的路由。路由配置请参考：[控制台说明](https://cloud.tencent.com/document/product/276/15283)。**
 
 
 ### 用户绑定和接收 push

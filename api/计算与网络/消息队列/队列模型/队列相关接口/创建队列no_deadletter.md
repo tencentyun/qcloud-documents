@@ -3,7 +3,7 @@
 - 外网接口请求域名：`https://cmq-queue-{$region}.api.qcloud.com`
 - 内网接口请求域名：`http://cmq-queue-{$region}.api.tencentyun.com`
 
-上述**域名中的{$region}需用具体地域替换**：gz（广州）、sh（上海）、bj（北京）、shjr（上海金融）、szjr（深圳金融）、hk（香港）、cd（成都）、ca(北美)、usw（美西）、sg（新加坡）。公共参数中的 region 值要与域名的 region 值保持一致，如果出现不一致的情况，以域名的 region 值为准，将请求发往域名 region 所指定的地域。
+上述**域名中的{$region}需用具体地域替换**：gz（广州）、sh（上海）、bj（北京）、shjr（上海金融）、szjr（深圳金融）、hk（中国香港）、cd（成都）、ca(北美)、usw（美西）、sg（新加坡）。公共参数中的 region 值要与域名的 region 值保持一致，如果出现不一致的情况，以域名的 region 值为准，将请求发往域名 region 所指定的地域。
 
 >!任何时候（包括内测期间），如果使用外网域名产生公网下行流量，都会收取流量费用。 因此强烈建议服务在腾讯云上的用户使用**内网**域名，内网不会产生流量费用。
 
@@ -19,7 +19,7 @@
 | visibilityTimeout| 否| Int| 消息可见性超时。取值范围1 - 43200秒（即12小时内），默认值30。|
 | maxMsgSize| 否| Int| 消息最大长度。取值范围1024 - 1048576 Byte（即1 - 1024K），默认值65536。|
 | msgRetentionSeconds| 否| Int| 消息生命周期。取值范围60 - 1296000秒（1min-15天），默认值345600 (4天)。|
-|rewindSeconds|否|Int|队列是否开启回溯消息能力，该参数取值范围 0-msgRetentionSeconds，即最大的回溯时间为消息在队列中的保留周期，0表示不开启。|
+|rewindSeconds|否|Int|回溯队列的消息回溯时间最大值，取值范围0 - 43200秒，0表示不开启消息回溯。|
 
 ## 输出参数
 

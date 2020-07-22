@@ -13,35 +13,35 @@
 ## 输出参数
 | 参数名称 | 子参数 |  子参数 | 类型 | 描述 |
 |----------|------  |-------- |----- | ---- |
-|FileSystems|               |           |array |文件系统列表|
-|           |CreationTime   |           |string |创建文件系统时间|
-|           |CreationToken  |           |string |用户自定义名称|
-|           |FileSystemId   |           |string |文件系统 ID|
-|           |LifeCycleState |           |string |文进系统状态|
-|           |SizeInBytes    |           |array  ||
-|           |               |Timestamp  |string |时间戳|
-|           |               |value      |int    |已用磁盘大小|
-|           |SizeLimit      |           |int    |文件系统最大空间限制|
-|           |ZoneId         |           |int    |区域 ID|
-|           |ZoneName       |           |string |区域名称|
-|           |Protocol       |           |string |文件系统协议类型|
-|UserStatus |               |           |int    |用户状态|
-|StartTime  |               |           |string |查询时间|
+|FileSystems|   -            |    -         |array |文件系统列表|
+|   -          |CreationTime   |     -        |string |创建文件系统时间|
+|   -          |CreationToken  |      -       |string |用户自定义名称|
+|    -         |FileSystemId   |    -         |string |文件系统 ID|
+|     -        |LifeCycleState |    -         |string |文进系统状态|
+|   -          |SizeInBytes    |    -         |array  |-  |
+|   -          |       -          |Timestamp  |string |时间戳|
+|   -          |        -         |value      |int    |已用磁盘大小|
+|   -          |SizeLimit      |    -        |int    |文件系统最大空间限制|
+|    -         |ZoneId         |     -        |int    |区域 ID|
+|    -         |ZoneName       |    -         |string |区域名称|
+|    -         |Protocol       |       -      |string |文件系统协议类型|
+|UserStatus |       -          |   -          |int    |用户状态|
+|StartTime  |       -          |     -        |string |查询时间|
 
 ## 示例 
 
-### 输入
-```shell
-<pre>
-  https://cfs.test.api.qcloud.com/v2/index.php?Action=QueryCfsFileSystem
-  &Region=gz
-  &Uin=277000000
-  &AppId=1250000000
-  &<<a href="https://www.cloud.tencent.com/doc/api/229/6976"> 公共请求参数 </a>>
-</pre>
-```
+#### 输入
 
-### 输出
+<pre>
+https://cfs.test.api.qcloud.com/v2/index.php?Action=QueryCfsFileSystem
+&Region=gz
+&Uin=277000000
+&AppId=1250000000
+&<<a href="https://www.cloud.tencent.com/doc/api/229/6976"> 公共请求参数 </a>>
+</pre>
+
+
+#### 输出
 
 ```shell
 {
