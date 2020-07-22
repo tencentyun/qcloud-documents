@@ -136,7 +136,7 @@ try:
     req = models.DescribeInstancesRequest()
 
     # 填充请求参数,这里 request 对象的成员变量即对应接口的入参。
-    # 你可以通过官网接口文档或跳转到 request 对象的定义处查看请求参数的定义。
+    # 您可以通过官网接口文档或跳转到 request 对象的定义处查看请求参数的定义。
     respFilter = models.Filter()  # 创建 Filter 对象, 以 zone 的维度来查询 cvm 实例。
     respFilter.Name = "zone"
     respFilter.Values = ["ap-shanghai-1", "ap-shanghai-2"]
@@ -161,7 +161,7 @@ try:
     print(resp.to_json_string(indent=2))
 
     # 也可以取出单个值。
-    # 你可以通过官网接口文档或跳转到 response 对象的定义处查看返回字段的定义。
+    # 您可以通过官网接口文档或跳转到 response 对象的定义处查看返回字段的定义。
     print(resp.TotalCount)
 
 except TencentCloudSDKException as err:
