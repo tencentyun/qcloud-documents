@@ -48,13 +48,13 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows、 Mac、Lin
 
 选择客户端 Subscribe Tab，输入主题名称、Qos 等级，单击【Subscribe】进行主题订阅，订阅结果可通过控制台-设备日志查询。
 示例`Topic：$thing/down/property/ProductID/DeviceName`（云端下发设备数据）。
-![](https://main.qcloudimg.com/raw/cff08e3dfe3da1ba6413d2194947b8ff.png)
+![](https://main.qcloudimg.com/raw/886c62d0d7c8a381f08671ad9156e783.png)
 在产品设备控制台-在线调试，编辑云端下发设备数据：
 ![](https://main.qcloudimg.com/raw/f2b2d1d1d0d7b24c707c0a4c27783957.png)
 之后回到 MQTT 窗口，可以看到云端刚才下发的设备数据：
-![](https://main.qcloudimg.com/raw/fefd5984fabd82abcbbc081b1882c663.png)
+![](https://main.qcloudimg.com/raw/3f38798d8ebddffb15e1d7109788e39d.png)
 
 ### 查看日志（View logs）
 
 在 MQTT.fx 上，单击 Log 查看操作日志和错误提示日志。
-![](https://main.qcloudimg.com/raw/fbce4d7a7a1e10aaa42c0e600c54250f.png)
+![](https://main.qcloudimg.com/raw/7cd0c3377d069058ff14faf47114e689.png)
