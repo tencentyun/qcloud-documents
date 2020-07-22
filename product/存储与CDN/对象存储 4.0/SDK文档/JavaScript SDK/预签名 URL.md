@@ -141,12 +141,12 @@ cos.getObjectUrl({
     var xhr = new XMLHttpRequest();
     xhr.open('PUT', data.Url, true);
     xhr.onload = function (e) {
-        console.log(xhr.responseText);
+        console.log(xhr.status, xhr.statusText);
     };
     xhr.onerror = function (e) {
         console.log('获取签名出错');
     };
-    xhr.send();
+    xhr.send(file); // file 是要上传的文件对象
 });
 ```
 
