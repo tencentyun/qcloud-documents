@@ -145,7 +145,7 @@ LoadModule php5_module "F:/saftware/language/PHP/php5apache2_4.dll"
 
 ### composer 介绍与安装
 
-Composer 是 PHP 的一个依赖管理工具。我们可以在项目中声明所依赖的外部工具库，Composer 会帮你安装这些依赖的库文件，有了 Composer，我们就可以很轻松的使用一个命令将其他代码引用到我们的项目中来。
+Composer 是 PHP 的一个依赖管理工具。我们可以在项目中声明所依赖的外部工具库，Composer 会帮您安装这些依赖的库文件，有了 Composer，我们就可以很轻松的使用一个命令将其他代码引用到我们的项目中来。
 >?
 >- Composer 默认情况下不是全局安装，而是基于指定的项目的某个目录中（例如 vendor）进行安装。
 >- Composer 需要 PHP 5.3.2+ 以上版本，且需要开启 openssl，*上文已介绍开启方法*。
@@ -275,7 +275,7 @@ try {
     $req = new DescribeInstancesRequest();
 
     // 填充请求参数,这里 request 对象的成员变量即对应接口的入参
-    // 你可以通过官网接口文档或跳转到 request 对象的定义处查看请求参数的定义
+    // 您可以通过官网接口文档或跳转到 request 对象的定义处查看请求参数的定义
     $respFilter = new Filter();  // 创建 Filter 对象, 以 zone 的维度来查询 cvm 实例
     $respFilter->Name = "zone";
     $respFilter->Values = ["ap-shanghai-1", "ap-shanghai-2"];
@@ -289,7 +289,7 @@ try {
     print_r($resp->toJsonString());
 
     // 也可以取出单个值。
-    // 你可以通过官网接口文档或跳转到 response 对象的定义处查看返回字段的定义
+    // 您可以通过官网接口文档或跳转到 response 对象的定义处查看返回字段的定义
     print_r($resp->TotalCount);
 }
 catch(TencentCloudSDKException $e) {
@@ -327,7 +327,7 @@ $client = new OcrClient($cred, 'ap-beijing', $this->clientProfile);
 
 ### 证书问题
 
-如果你的 PHP 环境证书有问题，可能会遇到报错，类似于`cURL error 60: See http://curl.haxx.se/libcurl/c/libcurl-errors.html`，请尝试按以下步骤解决：
+如果您的 PHP 环境证书有问题，可能会遇到报错，类似于`cURL error 60: See http://curl.haxx.se/libcurl/c/libcurl-errors.html`，请尝试按以下步骤解决：
 1. 到 https://curl.haxx.se/ca/cacert.pem 下载证书文件`cacert.pem`，将其保存到 PHP 安装路径下。
 2. 编辑`php.ini`文件，删除`curl.cainfo`配置项前的分号注释符（;），值设置为保存的证书文件`cacert.pem`的绝对路径。
 3. 重启依赖 PHP 的服务。
