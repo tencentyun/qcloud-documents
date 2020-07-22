@@ -81,7 +81,6 @@ mysql -h hostname -P port -u username -p
 ## 附录2：网络连通性验证方法
 建议您使用 telnet 命令来快速排查和定位网络连通性问题，请参见 [telnet 命令](https://cloud.tencent.com/document/product/236/34375#.E8.A7.A3.E5.86.B3.E6.96.B9.E6.A1.88) 。
 
-## 附录3：命令行登录连接故障诊断
-telnet 验证云数据库网络访问正常后，如在云服务器上通过命令行登录云数据库报错，请参见 [云数据库连接故障诊断及解决方案](https://cloud.tencent.com/document/product/236/11278#.E4.BA.91.E6.95.B0.E6.8D.AE.E5.BA.93.E8.BF.9E.E6.8E.A5.E6.95.85.E9.9A.9C.E8.AF.8A.E6.96.AD.E5.8F.8A.E8.A7.A3.E5.86.B3.E6.96.B9.E6.A1.88)。
+若 telnet 验证云数据库网络访问正常后，如在云服务器上通过命令行登录云数据库报错，请参见 [云数据库连接故障诊断及解决方案](https://cloud.tencent.com/document/product/236/11278#.E4.BA.91.E6.95.B0.E6.8D.AE.E5.BA.93.E8.BF.9E.E6.8E.A5.E6.95.85.E9.9A.9C.E8.AF.8A.E6.96.AD.E5.8F.8A.E8.A7.A3.E5.86.B3.E6.96.B9.E6.A1.88)。
 
 
