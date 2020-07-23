@@ -71,30 +71,30 @@ Listener.Init (gameInfo, config, (ResponseEvent eve) => {
 // 初始化监听器 Listener
 Listener.Init (gameInfo, config, (ResponseEvent eve) => {
 		if (eve.Code == 0) {
-				Debug.Log ("初始化成功");
-				// 初始化成功之后才能调用其他 API
-				// 查询玩家自己的房间
-				var room = new Room (null);
-				room.GetRoomDetail ((ResponseEvent e) => {
-					if (e.Code != 0 && e.Code != 20011) {
-							Debug.Log ("初始化失败");
-					}
-
-					Debug.Log ("查询成功");
-
-					if (e.Code == 20011) {
-							Debug.Log ("玩家不在房间内");
-					} else {
-							// 玩家已在房间内
-							var res = (GetRoomByRoomIdRsp) e.Data;
-							Debug.LogFormat ("房间名 {0}", res.RoomInfo.Name);
-							}
-					});
-				} else {
-						Debug.LogFormat ("初始化失败: {0}", eve.Code);
+			Debug.Log ("初始化成功");
+			// 初始化成功之后才能调用其他 API
+			// 查询玩家自己的房间
+			var room = new Room (null);
+			room.GetRoomDetail ((ResponseEvent e) => {
+				if (e.Code != 0 && e.Code != 20011) {
+						Debug.Log ("初始化失败");
 				}
-			// 初始化广播回调事件
-			// ...
+
+				Debug.Log ("查询成功");
+
+				if (e.Code == 20011) {
+						Debug.Log ("玩家不在房间内");
+				} else {
+						// 玩家已在房间内
+						var res = (GetRoomByRoomIdRsp) e.Data;
+						Debug.LogFormat ("房间名 {0}", res.RoomInfo.Name);
+						}
+				});
+			} else {
+					Debug.LogFormat ("初始化失败: {0}", eve.Code);
+			}
+		// 初始化广播回调事件
+		// ...
 });
 ```
 
