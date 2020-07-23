@@ -1,6 +1,6 @@
 
 腾讯云 API 全新升级3.0 ，该版本进行了性能优化且全地域部署、支持就近和按地域接入、访问时延下降显著，接口描述更加详细、错误码描述更加全面、SDK 增加接口级注释，让您更加方便快捷的使用腾讯云产品。这里针对 Python API 调用方式进行简单说明。
-现已支持云服务器（CVM）、云硬盘（CBS） 、私有网络（VPC）、云数据库（TencentDB）等 [腾讯云产品](https://cloud.tencent.com/product)，后续会支持其他的云产品接入，敬请期待。 
+现已支持云服务器（CVM）、云硬盘（CBS） 、私有网络（VPC）、云数据库（TencentDB）等 [腾讯云产品](https://cloud.tencent.com/product) ，后续会支持其他的云产品接入，敬请期待。 
 
 
 ## 了解请求结构
@@ -106,7 +106,8 @@ curl -X POST https://cvm.tencentcloudapi.com \
 前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取。如下图所示：
 ![](https://main.qcloudimg.com/raw/665e5334b0d5db156ef48a19072ba8bd.png)
 
-### 步骤2：获取 API 3.0 V3 版本签名
+### 步骤2
+### 1. 获取 API 3.0 V3 版本签名
 签名方法 v3 （TC3-HMAC-SHA256）功能上覆盖了以前的签名方法 v1，而且更安全，支持更大的请求，支持 json 格式，性能有一定提升，推荐使用该签名方法计算签名。如下图所示：
 >?首次接触，建议使用 [API Explorer](https://console.cloud.tencent.com/api/explorer) 中的 “签名串生成” 功能，选择签名版本为 “API 3.0 签名 v3”，可以生成签名过程进行验证，也可直接生成 SDK 代码。推荐使用腾讯云 API 配套的7种常见的编程语言 SDK，已经封装了签名和请求过程，均已开源，支持 [Python](https://github.com/TencentCloud/tencentcloud-sdk-python)、[Java](https://github.com/TencentCloud/tencentcloud-sdk-java)、[PHP](https://github.com/TencentCloud/tencentcloud-sdk-php)、[Go](https://github.com/TencentCloud/tencentcloud-sdk-go)、[NodeJS](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)、[.NET](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)、[C++](https://github.com/TencentCloud/tencentcloud-sdk-cpp)。
 >
@@ -438,7 +439,7 @@ https://cvm.tencentcloudapi.com/?Action=DescribeInstances&InstanceIds.0=ins-09dx
 
 >!由于示例中的密钥是虚构的，时间戳也不是系统当前时间，因此如果将此 url 在浏览器中打开或者用 curl 等命令调用时会返回鉴权错误：签名过期。为了得到一个可以正常返回的 url ，需要修改示例中的 SecretId 和 SecretKey 为真实的密钥，并使用系统当前时间戳作为 Timestamp 。 
 
-为了更清楚的解释签名过程，下面以 .NET 语言为例，将上述的签名过程具体实现。请求的域名、调用的接口和参数的取值都以上述签名过程为准，代码只为解释签名过程，并不具备通用性，实际开发请尽量使用 SDK 。
+为了更清楚的解释签名过程，下面以 Python 语言为例，将上述的签名过程具体实现。请求的域名、调用的接口和参数的取值都以上述签名过程为准，代码只为解释签名过程，并不具备通用性，实际开发请尽量使用 SDK 。
 
 #### 6. 签名串编码
 
