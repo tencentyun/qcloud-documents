@@ -5,7 +5,13 @@
 - **TCB 云开发环境：** 通过创建云开发环境并调用 NoSQL DB，为全栈网站提供数据库服务。
    
 ## 操作步骤
-   
+### 前提条件
+请登录[云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，确定您**没有创建过免费云开发环境**：
+- 如果没有，无需任何操作
+- 如果有，请记录该环境的环境ID：
+
+<img src="https://files-1258834142.cos.ap-beijing.myqcloud.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-07-23%2011.18.52.png" width="50%" height="50%">
+
 ### 安装
    
 通过 npm 全局安装 [Serverless CLI](https://github.com/serverless/serverless)：
@@ -38,7 +44,14 @@ $ sls init -t fullstack-nosql
 >- 如果已有腾讯云账号，可以在[ API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取**SecretId**和**SecretKey**。
 >- 目前 sls 支持在国内区域访问 TCB，部署时请注意 yaml 文件里的地域设置，其他地域可能会报错。
    
-2.在`backend->src`文件夹目录下，通过以下命令安装所需依赖：
+**2. 如果您已有 tcb 免费环境：** （如果没有，请跳过此步骤）
+
+1） 删去 db 文件夹以及文件夹内的 yml 文件
+
+2） 在 demo 目录中 **function->serverless.yaml** 中的 **MongoId** 参数里，输入您已有 TCB 环境的 ID
+
+
+3. 在`backend->src`文件夹目录下，通过以下命令安装所需依赖：
 ```bash
 $ npm install
 ```
