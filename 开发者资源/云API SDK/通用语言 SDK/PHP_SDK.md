@@ -1,31 +1,32 @@
 ## 简介
 
-- 欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK 3.0是云 API 3.0 平台的配套工具。
-- SDK 3.0 实现了统一化，各个语言版本的 SDK 具备使用方法相同、接口调用方式相同、错误码和返回包格式相同等优点。本文以 Python SDK 3.0 为例，介绍如何使用、调试并接入腾讯云产品 API。首次使用 PHP SDK 3.0 的简单示例见下文，您可通过本文快速获取腾讯云 PHP SDK 3.0 并开始进行调用。
-- 目前已支持云服务器 CVM、私有网络 VPC 、云硬盘 CBS 等 [腾讯云产品](https://cloud.tencent.com/product)，后续会支持其他云产品接入。
+- 本文以 PHP SDK 3.0 为例，介绍如何使用、调试并接入腾讯云产品 API。您可通过本文快速获取腾讯云 PHP SDK 3.0 并开始进行调用。
+- 目前已支持云服务器 CVM、私有网络 VPC 、云硬盘 CBS 等 [腾讯云产品](https://tcloud-doc.isd.com/document/product/494/42698#.E6.94.AF.E6.8C.81-sdk-3.0.E7.89.88.E6.9C.AC.E7.9A.84.E4.BA.91.E4.BA.A7.E5.93.81.E5.88.97.E8.A1.A8)。
 
-## 步骤1：搭建所需环境
+## 依赖环境
+- PHP 5.6.33 版本及以上。
+- 获取安全凭证。安全凭证包含 SecretId 及 SecretKey 两部分。SecretId 用于标识 API 调用者的身份，SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥。前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取，如下图所示：
+![](https://main.qcloudimg.com/raw/0b064499a40369f8f57a3aea88455a9c.png)
+>!**您的安全凭证代表您的账号身份和所拥有的权限，等同于您的登录密码，切勿泄露他人。**
+- 获取调用地址。调用地址（endpoint）一般形式为`*.tencentcloudapi.com`，产品的调用地址有一定区别，例如，云服务器的调用地址为`cvm.tencentcloudapi.com`。具体调用地址可参考对应产品的API文档。
+
+
+本文以 Windows10 X64 系统为例，介绍了如何配置 PHP 环境以及安装 PHP SDK 3.0 包。
+
+## 步骤1：搭建所需环境 (可选)
+
+如果您已经在本地部署了 PHP 环境，可忽略此步骤。
 
 ### 配置语言环境
 
->!支持 PHP 5.6.33版本及以上。
-
-1. 官网下载 [PHP 5.6.33]( https://windows.php.net/downloads/releases/archives/) 安装包，本文是 windows10 X64 系统，因此选择<kbd>php-5.6.33-Win32-VC11-x64.zip</kbd>版本。
-![](https://main.qcloudimg.com/raw/1c979e841487c4b5d5112688fc1a5e3a.png)
-2. 解压到指定文件夹，例如这里指定的地址是：`F:\saftware\language\PHP`，然后配置环境变量：【我的电脑】>【属性】>【高级系统设置】>【环境变量】。
-<img src="https://main.qcloudimg.com/raw/0946c8544324227a4ba405b0fe4a97ee.png" width="600"><span/>
-双击【系统变量】中的【Path】：
-	- 如果是 win10 系统，单击【新建】，然后把`F:\saftware\language\PHP`添加进去。
-	- 如果是 win7 系统，则直接在最后面加上英文小写的`;`，然后把路径添加进去即可。
-![](https://main.qcloudimg.com/raw/87913c4f517b69486e148d03dd16b924.png)
-
-最后一直单击【确定】，完成环境变量的配置。
-3. 进行验证：按 **Win+R** 打开运行窗口，输入 cmd 并单击【确定】，打开“命令行窗口”，输入命令`php -v`，如下图所示，则安装 PHP 环境成功。
+1. 官网下载 [PHP 5.6.33]( https://windows.php.net/downloads/releases/archives/) 安装包。本文是 windows10 X64 系统，因此选择<kbd>php-5.6.33-Win32-VC11-x64.zip</kbd>版本。
+2. 解压到指定文件夹，这里以 `F:\saftware\language\PHP` 为例。
+3. 配置环境变量。进入【我的电脑】>【属性】>【高级系统设置】>【环境变量】。双击【系统变量】中的【Path】，添加`F:\saftware\language\PHP`。
+4. 验证环境变量是否安装成功。按 **Win+R** 打开运行窗口，输入 cmd 并单击【确定】，打开“命令行窗口”，输入命令`php -v`，如下图所示，则安装 PHP 环境成功。
 ![](https://main.qcloudimg.com/raw/8e11bfabaacce6140906705f0d820019.png) 
-
     
 
-#### PHP 相关配置
+#### 配置 PHP
 
 复制`F:\saftware\language\PHP\php.ini-development`并重命名为`php.ini`，修改如下内容：
 - 去掉 **extension=php_openssl.dll** 前面的分号（**;**）。
@@ -33,7 +34,7 @@
 - 将 extension_dir = "ext" 改为 extension_dir = "F:/saftware/language/PHP/ext"，实际情况以您 PHP 安装路径为准。
 ![](https://main.qcloudimg.com/raw/8a784e9f0132265e5f8903496e9c70ca.png) 
 
-### Apache 服务器安装启动（可跳过）
+### 安装 Apache 服务器
 
 这里以2.4.43版本 Windows 安装为例。
 
@@ -143,7 +144,7 @@ LoadModule php5_module "F:/saftware/language/PHP/php5apache2_4.dll"
 
 重启 Apache（管理员身份运行 CMD，输入`httpd -k restart`），浏览器访问`localhost`，看到 php hello world 即为配置成功。
 
-### composer 介绍与安装
+### Composer 介绍与安装
 
 Composer 是 PHP 的一个依赖管理工具。我们可以在项目中声明所依赖的外部工具库，Composer 会帮您安装这些依赖的库文件，有了 Composer，我们就可以很轻松的使用一个命令将其他代码引用到我们的项目中来。
 >?
@@ -162,24 +163,7 @@ Composer 是 PHP 的一个依赖管理工具。我们可以在项目中声明所
  ![](https://main.qcloudimg.com/raw/c4aec7df0361b9c30376a855e483bc76.png) 
 
 
-### 产品开通
-
-登录 [腾讯云控制台](https://console.cloud.tencent.com/) 并开通需使用产品，您可通过控制台进行搜索。如下图所示：
-![](https://main.qcloudimg.com/raw/af625557f35ff329afecf7eceb06bc29.png)
-
-
-### 获取凭证
-
-安全凭证包含 SecretId 及 SecretKey 两部分。SecretId 用于标识 API 调用者的身份，SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥。前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取，如下图所示：
-![](https://main.qcloudimg.com/raw/0b064499a40369f8f57a3aea88455a9c.png)
->!**您的安全凭证代表您的账号身份和所拥有的权限，等同于您的登录密码，切勿泄露他人。**
-
-### 获取调用地址
-
-调用地址（endpoint）一般形式为`*.tencentcloudapi.com`，产品的调用地址有一定区别，详情请参见各产品下的“请求结构”文档。例如，云服务器的调用地址为`cvm.tencentcloudapi.com`。
-
-
-## 步骤2：安装 SDK
+## 步骤2：安装 PHP SDK 3.0
 
 中国大陆地区的用户可以使用国内镜像源提高下载速度，按 **Win+R** 打开运行窗口，输入 cmd 并单击【确定】，在打开的命令窗口执行以下命令，更改 Packagist 为国内镜像：
 ```
