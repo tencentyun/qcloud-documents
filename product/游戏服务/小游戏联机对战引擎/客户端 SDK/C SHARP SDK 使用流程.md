@@ -57,20 +57,20 @@ var room = new Room ();
 ```c#
 // 查询玩家自己的房间
 Room.GetMyRoom (eve => {
-		if (eve.Code == 0) {
-				var data = (GetRoomByRoomIdRsp) eve.Data;
-				// 设置房间信息到 room 实例
-				room.InitRoom (data.RoomInfo);
-				Debug.Log ("玩家已在房间内：" + data.RoomInfo.Name);
-				return;
-		}
+	if (eve.Code == 0) {
+		var data = (GetRoomByRoomIdRsp) eve.Data;
+		// 设置房间信息到 room 实例
+		room.InitRoom (data.RoomInfo);
+		Debug.Log ("玩家已在房间内：" + data.RoomInfo.Name);
+		return;
+	}
 
-		if (eve.Code == 20011) {
-				Debug.Log ("玩家不在房间内");
-				return;
-		}
+	if (eve.Code == 20011) {
+		Debug.Log ("玩家不在房间内");
+		return;
+	}
 
-		Debug.Log ("调用失败");
+	Debug.Log ("调用失败");
 });
 ```
 
@@ -132,33 +132,32 @@ room.OnDismissRoom = eve => {
 ```
 PlayerInfoPara playerInfoPara = new PlayerInfoPara
 {
-		Name = "测试Name",
-		CustomProfile = "测试CustomProfile",
-		CustomPlayerStatus = 12345,
+	Name = "测试Name",
+	CustomProfile = "测试CustomProfile",
+	CustomPlayerStatus = 12345,
 };
 
 CreateRoomPara createRoomPara = new CreateRoomPara
 {
-		RoomName = "测试RoomName",
-		RoomType = "测试RoomType",
-		MaxPlayers = 10,
-		IsPrivate = true,
-		CustomProperties = "测试CustomProperties",
-		PlayerInfo = playerInfoPara,
+	RoomName = "测试RoomName",
+	RoomType = "测试RoomType",
+	MaxPlayers = 10,
+	IsPrivate = true,
+	CustomProperties = "测试CustomProperties",
+	PlayerInfo = playerInfoPara,
 };
 
 room.CreateRoom(createRoomPara, eve =>
 {
-		if (eve.Code == 0)
-		{
-				// 创建成功
-				Debug.LogFormat ("创建成功 {0}", eve.Data);
+	if (eve.Code == 0)
+	{
+		// 创建成功
+		Debug.LogFormat ("创建成功 {0}", eve.Data);
 
-				// 使用 room 调用其他API，如 room.StartFrameSync
-				// ...
+		// 使用 room 调用其他API，如 room.StartFrameSync
+		// ...
 
-				return;
-
+		return;
 		}
 
 		if (eve.Code == 20010) {
@@ -167,7 +166,7 @@ room.CreateRoom(createRoomPara, eve =>
 		}
 
 		Debug.Log ("调用失败");
-});
+	});
                 
 ```   
 
@@ -237,14 +236,14 @@ room.OnRecvFrame = eve => {
 
 ```c#
 room.StopFrameSync (eve => {
-		if (eve.Code == ErrCode.EcOk) {
-				Debug.Log ("请求成功");
-		}
+	if (eve.Code == ErrCode.EcOk) {
+			Debug.Log ("请求成功");
+	}
 });
 
 // 广播：停止帧同步
 room.OnStopFrameSync = eve => {
-		RecvFrameBst bst = (RecvFrameBst) eve.Data;
-		Debug.LogFormat ("停止帧同步: {0}", eve.Data);
+	RecvFrameBst bst = (RecvFrameBst) eve.Data;
+	Debug.LogFormat ("停止帧同步: {0}", eve.Data);
 };
 ```
