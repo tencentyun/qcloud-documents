@@ -35,24 +35,24 @@ using com.unity.mgobe;
 
 ### 调用 API 
 1. 在 main.cs 中输入以下代码，完成 SDK 初始化，获得 room 实例。
-```c#
+```
 GameInfoPara gameInfo = new GameInfoPara {
-			// 替换 为控制台上的“游戏ID”
-			GameId = "xxxxxxxxxx",
-			// 玩家 openId
-			OpenId = "openid_123_test",
-			//替换 为控制台上的“游戏Key”
-			SecretKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-};
+	// 替换 为控制台上的“游戏ID”
+	GameId = "xxxxxxxxxx",
+	// 玩家 openId
+	OpenId = "openid_123_test",
+	//替换 为控制台上的“游戏Key”
+	SecretKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+	};
 ConfigPara config = new ConfigPara {
-		// 替换 为控制台上的“域名”
-		Url = "pm01xrp4.wxlagame.com",
-		ReconnectMaxTimes = 5,
-		ReconnectInterval = 1000,
-		ResendInterval = 1000,
-		ResendTimeout = 10000
-};
-// 初始化监听器 Listener
+	// 替换 为控制台上的“域名”
+	Url = "pm01xrp4.wxlagame.com",
+	ReconnectMaxTimes = 5,
+	ReconnectInterval = 1000,
+	ResendInterval = 1000,
+	ResendTimeout = 10000
+	};
+	// 初始化监听器 Listener
 Listener.Init (gameInfo, config, (ResponseEvent eve) => {
 		if (eve.Code == 0) {
 				Debug.Log ("初始化成功");
@@ -63,7 +63,7 @@ Listener.Init (gameInfo, config, (ResponseEvent eve) => {
 
 		// 初始化广播回调事件
 		// ...
-});
+	});
 ```
 
 2. 修改初始化回调函数，调用 room 对象的查询房间接口（getRoomDetail），即可验证是否成功接入对战平台。示例代码如下所示：
@@ -76,25 +76,25 @@ Listener.Init (gameInfo, config, (ResponseEvent eve) => {
 				// 查询玩家自己的房间
 				var room = new Room (null);
 				room.GetRoomDetail ((ResponseEvent e) => {
-						if (e.Code != 0 && e.Code != 20011) {
-								Debug.Log ("初始化失败");
-						}
+					if (e.Code != 0 && e.Code != 20011) {
+							Debug.Log ("初始化失败");
+					}
 
-						Debug.Log ("查询成功");
+					Debug.Log ("查询成功");
 
-						if (e.Code == 20011) {
-								Debug.Log ("玩家不在房间内");
-						} else {
-								// 玩家已在房间内
-								var res = (GetRoomByRoomIdRsp) e.Data;
-								Debug.LogFormat ("房间名 {0}", res.RoomInfo.Name);
-						}
-				});
-		} else {
-				Debug.LogFormat ("初始化失败: {0}", eve.Code);
-		}
-		// 初始化广播回调事件
-		// ...
+					if (e.Code == 20011) {
+							Debug.Log ("玩家不在房间内");
+					} else {
+							// 玩家已在房间内
+							var res = (GetRoomByRoomIdRsp) e.Data;
+							Debug.LogFormat ("房间名 {0}", res.RoomInfo.Name);
+							}
+					});
+				} else {
+						Debug.LogFormat ("初始化失败: {0}", eve.Code);
+				}
+			// 初始化广播回调事件
+			// ...
 });
 ```
 
