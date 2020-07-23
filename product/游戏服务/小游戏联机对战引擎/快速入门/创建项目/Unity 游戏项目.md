@@ -35,8 +35,8 @@ using com.unity.mgobe;
 
 ### 调用 API 
 1. 在 main.cs 中输入以下代码，完成 SDK 初始化，获得 room 实例。
-```
-	GameInfoPara gameInfo = new GameInfoPara {
+```c#
+GameInfoPara gameInfo = new GameInfoPara {
 			// 替换 为控制台上的“游戏ID”
 			GameId = "xxxxxxxxxx",
 			// 玩家 openId
@@ -44,28 +44,26 @@ using com.unity.mgobe;
 			//替换 为控制台上的“游戏Key”
 			SecretKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 };
+ConfigPara config = new ConfigPara {
+		// 替换 为控制台上的“域名”
+		Url = "pm01xrp4.wxlagame.com",
+		ReconnectMaxTimes = 5,
+		ReconnectInterval = 1000,
+		ResendInterval = 1000,
+		ResendTimeout = 10000
+};
+// 初始化监听器 Listener
+Listener.Init (gameInfo, config, (ResponseEvent eve) => {
+		if (eve.Code == 0) {
+				Debug.Log ("初始化成功");
+				// 初始化成功之后才能调用其他 API
+				var room = new Room(null);
+				// ...
+		}
 
-	ConfigPara config = new ConfigPara {
-			// 替换 为控制台上的“域名”
-			Url = "pm01xrp4.wxlagame.com",
-			ReconnectMaxTimes = 5,
-			ReconnectInterval = 1000,
-			ResendInterval = 1000,
-			ResendTimeout = 10000
-	};
-
-	// 初始化监听器 Listener
-	Listener.Init (gameInfo, config, (ResponseEvent eve) => {
-			if (eve.Code == 0) {
-					Debug.Log ("初始化成功");
-					// 初始化成功之后才能调用其他 API
-					var room = new Room(null);
-					// ...
-			}
-
-			// 初始化广播回调事件
-			// ...
-	});
+		// 初始化广播回调事件
+		// ...
+});
 ```
 
 2. 修改初始化回调函数，调用 room 对象的查询房间接口（getRoomDetail），即可验证是否成功接入对战平台。示例代码如下所示：
