@@ -158,8 +158,8 @@ room.CreateRoom(createRoomPara, eve =>
 	}
 
 	if (eve.Code == 20010) {
-			Debug.Log ("玩家已在房间内");
-			return;
+		Debug.Log ("玩家已在房间内");
+		return;
 	}
 
 	Debug.Log ("调用失败");
