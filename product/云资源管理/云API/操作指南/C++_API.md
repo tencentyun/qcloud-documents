@@ -1,5 +1,5 @@
 
-腾讯云 API 全新升级3.0 ，该版本进行了性能优化且全地域部署、支持就近和按地域接入、访问时延下降显著，接口描述更加详细、错误码描述更加全面、SDK增加接口级注释，让您更加方便快捷的使用腾讯云产品。这里针对 PHP API 调用方式进行简单说明。
+腾讯云 API 全新升级3.0 ，该版本进行了性能优化且全地域部署、支持就近和按地域接入、访问时延下降显著，接口描述更加详细、错误码描述更加全面、SDK 增加接口级注释，让您更加方便快捷的使用腾讯云产品。这里针对 PHP API 调用方式进行简单说明。
 现已支持云服务器（CVM）、云硬盘（CBS） 、私有网络（VPC）、云数据库（TencentDB）等 [腾讯云产品](https://cloud.tencent.com/product)，后续会支持其他的云产品接入，敬请期待。 
 
 
@@ -7,7 +7,7 @@
 
 ### 1. 服务地址（endpoint）
 
-API 支持就近地域接入（例如：cvm 产品域名为 `cvm.tencentcloudapi.com`），也支持指定地域域名访问（例如：广州地域的域名为 cvm.ap-guangzhou.tencentcloudapi.com），各地域参数见下文公共参数中的地域列表，详情请参见各产品的“请求结构”文档说明判断是否支持该地域。
+API 支持就近地域接入（例如：cvm 产品域名为 `cvm.tencentcloudapi.com`），也支持指定地域域名访问（例如：广州地域的域名为 `cvm.ap-guangzhou.tencentcloudapi.com`），各地域参数见下文公共参数中的地域列表，详情请参见各产品的“请求结构”文档说明判断是否支持该地域。
 
 >!对时延敏感的业务，建议指定带地域的域名。
 
@@ -23,7 +23,6 @@ API 支持就近地域接入（例如：cvm 产品域名为 `cvm.tencentcloudapi
 - GET
 
 POST 请求支持的 Content-Type 类型：
-
 - application/json（推荐），必须使用签名方法 v3（TC3-HMAC-SHA256）。
 - application/x-www-form-urlencoded，必须使用签名方法 v1（HmacSHA1 或 HmacSHA256）。
 - multipart/form-data（仅部分接口支持），必须使用签名方法 v3（TC3-HMAC-SHA256）。
@@ -42,7 +41,7 @@ GET 请求的请求包大小不得超过32KB。POST 请求使用签名方法 v1�
 
 ### 签名方法 V3 公共参数
 
-签名方法 v3（有时也称作 TC3-HMAC-SHA256）相比签名方法 v1 （部分文档简称为签名方法），更安全，支持更大的请求包，支持 POST JSON 格式，性能有一定提升，推荐使用该签名方法计算签名。使用方法见下文 “签名方法介绍” 。 
+签名方法 v3（有时也称作 TC3-HMAC-SHA256）相比签名方法 v1 （部分文档简称为“签名方法”），更安全，支持更大的请求包，支持 POST JSON 格式，性能有一定提升，推荐使用该签名方法计算签名。使用方法见下文 “签名方法介绍” 。 
 
 | 参数名称       | 类型    | 必选   | 描述                                                         |
 | :------------- | :------ | :----- | :----------------------------------------------------------- |
@@ -58,7 +57,7 @@ GET 请求的请求包大小不得超过32KB。POST 请求使用签名方法 v1�
 ### 地域列表
 
 由于各个产品支持地域不同，具体详情请参考各产品文档中的地域列表。
-例如，您可以参考云服务器的 [地域列表](https://cloud.tencent.com/document/product/213/15692#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
+例如，您可以参考云服务器的 [地域列表](https://cloud.tencent.com/document/product/213/15692#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8) 。
 
 
 
@@ -142,7 +141,6 @@ content-type;host
 #### 2. 拼接待签名字符串
 
 按如下格式拼接待签名字符串：
-
 ```
 StringToSign =
     Algorithm + \n +
@@ -174,7 +172,6 @@ TC3-HMAC-SHA256
 #### 3. 计算签名（伪代码）
 
 实际请参考下面示例：
-
 1）计算派生签名密钥，伪代码如下：
 
 ```c++
@@ -197,7 +194,7 @@ string Sign::Tc3Sign(const string &credDate, const string &serviceName, const st
 
 派生出的密钥 `SecretDate`、`SecretService` 和 `SecretSigning` 是二进制的数据，可能包含不可打印字符，此处不展示中间结果。
 
-请注意，不同的编程语言，HMAC 库函数中参数顺序可能不一样，此处的伪代码密钥参数在后，请以实际编程语言为准。通常标准库函数会提供二进制格式的计算值，也即此处使用的，也会提供打印友好的十六进制格式的计算值，将在下面计算签名结果时使用。
+>! 不同的编程语言，HMAC 库函数中参数顺序可能不一样，此处的伪代码密钥参数在后，请以实际编程语言为准。通常标准库函数会提供二进制格式的计算值，也即此处使用的，也会提供打印友好的十六进制格式的计算值，将在下面计算签名结果时使用。
 
 | 字段名称    | 解释                                                         |
 | :---------- | :----------------------------------------------------------- |
@@ -213,7 +210,6 @@ string Sign::Tc3Sign(const string &credDate, const string &serviceName, const st
 #### 4. 拼接 Authorization
 
 按如下格式拼接 Authorization：
-
 ```
 Authorization =
     Algorithm + ' ' +
@@ -442,7 +438,7 @@ int main()
 
 ```json
 {
-    "Response": {
+    "Response": {``
         "TotalCount": 0,
         "InstanceStatusSet": [],
         "RequestId": "b5b41468-520d-4192-b42f-595cc34b6c1c"
@@ -450,9 +446,9 @@ int main()
 }
 ```
 
-* Response 及其内部的 RequestId 是固定的字段，无论请求成功与否，只要 API 处理了，则必定会返回。
-* RequestId 用于一个 API 请求的唯一标识，如果 API 出现异常，可以联系我们，并提供该 ID 来解决问题。
-* 除了固定的字段外，其余均为具体接口定义的字段，不同的接口所返回的字段参见接口文档中的定义。此例中的 TotalCount 和 InstanceStatusSet 均为 DescribeInstancesStatus 接口定义的字段，由于调用请求的用户暂时还没有云服务器实例，因此 TotalCount 在此情况下的返回值为 0， InstanceStatusSet 列表为空。
+* `Response` 及其内部的 `RequestId` 是固定的字段，无论请求成功与否，只要 API 处理了，则必定会返回。
+* `RequestId` 用于一个 API 请求的唯一标识，如果 API 出现异常，可以联系我们，并提供该 ID 来解决问题。
+* 除了固定的字段外，其余均为具体接口定义的字段，不同的接口所返回的字段参见接口文档中的定义。此例中的 `TotalCount` 和 `InstanceStatusSet` 均为 DescribeInstancesStatus 接口定义的字段，由于调用请求的用户暂时还没有云服务器实例，因此 `TotalCount` 在此情况下的返回值为 0， `InstanceStatusSet` 列表为空。
 
 ### 错误返回结果
 
@@ -470,10 +466,10 @@ int main()
 }
 ```
 
-* Error 的出现代表着该请求调用失败。Error 字段连同其内部的 Code 和 Message 字段在调用失败时是必定返回的。
-* Code 表示具体出错的错误码，当请求出错时可以先根据该错误码在公共错误码和当前接口对应的错误码列表里面查找对应原因和解决方案。
-* Message 显示出了这个错误发生的具体原因，随着业务发展或体验优化，此文本可能会经常保持变更或更新，用户不应依赖这个返回值。
-* RequestId 用于一个 API 请求的唯一标识，如果 API 出现异常，可以联系我们，并提供该 ID 来解决问题。
+* `Error` 的出现代表着该请求调用失败。`Error` 字段连同其内部的 `Code` 和 `Message` 字段在调用失败时是必定返回的。
+* `Code` 表示具体出错的错误码，当请求出错时可以先根据该错误码在公共错误码和当前接口对应的错误码列表里面查找对应原因和解决方案。
+* `Message` 显示出了这个错误发生的具体原因，随着业务发展或体验优化，此文本可能会经常保持变更或更新，用户不应依赖这个返回值。
+* `RequestId` 用于一个 API 请求的唯一标识，如果 API 出现异常，可以联系我们，并提供该 ID 来解决问题。
 
 ### 公共错误码
 
