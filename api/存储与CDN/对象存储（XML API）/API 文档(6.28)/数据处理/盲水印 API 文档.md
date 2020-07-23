@@ -239,7 +239,7 @@ watermark/4/type/<type>/image/<imageUrl>/text/<text>
 
 | 参数  | 类型   | 是否必选 | 描述                                                         |
 | :---- | :----- | :------- | :----------------------------------------------------------- |
-| type  | Int    | 是       | 盲水印类型，有效值：1为半盲水印；2为全盲水印；3为文字水印，**必须跟添加盲水印时的 type 类型一致**。 |
+| type  | Int    | 是       | 盲水印类型，有效值：1为半盲水印；2为全盲水印；3为文字盲水印，**必须跟添加盲水印时的 type 类型一致**。 |
 | image | String | 否       | 图片地址，根据 type 值填写：<br><li>当 type 为1，则 image 必填，且为原图图片地址；<br><li>当 type 为2，则 image 必填，且为水印图地址；<br><li>当 type 为3，则 image 无需填写（无效）。<br>image 需要经过 URL 安全的 Base64 编码，指定的图片必须同时满足如下3个条件：<br>1. 图片与存在水印的图片必须位于同一个对象存储桶下； <br>2. URL 需使用数据万象源站域名（不能使用 CDN 加速、COS 源站域名），例如`examplebucket-1250000000.image.myqcloud.com`属于 CDN 加速域名，不能在水印 URL 中使用； <br>3. URL 必须以`http://`开始，不能省略`http`头，也不能填`https`头，例如`examplebucket-1250000000.picsh.myqcloud.com/shuiyin_2.png`， `https://examplebucket-1250000000.picsh.myqcloud.com/shuiyin_2.png` 就是非法的水印 URL。 |
 | text  | String | 否       | 盲水印文字，需要经过 URL 安全的 Base64 编码。 当 type 为3时必填，type 为1或2时无效。 |
 
@@ -312,5 +312,5 @@ x-cos-request-id: NWFjMzQ0MDZfOTBmYTUwXzZkZV8z****
 
 >!
 >
->- 对于 type 值为1的请求，包头 Pic-Operations 的 rule 字段中，imageUrl 为未带盲水印的原图图片地址；对于 type 值为2的请求，包头 Pic-Operations 的 rule 字段中，imageUrl 为水印图片的地址。
->- 返回包 ProcessResults 字段的 url 为提取出来的水印图片地址。
+>- 对于 type 值为1的请求，包头 Pic-Operations 的 rule 字段中，imageUrl 为未带盲水印的原图图片地址；对于 type 值为2的请求，包头 Pic-Operations 的 rule 字段中，imageUrl 为水印图的地址。
+>- 返回包 ProcessResults 字段的 url 为提取出来的水印图地址。
