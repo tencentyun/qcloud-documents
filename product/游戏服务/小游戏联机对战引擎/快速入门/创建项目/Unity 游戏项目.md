@@ -36,13 +36,13 @@ using com.unity.mgobe;
 ### 调用 API 
 1. 在 main.cs 中输入以下代码，完成 SDK 初始化，获得 room 实例。
 ```
-GameInfoPara gameInfo = new GameInfoPara {
-		// 替换 为控制台上的“游戏ID”
-		GameId = "xxxxxxxxxx",
-		// 玩家 openId
-		OpenId = "openid_123_test",
-		//替换 为控制台上的“游戏Key”
-		SecretKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+	GameInfoPara gameInfo = new GameInfoPara {
+			// 替换 为控制台上的“游戏ID”
+			GameId = "xxxxxxxxxx",
+			// 玩家 openId
+			OpenId = "openid_123_test",
+			//替换 为控制台上的“游戏Key”
+			SecretKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 };
 
 	ConfigPara config = new ConfigPara {
