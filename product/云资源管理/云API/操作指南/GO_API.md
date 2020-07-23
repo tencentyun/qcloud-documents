@@ -106,7 +106,8 @@ curl -X POST https://cvm.tencentcloudapi.com \
 前往 [API密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取。如下图所示：
 ![](https://main.qcloudimg.com/raw/665e5334b0d5db156ef48a19072ba8bd.png)
 
-### 步骤二：1. API 3.0 签名 V3 计算签名获取完成请求参数
+### 步骤二：
+### 1. API 3.0 签名 V3 计算签名获取完成请求参数
 签名方法 v3 （TC3-HMAC-SHA256）功能上覆盖了以前的签名方法 v1，而且更安全，支持更大的请求，支持 json 格式，性能有一定提升，推荐使用该签名方法计算签名。
 ![](https://main.qcloudimg.com/raw/f35b61c6b76765f4aae33e9b99673984.png)
 
@@ -462,7 +463,7 @@ https://cvm.tencentcloudapi.com/?Nonce=11886&SecretId=AKIDz8krbsJ5**********mLPx
 - 有些编程语言的网络库会自动为所有参数进行 urlencode，在这种情况下，就不需要对签名串进行 URL 编码了，否则两次 URL 编码会导致签名失败。
 - 其他参数值也需要进行编码，编码采用 [RFC 3986](http://tools.ietf.org/html/rfc3986)。使用 `%XY` 对特殊字符例如汉字进行百分比编码，其中 `X` 和 `Y` 为十六进制字符（0-9 和大写字母 A-F），使用小写将引发错误。
 
-### 7. API 3.0 签名 V1示例
+#### 7. API 3.0 签名 V1示例
 
 >! 此处只到计算签名部分，如需获得最终请求串，需要在参数params里加上下面所得到的签名键值。
 
