@@ -166,7 +166,7 @@ room.CreateRoom(createRoomPara, eve =>
 		}
 
 		Debug.Log ("调用失败");
-	});
+});
                 
 ```   
 
