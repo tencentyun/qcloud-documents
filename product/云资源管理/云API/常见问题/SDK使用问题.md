@@ -62,5 +62,5 @@ okhttp3 依赖 okio 1.12.0，而 okhttp 依赖 okio 1.6.0，maven 在解析依�
 
 
 
-### 旧版SDK
-旧版本的SDK存放于 QcloudApi 目录，详细使用请参考 [旧版 SDK](https://github.com/QcloudApi)，该版本已不再维护，推荐使用新版SDK。
+### 旧版 SDK
+旧版本 SDK 已不再维护，推荐使用新版SDK。旧版本 SDK 存放在 QcloudApi 目录下，详情请参见 [旧版 SDK](https://github.com/QcloudApi)，
