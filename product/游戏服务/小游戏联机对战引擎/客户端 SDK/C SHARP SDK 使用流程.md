@@ -123,9 +123,6 @@ room.OnDismissRoom = eve => {
  Listener.Remove (room);
 ```
 
-### 游戏对战
-如果玩家已经加入房间，可以通过帧同步功能进行游戏对战。游戏过程中用到的接口有发送帧消息、帧广播，开发者可以利用这两个接口进行帧同步。帧广播的开始、结束需要使用房间的 startFrameSync、stopFrameSync 接口。
-
 ### 创建房间
 可以通过创建房间、加入房间、匹配等方式进入房间，进入房间后可以继续通过房间消息、帧同步、实时服务器相关接口进行游戏。
 创建房间示例如下：
@@ -158,17 +155,20 @@ room.CreateRoom(createRoomPara, eve =>
 		// ...
 
 		return;
-		}
+	}
 
-		if (eve.Code == 20010) {
-				Debug.Log ("玩家已在房间内");
-				return;
-		}
+	if (eve.Code == 20010) {
+			Debug.Log ("玩家已在房间内");
+			return;
+	}
 
-		Debug.Log ("调用失败");
+	Debug.Log ("调用失败");
 });
                 
 ```   
+
+### 游戏对战
+如果玩家已经加入房间，可以通过帧同步功能进行游戏对战。游戏过程中用到的接口有发送帧消息、帧广播，开发者可以利用这两个接口进行帧同步。帧广播的开始、结束需要使用房间的 startFrameSync、stopFrameSync 接口。
 
 #### 开始帧同步
 使用 room.startFrameSync 接口可以开启帧广播。房间内任意一个玩家成功调用该接口将导致全部玩家开始接收帧广播。
