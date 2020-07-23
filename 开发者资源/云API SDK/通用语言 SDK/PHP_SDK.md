@@ -11,13 +11,13 @@
 >!支持 PHP 5.6.33版本及以上。
 
 1. 官网下载 [PHP 5.6.33]( https://windows.php.net/downloads/releases/archives/) 安装包，本文是 windows10 X64 系统，因此选择<kbd>php-5.6.33-Win32-VC11-x64.zip</kbd>版本。
-![](https://main.qcloudimg.com/raw/504b9af9257bcaa2eb8d57ae79591f78.png) 
+![](https://main.qcloudimg.com/raw/1c979e841487c4b5d5112688fc1a5e3a.png)
 2. 解压到指定文件夹，例如这里指定的地址是：`F:\saftware\language\PHP`，然后配置环境变量：【我的电脑】>【属性】>【高级系统设置】>【环境变量】。
 <img src="https://main.qcloudimg.com/raw/0946c8544324227a4ba405b0fe4a97ee.png" width="600"><span/>
 双击【系统变量】中的【Path】：
 	- 如果是 win10 系统，单击【新建】，然后把`F:\saftware\language\PHP`添加进去。
 	- 如果是 win7 系统，则直接在最后面加上英文小写的`;`，然后把路径添加进去即可。
-![](https://main.qcloudimg.com/raw/1431418b04fcc4583cdac15eb9c9c3d3.png)
+![](https://main.qcloudimg.com/raw/87913c4f517b69486e148d03dd16b924.png)
 
 最后一直单击【确定】，完成环境变量的配置。
 3. 进行验证：按 **Win+R** 打开运行窗口，输入 cmd 并单击【确定】，打开“命令行窗口”，输入命令`php -v`，如下图所示，则安装 PHP 环境成功。
@@ -29,7 +29,7 @@
 
 复制`F:\saftware\language\PHP\php.ini-development`并重命名为`php.ini`，修改如下内容：
 - 去掉 **extension=php_openssl.dll** 前面的分号（**;**）。
-![](https://main.qcloudimg.com/raw/6cf936f02e40912e822146439985185f.png)
+<img src="https://main.qcloudimg.com/raw/6cf936f02e40912e822146439985185f.png" width="489">
 - 将 extension_dir = "ext" 改为 extension_dir = "F:/saftware/language/PHP/ext"，实际情况以您 PHP 安装路径为准。
 ![](https://main.qcloudimg.com/raw/8a784e9f0132265e5f8903496e9c70ca.png) 
 
