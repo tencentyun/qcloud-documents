@@ -93,20 +93,20 @@ Listener.Add(room);
 ```c#
 // 广播：房间有新玩家加入
 room.OnJoinRoom = eve => {
-		var data = (JoinRoomBst) eve.Data;
-		Debug.Log ("新玩家加入" + data.JoinPlayerId);
+	var data = (JoinRoomBst) eve.Data;
+	Debug.Log ("新玩家加入" + data.JoinPlayerId);
 }; 
 
 // 广播：房间有玩家退出
 room.OnLeaveRoom = eve => {
-		var data = (LeaveRoomBst) eve.Data;
-		Debug.Log ("玩家退出" + data.LeavePlayerId);
+	var data = (LeaveRoomBst) eve.Data;
+	Debug.Log ("玩家退出" + data.LeavePlayerId);
 }; 
 
 // 广播：房间被解散
 room.OnDismissRoom = eve => {
-		var data = (JoinRoomBst) eve.Data;
-		Debug.Log ("房间被解散");
+	var data = (JoinRoomBst) eve.Data;
+	Debug.Log ("房间被解散");
 };
 
 // 其他广播
@@ -130,44 +130,44 @@ room.OnDismissRoom = eve => {
 可以通过创建房间、加入房间、匹配等方式进入房间，进入房间后可以继续通过房间消息、帧同步、实时服务器相关接口进行游戏。
 创建房间示例如下：
 ```
-        PlayerInfoPara playerInfoPara = new PlayerInfoPara
-        {
-            Name = "测试Name",
-            CustomProfile = "测试CustomProfile",
-            CustomPlayerStatus = 12345,
-        };
+PlayerInfoPara playerInfoPara = new PlayerInfoPara
+{
+		Name = "测试Name",
+		CustomProfile = "测试CustomProfile",
+		CustomPlayerStatus = 12345,
+};
 
-        CreateRoomPara createRoomPara = new CreateRoomPara
-        {
-            RoomName = "测试RoomName",
-            RoomType = "测试RoomType",
-            MaxPlayers = 10,
-            IsPrivate = true,
-            CustomProperties = "测试CustomProperties",
-            PlayerInfo = playerInfoPara,
-        };
-        
-        room.CreateRoom(createRoomPara, eve =>
-        {
-            if (eve.Code == 0)
-            {
-                // 创建成功
-                Debug.LogFormat ("创建成功 {0}", eve.Data);
-                
-                // 使用 room 调用其他API，如 room.StartFrameSync
-                // ...
+CreateRoomPara createRoomPara = new CreateRoomPara
+{
+		RoomName = "测试RoomName",
+		RoomType = "测试RoomType",
+		MaxPlayers = 10,
+		IsPrivate = true,
+		CustomProperties = "测试CustomProperties",
+		PlayerInfo = playerInfoPara,
+};
 
-                return;
+room.CreateRoom(createRoomPara, eve =>
+{
+		if (eve.Code == 0)
+		{
+				// 创建成功
+				Debug.LogFormat ("创建成功 {0}", eve.Data);
 
-            }
-            
-            if (eve.Code == 20010) {
-                Debug.Log ("玩家已在房间内");
-                return;
-            }
+				// 使用 room 调用其他API，如 room.StartFrameSync
+				// ...
 
-            Debug.Log ("调用失败");
-        });
+				return;
+
+		}
+
+		if (eve.Code == 20010) {
+				Debug.Log ("玩家已在房间内");
+				return;
+		}
+
+		Debug.Log ("调用失败");
+});
                 
 ```   
 
@@ -237,14 +237,14 @@ room.OnRecvFrame = eve => {
 
 ```c#
 room.StopFrameSync (eve => {
-					if (eve.Code == ErrCode.EcOk) {
-							Debug.Log ("请求成功");
-					}
-			});
+		if (eve.Code == ErrCode.EcOk) {
+				Debug.Log ("请求成功");
+		}
+});
 
-			// 广播：停止帧同步
-			room.OnStopFrameSync = eve => {
-					RecvFrameBst bst = (RecvFrameBst) eve.Data;
-					Debug.LogFormat ("停止帧同步: {0}", eve.Data);
-			};
+// 广播：停止帧同步
+room.OnStopFrameSync = eve => {
+		RecvFrameBst bst = (RecvFrameBst) eve.Data;
+		Debug.LogFormat ("停止帧同步: {0}", eve.Data);
+};
 ```
