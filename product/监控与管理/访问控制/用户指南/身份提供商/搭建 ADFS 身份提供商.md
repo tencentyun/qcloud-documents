@@ -91,24 +91,6 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 ![](https://main.qcloudimg.com/raw/c35cd7d547864b496ba063ff4c332666.png)
 ![](https://main.qcloudimg.com/raw/febcb2723b415cab110bac765ecde927.png)
 
-
-### 配置用户和用户组
-1. 在服务器管理器仪表板页面，单击右上角工具，选择 Active Directory 用户和计算机。如下图所示：
-![](https://main.qcloudimg.com/raw/b064eec1982149a015d8df9a569fbf91.png)
-2. 在 Active Directory 用户和计算机页面，单击【操作】>【新建】>【组】。如下图所示：
-![](https://main.qcloudimg.com/raw/a07fe66f3ed109266ac98162663029a7.png)
-3. 在新建对象-组页面， 填写组名信息。如下图所示：
-![](https://main.qcloudimg.com/raw/aa30bdf9deaec08ddceadcff44199a45.png)
->?
->-  <您的主账号 ID>替换为您的腾讯云帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
-> - <腾讯云角色名>替换为您在腾讯云为身份提供商所创建的 [角色名称](#step7)。
-4. 在 Active Directory 用户和计算机页面，单击【操作】>【新建】>【用户】。如下图所示：
-![](https://main.qcloudimg.com/raw/8d1b51da00f307b4d2583ff3fe924186.png)
-5.  新建员工，填写员工基本信息，以英文命名用户名称，保存用户名称。
-6.  在 Active Directory 用户和计算机页面，在 Users 文件夹中找到新添加的用户，将用户添加至用户组。如下图所示：
-![](https://main.qcloudimg.com/raw/a8219770c16113827ffa79b2d36c8146.png)
-![](https://main.qcloudimg.com/raw/646f6de3266481463ac7b73099304982.png)
-
 ### 安装 ADFS
 1. <span id="step0"> 参考安装 AD 域服务和 DNS 服务中 [步骤2](#step1)，进入服务器角色页面，勾选 Active Directory 联合身份验证服务。如下图所示：
 ![](https://main.qcloudimg.com/raw/24e6a6f7440644fa21425652eb393c0f.png)
@@ -154,6 +136,23 @@ https://联合身份验证服务器名称/federationmetadata/2007-06/federationm
 >
 为您的身份提供商创建角色，命名格式为纯英文，保存您的角色名称<span id="step7"></span>。详细操作请参阅 [为身份提供商创建角色](https://cloud.tencent.com/document/product/598/19381) 。
 其中身份提供商选择在 [腾讯云创建身份提供商](#step6) 步骤中创建的身份提供商。
+
+### 配置用户和用户组
+1. 在服务器管理器仪表板页面，单击右上角工具，选择 Active Directory 用户和计算机。如下图所示：
+![](https://main.qcloudimg.com/raw/b064eec1982149a015d8df9a569fbf91.png)
+2. 在 Active Directory 用户和计算机页面，单击【操作】>【新建】>【组】。如下图所示：
+![](https://main.qcloudimg.com/raw/a07fe66f3ed109266ac98162663029a7.png)
+3. 在新建对象-组页面， 填写组名信息。如下图所示：
+![](https://main.qcloudimg.com/raw/aa30bdf9deaec08ddceadcff44199a45.png)
+>?
+>-  <您的主账号 ID>替换为您的腾讯云帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
+> - <腾讯云角色名>替换为您在腾讯云为身份提供商所创建的 [角色名称](#step7)。
+4. 在 Active Directory 用户和计算机页面，单击【操作】>【新建】>【用户】。如下图所示：
+![](https://main.qcloudimg.com/raw/8d1b51da00f307b4d2583ff3fe924186.png)
+5.  新建员工，填写员工基本信息，以英文命名用户名称，保存用户名称。
+6.  在 Active Directory 用户和计算机页面，在 Users 文件夹中找到新添加的用户，将用户添加至用户组。如下图所示：
+![](https://main.qcloudimg.com/raw/a8219770c16113827ffa79b2d36c8146.png)
+![](https://main.qcloudimg.com/raw/646f6de3266481463ac7b73099304982.png)
 
 ### 配置映射规则
 1. 单击服务器管理器-ADFS 页面右上角【工具】。如下图所示：
