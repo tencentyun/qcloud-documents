@@ -170,7 +170,7 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 - (void)xgPushDidReceiveRemoteNotification:(nonnull id)notification withCompletionHandler:(nullable void (^)(NSUInteger))completionHandler;
 ```
 >!
-- 当应用在前台收到通知消息以及收到静默消息时，会触发统一接收消息回调 xgPushDidReceiveRemoteNotification。
+- 当应用在前台收到通知消息以及所有状态下收到静默消息时，会触发统一接收消息回调 xgPushDidReceiveRemoteNotification。
 区分前台收到通知消息和静默消息示例代码如下：
 ```
 NSDictionary *tpnsInfo = notificationDic[@"xg"];
@@ -181,7 +181,7 @@ NSDictionary *tpnsInfo = notificationDic[@"xg"];
         /// 静默消息
     }
 ```
-- 如实现了统一接收消息回调 xgPushDidReceiveRemoteNotification，无需再实现 application:didReceiveRemoteNotification:fetchCompletionHandler。
+- 若实现了统一接收消息回调 xgPushDidReceiveRemoteNotification，则无需再实现 application:didReceiveRemoteNotification:fetchCompletionHandler。
 
 
 统一点击消息回调，此回调方法为应用所有状态（前台、后台、关闭）下的通知消息点击回调。
