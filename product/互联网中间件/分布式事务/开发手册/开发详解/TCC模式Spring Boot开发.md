@@ -6,7 +6,7 @@ TCC 事务，也可以理解为手动事务。需要用户提供 Try、Confirm�
 
 参考 [准备工作](https://cloud.tencent.com/document/product/1224/45966) 文档。
 
-## Maven配置
+## Maven 配置
 
 通过配置业务代码的 pom.xml 文件，可以引入 DTF 的 SDK 到您的工程中。
 
@@ -115,7 +115,9 @@ public Boolean order(@RequestBody Order order) {
 | timeout | Integer  | 否   | 60 × 1000 | 事务超时时间（主事务**开启**到**提交**/**回滚**的时长），单位：毫秒 |
 | groupId | String   | 否   |     -      | 在此事务分组下开启主事务                                      |
 
->?如果`dtf.env.groups`下只配置了`1个`事务分组 ID，则 @DtfTransactional 注解中**不需要**填写 groupId，DTF 框架会自动从配置中获取。
+DTF 目前支持通过 @DtfTransactional 传染主事务。当您的主事务有多个入口时，使用多个@DtfTransactional 不会报错。全局事务的开始与结束，将由第一个开始执行的标有 @DtfTransactional 的主事务纳管。
+
+>?如果`dtf.env.groups`下只配置了**1个**事务分组 ID，则 @DtfTransactional 注解中**不需要**填写 groupId，DTF 框架会自动从配置中获取。
 
 
 ### 通过 API 管理主事务
@@ -145,8 +147,8 @@ public Boolean order(@RequestBody Order order) {
 @RequestMapping("/order/callback")
 public Boolean orderCallback(@RequestBody OrderCallback orderCallback) {
     try {
-        // 绑定DTF上下文。
-        // 如果全局使用DTF框架，可以忽略该步骤，框架会自动完成上下文传递。详见[远程请求时传递分布式事务上下文]章节
+        // 绑定 DTF 上下文
+        // 如果全局使用 DTF 框架，可以忽略该步骤，框架会自动完成上下文传递。详见[远程请求时传递分布式事务上下文]章节
         DtfTransaction.bind(orderCallback.getGroupId(), orderCallback.getTxId(), orderCallback.getLastBranchId());
         // 处理业务回调逻辑
         if(orderCallback.getResult()) {
