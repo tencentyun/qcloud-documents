@@ -1,15 +1,16 @@
 ## 简介
 
-- 本文以 PHP SDK 3.0 为例，介绍如何使用、调试并接入腾讯云产品 API。您可通过本文快速获取腾讯云 PHP SDK 3.0 并开始进行调用。
-- 目前已支持云服务器 CVM、私有网络 VPC 、云硬盘 CBS 等 [腾讯云产品](https://tcloud-doc.isd.com/document/product/494/42698#.E6.94.AF.E6.8C.81-sdk-3.0.E7.89.88.E6.9C.AC.E7.9A.84.E4.BA.91.E4.BA.A7.E5.93.81.E5.88.97.E8.A1.A8)。
+* 欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK 3.0 是云 API 3.0 平台的配套工具。
+* SDK 3.0 实现了统一化，各个语言版本的 SDK 具备使用方法相同、接口调用方式相同、错误码和返回包格式相同等优点。本文以 PHP SDK 3.0 为例，介绍如何使用、调试并接入腾讯云产品 API。首次使用 PHP SDK 3.0 的简单示例见下文，您可通过本文快速获取腾讯云 PHP SDK 3.0 并开始进行调用。
+* 目前已支持云服务器 CVM、私有网络 VPC 、云硬盘 CBS 等 [腾讯云产品](https://cloud.tencent.com/product)，后续会支持其他云产品接入。
 
 ## 依赖环境
-- PHP 5.6.33 版本及以上。
-- 获取安全凭证。安全凭证包含 SecretId 及 SecretKey 两部分。SecretId 用于标识 API 调用者的身份，SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥。前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取，如下图所示：
-![](https://main.qcloudimg.com/raw/0b064499a40369f8f57a3aea88455a9c.png)
->!**您的安全凭证代表您的账号身份和所拥有的权限，等同于您的登录密码，切勿泄露他人。**
-- 获取调用地址。调用地址（endpoint）一般形式为`*.tencentcloudapi.com`，产品的调用地址有一定区别，例如，云服务器的调用地址为`cvm.tencentcloudapi.com`。具体调用地址可参考对应产品的API文档。
 
+* PHP 5.6.33 版本及以上。
+* 获取安全凭证。安全凭证包含 SecretId 及 SecretKey 两部分。SecretId 用于标识 API 调用者的身份，SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥。前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取，如下图所示：
+![](https://main.qcloudimg.com/raw/78145f9e6a830a188304991552a5c614.png)
+>!**您的安全凭证代表您的账号身份和所拥有的权限，等同于您的登录密码，切勿泄露他人。**
+* 获取调用地址。调用地址（endpoint）一般形式为`*.tencentcloudapi.com`，产品的调用地址有一定区别，例如，云服务器的调用地址为`cvm.tencentcloudapi.com`。具体调用地址可参考对应产品的API文档。
 
 本文以 Windows10 X64 系统为例，介绍了如何配置 PHP 环境以及安装 PHP SDK 3.0 包。
 
@@ -19,20 +20,20 @@
 
 ### 配置语言环境
 
-1. 官网下载 [PHP 5.6.33]( https://windows.php.net/downloads/releases/archives/) 安装包。本文是 windows10 X64 系统，因此选择<kbd>php-5.6.33-Win32-VC11-x64.zip</kbd>版本。
-2. 解压到指定文件夹，这里以 `F:\saftware\language\PHP` 为例。
-3. 配置环境变量。进入【我的电脑】>【属性】>【高级系统设置】>【环境变量】。双击【系统变量】中的【Path】，添加`F:\saftware\language\PHP`。
-4. 验证环境变量是否安装成功。按 **Win+R** 打开运行窗口，输入 cmd 并单击【确定】，打开“命令行窗口”，输入命令`php -v`，如下图所示，则安装 PHP 环境成功。
-![](https://main.qcloudimg.com/raw/8e11bfabaacce6140906705f0d820019.png) 
-    
+1. 官网下载 [PHP 5.6.33](https://windows.php.net/downloads/releases/archives/) 安装包。本文是 windows10 X64 系统，因此选择 php-5.6.33-Win32-VC11-x64.zip版本。
+2. 解压到指定文件夹，这里以`F:\software\language\PHP`为例。
+3. 配置环境变量。进入【我的电脑】>【属性】>【高级系统设置】>【环境变量】。双击【系统变量】中的【Path】，添加`F:\software\language\PHP`。
+4. 验证环境变量是否安装成功。打开“命令行窗口”，输入命令`php -v`，如下图所示，则安装 PHP 环境成功。 
+![](https://main.qcloudimg.com/raw/02879376f1e5025b2b016bd114671886.png)
 
 #### 配置 PHP
 
-复制`F:\saftware\language\PHP\php.ini-development`并重命名为`php.ini`，修改如下内容：
-- 去掉 **extension=php_openssl.dll** 前面的分号（**;**）。
-<img src="https://main.qcloudimg.com/raw/6cf936f02e40912e822146439985185f.png" width="489">
-- 将 extension_dir = "ext" 改为 extension_dir = "F:/saftware/language/PHP/ext"，实际情况以您 PHP 安装路径为准。
-![](https://main.qcloudimg.com/raw/8a784e9f0132265e5f8903496e9c70ca.png) 
+复制`F:\software\language\PHP\php.ini-development`并重命名为`php.ini`，修改如下内容：
+
+* 去掉 **extension=php_openssl.dll** 前面的分号（**;**）。
+![](https://main.qcloudimg.com/raw/de34c465888b9b1659d1a8550943c1a2.png)
+- 将 extension_dir = "ext" 改为 extension_dir = "F:/software/language/PHP/ext"，实际情况以您 PHP 安装路径为准。
+![](https://main.qcloudimg.com/raw/55d950c0563a1d33fb37d772a297b349.png)
 
 ### 安装 Apache 服务器
 
@@ -41,37 +42,39 @@
 #### 下载
 
 1. [官网](http://httpd.apache.org/download.cgi) 下载 Apache。
-![](https://main.qcloudimg.com/raw/2e866840f71a3fdf372e747ce10b498c.png) 
-2. 选择 ApacheHaus。 
-![](https://main.qcloudimg.com/raw/e8fd6907c6a8b1463d56d26df9f6fb90.png)
-3. 根据系统选择对应的版本（本文选择64位的），开始下载（中国大陆地区的用户可以使用国内镜像源提高下载速度）。 
-![](https://main.qcloudimg.com/raw/1c276e1efb14f85ef72bfee4cb15e9d8.png)
+![](https://main.qcloudimg.com/raw/0cb567580c3f5da19cd827e49bfaa8d8.png)
+
+2. 选择 ApacheHaus。
+![](https://main.qcloudimg.com/raw/73e25f43f1dc9d75c08d12df95d25aa7.png)
+
+3. 根据系统选择对应的版本（本文选择64位的），开始下载。 
+![](https://main.qcloudimg.com/raw/5bd6e4a58095436dfc8b01f20fe44452.png)
 
 #### 安装
 
-1. 解压<kbd>httpd-2.4.43-o111g-x64-vc15.zip</kbd>，得到如下文件夹。
-![](https://main.qcloudimg.com/raw/0804ab1485f130d9fe6d9cda412abe2a.png) 
+1. 解压 httpd-2.4.43-o111g-x64-vc15.zip，得到如下文件夹。 
+![](https://main.qcloudimg.com/raw/32a24b35e729316cd903fd634579d97e.png)
 2. readme_first.html 文件里面详细说明了安装步骤和方式，大致如下：
-	1. 用管理员身份打开 Windows 命令窗口并 cd 到 \Apache24\bin（该路径是指 Apache 的解压路径）目录，执行命令： 
+   1. 用管理员身份打开 Windows 命令窗口并 cd 到 \Apache24\bin（该路径是指 Apache 的解压路径）目录，执行命令：
 ```
-    httpd.exe
-    ```
+httpd.exe
+```
 因为本文 Apache 存放的路径**不是默认路径**，执行会报错，此时需要在配置文件里将路径改为正确路径，即可执行成功：
 
 	打开 Apache 安装地址：Apache24\conf\httpd.conf 文件，搜索 Define SRVROOT（只有一处），将其后面的双引号内的路径改为 Apache 的**实际解压路径后保存即可，注意此处保存的地址是“/”**。
 
-    本文的示例地址为：F:\saftware\language\system\Apache\Apache24。
-![](https://main.qcloudimg.com/raw/ab4ec35f3e1266d8d902bff92021156c.png)  
-	2. 打开浏览器访问：http://localhost/，显示如下内容，则访问成功。
+	本文的示例地址为：F:\software\language\system\Apache\Apache24。
+![](https://main.qcloudimg.com/raw/99be20d788929c0a5f2a4a7dce23bb70.png)  
+
+ 2. 打开浏览器访问：http://localhost/，显示如下内容，则访问成功。
 ![](https://main.qcloudimg.com/raw/1392870853060e4c9fed5f43df101faa.png) 
-	3. 在前面打开的命令窗口输入 **Ctrl+C** 即可关闭服务器。
-	4. 将 Apache 安装到系统服务，执行以下命令： 
+ 3. 在前面打开的命令窗口输入 **Ctrl+C** 即可关闭服务器。
+ 4. 将 Apache 安装到系统服务，执行以下命令： 
 ```
-    httpd -k install
-    ```
-为了方便，可以将 httpd 命令加到环境变量中使其全局生效：【我的电脑】>【属性】>【高级系统设置】>【环境变量】>【系统变量】>【Path】，编辑 Path，将 F:\saftware\language\system\Apache\Apache24\bin 路径加到后面。
-![](https://main.qcloudimg.com/raw/4cfcd6c70a7cb595f183b3bf047002e7.png) 
-	5. 启动服务器：httpd -k start，打开浏览器访问：http://localhost/ 测试是否启动成功。您还可以找到 bin 目录下的 ApacheMonitor.exe，通过双击来打开、关闭或重启服务器。除了启动命令，还有其他的命令：
+httpd -k install
+```
+为了方便，可以将 httpd 命令加到环境变量中使其全局生效：【我的电脑】>【属性】>【高级系统设置】>【环境变量】>【系统变量】>【Path】，编辑 Path，将 F:\software\language\system\Apache\Apache24\bin 路径加到后面。 
+ 5. 启动服务器：httpd -k start，打开浏览器访问：http://localhost/ 测试是否启动成功。您还可以找到 bin 目录下的 ApacheMonitor.exe，通过双击来打开、关闭或重启服务器。除了启动命令，还有其他的命令：
 ```
      (命令均需要用管理员身份打开 cmd 窗口下执行)
      关闭 Apache        httpd -k stop
@@ -79,21 +82,20 @@
      卸载 Apache        httpd -k uninstall
      查看 Apache 版本     httpd -V
      命令帮助           httpd -h
-    ```
+```
 
 ### Apache 支持 PHP
 
 #### 添加 PHP 模块
 
-在 Apache 配置文件`F:\saftware\language\system\Apache\Apache24\conf\httpd.conf`（即一堆`#LoadModule xxx`后）添加：(注意此处为正斜杠“/”，此处路径仅作为示范，请以实际路径为准)。
+在 Apache 配置文件`F:\software\language\system\Apache\Apache24\conf\httpd.conf`中（`#LoadModule xxx`后）添加(注意此处为正斜杠“/”，此处路径仅作为示范，请以实际路径为准)：
 ```
-PHPIniDir "F:/saftware/language/PHP"
-LoadModule php5_module "F:/saftware/language/PHP/php5apache2_4.dll"
+PHPIniDir "F:/software/language/PHP"
+LoadModule php5_module "F:/software/language/PHP/php5apache2_4.dll"
 ```
-
 #### 添加 PHP 文件后缀
 
-在 Apache 配置文件`F:\saftware\language\system\Apache\Apache24\conf\httpd.conf`的393行左右，即：
+在 Apache 配置文件`F:\software\language\system\Apache\Apache24\conf\httpd.conf`，即：
 
 ```php+HTML
 <IfModule mime_module>
@@ -104,7 +106,7 @@ LoadModule php5_module "F:/saftware/language/PHP/php5apache2_4.dll"
 
 中，添加`AddType application/x-httpd-php .php`，即：
 
-```php+HTML
+```
 <IfModule mime_module>
 	TypesConfig conf/mime.types
 	....
@@ -114,17 +116,17 @@ LoadModule php5_module "F:/saftware/language/PHP/php5apache2_4.dll"
 
 #### 添加主页 index.php
 
-在 Apache 配置文件`F:\saftware\language\system\Apache\Apache24\conf\httpd.conf`的278行左右，即：
+在 Apache 配置文件`F:\software\language\system\Apache\Apache24\conf\httpd.conf`，即：
 
-```php+HTML
+```
 <IfModule dir_module>
-		DirectoryIndex index.html
+	DirectoryIndex index.html
 </IfModule>
 ```
 
 中，在`index.html`前添加`index.php`，即：
 
-```php+HTML
+```
 <IfModule dir_module>
 	DirectoryIndex index.php index.html
 </IfModule>
@@ -132,13 +134,13 @@ LoadModule php5_module "F:/saftware/language/PHP/php5apache2_4.dll"
 
 #### 测试效果
 
-在`F:\saftware\language\system\Apache\Apache24\htdocs`下创建“index.php”，代码为：
+在`F:\software\language\system\Apache\Apache24\htdocs`下创建“index.php”，代码为：
 
 ```php
 <?php
 	{
-				echo "php hello world";
-		};
+		echo "php hello world";
+	};
 ?>
 ```
 
@@ -147,46 +149,61 @@ LoadModule php5_module "F:/saftware/language/PHP/php5apache2_4.dll"
 ### Composer 介绍与安装
 
 Composer 是 PHP 的一个依赖管理工具。我们可以在项目中声明所依赖的外部工具库，Composer 会帮您安装这些依赖的库文件，有了 Composer，我们就可以很轻松的使用一个命令将其他代码引用到我们的项目中来。
->?
->- Composer 默认情况下不是全局安装，而是基于指定的项目的某个目录中（例如 vendor）进行安装。
->- Composer 需要 PHP 5.3.2+ 以上版本，且需要开启 openssl，*上文已介绍开启方法*。
->- Composer 可运行在 Windows、Linux 以及 OSX 平台上。
+
+> ?
+>
+> * Composer 默认情况下不是全局安装，而是基于指定的项目的某个目录中（例如 vendor）进行安装。
+> * Composer 需要 PHP 5.3.2+ 以上版本，且需要开启 openssl，上文已介绍开启方法。
+> * Composer 可运行在 Windows、Linux 以及 OSX 平台上。
 
 1. 下载 [composer 官网](https://getcomposer.org/download/) 的 exe 可执行文件。
- ![](https://main.qcloudimg.com/raw/49fb25c8694463b750806aa695e3084e.png)
+![](https://main.qcloudimg.com/raw/d10fb280ddd5d2a8c6a1570f9fd979b8.png)
 2. 安装时，需要注意的是：
-	- 在安装过程中，下面地址如果不是 php.exe（PHP 语言文件的根路径下）的地址，需要手动调整为 php.exe 文件所在的地址。
-![](https://main.qcloudimg.com/raw/1852845aa0e72b6085c8cb07127247b0.png)
-  - 如果出现下面的情况，说明防火墙阻止了获取国外服务器的文件。
-![](https://main.qcloudimg.com/raw/156e1a5ed3eeb0c390745d67a6e62233.png)
-	- 验证 composer 是否安装成功，按 **Win+R** 打开运行窗口，输入 cmd 并单击【确定】，在打开的命令窗口执行`composer -V`，如下图所示，即安装成功。
- ![](https://main.qcloudimg.com/raw/c4aec7df0361b9c30376a855e483bc76.png) 
-
+    * 在安装过程中，下面地址如果不是 php.exe（PHP 语言文件的根路径下）的地址，需要手动调整为 php.exe 文件所在的地址。 
+    ![img](https://main.qcloudimg.com/raw/c19a53c66568ae122ba8e2852cb76eac.png)
+	* 如果出现下面的情况，说明防火墙阻止了非中国大陆地区服务器的文件。
+![](https://main.qcloudimg.com/raw/fe3e892536cbcf3d49217e7114239075.png)
+	* 验证 composer 是否安装成功，在打开的命令窗口执行`composer -V`，如下图所示，即安装成功。
+	![](https://main.qcloudimg.com/raw/c9be45720b8b6833972fcd4e104a454a.png)
 
 ## 步骤2：安装 PHP SDK 3.0
 
-中国大陆地区的用户可以使用国内镜像源提高下载速度，按 **Win+R** 打开运行窗口，输入 cmd 并单击【确定】，在打开的命令窗口执行以下命令，更改 Packagist 为国内镜像：
+中国大陆地区的用户可以使用国内镜像源提高下载速度，在打开的命令窗口执行以下命令，更改 Packagist 为国内镜像：
+
 ```
 composer config -g repo.packagist composer https://packagist.phpcomposer.com
 ```
+
 在打开的命令窗口执行命令安装 SDK（安装到指定位置），例如安装到`C:\Users\···>`目录下，则在指定的位置打开命令窗口，并执行以下命令：
-``` 
+
+```
 composer require tencentcloud/tencentcloud-sdk-php
 ```
-如下图所示，即安装 SDK 成功。 
-![](https://main.qcloudimg.com/raw/e497f708fa02564e2fd272aaf100fad9.png)
 
+如下图所示，即安装 SDK 成功。
+![](https://main.qcloudimg.com/raw/e8948ce3e75f37d10236f5f32ad558da.png)
 
+## 步骤3：获取凭证与调用地址
 
-## 步骤3：使用 SDK
+### 获取安全凭证
 
+安全凭证包含 SecretId 及 SecretKey 两部分。SecretId 用于标识 API 调用者的身份，SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥。前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取。
 
->!
->- 在代码中添加以下引用代码。示例中仅为参考，composer 会在项目根目录下生成 vendor 目录，`/path/to/`为项目根目录的实际绝对路径，如果是在当前目录执行，可以省略绝对路径。
+>!**您的安全凭证代表您的账号身份和所拥有的权限，等同于您的登录密码，切勿泄露他人。**
+
+### 获取调用地址
+
+调用地址（endpoint）一般形式为`*.tencentcloudapi.com`，产品的调用地址有一定区别，详情请参见各产品下的“请求结构”文档。例如，云服务器的调用地址为`cvm.tencentcloudapi.com`。
+
+## 步骤4：使用 SDK
+
+在代码中添加以下引用代码。示例中仅为参考，composer 会在项目根目录下生成 vendor 目录，`/path/to/`为项目根目录的实际绝对路径，如果是在当前目录执行，可以省略绝对路径。
+
 ```
 require '/path/to/vendor/autoload.php'; 
 ```
->- 您还可以将以下示例放入`F:\saftware\language\system\Apache\Apache24\htdocs`中，启动 Apache 服务，通过浏览器访问`http://localhost/DescribeZones.php`或`http://localhost/DescribeInstances.php`。
+
+您还可以将以下示例放入`F:\software\language\system\Apache\Apache24\htdocs`中，启动 Apache 服务，通过浏览器访问`http://localhost/DescribeZones.php`或`http://localhost/DescribeInstances.php`。
 
 ### 示例1：查看可用区列表
 
@@ -287,15 +304,13 @@ catch(TencentCloudSDKException $e) {
 
 您可以在 [github examples](https://github.com/tencentcloud/tencentcloud-sdk-php/tree/master/examples) 目录下找到更详细的示例。
 
-
-
 ## 相关配置
 
 ### 代理
 
-如果是有代理的环境下，需要设置系统环境变量`https_proxy`，否则可能无法正常调用，抛出连接超时的异常。
-或者使用 GuzzleHttp 代理配置:
-```php
+如果是有代理的环境下，需要设置系统环境变量`https_proxy`，否则可能无法正常调用，抛出连接超时的异常。 或者使用 GuzzleHttp 代理配置:
+
+```
 $cred = new Credential("secretId", "secretKey");
 
 $httpProfile = new HttpProfile();
@@ -312,6 +327,7 @@ $client = new OcrClient($cred, 'ap-beijing', $this->clientProfile);
 ### 证书问题
 
 如果您的 PHP 环境证书有问题，可能会遇到报错，类似于`cURL error 60: See http://curl.haxx.se/libcurl/c/libcurl-errors.html`，请尝试按以下步骤解决：
+
 1. 到 https://curl.haxx.se/ca/cacert.pem 下载证书文件`cacert.pem`，将其保存到 PHP 安装路径下。
 2. 编辑`php.ini`文件，删除`curl.cainfo`配置项前的分号注释符（;），值设置为保存的证书文件`cacert.pem`的绝对路径。
 3. 重启依赖 PHP 的服务。
