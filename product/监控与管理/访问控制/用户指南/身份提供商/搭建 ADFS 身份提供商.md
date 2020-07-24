@@ -90,10 +90,11 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 9.在证书导出向导页面，选择“是，导出私钥”，勾选“组或用户名（建议）”，单击下一步，完成导出保存文件。<span id="step9">如下图所示：
 ![](https://main.qcloudimg.com/raw/c35cd7d547864b496ba063ff4c332666.png)
 ![](https://main.qcloudimg.com/raw/febcb2723b415cab110bac765ecde927.png)
-### 在腾讯云创建身份提供商<span id="step5"> 
+
+### 在腾讯云创建身份提供商
 >?您可以通过本步骤配置 ADFS 和腾讯云之间的信任关系使之相互信任。
 
-在腾讯云创建 SAML 身份提供商，保存您的身份提供商名称。<span id="step1"></span>详细操作请参阅 [创建身份提供商](https://cloud.tencent.com/document/product/598/30290)。
+在腾讯云创建 SAML 身份提供商，命名格式为纯英文，保存您的身份提供商名称。<span id="step6"></span>详细操作请参阅 [创建身份提供商](https://cloud.tencent.com/document/product/598/30290)。
 其中元数据文档您可以访问以下链接下载提供商的xml文件。
 
 ```
@@ -103,16 +104,19 @@ https://域名/federationmetadata/2007-06/federationmetadata.xml
 ### 为身份提供商创建角色
 >?您可以通过本步骤分配用户访问权限，向 ADFS 用户分配腾讯云的 SSO 访问权限。
 >
-为您的身份提供商创建角色，保存您的角色名称。详细操作请参阅 [为身份提供商创建角色](https://cloud.tencent.com/document/product/598/19381) 。
-其中身份提供商选择在 [腾讯云创建身份提供商](#step1) 步骤中创建的身份提供商。
+为您的身份提供商创建角色，命名格式为纯英文，保存您的角色名称<span id="step7"></span>。详细操作请参阅 [为身份提供商创建角色](https://cloud.tencent.com/document/product/598/19381) 。
+其中身份提供商选择在 [腾讯云创建身份提供商](#step6) 步骤中创建的身份提供商。
 
 ### 配置用户
 1. 在服务器管理器仪表板页面，单击右上角工具，选择 Active Directory 用户和计算机。如下图所示：
 ![](https://main.qcloudimg.com/raw/b064eec1982149a015d8df9a569fbf91.png)
 2. 在 Active Directory 用户和计算机页面，单击【操作】>【新建】>【组】。如下图所示：
 ![](https://main.qcloudimg.com/raw/a07fe66f3ed109266ac98162663029a7.png)
-3. 在新建对象-组页面， 填写组名信息。其中组名信息为 Tencent-$您的主账号 ID-$您创建的腾讯云角色名称，如：如下图所示：
+3. 在新建对象-组页面， 填写组名信息。如：如下图所示：
 ![](https://main.qcloudimg.com/raw/aa30bdf9deaec08ddceadcff44199a45.png)
+>?
+>-  <您的主账号 ID>替换为您的腾讯云帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
+> - <腾讯云角色名>替换为您在腾讯云为身份提供商所创建的 [角色名称](#step7)。
 4. 在 Active Directory 用户和计算机页面，单击【操作】>【新建】>【用户】。如下图所示：
 ![](https://main.qcloudimg.com/raw/8d1b51da00f307b4d2583ff3fe924186.png)
 5.  新建员工，填写员工基本信息，以英文命名用户名称，保存用户名称。
@@ -167,18 +171,18 @@ https://cloud.tencent.com/saml.xml
 16. 在编辑规则页面，补充规则信息，单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/2f273e4888f5b22a898be0f8e38e819d.png)
 >? 
-> - 声明规则名称：NameID。
-> - 传入声明类型： Windows 账户名。
-> - 传出声明类型：名称 ID。
-> - 传出名称 ID 格式：永久标识符。
-> - 选择传递所有声明值。
+> - 声明规则名称：补充为 NameID。
+> - 传入声明类型： 选择 Windows 账户名。
+> - 传出声明类型：选择名称 ID。
+> - 传出名称 ID 格式：选择永久标识符。
+> - 勾选传递所有声明值。
 17. 在添加转换声明规则向导页面，单击【选择规则类型】>【使用自定义规则发送声明】>【下一步】。如下图所示：
 ![](https://main.qcloudimg.com/raw/3a0c83b3c1ea6cb8aed612e9998f95f1.png)
 18.在编辑规则页面，补充规则信息，单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/e7a380f00d3d26f89609fc84c510a625.png)
 >? 
-> - 声明规则名称：Get AD Groups。
-> - 自定义规则： 补充以下信息：
+> - 声明规则名称：补充为 Get AD Groups。
+> - 自定义规则： 补充以下信息
 >```
 c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer == "AD AUTHORITY"]
  => add(store = "Active Directory", types = ("http://temp/variable"), query = ";tokenGroups;{0}", param = c.Value);
@@ -188,13 +192,13 @@ c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccou
 20. 在编辑规则页面，补充规则信息，单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/8bc620166e88e68f4963622a85ed398b.png)
 >? 
-> - 声明规则名称：Role。
+> - 声明规则名称：补充为 Role。
 > - 自定义规则： 补充以下信息
 >```
 c:[Type == "http://temp/variable", Value =~ "(?i)^Tencent-([\d]+)"]
  => issue(Type = "https://cloud.tencent.com/SAML/Attributes/Role", Value = RegExReplace(c.Value, "Tencent-([\d]+)-(.+)", "qcs::cam::uin/$1:roleName/$2,qcs::cam::uin/$1:saml-provider/身份提供商名称")); 
 ```
-其中“身份提供商名称”为您在 在腾讯云创建身份提供商<span id="step5">步骤创建的身份提供商名称
+其中“身份提供商名称”替换为您在 [腾讯云创建身份提供商](#step6) 步骤创建的身份提供商名称。
 21. 在添加转换声明规则向导页面，单击【选择规则类型】>【使用自定义规则发送声明】>【下一步】。如下图所示：
 ![](https://main.qcloudimg.com/raw/3a0c83b3c1ea6cb8aed612e9998f95f1.png)
 22. 在编辑规则页面，补充规则信息，单击【确定】。如下图所示：
