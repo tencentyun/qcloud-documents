@@ -108,11 +108,11 @@ gvfsd-fuse on /run/user/1000/gvfs type fuse.gvfsd-fuse (rw,nosuid,nodev,relatime
 >! 由于使用命令手工导出镜像的风险比较大（如在 IO 繁忙时可能造成文件系统的 metadata 错乱等）。建议您在导出镜像后，[检查镜像](#CheckMirror) 完整无误。
 >
 
-您可通过执行以下命令导出镜像：
-- **使用 `qemu-img` 命令**
+您可选择 [使用 qemu-img 命令](#qemuimg) 或 [使用 dd 命令](#dd) 其中一种方式导出镜像：
+- **使用 `qemu-img` 命令**<span id="qemuimg"></span>
  1. 执行以下命令，安装所需包。本文以 Debian 为例，不同发行版的包可能不同，请对应实际情况进行调整。例如，CentOS 中包名为 `qemu-img`。
 ```
-yum install qemu-utils
+apt-get install qemu-utils
 ```
  2. 执行以下命令，将 `/dev/sda` 导出至 `/mnt/sdb/test.qcow2`。
 ```
@@ -128,7 +128,7 @@ sudo qemu-img convert -f raw -O qcow2 /dev/sda /mnt/sdb/test.qcow2
 	<tr><td>vmdk</td><td>vmdk 格式</td></tr>
 	<tr><td>raw</td><td>无格式</td></tr>
 </table>
-- **使用 `dd` 命令**
+- **使用 `dd` 命令**<span id="dd"></span>
 例如，执行以下命令，导出 raw 格式的镜像。
 ```
 sudo dd if=/dev/sda of=/mnt/sdb/test.imag bs=1K count=$count
@@ -190,7 +190,7 @@ qemu-nbd -c /dev/nbd0 xxxx.qcow2
 ```
 mount /dev/nbd0p1 /mnt
 ```
-如果 qcow2 镜像的第一个分区导出时文件系统被破坏，mount 时将会报错。
+执行 `qemu-nbd` 命令后，`/dev/nbd0` 就映射了 `xxx.qcow2` 中的内容。而 `/dev/nbd0p1` 代表该虚拟磁盘的第一个分区，若 nbd0p1 不存在或 mount 不成功，则很可能是镜像错误。
 此外，您还可以在上传镜像前，先启动云服务器测试镜像文件是否可以使用。
 
 
