@@ -9,7 +9,7 @@
 
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)。
 2. 单击【新建】，进入轻量应用服务器购买页面。
-![](https://main.qcloudimg.com/raw/7c3291cfcd166c3f2b9c7d3d63cd970b.png)
+![](https://main.qcloudimg.com/raw/5d3cf966b52fc4abfaef617c64e97050.png)
  - 地域：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，地域选择 “广州”。
  - 镜像：选择 “宝塔Linux面板 7.2.0” 应用镜像。
  - 实例套餐：按照所需的服务器配置（CPU、内存、系统盘、峰值带宽、每月流量），选择一种实例套餐。
@@ -21,10 +21,10 @@
 6. 选择【防火墙】页签，单击【添加规则】，并根据界面提示放通8888端口。
 > ! 宝塔 Linux 面板的默认端口为8888。如果您在登录面板后修改了面板端口，请在防火墙中同步更新放行的端口。
 >
-![](https://main.qcloudimg.com/raw/8b98cf41b9990cf4bbbf61e282841907.png)
+![](https://main.qcloudimg.com/raw/861fb81a595e6e0d0639c0a8113d8f3e.png)
 7. 选择【应用管理】页签，进入应用管理详情页。
 您可以在此页面查看宝塔 Linux 面板应用的各项配置信息。
-![](https://main.qcloudimg.com/raw/9b22cc4ecb4368eded4f26c3674f030e.png)
+![](https://main.qcloudimg.com/raw/bf65068c79b3841b5543e6a90e07afca.png)
 8. <span id="step08"></span>在“应用内软件信息”栏中，单击 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin: 0;">，复制宝塔 Linux 面板的用户名与密码。
 9. 在“应用内软件信息”栏中，单击【登录】。
 10. 在弹出的登录窗口中，粘贴 [步骤8](#step08) 复制的用户名与密码，按 **Enter**。
