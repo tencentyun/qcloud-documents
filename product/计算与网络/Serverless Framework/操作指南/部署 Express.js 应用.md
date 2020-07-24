@@ -38,15 +38,7 @@ $ cd example
 
 执行如下命令，安装 Express 应用的对应依赖：
 ```
-$ cd src && npm install
-```
-安装完毕后，目录结构如下所示：
-```
-|- src
-|   ├── sls.js
-|   ├── node_modules
-|   └── package.json
-└──  serverless.yml
+$ npm install
 ```
 
 #### 3. 部署

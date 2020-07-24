@@ -12,10 +12,10 @@ SDK 支持 iOS 8.0 以上系统。
 ### 步骤1：链接 SDK 及系统库
 1. 将下载的 SDK 资源包解压，并将 SDK 文件夹中 TXLiteAVSDK\_ 开头的 framework（如 TXLiteAVSDK_UGC.framework）复制到工程所在文件夹，并拖动到工程当中。
 2. 选中工程的 Target，添加以下系统库：
-	- Accelerate.framework
-	- SystemConfiguration.framework
-	- libc++.tbd
-	- libsqlite3.tbd
+  - Accelerate.framework
+  - SystemConfiguration.framework
+  - libc++.tbd
+  - libsqlite3.tbd
 添加完毕后，工程库依赖如下图所示：
 ![](https://main.qcloudimg.com/raw/a5fe16ca046a0aad84224e1ffa766a42.jpg)
 3. 选中工程的 Target，在 Build Settings 中搜索 bitcode，将 Enable Bitcode 设置为 NO。
@@ -66,7 +66,7 @@ SDK 支持 iOS 8.0 以上系统。
 如果您需要我们的技术支持，建议将此开关打开，在重现问题后提供 log 文件，非常感谢您的支持。
 - **Log 文件的查看**
 小直播 SDK 为了减少 log 的存储体积，对本地存储的 log 文件做了加密，并且限制了 log 数量的大小，所以要查看 log 的文本内容，需要使用 log [解压缩工具](http://dldir1.qq.com/hudongzhibo/log_tool/decode_mars_log_file.py)。
-```	objc
+``` objc
   [TXLiveBase setConsoleEnabled:YES];
   [TXLiveBase setLogLevel:LOGLEVEL_DEBUG];
 ```
@@ -83,35 +83,33 @@ SDK 支持 iOS 8.0 以上系统。
 
 您可以通过 [GitHub](https://github.com/tencentyun/UGSVSDK/tree/master/iOS) 或 [资源下载](https://cloud.tencent.com/document/product/584/9366) 中提供的 SDK 压缩包获取 UGCKit。UGCKit 位于压缩包 Demo/TXLiteAVDemo/UGC/UGCKit 目录下。
 
-UGCKit 的开发环境要求如下：
-
+### UGCKit 开发环境要求
 - Xcode 10 及以上。
 - iOS 9.0 及以上。
 
-### 接入步骤
-
-#### 步骤1：集成 UGCKit 
-1. **导入 UGCKit**
-将 Demo/TXLiteAVDemo/UGC/UGCKit 文件夹拷贝到工程目录中，并将 UGCKit 中的 UGCKit.xcodeproj 拖拽到工程中。
-<img src="https://main.qcloudimg.com/raw/4b8ff842eb939cd920eb16b22424ef22.png" width=800px />
+### 步骤1：集成 UGCKit 
+1. **导入 UGCKit 与 BeautyPannel (BeautySettingKit)**
+	1. 将 `Demo/TXLiteAVDemo/UGC/UGCKit` 文件夹拷贝到工程目录中，并将 UGCKit 中的 `UGCKit.xcodeproj` 拖拽到工程中。
+	2. 将 `Demo/TXLiteAVDemo/BeautySettingKit` 文件夹拷贝到工程目录中，并将 BeautySettingKit 中的`TCBeautyPanel.xcodeproj` 拖拽到工程中。
+![](https://main.qcloudimg.com/raw/48fa8833ea243bba61eec09bbdb38d33.png)
 2. **配置依赖关系**   
-单击工程的 Target，选择 Build Phase 标签，在 Dependencies 中单击加号，选择 UGCKit.framework 和 UGCKitResources，单击【Add】。
-<img src="https://main.qcloudimg.com/raw/eadf4d86b3dd62067417d4d449127348.jpg" width=800px /> 
-3. **链接 UGCKit.framework 和 SDK**
-	1. 单击工程的 Target，选择 Build Phase 标签，在 Link Binary With Libraries 中单击加号，选择 UGCKit.framework。
-<img src="https://main.qcloudimg.com/raw/f58b5a64a5074b334b2c97ec010800fc.jpg" width=800px />
-	2. 在 Finder 中打开 SDK 目录，将 SDK 拖动到 Link Binary With Libraries 中。
-<img src="https://main.qcloudimg.com/raw/d20bdbf7167a7dfce3cc5ab5c32f83c9.jpg" width=800px />
-	3. 将 SDK 目录下的 FilterResource.bundle 拖动到工程中并勾选 App Target。
+单击工程的 Target，选择 Build Phase 标签，在 Dependencies 中单击加号，选择 `UGCKit.framework`、 `UGCKitResources`、`TCBeautyPanel.framework` 和 `TCBeautyPanelResources`，单击【Add】。
+![](https://main.qcloudimg.com/raw/098808d270672bd4413fbca2d92b7e4a.png )
+3. **链接 UGCKit.framework, TCBeautyPannel.framework 和 SDK**
+  1. 单击工程的 Target，选择 Build Phase 标签，在 Link Binary With Libraries 中单击加号，选择 `UGCKit.framework`，`TCBeautyPannel.framework` 添加。
+![](https://main.qcloudimg.com/raw/ccbc89f8a0ff68ac4e9159c9388070b7.png)
+  2. 在 Finder 中打开 SDK 目录，将 SDK 拖动到 Link Binary With Libraries 中，或者通过下图示例在 xcode 中找到 SDK 对应的目录，通过 Add files 添加。
+![](https://main.qcloudimg.com/raw/8432ca1427b51e65ff40e10bb460bbf9.png)
+  3. 将 TXLiteAVDemo/App/Resource 目录下的 `FilterResource.bundle` 拖动到工程中并勾选 App Target。
 4. **导入资源**
-单击工程的 Target，选择 Build Phase 标签，展开 Copy Bundle Resources。然后在左侧目录中依次展开 UGCKit.xcodeproj、Products，拖动 UGCKitResources.bundle 到 Copy Bundle Resources 中。
-<img src="https://main.qcloudimg.com/raw/fbca78b281f8e87cbbaa036c4f208725.jpg" width=800px />
+	1. 单击工程的 Target，选择 Build Phase 标签，展开 Copy Bundle Resources。
+	2. 在左侧目录中依次展开 UGCKit.xcodeproj、Products，拖动 `UGCKitResources.bundle` 到 Copy Bundle Resources 中，而后依次展开 `TCBeautyPannel.xcodeproj`，Products。
+	3. 拖动 `TCBeautyPanelResources.bundle` 到 Copy Bundle Resources中。
+![](https://main.qcloudimg.com/raw/6377d1c7b240e008f240d116e5363a8b.png)
 5. **导入商业版资源（仅用于商业版）**
-将商业版 SDK zip 包中 SDK/Resouce 拖动到工程中，选择“Create groups"并勾选您的 Target，单击【Finish】。
-<img src="https://main.qcloudimg.com/raw/5ae899aff95984bf34839653ad2c4b51.jpg" width=800px />
-<img src="https://main.qcloudimg.com/raw/fba634dc19e9e0bf3443f1451a9a2b60.jpg" width=800px />
+将商业版 SDK zip 包中 EnterprisePITU（在App/AppCommon目录下）文件夹拖动到工程中，选择“Create groups"并勾选您的 Target，单击【Finish】。
 
-#### 步骤2：使用 UGCKit
+### 步骤2：使用 UGCKit
 
 1. **录制**
 `UGCKitRecordViewController`提供了完整的录制功能，您只需实例化这个控制器后展现在界面中即可。
@@ -124,12 +122,12 @@ UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController 
    recordViewController.completion = ^(TCUGCResult *result) {
        if (result.error) {
            // 录制出错
-       		[self showAlertWithError:error];
+          [self showAlertWithError:error];
        } else {
            if (result.cancelled) {
                // 用户取消录制，退出录制界面
                [self.navigationController popViewControllerAnimated:YES];
-   	      } else {
+          } else {
                // 录制成功, 用结果进行下一步处理
                [self processRecordedVideo:result.media];
            }
@@ -150,12 +148,12 @@ UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController 
        editViewController.completion = ^(TCUGCResult *result) {
        if (result.error) {
            // 出错
-       		[self showAlertWithError:error];
+          [self showAlertWithError:error];
        } else {
            if (result.cancelled) {
                // 用户取消录制，退出编辑界面
                [self.navigationController popViewControllerAnimated:YES];
-   	      } else {
+          } else {
                // 编辑保存成功, 用结果进行下一步处理
                [self processEditedVideo:result.path];
            }
@@ -167,7 +165,7 @@ UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController 
 ```
    // 初始化配置
    UGCKitMediaPickerConfig *config = [[UGCKitMediaPickerConfig alloc] init];
-   config.mediaType = UGCKitMediaTypeVideo;//选则视频
+   config.mediaType = UGCKitMediaTypeVideo;//选择视频
    config.maxItemCount = 5;                //最多选5个
 
    // 实例化媒体选择器
@@ -185,7 +183,7 @@ UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController 
           if (result.cancelled) {
                // 用户取消录制，退出选择器界面
                [self dismissViewControllerAnimated:YES completion:nil];
-   	      } else {
+          } else {
                // 编辑保存成功, 用结果进行下一步处理
                [self processEditedVideo:result.media];
           }

@@ -23,6 +23,13 @@ FMT 事务的实现原理：代理用户执行 PrepareStatement 和 CreateStatem
 </dependency>
 ```
 
+>?如果需要同时使用 tsf-sleuth 和 druid，需要切换到 spring-boot-dtf-druid 客户端，配置如下：
+```
+<dependency>
+	<groupId>com.tencent.cloud</groupId>
+	<artifactId>spring-boot-dtf-druid</artifactId>
+</dependency>  
+```
 ## 客户端配置
 
 在客户端中，支持以下配置自定义：
@@ -110,7 +117,7 @@ public Boolean order(@RequestBody Order order) {
 | 参数    | 数据类型 | 必填 | 默认值    | 描述                                                          |
 | ------- | -------- | ---- | --------- | ------------------------------------------------------------- |
 | timeout | Integer  | 否   | 60 × 1000 | 事务超时时间（主事务**开启**到**提交**/**回滚**的时长），单位：毫秒 |
-| groupId | String   | 否   |           | 在此事务分组下开启主事务                                      |
+| groupId | String   | 否   |    -      | 在此事务分组下开启主事务                                      |
 
 如果`dtf.env.groups`下只配置了**1个**事务分组 ID，则 @DtfTransactional 注解中**不需要**填写groupId，DTF 框架会自动从配置中获取。
 
@@ -316,3 +323,4 @@ public class OrderApplication {
     }
 }
 ```
+

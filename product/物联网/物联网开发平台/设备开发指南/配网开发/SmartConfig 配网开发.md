@@ -9,7 +9,7 @@ SmartConfig 方式配网，每个厂商编码方式和报文选择上有自己�
 - 基于该协议，设备端在连接 Wi-Fi 路由器成功后，会告知手机端自己的 IP 地址。
 - 此时手机端可以通过数据通道，例如，TCP/UDP 通讯将后台提供的配网 Token 发送给设备，并由设备转发至物联网后台，依据 Token 可以进行设备绑定。
 
-目前腾讯连连小程序已支持采用 ESP-TOUCH 协议进行 SmartConfig 配网，并提供了相应的 [小程序 SDK](https://github.com/tencentyun/qcloud-iotexplorer-appdev-miniprogram-sdk)。
+目前腾讯连连小程序已支持采用 ESP-TOUCH 协议进行 SmartConfig 配网，并提供了相应的 [小程序 SDK](https://www.npmjs.com/package/qcloud-iotexplorer-appdev-sdk)。
 SmartConfig 方式配网及设备绑定的示例流程图如下：
 <img src="https://main.qcloudimg.com/raw/60a5a3f9973135430a592bbeb5d591b6.jpg" width="90%">
 
