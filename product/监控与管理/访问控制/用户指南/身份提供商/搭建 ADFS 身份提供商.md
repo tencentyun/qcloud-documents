@@ -1,6 +1,5 @@
 ## 操作场景
 Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows Server 活动目录联合服务 (ADFS). ADFS是一种能够用于一次会话过程中多个Web应用用户认证的新技术。腾讯云支持基于 SAML 2.0（安全断言标记语言 2.0）的联合身份验证，SAML 2.0 是许多身份验证提供商（Identity Provider， IdP）使用的一种开放标准。您可以通过基于 SAML 2.0 联合身份验证将 ADFS 与腾讯云进行集成，从而实现 ADFS 帐户自动登录（单一登录）腾讯云控制台管理腾讯云的资源，不必为企业或组织中的每一个成员都创建一个 CAM 子用户。
-
 ## 前提条件
 > - 拥有一台 Windows Server 云服务器。如您需要购买服务器，请参阅 [云服务器-购买指南](https://cloud.tencent.com/document/product/213/2179)。
 - 已进入服务器管理-仪表板页面。
@@ -91,72 +90,10 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 9.在证书导出向导页面，选择“是，导出私钥”，勾选“组或用户名（建议）”，单击下一步，完成导出保存文件。<span id="step9">如下图所示：
 ![](https://main.qcloudimg.com/raw/c35cd7d547864b496ba063ff4c332666.png)
 ![](https://main.qcloudimg.com/raw/febcb2723b415cab110bac765ecde927.png)
-
-### 安装 ADFS
-1.<span id="step0"> 参考安装 AD 域服务和 DNS 服务中 [步骤2](#step1)，进入服务器角色页面，勾选 Active Directory 联合身份验证服务。如下图所示：
-![](https://main.qcloudimg.com/raw/24e6a6f7440644fa21425652eb393c0f.png)
-2. 保持页面默认信息，一直单击【下一步】>【完成】，在结果页面，单击【在此服务器上配置联合身份验证服务】。如下图所示：
-![](https://main.qcloudimg.com/raw/a68753820c34fef24ab06c1ced2ac729.png)
-3. 保持页面默认信息，一直单击【下一步】，进入指定服务属性页面，填写导入以下信息
-SSL 证书：导入在生成 SSL 证书中 [步骤 9](#step9) 保存的证书文件。
-联合身份服务名称：与右上角信息保持一致。
-联合身份验证服务显示名称：用户在登录时看到显示名称。
-如下图所示：
-![](https://main.qcloudimg.com/raw/cf2baeee1e1b4f32f706092f3a244788.png)
-
-4. 在指定服务账户页面，输入账户名称、密码，<span id="step4">保持页面默认信息，一直单击【下一步】。如下图所示：
-
-![](https://main.qcloudimg.com/raw/7a939e5705f4f1f3c23be50f11647665.png)
-
-5.访问以下链接下载 XML文件。
-```
-https://域名/federationmetadata/2007-06/federationmetadata.xml
-```
-
-6.在 powerShell 中执行 Set-AdfsProperties –EnableIdpInitiatedSignonPage $True，
-访问以下入口进行登录。
-
-```
-https://域名/adfs/ls/idpinitiatedSignOn.htm
-```
-7. 输入 [步骤4](#step4) 中的账号名称、密码登录，登录成功如下图所示：
-![](https://main.qcloudimg.com/raw/a032933d0f3bedbfe31d1cea75459d5c.png)
-
-8.单击服务器管理器-ADFS 页面右上角【工具】。如下图所示：
-![](https://main.qcloudimg.com/raw/0a1b8c8556dcf41f02e48c530326df82.png)
-9. 选择 ADFS 管理，单击【添加信赖方】，如下图所示：
-![](https://main.qcloudimg.com/raw/f4f59f90d2b90974428faa31cb4c6df6.png)
-10.在添加信赖方信任向导页面，选择“声明感知”，单击【启动】。如下图所示：
-![](https://main.qcloudimg.com/raw/a90385d09c006b220c22d0fa342bca1b.png)
-
-11.访问以下链接下载腾讯云身份提供商的 XML 文件。
-
-```
-https://cloud.tencent.com/saml.xml
-```
-12.导入腾讯云身份提供商的文件。如下图所示：
-![](https://main.qcloudimg.com/raw/acecf94a4147dc77c7ade97bd2c98f12.png)
-13.保持页面默认信息，一直单击【下一步】>【完成】。
-14.单击【信赖方信任】>【添加规则】>【编辑声明颁发策略】。如下图所示：
-![](https://main.qcloudimg.com/raw/1c34a7e2622257c74c7b6826e0c69d25.png)
-15.在选择规则模板页面，单击【选择规则类型】>【下一步】。如下图所示：
->?
->```
-<Attribute Name="https://cloud.tencent.com/SAML/Attributes/Role">
-                <AttributeValue>qcs::cam::uin/{AccountID}:roleName/{RoleName},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName}
-</AttributeValue>
-            </Attribute>
-            <Attribute Name="键名">
-                <AttributeValue>RoleName</AttributeValue>
-            </Attribute>
-```
-![](https://main.qcloudimg.com/raw/8909284cac7bc78f80a35bd677f5701c.png)
-![](https://main.qcloudimg.com/raw/f69d20624306819ddb282c38956037c7.png)
-
-### 在腾讯云创建身份提供商
+### 在腾讯云创建身份提供商<span id="step5"> 
 >?您可以通过本步骤配置 ADFS 和腾讯云之间的信任关系使之相互信任。
 
-在腾讯云创建 SAML 身份提供商，<span id="step1"></span>详细操作请参阅 [创建身份提供商](https://cloud.tencent.com/document/product/598/30290)。
+在腾讯云创建 SAML 身份提供商，保存您的身份提供商名称。<span id="step1"></span>详细操作请参阅 [创建身份提供商](https://cloud.tencent.com/document/product/598/30290)。
 其中元数据文档您可以访问以下链接下载提供商的xml文件。
 
 ```
@@ -166,10 +103,113 @@ https://域名/federationmetadata/2007-06/federationmetadata.xml
 ### 为身份提供商创建角色
 >?您可以通过本步骤分配用户访问权限，向 ADFS 用户分配腾讯云的 SSO 访问权限。
 >
-详细操作请参阅 [为身份提供商创建角色](https://cloud.tencent.com/document/product/598/19381) 。
+为您的身份提供商创建角色，保存您的角色名称。详细操作请参阅 [为身份提供商创建角色](https://cloud.tencent.com/document/product/598/19381) 。
 其中身份提供商选择在 [腾讯云创建身份提供商](#step1) 步骤中创建的身份提供商。
 
+### 配置用户
+1. 在服务器管理器仪表板页面，单击右上角工具，选择 Active Directory 用户和计算机。如下图所示：
+![](https://main.qcloudimg.com/raw/b064eec1982149a015d8df9a569fbf91.png)
+2. 在 Active Directory 用户和计算机页面，单击【操作】>【新建】>【组】。如下图所示：
+![](https://main.qcloudimg.com/raw/a07fe66f3ed109266ac98162663029a7.png)
+3. 在新建对象-组页面， 填写组名信息。其中组名信息为 Tencent-$您的主账号 ID-$您创建的腾讯云角色名称，如：如下图所示：
+![](https://main.qcloudimg.com/raw/aa30bdf9deaec08ddceadcff44199a45.png)
+4. 在 Active Directory 用户和计算机页面，单击【操作】>【新建】>【用户】。如下图所示：
+![](https://main.qcloudimg.com/raw/8d1b51da00f307b4d2583ff3fe924186.png)
+5.  新建员工，填写员工基本信息，以英文命名用户名称，保存用户名称。
 
+### 安装 ADFS
+1. <span id="step0"> 参考安装 AD 域服务和 DNS 服务中 [步骤2](#step1)，进入服务器角色页面，勾选 Active Directory 联合身份验证服务。如下图所示：
+![](https://main.qcloudimg.com/raw/24e6a6f7440644fa21425652eb393c0f.png)
+2. 保持页面默认信息，一直单击【下一步】>【完成】，在结果页面，单击【在此服务器上配置联合身份验证服务】。如下图所示：
+![](https://main.qcloudimg.com/raw/a68753820c34fef24ab06c1ced2ac729.png)
+3. 保持页面默认信息，一直单击【下一步】，进入指定服务属性页面，填写导入以下信息
+SSL 证书：导入在生成 SSL 证书中 [步骤 9](#step9) 保存的证书文件。
+联合身份服务名称：目标服务器名称（与右上角信息保持一致）或 sts.域名或 adfs.域名。
+联合身份验证服务显示名称：用户在登录时看到显示名称。
+如下图所示：
+![](https://main.qcloudimg.com/raw/cf2baeee1e1b4f32f706092f3a244788.png)
+4. 在指定服务账户页面，输入账户名称、密码，<span id="step4">保持页面默认信息，一直单击【下一步】。如下图所示：
+![](https://main.qcloudimg.com/raw/7a939e5705f4f1f3c23be50f11647665.png)
 
+5. 访问以下链接下载 XML文件。
+```
+https://域名/federationmetadata/2007-06/federationmetadata.xml
+```
 
+6. 在 powerShell 中执行 Set-AdfsProperties –EnableIdpInitiatedSignonPage $True，
+访问以下入口进行登录。
 
+```
+https://域名/adfs/ls/idpinitiatedSignOn.htm
+```
+7. 输入 [步骤4](#step4) 中的账号名称、密码登录，登录成功如下图所示：
+![](https://main.qcloudimg.com/raw/a032933d0f3bedbfe31d1cea75459d5c.png)
+
+8. 单击服务器管理器-ADFS 页面右上角【工具】。如下图所示：
+![](https://main.qcloudimg.com/raw/0a1b8c8556dcf41f02e48c530326df82.png)
+9. 选择 ADFS 管理，单击【添加信赖方】，如下图所示：
+![](https://main.qcloudimg.com/raw/f4f59f90d2b90974428faa31cb4c6df6.png)
+10. 在添加信赖方信任向导页面，选择“声明感知”，单击【启动】。如下图所示：
+![](https://main.qcloudimg.com/raw/a90385d09c006b220c22d0fa342bca1b.png)
+
+11. 访问以下链接下载腾讯云身份提供商的 XML 文件。
+
+```
+https://cloud.tencent.com/saml.xml
+```
+12. 导入腾讯云身份提供商的文件。如下图所示：
+![](https://main.qcloudimg.com/raw/acecf94a4147dc77c7ade97bd2c98f12.png)
+13. 保持页面默认信息，一直单击【下一步】>【完成】。
+14. 单击【信赖方信任】>【添加规则】>【编辑声明颁发策略】。如下图所示：
+![](https://main.qcloudimg.com/raw/1c34a7e2622257c74c7b6826e0c69d25.png)
+15. 在添加转换声明规则向导页面，单击【选择规则类型】>【转换传入声明】>【下一步】。如下图所示：
+![](https://main.qcloudimg.com/raw/cc5c6d362bbc8efe10dd63e90948ef3b.png)
+16. 在编辑规则页面，补充规则信息，单击【确定】。如下图所示：
+![](https://main.qcloudimg.com/raw/2f273e4888f5b22a898be0f8e38e819d.png)
+>? 
+> - 声明规则名称：NameID。
+> - 传入声明类型： Windows 账户名。
+> - 传出声明类型：名称 ID。
+> - 传出名称 ID 格式：永久标识符。
+> - 选择传递所有声明值。
+17. 在添加转换声明规则向导页面，单击【选择规则类型】>【使用自定义规则发送声明】>【下一步】。如下图所示：
+![](https://main.qcloudimg.com/raw/3a0c83b3c1ea6cb8aed612e9998f95f1.png)
+18.在编辑规则页面，补充规则信息，单击【确定】。如下图所示：
+![](https://main.qcloudimg.com/raw/e7a380f00d3d26f89609fc84c510a625.png)
+>? 
+> - 声明规则名称：Get AD Groups。
+> - 自定义规则： 补充以下信息：
+>```
+c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer == "AD AUTHORITY"]
+ => add(store = "Active Directory", types = ("http://temp/variable"), query = ";tokenGroups;{0}", param = c.Value);
+```
+19. 在添加转换声明规则向导页面，单击【选择规则类型】>【使用自定义规则发送声明】>【下一步】。如下图所示：
+![](https://main.qcloudimg.com/raw/3a0c83b3c1ea6cb8aed612e9998f95f1.png)
+20. 在编辑规则页面，补充规则信息，单击【确定】。如下图所示：
+![](https://main.qcloudimg.com/raw/8bc620166e88e68f4963622a85ed398b.png)
+>? 
+> - 声明规则名称：Role。
+> - 自定义规则： 补充以下信息
+>```
+c:[Type == "http://temp/variable", Value =~ "(?i)^Tencent-([\d]+)"]
+ => issue(Type = "https://cloud.tencent.com/SAML/Attributes/Role", Value = RegExReplace(c.Value, "Tencent-([\d]+)-(.+)", "qcs::cam::uin/$1:roleName/$2,qcs::cam::uin/$1:saml-provider/身份提供商名称")); 
+```
+其中“身份提供商名称”为您在 在腾讯云创建身份提供商<span id="step5">步骤创建的身份提供商名称
+21. 在添加转换声明规则向导页面，单击【选择规则类型】>【使用自定义规则发送声明】>【下一步】。如下图所示：
+![](https://main.qcloudimg.com/raw/3a0c83b3c1ea6cb8aed612e9998f95f1.png)
+22. 在编辑规则页面，补充规则信息，单击【确定】。如下图所示：
+> - 声明规则名称：RoleSessionName。
+> - 自定义规则： 补充以下信息
+>```
+c:[Type == "http://temp/variable", Value =~ "(?i)^Tencent-([\d]+)"]
+ => issue(Type = "https://cloud.tencent.com/SAML/Attributes/RoleSessionName", Value = RegExReplace(c.Value, "Tencent-([\d]+)-(.+)", "test"));
+ ```
+
+### 账号登录
+在您的服务器浏览器中输入以下网址，访问登录腾讯云。
+```
+https://域名/adfs/ls/idpinitiatedSignOn.htm
+```
+>? 
+> - 其中"域名"为 ADFS 服务器名称。
+> - 如您需要在外网登录您的账号，可以配置二级域名访问。
