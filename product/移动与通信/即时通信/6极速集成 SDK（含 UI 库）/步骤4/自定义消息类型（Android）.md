@@ -73,49 +73,35 @@ messageLayout.setOnCustomMessageDrawListener(new CustomMessageDraw());
 ```java
 public class CustomMessageDraw implements IOnCustomMessageDrawListener {
 
- /**
- * 自定义消息渲染时，会调用该方法，本方法实现了自定义消息的创建，以及交互逻辑
- *
- * @param parent 自定义消息显示的父View，需要把创建的自定义消息view添加到parent里
- * @param info 消息的具体信息
- */
- @Override
- public void onDraw(ICustomMessageViewGroup parent, MessageInfo info) {
- // 获取到自定义消息的json数据
- if (info.getTimMessage().getElemType() != V2TIMMessage.V2TIM_ELEM_TYPE_CUSTOM) {
- return;
- }
- V2TIMCustomElem elem = info.getTimMessage().getCustomElem();
- // 自定义的json数据，需要解析成bean实例
- CustomHelloMessage data = null;
- try {
- data = new Gson().fromJson(new String(elem.getData()), CustomHelloMessage.class);
- } catch (Exception e) {
- DemoLog.w(TAG, "invalid json: " + new String(elem.getData()) + " " + e.getMessage());
- }
- if (data == null) {
- DemoLog.e(TAG, "No Custom Data: " + new String(elem.getData()));
- } else if (data.version == TUIKitConstants.JSON_VERSION_1
- || (data.version == TUIKitConstants.JSON_VERSION_4 && data.businessID.equals("text_link"))) {
- CustomHelloTIMUIController.onDraw(parent, data);
- } else {
- DemoLog.w(TAG, "unsupported version: " + data);
- }
- }
-}
-
-/**
- * 自定义消息的 bean 实体，用来与 JSON 的相互转化
- */
-public static class CustomMessageData {
-    // 超文本类型，点击可以跳转到一个 Webview
-    final static int TYPE_HYPERLINK = 1;
-    // 视频+说明类型
-    final static int TYPE_PUSH_TEXT_VIDEO = 2;
-    // 自定义消息类型，根据业务可能会有很多种
-    int type = TYPE_HYPERLINK;
-    String text = "欢迎加入即时通信 IM 大家庭！查看详情>>";
-    String url = "https://cloud.tencent.com/document/product/269";
+	/**
+	 * 自定义消息渲染时，会调用该方法，本方法实现了自定义消息的创建，以及交互逻辑
+	 *
+	 * @param parent 自定义消息显示的父View，需要把创建的自定义消息view添加到parent里
+	 * @param info   消息的具体信息
+	 */
+	@Override
+	public void onDraw(ICustomMessageViewGroup parent, MessageInfo info) {
+		// 获取到自定义消息的json数据
+		if (info.getTimMessage().getElemType() != V2TIMMessage.V2TIM_ELEM_TYPE_CUSTOM) {
+			return;
+		}
+		V2TIMCustomElem elem = info.getTimMessage().getCustomElem();
+		// 自定义的json数据，需要解析成bean实例
+		CustomHelloMessage data = null;
+		try {
+			data = new Gson().fromJson(new String(elem.getData()), CustomHelloMessage.class);
+		} catch (Exception e) {
+			DemoLog.w(TAG, "invalid json: " + new String(elem.getData()) + " " + e.getMessage());
+		}
+		if (data == null) {
+			DemoLog.e(TAG, "No Custom Data: " + new String(elem.getData()));
+		} else if (data.version == TUIKitConstants.JSON_VERSION_1
+				|| (data.version == TUIKitConstants.JSON_VERSION_4 && data.businessID.equals("text_link"))) {
+			CustomHelloTIMUIController.onDraw(parent, data);
+		} else {
+			DemoLog.w(TAG, "unsupported version: " + data);
+		}
+	}
 }
 ```
 
