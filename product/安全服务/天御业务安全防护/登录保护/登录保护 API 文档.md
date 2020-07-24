@@ -97,24 +97,24 @@
 ## 示例代码
 一个完整的请求需要两类请求参数：公共请求参数和接口请求参数。本文只列出了接口请求参数，并未列出公共请求参数，有关公共请求参数的更多说明，请参见 [公共请求参数](https://cloud.tencent.com/document/product/295/7279)。公共参数传参中不需要添加 SignatureMethod 参数，签名计算默认使用 HmacSHA1 的签名算法，示例代码中有具体实现。
 - **请求示例** 
-```
-<https://csec.api.qcloud.com/v2/index.php?Action=ActivityAntiRush
+```shell
+https://csec.api.qcloud.com/v2/index.php?Action=LoginProtection
 &<公共请求参数>
 &secretId=AKID***************************q4Zw
-&accountType=1
-&uid=D692D87319F2098C3877C3904B304706
+&accountType=10004
+&uid=BF**********AD31C95CA75E21365973
 &loginIp=127.0.0.1（调用时必须是外网有效ip地址）
 &loginTime=1553484280（uinx时间戳，仅需要精确到秒）
 ```
 - **响应示例**
-```
+```shell
 {
     "Nonce": 516529719,
     "code": 0,
     "level ": 1,
     "message": "NoError",
     "loginTime": "1553484280",
-    "uid": "D692D87319F2098C3877C3904B304706",
+    "uid": "BF**********AD31C95CA75E21365973",
     "loginIp": "127.0.0.1",
     "riskType": [1]
 }

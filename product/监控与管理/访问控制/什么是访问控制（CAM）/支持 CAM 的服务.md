@@ -50,7 +50,7 @@
  | 服务                                                       | 授权粒度 | 控制台 | 根据标签进行授权  |  服务角色 |	参考文档 |	
 | ------------------------------------------------------------ | ------ | -------- | ------- | ---- |	 ---- |
 | [负载均衡](https://cloud.tencent.com/document/product/214)   | 资源级  | &#10003;      | &#10003;    |    &#10003;  |	[访问管理指南](https://cloud.tencent.com/document/product/214/9776) |	
-| [私有网络](https://cloud.tencent.com/document/product/215)<sup>1</sup>  | 资源级 | &#10003;        | -     | - |	 [访问管理指南](https://cloud.tencent.com/document/product/215/20168) |	
+| [私有网络](https://cloud.tencent.com/document/product/215)<sup>1</sup>  | 资源级 | &#10003;        | &#10003;      | - |	 [访问管理指南](https://cloud.tencent.com/document/product/215/20168) |	
 | [专线接入](https://cloud.tencent.com/document/product/216) | 操作级   | &#10003;       | -       | -  |	 - |	
 > ?<sup>1</sup> 私有网络中 [弹性网卡](https://cloud.tencent.com/document/product/576)、[NAT 网关](https://cloud.tencent.com/document/product/552)、[对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[网络流日志](https://cloud.tencent.com/document/product/682) 、[Anycast 公网加速](https://cloud.tencent.com/document/product/644)、[云联网](https://cloud.tencent.com/document/product/877)、[共享带宽包](https://cloud.tencent.com/document/product/684) 均已支持使用 CAM。
 
@@ -78,9 +78,11 @@
 | [云数据库 Memcached](https://cloud.tencent.com/document/product/241)  |资源级 | &#10003;  | -    | -    |[访问管理指南](https://cloud.tencent.com/document/product/241/38708) |	
 | [时序数据库 CTSDB](https://cloud.tencent.com/document/product/652)  |资源级 | &#10003;  | -    | -    |[访问管理指南](https://cloud.tencent.com/document/product/652/42494) |	
 | [游戏数据库 TcaplusDB](https://cloud.tencent.com/document/product/596)  |资源级 | &#10003;  | &#10003;     | -    |[访问管理指南](https://cloud.tencent.com/document/product/596/42901) |	
-| [数据库智能管家 DBbrain](https://cloud.tencent.com/document/product/1130)  |资源级 | &#10003;  | -    | -    |[访问管理指南](https://cloud.tencent.com/document/product/1130/39344)|	
+| [数据库智能管家 DBbrain](https://cloud.tencent.com/document/product/1130) |资源级 | &#10003;  | -    | -    |[访问管理指南](https://cloud.tencent.com/document/product/1130/39344)|	
 | [数据传输服务](https://cloud.tencent.com/document/product/571)  | 资源级 |  &#10003;  | -    | &#10003;    |[访问管理指南](https://cloud.tencent.com/document/product/571/38480)|	
 | [分布式HTAP数据库 TBase](https://cloud.tencent.com/document/product/1129)  | 资源级 |  &#10003;  | -    | -   |[访问管理指南](https://cloud.tencent.com/document/product/1129/39783) |	
+| [数据库管理](https://cloud.tencent.com/document/product/1130/40879)  | 资源级 |  &#10003;  | -    | -   |[访问管理指南](https://cloud.tencent.com/document/product/1130/45992) |	
+
 
 ## Serverless	
 
@@ -99,6 +101,7 @@
 | [API 网关](https://cloud.tencent.com/document/product/628)     | 资源级  | &#10003;  | -  | &#10003; |[访问管理指南](https://cloud.tencent.com/document/product/628/34267)|
 | [腾讯微服务平台](https://cloud.tencent.com/document/product/649)  | 资源级  | &#10003;  | - |  &#10003; |[访问管理指南](https://cloud.tencent.com/document/product/649/38327) |
 | [分布式消息队列](https://cloud.tencent.com/document/product/1179)  | 资源级  | &#10003;  | - |  - |[访问管理指南](https://cloud.tencent.com/document/product/1179/45125) |
+| [分布式事务](https://cloud.tencent.com/document/product/1224)  | 操作级  | &#10003;  | - |  - |- |
 
 ## 数据处理	
 
@@ -304,7 +307,7 @@
 | ----------------------------------------------------------- | ------ | -------- | ----- |  ---- |	 ---- |	
 | [小游戏联机对战引擎](https://cloud.tencent.com/document/product/1038)  | 资源级  | &#10003; | -   | &#10003;   | [访问管理指南](https://cloud.tencent.com/document/product/1038/38760)   |	
 | [游戏多媒体引擎](https://cloud.tencent.com/document/product/607)  | 资源级 | &#10003;| -   |  -    |	 -   |
-| [游戏服务器引擎](https://cloud.tencent.com/document/product/1165)  | 服务级 | &#10003;| -   |  &#10003;    |	 -   |
+| [游戏服务器引擎](https://cloud.tencent.com/document/product/1165)  | 资源级 | &#10003;| -   |  &#10003;    |	 [访问管理指南](https://cloud.tencent.com/document/product/1165/46373)    |
 
 ## 教育服务	
 
@@ -389,6 +392,7 @@
 | [在线课堂](https://cloud.tencent.com/document/product/680)  | 服务级 | &#10003;  | -  |  - |- |
 | [数字版权管理解决方案](https://cloud.tencent.com/document/product/1000)  | 操作级 | -  | -  |  - |- |
 | [互动直播](https://cloud.tencent.com/solution/ilvb) | 服务级  | &#10003;   | -   |  -   |	-  |	
+| [云游戏](https://cloud.tencent.com/document/product/1162) | 操作级  | &#10003;   | -   |  -   |	-  |	
 
 ## 开发者工具
 

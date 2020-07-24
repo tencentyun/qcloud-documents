@@ -185,10 +185,8 @@ TensorFlow 是 Google 开源的一种深度学习系统，智能钛为用户提�
  - 资源类型：您可按需选择。
 
 #### 三、运行调度及评估效果查看
-单击画布上方运行按钮可运行工作流，更多详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/34007)。运行成功后在组件上右击，在【Tensorflow 控制台】>【App 详情】中查看 stdout.log 和 stderr.log 两个日志。
-在 stdout.log 日志中我们可以看到模型效果。
-模型效果如下图展示：
-![](https://main.qcloudimg.com/raw/715f546ff695d3965ec4e5f69d0e6a9a.png)
+单击画布上方运行按钮可运行工作流，更多详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/45653#.E8.BF.90.E8.A1.8C.E5.B7.A5.E4.BD.9C.E6.B5.81)。运行成功后在组件上右击，在【Tensorflow 日志】>【日志详情】中查看日志，模型效果如下图展示：
+![](https://main.qcloudimg.com/raw/5baec332b121ffd37aba6bbc441befe1.png)
 
 至此，我们完成了利用智能钛机器学习平台的深度学习框架 TensorFlow 运行自定义代码的全部流程。
 
