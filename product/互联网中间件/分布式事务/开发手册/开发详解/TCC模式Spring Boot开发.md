@@ -218,6 +218,7 @@ public interface IOrderService {
 | confirmMethod | String   | 否   | confirm 前缀 + @DtfTcc 注解方法名首字母大写    | Confirm 操作方法名              |
 | cancelClass   | String   | 否   | @DtfTcc 注解所在 Class                         | Cancel 操作类名                 |
 | cancelMethod  | String   | 否   | Cancel 前缀 + @DtfTcc注解方法名名称首字母大写 | Cancel 操作方法名               |
+| rollbackFor   | Class<? extends Throwable>[] | 否   | {}                                           | 分支事务在识别到以下异常时回滚主事务，未配置时不回滚 |
 
 在上面的例子中：
 
@@ -226,8 +227,9 @@ public interface IOrderService {
 - `confirmMethod`：confirmOrder(Long txId, Long branchId, Order order)
 - `cancelClass`：IOrderService
 - `cancelMethod`：cancelOrder(Long txId, Long branchId, Order order)
+- rollbackFor：默认为空。若想要在发生异常时回滚，可设置为 Exception。
 
-### 通过API管理分支事务（不推荐）
+### 通过 API 管理分支事务（不推荐）
 
 可以参考 [Spring Free 开发指导](https://cloud.tencent.com/document/product/1224/45970) 中的分支事务管理章节。
 
