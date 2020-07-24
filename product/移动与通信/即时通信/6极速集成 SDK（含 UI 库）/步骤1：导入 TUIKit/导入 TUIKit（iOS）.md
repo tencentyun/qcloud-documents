@@ -15,8 +15,8 @@ TUIKit 支持 CocoaPods 方式和手动集成两种方式。我们推荐使用 C
 1. 在 Podfile 中增加以下内容。
 ```
 #use_frameworks!   // TUIKit 使用到了第三方静态库，这个设置需要屏蔽
-use_modular_headers!
-pod 'TXIMSDK_TUIKit_iOS'
+pod 'TXIMSDK_TUIKit_iOS'                 // 默认集成了 TXLiteAVSDK_TRTC 音视频库
+// pod 'TXIMSDK_TUIKit_iOS_Professional' // 默认集成了 TXLiteAVSDK_Professional 音视频库
 ```
 2. 执行以下命令，安装 TUIKit。
 ```bash
@@ -36,15 +36,6 @@ pod install
  - [SDWebImage - Tag : 5.5.2](https://github.com/SDWebImage/SDWebImage)
  - [ReactiveObjC - Tag  : 3.1.1](https://github.com/ReactiveCocoa/ReactiveObjC.git)
  - [Toast - Tag  : 4.0.0](https://github.com/scalessec/Toast)
- - [ISVImageScrollView - Tag : 0.1.2](https://github.com/yuriiik/ISVImageScrollView)
- - [AFNetworking - Tag : 4.0.1](https://github.com/AFNetworking/AFNetworking)
- - [SnapKit - Tag : 4.2.0](https://github.com/SnapKit/SnapKit)
- - [Toast-Swift - Tag :5.0.1](https://github.com/scalessec/Toast-Swift)
- - [RxSwift - Tag :5.1.1](https://github.com/ReactiveX/RxSwift)
- - [RxCocoa - Tag :5.1.1](https://github.com/ReactiveX/RxSwift/tree/master/RxCocoa)
- - [NVActivityIndicatorView - Tag :4.8.0](https://github.com/ninjaprox/NVActivityIndicatorView)
- - [Material - Tag :3.1.8](https://github.com/CosmicMind/Material)
- - [Alamofire - Tag :4.9.1](https://github.com/Alamofire/Alamofire)
  - [TXLiteAVSDK_TRTC](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/SDK)
 
 ## 引用 TUIKit
