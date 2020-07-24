@@ -178,7 +178,7 @@ main()
 
 ### 步骤4：结果保存
 #### 1. 结果文件路径
-您可以自行指定将实验结果保存到[个人存储桶](https://console.cloud.tencent.com/cos5)中的特定 COS 文件路径下。
+您可以自行指定将实验结果保存到 [个人存储桶](https://console.cloud.tencent.com/cos5) 中的特定 COS 文件路径下。
 
 path：结果文件路径。
 bucket：指定存储桶。注意：请指定用户对应地域下的个人 COS 存储桶，使用示例中的存储桶会导致报错。
