@@ -1,5 +1,5 @@
 SSL/TLS 是一个介于应用层（HTTP 协议）与传输层（TCP 协议）之间的一个可选协议，其协议架构可参照下图：
-![](//mccdn.qcloud.com/static/img/cbc8338c1f2b91d4b7794d36bf01d719/image.png)
+![](https://main.qcloudimg.com/raw/2a1003f113f24fec62490468d3b454a1.png)
 
 当 HTTP 通信不使用 SSL/TLS 时，所有信息均以明文形式传播，会有以下风险：
 - 窃听风险（eavesdropping）：第三方可以获得通信内容。
@@ -30,7 +30,7 @@ SSL/TLS 协议的基本过程是这样的：
 上面过程的前两步，又称为"握手阶段"（handshake）。
 
 ## 握手阶段的详细过程
-![](//mccdn.qcloud.com/static/img/072ec1c409fa65c8e4847d0b6abec477/image.jpg)
+![](https://main.qcloudimg.com/raw/d182cd23cffbd73422eb28905f15bed9.jpg)
 "握手阶段"涉及四次通信且所有通信都是明文传输的。
 
 ### 客户端发出请求（ClientHello）

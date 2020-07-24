@@ -3,6 +3,7 @@
 
 会话列表 Controller 用于显示最近会话，同时内部会监听会话变更通知，并根据时间做排序。
 
+
 | API | 描述 |
 | --- | --- |
 | [delegate](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/TUIKit/Classes/TUIConversationListController.html) | 委托回调，用于外部处理选中事件 |
@@ -37,12 +38,12 @@ TUIMessageCell 是每个消息的基础类，通过它可以访问消息的所�
 | [indicator](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/TUIKit/Classes/TUIMessageCell.html) | 加载活动活动指示器 |
 | [retryView](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/TUIKit/Classes/TUIMessageCell.html) | 重发视图 |
 | [messageData](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/TUIKit/Classes/TUIMessageCell.html) | 消息数据源 |
-| [delegate](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/TUIKit/Classes/TUIMessageCell.html) | 消息UI事件委托 |
+| [delegate](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/TUIKit/Classes/TUIMessageCell.html) | 消息 UI 事件委托 |
 | [fillWithData:](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/TUIKit/Classes/TUIMessageCell.html) | 更新数据源 |
 
 ### TUIMessageCellData
 
-iOS TableView 的特点是滚动时 TableViewCell 会被重用，所有消息数据不保存到 Cell 中，而是在TUIMessageCellData 中，在显示时内部调用 fillWithData: 刷新界面。
+iOS TableView 的特点是滚动时 TableViewCell 会被重用，所有消息数据不保存到 Cell 中，而是在 TUIMessageCellData 中，在显示时内部调用 fillWithData 刷新界面。
 
 | API | 描述 |
 | --- | --- |

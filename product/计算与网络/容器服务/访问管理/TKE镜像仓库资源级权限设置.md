@@ -17,7 +17,7 @@
 如果您不需要详细管理镜像仓库权限，可以使用 [预设策略授权](#PresetPpolicyAuthorization)。
 如果您需要细致地管理协作者权限，请使用 [自定义策略授权](#CustomPolicyAuthorization)。
 容器镜像服务权限基于腾讯云 CAM 进行管理，您可以详细了解 CAM 的使用方法：
-- [用户管理](https://cloud.tencent.com/document/product/598/17289)
+- [用户管理](https://cloud.tencent.com/document/product/598/10599)
 - [策略管理](https://cloud.tencent.com/document/product/598/10601)
 - [授权管理](https://cloud.tencent.com/document/product/598/10602)
 
@@ -36,7 +36,7 @@
  - 删除镜像仓库
  - 删除镜像 Tag
 
-如果您不了解如何为协作者关联预设策略，请参考 CAM 文档：[预设策略介绍](https://cloud.tencent.com/document/product/598/10601#.E9.A2.84.E8.AE.BE.E7.AD.96.E7.95.A5)、[预设策略关联用户](https://cloud.tencent.com/document/product/598/10602#.E9.A2.84.E8.AE.BE.E7.AD.96.E7.95.A5.E5.85.B3.E8.81.94.E7.94.A8.E6.88.B7)。
+如果您不了解如何为协作者关联预设策略，请参考 CAM 文档：[策略](https://cloud.tencent.com/document/product/598/10601)、[授权管理](https://cloud.tencent.com/document/product/598/10602)。
 
 <span id="CustomPolicyAuthorization"></span>
 ## 自定义策略授权
@@ -48,7 +48,7 @@
 - **效力(effect)** ：该权限策略对协作者表现出的效果（允许/拒绝）。
 
 一旦您规划好权限设置，就可以开始进行权限分配。下面我们以“允许协作者创建镜像仓库”为例进行说明：
-1. 创建自定义策略（[CAM 文档](https://cloud.tencent.com/document/product/598/10601#.E8.87.AA.E5.AE.9A.E4.B9.89.E7.AD.96.E7.95.A5)）。
+1. 创建自定义 [策略](https://cloud.tencent.com/document/product/598/10601)。
   1. 使用开发商账号登录腾讯云-控制台。
   2. 进入 [CAM 自定义策略管理页面](https://console.cloud.tencent.com/cam/policy/custom)，单击【新建自定义策略】，打开“选择创建策略方式”对话框。如下图所示：
 ![选择创建策略方式](https://main.qcloudimg.com/raw/08e19cb78789ff21c93d05778e714c6c.png)
@@ -72,7 +72,7 @@
 >
  6. 单击【创建策略】，结束策略创建过程。
 ![](https://main.qcloudimg.com/raw/86d69dee0ee0223c56d94f1bb288e6cd.png)
-2. 关联自定义策略。步骤1中的策略（ccr-policy-demo）创建完成以后，您可以将其关联到任意协作者，详见 [CAM 文档](https://cloud.tencent.com/document/product/598/10602#.E7.94.A8.E6.88.B7.E5.85.B3.E8.81.94.E8.87.AA.E5.AE.9A.E4.B9.89.E7.AD.96.E7.95.A5)。策略关联完成后协作者即拥有**在任意命名空间下创建镜像仓库权限**。
+2. 关联自定义策略。步骤1中的策略（ccr-policy-demo）创建完成以后，您可以将其关联到任意协作者，详见 [授权管理](https://cloud.tencent.com/document/product/598/10602)。策略关联完成后协作者即拥有**在任意命名空间下创建镜像仓库权限**。
 \_resource `qcs::ccr:::repo/*` 格式说明：
  - `qcs::ccr:::` 为固定格式，表示开发商的腾讯云容器镜像仓库服务。
  - `repo` 为固定前缀，代表资源类型，这里是镜像仓库。

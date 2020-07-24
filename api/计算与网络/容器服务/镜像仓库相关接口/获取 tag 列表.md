@@ -1,3 +1,5 @@
+>?当前页面接口为旧版 API，未来可能停止维护。容器服务 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 [容器服务 API 3.0](https://cloud.tencent.com/document/api/457/31853)。
+>
 ## 1. 接口描述
 本接口 ( GetTagList ) 获取镜像 tag 列表。
 接口请求域名：`ccr.api.qcloud.com`。
@@ -7,7 +9,7 @@
 
 | 参数名称 | 描述 |类型 | 必选  | 
 |---------|---------|---------|---------
-| reponame   | 镜像名字 | String |是 |
+| reponame   | 仓库名字 | String |是 |
 | offset   | 偏移量,默认为 0 | Uint |否 |
 | limit   | 返回最大数量，默认 20, 最大值 100 | Uint |否 |
 | tag   | 可用于搜索的 tag 名字 | String |否 |
@@ -23,7 +25,7 @@
 | reponame |  仓库名字|String |
 | server |  镜像仓库域名|String |
 | tagCount |  tag 数目|Int |
-| tagInfo |  tag 列表，结果按 pushTime 降序排练|Object Array |
+| tagInfo |  tag 列表，结果按 pushTime 降序排列|Object Array |
 
 tag 字段详细说明：
 
@@ -42,6 +44,7 @@ tag 字段详细说明：
 | os |  操作系统|String |
 | pushTime |  push 时间|String |
 | sizeByte |  镜像大小，单位为字节|Int |
+
 ## 4. 示例
 输入
 

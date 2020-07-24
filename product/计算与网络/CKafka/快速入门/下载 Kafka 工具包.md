@@ -79,7 +79,7 @@ This is another message
 ```
 其中 broker-list 中的 IP 即为 CKafka 实例中的 VIP，topicName 为 CKafka 实例中的 topic 名称。
 
-**接收消息(CKafka 默认隐藏 Zookeeper 集群)：**
+**接收消息（CKafka 默认隐藏 ZooKeeper 集群）：**
 ```
 ./kafka-console-consumer.sh --bootstrap-server $ip:$port --from-beginning --new-consumer --topic topicName
 This is a message
@@ -97,3 +97,4 @@ This is another message
 
 查看对应的 CKafka 监控：
 ![](https://main.qcloudimg.com/raw/0f958700c2ce2fa1654269f918660584.png)
+

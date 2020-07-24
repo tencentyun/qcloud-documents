@@ -1,7 +1,7 @@
 
-流式语音合成 Java SDK [下载地址](https://main.qcloudimg.com/raw/4ac072510ae1fa09afb50a6277fc547b/java_stream_tts_sdk_v1.0.tar.gz )。
+流式语音合成 Java SDK [下载地址](https://ruskin-1256085166.cos.ap-guangzhou.myqcloud.com/tts_sdk/java_stream_tts_sdk.tar.gz )。
 
-接口请求域名：aai.cloud.tencent.com/tts。  
+接口请求域名：tts.cloud.tencent.com/stream。  
 
 腾讯云语音合成技术（TTS）可以将任意文本转化为语音，实现让机器和应用张口说话。 腾讯 TTS 技术可以应用到很多场景，例如，移动 App 语音播报新闻；智能设备语音提醒；支持车载导航语音合成的个性化语音播报。本接口内测期间免费使用。  
 
@@ -34,7 +34,7 @@ JAR 包使用步骤举例如下：
 * 请用户务必将自己的各项参数值赋值到本类对应变量中。
 */
 public class AsrBaseConfig {
-	public static String secretId = "AKID31NbfXbpBLJ4kGJrytc9UfgVAlGltJJ8";
+	public static String secretId = "AKID31NbfXbpBLJ4kGJrytc9UfgVAlG*****";
 	public static String secretKey = "kKm26uXCgLtGRWVJvKtGU0LYdWCgOvGP";
 	public static String appId = "1255628450";
 }
@@ -50,7 +50,7 @@ public class AsrBaseConfig {
 | SecretId | 是 | String | 用户在腾讯云注册账号 AppId 对应的 SecretId，获取方法同上。 |
 | Timestamp | 是 | Int | 当前 UNIX 时间戳，可记录发起 API 请求的时间。如果与当前时间相差过大，会引起签名过期错误。SDK会自动赋值当前时间戳。|
 | Expired | 是 | Int | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；Expired 必须大于 Timestamp 且 Expired-Timestamp 小于90天。SDK 默认设置 1 h。
-| Text | 是 | String | 合成语音的源文本，最大支持800字符。|
+| Text | 是 | String | 合成语音的源文本。中文最大支持600个汉字（全角标点符号算一个汉字）；英文最大支持1800个字母（半角标点符号算一个字母）。包含空格等字符时需要 URL encode 再传输。|
 | SessionId | 是 | String | 一次请求对应一个 SessionId，会原样返回，建议传入类似于 uuid 的字符串防止重复。|
 | ModelType | 否 | Int | 模型类型，1：默认模型，此字段只需设置为1即可。|
 | Volume | 否 | Float | 音量大小，范围：[0，10]，分别对应11个等级的音量，默认值为0，代表正常音量。没有静音选项。<br>输入除以上整数之外的其他参数不生效，按默认值处理。|

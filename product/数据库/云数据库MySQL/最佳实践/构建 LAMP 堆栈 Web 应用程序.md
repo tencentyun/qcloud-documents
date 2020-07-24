@@ -1,3 +1,4 @@
+
 LAMP 指 Linux+Apache+Mysql/MariaDB+Perl/PHP/Python，是一组常用来搭建动态网站或者服务器的开源软件。程序都是独立的，但是因为常被一起使用，相互间的兼容性越来越高，共同组成了一个强大的 Web 应用程序平台。
 本教程将指导您完成以下过程：启动一个腾讯云数据库实例，通过腾讯云服务器配置一个 LAMP 应用程序，用以连接腾讯云数据库实例的高可用性环境。
 运行腾讯云数据库实例会将数据库与环境的生命周期分离，这让您可以从多个服务器连接到同一个数据库，并且简化数据库的运维，让您无需再关心数据库的安装、部署、版本更新及故障处理等问题。
@@ -40,7 +41,7 @@ service httpd start
 3. 测试 Apache。
 >!此步骤需要您的云服务器在安全组中配置来源为 **all**，端口协议为 **TCP:80** 的入站规则。安全组配置请参见 [安全组](https://cloud.tencent.com/document/product/213/12452)。
 >
-在您本地的浏览器中输入`http://115.xxx.xxx.xxx/`（其中`115.xxx.xxx.xxx`为您的云服务器公网 IP 地址），出现下列画面表示 Apache 启动成功。
+在您本地的浏览器中输入`http://xxx.xxx.xxx.xxx/`（其中`xxx.xxx.xxx.xxx`为您的云服务器公网 IP 地址），出现下列画面表示 Apache 启动成功。
 ![](https://main.qcloudimg.com/raw/80941070a1a309ba484527473c915221.png)
 
 ### 安装 PHP 
@@ -59,5 +60,5 @@ yum install php -y
 ```
 service httpd restart
 ```
-3. 在您本地的浏览器中输入 `http://0.0.0.0/info.php` ，其中`0.0.0.0`为您的云服务器公网 IP 地址，出现下列画面表示 LAMP 服务部署成功。
+3. 在您本地的浏览器中输入 `http://xxx.xxx.xxx.xxx/info.php` ，其中`xxx.xxx.xxx.xxx`为您的云服务器公网 IP 地址，出现下列画面表示 LAMP 服务部署成功。
 ![](//mc.qcloudimg.com/static/img/0bc6667d122fe85d505fbe50b507b60a/image.png)

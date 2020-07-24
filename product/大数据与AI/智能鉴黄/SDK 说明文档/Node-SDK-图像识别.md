@@ -101,5 +101,5 @@ npm run example
 
 * 图片识别
     -  [图片分析](https://cloud.tencent.com/document/product/865/17592) - imgTagDetect
-    -  [图片鉴黄](https://cloud.tencent.com/document/product/864/17609) - imgPornDetect
+    -  [图片鉴黄](https://cloud.tencent.com/document/api/865/35473) - imgPornDetect
 

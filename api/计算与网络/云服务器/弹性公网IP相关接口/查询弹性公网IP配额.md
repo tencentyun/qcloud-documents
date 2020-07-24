@@ -3,14 +3,13 @@
 
 ## 1. 接口描述
 
-本接口 (DescribeAddressQuota) 用于查询您账户的[弹性公网IP](/document/product/213/1941)（简称 EIP）在当前地域的配额信息。配额详情可参见 [EIP 产品简介](/document/product/213/5733)。
-
-接口请求域名：<font style="color:red">eip.api.qcloud.com</font>
+本接口 (DescribeAddressQuota) 用于查询您账户的 [弹性公网 IP](https://cloud.tencent.com/document/product/213/5733)（简称 EIP）在当前地域的配额信息。
+接口请求域名：eip.api.qcloud.com
 
 
 ## 2. 输入参数
 
-以下请求参数列表仅列出了接口请求参数，其它参数见[公共请求参数](/document/api/213/11650)页面。
+以下请求参数列表仅列出了接口请求参数，其它参数见 [公共请求参数](https://cloud.tencent.com/document/api/213/11650) 页面。
 
 | 参数名称 | 类型 | 是否必选 | 描述 |
 |---------|---------|---------|---------|
@@ -22,7 +21,7 @@
 | 参数名称 | 类型 | 描述 |
 |---------|---------|---------|
 | RequestId| String| 唯一请求 ID。每次请求都会返回`RequestId`。当用户调用接口失败找后台研发人员处理时需提供该`RequestId`。|
-| QuotaSet | array of [Quota](/document/api/213/9451#quota) objects| 账户 EIP 配额信息|
+| QuotaSet | array of [Quota](https://cloud.tencent.com/document/api/213/9451#quota) objects| 账户 EIP 配额信息|
 
 
 
@@ -33,7 +32,7 @@
 <pre>
   https://eip.api.qcloud.com/v2/index.php?Action=DescribeAddressQuota
   &Version=2017-03-12
-  &<<a href="/document/api/213/11650">公共请求参数</a>>
+  &<<a href="https://cloud.tencent.com/document/api/213/11650">公共请求参数</a>>
 </pre>
 
 #### 返回参数

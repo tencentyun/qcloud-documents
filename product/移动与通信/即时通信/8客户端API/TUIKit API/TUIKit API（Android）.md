@@ -11,7 +11,7 @@
 
 ## 聊天界面 ChatLayout
 
-聊天窗口 ChatLayout 提供消息的展示与发送等功能，界面布局从上到下分为下列四个部分，每个区域都提供多样化的方法以满足定制需求。
+聊天窗口 ChatLayout 提供消息的展示与发送等功能，界面布局从上到下分为以下四个部分，每个区域都提供多样化的方法以满足定制需求。
 - 标题区 TitleBarLayout
 - 提醒区 NoticeLayout
 - 消息区 MessageLayout
@@ -21,7 +21,7 @@
 | --- | --- |
 | [getInputLayout](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/chat/interfaces/IChatLayout.html#getinputlayout) | 获取聊天窗口 Input 区域 Layout。 |
 | [getMessageLayout](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/chat/interfaces/IChatLayout.html#getmessagelayout) | 获取聊天窗口 Message 区域 Layout。 |
-| [getNoticeLayout](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/chat/interfaces/IChatLayout.html#getnoticelayout) | 获取聊天窗口 Message 区域 Layout。 |
+| [getNoticeLayout](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/chat/interfaces/IChatLayout.html#getnoticelayout) | 获取聊天窗口 Notice 区域 Layout。 |
 | [setChatInfo](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/chat/interfaces/IChatLayout.html#setchatinfo) | 设置当前的会话 ID，会话面板会依据该 ID 加载会话所需的相关信息，例如消息记录、用户（群）信息等。 |
 | [exitChat](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/chat/interfaces/IChatLayout.html#exitchat) | 退出聊天，释放相关资源（一般在 activity finish 时调用）。 |
 | [initDefault](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/chat/interfaces/IChatLayout.html#initdefault) | 初始化参数。 |
@@ -142,7 +142,7 @@
 
 ## 标题区 TitleBarLayout
 
-会话列表窗口 ConversationLayout、聊天窗口 ChatLayout 等都自带标题栏。标题栏设计分为左中右三部分，其中，左边和右边都可以为图片+文字，中间只能为文字，这些区域返回的都是标准的 Android View，您可以根据实际业务需要对这些 View 进行交互响应处理。
+会话列表窗口 ConversationLayout、聊天窗口 ChatLayout 等都自带标题栏。标题栏设计分为左中右三部分，其中，左边和右边都可以为图片 + 文字，中间只能为文字，这些区域返回的都是标准的 Android View，您可以根据实际业务需要对这些 View 进行交互响应处理。
 
 | API | 描述 |
 | --- | --- |

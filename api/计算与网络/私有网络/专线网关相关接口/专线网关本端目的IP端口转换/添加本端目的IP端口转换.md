@@ -1,7 +1,7 @@
 ## 1. 接口描述
 本接口（CreateLocalDestinationIPPortTranslationNatRule）用于添加专线网关本端目的 IP 端口转换。
 接口请求域名：vpc.api.qcloud.com
-1)，专线对端主动访问私有网络，需访问映射后的 IP 端口与私有网络内原始 IP 的端口进行通信，回包不受影响。只有 NAT 类型专线网关支持。
+1. 专线对端主动访问私有网络，需访问映射后的 IP 端口与私有网络内原始 IP 的端口进行通信，回包不受影响。只有 NAT 类型专线网关支持。
 
 
 

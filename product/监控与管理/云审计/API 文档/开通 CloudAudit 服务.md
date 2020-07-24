@@ -23,10 +23,10 @@ OpenAuditService 用于开通跟踪集服务。
 
 ```shell
 {
-   "ownerUin": 1150691759,
-   "Uin": 1150691759,
-   "clientIp": "127.0.0.1",
-   "clientUa": "Chrome"
+   "ownerUin":1150691759,
+   "Uin":1150691759,
+   "clientIp":"127.0.0.1",
+   "clientUa":"Chrome"
 }
 ```
 ### 响应

@@ -1,4 +1,5 @@
 ## 温馨提示
+
 请注意这是历史版本（V4，基于 JSON API 封装的 SDK），**已经不再推荐使用**。
 
 对于新接入SDK的用户，我们推荐使用最新的V5版本[基于 XML API 封装的 SDK](https://cloud.tencent.com/document/product/436/11280)。如果因为种种原因确实仍然需要需要使用基于 JSON API 封装的 SDK ,那么推荐使用我们基于历史版本重构后的[基于 JSON API 封装的 SDK](https://github.com/tencentyun/qcloud-sdk-ios/tree/master/QCloudNewCOSV4) 。
@@ -13,10 +14,9 @@
 
 ### 开发准备
 
--  iOS 8.0+；
--  手机必须要有网络（GPRS、3G或Wifi网络等）；
--  从控制台获取APP ID、SecretID、SecretKey。
-
+- iOS 8.0+；
+- 手机必须要有网络（GPRS、3G或Wifi网络等）；
+- 从控制台获取APP ID、SecretID、SecretKey。
 
 ### SDK 配置
 
@@ -26,21 +26,20 @@
 
 在Podfile文件中使用：
 
-~~~
+```
 pod "QCloudCOSV4"
-~~~
+```
 
 ##### 使用静态库导入
+
 ```
 git clone https://github.com/tencentyun/COS_iOS_SDK.git
 ```
 
-将目录**coslib**下面的文件拖入到工程中即可：
+将目录 **coslib** 下面的文件拖入到工程中即可：
+![](https://main.qcloudimg.com/raw/b14442ebe145e374cdc6171ae1000f4b.jpg)
 
-![](https://ws3.sinaimg.cn/large/006tNc79gy1fgm77ref66j30l0094dgv.jpg)
-
-
-将目录**coslib**下面的文件拖入到工程拖入工程目录，Xcode 会自动将其加入链接库列表中。
+将目录 **coslib** 下面的文件拖入到工程拖入工程目录，Xcode 会自动将其加入链接库列表中。
 
 并添加以下依赖库：
 
@@ -52,16 +51,16 @@ git clone https://github.com/tencentyun/COS_iOS_SDK.git
 
 在 Build Settings 中设置 Other Linker Flags，加入参数 -ObjC。
 
-![参数配置](https://mccdn.qcloud.com/static/img/58327ba5d83809c77da158ff95627ef7/image.png)
+![](https://main.qcloudimg.com/raw/07351db6cb93db277b2a58ebd52a3ea9.png)
 
 在工程info.plist文件中添加App Transport Security Settings 类型，然后在App Transport Security Settings下添加Allow Arbitrary Loads 类型Boolean,值设为YES。
 
 如果想要在程序中使用HTTPS协议，请做如下设置：
+
 ```objective-c
 COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:@"sh";//@“sh”bucket所在机房
 [client openHttpsRequest:YES];
 ```
-
 
 ### 初始化
 
@@ -75,10 +74,10 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:@"sh";//@�
 
 #### 参数说明
 
-| 参数名称   | 类型         | 是否必填 | 说明                                       |
-| ------ | ---------- | ---- | ---------------------------------------- |
-| appId  | NSString * | 是    | 项目ID，即APP ID。                            |
-| region | NSString * | 是    | bucket被创建的时候机房区域，比如华东园区：“sh” ，华南园区："gz"，华北园区："tj" |
+| 参数名称 | 类型       | 是否必填 | 说明                                                         |
+| -------- | ---------- | -------- | ------------------------------------------------------------ |
+| appId    | NSString * | 是       | 项目ID，即APP ID。                                           |
+| region   | NSString * | 是       | bucket被创建的时候机房区域，例如华东园区：“sh” ，华南园区："gz"，华北园区："tj" |
 
 #### 示例
 
@@ -144,9 +143,9 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 **签名类型：**
 
-| 类型   | 含义            |
-| ---- | ------------- |
-| 多次有效 | 有效时间内多次始终有效   |
+| 类型     | 含义                    |
+| -------- | ----------------------- |
+| 多次有效 | 有效时间内多次始终有效  |
 | 单次有效 | 与资源URL绑定，一次有效 |
 
 **签名获取：**
@@ -167,26 +166,25 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 #### 参数说明
 
-| 参数名称   | 类型         | 是否必填 | 说明                 |
-| ------ | ---------- | ---- | ------------------ |
-| dir    | NSString * | 是    | 目录路径（相对于bucket的路径） |
-| bucket | NSString * | 是    | 目录所属 bucket 名称     |
-| sign   | NSString * | 是    | 签名                 |
-| attrs  | NSString * | 否    | 用户自定义属性            |
+| 参数名称 | 类型       | 是否必填 | 说明                           |
+| -------- | ---------- | -------- | ------------------------------ |
+| dir      | NSString * | 是       | 目录路径（相对于bucket的路径） |
+| bucket   | NSString * | 是       | 目录所属 bucket 名称           |
+| sign     | NSString * | 是       | 签名                           |
+| attrs    | NSString * | 否       | 用户自定义属性                 |
 
 #### 返回结果说明
 
 通过COSCreatDirTaskRsp 的对象返回结果
 
-| 属性名称    | 类型         | 说明     |
-| ------- | ---------- | ------ |
-| retCode | int        | 任务描述代码 |
-| descMsg | NSString * | 任务描述信息 |
+| 属性名称 | 类型       | 说明         |
+| -------- | ---------- | ------------ |
+| retCode  | int        | 任务描述代码 |
+| descMsg  | NSString * | 任务描述信息 |
 
 #### 示例
 
 ```objective-c
-
 	COSCreateDirCommand *cm = [COSCreateDirCommand new];
     cm.directory = dir;
     cm.bucket = bucket;
@@ -201,6 +199,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 		}
     };
     [client createDir:cm];
+
 ```
 
 ### 目录属性更新
@@ -215,26 +214,25 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 #### 参数说明
 
-| 参数名称   | 类型         | 是否必填 | 说明                 |
-| ------ | ---------- | ---- | ------------------ |
-| dir    | NSString * | 是    | 目录路径（相对于bucket的路径） |
-| bucket | NSString * | 是    | 目录所属 bucket 名称     |
-| sign   | NSString * | 是    | 签名                 |
-| attrs  | NSString * | 否    | 用户自定义属性            |
+| 参数名称 | 类型       | 是否必填 | 说明                           |
+| -------- | ---------- | -------- | ------------------------------ |
+| dir      | NSString * | 是       | 目录路径（相对于bucket的路径） |
+| bucket   | NSString * | 是       | 目录所属 bucket 名称           |
+| sign     | NSString * | 是       | 签名                           |
+| attrs    | NSString * | 否       | 用户自定义属性                 |
 
 #### 返回结果说明
 
 通过COSUpdateDirTaskRsp 的对象返回结果
 
-| 属性名称    | 类型         | 说明     |
-| ------- | ---------- | ------ |
-| retCode | int        | 任务描述代码 |
-| descMsg | NSString * | 任务描述信息 |
+| 属性名称 | 类型       | 说明         |
+| -------- | ---------- | ------------ |
+| retCode  | int        | 任务描述代码 |
+| descMsg  | NSString * | 任务描述信息 |
 
 #### 示例
 
 ```objective-c
-
     COSUpdateDirCommand *cm = [COSUpdateDirCommand new];
     cm.directory = dir;
     cm.bucket = bucket;
@@ -247,6 +245,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
         }else{}
     };
     [client updateDir:cm];
+
 ```
 
 ### 目录属性查询
@@ -261,28 +260,25 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 #### 参数说明
 
-| 参数名称   | 类型         | 是否必填 | 说明                 |
-| ------ | ---------- | ---- | ------------------ |
-| dir    | NSString * | 是    | 目录路径（相对于bucket的路径） |
-| bucket | NSString * | 是    | 目录所属 bucket 名称     |
-| sign   | NSString * | 是    | 签名                 |
-
+| 参数名称 | 类型       | 是否必填 | 说明                           |
+| -------- | ---------- | -------- | ------------------------------ |
+| dir      | NSString * | 是       | 目录路径（相对于bucket的路径） |
+| bucket   | NSString * | 是       | 目录所属 bucket 名称           |
+| sign     | NSString * | 是       | 签名                           |
 
 #### 返回结果说明
 
 通过COSDirmMetaCommand的对象返回结果信息
 
-| 属性名称    | 类型             | 说明     |
-| ------- | -------------- | ------ |
-| retCode | int            | 任务描述代码 |
-| descMsg | NSString    *  | 任务描述信息 |
-| data    | NSDictionary * | 任务描述信息 |
-
+| 属性名称 | 类型           | 说明         |
+| -------- | -------------- | ------------ |
+| retCode  | int            | 任务描述代码 |
+| descMsg  | NSString    *  | 任务描述信息 |
+| data     | NSDictionary * | 任务描述信息 |
 
 #### 示例
 
 ```objective-c
-
 	COSDirmMetaCommand *cm = [COSDirmMetaCommand new];
     cm.directory = dir;
     cm.bucket = bucket;
@@ -294,6 +290,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 		}else{}
     };
     [client getDirMetaData:cm];
+
 ```
 
 ### 目录删除
@@ -306,40 +303,38 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 2. 调用 COSClient  的 deleteDirRequest 命令，传入 COSDeleteDirCommand  对象；
 3. 通过COSdeleteDirTaskRsp 的对象返回结果信息
 
-
 #### 参数说明
 
-| 参数名称   | 类型         | 是否必填 | 说明                 |
-| ------ | ---------- | ---- | ------------------ |
-| dir    | NSString * | 是    | 目录路径（相对于bucket的路径） |
-| bucket | NSString * | 是    | 目录所属 bucket 名称     |
-| sign   | NSString * | 是    | 签名                 |
-
+| 参数名称 | 类型       | 是否必填 | 说明                           |
+| -------- | ---------- | -------- | ------------------------------ |
+| dir      | NSString * | 是       | 目录路径（相对于bucket的路径） |
+| bucket   | NSString * | 是       | 目录所属 bucket 名称           |
+| sign     | NSString * | 是       | 签名                           |
 
 #### 返回结果说明
 
 通过COSdeleteDirTaskRsp的对象返回结果信息
 
-| 属性名称    | 类型            | 说明     |
-| ------- | ------------- | ------ |
-| retCode | int           | 任务描述代码 |
-| descMsg | NSString    * | 任务描述信息 |
+| 属性名称 | 类型          | 说明         |
+| -------- | ------------- | ------------ |
+| retCode  | int           | 任务描述代码 |
+| descMsg  | NSString    * | 任务描述信息 |
 
 #### 示例
 
 ```objective-c
+COSDeleteDirCommand *cm = [COSDeleteDirCommand new];
+cm.directory = dir;
+cm.bucket = bucket;
+cm.sign = _oneSign;//删除使用一次性签名
+COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+		if (resp.retCode == 0) {
+				//sucess;
+		}else{}
+};
+[client deleteDir:cm];
 
-    COSDeleteDirCommand *cm = [COSDeleteDirCommand new];
-    cm.directory = dir;
-    cm.bucket = bucket;
-    cm.sign = _oneSign;//删除使用一次性签名
-    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
-    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
-        if (resp.retCode == 0) {
-            //sucess;
-        }else{}
-    };
-    [client deleteDir:cm];
 ```
 
 ### 目录列表
@@ -354,47 +349,46 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 #### 参数说明
 
-| 参数名称        | 类型         | 是否必填 | 说明                                       |
-| ----------- | ---------- | ---- | ---------------------------------------- |
-| path        | NSString * | 是    | 目录路径（相对于bucket的路径）                       |
-| bucket      | NSString * | 是    | 目录所属 bucket 名称                           |
-| sign        | NSString * | 是    | 签名                                       |
-| num         | NSUInteger | 是    | 一次拉取数目设定                                 |
-| pageContext | NSString * | 是    | 透传字段，查看第一页，则传空字符串。若需要翻页，需要将前一页返回值中的context透传到参数中 |
-| prefix      | NSString * | 是    | 前缀查询                                     |
+| 参数名称    | 类型       | 是否必填 | 说明                                                         |
+| ----------- | ---------- | -------- | ------------------------------------------------------------ |
+| path        | NSString * | 是       | 目录路径（相对于bucket的路径）                               |
+| bucket      | NSString * | 是       | 目录所属 bucket 名称                                         |
+| sign        | NSString * | 是       | 签名                                                         |
+| num         | NSUInteger | 是       | 一次拉取数目设定                                             |
+| pageContext | NSString * | 是       | 透传字段，查看第一页，则传空字符串。若需要翻页，需要将前一页返回值中的context透传到参数中 |
+| prefix      | NSString * | 是       | 前缀查询                                                     |
 
 #### 返回结果说明
 
 通过TXYListDirCommandRsp的对象返回结果信息
 
-| 属性名称     | 类型            | 说明       |
-| -------- | ------------- | -------- |
-| context  | NSString *    | 目录个数     |
-| listover | NSString *    | 文件个数     |
+| 属性名称 | 类型          | 说明             |
+| -------- | ------------- | ---------------- |
+| context  | NSString *    | 目录个数         |
+| listover | NSString *    | 文件个数         |
 | infos    | NSArray  *    | 文件目录属性列表 |
-| retCode  | int           | 任务描述代码   |
-| descMsg  | NSString    * | 任务描述信息   |
+| retCode  | int           | 任务描述代码     |
+| descMsg  | NSString    * | 任务描述信息     |
 
 #### 示例
 
 ```objective-c
+COSListDirCommand *cm = [COSListDirCommand new]；
+cm.directory = dir;
+cm.bucket = bucket;
+cm.sign = _sign;
+cm.number = 100;
+cm.pageContext = @"";
+cm.prefix = @"xx";
+COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+		if (resp.retCode == 0) {
+			//sucess
+		}else{}
+};
+[client listDir:cm];
 
-    COSListDirCommand *cm = [COSListDirCommand new]；
-    cm.directory = dir;
-    cm.bucket = bucket;
-    cm.sign = _sign;
-    cm.number = 100;
-    cm.pageContext = @"";
-    cm.prefix = @"xx";
-    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
-    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
-        if (resp.retCode == 0) {
-          //sucess
-        }else{}
-    };
-    [client listDir:cm];
 ```
-
 
 ## 文件操作
 
@@ -406,15 +400,16 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 #### 参数说明
 
-| 参数名称   | 类型         | 是否必填 | 说明                                 |
-| ------ | ---------- | ---- | ---------------------------------- |
-| appId  | NSString * | 是    | 项目ID，即APP ID。                      |
-| region | NSString * | 是    | bucket被创建的时候机房区域，比如上海：“sh” 广州："gz" |
+| 参数名称 | 类型       | 是否必填 | 说明                                                  |
+| -------- | ---------- | -------- | ----------------------------------------------------- |
+| appId    | NSString * | 是       | 项目ID，即APP ID。                                    |
+| region   | NSString * | 是       | bucket被创建的时候机房区域，例如上海：“sh” 广州："gz" |
 
 #### 示例
 
 ```objective-c
 - (instancetype)initWithAppId:(NSString*)appId  withRegion:(NSString *)region;
+
 ```
 
 ### 文件上传
@@ -429,49 +424,48 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 #### 参数说明
 
-| 参数名称       | 类型         | 是否必填 | 说明                                   |
-| ---------- | ---------- | ---- | ------------------------------------ |
-| filePath   | NSString * | 是    | 文件路径                                 |
-| sign       | NSString * | 是    | 签名                                   |
-| bucket     | NSString * | 是    | 目标 Bucket 名称                         |
-| fileName   | NSString * | 是    | 目标 文件上传cos后显示的 名称                    |
-| attrs      | NSString * | 否    | 文件自定义属性                              |
-| directory  | NSString * | 是    |文件上传目录，相对路径 ,举例:@"path", 注意directory的首尾不要加上多余的/，SDK内部在生成请求URL时会加上/拼成完整的路径。              |
-
+| 参数名称  | 类型       | 是否必填 | 说明                                                         |
+| --------- | ---------- | -------- | ------------------------------------------------------------ |
+| filePath  | NSString * | 是       | 文件路径                                                     |
+| sign      | NSString * | 是       | 签名                                                         |
+| bucket    | NSString * | 是       | 目标 Bucket 名称                                             |
+| fileName  | NSString * | 是       | 目标 文件上传cos后显示的 名称                                |
+| attrs     | NSString * | 否       | 文件自定义属性                                               |
+| directory | NSString * | 是       | 文件上传目录，相对路径 ,举例:@"path", 注意directory的首尾不要加上多余的/，SDK内部在生成请求URL时会加上/拼成完整的路径。 |
 
 #### 返回结果说明
 
 通过COSObjectUploadTaskRsp的对象返回结果信息
 
-| 属性名称      | 类型         | 说明                                 |
-| --------- | ---------- | ---------------------------------- |
+| 属性名称  | 类型       | 说明                                                         |
+| --------- | ---------- | ------------------------------------------------------------ |
 | retCode   | int        | 任务描述代码，为retCode == 0时标示成功，为负数表示为失败，20000以上的返回码为 SDK 内部错误 |
-| descMsg   | NSString * | 任务描述信息                             |
-| sourceURL | NSString * | 成功后，后台返回文件的 CDN url                |
-| sourceURL | NSString * | 成功后，后台返回文件的 源站 url                 |
+| descMsg   | NSString * | 任务描述信息                                                 |
+| sourceURL | NSString * | 成功后，后台返回文件的 CDN url                               |
+| sourceURL | NSString * | 成功后，后台返回文件的 源站 url                              |
 
 #### 示例
 
 ```objective-c
+COSObjectPutTask *task = [COSObjectPutTask new];
+task.filePath = path;
+task.fileName = fileName;
+task.bucket = bucket;
+task.attrs = @"customAttribute";
+task.directory = dir;
+task.insertOnly = YES;
+task.sign = _sign;
+COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+		if (resp.retCode == 0) {
+		 //sucess
+		}else{}
+};
+client.progressHandler = ^(NSInteger bytesWritten,NSInteger totalBytesWritten,NSInteger totalBytesExpectedToWrite){
+			//progress
+};
+[client putObject:task];
 
-    COSObjectPutTask *task = [COSObjectPutTask new];
-    task.filePath = path;
-    task.fileName = fileName;
-    task.bucket = bucket;
-    task.attrs = @"customAttribute";
-    task.directory = dir;
-    task.insertOnly = YES;
-    task.sign = _sign;
-    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
-    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
-        if (resp.retCode == 0) {
-         //sucess
-        }else{}
-    };
-    client.progressHandler = ^(NSInteger bytesWritten,NSInteger totalBytesWritten,NSInteger totalBytesExpectedToWrite){
-          //progress
-    };
-    [client putObject:task];
 ```
 
 ### 文件属性更新
@@ -486,21 +480,21 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 #### 参数说明
 
-| 参数名称     | 类型         | 是否必填 | 说明             |
-| -------- | ---------- | ---- | -------------- |
-| fileName | NSString * | 是    |                |
-| bucket   | NSString * | 是    | 目录所属 bucket 名称 |
-| sign     | NSString * | 是    | 签名             |
-| attrs    | NSString * | 否    | 用户自定义属性        |
+| 参数名称 | 类型       | 是否必填 | 说明                 |
+| -------- | ---------- | -------- | -------------------- |
+| fileName | NSString * | 是       |        -              |
+| bucket   | NSString * | 是       | 目录所属 bucket 名称 |
+| sign     | NSString * | 是       | 签名                 |
+| attrs    | NSString * | 否       | 用户自定义属性       |
 
 #### 返回结果说明
 
 通过TXYUpdateCommandRsp的对象返回结果信息
 
-| 属性名称    | 类型         | 说明                                 |
-| ------- | ---------- | ---------------------------------- |
-| retCode | int        | 任务描述代码，为retCode == 0时标示成功，为负数表示为失败，20000以上的返回码为 SDK 内部错误 |
-| descMsg | NSString * | 任务描述信息                             |
+| 属性名称 | 类型       | 说明                                                         |
+| -------- | ---------- | ------------------------------------------------------------ |
+| retCode  | int        | 任务描述代码，为retCode == 0时标示成功，为负数表示为失败，20000以上的返回码为 SDK 内部错误 |
+| descMsg  | NSString * | 任务描述信息                                                 |
 
 #### 示例
 
@@ -516,6 +510,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
         }else{
     };
     [client updateObject:cm];
+
 ```
 
 ### 文件属性查询
@@ -528,42 +523,40 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 2. 调用 COSClient 的 getObjectInfo 命令，传入 COSObjectMetaCommand   对象；
 3. 通过COSObjectMetaTaskRsp 类返回结果信息
 
-
 #### 参数说明
 
-| 参数名称      | 类型         | 是否必填 | 说明                 |
-| --------- | ---------- | ---- | ------------------ |
-| filename  | NSString * | 是    |                    |
-| bucket    | NSString * | 是    | 文件所属 bucket 名称     |
-| directory | NSString * | 是    | 目录路径（相对于bucket的路径） |
-| sign      | NSString * | 是    | 签名                 |
+| 参数名称  | 类型       | 是否必填 | 说明                           |
+| --------- | ---------- | -------- | ------------------------------ |
+| filename  | NSString * | 是       |         -                       |
+| bucket    | NSString * | 是       | 文件所属 bucket 名称           |
+| directory | NSString * | 是       | 目录路径（相对于bucket的路径） |
+| sign      | NSString * | 是       | 签名                           |
 
 #### 返回结果说明
 
 通过TXYStatCommandRsp类返回结果信息
 
-| 属性名称    | 类型             | 说明                                 |
-| ------- | -------------- | ---------------------------------- |
-| retCode | int            | 任务描述代码，为retCode == 0时标示成功，为负数表示为失败，20000以上的返回码为 SDK 内部错误 |
-| descMsg | NSString *     | 任务描述信息                             |
-| data    | NSDictionary * | 成功时，文件基本信息                         |
+| 属性名称 | 类型           | 说明                                                         |
+| -------- | -------------- | ------------------------------------------------------------ |
+| retCode  | int            | 任务描述代码，为retCode == 0时标示成功，为负数表示为失败，20000以上的返回码为 SDK 内部错误 |
+| descMsg  | NSString *     | 任务描述信息                                                 |
+| data     | NSDictionary * | 成功时，文件基本信息                                         |
 
 #### 示例
 
 ```objective-c
-
-    COSObjectMetaCommand *cm = [COSObjectMetaCommand new] ;
-	cm.fileName = file;
-	cm.bucket = bucket;
-    cm.directory = dir;
-	cm.sign = _oneSign;//单次签名
-    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
-    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
-        if (resp.retCode == 0) {
-         	//sucess
-        }else{}
-    };
-    [client getObjectMetaData:cm];
+COSObjectMetaCommand *cm = [COSObjectMetaCommand new] ;
+cm.fileName = file;
+cm.bucket = bucket;
+cm.directory = dir;
+cm.sign = _oneSign;//单次签名
+COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
+client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+		if (resp.retCode == 0) {
+			//sucess
+		}else{}
+};
+[client getObjectMetaData:cm];
 
 ```
 
@@ -579,39 +572,39 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 #### 参数说明
 
-| 参数名称       | 类型            | 是否必填 | 说明                          |
-| ---------- | ------------- | ---- | --------------------------- |
-| filename   | NSString *    | 是    |                             |
-| bucket     | NSString *    | 是    | 文件所属 Bucket 名称              |
-| directory  | NSString *    | 是    | 目录路径（相对于bucket的路径）          |
-| sign       | NSString *    | 是    | 签名                          |
-| objectType | TXYObjectType | 是    | 业务类型，文件删除时设置为：TXYObjectFile |
+| 参数名称   | 类型          | 是否必填 | 说明                                      |
+| ---------- | ------------- | -------- | ----------------------------------------- |
+| filename   | NSString *    | 是       |          -                                 |
+| bucket     | NSString *    | 是       | 文件所属 Bucket 名称                      |
+| directory  | NSString *    | 是       | 目录路径（相对于bucket的路径）            |
+| sign       | NSString *    | 是       | 签名                                      |
+| objectType | TXYObjectType | 是       | 业务类型，文件删除时设置为：TXYObjectFile |
 
 #### 返回结果说明
 
 通过COSObjectDeleteTaskRsp的对象返回结果信息
 
-| 属性名称    | 类型         | 说明                                 |
-| ------- | ---------- | ---------------------------------- |
-| retCode | int        | 任务描述代码，为retCode == 0时标示成功，为负数表示为失败，20000以上的返回码为 SDK 内部错误 |
-| descMsg | NSString * | 任务描述信息                             |
+| 属性名称 | 类型       | 说明                                                         |
+| -------- | ---------- | ------------------------------------------------------------ |
+| retCode  | int        | 任务描述代码，为retCode == 0时标示成功，为负数表示为失败，20000以上的返回码为 SDK 内部错误 |
+| descMsg  | NSString * | 任务描述信息                                                 |
 
 #### 示例
 
 ```objective-c
+COSObjectDeleteCommand *cm = [COSObjectDeleteCommand new]；
+cm.fileName = file;
+cm.bucket = bucket;
+cm.directory = dir;
+cm.sign = _oneSign;//单次签名
+COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];;
+client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
+		if (resp.retCode == 0) {
+				//sucess
+		}else{        }
+};
+[client deleteObject:cm];
 
-    COSObjectDeleteCommand *cm = [COSObjectDeleteCommand new]；
-	cm.fileName = file;
-	cm.bucket = bucket;
-    cm.directory = dir;
-	cm.sign = _oneSign;//单次签名
-    COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];;
-    client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
-        if (resp.retCode == 0) {
-            //sucess
-        }else{        }
-    };
-    [client deleteObject:cm];
 ```
 
 ### 文件下载
@@ -626,25 +619,23 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 #### 参数说明
 
-| 参数名称     | 类型         | 是否必填 | 说明     |
-| -------- | ---------- | ---- | ------ |
-| filePath | NSString * | 是    | 文件下载地址 |
-
+| 参数名称 | 类型       | 是否必填 | 说明         |
+| -------- | ---------- | -------- | ------------ |
+| filePath | NSString * | 是       | 文件下载地址 |
 
 #### 返回结果说明
 
 通过 通过COSGetObjectTaskRsp 的对象返回结果信息
 
-| 属性名称    | 类型              | 说明                                 |
-| ------- | --------------- | ---------------------------------- |
-| retCode | int             | 任务描述代码，为retCode == 0时标示成功，为负数表示为失败，20000以上的返回码为 SDK 内部错误 |
-| descMsg | NSString *      | 任务描述信息                             |
-| object  | NSMutableData * | 下载文件                               |
+| 属性名称 | 类型            | 说明                                                         |
+| -------- | --------------- | ------------------------------------------------------------ |
+| retCode  | int             | 任务描述代码，为retCode == 0时标示成功，为负数表示为失败，20000以上的返回码为 SDK 内部错误 |
+| descMsg  | NSString *      | 任务描述信息                                                 |
+| object   | NSMutableData * | 下载文件                                                     |
 
 #### 示例
 
 ```objective-c
-
  	COSObjectGetTask *cm = [[COSObjectGetTask alloc] initWithUrl:imgUrl.text];
     COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig instance].region];
     client.completionHandler = ^(COSTaskRsp *resp, NSDictionary *context){
@@ -653,6 +644,7 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
     client.downloadProgressHandler = ^(int64_t receiveLength,int64_t contentLength){        
     };
     [client getObject:cm];
+
 
 ```
 
@@ -669,15 +661,15 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 #### 参数说明
 
-| 参数名称            | 类型         | 是否必填 | 说明                                   |
-| --------------- | ---------- | ---- | ------------------------------------ |
-| filePath        | NSString * | 是    | 文件路径                                 |
-| multipartUpload | BOOL       | 否    | 文件上传是否使用分片上传                         |
-| sign            | NSString * | 是    | 签名                                   |
-| bucket          | NSString * | 是    | 目标 Bucket 名称                         |
-| fileName        | NSString * | 是    | 目标 文件上传cos后显示的 名称                    |
-| attrs           | NSString * | 否    | 文件自定义属性                              |
-| directory       | NSString * | 是    | 文件上传目录，相对路径 ,举例:@"path", 注意directory的首尾不要加上多余的/，SDK内部在生成请求URL时会加上/拼成完整的路径。              |
+| 参数名称        | 类型       | 是否必填 | 说明                                                         |
+| --------------- | ---------- | -------- | ------------------------------------------------------------ |
+| filePath        | NSString * | 是       | 文件路径                                                     |
+| multipartUpload | BOOL       | 否       | 文件上传是否使用分片上传                                     |
+| sign            | NSString * | 是       | 签名                                                         |
+| bucket          | NSString * | 是       | 目标 Bucket 名称                                             |
+| fileName        | NSString * | 是       | 目标 文件上传cos后显示的 名称                                |
+| attrs           | NSString * | 否       | 文件自定义属性                                               |
+| directory       | NSString * | 是       | 文件上传目录，相对路径 ,举例:@"path", 注意directory的首尾不要加上多余的/，SDK内部在生成请求URL时会加上/拼成完整的路径。 |
 
 
 
@@ -685,15 +677,14 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 通过COSObjectUploadTaskRsp 的对象返回结果信息
 
-| 属性名称    | 类型         | 说明                                 |
-| ------- | ---------- | ---------------------------------- |
-| retCode | int        | 任务描述代码，为retCode == 0时标示成功，为负数表示为失败，20000以上的返回码为 SDK 内部错误 |
-| descMsg | NSString * | 任务描述信息                             |
+| 属性名称 | 类型       | 说明                                                         |
+| -------- | ---------- | ------------------------------------------------------------ |
+| retCode  | int        | 任务描述代码，为retCode == 0时标示成功，为负数表示为失败，20000以上的返回码为 SDK 内部错误 |
+| descMsg  | NSString * | 任务描述信息                                                 |
 
 #### 示例
 
 ```objective-c
-
 	COSObjectPutTask *task = [[COSObjectPutTask alloc] init];
 	task.multipartUpload = YES;//分片上传设置参数
     task.filePath = path;
@@ -713,7 +704,9 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
       //进度
     };
     [client putObject:task];
+
 ```
+
 ### 文件断点续传
 
 #### 方法原型
@@ -726,31 +719,29 @@ COSClient *client= [[COSClient alloc] initWithAppId:appId withRegion:[Congfig in
 
 #### 参数说明
 
-| 参数名称       | 类型         | 是否必填 | 说明                                   |
-| ---------- | ---------- | ---- | ------------------------------------ |
-| filePath   | NSString * | 是    | 文件路径                                 |
-| sign       | NSString * | 是    | 签名                                   |
-| bucket     | NSString * | 是    | 目标 Bucket 名称                         |
-| fileName   | NSString * | 是    | 目标 文件上传cos后显示的 名称                    |
-| attrs      | NSString * | 否    | 文件自定义属性                              |
-| directory  | NSString * | 是    | 文件上传目录，相对路径 ,举例:@"path", 注意directory的首尾不要加上多余的/，SDK内部在生成请求URL时会加上/拼成完整的路径。               |
-
+| 参数名称  | 类型       | 是否必填 | 说明                                                         |
+| --------- | ---------- | -------- | ------------------------------------------------------------ |
+| filePath  | NSString * | 是       | 文件路径                                                     |
+| sign      | NSString * | 是       | 签名                                                         |
+| bucket    | NSString * | 是       | 目标 Bucket 名称                                             |
+| fileName  | NSString * | 是       | 目标 文件上传cos后显示的 名称                                |
+| attrs     | NSString * | 否       | 文件自定义属性                                               |
+| directory | NSString * | 是       | 文件上传目录，相对路径 ,举例:@"path", 注意directory的首尾不要加上多余的/，SDK内部在生成请求URL时会加上/拼成完整的路径。 |
 
 #### 返回结果说明
 
 通过COSObjectUploadTaskRsp的对象返回结果信息
 
-| 属性名称      | 类型         | 说明                                 |
-| --------- | ---------- | ---------------------------------- |
+| 属性名称  | 类型       | 说明                                                         |
+| --------- | ---------- | ------------------------------------------------------------ |
 | retCode   | int        | 任务描述代码，为retCode == 0时标示成功，为负数表示为失败，20000以上的返回码为 SDK 内部错误 |
-| descMsg   | NSString * | 任务描述信息                             |
-| sourceURL | NSString * | 成功后，后台返回文件的 CDN url                |
-| sourceURL | NSString * | 成功后，后台返回文件的 源站 url                 |
+| descMsg   | NSString * | 任务描述信息                                                 |
+| sourceURL | NSString * | 成功后，后台返回文件的 CDN url                               |
+| sourceURL | NSString * | 成功后，后台返回文件的 源站 url                              |
 
 #### 示例
 
 ```objective-c
-
 COSObjectPutTask *task = [COSObjectPutTask new];
 task.filePath = path;
 task.fileName = fileName;

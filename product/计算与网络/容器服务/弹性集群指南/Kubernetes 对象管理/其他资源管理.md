@@ -1,0 +1,14 @@
+## 操作场景
+本文档介绍通过腾讯云容器服务控制台管理其他 Kubernetes 资源，例如命名空间、配置、存储等。
+
+## 前提条件
+已创建状态为“运行中”的弹性集群，详情请参见  [创建集群](https://cloud.tencent.com/document/product/457/39813)。
+
+## 操作步骤
+1. 登录容器服务控制台，选择左侧导航栏中的【[弹性集群](https://console.cloud.tencent.com/tke2/ecluster)】。
+2. 在“弹性集群”列表页面，选择需操作的集群 ID。
+3. 在集群管理页面，您可参考以下文档进行其他资源管理：
+ - 命名空间的操作管理请参考 [Namespaces](https://cloud.tencent.com/document/product/457/31701)。
+ - 自动伸缩的操作管理请参考 [自动伸缩](https://cloud.tencent.com/document/product/457/37384) 和 [自动伸缩指标说明](https://cloud.tencent.com/document/product/457/39819)。
+ - 配置资源的操作管理请参考 [ConfigMap 管理](https://cloud.tencent.com/document/product/457/31717) 和 [Secret 管理](https://cloud.tencent.com/document/product/457/31718)。
+ - 存储资源的操作管理请参考 [Volume 管理](https://cloud.tencent.com/document/product/457/31713)、[PV 和 PVC 管理](https://cloud.tencent.com/document/product/457/31712)、[StorageClass 管理](https://cloud.tencent.com/document/product/457/31714)。

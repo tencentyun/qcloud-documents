@@ -14,7 +14,7 @@ SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在【[访问管
 ## 集成 SDK 
 ### 1. 导入 SDK
 从 [Demo 源码](https://github.com/TencentCloud/tencentcloud-sdk-ios-soe) 中获取 SDK 并导入到工程。
-![](http://dldir1.qq.com/hudongzhibo/taisdk/document/taisdk_ios_1.png)
+![](https://main.qcloudimg.com/raw/ba3691482e485a775bf4858cbfa7c327/20191231001.png)
 
 ### 2. 调用接口
 声明并定义对象：
@@ -36,7 +36,7 @@ self.oralEvaluation.delegate = self;
 ```objc
 //1.初始化参数
 TAIOralEvaluationParam *param = [[TAIOralEvaluationParam alloc] init];
-param.sessionId = [NSString stringWithFormat:@"%ld", (long)[[NSDate date] timeIntervalSince1970]];
+param.sessionId = [[NSUUID UUID] UUIDString];
 param.appId = @"";
 param.workMode = TAIOralEvaluationWorkMode_Once;
 param.evalMode = TAIOralEvaluationEvalMode_Sentence;
@@ -60,7 +60,7 @@ param.secretKey = @"";
 ```objc
 //1.初始化参数
 TAIOralEvaluationParam *param = [[TAIOralEvaluationParam alloc] init];
-param.sessionId = [NSString stringWithFormat:@"%ld", (long)[[NSDate date] timeIntervalSince1970]];
+param.sessionId = [[NSUUID UUID] UUIDString];
 param.appId = @"";
 param.workMode = TAIOralEvaluationWorkMode_Once;
 param.evalMode = TAIOralEvaluationEvalMode_Sentence;

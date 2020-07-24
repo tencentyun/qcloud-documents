@@ -102,7 +102,7 @@ let recorder = new TencentSOE({
 ##### TransInitUrl 接口说明：
 接口方法为 POST，需要对前端传来的参数进行签名，再调用云 API 的 TransmitOralProcessWithInit （发音数据传输接口附带初始化过程）接口，返回的数据格式不必再做封装，透传云 API 返回的数据即可，成功返回{"Response":{"RequestId": "xxx"...}}，
 失败返回{"Response":{"RequestId":"xxx","Error":{"xxx":"xxx"}...}}，用户可自行实现签名逻辑，
-也可参考[Tencent Cloud API 3.0 SDK](https://cloud.tencent.com/document/product/884/32828)）
+也可参考[Tencent Cloud API 3.0 SDK](https://cloud.tencent.com/document/product/884/32828)
 
 - 方式三（不推荐）：前端使用固定密钥计算授权凭证，该方式适用于前端调试，若使用此方式，请避免泄露密钥
 ```
@@ -279,4 +279,4 @@ module.exports = async function(req, res, next) {
 | 微信端       | 微信默认webview                  | 无     | 需引入微信 JS-SDK|
 
 > Tip：
-非本地环境必须使用 https 协议
+非本地环境必须使用 HTTPS 协议

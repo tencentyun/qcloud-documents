@@ -5,7 +5,7 @@
 - ACL 访问控制列表（Access Control List），帮助用户定义一组权限规则，允许/拒绝用户 user 通过 IP 读/写 Topic 资源  resource。
 
 ## 前提条件
-该功能目前处于灰度测试阶段，如需试用请通过 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=335&source=0&data_title=%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97CMQ/CKAFKA/IoT%20MQ&step=1) 的方式开通白名单。
+该功能目前处于灰度测试阶段，如需试用请通过 [提交内测申请](https://cloud.tencent.com/apply/p/70089qycbxa) 的方式开通白名单,申请提交后我们将在5个工作日内进行审核并与您取得联系。
 
 ## 操作步骤
 
@@ -18,7 +18,7 @@
 
 ####  Client 端配置
 1. 在 CKafka 实例的用户管理页面，单击【新建】，创建用户。
-![](https://main.qcloudimg.com/raw/f164bde6857b4a0a23b69ccfd41f5c8e.png)
+![](https://main.qcloudimg.com/raw/43fc21203648cbb27b91ba1d37b218f2.png)
 2. 输入用户名和密码信息，单击【提交】完成用户新增。
 ![](https://main.qcloudimg.com/raw/8c8e2e57d320ba2b25e0aecf0dbb3b28.png)
 
@@ -33,7 +33,7 @@ security.protocol=SASL_PLAINTEXT
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="instanceId#admin" password="admin";
 ```
 其中，sasl.jaas.config 部分的 username 和 password 说明如下： 
- - username：包含实例 ID 和用户名，使用`#`拼接，实例 ID 为客户端需要连接的 CKafka 实例（可通过腾讯云控制台可查看该实例），用户名可通过**控制台 ACL 策略管理模块**进行设置。
+ - username：**包含实例 ID 和用户名，使用 `#` 拼接**，实例 ID 为客户端需要连接的 CKafka 实例（可通过腾讯云控制台可查看该实例），用户名可通过**控制台 ACL 策略管理模块**进行设置。
  - password：部分为用户名对应的密码。
  
 **配置文件示例**<span id="配置文件示例"></span>
@@ -58,7 +58,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 
 >?
 - 开通路由只影响接入时的验证方式，设置的 ACL 权限则是全局的。
-- 如果您在开通公网访问路由的同时还使用了 PLAINTEXT 方式接入 Kafka，那么之前为  Topic 设置的 ACL 仍然会生效；如果希望 PLAINTEXT 方式的访问不受影响，则需要通过 API 为实例添加`ANONYMOUS`用户，并为 PLAINTEXT 需要访问的 Topic 添加`ANONYMOUS`用户的可读写的权限。
+- 如果您在开通公网访问路由的同时还使用了 PLAINTEXT 方式接入 Kafka，那么之前为  Topic 设置的 ACL 仍然会生效；如果希望 PLAINTEXT 方式的访问不受影响，请为 PLAINTEXT 需要访问的 Topic 添加全部用户的可读写的权限。
 
 ###  连通性测试
 ####  Kafka 自带工具脚本
@@ -92,8 +92,8 @@ Properties props = new Properties();
 props.put("bootstrap.servers", "yourbrokers");
 props.put("security.protocol", "SASL_PLAINTEXT");
 props.put("sasl.mechanism", "PLAIN");
-props.put("key.serializer", "org.apache.kafka.common.serialization.IntegerSerializer");
-props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 props.put("session.timeout.ms", 30000)
 props.put("sasl.jaas.config", "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"yourinstance#yourusername\" password=\"yourpassword\";");
 org.apache.kafka.clients.consumer.KafkaConsumer<Integer, String> consumer = new org.apache.kafka.clients.consumer.KafkaConsumer<>(props);
@@ -175,6 +175,109 @@ consumer = KafkaConsumer (
     api_version=(0,10,0)
 )
 ```
-更多配置及用法请参考 [Python-Kafka 文档](https://kafka-python.readthedocs.io/en/master/apidoc/modules.html) 。
+更多配置及用法请参考 [Python-Kafka 文档](https://kafka-python.readthedocs.io/en/master/apidoc/modules.html)。
 
+#### Go 客户端
+
+```
+package main
+
+import (
+    "fmt"
+    "log"
+    "os"
+    "os/signal"
+    "time"
+
+    "github.com/Shopify/sarama"
+    cluster "github.com/bsm/sarama-cluster"
+)
+
+
+
+func main() {
+
+    server := []string{"yourbrokers"}
+    groupId := "yourgroupid"
+    topic := []string{"yourtopic"}
+
+    // #### producer
+    proConfig := sarama.NewConfig()
+    proConfig.Net.SASL.Enable = true
+    proConfig.Net.SASL.User = "yourinstance#yourusername"
+    proConfig.Net.SASL.Password = "yourpassword"
+
+    proClient, err := sarama.NewClient(server, proConfig)
+    if err != nil {
+        log.Fatalf("unable to create kafka client: %q", err)
+    }
+    defer proClient.Close()
+    producer, err := sarama.NewAsyncProducerFromClient(proClient)
+    if err != nil {
+        log.Fatalln("failed to start Sarama producer:", err)
+    }
+    defer producer.Close()
+
+    go func() {
+        ticker := time.NewTicker(time.Second)
+        for {
+            select {
+            case t := <-ticker.C:
+                msg := &sarama.ProducerMessage{
+                    Topic: "yourtopic",
+                    Key:   sarama.StringEncoder(t.Second()),
+                    Value: sarama.StringEncoder("yourmessage"),
+                }
+                producer.Input() <- msg
+            }
+        }
+    }()
+
+
+    // #### Consumer
+    config := cluster.NewConfig()
+    config.Net.SASL.Enable = true
+    config.Net.SASL.User = "yourinstance#yourusername"
+    config.Net.SASL.Password = "yourpassword"
+    config.Consumer.Offsets.CommitInterval = 1
+
+    client, err := cluster.NewClient(server, config)
+    if err != nil {
+        log.Fatalf("unable to create kafka client: %q", err)
+    }
+    defer func() { _ = client.Close() }()
+
+    consumer, err := cluster.NewConsumerFromClient(client, groupId, topic)
+    if err != nil {
+        panic(err)
+    }
+    defer func() { _ = consumer.Close() }()
+
+    signals := make(chan os.Signal, 1)
+    signal.Notify(signals, os.Interrupt)
+
+    // Count how many message processed
+    msgCount := 0
+
+    // Get signnal for finish
+    doneCh := make(chan struct{})
+    go func() {
+        for {
+            select {
+            case err := <-consumer.Errors():
+                fmt.Println(err)
+            case msg := <-consumer.Messages():
+                msgCount++
+                fmt.Println("Received messages", string(msg.Key), string(msg.Value))
+            case <-signals:
+                fmt.Println("Interrupt is detected")
+                doneCh <- struct{}{}
+            }
+        }
+    }()
+
+    <-doneCh
+    fmt.Println("Processed", msgCount, "messages")
+}
+```
 

@@ -1,10 +1,10 @@
 
 ## 操作场景
-数据安全网关支持主流的大部分资源类型，如 Linux、Windows 等其他资源类型。下面将为您详细介绍如何添加 Windows 域控资源。
+堡垒机支持主流的大部分资源类型，如 Linux、Windows 等其他资源类型。下面将为您详细介绍如何添加 Windows 域控资源。
 
 
 ## 操作步骤
-1. 登录腾讯云 [数据安全网关控制台](https://console.cloud.tencent.com/cds/dasb)，并使用管理员账号登录数据安全网关。
+1. 登录腾讯云 [堡垒机控制台](https://console.cloud.tencent.com/cds/dasb)，并使用管理员账号登录堡垒机。
 2. 单击【资源管理】>【Active Directory】，进入域控资源管理页面。
 3. 单击【新建】，配置如下信息。
  - **名称**：填写资源名称。

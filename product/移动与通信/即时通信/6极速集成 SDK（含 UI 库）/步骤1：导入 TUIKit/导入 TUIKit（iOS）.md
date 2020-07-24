@@ -12,29 +12,35 @@
 
 TUIKit 支持 CocoaPods 方式和手动集成两种方式。我们推荐使用 CocoaPods 方式集成，以便随时更新至最新版本。
 
-1. 在`Podfile`中增加以下内容。
+1. 在 Podfile 中增加以下内容。
 ```
-pod 'TXIMSDK_TUIKit_iOS'
+#use_frameworks!   // TUIKit 使用到了第三方静态库，这个设置需要屏蔽
+pod 'TXIMSDK_TUIKit_iOS'                 // 默认集成了 TXLiteAVSDK_TRTC 音视频库
+// pod 'TXIMSDK_TUIKit_iOS_Professional' // 默认集成了 TXLiteAVSDK_Professional 音视频库
 ```
-2. 执行以下命令，更新本地库版本。
+2. 执行以下命令，安装 TUIKit。
 ```bash
-pod update
+pod install
+```
+ 如果无法安装 SDK 最新版本，执行以下命令更新本地的 CocoaPods 仓库列表。
+```bash
+ pod repo update
 ```
 
 
-### 手动集成
-我们**不推荐**使用手动集成。
+### 手动集成（不推荐）
 
-1. 在`Framework Search Path`中加上 ImSDK 的文件路径，手动地将`TUIKit`和`ImSDK`目录添加到您的工程。
+1. 在 Framework Search Path 中加上 ImSDK 的文件路径，手动地将 TUIKit 和 ImSDK 目录添加到您的工程。
 2. 手动将 TUIKit 使用的第三方库添加到您的工程：
- - [MMLayout](https://github.com/annidy/MMLayou)
- - [SDWebImage](https://github.com/SDWebImage/SDWebImage)
- - [ReactiveObjC](https://github.com/ReactiveCocoa/ReactiveObjC.git)
- - [Toast](https://github.com/scalessec/Toast)
+ - [MMLayout - Tag : 0.2.0](https://github.com/annidy/MMLayout)
+ - [SDWebImage - Tag : 5.5.2](https://github.com/SDWebImage/SDWebImage)
+ - [ReactiveObjC - Tag  : 3.1.1](https://github.com/ReactiveCocoa/ReactiveObjC.git)
+ - [Toast - Tag  : 4.0.0](https://github.com/scalessec/Toast)
+ - [TXLiteAVSDK_TRTC](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/SDK)
 
 ## 引用 TUIKit
 
-<ol><li>在 `AppDelegate.m` 文件中引入 TUIKit，并初始化。
+<ol><li>在 AppDelegate.m 文件中引入 TUIKit，并初始化。
 
 ```objectivec
 #import "TUIKit.h"

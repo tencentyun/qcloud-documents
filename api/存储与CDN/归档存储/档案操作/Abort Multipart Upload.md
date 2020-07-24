@@ -1,12 +1,12 @@
 ## 功能描述
 
-Abort Multipart Upload请求实现终止分段上传。
+Abort Multipart Upload 请求实现终止分段上传。
 
 ## 请求
 
 #### 请求语法
 
-```HTTP
+```plaintext
 DELETE /<UID>/vaults/<VaultName>/multipart-uploads/<uploadID> HTTP/1.1
 Host: cas.<Region>.myqcloud.com
 Date: Date

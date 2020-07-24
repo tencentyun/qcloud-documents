@@ -39,4 +39,4 @@ public class HelloRedis {
 ```
 
 **运行结果**：
-![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/JAVA-1.jpg)
+![](https://main.qcloudimg.com/raw/d6103ac896b55e6412a1dd172aedc412.jpg)

@@ -37,7 +37,7 @@ if (argc < 4) {
     }
 	
 	/* AUTH */
-    reply = redisCommand(c, "AUTH %s:%s", instance_id, password);
+    reply = redisCommand(c, "AUTH %s", password);
     printf("AUTH: %s\n", reply->str);
     freeReplyObject(reply);
 
@@ -64,4 +64,4 @@ if (argc < 4) {
 ```
 
 **运行结果**：
-![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Clianjie-1.png)
+![](https://main.qcloudimg.com/raw/f6d6d6058d20fd156d8c50f6ec50bf44.png)
