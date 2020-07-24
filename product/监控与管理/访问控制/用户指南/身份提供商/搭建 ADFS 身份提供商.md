@@ -185,6 +185,7 @@ https://cloud.tencent.com/saml.xml
 > - 勾选传递所有声明值。
 10. 在添加转换声明规则向导页面，单击【选择规则类型】>【使用自定义规则发送声明】>【下一步】。如下图所示：
 ![](https://main.qcloudimg.com/raw/3a0c83b3c1ea6cb8aed612e9998f95f1.png)
+
 11.在编辑规则页面，补充规则信息，单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/e7a380f00d3d26f89609fc84c510a625.png)
 >? 
@@ -194,8 +195,10 @@ https://cloud.tencent.com/saml.xml
 c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer == "AD AUTHORITY"]
  => add(store = "Active Directory", types = ("http://temp/variable"), query = ";tokenGroups;{0}", param = c.Value);
 ```
+
 12. 在添加转换声明规则向导页面，单击【选择规则类型】>【使用自定义规则发送声明】>【下一步】。如下图所示：
 ![](https://main.qcloudimg.com/raw/3a0c83b3c1ea6cb8aed612e9998f95f1.png)
+
 13. 在编辑规则页面，补充规则信息，单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/8bc620166e88e68f4963622a85ed398b.png)
 >? 
