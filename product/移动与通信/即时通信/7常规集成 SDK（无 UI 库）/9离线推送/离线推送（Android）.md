@@ -302,7 +302,7 @@
 
 **步骤2：接收端获取自定义内容**
 
-- 若 [添加证书](#huaweiStep1_1) 时设置【点击通知后】的操作为【打开应用】或 打开应用内指定界面】，当点击通知栏的消息时，客户端可以在相应的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
+- 若 [添加证书](#huaweiStep1_1) 时设置【点击通知后】的操作为【打开应用】或【打开应用内指定界面】，当点击通知栏的消息时，客户端可以在相应的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
 
 ```
 Bundle bundle = getIntent().getExtras();
