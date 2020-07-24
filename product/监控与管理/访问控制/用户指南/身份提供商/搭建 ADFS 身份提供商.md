@@ -97,7 +97,7 @@ Active Directory Federation Services（ADFS）是 Microsoft's 推出的 Windows 
 ![](https://main.qcloudimg.com/raw/b064eec1982149a015d8df9a569fbf91.png)
 2. 在 Active Directory 用户和计算机页面，单击【操作】>【新建】>【组】。如下图所示：
 ![](https://main.qcloudimg.com/raw/a07fe66f3ed109266ac98162663029a7.png)
-3. 在新建对象-组页面， 填写组名信息。如：如下图所示：
+3. 在新建对象-组页面， 填写组名信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/aa30bdf9deaec08ddceadcff44199a45.png)
 >?
 >-  <您的主账号 ID>替换为您的腾讯云帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
@@ -125,14 +125,14 @@ SSL 证书：导入在生成 SSL 证书中 [步骤 9](#step9) 保存的证书文
 
 5. 访问以下链接下载 XML文件。
 ```
-https://域名/federationmetadata/2007-06/federationmetadata.xml
+https://联合身份验证服务器名称/federationmetadata/2007-06/federationmetadata.xml
 ```
 
 6. 在 powerShell 中执行 Set-AdfsProperties –EnableIdpInitiatedSignonPage $True，
 访问以下入口进行登录。
 
 ```
-https://域名/adfs/ls/idpinitiatedSignOn.htm
+https://联合身份验证服务器名称/adfs/ls/idpinitiatedSignOn.htm
 ```
 7. 输入 [步骤4](#step4) 中的账号名称、密码登录。登录成功如下图所示：
 ![](https://main.qcloudimg.com/raw/a032933d0f3bedbfe31d1cea75459d5c.png)
@@ -222,8 +222,7 @@ c:[Type == "http://temp/variable", Value =~ "(?i)^Tencent-([\d]+)"]
 ### 账号登录
 在您的服务器浏览器中输入以下网址，访问登录腾讯云。
 ```
-https://域名/adfs/ls/idpinitiatedSignOn.htm
+https://联合身份验证服务器名称/adfs/ls/idpinitiatedSignOn.htm
 ```
 >? 
-> - 其中"域名"为 ADFS 服务器名称。
 > - 如您需要在ADFS服务器之外的浏览器单点登录腾讯云，可以在域名服务商配置子域名（您的联合身份验证服务器名称），然后在进行访问登录。
