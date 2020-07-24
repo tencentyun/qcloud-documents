@@ -26,9 +26,9 @@ TUIKit 组件在 4.8.50 版本之后基于 [TRTC](https://cloud.tencent.com/docu
 
 1. 在 podfile 文件中添加以下内容。
  ```
-use_modular_headers!
 // 支持音视频通话 TUIKit 的最低版本为 4.8.50
-pod 'TXIMSDK_TUIKit_iOS'
+pod 'TXIMSDK_TUIKit_iOS'                 // 默认集成了 TXLiteAVSDK_TRTC 音视频库
+// pod 'TXIMSDK_TUIKit_iOS_Professional' // 默认集成了 TXLiteAVSDK_Professional 音视频库
 ```
 2. 执行以下命令，下载第三方库至当前工程。
 ```
