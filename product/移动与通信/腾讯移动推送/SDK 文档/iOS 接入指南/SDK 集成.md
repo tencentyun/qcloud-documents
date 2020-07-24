@@ -174,8 +174,8 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 区分前台收到通知消息和静默消息示例代码如下：
 ```
 NSDictionary *tpnsInfo = notificationDic[@"xg"];
-    NSNumber *msgType = tpnsInfo[@"msgtype"];
-    if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive && msgType.integerValue == 1) {
+NSNumber *msgType = tpnsInfo[@"msgtype"];
+ if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive && msgType.integerValue == 1) {
         /// 前台收到通知消息
     } else {
         /// 静默消息
