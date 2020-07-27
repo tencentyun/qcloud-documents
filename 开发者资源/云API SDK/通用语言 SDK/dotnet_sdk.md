@@ -1,60 +1,18 @@
 ## 简介
+* 欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK 3.0 是云 API 3.0 平台的配套工具。SDK 3.0 实现了统一化，各个语言版本的 SDK 具备使用方法相同、接口调用方式相同、错误码和返回包格式相同等优点。
+* 本文以 .NET SDK 3.0 为例，介绍如何使用、调试并接入腾讯云产品 API。
+* 目前已支持云服务器 CVM、私有网络 VPC 、云硬盘 CBS 等 [腾讯云产品](https://cloud.tencent.com/document/sdk/Description)，后续会支持其他云产品接入。
 
-- 欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK 3.0 是云 API 3.0 平台的配套工具。
-- SDK 3.0 实现了统一化，各个语言版本的 SDK 具备使用方法相同、接口调用方式相同、错误码和返回包格式相同等优点。本文以 .NET SDK 3.0 为例，介绍如何使用、调试并接入腾讯云产品 API。首次使用 .NET SDK 3.0 的简单示例见下文，您可通过本文快速获取腾讯云 .NET SDK 3.0 并开始进行调用。
-- 目前已支持云服务器 CVM、私有网络 VPC 、云硬盘 CBS 等 [腾讯云产品](https://cloud.tencent.com/product)，后续会支持其他云产品接入。
+## 依赖环境
 
-
-
-
-
-## 步骤1：搭建所需环境
-
-### 配置语言环境
-
-- 依赖环境：.NET Framework 4.5+ 和 .NET Core 2.1。 
-- 下面以 .NET Framework 4.7 和 .NET Core 2.1 为例。
-- win10 系统自带 .NET Framework 4.7，则可以省去这里的安装。
-
-#### 1. 下载安装 .NET Framework 4.7
-
-查看本机 .net Framework 版本：打开【控制面板】>【程序】>【启用或关闭 Windows 功能】。
-
-<img src="https://main.qcloudimg.com/raw/6bc643910f56ae99c392690893aaf810.png" width="408"><span><span/>
-![](https://main.qcloudimg.com/raw/ebda693fbe89d1d98aae855b9ef68c2b.png)
-
-经查看后，**如果没有，则需要在官网下载**：
-
-1. 进入 [官网]( https://dotnet.microsoft.com/download/dotnet-framework ) 下载您所需的版本。
-<img src="https://main.qcloudimg.com/raw/84718141b823a60adefbb81341132d61.png" width="700"><span/>
-下载完毕，会得到一个`NDP47-DevPack-KB3186612-ENU.exe`可执行文件。
-2. 双击打开，安装即可。
-<div><img src="https://main.qcloudimg.com/raw/40e1152743e779c0d5d9fece89995e34.png" width="450"></div>
-
-#### 2. 下载安装 Core 2.1
-
-1. 进入 [官网](https://dotnet.microsoft.com/download/dotnet-core) 下载您所需的版本。
-![](https://main.qcloudimg.com/raw/ce300f8f12fc64f1944bacf5069c9f2b.png)
-![](https://main.qcloudimg.com/raw/1d76e5008ef1323000316bcade963493.png)
-下载完毕，会得到一个`dotnet-sdk-2.1.612-win-x64.exe`可执行文件。
-2. 双击打开，单击【install】即可。
-![](https://main.qcloudimg.com/raw/18f16fd6141062767a5e87b87d14eebb.png)
-默认安装地址一般为`C:\Program Files\dotnet`，并且**已经配置好环境变量**。如果需要指定安装位置，可下载右边的对应的 Binaries 文件，会得到一个`dotnet-sdk-2.1.807-win-x64.zip`压缩文件，提取到指定位置，并需要手动配置环境变量，例如解压到这个地址：`F:\saftware\language\dotnet`。
->?配置环境变量：【我的电脑】>【属性】>【高级系统设置】>【环境变量】>【系统变量】。
-<img src="https://main.qcloudimg.com/raw/0946c8544324227a4ba405b0fe4a97ee.png" width="600"><span/>
-<img src="https://main.qcloudimg.com/raw/d294cc6e233fd91156d952be63537809.png" width="500">
-3. 安装完成后，按 **Win+R** 打开运行窗口，输入 cmd 并单击【确定】。如下图所示：
-![](https://main.qcloudimg.com/raw/f1206af2dd8361a6a5884ee6af4739a3.png)
-在命令行窗口中，执行以下命令查看 Core SDK 版本。
-```bash
-dotnet --version
-```
-返回结果如下图所示，即表明已成功安装 Core 2.1.807。
-![](https://main.qcloudimg.com/raw/2cc61cc0041774c6760bfa33655865f7.png) 
+* .NET Framework 4.5+ 和 .NET Core 2.1。
+* 获取安全凭证。安全凭证包含 SecretId 及 SecretKey 两部分。SecretId 用于标识 API 调用者的身份，SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥。前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取，如下图所示：
+![](https://main.qcloudimg.com/raw/78145f9e6a830a188304991552a5c614.png)
+>!**您的安全凭证代表您的账号身份和所拥有的权限，等同于您的登录密码，切勿泄露他人。**
+* 获取调用地址。调用地址（endpoint）一般形式为`*.tencentcloudapi.com`，产品的调用地址有一定区别，例如，云服务器的调用地址为`cvm.tencentcloudapi.com`。具体调用地址可参考对应产品的API文档。
 
 
-
-## 步骤2：安装 SDK
+## 安装 SDK
 
 ### 通过 nuget 安装（推荐）
 
@@ -78,7 +36,7 @@ dotnet add package TencentCloudSDK --version 3.0.0
 
 
 
-## 步骤3：使用 SDK
+## 使用 SDK
 
 每个接口都有一个对应的 Request 结构和一个 Response 结构。例如，云服务器的查询实例列表接口 DescribeInstances 有对应的请求结构体 DescribeInstancesRequest 和返回结构体 DescribeInstancesResponse。
 
@@ -287,4 +245,5 @@ namespace TencentCloudExamples
 ### 代理
 
 若在代理的环境下使用 SDK 进行接口调用，则需设置系统环境变量`https_proxy`（已在示例代码中体现），否则可能出现无法正常调用、抛出连接超时异常的现象。
+
 
