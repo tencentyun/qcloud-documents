@@ -2,7 +2,7 @@
 
 * 欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK 3.0 是云 API 3.0 平台的配套工具。SDK 3.0 实现了统一化，各个语言版本的 SDK 具备使用方法相同、接口调用方式相同、错误码和返回包格式。
 * 本文以 PHP SDK 3.0 为例，介绍如何使用、调试并接入腾讯云产品 API。
-* 目前已支持云服务器 CVM、私有网络 VPC 、云硬盘 CBS 等 [腾讯云产品]https://cloud.tencent.com/document/sdk/Description)，后续会支持其他云产品接入。
+* 目前已支持云服务器 CVM、私有网络 VPC 、云硬盘 CBS 等 [腾讯云产品](https://cloud.tencent.com/document/sdk/Description)，后续会支持其他云产品接入。
 
 ## 依赖环境
 
