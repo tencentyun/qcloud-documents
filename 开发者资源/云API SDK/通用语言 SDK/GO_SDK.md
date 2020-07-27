@@ -1,66 +1,18 @@
 ## 简介
+* 欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK 3.0 是云 API 3.0 平台的配套工具。SDK 3.0 实现了统一化，各个语言版本的 SDK 具备使用方法相同、接口调用方式相同、错误码和返回包格式相同等优点。
+* 本文以 GO SDK 3.0 为例，介绍如何使用、调试并接入腾讯云产品 API。
+* 目前已支持云服务器 CVM、私有网络 VPC 、云硬盘 CBS 等 [腾讯云产品](https://cloud.tencent.com/document/sdk/Description)，后续会支持其他云产品接入。
 
-- 欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK 3.0 是云 API3.0 平台的配套工具。
-- SDK 3.0 实现了统一化，各个语言版本的 SDK 使用方法相同、接口调用方式相同、统一的错误码和返回包格式相同等优点。本文以 GO SDK 3.0 为例，介绍如何使用、调试并接入腾讯云产品 API。首次使用 GO SDK 3.0 的简单示例见下文，您可通过本文快速获取腾讯云 GO SDK 3.0 并开始调用。
-- 目前已支持云服务器 CVM、私有网络 VPC 、云硬盘 CBS 等 [腾讯云产品](https://cloud.tencent.com/product)，后续会支持其他云产品接入。
+## 依赖环境
 
-
-
-## 步骤1：搭建所需环境
-
-- Go 1.9 版本及以上，并设置好 GOPATH 等必须的环境变量。
-- 使用相关产品前需要在腾讯云控制台已开通相应产品。
-- 在腾讯云控制台 [访问管理](https://console.cloud.tencent.com/cam/capi) 页面获取 SecretID 和 SecretKey。
-
-### 配置语言环境
-
-下载 [GO 语言](https://golang.org/dl/) 安装包。下面以 go1.14.3.windows-amd64.msi 安装程序做示例介绍，支持 Windows 7 或者更高版本 intel 64位处理器。
->!**中国大陆地区的用户可以使用国内镜像源提高下载速度**。
-
-下载完成后，双击<kbd>go1.14.3.windows-amd64.msi</kbd>，一路默认下一步即可完成安装。然后配置环境变量：【我的电脑】>【属性】>【高级系统设置】>【环境变量】>【系统变量】。
-<img src="https://main.qcloudimg.com/raw/0946c8544324227a4ba405b0fe4a97ee.png" width="600"><span/>
-- 新建环境变量 GOPATH：
-	- 变量名：GOPATH。
-	- 变量值：按自己的需求指定（该路径是用于保存您所编写的代码） 
-![](https://main.qcloudimg.com/raw/9680006cff76b75cdb8889dd1389693c.png)
-- 新建环境变量 GOROOT：
-	- 变量名：GOROOT。
-	- 变量值：GO 语言的安装路径（上文安装程序时有显示安装路径）
-![](https://main.qcloudimg.com/raw/bebf09b3aca8424e4b0cebf48f15f00f.png)
--  配置 PATH：增加一个 GO 的执行路径，即 GO 安装的位置，需要注意的是必须指明到 bin 目录。 
-![](https://main.qcloudimg.com/raw/04f74780efa27a8a5425ce5b137e6a6f.png) 
-
-安装完成后，按 **Win+R** 打开运行窗口，输入 cmd 并单击【确定】。如下图所示：
-![](https://main.qcloudimg.com/raw/f1206af2dd8361a6a5884ee6af4739a3.png)
-在命令行窗口中，执行以下命令查看 GO 版本。
-```
-go version
-```
-返回结果如下图所示，即表明已成功安装 GO。
-![](https://main.qcloudimg.com/raw/52272f443a20f1966f2900f562fdc9f9.png) 
-在命令行中查看 GO 语言的配置。输入<kbd>go env</kbd>。返回结果如下图所示，即说明配置环境变量成功。
-![](https://main.qcloudimg.com/raw/2a544939f4ad2b38be2d7a7cef0ad863.png) 
-
-
-### 产品开通
-
-登录 [腾讯云控制台](https://console.cloud.tencent.com/) 并开通需使用产品，您可通过控制台进行搜索。如下图所示：
-![](https://main.qcloudimg.com/raw/af625557f35ff329afecf7eceb06bc29.png)
-
-### 获取凭证
-
-安全凭证包含 SecretId 及 SecretKey 两部分。SecretId 用于标识 API 调用者的身份，SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥。前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取，如下图所示：
-![](https://main.qcloudimg.com/raw/0b064499a40369f8f57a3aea88455a9c.png)
+* Go 1.9版本及以上。
+* 获取安全凭证。安全凭证包含 SecretId 及 SecretKey 两部分。SecretId 用于标识 API 调用者的身份，SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥。前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取，如下图所示：
+![](https://main.qcloudimg.com/raw/78145f9e6a830a188304991552a5c614.png)
 >!**您的安全凭证代表您的账号身份和所拥有的权限，等同于您的登录密码，切勿泄露他人。**
+* 获取调用地址。调用地址（endpoint）一般形式为`*.tencentcloudapi.com`，产品的调用地址有一定区别，例如，云服务器的调用地址为`cvm.tencentcloudapi.com`。具体调用地址可参考对应产品的API文档。
 
 
-### 获取调用地址
-
-调用地址（endpoint）一般形式为`*.tencentcloudapi.com`，产品的调用地址有一定区别，详情请参见各产品下的“请求结构”文档。例如，云服务器的调用地址为`cvm.tencentcloudapi.com`。
-
-
-
-## 步骤2：安装 SDK
+## 安装 SDK
 
 ### 通过 go get 安装（推荐）
 
@@ -69,7 +21,7 @@ go version
 go get -u github.com/tencentcloud/tencentcloud-sdk-go
 ```
 
-## 步骤3：使用 SDK
+## 使用 SDK
 每个接口都有一个对应的 Request 结构和一个 Response 结构。例如，云服务器的查询实例列表接口 DescribeInstances 有对应的请求结构体 DescribeInstancesRequest 和返回结构体 DescribeInstancesResponse。
 
 下面以云服务器查询实例列表接口为例，介绍 SDK 的基础用法。出于演示目的，有一些非必要的内容也在示例中，以尽量展示 SDK 常用的功能，但也显得臃肿，在实际编写代码使用 SDK 的时候，应尽量简化。
