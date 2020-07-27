@@ -1,112 +1,19 @@
 ## 简介
+* 欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK 3.0 是云 API 3.0 平台的配套工具。SDK 3.0 实现了统一化，各个语言版本的 SDK 具备使用方法相同、接口调用方式相同、错误码和返回包格式相同等优点。
+* 本文以 C++ SDK 3.0 为例，介绍如何使用、调试并接入腾讯云产品 API。
+* 目前已支持云服务器 CVM、私有网络 VPC 、云硬盘 CBS 等 [腾讯云产品](https://cloud.tencent.com/document/sdk/Description)，后续会支持其他云产品接入。
 
-- 欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK 3.0是云 API 3.0 平台的配套工具。
-- SDK 3.0 实现了统一化，各个语言版本的 SDK 具备使用方法相同、接口调用方式相同、错误码和返回包格式相同等优点。本文以 C++ SDK 3.0 为例，介绍如何使用、调试并接入腾讯云产品 API。首次使用 C++ SDK 3.0 的简单示例见下文，您可通过本文快速获取腾讯云 C++ SDK 3.0，并开始进行调用。
-- 目前已支持云服务器 CVM、私有网络 VPC、云硬盘 CBS 等 [腾讯云产品](https://cloud.tencent.com/product)，后续会支持其他云产品接入。
+## 依赖环境
 
-
-
-
-
-## 步骤1：搭建所需环境
-
-### 配置语言环境
-
-
-- 安装支持 C++ 11 或更高版本的编译器，即 GCC 4.8 或以上版本。
-- 暂时仅支持 Linux 环境，不支持 Windows 环境。
-
-#### 1. 下载安装
-
->? 下面以 Ubuntu 64位 18.04.2系统为例。
-
-首先确认下自己的系统是否带有 C++ 编程环境：
-
-```bash
-$ g++ --version
-$ gcc --version
-```
-
-![](https://main.qcloudimg.com/raw/d0f9b8736b6ed82326ccf33ce3162ba5.png) 
-![](https://main.qcloudimg.com/raw/abe440cdc0a68104e64fdd752b8930a0.png) 
-
-如上图所示，说明已经有7.3.0版本编程环境。如需4.8版本，首先非源码编译式安装。: 
-
-```
-sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-sudo apt-get update
-sudo apt-get install gcc-4.8 
-sudo apt-get install g++-4.8
-```
-
-等 GCC/G++ 下载并安装完以后，测试是否安装成功： 
-
-```
-gcc-4.8 --version   或者 gcc-4.8 -v
-g++-4.8 --version   或者 g++-4.8 -v
-```
-
-返回上文信息，则说明4.8版本安装成功。
-
-### 编译工具
-
-编译工具：[cmake](https://cmake.org/)。
-安装 cmake 3.0 或以上版本，示例如下：
-```
-ubuntu
-sudo apt-get install cmake
-
-centos
-yum install cmake3
-```
-
-### 依赖库
-
-[libcurl](https://curl.haxx.se/libcurl/) 安装示例如下：
-
-```
-ubuntu
-sudo apt-get install libcurl4-openssl-dev
-
-centos
-yum install libcurl-devel
-```
-
->?建议安装最新版的 libcurl 库，否则可能存在 libcurl 库内存泄露 bug 问题。
-
-[openssl](https://www.openssl.org/) 安装示例如下：
-
-```
-ubuntu
-sudo apt-get install libssl-dev
-
-centos
-yum install openssl-devel
-```
-
-libuuid 安装示例如下：
-
-```
-ubuntu
-sudo apt-get install uuid-dev
-
-centos
-yum install libuuid-devel
-```
-
-上述安装可能不成功，根据相关信息，uuid-dev 所依赖的 libuuid1 版本要求在 2.31.1-0.4Ubuntu3 版本。
-![](https://main.qcloudimg.com/raw/df95fd57ab68f51a2e0c80e2b48737c9.png)  
-因此，您需要继续执行以下命令：
-```
-# 执行此命令：
-sudo apt-get install libuuid1=2.31.1-0.4ubuntu3
-# 再重新执行
-sudo apt-get install uuid-dev
-```
+* C++ 11或更高版本的编译器，即 GCC 4.8 或以上版本。暂时仅支持 Linux 安装环境。
+* 获取安全凭证。安全凭证包含 SecretId 及 SecretKey 两部分。SecretId 用于标识 API 调用者的身份，SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥。前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取，如下图所示：
+![](https://main.qcloudimg.com/raw/78145f9e6a830a188304991552a5c614.png)
+>!**您的安全凭证代表您的账号身份和所拥有的权限，等同于您的登录密码，切勿泄露他人。**
+* 获取调用地址。调用地址（endpoint）一般形式为`*.tencentcloudapi.com`，产品的调用地址有一定区别，例如，云服务器的调用地址为`cvm.tencentcloudapi.com`。具体调用地址可参考对应产品的API文档。
 
 
 
-## 步骤2：安装 SDK
+## 安装 SDK
 
 ### 从源代码构建 SDK
 
@@ -124,7 +31,7 @@ sudo make install
 
 
 
-## 步骤3：使用 C++ SDK 示例
+## 使用 C++ SDK 示例
 
 >!示例不能直接运行，需要将密钥等信息改为真实可用的信息，最好配置在环境变量，避免暴露在代码中。
 
@@ -259,3 +166,7 @@ sh function_test.sh
 ### 代理
 
 若在代理的环境下使用 SDK 进行接口调用，则需设置系统环境变量`https_proxy`（已在示例代码中体现），否则可能出现无法正常调用，抛出连接超时异常的现象。
+
+
+
+
