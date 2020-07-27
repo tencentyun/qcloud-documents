@@ -1,109 +1,18 @@
 ## 简介
+* 欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK 3.0 是云 API 3.0 平台的配套工具。SDK 3.0 实现了统一化，各个语言版本的 SDK 具备使用方法相同、接口调用方式相同、错误码和返回包格式相同等优点。
+* 本文以 Java SDK 3.0 为例，介绍如何使用、调试并接入腾讯云产品 API。
+* 目前已支持云服务器 CVM、私有网络 VPC 、云硬盘 CBS 等 [腾讯云产品](https://cloud.tencent.com/document/sdk/Description)，后续会支持其他云产品接入。
 
-- 欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK 3.0 是云 API 3.0 平台的配套工具。
-- SDK 3.0 实现了统一化，各个语言版本的 SDK 具备使用方法相同、接口调用方式相同、错误码和返回包格式相同等优点。本文以 Java SDK 3.0 为例，介绍如何使用、调试并接入腾讯云产品 API。首次使用 Java SDK 3.0 的简单示例见下文，您可通过本文快速获取腾讯云 Java SDK 3.0 并开始进行调用。
-- 目前已支持云服务器 CVM、私有网络 VPC 、云硬盘 CBS 等 [腾讯云产品](https://cloud.tencent.com/product)，后续会支持其他云产品接入。
+## 依赖环境
 
-
-
-## 步骤1：搭建所需环境
-
-### 1. 配置语言环境
-
->!依赖环境：JDK 7 版本及以上。
-
-首先，您需要在 [Oracle 官网](https://www.oracle.com/cn/java/technologies/javase/javase-jdk8-downloads.html) 下载 JDK：
-![](https://main.qcloudimg.com/raw/e2b3b8e6ed560600ed114d15be0eaf2b.png)
-![](https://main.qcloudimg.com/raw/48d1e42f512da3928723203525d1e381.png)
-进行勾选后，即可单击下载。下载完成后，双击`jdk-8u121-windows-x64`可执行文件，将会进入 JDK 的安装界面，直接单击【下一步】即可。
-![](https://main.qcloudimg.com/raw/e9a6197cd6405c1df6050c4802665c97.png) 
->?此处可以更改安装路径，记录下路径，后续步骤会使用到（建议使用默认路径）。
-
-完成 JDK 的安装后，为了让 JDK 全局生效，需要配置环境变量：【我的电脑】>【属性】>【高级系统设置】>【环境变量】>【系统变量】。
-<img src="https://main.qcloudimg.com/raw/0946c8544324227a4ba405b0fe4a97ee.png" width="600"><span/>
-- 新建环境变量 JAVA_HOME：
-	- 变量名：JAVA_HOME。
-	- 变量值：`F:\saftware\java\java_package\java`（变量值是自己的 JDK 安装目录）。
-![](https://main.qcloudimg.com/raw/f074b5bc5c29bbfa09d7d78939c03df4.png)
-- 新建环境变量 CLASSPATH：
-	- 变量名：CLASSPATH。
-	- 变量值：`.;%JAVA_HOME%\lib\dt.jar;%JAVA_HOME%\lib\tools.jar`（需要注意变量值前面的`.;`）。
-	![](https://main.qcloudimg.com/raw/4fcefc3d1d1721eb8cb5c331a53aca18.png) 
-  >?变量值有三个方向：第1个是一个点，即搜索所有；第2个是指向 dt.jar，第3个是指向 tools.jar。
-- 配置环境变量 PATH： 
-双击【Path】，单击【新建】，添加`%JAVA_HOME%\bin`，同理添加`%JAVA_HOME%\jre\bin`。 
-![](https://main.qcloudimg.com/raw/6278076279bc29114a3b32d8405585d3.png)
->!win10 环境变量值是一行一行的，不要直接点击新建，否则会出现“javac不是内部或外部命令”错误。选择【编辑文本】，在最后添加`%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin;`。 
-
-最后，我们需要验证 Java 语言环境是否安装成功，按 **Win+R** 打开运行窗口，输入 cmd 并单击【确定】，打开“命令行窗口”，输入命令`java`，结果如图下所示：
-![](https://main.qcloudimg.com/raw/13fc6005fb39122762affb7a8e3bd82e.png) 
-输入命令`javac`，结果如图下所示，则环境配置成功。
-![](https://main.qcloudimg.com/raw/7c8cd8a594cb652f9f1c420eaac43d2e.png) 
-
-
-
-### 2. 配置 Maven 仓库环境
-
-Maven 是 JAVA 的依赖管理工具，支持您项目所需的依赖项，并将其安装到项目中。关于 Maven 详细可参考 [Maven 官网](https://maven.apache.org/)。
-1. Maven 官网下载地址：<a href="https://maven.apache.org/download.cgi">https://maven.apache.org/download.cgi</a> 
-![](https://main.qcloudimg.com/raw/29c358e8c1c8ec2cdd3834e154447514.png) 
-2. 解压到本地后，配置仓库环境：
-	- 变量名：MAVEN_HOME。
-	- 变量值：选择自己解压的路径。
-![](https://main.qcloudimg.com/raw/4267e29ccb102589ca87259586b2b42b.png) 
-3. 验证 Maven 仓库是否成功：按 **Win+R** 打开运行窗口，输入 cmd 并单击【确定】，打开“命令行窗口”，输入命令`mvn -v`，如下图所示，则安装成功。
-![](https://main.qcloudimg.com/raw/4175ff38da9e2a6ba0c4b409b6f8a5e9.png) 
-
-### 获取凭证
-
-安全凭证包含 SecretId 及 SecretKey 两部分。SecretId 用于标识 API 调用者的身份，SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥。前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取，如下图所示：
-![](https://main.qcloudimg.com/raw/0b064499a40369f8f57a3aea88455a9c.png)
+* JDK 7版本及以上。
+* 获取安全凭证。安全凭证包含 SecretId 及 SecretKey 两部分。SecretId 用于标识 API 调用者的身份，SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥。前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取，如下图所示：
+![](https://main.qcloudimg.com/raw/78145f9e6a830a188304991552a5c614.png)
 >!**您的安全凭证代表您的账号身份和所拥有的权限，等同于您的登录密码，切勿泄露他人。**
-
-### 获取调用地址
-
-调用地址（endpoint）一般形式为`*.tencentcloudapi.com`，产品的调用地址有一定区别，详情请参见各产品下的“请求结构”文档。例如，云服务器的调用地址为`cvm.tencentcloudapi.com`。
+* 获取调用地址。调用地址（endpoint）一般形式为`*.tencentcloudapi.com`，产品的调用地址有一定区别，例如，云服务器的调用地址为`cvm.tencentcloudapi.com`。具体调用地址可参考对应产品的API文档。
 
 
-
-### 示例项目<span id="p2"></span>
-
-下面以命令行创建项目做介绍，您可以使用 eclipse、IntelliJ IDEA 等工具，管理项目更方便。此处创建项目需要先安装 Maven 仓库，安装方式见下文 [步骤二](#p1)。
-
-```bash
-$ mvn archetype:generate -DgroupId=com.Demo -DartifactId=maven-demo -Dversion=1.0-SNAPSHOT -Dpackage=com.Demo
-```
-
-```bash
-# 命令解释(使用时，请注意修改示例信息为真实值，此内容仅作参考)
-mvn archetype:generate                              	--核心命令  --创建项目
--DgroupId=com.Demo                                      --域名的反写+项目名称
--DartifactId=maven-demo                                 --模块名称
--Dversion=1.0-SNAPSHOT                                  --项目版本
--Dpackage=com.Demo                                      --源码包目录
-```
-
-#### 官方推荐 groupId 和 package 使用相同的路径：
-
-![](https://main.qcloudimg.com/raw/86704d698bf1d91b9902b422a7a8683b.png) 
-如下图信息所示，则创建项目成功：
-![](https://main.qcloudimg.com/raw/027e0664ec47964fd6d839210354d162.png) 
-
->?如果是中国大陆地区的用户可以使用国内镜像源提高下载速度：
-打开项目根目录下的 pom.xml 文件，找到`<repositories>`标签（如果没有，直接创建即可），里面加上`<repository>`标签内容，以腾讯镜像源为例：
-```xml
-<repositories>
-    <repository>    
-        <id>nexus-tencentyun</id>    
-        <name>Nexus tencentyun</name>    
-        <url>http://mirrors.cloud.tencent.com/nexus/repository/maven-public/</url>    
-    </repository>  
-</repositories>
-```
-
-
-
-## 步骤2：安装 SDK<span id="p1"></span>
+## 安装 SDK<span id="p1"></span>
 
 ### 通过 Maven 安装（推荐）
 
@@ -131,7 +40,7 @@ G:\maven-demo>mvn package
 ```
 
 
-## 步骤3：使用 SDK
+## 使用 SDK
 
 ### 示例1：查询可用区（DescribeZones）
 
@@ -370,6 +279,9 @@ DEBUG | 2020-06-23 19:53:45,685 | com.tencentcloudapi.cvm.v20170312.CvmClient | 
       <version>3.1.59</version>
     </dependency>
 ```
+
+
+
 
 
 
