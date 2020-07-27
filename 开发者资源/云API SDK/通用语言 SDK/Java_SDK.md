@@ -27,7 +27,7 @@ Maven 是 JAVA 的依赖管理工具，支持您项目所需的依赖项，并�
     <artifactId>tencentcloud-sdk-java</artifactId>
     <!-- go to https://search.maven.org/search?q=tencentcloud-sdk-java and get the latest version. -->
     <!-- 请到 https://search.maven.org/search?q=tencentcloud-sdk-java 查询最新版本 -->
-    <version>3.1.60</version>
+    <version>3.1.87</version>
 </dependency>
 ```
 示例如下图所示：
