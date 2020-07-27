@@ -1,49 +1,19 @@
 ## 简介
+* 欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK 3.0 是云 API 3.0 平台的配套工具。SDK 3.0 实现了统一化，各个语言版本的 SDK 具备使用方法相同、接口调用方式相同、错误码和返回包格式相同等优点。
+* 本文以 Python SDK 3.0 为例，介绍如何使用、调试并接入腾讯云产品 API。
+* 目前已支持云服务器 CVM、私有网络 VPC 、云硬盘 CBS 等 [腾讯云产品](https://cloud.tencent.com/document/sdk/Description)，后续会支持其他云产品接入。
 
-- 欢迎使用腾讯云开发者工具套件（SDK）3.0，SDK 3.0 是云 API 3.0 平台的配套工具。
-- SDK 3.0 实现了统一化，各个语言版本的 SDK 具备使用方法相同、接口调用方式相同、错误码和返回包格式相同等优点。本文以 Python SDK 3.0 为例，介绍如何使用、调试并接入腾讯云产品 API。首次使用 Python SDK 3.0 的简单示例见下文，您可通过本文快速获取腾讯云 Python SDK 3.0 并开始进行调用。
-- 目前已支持云服务器 CVM、私有网络 VPC 、云硬盘 CBS 等 [腾讯云产品](https://cloud.tencent.com/product)，后续会支持其他云产品接入。
+## 依赖环境
 
-
-
-
-
-
-## 步骤1：搭建所需环境
-
-### 配置语言环境
->! 支持 Python 2.7至3.6版本，本文以 Python 3.6.8版本为例。如需使用其他版本，请前往 [Python 官网](https://www.python.org/downloads/windows/) 进行选择。
-
-
-1. 下载 [python 3.6.8安装包](https://www.python.org/ftp/python/3.6.8/python-3.6.8-amd64.exe)。
->?Python 3.6.8版本不能在 Windows XP 或更早的 Windows 操作系统版本上使用。
-2. 双击`python-3.6.8-amd64.exe`打开安装窗口，勾选【Add Python 3.6 to PATH】，并单击【Install Now】。如下图所示：
-<img src="https://main.qcloudimg.com/raw/4785c573403d6d66a431b77be6733fbc.png" width="500"></span>
->?您也可以选择【Customize installation】进行自定义安装。
-3. 安装完成后，按 **Win+R** 打开运行窗口，输入 cmd 并单击【确定】，打开“命令行窗口”，输入以下命令查看 Python 版本：
-```
-python -V
-```
-返回结果如下图所示，即表明已成功安装 Python 3.6.8。
-![](https://main.qcloudimg.com/raw/fd4aa62b656849a03b60452270ab1ded.png)
-
-### 产品开通
-登录 [腾讯云控制台](https://console.cloud.tencent.com/) 并开通需使用产品，您可通过控制台进行搜索。如下图所示：
-![](https://main.qcloudimg.com/raw/af625557f35ff329afecf7eceb06bc29.png)
-
-
-### 获取凭证
-
-安全凭证包含 SecretId 及 SecretKey 两部分。SecretId 用于标识 API 调用者的身份，SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥。前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取，如下图所示：
-![](https://main.qcloudimg.com/raw/0b064499a40369f8f57a3aea88455a9c.png)
+* Python 2.7至3.6版本。
+* 获取安全凭证。安全凭证包含 SecretId 及 SecretKey 两部分。SecretId 用于标识 API 调用者的身份，SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥。前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取，如下图所示：
+![](https://main.qcloudimg.com/raw/78145f9e6a830a188304991552a5c614.png)
 >!**您的安全凭证代表您的账号身份和所拥有的权限，等同于您的登录密码，切勿泄露他人。**
-
-### 获取调用地址
-
-调用地址（endpoint）一般形式为`*.tencentcloudapi.com`，产品的调用地址有一定区别，详情请参见各产品下的“请求结构”文档。例如，云服务器的调用地址为`cvm.tencentcloudapi.com`。
+* 获取调用地址。调用地址（endpoint）一般形式为`*.tencentcloudapi.com`，产品的调用地址有一定区别，例如，云服务器的调用地址为`cvm.tencentcloudapi.com`。具体调用地址可参考对应产品的API文档。
 
 
-## 步骤2：安装 SDK
+
+## 安装 SDK
 可通过 pip 安装方式将腾讯云 Python SDK 安装至您的项目中。若您的项目环境未安装 pip，请前往 [pip 官网](https://pip.pypa.io/en/stable/installing/?spm=a3c0i.o32026zh.a3.6.74134958lLSo6o) 完成安装。
 在命令行中执行以下命令，安装 Python SDK。
 
@@ -60,7 +30,7 @@ pip install -i https://mirrors.tencent.com/pypi/simple/ --upgrade tencentcloud-s
 ```
 
 
-## 步骤3：使用 SDK
+## 使用 SDK
 
 ### 示例1：查询可用区
 以 [查询可用区](https://cloud.tencent.com/document/product/213/15728) 接口为例，创建`HelloWorld.py`文件并写入以下代码：
