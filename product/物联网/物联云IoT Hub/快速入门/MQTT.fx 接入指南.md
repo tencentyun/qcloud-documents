@@ -29,7 +29,7 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows、 Mac、Lin
 ![](https://main.qcloudimg.com/raw/61195a191b05704ea560e2477578e2a5.png)
 
  >?
- > - **User Name**	：MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名 + SDKAppID + connid。（创建完产品即可在产品列表页和产品详情页查看 ProductID）如："9B17RZW2EZgate_dev01;12010126;12345"，仅替换示例中的产品 ID + 设备名即可，后面的两个参数本身由物联网通信接入 SDK 自动生成，所以这里填写固定测试值。
+ > - **User Name**	：MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名 + SDKAppID + connid。（创建完产品即可在产品列表页和产品详情页查看 ProductID）如："9****ZW2EZgate_dev01;12010126;12345"，仅替换示例中的产品 ID + 设备名即可，后面的两个参数本身由物联网通信接入 SDK 自动生成，所以这里填写固定测试值。
  - **Password**	：Password 必须填写。
  -  **证书认证：**由于 mqtt.fx 默认将密码标志位设为 true，所以需要填写一个任意的非空字符串作为密码，否则无法连接到物联云通信后台。而实际接入物联云后台时，鉴权是根据证书认证，此处随机填写的密码不会作为接入凭证。
  -  **密钥认证：**用户可进入 Hub 相应设备列表查看获取（具体页面见下方密钥认证步骤），也可以按照文档 [手动生成Password](https://cloud.tencent.com/document/product/634/32546)
