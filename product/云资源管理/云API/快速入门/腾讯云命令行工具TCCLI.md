@@ -207,6 +207,6 @@ tccli cvm DescribeZones --endpoint cvm.ap-guangzhou.tencentcloudapi.com
 
 本服务免费。当您遇到问题时，请 [联系我们](https://cloud.tencent.com/act/event/connect-service) 寻求相应的帮助。
 
-#### 如何实现接口鉴权实现？
-在 API 支持的每个产品文档目录下，可通过选择【调用方法】>【接口鉴权】进行查看。例如，可前往 [CVM 接口鉴权](https://cloud.tencent.com/document/api/213/15693) 进行查看。
+#### 如何实现接口鉴权？
+在 API 支持的每个产品文档目录下，可选择【调用方法】>【接口鉴权】，结合产品的“接口鉴权”文档进行实现。例如，可前往 [CVM 接口鉴权](https://cloud.tencent.com/document/api/213/15693) 进行查看。
 
