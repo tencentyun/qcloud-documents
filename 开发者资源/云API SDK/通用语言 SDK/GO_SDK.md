@@ -86,7 +86,6 @@ package main
 
 import (
         "fmt"
-        "os"
 
         "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
         "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
