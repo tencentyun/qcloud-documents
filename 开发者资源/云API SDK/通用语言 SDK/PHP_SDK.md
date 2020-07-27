@@ -17,10 +17,9 @@
 通过 Composer 获取安装是使用 PHP SDK 推荐方法，Composer 是 PHP 的依赖管理工具。关于 Composer 详细可参考 [Composer 官网](https://getcomposer.org/download/)。 
 >? Composer 需要 PHP 5.3.2+ 以上版本，且需要开启 openssl。
 
-中国大陆地区的用户可以使用国内镜像源提高下载速度，在打开的命令窗口执行以下命令，更改 Packagist 为国内镜像：
-
+中国大陆地区的用户可以使用腾讯云镜像源提高下载速度，在打开的命令窗口执行以下命令，更改 Packagist 为腾讯云镜像：
 ```
-composer config -g repo.packagist composer https://packagist.phpcomposer.com
+composer config -g repos.packagist composer https://mirrors.tencent.com/composer/
 ```
 
 在打开的命令窗口执行命令安装 SDK（安装到指定位置），例如安装到`C:\Users\···>`目录下，则在指定的位置打开命令窗口，并执行以下命令：
