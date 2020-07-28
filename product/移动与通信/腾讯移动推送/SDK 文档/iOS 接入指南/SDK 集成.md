@@ -11,11 +11,11 @@
 
 ## SDK 集成
 ### 接入前准备
-1. 接入 SDK 之前，请前往移动推送 TPNS  [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
+1. 接入 SDK 之前，请前往移动推送 TPNS  [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241)。
    ![](https://main.qcloudimg.com/raw/29089bca0d0378db21e2df69930346fe.png)
 2. 单击【配置管理】，进入管理页面。
    ![](https://main.qcloudimg.com/raw/69d6c1d7d8729a17e0b829a648019cff.png)
-3. 单击【上传证书】，完成上传操作。推送证书获取详情请参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664)  。
+3. 单击【上传证书】，完成上传操作。推送证书获取详情请参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664)。
    ![](https://main.qcloudimg.com/raw/c4eaeb3f2d9c3fbb42dbb75f2c5c12dc.png)
 4. 证书上传成功后，在应用信息栏中，获取应用 Access ID 和 Access KEY。
 
