@@ -56,14 +56,14 @@ implementation 'com.tencent.tpns:oppo:[VERSION]-release'//oppo推送 [VERSION] �
 			android:name="com.heytap.mcssdk.PushService"
 			android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
 			<intent-filter>
-					<action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE"/>
+				<action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE"/>
 			</intent-filter>
 		</service>
 		<service
 			android:name="com.heytap.mcssdk.AppPushService"
 			android:permission="com.heytap.mcs.permission.SEND_MCS_MESSAGE">
 			<intent-filter>
-					<action android:name="com.heytap.mcs.action.RECEIVE_MCS_MESSAGE"/>
+				<action android:name="com.heytap.mcs.action.RECEIVE_MCS_MESSAGE"/>
 			</intent-filter>
 		</service>
 </application>
@@ -79,15 +79,15 @@ implementation 'com.tencent.tpns:oppo:[VERSION]-release'//oppo推送 [VERSION] �
 			android:name="com.heytap.msp.push.service.CompatibleDataMessageCallbackService"
 			android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
 			<intent-filter>
-					<action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE"/>
+				<action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE"/>
 			</intent-filter>
 		</service>
 		<service
 			android:name="com.heytap.msp.push.service.DataMessageCallbackService"
 			android:permission="com.heytap.mcs.permission.SEND_PUSH_MESSAGE">
 			<intent-filter>
-					<action android:name="com.heytap.mcs.action.RECEIVE_MCS_MESSAGE"/>
-					<action android:name="com.heytap.msp.push.RECEIVE_MCS_MESSAGE"/>
+				<action android:name="com.heytap.mcs.action.RECEIVE_MCS_MESSAGE"/>
+				<action android:name="com.heytap.msp.push.RECEIVE_MCS_MESSAGE"/>
 			</intent-filter>
 		</service>
 </application>
