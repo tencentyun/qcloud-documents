@@ -83,7 +83,6 @@ TPNS Android SDK 1.2.0.2以后的版本使用以下配置：
     <!-- 以下为1.2.0.2 OPPO版本组件 -->
     <service
         android:name="com.heytap.msp.push.service.CompatibleDataMessageCallbackService"
-
         android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
         <intent-filter>
             <action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE"/>
@@ -92,12 +91,9 @@ TPNS Android SDK 1.2.0.2以后的版本使用以下配置：
 
     <service
         android:name="com.heytap.msp.push.service.DataMessageCallbackService"
-
         android:permission="com.heytap.mcs.permission.SEND_PUSH_MESSAGE">
-
         <intent-filter>
             <action android:name="com.heytap.mcs.action.RECEIVE_MCS_MESSAGE"/>
-
             <action android:name="com.heytap.msp.push.RECEIVE_MCS_MESSAGE"/>
         </intent-filter>
     </service>
