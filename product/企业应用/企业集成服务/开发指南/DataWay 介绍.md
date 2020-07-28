@@ -21,7 +21,7 @@ output(mime_type='application/json')
 }
 ```
 
-其中 Header 部分可以是任意符合语法规范的代码，Body 部分则必须是标准的 Python 表达式 。在内联表达式的场景下，若不指定###分隔符，则整个脚本会被解析为 Body 部分 。
+其中 Header 部分可以是任意符合语法规范的代码，Body 部分则必须是标准的 Python 表达式 。在内联表达式的场景下，若不指定`###`分隔符，则整个脚本会被解析为 Body 部分 。
 从概念上，可以把 Header 理解为数据的预处理步骤，Body 则是最终需要输出的数据。
 Header 和 Body 在运行时共享所有的局部变量，因此在 Header 定义的所有变量都在 Body 部分可用。
 
@@ -66,7 +66,7 @@ Body 部分为 DataWay 脚本最终产出的数据，因此需要以标准的 Py
 
 ## 预定义变量
 
-在 DataWay 的处理上下文中，系统会根据当前处理的消息，预置一些环境变量，用于在 DataWay 中通过程序化的方式获取上下文信息。这些变量被称之为`__预定义变量（Predefined Variables）__`。目前支持的预定义变量有 `var__`、`__payload__`、`__attr__`、`__id__`、`__seq_id__`、`__error__`等，具体说明可参见 DataWay 语言手册。
+在 DataWay 的处理上下文中，系统会根据当前处理的消息，预置一些环境变量，用于在 DataWay 中通过程序化的方式获取上下文信息。这些变量被称之为`__预定义变量（Predefined Variables）__`。目前支持的预定义变量有 `var__`、`__payload__`、`__attr__`、`__id__`、`__seq_id__`、`__error__`等，具体说明可参见本文 [DataWay 语言手册](#dataway-.E8.AF.AD.E8.A8.80.E6.89.8B.E5.86.8C)。
 
 
 ## 字面量与表达式
@@ -81,18 +81,16 @@ Body 部分为 DataWay 脚本最终产出的数据，因此需要以标准的 Py
 
 对于 PyMessageObject 类型的变量，例如上游直接传递的 payload、variable 等，DataWay 支持通过选择器（selector）的方式进行快速访问，支持的操作类型如下：
 
-| **下标类型**                                                 | **描述**                                                     | **举例**            |
+| 下标类型                                                 | 描述                                                     | 举例           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------- |
 | 数字                                                         | 访问当前数组的第 i 个元素                                      | payload[0]          |
-| 以开头的字符串                                            | 按 key、nodeName、name 等方式获取当前元素的子元素，返回一个数组，支持多个同名元素 | payload["item"]     |
-| 以@开头的字符串                                              | 获取属性。目前只支持 xml。如果不包含后缀，则获取全部属性      | payload["@id"]      |
-| 以开头的字符串                                               | 获取元信息，例如mimeType、encoding、raw（原始二进制）、value（值） | payload["mimeType"] |
-| 以``包裹的字符串 | 支持特殊字符的 key，按 key、nodeName、name 等方式获取当前元素的子元素，如果有多个同名的，只返回第一个 |   payload["`*@!#@`"] |                                                              |                     |
+| 以`^`开头的字符串                                            | 获取元信息，例如 ^mimeType、^encoding、^raw（原始二进制）、^value（值） | payload["^mimeType"]     |
 | 普通字符（字母、数字、下划线、横杠、点）                     | 普通字符的 key，按 key、nodeName、name 等方式获取当前元素的子元素，如果有多个同名的，只返回第一个 | payload["list"]     |
 
-## DataWay语言手册
+## DataWay 语言手册
+### DataWay 内置变量及函数
 
-### DataWay 预定义变量（Predefined Variables） 
+#### DataWay 预定义变量
 在 DataWay 的处理上下文中，系统会根据当前处理的消息，预置一些环境变量，用于在 DataWay 中通过程序化的方式获取上下文信息。这些变量被称之为 预定义变量(Predefined Variables) 。目前支持的预定义变量有： 
 - `var__`：局部消息变量，dict类 型，键为 string，代表变量名，值为任意类型，代表变量值。
    var会在一条消息处理的所有环节共享，因此可以用于在不同的处理节点之间进行数据的传递。
@@ -105,8 +103,7 @@ Body 部分为 DataWay 脚本最终产出的数据，因此需要以标准的 Py
 
 
 
-
-### output 函数
+#### output 函数
 output 函数用于指定脚本输出值的相关参数，例如 mime_type 等，基本用法：
 ```
 output(mime_type="application/json")
@@ -134,7 +131,7 @@ Python 上下文环境中的内置变量及函数，可参考 [Python 官方文�
 -  max()：获取数值最大值
 - round()：截取数值的整数部分
 
-#### 其它可用的模块
+### 其它可用的模块
 
 - ` __time__`，用于时间处理的库，可参考 [Python 官方文档](https://docs.python.org/3.5/library/time.html)。目前 DataWay 中支持的库函数/类型如下： 
 	-  time()：函数，返回当前时间戳，float 类型，单位为秒
