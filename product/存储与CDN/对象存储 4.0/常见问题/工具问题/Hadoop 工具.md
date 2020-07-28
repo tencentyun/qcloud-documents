@@ -2,7 +2,7 @@
 Hadoop-cos 为 Apache Hadoop、Spark 以及 Tez 等大数据计算框架集成提供支持，可以像访问 HDFS 一样读写存储在腾讯云 COS 上的数据。同时也支持作为 Druid 等查询与分析引擎的 Deep Storage。
 
 ### 如何合理设置 Hadoop-COS 上传的分块大小？
-Hadoop-COS 内部通过分块并发上传来处理大文件，通过配置 fs.cosn.block.size(Byte) 来控制 COS 上传的分块大小。
+Hadoop-COS 内部通过分块并发上传来处理大文件，通过配置 fs.cosn.upload.part.size(Byte) 来控制 COS 上传的分块大小。
 
 由于 COS 的分块上传最多只能支持10000块，因此需要预估最大可能使用到的单文件大小。例如，block size 为8MB时，最大能够支持78GB的单文件上传。 block size 最大可以支持到2GB，即单文件最大可支持19TB。超过10000块后会抛出400错误异常，可以通过检查该配置是否正确。
 
