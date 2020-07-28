@@ -57,7 +57,7 @@
     </tr>
     <tr>
         <td>SDK 1.1.6.0 版本发布</td>
-        <td><li> 优化加密协议 </li> <li> 优化网络连接</li> <li> 支持华为角标设置</li> <li> 升级小米推送 SDK v3.7.5，魅族推送 SDK v3.9.0 </li><li> 支持 Realme 和黑鲨手机厂商通道</li></td>
+        <td><li> 优化加密协议 </li> <li> 优化网络连接</li> <li> 支持华为角标设置</li> <li> 升级小米推送 SDK v3.7.5，魅族推送 SDK v3.9.0 </li><li> 支持 Realme 和黑鲨手机厂商通道</li><li> 去除调用灯塔获取QIMEI相关信息</li></td>
         <td>2020-04-21</td>
         <td><a href="https://cloud.tencent.com/document/product/548/43693">角标适配指南</a></td>
     </tr>
@@ -79,7 +79,7 @@
 </tr>
     <tr>
         <td>SDK 1.1.5.4 版本发布</td>
-        <td><li> 网络连接优化</li> <li> 增加账号类型</li> <li> 优化保活方案</li> <li> 安全告警修复</li> <li> 兼容信鸽平台版本升级</li><li>获取QIMEI信息的功能</li> </td>
+        <td><li> 网络连接优化</li> <li> 增加账号类型</li> <li> 优化保活方案</li> <li> 安全告警修复</li> <li> 兼容信鸽平台版本升级</li><li>获取QIMEI信息的功能</li> <li> 获取QIMEI信息的功能</li></td>
         <td>2020-03-06</td>
         <td><a href="https://cloud.tencent.com/document/product/548/41609#.E6.B3.A8.E9.94.80.E4.BF.A1.E9.B8.BD.E5.B9.B3.E5.8F.B0.E6.8E.A8.E9.80.81.E6.9C.8D.E5.8A.A1">注销信鸽平台推送服务</a></td>
     </tr>
