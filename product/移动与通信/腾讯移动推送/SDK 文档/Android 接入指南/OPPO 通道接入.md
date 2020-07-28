@@ -92,6 +92,7 @@ implementation 'com.tencent.tpns:oppo:[VERSION]-release'//oppo推送 [VERSION] �
 		</service>
 </application>
 ```
+
 ### 开启 OPPO 推送
 在调用移动推送 TPNS  `XGPushManager.registerPush`之前，调用以下代码：
 ```java
