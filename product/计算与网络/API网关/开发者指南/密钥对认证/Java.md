@@ -249,13 +249,13 @@ public class SignAndSend {
             // 新建连接
             HttpURLConnection httpUrlCon = NewHttpUrlCon(url, secretId, secretKey);
 
-            //设置post请求
+            //设置 post 请求
             httpUrlCon.setRequestMethod("POST");
             httpUrlCon.setUseCaches(false);  //Post 请求不能使用缓存
             httpUrlCon.setDoOutput(true);
             httpUrlCon.setDoInput(true);
 
-            //将请求数据放到body里
+            //将请求数据放到 body 里
             OutputStreamWriter out = new OutputStreamWriter(httpUrlCon.getOutputStream());
             String jsonStr = "{\"caller\":\"apigw\", \"data\":\"test post\"}";
             out.write(jsonStr);
@@ -310,12 +310,12 @@ public class Demo {
         String secretKey = "your secretKey"; // 密钥对的 SecretKey
         SignAndSend signAndSendInstance = new SignAndSend();
 
-        //get请求
+        //get 请求
         String getUrl = "http://service-xxxxxxxx-1234567890.gz.apigw.tencentcs.com:80/get"; // 用户 API 的访问路径
         String getResult = SignAndSend.sendGet(getUrl, secretId, secretKey);
         System.out.println(getResult);
 
-        //post请求
+        //post 请求
         String postUrl = "http://service-xxxxxxxx-1234567890.gz.apigw.tencentcs.com:80/post"; // 用户 API 的访问路径
         String postResult = SignAndSend.sendPost(postUrl, secretId, secretKey);
         System.out.println(postResult);
