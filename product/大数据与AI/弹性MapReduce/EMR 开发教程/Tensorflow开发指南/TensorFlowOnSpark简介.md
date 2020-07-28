@@ -6,7 +6,7 @@ TensorFlowOnSpark 支持 TensorFlow 进程（计算节点和参数服务节点�
 
  
 ## 安装 TensorFlowOnSpark
-1.	进入 EMR [购买页](https://buy.cloud.tencent.com/emapreduce#/)，选择产品 EMR-2.3.0 版本。
+1.	进入 EMR [购买页](https://buy.cloud.tencent.com/emapreduce#/)，选择产品 EMR-2.3.0 版本及以上版本。
 2.	在【可选组件】列表中，勾选 tensorflowonspark 1.4.4 组件。
 3.	tensorflowonspark 默认安装在`/usr/local/service/tensorflowonspark`目录下。
 >!tensorflowonspark 依赖的组件包含 hive 和 spark，在 tensorflowonspark 的同时也会安装 hive 和 spark 组件。

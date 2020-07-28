@@ -136,17 +136,18 @@ cos.getObjectUrl({
     Sign: true
 }, function (err, data) {
     if (err) return console.log(err);
-
     console.log(data.Url);
+    
+    // 获取到 Url 后，前端可以这样 ajax 上传
     var xhr = new XMLHttpRequest();
     xhr.open('PUT', data.Url, true);
     xhr.onload = function (e) {
-        console.log(xhr.responseText);
+        console.log('上传成功', xhr.status, xhr.statusText);
     };
     xhr.onerror = function (e) {
-        console.log('获取签名出错');
+        console.log('上传出错', xhr.status, xhr.statusText);
     };
-    xhr.send();
+    xhr.send(file); // file 是要上传的文件对象
 });
 ```
 

@@ -14,7 +14,7 @@
 ## 自动激活
 腾讯云为 Windows 服务器的激活封装了一个脚本，简化了手工激活的步骤。
 1. 登录 Windows 云服务器。
-2. 通过浏览器访问 `http://mirrors.tencentyun.com/install/windows/activate-win.bat` 地址，下载脚本。
+2. 通过云服务器内浏览器访问 `http://mirrors.tencentyun.com/install/windows/activate-win.bat` 地址，下载脚本。
 3. 运行脚本，即可完成自动激活。
 
 ## 手工运行激活

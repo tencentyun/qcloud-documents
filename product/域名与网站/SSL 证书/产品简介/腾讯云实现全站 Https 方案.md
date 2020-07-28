@@ -26,7 +26,7 @@
 ![](https://main.qcloudimg.com/raw/2937bb05b1b5ab8a18b3f61b79b6c992.png)
 
 ## 步骤2：部署证书到负载均衡
->!操作之前，请确认您的 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3) 是否有实例，若没有实例，则部署至负载均衡的【选择 CLB 实例】列表为空，请您先创建实例。
+>!操作之前，请确认您的 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3) 是否有实例，若没有实例，请您先创建实例。
 >
 1. 成功申请获取证书（参考 [如何免费申请域名型证书](https://cloud.tencent.com/document/product/400/6814)）。
 2. 选择您需要部署的证书，展开【更多】，选择【部署到负载均衡】。如下图所示：

@@ -6,7 +6,7 @@
 
 - Windows 7 及以上版本 Windows 操作系统
 - Microsoft Visual Studio 2015 及以上版本，推荐使用 Microsoft Visual Studio 2015
-- Windows SDK 8.0 及以上版本，推荐使用 Windows SDK 8.1
+- Windows SDK 8.0 及以上版本，推荐使用 Windows SDK 8.1  
 
 ## 集成 互动白板 SDK
 

@@ -74,4 +74,3 @@ kubectl create -f logstash-consumer.yaml
 
 
 
-

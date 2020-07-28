@@ -5,14 +5,14 @@ Serverless Framework 目前支持 **PostgreSQL** 与 **NoSQL** 两个类型数�
 
 
 ## 前提条件
-已安装 Serverless Framework，且不低于以下版本。如未安装，请参考 [安装 Serverless Framework](https://cloud.tencent.com/document/product/583/44753) 完成安装。
+- 已安装 Serverless Framework，且不低于以下版本。如未安装，请参考 [安装 Serverless Framework](https://cloud.tencent.com/document/product/583/44753) 完成安装。
 ```
 Framework Core: 1.67.3
 Plugin: 3.6.6
 SDK: 2.3.0
 Components: 2.30.1
 ```
-
+-  请确保当前使用账号已配置 **QcloudPostgreSQLFullAccess** 策略。配置方法请参见 [授权管理](https://cloud.tencent.com/document/product/598/10602)。
 
 
 ## 操作步骤
@@ -83,9 +83,9 @@ inputs:
 1. 在 `test-postgreSQL` 下创建文件夹 `api`，用于存放业务逻辑代码和相关依赖项。
 2. 在文件夹 `api` 下创建文件夹 `src`，并在命令行中进入 `src` 目录，执行以下命令，安装 [PostgreSQL 依赖包](https://www.npmjs.com/package/pg)。
 ```
-npm install npm
+npm install pg
 ```
-3. 在 `src` 文件夹下，创建 `index.js` 文件，并输入如下示例代码。在函数中通过 Serverless DB SDK 创建连接池，并调用数据库。
+3. 在 `src` 文件夹下，创建 `index.js` 文件，并输入如下示例代码。在函数中通过 PostgreSQL SDK 创建连接池，并调用数据库。
 ```
 'use strict';
 const { Pool } = require('pg');

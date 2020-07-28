@@ -1,0 +1,38 @@
+## 接口名称
+ProcessEnding 
+<span id="ProcessEnding"></span>
+
+
+## 接口说明
+
+游戏进程需要调用该接口通知 GSE 该游戏进程正在关闭。
+
+## 请求结构体
+
+```
+message ProcessEndingRequest {
+}
+```
+
+## 返回消息体
+
+```
+message GseResponse
+```
+
+## 字段说明
+
+无
+
+## 使用示例
+
+```
+func (r *rpcClient) ProcessEnding() (*grpcsdk.GseResponse, error) {
+   conn, _ := grpc.DialContext(context.Background(), LOCAL_ADDRESS, grpc.WithInsecure())
+   defer conn.Close()
+   req := &grpcsdk.ProcessEndingRequest{
+   }
+   client := grpcsdk.NewGseGrpcSdkServiceClient(conn)
+   return client.ProcessEnding(g.getContext(), req)
+}
+```

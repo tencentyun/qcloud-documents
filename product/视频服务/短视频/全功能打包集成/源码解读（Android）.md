@@ -1,7 +1,7 @@
 ## 工程结构
 
 下载小视频代码，使用 Android Studio 打开工程后，您将看到如下的目录结构：
-![](https://main.qcloudimg.com/raw/a9fe91e85884f06627ababcfca796f5c.png)
+![](https://main.qcloudimg.com/raw/7e871288732522edc565944b3324a694.png)
 
 | 文件/目录    | 说明                                                         |
 | ------------ | ------------------------------------------------------------ |

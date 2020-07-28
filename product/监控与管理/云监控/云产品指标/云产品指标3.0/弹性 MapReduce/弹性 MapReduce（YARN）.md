@@ -45,57 +45,59 @@ Namespace=QCE/TXMR_YARN
 | YarnClusterRes<br>MemTotalmb                   | Memory_totalMB                 | MB       | 内存大小         | host4yarnoverview、<br/>id4yarnoverview |
 | YarnClusterResMem<br>UsageRatioUsageratio      | 内存使用率_usageRatio          | %        | 内存大小         | host4yarnoverview、<br/>id4yarnoverview |
 
+
+
 ### YARN-ResourceManager
 
-| 指标中文名                                         | 指标中文名                               | 指标单位 | 指标含义           | 维度                                                  |
+| 指标英文名                                         | 指标中文名                               | 指标单位 | 指标含义           | 维度                                                  |
 | -------------------------------------------------- | ---------------------------------------- | -------- | ------------------ | ----------------------------------------------------- |
-| YarnRmRpcAuth5000<br> Rpcauthenticationfailures    | RPC认证授权数_RpcAuthenticationSuccesses | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br>id4yarnresourcemanager  |
-| YarnRmRpcAuth5000<br> Rpcauthenticationsuccesses   | RPC认证授权数_RpcAuthorizationFailures   | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcAuth5000<br> Rpcauthorizationfailures     | RPC认证授权数_RpcAuthorizationSuccesses  | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcAuth5000<br> Rpcauthorizationsuccesses    | RPC接收发送数据量_ReceivedBytes          | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcBytes5000<br>  Receivedbytes              | RPC接收发送数据量_SentBytes              | bytes/s  | RPC 接收发送数据量 | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcBytes5000<br> Sentbytes                   | RPC连接数_NumOpenConnections             | bytes/s  | RPC 接收发送数据量 | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpc<br>Connections5000<br>Numopenconnections | RPC请求次数_RpcProcessingTimeNumOps      | 个       | RPC 连接数         | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcOps5000<br>Rpcprocessingtimenumops        | RPC请求次数_RpcQueueTimeNumOps           | 次       | RPC 请求次数       | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcOps5000<br>Rpcqueuetimenumops             | RPC队列长度_CallQueueLength              | 次       | RPC 请求次数       | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcQueueLen5000<br>Callqueuelength           | RPC平均处理时间_RpcProcessingTimeAvgTime | 个       | RPC 队列长度       | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcTime5000<br>Rpcprocessingtimeavgtime      | RPC平均处理时间_RpcQueueTimeAvgTime      | s        | RPC 平均处理时间   | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcTime5000<br>Rpcqueuetimeavgtime           | RPC认证授权数_RpcAuthenticationFailures  | s        | RPC 平均处理时间   | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcAuth5000<br> Rpcauthenticationfailures    | RPC认证授权数_RpcAuthenticationFailures  | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br>id4yarnresourcemanager  |
+| YarnRmRpcAuth5000<br> Rpcauthenticationsuccesses   | RPC认证授权数_RpcAuthorizationSuccesses  | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcAuth5000<br> Rpcauthorizationfailures     | RPC认证授权数_RpcAuthorizationFailures   | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcAuth5000<br> Rpcauthorizationsuccesses    | RPC认证授权数_RpcAuthenticationSuccesses | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcBytes5000<br>  Receivedbytes              | RPC接收发送数据量_ReceivedBytes          | bytes/s  | RPC 接收发送数据量 | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcBytes5000<br> Sentbytes                   | RPC接收发送数据量_SentBytes              | bytes/s  | RPC 接收发送数据量 | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpc<br>Connections5000<br>Numopenconnections | RPC连接数_NumOpenConnections             | 个       | RPC 连接数         | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcOps5000<br>Rpcprocessingtimenumops        | RPC请求次数_RpcProcessingTimeNumOps      | 次       | RPC 请求次数       | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcOps5000<br>Rpcqueuetimenumops             | RPC请求次数_RpcQueueTimeNumOps           | 次       | RPC 请求次数       | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcQueueLen5000<br>Callqueuelength           | RPC队列长度_CallQueueLength              | 个       | RPC 队列长度       | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcTime5000<br>Rpcprocessingtimeavgtime      | RPC平均处理时间_RpcProcessingTimeAvgTime | s        | RPC 平均处理时间   | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcTime5000<br>Rpcqueuetimeavgtime           | RPC平均处理时间_RpcQueueTimeAvgTime      | s        | RPC 平均处理时间   | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcAuth5000<br> Rpcauthenticationfailures    | RPC认证授权数_RpcAuthenticationFailures  | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcAuth5000<br> Rpcauthenticationsuccesses   | RPC认证授权数_RpcAuthenticationSuccesses | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcAuth5000<br> Rpcauthorizationfailures     | RPC认证授权数_RpcAuthorizationFailures   | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcAuth5000<br> Rpcauthorizationsuccesses    | RPC认证授权数_RpcAuthorizationSuccesses  | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcBytes5000<br> Receivedbytes               | RPC接收发送数据量_ReceivedBytes          | bytes/s  | RPC 接收发送数据量 | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcBytes5000<br> Sentbytes                   | RPC接收发送数据量_SentBytes              | bytes/s  | RPC 接收发送数据量 | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcConnections5000<br>Numopenconnections     | RPC连接数_NumOpenConnections             | 个       | RPC 连接数         | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcOps5000<br>Rpcprocessingtimenumops        | RPC请求次数_RpcProcessingTimeNumOps      | 次       | RPC 请求次数       | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcOps5000<br>Rpcqueuetimenumops             | RPC请求次数_RpcQueueTimeNumOps           | 次       | RPC 请求次数       | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcQueueLen5000<br>Callqueuelength           | RPC队列长度_CallQueueLength              | 个       | RPC 队列长度       | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcTime5000<br>Rpcprocessingtimeavgtime      | RPC平均处理时间_RpcProcessingTimeAvgTime | s        | RPC 平均处理时间   | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcTime5000<br>Rpcqueuetimeavgtime           | RPC平均处理时间_RpcQueueTimeAvgTime      | s        | RPC 平均处理时间   | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
 | YarnRmRpcAuth5000<br> Rpcauthenticationfailures    | RPC认证授权数_RpcAuthenticationSuccesses | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcAuth5000<br> Rpcauthenticationsuccesses   | RPC认证授权数_RpcAuthorizationFailures   | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcAuth5000<br> Rpcauthorizationfailures     | RPC认证授权数_RpcAuthorizationSuccesses  | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcAuth5000<br> Rpcauthorizationsuccesses    | RPC接收发送数据量_ReceivedBytes          | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcBytes5000<br> Receivedbytes               | RPC接收发送数据量_SentBytes              | bytes/s  | RPC 接收发送数据量 | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcBytes5000<br> Sentbytes                   | RPC连接数_NumOpenConnections             | bytes/s  | RPC 接收发送数据量 | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcConnections5000<br>Numopenconnections     | RPC请求次数_RpcProcessingTimeNumOps      | 个       | RPC 连接数         | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcOps5000<br>Rpcprocessingtimenumops        | RPC请求次数_RpcQueueTimeNumOps           | 次       | RPC 请求次数       | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcOps5000<br>Rpcqueuetimenumops             | RPC队列长度_CallQueueLength              | 次       | RPC 请求次数       | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcQueueLen5000<br>Callqueuelength           | RPC平均处理时间_RpcProcessingTimeAvgTime | 个       | RPC 队列长度       | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcTime5000<br>Rpcprocessingtimeavgtime      | RPC平均处理时间_RpcQueueTimeAvgTime      | s        | RPC 平均处理时间   | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcTime5000<br>Rpcqueuetimeavgtime           | RPC认证授权数_RpcAuthenticationFailures  | s        | RPC 平均处理时间   | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcAuth5000<br> Rpcauthenticationfailures    | RPC认证授权数_RpcAuthenticationSuccesses | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcAuth5000<br> Rpcauthenticationsuccesses   | RPC认证授权数_RpcAuthorizationFailures   | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcAuth5000<br> Rpcauthorizationfailures     | RPC认证授权数_RpcAuthorizationSuccesses  | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcAuth5000<br> Rpcauthorizationsuccesses    | RPC接收发送数据量_ReceivedBytes          | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
-| YarnRmRpcBytes5000<br> Receivedbytes               | RPC接收发送数据量_SentBytes              | bytes/s  | RPC 接收发送数据量 | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
-| YarnRmRpcBytes5000<br> Sentbytes                   | RPC连接数_NumOpenConnections             | bytes/s  | RPC 接收发送数据量 | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
-| YarnRmRpcConnections5000<br>Numopenconnections     | RPC请求次数_RpcProcessingTimeNumOps      | 个       | RPC 连接数         | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
-| YarnRmRpcOps5000<br>Rpcprocessingtimenumops        | RPC请求次数_RpcQueueTimeNumOps           | 次       | RPC 请求次数       | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
-| YarnRmRpcOps5000<br>Rpcqueuetimenumops             | RPC队列长度_CallQueueLength              | 次       | RPC 请求次数       | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
-| YarnRmRpcQueueLen5000<br>Callqueuelength           | RPC平均处理时间_RpcProcessingTimeAvgTime | 个       | RPC 队列长度       | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
-| YarnRmRpcTime5000<br>Rpcprocessingtimeavgtime      | RPC平均处理时间_RpcQueueTimeAvgTime      | s        | RPC 平均处理时间   | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
-| YarnRmRpcTime5000<br>Rpcqueuetimeavgtime           | RPC认证授权数_RpcAuthenticationFailures  | s        | RPC 平均处理时间   | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
-| YarnRmRpcAuth5000<br> Rpcauthenticationfailures    | RPC认证授权数_RpcAuthenticationSuccesses | 个       | RPC 认证授权数     | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
-| YarnRmRpcAuth5000<br> Rpcauthenticationsuccesses   | RPC认证授权数_RpcAuthorizationFailures   | 个       | RPC 认证授权数     | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
-| YarnRmRpcAuth5000<br> Rpcauthorizationfailures     | RPC认证授权数_RpcAuthorizationSuccesses  | 个       | RPC 认证授权数     | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
-| YarnRmRpcAuth5000<br> Rpcauthorizationsuccesses    | RPC接收发送数据量_ReceivedBytes          | 个       | RPC 认证授权数     | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
-| YarnRmRpcBytes5000<br> Receivedbytes               | RPC接收发送数据量_SentBytes              | bytes/s  | RPC 接收发送数据量 | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
-| YarnRmRpcBytes5000<br> Sentbytes                   | RPC连接数_NumOpenConnections             | bytes/s  | RPC 接收发送数据量 | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
-| YarnRmRpc<br>Connections5000<br>Numopenconnections | RPC请求次数_RpcProcessingTimeNumOps      | 个       | RPC 连接数         | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
-| YarnRmRpcOps5000<br>Rpcprocessingtimenumops        | RPC请求次数_RpcQueueTimeNumOps           | 次       | RPC 请求次数       | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
-| YarnRmRpcOps5000<br>Rpcqueuetimenumops             | RPC队列长度_CallQueueLength              | 次       | RPC 请求次数       | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
-| YarnRmRpc<br>QueueLen5000<br>Callqueuelength       | RPC平均处理时间_RpcProcessingTimeAvgTime | 个       | RPC 队列长度       | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
-| YarnRmRpcTime5000<br>Rpcprocessingtimeavgtime      | RPC平均处理时间_RpcQueueTimeAvgTime      | s        | RPC 平均处理时间   | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+| YarnRmRpcAuth5000<br> Rpcauthenticationsuccesses   | RPC认证授权数_RpcAuthenticationSuccesses | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcAuth5000<br> Rpcauthorizationfailures     | RPC认证授权数_RpcAuthorizationFailures   | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcAuth5000<br> Rpcauthorizationsuccesses    | RPC认证授权数_RpcAuthorizationSuccesses  | 个       | RPC 认证授权数     | host4yarnresourcemanager、<br/>id4yarnresourcemanager |
+| YarnRmRpcBytes5000<br> Receivedbytes               | RPC接收发送数据量_ReceivedBytes          | bytes/s  | RPC 接收发送数据量 | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+| YarnRmRpcBytes5000<br> Sentbytes                   | RPC接收发送数据量_SentBytes              | bytes/s  | RPC 接收发送数据量 | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+| YarnRmRpcConnections5000<br>Numopenconnections     | RPC连接数_NumOpenConnections             | 个       | RPC 连接数         | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+| YarnRmRpcOps5000<br>Rpcprocessingtimenumops        | RPC请求次数_RpcProcessingTimeNumOps      | 次       | RPC 请求次数       | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+| YarnRmRpcOps5000<br>Rpcqueuetimenumops             | RPC请求次数_RpcQueueTimeNumOps           | 次       | RPC 请求次数       | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+| YarnRmRpcQueueLen5000<br>Callqueuelength           | RPC队列长度_CallQueueLength              | 个       | RPC 队列长度       | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+| YarnRmRpcTime5000<br>Rpcprocessingtimeavgtime      | RPC平均处理时间_RpcProcessingTimeAvgTime | s        | RPC 平均处理时间   | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+| YarnRmRpcTime5000<br>Rpcqueuetimeavgtime           | RPC平均处理时间_RpcQueueTimeAvgTime      | s        | RPC 平均处理时间   | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+| YarnRmRpcAuth5000<br> Rpcauthenticationfailures    | RPC认证授权数_RpcAuthenticationFailures  | 个       | RPC 认证授权数     | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+| YarnRmRpcAuth5000<br> Rpcauthenticationsuccesses   | RPC认证授权数_RpcAuthenticationSuccesses | 个       | RPC 认证授权数     | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+| YarnRmRpcAuth5000<br> Rpcauthorizationfailures     | RPC认证授权数_RpcAuthorizationFailures   | 个       | RPC 认证授权数     | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+| YarnRmRpcAuth5000<br> Rpcauthorizationsuccesses    | RPC认证授权数_RpcAuthorizationSuccesses  | 个       | RPC 认证授权数     | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+| YarnRmRpcBytes5000<br> Receivedbytes               | RPC接收发送数据量_ReceivedBytes          | bytes/s  | RPC 接收发送数据量 | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+| YarnRmRpcBytes5000<br> Sentbytes                   | RPC接收发送数据量_SentBytes              | bytes/s  | RPC 接收发送数据量 | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+| YarnRmRpc<br>Connections5000<br>Numopenconnections | RPC连接数_NumOpenConnections             | 个       | RPC 连接数         | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+| YarnRmRpcOps5000<br>Rpcprocessingtimenumops        | RPC请求次数_RpcProcessingTimeNumOps      | 次       | RPC 请求次数       | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+| YarnRmRpcOps5000<br>Rpcqueuetimenumops             | RPC请求次数_RpcQueueTimeNumOps           | 次       | RPC 请求次数       | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+| YarnRmRpc<br>QueueLen5000<br>Callqueuelength       | RPC队列长度_CallQueueLength              | 个       | RPC 队列长度       | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+| YarnRmRpcTime5000<br>Rpcprocessingtimeavgtime      | RPC平均处理时间_RpcProcessingTimeAvgTime | s        | RPC 平均处理时间   | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
 | YarnRmRpcTime5000<br>Rpcqueuetimeavgtime           | GC次数_YGC                               | s        | RPC 平均处理时间   | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
 | YarnRmGcUtilGcCountYgc                             | GC次数_FGC                               | 次       | GC 次数            | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
 | YarnRmGcUtilGcCountFgc                             | GC时间_FGCT                              | 次       | GC 次数            | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
@@ -131,6 +133,9 @@ Namespace=QCE/TXMR_YARN
 | YarnRmRtUptimeUptime                               | 进程运行时长_Uptime                      | s        | 进程运行时长       | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
 | YarnRmThreadCount<br>Daemonthreadcount             | 工作线程数_DaemonThreadCount             | 个       | 工作线程数         | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
 | YarnRmThreadCount<br>Threadcount                   | 工作线程数_ThreadCount                   | 个       | 工作线程数         | host4yarnresourcemanager<br/>id4yarnresourcemanager   |
+
+
+
 
 ### YARN-JobHistoryServer
 

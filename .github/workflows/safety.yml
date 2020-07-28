@@ -1,0 +1,14 @@
+name: 安全检查
+on:
+  pull_request:
+    branches:    
+      - master
+
+jobs:
+  secret-check:
+    name: 安全密钥检查
+    runs-on: ubuntu-latest
+    steps:
+      - env:
+          SECRET_CHECK_SCRIPT_URL: ${{ secrets.SECRET_CHECK_SCRIPT_URL }}
+        run: curl ${SECRET_CHECK_SCRIPT_URL} | bash -s ${GITHUB_HEAD_REF}

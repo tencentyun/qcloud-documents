@@ -13,8 +13,8 @@
 
 | 所属平台 | GitHub 地址 | 关键类 |
 |:---------:|:--------:|:---------:|
-| iOS | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/CameraPush) | CameraPushViewController.m |
-| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/lvb/src/main/java/com/tencent/liteav/demo/lvb/camerapush) | CameraPusherActivity.java |
+| iOS | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LivePusherDemo/CameraPushDemo) | CameraPushViewController.m |
+| Android | [Github](https://github.com/tencentyun/MLVBSDK/blob/master/Android/Demo/livepusherdemo/src/main/java/com/tencent/liteav/demo/livepusher/cameralivepush) | CameraPusherActivity.java |
 
 
 ## 功能对接
@@ -34,7 +34,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSString * const licenceURL = @"<获取到的licenseUrl>";
     NSString * const licenceKey = @"<获取到的key>";
-		
+        
     //TXLiveBase 位于 "TXLiveBase.h" 头文件中
     [TXLiveBase setLicenceURL:licenceURL key:licenceKey]; 
     NSLog(@"SDK Version = %@", [TXLiveBase getSDKVersionStr]);
@@ -204,31 +204,32 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
     _config.pauseFps = 10;
     // 设置后台推流的默认图片，默认为黑色背景, 图片最大尺寸不能超过1920*1920。
     _config.pauseImg = [UIImage imageNamed:@"pause_publish.jpg"];
-		
+        
     TXLivePush *_pusher = [[TXLivePush alloc] initWithConfig: _config]; 
 ```
 
 - **step3: 监听 App 的前后台切换事件**
 如果 App 在切到后台后就被 iOS 系统彻底休眠掉，SDK 将无法继续推流，观众端就会看到主播画面进入黑屏或者冻屏状态。您可以使用下面的代码让 App 在切到后台后还可再跑几分钟。
+
 ```objectivec
-    // 注册 App 被切到后台的处理函数
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppDidEnterBackground:)
-		                                         name:UIApplicationDidEnterBackgroundNotification object:nil];
-    // 注册 App 被切回前台的处理函数 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppWillEnterForeground:) 
-		                                         name:UIApplicationWillEnterForegroundNotification object:nil];
-    // App 被切到后台的处理函数																				 
-    -(void)onAppDidEnterBackground:(NSNotification *)notification {
-        [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{}];
-        _appIsBackground = YES;
-        [_pusher pausePush];
-    }
-    // App 被切回前台的处理函数																			 
-    -(void)onAppWillEnterForeground:(NSNotification *)notification {
-        if (_appIsBackground ){
-            [_pusher resumePush];
-        }
-    }		
+// 注册应用监听事件
+ NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+[center addObserver:self selector:@selector(willResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
+[center addObserver:self selector:@selector(didBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+
+
+// 具体实现. _livePuser 为当前TXLivePush实例对象
+#pragma mark - 前后台切换
+- (void)willResignActive:(NSNotification *)notification {
+    [_livePusher pausePush];
+    _inBackground = YES;
+}
+
+- (void)didBecomeActive:(NSNotification *)notification {
+    [_livePusher resumePush];
+    _inBackground = NO;
+    // 其他唤醒业务逻辑
+}
 ```
 
 >! 请注意调用顺序：startPush => ( pausePush => resumePush ) => stopPush，错误的调用顺序会导致 SDK 表现异常，因此使用成员变量对执行顺序进行保护是很有必要的。
@@ -291,12 +292,12 @@ _config.watermarkNormalization = CGRectMake(0.1f，0.1f，0.1f，0.0f);
 - (void)onPushEvent:(int)evtID withParam:(NSDictionary *)param {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (evtID == PUSH_ERR_NET_DISCONNECT || evtID == PUSH_ERR_INVALID_ADDRESS) {
-		    //...
+            //...
         } else if (evtID == PUSH_WARNING_NET_BUSY) {
             [_notification displayNotificationWithMessage:
                 @"您当前的网络环境不佳，请尽快更换网络保证正常直播" forDuration:5];
         }
-		//...
+        //...
     });
 }
 ```

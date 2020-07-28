@@ -50,7 +50,7 @@ https://www.example.com?SdkAppid=$SDKAppID&CallbackCommand=$CallbackCommand&cont
     "Owner_Account": "leckie", // 群主
     "Type": "Public", // 群组类型
     "Name": "MyFirstGroup", // 群组名称
-    "CreatedNum": 123, //该用户已创建的同类的群组个数
+    "CreatedGroupNum": 123, //该用户已创建的同类的群组个数
     "MemberList": [ // 初始成员列表
         {
             "Member_Account": "bob"

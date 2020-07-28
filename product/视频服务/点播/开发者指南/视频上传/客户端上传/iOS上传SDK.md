@@ -278,3 +278,6 @@ SDK 通过`TXMediaPublishListener`接口来监听图片/媒体上传相关的状
 | 1005 | MEDIA_PUBLISH_RESULT_PUBLISH_REQUEST_FAILED | 结束上传请求失败。        |
 | 1006 | MEDIA_PUBLISH_RESULT_PUBLISH_RESPONSE_ERROR | 结束上传响应错误。        |
 
+
+
+

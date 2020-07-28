@@ -16,7 +16,7 @@
 
 
 ## 创建带宽封顶配置
-1. 进入[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)，选择您需要配置的播放域名单击右侧的【管理】，进入域名详情页。
+1. 进入[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)，单击需配置的**播放域名**或右侧的【管理】进入域名详情页。
 2. 选择【高级配置】页签，进入查看【带宽封顶配置】标签。
 3. 单击标签右侧的【编辑】，进入带宽封顶配置页。
 4. 打开【带宽封顶】滑动开关![](https://main.qcloudimg.com/raw/96d86bb811611dbc89c4757fb64af536.png)。
@@ -31,7 +31,7 @@
 
 
 ## 关闭带宽封顶配置
-1. 进入[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)，选择您需要配置的播放域名单击右侧的【管理】，进入域名详情页。
+1. 进入[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)，单击需配置的**播放域名**或右侧的【管理】进入域名详情页。
 2. 选择【高级配置】页签，进入查看【带宽封顶配置】标签。
 3. 单击标签右侧的【编辑】，进入带宽封顶配置页。
 ![](https://main.qcloudimg.com/raw/ffd0943d41682035b908771996b05949.png)

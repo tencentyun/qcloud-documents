@@ -6,16 +6,16 @@
 ##  组件使用前置条件
 
 - **创建即时通信 IM 应用**
-- **创建群自定义字段**
-  - attent：记录自己关注了哪些主播
 - **创建群成员自定义字段**
+  - attent：记录自己关注了哪些主播
+- **创建群自定义字段**
   - add_goods ：后台上架新的直播间商品列表
   - room_status：控制直播间状态
 
 ## SDK 接入
 - 引入 IM SDK
 ```
-npm i tim-js-sdk --save
+npm i tim-wx-sdk --save
 ```
 - 引入直播带货 SDK
 ```
@@ -37,7 +37,7 @@ npm i im-live-sells --save
 ## 初始化示例
 
 ```javascript
-import TLS from 'im-live-sells'
+import TIMLiveSell from 'im-live-sells'
 import TIM from 'tim-js-sdk' //Web 环境
 // import TIM from 'tim-wx-sdk' 小程序环境
 const tls = new TIMLiveSell({

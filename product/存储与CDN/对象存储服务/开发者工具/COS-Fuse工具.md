@@ -36,7 +36,7 @@ make
 ``` c++
 {
 "appid":10000***,
-"secret_id":"AKIDPNPur5B27qcuRajCEmzKV93U7k8VceqW",
+"secret_id":"AKIDxxxxxxxabcdefPNPur5B27qcuRajCEmzKV93U7k8VceqW",
 "secret_key":"THrKYU2J9kMEy5JBQt7Bt0N4pYSKWGAz",
 "domain":"cos"
 }
