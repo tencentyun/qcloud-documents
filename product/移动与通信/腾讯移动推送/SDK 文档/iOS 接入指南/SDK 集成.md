@@ -11,17 +11,15 @@
 
 ## SDK 集成
 ### 接入前准备
-1. 接入 SDK 之前，请前往腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
-![](https://main.qcloudimg.com/raw/c07fde02517072a093ac48482e92e9ea.png)
-2. 应用创建完成后，您可以参考 [申请试用](https://cloud.tencent.com/document/product/548/37241#.E7.94.B3.E8.AF.B7.E8.AF.95.E7.94.A8) 或 [购买推送服务](https://cloud.tencent.com/document/product/548/37242) ，为您的应用申请试用或者购买推送服务。
-![](https://main.qcloudimg.com/raw/c0324b24ada1e1ffc40d72aa77d3c30f.png)
-3. 单击【配置管理】，进入管理页面。
-![](https://main.qcloudimg.com/raw/a00e9000d53aa4a3ccb0294ef9e719de.png)
-4. 单击【上传证书】，完成上传操作。推送证书获取详情请参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664)  。
-![](https://main.qcloudimg.com/raw/c4eaeb3f2d9c3fbb42dbb75f2c5c12dc.png)
-5. 证书上传成功后，在应用信息栏中，获取应用 Access ID 和 Access KEY。
+1. 接入 SDK 之前，请前往移动推送 TPNS  [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
+   ![](https://main.qcloudimg.com/raw/29089bca0d0378db21e2df69930346fe.png)
+2. 单击【配置管理】，进入管理页面。
+   ![](https://main.qcloudimg.com/raw/69d6c1d7d8729a17e0b829a648019cff.png)
+3. 单击【上传证书】，完成上传操作。推送证书获取详情请参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664)  。
+   ![](https://main.qcloudimg.com/raw/c4eaeb3f2d9c3fbb42dbb75f2c5c12dc.png)
+4. 证书上传成功后，在应用信息栏中，获取应用 Access ID 和 Access KEY。
 
-### 导入 SDK（三选一）
+### 导入 SDK（二选一）
 #### 方式一：Cocoapods 导入
 通过 Cocoapods 下载地址：
 ``` 
@@ -36,13 +34,7 @@ pod search TPNS-iOS
 pod install //安装 SDK 
 ```  
 
-#### 方式二：carthage 导入
-在 Cartfile 文件中指明依赖的第三方库：
-```
-github "xingePush/carthage-TPNS-iOS"
-```
-
-#### 方式三：手动导入
+#### 方式二：手动导入
 1. 进入腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏中【下载】即可。
 2. 打开 demo 目录下的 SDK 文件夹，将 XGPush.h 及 libXG-SDK-Cloud.a 添加到工程，打开 ---XGPushStatistics 文件夹，获取 XGMTACloud.framework。
 3. 在 Build Phases 下，添加以下 Framework：
