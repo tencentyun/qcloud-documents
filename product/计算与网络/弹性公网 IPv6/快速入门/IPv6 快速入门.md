@@ -339,10 +339,10 @@ DHCPV6C=yes
 vim /etc/sysconfig/network-scripts/route6-eth0
 ```
 	2. 按 “i” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
+```shell
+default dev eth0 via fe80::feee:ffff:feff:ffff
 ```
-default dev eth0
-```
-![](https://main.qcloudimg.com/raw/7bac4ad80fed5cebcdef1fb6ae07cf1b.png)
+![](https://main.qcloudimg.com/raw/3baffe425e598460caf1fc2de45e10d8.png)
 	3. 按 “Esc”，输入 “:wq”，保存文件并返回。
 15. 重启云服务器，若仅通过 `service network restart`，IPv6 无法正常加载。
 16. 执行如下命令查看重启后 IPv6 是否已经正常加载。
@@ -427,10 +427,10 @@ DHCPV6C=yes
 vim /etc/sysconfig/network-scripts/route6-eth0
 ```
 	2. 按 “i” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
+```shell
+default dev eth0 via fe80::feee:ffff:feff:ffff
 ```
-default dev eth0
-```
-![](https://main.qcloudimg.com/raw/88a185a9dec922e4142c8ad8ffe4a354.png)
+![](https://main.qcloudimg.com/raw/3baffe425e598460caf1fc2de45e10d8.png)
 	3. 按 “Esc”，输入 “:wq”，保存文件并返回。
 14. 执行如下命令，重新启动网卡。
 ```
@@ -501,8 +501,8 @@ netstat -tupln
 ```
 ![](https://main.qcloudimg.com/raw/8bdb6f9672f81d8a6df56b61418fe492.png)
 9. 执行如下命令，配置默认路由。
-```
-ip -6 route add default dev eth0
+```shell
+ip -6 route add default dev eth0 via fe80::feee:ffff:feff:ffff
 ```
 
 ### Windows 云服务器配置 IPv6

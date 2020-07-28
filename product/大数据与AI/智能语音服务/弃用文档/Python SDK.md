@@ -20,7 +20,7 @@ import RASRsdk
 
 # 用户需修改为自己官网的appid，secretid与sectretkey
 secret_key = 'kKm26uXCgLtGRWVJvKtGU0LYdWCgOvGP'
-secretid = 'AKID31NbfXbpBLJ4kGJrytc9UfgVAlGltJJ8'
+secretid = 'AKID31NbfXbpBLJ4kGJrytc9UfgVAlG*****'
 appid = '1255628450'
 
 # 识别引擎 8k_0 or 16k_0

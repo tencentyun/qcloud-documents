@@ -110,6 +110,8 @@ defaultConfig {
 <uses-feature android:name="android.hardware.camera.autofocus" />
 ```
 
+>! 请勿设置 `android:hardwareAccelerated="false"`，关闭硬件加速之后，会导致对方的视频流无法渲染。
+
 ## 设置混淆规则
 在 proguard-rules.pro 文件，将 TRTC SDK 相关类加入不混淆名单：
 
