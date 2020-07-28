@@ -99,7 +99,7 @@ spec:
    
 6. 单击【确定】即可。
 
-#### 部署 DeploymentGrid
+#### 3. 部署 DeploymentGrid
 
 ```
 apiVersion: tkeedge.io/v1
@@ -126,7 +126,7 @@ spec:
           - containerPort: 80
 ```
 
-#### 部署 ServiceGrid
+#### 4. 部署 ServiceGrid
 
 ```
 apiVersion: tkeedge.io/v1
