@@ -10,8 +10,8 @@ TI SDK 配置的环境目录为 ~/.ti/config.yaml，用户需要提供的配置�
 1. region：训练任务提交的腾讯云资源的地域，目前支持 ap-guangzhou，ap-shanghai。
 2. uin：腾讯云账号 ID，可在腾讯云控制台 [账号信息](https://console.cloud.tencent.com/developer) 中查看。
 3. app_id：腾讯云账号 AppID，可在腾讯云控制台 [账号信息](https://console.cloud.tencent.com/developer) 中查看。
-4. secret_id：腾讯云账号 API 密钥 ID，可在腾讯云控制台 [API 秘钥管理](https://console.cloud.tencent.com/cam/capi) 中查看。
-5. secret_key：腾讯云账号 API 密钥 KEY，可在腾讯云控制台  [API 秘钥管理](https://console.cloud.tencent.com/cam/capi) 中查看。
+4. secret_id：腾讯云账号 API 密钥 ID，可在腾讯云控制台 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中查看。
+5. secret_key：腾讯云账号 API 密钥 KEY，可在腾讯云控制台  [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中查看。
 
 示例如下：
 
