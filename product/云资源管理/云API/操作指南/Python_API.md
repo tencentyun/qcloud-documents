@@ -1,6 +1,6 @@
 
 腾讯云 API 全新升级3.0 ，该版本进行了性能优化且全地域部署、支持就近和按地域接入、访问时延下降显著，接口描述更加详细、错误码描述更加全面、SDK 增加接口级注释，让您更加方便快捷的使用腾讯云产品。这里针对 Python API 调用方式进行简单说明。
-现已支持云服务器（CVM）、云硬盘（CBS） 、私有网络（VPC）、云数据库（TencentDB）等 [腾讯云产品](https://cloud.tencent.com/product) ，后续会支持其他的云产品接入，敬请期待。 
+现已支持云服务器（CVM）、云硬盘（CBS） 、私有网络（VPC）、云数据库（TencentDB）等 [腾讯云产品](https://cloud.tencent.com/product)，后续会支持其他的云产品接入，敬请期待。 
 
 
 ## 了解请求结构
@@ -50,7 +50,7 @@ GET 请求的请求包大小不得超过32KB。POST 请求使用签名方法 v1�
 | X-TC-Region    | String  | -    | 地域参数，用来标识希望操作哪个地域的数据。接口接受的地域取值参考接口文档中输入参数公共参数 Region 的说明。**注意：某些接口不需要传递该参数，接口文档中会对此特别说明，此时即使传递该参数也不会生效。** |
 | X-TC-Timestamp | Integer | 是   | 当前 UNIX 时间戳，可记录发起 API 请求的时间。例如 1529223702。**注意：如果与服务器时间相差超过5分钟，会引起签名过期错误。** |
 | X-TC-Version   | String  | 是   | 操作的 API 的版本。取值参考接口文档中入参公共参数 Version 的说明。例如云服务器的版本 2017-03-12。 |
-| Authorization  | String  | 是   | HTTP 标准身份认证头部字段，例如： TC3-HMAC-SHA256 Credential=AKIDEXAMPLE/Date/service/tc3_request, SignedHeaders=content-type;host, Signature=72e494ea8******************************************a96525168 <br>其中，<br> - TC3-HMAC-SHA256：签名方法，目前固定取该值；<br> - Credential：签名凭证，AKIDEXAMPLE 是 SecretId；Date 是 UTC 标准时间的日期，取值需要和公共参数 X-TC-Timestamp 换算的 UTC 标准时间日期一致；<br>service 为产品名，通常为域名前缀，例如域名 cvm.tencentcloudapi.com 意味着产品名是 cvm。本产品取值为 cvm；<br> - SignedHeaders：参与签名计算的头部信息，content-type 和 host 为必选头部；<br> - Signature：签名摘要，计算过程详见 下文。 |
+| Authorization  | String  | 是   | HTTP 标准身份认证头部字段，例如： TC3-HMAC-SHA256 Credential=AKIDEXAMPLE/Date/service/tc3_request, SignedHeaders=content-type;host, Signature=72e494ea8******************************************a96525168 <br>其中：<li>TC3-HMAC-SHA256：签名方法，目前固定取该值。</li><li> Credential：签名凭证，AKIDEXAMPLE 是 SecretId。</li><li>Date 是 UTC 标准时间的日期，取值需要和公共参数 X-TC-Timestamp 换算的 UTC 标准时间日期一致。</li><li>service 为产品名，通常为域名前缀，例如域名 cvm.tencentcloudapi.com 意味着产品名是 cvm。本产品取值为 cvm。</li><li>SignedHeaders：参与签名计算的头部信息，content-type 和 host 为必选头部。</li><li>Signature：签名摘要，计算过程详见下文。</li> |
 | X-TC-Token     | String  | 否   | 临时证书所用的 Token ，需要结合临时密钥一起使用。临时密钥和 Token 需要到访问管理服务调用接口获取。长期密钥不需要 Token。 |
 
 ### 签名方法 V1 公共参数
@@ -63,8 +63,8 @@ GET 请求的请求包大小不得超过32KB。POST 请求使用签名方法 v1�
 | Region          | String  | -    | 地域参数，用来标识希望操作哪个地域的数据。接口接受的地域取值参考接口文档中输入参数公共参数 Region 的说明。**注意：某些接口不需要传递该参数，接口文档中会对此特别说明，此时即使传递该参数也不会生效。** |
 | Timestamp       | Integer | 是   | 当前 UNIX 时间戳，可记录发起 API 请求的时间。例如1529223702，如果与当前时间相差过大，会引起签名过期错误。 |
 | Nonce           | Integer | 是   | 随机正整数，与 Timestamp 联合起来，用于防止重放攻击。        |
-| SecretId        | String  | 是   | 在 [云API密钥](https://console.cloud.tencent.com/capi) 上申请的标识身份的 SecretId，一个 SecretId 对应唯一的 SecretKey ，而 SecretKey 会用来生成请求签名 Signature。 |
-| Signature       | String  | 是   | 请求签名，用来验证此次请求的合法性，需要用户根据实际的输入参数计算得出。具体计算方法参见下文 “签名方法介绍” 。 |
+| SecretId        | String  | 是   | 在 [云API密钥](https://console.cloud.tencent.com/capi) 上申请的标识身份的 SecretId，一个 SecretId 对应唯一的 SecretKey，而 SecretKey 会用来生成请求签名 Signature。 |
+| Signature       | String  | 是   | 请求签名，用来验证此次请求的合法性，需要用户根据实际的输入参数计算得出。具体计算方法参见下文“签名方法介绍”。 |
 | Version         | String  | 是   | 操作的 API 的版本。取值参考接口文档中入参公共参数 Version 的说明。例如云服务器的版本 2017-03-12。 |
 | SignatureMethod | String  | 否   | 签名方式，目前支持 HmacSHA256 和 HmacSHA1。只有指定此参数为 HmacSHA256 时，才使用 HmacSHA256 算法验证签名，其他情况均使用 HmacSHA1 验证签名。 |
 | Token           | String  | 否   | 临时证书所用的 Token ，需要结合临时密钥一起使用。临时密钥和 Token 需要到访问管理服务调用接口获取。长期密钥不需要 Token 。 |
@@ -72,7 +72,7 @@ GET 请求的请求包大小不得超过32KB。POST 请求使用签名方法 v1�
 ### 地域列表
 
 由于各个产品支持地域不同，具体详情请参考各产品文档中的地域列表。
-例如，您可以参考云服务器的 [地域列表](https://cloud.tencent.com/document/product/213/15692#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8) 。
+例如，您可以参考云服务器的 [地域列表](https://cloud.tencent.com/document/product/213/15692#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
 
 
 
@@ -109,7 +109,7 @@ curl -X POST https://cvm.tencentcloudapi.com \
 ### 步骤2
 ### 1. 获取 API 3.0 V3 版本签名
 签名方法 v3 （TC3-HMAC-SHA256）功能上覆盖了以前的签名方法 v1，而且更安全，支持更大的请求，支持 json 格式，性能有一定提升，推荐使用该签名方法计算签名。如下图所示：
->?首次接触，建议使用 [API Explorer](https://console.cloud.tencent.com/api/explorer) 中的 “签名串生成” 功能，选择签名版本为 “API 3.0 签名 v3”，可以生成签名过程进行验证，也可直接生成 SDK 代码。推荐使用腾讯云 API 配套的7种常见的编程语言 SDK，已经封装了签名和请求过程，均已开源，支持 [Python](https://github.com/TencentCloud/tencentcloud-sdk-python)、[Java](https://github.com/TencentCloud/tencentcloud-sdk-java)、[PHP](https://github.com/TencentCloud/tencentcloud-sdk-php)、[Go](https://github.com/TencentCloud/tencentcloud-sdk-go)、[NodeJS](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)、[.NET](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)、[C++](https://github.com/TencentCloud/tencentcloud-sdk-cpp)。
+>?首次接触，建议使用 [API Explorer](https://console.cloud.tencent.com/api/explorer) 中的“签名串生成”功能，选择签名版本为 “API 3.0 签名 v3”，可以生成签名过程进行验证，也可直接生成 SDK 代码。推荐使用腾讯云 API 配套的7种常见的编程语言 SDK，已经封装了签名和请求过程，均已开源，支持 [Python](https://github.com/TencentCloud/tencentcloud-sdk-python)、[Java](https://github.com/TencentCloud/tencentcloud-sdk-java)、[PHP](https://github.com/TencentCloud/tencentcloud-sdk-php)、[Go](https://github.com/TencentCloud/tencentcloud-sdk-go)、[NodeJS](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)、[.NET](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)、[C++](https://github.com/TencentCloud/tencentcloud-sdk-cpp)。
 >
 ![](https://main.qcloudimg.com/raw/f35b61c6b76765f4aae33e9b99673984.png)
 
@@ -328,7 +328,6 @@ print('curl -X POST ' + endpoint
 
 
 
-###  
 ### 2. 获取API 3.0  V1 版本签名
 
 
@@ -376,7 +375,7 @@ print('curl -X POST ' + endpoint
 
 #### 2. 拼接规范请求串
 
-此步骤生成请求字符串。 将把上一步排序好的请求参数格式化成“参数名称=参数值”的形式，如对 Action 参数，其参数名称为 "Action" ，参数值为 "DescribeInstances" ，因此格式化后就为 Action=DescribeInstances 。
+此步骤生成请求字符串。 将把上一步排序好的请求参数格式化成“参数名称=参数值”的形式，如对 Action 参数，其参数名称为 "Action" ，参数值为 "DescribeInstances" ，因此格式化后就为 Action=DescribeInstances。
 >! “参数值”为原始值而非 url 编码后的值。
 
 然后将格式化后的各个参数用"&"拼接在一起，最终生成的请求字符串为:
@@ -448,8 +447,8 @@ print(resp.url)
 
 #### 7. API 3.0 签名 V1示例
 
- 注意：如果是在 Python 2环境中运行，需要先安装 requests 依赖包： `pip install requests` 。 
-
+>!如果是在 Python 2环境中运行，需要先安装 requests 依赖包：`pip install requests`。 
+>
 ```python
 # -*- coding: utf8 -*-
 import base64
