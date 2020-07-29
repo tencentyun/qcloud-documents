@@ -98,7 +98,7 @@ curl -X POST https://cvm.tencentcloudapi.com \
 -d '{"Limit": 1, "Filters": [{"Values": ["\u672a\u547d\u540d"], "Name": "instance-name"}]}'
 ```
 
-### 步骤一：申请安全凭证
+### 步骤1：申请安全凭证
 
 本文使用的安全凭证为密钥，密钥包括 SecretId 和 SecretKey。每个用户最多可以拥有两对密钥。
 
@@ -109,7 +109,7 @@ curl -X POST https://cvm.tencentcloudapi.com \
 前往 [API密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取。如下图所示：
 ![](https://main.qcloudimg.com/raw/665e5334b0d5db156ef48a19072ba8bd.png)
 
-### 步骤二：
+### 步骤2：
 ### 1. 获取 API 3.0 V3 版本签名
 
 
