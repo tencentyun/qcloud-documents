@@ -160,22 +160,22 @@ TransTpl 节点 Video 的具体数据描述如下：
 
 | 节点名称（关键字）         | 父节点                  | 描述                   | 类型   | 是否必选 | 默认值       | 限制                                                         |
 | -------------------------- | ----------------------- | ---------------------- | ------ | -------- | ------------ | ------------------------------------------------------------ |
-| Codec                      | Response.<br/>TransTpl.Video<br/> | 编解码格式             | String | 是       | 无           | gif，webp                                                    |
-| Width                      | Response.<br/>TransTpl.Video<br/> | 宽                     | String | 否       | 视频原始宽度 | 1. 值范围：[128，4096]<br/>2. 单位：px<br/>3. 若只设置 Width 时，按照视频原始比例计算 Height |
-| Height                     | Response.<br/>TransTpl.Video<br/> | 高                     | String | 否       | 视频原始高度 | 1. 值范围：[128，4096]<br/>2. 单位：px<br/>3. 若只设置 Height 时，按照视频原始比例计算Width |
-| Fps                        | Response.<br/>TransTpl.Video<br/> | 帧率                   | String | 否       | 视频原始帧率 | 1. 值范围：(0，60]<br/>2. 单位：fps<br/>3. 帧率超过60时，设置为60<br/>用户可以设置 fps，如果不设置，那么播放速度按照原来的时间戳。这里设置 fps 为动图的播放帧率。 |
-| AnimateOnlyKeepKeyFrame    | Response.<br/>TransTpl.Video<br/> | 动图只保留关键帧       | String | 否       | 无           | 1. true、false<br/>2. 动图保留关键帧参数                     |
-| AnimateTimeIntervalOfFrame | Response.<br/>TransTpl.Video<br/> | 动图抽帧间隔时间       | String | 否       | 无           | 1. 值范围：（0，视频时长]<br/>2. 动图抽帧时间间隔<br/>3. 若设置 TimeInterval.Duration，则小于该值 |
-| AnimateFramesPerSecond     | Response.<br/>TransTpl.Video<br/> | Animation 每秒抽帧帧数 | String | 否       | 无           | 1.值范围：（0，视频帧率)<br/>2. 动图抽帧频率<br/>3. 优先级：AnimateFramesPerSecond >  AnimateOnlyKeepKeyFrame  > AnimateTimeIntervalOfFrame |
-| Quality                    | Response.<br/>TransTpl.Video<br/> | 设置相对质量           | String | 否       | 无           | 1. 值范围：[1, 100)<br/>2. webp 图像质量设定生效，gif 没有质量参数 |
+| Codec                      | Response.<br/>TransTpl.Video | 编解码格式             | String | 是       | 无           | gif，webp                                                    |
+| Width                      | Response.<br/>TransTpl.Video | 宽                     | String | 否       | 视频原始宽度 | 1. 值范围：[128，4096]<br/>2. 单位：px<br/>3. 若只设置 Width 时，按照视频原始比例计算 Height |
+| Height                     | Response.<br/>TransTpl.Video | 高                     | String | 否       | 视频原始高度 | 1. 值范围：[128，4096]<br/>2. 单位：px<br/>3. 若只设置 Height 时，按照视频原始比例计算Width |
+| Fps                        | Response.<br/>TransTpl.Video | 帧率                   | String | 否       | 视频原始帧率 | 1. 值范围：(0，60]<br/>2. 单位：fps<br/>3. 帧率超过60时，设置为60<br/>用户可以设置 fps，如果不设置，那么播放速度按照原来的时间戳。这里设置 fps 为动图的播放帧率。 |
+| AnimateOnlyKeepKeyFrame    | Response.<br/>TransTpl.Video | 动图只保留关键帧       | String | 否       | 无           | 1. true、false<br/>2. 动图保留关键帧参数                     |
+| AnimateTimeIntervalOfFrame | Response.<br/>TransTpl.Video | 动图抽帧间隔时间       | String | 否       | 无           | 1. 值范围：（0，视频时长]<br/>2. 动图抽帧时间间隔<br/>3. 若设置 TimeInterval.Duration，则小于该值 |
+| AnimateFramesPerSecond     | Response.<br/>TransTpl.Video | Animation 每秒抽帧帧数 | String | 否       | 无           | 1.值范围：（0，视频帧率)<br/>2. 动图抽帧频率<br/>3. 优先级：AnimateFramesPerSecond >  AnimateOnlyKeepKeyFrame  > AnimateTimeIntervalOfFrame |
+| Quality                    | Response.<br/>TransTpl.Video | 设置相对质量           | String | 否       | 无           | 1. 值范围：[1, 100)<br/>2. webp 图像质量设定生效，gif 没有质量参数 |
 
 
 TransTpl 节点 TimeInterval 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点                         | 描述     | 类型   | 是否必选 | 默认值   | 限制                                                         |
 | ------------------ | ------------------------------ | -------- | ------ | -------- | -------- | ------------------------------------------------------------ |
-| Start              | Response.TransTpl.TimeInterval | 开始时间 | String | 否       | 0        | 1. 值范围：[0 视频时长] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
-| Duration           | Response.TransTpl.TimeInterval | 持续时间 | String | 否       | 视频时长 | 1. 值范围：[0，视频时长] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
+| Start              | Response.TransTpl.<br/>TimeInterval | 开始时间 | String | 否       | 0        | 1. 值范围：[0 视频时长] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
+| Duration           | Response.TransTpl.<br/>TimeInterval | 持续时间 | String | 否       | 视频时长 | 1. 值范围：[0，视频时长] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
 
 
 #### 错误码
