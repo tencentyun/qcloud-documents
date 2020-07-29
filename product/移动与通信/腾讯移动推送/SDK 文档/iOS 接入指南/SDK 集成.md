@@ -178,7 +178,6 @@ NSNumber *msgType = tpnsInfo[@"msgtype"];
 
 统一点击消息回调，此回调方法为应用所有状态（前台、后台、关闭）下的通知消息点击回调。
 ```objective-c
-- (void)xgPushDidReceiveNotificationResponse:(nonnull id)response withCompletionHandler:(nonnull void (^)(void))completionHandler;
 /// 统一点击回调
 /// @param response 如果 iOS 10+/macOS 10.14+ 则为 UNNotificationResponse，低于目标版本则为 NSDictionary
 /// @note TPNS SDK1.2.7.1+
