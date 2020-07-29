@@ -15,17 +15,18 @@
 ![](https://main.qcloudimg.com/raw/d8e64e19b3f6fefb92d4ddb7e9ee65f9.png)
 
 ### 配置 Dropbox Business 单点登录
-1.	新开窗口，登录 Dropbox管理员控制台。
+1.	新开窗口，登录 Dropbox 管理员控制台。
 2.	选择左侧导航【设置】，选择【验证】>【单一登录】 。
 3.	配置以下信息，单击【保存】。
-![](https://main.qcloudimg.com/raw/04bd2b73b5eff2d699d3f55ac40e5dcc.png)
+![](https://main.qcloudimg.com/raw/b1b1aeed290c648c438063d91d068cd8.png)
 身份提供商登入网址：上一步中记录的登录 URL。
 身份提供商注销网址：上一步中记录的注销 URL。
 X.509 证书：上一步中下载的证书文件。
 4. 收集 Dropbox Business 单点登录配置信息。
 单点登录的登录网址：
-![](https://main.qcloudimg.com/raw/c374dd6f2dbbc9cf2ce4679675464b87.png)
+![](https://main.qcloudimg.com/raw/61942f818553db43e63cf995965f06d9.png)
 5.	开启 Dropbox Business 单一登录 。
+![](https://main.qcloudimg.com/raw/b899a56d8964d3c5df304f0ce8d3f3c2.png)
 
 ### 配置腾讯云 SSO 单点登录
 1.	转回 IDaaS 控制台。
