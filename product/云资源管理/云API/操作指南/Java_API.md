@@ -80,7 +80,7 @@ GET 请求的请求包大小不得超过32KB。POST 请求使用签名方法 v1�
 
 
 
-## Java API调用方式
+## Java API 调用方式
 
 腾讯云 API 会对每个请求进行身份验证，用户需要使用安全凭证，经过特定的步骤对请求进行签名（Signature），每个请求都需要在公共请求参数中指定该签名结果并以指定的方式和格式发送请求。
 
@@ -110,7 +110,7 @@ curl -X POST https://cvm.tencentcloudapi.com \
 ![](https://main.qcloudimg.com/raw/665e5334b0d5db156ef48a19072ba8bd.png)
 
 ### 步骤二：
-### 1. 获取API 3.0 V3 版本签名
+### 1. 获取 API 3.0 V3 版本签名
 
 
 
