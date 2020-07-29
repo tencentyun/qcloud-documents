@@ -62,7 +62,7 @@ pod install //安装 SDK
 >! 如果您的应用服务接入点为广州，SDK 默认实现该配置。
 如果您的应用服务接入点为新加坡或者中国香港，请按照下文步骤完成境外服务接入点配置。
 1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
-2. 在 `startXGWithAccessID:accessKey:delegate:` 方法之前调用头文件中的配置 `域名` 接口（SDK V1.2.7.2+）：
+2. 在`startXGWithAccessID:accessKey:delegate:`方法之前调用头文件中的配置`域名`接口（SDK V1.2.7.2+）：
 如需接入新加坡服务接入点 则将域名设置为```tpns.sgp.tencent.com```。
 **示例**
 ``` object-c
@@ -124,7 +124,7 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 
 #### 示例代码
 ```
-//打开debug开关
+//打开 debug 开关
 [[XGPush defaultManager] setEnableDebug:YES];
 ```
 
@@ -198,7 +198,7 @@ NSNumber *msgType = tpnsInfo[@"msgtype"];
 #### 用法
 
 - 引入头文件：`XGForFreeVersion.h` 。
-- 在 `startXGWithAccessID:accessKey:delegate:` 之前调用此接口，参考示例：
+- 在`startXGWithAccessID:accessKey:delegate:`之前调用此接口，参考示例：
 
 ```objective-c
 [XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
