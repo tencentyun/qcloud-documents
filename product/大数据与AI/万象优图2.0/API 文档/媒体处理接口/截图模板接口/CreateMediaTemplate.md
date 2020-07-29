@@ -1,6 +1,6 @@
 ## 功能描述
 
-CreateMedia Template 用于新增截图模板。
+CreateMediaTemplate 用于新增截图模板。
 
 ## 请求
 
