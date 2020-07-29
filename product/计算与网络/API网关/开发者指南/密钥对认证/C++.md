@@ -37,7 +37,7 @@
 ```
 
 ## 编译命令
-```
+```plaintext
 g++ -o AuthenticationDemo AuthenticationDemo.cpp request.cpp base64.cpp sha1.cpp -lcurl
 ```
 <span id="example"></span>
