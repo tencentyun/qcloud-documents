@@ -31,7 +31,7 @@
 	- **定期备份**：设置定期备份可有效保护数据安全，备份数据将产生额外费用，详情请见 [快照概述](https://cloud.tencent.com/document/product/362/5754)。
 >? 容器服务默认提供的 default-policy 备份策略的配置包括：执行备份的日期、执行备份的时间点和备份保留的时长。
 >
-5. 单击【新建StorageClass 】即可完成创建。
+5. 单击【新建StorageClass】即可完成创建。
 
 #### 使用指定 StorageClass 创建 PVC<span id="createPVC"></span>
 1. 在“集群管理”页面，选择需创建 PVC 的集群 ID。
@@ -55,8 +55,8 @@
 >- 系统不允许在不指定 StorageClass 的情况下同时选择不指定 PersistVolume。
 >- 不指定 PersistentVolume。详情请参见 [查看 PV 和 PVC 的绑定规则](待补充！！！)。
 > 
-   - **云盘类型**：根据所选的StorageClass展示所选的云盘类型为【高性能云硬盘】或【SSD云硬盘】。
-   - **容量**：在不指定PersistentVolume时，需提供期望的云硬盘容量。
+   - **云盘类型**：根据所选的 StorageClass 展示所选的云盘类型为【高性能云硬盘】或【SSD云硬盘】。
+   - **容量**：在不指定 PersistentVolume 时，需提供期望的云硬盘容量。
    - **费用**：根据上述参数计算创建对应云盘的所需费用，详情参考 [计费模式](https://cloud.tencent.com/document/product/362/32361)。
 4. 单击【创建PersistentVolumeClaim】，即可完成创建。
 
