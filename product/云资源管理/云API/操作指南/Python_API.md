@@ -328,7 +328,7 @@ print('curl -X POST ' + endpoint
 
 
 
-### 2. 获取API 3.0  V1 版本签名
+### 2. 获取 API 3.0  V1 版本签名
 
 
 签名方法 v1（HmacSHA1、HmacSHA256）简单易用，但是功能和安全性都不如签名方法 v3，推荐使用签名方法 v3。
