@@ -93,7 +93,7 @@ TUIMessageCellData 需要计算出显示内容的大小，以便 TUIChatControll
 ### 步骤3: 注册 TUIChatController 回调
 
 注册 TUIChatController 回调是用于告知 TUIChatController 该如何显示自定义消息，注册该回调需要实现下列回调：
-- 收到消息时，将 TIMessage 转换为 TUIMessageCellData 对象。
+- 收到消息时，将 V2TIMMessage 转换为 TUIMessageCellData 对象。
 - 在显示前将 TUIMessageCellData 转换为 TUIMessageCell 对象，用于最终显示。
 
 ```objectivec
@@ -102,8 +102,7 @@ TUIMessageCellData 需要计算出显示内容的大小，以便 TUIChatControll
 {
 	self = [super init];
 	// 初始化
-    TIMConversation *conv = [[TIMManager sharedInstance] getConversation:TIM_C2C receiver:@"test"];
-	chat = [[TUIChatController alloc] initWithConversation:conv];
+	chat = [[TUIChatController alloc] initWithConversation:conversationData]; // conversationData 为当前会话数据，包括 groupID、userID 等，可以在会话列表获取
     [self addChildViewController:chat]; // 将聊天界面加到内部
     chat.delegate = self;	// 设置回调
     // 配置导航条
@@ -112,10 +111,9 @@ TUIMessageCellData 需要计算出显示内容的大小，以便 TUIChatControll
     return self;
 }
 // TChatController 回调函数
-- (TUIMessageCellData *)chatController:(TUIChatController *)controller onNewMessage:(TIMMessage *)msg
+- (TUIMessageCellData *)chatController:(TUIChatController *)controller onNewMessage:(V2TIMMessage *)msg
 {
-    TIMElem *elem = [msg getElem:0];
-    if([elem isKindOfClass:[TIMCustomElem class]]){
+    if (msg.elemType == V2TIM_ELEM_TYPE_CUSTOM) {
         MyCustomCellData *cellData = [[MyCustomCellData alloc] initWithDirection:msg.isSelf ? MsgDirectionOutgoing : MsgDirectionIncoming];
         cellData.text = @"查看详情>>";
         cellData.link = @"https://cloud.tencent.com/product/im";
@@ -141,13 +139,11 @@ TUIMessageCellData 需要计算出显示内容的大小，以便 TUIChatControll
 ## 发送自定义消息
 
 TUIChatController 提供了发送消息接口，用户通过代码控制消息发送操作，自定义消息的类型必须继承自 TUIMessageCellData。例如，发送文本消息可以创建一个 TUITextMessageCellData 对象。
-如需发送自定义数据，需要初始化 innerMessage 属性，详情请参见 [自定义消息](https://cloud.tencent.com/document/product/269/9150#.E8.87.AA.E5.AE.9A.E4.B9.89.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81)。
+如需发送自定义数据，需要初始化 innerMessage 属性，请参考如下代码：
 
 ```objectivec
 MyCustomCellData *cellData = [[MyCustomCellData alloc] initWithDirection:MsgDirectionOutgoing];       
-cellData.innerMessage = [[TIMMessage alloc] init];
-TIMCustomElem * custom_elem = [[TIMCustomElem alloc] init];
-[cellData.innerMessage addElem:custom_elem];
+cellData.innerMessage = [[V2TIMManager sharedInstance] createCustomMessage:data]; // data 为自定义二进制数据
 [chatController sendMessage:cellData];
 ```
 
