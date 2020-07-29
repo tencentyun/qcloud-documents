@@ -69,13 +69,15 @@
    - **Provisioner**：选择【文件存储 CFS】。
    - **读写权限**：文件存储仅支持多机读写。
    - **StorageClass**：按需指定 StorageClass，本文选择以在 [创建 StorageClass](#create) 步骤中创建的 `cfs-storageclass` 为例。
- >? PVC 和 PV 会绑定在同一个 StorageClass 下。
->不指定 StorageClass 意味着该 PVC 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
+ >? 
+ >- PVC 和 PV 会绑定在同一个 StorageClass 下。
+>- 不指定 StorageClass 意味着该 PVC 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
 > 
    - **PersistVolume**：按需指定 PersistentVolume，本文以不指定 PersistentVolume 为例。
->? 系统首先会筛选当前集群内是否存在符合绑定规则的 PV，若没有则根据 PVC 和所选 StorageClass 的参数动态创建PV与之绑定。
->系统不允许在不指定 StorageClass 的情况下同时选择不指定 PersistVolume。
->[ 查看PV和PVC的绑定规则 ](待补充！！！)。
+>? 
+>- 系统首先会筛选当前集群内是否存在符合绑定规则的 PV，若没有则根据 PVC 和所选 StorageClass 的参数动态创建PV与之绑定。
+>- 系统不允许在不指定 StorageClass 的情况下同时选择不指定 PersistVolume。
+>- 不指定 PersistVolume。详情请参见 [查看PV和PVC的绑定规则 ](待补充！！！)。
 > 
 4. 单击【创建 PersistentVolumeClaim】，即可完成创建。
 
