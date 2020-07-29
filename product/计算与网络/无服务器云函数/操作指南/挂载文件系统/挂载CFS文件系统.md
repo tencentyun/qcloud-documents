@@ -10,7 +10,8 @@ CFS 成本低廉，采用按量计费模式，以小时为计费周期，您只�
 ## 操作步骤
 
 ### 关联授权策略
-如需使用 CFS 功能，云函数需要能够操作您 CFS 资源的权限。
+>!如需使用 CFS 功能，云函数需要能够操作您 CFS 资源的权限。
+
 请参考以下步骤为账号进行授权操作：
 1. 请参考 [修改角色](https://cloud.tencent.com/document/product/598/19389)，为 `SCF_QcsRole` 角色关联 `QcloudCFSReadOnlyAccess` 策略。关联成功则如下图所示：
 如您使用的账号未进行该操作，则可能出现函数无法保存，CFS 相关功能无法使用等问题。
@@ -47,4 +48,4 @@ CFS 成本低廉，采用按量计费模式，以小时为计费周期，您只�
 ![](https://main.qcloudimg.com/raw/5ba2b08d89b903cda862135c1f74fc9d.png)
 
 ### SCF 使用 CFS 文件系统性能测试
-您可以使用此[脚本](https://github.com/tencentyun/scf_cfs_demo)测试 SCF 使用 CFS 时的性能。
+您可以使用此 [脚本](https://github.com/tencentyun/scf_cfs_demo) 测试 SCF 使用 CFS 时的性能。
