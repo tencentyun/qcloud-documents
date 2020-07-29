@@ -66,7 +66,7 @@ Body 部分为 DataWay 脚本最终产出的数据，因此需要以标准的 Py
 
 ## 预定义变量
 
-在 DataWay 的处理上下文中，系统会根据当前处理的消息，预置一些环境变量，用于在 DataWay 中通过程序化的方式获取上下文信息。这些变量被称之为`__预定义变量（Predefined Variables）__`。目前支持的预定义变量有 `var__`、`__payload__`、`__attr__`、`__id__`、`__seq_id__`、`__error__`等，具体说明可参见本文 [DataWay 语言手册](#dataway-.E8.AF.AD.E8.A8.80.E6.89.8B.E5.86.8C)。
+在 DataWay 的处理上下文中，系统会根据当前处理的消息，预置一些环境变量，用于在 DataWay 中通过程序化的方式获取上下文信息。这些变量被称之为**预定义变量（Predefined Variables）**。目前支持的预定义变量有 **var**、**payload**、**attr**、**id**、**seq_id**、**error** 等，具体说明可参见本文 [DataWay 语言手册](#dataway-.E8.AF.AD.E8.A8.80.E6.89.8B.E5.86.8C)。
 
 
 ## 字面量与表达式
@@ -92,14 +92,12 @@ Body 部分为 DataWay 脚本最终产出的数据，因此需要以标准的 Py
 
 #### DataWay 预定义变量
 在 DataWay 的处理上下文中，系统会根据当前处理的消息，预置一些环境变量，用于在 DataWay 中通过程序化的方式获取上下文信息。这些变量被称之为 预定义变量(Predefined Variables) 。目前支持的预定义变量有： 
-- `var__`：局部消息变量，dict类 型，键为 string，代表变量名，值为任意类型，代表变量值。
-   var会在一条消息处理的所有环节共享，因此可以用于在不同的处理节点之间进行数据的传递。
-- `__payload`：当前消息负载数据，可以是允许的任意类型。payload 是一条消息对象的负载数据。
-- `__attr__`：当前消息的属性数据，包括消息类型、消息的头部信息等。dict 类型，键为 str，代表属性名，值为任意类型，代表属性值
-   attr 是消息的属性数据。
--  `__id__`：当前消息的唯一标识 ID。str 类型。
--  `__seq_id__`：当前消息的序列号。str 类型。
-- `__error__`：当前处理上下文中的错误信息。dict 类型，键为 str，值为 str。
+- **var**：局部消息变量，dict类 型，键为 string，代表变量名，值为任意类型，代表变量值。var 会在一条消息处理的所有环节共享，因此可以用于在不同的处理节点之间进行数据的传递。
+- **payload**：当前消息负载数据，可以是允许的任意类型。payload 是一条消息对象的负载数据。
+- **attr**：当前消息的属性数据，包括消息类型、消息的头部信息等。dict 类型，键为 str，代表属性名，值为任意类型，代表属性值。attr 是消息的属性数据。
+-  **id**：当前消息的唯一标识 ID。str 类型。
+- **seq_id**：当前消息的序列号。str 类型。
+- **error**：当前处理上下文中的错误信息。dict 类型，键为 str，值为 str。
 
 
 
@@ -133,7 +131,7 @@ Python 上下文环境中的内置变量及函数，可参考 [Python 官方文�
 
 ### 其它可用的模块
 
-- ` __time__`，用于时间处理的库，可参考 [Python 官方文档](https://docs.python.org/3.5/library/time.html)。目前 DataWay 中支持的库函数/类型如下： 
+- **time**：用于时间处理的库，可参考 [Python 官方文档](https://docs.python.org/3.5/library/time.html)。目前 DataWay 中支持的库函数/类型如下： 
 	-  time()：函数，返回当前时间戳，float 类型，单位为秒
 	-  struct_time：类型，表示一个结构化时间对象
 	- altzone：当前时区相对于 UTC 时区的延迟偏移，单位为秒
@@ -145,10 +143,10 @@ Python 上下文环境中的内置变量及函数，可参考 [Python 官方文�
 	- tzname：当前时区名称
 	- gmtime：将一个时间戳转换为 struct_time 对象
 	- localtime：将一个时间戳转换为当前时区的本地时间，返回 struct_time 类型对象
--  `__json__`，用于处理 JSON 数据的库，可参考 [Python 官方文档](https://docs.python.org/3.5/library/json.html)。目前 DataWay 中支持的函数： 
+-  **json**：用于处理 JSON 数据的库，可参考 [Python 官方文档](https://docs.python.org/3.5/library/json.html)。目前 DataWay 中支持的函数： 
 	- dumps：将 JSON 对象编码为 JSON 字符串
 	- loads：将一个 JSON 串解析为 Python 对象
-- `__math__`，用于数学运算的库，可参考 [Python 官方文档](https://docs.python.org/3.5/library/math.html)。目前 DataWay 中支持的函数： 
+- **math**：用于数学运算的库，可参考 [Python 官方文档](https://docs.python.org/3.5/library/math.html)。目前 DataWay 中支持的函数： 
 	- acos
 	- acosh
 	- asin
