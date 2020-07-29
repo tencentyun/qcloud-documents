@@ -26,7 +26,7 @@
 
 本 Demo 中共包含 7 个文件，目录结构如下：
 
-```
+```plaintext
 ├─AuthenticationDemo.cpp
 ├─request.cpp
 ├─base64.h
@@ -46,7 +46,7 @@ g++ -o AuthenticationDemo AuthenticationDemo.cpp request.cpp base64.cpp sha1.cpp
 
 #### AuthenticationDemo.cpp
 
-```C++
+```cpp
 /*本Demo中使用libcurl发起http请求,故编译机器需要安装libcurl库*/
 /*编译命令 g++ -o AuthenticationDemo AuthenticationDemo.cpp request.cpp base64.cpp sha1.cpp -lcurl*/
 
@@ -109,7 +109,7 @@ int main()
 
 #### request.cpp
 
-```C++
+```cpp
 #include <iostream>
 #include <cstring>
 #include "curl/curl.h" 
@@ -232,7 +232,7 @@ void post_request(const string &defaultDomain, const string &source, const strin
 
 #### base64.h
 
-```C++
+```cpp
 //Base64编码表
 #include<string>
 using namespace std;
@@ -255,7 +255,7 @@ void HexToBin(string hexDight , string& binDight);
 
 #### base64.cpp
 
-```C++
+```cpp
 #include"base64.h"
 
 int BinToDecInt(string strBin){
@@ -369,7 +369,7 @@ void HexToBin(string hexDight , string& binDight){
 
 #### hmac.h
 
-```C++
+```cpp
 #pragma once
 
 
@@ -421,7 +421,7 @@ std::string hmac(const std::string& data, const std::string& key)
 
 #### sha1.h
 
-```C++
+```cpp
 #pragma once
 
 #include <string>
@@ -475,7 +475,7 @@ private:
 
 #### sha1.cpp
 
-```C++
+```cpp
 #include "sha1.h"
 
 #ifndef _MSC_VER
