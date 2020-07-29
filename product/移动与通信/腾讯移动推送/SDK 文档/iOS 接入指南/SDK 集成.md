@@ -62,7 +62,7 @@ pod install //安装 SDK
 >! 如果您的应用服务接入点为广州，SDK 默认实现该配置。
 如果您的应用服务接入点为新加坡或者中国香港，请按照下文步骤完成境外服务接入点配置。
 1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
-2. 在 `startXGWithAppID` 方法之前调用头文件中的配置 `域名` 接口：
+2. 在 `startXGWithAccessID:accessKey:delegate:` 方法之前调用头文件中的配置 `域名` 接口（SDK V1.2.7.2+）：
 如需接入新加坡服务接入点 则将域名设置为```tpns.sgp.tencent.com```。
 **示例**
 ``` object-c
@@ -136,7 +136,7 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 @param deviceToken APNs 生成的 Device Token
 @param xgToken TPNS 生成的 Token，推送消息时需要使用此值。TPNS 维护此值与 APNs 的 Device Token 的映射关系
 @param error 错误信息，若 error 为 nil 则注册推送服务成功
-@note TPNS SDK1.2.5.3+
+@note TPNS SDK1.2.6.0+
 */
 - (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken xgToken:(nullable NSString *)xgToken error:(nullable NSError *)error;
 
@@ -198,11 +198,11 @@ NSNumber *msgType = tpnsInfo[@"msgtype"];
 #### 用法
 
 - 引入头文件：`XGForFreeVersion.h` 。
-- 在 `startXGWithAppID:appKey:delegate:` 之前调用此接口，参考示例：
+- 在 `startXGWithAccessID:accessKey:delegate:` 之前调用此接口，参考示例：
 
 ```objective-c
 [XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
-[[XGPush defaultManager] startXGWithAppID: <#your tpns access ID#>appKey:<#your tpns access key#> delegate:<#your delegate#>];
+[[XGPush defaultManager] startXGWithAccessID: <#your tpns access ID#>appKey:<#your tpns access key#> delegate:<#your delegate#>];
 ```
 >!如果未做以上配置，在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
 
