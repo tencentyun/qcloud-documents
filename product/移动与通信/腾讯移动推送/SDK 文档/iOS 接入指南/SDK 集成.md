@@ -181,7 +181,7 @@ NSNumber *msgType = tpnsInfo[@"msgtype"];
 /// 统一点击回调
 /// @param response 如果 iOS 10+/macOS 10.14+ 则为 UNNotificationResponse，低于目标版本则为 NSDictionary
 /// @note TPNS SDK1.2.7.1+
-- (void)xgPushDidReceiveNotificationResponse:(nonnull id)response withCompletionHandler:(nonnull void (^)(void))completionHandler
+- (void)xgPushDidReceiveNotificationResponse:(nonnull id)response withCompletionHandler:(nonnull void (^)(void))completionHandler;
 ```
 
 
