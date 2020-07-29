@@ -61,13 +61,13 @@ cloudbase login
 ```plaintext
 Hexo g
 ```
-2. 将会生成部署文件，Hexo 默认将文件生成在 Public 目录下：
-![](https://main.qcloudimg.com/raw/b6f03410c72598c37632f1c35b1b9811.png)
+2. Hexo 将会生成部署文件，默认将文件生成在 Public 目录下：
+![](https://main.qcloudimg.com/raw/3be759a243289440eb5aaf7eee423195.png)
 3. 执行如下命令，将 Hexo 部署到云开发静态托管中（需要将 EnvID 替换为步骤2中您创建的环境 ID）。
 ```plaintext
 cloudbase hosting:deploy public -e [EnvID]
 ```
-![](https://main.qcloudimg.com/raw/a3835aacdbde4049d2cced769af62e17.png)
+![](https://main.qcloudimg.com/raw/7d539f3190b6c8c457044448424d4ee4.png)
 
 ## 步骤5：浏览部署的 Hexo
 
