@@ -66,8 +66,9 @@
 	- **Provisioner**：选择【文件存储CFS】。
 	- **读写权限**：文件存储仅支持多机读写。
 	- **StorageClass**：按需选择合适的 StorageClass。本文以选择在 [通过控制台创建 StorageClass](#createStorageClass) 步骤中创建的 `cfs-storageclass` 为例。
->? PVC 和 PV 会绑定在同一个 StorageClass 下。
->不指定 StorageClass 意味着该 PV 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
+>? 
+>- PVC 和 PV 会绑定在同一个 StorageClass 下。
+>- 不指定 StorageClass 意味着该 PV 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
 	- **选择CFS**：需确保文件存储与当前集群处于同一私有网络下，本文以选择在 [创建文件存储](#createCFS) 步骤中创建的 `cfs-test` 为例。
 	- **CFS子目录**：填写已在步骤 [获取文件系统子目录](#getPath) 中获取的文件系统子路径，本文以 `/subfolder` 为例。
 5. 单击【创建PersistentVolume】，即可完成创建。
@@ -84,13 +85,14 @@
    - **Provisioner**：选择【文件存储CFS】。
    - **读写权限**：文件存储仅支持多机读写。
    - **StorageClass**：按需选择合适的 StorageClass。本文以选择在 [通过控制台创建 StorageClass](#createStorageClass) 步骤中创建的 `cfs-storageclass` 为例。
-   >? PVC 和 PV 会绑定在同一个 StorageClass 下。
->不指定意味着该 PVC 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
+   >?
+   >- PVC 和 PV 会绑定在同一个 StorageClass 下。
+>- 不指定意味着该 PVC 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
 > 
    - **PersistVolume**：按需指定PersistentVolume，本文选择以在[ 静态创建 PV ](#pv) 步骤中创建的 `cfs-pv` 为例。
->? 只有与指定的 StorageClass 相同并且状态为 Available 和 Released 的 PV 为可选状态，如果当前集群内没有满足条件的 PV 可选，请选择“不指定”PersistVolume。
->**注意：**如果选择的 PV 状态为 Released，还需手动删除该 PV 对应 YAML 配置文件中的 `claimRef` 字段，该 PV 才能顺利与 PVC 绑定。
->[ 查看 PV 和 PVC 的绑定规则 ](待补充！！！)。
+>? 
+>- 只有与指定的 StorageClass 相同并且状态为 Available 和 Released 的 PV 为可选状态，如果当前集群内没有满足条件的 PV 可选，请选择“不指定”PersistVolume。
+>- 如果选择的 PV 状态为 Released，还需手动删除该 PV 对应 YAML 配置文件中的 `claimRef` 字段，该 PV 才能顺利与 PVC 绑定。详情请参见 [查看 PV 和 PVC 的绑定规则](待补充！！！)。
 3. 选择【创建PersistentVolumeClaim】，即可完成创建。
 
 
