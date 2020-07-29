@@ -66,12 +66,14 @@ pod install //安装 SDK
 如需接入新加坡服务接入点 则将域名设置为```tpns.sgp.tencent.com```。
 **示例**
 ``` object-c
- [[XGPush defaultManager] configureClusterDomainName:@"tpns.sgp.tencent.com"];
+/// @note TPNS SDK1.2.7.1+
+[[XGPush defaultManager] configureClusterDomainName:@"tpns.sgp.tencent.com"];
 ```
 如需接入中国香港服务接入点 则将域名设置为```tpns.hk.tencent.com```。
 **示例**
 ``` object-c
- [[XGPush defaultManager] configureClusterDomainName:@"tpns.hk.tencent.com"];
+/// @note TPNS SDK1.2.7.1+
+[[XGPush defaultManager] configureClusterDomainName:@"tpns.hk.tencent.com"];
 ```
 
 ### 接入样例
