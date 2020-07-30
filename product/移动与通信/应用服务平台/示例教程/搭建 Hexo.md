@@ -12,7 +12,7 @@
 ```plaintext
 npm i -g @cloudbase/cli hexo-cli
 ```
-3. 执行完毕后，在本地新建一个文件夹。在该文件夹中，运行命令提示符，并执行如下命令进行初始化：
+3. <span id="step1.3"></span>执行完毕后，在本地新建名称为 Hexo 的文件夹。在该文件夹中，运行命令提示符，并执行如下命令进行初始化：
 ```plaintext
 hexo init
 ```
@@ -36,7 +36,7 @@ hexo s
 	 ![](https://main.qcloudimg.com/raw/ac440a0f9e91f1f1dd3ac779d28ca008.jpg)
 2. 在新建环境窗口中，根据实际需求填写环境名称，选择【按量计费】，单击【立即开通】即可开通环境。
 	 ![](https://main.qcloudimg.com/raw/fd37e984648366fad28ea7f10f43ab32.jpg)
-3. 开通成功之后，单击环境名称，进入环境总览页面。请记住您的环境 ID，这个 ID 在后续步骤将被使用，如下所示：
+3. <span id="step2.3"></span>开通成功之后，单击环境名称，进入环境总览页面。请记住您的环境 ID，这个 ID 在后续步骤将被使用，如下所示：
 ![](https://main.qcloudimg.com/raw/c7fb3e0eaacfd716fddd0914a43eff00.jpg)
 4. 单击左侧菜单栏中的【静态网站托管】，在页面中单击【开启使用】，开通静态托管服务。
 ![](https://main.qcloudimg.com/raw/b2722f1c74c77d582802a0ddedf1823c.png)
@@ -51,20 +51,20 @@ hexo s
 ```plaintext
 cloudbase login
 ```
-2. 执行命令时，系统将拉起浏览器授权，请登录上述步骤2中创建云开发环境的账号，进行确认授权。
+2. 执行命令时，系统将拉起浏览器授权，请登录上述 [步骤2](#step2.3) 中创建云开发环境的账号，进行确认授权。
 ![](https://main.qcloudimg.com/raw/07bbd145af217f65a4c321d977fdcb32.jpg)
 
 
 
 ## 步骤4：构建 Hexo 部署文件
 
-1. 打开命令提示符，进入到步骤1创建的 Hexo 目录中，执行如下命令：
+1. 打开命令提示符，进入到 [步骤1](#step1.3) 创建的 Hexo 文件夹中，执行如下命令：
 ```plaintext
 Hexo g
 ```
-2. Hexo 将会生成部署文件，默认将文件生成在 Public 目录下：
+2. Hexo 将会生成部署文件，默认将文件生成在 Public 文件夹下：
 ![](https://main.qcloudimg.com/raw/3be759a243289440eb5aaf7eee423195.png)
-3. 执行如下命令，将 Hexo 部署到云开发静态托管中（需要将 EnvID 替换为步骤2中您创建的环境 ID）。
+3. 执行如下命令，将 Hexo 部署到云开发静态托管中（需要将 EnvID 替换为 [步骤2](#step2.3) 中您创建的环境 ID）。
 ```plaintext
 cloudbase hosting:deploy public -e [EnvID]
 ```
