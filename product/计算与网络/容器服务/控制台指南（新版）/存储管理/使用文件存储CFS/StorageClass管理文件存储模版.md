@@ -77,7 +77,7 @@
 >? 
 >- 系统首先会筛选当前集群内是否存在符合绑定规则的 PV，若没有则根据 PVC 和所选 StorageClass 的参数动态创建PV与之绑定。
 >- 系统不允许在不指定 StorageClass 的情况下同时选择不指定 PersistVolume。
->- 不指定 PersistVolume。详情请参见 [查看PV和PVC的绑定规则](待补充！！！)。
+>- 不指定 PersistVolume。详情请参见 [查看PV和PVC的绑定规则](https://cloud.tencent.com/document/product/457/47014)。
 > 
 4. 单击【创建 PersistentVolumeClaim】，即可完成创建。
 
