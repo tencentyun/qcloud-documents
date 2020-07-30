@@ -60,7 +60,7 @@
    - **PersistVolume**：按需指定 PersistentVolume，本文选择以在 [静态创建PV](#pv) 步骤中创建的 `cbs-pv` 为例。
 >? 
 >- 只有与指定的 StorageClass 相同并且状态为 Available 和 Released 的 PV 为可选状态，如果当前集群内没有满足条件的 PV 可选，请选择“不指定”PersistVolume。
->- 如果选择的 PV 状态为 Released，还需手动删除该 PV 对应 YAML 配置文件中的 `claimRef` 字段，该 PV 才能顺利与 PVC 绑定。详情请参见 [查看 PV 和 PVC 的绑定规则](待补充！！！)。
+>- 如果选择的 PV 状态为 Released，还需手动删除该 PV 对应 YAML 配置文件中的 `claimRef` 字段，该 PV 才能顺利与 PVC 绑定。详情请参见 [查看 PV 和 PVC 的绑定规则](https://cloud.tencent.com/document/product/457/47014)。
 3. 单击【创建PersistentVolumeClaim】，即可完成创建。
 
 
