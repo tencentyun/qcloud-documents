@@ -53,7 +53,7 @@
 >? 
 >- 系统首先会筛选当前集群内是否存在符合绑定规则的 PV，如果没有则根据 PVC 和所选 StorageClass 的参数动态创建 PV 与之绑定。
 >- 系统不允许在不指定 StorageClass 的情况下同时选择不指定 PersistVolume。
->- 不指定 PersistentVolume。详情请参见 [查看 PV 和 PVC 的绑定规则](待补充！！！)。
+>- 不指定 PersistentVolume。详情请参见 [查看 PV 和 PVC 的绑定规则](https://cloud.tencent.com/document/product/457/47014)。
 > 
    - **云盘类型**：根据所选的 StorageClass 展示所选的云盘类型为【高性能云硬盘】或【SSD云硬盘】。
    - **容量**：在不指定 PersistentVolume 时，需提供期望的云硬盘容量。
