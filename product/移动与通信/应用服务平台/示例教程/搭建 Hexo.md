@@ -36,13 +36,13 @@ hexo s
    如果您之前创建过环境，可以继续使用已创建的**按量计费**环境，或者再次【新建环境】。
 	 ![](https://main.qcloudimg.com/raw/ac440a0f9e91f1f1dd3ac779d28ca008.jpg)
 2. 在新建环境窗口中，根据实际需求填写环境名称，选择【按量计费】，单击【立即开通】即可开通环境。
-	 ![](https://main.qcloudimg.com/raw/59f054d930398e1bc83cb39f9b1f5cf7.jpg)
+	 ![](https://main.qcloudimg.com/raw/fd37e984648366fad28ea7f10f43ab32.jpg)
 3. 开通成功之后，单击环境名称，进入环境总览页面。请记住您的环境 ID，这个 ID 在后续步骤将被使用，如下所示：
-![](https://main.qcloudimg.com/raw/c4f37707e788561fc928de6a0cf78468.jpg)
-4. 单击左侧菜单栏中的【静态网站托管】，等待静态网站托管初始化完毕（约需3分钟），在页面中单击【开启使用】，开通静态托管服务。
-   ![](https://main.qcloudimg.com/raw/cb71498de333edd4006a6708d896de6d.png)
-   当您能看到如下界面时，即说明已开通成功。
-   ![](https://main.qcloudimg.com/raw/2f02da70e4fa2f52170ef7b1577717b1.png)
+![](https://main.qcloudimg.com/raw/c7fb3e0eaacfd716fddd0914a43eff00.jpg)
+4. 单击左侧菜单栏中的【静态网站托管】，在页面中单击【开启使用】，开通静态托管服务。
+![](https://main.qcloudimg.com/raw/b2722f1c74c77d582802a0ddedf1823c.png)
+当您能看到如下界面时，即说明开通成功。
+![](https://main.qcloudimg.com/raw/c76868e35d23f97bbd39f261073385a6.jpg)
 
 
 
@@ -52,8 +52,8 @@ hexo s
 ```plaintext
 cloudbase login
 ```
-2. 执行命令是，系统将拉起浏览器授权，请登录上述步骤2中创建云开发环境的账号，进行确认授权。
-![](https://main.qcloudimg.com/raw/026ba161e5820db9efa889c3b0d0c367.png)
+2. 执行命令时，系统将拉起浏览器授权，请登录上述步骤2中创建云开发环境的账号，进行确认授权。
+![](https://main.qcloudimg.com/raw/07bbd145af217f65a4c321d977fdcb32.jpg)
 
 
 
