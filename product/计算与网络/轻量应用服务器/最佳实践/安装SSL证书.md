@@ -129,7 +129,7 @@ nginx: configuration file /usr/local/lighthouse/softwares/nginx/conf/nginx.conf 
 ```
 /usr/local/lighthouse/softwares/nginx/sbin/nginx -s reload
 ```
-至此已安装成功。您可可使用 `https://cloud.tencent.com`（示例）正常进行访问。
+至此已安装成功。您可使用 `https://cloud.tencent.com`（示例）正常进行访问。
 
 ### 设置 HTTP 请求自动跳转 HTTPS（可选）
 
@@ -144,6 +144,9 @@ server {
     return 301 https://$host$request_uri;  	 #将http的域名请求转成https
 }
 ```
-2. 保存修改后的 `nginx.conf` 文件后退出，参考“证书安装”的 [步骤6](#Step6) 及 [步骤7](#Step7) 验证并重启中 Nginx。
+2. 保存修改后的 `nginx.conf` 文件后退出，参考“证书安装”的 [步骤6](#Step6) 及 [步骤7](#Step7) 验证并重启 Nginx。
+至此已成功设置 HTTPS 的自动跳转，您可使用 `http://cloud.tencent.com`（示例）自动跳转至 HTTPS 页面。
+
+并重启中 Nginx。
 至此已成功设置 HTTPS 的自动跳转，您可使用 `http://cloud.tencent.com`（示例）自动跳转至 HTTPS 页面。
 
