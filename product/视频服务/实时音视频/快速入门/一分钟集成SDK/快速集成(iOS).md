@@ -62,7 +62,7 @@ pod update
 ```
 
 pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程文件，双击打开即可。
->? 添加所需依赖库 **Accelerate.framework**。
+>? 需要手动添加所需系统依赖库 **Accelerate.framework**。
 
 ### 手动集成
 1. 下载 [TRTC - SDK ](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/SDK) ，下载完成后进行解压。

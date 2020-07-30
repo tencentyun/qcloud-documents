@@ -2,7 +2,7 @@
 该任务指导您在 FMT 模式下进行 Spring Boot 开发。
 
 FMT 事务，也可以理解为框架托管事务。需要用户仅需要在 **FMT 规范**下正常实现业务逻辑即可实现分布式事务。相对于 TCC事务，省去了编写 Confirm、Cancel 的代码工作。
-FMT 事务的实现原理：代理用户执行 PrepareStatement 和 CreateStatement 操作，对执行的 DML 语句进行解析，记录前后象，并生成UNDO信息。鉴于此，FMT 对用户使用的数据库和 SQL 语句会有一定的要求，详见  [FMT规范](http://www.tencent.com)。
+FMT 事务的实现原理：代理用户执行 PrepareStatement 和 CreateStatement 操作，对执行的 DML 语句进行解析，记录前后象，并生成UNDO信息。鉴于此，FMT 对用户使用的数据库和 SQL 语句会有一定的要求，详见  [FMT规范](https://cloud.tencent.com/document/product/1224/46038)。
 
 ## 准备工作
 - 参考 [准备工作](https://cloud.tencent.com/document/product/1224/45966) 文档，完成环境配置和开发前准备。
@@ -23,6 +23,13 @@ FMT 事务的实现原理：代理用户执行 PrepareStatement 和 CreateStatem
 </dependency>
 ```
 
+>?如果需要同时使用 tsf-sleuth 和 druid，需要切换到 spring-boot-dtf-druid 客户端，配置如下：
+```
+<dependency>
+	<groupId>com.tencent.cloud</groupId>
+	<artifactId>spring-boot-dtf-druid</artifactId>
+</dependency>  
+```
 ## 客户端配置
 
 在客户端中，支持以下配置自定义：
@@ -101,20 +108,20 @@ public Boolean order(@RequestBody Order order) {
 ```
 1. 进入 order 方法前 DTF 框架开启主事务。
 2. 执行业务逻辑或分支事务。
- - 如果该方法正常执行完毕，返回业务数据（或者void方法无返回值），DTF 框架**提交**主事务。
+ - 如果该方法正常执行完毕，返回业务数据（或者 void 方法无返回值），DTF 框架**提交**主事务。
  - 如果该方法执行出现问题，抛出异常时，DTF框架**回滚**主事务。
-
-DTF 框架自动关闭当前线程**主事务上下文**。
+3. DTF 框架自动关闭当前线程**主事务上下文**。
 
 #### 主事务注解支持的能力包括
 
 | 参数    | 数据类型 | 必填 | 默认值    | 描述                                                          |
 | ------- | -------- | ---- | --------- | ------------------------------------------------------------- |
 | timeout | Integer  | 否   | 60 × 1000 | 事务超时时间（主事务**开启**到**提交**/**回滚**的时长），单位：毫秒 |
-| groupId | String   | 否   |           | 在此事务分组下开启主事务                                      |
+| groupId | String   | 否   |    -      | 在此事务分组下开启主事务                                      |
 
 如果`dtf.env.groups`下只配置了**1个**事务分组 ID，则 @DtfTransactional 注解中**不需要**填写groupId，DTF 框架会自动从配置中获取。
 
+DTF 现在支持通过 @DtfTransactional 传染主事务。当您的主事务有多个入口时，使用多个@DtfTransactional 不会报错。全局事务的开始与结束，将由第一个开始执行的标有 @DtfTransactional  的主事务纳管。
 
 
 ### 通过 API 管理主事务
@@ -220,6 +227,13 @@ public int createOrder(Order order) {
 
 在`orderDao.createOrder(order);`方法中执行了一句Insert语句，此时框架会注册一个分支事务对这个Insert进行全局的事务管理。
 
+分支事务注解支持的参数包括：
+
+| 参数        | 数据类型                     | 必填 | 默认值 | 描述                                                 |
+| ----------- | ---------------------------- | ---- | ------ | ---------------------------------------------------- |
+| rollbackFor | Class<? extends Throwable>[] | 否   | {}     | 分支事务在识别到以下异常时回滚主事务，未配置时不回滚 |  
+
+rollbackFor：默认为空。若想要在发生异常时回滚，可设置为 Exception。
 
 ## 远程请求时传递分布式事务上下文
 
@@ -317,3 +331,4 @@ public class OrderApplication {
     }
 }
 ```
+

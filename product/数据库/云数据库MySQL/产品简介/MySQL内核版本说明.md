@@ -1,10 +1,13 @@
+本文为您介绍 MySQL 内核版本更新动态，如需升级，请参见 [升级内核小版本](https://cloud.tencent.com/document/product/236/45522)。
+
+
 ## MySQL 5.7
 ### 20200331
 #### 新特性：
 - 新增官方 MySQL 5.7.22 版本的 JSON 系列函数。
-- 基于电商秒杀场景的热点更新功能，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
-- SQL 限流，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
-- 数据加密功能支持 KMS 自定义密钥加密，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
+- 支持基于电商秒杀场景的 [热点更新](https://cloud.tencent.com/document/product/1130/37882#.E7.83.AD.E7.82.B9.E6.9B.B4.E6.96.B0.E4.BF.9D.E6.8A.A4) 功能。
+- 支持 [SQL 限流](https://cloud.tencent.com/document/product/1130/37882#sql-.E9.99.90.E6.B5.81)。
+- 数据加密功能支持 KMS 自定义密钥加密。
 
 #### 官方 bug 修复：
 - 修复全文索引中，词组查找（phrase search）在多字节字符集下存在的崩溃问题。

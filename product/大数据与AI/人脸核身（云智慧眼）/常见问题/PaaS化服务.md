@@ -4,9 +4,9 @@
 - [获取数字验证码](https://cloud.tencent.com/document/product/1007/31821)。
 
 ### PaaS 化服务中，传入视频大于5M，如何进行压缩？
-视频格式：H264编码标准的视频格式（如mp4,mov,avi,webm）,
-分辨率支持270p~1080p, (推荐wxh=320x*), 视频大小不超过8M ，
-如果前端手机录制H5视频过大，推荐使用 ffmpeg 先进行压缩再传到核身服务中；
+视频格式：H264编码标准的视频格式（如mp4，mov，avi，webm），
+分辨率支持270p ~ 1080p，(推荐 wxh=320x*)，视频大小不超过8M，
+如果前端手机录制 H5 视频过大，推荐使用 ffmpeg 先进行压缩再传到核身服务中。
 
 推荐压缩命令：`./ffmpeg -y -v error -i SRC_VIDEO_FILE_PATH -preset veryfast -b:v 1048576 -vf format=pix_fmts=yuv420p,fps=25,scale=320:-16  DEST_VIDEO_FILE_NAME（只需要调整SRC_VIDEO_FILE_PATH, DEST_VIDEO_FILE_NAME两个参数）`
 

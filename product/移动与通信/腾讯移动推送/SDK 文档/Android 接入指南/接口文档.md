@@ -101,6 +101,33 @@ void appendAccount(Context context, final String account)
 XGPushManager.bindAccount(getApplicationContext(),"test");
 ```
 
+#### 获取绑定结果
+
+使用 Callback 版本的绑定接口。
+XGIOperateCallback 类提供成功或失败的处理接口，请参考账号绑定接口说明。
+
+示例代码
+```java
+public interface XGIOperateCallback {
+
+    /**
+     * 操作成功时的回调。
+     * @param data 操作成功的业务数据，例如注册成功时的token信息等。
+     * @param flag 标记码
+     */
+    public void onSuccess(Object data, int flag);
+    
+    
+    /**
+     * 操作失败时的回调
+     * @param data 操作失败的业务数据
+     * @param errCode 错误码
+     * @param msg 错误信息
+     */
+    public void onFail(Object data, int errCode, String msg);
+}
+```
+
 
 
 ### 账号解绑

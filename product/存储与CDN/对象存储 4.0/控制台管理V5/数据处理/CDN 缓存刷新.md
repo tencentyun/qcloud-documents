@@ -18,7 +18,7 @@ CDN 缓存刷新是腾讯云对象存储 COS 基于 [云函数服务 SCF](https:
 4. 单击【添加函数】，在弹出的窗口中配置如下信息：
 	- **函数名称**：函数名称作为函数的唯一标识名称，创建后不可修改。您可以在 [云函数 SCF](https://console.cloud.tencent.com/scf/list?rid=1&ns=default) 控制台上查看该函数。
 	- **事件类型**：事件是指触发云函数的操作。以上传操作为例，上传的方式可能是调用 [PUT Object](https://cloud.tencent.com/document/product/436/7749) 接口，也可能是调用 [Post Object](https://cloud.tencent.com/document/product/436/14690) 接口。当选择事件为`PUT 类型`时，只有通过`PUT Object`接口上传文件的操作会触发云函数，从而刷新 CDN 边缘节点的缓存。
-	- **触发条件**：指的是调用哪些接口会触发云函数。如果选择了全部创建，则存储桶内所有新增文件或删除文件的事件均会触发刷新 CDN 缓存刷新的行为。
+	- **触发条件**：您可以指定触发事件的文件源范围，如全部存储桶或者指定的前缀或者指定的后缀。指定前缀或后缀后，规则只对匹配的文件源生效。
 	- **指定域名**：指需要刷新的 CDN 域名。
 	- **SCF 授权**：CDN 缓存刷新需要授权云函数调用 CDN 的`PurgeUrlsCache`接口，用于清除 CDN 缓存刷新中的数据，以便 CDN 可以回源到 COS 上拉取最新的数据。
 ![](https://main.qcloudimg.com/raw/d71aab4cf761368192ee921c10965157.png)

@@ -6,7 +6,11 @@
 ## 操作步骤
 
 ### 步骤1：数据说明
-本案例训练数据已经存放在上海地域的 COS 中 [单击查看](https://tesla-ap-shanghai-1256322946.cos.ap-shanghai.myqcloud.com/cephfs/tesla_common/deeplearning/dataset/contest/demo.zip)，您可以下载到本地或者 Notebook 中试用。请在上海地域执行例子中的代码，训练代码路径在 code 文件夹中。
+本案例训练数据已经存放在上海地域的 COS 中 [单击查看](https://tesla-ap-shanghai-1256322946.cos.ap-shanghai.myqcloud.com/cephfs/tesla_common/deeplearning/dataset/contest/demo.zip)，您可以下载到本地或者到 Notebook 中使用，在 Notebook 中使用须知：
+
+- 请在上海地域执行例子中的代码
+- 推荐使用 kernel: conda_tensorflow_py3
+- 用户需在 Notebook 中同级目录下创建一个名为 code 的文件夹，然后将下载好的 [main.py](https://common-datasets-1259675134.cos.ap-guangzhou.myqcloud.com/kobe_predict/main.py) 文件上传到 code 文件夹中。
 
 ### 步骤2：引入依赖
 
