@@ -1,7 +1,7 @@
 本文为您介绍如何通过客户端工具 tcaplus_client 访问 TcaplusDB 数据。
 所有数据操作语句必须带 where 条件，where 条件中必须包含主键字段，如果包含多个主键，则使用 and 将多个主键字段连接起来。
 
-## 通过 client 工具访问 TcaplusDB 数据
+## 通过 Client 工具访问 TcaplusDB 数据
 tcaplus_client 是一个 TcaplusDB 表访问的客户端工具，可通过下表中的下载链接进行下载。
 
 Linux x86_64 平台的 TcaplusServiceAPI 发布包包含64位 Linux 版本的 tcaplus_client 工具：
