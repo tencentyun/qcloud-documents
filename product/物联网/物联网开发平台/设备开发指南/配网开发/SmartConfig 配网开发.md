@@ -24,7 +24,7 @@ SmartConfig 配网设备端与腾讯连连小程序及后台交互的数据协�
 4. 设备端通过监听捕获 SmartConfig 报文，解析出目标路由器的 SSID/PSW 并进行联网，联网成功后，设备会告知小程序自己的 IP 地址，同时开始连接物联网后台。
 5. 小程序作为 UDP 客户端会连接 Wi-Fi 设备上面的 UDP 服务（默认端口为**8266**）。给设备发送配网 Token，JSON 格式为：
 ```
-   {"cmdType":0,"token":"6ab82618a9d529a2ee777bf6e528a0fd"} 
+   {"cmdType":0,"token":"6xx82618a9d529a2ee777xxxx528a0fd"} 
 ```
 发送完成后，等待设备 UDP 回复设备信息及配网协议版本号：
 ```   
@@ -35,7 +35,7 @@ SmartConfig 配网设备端与腾讯连连小程序及后台交互的数据协�
 8. 设备端在成功连接 Wi-Fi 路由器后，需要通过 MQTT 连接物联网后台，并将小程序发送来的配网 Token 通过下面 MQTT 报文上报给后台服务：
 ```
     topic: $thing/up/service/ProductID/DeviceName
-    payload: {"method":"app_bind_token","clientToken":"client-1234","params": {"token":"6ab82618a9d529a2ee777bf6e528a0fd"}}
+    payload: {"method":"app_bind_token","clientToken":"client-1234","params": {"token":"6xx82618a9d529a2ee777xxxx528a0fd"}}
 ```
 设备端也可以通过订阅主题 $thing/down/service/ProductID/DeviceName 来获取 Token 上报的结果。
 >!注意如果设备需要通过动态注册来创建设备并获取设备密钥，则会先进行动态注册再连接 MQTT。
