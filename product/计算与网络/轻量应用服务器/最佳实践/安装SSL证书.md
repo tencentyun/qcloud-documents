@@ -1,10 +1,9 @@
 ## 操作场景
+本文以使用 WordPress 应用镜像的轻量应用服务器为例，进行安装 SSL 证书操作，该服务器中默认已安装 Nginx 软件。如您的轻量应用服务器使用 Discuz! Q 应用镜像，则可通过内置的宝塔 Linux 面板进行 SSL 证书安装，详情请参考宝塔 Linux 面板官方用户文档。
 
-
-本文档指导您如何在基于 WordPress 应用镜像的轻量应用服务器中安装 SSL 证书，该服务器中默认已安装 Nginx 软件。
 
 >?
->- 本文档以通过腾讯云 SSL 证书服务申请的证书为例，证书名称为 `cloud.tencent.com`。
+>- 本文档以通过腾讯云SSL证书服务申请的付费、免费证书为例。
 >- 腾讯云 SSL 证书服务相关信息可参考 [SSL 证书产品介绍](https://cloud.tencent.com/document/product/400/7572)、[SSL 证书购买指南](https://cloud.tencent.com/document/product/400/7994) 和 [申请免费 SSL 证书](https://cloud.tencent.com/document/product/400/6814)。
 
 
@@ -38,7 +37,7 @@
 ## 操作步骤
 
 ### 证书安装
-1.  前往 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载 SSL 证书文件压缩包，并解压到本地目录。
+1.  前往 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载 SSL 证书（名称以 `cloud.tencent.com` 为例）文件压缩包，并解压到本地目录。
 解压缩后，可获得相关类型的证书文件。其中包含 Nginx 文件夹和 CSR 文件：
  - **文件夹名称**：Nginx
  - **文件夹内容**：
@@ -48,8 +47,8 @@
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 >
 2. 在本地计算机中使用远程登录工具（如 WinSCP），通过用户名密码方式或者 SSH 密钥对方式登录轻量应用服务器。详情请参见 [远程登录Linux实例](https://cloud.tencent.com/document/product/1207/44578)。
-3. 将已获取到的 `1_cloud.tencent.com_bundle.crt` 证书文件和 `2_cloud.tencent.com.key` 私钥文件从本地目录拷贝到轻量应用服务器 Nginx 默认配置文件目录中。其中，WordPress 镜像的默认配置文件目录为 `/usr/local/lighthouse/softwares/nginx/conf` ，Discuz! Q镜像的默认目录为 `/www/server/nginx/conf/` 。
->?您可以在轻量应用服务器实例详情页的【应用管理】页面中查看 Nginx 软件的主安装目录，在主安装目录下的 `./conf/` 即为 Nginx 默认配置文件目录。
+3. 将已获取到的 `1_cloud.tencent.com_bundle.crt` 证书文件和 `2_cloud.tencent.com.key` 私钥文件从本地目录拷贝到轻量应用服务器 Nginx 默认配置文件目录中。
+>?WordPress 镜像的默认配置文件目录为 `/usr/local/lighthouse/softwares/nginx/conf` 。您可以在轻量应用服务器实例详情页的【应用管理】页面中查看 Nginx 软件的主安装目录，在主安装目录下的 `./conf/` 即为 Nginx 默认配置文件目录。
 >
 4. <span id="Step4"></span>对于 WordPress 镜像创建的实例则执行以下命令，编辑 Nginx 默认配置文件目录中的 `nginx.conf` 文件。
 ```
@@ -92,6 +91,7 @@ server {
 server {
     listen 443 ssl;
     server_tokens off;
+		 keepalive_timeout 5;
     root /usr/local/lighthouse/softwares/wordpress;
     index index.php index.html;
     access_log logs/wordpress.log combinediox;
