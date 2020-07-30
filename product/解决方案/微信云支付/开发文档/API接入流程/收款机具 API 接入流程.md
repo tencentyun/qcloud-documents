@@ -896,7 +896,7 @@ return w.write(request);
 | mem_in_use              | 否   | Int            | 4          | 当前已用内存 KB。                                    |
 | disk_max                | 否   | Int            | 4          | 最大硬盘 KB。                                        |
 | disk_in_use             | 否   | Int            | 4          | 当前已用硬盘 KB。                                    |
-| network_type            | 是   | String         |   -         | 支付所使用的网络类型：Wi-Fi	、2G、3G、4G 等。          |
+| network_type            | 是   | String         |   -         | 支付所使用的网络类型：wifi、2g、3g、4g 等。          |
 | upload_net_flow         | 否   | Int            | 4          | 累计上传流量。                                      |
 | download_net_flow       | 否   | Int            | 4          | 累计下载流量。                                      |
 | mcc                     | 否   | String         |     -       | 基站国家码，十进制数字字符串。                                    |

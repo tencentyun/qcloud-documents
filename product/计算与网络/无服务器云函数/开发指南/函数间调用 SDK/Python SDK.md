@@ -38,6 +38,7 @@ def main_handler(event, context):
 
 ```python
 # -*- coding: utf8 -*-
+from tencentserverless import scf 
 from tencentserverless.scf import Client
 from tencentserverless.exception import TencentServerlessSDKException
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
@@ -64,6 +65,7 @@ def main_handler(event, context):
 
 ```python
 # -*- coding: utf8 -*-
+from tencentserverless import scf 
 from tencentserverless.scf import Client
 from tencentserverless.exception import TencentServerlessSDKException
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
@@ -138,6 +140,7 @@ def main_handler(event, context):
 
 ```python
 # -*- coding: utf8 -*-
+from tencentserverless import scf 
 from tencentserverless.scf import Client
 from tencentserverless.exception import TencentServerlessSDKException
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException

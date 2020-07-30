@@ -1,12 +1,30 @@
-流式语音合成 C++ SDK [下载地址](https://ruskin-1256085166.cos.ap-guangzhou.myqcloud.com/tts_sdk/c%2B%2B_stream_tts_sdk.tar.gz )。
+流式语音合成 C++ SDK [下载地址](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/tts/c%2B%2B_stream_tts_sdk.zip)。
 
-**此 SDK 目前仅支持在 Linux 平台上使用。**  
+>! 此 SDK 目前仅支持在 Linux 平台上使用。 
+
 接口请求域名：tts.cloud.tencent.com/stream   
 腾讯云语音合成技术（TTS）可以将任意文本转化为语音，实现让机器和应用张口说话。 腾讯 TTS 技术可以应用到很多场景，例如，移动 App 语音播报新闻；智能设备语音提醒；支持车载导航语音合成的个性化语音播报。本接口内测期间免费使用。  
 
 ## 开发环境
+
+**先编译静态库，如果报错再检查后续依赖库**
+
+```
+//下载后解压
+tar -xzf c++_stream_tts_sdk.tar.gz
+cd c++_stream_tts_sdk
+cmake ./
+//编译静态库和测试demo可执行文件
+//demo可执行文件在bin目录下，可直接运行测试demo
+//生成的库文件在lib目录下
+make
+//链接所有依赖静态库生成tts sdk，之后开发直接链接此库即可
+cd lib
+./build
+```
 **基础编译环境**
-安装gcc g++   
+
+安装 gcc g++   
 
 ```
 yum install -y gcc gcc-c++ make automake
@@ -24,8 +42,8 @@ gmake
 gmake install
 ```
 **依赖库安装及编译**
-**curl**
-客户需自行安装版本大于7.44.0：
+
+**curl** 需要客户需自行安装，版本大于7.44.0：
 下载 [curl 文件](https://curl.haxx.se/download.html) 解压进入源码目录。
 ```
 sudo ./configure
@@ -51,11 +69,11 @@ sudo make install
 自行替换 c++_tts_sdk/extern/openssl_1.0.2f/lib下面的库文件
 ```
 **jsoncpp**
-本SDK提供，目录为：extern/json/lib
+本 SDK 提供，目录为：extern/json/lib
 存在64位版本和32位版本，客户可自行根据自身操作系统更换链接
 
 **opus**
-本sdk提供，目录为：extern/opus
+本 SDK 提供，目录为：extern/opus
 
 如果不适合客户系统，自行安装方法:
 下载 [opus 源码](https://www.opus-codec.org/downloads/)  解压进入源码目录。
@@ -68,10 +86,12 @@ sudo make install
 
 ## <span id="result">获取用户信息</span>
 **获取 AppID，SecretId 与 SecretKey**
+
 - 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。 
 - 具体路径为：单击 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 右上角您的账号，选择【访问管理】>【访问密钥】>【API 密钥管理】界面查看 AppID 和 key。
 
 **更改用户信息配置文件**
+
 将查询到的用户信息更改到 conf/tcloud_auth.ini 配置文件中。
 
 ```
@@ -87,14 +107,14 @@ SecretKey=kFpw***************************
 | 参数名称 | 必选 | 类型 | 描述 |  
 | --- | --- | --- | --- |
 | Action |  是 | String | 本接口取值：TextToStreamAudio，不可更改 |
-| AppId  |  是 | Int | 用户在腾讯云注册账号的AppId，具体可以参考 [获取用户信息](#result)。 |
-| SecretId | 是 | String | 用户在腾讯云注册账号AppId对应的SecretId，获取方法同上。 |
+| AppId  |  是 | Int | 用户在腾讯云注册账号的 AppId，具体可以参考 [获取用户信息](#result)。 |
+| SecretId | 是 | String | 用户在腾讯云注册账号 AppId 对应的 SecretId，获取方法同上。 |
 | Text | 是 | String | 合成语音的源文本。中文最大支持600个汉字（全角标点符号算一个汉字），英文最大支持1800个字母（半角标点符号算一个字母）。包含空格等字符时需要 URL encode 再传输。|
 | SessionId | 是 | String | 一次请求对应一个 SessionId，会原样返回，建议传入类似于 uuid 的字符串防止重复。|
 | ModelType | 否 | Int | 模型类型，1：默认模型，此字段只需设置为1即可。|
 | Volume | 否 | Float | 音量大小，范围：[0，10]，分别对应11个等级的音量，默认值为0，代表正常音量。没有静音选项。<br>输入除以上整数之外的其他参数不生效，按默认值处理。|
 | Speed | 否 | Int | 语速，范围：[-2，2]分别对应不同语速：<br>-2代表0.6倍 <br>-1代表0.8倍<br>0代表1.0倍（默认）<br>1代表1.2倍<br>2代表1.5倍<br>输入除以上整数之外的其他参数不生效，按默认值处理。|
-| VoiceType | 否 | Int | 音色选择：<br>0：亲和女声（默认）<br>1：亲和男声<br>2：成熟男声<br>4：温暖女声<br>5：情感女声<br>6：情感男声|
+| VoiceType | 否 | Int | 详见：[语音合成 API 文档中的 VoiceType 参数](https://cloud.tencent.com/document/product/1073/37995)。|
 | PrimaryLanguage | 否 | Int | 主语言类型：<br>1：中文（默认）<br>2：英文 |
 | SampleRate | 否 | Int | 音频采样率：<br>16000：16k（默认）<br>8000：8k |
 | Codec | 否 | String | 返回音频格式：<br>opus：返回多段含 opus 压缩分片音频，数据量小，建议使用（默认）。<br>pcm：返回二进制 pcm 音频，使用简单，但数据量大。|
@@ -164,7 +184,7 @@ int CreateRequest(TCloudTTSReq stReq);
 */
 string RequestToJson(TCloudTTSReq stReq);
 ```
-此接口将请求转换成json body,在post时作body传到服务端。
+此接口将请求转换成 json body，在 post 时作 body 传到服务端。
 
 **TCloudTTS::Process**
 ```
@@ -191,32 +211,34 @@ vector<string> SplitString(string strText, string model);
 前提已经更改用户正确的 AppId 信息
 
 ```
-cmake ./
-make 
-./tts_test
+cd bin
+./tts_demo
 ```
 
 **简单开发流程介绍**  
-**以下存在多种方法的建议选择方法一，较优，其他方法供接入用户多选**
-创建请求 TCloudTTS ttsReq:  
 
-初始化用户信息  
+以下存在多种方法的建议，选择方法一较优，其他方法供接入用户多选
 
-方法一（推荐此方法）： 
+**创建请求 TCloudTTS ttsReq:**  
+
+1. 初始化用户信息  
+
+- 方法一（推荐此方法）： 
 调用 InitAuth 通过配置文件初始化，默认路径 conf/tcloud_auth.ini  
 
-方法二：
+- 方法二：
 调用 InitAuth 通过 TCloudTTSAuth 结构体初始化   
 参考 [TCloudTTS::InitAuth](#InitAuth) 接口。
 
-初始化请求参数  
+2. 初始化请求参数  
 
 公共请求参数大多只需要设置一次，除了Text，SessionId参数
-方法一（推荐此方法）：
+
+- 方法一（推荐此方法）：
 调用InitCommonParam通过配置文件 conf/request_parameter.ini  
 调用CreateRequest传入Text。  
 
-方法二：
+- 方法二：
 通过完整的请求结构体来初始化请求   
 调用 InitCommonParam 通过 TCloudTTSReq 请求体来初始化。  
 参考 [TCloudTTS::InitCommonParam](#Param) 接口。
@@ -257,10 +279,10 @@ int main(){
     tts.CreateRequest(strText);
     ret = tts.Process(strRsp);
     
-    //将pcm音频保存为wave格式
+    //将 pcm 音频保存为 wave 格式
     FILE *f = fopen("./test.wav", "wb");
     unsigned char *wav_buffer = (unsigned char *) malloc(4 * 1024 * 1024);
-    //添加wave头
+    //添加 wave 头
     pcm16le_to_wave_buf((const int16_t *)strRsp.c_str(), strRsp.size(), 1, 16000, wav_buffer);
     fwrite(wav_buffer, sizeof(char), strRsp.size() + 44, f);
     fclose(f);
@@ -269,7 +291,5 @@ int main(){
     return 0
 }
 ```
-
-
 
 

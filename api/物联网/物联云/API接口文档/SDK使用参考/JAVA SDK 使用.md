@@ -69,3 +69,4 @@ System.out.println("response productName:" + response.getProductName());
 | 13   | getMultiDevices       | 查询批量创建设备的执行结果.        |
 | 14   | publish               | 向指定的 TOPIC 发布消息          |
 
+

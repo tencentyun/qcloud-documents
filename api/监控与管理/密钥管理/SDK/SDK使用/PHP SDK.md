@@ -149,7 +149,7 @@ public function generate_data_key($KeyId = NULL, $KeySpec = "", $NumberOfBytes =
 |KeyId|string|None|主密钥 ID|
 |KeySpec|string|""|生成数据密钥算法|
 |NumberOfBytes|int|1024|生成指定长度的数据密钥|
-|EncryptionContext|string |NULL|生成数据密钥时提供的额外的json key-value|
+|EncryptionContext|string |NULL|生成数据密钥时提供的额外的 json key-value|
 
 返回字典中 ：
 
@@ -177,7 +177,7 @@ public function enable_key($KeyId = NULL)
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
-|KeyId|string|None|主密钥 Id|
+|KeyId|string|None|主密钥 ID|
 
 返回值：无。
 
@@ -220,7 +220,7 @@ public function encrypt($KeyId = NULL, $Plaintext=NULL,$EncryptionContext =NULL)
 
 |参数名|类型|默认值|参数描述|
 |---------|---------|---------|---------|
-|KeyId|string|NULL|主密钥 Id|
+|KeyId|string|NULL|主密钥 ID|
 |Plaintext|string|NULL|明文|
 |EncryptionContext|string|NULL|key/value 对的 json 字符串，如果指定了该参数，则在调用 Decrypt API 时需要提供同样的参数|
 

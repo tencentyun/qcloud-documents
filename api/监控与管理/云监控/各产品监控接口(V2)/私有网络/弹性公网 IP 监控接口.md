@@ -8,7 +8,7 @@
 namespace：qce/lb
 维度名称取值：eip
 dimensions.0.name=eip
-dimensions.0.value 为弹性公网IP的唯一 ID
+dimensions.0.value 为弹性公网 IP 的唯一 ID
 
 ## 输入参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，详细请参阅 [公共请求参数](https://cloud.tencent.com/document/product/248/4478) 文档。其中，此接口的 Action 字段为 GetMonitorData。

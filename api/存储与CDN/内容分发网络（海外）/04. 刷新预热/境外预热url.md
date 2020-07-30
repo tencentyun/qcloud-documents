@@ -4,7 +4,7 @@
 接口请求域名：<font style="color:red">cdn.api.qcloud.com</font>
 
 **接口说明：**
-+ 每一个客户每天能够提交的境外 CDN 预热资源上限为1000条，每一个客户每次提交的境外 CDN 预热资源上限为 20 条；
++ 每一个客户每天能够提交的境外 CDN 预热资源上限为1000条，每一个客户每次提交的境外 CDN 预热资源上限为20条；
 + 若默认上限无法满足您的业务需求，请联系我们为您调整配额；
 
 [调用Demo](https://cloud.tencent.com/document/product/228/1734)
@@ -60,8 +60,8 @@ Action=CdnOverseaPushser
 &urls.0=http%3A%2F%2Fwww.test.com%2F1.jpg
 ```
 
-### 4.2 POST请求
-POST请求时，参数填充在HTTP Requestbody中，请求地址：
+### 4.2 POST 请求
+POST 请求时，参数填充在 HTTP Requestbody 中，请求地址：
 ```
 https://cdn.api.qcloud.com/v2/index.php
 ```

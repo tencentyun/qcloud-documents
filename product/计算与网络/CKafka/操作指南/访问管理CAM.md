@@ -48,7 +48,7 @@
 您也可以通过设置系统的 [全读写策略](https://console.cloud.tencent.com/cam/policy/createV2) 支持。
 1. 登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview) 
 2. 在左侧菜单栏中，单击【[策略](https://console.cloud.tencent.com/cam/policy)】。
-3. 在策略列表中，单击【新建自定义策略】按钮。
+3. 在策略列表中，单击【新建自定义策略】。
 4. 在选择创建策略方式的弹窗中，选择【按策略语法创建】。
 5. 在模板类型中，搜索“CKafka”，选择消息服务（CKafka）全读写访问权限【QcloudCKafkaFullAccess】，单击【下一步】。
 6. 单击【创建策略】。

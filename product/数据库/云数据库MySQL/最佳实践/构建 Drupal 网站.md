@@ -49,7 +49,7 @@ service httpd start
 ### 安装 PHP 
 1. 在云服务器实例中使用`yum`安装 PHP 及其扩展。
 ```
-yum install php php-dom php-dg php-mysql php-pdo -y
+yum install php php-dom php-gd php-mysql php-pdo -y
 ```
 2. 在云服务器`/var/www/html`目录下创建一个 info.php 文件来检查 PHP 是否安装成功，示例代码如下：
 ```

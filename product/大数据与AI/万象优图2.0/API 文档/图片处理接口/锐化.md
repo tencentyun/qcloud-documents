@@ -2,7 +2,8 @@
 腾讯云数据万象通过 **imageMogr2** 接口对图片进行锐化处理。
 
 ## 接口形式
-```
+
+```shell
 download_url?imageMogr2/sharpen/<value>
 ```
 
@@ -12,14 +13,16 @@ download_url?imageMogr2/sharpen/<value>
 
 | 参数             | 含义                                                         |
 | ---------------- | ------------------------------------------------------------ |
-| download_url | 文件的访问链接 <br>具体构成为`<BucketName-APPID>.<picture region>.<domain>.com/<picture name>` <br> 例如 `examplebucket-1250000000.picsh.myqcloud.com/picture.jpeg`。 |
+| download_url | 文件的访问链接，具体构成为`<BucketName-APPID>.cos.<picture region>.<domain>.com/<picture name>`，<br>例如`examplebucket-1250000000.cos.ap-shanghai.myqcloud.com/picture.jpeg`。 |
 | /sharpen/&lt;value> | 图片锐化功能，value 为锐化参数值，取值范围为10 - 300间的整数。参数值越大，锐化效果越明显。（推荐使用70） |
 
 ## 示例
-**锐化**
+
+#### 锐化
+
 假设设置锐化参数为70，进行锐化处理，示例如下：
 ```
-http://examples-1251000004.picsh.myqcloud.com/sample.jpeg?imageMogr2/sharpen/70
+http://examples-1251000004.cos.ap-shanghai.myqcloud.com/sample.jpeg?imageMogr2/sharpen/70
 ```
 
 最终效果如下：

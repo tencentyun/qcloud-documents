@@ -81,42 +81,44 @@ qcloud-vkubelet.yaml 创建 virtual-kubelet 对应的 serviceaccount，可以操
 ```
 virtual-kubelet.yaml 创建 Pod 运行 virtual-kubelet 程序：	
 ```
-    apiVersion:  v1  
-    kind: Pod  
-    metadata:  
-      name: virtual-kubelet  
-      labels:  
-    k8s-app: vkubelet  
-    spec:  
-      serviceAccountName: vkubelet  
-      restartPolicy: "Never"  
-      imagePullSecrets:  
-      - name: qcloudregistrykey  
-      containers:  
-      - name: virtual-kubelet  
-    image: ccr.ccs.tencentyun.com/tencentyun/virtual-kubelet:dev  
-    imagePullPolicy: Always  
-    env:  
-    - name: KUBELET_PORT  
-      value: "10250"  
-    - name: APISERVER_CERT_LOCATION  
-      value: /etc/virtual-kubelet/server.crt  
-    - name: APISERVER_KEY_LOCATION  
-      value: /etc/virtual-kubelet/server.key  
-    - name: VKUBELET_POD_IP  
-      valueFrom:  
-    fieldRef:  
-      fieldPath: status.podIP  
-    volumeMounts:  
-    - name: credentials  
-      mountPath: "/etc/virtual-kubelet"  
-    command: ["/usr/bin/virtual-kubelet"]  
-    args: ["--provider", "qcloud", "--namespace", "default", "--provider-config", "/etc/virtual-kubelet/  config.toml"]  
-      volumes:  
-      - name: credentials
-    hostPath:
-      path: /home/ubuntu/for-show/config (请自行修改为部署模版解压后的config文件夹路径，内包含config.toml, server.crt和server.key)
+apiVersion:  v1  
+kind: Pod  
+metadata:  
+     name: virtual-kubelet  
+     labels:  
+       k8s-app: vkubelet  
+spec:  
+     serviceAccountName: vkubelet  
+     restartPolicy: "Never"  
+     imagePullSecrets:  
+     - name: qcloudregistrykey  
+     containers:  
+     - name: virtual-kubelet  
+       image: ccr.ccs.tencentyun.com/tencentyun/virtual-kubelet:dev  
+       imagePullPolicy: Always  
+       env:  
+       - name: KUBELET_PORT  
+         value: "10250"  
+       - name: APISERVER_CERT_LOCATION  
+         value: /etc/virtual-kubelet/server.crt  
+       - name: APISERVER_KEY_LOCATION  
+         value: /etc/virtual-kubelet/server.key  
+       - name: VKUBELET_POD_IP  
+         valueFrom:  
+           fieldRef:  
+             fieldPath: status.podIP  
+       volumeMounts:  
+        - name: credentials  
+          mountPath: "/etc/virtual-kubelet"  
+       command: ["/usr/bin/virtual-kubelet"]  
+       args: ["--provider", "qcloud", "--namespace", "default", "--provider-config", "/etc/virtual-kubelet/  config.toml"]  
+     volumes:  
+     - name: credentials
+       hostPath:
+         path: /home/ubuntu/for-show/config 
 ```
+>?请自行修改为部署模版解压后的 config 文件夹路径，内包含 config.toml、server.crt 和 server.key。
+>
 
 ## 使用步骤（ubuntu系统）
 1. 登录安装了 kubectl 并已完成了初始化的 Kubernetes 节点服务器。

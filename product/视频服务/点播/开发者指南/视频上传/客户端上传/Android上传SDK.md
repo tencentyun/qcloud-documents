@@ -2,7 +2,7 @@
 
 ## 源码下载
 
-1. [单击下载](http://ugc-upload-1252463788.file.myqcloud.com/LiteAVSDK_UGC_Upload_Android_1.1.0.0.zip) Android 上传 Demo 及源码。
+1. [单击下载](http://ugcupload-1252463788.file.myqcloud.com/LiteAVSDK_UGC_Upload_Android.zip) Android 上传 Demo 及源码。
 2. 将下载好的压缩包解压，可以看到 Demo 目录，上传源码在`Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload`目录下。
 
 ##  集成上传库和源码
@@ -15,10 +15,10 @@
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>``
+	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 	<receiver android:name=".videoupload.impl.TVCNetWorkStateReceiver">
 		<intent-filter>
-			<!--检测网络变化的 acton-->
+			<!--检测网络变化的 action-->
 			<action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
 			<category android:name="android.intent.category.DEFAULT" />
 		</intent-filter>
@@ -148,7 +148,7 @@ mVideoPublish.canclePublish();
 ```xml
 <receiver android:name=".videoupload.impl.TVCNetWorkStateReceiver">
   <intent-filter>
-    <!--检测网络变化的 acton-->
+    <!--检测网络变化的 action-->
     <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
     <category android:name="android.intent.category.DEFAULT" />
   </intent-filter>

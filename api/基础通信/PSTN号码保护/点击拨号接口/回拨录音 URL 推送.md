@@ -7,14 +7,14 @@
 ## 2. 参数说明 
 | 参数名 | 要求 | 备注 | 
 |---------|---------|------------|
-| appId | 必选 | xxx | 
+| appId | 必选 | 线下对接分配的唯一标识码 | 
 | callId | 必选 | 回拨请求响应中返回的 callId | 
 | requestId | 必选 | 回拨请求时请求携带的 requestId，原样返回 | 
 | src | 必选 | 主叫号码 | 
 | dst | 必选 | 被叫号码 | 
 | recordUrl | 必选 | 录音下载 URL | 
-| callType | 可选 | 通话类型(1: VOIP 2:IP TO PSTN 3: PSTN TO PSTN),如果话单中没有该字段，默认值为回拨3(PSTN TO PSTN) | 
-| ringRecoResult | 可选 | 未接通铃声识别结果（请求 ringRecognition 值为 1） 0：未知（未识别出铃声或铃声误别服务异常) 1：关机 2：空号 3：通话中 4：无法接通 5：欠费停机 6：呼转异常 7：被叫拒接 8：主叫挂断 9：运营商落地限制 10：其它异常 | 
+| callType | 可选 | 通话类型（1: VOIP 2:IP TO PSTN 3: PSTN TO PSTN）,如果话单中没有该字段，默认值为回拨3（PSTN TO PSTN） | 
+| ringRecoResult | 可选 | 未接通铃声识别结果（请求 ringRecognition 值为1） 0：未知（未识别出铃声或铃声误别服务异常） 1：关机 2：空号 3：通话中 4：无法接通 5：欠费停机 6：呼转异常 7：被叫拒接 8：主叫挂断 9：运营商落地限制 10：其它异常 | 
 
 **确认响应包必填字段**  
 ```

@@ -25,7 +25,7 @@ Tencent Linux 适用于下列场景：
 | 2019年9月17日 | Tencent Linux release 2.4 (Final) | 镜像 ID：img-hdt9xxkt<br>内核版本：4.14.105<br>发布地域：所有地域 |
 
 ## 获取 Tlinux
-腾讯云在 [云服务器控制台](https://console.cloud.tencent.com/cvm) 提供了 Tencent Linux 公共镜像，您可通过下列方法获取并使用 Tencent Linux。
+您可通过下列方法获取并使用 Tencent Linux：
 - 创建云服务器实例时，选择公共镜像，并选择 Tencent Linux 的相应版本。
 操作详情请参见 [创建实例](https://cloud.tencent.com/document/product/213/4855)。
 - 已创建的云服务器实例，可通过重装系统将现有操作系统更换为 Tencent Linux。
@@ -33,4 +33,5 @@ Tencent Linux 适用于下列场景：
 
 ## 技术支持
 腾讯云为 Tencent Linux 提供如下技术支持：
-在 YUM 源提供安全更新（Security Updates），运行 `yum update` 命令即可更新至新版本。
+- 在 YUM 源提供安全更新（Security Updates），运行 `yum update` 命令即可实现版本更新。
+- Tencent Linux 是基于内核社区长期支持的4.14.105版本，为云环境定制的操作系统镜像。腾讯云将为您在使用 Tencent Linux 过程中遇到的问题提供技术支持。

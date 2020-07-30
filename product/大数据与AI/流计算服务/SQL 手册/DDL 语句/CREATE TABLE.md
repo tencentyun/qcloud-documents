@@ -38,8 +38,8 @@ CREATE TABLE KafkaSource1 (
 用户可以在`CREATE TABLE`的`WITH`参数中指定数据源或数据目的类型，例如`type = 'ckafka'`表明使用 CKafka、`type = 'mysql'`表明使用腾讯云 MySQL 作为数据源等。
 >!
 >- 等号后面的参数必须使用半角单引号，不允许使用双引号或者全角引号。
-- 通常情况下，字段名不区分大小写（例如 `type` 和 `TYPE` 等同），但单引号内部的字符串在引用外部值时要区分大小写（例如 `root` 和 `ROOT` 作为用户名时是不同的）。
-- 本文的所有时间戳，均以 UTC+8（北京时间）为准。
+>- 通常情况下，字段名不区分大小写（例如`type`和`TYPE`等同），但单引号内部的字符串在引用外部值时要区分大小写（例如`root`和`ROOT`作为用户名时是不同的）。
+>- 本文的所有时间戳，均以 UTC+8（北京时间）为准。
 
 各种数据源（Source）和数据目的（Sink）所需 WITH 参数如下：
 ### CKafka
@@ -50,7 +50,7 @@ CREATE TABLE KafkaSource1 (
 | instanceId     | CKafka 的 Instance ID，可在产品列表页查看，例如`'ckafka-cky18a42'`。 | 是        |
 | encoding       | 可以为`'json'`或`'csv'`，如果选择`'csv'`则需要同时指定 fieldDelimiter。 | 是            |
 | topic          | Ckafka 指定 instanceId 下的 topic，表示要消费的 Kafka 主题。 |是             |
-| timestampMode  | 可选项，用于指定数据源或数据目的表中 TIMESTAMP 字段时间戳的处理格式，默认值为 'AUTO'。<br>1. 对于数据源（Source）表，默认将根据输入数据的格式自动判断（仅适用于数字格式的时间戳，大于99999999999则视为`MILLISECOND`，小于等于99999999999则视为`SECOND`）。<br>2. 对于数据目的（Sink）表，默认按`MILLISECOND`格式输出时间戳类型的字段。<br>3. 若显式设定值为`'MILLISECOND'`，表示采用毫秒为单位的 Unix 时间戳。<br>4. 若显式设定值为`'SECOND'`表示采用秒为单位的 Unix 时间戳。<br>5. 如果需要自定义时间戳格式，则可以输入与 Java SimpleDateFormat 兼容的格式化字符串，例如`'yyyy-MM-dd HH:mm:SS'`可以解析为`2019-10-09 15:37:21`这样的时间戳字符串。<br>**由于默认的 AUTO 模式会对每条数据做判断，可能会略微降低性能。若在低延时、高吞吐的环境下使用，请显式指定 timestampMode 参数以获得更好的性能。** | 否             |
+| timestampMode  | 可选项，用于指定数据源或数据目的表中 TIMESTAMP 字段时间戳的处理格式，默认值为 'AUTO'。<li>对于数据源（Source）表，默认将根据输入数据的格式自动判断（仅适用于数字格式的时间戳，大于99999999999则视为`MILLISECOND`，小于等于99999999999则视为`SECOND`）。<li>对于数据目的（Sink）表，默认按`MILLISECOND`格式输出时间戳类型的字段。<li>若显式设定值为`'MILLISECOND'`，表示采用毫秒为单位的 Unix 时间戳。<li>若显式设定值为`'SECOND'`表示采用秒为单位的 Unix 时间戳。<li>如果需要自定义时间戳格式，则可以输入与 Java SimpleDateFormat 兼容的格式化字符串，例如`'yyyy-MM-dd HH:mm:SS'`可以解析为`2019-10-09 15:37:21`这样的时间戳字符串。<br>**由于默认的 AUTO 模式会对每条数据做判断，可能会略微降低性能。若在低延时、高吞吐的环境下使用，请显式指定 timestampMode 参数以获得更好的性能。** | 否             |
 | fieldDelimiter | encoding 为 CSV 时可选，指定 CSV 各字段的分隔符。默认以逗号（,）分隔。**分隔符只允许填入一个半角字符，不允许多个字符作为分隔符使用；分隔符也不能为分号（;）。** | 否         |
 | startMode      | 可选项，值可以为`EARLIEST`（从最早 Offset 读取）、`LATEST`（从最新 Offset 读取），也可以设置为`T+毫秒单位的 Unix 时间戳`，例如`T1560510495355`表示从2019年6月14日晚上7点08分开始读取数据。 |否        |
 | ignoreErrors | 可选项，默认为 true，表示跳过错误的行，如果设为 false 则遇到错误数据会导致程序直接终止。|否|
@@ -77,7 +77,7 @@ CREATE TABLE KafkaSource1 (
 | maxRecordLatency | 可选参数，表示每批次最多等待的时间（毫秒）。如果提前达到了 maxRecordBatch 参数指定的条数，则会提前输出；如果超过本参数指定的时间，则即使该批次未达到 maxRecordBatch 参数指定的条数，也会向下游数据库发送数据。 | 否          |
 
 > ! 
->-  如果将 MySQL 数据库用作**数据源**（例如使用 QUERY_DB_STR 函数），则流计算作业中 CREATE TABLE 所定义的表名，必须和数据库中的实际表名（WITH 参数的 table 字段）保持严格一致，否则语法检查会报错。
+>-  如果将 MySQL 数据库用作数据源（例如使用 QUERY_DB_STR 函数），则流计算作业中 CREATE TABLE 所定义的表名，必须和数据库中的实际表名（WITH 参数的 table 字段）保持严格一致，否则语法检查会报错。
 > - 如果将 MySQL 数据库用作数据目的，则 CREATE TABLE 所定义的表名不受限制。
 
 数据流分为 Tuple 和 Upsert 两类。Upsert 是 Update OR Insert 的简写，即对于一条数据，如果之前输出过与其同主键的记录，则更新该记录；否则插入新的数据。

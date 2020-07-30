@@ -1,3 +1,4 @@
+
 **运行前必备**:
 下载并安装 [hiredis](https://github.com/redis/hiredis)。
 
@@ -37,7 +38,7 @@ if (argc < 4) {
     }
 	
 	/* AUTH */
-    reply = redisCommand(c, "AUTH %s:%s", instance_id, password);
+    reply = redisCommand(c, "AUTH %s", password);
     printf("AUTH: %s\n", reply->str);
     freeReplyObject(reply);
 

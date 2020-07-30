@@ -1,14 +1,16 @@
-使用数据库运行某些语句时，会因数据量太大而导致死锁，没有反应。这个时候，就需要 kill 掉某个正在消耗资源的 query 语句即可，KILL 命令的语法格式如下：
+使用数据库运行某些语句时，会因数据量太大而导致死锁，没有反应。这个时候，就需要 KILL 掉某个正在消耗资源的 query 语句即可，KILL 命令的语法格式如下：
 ```
 	KILL [CONNECTION | QUERY] thread_id
 ```
-请注意，由于 TDSQL 是由多个数据库节点组（SET）组成，您必须使用/* 透传 [自定义注释功能](https://cloud.tencent.com/document/product/557/8770) 才能成功杀掉。
+
+请注意，由于 TDSQL 是由多个数据库节点组（SET）组成，您必须使用 /* 透传 [自定义注释功能](https://cloud.tencent.com/document/product/557/8770) 才能成功杀掉。
 ```
 	/*sets:set_1*/kill 890346;
 ```
+
 由于 TDSQL 是由多个数据库节点组（SET）组成，您可以使用`/*sets:set_1*/SHOW PROCESSLIST`语句查看哪些线程正在运行，并使用 `KILL thread_id` 语句终止一个线程。
 
-> 查询 set_ID,可至控制台分布式数据库>管理>节点管理，或者使用`/*proxy*/show status;`命令。
+查询 set_ID，可至 [控制台](https://console.cloud.tencent.com/dcdb)，或者使用`/*proxy*/show status;`命令。
 
 ```
 	mysql> /*sets:set_524110864_1*/show processlist;
@@ -22,6 +24,7 @@
 	mysql> /*sets:set_524110864_1*/kill 1072003;
 	Query OK, 0 rows affected (0.03 sec)
 ```
+
 如果您的业务有较多线程，无法准确判断哪些事务未提交，可以采用类似 SQL 进行查询线程 ID（举例）：
 ```
 	SELECT
@@ -42,6 +45,7 @@
 	  pl.id=it.trx_mysql_thread_id
 	ORDER BY RUN_TIME DESC LIMIT 10;
 ```
+
 如果您的业务有较多线程，无法准确判断哪些事务处于锁等待，可以采用类似 SQL 进行查询线程 ID（举例）：
 ```
 	SELECT
@@ -58,4 +62,4 @@
 	b.trx_query blocking_query FROM information_schema.INNODB_LOCK_WAITS w INNER JOIN information_schema.INNODB_TRX b ON b.trx_id = w.blocking_trx_id INNER JOIN information_schema.INNODB_TRX r ON r.trx_id = w.requesting_trx_id INNER JOIN information_schema.INNODB_LOCKS l ON w.requested_lock_id = l.lock_id LEFT JOIN information_schema. PROCESSLIST p ON p.ID = b.trx_mysql_thread_id ORDER BY wait_time DESC;
 ```
 
-> 风险提示：大事务 kill 之后，事务需要回滚，数据量较大的情况下也需等待很久，此时可以到控制台单击主从切换，将从机切换为主，以快速恢复业务。**但请务必知悉：使用异步同步、强同步（可退化）复制方案时，由于主从数据同步有延迟，可能丢失/错乱部分数据，请谨慎操作主从切换。**
+风险提示：大事务 kill 之后，事务需要回滚，数据量较大的情况下也需等待很久，此时可以到控制台单击主从切换，将从机切换为主，以快速恢复业务。**但请务必知悉：使用异步同步、强同步（可退化）复制方案时，由于主从数据同步有延迟，可能丢失/错乱部分数据，请谨慎操作主从切换。**

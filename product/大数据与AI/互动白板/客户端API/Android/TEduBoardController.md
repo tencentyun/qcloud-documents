@@ -30,7 +30,7 @@ void addCallback(TEduBoardCallback callback)
 | callback | TEduBoardCallback | 事件回调监听  |
 
 #### 警告
-建议在 Init 之前调用该方法以支持错误处理 
+建议在 init 之前调用该方法以支持错误处理 
 
 
 ### removeCallback
@@ -58,7 +58,7 @@ void init(TEduBoardAuthParam authParam, int roomId, final TEduBoardInitParam ini
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | authParam | TEduBoardAuthParam | 授权参数  |
-| roomId | int | 课堂 ID  |
+| roomId | int | 课堂 ID，32位整型，取值范围[1, 4294967294]  |
 | initParam | final TEduBoardInitParam | 可选参数，指定用于初始化白板的一系列属性值  |
 
 #### 警告
@@ -66,6 +66,18 @@ void init(TEduBoardAuthParam authParam, int roomId, final TEduBoardInitParam ini
 
 #### 介绍
 可用 initParam.timSync 指定是否使用腾讯云 IMSDK 进行实时数据同步 initParam.timSync == true 时，会尝试反射调用腾讯云 IMSDK 作为信令通道进行实时数据收发（只实现消息收发，初始化、进房等操作需要用户自行实现），目前仅支持 IMSDK 4.3.118 及以上版本 
+
+
+### uninit
+反初始化白板，释放内部资源. 
+``` Java
+void uninit()
+```
+#### 警告
+此接口与结束计费相关，用户退出课堂时，记得一定调用此接口。 
+
+#### 介绍
+在销毁白板对象后，将会结束计费。 
 
 
 ### getBoardRenderView
@@ -81,15 +93,6 @@ View getBoardRenderView()
 
 #### 介绍
 在调用此接口获取 View 后，加入到视图树中后，在结束时需要 removeView 
-
-
-### refresh
-对白板刷新 
-``` Java
-void refresh()
-```
-#### 返回
-毫秒级时间戳 
 
 
 ### addSyncData
@@ -253,7 +256,7 @@ void setBackgroundColor(TEduBoardColor color)
 | color | TEduBoardColor | 要设置的背景色 |
 
 #### 介绍
-白板页创建以后的默认背景色由 SetDefaultBackgroundColor 接口设定 
+白板页创建以后的默认背景色由 setDefaultBackgroundColor 接口设定 
 
 
 ### getBackgroundColor
@@ -452,6 +455,9 @@ void setLineStyle(TEduBoardLineStyle style)
 | --- | --- | --- |
 | style | TEduBoardLineStyle | 要设置的直线样式  |
 
+#### 警告
+虚线样式在 Android 4.4及以上版本支持，在4.4以下版本设置虚线样式将使用实线代替 
+
 
 ### getLineStyle
 获取直线样式 
@@ -496,7 +502,7 @@ void setBackgroundImage(String url, int mode)
 | mode | int | 要使用的图片填充对齐模式 |
 
 #### 介绍
-当URL是一个有效的本地文件地址时，该文件会被自动上传到 COS 
+当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。 当 URL 是一个网络地址时，默认支持 HTTPS 协议的链接。 在 Android 5.0 以下，默认是采用的 MIXED_CONTENT_ALWAYS_ALLOW 模式，即总是允许 WebView 同时加载 HTTPS 和 HTTP； 而从 Android5.0 开始，默认用 MIXED_CONTENT_NEVER_ALLOW 模式，即总是不允许 WebView 同时加载 HTTPS 和 HTTP。 您可以在 getBoardRenderView 获得白板渲染视图控件时， 通过 WebSettings 自行进行设置，如下： WebSettings settings = (WebView) mWebView.getSettings(); if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) { settings.setMixedContentMode(0); } 对于 Android P 以上系统，限制了明文流量的网络请求,非加密的流量请求都会被系统禁止掉，可以参考以下方法解决：
 
 
 ### setBackgroundH5
@@ -511,7 +517,7 @@ void setBackgroundH5(String url)
 | url | String | 要设置的背景 H5 页面 URL |
 
 #### 介绍
-该接口与 SetBackgroundImage 接口互斥 
+该接口与 setBackgroundImage 接口互斥 
 
 
 ### undo
@@ -525,6 +531,30 @@ void undo()
 ``` Java
 void redo()
 ```
+
+### setHandwritingEnable
+设置白板是否开启笔锋 
+``` Java
+void setHandwritingEnable(boolean enable)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | boolean | 【必填】是否开启，true 表示开启，false 表示关闭 |
+
+#### 介绍
+白板创建后默认为关闭 
+
+
+### isHandwritingEnable
+获取白板是否开启笔锋 
+``` Java
+boolean isHandwritingEnable()
+```
+#### 返回
+是否开启笔锋 
+
 
 
 ## 白板页操作接口
@@ -544,7 +574,7 @@ String addBoard(String url)
 白板 ID 
 
 #### 警告
-白板页会被添加到默认文件（文件ID为::DEFAULT)，自行上传的文件无法添加白板页 
+白板页会被添加到默认文件（文件 ID 为::DEFAULT)，自行上传的文件无法添加白板页 
 
 
 ### deleteBoard
@@ -559,7 +589,7 @@ void deleteBoard(String boardId)
 | boardId | String | 要删除的白板 ID，为 null 表示删除当前页  |
 
 #### 警告
-只允许删除默认文件（文件ID为::DEFAULT）内的白板页，且默认白板页（白板ID为::DEFAULT）无法删除 
+只允许删除默认文件（文件 ID 为::DEFAULT）内的白板页，且默认白板页（白板 ID 为::DEFAULT）无法删除 
 
 
 ### prevStep
@@ -574,7 +604,7 @@ void prevStep()
 void nextStep()
 ```
 #### 介绍
-每个Step对应PPT的一个动画效果，若当前没有未展示的动画效果，则该接口调用会导致向后翻页 
+每个 Step 对应 PPT 的一个动画效果，若当前没有未展示的动画效果，则该接口调用会导致向后翻页 
 
 
 ### prevBoard
@@ -657,12 +687,12 @@ void gotoBoard(String boardId, boolean resetStep)
 
 
 ### getCurrentBoard
-获取当前白板页ID 
+获取当前白板页 ID 
 ``` Java
 String getCurrentBoard()
 ```
 #### 返回
-当前白板页ID 
+当前白板页 ID 
 
 
 ### getBoardList
@@ -695,7 +725,7 @@ void setBoardRatio(String ratio)
 String getBoardRatio()
 ```
 #### 返回
-白板宽高比，格式与 SetBoardRatio 接口参数格式一致 
+白板宽高比，格式与 setBoardRatio 接口参数格式一致 
 
 
 ### setBoardScale
@@ -746,8 +776,47 @@ int getBoardContentFitMode()
 白板内容自适应模式 
 
 
+### refresh
+刷新当前页白板，触发 onTEBRefresh 回调 
+``` Java
+void refresh()
+```
+#### 警告
+如果当前白板包含PPT/H5/图片/视频时，刷新白板将会触发对应的回调 
+
+
+### syncAndReload
+同步本地发送失败的数据到远端并刷新本地数据 
+``` Java
+void syncAndReload()
+```
+#### 警告
+Reload 等同于重新加载历史数据，会触发白板初始化时除 onTEBInit 之外的所有回调。 
+
+#### 介绍
+接口用途：此接口主要用于网络恢复后，同步本地数据到远端，拉取远端数据到本地 调用时机：在网络恢复后调用 使用限制： （1）仅支持2.4.9及以上版本 （2）如果历史数据还没有加载完成，则不允许重复调用，否则回调告警 TEDU_BOARD_WARNING_ILLEGAL_OPERATION 
+
+
 
 ## 文件操作接口
+
+### addImagesFile
+批量导入图片 
+``` Java
+String addImagesFile(List< String > urls)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| urls | List< String > | 要使用的图片URL列表，编码格式为 UTF8  |
+
+#### 返回
+新增加文件 Id 
+
+#### 警告
+当传入文件的 URL 重复时，返回 URL 对应的 文件 ID 
+
 
 ### applyFileTranscode
 发起文件转码请求 
@@ -765,7 +834,7 @@ void applyFileTranscode(final String path, final TEduBoardTranscodeConfig config
 本接口设计用于在接入阶段快速体验转码功能，原则上不建议在生产环境中使用，生产环境中的转码请求建议使用后台服务接口发起 
 
 #### 介绍
-支持 PPT、PDF、Word文件转码 PPT 文档默认转为 H5 动画，能够还原 PPT 原有动画效果，其它文档转码为静态图片 PPT 动画转码耗时约1秒/页，所有文档的静态转码耗时约0.5秒/页 转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
+支持 PPT、PDF、Word 文件转码 PPT 文档默认转为 H5 动画，能够还原 PPT 原有动画效果，其它文档转码为静态图片 PPT 动画转码耗时约1秒/页，所有文档的静态转码耗时约0.5秒/页 转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
 
 
 ### getFileTranscodeProgress
@@ -780,7 +849,7 @@ void getFileTranscodeProgress(final String taskId)
 | taskId | final String | 通过 onTEBFileTranscodeProgress 回调拿到的转码任务 taskId  |
 
 #### 警告
-该接口仅用于特殊业务场景下主动查询文件转码进度，调用 ApplyFileTranscode 后，SDK 内部将会自动定期触发 onTEBFileTranscodeProgress 回调，正常情况下您不需要主动调用此接口 
+该接口仅用于特殊业务场景下主动查询文件转码进度，调用 applyFileTranscode 后，SDK 内部将会自动定期触发 onTEBFileTranscodeProgress 回调，正常情况下您不需要主动调用此接口 
 
 #### 介绍
 转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
@@ -798,14 +867,28 @@ String addTranscodeFile(final TEduBoardTranscodeFileResult result)
 | result | final TEduBoardTranscodeFileResult | 文件转码结果  |
 
 #### 返回
-文件ID 
+文件 ID 
 
 #### 警告
-当传入文件的 URL 重复时，文件ID返回为空字符串 
+当传入文件的 URL 重复时，返回 URL 对应的 文件 ID 
 在收到对应的 onTEBAddTranscodeFile 回调前，无法用返回的文件 ID 查询到文件信息 
 
 #### 介绍
-本接口只处理传入参数结构体的 title、resolution、url、pages 字段 调用该接口后，SDK 会在后台进行文件加载，期间用户可正常进行其它操作，加载成功或失败后会触发相应回调 文件加载成功后，将自动切换到该文件 
+TEduBoardTranscodeFileResult 的字段信息主要来自：
+1. 使用客户端 applyFileTranscode 转码，直接将转码结果用于调用此接口
+2. （推荐）使用服务端 REST API 转码，只需传入转码回调结果的四个字段（title，resolution，url，pages），其服务端->客户端字段的对应关系为 Title->title、Resolution->resolution、ResultUrl->url、Pages->pages 字段 [转码文档](https://cloud.tencent.com/document/product/1137/40260)
+
+
+### addImageElement
+添加图片资源 
+``` Java
+void addImageElement(String url)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | String | 【必填】图片地址 支持 png/jpg/gif/svg 格式的本地和网络图片，当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。上传进度回调 onTEBFileUploadProgress，上传结果回调 onTEBFileUploadStatus  |
 
 
 ### deleteFile
@@ -851,9 +934,9 @@ void switchFile(String fileId, String boardId, int stepIndex)
 | stepIndex | int | 跳转到白板页并切换到这个动画  |
 
 #### 警告
-该接口仅可用于文件切换，如果传入的 fileId为 当前文件 ID，SDK 会忽略其它参数，不做任何操作 
+该接口仅可用于文件切换，如果传入的 fileId 为当前文件 ID，SDK 会忽略其它参数，不做任何操作 
 
->? 文件ID为必填项，为null或空字符串将导致文件切换失败 
+>? 文件 ID 为必填项，为 null 或空字符串将导致文件切换失败 
 
 
 ### getCurrentFile
@@ -883,7 +966,7 @@ TEduBoardFileInfo getFileInfo(String fid)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| fid | String |  |
+| fid | String | 获取白板中指定文件的文件信息 |
 
 #### 返回
 文件信息 
@@ -933,6 +1016,154 @@ List<String> getThumbnailImages(String fileId)
 >? 用户在调用 rest api 请求转码时，需要带上 "thumbnail_resolution" 参数，开启缩略图功能，否则返回的缩略图 url 无效 
 
 
+### addVideoFile
+添加视频文件 
+``` Java
+String addVideoFile(String url)
+```
+#### 参数
 
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | String | 文件播放地址  |
+
+#### 返回
+文件 ID 
+
+#### 警告
+当传入文件的 URL 重复时，返回 URL 对应的 文件 ID 
+在 TBS 环境下，受限于 X5 内核和视频资源I帧间隔，在 Android 平台下无法精准同步。例如：10秒的视频，I帧间隔5秒，seek 到4秒位置，在 TBS 上从0秒开始播放。 移动端支持 mp4/m3u8，桌面端支持 mp4/m3u8/flv/rtmp；触发状态改变回调 onTEBVideoStatusChange 
+
+
+### showVideoControl
+显示或隐藏视频控制栏 
+``` Java
+void showVideoControl(boolean show)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| show | boolean | 是否显示  |
+
+#### 警告
+全局控制项，对所有视频文件有效 隐藏和显示默认视频控制栏，默认显示系统自带的 video 控制栏，不同平台界面 UI 样式不同 
+
+
+### playVideo
+播放视频 
+``` Java
+void playVideo()
+```
+#### 警告
+只对当前文件有效
+
+#### 介绍
+触发状态改变回调 onTEBVideoStatusChange，一般在使用自定义视频控制栏时使用 移动端回前台调用 play（WebView 默认行为） 
+
+
+### pauseVideo
+暂停视频 
+``` Java
+void pauseVideo()
+```
+#### 警告
+只对当前文件有效
+
+#### 介绍
+触发状态改变回调 onTEBVideoStatusChange，一般在使用自定义视频控制栏时使用 移动端退后台调用 pause（WebView 默认行为） 
+
+
+### seekVideo
+跳转（仅支持点播视频） 
+``` Java
+void seekVideo(float time)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| time | float | 播放进度，单位秒  |
+
+#### 警告
+只对当前文件有效
+
+#### 介绍
+触发状态改变回调 onTEBVideoStatusChange，一般在使用自定义视频控制栏时使用 
+
+
+### setSyncVideoStatusEnable
+是否同步本地视频操作到远端 
+``` Java
+void setSyncVideoStatusEnable(boolean enable)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | boolean | 【必填】是否同步  |
+
+#### 警告
+全局控制项，对所有视频文件有效
+
+#### 介绍
+play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认为 true 一般情况下学生设置为 false，老师设置为 true 
+
+
+### startSyncVideoStatus
+内部启动定时器，定时同步视频状态到远端（仅限于 mp4） 
+``` Java
+void startSyncVideoStatus(int interval)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| interval | int | 【选填】同步间隔，例如设置5秒  |
+
+#### 警告
+只对当前文件有效
+
+#### 介绍
+一般在老师端视频加载完成后调用，切换文件后内部自动销毁定时器， 
+
+
+### stopSyncVideoStatus
+停止同步视频状态 
+``` Java
+void stopSyncVideoStatus()
+```
+#### 警告
+只对当前文件有效 
+
+
+### addH5File
+添加 H5 页面 
+``` Java
+String addH5File(String url)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | String | 【必填】网页地址  |
+
+#### 返回
+文件 ID 
+
+#### 警告
+只支持展示，不支持互动 
+
+
+### snapshot
+白板快照 
+``` Java
+void snapshot(TEduBoardSnapshotInfo info)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| info | TEduBoardSnapshotInfo | 快照信息  |
 
 

@@ -13,4 +13,4 @@
 4. 根据具体情况，设置好需要填写的信息，单击【创建网络回调钩子】即可。
 ![img](https://main.qcloudimg.com/raw/ef5e8f45fefcfee72284a35c0e5fbf4d.png)
 
->**注：**若要获取更多 Webhooks 的信息，可参考 Git 里的 [帮助文档](https://git.cloud.tencent.com/help/web_hooks/web_hooks.md)。
+>! 若要获取更多 Webhooks 的信息，可参考 Git 里的 [帮助文档](https://git.cloud.tencent.com/help/web_hooks/web_hooks.md)。
