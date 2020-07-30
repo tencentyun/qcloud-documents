@@ -1,11 +1,9 @@
 ## 操作场景
-本文以使用 WordPress 应用镜像的轻量应用服务器为例，进行安装 SSL 证书操作。该服务器中默认已安装 Nginx 软件，您可参考本文并结合实际情况进行操作。
-如您的轻量应用服务器使用 Discuz! Q 应用镜像，则可通过内置的宝塔 Linux 面板进行 SSL 证书安装，详情请参考宝塔 Linux 面板官方用户文档。
-
+本文以使用 WordPress 应用镜像的轻量应用服务器为例，介绍如何在服务器中安装 SSL 证书并开启 HTTPS 访问。该服务器中默认已安装 Nginx 软件，您可参考本文并结合实际情况进行操作。
 
 >?
->- 本文档以通过腾讯云SSL证书服务申请的付费、免费证书为例。
->- 腾讯云 SSL 证书服务相关信息可参考 [SSL 证书产品介绍](https://cloud.tencent.com/document/product/400/7572)、[SSL 证书购买指南](https://cloud.tencent.com/document/product/400/7994) 和 [申请免费 SSL 证书](https://cloud.tencent.com/document/product/400/6814)。
+>- 本文档以通过腾讯云SSL证书服务申请的付费、免费证书为例。腾讯云 SSL 证书服务相关信息可参考 [SSL 证书产品介绍](https://cloud.tencent.com/document/product/400/7572)、[SSL 证书购买指南](https://cloud.tencent.com/document/product/400/7994) 和 [申请免费 SSL 证书](https://cloud.tencent.com/document/product/400/6814)。
+>- 如您的轻量应用服务器使用 Discuz! Q 应用镜像，则可通过内置的宝塔 Linux 面板进行 SSL 证书安装，详情请参考宝塔 Linux 面板官方用户文档。
 
 
 ## 前提条件
