@@ -50,3 +50,6 @@ WordPress 是全球最流行的开源的博客和内容管理网站的建站平�
 
 在 WordPress 实例的应用管理详情页，您除了可以查看 WordPress 的配置信息，还可以查看其他配置信息。例如首页地址、 Nginx 主配置文件保存路径、 MariaDB 数据库管理员密码、实例中各个软件的安装路径等。
 ![](https://main.qcloudimg.com/raw/31fb3245d450a880975eb215fa0ca372.png)
+
+### 安装 SSL 证书
+可参考 [安装 SSL 证书](https://cloud.tencent.com/document/product/1207/47027) 文档为您的 WordPress 实例安装 SSL 证书并开启 HTTPS 访问。
