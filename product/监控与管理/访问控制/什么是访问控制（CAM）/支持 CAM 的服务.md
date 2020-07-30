@@ -213,11 +213,6 @@
 | [商业智能分析](https://cloud.tencent.com/document/product/590) | 服务级| &#10003;| -  |  - |	 [访问管理指南](https://cloud.tencent.com/document/product/590/19284) |	
 | [腾讯云图](https://cloud.tencent.com/document/product/665) | 资源级| &#10003;| -  |  - |	 [访问管理指南](https://cloud.tencent.com/document/product/665/40956) |	
 
-## 云智大数据应用
-
- | 服务                                                         | 授权粒度 | 控制台  | 根据标签进行授权 | 服务角色 |	参考文档 |
-| ------------------------------------------------------------ | ------ | -------- | -------- | ---- |	 ---- |	
-| [智能推荐](https://cloud.tencent.com/document/product/587) | 服务级| &#10003;| -  |  - |	 - |	
 
 ## 人体识别
 
