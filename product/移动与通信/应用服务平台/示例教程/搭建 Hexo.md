@@ -22,7 +22,6 @@ hexo init
 ```plaintext
 hexo s
 ```
-执行过程如下：
 ![](https://main.qcloudimg.com/raw/534e200357715a15d0a157eb3fb48700.jpg)
 预览后，在浏览器中打开 [localhost:4000](http://localhost:4000)，即可看到部署的 Hexo 博客。
 ![](https://main.qcloudimg.com/raw/5b91e6303e40aea5c1d5f0cfc521dc4a.png)
@@ -59,7 +58,7 @@ cloudbase login
 
 ## 步骤4：构建 Hexo 部署文件
 
-1. 打开命令提示符，定位到步骤1新建的 Hexo 目录中，执行如下命令：
+1. 打开命令提示符，进入到步骤1创建的 Hexo 目录中，执行如下命令：
 ```plaintext
 Hexo g
 ```
@@ -73,8 +72,8 @@ cloudbase hosting:deploy public -e [EnvID]
 
 ## 步骤5：浏览部署的 Hexo
 
-1. 登录腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb)，单击部署的云开发环境。
-2. 在左侧菜单栏中，单击【静态网站托管】-【基础配置】，在域名信息中找到默认域名。
-   ![](https://main.qcloudimg.com/raw/961855455d64f242bc96f9c951bf53b2.png)
-2. 在浏览器中打开此链接，则看到线上部署好的 Hexo 博客。
+1. 回到云开发控制台 [静态网站托管](https://console.cloud.tencent.com/tcb/hosting/index) 页面。
+2. 单击【基础配置】，在域名信息中找到默认域名。
+	 ![](https://main.qcloudimg.com/raw/f5bec269430faa18cb19ce9792c09d13.jpg)
+3. 在浏览器中输入该链接并回车，即可打开线上部署好的 Hexo 博客。
    ![](https://main.qcloudimg.com/raw/590b7ee62174aa74f0119ac4775c6362.png)
