@@ -1,5 +1,6 @@
 ## 操作场景
-本文以使用 WordPress 应用镜像的轻量应用服务器为例，进行安装 SSL 证书操作，该服务器中默认已安装 Nginx 软件。如您的轻量应用服务器使用 Discuz! Q 应用镜像，则可通过内置的宝塔 Linux 面板进行 SSL 证书安装，详情请参考宝塔 Linux 面板官方用户文档。
+本文以使用 WordPress 应用镜像的轻量应用服务器为例，进行安装 SSL 证书操作。该服务器中默认已安装 Nginx 软件，您可参考本文并结合实际情况进行操作。
+如您的轻量应用服务器使用 Discuz! Q 应用镜像，则可通过内置的宝塔 Linux 面板进行 SSL 证书安装，详情请参考宝塔 Linux 面板官方用户文档。
 
 
 >?
@@ -91,7 +92,7 @@ server {
 server {
     listen 443 ssl;
     server_tokens off;
-		 keepalive_timeout 5;
+    keepalive_timeout 5;
     root /usr/local/lighthouse/softwares/wordpress;
     index index.php index.html;
     access_log logs/wordpress.log combinediox;
