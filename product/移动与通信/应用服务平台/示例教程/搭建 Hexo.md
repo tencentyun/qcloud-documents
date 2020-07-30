@@ -22,7 +22,8 @@ hexo init
 ```plaintext
 hexo s
 ```
-![](https://main.qcloudimg.com/raw/2cfab06f6c487057cbb8934cea6a5fb0.png)
+执行过程如下：
+![](https://main.qcloudimg.com/raw/534e200357715a15d0a157eb3fb48700.jpg)
 预览后，在浏览器中打开 [localhost:4000](http://localhost:4000)，即可看到部署的 Hexo 博客。
 ![](https://main.qcloudimg.com/raw/5b91e6303e40aea5c1d5f0cfc521dc4a.png)
 
@@ -30,14 +31,15 @@ hexo s
 
 ## 步骤2：创建云开发环境
 
-1. 登录腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb)，单击【立即创建】，新建一个环境来进行部署。
-   ![](https://main.qcloudimg.com/raw/373ce011bfad392b5c2fedd8008bb6f5.png)
+1. 登录腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb)，单击【立即创建并使用】，新建一个环境来进行部署。
+	 ![](https://main.qcloudimg.com/raw/4b8ab97312e8cf697d3de48bf8c6d507.jpg)
    如果您之前创建过环境，可以继续使用已创建的**按量计费**环境，或者再次【新建环境】。
 	 ![](https://main.qcloudimg.com/raw/ac440a0f9e91f1f1dd3ac779d28ca008.jpg)
-2. 在新建环境窗口中，根据实际需求填写环境名称，选择按量计费，开通环境。
-   ![](https://main.qcloudimg.com/raw/529c3e20d8eb4edc7ab4c6fa504a52c7.png)
->!在开通环境以后， 记住您的环境 ID，这个 ID 在后续步骤将被使用。
-4. 单击环境，进入到环境管理页面。单击左侧菜单栏中的【静态网站托管】，在页面中单击【开启使用】，开通静态托管服务。
+2. 在新建环境窗口中，根据实际需求填写环境名称，选择【按量计费】，单击【立即开通】即可开通环境。
+	 ![](https://main.qcloudimg.com/raw/59f054d930398e1bc83cb39f9b1f5cf7.jpg)
+3. 开通成功之后，单击环境名称，进入环境总览页面。请记住您的环境 ID，这个 ID 在后续步骤将被使用，如下所示：
+![](https://main.qcloudimg.com/raw/c4f37707e788561fc928de6a0cf78468.jpg)
+4. 单击左侧菜单栏中的【静态网站托管】，等待静态网站托管初始化完毕（约需3分钟），在页面中单击【开启使用】，开通静态托管服务。
    ![](https://main.qcloudimg.com/raw/cb71498de333edd4006a6708d896de6d.png)
    当您能看到如下界面时，即说明已开通成功。
    ![](https://main.qcloudimg.com/raw/2f02da70e4fa2f52170ef7b1577717b1.png)
