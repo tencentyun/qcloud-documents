@@ -1,15 +1,14 @@
-## SDK背景
-为满足用户通过 Golang 语言来操作 TcaplusDB，基于 RESTful API 封装了关于 TcaplusDB 表操作的接口，涵盖增删查改场景。
+为满足用户通过 Golang 语言来操作 TcaplusDB，基于 RESTful API 封装了关于 TcaplusDB 表操作的接口，涵盖增删查改场景。本文主要为您介绍基于此 RESTful API 来操作 TcaplusDB PB 表。
 
-## 使用准备
+## 准备工作
 ### 1. 创建 TcaplusDB 表
-创建一个 TcaplusDB 示例表，示例表为 [`game_players.proto`](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/3.36.0.192960/game_players.proto)，请参见 [创建表格](https://cloud.tencent.com/document/product/596/38808)。
+创建 TcaplusDB 示例表，示例表为[`game_players.proto`](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/3.36.0.192960/game_players.proto)，请参见 [创建表格](https://cloud.tencent.com/document/product/596/38808)。
 
 ### 2. 创建 CVM 实例
 - 创建一台 CVM 实例来运行 SDK 示例程序，配置建议为2核4GB、硬盘50GB，该 CVM 需创建在 TcaplusDB 实例所在 VPC 网络中。
 - 通过 [SDK 下载](https://cloud.tencent.com/document/product/596/31925) Go RESTful API SDK 安装包。
 
-### 3. 安装 Go 环境
+### 3. 准备 Go 环境
 安装 Golang 执行环境，安装命令如下：
 ```
 yum install -y golang
@@ -18,7 +17,7 @@ yum install -y golang
 ### 4.  编译程序
 SDK 示例程序通过 make 编译，在 src 目录下有 Makefile 文件，直接执行`make build`即可。编译好后，会生成一个可执行文件`example`，直接执行此文件即可演示所有示例接口。
 
-## 接口使用步骤
+## 使用步骤
 ### 1. 配置表参数
 在 [TcaplusDB 控制台](https://console.cloud.tencent.com/tcaplusdb/app) 查看所创建表的相关信息，在示例中进行配置，如下所示：
 ```
@@ -232,3 +231,4 @@ func (c *TcaplusClient) PartKeyGetRecord(key interface{}, indexName string, sele
 - 单条记录大于等于256KB：limit 设置为1，即一次请求只返回一条记录。
 
 对于设置 limit 和 offset 的场景，如果要根据索引键获取全量的数据，则需要依据响应包中返回的`TotalNum 和 RemainNum`标识来判断数据是否获取完全。
+
