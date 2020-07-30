@@ -15,7 +15,7 @@
 - 安装 SSL 证书前需准备的数据如下：
 <table>
 <tr>
-<th>名称</th>
+<th style="width:35%">名称</th>
 <th>说明</th>
 </tr>
 <tr>
@@ -145,8 +145,5 @@ server {
 }
 ```
 2. 保存修改后的 `nginx.conf` 文件后退出，参考“证书安装”的 [步骤6](#Step6) 及 [步骤7](#Step7) 验证并重启 Nginx。
-至此已成功设置 HTTPS 的自动跳转，您可使用 `http://cloud.tencent.com`（示例）自动跳转至 HTTPS 页面。
-
-并重启中 Nginx。
 至此已成功设置 HTTPS 的自动跳转，您可使用 `http://cloud.tencent.com`（示例）自动跳转至 HTTPS 页面。
 
