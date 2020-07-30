@@ -38,6 +38,7 @@ SmartConfig 配网设备端与腾讯连连小程序及后台交互的数据协�
     payload: {"method":"app_bind_token","clientToken":"client-1234","params": {"token":"6ab82618a9d529a2ee777bf6e528a0fd"}}
 ```
 设备端也可以通过订阅主题 $thing/down/service/ProductID/DeviceName 来获取 Token 上报的结果。
+>!注意如果设备需要通过动态注册来创建设备并获取设备密钥，则会先进行动态注册再连接 MQTT。
 9. 在以上5 - 7步骤中，需观察以下情况：
  - 如果小程序收到设备 UDP 服务发送过来的错误日志，且 deviceReply 字段的值为"Current_Error"，则表示当前配网绑定过程中出错，需要退出配网操作。
  - 如果 deviceReply 字段是"Previous_Error"，则为上一次配网的出错日志，只需要上报，不影响当此操作。
@@ -46,10 +47,11 @@ SmartConfig 配网设备端与腾讯连连小程序及后台交互的数据协�
 {"cmdType":2,"deviceReply":"Current_Error","log":"ESP WIFI connect error! (10, 2)"} 
 ```
 10. 如果设备成功上报了 Token，物联网后台服务确认了 Token 有效性，小程序会提示配网完成，设备添加成功。
-
-
+11. 设备端会记录配网的详细日志，如果配网或者添加设备失败，可以让设备端创建一个特殊的 softAP 和 UDP 服务，通过小程序可以从设备端获取更多日志用于错误分析。
 
 ### ESP8266 使用 SmartConfig 配网接口
+
+配网协议在 ESP8266 设备端的参考代码和 AT 固件，请参见 GitHub 工程 [qcloud-iot-esp-wifi](https://github.com/tencentyun/qcloud-iot-esp-wifi)。
 #### 腾讯云 IoT AT 指令 ESP8266 定制固件
 如果 ESP8266 烧写了腾讯云 IoT AT 指令 ESP8266 定制固件，则只要通过指令 AT+TCDEVINFOSET 配置好设备信息，再通过下面的指令启动 SmartConfig 配网即可。
 ```
@@ -64,19 +66,27 @@ AT+TCSTARTSMART
 #### 使用示例
 配网接口说明请查看 wifi_config/qcloud_wifi_config.h，可以按照下面方式使用：
 ```
-    /* to use WiFi config and device binding with Wechat mini program */
-    int ret = start_smartconfig();
-    if (ret) {
-        Log_e("start wifi config failed: %d", ret);
-    } else {
-        /* max waiting: 150 * 2000ms */
-        int wait_cnt = 150;
-        do {
-            Log_d("waiting for wifi config result...");
-            HAL_SleepMs(2000);
-            wifi_connected = is_wifi_config_successful();
-        } while (!wifi_connected && wait_cnt--);
-    }
+/* to use WiFi config and device binding with Wechat mini program */
+int wifi_config_state;
+int ret = start_smartconfig();
+if (ret) {
+		Log_e("start wifi config failed: %d", ret);
+} else {
+		/* max waiting: 150 * 2000ms */
+		int wait_cnt = 150;
+		do {
+				Log_d("waiting for wifi config result...");
+				HAL_SleepMs(2000);            
+				wifi_config_state = query_wifi_config_state();
+		} while (wifi_config_state == WIFI_CONFIG_GOING_ON && wait_cnt--);
+}
+
+wifi_connected = is_wifi_config_successful();
+if (!wifi_connected) {
+		Log_e("wifi config failed!");
+		// setup a softAP to upload log to mini program
+		start_log_softAP();
+}
 
 ```
 
@@ -85,9 +95,10 @@ AT+TCSTARTSMART
 
 | 代码 | 设计说明 |
 |---------|---------|
-| `qcloud_wifi_config.c` | 配网相关接口实现，包括 UDP 服务及 MQTT 连接及 Token 上报，主要依赖腾讯云物联网 C-SDK 及 FreeRTOS/lwIP 运行环境 |
-|`wifi_config_esp.c`|设备硬件 Wi-Fi 操作相关接口实现，依赖于 ESP8266 RTOS，当使用其他硬件平台时，需要进行移植适配|
-|`wifi_config_error_handle.c`|设备错误日志处理，主要依赖于 FreeRTOS|
+| `qcloud_wifi_config.c` | 配网相关接口实现，包括 UDP 服务及 MQTT 连接及 Token 上报，主要依赖腾讯云物联网 C-SDK 及 FreeRTOS/lwIP 运行环境。 |
+|`wifi_config_esp.c`|设备硬件 Wi-Fi 操作相关接口实现，依赖于 ESP8266 RTOS，当使用其他硬件平台时，需要进行移植适配。|
+|`wifi_config_error_handle.c`|设备错误日志处理，主要依赖于 FreeRTOS。|
+|`wifi_config_log_handle.c`|设备运行上报日志处理，主要依赖于 FreeRTOS。|
 
 
 
