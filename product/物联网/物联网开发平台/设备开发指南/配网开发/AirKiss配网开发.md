@@ -72,27 +72,28 @@ esp_smartconfig_set_type(SC_TYPE_ESPTOUCH_AIRKISS);
 配网接口说明请查看 wifi_config/qcloud_wifi_config.h，可以按照下面方式使用：
 
 ```
-    /* to use WiFi config and device binding with Wechat mini program */
-    int wifi_config_state;
-    int ret = start_smartconfig();
-    if (ret) {
-        Log_e("start wifi config failed: %d", ret);
-    } else {
-        /* max waiting: 150 * 2000ms */
-        int wait_cnt = 150;
-        do {
-            Log_d("waiting for wifi config result...");
-            HAL_SleepMs(2000);            
-            wifi_config_state = query_wifi_config_state();
-        } while (wifi_config_state == WIFI_CONFIG_GOING_ON && wait_cnt--);
-    }
+/* 在微信小程序中使用WiFi配置和设备绑定 */
+int wifi_config_state;
+int ret = start_smartconfig();
+if (ret) {
+		Log_e("start wifi config failed: %d", ret);
+} else {
+		/* 最大等待时间: 150 * 2000ms */
+		int wait_cnt = 150;
+		do {
+				Log_d("waiting for wifi config result...");
+				HAL_SleepMs(2000);            
+				wifi_config_state = query_wifi_config_state();
+		} while (wifi_config_state == WIFI_CONFIG_GOING_ON && wait_cnt--);
+}
 
-    wifi_connected = is_wifi_config_successful();
-    if (!wifi_connected) {
-        Log_e("wifi config failed!");
-        // setup a softAP to upload log to mini program
-        start_log_softAP();
-    }
+wifi_connected = is_wifi_config_successful();
+if (!wifi_connected) {
+		Log_e("wifi config failed!");
+		//设置softAP向小程序上传log
+		start_log_softAP();
+}
+
 
 ```
 
