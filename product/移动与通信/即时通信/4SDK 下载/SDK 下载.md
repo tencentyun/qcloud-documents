@@ -95,6 +95,9 @@
 | ---------- | ----------------|--------------------- | -------------- |
 | H5 及 Web | [Github](https://github.com/tencentyun/TWebLive)| [ZIP](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/TWebLive-demo.zip?_ga=1.23181178.1931537.1590743323)| [场景实践 - 微信 H5 直播互动](https://cloud.tencent.com/document/product/269/45036) |
 
+## 相关文档
+- [价格说明](https://cloud.tencent.com/document/product/269/11673)
+- [折扣活动](https://cloud.tencent.com/document/product/269/46181)
 
 
 
