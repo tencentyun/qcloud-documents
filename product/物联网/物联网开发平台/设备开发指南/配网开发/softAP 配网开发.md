@@ -11,10 +11,10 @@
 ### softAP 配网协议示例 
 本示例基于 ESP8266 腾讯云定制模组配合腾讯连连小程序。
 
-1. 腾讯连连小程序进入配网模式后，则可以在物联网开发平台服务获取到当次配网的 Token。小程序相关操作可以参考 [生成 Wi-Fi 设备配网 Token](https://cloud.tencent.com/document/product/1081/44044)
+1. 腾讯连连小程序进入配网模式后，则可以在物联网开发平台服务获取到当次配网的 Token。小程序相关操作可以参考 [生成 Wi-Fi 设备配网 Token](https://cloud.tencent.com/document/product/1081/44044)。
 2. 使 Wi-Fi 设备进入 softAP 配网模式，若设备有指示灯在快闪，则说明进入配网模式成功。    
 3. 小程序按照提示依次获取 Wi-Fi 列表，输入家里目标路由器的 SSID/PSW，再选择设备 softAP 热点的 SSID/PSW。
-4. 手机连接设备 softAP 热点成功后，小程序作为 UDP 客户端会连接 Wi-Fi 设备上面的 UDP 服务（默认 IP 为**192.168.4.1**，端口为**8266**）
+4. 手机连接设备 softAP 热点成功后，小程序作为 UDP 客户端会连接 Wi-Fi 设备上面的 UDP 服务（默认 IP 为**192.168.4.1**，端口为**8266**）。
 5. 小程序给设备 UDP 服务，发送目标 Wi-Fi 路由器的 SSID/PSW 以及配网 Token，JSON 格式为：
 ```
    {"cmdType":1,"ssid":"Home-WiFi","password":"abcd1234","token":"6aa11111x1x123x1aa546xx6x111xxxd"} 
@@ -23,8 +23,8 @@
 ```   
    {"cmdType":2,"productId":"OSPB5ASRWT","deviceName":"dev_01","protoVersion":"2.0"}
 ```
-6. 如果2秒之内，没有收到设备回复，则重复步骤5，UDP 客户端重复发送目标 Wi-Fi 路由器的 SSID/PSW 及配网 Token。（如果重复发送5次，都没有收到回复，则认为配网失败，Wi-Fi 设备有异常。）      
-7. 如果步骤5收到设备回复，则说明设备端已收到 Wi-Fi 路由器的 SSID/PSW 及 Token，正在连接 Wi-Fi 路由器，并上报 Token。此时小程序会提示手机也将连接 Wi-Fi 路由器，并通过 Token 轮询物联网后台，来确认配网及设备绑定是否成功。小程序相关操作可以参考 [查询配网Token状态](https://cloud.tencent.com/document/product/1081/44045)
+6. 如果2秒之内，未收到设备回复，则重复步骤5，UDP 客户端重复发送目标 Wi-Fi 路由器的 SSID/PSW 及配网 Token。（如果重复发送5次，都没有收到回复，则认为配网失败，Wi-Fi 设备有异常）      
+7. 如果步骤5收到设备回复，则说明设备端已收到 Wi-Fi 路由器的 SSID/PSW 及 Token，正在连接 Wi-Fi 路由器，并上报 Token。此时小程序会提示手机也将连接 Wi-Fi 路由器，并通过 Token 轮询物联网后台，来确认配网及设备绑定是否成功。小程序相关操作可以参考 [查询配网Token状态](https://cloud.tencent.com/document/product/1081/44045)。
 8. 设备端在成功连接 Wi-Fi 路由器后，需要通过 MQTT 连接物联网后台，并将小程序发送的配网 Token，通过下面 MQTT 报文上报给后台服务：
 ```
     topic: $thing/up/service/ProductID/DeviceName
@@ -59,13 +59,13 @@ AT+TCSAP="ESP8266-SAP","12345678"
 #### 使用示例
 配网接口说明请查看 wifi_config/qcloud_wifi_config.h，您可以按照以下方式使用：
 ```
- /* to use WiFi config and device binding with Wechat mini program */
+/* 在微信小程序中使用WiFi配置和设备绑定 */
 int wifi_config_state;
 int ret = start_softAP("ESP8266-SAP", "12345678", 0);
 if (ret) {
 		Log_e("start wifi config failed: %d", ret);
 } else {
-		/* max waiting: 150 * 2000ms */
+		/* 最大等待时间: 150 * 2000ms */
 		int wait_cnt = 150;
 		do {
 				Log_d("waiting for wifi config result...");
@@ -77,7 +77,7 @@ if (ret) {
 wifi_connected = is_wifi_config_successful();
 if (!wifi_connected) {
 		Log_e("wifi config failed!");
-		// setup a softAP to upload log to mini program
+		// 设置softAP向小程序上传log
 		start_log_softAP();
 }
 
