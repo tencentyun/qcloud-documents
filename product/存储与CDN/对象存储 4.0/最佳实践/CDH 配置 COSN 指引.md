@@ -69,8 +69,6 @@ COSN 大数据组件支持情况如下：
 | fs.cosn.impl                    | org.apache.hadoop.fs.CosFileSystem | cosn 对 FileSystem 的实现类，固定为 org.apache.hadoop.fs.CosFileSystem |
 | fs.AbstractFileSystem.cosn.impl | org.apache.hadoop.fs.CosN          | cosn 对 AbstractFileSystem 的实现类，固定为 org.apache.hadoop.fs.CosN |
 
-![](https://main.qcloudimg.com/raw/573d2c7e864d3b9cae4dbd048e418b18.png)
-
 4. 对 HDFS 服务进行操作，单击部署客户端配置，此时以上 core-site.xml 配置会更新到集群里的机器上。
 5. 将 COSN 最新的 SDK 包，放置到 CDH HDFS 服务的 jar 包路径下，请根据实际值进行替换，示例如下：
 
