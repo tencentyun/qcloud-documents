@@ -10,7 +10,7 @@
 ```xml
 <meta-data
     android:name="XG_OLD_ACCESS_ID"
-    android:value="信鸽平台应用的 ACCESS ID + L" />
+    android:value="信鸽平台应用的 ACCESS ID" />
 ```
 
 - 在应用首次覆盖安装时，如您在logcat中看到如下日志打印，即说明 SDK 已成功获取信鸽版本的推送信息，将在推送注册时一并向服务器上报：
