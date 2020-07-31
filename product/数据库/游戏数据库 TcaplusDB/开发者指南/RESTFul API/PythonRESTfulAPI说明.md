@@ -1,4 +1,4 @@
-本 SDK 是基于 RESTful API 封装的一个 Python 语言 SDK，用于进行 TcaplusDB 表的增删查改操作。
+本 SDK 是基于 RESTful API 封装的一个 Python 语言 SDK，用于进行 TcaplusDB PB 表的增删查改操作。
 
 ## 准备工作
 ### 1. 创建 TcaplusDB 表
