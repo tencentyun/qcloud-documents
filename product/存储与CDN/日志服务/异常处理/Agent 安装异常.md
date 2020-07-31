@@ -30,3 +30,4 @@ cd loglistener/bin && ./check
 正常情况下，输出如下：
  ![](https://main.qcloudimg.com/raw/e7e85f139feb14b1aaa3353b2bafd5e1.png)
  以上命令执行无误后，即可表明 Loglistener 被成功安装。
+
