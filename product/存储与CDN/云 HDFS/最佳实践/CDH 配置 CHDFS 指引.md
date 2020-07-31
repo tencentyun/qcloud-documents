@@ -64,8 +64,6 @@ CHDFS 大数据组件支持情况如下：
 | fs.ofs.impl                    | com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter | cosn 对 FileSystem 的实现类，固定为 org.apache.hadoop.fs.CosFileSystem |
 | fs.AbstractFileSystem.ofs.impl | com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter       | cosn 对 AbstractFileSystem 的实现类，固定为 org.apache.hadoop.fs.CosN |
 
-![](https://main.qcloudimg.com/raw/573d2c7e864d3b9cae4dbd048e418b18.png)
-
 4. 对 HDFS 服务进行操作，单击部署客户端配置，此时以上 core-site.xml 配置会更新到集群里的机器上。
 5. 将 CHDFS 最新的 SDK 包，放置到 CDH HDFS 服务的 jar 包路径下，请根据实际值进行替换，示例如下：
 
@@ -105,9 +103,9 @@ hadoop jar ./hadoop-mapreduce-examples-2.7.3.jar terasort  -Dmapred.map.tasks=4 
 >?ofs://scheme 后面请替换为用户 CHDFS 的挂载点路径。
 
 
-### 2. Hive
+#### 2. Hive
 
-#### 2.1 MR 引擎
+##### 2.1 MR 引擎
 
 **操作步骤**
 
@@ -165,7 +163,7 @@ select count(1) from report.report_o2o_pid_credit_detail_grant_daily;
 观察结果如下：
 ![](https://main.qcloudimg.com/raw/28a566e5f08d7cbbeb4893b851565c01.png)
 
-#### 2.2 Tez 引擎
+##### 2.2 Tez 引擎
 
 Tez 引擎需要将 CHDFS 的 jar 包导入到 Tez 的压缩包内，下面以 apache-tez.0.8.5 为例进行说明：
 
@@ -176,7 +174,7 @@ Tez 引擎需要将 CHDFS 的 jar 包导入到 Tez 的压缩包内，下面以 a
 （3）将新的压缩包上传到 tez.lib.uris 指定的路径下（如果之前存在路径则直接替换即可）。
 （4）在 CDH 主页面，找到 HIVE，重启 hiveserver 和 hivemetastore。
 
-### 3. Spark
+#### 3. Spark
 
 **操作步骤**
 
@@ -195,7 +193,7 @@ spark-submit  --classorg.apache.spark.examples.JavaWordCount --executor-memory 4
 ![](https://main.qcloudimg.com/raw/5070c17e6db105f7b1d20c609f334b60.png)
 
 
-### 4. Sqoop
+#### 4. Sqoop
 
 **操作步骤**
 
@@ -217,7 +215,7 @@ sqoop import --connect "jdbc:mysql://IP:PORT/mysql" --table sqoop_test --usernam
 ![](https://main.qcloudimg.com/raw/3b27f8417460e8edfa7f8f11cbef3f4f.png)
 
 
-### 5. Presto
+#### 5. Presto
 
 **操作步骤**
 
