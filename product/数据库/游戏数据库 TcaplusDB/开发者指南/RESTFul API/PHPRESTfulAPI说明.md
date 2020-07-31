@@ -1,4 +1,3 @@
-
 ## 准备工作
 ### 1. 创建 TcaplusDB 表
 创建 TcaplusDB 示例表，示例表为[`game_players.proto`](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/3.36.0.192960/game_players.proto)，请参见 [创建表格](https://cloud.tencent.com/document/product/596/38808)。
@@ -14,10 +13,18 @@
 ### 1. 修改配置
 所有基础配置统一放在 SDK 安装目录下的`config.php`中，用户需要根据申请的表信息进行相应更改。
 - 连接配置：如 url、endpoint、table_group_id、access_id、access_passwd 等，修改成对应值，连接信息获取请参考 [获取连接信息](https://cloud.tencent.com/document/product/596/31652)。
-- 默认数据源：此部分变量都为大写，用于 demo.php 中具体接口函数的数据源，可以统一在此修改。
+- 默认数据源：此部分变量都为大写，用于 [demo.php](#dsyff) 中具体接口函数的数据源，可以统一在此修改。
 
-### 2. 接口函数
-所有 API 接口封装成函数统一在`demo.php`中，总共有8个接口函数，所有接口函数支持从配置中加载数据源进行批量操作，具体函数如下所示：
+### 2. 调用方式
+为方便测试单个接口的功能，TcaplusDB 还把所有 SDK 接口函数单独成了程序，分别对应 demo 中的8个接口函数，采用的也是数据源与程序代码分离管理方式。
+所有接口函数的数据源有两个地方，一个是默认的数据源，统一在`config.php`中，另一个是每个接口函数自己的数据源，在`data`子目录下，用户可以修改该数据文件来执行对应的接口函数，方便批量操作时避免在程序代码中定义数据源。如果数据文件不存在则会加载默认数据源。数据源统一采用数据列表方式，支持批量加载。
+sample 中的程序文件执行方法类似：
+```
+php -f <具体的接口函数文件>
+```
+
+### 3. 接口函数
+所有 API 接口封装成函数统一在 demo.php 中，总共有8个接口函数，所有接口函数支持从配置中加载数据源进行批量操作，具体函数如下所示：
 
 | 接口函数名       | 接口函数功能                                    |
 | ---------------- | ----------------------------------------------- |
@@ -180,17 +187,11 @@ public function fieldInc($table_group_id, $table_name, array $record, $ReturnVal
 public function delete($table_group_id, $table_name, array $record, $ReturnValues = 'TcaplusDB', $resultflag = 1)
 ```
 
+
+<span id = "dsyff"></span>
 ## demo.php 使用方法
 为方便用户快速体验 TcaplusDB SDK 功能， 目前所有接口已经封闭成函数统一放在 demo.php，共8个函数，可以按需执行对应的函数，只需要注释其它函数即可，执行命令如下：
 ```
 php -f  "demo.php"
 ```
 
-
-## sample 目录中接口使用方法
-为方便测试单个接口的功能，TcaplusDB 还把所有 SDK 接口函数单独成了程序，分别对应 demo 中的8个接口函数，采用的也是数据源与程序代码分离管理方式。
-所有接口函数的数据源有两个地方，一个是默认的数据源，统一在`config.php`中，另一个是每个接口函数自己的数据源，在`data`子目录下，用户可以修改该数据文件来执行对应的接口函数，方便批量操作时避免在程序代码中定义数据源。如果数据文件不存在则会加载默认数据源。数据源统一采用数据列表方式，支持批量加载。
-sample 中的程序文件执行方法类似：
-```
-php -f <具体的接口函数文件>
-```
