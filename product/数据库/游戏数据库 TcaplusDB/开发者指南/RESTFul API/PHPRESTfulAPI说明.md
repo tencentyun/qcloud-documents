@@ -12,7 +12,7 @@
 
 ## 使用方法
 ### 1. 修改配置
-所有基础配置统一放在当前目录下的`config.php`中，用户需要根据申请的表信息进行相应更改。
+所有基础配置统一放在 SDK 安装目录下的`config.php`中，用户需要根据申请的表信息进行相应更改。
 - 连接配置：如 url、endpoint、table_group_id、access_id、access_passwd 等，修改成对应值，连接信息获取请参考 [获取连接信息](https://cloud.tencent.com/document/product/596/31652)。
 - 默认数据源：此部分变量都为大写，用于 demo.php 中具体接口函数的数据源，可以统一在此修改。
 
