@@ -66,7 +66,7 @@ stage: dev # (可选) 用于区分环境信息，默认值是 dev
 
 inputs:
   src:
-    src: ./src
+    src: ./code
     index: index.html
     # dist: ./dist
     # hook: npm run build

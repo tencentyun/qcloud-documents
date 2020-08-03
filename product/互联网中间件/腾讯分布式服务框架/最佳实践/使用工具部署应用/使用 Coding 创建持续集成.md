@@ -81,3 +81,4 @@ b. 容器应用部署脚本命令：
 ![](https://main.qcloudimg.com/raw/67b86412646260fa93cce10b40343893.png)
 2. 在 TSF 控制台，查看对应部署组的状态。
 ![](https://main.qcloudimg.com/raw/04a6b482ee4a031b0a688859a9eacfdf.png)
+

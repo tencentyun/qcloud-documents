@@ -6,16 +6,16 @@
 ##  组件使用前置条件
 
 - **创建即时通信 IM 应用**
-- **创建群自定义字段**
-  - attent：记录自己关注了哪些主播
 - **创建群成员自定义字段**
+  - attent：记录自己关注了哪些主播
+- **创建群自定义字段**
   - add_goods ：后台上架新的直播间商品列表
   - room_status：控制直播间状态
 
 ## SDK 接入
 - 引入 IM SDK
 ```
-npm i tim-js-sdk --save
+npm i tim-wx-sdk --save
 ```
 - 引入直播带货 SDK
 ```
@@ -28,7 +28,7 @@ npm i im-live-sells --save
 | -------- | ------------------------------------------------------------ |
 | SDKAppID | 即时通信 IM 的应用 ID，SDKAppID 需在 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 上创建，新建的应用默认为体验版，主要用于集成及测试环节。产品正式上线前，建议 [购买](https://cloud.tencent.com/document/product/269/32458) 旗舰版或专业版。 |
 | userSig  | 即时通信 IM 用户签名，UserSig 为登录即时通信 IM SDK 的必要参数，可在业务后台生成后返回给前端使用，生成文档与代码请参见 [生成 UserSig](https://cloud.tencent.com/document/product/269/32688)。 |
-| roomID   | 直播间群聊房间 ID，此 ID 为即时通信IM所创建的直播群（AVChatRoom）群组 ID，该房间无加入人数限制可通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im-detail/qun-manage) 创建，或通过 [REST API](https://cloud.tencent.com/document/product/269/1519) 创建。 |
+| roomID   | 直播间群聊房间 ID，此 ID 为即时通信 IM 所创建的直播群（AVChatRoom）群组 ID，该房间无加入人数限制可通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im-detail/qun-manage) 创建，或通过 [REST API](https://cloud.tencent.com/document/product/269/1519) 创建。 |
 | TIM      | 即时通信 IM SDK，如是在小程序环境，请使用 **tim-wx-sdk**，Web 环境则使用 **tim-js-sdk**。 |
 | userName | 与生成 UserSig 的 userName 一致。                            |
 
@@ -37,7 +37,7 @@ npm i im-live-sells --save
 ## 初始化示例
 
 ```javascript
-import TLS from 'im-live-sells'
+import TIMLiveSell from 'im-live-sells'
 import TIM from 'tim-js-sdk' //Web 环境
 // import TIM from 'tim-wx-sdk' 小程序环境
 const tls = new TIMLiveSell({

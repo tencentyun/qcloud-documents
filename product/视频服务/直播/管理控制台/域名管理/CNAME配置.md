@@ -1,5 +1,7 @@
 域名接入云直播后，系统会为您自动分配一个 CNAME 域名（以`.liveplay.myqcloud.com`为后缀)，可在【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】列表中查看。CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可享受云直播服务。
 
+以下视频将为您介绍如何在腾讯云配置域名 CNAME 解析的过程：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2751-53266?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 注意事项
 - 推流域名和播放域名均需完成 CNAME 解析。

@@ -152,8 +152,8 @@ ipconfig /all
 ![](https://main.qcloudimg.com/raw/f6d04372be9fc71d59725e1d173cc1f3.png)
 
 ### 步骤四：结果验证
-登录其他云服务器，执行 `ping <辅助 IP 外网地址>`命令，若显示以下信息证明绑定成功。
->?若执行命令未得到以下结果，请检查 CVM 安全组配置是否开放 ICMP 协议。
+登录其他云服务器，执行 `ping <辅助 IP 外网地址>`命令，若显示如下信息则证明绑定成功。
+>?若执行命令未得到如下结果，请检查 CVM 安全组配置是否开放 ICMP 协议。
 >
 ![](https://main.qcloudimg.com/raw/b95843022195567bba1ce835c3f41bbf.png)
 

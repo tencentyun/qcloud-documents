@@ -39,7 +39,7 @@ func main() {
 代码开发时，请注意以下几点：
 
 - 需要使用 package main 包含 main 函数。
-- 引用 `github.com/tencentyun/scf-go-lib/cloudfunction` 库。
+- 引用 `github.com/tencentyun/scf-go-lib/cloudfunction` 库，在编译打包之前，执行 `go get github.com/tencentyun/scf-go-lib/cloudfunction`。
 - 入口函数入参可选0 - 2参数，如包含参数，需 context 在前，event 在后，入参组合有 （），（event），（context），（context，event），具体说明请参见 [入参](#Participation)。
 - 入口函数返回值可选0 - 2参数，如包含参数，需返回内容在前，error 错误信息在后，返回值组合有 （），（ret），（error），（ret，error），具体说明请参见 [返回值](#ReturnValue)。
 - 入参 event 和返回值 ret，均需要能够兼容 `encoding/json` 标准库，可以进行 Marshal、Unmarshal。

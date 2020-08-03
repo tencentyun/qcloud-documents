@@ -35,7 +35,7 @@
 | businessId         | 否      | Uint     | 业务 ID 网站或应用在多个业务中使用此服务，通过此 ID 区分统计数据。 |
 | wxSubType          | 否      | Int      | <li>1：微信公众号。</li><li>2：微信小程序。</li>                                |
 | randNum            | 否      | String   | Token 签名随机数，微信小程序必填，建议16个字符。                |
-| wxToken            | 否      | String   | <li>如果是微信小程序，该字段为以 ssesion_key 为 key 去签名随机数 radnNum 得到的值（hmac_sha256签名算法）。</li><li>如果是微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，具体看 [微信官方文档](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842)）。</li> |
+| wxToken            | 否      | String   | <li>如果是微信小程序，该字段为以 ssesion_key 为 key 去签名随机数 randNum 得到的值（hmac_sha256签名算法）。</li><li>如果是微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，具体看 [微信官方文档](https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842)）。</li> |
 
 ## 输出参数
 
@@ -96,8 +96,8 @@
 <https://csec.api.qcloud.com/v2/index.php?Action=RegisterProtection
 &<公共请求参数>
 &secretId=AKID****************************q4Zw
-&accountType=1
-&uid=D692D87319F2098C3877C3904B304706
+&accountType=10004
+&uid=BFD*********AD31C95CA75E21365973
 &registerIp=127.0.0.1（调用时必须是外网有效ip地址）
 &registerTime=1553484280（uinx时间戳，仅需要精确到秒）
 &associateAccount="SpFsjpyvaJ27329"
@@ -112,7 +112,7 @@
     "message": "NoError",
     "registerTime": "1553484280",
     "rootId": "sdsds234sd",
-    "uid": "D692D87319F2098C3877C3904B304706",
+    "uid": "BFD*********AD31C95CA75E21365973",
     "registerIp": "127.0.0.1",
     "riskType": [1]
 }

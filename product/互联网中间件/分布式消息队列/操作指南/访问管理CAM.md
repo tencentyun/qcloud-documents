@@ -82,7 +82,7 @@ TDMQ 支持资源级授权，您可以指定子账号拥有特定资源的接口
 2. 在左侧菜单栏中，单击【[策略](https://console.cloud.tencent.com/cam/policy)】。
 3. 在策略列表中，单击【新建自定义策略】。
 4. 在选择创建策略方式的弹窗中，选择【按策略语法创建】。
-5. 在模板类型中，搜索“TDMQ”，选择腾讯分布式消息队列（TDMQ）全读写访问权限【QcloudTDMQFullAccess】，单击【下一步】。
+5. 在模板类型中，搜索“TDMQ”，选择腾讯云消息队列 TDMQ 全读写访问权限【QcloudTDMQFullAccess】，单击【下一步】。
 6. 单击【创建策略】。
 
 ### TDMQ 实例只读策略
@@ -111,5 +111,5 @@ TDMQ 支持资源级授权，您可以指定子账号拥有特定资源的接口
 2. 在左侧菜单栏中，单击【[策略](https://console.cloud.tencent.com/cam/policy)】。
 3. 在策略列表中，单击【新建自定义策略】。
 4. 在选择创建策略方式的弹窗中，选择【按策略语法创建】。
-5. 在模板类型中，搜索“TDMQ”，选择腾讯分布式消息队列（TDMQ）只读访问策略【QcloudTDMQReadOnlyAccess】，单击【下一步】。
+5. 在模板类型中，搜索“TDMQ”，选择腾讯云消息队列 TDMQ 只读访问策略【QcloudTDMQReadOnlyAccess】，单击【下一步】。
 6. 单击【创建策略】。

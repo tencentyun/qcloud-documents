@@ -93,7 +93,7 @@
 	
     ![安装](https://main.qcloudimg.com/raw/5aba25ba2d5eddb5d956406ca5b6b9ac.png)
 
-3. 如果 Electron 安装较慢甚至超时，您可以参考文章：[Electron 常见问题收录](#https://cloud.tencent.com/developer/article/1616668) 中的 “安装时遇到的问题” 章节和 “附录：手动离线安装 Electron” 章节来完成 Electron 安装。
+3. 如果 Electron 安装较慢甚至超时，您可以参考文章：[Electron 常见问题收录](https://cloud.tencent.com/developer/article/1616668) 中的 “安装时遇到的问题” 章节和 “附录：手动离线安装 Electron” 章节来完成 Electron 安装。
 
 4.  待 npm 的依赖包都安装完成后，继续在命令行窗口执行以下命令，运行 Demo。
 
@@ -153,7 +153,7 @@
 
 ### 1. 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
 
-TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法 ECDSA-SHA256](https://cloud.tencent.com/document/product/647/17275#.E8.80.81.E7.89.88.E6.9C.AC.E7.AE.97.E6.B3.95)。
+TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法 ECDSA-SHA256](https://cloud.tencent.com/document/product/647/17275#Old)。
 
 升级操作：
 

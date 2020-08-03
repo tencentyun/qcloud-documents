@@ -24,11 +24,11 @@ $ touch serverless.yml
 npm init              # 创建后持续回车
 npm i --save koa  # 安装 koa
 ```
-3.本地创建一个 `app.js` 文件：
+3.本地创建一个 `sls.js` 文件：
 ```console
-$ touch app.js
+$ touch sls.js
 ```
-4.在 `app.js` 文件中创建您的 Koa App：
+4.在 `sls.js` 文件中创建您的 Koa App：
 ```js
 const koa = require('koa')
 const app = new koa()
@@ -59,7 +59,7 @@ name: koaDemo # (required) name of your koa component instance.
 
 inputs:
   src:
-    src: ./src # (optional) path to the source folder. default is a hello world app.
+    src: ./ # (optional) path to the source folder. default is a hello world app.
     exclude:
       - .env
   region: ap-guangzhou
@@ -70,7 +70,7 @@ inputs:
       - https
     environment: release
 ```
-[查看详细配置文档 >>](https://github.com/serverless-components/tencent-koa/blob/v2/docs/configure.md)
+[查看详细配置文档 >>](https://github.com/serverless-components/tencent-koa/blob/master/docs/configure.md)
 
 ### 4. 部署
 

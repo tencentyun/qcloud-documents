@@ -9,9 +9,7 @@
 
 ### 方法一：自动加载（aar）
 LiteAVSDK 已经发布到 jcenter 库，您可以通过配置 gradle 自动下载更新。
-
 只需要用 Android Studio 打开需要集成 SDK 的工程，然后通过简单的三个步骤修改`app/build.gradle`文件，就可以完成 SDK 集成：
-
 ![](https://main.qcloudimg.com/raw/eb6bcb3cb1dff43f459245ed9045e685.png)
 
 - **第一步：添加 SDK 依赖**   
@@ -21,8 +19,8 @@ dependencies {
      implementation 'com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release'
 }
 ```
- 或
- ```
+或
+```
 dependencies {
      implementation 'com.tencent.liteavsdk:LiteAVSDK_Smart:latest.release@aar'
 }
@@ -37,7 +35,7 @@ defaultConfig {
 }
 ```
 - **第三步：同步 SDK**
-  单击 Sync Now 按钮，如果您的网络连接 jcenter 没有问题，很快 SDK 就会自动下载集成到工程里。
+  单击![](https://main.qcloudimg.com/raw/d6b018054b535424bb23e42d33744d03.png) Sync Now 按钮，如果您的网络连接 jcenter 没有问题，很快 SDK 就会自动下载集成到工程里。
 
 ### 方法二：手动下载（aar）
 如果您的网络连接 jcenter 有问题，也可以手动下载 SDK 集成到工程里：
@@ -71,7 +69,7 @@ defaultConfig {
 ```
 
 - **第六步：同步 SDK**
-  单击 Sync Now 按钮，完成 LiteAVSDK 的集成工作。
+  单击 Sync Now按钮，完成 LiteAVSDK 的集成工作。
 
 ## 集成 SDK（jar）
 如果您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 LiteAVSDK：
@@ -149,7 +147,7 @@ dependencies{
 
 ## 配置 License 授权
 
-单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 License，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
+单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用 License，具体操作请参见 [测试版 License](https://cloud.tencent.com/document/product/454/34750#.E6.B5.8B.E8.AF.95.E7.89.88-license)。您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
 
 在您的 App 调用企业版 SDK 相关功能之前（建议在 Application类中）进行如下设置：
 

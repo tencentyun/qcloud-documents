@@ -32,7 +32,7 @@ X-Client-Proto-Ver: HTTP/1.1
 X-Real-IP: 163.177.93.244
 X-Forwarded-For: 106.19.71.102, 163.177.93.244
 Date: Sun, 21 Sep 2017 06:18:21 GMT
-Authorization: hmac id="AKIDCgOPWjQ6BAxvHtyckhWABJVYSBj548pN", algorithm="hmac-sha1", headers="Date Host", signature="630c82836582f78b90f293b2f38bda9c"
+Authorization: hmac id="AKIDCgXXXXXXXX48pN", algorithm="hmac-sha1", headers="Date Host", signature="630123456789da9c"
 //签名，具体签名方法见认证与安全中的密钥计算方法
 </code></pre>
 
@@ -53,9 +53,9 @@ Date: Sun, 21 Sep 2017 06:46:04 GMT
 Server: squid/3.5.20
 Connection: close
 Set-Cookie:1P_JAR=2017-09-18-06; expires=Mon, 25-Sep-2017 06:46:04 GMT; path=/; domain=.qq.com
-X-Secret-ID:AKIDCgOPWjQ6BAxvHtyckhWABJVYSBj548pN
+X-Secret-ID:AKIDXXXXXXXX48pN
 //密钥对中的 secret_id
-X-UsagePlan-ID:Q6BAxvHtyckhWABJVYSBj
+X-UsagePlan-ID:XXXXXXXX
 //密钥对绑定的使用计划 ID
 X-RateLimit-Limit:500
 //使用计划中的限流配置

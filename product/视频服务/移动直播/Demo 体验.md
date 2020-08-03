@@ -3,7 +3,7 @@
 
 | 平台 | Demo体验 | 源码地址 |
 |:--------:|:--------:|:--------:|
-| iOS | [AppStore](https://itunes.apple.com/cn/app/id1132521667?mt=8) | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/XiaoZhiBo) |
+| iOS | [AppStore](https://itunes.apple.com/cn/app/id1132521667?mt=8) | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/XiaoZhiBoApp) |
 | Android | [apk 安装包](http://dldir1.qq.com/hudongzhibo/xiaozhibo/xiaozhibo.apk) | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/XiaoZhiBo) |
 
 ![](https://main.qcloudimg.com/raw/354d61632bd71d6aec7a833b3afb69bc.jpg)

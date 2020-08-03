@@ -24,19 +24,14 @@ Authorization: Auth String
 
 调用 GET Bucket inventory 需要使用清单任务名称的参数。该参数格式如下：
 
-| 参数 | 描述                                                         | 类型   | 必选 |
+| 参数 | 描述                                                         | 类型   | 是否必选 |
 | ---- | ------------------------------------------------------------ | ------ | ---- |
 | id   | 清单任务的名称。缺省值：None<br/>合法字符：`a-z，A-Z，0-9，-，_，. `| String | 是   |
 
 #### 请求头
 
-#### 公共头部
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
-
-#### 非公共头部
-
-该请求操作无特殊的请求头部信息。
 
 #### 请求体
 
@@ -46,13 +41,8 @@ Authorization: Auth String
 
 #### 响应头
 
-#### 公共响应头 
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
-该响应使用公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
-
-#### 特有响应头
-
-该响应无特殊的响应头。
 
 #### 响应体
 
@@ -91,7 +81,7 @@ Authorization: Auth String
 </InventoryConfiguration>
 ```
 
-具体内容描述如下：
+具体的节点描述如下：
 
 | 节点名                  | 父节点                  | 描述                                                         | 类型      |
 | ----------------------- | ----------------------- | ------------------------------------------------------------ | --------- |
@@ -116,7 +106,7 @@ Authorization: Auth String
 
 #### 错误码
 
-该请求不产生特殊报错信息，常见的错误码请参见 [错误码](https://cloud.tencent.com/document/product/436/7730)文档。
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -127,7 +117,7 @@ Authorization: Auth String
 ```shell
 GET /?inventory&id=list1 HTTP/1.1
 Date: Mon, 28 Aug 2018 02:53:38 GMT
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1503895278;1503895638&q-key-time=1503895278;1503895638&q-header-list=host&q-url-param-list=inventory&q-signature=f77900be432072b16afd8222b4b349aabd837cb9
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1503895278;1503895638&q-key-time=1503895278;1503895638&q-header-list=host&q-url-param-list=inventory&q-signature=f77900be432072b16afd8222b4b349aabd83****
 Host: examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com
 ```
 

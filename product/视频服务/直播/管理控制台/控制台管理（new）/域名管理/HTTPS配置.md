@@ -7,7 +7,7 @@ HTTPS 协议是由 SSL + HTTP 协议构建的可进行加密传输和身份认�
 
 ## 操作步骤 
 ### 步骤1：编辑 HTTPS 配置
-1. 进入[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)，单击需配置的**播放域名**或【管理】进入域名管理。
+1. 进入[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)，单击需配置的**播放域名**或右侧的【管理】进入域名详情页。
 2. 选择【高级配置】，查看【HTTPS 配置】标签。
 3. 单击【编辑】进入 HTTPS 配置页进行如下设置：
 	1. 单击开启 HTTPS 服务。

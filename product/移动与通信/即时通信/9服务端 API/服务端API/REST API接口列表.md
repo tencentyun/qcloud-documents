@@ -22,7 +22,20 @@
 | 查询单聊消息 | [v4/openim/admin_getroammsg](https://cloud.tencent.com/document/product/269/42794) |
 | 撤回单聊消息 | [v4/openim/admin_msgwithdraw](https://cloud.tencent.com/document/product/269/38980) |
 
+## 全员推送
 
+| 功能说明  | 接口 |
+|---------|---------|
+| 全员推送         | [v4/all_member_push/im_push](https://cloud.tencent.com/document/product/269/45934) |
+| 设置应用属性名称 | [v4/all_member_push/im_set_attr_name](https://cloud.tencent.com/document/product/269/45935) |
+| 获取应用属性名称 | [v4/all_member_push/im_get_attr_name](https://cloud.tencent.com/document/product/269/45936) |
+| 获取用户属性     | [v4/all_member_push/im_get_attr](https://cloud.tencent.com/document/product/269/45937) |
+| 设置用户属性     | [v4/all_member_push/im_set_attr](https://cloud.tencent.com/document/product/269/45938) |
+| 删除用户属性     | [v4/all_member_push/im_remove_attr](https://cloud.tencent.com/document/product/269/45939) |
+| 获取用户标签     | [v4/all_member_push/im_get_tag](https://cloud.tencent.com/document/product/269/45940) |
+| 添加用户标签     | [v4/all_member_push/im_add_tag](https://cloud.tencent.com/document/product/269/45941) |
+| 删除用户标签     | [v4/all_member_push/im_remove_tag](https://cloud.tencent.com/document/product/269/45942) |
+| 删除用户所有标签 | [v4/all_member_push/im_remove_all_tags](https://cloud.tencent.com/document/product/269/45943) |
 
 ## 资料管理
 

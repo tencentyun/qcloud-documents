@@ -1,4 +1,4 @@
-对于在服务端上传视频的场景，云点播提供 NodeJS SDK 来实现。上传流程请参见 [服务端上传指引](https://cloud.tencent.com/document/product/266/9759)。
+对于在服务端上传视频的场景，云点播提供 Node.js SDK 来实现。上传流程请参见 [服务端上传指引](https://cloud.tencent.com/document/product/266/9759)。
 
 ## 集成方式
 
@@ -11,7 +11,7 @@ npm i vod-node-sdk --save
 如果项目中没有使用 npm 工具进行依赖管理，可以直接下载源码导入项目中使用：
 
 * [从 Github 访问](https://github.com/tencentyun/vod-node-sdk)
-* [单击下载 NodeJS SDK](https://github.com/tencentyun/vod-node-sdk/archive/master.zip)
+* [单击下载 Node.js SDK](https://github.com/tencentyun/vod-node-sdk/archive/master.zip)
 
 ##  简单视频上传
 ### 初始化上传对象
@@ -151,8 +151,10 @@ client.upload("ap-guangzhou", req, function (err, data) {
 });
 ```
 
-### 流媒体文件上传
-目前支持的流媒体文件包括 M3U8 文件及 MPD 文件，索引文件下的传输流文件（如 TS 文件）路径必须为相对路径且处于同级目录或者下级目录内。在上传流媒体文件时候只需指定索引文件路径（如 M3U8 文件），相关传输流文件会一并进行上传。
+### 自适应码流文件上传
+
+本 SDK 支持上传的自适应码流格式包括 HLS 和 DASH，同时要求 manifest（M3U8 或 MPD）所引用的媒体文件必须为相对路径（即不可以是 URL 和绝对路径），且位于 manifest 的同级目录或者下级目录（即不可以使用`../`）。在调用 SDK 上传接口时，`MediaFilePath`参数填写 manifest 路径，SDK 会解析出相关的媒体文件列表一并上传。
+
 ```
 const { VodUploadClient, VodUploadRequest } = require('vod-node-sdk');
 

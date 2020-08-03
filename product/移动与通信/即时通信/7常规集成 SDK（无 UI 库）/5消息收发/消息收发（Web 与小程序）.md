@@ -1,4 +1,10 @@
+本文将为您详细介绍消息收发（Web & 小程序），以下为视频介绍：
+
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2766-53356?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
+
 ## 发送消息
+
 
 ### 创建文本消息
 
@@ -14,11 +20,12 @@ tim.createTextMessage(options)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-| Name               | Type     | Description                                                  |
-| ------------------ | -------- | ------------------------------------------------------------ |
-| `to`               | `String` | 消息接收方的 userID 或 groupID                               |
-| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`（端到端会话） 或 `TIM.TYPES.CONV_GROUP`（群组会话） |
-| `payload`          | `Object` | 消息内容的容器                                               |
+| Name               | Type     | Attributes   | Default                         | Description                                                  |
+| ------------------ | -------- | ------------ | ------------------------------- | ------------------------------------------------------------ |
+| `to`               | `String` |      -        |            -                     | 消息接收方的 userID 或 groupID                               |
+| `conversationType` | `String` |       -       |                -                 | 会话类型，取值`TIM.TYPES.CONV_C2C`（端到端会话）或`TIM.TYPES.CONV_GROUP`（群组会话） |
+| `priority`         | `String` | `<optional>` | `TIM.TYPES.MSG_PRIORITY_NORMAL` | 消息优先级                                                   |
+| `payload`          | `Object` |       -       |           -                      | 消息内容的容器                                               |
 
 `payload`的描述如下表所示：
 
@@ -75,12 +82,13 @@ tim.createImageMessage(options)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-| Name               | Type       | Description                                                |
-| ------------------ | ---------- | ---------------------------------------------------------- |
-| `to`               | `String`   | 消息的接收方                                               |
-| `conversationType` | `String`   | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
-| `payload`          | `Object`   | 消息内容的容器                                             |
-| `onProgress`       | `function` | 获取上传进度的回调函数                                     |
+| Name               | Type       | Attributes   | Default                         | Description                                                |
+| ------------------ | ---------- | ------------ | ------------------------------- | ---------------------------------------------------------- |
+| `to`               | `String`   |     -         |            -                     | 消息的接收方                                               |
+| `conversationType` | `String`   |       -       |              -                   | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
+| `priority`         | `String`   | `<optional>` | `TIM.TYPES.MSG_PRIORITY_NORMAL` | 消息优先级                                                 |
+| `payload`          | `Object`   |           -   |                  -               | 消息内容的容器                                             |
+| `onProgress`       | `function` |          -    |                  -               | 获取上传进度的回调函数                                     |
 
 `paylaod`的描述如下表所示：
 
@@ -111,9 +119,9 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imError</span>) </span>{
   <span class="hljs-comment">// 发送失败</span>
   <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
-});
+});</code></pre>
 
-<span class="hljs-comment">// Web 端发送图片消息示例2- 传入 File 对象</span>
+<pre><code><span class="hljs-comment">// Web 端发送图片消息示例2- 传入 File 对象</span>
 <span class="hljs-comment">// 先在页面上添加一个 ID 为 "testPasteInput" 的消息输入框，例如 &lt;input type="text" id="testPasteInput" placeholder="截图后粘贴到输入框中" size="30" /&gt;</span>
 <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'testPasteInput'</span>).addEventListener(<span class="hljs-string">'paste'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
   <span class="hljs-keyword">let</span> clipboardData = e.clipboardData;
@@ -124,13 +132,11 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
     <span class="hljs-comment">// 图片消息发送成功后，file 指向的内容可能被浏览器清空，如果接入侧有额外的渲染需求，可以提前复制一份数据</span>
     fileCopy = file.slice();
   }
-
   <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> file === <span class="hljs-string">'undefined'</span>) {
     <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'file 是 undefined，请检查代码或浏览器兼容性！'</span>);
     <span class="hljs-keyword">return</span>;
   }
-
-  <span class="hljs-comment">// 1. 创建消息实例，接口返回的实例可以上屏</span>
+   <span class="hljs-comment">// 1. 创建消息实例，接口返回的实例可以上屏</span>
   <span class="hljs-keyword">let</span> message = tim.createImageMessage({
     <span class="hljs-attr">to</span>: <span class="hljs-string">'user1'</span>,
     <span class="hljs-attr">conversationType</span>: TIM.TYPES.CONV_C2C,
@@ -138,8 +144,7 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
       <span class="hljs-attr">file</span>: file
     },
     <span class="hljs-attr">onProgress</span>: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">event</span>) </span>{ <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'file uploading:'</span>, event) }
-  });
-
+  });  
   <span class="hljs-comment">// 2. 发送消息</span>
   <span class="hljs-keyword">let</span> promise = tim.sendMessage(message);
   promise.then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imResponse</span>) </span>{
@@ -199,11 +204,12 @@ tim.createAudioMessage(options)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-| Name               | Type     | Description                                                |
-| ------------------ | -------- | ---------------------------------------------------------- |
-| `to`               | `String` | 消息的接收方                                               |
-| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
-| `payload`          | `Object` | 消息内容的容器                                             |
+| Name               | Type     | Attributes   | Default                         | Description                                                |
+| ------------------ | -------- | ------------ | ------------------------------- | ---------------------------------------------------------- |
+| `to`               | `String` |      -        |              -                   | 消息的接收方                                               |
+| `conversationType` | `String` |       -       |               -                  | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
+| `priority`         | `String` | `<optional>` | `TIM.TYPES.MSG_PRIORITY_NORMAL` | 消息优先级                                                 |
+| `payload`          | `Object` |       -       |            -                     | 消息内容的容器                                             |
 
 `paylaod`的描述如下表所示：
 
@@ -282,12 +288,13 @@ tim.createFileMessage(options)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-| Name               | Type       | Description                                                  |
-| ------------------ | ---------- | ------------------------------------------------------------ |
-| `to`               | `String`   | 消息接收方的 userID 或 groupID                               |
-| `conversationType` | `String`   | 会话类型，取值`TIM.TYPES.CONV_C2C`（端到端会话） 或 `TIM.TYPES.CONV_GROUP`（群组会话） |
-| `payload`          | `Object`   | 消息内容的容器                                               |
-| `onProgress`       | `function` | 获取上传进度的回调函数                                       |
+| Name               | Type       | Attributes   | Default                         | Description                                                  |
+| ------------------ | ---------- | ------------ | ------------------------------- | ------------------------------------------------------------ |
+| `to`               | `String`   |        -      |           -                      | 消息接收方的 userID 或 groupID                               |
+| `conversationType` | `String`   |          -    |               -                  | 会话类型，取值`TIM.TYPES.CONV_C2C`（端到端会话）或`TIM.TYPES.CONV_GROUP`（群组会话） |
+| `priority`         | `String`   | `<optional>` | `TIM.TYPES.MSG_PRIORITY_NORMAL` | 消息优先级                                                   |
+| `payload`          | `Object`   |       -       |           -                      | 消息内容的容器                                               |
+| `onProgress`       | `function` |       -       |               -                  | 获取上传进度的回调函数                                       |
 
 `payload`的描述如下表所示：
 
@@ -318,8 +325,10 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 }).catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">imError</span>) </span>{
   <span class="hljs-comment">// 发送失败</span>
   <span class="hljs-built_in">console</span>.warn(<span class="hljs-string">'sendMessage error:'</span>, imError);
-});
-<span class="hljs-comment">// Web 端发送文件消息示例2- 传入 File 对象</span>
+});</code></pre>
+
+
+<pre><code><span class="hljs-comment">// Web 端发送文件消息示例2- 传入 File 对象</span>
 <span class="hljs-comment">// 先在页面上添加一个 ID 为 "testPasteInput" 的消息输入框，如 &lt;input type="text" id="testPasteInput" placeholder="截图后粘贴到输入框中" size="30" /&gt;</span>
 <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">'testPasteInput'</span>).addEventListener(<span class="hljs-string">'paste'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">e</span>) </span>{
   <span class="hljs-keyword">let</span> clipboardData = e.clipboardData;
@@ -354,6 +363,7 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
   });
 });</code></pre>
 
+
 **返回**
 
 消息实例 [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html)。
@@ -377,11 +387,12 @@ tim.createCustomMessage(options)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-| Name               | Type     | Description                                                  |
-| ------------------ | -------- | ------------------------------------------------------------ |
-| `to`               | `String` | 消息接收方的 userID 或 groupID                               |
-| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`(端到端会话) 或 `TIM.TYPES.CONV_GROUP`(群组会话) |
-| `payload`          | `Object` | 消息内容的容器                                               |
+| Name               | Type     | Attributes   | Default                         | Description                                                  |
+| ------------------ | -------- | ------------ | ------------------------------- | ------------------------------------------------------------ |
+| `to`               | `String` |       -       |            -                     | 消息接收方的 userID 或 groupID                               |
+| `conversationType` | `String` |       -       |             -                    | 会话类型，取值`TIM.TYPES.CONV_C2C`（端到端会话）或`TIM.TYPES.CONV_GROUP`（群组会话） |
+| `priority`         | `String` | `<optional>` | `TIM.TYPES.MSG_PRIORITY_NORMAL` | 消息优先级                                                   |
+| `payload`          | `Object` |      -        |                 -                | 消息内容的容器                                               |
 
 `payload`的描述如下表所示：
 
@@ -390,7 +401,6 @@ tim.createCustomMessage(options)
 | `data`        | `String` | 自定义消息的数据字段 |
 | `description` | `String` | 自定义消息的说明字段 |
 | `extension`   | `String` | 自定义消息的扩展字段 |
-
 
 **示例**
 
@@ -449,11 +459,12 @@ tim.createVideoMessage(options)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-| Name               | Type     | Description                                                |
-| ------------------ | -------- | ---------------------------------------------------------- |
-| `to`               | `String` | 消息的接收方                                               |
-| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
-| `payload`          | `Object` | 消息内容的容器                                             |
+| Name               | Type     | Attributes   | Default                         | Description                                                |
+| ------------------ | -------- | ------------ | ------------------------------- | ---------------------------------------------------------- |
+| `to`               | `String` |      -        |                -                 | 消息的接收方                                               |
+| `conversationType` | `String` |       -       |                  -               | 会话类型，取值`TIM.TYPES.CONV_C2C`或`TIM.TYPES.CONV_GROUP` |
+| `priority`         | `String` | `<optional>` | `TIM.TYPES.MSG_PRIORITY_NORMAL` | 消息优先级                                                 |
+| `payload`          | `Object` |       -       |                    -             | 消息内容的容器                                             |
 
 `payload`的描述如下表所示：
 
@@ -535,11 +546,12 @@ tim.createFaceMessage(options)
 
 参数`options`为`Object`类型，包含的属性值如下表所示：
 
-| Name               | Type     | Description                                                  |
-| ------------------ | -------- | ------------------------------------------------------------ |
-| `to`               | `String` | 消息接收方的 userID 或 groupID                               |
-| `conversationType` | `String` | 会话类型，取值`TIM.TYPES.CONV_C2C`(端到端会话) 或 `TIM.TYPES.CONV_GROUP`(群组会话) |
-| `payload`          | `Object` | 消息内容的容器                                               |
+| Name               | Type     | Attributes     | Default                         | Description                                                  |
+| ------------------ | -------- | -------------- | ------------------------------- | ------------------------------------------------------------ |
+| `to`               | `String` |           -     |             -                    | 消息接收方的 userID 或 groupID                               |
+| `conversationType` | `String` |          -      |              -                   | 会话类型，取值`TIM.TYPES.CONV_C2C`（端到端会话）或`TIM.TYPES.CONV_GROUP`（群组会话） |
+| `priority`         | `String` | ``<optional>`` | `TIM.TYPES.MSG_PRIORITY_NORMAL` | 消息优先级                                                   |
+| `payload`          | `Object` |      -          |               -                  | 消息内容的容器                                               |
 
 `payload`的描述如下表所示：
 
@@ -952,7 +964,7 @@ tim.getMessageList(options)
 
 | Name               | Type     | Attributes   | Description                                                  |
 | ------------------ | -------- | ------------ | --------------------------------------------------------- |
-| `conversationID`   | `String` | `<optional>` | 会话 ID。会话 ID 组成方式：C2C+userID（单聊）GROUP+groupID（群聊）@TIM#SYSTEM（系统通知会话）                                                      |
+| `conversationID`   | `String` | `<optional>` | 会话 ID。会话 ID 组成方式：C2C+userID（单聊）GROUP+groupID（群聊）@TIM#SYSTEM（系统通知会话）                        |
 | `nextReqMessageID` | `String` | `<optional>` | 用于分页续拉的消息 ID。第一次拉取时该字段可不填，每次调用该接口会返回该字段，续拉时将返回字段填入即可 |
 | `count`            | `Number` | `<optional>` | 需要拉取的消息数量，默认值和最大值为15，即一次拉取至多返回15条消息 |
 

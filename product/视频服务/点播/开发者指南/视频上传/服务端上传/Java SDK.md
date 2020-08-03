@@ -19,7 +19,7 @@
 如果项目没有采用 Maven 的方式进行依赖管理，可采用如下方式，下载各个所需的 jar 包，导入项目即可：
 
 | jar 文件         | 说明    |
-| ------------ | ------------ | 
+| ------------ | ------------ |
 | vod_api-2.1.4.jar | 云点播 SDK。 |
 | jackson-annotations-2.9.0.jar,jackson-core-2.9.7.jar,jackson-databind-2.9.7.jar,gson-2.2.4.jar       | 开源的 JSON 相关库。 |
 | cos_api-5.4.10.jar            | 腾讯云对象存储服务 COS SDK。                          |
@@ -177,8 +177,10 @@ try {
 }
 ```
 
-### 流媒体文件上传
-目前支持的流媒体文件包括 M3U8 文件及 MPD 文件，索引文件下的传输流文件（如 TS 文件）路径必须为相对路径且处于同级目录或者下级目录内。在上传流媒体文件时候只需指定索引文件路径（如 M3U8 文件），相关传输流文件会一并进行上传。
+### 自适应码流文件上传
+
+本 SDK 支持上传的自适应码流格式包括 HLS 和 DASH，同时要求 manifest（M3U8 或 MPD）所引用的媒体文件必须为相对路径（即不可以是 URL 和绝对路径），且位于 manifest 的同级目录或者下级目录（即不可以使用`../`）。在调用 SDK 上传接口时，`MediaFilePath`参数填写 manifest 路径，SDK 会解析出相关的媒体文件列表一并上传。
+
 ```
 VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
 VodUploadRequest request = new VodUploadRequest();

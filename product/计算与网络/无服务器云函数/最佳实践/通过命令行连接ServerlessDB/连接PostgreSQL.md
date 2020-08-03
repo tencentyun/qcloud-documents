@@ -5,14 +5,14 @@ Serverless Framework 目前支持 **PostgreSQL** 与 **NoSQL** 两个类型数�
 
 
 ## 前提条件
-已安装 Serverless Framework，且不低于以下版本。如未安装，请参考 [安装 Serverless Framework](https://cloud.tencent.com/document/product/583/44753) 完成安装。
+- 已安装 Serverless Framework，且不低于以下版本。如未安装，请参考 [安装 Serverless Framework](https://cloud.tencent.com/document/product/583/44753) 完成安装。
 ```
 Framework Core: 1.67.3
 Plugin: 3.6.6
 SDK: 2.3.0
 Components: 2.30.1
 ```
-
+-  请确保当前使用账号已配置 **QcloudPostgreSQLFullAccess** 策略。配置方法请参见 [授权管理](https://cloud.tencent.com/document/product/598/10602)。
 
 
 ## 操作步骤
@@ -30,11 +30,11 @@ Components: 2.30.1
 2. 在 `test-postgreSQL` 下创建 `.env` 文件，并按照以下格式在文件中配置您的腾讯云 SecretId、SecretKey、地域和可用区信息。
 ```text
  # .env
- TENCENT_SECRET_ID=xxx  // 您账号的 SecretId
- TENCENT_SECRET_KEY=xxx // 您账号的 SecretKey
+ TENCENT_SECRET_ID=xxx  # 您账号的 SecretId
+ TENCENT_SECRET_KEY=xxx # 您账号的 SecretKey
  # 地域可用区配置
- REGION=ap-guangzhou //资源部署区，该项目中指云函数与静态页面部署区
- ZONE=ap-guangzhou-2 //资源部署可用区 ，该项目中指 DB 部署所在的可用区
+ REGION=ap-guangzhou # 资源部署区，该项目中指云函数与静态页面部署区
+ ZONE=ap-guangzhou-2 # 资源部署可用区 ，该项目中指 DB 部署所在的可用区
 ```
 >?
 > - 如果没有腾讯云账号，请 [注册新账号](https://cloud.tencent.com/register)。
@@ -83,9 +83,9 @@ inputs:
 1. 在 `test-postgreSQL` 下创建文件夹 `api`，用于存放业务逻辑代码和相关依赖项。
 2. 在文件夹 `api` 下创建文件夹 `src`，并在命令行中进入 `src` 目录，执行以下命令，安装 [PostgreSQL 依赖包](https://www.npmjs.com/package/pg)。
 ```
-npm install npm
+npm install pg
 ```
-3. 在 `src` 文件夹下，创建 `index.js` 文件，并输入如下示例代码。在函数中通过 Serverless DB SDK 创建连接池，并调用数据库。
+3. 在 `src` 文件夹下，创建 `index.js` 文件，并输入如下示例代码。在函数中通过 PostgreSQL SDK 创建连接池，并调用数据库。
 ```
 'use strict';
 const { Pool } = require('pg');
