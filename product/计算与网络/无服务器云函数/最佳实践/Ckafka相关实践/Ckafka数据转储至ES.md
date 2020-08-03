@@ -64,7 +64,7 @@
 <td>ES_Password</td><td>ES 用户登录密码。</td><td>是</td>
 </tr>
 <tr>
-<td>ES_Index_KeyWord</td><td>需补充含义</td><td>是</td>
+<td>ES_Index_KeyWord</td><td>ES 关键词索引。</td><td>是</td>
 </tr>
 <tr>
 <td>ES_Log_IgnoreWord</td><td>需要删除的关键词，缺省则全量写入。例如，填写 name 或 password。</td><td>否</td>
