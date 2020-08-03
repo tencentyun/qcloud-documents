@@ -18,7 +18,7 @@ OpenSSL 官网没有提供 Windows 版本的安装包，可以选择其他开源
 openssl pkcs12 -export -out www.tencent.com.pfx -inkey 2_www.tencent.com.key -in 1_www.tencent.com_cert.crt
 ```
 例如 ，key 和 crt 文件保存在 D:\ ，运行情况如下：
-![](https://main.qcloudimg.com/raw/6be29b8e77f8d6d4b2460a7f73dd8644.png)
+![](https://main.qcloudimg.com/raw/121bed5ddf8e42e69a00b738046f687a.png)
 >!Export Password 不需要的情况下，请直接回车不进行输入。
 4. 在 D:\ 已生成的 `www.tencent.com.pfx` 文件，可以继续完成在 IIS 管理器中的证书安装。
 
