@@ -67,7 +67,7 @@
 <td>ES_Index_KeyWord</td><td>需补充含义</td><td>是</td>
 </tr>
 <tr>
-<td>ES_Log_IgnoreWord</td><td>需要删除的关键词，缺省则全量写入。例如，填写 name 或 password。</td><td>是</td>
+<td>ES_Log_IgnoreWord</td><td>需要删除的关键词，缺省则全量写入。例如，填写 name 或 password。</td><td>否</td>
 </tr>
 <tr>
 <td>ES_Index_TimeFormat</td><td>按照天或者小时设置 Index，缺省则按照天建立索引。例如填写 hour。</td><td>否</td>
