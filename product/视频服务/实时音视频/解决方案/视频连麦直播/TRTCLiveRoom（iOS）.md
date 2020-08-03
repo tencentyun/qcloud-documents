@@ -74,7 +74,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 
 | API | 描述 |
 |-----|-----|
-| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TRTCAudioEffectManager](#trtcaudioeffectmanagerapi)。|
+| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TXAudioEffectManager](#trtcaudioeffectmanagerapi)。|
 
 ### 美颜滤镜相关接口函数
 
@@ -188,7 +188,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 | sdkAppID | Int | 您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】> 应用信息中查看 SDKAppID。 |
 | userID | String | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
 | userSig | String | 腾讯云设计的一种安全保护签名，获取方式请参考 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
-| config | TRTCLiveRoomConfig | 全局配置信息，请在登录时初始化，登录之后不可变更。<ul style="margin:0;"><li>useCDNFirst 属性：用于设置观众观看方式。true 表示普通观众通过 CDN 观看，计费便宜但延时较高。false 表示普通观众通过低延时观看，计费价格介于 CDN 和连麦之间，但延迟可控制在1s以内。</li><li>CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会失效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >【<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>】页面中进行设置。</li></ul> |
+| config | TRTCLiveRoomConfig | 全局配置信息，请在登录时初始化，登录之后不可变更。<ul style="margin:0;"><li>useCDNFirst 属性：用于设置观众观看方式。true 表示普通观众通过 CDN 观看，计费便宜但延时较高。false 表示普通观众通过低延时观看，计费价格介于 CDN 和连麦之间，但延迟可控制在1s以内。</li><li>CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会生效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >【<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>】页面中进行设置。</li></ul> |
 | callback | (_ code: Int, _ message: String?) -> Void | 登录回调，成功时 code 为0。 |
 
 
@@ -629,9 +629,9 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 ## 背景音乐音效相关接口函数
 ### getAudioEffectManager
 
-获取背景音乐音效管理对象 [TRTCAudioEffectManager](#trtcaudioeffectmanagerapi)。
+获取背景音乐音效管理对象 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#af962213fefe6988a08820ac9af00df66)。
 ```swift
-@objc func getAudioEffectManager() -> TRTCAudioEffectManagerImpl
+@objc func getAudioEffectManager() -> TXAudioEffectManager
 ```
 
 ## 美颜滤镜相关接口函数

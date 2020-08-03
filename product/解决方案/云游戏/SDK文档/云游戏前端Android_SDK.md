@@ -1,0 +1,1 @@
+云游戏 Android SDK 整体结构与 [云游戏前端 JS SDK](https://cloud.tencent.com/document/product/1162/46134?!preview) 相同，详细内容及说明文档可 [下载文件](https://tcgsdk-1258344699.cos.ap-guangzhou.myqcloud.com/download/tcgsdk-android-2020-07-02.zip) 后查看。

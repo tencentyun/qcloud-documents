@@ -16,7 +16,7 @@ Windows 类资源包含两种单点登录方式：图形登录（WEB 登录）�
 2. 运维用户登录堡垒机系统。
 3. 单击【授权列表】，进入资源列表页。
 4. 找到您需要登录的 Windows 资源，在其右侧单击【登录】，进行登录配置。
-![](https://main.qcloudimg.com/raw/79d15860a43e5da647a596d86707cdd0.jpeg)
+![](https://main.qcloudimg.com/raw/1d3663b79d1db2d3484fff9e5dec48bb.png)
 5. 在配置窗口中，配置如下。
  - **协议**：选择“RDP”，Windows 默认远程协议使用 RDP。
  - **账号**：输入 Windows 的系统账号。
@@ -24,6 +24,6 @@ Windows 类资源包含两种单点登录方式：图形登录（WEB 登录）�
  - **工具**：选择 WEB 工具。
  - **选择分辨率**：远程登录 Windows，其窗口的分辨率。
  - **超时时间**：连接 Windows 资源的超时时间，默认为5秒。
-![](https://main.qcloudimg.com/raw/45fd0c78555f0fb6811a8a34d5fa89c5.jpeg)
+![](https://main.qcloudimg.com/raw/bf04c2388423a7040113e88bfd70e8cc.png)
 5. 确认配置信息无误后，单击【登录】，登录到目标资源后，即可对资源进行运维操作。
 

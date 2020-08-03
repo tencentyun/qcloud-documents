@@ -4,7 +4,7 @@
 
 若您已有一个腾讯云账号，您可以跳过本注册步骤进行下面的设置。
 
-1. 新用户请单击腾讯云官网顶部的【注册】按钮，进入注册页面：
+1. 新用户请单击 [腾讯云官网](https://cloud.tencent.com/product) 顶部的【注册】按钮，进入注册页面：
 ![](https://main.qcloudimg.com/raw/c25c8f7c56ccc9136bf216e4c27f02b1.png)
 2. 输入 QQ 帐号，并登录验证。验证后转到填写资料页面，填写资料并单击【提交】按钮：
 ![](https://main.qcloudimg.com/raw/c4f748487fb3fd2720e98f52dbfd2954.png)

@@ -1,4 +1,5 @@
->?仅对白名单用户开放。
+
+>?连接加密仅对白名单用户开放，如需使用，请 [提交工单](https://console.cloud.tencent.com/workorder/category)。
 
 ## SSL 连接加密简介
 ### SSL 连接加密背景
@@ -32,7 +33,7 @@ SSL 加密并不保护数据本身，而是确保了来往于数据库和服务�
 ## 配置 SSL 连接加密
 
 ### 开启 SSL 连接加密
-为了提高链路安全性，您可以在 [MariaDB 控制台](https://console.cloud.tencent.com/tdsql) 实例管理页的【数据安全性】>【连接安全】中启用 SSL（Secure Sockets Layer）加密。
+为了提高链路安全性，您可以在 [MariaDB 控制台](https://console.cloud.tencent.com/tdsql) 实例管理页的【数据安全性】>【连接加密】中启用 SSL（Secure Sockets Layer）加密。
 
 >?由于启用 SSL 加密依赖当前 SQL 引擎版本，如果 SQL 引擎不匹配，后台会先进行**静默升级**（静默升级优先确保现有连接和实例稳定影响，业务无感知升级过程，升级过程可能历时1 - 2小时或更长）。
 
@@ -57,14 +58,14 @@ SSL 加密并不保护数据本身，而是确保了来往于数据库和服务�
 
 ## 连接启用连接加密的实例
 ### MySQL/MariaDB 客户端
-- 方案一（取决于当前客户端默认配置）：
+使用 SSL 连接加密的方式连接数据库：
 ```
-mysql -h9.30.17.168 -P24082  -utest -ptest123 
+mysql -P 3306 -h 10.xx.xx.168  -u test -p --ssl
 ```
-- 方案二（显式指定加密协议）：
-```
-mysql -h9.30.17.168 -P24082  -utest -ptest123 --tls-version=TLSv1.2
-```
+登录成功后，可以使用`\s`命令查询当前登录状态：
+![](https://main.qcloudimg.com/raw/a4cf3caf8a32c8a174e247700275876b.png)
+其中`SSL: Cipher in use is AES256-GCM-SHA384`表示该用户是使用 SSL 连接至 MySQL 服务器。
+
 
 ### Navicat 等图形化客户端
 直接选择【使用 SSL】，无需选择【使用验证】即可连接。

@@ -50,7 +50,25 @@ var initParams = {
 var teduBoard = new TEduBoard(initParams);
 ```
 
-#### 2. 白板数据同步
+#### 2. 监听白板关键事件
+
+> 使用 on 监听白板事件
+
+```
+// 监听白板错误事件
+teduBoard.on(TEduBoard.EVENT.TEB_ERROR, (code, msg) => {
+
+});
+```
+
+```
+// 监听白板告警事件
+teduBoard.on(TEduBoard.EVENT.TEB_WARNING, (code, msg) => {
+
+});
+```
+
+#### 3. 白板数据同步
 
 白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 支持两种不同的数据同步模式。
 
@@ -119,6 +137,6 @@ teduBoard.on(TEduBoard.EVENT.TEB_SYNCDATA, data => {
 teduBoard.addSyncData(data);
 ```
 
-> 以下两种情况，实时录制功能可不可用：
+> 以下两种情况，实时录制功能不可用：
 - 实时录制功能在使用腾讯云 IMSDK 同步数据时，自定义消息中的 extension 不等于'TXWhiteBoardExt'时不可用。
 - 实时录制功能在自定义数据通道模式下不可用。

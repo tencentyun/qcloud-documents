@@ -3,12 +3,12 @@
 
 ## 普通公网 IP
 创建云服务器实例时，您可以选择为实例分配普通公网 IP，系统会为您的云服务器分配一个 IP 地址，使其可以访问公网和被公网访问。 
-普通公网 IP 不能与 CVM 等资源动态解绑和绑定，但您可以将普通公网 IP 转换为弹性公网 IP，详细操作请参见 [公网 IP 转换为 EIP](https://cloud.tencent.com/document/product/213/16586#.E5.85.AC.E7.BD.91-ip-.E8.BD.AC.E5.BC.B9.E6.80.A7-ip) 。
+普通公网 IP 不能与 CVM 等资源动态解绑和绑定，但您可以将普通公网 IP 转换为弹性公网 IP，详细操作请参见 [普通公网 IP 转 EIP](https://cloud.tencent.com/document/product/1199/41706) 。
 ![](https://main.qcloudimg.com/raw/bf56f0daee011ea0ecbce39bce58a44a.png)
 
 ## 弹性公网 IP
 弹性公网 IP 是一种可以独立拥有的 IP 资源。相较于公网 IP 仅可跟随云服务器一起申请释放，弹性公网 IP 可以与云服务器的生命周期解耦，作为云资源单独进行操作。 
-弹性公网 IP 的申请、绑定、释放操作请参见 [弹性公网 IP-操作步骤](https://cloud.tencent.com/document/product/213/16586#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)。 
+弹性公网 IP 的申请、绑定、释放操作请参见 [弹性公网 IP-操作指南](https://cloud.tencent.com/document/product/1199/41698)。 
 弹性公网 IP 具有如下优势： 
 - 独立持有的资源 
 弹性公网 IP 可以作为您账户的独立资源，无需与云服务器等绑定购买，可以作为云资源单独操作。 
@@ -28,7 +28,7 @@ NAT 网关双机热备、自动热切换，支持最大5Gbps的转发功能，�
 
 ## 负载均衡
 负载均衡（Cloud Load Balancer，CLB）是对多台云服务器进行流量分发的服务。负载均衡可以通过流量分发扩展应用系统对外的服务能力，通过消除单点故障提升应用系统的可用性。
-负载均衡的购买、配置操作请参见 [负载均衡-快速入门](https://cloud.tencent.com/document/product/214/8975 )。
+负载均衡的购买、配置操作请参见 [负载均衡快速入门](https://cloud.tencent.com/document/product/214/8975 )。
 负载均衡具有如下优势： 
 - 单集群高性能 
 一组 CLB 集群由多台物理服务器组成，可用性高达99.95%。同时集群系统具备剔除故障实例、筛选健康实例的功能，确保后端服务器业务正常运行。

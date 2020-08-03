@@ -137,3 +137,4 @@ COS Select 的 SQL 表达式具有一些保留字段，包含了函数名称，�
 - **func_name**：被调用的标量函数的名称。
 - **expression** [ NOT ] BETWEEN **expression** AND **expression**
 - **expression** LIKE **expression** [ ESCAPE **expression** ]
+

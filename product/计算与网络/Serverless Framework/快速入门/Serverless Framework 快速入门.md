@@ -1,9 +1,12 @@
 ## 操作场景
 该任务指导您通过 Serverless Framework，在腾讯云上快速创建、配置和部署一个 Serverless 应用。
->?预计2020年4月，Serverless Framework 将提供可视化的页面，您可以从 Serverless 应用的角度查看和管理资源。
+>?
+>- Serverless Framework 已提供已提供 [可视化页面](https://serverless.cloud.tencent.com/)，您可以从 Serverless 应用的角度查看和管理资源。
+>- Serverless Framework V2 版本 Component 已经发布，我们推荐您使用最新版本，详情请查看 [版本说明](https://cloud.tencent.com/document/product/1154/44912)。
 
 ## 前提条件
-在使用之前，请确保已经 [安装 Serverless Framework 1.67.2 以上版本](https://cloud.tencent.com/document/product/1154/42990)。
+- 在使用之前，请确保已经 [安装 Serverless Framework 1.67.2 以上版本](https://cloud.tencent.com/document/product/1154/42990)。
+- 如果您的腾讯云账号为主账号，则可以继续进行部署；如果您的账户为子账号，请参考 [账号和权限配置](https://cloud.tencent.com/document/product/1154/43006) 获得授权后再进行部署。
 
 ## 操作步骤
 
@@ -84,6 +87,17 @@ Action: "remove" - Stage: "dev" - App: "scfApp" - Instance: "scfdemo"
 当前默认支持部署时扫描微信二维码登录，如您希望配置持久的环境变量/密钥信息，也可以参考 [配置账号](https://cloud.tencent.com/document/product/1154/43006) 文档。
 
 ## 常见问题
-如您的环境配置了代理，可能会导致输入`serverless`时没有默认弹出中文引导， 此时可以进行如下配置：
+如您的环境配置了代理，可能会出现以下问题：
 
-在`.env`文件中增加配置 SERVERLESS_PLATFORM_VENDOR=tencent 即可。
+- 问题1：输入 `serverless` 时没有默认弹出中文引导。
+解决方案： 在 .env 文件中增加配置 SERVERLESS_PLATFORM_VENDOR=tencent 即可。
+
+- 问题2：输入 `sls deploy` 后部署报网络错误。
+解决方案：在 .env 文件中增加以下代理配置。
+```
+HTTP_PROXY=http://127.0.0.1:12345 #您的代理
+HTTPS_PROXY=http://127.0.0.1:12345 #您的代理
+```
+
+  
+

@@ -20,13 +20,12 @@
 在官网 [Filebeat 下载](https://www.elastic.co/cn/downloads/beats/filebeat) 页面，选择适合自己操作系统的 Filebeat 安装包，下载并安装到需要采集日志的主机上。以下默认用户使用的是 Linux 版本系统，且使用官方的安装包（rpm、deb）。
 ### 2. 配置 YAML 文件
 对于 Linux 系统，Filebeat 默认安装后的配置文件位于`/etc/filebeat/filebeat.yml`。为了简单起见，我们选择直接编辑这个文件。
-1. 采集的文件位于`/var/log/`目录下，以 world- 前缀开头，以 .log 后缀结尾，命令如下：
+
+采集的文件位于`/var/log/`目录下，以 world- 前缀开头，以 .log 后缀结尾，命令如下：
 ![日志文件列表](https://main.qcloudimg.com/raw/6c622d3c49bd421e1fcda3c9253c910e.jpg)
-2. 日志文件：每条日志可能有多行，但是每行的开头一定是2019-09-23这样的年-月-日数字格式，格式如下：
+日志文件：每条日志可能有多行，但是每行的开头一定是2019-09-23这样的年-月-日数字格式，格式如下：
 ![](https://main.qcloudimg.com/raw/2c11d552c5e9c1f78c40417660287811.jpg)
-
 那么可以将上述的 `/etc/filebeat/filebeat.yml` 替换为如下内容：
-
 ```yaml
 filebeat.inputs:
 - type: log
@@ -51,7 +50,6 @@ output.kafka:
   max_message_bytes: 10000
   timeout: 10
 ```
-
 更多的参数和解释，请参见 Filebeat 官网的 [配置 Kafka 输出](https://www.elastic.co/guide/en/beats/filebeat/master/kafka-output.html)。
 
 配置完成后，运行如下命令来启动 Filebeat 采集服务。随后即可通过消费数据导入的 CKafka Topic 来查看日志是否已经成功被采集。如果采集成功，则可以用于流计算的后续处理。
@@ -62,5 +60,3 @@ service filebeat start
 ```bash
 tail -f /var/log/filebeat/filebeat
 ```
-
-

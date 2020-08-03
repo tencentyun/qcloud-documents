@@ -13,9 +13,9 @@ Fastjson 1.2.60 以下版本
 ## 防护建议
 腾讯云 Web 应用防火墙攻击防护规则中，已经包含该漏洞的防护规则，操作步骤如下：
 1. 登录 [腾讯云 Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview) ，在左侧导航栏中，选择【Web 应用防火墙】>【防护设置】，在域名列表中，选择需要防护的域名，在操作栏单击【防护配置】。
-![](https://main.qcloudimg.com/raw/c6243481d9080b8bec3960a4a5c29dde.png)
-2. 在基础设置页面，将 WAF 防护状态的”规则使用模式“设置为【拦截】即可防御。
-![](https://main.qcloudimg.com/raw/6df57e99ad05a67e70b15cf5f7c8ce0d.png)
+![](https://main.qcloudimg.com/raw/bd154ef2426e6f6e162c9dc1f0a0d6c4.png)
+2. 在基础设置页面，将 WAF 防护状态的“规则引擎”设置为【拦截】即可防御。
+![](https://main.qcloudimg.com/raw/460765f7c51bc6a9b612daf9080a00a1.png)
 
 更多信息请参见[【安全预警】Fastjson < 1.2.60 远程拒绝服务漏洞风险预警](https://cloud.tencent.com/announce/detail/764) 。
 

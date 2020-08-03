@@ -3,7 +3,7 @@
 
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【网络】>【私有网络】进入私有网络控制台。
 2. 在左侧目录中单击【VPN 连接】>【VPN 通道】，进入管理页。
-3. 选择私有网络所在的地域和私有网络，如示例中的**广州**和`TomVPC`，单击【+新建】。
+3. 选择对应的地域和私有网络，如示例中的**广州**和`TomVPC`，单击【+新建】。
  ![](https://main.qcloudimg.com/raw/736f88fd2bbf5e75033d77fcf372586f.png)
 4. 输入通道名称（如：TomVPNConn），选择 VPN 网关`TomVPNGw`与对端网关`TomVPNUserGw`，并输入预共享密钥（如：`123456`），单击【下一步】。
 ![](https://main.qcloudimg.com/raw/0cb99e940e537500f4c3c8ca16cb535c.png)
@@ -13,5 +13,5 @@
  ![](https://main.qcloudimg.com/raw/c370884071d8dd5424be80bbef1e9aec.png)
 7. （可选）配置 IPsec 参数，如果不需要配置，可直接单击【完成】。
  ![](https://main.qcloudimg.com/raw/6c67f435c015fb6d2e03ed96dc61b7f7.png)
-8. 创建成功后，返回 VPN 通道列表页，单击【下载配置文件】并完成下载。
- ![](https://main.qcloudimg.com/raw/7cb33ec9d68cfcf3db78aa5ed99b665c.png)
+8. 创建成功后，返回 VPN 通道列表页，单击【更多】，选择【下载配置文件】并完成下载。
+ ![](https://main.qcloudimg.com/raw/970810f4cedff81c64e62534680a504d.png)

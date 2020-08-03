@@ -1,5 +1,13 @@
 ## ITRTCCloud @ TXLiteAVSDK
 
+### 创建与销毁 ITRTCCloud 单例
+
+| API | 描述 |
+|-----|-----|
+| [getTRTCShareInstance](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ga2fc755520711d5d8fd469f93bc9c2dc6) | 用于动态加载 dll 时，获取 [ITRTCCloud](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#classTRTC_1_1ITRTCCloud) 对象指针。 |
+| [destroyTRTCShareInstance](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ga1b494c61ef1fe41531ce283aae4e015d) | 释放 [ITRTCCloud](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#classTRTC_1_1ITRTCCloud) 单例对象。 |
+
+
 ### 设置 TRTCCloudCallback 回调
 
 | API | 描述 |
@@ -61,6 +69,7 @@
 
 | API | 描述 |
 |-----|-----|
+| [setAudioQuality](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aacf5923d535306c139d1b8b8025744c8) | 设置音频质量 主播端的音质越高，观众端的听感越好，但传输所依赖的带宽也就越高，在带宽有限的场景下也更容易出现卡顿。 |
 | [startLocalAudio](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a72ba04e850009e56505ee1cae0433abe) | 开启本地音频的采集和上行。 |
 | [stopLocalAudio](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a47c51247d112b86d2397744c8f3c686b) | 关闭本地音频的采集和上行。 |
 | [muteLocalAudio](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a1e1f27f131da042ca6e80beaa18055a8) | 静音/取消静音本地的音频。 |
@@ -108,11 +117,21 @@
 | [setWaterMark](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a4a1c376670ff4f3fdac8cf30bec78576) | 设置水印。 |
 
 
+### 音乐特效和人声特效
+
+| API | 描述 |
+|-----|-----|
+| [getAudioEffectManager](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ad9da9a5121bb52fbb85890dd857d7e8a) | 获取音效管理类 ITXAudioEffectManager。 |
+| [startSystemAudioLoopback](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ad6a651a786871927917b087ae7094c8a) | 打开系统声音采集。 |
+| [stopSystemAudioLoopback](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aab0258238e4414c386657151d01ffb23) | 关闭系统声音采集。 |
+| [setSystemAudioLoopbackVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a52d0f9a999296633b1d859f75d36d5e8) | 设置系统声音采集的音量。 |
+
+
 ### 屏幕分享相关接口函数
 
 | API | 描述 |
 |-----|-----|
-| [startScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ae0d5f03fd15dbb7b101bb3c6df70f630) | 启动屏幕分享。 |
+| [startScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a3cc7f7152c18f6ffda7cfa2b0b133934) | 启动屏幕分享。 |
 | [stopScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a0e09090fe4281c0e78d8eb38496a8ed0) | 停止屏幕采集。 |
 | [pauseScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a0dcd89ed2e23706239db98b55dd806d4) | 暂停屏幕分享。 |
 | [resumeScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a9dc10db068b9d8c6a0fcb8b085359f33) | 恢复屏幕分享。 |
@@ -147,37 +166,6 @@
 | [sendSEIMsg](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aa91b261d10bbdb43508e9e2c33697c29) | 将小数据量的自定义数据嵌入视频帧中。 |
 
 
-### 背景混音相关接口函数
-
-| API | 描述 |
-|-----|-----|
-| [playBGM](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a15279ba49cc9101b9997ab6b1f386eeb) | 启动播放背景音乐。 |
-| [stopBGM](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a88211d59391d170ce225ef581383b0d4) | 停止播放背景音乐。 |
-| [pauseBGM](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a1c9e7cd3a3f523776cc995378fe5ff95) | 暂停播放背景音乐。 |
-| [resumeBGM](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a71ed3b4ff11839504fd7c35c764ca613) | 继续播放背景音乐。 |
-| [getBGMDuration](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a484c22d9617415d5c28b1adba03a0e1a) | 获取音乐文件总时长，单位毫秒。 |
-| [setBGMPosition](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a5c83c0c819e72d46300da6a407044493) | 设置 BGM 播放进度。 |
-| [setBGMVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a7169cc4769a427265770b4f762e695e4) | 设置背景音乐播放音量的大小。 |
-| [setBGMPlayoutVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a3f1954560ae150f1029151b3aa906b3b) | 设置背景音乐本地播放音量的大小。 |
-| [setBGMPublishVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a700c0ccdfbdc7571366571485a2a20dd) | 设置背景音乐远端播放音量的大小。 |
-| [startSystemAudioLoopback](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ad6a651a786871927917b087ae7094c8a) | 打开系统声音采集，64位 SDK 暂不支持系统混音能力。 |
-| [stopSystemAudioLoopback](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aab0258238e4414c386657151d01ffb23) | 关闭系统声音采集。 |
-| [setSystemAudioLoopbackVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a52d0f9a999296633b1d859f75d36d5e8) | 设置系统声音采集的音量。 |
-
-
-### 音效相关接口函数
-
-| API | 描述 |
-|-----|-----|
-| [playAudioEffect](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a812b3bd8b5105cf120f781b380cc0596) | 播放音效。 |
-| [setAudioEffectVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a1ced69ab948cd574e28e747965ec3282) | 设置音效音量。 |
-| [stopAudioEffect](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a3fe8704074d3f23eaaeb2ad51280aa27) | 停止音效。 |
-| [stopAllAudioEffects](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a10ae64378e00e7b59c91e441f67a954c) | 停止所有音效。 |
-| [setAllAudioEffectsVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a8341d84cd74198c2cb6ed4964413a9bc) | 设置所有音效的音量。 |
-| [pauseAudioEffect](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a3c2b8eac492de2eabfbe0cecb87e429f) | 暂停音效。 |
-| [resumeAudioEffect](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a27b203785e4f9eceb3820dd0077f1e3c) | 恢复音效。 |
-
-
 ### 设备和网络测试
 
 | API | 描述 |
@@ -210,15 +198,26 @@
 
 | API | 描述 |
 |-----|-----|
-| [setMicVolumeOnMixing](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a9fc6194bde0fc945a2cda4562116fd7c) | 从 v6.9 版本开始废弃。 |
+| [setMicVolumeOnMixing](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aa8c0c6aceb1c0fe5de3a2083bc5a5b18) | 设置麦克风的音量大小。 |
+| [startScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a3cc7f7152c18f6ffda7cfa2b0b1339342) | 启动屏幕分享。 |
+| [playBGM](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a9b15087f0a9c29d4442221ca36b7e916) | 启动播放背景音乐。 |
+| [stopBGM](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a11004f1ba27b057985850a25307b0bec) | 停止播放背景音乐。 |
+| [pauseBGM](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aa4b92d4c989e99612f6c4dab03a78764) | 暂停播放背景音乐。 |
+| [resumeBGM](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aed6e8f224b5f834b1bc0c15f9701f692) | 继续播放背景音乐。 |
+| [getBGMDuration](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ae89800361133fc7a04524b426a1c1cff) | 获取音乐文件总时长，单位毫秒。 |
+| [setBGMPosition](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a32c656ebde9875a6bf8d4c30d4629161) | 设置 BGM 播放进度。 |
+| [setBGMVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a7a7d8cca48ca7c864e0bec6d869ea387) | 设置背景音乐播放音量的大小。 |
+| [setBGMPlayoutVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a0a4ab1fa2df3f0f1b7284ad9b2fbb921) | 设置背景音乐本地播放音量的大小。 |
+| [setBGMPublishVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a2eb3a1958ea834729f1b6e844cc0ea9d) | 设置背景音乐远端播放音量的大小。 |
+| [playAudioEffect](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a7a11827d3d124889d8b359644692e289) | 播放音效。 |
+| [setAudioEffectVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a942a6f358980c8520e2155fb4ef55bd0) | 设置音效音量。 |
+| [stopAudioEffect](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a61561195216ac575235b67d410070563) | 停止音效。 |
+| [stopAllAudioEffects](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a7066509af1de32c290b7cc297cd00f2b) | 停止所有音效。 |
+| [setAllAudioEffectsVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a19416181cce88c58052a4eb2e87adeb8) | 设置所有音效的音量。 |
+| [pauseAudioEffect](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a43f83a1323cc39c1610c61cf79ab652c) | 暂停音效。 |
+| [resumeAudioEffect](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a23b65446d7dd9835da888b5285867629) | 恢复音效。 |
 
 
-### 创建与销毁 ITRTCCloud 单例
-
-| API | 描述 |
-|-----|-----|
-| [getTRTCShareInstance](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ga2fc755520711d5d8fd469f93bc9c2dc6) | 用于动态加载 dll 时，获取 [ITRTCCloud](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#classTRTC_1_1ITRTCCloud) 对象指针。 |
-| [destroyTRTCShareInstance](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ga1b494c61ef1fe41531ce283aae4e015d) | 释放 [ITRTCCloud](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#classTRTC_1_1ITRTCCloud) 单例对象。 |
 
 
 ## TRTCCloudCallback @ TXLiteAVSDK
@@ -394,6 +393,8 @@
 | [TRTCRoleType](http://doc.qcloudtrtc.com/group__TRTCCloudDef__cplusplus.html#ga42ff820a33d9f3535d203fd5d6782cb5) | 角色，仅适用于直播场景（TRTCAppSceneLIVE 和 TRTCAppSceneVoiceChatRoom）。 |
 | [TRTCQosControlMode](http://doc.qcloudtrtc.com/group__TRTCCloudDef__cplusplus.html#ga6615b296e31fc3d03c0df92e9755b5aa) | 流控模式。 |
 | [TRTCVideoQosPreference](http://doc.qcloudtrtc.com/group__TRTCCloudDef__cplusplus.html#ga60efcaeea7692bbce8dc362856683319) | 画质偏好。 |
+| [TRTCAudioSampleRate](http://doc.qcloudtrtc.com/group__TRTCCloudDef__cplusplus.html#gab0f34072e93189a864688cb0375d462c) | 音频采样率。 |
+| [TRTCAudioQuality](http://doc.qcloudtrtc.com/group__TRTCCloudDef__cplusplus.html#ga96f3d4cdcf3baa9df39ab4e1b3f0eb40) | 声音音质。 |
 | [TRTCLogLevel](http://doc.qcloudtrtc.com/group__TRTCCloudDef__cplusplus.html#gafa83683b4840bcb3200d1da63c10276d) | Log 级别。 |
 | [TRTCDeviceState](http://doc.qcloudtrtc.com/group__TRTCCloudDef__cplusplus.html#gac93bb27d49c2aeea8fc04242c5d0fc7e) | 设备操作。 |
 | [TRTCDeviceType](http://doc.qcloudtrtc.com/group__TRTCCloudDef__cplusplus.html#ga76eabab111ddd8a7b2e44d2cbcf45794) | 设备类型。 |

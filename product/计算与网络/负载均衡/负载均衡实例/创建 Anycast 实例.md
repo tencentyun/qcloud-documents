@@ -1,6 +1,6 @@
 负载均衡支持创建 Anycast 负载均衡（下文也叫 Anycast CLB）实例，Anycast CLB 是支持全球动态加速的负载均衡服务，CLB 的 VIP 会发布在全球多个地域，客户端接入最近的 POP 接入点，通过腾讯云数据中心高速互联网转发到云服务器上。
 Anycast CLB 能实现网络传输的质量优化和多入口就近接入，减少网络传输的抖动、丢包，最终提升云上应用的服务质量，扩大服务范围，精简后端部署。
->?本功能内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/act/apply/aia)。
+>?本功能内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/47mdddtoc56)。
 
 ## 什么是 Anycast
 Anycast 又称为任播或泛播，指同一个 IP 在多个地域同时发布路由，路由算法会把用户流量送达到最近的路由器。
@@ -44,7 +44,7 @@ Anycast CLB 在游戏加速中的应用也非常广泛，游戏请求就近接�
 
 ## 操作指南
 ### 前提条件
-本功能内测中，操作前请确保您的 [内测申请](https://cloud.tencent.com/act/apply/aia) 已通过。
+本功能内测中，操作前请确保您的 [内测申请](https://cloud.tencent.com/apply/p/47mdddtoc56) 已通过。
 ### 操作步骤
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在左侧导航栏中，单击 【[弹性公网IP ](https://console.cloud.tencent.com/cvm/eip2)】，进入 “弹性公网IP” 管理页面。

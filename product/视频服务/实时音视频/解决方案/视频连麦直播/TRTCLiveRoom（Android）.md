@@ -76,7 +76,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 
 | API | 描述 |
 |-----|-----|
-| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TRTCAudioEffectManager](#trtcaudioeffectmanagerapi)。|
+| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TXAudioEffectManager](#trtcaudioeffectmanagerapi)。|
 
 ### 美颜滤镜相关接口函数
 
@@ -144,27 +144,6 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 | [onRecvRoomTextMsg](#onrecvroomtextmsg) | 收到文本消息。|
 | [onRecvRoomCustomMsg](#onrecvroomcustommsg) | 收到自定义消息。|
 
-<h2 id="trtcaudioeffectmanagerapi">TRTCAudioEffectManager API 概览</h2>
-
-| API | 描述 |
-|-----|-----|
-| [playBGM](#playbgm) | 播放背景音乐。|
-| [stopBGM](#stopbgm) | 停止播放背景音乐。|
-| [pauseBGM](#pausebgm) | 暂停背景音乐。|
-| [resumeBGM](#resumebgm) | 继续播放背景音乐。|
-| [setBGMVolume](#setbgmvolume) | 设置背景音乐的音量大小，播放背景音乐混音时使用，用来控制背景音音量大小。|
-| [setBGMPosition](#setbgmposition) | 设置背景音乐播放进度。|
-| [setMicVolume](#setmicvolume) | 设置麦克风的音量大小，播放背景音乐混音时使用，用来控制麦克风音量大小。|
-| [setReverbType](#setreverbtype) | 设置混响效果。|
-| [setVoiceChangerType](#setvoicechangertype) | 设置变声类型。|
-| [playAudioEffect](#playaudioeffect) | 播放音效，每个音效都需要您指定具体的 ID，您可以通过该 ID 对音效的开始、停止、音量等进行设置。支持 aac、mp3 以及 m4a 格式。|
-| [pauseAudioEffect](#pauseaudioeffect) | 暂停音效播放。|
-| [resumeAudioEffect](#resumeaudioeffect) | 恢复音效播放。|
-| [stopAudioEffect](#stopaudioeffect) | 停止音效播放。|
-| [stopAllAudioEffects](#pauseaudioeffect) | 停止全部音效播放。|
-| [setAudioEffectVolume](#setaudioeffectvolume) | 设置音效音量。|
-| [setAllAudioEffectsVolume](#setallaudioeffectsvolume) | 设置所有音效的音量。|
-
 ## SDK 基础函数
 
 <span id="sharedInstance"></span>
@@ -231,7 +210,7 @@ public abstract void login(int sdkAppId,
 | sdkAppId | int |  您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】> 应用信息中查看 SDKAppID。 |
 | userId | String | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
 | userSig | String | 腾讯云设计的一种安全保护签名，获取方式请参考 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
-| config | TRTCLiveRoomConfig | 全局配置信息，请在登录时初始化，登录之后不可变更。<ul style="margin:0;"><li>useCDNFirst 属性：用于设置观众观看方式。true 表示普通观众通过 CDN 观看，计费便宜但延时较高。false 表示普通观众通过低延时观看，计费价格介于 CDN 和连麦之间，但延迟可控制在1s以内。</li><li>CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会失效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >【<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>】页面中进行设置。</li></ul> |
+| config | TRTCLiveRoomConfig | 全局配置信息，请在登录时初始化，登录之后不可变更。<ul style="margin:0;"><li>useCDNFirst 属性：用于设置观众观看方式。true 表示普通观众通过 CDN 观看，计费便宜但延时较高。false 表示普通观众通过低延时观看，计费价格介于 CDN 和连麦之间，但延迟可控制在1s以内。</li><li>CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会生效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >【<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>】页面中进行设置。</li></ul> |
 | callback | ActionCallback | 登录回调，成功时 code 为0。 |
 
    
@@ -689,9 +668,9 @@ public abstract void muteAllRemoteAudio(boolean mute);
 ## 背景音乐音效相关接口函数
 ### getAudioEffectManager
 
-获取背景音乐音效管理对象 [TRTCAudioEffectManager](#trtcaudioeffectmanagerapi)。
+获取背景音乐音效管理对象 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。
 ```java
-public abstract TRTCAudioEffectManager getAudioEffectManager();
+public abstract TXAudioEffectManager getAudioEffectManager();
 ```
    
 

@@ -17,6 +17,11 @@
 
 如果用户不使用腾讯官方的“腾讯连连”小程序，用户也可通过平台开放能力开发自有品牌小程序。在创建应用的时候，平台会为用户生成小程序对应的安全凭证。安全凭证包括 AppKey 和 AppSecret。AppKey 是用于标识 API 调用者身份，AppSecret 是用于加密签名字符串和服务器端验证签名字符串的密钥。**用户应严格保管其 AppSecret，避免泄露**。
 
+具体获取步骤如下：
+1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，进入开发中心。
+2. 选择左侧菜单【应用开发】>【小程序开发】，新建小程序，具体新建步骤参见 [应用开发](https://cloud.tencent.com/document/product/1081/40291#.E6.96.B0.E5.BB.BA.E5.B0.8F.E7.A8.8B.E5.BA.8F)。
+3. 创建小程序成功后，即可获取系统自动生成的 AppKey 与 AppSecret。
+
 #### 生成签名串
 
 有了安全凭证 AppKey 和 AppSecret 后，就可以生成签名串了。下面给出了一个生成签名串的详细过程。

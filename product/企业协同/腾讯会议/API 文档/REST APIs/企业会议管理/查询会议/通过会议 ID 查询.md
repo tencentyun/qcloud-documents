@@ -6,18 +6,24 @@
 
 ## 输入参数
 
+以下请求参数列表仅列出了接口请求参数，HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](https://cloud.tencent.com/document/product/1095/42413#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)。
+
+
 | 参数名称 | 必选 | 参数类型 | 参数描述 |
 |---------|---------|---------|---------|
 | meetingId | 是 | String| 有效的会议 ID。  |
 | userid | 是 | String| 调用方用于标示用户的唯一 ID（例如企业用户可以为企业账户英文名、个人用户可以为手机号等）。  |
-| instanceid | 是 | Integer| 用户的终端设备类型。  |
+| instanceid | 是 | Integer|用户的终端设备类型： <br>1 - PC <br>2 - Mac<br>3 - Android <br>4 - iOS <br>5 - Web <br>6 - iPad <br>7 - Android Pad <br>8 - 小程序  |
+
 
 ## 输出参数
 | 参数名称 |参数类型 | 参数描述 |
 |---------|---------|---------|
 | meeting_number | integer | 会议数量。  |
-|meeting_info_list  | Array | 会议列表。  |
+|meeting_info_list  | [Array](#Array) | 会议列表。  |
 
+
+<span id="Array"></span>
 **会议对象**
 
 | 参数名称 |参数类型 | 参数描述 |
@@ -26,12 +32,16 @@
 |meeting_id   |String| 会议的唯一标示 。  |
 |meeting_code    |String| 会议 App 的呼入号码。  |
 |password   |String | 会议密码。  |
-|hosts   |String 数组 | 会议主持人列表 。  |
+|status|String|当前会议状态：<br>MEETING_STATE_INVALID：非法或未知的会议状态，错误状态<br>  MEETING_STATE_INIT：会议的初始状态，表示还没有人入会<br>  MEETING_STATE_CANCELLED：会议已取消<br> MEETING_STATE_STARTED：会议已开始，有人入会<br>MEETING_STATE_ENDED：会议已结束|
+|type|Integer|会议类型：<br>0：预约会议类型<br>1： 快速会议类型|
+|hosts   |String 数组 | 会议主持人列表 。  |
 |participants  |String数组|邀请的参会者 。|
 |start_time  |String | 会议开始时间戳（单位秒）。 |
 |end_time  |String | 会议结束时间戳（单位秒）。  |
-|settings   |会议媒体参数对象 |会议的配置，可为缺省配置 。|
+|settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置。|
 
+
+<span id="settings"></span>
 **会议媒体参数对象**
 
 | 参数名称 |参数类型 | 参数描述 |
@@ -59,9 +69,10 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
       "password": "1111",      
       "status": "MEETING_STATE_ENDED",      
       "start_time": "1572085800",      
-      "end_time": "1572089400",      
-      "hosts": [        
-        "tester"      
+      "end_time": "1572089400", 
+      "type": 1,     
+      "hosts": [  
+        "tester" 
       ],      
       "participants": [        
         "test1"      
@@ -74,5 +85,4 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
     }  
   ]
 }
-
 ```

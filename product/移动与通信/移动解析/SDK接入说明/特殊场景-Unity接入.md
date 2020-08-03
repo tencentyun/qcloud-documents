@@ -1,8 +1,8 @@
-该文档说明 Unity 如何接入 HttpDNS。
+该文档说明 Unity 如何接入 HTTPDNS。
 
 ## Android 部分代码
 
-先初始化 HttpDns 和灯塔接口：
+先初始化 HTTPDNS 和灯塔接口：
 > ?若已接入 msdk 或者单独接入了腾讯灯塔则不用初始化灯塔。
 
 ```
@@ -16,7 +16,7 @@ AndroidJavaObject joactivety = jc.GetStatic("currentActivity");
 if (joactivety == null)
 return;
 AndroidJavaObject context = joactivety.Call("getApplicationContext");
-// 初始化HttpDns
+// 初始化HTTPDNS
 AndroidJavaObject joDnsClass = new AndroidJavaObject("com.tencent.msdk.dns.MSDKDnsResolver");
 Debug.Log(" WGGetHostByName ===========" + joDnsClass);
 if (joDnsClass == null)
@@ -34,7 +34,7 @@ m_dnsJo.Call("initUserAction", context);
 }
 ```
 
-再调用 HttpDns 接口解析域名：
+再调用 HTTPDNS 接口解析域名：
 ```
 // 该操作建议在子线程中处理
 public static string GetHttpDnsIP( string strUrl ) {

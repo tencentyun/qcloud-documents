@@ -12,7 +12,7 @@ function TEB_ERROR(TEduBoardErrorCode code, String msg)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardErrorCode | 错误码，参见 TEduBoardErrorCode 定义  |
+| code | TEduBoardErrorCode | 错误码，参见 [TEduBoardErrorCode](https://cloud.tencent.com/document/product/1137/40003#teduboarderrorcode) 定义  |
 | msg | String | 错误信息，编码格式为 UTF8  |
 
 
@@ -25,7 +25,7 @@ function TEB_WARNING(TEduBoardWarningCode code, String msg)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | TEduBoardWarningCode | 错误码，参见 TEduBoardWarningCode 定义  |
+| code | TEduBoardWarningCode | 错误码，参见 [TEduBoardWarningCode](https://cloud.tencent.com/document/product/1137/40003#teduboardwarningcode) 定义  |
 | msg | String | 错误信息，编码格式为 UTF8  |
 
 
@@ -230,6 +230,34 @@ function TEB_GOTOSTEP(Number currentStep, Number totalStep)
 ``` C++
 function TEB_RECTSELECTED()
 ```
+
+### TEB_REFRESH
+刷新当前白板 
+``` C++
+function TEB_REFRESH()
+```
+
+### TEB_SNAPSHOT
+白板快照回调 
+``` C++
+function TEB_SNAPSHOT(Object data)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| data | Object | 快照数据 |
+
+#### 介绍
+data 参数格式如下： 
+``` 
+{
+     image: "",          //base64
+     userData: "",       //透传数据
+}
+```
+ 
+
 
 
 ## 文件操作回调

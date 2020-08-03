@@ -12,4 +12,4 @@
 1. 创建 HTTPS 监听器时，开启 SNI。
 ![](https://main.qcloudimg.com/raw/1665fb3a16b95979e92bff414a36912e.png)
 2. 在该监听器中添加转发规则时，针对不同的域名配置不同的服务器证书，单击【下一步】，继续完成健康检查和会话保持的配置。
-![](https://main.qcloudimg.com/raw/3ea592cd74976965bb0d6529881965d6.png)
+![](https://main.qcloudimg.com/raw/b0bd94e55549242a97ca22a1d735597d.png)

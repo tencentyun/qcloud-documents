@@ -54,20 +54,26 @@
 
 ### 步骤4：编译运行
 - **Windows（C++）**
-使用 Visual Stuido（建议 VS2015）打开源码目录下的`DuilibDemo\TRTCDuilibDemo.sln`工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
+使用 Visual Studio（建议 VS2015）打开源码目录下的`DuilibDemo\TRTCDuilibDemo.sln`工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
 
 - **Windows（C#）**
-使用 Visual Stuido（建议 VS2017）打开源码目录下的`CSharpDemo\TRTCCSharpDemo.sln`工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
+使用 Visual Studio（建议 VS2017）打开源码目录下的`CSharpDemo\TRTCCSharpDemo.sln`工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
 
 ## 常见问题
 
 ### 1. 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
-TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法 ECDSA-SHA256](https://cloud.tencent.com/document/product/647/17275#.E8.80.81.E7.89.88.E6.9C.AC.E7.AE.97.E6.B3.95)。
+TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法 ECDSA-SHA256](https://cloud.tencent.com/document/product/647/17275#Old)，如已升级，您按需切换为新旧算法。
 
-升级操作：
-1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)。
-2. 在左侧导航栏选择【应用管理】，单击目标应用所在行的【应用信息】。
-3. 选择【快速上手】页签，单击【第二步 获取签发UserSig的密钥】区域的【点此升级】。
+升级/切换操作：
+ 1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)。
+ 2. 在左侧导航栏选择【应用管理】，单击目标应用所在行的【应用信息】。
+ 3. 选择【快速上手】页签，单击【第二步 获取签发UserSig的密钥】区域的【点此升级】、【非对称式加密】或【HMAC-SHA256】。
+  - 升级：
+   ![](https://main.qcloudimg.com/raw/69bd0957c99e6a6764368d7f13c6a257.png)
+  - 切换回老版本算法 ECDSA-SHA256：
+   ![](https://main.qcloudimg.com/raw/f89c00f4a98f3493ecc1fe89bea02230.png)
+  - 切换为新版本算法 HMAC-SHA256：
+   ![](https://main.qcloudimg.com/raw/b0412153935704abc9e286868ad8a916.png)
 
 ### 2. 两台设备同时运行 Demo，为什么看不到彼此的画面？
 请确保两台设备在运行 Demo 时使用的是不同的 UserID，TRTC 不支持同一个 UserID （除非 SDKAppID 不同）在两个设备同时使用。

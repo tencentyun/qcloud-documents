@@ -139,7 +139,7 @@ ignoreModifiedTimeLessThanSeconds=
 
 | 配置项 | 描述 |
 | ------| ------ |
-|localPath|本地路径，要求格式为绝对路径：<br><li>Linux 下分隔符为单斜杠，例如`/a/b/c` <br><li>Windows 下分隔符为两个反斜杠，例如`E:\\a\\b\\c`|
+|localPath|本地目录，要求格式为绝对路径：<br><li>Linux 下分隔符为单斜杠，例如`/a/b/c` <br><li>Windows 下分隔符为两个反斜杠，例如`E:\\a\\b\\c`|
 |excludes| 要排除的目录或者文件的绝对路径，表示将 localPath 下面某些目录或者文件不进行迁移，多个绝对路径之前用分号分割，不填表示 localPath 下面的全部迁移|
 |ignoreModifiedTimeLessThanSeconds| 排除更新时间与当前时间相差不足一定时间段的文件，单位为秒，默认不设置，表示不根据 lastmodified 时间进行筛选，适用于客户在更新文件的同时又在运行迁移工具，并要求不把正在更新的文件迁移上传到 COS，例如设置为300，表示只上传更新了5分钟以上的文件|
 

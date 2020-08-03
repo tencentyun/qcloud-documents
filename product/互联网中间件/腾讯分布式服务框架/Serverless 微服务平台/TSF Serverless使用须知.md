@@ -1,4 +1,4 @@
->?TSF Serverless 目前处于内测阶段，欢迎填写 [使用申请](https://cloud.tencent.com/apply/p/om62iz2gqx)。
+
 
 ## 监听端口
 - 如果您的业务是微服务（Spring、Mesh），则无需考虑端口监听问题。

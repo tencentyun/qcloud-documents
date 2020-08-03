@@ -468,7 +468,7 @@ __功能__
 
 支持的直播和点播类型。
 
->?点播播放请使用 [TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#step-2.3A-.E5.88.9B.E5.BB.BAplayer) 播放器，具体请参见头文件 TXVodPlayer.h。
+>?点播播放请使用 [TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#.E5.AF.B9.E6.8E.A5.E6.94.BB.E7.95.A5) 播放器，具体请参见头文件 TXVodPlayer.h。
 
 | 枚举 | 含义 |
 |-----|-----|

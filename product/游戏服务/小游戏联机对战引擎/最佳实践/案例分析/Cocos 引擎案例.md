@@ -1,5 +1,5 @@
 ## 案例说明
-本文档通过一个完整的 DEMO，指导您如何通过 Cocos 引擎使用小游戏联机对战引擎。
+本文档通过一个完整的 DEMO，指导您如何通过 Cocos 引擎使用游戏联机对战引擎。
 
 ## 前提条件
 已 [下载并安装 Cocos Creator](https://www.cocos.com/products#CocosCreator)（V2.1.0以上版本）。
@@ -8,15 +8,15 @@
 1. 打开 Cocos Creator，新建一个“腾讯云联机对战游戏范例”工程。（您也可下载 [游戏范例工程代码](https://mgobe-1258556906.cos.ap-shanghai.myqcloud.com/cocos-mgobe.zip)，自行导入工程）
 ![](https://main.qcloudimg.com/raw/7d64a73714f259c1b588521f57c45361.png)
 2. 新建完成后，您将得到一个工程包，结构如下图所示：
- - **assets**：该目录下为所有客户端代码，小游戏联机对战引擎的客户端 SDK 已导入该目录。所有的客户端逻辑，可在 assets\script 目录下查看。
- - **serverless**：该目录为工程的服务端代码，包括小游戏联机对战引擎的实时服务器框架。
+ - **assets**：该目录下为所有客户端代码，游戏联机对战引擎的客户端 SDK 已导入该目录。所有的客户端逻辑，可在 assets\script 目录下查看。
+ - **serverless**：该目录为工程的服务端代码，包括游戏联机对战引擎的实时服务器框架。
 ![](https://main.qcloudimg.com/raw/ab2ed4f6a7194067a139fd081ab4b89f.png)
 3. 进入 Cocos Creator 主界面，单击顶部工具栏的“![](https://main.qcloudimg.com/raw/09071d4fabcf9239a2ce8f2d96972dac.png)”按键，运行当前 DEMO。通过浏览器打开的界面如下图所示：
 ![](https://main.qcloudimg.com/raw/3d69120bb52b0719ef65cc56b7d5fe0b.png)
  >!
  - 由于当前 DEMO 演示联机功能，请您复制地址，在两个浏览器窗口运行当前 DEMO，以便您体验通信同步效果。
  - 当前窗口展示的游戏 ID、游戏 Key、域名，为体验 DEMO 专用的游戏信息，当同时体验的用户较多时，可能产生通信延迟或卡顿。为了更好的体验效果，建议您替换为私有的游戏 ID、游戏 Key、域名。
-4. 单击【体验小游戏联机对战引擎】进入如下页面，并单击【初始化】，开始体验。
+4. 单击【体验游戏联机对战引擎】进入如下页面，并单击【初始化】，开始体验。
 ![](https://main.qcloudimg.com/raw/f5c1e0cd448a4dcaa2c3f653a847a236.png)
   
   - **通过“创建房间”、“随机匹配”、“加入房间”三种方式，体验加入一个游戏房间功能**

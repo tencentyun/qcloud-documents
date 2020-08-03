@@ -8,6 +8,7 @@
 ![](https://main.qcloudimg.com/raw/e16e131d2a235c6f902b9337da1742ec.png)
 2. 单击【立即申请】，填写【Package Name】为 Android 的包名，【Bundle Id】为 iOS 的 Bundle ID。
 ![](https://main.qcloudimg.com/raw/47e2bdbf8b4c6f1bc5989f18a2817e69.png)
+>? 若无 Package Name 或 Bundle Id，可填写“-”。
 3. 单击【确定】。
  创建成功后，页面会显示生成的 License 信息。请记录 Key 和 LicenseUrl，便于在 SDK 初始化时使用。
 ![](https://main.qcloudimg.com/raw/06454ee5f8fa11377fadb67cd04a0291.png)
@@ -34,6 +35,7 @@
 >?
 >-  单击【确定】前需要再次确认 Bundle ID 和 Package Name，如与提交到商店的不一致请提前进行修改，**一旦提交成功将无法再修改 License 信息**。
 >- **正式版 License 不支持信息修改**，若您需要修改 License 信息，购买资源包后请勿用于续期 License，请单击【新增 License】重新新增 License 绑定新的包名信息。
+
 
 
 ### 续期正式版 License

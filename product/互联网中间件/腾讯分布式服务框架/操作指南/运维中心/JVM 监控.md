@@ -1,23 +1,28 @@
 ## 操作场景
 该任务指导您通过 TSF 控制台查看 JVM 进程监控详情。
->!使用JVM监控功能时，实例的 tsf-agent 需为1.21.0或以上版本。
+>!
+>- 使用 JVM 监控功能时，实例的 tsf-agent 需为1.21.0或以上版本。
+>- 如果您在使用时遇到问题，请参考 [JVM 监控常见问题](https://cloud.tencent.com/document/product/649/42891)。
 
 ## 操作步骤
 ### 进入 JVM 进程监控详情页
-1. 登录 [TSF控制台](https://console.cloud.tencent.com/tsf/index) 
+1. 登录 [TSF 控制台](https://console.cloud.tencent.com/tsf/index) 
 2. 在左侧菜单栏中，单击运维中心分类下的【监控】>【JVM 监控】。
 3. 在 JVM 监控的查询条件中，选择查询条件后，单击【查询】，符合条件的实例列表将会呈列在实例列表中。
  - 命名空间：选择您所需要查询的服务所在的命名空间
  - 服务：选择您所需要查询的服务
  - 实例：选择需要查询的实例，不选则展示已选命名空间和服务下的所有实例
-4.  从列表中，选择目标实例，单击操作列的【监控详情】，进入该实例的 JVM 进程监控详情页。
+4.  从列表中，选择目标实例，单击【实例ID】，进入该实例的 JVM 进程监控详情页。
 ![](https://main.qcloudimg.com/raw/be7ecc42bd362246b5614bc7d9b99c18.png)
 
->?如果您在使用时遇到问题，请参考 [JVM 监控常见问题](https://cloud.tencent.com/document/product/649/42891)。
+
 
 ### 查看实例 JVM 进程监控的基本信息
-您可在【基本信息】标签页中，查看实例的基本信息、实时的指标信息以及近一小时的 CPU 使用率、堆内存使用量、活动线程数、已加载类数的时间变化曲线（曲线时间粒度为1分钟）
-![](https://main.qcloudimg.com/raw/551f6ec9009846c9f7e2f1388db81b28.png)
+您可在【实例概览】标签页中，查看实例的基本信息、实时的指标信息以及近一小时的 CPU 使用率、堆内存使用量、活动线程数、已加载类数的时间变化曲线（曲线时间粒度为1分钟）。
+基本信息：
+![](https://main.qcloudimg.com/raw/3f2b2a1f39a14feff8cd5f75cf3b342d.png)
+JVM 监控概览：
+![](https://main.qcloudimg.com/raw/0f018976ddcadfe74a5bea116a3a3efe.png)
 
 ### 查看实例 JVM 进程的内存信息
 您可在【内存】标签页中，查看到进程 JVM 内存主要指标变化曲线，了解选定时段内，内存指标随时间的变化情况。
@@ -32,8 +37,11 @@
 - Old Space（MB）
 - Meta Space（MB）
 
-堆内存的【max】展示的是堆内存真实可用的最大值（会扣除 to_space内存），而不是配置的xmx参数；JDK1.8版本部分 GC 算法（如 G1GC 的 Survivor space），其 max 值会设置为 max_int 值，此时值会显示为-1。
-![](https://main.qcloudimg.com/raw/f228ace42f336606ff166c7ddccec589.jpg)
+堆内存的【max】展示的是堆内存真实可用的最大值（会扣除 to_space内存），而不是配置的 xmx 参数；JDK1.8版本部分 GC 算法（如 G1GC 的 Survivor space），其 max 值会设置为 max_int 值，此时值会显示为-1。
+
+![](https://main.qcloudimg.com/raw/4336c4e415aad5835e6dc65817035a26.png)
+![](https://main.qcloudimg.com/raw/3bce78368b01aaf84b462092cc201033.png)
+![](https://main.qcloudimg.com/raw/74d95e9efc9ec688be1320f605f986b0.png)
 您还可以通过单击图片卡片右上方的放大图标<img src="https://main.qcloudimg.com/raw/c9a7b0fb759613666b13ece6cb9f32c3.png" style="margin:0;"> ，放大当前图片；或通过单击下载图标<img src="https://main.qcloudimg.com/raw/e5689012a21e45ac1170e916a2b63c63.png" style="margin:0;"> ，将当前图片下载到本地（.png格式）。
 
 ### 查看实例 JVM 进程的线程信息
@@ -41,7 +49,7 @@
 #### 线程数
 您可在【线程数】卡片中查看到当前实例的 JVM 线程总数、活动线程数、 daemon 线程数随时间的变化情况。
 您可通过曲线图上方的【时间范围选择器】修改曲线显示的时间范围（时间粒度目前仅支持1分钟）
-![](https://main.qcloudimg.com/raw/95374c1ca3fd1d6557d10038029c0652.jpg)
+![](https://main.qcloudimg.com/raw/38c1d0f9224c21111cffdd239943f6d9.png)
 
 #### 线程详情
 您可在【线程详情】卡片中查看到当前实例所有的 JVM 线程：

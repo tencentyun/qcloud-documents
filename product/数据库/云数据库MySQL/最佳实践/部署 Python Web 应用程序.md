@@ -34,6 +34,8 @@ python # 进入python命令行
 ```
 yum install python-devel
 yum install mysql-devel
+yum -y install mysql-devel libxml2 libxml2-dev libxslt* zlib gcc openssl
+yum install gcc libffi-devel python-devel openssl-devel
 pip install MySQL-python
 ```
 
@@ -135,7 +137,7 @@ DATABASES = {
     }
 }
 ```
-2. 配置完成后可以使用以下命令测试数据库连接。
+2. 配置完成后，在`/usr/local/projectname/projectname`目录下，可以使用以下命令测试数据库连接。
 ```
 $python manage.py validate/check
 ```

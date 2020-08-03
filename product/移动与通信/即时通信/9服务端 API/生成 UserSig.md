@@ -3,6 +3,7 @@ UserSig 是用户登录即时通信 IM 的密码，其本质是对 UserID 等信
 以下视频将帮助您快速了解如何生成 UserSig：
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2332-34428?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
+<span id="getkey"></span>
 ## 获取密钥 
 
 1. 登录即时通信 IM [控制台](https://console.cloud.tencent.com/im)。
@@ -43,6 +44,17 @@ IM SDK 示例代码中提供的`GenerateTestUserSig`的开源模块可以帮忙�
 | Python | HMAC-SHA256 | [gen_sig](https://github.com/tencentyun/tls-sig-api-v2-python/blob/master/TLSSigAPIv2.py) | [Github](https://github.com/tencentyun/tls-sig-api-v2-python)|
 | C# | HMAC-SHA256 | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-cs/blob/master/tls-sig-api-v2-cs/TLSSigAPIv2.cs) | [Github](https://github.com/tencentyun/tls-sig-api-v2-cs)|
 | C++ | HMAC-SHA256 | [gen_sig](https://github.com/tencentyun/tls-sig-api-v2-cpp)|
+
+UserSig 计算函数中主要包括 SDKAppID、UserID 以及 UserSig 有效期等关键参数，关键参数的详细介绍如下表所示：
+>?下表中的字段名以 Java 语言的源码为例，其他语言略有差异，请以实际字段名为准。
+
+| 字段名示例 | 参数说明 |
+|---------|---------|
+| sdkappid | 应用 SDKAppID，可在即时通信 IM [控制台](https://console.cloud.tencent.com/im) 的应用卡片中获取。 |
+|  userId  | 用户 ID，旧称为 Identifier。   |
+|  expire   | UserSig 的有效期，单位为秒。  |
+|  userbuf | 即时通信 IM 中均默认使用不带 UserBuf 的接口，即该参数默认填写为`null`。<br>实时音视频的部分使用场景中可能需要使用带 UserBuf 的接口，例如进房时，具体介绍请参见 [进房权限保护](https://cloud.tencent.com/document/product/647/32240)。 |
+|  key  | 密钥信息，可在即时通信 IM [控制台](https://console.cloud.tencent.com/im) 的应用详情页面中获取，具体操作请参见 [获取密钥](#getkey)。   |
 
 
 <span id="ECDSA-SHA256"></span>

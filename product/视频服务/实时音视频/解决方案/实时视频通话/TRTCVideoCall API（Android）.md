@@ -1,4 +1,4 @@
-TRTCVideoCall 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持1v1和多人视频通话。TRTCVideoCall 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [实时视频通话（iOS）](https://cloud.tencent.com/document/product/647/42044)。
+TRTCVideoCall 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的，支持1v1和多人视频通话。TRTCVideoCall 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [实时视频通话（Android）](https://cloud.tencent.com/document/product/647/42045)。
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时音视频通话组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 发送和处理信令消息。
 
@@ -39,7 +39,7 @@ TRTCVideoCall 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服�
 
 | API | 描述 |
 |-----|-----|
-| [openCamera](#opencamera) | 开启摄像头，并渲染在指定的 UIView 中。|
+| [openCamera](#opencamera) | 开启摄像头，并渲染在指定的 TXCloudVideoView 中。|
 | [switchCamera](#switchcamera) | 切换前后摄像头。|
 | [closeCamara](#closecamara) | 关闭摄像头。|
 | [setMicMute](#setmicmute) | 静音远端音频。|
@@ -428,7 +428,7 @@ void onUserEnter(String userId);
 
 ### onUserLeave
 
-用户进入通话回调。
+用户离开通话回调。
 ```java
 void onUserLeave(String userId);
 ```

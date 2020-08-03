@@ -4,7 +4,7 @@ Agent 半托管迁移模式中，用户需要手工在源数据云厂商的服�
 如果源数据厂商与腾讯云 COS 间已经拉通专线，Agent 半托管迁移模式不会产生出流量费用，因此建议已经部署了专线的用户采用此模式进行迁移。
 下文将详细介绍当源对象存储部署在 AWS S3 时，如何配置 Agent 半托管迁移任务，实现数据迁移。
 
->>?“AWS 海外站迁移”，需要登录国际站控制台。
+>?“AWS 海外站迁移”，需要登录国际站控制台。
 
 
 ## 准备工作
@@ -28,7 +28,7 @@ Agent 半托管模式如果是通过专线迁移，需要确保AWS云侧主机�
 	3. 新建子用户，勾选编程访问及腾讯云控制台访问。
 	4. 搜索并勾选 QcloudCOSAccessForMSPRole 及 QcloudCOSFullAccess 策略。
 	5. 完成子用户创建并保存子用户名，访问登录密码，SecretId，SecretKey。
-	6. 单击 [这里](https://main.qcloudimg.com/raw/7579efd7d2839e0dfbcff6be0ac2e22b/agent.zip) 下载 Agent。
+	6. 单击 [这里](https://migrate-1256125716.cos.ap-guangzhou.myqcloud.com/agent/agent.zip) 下载 Agent。
 
 
 >?迁移服务也可以使用主账号操作，但是出于安全考虑，建议新建子账号并使用子账号 API 密钥进行迁移，迁移完成后删除。

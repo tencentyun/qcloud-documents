@@ -70,7 +70,7 @@
 ## 旧版 COS 转储能力迁移说明
 为提供更好的服务并全面支持更多 Ckafka 相关转储能力，我们将在近日对旧版白名单 COS 转储功能进行下线处理，并正式推出全新商业化 COS 转储能力。请及时做好相关迁移工作。
 
-### 迁移原因（新版优势）
+### 新版优势
 新版正式商业化 COS 转储能力有以下优势：
 - **灵活转储**：新版 COS 转储功能提供更加灵活的转储配置，创建完成后可在云函数控制台自定义较为特殊的转储逻辑，如设置特殊换行符，日志过滤等。亦可快捷方便的使用默认配置。
 - **消费能力**：新版转储消费能力相较旧版 COS 转储消费能力提升50%，是自建单节点 logstash 消费能力的15倍。
@@ -90,7 +90,7 @@
 
 ### 迁移步骤
 1. 创建新版消息转储。
-登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)，在目标实例的**topic 管理**页，单击操作列的【消息转储】。详细操作可参考 [Ckafka 转储对象存储（COS）](https://cloud.tencent.com/document/product/597/43448#ckafka-.E8.BD.AC.E5.82.A8.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8.EF.BC.88cos.EF.BC.89)。
+登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)，在目标实例的**topic 管理**页，单击操作列的【消息转储】。详细操作可参考 [Ckafka 转储对象存储（COS）](https://cloud.tencent.com/document/product/597/43448)。
 2. 设置时间粒度，选择与之前相同的 Bucket 信息。
 ![](https://main.qcloudimg.com/raw/a726f2c29d7c9fb59321c7b4b411f02b.png)
 >?新版 COS 转储新增“起始位置”，可根据迁移需求自行选择 Topic 消费位置。

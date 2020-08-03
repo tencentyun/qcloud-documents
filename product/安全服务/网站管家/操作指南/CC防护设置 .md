@@ -5,7 +5,7 @@ CC 防护功能支持对公网用户访问特定 URL 的行为进行频率控制
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview) ，在左侧导航栏中，选择【Web 应用防火墙】>【防护设置】，进入防护设置页面，在页面上方选择需要防护的站点域名，单击 【CC 防护设置】，进入恶意访问惩罚配置界面，单击 【添加规则】，进行规则配置。
  ![](https://main.qcloudimg.com/raw/6ab936492d7fb33f49b6713b522ca6ea.png)
 2. 根据示例要求，进行如下规则配置，所有规则输入完成后，单击【保存】。
-![](https://main.qcloudimg.com/raw/f9b86d95102edb60f6b2ee73f26b9dd2.png)    
+![](https://main.qcloudimg.com/raw/f9b86d95102edb60f6b2ee73f26b9dd2.png)       
 	- 规则名称：输入具体的规则名称。
 	- 匹配条件：等于。
 	- URI 路径：`/test.html`。

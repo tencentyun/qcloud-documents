@@ -1,4 +1,61 @@
+### 2.5.0.46 @ 2020.07.2
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.0.46.zip)
+
+- 功能变更
+    - addVideoFile/addTranscodeFile/addImagesFile 添加已存在文件，返回该文件 ID
+    - 统一各个平台视频播放控制栏的界面
+- 功能支持
+    - 支持 PPT 超链接点击同步功能
+- bug fix
+    - 修复在部分 Android 手机点击点播视频无法显示视频控制栏问题
+    - 修复涂鸦过程中擦除涂鸦导致涂鸦不同步问题
+    - 修复视频文件在特定场景下新增多余白板问题
+- 性能优化
+
+### 2.4.9.32 @ 2020.06.10
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.4.9.32.zip)
+
+- 新增接口
+    - 新增白板同步和刷新接口 syncAndReload
+    - 新增白板快照接口 snapshot
+- 新增回调
+    - 新增 onTEBSnapshot 回调
+- 新增错误码
+    - TEDU_BOARD_ERROR_PATH_INVALID  路径非法
+    - TEDU_BOARD_ERROR_WRITE_ERROR 文件写入错误
+- BUG 修复
+    - 修复视频频繁操作导致权限错乱问题
+    - 解决文字工具在底部点击输入无效问题
+    - 修复清空偶现残留问题
+
+
+### 2.4.8.31 @ 2020.05.21
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.4.8.31.zip)
+
+- 新增接口
+    - 新增 refresh 接口刷新当前白板
+- 新增回调
+    - TEduBoardImageStatus 新增 TEDU_BOARD_IMAGE_STATUS_READ_ERROR
+    - 新增刷新回调 onTEBRefresh
+- 功能优化
+    - 视频文件 url 支持携带签名信息
+    - 优化选框功能，框内点击即可移动
+- BUG修复
+    - 修复视频切换进度错误问题
+    - 修复激光笔闪烁问题
+    - 修复激光笔跳变问题
+    
+    
+### 2.4.7.25 @ 2020.04.30
+* [点击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.4.7.25.zip)
+- 体验优化
+    - 接收端涂鸦流畅性优化
+- BUG 修复
+    - 修复重置数据导致初始状态不正确的问题
+
 ### 2.4.6.20 @ 2020.04.02
+* [点击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.4.6.20.zip)
+
 - 新增回调
     - TEduBoardImageStatus 新增三个状态回调
         - TEDU_BOARD_IMAGE_STATUS_LOAD_ABORT 图片加载中断
