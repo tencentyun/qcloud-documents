@@ -2,7 +2,7 @@
 默认情况下，子账号没有使用 MySQL 数据库审计的权利。因此用户就需要创建策略来允许子账号使用数据库审计。
 若您不需要对子账号进行 MySQL 数据库审计相关资源的访问管理，您可以忽略此文档。
 
-[访问管理](https://cloud.tencent.com/document/product/598/10583)（Cloud Access Management，CAM）是腾讯云提供的一套 Web 服务，主要用于帮助用户安全管理腾讯云账户下资源的访问权限。通过 CAM，您可以创建、管理和销毁用户（组），并通过身份管理和策略管理控制指定用户可以使用的腾讯云资源。
+[访问管理](https://cloud.tencent.com/document/product/598/10583)（Cloud Access Management，CAM）是腾讯云提供的一套 Web 服务，主要用于帮助用户安全管理腾讯云账号下资源的访问权限。通过 CAM，您可以创建、管理和销毁用户（组），并通过身份管理和策略管理控制指定用户可以使用的腾讯云资源。
 
 当您使用 CAM 的时候，可以将策略与一个用户或一组用户关联起来，策略能够授权或者拒绝用户使用指定资源完成指定任务。有关 CAM 策略的更多基本信息，请参见 [策略语法](https://cloud.tencent.com/document/product/598/10603)。
 
@@ -50,6 +50,7 @@ MySQL 数据库审计的 CAM 策略描述如下：
 ```
 "action":["name/cdb:Describe*"]
 ```
+
 
 ## 资源路径
 资源路径的一般形式如下：
@@ -105,3 +106,17 @@ qcs::service_type::account:resource
     ]
 }
 ```
+
+## 自定义 MySQL 数据库审计策略
+1. 以主账号身份登录 [访问管理控制台](https://console.cloud.tencent.com/cam/policy)，在策略列表，单击【新建自定义策略】。
+![](https://main.qcloudimg.com/raw/495d428685ad6a166a19fa6f87478509.png)
+2. 在弹出的对话框，选择【按策略生成器创建】。
+3. 在选择服务和操作页面，选择各项配置，单击【添加声明】后，单击【下一步】。
+ - 服务(Service)：选择【云数据库 MySQL】。
+ - 操作(Action)：选择 MySQL 数据库审计的所有 API，请参见 [API 文档](https://cloud.tencent.com/document/product/236/45449)。
+  - 资源(Resource)：请参见 [资源描述方式](https://cloud.tencent.com/document/product/598/10606)，输入`*`，表示可以操作所有 MySQL 实例的审计日志。
+![](https://main.qcloudimg.com/raw/012b76bbc5ded4642a102a90dd92b2e6.png)
+4. 在编辑策略页面，按命名规范，输入“策略名称”（例如 SQLAuditFullAccess）和“描述”后，单击【完成】。
+![](https://main.qcloudimg.com/raw/027b02fdccb2a76100de7eea28d31097.png)
+5. 返回策略列表，即可查看刚创建的自定义策略。
+ 
