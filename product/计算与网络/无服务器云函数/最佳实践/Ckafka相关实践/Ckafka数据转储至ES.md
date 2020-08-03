@@ -96,7 +96,7 @@
 ### 查看 ES 和函数运行日志
 - 选择函数侧边栏【日志查询】，即可查看函数运行日志。如下图所示：
 ![](https://main.qcloudimg.com/raw/da6d2085affcedc728c1b3e3b1bf6eb4.png)
-- 查看 Kibana。如下图所示：（需补充查看方式）
+- 查看 Kibana。详情请参见 [通过 Kibana 访问集群](https://tcloud-doc.isd.com/document/product/845/19541)。
 ![](https://main.qcloudimg.com/raw/974199a28188cb11a43b5e89e5f660b5.png)
 
 
