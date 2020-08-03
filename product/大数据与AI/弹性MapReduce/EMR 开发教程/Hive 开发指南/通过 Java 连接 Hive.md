@@ -1,5 +1,7 @@
 Hive 中集成了 Thrift 服务。Thrift 是 Facebook 开发的一个软件框架，它用来进行可扩展且跨语言的服务的开发。Hive 的 HiveServer2 就是基于 Thrift 的，所以能让不同的语言如 Java、Python 来调用 Hive 的接口。对于 Java，Hive 提供了 jdbc 驱动，用户可以使用 Java 代码来连接 Hive 并进行一系列操作。
+
 本节将演示如何使用 Java 代码来连接 HiveServer2。
+
 ## 1. 开发准备
 - 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择 Hive 组件。 
 - Hive 等相关软件安装在路径 EMR 云服务器的`/usr/local/service/`路径下。
@@ -17,7 +19,6 @@ Hive 中集成了 Thrift 服务。Thrift 是 Facebook 开发的一个软件框�
 
 ```
 查看在程序中需要使用的参数：
-
 ```
 [hadoop@172 hive]$ vim conf/hive-site.xml
 
@@ -29,7 +30,6 @@ Hive 中集成了 Thrift 服务。Thrift 是 Facebook 开发的一个软件框�
         <name>hive.server2.thrift.port</name>
         <value>$hs2port</value>
 </property>
-
 ```
 其中 $hs2host 为您的 HiveServer2 的 hostID，$hs2port 为您的 HiveServer2 的端口号。
 
@@ -37,14 +37,15 @@ Hive 中集成了 Thrift 服务。Thrift 是 Facebook 开发的一个软件框�
 推荐使用 Maven 来管理您的工程。Maven 是一个项目管理工具，能够帮助您方便的管理项目的依赖信息，即它可以通过 pom.xml 文件的配置获取 jar 包，而不用去手动添加。
 
 首先在本地下载并安装 Maven，配置好 Maven 的环境变量，如果您使用 IDE，请在 IDE 中设置好 Maven 相关配置。
+
 在本地 shell 下进入要新建工程的目录，例如`D://mavenWorkplace`中，输入如下命令新建一个 Maven 工程：
 
 ```
 mvn archetype:generate -DgroupId=$yourgroupID -DartifactId=$yourartifactID -DarchetypeArtifactId=maven-archetype-quickstart
 ```
 其中 $yourgroupID 即为您的包名；$yourartifactID 为您的项目名称；maven-archetype-quickstart 表示创建一个 Maven Java 项目。工程创建过程中需要下载一些文件，请保持网络通畅。
-创建成功之后，在`D://mavenWorkplace`目录下就会生成一个名为 $yourartifactID 的工程文件夹。其中的文件结构如下所示：
 
+创建成功后，在`D://mavenWorkplace`目录下就会生成一个名为 $yourartifactID 的工程文件夹。其中的文件结构如下所示：
 ```
 simple
 	---pom.xml　　　　 核心配置，项目根下
@@ -55,12 +56,10 @@ simple
 		---test
 			---java　　　　  测试源码目录
 			---resources　  测试配置目录
-
-
 ```
 其中我们主要关心 pom.xml 文件和 main 下的 Java 文件夹。pom.xml 文件主要用于依赖和打包配置，Java 文件夹下放置您的源代码。
-首先在 pom.xml 中添加 Maven 依赖：
 
+首先在 pom.xml 中添加 Maven 依赖：
 ```
 <dependencies>
         <dependency>
@@ -74,10 +73,8 @@ simple
             <version>2.7.3</version>
         </dependency>
 </dependencies>
-
 ```
 继续在 pom.xml 中添加打包和编译插件：
-
 ```
 <build>
 <plugins>
@@ -109,10 +106,8 @@ simple
   </plugin>
 </plugins>
 </build>
-
 ```
 在 src>mai>Java 下右键新建一个 Java Class，输入您的 Class 名，这里使用 HiveTest.java，在 Class 添加样例代码：
-
 ```
 import java.sql.*;
 
@@ -175,13 +170,12 @@ public class HiveTest {
         }
     }
 }
-
 ```
 >!将程序中的参数 $hs2host 和 $hs2port 分别修改为您查到的 HiveServer2 的 hostID 和端口号的值。
 
-整个程序会先连接 HiveServer2 服务，然后在 default 数据库中建立一个名为 HiveTestByJave 的表。然后插入两个元素到该表中，并最后输出整个表的内容。
-如果您的 Maven 配置正确并且成功的导入了依赖包，那么整个工程应该没有错误可以直接编译。在本地 shell 下进入工程目录，执行下面的命令对整个工程进行打包：
+整个程序会先连接 HiveServer2 服务，然后在 default 数据库中建立一个名为 HiveTestByJave 的表。之后在该表中插入两个元素，并输出整个表的内容。
 
+如果您的 Maven 配置正确并且成功的导入了依赖包，那么整个工程即可直接编译。在本地 shell 下进入工程目录，执行下面的命令对整个工程进行打包：
 ```
 mvn package
 ```
@@ -189,7 +183,6 @@ mvn package
 
 ## 3. 上传并运行程序
 首先需要把压缩好的 jar 包上传到 EMR 集群中，使用 scp 或者 sftp 工具来进行上传。在本地 shell 下运行：
-
 ```
 scp $localfile root@公网IP地址:/usr/local/service/hive
 ```
@@ -215,13 +208,4 @@ Running: select count(1) from HiveTestByJava
 2
 
 ```
-
-
-
-
-
-
-
-
-
 

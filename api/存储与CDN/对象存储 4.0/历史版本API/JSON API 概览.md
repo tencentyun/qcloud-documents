@@ -1,3 +1,5 @@
+>!您目前查阅的是历史版本 API 文档，已不再更新和维护，我们建议您查阅新版 [API 文档](https://cloud.tencent.com/document/product/436/7751)。
+
 腾讯云对象存储服务（COS）相关 JSON API 接口及说明如下：<style  rel="stylesheet"> table th:nth-of-type(1) { width: 200px; }table th:nth-of-type(2) { width: 100px; }</style>
 
 ## 目录操作

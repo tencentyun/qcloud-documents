@@ -2,10 +2,10 @@
 
 | 接口功能 | Action Name | 功能描述 |
 |---------|---------|---------|
-| [添加域名](https://cloud.tencent.com/document/product/302/8504) | DomainCreate | 云解析平台中添加指定的主域名，例如 `qcloud.com`。 |
+| [添加域名](https://cloud.tencent.com/document/product/302/8504) | DomainCreate | DNS 解析平台中添加指定的主域名，例如 `qcloud.com`。 |
 | [设置域名状态](https://cloud.tencent.com/document/product/302/8508) | SetDomainStatus | 设置域名的状态，包括 “暂停” 和 “启用”。|
 | [获取域名列表](https://cloud.tencent.com/document/product/302/8505) | DomainList | 查询帐号下的所有域名列表。 |
-| [删除域名](https://cloud.tencent.com/document/product/302/3873) | DomainDelete | 从云解析平台中移除指定的主域名。 |
+| [删除域名](https://cloud.tencent.com/document/product/302/3873) | DomainDelete | 从 DNS 解析平台中移除指定的主域名。 |
 
 ## 2. 解析记录相关接口
 

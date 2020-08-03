@@ -1,8 +1,8 @@
 ## 准备工作
-1. 下载 TSF Mesh 提供的 Demo（该步骤预计耗时1min）。
-2. 在 TSF 控制台上已创虚拟机集群并添加节点，参考 [集群](https://cloud.tencent.com/document/product/649/13684)。对于未创建虚拟机集群和添加节点的用户（该步骤预计耗时10min）。
-3. 主机上已安装应用运行的环境（如 Python 应用的相关依赖等，TSF 对相关依赖的版本没有限制，该步骤预计耗时根据运行环境的复杂度有所不同）。
-
+1. 下载 TSF 提供的 Python Mesh Demo（vm）（该步骤预计耗时1min）。
+2. 解压 Demo 压缩包，解压出三个压缩包分别为`promotionService.tar.gz`、`shopService.tar.gz`、`userService.tar.gz`（不需要再解压）。
+3. 在 TSF 控制台上已创虚拟机集群并添加节点，参考 [集群](https://cloud.tencent.com/document/product/649/13684)。对于未创建虚拟机集群和添加节点的用户（该步骤预计耗时10min）。
+4. 主机上已安装应用运行的环境（如 Python 应用的相关依赖等，TSF 对相关依赖的版本没有限制，该步骤预计耗时根据运行环境的复杂度有所不同）。
 
 ## 一、创建并部署 Mesh 应用
 ### 1. 创建应用
@@ -19,7 +19,7 @@
 ### 2. 上传程序包
 2.1 在左侧导航栏单击【[应用管理](https://console.cloud.tencent.com/tsf/app)】，选择某一应用的【ID/应用名】，进入应用服务详情页。
 2.2 在应用服务详情页单击【程序包管理】标签页。
-2.3 在标签页单击【上传程序包】，选择程序包，填写程序包相关信息。
+2.3 在标签页单击【上传程序包】，选择程序包（如`promotionService.tar.gz`），填写程序包相关信息。
 2.4 单击【提交】，完成上传。
 
 ### 3. 创建部署组
@@ -67,3 +67,4 @@ curl shop:<shop端口>/api/v6/shop/order
 - **依赖拓扑**界面：选择集群和命名空间后，调整时间范围，使其覆盖服务运行期间的时间范围，正常情况下，将出现服务之间相互依赖的界面。
 
 	![](https://main.qcloudimg.com/raw/85c885e7ac2905902e94f042f7aef793.png)
+

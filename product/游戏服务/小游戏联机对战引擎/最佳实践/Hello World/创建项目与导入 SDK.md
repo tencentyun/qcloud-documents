@@ -3,7 +3,7 @@
 
 
 ## 前提条件
-- 已在小游戏联机对战引擎控制台创建小游戏实例，并 [开通联机对战服务](https://cloud.tencent.com/document/product/1038/33299)。
+- 已在游戏联机对战引擎控制台创建小游戏实例，并 [开通联机对战服务](https://cloud.tencent.com/document/product/1038/33299)。
 - 已获取游戏 gameID 和 secretKey。SDK 需要对这两个参数进行校验。
 
 
@@ -21,7 +21,7 @@
 ### 导入 MGOBE SDK
 1. 将 MGOBE.js 添加到项目根目录。
 2. 在 game.js 中添加如下代码，完成导入 MGOBE SDK。
-```
+```http
 // 导入 MGOBE.js
 import "./MGOBE.js";
 // 获取 Room、Listener 对象

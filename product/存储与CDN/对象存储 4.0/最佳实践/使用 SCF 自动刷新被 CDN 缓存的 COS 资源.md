@@ -5,7 +5,7 @@
 
 ## 实践背景
 
-当静态内容需要更新时，通常会往 COS 覆盖上传一个更新版本的资源或删除该资源。若您配置的 CDN 缓存过期时间较长，则 CDN 的某些边缘节点可能会仍然缓存旧资源。缓存过期时间太短，则会影响到加速的效果。具体详情请参见 [缓存过期配置](https://cloud.tencent.com/document/product/228/6290) 的相关信息。
+当静态内容需要更新时，通常会往 COS 覆盖上传一个更新版本的资源或删除该资源。若您配置的 CDN 缓存过期时间较长，则 CDN 的某些边缘节点可能会仍然缓存旧资源。缓存过期时间太短，则会影响到加速的效果。具体详情请参见 [节点缓存配置](https://cloud.tencent.com/document/product/228/41540) 的相关信息。
 
 根据上述情况，您需要使用 CDN 控制台上的 [缓存刷新](https://cloud.tencent.com/document/product/228/6299) 功能，对指定 URL 进行手动刷新操作，实现删除无效缓存文件或者更新资源。
 
@@ -16,7 +16,7 @@
 1. 腾讯云账户，需具备 COS、CDN、SCF 等产品的访问权限。
 2. [创建存储桶](https://cloud.tencent.com/document/product/436/13309)，并在该存储桶上绑定了 CDN 加速域名。
 3. 确保 COS 的存储桶的所属地域支持 SCF 产品功能，暂不支持跨地域调用。
-4. 准备好可调用 CDN 刷新接口的云 API 密钥，以及下载 [SCF 刷新 CDN 示例代码](https://main.qcloudimg.com/raw/757b646eb68e9b9a5b2fc4bf0fed2492/scf_about_cdn_refresh.zip)。
+4. 准备好可调用 CDN 刷新接口的云 API 密钥，以及下载 [SCF 刷新 CDN 示例代码](https://main.qcloudimg.com/raw/42b7d13a7a3d51d249b2a1b6a3c4f228/scf_about_cdn_refresh.zip)。
 
 ## 实践步骤
 
@@ -39,11 +39,11 @@
 空白函数创建完成后，需添加对应的函数代码，并设定触发方式，使函数可以正常工作。
 
 1. 配置函数代码
- 1. 下载  [SCF 刷新 CDN 示例代码](https://main.qcloudimg.com/raw/757b646eb68e9b9a5b2fc4bf0fed2492/scf_about_cdn_refresh.zip)。
+ 1. 下载  [SCF 刷新 CDN 示例代码](https://main.qcloudimg.com/raw/42b7d13a7a3d51d249b2a1b6a3c4f228/scf_about_cdn_refresh.zip)。
  2. 解压所有文件，找到其中的 index.js 文件并打开。
  3. 在代码里修改替换成您的具备调用 CDN 刷新接口权限的 SecretId、SecretKey 和需要刷新的域名。如下图所示：
-![](https://main.qcloudimg.com/raw/b2b0eba560e3229fc402490f0737712b.png)
- 4. 如需调用刷新绑定在腾讯云海外 CDN 上的域名，请将代码中的 `RefreshCdnUrl` 修改为 `RefreshCdnOverSeaUrl`。
+![](https://main.qcloudimg.com/raw/e7de25a2d410e7733d9cc3a9e5dfb79a.png)
+ 4. 如需调用刷新绑定在腾讯云海外 CDN 上的域名，请将代码中的`RefreshCdnUrl`修改为`RefreshCdnOverSeaUrl`。
 2. 上传函数代码
 	1. 将修改好的代码和其他文件重新压缩打包为 zip 格式。
 	2. 在 [SCF 控制台](https://console.cloud.tencent.com/scf/) 中，选择 【函数代码】 页签，将 "提交方法" 设置为 "本地上传 zip 包"，单击【上传】，选择此压缩的 zip 格式文件。如下图所示：

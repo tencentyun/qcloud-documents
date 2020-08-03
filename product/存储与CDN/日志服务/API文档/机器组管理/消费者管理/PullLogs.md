@@ -8,7 +8,7 @@
 
 ```shell
 GET /pulllogs?topic_id=xxxxxxxx-xxxx-xxxx-xxxx&partition_id=1&cursor=xxxxxxxxx&count=10 HTTP/1.1
-Host: <Region>.cls.myqcloud.com
+Host: <Region>.cls.tencentyun.com
 Authorization: <AuthorizationString>
 ```
 
@@ -55,3 +55,4 @@ x-cls-count: 10
 ## 错误码
 
 参见 [错误码](https://cloud.tencent.com/document/product/614/12402)。
+

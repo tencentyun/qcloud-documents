@@ -4,6 +4,8 @@ COS Select 接口可以使用结构化查询语句（Structured Query Language�
 
 如您需要了解 COS Select 的更多介绍，请参见 COS [Select 概述](https://cloud.tencent.com/document/product/436/37635)。有关 COS Select 的 SQL 表达式的介绍，您可以在开发者指南中参见 [Select 命令](https://cloud.tencent.com/document/product/436/37636) 进一步了解。
 
+>!Select Object Content 接口当前仅支持 virtual-hosted 方式访问，不支持 path-style 方式访问。
+
 #### 权限限制
 
 使用 COS Select，您必须具有`cos:GetObject`的授权。
@@ -37,7 +39,7 @@ Request body
 ```
 
 > ?
-> - Authorization: Auth String （详请请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> - Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 > - 请求参数中 select 和 select-type=2 参数均为必填参数，其中 select 代表发起 select 请求，select-type=2 代表这一接口的版本信息。
 
 #### 请求头

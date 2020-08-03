@@ -1,4 +1,4 @@
-本文主要介绍如何快速地将腾讯云移动直播 LiteAVSDK（iOS）集成到您的项目中，按照如下步骤进行配置，就可以完成 SDK 的集成工作。下面以 [全功能专业版](https://cloud.tencent.com/document/product/454/7873#Professional) 为例：
+本文主要介绍如何快速地将腾讯云移动直播 LiteAVSDK（iOS）集成到您的项目中，按照如下步骤进行配置，就可以完成 SDK 的集成工作。下面以全功能的 [移动直播专业版 SDK](https://cloud.tencent.com/document/product/454/7873#Professional) 为例：
 
 ## 开发环境要求
 - Xcode 9.0+。
@@ -58,7 +58,7 @@ pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工�
 
 
 ### 手动集成
-1. 下载 [LiveAVSDK ](https://cloud.tencent.com/document/product/454/7873) ，下载完成后进行解压。
+1. 下载 [LiveAVSDK](https://cloud.tencent.com/document/product/454/7873) ，下载完成后进行解压。
 
 2. 打开您的 Xcode 工程项目，选择要运行的 target , 选中 **Build Phases** 项。
 ![](https://main.qcloudimg.com/raw/d78299d12be0f6c3255eabec91941e7a.jpg)
@@ -120,3 +120,5 @@ OpenAL.framework
 ### LiteAVSDK 是否支持后台运行？
 支持，如需要进入后台仍然运行相关功能，可选中当前工程项目，在 **Capabilities** 下设置  **Background Modes** 为 **ON**，并勾选 **Audio，AirPlay and Picture in Picture** ，如下图所示：
 ![](https://main.qcloudimg.com/raw/ee8a9e445c6af84b5d1cec3869ed7a3a.jpg)
+
+

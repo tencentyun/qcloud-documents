@@ -2,7 +2,7 @@
 | 接口名称                   | 接口功能                    |
 | ------------------------------ | ------------------------------- |
 | [BGPIPGetInfo](https://cloud.tencent.com/document/product/1014/31246)             | 获取指定 BGP 高防 IP 实例的详细信息       |
-| [BGPIPRename](https://cloud.tencent.com/document/product/1014/31245)                    | 修改指定 BGP 高防 IP 实例名称 |
+| [BGPIPRename](https://cloud.tencent.com/document/product/1014/31245)                    | 修改指定 BGP 高防 IP 实例的名称 |
 | [BGPIPSetCCThreshold](https://cloud.tencent.com/document/product/1014/31244)            | 设置指定 BGP 高防 IP 实例的 CC 防护阈值 |
 | [BGPIPSetElasticProtectionLimit](https://cloud.tencent.com/document/product/1014/31243) | 设置指定 BGP 高防 IP 实例的弹性防护峰值 |
 |[ AddCustomCCStrategy](https://cloud.tencent.com/document/product/1014/31242)            | 添加单个 CC 自定义策略          |

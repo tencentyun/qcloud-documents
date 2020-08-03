@@ -8,7 +8,7 @@
 
 ```shell
 POST /consumerheartbeat?topic_id=xxxx-xx-xx-xx-xxxx HTTP/1.1
-Host: <Region>.cls.myqcloud.com
+Host: <Region>.cls.tencentyun.com
 Content-Type: application/json
 Authorization: <AuthorizationString>
 
@@ -60,3 +60,4 @@ Content-Length: 123
 ## 错误码
 
 参见 [错误码](https://cloud.tencent.com/document/product/614/12402)。
+

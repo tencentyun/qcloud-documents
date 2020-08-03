@@ -6,7 +6,8 @@
 目前迁移工具支持默认模式和内网迁移模式。其中，内网迁移模式细分为3种场景。不同迁移模式/场景，对源端主机和目标云服务器的网络要求不一致。如果源端主机和目标云服务器均可以访问公网，则可以直接进行默认模式迁移。如果源端主机和目标云服务器任何一方不能直接访问公网，则可以选择先通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[云联网](https://cloud.tencent.com/document/product/877) 或者 [专线接入](https://cloud.tencent.com/document/product/216) 等方式建立连接通道，再进行内网模式迁移。
 
 ## 3. 备份数据
-可以选择创建快照等方式备份数据。
+- 源端主机：可以选择 VMWare 快照功能等方式备份数据。
+- 目标云服务器：可以选择 [创建快照](https://cloud.tencent.com/document/product/362/5755) 等方式备份数据。
 
 ## 4. 迁移前的检查
 
@@ -19,7 +20,7 @@
 >? 
 > - 源端主机检查可以使用工具命令自动检查，如 `sudo ./go2tencentcloud_x64 --check`。
 > - go2tencentcloud 迁移工具在开始运行时，默认自动检查。如果需要略过检查强制迁移，请将 client.json 文件中的`Client.Extra.IgnoreCheck`字段配置为`true`。
-> 
+> - go2tencentcloud 迁移工具详细信息，请参见 [迁移工具说明](https://cloud.tencent.com/document/product/213/38783)。
 
 
 ## 5. 开始迁移

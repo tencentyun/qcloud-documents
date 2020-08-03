@@ -6,16 +6,9 @@ TSF 框架在微服务注册时，会自动收集并注册微服务提供的 API
 
 ## 添加依赖
 
-在 pom.xml 中添加以下代码：
-```xml
-<dependency>
-    <groupId>com.tencent.tsf</groupId>
-    <artifactId>spring-cloud-tsf-swagger</artifactId> 
-    <version><!-- 调整为 SDK 最新版本号 --></version>
-    <scope>compile</scope>
-</dependency>
-```
-添加依赖包后，TSF API 注册功能即生效。
+向工程中添加 `spring-cloud-tsf-starter` 依赖并开启 `@EnableTsf` 注解，详情请参考 [快速入门](https://cloud.tencent.com/document/product/649/20261) 文档。
+
+>!如果您使用的是 1.15.0-Edgware-RELEASE/1.15.0-Finchley-RELEASE 及之前的版本，使用方法参考 [Spring Cloud SDK 历史版本使用方法](https://cloud.tencent.com/document/product/649/45864)。
 
 ## 配置选项
 
@@ -44,7 +37,7 @@ public class ProviderController {
 
     @Autowired
     private ProviderNameConfig providerNameConfig;
-    @ApiOperation(value= "/echo/{param}", notes = "示例描述") // notes 对应 API 描述
+    @ApiOperation(value= "/echo/{param}", notes = "notes") // notes 对应 API 描述
     @RequestMapping(value = "/echo/{param}", method = RequestMethod.GET)
     public String echo(@PathVariable String param) {
         LOG.info("provider-demo -- request param: [" + param + "]");

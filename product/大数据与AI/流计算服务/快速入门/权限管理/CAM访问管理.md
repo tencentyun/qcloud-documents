@@ -2,7 +2,7 @@
 
 ## CAM 简介
 
-访问管理（Cloud Access Management，CAM）是腾讯云提供的一套 Web 服务，它主要用于帮助客户安全管理腾讯云账户下的资源的访问权限。通过 CAM，您可以创建、管理和销毁用户（组），并通过身份管理和策略管理来控制不同用户可使用的腾讯云资源。CAM 策略的详细信息及使用请参见 [CAM 策略](https://cloud.tencent.com/document/product/598/10601) 。
+访问管理（Cloud Access Management，CAM）是腾讯云提供的一套 Web 服务，它主要用于帮助客户安全管理腾讯云账户下的资源的访问权限。通过 CAM，您可以创建、管理和销毁用户（组），并通过身份管理和策略管理来控制不同用户可使用的腾讯云资源。CAM 策略的详细信息及使用请参见 [CAM 策略](https://cloud.tencent.com/document/product/598/10601)。
 
 ## 对子账号访问授权
 
@@ -11,6 +11,5 @@
 
 主帐号默认拥有访问流计算 Oceanus 所有资源的权限，若以子账号访问且子账号未获得主帐号对访问资源的授权时，将会看到如下提示。
 ![](https://main.qcloudimg.com/raw/242bc9269e092634198e7cecb8cc2764.png)
-
 请参考 [子用户权限设置](https://cloud.tencent.com/document/product/598/36256) 中的【为子用户授权关联策略】，通过主帐号对子帐号授予策略 QcloudOceanusFullAccess，来帮助子帐号拥有访问流计算 Oceanus 的权限。
 

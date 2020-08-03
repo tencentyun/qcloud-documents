@@ -1,12 +1,12 @@
 ## 1. 接口描述
 
 本接口(CreateAddress)用于创建 IP 地址。
-接口请求域名：<font style="color:red">vpc.api.qcloud.com</font>
+接口请求域名：vpc.api.qcloud.com。
 
 
 ## 2. 请求参数
 
-以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见 <a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a> 页面。其中，此接口的 Action 字段为 CreateAddress
+以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，详情请参见 <a href="https://cloud.tencent.com/document/api/215/4772" title="公共请求参数">公共请求参数</a> 页面。其中，此接口的 Action 字段为 CreateAddress。
 
 | 参数名称 | 必选 | 类型 | 描述 |
 |---------|---------|---------|---------|

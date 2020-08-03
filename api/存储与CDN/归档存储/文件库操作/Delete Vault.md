@@ -8,7 +8,7 @@ Delete Vault 请求实现删除一个 Vault，删除前要求 Vault 下无 Archi
 
 #### 请求语法
 
-```HTTP
+```plaintext
 DELETE /<UID>/vaults/<VaultName> HTTP 1.1
 Host:cas.<Region>.myqcloud.com
 Date:date

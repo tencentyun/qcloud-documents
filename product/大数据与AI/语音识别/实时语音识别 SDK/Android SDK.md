@@ -1,9 +1,12 @@
+Android SDK 接入请观看视频：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1692-20716?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 接入准备
 ### SDK 获取
-实时语音识别 Android SDK 及 Demo 下载地址：[Android SDK](https://main.qcloudimg.com/raw/1bbacff857c8fd10ecb14005889ba82f/aai-android-sdk-v2.1.5-master.zip)。
+实时语音识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Realtime_Android.zip)。
 
 ### 接入须知
-+ 开发者在调用前请先查看实时语音识别的[ 接口说明](https://cloud.tencent.com/document/product/1093/37138)，了解接口的**使用要求**和**使用步骤**。
++ 开发者在调用前请先查看实时语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37138)，了解接口的**使用要求**和**使用步骤**。
 + 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 等），且系统为 **Android 4.0** 及其以上版本。
 
 ### 开发环境
@@ -26,7 +29,7 @@
 		```
 	
 + 添加相关依赖
-  okhttp3、okio、gson 和 slf4j依赖添加，在build.gradle文件中添加:
+  okhttp3、okio、gson 和 slf4j 依赖添加，在 build.gradle 文件中添加:
 	```
 	implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
 	implementation 'com.squareup.okio:okio:1.11.0'
@@ -276,12 +279,9 @@ void onFailure(AudioRecognizeRequest request, ClientException clientException, S
 
 | 参数名称 | 类型 | 是否必填 |参数描述 |默认值 |
 |---------|---------|---------|---------|---------|
-| enableSilentDetect | Boolean | 否 | 是否开启静音检测，开启后说话前的静音部分不进行识别 | true |
-| enableFirstAudioFlow | Boolean | 否 | 是否开启检测说话启始超时，开启后超时会自动停止录音 | false |
-| enableNextAudioFlow | Boolean | 否 | 是否开启检测说话结束超时，开启后超时会自动停止录音 | false |
-| minAudioFlowSilenceTime | Int | 否 | 两个语音流最短分割时间 | 1500ms |
-| maxAudioFlowSilenceTime | Int | 否 | 语音终点超时时间 | 10000ms |
-| maxAudioStartSilenceTime | Int | 否 | 语音起点超时时间 | 2000ms |
+| setSilentDetectTimeOut | Boolean | 否 | 是否开启静音检测，开启后说话前的静音部分不进行识别 | true |
+| audioFlowSilenceTimeOut | Int | 否 | 开启检测说话启始超时，开启后超时会自动停止录音 | 5000ms |
+| minAudioFlowSilenceTime | Int | 否 | 两个语音流最短分割时间 | 2000ms |
 | minVolumeCallbackTime | Int | 否 | 音量回调时间 | 80ms |
 | sensitive | float | 否 | 语音识别敏感度，越小越敏感(范围1 - 5) | 3 |
 
@@ -289,15 +289,12 @@ void onFailure(AudioRecognizeRequest request, ClientException clientException, S
 
 ```
 AudioRecognizeConfiguration audioRecognizeConfiguration = new AudioRecognizeConfiguration.Builder()
-	.enableAudioStartTimeout(true) // 是否使能起点超时停止录音
-    .enableAudioEndTimeout(true) // 是否使能终点超时停止录音
-    .enableSilentDetect(true) // 是否使能静音检测，true 表示不检查静音部分
-    .minAudioFlowSilenceTime(1000) // 语音流识别时的间隔时间
-    .maxAudioFlowSilenceTime(10000) // 语音终点超时时间
-    .maxAudioStartSilenceTime(2000) // 语音起点超时时间
-    .minVolumeCallbackTime(80) // 音量回调时间
+	.setSilentDetectTimeOut(true)// 是否使能静音检测，false 表示不检查静音部分
+        .audioFlowSilenceTimeOut(5000) // 静音检测超时停止录音
+        .minAudioFlowSilenceTime(2000) // 语音流识别时的间隔时间
+    	.minVolumeCallbackTime(80) // 音量回调时间
 	.sensitive(2.8) // 识别敏感度
-    .build();
+    	.build();
 
 // 启动语音识别
 new Thread(new Runnable() {
@@ -452,6 +449,17 @@ void start() throws AudioRecognizerException;
 ```
 void stop();
 ```
+-获取 sdk Pcm 格式录音源文件路径。
+
+```
+void savePcmFileCallBack(String filePath);
+```
+
+-获取 sdk wav 格式录音源文件路径。
+
+```
+void saveWaveFileCallBack(String filePath);
+```
 - 设置语音识别器每次最大读取数据量。
 
 ```
@@ -482,5 +490,4 @@ public static void enableInfo();
 public static void enableWarn();
 public static void enableError();
 ```
-
 

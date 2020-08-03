@@ -25,15 +25,14 @@ Authorization: Auth String
 | delimiter | 一个字符的分隔符，用于对对象键进行分组。所有对象键中从 prefix 或从头（如未指定 prefix）到首个 delimiter 之间相同的部分将作为 CommonPrefixes 下的一个 Prefix 节点。被分组的对象键不再出现在后续对象列表中，具体场景和用法可参考下面的实际案例 | string | 否 |
 | encoding-type | 规定返回值的编码方式，可选值：url，代表返回的对象键为 URL 编码（百分号编码）后的值，例如“腾讯云”将被编码为`%E8%85%BE%E8%AE%AF%E4%BA%91` | string | 否 |
 | marker | 起始对象键标记，从该标记之后（不含）按照 UTF-8 字典序返回对象键条目 | string | 否 |
-| max-keys | 单次返回最大的条目数量，默认值为1000，最大为1000 | integer | 否 |
+| max-keys | 单次返回最大的条目数量，默认值为1000，最大为1000<br>**注意：**该参数会限制每一次 List 操作返回的最大条目数，COS 在每次 List 操作中将返回不超过 max-keys 所设定数值的条目| integer | 否 |
 
 #### 请求头
 
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 请求体
-
-此接口无请求体。
+该请求的请求体为空。
 
 ## 响应
 
@@ -103,7 +102,7 @@ Authorization: Auth String
 | EncodingType | ListBucketResult | 编码格式，对应请求中的 encoding-type 参数，且仅当请求中指定了 encoding-type 参数才会返回该节点 | string |
 | Prefix | ListBucketResult | 对象键匹配前缀，对应请求中的 prefix 参数 | string |
 | Marker | ListBucketResult | 起始对象键标记，从该标记之后（不含）按照 UTF-8 字典序返回对象键条目，对应请求中的 marker 参数 | string |
-| MaxKeys | ListBucketResult | 单次响应返回结果的最大条目数量，对应请求中的 max-keys 参数 | integer |
+| MaxKeys | ListBucketResult | 单次响应返回结果的最大条目数量，对应请求中的 max-keys 参数<br>**注意：**该参数会限制每一次 List 操作返回的最大条目数，COS 在每次 List 操作中将返回不超过 max-keys 所设定数值的条目。如果由于您设置了 max-keys 参数，导致单次响应中未列出所有对象，COS 会返回一项 nextmarker 参数作为您下次 List 请求的入参，以便您后续进行列出对象 | integer |
 | Delimiter | ListBucketResult | 分隔符，对应请求中的 delimiter 参数，且仅当请求中指定了 delimiter 参数才会返回该节点 | string |
 | IsTruncated | ListBucketResult | 响应条目是否被截断，布尔值，例如 true 或 false | boolean |
 | NextMarker | ListBucketResult | 仅当响应条目有截断（IsTruncated 为 true）才会返回该节点，该节点的值为当前响应条目中的最后一个对象键，当需要继续请求后续条目时，将该节点的值作为下一次请求的 marker 参数传入 | string |
@@ -122,7 +121,7 @@ Authorization: Auth String
 | --- | --- | --- | --- |
 | Key | ListBucketResult.Contents | 对象键 | string |
 | LastModified | ListBucketResult.Contents | 对象最后修改时间，为 ISO8601 格式，如2019-05-24T10:56:40Z | date |
-| ETag | ListBucketResult.Contents | 对象的实体标签（Entity Tag），是对象被创建时标识对象内容的信息标签，可用于检查对象的内容是否发生变化<br>例如“8e0b617ca298a564c3331da28dcb50df”，此头部并不一定返回对象的 MD5 值，而是根据对象上传和加密方式而有所不同 | string |
+| ETag | ListBucketResult.Contents | 对象的实体标签（Entity Tag），是对象被创建时标识对象内容的信息标签，可用于检查对象的内容是否发生变化，<br>例如“8e0b617ca298a564c3331da28dcb50df”，此头部并不一定返回对象的 MD5 值，而是根据对象上传和加密方式而有所不同 | string |
 | Size | ListBucketResult.Contents | 对象大小，单位为 Byte | integer |
 | Owner | ListBucketResult.Contents | 对象持有者信息 | Container |
 | StorageClass | ListBucketResult.Contents | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE | Enum |
@@ -136,7 +135,7 @@ Authorization: Auth String
 
 #### 错误码
 
-此接口无特殊错误信息，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 

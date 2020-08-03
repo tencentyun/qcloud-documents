@@ -8,7 +8,7 @@
 
 ```shell
 POST /partitions?topic_id=xxxx-xx-xx-xx-xxxx&partition_id=1&split_key=7fffffffffffffffffffffffffffffffffff&action=split HTTP/1.1
-Host: <Region>.cls.myqcloud.com
+Host: <Region>.cls.tencentyun.com
 Authorization: <AuthorizationString>
 ```
 
@@ -78,3 +78,4 @@ Content-Length: 21
 ## 错误码
 
 参见 [错误码](https://cloud.tencent.com/document/product/614/12402)。
+
