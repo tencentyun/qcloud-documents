@@ -10,19 +10,19 @@
 1. 请按路径 `C:\Windows\system32\inetsrv\config\applicationHost.config` 打开 `applicationHost.config` 文件。
 2. 修改内容如下：
 >?
->- 以 “cloud.com” 域名为例。
+>- 以 “tencent.com” 域名为例。
 >- 将 `<binding protocol="https" bindingInformation="*:443:" />` 修改为
- `<binding protocol="https" bindingInformation="*:443:cloud.com" />`。
+ `<binding protocol="https" bindingInformation="*:443:tencent.com" />`。
 >- 文件无法直接修改时，可以尝试使用管理员权限进行修改或复制文件到桌面修改后，进行替换。
 >
 ```
-<site name="example.cloud.com" id="8">
+<site name="example.tencent.com" id="8">
                 <application path="/">
-                    <virtualDirectory path="/" physicalPath="D:\web\cloud" />
+                    <virtualDirectory path="/" physicalPath="D:\web\tencent" />
                 </application>
                 <bindings>
-                    <binding protocol="http" bindingInformation="*:80:example.cloud.com" />
-                    <binding protocol="http" bindingInformation="*:80:www.cloud.com" />
+                    <binding protocol="http" bindingInformation="*:80:example.tencent.com" />
+                    <binding protocol="http" bindingInformation="*:80:www.tencent.com" />
                     <binding protocol="https" bindingInformation="*:443:" />   
                 </bindings>
             </site>
