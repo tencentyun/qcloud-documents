@@ -45,7 +45,7 @@ Hadoop-COS 维护了官方 Hadoop 版本和 Hadoop-COS 版本，对应的 fs.cos
 
 ## 频控和带宽问题
 
-### 为什么有会503错误？
+### 为什么会有503错误？
 在大数据场景并发度较高的情况可能会触发 COS 的频控后会抛出503 Reduce your request rate 错误异常。您可以通过配置 fs.cosn.maxRetries 参数来对错误请求进行重试，该参数默认是200次。
 
 ### 为什么设置了带宽限速没有生效？
