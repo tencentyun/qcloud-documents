@@ -11,7 +11,7 @@
 1. 以主账号身份登录 [访问管理控制台](https://console.cloud.tencent.com/cam)，在用户列表选择对应子用户，单击【授权】。
 ![](https://main.qcloudimg.com/raw/8c15b3841ea1c3efdc123028d284c330.png)
 2. 在弹出的对话框，选择【QcloudCDBFullAccess云数据库（CDB）全读写访问权限】或【QcloudCDBInnerReadOnlyAccess云数据库（CDB）只读访问权限】预设策略，单击【确定】，即可完成子用户授权。
->?MySQL 数据库审计是 MySQL 数据库的子模块，因此上述 MySQL 的两个权限预设策略即涵盖了 MySQL 数据库审计所需的权限策略。如果子用户仅需要 MySQL 数据库审计所需的权限，可参考下文自定义一个新策略。
+>?MySQL 数据库审计是 MySQL 数据库的子模块，因此上述 MySQL 的两个权限预设策略即涵盖了 MySQL 数据库审计所需的权限策略。如果子用户仅需要 MySQL 数据库审计所需的权限，可参考 [自定义 MySQL 数据库审计策略](#zdymsjksjcl)。
 >
 ![](https://main.qcloudimg.com/raw/956b89a61a29dbee1acfdef00e1b61bc.png)
 
@@ -107,6 +107,7 @@ qcs::service_type::account:resource
 }
 ```
 
+<span id = "zdymsjksjcl"></span>
 ## 自定义 MySQL 数据库审计策略
 1. 以主账号身份登录 [访问管理控制台](https://console.cloud.tencent.com/cam/policy)，在策略列表，单击【新建自定义策略】。
 ![](https://main.qcloudimg.com/raw/495d428685ad6a166a19fa6f87478509.png)
@@ -119,4 +120,5 @@ qcs::service_type::account:resource
 4. 在编辑策略页面，按命名规范，输入“策略名称”（例如 SQLAuditFullAccess）和“描述”后，单击【完成】。
 ![](https://main.qcloudimg.com/raw/027b02fdccb2a76100de7eea28d31097.png)
 5. 返回策略列表，即可查看刚创建的自定义策略。
- 
+![](https://main.qcloudimg.com/raw/a77b150c3769e696335cd9b691846c4f.png)
+
