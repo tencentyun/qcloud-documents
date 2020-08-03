@@ -39,7 +39,7 @@ kafka_topic_name： Kafka Topic 名称
 
 ## 更多配置说明
 #### 接入方式
-函数支持 CKafka 的 `PLAINTEXT` 和 `SASL_PLAINTEXT` 2种接入方式。
+云函数支持 CKafka 的 `PLAINTEXT` 和 `SASL_PLAINTEXT` 两种接入方式，可在云函数代码中自行修改。
 - `PLAINTEXT` 接入方式：
 ```
 kafka_to_kafka = KafkaToKafka(kafka_address)
