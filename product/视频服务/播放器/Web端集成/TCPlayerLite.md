@@ -34,7 +34,7 @@ MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 <script src="https://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.2.js" charset="utf-8"></script>;
 ```
 
-如果在域名限制区域，可以引入如下链接：
+如果在域名限制区域，可以引入以下链接：
 
 ```
 <script src="https://cloudcache.tencent-cloud.com/open/qcloud/video/vcplayer/TcPlayer-2.3.2.js" charset="utf-8"></script>;
@@ -102,8 +102,8 @@ var player =  new TcPlayer('id_test_video', {
 - **原因四：跨域安全问题**
 PC 浏览器的视频播放基于 Flash 控件实现，但 **Flash 控件会做跨域访问检查**，如果播放视频所存放的服务器没有部署跨域策略，则会出现问题。
 解决方法：在视频存储服务器根域名下添加跨域配置文件`crossdomain.xml`，并配置 Flash swf 所在域名，以允许 Flash 和 JavaScript 跨域播放视频。
-播放器的 Flash swf 文件默认存放在`imgcache.qq.com`域名下，如需部署到自己的服务器上，可自行下载并部署，[swf 文件地址](https://imgcache.qq.com/open/qcloud/video/player/release/QCPlayer.swf)。
-如果是在域名限制区域，需要的播放器的 Flash swf 文件默认存放在`cloudcache.tencent-cloud.com`域名下，并且在播放器初始化的时候传递flashUrl。
+播放器的 Flash swf 文件默认存放在`imgcache.qq.com`域名下，如需部署到自己的服务器上，可自行下载并部署：[swf 文件地址](https://imgcache.qq.com/open/qcloud/video/player/release/QCPlayer.swf)。
+如果是在域名限制区域，需要的播放器的 Flash swf 文件默认存放在`cloudcache.tencent-cloud.com`域名下，并且在播放器初始化的时候传递 flashUrl。
 ```xml
 <cross-domain-policy>
   <allow-access-from domain="*.*.com" secure="false"/>
