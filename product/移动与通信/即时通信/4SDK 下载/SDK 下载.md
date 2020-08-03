@@ -86,7 +86,7 @@
 
 | 所属平台   | Github 下载地址                        | 集成指引       |
 | ---------- | ------------------------------------- | -------------- |
-| 微信小程序 | [Github](https://github.com/tencentyun/TIMSDK/tree/master/Examples/im-live) | [场景实践 - 小程序直播带货](https://cloud.tencent.com/document/product/269/44932) |
+| 微信小程序 | [Github](https://github.com/tencentyun/TencentIMDemos) | [场景实践 - 小程序直播带货](https://cloud.tencent.com/document/product/269/44932) |
 
 
 ## 直播互动场景实践
