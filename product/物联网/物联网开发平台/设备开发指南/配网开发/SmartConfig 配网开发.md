@@ -11,7 +11,7 @@ SmartConfig 方式配网，每个厂商编码方式和报文选择上有自己�
 
 目前腾讯连连小程序已支持采用 ESP-TOUCH 协议进行 SmartConfig 配网，并提供了相应的 [小程序 SDK](https://www.npmjs.com/package/qcloud-iotexplorer-appdev-sdk)。
 SmartConfig 方式配网及设备绑定的示例流程图如下：
-![](https://main.qcloudimg.com/raw/a14fe151113fcf6f93f663a029e7ff33.png)
+![](https://main.qcloudimg.com/raw/5adcf2af5b97c45b9cf3e66feb2a254b.png)
 
 
 ## 操作步骤
