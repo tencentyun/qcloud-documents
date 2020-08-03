@@ -3,9 +3,7 @@
 
 腾讯连连小程序已经支持 softAP 配网，并提供了相应的 [小程序 SDK](https://www.npmjs.com/package/qcloud-iotexplorer-appdev-sdk)。
 基于 Token 的 softAP 方式配网及设备绑定的示例流程图，如下图所示：
-<img src="https://main.qcloudimg.com/raw/a146b79d88299a59507d81eaad99137c.jpg" width="90%">
-
-
+![](https://main.qcloudimg.com/raw/5e30af733894a2fc1e5c36df817b5c51.png)
 
 ## 操作步骤
 ### softAP 配网协议示例 
