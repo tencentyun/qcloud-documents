@@ -17,7 +17,7 @@
 
 #### 支持版本
 - DTS 迁移服务支持的版本包括 Redis 2.8、3.0、3.2、4.0、5.0。
-- 支持的架构包括单节点、redis cluster、codis、tewmproxy。
+- 支持的架构包括单节点、redis cluster、codis、twemproxy。
 - 迁移权限要求：DTS 迁移数据需要源实例支持 SYNC 或者 PSYNC 命令。
 
 #### 支持网络
