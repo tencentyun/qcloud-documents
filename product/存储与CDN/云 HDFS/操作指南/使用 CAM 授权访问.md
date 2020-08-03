@@ -16,7 +16,7 @@ CHDFS 预设授权策略如下：
 | chdfs:ModifyFileSystem     | qcs::chdfs:${region-id}:uin/${account-id}:filesystem/${file-system-id} | 修改 CHDFS 属性        |
 | chdfs:DescribeFileSystem   | qcs::chdfs:${region-id}:uin/${account-id}:filesystem/${file-system-id} | 查看 CHDFS 详细信息    |
 | chdfs:DescribeFileSystems  | qcs::chdfs:${region-id}:uin/${account-id}:filesystem/${file-system-id} | 查看 CHDFS 列表        |
-| chdfs:CreateMountPoint     | qcs::chdfs:${region-id}:uin/${account-id}:mountpoint/*       | 创建挂载点           |
+| chdfs:CreateMountPoint     | qcs::chdfs:${region-id}:uin/${account-id}:mountpoint/${file-system-id} | 创建挂载点           |
 | chdfs:DeleteMountPoint     | qcs::chdfs:${region-id}:uin/${account-id}:mountpoint/${mount-point-id} | 删除挂载点           |
 | chdfs:ModifyMountPoint     | qcs::chdfs:${region-id}:uin/${account-id}:mountpoint/${mount-point-id} | 修改挂载点属性       |
 | chdfs:DescribeMountPoint   | qcs::chdfs:${region-id}:uin/${account-id}:mountpoint/${mount-point-id} | 查看挂载点详细信息   |
@@ -25,7 +25,7 @@ CHDFS 预设授权策略如下：
 | chdfs:DeleteAccessGroup    | qcs::chdfs:${region-id}:uin/${account-id}:accessgroup/${access-group-id} | 删除权限组           |
 | chdfs:ModifyAccessGroup    | qcs::chdfs:${region-id}:uin/${account-id}:accessgroup/${access-group-id} | 修改权限组属性       |
 | chdfs:DescribeAccessGroups | qcs::chdfs:${region-id}:uin/${account-id}:accessgroup/${access-group-id} | 查看权限组列表       |
-| chdfs:CreateAccessRules    | qcs::chdfs:${region-id}:uin/${account-id}:accessrule/*       | 批量创建权限规则     |
+| chdfs:CreateAccessRules    | qcs::chdfs:${region-id}:uin/${account-id}:accessrule/${access-group-id}  | 批量创建权限规则     |
 | chdfs:DeleteAccessRules    | qcs::chdfs:${region-id}:uin/${account-id}:accessrule/${access-rule-id} | 批量删除权限规则     |
 | chdfs:ModifyAccessRules    | qcs::chdfs:${region-id}:uin/${account-id}:accessrule/${access-rule-id} | 批量修改权限规则属性 |
 | chdfs:DescribeAccessRules  | qcs::chdfs:${region-id}:uin/${account-id}:accessrule/${access-rule-id} | 查看权限规则列表     |

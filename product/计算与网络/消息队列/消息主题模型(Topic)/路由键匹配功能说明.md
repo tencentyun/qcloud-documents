@@ -2,7 +2,7 @@ CMQ 的路由键匹配功能类似于 rabbitMQ 的 exchange  queue，可以用�
 
 ### 使用说明
 
-Binding key 、Routing key 是组合使用的，提供类似于 RabbitMQ 的消息过滤能力。发消息时配的 Routing key 是客户端发消息带的。创建订阅关系时配的 Binding key 是 topic 和 订阅者的绑定关系。
+Binding key、Routing key 是组合使用的，提供类似于 RabbitMQ 的消息过滤能力。发消息时配的 Routing key 是客户端发消息带的。创建订阅关系时配的 Binding key 是 topic 和 订阅者的绑定关系。
 
 ### 使用限制
 

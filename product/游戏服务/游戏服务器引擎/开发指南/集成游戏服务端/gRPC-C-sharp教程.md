@@ -37,7 +37,7 @@ sudo rpm -Uvh https://packages.microsoft.com/config/centos/7/packages-microsoft-
        项目依赖于 proto/csharp-demo 文件夹中的 GameServerGrpcSdkService.proto 和 GseGrpcSdkService.proto 两个 proto 文件。
 
 ## 游戏进程集成流程
-![](https://main.qcloudimg.com/raw/90eea1630afcd15f09630460b0413ece.png)
+![](https://main.qcloudimg.com/raw/c20b151d51ea9917c4311c4dbc844b73.png)
 #### 服务端接口列表
 
 | 接口名称 | 接口功能|

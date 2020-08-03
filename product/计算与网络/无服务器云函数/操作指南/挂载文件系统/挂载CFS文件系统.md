@@ -7,17 +7,22 @@ CFS 成本低廉，采用按量计费模式，以小时为计费周期，您只�
 - 函数执行空间不受限。
 - 多个函数可共用一个文件系统，实现文件共享。
 
-## 前提条件
-如需使用 CFS 功能，请参考 [自定义策略](https://cloud.tencent.com/document/product/598/37739) 为 SCF_QcsRole、QcloudSCFReadOnlyAccess 及 QcloudSCFFullAccess 角色添加以下策略：
-- cfs:DescribeCfsFileSystems
-- cfs:DescribeMountTargets
-- cfs:DescribeCfsServiceStatus
-
-
-
-
-
 ## 操作步骤
+
+### 关联授权策略
+>!如需使用 CFS 功能，云函数需要能够操作您 CFS 资源的权限。
+
+请参考以下步骤为账号进行授权操作：
+1. 请参考 [修改角色](https://cloud.tencent.com/document/product/598/19389)，为 `SCF_QcsRole` 角色关联 `QcloudCFSReadOnlyAccess` 策略。关联成功则如下图所示：
+如您使用的账号未进行该操作，则可能出现函数无法保存，CFS 相关功能无法使用等问题。
+![](https://main.qcloudimg.com/raw/dec5c3f4d54aeeb25fce8450f584afa4.png)
+2. 如您使用账号为子账号，则请联系主账号并参考 [子用户权限设置](https://cloud.tencent.com/document/product/598/36256) 为您的子账号关联 `QcloudCFSReadOnlyAccess` 策略。关联成功则如下图所示：
+如您使用的子账号未进行该操作，则可能出现无法使用 CFS 相关功能的问题。
+![](https://main.qcloudimg.com/raw/4e83ee59c61f86484b3f56b356ac32d5.png)
+
+
+
+
 ### 创建私有网络 VPC
 请参考 [快速搭建 IPv4 私有网络](https://cloud.tencent.com/document/product/215/30716) 完成 VPC 创建。
 
@@ -42,3 +47,5 @@ CFS 成本低廉，采用按量计费模式，以小时为计费周期，您只�
 您可编辑函数代码，开始使用 CFS 文件系统。如下图所示：
 ![](https://main.qcloudimg.com/raw/5ba2b08d89b903cda862135c1f74fc9d.png)
 
+### SCF 使用 CFS 文件系统性能测试
+您可以使用此 [脚本](https://github.com/tencentyun/scf_cfs_demo) 测试 SCF 使用 CFS 时的性能。
