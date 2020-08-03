@@ -549,7 +549,7 @@ request_str 即为 post 内容。
 
 ```
 {
-	"authen_info":{
+	"authen_info":"{
 		"a":{
 			"authen_code":"09E33D5E1D208569EE634C733F0B1FD933DD690B25F5BF72B386257B7A2113B0",
 			"authen_type":1
@@ -988,7 +988,7 @@ authen["authen_code"] = authen_code;
 authen["authen_type"] = 1; //统一使用 hmac_sha256，填1
 
 Json::Value authen_info;
-authen_info["a"] = authen;  //key 填”a”就行，表示认证码
+authen_info["a"] = authen;  //key 填"a"就行，表示认证码
 
 Json::Value request;
 request["request_content"] = request_content_str;
