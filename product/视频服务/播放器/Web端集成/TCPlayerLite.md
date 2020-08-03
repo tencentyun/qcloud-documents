@@ -31,13 +31,13 @@ MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 ### Step1. 页面准备工作
 在需要播放视频的页面（PC 或 H5）中引入初始化脚本。
 ```
-<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.2.js" charset="utf-8"></script>;
+<script src="https://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.2.js" charset="utf-8"></script>;
 ```
 
 注：如果在域名限制区域可以引入如下链接
 
 ```
-<script src="//cloudcache.tencent-cloud.com/open/qcloud/video/vcplayer/TcPlayer-2.3.2.js" charset="utf-8"></script>;
+<script src="https://cloudcache.tencent-cloud.com/open/qcloud/video/vcplayer/TcPlayer-2.3.2.js" charset="utf-8"></script>;
 ```
 
 >! 直接用本地网页无法调试，Web 播放器无法处理该情况下的跨域问题。
@@ -106,7 +106,7 @@ PC 浏览器的视频播放基于 Flash 控件实现，但 **Flash 控件会做�
 如果是在域名限制区域，需要的播放器的 Flash swf 文件默认存放在`cloudcache.tencent-cloud.com`域名下，并且在播放器初始化的时候传递flashUrl。
 ```xml
 <cross-domain-policy>
-    <allow-access-from domain="*.*.com" secure="false"/>
+  <allow-access-from domain="*.*.com" secure="false"/>
 </cross-domain-policy>
 ```
 
