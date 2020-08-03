@@ -16,7 +16,7 @@ AirKiss 是微信为 Wi-Fi 设备提供的配网技术，具体文档请参考 [
 
 腾讯连连小程序已支持采用 AirKiss 协议进行配网，并提供了相应的 [小程序 SDK](https://github.com/tencentyun/qcloud-iotexplorer-appdev-miniprogram-sdk)。
 AirKiss 方式配网及设备绑定的示例流程图如下：
-<img src="https://main.qcloudimg.com/raw/f87a534f9f84d43e7d7e1c8313e27692.jpg" width="90%">
+![](https://main.qcloudimg.com/raw/8e7f638de7dc02853463a59e32dec223.png)
 
 
 ## 操作步骤
