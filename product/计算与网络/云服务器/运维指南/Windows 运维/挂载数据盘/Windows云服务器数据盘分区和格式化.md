@@ -12,4 +12,3 @@
 - 磁盘容量小于2TB时，请 [初始化云硬盘（Windows）](https://cloud.tencent.com/document/product/362/6734#Windows2008)。
 - 磁盘容量大于等于2TB时，请 [初始化云硬盘（Windows）](https://cloud.tencent.com/document/product/362/6735#2TBWindows2012)。
 
-

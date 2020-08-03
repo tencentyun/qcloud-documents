@@ -312,7 +312,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| audioRoute | int | 声音播放模式，可设置值：TXLiveConstants#AUDIO_ROUTE_SPEAKER、TXLiveConstants#AUDIO_ROUTE_SPEAKER。 |
+| audioRoute | int | 声音播放模式，可设置值：TXLiveConstants#AUDIO_ROUTE_RECEIVER、TXLiveConstants#AUDIO_ROUTE_SPEAKER。 |
 
 __介绍__
 

@@ -6,7 +6,7 @@ TCC 事务，也可以理解为手动事务。需要用户提供 Try、Confirm�
 
 参考 [准备工作](https://cloud.tencent.com/document/product/1224/45966) 文档。
 
-## Maven配置
+## Maven 配置
 
 通过配置业务代码的 pom.xml 文件，可以引入 DTF 的 SDK 到您的工程中。
 
@@ -18,6 +18,13 @@ TCC 事务，也可以理解为手动事务。需要用户提供 Try、Confirm�
     <artifactId>spring-boot-dtf</artifactId>
     <version>${dtf.version}</version>
 </dependency>
+```
+>?如果需要同时使用 tsf-sleuth 和 druid，需要切换到 spring-boot-dtf-druid 客户端，配置如下：
+```
+<dependency>
+	<groupId>com.tencent.cloud</groupId>
+	<artifactId>spring-boot-dtf-druid</artifactId>
+</dependency>  
 ```
 
 ## 客户端配置
@@ -108,7 +115,9 @@ public Boolean order(@RequestBody Order order) {
 | timeout | Integer  | 否   | 60 × 1000 | 事务超时时间（主事务**开启**到**提交**/**回滚**的时长），单位：毫秒 |
 | groupId | String   | 否   |     -      | 在此事务分组下开启主事务                                      |
 
->?如果`dtf.env.groups`下只配置了`1个`事务分组 ID，则 @DtfTransactional 注解中**不需要**填写 groupId，DTF 框架会自动从配置中获取。
+DTF 目前支持通过 @DtfTransactional 传染主事务。当您的主事务有多个入口时，使用多个@DtfTransactional 不会报错。全局事务的开始与结束，将由第一个开始执行的标有 @DtfTransactional 的主事务纳管。
+
+>?如果`dtf.env.groups`下只配置了**1个**事务分组 ID，则 @DtfTransactional 注解中**不需要**填写 groupId，DTF 框架会自动从配置中获取。
 
 
 ### 通过 API 管理主事务
@@ -138,8 +147,8 @@ public Boolean order(@RequestBody Order order) {
 @RequestMapping("/order/callback")
 public Boolean orderCallback(@RequestBody OrderCallback orderCallback) {
     try {
-        // 绑定DTF上下文。
-        // 如果全局使用DTF框架，可以忽略该步骤，框架会自动完成上下文传递。详见[远程请求时传递分布式事务上下文]章节
+        // 绑定 DTF 上下文
+        // 如果全局使用 DTF 框架，可以忽略该步骤，框架会自动完成上下文传递。详见[远程请求时传递分布式事务上下文]章节
         DtfTransaction.bind(orderCallback.getGroupId(), orderCallback.getTxId(), orderCallback.getLastBranchId());
         // 处理业务回调逻辑
         if(orderCallback.getResult()) {
@@ -210,7 +219,8 @@ public interface IOrderService {
 | confirmClass  | String   | 否   | @DtfTcc 注解所在 Class                         | Confirm 操作类名                |
 | confirmMethod | String   | 否   | confirm 前缀 + @DtfTcc 注解方法名首字母大写    | Confirm 操作方法名              |
 | cancelClass   | String   | 否   | @DtfTcc 注解所在 Class                         | Cancel 操作类名                 |
-| cancelMethod  | String   | 否   | Cancel 前缀 + @DtfTcc注解方法名名称首字母大写 | Cancel 操作方法名               |
+| cancelMethod  | String   | 否   | Cancel 前缀 + @DtfTcc 注解方法名首字母大写 | Cancel 操作方法名               |
+| rollbackFor   | Class<? extends Throwable>[] | 否   | {}                                           | 分支事务在识别到以下异常时回滚主事务，未配置时不回滚 |
 
 在上面的例子中：
 
@@ -219,8 +229,9 @@ public interface IOrderService {
 - `confirmMethod`：confirmOrder(Long txId, Long branchId, Order order)
 - `cancelClass`：IOrderService
 - `cancelMethod`：cancelOrder(Long txId, Long branchId, Order order)
+- rollbackFor：默认为空。若想要在发生异常时回滚，可设置为 Exception。
 
-### 通过API管理分支事务（不推荐）
+### 通过 API 管理分支事务（不推荐）
 
 可以参考 [Spring Free 开发指导](https://cloud.tencent.com/document/product/1224/45970) 中的分支事务管理章节。
 

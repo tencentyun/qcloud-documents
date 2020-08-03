@@ -7,13 +7,13 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 若您使用 gradle 自动集成方式，请在自身应用的 AndroidManifest.xml 文件 <application> 标签下配置如下结点，其中 ```xxx``` 为任意自定义名称；如果使用手动集成方式，请修改如下节点属性：
  
 ```xml
-   <!-- 在自身应用的AndroidManifest.xml文件中添加如下结点，其中 xxx 为任意自定义名称: -->     
-   <!-- 关闭与 TPNS 应用的联合保活功能，请配置 -->
-   <provider
-       android:name="com.tencent.android.tpush.XGPushProvider"
-       tools:replace="android:authorities"
-       android:authorities="应用包名.xxx.XGVIP_PUSH_AUTH"
-       android:exported="false" />    
+<!-- 在自身应用的AndroidManifest.xml文件中添加如下结点，其中 xxx 为任意自定义名称: -->     
+<!-- 关闭与 TPNS 应用的联合保活功能，请配置 -->
+<provider
+	 android:name="com.tencent.android.tpush.XGPushProvider"
+	 tools:replace="android:authorities"
+	 android:authorities="应用包名.xxx.XGVIP_PUSH_AUTH"
+	 android:exported="false" />    
 ```
 
 若控制台有以下日志打印，则表明联合保活功能已经关闭：`I/TPNS: [ServiceUtil] disable pull up other app`。
@@ -97,10 +97,6 @@ Uri uri = getIntent().getData();
    Log.i("XG" , "value1 = " + value1 + " value2 = " + value2);
 }
 ```
-
-
-
-
 
 
 ### 厂商通道的回调支持哪些？
@@ -199,4 +195,15 @@ public final class StrUtils {
 
 3. 在项目的 External Libraries 中查看是否有相关依赖。
 ![](https://main.qcloudimg.com/raw/485c7595f1b478a6fad725d38deb87b4.png)
+
+
+### Android 拓展库 V4 到 AndroidX 如何转换？
+
+在 AndroidX 项目工程的 gradle.properties 文件中添加如下属性
+```
+android.useAndroidX=trueandroid.enableJetifier=true
+```
+>? 
+>- android.useAndroidX=true 表示当前项目启用 AndroidX。
+>- android.enableJetifier=true 表示将依赖包迁移到 AndroidX。 
 

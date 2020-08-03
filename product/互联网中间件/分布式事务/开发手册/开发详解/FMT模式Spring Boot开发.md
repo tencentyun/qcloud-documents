@@ -23,6 +23,13 @@ FMT 事务的实现原理：代理用户执行 PrepareStatement 和 CreateStatem
 </dependency>
 ```
 
+>?如果需要同时使用 tsf-sleuth 和 druid，需要切换到 spring-boot-dtf-druid 客户端，配置如下：
+```
+<dependency>
+	<groupId>com.tencent.cloud</groupId>
+	<artifactId>spring-boot-dtf-druid</artifactId>
+</dependency>  
+```
 ## 客户端配置
 
 在客户端中，支持以下配置自定义：
@@ -101,7 +108,7 @@ public Boolean order(@RequestBody Order order) {
 ```
 1. 进入 order 方法前 DTF 框架开启主事务。
 2. 执行业务逻辑或分支事务。
- - 如果该方法正常执行完毕，返回业务数据（或者void方法无返回值），DTF 框架**提交**主事务。
+ - 如果该方法正常执行完毕，返回业务数据（或者 void 方法无返回值），DTF 框架**提交**主事务。
  - 如果该方法执行出现问题，抛出异常时，DTF框架**回滚**主事务。
 3. DTF 框架自动关闭当前线程**主事务上下文**。
 
@@ -114,6 +121,7 @@ public Boolean order(@RequestBody Order order) {
 
 如果`dtf.env.groups`下只配置了**1个**事务分组 ID，则 @DtfTransactional 注解中**不需要**填写groupId，DTF 框架会自动从配置中获取。
 
+DTF 现在支持通过 @DtfTransactional 传染主事务。当您的主事务有多个入口时，使用多个@DtfTransactional 不会报错。全局事务的开始与结束，将由第一个开始执行的标有 @DtfTransactional  的主事务纳管。
 
 
 ### 通过 API 管理主事务
@@ -219,6 +227,13 @@ public int createOrder(Order order) {
 
 在`orderDao.createOrder(order);`方法中执行了一句Insert语句，此时框架会注册一个分支事务对这个Insert进行全局的事务管理。
 
+分支事务注解支持的参数包括：
+
+| 参数        | 数据类型                     | 必填 | 默认值 | 描述                                                 |
+| ----------- | ---------------------------- | ---- | ------ | ---------------------------------------------------- |
+| rollbackFor | Class<? extends Throwable>[] | 否   | {}     | 分支事务在识别到以下异常时回滚主事务，未配置时不回滚 |  
+
+rollbackFor：默认为空。若想要在发生异常时回滚，可设置为 Exception。
 
 ## 远程请求时传递分布式事务上下文
 
@@ -316,3 +331,4 @@ public class OrderApplication {
     }
 }
 ```
+
