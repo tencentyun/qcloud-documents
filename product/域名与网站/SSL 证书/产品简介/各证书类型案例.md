@@ -1,0 +1,29 @@
+
+本文档为您介绍部分行业选择证书的案例，您可以根据行业类型参考选择申请或购买对应的证书：
+
+<table>
+<tr>
+<th>行业分类</th>
+<th>推荐的证书类型</th>
+<th>案例类型</th>
+<th>行业特征</th>
+</tr>
+<tr>
+<td>金融、银行</td>
+<td>EV 型证书</td>
+<td>中国银行</td>
+<td><li> <span style='margin-left:-10px;' >希望企业身份信息展示在网站地址栏</span></li><li><span style='margin-left:-10px;' >对数据传输保密性有很高要求</span></li></td>
+</tr>
+<tr>
+<td>教育、政府、互联网</td>
+<td>OV 通配符证书</td>
+<td><li> <span style='margin-left:-10px;' >外交部</span></li><li> <span style='margin-left:-10px;' >京东</span></li><li> <span style='margin-left:-10px;' >腾讯新闻</span></li><li> <span style='margin-left:-10px;' >上海黄金交易所</span></li><li> <span style='margin-left:-10px;' >国家电网</span></li><li> <span style='margin-left:-10px;' >用友软件</span></li><li> <span style='margin-left:-10px;' >浪潮</span></li><li> <span style='margin-left:-10px;' >腾讯云</span></li></td>
+<td><li><span style='margin-left:-10px;' >网站后期有多个新增站点的需求</span></li><li><span style='margin-left:-10px;' >无需政府/公司名称展示在网站地址栏</span></li></td>
+</tr>
+<tr>
+<td>个人业务</td>
+<td>DV 型证书</td>
+<td>个人博客等</td>
+<td><li><span style='margin-left:-10px;' >无数据传输业务</span></li><li><span style='margin-left:-10px;' >纯信息或内容展示的网站</span></li></td>
+</tr>
+</table>

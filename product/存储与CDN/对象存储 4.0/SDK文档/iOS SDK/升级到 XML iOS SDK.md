@@ -244,3 +244,4 @@ XML SDK 增加了很多新的 API，您可根据需求进行调用。包括：
 * 存储桶生命周期的操作，如 PQCloudutBucketLifecycleRequest、QCloudGetBucketLifecycleRequest 等。
 
 具体请参考我们的 [iOS SDK 快速入门](https://cloud.tencent.com/document/product/436/11280)。
+
