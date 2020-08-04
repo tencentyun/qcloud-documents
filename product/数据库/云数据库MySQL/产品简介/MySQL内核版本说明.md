@@ -139,7 +139,7 @@
 ### 20180915
 #### 新特性：
 - MEMORY  引擎自动转换为 InnoDB 引擎：如果全局变量 cdb_convert_memory_to_innodb 为 ON，则创建、修改表时会将表引擎从 MEMORY 转换为 InnoDB。
-- 自动 kill 空闲任务，减少资源冲突，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
+- 自动 kill 空闲事务，减少资源冲突，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
    
 #### 官方 bug 修复：
 - 修复 REPLAY LOG RECORD 所导致 crash 的问题。
