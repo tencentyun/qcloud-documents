@@ -95,12 +95,12 @@ cp chdfs_hadoop_plugin_network-2.0.jar /opt/cloudera/parcels/CDH-5.16.1-1.cdh5.1
 下面以 Hadoop 标准测试中的 TeraGen 和 TeraSort 为例：
 
 ```
-hadoop jar./hadoop-mapreduce-examples-2.7.3.jar teragen -Dmapred.map.tasks=4 1099 cosn://examplebucket-1250000000/teragen_5/
+hadoop jar ./hadoop-mapreduce-examples-2.7.3.jar teragen -Dmapred.map.tasks=4 1099 cosn://examplebucket-1250000000/teragen_5/
 
 hadoop jar ./hadoop-mapreduce-examples-2.7.3.jar terasort  -Dmapred.map.tasks=4 cosn://examplebucket-1250000000/teragen_5/ cosn://examplebucket-1250000000/result14
 ```
 
->?ofs://scheme 后面请替换为用户 CHDFS 的挂载点路径。
+>?`ofs://     schema`后面请替换为用户 CHDFS 的挂载点路径。
 
 
 ####  2. Hive
@@ -186,7 +186,7 @@ Tez 引擎需要将 CHDFS 的 jar 包导入到 Tez 的压缩包内，下面以 a
 以 CHDFS 进行 Spark example word count 测试为例。
 
 ```
-spark-submit  --classorg.apache.spark.examples.JavaWordCount --executor-memory 4g --executor-cores4  ./spark-examples-1.6.0-cdh5.16.1-hadoop2.6.0-cdh5.16.1.jar cosn://examplebucket-1250000000/wordcount
+spark-submit  --class org.apache.spark.examples.JavaWordCount --executor-memory 4g --executor-cores 4  ./spark-examples-1.6.0-cdh5.16.1-hadoop2.6.0-cdh5.16.1.jar cosn://examplebucket-1250000000/wordcount
 ```
 
 执行结果如下：
