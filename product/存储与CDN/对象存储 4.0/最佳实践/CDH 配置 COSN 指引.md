@@ -1,6 +1,6 @@
 ## 简介
 
-CDH（Cloudera's Distribution, including Apache Hadoop）是业界流行的 Hadoop 发行版本。本文指导如何在 CDH 环境下使用腾讯云 COS 存储服务，以实现大数据计算与存储分离，提供灵活及低成本的大数据解决方案。
+CDH（Cloudera's Distribution, including Apache Hadoop）是业界流行的 Hadoop 发行版本。本文指导如何在 CDH 环境下使用 COSN 存储服务，以实现大数据计算与存储分离，提供灵活及低成本的大数据解决方案。
 
 >?COSN 是 Hadoop-COS 文件系统的简称。
 
