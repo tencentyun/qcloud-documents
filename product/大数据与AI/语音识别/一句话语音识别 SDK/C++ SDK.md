@@ -157,7 +157,7 @@ int main(int argc, const char * argv[]) {
 	//8k or 16k
 	string EngSerViceType="16k_zh";
 	//1 or 0
-	//填1的时候URL可以设置为空
+	//填1的时候 URL 可以设置为空
 	string SourceType="0";
 	//wav or mp3
 	string VoiceFormat="wav";
