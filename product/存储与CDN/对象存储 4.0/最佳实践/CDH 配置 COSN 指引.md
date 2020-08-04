@@ -174,7 +174,7 @@ Tez 引擎需要将 COSN 的 jar 包导入到 Tez 的压缩包内，下面以 ap
 
 （1）找到 CDH 集群安装的 tez 包，然后解压，例如/usr/local/service/tez/tez-0.8.5.tar.gz。
 （2）将 COSN 的 jar 包放置到解压后的目录下，然后重新压缩输出一个压缩包。
-（3）将新的压缩包上传到 tez.lib.uris 指定的路径下(如果之前存在路径则直接替换即可)。
+（3）将新的压缩包上传到 tez.lib.uris 指定的路径下（如果之前存在路径则直接替换即可）。
 （4）在 CDH 主页面，找到 HIVE，重启 hiveserver 和 hivemetastore。
 
 #### 3. Spark
