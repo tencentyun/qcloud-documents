@@ -16,7 +16,7 @@ JAR 包使用步骤举例如下：
 3. 右键单击 Eclipse ，选择【您的项目】>【Properties】>【Java Build Path】>【Add JARs】。  
 4. 其他 IDE 参考对应的导入 jar 包流程添加即可，目前暂不支持 maven 仓库管理。
 
-添加完成后，用户就可以在工程中使用TTS语音合成SDK了。
+添加完成后，用户就可以在工程中使用 TTS 语音合成 SDK 了。
 
 ##  <span id="result">获取用户信息</span>
 **获取 AppID，SecretId 与 SecretKey**
