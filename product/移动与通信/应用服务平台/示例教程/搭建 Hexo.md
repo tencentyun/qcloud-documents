@@ -22,7 +22,7 @@ hexo init
 ```plaintext
 hexo s
 ```
-![](https://main.qcloudimg.com/raw/534e200357715a15d0a157eb3fb48700.jpg)
+![](https://main.qcloudimg.com/raw/2cfab06f6c487057cbb8934cea6a5fb0.png)
 预览后，在浏览器中打开 [localhost:4000](http://localhost:4000)，即可看到部署的 Hexo 博客。
 ![](https://main.qcloudimg.com/raw/5b91e6303e40aea5c1d5f0cfc521dc4a.png)
 
