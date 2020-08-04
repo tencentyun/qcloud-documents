@@ -16,7 +16,7 @@
 ![](https://main.qcloudimg.com/raw/e94ab9cafbf3bae9c5bc959511e772da.png)
 
 #### 模板变量
-您可以自定义 Dashboard 筛选条件，在 Dashboard 管理页 [使用模板变量](#.E6.9F.A5.E7.9C.8B.E6.A8.A1.E6.9D.BF.E5.8F.98.E9.87.8F) 。目前支持云服务器—基础监控、存储监控和云数据库MySQL主机、备机监控标签筛选。
+您可以自定义 Dashboard 筛选条件，在 Dashboard 管理页 [使用模板变量](#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E5.8F.98.E9.87.8F) 。目前支持云服务器—基础监控、存储监控和云数据库MySQL主机、备机监控标签筛选。
 
 1. 新建模板变量。
 	单击【模板管理页】>【新增】，定义完模板变量信息后单击【确认】即可。
@@ -24,7 +24,7 @@
 2. 编辑、删除模板变量。
 在模板变量列表中您可以进行模板变量的删除和编辑。
 ![](https://main.qcloudimg.com/raw/2ce8f088a373b4fa63da4ec7e0627b8f.png)
->?如需使用模板变量，请参考步骤 [使用模板变量](#.E6.9F.A5.E7.9C.8B.E6.A8.A1.E6.9D.BF.E5.8F.98.E9.87.8F)。
+>?如需使用模板变量，请参考步骤 [使用模板变量](#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E5.8F.98.E9.87.8F)。
 
 
 #### 链接管理
@@ -35,8 +35,8 @@
   - 其它面板：链接到其它面板
 - 链接目标：链接地址或链接面板
 - 参数
-  -  时间：跳转链接页是否同步面板时间
-- 模板变量：跳转链接页是否包含模板变量
+ -  时间：跳转链接页是否同步面板时间
+ - 模板变量：跳转链接页是否包含模板变量
 - 打开方式
   - 新选项卡：新标签打开链接
 - 当前页：当前标签打开链接
@@ -74,7 +74,7 @@ JSON包含 Dashboard 的属性、模板变量、面板查询等字段，您可�
 | Version     | Dashboard 的版本，每次保存 Dashboard 都会增加     |
 | Templating  | Dashboard 模板变量 ，详情请参考 [模板变量](#step1) |
 | Link        | Dashboard 链接，详情请参考 [链接](#step2)         |
-| Panels      | 图表配置 ，请参考 [Panels]                        |
+| Panels      | 图表配置 ，请参考 [Panels](#step3)                        |
 | Time        | Dashboard 的时间范围                              |
 
 **<span id="step1">Templating</sapan>**
@@ -93,7 +93,7 @@ JSON包含 Dashboard 的属性、模板变量、面板查询等字段，您可�
 	]
 ```
 
-**<span id="step2">  Link   </span>**
+**<span id="step2">Link</span>**
 
 ```
 "Links": [ // Dashboard链接
@@ -109,7 +109,7 @@ JSON包含 Dashboard 的属性、模板变量、面板查询等字段，您可�
 	]
 ```
 
-**<span id="step2">  Panels </span>**
+**<span id="step3">Panels</span>**
 
 ```
 "Panels": [ // panel配置
@@ -315,4 +315,4 @@ JSON包含 Dashboard 的属性、模板变量、面板查询等字段，您可�
        ![](https://main.qcloudimg.com/raw/ba7fb73ba166c1479e38c2ed84c385f1.png)
     - 在监控图表中使用：在图表编辑页，快速选择标签进行分组聚合展示实例数据。
        ![](https://main.qcloudimg.com/raw/9899cd8bf31fc6c8ad164aec1b76219a.png)
-    > ?如需编辑图表，请参考 [新建指标—编辑指标]( https://cloud.tencent.com/document/product/248/46761 ) 。
+    > ?如需编辑图表，请参考 [编辑指标]( https://cloud.tencent.com/document/product/248/46761#.E7.BC.96.E8.BE.91.E6.8C.87.E6.A0.87 ) 。
