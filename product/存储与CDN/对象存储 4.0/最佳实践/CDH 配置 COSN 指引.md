@@ -59,7 +59,7 @@ COSN 大数据组件支持情况如下：
 </property>
 ```
 
-以下为必选 COSN 配置项（添加到 core-site.xml 中），COSN 其他配置可参见 [Hadoop 工具](https://cloud.tencent.com/document/product/436/6884) 文档。
+以下为必选的 COSN 配置项（需添加到 core-site.xml 中），COSN 其他配置可参见 [Hadoop 工具](https://cloud.tencent.com/document/product/436/6884) 文档。
 
 | COSN 配置项                     | 值                                 | 含义                                                         |
 | ------------------------------- | ---------------------------------- | ------------------------------------------------------------ |
@@ -99,9 +99,9 @@ cp hadoop-cos-2.7.3-shaded.jar /opt/cloudera/parcels/CDH-5.16.1-1.cdh5.16.1.p0.3
 下面以 Hadoop 标准测试中的 TeraGen 和 TeraSort 为例：
 
 ```
-hadoop jar./hadoop-mapreduce-examples-2.7.3.jar teragen  -Dmapred.job.maps=500  -Dfs.cosn.upload.buffer=mapped_disk -Dfs.cosn.upload.buffer.size=-1 1099 cosn://alansh-1250000000/terasortv1/1k-input
+hadoop jar./hadoop-mapreduce-examples-2.7.3.jar teragen  -Dmapred.job.maps=500  -Dfs.cosn.upload.buffer=mapped_disk -Dfs.cosn.upload.buffer.size=-1 1099 cosn://examplebucket-1250000000/terasortv1/1k-input
 
-hadoop jar./hadoop-mapreduce-examples-2.7.3.jar terasort -Dmapred.max.split.size=134217728 -Dmapred.min.split.size=134217728 -Dfs.cosn.read.ahead.block.size=4194304 -Dfs.cosn.read.ahead.queue.size=32 cosn://alansh-1250000000/terasortv1/1k-input  cosn://alansh-1250000000/terasortv1/1k-output
+hadoop jar./hadoop-mapreduce-examples-2.7.3.jar terasort -Dmapred.max.split.size=134217728 -Dmapred.min.split.size=134217728 -Dfs.cosn.read.ahead.block.size=4194304 -Dfs.cosn.read.ahead.queue.size=32 cosn://examplebucket-1250000000/terasortv1/1k-input  cosn://examplebucket-1250000000/terasortv1/1k-output
 ```
 
 >?cosn://scheme 后面请替换为用户大数据业务的存储桶路径。
@@ -150,7 +150,7 @@ STORED AS INPUTFORMAT
     OUTPUTFORMAT
   'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
 LOCATION
-  'ofs://f4mvdbisuhe-zao3.chdfs.ap-shanghai.myqcloud.com//user/hive/warehouse/report.db/report_o2o_pid_credit_detail_grant_daily'
+  'cosn://examplebucket-1250000000/user/hive/warehouse/report.db/report_o2o_pid_credit_detail_grant_daily'
 TBLPROPERTIES (
   'last_modified_by'='work',
   'last_modified_time'='1589310646',
@@ -189,7 +189,7 @@ Tez 引擎需要将 COSN 的 jar 包导入到 Tez 的压缩包内，下面以 ap
 以 COSN 进行 Spark example word count 测试为例。
 
 ```
-spark-submit  --classorg.apache.spark.examples.JavaWordCount --executor-memory 4g --executor-cores4  ./spark-examples-1.6.0-cdh5.16.1-hadoop2.6.0-cdh5.16.1.jar cosn://alansh-1250000000/wordcount
+spark-submit  --classorg.apache.spark.examples.JavaWordCount --executor-memory 4g --executor-cores4  ./spark-examples-1.6.0-cdh5.16.1-hadoop2.6.0-cdh5.16.1.jar cosn://examplebucket-1250000000/wordcount
 ```
 
 执行结果如下：
@@ -211,7 +211,7 @@ spark-submit  --classorg.apache.spark.examples.JavaWordCount --executor-memory 4
 以导出 MYSQL 表到 COSN 为例，可参考 [关系型数据库和 HDFS 的导入导出](https://cloud.tencent.com/document/product/589/19053)  文档进行测试。
 
 ```
-sqoop import --connect "jdbc:mysql://IP:PORT/mysql" --table sqoop_test --username root --password 123**  --target-dir cosn://alansh-1250000000/sqoop_test
+sqoop import --connect "jdbc:mysql://IP:PORT/mysql" --table sqoop_test --username root --password 123**  --target-dir cosn://examplebucket-1250000000/sqoop_test
 ```
 
 执行结果如下：
