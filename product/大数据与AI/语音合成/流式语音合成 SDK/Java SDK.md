@@ -14,7 +14,7 @@ JAR 包使用步骤举例如下：
 1. 找到：out 和 lib 文件夹中的 jar 文件，包括 tts-sdk-\*.\*.jar 和依赖的 jar 包。  
 2. 将 jar 复制到您的工程文件夹中。如果 jar 包和您已使用的 jar 有重复，可选择其一。  
 3. 右键单击 Eclipse ，选择【您的项目】>【Properties】>【Java Build Path】>【Add JARs】。  
-4. 其他IDE参考对应的导入jar包流程添加即可，目前暂不支持 maven 仓库管理。
+4. 其他 IDE 参考对应的导入 jar 包流程添加即可，目前暂不支持 maven 仓库管理。
 
 添加完成后，用户就可以在工程中使用TTS语音合成SDK了。
 
