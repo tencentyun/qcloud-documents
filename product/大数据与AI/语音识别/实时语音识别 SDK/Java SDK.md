@@ -168,8 +168,7 @@ public class RasrRequestSample {
 
 	/**
 	 * 初始化基础参数, 请将下面的参数值配置成您自己的值。
-	 * 
-	 * 参数获取方法可参考： <a href="https://cloud.tencent.com/document/product/441/6203">签名鉴权 获取签名所需信息</a>
+	 * 具体参数及秘钥请参考接口说明。
 	 */
 	private static void initBaseParameters() {
 		AsrInternalConfig.setSdkRole(SdkRole.ONLINE); // VAD版用户请务必赋值为 SdkRole.VAD
