@@ -168,7 +168,7 @@ public class RasrRequestSample {
 
 	/**
 	 * 初始化基础参数, 请将下面的参数值配置成您自己的值。
-	 * 具体参数及秘钥请参考接口说明。
+	 * 具体参数及密钥请参考接口说明。
 	 */
 	private static void initBaseParameters() {
 		AsrInternalConfig.setSdkRole(SdkRole.ONLINE); // VAD版用户请务必赋值为 SdkRole.VAD
