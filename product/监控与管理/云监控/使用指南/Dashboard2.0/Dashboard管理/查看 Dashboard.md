@@ -1,4 +1,4 @@
-Dashboard 支持最近访问面板、收藏面板和自定义面板三种方式切换查看。本文为您介绍新建 Dashboard后如何查看 Dashboard。
+Dashboard 支持最近访问面板、收藏面板和自定义面板三种方式切换查看。本文为您介绍新建 Dashboard 后如何查看 Dashboard。
 
 
 
