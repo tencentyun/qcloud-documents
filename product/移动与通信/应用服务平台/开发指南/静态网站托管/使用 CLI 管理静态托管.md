@@ -32,7 +32,7 @@ cloudbase hosting:delete cloudPath -e envId
 
 ## 查看文件列表
 
-您可以使用下面的命令部署展示静态网站存储空间中文件
+您可以使用下面的命令部署展示静态网站存储空间中文件。
 
 ```bash
 cloudbase hosting:list -e envId
