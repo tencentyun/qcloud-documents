@@ -28,7 +28,9 @@
         <td>SDK 1.2.0.1 版本发布</td>
        <td><li> 支持统计厂商通道通知点击事件 </li> <li> 丰富通知自定义样式</li> <li> 升级 OPPO 推送 SDK V2.1.0</li> </td>
         <td>2020-06-23</td>
-        <td>-</td>
+        <td>此版本较旧版本有包名变更，请注意参考最新<a href="https://cloud.tencent.com/document/product/548/36652"> 集成文档 </a>变更相关配置：
+<li>自动集成：注意混淆配置；</li>
+<li>手动集成：注意 so 文件、manifest 文件、混淆配置。</li></td>
     </tr>
     <tr>
         <td>SDK 1.1.6.3 版本发布</td>

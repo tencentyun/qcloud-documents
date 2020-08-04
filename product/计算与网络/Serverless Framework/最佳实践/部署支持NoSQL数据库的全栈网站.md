@@ -2,7 +2,7 @@
 该模板可以快速部署一个基于 **TCB NoSQL DB + SCF + Website** 的全栈 Serverless 应用。主要包含以下组件：  
 - **Serverless Website：** 前端通过托管 html 静态页面到 COS 对象存储中。
 - **Serverless Cloud Function：** 后端函数部署到云端，通过 HTTP 进行触发调用。
-- **TCB云开发环境：** 通过创建云开发环境并调用 NoSQL DB，为全栈网站提供数据库服务。
+- **TCB 云开发环境：** 通过创建云开发环境并调用 NoSQL DB，为全栈网站提供数据库服务。
    
 ## 操作步骤
    
@@ -44,7 +44,7 @@ $ npm install
 ```
    
 ### 部署
-配置完成后，进入含有`.env`文件的根目录下，通过以下命令进行部署，创建一个新的云开发环境，将后台代码部署到云函数 SCF 平台，并通过 website 组件部署静态网站：
+配置完成后，进入项目根目录下，通过以下命令进行部署，创建一个新的云开发环境，将后台代码部署到云函数 SCF 平台，并通过 website 组件部署静态网站：
    
 ```bash
 $ sls deploy --all

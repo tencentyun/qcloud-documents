@@ -9,8 +9,6 @@ Rdesktop 是远程桌面协议（RDP）的开源客户端，用于进行连接 W
 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，在实例列表页面记录需上传文件云服务器的公网 IP。如下图所示：
 ![](https://main.qcloudimg.com/raw/ea509a3a924e9cafc54af146acaa03d7.png)
 
-
-
 ### 安装 rdesktop
 1. 在终端执行以下命令，下载 rdesktop 安装包，此步骤以 rdesktop 1.8.3 版本为例。
 ```
