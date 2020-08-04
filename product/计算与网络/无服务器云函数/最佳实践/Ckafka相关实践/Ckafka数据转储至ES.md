@@ -94,6 +94,8 @@
 
 
 ### 查看 ES 和函数运行日志
+>!如果您还未将实际数据接入消息队列 Ckafka，您可以通过 [客户端工具](https://cloud.tencent.com/document/product/597/30932) 模拟消息生产。
+>
 - 选择函数侧边栏【日志查询】，即可查看函数运行日志。如下图所示：
 ![](https://main.qcloudimg.com/raw/da6d2085affcedc728c1b3e3b1bf6eb4.png)
 - 查看 Kibana。详情请参见 [通过 Kibana 访问集群](https://tcloud-doc.isd.com/document/product/845/19541)。
