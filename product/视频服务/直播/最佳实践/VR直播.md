@@ -1,4 +1,4 @@
-目前腾讯云标准直播、云点播已全面适配 VR 全景视频源。您可通过购买市面上的全景硬件设备，将采集到的 VR 视频传至腾讯云端后，直接经过标准直播、云点播进行正常下行分发。本文将以“Insta360 pro2”相机为例介绍如何基于 VR 全景相机与标准直播完成一次 VR 直播。
+目前腾讯云标准直播、云点播已全面适配 VR 全景视频源。您可通过购买市面上的全景硬件设备，将采集到的 VR 视频传至腾讯云端后，直接经过标准直播、云点播进行正常下行分发。本文将以“Insta360 Pro 2”相机为例介绍如何基于 VR 全景相机与标准直播完成一次 VR 直播。
 
 
 
@@ -28,7 +28,7 @@
 ## 准备工作 
 1. 开通腾讯云直播服务。
 2. 已添加推流域名和播放域名，具体操作请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
-3. 一台已经连接好的“Insta360 Pro 2”相机，具体连接操作步骤可参见 [Insta360 Pro2 说明书](https://onlinemanual.insta360.com/pro2/zh-cn/live/prepare/3)。
+3. 一台已经连接好的“Insta360 Pro 2”相机，具体连接操作步骤可参见 [Insta360 Pro 2 说明书](https://onlinemanual.insta360.com/pro2/zh-cn/live/prepare/3)。
 4. 通过[【Insta360 官网】](http://insta360.com/download/insta360-pro2?locale=zh-cn)下载 Android/iOS 手机端、Windows 端 或 Mac 端的相机控制软件。
  ![](https://main.qcloudimg.com/raw/d36bcf1b1f00c2b85889ef04f538530e.png)
 5. 软件下载完成之后需要对相机进行调试，调试方法参见 [基础拍摄准备-相机调试](https://onlinemanual.insta360.com/pro2/zh-cn/basic/prepare/adjustment)。
@@ -52,7 +52,7 @@
 </tr><tr>
 <td>分辨率</td><td>根据个人所需选择分辨率。若设定中没有您所需分辨率，勾选右侧的【自定义】按钮，自定义设置。<br><b>注意：</b>4K 2D或3D的分辨率不能大于3840 * 3840。</td>
 </tr><tr>
-<td>帧率</td><td>默认帧率值为：30fps。若您的分辨率设置为自定义，可同时自定义帧率取值。</td>
+<td>帧率</td><td>默认帧率值为：30fps。</td>
 </tr><tr>
 <td>码率</td><td>自定义直播码率，在手机端观看的情况下推荐码率调整为4Mbps。
 			<br><b>说明：</b>造成卡顿原因很多情况下是因为上传带宽不够。如果手机端画面卡顿，请先排除是否因为手机卡顿引起该情况。若不是，请选择更低的码率。</td>
@@ -86,11 +86,11 @@
 
 
 ## VR 设备参考建议
-本文以“Insta360 pro2”相机为例介绍如何基于 VR 全景相机与标准直播完成一次 VR 直播。其他**建议设备**可单击下列链接了解详情，具体使用方法可咨询云市场设备供应商。
+本文以“Insta360 Pro 2”相机为例介绍如何基于 VR 全景相机与标准直播完成一次 VR 直播。其他**建议设备**可单击下列链接了解详情，具体使用方法可咨询云市场设备供应商。
 
 | 设备                | 详情查看                                                     |
 | ------------------- | ------------------------------------------------------------ |
-| Insta360 pro2       | [单击前往](https://market.cloud.tencent.com/products/20303) |
+| Insta360 影石 Pro 2       | [单击前往](https://market.cloud.tencent.com/products/20303) |
 | Insta360 影石 Titan | [单击前往](https://market.cloud.tencent.com/products/20302) |
 | Insta360 影石       | [单击前往](https://market.cloud.tencent.com/products/20148) |
 | 圆周率 Pilot Era              | [单击前往](https://market.cloud.tencent.com/products/15866 ) |

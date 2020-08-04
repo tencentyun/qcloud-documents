@@ -25,7 +25,7 @@ touch serverless.yml
 ```yml
 # serverless.yml
 
-component: apigateway # (必填) 组件名称，此处为nextjs
+component: apigateway # (必填) 组件名称，此处为 apigateway
 name: apigwDemo # (必填) 实例名称
 org: orgDemo # (可选) 用于记录组织信息，默认值为您的腾讯云账户 appid
 app: appDemo # (可选) 该 next.js 应用名称
@@ -47,7 +47,7 @@ inputs:
         functionName: myFunction
 ```
 
-[查看详细配置文档>>]( https://github.com/serverless-components/tencent-apigateway/blob/v2/docs/configure.md )
+[查看详细配置文档>>]( https://github.com/serverless-components/tencent-apigateway/blob/master/docs/configure.md )
 
 ### 部署
 

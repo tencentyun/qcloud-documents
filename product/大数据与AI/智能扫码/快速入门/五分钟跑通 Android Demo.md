@@ -14,7 +14,7 @@
 
 需要更改 Demo 工程文件的包名为您申请密钥时使用的包名，然后重新 build 工程。步骤如下：
 
-1. 在 AndroidManifest.xml 更改 package 值为您申请密钥时填写的 App 包名
+1. 在 AndroidManifest.xml 更改 package 值为您申请密钥时填写的 App 包名。
 
 2. 在工程的 java 目录下新建对应包名目录结构的目录，例如您的包名为 aaa.bbb.ccc 则在 java 下新建目录结构为：
    - java

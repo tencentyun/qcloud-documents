@@ -37,6 +37,8 @@ metadata:
     namespace: default
 type: Opaque
 ```
+>?您还可使用容器服务控制台创建 Secret，详情请参见 [创建 Secret](https://cloud.tencent.com/document/product/457/31718#.E5.88.9B.E5.BB.BA-secret)。
+>
 
 ## Ingress 证书配置的行为
 - 仅配置单个 `spec.secretName` 且未配置 hosts 的情况下，将会为所有的 HTTPS 的转发规则配置该证书。示例如下：

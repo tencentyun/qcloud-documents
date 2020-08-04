@@ -44,7 +44,7 @@ promise.then(function(imResponse) {
 ```js
 // 若默认拉取的字段不满足需求，可以参考下述代码，拉取额外的资料字段。
 let promise = tim.getGroupList({
-   groupProfileFilter: [TIM.TYPES.GRP_PROFILE_OWNER_ID],
+  groupProfileFilter: [TIM.TYPES.GRP_PROFILE_OWNER_ID],
 });
 promise.then(function(imResponse) {
   console.log(imResponse.data.groupList); // 群组列表
@@ -298,9 +298,12 @@ tim.joinGroup(options);
 let promise = tim.joinGroup({ groupID: 'group1', type: TIM.TYPES.GRP_AVCHATROOM });
 promise.then(function(imResponse) {
   switch (imResponse.data.status) {
-    case TIM.TYPES.JOIN_STATUS_WAIT_APPROVAL: break; // 等待管理员同意
+    case TIM.TYPES.JOIN_STATUS_WAIT_APPROVAL:
+      break; // 等待管理员同意
     case TIM.TYPES.JOIN_STATUS_SUCCESS: // 加群成功
       console.log(imResponse.data.group); // 加入的群组资料
+      break;
+    case TIM.TYPES.JOIN_STATUS_ALREADY_IN_GROUP: // 已经在群中
       break;
     default: break;
   }

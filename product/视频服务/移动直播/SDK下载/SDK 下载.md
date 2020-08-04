@@ -164,7 +164,7 @@
   </tr>
   <tr>
     <td style="text-align:center">HTTP - FLV</td>
-    <td style="text-align:center">&#10003</td>
+    <td style="text-align:center">- </td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>
     <td style="text-align:center">&#10003</td>
@@ -173,7 +173,7 @@
   </tr>
   <tr>
     <td style="text-align:center">HLS(m3u8)</td>
-    <td style="text-align:center">-</td>
+    <td style="text-align:center">&#10003</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">-</td>
     <td style="text-align:center">&#10003</td>

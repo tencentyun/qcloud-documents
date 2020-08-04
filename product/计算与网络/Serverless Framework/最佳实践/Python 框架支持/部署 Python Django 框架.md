@@ -26,7 +26,7 @@ $ mkdir myDjangoDemo && cd myDjangoDemo
 
 通过如下命令和模板链接，快速创建一个静态网站托管应用：
 ```
-$ serverless create --template-url https://github.com/serverless-tencent/tencent-django/tree/v2/example
+$ serverless create --template-url https://github.com/serverless-tencent/tencent-django/tree/master/example
 $ cd example
 ```
 

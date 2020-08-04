@@ -33,7 +33,7 @@ inputs:
   vpcName: serverless
   subnetName: serverless
 ```
-[查看详细配置文档 >>](https://github.com/serverless-components/tencent-vpc/blob/v2/docs/configure.md )
+[查看详细配置文档 >>](https://github.com/serverless-components/tencent-vpc/blob/master/docs/configure.md )
 
 ### 部署
 

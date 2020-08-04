@@ -1,3 +1,17 @@
+### 2.7.5 @2020.7.2
+
+**修复**
+
+使用 REST API [创建好友工作群](https://cloud.tencent.com/document/product/269/1615) 并指定群成员，创建成功后群成员发消息失败。
+
+
+### 2.7.2 @2020.6.30
+
+**修复**
+
+- 偶现 [joinGroup](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#joinGroup) 时 SDK 提示“已在群内”，实际未在群内，导致无法正常收发消息的问题。
+- 临时会议群发消息数量统计错误。
+
 ### 2.7.0 @2020.6.8
 
 **新增**

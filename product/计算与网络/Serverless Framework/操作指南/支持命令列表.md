@@ -4,6 +4,8 @@ Serverless Framework 支持的 CLI 命令如下：
 - **`serverless registry publish`**：发布 Component 到 Serverless 注册中心。
 `--dev`：支持 dev 参数用于发布 `@dev` 版本的 Component，用于开发或测试。
 
+- **`serverless init -t`**：从注册中心下载指定模版。
+
 - **`serverless deploy`**：部署 Component 实例到云端。
 `--debug`：列出组件部署过程中 `console.log()` 输出的部署操作和状态等日志信息。
 `--all`：支持在根目录中遍历子目录的 Components，生成依赖关系，并按照依赖顺序部署资源。

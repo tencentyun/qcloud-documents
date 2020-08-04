@@ -1,3 +1,6 @@
+本文将为您介绍即时通信 IM 实现直播群功能的操作解析，以下为视频介绍：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2768-53360?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 即时通信 IM 的直播群（AVChatRoom）有以下特点：
 - **适用于无人数上限的互动直播场景**。
 - **支持针对涉黄、涉政以及不雅词的安全打击，满足安全监管需求**。

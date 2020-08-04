@@ -10,7 +10,7 @@
       <h4>
       即将上架，敬请期待！</h4>
     </td>
-    <td><img style="width:150px;height:150px" src="https://main.qcloudimg.com/raw/ef270288d0a47ff41fd4b6336a894a3f.png" /></td>
+    <td><img style="width:150px;height:150px" src="https://main.qcloudimg.com/raw/b2d7715e665c62e5a63960990637377a.png" /></td>
   </tr>
 </table>
 

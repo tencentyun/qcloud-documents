@@ -99,6 +99,7 @@
 | [API 网关](https://cloud.tencent.com/document/product/628)     | 资源级  | &#10003;  | -  | &#10003; |[访问管理指南](https://cloud.tencent.com/document/product/628/34267)|
 | [腾讯微服务平台](https://cloud.tencent.com/document/product/649)  | 资源级  | &#10003;  | - |  &#10003; |[访问管理指南](https://cloud.tencent.com/document/product/649/38327) |
 | [分布式消息队列](https://cloud.tencent.com/document/product/1179)  | 资源级  | &#10003;  | - |  - |[访问管理指南](https://cloud.tencent.com/document/product/1179/45125) |
+| [分布式事务](https://cloud.tencent.com/document/product/1224)  | 操作级  | &#10003;  | - |  - |- |
 
 ## 数据处理	
 
