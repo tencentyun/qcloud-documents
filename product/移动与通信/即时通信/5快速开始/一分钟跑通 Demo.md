@@ -104,5 +104,8 @@ pod install
  - iOS 进入 iOS/TUIKitDemo 文件夹，打开`TUIKitDemo.xcworkspace`编译运行。
  - Mac 进入Mac/TUIKitDemo 文件夹，打开`TUIKitDemo.xcworkspace`编译运行。
 
+## 相关文档
+- [价格说明](https://cloud.tencent.com/document/product/269/11673)
+- [折扣活动](https://cloud.tencent.com/document/product/269/46181)
 
 

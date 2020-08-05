@@ -56,3 +56,4 @@ curl -i -d 'deviceName=devpublish_test1&productId=W9GMG550YD&topicName=topic-59p
 ```
 {"returnCode":2000,"returnMessage":"code:ResourceNotFound.ProductNotExist msg:产品不存在。"}
 ```
+

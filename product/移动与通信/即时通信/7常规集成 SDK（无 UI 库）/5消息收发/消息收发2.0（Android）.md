@@ -16,7 +16,7 @@
 | 视频消息 | VideoElem | 一条视频消息包含一个视频文件和一张配套的缩略图。 |
 | 语音消息 | SoundElem | 支持语音是否播放红点展示。 |
 | 文件消息 | FileElem | 文件消息最大支持100MB。 |
-| 位置消息 | LocationElem | 地理位置消息由位置描述、经度（longitude ）和维度（latitude）三个字段组成。 |
+| 位置消息 | LocationElem | 地理位置消息由位置描述、经度（longitude ）和纬度（latitude）三个字段组成。 |
 | 群 Tips 消息 | GroupTipsElem | 群 Tips 消息常被用于承载群中的系统性通知消息，例如有成员进出群组，群的描述信息被修改，群成员的资料发生变化等。 |
 
 ## 收发简单消息

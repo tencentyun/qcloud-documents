@@ -190,3 +190,4 @@ XML Java SDK 新增 API，您可根据需求进行调用。包括：
 - 存储桶生命周期的操作，如 setBucketLifecycleConfiguration、getBucketLifecycleConfiguration、 deleteBucketLifecycleConfiguration 等。
 
 了解更多请参见 [Java SDK 快速入门](https://cloud.tencent.com/document/product/436/10199) 文档。
+

@@ -1,6 +1,9 @@
 
 如您需要阅读或下载全量开发文档，请参见 [TDSQL 开发指南](https://cloud.tencent.com/document/product/557/7714)。
 
+通过如下视频，您可以了解 DML 语句的使用：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2681-51971?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ### DML 语句语法（部分）
 
 **SELECT**：建议在条件中带上 shardkey 字段，否则 TDSQL 无法判断 SQL 应该路由至哪些节点，需要进行全表扫描，然后在网关聚合，容易影响执行效率：

@@ -59,7 +59,8 @@
 
 <span id="model"> </span>
 ## 实现自定义 UI 界面
-源码文件夹 `trtcaudiocalldemo` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们实现的可重用开源组件 TRTCAudioCall，您可以在  `ITRTCAudioCall.java`  文件中看到该组件提供的接口函数。
+
+[源码](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCScenesDemo/trtcaudiocalldemo/src/main/java/com/tencent/liteav/trtcaudiocalldemo) 文件夹 `trtcaudiocalldemo` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们实现的可重用开源组件 TRTCAudioCall，您可以在  `ITRTCAudioCall.java`  文件中看到该组件提供的接口函数。
 ![](https://main.qcloudimg.com/raw/84a70412fcd7cc2ea6456deb10479bb0.png)
 
 您可以使用开源组件 TRTCAudioCall 实现自己的 UI 界面，即只复用 model 部分，自行实现 UI 部分。

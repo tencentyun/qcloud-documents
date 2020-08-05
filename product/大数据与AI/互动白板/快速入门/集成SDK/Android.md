@@ -72,6 +72,45 @@ dependencies {
 单击 Sync Now 按钮，完成 TEduBoard SDK 集成。
 
 
+### Google Play 境外版本集成方式
+互动白板默认使用了腾讯浏览服务提供的 TBS SDK 。为了 apk 包大小增量，及时动态发版解决安全隐患，TBS SDK 采用了后台动态下发内核的方案。由于 Google Play 禁止任何二进制代码的下发（包括 so、dex、jar ）和插件化技术的使用，如果您有多渠道打包能力，您可以在境外版本须接入仅保留接口的 TBS SDK ，保证编译通过。
+
+集成方法如下：
+
+#### 1.下载并导入精简版 TBS SDK
+下载([下载地址](https://sdk-1259648581.cos.ap-nanjing.myqcloud.com/android/tbs/tbs_sdk_noimpl_43799.jar)) TBS SDK 的 jar 文件并拷贝到工程的 app/libs 目录下。
+
+![](https://main.qcloudimg.com/raw/a3a00d36964e50f3ec4605900d9c8ab1.png)
+####
+
+#### 2. 指定本地仓库路径
+
+在工程 app/build.gradle 中，添加 flatDir 配置，指定本地仓库路径。
+
+```grovy
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+```
+![](https://main.qcloudimg.com/raw/79dd734da4ab48a503a11765cf128894.png)
+
+#### 3.  添加 SDK 依赖
+
+在 app/build.gradle 中，添加引用 jar 包以及不带 TBS 模块的白板 SDK。
+
+```grovy
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.tencent.teduboard:TEduBoardSdkNoTbs:2.4.8.31'
+    ...
+}
+```
+![](https://main.qcloudimg.com/raw/233c90a563a5288e1654eb6e459f313a.png)
+
+注意，这种情况下不能依赖带 TBS 模块的白板 SDK，否则会导致依赖冲突，无法编译通过。
+
 ## 配置 App 权限
 
 在 AndroidManifest.xml 中配置 App 的权限，TEduBoard SDK 需要以下权限：

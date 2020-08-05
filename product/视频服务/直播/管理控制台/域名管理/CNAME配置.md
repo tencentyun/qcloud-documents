@@ -1,11 +1,13 @@
 域名接入云直播后，系统会为您自动分配一个 CNAME 域名（以`.liveplay.myqcloud.com`为后缀)，可在【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】列表中查看。CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可享受云直播服务。
 
+以下视频将为您介绍如何在腾讯云配置域名 CNAME 解析的过程：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2751-53266?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 注意事项
 - 推流域名和播放域名均需完成 CNAME 解析。
 - 请前往您的域名解析服务商处配置 CNAME 记录，具体操作请咨询您的域名解析服务提供商。
 - CNAME 设置完成后约15分钟生效。若您设置多层 CNAME，云直播无法有效监测解析结果，请以实际的访问情况为参考。
-- 若 CNAME 设置完成后长时间未显示成功，请前往参见 [CNAME 配置问题定位](https://cloud.tencent.com/document/product/267/30010#.E9.85.8D.E7.BD.AE.E5.AE.8C.E6.88.90-cname-.E5.90.8E.EF.BC.8C.E4.BE.9D.E6.97.A7.E6.98.BE.E7.A4.BA-cname-.E6.9C.AA.E9.85.8D.E7.BD.AE.E6.98.AF.E4.BB.80.E4.B9.88.E5.8E.9F.E5.9B.A0.EF.BC.9F)。
+- 若 CNAME 设置完成后长时间未显示成功，请前往参见 [CNAME 配置问题定位](https://cloud.tencent.com/document/product/267/45252)。
 
 ## 前提条件
 - 已在 [域名注册](https://dnspod.cloud.tencent.com/?from=qcloudProductDns) 申请域名，并备案成功。
@@ -138,4 +140,4 @@
 ![](https://main.qcloudimg.com/raw/8bad41428852a7c32111933b33e8853c.png)
 
 
->!若 CNAME 设置完成后长时间未显示成功，可参考 [CNAME 配置问题定位。](https://cloud.tencent.com/document/product/267/30010#.E9.85.8D.E7.BD.AE.E5.AE.8C.E6.88.90-cname-.E5.90.8E.EF.BC.8C.E4.BE.9D.E6.97.A7.E6.98.BE.E7.A4.BA-cname-.E6.9C.AA.E9.85.8D.E7.BD.AE.E6.98.AF.E4.BB.80.E4.B9.88.E5.8E.9F.E5.9B.A0.EF.BC.9F)
+>!若 CNAME 设置完成后长时间未显示成功，可参考 [CNAME 配置问题定位。](https://cloud.tencent.com/document/product/267/45252)

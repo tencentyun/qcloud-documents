@@ -12,8 +12,8 @@ Namespace=QCE/CDB
 | VolumeRate                   | 磁盘使用率                               | 磁盘使用空间/实例购买空间                                    | %       | InstanceId、InstanceType |
 | RealCapacity                 | 磁盘使用空间（仅包含数据空间使用量）     | 仅包括 MySQL 数据目录，不含 binlog、relaylog、undolog、errorlog、slowlog 日志空间 | MB      | InstanceId、InstanceType |
 | Capacity                     | 磁盘占用空间（包含数据及日志空间使用量） | 包括 MySQL 数据目录和 binlog、relaylog、undolog、errorlog、slowlog 日志空间 | MB      | InstanceId、InstanceType |
-| BytesSent                    | 内网出流量                               | 内网每秒入流量                                               | Byte/秒 | InstanceId、InstanceType |
-| BytesReceived                | 内网入流量                               | 内网每秒出流量                                               | Byte/秒 | InstanceId、InstanceType |
+| BytesSent                    | 内网出流量                               | 内网每秒出流量                                               | Byte/秒 | InstanceId、InstanceType |
+| BytesReceived                | 内网入流量                               |      内网每秒入流量                                          | Byte/秒 | InstanceId、InstanceType |
 | QPS                          | 每秒执行操作数                           | 数据库每秒执行的 SQL 数（含 insert、select、update、delete、replace），QPS 指标主要体现 TencentDB 实例的实际处理能力 | 次/秒   | InstanceId、InstanceType |
 | TPS                          | 每秒执行事务数                           | 数据库每秒执行的事务数                                       | 次/秒   | InstanceId、InstanceType |
 | MaxConnections               | 最大连接数                               | 数据库最大连接数                                             | 个      | InstanceId、InstanceType |

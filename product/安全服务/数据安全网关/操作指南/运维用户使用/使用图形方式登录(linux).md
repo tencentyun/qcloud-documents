@@ -12,13 +12,13 @@
 2. 运维用户登录堡垒机。
 3. 单击【授权列表】，进入资源列表页。
 4. 找到您需要登录的 Linux 资源，在其右侧单击【登录】，在弹出的窗口中，进行登录配置。
-![](https://main.qcloudimg.com/raw/14a7a6915d5351e455764f8354a234c9.jpeg)
+![](https://main.qcloudimg.com/raw/949b357bb91840f7e18b745cfae30fe5.png)
 5. 在配置登录窗口，配置如下：
 	- 协议：Linux 资源建议选择 SSH2 协议。
 	- 账号：输入 Linux 资源的账号。
 	- 口令：输入 Linux 资源账号的密码。
 	- 工具：选择 PuTTY 工具。
 	- 超时时间：连接 Linux 资源的超时时间，默认为5秒。
-![](https://main.qcloudimg.com/raw/354b562b2a723ffeb27372aa08fe34e6.jpeg)
+![](https://main.qcloudimg.com/raw/c5a7cb91e6eb2d399318b4996d03c3d1.png)
 5. 确认配置信息无误后，单击【登录】，登录到目标资源后，即可对资源进行运维操作。
-![](https://main.qcloudimg.com/raw/1b92cf0b8084298bc0f573c39891dcef.jpeg)
+![](https://main.qcloudimg.com/raw/7a86fc23bcbab13e6960024c5fcd17b7.png)

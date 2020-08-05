@@ -293,3 +293,13 @@ Namespace=QCE/TXMR_HDFS
 | Instances.N.Dimensions.0.Value | InstanceId | EMR 实例 ID           | 输入EMR具体实例 ID，例如 ins-mm8bs222         |
 | Instances.N.Dimensions.1.Name  | CoreIp     | EMR 实例中具体节点 IP | 输入String 类型维度名称，例如 InstanceId      |
 | Instances.N.Dimensions.1.Value | CoreIp     | EMR 实例中具体节点 IP | 输入具体节点IP ，例如 host4hdfsdatanode       |
+
+
+## 入参说明
+查询 弹性 MapReduce（HDFS）监控数据，入参取值如下：
+&Namespace=QCE/TXMR_HDFS 
+&Instances.N.Dimensions.0.Name=id4hdfsdatanode
+&Instances.N.Dimensions.0.Value=EMR 实例具体 ID
+&Instances.N.Dimensions.1.Name=host4hdfsdatanode
+&Instances.N.Dimensions.1.Value EMR 实例中具体节点 IP 
+

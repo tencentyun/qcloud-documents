@@ -1,5 +1,8 @@
 如您需要阅读或下载全量开发文档，请参见 [TDSQL 开发指南](https://cloud.tencent.com/document/product/557/7714)。
 
+通过如下视频，您可以了解 TDSQL 的三种建表模式：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2570-44436?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 创建分表
 **分表：**即自动水平拆分的表，水平拆分是基于分表键（shardkey）采用类似于一致性 hash 方式，根据 hash 后的值分配到不同的节点组中的一种技术方案，该能力几乎是所有分布式数据库的核心特性。TDSQL 的设计目标是期望开发者完全无需关注后端分表策略，像使用普通数据库一样使用 TDSQL，因此我们在设计上隐藏了分表的细节方案。
 

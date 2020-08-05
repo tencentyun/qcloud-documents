@@ -24,7 +24,7 @@ Windows 操作系统的本地计算机通过 RDP 协议（如 MSTSC 方式）远
 
 ### 步骤2：修改凭据分配
 1. 在 “本地组策略编辑器” 的左侧导航栏中，依次展开【计算机配置】>【管理模板】>【系统】>【凭据分配】目录。
-2. 找到并打开【凭据分配】中的【允许分配保存的凭据用于 NTLM 服务器身份验证】。如下图所示：
+2. 找到并打开【凭据分配】中的【允许分配保存的凭据用于仅 NTLM 服务器身份验证】。如下图所示：
 ![](https://main.qcloudimg.com/raw/10eeb0291b2a4fd91c316c39b523370d.png)
 3. 在打开的窗口中，选择【已启用】，并在 “选项” 的【显示】中输入`TERMSRV/*`，单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/98ae861b892233e481d5c52f89ccb333.png)
@@ -56,4 +56,5 @@ Windows 操作系统的本地计算机通过 RDP 协议（如 MSTSC 方式）远
 3. 重新连接 Windows 云服务器，验证连接是否成功。
  - 是，任务结束。
  - 否，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&step=1) 反馈。
+
 

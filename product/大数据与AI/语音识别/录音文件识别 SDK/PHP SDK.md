@@ -15,7 +15,7 @@
 
 ```
 <?php
-require_once './tencentcloud-sdk-php/TCloudAutoLoader.php';
+require_once './tencentcloud-sdk-php/TCloudAutoLoader.php';  
 use TencentCloud\Common\Credential;
 use TencentCloud\Common\Profile\ClientProfile;
 use TencentCloud\Common\Profile\HttpProfile;
@@ -36,7 +36,7 @@ try {
 
     $req = new CreateRecTaskRequest();
     
-    $params = '{"EngineModelType":"16k_0","ChannelNum":1,"ResTextFormat":0,"SourceType":0,"Url":"http://ttsgz-1255628450.cos.ap-guangzhou.myqcloud.com/20190813/cbf318cd-273e-4b7c-bab0-50a1885c9b96.wav"}';
+    $params = '{"EngineModelType":"16k_zh","ChannelNum":1,"ResTextFormat":0,"SourceType":0,"Url":"https://asr-audio-1300466766.cos.ap-nanjing.myqcloud.com/test16k.wav"}';
     $req->fromJsonString($params);
 
     $resp = $client->CreateRecTask($req);
@@ -73,7 +73,7 @@ try {
 
     $req = new CreateRecTaskRequest();
     
-    $params = '{"EngineModelType":"16k_0","ChannelNum":1,"ResTextFormat":0,"SourceType":1}';
+    $params = '{"EngineModelType":"16k_zh","ChannelNum":1,"ResTextFormat":0,"SourceType":1}';
     $req->fromJsonString($params);
     $data = file_get_contents('./test.wav');
     $encodeData = base64_encode($data);

@@ -161,3 +161,4 @@ function(err, data) { ... }
 | data   | 请求成功时返回的对象，如果请求发生错误，则为空               | Object |
 | - Url  | 计算得到的 Url                                               | String |
 
+

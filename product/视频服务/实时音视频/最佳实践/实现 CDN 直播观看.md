@@ -134,7 +134,7 @@ http://播放域名/live/[streamId].flv
 |:-------:|:-------:|:-------:|-------|
 | iOS App| [接入指引](https://cloud.tencent.com/document/product/454/7880) | [TXLivePlayer(iOS)](https://cloud.tencent.com/document/product/454/34762)  | 推荐 FLV |
 | Android App | [接入指引](https://cloud.tencent.com/document/product/454/7886) | [TXLivePlayer(Android)](https://cloud.tencent.com/document/product/454/34775) | 推荐 FLV |
-| Web浏览器 | [接入指引](https://cloud.tencent.com/document/product/454/7880) | - |  桌面端 Chrome 浏览器支持 FLV <br> Mac 端 Safari和移动端手机浏览器仅支持 HLS |
+| Web 浏览器 | [接入指引](https://cloud.tencent.com/document/product/454/7503) | - |  桌面端 Chrome 浏览器支持 FLV <br> Mac 端 Safari和移动端手机浏览器仅支持 HLS |
 |微信小程序| [接入指引](https://cloud.tencent.com/document/product/454/34931) | [&lt;live-player&gt; 标签](https://developers.weixin.qq.com/miniprogram/dev/component/live-player.html)| 推荐 FLV |
 
 

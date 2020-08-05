@@ -41,7 +41,7 @@
       <td>appId</td>
       <td>可选</td>
       <td>String</td>
-      <td>accountType 是 QQ 或微信开放账号时，该参数必填，表示 QQ 或微信分配给网站或应用的 appId，用来唯一标识网站或应用。</td>
+      <td>accountType 是 QQ 开放账号时，该参数必填，表示 QQ 开放平台分配给网站或应用的 AppID，用来唯一标识网站或应用。</td>
    </tr>
    <tr>
       <td>goodInfo</td>
@@ -143,7 +143,7 @@
       <td>wxToken</td>
       <td>可选</td>
       <td>String</td>
-      <td><li>如果是微信小程序，该字段为以 ssesion_key 为 key 去签名随机数 radnNum 得到的值（hmac_sha256签名算法）。</li><li>如果是微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，详细请参阅官方 <a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842">说明文档</a>。</li></td>
+      <td><li>如果是微信小程序，该字段为以 ssesion_key 为 key 去签名随机数 randNum 得到的值（hmac_sha256签名算法）。</li><li>如果是微信公众号或第三方登录，则为授权的 access_token（注意：不是普通 access_token，详细请参阅官方 <a href="https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1421140842">说明文档</a>。</li></td>
    </tr>
 </table>
 
@@ -287,11 +287,11 @@
 https://csec.api.qcloud.com/v2/index.php?
 Action=IntelligentQRCode
 &<公共请求参数>
-&secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
-&accountType=1
+&secretId=AKI*****************************q4Zw
+&accountType=10004
 &cookie = "asdasldkjaslkjdsfjlsad" //用户 HTTP 请求中的 cookie 进行2次 hash 的值
 &goodInfo="good"  //业务侧自定义内容
-&uid=D692D87319F2098C3877C3904B304706
+&uid=BF**********AD31C95CA75E21365973
 &userIP=127.0.0.1 //调用时必须是外网有效 IP 地址
 &postTime=11254 //uinx 时间戳，仅需要精确到秒
 &associateAccount="SpFsjpyvaJ27329"
@@ -305,7 +305,7 @@ Action=IntelligentQRCode
 	"level": 0,
 	"userIP": "127.0.0.1",
 	"postTime": 1436673889,
-	"uid": "00000000000000000000000033121475",
+	"uid": "BF**********AD31C95CA75E21365973",
 	"associateAccount": "SpFsjpyvaJ27329"
 }
 ```

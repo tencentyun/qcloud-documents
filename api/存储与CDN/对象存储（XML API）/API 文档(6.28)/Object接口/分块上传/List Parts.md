@@ -30,7 +30,7 @@ Authorization: Auth String
 
 #### 请求体
 
-该请求请求体为空。
+该请求的请求体为空。
 
 ## 响应
 
@@ -71,7 +71,7 @@ Authorization: Auth String
 </ListPartsResult>
 ```
 
-具体的数据描述如下：
+具体的节点描述如下：
 
 | 节点名称（关键字） | 父节点 | 描述                               | 类型      |
 | ------------------ | ------ | ---------------------------------- | --------- |
@@ -116,6 +116,11 @@ Container 节点 Part 的内容：
 | LastModified       | ListPartsResult.Part | 说明块最后被修改时间    | string |
 | ETag               | ListPartsResult.Part | 块的 MD-5 算法校验值    | string |
 | Size               | ListPartsResult.Part | 说明块大小，单位是 Byte | string |
+
+#### 错误码
+
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+
 
 ## 实际案例
 
