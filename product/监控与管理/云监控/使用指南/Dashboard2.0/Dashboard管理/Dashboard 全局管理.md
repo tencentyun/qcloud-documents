@@ -10,12 +10,12 @@
 	- **链接管理**：支持自定义 Dashboard 快速跳转链接。您可以把业务相关的链接或面板关联到 Dashboard 中，方便您异障排查时进行快速跳转。
 	- **JSON**：支持 JSON 格式查看、复制，您可以把 JSON 格式部署到您的自建系统，在您的系统查看 Dashboard。
 
-#### 基础设置
+### 基础设置
 
 您可以对定义 Dashboard 名称和设置 Dashboard 备注。
 ![](https://main.qcloudimg.com/raw/e94ab9cafbf3bae9c5bc959511e772da.png)
 
-#### 模板变量
+### 模板变量
 您可以自定义 Dashboard 筛选条件，在 Dashboard 管理页 [使用模板变量](#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E5.8F.98.E9.87.8F) 。目前支持云服务器—基础监控、存储监控和云数据库MySQL主机、备机监控标签筛选。
 
 1. 新建模板变量。
@@ -27,7 +27,7 @@
 >?如需使用模板变量，请参考步骤 [使用模板变量](#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E5.8F.98.E9.87.8F)。
 
 
-#### 链接管理
+### 链接管理
 您可以自定义 Dashboard 快速跳转链接。链接管理包含链接名、类型、链接目标和参数，说明如下：
 - 链接名：自定义链接名称
 - 类型
@@ -43,7 +43,7 @@
   
 ![](https://main.qcloudimg.com/raw/5f5d1cb38d63216df376e183a2836d93.png)
 
-#### JSON
+### JSON
 JSON包含 Dashboard 的属性、模板变量、面板查询等字段，您可以把 JSON 格式部署到您的自建系统，在您的系统可查看对应的 Dashboard。
 
 ``` 
