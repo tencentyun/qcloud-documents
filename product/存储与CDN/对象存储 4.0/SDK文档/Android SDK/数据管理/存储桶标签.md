@@ -50,7 +50,7 @@ cosXmlService.putBucketTaggingAsync(putBucketTaggingRequest,
 });
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/qcloud-sdk-android/tree/master/Demo/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/BucketTagging.java) 查看。
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/BucketTagging.java) 查看。
 
 ## 查询存储桶标签
 
@@ -87,7 +87,7 @@ cosXmlService.getBucketTaggingAsync(getBucketTaggingRequest,
 });
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/qcloud-sdk-android/tree/master/Demo/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/BucketTagging.java) 查看。
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/BucketTagging.java) 查看。
 
 ## 删除存储桶标签
 
@@ -125,5 +125,5 @@ cosXmlService.deleteBucketTaggingAsync(deleteBucketTaggingRequest,
 });
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/qcloud-sdk-android/tree/master/Demo/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/BucketTagging.java) 查看。
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/BucketTagging.java) 查看。
 
