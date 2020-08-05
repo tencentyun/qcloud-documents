@@ -36,20 +36,17 @@
 ### 在 SCF 上挂载并使用 CFS 文件系统
 
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list)，单击左侧导航栏中的【函数服务】。
-   ![](https://main.qcloudimg.com/raw/807219108a78cd5a436bfb665abaff64.png)
 2. 在“函数服务”页面，选择需配置的函数名。
 3. 在“函数管理”页面的【函数配置】页签中，单击右上角的【编辑】。
 4. 在“私有网络”中，勾选启用并选择 CFS 文件系统所在的 VPC。如下图所示：
    ![](https://main.qcloudimg.com/raw/b2e88b9fcb5e5045cc9951d75f498eca.png)
 5. 在“文件系统”中勾选启用，并按照以下信息进行挂载。如下图所示：
-   ![](https://main.qcloudimg.com/raw/5df4693e17f05892edb610e04f420de2.png)
-
  - **用户 ID**及**用户组 ID**：这两个值等同于 CFS 文件系统中的用户及用户组。云函数默认用户及用户组值为 10000，来操作您的 CFS 文件系统。请按需设置文件的拥有者及相应组的权限，并确保您的 CFS 文件系统已配置相应权限。详情请参见 [权限设置](https://cloud.tencent.com/document/product/582/10951)。
  - **远程目录**：为云函数需访问 CFS 文件系统的远端目录，由文件系统和远端目录两部分组成。
  - **本地目录**：为本地文件系统的挂载点。您可使用 `/mnt/` 目录的子目录挂载 CFS 文件系统。
  - **文件系统 ID**：在下拉列表中选择需挂载的文件系统。
  - **挂载点 ID**：在下拉列表中选择对应文件系统的挂载点 ID。
-
+   ![](https://main.qcloudimg.com/raw/5df4693e17f05892edb610e04f420de2.png)
 6.  单击页面下方的【保存】即可完成配置。
     您可编辑函数代码，开始使用 CFS 文件系统。如下图所示：
     ![](https://main.qcloudimg.com/raw/5ba2b08d89b903cda862135c1f74fc9d.png)
