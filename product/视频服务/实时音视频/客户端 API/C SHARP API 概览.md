@@ -20,12 +20,12 @@
 
 | API | 描述 |
 |-----|-----|
-| [enterRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a28b2d3ec27af8c9bfd5cf687dd8e002b) | 进入房间。 |
+| [enterRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a28b2d3ec27af8c9bfd5cf687dd8e002b) | 进入房间，若房间不存在，系统将自动创建一个新房间。 |
 | [exitRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a715f5b669ad1d7587ae19733d66954f3) | 离开房间。 |
 | [switchRole](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a94ab2e8a7df0c120def9d4b0c7658d84) | 切换角色，仅适用于直播场景（TRTCAppSceneLIVE 和 TRTCAppSceneVoiceChatRoom）。 |
 | [connectOtherRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aa29407e4c40f2bf61777bbe054f6bf0f) | 请求跨房通话（主播 PK）。 |
 | [disconnectOtherRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#abd656e4c9b6a01231810ae897627e9bc) | 关闭跨房连麦。 |
-| [setDefaultStreamRecvMode](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ae870243f89b5829cd7ac5612ec958cdf) | 设置音视频数据接收模式（需要在进房前设置才能生效）。 |
+| [setDefaultStreamRecvMode](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ae870243f89b5829cd7ac5612ec958cdf) | 设置音视频数据接收模式，需要在进房前设置才能生效。 |
 
 
 ### CDN 相关接口函数
@@ -57,7 +57,7 @@
 | [setRemoteViewFillMode](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aeeb9e236aaa9c2ae9846af86ff3195d4) | 设置远端图像的渲染模式。 |
 | [setLocalViewRotation](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a8d5dc6995392c71257493353e3571e86) | 设置本地图像的顺时针旋转角度。 |
 | [setRemoteViewRotation](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a87f256d5148e34bd59756fa516307fce) | 设置远端图像的顺时针旋转角度。 |
-| [setVideoEncoderRotation](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a291f1c48e5446135c29188f759f023cb) | 设置视频编码输出的（也就是远端用户观看到的，以及服务器录制下来的）画面方向。 |
+| [setVideoEncoderRotation](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a291f1c48e5446135c29188f759f023cb) | 设置视频编码输出的画面方向，即设置远端用户观看到的和服务器录制的画面方向。 |
 | [setLocalViewMirror](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a050a53b8bed638f76a64ad82ecd89078) | 设置本地摄像头预览画面的镜像模式。 |
 | [setVideoEncoderMirror](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a3e6dae3e385f1e15d528ec3d6f57a59c) | 设置编码器输出的画面镜像模式。 |
 | [enableSmallVideoStream](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a4a83369f8798e273caf0a6550cb19cfe) | 开启大小画面双路编码模式。 |
@@ -227,8 +227,8 @@
 
 | API | 描述 |
 |-----|-----|
-| [onError](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#aa90039556e52de79965ca4d338c83ebf) | 错误回调，SDK 不可恢复的错误，一定要监听，并分情况给用户适当的界面提示。 |
-| [onWarning](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a2e4c89560e538402907c1aa8fa6b68d1) | 警告回调：用于告知您一些非严重性问题，例如出现了卡顿或者可恢复的解码失败。 |
+| [onError](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#aa90039556e52de79965ca4d338c83ebf) | 错误回调，表示 SDK 不可恢复的错误，一定要监听并分情况给用户适当的界面提示。 |
+| [onWarning](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a2e4c89560e538402907c1aa8fa6b68d1) | 警告回调，用于告知您一些非严重性问题，例如出现了卡顿或者可恢复的解码失败。 |
 
 
 ### 房间事件回调
@@ -263,7 +263,7 @@
 
 | API | 描述 |
 |-----|-----|
-| [onNetworkQuality](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a7a959df0ee5e4d6fa45f0e0785998daf) | 网络质量：该回调每2秒触发一次，统计当前网络的上行和下行质量。 |
+| [onNetworkQuality](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a7a959df0ee5e4d6fa45f0e0785998daf) | 网络质量，该回调每2秒触发一次，统计当前网络的上行和下行质量。 |
 | [onStatistics](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#ab392e7b7325c89a260ce47b1a6b7dde4) | 技术指标统计回调。 |
 
 
@@ -283,7 +283,7 @@
 |-----|-----|
 | [onCameraDidReady](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#aaa74021e5fd2564afb2df50e25eedeff) | 摄像头准备就绪。 |
 | [onMicDidReady](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#afdac7dee94451913a4dc9982badc8035) | 麦克风准备就绪。 |
-| [onUserVoiceVolume](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a04422f826fccefdd91d4ecd42b124686) | 用于提示音量大小的回调,包括每个 userId 的音量和远端总音量。 |
+| [onUserVoiceVolume](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a04422f826fccefdd91d4ecd42b124686) | 用于提示音量大小的回调，包括每个 userId 的音量和远端总音量。 |
 | [onDeviceChange](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a2ce42edc00da08dd4aafa5e1e60927be) | 本地设备通断回调。 |
 | [onTestMicVolume](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a199c708ee69b2667e89515d14250de5f) | 麦克风测试音量回调。 |
 | [onTestSpeakerVolume](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a7cc29016572d6aa30f389df92d70c048) | 扬声器测试音量回调。 |
@@ -345,13 +345,13 @@
 
 ### 声音数据帧的自定义处理回调（只读）
 
-回调函数是在 SDK 内部线程同步抛出来的，请不要做耗时操作。 
-提示：请按需定义相关函数实现，减少不必要的性能损耗。
+回调函数是在 SDK 内部线程同步抛出的，请不要做耗时操作。 
+>?请按需定义相关函数实现，减少不必要的性能损耗。
 
 | API | 描述 |
 |-----|-----|
 | [onCapturedAudioFrame](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#ad207bbc5b8ab7885540fb5a2de1e4d3d) | 本地麦克风采集到的音频数据回调。 |
-| [onPlayAudioFrame](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a0014b81d218cde7372580dd5995a1b24) | 混音前的每一路远程用户的音频数据（例如您要对某一路的语音进行文字转换，必须要使用这里的原始数据，而不是混音之后的数据）。 |
+| [onPlayAudioFrame](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a0014b81d218cde7372580dd5995a1b24) | 混音前的每一路远程用户的音频数据，即混音前的各路原始数据。例如，对某一路音频进行文字转换时，您必须使用该路音频的原始数据。 |
 | [onMixedPlayAudioFrame](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#ac5262e14766154bda8ad437923285567) | 各路音频数据混合后送入喇叭播放的音频数据。 |
 
 
@@ -371,7 +371,7 @@
 | [SIZE](http://doc.qcloudtrtc.com/group__TRTCCloudDef__csharp.html#classManageLiteAV_1_1SIZE) | 记录 buffer 的长宽。 |
 | [ITRTCScreenCaptureSourceList](http://doc.qcloudtrtc.com/group__TRTCCloudDef__csharp.html#interfaceManageLiteAV_1_1ITRTCScreenCaptureSourceList) | 屏幕窗口列表。 |
 | [ITRTCDeviceCollection](http://doc.qcloudtrtc.com/group__TRTCCloudDef__csharp.html#interfaceManageLiteAV_1_1ITRTCDeviceCollection) | 设备列表。 |
-| [ITRTCDeviceInfo](http://doc.qcloudtrtc.com/group__TRTCCloudDef__csharp.html#interfaceManageLiteAV_1_1ITRTCDeviceInfo) | 设备Item信息。 |
+| [ITRTCDeviceInfo](http://doc.qcloudtrtc.com/group__TRTCCloudDef__csharp.html#interfaceManageLiteAV_1_1ITRTCDeviceInfo) | 设备 Item 信息。 |
 | [TRTCParams](http://doc.qcloudtrtc.com/group__TRTCCloudDef__csharp.html#a7ff9e03272f5c8e7b585e8c4eea784e1) | 进房相关参数。 |
 | [TRTCVideoEncParam](http://doc.qcloudtrtc.com/group__TRTCCloudDef__csharp.html#a43a83bd5122296aa87cc7f6e964921c5) | 视频编码参数。 |
 | [TRTCNetworkQosParam](http://doc.qcloudtrtc.com/group__TRTCCloudDef__csharp.html#a7cd5c078b248a32557a85226f1d30697) | 网络流控相关参数。 |
