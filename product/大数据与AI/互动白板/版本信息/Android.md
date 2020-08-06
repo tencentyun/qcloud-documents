@@ -1,5 +1,5 @@
 ### 2.5.1.47 @ 2020.07.23
-* [点击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.1.47.zip)
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.1.47.zip)
 
 - 功能支持
     - 图片元素支持任意角度旋转和八个方向的缩放
