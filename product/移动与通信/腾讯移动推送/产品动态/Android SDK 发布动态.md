@@ -57,13 +57,13 @@
     </tr>
     <tr>
         <td>SDK 1.1.6.0 版本发布</td>
-        <td><li> 优化加密协议 </li> <li> 优化网络连接</li> <li> 支持华为角标设置</li> <li> 升级小米推送 SDK v3.7.5，魅族推送 SDK v3.9.0 </li><li> 支持 Realme 和黑鲨手机厂商通道</li></td>
+        <td><li> 优化加密协议 </li> <li> 优化网络连接</li> <li> 支持华为角标设置</li> <li> 升级小米推送 SDK v3.7.5，魅族推送 SDK v3.9.0 </li><li> 支持 Realme 和黑鲨手机厂商通道</li><li> 去除调用灯塔获取 QIMEI 相关信息</li></td>
         <td>2020-04-21</td>
         <td><a href="https://cloud.tencent.com/document/product/548/43693">角标适配指南</a></td>
     </tr>
     <tr>
         <td>SDK 1.1.5.5 版本发布</td>
-        <td><li>解决 App上架 GooglePlay 会出现 DCL 违规问题</li><li>去除调用灯塔获取 QIMEI 相关信息</li></td>
+        <td>解决 App上架 GooglePlay 会出现 DCL 违规问题</li></td>
         <td>2020-04-02</td>
         <td>-</td>
     </tr>
@@ -188,7 +188,7 @@
 </tr>
     <tr>
         <td>SDK 1.1.2.1 版本发布</td>
-        <td><li> 通知栏展示优化</li> <li> 部分 API 接口 优化</li> <li> 增加音频富媒体</li> <li> sdk 内部优化</li></td>
+        <td><li> 通知栏展示优化</li> <li> 部分 API 接口 优化</li> <li> 增加音频富媒体</li> <li> SDK 内部优化</li></td>
         <td>2019-09-27</td>
         <td><a href="https://cloud.tencent.com/document/product/548/36652#.E9.9B.86.E6.88.90.E6.96.B9.E6.B3.95">音视频富媒体配置方法</a></td>
     </tr>

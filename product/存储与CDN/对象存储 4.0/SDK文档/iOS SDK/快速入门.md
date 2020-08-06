@@ -70,7 +70,7 @@ pod 'QCloudCOSXML/Transfer'
 
 ![](https://main.qcloudimg.com/raw/125218fad3f4781cae8f992d9a152057.png)
 
-## 第三步：开始使用
+## 第二步：开始使用
 
 ### 1. 导入头文件
 
@@ -370,7 +370,7 @@ func signature(with fileds: QCloudSignatureFields!,
 }
 ```
 
-## 第四步：访问 COS 服务
+## 第三步：访问 COS 服务
 
 ### 上传对象
 
@@ -458,7 +458,6 @@ request.bucket = @"examplebucket-1250000000";
 request.object = @"exampleobject";
 
 //设置下载的路径 URL，如果设置了，文件将会被下载到指定路径中
-//如果未设置该参数，那么文件将会被下载至内存里，存放在在 finishBlock 的 outputObject 里
 request.downloadingURL = [NSURL fileURLWithPath:@"Local File Path"];
 
 //监听下载结果
@@ -490,7 +489,6 @@ request.bucket = "examplebucket-1250000000";
 request.object = "exampleobject";
 
 //设置下载的路径 URL，如果设置了，文件将会被下载到指定路径中
-//如果未设置该参数，那么文件将会被下载至内存里，存放在在 finishBlock 的 outputObject 里
 request.downloadingURL = NSURL.fileURL(withPath: "Local File Path") as URL?;
 
 //监听下载进度

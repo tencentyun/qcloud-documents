@@ -24,7 +24,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?sdkappid=
 
 ### 最高调用频率
 
-100次/秒。
+1次/秒。
 
 ### 请求包示例
 

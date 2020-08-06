@@ -25,7 +25,7 @@
 
 - 获取加入群组时增加群组的详细信息
 - 修复小文件发不出去问题
-- 修复日志上报的 6002 错误
+- 修复日志上报的6002错误
 
 ### TUIKit & Demo
 
@@ -35,7 +35,7 @@
 - 优化自定义消息删除、撤回无效的问题
 - 优化界面
 - 音视频代码 swift -> oc，大幅减少第三方依赖库
-- 支持 LiteAV_TRTC ，LiteAV_Professional 两种音视频依赖库 TUIKit pod 集成。
+- 支持 LiteAV_TRTC、LiteAV_Professional 两种音视频依赖库 TUIKit pod 集成。
 
 **Android**
 

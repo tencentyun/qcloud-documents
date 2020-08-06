@@ -31,7 +31,13 @@ MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 ### Step1. 页面准备工作
 在需要播放视频的页面（PC 或 H5）中引入初始化脚本。
 ```
-<script src="//imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.3.js" charset="utf-8"></script>;
+<script src="https://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.2.js" charset="utf-8"></script>;
+```
+
+如果在域名限制区域，可以引入以下链接：
+
+```
+<script src="https://cloudcache.tencent-cloud.com/open/qcloud/video/vcplayer/TcPlayer-2.3.2.js" charset="utf-8"></script>;
 ```
 
 >! 直接用本地网页无法调试，Web 播放器无法处理该情况下的跨域问题。
@@ -94,10 +100,13 @@ var player =  new TcPlayer('id_test_video', {
 普通的手机浏览器只支持 HLS（M3U8) 协议的播放，不支持 FLV 和 RTMP 协议，最新版本的 QQ 浏览器支持 FLV 协议的播放。
 
 - **原因四：跨域安全问题**
-PC 浏览器的视频播放基于 Flash 控件实现，但 **Flash 控件会做跨域访问检查**，如果播放视频所存放的服务器没有部署跨域策略，则会出现问题，解决方法是：在服务器根域名下的跨域配置文件`crossdomain.xml`中添加`qq.com`域名。
+PC 浏览器的视频播放基于 Flash 控件实现，但 **Flash 控件会做跨域访问检查**，如果播放视频所存放的服务器没有部署跨域策略，则会出现问题。
+解决方法：在视频存储服务器根域名下添加跨域配置文件`crossdomain.xml`，并配置 Flash swf 所在域名，以允许 Flash 和 JavaScript 跨域播放视频。
+播放器的 Flash swf 文件默认存放在`imgcache.qq.com`域名下，如需部署到自己的服务器上，可自行下载并部署：[swf 文件地址](https://imgcache.qq.com/open/qcloud/video/player/release/QCPlayer.swf)。
+如果是在域名限制区域，需要的播放器的 Flash swf 文件默认存放在`cloudcache.tencent-cloud.com`域名下，并且在播放器初始化的时候传递 flashUrl。
 ```xml
 <cross-domain-policy>
-<allow-access-from domain="*.qq.com" secure="false"/>
+  <allow-access-from domain="*.*.com" secure="false"/>
 </cross-domain-policy>
 ```
 
@@ -352,6 +361,9 @@ volumechange
 
 
 应用案例：通过事件监听，可以进行播放失败重连，[单击访问](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-reconnect.html) 在线案例。
+
+## 案例展示
+结合了 TcPlayer 和即时通信 IM 的腾讯云 Web 直播互动组件：[体验地址](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblivedemo/index.html)。
 
 ## 更新日志
 TCPlayerLite 在不断更新及完善中，下面是 TCPlayerLite 发布的主版本介绍。

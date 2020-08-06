@@ -54,7 +54,7 @@ done
 |          fs.cosn.bucket.region           | 请填写待访问 bucket 的地域信息，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 中的地域简称，例如	ap-beijing、ap-guangzhou 等。兼容原有配置：fs.cosn.userinfo.region。 |                              无                              |   是   |
 |      fs.cosn.bucket.endpoint_suffix      | 指定要连接的 COS endpoint，该项为非必填项目。对于公有云 COS 用户而言，只需要正确填写上述的 region 配置即可。兼容原有配置：fs.cosn.userinfo.endpoint_suffix。 |                              无                              |   否   |
 |             fs.cosn.tmp.dir              | 请设置一个实际存在的本地目录，运行过程中产生的临时文件会暂时放于此处。 |                       /tmp/hadoop_cos                        |   否   |
-|            fs.cosn.block.size            | CosN 文件系统每个 block 的大小，也是分块上传的每个 part size 的大小。由于 COS 的分块上传最多只能支持10000块，因此需要预估最大可能使用到的单文件大小。例如，block size 为8MB时，最大能够支持78GB的单文件上传。 block size 最大可以支持到2GB，即单文件最大可支持19TB。 |                        8388608（8MB）                        |   否   |
+|          fs.cosn.upload.part.size           | CosN 文件系统每个 block 的大小，也是分块上传的每个 part size 的大小。由于 COS 的分块上传最多只能支持10000块，因此需要预估最大可能使用到的单文件大小。例如，block size 为8MB时，最大能够支持78GB的单文件上传。 block size 最大可以支持到2GB，即单文件最大可支持19TB。 |                        8388608（8MB）                        |   否   |
 |        fs.cosn.upload_thread_pool        | 文件流式上传到 COS 时，并发上传的线程数目。                  |                        CPU核心数 X 5                         |   否   |
 |         fs.cosn.copy_thread_pool         | 目录拷贝操作时，可用于并发拷贝和删除文件的线程数目。               |                       CPU核心数目 X 3                        |   否   |
 |      fs.cosn.read.ahead.block.size       | 预读块的大小。                                               |                        1048576（1MB）                        |   否   |
@@ -144,7 +144,7 @@ done
     </property>
     
     <property>
-    	<name>fs.cosn.block.size</name>
+    	<name>fs.cosn.upload.part.size</name>
         <value>8388608</value>
         <description>Block size to use cosn filesysten, which is the part size for MultipartUpload.
         Considering the COS supports up to 10000 blocks, user should estimate the maximum size of a single file.
