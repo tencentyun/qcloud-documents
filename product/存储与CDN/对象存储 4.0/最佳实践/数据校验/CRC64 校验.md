@@ -103,7 +103,7 @@ local_crc64 =str(c64(object_body))
 #初始化分块上传
 response = client.create_multipart_upload(
     Bucket='examplebucket-1250000000',  #替换为您的 Bucket 名称，examplebucket 是一个举例的存储桶，1250000000 为举例的 APPID
-    Key=‘exampleobject’,              #替换为您上传的对象 Key 值 
+    Key='exampleobject',              #替换为您上传的对象 Key 值 
     StorageClass='STANDARD',            #对象的存储类型
 )
 #获取分块上传的 UploadId
@@ -132,7 +132,7 @@ while left_size > 0:
 
     response = client.upload_part(
         Bucket='examplebucket-1250000000',
-        Key=‘exampleobject’,
+        Key='exampleobject',
         Body=body,
         PartNumber=part_number,
         UploadId=upload_id,
@@ -153,7 +153,7 @@ while left_size > 0:
 #完成分块上传
 response = client.complete_multipart_upload(
     Bucket='examplebucket-1250000000',  #替换为您的 Bucket 名称，examplebucket 是一个举例的存储桶，1250000000 为举例的 APPID
-    Key=‘exampleobject’,             #对象的 Key 值 
+    Key='exampleobject',             #对象的 Key 值 
     UploadId=upload_id,
     MultipartUpload={       			#要求每个分块的 ETag 和 PartNumber 一一对应
         'Part' : part_list    
