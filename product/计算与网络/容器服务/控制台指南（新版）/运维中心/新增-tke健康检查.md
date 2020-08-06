@@ -11,7 +11,7 @@
 ![](https://main.qcloudimg.com/raw/7e23d624112de08c13aa59b767933668.png)
 **自动检查**，适用于需要周期性检查的集群。找到需要周期检查的集群，点击【自动检查】，其中可根据您的需求设置开启状态、检查周期和时间。如下图所示：
 ![](https://main.qcloudimg.com/raw/665b7b467a603d12a76b125c03ad00c4.png)
-![](https://main.qcloudimg.com/raw/3a45748c37134b198634067c82843a8c.png)
+![](https://main.qcloudimg.com/raw/feced197672fdab20271f2a09cbd9211.png)
 3. 选择好检查方式之后，等待检查完成，检查进度可查看。
 ![](https://main.qcloudimg.com/raw/05c6cc587d7a323463af9fe0452a816a.png)
 4. 检查完成后，可点击【查看结果】查看检查报告。
