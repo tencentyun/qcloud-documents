@@ -115,7 +115,6 @@ defaultConfig {
 在 AndroidManifest.xml 中配置 App 的权限，IM SDK 需要以下权限：
 
 ```
-	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
