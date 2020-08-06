@@ -117,7 +117,7 @@ _boardController = [[TEduBoardController alloc] initWithAuthParam:authParam room
 
 #### 4. 白板数据同步
 
-白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK默认使用 IMSDK 做为信令通道，您需要自行实现 IMSDK 的初始化、登录、加入群组操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
+白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 默认使用 IMSDK 作为信令通道，您需要自行实现 IMSDK 的初始化、登录、加入群组操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
 
 步骤一、初始化 IMSDK
 
