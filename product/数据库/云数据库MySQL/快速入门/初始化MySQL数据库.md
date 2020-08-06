@@ -12,6 +12,6 @@
 3. 返回实例列表，待实例状态变为“运行中”，即可正常使用。
 
 
-## 后续步骤
+## 后续操作
 通过 Windows 云服务器或 Linux 云服务器，以内外网两种不同的方式连接云数据库 MySQL，请参见 [连接 MySQL 实例](https://cloud.tencent.com/document/product/236/3130)。
 
