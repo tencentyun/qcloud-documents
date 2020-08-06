@@ -70,7 +70,7 @@ Hexo g
 ```plaintext
 cloudbase hosting:deploy public -e [EnvID]
 ```
-![](https://main.qcloudimg.com/raw/7d539f3190b6c8c457044448424d4ee4.png)
+![](https://main.qcloudimg.com/raw/b28508a216a056b6c517c2173cb596ba.png)
 
 ## 步骤5：浏览部署的 Hexo
 
