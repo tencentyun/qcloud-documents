@@ -65,7 +65,7 @@
 <tr>
     <td>2020-07-28</td>	
     <td>v1.14.3-tke.15</td>	
-    <td><ul class="params"><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/76518">pr76518</a> 及 <a href="https://github.com/kubernetes/kubernetes/pull/82514">pr82514</a>，限制 http 及 exec probe 的返回大小，避免占用大量节点内存（kubelet）。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91277">pr91277</a>，避免 CLB 健康检查导致 kube-apiserver 产生大量 TLS 握手错误日志的问题（kube-apiserver）。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91500">pr91500</a>，修复 KUBERNETES_SERVICE_HOST 环境变量缺失的问题（kubelet）。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/77475">pr77475</a>，修复 Job 数量超过 500 时，Cronjob 无法调度的问题（kube-controller-manager）。</li></ul></td>
+    <td><ul class="params"><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/76518">pr76518</a> 及 <a href="https://github.com/kubernetes/kubernetes/pull/82514">pr82514</a>，限制 http 及 exec probe 的返回大小，避免占用大量节点内存（kubelet）。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91277">pr91277</a>，避免 CLB 健康检查导致 kube-apiserver 产生大量 TLS 握手错误日志的问题（kube-apiserver）。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91500">pr91500</a>，修复 KUBERNETES_SERVICE_HOST 环境变量缺失的问题（kubelet）。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/77475">pr77475</a>，修复 Job 数量超过500时，Cronjob 无法调度的问题（kube-controller-manager）。</li></ul></td>
 </tr>
 <tr>
     <td>2020-06-10</td>	
