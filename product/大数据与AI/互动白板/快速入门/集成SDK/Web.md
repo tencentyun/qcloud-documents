@@ -34,7 +34,7 @@
 <script src="https://res.qcloudtiw.com/board/third/videojs/1.0.0/video.min.js"></script>
 ```
 
-> 目前互动白板中依赖axios, cos，请使用script:src的方式加载，这样能够保证在全局访问到axios和cos，不支持import的方式。
+> 目前互动白板中依赖 axios, cos，请使用 script:src 的方式加载，这样能够保证在全局访问到 axios 和 cos，不支持 import 的方式。
 
 ## 使用 TEduBoard SDK
 
@@ -72,7 +72,7 @@ teduBoard.on(TEduBoard.EVENT.TEB_WARNING, (code, msg) => {
 
 #### 3. 白板数据同步
 
-白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK默认使用 IMSDK 做为信令通道，您需要自行实现 IMSDK 的初始化、登录、加入群组操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
+白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 默认使用 IMSDK 作为信令通道，您需要自行实现 IMSDK 的初始化、登录、加入群组操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
 
  - 监听事件 TEduBoard.EVENT.TEB_SYNCDATA
 
