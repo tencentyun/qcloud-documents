@@ -136,3 +136,9 @@ TestFlight 发布预览版，先将 ipa 包上传到 [App Store Connect](https:/
 ```
 
 
+### App 出现 Crash: you can't call -sendResponse: twice nor after encoding it 报错，该如何处理？
+如果您的 App 集成了 TPNS iOS SDK（1.2.7.2 - 1.2.5.4），且使用到 TPNS 的【撤回】功能，同时 App 侧实现了如下系统回调：
+```
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo  fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+```
+则可能会遇到此问题。您可以使用【覆盖】功能来实现已发送消息的处理。
