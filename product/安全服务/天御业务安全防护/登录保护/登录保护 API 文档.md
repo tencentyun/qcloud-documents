@@ -101,8 +101,8 @@
 https://csec.api.qcloud.com/v2/index.php?Action=LoginProtection
 &<公共请求参数>
 &secretId=AKID***************************q4Zw
-&accountType=1
-&uid=D692D87319F2098C3877C3904B304706
+&accountType=10004
+&uid=BF**********AD31C95CA75E21365973
 &loginIp=127.0.0.1（调用时必须是外网有效ip地址）
 &loginTime=1553484280（uinx时间戳，仅需要精确到秒）
 ```
@@ -114,7 +114,7 @@ https://csec.api.qcloud.com/v2/index.php?Action=LoginProtection
     "level ": 1,
     "message": "NoError",
     "loginTime": "1553484280",
-    "uid": "D692D87319F2098C3877C3904B304706",
+    "uid": "BF**********AD31C95CA75E21365973",
     "loginIp": "127.0.0.1",
     "riskType": [1]
 }

@@ -149,7 +149,16 @@ get_presigned_download_url(Bucket, Key, Expired=300, Params={}, Headers={})
 ```python
 response = client.get_presigned_download_url(
     Bucket='examplebucket-1250000000',
-    Key='exampleobject'
+    Key='exampleobject',
+    Expired=300,
+    Headers={
+        'Content-Length': 'string',
+        'Content-MD5': 'string'
+    },
+    Params={
+        'param1': 'string',
+        'param2': 'string'
+    }
 )
 ```
 #### 参数说明

@@ -18,7 +18,7 @@
 >
 ![](https://main.qcloudimg.com/raw/851ab46468c554097a0cf742017157b7.png)
 3. 界面将提示【Login】、【Sign Up】和【No, thanks, just start my download.】， 选择【No thanks, just start my download.】来快速下载。
-![](https://main.qcloudimg.com/raw/21bdd95d425d9df4f4c3c90bf4465b47.png)
+![](https://main.qcloudimg.com/raw/47b195fb37ff584f21038ee54342d362.png)
 4. 在此台云服务器上安装 MySQL Workbench。
 >?
 >- 此电脑上需要安装 Microsoft .NET Framework 4.5 和 Visual C++ Redistributable for Visual Studio 2015。
@@ -32,7 +32,7 @@
  - Password：Username 对应的密码，如忘记密码可参见 [重置密码](https://cloud.tencent.com/document/product/236/10305) 进行修改。
 ![](https://main.qcloudimg.com/raw/946b50fb05de11d7c68c2262ac4fe933.png)
 6. 登录成功的页面如图 所示，在此页面上您可以看到 MySQL 数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
-![](https://main.qcloudimg.com/raw/b84c35fee2720afa262ac887b9b74d99.png)
+![](https://main.qcloudimg.com/raw/33f081e99c384258bbc5ed3683ed4d7d.png)
 
 ## 从 Linux 云服务器访问
 1. 登录到 Linux 云服务器，请参见 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">快速配置 Linux 云服务器</a>。
@@ -41,7 +41,7 @@
 yum install mysql
 ```
 提示`Complete!`说明 MySQL 客户端安装完成。
-![](https://main.qcloudimg.com/raw/5ebc9a87457defd09cc69c4f38164d3c.png)
+![](https://main.qcloudimg.com/raw/16c77e28c40ae9be9a182b1c61843ecd.png)
 3. 根据不同连接方式，选择相应的操作：
  - **内网连接时：**
     1. 执行如下命令登录到 MySQL 数据库实例。
@@ -79,9 +79,10 @@ mysql -h hostname -P port -u username -p
 >?通过开关可以关闭外网连接权限，重新开启外网，域名对应的外网地址不变。
 
 ## 附录2：网络连通性验证方法
-建议您使用 telnet 命令来快速排查和定位网络连通性问题，请参见 [telnet 命令](https://cloud.tencent.com/document/product/236/34375#.E8.A7.A3.E5.86.B3.E6.96.B9.E6.A1.88) 。
+建议您使用 telnet 命令来快速排查和定位网络连通性问题，请参见 [telnet 命令](https://cloud.tencent.com/document/product/236/34375#.E8.A7.A3.E5.86.B3.E6.96.B9.E6.A1.88)。
 
-## 附录3：命令行登录连接故障诊断
-telnet 验证云数据库网络访问正常后，如在云服务器上通过命令行登录云数据库报错，请参见 [云数据库连接故障诊断及解决方案](https://cloud.tencent.com/document/product/236/11278#.E4.BA.91.E6.95.B0.E6.8D.AE.E5.BA.93.E8.BF.9E.E6.8E.A5.E6.95.85.E9.9A.9C.E8.AF.8A.E6.96.AD.E5.8F.8A.E8.A7.A3.E5.86.B3.E6.96.B9.E6.A1.88)。
+若 telnet 验证云数据库网络访问正常后，如在云服务器上通过命令行登录云数据库报错，请参见 [连接实例相关问题](https://cloud.tencent.com/document/product/236/11278#sytyzysjk)。
 
+## 附录3：无法连接实例问题
+若遇到无法连接实例相关问题，建议您使用 [一键连接检查工具](https://cloud.tencent.com/document/product/236/33206) 进行排查，根据检查报告提示，在 [解决无法连接实例问题](https://cloud.tencent.com/document/product/236/44754) 查找相应解决方案。
 

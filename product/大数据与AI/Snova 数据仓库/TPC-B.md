@@ -15,7 +15,7 @@ CDW 分为**计算密集型**和**存储密集型**2类机型，简单区别如�
 
 ## 测试工具
 使用 PostgreSQL 自带的 pgbench 工具进行测试
-1. 如果测试环境是 CentOS 7.X，可以直接在此处下载已经编译好的工具 [pgbench](https://packagedown-online-1256722404.cos.ap-guangzhou.myqcloud.com/pgbench/pgbench) 。
+1. 如果测试环境是 CentOS 7.X，可以直接在此处下载已经编译好的工具 [pgbench](https://packagedown-online-1256722404.cos.ap-guangzhou.myqcloud.com/pgbench/pgbench)。
 2. 其它环境可以自行编译 PostgreSQL 或者直接安装二进制包，为了更好的兼容性，建议采用 PostgreSQL9.4 版本。
 
 

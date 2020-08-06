@@ -1,11 +1,11 @@
 
-本文为您介绍通过控制台创建 MySQL 实例的操作。
+本文为您介绍如何通过控制台创建 MySQL 实例。
 
 ## 前提条件
 已注册腾讯云账号并完成实名认证。
-如需注册腾讯云账号：
+- 如需注册腾讯云账号：
 <div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F" target="_blank"  style="color: white; font-size:16px;" hotrep="document.guide.3128.btn1">点此注册腾讯云账号</a></div>
-如需完成实名认证：
+- 如需完成实名认证：
 <div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/developer" target="_blank"  style="color: white; font-size:16px;"  hotrep="document.guide.3128.btn2">点此完成实名认证</a></div>
 
 ## 操作步骤
@@ -25,7 +25,7 @@
 2. 支付完成后，返回实例列表，待实例状态变为“未初始化”，即可进行初始化操作。
 
 
-## 后续步骤
-- 通过控制台初始化 MySQL 实例，请参见 [初始化 MySQL 实例](https://cloud.tencent.com/document/product/236/3128)。
-- 通过 Windows 云服务器或 Linux 云服务器，以内外网两种不同的方式连接云数据库 MySQL，请参见 [连接 MySQL 实例](https://cloud.tencent.com/document/product/236/3130)。
+## 下一步
+通过控制台初始化 MySQL 实例，请参见 [初始化 MySQL 实例](https://cloud.tencent.com/document/product/236/3128)。
+
 

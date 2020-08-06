@@ -13,10 +13,10 @@
 3. 选择【管理系统】>【数据连接】>【数据连接管理】，单击【新建数据连接】，在【所有】选项下选择 **Pivotal Greenplum Database**，如下图所示：
 ![](https://main.qcloudimg.com/raw/da800bbe37235d73cc75d371961f4944.png)
 4. 填写数据库连接信息，如下图所示：
- - 【驱动】：选择`org.postgresql.dirver`。
+ - 【驱动】：选择`org.postgresql.driver`。
  - 【数据库名称】：CDW 如果没有创建数据库，默认使用 postgres。
  - 【主机】：需要提前将本机的 IP 加入 CDW 的白名单中，否则将会返回带有"no pg_hba.conf entry"的错误信息。
-![](https://main.qcloudimg.com/raw/89136d2acb32d1945dfb7a886c314c7f.png)
+![](https://main.qcloudimg.com/raw/bffe77f0f93ed390ac19c000d0b9c61c.png)
 5. 单击【点击连接数据库】，连接成功后，页面提示如下图所示：
 ![](https://main.qcloudimg.com/raw/e34f57761fe737ecf3a4ad3658159877.png)
 6. 保存数据源。这里需要选择正确的模式，默认是拉取第一个，通常是系统模式。

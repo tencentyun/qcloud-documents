@@ -1,8 +1,4 @@
-本文为您介绍通过控制台初始化 MySQL 实例的操作。
-
-## 前提条件
-已购买云数据库 MySQL，如需购买云数据库 MySQL：
-<div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/cdb" target="_blank"  style="color: white; font-size:16px;" hotrep="document.guide.3128.btn3">点此进入购买页面</a></div>
+创建 MySQL 实例后，您还需要进行 MySQL 实例的初始化，以轻松启用实例。
 
 ## 操作步骤
 1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb)，选择对应地域后，在实例列表，选择状态为“未初始化”的实例，在“操作”列单击【初始化】。
