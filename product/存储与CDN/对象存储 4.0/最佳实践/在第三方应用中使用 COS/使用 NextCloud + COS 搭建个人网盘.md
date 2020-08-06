@@ -291,13 +291,13 @@ php -m
 ### 上传并解压 NextCloud 服务端代码
 
 1. 在 [NextCloud 官网](https://nextcloud.com/install/#instructions-server) 下载 NextCloud 服务端最新版安装包，并上传至服务器 `/var/www/` 目录下，您可以通过以下方法上传：
-   a）使用 `wget` 命令直接在服务器上下载安装包，例如：进入 `/var/www/` 目录后，执行命令 `wget https://download.nextcloud.com/server/releases/nextcloud-19.0.1.zip`。
+    a）使用 `wget` 命令直接在服务器上下载安装包，例如：进入 `/var/www/` 目录后，执行命令 `wget https://download.nextcloud.com/server/releases/nextcloud-19.0.1.zip`。
     b）下载到本地计算机上，然后通过 SFTP 或 SCP 等软件将安装包上传至 `/var/www/` 目录。
     c）下载到本地计算机上，使用 lrzsz 上传，方法是：
-       1. 使用 SSH 工具登录到新购服务器。
-       2. 执行 `yum install lrzsz` 安装 lrzsz。
-       3. 执行 `cd /var/www/` 进入目标目录。
-       4. 执行 `rz -bye`，随后在 SSH 工具中选择下载到本地的 NextCloud 服务端安装包（依据SSH工具的不同，此处操作将不尽相同）。
+  1. 使用 SSH 工具登录到新购服务器。
+  2. 执行 `yum install lrzsz` 安装 lrzsz。
+  3. 执行 `cd /var/www/` 进入目标目录。
+  4. 执行 `rz -bye`，随后在 SSH 工具中选择下载到本地的 NextCloud 服务端安装包（依据 SSH 工具的不同，此处操作将不尽相同）。
 2. 使用 SSH 工具登录到新购服务器。
 3. 执行 `unzip nextcloud-<version>.zip` 解压安装包，例如 `unzip nextcloud-19.0.1.zip`。
 
