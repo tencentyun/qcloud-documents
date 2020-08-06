@@ -44,8 +44,7 @@ Serverless 云应用的开通以环境为维度，在开通时您需要指定当
 2. 在左侧菜单中，单击【Serverless 云应用】，进入 Serverless 云应用。
 ![](https://main.qcloudimg.com/raw/2b47f79763be8b5ae32e2bf3900d1106.jpg)
 
-> ?
-> Serverless 云应用公测期间，需要先 [申请开通](https://cloud.tencent.com/apply/p/y5uji0g6a7p)，审核通过后，云开发控制台的左侧菜单才会出现 【Serverless 云应用】入口，否则入口将不可见。公测结束后，**Serverless 云应用**的入口将对所有云开发用户开放。
+>?Serverless 云应用公测期间，需要先 [申请开通](https://cloud.tencent.com/apply/p/y5uji0g6a7p)，审核通过后，云开发控制台的左侧菜单才会出现 【Serverless 云应用】入口，否则入口将不可见。公测结束后，**Serverless 云应用**的入口将对所有云开发用户开放。
 
 
 
@@ -92,8 +91,7 @@ Serverless 云应用的开通以环境为维度，在开通时您需要指定当
 2. 在左侧菜单中，单击【Serverless 云应用】，进入 Serverless 云应用。
 ![](https://main.qcloudimg.com/raw/2b47f79763be8b5ae32e2bf3900d1106.jpg)
 
-> ?
-> Serverless 云应用公测期间，需要先 [申请开通](https://cloud.tencent.com/apply/p/y5uji0g6a7p)，审核通过后，云开发控制台的左侧菜单才会出现 【Serverless云应用】入口，否则入口将不可见。公测结束后，**Serverless 云应用**的入口将对所有云开发用户开放。
+>?Serverless 云应用公测期间，需要先 [申请开通](https://cloud.tencent.com/apply/p/y5uji0g6a7p)，审核通过后，云开发控制台的左侧菜单才会出现 【Serverless云应用】入口，否则入口将不可见。公测结束后，**Serverless 云应用**的入口将对所有云开发用户开放。
 
 
 
