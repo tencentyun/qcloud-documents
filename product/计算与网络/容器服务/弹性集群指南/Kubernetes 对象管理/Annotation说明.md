@@ -39,7 +39,7 @@
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/cpu-type</td>
-<td>Pod 所需的 GPU 资源型号，目前支持型号如下：
+<td>Pod 所需的 CPU 资源型号，目前支持型号如下：
 <ul  class="params">
 <li>intel</li>
 <li>amd</li>
