@@ -9,7 +9,7 @@ Serverless 云应用的开通以环境为维度，在开通时您需要指定当
 
 当您的 MySQL 实例与 Serverless 云应用中的某个服务处于同一 VPC 内时，该服务即可连接使用这个 MySQL 实例。
 
-> !暂不支持开通后再次更改 Serverless 云应用所在环境绑定的 VPC 和子网。
+>!暂不支持开通后再次更改 Serverless 云应用所在环境绑定的 VPC 和子网。
 
 
 
@@ -44,7 +44,7 @@ Serverless 云应用的开通以环境为维度，在开通时您需要指定当
 2. 在左侧菜单中，单击【Serverless 云应用】，进入 Serverless 云应用。
 ![](https://main.qcloudimg.com/raw/2b47f79763be8b5ae32e2bf3900d1106.jpg)
 
->?Serverless 云应用公测期间，需要先 [申请开通](https://cloud.tencent.com/apply/p/y5uji0g6a7p)，审核通过后，云开发控制台的左侧菜单才会出现 【Serverless 云应用】入口，否则入口将不可见。公测结束后，**Serverless 云应用**的入口将对所有云开发用户开放。
+>?Serverless 云应用公测期间，需要先 [申请开通](https://cloud.tencent.com/apply/p/y5uji0g6a7p)，审核通过后，云开发控制台的左侧菜单将展示 【Serverless 云应用】入口，否则入口将不可见。公测结束后，**Serverless 云应用**的入口将对所有云开发用户开放。
 
 
 
@@ -53,7 +53,8 @@ Serverless 云应用的开通以环境为维度，在开通时您需要指定当
 1. 单击【立即开通】。
 ![](https://main.qcloudimg.com/raw/c28dbbabd53906f84db237156b8ac850.png)
 2. **Serverless 云应用网络**选择【自定义配置】。
-3. 下拉选择步骤1中查询到 MySQL 实例所在的 VPC 和子网。![](https://main.qcloudimg.com/raw/5443e7ad6e871c112f69dacd53c52f75.png)
+3. 下拉选择步骤1中查询到 MySQL 实例所在的 VPC 和子网。
+![](https://main.qcloudimg.com/raw/5443e7ad6e871c112f69dacd53c52f75.png)
 
 
 
@@ -91,7 +92,7 @@ Serverless 云应用的开通以环境为维度，在开通时您需要指定当
 2. 在左侧菜单中，单击【Serverless 云应用】，进入 Serverless 云应用。
 ![](https://main.qcloudimg.com/raw/2b47f79763be8b5ae32e2bf3900d1106.jpg)
 
->?Serverless 云应用公测期间，需要先 [申请开通](https://cloud.tencent.com/apply/p/y5uji0g6a7p)，审核通过后，云开发控制台的左侧菜单才会出现 【Serverless云应用】入口，否则入口将不可见。公测结束后，**Serverless 云应用**的入口将对所有云开发用户开放。
+>?Serverless 云应用公测期间，需要先 [申请开通](https://cloud.tencent.com/apply/p/y5uji0g6a7p)，审核通过后，云开发控制台的左侧菜单将展示 【Serverless 云应用】入口，否则入口将不可见。公测结束后，**Serverless 云应用**的入口将对所有云开发用户开放。
 
 
 
@@ -109,14 +110,15 @@ Serverless 云应用的开通以环境为维度，在开通时您需要指定当
 ![](https://main.qcloudimg.com/raw/fa0de696760aab0ef690e079d68973d7.png)
 
 开通成功后，您将自动跳转到 Serverless 云应用的服务列表页面。当前您还没有创建任何服务，列表为空。
-至此您已经成功开通后 **Serverlesss 云应用**服务，您可以点击【新建服务】开始新建您的第一个服务了。![](https://main.qcloudimg.com/raw/993711f6a2f0a8e704da6a581efc43ad.png)
+至此您已经成功开通后 **Serverlesss 云应用**服务，您可以单击【新建服务】开始新建您的第一个服务了。
+![](https://main.qcloudimg.com/raw/993711f6a2f0a8e704da6a581efc43ad.png)
 
 #### 步骤4：查询服务所在网络
 
 1. 选择您需要配合使用 MySQL 的服务，单击服务名称进入服务详情页面。
 ![](https://main.qcloudimg.com/raw/0549eee11a609f62ef5a95f77e6d969b.png)
 2. 单击【服务配置】选项卡，查看服务所在私有网络信息。
-![](https://main.qcloudimg.com/raw/7d0dc8f94871ab6245af65e26807b040.png)
+![](https://main.qcloudimg.com/raw/e6c356fdf7cb744d182f80cd7ebed10e.png)
 
 #### 步骤5：购买云数据库 MySQL 实例
 
