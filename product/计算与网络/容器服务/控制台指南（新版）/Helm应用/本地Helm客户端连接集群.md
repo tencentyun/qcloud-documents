@@ -8,49 +8,35 @@
 
 执行以下命令，下载 Helm 客户端。
 ```
-curl -O https://storage.googleapis.com/kubernetes-helm/helm-v2.10.0-linux-amd64.tar.gz
-tar xzvf helm-v2.10.0-linux-amd64.tar.gz
-sudo cp linux-amd64/helm /usr/local/bin/helm
+ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+ chmod 700 get_helm.sh
+ ./get_helm.sh
 ```
 
-### 配置 Helm 为 Client-only
+更多查看[Installing Helm](https://helm.sh/docs/intro/install/)
 
-执行以下命令，将 Helm 配置为 Client-only。
+### 配置 Helm Chart 仓库(可选)
+1. 配置kubernetes官方仓库：
 ```
-helm init --client-only
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 ```
+2. 配置腾讯云应用市场
+```
+helm repo add  tkemarket  https://market-tke.tencentcloudcr.com/chartrepo/opensource-stable
+```
+3. [配置TCR私有Helm 仓库](https://cloud.tencent.com/document/product/1141/41944#.E6.B7.BB.E5.8A.A0-helm-.E4.BB.93.E5.BA.93)
 
-### 内网通过 Helm 客户端连接集群
 
-#### 目标集群节点
+### 内网/外网通过 Helm 安装Chart包到指定的TKE集群 
 
-您可以直接使用。
+Helm v3对比Helm v2 已移除Tiller组件，Helm 客户端直接连接集群的ApiServer， 应用相关的版本数据直接存储在Kunernetes中。  
+![](https://main.qcloudimg.com/raw/a1c2fc3a632f3369b14c72498c573593.png)
 
-#### 非目标集群节点
-
-1. 执行以下命令，将目标集群 Tiller 服务的 type 修改为内网 Loadbalancer 模式。
->! 请将以下命令中 “service.kubernetes.io/qcloud-loadbalancer-internal-subnetid” 的值替换为需要生产 CLB 的子网 ID。
- 
- ```
-kubectl patch svc $(kubectl get svc -l app=helm,name=tiller -n kube-system -o=jsonpath={.items[0].metadata.name}) -n kube-system -p '{"metadata":{"annotations":{"service.kubernetes.io/qcloud-loadbalancer-internal-subnetid":"subnet-88888888"}},"spec":{"type":"LoadBalancer"}}'
+方式1: Helm Client使用TKE生成的客户端证书访问集群
+1. 通过TKE控制台或API[获取可用公网或内网访问的Kubeconfig](https://cloud.tencent.com/document/product/457/32191#.E9.85.8D.E7.BD.AE-kubeconfig)
+2. 可通过配置Helm Client所在机器的kubectl config use-contest为上述获取的kubeconfig. helm install等命令即可连接目标集群。 
+3. 可通过通过制定参数的形式访问目标集群
 ```
-2. 执行以下命令，在目标集群节点上获取 $EXTERNALIP。
+helm  install ....  --kubeconfig [kubeconfig所在路径]
 ```
-  kubectl get svc -l app=helm,name=tiller -n kube-system -o=jsonpath={.items[0].status.loadBalancer.ingress[0].ip}
-```
-3. 执行以下命令，在目标集群节点上获取 $PORT。
-```
-kubectl get svc -l app=helm,name=tiller -n kube-system -o=jsonpath={.items[0].spec.ports[0].port}
-```
-4. 执行以下命令，在 Helm 客户端节点上导入环境变量。
-```
-export HELM_HOST=$EXTERNALIP:$PORT
-```
-5. 执行以下命令，命令验证 Helm 客户端。
-```
-[centos ~]# helm ls
-NAME     	REVISION	UPDATED                 	STATUS  	CHART          	APP VERSION	NAMESPACE
-wordpress	1       	Mon Jan 21 14:22:30 2019	DEPLOYED	wordpress-5.0.1	5.0.1      	default
-```
-
 
