@@ -1,0 +1,10 @@
+本文将为您介绍全局配置—基础设置的操作步骤。
+
+## 操作步骤
+
+1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor)。
+2. 在左侧导航栏中点击【Dashboard列表】，进入Dashboard列表页。
+3. 单击 Dashboard 列表左上角的【新建】，进入新建 Dashboard 管理页。
+4. 在面板区单击【![](https://main.qcloudimg.com/raw/8e26fe2eacdd794457a53a745bd48f3c.png)】或单击Dashboard 列表页的【设置】，进入 Dashboard 全局配置页。
+5. 单击【基础设置】，您可以对定义 Dashboard 名称和设置 Dashboard 备注。
+   ![](https://main.qcloudimg.com/raw/e94ab9cafbf3bae9c5bc959511e772da.png)
