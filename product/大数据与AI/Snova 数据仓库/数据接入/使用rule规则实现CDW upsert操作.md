@@ -4,7 +4,7 @@
 ## 规则介绍
 PostgreSQL 规则系统允许在更新、插入、删除时执行一个其它的预定义动作。简单的说，规则就是在指定表上执行指定动作的时候，将导致一些额外的动作被执行。另外，一个`INSTEAD`规则可以用另外一个命令取代特定的命令，或者完全不执行该命令。规则还可以用于实现表视图。规则实际上只是一个命令转换机制，或者说命令宏。这种转换发生在命令开始执行之前。
 
-详细信息可参考 [rule 使用手册](https://m.php.cn/manual/view/20779.html)。
+详细信息可参考 [rule 使用手册](https://www.postgresql.org/docs/9.4/sql-createrule.html)。
 
 ## upsert rule
 如果需要实现 upsert 的操作，那么需要这样一条规则：当进行 insert 操作时，判断是否已经有相应的记录，如果存在记录则改为进行 update 操作，如果不存在记录则进行正常 insert 操作。
@@ -24,7 +24,7 @@ CREATE TABLE my_test(
 ```
 然后给表增加 rule 规则。
 ```
-create rule r1 as on insert to my_test where exit do instead update my_test set num1=NEW.num1,num2=NEW.num2,str1=NEW.str1,str2=NEW.str2 where id=NEW.id;
+create rule r1 as on insert to my_test where exists (select 1 from e t1 where t1.id=NEW.id limit 1) do instead update my_test set num1=NEW.num1,num2=NEW.num2,str1=NEW.str1,str2=NEW.str2 where id=NEW.id;
 ```
 这里可以看到这条 rule 命令的含义就是针对 insert 操作，如果新的 insert 语句的 id 是存在，那么就直接用新 insert 里面的值 update 原来的数据，语句中的 NEW.XXX，即新 insert 语句的值，操作完成后可以看到。数据表中存在 rule 规则，接着进行 insert 操作，如果 id 存在，那么不会因为主键约束报错，而是进行 update 操作。
 ```
