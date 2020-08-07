@@ -31,28 +31,91 @@ ES 可授权的资源类型如下：
  |更新插件 |  UpdatePlugins    |是 |  `qcs::es:${Region}:uin/${ownerUin}:instance/${instanceId}` |
  
 支持区域如下：
-
-| 区域名称 | 区域 ID |
-| :-------- | -------------- |
-| 广州 | `ap-guangzhou` |
-|上海金融   |    `ap-shanghai-fsi`
- |首尔   |    `ap-seoul`
- |多伦多   |    `na-toronto`
- |中国香港   |    `ap-hongkong`
- |重庆   |    `ap-chongqing`
- |深圳金融   |    `ap-shenzhen-fsi`
- |清远   |    `ap-qingyuan`
- |台北   |    `ap-taipei`
- |孟买   |    `ap-mumbai`
- |上海   |    `ap-shanghai`
- |东京   |    `ap-tokyo`
- |德国法兰克福   |    `eu-frankfurt`
- |南京   |    `ap-nanjing`
- |北京   |    `ap-beijing`
- |美国弗吉尼亚   |    `na-ashburn`
- |硅谷   |    `na-siliconvalley`
- |新加坡   |    `ap-singapore`
- |成都   |    `ap-chengdu`
+<table>
+<thead>
+<tr>
+<th align="left">区域</th>
+<th align="left">名称</th>
+<th>区域 ID</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left" rowspan="2">华南地区</td>
+<td align="left">广州</td>
+<td><code>ap-guangzhou</code></td>
+</tr>
+<tr>
+<td align="left">清远</td>
+<td><code>ap-qingyuan</code></td>
+</tr>
+<tr>
+<td align="left" rowspan="2">华东地区</td>
+<td align="left">上海</td>
+<td><code>ap-shanghai</code></td>
+</tr>
+<tr>
+<td align="left">南京</td>
+<td><code>ap-nanjing</code></td>
+</tr>
+<tr>
+<td align="left">华北地区</td>
+<td align="left">北京</td>
+<td><code>ap-beijing</code></td>
+</tr>
+<tr>
+<td align="left" rowspan="2">西南地区</td>
+<td align="left">成都</td>
+<td><code>ap-chengdu</code></td>
+</tr>
+<tr>
+<td align="left">重庆</td>
+<td><code>ap-chongqing</code></td>
+</tr>
+<tr>
+<td align="left">港澳台地区</td>
+<td align="left">中国香港</td>
+<td><code>ap-hongkong</code></td>
+</tr>
+<tr>
+<td align="left">亚太东南</td>
+<td align="left">新加坡</td>
+<td><code>ap-singapore</code></td>
+</tr>
+<tr>
+<td align="left">亚太南部</td>
+<td align="left">孟买</td>
+<td><code>ap-mumbai</code></td>
+</tr>
+<tr>
+<td align="left" rowspan="2">亚太东北</td>
+<td align="left">首尔</td>
+<td><code>ap-seoul</code></td>
+</tr>
+<tr>
+<td align="left">东京</td>
+<td><code>ap-tokyo</code></td>
+</tr>
+<tr>
+<td align="left">美国西部</td>
+<td align="left">硅谷</td>
+<td><code>na-siliconvalley</code></td>
+</tr>
+<tr>
+<td align="left">美国东部</td>
+<td align="left">弗吉尼亚</td>
+<td><code>na-ashburn</code></td>
+</tr>
+<tr>
+<td align="left">北美地区</td>
+<td align="left">多伦多</td>
+<td><code>na-toronto</code></td>
+</tr>
+<tr>
+<td align="left">欧洲地区</td>
+<td align="left">法兰克福</td>
+<td><code>eu-frankfurt</code></td>
+</tr>
+</tbody></table>
 
 自定义策略的语法如下：
 
