@@ -24,6 +24,7 @@ public void setBucketDomainConfiguration(SetBucketDomainConfigurationRequest set
 
 #### 请求示例
 
+[//]: # (.cssg-snippet-put-bucket-domain)
 ```java
 String bucketName = "examplebucket-1250000000";
 BucketDomainConfiguration bucketDomainConfiguration = new BucketDomainConfiguration();
@@ -94,6 +95,7 @@ throws CosClientException, CosServiceException;
 
 #### 请求示例
 
+[//]: # (.cssg-snippet-get-bucket-domain)
 ```java
 String bucketName = "examplebucket-1250000000";
 BucketDomainConfiguration bucketDomainConfiguration1 = cosclient.getBucketDomainConfiguration(bucketName);

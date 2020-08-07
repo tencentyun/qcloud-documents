@@ -19,6 +19,7 @@ COS.getAuthorization 方法用于计算鉴权凭证（Authorization），用以�
 
 获取对象下载的鉴权凭证：
 
+[//]: # (.cssg-snippet-get-authorization)
 ```js
 var Authorization = COS.getAuthorization({
     SecretId: 'COS_SECRETID',
@@ -57,6 +58,7 @@ var Authorization = COS.getAuthorization({
 
 示例一：获取不带签名的对象的 Url
 
+[//]: # (.cssg-snippet-get-presign-download-url-nosign)
 ```js
 var url = cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
@@ -68,6 +70,7 @@ var url = cos.getObjectUrl({
 
 示例二：获取带签名的对象的 Url
 
+[//]: # (.cssg-snippet-get-presign-download-url)
 ```js
 var url = cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
@@ -80,6 +83,7 @@ var url = cos.getObjectUrl({
 
 > ?如果签名过程是异步获取，需要通过 callback 获取带签名 Url。
 
+[//]: # (.cssg-snippet-get-presign-download-url-callback)
 ```js
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
@@ -93,6 +97,7 @@ cos.getObjectUrl({
 
 示例四：指定链接有效时间。
 
+[//]: # (.cssg-snippet-get-presign-download-url-expiration)
 ```js
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
@@ -107,6 +112,7 @@ cos.getObjectUrl({
 
 示例五：获取对象的 Url 并下载对象
 
+[//]: # (.cssg-snippet-get-presign-download-url-then-fetch)
 ```js
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
