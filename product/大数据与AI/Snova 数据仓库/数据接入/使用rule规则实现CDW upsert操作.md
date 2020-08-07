@@ -1,4 +1,4 @@
-## 背景
+## 背景说明
 云数据仓库 CDW 底层是基于 greenplum6 来构建，postgresql 内核为9.4版本，目前并不能很好支持 postgresql 的`insert .. on conflict`特性，所以对于 upsert 场景需要采用额外的方式来进行处理，这里提供一种利用 postgresql rule 特性来进行 upsert 的方法。
 
 ## 规则介绍
