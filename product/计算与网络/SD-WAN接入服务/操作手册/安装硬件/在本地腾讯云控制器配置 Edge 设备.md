@@ -97,7 +97,7 @@
 </tr>
 <tr>
 <td>PPPOE</td>
-<td>Edge-100 仅支持 2.4G，Edge-1000 支持 2.4G 和 5G。</td>
+<td>Edge-100 仅支持2.4G，Edge-1000 支持2.4G和5G。</td>
 </tr>
 <tr>
 <td>安全认证</td>
