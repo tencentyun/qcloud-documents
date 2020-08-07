@@ -16,7 +16,7 @@ AirKiss 是微信为 Wi-Fi 设备提供的配网技术，具体文档请参考 [
 
 腾讯连连小程序已支持采用 AirKiss 协议进行配网，并提供了相应的 [小程序 SDK](https://github.com/tencentyun/qcloud-iotexplorer-appdev-miniprogram-sdk)。
 AirKiss 方式配网及设备绑定的示例流程图如下：
-<img src="https://main.qcloudimg.com/raw/f87a534f9f84d43e7d7e1c8313e27692.jpg" width="90%">
+![](https://main.qcloudimg.com/raw/8e7f638de7dc02853463a59e32dec223.png)
 
 
 ## 操作步骤
@@ -43,8 +43,8 @@ AirKiss 配网设备端与腾讯连连小程序及后台交互的数据协议操
     topic: $thing/up/service/ProductID/DeviceName
     payload: {"method":"app_bind_token","clientToken":"client-1234","params": {"token":"6aa12345a9d529a2ee777aa6e528a0fd"}}
 ```
- - 设备端可以通过订阅主题 $thing/down/service/ProductID/DeviceName 来获取 token 上报的结果。
- - 注意如果设备需要通过动态注册来创建设备并获取设备密钥，则会先进行动态注册再连接 MQTT。
+设备端可以通过订阅主题 $thing/down/service/ProductID/DeviceName 来获取 token 上报的结果。
+>!如果设备需要通过动态注册来创建设备并获取设备密钥，则会先进行动态注册再连接 MQTT。
 9. 在以上5-7步骤中，需观察以下情况：
  - 如果小程序收到设备 UDP 服务发送过来的错误日志，且 deviceReply 字段的值为"Current_Error"，则表示当前配网绑定过程中出错，需要退出配网操作。
  - 如果 deviceReply 字段是"Previous_Error"，则为上一次配网的出错日志，只需要上报，不影响当此操作。
@@ -72,27 +72,28 @@ esp_smartconfig_set_type(SC_TYPE_ESPTOUCH_AIRKISS);
 配网接口说明请查看 wifi_config/qcloud_wifi_config.h，可以按照下面方式使用：
 
 ```
-    /* to use WiFi config and device binding with Wechat mini program */
-    int wifi_config_state;
-    int ret = start_smartconfig();
-    if (ret) {
-        Log_e("start wifi config failed: %d", ret);
-    } else {
-        /* max waiting: 150 * 2000ms */
-        int wait_cnt = 150;
-        do {
-            Log_d("waiting for wifi config result...");
-            HAL_SleepMs(2000);            
-            wifi_config_state = query_wifi_config_state();
-        } while (wifi_config_state == WIFI_CONFIG_GOING_ON && wait_cnt--);
-    }
+/* 在微信小程序中使用WiFi配置和设备绑定 */
+int wifi_config_state;
+int ret = start_smartconfig();
+if (ret) {
+		Log_e("start wifi config failed: %d", ret);
+} else {
+		/* 最大等待时间: 150 * 2000ms */
+		int wait_cnt = 150;
+		do {
+				Log_d("waiting for wifi config result...");
+				HAL_SleepMs(2000);            
+				wifi_config_state = query_wifi_config_state();
+		} while (wifi_config_state == WIFI_CONFIG_GOING_ON && wait_cnt--);
+}
 
-    wifi_connected = is_wifi_config_successful();
-    if (!wifi_connected) {
-        Log_e("wifi config failed!");
-        // setup a softAP to upload log to mini program
-        start_log_softAP();
-    }
+wifi_connected = is_wifi_config_successful();
+if (!wifi_connected) {
+		Log_e("wifi config failed!");
+		//设置softAP向小程序上传log
+		start_log_softAP();
+}
+
 
 ```
 

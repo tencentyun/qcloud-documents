@@ -33,8 +33,9 @@
    - **Provisioner**：选择【云硬盘CBS】。
    - **读写权限**：云硬盘仅支持单机读写。
    - **StorageClass**：按需选择合适的 StorageClass。本文以选择在 [通过控制台创建 StorageClass](#create) 步骤中创建的 `cbs-test` 为例。
->? PVC 和 PV 会绑定在同一个 StorageClass 下。
->不指定意味着该 PV 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
+>?
+>- PVC 和 PV 会绑定在同一个 StorageClass 下。
+>- 不指定意味着该 PV 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
    - **云盘**：选择已经创建好的云硬盘。
    - **文件系统**：默认为 ext4。
 5. 单击【创建PersistentVolume】即可完成创建。
@@ -52,13 +53,14 @@
    - **Provisioner**：选择【云硬盘CBS】。
    - **读写权限**：云硬盘只支持单机读写。
    - **StorageClass**：按需选择合适的 StorageClass。本文以选择在 [通过控制台创建 StorageClass](#create) 步骤中创建的 `cbs-test` 为例。
->? PVC 和 PV 会绑定在同一个 StorageClass 下。
->不指定意味着该 PVC 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
+>? 
+>- PVC 和 PV 会绑定在同一个 StorageClass 下。
+>- 不指定意味着该 PVC 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
 > 
-   - **PersistVolume**：按需指定 PersistentVolume，本文选择以在[ 静态创建PV ](#pv) 步骤中创建的 `cbs-pv` 为例。
->? 只有与指定的 StorageClass 相同并且状态为 Available 和 Released 的 PV 为可选状态，如果当前集群内没有满足条件的 PV 可选，请选择“不指定”PersistVolume。
->**注意：**如果选择的 PV 状态为 Released，还需手动删除该 PV 对应 YAML 配置文件中的 `claimRef`字段，该 PV 才能顺利与 PVC 绑定。
->[ 查看 PV 和 PVC 的绑定规则 ](待补充！！！)。
+   - **PersistVolume**：按需指定 PersistentVolume，本文选择以在 [静态创建PV](#pv) 步骤中创建的 `cbs-pv` 为例。
+>? 
+>- 只有与指定的 StorageClass 相同并且状态为 Available 和 Released 的 PV 为可选状态，如果当前集群内没有满足条件的 PV 可选，请选择“不指定”PersistVolume。
+>- 如果选择的 PV 状态为 Released，还需手动删除该 PV 对应 YAML 配置文件中的 `claimRef` 字段，该 PV 才能顺利与 PVC 绑定。详情请参见 [查看 PV 和 PVC 的绑定规则](https://cloud.tencent.com/document/product/457/47014)。
 3. 单击【创建PersistentVolumeClaim】，即可完成创建。
 
 

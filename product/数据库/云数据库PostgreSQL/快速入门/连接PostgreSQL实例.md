@@ -25,8 +25,8 @@
 
 <span id = "kqww"></span>
 #### 附录：开启外网访问地址
-1. 登录 [PostgreSQL 控制台](https://console.cloud.tencent.com/pgsql)，在实例列表中，单击实例名或操作列的【管理】，进入实例详情页面。
-2. 在实例详情页下的基本信息里找到【外网地址】，单击【开通】。
+1. 登录 [PostgreSQL 控制台](https://console.cloud.tencent.com/pgsql)，在实例列表，单击实例名或“操作”列的【管理】，进入实例详情页面。
+2. 在实例详情页的“基本信息”里找到“外网地址”，单击【开通】。
 ![](https://main.qcloudimg.com/raw/9ca9cd47bbf25fbbf8af012cafcdcfdf.png)
 3. 在弹出的对话框，单击【确定】后，外网开通进入处理状态。
 4. 开启成功后，即可在基本信息中查看到外网地址。
