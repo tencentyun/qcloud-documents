@@ -42,7 +42,7 @@ JSON 模板包含 Dashboard 的属性、模板变量、面板查询等字段，�
 | Panels      | 图表配置 ，请参考 [Panels](#step3)                   |
 | Time        | Dashboard 的时间范围                                 |
 
-### <span id="step3">Templating</span>
+### <span id="step1">Templating</span>
 
 ```
 "Templating": [ // 模板变量
