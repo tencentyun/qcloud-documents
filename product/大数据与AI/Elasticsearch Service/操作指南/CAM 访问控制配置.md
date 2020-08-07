@@ -28,12 +28,31 @@ ES 可授权的资源类型如下：
 | 更新集群 | UpdateInstance| 是| `qcs::es:${Region}:uin/${ownerUin}:instance/${instanceId}` |
 | 重启集群 | RestartInstance| 是| `qcs::es:${Region}:uin/${ownerUin}:instance/${instanceId}` |
 | 删除集群 | DeleteInstance| 是|  `qcs::es:${Region}:uin/${ownerUin}:instance/${instanceId}` |
+ |更新插件 |  UpdatePlugins    |是 |  `qcs::es:${Region}:uin/${ownerUin}:instance/${instanceId}` |
  
 支持区域如下：
 
 | 区域名称 | 区域 ID |
 | :-------- | -------------- |
 | 广州 | `ap-guangzhou` |
+|上海金融   |    ap-shanghai-fsi
+ |首尔   |    ap-seoul
+ |多伦多   |    na-toronto
+ |香港   |    ap-hongkong
+ |重庆   |    ap-chongqing
+ |深圳金融   |    ap-shenzhen-fsi
+ |清远   |    ap-qingyuan
+ |台北   |    ap-taipei
+ |孟买   |    ap-mumbai
+ |上海   |    ap-shanghai
+ |东京   |    ap-tokyo
+ |德国法兰克福   |    eu-frankfurt
+ |南京   |    ap-nanjing
+ |北京   |    ap-beijing
+ |美国弗吉尼亚   |    na-ashburn
+ |硅谷   |    na-siliconvalley
+ |新加坡   |    ap-singapore
+ |成都   |    ap-chengdu
 
 自定义策略的语法如下：
 
