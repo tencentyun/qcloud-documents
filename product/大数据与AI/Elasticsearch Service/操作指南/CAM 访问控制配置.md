@@ -38,7 +38,7 @@ ES 可授权的资源类型如下：
 |上海金融   |    ap-shanghai-fsi
  |首尔   |    ap-seoul
  |多伦多   |    na-toronto
- |香港   |    ap-hongkong
+ |中国香港   |    ap-hongkong
  |重庆   |    ap-chongqing
  |深圳金融   |    ap-shenzhen-fsi
  |清远   |    ap-qingyuan
