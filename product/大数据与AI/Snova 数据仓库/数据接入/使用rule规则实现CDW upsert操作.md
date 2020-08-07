@@ -24,9 +24,9 @@ CREATE TABLE my_test(
 ```
 然后给表增加 rule 规则。
 ```
-create rule r1 as on insert to my_test where ff(NEW.id) do instead update my_test set num1=NEW.num1,num2=NEW.num2,str1=NEW.str1,str2=NEW.str2 where id=NEW.id;
+create rule r1 as on insert to my_test where exit do instead update my_test set num1=NEW.num1,num2=NEW.num2,str1=NEW.str1,str2=NEW.str2 where id=NEW.id;
 ```
-这里可以看到这条 rule 命令的含义就是针对 insert 操作，如果新的 insert 语句的 id 是存在，那么就直接用新 insert 里面的值 update 原来的数据，语句中的 NEW.XXX，即新 insert 语句的值，操作完成后可以看到。
+这里可以看到这条 rule 命令的含义就是针对 insert 操作，如果新的 insert 语句的 id 是存在，那么就直接用新 insert 里面的值 update 原来的数据，语句中的 NEW.XXX，即新 insert 语句的值，操作完成后可以看到。数据表中存在 rule 规则，接着进行 insert 操作，如果 id 存在，那么不会因为主键约束报错，而是进行 update 操作。
 ```
 \d my_test
                                    Table "public.my_test"
@@ -47,7 +47,7 @@ Rules:
           WHERE my_test_1.id = new.id
          LIMIT 1)) DO INSTEAD  UPDATE my_test SET num1 = new.num1, num2 = new.num2, str1 = new.str1, str2 = new.str2
 ```
-数据表中存在 rule 规则，接着进行 insert 操作，如果 id 存在，那么不会因为主键约束报错，而是进行 update 操作。
+
 
 ## 使用注意
 rule 规则使用存在一定局限，如下所示：
