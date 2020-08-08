@@ -72,7 +72,7 @@ EKS 日志采集功能支持指定用户自建的 Kafka 实例、日志服务 CL
 ![](https://main.qcloudimg.com/raw/aecacfad7deea5b77522584fcf4ba4f2.png)
 4. 在 “更新Deployment” 页面，编辑 YAML，通过新增环境变量的方式配置。有以下三种方式，
 
-#### 采集日志到 Kafka
+#### 方式1：采集日志到 Kafka
 通过增加环境变量开启日志采集
 ```shell
 apiVersion: apps/v1beta2
@@ -144,7 +144,7 @@ labels:
 
 </table>
 
-#### 采集日志到 cls 通过 secret 
+#### 方式2：通过 secret 采集日志到 cls  
 创建secret
 通过kubectl执行以下命令，获取进行base64编码的secretid 和 secretkey，详情请参考[secret管理](https://cloud.tencent.com/document/product/457/31718)。请替换为对应的 secretid 和 secretkey。
 ```shell
@@ -273,10 +273,10 @@ spec:
 	</tr>
 </table>
 
-#### 采集日志到cls通过role
-创建 role
-在[访问管理控制台](https://console.cloud.tencent.com/cam/role)创建 role，创建 role 时选择腾讯云产品服务，绑定【云服务器(cvm) 】载体，详情请参考[创建角色](https://cloud.tencent.com/document/product/598/19381)。
-如果需要日志采集，请在【策略】>【新建自定义策略】>【按策略语法创建】中添加如下策略，并将此策略关联到上述新建角色，详情请参考[创建策略](https://cloud.tencent.com/document/product/598/37739)。
+#### 方式3：通过 role 采集日志到 cls
+**创建 role**
+在[访问管理控制台](https://console.cloud.tencent.com/cam/role)创建 role，创建 role 时选择腾讯云产品服务，绑定【云服务器(cvm) 】载体，详情请参考 [创建角色](https://cloud.tencent.com/document/product/598/19381)。
+如果需要日志采集，请在【策略】>【新建自定义策略】>【按策略语法创建】中添加如下策略，并将此策略关联到上述新建角色，详情请参考 [创建策略](https://cloud.tencent.com/document/product/598/37739)。
 ```shell
 {
     "version": "2.0",
@@ -298,7 +298,7 @@ template:
     annotations:
       eks.tke.cloud.tencent.com/role-name: "eks-pushlog"
 ```
-创建deployment
+**创建deployment**
 ```shell
 apiVersion: apps/v1beta2
 kind: Deployment
@@ -360,6 +360,7 @@ spec:
         imagePullPolicy: Always
         name: world
 ```
+**字段说明：**
 <table>
 	<tr>
 		<th>字段名</th> <th>含义</th>
@@ -381,13 +382,14 @@ spec:
 	</tr>
 	</tr>
 </table>
-5、添加完成后，单击【完成】，即可更新 YAML，增加日志配置。
+5. 添加完成后，单击【完成】，即可更新 YAML，增加日志配置。
 <span id="new"></span>
 
 ### 更新日志采集 
-#### 通过控制台 
-1. 登陆[容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【弹性集群】。
-2. 选择需要配置日志采集的集群ID，进入集群管理页面。如下图所示：
+您可通过控制台和 yaml 更新日志采集，请参考以下步骤：
+#### 通过控制台
+1. 登陆 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【弹性集群】。
+2. 选择需要配置日志采集的集群 ID，进入集群管理页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/7804c43acd5314be619f59c9a819b73a.png)
 3. 点击左侧【工作负载】，在需要更新日志采集的工作负载中，单击【更新Pod配置】。如下图所示：
 ![](https://main.qcloudimg.com/raw/9c5291c32f9f3c1f995c7ddde069a260.png)
