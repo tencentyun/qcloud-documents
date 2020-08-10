@@ -2,40 +2,6 @@
 
 >注: 目前 Serverless SSR 只支持 Next.js 与 Nuxt.js 两个框架组件的部署
 
-### 0. 项目迁移
-
-如果你的项目本身运行就是基于 `express` 自定义服务的，那么你需要在项目中自定义入口文件 `sls.js`，需要参考你的服务启动文件进行修改，以下是一个 Nuxt.js 项目的模板文件：
-
-
-```js
-const express = require('express')
-const { loadNuxt } = require('nuxt')
-
-async function createServer() {
-  // not report route for custom monitor
-  const noReportRoutes = ['/_nuxt', '/static', '/favicon.ico']
-
-  const server = express()
-  const nuxt = await loadNuxt('start')
-
-  server.all('*', (req, res, next) => {
-    noReportRoutes.forEach((route) => {
-      if (req.path.indexOf(route) === 0) {
-        req.__SLS_NO_REPORT__ = true
-      }
-    })
-    return nuxt.render(req, res, next)
-  })
-
-  // define binary type for response
-  // if includes, will return base64 encoded, very useful for images
-  server.binaryTypes = ['*/*']
-
-  return server
-}
-
-module.exports = createServer
-```
 
 ### 1. 安装
 
@@ -145,6 +111,41 @@ $ touch .env # 腾讯云的配置信息
 # .env
 TENCENT_SECRET_ID=123
 TENCENT_SECRET_KEY=123
+```
+
+### 项目迁移
+
+部署您的本地项目到云端时，Serverless SSR 会自动帮您创建入口函数 `sls.js`, 您也可以在项目中自定义入口文件 `sls.js`，需要参考你的服务启动文件进行修改，以下是一个 Nuxt.js 项目的模板文件：
+
+
+```js
+const express = require('express')
+const { loadNuxt } = require('nuxt')
+
+async function createServer() {
+  // not report route for custom monitor
+  const noReportRoutes = ['/_nuxt', '/static', '/favicon.ico']
+
+  const server = express()
+  const nuxt = await loadNuxt('start')
+
+  server.all('*', (req, res, next) => {
+    noReportRoutes.forEach((route) => {
+      if (req.path.indexOf(route) === 0) {
+        req.__SLS_NO_REPORT__ = true
+      }
+    })
+    return nuxt.render(req, res, next)
+  })
+
+  // define binary type for response
+  // if includes, will return base64 encoded, very useful for images
+  server.binaryTypes = ['*/*']
+
+  return server
+}
+
+module.exports = createServer
 ```
 
 ### 自定义监控
