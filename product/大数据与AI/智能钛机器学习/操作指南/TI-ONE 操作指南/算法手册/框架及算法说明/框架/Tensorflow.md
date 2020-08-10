@@ -1,10 +1,33 @@
 Tensorflow 框架为用户提供了基于 Python API 的 Tensorflow 运行环境，用户可将编写好的脚本及依赖文件上传至该框架进行算法训练。
 
 ## 版本说明
-Tensorflow 中使用的 Python 版本和支持的第三方模块版本信息如下：
-   - Python 3.5
-   - SciPy 1.0.0
-   - NumPy 1.14.0
+Tensorflow 框架版本及框架中使用的 Python 版本和支持的第三方模块版本信息如下：
+<table>
+     <tr>
+         <th width=25%>Tensorflow 版本</th>  
+         <th width=25%>Python 版本</th>  
+         <th width=25%>scipy 版本</th> 
+         <th width=25%>numpy 版本</th> 
+     </tr>
+     <tr>      
+      <td>tensorflow 2.0</td>   
+      <td>Python 3.5</td>   
+      <td>scipy 1.1.0</td>   
+	<td>numpy 1.18.5</td>  
+     </tr>
+     <tr>      
+      <td>tensorflow 1.14</td>   
+      <td>Python 3.5</td>   
+      <td>scipy 1.1.0</td>   
+	<td>numpy 1.15.4</td>  
+     </tr> 
+     	<tr>      
+      <td>tensorflow 1.12</td>   
+      <td>Python 3.5</td>   
+      <td>scipy 1.1.0</td>   
+	<td>numpy 1.15.4</td>  
+     </tr> 
+</table>
 
 如果您需要使用其他第三方的 lib，可使用 pip 在代码内安装，示例如下：
 ```python
