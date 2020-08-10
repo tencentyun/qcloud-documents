@@ -46,6 +46,19 @@ EKS 日志采集功能支持采集 Kubernetes 集群内指定容器的标准输�
 ![](https://main.qcloudimg.com/raw/7b9799a0d2a6d1200318dfc35243ea52.png)
 至此已完成日志采集功能配置，您可按需进行该工作负载的其他配置。
 
+<span id="output2"></span>
+### 配置日志消费端 
+EKS 日志采集功能支持指定用户自建的 Kafka 实例、日志服务 CLS 指定的日志主题作为日志内容的消费端。日志采集 Agent 会将采集到的日志发送到指定 Kafka 的指定 Topic 或指定的 CLS 日志主题。
+#### 配置 Kafka 作为日志消费端 <span id="step2"></span> 
+选择 Kafka 作为日志采集的消费端，填写 Kafka 的 Broker 地址及 Topic，需要保证集群内所有资源都能够访问用户指定的 Kafka Topic。如下图所示：
+![](https://main.qcloudimg.com/raw/2a226f61d5db3a048f804e83d3f0debb.png)
+#### 配置 CLS 作为日志消费端<span id="step1"></span> 
+- 日志服务 CLS 目前只能支持同地域的容器集群进行日志采集上报。详情请参见 [创建日志集和日志主题](https://cloud.tencent.com/document/product/614/34340)。
+- 创建日志集时，由于弹性容器服务的日志有独立的采集能力，新建日志集不需要开启【使用LogListener】。如下图所示：
+![](https://main.qcloudimg.com/raw/7444cb3e96707452a021188c9a3d83e2.png)
+- 打开日志主题的【日志索引】。如下图所示：
+![](https://main.qcloudimg.com/raw/a8413fb410367e01acfa9ff62e7a291d.png)
+
 
 <span id="yaml"></span>
 ### 通过 yaml 配置日志采集 
@@ -385,22 +398,6 @@ spec:
 4. 在环境变量中，根据配置对应变量名的变动修改相应的变量值，变量名对应的含义可在 [配置日志采集](#y) 查看。如下图所示：
 ![](https://main.qcloudimg.com/raw/a1bdcf2903de94ecd8ca9cb9cd6b14ee.png)
 5. 单击【完成】即可更新。
-
 #### 通过 yaml 更新日志采集
 找到需要更新日志采集的工作负载对应的 yaml，根据配置对应变量名的变动修改相应的变量值，变量名对应的含义可在 [配置日志采集](#y) 查看。
-
-
-## 相关操作
-<span id="output2"></span>
-### 配置日志消费端 
-EKS 日志采集功能支持指定用户自建的 Kafka 实例、日志服务 CLS 指定的日志主题作为日志内容的消费端。日志采集 Agent 会将采集到的日志发送到指定 Kafka 的指定 Topic 或指定的 CLS 日志主题。
-#### 配置 Kafka 作为日志消费端 <span id="step2"></span> 
-选择 Kafka 作为日志采集的消费端，填写 Kafka 的 Broker 地址及 Topic，需要保证集群内所有资源都能够访问用户指定的 Kafka Topic。如下图所示：
-![](https://main.qcloudimg.com/raw/2a226f61d5db3a048f804e83d3f0debb.png)
-#### 配置 CLS 作为日志消费端<span id="step1"></span> 
-- 日志服务 CLS 目前只能支持同地域的容器集群进行日志采集上报。详情请参见 [创建日志集和日志主题](https://cloud.tencent.com/document/product/614/34340)。
-- 创建日志集时，由于弹性容器服务的日志有独立的采集能力，新建日志集不需要开启【使用LogListener】。如下图所示：
-![](https://main.qcloudimg.com/raw/7444cb3e96707452a021188c9a3d83e2.png)
-- 打开日志主题的【日志索引】。如下图所示：
-![](https://main.qcloudimg.com/raw/a8413fb410367e01acfa9ff62e7a291d.png)
 
