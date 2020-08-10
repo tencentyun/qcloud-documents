@@ -1,20 +1,16 @@
-Wotrus与DNSPod品牌DV型证书提交流程 
-
 ## 操作场景
-
-Wotrus与DNSPod品牌DV型证书在购买成功后（详情见[购买流程](1)），需要进行相关材料提交。
-CA 认证审核通过后，会正式颁发证书，您可下载证书进行安装。
+Wotrus 与 DNSPod 品牌 DV 型证书在购买成功后，需要进行相关材料提交。证书购买流程请参考 [购买流程](https://cloud.tencent.com/document/product/400/47285)。
+CA 认证审核通过后，会正式颁发证书，即可下载证书进行安装。
 
 
 ## 前提条件
-
-已购买Wotrus与DNSPod品牌DV型证书。
+已购买 Wotrus 与 DNSPod 品牌 DV 型证书。
 
 ## 操作步骤
 
 ### 证书材料提交入口
 1. 登录 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl)。
-2. 在 “证书列表” 页面，选择已购买到的沃通国密证书行，单击【提交资料】。
+2. 在 “证书列表” 页面，选择已购买的证书行，单击【提交资料】。
 
 ### 填写域名
 根据实际需求，选择 CSR 生成方式（择一）。
@@ -23,7 +19,7 @@ CA 认证审核通过后，会正式颁发证书，您可下载证书进行安�
 
 **在线生成 CSR**<span id="csr1"></span>
 
->?不同域名类型的证书，需填写信息略有不同。本操作以多域名证书为例。
+>!不同域名类型的证书，需填写信息略有不同。本操作以多域名证书为例。
 
 1. 填写域名信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/b981a2730514136626bc18cb77ec4abf.png)
@@ -50,21 +46,15 @@ CA 认证审核通过后，会正式颁发证书，您可下载证书进行安�
 ![](https://main.qcloudimg.com/raw/b5e7c7efcf8def5adf61996d98fa35f4.png)
 2. 单击【下一步】。
 
-
 ### 域名验证
 1. 进入域名验证页后，您可以选择以下两种方式进行域名验证：
-+ **手动DNS验证**
-详情验证操作请参考：[手动DNS验证](https://cloud.tencent.com/document/product/400/4142#.E6.89.8B.E5.8A.A8-dns-.E9.AA.8C.E8.AF.81)
+ -  **手动DNS验证**
+详情验证操作请参考：[手动 DNS 验证](https://cloud.tencent.com/document/product/400/4142#.E6.89.8B.E5.8A.A8-dns-.E9.AA.8C.E8.AF.81)。
+ - **文件验证**
+详情验证操作请参考：[文件验证](https://cloud.tencent.com/document/product/400/4142#.E6.96.87.E4.BB.B6.E9.AA.8C.E8.AF.81)。
+2. 单击【确认】，提交 CSR 文件进行审核。
 
-
-+ **文件验证**
-详情验证操作请参考：[手动验证](https://cloud.tencent.com/document/product/400/4142#.E6.96.87.E4.BB.B6.E9.AA.8C.E8.AF.81)
-
-2.单击【确认】，提交CSR文件进行审核。
-
-> 说明：
->
-> + 首次域名验证通过后，该域名验证将保留13个月。13个月内该域名以相同公司名称申请Wotrus与DNSPod品牌 DV 型证书，将无需执行域名验证。
+>? 首次域名验证通过后，该域名验证将保留13个月。13个月内该域名以相同公司名称申请 Wotrus 与 DNSPod 品牌 DV 型证书，将无需执行域名验证。
 
 
 
