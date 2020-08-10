@@ -6,10 +6,10 @@
 
 <thead>
 <tr>
-<th width="15%">检查大类</th>
-<th width="15%">检查子类</th>
-<th width="25%">检查项</th>
-<th width="35%">检查内容</th>
+<th width="10%">检查大类</th>
+<th width="10%">检查子类</th>
+<th width="30%">检查项</th>
+<th width="40%">检查内容</th>
 <th width="10%">仅独立集群</th>
 </tr>
 </thead>
@@ -20,43 +20,37 @@
 <td rowspan=10>资源状态</td>
 <td rowspan=7>组件状态</td>
 <td> kube-apiserver</td>
-<td> 检测组件是否正在运行，如果组件以Pod形式运行，则检测其24小时内是否重启过。</td>
+<td rowspan=7> 检测组件是否正在运行，如果组件以Pod形式运行，则检测其24小时内是否重启过。</td>
 <td> 是</td>
 </tr>
 
 <tr>
 <td> kube-scheduler</td>
-<td> 检测组件是否正在运行，如果组件以Pod形式运行，则检测其24小时内是否重启过。</td>
 <td> 是</td>
 </tr>
 
 <tr>
 <td> kube-controller-manager</td>
-<td> 检测组件是否正在运行，如果组件以Pod形式运行，则检测其24小时内是否重启过。</td>
 <td> 是</td>
 </tr>
 
 <tr>
 <td> etcd</td>
-<td> 检测组件是否正在运行，如果组件以Pod形式运行，则检测其24小时内是否重启过。</td>
 <td> 是</td>
 </tr>
 
 <tr>
 <td> kubelet</td>
-<td> 检测组件是否正在运行，如果组件以Pod形式运行，则检测其24小时内是否重启过。</td>
 <td> 否</td>
 </tr>
 
 <tr>
 <td> kube-proxy</td>
-<td> 检测组件是否正在运行，如果组件以Pod形式运行，则检测其24小时内是否重启过。</td>
 <td> 否</td>
 </tr>
 
 <tr>
 <td> dockerd</td>
-<td> 检测组件是否正在运行，如果组件以Pod形式运行，则检测其24小时内是否重启过。</td>
 <td> 否</td>
 </tr>
 
@@ -143,7 +137,7 @@
 
 <tr>
 <td> PDB 设置</td>
-<td> 检测工作负载是否配置了 pdb，配置 pdb 可避免您的业务因驱逐操作而不可用。</td>
+<td> 检测工作负载是否配置了 PDB，配置 PDB 可避免您的业务因驱逐操作而不可用。</td>
 <td> 否</td>
 </tr>
 
