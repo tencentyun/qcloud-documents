@@ -1,4 +1,4 @@
-﻿iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomConfigUI、OcrCommmDef，下面对其支持的 API 做出详细说明。
+iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomConfigUI、OcrCommmDef，下面对其支持的 API 做出详细说明。
 
 ### OcrSDKKit
 
