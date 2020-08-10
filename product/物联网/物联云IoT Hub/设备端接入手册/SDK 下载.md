@@ -66,9 +66,9 @@
 
 - 发布日期：2019/08/26
 - 开发语言：C语言
-- 开发环境：Linux, GNU Make
+- 开发环境：Linux，GNU Make
 - 内容：
-  1、支持 OTA 断点续传：ota_mqtt_sample.c 示例增加本地固件版本信息管理（版本、断点、md5），固件下载建立 https 连接时支持 range 参数。
+  1、支持 OTA 断点续传：ota_mqtt_sample.c 示例增加本地固件版本信息管理（版本、断点、MD5），固件下载建立 HTTPS 连接时支持 range 参数。
   2、SDK 版本号更新为 v3.0.3。
 
 ### 版本 v3.0.2
@@ -126,7 +126,7 @@
   1、优化 MQTT keep alive 连接机制及 PING request 发包策略。
   2、修改 MQTT 订阅/取消订阅的 topic name 使用动态内存方式存储，方便接口调用者使用。
   3、修改 topic name 最大长度为128，与云端后台保持一致。
-  4、修复 httpc 以及 MQTT 获取 sys 及 log 消息的 bug。
+  4、修复 HTTPC 以及 MQTT 获取 sys 及 log 消息的 bug。
   5、优化错误码类型。
 
 ### 版本 v2.3.2
