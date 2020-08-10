@@ -6,11 +6,11 @@
 
 <thead>
 <tr>
-<th width="10%">检查大类</th>
-<th width="10%">检查子类</th>
+<th width="15%">检查大类</th>
+<th width="15%">检查子类</th>
 <th width="30%">检查项</th>
-<th width="40%">检查内容</th>
-<th width="10%">仅独立集群</th>
+<th width="32%">检查内容</th>
+<th width="8%">仅独立集群</th>
 </tr>
 </thead>
 
