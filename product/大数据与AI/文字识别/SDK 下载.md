@@ -1,11 +1,11 @@
-﻿## 客户端 SDK 下载
+## 客户端 SDK 下载
 
 客户端 SDK 下载目前支持 Android、iOS 双平台。
 
 | 所属平台 | SDK 包                                                        | Github                                               | Demo 运行说明   | SDK 集成指引       |
 | -------- | ------------------------------------------------------------ | ---------------------------------------------------- | -------------- | ----------------- |
-| iOS      | [下载地址](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.2/OCR_iOS_SDK_V1.0.2.zip) | [Github](https://github.com/TencentCloud/tc-ocr-sdk) | [一分钟跑通 Demo]() | [iOS 端集成文档]()     |
-| Android  | [下载地址](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.2/OCR_Android_SDK_V1.0.2.zip) | [Github](https://github.com/TencentCloud/tc-ocr-sdk) | [一分钟跑通 Demo]() | [Android 端集成文档]() |
+| iOS      | [下载地址](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.2/OCR_iOS_SDK_V1.0.2.zip) | [Github](https://github.com/TencentCloud/tc-ocr-sdk) | [一分钟跑通 Demo](https://cloud.tencent.com/document/product/866/47302) | [iOS 端集成文档](https://cloud.tencent.com/document/product/866/47304)     |
+| Android  | [下载地址](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.2/OCR_Android_SDK_V1.0.2.zip) | [Github](https://github.com/TencentCloud/tc-ocr-sdk) | [一分钟跑通 Demo](https://cloud.tencent.com/document/product/866/47303) | [Android 端集成文档](https://cloud.tencent.com/document/product/866/47305) |
 
 
 
