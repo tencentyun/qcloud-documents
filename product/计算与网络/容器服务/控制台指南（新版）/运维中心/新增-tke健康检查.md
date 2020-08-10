@@ -8,8 +8,8 @@
 <tr>
 <th width="10%">检查类别</th>
 <th width="30%">检查项</th>
-<th width="40%">检查内容</th>
-<th width="15%">仅独立集群</th>
+<th width="43%">检查内容</th>
+<th width="12%">仅独立集群</th>
 </tr>
 </thead>
 
