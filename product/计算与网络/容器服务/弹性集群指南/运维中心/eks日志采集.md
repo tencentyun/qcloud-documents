@@ -140,7 +140,7 @@ labels:
 	</tr>
 </table>
 
-**方式2：通过 secret 采集日志到 cls**<span id="b"></span>  
+  **方式2：通过 secret 采集日志到 cls**<span id="b"></span>  
 #### 创建 secret<span id="z"></span>
 通过 kubectl 执行以下命令，获取进行 base64编码的 secretid 和 secretkey，详情请参考 [secret 管理](https://cloud.tencent.com/document/product/457/31718)。  
 其中，secretid 及 secretkey 请替换为您实际使用的 secretid 和 secretkey。
@@ -271,10 +271,9 @@ spec:
 	</tr>
 </table>
 
-
-**方式3：通过 role 采集日志到 cls**<span id="c"></span>
-#### 创建 role
-1. 在 [访问管理控制台](https://console.cloud.tencent.com/cam/role) 创建 role，创建 role 时选择腾讯云产品服务，绑定云服务器 CVM 载体，详情请参考 [创建角色](https://cloud.tencent.com/document/product/598/19381)。
+  **方式3：通过 role 采集日志到 cls**<span id="c"></span>
+#### 创建 role  
+在 [访问管理控制台](https://console.cloud.tencent.com/cam/role) 创建 role，创建 role 时选择腾讯云产品服务，绑定云服务器 CVM 载体，详情请参考 [创建角色](https://cloud.tencent.com/document/product/598/19381)。
 如果需要日志采集，请在【策略】>【新建自定义策略】>【按策略语法创建】中添加如下策略，并将此策略关联到上述新建角色，详情请参考 [创建策略](https://cloud.tencent.com/document/product/598/37739)。
 ```shell
 {
@@ -290,7 +289,7 @@ spec:
     ]
 }
 ```
-2. 在pod template 中新增 annotation，指定 role 的名称，获取该 role 包含的权限策略。
+在pod template 中新增 annotation，指定 role 的名称，获取该 role 包含的权限策略。
 ```shell
 template:
   metadata:
