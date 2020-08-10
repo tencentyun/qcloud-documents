@@ -73,7 +73,7 @@ EKS 日志采集功能支持指定用户自建的 Kafka 实例、日志服务 CL
 4. 在 “更新Deployment” 页面，编辑 YAML，通过新增环境变量的方式配置。有以下三种方式，
 
 #### 方式1：采集日志到 Kafka
-通过增加环境变量开启日志采集
+通过增加环境变量开启日志采集。
 ```shell
 apiVersion: apps/v1beta2
 kind: Deployment
@@ -122,38 +122,39 @@ labels:
             cpu: 250m
             memory: 512Mi
 ```
+**字段说明：**
 <table>
 	<tr>
 		<th>字段名</th> <th>含义</th>
 	</tr>
 	<tr>
-		<td>EKS_LOGS_OUTPUT_TYPE</td> <td>消费端支持kafka和cls，根据这个 key 判断是否启用日志收集</td>
+		<td>EKS_LOGS_OUTPUT_TYPE</td> <td>消费端支持 kafka 和 cls，根据这个 key 判断是否启用日志收集。</td>
 	</tr>
 	<tr>
-		<td>EKS_LOGS_LOG_PATHS</td> <td>日志路径，支持“stdout”（表示采集标准输出）和绝对路径，支持*通配，多个路径用 逗号 , 分隔</td>
+		<td>EKS_LOGS_LOG_PATHS</td> <td>日志路径，支持“stdout”（表示采集标准输出）和绝对路径，支持*通配，多个路径用“,”分隔。</td>
 	</tr>
 	<tr>
-		<td>EKS_LOGS_METADATA_ON</td> <td>支持“true”或“false”，可不写，不写默认为“true”</td>
+		<td>EKS_LOGS_METADATA_ON</td> <td>支持 true 或 false。可不写，不写默认为 true。</td>
 	</tr>
 	<tr>
-		<td>EKS_LOGS_KAFKA_TOPIC</td> <td>日志主题</td>
+		<td>EKS_LOGS_KAFKA_TOPIC</td> <td>日志主题。</td>
 	</tr>
 	<tr>
-		<td>EKS_LOGS_KAFKA_BROKERS</td> <td>kafka brokers，ip1:port1，ip1:port2，ip2:port2格式，多个用逗号, 分隔，对外用这个环境变量，EKS_LOGS_KAFKA_HOST以后不再对外可见</td>
+		<td>EKS_LOGS_KAFKA_BROKERS</td> <td>kafka brokers，ip1:port1，ip1:port2，ip2:port2格式，多个用“,”分隔。对外用此环境变量，EKS_LOGS_KAFKA_HOST 以后不再对外可见。</td>
 	</tr>
 
 </table>
 
 #### 方式2：通过 secret 采集日志到 cls  
-创建secret
-通过kubectl执行以下命令，获取进行base64编码的secretid 和 secretkey，详情请参考[secret管理](https://cloud.tencent.com/document/product/457/31718)。请替换为对应的 secretid 和 secretkey。
+##### 创建 secret
+通过 kubectl 执行以下命令，获取进行 base64编码的 secretid 和 secretkey，详情请参考 [secret 管理](https://cloud.tencent.com/document/product/457/31718)。请替换为对应的 secretid 和 secretkey。
 ```shell
 $ echo -n 'secretid' | base64
 c2VjcmV0aWQ=
 $ echo -n 'secretkey' | base64
 c2VjcmV0a2V5
 ```
-通过yaml创建secret，此处的secretid 和 secretkey和上面的secretid 和 secretkey保持一致。请替换为对应的 secretid 和 secretkey。
+通过 yaml 创建 secret，此处的 secretid 和 secretkey 和上面的 secretid 和 secretkey 保持一致。请替换为对应的 secretid 和 secretkey。
 ```shell
 apiVersion: v1
 kind: Secret
@@ -163,8 +164,8 @@ data:
   secretid: c2VjcmV0aWQ=
   secretkey: c2VjcmV0a2V5
 ```
-创建deployment
-通过增加环境变量开启日志采集
+##### 创建deployment
+通过增加环境变量开启日志采集。
 ```shell
 apiVersion: apps/v1beta2
 kind: Deployment
@@ -245,37 +246,38 @@ spec:
         imagePullPolicy: Always
         name:world
 ```
+**字段说明：**
 <table>
 	<tr>
 		<th>字段名</th> <th>含义</th>
 	</tr>
 	<tr>
-		<td>EKS_LOGS_OUTPUT_TYPE</td> <td>消费端支持kafka和cls，根据这个 key 判断是否启用日志收集</td>
+		<td>EKS_LOGS_OUTPUT_TYPE</td> <td>消费端支持 kafka 和cls，根据这个 key 判断是否启用日志收集。</td>
 	</tr>
 	<tr>
-		<td>EKS_LOGS_LOG_PATHS</td> <td>日志路径，支持“stdout”（表示采集标准输出）和绝对路径，支持*通配，多个路径用 逗号 , 分隔</td>
+		<td>EKS_LOGS_LOG_PATHS</td> <td>日志路径，支持“stdout”（表示采集标准输出）和绝对路径，支持*通配，多个路径用“,”分隔。</td>
 	</tr>
 	<tr>
-		<td>EKS_LOGS_METADATA_ON</td> <td>支持“true”或“false”，可不写，不写默认为“true”</td>
+		<td>EKS_LOGS_METADATA_ON</td> <td>支持 true 或 false。可不写，不写默认为 true。</td>
 	</tr>
 	<tr>
-		<td>EKS_LOGS_LOGSET_NAME</td> <td>cls日志集名称</td>
+		<td>EKS_LOGS_LOGSET_NAME</td> <td>cls 日志集名称。</td>
 	</tr>
 	<tr>
-		<td>EKS_LOGS_TOPIC_ID</td> <td>cls日志集的主题id</td>
+		<td>EKS_LOGS_TOPIC_ID</td> <td>cls 日志集的主题 id。</td>
 	</tr>
 	</tr>
-	<td>EKS_LOGS_SECRET_ID</td> <td>SecretId</td>
+	<td>EKS_LOGS_SECRET_ID</td> <td>SecretId。</td>
 	</tr>
 	<tr>
-		<td>EKS_LOGS_SECRET_KEY</td> <td>SecretKey</td>
+		<td>EKS_LOGS_SECRET_KEY</td> <td>SecretKey。</td>
 	</tr>
 	</tr>
 </table>
 
 #### 方式3：通过 role 采集日志到 cls
-**创建 role**
-在[访问管理控制台](https://console.cloud.tencent.com/cam/role)创建 role，创建 role 时选择腾讯云产品服务，绑定【云服务器(cvm) 】载体，详情请参考 [创建角色](https://cloud.tencent.com/document/product/598/19381)。
+##### 创建 role
+在 [访问管理控制台](https://console.cloud.tencent.com/cam/role) 创建 role，创建 role 时选择腾讯云产品服务，绑定云服务器 CVM 载体，详情请参考 [创建角色](https://cloud.tencent.com/document/product/598/19381)。
 如果需要日志采集，请在【策略】>【新建自定义策略】>【按策略语法创建】中添加如下策略，并将此策略关联到上述新建角色，详情请参考 [创建策略](https://cloud.tencent.com/document/product/598/37739)。
 ```shell
 {
@@ -291,14 +293,14 @@ spec:
     ]
 }
 ```
-pod template中新增 annotation，指定 role 的名称，获取该role包含的权限策略。
+pod template 中新增 annotation，指定 role 的名称，获取该 role 包含的权限策略。
 ```shell
 template:
   metadata:
     annotations:
       eks.tke.cloud.tencent.com/role-name: "eks-pushlog"
 ```
-**创建deployment**
+##### 创建deployment
 ```shell
 apiVersion: apps/v1beta2
 kind: Deployment
@@ -366,19 +368,19 @@ spec:
 		<th>字段名</th> <th>含义</th>
 	</tr>
 	<tr>
-		<td>EKS_LOGS_OUTPUT_TYPE</td> <td>消费端支持kafka和cls，根据这个 key 判断是否启用日志收集</td>
+		<td>EKS_LOGS_OUTPUT_TYPE</td> <td>消费端支持 kafka 和 cls，根据这个 key 判断是否启用日志收集。</td>
 	</tr>
 	<tr>
-		<td>EKS_LOGS_LOG_PATHS</td> <td>日志路径，支持“stdout”（表示采集标准输出）和绝对路径，支持*通配，多个路径用 逗号 , 分隔</td>
+		<td>EKS_LOGS_LOG_PATHS</td> <td>日志路径，支持“stdout”（表示采集标准输出）和绝对路径，支持*通配，多个路径用“,”分隔。</td>
 	</tr>
 	<tr>
-		<td>EKS_LOGS_METADATA_ON</td> <td>支持“true”或“false”，可不写，不写默认为“true”</td>
+		<td>EKS_LOGS_METADATA_ON</td> <td>支持 true 或 false。可不写，不写默认为 true。</td>
 	</tr>
 	<tr>
-		<td>EKS_LOGS_LOGSET_NAME</td> <td>cls日志集名称</td>
+		<td>EKS_LOGS_LOGSET_NAME</td> <td>cls 日志集名称。</td>
 	</tr>
 	<tr>
-		<td>EKS_LOGS_TOPIC_ID</td> <td>cls日志集的主题id</td>
+		<td>EKS_LOGS_TOPIC_ID</td> <td>cls 日志集的主题 id。</td>
 	</tr>
 	</tr>
 </table>
@@ -388,7 +390,7 @@ spec:
 ### 更新日志采集 
 您可通过控制台和 yaml 更新日志采集，请参考以下步骤：
 #### 通过控制台
-1. 登陆 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【弹性集群】。
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【弹性集群】。
 2. 选择需要配置日志采集的集群 ID，进入集群管理页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/7804c43acd5314be619f59c9a819b73a.png)
 3. 点击左侧【工作负载】，在需要更新日志采集的工作负载中，单击【更新Pod配置】。如下图所示：
