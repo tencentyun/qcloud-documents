@@ -68,9 +68,7 @@ EKS 日志采集功能支持指定用户自建的 Kafka 实例、日志服务 CL
 4. 在工作负载管理页面中，选择需配置工作负载所在行右侧的【更多】>【编辑YAML】或单击页面右上角的【YAML创建资源】，进入 YAML 编辑页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/c9977eac05f4adb6e26ec895d1c4548d.png)
 5. 在 “更新Deployment” 页面，通过新增环境变量的方式进行配置。本文提供 [采集日志到 Kafka](#a)，[通过 secret 采集日志到 cls](#b)，和 [通过 role 采集日志到 cls](#c) 三种方式，请按需选择：
-
-
-- **方式1：采集日志到 Kafka**<span id="a"></span>
+**方式1：采集日志到 Kafka**<span id="a"></span>
 通过增加环境变量开启日志采集。
 ```shell
 apiVersion: apps/v1beta2
@@ -142,9 +140,7 @@ labels:
 	</tr>
 </table>
 
-
-
-- **方式2：通过 secret 采集日志到 cls**<span id="b"></span>  
+**方式2：通过 secret 采集日志到 cls**<span id="b"></span>  
 #### 创建 secret<span id="z"></span>
 通过 kubectl 执行以下命令，获取进行 base64编码的 secretid 和 secretkey，详情请参考 [secret 管理](https://cloud.tencent.com/document/product/457/31718)。  
 其中，secretid 及 secretkey 请替换为您实际使用的 secretid 和 secretkey。
@@ -276,7 +272,7 @@ spec:
 </table>
 
 
-- **方式3：通过 role 采集日志到 cls**<span id="c"></span>
+**方式3：通过 role 采集日志到 cls**<span id="c"></span>
 #### 创建 role
 1. 在 [访问管理控制台](https://console.cloud.tencent.com/cam/role) 创建 role，创建 role 时选择腾讯云产品服务，绑定云服务器 CVM 载体，详情请参考 [创建角色](https://cloud.tencent.com/document/product/598/19381)。
 如果需要日志采集，请在【策略】>【新建自定义策略】>【按策略语法创建】中添加如下策略，并将此策略关联到上述新建角色，详情请参考 [创建策略](https://cloud.tencent.com/document/product/598/37739)。
