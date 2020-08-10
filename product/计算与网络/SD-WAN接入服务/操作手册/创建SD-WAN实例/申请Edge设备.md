@@ -3,8 +3,8 @@
 >
 ## 背景信息
  Edge-100 和 Edge-1000 的使用场景及支持混合接入的设备如下：
-- Edge-100：适用于智慧零售、连锁酒店、办公职场、多节点小带宽内网互通场景，支持接入 SPF/RJ45、DSL、4G、WIFI 5 等设备，详情请参见 [Edge-100 硬件说明]()。
-- Edge-1000：适用于 IDC 数据中心、企业总部及区域中心机构等核心节点大带宽内网互通场景，支持接入 SPF/RJ45、DSL、4G/5G、WIFI 6 等设备，详情请参见 [Edge-1000 硬件说明]()。
+- Edge-100：适用于智慧零售、连锁酒店、办公职场、多节点小带宽内网互通场景，支持接入 SPF/RJ45、DSL、4G、WIFI 5 等设备，详情请参见 [Edge-100 硬件特性说明](https://cloud.tencent.com/document/product/1277/47251)。
+- Edge-1000：适用于 IDC 数据中心、企业总部及区域中心机构等核心节点大带宽内网互通场景，支持接入 SPF/RJ45、DSL、4G/5G、WIFI 6 等设备，详情请参见 [Edge-1000 硬件特性说明](https://cloud.tencent.com/document/product/1277/47321)。
 
 ## 操作步骤
 
