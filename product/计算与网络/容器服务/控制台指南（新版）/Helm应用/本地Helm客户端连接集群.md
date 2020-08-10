@@ -6,11 +6,15 @@
 
 ### 下载 Helm 客户端
 
-执行以下命令，下载 Helm 客户端。若想了解更多，您可以查看 [Installing Helm](https://helm.sh/docs/intro/install/)。
+依次执行以下命令，下载 Helm 客户端。关于安装 Helm 的更多信息，请参见 [Installing Helm](https://helm.sh/docs/intro/install/)。
 ```
  curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
- chmod 700 get_helm.sh
- ./get_helm.sh
+```
+```
+chmod 700 get_helm.sh
+```
+```
+./get_helm.sh
 ```
 
 
@@ -26,11 +30,11 @@ helm repo add tkemarket https://market-tke.tencentcloudcr.com/chartrepo/opensour
 3. [配置 TCR 私有 Helm 仓库](https://cloud.tencent.com/document/product/1141/41944#.E6.B7.BB.E5.8A.A0-helm-.E4.BB.93.E5.BA.93)。
 
 
-### 内网/外网通过 Helm 安装 Chart 包到指定的 TKE 集群 
+### 连接集群、访问集群 
 
-Helm v3对比 Helm v2已移除 Tiller 组件，Helm 客户端可直接连接集群的 ApiServer，应用相关的版本数据直接存储在 Kunernetes 中。  
+Helm v3对比 Helm v2已移除 Tiller 组件，Helm 客户端可直接连接集群的 ApiServer，应用相关的版本数据直接存储在 Kubernetes 中。如下图所示：
 ![](https://main.qcloudimg.com/raw/a1c2fc3a632f3369b14c72498c573593.png)
-Helm Client 使用 TKE 生成的客户端证书访问集群，您可以参考以下步骤：
+Helm Client 使用 TKE 生成的客户端证书访问集群，具体操作步骤如下：
 1. 通过 TKE 控制台或 API [获取可用公网或内网访问的 Kubeconfig](https://cloud.tencent.com/document/product/457/32191#.E9.85.8D.E7.BD.AE-kubeconfig)。
 2. 通过配置 Helm Client 所在机器的 kubectl config use-contest 为上述获取的 kubeconfig. helm install 等命令时即可连接目标集群。 
 3. 执行以下命令，通过制定参数的形式访问目标集群。
