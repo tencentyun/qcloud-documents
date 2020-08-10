@@ -6,11 +6,10 @@
 
 <thead>
 <tr>
-<th width="15%">检查大类</th>
-<th width="15%">检查子类</th>
-<th width="25%">检查项</th>
-<th width="35%">检查内容</th>
-<th width="10%">仅独立集群</th>
+<th width="10%">检查类别</th>
+<th width="30%">检查项</th>
+<th width="40%">检查内容</th>
+<th width="15%">仅独立集群</th>
 </tr>
 </thead>
 
@@ -18,66 +17,62 @@
 
 <tr>
 <td rowspan=10>资源状态</td>
-<td rowspan=7>组件状态</td>
-<td> kube-apiserver</td>
+<td> kube-apiserver的状态</td>
 <td rowspan=7> 检测组件是否正在运行，如果组件以Pod形式运行，则检测其24小时内是否重启过。</td>
 <td> 是</td>
 </tr>
 
 <tr>
-<td> kube-scheduler</td>
+<td> kube-scheduler的状态</td>
 <td> 是</td>
 </tr>
 
 <tr>
-<td> kube-controller-manager</td>
+<td> kube-controller-manager的状态</td>
 <td> 是</td>
 </tr>
 
 <tr>
-<td> etcd</td>
+<td> etcd的状态</td>
 <td> 是</td>
 </tr>
 
 <tr>
-<td> kubelet</td>
+<td> kubelet的状态</td>
 <td> 否</td>
 </tr>
 
 <tr>
-<td> kube-proxy</td>
+<td> kube-proxy的状态</td>
 <td> 否</td>
 </tr>
 
 <tr>
-<td> dockerd</td>
+<td> dockerd的状态</td>
 <td> 否</td>
 </tr>
 
 <tr>
-<td rowspan=2>Node状态</td>
-<td> master</td>
+<td> master节点的状态</td>
 <td> 检测节点状态是否Ready且无其他异常情况，如内存不足，磁盘不足等。</td>
 <td> 是</td>
 </tr>
 
 <tr>
-<td> worker</td>
+<td> worker节点的状态</td>
 <td> 检测节点状态是否Ready且无其他异常情况，如内存不足，磁盘不足等。</td>
 <td> 否</td>
 </tr>
 
 <tr>
-<td> 工作负载状态</td>
-<td> 按照工作负载项展示</td>
+<td> 各个工作负载的状态</td>
 <td> 检测工作负载当前可用Pod数是否符合其期望目标Pod数。</td>
 <td> 否</td>
 </tr>
 
 <tr>
 <td rowspan=14>运行情况</td>
-<td rowspan=4>集群参数</td>
-<td> kube-apiserver</td>
+<td> kube-apiserver的参数配置</td>
 <td> 根据master节点配置检测以下参数<ul></ul>
 1、max-requests-inflight: 给定时间内运行的变更类请求的最大值<ul></ul>
 2、max-mutating-requests-inflight: 给定时间内运行的非变更类请求的最大值</td>
@@ -85,7 +80,7 @@
 </tr>
 
 <tr>
-<td> kube-scheduler</td>
+<td> kube-scheduler的参数配置</td>
 <td> 根据master节点配置检测以下参数<ul></ul>
 1、kube-api-qps: 请求kube-apiserver使用的QPS<ul></ul>
 2、kube-api-burst: 和kube-apiserver通信的时候最大burst值</td>
@@ -93,7 +88,7 @@
 </tr>
 
 <tr>
-<td> kube-controller-manager</td>
+<td> kube-controller-manager的参数配置</td>
 <td> 根据master节点配置检测以下参数<ul></ul>
 1、kube-api-qps: 请求kube-apiserver使用的QPS<ul></ul>
 2、kube-api-burst: 和kube-apiserver通信的时候最大burst值</td>
@@ -101,15 +96,15 @@
 </tr>
 
 <tr>
-<td> etcd</td>
+<td> etcd的参数配置</td>
 <td> 根据master节点配置检测以下参数<ul></ul>
 1、quota-backend-bytes: 存储大小</td>
 <td> 是</td>
 </tr>
 
 
-<td rowspan=2> Node配置</td>
-<td> master配置合理性</td>
+<tr>
+<td> master节点的配置合理性</td>
 <td> 检测当前master节点配置是否足以支撑当前的集群规模。</td>
 <td> 是</td>
 </tr>
@@ -123,33 +118,31 @@
 </tr>
 
 <tr>
-<td rowspan=4> 工作负载配置</td>
-<td> Request 和 Limit 设置</td>
+<td> 工作负载的Request 和 Limit 配置</td>
 <td> 检测工作负载是否有未设置资源限制的容器，配置资源限制有益于完善资源规划、pod 调度、集群可用性等。</td>
 <td> 否</td>
 </tr>
 
 <tr>
-<td> 反亲和性设置</td>
+<td>工作负载的反亲和性配置</td>
 <td> 检测工作负载是否配置了亲和性或者反亲和性，配置反亲和性有助于提高业务的高可用性。</td>
 <td> 否</td>
 </tr>
 
 <tr>
-<td> PDB 设置</td>
+<td> 工作负载的PDB 配置</td>
 <td> 检测工作负载是否配置了 PDB，配置 PDB 可避免您的业务因驱逐操作而不可用。</td>
 <td> 否</td>
 </tr>
 
 <tr>
-<td> 健康检查设置</td>
+<td> 工作负载的健康检查配置</td>
 <td> 检测工作负载是否配置了健康检查，配置健康检查有助于发现业务异常。</td>
 <td> 否</td>
 </tr>
 
 <tr>
-<td rowspan=4> 伸缩配置</td>
-<td> HPA-IP</td>
+<td> HPA-ip配置</td>
 <td> 当前集群剩余的 Pod ip数目是否满足 HPA 扩容的最大数。</td>
 <td> 否</td>
 </tr>
