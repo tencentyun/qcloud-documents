@@ -1,7 +1,5 @@
 ## 操作场景
-本文介绍如何使用弹性容器服务（EKS）提供的集群内日志采集功能。
-
-EKS 日志采集功能可以将集群内服务的日志发送至 Kafka 或者 [腾讯云日志服务（CLS）](https://cloud.tencent.com/product/cls)，适用于需要对 EKS 集群内服务日志进行存储和分析的用户。
+EKS 日志采集功能可以将集群内服务的日志发送至 Kafka 或者 [腾讯云日志服务（CLS）](https://cloud.tencent.com/product/cls)，适用于需要对 EKS 集群内服务日志进行存储和分析的用户。本文介绍如何使用弹性容器服务（EKS）提供的集群内日志采集功能。
 
 EKS 日志采集功能需要在创建工作负载时为每个弹性集群手动开启。您可根据以下操作开启日志采集功能：
   - [配置日志采集](#output)
@@ -9,9 +7,10 @@ EKS 日志采集功能需要在创建工作负载时为每个弹性集群手动�
   - [通过 yaml 配置日志采集](#yaml)
   - [更新日志采集](#new)
 
-开启后，日志采集 Agent 根据您配置的采集路径和消费端，将采集到的日志以 JSON 的形式发送到您指定的消费端。
+## 说明事项
+EKS 日志采集功能开启后，日志采集 Agent 根据您配置的采集路径和消费端，将采集到的日志以 JSON 的形式发送到您指定的消费端。消费端及采集路径说明如下：
   - **消费端**：日志采集服务支持 Kafka 或 CLS 作为日志的消费端。
-  - **采集路径**：需要采集的指定容器日志的路径。采集路径支持采集标准输出（stdout）和绝对路径，支持*通配。多个采集路径以“,”分隔。 
+  - **采集路径**：需要采集的指定容器日志的路径。采集路径支持采集标准输出（stdout）和绝对路径，支持 ***** 通配，多个采集路径以“,”分隔。 
 
 ## 前提条件
 
@@ -24,20 +23,19 @@ EKS 日志采集功能需要在创建工作负载时为每个弹性集群手动�
 <span id="output"></span>
 ### 配置日志采集 
 EKS 日志采集功能支持采集 Kubernetes 集群内指定容器的标准输出日志，您可以根据自己的需求，灵活配置采集规则。
-采集到的日志信息将会以 JSON 格式输出到您指定的消费端，并会附加相关的 Kubernetes metadata，包括容器所属 pod 的 label 和 annotation 等信息。
-#### 配置方法
+采集到的日志信息将会以 JSON 格式输出到您指定的消费端，并会附加相关的 Kubernetes metadata，包括容器所属 pod 的 label 和 annotation 等信息。具体操作步骤如下：
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【弹性集群】。
-2. 进入“弹性集群”页面，选择需要日志采集的集群 ID，进入集群管理页面。如下图所示：
-![](https://main.qcloudimg.com/raw/03630ec2d809e0de61ece19cf3eb63a9.png)
-3. 在左侧“工作负载”中选择需要的工作负载类型，选择【新建】。
-4. 在“实例内容器”中点击【显示高级设置】，并【开启】日志采集。如下图所示：
+2. 进入“弹性集群”页面，选择需要日志采集的集群 ID，进入集群管理页面。
+3. 在左侧“工作负载”中选择需要的工作负载类型，进入对应页面后选择【新建】。
+4. 在“实例内容器”中选择【显示高级设置】，并勾选“开启”日志采集。如下图所示：
 ![](https://main.qcloudimg.com/raw/0ef3ce835e4d30651a48f54df9b23acb.png)
-5. 配置日志消费端，推荐以 [日志服务（CLS）](https://cloud.tencent.com/product/cls) 为消费端，并选择日志集和日志主题。若无合适的日志集，请参考 [配置日志服务 CLS 作为日志消费端](#step1) 完成日志集的创建。
-   若选择 Kfaka 为消费端，请参考 [配置 Kafka 作为日志消费端](#step2)。
+5. 参考以下信息进行日志消费端配置，您可选择 CLS 或 Kafka 作为日志消费端。如下图所示：
+  - 推荐选择 [日志服务（CLS）](https://cloud.tencent.com/product/cls) 为消费端，并选择日志集和日志主题。若无合适的日志集，请参考 [配置日志服务 CLS 作为日志消费端](#step1)。
+   - 若选择 Kfaka 为消费端，请参考 [配置 Kafka 作为日志消费端](#step2)。
 ![](https://main.qcloudimg.com/raw/bd701d18315e8ca09c91adb5c1994081.png)
-6. 选择 SecretId 和 SecretKey 进行日志采集授权。
-    第一列：选择您以 [API 密钥](https://console.cloud.tencent.com/cam/capi) 中 SecretId 和 SecretKey 作为变量值进行创建的集群配置 Secret 名称。
-    第二列：选择“Secret”相应的变量名。
+6. 选择 SecretId 和 SecretKey 进行日志采集授权。如下图所示：
+    第一列：选择 Secret 名称。此名称为您以 [API 密钥](https://console.cloud.tencent.com/cam/capi) 中 SecretId 和 SecretKey 作为变量值进行创建的集群配置 Secret 名称。
+    第二列：选择 Secret 相应的变量名。
 	![](https://main.qcloudimg.com/raw/d03939b8078bc2c789c17ff17a689bac.png)
 >! 
  - API 密钥对应的用户必须允许日志服务（CLS）。
