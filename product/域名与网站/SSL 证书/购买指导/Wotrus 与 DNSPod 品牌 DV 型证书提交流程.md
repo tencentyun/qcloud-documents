@@ -1,5 +1,5 @@
 ## 操作场景
-Wotrus 与 DNSPod 品牌域名型（DV）SSL 证书在购买成功后，需要进行相关材料提交。证书购买流程请参考 [购买流程](https://cloud.tencent.com/document/product/400/47285)。
+域名型（DV）SSL 证书在购买成功后，需要进行相关材料提交。证书购买流程请参考 [购买流程](https://cloud.tencent.com/document/product/400/47285)。
 CA 机构认证审核通过后，将会正式颁发证书，您可下载证书进行安装。
 
 
