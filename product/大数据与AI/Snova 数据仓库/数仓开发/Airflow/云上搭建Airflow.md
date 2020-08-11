@@ -42,8 +42,8 @@ airflow webserver -D
 Airflow 使用 UTC 时间，与北京时间差8个小时，因此需要进行处理，由于 Airflow 写死部分代码，因此除了修改配置文件外，也需要修改源码，步骤如下：
 
 1. 修改`AIRFLOW_HOME`下的`airflow.cfg`
- - `default_timezone = utc`修改为`default_timezone = Asia/Shanghai`
- - `default_ui_timezone = UTC`修改为`default_ui_timezone = Asia/Shanghai`
+ - `default_timezone = utc` 修改为 `default_timezone = Asia/Shanghai`
+ - `default_ui_timezone = UTC` 修改为 `default_ui_timezone = Asia/Shanghai`
 2. 修改文件 `/usr/local/lib/python3.6/site-packages/airflow/utils/timezone.py `
 在语句 `utc = pendulum.timezone('UTC')` 下新增如下语句：
 ```
@@ -58,7 +58,7 @@ except Exception:
     pass
 ```
 修改函数`utcnow()`：
-`d = dt.datetime.utcnow()`修改为`d = dt.datetime.now()`
+`d = dt.datetime.utcnow()` 修改为 `d = dt.datetime.now()`
 3. 修改文件 `/usr/local/lib/python3.6/site-packages/airflow/utils/sqlalchemy.py`
 在语句 `utc = pendulum.timezone('UTC')`下添加如下内容：
 ```
@@ -77,8 +77,8 @@ except Exception:
 cursor.execute("SET time_zone = '+00:00'")
 ```
 4. 修改文件 `/usr/local/lib/python3.6/site-packages/airflow/www/templates/admin/master.html`
- - `var UTCseconds = (x.getTime() + x.getTimezoneOffset()*60*1000);`修改为`var UTCseconds = x.getTime();`
- - `"timeFormat":"H:i:s %UTC%",`修改为`"timeFormat":"H:i:s",`
+ - `var UTCseconds = (x.getTime() + x.getTimezoneOffset()*60*1000);` 修改为 `var UTCseconds = x.getTime();`
+ - `"timeFormat":"H:i:s %UTC%",` 修改为 `"timeFormat":"H:i:s",`
 5. 重启 webserver
 ```
 cat {AIRFLOW_HOME}/airflow-webserver.pid
@@ -104,11 +104,7 @@ grant all on airflow.* to 'airflowuser'@'%';
 flush privileges;
 ```
 4. 修改 `{AIRFLOW_HOME}/airflow.cfg` 中配置
-```
-sql_alchemy_conn = sqlite:////usr/local/services/airflow/airflow.db
-修改为
-sql_alchemy_conn = mysql://airflowuser:pwd123@{ip}/airflow
-```
+`sql_alchemy_conn = sqlite:////usr/local/services/airflow/airflow.db` 修改为 `sql_alchemy_conn = mysql://airflowuser:pwd123@{ip}/airflow`
 5. 重新初始化数据库
 ```
 airflow initdb
