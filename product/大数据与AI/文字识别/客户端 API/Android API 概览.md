@@ -136,7 +136,7 @@ OcrSDKConfig 是在 OCR 初始化时需要传入的 SDK 的配置信息实体类
 | --------------------------- | ---------------- | ------------------------------------------------------------ | -------------------------------------------- |
 | [OcrType](#OcrType)         | OcrType          | 默认识别类型                                                 | IDCardOCR_FRONT，IDCardOCR_BACK 均代表 id_card |
 | [OcrModeType](#OcrModeType) | ModeType         | 识别模式类型：OCR_DETECT_MANUAL 代表手动拍摄模式，OCR_DETECT_AUTO_MANUAL 代表自动 + 手动模式（先使用自动超时后转为手动拍照模式） | OCR_DETECT_AUTO_MANUAL为默认模式             |
-| OcrModeType 类型 String       | 代表含义 secretId | OCR_DETECT_MANUAL 请求使用的密钥信息（如果使用固定密钥模式，可传入固定密钥） | 手动拍摄模式空                               |
+| String       | secretId | 请求使用的密钥信息（如果使用固定密钥模式，可传入固定密钥） | 空                               |
 | String                      | secretKey        | 请求使用的密钥信息（如果使用固定密钥模式，可传入固定密钥）   | 空                                           |
 | String                      | tempToken        | 请求使用的临时 token 信息                                      | 空                                           |
 | boolean                     | CropIdCard       | 开启身份证照片裁剪（去掉证件外多余的边缘、自动矫正拍摄角度）开关 | false                                        |
