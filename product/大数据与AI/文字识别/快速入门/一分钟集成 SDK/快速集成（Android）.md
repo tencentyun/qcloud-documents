@@ -1,4 +1,4 @@
-### 开发准备
+## 开发准备
 
 1. 注册腾讯云账号，单击进入 [文字识别控制台](https://console.cloud.tencent.com/ocr/general)，即可开通相应服务。
 2. 在 [账号中心](https://console.cloud.tencent.com/cam/capi) 获取 API 密钥。
@@ -6,21 +6,21 @@
 
 
 
-### Android 端 OCR SDK 接入流程
+## Android 端 OCR SDK 接入流程
 
-#### Android 端 OCR SDK介绍
+### Android 端 OCR SDK介绍
 
 SDK 提供的文件为 **OcrSDKv1.0.2-alpha.aar** （具体版本号以官网下载为准），该文件封装了 OCR 识别终端能力。目前包括了身份证识别、银行卡识别以及名片识别。
 
 
 
-#### 环境依赖
+### 环境依赖
 
 当前 Android 端 OCR 识别 SDK 适用于 API 19 (Android 4.4) 及以上版本。
 
 
 
-#### 接入步骤
+### 接入步骤
 
 1. 将 **OcrSDKv1.0.2-alpha.aar** 添加到您工程目录的 libs 目录下。![](https://main.qcloudimg.com/raw/613a018bdf4cf3690745481d51621c39.png)
 
@@ -52,9 +52,9 @@ dependencies {
 
 
 
-#### SDK 接口使用说明
+### SDK 接口使用说明
 
-##### SDK 初始化：
+#### SDK 初始化：
 
   使用 OCR SDK 之前需要进行初始化，您可以按照您的需求设置默认值。
 
@@ -79,7 +79,7 @@ OcrSDKKit.getInstance().initWithConfig(this.getApplicationContext(), configBuild
 
 
 
-##### 更新临时密钥
+#### 更新临时密钥
 
 OCR SDK 支持使用临时密钥接口，使用临时密钥的好处主要有以下两点，第一将固定密钥与终端分离可以增加安全性；第二因为兑换临时密钥是您完全可控的行为，因此您可以根据自定义规则来控制最终用户的接口访问权限。因此建议您使用临时密钥的方式，具体可以参考文档 [(**临时密钥文档与流程链接**)](https://github.com/TencentCloud/tc-ocr-sdk/tree/master/%E4%B8%B4%E6%97%B6%E5%AF%86%E9%92%A5%E5%85%91%E6%8D%A2)
 
@@ -89,7 +89,7 @@ OcrSDKKit.getInstance().updateFederationToken(tmpSecretId, tmpSecretKey, token);
 
 
 
-##### OCR 识别：
+#### OCR 识别：
 
 当您需要使用 OCR 识别的功能的时候您可以直接调用识别接口，进行 OCR 业务识别。
 
@@ -119,7 +119,7 @@ OcrSDKKit.getInstance().startProcessOcr(MainActivity.this, OcrType.IDCardOCR_FRO
 
 
 
-##### SDK 版本号获取：
+#### SDK 版本号获取：
 
   OCR SDK 提供了直接获取 SDK 版本号的接口，您可以调用此接口获取。
 
@@ -129,7 +129,7 @@ OcrSDKKit.getInstance().getVersion()
 
 
 
-##### SDK 资源释放：
+#### SDK 资源释放：
 
   在您 App 退出使用或者需要重启加载 OCR 功能的时候，可以调用 SDK 资源释放接口。
 
@@ -145,7 +145,7 @@ protected void onDestroy() {
 }
 ```
 
-#### 混淆规则配置
+### 混淆规则配置
 
   如果您的应用开启了混淆功能，为确保 SDK 的正常使用，请把以下部分添加到您的混淆文件中。
 
