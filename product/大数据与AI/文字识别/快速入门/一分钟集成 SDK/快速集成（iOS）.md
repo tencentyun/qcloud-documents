@@ -1,4 +1,4 @@
-### 开发准备
+## 开发准备
 
 1. 注册腾讯云账号，单击进入 [文字识别控制台](https://console.cloud.tencent.com/ocr/general)，即可开通相应服务。
 
@@ -8,9 +8,9 @@
 
     
 
-### iOS 端 OCR SDK 接入流程
+## iOS 端 OCR SDK 接入流程
 
-#### iOS 端 OCR SDK 介绍
+### iOS 端 OCR SDK 介绍
 
 SDK中包含了四个 framework：
 
@@ -20,12 +20,12 @@ SDK中包含了四个 framework：
 - **opencv2.framework** - opencv 库
 - **OcrSDK.bundle** - 资源文件
 
-#### 环境依赖
+### 环境依赖
 
 - 当前 iOS OCR 识别 SDK 版本适用于 iOS 9.0 及以上的版本
 - 开发工具使用 xcode11 或以上版本集成开发
 
-#### 接入步骤
+### 接入步骤
 
 1. 将**OcrSDKKit.framework**、**YtSDKKit.framework**、**YTImageRefiner.framework**、**opencv2.framework**、**OcrSDK.bundle** 添加至项目中            
 
@@ -51,9 +51,9 @@ SDK中包含了四个 framework：
 
 ​    
 
-#### SDK 接口说明
+### SDK 接口说明
 
-##### SDK 初始化
+#### SDK 初始化
 
    客户初始化 OCR SDK
 
@@ -77,7 +77,7 @@ ocrSDKConfig.ocrModeType = _ocrModel;
 
 ```
 
-##### 	进入 OCR 主页面
+#### 	进入 OCR 主页面
 
 ```objective-c
 /*!
@@ -99,7 +99,7 @@ customConfigUI.remindConfirmColor = [UIColor blueColor];
 }];
 ```
 
-##### 更新临时密钥
+#### 更新临时密钥
 
 OCR SDK 支持使用临时密钥接口，使用临时密钥的好处主要有以下两点，第一将固定密钥与终端分离可以增加安全性；第二因为兑换临时密钥是您完全可控的行为，因此您可以根据自定义规则来控制最终用户的接口访问权限。因此建议您使用临时密钥的方式，具体可以参考文档 [(**临时密钥文档与流程链接**)](https://github.com/TencentCloud/tc-ocr-sdk/tree/master/%E4%B8%B4%E6%97%B6%E5%AF%86%E9%92%A5%E5%85%91%E6%8D%A2)
 
@@ -110,7 +110,7 @@ OCR SDK 支持使用临时密钥接口，使用临时密钥的好处主要有以
 [[OcrSDKKit sharedInstance] updateFederationToken:tmpSecretId withTempSecretKey:tmpSecretKey withToken:token];
 ```
 
-##### SDK 资源释放
+#### SDK 资源释放
 
 ```objective-c
 /// 清理 SDK 资源
