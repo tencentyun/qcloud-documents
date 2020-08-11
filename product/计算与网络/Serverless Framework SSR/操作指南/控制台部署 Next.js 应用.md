@@ -17,8 +17,7 @@ Serverless SSR 为您提供了完整的控制台开发应用流程，该任务�
 
    
 ### 管理应用
-在 [Serverless 应用](https://console.cloud.tencent.com/ssr) 页面，单击目标应用进入应用详情页。
-建成功后，您可以在“项目详情”页面查看项目部署后输出的基本信息，并查看项目请求次数、项目报错统计等多项监控指标，方便您轻松实现项目的管理运维。
+在 [Serverless 应用](https://console.cloud.tencent.com/ssr) 页面，单击目标 Next.js 应用进入应用详情页，查看项目部署后输出的基本信息、项目请求次数、项目报错统计等多项监控指标，方便您轻松实现项目的管理运维。
  ![](https://main.qcloudimg.com/raw/ba6142ec15457cd99d944281bf8e5fcc.png)
 
 
