@@ -48,8 +48,17 @@
  - **挂载点 ID**：在下拉列表中选择对应文件系统的挂载点 ID。
    ![](https://main.qcloudimg.com/raw/5df4693e17f05892edb610e04f420de2.png)
 6.  单击页面下方的【保存】即可完成配置。
-    您可编辑函数代码，开始使用 CFS 文件系统。如下图所示：
-    ![](https://main.qcloudimg.com/raw/5ba2b08d89b903cda862135c1f74fc9d.png)
+    您可编辑函数代码，开始使用 CFS 文件系统。函数代码如下：
+
+```plaintext
+'use strict';
+var fs = require('fs');
+
+exports.main_handler = async (event, context) => {
+await fs.promises.writeFile('/mnt/file.txt', JSON.stringify(event));
+return event
+}
+```
 
 ### SCF 使用 CFS 文件系统性能测试
 
