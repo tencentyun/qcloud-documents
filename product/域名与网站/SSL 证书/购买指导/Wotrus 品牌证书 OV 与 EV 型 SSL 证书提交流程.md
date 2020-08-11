@@ -17,7 +17,7 @@ CA 机构认证审核通过后，将会正式颁发证书，您可下载证书�
 
 **在线生成 CSR**<span id="csr1"></span>
 1. 填写域名信息。如下图所示：
-![](https://main.qcloudimg.com/raw/c87d2d115d4cf9a4f4340e55d589bdba.png)
+![](https://main.qcloudimg.com/raw/fa0620bd427132e76febab1b24f488c4.png)
 主要参数信息如下：
  - **通用名称**：填写绑定证书的域名。
  - **域名**：填写与通用名称不同的其它域名。
@@ -32,19 +32,19 @@ CA 机构认证审核通过后，将会正式颁发证书，您可下载证书�
 >?不同域名类型的证书，需填写信息略有不同。本操作以多域名证书为例。
 
 1. 将已准备好的 CSR 信息粘贴至文本框中，即可识别您的域名信息，并如实填写公司名称（全称），公司部门，公司所在城市与地址以及公司座机号码等公司相关信息。如下图所示：
-![](https://main.qcloudimg.com/raw/3dda81395fce9bd8eed05ab82a34d06c.png)
+![](https://main.qcloudimg.com/raw/d6be74bbc7267b2b070e8b1e5e36d16a.png)
 2. 单击【下一步】，进入 [步骤2](#message)。
 
 <span id="message"></span>
 ### 步骤2：补充信息
 1. 填写管理人信息与联系人信息。如果两者信息一致，可勾选 “与管理人相同”。如下图所示：
-![](https://main.qcloudimg.com/raw/3a0b004464934e2693890fb35edf680e.png)
+![](https://main.qcloudimg.com/raw/ef8d2318ac2ce7987f7d480d303dc357.png)
 2. 单击【下一步】。进入“选择验证方式” 页面。
 
 
 ### 步骤3：域名验证
 1. 在 “选择验证方式” 页面，您可以选择以下两种方式进行域名验证。如下图所示：
-![](https://main.qcloudimg.com/raw/575d43fdd65ef1a3e16d5362bcf6e489.png)
+![](https://main.qcloudimg.com/raw/81a3960e4621a831c8305d0d736f4323.png)
  - **手动 DNS 验证**：域名验证操作请参考：[手动 DNS 验证](https://cloud.tencent.com/document/product/400/4142#.E6.89.8B.E5.8A.A8-dns-.E9.AA.8C.E8.AF.81)。
  - **文件验证**：域名验证操作请参考：[文件验证](https://cloud.tencent.com/document/product/400/4142#.E6.96.87.E4.BB.B6.E9.AA.8C.E8.AF.81)。
 2. 单击【确认】，您可根据提示进行域名身份验证操作。
