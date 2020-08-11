@@ -1,8 +1,8 @@
-[Apache Airflow](https://airflow.apache.org/) 是一款开源的工作流管理系统，集成了编排、调度，监控以及图形化展示等功能。在数据仓库场景，Airflow 则可以应用于 ETL 任务的管理。本文主要介绍如何在云端虚拟机上搭建 Airflow。
+[Apache Airflow](https://airflow.apache.org/) 是一款开源的工作流管理系统，集成了编排、调度，监控以及图形化展示等功能。在数据仓库场景，Airflow 则可以应用于 ETL 任务的管理。本文主要介绍如何在云端服务器上搭建 Airflow。
 
 ## Airflow 默认安装
 
-1. 购买虚拟机
+1. 购买 [云服务器](https://buy.cloud.tencent.com/cvm?tab=custom&step=1&devPayMode=monthly&regionId=1&zoneId=100003&instanceType=SA2.SMALL1&vpcId=vpc-qhnt5wsl&subnetId=subnet-lfpz8i7u&platform=CentOS&systemDiskType=CLOUD_PREMIUM&systemDiskSize=50&bandwidthType=BANDWIDTH_PREPAID&bandwidth=1)。
 >!本文以 CentOS 8.0 为例。
 >
 ![](https://main.qcloudimg.com/raw/5a57589b7785d168698ee0083edd2897.png)
@@ -90,7 +90,7 @@ airflow webserver -D
 ## 使用云数据库 MySQL 存储数据
 
 Airflow 默认使用嵌入式的 Sqlite 存储数据，如果要上生产环境，必须满足高可用的要求，这里以云数据库 MySQL 为例，步骤如下：
-1. 购买 [云数据库 MySQL](https://console.cloud.tencent.com/cdb)
+1. 购买 [云数据库 MySQL](https://buy.cloud.tencent.com/cdb?regionId=1&zoneId=100004&engineVersion=5.7&cdbType=Z3&memory=8000&cpu=4&volume=200&protectMode=0&netType=2&securityGroupId=sg-i0td4ogd&vpcId=1426914&subnetId=995385&goodsNum=1)
 >!必须是高可用版或者金融版，基础版由于不支持 explicit_defaults_for_timestamp 参数，因此无法作为 Airflow 的存储。
 2. 修改参数
 在控制台修改参数 explicit_defaults_for_timestamp 为 ON，修改后如下：
@@ -103,8 +103,12 @@ create user 'airflowuser'@'%' identified by 'pwd123';
 grant all on airflow.* to 'airflowuser'@'%';
 flush privileges;
 ```
-4. 修改`{AIRFLOW_HOME}/airflow.cfg`中的配置
-`sql_alchemy_conn = sqlite:////usr/local/services/airflow/airflow.db`修改为`sql_alchemy_conn = mysql://airflowuser:pwd123@{ip}/airflow`
+4. 修改 `{AIRFLOW_HOME}/airflow.cfg` 中配置
+```
+sql_alchemy_conn = sqlite:////usr/local/services/airflow/airflow.db
+修改为
+sql_alchemy_conn = mysql://airflowuser:pwd123@{ip}/airflow
+```
 5. 重新初始化数据库
 ```
 airflow initdb
