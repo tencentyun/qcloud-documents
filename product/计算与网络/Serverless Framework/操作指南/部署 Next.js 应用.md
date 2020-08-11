@@ -1,5 +1,5 @@
 ## 操作场景
-**腾讯云 [Next.js](https://github.com/zeit/next.js) 组件**通过使用 [**Tencent Serverless Framework**](https://github.com/serverless/components/tree/cloud)，基于云上 Serverless 服务（如 API 网关、云函数等），实现“0”配置，便捷开发，极速部署采用 Next.js 框架的网页应用，Next.js 组件支持丰富的配置扩展，提供了目前便捷实用，开发成本低的网页应用项目的开发/托管能力。
+腾讯云 [Next.js 组件](https://github.com/zeit/next.js) 通过使用 [Tencent Serverless Framework](https://github.com/serverless/components/tree/cloud)，基于云上 Serverless 服务（如 API 网关、云函数等），实现“0”配置，便捷开发，极速部署采用 Next.js 框架的网页应用，Next.js 组件支持丰富的配置扩展，提供了目前便捷实用，开发成本低的网页应用项目的开发/托管能力。
 
 Next.js 特性介绍：
 - **按需付费**：按照请求的使用量进行收费，没有请求时无需付费。
@@ -109,7 +109,7 @@ TENCENT_SECRET_ID=123
 TENCENT_SECRET_KEY=123
 ```
 >?
->- 如果没有腾讯云账号，可以在此 [注册新账号](https://cloud.tencent.com/register)。
+>- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
 >- 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 `SecretId` 和`SecretKey`。
 
 ### 架构说明
