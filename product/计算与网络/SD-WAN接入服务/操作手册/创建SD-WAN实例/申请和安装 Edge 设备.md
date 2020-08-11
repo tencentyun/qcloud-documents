@@ -1,5 +1,5 @@
 为满足您的业务需求，腾讯云提供 Edge-100 和 Edge-1000 两种 Edge 设备。本文将介绍如何在 SD-WAN 接入服务控制台申请 Edge 设备。
->?SD-WAN 接入服务目前处于内测阶段，不收取任何费用，且内测阶段仅支持创建硬件规格为 Edge-100 的设备。
+>?SD-WAN 接入服务目前处于内测阶段，且内测阶段仅支持创建硬件规格为 Edge-100 的设备。
 >
 ## 背景信息
  Edge-100 和 Edge-1000 的使用场景及支持混合接入的设备如下：
@@ -28,3 +28,8 @@
 			- 方式二：（推荐）在 SD-WAN 接入服务控制台配置。具体操作请参见 [在控制台配置 WAN 口](https://cloud.tencent.com/document/product/1277/47271)。
 >? 当 Edge 设备的 4G 网络正常（即插电后，LTE 灯长亮），或 Modem 可正常拨号上网时，才可以使用此方式。
 		3. 配置 LAN 口，具体操作请参见  [配置 LAN 接口](https://cloud.tencent.com/document/product/1277/47270)。
+
+## 后续操作
+- [新建静态路由](https://cloud.tencent.com/document/product/1277/47273)
+- [配置防火墙](https://cloud.tencent.com/document/product/1277/47266)
+- [关联云联网](https://cloud.tencent.com/document/product/1277/47262)
