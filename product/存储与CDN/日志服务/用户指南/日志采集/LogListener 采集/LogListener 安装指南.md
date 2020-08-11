@@ -69,7 +69,7 @@ wget https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener-lin
 ```
 ![](https://main.qcloudimg.com/raw/184d6cc3308206b14288372da59a99a0.png)
 
-## LogListener Loglistener 常用操作
+## LogListener 常用操作
 
 > ? 本文档示例的操作命令说明仅适用于 LogListener-2.2.4 及以上版本，低版本操作命令请参见 [低版本 LogListener 安装指南](https://cloud.tencent.com/document/product/614/39211)。
 
