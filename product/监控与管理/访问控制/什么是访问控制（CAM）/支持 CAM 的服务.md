@@ -353,6 +353,8 @@
  | 服务                                                          | 授权粒度 | 控制台  | 根据标签进行授权  |服务角色 |	参考文档 |
 | ----------------------------------------------------------- | ------ | -------- | ------ |  ---- |	 ---- |
 | [商标注册](https://cloud.tencent.com/document/product/1145) | 服务级   | &#10003; | -  | - |	-|	
+| [版权登记](https://cloud.tencent.com/document/product/1215) | 服务级   | &#10003; | -  | - |	-|	
+| [增值电信](https://cloud.tencent.com/document/product/1251) | 操作级   | &#10003; | -  | - |	-|	
 | [企业集成服务](https://cloud.tencent.com/document/product/1270) | 操作级   | &#10003; | -  | - |	-|
 
 ## 云资源管理
