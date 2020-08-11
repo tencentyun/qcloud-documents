@@ -10,7 +10,7 @@ EKS 日志采集功能需要在创建工作负载时为每个弹性集群手动�
 ## 说明事项
 EKS 日志采集功能开启后，日志采集 Agent 根据您配置的采集路径和消费端，将采集到的日志以 JSON 的形式发送到您指定的消费端。消费端及采集路径说明如下：
   - **消费端**：日志采集服务支持 Kafka 或 CLS 作为日志的消费端。
-  - **采集路径**：需要采集的指定容器日志的路径。采集路径支持采集标准输出（stdout）和绝对路径，支持 ***** 通配，多个采集路径以“,”分隔。 
+  - **采集路径**：需要采集的指定容器日志的路径。采集路径支持采集标准输出（stdout）和绝对路径，支持 * 通配，多个采集路径以“,”分隔。 
 
 ## 前提条件
 
@@ -128,7 +128,7 @@ labels:
 		<td>EKS_LOGS_OUTPUT_TYPE</td> <td>消费端支持 kafka 和 cls，根据该 key 判断是否启用日志收集。</td>
 	</tr>
 	<tr>
-		<td>EKS_LOGS_LOG_PATHS</td> <td>日志路径，支持 stdout（表示采集标准输出）和绝对路径，支持 ***** 通配，多个路径用“,”分隔。</td>
+		<td>EKS_LOGS_LOG_PATHS</td> <td>日志路径，支持 stdout（表示采集标准输出）和绝对路径，支持 * 通配，多个路径用“,”分隔。</td>
 	</tr>
 	<tr>
 		<td>EKS_LOGS_METADATA_ON</td> <td>支持 true 或 false。不填写则默认为 true。</td>
@@ -252,7 +252,7 @@ spec:
 		<td>EKS_LOGS_OUTPUT_TYPE</td> <td>消费端支持 kafka 和 cls，根据该 key 判断是否启用日志收集。</td>
 	</tr>
 	<tr>
-		<td>EKS_LOGS_LOG_PATHS</td> <td>日志路径，支持 stdout（表示采集标准输出）和绝对路径，支持 ***** 通配，多个路径用“,”分隔。</td>
+		<td>EKS_LOGS_LOG_PATHS</td> <td>日志路径，支持 stdout（表示采集标准输出）和绝对路径，支持 * 通配，多个路径用“,”分隔。</td>
 	</tr>
 	<tr>
 		<td>EKS_LOGS_METADATA_ON</td> <td>支持 true 或 false。不填写则默认为 true。</td>
@@ -368,7 +368,7 @@ spec:
 		<td>EKS_LOGS_OUTPUT_TYPE</td> <td>消费端支持 kafka 和 cls，根据该 key 判断是否启用日志收集。</td>
 	</tr>
 	<tr>
-		<td>EKS_LOGS_LOG_PATHS</td> <td>日志路径，支持 stdout（表示采集标准输出）和绝对路径，支持 ***** 通配，多个路径用“,”分隔。</td>
+		<td>EKS_LOGS_LOG_PATHS</td> <td>日志路径，支持 stdout（表示采集标准输出）和绝对路径，支持 * 通配，多个路径用“,”分隔。</td>
 	</tr>
 	<tr>
 		<td>EKS_LOGS_METADATA_ON</td> <td>支持 true 或 false。不填写则默认为 true。</td>
