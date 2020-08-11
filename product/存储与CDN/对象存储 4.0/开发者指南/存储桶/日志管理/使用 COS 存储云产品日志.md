@@ -78,7 +78,7 @@ CLS 投递到 COS 支持如下三种方式投递：
 | Android SDK    | [点此查阅](https://cloud.tencent.com/document/product/436/34536#.E4.B8.8B.E8.BD.BD.E5.AF.B9.E8.B1.A1 ) |
 | C SDK          | [点此查阅](https://cloud.tencent.com/document/product/436/35558#.E4.B8.8B.E8.BD.BD.E5.AF.B9.E8.B1.A1 ) |
 | C++ SDK        | [点此查阅](https://cloud.tencent.com/document/product/436/35161#.E4.B8.8B.E8.BD.BD.E5.AF.B9.E8.B1.A1 ) |
-| .NET SDK       | [点此查阅](https://cloud.tencent.com/document/product/436/32869#.E4.B8.8B.E8.BD.BD.E5.AF.B9.E8.B1.A1 ) |
+| .NET SDK       | [点此查阅](https://cloud.tencent.com/document/product/436/32819#.E4.B8.8B.E8.BD.BD.E5.AF.B9.E8.B1.A1 ) |
 | Go SDK         | [点此查阅](https://cloud.tencent.com/document/product/436/35057#.E4.B8.8B.E8.BD.BD.E5.AF.B9.E8.B1.A1 ) |
 | iOS SDK        | [点此查阅]( https://cloud.tencent.com/document/product/436/11280#.E4.B8.8B.E8.BD.BD.E5.AF.B9.E8.B1.A1) |
 | Java SDK       | [点此查阅](https://cloud.tencent.com/document/product/436/35215#.E4.B8.8B.E8.BD.BD.E5.AF.B9.E8.B1.A1 ) |
