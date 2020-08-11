@@ -17,7 +17,7 @@ Content-Type: application/xml
 <body>
 ```
 
-> ?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> ?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求头
 
@@ -128,7 +128,7 @@ Container 节点 JobsDetail 的内容：
 #### 请求
 
 ```plaintext
-POST /auditing HTTP/1.1
+POST /video/auditing HTTP/1.1
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
 Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
