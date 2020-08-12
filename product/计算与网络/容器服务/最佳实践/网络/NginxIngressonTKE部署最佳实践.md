@@ -188,10 +188,10 @@ spec:
 
 ## 总结
 
-本文梳理了 Nginx Ingress 在 TKE 上部署的三种方案以及整理出一些常见问题。由于 Nginx Ingress 的使用需求量较大，TKE 正在进行 Nginx Ingress 的产品化支持，将来可以实现一键部署，以及拥有集成日志和监控的能力，并且 TKE 会对其进行性能优化。
+本文梳理了 Nginx Ingress 在 TKE 上部署的三种方案以及整理出一些常见问题。由于 Nginx Ingress 的使用需求量较大，TKE 正在进行 Nginx Ingress 的产品化支持，将来可以实现一键部署，拥有集成日志和监控的能力，以及会对其进行性能优化。
 
 ## 参考资料
 
-1. TKE Service YAML 示例: https://cloud.tencent.com/document/product/457/45489#yaml-.E7.A4.BA.E4.BE.8B
-2. TKE Service 使用已有 CLB: https://cloud.tencent.com/document/product/457/45491
-3. 区分腾讯云账户类型: https://cloud.tencent.com/document/product/684/39903
+1. [TKE Service YAML 示例](https://cloud.tencent.com/document/product/457/45489#yaml-.E7.A4.BA.E4.BE.8B)
+2. [TKE Service 使用已有 CLB](https://cloud.tencent.com/document/product/457/45491)
+3. [区分腾讯云账户类型](https://cloud.tencent.com/document/product/684/39903)
