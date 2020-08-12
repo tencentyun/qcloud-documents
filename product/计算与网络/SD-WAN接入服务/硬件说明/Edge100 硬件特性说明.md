@@ -12,7 +12,6 @@
 | Wi-Fi        | Wi-Fi 模组 IEEE 802.11 b/g/n，2x2，miniPCIe 接口。                |
 | RJ45         | 一个 RJ45 标准串口，不带指示灯。                                |
 | USB          | 一个 USB 2.0 Type-A 接口。                                     |
-| SIM          | 1个自弹式 SIM 插槽，机箱上有松脱紧固装置，其中 SIM 卡由腾讯提供。  |
 | 指示灯       | <ul><li>电口 RJ-45 自带 LED 指示灯；</li><li>面板绿色指示灯 SYS、POWER、WIFI、LT、蜂窝信号强度1/2/3档 LED，CLOUD 。</li></ul> |
 | 天线         | 缺省配置4根天线，其中2根 Wi-Fi 天线，2根 LTE 天线。 |
 | 电源         | 12V电源适配器规格，AC 100~240V @50 - 60 Hz。 |
