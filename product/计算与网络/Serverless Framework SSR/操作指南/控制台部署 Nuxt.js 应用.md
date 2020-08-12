@@ -4,7 +4,7 @@ Serverless SSR 为您提供了完整的控制台开发应用流程，该任务�
 
 ## 操作步骤
 ### 创建应用
-1. 登录 [Serverless SSR 控制台](https://console.cloud.tencent.com/ssr)，
+1. 登录 [Serverless SSR 控制台](https://console.cloud.tencent.com/ssr)。
 2. 单击【新建应用】 ，进入项目创建页面。
 3. 根据页面提示，填写应用基本信息。
  - 应用名：2 - 63个字符，只能包含小写字母、数字及分隔符“-”、且必须以小写字母开头，数字或小写字母结尾。
