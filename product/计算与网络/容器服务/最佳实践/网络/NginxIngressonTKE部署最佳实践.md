@@ -75,7 +75,7 @@ kubectl apply -f https://raw.githubusercontent.com/TencentCloudContainerTeam/man
 
 ## 常见问题
 ### 如何支持内网 Ingress ?   
-[方案2：Daemonset + HostNetwork + LB](#step2) 是手动管理 CLB，在自行创建 CLB 时可以选择用公网或内网。[方案1：Deployment + LB](#step1) 和 [方案3：Deployment + LB 直通 Pod](#step3) 默认创建公网 CLB，如果要用内网，可以重新部署 YAML，给 Service `nginx-ingress-controller` 加一个 key 为 `service.kubernetes.io/qcloud-loadbalancer-internal-subnetid`，value 为内网 CLB 所被创建的子网 id 的 annotation。请参考以下代码：
+[方案2：Daemonset + HostNetwork + LB](#step2) 是手动管理 CLB，在自行创建 CLB 时可以选择用公网或内网。[方案1：Deployment + LB](#step1) 和 [方案3：Deployment + LB 直通 Pod](#step3) 默认创建公网 CLB，如果要用内网，可以重新部署 YAML，给 Service `nginx-ingress-controller` 加一个 key 为 `service.kubernetes.io/qcloud-loadbalancer-internal-subnetid`，value 为内网 CLB 创建的子网 id 的 annotation。请参考以下代码：
 ```
 apiVersion: v1
 kind: Service
@@ -90,10 +90,8 @@ metadata:
 
 ### 如何复用已有 LB ?
 
-方案一和方案三默认会自动创建新的 CLB，Ingress 的流量入口地址取决于新创建出来的 CLB 的 IP 地址。如果业务对入口地址有依赖，比如配置了 DNS 解析到之前的 CLB IP，不希望切换 IP；或者想使用包年包月的 CLB (默认创建是按量计费)，那么也可以让 Nginx Ingress 绑定已有的 CLB。
-
-操作方法同样也是修改下部署 yaml，给 `nginx-ingress-controller` 这个 Service 加一个 key 为 `service.kubernetes.io/tke-existed-lbid`，value 为 CLB ID 的 annotation，示例:
-
+[方案1：Deployment + LB](#step1) 和 [方案3：Deployment + LB 直通 Pod](#step3) 默认自动创建新的 CLB，Ingress 的流量入口地址取决于新创建出来的 CLB 的 IP 地址。如果业务对入口地址有依赖，也可以让 Nginx Ingress 绑定已有的 CLB。
+操作方法为重新部署 YAML，给 Service `nginx-ingress-controller` 加一个 key 为 `service.kubernetes.io/tke-existed-lbid`，value 为 CLB ID 的 annotation。请参考以下代码：
 ```
 apiVersion: v1
 kind: Service
@@ -108,23 +106,16 @@ metadata:
 
 ### Nginx Ingress 公网带宽有多大？
 
-有同学可能会问：我的 Nginx Ingress 的公网带宽到底有多大？能否支撑住我服务的并发量？
+腾讯云账号有带宽上移和非带宽上移两种类型：
+- **带宽上移：**指带宽上移到 CLB 或 IP 上管理。
+  当您的账号是带宽上移类型时，Nginx Ingress 的带宽等于已购 CLB 的带宽，默认是 10Mbps（按量计费），可按需调整。
+- **非带宽上移：**指带宽在云主机（CVM）上管理。
+    当您的账号是非带宽上移类型时，Nginx Ingress 使用公网 CLB，Nginx Ingress 的公网带宽是 CLB 所绑定的 TKE 节点的带宽之和。如果使用 [方案3：Deployment + LB 直通 Pod](#step3)，CLB 直通 Pod，即 CLB 直接绑定弹性网卡，那么此时 Nginx Ingress 的公网带宽是所有 Nginx Ingress Controller Pod 被调度到的节点上的带宽之和。
+>! 您可参考文档 [区分腾讯云账户类型](https://cloud.tencent.com/document/product/684/39903) 来区分自己账号的类型。
 
-这里需要普及一下，腾讯云账号有带宽上移和非带宽上移两种类型：
 
-1. 非带宽上移，是指带宽在云主机(CVM)上管理。
-2. 带宽上移，是指带宽上移到了 CLB 或 IP 上管理。
-
-具体来讲，如果你的账号是非带宽上移类型，Nginx Ingress 使用公网 CLB，那么 Nginx Ingress 的公网带宽是 CLB 所绑定的 TKE 节点的带宽之和；如果使用方案三，CLB 直通 Pod，也就是 CLB 不是直接绑的 TKE 节点，而是弹性网卡，那么此时 Nginx Ingress 的公网带宽是所有 Nginx Ingress Controller Pod 被调度到的节点上的带宽之和。
-
-如果你的账号是带宽上移类型就简单了，Nginx Ingress 的带宽就等于你所购买的 CLB 的带宽，默认是 10Mbps (按量计费)，你可以按需调整下。
-
-由于历史遗留原因，以前注册的账号大多是非带宽上移类型，参考文档 [区分腾讯云账户类型](https://cloud.tencent.com/document/product/684/39903) 来区分自己账号的类型。
-
-### 如何创建 Ingress ?
-
-目前还没有完成对 Nginx Ingress 的产品化支持，所以如果是在 TKE 上自行了部署 Nginx Ingress，想要使用 Nginx Ingress 来管理 Ingress，目前是无法通过在 TKE 控制台(网页) 上进行操作的，只有通过 YAML 的方式来创建，并且需要给每个 Ingress 都指定 Ingress Class 的 annotation，示例:
-
+### 如何创建 Ingress?<span id="ingress"></span>
+当您在 TKE 上自行部署 Nginx Ingress，想要使用 Nginx Ingress 来管理 Ingress 时，可通过 YAML 的方式来创建 Ingress 并且需要给每个 Ingress 都指定 Ingress Class 的 annotation。在 TKE 控制台（网页）上无法创建 Ingress。请参考以下代码：
 ```
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
@@ -145,8 +136,7 @@ spec:
 
 ### 如何监控？
 
-通过上面的方法安装的 Nginx Ingress，已经暴露了 metrics 端口，可以被 Prometheus 采集。如果集群内安装了 prometheus-operator，可以使用下面的 ServiceMonitor 来采集 Nginx Ingress 的监控数据:
-
+通过 [如何创建 Ingress](#ingress) 安装的 Nginx Ingress，已经暴露了 metrics 端口，可以被 Prometheus 采集。如果集群内安装了 prometheus-operator，可以使用 ServiceMonitor 来采集 Nginx Ingress 的监控数据。请参考以下代码：
 ```
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
@@ -169,8 +159,7 @@ spec:
       component: controller
 ```
 
-这里也给个原生 Prometheus 配置的示例:
-
+原生 Prometheus 配置请参考以下代码：
 ```
     - job_name: nginx-ingress
       scrape_interval: 5s
@@ -191,19 +180,15 @@ spec:
         regex: metrics
 ```
 
-有了数据后，我们再给 grafana 配置一下面板来展示数据，Nginx Ingress 社区提供了面板：https://github.com/kubernetes/ingress-nginx/tree/master/deploy/grafana/dashboards
-
-我们直接复制 json 导入到 grafana 即可导入面板。其中，`nginx.json` 是展示 Nginx Ingress 各种常规监控的面板：
-
+采集监控数据后，可为 grafana 配置 [Nginx Ingress 社区提供的面板](https://github.com/kubernetes/ingress-nginx/tree/master/deploy/grafana/dashboards)，并展示数据。   
+实际操作中，直接复制 json 导入 grafana，即可导入面板。其中，`nginx.json` 是展示 Nginx Ingress 各种常规监控的面板。如下图所示：
 ![](https://main.qcloudimg.com/raw/f6c14b7cd6ff9f2959a818b0c4c4f644.png)
-
-`request-handling-performance.json` 是展示 Nginx Ingress 性能方面的监控面板：
-
+`request-handling-performance.json` 是展示 Nginx Ingress 性能方面的监控面板。如下图所示：
 ![](https://main.qcloudimg.com/raw/d21748c1903103a5b6988051848292f5.png)
 
 ## 总结
 
-本文梳理了 Nginx Ingress 在 TKE 上部署的三种方案以及许多实用的建议，对于想要在 TKE 上使用 Nginx Ingress 的同学是一个很好的参考。由于 Nginx Ingress 的使用需求量较大，我们也正在做 Nginx Ingress 的产品化支持， 可以实现一键部署，集成日志和监控能力，并且会对其进行性能优化。相信在不久的将来，我们就能够在 TKE 上更简单高效的使用 Nginx Ingress 了，敬请期待吧！
+本文梳理了 Nginx Ingress 在 TKE 上部署的三种方案以及整理出一些常见问题。由于 Nginx Ingress 的使用需求量较大，TKE 正在进行 Nginx Ingress 的产品化支持，将来可以实现一键部署，以及拥有集成日志和监控的能力，并且 TKE 会对其进行性能优化。
 
 ## 参考资料
 
