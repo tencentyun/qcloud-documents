@@ -44,6 +44,6 @@
 ## 验证
 
 1. 部署成功后，部署组的状态变为运行中。
-	 ![](https://main.qcloudimg.com/raw/e2aa0deba845244336360365b13b27c4.png)
+![](https://main.qcloudimg.com/raw/e2aa0deba845244336360365b13b27c4.png)
 2. 复制负载均衡 IP，在浏览器地址栏粘贴后，显示 Nginx 欢迎页面。
-   ![](https://main.qcloudimg.com/raw/3ff519319e5dc4d3b3cc3d6668281a45.png)
+![](https://main.qcloudimg.com/raw/3ff519319e5dc4d3b3cc3d6668281a45.png)
