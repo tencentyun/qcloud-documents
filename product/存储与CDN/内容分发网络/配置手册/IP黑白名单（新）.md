@@ -12,7 +12,7 @@
 ### 修改配置
 #### 1. 修改配置
 单击开关，选择黑名单 / 白名单，并填入 IP 或 IP 段列表并单击【确认】，即可启用 IP 黑 / 白名单配置：
-![](https://main.qcloudimg.com/raw/3af8c6cbc81b2cdf8349039e3a72d34d.png)
+![](https://main.qcloudimg.com/raw/f8bcab96331c8e166f0daebc8cbf4ac6.png)
 **IP 黑名单**
 用户端 IP 匹配黑名单中的 IP 或 IP 段时 ，访问 CDN 节点时将直接返回403状态码。
 **IP 白名单**
