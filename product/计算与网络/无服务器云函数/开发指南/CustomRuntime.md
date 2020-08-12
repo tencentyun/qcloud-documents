@@ -1,4 +1,4 @@
-在云函数（Serverless Cloud Function，SCF）已支持的开发语言及版本的标准运行环境外，为了满足更多个性化开发语言及版本的函数实现，云函数 SCF 提供了 Custom Runtime 服务，即可定制化运行环境。通过开放实现自定义函数运行时，支持根据需求使用任意开发语言的任意版本来编写函数。SCF 与 Custom Runtime 通过 HTTP 协议通信完成事件的响应处理。
+在云函数（Serverless Cloud Function，SCF）已支持的开发语言及版本的标准运行环境外，为了满足更多个性化开发语言及版本的函数实现，SCF 提供了 Custom Runtime 服务，即可定制化运行环境。通过开放实现自定义函数运行时，支持根据需求使用任意开发语言的任意版本来编写函数。SCF 与 Custom Runtime 通过 HTTP 协议通信完成事件的响应处理。
 
 ## Custom Runtime 部署文件说明
 **bootstrap**：Custom Runtime 固定的可执行引导程序文件，由开发者创建同名可执行程序文件，通过自定义语言及版本实现，直接处理或者通过启动其他可执行文件来处理，完成函数运行时的初始化和调用。
