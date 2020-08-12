@@ -22,3 +22,4 @@ API 创建即在 API 网关内完成 API 的定义。该任务指导您通过 AP
  * 方法：API 请求方法。API 路径 + API 请求方法，是 API 的唯一标识。
  * 描述：API 的备注信息。
  ![](https://main.qcloudimg.com/raw/0882f112d159833afd25b07ea6880608.png)
+
