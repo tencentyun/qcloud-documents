@@ -14,42 +14,6 @@ Next.js 组件将在腾讯云账号中使用到如下 Serverless 服务：
 - **COS 对象存储**：为确保上传速度和质量，云函数压缩并上传代码时，会默认将代码包存储在特定命名的 COS 桶中
 - **SSL 证书服务**：如果您在 yaml 文件中配置了 `apigatewayConf.customDomains` 字段，需要做自定义域名绑定并开启 HTTPS 时，也会用到证书管理服务和域名服务。Serverless Framework 会根据已经备案的域名自动申请并配置 SSL 证书。
 
-## 前提条件
-#### 项目迁移
-如果您的项目本身运行是基于 `express` 自定义服务，则您需要在项目中自定义入口文件 `sls.js`，需要参考您的服务启动文件进行修改，以下是一个 Next.js 项目的模板文件：
-
-```js
-const express = require('express')
-const next = require('next')
-
-const app = next({ dev: false })
-const handle = app.getRequestHandler()
-
-// not report route for custom monitor
-const noReportRoutes = ['/_next', '/static']
-
-async function createServer() {
-  await app.prepare()
-  const server = express()
-
-  server.all('*', (req, res) => {
-    noReportRoutes.forEach((route) => {
-      if (req.path.indexOf(route) !== -1) {
-        req.__SLS_NO_REPORT__ = true
-      }
-    })
-    return handle(req, res)
-  })
-
-  // define binary type for response
-  // if includes, will return base64 encoded, very useful for images
-  server.binaryTypes = ['*/*']
-
-  return server
-}
-
-module.exports = createServer
-```
 
 ## 操作步骤
 ### 1. 安装
@@ -139,6 +103,43 @@ $ sls remove
 和部署类似，支持通过 `sls remove --debug` 命令查看移除过程中的实时日志信息（`sls`是 `serverless` 命令的缩写）。
 
 ## 更多操作
+
+### 项目迁移
+部署 Next.js 应用时，Serverless SSR 会自动为您创建 `sls.js` 入口文件，如果您的项目本身运行是基于 `express` 自定义服务，您也可以在项目中自定义入口文件 `sls.js`，需要参考您的服务启动文件进行修改，以下是一个 Next.js 项目的模板文件：
+
+```js
+const express = require('express')
+const next = require('next')
+
+const app = next({ dev: false })
+const handle = app.getRequestHandler()
+
+// not report route for custom monitor
+const noReportRoutes = ['/_next', '/static']
+
+async function createServer() {
+  await app.prepare()
+  const server = express()
+
+  server.all('*', (req, res) => {
+    noReportRoutes.forEach((route) => {
+      if (req.path.indexOf(route) !== -1) {
+        req.__SLS_NO_REPORT__ = true
+      }
+    })
+    return handle(req, res)
+  })
+
+  // define binary type for response
+  // if includes, will return base64 encoded, very useful for images
+  server.binaryTypes = ['*/*']
+
+  return server
+}
+
+module.exports = createServer
+```
+
 ### 账号配置
 
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建 `.env` 文件：
