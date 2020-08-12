@@ -60,12 +60,10 @@ Custom Runtime 将函数的运行时周期分为初始化阶段和调用阶段�
 Custom Runtime 由开发者使用自定义语言及版本实现，与云函数 SCF 之间的事件下发、处理结果反馈等需要通过标准协议来进行通信。因此云函数 SCF 提供了运行时 API，来满足与 Custom Runtime 生命期中的交互需要。
 
 云函数 SCF 内置有以下环境变量：
-- SCF_RUNTIME_API：运行时 API 地址
-- SCF_RUNTIME_API_PORT：运行时 API 端口
+- SCF_RUNTIME_API：运行时 API 地址。
+- SCF_RUNTIME_API_PORT：运行时 API 端口。
 
-Custom Runtime可以通过SCF_RUNTIME_API：SCF_RUNTIME_API_PORT来访问运行时API
-
-
+Custom Runtime 可以通过 `SCF_RUNTIME_API：SCF_RUNTIME_API_PORT` 来访问运行时 API。
 <table>
 <thead>
 <tr>
