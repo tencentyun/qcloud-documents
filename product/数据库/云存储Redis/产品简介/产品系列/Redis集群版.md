@@ -1,4 +1,4 @@
-云数据库 Redis 内存版（集群架构）是腾讯云基于社区版 Redis cluster 打造的全新版本，兼容Redis 4.0 和 Redis 5.0 版本命令，采用分布式架构，支持分片和副本的扩缩容，拥有高度的灵活性、可用性和高达千万级 QPS 的高性能。Redis 内存版（集群架构）支持3分片 - 128分片的水平方向扩展，1个 - 5个副本集的副本扩展，扩容、缩容、迁移过程业务几乎无感知，做到最大的系统可用性。![](https://main.qcloudimg.com/raw/28b67a0b4de50e751fd2119876019ffd.svg)
+云数据库 Redis 内存版（集群架构）是腾讯云基于社区版 Redis Cluster 打造的全新版本，兼容Redis 4.0 和 Redis 5.0 版本命令，采用分布式架构，支持分片和副本的扩缩容，拥有高度的灵活性、可用性和高达千万级 QPS 的高性能。Redis 内存版（集群架构）支持3分片 - 128分片的水平方向扩展，1个 - 5个副本集的副本扩展，扩容、缩容、迁移过程业务几乎无感知，做到最大的系统可用性。![](https://main.qcloudimg.com/raw/28b67a0b4de50e751fd2119876019ffd.svg)
 
 ## 集群规格
 - 分片规格（GB）：2、4、8、12、16、20、24、28、32
@@ -46,7 +46,7 @@
 ```
 
 #### 有限支持的命令
-内存版（集群架构）兼容 Jediscluster 等智能客户端，为兼容 Jedis Cluster 的使用场景，云数据库 Redis 对 Cluster 支持命令返回对 IP 列表进行了修改，返回信息中每个节点的 IP 地址为实例的 VIP。
+内存版（集群架构）兼容 Jedis Cluster 等智能客户端，为兼容 Jedis Cluster 的使用场景，云数据库 Redis 对 Cluster 支持命令返回对 IP 列表进行了修改，返回信息中每个节点的 IP 地址为实例的 VIP。
 - CLUSTER NODES
 - CLUSTER SLOTS
 - CONFIG GET
