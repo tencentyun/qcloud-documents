@@ -46,7 +46,7 @@
 ```
 
 #### 有限支持的命令
-内存版（集群架构）兼容 Jediscluster 等智能客户端，为兼容 Jedis cluster 的使用场景，云数据库 Redis 对 Cluster 支持命令返回对 IP 列表进行了修改，返回信息中每个节点的 IP 地址为实例的 VIP。
+内存版（集群架构）兼容 Jediscluster 等智能客户端，为兼容 Jedis Cluster 的使用场景，云数据库 Redis 对 Cluster 支持命令返回对 IP 列表进行了修改，返回信息中每个节点的 IP 地址为实例的 VIP。
 - CLUSTER NODES
 - CLUSTER SLOTS
 - CONFIG GET
