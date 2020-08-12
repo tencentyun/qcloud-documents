@@ -3,7 +3,7 @@ CDW 提供了性能监控面板，用户可以通过性能监控面板来观察�
 
 ## 性能监控
 进入 [云数据仓库控制台](https://console.cloud.tencent.com/snova)，在集群列表中单击集群名，进入集群详情页。在【性能监控】中，可以查看集群的各项指标。当有多个节点时，可在【集群节点】中选择想要查看的集群节点。
-![](https://main.qcloudimg.com/raw/53c4e218f856a1fa8a561785d33a7e31.png)
+![](https://main.qcloudimg.com/raw/5320368ea3b8e1b01337a3eba2e699ee.png)
 目前 CDW 提供了连接数、CPU 利用率、内存利用、网络接收吞吐量、网络输出吞吐量、写入 IOPS、读取 IOPS、磁盘空间使用率、读取吞吐量、写入吞吐量、读取延时、写入延时等指标。
 
 ## 告警接入
