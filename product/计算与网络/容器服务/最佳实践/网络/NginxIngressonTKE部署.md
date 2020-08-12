@@ -5,7 +5,7 @@ Nginx Ingress 功能强大且性能极高，有多种部署方式。本文将介
 ## Nginx Ingress 简介
 
 Nginx Ingress 是 Kubernetes Ingress 的一种实现。它通过 watch Kubernetes 集群的 Ingress 资源，将 Ingress 规则转换成 Nginx 的配置，让 Nginx 进行7层的流量转发。如下图所示：
-![](https://main.qcloudimg.com/raw/cc1260950a0cc812508cf25819e3c129.png)
+<img style="width:450px" src="https://main.qcloudimg.com/raw/cc1260950a0cc812508cf25819e3c129.png" data-nonescope="true">
 Nginx Ingress 有以下两种实现方式，本文重点对 Kubernetes 开源社区的实现进行介绍：
 - [Kubernetes 开源社区的实现](https://github.com/kubernetes/ingress-nginx)
 - [Nginx 官方的实现](https://github.com/nginxinc/kubernetes-ingress)
@@ -19,7 +19,7 @@ Nginx Ingress 有以下两种实现方式，本文重点对 Kubernetes 开源社
 ## 方案1： Deployment + LB<span id="step1"></span>
 
 在 TKE 上部署 Nginx Ingress 最简单的方式是将 Nginx Ingress Controller 以 Deployment 的方式部署，并且为其创建 LoadBalancer 类型的 Service（自动创建负载均衡 CLB 或绑定已有 CLB），使 CLB 接收外部流量，再转发到 Nginx Ingress 内部。如下图所示：
-![](https://main.qcloudimg.com/raw/337cf2fa30cb27f89eed438b0458d557.png)
+<img style="width:450px" src="https://main.qcloudimg.com/raw/337cf2fa30cb27f89eed438b0458d557.png" data-nonescope="true">
 当前 TKE 上 LoadBalancer 类型的 Service 默认实现是基于 NodePort：CLB 会绑定各节点的 NodePort 作为后端 RS（Real Server），将流量转发到节点的 NodePort，节点再通过 Iptables 或 IPVS 将请求路由到 Service 对应的后端 Pod（即 Nginx Ingress Controller 的 Pod）。后续如有节点的增删，CLB 也会自动更新节点 NodePort 的绑定。
 执行以下命令安装 Nginx Ingress：
 ```
@@ -39,7 +39,7 @@ kubectl apply -f https://raw.githubusercontent.com/TencentCloudContainerTeam/man
 
 在方案2中，提出以下解决方法：
 让 Nginx Ingress 使用 hostNetwork，CLB 直接绑节点 IP + 端口（80,443），不用经过 NodePort。由于使用 hostNetwork，Nginx Ingress 的 pod 就不能被调度到同一节点，为避免端口监听冲突，可提前选取部分节点作为边缘节点，专门用于部署 Nginx Ingress，并为这些节点打上 label，然后 Nginx Ingress 以 DaemonSet 方式部署在这些节点上。架构如下图所示：
-![](https://main.qcloudimg.com/raw/09e4a46655dcaa2a32d6b8e02fb8d96c.png)
+<img style="width:450px" src="https://main.qcloudimg.com/raw/09e4a46655dcaa2a32d6b8e02fb8d96c.png" data-nonescope="true">
 如需安装 Nginx Ingress，请执行以下步骤：
 1. 执行以下命令，将规划好的用于部署 Nginx Ingress 的节点打上 label（注意替换节点名称）：
 ```
@@ -63,7 +63,7 @@ kubectl apply -f https://raw.githubusercontent.com/TencentCloudContainerTeam/man
 
 在方案3中，提出以下解决方法：
 - 若网络模式是 VPC-CNI，且所有的 Pod 都使用弹性网卡，您可以使用 CLB 直接绑定弹性网卡的 Pod，即绕过 NodePort，不用手动管理 CLB且支持自动扩、缩容。如下图所示：
-![](https://main.qcloudimg.com/raw/83630c50a259482ede83742945fc591e.png)
+<img style="width:450px" src="https://main.qcloudimg.com/raw/83630c50a259482ede83742945fc591e.png" data-nonescope="true">
 - 若网络模式是 Global Router，您可以在集群信息页 [为集群开启 VPC-CNI 支持](https://cloud.tencent.com/document/product/457/34993)，即两种网络模式混用。如下图所示：
 ![](https://main.qcloudimg.com/raw/c61d57e3614c87cbca143fe4d746a15d.png)
 确保集群支持 VPC-CNI 之后，依次执行以下命令，即可安装 Nginx Ingress：
@@ -188,9 +188,9 @@ spec:
 
 采集监控数据后，可为 grafana 配置 [Nginx Ingress 社区提供的面板](https://github.com/kubernetes/ingress-nginx/tree/master/deploy/grafana/dashboards)，并展示数据。   
 实际操作中，直接复制 json 导入 grafana，即可导入面板。其中，`nginx.json` 是展示 Nginx Ingress 各种常规监控的面板。如下图所示：
-![](https://main.qcloudimg.com/raw/f6c14b7cd6ff9f2959a818b0c4c4f644.png)
+<img style="width:450px" src="https://main.qcloudimg.com/raw/f6c14b7cd6ff9f2959a818b0c4c4f644.png" data-nonescope="true">
 `request-handling-performance.json` 是展示 Nginx Ingress 性能方面的监控面板。如下图所示：
-![](https://main.qcloudimg.com/raw/d21748c1903103a5b6988051848292f5.png)
+<img style="width:450px" src="https://main.qcloudimg.com/raw/d21748c1903103a5b6988051848292f5.png" data-nonescope="true">
 
 
 ## 参考资料
