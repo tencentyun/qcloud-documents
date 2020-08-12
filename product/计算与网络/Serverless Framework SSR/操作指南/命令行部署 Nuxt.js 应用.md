@@ -3,41 +3,6 @@ Serverless SSR 为您提供了完整的命令行开发流程，该任务指导�
 
 >?目前 Serverless SSR 只支持 Next.js 与 Nuxt.js 两个框架组件的部署。
 
-
-## 前提条件
-#### 项目迁移
-
-如果您的项目本身运行就是基于 `express` 自定义服务的，则您需要在项目中自定义入口文件 `sls.js`，需要参考您的服务启动文件进行修改。以下是一个 Nuxt.js 项目的模板文件：
-```js
-const express = require('express')
-const { loadNuxt } = require('nuxt')
-
-async function createServer() {
-  // not report route for custom monitor
-  const noReportRoutes = ['/_nuxt', '/static', '/favicon.ico']
-
-  const server = express()
-  const nuxt = await loadNuxt('start')
-
-  server.all('*', (req, res, next) => {
-    noReportRoutes.forEach((route) => {
-      if (req.path.indexOf(route) === 0) {
-        req.__SLS_NO_REPORT__ = true
-      }
-    })
-    return nuxt.render(req, res, next)
-  })
-
-  // define binary type for response
-  // if includes, will return base64 encoded, very useful for images
-  server.binaryTypes = ['*/*']
-
-  return server
-}
-
-module.exports = createServer
-```
-
 ## 操作步骤
 ### 1. 安装
 
@@ -129,6 +94,39 @@ $ sls remove
 
 
 ## 更多操作
+### 项目迁移
+
+部署 Nuxt.js 应用时，Serverless SSR 会自动为您创建 `sls.js` 入口文件，如果您的项目本身运行是基于 `express` 自定义服务，您也可以在项目中自定义入口文件 `sls.js`，需要参考您的服务启动文件进行修改，以下是一个 Nuxt.js 项目的模板文件：
+```js
+const express = require('express')
+const { loadNuxt } = require('nuxt')
+
+async function createServer() {
+  // not report route for custom monitor
+  const noReportRoutes = ['/_nuxt', '/static', '/favicon.ico']
+
+  const server = express()
+  const nuxt = await loadNuxt('start')
+
+  server.all('*', (req, res, next) => {
+    noReportRoutes.forEach((route) => {
+      if (req.path.indexOf(route) === 0) {
+        req.__SLS_NO_REPORT__ = true
+      }
+    })
+    return nuxt.render(req, res, next)
+  })
+
+  // define binary type for response
+  // if includes, will return base64 encoded, very useful for images
+  server.binaryTypes = ['*/*']
+
+  return server
+}
+
+module.exports = createServer
+```
+
 ### 账号配置
 
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建 `.env` 文件：
