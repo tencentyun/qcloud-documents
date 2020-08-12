@@ -52,7 +52,7 @@
 - CONFIG GET
 
 #### 跨 Slot 命令支持
-内存版（集群架构）目前支持跨 Slot 访问的命令，包括 MGET、MSET、DEL，其他多 KEY 命令的跨 SLOT 访问暂不支持。
+内存版（集群架构）目前支持跨 Slot 访问的命令，包括 MGET、MSET、DEL，其他多 KEY 命令的跨 Slot 访问暂不支持。
 
 <span id = "ziding"></span>
 #### 自定义命令
