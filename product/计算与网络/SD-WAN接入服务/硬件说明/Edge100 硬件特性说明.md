@@ -8,7 +8,7 @@
 | 产品         | Edge-100                                                     |
 | LAN 口       | 3个 GE 电口。                                                  |
 | WAN 口       | 2个 GE 电口。                                                  |
-| LTE 模组      | <ul><li>LTE FDD：B1、B3、 B5、 B8。</li><li>LTE TDD：B38、B39、B40、B41。</li><li>WCDMA：B1、B5、B8。</li><li>TD SCDMA：B34、B39。</li><li>GSM：B3、B8。</li><li>CDMA EVDO/1x：800M</li>  </ul>               |
+| LTE 模组      | <ul><li>LTE FDD：B1、B3、 B5、 B8。</li><li>LTE TDD：B38、B39、B40、B41。</li><li>WCDMA：B1、B5、B8。</li><li>TD SCDMA：B34、B39。</li><li>GSM：B3、B8。</li><li>CDMA EVDO/1x：800M。</li>  </ul>               |
 | Wi-Fi        | Wi-Fi 模组 IEEE 802.11 b/g/n，2x2，miniPCIe 接口。                |
 | RJ45         | 一个 RJ45 标准串口，不带指示灯。                                |
 | USB          | 一个 USB 2.0 Type-A 接口。                                     |
@@ -20,7 +20,6 @@
 ## 指示灯说明
 ### 指示灯布局
 
-EN104 及 EN1002 两款型号指示灯一致，分别为：
 
 | 指示灯 | 说明                                       |
 | ------ | ------------------------------------------ |
