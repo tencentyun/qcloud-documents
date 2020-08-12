@@ -17,7 +17,7 @@ Content-Type: application/xml
 <body>
 ```
 
-> ?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> ?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求头
 
@@ -76,8 +76,8 @@ Container 类型 Snapshot 的具体数据描述如下：
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      | 是否必选 |
 | ------------------ | :-------------------- | ------------------------------------------------------------ | --------- | -------- |
 | Mode               | Request.Conf.Snapshot | 截帧模式。Interval 表示间隔模式；Average 表示平均模式；Fps 表示固定帧率模式。</br><li> Interval 模式：TimeInterval，Count 参数生效。当设置 Count，未设置 TimeInterval 时，表示截取所有帧，共 Count 张图片</br><li> Average 模式：Count 参数生效。表示整个视频，按平均间隔截取共 Count 张图片</br><li> Fps 模式：TimeInterval 表示每秒截取多少帧，Count 表示共截取多少帧 | Container | 否       |
-| Count              | Request.Conf.Snapshot | 截图数量，范围为(0 10000]                                    | string    | 否       |
-| TimeInterval       | Request.Conf.Snapshot | 截图频率，范围为(0 60]，单位为秒，支持 float 格式，执行精度精确到毫秒 | string    | 否       |
+| Count              | Request.Conf.Snapshot | 截图数量，范围为(0,10000]                                    | string    | 否       |
+| TimeInterval       | Request.Conf.Snapshot | 截图频率，范围为(0,60]，单位为秒，支持 float 格式，执行精度精确到毫秒 | string    | 否       |
 
 ## 响应
 
@@ -128,7 +128,7 @@ Container 节点 JobsDetail 的内容：
 #### 请求
 
 ```plaintext
-POST /auditing HTTP/1.1
+POST /video/auditing HTTP/1.1
 Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
 Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
