@@ -1,5 +1,16 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+## 1.23.1-Finchley-RELEASE（2020-08-13）
+
+### Bug 修复
+
+- spring-cloud-tsf-msgw:
+  - 修复scg版本网关不支持HTTP请求中文编码的问题
+
+### 版本建议
+
+- 支持向后兼容，建议全量升级。
+
 ## 1.23.0-Finchley-RELEASE（2020-07-06）
 
 ### 新特性
