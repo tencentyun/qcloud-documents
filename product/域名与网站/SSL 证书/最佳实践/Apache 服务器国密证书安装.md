@@ -94,7 +94,7 @@ cd pcre-8.43/
 make && make install 
 ```
 6. **Apache 服务器安装**：上述三个文件编译安装完成后，请下载 Apache 国密版和国密模块至 `/usr/local` 目录下进行编译安装。
->!国密模块文件名 wotrus_ssl.tar.gz 在解压与安装中请勿修改，否则可能会导致安装错误。
+>!国密模块文件名 `wotrus_ssl.tar.gz` 在解压与安装中请勿修改，否则可能会导致安装错误。
 >
 ```
 #下载 Apache 国密版
