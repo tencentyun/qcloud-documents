@@ -189,8 +189,8 @@ Require all granted
 2. 编辑 `/usr/local/httpd/conf` 目录下的 `ssl.conf` 文件。
 3. 请在 `SSLEngine on` 下面换行，并添加如下内容：
 ```
-SSLCertificateFile /usr/local/httpd/conf/cert/2_waz.qcloudnewshow.com.crt
-SSLCertificateKeyFile /usr/local/httpd/conf/cert/3_waz.qcloudnewshow.com.key
+SSLCertificateFile /usr/local/httpd/conf/cert/2_cloud.tencent.com.crt
+SSLCertificateKeyFile /usr/local/httpd/conf/cert/3_cloud.tencent.com.key
 SSLCertificateChainFile /usr/local/httpd/conf/cert/1_root_bundle.crt
 ```
 >? 以上配置内容仅为参考，具体的证书名称，证书目录，请根据实际环境配置。
