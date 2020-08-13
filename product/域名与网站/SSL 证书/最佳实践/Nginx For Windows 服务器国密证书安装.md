@@ -87,12 +87,10 @@ location / {
 } 
 ```
 >?
->- 建议使用 Administrator 账户配置证书，若用非管理员权限账户配置，可能出现找
-不到证书的错误。
+>- 建议使用 Administrator 账户配置证书，若用非管理员权限账户配置，可能出现找不到证书的错误。
 >- 以上配置仅为参考，具体配置请根据实际环境配置。
 >
-7. 配置完成后，您可以通过在服务器 dos 命令下，执行 cd 命令行进入 `nginx-1.16.0` 目录，例如 `cd c:\gmssl\nginx-1.16.0`， 输入 `nginx-t`，检测 Nginx 配置是否正常，正常情况如下图所示：
-![](https://main.qcloudimg.com/raw/3d865472a7963f65330619a6d4537aab.png)
+7. 配置完成后，您可以通过在服务器 dos 命令下，执行 cd 命令行进入 `nginx-1.16.0` 目录，例如 `cd c:\gmssl\nginx-1.16.0`， 输入 `nginx -t`，检测 Nginx 配置是否正常。
  - 若提示 `Syntax OK`，则表示配置正常，可以启动 Nginx 服务器。
  - 若提示非 `Syntax OK`，请您重新配置或者根据提示修改存在问题。
 8. 启动 Nginx 服务器，进入 `/nginx-1.16.0` 目录，双击运行 `nginx.exe` 即可使用 `https://cloud.tencent.com` 进行访问。
@@ -104,6 +102,8 @@ location / {
 >- 下述步骤中的目录皆是测试环境的目录，具体路径请根据您的实际环境与需求进行确定。
 >
 1. 将已获取到的国际标准证书压缩包中 Nginx 文件夹的 `1_root_bundle.crt` 证书文件、`2_cloud.tencent.com.key` 解压缩后放在已创建的 `ssl` 目录中。
+>!执行以下操作前请确保已关闭全部 Nginx 服务，避免资源占用，导致无法正常访问最新配置的 Nginx 服务。
+>
 2. 编辑 `/nginx-1.16.0/conf` 目录下 `ssl.conf` 文件。
 3. 请在 `server_name cloud.tencent.com` 下面换行，并添加如下内容：
 >!国际标准证书域名与国密标准证书域名可不一致，以下内容均为例子，具体请根据您实际情况进行操作。
@@ -115,7 +115,7 @@ ssl_certificate_key c:/gm_nginx-1.16.0/nginx-1.16.0/conf/ssl/2_cloud.tencent.com
 4. 配置完成后，您可以通过在服务器 dos 命令下，执行 cd 命令行进入 `nginx-1.16.0` 目录，例如 `cd c:\gmssl\nginx-1.16.0`， 输入 `nginx -t` ，检测 Nginx 配置是否正常。
  - 若提示 `Syntax OK`，则表示配置正常，可以启动 Nginx 服务器。
  - 若提示非 `Syntax OK`，请您重新配置或者根据提示修改存在问题。
-5. 重启 Nginx 服务器，即可解决浏览器兼容性问题 。 
+5. 启动 Nginx 服务器，进入 `/nginx-1.16.0` 目录，双击运行 `nginx.exe`，即可解决浏览器兼容性问题。 
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
 
