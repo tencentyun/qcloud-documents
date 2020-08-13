@@ -106,8 +106,6 @@ location / {
 >
 2. 编辑 `/nginx-1.16.0/conf` 目录下 `ssl.conf` 文件。
 3. 请在 `server_name cloud.tencent.com` 下面换行，并添加如下内容：
->!国际标准证书域名与国密标准证书域名可不一致，以下内容均为例子，具体请根据您实际情况进行操作。
->
 ```
 ssl_certificate c:/gm_nginx-1.16.0/nginx-1.16.0/conf/ssl/1_cloud.tencent.com_bundle.crt; 
 ssl_certificate_key c:/gm_nginx-1.16.0/nginx-1.16.0/conf/ssl/2_cloud.tencent.com.key;
