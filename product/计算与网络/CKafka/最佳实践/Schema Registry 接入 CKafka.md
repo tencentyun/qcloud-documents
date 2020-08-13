@@ -22,7 +22,7 @@ CKafka 提供了数据共用一个 Schema 的方法：将 Schema 中的内容注
    >!启动 oss 会创建 _schemas 主题，所以实例中需要开启自动创建主题。
    
 	 配置信息如下：
-   ```shell
+   ```
    kafkastore.bootstrap.servers=PLAINTEXT://172.26.0.8:9092
    kafkastore.topic=_schemas
    debug=true
