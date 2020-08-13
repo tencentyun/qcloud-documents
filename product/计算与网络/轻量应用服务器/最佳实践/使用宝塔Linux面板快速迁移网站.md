@@ -17,10 +17,11 @@
 1. 登录迁入服务器的宝塔 Linux 面板，详情请参见 [安装和配置宝塔 Linux 面板](https://cloud.tencent.com/document/product/1207/45595#.E5.AE.89.E8.A3.85.E5.92.8C.E9.85.8D.E7.BD.AE.E5.AE.9D.E5.A1.94-linux-.E9.9D.A2.E6.9D.BF)。
 2. 选择左侧菜单栏中的【面板设置】，并在设置页面中开启 API 接口。如下图所示：
 ![](https://main.qcloudimg.com/raw/70a639b2ce0d33ba48ccc2c0b9f3bcf6.png)
-3. <span id="Step3"></span>在弹出的“配置面板API” 窗口中，按照以下步骤进行配置。如下图所示：
+3. <span id="Step3"></span>在弹出的“配置面板API” 窗口中，参考以下信息进行配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/7b7845a507e50176b7addb59f9c98de5.png)
-  1. 记录接口密钥。
-  2. 将需迁出服务器的公网 IP 地址加入 IP 白名单中，单击【保存】。
+ - **接口密钥**：记录接口密钥。
+ - **IP白名单**：将需迁出服务器的公网 IP 地址加入 IP 白名单中、
+4. 单击【保存】。
 
 
 ### 迁出服务器操作
