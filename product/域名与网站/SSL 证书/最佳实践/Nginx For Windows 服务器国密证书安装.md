@@ -67,24 +67,19 @@
 6. 请在 `/nginx-1.16.0/conf` 目录下新建 `ssl.conf` 文件。如下图所示：
 ![](https://main.qcloudimg.com/raw/7af804d184fdd24eecb6eed9f11f9a4c.png)
 7. 编辑新建的 `ssl.conf` 文件，添加证书配置，如下所示：
-
 ```
 server { 
 listen 443 ssl; 
 server_name cloud.tencent.com; 
-
 ssl_certificate c:/gmssl/nginx-1.16.0/conf/ssl/1_cloud.tencent.com_sign_bundle.crt; 
 ssl_certificate_key c:/gmssl/nginx-1.16.0/conf/ssl/3_cloud.tencent.com.key;
-
 ssl_certificate c:/gmssl/nginx-1.16.0/conf/ssl/2_cloud.tencent.com_encrypt_bundle.crt; 
 ssl_certificate_key c:/gmssl/nginx-1.16.0/conf/ssl/3_cloud.tencent.com.key; 
-
 #先配置签名证书，再配置加密证书，签名加密证书私钥 key 为同一个！
 ssl_session_timeout 5m; 
 ssl_protocols TLSv1 TlSv1.1 TLSv1.2;
 ssl_ciphers SM2-WITH-SMS4-SM3:ECDH:AESGCM:HIGH:MEDIUM:!RC4:!DH:!MD5:!aNULL:!eNULL; 
 ssl_prefer_server_ciphers on;
-
 location / { 
 		root html; 
 		index index.html index.htm; 
@@ -94,7 +89,7 @@ location / {
 >?
 >- 建议使用 Administrator 账户配置证书，若用非管理员权限账户配置，可能出现找
 不到证书的错误。
-- 以上配置仅为参考，具体配置请根据实际环境配置。
+>- 以上配置仅为参考，具体配置请根据实际环境配置。
 >
 7. 配置完成后，您可以通过在服务器 `dos` 命令下，`cd` 进入 `nginx-1.16.0` 目录，如 `cd c:\gmssl\nginx-1.16.0`， 输入 `nginx-t`，检测 `Nginx` 配置是否正常，正常显示如下图：
 ![](https://main.qcloudimg.com/raw/3d865472a7963f65330619a6d4537aab.png)
