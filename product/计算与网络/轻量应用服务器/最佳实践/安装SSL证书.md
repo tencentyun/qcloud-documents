@@ -99,7 +99,7 @@ server {
     ssl_certificate 1_cloud.tencent.com_bundle.crt;   #填写您的证书文件名称，例如：1_cloud.tencent.com_bundle.crt
     ssl_certificate_key 2_cloud.tencent.com.key;    #填写您的私钥文件名称，例如：2_cloud.tencent.com.key
     ssl_session_timeout 5m;
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;  # 可按照该协议进行配置
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;  # 可指定 SSL/TLS 协议进行配置
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;   #可按照此加密套件配置，写法遵循 openssl 标准
     ssl_prefer_server_ciphers on;
     location ~* \.php$ {
