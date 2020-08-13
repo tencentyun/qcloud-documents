@@ -138,7 +138,9 @@ location / {
 >
 1. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具），将已获取到的国际标准证书压缩包中 Nginx 文件夹的 `1_root_bundle.crt` 证书文件、`2_cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Nginx 服务器的`/usr/local/nginx/conf/sm2` 目录下。 
 2. 编辑 `/usr/local/nginx/conf` 目录下的 `ssl.conf` 文件。
-3. 请在 `server_name cloud.tencent.com` 下面换行，并添加以下内容：
+3. 请在 `server_name cloud.tencent.com` 下面换行，并添加如下内容：
+>!国际标准证书域名与国密标准证书域名可不一致，以下内容均为例子，具体请根据您实际情况进行操作。
+>
 ```
 ssl_certificate /usr/local/nginx/conf/sm2/1_cloud.tencent.com_bundle.crt; 
 ssl_certificate_key /usr/local/nginx/conf/sm2/2_cloud.tencent.com.key;
