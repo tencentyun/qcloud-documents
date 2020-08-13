@@ -162,6 +162,7 @@ c. 拼接签名有效时间，格式为`StartTimestamp;EndTimestamp`，即为 Ke
 
 | 名称             | 描述                                   | 类型   | 是否必选 |
 | ---------------- | -------------------------------------- | ------ | -------- |
+| x-cos-security-token | 使用临时安全凭证时需要传入的安全令牌字段，详情请参见 [临时安全凭证](https://cloud.tencent.com/document/product/436/31315#.E4.B8.B4.E6.97.B6.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81) 相关说明。 | string | 否。<br>当使用临时密钥时，此表单项为必选项。 |
 | policy           | 经过 Base64 编码的“策略”（Policy）内容 | string | 是       |
 | q-sign-algorithm | 签名哈希算法，固定为 sha1              | string | 是       |
 | q-ak             | 上文所述的 SecretId                    | string | 是       |
