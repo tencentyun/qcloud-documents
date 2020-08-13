@@ -40,13 +40,9 @@ ES 可授权的资源类型如下：
 </tr>
 </thead>
 <tbody><tr>
-<td align="left" rowspan="2">华南地区</td>
+<td align="left" rowspan="1">华南地区</td>
 <td align="left">广州</td>
 <td><code>ap-guangzhou</code></td>
-</tr>
-<tr>
-<td align="left">清远</td>
-<td><code>ap-qingyuan</code></td>
 </tr>
 <tr>
 <td align="left" rowspan="2">华东地区</td>
