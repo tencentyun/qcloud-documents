@@ -189,8 +189,9 @@ Require all granted
 2. 编辑 `/usr/local/httpd/conf` 目录下的 `ssl.conf` 文件。
 3. 请在 `SSLEngine on` 下面换行，并添加如下内容：
 ```
-ssl_certificate /usr/local/nginx/conf/sm2/1_cloud.tencent.com_bundle.crt; 
-ssl_certificate_key /usr/local/nginx/conf/sm2/2_cloud.tencent.com.key;
+SSLCertificateFile /usr/local/httpd/conf/cert/2_waz.qcloudnewshow.com.crt
+SSLCertificateKeyFile /usr/local/httpd/conf/cert/3_waz.qcloudnewshow.com.key
+SSLCertificateChainFile /usr/local/httpd/conf/cert/1_root_bundle.crt
 ```
 >?
 >- 国际标准证书域名与国密标准证书域名可不一致，以下内容均为例子，具体请根据您实际情况进行操作。
