@@ -179,27 +179,27 @@ dependencies {
         </intent-filter>
     </receiver>
 
-    <!-- 【必须】 移动推送 TPNS service -->
+    <!-- 【必须】移动推送 TPNS service -->
     <service
         android:name="com.tencent.android.tpush.service.XGVipPushService"
         android:persistent="true"
         android:process=":xg_vip_service"></service>
 
-    <!-- 【必须】 通知 service 包名,其中 android:name 部分要改为包名.XGVIP_PUSH_ACTION -->
+    <!-- 【必须】通知 service ，android:name 部分改为包名.XGVIP_PUSH_ACTION -->
         <service android:name="com.tencent.android.tpush.rpc.XGRemoteService"
             android:exported="false">
             <intent-filter>
-                <!-- 【必须】 请修改为当前APP名包.XGVIP_PUSH_ACTION -->
+                <!-- 【必须】请修改为当前APP名包.XGVIP_PUSH_ACTION -->
                 <action android:name="应用包名.XGVIP_PUSH_ACTION" />
             </intent-filter>
         </service>
 
-    <!-- 【必须】 【注意】authorities 修改为包名.XGVIP_PUSH_AUTH -->
+    <!-- 【必须】【注意】authorities 修改为包名.XGVIP_PUSH_AUTH -->
     <provider
         android:name="com.tencent.android.tpush.XGPushProvider"
         android:authorities="应用包名.XGVIP_PUSH_AUTH" />
 
-    <!-- 【必须】 【注意】authorities 修改为包名.TPUSH_PROVIDER -->
+    <!-- 【必须】【注意】authorities 修改为包名.TPUSH_PROVIDER -->
     <provider
         android:name="com.tencent.android.tpush.SettingsContentProvider"
         android:authorities="应用包名.TPUSH_PROVIDER" />
