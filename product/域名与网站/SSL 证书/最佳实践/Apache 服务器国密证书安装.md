@@ -159,10 +159,6 @@ ServerName domain.com
 DocumentRoot website 根目录 
 #启用 SSL 功能
 SSLEngine on 
-#RSA config
-SSLCertificateFile /usr/local/httpd/conf/domain.com.crt 
-SSLCertificateKeyFile /usr/local/httpd/conf/domain.com_rsa.key 
-SSLCertificateChainFile /usr/local/httpd/conf/root_bundle.crt
 # SM2 证书 sign 配置
 SSLCertificateFile /usr/local/httpd/conf/3_cloud.tencent.com_sign.crt 
 SSLCertificateKeyFile /usr/local/httpd/conf/5_cloud.tencent.com.key
