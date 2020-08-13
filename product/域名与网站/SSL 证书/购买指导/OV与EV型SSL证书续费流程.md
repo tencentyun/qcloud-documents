@@ -20,6 +20,8 @@ SSL 证书续费操作相当于在控制台重新申请了一个新证书，您�
 
 ### 步骤1：进入证书续费入口
 1. 付费证书在**过期前1个月**会开启快速续费通道，您可在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 证书列表中，对应证书的状态项中单击【快速续费】，打开快速续费窗口。
+>?Wotrus 与 DNSPod 品牌证书会在过期前1个月开启快速续费通道（其余品牌证书会在过期前3个月开启）。
+>
 2. 弹出 SSL 证书续费提示后，请确认信息，单击【前往续费】进入续费页面。
 
 ### 步骤2：续费信息确认与支付
@@ -31,11 +33,21 @@ SSL 证书续费操作相当于在控制台重新申请了一个新证书，您�
 
 ### 步骤3：证书审核
 >!
->- OV 型证书首次颁发预估等待时间为**3 - 5个工作日**，EV 型证书首次颁发预估等待时间为**5 - 7个工作日**。
->- DV 型证书首次颁发预估等待时间为**10分钟 - 24小时**。
+>- OV 型证书颁发预估等待时间为**3 - 5个工作日**，EV 型证书颁发预估等待时间为**5 - 7个工作日**。
+>- DV 型证书颁发预估等待时间为**10分钟 - 24小时**。
 >
 #### Wotrus 品牌 OV/EV 型付费证书续费
-Wotrus 品牌 OV/EV 型证书续费的操作与新购证书操作一致，具体请查看 [Wotrus 品牌证书 OV 与 EV 型 SSL 证书提交流程](https://cloud.tencent.com/document/product/400/47284)。
+Wotrus 品牌 OV/EV 型证书续费后人工审核及域名验证均通过后，才可颁布证书。
+> ?
+> - 需人工审核及域名验证均通过后，才可颁布证书。
+> - 提交申请后，需人工审核。人工审核为电话审核，审核过程中将会致电您公司工商登记电话，电话来源地为美国，请您注意接听。
+
+#### DNSPod 品牌 OV/EV 型证书续费
+DNSPod 品牌 OV/EV 型证书续费后人工审核及域名验证均通过后，才可颁布证书。
+>?
+>- 首次域名验证通过后，该域名验证将保留13个月。13个月内该域名以相同公司名称申请 DNSPod 品牌 OV 与 EV 型 SSL 证书，将不执行域名验证的操作。
+>- 需人工审核及域名认证均通过后，才可颁布证书。
+>- 若已申请过该类型证书，且申请成功，再次以相同信息申请，则不需要人工审核。
 
 #### 其他品牌 OV/EV 型付费证书需上传确认函并等待审核
 1. 购买成功后，[SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 的证书列表中将生成一个新的证书，状态为**待上传确认函**，单击【上传确认函】，进入确认函详情页。    
@@ -43,7 +55,7 @@ Wotrus 品牌 OV/EV 型证书续费的操作与新购证书操作一致，具体
 ![5](https://mc.qcloudimg.com/static/img/243413870795fc3421fd28db5a9e68a8/image.png)
 3. 提交证书确认函后，证书状态变为**待验证**，您需等待审核人员进行电话核实和域名信息确认邮件。
 
-#### DNSPod 品牌 OV/EV 型付费证书、DV 型付费证书需完成域名身份验证
+#### DV 型付费证书需完成域名身份验证
 1. 购买成功后，[SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 的证书列表中将生成一个新的证书，状态为**待验证**，单击【详情】进入证书详情页。   
 2. 证书详情中会生成解析验证值，您需要添加该条 DNS 解析记录。记录添加完成后，等待 CA 机构扫描验证，验证审核通过后会立即颁发证书。如下图所示：
  ![](https://main.qcloudimg.com/raw/beb1b5ae08553a832cabe9c0cb881cc5.png)
@@ -51,14 +63,24 @@ Wotrus 品牌 OV/EV 型证书续费的操作与新购证书操作一致，具体
  
 <span id="certificate"></span>
 ## 证书安装相关文档
-证书颁发成功后，您需要重新安装证书，您可以根据您搭建的服务器类型进行证书安装。
-- [Apache 服务器证书安装](https://cloud.tencent.com/document/product/400/35243)。
-- [Nginx 服务器证书安装](https://cloud.tencent.com/document/product/400/35244)。
-- [IIS 服务器安装证书](https://cloud.tencent.com/document/product/400/35225)。
-- [Tomcat 服务器证书安装](https://cloud.tencent.com/document/product/400/35224)。
-- [GlassFish 服务器证书安装](https://cloud.tencent.com/document/product/400/44759)。
-- [JBoss 服务器证书安装](https://cloud.tencent.com/document/product/400/44760)。
-- [Jetty 服务器证书安装](https://cloud.tencent.com/document/product/400/44761)。
+证书颁发成功后，您需要重新安装证书，您可以根据您购买的证书加密标准类型和搭建的服务器类型进行证书安装。
+- 国际标准证书：
+ - 若您购买使用的服务器是 Linux 系统，建议您使用以下方式：
+   - [Apache 服务器证书安装](https://cloud.tencent.com/document/product/400/35243)
+   - [Nginx 服务器证书安装](https://cloud.tencent.com/document/product/400/35244)
+   - [Tomcat 服务器证书安装](https://cloud.tencent.com/document/product/400/35224)
+   - [GlassFish 服务器证书安装](https://cloud.tencent.com/document/product/400/44759)
+   - [JBoss 服务器证书安装](https://cloud.tencent.com/document/product/400/44760)
+   - [Jetty 服务器证书安装](https://cloud.tencent.com/document/product/400/44761)
+   - [Weblogic 服务器证书安装](https://cloud.tencent.com/document/product/400/47358)
+ - 若您购买使用的服务器是 Windows 系统，建议您使用以下方式：
+   - [IIS 服务器证书安装](https://cloud.tencent.com/document/product/400/35225)
+- 国密标准证书：
+ - 若您购买使用的服务器是 Linux 系统，建议您使用以下方式：
+   - [Apache 服务器国密证书安装](https://cloud.tencent.com/document/product/400/47359)
+   - [Nginx For Linux 国密证书安装](https://cloud.tencent.com/document/product/400/47360)
+ - 若您购买使用的服务器是 Windows 系统，建议您使用以下方式：
+   - [Nginx For Windows 服务器国密证书安装](https://cloud.tencent.com/document/product/400/47361)
 
 >?如果您因使用不同服务器类型，没有可进行参考的证书安装教程，腾讯云将提供人工服务安装证书的渠道，可快速帮助您进行证书的安装。详情请查看 [证书安装服务](https://market.cloud.tencent.com/categories/1100?tagName=%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85)。
 
