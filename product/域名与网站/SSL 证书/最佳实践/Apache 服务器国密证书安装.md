@@ -193,9 +193,7 @@ SSLCertificateFile /usr/local/httpd/conf/cert/2_waz.qcloudnewshow.com.crt
 SSLCertificateKeyFile /usr/local/httpd/conf/cert/3_waz.qcloudnewshow.com.key
 SSLCertificateChainFile /usr/local/httpd/conf/cert/1_root_bundle.crt
 ```
->?
->- 国际标准证书域名与国密标准证书域名可不一致，以下内容均为例子，具体请根据您实际情况进行操作。
->- 以上配置内容仅为参考，具体的证书名称，证书目录，请根据实际环境配置。
+>? 以上配置内容仅为参考，具体的证书名称，证书目录，请根据实际环境配置。
 >
 4. 您通过执行以下命令验证配置文件问题。
 ```
