@@ -72,7 +72,7 @@ cd /usr/local/apr-util-1.5.4/
 #编译安装 apr
 make && make install 
 ```
->?make 时如果出现 `#include <expat.h> ^ compilation terminated.` 报错信息，请输入命令 `yum install -y expat-devel` 安装依赖库。 
+>?执行 make 命令时如果出现 `#include <expat.h> ^ compilation terminated.` 报错信息，请输入命令 `yum install -y expat-devel` 安装依赖库。 
 >
 5. **安装 pcre**。您可以通过以下两种方式进行安装
  - 通过 `yum` 进行安装。
@@ -83,9 +83,9 @@ make && make install
 ```
 #切换至 /usr/local/ 目录下
 cd /usr/local/ 
-#下载 apr-util-1.5
+#下载 pcre-8.43
 wget -c https://ftp.pcre.org/pub/pcre/pcre-8.43.tar.gz
-#解压已下载的 apr 1.7.0 压缩包
+#解压已下载的 pcre-8.43 压缩包
 tar -zvxf pcre-8.43.tar.gz
 #进入解压后的pcre-8.43文件夹并指定编译目录路径。
 cd pcre-8.43/
