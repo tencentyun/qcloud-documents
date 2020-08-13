@@ -8,6 +8,8 @@
 >
 
 ## 操作步骤
+>?下述步骤中的目录皆是测试环境的目录，具体路径请根据您的实际环境与需求进行确定。
+>
 1. 已在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
 解压缩后，可获得相关类型的证书文件。其中包含 Tomcat 文件夹和 CSR 文件：
  - 文件夹名称：Tomcat
@@ -31,14 +33,13 @@
 7. 进入 `AdminiServer` 的管理设置页面，勾选【启用 SSL 监听端口】并填写 SSL 监听端口为 `443`，单击【保存】。如下图所示：
 ![](https://main.qcloudimg.com/raw/c48f73608b825c6fd3d50fe5e2d1ddcb.png)
 8. 在 `AdminiServer` 的管理设置页面，单击【密钥库】，设置完成后并单击【保存】。如下图所示：
-![](https://main.qcloudimg.com/raw/9332b76bf9adac60781c2c87f3b605d8.png)
+![](https://main.qcloudimg.com/raw/cd19bfe757e62b3dc0763d2d979a7cf5.png)
 设置如下信息：
 **密钥库**：选择 “定制身份和 JAVA 标准信任”。
 **定制身份密钥库**：请填写您的 JKS 证书文件路径，例如：`C:\temp\cloud.tencent.com.jks`。
 **定制身份密钥库类型**：请填写 JKS。
 **定制身份密钥库密码短语**：请输入您的 JKS 密码。
 **确认定制身份密钥库密码短语**：请再次输入您的密码。
-
 >?【定制身份密钥库密码短语】与【确认定制身份密钥库密码短语】默认密码为空。此处密码可以和自己的 JKS 密码一致，也可以不做任何改动，此处设置不影响证书正常使用。
 >
 9. 在 `AdminiServer` 的管理设置页面，单击【SSL】，设置完成后并单击【保存】。如下图所示：
