@@ -42,13 +42,13 @@
 2. **安装编译工具**：如果您的系统是全新的，请先在服务器上安装 C++ 开发环境、pcre-devel、zlib-devel 软件为编译提供环境支持。您可以使用如下命令进行安装。
 ```
 #安装 C++ 开发环境
-yum install -y gcc yum install-y gcc-c++ 
+yum install -y gcc gcc-c++ 
 #安装 pcre-devel
 yum install pcre-devel -y
 #安装 zlib-devel
 yum install zlib-devel -y
 ```
-3. **下载并编译安装 Nginx**：您可以通过在服务器上按以下顺序输入命令，下载 apr 至服务器并编译安装，由于操作系统的版本不同，详细操作步骤略有区别。
+3. **下载并编译安装 Nginx**：您可以通过在服务器上按以下顺序输入命令，下载 nginx 版本至服务器并编译安装，由于操作系统的版本不同，详细操作步骤略有区别。
 >?以 `nginx-1.18.0` 为例，目录为 `/usr/local`，请根据您的实际环境与需求进行确定。
 >
 ```
