@@ -58,9 +58,9 @@
 >
 2. 解压已下载的国密版 Nginx 压缩包到相应的目录，例如 `c:\gmssl`。如下图所示：
 ![](https://main.qcloudimg.com/raw/cb70ea46a24278cafa562a554d87ca75.png)
-3. 在 `/nginx-1.16.0/conf` 目录下创建存放证书的文件夹，例如设置为 ssl 文件夹。如下图所示：
+3. 在 `/nginx-1.16.0/conf` 目录下创建存放证书的文件夹，例如设置为 `ssl` 目录。如下图所示：
 ![](https://main.qcloudimg.com/raw/b329f134789f71f9d5993d1f7cdda575.png)
-4. 将解压缩后的 crt 证书文件与 key 私钥文件放在已创建的 ssl 文件夹中，如下图所示：
+4. 将解压缩后的 crt 证书文件与 key 私钥文件放在已创建的 `ssl` 目录中，如下图所示：
 ![](https://main.qcloudimg.com/raw/0e34c64fcea588cdb25843f9347260e3.png)
 5. 编辑 `/nginx-1.16.0/conf` 目录下的 `nginx.conf` 文件，在 `http{}` 中，添加 `include ssl.conf` 文件内容。如下图所示：
 ![](https://main.qcloudimg.com/raw/a4b041d00009d77ca3170649b2555106.png)
@@ -91,7 +91,7 @@ location / {
 不到证书的错误。
 >- 以上配置仅为参考，具体配置请根据实际环境配置。
 >
-7. 配置完成后，您可以通过在服务器 dos 命令下，执行 cd 命令行进入 `nginx-1.16.0` 目录，例如 `cd c:\gmssl\nginx-1.16.0`， 输入 `.\nginx-t`，检测 Nginx 配置是否正常，正常情况如下图所示：
+7. 配置完成后，您可以通过在服务器 dos 命令下，执行 cd 命令行进入 `nginx-1.16.0` 目录，例如 `cd c:\gmssl\nginx-1.16.0`， 输入 `nginx-t`，检测 Nginx 配置是否正常，正常情况如下图所示：
 ![](https://main.qcloudimg.com/raw/3d865472a7963f65330619a6d4537aab.png)
  - 若提示 `Syntax OK`，则表示配置正常，可以启动 Nginx 服务器。
  - 若提示非 `Syntax OK`，请您重新配置或者根据提示修改存在问题。
@@ -103,14 +103,16 @@ location / {
 >- 腾讯云提供免费的 DV 型 SSL 证书以供购买了国密标准 DNSPod 证书的用户顺利解决浏览器兼容问题。申请证书请查看 [域名型（DV）免费 SSL 证书](https://cloud.tencent.com/document/product/400/8422)。
 >- 下述步骤中的目录皆是测试环境的目录，具体路径请根据您的实际环境与需求进行确定。
 >
-1. 将已获取到的国际标准证书压缩包中，Nginx 文件夹的 `1_root_bundle.crt` 证书文件、`2_cloud.tencent.com.key` 解压缩后放在已创建的 ssl 目录中。如下所示：
-2. 编辑 `/nginx-1.16.0/conf` 目录下 `ssl.conf` 文件，找到 server_name cloud.tencent.com 文件内容。
-3. 请在 `server_name cloud.tencent.com` 下面换行，并添加以下内容：
+1. 将已获取到的国际标准证书压缩包中 Nginx 文件夹的 `1_root_bundle.crt` 证书文件、`2_cloud.tencent.com.key` 解压缩后放在已创建的 `ssl` 目录中。
+2. 编辑 `/nginx-1.16.0/conf` 目录下 `ssl.conf` 文件。
+3. 请在 `server_name cloud.tencent.com` 下面换行，并添加如下内容：
+>!国际标准证书域名与国密标准证书域名可不一致，以下内容均为例子，具体请根据您实际情况进行操作。
+>
 ```
-ssl_certificate c:/gm_nginx-1.16.0/nginx-1.16.0/conf/ssl/1_waz.qcloudnewshow.com_bundle.crt; 
-ssl_certificate_key c:/gm_nginx-1.16.0/nginx-1.16.0/conf/ssl/2_waz.qcloudnewshow.com.key;
+ssl_certificate c:/gm_nginx-1.16.0/nginx-1.16.0/conf/ssl/1_cloud.tencent.com_bundle.crt; 
+ssl_certificate_key c:/gm_nginx-1.16.0/nginx-1.16.0/conf/ssl/2_cloud.tencent.com.key;
 ```
-4. 配置完成后，您可以通过在服务器 dos 命令下，执行 cd 命令行进入 `nginx-1.16.0` 目录，例如 `cd c:\gmssl\nginx-1.16.0`， 输入 `.\nginx -t` ，检测 Nginx 配置是否正常。
+4. 配置完成后，您可以通过在服务器 dos 命令下，执行 cd 命令行进入 `nginx-1.16.0` 目录，例如 `cd c:\gmssl\nginx-1.16.0`， 输入 `nginx -t` ，检测 Nginx 配置是否正常。
  - 若提示 `Syntax OK`，则表示配置正常，可以启动 Nginx 服务器。
  - 若提示非 `Syntax OK`，请您重新配置或者根据提示修改存在问题。
 5. 重启 Nginx 服务器，即可解决浏览器兼容性问题 。 
