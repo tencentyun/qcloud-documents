@@ -48,7 +48,7 @@ yum install pcre-devel -y
 #安装 zlib-devel
 yum install zlib-devel -y
 ```
-3. **下载并编译安装 Nginx**：您可以通过在服务器上按以下顺序输入命令，下载 nginx 版本至服务器并编译安装，由于操作系统的版本不同，详细操作步骤略有区别。
+3. **下载并编译安装 Nginx**：您可以通过在服务器上按以下顺序输入命令，下载 Nginx 国密版和国密模块至服务器并编译安装，由于操作系统的版本不同，详细操作步骤略有区别。
 >?以 `nginx-1.18.0` 为例，目录为 `/usr/local`，请根据您的实际环境与需求进行确定。
 >
 ```
@@ -139,8 +139,6 @@ location / {
 1. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具），将已获取到的国际标准证书压缩包中 Nginx 文件夹的 `1_root_bundle.crt` 证书文件、`2_cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Nginx 服务器的`/usr/local/nginx/conf/sm2` 目录下。 
 2. 编辑 `/usr/local/nginx/conf` 目录下的 `ssl.conf` 文件。
 3. 请在 `server_name cloud.tencent.com` 下面换行，并添加如下内容：
->!国际标准证书域名与国密标准证书域名可不一致，以下内容均为例子，具体请根据您实际情况进行操作。
->
 ```
 ssl_certificate /usr/local/nginx/conf/sm2/1_cloud.tencent.com_bundle.crt; 
 ssl_certificate_key /usr/local/nginx/conf/sm2/2_cloud.tencent.com.key;
