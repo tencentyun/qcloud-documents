@@ -56,7 +56,7 @@
 
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 >
-2. 解压已下载的国密版 Nginx 压缩包到相应的目录，例如 `c:\gmssl`。如下图所示：
+2. 登录服务器，解压已下载的国密版 Nginx 压缩包到相应的目录，例如 `c:\gmssl`。如下图所示：
 ![](https://main.qcloudimg.com/raw/cb70ea46a24278cafa562a554d87ca75.png)
 3. 在 `/nginx-1.16.0/conf` 目录下创建存放证书的文件夹，例如设置为 `ssl` 目录。如下图所示：
 ![](https://main.qcloudimg.com/raw/b329f134789f71f9d5993d1f7cdda575.png)
