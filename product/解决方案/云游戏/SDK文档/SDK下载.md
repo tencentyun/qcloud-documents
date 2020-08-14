@@ -1,4 +1,4 @@
-腾讯云云游戏提供 Web 端和 Android 端的 SDK，本文主要向您展示其对应的安装包及 SDK 说明。
+腾讯云云游戏提供 Web 端和 Android 端的 SDK，本文主要向您展示其对应的安装包及 SDK 时序图说明。
 ### 云游戏 SDK 下载
 
 | SDK         | 所属平台   | ZIP 包                                                        | SDK 说明            |
