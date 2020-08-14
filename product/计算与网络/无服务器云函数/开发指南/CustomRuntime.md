@@ -33,7 +33,7 @@ SCF 首先检索部署包中的可执行引导文件 boostrap，根据检索结�
 开始于执行 bootstrap 引导程序文件，开发者可以根据需要在 bootstrap 中自定义实现个性化操作，直接处理或调用其他可执行程序文件来完成初始化操作。以下为建议在初始化阶段完成的基础操作：
 - 设定运行时依赖库的路径及环境变量等。
 - 加载自定义语言及版本依赖的库文件及扩展程序等，如仍有依赖文件需要实时拉取，可下载至 `/tmp` 目录。
-- 解析函数文件，并执行函数调用前所需的全局操作或初始化程序（如开发工具包客户端 http client 等初始化、数据库连接池创建等），便于调用阶段复用。
+- 解析函数文件，并执行函数调用前所需的全局操作或初始化程序（如开发工具包客户端 HTTP CLIENT 等初始化、数据库连接池创建等），便于调用阶段复用。
 - 启动安全、监控等插件。
 - 初始化阶段完成后，需要主动调用运行时 API，访问初始化就绪接口 `/runtime/init/ready` 通知 SCF，Custom Runtime 运行时已完成初始化，进入就绪状态，否则 SCF 会持续等待，直到达到配置的初始化超时时间后，结束 Custom Runtime 并返回初始化超时错误。若重复通知，则会以首次访问时间作为就绪状态时间结点。 
 
@@ -43,7 +43,7 @@ SCF 首先检索部署包中的可执行引导文件 boostrap，根据检索结�
 
 ### 函数调用
 函数调用阶段需要开发者自定义实现事件获取、调用函数及结果的返回，并循环处理这个过程。
-- 长轮询获取事件，开发者通过自定义语言及版本实现 http client 访问运行时 API 的事件获取接口 `/runtime/invocation/next`，响应正文包含事件数据，在一次调用内重复访问此接口均返回相同事件数据，http client 请勿设置 get 方法的超时。
+- 长轮询获取事件，开发者通过自定义语言及版本实现 HTTP CLIENT 访问运行时 API 的事件获取接口 `/runtime/invocation/next`，响应正文包含事件数据，在一次调用内重复访问此接口均返回相同事件数据，HTTP CLIENT 请勿设置 get 方法的超时。
 - 根据环境变量、响应头中所需信息及事件信息构建函数调用的参数。
 - 推送事件信息等参数数据，调用函数处理程序。
 - 访问运行时 API 响应结果接口 `/runtime/invocation/response` 推送函数处理结果，首次调用成功为事件终态，SCF 将进行状态锁定，推送后结果不可变更。
@@ -63,7 +63,7 @@ SCF 内置有以下环境变量：
 - SCF_RUNTIME_API：运行时 API 地址。
 - SCF_RUNTIME_API_PORT：运行时 API 端口。
 
-Custom Runtime 可以通过 `SCF_RUNTIME_API：SCF_RUNTIME_API_PORT` 来访问运行时 API。
+Custom Runtime 可以通过 `SCF_RUNTIME_API:SCF_RUNTIME_API_PORT` 来访问运行时 API。
 <table>
 <thead>
 <tr>
@@ -80,7 +80,7 @@ Custom Runtime 可以通过 `SCF_RUNTIME_API：SCF_RUNTIME_API_PORT` 来访问�
 <tr>
 <td>/runtime/invocation/next</td>
 <td>get</td>
-<td>获取调用事件。<br>响应体包含事件数据event_data
+<td>获取调用事件。<br>响应体包含事件数据 event_data
 响应头包含以下信息：<ul><li>request_id：请求 ID，用于标识触发了函数调用的请求。</li><li>memory_limit_in_mb：函数内存限制，单位为MB。</li><li>time_limit_in_ms：函数超时时间，单位为毫秒。</li></ul></td>
 </tr>
 <tr>
