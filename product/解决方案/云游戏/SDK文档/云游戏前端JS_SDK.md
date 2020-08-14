@@ -1,7 +1,3 @@
-## SDK 时序图
-
-![](https://main.qcloudimg.com/raw/bd9d347d6b38a6587854119ac57d9799.png)
-
 ## SDK 概览
 
 ### 云游戏生命周期相关接口
