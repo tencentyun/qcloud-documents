@@ -1,6 +1,4 @@
 
-### 背景
-
 企业账号 CompanyExample 下有一个子账号 Developer，该子账号需要通过控制台及 API 拥有对企业账号 CompanyExample 下的所有资源（包含日志集、日志主题、机器组等）有所有权限（包含日志采集、检索、分析、仪表盘和告警等）。
 
 ### 前置条件
@@ -11,9 +9,9 @@
 
 ### 操作步骤
 
-分为三个步骤：主账号 CompanyExample 创建自定义策略（可选，如需使用功能 "投递至 COS" 和 “投递至 Ckafka” 则创建此策略。用于配置“投递至 COS” 时可列出 COS 的bucket列表，及配置“投递至 CKafka” 时可列出 CKafka的实例和 topic 列表）、主账号 CompanyExample 给子账号 Developer 授权、子账号 Developer 访问 CLS 日志服务。
+分为三个步骤：主账号 CompanyExample 创建自定义策略（可选，如需使用功能“投递至 COS”和“投递至 Ckafka”则创建此策略。用于配置“投递至 COS”时可列出 COS 的 bucket 列表，及配置“投递至 CKafka”时可列出 CKafka 的实例和 topic 列表）、主账号 CompanyExample 给子账号 Developer 授权、子账号 Developer 访问 CLS 日志服务。
 
-1. 创建自定义策略（可选步骤，如需使用功能 "投递至 COS" 和 “投递至 Ckafka” 则创建此策略，否则跳到步骤2）
+1. 创建自定义策略（可选步骤，如需使用功能“投递至 COS”和“投递至 Ckafka”则创建此策略，否则跳到步骤2）
 
    主账号 CompanyExample 登录 [CAM 控制台](https://console.cloud.tencent.com/cam)，单击【策略】>【新建自定义策略】>【按策略语法创建】>【空白模版】建立新策略，如名称为 CLSListCosCKafka ，并在【策略内容】中，贴入以下内容：
 
@@ -45,5 +43,5 @@
 
 3. 子账号访问
 
-   子账号 Developer 可通过登录控制台及 API 访问 CLS 服务。需要注意的是，API 访问时需使用 主账号 CompanyExample 的uin, 子账号 Developer 的SecretId、SecretKey。子账号的 API  密钥可参考 [子账号访问密钥管理](https://cloud.tencent.com/document/product/598/37140)。
+   子账号 Developer 可通过登录控制台及 API 访问 CLS 服务。需要注意的是，API 访问时需使用 主账号 CompanyExample 的uin, 子账号 Developer 的 SecretId、SecretKey。子账号的 API  密钥可参考 [子账号访问密钥管理](https://cloud.tencent.com/document/product/598/37140)。
 
