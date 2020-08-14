@@ -91,7 +91,7 @@
 ```
 
 ## 云游戏 Demo 后端与云 API 对接示例（Node.js）<span id="d_nodejs"></span>
-1. [cloudapi.js](https://material-1258550678.cos.ap-guangzhou.myqcloud.com/download/cloudapi.js) 是 Node.js 版的云 API 调用实例，自行安装 Node.js 运行环境，替换 cloudapi.js 里面的 SecretId 和 SecretKey，使用您的腾讯云帐号的 [云API](https://console.cloud.tencent.com/cam/capi) 对应的密钥。
+1. [cloudapi.js](https://tcgsdk-1258344699.cos.ap-guangzhou.myqcloud.com/download/cloudapi.js) 是 Node.js 版的云 API 调用实例，自行安装 Node.js 运行环境，替换 cloudapi.js 里面的 SecretId 和 SecretKey，使用您的腾讯云帐号的 [云API](https://console.cloud.tencent.com/cam/capi) 对应的密钥。
 2. 使用 express-cli 初始化一个 express 项目。
 ```
     express myproj
