@@ -43,6 +43,7 @@
 | [TCGSDK.setRemoteCursorStyle(style)](#tcgsdk.setremotecursorstyle(style)) | 设置云端的系统鼠标样式         |
 | [TCGSDK.clearRemoteKeys()](#tcgsdk.clearremotekeys())        | 重置云端按键状态               |
 | [TCGSDK.resetRemoteCapsLock() ](#tcgsdk.resetremotecapslock()) | 重置云端大小写状态             |
+| [TCGSDK.setDefaultCursorImage(url)](#tcgsdk.setdefaultcursorimage(url))  |设置云游戏页面中鼠标默认图片              |
 
 
 
@@ -62,6 +63,8 @@
 | [TCGSDK.getDisplayRect()](#tcgsdk.getdisplayrect())          | 获取显示区域的参数 |
 | [TCGSDK.setVolume(val) ](#tcgsdk.setvolume(val))             | 设置本地播放音量   |
 | [TCGSDK.getVolume()](#tcgsdk.getvolume())                    | 获取当前音量值     |
+| [TCGSDK.setPageBackground(url) ](#tcgsdk.setpagebackground(url))       | 设置云游戏页面的背景图     |
+
 
 
 
@@ -255,7 +258,7 @@ function(res) {
 
 
 
-## **鼠标键盘控制相关接口**
+## 鼠标键盘控制相关接口
 
 ### TCGSDK.sendKeyboardEvent(event)
 
@@ -428,6 +431,14 @@ function(res) {
 
 重置云端大小写状态为小写。
 
+###  TCGSDK.setDefaultCursorImage(url)
+
+设置云游戏页面中鼠标默认图片。
+
+| 参数 | 参数类型 | 说明             |
+| ---- | -------- | ---------------- |
+| url  | Context  | 鼠标样式图片 URL |
+
 ## 调试及日志相关接口
 
 ### TCGSDK.setDebugMode(enable, userid)
@@ -480,3 +491,13 @@ function(res) {
 ### TCGSDK.getVolume()
 
 获取当前音量值。
+
+### TCGSDK.setPageBackground(url)
+
+设置云游戏页面的背景图。
+
+| 参数 | 参数类型 | 说明         |
+| ---- | -------- | ------------ |
+| url  | Context  | 背景图片 URL |
+
+
