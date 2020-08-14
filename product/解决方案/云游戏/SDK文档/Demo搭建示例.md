@@ -109,5 +109,5 @@
 ```
     npm run
 ```
-6. 网页端发送 JSON 格式的 POST 请求 `http://127.0.0.1:3000/cloudapi/get_signature` 接口，返回值里获取 ServerSession 字段，调用 TCGSDK.start(ServerSession) 接口启动云游戏。
+6. 网页端发送 JSON 格式的 POST 请求 `http://127.0.0.1:3000/cloudapi/get_signature` 接口，返回值里获取 ServerSession 字段，调用 [TCGSDK.start(ServerSession)](https://cloud.tencent.com/document/product/1162/46134#tcgsdk.start(serversession)) 接口启动云游戏。
 
