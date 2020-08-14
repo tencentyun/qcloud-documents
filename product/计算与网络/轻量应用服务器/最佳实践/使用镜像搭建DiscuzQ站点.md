@@ -31,6 +31,18 @@ Discuz! Q 是全球成熟度最高、覆盖率最大的社区论坛软件系统�
 即可根据实际需要，对 Discuz! Q 进行管理、自定义和配置。
 
 ## 相关操作
+### 修改管理员账号密码
+您可参考以下步骤，修改 Discuz! Q 管理员账号（admin）的密码：
+1. 在“应用内软件信息”栏中，单击 Discuz! Q 的【前台访问地址】。
+2. 在新打开的浏览器窗口中，选择底部菜单栏中的<img src="https://main.qcloudimg.com/raw/30f96457f5daeed05440989ab41e9405.png" style="margin:-3px 0">。
+3. 进入 Discuz! Q 登录页面，输入 [步骤8](#Step8) 记录的账号和密码，单击【登录】。如下图所示：
+![](https://main.qcloudimg.com/raw/1be6cea0343be72db7bc5f663c9852c8.png)
+4. 成功登录后，选择底部菜单栏中的<img src="https://main.qcloudimg.com/raw/30f96457f5daeed05440989ab41e9405.png" style="margin:-3px 0">，进入个人信息页面。
+5. 在个人信息页面中，选择【我的资料】并单击密码所在行右侧的【修改>】。如下图所示：
+![](https://main.qcloudimg.com/raw/e0ba02f7810264e29f5d9900b2332f98.png)
+6. 在修改密码界面设置新密码后单击【提交】即可完成密码修改。
+
+
 ### 查看其他配置信息
 在 Discuz! Q 实例的应用管理详情页，您除了可以查看 Discuz! Q 的配置信息，还可以查看其他配置信息。例如宝塔Linux面板登录信息、 MySQL 数据库管理员密码、实例中各个软件的安装路径等。如下图所示：
 ![](https://main.qcloudimg.com/raw/46dfb1a9fdbbc8191e697744b8a04103.png)
