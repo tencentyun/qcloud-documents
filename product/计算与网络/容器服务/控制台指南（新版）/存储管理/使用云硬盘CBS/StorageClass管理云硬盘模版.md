@@ -116,9 +116,8 @@ parameters:
 <td>paymode</td> <td>云硬盘的计费模式，默认设置为 <code>POSTPAID</code> 模式，即按量计费，支持 Retain 保留和 Delete 删除策略，Retain 仅在高于1.8的集群版本生效。还可设置为 <code>PREPAID</code> 模式，即包年包月，仅支持 Retain 保留策略。</td>
 </tr>
 <tr>
-<td>renewflag</td> <td>云硬盘的续费模式。<ul><li><code>NOTIFY_AND_AUTO_RENEW</code> 模式代表所创建的云硬盘支持通知过期且按月自动续费。</li><li><code>NOTIFY_AND_MANUAL_RENEW</code> 模式代表所创建的云硬盘支持通知过期但不自动续费。</li><li> <code>DISABLE_NOTIFY_AND_MANUAL_RENEW</code> 模式则代表所创建的云硬盘不通知过期也不自动续费。默认为 <code>NOTIFY_AND_MANUAL_RENEW</code> 模式。</li></ul></td>
+<td>renewflag</td> <td>云硬盘的续费模式。默认为 <code>NOTIFY_AND_MANUAL_RENEW</code> 模式。<ul><li><code>NOTIFY_AND_AUTO_RENEW</code> 模式代表所创建的云硬盘支持通知过期且按月自动续费。</li><li><code>NOTIFY_AND_MANUAL_RENEW</code> 模式代表所创建的云硬盘支持通知过期但不自动续费。</li><li> <code>DISABLE_NOTIFY_AND_MANUAL_RENEW</code> 模式则代表所创建的云硬盘不通知过期也不自动续费。</li></ul></td>
 </tr>
-
 <tr>
 <td>aspid</td> <td>指定快照 ID，创建云硬盘后自动绑定此快照策略，绑定失败不影响创建。</td>
 </tr>
