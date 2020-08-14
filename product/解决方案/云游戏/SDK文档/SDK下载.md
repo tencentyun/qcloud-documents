@@ -10,13 +10,12 @@
 
 ### 云游戏 SDK 时序图
 
+![](https://main.qcloudimg.com/raw/bd9d347d6b38a6587854119ac57d9799.png)
+**其中：**
+
 | 时序参数       | 对应           |
 | ---------- | -------------- |
 | page       | 用户网页       |
 | tcgsdk.js  | 当前使用的云游戏 SDK         |
 | app_server | 用户业务服务器 |
 | cloud_api  | 腾讯云 API     |
-
-
-
-![](https://main.qcloudimg.com/raw/bd9d347d6b38a6587854119ac57d9799.png)
