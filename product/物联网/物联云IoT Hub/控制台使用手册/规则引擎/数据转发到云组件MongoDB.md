@@ -9,7 +9,6 @@
 2. 进入规则引擎页面，通过单击“规则名称”选择需要配置的规则。
 3. 在规则详情页面，单击【添加行为操作】。
 >?第一次使用时会提示用户授权访问 MongoDB，您需单击【立即授权】才能继续创建。
-
 ![](https://main.qcloudimg.com/raw/e8a768ff185aafebf79b63db710bccc9.jpg)
 4. 进入新增行为页面，选择“数据转发到云数据库（MongoDB）选项”。
 ![](https://main.qcloudimg.com/raw/c4be9f3dfa1ec60dad5a9246db29f40d.jpg)
