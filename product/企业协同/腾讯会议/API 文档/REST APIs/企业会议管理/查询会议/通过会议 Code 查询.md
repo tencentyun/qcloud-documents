@@ -43,7 +43,7 @@
 | 参数名称 |参数类型 | 参数描述 |
 |---------|---------|---------|
 |mute_enable_join  |Bool | 加入静音状态。  |
-|meeting_info_list  |Bool| 静音自解除允许 。  |
+|allow_unmute_set   |Bool| 允许自我解除静音。  |
 
 ## 示例
 #### 输入示例
