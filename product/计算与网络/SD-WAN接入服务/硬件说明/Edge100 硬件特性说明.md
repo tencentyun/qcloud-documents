@@ -6,11 +6,10 @@
 | 属性         | 规格                                                         |
 | ------------ | ------------------------------------------------------------ |
 | 产品         | Edge-100                                                     |
-| LAN 口       | 3个 GE 电口                                                  |
-| WAN 口       | 2个 GE 电口                                                 |
+| LAN 口       | 支持1Gbps接入带宽，提供3个 GE 电口                                                  |
+| WAN 口       | 支持1Gbps接入带宽，提供2个 GE 电口                                                 |
 | LTE 模组      | <ul><li>LTE FDD：B1、B3、 B5、 B8</li><li>LTE TDD：B38、B39、B40、B41</li><li>WCDMA：B1、B5、B8</li><li>TD SCDMA：B34、B39</li><li>GSM：B3、B8</li><li>CDMA EVDO/1x：800M</li>  </ul>               |
-| Wi-Fi        | 支持 IEEE 802.11 b/g/n、2x2、miniPCIe 接口                |
-| RJ45         | 一个 RJ45 标准串口，不带指示灯                                |
+| Wi-Fi        | 支持接入20个终端，覆盖范围100平方米                |
 | USB          | 一个 USB 2.0 Type-A 接口                                     |
 | 指示灯       | <ul><li>电口 RJ-45 自带 LED 指示灯</li><li>面板绿色指示灯 SYS、POWER、WIFI、LT、蜂窝信号强度1/2/3档 LED、CLOUD </li></ul> |
 | 天线         | 默认配置4根天线，其中2根 Wi-Fi 天线，2根 LTE 天线 |
