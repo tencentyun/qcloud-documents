@@ -18,7 +18,7 @@
 2. 选择左侧菜单栏中的【面板设置】，并在设置页面中开启 API 接口。如下图所示：
 ![](https://main.qcloudimg.com/raw/70a639b2ce0d33ba48ccc2c0b9f3bcf6.png)
 3. <span id="Step3"></span>在弹出的“配置面板API” 窗口中，参考以下信息进行配置。如下图所示：
-![](https://main.qcloudimg.com/raw/7b7845a507e50176b7addb59f9c98de5.png)
+![](https://main.qcloudimg.com/raw/7214435d8d0a8dc957845e876ea0a7db.png)
  - **接口密钥**：记录接口密钥。
  - **IP白名单**：将需迁出服务器的公网 IP 地址加入 IP 白名单中、
 4. 单击【保存】。
@@ -32,14 +32,14 @@
 ![](https://main.qcloudimg.com/raw/6f5f396912e78e102e25b8117550575b.png)
 3. 安装成功后，单击插件所在行右侧的【设置】。
 4. 在弹出的“宝塔一键迁移API版本”窗口中，参考以下信息填写接受数据的**迁入服务器**信息。如下图所示：
-![](https://main.qcloudimg.com/raw/2ce9e6ba2c46721144851f1ed276274c.png)
+![](https://main.qcloudimg.com/raw/ecb1a2a0557b8cd8c4de4857d4bed92c.png)
  - **面板地址**：填写迁入服务器的面板地址。例如，`http://192.168.0.1:8888`。
  - **API密钥**：填写在 [步骤3](#Step3) 中获取的 API 接口密钥。
 5. 选择【下一步】，在弹出提示窗口中单击【已添加，继续操作】进入检测环境步骤。
 6. 在检测环境步骤中，宝塔面板将对远程接收数据的迁入服务器进行环境检测，查看是否已安装相关软件及运行环境。其中包含网站服务、MySQL 数据库、FTP、PHP、可用磁盘容量。
 若检测失败，并提示远程迁入服务器中未安装某个软件（例如 PHP、MySQL 等）则需登录迁入服务器面板，前往【软件商店】安装对应版本软件，直至检测全部通过后，单击【下一步】。
 7. 在选择数据步骤中，按需选择需迁移的数据，并单击【一键迁移】。如下图所示：
-![](https://main.qcloudimg.com/raw/64e56b92cd0eddc432a62c7d9b88f795.png)
+![](https://main.qcloudimg.com/raw/94fde8fb73c946feac9668ab72a8d2c4.png)
 等待数据迁移完成，若提示迁移失败，则建议您查看迁移日志，并参考提示信息处理对应问题。问题解决后，再重新执行迁移步骤。
 
 ### 访问迁移后的网站
