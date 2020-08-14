@@ -34,7 +34,6 @@
    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 ```
 3. 编写代码，如下：
-
 ```java
     private TcgSdk tcgSdk;
     ...
