@@ -115,7 +115,7 @@ metadata:
 >
 - **带宽上移：**指带宽上移到 CLB 或 IP 上管理。
   当您的账号是带宽上移类型时，Nginx Ingress 的带宽等于已购 CLB 的带宽，默认是 10Mbps（按量计费），可按需调整。
-- **非带宽上移：**指带宽在云主机（CVM）上管理。
+- **非带宽上移：**指带宽在云服务器（CVM）上管理。
     当您的账号是非带宽上移类型时，Nginx Ingress 使用公网 CLB，Nginx Ingress 的公网带宽是 CLB 所绑定的 TKE 节点的带宽之和。如果使用 [方案3：Deployment + LB 直通 Pod](#step3)，CLB 直通 Pod，即 CLB 直接绑定弹性网卡，那么此时 Nginx Ingress 的公网带宽是所有 Nginx Ingress Controller Pod 被调度到的节点上的带宽之和。
 
 
