@@ -3,7 +3,7 @@
 >?
 >- 国密标准 SSL 证书目前仅支持 Linux 环境下 Apache 服务器。
 >- 本文档以证书名称 `cloud.tencent.com` 为例。
->- 国密标准 SSL 证书仅支持 Apache 国密版。
+>- 目前仅提供 `apache-2.4.39` 国密版，请 [单击此处](https://www.wotrus.com/download/apache-2.4.39_gm.tar.gz) 下载，若您需要采用其余版本，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
 >- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
 >- 安装 SSL 证书前，请您在 Apache 服务器上开启 “443” 端口，避免证书安装后无法启用 HTTPS。具体可参考 [服务器如何开启443端口？](https://cloud.tencent.com/document/product/400/45144)
 
@@ -45,7 +45,7 @@
 yum install -y gcc 
 yum install -y gcc-c++ 
 ```
-3. **下载并编译安装 apr**（以 apr 1.7.0 版本为例），您可以通过在服务器上输入以下命令，下载 apr 至服务器并编译安装，由于操作系统的版本不同，详细操作步骤略有区别。
+3. **下载并编译安装 apr**（以 `apr 1.7.0` 版本为例），您可以通过在服务器上输入以下命令，下载 apr 至服务器并编译安装，由于操作系统的版本不同，详细操作步骤略有区别。
 ```
 #切换至 /usr/local/ 目录下
 cd /usr/local/ 
@@ -59,7 +59,7 @@ cd apr-1.7.0/
 #编译安装 apr
 make && make install 
 ```
-4. **下载并编译安装 apr-util**（推荐使用 apr-util-1.5 版本，以 apr-util-1.5 版本为例）。
+4. **下载并编译安装 apr-util**（推荐使用 `apr-util-1.5` 版本，以 `apr-util-1.5` 版本为例）。
 ```
 #切换至 /usr/local/ 目录下
 cd /usr/local/ 
@@ -75,7 +75,7 @@ make && make install
 ```
 >?执行 make 命令时如果出现 `#include <expat.h> ^ compilation terminated.` 报错信息，请输入命令 `yum install -y expat-devel` 安装依赖库。 
 >
-5. **安装 pcre**。您可以通过以下两种方式进行安装
+5. **安装 pcre**。您可以通过以下两种方式进行安装。
  - 推荐使用 `yum` 进行安装。
 ```
  yum install -y pcre-devel 
@@ -133,12 +133,12 @@ make && make install
 >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 >
 2. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Apache 服务器。
-3. 进入`/usr/local/httpd/conf`目录，新建`cert`目录，将已获取到的 `1_root_sign_bundle.crt` 证书文件、`2_root_encrypt_bundle.crt` 证书文件、`3_cloud.tencent.com_sign.crt` 证书文件、`4_cloud.tencent.com_encrypt.crt` 证书文件以及 `5_cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Apache 服务器的 `/usr/local/httpd/conf/cert` 目录下。
-4. 进入`/usr/local/httpd/conf` 目录，按照以下步骤编辑 `httpd.conf` 文件：
-   1.  请在 `#ServerName www.example.com:80` 下增加 `ServerName 您的域名:80`。
-   2. 去掉 `LoadModule ssl_module modules/mod_ssl.so` 前的 `#`。
-   3. 请在 `#Include conf/extra/httpd-ssl.conf ` 下增加 `Include conf/ssl.conf` 文件内容后保存并退出。
-5. 在`/usr/local/httpd/conf`目录下，新建一个`ssl.conf`文件，添加如下配置：
+3. 进入 `/usr/local/httpd/conf` 目录，新建 `cert` 目录，将已获取到的 `1_root_sign_bundle.crt` 证书文件、`2_root_encrypt_bundle.crt` 证书文件、`3_cloud.tencent.com_sign.crt` 证书文件、`4_cloud.tencent.com_encrypt.crt` 证书文件以及 `5_cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Apache 服务器的 `/usr/local/httpd/conf/cert` 目录下。
+4. 进入 `/usr/local/httpd/conf` 目录，按照以下步骤编辑 `httpd.conf` 文件：
+   1. 请在 `#ServerName www.example.com:80` 下增加 `ServerName（您的域名）:80`。
+   2. 请去掉 `LoadModule ssl_module modules/mod_ssl.so` 前的 `#`。
+   3. 请在 `#Include conf/extra/httpd-ssl.conf` 下增加 `Include conf/ssl.conf` 文件内容后保存并退出。
+5. 在 `/usr/local/httpd/conf` 目录下，新建一个 `ssl.conf` 文件，添加如下配置：
 ```
 Listen 443
 <VirtualHost *:443>
@@ -203,7 +203,7 @@ SSLCertificateChainFile /usr/local/httpd/conf/cert/1_root_bundle.crt
 ```
 /usr/local/httpd/bin/httpd -t
 ```
- - 若提示 `Syntax OK` ，则表示配置正常，可以启动 Nginx 服务器。
+ - 若提示 `Syntax OK` ，则表示配置正常，可以启动 Apache 服务器。
  - 若提示非 `Syntax OK` ，请您重新配置或者根据提示修改存在问题。
 5. 重新启动 Apache 服务器，即可解决浏览器兼容问题。
 
