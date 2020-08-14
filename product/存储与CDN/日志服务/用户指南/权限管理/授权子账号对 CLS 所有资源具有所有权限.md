@@ -43,5 +43,5 @@
 
 3. 子账号访问
 
-   子账号 Developer 可通过登录控制台及 API 访问 CLS 服务。需要注意的是，API 访问时需使用 主账号 CompanyExample 的uin, 子账号 Developer 的 SecretId、SecretKey。子账号的 API  密钥可参考 [子账号访问密钥管理](https://cloud.tencent.com/document/product/598/37140)。
+   子账号 Developer 可通过登录控制台及 API 访问 CLS 服务。需要注意的是，API 访问时需使用主账号 CompanyExample 的 uin，子账号 Developer 的 SecretId、SecretKey。子账号的 API 密钥可参考 [子账号访问密钥管理](https://cloud.tencent.com/document/product/598/37140)。
 
