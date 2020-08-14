@@ -28,7 +28,7 @@
 
 ### TCGSDK.TcgSdk(params)
 
-云游戏前端初始化。具体调用方式与 JS SDK 相同，请参见[TCGSDK.TcgSdk(params)](跳转到JS SDK中的) 函数。
+云游戏前端初始化。具体调用方式与 JS SDK 相同，请参见[TCGSDK.init(params)](https://cloud.tencent.com/document/product/1162/46134#tcgsdk.init(params)) 函数。
 
 ### TCGWebView.loadUrl(url)
 
