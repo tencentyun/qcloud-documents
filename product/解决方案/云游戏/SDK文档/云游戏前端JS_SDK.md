@@ -1,4 +1,4 @@
-## 腾讯云云游戏 SDK 时序图
+## SDK 时序图
 
 ![](https://main.qcloudimg.com/raw/bd9d347d6b38a6587854119ac57d9799.png)
 
@@ -68,7 +68,7 @@
 
 
 
-## 云游戏生命周期相关接口
+## 生命周期相关接口
 
 ### TCGSDK.init(params) 
 
