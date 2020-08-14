@@ -42,14 +42,15 @@
 1. 远程登录 Apache 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
 2. **安装编译工具**：如果您的系统是全新的，请先在服务器上安装 C++ 开发环境，为编译提供环境支持。您可以使用如下命令进行安装。
 ```
-yum install -y gcc yum install-y gcc-c++ 
+yum install -y gcc 
+yum install -y gcc-c++ 
 ```
 3. **下载并编译安装 apr**（以 apr 1.7.0 版本为例），您可以通过在服务器上输入以下命令，下载 apr 至服务器并编译安装，由于操作系统的版本不同，详细操作步骤略有区别。
 ```
 #切换至 /usr/local/ 目录下
 cd /usr/local/ 
 #下载 apr 1.7.0
-wget -c http://mirror.bit.edu.cn/apache//apr/apr-1.7.0.tar.gz
+wget -c http://mirror.bit.edu.cn/apache/apr/apr-1.7.0.tar.gz
 #解压已下载的 apr 1.7.0 压缩包
 tar -zvxf apr-1.7.0.tar.gz
 #进入解压后的 apr 1.7.0 文件夹并指定编译目录路径。
@@ -62,20 +63,20 @@ make && make install
 ```
 #切换至 /usr/local/ 目录下
 cd /usr/local/ 
-#下载 apr-util-1.5
+#下载 apr-util-1.5.4
 wget -c http://archive.apache.org/dist/apr/apr-util-1.5.4.tar.gz
-#解压已下载的 apr 1.7.0 压缩包
-tar-zvxf apr-util-1.5.4.tar.gz 
-#进入解压后的apr 1.7.0 文件夹并指定编译目录路径。
+#解压已下载的 apr-util-1.5.4 压缩包
+tar -zvxf apr-util-1.5.4.tar.gz 
+#进入解压后的 apr-util-1.5.4 文件夹并指定编译目录路径。
 cd /usr/local/apr-util-1.5.4/
 ./configure --prefix=/usr/local/apr-util --with-apr=/usr/local/apr
-#编译安装 apr
+#编译安装 apr-util
 make && make install 
 ```
 >?执行 make 命令时如果出现 `#include <expat.h> ^ compilation terminated.` 报错信息，请输入命令 `yum install -y expat-devel` 安装依赖库。 
 >
 5. **安装 pcre**。您可以通过以下两种方式进行安装
- - 通过 `yum` 进行安装。
+ - 推荐使用 `yum` 进行安装。
 ```
  yum install -y pcre-devel 
 ```
@@ -90,11 +91,13 @@ tar -zvxf pcre-8.43.tar.gz
 #进入解压后的pcre-8.43文件夹并指定编译目录路径。
 cd pcre-8.43/
 ./configure --prefix=/usr/local/pcre 
-#编译安装 apr
+#编译安装 pcre
 make && make install 
 ```
 6. **Apache 服务器安装**：上述三个文件编译安装完成后，请下载 Apache 国密版和国密模块至 `/usr/local` 目录下进行编译安装。
->!国密模块文件名 `wotrus_ssl.tar.gz` 在解压与安装中请勿修改，否则可能会导致安装错误。
+>!
+>- 国密模块文件名 `wotrus_ssl.tar.gz` 在解压与安装中请勿修改，否则可能会导致安装错误。
+>- 如果在安装 Apache 的过程中找不到 pcre、apr-util 或 apr 等相关文件，请将 `/pcre/bin`、`/apr-util/bin` 或 `/apr/bin` 等文件加入系统路径。
 >
 ```
 #下载 Apache 国密版
