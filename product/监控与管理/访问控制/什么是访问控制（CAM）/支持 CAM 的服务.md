@@ -328,7 +328,7 @@
  | 服务                                                         | 授权粒度 | 控制台 | 根据标签进行授权 | 服务角色 |	参考文档 |
 | ------------------------------------------------------------ | ------ | -------- | ----- | ---- |	---- |
 | [即时通信](https://cloud.tencent.com/document/product/269)   | 资源级 | &#10003;   | -  |  - | - |
-| [短信](https://cloud.tencent.com/document/product/382) | 操作级 | &#10003; | -   | -  |	-  |	
+| [短信](https://cloud.tencent.com/document/product/382) | 资源级 | &#10003; | -   | -  |	 [访问管理指南](https://cloud.tencent.com/document/product/382/46984)  |	
 | [语音消息](https://cloud.tencent.com/document/product/1128) | 操作级 | &#10003; |-  | -  |	-  |	
 | [号码保护](https://cloud.tencent.com/document/product/610) | 服务级 | - |-  | -  |	-  |	
 

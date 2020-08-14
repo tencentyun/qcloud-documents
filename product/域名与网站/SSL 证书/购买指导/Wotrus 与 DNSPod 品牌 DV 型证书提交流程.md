@@ -1,5 +1,5 @@
 ## 操作场景
-Wotrus 与 DNSPod 品牌域名型（DV）SSL 证书在购买成功后，需要进行相关材料提交。证书购买流程请参考 [购买流程](https://cloud.tencent.com/document/product/400/47285)。
+域名型（DV）SSL 证书在购买成功后，需要进行相关材料提交。证书购买流程请参考 [购买流程](https://cloud.tencent.com/document/product/400/47285)。
 CA 机构认证审核通过后，将会正式颁发证书，您可下载证书进行安装。
 
 
@@ -41,12 +41,15 @@ CA 机构认证审核通过后，将会正式颁发证书，您可下载证书�
 
 ### 步骤3：域名验证
 1. 在 “选择验证方式” 页面，您可以选择以下两种方式进行域名验证。如下图所示：
+>!仅 TrustAsia 品牌 DV 证书支持**自动 DNS 验证**。
+>
 ![](https://main.qcloudimg.com/raw/81a3960e4621a831c8305d0d736f4323.png)
- -  **手动DNS验证**：域名验证操作请参考：[手动 DNS 验证](https://cloud.tencent.com/document/product/400/4142#.E6.89.8B.E5.8A.A8-dns-.E9.AA.8C.E8.AF.81)。
+ - **手动 DNS 验证**：域名验证操作请参考：[手动 DNS 验证](https://cloud.tencent.com/document/product/400/4142#.E6.89.8B.E5.8A.A8-dns-.E9.AA.8C.E8.AF.81)。
  - **文件验证**：域名验证操作请参考：[文件验证](https://cloud.tencent.com/document/product/400/4142#.E6.96.87.E4.BB.B6.E9.AA.8C.E8.AF.81)。
 2. 单击【确认】，您可根据提示进行域名身份验证操作。
 
->? 首次域名验证通过后，该域名验证将保留13个月。13个月内该域名以相同公司名称申请 Wotrus 与 DNSPod 品牌 DV 型证书，将无需执行域名验证。
+>?  DNSPod 品牌 DV 型证书，首次域名验证通过后，该域名验证将保留13个月。13个月内该域名以相同公司名称申请 DNSPod 品牌 DV 型证书，将无需执行域名验证。
+
 
 
 
