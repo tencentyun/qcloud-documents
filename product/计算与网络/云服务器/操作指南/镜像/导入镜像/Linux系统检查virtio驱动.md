@@ -18,7 +18,7 @@ grep -i virtio /boot/config-$(uname -r)
 <span id="CheckVirtioForInitramfs"></span>
 ### 步骤2：检查临时文件系统是否包含 Virtio 驱动
 如果 [步骤1](#CheckVirtioForKernel) 的执行结果参数取值为 `m`，则需要进一步检查，确认临时文件系统 `initramfs` 或者 `initrd` 是否包含 `virtio` 驱动。请根据操作系统的不同，执行相应命令：
-- CentOS 6/CentOS 7/RedHat 6/RedHat 7 操作系统：
+- CentOS 6/CentOS 7/CentOS 8/RedHat 6/RedHat 7 操作系统：
 ```
 lsinitrd /boot/initramfs-$(uname -r).img | grep virtio
 ```
