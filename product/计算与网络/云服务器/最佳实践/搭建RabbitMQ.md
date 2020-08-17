@@ -57,14 +57,14 @@ wget -P /root "https://www.rabbitmq.com/releases/rabbitmq-server/v3.6.9/rabbitmq
 ```
 10. 执行以下命令，导入签名密钥。
 ```
-sudo rpm --import https://www.rabbitmq.com/rabbitmq-release-signing-key.asc
+rpm --import https://www.rabbitmq.com/rabbitmq-release-signing-key.asc
 ```
 11. 依次执行以下命令，安装 RabbitMQ Server。
 ```
 cd
 ```
 ```
-sudo yum install rabbitmq-server-3.6.9-1.el7.noarch.rpm
+yum install rabbitmq-server-3.6.9-1.el7.noarch.rpm
 ```
 12. 依次执行以下命令，设置 RabbitMQ 开机自启动并启动 RabbitMQ。
 ```
@@ -75,11 +75,11 @@ systemctl start rabbitmq-server
 ```
 13. 执行以下命令，删除 RabbitMQ 默认帐户 guest。
 ```
-sudo rabbitmqctl delete_user guest
+rabbitmqctl delete_user guest
 ```
 14. <span id="Step14"></span>执行以下命令，创建新用户。
 ```
-sudo rabbitmqctl add_user 用户名 密码
+rabbitmqctl add_user 用户名 密码
 ```
 15. 执行以下命令，将新用户设置为管理员帐户。
 ```
@@ -87,7 +87,7 @@ rabbitmqctl set_user_tags 用户名 administrator
 ```
 16. 执行以下命令，赋予管理员帐户所有权限。
 ```
-sudo rabbitmqctl set_permissions -p / 用户名 ".*" ".*" ".*"
+rabbitmqctl set_permissions -p / 用户名 ".*" ".*" ".*"
 ```
 
 
@@ -103,5 +103,5 @@ http://实例公网 IP:15672
 如何获取实例公网 IP，请参见 [获取公网 IP 地址](https://cloud.tencent.com/document/product/213/17940)。
 显示界面如下图所示，则说明 RabbitMQ Server 安装成功。
 ![](https://main.qcloudimg.com/raw/aacb15db11b5cf80dd6b7ba1dc80d331.png)
-3. 使用 [步骤14](#Step14) 中创建的和管理员用户进行登录，进入 RabbitMQ 管理界面。如下图所示：
+3. 使用 [步骤14](#Step14) 中创建的和管理员用户进行登录，即可进入 RabbitMQ 管理界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/7f8d24062541be6ba8b271483343b20a.png)
