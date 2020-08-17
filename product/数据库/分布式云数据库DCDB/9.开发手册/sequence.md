@@ -31,7 +31,7 @@ show create sequence test.s1
 ```
 
 ## 使用
-#### 获取一下值
+#### 操作表的序列
 ```
 select nextval(test.s1)
 select next value for test.s1
@@ -181,7 +181,7 @@ mysql> select nextval(test.s2);
 
 >?目前 sequence 为保证分布式全局唯一，性能较差，适用于并发不高的场景。
 
-需要注意，后续版本中 sequence 的部分关键字将以 tdsql_ 前缀开始：
+需要注意，sequence 的部分关键字将以 tdsql_ 前缀开始：
 ```
  TDSQL_CYCLE
  TDSQL_INCREMENT
