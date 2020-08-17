@@ -37,13 +37,13 @@ Guetzli 压缩可满足在线教育作业、课件图等压缩处理的需求，
 
 ## 使用方法
 
-### 服务开启与关闭
+#### 服务开启与关闭
 
 您可通过以下两种方式开通或关闭 Guetzli 图片压缩服务。
 
 - 控制台方式：您可通过数据万象控制台可视化开启或关闭服务，详情请查看 [Guetzli 图片压缩](https://cloud.tencent.com/document/product/460/46820) 控制台文档。
 - API 方式：您可通过 Guetzli 图片压缩的 API 接口 [开启](https://cloud.tencent.com/document/product/460/30112) 或 [关闭](https://cloud.tencent.com/document/product/460/30113) 服务。
 
-### 查询开通状态
+#### 查询开通状态
 
 您可通过 [API 接口](https://cloud.tencent.com/document/product/460/30111) 查询服务开通与否。
