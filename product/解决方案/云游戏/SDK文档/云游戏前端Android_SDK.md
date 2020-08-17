@@ -39,7 +39,7 @@
 | url  | string   | 启动云游戏 |
 
 
-### TcgSdk.getLocalDescription(),
+### TcgSdk.getLocalDescription()
 
 获取本地 session，用于请求云游戏服务端。
 
