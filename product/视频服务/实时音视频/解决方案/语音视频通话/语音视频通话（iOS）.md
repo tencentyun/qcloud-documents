@@ -71,7 +71,7 @@
 ## 实现自定义 UI 界面
 
 [源码](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCCallingDemo) 文件夹 `TRTCCallingDemo` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们实现的可重用开源组件 TRTCCalling，您可以在  `TRTCCalling.h`  文件中看到该组件提供的接口函数。
-![](https://main.qcloudimg.com/raw/e2d8b7f989f44410b58efc8b8bb534ed.png)
+![](https://main.qcloudimg.com/raw/36220937e8689dac4499ce9f2f187889.png)
 
 您可以使用开源组件 TRTCVideoCall 实现自己的 UI 界面，即只复用 model 部分，自行实现 UI 部分。
 
@@ -190,13 +190,13 @@ iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model
 [[TRTCCalling shareInstance] hangup];
 // 拒绝
 [[TRTCCalling shareInstance] reject];
-
 ```
 
 #### 5.2 实现1v1语音通话
-1. 发起方调用TRTCCalling 的 `call(callType)` 方法，callType 传入语音类型`CallType_Video`,就能够发起语音通话的请求。
-2. 接收方收到 `onInvited` 事件，此时可以通过 `accept` 方法接听此次通话，也可以选择用 `reject`` 方法拒绝通话。
-3. 发起方收到 `onUserEnter` 的回调，说明接收方已经进入通话。
+1. 发起方：调用TRTCCalling 的 `call(callType)` 方法，callType 传入语音类型`CallType_Video`,就能够发起语音通话的请求。
+2. 接收方：收到 `onInvited` 事件，此时可以通过 `accept` 方法接听此次通话，也可以选择用 `reject` 方法拒绝通话。
+3. 发起方：收到 `onUserEnter` 的回调，说明接收方已经进入通话。
+
 ```Objective-C
 // 1.监听回调
 [[TRTCCalling shareInstance] addDelegate:delegate];
@@ -225,8 +225,8 @@ iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model
 ### 步骤6：实现多人通话
 #### 6.1 实现多人视频通话
 1. 发起方：多人视频/语音通话需要调用 `TRTCCalling ` 中的 `groupCall()` 函数，并传入用户列表（userIdList）、群组 IM ID（groupId）、通话类型（callType），其中 userIdList 为必填参数，groupId 为选填参数，`callType` 为视屏类型`CallType_Video`。
-2. 接收端：通过名为 `onInvited()` 回调能够接收到此呼叫请求，其中参数列表就是发起方填入的参数列表，`callType` 参数为通话类型，您可以通过此参数启动相应的界面。
-3. 接收端：收到回调后可以调用 `accept()` 方法接听此次通话，也可以选择用 `reject()` 方法拒绝通话。
+2. 接收方：通过名为 `onInvited()` 回调能够接收到此呼叫请求，其中参数列表就是发起方填入的参数列表，`callType` 参数为通话类型，您可以通过此参数启动相应的界面。
+3. 接收方：收到回调后可以调用 `accept()` 方法接听此次通话，也可以选择用 `reject()` 方法拒绝通话。
 4. 如果超过一定时间（默认30s）没有回复，接收方会收到 `onCallingTimeOut()` 的回调，发起方会收到 `onNoResp()` 回调。通话发起方在多个接收均未应答时 `hangup()` ， 每个接收方均会收到 `onCallingCancel()` 回调。
 5. 如果需要离开当前多人通话可以调用 `hangup()` 方法。
 6. 如果通话中有用户中途加入或离开，那么其他用户均会接收到 `onUserEnter()` 或  `onUserLeave()` 回调。
@@ -247,9 +247,9 @@ NSArray *callList = @[];
 [[TRTCCalling shareInstance] openCamera:true view:renderView];
 ```
 #### 6.2 实现多人语音通话
-1. 发起方：多人语音通话需要调用 `TRTCCalling ` 中的 `groupCall()` 函数，，并传入用户列表（userIdList）、群组 IM ID（groupId）、通话类型（callType），其中 userIdList 为必填参数，groupId 为选填参数，`callType` 传入语音类型`CallType_Audio`，就能发起多人语音通话。
-2. 接收端：通过 onInvited() 回调能够接收到此次请求。
-3. 接收端：收到回调后可以调用 accept() 方法接听此次通话，也可以选择用 reject() 方法拒绝通话。
+1. 发起方：多人语音通话需要调用 `TRTCCalling ` 中的 `groupCall()` 函数，，并传入用户列表（userIdList）、群组 IM ID（groupId）、通话类型（callType），其中 userIdList 为必填参数，groupId 为选填参数，`callType` 传入语音类型 `CallType_Audio`，就能发起多人语音通话。
+2. 接收方：通过 onInvited() 回调能够接收到此次请求。
+3. 接收方：收到回调后可以调用 accept() 方法接听此次通话，也可以选择用 reject() 方法拒绝通话。
 4. 如果超过一定时间（默认30s）没有回复，接收方会收到 onCallingTimeOut() 的回调，发起方会收到 onNoResp(String userId) 回调。通话发起方在多个接收均未应答时 hangup() ， 每个接收方均会收到 onCallingCancel() 回调。
 5. 如果需要离开当前多人通话可以调用 hangup() 方法。
 6. 如果通话中有用户中途加入或离开，那么其他用户均会接收到 onUserEnter() 或 onUserLeave() 回调。
@@ -264,7 +264,7 @@ NSArray *callList = @[];
 // 如果您不是在一个 IM 群里发起的, groupId 可以传一个空串；
 [[TRTCCalling shareInstance] groupCall:callList type:CallType_Video groupID:@""];
 ```
->?您可以通过 一系列的监听回调，例如`onReject` `onCancel`等事件来做对应的UI提示。
+>?您可以通过一系列的监听回调，例如 `onReject`、`onCancel` 等事件来做对应的 UI 提示。
 
 <span id="model.offline"> </span>
 
