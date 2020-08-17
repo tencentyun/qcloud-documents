@@ -106,5 +106,5 @@ http://实例公网 IP:15672
 如何获取实例公网 IP，请参见 [获取公网 IP 地址](https://cloud.tencent.com/document/product/213/17940)。
 显示界面如下图所示，则说明 RabbitMQ Server 安装成功。
 ![](https://main.qcloudimg.com/raw/aacb15db11b5cf80dd6b7ba1dc80d331.png)
-3. 使用 [步骤6(#Step6) 中创建的和管理员用户进行登录，即可进入 RabbitMQ 管理界面。如下图所示：
+3. 使用 [步骤6](#Step6) 中创建的和管理员用户进行登录，即可进入 RabbitMQ 管理界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/7f8d24062541be6ba8b271483343b20a.png)
