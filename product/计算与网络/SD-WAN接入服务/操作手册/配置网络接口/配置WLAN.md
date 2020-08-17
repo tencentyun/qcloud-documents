@@ -1,4 +1,4 @@
-WLAN 配置用于管理 Edge 设备自带的 WiFi 功能，本文将介绍如何在 SD-WAN 接入服务控制台配置 WLAN。
+WLAN 配置用于管理 Edge 设备自带的 Wi-Fi 功能，本文将介绍如何在 SD-WAN 接入服务控制台配置 WLAN。
 
 ## 操作步骤
 
@@ -7,7 +7,7 @@ WLAN 配置用于管理 Edge 设备自带的 WiFi 功能，本文将介绍如何
 3. 在“WLAN 设置”页面进行以下配置，完成后单击【保存】。
 ![](https://main.qcloudimg.com/raw/c97fb5b443cd50334b461ab440bee5e2.png)
 **字段说明**：
-	- **WIFI 能力**：开启后才能使用 Edge 设备自带的 WiFi 功能。
+	- **WIFI 能力**：开启后才能使用 Edge 设备自带的 Wi-Fi 功能。
 	- **国家码**：默认为中国。
 	- **SSID**：服务集标识（Service Set Identifier），用于身份验证。
 	- **SSID 广播**：选择展示或隐藏 Edge 设备名称。
