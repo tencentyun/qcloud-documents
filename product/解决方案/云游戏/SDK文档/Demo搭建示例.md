@@ -8,7 +8,7 @@
 <div id="mount-point"></div>
 ```
 3.  页面内按顺序调用 init，start 接口，接口文档见 [前端 JS SDK API 文档](https://cloud.tencent.com/document/product/1162/46134)。
-4.  修改 `demo.html` 的 `get_signature` 请求 url，指向自行部署好的 [业务后台服务](#d_nodejs)。
+4.  修改 `demo.html` 的 `get_signature` 请求 url，指向自行部署好的 [业务后台服务](https://cloud.tencent.com/document/product/1162/47523)。
 5.  刷新页面并等待浏览器连接成功。
 
 
