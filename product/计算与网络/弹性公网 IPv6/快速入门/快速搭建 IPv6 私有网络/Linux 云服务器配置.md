@@ -181,13 +181,17 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
  + 若返回`inet6`相关内容，表示实例已成功开启 IPv6功能支持，您可以跳至 [第5步](#centstep5) 继续操作。
 3. 执行以下步骤修改并保存`ipv6.conf`文件。
 	1. 执行如下命令，打开`/etc/modprobe.d/`文件夹下的`ipv6.conf`文件。
+	
 	 ```
 	   vi /etc/modprobe.d/ipv6.conf
 	 ```
+	 
 	2.  按 “i” 切换至编辑模式，将如下的内核参数设置为0。
+	
 		 ```
 	   options ipv6 disable=0
 	   ```
+		 
 	![](https://main.qcloudimg.com/raw/37a4754fd0a8f6192d5f3818bcd685fe.png) 
 	3.  按 “Esc”，输入 “:wq”，保存文件并返回。
 4. 执行以下步骤修改并保存`sysctl.conf.first`文件。
@@ -202,12 +206,12 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
  ![](https://main.qcloudimg.com/raw/e5faf656a6aa6fcbd8a4ac190a13759e.png)
    3. 按 “Esc”，输入 “:wq”，保存文件并返回。
 5. <span id="centstep5" />执行以下步骤修改并保存`network`文件。
- 1. 执行如下命令，打开`/etc/sysconfig/`文件夹下的`network`文件。
+  1. 执行如下命令，打开`/etc/sysconfig/`文件夹下的`network`文件。
  ```plaintext
        vi /etc/sysconfig/network
        ```
- 2. 按 “i” 切换至编辑模式，增加如下内容。
- ```
+  2. 按 “i” 切换至编辑模式，增加如下内容。
+		```
        NETWORKING_IPV6=yes
        DHCPV6C=yes
        ```
@@ -215,15 +219,16 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
    3. 按 “Esc”，输入 “:wq”，保存文件并返回。
 6. 执行以下步骤修改并保存`route6-eth0`文件。
  1. 执行如下命令，打开或创建`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
-```plaintext
+      ```plaintext
       vim /etc/sysconfig/network-scripts/route6-eth0
-      ```
+      ```	
+			
  2. 按 “i” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
-```
+	 ```
       default dev eth0 via fe80::feee:ffff:feff:ffff
-      ```
-![](https://main.qcloudimg.com/raw/3baffe425e598460caf1fc2de45e10d8.png)
-  3. 按 “Esc”，输入 “:wq”，保存文件并返回。
+			```
+ ![](https://main.qcloudimg.com/raw/3baffe425e598460caf1fc2de45e10d8.png)
+ 3. 按 “Esc”，输入 “:wq”，保存文件并返回。
 7. 重启云服务器，若仅通过 `service network restart`，IPv6 无法正常加载。
 8. 执行如下命令查看重启后 IPv6 是否已经正常加载。
  ```
@@ -354,7 +359,7 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
    ```
 ![](https://main.qcloudimg.com/raw/cd5a2072c73307c79b7997bbd24cec13.png)
 6. Debian 8.2 系统默认为 ssh（22端口）开启 IPv6 监听，无需特殊配置，您可执行如下命令，进行查看。
- ```
+ ```plaintext
    netstat -tupln
    ```
  ![](https://main.qcloudimg.com/raw/8bdb6f9672f81d8a6df56b61418fe492.png)
@@ -368,6 +373,7 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
 
 
 <span id="Ubuntu18"/>
+
 ### Ubuntu 14/Ubuntu 16/Ubuntu 18/Ubuntu 20 配置IPv6
 
 1. 远程连接实例。具体操作，请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
@@ -471,7 +477,7 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
    ```
  + 若实例未开启 IPv6功能支持，请根据下文继续开启 IPv6功能支持。 
  + 若返回`inet6`相关内容，表示实例已成功开启 IPv6功能支持，您可以跳至 [第4步](#opensusestep4) 继续操作。
-2. 运行如下命令，并做相应修改，开启IPv6功能支持。
+ 3. 运行如下命令，并做相应修改，开启IPv6功能支持。
  ```
    vi /etc/sysctl.conf
    ```
@@ -485,8 +491,8 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
    net.ipv6.conf.default.disable_ipv6 = 0
    net.ipv6.conf.lo.disable_ipv6 = 0
    ```
-3. 运行`sysctl -p`使配置生效。
-4. <span id="opensusestep4"/>配置IPv6。OpenSUSE 42镜像类型的云服务器IPv6操作步骤有脚本方式和手动方式。请根据实际情况选择配置方式。
+4. 运行`sysctl -p`使配置生效。
+5. <span id="opensusestep4"/>配置IPv6。OpenSUSE 42镜像类型的云服务器IPv6操作步骤有脚本方式和手动方式。请根据实际情况选择配置方式。
 **脚本方式**
  1. 将如下脚本拷贝到shell文件中，这里以test.sh为例。
  ```plaintext
@@ -517,18 +523,19 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
   ```
       ./test.sh eth0 0 2402:4e00:1000:4200:0:8f0c:d527:b985 64
       ```
+			
   **手动方式**
   1. 运行如下脚本，打开网卡配置文件。
 ```plaintext
       vi /etc/sysconfig/network/ifcfg-eth0
       ```
  `eth0`为网卡标识符，您需要修改成实际的标识符。在文件中根据实际信息添加以下配置：
-  + 单 IPv6 地址：
+    + 单 IPv6 地址：
 ```
         IPADDR_0=<IPv6地址>
         PREFIXLEN_0=<子网前缀长度>
         ```
-+ 多 IPv6 地址：
+    + 多 IPv6 地址：
  ```
         IPADDR_0=<IPv6地址>
         PREFIXLEN_0=<子网前缀长度>
@@ -544,7 +551,7 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
       default <IPv6网关> - -
       ```
    3. 重启网络服务：运行`service network restart`或`systemctl restart networking`。
-5. 请参考[SSH支持IPv6配置](#ssh-ipv6)开启SSH的IPv6功能。
+6. 请参考[SSH支持IPv6配置](#ssh-ipv6)开启SSH的IPv6功能。
 
 
 
@@ -591,7 +598,7 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
       
         service network restart
       ```
-    + dev表示网卡设备名，例如eth0、eth1。
+      + dev表示网卡设备名，例如eth0、eth1。
       + index表示这是第几个ipv6地址，从0开始计数。
       + ip6表示本机的ipv6地址，例如2607:f0d0:1002:0011:0000:0000:0000:0002。
       + prefix_len表示子网前缀长度，例如64。
@@ -602,7 +609,7 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
 
  **手动方式**
  1. 运行如下脚本，打开网卡配置文件。
- ```plaintext
+     ```plaintext
       vi /etc/sysconfig/network/ifcfg-eth0
       ```
      `eth0`为网卡标识符，您需要修改成实际的标识符。在文件中根据实际信息添加以下配置：
@@ -612,7 +619,7 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
         PREFIXLEN_0=<子网前缀长度>
         ```
     + 多 IPv6 地址：
- ```
+       ```
         IPADDR_0=<IPv6地址>
         PREFIXLEN_0=<子网前缀长度>
         
@@ -623,7 +630,7 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
         PREFIXLEN_2=<子网前缀长度>
         ```
  2. 运行`vi /etc/sysconfig/network/routes`打开路由配置文件，添加配置项。
-```
+    ```
       default <IPv6网关> - -
       ```
  3. 重启网络服务：运行`service network restart`或`systemctl restart networking`。
@@ -696,13 +703,16 @@ FreeBSD 11配置IPv6有脚本方式和手动方式，请根据实际情况选择
 3. 删除`ipv6_network_interfaces='none'` ，并修改`ipv6_activate_all_interfaces='NO'`为`ipv6_activate_all_interfaces='YES'`后保存退出。
 4. 运行`/etc/netstart restart`重启网络。
 5. 运行`vi /etc/rc.conf`打开网卡配置文件，`vtnet0`为网卡标识符，您需要修改成实际的标识符。在文件中根据实际信息添加以下配置：
-  + 单IPv6地址：
- ```plaintext
+
+    + 单IPv6地址：
+   ```plaintext
      ipv6_ifconfig_vtnet0="<IPv6地址>"
      ipv6_defaultrouter="<IPv6网关>"
      ```
- + 多IPv6地址：
- ```plaintext
+		 
+    + 多IPv6地址：
+  
+   ```plaintext
      ipv6_ifconfig_vtnet0="<IPv6地址1>"
      ipv6_ifconfig_vtnet0="<IPv6地址2>"
      ipv6_defaultrouter="<IPv6网关>"
@@ -722,7 +732,7 @@ FreeBSD 11配置IPv6有脚本方式和手动方式，请根据实际情况选择
 > !如果需要使用IPv6地址远程连接，则需要开启ssh的IPv6支持。
 
 1. 执行如下命令，打开 `/etc/ssh/`文件夹下的`sshd_config`文件。
- ```plaintext
+   ```plaintext
    vim /etc/ssh/sshd_config
    ```
 2. 按 “i” 切换至编辑模式，删除对`AddressFamily any`的注释（即删除前面的`#`），为 ssh 等应用程序开启 IPv6 监听。
