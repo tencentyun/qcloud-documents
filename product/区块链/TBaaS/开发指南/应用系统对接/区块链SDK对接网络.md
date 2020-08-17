@@ -1,47 +1,48 @@
-若应用系统调用频率较高，则需要直接使用区块链 SDK 与区块链网络对接。这种情况下**应用系统应部署在与区块链网络同一地域内的CVM上**。在云 API 调用方式中，需要应用系统提供账户的 SecretID 和 SecretKey，用于认证授权访问权限。而在区块链 SDK 中，则需要应用系统在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 上申请用于访问的证书（节点证书和 nginx 证书）。如下图所示：
+若应用系统调用频率较高，则需要直接使用区块链 SDK 与区块链网络对接。这种情况下**应用系统应部署在与区块链网络同一地域内的云服务器 CVM 上**。在云 API 调用方式中，需要应用系统提供账户的 SecretID 和 SecretKey，用于认证授权访问权限。而在区块链 SDK 中，则需要应用系统在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 上申请用于访问的证书（节点证书和 nginx 证书）。如下图所示：
 ![img](https://main.qcloudimg.com/raw/81e1898de06b79a0b848345a72e4df4c.png)            
-如果应用在开发测试中希望在本地访问区块链网络，则可以开启并使用网络的外网域名，使用该域名访问区块链网络的代理组件。这种访问方式仅适用于开发调试。在生产环境中推荐使用访问管理打通 VPC 的方式。
+如果应用在开发测试中希望在本地访问区块链网络，则可以开启并使用网络的外网域名，使用该域名访问区块链网络的代理组件。这种访问方式仅适用于开发调试，在生产环境中推荐使用访问管理打通 VPC 的方式。
 除了支持社区版区块链 SDK（Java、NodeJS、Golang），TBaaS 对 Java 版的社区区块链 SDK 进行了定制（tbaas-fabric-sdk-java），简化了应用系统与区块链网络连接的流程。
 
 ## 获取访问地址及证书
 ### VPC 访问
-1. 登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 。
+1. 登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview)。
 2. 选择左侧导航栏中的【Fabric】>【区块链网络】，进入“区块链网络”页面。
-3. 选择需查看的网络，进入“访问管理”页面，单击【新建】，在“新建链接”弹窗中，可自定义名称和选择访问端。如下图所示：
+3. 在“区块链网络”页面中，选择需查看的网络，进入“访问管理”页面。
+4. 在“访问管理”页面中，单击【新建】。在弹出的“新建链接”窗口中，参考以下信息进行创建：
+![](https://main.qcloudimg.com/raw/aa9b66415677d8e0cc49a9fd6ab66015.png)
   - 名称：即链接标识。
   - 选择访问端：即选择应用系统所在的 VPC 和子网。
-![](https://main.qcloudimg.com/raw/aa9b66415677d8e0cc49a9fd6ab66015.png)
-4. VPC 访问，获取访问地址（记为 PROXY_URL），访问地址即为下图中的访问端地址。如下图所示：
+5. 创建成功后即可获取 VPC 访问地址（记为 PROXY_URL），即访问端地址。如下图所示：
 ![](https://main.qcloudimg.com/raw/86c7e8f4e7e4c51d83f1ab5c8aaef922.png)
-5. 在本端链接选项中点击【查看】，并下载 nginx 证书（记为TLS_CERT），保存在文件中。如下图所示：
+  在本端链接选项中单击【查看】，并下载 nginx 证书（记为TLS_CERT），保存在文件中。如下图所示：
 ![](https://main.qcloudimg.com/raw/33ecdd5e5e06c82834716821db248a76.png)
 
 ### 外网访问（仅用于开发测试）<span id="stepwaiwang"></span>
-1. 登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 。
+1. 登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview)。
 2. 选择左侧导航栏中的【Fabric】>【区块链网络】，进入“区块链网络”页面。
-3. 选择需查看的网络，进入“网络概览”页面，单击【Nginx证书下载】。如下图所示：
-![](https://main.qcloudimg.com/raw/11bf59e7cc9e6e65b3f7ac4eae34230a.png)
-4. 前往 [OpenSSL](https://www.openssl.org/source/) 官网，下载 openssl 并配置安装。
-5. 下载 [ecccsr](https://tbaasdoc-1259695942.cos.ap-guangzhou.myqcloud.com/ecccsr.zip?_ga=1.59257006.2054822156.1595822583) 工具，解压后执行 `sh ecccsr.sh`，得到以下三个文件：
+3.  在“区块链网络”页面中，选择需查看的网络，进入“网络概览”页面。
+4.  在“网络概览”页面中，单击【Nginx证书下载】。如下图所示：
+![](https://main.qcloudimg.com/raw/bdfb6f5c30731a909794bc56788f29b1.png)
+5. 前往 [OpenSSL](https://www.openssl.org/source/) 官网，下载 openssl 并配置安装。
+6. 下载 [ecccsr](https://tbaasdoc-1259695942.cos.ap-guangzhou.myqcloud.com/ecccsr.zip?_ga=1.59257006.2054822156.1595822583) 工具，解压后执行 `sh ecccsr.sh`，得到以下三个文件：
   - out.key
   - out.csr
   - out_sk
 
 
 ### 申请证书流程
-1. 登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 。
-2. 选择右侧“账号信息”，单击认证状态右侧的【查看或修改认证】。在“认证信息”页面查看企业名称。如下图所示：
+1. 前往 [认证信息](https://console.cloud.tencent.com/developer/auth) 页面，查看企业名称。如下图所示：
 <img src="https://main.qcloudimg.com/raw/123d94ea2854ce6cf83f6ab71e7209a1.png" alt="img" style="zoom:40%;" />            
-3. 选择左侧导航栏中的【Fabric】>【区块链网络】，进入“区块链网络”页面。
-4. 选择需查看的网络，进入“证书管理”页面，单击【申请】。
-5. 在【申请证书】弹窗中，填写认证信息中的企业名称。如下图所示：
+2. 登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview)，选择左侧导航栏中的【Fabric】>【区块链网络】，进入“区块链网络”页面。
+4. 在“区块链网络”页面中，选择需查看的网络，进入“证书管理”页面。
+5. 在“证书管理”页面中单击【申请】，在“申请证书”弹窗中，填写认证信息中的企业名称。如下图所示：
 ![](https://main.qcloudimg.com/raw/ff07dc48863aff4b78e452ad8d61f4fe.png)           
-6. 在“证书信息”页面上传通过 [外网访问](#stepwaiwang) 获取的 `out.csr` 文件。如下图所示：
+6. 在“证书信息”页面上传通过 [外网访问](#stepwaiwang) 获取的 `out.csr` 文件。如下图所示：<span id="1"></span>
 <img src="https://main.qcloudimg.com/raw/87d60ce40d8a630e138c36d674fd700b.png" alt="img" style="zoom:40%;" />  
-7. 下载上一步申请到的证书，记为 USER_CERT。如下图所示：
+7. 下载 [上一步](#1) 申请到的证书，记为 USER_CERT。如下图所示：
 ![img](https://main.qcloudimg.com/raw/de368d437f5a1a27a8517da9807dfd0f.png)            
 
-经过上述步骤后，得到了访问域名（PROXY_URL）、NGINX证书（TLS_CERT）、out_sk和用户证书（USER_CERT），在后续的访问中需要使用到这些数据。除此之外，关于网络名、通道名、chaincodeName 等信息的获取方式，请参阅 [对接说明及对接前准备](https://tcloud-doc.isd.com/document/product/663/47512?!preview&!editLang=zh)。
+经过上述步骤后，得到了访问域名（PROXY_URL）、NGINX证书（TLS_CERT）、out_sk 和用户证书（USER_CERT），在后续的访问中需要使用到这些数据。除此之外，关于网络名、通道名、chaincodeName 等信息的获取方式，请参阅 [对接说明及对接前准备](https://tcloud-doc.isd.com/document/product/663/47512?!preview&!editLang=zh)。
 
 ## tbaas-fabric-sdk-java
 
