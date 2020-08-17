@@ -1,4 +1,4 @@
-### <span id="step1">步骤1：环境部署</span>
+### <h3 id="step1">步骤1：环境部署</h3>
 `cloudapi.js` 是 Node.js 版的云 API 调用实例，自行安装 Node.js 运行环境。将 `cloudapi.js` 中的 SecretId 和 SecretKey，替换成您的腾讯云帐号下的 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 信息。
 
 **cloudapi.js 示例代码如下：**
@@ -197,25 +197,26 @@ router.post('/stopgame', jsonParser, function(req, res, next) {
 module.exports = router;
 
 ```
-### <span id="step2">步骤2：创建 express 项目</span>
-使用 express-cli 初始化一个 express 项目。
+### <h3 id="step2">步骤2：创建 express 项目</h3>
+使用 express-generator 初始化一个 express 项目。
 ```
     express myproj
     npm i
 ```
-### <span id="step3">步骤3： 安装依赖库</span>
+
+### <h3 id="step3">步骤3：安装依赖库</h3>
 ```
-    npm install --save express tencentcloud
+    npm install --save express tencentcloud tencentcloud-sdk-nodejs
 ```
-### <span id="step4">步骤4：调用云 API</span>
+### <h3 id="step4">步骤4：调用云 API</h3>
 参考示例代码编写 [cloudapi.js](#step1)，修改 app.js，在后面加入一行。
 ```
     app.use('/cloudapi', require('./cloudapi.js'));
 ```
-### <span id="step5">步骤5： 运行服务</span>
+### <h3 id="step5">步骤5：运行服务</h3>
 ```
     npm run
 ```
-### <span id="step6">步骤6：启动云游戏</span>
+### <h3 id="step6">步骤6：启动云游戏</h3>
 网页端发送 JSON 格式的 POST 请求 `http://127.0.0.1:3000/cloudapi/get_signature` 接口，返回值里获取 ServerSession 字段，调用 [TCGSDK.start(ServerSession)](https://cloud.tencent.com/document/product/1162/46134#tcgsdk.start(serversession)) 接口启动云游戏。
 
