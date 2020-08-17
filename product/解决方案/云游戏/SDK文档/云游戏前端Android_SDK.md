@@ -71,7 +71,7 @@
 | 参数            | 参数类型                  | 说明                                                         |
 | --------------- | ------------------------- | ------------------------------------------------------------ |
 | container       | Activity 类               | view 的容器                                                  |
-| outsideCallback | TcgSdk.EventObserver 接口 | 如果 native 层需要事件回调，可以设置这个回调接口，不需要则设为 null |
+| outsideCallback | [TcgSdk.EventObserver](#tcgsdk.eventobserver) 接口 | 如果 native 层需要事件回调，可以设置这个回调接口，不需要则设为 null |
 | nativeGamepad   | boolean                   | 设置手柄事件，true 使用原生的手柄事件，false 使用网页的手柄事件 |
 
 
