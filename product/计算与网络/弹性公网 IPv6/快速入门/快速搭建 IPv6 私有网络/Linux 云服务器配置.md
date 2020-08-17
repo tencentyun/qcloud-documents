@@ -178,29 +178,29 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
    ifconfig | grep inet6
    ```
  + 若实例未开启 IPv6功能支持，请根据下文继续开启 IPv6功能支持。 
-   + 若返回`inet6`相关内容，表示实例已成功开启 IPv6功能支持，您可以跳至 [第5步](#centstep5) 继续操作。
+ + 若返回`inet6`相关内容，表示实例已成功开启 IPv6功能支持，您可以跳至 [第5步](#centstep5) 继续操作。
 3. 执行以下步骤修改并保存`ipv6.conf`文件。
 	1. 执行如下命令，打开`/etc/modprobe.d/`文件夹下的`ipv6.conf`文件。
 	 ```
 	   vi /etc/modprobe.d/ipv6.conf
 	   ```
 	2.  按 “i” 切换至编辑模式，将如下的内核参数设置为0。
-	```
+		```
 	   options ipv6 disable=0
 	   ```
 	![](https://main.qcloudimg.com/raw/37a4754fd0a8f6192d5f3818bcd685fe.png) 
 	3.  按 “Esc”，输入 “:wq”，保存文件并返回。
 4. 执行以下步骤修改并保存`sysctl.conf.first`文件。
   1. 执行如下命令，打开`etc`文件夹下的`sysctl.conf.first`文件。
-```
+     ```
       vim /etc/sysctl.conf.first
       ```
- 2. 按 “i” 切换至编辑模式，将如下的配置文件参数设置为0。
+   2. 按 “i” 切换至编辑模式，将如下的配置文件参数设置为0。
  ```
-       net.ipv6.conf.all.disable_ipv6 = 0
-       ```
+ net.ipv6.conf.all.disable_ipv6 = 0
+   ```
  ![](https://main.qcloudimg.com/raw/e5faf656a6aa6fcbd8a4ac190a13759e.png)
- 3. 按 “Esc”，输入 “:wq”，保存文件并返回。
+   3. 按 “Esc”，输入 “:wq”，保存文件并返回。
 5. <span id="centstep5" />执行以下步骤修改并保存`network`文件。
  1. 执行如下命令，打开`/etc/sysconfig/`文件夹下的`network`文件。
  ```plaintext
