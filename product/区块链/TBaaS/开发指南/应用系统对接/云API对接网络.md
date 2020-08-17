@@ -14,14 +14,14 @@ SDK 的使用流程如下图所示：
 使用云 API 调用合约时除了需要网络、合约的相关参数，还需要提供购买 TBaaS 节点的账户信息，包括 SecretId 和 SecretKey。
 >?
 >- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
->- 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 `SecretId` 和`SecretKey`。
+>- 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 `SecretId` 和 `SecretKey`。
 
 ## 调用合约
 本文以 Java 和 Go 为例向您介绍 SDK 的使用方法。
 ### Java
 Java SDK 集成方法：[Tencent Cloud SDK 3.0 for Java](https://github.com/TencentCloud/tencentcloud-sdk-java)
 以下代码段向您说明不同步骤的代码编写，如需运行，需要将不同步骤的代码按照 Java 语言要求整合。
-
+以下代码示例为不同步骤的代码编写：
 1. 导入基础包，并配置参数。
 
 ```java
@@ -91,7 +91,7 @@ private static InvokeRequest getInvokeRequest() {
 ### Go
 
 Go SDK 集成方法： [Tencent Cloud SDK 3.0 for Go](https://github.com/TencentCloud/tencentcloud-sdk-go)
-
+以下代码示例为不同步骤的代码编写：
 1. 导入基础包，并配置参数。<span id="step1"></span>
 
 ```go
@@ -125,8 +125,7 @@ client, _ := tbaas.NewClient(
 ```
 
 3. 构造调用请求。
-SDK 中根据不同请求类型提供了18种 Request 结构体，定义在 github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tbaas/v20180416/models.go 文件中，每种 `XxxRequest` 都有对应的 `NewXxxRequest` 方法，需要使用该方法进行初始化，同时还有对应的发送请求接口以及 `XxxResponse`。按照 [步骤1](#step1) 中的方法导入包后，可使用 `tbaas.NewXxxRequest()` 进行调用。
-本节仅以 `InvokeRequest` 为例说明构造方法。
+SDK 中根据不同请求类型提供了18种 Request 结构体，定义在 github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tbaas/v20180416/models.go 文件中，每种 `XxxRequest` 都有对应的 `NewXxxRequest` 方法，需要使用该方法进行初始化，同时还有对应的发送请求接口以及 `XxxResponse`。按照 [步骤1](#step1) 中的方法导入包后，可使用 `tbaas.NewXxxRequest()` 进行调用。本节以 `InvokeRequest` 为例，说明构造方法：
 
 ```go
 //填写基本参数
