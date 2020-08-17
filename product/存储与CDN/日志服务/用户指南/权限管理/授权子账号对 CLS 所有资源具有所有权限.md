@@ -21,9 +21,9 @@
 		{
 			"effect": "allow",
 			"action": [
-					"cos:GetService",
-					"ckafka:ListInstance",
-					"ckafka:ListTopic"
+			    "cos:GetService",
+				"ckafka:ListInstance",
+				"ckafka:ListTopic"
 		   ],
            "resource": "*"
         }
