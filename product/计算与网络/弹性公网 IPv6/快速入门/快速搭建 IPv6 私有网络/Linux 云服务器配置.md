@@ -183,9 +183,9 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
 	1. 执行如下命令，打开`/etc/modprobe.d/`文件夹下的`ipv6.conf`文件。
 	 ```
 	   vi /etc/modprobe.d/ipv6.conf
-	   ```
+	 ```
 	2.  按 “i” 切换至编辑模式，将如下的内核参数设置为0。
-		```
+		 ```
 	   options ipv6 disable=0
 	   ```
 	![](https://main.qcloudimg.com/raw/37a4754fd0a8f6192d5f3818bcd685fe.png) 
