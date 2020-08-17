@@ -71,7 +71,7 @@
 ## 实现自定义 UI 界面
 
 [源码](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCCallingDemo) 文件夹 `TRTCCallingDemo` 中包含两个子文件夹 ui 和 model，其中 model 文件夹中包含了我们实现的可重用开源组件 TRTCCalling，您可以在  `TRTCCalling.h`  文件中看到该组件提供的接口函数。
-![](https://main.qcloudimg.com/raw/91b6b8f58bfc4d1f9ea98e8916d3a234.jpg)
+![](https://main.qcloudimg.com/raw/f88e47da4675ff3641853f9f6906253a.png)
 
 您可以使用开源组件 TRTCVideoCall 实现自己的 UI 界面，即只复用 model 部分，自行实现 UI 部分。
 
