@@ -1,7 +1,5 @@
-# 云API对接网络
 
-腾讯云为使用云API提供了各种语言的sdk，应用系统需要根据语言集成SDK。SDK的集成方法参考对应的链接。（目前Go SDK支持的请求类型较丰富）
-
+腾讯云为使用云 API 提供了多种语言的 SDK，应用系统需要根据语言集成 SDK。SDK 的集成方法请参考以下对应链接：
 - [Tencent Cloud SDK 3.0 for Python](https://github.com/TencentCloud/tencentcloud-sdk-python)
 - [Tencent Cloud SDK 3.0 for Java](https://github.com/TencentCloud/tencentcloud-sdk-java)
 - [Tencent Cloud SDK 3.0 for PHP](https://github.com/TencentCloud/tencentcloud-sdk-php)
@@ -9,33 +7,22 @@
 - [Tencent Cloud SDK 3.0 for NodeJS](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)
 - [Tencent Cloud SDK 3.0 for .NET](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)
 
-SDK的使用流程如下图所示
-
+SDK 的使用流程如下图所示：
 <img src="https://main.qcloudimg.com/raw/3abf6af1b8f0f1096619fa0945a3d789.png" alt="img" style="zoom: 33%;" />            
 
-下面将先介绍如何获取云API调用合约需要的关键参数，并以Java和Go为例介绍SDK的使用方法。
-
 ## 获取账户信息
-
-使用云API调用合约时除了需要网络、合约的相关参数，还需要提供购买TBaaS节点的账户信息，包括**SecretId**和**SecretKey**。在腾讯云登录账号后按照如下图所示的步骤获取SecretId和SecretKey。
-
-<img src="https://main.qcloudimg.com/raw/53e9d7b00ac4c0a8e6ddf1abb5f7b4e8.png" alt="img" style="zoom:50%;" /> 
-
- <img src="https://main.qcloudimg.com/raw/39e2268db4612847e6f785ec62c6eb0e.png" alt="img" style="zoom:50%;" />     
-
-如果当前账户没有密钥，可新建。
-
-<img src="https://main.qcloudimg.com/raw/abadb98d1a60a72f124b0a9da32c16f8.png" alt="img" style="zoom:100%;" />            
+使用云 API 调用合约时除了需要网络、合约的相关参数，还需要提供购买 TBaaS 节点的账户信息，包括 SecretId 和 SecretKey。
+>?
+>- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
+>- 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 `SecretId` 和`SecretKey`。
 
 ## 调用合约
-
+本文以 Java 和 Go 为例向您介绍 SDK 的使用方法。
 ### Java
+Java SDK 集成方法：[Tencent Cloud SDK 3.0 for Java](https://github.com/TencentCloud/tencentcloud-sdk-java)
+以下代码段向您说明不同步骤的代码编写，如需运行，需要将不同步骤的代码按照 Java 语言要求整合。
 
-Java SDK集成方法：[Tencent Cloud SDK 3.0 for Java](https://github.com/TencentCloud/tencentcloud-sdk-java)
-
-下面的代码段主要用于说明不同步骤的代码编写，如需运行，需要将不同步骤的代码按照Java语言要求整合。
-
-1. 导入基础包，并配置参数
+1. 导入基础包，并配置参数。
 
 ```java
 import com.tencentcloudapi.common.Credential;
@@ -63,7 +50,7 @@ private static final String SECRET_KEY = "";
 private static final String REGIION = "";
 ```
 
-2. 创建用户
+2. 创建用户。
 
 ```java
 // 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
@@ -74,9 +61,8 @@ clientProfile.setSignMethod(ClientProfile.SIGN_TC3_256);
 TbaasClient client = new TbaasClient(cred, REGIION, clientProfile);
 ```
 
-3. 构造调用请求
-
-SDK中根据不同请求类型提供了6种Request结构体，定义在包com.tencentcloudapi.tbaas.v20180416.models中，每种XxxRequest都有对应的发送请求接口以及XxxResponse。其中字段Opeartion和Module的取值需要参考对应的类定义。
+3. 构造调用请求。
+SDK 中根据不同请求类型提供了6种 Request 结构体，定义在包 `com.tencentcloudapi.tbaas.v20180416.models` 中，每种 `XxxRequest` 都有对应的发送请求接口以及 `XxxResponse`。其中字段 `Opeartion` 和 `Module` 的取值需要参考对应的类定义。
 
 ```java
 private static InvokeRequest getInvokeRequest() {
@@ -99,15 +85,14 @@ private static InvokeRequest getInvokeRequest() {
 }
 ```
 
-4. 处理请求结果
-
-参考类定义使用对应的setter/getter方法取出属性即可。
+4. 处理请求结果。
+参考类定义使用对应的 setter/getter 方法取出属性即可。
 
 ### Go
 
-Go SDK集成方法： [Tencent Cloud SDK 3.0 for Go](https://github.com/TencentCloud/tencentcloud-sdk-go)
+Go SDK 集成方法： [Tencent Cloud SDK 3.0 for Go](https://github.com/TencentCloud/tencentcloud-sdk-go)
 
-1. 导入基础包，并配置参数
+1. 导入基础包，并配置参数。<span id="step1"></span>
 
 ```go
 import (
@@ -126,9 +111,8 @@ SecretID:=      ""
 SecretKey:=     ""
 ```
 
-2. 创建用户
-
-提供SecretID SecretKey和Region参数。
+2. 创建用户。
+提供 SecretID、SecretKey 和 Region 参数。
 
 ```go
 credential := common.Credential{
@@ -140,11 +124,9 @@ client, _ := tbaas.NewClient(
     &credential, "ap-guangzhou", clientProfile)
 ```
 
-3. 构造调用请求
-
-SDK中根据不同请求类型提供了18种Request结构体，定义在github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tbaas/v20180416/models.go文件中，每种XxxRequest都有对应的NewXxxRequest方法，需要使用该方法进行初始化，同时还有对应的发送请求接口以及XxxResponse。按照步骤1中的方法导入包后，可使用tbaas.NewXxxRequest()进行调用。
-
-本节仅以InvokeRequest为例说明构造方法。
+3. 构造调用请求。
+SDK 中根据不同请求类型提供了18种 Request 结构体，定义在 github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/tbaas/v20180416/models.go 文件中，每种 `XxxRequest` 都有对应的 `NewXxxRequest` 方法，需要使用该方法进行初始化，同时还有对应的发送请求接口以及 `XxxResponse`。按照 [步骤1](#step1) 中的方法导入包后，可使用 `tbaas.NewXxxRequest()` 进行调用。
+本节仅以 `InvokeRequest` 为例说明构造方法。
 
 ```go
 //填写基本参数
@@ -175,19 +157,18 @@ orderValue:=""
 invokeRequest.Args = []*string{&orderKey, &orderValue}
 ```
 
-4. 发送请求
+4. 发送请求。
 
 ```go
 //不同类型的请求对应着不同的发送接口
-//比如：InvokeRequest——Invoke
+//例如：InvokeRequest——Invoke
 //GetTransactionDetailForUserRequest
 //            ——GetTransactionDetailForUser
 invokeResponse, err := client.Invoke(invokeRequest)
 ```
 
-5. 处理请求结果
-
-Response的基本结构如下，根据结构体定义取出对应的字段即可。
+5. 处理请求结果。
+`Response` 的基本结构如下，根据结构体定义取出对应的字段即可。
 
 ```go
 type XxxResponse struct {
