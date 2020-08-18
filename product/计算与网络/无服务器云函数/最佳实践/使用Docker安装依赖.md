@@ -1,15 +1,13 @@
-使用 `Python`, `Node.js` 等开发云函数时, 可能遇到的一个问题就是依赖安装. 由于操作系统版本, 系统库版本及语言版本不一致, 有时在本地环境可以运行良好的程序在部署到 `SCF` 后可能会出现错误.
-
-本文以为 `Node.js 8.9` 安装 `nodejieba` 及为 `Python 3.6` 安装 `pandas` 为例, 介绍使用 `Docker` 为函数安装依赖.
+使用 Python，Node.js 等语言开发云函数 SCF 时，由于操作系统版本、系统库版本及语言版本不一致，在本地环境运行良好的程序部署到 SCF 后可能会出现错误。为解决依赖安装的问题，本文档介绍使用 `Docker` 为函数安装依赖。请参考以下示例：
+- [为 `Node.js 8.9`安装 `nodejieba`](#node)。
+- [为 `Python 3.6`安装 `pandas`](#python)。
 
 ## 安装 Docker
 
-安装 `Docker` 超出了本文的范畴, 请参阅[文档](https://docs.docker.com/install/).
+安装 `Docker`，详情请参阅 [Docker](https://docs.docker.com/install/)。
 
-## Node 安装示例
-
-下面是一个简单的例子
-
+## Node 安装示例<span id="node"></span>
+本节以下述代码为例：
 ```js
 'use strict';
 
@@ -19,27 +17,19 @@ exports.main_handler = async (event, context, callback) => {
     return jieba.cut('你好世界');
 };
 ```
-
-在 `Windows` 和 `macOS` 上, 你可以正确地运行这个例子, 但是部署到 `SCF` 上, 会出现如下错误:
-
+此示例可在 Windows 和 macOS 上正确运行，但部署到 SCF 时会出现如下错误代码提示：
 ```js
 {"errorCode":1,"errorMessage":"user code exception caught","stackTrace":"/var/user/node_modules/nodejieba/build/Release/nodejieba.node: invalid ELF header"}
 ```
-
-使用 `Docker` 来安装依赖, 可以解决这个问题, 命令如下:
-
+为解决此问题，可使用 `Docker` 来安装依赖。请参考以下命令：
 ```js
 $ docker run -it --network=host -v /path/to/your-project:/tmp/your-project node:8.9 /bin/bash -c 'cd /tmp/your-project && npm install nodejieba --save'
 ```
 
-这里 `/path/to/your-project` 是你的项目路径, 对应于 `Docker` 容器里的 `/tmp/your-project` 目录, 我们在容器里的 `/tmp/your-project` 目录下安装了 `nodejieba`, 即相当于在你的项目路径底下安装了 `nodejieba`.
+其中，`/path/to/your-project` 是项目路径, 对应于 `Docker` 容器里的 `/tmp/your-project` 目录。因此，在容器里的 `/tmp/your-project` 目录下安装 `nodejieba`，即在项目路径下安装了 `nodejieba`。依赖安装完成后，将代码重新部署到 SCF 上即可正常运行函数。
 
-安装完依赖后, 重新部署到 `SCF` 上, 现在, 你的函数应该能如期运行了.
-
-## Python 安装示例
-
-先写一个简单的例子
-
+## Python 安装示例<span id="python"></span>
+本节以下述代码为例：
 ```js
 import pandas as pd
 
@@ -48,15 +38,11 @@ def main_handler(event, context):
     print(s)
     return len(s)
 ```
-
-为 `Python 3.6` 安装 `pandas`, 操作与上面的流程类似
-
+为 `Python 3.6`安装 `pandas`。请参考以下命令：
 ```js
 $ docker run -it --network=host -v /path/to/your-project:/tmp/your-project python:3.6.1 /bin/bash -c 'cd /tmp/your-project && pip install pandas -t .'
 ```
-
-部署到 `SCF` 上并运行, 我们可以看到如下日志
-
+依赖安装完成后，将代码重新部署到 SCF 上并运行，可收到如下日志：
 ```js
 /var/user/pandas/compat/__init__.py:84: UserWarning: Could not import the lzma module. Your installed Python is incomplete. Attempting to use lzma compression will result in a RuntimeError.
   warnings.warn(msg)
@@ -67,17 +53,11 @@ $ docker run -it --network=host -v /path/to/your-project:/tmp/your-project pytho
 4    8
 dtype: int64
 ```
-
-函数可以运行, 但是有一个警告, 提示无法加载 `lzma` 模块, 试图使用 `lzma` 压缩会导致运行时错误, 这还得了, 让我们来解决它
-
-直接进入容器内部
-
+此时函数可以运行，但会产生警告提示无法加载 `lzma` 模块，若使用 `lzma` 压缩则会导致运行时错误。为解决此问题，需要进入容器内部，执行以下命令：
 ```js
 $ docker run -it --network=host -v /tmp/foo:/tmp/bar python:3.6.1 /bin/bash
 ```
-
-安装 `pandas` 并运行上面的程序
-
+执行以下命令，安装 `pandas`。
 ```js
 $ cd /tmp/bar
 $ pip install pandas -t .
@@ -93,9 +73,7 @@ echo <<EOF >> index.py
 > EOF
 $ python -v index.py > run.log 2>&1
 ```
-
-让我们看看日志
-
+可查看日志，如以下代码：
 ```js
 $ grep lzma run.log
 # /usr/local/lib/python3.6/__pycache__/lzma.cpython-36.pyc matches /usr/local/lib/python3.6/lzma.py
