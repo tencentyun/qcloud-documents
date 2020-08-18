@@ -82,8 +82,7 @@ Custom Runtime 可以通过 `SCF_RUNTIME_API:SCF_RUNTIME_API_PORT` 来访问运�
 <tr>
 <td>/runtime/invocation/next</td>
 <td>get</td>
-<td>获取调用事件。<br>响应体包含事件数据 event_data
-响应头包含以下信息：<ul><li>request_id：请求 ID，用于标识触发了函数调用的请求。</li><li>memory_limit_in_mb：函数内存限制，单位为MB。</li><li>time_limit_in_ms：函数超时时间，单位为毫秒。</li></ul></td>
+<td>获取调用事件。<br>响应体包含事件数据，结构参见 <a href="https://cloud.tencent.com/document/product/583/31927">触发器事件消息结构汇总</a>。响应头包含以下信息：<ul><li>request_id：请求 ID，用于标识触发了函数调用的请求。</li><li>memory_limit_in_mb：函数内存限制，单位为MB。</li><li>time_limit_in_ms：函数超时时间，单位为毫秒。</li></ul></td>
 </tr>
 <tr>
 <td>/runtime/invocation/next</td>
