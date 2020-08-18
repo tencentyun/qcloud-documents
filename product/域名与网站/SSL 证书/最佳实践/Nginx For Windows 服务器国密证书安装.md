@@ -7,6 +7,7 @@
 >- 本文档以证书名称 `cloud.tencent.com` 为例。
 >- 当前服务器的操作系统为 Windows Server 2012 R2，由于操作系统的版本不同，详细操作步骤略有区别。
 >- 安装 SSL 证书前，请您开启服务器上 “443” 端口，避免证书安装后无法启用 HTTPS。具体可参考 [服务器如何开启443端口？](https://cloud.tencent.com/document/product/400/45144)
+>- SSL 证书文件上传至服务器方法可参考 [如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
 
 ### 下载 Windows For Nginx 国密版
 | Nginx 版本 | 34位 | 64位 |
