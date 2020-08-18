@@ -52,10 +52,10 @@
 
 ## 1.21.3-Finchley-RELEASE(2020-07-16)
 ### Bug 修复
-- 修复网关 MSGW SDK 和服务发现 SDK 不兼容，造成拉取服务列表过快的问题
-- 修复mysql调用链中sql截断问题
+- 修复网关 MSGW SDK 和服务发现 SDK 不兼容，造成拉取服务列表过快的问题。
+- 修复 MySQL 调用链中 SQL 截断问题。
 ### 优化
-- spring-cloud-tsf-gateway 网关兼容新插件类型
+- spring-cloud-tsf-gateway 网关兼容新插件类型。
 
 ## 1.21.2-Finchley-RELEASE (2020-07-06)
 
