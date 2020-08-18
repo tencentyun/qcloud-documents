@@ -53,7 +53,12 @@
 
 优化默认日志配置支持容器部署场景。
 
+## 1.21.3-Greenwich-RELEASE 
+### Bug 修复
+- 处理mysql中sql获取截断的问题。
+
 ## 1.21.2-Greenwich-RELEASE 
+
 ### Bug 修复
 - 处理tomcat组件开源漏洞风险。
   - 升级org.apache.tomcat.embed.tomcat-embed-core到9.0.36版本。
