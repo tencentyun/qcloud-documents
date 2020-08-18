@@ -51,7 +51,7 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#gjpz) 和 [手�
   <tr>
   <td rowspan="2">
   <ul>
-  <li>Ubuntu14.04/Ubuntu 12.04/Ubuntu 16/Ubuntu 18/Ubuntu 20</li>
+  <li>Ubuntu14.04/Ubuntu 12.04/Ubuntu 16/Ubuntu 18</li>
   <li>Debian 8/Debian 9</li>
   <li>CoreOS 17</li>
   <li>Tencent Linux</li>
@@ -85,7 +85,7 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#gjpz) 和 [手�
   - [CentOS 6.8 配置 IPv6](#CentOS6.8)
   - [CentOS 7.3/CentOS 7.5/ CentOS 7.6 配置 IPv6](#CentOS7.3)
   - [Debian 8.2 配置 IPv6](#Debian8.2)
-  - [Ubuntu 14/Ubuntu 16/Ubuntu 18/Ubuntu 20 配置IPv6](#Ubuntu18)
+  - [Ubuntu 14/Ubuntu 16/Ubuntu 18 配置IPv6](#Ubuntu18)
   - [OpenSUSE 42 配置IPv6](#Opensuse)
   - [SUSE 10 配置IPv6](#suse)
   - [FreeBSD 11 配置IPv6](#Freebsd11)
@@ -119,7 +119,7 @@ enable_ipv6 工具可以为已分配 IPv6 地址的 CVM 实例，一键配置 IP
 ### config_ipv6 工具配置 <span id="open" />
 config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例，一键配置 IPv6 地址。
 
-#### **使用限制**
+#### 使用限制
 - config_ipv6 工具仅适用于 VPC 网络环境下。
 - config_ipv6 工具运行时会自动重启网卡、网络服务，短时间内网络可能会不可用，请慎重执行。
 
@@ -136,32 +136,35 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
    # 示例 1：./config_ipv6.sh eth0
    # 示例 2：./config_ipv6.sh eth1
 ```
-   - 对于已经绑定 IPv6 地址的 CVM，将自动完成配置。
-   - 对于需要自动化配置 IPv6 实例的需求，例如大批量配置，建议您使用实例自定义数据配合脚本的方式来调用。详情请参见 [实例自定义数据](https://cloud.tencent.com/document/product/213/17525)。如下为脚本示例（假设是 RHEL 系列，Bash Shell 脚本）。
-   > ?该示例仅对 eth0 进行配置，实际操作时注意修改为实际使用的网卡名。
-   > 
-```plaintext
-   #!/bin/sh
-   install_dir=/usr/sbin
-   install_path="$install_dir"/config-ipv6
-   if [ ! -f "$install_path" ]; then
-       tool_url="https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/config_ipv6.sh"
-       # download the tool
-       if ! wget "$tool_url" -O "$install_path"; then
-           echo "[Error] download tool failed, code $?"
-           exit "$?"
-       fi
-   fi
-   # chmod the tool
-   if ! chmod +x "$install_path"; then
-       echo "[Error] chmod tool failed, code $?"
-       exit "$?"
-   fi
-   # run the tool
-   $install_path eth0
-```
 3. （此步骤仅适用于 CoreOS 操作系统）重启云服务器，使上述配置生效。
 
+
+#### **开机自动配置IPv6**
+
+对于需要自动化配置 IPv6 实例的需求，例如大批量配置，建议您使用实例自定义数据配合脚本的方式来调用。详情请参见 [实例自定义数据](https://cloud.tencent.com/document/product/213/17525)。如下为脚本示例（假设是 RHEL 系列，Bash Shell 脚本）。
+
+> ?该示例仅对 eth0 进行配置，实际操作时注意修改为实际使用的网卡名。
+
+```
+#!/bin/sh
+install_dir=/usr/sbin
+install_path="$install_dir"/config-ipv6
+if [ ! -f "$install_path" ]; then
+    tool_url="https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/config_ipv6.sh"
+    # download the tool
+    if ! wget "$tool_url" -O "$install_path"; then
+        echo "[Error] download tool failed, code $?"
+        exit "$?"
+    fi
+fi
+# chmod the tool
+if ! chmod +x "$install_path"; then
+    echo "[Error] chmod tool failed, code $?"
+    exit "$?"
+fi
+# run the tool
+$install_path eth0
+```
 
 <span id="manual"/>
 
@@ -172,19 +175,18 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
 ### CentOS 6.8 配置 IPv6
 1. 远程连接实例。具体操作，请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
-   ```
+	 ```
    ip addr | grep inet6
-   或者
+	 或者
    ifconfig | grep inet6
    ```
  + 若实例未开启 IPv6 功能支持，请根据下文继续开启 IPv6 功能支持。 
  + 若返回`inet6`相关内容，表示实例已成功开启 IPv6 功能支持，您可以跳至 [第5步](#centstep5) 继续操作。
 3. 执行以下步骤修改并保存`ipv6.conf`文件。
 	1. 执行如下命令，打开`/etc/modprobe.d/`文件夹下的`ipv6.conf`文件。
-	
-	 ```
+	```
 	   vi /etc/modprobe.d/ipv6.conf
-	 ```
+  ```
 	 
 	2.  按 “i” 切换至编辑模式，将如下的内核参数设置为0。
 	
@@ -243,16 +245,16 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
    ifconfig
    ```
  若出现以下报文说明成功获取 IPv6 地址。
- ![](https://main.qcloudimg.com/raw/cedd7cbd7f5e649c01345356fa0d2688.png)
-10. 请参考 [SSH支持IPv6配置](#ssh-ipv6) 为SSH开启IPv6功能。
+ ![](https://main.qcloudimg.com/raw/cedd7cbd7f5e649c01345356fa0d2688.png) 
+10. 请参考 [SSH 支持 IPv6 配置](#ssh-ipv6) 为SSH开启IPv6功能。
+
+
 <span id="CentOS7.3"/>
-
-
 
 ### CentOS 7.3/CentOS 7.5/CentOS 7.6 配置 IPv6
 
 1. 远程连接实例。具体操作，请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
-2. 检查实例是否已开启 IPv6功能支持，执行如下命令：
+2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
  ```
    ip addr | grep inet6
    或者
@@ -296,11 +298,11 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
   3. 按 “Esc”，输入 “:wq”，保存文件并返回。
 7. 执行以下步骤修改并保存`route6-eth0`文件。
  1. 执行如下命令，打开`/etc/sysconfig/network-scripts/`文件夹下的`route6-eth0`文件。
-  ```plaintext
+       ```plaintext
       vim /etc/sysconfig/network-scripts/route6-eth0
       ```
   2. 按 “i” 切换至编辑模式，增加如下内容，为网卡的 IPv6 添加默认出口。
- ```
+       ```
       default dev eth0 via fe80::feee:ffff:feff:ffff
       ```
  ![](https://main.qcloudimg.com/raw/3baffe425e598460caf1fc2de45e10d8.png)
@@ -319,7 +321,7 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
    ```
 若出现以下报文表示已成功获取到 IPv6 地址。
 ![](https://main.qcloudimg.com/raw/2e42f1a5e7b9672d60461fe05edfed52.png)
-10. 请参考 [SSH支持IPv6配置](#ssh-ipv6) 为 SSH 开启 IPv6 功能。
+10. 请参考 [SSH 支持 IPv6 配置](#ssh-ipv6) 为 SSH 开启 IPv6 功能。
 
 
 
@@ -374,7 +376,7 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
 
 <span id="Ubuntu18"/>
 
-### Ubuntu 14/Ubuntu 16/Ubuntu 18/Ubuntu 20 配置 IPv6
+### Ubuntu 14/Ubuntu 16/Ubuntu 18 配置 IPv6
 
 1. 远程连接实例。具体操作，请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
@@ -435,7 +437,7 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
         gateway <IPv6网关>
         ```
  2. 重启网络服务：运行`service network restart`或`systemctl restart networking`。
-6. <span id="ubstep6"/>如果镜像类型为 Ubuntu 18/Ubuntu 20，请执行如下操作配置 IPv6。
+6. <span id="ubstep6"/>如果镜像类型为 Ubuntu 18，请执行如下操作配置 IPv6。
  1. 编辑网卡配置文件。
  ```
       vi /etc/netplan/50-cloud-init.yaml
@@ -460,7 +462,7 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
 ```plaintext
       netplan apply
       ```
-7. 请参考[SSH支持IPv6配置](#ssh-ipv6)开启 SSH 的 IPv6 功能。
+7. 请参考[SSH 支持 IPv6 配置](#ssh-ipv6)开启 SSH 的 IPv6 功能。
 
 
 
@@ -493,7 +495,7 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
    ```
 4. 运行`sysctl -p`使配置生效。
 5. <span id="opensusestep4"/>配置 IPv6。OpenSUSE 42镜像类型的云服务器 IPv6 操作步骤有脚本方式和手动方式。请根据实际情况选择配置方式。
-**脚本方式**
+#### 脚本方式
  1. 将如下脚本拷贝到 shell 文件中，这里以 test.sh 为例。
  ```plaintext
       dev=$1
@@ -524,7 +526,7 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
       ./test.sh eth0 0 2402:4e00:1000:4200:0:8f0c:d527:b985 64
       ```
 			
-  **手动方式**
+  #### 手动方式
   1. 运行如下脚本，打开网卡配置文件。
 ```plaintext
       vi /etc/sysconfig/network/ifcfg-eth0
@@ -551,13 +553,13 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
       default <IPv6网关> - -
       ```
    3. 重启网络服务：运行`service network restart`或`systemctl restart networking`。
-6. 请参考[SSH支持IPv6配置](#ssh-ipv6)开启 SSH 的 IPv6 功能。
+6. 请参考[SSH 支持 IPv6 配置](#ssh-ipv6)开启 SSH 的 IPv6 功能。
 
 
 
 
 
-### <span id="suse"/>SUSE 10 配置IPv6
+### <span id="suse"/>SUSE 10 配置 IPv6
 
 1. 远程连接实例。具体操作，请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 2. 运行如下命令，并做相应修改，开启 IPv6 功能支持。
@@ -575,8 +577,8 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
    net.ipv6.conf.lo.disable_ipv6 = 0
    ```
 3. 运行`sysctl -p`使配置生效。
-4. 配置IPv6。SUSE 10镜像类型的云服务器IPv6操作步骤有脚本方式和手动方式。请根据实际情况选择配置方式。
-**脚本方式**
+4. 配置 IPv6，SUSE 10镜像类型的云服务器 IPv6 操作步骤有脚本方式和手动方式。请根据实际情况选择配置方式。
+#### 脚本方式
   1. 将如下脚本拷贝到 shell 文件中，这里以 test.sh 为例。
  ```plaintext
       dev=$1
@@ -603,11 +605,12 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
       + ip6 表示本机的 ipv6 地址，例如2607:f0d0:1002:0011:0000:0000:0000:0002。
       + prefix_len 表示子网前缀长度，例如64。
   2. 执行脚本，举例如下。
-    ```
+      ```
       ./test.sh eth0 0 2402:4e00:1000:4200:0:8f0c:d527:b985 64
       ```
 
- **手动方式**
+ #### 手动方式
+ 
  1. 运行如下脚本，打开网卡配置文件。
      ```plaintext
       vi /etc/sysconfig/network/ifcfg-eth0
@@ -630,11 +633,11 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
         PREFIXLEN_2=<子网前缀长度>
         ```
  2. 运行`vi /etc/sysconfig/network/routes`打开路由配置文件，添加配置项。
-    ```
+      ```
       default <IPv6网关> - -
       ```
  3. 重启网络服务：运行`service network restart`或`systemctl restart networking`。
-5. 请参考[SSH支持IPv6配置](#ssh-ipv6)开启 SSH 的 IPv6 功能。
+5. 请参考 [SSH 支持 IPv6 配置](#ssh-ipv6) 开启 SSH 的 IPv6 功能。
 
 
 
@@ -642,13 +645,15 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
 <span id="Freebsd11"/>
 
 ### FreeBSD 11 配置 IPv6
-FreeBSD 11配置 IPv6 有脚本方式和手动方式，请根据实际情况选择配置方式。
-**脚本方式**
+FreeBSD 11 配置 IPv6 有脚本方式和手动方式，请根据实际情况选择配置方式。
+
+#### 脚本方式
+
 > !**本脚本会重启网络，谨慎执行**。
 
 1. 远程连接实例。具体操作，请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 2. 将如下脚本拷贝到 shell 文件中，这里以“test.sh”为例。
-```plaintext
+      ```plaintext
    key_value_editer() 
    {
        local file=$1
@@ -692,12 +697,13 @@ FreeBSD 11配置 IPv6 有脚本方式和手动方式，请根据实际情况选�
    + ip6 表示本机的 ipv6 地址，例如 2607:f0d0:1002:0011:0000:0000:0000:0002。
    + prefix_len 表示子网前缀长度，例如 64。
 3. 执行脚本，举例如下。
- ```
+   ```
    sh ./test.sh vtnet0 2402:4e00:1000:4200:0:8f0c:d527:b985 64
    ```
-4. 请参考[SSH支持IPv6配置](#ssh-ipv6)开启 SSH 的 IPv6 功能。
+4. 请参考[ SSH 支持 IPv6 配置](#ssh-ipv6)开启 SSH 的 IPv6 功能。
 
-**手动方式**
+#### 手动方式
+
 1. 远程连接实例。具体操作，请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 2. 运行`vi /etc/rc.conf`命令。
 3. 删除`ipv6_network_interfaces='none'` ，并修改`ipv6_activate_all_interfaces='NO'`为`ipv6_activate_all_interfaces='YES'`后保存退出。
@@ -705,14 +711,13 @@ FreeBSD 11配置 IPv6 有脚本方式和手动方式，请根据实际情况选�
 5. 运行`vi /etc/rc.conf`打开网卡配置文件，`vtnet0`为网卡标识符，您需要修改成实际的标识符。在文件中根据实际信息添加以下配置：
 
     + 单 IPv6 地址：
-   ```plaintext
+     ```plaintext
      ipv6_ifconfig_vtnet0="<IPv6地址>"
      ipv6_defaultrouter="<IPv6网关>"
      ```
 		 
     + 多 IPv6 地址：
-  
-   ```plaintext
+    ```plaintext
      ipv6_ifconfig_vtnet0="<IPv6地址1>"
      ipv6_ifconfig_vtnet0="<IPv6地址2>"
      ipv6_defaultrouter="<IPv6网关>"
@@ -721,7 +726,7 @@ FreeBSD 11配置 IPv6 有脚本方式和手动方式，请根据实际情况选�
 > ?为区分单个 IPv6 与多个 IPv6 地址，您只需在同一网卡标识符的基础上重复添加地址信息即可。
 
 6. 运行`/etc/netstart restart`重启网络服务，使配置生效。
-7. 请参考[SSH支持IPv6配置](#ssh-ipv6)开启 SSH 的 IPv6 功能。
+7. 请参考[ SSH 支持 IPv6 配置](#ssh-ipv6)开启 SSH 的 IPv6 功能。
 
 
 
