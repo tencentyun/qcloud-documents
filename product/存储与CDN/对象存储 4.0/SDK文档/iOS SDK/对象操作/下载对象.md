@@ -16,7 +16,7 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](http
 
 高级接口支持暂停、恢复以及取消下载请求，同时支持断点下载功能。
 
-#### 示例代码
+#### 示例代码: 下载对象
 **Objective-C**
 
 [//]: # (.cssg-snippet-transfer-download-object)
@@ -30,7 +30,6 @@ request.bucket = @"examplebucket-1250000000";
 request.object = @"exampleobject";
 
 // 设置下载的路径 URL，如果设置了，文件将会被下载到指定路径中
-// 如果未设置该参数，那么文件将会被下载至内存里，存放在在 finishBlock 的 outputObject 里
 request.downloadingURL = [NSURL fileURLWithPath:@"Local File Path"];
 
 // 本地已下载的文件大小，如果是从头开始下载，请不要设置
@@ -74,7 +73,6 @@ request.bucket = "examplebucket-1250000000";
 request.object = "exampleobject";
 
 // 设置下载的路径 URL，如果设置了，文件将会被下载到指定路径中
-// 如果未设置该参数，那么文件将会被下载至内存里，存放在在 finishBlock 的 result 里
 request.downloadingURL = NSURL.fileURL(withPath: "Local File Path") as URL?;
 
 // 本地已下载的文件大小，如果是从头开始下载，请不要设置
@@ -123,7 +121,6 @@ request.cancel();
 QCloudGetObjectRequest* request = [QCloudGetObjectRequest new];
 
 // 设置下载的路径 URL，如果设置了，文件将会被下载到指定路径中
-// 如果未设置该参数，那么文件将会被下载至内存里，存放在在 finishBlock 的 outputObject 里
 request.downloadingURL = [NSURL URLWithString:QCloudTempFilePathWithExtension(@"downding")];
 
 // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "dir1/object1"
@@ -163,7 +160,6 @@ getObject.bucket = "examplebucket-1250000000";
 // 对象键，是对象在 COS 上的完整路径，如果带目录的话，格式为 "dir1/object1"
 getObject.object = "exampleobject";
 // 设置下载的路径 URL，如果设置了，文件将会被下载到指定路径中
-// 如果未设置该参数，那么文件将会被下载至内存里，存放在在 finishBlock 的 result 里
 getObject.downloadingURL = URL.init(string: NSTemporaryDirectory())!
     .appendingPathComponent(getObject.object);
 getObject.finishBlock = {(result,error) in

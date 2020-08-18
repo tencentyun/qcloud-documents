@@ -157,7 +157,7 @@ Container 类型 DocProcess 的具体数据描述如下：
 | SrcType            | Request.Operation.DocProcess | 源数据的后缀类型，当前文档转换根据 cos 对象的后缀名来确定源数据类型，当 cos 对象没有后缀名时，可以设置该值 | String | 否       |
 | TgtType            | Request.Operation.DocProcess | 转换输出目标文件类型：png，转成 png 格式的图片文件；jpg，转成 jpg 格式的图片文件；如果传入的格式未能识别，默认使用 jpg 格式 | String | 否       |
 | StartPage          | Request.Operation.DocProcess | 从第 x 页开始转换，默认为1                                   | int    | 否       |
-| EndPage            | Request.Operation.DocProcess | 转换至第 x 页，默认为200，如果需要转换全部页，设置为-1。<br>注意：文档预览转换页数限制在5000页之内，如果转换页数大于5000，默认只返回前5000页内容。 | int    | 否       |
+| EndPage            | Request.Operation.DocProcess | 转换至第 x 页，默认为-1，即转换全部页。<br>注意：文档预览转换页数限制在5000页之内，如果转换页数大于5000，默认只返回前5000页内容。 | int    | 否       |
 | ImageParams        | Request.Operation.DocProcess | 转换后的图片处理参数，支持 [基础图片处理](https://cloud.tencent.com/document/product/460/6924) 所有处理参数，多个处理参数可通过 [管道操作符](https://cloud.tencent.com/document/product/460/15293) 分隔，从而实现在一次访问中按顺序对图片进行不同处理 | String | 否       |
 
 

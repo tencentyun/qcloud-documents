@@ -362,6 +362,9 @@ volumechange
 
 应用案例：通过事件监听，可以进行播放失败重连，[单击访问](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-reconnect.html) 在线案例。
 
+## 案例展示
+结合了 TcPlayer 和即时通信 IM 的腾讯云 Web 直播互动组件：[体验地址](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblivedemo/index.html)。
+
 ## 更新日志
 TCPlayerLite 在不断更新及完善中，下面是 TCPlayerLite 发布的主版本介绍。
 

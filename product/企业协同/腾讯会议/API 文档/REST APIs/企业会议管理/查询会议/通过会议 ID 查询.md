@@ -32,8 +32,7 @@
 |meeting_id   |String| 会议的唯一标示 。  |
 |meeting_code    |String| 会议 App 的呼入号码。  |
 |password   |String | 会议密码。  |
-|status|String|当前会议状态：<br>MEETING_STATE_INVALID：非法或未知的会议状态，错误状态<br>  MEETING_STATE_INIT：会议的初始状态，表示还没有人入会<br>  MEETING_STATE_CANCELLED：会议已取消<br> MEETING_STATE_STARTED：会议已开始，有人入会<br>MEETING_STATE_ENDED：会议已结束|
-|type|Integer|会议类型：<br>0：预约会议类型<br>1： 快速会议类型|
+|status|String|当前会议状态：<br>MEETING_STATE_INVALID：非法或未知的会议状态，错误状态<br>  MEETING_STATE_INIT：会议的初始状态，表示还没有人入会<br>  MEETING_STATE_CANCELLED：会议已取消<br> MEETING_STATE_STARTED：会议已开始，有人入会<br>MEETING_STATE_ENDED：会议已结束<br>MEETING_STATE_RECYCLED：会议号已被回收|
 |hosts   |String 数组 | 会议主持人列表 。  |
 |participants  |String数组|邀请的参会者 。|
 |start_time  |String | 会议开始时间戳（单位秒）。 |
@@ -47,7 +46,7 @@
 | 参数名称 |参数类型 | 参数描述 |
 |---------|---------|---------|
 |mute_enable_join  |Bool | 加入静音状态。  |
-|meeting_info_list  |Bool| 静音自解除允许 。  |
+|allow_unmute_set  |Bool| 允许自我解除静音 。  |
 
 ## 示例
 #### 输入示例
@@ -70,7 +69,6 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
       "status": "MEETING_STATE_ENDED",      
       "start_time": "1572085800",      
       "end_time": "1572089400", 
-      "type": 1,     
       "hosts": [  
         "tester" 
       ],      

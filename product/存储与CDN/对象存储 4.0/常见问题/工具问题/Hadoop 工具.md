@@ -1,4 +1,4 @@
-## 使用/咨询类问题
+## 使用/咨询问题
 
 ### 什么是 Hadoop-COS 工具？
 Hadoop-COS 为 Apache Hadoop、Spark 以及 Tez 等大数据计算框架集成提供支持，可以像访问 HDFS 一样读写存储在腾讯云 COS 上的数据。同时也支持作为 Druid 等查询与分析引擎的 Deep Storage。

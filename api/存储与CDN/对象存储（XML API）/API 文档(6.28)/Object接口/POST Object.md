@@ -43,6 +43,7 @@ Content-Length: Content Length
 | success_action_status   | 上传成功时返回的 HTTP 状态码，可选200、201或204，默认为204。如果指定了 success_action_redirect 字段，则此字段会被忽略。相关示例请参见本文档的 [案例九](#step9) | number | 否       |
 | x-cos-meta-\*           | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为对象元数据保存，大小限制为2KB<br>**注意：**用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-） | string | 否       |
 | x-cos-storage-class     | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD、MAZ_STANDARD_IA、STANDARD_IA、ARCHIVE。默认值：STANDARD | Enum   | 否       |
+| x-cos-traffic-limit | 针对本次上传进行流量控制的限速值，必须为数字，单位默认为 bit/s。限速值设置范围为819200 - 838860800，即100KB/s - 100MB/s，如果超出该范围将返回400错误 | integer | 否       |
 | Content-MD5             | 经过 Base64 编码的文件内容 MD5 哈希值，用于完整性检查，验证文件内容在传输过程中是否发生变化 | string | 否       |
 | file                    | 文件的信息和内容，通过网页表单上传时，浏览器将自动设置该字段的值为正确的格式<br>**注意：**file 字段必须放在整个表单的最后面。 | file   | 是       |
 
@@ -161,6 +162,7 @@ c. 拼接签名有效时间，格式为`StartTimestamp;EndTimestamp`，即为 Ke
 
 | 名称             | 描述                                   | 类型   | 是否必选 |
 | ---------------- | -------------------------------------- | ------ | -------- |
+| x-cos-security-token | 使用临时安全凭证时需要传入的安全令牌字段，详情请参见 [临时安全凭证](https://cloud.tencent.com/document/product/436/31315#.E4.B8.B4.E6.97.B6.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81) 相关说明 | string | 否，当使用临时<br>密钥时，此表单项为必选项 |
 | policy           | 经过 Base64 编码的“策略”（Policy）内容 | string | 是       |
 | q-sign-algorithm | 签名哈希算法，固定为 sha1              | string | 是       |
 | q-ak             | 上文所述的 SecretId                    | string | 是       |
