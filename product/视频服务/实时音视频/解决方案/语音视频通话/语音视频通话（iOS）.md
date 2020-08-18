@@ -122,7 +122,7 @@ iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model
 
 ### 步骤4：初始化并登录组件
 
-1. 设置推送相关信息。
+1. 设置推送相关信息。（如果您不需要离线接听，则忽略）
 ```
 [TRTCCalling shareInstance].imBusinessID = your business ID;
 [TRTCCalling shareInstance].deviceToken =  deviceToken;
@@ -276,7 +276,7 @@ IM SDK 支持离线推送，您需要进行相应的设置才能达到可用标�
 
 1. 申请 Apple 推送证书，具体操作请参见 [Apple 推送证书申请](https://cloud.tencent.com/document/product/269/3898)。
 2. 在后台及客户端配置离线推送，具体操作请参见 [离线推送（iOS）](https://cloud.tencent.com/document/product/269/9154)。
-3. 修改 login 函数中的 param.busiId 为对应证书 ID。
+3. 参考步骤4，控制台分配的证书ID，设置到对应的 imBusinessID 属性。
 
 <span id="api"> </span>
 
