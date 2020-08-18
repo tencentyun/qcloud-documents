@@ -59,7 +59,7 @@ $ docker run -it --network=host -v /path/to/your-project:/tmp/your-project pytho
 4    8
 dtype: int64
 ```
-3. 此时函数可以运行，但将产生警告“提示无法加载 lzma 模块，若使用 lzma 压缩则会导致运行时错误”。为解决此问题，需要进入容器内部，执行以下命令：
+3. 此时函数可以运行，但将产生警告提示“无法加载 lzma 模块，若使用 lzma 压缩则会导致运行时错误”。为解决此问题，我们需要进入容器内部，执行以下命令：
 ```plaintext
 $ docker run -it --network=host -v /tmp/foo:/tmp/bar python:3.6.1 /bin/bash
 ```
