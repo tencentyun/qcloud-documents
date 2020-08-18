@@ -18,9 +18,8 @@ Content-Type: application/xml
 ```
 
 >?
->
->- 此接口 Host 需要填写数据万象域名。
->- Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+- 此接口 Host 需要填写数据万象域名。
+- Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求头
 
