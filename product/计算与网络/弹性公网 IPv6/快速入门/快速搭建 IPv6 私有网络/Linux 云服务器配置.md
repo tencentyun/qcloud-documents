@@ -189,7 +189,7 @@ $install_path eth0
 	 
 	2.  按 “i” 切换至编辑模式，将如下的内核参数设置为0。
 	
-		 ```
+		 ```plaintext
 	   options ipv6 disable=0
 	   ```
 		 
@@ -212,7 +212,7 @@ $install_path eth0
        vi /etc/sysconfig/network
        ```
   2. 按 “i” 切换至编辑模式，增加如下内容。
-		```
+		```plaintext
        NETWORKING_IPV6=yes
        DHCPV6C=yes
        ```
@@ -267,7 +267,7 @@ $install_path eth0
      vim /etc/sysctl.conf
      ```
  2.  按 “i” 切换至编辑模式，将如下的 IPv6 相关参数设置为0。
-  ```
+  ```plaintext
      net.ipv6.conf.all.disable_ipv6 = 0
      net.ipv6.conf.default.disable_ipv6 = 0
      net.ipv6.conf.lo.disable_ipv6 = 0
@@ -290,7 +290,7 @@ $install_path eth0
      vim /etc/sysconfig/network-scripts/ifcfg-eth0
      ```
   2.  按 “i” 切换至编辑模式，增加如下内容。
-  ```
+  ```plaintext
      DHCPV6C=yes
      ```
  ![](https://main.qcloudimg.com/raw/7eb7d1dbf6e9773ca3282979587d4f55.png)
@@ -342,7 +342,7 @@ $install_path eth0
 	   vim /etc/sysctl.conf
 	   ```
 	2.  按 “i” 切换至编辑模式，将如下的 IPv6 相关参数设置为0。
-	 ```
+	 ```plaintext
 	   net.ipv6.conf.all.disable_ipv6 = 0
 	   net.ipv6.conf.default.disable_ipv6 = 0
 	   ```
@@ -550,7 +550,7 @@ $install_path eth0
       default <IPv6网关> - -
       ```
    3. 重启网络服务：运行`service network restart`或`systemctl restart networking`。
-6. 请参考[ SSH 支持 IPv6 配置](#ssh-ipv6)开启 SSH 的 IPv6 功能。
+6. 请参考[ SSH 支持 IPv6 配置 ](#ssh-ipv6)开启 SSH 的 IPv6 功能。
 
 
 
@@ -558,7 +558,7 @@ $install_path eth0
 
 ### <span id="suse"/>SUSE 10 配置 IPv6
 
-1. 远程连接实例。具体操作，请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
+1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 2. 运行如下命令，并做相应修改，开启 IPv6 功能支持。
  ```plaintext
    vi /etc/sysctl.conf
@@ -648,7 +648,7 @@ FreeBSD 11 配置 IPv6 有脚本方式和手动方式，请根据实际情况选
 
 > !本脚本会重启网络，谨慎执行。
 
-1. 远程连接实例。具体操作，请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
+1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 2. 将如下脚本拷贝到 shell 文件中，这里以“test.sh”为例。
       ```plaintext
    key_value_editer() 
@@ -697,11 +697,11 @@ FreeBSD 11 配置 IPv6 有脚本方式和手动方式，请根据实际情况选
    ```plaintext
    sh ./test.sh vtnet0 2402:4e00:1000:4200:0:8f0c:d527:b985 64
    ```
-4. 请参考[ SSH 支持 IPv6 配置](#ssh-ipv6)开启 SSH 的 IPv6 功能。
+4. 请参考[ SSH 支持 IPv6 配置 ](#ssh-ipv6)开启 SSH 的 IPv6 功能。
 
 #### 手动方式
 
-1. 远程连接实例。具体操作，请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
+1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 2. 运行`vi /etc/rc.conf`命令。
 3. 删除`ipv6_network_interfaces='none'` ，并修改`ipv6_activate_all_interfaces='NO'`为`ipv6_activate_all_interfaces='YES'`后保存退出。
 4. 运行`/etc/netstart restart`重启网络。
@@ -723,7 +723,7 @@ FreeBSD 11 配置 IPv6 有脚本方式和手动方式，请根据实际情况选
 > ?为区分单个 IPv6 与多个 IPv6 地址，您只需在同一网卡标识符的基础上重复添加地址信息即可。
 
 6. 运行`/etc/netstart restart`重启网络服务，使配置生效。
-7. 请参考[ SSH 支持 IPv6 配置](#ssh-ipv6)开启 SSH 的 IPv6 功能。
+7. 请参考[ SSH 支持 IPv6 配置 ](#ssh-ipv6)开启 SSH 的 IPv6 功能。
 
 
 
