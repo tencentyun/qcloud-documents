@@ -1,12 +1,15 @@
-使用 Python，Node.js 等语言开发云函数 SCF 时，由于操作系统版本、系统库版本及语言版本不一致，在本地环境运行良好的程序部署到 SCF 后可能会出现错误。为解决依赖安装的问题，本文档介绍使用 `Docker` 为函数安装依赖。请参考以下示例：
-- [为 `Node.js 8.9`安装 `nodejieba`](#node)。
-- [为 `Python 3.6`安装 `pandas`](#python)。
+使用 Python，Node.js 等语言开发云函数 SCF 时，由于操作系统版本、系统库版本及语言版本不一致，在本地环境运行良好的程序部署到 SCF 后可能会出现错误。为解决依赖安装问题，本文档介绍使用 Docker 为函数安装依赖。详情请参考以下示例：
+- [为 Node.js 8.9 安装 nodejieba](#node)。
+- [为 Python 3.6 安装 pandas](#python)。
 
 ## 安装 Docker
 
-安装 `Docker`，详情请参阅 [Docker](https://docs.docker.com/install/)。
+安装 Docker，详情请参见 [Docker](https://docs.docker.com/install/)。
 
-## Node 安装示例<span id="node"></span>
+
+<span id="node"></span>
+## Node 安装示例
+
 本节以下述代码为例：
 ```js
 'use strict';
@@ -18,19 +21,21 @@ exports.main_handler = async (event, context, callback) => {
 };
 ```
 此示例可在 Windows 和 macOS 上正确运行，但部署到 SCF 时会出现如下错误代码提示：
-```js
+```plaintext
 {"errorCode":1,"errorMessage":"user code exception caught","stackTrace":"/var/user/node_modules/nodejieba/build/Release/nodejieba.node: invalid ELF header"}
 ```
-为解决此问题，可使用 `Docker` 来安装依赖。请参考以下命令：
-```js
+为解决此问题，可使用 Docker 来安装依赖。请参考以下命令：
+```plaintext
 $ docker run -it --network=host -v /path/to/your-project:/tmp/your-project node:8.9 /bin/bash -c 'cd /tmp/your-project && npm install nodejieba --save'
 ```
 
-其中，`/path/to/your-project` 是项目路径, 对应于 `Docker` 容器里的 `/tmp/your-project` 目录。因此，在容器里的 `/tmp/your-project` 目录下安装 `nodejieba`，即在项目路径下安装了 `nodejieba`。依赖安装完成后，将代码重新部署到 SCF 上即可正常运行函数。
+其中，`/path/to/your-project`是项目路径，对应于 Docker 容器里的`/tmp/your-project`目录。因此，我们需要在容器里的`/tmp/your-project`目录下安装 nodejieba，即在项目路径下安装 nodejieba。依赖安装完成后，将代码重新部署到 SCF 上即可正常运行函数。
 
-## Python 安装示例<span id="python"></span>
+
+<span id="python"></span>
+## Python 安装示例
 本节以下述代码为例：
-```js
+```plaintext
 import pandas as pd
 
 def main_handler(event, context):
@@ -38,12 +43,13 @@ def main_handler(event, context):
     print(s)
     return len(s)
 ```
-为 `Python 3.6`安装 `pandas`。请参考以下命令：
-```js
+
+1. 为 Python 3.6 安装 pandas，安装命令参考如下：
+```plaintext
 $ docker run -it --network=host -v /path/to/your-project:/tmp/your-project python:3.6.1 /bin/bash -c 'cd /tmp/your-project && pip install pandas -t .'
 ```
-依赖安装完成后，将代码重新部署到 SCF 上并运行，可收到如下日志：
-```js
+2. 依赖安装完成后，将代码重新部署到 SCF 上并运行，可收到如下日志：
+```plaintext
 /var/user/pandas/compat/__init__.py:84: UserWarning: Could not import the lzma module. Your installed Python is incomplete. Attempting to use lzma compression will result in a RuntimeError.
   warnings.warn(msg)
 0    1
@@ -53,11 +59,11 @@ $ docker run -it --network=host -v /path/to/your-project:/tmp/your-project pytho
 4    8
 dtype: int64
 ```
-此时函数可以运行，但会产生警告提示无法加载 `lzma` 模块，若使用 `lzma` 压缩则会导致运行时错误。为解决此问题，需要进入容器内部，执行以下命令：
-```js
+3. 此时函数可以运行，但将产生警告“提示无法加载 lzma 模块，若使用 lzma 压缩则会导致运行时错误”。为解决此问题，需要进入容器内部，执行以下命令：
+```plaintext
 $ docker run -it --network=host -v /tmp/foo:/tmp/bar python:3.6.1 /bin/bash
 ```
-执行以下命令，安装 `pandas`。
+4. 执行以下命令，安装 pandas：
 ```js
 $ cd /tmp/bar
 $ pip install pandas -t .
@@ -73,7 +79,7 @@ echo <<EOF >> index.py
 > EOF
 $ python -v index.py > run.log 2>&1
 ```
-可查看日志，如以下代码：
+5. 执行如下命令查看日志，日志示例如下：
 ```js
 $ grep lzma run.log
 # /usr/local/lib/python3.6/__pycache__/lzma.cpython-36.pyc matches /usr/local/lib/python3.6/lzma.py
@@ -89,15 +95,11 @@ import 'lzma' # <_frozen_importlib_external.SourceFileLoader object at 0x7f446c4
 # destroy _lzma
 # destroy lzma
 ```
-
-从上面的日志可以看到, 函数运行时确实会加载 `lzma`, 所以我们至少需要以下两个文件
-
-- `/usr/local/lib/python3.6/lzma.py`
-- `/usr/local/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so`
-
-进一步地, 我们看看这个 `so` 文件有哪些依赖
-
-```js
+从上面的日志可以查看函数运行时，需要加载 lzma，因此我们至少需要以下两个文件：
+	- `/usr/local/lib/python3.6/lzma.py`
+	- `/usr/local/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so`
+6. 同时，执行如下命令，查看 so 文件有哪些依赖：
+```plaintext
 $ ldd /usr/local/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so
 	linux-vdso.so.1 (0x00007fff75bb1000)
 	liblzma.so.5 => /lib/x86_64-linux-gnu/liblzma.so.5 (0x00007fc743370000)
@@ -109,26 +111,21 @@ $ ldd /usr/local/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so
 	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007fc742166000)
 	/lib64/ld-linux-x86-64.so.2 (0x00007fc74379c000)
 ```
+通过查看命令执行结果，除去部分系统库，额外需要以下两个文件：
+	- `/lib/x86_64-linux-gnu/liblzma.so.5`
+	- `/usr/local/lib/libpython3.6m.so.1.0`
+7. 将上述步骤5 - 6得到的4个文件，拷贝至项目路径下，并修改代码，如下：
+	```js
+	import os
 
-除去部分系统库, 看起来还需要这两个文件
+	os.environ['LD_LIBRARY_PATH'] = os.path.dirname(
+			os.path.realpath(__file__)) + ':' + os.environ['LD_LIBRARY_PATH']
 
-- `/lib/x86_64-linux-gnu/liblzma.so.5`
-- `/usr/local/lib/libpython3.6m.so.1.0`
+	import pandas as pd
 
-把这四个文件拷贝至项目路径下, 并修改代码, 如下:
-
-```js
-import os
-
-os.environ['LD_LIBRARY_PATH'] = os.path.dirname(
-    os.path.realpath(__file__)) + ':' + os.environ['LD_LIBRARY_PATH']
-
-import pandas as pd
-
-def main_handler(event, context):
-    s = pd.Series([1, 3, 5, 6, 8])
-    print(s)
-    return len(s)
-```
-
-重新部署, 现在函数可以正常运行并且没有警告了 :)
+	def main_handler(event, context):
+			s = pd.Series([1, 3, 5, 6, 8])
+			print(s)
+			return len(s)
+	```
+8. 将代码重新部署到 SCF 上，函数即可正常运行并且无告警提示。
