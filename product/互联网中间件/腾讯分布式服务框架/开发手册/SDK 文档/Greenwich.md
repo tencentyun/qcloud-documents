@@ -53,11 +53,11 @@
 
 优化默认日志配置支持容器部署场景。
 
-## 1.21.3-Greenwich-RELEASE 
+## 1.21.3-Greenwich-RELEASE（2020-07-16）
 ### Bug 修复
-- 处理mysql中sql获取截断的问题。
+修复 MySQL 中 SQL 获取截断的问题。
 
-## 1.21.2-Greenwich-RELEASE 
+## 1.21.2-Greenwich-RELEASE（2020-07-06）
 
 ### Bug 修复
 - 处理tomcat组件开源漏洞风险。
