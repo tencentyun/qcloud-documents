@@ -246,7 +246,7 @@ $install_path eth0
    ```
  若出现以下报文说明成功获取 IPv6 地址。
  ![](https://main.qcloudimg.com/raw/cedd7cbd7f5e649c01345356fa0d2688.png) 
-10. 请参考 [SSH 支持 IPv6 配置](#ssh-ipv6) 为SSH开启IPv6功能。
+10. 请参考 [SSH 支持 IPv6 配置](#ssh-ipv6) 为 SSH 开启 IPv6 功能。
 
 
 <span id="CentOS7.3"/>
@@ -369,9 +369,7 @@ $install_path eth0
  ```
    ip -6 route add default dev eth0 via fe80::feee:ffff:feff:ffff
    ```
-8. 请参考 [SSH支持IPv6配置](#ssh-ipv6) 为 SSH 开启 IPv6 功能。
-
-<span id="Ubuntu18"/>
+8. 请参考[ SSH 支持 IPv6 配置](#ssh-ipv6) 为 SSH 开启 IPv6 功能。
 
 
 <span id="Ubuntu18"/>
@@ -462,7 +460,7 @@ $install_path eth0
 ```plaintext
       netplan apply
       ```
-7. 请参考[SSH 支持 IPv6 配置](#ssh-ipv6)开启 SSH 的 IPv6 功能。
+7. 请参考[ SSH 支持 IPv6 配置](#ssh-ipv6)开启 SSH 的 IPv6 功能。
 
 
 
@@ -524,21 +522,21 @@ $install_path eth0
  2. 执行脚本，举例如下。
   ```
       ./test.sh eth0 0 2402:4e00:1000:4200:0:8f0c:d527:b985 64
-      ```
+   ```
 			
   #### 手动方式
   1. 运行如下脚本，打开网卡配置文件。
-```plaintext
+   ```plaintext
       vi /etc/sysconfig/network/ifcfg-eth0
-      ```
+   ```
  `eth0`为网卡标识符，您需要修改成实际的标识符。在文件中根据实际信息添加以下配置：
     + 单 IPv6 地址：
-```
+   ```
         IPADDR_0=<IPv6地址>
         PREFIXLEN_0=<子网前缀长度>
         ```
     + 多 IPv6 地址：
- ```
+        ```
         IPADDR_0=<IPv6地址>
         PREFIXLEN_0=<子网前缀长度>
 				
@@ -549,11 +547,11 @@ $install_path eth0
         PREFIXLEN_2=<子网前缀长度>
         ```
    2. 运行`vi /etc/sysconfig/network/routes`打开路由配置文件，添加配置项。
-```
+     ```
       default <IPv6网关> - -
       ```
    3. 重启网络服务：运行`service network restart`或`systemctl restart networking`。
-6. 请参考[SSH 支持 IPv6 配置](#ssh-ipv6)开启 SSH 的 IPv6 功能。
+6. 请参考[ SSH 支持 IPv6 配置](#ssh-ipv6)开启 SSH 的 IPv6 功能。
 
 
 
@@ -637,7 +635,7 @@ $install_path eth0
       default <IPv6网关> - -
       ```
  3. 重启网络服务：运行`service network restart`或`systemctl restart networking`。
-5. 请参考 [SSH 支持 IPv6 配置](#ssh-ipv6) 开启 SSH 的 IPv6 功能。
+5. 请参考[ SSH 支持 IPv6 配置](#ssh-ipv6) 开启 SSH 的 IPv6 功能。
 
 
 
