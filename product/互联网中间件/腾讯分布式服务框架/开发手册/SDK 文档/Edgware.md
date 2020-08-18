@@ -2,7 +2,15 @@
 
 >!2020年5月19日起，TSF 主要支持 Greenwich 和 Finchley 版本的功能更新，Edgware 版本主要进行缺陷修复，建议您优先使用 Finchley和 Greenwich 版本（[社区 Edgware 版本](https://spring.io/blog/2019/05/29/spring-cloud-edgware-sr6-released) 于2019年8月停止更新）。
 
+## 1.21.3-Edgware-RELEASE (2020-07-16)
+### Bug 修复
+- 修复网关 MSGW SDK 和服务发现 SDK 不兼容，造成拉取服务列表过快的问题
+
+### 优化
+- spring-cloud-tsf-gateway 网关兼容新插件类型
+
 ## 1.21.2-Edgware-RELEASE（2020-07-06）
+
 ### Bug 修复
 处理 tomcat 组件开源漏洞风险。
 - 升级 org.apache.tomcat.embed.tomcat-embed-core 到8.5.56版本。
