@@ -50,7 +50,7 @@
 - 优化默认日志配置支持容器部署场景。
 - 优化 TSF MSGW zuul 依赖。
 
-## 1.21.3-Finchley-RELEASE(2020-07-16)
+## 1.21.3-Finchley-RELEASE（2020-07-16）
 ### Bug 修复
 - 修复网关 MSGW SDK 和服务发现 SDK 不兼容，造成拉取服务列表过快的问题。
 - 修复 MySQL 调用链中 SQL 截断问题。
