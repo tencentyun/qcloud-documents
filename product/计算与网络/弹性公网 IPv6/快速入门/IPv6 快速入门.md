@@ -245,11 +245,12 @@ $install_path eth0
    ifconfig
    ```
  若出现以下报文说明成功获取 IPv6 地址。
- ![](https://main.qcloudimg.com/raw/cedd7cbd7f5e649c01345356fa0d2688.png)
+ ![](https://main.qcloudimg.com/raw/cedd7cbd7f5e649c01345356fa0d2688.png) 
 10. 请参考 [SSH支持IPv6配置](#ssh-ipv6) 为SSH开启IPv6功能。
 
 
 <span id="CentOS7.3"/>
+
 ### CentOS 7.3/CentOS 7.5/CentOS 7.6 配置 IPv6
 
 1. 远程连接实例。具体操作，请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
