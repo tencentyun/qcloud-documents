@@ -37,8 +37,6 @@ try
 {
   string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
   PutBucketACLRequest request = new PutBucketACLRequest(bucket);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //设置私有读写权限
   request.SetCosACL(CosACL.PRIVATE);
   //授予1131975903账号读权限
@@ -78,8 +76,6 @@ try
 {
   string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
   GetBucketACLRequest request = new GetBucketACLRequest(bucket);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //执行请求
   GetBucketACLResult result = cosXml.GetBucketACL(request);
   //存储桶的 ACL 信息
@@ -118,8 +114,6 @@ try
   string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
   string key = "exampleobject"; //对象键
   PutObjectACLRequest request = new PutObjectACLRequest(bucket, key);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //设置私有读写权限 
   request.SetCosACL(CosACL.PRIVATE);
   //授予1131975903账号读权限 
@@ -160,8 +154,6 @@ try
   string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
   string key = "exampleobject"; //对象键
   GetObjectACLRequest request = new GetObjectACLRequest(bucket, key);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //执行请求
   GetObjectACLResult result = cosXml.GetObjectACL(request);
   //对象的 ACL 信息
