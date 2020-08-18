@@ -29,14 +29,19 @@
 ![](https://main.qcloudimg.com/raw/9b32564f2bc5df09ec198716b46f7cc2.png)
 
 ### <span id="step3" />步骤三：购买云服务器并配置云服务器的 IPv6
-为 VPC 和子网分配 IPv6 CIDR 后，您可在该子网下创建一个具有 IPv6 地址的云服务器，也可以为该子网下运行中的云服务器获取 IPv6 地址。因为 IPv6 地址目前还不支持自动下发到网卡，所以从在控制台获取 IPv6 地址后，您还需要登录云服务器进行 IPv6 的配置。
+为 VPC 和子网分配 IPv6 CIDR 后，您可在该子网下创建一个具有 IPv6 地址的云服务器，也可以为该子网下运行中的云服务器获取 IPv6 地址。
+>?
+>由于 IPv6 地址目前还不支持自动下发到网卡，因此从在控制台获取 IPv6 地址后，您还需要登录云服务器进行 IPv6 的配置。
+
+
 1. 登录 [云服务器购买页](https://buy.cloud.tencent.com/cvm?tab=cvm)。
 2. 在云服务器购买页上方，单击【自定义配置】。
-3. 选择机型时，请注意如下参数：
+3. 在自定义设置页面，完成云服务器各种配置操作。
+>!在选择机型时，请注意如下参数：
  - 地域：北京、上海、广州、上海金融、深圳金融、成都、南京、新加坡。
  - 网络：选择 [步骤一](#step1) 中 VPC 和[ 步骤二](#step2) 中的子网。
  - IPv6 地址：勾选【免费分配 IPv6 地址】。
-4. 完成云服务器各种配置操作后，核对购买的云服务器信息，并进行支付。
+4. 核对购买的云服务器信息，并进行支付。
 5. 云服务器购买成功后，即可在 [云服务器实例列表](https://console.cloud.tencent.com/cvm/instance/index?rid=1)  查看到 IPv6 地址信息。
 ![](https://main.qcloudimg.com/raw/a427545faa7aa68ae6d5f6d80a93aa9e.png)
 >?
@@ -44,9 +49,9 @@
 >- 如果想要给云服务器的其他弹性网卡也分配 IPv6 地址，请参见 [申请和释放 IPv6
 ](https://cloud.tencent.com/document/product/576/37972) 进行操作。
 >
-6. 登录云服务器配置 IPv6，由于各类云服务器操作系统配置 IPv6 的方式不同，详细操作方法请参见  [Linux 云服务器配置 IPv6 ](#linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.85.8D.E7.BD.AE-ipv6) 和  [Windows 云服务器配置 IPv6](#windows-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.85.8D.E7.BD.AE-ipv6)。
+6. 登录云服务器配置 IPv6，由于各类云服务器操作系统配置 IPv6 的方式不同，详细操作方法请参见  [Linux 云服务器配置 IPv6 ](https://cloud.tencent.com/document/product/215/47556) 和  [Windows 云服务器配置 IPv6](https://cloud.tencent.com/document/product/215/47558)。
 
-### 步骤四：为云服务器的 IPv6 地址开通公网（可选）
+### 步骤四：（可选）为云服务器的 IPv6 地址开通公网
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 在左侧目录下，选择【IP 与网卡】>【弹性公网 IPv6】。
 3. 选择云服务器的所在地域，单击【申请】。
@@ -63,10 +68,10 @@
 >?出入方向的安全组规则支持配置来源为单个 IPv6 地址或者 IPv6 CIDR，其中`::/0`代表所有的 IPv6 源地址。
 >
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
-2. 在左侧目录下，选择【安全】>【安全组】，在 【ID/名称】列表页中单击云服务器绑定的安全组 ID，进入详情页。
-3. 选择【入站规则】>【添加规则】，添加 IPv6 的入方向安全组规则，单击【完成】即可。
+2. 在左侧目录下，选择【安全】>【安全组】，单击云服务器绑定的安全组 ID，进入详情页。
+ - 选择【入站规则】>【添加规则】，添加 IPv6 的入方向安全组规则，单击【完成】即可。
 ![](https://main.qcloudimg.com/raw/73ff04af93a1f13eef92d4f74ac30fc2.png)
-4. 选择【出站规则】>【添加规则】，添加 IPv6 的出方向安全组规则，单击【完成】即可。
+ - 选择【出站规则】>【添加规则】，添加 IPv6 的出方向安全组规则，单击【完成】即可。
 ![](https://main.qcloudimg.com/raw/c0d255728fa6b48292f425c5ffb6559f.png)
 
 ### 步骤六：测试 IPv6 的连通性
