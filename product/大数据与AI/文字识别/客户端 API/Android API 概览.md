@@ -110,7 +110,7 @@ public void startProcessOcr(Activity activity, OcrType ocrType, CustomConfigUi c
 
 功能描述：
 
-​    启动默认界面进行 OCR 识别，可进行部分UI元素的自定义配置。(**如 CustomConfigUi 传入 null，可使用默认 UI 配置**)
+​    启动默认界面进行 OCR 识别，可进行部分 UI 元素的自定义配置。(**如 CustomConfigUi 传入 null，可使用默认 UI 配置**)
 
 传入参数：
 
