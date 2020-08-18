@@ -112,61 +112,63 @@ config(mime_type="application/json")
 ####  Python 上下文环境中的内置变量及函数
 可参考 [Python 官方文档](https://docs.python.org/3.5/library/functions.html#built-in-funcs)。目前 Dataway 中支持的函数如下： 
 
-6. abs()：求数值绝对值
-7. all()：判断序列（集合、列表、元组、dict）中所有元素是否满足给定条件
-8. dict()：创建字典
-9. min()：数值最小值
-10. any()：判断集合中是否存在元素满足给定条件
-11. sorted()：排序
-12. bool()：构造布尔值
-13. int()：构造整数
-14. str()：构造字符串
-15. sum()：数值求和
-16. filter()：集合过滤，例如 filter(lambda x:x>100, [1,3,4,100,102]) -> [100,102]
-17. pow()：求指数
-18. float()： 构造浮点数
-19. tuple()：构造元组
-20. len()：获取集合元素个数
-21. list()：构造列表
-22. max()：获取数值最大值
-23. round()：截取数值的整数部分
+- abs()：求数值绝对值
+- all()：判断序列（集合、列表、元组、dict）中所有元素是否满足给定条件
+- dict()：创建字典
+- min()：数值最小值
+- any()：判断集合中是否存在元素满足给定条件
+- sorted()：排序
+- bool()：构造布尔值
+- int()：构造整数
+- str()：构造字符串
+- sum()：数值求和
+- filter()：集合过滤，例如 filter(lambda x:x>100, [1,3,4,100,102]) -> [100,102]
+- pow()：求指数
+- float()： 构造浮点数
+- tuple()：构造元组
+- len()：获取集合元素个数
+- list()：构造列表
+- max()：获取数值最大值
+- round()：截取数值的整数部分
 
 ### 其它可用的模块
 
-1. __time__，用于时间处理的库，可参考Python官方文档。已内置在Dataway的处理上下文中，可以直接引用
-   目前Dataway中支持的库函数/类型如下： 
-2. time()：函数，返回当前时间戳，float类型，单位为秒
-3. struct_time：类型，表示一个结构化时间对象
-4. altzone：当前时区相对于UTC时区的延迟偏移，单位为秒
-5. asctime：将一个struct_time转换为时间字符串
-6. ctime：将一个时间戳转换为时间字符串
-7. mktime()：将一个struct_time转换为时间戳
-8. strftime()：将一个struct_time进行格式化
-9. timezone：当前时区
-10. tzname：当前时区名称
-11. gmtime：将一个时间戳转换为struct_time对象
-12. localtime：将一个时间戳转换为当前时区的本地时间，返回struct_time类型对象
-13. __json__，用于处理json数据的库，可参考Python官方文档。已内置在Dataway的处理上下文中，可以直接引用
-    目前Dataway中支持的json模块函数： 
-14. dumps：将json对象编码为json字符串
-15. loads：将一个json串解析为Python对象
-16. math__，用于数学运算的库，可参考Python官方文档。已内置在Dataway的处理上下文中，可以直接引用 
-    o	目前Dataway中支持的math模块函数： 
-17. math.ceil(x)：返回 x 的上限，即大于或者等于 x 的最小整数。如果 x 不是一个浮点数，则委托 x.__ceil(), 返回一个 Integral 类的值。
-18. math.floor(x)：返回 x 的向下取整，小于或等于 x 的最大整数。如果 x 不是浮点数，则委托 x.__floor__() ，它应返回 Integral 值。
-19. math.fabs(x)：返回 x 的绝对值。
-20. math.pow(x,y)：返回 x 的 y 次幂。
-21. math.sqrt(x)：返回 x 的平方根。
-    o	支持的常量： 
-22. math.pi：数学常数 π = 3.141592...，精确到可用精度。
-23. math.e：数学常数 e = 2.718281...，精确到可用精度。
-24. math.inf：浮点正无穷大。 （对于负无穷大，使用 -math.inf 。）相当于 float('inf') 的输出。
-25. math.nan：浮点“非数字”（NaN）值。 相当于 float('nan') 的输出。
+- **time**，用于时间处理的库，可参考 Python 官方文档。已内置在 Dataway 的处理上下文中，可以直接引用
+   目前 Dataway 中支持的库函数/类型如下： 
+	- time()：函数，返回当前时间戳，float 类型，单位为秒
+	3. struct_time：类型，表示一个结构化时间对象
+	4. altzone：当前时区相对于 UTC 时区的延迟偏移，单位为秒
+	5. asctime：将一个 struct_time 转换为时间字符串
+	6. ctime：将一个时间戳转换为时间字符串
+	7. mktime()：将一个 struct_time 转换为时间戳
+	8. strftime()：将一个 struct_time 进行格式化
+	9. timezone：当前时区
+	10. tzname：当前时区名称
+	11. gmtime：将一个时间戳转换为 struct_time 对象
+	12. localtime：将一个时间戳转换为当前时区的本地时间，返回 struct_time 类型对象
+- **json**，用于处理 json 数据的库，可参考 [Python 官方文档](https://docs.python.org/3.5/library/json.html)。已内置在 Dataway 的处理上下文中，可以直接引用
+    目前 Datawa y中支持的 json 模块函数： 
+	- dumps：将 json 对象编码为 json 字符串
+	- loads：将一个 json 串解析为 Python 对象
+- **math**，用于数学运算的库，可参考 [Python 官方文档](https://docs.python.org/3.5/library/math.html)。已内置在 Dataway 的处理上下文中，可以直接引用 
+    - 目前 Dataway 中支持的 math 模块函数： 
+		- math.ceil(x)：返回 x 的上限，即大于或者等于 x 的最小整数。如果 x 不是一个浮点数，则委托 x.ceil(), 返回一个 Integral 类的值。
+		18. math.floor(x)：返回 x 的向下取整，小于或等于 x 的最大整数。如果 x 不是浮点数，则委托 x.floor() ，它应返回 Integral 值。
+		19. math.fabs(x)：返回 x 的绝对值。
+		20. math.pow(x,y)：返回 x 的 y 次幂。
+		21. math.sqrt(x)：返回 x 的平方根。
+    - 支持的常量： 
+		- math.pi：数学常数 π = 3.141592...，精确到可用精度。
+		23. math.e：数学常数 e = 2.718281...，精确到可用精度。
+		24. math.inf：浮点正无穷大。 （对于负无穷大，使用 -math.inf 。）相当于 float('inf') 的输出。
+		25. math.nan：浮点“非数字”（NaN）值。 相当于 float('nan') 的输出。
 
 ### PyMessageObject选择器
 
-对于PyMessageObject类型的变量，如预定义属性msg.payload，Dataway支持通过选择器(selector)的方式进行快速访问，支持的操作类型如下：
-下标类型	描述	举例
-数字	访问当前数组的第i个元素	payload[0]
-以开头的字符串	获取元信息，例如mimeType、encoding、raw（原始二进制）、value（值）	msg.payload["mimeType"]
-普通字符（字母、数字、下划线、横杠、点）	普通字符的key，按key、nodeName、name等方式获取当前元素的子元素，如果有多个同名的，只返回第一个	msg.payload["list"]
+对于 PyMessageObject 类型的变量，例如预定义属性 msg.payload，Dataway 支持通过选择器（selector）的方式进行快速访问，支持的操作类型如下：
+
+| 下标类型                                 | 描述                                                         | 举例                     |
+| ---------------------------------------- | ------------------------------------------------------------ | ------------------------ |
+| 数字                                     | 访问当前数组的第i个元素                                      | payload[0]               |
+| 以^开头的字符串                          | 获取元信息，例如^mimeType、^encoding、^raw（原始⼆进制）、^value（值） | msg.payload["^mimeType"] |
+| 普通字符（字⺟、数字、下划线、横杠、点） | 普通字符的key，按key、nodeName、name等⽅式获取当前元素的⼦元素，如果有多个同名的，只返回第⼀个 | msg.payload["list"]      |
