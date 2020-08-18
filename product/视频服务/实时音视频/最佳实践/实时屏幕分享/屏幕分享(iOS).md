@@ -22,7 +22,7 @@
 | 参数项 | 参数名称 | 常规推荐值 |  文字教学场景 | 
 |---------|---------|---------|-----|
 | 分辨率 | videoResolution | 1280 x 720 | 1920 x 1080 | 
-| 帧率 | videoFps | 10 FPS | 8FPS |
+| 帧率 | videoFps | 10 FPS | 8 FPS |
 | 最高码率 | videoBitrate| 1600 kbps | 2000 kbps |
 | 分辨率自适应 | enableAdjustRes | NO | NO |
 
