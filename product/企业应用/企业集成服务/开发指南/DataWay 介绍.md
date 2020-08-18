@@ -58,7 +58,7 @@ dw_process 仅接受一个类型为 PyMessage 的参数，而其返回值就是�
 
 PyMessage 中包含的属性称之为预定义属性（Predefined Properties），这些属性由系统根据当前运行信息及处理的消息生成，用于在 Dataway 中通过程序化的方式获取上下文信息。
 
-目前 PyMessage 中包含的属性有 **var**、**payload**、**attr**、**id**、**seq_id**、**error** 等，可以通过msg.var、msg.payload、msg.attr、msg.id、msg.seq_id、msg.error 的方式进行访问，具体说明可见下文 [Dataway 语言手册](#dataway-.E8.AF.AD.E8.A8.80.E6.89.8B.E5.86.8C)。
+目前 PyMessage 中包含的属性有 **var**、**payload**、**attr**、**id**、**seq_id**、**error** 等，可以通过 msg.var、msg.payload、msg.attr、msg.id、msg.seq_id、msg.error 的方式进行访问，具体说明可见下文 [Dataway 语言手册](#dataway-.E8.AF.AD.E8.A8.80.E6.89.8B.E5.86.8C)。
 
 
 
@@ -66,7 +66,7 @@ PyMessage 中包含的属性称之为预定义属性（Predefined Properties）�
 
 ### Dataway 类型系统
 
-由于 Dataway 表达式是标准的 Python 脚本，在 Dataway 处理过程中，用户可以使用并构造允许的任意类型。但是作为企业集成服务数据流转的重要入口，dw_process 的返回值类型是受到严格限制的，其返回的结果中仅支持如下类型，否则（一定）将导致运行时的序列化错误：
+由于 Dataway 表达式是标准的 Python 脚本，在 Dataway 处理过程中，用户可以使用并构造允许的任意类型。作为企业集成服务数据流转的重要入口，dw_process 的返回值类型受到严格限制，其返回的结果中仅支持如下类型，否则（一定）将导致运行时的序列化错误：
 
 - str：即字符串
 - None：Python 中的空值
@@ -91,11 +91,10 @@ PyMessage 中包含的属性称之为预定义属性（Predefined Properties）�
 
 PyMessage 中包含的属性称之为预定义属性（Predefined Properties），这些属性是由系统根据当前运行信息及处理的消息生成的，用于在 Dataway 中通过程序化的方式获取上下文信息。 
    目前 PyMessage 中包含的属性及其说明如下： 
-- msg.var：局部消息变量，dict 类型，键为 string，代表变量名，值为允许的任意类型，代表变量值
-   var 会在一条消息处理的所有环节共享，因此可以用于在不同的处理节点之间进行数据的传递
-- msg.payload：当前消息负载数据，可以是允许的任意类型
-   payload 是一条消息对象的负载数据，一般是由上一个组件通过 set-payload 或者 transform 组件生成的，其可能的数据类型即是上文中列举的 Dataway 中允许的返回值类型
-   listener 组件会根据用户发送的原始消息来构造 payload 的内容，因此 listener 组件处理之后，payload 都是 PyMessageObject 类型，除非在下游通过 set-payload 或者 transform 组件对 payload 进行重新赋值
+- msg.var：局部消息变量，dict 类型，键为 string，代表变量名，值为允许的任意类型，代表变量值。var 会在一条消息处理的所有环节共享，因此可以用于在不同的处理节点之间进行数据的传递
+- msg.payload：当前消息负载数据，可以是允许的任意类型。
+ - payload 是一条消息对象的负载数据，一般是由上一个组件通过 set-payload 或者 transform 组件生成的，其可能的数据类型即是上文中列举的 Dataway 中允许的返回值类型
+  - listener 组件会根据用户发送的原始消息来构造 payload 的内容，因此 listener 组件处理之后，payload 都是 PyMessageObject 类型，除非在下游通过 set-payload 或者 transform 组件对 payload 进行重新赋值
 - msg.attr：当前消息的属性数据，包括消息类型、消息的头部信息等。dict 类型，键为 str，代表属性名，值为任意类型，代表属性值，attr 是消息的属性数据
 - msg.id：当前消息的唯一标识 id，str 类型
 - msg.seq_id：当前消息的序列号，str 类型
@@ -136,7 +135,7 @@ config(mime_type="application/json")
 
 ### 其它可用的模块
 
-- **time**，用于时间处理的库，可参考 Python 官方文档。已内置在 Dataway 的处理上下文中，可以直接引用
+- **time**，用于时间处理的库，可参考 [Python 官方文档](https://docs.python.org/3.5/library/time.html)。已内置在 Dataway 的处理上下文中，可以直接引用
    目前 Dataway 中支持的库函数/类型如下： 
 	- time()：函数，返回当前时间戳，float 类型，单位为秒
 	- struct_time：类型，表示一个结构化时间对象
