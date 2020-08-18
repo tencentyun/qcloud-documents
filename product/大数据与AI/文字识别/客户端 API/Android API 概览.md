@@ -84,8 +84,7 @@ public void initWithConfig(Context context, OcrSDKConfig config)
 #### updateFederationToken()
 
 ```java
-public void updateFederationToken(final String tmpSecretId, final String tmpSecretKey,
-                                  final String token)
+public void updateFederationToken(final String tmpSecretId, final String tmpSecretKey, final String token)
 ```
 
 功能描述：
@@ -106,8 +105,7 @@ public void updateFederationToken(final String tmpSecretId, final String tmpSecr
 #### startProcessOcr()
 
 ```java
-public void startProcessOcr(Activity activity, OcrType ocrType,
-                                CustomConfigUi customConfigUi, ISDKKitResultListener resultListener)
+public void startProcessOcr(Activity activity, OcrType ocrType, CustomConfigUi customConfigUi, ISDKKitResultListener resultListener)
 ```
 
 功能描述：
