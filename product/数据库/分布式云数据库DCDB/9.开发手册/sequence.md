@@ -10,6 +10,8 @@
 　　[{CACHE n| NOCACHE}];
 ```
 
+>?目前 sequence 为保证分布式全局唯一，性能较差，适用于并发不高的场景。
+
 ## 创建
 示例如下：
 ```
@@ -19,6 +21,7 @@ create sequence test.s2 start with 12 minvalue 10 maxvalue 50000  increment by 1
 参数有开始值，最小值，最大值，步长，是否回绕。
 
 ## 删除
+示例如下：
 ```
 drop sequence test.s1
 ```
@@ -179,9 +182,8 @@ mysql> select nextval(test.s2);
 1 row in set (0.01 sec)
 ```
 
->?目前 sequence 为保证分布式全局唯一，性能较差，适用于并发不高的场景。
 
-需要注意，sequence 的部分关键字将以 tdsql_ 前缀开始：
+需要注意，sequence 的部分关键字以 TDSQL_ 前缀开始：
 ```
  TDSQL_CYCLE
  TDSQL_INCREMENT
