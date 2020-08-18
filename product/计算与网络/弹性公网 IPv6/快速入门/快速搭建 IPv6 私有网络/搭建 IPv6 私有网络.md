@@ -84,6 +84,7 @@
 >- 如果云服务器镜像开启了 IPv6，系统则会为每个网卡默认分配一个“FE80”开头的 link-local 地址，该link-local 并不能作为内外网通信的 IPv6 地址。
 
 <span id="Linux 云服务器"/>
+
 #### Linux 云服务器
 - Linux 云服务器可通过 Ping 或 SSH 等操作来测试 IPv6 的连通性。
 
@@ -93,8 +94,7 @@
  
  - **方式2：**通过 IPv6 地址 SSH 云服务器，操作如下：
   执行如下命令查看 IPv6 地址，并用 PuTTY 或者 Xshell 等软件，测试能否通过 IPv6 地址 SSH 到云服务器。
-
-   ```
+  ```
   ifconfig
   ```
 
