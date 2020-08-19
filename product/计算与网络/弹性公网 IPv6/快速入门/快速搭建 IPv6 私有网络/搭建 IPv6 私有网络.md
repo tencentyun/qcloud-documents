@@ -79,7 +79,7 @@
 ![](https://main.qcloudimg.com/raw/c0d255728fa6b48292f425c5ffb6559f.png)
 
 ### 步骤六：测试 IPv6 的连通性
-下面分别介绍 [Linux 云服务器](#gjpz)和 [Windows 云服务器](#Windows云服务器) 如何测试 IPv6 的连通性。
+下面分别介绍 [Linux 云服务器](#gjpz) 和 [Windows 云服务器](#Windows云服务器) 如何测试 IPv6 的连通性。
 >?
 >- 如果测试公网连通性，请确保已经在“安全组”设置 IPv6 策略、并在“弹性公网 IPv6”设置 IPv6 公网带宽。
 >- 如果未开通 IPv6 公网，但需要测试 IPv6 云服务器的连通性（Ping 测试、SSH、远程桌面测试），可使用同一私有网络下已经获取 IPv6 地址的云服务器进行连通性测试。
