@@ -43,7 +43,7 @@ sudo useradd ftpuser
 ```
 sudo passwd ftpuser
 ```
-输入密码后请按 **Enter** 确认设置，密码默认不显示，本文以 `tf7295TFY` 为例。
+输入密码后请按 **Enter** 确认设置，密码默认不显示。
 3. 执行以下命令，创建 FTP 服务使用的文件目录，本文以 `/var/ftp/test` 为例。
 ```
 sudo mkdir /var/ftp/test
@@ -110,7 +110,6 @@ ftp://轻量应用服务器公网IP:21
 ```
 ![](https://main.qcloudimg.com/raw/01154cd3f3af8c0578e588c29a574216.png)
 3. 在弹出的“登录身份”窗口中输入 [配置 vsftpd](#user) 中已设置的用户名及密码。
-本文使用的用户名为 `ftpuser`，密码为 `tf7295TFY`。
 4. 成功登录后，即可上传及下载文件。
 
 
