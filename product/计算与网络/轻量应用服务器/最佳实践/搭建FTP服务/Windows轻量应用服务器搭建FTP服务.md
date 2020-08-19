@@ -8,7 +8,7 @@
 
 ## 操作步骤
 ### 步骤1：登录轻量应用服务器
-[使用 VNC 方式登录 Windows 实例](https://cloud.tencent.com/document/product/1207/44656)。您也可以根据实际操作习惯，[使用远程桌面连接登录 Windows 实例](https://cloud.tencent.com/document/product/1207/44579)。
+您可以 [使用 VNC 方式登录 Windows 实例](https://cloud.tencent.com/document/product/1207/44656)。也可以根据实际操作习惯，[使用远程桌面连接登录 Windows 实例](https://cloud.tencent.com/document/product/1207/44579)。
 
 ### 步骤2：在 IIS 上安装 FTP 服务
 1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/446c1e8cb7da2ce280d710c6a46b693d.png" style="margin:-3px 0px">，打开服务器管理器。
