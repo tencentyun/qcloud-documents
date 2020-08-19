@@ -82,9 +82,9 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
         "allow_unmute_self": false,
         "play_ivr_on_leave": false,
         "allow_in_before_host": true,
-	"auto_in_waiting_room": false,
-	"allow_screen_shared_watermark": true,
-	"only_allow_enterprise_user_join": false     
+		"auto_in_waiting_room": false,
+		"allow_screen_shared_watermark": true,
+		"only_allow_enterprise_user_join": false     
       }    
     }  
   ]
