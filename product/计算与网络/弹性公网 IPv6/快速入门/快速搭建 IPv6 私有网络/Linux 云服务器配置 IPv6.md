@@ -88,7 +88,6 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#gjpz) 和 [手�
   - [OpenSUSE 42 配置IPv6](#Opensuse)
   - [SUSE 10 配置IPv6](#suse)
   - [FreeBSD 11 配置IPv6](#Freebsd11)
-  - [SSH 支持 IPv6 配置](#ssh-ipv6)
 
 
 <span id="gjpz"></span>
@@ -140,11 +139,9 @@ config_ipv6 工具可以为已开启 IPv6 且已分配 IPv6 地址的 CVM 实例
 
 
 #### **开机自动配置IPv6**
-> ?该示例仅对 eth0 进行配置，实际操作时注意修改为实际使用的网卡名。
-
 对于需要自动化配置 IPv6 实例的需求，例如大批量配置，建议您使用实例自定义数据配合脚本的方式来调用。详情请参见 [实例自定义数据](https://cloud.tencent.com/document/product/213/17525)。如下为脚本示例（假设是 RHEL 系列，Bash Shell 脚本）。
 
-
+> ?该示例仅对 eth0 进行配置，实际操作时注意修改为实际使用的网卡名。
 
 ```plaintext
 #!/bin/sh
@@ -741,9 +738,9 @@ FreeBSD 11 配置 IPv6 有脚本方式和手动方式，请根据实际情况选
 
 
 
- <span id="ssh-ipv6"/>
+
  
- ###  SSH 支持 IPv6 配置
+ ### SSH 支持 IPv6 配置
 
 > !如果需要使用 IPv6 地址远程连接，则需要开启 ssh 的 IPv6 支持。
 
