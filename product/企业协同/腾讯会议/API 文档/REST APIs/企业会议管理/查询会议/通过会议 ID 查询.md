@@ -86,9 +86,9 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
         "allow_unmute_self": false,
         "play_ivr_on_leave": false,
         "allow_in_before_host": true,
-	"auto_in_waiting_room": false,
-	"allow_screen_shared_watermark": true,
-	"only_allow_enterprise_user_join": false       
+		"auto_in_waiting_room": false,
+		"allow_screen_shared_watermark": true,
+		"only_allow_enterprise_user_join": false       
       }    
     }  
   ]
