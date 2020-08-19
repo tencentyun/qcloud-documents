@@ -9,7 +9,7 @@ Vsftpd（very secure FTP daemon）是众多 Linux 发行版中默认的 FTP 服�
 
 ## 操作步骤
 ### 步骤1：登录轻量应用服务器
-[使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)。您也可以根据实际操作习惯，选择其他不同的登录方式，详情请参见 [登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44609)。
+您可以 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)。也可以根据实际操作习惯，选择其他不同的登录方式，详情请参见 [登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44609)。
 
 
 ### 步骤2：安装 vsftpd
