@@ -48,7 +48,7 @@
 
 下载 [tbaas-fabric-sdk-java](https://tbaasdoc-1259695942.cos.ap-guangzhou.myqcloud.com/tbaas-fabric-sdk-java.zip)。
 以下代码示例为不同步骤的代码编写：
-1. 配置基本参数
+1. 配置基本参数。
 
 ```java
 // 通道名称
@@ -84,7 +84,7 @@ private static final String CHAINCODE_VERSION = "";
 private static final String CHAINCODE_PATH = "";
 ```
 
-2. 初始化用户并设置访问通道的默认用户
+2. 初始化用户并设置访问通道的默认用户。
 
 ```go
 FabricUser user = new FabricUser.Builder()
@@ -95,7 +95,7 @@ FabricUser user = new FabricUser.Builder()
 ChannelContext.setDefaultUser(user);
 ```
 
-3. 连接到通道
+3. 连接到通道。
 
 ```java
 Channel demoChannel = ChannelHandler.create()
@@ -106,13 +106,13 @@ Channel demoChannel = ChannelHandler.create()
         .init();
 ```
 
-4. 创建fabric模板
+4. 创建 fabric 模板。
 
 ```java
 FabricTemplate fabricTemplate = FabricTemplate.getInstance();
 ```
 
-5. 通过fabric模板快速获取通道内信息
+5. 通过 fabric 模板快速获取通道内信息。
 
 ```java
 // 查询通道内可发现的peer节点
@@ -123,7 +123,7 @@ List memberList = fabricTemplate.findMemberships(CHANNEL_NAME);
 List chainCodeList = fabricTemplate.findChainCodes(CHANNEL_NAME);
 ```
 
-6. 通过fabric模板调用合约
+6. 通过 fabric 模板调用合约。
 
 ```java
 // 调用智能合约query函数
