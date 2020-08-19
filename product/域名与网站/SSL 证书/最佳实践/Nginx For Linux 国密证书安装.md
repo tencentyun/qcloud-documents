@@ -82,10 +82,10 @@ CORE_LIBS="$CORE_LIBS$OPENSSL/.openssl/lib/libcrypto.a"
 ```
 修改为：
 ```
-CORE_INCS="$CORE_INCS$OPENSSL/include"
-CORE_DEPS="$CORE_DEPS$OPENSSL/include/openssl/ssl.h"
-CORE_LIBS="$CORE_LIBS$OPENSSL/lib/libssl.a"
-CORE_LIBS="$CORE_LIBS$OPENSSL/lib/libcrypto.a"
+CORE_INCS="$CORE_INCS$OPENSSL /include"
+CORE_DEPS="$CORE_DEPS$OPENSSL /include/openssl/ssl.h"
+CORE_LIBS="$CORE_LIBS$OPENSSL /lib/libssl.a"
+CORE_LIBS="$CORE_LIBS$OPENSSL /lib/libcrypto.a"
 ```
 5. 保存文件后，需先执行 `make clean` 清除编译配置，再重新进入 `nginx-1.18.0` 文件夹执行 `./configure --prefix=/usr/local/nginx --with-http_stub_status_module --with-stream --with-http_ssl_module --with-stream_ssl_module --with-openssl=/usr/local/wotrus_ssl`与 `make && make install`。 
 
