@@ -174,7 +174,7 @@ $install_path eth0
 <span id="CentOS6.8"/>
 
 ### CentOS 6.8 配置 IPv6
-1. 远程连接实例。具体操作，请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
+1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
 	 ```plaintext
    ip addr | grep inet6
@@ -493,7 +493,7 @@ $install_path eth0
    net.ipv6.conf.lo.disable_ipv6 = 0
    ```
 4. 运行`sysctl -p`使配置生效。
-5. <span id="opensusestep4"/>配置 IPv6。OpenSUSE 42镜像类型的云服务器 IPv6 操作步骤有[ 脚本方式 ](#jbfs)和[ 手动方式 ](#sdfs)。请根据实际情况选择配置方式。
+5. <span id="opensusestep4"/>配置 IPv6，OpenSUSE 42镜像类型的云服务器 IPv6 操作步骤有[ 脚本方式 ](#jbfs)和[ 手动方式 ](#sdfs)。请根据实际情况选择配置方式。
 <span id="jbfs"></span>
 #### 脚本方式
  1. 将如下脚本拷贝到 shell 文件中，这里以 test.sh 为例。
