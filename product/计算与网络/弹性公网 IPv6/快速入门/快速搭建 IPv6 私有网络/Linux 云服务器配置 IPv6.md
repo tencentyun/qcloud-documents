@@ -251,7 +251,7 @@ $install_path eth0
 
 ### CentOS 7.3/CentOS 7.5/CentOS 7.6 配置 IPv6
 
-1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
+1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
  ```plaintext
    ip addr | grep inet6
@@ -326,7 +326,7 @@ $install_path eth0
 <span id="Debian8.2"/>
 
 ### Debian 8.2 配置 IPv6
-1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
+1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
 ```plaintext
    ip addr | grep inet6
@@ -374,7 +374,7 @@ $install_path eth0
 
 ### Ubuntu 14/Ubuntu 16/Ubuntu 18 配置 IPv6
 
-1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
+1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
  ```plaintext
    ip addr | grep inet6
@@ -466,7 +466,7 @@ $install_path eth0
 
 ### OpenSUSE 42 配置 IPv6
 
-1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
+1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 执行如下命令，检查实例是否已开启 IPv6 功能支持。
  ```plaintext
    ip addr | grep inet6
@@ -562,7 +562,7 @@ $install_path eth0
 
 ### <span id="suse"/>SUSE 10 配置 IPv6
 
-1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
+1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 运行如下命令，并做相应修改，开启 IPv6 功能支持。
  ```plaintext
    vi /etc/sysctl.conf
@@ -578,7 +578,8 @@ $install_path eth0
    net.ipv6.conf.lo.disable_ipv6 = 0
    ```
 3. 运行`sysctl -p`使配置生效。
-4. 配置 IPv6，SUSE 10镜像类型的云服务器 IPv6 操作步骤有脚本方式和手动方式。请根据实际情况选择配置方式。
+4. 配置 IPv6，SUSE 10镜像类型的云服务器 IPv6 操作步骤有 [脚本方式](#jbfs1) 和 [手动方式](#sdfs1)。请根据实际情况选择配置方式。
+<span id="jbfs1"></span>
 #### 脚本方式
 
    1. 将如下脚本拷贝到 shell 文件中，这里以 test.sh 为例。
@@ -612,7 +613,8 @@ $install_path eth0
       ```plaintext
       ./test.sh eth0 0 2402:4e00:1000:4200:0:8f0c:d527:b985 64
       ```
-
+			
+<span id="sdfs1"></span>
  #### 手动方式
  
  1. 运行如下脚本，打开网卡配置文件。
@@ -649,13 +651,13 @@ $install_path eth0
 <span id="Freebsd11"/>
 
 ### FreeBSD 11 配置 IPv6
-FreeBSD 11 配置 IPv6 有脚本方式和手动方式，请根据实际情况选择配置方式。
-
+FreeBSD 11 配置 IPv6 有 [脚本方式](#jbfs2) 和 [手动方式](#sdfs2)，请根据实际情况选择配置方式。
+<span id="jbfs2"></span>
 #### 脚本方式
 
 > !脚本方式配置会重启网络，请谨慎执行。
 
- 1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
+ 1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
  2. 将如下脚本拷贝到 shell 文件中，这里以“test.sh”为例。
        + dev 表示网卡设备名，例如 eth0、eth1。
        + ip6 表示本机的 ipv6 地址，例如 2607:f0d0:1002:0011:0000:0000:0000:0002。
@@ -708,9 +710,10 @@ FreeBSD 11 配置 IPv6 有脚本方式和手动方式，请根据实际情况选
    ```
 4. 请参考[ SSH 支持 IPv6 配置 ](#ssh-ipv6)开启 SSH 的 IPv6 功能。
 
+<span id="sdfs2"></span>
 #### 手动方式
 
-1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
+1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 运行`vi /etc/rc.conf`命令。
 3. 删除`ipv6_network_interfaces='none'` ，并修改`ipv6_activate_all_interfaces='NO'`为`ipv6_activate_all_interfaces='YES'`后保存退出。
 4. 运行`/etc/netstart restart`重启网络。
