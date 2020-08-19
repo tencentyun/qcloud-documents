@@ -10,7 +10,7 @@
 在本地安装 Docker，详情请参见 [Docker](https://docs.docker.com/install/)。
 
 <span id="node"></span>
-## Node.js 8.9 安装 nodejieba
+### Node.js 8.9 安装 nodejieba
 
 本节以下述代码为例：
 ```js
@@ -36,7 +36,7 @@ $ docker run -it --network=host -v /path/to/your-project:/tmp/your-project node:
 
 
 <span id="python"></span>
-## Python 3.6 安装 pandas
+### Python 3.6 安装 pandas
 本节以下述代码为例：
 ```plaintext
 import pandas as pd
