@@ -1,4 +1,4 @@
-
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2939-54952?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 操作场景
 本文介绍如何通过腾讯云云函数（Serverless Cloud Function，SCF）控制台开发简单的 Hello World Web 服务。
