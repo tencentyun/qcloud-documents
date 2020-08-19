@@ -71,6 +71,16 @@ CDW 常见使用场景是将消息中间件的信息同步到 CDW 后再进行�
 		<td>否</td>
 		<td>CKafka 中消费的 NULL 值，默认是 \N</td>
 	</tr>
+	<tr>
+		<td>REPLACE_0X00</td>
+		<td>否</td>
+		<td>是否替换字符串中的0x00，默认是0（1表示替换）</td>
+	</tr>
+	<tr>
+		<td>ENABLE_DEBUG</td>
+		<td>否</td>
+		<td>是否打印错误的记录，默认是0（1表示打印）</td>
+	</tr>
 </tbody>
 </table>
 - **网络配置**

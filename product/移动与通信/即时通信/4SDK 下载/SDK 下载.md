@@ -42,8 +42,8 @@
 	<tr>      
 		<td align="center">Windows</td>
 		<td align="center"><a onclick="MtaH5.clickStat('sdkDownload',{'platform':'windows'})" href="https://github-1252463788.cos.ap-shanghai.myqcloud.com/imsdk/TIMSDK.zip">ZIP</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgithub',{'platform':'windows'})" href="https://github.com/tencentyun/TIMSDK/">Github</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgitee',{'platform':'windows'})" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Windows">Gitee</a></td>
+		<td align="center"><a onclick="MtaH5.clickStat('sdkgithub',{'platform':'windows'})" href="https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Windows">Github</a></td>
+		<td align="center"><a onclick="MtaH5.clickStat('sdkgitee',{'platform':'windows'})" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/cross-platform/Windows">Gitee</a></td>
 		<td align="center">-</td>
 		<td align="center"><a href="https://cloud.tencent.com/document/product/269/33489">DOC</a></td>
 		<td>x86：约3.9M<br>x86-64：约5.1M</td>

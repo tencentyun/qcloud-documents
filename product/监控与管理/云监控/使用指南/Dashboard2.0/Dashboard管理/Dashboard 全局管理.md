@@ -1,3 +1,9 @@
+> ?
+> - 新版 Dashboard 已上线，我们衷心欢迎您试用并告诉我们需要改进之处。[单击链接](https://cloud.tencent.com/apply/p/omia0k6sli) 可申请体验！
+> - 欢迎添加云监控小M微信号（hitherecm），我们将拉您进入 Dashboard 交流群，竭诚为您服务！
+
+
+
 本文将为您介绍如何使用 Dashboard全局配置。
 
 ## Dashboard 全局配置
@@ -20,7 +26,7 @@
 
 1. 新建模板变量。
 	单击【模板管理页】>【新增】，定义完模板变量信息后单击【确认】即可。
-![](https://main.qcloudimg.com/raw/84f4a6d0feb1aa68ce7fe184e02cb5c3.png)		 
+	![](https://main.qcloudimg.com/raw/84f4a6d0feb1aa68ce7fe184e02cb5c3.png)		 
 2. 编辑、删除模板变量。
 在模板变量列表中您可以进行模板变量的删除和编辑。
 ![](https://main.qcloudimg.com/raw/2ce8f088a373b4fa63da4ec7e0627b8f.png)
@@ -41,6 +47,7 @@
   - 新选项卡：新标签打开链接
 - 当前页：当前标签打开链接
   
+
 ![](https://main.qcloudimg.com/raw/5f5d1cb38d63216df376e183a2836d93.png)
 
 ### JSON
