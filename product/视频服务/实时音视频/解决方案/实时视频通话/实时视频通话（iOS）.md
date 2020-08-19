@@ -210,7 +210,7 @@ TRTCVideoCall.shared.groupCall(userIDs: callList, groupID: "#groupId#")
 TRTCVideoCall.shared.openCamera(frontCamera: true, view: localPreView)  
 ```
 
-<span id="offline"> </span>
+<span id="model.offline"> </span>
 ### 步骤7：实现离线接听
 >?如果您的业务定位是在线客服等不需要离线接听功能的场景，那么完成上述 [步骤1](#model.step1) - [步骤6](#model.step6) 的对接即可。但如果您的业务定位是社交场景，建议实现离线接听。
 

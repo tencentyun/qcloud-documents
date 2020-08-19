@@ -10,7 +10,7 @@
 
 本文以创建一个简单的 Winform 项目为例，介绍如何在 Visual Studio 工程中集成 C# SDK。
 
-### 步骤1：下载  Windows SDK
+### 步骤1：下载  Windows SDK 
 
 [下载 SDK](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip)，解压并打开文件，包含以下部分：
 

@@ -316,3 +316,5 @@ SDK 通过`TXUGCPublishTypeDef.ITXVideoPublishListene\ITXMediaPublishListener`�
 | 1016 | ERR_UGC_INVALID_COVER_PATH     | 视频文件封面路径不对，文件不存在。       |
 | 1017 | ERR_USER_CANCEL                | 用户取消上传。       |
 | 1018 | ERR_UPLOAD_VOD                 | 小于5M的文件直接上传到云点播失败。       |
+
+

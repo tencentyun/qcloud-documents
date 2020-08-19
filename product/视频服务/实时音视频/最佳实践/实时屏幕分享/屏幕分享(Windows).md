@@ -29,9 +29,9 @@
 sourceInfoList 中每一个 sourceInfo 可以分享的目标，它由如下字段描述。
 
 | 字段 | 类型 | 含义|
-|:-------:|:--------:| :---------------:|
+|-------|--------| ---------------|
 | type |TRTCScreenCaptureSourceType| 采集源类型，指定类型为窗口或屏幕|
-| sourceId | HWND| 采集源 ID<br>对于窗口，该字段指示窗口句柄；<br>对于屏幕，该字段指示屏幕 ID |
+| sourceId | HWND| 采集源 ID<li>对于窗口，该字段指示窗口句柄<li>对于屏幕，该字段指示屏幕 ID |
 | sourceName| string | 窗口名字，如果是屏幕则返回 Screen0 Screen1... |
 | thumbWidth| int32 | 窗口缩略图宽度 | 
 | thumbHeight| int32 | 窗口缩略图高度 |
