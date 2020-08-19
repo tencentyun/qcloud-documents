@@ -7,9 +7,9 @@
 2. 进入项目列表页面，单击左侧菜单【数据同步】，您可单击【HTTPS】与【Ckafka】进行页面切换，这里我们单击【Ckafka】。
 ![](https://main.qcloudimg.com/raw/7d2b3708c540736e780e3ed20ef46550.jpg)
 3. 进入CKafka 配置页面，您可设置某个产品所有设备上报消息与上下线状态转发至 CKafka，单击设备列表中的【设置】，在未授权的情形下需先进行授权操作，授权成功后进行配置消息队列 CKafka 参数，单击同意授权后，再次单击【设置】，单击【创建实例】进行创建消息服务CKafka，单击【创建Topic】创建Topic。
-![](https://main.qcloudimg.com/raw/d144b2e54e92c0a1f20922c5bc30c866.jpg)
+![](https://main.qcloudimg.com/raw/90243074b1f34b88d3fb63f33549b932.jpg)
 4. 选择创建好的实例 和Topic ，并单击【保存】，会弹出提示，保存并开启后，平台会立即向当前所选 CKafka 实例的主题推送消息。
-![](https://main.qcloudimg.com/raw/3ee5a78ef4fa53a6c414b6bcbe2b427a.jpg)
+![](https://main.qcloudimg.com/raw/4b968138aed96b4a9b5254397136814f.jpg)
 5. 保存成功后，跳转到列表页，可开启该产品的【生效状态】，【生效状态】打开后平台将对该产品下所有设备上报的消息转发到指定 CKafka 实例中。
 ![](https://main.qcloudimg.com/raw/edd6ab57a69d4d03356094bf7a51d24d.jpg)
 6. 如何使用 CKafka 订阅消费消息，请参考 [消息队列 CKafka](https://cloud.tencent.com/document/product/597)。
