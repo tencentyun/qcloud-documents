@@ -12,7 +12,7 @@
 ![](https://main.qcloudimg.com/raw/ca77392b631fb6c6d4974d13bd4187e4.jpg)
 5. 保存成功后，跳转到列表页，可开启该产品的【生效状态】，【生效状态】打开后平台将对该产品下所有设备上报的消息转发到指定 CKafka 实例中。
 ![](https://main.qcloudimg.com/raw/1bae0090124aa75a99adb7c43f7496ce.jpg)
-6. 如何使用 CKafka 订阅消费消息，请参考
+6. 如何使用 CKafka 订阅消费消息，请参考 [消息队列 CKafka](https://cloud.tencent.com/document/product/597)。
 
 ## 示例
 
