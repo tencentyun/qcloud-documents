@@ -8,22 +8,28 @@
 ##  集成上传库和源码
 
 1. 拷贝上传源码目录`Demo/app/src/main/java/com/tencent/ugcupload/demo/videoupload`到您的工程目录中，需要手动修改一下 package 名。
-2. 将`Demo/app/libs/upload`目录下的所有 jar 包集成到您的项目中，建议保留 upload 目录结构，方便以后对库进行更新。
+2. 参考 `Demo/app/build.gradle` 在您的工程中添加依赖：
+    ```
+    implementation ('com.tencent.qcloud:cosxml:5.5.3') {
+        exclude group: 'com.tencent.qcloud', module: 'mtaUtils' //关闭 mta 上报功能}
+    }
+    ```
+    >? 您也可以使用[手动集成](https://cloud.tencent.com/document/product/436/12159#.E6.96.B9.E5.BC.8F.E4.BA.8C.EF.BC.9A.E6.89.8B.E5.8A.A8.E9.9B.86.E6.88.90)集成对应版本的依赖库。
 3. 使用视频上传需要网络、存储等相关访问权限，可在`AndroidManifest.xml`中增加如下权限声明：
-	```xml
-	<uses-permission android:name="android.permission.INTERNET"/>
-	<uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-	<receiver android:name=".videoupload.impl.TVCNetWorkStateReceiver">
-		<intent-filter>
-			<!--检测网络变化的 action-->
-			<action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
-			<category android:name="android.intent.category.DEFAULT" />
-		</intent-filter>
-	</receiver>
-	```
+    ```xml
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <receiver android:name=".videoupload.impl.TVCNetWorkStateReceiver">
+        <intent-filter>
+            <!--检测网络变化的 action-->
+            <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+    </receiver>
+    ```
 
 ##  简单视频上传
 #### 初始化上传对象
