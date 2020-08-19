@@ -1,14 +1,16 @@
+## 操作场景
 使用 Python，Node.js 等语言开发云函数 SCF 时，由于操作系统版本、系统库版本及语言版本不一致，在本地环境运行良好的程序部署到 SCF 后可能会出现错误。为解决依赖安装问题，本文档介绍使用 Docker 为函数安装依赖。详情请参考以下示例：
-- [为 Node.js 8.9 安装 nodejieba](#node)。
-- [为 Python 3.6 安装 pandas](#python)。
+- [Node.js 8.9 安装 nodejieba](#node)
+- [Python 3.6 安装 pandas](#python)
 
-## 安装 Docker
 
-安装 Docker，详情请参见 [Docker](https://docs.docker.com/install/)。
+## 操作步骤
 
+### 安装 Docker
+在本地安装 Docker，详情请参见 [Docker](https://docs.docker.com/install/)。
 
 <span id="node"></span>
-## Node 安装示例
+## Node.js 8.9 安装 nodejieba
 
 本节以下述代码为例：
 ```js
@@ -20,7 +22,7 @@ exports.main_handler = async (event, context, callback) => {
     return jieba.cut('你好世界');
 };
 ```
-此示例可在 Windows 和 macOS 上正确运行，但部署到 SCF 时会出现如下错误代码提示：
+此示例代码可在 Windows 和 macOS 上正确运行，但部署到 SCF 时会出现如下错误代码提示：
 ```plaintext
 {"errorCode":1,"errorMessage":"user code exception caught","stackTrace":"/var/user/node_modules/nodejieba/build/Release/nodejieba.node: invalid ELF header"}
 ```
@@ -29,11 +31,12 @@ exports.main_handler = async (event, context, callback) => {
 $ docker run -it --network=host -v /path/to/your-project:/tmp/your-project node:8.9 /bin/bash -c 'cd /tmp/your-project && npm install nodejieba --save'
 ```
 
-其中，`/path/to/your-project`是项目路径，对应于 Docker 容器里的`/tmp/your-project`目录。因此，我们需要在容器里的`/tmp/your-project`目录下安装 nodejieba，即在项目路径下安装 nodejieba。依赖安装完成后，将代码重新部署到 SCF 上即可正常运行函数。
+其中，`/path/to/your-project`是项目路径，对应于 Docker 容器里的`/tmp/your-project`目录。因此需要在容器里的`/tmp/your-project`目录下安装 nodejieba，即在项目路径下安装 nodejieba。   
+依赖安装完成后，将代码重新部署到 SCF 上即可正常运行函数。
 
 
 <span id="python"></span>
-## Python 安装示例
+## Python 3.6 安装 pandas
 本节以下述代码为例：
 ```plaintext
 import pandas as pd
@@ -44,11 +47,11 @@ def main_handler(event, context):
     return len(s)
 ```
 
-1. 为 Python 3.6 安装 pandas，安装命令参考如下：
+1. 参考以下命令，为 Python 3.6 安装 pandas。
 ```plaintext
 $ docker run -it --network=host -v /path/to/your-project:/tmp/your-project python:3.6.1 /bin/bash -c 'cd /tmp/your-project && pip install pandas -t .'
 ```
-2. 依赖安装完成后，将代码重新部署到 SCF 上并运行，可收到如下日志：
+2. 依赖安装完成后，将代码重新部署到 SCF 上并运行。函数可运行，但将产生警告提示“无法加载 lzma 模块，若使用 lzma 压缩则会导致运行时错误”。得到日志信息如下：
 ```plaintext
 /var/user/pandas/compat/__init__.py:84: UserWarning: Could not import the lzma module. Your installed Python is incomplete. Attempting to use lzma compression will result in a RuntimeError.
   warnings.warn(msg)
@@ -59,11 +62,11 @@ $ docker run -it --network=host -v /path/to/your-project:/tmp/your-project pytho
 4    8
 dtype: int64
 ```
-3. 此时函数可以运行，但将产生警告提示“无法加载 lzma 模块，若使用 lzma 压缩则会导致运行时错误”。为解决此问题，我们需要进入容器内部，执行以下命令：
+3. 为解决此问题，需要进入容器内部执行以下命令：
 ```plaintext
 $ docker run -it --network=host -v /tmp/foo:/tmp/bar python:3.6.1 /bin/bash
 ```
-4. 执行以下命令，安装 pandas：
+4. 执行以下命令，安装 pandas。
 ```js
 $ cd /tmp/bar
 $ pip install pandas -t .
@@ -79,7 +82,7 @@ echo <<EOF >> index.py
 > EOF
 $ python -v index.py > run.log 2>&1
 ```
-5. 执行如下命令查看日志，日志示例如下：
+5. 执行以下命令，查看日志。示例如下：<span id="step5"></span>
 ```js
 $ grep lzma run.log
 # /usr/local/lib/python3.6/__pycache__/lzma.cpython-36.pyc matches /usr/local/lib/python3.6/lzma.py
@@ -95,10 +98,10 @@ import 'lzma' # <_frozen_importlib_external.SourceFileLoader object at 0x7f446c4
 # destroy _lzma
 # destroy lzma
 ```
-从上面的日志可以查看函数运行时，需要加载 lzma，因此我们至少需要以下两个文件：
+分析日志信息可知函数运行时需要加载 lzma，需具备以下文件：
 	- `/usr/local/lib/python3.6/lzma.py`
 	- `/usr/local/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so`
-6. 同时，执行如下命令，查看 so 文件有哪些依赖：
+6. 执行以下命令，查看 so 文件已具备的依赖：<span id="step6"></span>
 ```plaintext
 $ ldd /usr/local/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so
 	linux-vdso.so.1 (0x00007fff75bb1000)
@@ -111,10 +114,10 @@ $ ldd /usr/local/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so
 	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007fc742166000)
 	/lib64/ld-linux-x86-64.so.2 (0x00007fc74379c000)
 ```
-通过查看命令执行结果，除去部分系统库，额外需要以下两个文件：
+分析命令执行结果可知除部分系统库外，还需以下文件：
 	- `/lib/x86_64-linux-gnu/liblzma.so.5`
 	- `/usr/local/lib/libpython3.6m.so.1.0`
-7. 将上述步骤5 - 6得到的4个文件，拷贝至项目路径下，并修改代码，如下：
+7. 将上述 [步骤5](#step5)、[步骤6](#step6) 得到的4个文件，拷贝至项目路径下，并参考以下示例修改代码：
 	```js
 	import os
 
@@ -128,4 +131,5 @@ $ ldd /usr/local/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so
 			print(s)
 			return len(s)
 	```
-8. 将代码重新部署到 SCF 上，函数即可正常运行并且无告警提示。
+	
+8. 将代码重新部署至 SCF，函数即可正常运行并且无告警提示。
