@@ -1,3 +1,4 @@
+以下视频将为您介绍如何使用控制台创建函数：
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2939-54952?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 操作场景
