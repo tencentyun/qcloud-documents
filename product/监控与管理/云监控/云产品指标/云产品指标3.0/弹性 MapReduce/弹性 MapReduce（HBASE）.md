@@ -38,7 +38,7 @@ Namespace=QCE/TXMR_HBASE
 | EmrHbaseOverviewAggregation<br/>HbaseMasterReq<br>Clusterrequests | 集群总请求数量_clusterRequests                | 个/s     | 集群总请求数量              | id4hbaseoverview |
 | EmrHbaseOverviewAggregation<br/>HbaseMasterAssign<br>mentmanagerOpsAssignNumOps | 集群 Assignment 管理器操作\_Assign_num_ops     | 次       | 集群  Assignment 管理器操作 | id4hbaseoverview |
 | EmrHbaseOverviewAggregation<br/>HbaseMasterAssign<br/>mentmanagerOpsBulkassignNumOps | 集群 Assignment 管理器操作\_BulkAssign_num_ops | 次       | 集群  Assignment 管理器操作 | id4hbaseoverview |
-| EmrHbaseOverviewAggregation<br/>HbaseMasterBalancerOps<br>BalancerclusterNumOps | 集群读写数量_receivedBytes                    | 次       | 集群负载均衡次数            | id4hbaseoverview |
+| EmrHbaseOverviewAggregation<br/>HbaseMasterBalancerOps<br>BalancerclusterNumOps | 集群负载均衡次数\_BalancerclusterNum                    | 次       | 集群负载均衡次数            | id4hbaseoverview |
 | EmrHbaseOverviewAggregation<br/>HbaseMasterServerPlan<br>Mergeplancount | 集群 Plan_mergePlanCount                      | 个       | 集群  Plan                  | id4hbaseoverview |
 | EmrHbaseOverviewAggregation<br/>HbaseMasterServerPlan<br>Splitplancount | 集群 Plan_splitPlanCount                      | 个       | 集群  Plan                  | id4hbaseoverview |
 
