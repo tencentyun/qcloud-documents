@@ -502,7 +502,8 @@ $install_path eth0
        + index 表示这是第几个 ipv6 地址，从0开始计数。
        + ip6 表示本机的 ipv6 地址，例如2607:f0d0:1002:0011:0000:0000:0000:0002。
        + prefix_len 表示子网前缀长度，例如64。
-       ```plaintext
+  
+      ```plaintext
       dev=$1
         index=$2
       ip6=$3
@@ -583,13 +584,13 @@ $install_path eth0
 4. 配置 IPv6，SUSE 10镜像类型的云服务器 IPv6 操作步骤有脚本方式和手动方式。请根据实际情况选择配置方式。
 #### 脚本方式
 
-      + dev 表示网卡设备名，例如 eth0、eth1。
-      + index 表示这是第几个 ipv6 地址，从0开始计数。
-      + ip6 表示本机的 ipv6 地址，例如2607:f0d0:1002:0011:0000:0000:0000:0002。
-      + prefix_len 表示子网前缀长度，例如64。
-  
- 1. 将如下脚本拷贝到 shell 文件中，这里以 test.sh 为例。
- ```plaintext
+   1. 将如下脚本拷贝到 shell 文件中，这里以 test.sh 为例。
+	 + dev 表示网卡设备名，例如 eth0、eth1。
+     + index 表示这是第几个 ipv6 地址，从0开始计数。
+     + ip6 表示本机的 ipv6 地址，例如2607:f0d0:1002:0011:0000:0000:0000:0002。
+     + prefix_len 表示子网前缀长度，例如64。
+
+     ```plaintext
       dev=$1
         index=$2
       ip6=$3
@@ -657,13 +658,13 @@ FreeBSD 11 配置 IPv6 有脚本方式和手动方式，请根据实际情况选
 
 > !脚本方式配置会重启网络，请谨慎执行。
 
-1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
-2. 将如下脚本拷贝到 shell 文件中，这里以“test.sh”为例。
- + dev 表示网卡设备名，例如 eth0、eth1。
-   + ip6 表示本机的 ipv6 地址，例如 2607:f0d0:1002:0011:0000:0000:0000:0002。
-   + prefix_len 表示子网前缀长度，例如 64。
+ 1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
+ 2. 将如下脚本拷贝到 shell 文件中，这里以“test.sh”为例。
+       + dev 表示网卡设备名，例如 eth0、eth1。
+       + ip6 表示本机的 ipv6 地址，例如 2607:f0d0:1002:0011:0000:0000:0000:0002。
+       + prefix_len 表示子网前缀长度，例如 64。
 
-   ```plaintext
+    ```plaintext
    key_value_editer() 
    {
        local file=$1
@@ -702,7 +703,7 @@ FreeBSD 11 配置 IPv6 有脚本方式和手动方式，请根据实际情况选
    echo "ipv6_defaultrouter='$netip::1'" >> /etc/rc.conf
    
    /etc/netstart restart
-   ```
+    ```
    
 3. 执行脚本，举例如下。
    ```plaintext
@@ -757,5 +758,5 @@ FreeBSD 11 配置 IPv6 有脚本方式和手动方式，请根据实际情况选
 ```plaintext
    service sshd reload
    ```
-5. 执行`netstat -tupln`命令，若出现以下报文表示查 ssh 已成功监听 IPv6。
+5. 执行`netstat -tupln`命令，若出现以下报文，表示查 ssh 已成功监听 IPv6。
 ![](https://main.qcloudimg.com/raw/4b3937053527ea3edd3efedfa0113ca9.png)
