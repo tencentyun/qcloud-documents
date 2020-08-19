@@ -736,12 +736,11 @@ FreeBSD 11 配置 IPv6 有脚本方式和手动方式，请根据实际情况选
 7. 请参考[ SSH 支持 IPv6 配置 ](#ssh-ipv6)开启 SSH 的 IPv6 功能。
 
 
-
- ## 附录
+## 附录
  
-<span id=“ssh-ipv6” />
+<span id="ssh-ipv6" />
 
-### SSH 支持 IPv6 配置
+ ### SSH 支持 IPv6 配置
 
 > !如果需要使用 IPv6 地址远程连接，则需要开启 ssh 的 IPv6 支持。
 
