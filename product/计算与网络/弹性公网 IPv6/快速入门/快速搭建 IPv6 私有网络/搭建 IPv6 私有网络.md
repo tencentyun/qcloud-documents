@@ -1,10 +1,12 @@
 本教程将帮助您搭建一个具有 IPv6 CIDR 的私有网络（VPC），并为 VPC 内的云服务器开启 IPv6，实现 IPv6 的内外网通信。
-## 前提条件
-目前弹性公网 IPv6 处于内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/c28sebss8v)。
+
 ## 操作场景
 - 云服务器启用 IPv6，和 VPC 内其他云服务器的 IPv6 内网互通。
 - 云服务器启用 IPv6，和 Internet 的 IPv6 用户进行双向通信。
 ![](https://main.qcloudimg.com/raw/245f8acb1bea7b002035193b089bf1b7.png)
+
+## 前提条件
+目前弹性公网 IPv6 处于内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/c28sebss8v)。
 
 ## 操作须知
 - 在开始使用腾讯云产品前，您需要先 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F)。
