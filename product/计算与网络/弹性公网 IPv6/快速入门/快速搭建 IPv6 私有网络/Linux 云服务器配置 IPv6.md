@@ -171,7 +171,7 @@ $install_path eth0
 <span id="CentOS6.8"/>
 
 ### CentOS 6.8 配置 IPv6
-1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
+1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
 	 ```plaintext
    ip addr | grep inet6
