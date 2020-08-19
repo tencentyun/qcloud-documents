@@ -42,7 +42,7 @@
 7. 下载 [上一步](#1) 申请到的证书，记为 USER_CERT。如下图所示：
 ![img](https://main.qcloudimg.com/raw/de368d437f5a1a27a8517da9807dfd0f.png)            
 
-经过上述步骤后，得到了访问域名（PROXY_URL）、NGINX证书（TLS_CERT）、out_sk 和用户证书（USER_CERT），在后续的访问中需要使用到这些数据。除此之外，关于网络名、通道名、chaincodeName 等信息的获取方式，请参阅 [对接说明及对接前准备](https://tcloud-doc.isd.com/document/product/663/47512?!preview&!editLang=zh)。
+经过上述步骤后，得到了访问域名（PROXY_URL）、NGINX证书（TLS_CERT）、out_sk 和用户证书（USER_CERT），在后续的访问中需要使用到这些数据。除此之外，关于网络名、通道名、chaincodeName 等信息的获取方式，请参阅 [对接说明及对接前准备](https://cloud.tencent.com/document/product/663/47512)。
 
 ## tbaas-fabric-sdk-java
 
