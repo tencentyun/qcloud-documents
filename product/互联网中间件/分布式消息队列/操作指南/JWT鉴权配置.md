@@ -41,7 +41,7 @@ def read_token():
     with open('/path/to/token.txt') as tf:
         return tf.read().strip()
 
-client = Client('pulsar://broker.example.com:6650/'
+client = Client('pulsar://*.*.*.*:6000/'
                 authentication=AuthenticationToken(read_token))
 ```
 
