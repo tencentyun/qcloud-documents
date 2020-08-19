@@ -84,13 +84,13 @@ pasv_max_port=45000
 7. 按 **Esc** 后输入 **:wq** 保存后退出。
 8. 执行以下命令，创建并编辑 `chroot_list` 文件。<span id="create"></span>
 ```
-vim /etc/vsftpd/chroot_list
+sudo vim /etc/vsftpd/chroot_list
 ```
 9. 按 **i** 进入编辑模式，输入用户名，一个用户名占据一行，设置完成后按 **Esc** 并输入 **:wq** 保存后退出。
 您若没有设置例外用户的需求，可跳过此步骤，输入 **:wq** 退出文件。
 10. 执行以下命令，重启 FTP 服务。
 ```
-systemctl restart vsftpd
+sudo systemctl restart vsftpd
 ```
 
 ### 步骤4：设置安全组
