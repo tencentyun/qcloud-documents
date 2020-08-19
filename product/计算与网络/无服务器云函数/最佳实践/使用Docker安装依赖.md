@@ -117,7 +117,7 @@ $ ldd /usr/local/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so
 分析命令执行结果可知除部分系统库外，还需以下文件：
 	- `/lib/x86_64-linux-gnu/liblzma.so.5`
 	- `/usr/local/lib/libpython3.6m.so.1.0`
-7. 将上述 [步骤5](#step5)、[步骤6](#step6) 得到的4个文件，拷贝至项目路径下，并参考以下示例修改代码：
+7. 将上述 [步骤5](#step5)、[步骤6](#step6)得到的4个文件，拷贝至项目路径下，并参考以下示例修改代码：
 	```js
 	import os
 
