@@ -1,5 +1,5 @@
 <span id="que1"></span>
-### 新购一个流量资源包，续期 License 绑定资源包，最后提交时出现“license not exist”报错，该如何解决？
+### 续期 License 时出现“license not exist”报错，如何解决？
 
 您可登录【云点播控制台】>[【短视频 SDK License】](https://console.cloud.tencent.com/vod/license/video)根据以下方式排查：
 1. 确认是否在**管理员**页面进行 License 绑定续期。
@@ -10,3 +10,5 @@
 ### License 无法新增，如何解决？
 - 单击进入 [查询资源包 ](https://console.cloud.tencent.com/vod/overview/assets) 页面，查询是否有可绑定的点播流量 10T、50T 或 200T 资源包中的一种。
 - 查看绑定页面是否为【管理员】页面，请选择管理员页面进行绑定。
+
+
