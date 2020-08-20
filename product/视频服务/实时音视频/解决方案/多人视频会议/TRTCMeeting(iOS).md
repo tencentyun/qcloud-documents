@@ -39,7 +39,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | [getUserInfo](#getuserinfo)                     | 获取房间内指定人员的详细信息，enterMeeting() 成功后调用才有效。 |
 | [startRemoteView](#startremoteview)             | 播放指定成员的远端视频画面。                                 |
 | [stopRemoteView](#stopremoteview)               | 停止播放远端视频画面。                                       |
-| [setRemoteViewFillMode](#setremoteviewfillmode) | 根据用户id和设置远端图像的渲染模式。                         |
+| [setRemoteViewFillMode](#setremoteviewfillmode) | 根据用户 ID 和设置远端图像的渲染模式。                         |
 | [setRemoteViewRotation](#setremoteviewrotation) | 设置远端图像的顺时针旋转角度。                               |
 | [muteRemoteAudio](#muteremoteaudio)             | 屏蔽远端指定成员的声音。                                     |
 | [muteRemoteVideoStream](#muteremotevideostream) | 屏蔽远端指定成员的视频流。                                   |
