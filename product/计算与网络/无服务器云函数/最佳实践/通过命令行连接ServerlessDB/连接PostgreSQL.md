@@ -30,11 +30,11 @@ Components: 2.30.1
 2. 在 `test-postgreSQL` 下创建 `.env` 文件，并按照以下格式在文件中配置您的腾讯云 SecretId、SecretKey、地域和可用区信息。
 ```text
  # .env
- TENCENT_SECRET_ID=xxx  // 您账号的 SecretId
- TENCENT_SECRET_KEY=xxx // 您账号的 SecretKey
+ TENCENT_SECRET_ID=xxx  # 您账号的 SecretId
+ TENCENT_SECRET_KEY=xxx # 您账号的 SecretKey
  # 地域可用区配置
- REGION=ap-guangzhou //资源部署区，该项目中指云函数与静态页面部署区
- ZONE=ap-guangzhou-2 //资源部署可用区 ，该项目中指 DB 部署所在的可用区
+ REGION=ap-guangzhou # 资源部署区，该项目中指云函数与静态页面部署区
+ ZONE=ap-guangzhou-2 # 资源部署可用区 ，该项目中指 DB 部署所在的可用区
 ```
 >?
 > - 如果没有腾讯云账号，请 [注册新账号](https://cloud.tencent.com/register)。

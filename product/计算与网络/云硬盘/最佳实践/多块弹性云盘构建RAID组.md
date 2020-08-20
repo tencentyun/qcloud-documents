@@ -94,7 +94,7 @@ mdadm --detail --scan
 ```
 vi /etc/mdadm.conf
 ```
-8. 在编辑模式下，输入相关内容。
+8. 按 **i** 进入编辑模式，并输入相关内容。
 对于弹性云硬盘，建议输入以下配置：
 ```
 DEVICE /dev/disk/by-id/virtio-弹性云盘1ID-part1 

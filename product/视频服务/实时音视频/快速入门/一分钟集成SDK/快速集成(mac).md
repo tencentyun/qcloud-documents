@@ -64,7 +64,7 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 ![](https://main.qcloudimg.com/raw/b5097f8ac4cbaa5044d92b2a96ea2b9e.jpg)
 4. 单击 **Link Binary with Libraries** 项展开，单击底下的+号图标去添加依赖库。
 ![](https://main.qcloudimg.com/raw/17046154417930f9d31b6452782df55d.jpg)
-5. 依次添加所下载的 SDK Framework 及其所需依赖库：`AudioUnit.framework`和`libc++.tbd`。  
+5. 依次添加所下载的 SDK Framework 及其所需依赖库：`AudioUnit.framework`、`libc++.tbd` 和 `Accelerate.framework`。  
    添加后如下图所示：
   ![](https://main.qcloudimg.com/raw/7bddb832347a971f3e69238480fa3e8d.jpg)
 

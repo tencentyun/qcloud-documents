@@ -197,6 +197,8 @@ Form 表单上传支持低版本的浏览器的上传（如 IE8），当前方�
     <input id="Signature" name="Signature" type="hidden" value="">
     <input name="Content-Type" type="hidden" value="">
     <input id="x-cos-security-token" name="x-cos-security-token" type="hidden" value="">
+
+    <!-- file 字段放在表单最后，避免文件内容过长影响签名判断和鉴权 -->
     <input id="fileSelector" name="file" type="file">
     <input id="submitBtn" type="button" value="提交">
 </form>

@@ -78,7 +78,7 @@ TXUGCBase.getInstance().getLicenceInfo(context);
 
 [单击此处](https://cloud.tencent.com/product/x-magic) 申请企业版本 License。
 
-## License 常见问题 FQA
+## License 常见问题 FAQ
 
 1. 测试 License 到期后是否可以延期？
 测试 License 试用期最多28天，是不能延期的，到期后请尽快购买正式 License。

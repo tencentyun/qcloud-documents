@@ -33,4 +33,5 @@ Tencent Linux 适用于下列场景：
 
 ## 技术支持
 腾讯云为 Tencent Linux 提供如下技术支持：
-在 YUM 源提供安全更新（Security Updates），运行 `yum update` 命令即可更新至新版本。
+- 在 YUM 源提供安全更新（Security Updates），运行 `yum update` 命令即可实现版本更新。
+- Tencent Linux 是基于内核社区长期支持的4.14.105版本，为云环境定制的操作系统镜像。腾讯云将为您在使用 Tencent Linux 过程中遇到的问题提供技术支持。

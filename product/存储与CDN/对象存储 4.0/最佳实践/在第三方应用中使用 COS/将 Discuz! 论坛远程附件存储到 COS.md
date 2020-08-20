@@ -57,3 +57,4 @@ Discuz! 论坛可以通过配置远程附件功能将论坛的附件保存在腾
 
 1. 您如需为已保存了 Discuz! 论坛附件的存储桶配置 CDN 加速，可参见 [CDN 加速配置](https://cloud.tencent.com/document/product/436/18670) 文档。
 2. 在 Discuz! 论坛的**远程附件**设置中将**远程访问 URL**修改为默认 CDN 加速域名或自定义加速域名即可。
+

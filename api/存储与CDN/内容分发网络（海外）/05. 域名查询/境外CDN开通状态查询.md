@@ -2,6 +2,7 @@
 接口请求域名：`cdn.api.qcloud.com`
 本接口（GetCdnOverseaOpenStat）用于查询当前帐号境外 CDN 服务的开通状态。
 
+
 ## 2. 输入参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，详情请参见 [公共请求参数](https://cloud.tencent.com/doc/api/231/4473) 页面。其中，此接口的 Action 字段为 GetCdnOverseaOpenStat。
 

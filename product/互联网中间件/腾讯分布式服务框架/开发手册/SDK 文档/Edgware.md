@@ -2,6 +2,25 @@
 
 >!2020年5月19日起，TSF 主要支持 Greenwich 和 Finchley 版本的功能更新，Edgware 版本主要进行缺陷修复，建议您优先使用 Finchley和 Greenwich 版本（[社区 Edgware 版本](https://spring.io/blog/2019/05/29/spring-cloud-edgware-sr6-released) 于2019年8月停止更新）。
 
+## 1.21.3-Edgware-RELEASE（2020-07-16）
+### Bug 修复
+修复网关 MSGW SDK 和服务发现 SDK 不兼容，造成拉取服务列表过快的问题。
+
+### 优化
+spring-cloud-tsf-gateway 网关兼容新插件类型。
+
+## 1.21.2-Edgware-RELEASE（2020-07-06）
+
+### Bug 修复
+处理 tomcat 组件开源漏洞风险。
+- 升级 org.apache.tomcat.embed.tomcat-embed-core 到8.5.56版本。
+- 升级 org.apache.tomcat.embed.tomcat-embed-el 到8.5.56版本。
+- 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到8.5.56版本。
+
+### 优化
+- 调整泳道标签的传递属性。
+- 调整泳道入口行为。
+
 ## 1.22.0-Edgware-RELEASE（2020-04-29）
 
 ### 优化
@@ -13,15 +32,7 @@
 
 支持向后兼容，建议全量升级。
 
-## 1.21.2-Edgware-RELEASE (2020-07-06)
-### Bug 修复
-- 处理tomcat组件开源漏洞风险。
-  - 升级org.apache.tomcat.embed.tomcat-embed-core到8.5.56版本。
-  - 升级org.apache.tomcat.embed.tomcat-embed-el到8.5.56版本。
-  - 升级org.apache.tomcat.embed.tomcat-embed-websocket到8.5.56版本。
-### 优化
-- 调整泳道标签的传递属性
-- 调整泳道入口行为
+
 
 ## 1.21.1-Edgware-RELEASE（2020-04-29）
 
@@ -188,7 +199,7 @@ API 注册兼容从环境变量和启动参数中读取 TSF 参数信息。
 
 - 支持向后兼容，建议全量升级。
 
-### 1.14.1-Edgware-RELEASE（2019-07-24）
+## 1.14.1-Edgware-RELEASE（2019-07-24）
 
 ### Bug 修复
 
@@ -205,6 +216,20 @@ API 注册兼容从环境变量和启动参数中读取 TSF 参数信息。
 ### 新特性
 
 支持 MySQL JDBC、Redis、MongoDB、CMQ 组件调用链。	
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.12.5-Edgware-RELEASE（2020-07-17）
+
+### Bug 修复
+
+修复 spring-cloud-tsf-route 包路由不准确问题。
+
+### 优化
+
+调整心跳请求的超时时间，当出现丢包时能够快速重试。
 
 ### 版本建议
 

@@ -1,27 +1,25 @@
 ## 简介
 本文档提供关于 SDK 接入以及开启推送服务的示例代码（SDK 版本：V1.0+ 版本）。
->!如果您是从 [信鸽平台](https://xg.qq.com) 迁移至移动推送 TPNS 平台，请务必：
+>!如果您是从 [信鸽平台](https://xg.qq.com) 迁移至腾讯移动推送平台，请务必：
 1. 实现 [注销信鸽平台推送服务接口](#zhuxiao)。
 2. 参考 [iOS 迁移指南](https://cloud.tencent.com/document/product/548/41610)  文档，根据您 App 的集成情况，实现相应的变更，完成后返回当前文档。
 3. 完成下述文档的集成工作。
 
 ## SDK 组成
-- doc 文件夹：移动推送 TPNS  iOS SDK 开发指南。
-- demo 文件夹：包含样例工程，移动推送 TPNS  SDK（仅包含 OC demo，Swift Demo 请前往 [腾讯工蜂](https://git.code.tencent.com/tpns/XG-Demo-Swift) 进行下载）。 
+- doc 文件夹：腾讯移动推送 iOS SDK 开发指南。
+- demo 文件夹：包含样例工程，腾讯移动推送 SDK（仅包含 OC demo，Swift Demo 请前往 [腾讯工蜂](https://git.code.tencent.com/tpns/XG-Demo-Swift) 进行下载）。 
 
 ## SDK 集成
 ### 接入前准备
-1. 接入 SDK 之前，请前往移动推送 TPNS  [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
-![](https://main.qcloudimg.com/raw/bbb9fa9bab0eafa3fd0da206cb6d4235.png)
-2. 应用创建完成后，您可以参考 [购买推送服务](https://cloud.tencent.com/document/product/548/37242) ，为您的应用购买推送服务。
-![](https://main.qcloudimg.com/raw/d1840dd2ced4e65eb5277a0b36b1ff5b.png)
-3. 单击【配置管理】，进入管理页面。
-![](https://main.qcloudimg.com/raw/04d10636b696a171fa4d0ed9730ab655.png)
-4. 单击【上传证书】，完成上传操作。推送证书获取详情请参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664)  。
-![](https://main.qcloudimg.com/raw/c4eaeb3f2d9c3fbb42dbb75f2c5c12dc.png)
-5. 证书上传成功后，在应用信息栏中，获取应用 Access ID 和 Access KEY。
+1. 接入 SDK 之前，请前往移动推送 TPNS  [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241)。
+   ![](https://main.qcloudimg.com/raw/29089bca0d0378db21e2df69930346fe.png)
+2. 单击【配置管理】，进入管理页面。
+   ![](https://main.qcloudimg.com/raw/69d6c1d7d8729a17e0b829a648019cff.png)
+3. 单击【上传证书】，完成上传操作。推送证书获取详情请参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664)。
+   ![](https://main.qcloudimg.com/raw/c4eaeb3f2d9c3fbb42dbb75f2c5c12dc.png)
+4. 证书上传成功后，在应用信息栏中，获取应用 Access ID 和 Access KEY。
 
-### 导入 SDK（三选一）
+### 导入 SDK（二选一）
 #### 方式一：Cocoapods 导入
 通过 Cocoapods 下载地址：
 ``` 
@@ -36,14 +34,8 @@ pod search TPNS-iOS
 pod install //安装 SDK 
 ```  
 
-#### 方式二：carthage 导入
-在 Cartfile 文件中指明依赖的第三方库：
-```
-github "xingePush/carthage-TPNS-iOS"
-```
-
-#### 方式三：手动导入
-1. 进入移动推送 TPNS  [控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏中【下载】即可。
+#### 方式二：手动导入
+1. 进入腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏中【下载】即可。
 2. 打开 demo 目录下的 SDK 文件夹，将 XGPush.h 及 libXG-SDK-Cloud.a 添加到工程，打开 ---XGPushStatistics 文件夹，获取 XGMTACloud.framework。
 3. 在 Build Phases 下，添加以下 Framework：
  ```
@@ -70,21 +62,23 @@ github "xingePush/carthage-TPNS-iOS"
 >! 如果您的应用服务接入点为广州，SDK 默认实现该配置。
 如果您的应用服务接入点为新加坡或者中国香港，请按照下文步骤完成境外服务接入点配置。
 1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
-2. 在 `startXGWithAppID` 方法之前调用头文件中的配置 `域名` 接口：
+2. 在`startXGWithAccessID:accessKey:delegate:`方法之前调用头文件中的配置`域名`接口：
 如需接入新加坡服务接入点 则将域名设置为```tpns.sgp.tencent.com```。
 **示例**
 ``` object-c
- [[XGPush defaultManager] configureClusterDomainName:@"tpns.sgp.tencent.com"];
+/// @note TPNS SDK1.2.7.1+
+[[XGPush defaultManager] configureClusterDomainName:@"tpns.sgp.tencent.com"];
 ```
 如需接入中国香港服务接入点 则将域名设置为```tpns.hk.tencent.com```。
 **示例**
 ``` object-c
- [[XGPush defaultManager] configureClusterDomainName:@"tpns.hk.tencent.com"];
+/// @note TPNS SDK1.2.7.1+
+[[XGPush defaultManager] configureClusterDomainName:@"tpns.hk.tencent.com"];
 ```
 
 ### 接入样例
-调用启动移动推送 TPNS 的 API，并根据需要实现 `XGPushDelegate` 协议中的方法，开启推送服务。
-1. 启动移动推送 TPNS 服务， `AppDelegate` 示例如下：
+调用启动腾讯移动推送的 API，并根据需要实现 `XGPushDelegate` 协议中的方法，开启推送服务。
+1. 启动腾讯移动推送服务， `AppDelegate` 示例如下：
 
 ```Objective-C
 @interface AppDelegate () <XGPushDelegate>
@@ -128,11 +122,11 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 
 ## 调试方法
 #### 开启 Debug 模式
-打开 Debug 模式，即可在终端查看详细的移动推送 TPNS  Debug 信息，方便定位问题。
+打开 Debug 模式，即可在终端查看详细的腾讯移动推送 Debug 信息，方便定位问题。
 
 #### 示例代码
 ```
-//打开debug开关
+//打开 debug 开关
 [[XGPush defaultManager] setEnableDebug:YES];
 ```
 
@@ -144,7 +138,7 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 @param deviceToken APNs 生成的 Device Token
 @param xgToken TPNS 生成的 Token，推送消息时需要使用此值。TPNS 维护此值与 APNs 的 Device Token 的映射关系
 @param error 错误信息，若 error 为 nil 则注册推送服务成功
-@note TPNS SDK1.2.5.3+
+@note TPNS SDK1.2.6.0+
 */
 - (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken xgToken:(nullable NSString *)xgToken error:(nullable NSError *)error;
 
@@ -169,19 +163,35 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 ```objective-c
 - (void)xgPushDidReceiveRemoteNotification:(nonnull id)notification withCompletionHandler:(nullable void (^)(NSUInteger))completionHandler;
 ```
+>!
+- 当应用在前台收到通知消息以及所有状态下收到静默消息时，会触发统一接收消息回调 xgPushDidReceiveRemoteNotification。
+区分前台收到通知消息和静默消息示例代码如下：
+```
+NSDictionary *tpnsInfo = notificationDic[@"xg"];
+NSNumber *msgType = tpnsInfo[@"msgtype"];
+ if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive && msgType.integerValue == 1) {
+        /// 前台收到通知消息
+    } else {
+        /// 静默消息
+    }
+```
+- 若实现了统一接收消息回调 xgPushDidReceiveRemoteNotification，则无需再实现 application:didReceiveRemoteNotification:fetchCompletionHandler。
+
+
 统一点击消息回调，此回调方法为应用所有状态（前台、后台、关闭）下的通知消息点击回调。
 ```objective-c
+/// 统一点击回调
+/// @param response 如果 iOS 10+/macOS 10.14+ 则为 UNNotificationResponse，低于目标版本则为 NSDictionary
+/// @note TPNS SDK1.2.7.1+
 - (void)xgPushDidReceiveNotificationResponse:(nonnull id)response withCompletionHandler:(nonnull void (^)(void))completionHandler;
 ```
 
->!
-- 当应用在前台收到通知消息时，会触发统一接收消息回调 xgPushDidReceiveRemoteNotification。
-- 如实现了统一接收消息回调 xgPushDidReceiveRemoteNotification 请不要再实现 application:didReceiveRemoteNotification:fetchCompletionHandler。
+
 
 ## 高级配置（可选）
 <span id="zhuxiao"></span>
 ### 注销信鸽平台推送服务
-如果 App 的推送服务是从 [信鸽平台](https://xg.qq.com) 迁移到移动推送 TPNS 平台， 需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在信鸽平台中进行反注册。
+如果 App 的推送服务是从 [信鸽平台](https://xg.qq.com) 迁移到腾讯移动推送平台， 需要调用 `TPNS SDK(1.2.5.3+)` 的接口将设备信息在信鸽平台中进行反注册。
 
 #### 接口
 
@@ -193,13 +203,13 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 #### 用法
 
 - 引入头文件：`XGForFreeVersion.h` 。
-- 在 `startXGWithAppID:appKey:delegate:` 之前调用此接口，参考示例：
+- 在`startXGWithAccessID:accessKey:delegate:`之前调用此接口，参考示例：
 
 ```objective-c
 [XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
-[[XGPush defaultManager] startXGWithAppID: <#your tpns access ID#>appKey:<#your tpns access key#> delegate:<#your delegate#>];
+[[XGPush defaultManager] startXGWithAccessID: <#your tpns access ID#>appKey:<#your tpns access key#> delegate:<#your delegate#>];
 ```
->!如果未做以上配置，在信鸽和移动推送 TPNS 两个平台上同时推送时，可能会出现重复消息。
+>!如果未做以上配置，在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
 
 
 <span id="QHToken"></span>

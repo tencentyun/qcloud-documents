@@ -1,5 +1,8 @@
+## 准备工作
+请先按照 [接入准备](https://cloud.tencent.com/document/product/1214/45793) 所述流程下载好 Demo 工程文件。
+
 ## 步骤1：设置密钥
-使用 xcode 打开下载好的 Demo 工程文件，在 HomeViewController 的 SECRET_ID和SECRET_KEY 中填入您的专属密钥。
+使用 xcode 打开下载好的 Demo 工程文件，在 HomeViewController 的 SECRET_ID 和 SECRET_KEY 中填入您的专属密钥。
 
 <img src="https://main.qcloudimg.com/raw/d17501a591d0042a965204d6e7c2480b.png" alt="20200616110337" style="zoom:80%;" />
 

@@ -2,7 +2,7 @@
 记录集群发生的关键变化事件或异常事件，用户可查询集群事件，并对严重事件在云监控中配置事件告警，提升集群排障效率。
 
 ## 操作步骤
-1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在【集群列表】中选择对应的集群，单击【详情】进入集群详情页。
+1. 登录 [EMR 控制台](https://console.cloud.tencent.com/emr)，在【集群列表】中单击对应的集群【ID/名称】进入集群详情页。
 2. 在集群详情页中选择【集群监控】>【集群事件】，可直接查看当前集群所有操作事件。
 ![](https://main.qcloudimg.com/raw/795005767ff93c3bd9c8ddaecfc65ffd.png)
 严重程度如下：

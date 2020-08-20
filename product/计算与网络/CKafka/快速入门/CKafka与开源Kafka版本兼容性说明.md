@@ -61,9 +61,9 @@ Kafka 0.9.x 版本引入了 New Consumer，其融合了 Old Consumer（0.8版本
 
 - **Low Level Consumer API**（[参考 Demo](https://cwiki.apache.org/confluence/display/KAFKA/0.8.0+SimpleConsumer+Example)）
 如果使用者关心消息的offset并且希望进行重复消费或者跳读等功能、又或者希望指定某些partition进行消费时和确保更多消费语义时推荐使用Low Level Consumer API。但是使用者需要自己处理Offset以及Broker的异常情况。
-在使用Low Level Consumer时需要注意以下几点：
- - 自行跟踪维护Offset，控制消费进度
- - 查找Topic相应Partition的Leader，以及处理Partition变更情况
+在使用 Low Level Consumer 时需要注意以下几点：
+ - 自行跟踪维护 Offset，控制消费进度
+ - 查找 Topic 相应 Partition 的 Leader，以及处理 Partition 变更情况
 
  
 #### 0.9版本 New Consumer API

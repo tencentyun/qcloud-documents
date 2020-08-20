@@ -1,0 +1,255 @@
+## 功能描述
+
+UpdateMediaTemplate 用于更新动图模板。
+
+## 请求
+
+#### 请求示例
+
+```plaintext
+PUT /template/<TemplateID> HTTP/1.1
+Host: <BucketName-APPID>.ci.<Region>.myqcloud.com
+Date: <GMT Date>
+Authorization: <Auth String>
+Content-Length: <length>
+Content-Type: application/xml
+
+<body>
+```
+
+> ?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+
+
+#### 请求头
+
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
+
+#### 请求体
+
+该请求操作的实现需要有如下请求体。
+
+```shell
+<Request>
+    <Tag>Animation</Tag>
+    <Name>TemplateName</Name>
+    <TemplateID></TemplateID>
+    <Container>
+        <Format>gif</Format>
+    </Container>
+    <Video>
+        <Codec>gif</Codec>
+        <Width>1280</Width>
+        <Height></Height>
+        <Fps>15</Fps>
+        <AnimateOnlyKeepKeyFrame>false</AnimateOnlyKeepKeyFrame>
+    </Video>
+    <TimeInterval>
+        <Start>0</Start>
+        <Duration>60</Duration>
+    </TimeInterval>
+</Request>
+```
+
+具体数据描述如下：
+
+| 节点名称（关键字） | 父节点 | 描述           | 类型      | 是否必选 |
+| :----------------- | :----- | :------------- | :-------- | -------- |
+| Request            | 无     | 保存请求的容器 | Container | 是       |
+
+Container 类型 Request 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点  | 描述                                      | 类型      | 是否必选 |
+| ------------------ | ------- | ----------------------------------------- | --------- | -------- |
+| Tag                | Request | 模板类型：Animation                       | String    | 是       |
+| Name               | Request | 模板名称，仅支持中文、英文、数字、_、-和* | String    | 是       |
+| Container          | Request | 容器格式                                  | Container | 是       |
+| Video              | Request | 视频信息                                  | Container | 否       |
+| TimeInterval       | Request | 时间区间                                  | Container | 否       |
+
+
+Request 节点 Container 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点            | 描述                                                         | 类型   | 是否必选 |
+| ------------------ | ----------------- | ------------------------------------------------------------ | ------ | -------- |
+| Format             | Request.Container | 容器格式: gif，hgif，webp。hgif 为高质量 gif，即清晰度比较高的 gif 格式图 | String | 是       |
+
+Request 节点 Video 的具体数据描述如下：
+
+| 节点名称（关键字）         | 父节点        | 描述                   | 类型   | 是否必选 | 默认值       | 限制                                                         |
+| -------------------------- | ------------- | ---------------------- | ------ | -------- | ------------ | ------------------------------------------------------------ |
+| Codec                      | Request.Video | 编解码格式             | String | 是       | 无           | gif，webp                                                    |
+| Width                      | Request.Video | 宽                     | String | 否       | 视频原始宽度 | 1. 值范围：[128，4096]<br/>2. 单位：px<br/>3. 若只设置 Width 时，按照视频原始比例计算 Height |
+| Height                     | Request.Video | 高                     | String | 否       | 视频原始高度 | 1. 值范围：[128，4096]<br/>2. 单位：px<br/>3. 若只设置 Height 时，按照视频原始比例计算 Width |
+| Fps                        | Request.Video | 帧率                   | String | 否       | 视频原始帧率 | 1. 值范围：(0，60]<br/>2. 单位：fps<br/>3. 帧率超过60时，设置为60<br/>用户可以设置 fps，如果不设置，那么播放速度按照原来的时间戳。这里设置 fps 为动图的播放帧率。 |
+| AnimateOnlyKeepKeyFrame    | Request.Video | 动图只保留关键帧       | String | 否       | 无           | 1. true、false<br/>2. 动图保留关键帧参数                     |
+| AnimateTimeIntervalOfFrame | Request.Video | 动图抽帧间隔时间       | String | 否       | 无           | 1. （0，视频时长]<br/>2. 动图抽帧时间间隔<br/>3. 若设置 TimeInterval.Duration，则小于该值 |
+| AnimateFramesPerSecond     | Request.Video | Animation 每秒抽帧帧数 | String | 否       | 无           | 1. 值范围：（0，视频帧率)<br/>2. 动图抽帧频率<br/>3. 优先级：AnimateFramesPerSecond > AnimateOnlyKeepKeyFrame > AnimateTimeIntervalOfFrame |
+| Quality                    | Request.Video | 设置相对质量           | String | 否       | 无           | 1. 值范围：[1，100)<br/>2. webp 图像质量设定生效，gif 没有质量参数 |
+
+
+Request 节点 TimeInterval 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点               | 描述     | 类型   | 是否必选 | 默认值   | 限制                                                         |
+| ------------------ | -------------------- | -------- | ------ | -------- | -------- | ------------------------------------------------------------ |
+| Start              | Request.TimeInterval | 开始时间 | String | 否       | 0        | 1. 值范围：[0，视频时长] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
+| Duration           | Request.TimeInterval | 持续时间 | String | 否       | 视频时长 | 1. 值范围：[0，视频时长] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
+
+
+
+## 响应
+
+#### 响应头
+
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 文档。 
+
+#### 响应体
+
+该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
+
+```shell
+<Response>
+    <Tag>Animation</Tag>
+    <Name>TemplateName</Name>
+    <TemplateID></TemplateID>
+    <TransTpl>
+      <Container>
+         <Format>mp4</Format>
+      </Container>
+      <Video>
+        <Codec>gif</Codec>
+        <Width>1280</Width>
+        <Height></Height>
+        <Fps>15</Fps>
+        <AnimateOnlyKeepKeyFrame>false</AnimateOnlyKeepKeyFrame>
+      </Video>
+      <TimeInterval>
+         <Start>0</Start>
+         <Duration>60</Duration>
+      </TimeInterval>
+   </TransTpl>
+   <CreateTime></CreateTime>
+   <UpdateTime></UpdateTime>
+</Response>
+
+```
+
+具体的数据内容如下：
+
+| 节点名称（关键字） | 父节点 | 描述           | 类型      |
+| :----------------- | :----- | :------------- | :-------- |
+| Response           | 无     | 保存结果的容器 | Container |
+
+Response 的具体描述：
+
+| 节点名称（关键字） | 父节点   | 描述                           | 类型      |
+| :----------------- | :------- | :----------------------------- | :-------- |
+| TemplateId         | Response | 模版 ID                        | String    |
+| Name               | Response | 模版名称                       | String    |
+| BucketId           | Response | 模版所属存储桶                 | String    |
+| Category           | Response | 模版属性，Custom 或者 Official | String    |
+| Tag                | Response | 模版 Tag Animation             | String    |
+| UpdateTime         | Response | 更新时间                       | String    |
+| CreateTime         | Response | 创建时间                       | String    |
+| TransTpl           | Response | 详细的模版参数                 | Container |
+
+
+TransTpl 节点 Container 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                      | 描述                                                         | 类型   | 是否必选 |
+| ------------------ | --------------------------- | ------------------------------------------------------------ | ------ | -------- |
+| Format             | Response.TransTpl.Container | 容器格式：gif，hgif，webp。hgif 为高质量 gif，即清晰度较高的 gif 格式图 | String | 是       |
+
+TransTpl 节点 Video 的具体数据描述如下：
+
+| 节点名称（关键字）         | 父节点                  | 描述                   | 类型   | 是否必选 | 默认值       | 限制                                                         |
+| -------------------------- | ----------------------- | ---------------------- | ------ | -------- | ------------ | ------------------------------------------------------------ |
+| Codec                      | Response.TransTpl.Video | 编解码格式             | String | 是       | 无           | gif, webp                                                    |
+| Width                      | Response.TransTpl.Video | 宽                     | String | 否       | 视频原始宽度 | 1. 值范围：[128，4096]<br/>2. 单位：px<br/>3. 若只设置 Width 时，按照视频原始比例计算 Height |
+| Height                     | Response.TransTpl.Video | 高                     | String | 否       | 视频原始高度 | 1. 值范围：[128，4096]<br/>2. 单位：px<br/>3. 若只设置 Height 时，按照视频原始比例计算 Width |
+| Fps                        | Response.TransTpl.Video | 帧率                   | String | 否       | 视频原始帧率 | 1. 值范围：(0，60]<br/>2. 单位：fps<br/>3. 帧率超过60时，设置为60<br/>用户可以设置 fps，如果不设置，那么播放速度按照原来的时间戳。这里设置 fps 为动图的播放帧率。 |
+| AnimateOnlyKeepKeyFrame    | Response.TransTpl.Video | 动图只保留关键帧       | String | 否       | 无           | 1. true、false<br/>2. 动图保留关键帧参数                     |
+| AnimateTimeIntervalOfFrame | Response.TransTpl.Video | 动图抽帧间隔时间       | String | 否       | 无           | 1. （0，视频时长]<br/>2. 动图抽帧时间间隔<br/>3. 若设置 TimeInterval.Duration，则小于该值 |
+| AnimateFramesPerSecond     | Response.TransTpl.Video | Animation 每秒抽帧帧数 | String | 否       | 无           | 1.（0，视频帧率)<br/>2. 动图抽帧频率<br/>3. 优先级：AnimateFramesPerSecond > AnimateOnlyKeepKeyFrame > AnimateTimeIntervalOfFrame |
+| Quality                    | Response.TransTpl.Video | 设置相对质量           | String | 否       | 无           | 1. [1, 100)<br/>2. webp 图像质量设定生效，gif 没有质量参数   |
+
+
+TransTpl 节点 TimeInterval 的具体数据描述如下：
+
+| 节点名称（关键字） | 父节点                         | 描述     | 类型   | 是否必选 | 默认值   | 限制                                                         |
+| ------------------ | ------------------------------ | -------- | ------ | -------- | -------- | ------------------------------------------------------------ |
+| Start              | Response.TransTpl.TimeInterval | 开始时间 | String | 否       | 0        | 1. [0，视频时长] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
+| Duration           | Response.TransTpl.TimeInterval | 持续时间 | String | 否       | 视频时长 | 1. [0，视频时长] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
+
+
+
+#### 错误码
+
+该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
+
+## 实际案例
+
+#### 请求
+
+```shell
+PUT /template/<TemplateID> HTTP/1.1
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
+Content-Length: 1666
+Content-Type: application/xml
+
+<Request>
+    <Tag>Animation</Tag>
+    <Name>TemplateName</Name>
+    <TemplateID></TemplateID>
+    <Container>
+        <Format>gif</Format>
+    </Container>
+    <Video>
+        <Codec>gif</Codec>
+        <Width>1280</Width>
+        <Height></Height>
+        <Fps>15</Fps>
+        <AnimateOnlyKeepKeyFrame>false</AnimateOnlyKeepKeyFrame>
+    </Video>
+    <TimeInterval>
+        <Start>0</Start>
+        <Duration>60</Duration>
+    </TimeInterval>
+</Request>
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 100
+Connection: keep-alive
+Date: Thu, 15 Jun 2017 12:37:29 GMT
+Server: tencent-ci
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
+
+<Response>
+    <Tag>Animation</Tag>
+    <Name>TemplateName</Name>
+    <TemplateID></TemplateID>
+    <TransTpl>
+      <Container>
+         <Format>mp4</Format>
+      </Container>
+      <Video>
+        <Codec>gif</Codec>
+        <Width>1280</Width>
+        <Height></Height>
+        <Fps>15</Fps>
+        <AnimateOnlyKeepKeyFrame>false</AnimateOnlyKeepKeyFrame>
+      </Video>
+      <TimeInterval>
+         <Start>0</Start>
+         <Duration>60</Duration>
+      </TimeInterval>
+   </TransTpl>
+   <CreateTime></CreateTime>
+   <UpdateTime></UpdateTime>
+</Response>
+```

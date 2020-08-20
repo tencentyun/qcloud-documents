@@ -1,28 +1,27 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
-## 1.23.0-Finchley-RELEASE
+## 1.23.0-Finchley-RELEASE（2020-07-06）
 
 ### 新特性
-
-- spring-cloud-tsf-msgw: 
-  - 新增网关路径重写配置功能
-  - 新增网关微信小程序登录插件功能
-- spring-cloud-tsf-sleuth:
-  - 新增调用链支持RocketMQ
-  - 修复Kafka中的类型转发错误
-- spring-cloud-tsf-core:
-  - 监控数据结构中增加HTTP请求方法、以及请求模版路径
-  - 调用链数据结构中增加
+- spring-cloud-tsf-msgw：
+  - 新增网关路径重写配置功能。
+  - 新增网关微信小程序登录插件功能。
+- spring-cloud-tsf-sleuth：
+  - 新增调用链支持 RocketMQ。
+  - 修复 Kafka 中的类型转发错误。
+- spring-cloud-tsf-core：
+  - 监控数据结构中增加 HTTP 请求方法、以及请求模版路径。
+  - 调用链数据结构中增加 HTTP 请求方法。
 
 ### Bug 修复
 
-- spring-cloud-tsf-msgw:
-  - 修复数据同步时，可能会短暂获取到错误数据的问题
-  - 修复SCG Tag中数据未正确清除的问题
-- 处理tomcat组件开源漏洞风险。
-  - 升级org.apache.tomcat.embed.tomcat-embed-core到8.5.56版本。
-  - 升级org.apache.tomcat.embed.tomcat-embed-el到8.5.56版本。
-  - 升级org.apache.tomcat.embed.tomcat-embed-websocket到8.5.56版本。
+- spring-cloud-tsf-msgw：
+  - 修复数据同步时，可能会短暂获取到错误数据的问题。
+  - 修复 SCG Tag 中数据未正确清除的问题。
+- 处理tomcat组件开源漏洞风险：
+  - 升级 org.apache.tomcat.embed.tomcat-embed-core 到8.5.56版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-el 到8.5.56版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到8.5.56版本。
 
 ## 1.22.1-Finchley-RELEASE（2020-05-06）
 
@@ -50,6 +49,13 @@
 
 - 优化默认日志配置支持容器部署场景。
 - 优化 TSF MSGW zuul 依赖。
+
+## 1.21.3-Finchley-RELEASE（2020-07-16）
+### Bug 修复
+- 修复网关 MSGW SDK 和服务发现 SDK 不兼容，造成拉取服务列表过快的问题。
+- 修复 MySQL 调用链中 SQL 截断问题。
+### 优化
+- spring-cloud-tsf-gateway 网关兼容新插件类型。
 
 ## 1.21.2-Finchley-RELEASE (2020-07-06)
 
@@ -254,6 +260,19 @@ spring-cloud-tsf-sleuth bug fixed：
 
 支持向后兼容，建议全量升级。
 
+## 1.12.5-Finchley-RELEASE（2020-07-17）
+
+### Bug 修复
+
+修复 spring-cloud-tsf-route 包路由不准确问题。
+
+### 优化
+
+调整心跳请求的超时时间，当出现丢包时能够快速重试。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
 ## 1.12.4-Finchley-RELEASE（2019-08-15）
 
 ### Bug 修复

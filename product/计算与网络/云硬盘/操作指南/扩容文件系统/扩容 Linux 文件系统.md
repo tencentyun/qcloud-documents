@@ -6,6 +6,7 @@
 
 ## 前提条件
 >!扩容文件系统操作不慎可能影响已有数据，因此强烈建议您在操作前手动 [创建快照](https://cloud.tencent.com/document/product/362/5755) 备份数据。
+为确保您的已有数据不受影响，文档中的部分步骤增加了 umount 已有分区和 fsck 检查文件系统等操作。您可根据自身业务需求选择是否执行。
 >
 - 已 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747)  空间。
 - 该云硬盘已 [挂载](https://cloud.tencent.com/document/product/362/5745) 到 Linux 云服务器并已创建文件系统。

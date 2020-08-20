@@ -1,9 +1,9 @@
 ## 准备工作
 
-1. [拥有腾讯云账号](https://cloud.tencent.com/document/product/876/41391)；
-2. **务必**[创建云开发环境](https://cloud.tencent.com/document/product/876/41391)，获得 **环境 ID**；
+1. [注册腾讯云账号](https://cloud.tencent.com/document/product/378/17985)；
+2. **务必** [创建云开发环境](https://cloud.tencent.com/document/product/876/41391)，获得 **环境 ID**；
 3. 安装 [Node.js](https://nodejs.org/en/)；
-4. 安装 [Cloudbase CLI](https://cloud.tencent.com/document/product/876/41392)。
+4. 安装 [Cloudbase CLI](https://cloud.tencent.com/document/product/876/41539#.E5.AE.89.E8.A3.85-cloudbase-cli)。
 
 ```sh
 npm install -g @cloudbase/cli

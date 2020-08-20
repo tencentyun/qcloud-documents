@@ -42,8 +42,8 @@
 	<tr>      
 		<td align="center">Windows</td>
 		<td align="center"><a onclick="MtaH5.clickStat('sdkDownload',{'platform':'windows'})" href="https://github-1252463788.cos.ap-shanghai.myqcloud.com/imsdk/TIMSDK.zip">ZIP</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgithub',{'platform':'windows'})" href="https://github.com/tencentyun/TIMSDK/">Github</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgitee',{'platform':'windows'})" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/Windows">Gitee</a></td>
+		<td align="center"><a onclick="MtaH5.clickStat('sdkgithub',{'platform':'windows'})" href="https://github.com/tencentyun/TIMSDK/tree/master/cross-platform/Windows">Github</a></td>
+		<td align="center"><a onclick="MtaH5.clickStat('sdkgitee',{'platform':'windows'})" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/cross-platform/Windows">Gitee</a></td>
 		<td align="center">-</td>
 		<td align="center"><a href="https://cloud.tencent.com/document/product/269/33489">DOC</a></td>
 		<td>x86：约3.9M<br>x86-64：约5.1M</td>
@@ -84,10 +84,20 @@
 <span id="TLS"></span>
 ## 直播电商解决方案
 
-| 所属平台   | Github下载地址                        | 集成指引       |
+| 所属平台   | Github 下载地址                        | 集成指引       |
 | ---------- | ------------------------------------- | -------------- |
-| 微信小程序 | [Github](https://github.com/tencentyun/TIMSDK/tree/master/Examples/im-live) | [集成 IM 实现直播带货](https://cloud.tencent.com/document/product/269/44527) |
-| Web        | [Github](https://github.com/tencentyun/TIMSDK/tree/master/Examples/im-live)|  [集成 IM 实现直播带货](https://cloud.tencent.com/document/product/269/44527)           |
+| 微信小程序 | [Github](https://github.com/tencentyun/TencentIMDemos) | [场景实践 - 小程序直播带货](https://cloud.tencent.com/document/product/269/44932) |
+
+
+## 直播互动场景实践
+
+| 所属平台   | Github 下载地址                       |ZIP 下载地址 | 集成指引       |
+| ---------- | ----------------|--------------------- | -------------- |
+| H5 及 Web | [Github](https://github.com/tencentyun/TWebLive)| [ZIP](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/TWebLive-demo.zip?_ga=1.23181178.1931537.1590743323)| [场景实践 - 微信 H5 直播互动](https://cloud.tencent.com/document/product/269/45036) |
+
+## 相关文档
+- [价格说明](https://cloud.tencent.com/document/product/269/11673)
+- [折扣活动](https://cloud.tencent.com/document/product/269/46181)
 
 
 

@@ -39,7 +39,7 @@
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/cpu-type</td>
-<td>Pod 所需的 GPU 资源型号，目前支持型号如下：
+<td>Pod 所需的 CPU 资源型号，目前支持型号如下：
 <ul  class="params">
 <li>intel</li>
 <li>amd</li>
@@ -63,8 +63,28 @@
 </tr>
 <tr>
 <td>eks.tke.cloud.tencent.com/gpu-count</td>
-<td>Pod 所需的 GPU 数量，请参考 <a href="https://cloud.tencent.com/document/product/457/39808" target="_blank">资源规格</a> 填写，默认单位为卡，无需再次注明</td>
+<td>Pod 所需的 GPU 数量，请参考 <a href="https://cloud.tencent.com/document/product/457/39808" target="_blank">资源规格</a> 填写，默认单位为卡，无需再次注明。</td>
 <td>否。如填写，请确保为支持的规格。</td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/static-ip</td>
+<td>Pod 固定 IP，value 填写 <code>"true"</code> 开启此特性，开启特性的 StatefulSet 和 Bare Pod 在 Pod 发生更新/重启后 IP 不会变化。</td>
+<td>否。但仅对 StatefulSet、Pod 类型工作负载生效。</td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/role-name</td>
+<td>为 Pod 关联 CAM 角色，value 填写 <a href="https://console.cloud.tencent.com/cam/role" target="_blank">CAM 角色名称</a>，Pod 可获取该 CAM 角色包含的权限策略，方便 Pod 内的程序进行如购买资源、读写存储等云资源操作。</td>
+<td>否。如填写，请确保填写的 CAM 角色名存在。</td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/monitor_port</td>
+<td>为 Pod 设置监控数据暴露端口，以便被 Prometheus 等组件采集。</td>
+<td>否。不填写默认为 9100。</td>
+</tr>
+<tr>
+<td>eks.tke.cloud.tencent.com/custom_metrics_url</td>
+<td>为 Pod 设置自定义监控指标拉取地址，通过该地址暴露的监控数据会自动被监控组件读取并上报。</td>
+<td>否。如填写，请确保暴露的数据协议可被监控系统识别，如 Prometheus 协议、云监控数据协议。</td>
 </tr>
 </tr>
 </tbody></table>
@@ -73,7 +93,7 @@
 以下为 Pod 绑定安全组的 GPU 规格完整示例：
 ```
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   generation: 1
   labels:
@@ -102,6 +122,10 @@ spec:
         eks.tke.cloud.tencent.com/gpu-type: 1/4*V100
         eks.tke.cloud.tencent.com/mem: 10Gi
         eks.tke.cloud.tencent.com/security-group-id: "sg-dxxxxxx5,sg-zxxxxxxu"
+        eks.tke.cloud.tencent.com/static-ip: "true"
+        eks.tke.cloud.tencent.com/role-name: "cam-role-name"
+        eks.tke.cloud.tencent.com/monitor_port: "9123"
+        eks.tke.cloud.tencent.com/custom_metrics_url: "http://localhost:8080/metrics"
       creationTimestamp: null
       labels:
         k8s-app: nginx

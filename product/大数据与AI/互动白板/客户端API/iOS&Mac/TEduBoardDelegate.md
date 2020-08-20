@@ -217,6 +217,20 @@
 - (void)onTEBRefresh
 ```
 
+### onTEBSnapshot:errorCode:errorMsg:
+白板快照 
+``` Objective-C
+- (void)onTEBSnapshot:(NSString *)path errorCode:(TEduBoardErrorCode)code errorMsg:(NSString *)msg 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| path | NSString * | 快照本地路径  |
+| code | TEduBoardErrorCode | 错误码，返回 0，表示获取快照成功  |
+| msg | NSString * | 错误信息  |
+
+
 
 ## 文件操作回调
 

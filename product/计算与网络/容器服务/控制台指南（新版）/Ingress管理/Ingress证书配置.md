@@ -37,7 +37,11 @@ metadata:
     namespace: default
 type: Opaque
 ```
->?您还可使用容器服务控制台创建 Secret，详情请参见 [创建 Secret](https://cloud.tencent.com/document/product/457/31718#.E5.88.9B.E5.BB.BA-secret)。
+>?您还可参考 [创建 Secret](https://cloud.tencent.com/document/product/457/31718#.E5.88.9B.E5.BB.BA-secret)，通过容器服务控制台进行创建。主要参数配置如下：
+>- **名称**：自定义，本文以 cos-secret 为例。
+>- **Secret类型**：选择【Opaque】，该类型适用于保存密钥证书和配置文件，Value 将以 Base64 格式编码。
+>- **生效范围**：按需选择，需确保与 Ingress 在同一 Namespace 下。
+>- **内容**：变量名设置为 `qcloud_cert_id`，变量值配置为 qcloud_cert_id 所对应的证书 ID。
 >
 
 ## Ingress 证书配置的行为

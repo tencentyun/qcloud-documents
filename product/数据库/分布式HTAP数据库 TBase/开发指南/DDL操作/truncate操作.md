@@ -1,3 +1,4 @@
+
 truncate 功能用于对表数据进行快速清除，truncate 属于 ddl 级别，会给 truncate 表加上 ACCESS EXCLUSIVE 最高级别的锁。
 
 ## truncate 普通表

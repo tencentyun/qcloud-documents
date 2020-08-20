@@ -22,7 +22,7 @@
 
 ## 详细流程
 #### 新建 Notebook 实例
-1. 登录智能钛机器学习平台控制台后，单击菜单栏的【Notebook】，页面跳转至 Notebook 实例列表页面。新增实例，配置参数（以下以广州地域为例说明）：
+1. 登录 [智能钛机器学习平台控制台](https://console.cloud.tencent.com/tione/project/list) 后，单击菜单栏的【Notebook】，页面跳转至 Notebook 实例列表页面。新增实例，配置参数（以下以广州地域为例说明）：
    - 地区：广州
    - Notebook名称：mnist
    - 资源选择：您可按需选择

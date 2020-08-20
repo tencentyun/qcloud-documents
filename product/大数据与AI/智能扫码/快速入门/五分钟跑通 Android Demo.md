@@ -1,3 +1,6 @@
+## 准备工作
+请先按照 [接入准备](https://cloud.tencent.com/document/product/1214/45793) 所述流程下载好 Demo 工程文件。
+
 ## 步骤1：设置密钥
 
 使用 Android Studio 打开下载好的 Demo 工程文件，在 MainActivity 的 SECRET_ID和SECRET_KEY 中填入您的专属密钥。

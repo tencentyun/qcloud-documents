@@ -14,7 +14,7 @@
 为了能够使用腾讯云 Elasticsearch 更多高级功能，我们建议您在创建购买集群时，选择**白金版**，各版本具体功能介绍及区别见下文，产品的定价信息详见 [产品定价](https://cloud.tencent.com/document/product/845/18376)。
 
 ## 高级特性介绍
-本文对部分常用高级特性进行了说明，完整的高级特性及说明，可查看官方说明 [Elastic Stack](https://www.elastic.co/cn/products/stack) 、[API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
+本文对部分常用高级特性进行了说明，完整的高级特性及说明，可查看官方说明 [Elastic Stack 订阅](https://www.elastic.co/cn/subscriptions) 、[API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
 >! 部分功能在不同的高级特性版本（基础、白金、开源）间有区别。
 
 - **安全（Security）**  
@@ -34,7 +34,7 @@
 
 本节主要对不同 ES 版本的部分重点功能做对比说明，方便用户了解不同版本中功能的区别。因 Elasticsearch 正处于快速发展阶段，不同版本对各功能的支持情况也在不断调整，所以我们不保证下述内容能及时跟进社区变化。
 
-了解最新准确的功能对比，可查看 Elasticsearch 官方介绍 [Elastic 各版本功能说明](https://www.elastic.co/cn/subscriptions)。
+了解最新准确的功能对比，可查看 Elasticsearch 官方介绍 [Elastic Stack 订阅](https://www.elastic.co/cn/subscriptions)。
 
 
 >?下表中![全部](https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png)、![部分](https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png)、![不包含](https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png)用于表示对应特性的功能完整度，![全部](https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png)：包含全部功能；![部分](https://main.qcloudimg.com/raw/07a75780ad731f49a5f28b3918c6c461.png)：包含部分功能；![不包含](https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png)：不包含。
@@ -79,7 +79,7 @@
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
-    <td class="tg-s268"><a href="#machine_learning">Machine Learning</a></td>
+    <td class="tg-s268"><a href="#machine_learning">机器学习</a></td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
@@ -116,7 +116,7 @@
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
-    <td class="tg-0lax">Machine Learning</td>
+    <td class="tg-0lax">机器学习</td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
@@ -375,7 +375,7 @@
     <td class="tg-s268">审核日志</td>
     <td class="tg-s268">-</td>
     <td class="tg-s268">-</td>
-    <td class="tg-s268">&#10003;</td>
+    <td class="tg-s268">-</td>
   </tr>  
   <tr>
     <td class="tg-s268">基于属性的权限控制</td>

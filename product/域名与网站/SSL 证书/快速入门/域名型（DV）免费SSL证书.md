@@ -11,7 +11,7 @@
 ![](https://main.qcloudimg.com/raw/386c4db32d43af0ee2ce026f26420d11.png)
 2. 在弹出的【确认证书类型】窗口中，单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/67c9a271ea357da40cba2bb10f272354.png)
-3. 填写证书申请内容，例如`qcloud.com`，`cloud.tencent.com`，`demo.test.qlcoud.com`。
+3. 填写证书申请内容，例如 `qcloud.com`，`cloud.tencent.com`，`demo.test.qlcoud.com`。
 ![](https://main.qcloudimg.com/raw/2ab25b49b5c81742719f28a3c3008e5b.png)
 4. 单击【下一步】，选择域名身份验证。
 5. 单击【确认申请】，完成域名身份验证即可获取证书，具体可参考 [域名验证指引](https://cloud.tencent.com/document/product/400/4142)。

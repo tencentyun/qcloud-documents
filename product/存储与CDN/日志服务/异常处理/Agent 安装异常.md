@@ -1,4 +1,4 @@
-> 如何安装使用日志服务 Loglistener，详情请参阅 [ LogListener 安装指南](https://cloud.tencent.com/document/product/614/17414) 文档，并了解 [ Loglistener 机制](https://cloud.tencent.com/document/product/614/17415)。
+如何安装使用日志服务 Loglistener，详情请参阅 [ LogListener 安装指南](https://cloud.tencent.com/document/product/614/17414) 文档，并了解 [ Loglistener 机制](https://cloud.tencent.com/document/product/614/17415)。
 
 ## 可能原因
 
@@ -30,3 +30,4 @@ cd loglistener/bin && ./check
 正常情况下，输出如下：
  ![](https://main.qcloudimg.com/raw/e7e85f139feb14b1aaa3353b2bafd5e1.png)
  以上命令执行无误后，即可表明 Loglistener 被成功安装。
+

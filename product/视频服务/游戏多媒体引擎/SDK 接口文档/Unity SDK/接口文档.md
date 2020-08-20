@@ -309,25 +309,27 @@ ITMGContext.GetInstance().GetRoom().ChangeRoomType(ITMG_ROOM_TYPE_FLUENCY);
 
 |返回的参数     | 含义  |
 | ------------- |:-------------:|
-| result    |0 是代表成功|
-| error_info    |如果失败，会传递相关错误信息|
+| roomtype    |返回切换后的 roomtype 类型|
+
 
 ```
 委托函数：
-public delegate void QAVOnChangeRoomtypeCallback(int result, string error_info);
+public abstract event QAVCallback OnChangeRoomtypeCallback;
 
 事件函数：
-public abstract event QAVCallback OnChangeRoomtypeCallback; 
+public abstract event QAVOnRoomTypeChangedEvent OnRoomTypeChangedEvent;
 ```
 
 ####  示例代码  
 ```
 对事件进行监听：
-ITMGContext.GetInstance().OnChangeRoomtypeCallback += new QAVOnChangeRoomtypeCallback(OnChangeRoomtypeCallback);
+ITMGContext.GetInstance ().OnRoomTypeChangedEvent += new QAVOnRoomTypeChangedEvent (OnRoomTypeChangedEvent);
 监听处理：
-void OnChangeRoomtypeCallback(int result, string error_info){
-    //房间类型设置完成后的处理
+void OnRoomTypeChangedEvent(int roomtype)
+{
+        ShowWarnning (string.Format ("RoomTypeChanged current:{0}",roomtype));
 }
+
 ```
 
 ### 房间类型变化通知

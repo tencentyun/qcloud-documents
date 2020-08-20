@@ -348,4 +348,15 @@ void onTEBVideoStatusChanged(String fileId, int status, float progress, float du
 | duration | float | 总时长（秒）（仅支持 mp4 格式）  |
 
 
+### onTEBSnapshot
+白板快照 
+``` Java
+void onTEBSnapshot(final String path, int code, final String msg)
+```
+#### 参数
 
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| path | final String | 快照本地路径  |
+| code | int | 错误码，返回 0，表示获取快照成功  |
+| msg | final String | 错误信息  |

@@ -52,7 +52,7 @@
 | postTime     | String | 操作时间戳，单位：秒。                                         |
 | uid              | String | 用户 ID 不同的 accountType 对应不同的用户 ID。如果是 QQ，则填入对应的 openid，微信用户则填入对应的 openid/unionid，手机号则填入对应真实用户手机号（如13123456789）。 |
 | rootId       | String | 用户操作的目的 ID，如点赞等，该字段就是被点赞的消息 ID，如果是投票，就是被投号码的 ID。                                            |
-| userIp       | String | 用户操作的真实外网 IP。                                            |
+| userIp       | String | 用户操作的真实外网 IP（IP 格式支持 IPv4 与 IPv6）。                                            |
 | level            | Int    | <li>0：表示无恶意。</li><li>1 - 4：恶意等级由低到高。</li>                     |
 | riskType         | Array  | 风险类型，详情请参见下文 **riskType 详细说明**。                                                     |
 
@@ -101,8 +101,8 @@
 <https://csec.api.qcloud.com/v2/index.php?Action=ActivityAntiRush
 &<公共请求参数>
 &secretId=AKID****************************q4Zw
-&accountType=1
-&uid=D692D87319F2098C3877C3904B304706
+&accountType=10004
+&uid = BFD81********AD31C95CA75E21365973
 &userIp=127.0.0.1（调用时必须是外网有效 IP 地址）
 &postTime=1553484280（uinx 时间戳，仅需要精确到秒）
 ```
@@ -114,7 +114,7 @@
     "level ": 1,
     "message": "NoError",
     "postTime": "1553484280",
-    "uid": "D692D87319F2098C3877C3904B304706",
+    "uid": "BFD81********AD31C95CA75E21365973",
     "userIp": "127.0.0.1",
     "riskType": [1]
 }

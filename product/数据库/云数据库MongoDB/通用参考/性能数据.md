@@ -1,5 +1,5 @@
 ## 测试工具
-[Yahoo! Cloud Serving Benchmark](https://github.com/brianfrankcooper/YCSB)。
+[Yahoo! Cloud Serving Benchmark](https://github.com/brianfrankcooper/YCSB)
 
 ## 测试方法
 1、单条数据大小为 1KB。

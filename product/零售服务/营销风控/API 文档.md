@@ -288,10 +288,10 @@ https://csec.api.qcloud.com/v2/index.php?
 Action=IntelligentQRCode
 &<公共请求参数>
 &secretId=AKI*****************************q4Zw
-&accountType=1
+&accountType=10004
 &cookie = "asdasldkjaslkjdsfjlsad" //用户 HTTP 请求中的 cookie 进行2次 hash 的值
 &goodInfo="good"  //业务侧自定义内容
-&uid=D692D87319F2098C3877C3904B304706
+&uid=BF**********AD31C95CA75E21365973
 &userIP=127.0.0.1 //调用时必须是外网有效 IP 地址
 &postTime=11254 //uinx 时间戳，仅需要精确到秒
 &associateAccount="SpFsjpyvaJ27329"
@@ -305,7 +305,7 @@ Action=IntelligentQRCode
 	"level": 0,
 	"userIP": "127.0.0.1",
 	"postTime": 1436673889,
-	"uid": "00000000000000000000000033121475",
+	"uid": "BF**********AD31C95CA75E21365973",
 	"associateAccount": "SpFsjpyvaJ27329"
 }
 ```

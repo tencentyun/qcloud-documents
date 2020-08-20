@@ -2,9 +2,9 @@
 ## 故障现象
 
 - Mac 通过 Microsoft Remote Desktop 远程连接登录 Windows 时，提示 “The certificate couldn't be verified back to a root certificate.”。
-<img src="https://main.qcloudimg.com/raw/070b9c862d6928988768b266461bc816.png" height="300" width="550" />
+<img src="https://main.qcloudimg.com/raw/070b9c862d6928988768b266461bc816.png" data-nonescope="true">
 - Mac 远程桌面连接（Remote Desktop Connection）时，提示 “远程桌面连接无法验证您希望连接的计算机的身份”。
-<img src="https://main.qcloudimg.com/raw/32f0444a47b2e4c90f6657ec9686afcb.png" height="180" width="550" />
+<img src="https://main.qcloudimg.com/raw/32f0444a47b2e4c90f6657ec9686afcb.png" data-nonescope="true">
 
 ## 故障处理
 >? 以下操作以 Windows Server 2016 为例。

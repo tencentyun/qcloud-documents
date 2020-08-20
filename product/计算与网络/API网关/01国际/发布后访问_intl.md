@@ -1,4 +1,0 @@
-After a service is published, you can access the APIs via the service's subdomain names or the bound custom domain name. The subdomain name provided by the service appears like `http://{your-unique-id}.{region}.apigateway.myqcloud.com`. After publishing, the access path of the specific API appears like `http://{your-unique-id}.{region}.apigateway.myqcloud.com/release`, depending on the publishing environment.
-
-For example, your user ID is 2768864771. You create a service named `register` in Guangzhou (GZ) with the service ID of service-n904iiau and add an API with the path of `/user` to the service. Now, you publish the `register` service in the release environment. If another user or App needs to access the API with the path of `/user`, the correct access path is `http://service-n904iiau-2768864771.ap-guangzhou.apigateway.myqcloud.com/release/user`..
-

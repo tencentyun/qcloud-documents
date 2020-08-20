@@ -13,14 +13,13 @@ OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上
 
 ## 操作步骤
 ### 开通权限
-使用 OPPO 企业开发者帐号，登录 [OPPO 开发平台](https://open.oppomobile.com/)，在“管理中心 > 应用服务平台 > 移动应用列表 > 选择应用 > 开发服务 > 推送服务”中完成 OPPO PUSH 权限申请。
+使用 OPPO 企业开发者帐号，登录 [OPPO 开发平台](https://open.oppomobile.com/)，在【管理中心】>【应用服务平台】>【移动应用列表】>【选择应用】>【开发服务】>【推送服务】中完成 OPPO PUSH 权限申请。
 
 ### 获取密钥
 >?仅开发者帐号（主帐号）可查看。
 
-Opush 申请开通成功后，您可在 [OPPO 推送平台](https://push.oppo.com/) > 配置管理 > 应用配置页面，查看 AppKey、AppSecret 和 MasterSecret。详情请参见 [快速接入指引](https://open.oppomobile.com/wiki/doc#id=10195)。
-
-
+Opush 申请开通成功后，您可在【[OPPO 推送平台](https://push.oppo.com/)】>【配置管理】>【应用配置页面】，查看 AppKey、AppSecret 和 MasterSecret。
+![](https://main.qcloudimg.com/raw/7753e738a004854d63cf4c8e4c07d51c.png)
 
 ### 配置推送通道
 为兼容安卓8.0及以上版本的 OPPO 手机的通道配置，用户需在 OPPO 管理台上，创建一个 TPNS 推送的默认通道。详情请参见 [OPPO 官方文档](https://open.oppomobile.com/wiki/doc/#id=10198)。
@@ -45,36 +44,57 @@ implementation 'com.tencent.tpns:oppo:[VERSION]-release'//oppo推送 [VERSION] �
 获取移动推送 TPNS  OPPO 通道 SDK 包后，按照移动推送 TPNS 官网手动集成方法，在配置好移动推送 TPNS 主版本的基础下，进行以下设置。
 
 1. 导入 OPPO 推送相关 jar 包，将 oppo4tpns1.1.2.1.jar 导入项目工程中。
-2. 在 ```Androidmanifest.xml``` 文件中新增如下配置：
-
+2. 在`Androidmanifest.xml`文件中新增如下配置（二选一）：
+ - TPNS Android SDK 1.2.0.2以前的版本使用以下配置：
 ```
 <!--OPPO 推送服务必须权限-->
 <uses-permission android:name="com.coloros.mcs.permission.RECIEVE_MCS_MESSAGE"/>
 <uses-permission android:name="com.heytap.mcs.permission.RECIEVE_MCS_MESSAGE"/>
-
 <application>
-    <!--OPPO 推送服务必须组件-->
-    <service
-        android:name="com.heytap.mcssdk.PushService"
-        android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
-        <intent-filter>
-            <action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE"/>
-        </intent-filter>
-    </service>
-
-    <service
-        android:name="com.heytap.mcssdk.AppPushService"
-        android:permission="com.heytap.mcs.permission.SEND_MCS_MESSAGE">
-        <intent-filter>
-            <action android:name="com.heytap.mcs.action.RECEIVE_MCS_MESSAGE"/>
-        </intent-filter>
-    </service>
-
+		<!--OPPO 推送服务必须组件-->
+		<service
+			android:name="com.heytap.mcssdk.PushService"
+			android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
+			<intent-filter>
+				<action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE"/>
+			</intent-filter>
+		</service>
+		<service
+			android:name="com.heytap.mcssdk.AppPushService"
+			android:permission="com.heytap.mcs.permission.SEND_MCS_MESSAGE">
+			<intent-filter>
+				<action android:name="com.heytap.mcs.action.RECEIVE_MCS_MESSAGE"/>
+			</intent-filter>
+		</service>
+</application>
+```
+ - TPNS Android SDK 1.2.0.2以后的版本使用以下配置：
+```
+<!--OPPO 推送服务必须权限-->
+<uses-permission android:name="com.coloros.mcs.permission.RECIEVE_MCS_MESSAGE"/>
+<uses-permission android:name="com.heytap.mcs.permission.RECIEVE_MCS_MESSAGE"/>
+<application>
+		<!-- 以下为1.2.0.2 OPPO版本组件 -->
+		<service
+			android:name="com.heytap.msp.push.service.CompatibleDataMessageCallbackService"
+			android:permission="com.coloros.mcs.permission.SEND_MCS_MESSAGE">
+			<intent-filter>
+				<action android:name="com.coloros.mcs.action.RECEIVE_MCS_MESSAGE"/>
+			</intent-filter>
+		</service>
+		<service
+			android:name="com.heytap.msp.push.service.DataMessageCallbackService"
+			android:permission="com.heytap.mcs.permission.SEND_PUSH_MESSAGE">
+			<intent-filter>
+				<action android:name="com.heytap.mcs.action.RECEIVE_MCS_MESSAGE"/>
+				<action android:name="com.heytap.msp.push.RECEIVE_MCS_MESSAGE"/>
+			</intent-filter>
+		</service>
 </application>
 ```
 
 ### 开启 OPPO 推送
-在调用移动推送 TPNS  ```XGPushManager.registerPush``` 之前，调用以下代码：
+在调用移动推送 TPNS  `XGPushManager.registerPush`之前，调用以下代码：
 ```java
 // 注意这里填入的是 Oppo 的 AppKey，不是AppId
 XGPushConfig.setOppoPushAppId(getApplicationContext(), "Oppo的AppKey");
