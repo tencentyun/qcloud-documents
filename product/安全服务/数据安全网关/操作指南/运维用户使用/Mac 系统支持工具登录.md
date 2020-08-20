@@ -1,7 +1,7 @@
-本文档将为您介绍 Mac 系统如何访问堡垒机。
+本文档将为您介绍 Mac 系统如何登录堡垒机。
 ## 操作场景
 
-运维用户如需通过 Mac 系统登录堡垒机，可使用使用 Mac_SecureCRT、Mac_Terminal  或 Mac_Iterm 工具进行登录。
+运维用户如需通过 Mac 系统登录堡垒机，可使用 Mac_SecureCRT、Mac_Terminal  或 Mac_Iterm 工具进行登录。
 
 
 ## 操作步骤
