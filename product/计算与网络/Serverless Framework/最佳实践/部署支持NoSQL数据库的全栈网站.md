@@ -38,7 +38,7 @@ Components: 2.30.1
    
 1. 通过 sls init 初始化模版：
 ```bash
-$ sls init -t fullstack-nosql
+$ sls init fullstack-nosql
 ```
 >?
 >- 如果没有腾讯云账号，请先[注册新账号](https://cloud.tencent.com/register)。
