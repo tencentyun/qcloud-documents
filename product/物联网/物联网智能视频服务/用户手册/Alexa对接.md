@@ -10,26 +10,6 @@
 
 Alexa 支持 RTSP 流媒体，下图是用户通过语言控制 Alexa EchoShow 连接 IoT Video 设备，查看实时监控视频的工作流程。
 ![](https://main.qcloudimg.com/raw/d23668cfa628c13f941fa3852ec0815e.jpg)
-```
-sequenceDiagram
-participant E  as Alexa EchoShow
-participant A  as Alexa Cloud
-participant W  as Lambda(开发者实现)
-participant IW as IoT Video API
-participant D  as 设备
-participant R  as IoT Video流媒体服务器
-
-E->>A:   1.1 用户语音控制指令
-A->>W:   1.2 InitializeCameraStreams directive
-W->>IW:  1.3 请求设备直播流地址(RTSP)
-IW->>IW: 1.4 分配流媒体转发资源
-IW->>D:  1.5 通知设备推流
-IW-->>W: 1.6 返回RTSP直播流地址
-W-->>A:  1.7 InitializeCameraStreams response
-A-->>E:  1.8 返回
-D->>R:   2.1 RTSP推流(开发者实现)
-E->>R:   2.2 RTSP拉流
-```
 
 
 ## Lambda 开发
