@@ -847,7 +847,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ### onUserVolumeUpdate
 
-启用音量大小提示，会通知每个成员的音量大小
+启用音量大小提示，会通知每个成员的音量大小。
 
 ```objective-c
 - (void)onUserVolumeUpdate:(NSString *)userId volume:(NSInteger)volume;
