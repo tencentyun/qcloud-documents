@@ -79,6 +79,6 @@ spec:
       terminationGracePeriodSeconds: 3
 ```
 - metadata.annotations：创建固定 IP 的 StatefulSet，您需要设置 annotations，即 `tke.cloud.tencent.com/enable-static-ip`。
-- spec.template.annotations：创建 VPC-CNI 模式的 Pod，您需要设置 annotations，即 `tke.cloud.tencent.com/vpc-ip-claim-delete-policy`。默认值为 'Immediate'，Pod 销毁后，关联的 IP 就会被销毁。如需固定 IP，则需设置成 'Never'，Pod 销毁后 IP 也将会保留，若下一次拉起同名 Pod，仍会使用之前的 IP。
+- spec.template.annotations：创建 VPC-CNI 模式的 Pod，您需要设置 annotations，即 `tke.cloud.tencent.com/vpc-ip-claim-delete-policy`。默认值为 'Immediate'，Pod 销毁后，关联的 IP 同时被销毁。如需固定 IP，可设置为 'Never'，Pod 销毁后 IP 将会保留，若下一次拉起同名 Pod，仍会使用之前的 IP。
 - spec.template.spec.containers.0.resources：创建 VPC-CNI 模式的 Pod，您需要添加 requests 和 limits 限制，即`tke.cloud.tencent.com/eni-ip`。
 
