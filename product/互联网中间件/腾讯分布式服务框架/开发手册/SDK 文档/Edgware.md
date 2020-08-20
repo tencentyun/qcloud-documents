@@ -28,6 +28,25 @@ spring-cloud-tsf-gateway 网关兼容新插件类型。
 - 调整泳道标签的传递属性。
 - 调整泳道入口行为。
 
+## 1.22.1-Edgware-RELEASE (2020-08-19)
+
+### 优化
+- 优化TSF MSGW 未知插件类型提示
+- 优化TSF 第三方组件依赖
+
+### Bug 修复
+- 处理tomcat组件开源漏洞风险。
+  - 升级org.apache.tomcat.embed.tomcat-embed-core到8.5.56版本。
+  - 升级org.apache.tomcat.embed.tomcat-embed-el到8.5.56版本。
+  - 升级org.apache.tomcat.embed.tomcat-embed-websocket到8.5.56版本。
+- spring-cloud-tsf-msgw:
+  - 修复 application/x-www-form-urlencoded 类型请求，当绑定插件通过 zuul 网关代理访问时出错的问题
+  - 修复无法使用 Feign 发起微服务调用的问题
+
+### 版本建议
+
+- 支持向后兼容，建议全量升级。
+
 ## 1.22.0-Edgware-RELEASE（2020-04-29）
 
 ### 优化
