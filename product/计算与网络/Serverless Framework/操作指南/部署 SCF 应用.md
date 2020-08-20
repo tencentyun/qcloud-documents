@@ -28,7 +28,7 @@ $ mkdir tencent-scf && cd tencent-scf
 通过如下命令和模板链接，快速创建一个 SCF 应用：
 ```
 $ serverless init scf-demo
-$ cd example
+$ cd scf-demo
 ```
 
 下载完毕后，目录结构如下所示：
