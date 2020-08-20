@@ -22,35 +22,42 @@ demo 文件夹下：localRecordFile.js 为整个文件的识别请求 demo，one
 const fs = require("fs");
 const path = require('path');
 
-//引入 SDK 和相关模块
-//将 require 中路径替换为项目中 SDK 的真实路径
+//引入 sdk 和相关模块
 const tencentcloud = require("../../nodejs_realtime_asr_sdk_v1");
 const Asr = tencentcloud.asrRealtime;
 const Config = tencentcloud.config;
 
 
-//Config实例的三个参数分别为 SecretId, SecretKey, appId。请前往控制台获取后修改下方参数
+//Config 实例的三个参数分别为 SecretId, SecretKey, appId。请前往控制台获取后修改下方参数
 let config = new Config("Your SecretId","Your SecretKey",1200000000);
 
 
-//设置接口需要参数，具体请参考 实时语音识别接口说明
+
+//设置接口需要参数，具体请参考 实时语音识别接口文档
 let query = {
-  engineModelType : '16k_0',
+  engineModelType : '16k_zh',
   resultTextFormat : 0,
   resType : 0,
   voiceFormat : 1,
-  cutLength : 50000,
+  cutLength : 6400, // 整个文件识别时需要将文件分片，16k模型分片大小为6400，8k模型分片大小为3200
+  // 以下为非必填参数，可跟据业务自行修改
+  // hotwordId : '08003a00000000000000000000000000',
+  // wordInfo : 1,
+  // needvad: 0,
+  // filterDirty: 0,
+  // filterModal: 0,
+  // filterPunc: 0,
+  // convertNumMode : 0
 }
 //创建调用实例
 const asrReq = new Asr(config, query);
 
 //调用方式1:识别整个文件
-//需要将"本地文件地址"替换为用户需要识别的文件地址，例：'./test.wav'
-let filePath = path.resolve('本地录音文件地址');
+let filePath = path.resolve('./test_long.wav');
 let data = fs.readFileSync(filePath);
 
-//发送识别请求，sendVoice函数最后一个参数为文件分片请求返回时触发的回调，可根据业务修改
-//error为请求错误，response为请求响应，data为请求结果
+//发送识别请求，sendVoice 函数最后一个参数为文件分片请求返回时触发的回调，可根据业务修改
+//error 为请求错误，response 为请求响应，data 为请求结果
 asrReq.sendVoice(data, (error, response, data) => {
   if(error){
     console.log(error);
@@ -58,6 +65,7 @@ asrReq.sendVoice(data, (error, response, data) => {
   }
   console.log(data);
 });
+
 ```
 #### 分片识别请求
 
@@ -65,25 +73,31 @@ asrReq.sendVoice(data, (error, response, data) => {
 const fs = require("fs");
 const path = require('path');
 
-//引入 SDK 和相关模块
-//将 require 中路径替换为项目中 SDK 的真实路径
+//引入 sdk 和相关模块
 const tencentcloud = require("../../nodejs_realtime_asr_sdk_v1");
 const Asr = tencentcloud.asrRealtime;
 const Config = tencentcloud.config;
 
 
-//Config实例的三个参数分别为 SecretId, SecretKey, appId。请前往控制台获取后修改下方参数
+//Config 实例的三个参数分别为 SecretId, SecretKey, appId。请前往控制台获取后修改下方参数
 let config = new Config("Your SecretId","Your SecretKey",1200000000);
 
 
 
-//设置接口需要参数，具体请参考 实时语音识别接口说明
+//设置接口需要参数，具体请参考 接口文档
 let query = {
-  engineModelType : '16k_0',
+  engineModelType : '16k_zh',
   resultTextFormat : 0,
   resType : 0,
   voiceFormat : 1,
-  cutLength : 50000,
+  // 以下为非必填参数，可跟据业务自行修改
+  // hotwordId : '08003a00000000000000000000000000',
+  // wordInfo : 1,
+  // needvad: 0,
+  // filterDirty: 0,
+  // filterModal: 0,
+  // filterPunc: 0,
+  // convertNumMode : 0
 }
 //创建调用实例
 const asrReq = new Asr(config, query);
@@ -91,8 +105,8 @@ const asrReq = new Asr(config, query);
 
 //调用方式2:识别某个分片，test.wav 为示例分片
 //发送请求时需要用户自行维护3个变量：voiceId：创建后保持不变； seq：递增； endFlag：前面为0，发送尾部分片的请求时设置为1
-//需要将"本地文件地址"替换为用户需要识别的文件地址，例：'./test.wav'
-let filePathTestOne = path.resolve('本地文件地址');
+
+let filePathTestOne = path.resolve('./test_short.wav');
 let dataTest = fs.readFileSync(filePathTestOne);
 let vioceId = asrReq.randStr(16);
 let seq = 0;
@@ -106,4 +120,6 @@ asrReq.sendRequest(dataTest, vioceId, seq, endFlag, (error, response, data) => {
   }
   console.log(data);
 });
+
+
 ```
