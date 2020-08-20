@@ -36,13 +36,10 @@ metadata:
     tke.cloud.tencent.com/enable-static-ip: "true"
   labels:
     k8s-app: busybox
-    qcloud-app: busybox
   name: busybox
   namespace: default
 spec:
-  podManagementPolicy: OrderedReady
-  replicas: 1
-  revisionHistoryLimit: 10
+  replicas: 3
   selector:
     matchLabels:
       k8s-app: busybox
@@ -65,18 +62,11 @@ spec:
         image: busybox
         imagePullPolicy: Always
         name: busybox
-        resources: {}
-        securityContext:
-          privileged: false
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-      dnsPolicy: ClusterFirst
-      imagePullSecrets:
-      - name: qcloudregistrykey
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      terminationGracePeriodSeconds: 3
+        resources:
+          limits:
+            tke.cloud.tencent.com/eni-ip: "1"
+          requests:
+            tke.cloud.tencent.com/eni-ip: "1" 
 ```
 - metadata.annotations：创建固定 IP 的 StatefulSet，您需要设置 annotations，即`tke.cloud.tencent.com/enable-static-ip`。
 - spec.template.annotations：创建 VPC-CNI 模式的 Pod，您需要设置 annotations，即`tke.cloud.tencent.com/vpc-ip-claim-delete-policy` ， 默认是'Immediate'，Pod销毁后，关联的IP就会被销毁，如需固定 IP, 则需设置成'Never'，Pod销毁后IP也将会保留，那么下一次同名的Pod拉起后，会使用之前的IP。
