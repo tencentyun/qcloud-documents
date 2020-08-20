@@ -3,8 +3,8 @@
 腾讯云 IDaaS 支持通过 LDAP 从 AD 中拉取组织机构和账户信息至 IDaaS 用户目录，本文将为您详细介绍 LDAP/AD 数据源配置与同步方法。目前仅支持 Windows AD。
 ## 操作步骤
 1. 管理员登录 [IDaaS 控制台](https://console.cloud.tencent.com/idaas)，单击左侧菜单中的【数据源管理】。
-![](https://main.qcloudimg.com/raw/a37b424e05a4ec3e89b65d5a95c83538.png)
 2. 单击【启用】LDAP/AD 数据源，即可进入 LDAP/AD 数据源设置页面。  
+![](https://main.qcloudimg.com/raw/a37b424e05a4ec3e89b65d5a95c83538.png)
 3. 配置 LDAP/AD 数据源。
 	1. 填写 LDAP 服务器配置信息。
 	 ![](https://main.qcloudimg.com/raw/559441c8a2c4dd8497fa6a0b258ca1a6.png)
