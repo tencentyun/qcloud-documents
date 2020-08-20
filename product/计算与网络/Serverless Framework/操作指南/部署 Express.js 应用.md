@@ -32,7 +32,7 @@ $ mkdir tencent-express && cd tencent-express
 
 通过如下命令和模板链接，快速创建一个 Express 应用：
 ```
-$ serverless create --template-url https://github.com/serverless-components/tencent-express/tree/master/example
+$ serverless init express-demo
 $ cd example
 ```
 
