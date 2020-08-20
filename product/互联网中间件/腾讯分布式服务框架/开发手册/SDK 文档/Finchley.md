@@ -1,5 +1,27 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+## 1.23.2-Finchley-RELEASE (2020-08-19)
+
+### Bug 修复
+
+- spring-cloud-tsf-msgw:
+  - 修复 application/x-www-form-urlencoded 类型请求，当绑定插件通过 zuul 网关代理访问时出错的问题
+
+### 版本建议
+
+- 支持向后兼容，建议全量升级。
+
+## 1.23.1-Finchley-RELEASE (2020-08-12)
+
+### Bug 修复
+
+- spring-cloud-tsf-msgw:
+  - 修复scg版本网关不支持HTTP请求中文编码的问题
+
+### 版本建议
+
+- 支持向后兼容，建议全量升级。
+
 ## 1.23.0-Finchley-RELEASE（2020-07-06）
 
 ### 新特性
@@ -49,6 +71,16 @@
 
 - 优化默认日志配置支持容器部署场景。
 - 优化 TSF MSGW zuul 依赖。
+
+## 1.21.4-Finchley-RELEASE (2020-08-20)
+### Bug 修复
+- 修复mysql调用链支持多数据源问题
+- 修复feign请求调用链只展示http 方法
+- spring-cloud-tsf-msgw:
+  - 修复 application/x-www-form-urlencoded 类型请求，当绑定插件通过 zuul 网关代理访问时出错的问题
+
+### 版本建议
+- 支持向后兼容，建议全量升级。
 
 ## 1.21.3-Finchley-RELEASE（2020-07-16）
 ### Bug 修复

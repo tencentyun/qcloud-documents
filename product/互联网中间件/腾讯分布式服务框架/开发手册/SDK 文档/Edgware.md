@@ -2,7 +2,14 @@
 
 >!2020年5月19日起，TSF 主要支持 Greenwich 和 Finchley 版本的功能更新，Edgware 版本主要进行缺陷修复，建议您优先使用 Finchley和 Greenwich 版本（[社区 Edgware 版本](https://spring.io/blog/2019/05/29/spring-cloud-edgware-sr6-released) 于2019年8月停止更新）。
 
+## 1.21.4-Edgware-RELEASE (2020-08-20)
+### Bug 修复
+- 修复mysql调用链数据对多数据源支持
+- spring-cloud-tsf-msgw:
+  - 修复 application/x-www-form-urlencoded 类型请求，当绑定插件通过 zuul 网关代理访问时出错的问题
+
 ## 1.21.3-Edgware-RELEASE（2020-07-16）
+
 ### Bug 修复
 修复网关 MSGW SDK 和服务发现 SDK 不兼容，造成拉取服务列表过快的问题。
 
