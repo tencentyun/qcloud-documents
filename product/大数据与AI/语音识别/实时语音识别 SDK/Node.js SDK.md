@@ -103,7 +103,7 @@ let query = {
 const asrReq = new Asr(config, query);
 
 
-//调用方式2:识别某个分片，test.wav 为示例分片
+//调用方式2:识别某个分片，test_short.wav 为示例分片
 //发送请求时需要用户自行维护3个变量：voiceId：创建后保持不变； seq：递增； endFlag：前面为0，发送尾部分片的请求时设置为1
 
 let filePathTestOne = path.resolve('./test_short.wav');
