@@ -62,9 +62,9 @@ CDW 常见使用场景是将消息中间件的信息同步到 CDW 后再进行�
 		<td>CDW 端口，默认为5436</td>
 	</tr>
 	<tr>
-		<td>MSG_SEPARATOR</td>
+		<td>MSG_SEPARATOR_ASCII</td>
 		<td>否</td>
-		<td>CKafka 中消费的分隔符，默认为逗号，也就是 csv 格式</td>
+		<td>CKafka 中数据分隔符的ASCII码，默认为39(逗号)，由于逗号经常会出现在业务数据中，这里建议使用11（Vertical tab）</td>
 	</tr>
 	<tr>
 		<td>MSG_NULL</td>
