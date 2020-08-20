@@ -64,7 +64,7 @@ CDW 常见使用场景是将消息中间件的信息同步到 CDW 后再进行�
 	<tr>
 		<td>MSG_SEPARATOR_ASCII</td>
 		<td>否</td>
-		<td>CKafka 中数据分隔符的ASCII码，默认为39(逗号)，由于逗号经常会出现在业务数据中，这里建议使用11（Vertical tab）</td>
+		<td>CKafka 中数据分隔符的 ASCII 码，默认为39（逗号），由于逗号经常会出现在业务数据中，这里建议使用11（Vertical tab）</td>
 	</tr>
 	<tr>
 		<td>MSG_NULL</td>
