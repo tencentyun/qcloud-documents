@@ -158,7 +158,7 @@ iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model
 
 ### 步骤5：实现 1v1 通话
 
-1. 发起方调用 TRTCCalling 的 `call(callType)` 方法，callType 传入语音类型 `CallType_Video`，就能够发起语音通话的请求。
+1. 发起方调用 TRTCCalling 的 `call(callType)` 方法，callType 传入语音类型 `CallType_Audio`，就能够发起语音通话的请求。
 2. 接收方收到 `onInvited` 事件，此时可以通过 `accept` 方法接听此次通话，也可以选择用 `reject` 方法拒绝通话。
 3. 发起方收到 `onUserEnter` 的回调，说明接收方已经进入通话。
 
