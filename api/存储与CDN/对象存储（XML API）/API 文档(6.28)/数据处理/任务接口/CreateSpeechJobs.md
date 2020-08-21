@@ -177,3 +177,51 @@ Container 节点 SpeechRecognition 的内容：
 #### 错误码
 
 该请求操作无特殊错误信息，常见的错误信息请参见数据万象 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
+
+
+## 实际案例
+
+**请求**
+
+```
+POST /asrbucket HTTP/1.1
+Connection: keep-alive
+Accept-Encoding: gzip, deflate
+Accept: */*
+User-Agent: cos-python-sdk-v5.3.2
+Host: examplebucket-1250000000.ci.ap-chongqing.myqcloud.com
+Content-Type: application/xml
+Content-Length: 91
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDnOr9IDiIUNYWGrrWb2IJ4YmywDXc****&q-sign-time=1597911213;1597921273&q-key-time=1597911213;1597921273&q-header-list=content-type;host&q-url-param-list=&q-signature=4f848c055b457fdc67155fe1275f2b31d893****
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<Request>
+  <Bucket>examplebucket</Bucket>
+</Request>
+```
+
+**响应**
+
+```
+HTTP/1.1 200 OK
+Date: Thu, 20 Aug 2020 08:14:34 GMT
+Content-Type: application/xml
+Content-Length: 334
+Connection: keep-alive
+Server: tencent-ci
+x-ci-request-id: NWYzZTMwZTlfOTBmYTUwNjRfMjJh****
+
+<?xml version="1.0" encoding="utf-8"?>
+<Response>
+    <RequestId>NWYzZTMwZTlfOTBmYTUwNjRfMjJh****</RequestId>
+    <AsrBucket>
+        <Name>examplebucket-1250000000</Name>
+        <CreateTime>2020-08-20T16:14:34+0800</CreateTime>
+        <Region>ap-chongqing</Region>
+        <AliasBucketId/>
+        <BucketId>examplebucket-1250000000</BucketId>
+    </AsrBucket>
+</Response>
+
+```
+
