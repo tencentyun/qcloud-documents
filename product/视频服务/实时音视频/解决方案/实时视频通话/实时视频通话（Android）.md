@@ -187,7 +187,7 @@ sCall.login(1400000123, "userA", "xxxx", new ActionCallback());
 
 1. 发起方：调用 `TRTCCalling` 的 `call()` 方法发起通话的请求, 并传入用户id（userid）和通话类型（type），通话类型参数传入`TYPE_VIDEO_CALL`。
 2. 接收方：当接收方处于已登录状态时，会收到名为 `onInvited()` 的事件通知，回调中 `callType` 的参数是发起方填写的通话类型，您可以通过此参数启动相应的界面，如果希望接收方在不处于登录状态时也能收到通话请求，请参考 [离线接听](#model.offline)。
-3. 接收方：如果希望接听电话，接收方可以调用 `accept()`函数，并同时调用 `openCamera()` 函数打开自己本地的摄像头。接收方也可以调用 reject() 拒绝此次通话。
+3. 接收方：如果希望接听电话，接收方可以调用 `accept()` 函数，并同时调用 `openCamera()` 函数打开自己本地的摄像头。接收方也可以调用 `reject()` 拒绝此次通话。
 4. 当双方的音视频通道建立完成后，通话的双方都会接收到名为  `onUserVideoAvailable()` 的事件通知，表示对方的视频画面已经拿到。此时双方用户均可以调用`startRemoteView()` 展示远端的视频画面。远端的声音默认是自动播放的。
 
 ```
@@ -233,10 +233,10 @@ sCall.login(sdkappid, "aaa", usersig, new ActionCallback() {
 
 ### 步骤6：实现多人视频通话
 
-1. 发起方：多人视频通话需要调用 `TRTCCalling` 中的 `groupCall()` 函数，并传入用户列表（userIdList）、通话类型（type）、 IM 群组 ID（groupId），其中 userIdList 为必填参数，通话类型为必填参数传入`TYPE_VIDEO_CALL`， groupId 为选填参数。
+1. 发起方：多人视频通话需要调用 `TRTCCalling` 中的 `groupCall()` 函数，并传入用户列表（userIdList）、通话类型（type）、 IM 群组 ID（groupId），其中 userIdList 为必填参数，通话类型为必填参数传入`TYPE_VIDEO_CALL`，groupId 为选填参数。
 2. 接收端：通过名为 `onInvited()` 事件通知能够接收到此呼叫请求。
 3. 接收端：收到事件通知后可以调用 `accept()` 方法接听此次通话，也可以选择用 `reject()` 方法拒绝通话。
-4. 如果超过一定时间（默认30s）没有回复，接收方会收到 `onCallingTimeOut()` 的事件通知，发起方会收到 `onNoResp(String userId)` 事件通知。通话发起方在多个接收均未应答时 `hangup()` ， 每个接收方均会收到 `onCallingCancel()` 事件通知。
+4. 如果超过一定时间（默认30s）没有回复，接收方会收到 `onCallingTimeOut()` 的事件通知，发起方会收到 `onNoResp(String userId)` 事件通知。通话发起方在多个接收均未应答时 `hangup()` ，每个接收方均会收到 `onCallingCancel()` 事件通知。
 5. 如果需要离开当前多人通话可以调用 `hangup()` 方法。
 6. 如果通话中有用户中途加入或离开，那么其他用户均会接收到 `onUserEnter()` 或  `onUserLeave()` 事件通知。
 
