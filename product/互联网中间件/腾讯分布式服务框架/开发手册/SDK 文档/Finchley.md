@@ -1,14 +1,5 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
-## 1.23.2-Finchley-RELEASE (2020-08-19)
-
-### Bug 修复
-
-- spring-cloud-tsf-msgw:
-  - 修复 application/x-www-form-urlencoded 类型请求，当绑定插件通过 zuul 网关代理访问时出错的问题
-
-### 版本建议
-基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
 ## 1.23.2-Finchley-RELEASE（2020-08-19）
 
