@@ -1,3 +1,12 @@
+
+### 2.5.2.10 @ 2020.08.07
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.5.2.10.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.5.2.10.zip)
+
+- 新增回调
+    - 新增H5PPT状态回调 onTEBH5PPTStatusChanged
+
+
 ### 2.5.1.9 @ 2020.07.23
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.5.1.9.zip)
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.5.1.9.zip)
