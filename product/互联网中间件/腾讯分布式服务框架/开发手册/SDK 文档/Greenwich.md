@@ -1,5 +1,28 @@
 基于 Spring Cloud Greenwich 版本 SDK，支持 spring boot 2.1.6。
 
+## 1.23.2-Greenwich-RELEASE（2020-08-19）
+
+### Bug 修复
+
+spring-cloud-tsf-msgw-zuul：
+  - 修复无法在 filter 中使用 Feign 发起微服务调用的问题。
+  - 修复 application/x-www-form-urlencoded 类型请求，当绑定插件通过 zuul 网关代理访问时错误问题。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.1-Greenwich-RELEASE（2020-08-12）
+
+### Bug 修复
+
+spring-cloud-tsf-msgw：
+修复 scg 版本网关不支持 HTTP 请求中文编码的问题。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
 ## 1.23.0-Greenwich-RELEASE（2020-07-06）
 
 ### 新特性
@@ -53,6 +76,11 @@
 
 优化默认日志配置支持容器部署场景。
 
+## 1.21.4-Greenwich-RELEASE (2020-08-20)
+### bug 修复
+- 处理 MySQL 中 SQL 获取截断的问题。
+- 修复 MySQL 调用链中对多数据源支持。
+
 ## 1.21.3-Greenwich-RELEASE（2020-07-16）
 ### Bug 修复
 修复 MySQL 中 SQL 获取截断的问题。
@@ -60,10 +88,10 @@
 ## 1.21.2-Greenwich-RELEASE（2020-07-06）
 
 ### Bug 修复
-- 处理tomcat组件开源漏洞风险。
-  - 升级org.apache.tomcat.embed.tomcat-embed-core到9.0.36版本。
-  - 升级org.apache.tomcat.embed.tomcat-embed-el到9.0.36版本。
-  - 升级org.apache.tomcat.embed.tomcat-embed-websocket到9.0.36版本。
+处理 tomcat 组件开源漏洞风险：
+  - 升级 org.apache.tomcat.embed.tomcat-embed-core 到9.0.36版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-el 到9.0.36版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到9.0.36版本。
 
 ### 优化
 - 调整泳道标签的传递属性
