@@ -1,13 +1,13 @@
 ### 2.5.2.49 @ 2020.08.18
 * [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.2.49.zip)
-- WebView版本更新
-    -Android 10及以上版本强制使用系统WebView
+- WebView 版本更新
+    -Android 10及以上版本强制使用系统 WebView
 
 ### 2.5.2.48 @ 2020.08.07
-* [点击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.2.48.zip)
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.2.48.zip)
 
 - 新增回调
-    - 新增H5PPT状态回调 onTEBH5PPTStatusChanged
+    - 新增 H5PPT 状态回调 onTEBH5PPTStatusChanged
     
 ### 2.5.1.47 @ 2020.07.23
 * [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.1.47.zip)
