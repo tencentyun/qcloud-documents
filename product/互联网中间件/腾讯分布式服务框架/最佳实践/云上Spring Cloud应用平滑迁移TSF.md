@@ -24,7 +24,8 @@
 - **方案优点**：操作简单，原有应用集群和 TSF 集群不存在相互影响。
 
 - **方案缺点**：需要同时保持两套集群同时运行存在资源浪费；此外，由于是全量迁移，迁移过程中存在业务异常的概率较大。
-<img src="https://main.qcloudimg.com/raw/af57fe9289d11f920bd93e290e4ee0bb.png" style="zoom:50%;" />
+<img src="https://main.qcloudimg.com/raw/be6ba70d616b9fdd551210ab6b4465eb.png" style="zoom:50%;" />
+
 
 ### 双注册发现方案
 
@@ -38,10 +39,10 @@
 
 >?目前TSF支持原有注册中心引擎为 Eureka、Zookeeper、Consul 与 TSF 注册中心引擎的双注册发现能力。
 
-![](https://main.qcloudimg.com/raw/658e827568a2841ff06e04cc662f2896.png)
+![](https://main.qcloudimg.com/raw/57b9e0414034af40f1cee3278160d647.png)
 
 ## 操作步骤
-1. 在迁移的服务应用的 pom.xml 文件中引入 TSF 依赖；
+1. 在迁移的服务应用的 pom.xml 文件中引入 TSF 依赖：
 ```java
 <dependency>
 		<groupId>com.tencent.tsf</groupId>
