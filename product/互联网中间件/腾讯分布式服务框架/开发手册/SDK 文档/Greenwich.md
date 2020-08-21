@@ -1,6 +1,6 @@
 基于 Spring Cloud Greenwich 版本 SDK，支持 spring boot 2.1.6。
 
-## 1.23.2-Greenwich-RELEASE  (2020-08-19)
+## 1.23.2-Greenwich-RELEASE（2020-08-19）
 
 ### Bug 修复
 
@@ -12,7 +12,7 @@ spring-cloud-tsf-msgw-zuul：
 
 支持向后兼容，建议全量升级。
 
-## 1.23.1-Greenwich-RELEASE  (2020-08-12)
+## 1.23.1-Greenwich-RELEASE（2020-08-12）
 
 ### Bug 修复
 
