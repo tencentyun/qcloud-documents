@@ -2,7 +2,7 @@
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.5.2.132.zip)
 
 - 新增回调
-    - 新增H5PPT状态回调 onTEBH5PPTStatusChanged
+    - 新增 H5PPT 状态回调 onTEBH5PPTStatusChanged
     
 ### 2.5.1.123 @2020.07.27
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.5.1.123.zip)
