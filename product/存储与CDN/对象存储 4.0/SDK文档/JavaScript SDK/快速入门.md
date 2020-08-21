@@ -5,6 +5,7 @@
 - 对象存储 COS 的 XML JS SDK 源码下载地址：[XML JavaScript SDK](https://github.com/tencentyun/cos-js-sdk-v5)。
 - SDK 快速下载地址：[XML JavaScript SDK](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-js-sdk-v5/latest/cos-js-sdk-v5.zip)。
 - 演示示例 Demo 下载地址：[XML JavaScript SDK Demo](https://github.com/tencentyun/cos-js-sdk-v5/tree/master/demo)。
+- SDK 文档中的所有示例代码请参见 [SDK 代码示例](https://github.com/tencentyun/cos-snippets/tree/master/JavaScript)。
 
 #### 准备环境
 
