@@ -1,3 +1,9 @@
+### 2.5.2 @ 2020.08.07
+* 链接地址：https://res.qcloudtiw.com/board/2.5.2/TEduBoard.min.js
+
+- 新增回调
+    - 新增H5PPT状态回调 TEB_H5PPT_STATUS_CHANGED
+    
 ### 2.5.1 @ 2020.07.23
 * 链接地址：https://res.qcloudtiw.com/board/2.5.1/TEduBoard.min.js
 
