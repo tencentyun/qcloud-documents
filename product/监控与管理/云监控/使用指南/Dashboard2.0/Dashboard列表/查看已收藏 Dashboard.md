@@ -1,4 +1,10 @@
-﻿本文将为您介绍如何查看已收藏 Dashboard。
+> ?
+> - 新版 Dashboard 已上线，我们衷心欢迎您试用并告诉我们需要改进之处。[单击链接](https://cloud.tencent.com/apply/p/omia0k6sli) 可申请体验！
+> - 欢迎添加云监控小M微信号（hitherecm），我们将拉您进入 Dashboard 交流群，竭诚为您服务！
+
+
+
+本文将为您介绍如何查看已收藏 Dashboard。
 
 ## 操作步骤
 1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor)。

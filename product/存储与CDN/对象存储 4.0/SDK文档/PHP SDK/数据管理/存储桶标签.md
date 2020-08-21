@@ -22,6 +22,7 @@ public Guzzle\Service\Resource\Model PutBucketTagging(array $args = array());
 
 #### 请求示例
 
+[//]: # (.cssg-snippet-put-bucket-tagging)
 ```php
 try {
     $result = $cosClient->putBucketTagging(array(
@@ -65,6 +66,7 @@ public Guzzle\Service\Resource\Model GetBucketTagging(array $args = array());
 
 #### 请求示例
 
+[//]: # (.cssg-snippet-get-bucket-tagging)
 ```php
 try {
     $result = $cosClient->getBucketTagging(array(
@@ -129,6 +131,7 @@ public Guzzle\Service\Resource\Model DeleteBucketTagging(array $args = array());
 
 #### 请求示例
 
+[//]: # (.cssg-snippet-delete-bucket-tagging)
 ```php
 try {
     $result = $cosClient->deleteBucketTagging(array(

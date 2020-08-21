@@ -44,7 +44,7 @@ Components: 2.31.6
 1.新建一个本地文件夹，使用`serverless init`命令，下载相关 template。
 
 ```console
-serverless init -t fullstack
+serverless init fullstack
 ```
 
 2.在项目模板中找到.env.example 文件，修改名称为.env，并在其中配置对应的腾讯云 SecretId、SecretKey、地域和可用区信息。

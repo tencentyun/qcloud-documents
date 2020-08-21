@@ -210,7 +210,6 @@ sCall.login(sdkappid, "aaa", usersig, new ActionCallback() {
         sCall.call("aaa", ITRTCVideoCall.TYPE_VIDEO_CALL);
     }
 });
-}
 ```
 
 <span id="model.step6"> </span>

@@ -20,10 +20,12 @@
 	- **可用区**：表示当前地域下支持使用云硬盘的可用区，请按需选择。
 	- **计费模式**：提供【按量计费】和【包年包月】两种计费模式，不同计费模式所支持的回收策略不同，请参考以下信息进行选择：  
 		- **按量计费**：一种弹性计费模式，支持随时开通/销毁实例，按实例的实际使用量付费。支持删除和保留的回收策略。
-		- **包年包月**：一种预付费模式，提前一次性支付一个或多个月甚至多年的费用。仅支持保留的回收策略。
->? 如需购买包年包月云硬盘，则需前往 [角色](https://console.cloud.tencent.com/cam/role) 页面，为 `TKE_QCSRole` 角色添加策略  `QcloudCVMFinanceAccess` 配置支付权限，否则可能会因支付权限问题导致创建基于包年包月 StorageClass 的 PVC 失败。
+		- **包年包月**：一种预付费模式，提前一次性支付一个月的存储费用，支持按月自动续费。仅支持保留的回收策略。
+>?
+>- 如需购买包年包月云硬盘，则需前往 [角色](https://console.cloud.tencent.com/cam/role) 页面，为 `TKE_QCSRole` 角色添加策略  `QcloudCVMFinanceAccess` 配置支付权限，否则可能会因支付权限问题导致创建基于包年包月 StorageClass 的 PVC 失败。
+>- 仅计费模式为包年包月的云硬盘可执行续费操作，自动续费功能默认按月续费。用户可前往所创建的PVC详情页，打开/关闭自动续费功能。更多计费信息参见  [云硬盘计费问题](https://cloud.tencent.com/document/product/213/17281)。
 >
-	- **云盘类型**：通常提供【高性能云硬盘】、【SSD云硬盘】两种类型，不同可用区下提供情况有一定差异，详情请参见 [云硬盘类型说明 ](https://cloud.tencent.com/document/product/213/32811)并结合控制台提示进行选择。
+	- **云盘类型**：通常提供【高性能云硬盘】、【SSD云硬盘】和【增强型SSD云硬盘】三种类型，不同可用区下提供情况有一定差异，详情请参见 [云硬盘类型说明 ](https://cloud.tencent.com/document/product/213/32811)并结合控制台提示进行选择。
 	- **回收策略**：云盘的回收策略，通常提供【删除】和【保留】两种回收策略，具体选择情况与所选计费模式相关。出于数据安全考虑，推荐使用保留回收策略。
 	- **卷绑定模式**：提供【立即绑定】和【等待调度】两种卷绑定模式，不同模式所支持的卷绑定策略不同，请参考以下信息进行选择：
 		- **立即绑定**：通过该 storageclass 创建的 PVC 将直接进行 PV 的绑定和分配。
@@ -94,6 +96,8 @@ provisioner: cloud.tencent.com/qcloud-cbs ## TKE 集群自带的 provisioner
 parameters:
   type: CLOUD_PREMIUM
   # 支持 CLOUD_BASIC,CLOUD_PREMIUM,CLOUD_SSD  如果不识别则当做 CLOUD_BASIC
+  # renewflag: NOTIFY_AND_AUTO_RENEW
+  # renewflag为云硬盘的续费模式，NOTIFY_AND_AUTO_RENEW模式支持通知过期且按月自动续费，NOTIFY_AND_MANUAL_RENEW模式支持通知过期但不支持自动续费，DISABLE_NOTIFY_AND_MANUAL_RENEW模式支持不通知过期也不自动续费。不指定该字段则默认为NOTIFY_AND_MANUAL_RENEW模式。
   # paymode: PREPAID
   # paymode为云盘的计费模式，PREPAID模式（包年包月：仅支持Retain保留的回收策略），默认是 POSTPAID（按量计费：支持 Retain 保留和 Delete 删除策略，Retain 仅在高于1.8的集群版本生效）
   # aspid:asp-123
@@ -112,6 +116,9 @@ parameters:
 </tr>
 <tr>
 <td>paymode</td> <td>云硬盘的计费模式，默认设置为 <code>POSTPAID</code> 模式，即按量计费，支持 Retain 保留和 Delete 删除策略，Retain 仅在高于1.8的集群版本生效。还可设置为 <code>PREPAID</code> 模式，即包年包月，仅支持 Retain 保留策略。</td>
+</tr>
+<tr>
+<td>renewflag</td> <td>云硬盘的续费模式。默认为 <code>NOTIFY_AND_MANUAL_RENEW</code> 模式。<ul><li><code>NOTIFY_AND_AUTO_RENEW</code> 模式代表所创建的云硬盘支持通知过期且按月自动续费。</li><li><code>NOTIFY_AND_MANUAL_RENEW</code> 模式代表所创建的云硬盘支持通知过期但不自动续费。</li><li> <code>DISABLE_NOTIFY_AND_MANUAL_RENEW</code> 模式则代表所创建的云硬盘不通知过期也不自动续费。</li></ul></td>
 </tr>
 <tr>
 <td>aspid</td> <td>指定快照 ID，创建云硬盘后自动绑定此快照策略，绑定失败不影响创建。</td>
