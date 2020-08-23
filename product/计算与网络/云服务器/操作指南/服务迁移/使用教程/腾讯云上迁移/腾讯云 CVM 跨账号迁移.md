@@ -5,7 +5,7 @@
 
 ## 2. 根据网络环境确定迁移场景
 请根据您的源端主机的网络环境，确定适合的迁移场景。
-目前迁移工具支持3种迁移场景。不同迁移场景，对源端主机的网络要求不一致。关于建立内网连接通道，可以通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[云联网](https://cloud.tencent.com/document/product/877) 等方式建立内网连接通道后再进行迁移。
+目前迁移工具支持3种迁移场景。不同迁移场景，对源端主机的网络要求不一致。关于建立内网连接通道，可以通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)或[云联网](https://cloud.tencent.com/document/product/877) 等方式建立内网连接通道后再进行迁移。
 
 ## 3. 备份数据
 可以选择 [创建快照](https://cloud.tencent.com/document/product/362/5755) 等方式备份数据。
@@ -33,7 +33,7 @@ user.json 是配置源端主机和目标云服务器的文件。该文件的配�
  - 目标云服务器的实例 ID。
  - 源端主机的数据盘配置。（可选）  
 3. 配置 client.json 文件。
-client.json 是配置迁移模式和其他迁移配置项的文件。无论选择哪种迁移模式/场景，均需在 client.json 里的`Client.Net.Mode`项中设置相应的参数值。
+client.json 是配置迁移场景和其他迁移配置项的文件。无论选择哪种迁移场景，均需在 client.json 里的`Client.Net.Mode`项中设置相应的参数值。
 4. 排除源端主机上不需迁移的文件和目录。（可选）  
  在 Linux 源端主机编辑 rsync\_excludes\_linux.txt 文件，排除不需要迁移的文件和目录。
 5. 运行工具。
