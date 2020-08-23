@@ -25,7 +25,7 @@
 
 ## 5. 开始迁移
  
-1. 建立源端主机和目标云服务器的内网连接通道。（可选）  
+1. 建立源端主机和目标云服务器的内网连接通道。
 可以通过使用 [VPC 对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[云联网](https://cloud.tencent.com/document/product/877) 或者 [专线接入](https://cloud.tencent.com/document/product/216) 等方式建立源端主机与目标云服务器的内网连接通道。
 2. 配置 user.json 文件。
 user.json 是配置源端主机和目标云服务器的文件。该文件的配置项如下：
