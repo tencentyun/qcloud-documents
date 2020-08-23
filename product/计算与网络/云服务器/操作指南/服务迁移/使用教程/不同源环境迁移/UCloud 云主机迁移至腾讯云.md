@@ -1,9 +1,9 @@
 ## 1. 获取迁移工具  
  [点此获取](https://go2tencentcloud-1251783334.cos.ap-guangzhou.myqcloud.com/latest/go2tencentcloud.zip) 迁移工具压缩包。
 
-## 2. 根据网络环境确定迁移模式
-请根据您的源端主机和目标云服务器的网络环境，确定适合的迁移模式。
-目前迁移工具支持默认模式和内网迁移模式。其中，内网迁移模式细分为3种场景。不同迁移模式/场景，对源端主机和目标云服务器的网络要求不一致。如果源端主机和目标云服务器均可以访问公网，则可以直接进行默认模式迁移。如果源端主机和目标云服务器任何一方不能直接访问公网，则可以选择先通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[云联网](https://cloud.tencent.com/document/product/877) 或者 [专线接入](https://cloud.tencent.com/document/product/216) 等方式建立连接通道，再进行内网模式迁移。
+## 2. 根据网络环境确定迁移场景
+请根据您的源端主机的网络环境，确定适合的迁移场景。
+目前迁移工具支持3种迁移场景。不同迁移场景，对源端主机的网络要求不一致。关于建立内网连接通道，可以通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[云联网](https://cloud.tencent.com/document/product/877) 或者 [专线接入](https://cloud.tencent.com/document/product/216) 等方式建立内网连接通道后再进行迁移。
 
 ## 3. 备份数据
 - 源端主机：可以选择 UCloud 快照功能等方式备份数据。
@@ -23,9 +23,8 @@
 
 ## 5. 开始迁移
  
-1. 建立源端主机和目标云服务器的连接通道。（可选）  
- - 如果您选择内网迁移模式，则需要通过使用 [VPC 对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[云联网](https://cloud.tencent.com/document/product/877) 或者 [专线接入](https://cloud.tencent.com/document/product/216) 等方式建立源端主机与目标云服务器的连接通道。
- - 如果您选择默认模式，则请跳过此步骤。
+1. 建立源端主机和目标云服务器的内网连接通道。（可选）  
+可以通过使用 [VPC 对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[云联网](https://cloud.tencent.com/document/product/877) 或者 [专线接入](https://cloud.tencent.com/document/product/216) 等方式建立源端主机与目标云服务器的内网连接通道。
 2. 配置 user.json 文件。
 user.json 是配置源端主机和目标云服务器的文件。该文件的配置项如下：
  - 您的账户 API 访问密钥 SecretId 和 SecretKey，详细信息请参考 [访问密钥](https://cloud.tencent.com/document/product/598/37140)。
