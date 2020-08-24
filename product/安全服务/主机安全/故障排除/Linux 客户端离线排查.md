@@ -7,7 +7,7 @@
  - 客户端可能出现异常冲突或者崩溃，导致进程没有启动。
 2. 排查方法：
  - 可查看客户端日志，存放路径：`/usr/local/qcloud/YunJing/log`。
- - 可执行命令：`/usr/local/qcloud/YunJing/YDEyes/YDService` 手动运行客户端。
+ - 可执行命令：`sh /usr/local/qcloud/YunJing/startYD.sh` 启动主机安全服务。
 
 ## 网络故障排查
 如果进程存在，但主机安全不在线，大部分原因是网络不通，请按照以下操作进行排查：    
