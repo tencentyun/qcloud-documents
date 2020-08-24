@@ -175,8 +175,8 @@ sdk.connectDevice({
 | targetWifiInfo            | 目标 Wi-Fi 信息，需要设备去连接的 Wi-Fi 的信息               | WifiInfo                                                     | 是   |
 | softApInfo                | 设备热点信息，如果传该配置，则首先会调用 wx.connectWifi 去连接设备热点；如果不传，则需要自行引导用户去连接设备热点 | WifiInfo                                                     | 否   |
 | familyId                  | 家庭ID，默认为：'default'，即用户默认家庭 ID                 | 'default' \| string                                          | 否   |
-| onProgress                | 配网过程执行到每个步骤时触发的回调，回调中入参为当前步骤的详情<br>code: 步骤代码，详见配网步骤小节<br>msg: 步骤描述<br>detail: 步骤详情，根据每个步骤不同而不同 | ({ code: ConnectDeviceStepCode, msg: string, detail?: object }) => void | 否   |
-| onError                   | 配网失败时触发<br>code: 错误代码，详见错误码小节<br>msg: 错误描述<br>detail: 错误详情 | ({ code: ConnectDeviceErrorCode, msg: string, detail }) => void | 是   |
+| onProgress                | 配网过程执行到每个步骤时触发的回调，回调中入参为当前步骤的详情<br>code: 步骤代码，详见 [配网步骤](#softAP) 小节<br>msg: 步骤描述<br>detail: 步骤详情，根据每个步骤不同而不同 | ({ code: ConnectDeviceStepCode, msg: string, detail?: object }) => void | 否   |
+| onError                   | 配网失败时触发<br>code: 错误代码，详见 [错误码 ](#test2) 小节<br>msg: 错误描述<br>detail: 错误详情 | ({ code: ConnectDeviceErrorCode, msg: string, detail }) => void | 是   |
 | onComplete                | 配网完成后触发                                               | () => void                                                   | 是   |
 | handleAddDevice           | 详见下文的 [自定义添加设备](#test) 流程小节                             | (deviceSignature: { Signature: string, DeviceTimestamp: number, ProductId: string, DeviceName: string, ConnId: string }) => Promise< void > | 否   |
 | udpAddress                | 连接上设备热点后，小程序发起 UDP 通信的地址，默认为：'192.168.4.1'，一般无需更改 | string                                                       | 否   |
@@ -229,7 +229,7 @@ sdk.connectDevice({
   }
 });
 ```
-
+<span id="softAP"></span>
 ##### 配网步骤
 
 | 步骤                                                | 描述                                                         |
@@ -261,8 +261,8 @@ sdk.connectDevice({
 | targetWifiInfo          | 目标 Wi-Fi 信息，需要设备去连接的 Wi-Fi 的信息               | WifiInfo                                                     | 是   |
 | bindDeviceToken         | Wi-Fi 设备配网 Token，从后台接口 [生成 Wi-Fi 设备配网 Token](https://cloud.tencent.com/document/product/1081/44044) 获取 | string                                                       | 是   |
 | familyId                | 家庭 ID，默认为：'default'，即用户默认家庭 ID                 | 'default' \| string                                          | 否   |
-| onProgress              | code: 步骤代码，详见配网步骤小节<br>msg: 步骤描述<br>detail: 步骤详情，根据每个步骤不同而不同 | ({ code: ConnectDeviceStepCode, msg: string, detail?: object }) => void | 否   |
-| onError                 | 配网失败时触发<br>code: 错误代码，详见错误码小节<br>msg: 错误描述<br>detail: 错误详情 | ({ code: ConnectDeviceErrorCode, msg: string, detail }) => void | 是   |
+| onProgress              | code: 步骤代码，详见 [配网步骤](#SmartConfig) 小节<br>msg: 步骤描述<br>detail: 步骤详情，根据每个步骤不同而不同 | ({ code: ConnectDeviceStepCode, msg: string, detail?: object }) => void | 否   |
+| onError                 | 配网失败时触发<br>code: 错误代码，详见 [错误码](#test2) 小节<br>msg: 错误描述<br>detail: 错误详情 | ({ code: ConnectDeviceErrorCode, msg: string, detail }) => void | 是   |
 | onComplete              | 配网完成后触发                                               | () => void                                                   | 是   |
 | udpPort                 | 小程序和设备连上同一个局域网之后，小程序发起 UDP 通信的端口，默认为：8266，一般无需更改 | number                                                       | 否   |
 | queryTokenRetryTime     | 轮询云端，查询设备绑定云端的状态的次数，默认为：20           | number                                                       | 否   |
@@ -308,7 +308,7 @@ sdk.requestApi('AppCreateDeviceBindToken')
     });
   });
 ```
-
+<span id="SmartConfig"></span>
 ##### 配网步骤
 
 `sdk.connectDevice()`配网过程中，每执行完一个步骤就会触发一次`onProgress`回调，入参为：`{ code, msg, ...detail }`形式。
@@ -328,6 +328,7 @@ sdk.requestApi('AppCreateDeviceBindToken')
 | ConnectDeviceStepCode.ADD_DEVICE_SUCCESS             | 添加设备成功                                                 |
 | ConnectDeviceStepCode.CONNECT_DEVICE_SUCCESS         | 一键配网成功                                                 |
 
+<span id="test2"></span>
 #### 错误码
 
 | 错误码                                          | 描述                                                         |
