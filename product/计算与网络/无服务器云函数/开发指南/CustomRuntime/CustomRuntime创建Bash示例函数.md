@@ -56,9 +56,9 @@ curl -d " " -X POST -s "http://$SCF_RUNTIME_API:$SCF_RUNTIME_API_PORT/runtime/in
   EVENT_DATA=$(curl -sS -LD "$HEADERS" -X GET -s "http://$SCF_RUNTIME_API:$SCF_RUNTIME_API_PORT/runtime/invocation/next")
 ```
 长轮询获取事件请勿设置 get 方法超时，在访问运行时 API 的事件获取接口，阻塞等待事件下发，在一次调用内重复访问此接口均返回相同事件数据。响应体为事件数据 event_data，响应头包含以下信息：
-   - `Scf_Runtime_Request_Id`：请求 ID，用于标识触发了函数调用的请求。
-   - `Scf_Runtime_Memory_Limit_In_Mb`：函数内存限制，单位为 MB。
-   - `Scf_Runtime_Time_Limit_In_Ms`：函数超时时间，单位为毫秒。
+   - Request_Id：请求 ID，用于标识触发了函数调用的请求。
+   - Memory_Limit_In_Mb：函数内存限制，单位为 MB。
+   - Time_Limit_In_Ms：函数超时时间，单位为毫秒。
  2. 根据环境变量、响应头中所需信息及事件信息构建函数调用的参数，调用函数处理程序。示例代码如下：
 ```
 # 调用函数处理事件
@@ -81,7 +81,7 @@ curl -d " " -X POST -s "http://$SCF_RUNTIME_API:$SCF_RUNTIME_API_PORT/runtime/in
 ### 创建函数处理文件<span id="hsfile"></span>
 >? 函数处理文件包含函数逻辑的具体实现，执行方式及参数可以通过运行时自定义实现。
 >
-执行以下命令，在命令行终端创建 index.sh。
+在命令行终端创建 index.sh。
 ```
 function main_handler () {
   EVENT_DATA=$1
