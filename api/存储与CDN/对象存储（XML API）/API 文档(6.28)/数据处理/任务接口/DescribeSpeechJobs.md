@@ -79,7 +79,7 @@ Container 节点 Response 的内容：
 
 **请求**
 
-```
+```plaintext
 GET /asr_jobs?size=&states=&queueId=&startCreationTime=&endCreationTime= HTTP/1.1
 Connection: keep-alive
 Accept-Encoding: gzip, deflate
@@ -114,7 +114,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDnOr9IDiIUNYWGrrWb2IJ4YmywDXc****&q
 
 **响应**
 
-```
+```plaintext
 HTTP/1.1 200 OK
 Date: Mon, 27 Jul 2020 08:22:41 GMT
 Content-Type: application/xml
