@@ -3,7 +3,7 @@
 
 ## 2. 根据网络环境确定迁移场景
 请根据您的源端主机的网络环境，确定适合的迁移场景。
-目前迁移工具支持3种迁移场景。不同迁移场景，对源端主机的网络要求不一致。关于建立内网连接通道，可以通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[云联网](https://cloud.tencent.com/document/product/877) 或者 [专线接入](https://cloud.tencent.com/document/product/216) 等方式建立内网连接通道后再进行迁移。
+目前迁移工具支持3种迁移场景，不同迁移场景，对源端主机的网络要求不一致。您可通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[云联网](https://cloud.tencent.com/document/product/877) 或者 [专线接入](https://cloud.tencent.com/document/product/216) 等方式建立内网连接通道后再进行迁移。
 
 ## 3. 备份数据
 - 源端主机：可以选择华为云快照功能等方式备份数据。
