@@ -38,7 +38,7 @@ tar zxvf keepalived-1.2.24.tar.gz
 	cd keepalived-1.2.24
 	./configure --prefix=/
 	make; make install
-	chmod +x /etc/init.d/keepalived 【防止出现 env: /etc/init.d/keepalived: Permission denied】
+	chmod +x /etc/init.d/keepalived   //防止出现 env: /etc/init.d/keepalived: Permission denied
 ```
 
 ### 步骤3：确定主备需求
