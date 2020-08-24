@@ -1,4 +1,3 @@
-## 简介
 
 本文主要介绍如何使用 SDWebImage 加载图片。
 
@@ -42,9 +41,9 @@ imageView.sd_CI_setImage(with: NSURL.fileURL(withPath: "图片链接"), transfor
 
 与 SDWebImage 配合使用数据万象 TPG 功能，支持 TPG 动图加载，无需额外处理。在使用 TPG 功能时，SDWebImage-CloudInfinite 需要依赖 CloudInfinite/TPG 模块。
 ```
-    pod 'CloudInfinite/TPG'
+pod 'CloudInfinite/TPG'
 ```
-SDWebImage-CloudInfinite 提供了两种加载 TPG 图片的方式；
+SDWebImage-CloudInfinite 提供了两种加载 TPG 图片的方式：
 
 ### 方式一：调用 UIImageView+CI 加载 TPG
 
@@ -111,7 +110,7 @@ CIDownloaderConfig.shared().addExcloudeTPGRegularExpress("http(s)?:.*imageAve")
 #### 准备工作
 在使用 WEBP 功能时，SDWebImage-CloudInfinite 需要依赖 SDWebImageWebPCoder 库。
 ```
-    pod 'SDWebImageWebPCoder'
+pod 'SDWebImageWebPCoder'
 ```
 
 #### 加载 WEBP 图片
