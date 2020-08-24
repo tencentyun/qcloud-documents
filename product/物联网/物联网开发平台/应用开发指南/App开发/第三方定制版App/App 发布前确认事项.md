@@ -1,42 +1,59 @@
-App 应用发布前注意事项如下：
+本文为您详细介绍第三方定制 App 部署相关操作。
+
+## 前提条件
+- 注册 [腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F) 并完成 [实名验证](https://console.cloud.tencent.com/developer)。
+- 创建平台产品应用 [获取App Key 和 App Secret](https://cloud.tencent.com/document/product/1081/45901#.E8.8E.B7.E5.8F.96-app-key-.E5.92.8C-app-secret) 
+
+## App 参数写入配置文件    
+- iOS 平台的配置文件 **（app-open-config.json）** 位于 **linkApp** 工程的 **AppConfig** 目录下。    
+- Android  平台的配置文件 **（app-config.json）** 位于 **iot-link-android** 工程的根目录下。   
+
+请根据实际情况调整配置信息，配置文件内容如下：   
+
+```json
+{
+  "WXAccessAppId": "",
+  "TencentIotLinkAppkey": "请输入从物联网开发平台申请的 App key，正式发布前务必填写",
+  "TencentIotLinkAppSecret": "请输入从物联网开发平台申请的 App Secret，App Secret 请保存在服务端，此处仅为演示，如有泄露概不负责",
+  "XgAccessId": "",
+  "XgAccessKey": "",
+  "TencentMapSDKValue": "",
+  "TencentIotLinkSDKDemoAppkey": ""
+}
+```
+
+1. TencentIotLinkAppkey 和 TencentIotLinkAppSecret 请使用物联网平台申请的[ App Key 和 App Secret](https://cloud.tencent.com/document/product/1081/45901#.E8.8E.B7.E5.8F.96-app-key-.E5.92.8C-app-secret)。     
+2. XgAccessId 和 XgAccessKey 请使用信鸽推送平台申请的 [AccessID 和 AccessKey](https://cloud.tencent.com/document/product/1081/45901#.E8.8E.B7.E5.8F.96-accessid-.E5.92.8C-accesskey)。   
+3. WXAccessAppId 请使用微信开放平台申请的 [AppID](https://cloud.tencent.com/document/product/1081/45901#.E8.8E.B7.E5.8F.96-appid-.E5.92.8C-appsecret)。    
+4. TencentMapSDKValue 请使用腾讯地图开放平台申请的 [key](https://lbs.qq.com/mobile/androidMapSDK/developerGuide/getKey)。     
+
+## App 绑定真实设备      
+- 通过 [SoftAP 配网](https://cloud.tencent.com/document/product/1081/43695) 方式（自助配网）绑定真实设备，操作步骤如下：  
+ 1. 点击首页添加设备按钮，跳转到添加设备页面后，点击需要添加的硬件设备。   
+ 2. App 自动识别设备配网为 SoftAP 配网方式，如图：   
+   <img src="https://main.qcloudimg.com/raw/8a769fac4d5cfea4a86bd39891558f85.png" alt="Picture8_softAp1.PNG" width = "35%" height = "35%" />       
+ 3. 点击底部按钮后，连接 Wi-Fi，输入 Wi-Fi 名称和密码，如图：   
+   <img src="https://main.qcloudimg.com/raw/be67d112ac54015fccdfb448f6bfc2c3.png" alt="Picture9_softAp2.PNG" width = "35%" height = "35%" />           
+ 4. 输入完后点击确认，连接设备热点，如图：   
+   <img src="https://main.qcloudimg.com/raw/26a09b5e851dac344207048338a6d1ee.png" alt="Picture10_softAp3.PNG" width = "35%" height = "35%" />      
+ 5. 在【设置】中选择设备提供的热点，进行连接。    
+ 6. 连接成功后，返回 App，如图：   
+   <img src="https://main.qcloudimg.com/raw/78201d7e14acb0eb64988cd796035c60.png" alt="Picture11_softAp4.PNG" width = "35%" height = "35%" />           
+ 7. 点击下一步开始连接，连接成功后，如图：   
+   <img src="https://main.qcloudimg.com/raw/8d01a9707424e9a2628cd1302876caee.jpg" alt="Picture12_softAp5.PNG" width = "30%" height = "30%" />          
+
+* 通过 [SmartConfig 配网](https://cloud.tencent.com/document/product/1081/43696) 方式（智能配网）绑定真实设备，操作步骤如下：   
+>!在此配网方式下，目前只支持 Wi-Fi 2.4GHZ。   
+
+ 1. 点击首页添加设备按钮，跳转到添加设备页面后，点击需要添加的硬件设备。   
+ 2. App 自动识别设备配网为 SmartConfig 配网方式，如图：   
+    <img src="https://main.qcloudimg.com/raw/9814b9ac465d6bd467364c656e94ef60.png" alt="Picture13_SmartCon1.PNG" width = "35%" height = "35%" />   
+ 3. 点击底部按钮后，连接 Wi-Fi，输入 Wi-Fi 名称和密码，如图：    
+    <img src="https://main.qcloudimg.com/raw/446a28b97d327cd4d8fb69d37890d5d3.png" alt="Picture14_SmartCon2.PNG" width = "35%" height = "35%" />   
+ 4. 连接成功后，如图：   
+    <img src="https://main.qcloudimg.com/raw/5ba498901850285314abdf1862212ab6.jpg" alt="Picture15_SmartCon3.PNG" width = "30%" height = "30%" />   
+	
+App 通过上述方式绑定真实设备后，设备状态会自动上报至物联网平台；手机端通过与物联网平台维持的长连接，可以实现实时显示设备状态。   
 
 
-## iOS
 
-1. 确认填写用户自己的 Bundle ID 和 对应发布证书。   
-2. 用户需要使用从 [物联网开发平台](https://console.cloud.tencent.com/iotexplorer) 自建应用所获得的 **TencentIotLinkAppkey** 和 **TencentIotLinkAppSecrecy**，来替换 App Demo 中相对应的字符串，如下图所示：
-	![](https://main.qcloudimg.com/raw/f7d36664333f13ddf725bd8bf078edaf.png)
-3. 用户需要使用从 [腾讯推送平台](https://console.cloud.tencent.com/tpns) 自建应用所获得的 **XgAccessId** 和 **XgAccessKey**，来替换 App Demo 中相对应的字符串，如下图所示：
-![](https://main.qcloudimg.com/raw/3eb506a9945405c92a367eecd2ff9062.png)
-4. 用户需要使用从 [微信开放平台](https://open.weixin.qq.com/cgi-bin/frame?t=home/app_tmpl&lang=zh_CN) 自建应用所获得的 **WXAccessAppId**，来替换 App Demo 中相对应的字符，详情可参见 [移动应用微信登录开发指南](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Development_Guide.html)。
-![](https://main.qcloudimg.com/raw/e96694bd1962970c785d1b1fcd68b51b.png)
-5. 如果用户确认接入 Firebase，用户需要使用从 [Firebase 官网](https://firebase.google.com/) 自建应用获得 **GoogleService-Info.plist**，替换 App Demo 中原有相对应的文件，如下图所示：<br>
-  <img src="https://main.qcloudimg.com/raw/7c17279a720b92ffb875e1b7ed46e89c/image-20200622184506.png" alt="image-20200622184506" style="zoom:85%;" />
-
-
-
-
-## Android
-
-1. 请根据实际情况调整 **config.json** 中的内容，config.json 位于项目的根目录，如下截图所示位置：
-<img src="https://main.qcloudimg.com/raw/49cd7841a58e80f80db1dbf43e6f36e2/image-20200619141407513.png" alt="image-20200619141407513" style="zoom: 67%;" /><br>
-config.json 需要配置的内容，如下图所示：
-![](https://main.qcloudimg.com/raw/35bbf3f276f93336136572bdc6a1d7fa.jpg)
-	- **TencentIotLinkAppkey** 和 **TencentIotLinkAppSecrecy** 请使用在物联网平台创建应用时生成的 **App Key** 和 **App Secret**。     
-	- **XgAccessId** 和 **XgAccessKey** 请使用在信鸽推送平台申请获得的 **AccessID** 和 **AccessKey**，详情可见 [腾讯移动推送入门](https://cloud.tencent.com/product/tpns/getting-started)。   
-	- **WXAccessAppId** 请使用在微信开放平台申请并获得的 **AppID**；可通过在微信开放平台注册开发者帐号，创建移动应用，审核通过后，即可获得相应的 AppID 和 AppSecret，详情可参见 [移动应用微信登录开发指南](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Development_Guide.html)。
-
- 使用微信授权登录还需：
-  - 将 **opensource_keystore.jks** 文件替换成自己的签名文件并给应用签字。
-  - 前往 [微信开放平台](https://developers.weixin.qq.com/doc/oplatform/Downloads/Android_Resource.html) 下载签名生成工具，使用该工具生成应用的数字签名（需要将该工具和应用同时安装到手机上，打开签名生成工具输入应用包名即可生成数字签名，如下图所示）。
-    <img src="https://main.qcloudimg.com/raw/b83597a8f1c676d8cd6312cf2694153b/image-20200619162858817.png" alt="image-20200619162858817" style="zoom: 33%;" />
-  - 将该数字签名和应用包名登记到微信开放平台，否则微信授权登录将不可用。
- - **TencentMapSDKValue** 请使用腾讯地图开放平台申请并获得的 **key**，详情可参见 [创建工程](https://lbs.qq.com/mobile/androidLocationSDK/androidGeoGuide/androidGeoCreat)。
-
-2. 项目配置了 **Firebase** 插件。
- - 若用户确认使用 Firebase 功能，需通过 Firebase 官网创建应用并获取 **google-services.json**；将 google-services.json 文件放置在 app 目录下，如截图所示位置：<br>
-		<img src="https://main.qcloudimg.com/raw/76bf90532ea498a57a7280cf3ce5e165/image-20200619150459211.png" alt="image-20200619150459211" style="zoom:67%;" /><br>
- - 若不使用 Firebase 功能，请注释截图中标注的内容即可，如下图所示：<br>
-		<img src="https://main.qcloudimg.com/raw/18586d6e1d6a46b3be59478f3efcee82/image-20200619150752594.png" alt="image-20200619150752594" style="zoom: 50%;" />
-		<img src="https://main.qcloudimg.com/raw/47bdd7ccf15ad948b26617b9fb5afe6a/image-20200619151433681.png" alt="image-20200619151433681" style="zoom: 50%;" /><br>
-		<img src="https://main.qcloudimg.com/raw/07864363b6d518597bd6857c55516265/image-20200619151507503.png" alt="image-20200619151507503" style="zoom: 50%;" />
