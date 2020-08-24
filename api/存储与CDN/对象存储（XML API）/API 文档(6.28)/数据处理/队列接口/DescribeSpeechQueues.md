@@ -157,7 +157,7 @@ Container 节点 NonExistPIDs 的内容：
 
 **请求**
 
-```
+```plaintext
 GET /asrqueue?pageNumber=1&pageSize=5 HTTP/1.1
 Connection: keep-alive
 Accept-Encoding: gzip, deflate
@@ -170,7 +170,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDnOr9IDiIUNYWGrrWb2IJ4YmywDXc****&q
 
 **响应**
 
-```
+```plaintext
 HTTP/1.1 200 OK
 Date: Thu, 20 Aug 2020 09:53:02 GMT
 Content-Type: application/xml
