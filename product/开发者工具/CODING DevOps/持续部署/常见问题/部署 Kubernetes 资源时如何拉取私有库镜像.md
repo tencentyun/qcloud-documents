@@ -9,13 +9,13 @@
 1. 登录 [CODING 控制台](https://console.cloud.tencent.com/coding)，单击团队域名进入 CODING 使用页面。
 2. 单击工作台首页左侧的 <img src ="https://main.qcloudimg.com/raw/12230547b45d5eae85ad1c4fa86fba68.png" style ="margin:0" data-nonescope="true">，进入持续部署控制台。
 
-## 功能介绍
+### 功能介绍
 
 在部署 Kubernetes 资源时，如果 manifest 引用的镜像是存储于私有库的镜像，则需要在 manifest 中配置 `imagePullSecrets` 才能成功拉取镜像。
 
 以下将会分云账号类型来讨论 `imagePullSecrets` 配置场景：
 
-### 腾讯云 TKE
+#### 腾讯云 TKE
 
 ![](https://main.qcloudimg.com/raw/7f50226729a7130e8147f0e80989a385.png)
 如上图所示，CODING CD 会在 TKE 集群中生成名为 `coding-registry-cred-$(user_id)`的 Secret，此 Secret 信息可以在 TKE 控制台查看：
@@ -23,7 +23,7 @@
 云账号添加成功后，可以查看示例用法：
 ![](https://main.qcloudimg.com/raw/1b9ae88b5346277f38a3c66c7f8842d5.png)
 
-### Kubernetes 云账号（非 TKE 集群）
+#### Kubernetes 云账号（非 TKE 集群）
 
 如果通过 Kubeconfig 或 Service Account 凭据添加的 Kubernetes 云账号，在 manifest 引用私有库的镜像时，需要先在 Kubernetes 集群中创建 Secret，以 CODING 私有制品库为例：
 ![](https://main.qcloudimg.com/raw/1c5c7d144b1856a008e61ca5c7277910.png)
@@ -52,7 +52,7 @@ kind: Deployment
 
 阅读更多：[Kubernetes 如何从私有仓库拉取镜像](https://kubernetes.io/zh/docs/tasks/configure-pod-container/pull-image-private-registry)
 
-### Kubernetes 云账号（TKE 集群）
+#### Kubernetes 云账号（TKE 集群）
 
 如果您选择通过 Kubeconfig 或 Service Account 添加 TKE 集群云账号，可以直接在 TKE 控制台创建 Secret。进入集群信息页，选择【配置管理】>【Secret】>【新建】：
 ![](https://main.qcloudimg.com/raw/107645ee24251a4003e976cfe3ead4c8.png)
