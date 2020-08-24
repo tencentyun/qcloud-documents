@@ -336,11 +336,12 @@
 
 ### 声音数据帧的自定义处理回调（只读）
 
-| API                                                          | 描述                                                         |
-| ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [onCapturedAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#a13dfcc17ca7ea6bcff7b0f5f6d167e33) | 本地麦克风采集到的音频数据回调。                             |
-| [onPlayAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#a60a54a148edf641a85fbc07bc294fe11) | 混音前的每一路远程用户的音频数据，即混音前的各路原始数据。例如，对某一路音频进行文字转换时，您必须使用该路音频的原始数据。 |
-| [onMixedPlayAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#a580e94224357c38adf6ed883ab3321f7) | 各路音频数据混合后送入喇叭播放的音频数据。                   |
+| API | 描述 |
+|-----|-----|
+| [onCapturedRawAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#abffd560f5b2b2322ea3980bc5a91d22e) | 本地麦克风采集到的音频数据回调。 |
+| [onLocalProcessedAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#a62c526c6c30a66671260bdf0c5c64e46) | 本地采集并经过音频模块前处理后的音频数据回调。 |
+| [onRemoteUserAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#a4af98a7d668c150ea8e99e3085505902) | 混音前的每一路远程用户的音频数据，即混音前的各路原始数据。例如，对某一路音频进行文字转换时，您必须使用该路音频的原始数据。 |
+| [onMixedPlayAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#a580e94224357c38adf6ed883ab3321f7) | 各路音频数据混合后送入喇叭播放的音频数据。 |
 
 
 ### 日志相关回调
