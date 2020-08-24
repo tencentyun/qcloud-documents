@@ -1,5 +1,5 @@
 
-本文提供两种方式加载 TPG 图片。
+本文提供加载网络以及使用 TPG 模块两种方式加载 TPG 图片。
 
 ### 方式一：加载网络 TPG 图片
 
@@ -50,17 +50,17 @@
    ```
 2. 如果已经获取到 TPG 图片 data 数据，则直接使用 TPG 模块 UIImageView+TPG 类进行解码并显示。
    **Objective-C**
-    ```
-        [self.tpgImageView setTpgImageWithData:data loadComplete:^(NSData * _Nullable data，UIImage * _Nullable image, NSError * _Nullable error) {
-                
-        }];
-    ```
+```
+	[self.tpgImageView setTpgImageWithData:data loadComplete:^(NSData * _Nullable data，UIImage * _Nullable image, NSError * _Nullable error) {
+
+	}];
+```
    **swift**
-    ```
-        imageView.setTpgImageWith(data) { (data, image, error) in
-                
-        }
-    ```
+```
+	imageView.setTpgImageWith(data) { (data, image, error) in
+
+	}
+```
 
 
 
