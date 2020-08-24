@@ -177,3 +177,87 @@ Container 节点 SpeechRecognition 的内容：
 #### 错误码
 
 该请求操作无特殊错误信息，常见的错误信息请参见数据万象 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
+
+## 实际案例
+
+**请求** 
+
+```
+POST /asr_jobs HTTP/1.1
+Connection: keep-alive
+Accept-Encoding: gzip, deflate
+Accept: */*
+User-Agent: cos-python-sdk-v5.3.2
+Host: examplebucket-1250000000.ci.ap-chongqing.myqcloud.com
+Content-Type: application/xml
+Content-Length: 411
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDnOr9IDiIUNYWGrrWb2IJ4YmywDXc****&q-sign-time=1597915249;1597925309&q-key-time=1597915249;1597925309&q-header-list=content-type;host&q-url-param-list=&q-signature=cb18718939be449e84d22358e8f0e****
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<Request>
+  <Input>
+    <Object>1.mp3</Object>
+  </Input>
+  <Operation>
+    <Output>
+      <Region>ap-chongqing</Region>
+      <Object>1.mp3</Object>
+      <Bucket>examplebucket-1250000000</Bucket>
+    </Output>
+    <SpeechRecognition>
+      <ChannelNum>1</ChannelNum>
+      <EngineModelType>16k_zh</EngineModelType>
+    </SpeechRecognition>
+  </Operation>
+  <Tag>SpeechRecognition</Tag>
+  <QueueId>p2e11b0a26d404d029c15f06c48803dde</QueueId>
+</Request>
+```
+
+**响应**
+
+```
+HTTP/1.1 200 OK
+Date: Date
+Content-Type: application/xml
+Content-Length: 863
+Connection: keep-alive
+Server: tencent-ci
+x-ci-request-id: request-id
+
+<?xml version="1.0" encoding="utf-8"?>
+<Response>
+        <JobsDetail>
+                <Code>Success</Code>
+                <CreationTime>2020-08-20T17:35:11+0800</CreationTime>
+                <EndTime>-</EndTime>
+                <Input>
+                        <Object>16k.mp3</Object>
+                </Input>
+                <JobId>s716d8c8ee2c811ea94a0b170ddb38f60</JobId>
+                <Message/>
+                <Operation>
+                        <Output>
+                                <Bucket>test005-1251704708</Bucket>
+                                <Object>1.txt</Object>
+                                <Region>ap-chongqing</Region>
+                        </Output>
+                        <SpeechRecognition>
+                                <ChannelNum>1</ChannelNum>
+                                <ConvertNumMode>1</ConvertNumMode>
+                                <EngineModelType>16k_zh</EngineModelType>
+                                <FilterDirty>0</FilterDirty>
+                                <FilterModal>0</FilterModal>
+                                <ResTextFormat>0</ResTextFormat>
+                        </SpeechRecognition>
+                </Operation>
+                <QueueId>p5275b560c7fd498db9a36e5e202827b6</QueueId>
+                <State>Submitted</State>
+                <Tag>SpeechRecognition</Tag>
+        </JobsDetail>
+</Response>
+```
+
+
+

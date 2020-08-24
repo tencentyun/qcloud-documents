@@ -154,9 +154,9 @@ iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model
 <pre>
 // 登录
 [[TRTCCalling shareInstance] login:SDKAPPID user:userID userSig:userSig success:^{
-        NSLog(@"Audio call login success.");
+        NSLog(@"Video call login success.");
 } failed:^(int code, NSString *error) {
-        NSLog(@"Audio call login failed.");
+        NSLog(@"Video call login failed.");
 }];
 </pre>
 
