@@ -1,6 +1,5 @@
-## 简介
 
-本文主要介绍如何使用 glide 加载图片。
+本文主要介绍如何使用 GLIDE 加载图片。
 
 ## 安装 GLIDE
 
@@ -14,10 +13,10 @@ implementation 'com.github.bumptech.glide:glide:version'
 
 1. 使用 CloudInfinite 和 CITransformation 构建 CIImageLoadRequest。
 ```
-        CloudInfinite cloudInfinite = new CloudInfinite();
-        CITransformation transform = new CITransformation();
-        transform.thumbnailByScale(50).iradius(60);
-        CIImageLoadRequest request = cloudInfinite.requestWithBaseUrlSync(url, transform);
+CloudInfinite cloudInfinite = new CloudInfinite();
+CITransformation transform = new CITransformation();
+transform.thumbnailByScale(50).iradius(60);
+CIImageLoadRequest request = cloudInfinite.requestWithBaseUrlSync(url, transform);
 ```
 2. 通过得到的 CIImageLoadRequest 获取 URL，使用 GLIDE 进行加载。
 ```
@@ -26,11 +25,11 @@ Glide.with(activity).load(request.getUrl().toString()).into(imageview);
 
 ## 使用数据万象 TPG 功能
 
-安装 tpg 和 cloud-infinite-glide SDK 以及 glide:compiler。
+安装 TPG 和 cloud-infinite-glide SDK 以及 glide:compiler。
 ```
-    implementation 'com.tencent.qcloud:tpg:1.2.0'	
-    implementation 'com.tencent.qcloud:cloud-infinite-glide:1.2.0'	
-    annotationProcessor 'com.github.bumptech.glide:compiler:version' 
+implementation 'com.tencent.qcloud:tpg:1.2.0'	
+implementation 'com.tencent.qcloud:cloud-infinite-glide:1.2.0'	
+annotationProcessor 'com.github.bumptech.glide:compiler:version' 
 ```
 通过 AppGlideModule 注册相关解码器和 loader 实现相应功能。
 ```
@@ -83,7 +82,7 @@ Glide.with(context)
                .into(imageview);
 ```
 
-#### 直接加载 CIImageLoadRequest，
+#### 直接加载 CIImageLoadRequest
 
 目前仅用于格式转换时，header 传输目标图片格式的情况。
 
