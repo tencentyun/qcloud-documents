@@ -43,7 +43,7 @@ TRTCCalling 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务
 | [openCamera](#opencamera)     | 开启摄像头，并渲染在指定的 TXCloudVideoView 中。 |
 | [switchCamera](#switchcamera) | 切换前后摄像头。                                 |
 | [closeCamara](#closecamara)   | 关闭摄像头。                                     |
-| [setMicMute](#setmicmute)     | 静音远端音频。                                   |
+| [setMicMute](#setmicmute)     | 静音本地音频采集。                                   |
 | [setHandsFree](#sethandsfree) | 设置免提。                                       |
 
 <h2 id="TRTCCallingDelegate">TRTCCallingDelegate API 概览</h2>
@@ -297,7 +297,7 @@ void closeCamera();
 
 ### setMicMute
 
-静音远端音频。
+静音本地音频采集。
 
 ```java
 void setMicMute(boolean isMute);
