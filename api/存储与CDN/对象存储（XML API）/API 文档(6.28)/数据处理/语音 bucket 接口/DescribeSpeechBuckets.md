@@ -96,7 +96,7 @@ Container 节点 SpeechBucketList 的内容：
 
 **请求**
 
-```
+```plaintext
 GET /asrbucket HTTP/1.1
 Connection: keep-alive
 Accept-Encoding: gzip, deflate
@@ -109,7 +109,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDnOr9IDiIUNYWGrrWb2IJ4YmywDXc****&q
 
 **响应**
 
-```
+```plaintext
 HTTP/1.1 200 OK
 Date: Fri, 21 Aug 2020 08:53:38 GMT
 Content-Type: application/xml
