@@ -178,7 +178,6 @@ sdk.connectDevice({
 | onProgress                | 配网过程执行到每个步骤时触发的回调，回调中入参为当前步骤的详情<br>code: 步骤代码，详见 [配网步骤](#softAP) 小节<br>msg: 步骤描述<br>detail: 步骤详情，根据每个步骤不同而不同 | ({ code: ConnectDeviceStepCode, msg: string, detail?: object }) => void | 否   |
 | onError                   | 配网失败时触发<br>code: 错误代码，详见 [错误码 ](#test2) 小节<br>msg: 错误描述<br>detail: 错误详情 | ({ code: ConnectDeviceErrorCode, msg: string, detail }) => void | 是   |
 | onComplete                | 配网完成后触发                                               | () => void                                                   | 是   |
-| handleAddDevice           | 详见下文的 [自定义添加设备](#test) 流程小节                             | (deviceSignature: { Signature: string, DeviceTimestamp: number, ProductId: string, DeviceName: string, ConnId: string }) => Promise< void > | 否   |
 | udpAddress                | 连接上设备热点后，小程序发起 UDP 通信的地址，默认为：'192.168.4.1'，一般无需更改 | string                                                       | 否   |
 | udpPort                   | 连接上设备热点后，小程序发起 UDP 通信的端口，默认为：8266，一般无需更改 | number                                                       | 否   |
 | udpCommunicationRetryTime | 与设备进行 UDP 通信时的 UDP 消息发送重试次数，默认为：5      | number                                                       | 否   |
@@ -192,15 +191,6 @@ sdk.connectDevice({
 | SSID     | Wi-Fi 的 SSID | string | 是   |
 | password | Wi-Fi 的 密码 | string | 否   |
 
-<span id="test"></span>
-##### 自定义添加设备流程
-
-默认配网流程中，与设备通信拿到设备签名后，会依次执行以下步骤：
-
-1. 尝试将手机连接目标 Wi-Fi（为了恢复网络，设备热点一般是无网状态）
-2. 调用 [添加设备接口](https://cloud.tencent.com/document/product/1081/40801)
-
-如果开发者需要自行控制这一步骤，则需要在调用`connectDevice`函数时传入`handleAddDevice`回调。若设置了`handleAddDevice`，那么在拿到设备签名后会执行该方法并传入设备签名，并在该方法返回的 Promise 执行完成后触发`onComplete`回调。
 
 ##### 示例代码
 
