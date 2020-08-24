@@ -25,7 +25,7 @@
 
 ## SDK API 参考
 
-SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](https://cos-dotnet-sdk-doc-1253960454.file.myqcloud.com/)。
+SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos-dotnet-sdk-doc-1253960454.file.myqcloud.com/)。
 
 ## 高级接口（推荐）
 
@@ -46,17 +46,10 @@ TransferManager transferManager = new TransferManager(cosXml, transferConfig);
 String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
 String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
 String srcPath = @"temp-source-file";//本地文件绝对路径
-if (!File.Exists(srcPath)) {
-  // 如果不存在目标文件，创建一个临时的测试文件
-  File.WriteAllBytes(srcPath, new byte[1024]);
-}
 
 // 上传对象
-COSXMLUploadTask uploadTask = new COSXMLUploadTask(bucket, "COS_REGION", cosPath); // COS_REGION 为存储桶所在地域
+COSXMLUploadTask uploadTask = new COSXMLUploadTask(bucket, cosPath);
 uploadTask.SetSrcPath(srcPath);
-
-// 同步调用
-var autoEvent = new AutoResetEvent(false);
 
 uploadTask.progressCallback = delegate (long completed, long total)
 {
@@ -68,7 +61,6 @@ uploadTask.successCallback = delegate (CosResult cosResult)
       as COSXML.Transfer.COSXMLUploadTask.UploadTaskResult;
     Console.WriteLine(result.GetResultInfo());
     string eTag = result.eTag;
-    autoEvent.Set();
 };
 uploadTask.failCallback = delegate (CosClientException clientEx, CosServerException serverEx) 
 {
@@ -80,18 +72,44 @@ uploadTask.failCallback = delegate (CosClientException clientEx, CosServerExcept
     {
         Console.WriteLine("CosServerException: " + serverEx.GetInfo());
     }
-    autoEvent.Set();
 };
 transferManager.Upload(uploadTask);
-// 等待任务结束
-autoEvent.WaitOne();
 ```
 
 >?
 >- 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/dotnet/dist/TransferUploadObject.cs) 查看。
 >- 上传之后，您可以用同样的 Key 生成文件下载链接，具体使用方法见 **生成预签名链接** 文档。但注意如果您的文件是私有读权限，那么下载链接只有一定的有效期。
 
-#### 示例代码二: 上传暂停、继续与取消
+#### 示例代码二: 上传二进制数据
+
+[//]: # (.cssg-snippet-transfer-upload-bytes)
+```cs
+try
+{
+  string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+  string cosPath = "exampleObject"; // 对象键
+  byte[] data = new byte[1024]; // 二进制数据
+  PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, data);
+  
+  cosXml.PutObject(putObjectRequest);
+}
+catch (COSXML.CosException.CosClientException clientEx)
+{
+  //请求失败
+  Console.WriteLine("CosClientException: " + clientEx);
+}
+catch (COSXML.CosException.CosServerException serverEx)
+{
+  //请求失败
+  Console.WriteLine("CosServerException: " + serverEx.GetInfo());
+}
+```
+
+>?
+>- 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/dotnet/dist/TransferUploadObject.cs) 查看。
+>- 上传之后，您可以用同样的 Key 生成文件下载链接，具体使用方法见 **生成预签名链接** 文档。但注意如果您的文件是私有读权限，那么下载链接只有一定的有效期。
+
+#### 示例代码三: 上传暂停、继续与取消
 
 对于上传任务，可以通过以下方式暂停：
 
@@ -117,7 +135,7 @@ uploadTask.Cancel();
 >?
 >- 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/dotnet/dist/TransferUploadObject.cs) 查看。
 
-#### 示例代码三: 批量上传
+#### 示例代码四: 批量上传
 
 [//]: # (.cssg-snippet-transfer-batch-upload-objects)
 ```cs
@@ -132,10 +150,33 @@ for (int i = 0; i < 5; i++) {
   // 上传对象
   string cosPath = "exampleobject" + i; //对象在存储桶中的位置标识符，即称对象键
   string srcPath = @"temp-source-file";//本地文件绝对路径
-  // COS_REGION 为存储桶所在地域
-  COSXMLUploadTask uploadTask = new COSXMLUploadTask(bucket, "COS_REGION", cosPath); 
+  COSXMLUploadTask uploadTask = new COSXMLUploadTask(bucket, cosPath); 
   uploadTask.SetSrcPath(srcPath);
   transferManager.Upload(uploadTask);
+}
+```
+
+#### 示例代码五：创建目录
+
+[//]: # (.cssg-snippet-create-directory)
+```cs
+try
+{
+  string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+  string cosPath = "dir/"; // 对象键
+  PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, new byte[0]);
+  
+  cosXml.PutObject(putObjectRequest);
+}
+catch (COSXML.CosException.CosClientException clientEx)
+{
+  //请求失败
+  Console.WriteLine("CosClientException: " + clientEx);
+}
+catch (COSXML.CosException.CosServerException serverEx)
+{
+  //请求失败
+  Console.WriteLine("CosServerException: " + serverEx.GetInfo());
 }
 ```
 
@@ -159,14 +200,10 @@ string sourceKey = "sourceObject"; //源对象键
 CopySourceStruct copySource = new CopySourceStruct(sourceAppid, sourceBucket, 
     sourceRegion, sourceKey);
 
-
 string bucket = "examplebucket-1250000000"; //目标存储桶，格式：BucketName-APPID
 string key = "exampleobject"; //目标对象的对象键
 
-COSXMLCopyTask copytask = new COSXMLCopyTask(bucket, "COS_REGION", key, copySource);
-
-// 同步调用
-var autoEvent = new AutoResetEvent(false);
+COSXMLCopyTask copytask = new COSXMLCopyTask(bucket, key, copySource);
 
 copytask.successCallback = delegate (CosResult cosResult) 
 {
@@ -174,7 +211,6 @@ copytask.successCallback = delegate (CosResult cosResult)
       as COSXML.Transfer.COSXMLCopyTask.CopyTaskResult;
     Console.WriteLine(result.GetResultInfo());
     string eTag = result.eTag;
-    autoEvent.Set();
 };
 copytask.failCallback = delegate (CosClientException clientEx, CosServerException serverEx) 
 {
@@ -186,11 +222,8 @@ copytask.failCallback = delegate (CosClientException clientEx, CosServerExceptio
     {
         Console.WriteLine("CosServerException: " + serverEx.GetInfo());
     }
-    autoEvent.Set();
 };
 transferManager.Copy(copytask);
-// 等待任务结束
-autoEvent.WaitOne();
 ```
 
 >?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/dotnet/dist/TransferCopyObject.cs) 查看。
@@ -216,14 +249,8 @@ try
   string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
   string key = "exampleobject"; //对象键
   string srcPath = @"temp-source-file";//本地文件绝对路径
-  if (!File.Exists(srcPath)) {
-    // 如果不存在目标文件，创建一个临时的测试文件
-    File.WriteAllBytes(srcPath, new byte[1024]);
-  }
 
   PutObjectRequest request = new PutObjectRequest(bucket, key, srcPath);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //设置进度回调
   request.SetCosProgressCallback(delegate (long completed, long total)
   {
@@ -265,13 +292,7 @@ try
   string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
   string key = "exampleobject"; //对象键
   string srcPath = @"temp-source-file";//本地文件绝对路径
-  if (!File.Exists(srcPath)) {
-    // 如果不存在目标文件，创建一个临时的测试文件
-    File.WriteAllBytes(srcPath, new byte[1024]);
-  }
   PostObjectRequest request = new PostObjectRequest(bucket, key, srcPath);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //设置进度回调
   request.SetCosProgressCallback(delegate (long completed, long total)
   {
@@ -317,8 +338,6 @@ try
   string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
   string key = "exampleobject"; //对象键
   CopyObjectRequest request = new CopyObjectRequest(bucket, key);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //设置拷贝源
   request.SetCopySource(copySource);
   //设置是否拷贝还是更新,此处是拷贝
@@ -359,8 +378,6 @@ try
   string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
   string key = "exampleobject"; //对象键
   CopyObjectRequest request = new CopyObjectRequest(bucket, key);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //设置拷贝源
   request.SetCopySource(copySource);
   //设置是否拷贝还是更新,此处是拷贝
@@ -401,8 +418,6 @@ try
     region, key);
 
   CopyObjectRequest request = new CopyObjectRequest(bucket, key);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //设置拷贝源
   request.SetCopySource(copySource);
   //设置是否拷贝还是更新,此处是拷贝
@@ -444,8 +459,6 @@ try
     region, key);
 
   CopyObjectRequest request = new CopyObjectRequest(bucket, key);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //设置拷贝源
   request.SetCopySource(copySource);
   //设置是否拷贝还是更新,此处是拷贝
@@ -507,8 +520,6 @@ try
 {
   string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
   ListMultiUploadsRequest request = new ListMultiUploadsRequest(bucket);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //执行请求
   ListMultiUploadsResult result = cosXml.ListMultiUploads(request);
   //请求成功
@@ -543,8 +554,6 @@ try
   string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
   string key = "exampleobject"; //对象键
   InitMultipartUploadRequest request = new InitMultipartUploadRequest(bucket, key);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //执行请求
   InitMultipartUploadResult result = cosXml.InitMultipartUpload(request);
   //请求成功
@@ -580,14 +589,8 @@ try
   string uploadId = "exampleUploadId"; //初始化分块上传返回的uploadId
   int partNumber = 1; //分块编号，必须从1开始递增
   string srcPath = @"temp-source-file";//本地文件绝对路径
-  if (!File.Exists(srcPath)) {
-    // 如果不存在目标文件，创建一个临时的测试文件
-    File.WriteAllBytes(srcPath, new byte[1024]);
-  }
   UploadPartRequest request = new UploadPartRequest(bucket, key, partNumber, 
     uploadId, srcPath);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //设置进度回调
   request.SetCosProgressCallback(delegate (long completed, long total)
   {
@@ -640,8 +643,6 @@ try
   int partNumber = 1; //分块编号，必须从1开始递增
   UploadPartCopyRequest request = new UploadPartCopyRequest(bucket, key, 
     partNumber, uploadId);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //设置拷贝源
   request.SetCopySource(copySource);
   //设置复制分块（指定块的范围，如 0 ~ 1M）
@@ -683,8 +684,6 @@ try
   string key = "exampleobject"; //对象键
   string uploadId = "exampleUploadId"; //初始化分块上传返回的uploadId
   ListPartsRequest request = new ListPartsRequest(bucket, key, uploadId);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //执行请求
   ListPartsResult result = cosXml.ListParts(request);
   //请求成功
@@ -722,8 +721,6 @@ try
   string uploadId = "exampleUploadId"; //初始化分块上传返回的uploadId
   CompleteMultipartUploadRequest request = new CompleteMultipartUploadRequest(bucket, 
     key, uploadId);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //设置已上传的parts,必须有序，按照partNumber递增
   request.SetPartNumberAndETag(1, this.eTag);
   //执行请求
@@ -761,8 +758,6 @@ try
   string key = "exampleobject"; //对象键
   string uploadId = "exampleUploadId"; //初始化分块上传返回的uploadId
   AbortMultipartUploadRequest request = new AbortMultipartUploadRequest(bucket, key, uploadId);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //执行请求
   AbortMultipartUploadResult result = cosXml.AbortMultiUpload(request);
   //请求成功

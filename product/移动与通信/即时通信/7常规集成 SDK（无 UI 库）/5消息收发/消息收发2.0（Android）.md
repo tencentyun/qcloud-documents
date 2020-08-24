@@ -418,7 +418,7 @@ public void onRecvNewMessage(V2TIMMessage msg) {
 				byte[] data = customElem.getData();
 			}
 			// 继续查看当前 elem 后面还有没更多 elem
-			elem.getNextElem();
+			elem = elem.getNextElem();
 		}
 		// elem 如果为 null，表示所有 elem 都已经解析完
 	}

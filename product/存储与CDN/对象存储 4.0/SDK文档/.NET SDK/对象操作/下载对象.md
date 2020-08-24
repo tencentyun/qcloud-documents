@@ -8,13 +8,11 @@
 
 ## SDK API 参考
 
-SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](https://cos-dotnet-sdk-doc-1253960454.file.myqcloud.com/)。
+SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos-dotnet-sdk-doc-1253960454.file.myqcloud.com/)。
 
 ## 高级接口（推荐）
 
 ### 下载对象
-
-高级接口支持暂停、恢复以及取消下载请求，同时支持断点下载功能。
 
 #### 示例代码一: 下载对象
 
@@ -32,12 +30,8 @@ string localDir = System.IO.Path.GetTempPath();//本地文件夹
 string localFileName = "my-local-temp-file"; //指定本地保存的文件名
 
 // 下载对象
- // COS_REGION 为存储桶所在地域
-COSXMLDownloadTask downloadTask = new COSXMLDownloadTask(bucket, "COS_REGION", cosPath, 
+COSXMLDownloadTask downloadTask = new COSXMLDownloadTask(bucket, cosPath, 
   localDir, localFileName);
-
-// 同步调用
-var autoEvent = new AutoResetEvent(false);
 
 downloadTask.progressCallback = delegate (long completed, long total)
 {
@@ -49,7 +43,6 @@ downloadTask.successCallback = delegate (CosResult cosResult)
       as COSXML.Transfer.COSXMLDownloadTask.DownloadTaskResult;
     Console.WriteLine(result.GetResultInfo());
     string eTag = result.eTag;
-    autoEvent.Set();
 };
 downloadTask.failCallback = delegate (CosClientException clientEx, CosServerException serverEx) 
 {
@@ -61,41 +54,13 @@ downloadTask.failCallback = delegate (CosClientException clientEx, CosServerExce
     {
         Console.WriteLine("CosServerException: " + serverEx.GetInfo());
     }
-    autoEvent.Set();
 };
 transferManager.Download(downloadTask);
-// 等待任务结束
-autoEvent.WaitOne();
 ```
 
 >?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/dotnet/dist/TransferDownloadObject.cs) 查看。
 
-#### 示例代码二: 下载暂停、继续与取消
-
-对于下载任务，可以通过以下方式暂停：
-
-[//]: # (.cssg-snippet-transfer-download-object-pause)
-```cs
-downloadTask.Pause();
-```
-
-暂停之后，可以通过以下方式续传：
-
-[//]: # (.cssg-snippet-transfer-download-object-resume)
-```cs
-downloadTask.Resume();
-```
-
-也通过以下方式取消下载：
-
-[//]: # (.cssg-snippet-transfer-download-object-cancel)
-```cs
-downloadTask.Cancel();
-```
-
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/dotnet/dist/TransferDownloadObject.cs) 查看。
-
-#### 示例代码三: 批量下载
+#### 示例代码二: 批量下载
 
 [//]: # (.cssg-snippet-transfer-batch-download-objects)
 ```cs
@@ -111,8 +76,7 @@ for (int i = 0; i < 5; i++) {
   // 下载对象
   string cosPath = "exampleobject" + i; //对象在存储桶中的位置标识符，即称对象键
   string localFileName = "my-local-temp-file"; //指定本地保存的文件名
-  // COS_REGION 为存储桶所在地域
-  COSXMLDownloadTask downloadTask = new COSXMLDownloadTask(bucket, "COS_REGION", cosPath, 
+  COSXMLDownloadTask downloadTask = new COSXMLDownloadTask(bucket, cosPath, 
     localDir, localFileName);
   transferManager.Download(downloadTask);
 }
@@ -139,8 +103,6 @@ try
   string localDir = System.IO.Path.GetTempPath();//本地文件夹
   string localFileName = "my-local-temp-file"; //指定本地保存的文件名
   GetObjectRequest request = new GetObjectRequest(bucket, key, localDir, localFileName);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //设置进度回调
   request.SetCosProgressCallback(delegate (long completed, long total)
   {

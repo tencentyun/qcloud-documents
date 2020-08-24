@@ -1,0 +1,36 @@
+## 客户端连接
+TDSQL 提供和 MySQL 兼容的连接方式，用户可通过 IP 地址、端口号以及用户名、密码连接 TDSQL：
+```
+mysql -hxxx.xxx.xxx.xxx -Pxxxx -uxxx -pxxx -c
+```
+>!TDSQL 不支持4.0以下的版本以及压缩协议，建议在使用客户端的时候增加`-c`选项，以便于使用某些高级功能。
+
+## PHP MySQLli 连接
+PHP 需要开启 MySQLli 扩展连接数据库，具体 demo 如下：
+```
+header("Content-Type:text/html;charset=utf-8");
+$host="10.10.10.10";  //实例的 proxy_host_ip
+$user="test";  //实例用户
+$pwd="test";  //实例用户密码
+$db="aaa";  //数据库名
+$port="15002";  //proxy_host 端口号
+$sqltool=new MySQLli($host,$user,$pwd,$db,$port);
+//其他必要代码
+$sqltool->close();
+echo "ok"."\n";
+```
+
+## JDBC 连接
+您也可以使用 JDBC 连接 TDSQL，例如：
+```
+private final String USERNAME = "test";  
+private final String PASSWORD = "123456"; 
+private final String DRIVER = "com.mysql.jdbc.Driver";   
+private final String URL = "jdbc:mysql://10.10.10.10:3306?userunicode=true&characterEncoding=utf8mb4";  
+private Connection connection;  
+private PreparedStatement pstmt;  
+private ResultSet resultSet;  
+```
+
+## 其他连接方式
+您也可以选择其他兼容 MySQL 的连接方式，例如 navicat、odbc 等。

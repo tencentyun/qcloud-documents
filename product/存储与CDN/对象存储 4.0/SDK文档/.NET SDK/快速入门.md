@@ -1,7 +1,7 @@
 ## 相关资源
 
 - SDK 源码请参见：[XML .NET SDK](https://github.com/tencentyun/qcloud-sdk-dotnet)。
-- SDK 接口与参数文档请参见 [SDK API 参考](https://cos-dotnet-sdk-doc-1253960454.file.myqcloud.com)。
+- SDK 接口与参数文档请参见 [SDK API](https://cos-dotnet-sdk-doc-1253960454.file.myqcloud.com)。
 - SDK 文档中的所有示例代码请参见 [SDK 代码示例](https://github.com/tencentyun/cos-snippets/tree/master/dotnet)。
 - SDK 快速下载地址：[XML .NET SDK](https://cos-sdk-archive-1253960454.file.myqcloud.com/qcloud-sdk-dotnet/latest/qcloud-sdk-dotnet.zip)。
 
@@ -61,7 +61,6 @@ string appid = "1250000000";//设置腾讯云账户的账户标识 APPID
 string region = "COS_REGION"; //设置一个默认的存储桶地域
 CosXmlConfig config = new CosXmlConfig.Builder()
   .IsHttps(true)  //设置默认 HTTPS 请求
-  .SetAppid(appid)  //设置腾讯云账户的账户标识 APPID
   .SetRegion(region)  //设置一个默认的存储桶地域
   .SetDebugLog(true)  //显示日志
   .Build();  //创建 CosXmlConfig 对象
@@ -140,8 +139,6 @@ try
 {
   string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
   PutBucketRequest request = new PutBucketRequest(bucket);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //执行请求
   PutBucketResult result = cosXml.PutBucket(request);
   //请求成功
@@ -164,8 +161,6 @@ catch (COSXML.CosException.CosServerException serverEx)
 try
 {
   GetServiceRequest request = new GetServiceRequest();
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //执行请求
   GetServiceResult result = cosXml.GetService(request);
   //得到所有的 buckets
@@ -185,39 +180,43 @@ catch (COSXML.CosException.CosServerException serverEx)
 
 ### 上传对象
 ```cs
-try
-{
-  string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
-  string key = "exampleobject"; //对象在存储桶中的位置，即称对象键
-  string srcPath = @"temp-source-file";//本地文件绝对路径
-  if (!File.Exists(srcPath)) {
-    // 仅测试用途：如果不存在目标文件，创建一个临时的测试文件
-    File.WriteAllBytes(srcPath, new byte[1024]);
-  }
+// 初始化 TransferConfig
+TransferConfig transferConfig = new TransferConfig();
 
-  PutObjectRequest request = new PutObjectRequest(bucket, key, srcPath);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
-  //设置进度回调
-  request.SetCosProgressCallback(delegate (long completed, long total)
-  {
+// 初始化 TransferManager
+TransferManager transferManager = new TransferManager(cosXml, transferConfig);
+
+String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
+String srcPath = @"temp-source-file";//本地文件绝对路径
+
+// 上传对象
+COSXMLUploadTask uploadTask = new COSXMLUploadTask(bucket, cosPath);
+uploadTask.SetSrcPath(srcPath);
+
+uploadTask.progressCallback = delegate (long completed, long total)
+{
     Console.WriteLine(String.Format("progress = {0:##.##}%", completed * 100.0 / total));
-  });
-  //执行请求
-  PutObjectResult result = cosXml.PutObject(request);
-  //对象的 eTag
-  string eTag = result.eTag;
-}
-catch (COSXML.CosException.CosClientException clientEx)
+};
+uploadTask.successCallback = delegate (CosResult cosResult) 
 {
-  //请求失败
-  Console.WriteLine("CosClientException: " + clientEx);
-}
-catch (COSXML.CosException.CosServerException serverEx)
+    COSXML.Transfer.COSXMLUploadTask.UploadTaskResult result = cosResult 
+      as COSXML.Transfer.COSXMLUploadTask.UploadTaskResult;
+    Console.WriteLine(result.GetResultInfo());
+    string eTag = result.eTag;
+};
+uploadTask.failCallback = delegate (CosClientException clientEx, CosServerException serverEx) 
 {
-  //请求失败
-  Console.WriteLine("CosServerException: " + serverEx.GetInfo());
-}
+    if (clientEx != null)
+    {
+        Console.WriteLine("CosClientException: " + clientEx);
+    }
+    if (serverEx != null)
+    {
+        Console.WriteLine("CosServerException: " + serverEx.GetInfo());
+    }
+};
+transferManager.Upload(uploadTask);
 ```
 
 ### 查询对象列表
@@ -227,14 +226,14 @@ try
 {
   string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
   GetBucketRequest request = new GetBucketRequest(bucket);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
-  //获取 dir/ 下的对象
-  request.SetPrefix("dir/");
   //执行请求
   GetBucketResult result = cosXml.GetBucket(request);
   //bucket的相关信息
   ListBucket info = result.listBucket;
+  if (info.isTruncated) {
+    // 数据被截断，记录下数据下标
+    this.nextMarker = info.nextMarker;
+  }
 }
 catch (COSXML.CosException.CosClientException clientEx)
 {
@@ -251,35 +250,44 @@ catch (COSXML.CosException.CosServerException serverEx)
 ### 下载对象
 
 ```cs
-try
+// 初始化 TransferConfig
+TransferConfig transferConfig = new TransferConfig();
+
+// 初始化 TransferManager
+TransferManager transferManager = new TransferManager(cosXml, transferConfig);
+
+String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+String cosPath = "exampleobject"; //对象在存储桶中的位置标识符，即称对象键
+string localDir = System.IO.Path.GetTempPath();//本地文件夹
+string localFileName = "my-local-temp-file"; //指定本地保存的文件名
+
+// 下载对象
+COSXMLDownloadTask downloadTask = new COSXMLDownloadTask(bucket, cosPath, 
+  localDir, localFileName);
+
+downloadTask.progressCallback = delegate (long completed, long total)
 {
-  string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
-  string key = "exampleobject"; //对象在存储桶中的位置，即称对象键
-  string localDir = System.IO.Path.GetTempPath();//本地文件夹
-  string localFileName = "my-local-temp-file"; //指定本地保存的文件名
-  GetObjectRequest request = new GetObjectRequest(bucket, key, localDir, localFileName);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
-  //设置进度回调
-  request.SetCosProgressCallback(delegate (long completed, long total)
-  {
     Console.WriteLine(String.Format("progress = {0:##.##}%", completed * 100.0 / total));
-  });
-  //执行请求
-  GetObjectResult result = cosXml.GetObject(request);
-  //请求成功
-  Console.WriteLine(result.GetResultInfo());
-}
-catch (COSXML.CosException.CosClientException clientEx)
+};
+downloadTask.successCallback = delegate (CosResult cosResult) 
 {
-  //请求失败
-  Console.WriteLine("CosClientException: " + clientEx);
-}
-catch (COSXML.CosException.CosServerException serverEx)
+    COSXML.Transfer.COSXMLDownloadTask.DownloadTaskResult result = cosResult 
+      as COSXML.Transfer.COSXMLDownloadTask.DownloadTaskResult;
+    Console.WriteLine(result.GetResultInfo());
+    string eTag = result.eTag;
+};
+downloadTask.failCallback = delegate (CosClientException clientEx, CosServerException serverEx) 
 {
-  //请求失败
-  Console.WriteLine("CosServerException: " + serverEx.GetInfo());
-}
+    if (clientEx != null)
+    {
+        Console.WriteLine("CosClientException: " + clientEx);
+    }
+    if (serverEx != null)
+    {
+        Console.WriteLine("CosServerException: " + serverEx.GetInfo());
+    }
+};
+transferManager.Download(downloadTask);
 ```
 
 ### 删除对象
@@ -288,10 +296,8 @@ catch (COSXML.CosException.CosServerException serverEx)
 try
 {
   string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
-  string key = "exampleobject"; //对象在存储桶中的位置，即称对象键
+  string key = "exampleobject"; //对象键
   DeleteObjectRequest request = new DeleteObjectRequest(bucket, key);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //执行请求
   DeleteObjectResult result = cosXml.DeleteObject(request);
   //请求成功

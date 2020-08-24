@@ -8,14 +8,14 @@
 <div id="mount-point"></div>
 ```
 3.  页面内按顺序调用 init，start 接口，接口文档见 [前端 JS SDK API 文档](https://cloud.tencent.com/document/product/1162/46134)。
-4.  修改 `demo.html` 的 `get_signature` 请求 url，指向自行部署好的 [业务后台服务](#d_nodejs)。
+4.  修改 `demo.html` 的 `get_signature` 请求 url，指向自行部署好的 [业务后台服务](https://cloud.tencent.com/document/product/1162/47523)。
 5.  刷新页面并等待浏览器连接成功。
 
 
 ## Android 端搭建示例
 ### 混合（JS + 原生 SDK）调用示例
 
-> ? 推荐方式，原生代码更少，更容易热更新实现兼容不同游戏的 UI，并且接口与 JS SDK 保持一致。
+> ? 推荐使用此方式。原生代码更少，更容易热更新实现兼容不同游戏的 UI，并且接口与 JS SDK 保持一致。
 
 ```java
     private TCGWebView _webview;
@@ -34,6 +34,7 @@
    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
 ```
 3. 编写代码，如下：
+
 ```java
     private TcgSdk tcgSdk;
     ...
@@ -89,25 +90,4 @@
     tcgSdk.setCursorImage(R.drawable.cursor, 30, 30);
     // }
 ```
-
-## 云游戏 Demo 后端与云 API 对接示例（Node.js）<span id="d_nodejs"></span>
-1. [cloudapi.js](https://material-1258550678.cos.ap-guangzhou.myqcloud.com/download/cloudapi.js) 是 Node.js 版的云 API 调用实例，自行安装 Node.js 运行环境，替换 cloudapi.js 里面的 SecretId 和 SecretKey，使用您的腾讯云帐号的 [云API](https://console.cloud.tencent.com/cam/capi) 对应的密钥。
-2. 使用 express-cli 初始化一个 express 项目。
-```
-    express myproj
-    npm i
-```
-3. 安装依赖库。
-```
-    npm install --save express tencentcloud
-```
-4. cloudpai.js 拷贝到项目目录下，修改 app.js，在后面加入一行。
-```
-    app.use('/cloudapi', require('./cloudapi.js'));
-```
-5. 运行服务。
-```
-    npm run
-```
-6. 网页端发送 JSON 格式的 POST 请求 `http://127.0.0.1:3000/cloudapi/get_signature` 接口，返回值里获取 ServerSession 字段，调用 [TCGSDK.start(ServerSession)](https://cloud.tencent.com/document/product/1162/46134#tcgsdk.start(serversession)) 接口启动云游戏。
 
