@@ -29,10 +29,10 @@
 2. 登录成功后，您可在本地构建新的容器镜像或从 DockerHub 上获取一个公开镜像用于测试。
 本文以 DockerHub 官方的 Nginx 最新镜像为例，在命令行工具中依次执行以下指令，即可推送该镜像。请将 demo-tcr、docker 及 getting-started 依次替换为您实际创建的实例名称、命名空间名称及镜像仓库名。
 ```
-docker tag getting-started:latest tcr-addon.demo-tcr.com/docker/getting-started:latest
+docker tag getting-started:latest demo-tcr.tencentcloudcr.com/docker/getting-started:latest
 ```
 ```
-docker push tcr-addon.demo-tcr.com/docker/getting-started:latest
+docker push demo-tcr.tencentcloudcr.com/docker/getting-started:latest
 ```
 推送成功后，即可前往控制台的 “[镜像仓库](https://console.cloud.tencent.com/tcr/repository)” 页面，选择仓库名进入详情页面查看。
 
