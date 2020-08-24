@@ -62,14 +62,24 @@ CDW 常见使用场景是将消息中间件的信息同步到 CDW 后再进行�
 		<td>CDW 端口，默认为5436</td>
 	</tr>
 	<tr>
-		<td>MSG_SEPARATOR</td>
+		<td>MSG_SEPARATOR_ASCII</td>
 		<td>否</td>
-		<td>CKafka 中消费的分隔符，默认为逗号，也就是 csv 格式</td>
+		<td>CKafka 中数据分隔符的 ASCII 码，默认为39（逗号），由于逗号经常会出现在业务数据中，这里建议使用11（Vertical tab）</td>
 	</tr>
 	<tr>
 		<td>MSG_NULL</td>
 		<td>否</td>
 		<td>CKafka 中消费的 NULL 值，默认是 \N</td>
+	</tr>
+	<tr>
+		<td>REPLACE_0X00</td>
+		<td>否</td>
+		<td>是否替换字符串中的0x00，默认是0（1表示替换）</td>
+	</tr>
+	<tr>
+		<td>ENABLE_DEBUG</td>
+		<td>否</td>
+		<td>是否打印错误的记录，默认是0（1表示打印）</td>
 	</tr>
 </tbody>
 </table>

@@ -5,13 +5,13 @@ ClickHouse-Server 的配置文件在`/etc/clickhouse-server`路径下，配置�
 在 config.xml 配置文件同级的 conf.d 和 config.d 文件夹下，用户可以新建`*.xml`文件来覆盖 config.xml 文件中的配置（**这里不建议用户手动更改，建议在控制台提供的配置下发功能中统一下发配置**）。
 
 例如，在 config.xml 文件同级的目录下新建 config.d 目录：
-1. 修改 clickhouse-server 监听的 http port，在 config.xml 文件中默认为9900端口。在 config.d 文件中新建 tcp_port.xml 文件，内容如下：
+1. 修改 clickhouse-server 监听的 TCP 端口，在 config.xml 文件中默认为9000端口。在 config.d 文件中新建 tcp_port.xml 文件，内容如下：
 ```
 <yandex>
        <tcp_port>9900</tcp_port>
 </yandex>
 ```
-重启 clickhouse-server，可以发现监听的 http port 变成了9900。
+重启 clickhouse-server，可以发现监听的 TCP 端口变成了9000。
 2. 新增 metric_log 配置。新建 metric_log.xml 文件，内容如下：
 ```
 <yandex>

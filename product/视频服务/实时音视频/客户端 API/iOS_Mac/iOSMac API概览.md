@@ -20,6 +20,8 @@
 | [connectOtherRoom](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a062bc48550b479a6b7c1662836b8c4a5) | 请求跨房通话（主播 PK）。 |
 | [disconnectOtherRoom](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#abd656e4c9b6a01231810ae897627e9bc) | 退出跨房通话。 |
 | [setDefaultStreamRecvMode](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ada2e2155e0e7c3001c6bb6dca1d93048) | 设置音视频数据接收模式，需要在进房前设置才能生效。 |
+| [createSubCloud](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a6100a5f395442d38ce9adab922382caf) | 创建子 [TRTCCloud](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#interfaceTRTCCloud) 实例。 |
+| [destroySubCloud](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a19e0d7921ac494fb588a4654d97abe86) | 销毁子 [TRTCCloud](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#interfaceTRTCCloud) 实例。 |
 
 
 ### CDN 相关接口函数

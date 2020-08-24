@@ -81,7 +81,6 @@ dependencies {
 下载([下载地址](https://sdk-1259648581.cos.ap-nanjing.myqcloud.com/android/tbs/tbs_sdk_noimpl_43799.jar)) TBS SDK 的 jar 文件并拷贝到工程的 app/libs 目录下。
 
 ![](https://main.qcloudimg.com/raw/a3a00d36964e50f3ec4605900d9c8ab1.png)
-####
 
 #### 2. 指定本地仓库路径
 

@@ -41,7 +41,7 @@ Components: 2.31.6
 1.新建一个本地文件夹，使用`serverless init`命令，下载相关 template。
 
 ```console
-$ serverless init -t ocr-app
+$ serverless init ocr-app
 ```
 
 2.在模版中找到 `.env.example` 文件，并改名为 `.env` ，在里面输入您的账户、密钥信息和指定存储桶（此存储桶用于存放上传的图像）。

@@ -5,15 +5,12 @@
 SQL 数据集主要是通过 JDBC 和 ODBC 与目前主流数据库相联系。JDBC 和 ODBC 提供了一组对数据库访问的标准 API，建立了一组数据库访问的规范，支持 SQL 语句的执行，同时也是腾讯云商业智能分析 BI 与数据源之间的主要接口。腾讯云商业智能分析 BI 对数据库的操作不依赖任何 DBMS，不直接与 DBMS 打交道，所有的数据库操作由对应的 DBMS 的数据库驱动程序完成。
 
 ## 创建 SQL 数据集
-1. 登录 [商业智能分析控制台](https://console.cloud.tencent.com/bi)。
-![](https://main.qcloudimg.com/raw/d92b188616f1fb54e178bc800383d5d7.jpg)
-2. 通过以下两种方式进入创建 SQL 数据集界面：
- - 选择导航栏【创建数据集】，在新打开的页面上选择【SQL 数据集】。
- - 如果您有已打开的数据集界面，选择菜单栏【创建数据集】>【SQL 数据集】。
-3. 用户在数据集界面上，在右侧新建数据集区域，选择 SQL 数据集，即可打开 SQL 数据集界面。
-![](https://main.qcloudimg.com/raw/e9a34b740f7f394c1a6e98d6d9dcc1d6.png)
-也可以单击首页上的 SQL 数据集，进入 SQL 数据集新建界面。
- 
+登录 [商业智能分析控制台](https://console.cloud.tencent.com/bi)。可通过以下两种方式进入创建 SQL 数据集界面：
+- 单击首页上的【SQL 数据集】，进入 SQL 数据集新建界面。
+ ![](https://main.qcloudimg.com/raw/d92b188616f1fb54e178bc800383d5d7.jpg)
+2. 选择左侧菜单栏【创建数据集】，在新打开的页面上选择【SQL 数据集】。
+ ![](https://main.qcloudimg.com/raw/09a60e27b55d36e6c3bbe27294dd6200.png)
+
 ## 使用存储过程创建 SQL 数据集
 SQL 存储过程（Stored Procedure）是一组为了完成特定功能的 SQL 语句集，经编译后存储在数据库中。用户通过指定存储过程的名字来执行它。存储过程是数据库中的一个重要对象，任何一个设计良好的数据库应用程序都应该用到存储过程。
 
