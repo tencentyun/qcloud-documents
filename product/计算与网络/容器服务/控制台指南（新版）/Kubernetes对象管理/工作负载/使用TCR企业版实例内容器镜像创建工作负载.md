@@ -29,16 +29,16 @@
 2. 登录成功后，您可在本地构建新的容器镜像或从 DockerHub 上获取一个公开镜像用于测试。
 本文以 DockerHub 官方的 Nginx 最新镜像为例，在命令行工具中依次执行以下指令，即可推送该镜像。请将 demo-tcr、docker 及 getting-started 依次替换为您实际创建的实例名称、命名空间名称及镜像仓库名。
 ```
-docker tag getting-started:latest tcr-addon.tencentcloudcr.com/docker/getting-started:latest
+docker tag getting-started:latest tcr-addon.demo-tcr.com/docker/getting-started:latest
 ```
 ```
-docker push tcr-addon.tencentcloudcr.com/docker/getting-started:latest
+docker push tcr-addon.demo-tcr.com/docker/getting-started:latest
 ```
 推送成功后，即可前往控制台的 “[镜像仓库](https://console.cloud.tencent.com/tcr/repository)” 页面，选择仓库名进入详情页面查看。
 
 ### 配置 TKE 集群访问 TCR 实例<span id="deployTKE"></span>
 TCR 企业版实例支持网络访问控制，默认拒绝全部来源的外部访问。您可根据 TKE 集群的网络配置，选择通过公网或内网访问指定实例，拉取容器镜像。若 TKE 集群与 TCR 实例部署在同一地域，建议通过内网访问方式拉取容器镜像，可提升拉取速度，并节约公网流量成本。
-#### 使用 TCR 扩展组件进行快速配置
+#### 使用 TCR 扩展组件进行快速配置（推荐）
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
 2. 在“集群管理”页面，选择集群 ID，进入集群详情页。 
 3. 在集群详情页面，选择左侧【组件管理】，进入“组件管理”页面，并单击【新建】。
