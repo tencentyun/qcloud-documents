@@ -182,7 +182,7 @@ Container 节点 SpeechRecognition 的内容：
 
 **请求** 
 
-```
+```plaintext
 POST /asr_jobs HTTP/1.1
 Connection: keep-alive
 Accept-Encoding: gzip, deflate
@@ -217,7 +217,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDnOr9IDiIUNYWGrrWb2IJ4YmywDXc****&q
 
 **响应**
 
-```
+```plaintext
 HTTP/1.1 200 OK
 Date: Date
 Content-Type: application/xml
