@@ -21,7 +21,7 @@ API 网关提供 Python 2.7 和 Python 3 两个版本的示例代码，请您根
 
 <span id="example"></span>
 ## 示例代码
-#### Python 2.7 示例代码
+### Python 2.7 示例代码
 ```python
 # -*- coding: utf-8 -*-
 import requests
@@ -73,7 +73,7 @@ print r
 print r.text
 ```
 
-#### Python 3 示例代码
+### Python 3 示例代码
 ```
 # -*- coding: utf-8 -*-
 import base64
