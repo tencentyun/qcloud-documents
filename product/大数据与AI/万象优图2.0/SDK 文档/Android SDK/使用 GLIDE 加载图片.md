@@ -1,7 +1,7 @@
 
-本文主要介绍如何使用 GLIDE 加载图片。
+本文主要介绍如何使用 Glide 加载图片。
 
-## 安装 GLIDE
+## 安装 Glide
 
 ```
 implementation 'com.github.bumptech.glide:glide:version'
@@ -9,7 +9,7 @@ implementation 'com.github.bumptech.glide:glide:version'
 
 ## 基础图片处理
 
-与 GLIDE 配合使用数据万象基础图片处理操作（除 TPG 相关功能外）。
+与 Glide 配合使用数据万象基础图片处理操作（除 TPG 相关功能外）。
 
 1. 使用 CloudInfinite 和 CITransformation 构建 CIImageLoadRequest。
 ```
@@ -18,14 +18,14 @@ CITransformation transform = new CITransformation();
 transform.thumbnailByScale(50).iradius(60);
 CIImageLoadRequest request = cloudInfinite.requestWithBaseUrlSync(url, transform);
 ```
-2. 通过得到的 CIImageLoadRequest 获取 URL，使用 GLIDE 进行加载。
+2. 通过得到的 CIImageLoadRequest 获取 URL，使用 Glide 进行加载。
 ```
 Glide.with(activity).load(request.getUrl().toString()).into(imageview);
 ```
 
 ## 使用数据万象 TPG 功能
 
-安装 TPG 和 cloud-infinite-glide SDK 以及 glide:compiler。
+安装 tpg SDK 和 cloud-infinite-glide SDK 以及 glide:compiler。
 ```
 implementation 'com.tencent.qcloud:tpg:1.2.0'	
 implementation 'com.tencent.qcloud:cloud-infinite-glide:1.2.0'	
@@ -66,7 +66,9 @@ registry.prepend(InputStream.class, Bitmap.class, new TpgDecoder(glide.getBitmap
 #### 加载动图 GIF 类型 TPG 图片
 
 ```
-registry.prepend(ByteBuffer.class, GifDrawable.class, new ByteBufferTpgGifDecoder(context, glide.getBitmapPool()));
+ByteBufferTpgGifDecoder byteBufferTpgGifDecoder = new ByteBufferTpgGifDecoder(context, glide.getBitmapPool());
+registry.prepend(InputStream.class, GifDrawable.class, new StreamTpgGifDecoder(byteBufferTpgGifDecoder));
+registry.prepend(ByteBuffer.class, GifDrawable.class, byteBufferTpgGifDecoder);
 ```
 
 #### 使用图片主色预加载
