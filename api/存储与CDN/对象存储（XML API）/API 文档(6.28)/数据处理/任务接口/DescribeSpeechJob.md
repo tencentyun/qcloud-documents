@@ -71,7 +71,7 @@ Container 节点 SpeechRecognitionResult 的内容：
 
 ## 实际案例
 
-**请求**
+**请求：查询语音识别任务**
 
 ```plaintext
 GET /asr_jobs/s8988119ee2c911eab2cdd3817d4d5e64 HTTP/1.1
@@ -107,8 +107,8 @@ x-ci-request-id: request-id
                 <Message/>
                 <Operation>
                         <Output>
-                                <Bucket>test005-1251704708</Bucket>
-                                <Object>1.txt</Object>
+                                <Bucket>examplebucket-1250000000</Bucket>
+                                <Object>music.txt</Object>
                                 <Region>ap-chongqing</Region>
                         </Output>
                         <SpeechRecognition>
@@ -121,7 +121,7 @@ x-ci-request-id: request-id
                         </SpeechRecognition>
                         <SpeechRecognitionResult>
                                 <AudioTime>30.12</AudioTime>
-                                <Result>[0:0.000,0:30.080]  这是一条语音测试信息，展示的是识别后的文本内容</Result>
+                                <Result>[0:0.000,0:30.080] 这是一条语音测试信息，展示的是识别后的文本内容</Result>
                                 <ResultDetail/>
                         </SpeechRecognitionResult>
                 </Operation>
