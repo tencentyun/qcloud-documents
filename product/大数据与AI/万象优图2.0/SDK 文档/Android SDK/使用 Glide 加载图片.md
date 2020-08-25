@@ -25,7 +25,7 @@ Glide.with(activity).load(request.getUrl().toString()).into(imageview);
 
 ## 使用数据万象 TPG 功能
 
-安装 tpg SDK 和 cloud-infinite-glide SDK 以及 glide:compiler。
+安装 TPG SDK 和 cloud-infinite-glide SDK 以及 glide:compiler。
 ```
 implementation 'com.tencent.qcloud:tpg:1.2.0'	
 implementation 'com.tencent.qcloud:cloud-infinite-glide:1.2.0'	
