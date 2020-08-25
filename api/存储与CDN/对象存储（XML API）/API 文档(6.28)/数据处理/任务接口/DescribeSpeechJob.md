@@ -71,7 +71,7 @@ Container 节点 SpeechRecognitionResult 的内容：
 
 ## 实际案例
 
-**请求：查询语音识别任务**
+**请求：查询指定的语音识别任务**
 
 ```plaintext
 GET /asr_jobs/s8988119ee2c911eab2cdd3817d4d5e64 HTTP/1.1
