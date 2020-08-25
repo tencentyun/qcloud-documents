@@ -1,8 +1,8 @@
 
 ## 1.18 changes since 1.16
 ### 重大更新
-#### cloud provider 标签功能达到 GA
-下列标签被废弃，需要使用新标签。
+#### cloud provider 标签功能达到稳定（GA）阶段
+废弃标签及辛标签如下表所示：
 
 | 废弃标签 | 新标签 | 
 |:---------|:---------|
@@ -19,13 +19,14 @@ VolumeSnapshotDataSource 默认开启。详情请参阅 [releasing CSI volume sn
 CSIMigration 默认开启。详情请参阅 [CSI migration going to beta](https://kubernetes.io/blog/2019/12/09/kubernetes-1-17-feature-csi-migration-beta/)。
 
 #### Kubernetes 拓扑管理器迎来 Beta 版
-拓扑管理器功能（TopologyManager）在1.18中进步 Beta，可以让 CPU 与其他设备（例如 SR-IOV-VF）实现 NUMA 对齐，让工作负载支持低延迟的工作场景。在引入拓扑管理器之前，CPU 与设备管理器只能彼此独立地做出资源分配决策，可能导致在多插座 CPU 系统中得到不理想的资源分配结果，影响延迟敏感应用的性能。
+拓扑管理器功能（TopologyManager）在1.18中进步 Beta，可以让 CPU 与其他设备（例如 SR-IOV-VF）实现 NUMA 对齐，使工作负载能够支持低延迟的工作场景。
+在引入拓扑管理器之前，CPU 与设备管理器只能彼此独立地做出资源分配决策，可能导致在多插座 CPU 系统中无法获取理想的资源分配结果，影响延迟敏感应用的性能。
 
 #### Serverside Apply 进入 Beta 2阶段
-Server-side Apply 在 Kubernetes 1.16版本被提升到 Beta 版，1.18引入第二个 Beta 版本（ServerSideApply），此版本会记录和管理所有新 K8s 对象字段的变化，确保用户了解资源于何时何处发生变化。
+Server-side Apply 在 Kubernetes 1.16版本被提升到 Beta 版，1.18引入第二个 Beta 版本（ServerSideApply），此版本会记录和管理所有新 Kubernetes 对象字段的变化，确保用户了解资源动态。
 
 #### IngressClass 资源
-`IngressClass` 资源描述在 Kubernetes 集群内的一种 Ingress 控制器类型。`Ingress` 资源新增 `ingressClassName` 字段，用于设置使用的 `IngressClass` 控制器名称，替代废弃的 `kubernetes.io/ingress.class` 标注。
+`IngressClass` 资源描述在 Kubernetes 集群内的一种 Ingress 控制器类型。`Ingress` 资源新增 `ingressClassName` 字段，用于设置使用 `IngressClass` 的控制器名称，替代废弃的 `kubernetes.io/ingress.class` 标注。
 
 ### 其他更新
 - Node Local DNSCache 达到 GA。
@@ -72,7 +73,7 @@ Server-side Apply 在 Kubernetes 1.16版本被提升到 Beta 版，1.18引入第
 ####  废弃的特性和参数
 - 废弃默认的 service IP CIDR（`10.0.0.0/24`），必须通过 kube-apiserver 的 `--service-cluster-ip-range` 参数进行设置。
 - 废弃 API 组 `rbac.authorization.k8s.io/v1alpha1` 和 `rbac.authorization.k8s.io/v1beta1`，计划在1.20版本中移除。请迁移到 `rbac.authorization.k8s.io/v1`。
-- 废弃 `CSINodeInfo` 特性，该特性已经 GA 并默认开启。
+- 废弃 `CSINodeInfo` 特性，该特性已经达到 GA 并默认开启。
 
 ### 参数及其他变更
 #### kube-apiserver
