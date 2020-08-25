@@ -20,7 +20,8 @@ API 网关提供 Python 2.7 和 Python 3 两个版本的示例代码，请您根
 - 如果是微服务 API，Header 中需要添加 “X-NameSpace-Code” 和 “X-MicroService-Name” 两个字段，通用 API 不需要添加，Demo 中默认添加了这两个字段。
 
 <span id="example"></span>
-## Python 2.7 示例代码
+## 示例代码
+#### Python 2.7 示例代码
 ```python
 # -*- coding: utf-8 -*-
 import requests
@@ -72,7 +73,7 @@ print r
 print r.text
 ```
 
-## Python 3 示例代码
+#### Python 3 示例代码
 ```
 # -*- coding: utf-8 -*-
 import base64
