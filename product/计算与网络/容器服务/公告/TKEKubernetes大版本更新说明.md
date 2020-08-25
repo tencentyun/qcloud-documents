@@ -18,21 +18,21 @@ VolumeSnapshotDataSource 默认开启。详情请参阅 [releasing CSI volume sn
 #### CSI Migration 进入 Beta 阶段
 CSIMigration 默认开启。详情请参阅 [CSI migration going to beta](https://kubernetes.io/blog/2019/12/09/kubernetes-1-17-feature-csi-migration-beta/)。
 
-#### Kubernetes 拓扑管理器迎来 beta 版
-拓扑管理器功能（TopologyManager）在1.18中进步 beta，可以让 CPU 与其他设备（例如 SR-IOV-VF）实现 NUMA 对齐，让工作负载支持低延迟的工作场景。在引入拓扑管理器之前，CPU 与设备管理器只能彼此独立地做出资源分配决策，这可能导致在多插座 CPU 系统中得到不理想的资源分配结果，影响延迟敏感应用的性能。
+#### Kubernetes 拓扑管理器迎来 Beta 版
+拓扑管理器功能（TopologyManager）在1.18中进步 Beta，可以让 CPU 与其他设备（例如 SR-IOV-VF）实现 NUMA 对齐，让工作负载支持低延迟的工作场景。在引入拓扑管理器之前，CPU 与设备管理器只能彼此独立地做出资源分配决策，可能导致在多插座 CPU 系统中得到不理想的资源分配结果，影响延迟敏感应用的性能。
 
-#### Serverside Apply 进入 beta 2阶段
-Server-side Apply 在 Kubernetes 在1.16版本被提升到 beta 版，1.18引入第二个 beta 版本（ServerSideApply），此版本会记录和管理所有新 K8s 对象字段的变化，确保用户了解资源于何时何处发生变化。
+#### Serverside Apply 进入 Beta 2阶段
+Server-side Apply 在 Kubernetes 在1.16版本被提升到 Beta 版，1.18引入第二个 Beta 版本（ServerSideApply），此版本会记录和管理所有新 K8s 对象字段的变化，确保用户了解资源于何时何处发生变化。
 
 #### IngressClass资源
 `IngressClass` 资源描述在 Kubernetes 集群内的一种 Ingress 控制器类型。`Ingress` 资源新增 `ingressClassName` 字段，用于设置使用的 `IngressClass` 控制器名称，替代废弃的 `kubernetes.io/ingress.class` 标注。
 
 ### 其他更新
-- Node Local DNSCache 达到 GA：
+- Node Local DNSCache 达到 GA
 - IPv6进入 Beta 阶段
 - kubectl debug，Alpha 特性
 - Windows CSI support，Alpha 特性
-- ImmutableEphemeralVolumes，Alpha 特性，支持不可变 ConfigMap 和 Secret，不刷新对应的 volume
+- ImmutableEphemeralVolumes，Alpha 特性（支持不可变 ConfigMap 和 Secret，不刷新对应的 volume）
 - 以下特性达到 GA
   - ScheduleDaemonSetPods
   - TaintNodesByCondition
@@ -44,7 +44,7 @@ Server-side Apply 在 Kubernetes 在1.16版本被提升到 beta 版，1.18引入
   - ResourceQuotaScopeSelectors 
   - VolumePVCDataSource
   - TaintBasedEvictions
-  - BlockVolume，CSIBlockVolume
+  - BlockVolume、CSIBlockVolume
   - Windows RunAsUserName
 - 进入 Beta 的特性：
   - EndpointSlices：默认关闭
@@ -71,7 +71,7 @@ Server-side Apply 在 Kubernetes 在1.16版本被提升到 beta 版，1.18引入
 
 ####  废弃的特性和参数
 - 废弃默认的 service IP CIDR（`10.0.0.0/24`），必须通过 kube-apiserver 的 `--service-cluster-ip-range` 参数进行设置。
-- 废弃 `rbac.authorization.k8s.io/v1alpha1` 和 `rbac.authorization.k8s.io/v1beta1` API 组，计划在1.20版本中移除。请迁移到 `rbac.authorization.k8s.io/v1`。
+- 废弃 API 组 `rbac.authorization.k8s.io/v1alpha1` 和 `rbac.authorization.k8s.io/v1beta1`，计划在1.20版本中移除。请迁移到 `rbac.authorization.k8s.io/v1`。
 - 废弃 `CSINodeInfo` 特性。该特性已经 GA 并默认开启。
 
 ### 参数及其他变更
@@ -90,7 +90,7 @@ Server-side Apply 在 Kubernetes 在1.16版本被提升到 beta 版，1.18引入
 
 #### kubelet
 - `--enable-cadvisor-endpoints`：这个参数默认关闭。如果需要访问 cAdvisor v1 Json API，需要明确开启。
-- 废弃参数 `--redirect-container-streaming`，并将在后续版本中移除。1.18只支持默认行为（通过 kubelet 代理 streaming 请求）。如果设置了 `--redirect-container-streaming=true` 必须移除。
+- 废弃参数 `--redirect-container-streaming`，并将在后续版本中移除。1.18只支持默认行为（通过 kubelet 代理 streaming 请求）。如果设置了 `--redirect-container-streaming=true` 则必须移除。
 - 废弃 metrics endpoint `/metrics/resource/v1alpha1`，请使用 `/metrics/resource`。
 
 #### kube-proxy
@@ -110,8 +110,8 @@ Server-side Apply 在 Kubernetes 在1.16版本被提升到 beta 版，1.18引入
     `scheduling_algorithm_priority_evaluation_seconds` --> `framework_extension_point_duration_seconds[extension_point="Score"]`
 - 在调度器 Policy API 中废弃 `AlwaysCheckAllPredicates`。
 
-#### -enable-profiling参数
-为了对齐 `kube-apiserver`，`kube-controller-manager` 和 `kube-scheduler` 也 [默认开启profiling](https://github.com/kubernetes/kubernetes/pull/88663)。要关闭 profiling，需要指定参数 `--enable-profiling=false`。
+#### -enable-profiling 参数
+为了对齐 `kube-apiserver`，`kube-controller-manager` 和 `kube-scheduler` 也 [默认开启 profiling](https://github.com/kubernetes/kubernetes/pull/88663)。如需关闭 profiling，需指定参数 `--enable-profiling=false`。
 
 #### kubectl
 - 移除已废弃的 `--include-uninitialized` 参数。
@@ -152,7 +152,7 @@ kubeadm 对 HA 的支持进入 beta 阶段，用户可以使用 `kubeadm init` �
 
 ### 一般更新
 - Kubernetes 核心代码支持 Go 模块。
-- 继续为 cloud-provider 代码提取和组织进行准备。cloud-provider 代码已经被移动至kubernetes/legacy-cloud-providers，以便后续删除与外部使用。
+- 继续为 cloud-provider 代码提取和组织进行准备。cloud-provider 代码已经被移动至 kubernetes/legacy-cloud-providers，以便后续删除与外部使用。
 - Kubectl get 与 describe 命令支持扩展：[kubectl get and describe should work well with extensions](https://github.com/kubernetes/enhancements/issues/515)。
 - 节点支持第三方监控插件：[Support 3rd party device monitoring plugins](https://github.com/kubernetes/enhancements/issues/606)。
 - 发布新的 alpha 版调度框架，用于开发和管理插件，扩展调度器功能：[Scheduling Framework](https://github.com/kubernetes/enhancements/issues/624)。
@@ -164,7 +164,7 @@ kubeadm 对 HA 的支持进入 beta 阶段，用户可以使用 `kubeadm init` �
 - 弃用 extensions/v1beta1、apps/v1beta1以及 apps/v1beta2 API。
 
 #### 已知问题
-- 在1.15版本使用 `--log-file` 参数会有问题：日志会被多次写入同一个文件。详情请参阅：https://github.com/kubernetes/kubernetes/issues/78734#issuecomment-501372131
+- 在1.15版本使用 `--log-file` 参数存在如下问题：日志会被多次写入同一个文件。详情请参阅：https://github.com/kubernetes/kubernetes/issues/78734#issuecomment-501372131
 
 #### 更新须知
 - 集群
@@ -173,9 +173,9 @@ kubeadm 对 HA 的支持进入 beta 阶段，用户可以使用 `kubeadm init` �
         * `kube-proxy` 使用 `node.kubernetes.io/kube-proxy-ds-ready` 作为 node 选择器，不再使用 `beta.kubernetes.io/kube-proxy-ds-ready`。 
         * `metadata-proxy` 使用 `cloud.google.com/metadata-proxy-ready` 作为 node 选择器，不再使用 `beta.kubernetes.io/metadata-proxy-ready`。 
 - API Machinery
-k8s.io/kubernetes 和其他发布的组件，包括 k8s.io/client-go 和 k8s.io/api 等，现在包含 Go 模块文件，包括依赖库的版本信息。在以 Go 模块方式使用 k8s.io/client-go 时可以参考 [go-modules](http://git.k8s.io/client-go/INSTALL.md#go-modules) 以及https://github.com/kubernetes/kubernetes/pull/74877 。
+k8s.io/kubernetes 和其他发布的组件，包括 k8s.io/client-go 和 k8s.io/api 等，现在包含 Go 模块文件，包括依赖库的版本信息。在以 Go 模块方式使用 k8s.io/client-go 时可以参考 [go-modules](http://git.k8s.io/client-go/INSTALL.md#go-modules) 以及 [go mod vendor](https://github.com/kubernetes/kubernetes/pull/74877)。
 - Apps
- **hyperkube短别名已从代码中移除**，在编译 hyperkube docker 镜像时会创建这些别名：https://github.com/kubernetes/kubernetes/pull/76953 。
+ **hyperkube 短别名已从代码中移除**，在编译 hyperkube docker 镜像时会创建这些别名：https://github.com/kubernetes/kubernetes/pull/76953。
 - Lifecycle
     - 废弃的 kubeadm `v1alpha3` 配置被全部移除。
     - kube-up.sh 不再支持 centos 和 local。
@@ -183,34 +183,34 @@ k8s.io/kubernetes 和其他发布的组件，包括 k8s.io/client-go 和 k8s.io/
     - CSI 卷不再设置 `Node.Status.Volumes.Attached.DevicePath` 字段，需要更新此字段的外部控制器。
     - alpha 版本的 CRD 被移除。
     - 默认启用 `StorageObjectInUseProtection` admission [插件](https://github.com/kubernetes/kubernetes/pull/74610)。如果之前没有启用该插件，集群的行为可能会发生变化。
-    - CSI driver 启用 PodInfoOnMount 后，在 volume 上下文会增加一个新的参数：`csi.storage.k8s.io/ephemeral`，允许 driver 在实现 NodePublishVolume 时，case by case 的判断当前 volume 是短暂存储还是持久的：https://github.com/kubernetes/kubernetes/pull/79983 。
-    - VolumePVCDataSource（存储卷克隆功能） 进入beta：https://github.com/kubernetes/kubernetes/pull/81792 。
-    - 把内建以及CSI volume的limit合为一个调度器preidicate: https://github.com/kubernetes/kubernetes/pull/77595 。 
+    - CSI driver 启用 PodInfoOnMount 后，在 volume 上下文会增加一个新的参数：`csi.storage.k8s.io/ephemeral`，允许 driver 在实现 NodePublishVolume 时，逐个判断当前 volume 是短暂存储还是持久的：https://github.com/kubernetes/kubernetes/pull/79983 。
+    - VolumePVCDataSource（存储卷克隆功能） 进入 beta：https://github.com/kubernetes/kubernetes/pull/81792 。
+    - 把内建以及 CSI volume 的 limit 合为一个调度器 preidicate： https://github.com/kubernetes/kubernetes/pull/77595 。 
 - kube-apiserver
-    - 废弃参数 `--enable-logs-handler`，计划在v1.19移除
-    - 废弃`--basic-auth-file`及相应的认证模式，未来计划移除
-    - 废弃默认的service IP CIDR（10.0.0.0/24），计划半年后或者2个release后移除。必须使用`--service-cluster-ip-range`参数来制定service的IP段
+    - 废弃参数 `--enable-logs-handler`，计划在 v1.19移除。
+    - 废弃 `--basic-auth-file` 及相应的认证模式，未来计划移除。
+    - 废弃默认的service IP CIDR（10.0.0.0/24），计划半年后或者2个 release 后移除。必须使用 `--service-cluster-ip-range` 参数来制定 service 的 IP 段。
 - kube-scheduler
-    - 使用`v1beta1` Events API。消费scheudler事件的工具需要使用 v1beta1 Event API
+    - 使用 `v1beta1` Events API。消费 scheudler 事件的工具需要使用 v1beta1 Event API。
 - kube-proxy
-    - 移除参数`--conntrack-max`，可使用`--conntrack-min`和`--conntrack-max-per-core`来代替
-    - 移除参数`--cleanup-iptables`
-    - 移除`--resource-container`
+    - 移除参数`--conntrack-max`（可使用`--conntrack-min`和`--conntrack-max-per-core`来代替）
+    - 移除参数 `--cleanup-iptables`
+    - 移除 `--resource-container`
 - kubelet
-    - 移除参数 `--allow-privileged`, `--host-ipc-sources`, `--host-pid-sources`,`--host-network-sources`，可以使用`PodSecurityPolicy`的准入控制器来代替
-    - 废弃cAdvisor JSON接口
-    - 移除`--containerized`
-    - 不再支持通过`--node-labels`参数设置`kubernetes.io-`或`k8s.io-`为前缀的不被允许的标签
+    - 移除参数 `--allow-privileged`，`--host-ipc-sources`，`--host-pid-sources`，`--host-network-sources`（可以使用 `PodSecurityPolicy` 的准入控制器来代替）
+    - 废弃 cAdvisor JSON 接口
+    - 移除 `--containerized`
+    - 不再支持通过 `--node-labels` 参数设置 `kubernetes.io-` 或 `k8s.io-` 为前缀的不被允许的标签 
 - kubectl
-    - 移除`kubectl scale job`
+    - 移除 `kubectl scale job`
     - 移除 `kubectl exec` 命令的 `--pod/-p` 参数
-    - 移除`kubectl convert`命令
-    - 移除`--include-uninitialized`
+    - 移除 `kubectl convert` 命令
+    - 移除 `--include-uninitialized`
     - `kubectl cp` 不再支持复制容器中的符号链接，可以使用如下命令代替：
-local to pod: `tar cf - /tmp/foo | kubectl exec -i -n <some-namespace> <some-pod> -- tar xf - -C /tmp/bar`
-pod to local: `kubectl exec -n <some-namespace> <some-pod> -- tar cf - /tmp/foo | tar xf - -C /tmp/bar`
+		local to pod：`tar cf - /tmp/foo | kubectl exec -i -n <some-namespace> <some-pod> -- tar xf - -C /tmp/bar`
+    pod to local：`kubectl exec -n <some-namespace> <some-pod> -- tar cf - /tmp/foo | tar xf - -C /tmp/bar`
 - kubeadm
-    - 废弃命令 `kubeadm upgrade node config`和`kubeadm upgrade node experimental-control-plane`，使用 `kubeadm upgrade node` 代替。
+    - 废弃命令 `kubeadm upgrade node config` 和 `kubeadm upgrade node experimental-control-plane`，使用 `kubeadm upgrade node` 代替。
     - 废弃参数 `--experimental-control-plane`，使用 `--control-plane` 代替。
     - 废弃参数 `--experimental-upload-certs`，使用 `--upload-certs` 代替。
     - 废弃命令 `kubeadm config upload`，使用 `kubeadm init phase upload-confi` 代替。
@@ -236,7 +236,7 @@ pod to local: `kubectl exec -n <some-namespace> <some-pod> -- tar cf - /tmp/foo 
 * 支持 Pod Priority 和 Preemption： https://github.com/kubernetes/enhancements/issues/564
 
 ### 一般更新
-* dry-run 进入 beta。dry-run 使用户可以模拟真实 API 请求，而不实际改变集群状态
+* dry-run 进入 beta（dry-run 使用户可以模拟真实 API 请求，而不实际改变集群状态）
 * kubectl diff 进入 beta
 * kubectl 插件注册进入 stable
 * kubelet 插件机制进入 beta
@@ -278,7 +278,7 @@ pod to local: `kubectl exec -n <some-namespace> <some-pod> -- tar cf - /tmp/foo 
 * kubectl
     * 不再支持命令 `run-container` 
 * taints
-    * `node.alpha.kubernetes.io/notReady` 和 `node.alpha.kubernetes.io/unreachable` 不再支持，改为 `node.kubernetes.io/not-ready` 和 `node.kubernetes.io/unreachable`
+    * 不再支持 `node.alpha.kubernetes.io/notReady` 和 `node.alpha.kubernetes.io/unreachable`，改为 `node.kubernetes.io/not-ready` 和 `node.kubernetes.io/unreachable`
 
 ### Changelogs
 [kubernetes 1.14 changelog](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.14.md#kubernetes-v114-release-notes)
@@ -286,52 +286,51 @@ pod to local: `kubectl exec -n <some-namespace> <some-pod> -- tar cf - /tmp/foo 
 
 ## 1.12 changes since 1.10
 ### 重大更新
-#### API
-- CustomResources子资源现在进入 beta 阶段，并默认开启，可以对`/status`子资源更新除了 `.status` 字段（之前只允许对 .spec 和 .metadata 进行更新）。在启用`/status`子资源 时， `required` 和 `rescription`可用于 CRD OpenAPI验证schema。 另外，用户可以创建多个版本的 CustomResourceDefinitions，不需进行自动转换。可以通过CustomResourceDefinitions的`spec.additionalPrinterColumns`字段让`kubectl get`的输出包含额外的列。
-
-- 支持`dry run`功能，允许用户可以看到某些命令的执行结果，而不需要真正提交相关的更改。
+#### API 
+- CustomResources 子资源现在进入 beta 阶段，并默认开启，可以对 `/status` 子资源更新除了 `.status` 字段（之前只允许对 .spec 和 .metadata 进行更新）。在启用 `/status` 子资源 时，`required` 和 `rescription` 可用于 CRD OpenAPI 验证 schema。另外，用户可以创建多个版本的 CustomResourceDefinitions，不需进行自动转换。可以通过CustomResourceDefinitions 的 `spec.additionalPrinterColumns` 字段让 `kubectl get` 的输出包含额外的列。
+- 支持 `dry run` 功能，允许用户可以看到某些命令的执行结果，而不需要真正提交相关的更改。
 
 #### 认证授权
-- RBAC聚合ClusterRoles进入GA阶段，client-go credentials插件进入Beta阶段，支持从外部插件获取TLS认证信息。
+- RBAC 聚合 ClusterRoles 进入 GA 阶段，client-go credentials 插件进入 Beta 阶段，支持从外部插件获取 TLS 认证信息。
 - 审计事件增加了如下注解，用户可以更清晰的了解审计决策的过程：
-  * Authorization组件会设置`authorization.k8s.io/decision`(authorization决定allow 或 forbid)，及`authorization.k8s.io/reason`(做出这个决定的原因)
-  * PodSecurityPolicy准入控制器会设置`podsecuritypolicy.admission.k8s.io/admit-policy`和`podsecuritypolicy.admission.k8s.io/validate-policy`，包含允许Pod准入相关的策略名称（PodSecurityPolicy同时可以限制hostPath类型的挂载点为只读模式）
-- NodeRestriction准入控制器会禁止节点修改其对应的Node对象的污点信息，让用户更容易控制和追踪节点的污点设置情况
+  * Authorization 组件会设置 `authorization.k8s.io/decision`（authorization 决定 allow  或 forbid），及 `authorization.k8s.io/reason`（做出这个决定的原因）。
+  * PodSecurityPolicy 准入控制器会设置 `podsecuritypolicy.admission.k8s.io/admit-policy` 和 `podsecuritypolicy.admission.k8s.io/validate-policy`，包含允许 Pod 准入相关的策略名称（PodSecurityPolicy 同时可以限制 hostPath 类型的挂载点为只读模式）。
+- NodeRestriction 准入控制器会禁止节点修改其对应的 Node 对象的污点信息，让用户更容易控制和追踪节点的污点设置情况。
 
 #### CLI命令行
-CLI实现了新的插件机制，并提供了包含通用CLI工具的开发库方便插件开发者进行插件开发
+CLI 实现了新的插件机制，并提供了包含通用 CLI 工具的开发库方便插件开发者进行插件开发。
 
 #### 网络
-- ipvs模式进入GA
-- CoreDNS进入GA，代替kube-dns
+- ipvs 模式进入 GA
+- CoreDNS 进入 GA，代替kube-dns
 
 #### 节点
-- DynamicKubeletConfig进入Beta阶段
+- DynamicKubeletConfig 进入 Beta 阶段
 - cri-tools GA
-- PodShareProcessNamespace进步Beta阶段
-- 新增Alpha特性：RuntimeClass，CustomCFSQuotaPeriod 
+- PodShareProcessNamespace 进入 Beta 阶段
+- 新增 Alpha 特性：RuntimeClass，CustomCFSQuotaPeriod 
 
 #### 调度器
-- Pod Priority及Preemption进入Beta阶段
-- DaemonSet Pod的调度不再由DaemonSet控制器管理，而由默认调度器管理
-- TaintNodeByCondition进步Beta阶段
-- 默认开启本地镜像优选功能。在调度Pod时，本地已经拉取全部或者部分Pod所需镜像的节点会有更高的优先级，这样可以加速Pod启动
+- Pod Priority 及 Preemption 进入 Beta 阶段
+- DaemonSet Pod 的调度不再由 DaemonSet 控制器管理，而由默认调度器管理
+- TaintNodeByCondition 进步 Beta 阶段
+- 默认开启本地镜像优选功能。在调度 Pod 时，本地已经拉取全部或者部分 Pod 所需镜像的节点会有更高的优先级，这样可以加速 Pod 启动。
 
 ### 一般更新
-- 进入GA的特性：ClusterRole，StorageObjectInUseProtection
-- 进入Beta的特性：外部Cloud Provider
+- 进入 GA 的特性：ClusterRole，StorageObjectInUseProtection
+- 进入 Beta 的特性：外部 Cloud Provider
 
 ### 更新须知
 - kube-apiserver
-  - `--storage-version`参数被移除，由`--storage-versions`代替；同时`--storage-versions`也被废弃
-  - `--endpoint-reconciler-type`默认值改为`lease`
-  - 使用`--enable-admission-plugins`时，默认包含；使用`--admission-control`参数时，需要显示指定
+  - `--storage-version` 参数被移除，由 `--storage-versions` 代替。同时 `--storage-versions` 也被废弃。
+  - `--endpoint-reconciler-type` 默认值改为 `lease`。
+  - 使用`--enable-admission-plugins` 时，默认包含。使用 `--admission-control` 参数时，需要显示指定。
 - kubelet
-  - 废弃`--rotate-certificates`参数，由配置文件的.RotateCertificates字段代替
+  - 废弃 `--rotate-certificates` 参数，由配置文件的 .RotateCertificates 字段代替。
 - kubectl
-  - 除`run-pod/v1`外，其他`kubectl run`的generator已废弃
-  - `kubectl logs`移除`--interactive`参数
-  - `--use-openapi-print-columns`已废弃，由`--server-print`代替
+  - 除 `run-pod/v1` 外，其他 `kubectl run` 的 generator 已废弃。
+  - `kubectl logs` 移除 `--interactive` 参数。
+  - `--use-openapi-print-columns` 已废弃，由 `--server-print` 代替。
 
 ### Changelogs
 [kubernetes 1.12 changelog](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.12.md#major-themes)
