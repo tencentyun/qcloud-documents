@@ -1,20 +1,15 @@
-本文档将通过编写“新建 Custom Runtime 云函数示例”，并将其打包发布，响应触发事件，向您介绍 Custom Runtime 的开发流程及运行机制。
+## 操作场景
+本文档介绍如何新建 Custom Runtime 云函数，并将其打包发布，响应触发事件。您可通过本文了解 Custom Runtime 的开发流程及运行机制。
 
-## 编写函数
-创建 Custom Runtime 云函数，需要编写 [创建运行时引导文件 bootstrap](#bootstrap) 和 [函数处理程序文件](#hsfile)。
+## 操作步骤
+创建 Custom Runtime 云函数前，需要创建运行时引导文件 [bootstrap](#bootstrap) 和 [函数处理文件](#hsfile)。
 
-### bootstrap<span id="bootstrap"></span>
-bootstrap 是运行时入口引导程序文件，Custom Runtime 加载函数时固定检索 bootstrap 同名文件，并执行该程序来启动 Custom Runtime 运行时。
->! 
->- bootstrap 需具有可执行权限。
->- bootstrap 需能在 SCF 系统环境（CentOS 7.6）中运行。
+### 创建 bootstrap 文件<span id="bootstrap"></span>
+bootstrap 是运行时入口引导程序文件，Custom Runtime 加载函数时固定检索 bootstrap 同名文件，并执行该程序来启动 Custom Runtime 运行时。Custom Runtime 支持任意语言及版本开发运行函数，主要基于 bootstrap 引导程序由开发者自定义实现。其中，bootstrap 需具备以下条件：
+ - 需具有可执行权限。
+ - 能够在 SCF 系统环境（CentOS 7.6）中运行。
 
-本节示例通过 bash 实现。在示例中，Custom Runtime 运行时分为初始化阶段和调用阶段。初始化阶段仅在函数的执行实例冷启动过程中一次性执行。初始化完成后进入循环的调用阶段，监听事件并调用函数处理。
->? 若想了解 Custom Runtime 运行时初始化阶段和调用阶段相关内容，请参阅 [Custom Runtime 运行机制](https://cloud.tencent.com/document/product/583/47274#custom-runtime-.E8.BF.90.E8.A1.8C.E6.9C.BA.E5.88.B6)。
-
-#### 初始化阶段
-1. 执行以下命令，在命令行终端创建 bootstrap。
-
+您可参考以下示例代码，在命令行终端创建 bootstrap 文件。本示例通过 bash 实现。
 ```
 #! /bin/bash
 set -euo pipefail
@@ -38,41 +33,55 @@ do
 done
 ```
 
-2. 执行以下命令，访问运行时 API 上报就绪状态。
+#### 示例文件解析
+在示例中，Custom Runtime 运行时分为初始化阶段和调用阶段。初始化阶段仅在函数的执行实例冷启动过程中一次性执行。初始化完成后进入循环的调用阶段，监听事件并调用函数处理。
+
+- **初始化阶段**
+关于初始化阶段详细信息，请查阅 [函数初始化](https://cloud.tencent.com/document/product/583/47274#.E5.87.BD.E6.95.B0.E5.88.9D.E5.A7.8B.E5.8C.96)。
+初始化阶段完成后，需要主动调用运行时 API 初始化就绪接口通知 SCF。示例代码如下：
 ```
 # 初始化完成，访问运行时API上报就绪状态
 curl -d " " -X POST -s "http://$SCF_RUNTIME_API:$SCF_RUNTIME_API_PORT/runtime/init/ready"
 ```
-
-#### 调用阶段
-以下代码示例为不同步骤的代码编写：
-1. 初始化完成后，进入循环的调用阶段，监听事件并调用函数处理。
+其中，由于 Custom Runtime 由开发者使用自定义语言及版本实现，需要通过标准协议与 SCF 进行通信，本实例中 SCF 通过 HTTP 协议提供运行时 API 及内置环境变量，更多关于环境变量信息请参见 [环境变量](https://cloud.tencent.com/document/product/583/30228)。
+ - `SCF_RUNTIME_API`：运行时 API 地址。
+ - `SCF_RUNTIME_API_PORT`：运行时 API 端口。
+- **初始化日志及异常**
+初始化阶段日志及异常信息，请参见 [日志及异常](https://cloud.tencent.com/document/product/583/47274#.E6.97.A5.E5.BF.97.E5.8F.8A.E5.BC.82.E5.B8.B8)。
+- **调用阶段**
+关于调用阶段详细信息，请参见 [函数调用](https://cloud.tencent.com/document/product/583/47274#.E5.87.BD.E6.95.B0.E8.B0.83.E7.94.A8)。
+ 1. 完成初始化后，进入循环的调用阶段，监听事件并调用函数处理。示例代码如下：
 ```
 # 长轮询获取事件
   EVENT_DATA=$(curl -sS -LD "$HEADERS" -X GET -s "http://$SCF_RUNTIME_API:$SCF_RUNTIME_API_PORT/runtime/invocation/next")
 ```
-2. 在一次调用内重复访问此接口均返回相同事件数据。
+长轮询获取事件请勿设置 get 方法超时，在访问运行时 API 的事件获取接口，阻塞等待事件下发，在一次调用内重复访问此接口均返回相同事件数据。响应体为事件数据 event_data，响应头包含以下信息：
+   - Request_Id：请求 ID，用于标识触发了函数调用的请求。
+   - Memory_Limit_In_Mb：函数内存限制，单位为 MB。
+   - Time_Limit_In_Ms：函数超时时间，单位为毫秒。
+ 2. 根据环境变量、响应头中所需信息及事件信息构建函数调用的参数，调用函数处理程序。示例代码如下：
 ```
 # 调用函数处理事件
   RESPONSE=$($(echo "$_HANDLER" | cut -d. -f2) "$EVENT_DATA")
 ```
-3. 根据环境变量、响应头中所需信息及事件信息构建函数调用的参数，调用函数处理程序。
+ 3. 访问运行时 API 响应结果接口，推送函数处理结果。若首次调用成功为事件终态，则 SCF 将进行状态锁定，推送后结果不可变更。示例代码如下：
 ```
 # 推送函数处理结果
   curl -X POST -s "http://$SCF_RUNTIME_API:$SCF_RUNTIME_API_PORT/runtime/invocation/response"  -d "$RESPONSE"
 ```
-4. 访问运行时 API 响应结果接口，推送函数处理结果，首次调用成功为事件终态，SCF 将进行状态锁定，推送后结果不可变更。
+如果函数调用阶段出现错误，通过访问运行时 API 调用错误接口推送错误信息。同时本次调用结束，首次调用视为事件终态，SCF 将进行状态锁定，继续推送结果不可变更。示例代码如下：
 ```
 # 推送函数处理错误
   curl -X POST -s "http://$SCF_RUNTIME_API:$SCF_RUNTIME_API_PORT/runtime/invocation/error"  -d "parse event error" 
 ```
+- **调用日志及异常**
+调用阶段日志及异常信息，请参见 [日志及异常](https://cloud.tencent.com/document/product/583/47274#.E6.97.A5.E5.BF.97.E5.8F.8A.E5.BC.82.E5.B8.B82)。
 
 
-
-### 函数文件<span id="hsfile"></span>
-
-函数处理文件包含函数逻辑的具体实现，执行方式及参数可以通过运行时自定义实现。
-执行以下命令，在命令行终端创建 index.sh。
+### 创建函数处理文件<span id="hsfile"></span>
+>? 函数处理文件包含函数逻辑的具体实现，执行方式及参数可以通过运行时自定义实现。
+>
+在命令行终端创建 index.sh。
 ```
 function main_handler () {
   EVENT_DATA=$1
@@ -82,7 +91,7 @@ function main_handler () {
 }
 ```
 
-## 发布已创建函数
+## 发布函数
 1. 成功创建 [bootstrap](#bootstrap) 和 [函数文件](#hsfile) 后，目录结构如下所示：
 ```
 ├ bootstrap
@@ -95,9 +104,9 @@ $ zip demo.zip index.sh bootstrap
   adding: index.sh (deflated 23%)
   adding: bootstrap (deflated 46%)
 ```
-3. 部署包准备好后，可以通过 [SDK方式](#SDK) 或 [控制台方式](#KZT) 来创建和发布函数。
+3. 部署包准备好后，可以通过 [SDK](#SDK) 或 [云函数控制台](#KZT) 来创建和发布函数。
 
-### SDK方式<span id="SDK"></span>
+### 使用 SDK 创建及发布函数<span id="SDK"></span>
 #### 创建函数<span id="creat"></span>
 执行以下命令，通过 SCF 的 python SDK 创建名为 CustomRuntime-Bash 的函数。
 ```
@@ -131,7 +140,7 @@ except TencentCloudSDKException as err:
     print(err) 
 ```
 
-##### Custom Runtime 特殊参数说明
+#### Custom Runtime 特殊参数说明
 
 | 参数类型 | 说明 | 
 |---------|---------|
@@ -185,28 +194,29 @@ except TencentCloudSDKException as err:
     "RequestId": "3c32a636-****-****-****-d43214e161de"
 }
 ```
-### 控制台方式<span id="KZT"></span>
+### 使用控制台创建及发布函数<span id="KZT"></span>
 #### 创建函数
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏的【函数服务】。
 2. 在“函数服务”页面上方选择期望创建函数的地域，并单击【新建】，进入函数创建流程。
 3. 在“新建函数”页面填写函数基础信息，单击【下一步】。如下图所示：
-![](https://main.qcloudimg.com/raw/04d47d1488676547169c5efc5c21646d.png)
+![](https://main.qcloudimg.com/raw/963dcca09bc987d7ceaaa0a157e633f6.png)
     - **函数名称**：命名为 “CustomRuntime-Bash”。
     - **运行环境**：选择 “CustomRuntime”。
     - **创建方式**：选择 “空白函数”。
-4. 在“函数配置”页面中，对“提交方法”和“函数代码”进行配置。并单击【完成】，完成函数创建。如下图所示：
+4. 在“函数配置”页面中，对“提交方法”和“函数代码”进行配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/d4d1a942bc082166872916d26605d988.png)
     - **提交方法**：选择“本地上传zip包”。
     - **函数代码**：选择打包好的 demo.zip。
-    - 展开“高级设置”，配置“初始化超时时间”及其他相关参数。
+    - 高级设置：展开配置项，配置“初始化超时时间”及其他相关参数。
+5. 单击【完成】即可完成函数创建。
 
 #### 调用函数
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏的【函数服务】。
 2. 在“函数服务”页面上方选择期望调用函数的地域，并单击列表页中期望调用的函数，进入函数详情页面。
-3. 选择左侧导航栏中的【函数管理】>【函数代码】。如下图所示：
+3. 选择左侧【函数管理】，并在“函数管理”页面选择【函数代码】页签。如下图所示：
 ![](https://main.qcloudimg.com/raw/7ba11b77d4198b2eddc98635114a7e48.png)
 4. 在“测试事件”的测试模板中选择“Hello World 事件模板”，并单击【测试】。如下图所示：
 ![](https://main.qcloudimg.com/raw/1693c906f23e89e21716f6aed0da9f6e.png)
-5. 控制台右侧将展示出调用的执行结果及日志。
+    控制台右侧将展示出调用的执行结果及日志。如下图所示：
 ![](https://main.qcloudimg.com/raw/6e8c639e89451a4ac302531659282d3f.png)
 

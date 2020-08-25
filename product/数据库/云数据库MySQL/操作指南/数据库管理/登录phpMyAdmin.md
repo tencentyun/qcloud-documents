@@ -13,6 +13,8 @@
 >
 ![](https://main.qcloudimg.com/raw/0769b3e039524cff636ff88eea319c54.png)
 3. 在数据管理（旧版）页面，可以查看实例状态和基本信息，及创建表等，单击【前往PMA】。
+>?数据管理提供新旧两版页面，如登录后页面无【前往PMA】即为新版页面，可在右上角单击【返回旧版】跳转至旧版页面。
+>
 ![](https://main.qcloudimg.com/raw/de5061bdab25baf80d7a2e733c65722c.png)
 4. 通过 phpMyAdmin 成功连接到 MySQL 数据库，在此页面您可以看到 MySQL 数据库的各种模式和对象，以及进行创建表、数据插入和查询等操作。
 ![](https://main.qcloudimg.com/raw/73f1f0b6fb0bfaf29e1b0939c8239dce.png)

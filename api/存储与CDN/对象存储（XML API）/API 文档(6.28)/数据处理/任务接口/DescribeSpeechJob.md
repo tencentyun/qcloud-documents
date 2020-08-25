@@ -73,7 +73,7 @@ Container 节点 SpeechRecognitionResult 的内容：
 
 **请求**
 
-```
+```plaintext
 GET /asr_jobs/s8988119ee2c911eab2cdd3817d4d5e64 HTTP/1.1
 Connection: keep-alive
 Accept-Encoding: gzip, deflate
@@ -86,7 +86,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDnOr9IDiIUNYWGrrWb2IJ4YmywDXc****&q
 
 **响应**
 
-```
+```plaintext
 HTTP/1.1 200 OK
 Date: Mon, 27 Jul 2020 08:22:41 GMT
 Content-Type: application/xml
