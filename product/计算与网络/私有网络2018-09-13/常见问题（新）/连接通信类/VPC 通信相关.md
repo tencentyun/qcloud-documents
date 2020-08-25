@@ -9,8 +9,8 @@ VPC 中云服务器与数据库的内网通信在网络层面均为内网 IP 通
 | 不同子网 | 同 VPC：默认互通<br>不同 VPC： 通过 [对等连接](https://cloud.tencent.com/document/product/553/18836) / [云联网](https://cloud.tencent.com/document/product/877/18768) （同/跨账号均支持）通信 |
 | 跨账号 | 跨账号 通过 [对等连接](https://cloud.tencent.com/document/product/553/18836) / [云联网](https://cloud.tencent.com/document/product/877/18768) （同/跨地域均支持）通信 |
  
- >?当您通过对等连接或云联网实现跨账号VPC间的互联时，如下两点请您关注：
- >1. 资源均属于主账号所以您创建跨账号对等链接或云联网互通时，请填写对方的主账号。
+ >?当您通过对等连接或云联网实现跨账号 VP C间的互联时，如下两点请您关注：
+ >1. 资源均属于主账号，所以您创建跨账号对等链接或云联网互通时，请填写对方的主账号。
  >2. 子账号仅有操作权限，所以如果您的子账号不具备创建对等或云联网权限，请向主账号申请权限。 
  
 >! 同 VPC 下不同子网间（不论是否在同一可用区），**内网默认互通**，如果不通，请优先排查 [安全组](https://cloud.tencent.com/document/product/213/12452) 及 [网络 ACL](https://cloud.tencent.com/document/product/215/20088) 等防火墙策略。
