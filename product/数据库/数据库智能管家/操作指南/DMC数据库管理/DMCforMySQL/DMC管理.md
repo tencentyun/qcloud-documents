@@ -1,7 +1,7 @@
 本文主要为您介绍 DMC 旧版控制台的新建库表、实例会话管理、数据库实时监控、InnoDB 锁等待管理等功能。
 >?
 >- 如需使用 SQL 窗口、表数据可视化编辑等功能，可在 DMC 上方导航栏单击【前往新版】，可前往新版 DMC 控制台。
->- 云数据库 MySQL 8.0 不支持 InnoDB 锁等待管理和 phpMyAdmin 功能。
+>- 云数据库 MySQL 8.0 暂不支持 InnoDB 锁等待管理和 phpMyAdmin 功能。
 
 ## 新建库表
 1. 登录 [DMC 控制台](https://bj-dmc.cloud.tencent.com/v2/qcloudLogin/login)，在上方导航栏选择【新建】>【新建库】>【新增数据库】或【新建】>【新建表】。
@@ -45,6 +45,8 @@ MySQL Status Information|  InnoDB Row Operation |   Thread   |Network
 登录 [DMC 控制台](https://bj-dmc.cloud.tencent.com/v2/qcloudLogin/login)，在导航栏单击【前往PMA】，进入腾讯 DMC 内置的 phpMyAdmin 进行相关数据库操作，phpMyAdmin 支持大多数 MySQL功能，包括：
 - 浏览和删除数据库、表、视图、字段以及索引。
 - 创建、复制、删除、重命名以及更改数据库、表、字段、索引。
+ - 创建数据库和表详细操作，请参见 [创建数据库和表](https://cloud.tencent.com/document/product/236/8465)。
+ - 删除数据库和表详细操作，请参见 [删除数据库和表](https://cloud.tencent.com/document/product/236/30306)。
 - 维护服务器、数据库和表以及有关的服务器配置。
 - 执行、编辑 SQL 语句。
 - 管理存储过程和触发器。
