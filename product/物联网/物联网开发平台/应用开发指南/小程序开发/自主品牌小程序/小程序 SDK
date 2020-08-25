@@ -23,7 +23,7 @@ QcloudIotExplorerAppDevSdk(sdkOptions)
 
 #### getAccessToken 回调函数
 
-SDK 初始化时，会调用 `getAccessToken` 回调函数以登录到物联网开发平台，并取得平台的 AccessToken。
+SDK 初始化时，将调用 `getAccessToken` 回调函数以登录到物联网开发平台，并取得平台的 AccessToken。
 
 通过调用物联网开发平台的 [微信号注册登录](https://cloud.tencent.com/document/product/1081/40781) 应用端 API，可以让小程序用户通过微信注册登录到物联网开发平台，并获取平台的 AccessToken。由于涉及物联网开发平台 AppSecret 以及小程序用户的 openid 等敏感信息，该应用端 API 需要由开发者的后台服务器调用。
 
@@ -45,7 +45,7 @@ SDK 初始化时，会调用 `getAccessToken` 回调函数以登录到物联网�
 | autoReconnect         | websocket断开后是否自动连接，默认为：true，自动重连每两秒尝试一次 | boolean | 否   |
 | disconnectWhenAppHide | 当 App.onHide 触发时，是否自动断开 websocket，默认为：true   | boolean | 否   |
 | connectWhenAppShow    | 当 App.onShow 触发时，是否自动连接 websocket，默认为：true   | boolean | 否   |
-| url                   | websocket 服务的url，默认为：wss://iot.cloud.tencent.com/ws/explorer | string  | 否   |
+| url                   | websocket 服务的 url，默认为：wss://iot.cloud.tencent.com/ws/explorer | string  | 否   |
 | heartbeatInterval     | 心跳包的发送间隔，单位毫秒，默认为：60000                    | number  | 否   |
 
 ### SDK 初始化
@@ -56,8 +56,8 @@ sdk.init(options) => Promise< void >
 
 调用后将依次执行：
 
-1. 登录（调用 `getAccessToken` 回调函数，取得平台的 AccessToken）
-2. 连接 WebSocket
+1. 登录（调用 `getAccessToken` 回调函数，取得平台的 AccessToken）。
+2. 连接 WebSocket。
 
 `init` 函数可同时多次调用（返回同一个缓存的 Promise）。若一次执行未完成或已执行成功，多次调用后拿到的会是同一个 Promise。若 API 调用失败，则该缓存的 Promise 在 reject 之后会被释放，再次调用则将重新执行。
 
@@ -125,8 +125,8 @@ sdk.requestApi(Action: string, payload?: object, options?: object) => Promise< r
 | 参数名  | 参数描述                                                     | 类型   | 必填 |
 | ------- | ------------------------------------------------------------ | ------ | ---- |
 | Action  | 请求应用端 API 的 Action 名                                  | string | 是   |
-| payload | 请求应用端 API 的数据，会自动带上公共参数： `AccessToken` 与 `RequestId`。 | object | 否   |
-| options | 请求的选项，将透传给 [wx.request](https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html)。 | object | 否   |
+| payload | 请求应用端 API 的数据，会自动带上公共参数： `AccessToken` 与 `RequestId` | object | 否   |
+| options | 请求的选项，将透传给 [wx.request](https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html) | object | 否   |
 
 #### 返回值
 
@@ -175,8 +175,8 @@ sdk.connectDevice({
 | targetWifiInfo            | 目标 Wi-Fi 信息，需要设备去连接的 Wi-Fi 的信息               | WifiInfo                                                     | 是   |
 | softApInfo                | 设备热点信息，如果传该配置，则首先会调用 wx.connectWifi 去连接设备热点；如果不传，则需要自行引导用户去连接设备热点 | WifiInfo                                                     | 否   |
 | familyId                  | 家庭ID，默认为：'default'，即用户默认家庭 ID                 | 'default' \| string                                          | 否   |
-| onProgress                | 配网过程执行到每个步骤时触发的回调，回调中入参为当前步骤的详情<br>code: 步骤代码，详见 [配网步骤](#softAP) 小节<br>msg: 步骤描述<br>detail: 步骤详情，根据每个步骤不同而不同 | ({ code: ConnectDeviceStepCode, msg: string, detail?: object }) => void | 否   |
-| onError                   | 配网失败时触发<br>code: 错误代码，详见 [错误码 ](#test2) 小节<br>msg: 错误描述<br>detail: 错误详情 | ({ code: ConnectDeviceErrorCode, msg: string, detail }) => void | 是   |
+| onProgress                | 配网过程执行到每个步骤时触发的回调，回调中入参为当前步骤的详情<li>code：步骤代码，详见 [配网步骤](#softAP) 小节<li>msg： 步骤描述<li>detail：步骤详情，根据每个步骤不同而不同 | ({ code: ConnectDeviceStepCode, msg: string, detail?: object }) => void | 否   |
+| onError                   | 配网失败时触发<li>code：错误代码，详见 [错误码 ](#test2) 小节<li>msg：错误描述<li>detail：错误详情 | ({ code: ConnectDeviceErrorCode, msg: string, detail }) => void | 是   |
 | onComplete                | 配网完成后触发                                               | () => void                                                   | 是   |
 | udpAddress                | 连接上设备热点后，小程序发起 UDP 通信的地址，默认为：'192.168.4.1'，一般无需更改 | string                                                       | 否   |
 | udpPort                   | 连接上设备热点后，小程序发起 UDP 通信的端口，默认为：8266，一般无需更改 | number                                                       | 否   |
@@ -251,8 +251,8 @@ sdk.connectDevice({
 | targetWifiInfo          | 目标 Wi-Fi 信息，需要设备去连接的 Wi-Fi 的信息               | WifiInfo                                                     | 是   |
 | bindDeviceToken         | Wi-Fi 设备配网 Token，从后台接口 [生成 Wi-Fi 设备配网 Token](https://cloud.tencent.com/document/product/1081/44044) 获取 | string                                                       | 是   |
 | familyId                | 家庭 ID，默认为：'default'，即用户默认家庭 ID                 | 'default' \| string                                          | 否   |
-| onProgress              | code: 步骤代码，详见 [配网步骤](#SmartConfig) 小节<br>msg: 步骤描述<br>detail: 步骤详情，根据每个步骤不同而不同 | ({ code: ConnectDeviceStepCode, msg: string, detail?: object }) => void | 否   |
-| onError                 | 配网失败时触发<br>code: 错误代码，详见 [错误码](#test2) 小节<br>msg: 错误描述<br>detail: 错误详情 | ({ code: ConnectDeviceErrorCode, msg: string, detail }) => void | 是   |
+| onProgress              | <li>code：步骤代码，详见 [配网步骤](#SmartConfig) 小节<li>msg：步骤描述<li>detail：步骤详情，根据每个步骤不同而不同 | ({ code: ConnectDeviceStepCode, msg: string, detail?: object }) => void | 否   |
+| onError                 | 配网失败时触发<li>code：错误代码，详见 [错误码](#test2) 小节<li>msg：错误描述<li>detail：错误详情 | ({ code: ConnectDeviceErrorCode, msg: string, detail }) => void | 是   |
 | onComplete              | 配网完成后触发                                               | () => void                                                   | 是   |
 | udpPort                 | 小程序和设备连上同一个局域网之后，小程序发起 UDP 通信的端口，默认为：8266，一般无需更改 | number                                                       | 否   |
 | queryTokenRetryTime     | 轮询云端，查询设备绑定云端的状态的次数，默认为：20           | number                                                       | 否   |
