@@ -22,9 +22,9 @@ CSIMigration 默认开启。详情请参阅 [CSI migration going to beta](https:
 拓扑管理器功能（TopologyManager）在1.18中进步 Beta，可以让 CPU 与其他设备（例如 SR-IOV-VF）实现 NUMA 对齐，让工作负载支持低延迟的工作场景。在引入拓扑管理器之前，CPU 与设备管理器只能彼此独立地做出资源分配决策，可能导致在多插座 CPU 系统中得到不理想的资源分配结果，影响延迟敏感应用的性能。
 
 #### Serverside Apply 进入 Beta 2阶段
-Server-side Apply 在 Kubernetes 在1.16版本被提升到 Beta 版，1.18引入第二个 Beta 版本（ServerSideApply），此版本会记录和管理所有新 K8s 对象字段的变化，确保用户了解资源于何时何处发生变化。
+Server-side Apply 在 Kubernetes 1.16版本被提升到 Beta 版，1.18引入第二个 Beta 版本（ServerSideApply），此版本会记录和管理所有新 K8s 对象字段的变化，确保用户了解资源于何时何处发生变化。
 
-#### IngressClass资源
+#### IngressClass 资源
 `IngressClass` 资源描述在 Kubernetes 集群内的一种 Ingress 控制器类型。`Ingress` 资源新增 `ingressClassName` 字段，用于设置使用的 `IngressClass` 控制器名称，替代废弃的 `kubernetes.io/ingress.class` 标注。
 
 ### 其他更新
@@ -84,7 +84,7 @@ Server-side Apply 在 Kubernetes 在1.16版本被提升到 Beta 版，1.18引入
   - `ScheduleDaemonSetPods` 
 - 不再支持以下资源版本（group version）：
     - `apps/v1beta1` 及 `apps/v1beta2`，请使用 `apps/v1`。
-    - `extensions/v1beta1` 下的 `daemonsets` ,  `deployments` ,  `replicasets`，请使用 `apps/v1`。
+    - `extensions/v1beta1` 下的 `daemonsets`，`deployments`，`replicasets`，请使用 `apps/v1`。
     - ` extensions/v1beta1` 下的 `networkpolicies`，请使用 `networking.k8s.io/v1`。
     - `extensions/v1beta1` 下的 `podsecuritypolicies`，请使用 `policy/v1beta1`。
 
@@ -134,11 +134,11 @@ Hyperkube 从 go 代码修改为 bash 脚本。
 ### 重大更新
 #### 集群稳定性和可用性改进
 裸金属集群工具及 HA 等生产可用的特性都得到了改进和加强。
-kubeadm 对 HA 的支持进入 beta 阶段，用户可以使用 `kubeadm init` 和 `kubeadm join` 命令部署高可用的控制面。证书管理更加稳定和健壮，kubeadm 可以在 update 集群时，在证书到期前无缝更新所有的证书。详情请参阅 [Ability to create dynamic HA clusters with kubeadm](https://github.com/kubernetes/enhancements/issues/357) 和 [kubeadm: graduate the kubeadm configuration](https://github.com/kubernetes/enhancements/issues/970)。
+kubeadm 对 HA 的支持进入 beta 阶段，用户可以使用 `kubeadm init` 和 `kubeadm join` 命令部署高可用的控制面。证书管理更加稳定和健壮，kubeadm 可以在 update 集群时，在证书到期前无缝更新所有的证书。详情请参阅 [pr357](https://github.com/kubernetes/enhancements/issues/357) 和 [pr970](https://github.com/kubernetes/enhancements/issues/970)。
 
 #### CSI持续改进
 存储 SIG 继续致力于内建存储插件迁移到 CSI 接口，支持内建存储插件的大小调整，内联存储卷等特性，还引入了一些原本 Kuebernetes 存储子系统中不存在的 alpha 功能，例如存储卷克隆。
-存储卷克隆允许用户在配置新存储卷时，指定另一 PVC 为 “DataSource”。如果底层存储系统支持此项功能并在其 CSI 驱动程序实现了 “CLONE_VOLUME” 功能，则新存储卷将成为源存储卷的克隆：[In-tree storage plugin to CSI Driver Migration](https://github.com/kubernetes/enhancements/issues/625)。
+存储卷克隆允许用户在配置新存储卷时，指定另一 PVC 为 “DataSource”。如果底层存储系统支持此项功能并在其 CSI 驱动程序实现了 “CLONE_VOLUME” 功能，则新存储卷将成为源存储卷的克隆：[pr625](https://github.com/kubernetes/enhancements/issues/625)。
 #### 特性
 - 达到 GA 的特性：
 	- CRD
@@ -153,9 +153,9 @@ kubeadm 对 HA 的支持进入 beta 阶段，用户可以使用 `kubeadm init` �
 ### 一般更新
 - Kubernetes 核心代码支持 Go 模块。
 - 继续为 cloud-provider 代码提取和组织进行准备。cloud-provider 代码已经被移动至 kubernetes/legacy-cloud-providers，以便后续删除与外部使用。
-- Kubectl get 与 describe 命令支持扩展：[kubectl get and describe should work well with extensions](https://github.com/kubernetes/enhancements/issues/515)。
-- 节点支持第三方监控插件：[Support 3rd party device monitoring plugins](https://github.com/kubernetes/enhancements/issues/606)。
-- 发布新的 alpha 版调度框架，用于开发和管理插件，扩展调度器功能：[Scheduling Framework](https://github.com/kubernetes/enhancements/issues/624)。
+- [Kubectl get 与 describe 命令支持扩展](https://github.com/kubernetes/enhancements/issues/515)。
+- [节点支持第三方监控插件](https://github.com/kubernetes/enhancements/issues/606)。
+- [发布新的 alpha 版调度框架，用于开发和管理插件，扩展调度器功能](https://github.com/kubernetes/enhancements/issues/624)。
 - 继续弃用 extensions/v1beta1、apps/v1beta1以及 apps/v1beta2的API，这些扩展将在1.16版本中被彻底淘汰。
 - Kubelet 增加 Topology Manager 组件，旨在协调资源分配决策，优化资源分配。
 - 支持 IPv4/IPv6双栈，可以同时给 Pod 与服务分配 v4和 v6的地址。
@@ -164,18 +164,18 @@ kubeadm 对 HA 的支持进入 beta 阶段，用户可以使用 `kubeadm init` �
 - 弃用 extensions/v1beta1、apps/v1beta1以及 apps/v1beta2 API。
 
 #### 已知问题
-- 在1.15版本使用 `--log-file` 参数存在如下问题：日志会被多次写入同一个文件。详情请参阅：https://github.com/kubernetes/kubernetes/issues/78734#issuecomment-501372131
+在1.15版本使用 `--log-file` 参数存在如下问题：日志会被多次写入同一个文件。详情请参阅：[pr78734](https://github.com/kubernetes/kubernetes/issues/78734#issuecomment-501372131)。
 
 #### 更新须知
 - 集群
-    - 这些标签不再在节点上设置：`beta.kubernetes.io/metadata-proxy-ready`, `beta.kubernetes.io/metadata-proxy-ready` 及 `beta.kubernetes.io/kube-proxy-ds-ready`。
+    - 这些标签不再在节点上设置：`beta.kubernetes.io/metadata-proxy-ready`， `beta.kubernetes.io/metadata-proxy-ready` 及 `beta.kubernetes.io/kube-proxy-ds-ready`。
         * `ip-mask-agent` 使用 `node.kubernetes.io/masq-agent-ds-ready` 作为 node 选择器，不再使用 `beta.kubernetes.io/masq-agent-ds-ready`。
         * `kube-proxy` 使用 `node.kubernetes.io/kube-proxy-ds-ready` 作为 node 选择器，不再使用 `beta.kubernetes.io/kube-proxy-ds-ready`。 
         * `metadata-proxy` 使用 `cloud.google.com/metadata-proxy-ready` 作为 node 选择器，不再使用 `beta.kubernetes.io/metadata-proxy-ready`。 
 - API Machinery
-k8s.io/kubernetes 和其他发布的组件，包括 k8s.io/client-go 和 k8s.io/api 等，现在包含 Go 模块文件，包括依赖库的版本信息。在以 Go 模块方式使用 k8s.io/client-go 时可以参考 [go-modules](http://git.k8s.io/client-go/INSTALL.md#go-modules) 以及 [go mod vendor](https://github.com/kubernetes/kubernetes/pull/74877)。
+k8s.io/kubernetes 和其他发布的组件，包括 k8s.io/client-go 和 k8s.io/api 等，现在包含 Go 模块文件，包括依赖库的版本信息。在以 Go 模块方式使用 k8s.io/client-go 时可以参考 [go-modules](http://git.k8s.io/client-go/INSTALL.md#go-modules) 以及 [pr74877](https://github.com/kubernetes/kubernetes/pull/74877)。
 - Apps
- **hyperkube 短别名已从代码中移除**，在编译 hyperkube docker 镜像时会创建这些别名：https://github.com/kubernetes/kubernetes/pull/76953。
+ **hyperkube 短别名已从代码中移除**，在编译 hyperkube docker 镜像时会创建这些别名，请参阅 [pr76953](https://github.com/kubernetes/kubernetes/pull/76953)。
 - Lifecycle
     - 废弃的 kubeadm `v1alpha3` 配置被全部移除。
     - kube-up.sh 不再支持 centos 和 local。
@@ -183,13 +183,13 @@ k8s.io/kubernetes 和其他发布的组件，包括 k8s.io/client-go 和 k8s.io/
     - CSI 卷不再设置 `Node.Status.Volumes.Attached.DevicePath` 字段，需要更新此字段的外部控制器。
     - alpha 版本的 CRD 被移除。
     - 默认启用 `StorageObjectInUseProtection` admission [插件](https://github.com/kubernetes/kubernetes/pull/74610)。如果之前没有启用该插件，集群的行为可能会发生变化。
-    - CSI driver 启用 PodInfoOnMount 后，在 volume 上下文会增加一个新的参数：`csi.storage.k8s.io/ephemeral`，允许 driver 在实现 NodePublishVolume 时，逐个判断当前 volume 是短暂存储还是持久的：https://github.com/kubernetes/kubernetes/pull/79983 。
-    - VolumePVCDataSource（存储卷克隆功能） 进入 beta：https://github.com/kubernetes/kubernetes/pull/81792 。
-    - 把内建以及 CSI volume 的 limit 合为一个调度器 preidicate： https://github.com/kubernetes/kubernetes/pull/77595 。 
+    - CSI driver 启用 PodInfoOnMount 后，在 volume 上下文会增加一个新的参数：`csi.storage.k8s.io/ephemeral`，允许 driver 在实现 NodePublishVolume 时，逐个判断当前 volume 是短暂存储还是持久的，请参阅 [pr79983](https://github.com/kubernetes/kubernetes/pull/79983)。
+    - VolumePVCDataSource（存储卷克隆功能） 进入 beta，请参阅 [pr81792]( https://github.com/kubernetes/kubernetes/pull/81792)。
+    - 把内建以及 CSI volume 的 limit 合为一个调度器 preidicate，请参阅 [pr77595]( https://github.com/kubernetes/kubernetes/pull/77595)。 
 - kube-apiserver
     - 废弃参数 `--enable-logs-handler`，计划在 v1.19移除。
     - 废弃 `--basic-auth-file` 及相应的认证模式，未来计划移除。
-    - 废弃默认的service IP CIDR（10.0.0.0/24），计划半年后或者2个 release 后移除。必须使用 `--service-cluster-ip-range` 参数来制定 service 的 IP 段。
+    - 废弃默认的 service IP CIDR（10.0.0.0/24），计划半年后或者2个 release 后移除。必须使用 `--service-cluster-ip-range` 参数来制定 service 的 IP 段。
 - kube-scheduler
     - 使用 `v1beta1` Events API。消费 scheudler 事件的工具需要使用 v1beta1 Event API。
 - kube-proxy
@@ -227,13 +227,13 @@ k8s.io/kubernetes 和其他发布的组件，包括 k8s.io/client-go 和 k8s.io/
 
 ## 1.14 changes since 1.12
 ### 重大更新
-* Container Storage Interface 进入 GA： https://github.com/kubernetes/kubernetes/pull/71020
-* CoreDNS 替换 kube-dns 成为默认 DNS Server： https://github.com/kubernetes/kubernetes/pull/69883
+* [Container Storage Interface 进入 GA](https://github.com/kubernetes/kubernetes/pull/71020)。
+* [CoreDNS 替换 kube-dns 成为默认 DNS Server]( https://github.com/kubernetes/kubernetes/pull/69883)。
 * 使用 kubeadm 简化集群管理。
-* 支持 Windows Nodes 进入 stable： https://github.com/kubernetes/enhancements/issues/116
-* 本地存储进入 GA： https://github.com/kubernetes/enhancements/issues/121#issuecomment-457396290
-* Pid Limiting 进入 beta：http://github.com/kubernetes/kubernetes/pull/73651
-* 支持 Pod Priority 和 Preemption： https://github.com/kubernetes/enhancements/issues/564
+* [支持 Windows Nodes 进入 stable](https://github.com/kubernetes/enhancements/issues/116)。
+* [本地存储进入 GA]( https://github.com/kubernetes/enhancements/issues/121#issuecomment-457396290)。
+* [Pid Limiting 进入 beta](http://github.com/kubernetes/kubernetes/pull/73651)。
+* [支持 Pod Priority 和 Preemption](https://github.com/kubernetes/enhancements/issues/564)。
 
 ### 一般更新
 * dry-run 进入 beta（dry-run 使用户可以模拟真实 API 请求，而不实际改变集群状态）
@@ -287,7 +287,7 @@ k8s.io/kubernetes 和其他发布的组件，包括 k8s.io/client-go 和 k8s.io/
 ## 1.12 changes since 1.10
 ### 重大更新
 #### API 
-- CustomResources 子资源现在进入 beta 阶段，并默认开启，可以对 `/status` 子资源更新除了 `.status` 字段（之前只允许对 .spec 和 .metadata 进行更新）。在启用 `/status` 子资源 时，`required` 和 `rescription` 可用于 CRD OpenAPI 验证 schema。另外，用户可以创建多个版本的 CustomResourceDefinitions，不需进行自动转换。可以通过CustomResourceDefinitions 的 `spec.additionalPrinterColumns` 字段让 `kubectl get` 的输出包含额外的列。
+- CustomResources 子资源现在进入 beta 阶段，并默认开启，可以对 `/status` 子资源更新除了 `.status` 字段（之前只允许对 .spec 和 .metadata 进行更新）。在启用 `/status` 子资源时，`required` 和 `rescription` 可用于 CRD OpenAPI 验证 schema。另外，用户可以创建多个版本的 CustomResourceDefinitions，不需进行自动转换。可以通过 CustomResourceDefinitions 的 `spec.additionalPrinterColumns` 字段让 `kubectl get` 的输出包含额外的列。
 - 支持 `dry run` 功能，允许用户可以看到某些命令的执行结果，而不需要真正提交相关的更改。
 
 #### 认证授权
