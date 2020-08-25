@@ -42,7 +42,7 @@ MySQL Status Information|  InnoDB Row Operation |   Thread   |Network
 ## 内嵌 phpMyAdmin
 >?云数据库 MySQL 8.0 不支持 phpMyAdmin 功能。
 >
-登录 [DMC 控制台](https://bj-dmc.cloud.tencent.com/v2/qcloudLogin/login)，在导航栏单击【前往PMA】，进入腾讯 DMC 内置的 phpMyAdmin 进行相关数据库操作，phpMyAdmin 支持大多数 MySQL功能，包括：
+登录 [DMC 控制台](https://bj-dmc.cloud.tencent.com/v2/qcloudLogin/login)，在导航栏单击【前往PMA】，进入腾讯 DMC 内置的 phpMyAdmin 进行相关数据库操作，phpMyAdmin 支持大多数 MySQL 功能，包括：
 - 浏览和删除数据库、表、视图、字段以及索引。
 - 创建、复制、删除、重命名以及更改数据库、表、字段、索引。
  - 创建数据库和表详细操作，请参见 [创建数据库和表](https://cloud.tencent.com/document/product/236/8465)。
