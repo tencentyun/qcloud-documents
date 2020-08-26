@@ -1,17 +1,17 @@
-## Version 7.6.300 @ 2020.8.26
+## Version 7.6.300 @ 2020.08.26
 
 **新增**
-- Windows & Mac：新增 [setCurrentMicDeviceMute](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setCurrentMicDeviceMute) 、[getCurrentMicDeviceMute](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#getCurrentMicDeviceMute)、[setCurrentSpeakerDeviceMute](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setCurrentSpeakerDeviceMute)、[getCurrentSpeakerDeviceMute](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#getCurrentSpeakerDeviceMute) 用于控制 PC 的麦克风和扬声器。
+Windows & Mac：新增 [setCurrentMicDeviceMute](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setCurrentMicDeviceMute) 、[getCurrentMicDeviceMute](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#getCurrentMicDeviceMute)、[setCurrentSpeakerDeviceMute](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setCurrentSpeakerDeviceMute)、[getCurrentSpeakerDeviceMute](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#getCurrentSpeakerDeviceMute) 用于控制 PC 的麦克风和扬声器。
 
-## Version 7.5.210 @ 2020.8.11
+## Version 7.5.210 @ 2020.08.11
 
 **改进**
-- Windows & Mac：修复SDK回调乱序问题 
-- Windows & Mac：解决切换渲染模式导致崩溃的问题 
-- Windows & Mac：修复某些分辨率渲染失败的问题 
-- Windows & Mac：其他bug修复
+- Windows & Mac：修复 SDK 回调乱序问题。
+- Windows & Mac：解决切换渲染模式导致崩溃的问题。 
+- Windows & Mac：修复某些分辨率渲染失败的问题。 
+- Windows & Mac：其他 bug 修复。
 
-## Version 7.4.204 @ 2020.7.1
+## Version 7.4.204 @ 2020.07.01
 
 **改进**
 - Windows：优化 Windows 平台的回声抵消（AEC）效果。
@@ -20,7 +20,7 @@
 - Windows：修复 Windows 版本 onPlayAudioFrame 回调的 UserID 不正确的问题。
 - Windows：64 位支持系统混音
 
-## Version 7.2.174 @ 2020.4.20
+## Version 7.2.174 @ 2020.04.20
 
 **改进**
 - Mac：修复 Mac 偶现本地自定义渲染分辨率不一致问题。
@@ -31,7 +31,7 @@
 - Windows & Mac：修复屏幕分享设置编码参数不生效的问题。
 - Windows：修复 Windows 端屏幕分享后，webrtc 要很久才能看到画面的问题。
 
-## Version 7.1.157 @ 2020.4.2
+## Version 7.1.157 @ 2020.04.02
 
 **新增**
 
@@ -43,7 +43,7 @@
 - 优化 Windows 屏幕分享。
 
 
-## Version 7.0.149 @ 2020.3.19
+## Version 7.0.149 @ 2020.03.019
 
 **新增**
 
