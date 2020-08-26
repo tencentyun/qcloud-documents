@@ -26,7 +26,7 @@ Notebook 中默认用 tione 账户运行，如果在使用中需要切换到 roo
 ![img](https://main.qcloudimg.com/raw/d7a7a51ffbc2d4a5ef280b8829d28613.png)
 
 ###  Notebook 中使用 GPU 资源时，如何查看 CUDA 的版本信息？
-进入 Notebook 实例内部，在 Terminal 中执行 `nvidia-smi` 命令进行查看。 
+进入 Notebook 实例内部，在 Terminal 中执行 `nvidia-smi` 命令进行查看，如下图所示： 
 ![img](https://main.qcloudimg.com/raw/8183b761851987a0cad28e68da219de9.png)
 
 ### 如果在 Notebook 终端里面切换内核？
