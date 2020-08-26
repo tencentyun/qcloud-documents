@@ -52,7 +52,7 @@ kubectl describe node <node-name>
 
 ### 检查 Node 是否存在 Pod 没有容忍的污点
 #### 问题分析
-假如节点上存在污点（Taints），而 Pod 上没有响应的容忍（Tolerations），Pod 将不会调度到该 Node。在调度之前，可以先通过 `kubectl describe node <node-name>` 命令查看 Node 已设置污点。示例如下：
+假如节点上存在污点（Taints），而 Pod 上没有相应的容忍（Tolerations），Pod 将不会调度到该 Node。在调度之前，可以先通过 `kubectl describe node <node-name>` 命令查看 Node 已设置污点。示例如下：
 ``` bash
 $ kubectl describe nodes host1
 ...
