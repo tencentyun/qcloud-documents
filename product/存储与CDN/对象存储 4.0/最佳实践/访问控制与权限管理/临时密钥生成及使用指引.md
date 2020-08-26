@@ -105,9 +105,9 @@ public class Demo {
     public static void main(String[] args) throws Exception {
 
         // 用户基本信息
-        String tmpSecretId = "COS_SECRETID";   // 替换为您的 SecretId 
-        String tmpSecretKey = "COS_SECRETKEY";  // 替换为您的 SecretKey
-        String sessionToken = "Token";  // 替换为您的 Token
+        String tmpSecretId = "COS_SECRETID";   // 替换为 STS 接口返回给您的临时 SecretId 
+        String tmpSecretKey = "COS_SECRETKEY";  // 替换为 STS 接口返回给您的临时 SecretKey
+        String sessionToken = "Token";  // 替换为 STS 接口返回给您的临时 Token
 
         // 1 初始化用户身份信息(secretId, secretKey)
         COSCredentials cred = new BasicCOSCredentials(tmpSecretId, tmpSecretKey);
