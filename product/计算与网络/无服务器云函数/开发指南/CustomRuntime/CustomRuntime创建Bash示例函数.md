@@ -108,7 +108,7 @@ $ zip demo.zip index.sh bootstrap
 
 ### 使用 SDK 创建及发布函数<span id="SDK"></span>
 #### 创建函数<span id="creat"></span>
-执行以下命令，通过 SCF 的 python SDK 创建名为 CustomRuntime-Bash 的函数。
+执行以下命令，通过 SCF 的 Python SDK 创建名为 CustomRuntime-Bash 的函数。
 ```
 from tencentcloud.common import credential
 from tencentcloud.common.profile.client_profile import ClientProfile
@@ -150,7 +150,7 @@ except TencentCloudSDKException as err:
 
 
 #### 调用函数
-执行以下命令，通过 SCF 的 python SDK 调用已创建的 [CustomRuntime-Bash 函数](#creat)。
+执行以下命令，通过 SCF 的 Python SDK 调用已创建的 [CustomRuntime-Bash 函数](#creat)。
 ```
 from tencentcloud.common import credential
 from tencentcloud.common.profile.client_profile import ClientProfile
