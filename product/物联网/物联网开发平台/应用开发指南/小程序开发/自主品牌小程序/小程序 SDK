@@ -23,7 +23,7 @@ QcloudIotExplorerAppDevSdk(sdkOptions)
 
 #### getAccessToken 回调函数
 
-SDK 初始化时，将调用 `getAccessToken` 回调函数以登录到物联网开发平台，并取得平台的 AccessToken。
+SDK 初始化时，将调用`getAccessToken`回调函数以登录到物联网开发平台，并取得平台的 AccessToken。
 
 通过调用物联网开发平台的 [微信号注册登录](https://cloud.tencent.com/document/product/1081/40781) 应用端 API，可以让小程序用户通过微信注册登录到物联网开发平台，并获取平台的 AccessToken。由于涉及物联网开发平台 AppSecret 以及小程序用户的 openid 等敏感信息，该应用端 API 需要由开发者的后台服务器调用。
 
@@ -45,7 +45,7 @@ SDK 初始化时，将调用 `getAccessToken` 回调函数以登录到物联网�
 | autoReconnect         | websocket断开后是否自动连接，默认为：true，自动重连每两秒尝试一次 | boolean | 否   |
 | disconnectWhenAppHide | 当 App.onHide 触发时，是否自动断开 websocket，默认为：true   | boolean | 否   |
 | connectWhenAppShow    | 当 App.onShow 触发时，是否自动连接 websocket，默认为：true   | boolean | 否   |
-| url                   | websocket 服务的 url，默认为：wss://iot.cloud.tencent.com/ws/explorer | string  | 否   |
+| url                   | websocket 服务的 URL，默认为：wss://iot.cloud.tencent.com/ws/explorer | string  | 否   |
 | heartbeatInterval     | 心跳包的发送间隔，单位毫秒，默认为：60000                    | number  | 否   |
 
 ### SDK 初始化
@@ -324,14 +324,14 @@ sdk.requestApi('AppCreateDeviceBindToken')
 | 错误码                                          | 描述                                                         |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | ConnectDeviceErrorCode.UDP_NOT_RESPONSED        | 超时未收到设备响应                                           |
-| ConnectDeviceErrorCode.CONNECT_SOFTAP_FAIL      | 手机连接设备热点失败，具体的错误信息见 detail.errMsg<br>detail: { errMsg } |
-| ConnectDeviceErrorCode.CONNECT_TARGET_WIFI_FAIL | 手机连接 Wi-Fi 路由器失败，具体的错误信息见 detail.errMsg<br>detail: { errMsg } |
-| ConnectDeviceErrorCode.UDP_ERROR                | 配网过程中发生触发 udp.onError 事件<br>detail: { errMsg }    |
-| ConnectDeviceErrorCode.DEVICE_ERROR             | 收到设备响应的错误，具体的错误信息见 detail.errMsg<br>detail: { errMsg } |
-| ConnectDeviceErrorCode.INVALID_UDP_RESPONSE     | 收到非法的设备响应，detail.response 为具体的设备端响应<br>detail: { response } |
+| ConnectDeviceErrorCode.CONNECT_SOFTAP_FAIL      | 手机连接设备热点失败<br>detail: { errMsg }，错误信息         |
+| ConnectDeviceErrorCode.CONNECT_TARGET_WIFI_FAIL | 手机连接 Wi-Fi 路由器失败<br>detail: { errMsg }，错误信息    |
+| ConnectDeviceErrorCode.UDP_ERROR                | 配网过程中触发 udp.onError 事件<br>detail: { errMsg }，错误信息 |
+| ConnectDeviceErrorCode.DEVICE_ERROR             | 收到设备响应的错误<br>detail: { errMsg }，错误信息           |
+| ConnectDeviceErrorCode.INVALID_UDP_RESPONSE     | 收到非法的设备响应<br>detail: { response }，具体的设备端响应 |
 | ConnectDeviceErrorCode.DEVICE_CONNECT_MQTT_FAIL | 设备连接 MQTT 服务失败                                       |
 | ConnectDeviceErrorCode.DEVICE_CONNECT_WIFI_FAIL | 设备连接目标 Wi-Fi 失败                                      |
-| ConnectDeviceErrorCode.ADD_DEVICE_FAIL          | 添加设备失败，具体的错误信息见 detail.errMsg<br>detail: { errMsg } |
+| ConnectDeviceErrorCode.ADD_DEVICE_FAIL          | 添加设备失败<br>detail: { errMsg }，错误信息                 |
 | ConnectDeviceErrorCode.SEND_UDP_MSG_FAIL        | 与设备 UDP 通信时，发送消息失败                              |
 
 ## 长连接通信
