@@ -3,8 +3,8 @@
 
 SDK 初始化后，才能通过 SDK 使用物联网开发平台提供的云端能力。初始化 SDK 需要依次完成以下步骤：
 
-1. 调用`QcloudIotExplorerAppDevSdk`的构造函数并传入配置项，创建 SDK 对象。
-2. 调用 SDK 对象的`init`函数初始化 SDK。
+1. 调用 `QcloudIotExplorerAppDevSdk` 的构造函数并传入配置项，创建 SDK 对象。
+2. 调用 SDK 对象的 `init` 函数初始化 SDK。
 
 ### SDK 对象构造函数
 
@@ -23,7 +23,7 @@ QcloudIotExplorerAppDevSdk(sdkOptions)
 
 #### getAccessToken 回调函数
 
-SDK 初始化时，将调用`getAccessToken`回调函数以登录到物联网开发平台，并取得平台的 AccessToken。
+SDK 初始化时，将调用 `getAccessToken` 回调函数以登录到物联网开发平台，并取得平台的 AccessToken。
 
 通过调用物联网开发平台的 [微信号注册登录](https://cloud.tencent.com/document/product/1081/40781) 应用端 API，可以让小程序用户通过微信注册登录到物联网开发平台，并获取平台的 AccessToken。由于涉及物联网开发平台 AppSecret 以及小程序用户的 openid 等敏感信息，该应用端 API 需要由开发者的后台服务器调用。
 
@@ -34,7 +34,7 @@ SDK 初始化时，将调用`getAccessToken`回调函数以登录到物联网开
 2. 向开发者后台服务器发送登录请求，并传参小程序的用户信息。
 3. 开发者后台服务器调用 [微信号注册登录](https://cloud.tencent.com/document/product/1081/40781) 应用端 API 登录物联网开发平台。
 4. 开发者后台服务器将应用端 API 的响应返回给小程序。
-5. 小程序收到开发者后台服务器的响应后，将响应内容作为 getAccessToken 函数返回的 Promise 的值。
+5. 小程序收到开发者后台服务器的响应后，将响应内容作为 `getAccessToken` 函数返回的 Promise 的值。
 
 
 
@@ -148,8 +148,8 @@ sdk.requestApi('AppGetFamilyDeviceList', { FamilyId: 'default' })
 ```
 
 >! 
-- 腾讯云物联网开发平台是基于**家庭**的设备体系，每个家庭有其对应的`FamilyId`，每台设备均归属一个家庭。
-- 开发者也可以选择不关注家庭这一概念，对所有需要传`FamilyId`的接口（如 [获取用户绑定设备列表](https://cloud.tencent.com/document/product/1081/40803)）传入`default`作为`FamilyId`，SDK 会自动完成内部的家庭相关的逻辑（SDK 会为用户创建一个默认家庭，若`FamilyId`入参的值为`default`，SDK 会自动替换为用户默认家庭的`FamilyId`）。
+- 腾讯云物联网开发平台是基于**家庭**的设备体系，每个家庭有其对应的 `FamilyId`，每台设备均归属一个家庭。
+- 开发者也可以选择不关注家庭这一概念，对所有需要传`FamilyId`的接口（如 [获取用户绑定设备列表](https://cloud.tencent.com/document/product/1081/40803)）传入`default` 作为 `FamilyId`，SDK 会自动完成内部的家庭相关的逻辑（SDK 会为用户创建一个默认家庭，若`FamilyId`入参的值为`default`，SDK 会自动替换为用户默认家庭的`FamilyId`）。
 
 ## 设备配网
 
@@ -299,7 +299,7 @@ sdk.requestApi('AppCreateDeviceBindToken')
 <span id="SmartConfig"></span>
 #### 配网步骤
 
-`sdk.connectDevice()`配网过程中，每执行完一个步骤就会触发一次`onProgress`回调，入参为：`{ code, msg, ...detail }`形式。
+`sdk.connectDevice()` 配网过程中，每执行完一个步骤就会触发一次 `onProgress` 回调，入参为：`{ code, msg, ...detail }` 形式。
 
 | 步骤                                                 | 描述                                                         |
 | ---------------------------------------------------- | ------------------------------------------------------------ |
