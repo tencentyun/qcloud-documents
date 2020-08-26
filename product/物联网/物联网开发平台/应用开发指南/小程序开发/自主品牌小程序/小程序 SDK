@@ -153,8 +153,6 @@ sdk.requestApi('AppGetFamilyDeviceList', { FamilyId: 'default' })
 
 ## 设备配网
 
-### 进行设备配网
-
 SDK 目前支持 softAP 和 SmartConfig 方式进行设备配网。
 
 ```typescript
@@ -164,11 +162,11 @@ sdk.connectDevice({
 }) => Promise< void >
 ```
 
-#### softAP 配网
+### softAP 配网
 
 关于 softAP 方式配网的流程，请参见 [softAP 配网开发](https://cloud.tencent.com/document/product/1081/43695)。
 
-##### softApOpts 配网参数
+#### softApOpts 配网参数
 
 | 参数名                    | 参数描述                                                     | 类型                                                         | 必填 |
 | ------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
@@ -184,7 +182,7 @@ sdk.connectDevice({
 | waitUdpResponseDuration   | UDP 消息发送重试间隔，单位毫秒，默认为：2000，一般无需更改   | number                                                       | 否   |
 | stepGap                   | 配网过程中，每一步中间等待的间隔，单位毫秒，默认为：3000，一般无需更改 | number                                                       | 否   |
 
-##### WifiInfo 数据结构
+#### WifiInfo 数据结构
 
 | 属性名   | 属性描述      | 类型   | 必填 |
 | -------- | ------------- | ------ | ---- |
@@ -192,7 +190,7 @@ sdk.connectDevice({
 | password | Wi-Fi 的 密码 | string | 否   |
 
 
-##### 示例代码
+#### 示例代码
 
 ```javascript
 sdk.connectDevice({
@@ -220,7 +218,7 @@ sdk.connectDevice({
 });
 ```
 <span id="softAP"></span>
-##### 配网步骤
+#### 配网步骤
 
 | 步骤                                                | 描述                                                         |
 | --------------------------------------------------- | ------------------------------------------------------------ |
@@ -240,11 +238,11 @@ sdk.connectDevice({
 | ConnectDeviceStepCode.CONNECT_DEVICE_SUCCESS        | 配网成功                                                     |
 
 
-#### SmartConfig 配网
+### SmartConfig 配网
 
 关于 SmartConfig 方式配网的流程，请参见 [SmartConfig 配网开发](https://cloud.tencent.com/document/product/1081/43696)。SmartConfig 方式配网需要调用 [生成 Wi-Fi 设备配网 Token](https://cloud.tencent.com/document/product/1081/44044) 应用端 API 获取 Wi-Fi 设备配网 Token。
 
-##### smartConfigOpts 配网参数
+#### smartConfigOpts 配网参数
 
 | 参数名                  | 参数描述                                                     | 类型                                                         | 必填 |
 | ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
@@ -259,7 +257,7 @@ sdk.connectDevice({
 | waitUdpResponseDuration | 轮询云端，设备绑定云端的状态的重试间隔，单位毫秒，默认为：2000，一般无需更改 | number                                                       | 否   |
 | stepGap                 | 配网过程中，每一步中间等待的间隔，单位毫秒，默认为：3000，一般无需更改 | number                                                       | 否   |
 
-##### WifiInfo 数据结构
+#### WifiInfo 数据结构
 
 | 属性名   | 属性描述       | 类型   | 必填 |
 | -------- | -------------- | ------ | ---- |
@@ -267,7 +265,7 @@ sdk.connectDevice({
 | BSSID    | Wi-Fi 的 BSSID | string | 是   |
 | password | Wi-Fi 的 密码  | string | 是   |
 
-##### 示例代码
+#### 示例代码
 
 ```javascript
 // 1. 获取 Wi-Fi 设备配网 Token
@@ -299,7 +297,7 @@ sdk.requestApi('AppCreateDeviceBindToken')
   });
 ```
 <span id="SmartConfig"></span>
-##### 配网步骤
+#### 配网步骤
 
 `sdk.connectDevice()`配网过程中，每执行完一个步骤就会触发一次`onProgress`回调，入参为：`{ code, msg, ...detail }`形式。
 
@@ -319,7 +317,7 @@ sdk.requestApi('AppCreateDeviceBindToken')
 | ConnectDeviceStepCode.CONNECT_DEVICE_SUCCESS         | 一键配网成功                                                 |
 
 <span id="test2"></span>
-#### 错误码
+### 错误码
 
 | 错误码                                          | 描述                                                         |
 | ----------------------------------------------- | ------------------------------------------------------------ |
