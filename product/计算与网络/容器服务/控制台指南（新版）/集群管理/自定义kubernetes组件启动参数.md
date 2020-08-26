@@ -1,5 +1,5 @@
 ## 操作场景
-
+为方便对容器服务 TKE 集群中的 kubernetes 组件参数进行设置与管理，腾讯云开发了自定义 Kubernetes 组件参数功能。本文将介绍在集群中如何设置自定义 Kubernetes 组件参数。
 
 
 ## 注意事项
@@ -12,8 +12,7 @@
 ### 创建集群设置自定义 Kubernetes 组件参数
 1. <span id="step1">登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)，单击左侧导航栏中的【集群】。</span>
 2. 在“集群管理”页面，单击集群列表上方的【新建】。
-3. 在“创建集群”页面，选择【高级设置】>【设置kubernetes自定义组件参数】。如下图所示：
-![](https://main.qcloudimg.com/raw/b0bc897ba130d89f64e803401b339b9a.png)
+3. 在“创建集群”页面，选择【高级设置】>【设置kubernetes自定义组件参数】。参数取值范围为1-2000。
 
 ### 设置节点的自定义 Kubelet 参数
 在“新建集群节点”页面、“添加已有节点”页面、“新增节点池”页面及“新增节点”页面均可设置节点的自定义 kubelet 参数。如下图所示：
@@ -25,4 +24,4 @@
 2. 在“集群管理”页面，选择需进行 Master Kubernetes 版本升级的集群 ID，进入集群详情页。
 3. 在集群详情页面，选择左侧【基本信息】。
 4. 在集群“基本信息”页面的集群信息模块，单击 Master 版本右侧的【升级】。同时设置kubernetes 组件启动参数。如下图所示：
-![](https://main.qcloudimg.com/raw/ca9cd67172659ab3d6893e5671475554.png)
+![](https://main.qcloudimg.com/raw/f9fa2c7e3b17e18e0b79e9859fa7695a.png)
