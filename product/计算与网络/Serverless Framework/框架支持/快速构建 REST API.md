@@ -38,7 +38,7 @@ stage: dev
 
 inputs:
   name: myRestAPI
-  enableRoleAuth: ture
+  enableRoleAuth: true
   src: ./code
   handler: index.main_handler
   runtime: Python3.6
