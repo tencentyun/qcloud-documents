@@ -1,3 +1,25 @@
+## Version 7.6.300 @ 2020.8.26
+
+**新增**
+- Windows & Mac：新增 [setCurrentMicDeviceMute](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setCurrentMicDeviceMute) 、[getCurrentMicDeviceMute](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#getCurrentMicDeviceMute)、[setCurrentSpeakerDeviceMute](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setCurrentSpeakerDeviceMute)、[getCurrentSpeakerDeviceMute](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#getCurrentSpeakerDeviceMute) 用于控制 PC 的麦克风和扬声器。
+
+## Version 7.5.210 @ 2020.8.11
+
+**改进**
+- Windows & Mac：修复SDK回调乱序问题 
+- Windows & Mac：解决切换渲染模式导致崩溃的问题 
+- Windows & Mac：修复某些分辨率渲染失败的问题 
+- Windows & Mac：其他bug修复
+
+## Version 7.4.204 @ 2020.7.1
+
+**改进**
+- Windows：优化 Windows 平台的回声抵消（AEC）效果。
+- Windows：增强 Windows 平台的摄像头采集的设备兼容性。
+- Windows：增强 Windows 平台的音频设备（麦克风和扬声器）的设备兼容性。
+- Windows：修复 Windows 版本 onPlayAudioFrame 回调的 UserID 不正确的问题。
+- Windows：64 位支持系统混音
+
 ## Version 7.2.174 @ 2020.4.20
 
 **改进**
