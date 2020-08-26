@@ -91,7 +91,7 @@
 
 **方法一：通过 Maven 仓库依赖**
 
-1. 在 dependencies 中添加 TRTCSDK 和 IMSDK 的依赖。
+1. 在 dependencies 中添加 TRTC SDK 和 IM SDK 的依赖。
 ```
 dependencies {
 	complie "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
