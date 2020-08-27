@@ -122,11 +122,10 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 
 
 未集成通知服务扩展插件：
-![](https://main.qcloudimg.com/raw/7a369b690641de790ea4fa97fd309e64.png)
+![](https://main.qcloudimg.com/raw/79c01ccaffca8be63341b18ad48ea9a7.png)
 
 集成通知服务扩展插件后：
-![](https://main.qcloudimg.com/raw/d55f63b03c79bb2fea5b42033e66d8bb.png)
-
+![](https://main.qcloudimg.com/raw/b2efe6f31b14c129fc2167f14ed6ece3.png)
 
 
 ## 调试方法
