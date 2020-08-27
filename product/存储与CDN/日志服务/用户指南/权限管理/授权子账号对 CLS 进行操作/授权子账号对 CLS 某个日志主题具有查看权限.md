@@ -1,14 +1,14 @@
 
 企业账号 CompanyExample 下有一个子账号 Developer，该子账号需要通过控制台及 API 拥有对企业账号 CompanyExample 下的日志主题 -TopicA 有查看权限（包含日志检索、分析、仪表盘和告警等）。
 
-#### 准备工作
+## 准备工作
 
 1. 登录 [访问管理控制台](https://console.cloud.tencent.com/cam)。创建子账号 Developer，详细操作请参考 [自定义创建子用户](https://cloud.tencent.com/document/product/598/13674)。
 2. 在新建用户页面，单击【自定义创建】，进入选择用户类型页面，单击 **【可访问资源并接收消息】**。
 3. 单击【下一步】，进入填写用户信息页面，选中**【编程访问】**及【**腾讯云控制台访问**】。
 
 
-#### 操作步骤：
+## 操作步骤
 
 分为三个步骤：主账号创建自定义策略、主账号 CompanyExample 给子账号 Developer 授权日志主题 -TopicA 的查看权限、子账号 Developer 访问 CLS 日志服务。
 1. 创建自定义策略
@@ -50,7 +50,7 @@
     ]
 }
 ```
->?resource 字段需要用户根据实际信息进行修改：地域信息、uin 表示主账号、topic 为日志主题ID。
+>?resource 字段需要用户根据实际信息进行修改：地域信息、uin 表示主账号、topic 为日志主题 ID。
 >
 如下图所示：
 ![企业微信截图_1ca39f00-cb46-45dc-89a8-fd3a7a6ca652](https://main.qcloudimg.com/raw/1b4cd526d873e8a4585609d5b6331048.png)
