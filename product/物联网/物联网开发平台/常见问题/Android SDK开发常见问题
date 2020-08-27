@@ -1,1 +1,26 @@
 
+
+### 怎么分辨我用的网络是2.4G还是5G？
+PC 端查看步骤如下：
+1. 单击 Windows 系统桌面右下角的网络标志。
+2. 在弹出的框中，单击【网络和Internet设置】。
+3. 在打开的【设置】窗口中，单击【WLAN】下的【硬件属性】，即可看到网络频段。
+
+### 接入 SDK，调用 SDK 初始化方法后应用程序报错：java.lang.ClassNotFoundException: Didn't find class "org.java_websocket.client.WebSocketClient" 该怎么解决？
+您需要在 App 的 application 模块的 `build.gradle` 文件中 dependecies 加入：
+
+```objective-c
+dependencies {
+  implementation "org.java-websocket:java-WebSocket:1.4.0"
+}  
+```
+
+### 接入SDK，调用 SDK 方法后应用程序报错：`java.lang.NoClassDefFoundError: Failed resolution of: Lkotlinx/coroutines/Dispatchers` 或者 `java.lang.ClassNotFoundException: Didn't find class "kotlinx.coroutines.Dispatchers"` 该怎么解决？
+
+您需要在 App 的 application 模块的 `build.gradle` 文件中 dependecies 加入：
+```objective-c
+dependencies {
+  implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.3.4"
+}  
+```
+
