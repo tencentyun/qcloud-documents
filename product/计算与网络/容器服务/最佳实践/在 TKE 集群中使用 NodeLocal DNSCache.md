@@ -80,9 +80,7 @@ data:
            reload
            loop
            bind 169.254.20.10
-           forward . /etc/resolv.conf {
-                   force_tcp
-           }
+           forward . /etc/resolv.conf 
            prometheus :9253
            }
 	---
