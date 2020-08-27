@@ -118,7 +118,16 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 - 接收图片、音视频富媒体消息。
 
 接入步骤请参考文档 [通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
->!如果未集成此接口，则统计数据中消息“抵达数”与“点击数”一致。
+>!如果未集成此接口，则无法统计“抵达数”。
+
+
+未集成通知服务扩展插件：
+![](https://main.qcloudimg.com/raw/7a369b690641de790ea4fa97fd309e64.png)
+
+集成通知服务扩展插件后：
+![](https://main.qcloudimg.com/raw/d55f63b03c79bb2fea5b42033e66d8bb.png)
+
+
 
 ## 调试方法
 #### 开启 Debug 模式
