@@ -1,7 +1,6 @@
-
 ## 操作场景
 
-假设一款智能灯接入到腾讯云物联网开发平台，通过物联网开发平台可以远程控制灯的亮度、颜色、开关，并实时获取智能灯上报到开发平台的数据。本文档主要指导您如何基于TencentOS-tiny物联网操作系统，使用MQTTS协议在物联网开发平台控制台接入智能灯。
+假设一款智能灯接入到物联网开发平台，通过物联网开发平台可以远程控制灯的亮度、颜色、开关，并实时获取智能灯上报到开发平台的数据。本文档主要指导您如何基于 TencentOS-tiny 物联网操作系统，使用 MQTT 协议在物联网开发平台控制台接入智能灯。
 
 ## 前提条件
 
@@ -14,10 +13,10 @@
 ### 创建项目
 
 1. 登录 [物联网开发平台控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fiotexplorer)。
-2. 点击新建项目，填写项目名称和项目描述。
-![](https://main.qcloudimg.com/raw/948f0f074167fbf4765de571d4fdb84e.jpg)
- - **项目名称**：支持中文、英文、数字、下划线的组合，最多不超过20个字符。例如“智能灯演示”。
- - **项目描述**：最多不超过80个字符。
+2. 点击新建项目，填写项目名称和项目描述：
+ - 项目名称：输入“智能灯演示”或其他名称。
+ - 项目描述：按照实际需求填写项目描述。
+![](https://main.qcloudimg.com/raw/a696eca1c331421602e5d099c985d252.jpg)
 3. 项目基本信息填写完成后，单击【保存】，即可完成新建项目。
 4. 项目新建成功后，即可新建产品。
 
@@ -25,17 +24,17 @@
 
 1. 进入该项目的产品列表页面，单击【新建产品】.
 2. 在新建产品页面，填写产品基本信息。
+  - 产品名称：输入“智能灯”或其他产品名称。
+  - 产品类型：选择【智慧城市】>【公共事业】>【路灯照明】。
+  - 设备类型：选择“设备”。
+  - 认证方式：选择“密钥认证”。
+  - 通信方式：随意选择。
+  - 数据协议：默认为“数据模板”。
+  - 描述：按照实际需求填写项目描述。
 ![](https://main.qcloudimg.com/raw/5632337cf6b43546f83d4cf9a92a18dd.png)
-  - **产品名称**：支持中文、英文、数字、下划线的组合，最多不超过20个字符。例如“智能灯”。
-  - **产品类型**：选择【智慧城市】>【公共事业】>【路灯照明】。
-  - **设备类型**：选择【设备】。
-  - **认证方式**：选择【密钥认证】。
-  - **通信方式**：任意选择其一。
-  - **数据协议**：选择【数据模板】。
-  - **描述**：最多不超过80个字符。
 3. 产品信息填写完成后，单击【保存】，即可完成新建产品。
 4. 产品新建成功后，可在产品列表页查看到“智能灯”。
-![](https://main.qcloudimg.com/raw/3217d954429b125d08e1c1c81690aa08.png)
+![](https://main.qcloudimg.com/raw/cea75c03773aed81f9061da302e9fb3d.png)
 
 ### 创建数据模板
 
@@ -45,7 +44,9 @@
 ### 创建测试设备
 
 在【设备调试】页面中，单击【新建设备】，设备名为 dev001。
+
 ![](https://main.qcloudimg.com/raw/4f7f39df544ce19cf38126ddd79a49b3.png)
+
 ## 开发板实物操作
 
 ### 硬件连接
@@ -54,71 +55,52 @@
 
 ![](https://main.qcloudimg.com/raw/4f47e4d3ba910e4528c9738c0ed65010.png)
 
-1. 使用USB线连接到开发板顶端的USB接口，在为开发板供电的同时，可以在PC端通过串口调试助手查看输出日志。
-2. 使用ST-Link下载器连接开发板右侧的接口，为开发板下载程序。
-3. 将开发板配套的ESP8266模组插入到开发板右侧的通信模组接口。
+1. 使用 USB 线连接到开发板顶端的 USB 接口，在为开发板供电的同时，可以在 PC 端通过串口调试助手查看输出日志。
+2. 使用 ST-Link 下载器连接开发板右侧的接口，为开发板下载程序。
+3. 将开发板配套的 ESP8266 模组插入到开发板右侧的通信模组接口。
 
 ### 串口准备
-
-1. 硬件连接成功后，打开 PC 上的设备管理器，即可查看开发板所对应的串口（请确保已安装 CH340 驱动）。
-
+1. 硬件连接成功后，打开 PC 端上的设备管理器，即可查看开发板所对应的串口（请确保已安装 CH340 驱动）。
 ![](https://main.qcloudimg.com/raw/5c44a520e8d0bc22d0e9849d8bcf3868.png)
 
 2. 打开串口工具，做好相应配置后，打开串口：
-
-  - 端口号。本例中为 COM20。
-  - 波特率。本例中为 115200。
-
+  - 端口号：本例中为 COM20。
+  - 波特率：本例中为 115200。
 ![](https://main.qcloudimg.com/raw/320e72b7721bf000829bc1e65cc75236.png)
 
 ### 属性上报和控制命令下发操作步骤
 
-#### Step1. 下载官方例程
+#### 步骤1：下载官方例程
 
-1. 使用git工具下载TencentOS-tiny源码，也可以访问[Github](https://github.com/Tencent/TencentOS-tiny)官方仓库下载：
-
+1. 使用 git 工具下载 TencentOS-tiny 源码，也可以访问 [Github](https://github.com/Tencent/TencentOS-tiny) 官方仓库下载。
 ```bash
 git clone https://github.com/Tencent/TencentOS-tiny.git
 ```
-
-2. 下载之后，进入TencentOS-tiny\board\TencentOS_tiny_EVB_MX_Plus\KEIL\qcloud_iot_explorer_sdk_data_template目录：
-
+2. 下载之后，进入 `TencentOS-tiny\board\TencentOS_tiny_EVB_MX_Plus\KEIL\qcloud_iot_explorer_sdk_data_template` 目录。
 ![](https://main.qcloudimg.com/raw/5233e111b7caa55d9f1b87ad63de5089.png)
+3. 示例工程中包含 STM32L431 外设驱动、TencentOS-tiny 内核、AT 框架、SAL 框架、腾讯云 C-SDK，以及示例程序。
 
-3. 示例工程中包含STM32L431外设驱动、TencentOS-tiny内核、AT框架、SAL框架、腾讯云C-SDK，以及示例程序。
+#### 步骤2：配置修改
 
-#### Step2. 配置修改
-
-1. 双击 TencentOS_tiny.uvprojx 打开工程（请确保已经安装好Keil-MDK开发环境）。
-2. 修改HAL_Device_tencentos_tiny.c文件，在
-
-```
-TencentOS-tiny\components\connectivity\qcloud-iot-explorer-sdk\port\TencentOS_tiny
-```
-
-目录中：
-
-![](https://main.qcloudimg.com/raw/cadab6199c68fc70debc7e02a6580731.png)
-
-3. 将上图红色线框中的数据分别替换为控制台 **“设备详情页”** 中的参数并保存。
-
- * 产品 ID： 将控制台的产品 ID ，复制到上图 sg_product_id。
- * 设备名称： 将控制台的设备名称，复制到上图 sg_device_name。
- * 设备密钥：将控制台的设备密钥，复制到上图sg_device_secret。
-
-4. 修改entry.c中的WIFI网络接入配置信息：
-
+1. 双击 `TencentOS_tiny.uvprojx` 打开工程（请确保已经安装好 Keil-MDK 开发环境）。
+2. 在 `TencentOS-tiny\components\connectivity\qcloud-iot-explorer-sdk\port\TencentOS_tiny` 目录中：
+ 1. 修改 `HAL_Device_tencentos_tiny.c` 文件。将下图红色线框中的数据分别替换为控制台 **“设备详情页”** 中的参数并保存。
+    -  产品 ID： 将控制台的产品 ID ，复制到下图 sg_product_id。
+    -  设备名称： 将控制台的设备名称，复制到下图 sg_device_name。
+    -  设备密钥：将控制台的设备密钥，复制到下图 sg_device_secret。
+    ![](https://main.qcloudimg.com/raw/cadab6199c68fc70debc7e02a6580731.png)
+ 2. 修改 entry.c 中的Wi-Fi 网络接入配置信息。
 ![](https://main.qcloudimg.com/raw/d1dc0309a19ff454112f64fbc3111da2.png)
 
-#### Step3. 编译
+#### 步骤3：编译
 
 单击 MDK 工具栏【Rebuild All】，编译整个工程。
 
-#### Step4. 下载
+#### 步骤4：下载
 
 单击 MDK 工具栏【Download】，下载编译好的固件。
 
-#### Step5. 查看运行结果
+#### 步骤5：查看运行结果
 
 在串口助手中可以看到设备在上报之后处于等待平台下发控制指令的状态：
 
