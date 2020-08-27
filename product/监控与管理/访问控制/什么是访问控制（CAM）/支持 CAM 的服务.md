@@ -369,6 +369,8 @@
  | 服务                                                         | 授权粒度 | 控制台  | 根据标签进行授权 |  服务角色 |	参考文档 |
 | ------------------------------------------------------------| ------ | --------| ----- |  ---- |		 ---- |
 | [访问管理](https://cloud.tencent.com/document/product/598)  | 操作级  | &#10003; | -   | -    | [访问管理指南](https://cloud.tencent.com/document/product/598/10590)   |
+| [身身份管理服务 IDaaS](hhttps://cloud.tencent.com/document/product/1106)  | 服务级  | &#10003; | -   | &#10003;    | -  |
+| [云审计](https://cloud.tencent.com/document/product/629)  | 操作级  | &#10003; | -   | &#10003;    | -   |
 | [云审计](https://cloud.tencent.com/document/product/629)  | 操作级  | &#10003; | -   | &#10003;    | -   |
 | [企业组织](https://cloud.tencent.com/document/product/850) | 操作级 | &#10003; | -  |- | -   |
 | [商业流程服务](https://cloud.tencent.com/document/product/1083)  | 操作级 | &#10003; | -   | &#10003;  | [访问管理指南](https://cloud.tencent.com/document/product/1083/34888)  |
