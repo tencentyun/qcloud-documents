@@ -195,7 +195,7 @@ sCall.login(1400000123, "userA", "xxxx", new ActionCallback());
 
 ### 步骤5：实现1v1语音通话
 
-1. 发起方：调用 `TRTCCalling` 的 `call()` 方法发起通话的请求, 并传入用户id（userid）和通话类型（type），通话类型参数传入`TYPE_AUDIO_CALL`。
+1. 发起方：调用 `TRTCCalling` 的 `call()` 方法发起通话的请求, 并传入用户 ID（userid）和通话类型（type），通话类型参数传入`TYPE_AUDIO_CALL`。
 2. 接收方：当接收方处于已登录状态时，会收到名为 `onInvited()` 的事件通知。如果希望接收方在不处于登录状态时也能收到通话请求，请参考 [离线接听](#model.offline)。
 3. 接收方：如果希望接听通话，接收方可以调用 `accept()`函数，或者调用 `reject()` 拒绝此次通话。
 4. 当双方的音视频通道建立完成后，通话的双方都会接收到名为  `onUserEnter()` 的事件通知，此时说明双方已经进入通话。
