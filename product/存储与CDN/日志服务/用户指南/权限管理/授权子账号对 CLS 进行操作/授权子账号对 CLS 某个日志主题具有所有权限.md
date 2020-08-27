@@ -13,8 +13,6 @@
 1. 创建自定义策略
  1. 主账号 CompanyExample 登录 [CAM 控制台](https://console.cloud.tencent.com/cam)。
  1. 在左侧导航中，单击【策略】>【新建自定义策略】>【按策略语法创建】>【空白模版】建立新策略，如名称为 CLS-TopicA-FullAccess ，并在【策略内容】中输入策略，参考以下内容：
->?以下为参考语法内容，resource 字段需要用户根据实际信息进行修改：地域信息、uin 表示主账号、topic 为日志主题 ID。
-
 ```
 {
     "version": "2.0",
@@ -39,7 +37,9 @@
     ]
 }
 ```
-  如下图所示：
+>?resource 字段需要用户根据实际信息进行修改：地域信息、uin 表示主账号、topic 为日志主题 ID。
+
+    如下图所示：
   ![企业微信截图_1ca39f00-cb46-45dc-89a8-fd3a7a6ca652](https://main.qcloudimg.com/raw/389b2bd88f9ed78f953befbc46305aaf.png)
 
 2. 主账号授权
