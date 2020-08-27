@@ -23,7 +23,7 @@ row format delimited fields terminated by ','
 LINES TERMINATED BY '\n'
 stored as textfile location 'cosn://{bucket_name}/{dir_name}';
 ```
-详细信息可以参考 EMR 文档 [基于对象存储 COS 的数据创库](https://cloud.tencent.com/document/product/589/12319)。
+详细信息可以参考 EMR 文档 [基于对象存储 COS 的数据仓库](https://cloud.tencent.com/document/product/589/12319)。
 4. 将本地数据导入 COS
 ```
 insert into hive_cos_table select * from hive_local_table;
