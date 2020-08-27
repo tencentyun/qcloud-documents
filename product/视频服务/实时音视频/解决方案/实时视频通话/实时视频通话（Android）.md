@@ -185,7 +185,7 @@ sCall.login(1400000123, "userA", "xxxx", new ActionCallback());
 
 ### 步骤5：实现 1v1 视频通话
 
-1. 发起方：调用 `TRTCCalling` 的 `call()` 方法发起通话的请求, 并传入用户id（userid）和通话类型（type），通话类型参数传入`TYPE_VIDEO_CALL`。
+1. 发起方：调用 `TRTCCalling` 的 `call()` 方法发起通话的请求, 并传入用户 ID（userid）和通话类型（type），通话类型参数传入`TYPE_VIDEO_CALL`。
 2. 接收方：当接收方处于已登录状态时，会收到名为 `onInvited()` 的事件通知，回调中 `callType` 的参数是发起方填写的通话类型，您可以通过此参数启动相应的界面，如果希望接收方在不处于登录状态时也能收到通话请求，请参考 [离线接听](#model.offline)。
 3. 接收方：如果希望接听电话，接收方可以调用 `accept()` 函数，并同时调用 `openCamera()` 函数打开自己本地的摄像头。接收方也可以调用 `reject()` 拒绝此次通话。
 4. 当双方的音视频通道建立完成后，通话的双方都会接收到名为  `onUserVideoAvailable()` 的事件通知，表示对方的视频画面已经拿到。此时双方用户均可以调用`startRemoteView()` 展示远端的视频画面。远端的声音默认是自动播放的。

@@ -24,11 +24,13 @@
 	 ![](https://main.qcloudimg.com/raw/c0c4830e62cb975e55ffd38354c6ced5.png)
 	4. 进行数据同步设置，目前支持手动同步和自动定时同步。若选择定时同步，可选同步频率。
 	![](https://main.qcloudimg.com/raw/a0fd46c7480c94177e28e8492a7ffff5.png)
+	5. 配置完成后，单击【确认】完成。之后下载并安装 Qcloud AD Agent。
+	![](https://main.qcloudimg.com/raw/f929f795320f5b3ce5d8ea39dd54625b.png)
 4. 下载并安装 Qcloud AD Agent。
 	1. 在 LDAP/AD 数据源详情页下载 AD Agent。
-	 ![](https://main.qcloudimg.com/raw/2ae29d306a4422053d69a1d444276d00.png)
-	2. 安装 AD Agent，过程中需输入 Agent 配置信息中的同步 ID、同步 Token、同步加密 Key 和同步 URL。
-	 ![](https://main.qcloudimg.com/raw/bcd1f9cedb051575dc5b13b31b9f1045.png)
-5.至此，您已完成 LDAP/AD 数据源的配置。
+	 ![](https://main.qcloudimg.com/raw/0821edb53760d8b8153b17d15b8ae0a2.png)
+	2. 下载好安装文件后，安装 AD Agent。过程中需输入 Agent 配置信息中的同步 ID、同步 Token、同步加密 Key 和同步 URL。
+	 ![](https://main.qcloudimg.com/raw/fda0a4a46ef84bfa0c85b47887719373.png)
+5. 至此，您已完成 LDAP/AD 数据源的配置。
 >! 若想使用 AD 账号登录 IDaaS 门户，还需将 LDAP/AD 数据源同步至 IDaaS 并配置 [LDAP 认证源](https://cloud.tencent.com/document/product/1106/47049)。
 

@@ -216,8 +216,7 @@ public void onOrientationChange(boolean isPortrait) {
 }   
 ```
 
->! Android 中的 Activity 支持跟随手机的重力感应自动渲染，如果您开启了 Activity 的自动重力感应旋转，请参见    
->[CameraPusherActivity.java](https://github.com/tencentyun/MLVBSDK/blob/master/Android/Demo/livepusherdemo/src/main/java/com/tencent/liteav/demo/livepusher/cameralivepush/CameraPusherActivity.java)  中的`setRotationForActivity`以及相关示例代码。    
+>! Android 中的 Activity 支持跟随手机的重力感应自动渲染，如果您开启了 Activity 的自动重力感应旋转，请参见 [CameraPushMainActivity.java](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livepusherdemo/src/main/java/com/tencent/liteav/demo/livepusher/camerapush/ui/CameraPushMainActivity.java)  中的`setRotationForActivity`以及相关示例代码。    
 >![](https://main.qcloudimg.com/raw/f72f665590b6676989dfa4187ef8e15d.png)   
 
 ### 13. 隐私模式（垫片推流）  

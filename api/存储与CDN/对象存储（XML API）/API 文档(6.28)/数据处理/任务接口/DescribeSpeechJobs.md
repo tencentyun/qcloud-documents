@@ -1,6 +1,6 @@
 ## 功能描述
 
-DescribeSpeechJobs 用于拉取符合条件的语音识别任务。
+DescribeSpeechJobs 用于查询符合条件的语音识别任务。
 
 ## 请求
 
@@ -77,9 +77,9 @@ Container 节点 Response 的内容：
 
 ## 实际案例
 
-**请求**
+**请求：查询符合条件的语音识别任务**
 
-```
+```plaintext
 GET /asr_jobs?size=&states=&queueId=&startCreationTime=&endCreationTime= HTTP/1.1
 Connection: keep-alive
 Accept-Encoding: gzip, deflate
@@ -114,7 +114,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDnOr9IDiIUNYWGrrWb2IJ4YmywDXc****&q
 
 **响应**
 
-```
+```plaintext
 HTTP/1.1 200 OK
 Date: Mon, 27 Jul 2020 08:22:41 GMT
 Content-Type: application/xml

@@ -113,10 +113,10 @@ Container 节点 Response 的内容：
 
 ## 实际案例
 
-**请求**
+**请求：更新语音识别队列**
 
 
-```
+```plaintext
 PUT /asrqueue/pd0a7e02988c24db88b61551cf540444c HTTP/1.1
 Connection: keep-alive
 Accept-Encoding: gzip, deflate
@@ -144,7 +144,7 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDnOr9IDiIUNYWGrrWb2IJ4YmywDXc****&q
 
 **响应**
 
-```
+```plaintext
 HTTP/1.1 200 OK
 Date: Thu, 20 Aug 2020 09:53:02 GMT
 Content-Type: application/xml

@@ -23,7 +23,7 @@
 dependencies {
 	...
     // 增加这行
-    implementation 'com.tencent.qcloud:cosxml:5.5.4'
+    implementation 'com.tencent.qcloud:cosxml:5.5.5'
 }
 ```
 
@@ -61,7 +61,7 @@ allprojects {
 dependencies {
 	...
     // 增加这行
-    implementation 'com.tencent.qcloud:cosxml-lite:5.5.4'
+    implementation 'com.tencent.qcloud:cosxml-lite:5.5.5'
 }
 ```
 

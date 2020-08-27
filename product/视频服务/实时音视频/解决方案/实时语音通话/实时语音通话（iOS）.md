@@ -155,10 +155,9 @@ iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model
 </pre>
 
 <span id="model.step5"> </span>
-
 ### 步骤5：实现 1v1 通话
 
-1. 发起方调用 TRTCCalling 的 `call(callType)` 方法，callType 传入语音类型 `CallType_Audio`，就能够发起语音通话的请求。
+1. 发起方调用 TRTCCalling 的 `call(userId, callType)` 方法，`userId` 参数为用户 ID，`callType` 传入语音类型 `CallType_Audio`，就能够发起语音通话的请求。
 2. 接收方收到 `onInvited` 事件，此时可以通过 `accept` 方法接听此次通话，也可以选择用 `reject` 方法拒绝通话。
 3. 发起方收到 `onUserEnter` 的回调，说明接收方已经进入通话。
 
@@ -230,7 +229,7 @@ TRTCCalling 组件的 API 接口列表如下：
 
 | 接口函数        | 接口功能                                                 |
 | --------------- | -------------------------------------------------------- |
-| addDelegate     | 设置TRTCCalling 代理回调，用户可以通过该回调获取状态通知 |
+| addDelegate     | 设置 TRTCCalling 代理回调，用户可以通过该回调获取状态通知 |
 | login           | 登录 IM，所有功能需要先进行登录后才能使用                |
 | logout          | 登出 IM，登出后无法再进行拨打操作                        |
 | call            | C2C 邀请通话，被邀请方会收到 onInvited 的回调            |
