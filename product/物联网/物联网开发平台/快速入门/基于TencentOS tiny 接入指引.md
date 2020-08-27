@@ -89,7 +89,7 @@ git clone https://github.com/Tencent/TencentOS-tiny.git
     -  设备名称： 将控制台的设备名称，复制到下图 sg_device_name。
     -  设备密钥：将控制台的设备密钥，复制到下图 sg_device_secret。
     ![](https://main.qcloudimg.com/raw/cadab6199c68fc70debc7e02a6580731.png)
- 2. 修改 entry.c 中的Wi-Fi 网络接入配置信息。
+ 2. 修改 entry.c 中的 Wi-Fi 网络接入配置信息。
 ![](https://main.qcloudimg.com/raw/d1dc0309a19ff454112f64fbc3111da2.png)
 
 #### 步骤3：编译
@@ -98,12 +98,11 @@ git clone https://github.com/Tencent/TencentOS-tiny.git
 
 #### 步骤4：下载
 
-单击 MDK 工具栏【Download】，下载编译好的固件。
+单击 MDK 工具栏【Download】，下载编译完成的固件。
 
 #### 步骤5：查看运行结果
 
-在串口助手中可以看到设备在上报之后处于等待平台下发控制指令的状态：
-
+在串口助手中可以看到设备在上报之后处于等待平台下发控制指令的状态。
 ![](https://main.qcloudimg.com/raw/1a5c4c6cc1e3c7e913a92a3e9949dafb.png)
 
 ### 物联网平台查看上报数据
