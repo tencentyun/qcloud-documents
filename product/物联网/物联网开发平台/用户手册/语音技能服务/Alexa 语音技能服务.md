@@ -1,16 +1,18 @@
 
 
-## 背景信息 
+## 操作场景 
 
-本实例中使用 Amazon Alexa，详细的官方文档请参见 [Amazon Alexa文档](https://developer.amazon.com/en-US/docs/alexa/smarthome/understand-the-smart-home-skill-api.html)。
+本实例中使用 Amazon Alexa，详细的官方文档请参见 [Amazon Alexa 文档](https://developer.amazon.com/en-US/docs/alexa/smarthome/understand-the-smart-home-skill-api.html)。
 
 ## 限制条件  ![]()
 
-**仅支持在以下地区激活设备对接 Amazon Alexa**    
-
-- 中国大陆  
-- 美国  
-
+#### 激活设备对接 Amazon Alexa 仅支持以下地区
+ - 中国大陆  
+ - 美国  
+ 
+#### 语音技能仅支持以下语言
+ - 英语
+ 
 ## 控制台开通第三方语音技能服务
 
 ### 步骤1：确认产品范围和功能
@@ -31,19 +33,19 @@
 >?腾讯云物联网开发平台关于 Amazon Alexa 支持的品类或者功能，将会逐渐的增加，若您有接入需求，您可以在 [腾讯云物联网开发平台](https://cloud.tencent.com/act/event/connect-service) 描述您的产品需求并提交开通申请，工作人员将会与您进行对接。
 
 ### 步骤2：申请开通 Amazon Alexa 服务
-1. 创建项目和产品，详情请参考 [产品定义](https://cloud.tencent.com/document/product/1081/34739)。
-2. 单击项目进入项目详情界面，单击【语音技能】>【Amazon Alexa】> 【申请开通】，进入申请界面
+1. 创建项目及产品，详情请参考 [产品定义](https://cloud.tencent.com/document/product/1081/34739)。
+2. 单击项目进入项目详情界面，单击【语音技能】>【Amazon Alexa】> 【申请开通】，进入申请界面。
 ![](https://main.qcloudimg.com/raw/f28dba12013afe3d3c09a74a1a6f24af.jpg)
-3. 选择需要开通的产品，填写申请信息后提交，我们将会有工作人员与您进行对接。
+3. 选择需要开通的产品，填写申请信息后，单击【提交申请】，我们将会有工作人员与您进行对接。
  - **选择产品**：该项目下创建的产品。
  - **其他需求描述**：最多不超过250个字符。
 ![](https://main.qcloudimg.com/raw/7e24d064dda314a144546fcdd5bef5e9.jpg)
 4. 申请通过后，您也可以在【选择产品】处新增您该项目下的产品。
-![](https://main.qcloudimg.com/raw/1c084a735b0759f8a18658b7d787bfc2.png)
+![](https://main.qcloudimg.com/raw/12685907fb4498ba82a3faf3a4d7dd36.jpg)
 5. 添加产品审核通过后，即可生效语音技能。
 ![](https://main.qcloudimg.com/raw/44bd971e38b9612ee991a510eb533119.jpg)
 
-使用腾讯连连小程序进行设备调试，配网绑定您的设备后，可根据下方“消费者使用”步骤，绑定 Amazon Alexa，即可实现音箱控制设备的功能。
+>?使用腾讯连连小程序进行设备调试，配网绑定您的设备后，可根据下方“消费者使用”步骤，绑定 Amazon Alexa，即可实现音箱控制设备的功能。
 
 ## 消费者使用
 
@@ -53,14 +55,12 @@
 2. 拥有一台及以上物联网开发平台发布的智能设备，且使用微信小程序“腾讯连连”绑定该设备。
 3. 拥有可以顺畅访问 Amazon 服务的 Wi-Fi 网络。
 
-### 使用步骤
+### 操作步骤
 
 1. 用户使用微信小程序“腾讯连连”绑定物联网开发平台发布的智能设备产品。  
 >!使用微信小程序“腾讯连连”登录的用户，**需要前往个人中心绑定手机号或者邮箱号并且设置密码**，路径为选择【我的】>【个人信息】，进入账号与安全页面，即可绑定手机号或者邮箱号。
 
-2. **将已绑定的设备改为英文名**，例如：my light，修改后的名称避免使用符号。  
->?**设备修改路径为**：小程序【首页】>【选择指定产品名称】>【打开设备详情】>【点击设备名称】，修改后保存即可。
-
+2. **将已绑定的设备改为英文名**，例如：my light，修改后的名称避免使用符号。**设备修改路径为**：小程序【首页】>【选择指定产品名称】>【打开设备详情】>【点击设备名称】，修改后单击【保存】即可。
 ![](https://main.qcloudimg.com/raw/eb124d32c90837a38a4a78f836a1be7a.png)
 
 3. 拥有一台 Amazon Alexa 智能音箱，下载 Amazon Alexa App 并绑定该音箱。
