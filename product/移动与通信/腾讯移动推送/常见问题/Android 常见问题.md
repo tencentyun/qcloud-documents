@@ -7,13 +7,13 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 若您使用 gradle 自动集成方式，请在自身应用的 AndroidManifest.xml 文件 <application> 标签下配置如下结点，其中 ```xxx``` 为任意自定义名称；如果使用手动集成方式，请修改如下节点属性：
  
 ```xml
-   <!-- 在自身应用的AndroidManifest.xml文件中添加如下结点，其中 xxx 为任意自定义名称: -->     
-   <!-- 关闭与 TPNS 应用的联合保活功能，请配置 -->
-   <provider
-       android:name="com.tencent.android.tpush.XGPushProvider"
-       tools:replace="android:authorities"
-       android:authorities="应用包名.xxx.XGVIP_PUSH_AUTH"
-       android:exported="false" />    
+<!-- 在自身应用的AndroidManifest.xml文件中添加如下结点，其中 xxx 为任意自定义名称: -->     
+<!-- 关闭与 TPNS 应用的联合保活功能，请配置 -->
+<provider
+	 android:name="com.tencent.android.tpush.XGPushProvider"
+	 tools:replace="android:authorities"
+	 android:authorities="应用包名.xxx.XGVIP_PUSH_AUTH"
+	 android:exported="false" />    
 ```
 
 若控制台有以下日志打印，则表明联合保活功能已经关闭：`I/TPNS: [ServiceUtil] disable pull up other app`。
@@ -42,7 +42,7 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 ### 为何关闭应用后，无法收到推送？
 - 目前第三方推送都无法保证关闭应用后，仍可收到推送消息，该问题为手机定制 ROM 对移动推送 TPNS  Service 的限制问题，移动推送 TPNS 的一切活动，都需要建立在移动推送 TPNS 的 Service 能够正常联网运行，Service 被终止后，由系统、安全软件和用户操作限定是否能够再次启动。
 - QQ 和微信是系统级别的应用白名单，相关的 Service 不会因为关闭应用而退出，所以用户感知推出应用过后，仍可收到消息，其实相关的 Service 还是能够在后台存活的。
-- Android 端在应用退出移动推送 TPNS  Service 和移动推送 TPNS 的服务器断开连接后，此时给这个设备下发的消息，会变成离线消息，离线消息最多保存72小时，每个设备最多保存两条，如果有多条离线消息。在关闭应用期间推送的消息，如开启应用无法收到，请检查是否调用了反注册接口：XGPushManager.unregisterPush\(this\)。
+- Android 端在应用退出移动推送 TPNS  Service 和移动推送 TPNS 的服务器断开连接后，此时给这个设备下发的消息，会变成离线消息，离线消息最多保存72小时，每个设备最多保存三条，如果有多条离线消息，只保留最新的三条消息。在关闭应用期间推送的消息，如开启应用无法收到，请检查是否调用了反注册接口：XGPushManager.unregisterPush\(this\)。
 
 
 ### 如何设置消息点击事件？
@@ -97,10 +97,6 @@ Uri uri = getIntent().getData();
    Log.i("XG" , "value1 = " + value1 + " value2 = " + value2);
 }
 ```
-
-
-
-
 
 
 ### 厂商通道的回调支持哪些？
@@ -199,4 +195,15 @@ public final class StrUtils {
 
 3. 在项目的 External Libraries 中查看是否有相关依赖。
 ![](https://main.qcloudimg.com/raw/485c7595f1b478a6fad725d38deb87b4.png)
+
+
+### Android 拓展库 V4 到 AndroidX 如何转换？
+
+在 AndroidX 项目工程的 gradle.properties 文件中添加如下属性
+```
+android.useAndroidX=trueandroid.enableJetifier=true
+```
+>? 
+>- android.useAndroidX=true 表示当前项目启用 AndroidX。
+>- android.enableJetifier=true 表示将依赖包迁移到 AndroidX。 
 

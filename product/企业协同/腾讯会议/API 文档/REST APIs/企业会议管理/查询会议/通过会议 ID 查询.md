@@ -19,8 +19,8 @@
 ## 输出参数
 | 参数名称 |参数类型 | 参数描述 |
 |---------|---------|---------|
-| meeting_number | integer | 会议数量。  |
-|meeting_info_list  | [Array](#Array) | 会议列表。  |
+| meeting_number | integer | 会议数量  |
+|meeting_info_list  | [Array](#Array) | 会议列表 |
 
 
 <span id="Array"></span>
@@ -28,26 +28,29 @@
 
 | 参数名称 |参数类型 | 参数描述 |
 |---------|---------|---------|
-|subject  |String | 会议主题。  |
-|meeting_id   |String| 会议的唯一标示 。  |
-|meeting_code    |String| 会议 App 的呼入号码。  |
-|password   |String | 会议密码。  |
-|status|String|当前会议状态：<br>MEETING_STATE_INVALID：非法或未知的会议状态，错误状态<br>  MEETING_STATE_INIT：会议的初始状态，表示还没有人入会<br>  MEETING_STATE_CANCELLED：会议已取消<br> MEETING_STATE_STARTED：会议已开始，有人入会<br>MEETING_STATE_ENDED：会议已结束|
-|type|Integer|会议类型：<br>0：预约会议类型<br>1： 快速会议类型|
-|hosts   |String 数组 | 会议主持人列表 。  |
-|participants  |String数组|邀请的参会者 。|
-|start_time  |String | 会议开始时间戳（单位秒）。 |
-|end_time  |String | 会议结束时间戳（单位秒）。  |
-|settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置。|
+|subject  |String | 会议主题  |
+|meeting_id   |String| 会议的唯一标示  |
+|meeting_code    |String| 会议 App 的呼入号码  |
+|password   |String | 会议密码  |
+|status|String|当前会议状态：<br>MEETING_STATE_INVALID：非法或未知的会议状态，错误状态<br>  MEETING_STATE_INIT：会议的初始状态，表示还没有人入会<br>  MEETING_STATE_CANCELLED：会议已取消<br> MEETING_STATE_STARTED：会议已开始，有人入会<br>MEETING_STATE_ENDED：会议已结束<br>MEETING_STATE_RECYCLED：会议号已被回收|
+|hosts   |String 数组 | 会议主持人列表   |
+|participants  |String数组|邀请的参会者 |
+|start_time  |String | 会议开始时间戳（单位秒） |
+|end_time  |String | 会议结束时间戳（单位秒）  |
+|settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置|
 
 
 <span id="settings"></span>
 **会议媒体参数对象**
 
-| 参数名称 |参数类型 | 参数描述 |
-|---------|---------|---------|
-|mute_enable_join  |Bool | 加入静音状态。  |
-|meeting_info_list  |Bool| 静音自解除允许 。  |
+| 参数名称                        | 参数类型 | 参数描述                                                     |
+| ------------------------------- | -------- | ------------------------------------------------------------ |
+| mute_enable_join                | Bool     | 加入静音状态                                                 |
+| allow_unmute_self               | Bool     | 静音自解除允许                                               |
+| allow_in_before_host            | Bool     | 允许成员在主持人进会前加入会议                               |
+| auto_in_waiting_room            | Bool     | 开启等候室                                                   |
+| allow_screen_shared_watermark   | Bool     | 开启屏幕共享水印                                             |
+| only_allow_enterprise_user_join | Bool     | 是否仅企业内部成员可入会 <br>true：仅企业内部用户可入会 <br>false：所有人可入会 |
 
 ## 示例
 #### 输入示例
@@ -64,9 +67,9 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
   "meeting_info_list": [    
     {      
       "subject": "tester's meeting",      
-      "meeting_id": "7567173273889276131",      
-      "meeting_code": "806146667",      
-      "password": "1111",      
+      "meeting_id": "756717327****276131",      
+      "meeting_code": "8061****7",      
+      "password": "****",      
       "status": "MEETING_STATE_ENDED",      
       "start_time": "1572085800",      
       "end_time": "1572089400", 
@@ -80,9 +83,15 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
       "join_url": "https://wemeet.qq.com/w/5NmV29k",      
       "settings": {        
         "mute_enable_join": true,        
-        "allow_unmute_self": false      
+        "allow_unmute_self": false,
+        "play_ivr_on_leave": false,
+        "allow_in_before_host": true,
+		"auto_in_waiting_room": false,
+		"allow_screen_shared_watermark": true,
+		"only_allow_enterprise_user_join": false       
       }    
     }  
   ]
 }
+
 ```

@@ -101,3 +101,5 @@
 | NumberOfTasksFailed    | ProgressSummary | 当前失败的操作数。 | Integer |
 | NumberOfTasksSucceeded | ProgressSummary | 当前成功的操作数。 | Integer |
 | TotalNumberOfTasks     | ProgressSummary | 总操作数。         | Integer |
+
+

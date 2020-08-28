@@ -37,7 +37,7 @@ Authorization: Auth String
 
 查询成功，返回 **application/xml** 数据，包含完整的存储桶跨域资源共享（CORS）配置信息。
 
-```xml
+```plaintext
 <?xml version='1.0' encoding='utf-8' ?>
 <CORSConfiguration>
 	<CORSRule>
@@ -82,7 +82,7 @@ Authorization: Auth String
 | --- | --- | --- | --- |
 | AllowedOrigin | CORSConfiguration.CORSRule | 允许的访问来源，可能为 `*` 或包含 `*` 的通配格式，单条 CORSRule 可以配置多个 AllowedOrigin | string |
 | AllowedMethod | CORSConfiguration.CORSRule | 允许的 HTTP 操作方法（Method），对应 CORS 请求响应中的 Access-Control-Allow-Methods 头部，单条 CORSRule 可以配置多个 AllowedMethod。枚举值：PUT、GET、POST、DELETE、HEAD | enum |
-| AllowedHeader | CORSConfiguration.CORSRule | 在发送预检（OPTIONS）请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，不区分大小写，可能为 `*`，单条 CORSRule 可以配置多个 AllowedHeader | string |
+| AllowedHeader | CORSConfiguration.CORSRule | 允许浏览器发送 CORS 请求时携带的自定义 HTTP 请求头部，不区分英文大小写，可能为 `*`，单条 CORSRule 可以配置多个 AllowedHeader。 | string |
 | ExposeHeader | CORSConfiguration.CORSRule | 允许浏览器获取的 CORS 请求响应中的头部，不区分英文大小写，单条 CORSRule 可以配置多个 ExposeHeader。 | string |
 | MaxAgeSeconds | CORSConfiguration.CORSRule | 跨域资源共享配置的有效时间，单位为秒，对应 CORS 请求响应中的 Access-Control-Max-Age 头部，单条 CORSRule 只能配置一个 MaxAgeSeconds | integer |
 | ID | CORSConfiguration.CORSRule | 单条 CORSRule 配置的 ID，该节点的存在与否取决于使用 PUT Bucket cors 设置存储桶跨域资源共享配置时是否指定了 ID，单条 CORSRule 最多配置一个 ID | string |

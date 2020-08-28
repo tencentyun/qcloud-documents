@@ -964,7 +964,7 @@ Log 回调。
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | url | String | 背景音乐文件路径。 |
-| progress | (_ progressMs: Int, _ duration: Int) -> Void | 进度回调，返回当前已播放的时间，和总的 BGN 时长，单位为毫秒（ms）。 |
+| progress | (_ progressMs: Int, _ duration: Int) -> Void | 进度回调，返回当前已播放的时间，和总的 BGM 时长，单位为毫秒（ms）。 |
 | completion | (_ code: Int, _ message: String?) -> Void | BGM 播放结束回调。 |
 
 

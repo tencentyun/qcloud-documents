@@ -16,7 +16,8 @@
 ## 对接攻略
 <span id="step_1"></span>
 ### 步骤 1：添加 Activity
-在 manifest 文件中黏贴进如下一个 activity。
+
+在 manifest 文件中粘贴如下 activity（若项目代码中存在则不需要添加）。
 ```xml
 <activity 
     android:name="com.tencent.rtmp.video.TXScreenCapture$TXScreenCaptureAssistantActivity" 

@@ -17,7 +17,7 @@ Redis 内存版（集群架构）通过 HASH 算法将 KEY 分布至16000个 SLO
 | 命令族         | 命令          | 内存版（集群架构）跨 Slot 支持 |
 | -------------- | ------------- | ------------------ |
 | keys 族        | del           | ✓                  |
-| keys 族        | exists        | x                  |
+| keys 族        | exists        | ✓                  |
 | keys 族        | rename        | x                  |
 | keys 族        | renamenx      | x                  |
 | keys 族        | unlink        | x                  |

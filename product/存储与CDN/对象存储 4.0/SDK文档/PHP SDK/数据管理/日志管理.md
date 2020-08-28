@@ -21,6 +21,7 @@ public Guzzle\Service\Resource\Model PutBucketLogging(array $args = array());
 
 #### 请求示例
 
+[//]: # (.cssg-snippet-put-bucket-logging)
 ```php
 try {
     $result = $cosClient->putBucketLogging(array(
@@ -59,6 +60,7 @@ public Guzzle\Service\Resource\Model GetBucketLogging(array $args = array());
 
 #### 请求示例
 
+[//]: # (.cssg-snippet-get-bucket-logging)
 ```php
 try {
     $result = $cosClient->getBucketLogging(array(

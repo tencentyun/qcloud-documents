@@ -56,3 +56,4 @@ enum FpgaClassifyErrCode {
     FPGA_RET_ACLR_STOP      // HW accelerate service stop for some reason. e.g user interrupt or been killed.
 };
 ```
+

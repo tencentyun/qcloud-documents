@@ -8,7 +8,7 @@
 通过 DaemonSet 在集群的每个节点上部署一个 hostNetwork 的 Pod，该 Pod 是 node-cache，可以缓存本节点上 Pod 的 DNS 请求。如果存在 cache misses ，该 Pod 将会通过 TCP 请求上游 kube-dns 服务进行获取。原理图如下所示：
 <p style="text-align:center;"><img src="https://main.qcloudimg.com/raw/fafa6d3cccb18bcb4752eda667fa9d3b.png" style="box-shadow:0 0 0"></p>
 
->?NodeLocal DNS Cache 没有高可用性（High Availability，HA），会存在单点 nodelocal dns cache 故障（Pod Evicted/ OOMKilled/ConfigMpa error/DaemonSet Upgrade），但是该现象其实是任何的单点代理（例如 kube-proxy，cni pod）都会存在的常见故障问题。
+>?NodeLocal DNS Cache 没有高可用性（High Availability，HA），会存在单点 nodelocal dns cache 故障（Pod Evicted/ OOMKilled/ConfigMap error/DaemonSet Upgrade），但是该现象其实是任何的单点代理（例如 kube-proxy，cni pod）都会存在的常见故障问题。
 
 ## 前提条件
 已通过 [TKE 控制台](https://console.cloud.tencent.com/tke2/cluster) 创建了 Kubernetes 版本为 1.14 及以上的集群，且该集群中存在节点。
@@ -17,25 +17,24 @@
 
 ## 操作步骤
 
-1. <span ID="StepOne"></span>登录节点，在 Linux 终端执行以下命令，获取 `Kube-dns-upstream` 的 `CLUSTER IP`。
-```
-kubectl -n kube-system get services kube-dns -o jsonpath="{.spec.clusterIP}"
-```
-返回结果如下所示，请记录 `CLUSTER IP`。	
-![](https://main.qcloudimg.com/raw/2b09784b95bf1851a12b9421dde78564.png)
-2. <span ID="StepTwo"></span>一键部署 NodeLocal DNS Cache。YAML 示例如下：
->?
->- 该步骤中创建的 ConfigMap 资源为 coredns 的配置文件，其中 `UPSTREAM_CLUSTER_IP` 字段需更换为 [ 步骤1 ](#StepOne)中获取的 `CLUSTER IP`。
->- 该步骤中创建的 DaemonSet 资源用来部署 Local DNS Cache 缓存组件。
->
-	```yaml
+1. <span ID="StepOne"></span>一键部署 NodeLocal DNS Cache。YAML 示例如下：
+
+	```
+	---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+     name: node-local-dns
+     namespace: kube-system
+     labels:
+		   kubernetes.io/cluster-service: "true"
+       addonmanager.kubernetes.io/mode: Reconcile
+	---
 apiVersion: v1
 kind: ConfigMap
 metadata:
      name: node-local-dns
      namespace: kube-system
-     labels:
-       addonmanager.kubernetes.io/mode: Reconcile
 data:
      Corefile: |
        cluster.local:53 {
@@ -47,7 +46,7 @@ data:
            reload
            loop
            bind 169.254.20.10
-           forward . ${UPSTREAM_CLUSTER_IP} {
+           forward . __PILLAR__CLUSTER__DNS__ {
                    force_tcp
            }
            prometheus :9253
@@ -59,7 +58,7 @@ data:
            reload
            loop
            bind 169.254.20.10
-           forward . ${UPSTREAM_CLUSTER_IP} {
+           forward . __PILLAR__CLUSTER__DNS__ {
                    force_tcp
            }
            prometheus :9253
@@ -70,7 +69,7 @@ data:
            reload
            loop
            bind 169.254.20.10
-           forward . ${UPSTREAM_CLUSTER_IP} {
+           forward . __PILLAR__CLUSTER__DNS__ {
                    force_tcp
            }
            prometheus :9253
@@ -81,9 +80,7 @@ data:
            reload
            loop
            bind 169.254.20.10
-           forward . /etc/resolv.conf {
-                   force_tcp
-           }
+           forward . /etc/resolv.conf 
            prometheus :9253
            }
 	---
@@ -94,8 +91,6 @@ metadata:
 	 namespace: kube-system
 	 labels:
 	   k8s-app: node-local-dns
-	   kubernetes.io/cluster-service: "true"
-	   addonmanager.kubernetes.io/mode: Reconcile
 spec:
 	 updateStrategy:
 	   rollingUpdate:
@@ -107,22 +102,29 @@ spec:
 	   metadata:
 	     labels:
            k8s-app: node-local-dns
+			 annotations:
+           prometheus.io/port: "9253"
+           prometheus.io/scrape: "true"
 	   spec:
-	     priorityClassName: system-node-critical
 	     serviceAccountName: node-local-dns
+			 priorityClassName: system-node-critical
 	     hostNetwork: true
 	     dnsPolicy: Default  # Don't use cluster DNS.
 	     tolerations:
 	     - key: "CriticalAddonsOnly"
 	       operator: "Exists"
+	 	 	- effect: "NoExecute"
+        operator: "Exists"
+       - effect: "NoSchedule"
+        operator: "Exists"
 	     containers:
 	     - name: node-cache
-	       image: k8s.gcr.io/k8s-dns-node-cache:1.15.7
+	       image: ccr.ccs.tencentyun.com/hale/k8s-dns-node-cache:1.15.13
 	       resources:
 	         requests:
 	           cpu: 25m
 	           memory: 5Mi
-	       args: [ "-localip", "169.254.20.10", "-conf", "/etc/Corefile", "-upstreamsvc", "kube-dns-upstream" ]
+	       args: [ "-localip", "169.254.20.10", "-conf", "/etc/Corefile", "-setupiptables=true" ]
 	       securityContext:
 	         privileged: true
 	       ports:
@@ -166,7 +168,7 @@ spec:
 	           - key: Corefile
 	             path: Corefile.base
 	```
-3. 将 kubelet 的指定 dns 解析访问地址设置为[ 步骤2 ](#StepTwo)中创建的 lcoal dns cache。本文提供以下两种配置方法，请根据实际情况进行选择：
+2. 将 kubelet 的指定 dns 解析访问地址设置为[ 步骤1 ](#StepOne)中创建的 lcoal dns cache。本文提供以下两种配置方法，请根据实际情况进行选择：
  -  依次执行以下命令，修改 kubelet 启动参数并重启。
 ```
 sed -i '/CLUSTER_DNS/c\CLUSTER_DNS="--cluster-dns=169.254.20.10"' /etc/kubernetes/kubelet

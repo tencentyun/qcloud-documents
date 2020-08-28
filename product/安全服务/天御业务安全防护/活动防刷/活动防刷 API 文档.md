@@ -52,7 +52,7 @@
 | postTime     | String | 操作时间戳，单位：秒。                                         |
 | uid              | String | 用户 ID 不同的 accountType 对应不同的用户 ID。如果是 QQ，则填入对应的 openid，微信用户则填入对应的 openid/unionid，手机号则填入对应真实用户手机号（如13123456789）。 |
 | rootId       | String | 用户操作的目的 ID，如点赞等，该字段就是被点赞的消息 ID，如果是投票，就是被投号码的 ID。                                            |
-| userIp       | String | 用户操作的真实外网 IP。                                            |
+| userIp       | String | 用户操作的真实外网 IP（IP 格式支持 IPv4 与 IPv6）。                                            |
 | level            | Int    | <li>0：表示无恶意。</li><li>1 - 4：恶意等级由低到高。</li>                     |
 | riskType         | Array  | 风险类型，详情请参见下文 **riskType 详细说明**。                                                     |
 

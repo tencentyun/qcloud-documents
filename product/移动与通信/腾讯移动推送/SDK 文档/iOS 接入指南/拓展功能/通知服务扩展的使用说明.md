@@ -22,11 +22,11 @@ pod 'TPNS-iOS-Extension'
 Podfile 中增加配置项目后展示效果：
 ```
 target ‘XXServiceExtension'do
-pod 'TPNS-iOS-Extension' , '~>1.2.7.1' 
+pod 'TPNS-iOS-Extension' , '~>1.2.7.2' 
 end
 ```
 
->? 建议配合 pod 'TPNS-iOS' version 1.2.7.1 及以上版本使用。
+>? 建议配合 pod 'TPNS-iOS' version 1.2.7.2 及以上版本使用。
 
 
 ### 方式二：手动导入

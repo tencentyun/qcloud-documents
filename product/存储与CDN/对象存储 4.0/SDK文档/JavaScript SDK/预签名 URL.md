@@ -182,3 +182,4 @@ function(err, data) { ... }
 | err    | 请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功则为空，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档 | Object |
 | data   | 请求成功时返回的对象，如果请求发生错误，则为空               | Object |
 | - Url  | 计算得到的 Url                                               | String |
+

@@ -24,10 +24,10 @@
 2. 转发规则中配置完整域名，并在转发组中配置多个 URL，服务通过域名 + URL 进行访问。
 3. 转发规则中配置通配符域名，并在转发组中配置多个 URL，通过匹配请求域名 + URL 进行访问。当用户希望不同的域名能够指向相同的 URL 地址时，可以参照这种方式进行配置。以 `example.qcould.com` 为例，格式如下所示：
  - `example.qcloud.com` 精确匹配 `example.qcloud.com` 域名。
- - `\*.qcloud.com` 匹配所有以 `qcloud.com` 结尾的域名。
- - `example.qcloud.\*` 匹配所有以 `example.qcloud` 开头的域名。
+ - `*.qcloud.com` 匹配所有以 `qcloud.com` 结尾的域名。
+ - `example.qcloud.*` 匹配所有以 `example.qcloud` 开头的域名。
 4. 转发规则中配置域名，并在转发组中配置模糊匹配的 URL。使用前缀匹配，可在最后加入通配符 $ 进行完整匹配。
-例如，用户通过配置转发组 `URL ~* \.(gif|jpg|bmp)$`，希望匹配任何以 `gif`、 `jpg` 或 `bmp` 结尾的文件。
+例如，用户通过配置转发组 `URL ~*.(gif|jpg|bmp)$`，希望匹配任何以 `gif`、 `jpg` 或 `bmp` 结尾的文件。
 
 #### <span id="default" />转发域名中的默认域名策略
 当客户端请求没有匹配本监听器的任何域名时，CLB 会将请求转发给默认域名（Default Server），让默认规则可控，每个监听器下只能配置一个默认域名。

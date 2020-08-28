@@ -12,7 +12,7 @@
 ## 使用已有负载均衡同步腾讯云标签行为
 - 默认情况下，Service 创建的 CLB 均会配置 `tke-createdBy-flag = yes` 标签，Service 会在销毁时删除对应资源。若使用已有 CLB，则不会配置该标签，Service 销毁时也不会删除对应资源。
 - 所有 Service 均会配置 `tke-clusterId = ` 标签，若 ClusterId 正确，则 Service 会在销毁时删除对应标签。
-- 于2020年7月27日起创建的集群，将默认关闭多个 Service 复用相同 CLB 的功能。该日期前后集群内 Service 创建的 CLB 标签配置规则变更情况及详细信息，请参见  [多 Service 复用 CLB](https://cloud.tencent.com/document/product/457/46370)。
+- 于2020年8月17日起创建的集群，将默认关闭多个 Service 复用相同 CLB 的功能。该日期前后集群内 Service 创建的 CLB 标签配置规则变更情况及详细信息，请参见  [多 Service 复用 CLB](https://cloud.tencent.com/document/product/457/46370)。
 
 
 

@@ -40,7 +40,7 @@
    <th>说明</td>
  </tr>
 <tr>
-   <td rowspan="2">頻控</td>
+   <td rowspan="2">频控</td>
    <td>写请求</td>
    <td>单个分区写上限500qps。超限会拒绝请求，返回状态码429，提示错误 SpeedQuotaExceed</td>
  </tr>

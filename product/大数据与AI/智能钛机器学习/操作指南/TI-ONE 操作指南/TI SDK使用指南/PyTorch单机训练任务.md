@@ -7,7 +7,7 @@
 2. 构造一个 ti.pytorch.Pytorch Estimator
 3. 调用 Estimator 的 fit 方法
 
-TI 预置了1.1版本 Pytorch 镜像，用户也可以上传自定义镜像，自定义镜像的版本不受限制，只需要参考 TI 容器规范，参考 【使用自定义镜像】
+TI 预置了1.1版本 Pytorch 镜像，用户也可以上传自定义镜像，自定义镜像的版本不受限制，只需要参考 TI 容器规范，参考 [使用自定义镜像](https://cloud.tencent.com/document/product/851/40126 )。
 
 ### 准备训练脚本
 TI 中使用的训练脚本和标准的 Pytorch 脚本非常相似，只需少量的修改就可以将用户现有的 Pytorch 训练脚本适配到TI中。训练脚本可以直接读取注入的环境变量和超级参数。

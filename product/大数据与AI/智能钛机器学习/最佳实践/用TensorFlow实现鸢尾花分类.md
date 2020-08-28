@@ -161,7 +161,7 @@ TensorFlow 是 Google 开源的一种深度学习系统，智能钛为用户提�
  - SciPy 1.0.0
  - NumPy 1.14.0
 
-1. 在智能钛控制台的左侧导航栏，选择【框架】>【深度学习】>【 TensorFlow】，并拖入画布中。
+1. 在 [智能钛机器学习平台控制台](https://console.cloud.tencent.com/tione/project/list) 的左侧导航栏，选择【框架】>【深度学习】>【 TensorFlow】，并拖入画布中。
 2. 单击该组件，在右侧弹窗中配置组件参数和资源参数。
 ![](https://main.qcloudimg.com/raw/9009730a50d712f8066118a0ff3a2682.png)
  - 程序脚本：

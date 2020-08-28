@@ -113,9 +113,11 @@
 
  | 服务                                                         | 授权粒度| 控制台 | 根据标签进行授权  | 服务角色 |	参考文档 |
 | ------------------------------------------------------------ | ------ | --------| ----- | ---- |	---- |	
+| [域名注册](https://cloud.tencent.com/document/product/242)   | 服务级    | &#10003;   | -   |  - |	- |	
 | [网站备案](https://cloud.tencent.com/document/product/243)   | 服务级    | &#10003;   | -   |  - |	- |	
 | [SSL证书](https://cloud.tencent.com/document/product/400)   | 资源级    | &#10003;   | -   |  - |	[访问管理指南](https://cloud.tencent.com/document/product/400/40432) |	
 | [移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379)   | 操作级    | &#10003;   | -   |  - |		[访问管理指南](https://cloud.tencent.com/document/product/379/45155) |	
+| [企业邮箱](https://cloud.tencent.com/product/exmail)   | 操作级    | &#10003;   | -   |  - |	- |	
 
 ## 网络安全	
 
@@ -180,7 +182,7 @@
 
  | 服务                                                         | 授权粒度 | 控制台 | 根据标签进行授权 | 服务角色 |	参考文档 |
 | ------------------------------------------------------------ | ------ | -------- | -------- | ---- |	---- |	
-| [实时音视频](https://cloud.tencent.com/document/product/647)   | 服务级| &#10003; | -  |  - |	-|	
+| [实时音视频](https://cloud.tencent.com/document/product/647)   | 资源级| &#10003; | -  |  - |	[访问管理指南](https://cloud.tencent.com/document/product/647/46764)|	
 | [云直播](https://cloud.tencent.com/document/product/267)   | 资源级| &#10003; | &#10003;  |  &#10003;  |	[访问管理指南](https://cloud.tencent.com/document/product/267/34301) |	
 | [云点播](https://cloud.tencent.com/document/product/266)    | 资源级   | &#10003;  | -    |  -  |	[访问管理指南](https://cloud.tencent.com/document/product/266/39337)  |	
 | [视频处理](https://cloud.tencent.com/document/product/862)    | 服务级   | &#10003;  | -    |   &#10003;   |	-  |	
@@ -213,11 +215,6 @@
 | [商业智能分析](https://cloud.tencent.com/document/product/590) | 服务级| &#10003;| -  |  - |	 [访问管理指南](https://cloud.tencent.com/document/product/590/19284) |	
 | [腾讯云图](https://cloud.tencent.com/document/product/665) | 资源级| &#10003;| -  |  - |	 [访问管理指南](https://cloud.tencent.com/document/product/665/40956) |	
 
-## 云智大数据应用
-
- | 服务                                                         | 授权粒度 | 控制台  | 根据标签进行授权 | 服务角色 |	参考文档 |
-| ------------------------------------------------------------ | ------ | -------- | -------- | ---- |	 ---- |	
-| [智能推荐](https://cloud.tencent.com/document/product/587) | 服务级| &#10003;| -  |  - |	 - |	
 
 ## 人体识别
 
@@ -330,8 +327,8 @@
 
  | 服务                                                         | 授权粒度 | 控制台 | 根据标签进行授权 | 服务角色 |	参考文档 |
 | ------------------------------------------------------------ | ------ | -------- | ----- | ---- |	---- |
-| [即时通信](https://cloud.tencent.com/document/product/269)   | 服务级 | &#10003;   | -  |  - | - |
-| [短信](https://cloud.tencent.com/document/product/382) | 操作级 | &#10003; | -   | -  |	-  |	
+| [即时通信](https://cloud.tencent.com/document/product/269)   | 资源级 | &#10003;   | -  |  - | - |
+| [短信](https://cloud.tencent.com/document/product/382) | 资源级 | &#10003; | -   | -  |	 [访问管理指南](https://cloud.tencent.com/document/product/382/46984)  |	
 | [语音消息](https://cloud.tencent.com/document/product/1128) | 操作级 | &#10003; |-  | -  |	-  |	
 | [号码保护](https://cloud.tencent.com/document/product/610) | 服务级 | - |-  | -  |	-  |	
 
@@ -356,6 +353,9 @@
  | 服务                                                          | 授权粒度 | 控制台  | 根据标签进行授权  |服务角色 |	参考文档 |
 | ----------------------------------------------------------- | ------ | -------- | ------ |  ---- |	 ---- |
 | [商标注册](https://cloud.tencent.com/document/product/1145) | 服务级   | &#10003; | -  | - |	-|	
+| [版权登记](https://cloud.tencent.com/document/product/1215) | 服务级   | &#10003; | -  | - |	-|	
+| [增值电信](https://cloud.tencent.com/document/product/1251) | 操作级   | &#10003; | -  | - |	-|	
+| [企业集成服务](https://cloud.tencent.com/document/product/1270) | 操作级   | &#10003; | -  | - |	-|
 
 ## 云资源管理
 
@@ -369,6 +369,8 @@
  | 服务                                                         | 授权粒度 | 控制台  | 根据标签进行授权 |  服务角色 |	参考文档 |
 | ------------------------------------------------------------| ------ | --------| ----- |  ---- |		 ---- |
 | [访问管理](https://cloud.tencent.com/document/product/598)  | 操作级  | &#10003; | -   | -    | [访问管理指南](https://cloud.tencent.com/document/product/598/10590)   |
+| [身身份管理服务 IDaaS](https://cloud.tencent.com/document/product/1106)  | 服务级  | &#10003; | -   | &#10003;    | -  |
+| [云审计](https://cloud.tencent.com/document/product/629)  | 操作级  | &#10003; | -   | &#10003;    | -   |
 | [云审计](https://cloud.tencent.com/document/product/629)  | 操作级  | &#10003; | -   | &#10003;    | -   |
 | [企业组织](https://cloud.tencent.com/document/product/850) | 操作级 | &#10003; | -  |- | -   |
 | [商业流程服务](https://cloud.tencent.com/document/product/1083)  | 操作级 | &#10003; | -   | &#10003;  | [访问管理指南](https://cloud.tencent.com/document/product/1083/34888)  |

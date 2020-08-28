@@ -54,8 +54,8 @@ PUT /shipper
 | max_size     | int    | body | 否       | 投递的文件的最大值，单位：MB，默认100，范围100 - 256         |
 | effective    | bool   | body | 否       | Shipper 的开关状态                                           |
 | partition    | string | body | 否       | 投递日志的分区规则，支持`strftime`的时间格式表示             |
-| compress     | object | body | 是       | 投递日志的压缩配置                                           |
-| content      | object | body | 是       | 投递日志的内容格式配置                                       |
+| compress     | object | body | 否       | 投递日志的压缩配置                                           |
+| content      | object | body | 否       | 投递日志的内容格式配置                                       |
 
 compress 格式如下：
 

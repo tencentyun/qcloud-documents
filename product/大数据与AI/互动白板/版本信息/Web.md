@@ -1,3 +1,22 @@
+### 2.5.2 @ 2020.08.07
+* 链接地址：https://res.qcloudtiw.com/board/2.5.2/TEduBoard.min.js
+
+- 新增回调
+    - 新增 H5PPT 状态回调 TEB_H5PPT_STATUS_CHANGED
+    
+### 2.5.1 @ 2020.07.23
+* 链接地址：https://res.qcloudtiw.com/board/2.5.1/TEduBoard.min.js
+
+- 功能支持
+    - 图片元素支持任意角度旋转和八个方向的缩放
+- 接口优化
+    - 如果 getFileBoardList，getFileInfo 接口 fid 参数缺省，则默认返回当前文件文件的信息
+    - 调用 deleteFile 接口删除非当前文件，则不跳转至默认文件#DEFAULT
+- bug fix
+    - 修复文字工具在某些输入法下输入过程中，看不见已输入的文字问题
+    - 修复移动端文字工具在白板边界位置点击，键盘会闪一下的问题
+
+
 ### 2.5.0 @ 2020.07.2
 * 链接地址：https://res.qcloudtiw.com/board/2.5.0/TEduBoard.min.js
 
