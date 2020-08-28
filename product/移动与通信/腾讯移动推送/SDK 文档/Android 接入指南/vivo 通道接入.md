@@ -8,6 +8,7 @@ vivo 通道是由 vivo 官方提供的系统级推送通道。在 vivo 手机上
 - vivo 通道对应用的每日推送量有额度限制，详情请参见 [厂商通道限额说明](https://cloud.tencent.com/document/product/548/43794)，超过限制部分会走 TPNS 通道进行补推发送。
 - vivo 通道7:00-23:00允许推送消息，其他时间只能推送系统消息，系统消息申请详情请参见 [vivo 系统消息申请指南](https://cloud.tencent.com/document/product/548/44531#vivozhinan)。
 - vivo 通道单应用单用户每天接收运营消息条数上限为5条，系统消息不限接收条数。
+- vivo 通道仅支持部分较新的机型和对应的系统及以上系统，详情请参考 [vivo推送常见问题汇总](https://dev.vivo.com.cn/documentCenter/doc/156#w1-08608733)。
 ## 操作步骤
 ### 获取密钥
 开发者需向 vivo 申请开通推送权限，获取到 AppID 、AppKey、AppSecret 三个密钥。详情请参见 [快速接入指引](https://dev.vivo.com.cn/documentCenter/doc/180)。
