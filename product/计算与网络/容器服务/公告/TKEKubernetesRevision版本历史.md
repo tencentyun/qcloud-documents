@@ -191,6 +191,11 @@
 </thead>
 <tbody>
 <tr>
+    <td>2020-08-04</td>
+    <td>v1.12.4-tke.23</td>
+    <td>合并 <a href="https://github.com/kubernetes/kubernetes/pull/78883">pr78883</a>，修复默认会给 pod、spec、container、SecurityContext 及 ProcMount 增加默认值的 bug。</td>
+</tr>
+<tr>
     <td>2020-07-28</td>	
     <td>v1.12.4-tke.22</td>	
     <td><ul class="params"><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91277">pr91277</a>，避免 CLB 健康检查导致 kube-apiserver 产生大量 TLS 握手错误日志的问题（kube-apiserver）。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91500">pr91500</a>，修复 KUBERNETES_SERVICE_HOST 环境变量缺失的问题（kubelet）。</li></ul></td>
