@@ -125,7 +125,7 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 ![](https://main.qcloudimg.com/raw/79c01ccaffca8be63341b18ad48ea9a7.png)
 
 集成通知服务扩展插件后：
-![](https://main.qcloudimg.com/raw/b2efe6f31b14c129fc2167f14ed6ece3.png)
+![](https://main.qcloudimg.com/raw/9930f71a63d23b2da0c86b023f8e769f.png)
 
 
 ## 调试方法
