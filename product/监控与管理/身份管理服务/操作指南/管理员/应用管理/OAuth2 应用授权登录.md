@@ -25,7 +25,7 @@ https://mycorp.cloudidaas.com/open/oauth2/authorize?client_id=<client_id>&redire
 | redirect_uri  | 是   | 用户授权后的回调链接，请遵循 URL 规范作 URL Encode。           |
 | response_type | 是   | 返回类型，此时固定为：`code`。                                 |
 | scope         | 是   | 授权范围，支持 `basic` 或 `userinfo`。                         |
-| state         | 否   | 推荐传入，用于校验授权发起方和接收方为同一终端，该参数交将在追加在 `redirect_uri` 的 query 参数中。 |
+| state         | 否   | 推荐传入，用于校验授权发起方和接收方为同一终端，该参数将追加在 `redirect_uri` 的 query 参数中。 |
 
 用户登录后，默认静默授权，页面将跳转至 `redirect_uri?code=<code>&state=<state>`。
 
