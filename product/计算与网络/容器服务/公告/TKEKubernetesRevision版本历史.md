@@ -9,7 +9,7 @@
     <td>v1.18.4-tke.2</td>	
     <td><ul class="params">
 		<li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/93403">pr93403</a>，移去 kubelet 的更新不属于 kubelet 的 Pod Condition 的错误打印信息（kubelet）。</li>
-		<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89629">pr89629</a>，解决 configmap 变更后挂载 subpath 的容器重启永远失败的问题。</li>
+		<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89629">pr89629</a>，解决 configmap 变更后挂载 subpath 的容器重启失败的问题。</li>
 </tr>
 <tr>
     <td>2020-08-04</td>	
@@ -17,7 +17,7 @@
     <td><ul class="params"><li>revert <a href="https://github.com/kubernetes/kubernetes/pull/63066">pr63066 </a>修复 LB 健康检查与 IPVS 的问题（kube-proxy）。</li>
     <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/93403">pr72914</a>，修复删除 Pod 后立即创建并调度到同一个节点可能导致无法挂载成功的问题（kube-controller-manager）。</li>
     <li>解决在 CentOS 下创建容器会导致 cgroup 泄露的问题（kubelet）。</li>
-    <li>ubuntu16 下 lxcfs 升级造成 Pod 退出问题修复（kubelet）。</li>
+    <li>Ubuntu16 下 lxcfs 升级造成 Pod 退出问题修复（kubelet）。</li>
     <li>metadata 增加缓存和超时。cloud-provider 增加将节点名称作为 hostname 的支持（kubelet）。</li>
     <li>metadata 增加本地缓存（kubelet）。</li>
     <li>合入 CBS 及相关修复代码（kubelet）。</li>
@@ -36,7 +36,7 @@
     <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/92969">pr92969</a>，修复 CVE-2020-8559从被侵入节点提升权限从而侵入其他节点的问题（kube-apiserver）。</li>
     <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/92921">pr92921</a>，修复 CVE-2020-8557通过写入 “/etc/hosts” 耗尽磁盘空间的 DOS 攻击问题（kubelet）。</li>
     <li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/93403">pr93403</a>，移去 kubelet 更新中不属于 kubelet 的 Pod Condition 错误打印信息（kubelet）。</li>
-    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89629">pr89629</a>，解决 configmap 变更后挂载 subpath 的容器重启永远失败的问题。</li>
+    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89629">pr89629</a>，解决 configmap 变更后挂载 subpath 的容器重启失败的问题。</li>
 </tr>
 </tbody></table>
 
