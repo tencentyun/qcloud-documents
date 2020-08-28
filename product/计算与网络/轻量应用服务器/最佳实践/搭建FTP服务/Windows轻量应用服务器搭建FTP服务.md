@@ -8,7 +8,7 @@
 
 ## 操作步骤
 ### 步骤1：登录轻量应用服务器
-[使用 VNC 方式登录 Windows 实例](https://cloud.tencent.com/document/product/1207/44656)。您也可以根据实际操作习惯，[使用远程桌面连接登录 Windows 实例](https://cloud.tencent.com/document/product/1207/44579)。
+您可以 [使用 VNC 方式登录 Windows 实例](https://cloud.tencent.com/document/product/1207/44656)。也可以根据实际操作习惯，[使用远程桌面连接登录 Windows 实例](https://cloud.tencent.com/document/product/1207/44579)。
 
 ### 步骤2：在 IIS 上安装 FTP 服务
 1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/446c1e8cb7da2ce280d710c6a46b693d.png" style="margin:-3px 0px">，打开服务器管理器。
@@ -37,7 +37,7 @@
 ![](https://main.qcloudimg.com/raw/5727d1a8f33bd35df02e1ec58447f23f.png)
 主要参数如下：
   - 用户名：自定义，本文以 `ftpuser` 为例。
-  - 密码及确认密码：自定义，密码需同时包含大写、小写字母及数字。本文以 `tf7295TFY` 为例。
+  - 密码及确认密码：自定义，密码需同时包含大写、小写字母及数字。
   - 取消勾选【用户下次登录时须更改密码】，勾选【密码永不过期】。
   请根据实际需求进行勾选，本文以密码永不过期为例。
 5. 单击【关闭】，关闭“新用户”窗口后即可在列表中查看已创建的 `ftpuser` 用户。
@@ -110,7 +110,6 @@ ftp://轻量应用服务器公网IP:21
 ```
 ![](https://main.qcloudimg.com/raw/01154cd3f3af8c0578e588c29a574216.png)
 3. 在弹出的“登录身份”窗口中输入 [创建 FTP 用户名及密码](#user) 中已设置的用户名及密码。
-本文使用的用户名为 `ftpuser` 密码为 `tf7295TFY`。
 4. 成功登录后，即可上传及下载文件。
 
 ## 附录

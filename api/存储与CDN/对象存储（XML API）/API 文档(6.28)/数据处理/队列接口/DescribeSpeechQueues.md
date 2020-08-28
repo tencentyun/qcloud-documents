@@ -19,14 +19,6 @@ Content-Type: application/xml
 - 此接口 Host 需要填写数据万象域名。
 - Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
-#### 请求头
-
-此接口仅使用公共请求头部，详情请参见数据万象 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
-
-#### 请求体
-
-该请求的请求体为空。
-
 #### 请求参数
 
 | 名称       | 描述                                                         | 类型   | 是否必选 |
@@ -35,6 +27,15 @@ Content-Type: application/xml
 | state      | 1. Active 表示队列内的作业会被语音识别服务调度执行<br>2. Paused 表示队列暂停，作业不再会被语音识别服务调度执行，队列内的所有作业状态维持在暂停状态，已经处于识别中的任务将继续执行，不受影响 | string | 否       |
 | pageNumber | 第几页                                                       | string | 否       |
 | pageSize   | 每页个数                                                     | string | 否       |
+
+#### 请求头
+
+此接口仅使用公共请求头部，详情请参见数据万象 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
+
+#### 请求体
+
+该请求的请求体为空。
+
 
 ## 响应
 
@@ -151,3 +152,57 @@ Container 节点 NonExistPIDs 的内容：
 #### 错误码
 
 该请求操作无特殊错误信息，常见的错误信息请参见数据万象 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
+
+## 实际案例
+
+**请求：查询语音识别队列**
+
+```plaintext
+GET /asrqueue?pageNumber=1&pageSize=5 HTTP/1.1
+Connection: keep-alive
+Accept-Encoding: gzip, deflate
+Accept: */*
+User-Agent: cos-python-sdk-v5.3.2
+Host: examplebucket-1250000000.ci.ap-chongqing.myqcloud.com
+Content-Type: application/xml
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDnOr9IDiIUNYWGrrWb2IJ4YmywDXc****&q-sign-time=1597917121;1597927181&q-key-time=1597917121;1597927181&q-header-list=content-type;host&q-url-param-list=&q-signature=96322cc56f78ca161aaa6908f3d8af9105d2****
+```
+
+**响应**
+
+```plaintext
+HTTP/1.1 200 OK
+Date: Thu, 20 Aug 2020 09:53:02 GMT
+Content-Type: application/xml
+Content-Length: 674
+Connection: keep-alive
+Server: tencent-ci
+x-ci-request-id: NWYzZTQ3ZmRfOTBmYTUwNjRfMjJh****
+
+<?xml version="1.0" encoding="utf-8"?>
+<Response>
+        <TotalCount>1</TotalCount>
+        <RequestId>NWYzZTQ3ZmRfOTBmYTUwNjRfMjJh****</RequestId>
+        <PageNumber>1</PageNumber>
+        <PageSize>5</PageSize>
+        <QueueList>
+                <QueueId>pd0a7e02988c24db88b61551cf540444c</QueueId>
+                <Name>queue-speech-1</Name>
+                <State>Active</State>
+                <NotifyConfig>
+                        <Url/>
+                        <Event/>
+                        <Type/>
+                        <State>Off</State>
+                </NotifyConfig>
+                <MaxSize>10000</MaxSize>
+                <MaxConcurrent>10</MaxConcurrent>
+                <CreateTime>2020-08-20T17:52:33+0800</CreateTime>
+                <UpdateTime>2020-08-20T17:52:33+0800</UpdateTime>
+                <BucketId>examplebucket-1250000000</BucketId>
+                <Category>Speeching</Category>
+        </QueueList>
+</Response>
+```
+
+

@@ -5,6 +5,7 @@
 #### 新特性：
 - 支持异步删除大表：异步、缓慢地清理文件，进而避免因删除大表导致业务性能出现抖动情况，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 - 支持自动 kill 空闲任务，减少资源冲突，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
+- 支持透明数据加密功能。
 
 
 #### 官方 bug 修复：

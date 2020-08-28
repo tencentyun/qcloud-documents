@@ -19,7 +19,7 @@ CMS 扩展还可以用来配合开发网站应用和小程序应用，提升开�
 | 部署简单     | 可在云开发控制台扩展管理界面一键部署和升级                                                              |
 
 ## 工作原理
->?使用 CMS 扩展时将在当前环境创建云函数、云数据库等资源，查询 [部署详情](#deploy-detail)。
+>?使用 CMS 扩展时将在当前环境创建云函数、云数据库等资源，查询 [部署详情](#.E9.83.A8.E7.BD.B2.E8.AF.A6.E6.83.85)。
 
 ![](https://main.qcloudimg.com/raw/af882d4cb9d5262efe7cc1ee05ae3659.png)
 
@@ -183,7 +183,7 @@ CMS 负责登录的 auth 云函数需要关闭访问鉴权才可以使用。
 
 当您使用云开发扩展时，您只需要为您使用的云资源付费；云开发与云上其他资源分开计费，您可以在 [费用中心](https://console.cloud.tencent.com/expense/bill/overview) 查看具体信息。
 
-<span id=“deploy-detail”></span>
+<span id=“deploydetail”></span>
 ### 部署详情
 
 - **云函数**

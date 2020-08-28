@@ -9,7 +9,7 @@
 2. 在“镜像”中选择【镜像市场】，单击【从镜像市场选择】。如下图所示：
 ![](https://main.qcloudimg.com/raw/e7057c82c5a95725d226901653e6169d.png)
 3. 在弹出的“选择镜像”对话框的搜索框中，输入 **GPU** 并单击搜索按钮。列出所有预装 GPU 驱动的镜像，如下图所示：
-![](https://main.qcloudimg.com/raw/983d78975a51656fe9a08a3851554800.png)
+![](https://main.qcloudimg.com/raw/17320c412f5829af80fbc11028e75dd0.png)
 4. 根据实际需求，选择预装 GPU 驱动的镜像，单击【免费使用】。如下图所示：
 本文以 `CentOS 7.5 NVIDIA GPU 基础镜像（预装驱动和 CUDA 9.2）` 为例，您可根据实际需求并参考 [NVIDIA GPU 驱动预装镜像](#mirror) 进行选择。
 ![](https://main.qcloudimg.com/raw/6b7edda5916e8020ad02259d94862e5d.png)

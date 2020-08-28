@@ -123,6 +123,9 @@
 | API | 描述 |
 |-----|-----|
 | [getAudioEffectManager](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ab43456e2e7d83986fd66708131d8c264) | 获取音效管理类 TXAudioEffectManager。 |
+| [startSystemAudioLoopback](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aac7057a9556fc1b1b106733a87069e06) | 打开系统声音采集。 |
+| [stopSystemAudioLoopback](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#adef486f26a2c7d74a8cccb537367e66a) | 关闭系统声音采集。 |
+| [setSystemAudioLoopbackVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a2bb76d46a5fcf037c560ab8f09b1825f) | 设置系统声音采集的音量。 |
 
 
 ### 辅流相关接口函数
