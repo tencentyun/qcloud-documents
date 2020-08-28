@@ -38,7 +38,7 @@ https://mycorp.cloudidaas.com/open/oauth2/authorize?client_id=<client_id>&redire
 | ------------- | ---- | ------------------------------------------------------------ |
 | code          | 是   | 授权码，从 `redirect_uri` 的 query 参数可以获得              |
 | client_id     | 是   | 客户端ID, 可以在应用“详情信息”面板中“授权登录”卡片可以查询到 |
-| client_secret | 是   | 客户端秘钥, 可以在应用“详情信息”面板中“授权登录”卡片可以查询到 |
+| client_secret | 是   | 客户端密钥, 可以在应用“详情信息”面板中“授权登录”卡片可以查询到 |
 | redirect_uri  | 是   | 用户授权后的回调链接                                         |
 | grant_type    | 是   | 此时固定为：`authorization_code`                             |
 
