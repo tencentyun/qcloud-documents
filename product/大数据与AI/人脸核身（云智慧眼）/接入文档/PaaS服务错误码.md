@@ -1,3 +1,5 @@
+本文只列出 PaaS 服务相关返回码及其对应的计费关系 SaaS 服务的返回码及其他对应计费关系请查阅 [SaaS 错误码](https://cloud.tencent.com/document/product/1007/47912)
+
 ## 人脸核验类
 下表仅列出了活体人脸核身、活体人脸比对、照片人脸核身和身份证人像照片验真接口的收费返回码，其他未收费的接口错误码请参阅对应接口文档，完整错误码对照表请参考 API3.0 文档 > [错误码](https://cloud.tencent.com/document/product/1007/31332)。
 
