@@ -38,7 +38,7 @@ https://mycorp.cloudidaas.com/open/oauth2/authorize?client_id=<client_id>&redire
 | ------------- | ---- | ------------------------------------------------------------ |
 | code          | 是   | 授权码，从 `redirect_uri` 的 query 参数可以获得              |
 | client_id     | 是   | 客户端ID, 可以在应用“详情信息”面板中“授权登录”卡片可以查询到 |
-| client_secret | 是   | 客户端密钥, 可以在应用“详情信息”面板中“授权登录”卡片可以查询到 |
+| client_secret | 是   | 客户端秘钥, 可以在应用“详情信息”面板中“授权登录”卡片可以查询到 |
 | redirect_uri  | 是   | 用户授权后的回调链接                                         |
 | grant_type    | 是   | 此时固定为：`authorization_code`                             |
 
@@ -76,12 +76,15 @@ https://mycorp.cloudidaas.com/open/oauth2/authorize?client_id=<client_id>&redire
 
 调用接口时，接口失败会返回相应的 HTTP 状态码，常见的状态码，如：
 
-- 400 Bad Request — 无效请求。
-- 401 Unauthorized — 请求未通过鉴权。
-- 403 Forbidden — 请求无权限。
-- 404 Not Found — 资源不存在。
-- 500 Internal Server Error — 内部服务异常。
-- 503 Service Unavailable — 服务不可用。
+| 错误码   | 含义                             |
+| -------- | -------------------------------- |
+| 400 Bad Request     | 无效请求。                         |
+| 401 Unauthorized | 请求未通过鉴权。 |
+| 403 Forbidden | 请求无权限。               |
+| 404 Not Found | 资源不存在 。            |
+| 500 Internal Server Error | 内部服务异常。              |
+| 503 Service Unavailable | 服务不可用。              |
+
 
 body 中还会返回 error 对象，格式形如：
 
