@@ -3,7 +3,7 @@
 
 * 确认填写用户自己的 Bundle ID 和对应的发布证书。
 * 根据实际情况调整配置文件中的内容，需要配置的内容可参考[ App 参数写入配置文件](https://cloud.tencent.com/document/product/1081/45902#app-.E5.8F.82.E6.95.B0.E5.86.99.E5.85.A5.E9.85.8D.E7.BD.AE.E6.96.87.E4.BB.B6)，获取到相应的 ID 和 key 值替换 App 中的字符串
-* 如果用户确认接入 Firebase，用户需要使用从  [Firebase 官网](https://firebase.google.com/) 自建应用获得 **GoogleService-Info.plist**，替换 App 中对应的文件，如下图所示：   
+* 如果用户确认接入 Firebase，用户需要使用从 Firebase 官网自建应用获得 **GoogleService-Info.plist**，替换 App 中对应的文件，如下图所示：   
   <img src="https://main.qcloudimg.com/raw/7c17279a720b92ffb875e1b7ed46e89c/image-20200622184506.png" alt="image-20200622184506"  width = "35%" height = "50%"  /> 
 
 ## Android   
