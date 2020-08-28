@@ -132,7 +132,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | [onRecvRoomTextMsg](#onrecvroomtextmsg)     | 收到文本消息。   |
 | [onRecvRoomCustomMsg](#onrecvroomcustommsg) | 收到自定义消息。 |
 
-## 信令事件回调
+### 信令事件回调
 
 | API                                               | 描述               |
 | ------------------------------------------------- | ------------------ |
