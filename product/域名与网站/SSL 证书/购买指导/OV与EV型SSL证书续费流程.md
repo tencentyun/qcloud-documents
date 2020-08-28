@@ -72,9 +72,9 @@ DNSPod 品牌 OV/EV 型证书续费后人工审核及域名验证均通过后，
    - [GlassFish 服务器证书安装](https://cloud.tencent.com/document/product/400/44759)
    - [JBoss 服务器证书安装](https://cloud.tencent.com/document/product/400/44760)
    - [Jetty 服务器证书安装](https://cloud.tencent.com/document/product/400/44761)
-   - [Weblogic 服务器证书安装](https://cloud.tencent.com/document/product/400/47358)
  - 若您购买使用的服务器是 Windows 系统，建议您使用以下方式：
    - [IIS 服务器证书安装](https://cloud.tencent.com/document/product/400/35225)
+   - [Weblogic 服务器证书安装](https://cloud.tencent.com/document/product/400/47358)
 - 国密标准证书：
  - 若您购买使用的服务器是 Linux 系统，建议您使用以下方式：
    - [Apache 服务器国密证书安装](https://cloud.tencent.com/document/product/400/47359)

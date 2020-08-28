@@ -84,8 +84,8 @@
 WebRTC 标准提供了一套 3A 算法，可以通过指定 audio 的 MediaTrackConstrains 中的 AEC、ANS、AGC 开关控制 3A 的处理，当遇到回声、噪声、杂音、声音小等问题时，在桌面浏览器端的 localstream 中，creatStream 时，通过控制 echoCancellation、noiseSuppression、autoGainControl 这三个属性来分别控制回声消除、噪声抵制、音量增益。
 如果出现下述情况，说明浏览器不兼容硬件设备，建议更换或检查设备。
 - 如果 echoCancellation 设置为 true，依然存在回声问题。
-- 如果 noiseSuppression 设置为true，依然存在背景噪声，
-- 如果 autoGainControl 设置为true，依然存在声音偏小，
+- 如果 noiseSuppression 设置为true，依然存在背景噪声。
+- 如果 autoGainControl 设置为true，依然存在声音偏小。
 
 更多详情可参见 [媒体追踪约束](https://developer.mozilla.org/zh-CN/docs/Web/API/MediaTrackConstraints)。
 

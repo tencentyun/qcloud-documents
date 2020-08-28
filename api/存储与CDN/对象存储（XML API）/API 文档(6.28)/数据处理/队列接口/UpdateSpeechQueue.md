@@ -110,3 +110,69 @@ Container 节点 Response 的内容：
 #### 错误码
 
 该请求操作无特殊错误信息，常见的错误信息请参见数据万象 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
+
+## 实际案例
+
+**请求：更新语音识别队列**
+
+
+```plaintext
+PUT /asrqueue/pd0a7e02988c24db88b61551cf540444c HTTP/1.1
+Connection: keep-alive
+Accept-Encoding: gzip, deflate
+Accept: */*
+User-Agent: cos-python-sdk-v5.3.2
+Host: examplebucket-1250000000.ci.ap-chongqing.myqcloud.com
+Content-Type: application/xml
+Content-Length: 271
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDnOr9IDiIUNYWGrrWb2IJ4YmywDXc****&q-sign-time=1597917374;1597927434&q-key-time=1597917374;1597927434&q-header-list=content-type;host&q-url-param-list=&q-signature=670ce7355f265cb0792c00e490a205975856****
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<Request>
+  <QueueId>p5275b560c7fd498db9a36e5e202827b6</QueueId>
+  <State>Active</State>
+  <Name>test</Name>
+  <NotifyConfig>
+    <Url>http://example.com/</Url>
+    <State>On</State>
+    <Type>Url</Type>
+    <Event>TransCodingFinish</Event>
+  </NotifyConfig>
+</Request>
+```
+
+**响应**
+
+```plaintext
+HTTP/1.1 200 OK
+Date: Thu, 20 Aug 2020 09:53:02 GMT
+Content-Type: application/xml
+Content-Length: 674
+Connection: keep-alive
+Server: tencent-ci
+x-ci-request-id: NWYzZTQ3ZmRfOTBmYTUwNjRfMjJh****
+
+<Response>
+        <RequestId>NWYzZTQ5NTdfZWM0YTYyNjRfNWE4ZF9l****</RequestId>
+        <Queue>
+                <QueueId>p5275b560c7fd498db9a36e5e202827b6</QueueId>
+                <Name>test</Name>
+                <State>Active</State>
+                <NotifyConfig>
+                        <Url>http://example.com/</Url>
+                        <Event>TransCodingFinish</Event>
+                        <Type>Url</Type>
+                        <State>On</State>
+                </NotifyConfig>
+                <MaxSize>10000</MaxSize>
+                <MaxConcurrent>10</MaxConcurrent>
+                <CreateTime>2020-06-29T16:55:04+0800</CreateTime>
+                <UpdateTime>2020-08-20T17:58:47+0800</UpdateTime>
+                <BucketId>examplebucket-1250000000</BucketId>
+                <Category>Speeching</Category>
+        </Queue>
+</Response>
+```
+
+

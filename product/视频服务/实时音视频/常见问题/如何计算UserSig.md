@@ -14,10 +14,11 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 <span id="Key"></span>
 ### 如何获取密钥？
 
-1. 登录实时音视频 [控制台](https://console.cloud.tencent.com/rav)，单击应用卡片，进入【快速上手】页面。
-2. 单击【第二步 获取签发UserSig的密钥】区域的【查看密钥】，即可获取用于计算 UserSig 的加密密钥。
-3. 单击【复制密钥】，将密钥拷贝到剪贴板中。
- ![](https://main.qcloudimg.com/raw/d0b780f7b28833533e12807d1b11d8be.png)
+1. 登录【实时音视频控制台】>【[应用管理](https://console.cloud.tencent.com/trtc/app)】。
+2. 单击您需查看的 SDKAppID 对应的【应用信息】，单击进入【快速上手】页签。
+2. 查看【第二步 获取签发UserSig的密钥】标签，即可获取用于计算 UserSig 的加密密钥。
+3. 单击【复制密钥】，可将密钥拷贝到剪贴板中。
+ ![](https://main.qcloudimg.com/raw/e9b9cb9492fd350018c052364af89702.png)
 
 ### 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
 TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法 ECDSA-SHA256](https://cloud.tencent.com/document/product/647/17275#Old)，如已升级，您按需切换为新旧算法。

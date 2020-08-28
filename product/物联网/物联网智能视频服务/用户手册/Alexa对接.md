@@ -14,7 +14,7 @@ Alexa 支持 RTSP 流媒体，下图是用户通过语言控制 Alexa EchoShow �
 
 ## Lambda 开发
 
-开发者需要开发 Lambda 实现对接，在 Lambda 中调用 IoT Video 平台的 [请求设备直播流地址](https://note.youdao.com/share/?token=FA4CBB102AB44CADBC344B5158D13C27&gid=108651055) 接口，将获取到的 RTSP 地址及参数，封装到`Alexa.CameraStreamController.Response`结构中。
+开发者需要开发 Lambda 实现对接，在 Lambda 中调用 IoT Video 平台的请求设备直播流地址接口，将获取到的 RTSP 地址及参数，封装到`Alexa.CameraStreamController.Response`结构中。
 
 详情请参见 [Alexa 开发文档](https://developer.amazon.com/en-US/docs/alexa/device-apis/alexa-camerastreamcontroller.html)。
 
