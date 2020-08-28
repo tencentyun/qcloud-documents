@@ -1,3 +1,5 @@
+<style> table th:nth-of-type(1) { width:32%; } table th:nth-of-type(2){ width:68%; } </style>
+
 此篇文档将向您介绍 Web 网页应用如何使用 IDaaS OAuth API 实现自建应用对 IDaaS 目录用户进行身份鉴权并获取用户授权的身份信息。
 
 
