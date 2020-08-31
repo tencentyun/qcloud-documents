@@ -44,7 +44,7 @@ DataWay 基于 Python3.4 的语法进行实现，出于安全性的考量，在 
 - **str**：即字符串
 - **None**：Python 中的空值
 - **bool**：布尔值
--** float**：浮点数
+- **float**：浮点数
 - **int**：整数
 - **list**：列表，序列类型容器
 - **dict**：字典，kv 类型容器
