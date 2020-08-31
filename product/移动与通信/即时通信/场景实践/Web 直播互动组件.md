@@ -3,7 +3,7 @@
 
 ## 效果展示
 
-![](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblivedemo/doc-assets/demo.gif)
+![](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblivedemo/doc-assets/demo-official-website.gif)
 
 ## 运行体验
 
