@@ -62,7 +62,7 @@ kms_host="kms.tencentyun.com"
 local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\
 ```
 3. 将 `TencentCloudRun.ps1` 脚本拷贝到 `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts` 路径下。
-4. 右键单击 `TencentCloudRun.ps1` 脚本，在弹出的窗口中查看脚本是否具备可执行权限。如下图所示：
+4. 右键单击 `TencentCloudRun.ps1` 脚本，在菜单中选择【属性】，并在弹出窗口中查看脚本是否具备可执行权限。如下图所示：
  - 如存在 Unblock 选项，则需勾选 Unblock，并单击【OK】退出。 
  - 如不存在 Unblock 选项，则请跳过本步骤。
 <img src="https://main.qcloudimg.com/raw/69a1b7929dbfb5b57683cc19c3a3b8e9.png" style="width:40%"/>
