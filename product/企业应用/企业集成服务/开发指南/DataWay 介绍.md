@@ -164,10 +164,21 @@ config(mime_type="application/json")
 		- math.e：数学常数 e = 2.718281...，精确到可用精度。
 		- math.inf：浮点正无穷大。 （对于负无穷大，使用 -math.inf 。）相当于 float('inf') 的输出。
 		- math.nan：浮点“非数字”（NaN）值。 相当于 float('nan') 的输出。
+- **base64**：用于 base64 编解码的库，可参考 [Python 官方文档](https://docs.python.org/3.5/library/base64.html)。已内置在 DataWay 的处理上下文中，可以直接引用。 支持的函数有：
+  - **base64.b64encode()**
+  - **base64.b64decode()**
+- **hmac**：用于 hma加解密的库，可参考 [Python 官方文档](https://docs.python.org/3.5/library/hmac.html)。已内置在 DataWay 的处理上下文中，可以直接引用。 支持的函数有：
+  - **hmac.new()**
+- **random**：用于随机数生成的库，可参考 [Python 官方文档](https://docs.python.org/3.5/library/random.html)。已内置在 DataWay 的处理上下文中，可以直接引用。 支持的函数有：
+  - **random.randint()**
+- **hashlib**：用于生成哈希值的库，可参考 [Python 官方文档](https://docs.python.org/3.5/library/hashlib.html)。已内置在 DataWay 的处理上下文中，可以直接引用。 支持的函数/属性有：
+  - **hashlib.sha256**
 
-### PyMessageObject 选择器
 
-对于 PyMessageObject 类型的变量，例如预定义属性 msg.payload，Dataway 支持通过选择器（selector）的方式进行快速访问，支持的操作类型如下：
+
+### Entity 选择器
+
+对于 Entity 类型的变量，例如预定义属性 msg.payload，Dataway 支持通过选择器（selector）的方式进行快速访问，支持的操作类型如下：
 
 | 下标类型                                 | 描述                                                         | 举例                     |
 | ---------------------------------------- | ------------------------------------------------------------ | ------------------------ |
