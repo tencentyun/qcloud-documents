@@ -31,7 +31,7 @@
 ### 步骤2：申请开通 Amazon Alexa 服务
 1. 创建项目及产品，详情请参考 [产品定义](https://cloud.tencent.com/document/product/1081/34739)。
 2. 单击项目进入项目详情界面，单击【语音技能】>【Amazon Alexa】> 【申请开通】，进入申请界面。
-![](https://main.qcloudimg.com/raw/f28dba12013afe3d3c09a74a1a6f24af.jpg)
+![](https://main.qcloudimg.com/raw/4eec0d3a9a16111a67ef9d55c3086a6d.png)
 3. 选择需要开通的产品，填写申请信息后，还需勾选“我了解并同意《开发者须知与授权》”，单击【提交申请】，我们将安排相关工作人员与您进行对接。
  - **选择产品**：该项目下创建的产品。
  - **其他需求描述**：最多不超过250个字符。
