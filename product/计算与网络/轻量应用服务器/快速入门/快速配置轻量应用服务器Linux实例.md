@@ -29,7 +29,7 @@ Linux 实例将通过 Webshell 终端并以免密方式登录。
 
 
 
-## （可选）步骤4：重置轻量应用服务器 Linux 实例密码
+## 步骤4：重置轻量应用服务器 Linux 实例密码（可选）
 如果您需要使用 SSH 或者远程登录软件连接 Linux 实例，请先 [重置密码](https://cloud.tencent.com/document/product/1207/44575) 或 [设置密钥](https://cloud.tencent.com/document/product/1207/44573)。此步骤以重置密码为例，请结合实际情况按需操作。
 
 1. 在 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index) 的服务器列表中，找到并进入刚购买的服务器详情页。
