@@ -61,7 +61,7 @@ SCF 默认的配置角色为 `SCF_QcsRole`，其角色详情如下：
 7. 在“审阅”步骤中填写“角色名称”，并单击【完成】。本文以 `scf_cos_full_access` 角色名称为例。 
 8. 返回函数配置页，单击“运行角色”右侧的<img src="https://main.qcloudimg.com/raw/b32932fe6f9afabb88280c38bb287887.png" style="margin:-3px 0px">，即可在下拉列表中选择刚创建的运行角色。如下图所示：
 ![](https://main.qcloudimg.com/raw/f891ccabd030dfafd3119d10f28b42ea.png)
->! 在为运行角色添加策略时，除了选择预置策略外，还可以通过自定义策略的方式做更细粒度的权限划分，SCF 的策略语法遵循 CAM 的 [语法结构](https://cloud.tencent.com/document/product/598/10604) 和 [资源描述方式](https://cloud.tencent.com/document/product/598/10606)，策略语法以 JSON 格式为基础，具体可参考 [SCF 策略语法]()。
+>! 在为运行角色添加策略时，除了选择预置策略外，还可以通过自定义策略的方式做更细粒度的权限划分，SCF 的策略语法遵循 CAM 的 [语法结构](https://cloud.tencent.com/document/product/598/10604) 和 [资源描述方式](https://cloud.tencent.com/document/product/598/10606)，策略语法以 JSON 格式为基础，具体可参考 [SCF 策略语法](https://cloud.tencent.com/document/product/583/47934)。
 >
 
 ### 使用运行角色获取环境变量
