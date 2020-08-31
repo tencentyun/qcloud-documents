@@ -52,7 +52,7 @@
 使用 Chrome 浏览器打开 `dist` 目录下的 `index.html` 文件即可运行 Demo。
 
 >!
->- 一般情况下体验 Demo 需要部署至服务器，通过 `https://域名/xxx` 访问，或者直接在本地搭建服务器，通过 `localhost:` 端口访问。
+>- 一般情况下体验 Demo 需要部署至服务器，通过 `https://域名/xxx` 访问，或者直接在本地搭建服务器，通过 `localhost:端口`访问。
 - 目前桌面端 Chrome 浏览器支持 TRTC 桌面浏览器 SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 
 **Demo 运行界面如图所示：**
@@ -73,7 +73,7 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 
 出现该错误说明 TRTC 桌面浏览器 SDK 在 STUN 打洞失败，请根据环境要求检查防火墙配置。
 
-### 3. 出现客户端错误："RtcError: ICE/DTLS Transport connection failed" 或 “RtcError: DTLS Transport connection timeout”该如何处理？
+### 3. 出现客户端错误：“RtcError: ICE/DTLS Transport connection failed”或 “RtcError: DTLS Transport connection timeout”该如何处理？
 
 出现该错误说明 TRTC 桌面浏览器 SDK 在建立媒体传输通道时失败，请根据环境要求检查防火墙配置。
 
