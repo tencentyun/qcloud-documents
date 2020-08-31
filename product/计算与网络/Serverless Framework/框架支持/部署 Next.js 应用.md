@@ -18,7 +18,7 @@ $ mkdir serverless-next && cd serverless-next
 $ npm init next-app src
 ```
 
->! 2020 年 9 月 1 日起，serverless 组件不再支持 Node.js10.0 以下版本，请注意升级
+>!2020年9月1日起，Serverless 组件不再支持 Node.js10.0 以下版本，请注意升级。
 
 ## 操作步骤
 ### 1. 安装
