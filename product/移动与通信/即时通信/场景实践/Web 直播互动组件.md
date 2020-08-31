@@ -78,7 +78,7 @@ player.startPlay(url).then(() => {
 ```javascript
 // 1、创建 IM（即时通信）对象并监听事件
 let im = TWebLive.createIM({
-  SDKAppID: 0 // 接入时需要将0替换为您的云通信应用的 SDKAppID
+  SDKAppID: 0 // 接入时需要将0替换为您的即时通信应用的 SDKAppID
 });
 // 监听 IM_READY IM_TEXT_MESSAGE_RECEIVED 等事件
 let onIMReady = function(event) {
