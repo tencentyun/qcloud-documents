@@ -109,4 +109,6 @@ TencentOS tiny 的源码已经开源，可从[ github](https://github.com/Tencen
 |          | lora_module_wrapper             | lora 封装层源码                                               |
 | devices  | ...                             | 各种通信模组的驱动适配层                                     |
 
-由于本节只介绍 TencentOS tiny 的内核移植，所以这里只需要用到 arch、board、kernel、osal 四个目录下的源码。
+由于下节只介绍 TencentOS tiny 的内核移植，所以这里只需要用到 arch、board、kernel、osal 四个目录下的源码。
+## 下一步操作
+请前往 [步骤二：内核移植](https://cloud.tencent.com/document/product/1081/47956) 进行内核移植操作。
