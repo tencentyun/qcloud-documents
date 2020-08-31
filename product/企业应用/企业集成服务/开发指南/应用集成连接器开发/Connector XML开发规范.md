@@ -1,8 +1,8 @@
 开发一个连接器最简单的方式，就是通过 XML 来编写，一个 Connector 就是一个 XML 文件。通过 XML 编写的 **Connector** 和普通的 **module** 模块以同样的方式被使用。
 
-Connector XML的根节点为"**module**"，需要在根节点引入必要的namespace，同时指明**Connector**使用的API类型(**apiType**)、API版本(**apiVersion**)、表达式语言类型(**expressionType**)和表达式版本(**expressionVersion**)，其中**apiType**固定为"**XML**"，**apiVersion**在当前版本为"1.0"，**expressionType**在iPaaS规范中默认定义了"**dataway**"，它基于python 3，并针对部分功能做了裁剪，入口函数名为"**dw_process**"，**selector**函数以下标操作符"[...]"重载的方式提供，详细的定义可参考iPaaS中相关标准的定义。
+Connector XML 的根节点为"**module**"，需要在根节点引入必要的 namespace，同时指明 **Connector** 使用的 API 类型（**apiType**）、API 版本（**apiVersion**）、表达式语言类型（**expressionType**）和表达式版本（**expressionVersion**），其中 **apiType** 固定为 "**XML**"，**apiVersion** 在当前版本为"1.0"， **expressionType** 在 iPaaS 规范中默认定义了 "**dataway**"，基于 Python 3，并针对部分功能做了裁剪，入口函数名为 **dw_process**，**selector** 函数以下标操作符"[...]"重载的方式提供，详细的定义可参考 iPaaS 中相关标准的定义。
 
-在"**module**"节点下，需要通过"**name**"、"**version**"、"**display-name**"和"**description**"标签来描述模块的英文名、版本、展示名和描述，通过“**declaration**”标签来描述**connector**对外提供的接口，包括 **property**、**trigger** 和 **operation** 的定义。通过“**body**”标签来描述 **trigger** 和 **operation** 在**connector** 内部的实现逻辑。
+在 "**module**" 节点下，需要通过"**name**"、"**version**"、"**display-name**" 和 "**description**" 标签来描述模块的英文名、版本、展示名和描述，通过“**declaration**”标签来描述 **connector** 对外提供的接口，包括 **property**、**trigger** 和 **operation** 的定义。通过 “**body**” 标签来描述 **trigger** 和 **operation** 在**connector** 内部的实现逻辑。
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -78,7 +78,7 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 
 "**trigger**" 节点的属性有：
 - **name** 指定触发器名，必填。
-- **flowRef** 指定实现的**flow**名，必填，在下面的实现章节中详细介绍。
+- **flowRef** 指定实现的 **flow** 名，必填，在下面的实现章节中详细介绍。
 
 除此之外，还可以在 **trigger** 的定义中指定触发器在界面上如何渲染，相关属性如下：
 
@@ -109,7 +109,7 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 </trigger>
 ```
 
-"**operation**"节点的属性有：
+"**operation**" 节点的属性有：
 
 - **name** 指定操作名，必填。
 - **flowRef** 指定实现的 **flow** 名，必填，在下面的实现章节中详细介绍。
@@ -130,7 +130,7 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 
 ## connector 实现
 
-在**xml connector 的**实现中，**trigger** 和 **operation** 都是通过设计 **flow**，基于已有的 **component** 来编排实现的。每个在 **declaration** 中声明的 **trigger** 或 **operation** 都对应一个实现它的 **flow**，通过**flowRef** 属性可以将声明与实现 **flow** 进行关联。
+在 **xml connector 的**实现中，**trigger** 和 **operation** 都是通过设计 **flow**，基于已有的 **component** 来编排实现的。每个在 **declaration** 中声明的 **trigger** 或 **operation** 都对应一个实现它的 **flow**，通过**flowRef** 属性可以将声明与实现 **flow** 进行关联。
 
 #### operation 实现
 
@@ -150,7 +150,7 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 - **flow** 的第一个组件需要为一个其它模块的 **source**，用于在一定条件下触发 **flow** 的运行。对于轮询的场景，通常使用 **scheduler** 作为 **source**。对于回调的场景，通常使用 **http:listener** 作为 **source**。
 - **flow** 中通过 "**emit"** 组件来对外产生事件，单次流的执行可以对外触发0次或若干次事件。"**emit**"组件不接受参数，会按照 **trigger** 声明中定义的 **output** 规则来构造 **message**，构造规则同 **operation**。
 
-**trigger** 实例被构造后，实现该 **trigger** 的 **flow**中的 **source** 会同时被构造，该 **source** 在一定条件下产生事件并在该 **flow** 中流转，当遇到 "**emit**" 组件时，会将新构造的 **message** 传递给外面引用该 **trigger** 实例的 **flow** 中的第一个 **processor**，实现触发逻辑，并在流转完成后得到的 **message** 传递给 **emit** 的下一个 **processor**。
+**trigger** 实例被构造后，实现该 **trigger** 的 **flow** 中的 **source** 会同时被构造，该 **source** 在一定条件下产生事件并在该 **flow** 中流转，当遇到 "**emit**" 组件时，会将新构造的 **message** 传递给外面引用该 **trigger** 实例的 **flow** 中的第一个 **processor**，实现触发逻辑，并在流转完成后得到的 **message** 传递给 **emit** 的下一个 **processor**。
 
 在实现 **trigger** 的 **flow** 中，**trigger** 实例参数和公共配置项会按照 operation 的模式放入到变量表中。在 **source** 的参数及后续的 processor 参数中均可以引用。
 
@@ -186,7 +186,7 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 
 **flow** 的子节点是组件列表，描述了这个的流的结构。根据组件所属模块，每个子节点的标签分为两种：
 
-对于核心模块(**core**)的组件，结构如下：
+对于核心模块（**core**）的组件，结构如下：
 
 ```xml
 <componentName parameterA="..." parameterB="..." ... />
