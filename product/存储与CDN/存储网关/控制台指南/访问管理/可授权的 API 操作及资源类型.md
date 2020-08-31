@@ -19,7 +19,7 @@
 | csg:ListGateways               | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 列出存储网关资源       |
 | csg:DescribeCOS<br>GatewayCache    | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 查看存储网关缓存状态   |
 | csg:StartGateway               | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 启动存储网关           |
-| csg:Shutdown<br>Gateway            | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}:gateway/${gatewayid} ` | 停止存储网关           |
+| csg:Shutdown<br>Gateway            | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 停止存储网关           |
 | csg:Terminate<br>Gateway           | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 删除存储网关           |
 | csg:Describe<br>GatewayInformation | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 查看存储网关详情       |
 | csg:Update<br>GatewayInformation   | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 更新存储网关基础配置   |
