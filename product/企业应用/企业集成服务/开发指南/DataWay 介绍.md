@@ -69,15 +69,15 @@ DataWay 基于 Python3.4 的语法进行实现，出于安全性的考量，在 
 
 由于 DataWay 表达式是标准的 Python 脚本，在 DataWay 处理过程中，用户可以使用并构造允许的任意类型。但是作为 EIS 数据流转的重要入口，`dw_process` 的返回值类型是受到严格限制的，其返回的结果中仅支持如下类型，否则（一定）会导致运行时的序列化错误：
 
-- str：字符串，即 Python 原生的字符串 str。
-- None：Python 中的空值 None。
-- bool：布尔值，即 Python 原生布尔值 bool。
-- float：浮点数，即 Python 原生浮点数 float。
-- int：整数，即 Python 原生整型 int。
-- list：列表，序列类型容器，即 Python 原生 `list` 类型。
-- dict：字典，kv 类型容器，即 Python 原生 `dict` 类型。
-- Message：即 EIS 中的消息，在 DataWay 中以 `Message` 进行访问，该类型为 EIS 独有。
-- Entity：即 EIS 中的实体数据，用于代表一个结构化的二进制对象，在 DataWay 中以 `Entity` 类型进行访问，包括 `mime_type`、`encoding`、`blob` 等数据，该类型是 EIS 独有的。
+- **str**：字符串，即 Python 原生的字符串 str。
+- **None**：Python 中的空值 None。
+- **bool**：布尔值，即 Python 原生布尔值 bool。
+- **float**：浮点数，即 Python 原生浮点数 float。
+- **int**：整数，即 Python 原生整型 int。
+- **list**：列表，序列类型容器，即 Python 原生 `list` 类型。
+- **dict**：字典，kv 类型容器，即 Python 原生 `dict` 类型。
+- **Message**：即 EIS 中的消息，在 DataWay 中以 `Message` 进行访问，该类型为 EIS 独有。
+- **Entity**：即 EIS 中的实体数据，用于代表一个结构化的二进制对象，在 DataWay 中以 `Entity` 类型进行访问，包括 `mime_type`、`encoding`、`blob` 等数据，该类型是 EIS 独有的。
   可以通过如下方式访问 `Entity` 中的内容：
   - **obj['^blob']：**获取该消息对象的负载数据，返回 `bytes` 类型的对象。
   - **obj['^mime_type']：**获取该消息对象的 `encoding`，返回 `str` 对象。
@@ -85,7 +85,7 @@ DataWay 基于 Python3.4 的语法进行实现，出于安全性的考量，在 
   - **obj['^value']：**根据 `mime_type` 和 `encoding`，对负载数据 `blob` 进行反序列化，并返回其结果
   - **obj['xxxx']：**根据 `mimetype` / `encoding`对 `Message` 的内容进行反序列化，并获取其中指定 key 的值，逻辑上相当于 **obj['^value'] ['xxx']**。
   - **obj.get(attr)：**根据 `mimetype` / `encoding`对 `Message` 的内容进行反序列化，并获取其中指定 key 的值，逻辑上相当于 **obj['^value'].get(attr)**。
-- MultiMap：多值 `map`，类似于 xml 而与 Python 原生 `dict` 类型不同，该类型可以支持重复的 key。通常用于 `Message` 的 `attrs` 属性中，该类型为 EIS 独有的。
+- **MultiMap**：多值 `map`，类似于 xml 而与 Python 原生 `dict` 类型不同，该类型可以支持重复的 key。通常用于 `Message` 的 `attrs` 属性中，该类型为 EIS 独有的。
 
 ### DataWay 内置变量及类型
 
@@ -143,7 +143,7 @@ DataWay 基于 Python3.4 的语法进行实现，出于安全性的考量，在 
   - **ctime：**将一个时间戳转换为时间字符串
   - **mktime()：**将一个 struct_time 转换为时间戳
   - **strftime()：**将一个 struct_time 进行格式化
-  - **strptime()：**按照给定的格式解析事件字符串，并返回一个结构化的struct_time对象
+  - **strptime()：**按照给定的格式解析事件字符串，并返回一个结构化的 struct_time 对象
   - **timezone：**当前时区
   - **tzname：**当前时区名称
   - **gmtime：**将一个时间戳转换为 struct_time 对象
@@ -179,7 +179,7 @@ DataWay 基于 Python3.4 的语法进行实现，出于安全性的考量，在 
 | 下标类型                                 | 描述                                                         | 举例                      |
 | ---------------------------------------- | ------------------------------------------------------------ | ------------------------- |
 | 数字                                     | 访问当前数组的第 i 个元素                                    | payload[0]                |
-| 以^开头的字符串                          | 获取元信息，例如^mime_ype、^encoding、^raw（原始二进制）、^value（值） | msg.payload["^mime_type"] |
+| 以^开头的字符串                          | 获取元信息，例如 ^mime_ype、^encoding、^raw（原始二进制）、^value（值） | msg.payload["^mime_type"] |
 | 普通字符（字母、数字、下划线、横杠、点） | 普通字符的 key，按 key、nodeName、name 等方式获取当前元素的子元素，如果有多个同名的，只返回第一个 | msg.payload["list"]       |
 
 
