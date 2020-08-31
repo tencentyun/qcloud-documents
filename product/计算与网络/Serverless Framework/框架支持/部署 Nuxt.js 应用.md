@@ -20,9 +20,10 @@
 $ mkdir serverless-nuxtjs && cd serverless-nuxtjs
 $ npx create-nuxt-app src
 ```
->!本教程中的 Nuxt 项目使用 JavaScript 与 Npm 安装包进行构建，初始化项目的时候请选择相应的选项。
+>!
+>- 本教程中的 Nuxt 项目使用 JavaScript 与 Npm 安装包进行构建，初始化项目的时候请选择相应的选项。
+>- 2020年9月1日起，Serverless 组件不再支持 Node.js10.0 以下版本，请注意升级。
 
->! 2020 年 9 月 1 日起，serverless 组件不再支持 Node.js10.0 以下版本，请注意升级
 ## 操作步骤
 ### 1. 安装
 通过 npm 全局安装 [Serverless CLI](https://github.com/serverless/serverless)：
