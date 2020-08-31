@@ -26,5 +26,16 @@
 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)，在服务器列表中找到刚购买的服务器，单击【登录】。
 Linux 实例将通过 Webshell 终端并以免密方式登录。
 ![](https://main.qcloudimg.com/raw/71162a6e915198b66810b7919dfcdb66.png)
->? 如果您需要使用 SSH 或者远程登录软件连接 Linux 实例，请先 [重置密码](https://cloud.tencent.com/document/product/1207/44575) 或 [设置密钥](https://cloud.tencent.com/document/product/1207/44573)。
+
+
+
+## （可选）步骤4：重置轻量应用服务器 Linux 实例密码
+如果您需要使用 SSH 或者远程登录软件连接 Linux 实例，请先 [重置密码](https://cloud.tencent.com/document/product/1207/44575) 或 [设置密钥](https://cloud.tencent.com/document/product/1207/44573)。此步骤以重置密码为例，请结合实际情况按需操作。
+
+1. 在 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index) 的服务器列表中，找到并进入刚购买的服务器详情页。
+2. 在“实例信息”栏中，单击【重置密码】。如下图所示：
+![](https://main.qcloudimg.com/raw/fcbc4f5968c1f70220f410da5e916ca5.png)
+3. 在弹出的“重置密码”窗口中，输入并确认密码，并根据界面提示完成重置密码操作。 
+>?重置密码需要在实例关机状态下操作，建议您先将实例关机再执行重置密码的操作。如果您选择在开机状态下重置密码，则需要勾选“同意强制关机”才能执行操作。
 >
+![](https://main.qcloudimg.com/raw/b6605b372bc1c84b3e30ba4f0e198467.png)
