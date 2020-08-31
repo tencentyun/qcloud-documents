@@ -10,7 +10,8 @@
 
 ## 前提条件
 
-- 已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于 8.6，建议使用Node.js10.0 及以上版本）
+- 已安装 [Node.js](https://nodejs.org/en/)
+>! 2020 年 9 月 1 日起，serverless 组件不再支持 Node.js10.0 以下版本，请注意升级
 - 账号已经配置 **QcloudPostgreSQLFullAccess** 策略，配置方法详见 [账号和权限配置](https://cloud.tencent.com/document/product/1154/43006)
 
 ## 操作步骤
