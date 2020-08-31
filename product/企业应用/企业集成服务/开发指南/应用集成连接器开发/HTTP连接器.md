@@ -6,7 +6,8 @@ HTTP 连接器是最常用的 **connector**，也是 **iPaaS** 内置的最重�
 
 ![http listener组件](https://main.qcloudimg.com/raw/89b5f86d062e8fd8ee238f4117b9ba7d/http%20listener%E7%BB%84%E4%BB%B6.png)
 
-![http listener组件配置](https://main.qcloudimg.com/raw/55a5e5f228b092e577caae2081769fbf/http%20listener%E7%BB%84%E4%BB%B6%E9%85%8D%E7%BD%AE.png)
+
+![](https://main.qcloudimg.com/raw/35622ec0bfd9ad4cb704d7bf59dde865.png)
 
 ## request
 
@@ -14,7 +15,9 @@ HTTP 连接器是最常用的 **connector**，也是 **iPaaS** 内置的最重�
 
 ![http request组件](https://main.qcloudimg.com/raw/80c10053e3abe40acfe299d444d9faa6/http%20request%E7%BB%84%E4%BB%B6.png)
 
-![http request组件配置](https://main.qcloudimg.com/raw/78defc8b8b5bee11eb098c52e8f707e3/http%20request%E7%BB%84%E4%BB%B6%E9%85%8D%E7%BD%AE.png)
+
+![](https://main.qcloudimg.com/raw/2e1ac641535a15b71974895f322cdac6.png)
+
 
 ## 表达式
 
