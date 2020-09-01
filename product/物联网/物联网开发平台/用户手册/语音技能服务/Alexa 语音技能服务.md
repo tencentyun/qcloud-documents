@@ -3,7 +3,7 @@
 ## 限制条件  
 
 #### 激活设备对接 Amazon Alexa 仅支持以下地区
- - 美国  
+ - 美国 
  
 #### 语音技能仅支持以下语言
  - 英语
@@ -27,7 +27,8 @@
 >?腾讯云物联网开发平台关于 Amazon Alexa 支持的品类或者功能，后续将会支持更多，若您有接入需求，您可以在腾讯云官网通过 [在线客服](https://cloud.tencent.com/act/event/connect-service) ，描述您的产品需求并提交开通申请，我们将安排相关工作人员与您进行对接。
 
 ### 步骤2：申请开通 Amazon Alexa 服务
-1. 创建项目及产品，详情请参考 [产品定义](https://cloud.tencent.com/document/product/1081/34739)。
+1. 登录 [物联网开发控制台](https://console.cloud.tencent.com/iotexplorer) ，地区选择美国东部，创建项目及产品，详情请参考 [产品定义](https://cloud.tencent.com/document/product/1081/34739)。
+![](https://main.qcloudimg.com/raw/beca495cb2aec4218f6aa3e6eab9b723.jpg)
 2. 单击项目进入项目详情界面，单击【语音技能】>【Amazon Alexa】> 【申请开通】，进入申请界面。
 ![](https://main.qcloudimg.com/raw/4eec0d3a9a16111a67ef9d55c3086a6d.png)
 3. 选择需要开通的产品，填写申请信息后，还需勾选“我了解并同意《开发者须知与授权》”，单击【提交申请】，我们将安排相关工作人员与您进行对接。
