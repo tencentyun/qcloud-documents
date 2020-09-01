@@ -7,7 +7,7 @@ DescribeDocProcessJobs 用于拉取符合条件的文档预览任务。
 #### 请求示例
 
 ```shell
-GET /doc_jobs?size=&states=&queueId=&startCreationTime=&endCreationTime= HTTP/1.1
+GET /doc_jobs?queueId=<queueId>&tag=DocProcess HTTP/1.1
 Host: <BucketName-APPID>.ci.<Region>.myqcloud.com
 Date: <GMT Date>
 Authorization: <Auth String>
