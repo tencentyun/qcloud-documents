@@ -4,7 +4,8 @@ Layer 组件是 serverless-tencent 组件库中的基础组件之一。 您可�
 
 ## 前提条件
 
-已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于 8.6，建议使用 Node.js10.0 及以上版本）
+已安装 [Node.js](https://nodejs.org/en/)
+>!2020年9月1日起，Serverless 组件不再支持 Node.js10.0 以下版本，请注意升级。
 
 ## 操作步骤
 
