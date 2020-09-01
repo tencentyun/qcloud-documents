@@ -28,7 +28,7 @@
     <li>kube-scheduler 支持动态设置日志级别（kube-scheduler）。</li>
     <li>绕过 CBS 出现的 device path（/dev/disk/by-id/virtio-xxx/...）缺失的问题，让用户能正常使用 CBS（kubelet）。</li>
     <li>TKE 感知单个 node 可挂载 qcloudcbs 的最大数量，kubelet 侧不去 patch node（kubelet）。</li>
-    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89296">pr89296</a>，Don't log whether we're using iptables “--random-fully”（kube-proxy）。</li>
+    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89296">pr89296</a>，不在日志中记录是否启用了 iptables random-fully参数（kube-proxy）。</li>
     <li>修复 aws 问题， <a href="https://github.com/kubernetes/kubernetes/pull/92162">pr92162</a>（kubelet）。</li>
     <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91277">pr91277</a>，避免 CLB 健康检查导致 kube-apiserver 产生大量 TLS 握手错误日志的问题（kube-apiserver）。</li>
     <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91500">pr91500</a>，修复 KUBERNETES_SERVICE_HOST 环境变量缺失的问题（kubelet）。</li>
