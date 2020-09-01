@@ -1,7 +1,5 @@
 
-
-本实例中使用 Amazon Alexa 实现语音智能服务，详细的官方文档请参见 [Amazon Alexa 文档](https://developer.amazon.com/en-US/docs/alexa/smarthome/understand-the-smart-home-skill-api.html)。
-
+本实例中使用第三方平台 Amazon Alexa 实现语音智能服务，关于Alexa 详细的官方文档请参见 [Amazon Alexa 文档](https://developer.amazon.com/en-US/docs/alexa/smarthome/understand-the-smart-home-skill-api.html)。
 ## 限制条件  
 
 #### 激活设备对接 Amazon Alexa 仅支持以下地区
