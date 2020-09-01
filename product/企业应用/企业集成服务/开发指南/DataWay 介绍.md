@@ -112,7 +112,7 @@ DataWay 基于 Python3.4 的语法进行实现，出于安全性的考量，在 
     Entity.from_bytes(data, mime_type=None, encoding="utf8")
     ```
     如果传递给 `from_bytes` 的 `data` 参数类型为 bytes，则该函数会直接返回一个以 `data`、`mime_type`、`encoding`作为参数构造的 `Entity` 对象，且不会对 `mime_type` 和 `encoding` 进行合法性校验；如果传递的 `data` 是 str 数据，则会尝试根据 `encoding`参数将其编码为 bytes，并构造 `Entity` 对象，而不会校验 `mime_type` 参数的合法性。
-     `Entity` 类型详细说明可参考 [Dataway 类型系统](dataway-.E7.B1.BB.E5.9E.8B.E7.B3.BB.E7.BB.9F)。
+     `Entity` 类型详细说明可参考 [Dataway 类型系统](#dataway-.E7.B1.BB.E5.9E.8B.E7.B3.BB.E7.BB.9F)。
   - **Python 上下文环境中的内置变量及函数，可参考 [Python 官方文档](https://docs.python.org/3.5/library/functions.html#built-in-funcs)。目前 DataWay 中支持的函数如下：**
     - abs()：求数值绝对值
     - all()：判断序列（集合、列表、元组、dict) 中所有元素是否满足给定条件
