@@ -31,7 +31,7 @@ COSBench 是一款由 Intel 开源的，用于对象存储的压测工具。腾�
 ## COSBench 实践步骤
 
 1. 从 [github](https://github.com/intel-cloud/cosbench/releases) 网站下载 cosbench 0.4.2.c4 压缩包，并在服务器上进行解压。
-2. 执行`yum install nmap-ncat java curl java-1.8.0-openjdk-devel -y`安装相关依赖。
+2. 执行命令`yum install nmap-ncat java curl java-1.8.0-openjdk-devel -y`安装 COSBench 的依赖库。
 3. 编辑 s3-config-sample.xml 文件并添加任务配置信息，任务配置主要包含如下五个阶段：
  1.   init 阶段：创建存储桶。
  1.   prepare 阶段：worker 线程，PUT 上传指定大小的对象，用于 main 阶段读取。
