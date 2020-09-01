@@ -6,19 +6,15 @@
 * 如果用户确认接入 Firebase，用户需要使用从 Firebase 官网自建应用获得 **GoogleService-Info.plist**，替换 App 中 /LinkApp/Supporting Files 目录下的 **GoogleService-Info.plist** 文件。   
 
 ## Android   
-1. 请根据实际情况调整 **app-config.json** 中的内容，app-config.json 位于项目的根目录，如截图所示位置。
- 
- <img src="https://main.qcloudimg.com/raw/9d8f86a5e9bff3a3a2bd639a0c0f32bf.png" alt="image-20200619141407513"  width = "35%" height = "50%"  />
+1. 请根据实际情况调整 **app-config.json** 中的内容，app-config.json 位于项目的根目录（iot-link-android/app-config.json）。
 
 app-config.json 需要配置的内容，如下：
 
 ```json
 {
-  "TencentIotLinkAppkey": "请输入从物联网开发平台申请的 App key，正式发布前务必填写",
+  "TencentIotLinkAppkey": "请输入从物联网开发平台申请的 App Key，正式发布前务必填写",
   "TencentIotLinkAppSecret": "请输入从物联网开发平台申请的 App Secret，App Secret 请保存在服务端，此处仅为演示，如有泄露概不负责",
-  "WXAccessAppId": "",
-  "TencentMapSDKValue": "",
-  "TencentIotLinkSDKDemoAppkey": ""
+  "WXAccessAppId": ""
 }
 ```
 
@@ -30,12 +26,29 @@ app-config.json 需要配置的内容，如下：
     <img src="https://main.qcloudimg.com/raw/e5734b5731d77e8b1e271cbd78bb5fcf.png" alt="image-20200619162858817" width = "40%" height = "40%" />
   3. 将该数字签名和应用包名登记到微信开放平台，否则微信授权登录将不可用。
   4. 最后将配置项 WXAccessAppId 设置为在微信开放平台申请并获得的 AppID；**同时请遵从官方建议自建微信接入服务器，保证 App Secret 不被泄露**。
- - **TencentMapSDKValue** 请使用腾讯地图开放平台申请并获得的 [key](https://lbs.qq.com/mobile/androidLocationSDK/androidGeoGuide/androidGeoCreat)。
 
 2. 项目配置 **Firebase** 插件。
- - 若用户确认使用 Firebase 功能，需通过 Firebase 官网创建应用并获取 **google-services.json**，将 google-services.json 文件放置在 app 目录下，如截图所示位置。
-  <img src="https://main.qcloudimg.com/raw/76bf90532ea498a57a7280cf3ce5e165/image-20200619150459211.png" alt="image-20200619150459211"  width = "40%" height = "40%"  />
+ - 若用户确认使用 Firebase 功能，需通过 Firebase 官网创建应用并获取 **google-services.json**，将 google-services.json 文件放置在 app 目录下（iot-link-android/app/google-services.json）。
  - 若不使用 Firebase 功能，注释图中标注的内容即可。
-  <img src="https://main.qcloudimg.com/raw/d1e21091c93ad724d21e833263081919.png" alt="image-20200628100119804" style="zoom:50%;" />
-  <img src="https://main.qcloudimg.com/raw/e6ce262011f9309c516b7ff27283417f.png" alt="image-20200628100329841" style="zoom:50%;" />
-  <img src="https://main.qcloudimg.com/raw/be98955a98abc5562bf45a1aaac127f5.png" alt="image-20200628100531109" style="zoom:50%;" />
+  
+     在项目级 build.gradle（iot-link-android/build.gradle）中注释掉dependencies中以下三个依赖项
+   ```
+   dependencies {
+   //        classpath 'com.google.gms:google-services:4.3.3'
+   //        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.1.1'
+   //        classpath 'com.google.firebase:perf-plugin:1.3.1'
+   }
+   ```
+ 在应用级 build.gradle（iot-link-android/app/build.gradle）中注释掉以下三个应用插件和三个依赖项
+         
+       ```
+       //apply plugin: 'com.google.gms.google-services'
+       //apply plugin: 'com.google.firebase.crashlytics'
+       //apply plugin: 'com.google.firebase.firebase-perf'
+   
+       dependencies {
+       //    implementation 'com.google.firebase:firebase-analytics-ktx:17.4.3'
+       //    implementation 'com.google.firebase:firebase-crashlytics:17.0.1'
+       //    implementation 'com.google.firebase:firebase-perf:19.0.7'
+       }
+       ```
