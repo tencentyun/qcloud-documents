@@ -41,7 +41,7 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
 
    **CoreVideo.framework**
 
-   **CoreMedio.framework**
+   **CoreMedia.framework**
 
    **Foundation.framework**
 
