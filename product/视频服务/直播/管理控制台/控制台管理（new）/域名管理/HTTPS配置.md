@@ -3,7 +3,7 @@ HTTPS 协议是由 SSL + HTTP 协议构建的可进行加密传输和身份认�
 
 ## 前提条件
 - 已登录 [云直播控制台](https://console.cloud.tencent.com/live)。
-- 已添加**播放域名**。
+- 已 [添加播放域名](https://cloud.tencent.com/document/product/267/20381)。
 
 
 ## 操作步骤 
