@@ -33,7 +33,7 @@ https://mycorp.cloudidaas.com/open/oauth2/authorize?client_id=<client_id>&redire
 
 - **请求方式：**`POST`
 - **请求地址：**https://api.open.cloudidaas.com/oauth2/v1/token
-- **请求头部：**请指定`Content-Type`：为`application/json`
+- **请求头部：**请指定 `Content-Type` ：为 `application/json`
 - **参数说明**
 
 | 参数          | 必选 | 说明                                                         |
