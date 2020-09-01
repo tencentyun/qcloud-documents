@@ -18,7 +18,7 @@
 }
 ```
 
- - **TencentIotLinkAppkey** 和 **TencentIotLinkAppSecret** 请使用在物联网平台创建应用时生成的[ App Key 和 App Secret](https://cloud.tencent.com/document/product/1081/45901#.E8.8E.B7.E5.8F.96-app-key-.E5.92.8C-app-secret)，TencentIotLinkAppSecret 存放在用户自建后台服务器中，用于登录和注册以及自建请求使用。          
+ - **TencentIotLinkAppkey** 和 **TencentIotLinkAppSecret** 请使用在物联网平台创建应用时生成的[ App Key 和 App Secret](https://cloud.tencent.com/document/product/1081/45901#.E8.8E.B7.E5.8F.96-app-key-.E5.92.8C-app-secret)，TencentIotLinkAppSecret 存放在用户自建后台服务器中，详情可见[应用端 API 简介](https://cloud.tencent.com/document/product/1081/40773)。          
  - **WXAccessAppId** 请使用在微信开放平台申请并获得的 **AppID**；若确认使用自定义的微信授权登录，需要在 [微信开放平台](https://open.weixin.qq.com/) 注册开发者帐号，创建移动应用，审核通过后，即可获得相应的 [AppID 和 App Secret](https://developers.weixin.qq.com/doc/oplatform/Mobile_App/WeChat_Login/Development_Guide.html)。
   使用微信授权登录还需：
   1. 将 `opensource_keystore.jks`文件替换成自己的签名文件并给应用签字。
