@@ -52,7 +52,7 @@ npm install tencentcloud-serverless-nodejs
 > - 如果不指定地域，默认为同地域下函数互调。
 > - 命名空间不指定，默认为 default。
 > - 需要打开调用方函数外网访问权限。
-> - 如果没有手动传入 secretId 和 secretKey 等参数，函数需绑定有 SCF Invoke 权限（或者包含 SCF Invoke，比如 SCF FullAccess）的角色，可参考 [创建函数运行角色](https://cloud.tencent.com/document/product/583/41755)。
+> - 如果没有手动传入 secretId 和 secretKey 等参数，函数需绑定有 SCF Invoke 权限（或者包含 SCF Invoke，例如 SCF FullAccess）的角色，可参考 [创建函数运行角色](https://cloud.tencent.com/document/product/583/41755)。
 
 
 1. <span id="Step1"></span>创建一个地域为【北京】，名称为 “FuncInvoked”，并用于**被调用**的 Node.js 云函数。该云函数内容如下：
