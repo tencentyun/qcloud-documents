@@ -11,10 +11,10 @@
 
 ##  构造网页授权链接
 
-用户授权的地址为`https://<IDaaS域名>/oauth2/authorize`。完整的授权地址格式如下：
+用户授权的地址为`https://<IDaaS域名>/open/oauth2/authorize`。完整的授权地址格式如下：
 
 ```plaintext
-https://mycorp.cloudidaas.com/open/oauth2/authorize?client_id=<client_id>&redirect_uri=<redirect_uri>&repsonse_type=code&scope=basic&state=m7NTlQV1qc8MbCU
+https://mycorp.cloudidaas.com/open/oauth2/authorize?client_id=<client_id>&redirect_uri=<redirect_uri>&response_type=code&scope=basic&state=m7NTlQV1qc8MbCU
 ```
 
 **参数说明**
@@ -33,6 +33,7 @@ https://mycorp.cloudidaas.com/open/oauth2/authorize?client_id=<client_id>&redire
 
 - **请求方式：**`POST`
 - **请求地址：**https://api.open.cloudidaas.com/oauth2/v1/token
+- **请求头部：**请指定`Content-Type`：为`application/json`
 - **参数说明**
 
 | 参数          | 必选 | 说明                                                         |
