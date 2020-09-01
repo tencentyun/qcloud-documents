@@ -9,7 +9,6 @@
     <td>v1.18.4-tke.2</td>	
     <td><ul class="params">
 		<li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/93403">pr93403</a>，移去 kubelet 的更新不属于 kubelet 的 Pod Condition 的错误打印信息（kubelet）。</li>
-		<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89629">pr89629</a>，解决 configmap 变更后挂载 subpath 的容器重启失败的问题。</li>
 </tr>
 <tr>
     <td>2020-08-04</td>	
@@ -35,8 +34,6 @@
     <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/92537">92537</a>，修复 client-go reflector 无法从 "Too large resource version" 错误恢复的问题（kube-apiserver、kube-controller-manager、kube-scheduler、kubelet 及 kube-proxy）。</li>
     <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/92969">pr92969</a>，修复 CVE-2020-8559从被侵入节点提升权限从而侵入其他节点的问题（kube-apiserver）。</li>
     <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/92921">pr92921</a>，修复 CVE-2020-8557通过写入 “/etc/hosts” 耗尽磁盘空间的 DOS 攻击问题（kubelet）。</li>
-    <li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/93403">pr93403</a>，移去 kubelet 更新中不属于 kubelet 的 Pod Condition 错误打印信息（kubelet）。</li>
-    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89629">pr89629</a>，解决 configmap 变更后挂载 subpath 的容器重启失败的问题。</li>
 </tr>
 </tbody></table>
 
