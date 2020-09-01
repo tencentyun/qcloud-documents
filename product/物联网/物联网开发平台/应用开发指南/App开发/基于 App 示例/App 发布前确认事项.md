@@ -6,7 +6,7 @@
 * 如果用户确认接入 Firebase，用户需要使用从 Firebase 官网自建应用获得 **GoogleService-Info.plist**，替换 App 中 [GoogleService-Info.plist](https://github.com/tencentyun/iot-link-ios/blob/master/Source/LinkApp/Supporting%20Files/GoogleService-Info.plist) 文件。   
 
 ## Android   
-1. 请根据实际情况调整 **app-config.json** 中的内容。   
+1. 请根据实际情况调整 **[app-config.json](https://github.com/tencentyun/iot-link-android/blob/master/app-config.json)** 中的内容。   
 
   [app-config.json](https://github.com/tencentyun/iot-link-android/blob/master/app-config.json) 需要配置的内容，如下：
 
@@ -28,10 +28,10 @@
   4. 最后将配置项 WXAccessAppId 设置为在微信开放平台申请并获得的 AppID；**同时请遵从官方建议自建微信接入服务器，保证 App Secret 不被泄露**。
 
 2. 项目配置 **Firebase** 插件。
- - 若用户确认使用 Firebase 功能，需通过 Firebase 官网创建应用并获取 **google-services.json**，将 google-services.json 文件放置在 app 目录下（iot-link-android/app/google-services.json）。
+ - 若用户确认使用 Firebase 功能，需通过 Firebase 官网创建应用并获取 **google-services.json**，替换项目中的 [google-services.json](https://github.com/tencentyun/iot-link-android/blob/master/app/google-services.json) 文件。
  - 若不使用 Firebase 功能，注释图中标注的内容即可。
   
-     在项目级 build.gradle（iot-link-android/build.gradle）中注释掉dependencies中以下三个依赖项
+     在项目级 [build.gradle](https://github.com/tencentyun/iot-link-android/blob/master/build.gradle)中注释掉以下三个依赖项
    ```
    dependencies {
    //        classpath 'com.google.gms:google-services:4.3.3'
@@ -39,7 +39,7 @@
    //        classpath 'com.google.firebase:perf-plugin:1.3.1'
    }
    ```
- 在应用级 build.gradle（iot-link-android/app/build.gradle）中注释掉以下三个应用插件和三个依赖项
+在应用级 [build.gradle](https://github.com/tencentyun/iot-link-android/blob/master/app/build.gradle)中注释掉以下三个应用插件和三个依赖项
          
        ```
        //apply plugin: 'com.google.gms.google-services'
