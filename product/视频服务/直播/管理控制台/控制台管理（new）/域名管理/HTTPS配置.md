@@ -10,8 +10,8 @@ HTTPS 协议是由 SSL + HTTP 协议构建的可进行加密传输和身份认�
 ### 步骤1：编辑 HTTPS 配置
 1. 进入[【域名管理】](https://console.cloud.tencent.com/live/domainmanage)，单击需配置的**播放域名**或右侧的【管理】进入域名详情页。
 2. 选择【高级配置】，查看【HTTPS 配置】标签。
-3. 单击【编辑】进入 HTTPS 配置页，单击开启 HTTPS 服务。
-4. 选择证书来源，选择配置的证书来源，并填写相关信息，单击【保存】即可开启 HTTPS 服务。
+3. 单击【编辑】进入 HTTPS 配置页，单击![](https://main.qcloudimg.com/raw/897761946b06e8f904bfa6301d282817.png)按钮选择开启 HTTPS 服务。
+4. 选择证书来源，选择配置的证书来源，并填写相关信息，单击【保存】即可。
 <table>
 <tr><th>当选择证书来源类型为</th><th>需要填写</th></tr>
 <tr>
