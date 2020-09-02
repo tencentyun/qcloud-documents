@@ -199,7 +199,7 @@ func main() {
 	groupID := "yourgroupid"
 	topic := []string{"yourtopicname"}
 	config := sarama.NewConfig()
-	//指定kafka版本，选择和购买的ckafka相对应的版本，如果不指定，sarama会使用最低支持的版本
+	//指定 Kafka 版本，选择和购买的 CKafka 相对应的版本，如果不指定，sarama 会使用最低支持的版本
 	config.Version = sarama.V1_1_1_0
 	config.Net.SASL.Enable = true
 	config.Net.SASL.User = "yourinstance#yourusername"
@@ -246,11 +246,11 @@ func main() {
 	go func() {
 		defer wg.Done()
 		for {
-			//Consume 需要在一个无限循环中调用，当重平衡发生的时候，需要重新创建consumer session来获得新ConsumeClaim
+			//Consume 需要在一个无限循环中调用，当重平衡发生的时候，需要重新创建 consumer session 来获得新 ConsumeClaim
 			if err := client.Consume(ctx, topic, &consumer); err != nil {
 				log.Panicf("Error from consumer: %v", err)
 			}
-			//如果context设置为取消，则直接退出
+			//如果 context 设置为取消，则直接退出
 			if ctx.Err() != nil {
 				return
 			}
@@ -279,14 +279,14 @@ type Consumer struct {
 	ready chan bool
 }
 
-//Setup 函数会在创建新的consumer session的时候调用，调用时期发生在ConsumeClaim调用前
+//Setup 函数会在创建新的 consumer session 的时候调用，调用时期发生在 ConsumeClaim 调用前
 func (consumer *Consumer) Setup(sarama.ConsumerGroupSession) error {
 	// Mark the consumer as ready
 	close(consumer.ready)
 	return nil
 }
 
-//Cleanup 函数会在所有的ConsumeClaim协程退出后被调用
+//Cleanup 函数会在所有的 ConsumeClaim 协程退出后被调用
 func (consumer *Consumer) Cleanup(sarama.ConsumerGroupSession) error {
 	return nil
 }
