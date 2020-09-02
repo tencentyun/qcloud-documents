@@ -14,18 +14,17 @@ Hadoop-COS 使用 cosn 作为 URI 的 scheme，因此也称为 Hadoop-COS 为 Co
 #### 软件依赖
 
 Hadoop-2.6.0及以上版本。
-
-**备注**：目前hadoop-cos已经正式被Apache Hadoop-3.3.0官方集成：https://hadoop.apache.org/docs/r3.3.0/hadoop-cos/cloud-storage/index.html
+>!目前 Hadoop-cos 已经正式被 [Apache Hadoop-3.3.0 官方集成](https://hadoop.apache.org/docs/r3.3.0/hadoop-cos/cloud-storage/index.html)。
 
 ## 下载与安装
 
 #### 获取 Hadoop-COS 插件
 
-下载地址：[hadoop-cos 插件](https://github.com/tencentyun/hadoop-cos/releases)
+下载地址：[Hadoop-COS 插件](https://github.com/tencentyun/hadoop-cos/releases)。
 
 #### 安装 Hadoop-COS 插件
 
-1. 将hadoop-cos-{hadoop.version}-{version}.jar和cos_api-bundle-{version}.jar 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下：
+1. 将 `hadoop-cos-{hadoop.version}-{version}.jar` 和 `cos_api-bundle-{version}.jar` 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下：
 
 > ?根据 Hadoop 的具体版本选择对应的 jar 包，若 release 中没有提供匹配版本的 jar 包，可自行通过修改 pom 文件中 Hadoop 版本号，重新编译生成。 
 
