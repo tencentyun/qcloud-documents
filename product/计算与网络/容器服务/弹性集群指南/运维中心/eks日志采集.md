@@ -22,8 +22,7 @@ EKS 日志采集功能开启后，日志采集 Agent 根据您配置的采集路
 
 <span id="output"></span>
 ### 配置日志采集 
-EKS 日志采集功能支持采集 Kubernetes 集群内指定容器的标准输出日志，您可以根据自己的需求，灵活配置采集规则。
-采集到的日志信息将会以 JSON 格式输出到您指定的消费端，并会附加相关的 Kubernetes metadata，包括容器所属 pod 的 label 和 annotation 等信息。具体操作步骤如下：
+EKS 日志采集功能采集到的日志信息将会以 JSON 格式输出到您指定的消费端，并会附加相关的 Kubernetes metadata，包括容器所属 pod 的 label 和 annotation 等信息。具体操作步骤如下：
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【弹性集群】。
 2. 进入“弹性集群”页面，选择需要日志采集的集群 ID，进入集群管理页面。
 3. 在左侧“工作负载”中选择需要的工作负载类型，进入对应页面后选择【新建】。
