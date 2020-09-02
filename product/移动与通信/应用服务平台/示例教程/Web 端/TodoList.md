@@ -1,5 +1,5 @@
 本文档介绍如何快速搭建一个Todo List 应用，无需域名、无需服务器，通过网络同步您的 Todo List 数据，在多个设备之间实时共享。最终成型的应用展示如下：
-![](https://main.qcloudimg.com/raw/e1bf378595fe93a37bbbcb5158a4e01a.png)
+![](https://main.qcloudimg.com/raw/5a0381dd501b2ecb1bf7d2c6784f10b3.png)
 
 ## 准备工作
 
@@ -92,27 +92,30 @@
 
 ## 步骤2：托管静态文件
 为了更多人可以访问 Todo List 应用，可以使用云开发静态网站托管功能，云开发提供默认域名，可使用公网进行访问。
+
 1. 替换本地 `index.html` 文件中的 `${envId}` 为您的云开发环境 ID，在文件第七行：`env:"${envId}"`。
-2. 打开[云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，进入在 [准备工作](##.E5.87.86.E5.A4.87.E5.B7.A5.E4.BD.9C) 中已经创建好的**按量计费**环境。
-3. 进入云开发控制台的 [静态网站托管](https://console.cloud.tencent.com/tcb/hosting)，点击上传文件，将 [步骤1](#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E5.BB.BA.E7.AB.8B-todo-list-.E6.96.87.E4.BB.B6)中的`index.html`文件上传。
- ![](https://main.qcloudimg.com/raw/88b1196eefce81d9c811b1f9b8f03df6.png)
+2. 登录 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，进入在 [准备工作](#.E5.87.86.E5.A4.87.E5.B7.A5.E4.BD.9C) 中已经创建好的**按量计费**环境。
+3. 进入云开发控制台的 [静态网站托管](https://console.cloud.tencent.com/tcb/hosting)，单击【上传文件】，上传 [步骤1](#.E6.AD.A5.E9.AA.A41.EF.BC.9A.E5.BB.BA.E7.AB.8B-todo-list-.E6.96.87.E4.BB.B6) 中的 `index.html` 文件。
+ ![](https://main.qcloudimg.com/raw/2b720199a262201b67c6e1b09d83f090.png)
 4. 上传完毕后，单击【配置信息】中的【默认域名】，在浏览器中打开该链接，即可在公网环境下访问 Todo List 网站。
-![](https://main.qcloudimg.com/raw/8f65d2050d58281599fbc6e5b098ec37.png)
+![](https://main.qcloudimg.com/raw/d6b9d0500eb926427edafd6e82829bc9.png)
 > ?默认域名可供您快速验证业务，如您需要对外正式提供网站服务，请前往【基础配置】绑定您已备案的自定义域名。
 
 ## 步骤3：创建数据库
-完成以上步骤后，Todo List 应用内的数据还存储在本地，无法实现跨设备同步。接下来，您将使用云开发的**数据库**服务，实现数据同步功能。
-1. 进入云开发控制台的 [数据库](https://console.cloud.tencent.com/tcb/db) 中，新建集合 `todo`，如下图所示：
-![](https://main.qcloudimg.com/raw/1711b25838642bd77d4637b186a91c98.png)
+
+完成上述步骤后，Todo List 应用内的数据还存储在本地，无法实现跨设备同步。接下来，您将使用云开发的**数据库**服务，实现数据同步功能。
+
+进入云开发控制台的 [数据库](https://console.cloud.tencent.com/tcb/db) 中，新建集合 `todo`，如下图所示：
+![](https://main.qcloudimg.com/raw/9ac4adccd92bb8d71e104a9d786f9676.png)
 之后 Todo List 内的数据便会存储在这个集合中。
 
 ## 步骤4：配置邮箱登录
-1. 为了实现邮箱验证登录功能，进入云开发控制台【环境】菜单内的 [登录授权](https://console.cloud.tencent.com/tcb/env/login)中，开启**邮箱登录**，如下图所示：
-![](https://main.qcloudimg.com/raw/4de7c150eb145458c50f29266c78c720.png)
+1. 为了实现邮箱验证登录功能，进入云开发控制台【环境】菜单内的 [登录授权](https://console.cloud.tencent.com/tcb/env/login) 中，开启**邮箱登录**，如下图所示：
+![](https://main.qcloudimg.com/raw/f1d4e85c77bb0690b4021f22a7ee1f66.png)
 2. 开启后单击【配置发件人】，参考 [配置 QQ 邮箱](https://docs.cloudbase.net/authentication/email-login.html#shi-yong-qq-you-xiang-pei-zhi-you-xiang-deng-lu) 进行配置。
-   ![](https://main.qcloudimg.com/raw/45d61506ed0c1a5f8eab98a06827fee4.png)
+ ![](https://main.qcloudimg.com/raw/23347a1ba5a91df668de05600667b823.png)
 3. 发件人配置成功后，单击【应用配置】，填写应用名称 `Todo`。
-   ![](https://main.qcloudimg.com/raw/03f9580539c2b88e6794dca9d32ce0f8.png)
+ ![](https://main.qcloudimg.com/raw/f8eb33af99c50c879c72b1b5c4c83d03.png)
 
 ## 步骤5：应用登录
 1. 进入云开发控制台的 [静态网站托管](https://console.cloud.tencent.com/tcb/hosting)，单击【配置信息】中的【默认域名】，在浏览器中打开该链接。打开链接后需要进行用户登录。
@@ -125,7 +128,7 @@
 ## 步骤6：记录待办事项
 
 至此，您已经成功创建了一个在线同步的 Todo List 网页应用，最终的效果图如下：
-![](https://main.qcloudimg.com/raw/e1bf378595fe93a37bbbcb5158a4e01a.png)
+![](https://main.qcloudimg.com/raw/5a0381dd501b2ecb1bf7d2c6784f10b3.png)
 
 ## 补充说明
 
