@@ -5,7 +5,7 @@ CI/CD 与敏捷开发、DevOps 的关系如下图所示：
 ![cicd.png](https://main.qcloudimg.com/raw/c22036387fd9ade9a6c827f3613555e6/1.png)
 
 ## 操作场景
-腾讯云容器服务（TKE）基于原生 Kubernetes 提供以容器为核心的解决方案，解决用户开发、测试及运维过程的环境问题，帮助用户降低成本，提高效率。实践 DevOps 理念需要用到许多工具与底层服务，且完成闭环链路需要长期投入及搭建复杂工具链体系，会消耗巨量时间和资源，甚至影响研发能效与交付能效、耽误业务的发展时机。而 CODING 与云端优势相结合，提供了统一协作平台及研发工具链。在 CODING 一体化研发效能平台上运行工作流，数据将会演化为项目实施过程中所积累的团队知识，沉淀为集体经验，帮助团队不断自我迭代更新。使用 Coding 还能够实施软件研发全生命周期管理，摆脱复杂的基础设施运维托管。
+腾讯云容器服务（TKE）基于原生 Kubernetes 提供以容器为核心的解决方案，解决用户开发、测试及运维过程的环境问题，帮助用户降低成本，提高效率。实践 DevOps 理念需要用到许多工具与底层服务，且完成闭环链路需要长期投入及搭建复杂工具链体系，会消耗巨量时间和资源，甚至影响研发能效与交付能效、耽误业务的发展时机。而 Coding 与云端优势相结合，提供了统一协作平台及研发工具链。在 Coding 一体化研发效能平台上运行工作流，数据将会演化为项目实施过程中所积累的团队知识，沉淀为集体经验，帮助团队不断自我迭代更新。使用 Coding 还能够实施软件研发全生命周期管理，摆脱复杂的基础设施运维托管。
 Coding 目前无缝对接 TKE 服务，本文档介绍在 Coding 中如何实现 CICD，并将服务部署到 TKE 集群中。
 
 
@@ -16,7 +16,7 @@ Coding 目前无缝对接 TKE 服务，本文档介绍在 Coding 中如何实现
 持续集成（Continuous Integration）简称 CI。在 CI 环境中，当开发者频繁地对代码进行更改合并，系统就会自动构建应用并运行不同级别的自动化测试来验证更改，以确保更改内容不会对应用造成破坏。测试内容涵盖了从类和函数到构成整个应用的不同模块。如果自动化测试发现新代码和现有代码之间存在冲突，CI 可以轻松且快速地修复错误。如下图所示：
 ![ci.jpg](https://main.qcloudimg.com/raw/affb69c501ba39c196eedd5f24ad853c/2.png)
 
-### CD （Continuous Delivery 和 Continuous Deployment）
+### CD（Continuous Delivery 和 Continuous Deployment）
 > ? 持续交付与持续部署的区别：持续交付是一种能力，持续部署是一种方式。
 
 - 持续交付（Continuous Delivery）简称 CD。在完成 CI 的流程后，持续交付支持以下操作：
@@ -120,5 +120,5 @@ kubectl  create secret docker-registry coding --docker-server=coding的registry�
 
 
 ## 更多信息
-本文简单介绍了 Coding 基于 TKE 实现 CICD 的基本使用，详细内容请参阅 [CODING 官网文档](https://help.coding.net/)。
+本文简单介绍了 Coding 基于 TKE 实现 CICD 的基本使用，详细内容请参阅 [Coding 官网文档](https://help.coding.net/)。
 
