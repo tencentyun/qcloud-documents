@@ -4,8 +4,8 @@ Hadoop-cos-DistChecker 是一个校验迁移目录完整性的工具。用户在
 
 ## 使用环境
 
-- Hadoop-cos v5.8.2以上，详见 ([hadoop-cos release](https://github.com/tencentyun/hadoop-cos/releases))
-- Hadooop MapReduce 的运行环境
+- Hadoop-cos v5.8.2以上，详见 [hadoop-cos release](https://github.com/tencentyun/hadoop-cos/releases)。
+- Hadooop MapReduce 的运行环境。
 
 > !
 > - 如果是自建 Hadoop 集群，则 Hadoop-cos 依赖需要选择最新版本（GitHub release 版本为5.8.2以上）才能支持 CRC64校验码的获取。
