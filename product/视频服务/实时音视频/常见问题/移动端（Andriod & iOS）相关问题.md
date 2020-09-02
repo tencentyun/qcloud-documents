@@ -30,7 +30,7 @@ TRTC 6.3 版本开始已提供 arm64-v8a 架构 ABI 支持。
 支持，直接按照支持集成三方库的流程集成 SDK 即可，还可以参考 [跑通Demo(iOS&Mac)](https://cloud.tencent.com/document/product/647/32396)。
 
 <span id="que8"></span>
-###  iOS端 SDK 与其它三方库冲突报错问题该如何解决？
+###  iOS 端 SDK 与其它三方库冲突报错问题该如何解决？
 详情请参见 [iOS 端 TXLiteAVSDK 与其它三方库冲突报错问题](https://cloud.tencent.com/developer/article/1499740)。
 
 <span id="que9"></span>
