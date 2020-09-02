@@ -28,7 +28,7 @@ Coding 目前无缝对接 TKE 服务，本文档介绍在 Coding 中如何实现
 ![cd.jpg](https://main.qcloudimg.com/raw/bea8b96fe8cd01995bcd9aa6e6101198/3.png)
 
 - 持续部署（Continuous Deployment）简称 CD，是 CICD 的最后一个阶段。持续部署将持续交付在内的所有变更自动部署到生产环境。一般情况下，出于业务考虑可以选择不部署，如需部署必须先实施持续交付。具体流程如下图所示：
-![cd2.png](https://main.qcloudimg.com/raw/a1ba3567b9a9045e2b2d8c9326311940/4.png)
+![](https://main.qcloudimg.com/raw/c5aa5c9f53a7d12ee8e5c9cb6a751d24.png)
 
 
 
