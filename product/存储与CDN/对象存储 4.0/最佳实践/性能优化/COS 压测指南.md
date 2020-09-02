@@ -1,6 +1,6 @@
 ## COSBench 简介
 
-COSBench 是一款由 Intel 开源的，用于对象存储的压测工具。腾讯云 COS 作为兼容 S3 协议的对象存储系统，可使用该工具进行读写性能压测。
+COSBench 是一款由 Intel 开源，用于对象存储的压测工具。腾讯云 COS 作为兼容 S3 协议的对象存储系统，可使用该工具进行读写性能压测。
 
 
 ## 系统环境
@@ -19,19 +19,22 @@ COSBench 是一款由 Intel 开源的，用于对象存储的压测工具。腾�
 
 ## 测试结果
 
-下面以所属地域为北京地域、32核、内网17Gbps 带宽的 CVM 为例，按照以下 COSBench 配置和方法，进行上传和下载性能测试：
-1. prepare 阶段：100个 worker 线程，PUT 上传1000个50MB对象。
+下文以所属地域为北京地域、32核、内网17Gbps 带宽的 CVM 为例，按照以下 COSBench 配置和方法，进行上传和下载性能测试：
+1. prepare 阶段：100个 worker 线程，上传1000个50MB对象。
 2. main 阶段：100个 worker 线程混合读写对象，运行300秒。
- - HTTP 测试的结果如下：
-   ![](https://main.qcloudimg.com/raw/f1172a0b4fee2344cb1bebbcee8bf75c.png)
- - HTTPS 测试的结果如下：
+ - HTTP 测试结果如下：
+   ![](https://main.qcloudimg.com/raw/e3ac34b6f8340c5cbc834d4f98ba9341.png)
+ - HTTPS 测试结果如下：
    ![](https://main.qcloudimg.com/raw/9cbe05dfd23d69048abb5199bc515979.png)
 
 
 ## COSBench 实践步骤
 
-1. 从 [github](https://github.com/intel-cloud/cosbench/releases) 网站下载 cosbench 0.4.2.c4 压缩包，并在服务器上进行解压。
-2. 执行命令`yum install nmap-ncat java curl java-1.8.0-openjdk-devel -y`安装 COSBench 的依赖库。
+1. 从 [COSBench GitHub](https://github.com/intel-cloud/cosbench/releases) 网站下载 COSBench 0.4.2.c4 压缩包，并在服务器上进行解压。
+2. 安装 COSBench 的依赖库，执行如下命令。
+```
+yum install nmap-ncat java curl java-1.8.0-openjdk-devel -y
+```
 3. 编辑 s3-config-sample.xml 文件并添加任务配置信息，任务配置主要包含如下五个阶段：
  1.   init 阶段：创建存储桶。
  1.   prepare 阶段：worker 线程，PUT 上传指定大小的对象，用于 main 阶段读取。
@@ -75,12 +78,12 @@ COSBench 是一款由 Intel 开源的，用于对象存储的压测工具。腾�
 
 </workload>
 ```
-4. 编辑 cosbench-start.sh 文件，在 Java 启动行添加参数，关闭 s3 的 md5 校验功能：
-```
+4. 编辑 cosbench-start.sh 文件，在 Java 启动行添加如下参数，关闭 s3 的 md5 校验功能：
+```plaintext
 -Dcom.amazonaws.services.s3.disableGetObjectMD5Validation=true
 ```
 5. 执行以下命令提交任务。
-```
+```plaintext
 sh cli.sh submit conf/s3-config-sample.xml
 ```
 并通过该网址`http://ip:19088/controller/index.html`查看执行状态：
@@ -90,6 +93,6 @@ sh cli.sh submit conf/s3-config-sample.xml
 测试结果如下：
 ![](https://main.qcloudimg.com/raw/cbbb6199d89d1749424b7e3ba89be96d.png)
 6. 执行以下命令，停止测试服务。
-```
+```plaintext
 sh stop-all.sh
 ```
