@@ -40,7 +40,7 @@
 2. 通过 CMK 生成对应的 [数据加密密钥](https://cloud.tencent.com/document/product/573/34419) DEK（DEK 明文+DEK 密文）。
 3. 云产品在本地通过 **DEK 的明文**加密业务数据，当业务数据落盘存储时，云产品将 DEK 的密文与加密后的业务数据一同写入持久化存储介质中。
 
-![](https://main.qcloudimg.com/raw/204062268d7d847916583457d9b2e670.png)
+![](https://main.qcloudimg.com/raw/4c72212a46fb600cec9724b96d453780.png)
 
 - 读取数据
  - 在读取加密数据时，DEK 的密文会与业务数据一同被读取。
