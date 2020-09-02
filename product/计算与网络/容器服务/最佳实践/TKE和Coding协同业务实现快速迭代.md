@@ -1,7 +1,9 @@
 ## 操作场景
-在互联网行业，敏捷开发、DevOps 理念被越来越多的企业采纳，敏捷开发和 DevOps 本质上都是一种协作文化，都是着眼于打破壁垒以增加成员共同责任感。其中，DevOps 和 Agile 减少了交接，提高了向客户交付的速度。DevOps 在企业中的落地不仅是一些流程化的工具（例如 CI，CD，容器等技术），更是一整套整体的开发流程和团队协作的改造。对于中小企业，选择 CICD 工具尤其重要，使用成熟的工具和现在流出的容器技术不仅为企业节省成本，并向企业提供快速迭代和快速应对业务变化的能力。  
-CI/CD 与敏捷开发、DevOps 的关系如下图所示：
+在互联网行业，敏捷开发、DevOps 理念被越来越多的企业采纳，敏捷开发和 DevOps 本质上都是一种协作文化，都是着眼于打破壁垒以增加成员共同责任感。其中，DevOps 和 Agile 减少了交接，提高了向客户交付的速度。DevOps 在企业中的落地不仅是一些流程化的工具（例如 CI，CD，容器等技术），更是一整套整体的开发流程和团队协作的改造。对于中小企业，选择 CICD 工具尤其重要，使用成熟的工具和现在流出的容器技术不仅为企业节省成本，并向企业提供快速迭代和快速应对业务变化的能力。CI/CD 与敏捷开发、DevOps 的关系如下图所示：
 ![cicd.png](https://main.qcloudimg.com/raw/c22036387fd9ade9a6c827f3613555e6/1.png)
+腾讯云容器服务（TKE）基于原生 Kubernetes 提供以容器为核心的解决方案，解决用户开发、测试及运维过程的环境问题，帮助用户降低成本，提高效率。实践 DevOps 理念需要用到许多工具与底层服务，但完成闭环链路需要长期投入及搭建复杂工具链体系，会消耗巨量时间和资源，甚至影响研发能效与交付能效、耽误业务的发展时机。而 CODING 与云端优势相结合，提供了统一协作平台及研发工具链。在 CODING 一体化研发效能平台上运行工作流，宝贵的数据将会演化为项目实施过程中所积累的团队知识，沉淀为集体经验，帮助您的团队不断自我迭代更新。使用 CODING 还能够实施软件研发全生命周期管理，摆脱复杂的基础设施运维托管。
+Coding 目前无缝对接 TKE 服务，本文档介绍在 Coding 中如何实现 CICD，并将服务部署到 TKE 集群中。
+
 
 ## 基本概念
 
@@ -42,101 +44,73 @@ Coding 是实现 CICD 流程的工具。Coding 提供整套的研发流程管理
 - 中小企业可使用 [Hosted 模式](#CICD) 来快速应对产品交付，实现业务快速迭代。
 
 ## 操作步骤
-
-腾讯云容器服务（TKE）基于原生 Kubernetes 提供以容器为核心的解决方案，解决用户开发、测试及运维过程的环境问题，帮助用户降低成本，提高效率。
-实践 DevOps 理念需要用到许多工具与底层服务，但完成闭环链路需要长期投入及搭建复杂工具链体系，会消耗巨量时间和资源，甚至影响研发能效与交付能效、耽误业务的发展时机。而 CODING 与云端优势相结合，提供了统一协作平台及研发工具链。在 CODING 一体化研发效能平台上运行工作流，宝贵的数据将会演化为项目实施过程中所积累的团队知识，沉淀为集体经验，帮助您的团队不断自我迭代更新。使用 CODING 还能够实施软件研发全生命周期管理，摆脱复杂的基础设施运维托管。
-Coding 目前无缝对接 TKE 服务，本文档介绍在 Coding 中如何实现 CICD，并将服务部署到 TKE 集群中。
-
 ### 开通 DevOps 服务
+> ! 该部分步骤以初次使用 DevOps 服务的主账号用户为例，如已开通可跳过此步骤，进行 [创建项目并创建代码仓库](#createProduct)。
 
-> ! 该部分步骤以初次使用 DevOps 服务的主账号用户为例，如已开通可忽略。
-
-1. 登录容器服务控制台，选择左侧导航栏中的【DevOps】。
+1. 登录容器服务控制台，选择左侧导航栏中的【[DevOps](https://console.cloud.tencent.com/coding/container-devops)】。
 2. 进入“容器 DevOps”页面。如下图所示：
-![](https://main.qcloudimg.com/raw/ea075b0ae5bca065c092ea20d029779f.png)
+![](https://main.qcloudimg.com/raw/6f1e13d45996ec30637a0c8d3db9348b.png)
 3. 选择【开通服务】>【前往访问管理】，进入“角色管理”页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/ed82a514b85c63f9ac26554f8d27bbbb.png)   
 4. 单击【同意授权】，授权成功即跳转至【开通服务】页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/e8c6f297a755bf151ef8ea0d91ed60cb.png)
 5. 完善团队信息后单击【确定】，即可开通 DevOps 服务。
 
-### 创建项目并创建代码仓库
-
-1. 登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)。
-
-2. 单击左侧导航栏中【DevOps】，前往“容器 DevOps”界面。
-
-3. 单击【立即使用】，跳转至 Coding DevOps 界面。
-
-4. 选择【项目】，单击【+ 创建项目】，如下图所示：
-
-![createproject.png](https://main.qcloudimg.com/raw/5e2184075d3ce2380f1a9124f03b4596/5.png)
-
-5. 在项目模板页面选择“DevOps 项目模板”，自定义设置项目基本信息，单击【完成创建】即可。
-
-    > ? 本次创建项目名称以 coding-test 为例。
-
-![devops-test1.png](https://main.qcloudimg.com/raw/2263ffd37e6d8fdcc8b2a10e63fa5abd/6.2%20fs2z9hhsau.png)
-6. 使用 DevOps 项目模板成功创建项目之后，系统将会自动创建一个属于同名代码仓库，如下所示：
+### 创建项目并创建代码仓库<span id="createProduct"></span>
+1. 登录容器服务控制台，选择左侧导航栏中的【[DevOps](https://console.cloud.tencent.com/coding/container-devops)】。
+2. 进入“容器 DevOps”页面。如下图所示：
+![](https://main.qcloudimg.com/raw/8c30f351eb48428dfaef9ef7afa3f252.png)
+3. 单击【立即使用】，跳转至【Coding DevOps】页面。
+4. 在左侧导航中选择【项目】，进入项目详情页。
+5. 在项目详情页，单击【创建项目】。如下图所示：
+![](https://main.qcloudimg.com/raw/ee0f237acf7d50d9a4d2ed78f95769f0.png)
+6. 在“选择项目模板”步骤中，单击 “DevOps 项目模板”进入下一页。
+7. 在“填写项目基本信息”步骤中，自定义设置项目基本信息。本次创建项目名称以 coding-test 为例。如下图所示：
+![](https://main.qcloudimg.com/raw/473cd311b11f33f80e4abe714add0f65.png)
+  单击【完成创建】即可创建项目。
+8. 使用 DevOps 项目模板成功创建项目之后，系统将会自动创建一个属于同名代码仓库。如下图所示：
 ![git.png](https://main.qcloudimg.com/raw/fbfd9e041d60a5750873549c5157bf28/7%20nj89f8dagt.png)
 
 ### 创建制品库
+软件制品是指由源码编译打包生成的二进制文件，不同的开发语言对应着不同格式的二进制文件，通常可以直接在服务器运行。
 
-##### 什么是制品库  
-
-软件制品是指由源码编译打包生成的二进制文件，不同的开发语言对应着不同格式的二进制文件，这些二进制通常可以直接运行在服务器上。
-
-##### 创建流程
-
-1. 在 Coding DevOps 控制界面，选择【项目】并单击需要创建制品库的项目 ID，进入该项目详情页。
-2. 依次选择【制品库】>新建制品库模块处【创建仓库】，如下图所示：
-
+#### 创建流程
+1. 登录 Coding DevOps ，选择左侧导航中的【[项目](https://tencent-test.coding.net/user/projects)】，进入项目管理页。
+2. 在“项目管理页”中，单击需要创建制品库的项目名称，进入该项目详情页。
+3. 在左侧导航栏中选择【制品库】>【创建仓库】，进入【新建仓库】页面。如下图所示：
 ![zhipin1.png](https://main.qcloudimg.com/raw/5536f4ed912f23c83341de47bbf70137/8.png)
-
-3. 在“新建仓库”页面，根据实际需求进行关键信息自定义设置，如下所示：
-![zhipin2.png](https://main.qcloudimg.com/raw/b828c928b86e4bee47d011c4c09a279a/9.png)
-
-4. 单击【确定】，仓库创建完成即可跳转至如下仓库详情页。
-![zhipin3.png](https://main.qcloudimg.com/raw/1d6db1200fb902d927b7a9b2876f09bb/10.png)
-
-5. 单击【使用访问令牌生成配置】，身份验证通过之后进行配置。
-> ! 在设置好访问令牌后，需要记下这个访问令牌，用于后续 TKE 拉取镜像。
+4. 在“新建仓库”页面，根据实际需求进行关键信息自定义设置。如下图所示：
+![](https://main.qcloudimg.com/raw/3542899f0b0790ca5929be907bd92887.png)
+5. 单击【确认】即可完成仓库创建，并自动跳转至仓库详情页。如下图所示：
+![](https://main.qcloudimg.com/raw/115292dfd2ab72317c0a22e00b7e7c76.png)
+6. 单击【使用访问令牌生成配置】，身份验证通过之后进行配置。
+> ! 在设置好访问令牌后，需自行记录访问令牌，用于后续 TKE 拉取镜像。
 
 ### 持续集成
+> ! 在执行构建计划前，需要执行以下命令，在 TKE 集群中把 Coding 的 docker registry 账号添加到集群中用来作为 pull 镜像授权。
+```
+kubectl  create secret docker-registry coding --docker-server=coding的registry地址 --docker-username=用户名 --docker-password=密码 --docker-email=邮箱地址
+```
 
-1. 在 Coding DevOps 控制界面，选择【项目】并单击需要创建制品库的项目 ID，进入该项目详情页。
+1. 登录 Coding DevOps ，选择左侧导航中的【[项目](https://tencent-test.coding.net/user/projects)】，进入项目管理页。
+2. 在“项目管理页”中，单击需要创建制品库的项目名称，进入该项目详情页。
+3. 在左侧导航栏中选择【持续集成】>【构建计划】>【创建构建计划】，进入【选择构建计划模版】页面。如下图所示：
+![](https://main.qcloudimg.com/raw/82dd4540bab7095f50c4eb78805899d2.png)
+4. 根据实际情况选择构建计划模板，并确认模板默认设置信息，单击【确认】即可完成。
+本文以选择 Golang+Gin+Docker 模板为例，进行 go 项目演示。以下视频将为您介绍具体的操作步骤：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2962-55143?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
-2. 依次选择【持续集成】>【构建计划】> 新建构建计划配置，如下图所示：
 
-   ![](https://main.qcloudimg.com/raw/7e93acc1debf6314b835642d85529fac.png)
-
-2. 根据实际情况选择构建计划模板，并确认模板默认设置信息，单击【确认】即可。
-
-> ! 在执行构建计划前，需要在 TKE 集群中把 Coding 的 docker registry 账号添加到集群中用来作为 pull 镜像授权，执行命令如下：
->
-> `kubectl  create secret docker-registry coding --docker-server=coding的registry地址 --docker-username=用户名 --docker-password=密码 --docker-email=邮箱地址`
-
-本次以选择 Golang+Gin+Docker 模板为例，进行 go 项目演示。具体的操作步骤将在下面的短视频中给大家展示：
-
-> ![视频内容](https://cloud.tencent.com/edu/learning/course-2962-55143)
-
-### 持续部署<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2963-55144?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+### 持续部署
 
 该部分主要为您展示持续部署操作流程：持续部署 --> kubernetes --> 配置云账号 --> 配置应用和流程 --> 关联项目和应用 --> 开始部署。操作步骤如下：
+1. 登录 Coding DevOps ，选择左侧导航中的【[项目](https://tencent-test.coding.net/user/projects)】，进入项目管理页。
+2. 在“项目管理页”中，单击需要创建制品库的项目名称，进入该项目详情页。
+3. 在左侧导航栏中选择【持续部署】>【Kubernetes】，单击【立即配置】。如下图所示：
+![](https://main.qcloudimg.com/raw/56e23db59118408abd1709ef875192f5.png)
+4. 在“部署控制台”页面，自定义选择需要配置的云账号类型即可继续进行配置应用和流程、关联项目和应用及开始部署等后续步骤。
+本文以配置“腾讯云 TKE”类型账号为例。以下视频将为您介绍具体的操作步骤：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2963-55144?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
-1. 在 Coding DevOps 控制界面，选择【项目】并单击需要创建制品库的项目 ID，进入该项目详情页。
-
-2. 依次选择【持续部署】>【Kubernetes 】> 【配置云账号：立即配置】，如下图所示：
-
-   ![](https://main.qcloudimg.com/raw/56e23db59118408abd1709ef875192f5.png)
-
-3. 自定义选择需要配置的云账号类型即可继续进行剩余步骤。
-
-此处以配置“腾讯云 TKE”类型账号为例。具体的操作步骤将在下面的短视频中给大家展示:
-
-> <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2963-55144?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
-
-#### 总结
-
-在本篇文章中给大家展示了CODING 基于 TKE 实现的 CICD，本次只是简单的介绍了下基本使用，更加详细的内容可以参考 [CODING 官网文档](https://help.coding.net/?_ga=2.41805154.1108335780.1596510033-936626996.1595315264)。
+>! 本文简单介绍了 Coding 基于 TKE 实现 CICD 的基本使用，详细内容请参阅 [CODING 官网文档](https://help.coding.net/)。
 
