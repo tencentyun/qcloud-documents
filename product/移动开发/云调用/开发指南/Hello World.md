@@ -33,7 +33,7 @@
 2. 开启【匿名登录】，允许在应用中使用匿名登录的方式访问云开发。
 	 ![](https://main.qcloudimg.com/raw/a1c1e2427fd4ec76f461561edf2e703d.png)
 
-### 步骤3： 数据库权限配置
+### 步骤3：数据库权限配置
 
 1. 进入云开发控制台的 [数据库](https://console.cloud.tencent.com/tcb/db) 页面。
 2. 单击 `tcb_hello_world` 集合名称进入集合详情页。
