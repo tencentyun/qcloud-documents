@@ -24,7 +24,7 @@
 
 1. 进入云开发控制台 [云调用](https://console.cloud.tencent.com/tcb/cloudaccess) 页面。
 2. 单击 Hello World 扩展能力的【安装】，进行安装扩展。
-   ![](https://main.qcloudimg.com/raw/1fff04fde487d7bd586b0d7ad07000e8.png)
+	 ![](https://main.qcloudimg.com/raw/1955ccf06eb35d45a6cff3feef5475c2.png)
 3. 扩展能力安装完毕后，会在该环境内新建一个云函数 `tcb_hello_world` 和一个云数据库集合 `tcb_hello_world`。
    ![](https://main.qcloudimg.com/raw/37aa4a850766cafec2e6ffd34faad4e1.png)
 
@@ -32,13 +32,13 @@
 
 1. 进入云开发控制台【环境】菜单内的[登录授权](https://console.cloud.tencent.com/tcb/env/login)页面。
 2. 开启【匿名登录】，允许在应用中使用匿名登录的方式访问云开发。
-   ![](https://main.qcloudimg.com/raw/1619f398410d27b84064d5e23f3f230b.png)
+	 ![](https://main.qcloudimg.com/raw/a1c1e2427fd4ec76f461561edf2e703d.png)
 
 ### 步骤3： 数据库权限配置
 
 1. 进入云开发控制台的 [数据库](https://console.cloud.tencent.com/tcb/db) 页面。
 2. 单击 `tcb_hello_world` 集合名称进入集合详情页。
-   ![](https://main.qcloudimg.com/raw/229183bbfb79f5b768d6f269c05fc09b.png)
+![](https://main.qcloudimg.com/raw/1268b3c1eb5b598b77c06a6c1f8dbeec.png)
 3. 单击切换到【权限设置】页签，单击【切换到安全规则】，在权限设置编辑框内输入：
 ```json
 {
@@ -46,21 +46,21 @@
 		"write": true
 }
 ```
-![](https://main.qcloudimg.com/raw/8efbb157448127220d62d92a0decca3d.png)
+![](https://main.qcloudimg.com/raw/2c072e843b9c0c1309f64b4ba437c894.png)
 
 ### 步骤4：访问网页应用
 
 1. 进入云开发控制台【环境】菜单内的 [云接入](https://console.cloud.tencent.com/tcb/env/access) 页面。
 2. 找到 `/tcb_hello_world` 触发路径，单击打开网页应用。
-   ![](https://main.qcloudimg.com/raw/2323127f3503bdab7f608eb5b0c99769.png)
+	 ![](https://main.qcloudimg.com/raw/709920fc05332c75be107cbc3dc79de2.png)
 
 ### 步骤5：移动应用安全来源
 
 1. 进入云开发控制台【环境】菜单内的 [安全配置](https://console.cloud.tencent.com/tcb/env/safety) 页面。
 2. 在**移动应用安全来源**中单击【添加应用】，应用标识内填写 `touristappid`，将授权的应用加入白名单并在使用 SDK 时传入分配的凭证信息，才可在终端应用（小程序、App）中使用云开发的身份验证服务。
-   ![](https://main.qcloudimg.com/raw/fcc0877c66f0a2d3d4d567f562b86c15.png)
+	 ![](https://main.qcloudimg.com/raw/5bf9d305d560ca89c991247767fa6775.png)
 3. 添加完应用之后，单击【获取凭证】，复制凭证至本地，后续该凭证将用于验证移动应用的安全来源。
-   ![](https://main.qcloudimg.com/raw/d3fe50edc82c7d66c6d5ac6ec47b326a.png)
+	 ![](https://main.qcloudimg.com/raw/7c231092d266e9d1ea29a571bc500fbc.png)
 
 ### 步骤6：小程序开发
 
