@@ -11,7 +11,7 @@
 ```plaintext
 npm i -g @cloudbase/cli hexo-cli
 ```
-3. <span id="step1.3"></span>执行完毕后，在本地新建名称为 Hexo 的文件夹。在该文件夹中，运行命令提示符，并执行如下命令进行初始化：
+3. <span id="step1.3"></span>执行完毕后，在本地新建名称为 Hexo 的文件夹。在该文件夹中，打开命令提示符，并执行如下命令进行初始化：
 ```plaintext
 hexo init
 ```

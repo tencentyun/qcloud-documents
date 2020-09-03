@@ -8,7 +8,7 @@
 ### 前提条件
 请登录 [云开发 CloudBase 控制台](https://console.cloud.tencent.com/tcb/env/index)，确定您**没有创建过免费云开发环境**：
 - 如果没有，无需任何操作
-- 如果有，请记录该环境的环境 ID（如图）
+- 如果有，请记录该环境的环境 ID（如下图）
 
 <img src="https://main.qcloudimg.com/raw/4f202c0e9192433ec9dcf40d222ab219.png" width="50%" height="50%">
 
@@ -38,7 +38,7 @@ Components: 2.30.1
    
 1. 通过 sls init 初始化模版：
 ```bash
-$ sls init -t fullstack-nosql
+$ sls init fullstack-nosql
 ```
 >?
 >- 如果没有腾讯云账号，请先[注册新账号](https://cloud.tencent.com/register)。
@@ -119,5 +119,5 @@ TENCENT_SECRET_KEY=123
 #### Q&A
 **报错 "EnvId is invalid"是什么原因？**
    
-TCB DB 组件目前默认为用户创建一个免费的 TCB 环境，如果您已有免费环境，通过 Serverless Component 再次创建会失败报错，您可删去 db 文件夹，通过配置  demo 目录中 **function->serverless.yaml** 中的 **MongoId** 参数，输入您已有 TCB 环境的 ID，完成项目的部署。
+TCB DB 组件目前默认为用户创建一个免费的 TCB 环境，如果您已有免费环境，通过 Serverless Component 再次创建会失败报错，您可删去 db 文件夹，通过配置  demo 目录中 **backend --> serverless.yml** 中的 **MongoId** 参数，输入您已有 TCB 环境的 ID，完成项目的部署。
 

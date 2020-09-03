@@ -38,12 +38,18 @@ Content-MD5: MD5
 
 该 API 接口请求的请求体具体节点内容为：
 
-```xml
+```shell
 <LifecycleConfiguration>
   <Rule>
     <ID></ID>
     <Filter>
-      <Prefix></Prefix>
+	   <And>
+          <Prefix></Prefix>
+		  <Tag>
+			 <Key></Key>
+			 <Value></Value>
+		  </Tag>
+	   </And>
     </Filter>
     <Status></Status>
     <Transition>
@@ -91,21 +97,25 @@ Content-MD5: MD5
 | ------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | --------- | -------- |
 | LifecycleConfiguration         | 无                                                           | 生命周期配置                                                 | Container | 是       |
 | Rule                           | LifecycleConfiguration                                       | 规则描述                                                     | Container | 是       |
-| Filter                         | LifecycleConfiguration.Rule                                  | Filter 用于描述规则影响的 Object 集合                        | Container | 是       |
-| Status                         | LifecycleConfiguration.Rule                                  | 指明规则是否启用，枚举值：Enabled，Disabled                  | String    | 是       |
 | ID                             | LifecycleConfiguration.Rule                                  | 用于唯一地标识规则，长度不能超过255个字符                    | String    | 否       |
-| Prefix                         | LifecycleConfiguration.Rule.Filter                           | 指定规则所适用的前缀。匹配前缀的对象受该规则影响，Prefix 最多只能有一个 | String    | 否       |
+| Filter                         | LifecycleConfiguration.Rule                                  | Filter 用于描述规则影响的 Object 集合                        | Container | 是       |
+| And                        |   LifecycleConfiguration.Rule<br>.Filter             | 对象筛选器中的一个子集，仅当需要指定多种筛选规则时才需要<br>此元素，例如：同时指定 Prefix 和 Tag 筛选，或同时指定多个 Tag 筛选。|Container|否   |
+| Prefix                         | LifecycleConfiguration.Rule<br>.Filter.And                           | 指定规则所适用的前缀。匹配前缀的对象受该规则影响，Prefix <br>最多只能有一个 | String    | 否       |
+|  Tag   |    LifecycleConfiguration.Rule<br>.Filter.And   |         标签集合，最多支持10个标签    |   Container  |  否|
+|  Key  |    LifecycleConfiguration.Rule<br>.Filter.And.Tag  |    标签的 Key，长度不超过128字节，支持英文字母、数字、空格、加号、<br>减号、下划线、等号、点号、冒号、斜线     |     String	|   否    |
+|  Value  |    LifecycleConfiguration.Rule<br>.Filter.And.Tag  |   标签的 Value，长度不超过256字节, 支持英文字母、数字、空格、加号、<br>减号、下划线、等号、点号、冒号、斜线	    |   String	 |  否
+| Status                         | LifecycleConfiguration.Rule                                  | 指明规则是否启用，枚举值：Enabled，Disabled                  | String    | 是       |
 | Expiration                     | LifecycleConfiguration.Rule                                  | 规则过期属性                                                 | Container | 否       |
 | Transition                     | LifecycleConfiguration.Rule                                  | 规则转换属性，对象何时转换为 Standard_IA 或 Archive          | Container | 否       |
-| Days                           | LifecycleConfiguration.Rule.Transition<br>或 Expiration      | 指明规则对应的动作在对象最后的修改日期过后多少天操作：<br><li>如果是 Transition，该字段有效值是非负整数<br><li>如果是 Expiration，该字段有效值为正整数，最大支持3650天 | Integer   | 否       |
-| Date                           | LifecycleConfiguration.Rule.Transition<br>或 Expiration      | 指明规则对应的动作在何时操作，支持`2007-12-01T12:00:00.000Z`和`2007-12-01T00:00:00+08:00`这两种格式 | String    | 否       |
-| ExpiredObjectDeleteMarker      | LifecycleConfiguration.Rule.Expiration                       | 删除过期对象删除标记，枚举值 true，false                     | String    | 否       |
+| Days                           | LifecycleConfiguration.Rule<br>.Transition 或 Expiration      | 指明规则对应的动作在对象最后的修改日期过后多少天操作：<br><li>如果是 Transition，该字段有效值是非负整数<br><li>如果是 Expiration，该字段有效值为正整数，最大支持3650天 | Integer   | 否       |
+| Date                           | LifecycleConfiguration.Rule<br>.Transition 或 Expiration      | 指明规则对应的动作在何时操作，支持`2007-12-01T12:00:00.000Z`<br>和`2007-12-01T00:00:00+08:00`这两种格式 | String    | 否       |
+| ExpiredObjectDeleteMarker      | LifecycleConfiguration.Rule<br>.Expiration                       | 删除过期对象删除标记，枚举值 true，false                     | String    | 否       |
 | AbortIncompleteMultipartUpload | LifecycleConfiguration.Rule                                  | 设置允许分片上传保持运行的最长时间                           | Container | 否       |
 | DaysAfterInitiation            | LifecycleConfiguration.Rule<br>.AbortIncompleteMultipartUpload | 指明分片上传开始后多少天内必须完成上传                       | Integer   | 是       |
 | NoncurrentVersionExpiration    | LifecycleConfiguration.Rule                                  | 指明非当前版本对象何时过期                                   | Container | 否       |
 | NoncurrentVersionTransition    | LifecycleConfiguration.Rule                                  | 指明非当前版本对象何时转换为 STANDARD_IA 或 ARCHIVE          | Container | 否       |
-| NoncurrentDays                 | LifecycleConfiguration.Rule<br>.NoncurrentVersionExpiration<br>或 NoncurrentVersionTransition | 指明规则对应的动作在对象变成非当前版本多少天后执行<br><li>如果是 Transition，该字段有效值是非负整数<br><li>如果是 Expiration，该字段有效值为正整数，最大支持3650天 | Integer   | 否       |
-| StorageClass                   | LifecycleConfiguration.Rule.Transition<br>或 NoncurrentVersionTransition | 指定 Object 转储到的目标存储类型，枚举值： STANDARD_IA，ARCHIVE | String    | 是       |
+| NoncurrentDays                 | LifecycleConfiguration.Rule<br>.NoncurrentVersionExpiration <br>或 NoncurrentVersionTransition | 指明规则对应的动作在对象变成非当前版本多少天后执行<br><li>如果是 Transition，该字段有效值是非负整数<br><li>如果是 Expiration，该字段有效值为正整数，最大支持3650天 | Integer   | 否       |
+| StorageClass                   | LifecycleConfiguration.Rule<br>.Transition 或 <br>NoncurrentVersionTransition | 指定 Object 转储到的目标存储类型，枚举值： STANDARD_IA，<br>ARCHIVE | String    | 是       |
 
 ## 响应
 

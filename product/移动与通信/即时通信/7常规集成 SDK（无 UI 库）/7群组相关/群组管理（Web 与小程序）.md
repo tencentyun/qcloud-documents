@@ -609,7 +609,7 @@ tim.addGroupMember(options);
 | 名称         | 类型           | 描述                                          |
 | :----------- | :------------- | :-------------------------------------------- |
 | `groupID`    | `String`         | 群组 ID                                       |
-| `userIDList` | `Array<String>` | 待添加的群成员 ID 数组。单次最多添加500个成员 |
+| `userIDList` | `Array<String>` | 待添加的群成员 ID 数组。单次最多添加300个成员 |
 
 **返回值**
 

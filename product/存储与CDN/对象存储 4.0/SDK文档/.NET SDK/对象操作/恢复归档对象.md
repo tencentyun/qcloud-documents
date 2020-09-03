@@ -8,7 +8,7 @@
 
 ## SDK API 参考
 
-SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](https://cos-dotnet-sdk-doc-1253960454.file.myqcloud.com/)。
+SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos-dotnet-sdk-doc-1253960454.file.myqcloud.com/)。
 
 ## 恢复归档对象 
 
@@ -25,8 +25,6 @@ try
   string bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
   string key = "exampleobject"; //对象键
   RestoreObjectRequest request = new RestoreObjectRequest(bucket, key);
-  //设置签名有效时长
-  request.SetSign(TimeUtils.GetCurrentTime(TimeUnit.SECONDS), 600);
   //恢复时间
   request.SetExpireDays(3);
   request.SetTier(COSXML.Model.Tag.RestoreConfigure.Tier.Bulk);

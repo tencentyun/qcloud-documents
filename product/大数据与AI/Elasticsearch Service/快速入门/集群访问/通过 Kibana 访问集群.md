@@ -3,7 +3,7 @@
 ## 访问 Kibana 页面
 ### 入口
 Kibana 页面有两个入口，分别位于集群列表页和集群详情页，详情如下图。单击对应的入口，会跳转到 Kibana 登录页面。
-> ?默认情况下，Kibana 通过公网地址访问， 如果您担心通过公网访问 Kibana 会造成安全问题，我们也支持在集群详情页关闭 Kibana 公网地址，开启 Kibana 内网地址来进行访问（**所有节点均为1核2G的集群暂不支持，冷热模式下节点不全是1核2G的集群支持此功能**）。
+> ?默认情况下，Kibana 通过公网地址访问， 如果您担心通过公网访问 Kibana 会造成安全问题，我们也支持在集群详情页关闭 Kibana 公网地址，开启 Kibana 内网地址来进行访问。
 > 
 ![](https://main.qcloudimg.com/raw/a286bf6ca026fe0d903c21aee017425a.png)
 ![](https://main.qcloudimg.com/raw/c488592500ebdb99e892ffc1f35f5501.png)

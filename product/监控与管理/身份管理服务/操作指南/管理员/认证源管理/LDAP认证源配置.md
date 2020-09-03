@@ -14,4 +14,3 @@ IDaaS 支持企业成员通过 LDAP/AD 用户名密码登录门户，本文将�
 	- 用户过滤条件：请填写 LDAP 匹配腾讯云 IDaaS 用户 ID 的过滤条件，如：`sAMAccountName=$userId$`，$userId$ 为本系统用户 ID 参数，是目录用户唯一标识符。具体规则可参考 [LDAP 官方文档](https://ldap.com/ldap-filters/)。
 4.	单击【提交】，LDAP 认证源配置成功！
 
->! 若想通过 LDAP 认证源登录门户，还需要在 IDaaS 目录中添加 AD 用户。目前还未支持 LDAP/AD 数据源同步，您可通过手动添加或 Excel 导入，预计8月中旬发布相关功能，敬请期待。

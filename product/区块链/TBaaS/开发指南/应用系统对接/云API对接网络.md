@@ -20,8 +20,7 @@ SDK 的使用流程如下图所示：
 本文以 Java 和 Go 为例向您介绍 SDK 的使用方法。
 ### Java
 Java SDK 集成方法：[Tencent Cloud SDK 3.0 for Java](https://github.com/TencentCloud/tencentcloud-sdk-java)
-以下代码段向您说明不同步骤的代码编写，如需运行，需要将不同步骤的代码按照 Java 语言要求整合。
-以下代码示例为不同步骤的代码编写：
+如需运行，需要将不同步骤的代码按照 Java 语言要求整合。以下代码示例为不同步骤的代码编写：
 1. 导入基础包，并配置参数。
 
 ```java

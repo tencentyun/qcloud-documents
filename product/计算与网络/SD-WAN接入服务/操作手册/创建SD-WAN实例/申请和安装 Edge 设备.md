@@ -1,10 +1,31 @@
 为满足您的业务需求，腾讯云提供 Edge-100 和 Edge-1000 两种 Edge 设备。本文将介绍如何在 SD-WAN 接入服务控制台申请 Edge 设备。
->?SD-WAN 接入服务目前处于内测阶段，且内测阶段仅支持创建硬件规格为 Edge-100 的设备。
+>?SD-WAN 接入服务目前处于内测阶段，如需使用请提交 [内测申请](https://cloud.tencent.com/apply/p/v70vi3xrgr)，内测阶段暂不支持 Edge-1000 设备。
 >
 ## 背景信息
- Edge-100 和 Edge-1000 的使用场景及支持混合接入的设备如下：
-- Edge-100：适用于智慧零售、连锁酒店、办公职场、多节点小带宽内网互通场景，支持接入 RJ45、4G、WIFI 5 等设备，详情请参见 [Edge-100 硬件特性说明](https://cloud.tencent.com/document/product/1277/47251)。
-- Edge-1000：适用于 IDC 数据中心、企业总部及区域中心机构等核心节点大带宽内网互通场景，支持接入 RJ45、4G、WIFI 5 等设备，详情请参见 [Edge-1000 硬件特性说明](https://cloud.tencent.com/document/product/1277/47321)。
+**Edge 设备**：硬件设备形态，在用户 IDC、分支和门店安装 Edge 设备后，可自动与腾讯云网络连接。Edge 设备详情如下：
+<table>
+<thead>
+<tr>
+<th>设备型号</th>
+<th>内网带宽</th>
+<th>接入方式</th>
+<th>使用场景</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Edge-100</td>
+<td>100Mbps</td>
+<td><ul><li>WAN 侧支持宽带与 4G 接入</li><li>LAN 侧支持有线与 Wi-Fi 接入</li><ul></ul></ul></td>
+<td>智慧零售、连锁酒店、办公职场、多节点小带宽内网互通场景</td>
+</tr>
+<tr>
+<td>Edge-1000</td>
+<td>500Mbps</td>
+<td><ul><li>WAN 侧支持宽带与 4G 接入</li><li>LAN 侧支持有线与 Wi-Fi 接入</li><ul></ul></ul></td>
+<td>IDC 数据中心、企业总部、区域中心机构等核心节点大带宽内网互通场景</td>
+</tr>
+</tbody></table>
+
 
 
 ## 申请 Edge 设备

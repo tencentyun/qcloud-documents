@@ -3,6 +3,11 @@
 
 ## 创建通知拓展 Target
 1. 在 xcode 菜单栏，选择 【File】>【New】> 【Target】。
+>?
+>- 若主工程 Target 最低支持版本小于10.0，扩展 Target 系统版本设置为10.0。
+>- 若主工程 Target 最低支持版本大于10.0，则扩展 Target 系统版本与主工程 Target 版本一致。
+
+ ![](https://main.qcloudimg.com/raw/d742074e3e3814cd449d2b0871a66b4c.png)
 2. 进入 Target 页面，选择【Notification Service Extension】， 单击【Next】。  
 ![](https://main.qcloudimg.com/raw/329e2575a43a5bb168bb958df16b6110.jpg)
 3. 输入 Product Name，单击【Finish】。
@@ -39,7 +44,7 @@ end
 报推送消息回执，此接口的目的是统计推送消息是否抵达终端。
 ```objective-c
 /**
- @brief TPNS处理抵达到终端的消息，即消息回执
+ @brief TPNS处理富媒体通知和抵达到终端的消息，即消息回执
 
  @param request 推送请求
  @param accessID TPNS应用 accessId

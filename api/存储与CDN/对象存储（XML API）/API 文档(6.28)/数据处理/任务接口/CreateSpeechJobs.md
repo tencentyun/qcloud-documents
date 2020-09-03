@@ -1,6 +1,6 @@
 ## 功能描述
 
-CreateSpeechJobs 接口用于提交一个语音识别任务。
+CreateSpeechJobs 接口用于创建一个语音识别任务。
 
 ## 请求
 
@@ -80,11 +80,11 @@ Container 类型 SpeechRecognition 的具体数据描述如下：
 | 节点名称（关键字） | 父节点                                  | 描述                                                         | 类型    | 是否必选 |
 | ------------------ | :-------------------------------------- | ------------------------------------------------------------ | ------- | -------- |
 | EngineModelType    | Request.Operation.Speech<br>Recognition | 引擎模型类型，分为电话场景和非电话场景。<br>电话场景： <br><li>8k_zh：电话 8k 中文普通话通用（可用于双声道音频）； <br><li>8k_zh_s：电话 8k 中文普通话话者分离（仅适用于单声道音频）；<br> 非电话场景： <br><li>16k_zh：16k 中文普通话通用；<br><li>16k_zh_video：16k 音视频领域；<br><li>16k_en：16k 英语；<br><li>16k_ca：16k 粤语。 | String  | 是       |
-| ChannelNum         | Request.Operation.Speech<br>Recognition | 语音声道数。1表示单声道；2表示双声道（仅支持 8k_zh 引擎模型）。 | Integer | 是       |
-| ResTextFormat      | Request.Operation.Speech<br>Recognition | 识别结果返回形式。0表示识别结果文本（含分段时间戳）； 1表示仅支持16k中文引擎，含识别结果详情（词时间戳列表，一般用于生成字幕场景）。 | Integer | 是       |
-| FilterDirty        | Request.Operation.Speech<br>Recognition | 是否过滤脏词（目前支持中文普通话引擎）。0表示不过滤脏词；1表示过滤脏词；2表示将脏词替换为 `*`。默认值为0。 | Integer | 否       |
-| FilterModal        | Request.Operation.Speech<br>Recognition | 是否过语气词（目前支持中文普通话引擎）。0表示不过滤语气词；1表示部分过滤；2表示严格过滤 。默认值为 0。 | Integer | 否       |
-| ConvertNumMode     | Request.Operation.Speech<br>Recognition | 是否进行阿拉伯数字智能转换（目前支持中文普通话引擎）。0表示不转换，直接输出中文数字，1表示根据场景智能转换为阿拉伯数字。默认值为1。 | Integer | 否       |
+| ChannelNum         | Request.Operation.Speech<br>Recognition | 语音声道数：<br><li>1表示单声道；<br><li>2表示双声道（仅支持 8k_zh 引擎模型）。 | Integer | 是       |
+| ResTextFormat      | Request.Operation.Speech<br>Recognition | 识别结果返回形式：<br><li>0表示识别结果文本（含分段时间戳）； <br><li>1表示仅支持16k中文引擎，含识别结果详情（词时间戳列表，一般用于生成字幕场景）。 | Integer | 是       |
+| FilterDirty        | Request.Operation.Speech<br>Recognition | 是否过滤脏词（目前支持中文普通话引擎）：<br><li>0表示不过滤脏词；<br><li>1表示过滤脏词；<br><li>2表示将脏词替换为 `*`。默认值为0。 | Integer | 否       |
+| FilterModal        | Request.Operation.Speech<br>Recognition | 是否过语气词（目前支持中文普通话引擎）：<br><li>0表示不过滤语气词；<br><li>1表示部分过滤；<br><li>2表示严格过滤 。默认值为 0。 | Integer | 否       |
+| ConvertNumMode     | Request.Operation.Speech<br>Recognition | 是否进行阿拉伯数字智能转换（目前支持中文普通话引擎）：<br><li>0表示不转换，直接输出中文数字；<br><li>1表示根据场景智能转换为阿拉伯数字。默认值为1。 | Integer | 否       |
 
 Container 类型 Output 的具体数据描述如下：
 
@@ -177,3 +177,87 @@ Container 节点 SpeechRecognition 的内容：
 #### 错误码
 
 该请求操作无特殊错误信息，常见的错误信息请参见数据万象 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
+
+## 实际案例
+
+**请求:创建语音识别任务**
+
+```plaintext
+POST /asr_jobs HTTP/1.1
+Connection: keep-alive
+Accept-Encoding: gzip, deflate
+Accept: */*
+User-Agent: cos-python-sdk-v5.3.2
+Host: examplebucket-1250000000.ci.ap-chongqing.myqcloud.com
+Content-Type: application/xml
+Content-Length: 411
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDnOr9IDiIUNYWGrrWb2IJ4YmywDXc****&q-sign-time=1597915249;1597925309&q-key-time=1597915249;1597925309&q-header-list=content-type;host&q-url-param-list=&q-signature=cb18718939be449e84d22358e8f0e****
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<Request>
+  <Input>
+    <Object>music.mp3</Object>
+  </Input>
+  <Operation>
+    <Output>
+      <Region>ap-chongqing</Region>
+      <Object>music.mp3</Object>
+      <Bucket>examplebucket-1250000000</Bucket>
+    </Output>
+    <SpeechRecognition>
+      <ChannelNum>1</ChannelNum>
+      <EngineModelType>16k_zh</EngineModelType>
+    </SpeechRecognition>
+  </Operation>
+  <Tag>SpeechRecognition</Tag>
+  <QueueId>p2e11b0a26d404d029c15f06c48803dde</QueueId>
+</Request>
+```
+
+**响应**
+
+```plaintext
+HTTP/1.1 200 OK
+Date: Date
+Content-Type: application/xml
+Content-Length: 863
+Connection: keep-alive
+Server: tencent-ci
+x-ci-request-id: request-id
+
+<?xml version="1.0" encoding="utf-8"?>
+<Response>
+        <JobsDetail>
+                <Code>Success</Code>
+                <CreationTime>2020-08-20T17:35:11+0800</CreationTime>
+                <EndTime>-</EndTime>
+                <Input>
+                        <Object>16k.mp3</Object>
+                </Input>
+                <JobId>s716d8c8ee2c811ea94a0b170ddb38f60</JobId>
+                <Message/>
+                <Operation>
+                        <Output>
+                                <Bucket>test005-1251704708</Bucket>
+                                <Object>music.txt</Object>
+                                <Region>ap-chongqing</Region>
+                        </Output>
+                        <SpeechRecognition>
+                                <ChannelNum>1</ChannelNum>
+                                <ConvertNumMode>1</ConvertNumMode>
+                                <EngineModelType>16k_zh</EngineModelType>
+                                <FilterDirty>0</FilterDirty>
+                                <FilterModal>0</FilterModal>
+                                <ResTextFormat>0</ResTextFormat>
+                        </SpeechRecognition>
+                </Operation>
+                <QueueId>p5275b560c7fd498db9a36e5e202827b6</QueueId>
+                <State>Submitted</State>
+                <Tag>SpeechRecognition</Tag>
+        </JobsDetail>
+</Response>
+```
+
+
+

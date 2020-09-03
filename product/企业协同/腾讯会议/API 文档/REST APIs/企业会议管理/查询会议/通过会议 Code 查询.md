@@ -40,10 +40,14 @@
 <span id="settings"></span>
 **会议媒体参数对象**
 
-| 参数名称 |参数类型 | 参数描述 |
-|---------|---------|---------|
-|mute_enable_join  |Bool | 加入静音状态。  |
-|allow_unmute_set   |Bool| 允许自我解除静音。  |
+| 参数名称                        | 参数类型 | 参数描述                                                     |
+| ------------------------------- | -------- | ------------------------------------------------------------ |
+| mute_enable_join                | Bool     | 加入静音状态                                                 |
+| allow_unmute_self               | Bool     | 静音自解除允许                                               |
+| allow_in_before_host            | Bool     | 允许成员在主持人进会前加入会议                               |
+| auto_in_waiting_room            | Bool     | 开启等候室                                                   |
+| allow_screen_shared_watermark   | Bool     | 开启屏幕共享水印                                             |
+| only_allow_enterprise_user_join | Bool     | 是否仅企业内部成员可入会<br>true：仅企业内部用户可入会<br>false：所有人可入会 |
 
 ## 示例
 #### 输入示例
@@ -60,9 +64,9 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
   "meeting_info_list": [    
     {      
       "subject": "tester's meeting",      
-      "meeting_id": "7567173273889276131",      
-      "meeting_code": "806146667",      
-      "password": "1111",      
+      "meeting_id": "7567173273****76131",      
+      "meeting_code": "806****67",      
+      "password": "****",      
       "status": "MEETING_STATE_ENDED",      
       "start_time": "1572085800",      
       "end_time": "1572089400",      
@@ -75,9 +79,15 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
       "join_url": "https://wemeet.qq.com/w/5NmV29k",      
       "settings": {        
         "mute_enable_join": true,        
-        "allow_unmute_self": false      
+        "allow_unmute_self": false,
+        "play_ivr_on_leave": false,
+        "allow_in_before_host": true,
+		"auto_in_waiting_room": false,
+		"allow_screen_shared_watermark": true,
+		"only_allow_enterprise_user_join": false     
       }    
     }  
   ]
 }
+
 ```

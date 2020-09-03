@@ -922,7 +922,8 @@ trtcRoomContext.sendC2CCustomMessage({
   payload: {
     data: '自定义消息的数据字段'，
     description: '自定义消息的说明字段'，
-    extension: '自定义消息的扩展字段' 
+    extension: '自定义消息的扩展字段'
+  } 
 })
 ```
 
@@ -983,6 +984,7 @@ trtcRoomContext.sendGroupCustomMessage({
     data: '自定义消息的数据字段'，
     description: '自定义消息的说明字段'，
     extension: '自定义消息的扩展字段'
+  }
 })
 ```
 

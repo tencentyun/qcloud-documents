@@ -2,7 +2,12 @@
 
 Namespace=QCE/CMONGO
 
+
+
 ## 监控指标
+
+>?Aggregates（Aggregates 请求）、Timeouts（超时次数）、Conn（节点连接数）指标已下线。
+
 
 | 指标英文名        | 指标中文名                 | 含义                                        | 单位  | 维度                |
 | ----------------- | -------------------------- | ------------------------------------------- | ----- | ------------------- |
@@ -11,7 +16,6 @@ Namespace=QCE/CMONGO
 | Updates           | 更新请求                   | 单位时间内更新次数                          | 次    | target（实例 ID）   |
 | Deletes           | 删除请求                   | 单位时间内删除次数                          | 次    | target（实例 ID）   |
 | Counts            | count 请求                 | 单位时间内 count 次数                          | 次    | target（实例 ID）   |
-| Aggregates        | Aggregates 请求            | 单位时间内 aggregates 次数                    | 次    | target（实例 ID）   |
 | ClusterConn       | 集群连接数                 | 集群总连接数，指当前集群 proxy 收到的连接数 | 次    | target（实例 ID）   |
 | Commands          | 命令请求数量               | 命令请求数量                                | 次    | target（实例 ID）   |
 | Connper           | 集群连接数百分比           | 当前集群的连接数与集群总连接配置的比例      | %     | target（实例 ID）   |
@@ -21,16 +25,13 @@ Namespace=QCE/CMONGO
 | Delay10           | 时延在10 - 50毫秒间请求次数  | 单位时间内成功请求延迟在10ms - 50ms次数       | 次    | target（实例 ID）   |
 | Delay50           | 时延在50 - 100毫秒间请求次数 | 单位时间内成功请求延迟在50ms - 100ms次数      | 次    | target（实例 ID）   |
 | Delay100          | 时延在100毫秒以上请求次数  | 单位时间内成功请求延迟在100ms以上次数       | 次    | target（实例 ID）   |
-| Timeouts          | 超时次数                   | 执行时间超时的请求数                        | 次    | target（实例 ID）   |
 | ReplicaDiskusage  | 磁盘使用率                 | 副本集容量使用率                            | %     | target（副本集 ID） |
 | Slavedelay        | 主从延迟                   | 主从单位时间内平均延迟                      | 秒    | target（副本集 ID） |
 | Oplogreservedtime | oplog保存时间              | oplog 记录中最后一次操作和首次操作时间差    | 小时  | target（副本集 ID)  |
-| Conn              | 节点连接数                 | 节点连接数                                  | 个    | target（节点 ID)    |
 | Cpuusage          | CPU 使用率                 | CPU 使用率                                   | %     | target（节点 ID)    |
 | Memusage          | 内存使用率                 | 内存使用率                                  | %     | target（节点 ID)    |
 | Qr                | 读请求队列长度             | Read 请求等待队列中的个数                    | 个    | target（节点 ID)    |
 | Qw                | 写请求队列长度             | Write 请求等待队列中的个数                   | 个    | target（节点 ID)    |
-| Conn              | 连接数                     | 连接数                                      | 个    | target（节点 ID)    |
 | Netin             | 网络入流量                 | 网络入流量                                  | MB/s  | target（节点 ID)    |
 | Netout            | 网络出流量                 | 网络出流量                                  | MB/s  | target（节点 ID)    |
 

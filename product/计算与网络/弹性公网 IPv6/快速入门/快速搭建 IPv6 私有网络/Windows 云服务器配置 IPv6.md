@@ -1,3 +1,5 @@
+本教程将帮助您在 Windows 操作系统环境下配置 IPv6 地址。
+
 如下操作以 Windows 2012 为例： 
 1. 登录云服务器实例，进入操作系统的【控制面板】>【网络和 Internet】>【网络和共享中心】，单击命名为“以太网”的网卡进行编辑。
 ![](https://main.qcloudimg.com/raw/4696aa941df5c22dbf4446c01aabefbc.png)

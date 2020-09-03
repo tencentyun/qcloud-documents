@@ -2,7 +2,7 @@
 云数据库 Redis 暂时不支持外网访问，您可以通过具备外网 IP 的云服务器 CVM 进行端口转发，来实现外网访问 Redis 实例。
 >?iptable 转发的方式存在稳定性风险，不建议在生产环境使用外网接入。
 >
-![](https://main.qcloudimg.com/raw/3b43692a96ad3a63cca91e525b1e8d8e.png)
+![](https://main.qcloudimg.com/raw/7bad7f6f7ca82c8655f807d2036d983b.png)
 
 ## 操作步骤
 1. 登录 [云服务器](https://cloud.tencent.com/document/product/213/5436)，开通云服务器 IP 转发功能。
