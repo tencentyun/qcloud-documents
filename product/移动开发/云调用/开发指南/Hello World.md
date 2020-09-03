@@ -71,8 +71,8 @@ const cloud = tcb.init({
 		env: "${custom_env}", // 当前环境的ID
 		appSign: "touristappid",
 		appSecret: {
-			appAccessKeyId: "移动应用安全来源 版本", // 步骤1.3中获取的移动应用安全来源版本
-			appAccessKey: "移动应用安全来源 凭证" // 步骤1.3中获取的移动应用安全来源凭证
+			appAccessKeyId: "移动应用安全来源 版本", // 步骤5.2中获取的移动应用安全来源版本
+			appAccessKey: "移动应用安全来源 凭证" // 步骤5.3中获取的移动应用安全来源凭证
 		}
 });
 ```
