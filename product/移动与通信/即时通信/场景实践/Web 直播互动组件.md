@@ -19,7 +19,7 @@
 ![](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblivedemo/doc-assets/im.png)
 
 ## Web 直播互动组件的优点
-开发者接入该 SDK，可**彻底替代 flash 推流方案**，**大大降低** Web 推流、Web 低延时观看、CDN 观看以及实时聊天互动的**实现复杂度和时间成本**。
+开发者接入该 SDK，可**彻底替代 flash 推流方案**，**极大地降低** Web 推流、Web 低延时观看、CDN 观看以及实时聊天互动的**实现复杂度和时间成本**。
 
 1. 当需要推流时，创建 Pusher（推流）对象，最简单的推流仅需3步。
 
