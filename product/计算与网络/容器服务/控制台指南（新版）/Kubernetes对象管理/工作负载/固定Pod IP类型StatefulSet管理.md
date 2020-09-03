@@ -32,8 +32,6 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  annotations:
-    tke.cloud.tencent.com/enable-static-ip: "true"
   labels:
     k8s-app: busybox
   name: busybox
