@@ -25,7 +25,9 @@ classpath 'com.google.gms:google-services:4.2.0'
 	 //在应用级的gradle文件的最后一行代码中新增并将google-services.json放进您应用model的根路径下
 	apply plugin: 'com.google.gms.google-services'
 	```
->!Google 配置 google-play-services（建议版本 17.0.0+，较低版本有可能出现无法注册 FCM 风险）。
+>!
+- fcm 推送 [VERSION] 为当前 SDK 版本号,版本号可在 [SDK 下载页](https://console.cloud.tencent.com/tpns/sdkdownload) 查看。
+- Google 配置 google-play-services（建议版本 17.0.0+，较低版本有可能出现无法注册 FCM 风险）。
 
 ### 启用 FCM 推送
 在调用移动推送 TPNS 注册代码 XGPushManager.registerPush 前，添加以下代码设置：
