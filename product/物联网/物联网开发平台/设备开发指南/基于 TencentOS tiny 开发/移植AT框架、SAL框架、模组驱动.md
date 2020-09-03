@@ -45,17 +45,15 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 }
 /* USER CODE END 1 */
 ```
-
 >!在回调函数中声明 data 变量在外部定义，这是因为 STM32 HAL 库的机制，需要在初始化完成之后先调用一次串口接收函数，使能串口接收中断，编辑 `usart.c` 文件。
-
- 1. 在文件开头定义data变量为全局变量：
+>
+    1. 在文件开头定义data变量为全局变量：
 ```c
 /* USER CODE BEGIN 0 */
 uint8_t data;
 /* USER CODE END 0 */
 ```
-
-2. 在串口初始化完成之后使能接收中断：
+    2. 在串口初始化完成之后使能接收中断：
 ```c
 /* LPUART1 init function */
 void MX_LPUART1_UART_Init(void)
@@ -73,7 +71,6 @@ void MX_LPUART1_UART_Init(void)
     {
     Error_Handler();
     }
-
     //手动添加，使能串口中断
     HAL_UART_Receive_IT(&hlpuart1, &data, 1);
 }
