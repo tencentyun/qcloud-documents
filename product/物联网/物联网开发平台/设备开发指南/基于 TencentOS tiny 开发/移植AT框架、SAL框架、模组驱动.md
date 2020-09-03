@@ -9,7 +9,7 @@ AT 框架是我们编写的一个通用 AT 指令解析任务，使开发者只�
 
 ##  移植 AT 框架
 
-从 TencentOS-tiny 中复制以下五个文件至？？？   ，，保持文件架构不变并删除多余文件。
+从 TencentOS-tiny 中复制以下五个文件到工程目录中，保持文件架构不变并删除多余文件。
 - 复制 `net\at` 目录下的 `tos_at.h` 和 `tos_at.c` 文件，两个文件实现了 TencentOS tiny AT 的框架。 
 ![](https://main.qcloudimg.com/raw/9948d5be6ddf3d45a88deaa939b4ec73.png)
 - 复制 `platform\hal\st\stm32l4xx\src` 目录下的 `tos_hal_uart.c` 文件，该文件为 TencentOS-tiny AT 框架底层使用的串口驱动HAL层。
