@@ -1,4 +1,4 @@
-Service Mesh 微服务架构的核心是在用户的服务侧同机（虚拟机）或同 Pod（容器）部署一个网络代理来让用户实现无侵入的接入微服务。因为代理是以本地额外的服务实现的，本地应用无感知，为了快速定位出现的问题，代理测提供了大量的 HTTP 运维接口。
+Service Mesh 微服务架构的核心是在用户的服务侧同机（虚拟机）或同 Pod（容器）部署一个网络代理来让用户实现无侵入的接入微服务。因为代理是以本地额外的服务实现的，本地应用无感知，为了快速定位出现的问题，代理侧提供了大量的 HTTP 运维接口。
 
 ## 代理的组件
 本地代理分为以下三个组件：
@@ -13,7 +13,7 @@ Service Mesh 微服务架构的核心是在用户的服务侧同机（虚拟机�
 为了将流入和流出的流量导入到本地代理中，TSF Mesh 使用了 iptables 作流量转发，一般规则如下（虚拟机环境在本地，容器环境在 sidecar 容器中）：
  
 **iptables -t nat -L -n**
-```
+```plaintext
 Chain PREROUTING (policy ACCEPT)
 target     prot opt source               destination         
 ISTIO_INBOUND  tcp  --  0.0.0.0/0            0.0.0.0/0           
@@ -42,7 +42,7 @@ ISTIO_REDIRECT  tcp  --  0.0.0.0/0            9.77.7.28            tcp dpt:8089
 Chain ISTIO_OUTPUT (1 references)
 target     prot opt source               destination         
 RETURN     all  --  0.0.0.0/0            0.0.0.0/0            owner UID match 1000
-DNAT       tcp  --  0.0.0.0/0            {特定ip}        to:9.77.7.28:15001
+DNAT       tcp  --  0.0.0.0/0            {特定 IP}        to:9.77.7.28:15001
 
 Chain ISTIO_REDIRECT (1 references)
 target     prot opt source               destination         
@@ -66,7 +66,7 @@ REDIRECT   tcp  --  0.0.0.0/0            0.0.0.0/0            redir ports 15001
 
 ## 本地接口
 如果在本地调用`netstat -lntp | grep 127.0.0.1`，会出现以下三个 listen 服务，分别是各个本地组件提供的运维接口的 IP 和 port。
-```
+```plaintext
 tcp        0      0 127.0.0.1:15020         0.0.0.0:*               LISTEN      5168/pilot-agent    
 tcp        0      0 127.0.0.1:15021         0.0.0.0:*               LISTEN      5261/mesh-dns       
 tcp        0      0 127.0.0.1:15000         0.0.0.0:*               LISTEN      5266/envoy
@@ -75,7 +75,7 @@ tcp        0      0 127.0.0.1:15000         0.0.0.0:*               LISTEN      
 
 ### pilot-agent 运维接口
 **curl 127.0.0.1:15020/help**
-```
+```plaintext
 admin commands are:
 	GET /health: print out the health info for data-plane
 	GET /config_dump/{component}: print out the configuration of the component, component can be pilot-agent/envoy/mesh-dns
@@ -100,7 +100,7 @@ admin commands are:
 
 ###  Mesh-DNS 运维接口
 **curl 127.0.0.1:15021/help**
-```
+```plaintext
 admin commands are:
 	GET /health: print out the health info for mesh-dns
 	GET /config_dump: print out all of the mesh-dns runtime configs
@@ -115,7 +115,7 @@ admin commands are:
 
 ###  Envoy 运维接口
 **curl 127.0.0.1:15000/help**
-```
+```plaintext
 admin commands are:
   /: Admin home page
   /certs: print certs on machine

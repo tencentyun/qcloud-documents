@@ -1,6 +1,4 @@
-## API 接口概览
 腾讯云小微客服机器人 Rest API 列表：
-
 ### 机器人相关接口
 
 | 接口名称 |  API | 
@@ -28,3 +26,4 @@
 | 删除知识库分类    | yun.tim.qq.com/v3/prophet/del_class        |
 | 获取知识库分类列表    | yun.tim.qq.com/v3/prophet/get_class_list        |
 | 批量更新知识点所属分类    | yun.tim.qq.com/v3/prophet/update_qa_class   |
+  

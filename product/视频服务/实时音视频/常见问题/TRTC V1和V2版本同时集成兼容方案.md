@@ -1,6 +1,5 @@
 ## Windows 端 LiteAV 和 iLive 兼容方案
 
-### 工程结构及初始化方法
 由于 LiteAV 和 iLive 都用到了 TRAE 库，但是使用的版本在功能上有差异，因此不能直接互相替换。所以工程上建议采用如下结构：
 
 	|- 主程序.exe
@@ -79,7 +78,7 @@ android{
 
 ## iOS 端 LiteAVSDK + iLiveSDK + BeautySDK 兼容方案
 LiteAVSDK 内已集成 BeautySDK，无需再次集成。如果同时集成的 iLiveSDK 需要用到 BeautySDK，则在工程中引入 BeautySDK，仅需在 xCode 工程配置 BeautySDK 的头文件搜索路径，并取消链接 BeautySDK。
->! 若 BeautySDK 用的是带 P 图版本，LiteAVSDK 要使用商用企业版。
+>!若 BeautySDK 用的是带 P 图版本，LiteAVSDK 要使用企业版。
 
 
 

@@ -12,6 +12,4 @@ TKE 支持快速开启基于 IPVS 来承接流量并实现负载均衡的操作�
 1. 创建集群选择高于 1.10 的 kubernetes 版本。
 2. 高级设置开启 IPVS。
 
-![开启IPVS][ipvs]
-
-[ipvs]:https://main.qcloudimg.com/raw/a1a6de3e6f1054df1d0fb044093fd1cc.png
+![](https://main.qcloudimg.com/raw/ebdddea2522a44ca9ecc58065a3ee3ee.png)

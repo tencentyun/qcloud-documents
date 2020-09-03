@@ -13,7 +13,7 @@
 
 2. 将工具上传到云数据库 Memcached 客户端所在的服务器（仅限 Linux 服务器）。解压过程如下所示：
 ``` 
-$ unzip auto_test_link_v1.0.0.zip
+$ tar -zxvf auto_test_link_v1.0.0.tar.gz
 ```
 解压后，会出现2个文件，文件说明如下：
  - auto_test_link.sh：诊断工具脚本。

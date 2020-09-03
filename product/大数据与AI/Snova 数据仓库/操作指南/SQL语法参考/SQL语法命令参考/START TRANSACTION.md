@@ -16,12 +16,12 @@ SERIALIZABLE
 READ COMMITTED
 READ UNCOMMITTED
 SQL 标准定义四个事务隔离级别：READ COMMITTED、READ UNCOMMITTED、 SERIALIZABLE 和 REPEATABLE READ。
-默认行为：一个语句只能看到在它开始前已经提交的行（READ COMMITTED）。在数据库中 READ UNCOMMITTED 和 READ COMMITTED 一样。REPEATABLE READ 目前还不支持；如果需要该隔离级别则使用 SERIALIZABLE。在 SERIALIZABLE 隔离模式下，当前事务内的所有语句只能看到在事务中第一条语句执行前已经提交的行，是一种严格的事务隔离。该事务级别模拟串行事务执行，好像事务一个接一个的执行，而不是并行地。使用该隔离级别的应用一定要准备由于串行失败而导致重新执行事务。
+默认行为：一个语句只能看到在它开始前已经提交的行（READ COMMITTED）。在数据库中 READ UNCOMMITTED 和 READ COMMITTED 一样。REPEATABLE READ 目前还不支持；如果需要该隔离级别则使用 SERIALIZABLE。在 SERIALIZABLE 隔离模式下，当前事务内的所有语句只能看到在事务中第一条语句执行前已经提交的行，是一种严格的事务隔离。该事务级别模拟串行事务执行，事务一个接一个的执行，而不是并行地。使用该隔离级别的应用一定要准备由于串行失败而导致重新执行事务。
 
 READ WRITE
 READ ONLY
 决定事务是 read/write 还是 read-only。默认为 read/write。当一个事务是 read-only，下面的 SQL 命令是不被允许的：
-INSERT、 UPDATE、 DELETE 以及 COPY FROM（这种情况是如果将要写的表不是临时表） ； 所有的 CREATE、 ALTER 和 DROP 命令； GRANT、REVOKE、TRUNCATE；以及 EXPLAIN ANALYZE 和 EXECUTE要执行的命令是上述列举的中间。
+INSERT、 UPDATE、 DELETE 以及 COPY FROM（这种情况是如果将要写的表不是临时表） ； 所有的 CREATE、 ALTER 和 DROP 命令； GRANT、REVOKE、TRUNCATE；以及 EXPALIN ANALYZE 和 EXECUTE 要执行的命令。
 
 ## 示例
 

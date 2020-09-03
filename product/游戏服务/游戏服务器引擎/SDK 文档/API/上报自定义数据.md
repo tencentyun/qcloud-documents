@@ -1,0 +1,48 @@
+## 接口名称
+ReportCustomData 
+<span id="ReportCustomData"></span>
+
+
+## 接口说明
+
+游戏进程可以调用该接口告知 GSE 的自定义数据。
+
+## 请求消息体
+
+```
+message ReportCustomDataRequest {
+    int32 currentCustomCount = 1 ;
+    int32 maxCustomCount = 2;
+}
+```
+
+## 返回消息体
+
+```
+message GseResponse
+```
+
+## 字段说明
+
+##### ReportCustomDataRequest
+
+| 字段名             | 类型  | 说明         |
+| ------------------ | ----- | ------------ |
+| currentCustomCount | int32 | 自定义当前值 |
+| maxCustomCount     | int32 | 自定义最大值 |
+
+## 使用示例
+
+```
+func (r *rpcClient) ReportCustomData(currentCustomCount, maxCustomCount int32) (*grpcsdk.GseResponse, error) {
+   conn, _ := grpc.DialContext(context.Background(), LOCAL_ADDRESS, grpc.WithInsecure())
+   defer conn.Close()
+   req := &grpcsdk.ReportCustomDataRequest{
+      CurrentCustomCount:   currentCustomCount,
+      MaxCustomCount:       maxCustomCount,
+   }
+
+   client := grpcsdk.NewGseGrpcSdkServiceClient(conn)
+   return client.ReportCustomData(getContext(), req)
+}
+```

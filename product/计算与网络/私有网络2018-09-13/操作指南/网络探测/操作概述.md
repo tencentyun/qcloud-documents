@@ -1,6 +1,0 @@
-您在使用网络探测时，可能碰到诸如创建网络探测、修改网络探测、删除网络探测等问题。本文将介绍使用网络探测以及与其相关的产品的常用操作，供您参考。
-## 常用操作
-- [创建网络探测](https://cloud.tencent.com/document/product/215/20179)
-- [查看网络探测时延和丢包率](https://cloud.tencent.com/document/product/215/20180)
-- [修改网络探测](https://cloud.tencent.com/document/product/215/20181)
-- [删除网络探测](https://cloud.tencent.com/document/product/215/20182)

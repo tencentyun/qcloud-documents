@@ -8,12 +8,12 @@ You need to sign up for a Tencent Cloud account if you don't have one. For more 
 If you already have a Tencent Cloud account, go to next step.
 
 ### Identity Verification
-Log in to the Tencent Cloud VOD [Console](https://console.cloud.tencent.com/video). You need to complete the identity verification and apply for enabling the VOD service after logging in the Tencent Cloud VOD service console for the first time.
+Log in to the Tencent Cloud VOD [Console](https://console.cloud.tencent.com/vod). You need to complete the identity verification and apply for enabling the VOD service after logging in the Tencent Cloud VOD service console for the first time.
 If your account has not gone through identity verification, please go to [Account Center](https://console.cloud.tencent.com/developer) for identity verification. For more information, please see [Identity Verification Guide](https://cloud.tencent.com/document/product/378/3629).
 ![](https://mc.qcloudimg.com/static/img/1bbc5f52f4701ddca1d6efad69ba76fe/image.png)
 
 ### Logging in to VOD Console
-If you have passed the identity verification, you can go directly to the VOD service [Console](https://console.cloud.tencent.com/video) for next step.
+If you have passed the identity verification, you can go directly to the VOD service [Console](https://console.cloud.tencent.com/vod) for next step.
 ![](https://mc.qcloudimg.com/static/img/dba813de6119f0825762b2d9abed41e6/image.png)
 
 ## Uploading Video
@@ -40,5 +40,5 @@ In "Watermark Management", you can upload images in PNG format as watermarks of 
 You can select "Publish URL of Video Source File", or "Web Player Code Native to Video".on the Tencent Cloud VOD console. For more information, please see [Publish Video Code](https://cloud.tencent.com/document/product/266/14057).
  
 ## Statistical Analysis
-After the video is published, you can log in to Tencent Cloud [VOD Console](https://console.cloud.tencent.com/video) to use the statistical analysis feature to analyze the statistical data through the four dimensions of bandwidth/traffic statistics, storage statistics, transcoding statistics and playback statistics. For more information, please see [Statistical Analysis](https://cloud.tencent.com/document/product/266/14060).
+After the video is published, you can log in to Tencent Cloud [VOD Console](https://console.cloud.tencent.com/vod) to use the statistical analysis feature to analyze the statistical data through the four dimensions of bandwidth/traffic statistics, storage statistics, transcoding statistics and playback statistics. For more information, please see [Statistical Analysis](https://cloud.tencent.com/document/product/266/14060).
 

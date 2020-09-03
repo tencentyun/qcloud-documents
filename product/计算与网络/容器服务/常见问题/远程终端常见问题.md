@@ -3,12 +3,18 @@
 如果发现没有 bash，您可以在命令行中输入您想执行的命令，屏幕会显示该命令的返回结果。您可以将命令行看做一个缺少自动补全等其他功能的精简版 bash。建议您先执行安装 bash 的命令，再执行后续操作。
 
 ### 为什么运行 apt-get 安装软件如此之慢？
+如果您在使用 `apt-get` 安装软件速度过慢，有可能是因为机器访问国外软件源速度过慢引起。我们根据不同操作系统的容器为您提供对应的提速方案，您可根据实际情况进行操作：
 
-如果您觉得安装太慢，可能因为机器访问国外软件源速度过慢的原因。
+#### 注意事项
+选择提速解决方案之前，请您准确识别容器操作系统，避免操作无法正常进行。您可参考以下方式进行识别：
+ - Ubuntu 系统：执行命令 `cat /etc/lsb-release` ，验证是否存在 `/etc/lsb-release` 文件。
+ - CentOS 系统：执行命令 `cat /etc/redhat-release`，验证是否存在 `/etc/redhat-release` 文件。
+ - Debian 系统：执行命令 `cat /etc/debian_version`，验证是否存在 `/etc/debian_version` 文件。
 
-#### Ubuntu 16.04系统
+#### 解决方案<span id="solve"></span>
 
-对于系统为 Ubuntu 16.04的容器，您可以运行以下命令，将 apt 的源设置为腾讯云的源服务器。即复制以下命令粘贴到终端执行。
+##### Ubuntu 16.04系统
+对于系统为 Ubuntu 16.04的容器，您可以在终端运行以下命令，将 apt 的源设置为腾讯云的源服务器：
 ```shell
 cat << ENDOF > /etc/apt/sources.list
 deb http://mirrors.tencentyun.com/ubuntu/ xenial main restricted universe multiverse
@@ -20,9 +26,9 @@ deb-src http://mirrors.tencentyun.com/ubuntu/ xenial-updates main restricted uni
 ENDOF
 ```
 
-#### CentOS 7系统
+##### CentOS 7系统
 
-对于系统为 CentOS 7的容器，您可以执行以下操作，直接修改源地址提高安装速度。
+对于系统为 CentOS 7的容器，您可以在终端执行以下操作，直接修改源地址提高安装速度：
 1. 将以下代码复制并粘贴至容器内运行：
 ```shell
 cat << ENDOF > /etc/yum.repos.d/CentOS-Base.repo
@@ -75,9 +81,26 @@ ENDOF
 yum clean all && yum clean metadata && yum clean dbcache && yum makecache
 ```
 
-直接修改源地址为临时解决方案，当容器被重新调度后，您所作的修改将会失效，所以建议您在创建镜像时解决该问题。具体的操作方法如下：
-修改创建容器镜像的 Dockerfile。
-在 Dockerfile 的 RUN 字段中，根据系统的不同添加直接修改源地址。例如，在一个基于 Ubuntu 系统的镜像中，加入以下内容：
+##### Debian 系统
+
+对于系统为 Debian 的容器，您可以在终端运行以下命令，将 apt 的源设置为腾讯云的源服务器：
+```shell
+cat << ENDOF > /etc/apt/sources.list
+deb http://mirrors.tencentyun.com/debian stretch main contrib non-free
+deb http://mirrors.tencentyun.com/debian stretch-updates main contrib non-free
+deb http://mirrors.tencentyun.com/debian-security stretch/updates main
+
+deb-src http://mirrors.tencentyun.com/debian stretch main contrib non-free
+deb-src http://mirrors.tencentyun.com/debian stretch-updates main contrib non-free
+deb-src http://mirrors.tencentyun.com/debian-security stretch/updates main
+ENDOF
+```
+
+#### 问题总结
+
+在容器中直接修改源地址为临时解决方案，当容器被重新调度后，您所作的修改将会失效，建议您在创建镜像时解决该问题。具体的操作方法如下：
+
+修改创建容器镜像的 Dockerfile，在 Dockerfile 的 RUN 字段中，添加对应操作系统 [解决方案](#solve) 中提供的信息修改源地址。例如，在一个基于 Ubuntu 系统的镜像的 Dockerfile 中，加入以下内容：
 ```shell
 RUN cat << ENDOF > /etc/apt/sources.list
 deb http://mirrors.tencentyun.com/ubuntu/ xenial main restricted universe multiverse
@@ -93,7 +116,7 @@ deb-src http://mirrors.tencentyun.com/ubuntu/ xenial-updates main restricted uni
 ENDOF
 ```
 
-对于 CentOS 系统的镜像类似。
+
 
 ### 当登录容器后，发现没有 vim，netstat 等工具，怎么办？
 
@@ -146,3 +169,4 @@ apt-get install
 ### 为何进入绝对路径较长的目录后，bash 提示符只显示 “<” 和部分路径？
 
 因为默认的 bash 提示符被设置为显示 “用户名@主机名 当前目录”。 如果当前路径长于一定长度，bash 默认会显示 “<” 与路径的最后一部分。
+

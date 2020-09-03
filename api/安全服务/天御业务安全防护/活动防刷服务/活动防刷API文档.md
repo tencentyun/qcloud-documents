@@ -88,7 +88,7 @@ riskType 详细说明
 请求示例 ：
 <https://csec.api.qcloud.com/v2/index.php?Action=ActivityAntiRush
 &<公共请求参数>
-&secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
+&secretId=AKID**********iBS8s2DCzazCD2g7OUq4Zw
 &accountType=1
 &uid=D692D87319F2098C3877C3904B304706
 &userIp=127.0.0.1
