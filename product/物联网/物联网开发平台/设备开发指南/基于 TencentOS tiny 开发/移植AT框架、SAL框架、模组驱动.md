@@ -9,39 +9,30 @@ AT 框架是我们编写的一个通用 AT 指令解析任务，使开发者只�
 
 ##  移植 AT 框架
 
-从TencentOS-tiny中复制这五个文件过来
-TencentOS tiny AT 框架的实现在 `net\at` 目录下的 `tos_at.h` 和 `tos_at.c` 两个文件中，TencentOS-tiny AT 框架底层使用的串口驱动 HAL 层在`platform\hal\st\stm32l4xx\src`目录下的文件`tos_hal_uart.c`中，头文件是`kernel\hal\include`路径中的 tos_hal.h和tos_hal_uart.h。
-
-从TencentOS-tiny中复制这五个文件过来，保持文件架构不变（删除多余的文件）：
-
+从 TencentOS-tiny 中复制以下五个文件至？？？   ，，保持文件架构不变并删除多余文件。
+- 复制 `net\at` 目录下的 `tos_at.h` 和 `tos_at.c` 文件，两个文件实现了 TencentOS tiny AT 的框架。 
 ![](https://main.qcloudimg.com/raw/9948d5be6ddf3d45a88deaa939b4ec73.png)
-
+- 复制 `platform\hal\st\stm32l4xx\src` 目录下的 `tos_hal_uart.c` 文件，该文件为 TencentOS-tiny AT 框架底层使用的串口驱动HAL层。
 ![](https://main.qcloudimg.com/raw/5662ec84dc7329798974c61d97d6ef7b.png)
-
+- 复制 `kernel\hal\include` 目录下的 `tos_hal.h` 和 `tos_hal_uart.h` 文件，两个文件为 TencentOS-tiny AT 框架的部分头文件。
 ![](https://main.qcloudimg.com/raw/e53663baaba9c9859d2035a86f3a973c.png)
 
-
-文件复制完成，接下来开始添加到工程中，首先将两个c文件添加到Keil工程中：
-
+文件复制完成，接下来开始添加到工程中。
+1. 首先将以上两个`.c`文件添加到 Keil 工程中。
 ![](https://main.qcloudimg.com/raw/a2b157526b43905bbbfc056ce61cc51f.png)
 
-然后将头文件路径添加到Keil MDK中：
-
+2. 其次将 `net\at` 和 `kernel\hal\include` 两个头文件路径添加到 Keil MDK 中。
 ![](https://main.qcloudimg.com/raw/21d9140898a61a33d03a9448daa8e0dd.png)
 
-然后在串口中断中配置调用AT框架的字节接收函数，编辑`stm32l4xx_it.c`文件：
-
-① 添加AT框架的头文件：
-
+3. 最后在串口中断中配置调用 AT 框架的字节接收函数，编辑`stm32l4xx_it.c`文件。
+ 1. 添加 AT 框架的头文件。
 ```c
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "tos_at.h"
 /* USER CODE END Includes */
 ```
-
-② 在文件最后添加串口中断回调函数：
-
+ 2. 在文件最后添加串口中断回调函数。
 ```c
 /* USER CODE BEGIN 1 */
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
@@ -55,21 +46,18 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 /* USER CODE END 1 */
 ```
 
-注意，在回调函数中声明data变量在外部定义，这是因为STM32 HAL库的机制，需要在初始化完成之后先调用一次串口接收函数，使能串口接收中断，编辑`usart.c`文件：
+>!在回调函数中声明 data 变量在外部定义，这是因为 STM32 HAL 库的机制，需要在初始化完成之后先调用一次串口接收函数，使能串口接收中断，编辑 `usart.c` 文件。
 
-① 在文件开头定义data变量为全局变量：
-
+ 1. 在文件开头定义data变量为全局变量：
 ```c
 /* USER CODE BEGIN 0 */
 uint8_t data;
 /* USER CODE END 0 */
 ```
 
-② 在串口初始化完成之后使能接收中断：
-
+2. 在串口初始化完成之后使能接收中断：
 ```c
 /* LPUART1 init function */
-
 void MX_LPUART1_UART_Init(void)
 {
     hlpuart1.Instance = LPUART1;
