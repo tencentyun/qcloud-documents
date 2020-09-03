@@ -78,12 +78,12 @@ const cloud = tcb.init({
 });
 ```
 3. 保存小程序代码后，预览小程序界面。
- ![](https://main.qcloudimg.com/raw/109e8693bf93d2b3682035b74069f332.png)
-
+![](https://main.qcloudimg.com/raw/c4d5193da6db5db4604a50ef6ad11a8d.png)
 ## 结语
 
 到这里，使用云开发完成 Web 端与小程序端的应用同步就已经完成。当您拖动 Web 应用中的数字，微信小程序内也会同步发生改变。效果图如下：
 ![](https://main.qcloudimg.com/raw/a24c7f33c3123fd954dfe3c0ae761557.png)
+
 
 ## 其他
 
