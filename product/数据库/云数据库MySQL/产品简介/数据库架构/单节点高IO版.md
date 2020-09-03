@@ -1,15 +1,15 @@
 云数据库 MySQL 支持四种架构：高可用版、金融版、单节点高 IO 版、基础版。本文为您介绍单节点高 IO 版架构。
 
-## 简介
+<br>
 单节点高 IO 版采用单个物理节点部署，性价比高。
 
-#### 适用场景
+## 适用场景
 有读写分离需求的各个行业应用。
 
-#### 版本特点
+## 架构特点
 底层存储使用本地 NVMe SSD 硬盘，提供强大的 IO 性能。目前应用于 [只读实例](https://cloud.tencent.com/document/product/236/7270)，帮助业务分摊读压力。
 
-#### 架构
+## 架构基本框架图
 ![Alt text](http://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/shopcart/database/css/img/mysql-frame3.svg)
 >!
 >- 单节点部署存在单点风险，在只购买一个只读实例情况下，无法保证业务高可用，单个只读实例故障，会导致业务中断而影响客户。
