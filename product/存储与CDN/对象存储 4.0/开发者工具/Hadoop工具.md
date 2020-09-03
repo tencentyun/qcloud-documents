@@ -15,17 +15,18 @@ Hadoop-COS 使用 cosn 作为 URI 的 scheme，因此也称为 Hadoop-COS 为 Co
 
 Hadoop-2.6.0及以上版本。
 
+
 ## 下载与安装
 
-#### 获取 Hadoop-COS 插件
+#### 获取 Hadoop-COS 分发包及其依赖
 
-下载地址：[Hadoop-COS 插件](https://github.com/tencentyun/hadoop-cos)。
+下载地址：[Hadoop-COS release](https://github.com/tencentyun/hadoop-cos/releases)。
 
 #### 安装 Hadoop-COS 插件
 
-1. 将 dep 目录下的`hadoop-cos-X.X.X-shaded.jar*`， 拷贝到`$HADOOP_HOME/share/hadoop/tools/lib`下。
+1. 将 `hadoop-cos-{hadoop.version}-{version}.jar` 和 `cos_api-bundle-{version}.jar` 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下。
 
-> ?根据 Hadoop 的具体版本选择对应的 jar 包，若 dep 目录中没有提供匹配版本的 jar 包，可自行通过修改 pom 文件中 Hadoop 版本号，重新编译生成。 
+> ?根据 Hadoop 的具体版本选择对应的 jar 包，若 release 中没有提供匹配版本的 jar 包，可自行通过修改 pom 文件中 Hadoop 版本号，重新编译生成。 
 
 2. 修改 hadoop_env.sh 文件。进入`$HADOOP_HOME/etc/hadoop`目录，编辑 hadoop_env.sh 文件，增加以下内容，将 cosn 相关 jar 包加入 Hadoop 环境变量：
 

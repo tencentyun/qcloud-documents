@@ -12,8 +12,7 @@ Express.js 特性介绍：
 
 ## 前提条件
 已安装 Node.js（参考 [Node.js 安装指南](https://nodejs.org/zh-cn/download/)）。
-
->!建议您使用 Node.js10.0 及以上版本，否则 Component V2 部署有可能报错。
+>!2020年9月1日起，Serverless 组件不再支持 Node.js10.0 以下版本，请注意升级。
 
 ## 操作步骤
 #### 1. 安装

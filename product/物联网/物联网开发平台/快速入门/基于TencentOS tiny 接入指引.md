@@ -1,6 +1,6 @@
 ## 操作场景
 
-假设一款智能灯接入到物联网开发平台，通过物联网开发平台可以远程控制灯的亮度、颜色、开关，并实时获取智能灯上报到开发平台的数据。本文档主要指导您如何基于 TencentOS-tiny 物联网操作系统，使用 MQTT 协议在物联网开发平台控制台接入智能灯。
+假设一款智能灯接入到物联网开发平台，通过物联网开发平台可以远程控制灯的亮度、颜色、开关，并实时获取智能灯上报到物联网开发平台的数据。本文档主要指导您如何基于 TencentOS-tiny 物联网操作系统，使用 MQTT 协议在物联网开发平台控制台接入智能灯。
 
 ## 前提条件
 
@@ -12,33 +12,32 @@
 
 ### 创建项目
 
-1. 登录 [物联网开发平台控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fiotexplorer)。
-2. 点击新建项目，填写项目名称和项目描述：
+1. 登录 [物联网开发平台控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fiotexplorer)。 单击【新建项目】，填写“项目名称”和“项目描述”。
  - 项目名称：输入“智能灯演示”或其他名称。
  - 项目描述：按照实际需求填写项目描述。
 ![](https://main.qcloudimg.com/raw/a696eca1c331421602e5d099c985d252.jpg)
-3. 项目基本信息填写完成后，单击【保存】，即可完成新建项目。
-4. 项目新建成功后，即可新建产品。
+2. 项目基本信息填写完成后，单击【保存】，即可完成项目创建。
+3. 项目创建成功后，即可新建产品。
 
 ### 新建产品
 
 1. 进入该项目的产品列表页面，单击【新建产品】.
 2. 在新建产品页面，填写产品基本信息。
   - 产品名称：输入“智能灯”或其他产品名称。
-  - 产品类型：选择【智慧城市】>【公共事业】>【路灯照明】。
+  - 产品品类：选择【智慧城市】>【公共事业】>【路灯照明】。
   - 设备类型：选择“设备”。
   - 认证方式：选择“密钥认证”。
   - 通信方式：随意选择。
   - 数据协议：默认为“数据模板”。
   - 描述：按照实际需求填写项目描述。
 ![](https://main.qcloudimg.com/raw/5632337cf6b43546f83d4cf9a92a18dd.png)
-3. 产品信息填写完成后，单击【保存】，即可完成新建产品。
-4. 产品新建成功后，可在产品列表页查看到“智能灯”。
+3. 产品信息填写完成后，单击【保存】，即可完成产品创建。
+4. 产品创建成功后，可在产品列表页查看到“智能灯”。
 ![](https://main.qcloudimg.com/raw/cea75c03773aed81f9061da302e9fb3d.png)
 
 ### 创建数据模板
 
-当新建产品将“产品类型”选择为【路灯照明】时，此时单击产品进入产品详情页，系统将会自动生成标准功能。
+当新建产品将“产品类型”选择为【路灯照明】时，此时单击该产品进入产品详情页，系统将会自动生成标准功能。
 ![](https://main.qcloudimg.com/raw/f78bde95fd38ce6b7e27c65a81742dea.png)
 
 ### 创建测试设备
@@ -63,7 +62,7 @@
 1. 硬件连接成功后，打开 PC 端上的设备管理器，即可查看开发板所对应的串口（请确保已安装 CH340 驱动）。
 ![](https://main.qcloudimg.com/raw/5c44a520e8d0bc22d0e9849d8bcf3868.png)
 
-2. 打开串口工具，做好相应配置后，打开串口：
+2. 打开串口工具，做好相应配置后，打开串口。
   - 端口号：本例中为 COM20。
   - 波特率：本例中为 115200。
 ![](https://main.qcloudimg.com/raw/320e72b7721bf000829bc1e65cc75236.png)
@@ -83,8 +82,8 @@ git clone https://github.com/Tencent/TencentOS-tiny.git
 #### 步骤2：配置修改
 
 1. 双击 `TencentOS_tiny.uvprojx` 打开工程（请确保已经安装好 Keil-MDK 开发环境）。
-2. 在 `TencentOS-tiny\components\connectivity\qcloud-iot-explorer-sdk\port\TencentOS_tiny` 目录中：
- 1. 修改 `HAL_Device_tencentos_tiny.c` 文件。将下图红色线框中的数据分别替换为控制台 **“设备详情页”** 中的参数并保存。
+2. 在 `TencentOS-tiny\components\connectivity\qcloud-iot-explorer-sdk\port\TencentOS_tiny` 目录：
+ 1. 修改 `HAL_Device_tencentos_tiny.c` 文件。进入【物联网开发控制台】>【项目】>【产品开发】>【设备调试】，单击【调试】进入设备详情页，将下图红色线框中的数据分别替换为“设备详情页”中的参数并保存。
     -  产品 ID： 将控制台的产品 ID ，复制到下图 sg_product_id。
     -  设备名称： 将控制台的设备名称，复制到下图 sg_device_name。
     -  设备密钥：将控制台的设备密钥，复制到下图 sg_device_secret。
@@ -141,7 +140,7 @@ https://main.qcloudimg.com/raw/b873b65c618480ede6485073090bc1f2.png)
 ![](https://main.qcloudimg.com/raw/7736a6f45b43acf218fd5e49cbb44f27.jpg)
 2. 修改工程文件，在 `data_template_sample.c` 文件中使能 Action。
 ![](https://main.qcloudimg.com/raw/8f605b70838ae7c12133617977d95c0b.png)
-3. 重新编译下载，在开发板上按【复位】使系统运行。
+3. 重新编译下载，在开发板上按下【复位】键使系统运行。
 4. 在物联网开发控制台上下发设备行为调用。
 ![](https://main.qcloudimg.com/raw/4320c5a421a5c8d54ac7ee9120e5912c.png)
 5. 在串口助手中可查看到设备行为被调用。
