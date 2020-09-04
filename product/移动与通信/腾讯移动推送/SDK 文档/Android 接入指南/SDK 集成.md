@@ -49,6 +49,7 @@ dependencies {
 
 }
 ```
+>? TPNS 推送 [VERSION] 为当前SDK版本号,版本号可在 [SDK 下载页](https://console.cloud.tencent.com/tpns/sdkdownload) 查看。
 
 >!
  - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
