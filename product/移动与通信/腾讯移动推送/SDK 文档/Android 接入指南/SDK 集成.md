@@ -49,9 +49,9 @@ dependencies {
 
 }
 ```
->? TPNS 推送 [VERSION] 为当前SDK版本号,版本号可在 [SDK 下载页](https://console.cloud.tencent.com/tpns/sdkdownload) 查看。
 
 >!
+ - TPNS 推送 [VERSION] 为当前 SDK 版本号，版本号可在 [SDK 下载页](https://console.cloud.tencent.com/tpns/sdkdownload) 查看。
  - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
  - 如果您的应用服务接入点为新加坡或者中国香港，请按照下文步骤完成境外服务接入点配置。
    在 Androidanifest 文件 application 标签内添加以下元数据：
