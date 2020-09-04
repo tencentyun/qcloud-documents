@@ -19,7 +19,7 @@
 
 
 **iOS** 
-![](https://main.qcloudimg.com/raw/692c27eac3017ceb55e851ac03bf3a30.png)
+![](https://main.qcloudimg.com/raw/8b333ab64a7b03b4ffba91de09a5abff.png)
 
 **Android**
 ![](https://main.qcloudimg.com/raw/f88d4d326aab04078029b8ae80d10e10.png)
