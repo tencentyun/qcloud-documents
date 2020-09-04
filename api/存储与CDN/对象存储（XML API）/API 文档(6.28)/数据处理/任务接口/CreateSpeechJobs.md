@@ -1,6 +1,6 @@
 ## 功能描述
 
-CreateSpeechJobs 接口用于提交一个语音识别任务。
+CreateSpeechJobs 接口用于创建一个语音识别任务。
 
 ## 请求
 
@@ -180,7 +180,7 @@ Container 节点 SpeechRecognition 的内容：
 
 ## 实际案例
 
-**请求** 
+**请求:创建语音识别任务**
 
 ```plaintext
 POST /asr_jobs HTTP/1.1
@@ -197,12 +197,12 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDnOr9IDiIUNYWGrrWb2IJ4YmywDXc****&q
 
 <Request>
   <Input>
-    <Object>1.mp3</Object>
+    <Object>music.mp3</Object>
   </Input>
   <Operation>
     <Output>
       <Region>ap-chongqing</Region>
-      <Object>1.mp3</Object>
+      <Object>music.mp3</Object>
       <Bucket>examplebucket-1250000000</Bucket>
     </Output>
     <SpeechRecognition>
@@ -240,7 +240,7 @@ x-ci-request-id: request-id
                 <Operation>
                         <Output>
                                 <Bucket>test005-1251704708</Bucket>
-                                <Object>1.txt</Object>
+                                <Object>music.txt</Object>
                                 <Region>ap-chongqing</Region>
                         </Output>
                         <SpeechRecognition>

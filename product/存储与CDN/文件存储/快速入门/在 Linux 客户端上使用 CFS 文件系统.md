@@ -125,7 +125,6 @@ df -h
 >!为避免后续误操作，非特殊需求情况下强烈建议不要对已挂载 CFS 文件系统或其他文件系统的目录重复执行挂载（mount）操作。
 
 ### 挂载 CIFS/SMB 文件系统
->!CIFS/SMB 协议文件系统公测中，更多信息请参见 [CIFS/SMB公测说明](https://cloud.tencent.com/document/product/582/9553#cifs.2Fsmb-.E5.85.AC.E6.B5.8B.E8.AF.B4.E6.98.8E)。
 
 #### 1. 启动 CIFS 客户端
 挂载前，请确保系统中已经安装了`cifs-utils`，安装方法如下：

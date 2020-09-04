@@ -27,7 +27,7 @@
  1. 在弹出的选择创建策略方式窗口，选择**【按策略语法创建】**，进入策略语法填写页面。
  1. 在**【按策略语法创建】**页面，选择**【空白模板】**。
  1. 在编辑策略页面，填写【策略名称】（如 ClsBuildInStrategy），【策略描述】以及**【策略内容】**，单击完成。
->?策略内容参考以下语法例子，用户根据实际信息修改使用。**其中 uin 和 roleName 根据实际信息修改**。uin 为主账号 uin，rolename 为上一步骤创建的角色，如 ClsBuildInRole
+>?策略内容参考以下语法例子，用户根据实际信息修改使用。**其中 uin 和 roleName 根据实际信息修改**。uin 为主账号 uin，rolename 为步骤1创建的角色，如 ClsBuildInRole。
 
    ```
    {
@@ -47,7 +47,7 @@
    ```
 
 3. 主账号关联策略到子账号
- 1. 在策略页面，在搜索框搜索需要关联子用户的**【策略名称】**(如ClsBuildInStrategy)。
+ 1. 在策略页面，在搜索框搜索需要关联子用户的**【策略名称】**（如ClsBuildInStrategy）。
  1. 在搜索到的策略的右侧操作栏，选择**【关联用户/组】**。
    <img src="https://main.qcloudimg.com/raw/3b8d312b18eab5ab50b389d70e2f9409.png" alt="image-20200819165949371" style="zoom:80%;" />
- 1. 在弹框选择该策略需要关联的子账号Developer，单击确定。也可以在用户页面，从用户关联到策略，此处不赘述。详细操作请参考 [授权管理](https://cloud.tencent.com/document/product/598/10602)。
+ 1. 在弹框选择该策略需要关联的子账号 Developer，单击【确定】。也可以在用户页面，从用户关联到策略，此处不赘述。详细操作请参考 [授权管理](https://cloud.tencent.com/document/product/598/10602)。

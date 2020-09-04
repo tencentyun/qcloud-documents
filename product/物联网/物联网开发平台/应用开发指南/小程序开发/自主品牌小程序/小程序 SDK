@@ -3,8 +3,8 @@
 
 SDK 初始化后，才能通过 SDK 使用物联网开发平台提供的云端能力。初始化 SDK 需要依次完成以下步骤：
 
-1. 调用`QcloudIotExplorerAppDevSdk`的构造函数并传入配置项，创建 SDK 对象。
-2. 调用 SDK 对象的`init`函数初始化 SDK。
+1. 调用 `QcloudIotExplorerAppDevSdk` 的构造函数并传入配置项，创建 SDK 对象。
+2. 调用 SDK 对象的 `init` 函数初始化 SDK。
 
 ### SDK 对象构造函数
 
@@ -23,7 +23,7 @@ QcloudIotExplorerAppDevSdk(sdkOptions)
 
 #### getAccessToken 回调函数
 
-SDK 初始化时，会调用 `getAccessToken` 回调函数以登录到物联网开发平台，并取得平台的 AccessToken。
+SDK 初始化时，将调用 `getAccessToken` 回调函数以登录到物联网开发平台，并取得平台的 AccessToken。
 
 通过调用物联网开发平台的 [微信号注册登录](https://cloud.tencent.com/document/product/1081/40781) 应用端 API，可以让小程序用户通过微信注册登录到物联网开发平台，并获取平台的 AccessToken。由于涉及物联网开发平台 AppSecret 以及小程序用户的 openid 等敏感信息，该应用端 API 需要由开发者的后台服务器调用。
 
@@ -34,7 +34,7 @@ SDK 初始化时，会调用 `getAccessToken` 回调函数以登录到物联网�
 2. 向开发者后台服务器发送登录请求，并传参小程序的用户信息。
 3. 开发者后台服务器调用 [微信号注册登录](https://cloud.tencent.com/document/product/1081/40781) 应用端 API 登录物联网开发平台。
 4. 开发者后台服务器将应用端 API 的响应返回给小程序。
-5. 小程序收到开发者后台服务器的响应后，将响应内容作为 getAccessToken 函数返回的 Promise 的值。
+5. 小程序收到开发者后台服务器的响应后，将响应内容作为 `getAccessToken` 函数返回的 Promise 的值。
 
 
 
@@ -45,7 +45,7 @@ SDK 初始化时，会调用 `getAccessToken` 回调函数以登录到物联网�
 | autoReconnect         | websocket断开后是否自动连接，默认为：true，自动重连每两秒尝试一次 | boolean | 否   |
 | disconnectWhenAppHide | 当 App.onHide 触发时，是否自动断开 websocket，默认为：true   | boolean | 否   |
 | connectWhenAppShow    | 当 App.onShow 触发时，是否自动连接 websocket，默认为：true   | boolean | 否   |
-| url                   | websocket 服务的url，默认为：wss://iot.cloud.tencent.com/ws/explorer | string  | 否   |
+| url                   | websocket 服务的 URL，默认为：wss://iot.cloud.tencent.com/ws/explorer | string  | 否   |
 | heartbeatInterval     | 心跳包的发送间隔，单位毫秒，默认为：60000                    | number  | 否   |
 
 ### SDK 初始化
@@ -56,8 +56,8 @@ sdk.init(options) => Promise< void >
 
 调用后将依次执行：
 
-1. 登录（调用 `getAccessToken` 回调函数，取得平台的 AccessToken）
-2. 连接 WebSocket
+1. 登录（调用 `getAccessToken` 回调函数，取得平台的 AccessToken）。
+2. 连接 WebSocket。
 
 `init` 函数可同时多次调用（返回同一个缓存的 Promise）。若一次执行未完成或已执行成功，多次调用后拿到的会是同一个 Promise。若 API 调用失败，则该缓存的 Promise 在 reject 之后会被释放，再次调用则将重新执行。
 
@@ -125,8 +125,8 @@ sdk.requestApi(Action: string, payload?: object, options?: object) => Promise< r
 | 参数名  | 参数描述                                                     | 类型   | 必填 |
 | ------- | ------------------------------------------------------------ | ------ | ---- |
 | Action  | 请求应用端 API 的 Action 名                                  | string | 是   |
-| payload | 请求应用端 API 的数据，会自动带上公共参数： `AccessToken` 与 `RequestId`。 | object | 否   |
-| options | 请求的选项，将透传给 [wx.request](https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html)。 | object | 否   |
+| payload | 请求应用端 API 的数据，会自动带上公共参数： `AccessToken` 与 `RequestId` | object | 否   |
+| options | 请求的选项，将透传给 [wx.request](https://developers.weixin.qq.com/miniprogram/dev/api/network/request/wx.request.html) | object | 否   |
 
 #### 返回值
 
@@ -148,12 +148,10 @@ sdk.requestApi('AppGetFamilyDeviceList', { FamilyId: 'default' })
 ```
 
 >! 
-- 腾讯云物联网开发平台是基于**家庭**的设备体系，每个家庭有其对应的`FamilyId`，每台设备均归属一个家庭。
-- 开发者也可以选择不关注家庭这一概念，对所有需要传`FamilyId`的接口（如 [获取用户绑定设备列表](https://cloud.tencent.com/document/product/1081/40803)）传入`default`作为`FamilyId`，SDK 会自动完成内部的家庭相关的逻辑（SDK 会为用户创建一个默认家庭，若`FamilyId`入参的值为`default`，SDK 会自动替换为用户默认家庭的`FamilyId`）。
+- 腾讯云物联网开发平台是基于**家庭**的设备体系，每个家庭有其对应的 `FamilyId`，每台设备均归属一个家庭。
+- 开发者也可以选择不关注家庭这一概念，对所有需要传`FamilyId`的接口（如 [获取用户绑定设备列表](https://cloud.tencent.com/document/product/1081/40803)）传入`default` 作为 `FamilyId`，SDK 会自动完成内部的家庭相关的逻辑（SDK 会为用户创建一个默认家庭，若`FamilyId`入参的值为`default`，SDK 会自动替换为用户默认家庭的`FamilyId`）。
 
 ## 设备配网
-
-### 进行设备配网
 
 SDK 目前支持 softAP 和 SmartConfig 方式进行设备配网。
 
@@ -164,19 +162,19 @@ sdk.connectDevice({
 }) => Promise< void >
 ```
 
-#### softAP 配网
+### softAP 配网
 
 关于 softAP 方式配网的流程，请参见 [softAP 配网开发](https://cloud.tencent.com/document/product/1081/43695)。
 
-##### softApOpts 配网参数
+#### softApOpts 配网参数
 
 | 参数名                    | 参数描述                                                     | 类型                                                         | 必填 |
 | ------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
 | targetWifiInfo            | 目标 Wi-Fi 信息，需要设备去连接的 Wi-Fi 的信息               | WifiInfo                                                     | 是   |
 | softApInfo                | 设备热点信息，如果传该配置，则首先会调用 wx.connectWifi 去连接设备热点；如果不传，则需要自行引导用户去连接设备热点 | WifiInfo                                                     | 否   |
 | familyId                  | 家庭ID，默认为：'default'，即用户默认家庭 ID                 | 'default' \| string                                          | 否   |
-| onProgress                | 配网过程执行到每个步骤时触发的回调，回调中入参为当前步骤的详情<br>code: 步骤代码，详见 [配网步骤](#softAP) 小节<br>msg: 步骤描述<br>detail: 步骤详情，根据每个步骤不同而不同 | ({ code: ConnectDeviceStepCode, msg: string, detail?: object }) => void | 否   |
-| onError                   | 配网失败时触发<br>code: 错误代码，详见 [错误码 ](#test2) 小节<br>msg: 错误描述<br>detail: 错误详情 | ({ code: ConnectDeviceErrorCode, msg: string, detail }) => void | 是   |
+| onProgress                | 配网过程执行到每个步骤时触发的回调，回调中入参为当前步骤的详情<li>code：步骤代码，详见 [配网步骤](#softAP) 小节<li>msg： 步骤描述<li>detail：步骤详情，根据每个步骤不同而不同 | ({ code: ConnectDeviceStepCode, msg: string, detail?: object }) => void | 否   |
+| onError                   | 配网失败时触发<li>code：错误代码，详见 [错误码 ](#test2) 小节<li>msg：错误描述<li>detail：错误详情 | ({ code: ConnectDeviceErrorCode, msg: string, detail }) => void | 是   |
 | onComplete                | 配网完成后触发                                               | () => void                                                   | 是   |
 | udpAddress                | 连接上设备热点后，小程序发起 UDP 通信的地址，默认为：'192.168.4.1'，一般无需更改 | string                                                       | 否   |
 | udpPort                   | 连接上设备热点后，小程序发起 UDP 通信的端口，默认为：8266，一般无需更改 | number                                                       | 否   |
@@ -184,7 +182,7 @@ sdk.connectDevice({
 | waitUdpResponseDuration   | UDP 消息发送重试间隔，单位毫秒，默认为：2000，一般无需更改   | number                                                       | 否   |
 | stepGap                   | 配网过程中，每一步中间等待的间隔，单位毫秒，默认为：3000，一般无需更改 | number                                                       | 否   |
 
-##### WifiInfo 数据结构
+#### WifiInfo 数据结构
 
 | 属性名   | 属性描述      | 类型   | 必填 |
 | -------- | ------------- | ------ | ---- |
@@ -192,7 +190,7 @@ sdk.connectDevice({
 | password | Wi-Fi 的 密码 | string | 否   |
 
 
-##### 示例代码
+#### 示例代码
 
 ```javascript
 sdk.connectDevice({
@@ -220,7 +218,7 @@ sdk.connectDevice({
 });
 ```
 <span id="softAP"></span>
-##### 配网步骤
+#### 配网步骤
 
 | 步骤                                                | 描述                                                         |
 | --------------------------------------------------- | ------------------------------------------------------------ |
@@ -240,26 +238,26 @@ sdk.connectDevice({
 | ConnectDeviceStepCode.CONNECT_DEVICE_SUCCESS        | 配网成功                                                     |
 
 
-#### SmartConfig 配网
+### SmartConfig 配网
 
 关于 SmartConfig 方式配网的流程，请参见 [SmartConfig 配网开发](https://cloud.tencent.com/document/product/1081/43696)。SmartConfig 方式配网需要调用 [生成 Wi-Fi 设备配网 Token](https://cloud.tencent.com/document/product/1081/44044) 应用端 API 获取 Wi-Fi 设备配网 Token。
 
-##### smartConfigOpts 配网参数
+#### smartConfigOpts 配网参数
 
 | 参数名                  | 参数描述                                                     | 类型                                                         | 必填 |
 | ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
 | targetWifiInfo          | 目标 Wi-Fi 信息，需要设备去连接的 Wi-Fi 的信息               | WifiInfo                                                     | 是   |
 | bindDeviceToken         | Wi-Fi 设备配网 Token，从后台接口 [生成 Wi-Fi 设备配网 Token](https://cloud.tencent.com/document/product/1081/44044) 获取 | string                                                       | 是   |
 | familyId                | 家庭 ID，默认为：'default'，即用户默认家庭 ID                 | 'default' \| string                                          | 否   |
-| onProgress              | code: 步骤代码，详见 [配网步骤](#SmartConfig) 小节<br>msg: 步骤描述<br>detail: 步骤详情，根据每个步骤不同而不同 | ({ code: ConnectDeviceStepCode, msg: string, detail?: object }) => void | 否   |
-| onError                 | 配网失败时触发<br>code: 错误代码，详见 [错误码](#test2) 小节<br>msg: 错误描述<br>detail: 错误详情 | ({ code: ConnectDeviceErrorCode, msg: string, detail }) => void | 是   |
+| onProgress              | <li>code：步骤代码，详见 [配网步骤](#SmartConfig) 小节<li>msg：步骤描述<li>detail：步骤详情，根据每个步骤不同而不同 | ({ code: ConnectDeviceStepCode, msg: string, detail?: object }) => void | 否   |
+| onError                 | 配网失败时触发<li>code：错误代码，详见 [错误码](#test2) 小节<li>msg：错误描述<li>detail：错误详情 | ({ code: ConnectDeviceErrorCode, msg: string, detail }) => void | 是   |
 | onComplete              | 配网完成后触发                                               | () => void                                                   | 是   |
 | udpPort                 | 小程序和设备连上同一个局域网之后，小程序发起 UDP 通信的端口，默认为：8266，一般无需更改 | number                                                       | 否   |
 | queryTokenRetryTime     | 轮询云端，查询设备绑定云端的状态的次数，默认为：20           | number                                                       | 否   |
 | waitUdpResponseDuration | 轮询云端，设备绑定云端的状态的重试间隔，单位毫秒，默认为：2000，一般无需更改 | number                                                       | 否   |
 | stepGap                 | 配网过程中，每一步中间等待的间隔，单位毫秒，默认为：3000，一般无需更改 | number                                                       | 否   |
 
-##### WifiInfo 数据结构
+#### WifiInfo 数据结构
 
 | 属性名   | 属性描述       | 类型   | 必填 |
 | -------- | -------------- | ------ | ---- |
@@ -267,7 +265,7 @@ sdk.connectDevice({
 | BSSID    | Wi-Fi 的 BSSID | string | 是   |
 | password | Wi-Fi 的 密码  | string | 是   |
 
-##### 示例代码
+#### 示例代码
 
 ```javascript
 // 1. 获取 Wi-Fi 设备配网 Token
@@ -299,9 +297,9 @@ sdk.requestApi('AppCreateDeviceBindToken')
   });
 ```
 <span id="SmartConfig"></span>
-##### 配网步骤
+#### 配网步骤
 
-`sdk.connectDevice()`配网过程中，每执行完一个步骤就会触发一次`onProgress`回调，入参为：`{ code, msg, ...detail }`形式。
+`sdk.connectDevice()` 配网过程中，每执行完一个步骤就会触发一次 `onProgress` 回调，入参为：`{ code, msg, ...detail }` 形式。
 
 | 步骤                                                 | 描述                                                         |
 | ---------------------------------------------------- | ------------------------------------------------------------ |
@@ -319,19 +317,19 @@ sdk.requestApi('AppCreateDeviceBindToken')
 | ConnectDeviceStepCode.CONNECT_DEVICE_SUCCESS         | 一键配网成功                                                 |
 
 <span id="test2"></span>
-#### 错误码
+### 错误码
 
 | 错误码                                          | 描述                                                         |
 | ----------------------------------------------- | ------------------------------------------------------------ |
 | ConnectDeviceErrorCode.UDP_NOT_RESPONSED        | 超时未收到设备响应                                           |
-| ConnectDeviceErrorCode.CONNECT_SOFTAP_FAIL      | 手机连接设备热点失败，具体的错误信息见 detail.errMsg<br>detail: { errMsg } |
-| ConnectDeviceErrorCode.CONNECT_TARGET_WIFI_FAIL | 手机连接 Wi-Fi 路由器失败，具体的错误信息见 detail.errMsg<br>detail: { errMsg } |
-| ConnectDeviceErrorCode.UDP_ERROR                | 配网过程中发生触发 udp.onError 事件<br>detail: { errMsg }    |
-| ConnectDeviceErrorCode.DEVICE_ERROR             | 收到设备响应的错误，具体的错误信息见 detail.errMsg<br>detail: { errMsg } |
-| ConnectDeviceErrorCode.INVALID_UDP_RESPONSE     | 收到非法的设备响应，detail.response 为具体的设备端响应<br>detail: { response } |
+| ConnectDeviceErrorCode.CONNECT_SOFTAP_FAIL      | 手机连接设备热点失败<br>detail: { errMsg }，错误信息         |
+| ConnectDeviceErrorCode.CONNECT_TARGET_WIFI_FAIL | 手机连接 Wi-Fi 路由器失败<br>detail: { errMsg }，错误信息    |
+| ConnectDeviceErrorCode.UDP_ERROR                | 配网过程中触发 udp.onError 事件<br>detail: { errMsg }，错误信息 |
+| ConnectDeviceErrorCode.DEVICE_ERROR             | 收到设备响应的错误<br>detail: { errMsg }，错误信息           |
+| ConnectDeviceErrorCode.INVALID_UDP_RESPONSE     | 收到非法的设备响应<br>detail: { response }，具体的设备端响应 |
 | ConnectDeviceErrorCode.DEVICE_CONNECT_MQTT_FAIL | 设备连接 MQTT 服务失败                                       |
 | ConnectDeviceErrorCode.DEVICE_CONNECT_WIFI_FAIL | 设备连接目标 Wi-Fi 失败                                      |
-| ConnectDeviceErrorCode.ADD_DEVICE_FAIL          | 添加设备失败，具体的错误信息见 detail.errMsg<br>detail: { errMsg } |
+| ConnectDeviceErrorCode.ADD_DEVICE_FAIL          | 添加设备失败<br>detail: { errMsg }，错误信息                 |
 | ConnectDeviceErrorCode.SEND_UDP_MSG_FAIL        | 与设备 UDP 通信时，发送消息失败                              |
 
 ## 长连接通信

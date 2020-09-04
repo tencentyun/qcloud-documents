@@ -1,6 +1,6 @@
 ## MQTT 协议说明
 
-目前物联网通信支持 MQTT 标准协议接入(兼容3.1.1版本协议)，具体的协议请参见 [MQTT 3.1.1](http://mqtt.org/?spm=5176.doc30540.2.3.BU9nwt) 协议文档。
+目前物联网通信支持 MQTT 标准协议接入(兼容3.1.1版本协议)，具体的协议请参见 [MQTT 3.1.1](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html) 协议文档。
 
 ### 和标准 MQTT 区别
 

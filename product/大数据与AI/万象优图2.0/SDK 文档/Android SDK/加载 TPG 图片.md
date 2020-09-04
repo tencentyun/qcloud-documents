@@ -16,16 +16,16 @@ defaultConfig {
         // 设置支持的 SO 库架构
         abiFilters 'armeabi' //, 'x86', 'armeabi-v7a', 'x86_64', 'arm64-v8a'
     }
-        }
+}
 ```
 
 ### 方式一：加载网络 TPG 图片
 
-1. 集成 CloudInfinite SDK。
+1. 集成 cloud-infinite SDK。
 ```
 implementation 'com.tencent.qcloud:cloud-infinite:1.2.0'    
 ```
-2. 在 CloudInfinite SDK 中构建出请求 TPG 格式图片的链接，然后与 [GLIDE 加载图片](https://cloud.tencent.com/document/product/460/47738)  配合使用，加载网络 TPG 图片。
+2. 在 cloud-infinite SDK 中构建出请求 TPG 格式图片的链接，然后与 [Glide 加载图片](https://cloud.tencent.com/document/product/460/47738)  配合使用，加载网络 TPG 图片。
 ```
 // 实例化 CloudInfinite，用来构建请求图片请求连接；
 CloudInfinite cloudInfinite = new CloudInfinite();

@@ -15,6 +15,8 @@
 | 天线         | 默认配置4根天线，其中2根 Wi-Fi 天线，2根 LTE 天线 |
 | 电源         | 12V电源适配器规格：AC 100~240V @50 - 60 Hz |
 | 工作环境     | <ul><li>工作环境温度0°C - 45°C</li><li>存储温度-40°C - +70°C</li><li>工作海拔高度小于5000m</li><li>工作相对湿度5% - 95%，非凝露</li> </ul> |
+| 支持证书         |<a href="https://main.qcloudimg.com/raw/61075c3b66a000dcc4acde282921a3e6/A2020CCC1608-3418137%C2%A0%E6%80%BB%E6%8A%A5%E5%91%8A%E5%8F%8A%E5%AE%89%E5%85%A8%E6%8F%8F%E8%BF%B0%E6%8A%A5%E5%91%8ACCC.pdf" dowmload="A2020CCC1608-3418137 总报告及安全描述报告CCC.pdf"> 国家强制性产品认证试验报告（CCC）</a>、<a href="https://main.qcloudimg.com/raw/bfe6b112bc3f156d49a9604fcb7b0513.pdf" dowmload="腾讯科技Edge-100型号核准证书.pdf">无线电发射设备型号核准证（SRRC）</a>、进网许可证（CTA） |
+
 
 ## 指示灯说明
 ### 指示灯布局

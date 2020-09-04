@@ -196,7 +196,7 @@ PHP 运行时目前已经发展到 PHP 7，主要维护的版本包括7.2、7.3�
 
 2. 单击【确定】，预计5-10分钟后完成 MySQL 实例初始化，如果实例状态一直没有变化为【运行中】，可刷新实例列表查看最新状态。
 
-### 对象存储 COS
+#### 对象存储 COS
 
 1. 打开并登录 [对象存储控制台](https://console.cloud.tencent.com/cos5)（首次使用需先开通对象存储服务），进入【存储桶列表】，单击【创建存储桶】，根据下表说明进行配置：
 
@@ -271,7 +271,7 @@ Copyright (c) The PHP Group
 Zend Engine v3.4.0, Copyright (c) Zend Technologies
 ```
 
-### 安装 PHP 模块
+#### 安装 PHP 模块
 
 除了基本的 PHP 外，NextCloud 还依赖其他 PHP 模块来实现部分功能。有关 NextCloud 依赖的详细模块信息，可参阅 [NextCloud 官方文档](https://docs.nextcloud.com/server/19/admin_manual/installation/source_installation.html#prerequisites-for-manual-installation)。
 
@@ -288,7 +288,7 @@ php -m
 ```
 4. 如果还需要安装其他模块，重复执行 `yum install <php-module-name>` 即可。
 
-### 上传并解压 NextCloud 服务端代码
+#### 上传并解压 NextCloud 服务端代码
 
 1. 在 [NextCloud 官网](https://nextcloud.com/install/#instructions-server) 下载 NextCloud 服务端最新版安装包，并上传至服务器 `/var/www/` 目录下，您可以通过以下方法上传：
     a）使用 `wget` 命令直接在服务器上下载安装包，例如：进入 `/var/www/` 目录后，执行命令 `wget https://download.nextcloud.com/server/releases/nextcloud-19.0.1.zip`。
@@ -301,7 +301,7 @@ php -m
 2. 使用 SSH 工具登录到新购服务器。
 3. 执行 `unzip nextcloud-<version>.zip` 解压安装包，例如 `unzip nextcloud-19.0.1.zip`。
 
-### 配置 PHP
+#### 配置 PHP
 
 1. 使用 SSH 工具登录到新购服务器。
 2. 执行 `vim /etc/php-fpm.d/www.conf` 打开 PHP-FPM 的配置文件，并依次修改配置项（关于 vim 的具体使用请参阅相关资料，您也可以使用其他方式修改该配置文件）。
@@ -322,7 +322,7 @@ systemctl enable php-fpm   # 命令1
 systemctl start php-fpm   # 命令2
 ```
 
-### 配置 Nginx
+#### 配置 Nginx
 
 1. 使用 SSH 工具登录到新购服务器。
 2. 执行下述命令修改网站目录所有者：

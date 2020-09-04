@@ -15,7 +15,7 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 ### 如何获取密钥？
 
 1. 登录【实时音视频控制台】>【[应用管理](https://console.cloud.tencent.com/trtc/app)】。
-2. 单击您需查看的 SDKAppID 或对应的【应用信息】，单击进入【快速上手】页签。
+2. 单击您需查看的 SDKAppID 对应的【应用信息】，单击进入【快速上手】页签。
 2. 查看【第二步 获取签发UserSig的密钥】标签，即可获取用于计算 UserSig 的加密密钥。
 3. 单击【复制密钥】，可将密钥拷贝到剪贴板中。
  ![](https://main.qcloudimg.com/raw/e9b9cb9492fd350018c052364af89702.png)

@@ -16,7 +16,8 @@
 
 
 ### 配置解压函数
-1. 在 Bucket 管理页面，选择左侧的【函数计算】。
+1. 在 Bucket 管理页面，选择左侧的【函数计算】。如下图所示：
+![](https://main.qcloudimg.com/raw/281c1a18f036e40cf839e8c214877e55.png)
 2. 单击 “zip 文件解压函数”中的【添加函数】。在弹出的“创建zip文件解压函数”窗口中配置如下信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/04a703414d12484b5fc7717eee7fcf0a.png)
  - **函数名称**：将自动在对应地域下创建函数，函数名称作为函数的唯一标识名称，创建后不可修改。您可以在 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default) 上查看该函数。

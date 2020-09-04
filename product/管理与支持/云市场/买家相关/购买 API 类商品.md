@@ -3,7 +3,7 @@
 
 ## 选购商品
 1. 登录 [腾讯云云市场](https://market.cloud.tencent.com/categories?dt=api) ，选购 API 类商品。
-2. 寻找到您所需要的商品后，选择您所需的商品规格以及使用期限，单击【立即购买】。
+2. 寻找到您所需要的商品后，选择您所需的商品规格以及使用期限，单击【提交订单】。
 ![](https://main.qcloudimg.com/raw/20724c909cb47b28529697e1bcb58f20.jpg)  
 
 ## 核对订单信息并支付 

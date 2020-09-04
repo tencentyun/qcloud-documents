@@ -94,7 +94,7 @@ Container 节点 SpeechBucketList 的内容：
 
 ## 实际案例
 
-**请求**
+**请求：查询是否已开通语音识别功能**
 
 ```plaintext
 GET /asrbucket HTTP/1.1

@@ -233,7 +233,7 @@ typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullabl
     "Nation": "汉",
     "Birth": "1987/1/1",
     "Address": "北京市石景山区高新技术园腾讯大楼",
-    "IdNum": "440524198701010014",
+    "IdNum": "440524******010014",
     "Authority": "",
     "ValidDate": "",
     "AdvancedInfo": "{}",
@@ -296,11 +296,11 @@ typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullabl
       },
       {
         "Name": "邮箱",
-        "Value": "abcdefg@tencent.com"
+        "Value": "ab***fg@tencent.com"
       },
       {
         "Name": "手机",
-        "Value": "+86-13312345678"
+        "Value": "+86-133****5678"
       },
       {
         "Name": "QQ",
