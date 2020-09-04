@@ -9,7 +9,7 @@ AT 框架是我们编写的一个通用 AT 指令解析任务，使开发者只�
 
 ##  移植 AT 框架
 
-从 TencentOS-tiny 中复制以下五个文件至？？？   ，，保持文件架构不变并删除多余文件。
+从 TencentOS-tiny 中复制以下五个文件到工程目录中，保持文件架构不变并删除多余文件。
 - 复制 `net\at` 目录下的 `tos_at.h` 和 `tos_at.c` 文件，两个文件实现了 TencentOS tiny AT 的框架。 
 ![](https://main.qcloudimg.com/raw/9948d5be6ddf3d45a88deaa939b4ec73.png)
 - 复制 `platform\hal\st\stm32l4xx\src` 目录下的 `tos_hal_uart.c` 文件，该文件为 TencentOS-tiny AT 框架底层使用的串口驱动HAL层。
@@ -20,10 +20,8 @@ AT 框架是我们编写的一个通用 AT 指令解析任务，使开发者只�
 文件复制完成，接下来开始添加到工程中。
 1. 首先将以上两个`.c`文件添加到 Keil 工程中。
 ![](https://main.qcloudimg.com/raw/a2b157526b43905bbbfc056ce61cc51f.png)
-
 2. 其次将 `net\at` 和 `kernel\hal\include` 两个头文件路径添加到 Keil MDK 中。
 ![](https://main.qcloudimg.com/raw/21d9140898a61a33d03a9448daa8e0dd.png)
-
 3. 最后在串口中断中配置调用 AT 框架的字节接收函数，编辑`stm32l4xx_it.c`文件。
  1. 添加 AT 框架的头文件。
 ```c
@@ -76,32 +74,24 @@ void MX_LPUART1_UART_Init(void)
 }
 ```
 
-因为此工程中只配置了LPUART1和USART2，所以将hal驱动中其余的串口屏蔽（否则会报错）：
-
+因为此工程中只配置 LPUART1 和 USART2 两个串口，所以需要将 HAL 驱动中其余的串口屏蔽，否则将会报错。
 ![](https://main.qcloudimg.com/raw/b639b0f817feef905977ca167b2f38c2.png)
 
-需要注意，AT框架使用的缓冲区都是动态内存，所以需要修改系统中默认动态内存池的大小，至少为0x8000：
-
+由于 AT 框架使用的缓冲区都是动态内存，所以需要将系统中默认动态内存池的大小至少修改为0x8000。
 ![](https://main.qcloudimg.com/raw/d9ddd86f9fad71827a34da2ab63b3fbd.png)
 
-## 移植SAL框架
+## 移植 SAL 框架
 
-TencentOS-tiny SAL框架的实现在`net/sal_module_wrapper`路径中，仅有两个文件：`sal_module_wrapper.h`和`sal_module_wrapper.c`，将这个文件夹从TencentOS-tiny官方仓库复制到工程目录下，保持原有架构不变：
-
+TencentOS-tiny SAL 框架的实现在 `net\sal_module_wrapper` 目录下的 `sal_module_wrapper.h` 和 `sal_module_wrapper.c` 两个文件中，将这个文件夹从 TencentOS-tiny 官方仓库复制到工程目录下，并且保持原有架构不变。
 ![](https://main.qcloudimg.com/raw/82da4fb2d8a06f53cf2a3c50ed367c77.png)
-
-接着将sal_module_wrapper.c文件添加到Keil MDK工程中：
-
+接着将 `sal_module_wrapper.c` 文件添加到 Keil MDK 工程中。
 ![](https://main.qcloudimg.com/raw/04f4163415c4ac939f4f606e4f7cc88f.png)
-
-再将头文件sal_module_wrapper.h所在路径添加到Keil MDK中：
-
+最后将头文件 `sal_module_wrapper.h` 所在目录添加到 Keil MDK 中。
 ![](https://main.qcloudimg.com/raw/0bdb1543fbe89112950a27823e08592d.png)
 
 ## 移植通信模组驱动
 
-TencentOS-tiny官方已经提供了非常多的通信模组驱动实现SAL框架，覆盖常用的通信方式，比如2G、4G Cat.4、4G Cat.1、NB-IoT等，在`devices`文件夹下,：
-
+TencentOS-tiny 官方已提供大量的通信模组驱动实现 SAL 框架，覆盖常用的通信方式，例如2G、4G Cat.4、4G Cat.1、NB-IoT等，在`devices`文件夹下,：
 - air724
 - bc26
 - bc25_28_95
@@ -115,18 +105,12 @@ TencentOS-tiny官方已经提供了非常多的通信模组驱动实现SAL框架
 - sim7600ce
 - 欢迎贡献更多驱动...
 
-因为这些驱动都是SAL框架的实现，所以这些通信模组的驱动可以根据实际硬件情况**选择一种加入到工程中**，这里我以 WIFI 模组 ESP8266为例，演示如何加入通信模组驱动到工程中。
+因为这些驱动都是 SAL 框架的实现，所以这些通信模组的驱动可以根据实际硬件情况**选择一种加入到工程中**，这里我以 Wi-Fi 模组 ESP8266 为例，演示如何加入通信模组驱动到工程中。
 
-ESP8266的驱动在`devices\esp8266`目录中，将此文件夹从TencentOS-tiny官方仓库复制到工程中，保持目录架构不变：
-
+ESP8266 的驱动在 `devices\esp8266` 目录中，将此文件夹从 TencentOS-tiny 官方仓库复制到工程中，保持目录架构不变。
 ![](https://main.qcloudimg.com/raw/653b2f25919a1a41b055feae8be264b0.png)
-
-首先将`esp8266.c`文件加入到Keil MDK工程中：
-
+首先将 `esp8266.c` 文件加入到 Keil MDK 工程中。
 ![](https://main.qcloudimg.com/raw/1393d6d5b281df84d774682d06f699f9.png)
-
-然后将`esp8266.h`头文件所在路径添加到Keil MDK工程中：
-
+然后将 `esp8266.h` 头文件所在路径添加到 Keil MDK 工程中，这样就移植完成。
 ![](https://main.qcloudimg.com/raw/fdcd3241a383e501ac20d2e4162f2505.png)
 
-移植完成。
