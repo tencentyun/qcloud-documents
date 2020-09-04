@@ -11,7 +11,6 @@
 1. 登录腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb)，选择【微信公众号】登录方式，授权使用腾讯云登录小程序环境。
 2. 单击环境名称，进入环境总览页面，如下所示：
    ![](https://main.qcloudimg.com/raw/553e753bafd5de308a2f8518162d83d9.png)
-
 > ! 
 > - 请记住您的环境 ID，这个 ID 在后续步骤将被使用。您可单击**资源概况**上方的【<img src="https://main.qcloudimg.com/raw/a06f957521023a64e977041f9181f251.jpg"  style="margin:0;">】图标进行复制。
 > - 微信小程序开发者请使用【其他登录方式】>【微信公众号登录】登录，再选择关联的小程序账户登录；QQ 小程序开发者可直接通过 QQ 小程序开发者 IDE【云开发】按钮登录，也可以通过关联的腾讯云账户登录。
@@ -26,15 +25,15 @@
 2. 单击 Hello World 扩展能力的【安装】，进行安装扩展。
 	 ![](https://main.qcloudimg.com/raw/1955ccf06eb35d45a6cff3feef5475c2.png)
 3. 扩展能力安装完毕后，会在该环境内新建一个云函数 `tcb_hello_world` 和一个云数据库集合 `tcb_hello_world`。
-   ![](https://main.qcloudimg.com/raw/37aa4a850766cafec2e6ffd34faad4e1.png)
+	 ![](https://main.qcloudimg.com/raw/26a2a4537d3fc12132378c8427feecfc.png)
 
 ### 步骤2：登录方式配置
 
-1. 进入云开发控制台【环境】菜单内的[登录授权](https://console.cloud.tencent.com/tcb/env/login)页面。
+1. 进入云开发控制台【环境】菜单内的 [登录授权](https://console.cloud.tencent.com/tcb/env/login) 页面。
 2. 开启【匿名登录】，允许在应用中使用匿名登录的方式访问云开发。
 	 ![](https://main.qcloudimg.com/raw/a1c1e2427fd4ec76f461561edf2e703d.png)
 
-### 步骤3： 数据库权限配置
+### 步骤3：数据库权限配置
 
 1. 进入云开发控制台的 [数据库](https://console.cloud.tencent.com/tcb/db) 页面。
 2. 单击 `tcb_hello_world` 集合名称进入集合详情页。
@@ -65,25 +64,27 @@
 ### 步骤6：小程序开发
 
 1. 首先打开微信开发者工具，再在浏览器中访问 [Hello World](https://developers.weixin.qq.com/s/Gddfw8mr7egW) 获取代码片段，一键导入代码到微信开发者 IDE 中。注意在导入时，AppID 与云开发中 [安全配置](https://console.cloud.tencent.com/tcb/env/safety) 的**移动应用安全来源**应用标识保持一致。
-   ![](https://main.qcloudimg.com/raw/9106a9d902100337781cbdb5409a22c4.png)
+![](https://main.qcloudimg.com/raw/28e0912fad50e561dc4ef6f731a5bfff.png)
 2. 在项目 app.js 中更新如下配置：
 ```javascript
 const cloud = tcb.init({
 		env: "${custom_env}", // 当前环境的ID
 		appSign: "touristappid",
 		appSecret: {
-			appAccessKeyId: "移动应用安全来源 版本", // 步骤1.3中获取的移动应用安全来源版本
-			appAccessKey: "移动应用安全来源 凭证" // 步骤1.3中获取的移动应用安全来源凭证
+			appAccessKeyId: "移动应用安全来源 版本", // 步骤5.2中获取的移动应用安全来源版本
+			appAccessKey: "移动应用安全来源 凭证" // 步骤5.3中获取的移动应用安全来源凭证
 		}
 });
 ```
 3. 保存小程序代码后，预览小程序界面。
- ![](https://main.qcloudimg.com/raw/109e8693bf93d2b3682035b74069f332.png)
+![](https://main.qcloudimg.com/raw/c4d5193da6db5db4604a50ef6ad11a8d.png)
+
 
 ## 结语
 
 到这里，使用云开发完成 Web 端与小程序端的应用同步就已经完成。当您拖动 Web 应用中的数字，微信小程序内也会同步发生改变。效果图如下：
 ![](https://main.qcloudimg.com/raw/a24c7f33c3123fd954dfe3c0ae761557.png)
+
 
 ## 其他
 
@@ -105,7 +106,7 @@ const cloud = tcb.init({
 ### 创建的资源
 
 - __Type__：Cloud Function
-  __Description__：借用云开发 http service 能力，渲染 Web 页面，方便开发者体验云开发能力
+  __Description__：借用云开发 HTTP Service 能力，渲染 Web 页面，方便开发者体验云开发能力
 - __Type__：Cloud DB
   __Description__：存储用户操作数据，借用实时数据库能力，监听数据变更，实现数据多端同步
 

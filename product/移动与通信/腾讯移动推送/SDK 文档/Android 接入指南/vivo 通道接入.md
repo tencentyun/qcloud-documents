@@ -27,10 +27,10 @@ vivo 通道是由 vivo 官方提供的系统级推送通道。在 vivo 手机上
 ```
 2. 导入 vivo 推送相关依赖。示例代码如下：
 ```js
-implementation 'com.tencent.tpns:vivo:[VERSION]-release' // vivo  推送 [VERSION] 为当前SDK版本号,版本号可在SDK下载页查看
+implementation 'com.tencent.tpns:vivo:[VERSION]-release' // vivo  推送 [VERSION] 为当前 SDK 版本号,版本号可在 SDK 下载页查看
 ```
 
-
+>? vivo 推送 [VERSION] 为当前 SDK 版本号，版本号可在 [SDK 下载页](https://console.cloud.tencent.com/tpns/sdkdownload) 查看。
 
 
 #### Eclipes 集成方法
@@ -72,7 +72,7 @@ implementation 'com.tencent.tpns:vivo:[VERSION]-release' // vivo  推送 [VERSIO
 
 
 ### 开启 vivo 推送
-在调用移动推送 TPNS  ```XGPushManager.registerPush``` 之前，开启第三方推送接口：
+在调用移动推送 TPNS  `XGPushManager.registerPush` 之前，开启第三方推送接口：
 
 ```java
 //打开第三方推送
@@ -82,7 +82,6 @@ XGPushConfig.enableOtherPush(getApplicationContext(), true);
 //注册成功的日志如下
  I/XINGE: [XGOtherPush] other push token is : 15646472431991408944055  other push type: vivo
 I/XINGE: [PushServiceBroadcastHandler]  bind OtherPushToken success ack with [accId = 1500xxxxxx  , rsp = 0]  token = 0139f9840030882cfe7cc791aebc800ed270 otherPushType = vivo otherPushToken = 15646472431991408944055
-
 ```
 
 
@@ -93,7 +92,6 @@ I/XINGE: [PushServiceBroadcastHandler]  bind OtherPushToken success ack with [ac
 -keep class com.vivo.push.**{*; }
 -keep class com.vivo.vms.**{*; }
 -keep class com.tencent.android.vivopush.VivoPushMessageReceiver{*;}
-
 ```
 
 >?混淆规则需要放在 App 项目级别的 proguard-rules.pro 文件中。

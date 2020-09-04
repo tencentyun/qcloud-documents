@@ -94,7 +94,7 @@ kubectl taint nodes host1 special-
 Pod 一直处于 Pending 状态可能是低版本 `kube-scheduler` 的 bug 导致的，该情况可以通过升级调度器版本进行解决。
 
 ### 检查 kube-scheduler 是否正常运行
-请注意时检查 Maser 上的 `kube-scheduler` 是否运行正常，如异常可尝试重启临时恢复。
+请注意时检查 Master 上的 `kube-scheduler` 是否运行正常，如异常可尝试重启临时恢复。
 
 ### 检查驱逐后其他可用节点与当前节点的有状态应用是否不在相同可用区
 
