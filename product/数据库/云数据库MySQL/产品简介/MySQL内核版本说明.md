@@ -1,7 +1,32 @@
 本文为您介绍 MySQL 内核版本更新动态，如需升级，请参见 [升级内核小版本](https://cloud.tencent.com/document/product/236/45522)。
 
+## MySQL 8.0
+### 20200630
+#### 新特性：
+- 支持异步删除大表：异步、缓慢地清理文件，进而避免因删除大表导致业务性能出现抖动情况，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
+- 支持自动 kill 空闲任务，减少资源冲突，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
+- 支持透明数据加密功能。
+
+
+#### 官方 bug 修复：
+- 修复由于 relay_log_pos & master_log_pos 位点不一致导致切换失败的问题。
+- 修复异步落盘所引起的数据文件出错的问题。
+- 修复 fsync 返回 EIO，反复尝试陷入死循环的问题。
+- 修复全文索引中，词组查找（phrase search）在多字节字符集下存在的崩溃问题。
 
 ## MySQL 5.7
+### 20200630
+#### 新特性：
+- 支持 SELECT FOR UPDATE/SHARE 语句使用 NOWAIT 和 SKIP LOCKED 选项。
+- 支持大事务优化功能，可缓解因大事务导致主从延迟、备份失败等问题。
+- 审计性能优化：支持异步审计功能。
+
+#### 官方 bug 修复：
+- 修复 digest_add_token 函数里面的溢出问题。
+- 修复 insert blob 导致实例 crash 的问题。
+- 修复 hash scan 在 event 中出现对同一行更新而找不到记录，所造成主从中断的问题。
+- 修复对 performance_schema 查询时 hang 住的问题。
+
 ### 20200331
 #### 新特性：
 - 新增官方 MySQL 5.7.22 版本的 JSON 系列函数。

@@ -13,12 +13,10 @@
 ## 参数
 #### 组件参数
 组件参数与普通 TensorFlow 组件一样，框架提供了支持 py2 或 py3 的 TensorFlow 1.12 的镜像。如下示例：
+- 程序脚本：可复制“示例代码”到脚本文件中然后上传到此处
+- 程序参数：--data_dir ${ai_dataset_lib}/public/data/cherry/Minist/
+- 版本号：TensorFlow1.12-Python3.5
 
--程序脚本：可复制“示例代码”到脚本文件中然后上传到此处
-
--程序参数：--data_dir ${ai_dataset_lib}/public/data/cherry/Minist/
-
--版本号：TensorFlow1.12-Python3.5
 ####  资源参数
 配置多机多卡的资源，worker_num 数量即机器数，ps_num 即 parameter server 数。
 

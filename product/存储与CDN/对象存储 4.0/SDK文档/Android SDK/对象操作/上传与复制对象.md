@@ -226,7 +226,7 @@ cosxmlUploadTask.setCosXmlResultListener(new CosXmlResultListener() {
 
 [//]: # (.cssg-snippet-transfer-upload-pause)
 ```java
-// 如果上传过程中，已经发起了最后的 Complete Multipart Upload 请求，那么取消会失败
+// 如果上传过程中，已经发起了最后的 Complete Multipart Upload 请求，那么暂停会失败
 boolean pauseSuccess = cosxmlUploadTask.pauseSafely();
 ```
 
@@ -234,7 +234,7 @@ boolean pauseSuccess = cosxmlUploadTask.pauseSafely();
 
 [//]: # (.cssg-snippet-transfer-upload-resume)
 ```java
-// 如果取消成功，可以恢复上传
+// 如果暂停成功，可以恢复上传
 if (pauseSuccess) {
     cosxmlUploadTask.resume();
 }
@@ -286,6 +286,34 @@ for (File file : files) {
         }
     });
 }
+```
+
+#### 示例代码七：创建目录
+
+[//]: # (.cssg-snippet-create-directory)
+```java
+String bucket = "examplebucket-1250000000"; //存储桶，格式：BucketName-APPID
+// 文件夹在存储桶中的位置标识符，即称对象键，必须以 '/' 结尾
+String cosPath = "exampleobject/";
+PutObjectRequest putObjectRequest = new PutObjectRequest(bucket, cosPath, new byte[0]);
+cosXmlService.putObjectAsync(putObjectRequest, new CosXmlResultListener() {
+    @Override
+    public void onSuccess(CosXmlRequest request, CosXmlResult result) {
+        PutObjectResult putObjectResult =
+                (PutObjectResult) result;
+    }
+
+    @Override
+    public void onFail(CosXmlRequest request,
+                       CosXmlClientException clientException,
+                       CosXmlServiceException serviceException) {
+        if (clientException != null) {
+            clientException.printStackTrace();
+        } else {
+            serviceException.printStackTrace();
+        }
+    }
+});
 ```
 
 >?

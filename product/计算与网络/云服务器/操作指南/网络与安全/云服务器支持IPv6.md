@@ -31,5 +31,5 @@
 ### 步骤2：云服务器配置 IPv6 地址
 
 不同操作系统的云服务器配置 IPv6 地址具有差异性，详情请参见私有网络提供的如下文档：
--  [Linux 云服务器配置 IPv6](https://cloud.tencent.com/document/product/215/37946#linux-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.85.8D.E7.BD.AE-ipv6)
--  [Windows 云服务器配置 IPv6](https://cloud.tencent.com/document/product/215/37946#windows-.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.85.8D.E7.BD.AE-ipv6) 
+-  [Linux 云服务器配置 IPv6](https://cloud.tencent.com/document/product/215/47556)
+-  [Windows 云服务器配置 IPv6](https://cloud.tencent.com/document/product/215/47558) 

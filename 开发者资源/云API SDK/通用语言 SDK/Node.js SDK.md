@@ -48,7 +48,8 @@ client.DescribeZones(req, function(err, response) {
     if (err) {
         console.log(err);
         return;
-    console.log(response.to_json_string());
+	}
+	console.log(response.to_json_string());
 });
 ```
 

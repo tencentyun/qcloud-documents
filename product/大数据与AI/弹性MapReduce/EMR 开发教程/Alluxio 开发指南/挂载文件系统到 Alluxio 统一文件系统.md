@@ -14,7 +14,7 @@ bin/alluxio fs mount --option fs.cos.access.key=<COS_SECRET_ID> \
     --option fs.cos.secret.key=<COS_SECRET_KEY> \
     --option fs.cos.region=<COS_REGION> \
     --option fs.cos.app.id=<COS_APP_ID> \
-    /cos cos://<COS_BUCKET>/<COS_DATA>/
+    /cos cos://<COS_BUCKET>/
 ```
 
 其中，--options 中配置 COS 的配置。
@@ -26,7 +26,6 @@ bin/alluxio fs mount --option fs.cos.access.key=<COS_SECRET_ID> \
 | fs.cos.region     | cos region 名称，例如`ap-beijing` |
 | fs.cos.app.id     | 用户 APPID                              |
 | COS_BUCKET        | COS BUCKET 名称                         |
-| COS_DATA          | COS 目录，可以是根目录`/`         |
 
 该命令，将 COS 的目录（通过`cos://bucket/xxx`指定）挂载到 alluxio 的`/cos`目录下。 
 

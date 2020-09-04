@@ -89,9 +89,9 @@
 &lt;live-player&gt; 的 RTC 模式支持500ms以内的超低时延链路，可以应用在视频通话和远程遥控等场景中，要使用超低时延播放，需要注意如下几点：
 （1）推流端如果是微信小程序，请使用 &lt;live-pusher&gt; 的 RTC 模式。
 （2）推流端如果是 iOS 或者 Android SDK，请使用 setVideoQuality 的 MAIN_PUBLISHER 模式。
-（3）推流端如果是 Windows，请不要使用 OBS，延时太高，可以使用我们的 [Windows SDK](https://cloud.tencent.com/document/product/454/7873)。
+（3）推流端如果是 Windows，请不要使用 OBS，延时太高，可以使用我们的 [Windows SDK](https://cloud.tencent.com/document/product/647/32689)。
 （4）&lt;live-player&gt; 的 min-cache 和 max-cache 请不要自行设置，使用默认值。
-（5）播放地址请使用超低延时播放地址，也就是带了防盗链签名的`rtmp://`地址，如下：
+（5）播放地址请使用超低延时播放地址，也就是带了防盗链签名的 `rtmp://` 地址，如下：
 
 |  对比项目 | 示例 | 时延 |
 |---------|---------| ----- |
