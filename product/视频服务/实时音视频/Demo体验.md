@@ -19,10 +19,10 @@
 
 
 **iOS** 
-![](https://main.qcloudimg.com/raw/3b40b70c24019ca487514f70bbcf1084.jpg)
+![](https://main.qcloudimg.com/raw/692c27eac3017ceb55e851ac03bf3a30.png)
 
 **Android**
-![](https://main.qcloudimg.com/raw/c840f483bfef5cc1b05eff87fc3d3e70.jpg)
+![](https://main.qcloudimg.com/raw/f88d4d326aab04078029b8ae80d10e10.png)
 
 **Mac OS**
 ![](https://main.qcloudimg.com/raw/8d146afb3b2dd07d5b5f1ca4432a9411.jpg)
