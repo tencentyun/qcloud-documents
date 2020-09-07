@@ -89,7 +89,7 @@ cg-casb.properties loaded from /opt/client/extractor/cg-casb.properties
 8. 在二次确认页面，单击【确认】，数据源即可创建成功。
 
 ### 步骤4：设置加解密策略
-1. 在“策略管理”页面，找到需要加密的应用，在右侧“操作”栏，单击【设置策略】。
+1. 在 CASB 管理平台的“策略管理”页面，找到需要加密的应用，在右侧“操作”栏，单击【设置策略】。
 ![](https://main.qcloudimg.com/raw/0e54ac26298cf83ad7c5a3ecdae2c24c.png)
 2. 在该数据源下找到需要加密的表，在右侧“操作”栏，单击【设置策略】，进入表字段页面。
 ![](https://main.qcloudimg.com/raw/03ff86eda8e06e4b2b87a11745da3fa0.png)
@@ -131,7 +131,7 @@ $ source /etc/profile
 1. 确认 Demo 应用的数据库及表已经创建。
 Demo 应用的数据源需要按照 [入门示例]() 创建，连接到数据库确认数据库已创建成功。
 2. 修改配置并启动测试 Demo 应用。
-将 Demo 应用上传到服务器，解压后修改 application.yaml 文件，修改如下配置：
+将 Demo 应用上传到服务器，解压后修改 application.yml 文件，修改如下配置：
 	- 将URL由`jdbc:mysql:// `改为`jdbc:aoe:mysql://`。
 	- 将`driver-class-name`的值 改为：`com.ciphergateway.aoe.plugin.engine.AOEDriver`。
 	- 可根据实际情况修改端口 port:8095。
