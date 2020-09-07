@@ -12,7 +12,7 @@ IVR（Interactive Voice Response）是一种基于电话的语音增值业务的
 我们以创建系统默认绑定的“电话体验 IVR”为例介绍 IVR 各模块的功能与连接。
 1. 在管理中心左侧导航栏选择【电话客服】>【IVR 管理】，单击【新建】创建 IVR。
 ![](https://main.qcloudimg.com/raw/38fbf253195ee9a8cde83f52a5bbb6a5.png)
-2. 填写 IVR 的名称，例如：“电话体验 IVR”。
+2. 填写 IVR 的名称，如下图：“电话体验IVR”。
 ![](https://main.qcloudimg.com/raw/974539c98c45b7b0f41279ed9f505271.png)
 
 3. 搭建 IVR：
