@@ -273,7 +273,7 @@ dependencies {
 	// 其他安卓组件
 	<meta-data
 			android:name="XG_SERVER_SUFFIX"
-			android:value="境外域名" />
+			android:value="其他服务接入点域名" />
 </application>
 ```
 其他服务接入点域名如下：
