@@ -21,11 +21,11 @@ TKE 后续推出 VPC-CNI 网络模式，即为每个 Pod 插入一张弹性网�
 
 ## VPC-CNI 模式操作步骤
 
-### 启用 VPC-CNI 
-TKE 有两种方式启用 VPC-CNI：<span id="VPC-CNI"></span>
+### 启用 VPC-CNI<span id="VPC-CNI"></span>
+TKE 有两种方式启用 VPC-CNI：
 - 方式1：创建集群时选择 VPC-CNI 网络插件。如下图所示：
     <img style="width:450px" src="https://main.qcloudimg.com/raw/d3d84cfc2ede5be4c67d698c03b18c6a.png" data-nonescope="true">
-- 方式2：创建集群时选择 Global Router 网络插件，在集群基本信息页面开启 VPC-CNI 模式（两种默认混用）。如下图所示：
+- 方式2：创建集群时选择 Global Router 网络插件，在集群基本信息页面开启 VPC-CNI 模式（两种默认混用）。如下图所示：  
     <img style="width:300px" src="https://main.qcloudimg.com/raw/6057951abddf841f42bbe509f581e7c3.png" data-nonescope="true">
 		
 针对固定 IP 场景，启用 VPC-CNI 后需要设置 IP 回收策略，即设置 Pod 销毁后需要退还 IP 的时长。非固定 IP 的 Pod 销毁后可立即释放 IP，不受此设置的影响。如下图所示：
@@ -72,7 +72,7 @@ TKE 有两种方式启用 VPC-CNI：<span id="VPC-CNI"></span>
 
 ### 固定 Pod IP 
 
-固定 IP 功能仅适用于 StatefulSet 类型的工作负载，可通过以下两种方法开启固定 IP:
+固定 IP 功能仅适用于 StatefulSet 类型的工作负载，可通过以下两种方法开启固定 IP：
 - 方式1：通过控制台创建，可选择开启固定 IP。如下图所示：
     <img style="width:450px" src="https://main.qcloudimg.com/raw/f1183fa3418cea6a07036e9516f15cdf.png" data-nonescope="true">
 - 方式2：通过 yaml 创建，需要为 StatefulSet 添加一个 annotation，即 `tke.cloud.tencent.com/vpc-ip-claim-delete-policy: Never`。可参考以下代码示例：
