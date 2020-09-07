@@ -1,5 +1,5 @@
 
-本实例为您介绍使用第三方平台 Google Home 实现语音智能服务，实现 Google Home 音箱对设备的控制。  
+本文为您介绍使用第三方平台 Google Home 实现语音智能服务，实现 Google Home 音箱对设备的控制。  
 
 ## 限制条件  
 
@@ -32,8 +32,8 @@
 
 ### 步骤2：申请开通 Google Home 服务
 
-1. 登录 [物联网开发平台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)，地区选择中国，创建项目及产品，详情请参考 [产品定义](https://cloud.tencent.com/document/product/1081/34739)。
-![](https://main.qcloudimg.com/raw/77cd0b7323bb691e2cfc1ce567856fb1.jpg)
+1. 登录 [物联网开发平台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)，地区选择美国，创建项目及产品，详情请参考 [产品定义](https://cloud.tencent.com/document/product/1081/34739)。
+![](https://main.qcloudimg.com/raw/beca495cb2aec4218f6aa3e6eab9b723.jpg)
 2. 单击项目进入项目详情界面，单击【语音技能】>【Google Assistant】> 【申请开通】，进入申请界面。 
 ![](https://main.qcloudimg.com/raw/51d9fe29017535932f2df538d1313e28.png)
 3. 选择需要开通的产品，填写申请信息后，还需勾选“我了解并同意《开发者须知与授权》”，单击【提交申请】，我们将安排相关工作人员与您进行对接。
