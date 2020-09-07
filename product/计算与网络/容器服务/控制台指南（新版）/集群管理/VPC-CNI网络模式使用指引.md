@@ -144,7 +144,7 @@ sysctl -w net.ipv4.conf.all.rp_filter=0
 sysctl -w net.ipv4.conf.default.rp_filter=0
 ```
 
-`tke-cni-agent` 组件自动设置节点的内核参数。若用户自己有维护内核参数且打开 rp_filter，会导致网络不通。
+`tke-cni-agent` 组件自动设置节点的内核参数。若您自己有维护内核参数且打开 rp_filter，会导致网络不通。
 
 
 ## 参考资料
