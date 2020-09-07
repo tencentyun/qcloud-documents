@@ -1,5 +1,4 @@
 
-
 本实例为您介绍使用第三方平台 Google Home 实现语音智能服务，实现 Google Home 音箱对设备的控制。  
 
 ### 限制条件  
@@ -41,7 +40,7 @@
 3. 选择需要开通的产品，填写申请信息后，还需勾选“我了解并同意《开发者须知与授权》”，单击【提交申请】，我们将安排相关工作人员与您进行对接。
  - **选择产品**：该项目下创建的产品。
  - **其他需求描述**：最多不超过250个字符。
-![](https://main.qcloudimg.com/raw/5d76b0fbf4bb9b79e3b33c76fdf70bdf.png)
+![](https://main.qcloudimg.com/raw/9573d9c3c13c6be2bb3b7b2792866b57.png)
 4. 申请通过后，您也可以在【选择产品】处新增您该项目下的产品。
 ![](https://main.qcloudimg.com/raw/c0c20a4d40b11ee5fce7e1c2cfe7e69e.png)
 5. 选择需要添加的产品，单击【确定】。
@@ -70,7 +69,7 @@
 
 | 品类       | 功能                               | 语音例句（以实际使用场景为准）                               |
 | ---------- | ---------------------------------- | ------------------------------------------------------------ |
-| 灯         | 开关、颜色调节、亮度调节、色温调节 | Ok Google, turn on bedroom light<br/>Ok Google, turn off bedroom light<br/>Ok Google, brighten bedroom light<br/>Ok Google, set bedroom light to blue|
+| 灯         | 开关、颜色调节、亮度调节、色温调节 | Ok Google，turn on bedroom light<br/>Ok Google，turn off bedroom light<br/>Ok Google，brighten bedroom light<br/>Ok Google，set bedroom light to blue|
 | 开关面板   | 开关                               | turn on the switch<br />turn off the switch                  |
 | 插座       | 开关                               | turn on the socket<br />turn off the socket                  |
 | 窗帘       | 开关                               | turn on the curtain<br />turn off the curtain                |
