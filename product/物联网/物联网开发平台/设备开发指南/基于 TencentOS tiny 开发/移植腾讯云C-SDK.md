@@ -34,7 +34,7 @@
 
 TencentOS-tiny 中已经移植适配好 mbedtls 库，并作为 TencentOS-tiny 的一个组件，在 `components\security\mbedtls` 目录下，将此目录复制到工程目录中，复制过程中保持目录架构不变，并将其余的文件删除。
 ![](https://main.qcloudimg.com/raw/12eb2505fdc85d1209c617146edb9738.png)
-然后将 mbedtls 相关的`.c`文件添加到 Keil-MD K工程中。
+然后将 mbedtls 相关的 `.c` 文件添加到 Keil-MDK 工程中。
 ![](https://main.qcloudimg.com/raw/4be17d834af4057289a36ffa7ae115a2.png)
 最后将 mbedtls 相关的头文件路径都添加到 Keil-MDK 工程中，移植完成。
 ![](https://main.qcloudimg.com/raw/42d322db48174d2b8d45d1ac371b776b.png)
@@ -51,28 +51,28 @@ TencentOS-tiny 官方已经将 IoT_Explorer C-SDK 移植适配完成，在 `comp
 
 接下来将介绍基于之前步骤已移植成功的网络工程，讲述如何移植 C-SDK。
 
-1. 将 TencentOS-tiny 源码中 `qcloud-iot-explorer-sdk` 整个目录复制到工程目录中，保持原有目录架构不变并删除其余的目录：
+1. 将 TencentOS-tiny 源码中 `qcloud-iot-explorer-sdk` 整个目录复制到工程目录中，保持原有目录架构不变并删除其余的目录。
 ![](https://main.qcloudimg.com/raw/20b21e8a5f13cb19b9e2802abc8f8521.png)
-2. 添加腾讯云 C-SDK 移植到 TencentOS-tiny 的适配文件：
+2. 添加腾讯云 C-SDK 移植到 TencentOS-tiny 的适配文件。
 ![](https://main.qcloudimg.com/raw/2875e17c0940fcf4037b7853f80f5632.png)
-3. 添加腾讯云 C-SDK 中的 mqtt 协议相关源码：
+3. 添加腾讯云 C-SDK 中的 mqtt 协议相关源码。
 ![](https://main.qcloudimg.com/raw/19cb720e898de181ad0bc1d04f503b94.png)
-4. 添加腾讯云 C-SDK 中的数据模板相关源码：
+4. 添加腾讯云 C-SDK 中的数据模板相关源码。
 ![](https://main.qcloudimg.com/raw/386aa4c4f45beb0a3e5f81dc71300894.png)
-5. 添加腾讯云 C-SDK 中所使用到的工具源码：
+5. 添加腾讯云 C-SDK 中所使用到的工具源码。
 ![](https://main.qcloudimg.com/raw/0d568acb0ee2ed63a4cf7aba35ccd08e.png)
-6. 添加腾讯云 C-SDK 中所用到网络封装层源码：
+6. 添加腾讯云 C-SDK 中所用到网络封装层源。
 ![](https://main.qcloudimg.com/raw/2500cb4739ca7e543ec5676d0799c13e.png)
-7. 添加所有用到的头文件路径：
+7. 添加所有用到的头文件路径。
 ![](https://main.qcloudimg.com/raw/f32de0894c46b4e71d52d157fc44c3d8.png)
-8. 最后添加宏定义`MBEDTLS_CONFIG_FILE=<qcloud/tls_psk_config.h>`，指定 mebedtls 库的配置文件：
+8. 最后添加宏定义 `MBEDTLS_CONFIG_FILE=<qcloud/tls_psk_config.h>`，指定 mebedtls 库的配置文件。
 ![](https://main.qcloudimg.com/raw/b06347a849ebda241cd4f1360d601aa2.png)
-9. 移植完成，此时编译时未发现错误信息，其中警告可暂时忽略。
+
+移植完成，此时编译时未发现错误信息，其中警告可暂时忽略。
 
 ## 修改端云对接信息
 
-修改 `HAL_Device_tencentos_tiny.c` 文件。在`
-TencentOS-tiny\components\connectivity\qcloud-iot-explorer-sdk\port\TencentOS_tiny`目录中，将下图中的数据分别替换为控制台【设备详情页】中的参数并保存。
+修改 `HAL_Device_tencentos_tiny.c` 文件。在 `TencentOS-tiny\components\connectivity\qcloud-iot-explorer-sdk\port\TencentOS_tiny` 目录中，将下图中的数据分别替换为控制台【设备详情页】中的参数并保存。
 - 产品 ID： 将控制台的产品 ID ，复制到上图 sg_product_id。
 - 设备名称： 将控制台的设备名称，复制到上图 sg_device_name。
 - 设备密钥：将控制台的设备密钥，复制到上图sg_device_secret。
@@ -81,18 +81,18 @@ TencentOS-tiny\components\connectivity\qcloud-iot-explorer-sdk\port\TencentOS_ti
 ## 加入示例代码
 
 1. 由于腾讯云 C-SDK 的测试代码较多，所以将直接使用官方仓库中提供的示例文件。
- 1. 在 `examples\qcloud_iot_explorer_sdk_data_template` 目录下，将此目录复制到工程目录中，保持原有目录架构不变：
+ 1. 在 `examples\qcloud_iot_explorer_sdk_data_template` 目录下，将此目录复制到工程目录中，保持原有目录架构不变。
  ![](https://main.qcloudimg.com/raw/f4c02b60f205a6e2252de9c1569228f2.png)
- 2. 将示例代码加入到 Keil-MDK 工程中：
+ 2. 将示例代码加入到 Keil-MDK 工程中。
  >!请勿将 `data_config.c` 文件加入！
  >
  ![](https://main.qcloudimg.com/raw/ea7b825477b2e68280a2fbcb5aff1f4c.png)
- 3. 修改 `entry.c` 中的配置信息：
+ 3. 修改 `entry.c` 中的配置信息。
  ![](https://main.qcloudimg.com/raw/d1dc0309a19ff454112f64fbc3111da2.png)
 
-2. 示例代码中的任务入口函数为 application_entry，所以需要将 task1 任务的任务入口函数修改为 application_entry，并再次扩大 task1 的任务栈为4096字节，使示例程序正常运行：
+2. 示例代码中的任务入口函数为 application_entry，所以需要将 task1 任务的任务入口函数修改为 application_entry，并再次扩大 task1 的任务栈为4096字节，使示例程序正常运行。
 ![](https://main.qcloudimg.com/raw/eeaad945f1d3dd547e95696bc3be17e1.png)
-3. 然后修改创建任务的代码：
+3. 然后修改创建任务的代码。
 ![](https://main.qcloudimg.com/raw/898b6543db6c65f9b816e6928f9efb06.png)
 4. 最后进行编译，将程序下载到开发板中，复位开发板后开始运行，便可以在串口助手中查看打印信息。
 
@@ -105,17 +105,17 @@ TencentOS-tiny\components\connectivity\qcloud-iot-explorer-sdk\port\TencentOS_ti
 ![](https://main.qcloudimg.com/raw/c08da8cf2b2748d93368059740cbe6fa.png)
 
 ## 下发控制指令
-1. 在串口助手中看到设备查看到在等待平台下发控制指令：
+1. 在串口助手中看到设备查看到在等待平台下发控制指令。
 ![](https://img-blog.csdnimg.cn/2020062911240455.png)
-2. 然后在云端平台进入设备在线调试，下发控制指令：
+2. 然后在云端平台进入设备在线调试，下发控制指令。
 ![](https://main.qcloudimg.com/raw/7298a5f4b0c831f0814a4a59325e4d78.png)
-3. 最后可以在串口助手中查看到设备收到后在串口打印控制指令：
+3. 最后可以在串口助手中查看到设备收到后在串口打印控制指令。
 ![](https://main.qcloudimg.com/raw/2691916612ade54ff47636534e160cd7.png)
 
 ## 设备行为调用
-1. 在云端的数据模板中手动新建一个设备行为功能：
+1. 在云端的数据模板中手动新建一个设备行为功能。
 ![](https://main.qcloudimg.com/raw/19ab99e774389887eac8338f5238e9bc.png)
-2. 在`data_template_sample.c`文件中使能 Action：
+2. 在 `data_template_sample.c` 文件中使能 Action。
 ![](https://main.qcloudimg.com/raw/8f605b70838ae7c12133617977d95c0b.png)
 3. 重新编译下载，按复位运行。
  - 在云端下发设备行为调用：
@@ -125,9 +125,9 @@ TencentOS-tiny\components\connectivity\qcloud-iot-explorer-sdk\port\TencentOS_ti
 
 ## 设备事件调用
 
-1. 修改 `config.h` 文件，将设备行为调用关闭，开启设备事件支持：
+1. 修改 `config.h` 文件，将设备行为调用关闭，开启设备事件支持。
 ![](https://main.qcloudimg.com/raw/602e0f0d6d6049f74b30c9b46dd7aa46.png)
-2. 修改`data_template_sample.c`文件，关闭设备行为调用示例，开启事件上报示例：
+2. 修改 `data_template_sample.c` 文件，关闭设备行为调用示例，开启事件上报示例。
 ![](https://main.qcloudimg.com/raw/9dfd57b19dd6ce96b4e24704905b48a4.png)
 3. 编译程序，下载到开发板中，复位。
  - 在串口助手中可以看到设备上报事件的日志：
@@ -135,5 +135,4 @@ TencentOS-tiny\components\connectivity\qcloud-iot-explorer-sdk\port\TencentOS_ti
  - 在平台端可以看到设备上报事件的日志：
 ![](https://main.qcloudimg.com/raw/86b8032eccfd6a1901f70ad828ec3cdb.png)
 
-  
 
