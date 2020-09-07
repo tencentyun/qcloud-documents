@@ -17,15 +17,15 @@
 
 您可以通过下表，查看支持的品类和功能是否满足您的产品开发。  
 
-| 支持的品类 | 支持的功能（状态获取&指令）        |
-| ---------- | ---------------------------------- |
-| 灯         | 开关、颜色调节、亮度调节、色温调节 |
-| 开关面板   | 开关                               |
-| 插座       | 开关                               |
-| 窗帘       | 开关                               |
-| 香薰机     | 开关                               |
-| 扫地机器人 | 开关                               |
-| 风扇       | 开关                               |
+| 支持的品类 | 支持的功能（状态获取&指令） |
+| ---------- | --------------------------- |
+| 灯         | 开关、颜色调节、亮度调节    |
+| 开关面板   | 开关                        |
+| 插座       | 开关                        |
+| 窗帘       | 开关、百分比调节            |
+| 香薰机     | 开关                        |
+| 扫地机器人 | 开关                        |
+| 风扇       | 开关                        |
 
 
 >?腾讯云物联网平台关于 Google Home 支持的品类或者功能，后续将会支持更多，若您有接入需求，您可以在腾讯云官网通过 [在线客服](https://cloud.tencent.com/act/event/connect-service) ，描述您的产品需求并提交开通申请，我们将安排相关工作人员与您进行对接。
@@ -66,15 +66,15 @@
 
 使用 Google Home 音箱控制产品，支持的功能例句可参考下表。
 
-| 品类       | 功能                               | 语音例句（以实际使用场景为准）                               |
-| ---------- | ---------------------------------- | ------------------------------------------------------------ |
-| 灯         | 开关、颜色调节、亮度调节、色温调节 | Ok Google，turn on bedroom light<br/>Ok Google，turn off bedroom light<br/>Ok Google，brighten bedroom light<br/>Ok Google，set bedroom light to blue|
-| 开关面板   | 开关                               | turn on the switch<br />turn off the switch                  |
-| 插座       | 开关                               | turn on the socket<br />turn off the socket                  |
-| 窗帘       | 开关                               | turn on the curtain<br />turn off the curtain                |
-| 香薰机     | 开关                               | turn on the Aroma<br />turn off the Aroma                    |
-| 扫地机器人 | 开关                               | turn on the worker<br />turn off the worker                  |
-| 风扇       | 开关、风速（调大调小）、模式       | turn on the fan<br />turn off the fan                        |
+| 品类       | 功能                     | 语音例句（以实际使用场景为准）                               |
+| ---------- | ------------------------ | ------------------------------------------------------------ |
+| 灯         | 开关、颜色调节、亮度调节 | Ok Google，turn on bedroom light<br/>Ok Google，turn off bedroom light<br/>Ok Google，set bedroom light to blue<br/>Ok Google，brighten bedroom light |
+| 开关面板   | 开关                     | Ok Google，turn on the switch<br />Ok Google，turn off the switch |
+| 插座       | 开关                     | Ok Google，turn on the socket<br />Ok Google，turn off the socket |
+| 窗帘       | 开关、百分比调节         | Ok Google，turn on the curtain<br />Ok Google，turn off the curtain<br />Ok Google，open/close the curtain 50% |
+| 香薰机     | 开关                     | Ok Google，turn on the Aroma<br />Ok Google，turn off the Aroma |
+| 扫地机器人 | 开关                     | Ok Google，turn on the worker<br />Ok Google，turn off the worker |
+| 风扇       | 开关                     | Ok Google，turn on the fan<br />Ok Google，turn off the fan  |
 
 
 
