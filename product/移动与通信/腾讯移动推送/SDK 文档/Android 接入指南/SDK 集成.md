@@ -53,7 +53,7 @@ dependencies {
 >!
  - TPNS 推送 [VERSION] 为当前 SDK 版本号，版本号可在 [SDK 下载页](https://console.cloud.tencent.com/tpns/sdkdownload) 查看。
  - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
- - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成其他区域域名配置。
+ - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成其他服务接入点域名配置。
    在 Androidanifest 文件 application 标签内添加以下元数据：
 ```
 <application>
@@ -63,7 +63,7 @@ dependencies {
 			android:value="其他区域域名" />
 </application>
 ```
-其他区域域名如下：
+其他服务接入点域名如下：
 - 上海：`tpns.sh.tencent.com`
 - 新加坡：`tpns.sgp.tencent.com`
 - 中国香港：`tpns.hk.tencent.com`
@@ -267,7 +267,7 @@ dependencies {
 
 >!
  - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
- - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成境外服务接入点配置。
+ - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成其他服务接入点域名配置。
    在 Androidanifest 文件 application 标签内添加以下元数据：
 ```
 <application>
@@ -277,7 +277,7 @@ dependencies {
 			android:value="境外域名" />
 </application>
 ```
-境外域名如下：
+其他服务接入点域名如下：
 - 上海：`tpns.sh.tencent.com`
 - 新加坡：`tpns.sgp.tencent.com`
 - 中国香港：`tpns.hk.tencent.com`
