@@ -79,7 +79,7 @@ player.startPlay(url).then(() => {
 ```javascript
 // 1、创建 IM（即时通信）对象并监听事件
 let im = TWebLive.createIM({
-  SDKAppID: 0 // 接入时需要将0替换为您的云通信应用的 SDKAppID
+  SDKAppID: 0 // 接入时需要将0替换为您的即时通信应用的 SDKAppID
 });
 // 监听 IM_READY IM_TEXT_MESSAGE_RECEIVED 等事件
 let onIMReady = function(event) {
@@ -158,7 +158,7 @@ Web 推流和 Web 低延时观看用到了 WebRTC 技术。目前主要在桌面
 
 - 实时音视频应用与 IM 应用的 SDKAppID 一致，才能复用账号与鉴权。
 - IM 应用针对文本消息，提供基础版本的安全打击能力，如果希望使用自定义不雅词功能，可以单击【升级】或在 [购买页](https://buy.cloud.tencent.com/avc?position=1400399435) 购买安全打击 - 专业版服务。
-- 本地计算 UserSig 的方式仅用于本地开发调试，请勿直接发布到线上，一旦 SECRETKEY 泄露，攻击者就可以盗用你的腾讯云流量。正确的 UserSig 签发方式是将 UserSig 的计算代码集成到你的服务端，并提供面向 App 的接口，在需要 UserSig 时由你的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
+- 本地计算 UserSig 的方式仅用于本地开发调试，请勿直接发布到线上，一旦 SECRETKEY 泄露，攻击者就可以盗用您的腾讯云流量。正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 - 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC 桌面浏览器端 SDK 的正常运行。
 
 ## 六、结语
