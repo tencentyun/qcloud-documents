@@ -33,8 +33,8 @@
 ### 步骤2：申请开通 Google Home 服务
 
 1. 登录 [物联网开发平台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)，地区选择中国，创建项目及产品，详情请参考 [产品定义](https://cloud.tencent.com/document/product/1081/34739)。
- ![img](https://main.qcloudimg.com/raw/beca495cb2aec4218f6aa3e6eab9b723.jpg) 
-2. 单击项目进入项目详情界面，单击【语音技能】>【小度】> 【申请开通】，进入申请界面。 
+![](https://main.qcloudimg.com/raw/77cd0b7323bb691e2cfc1ce567856fb1.jpg)
+2. 单击项目进入项目详情界面，单击【语音技能】>【Google Assistant】> 【申请开通】，进入申请界面。 
 ![](https://main.qcloudimg.com/raw/51d9fe29017535932f2df538d1313e28.png)
 3. 选择需要开通的产品，填写申请信息后，还需勾选“我了解并同意《开发者须知与授权》”，单击【提交申请】，我们将安排相关工作人员与您进行对接。
  - **选择产品**：该项目下创建的产品。
@@ -50,9 +50,9 @@
 ## 消费者使用
 
 ### 前提条件
-1. 拥有一台 Google Home 设备，以及 Google Home App 的登录账号
-2. 拥有一台及以上物联网开发平台发布的智能设备，且使用微信小程序“腾讯连连”绑定该设备；
-3. 可以顺畅访问 Google 服务的 Wi-Fi 网络。
+1. 拥有一台 Google Home 设备，以及 Google Home App 的登录账号。
+2. 拥有一台及以上物联网开发平台发布的智能设备，且使用微信小程序“腾讯连连”绑定该设备。
+3. 可以访问 Google 服务的 Wi-Fi 网络。
 
 ### 使用步骤
 
@@ -62,7 +62,7 @@
 2. **将已绑定的设备改为英文名**，例如：my light，修改后的名称避免使用符号。**设备修改路径为**：小程序【首页】>【选择指定产品名称】>【打开设备详情】>【点击设备名称】，修改后单击【保存】即可。 
 ![](https://main.qcloudimg.com/raw/eb124d32c90837a38a4a78f836a1be7a.png)
 3. 拥有一台 Google Home 智能音箱，下载 Google Home App 并绑定该音箱。
-4. 在 Google Home App 主页上单击“+”按钮添加设备，选择【Set up devices】列表下的【Works with Google】。搜索并选择“ tencentlianlian ”，登录腾讯连连的账号进行账号绑定，授权设备的控制权。绑定成功后，您的设备会显示在 Home Control 的 Devices 列表中。 
+4. 在 Google Home App 主页上点击【+】按钮添加设备，选择【Set up devices】列表下的【Works with Google】。搜索并选择“tencentlianlian”，登录腾讯连连的账号进行账号绑定，授权设备的控制权。绑定成功后，您的设备会显示在 Home Control 的 Devices 列表中。 
 
 使用 Google Home 音箱控制产品，支持的功能例句可参考下表。
 
