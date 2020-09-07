@@ -94,8 +94,8 @@ IVR（Interactive Voice Response）是一种基于电话的语音增值业务的
 </tr>
 <tr>
 <td>接通后用户侧播报音</td>
-<td> 人工坐席接听后播报给客户侧的提示音。`${StaffNo}`代表客服工号。</td>
-<td> 客服`${StaffNo}`号为您服务。</td>
+<td> 人工坐席接听后播报给客户侧的提示音。<code>${StaffNo}</code>代表客服工号。</td>
+<td> 客服<code>${StaffNo}</code>号为您服务。</td>
 </tr>
 </table>
 </escape>
