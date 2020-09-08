@@ -11,6 +11,7 @@ Nginx Ingress Controller 基于 Nginx 实现 Kubernetes Ingress API。Nginx 是�
 ### 调高连接队列的大小
 
 进程监听的 socket 的连接队列大小受限于内核参数 `net.core.somaxconn`，在高并发环境下，如果队列过小，可能导致队列溢出，将使连接部分无法建立。增加 Nginx Ingress 连接队列，只需调整 somaxconn 内核参数的值即可。
+
 进程调用 listen 系统来监听端口时，会传入一个 backlog 参数，该参数决定 socket 的连接队列大小，其值不得大于 somaxconn 的取值。Go 程序标准库在 listen 时，默认直接读取 somaxconn 作为队列大小，但 Nginx 监听 socket 时并不会读取 somaxconn，而是读取 `nginx.conf` 。在 `nginx.conf` 中的 listen 端口配置项中，还可以通过 backlog 参数配置连接队列大小，其决定 Nginx listen 端口的连接队列大小。配置示例如下：
 ```
 server {
@@ -35,7 +36,7 @@ sysctl -w net.core.somaxconn=65535
 ### 扩大源端口范围
 
 高并发环境将导致 Nginx Ingress 使用大量源端口与 upstream 建立连接，源端口范围从 `net.ipv4.ip_local_port_range` 内核参数中定义的区间随机选取。在高并发环境下，端口范围小容易导致源端口耗尽，使得部分连接异常。
-TKE 环境创建的 Pod 源端口范围默认为32768 - 60999，建议执行以下命令扩大源端口范围，调整为1024 - 65535: 
+TKE 环境创建的 Pod 源端口范围默认为32768 - 60999，建议执行以下命令扩大源端口范围，调整为1024 - 65535：
 ```
 sysctl -w net.ipv4.ip_local_port_range="1024 65535
 ```
@@ -89,11 +90,11 @@ Nginx 针对 client 和 upstream 的 keepalive 连接，均有 keepalive_request
 
 同样，Nginx 与 upstream 的 keepalive 连接的请求数量的配置是 `upstream-keepalive-requests`，详情请参见 [upstream-keepalive-requests](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#upstream-keepalive-requests)。 
 
->!在非高并发环境，可不必配此参数。如果将其调高，可能导致负载不均，因 Nginx 与 upstream 保持的 keepalive 连接过久，导致连接发生调度的次数减少，连接过于"固化"，将使流量负载不均衡。
+>! 在非高并发环境，不必配此参数。如果将其调高，可能导致负载不均，因 Nginx 与 upstream 保持的 keepalive 连接过久，导致连接发生调度的次数减少，连接过于"固化"，将使流量负载不均衡。
 
 ### 调高 keepalive 最大空闲连接数
 
-Nginx 针对 upstream，有个 keepalive 参数配置，keepalive 为最大空闲连接数。
+Nginx 针对 upstream 有 keepalive 参数可配置，keepalive 为最大空闲连接数。
 
 keepalive 默认值为32，在高并发环境下将产生大量请求和连接，而实际生产环境中请求并不是完全均匀，有些建立的连接可能会短暂空闲，在空闲连接数多了之后关闭空闲连接，将可能导致 Nginx 与 upstream 频繁断连和建连，引发 TIME_WAIT 飙升。在高并发环境下，建议将 keepalive 值配置为1000，详情请参见 [upstream-keepalive-connections](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#upstream-keepalive-connections)。
 
