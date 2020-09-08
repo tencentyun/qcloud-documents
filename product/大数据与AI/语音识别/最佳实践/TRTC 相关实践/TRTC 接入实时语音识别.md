@@ -3,8 +3,8 @@
 
 ## iOS 接入流程
 1. 首先需要 [接入 TRTC](https://cloud.tencent.com/document/product/647/32221)，跑通流程。
-2. 根据实时语音识别 [音频流格式要求](https://cloud.tencent.com/document/product/1093/35799)，参考 [TRTC 技术文档]() 设置音频流格式。
-3. 在 [TRTC 接口协议]() 里设置音频源代理，并设置 ASR 读取音频源。
+2. 根据实时语音识别 [音频流格式要求](https://cloud.tencent.com/document/product/1093/35799)，参考 [TRTC 技术文档](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html) 设置音频流格式。
+3. 在 [TRTC 接口协议](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html) 里设置音频源代理，并设置 ASR 读取音频源。
 
 ```objective-c
 //1.TRTCAudioFrameDelegate 协议是 TRTC 获取音频源的协议，由于 ASR 识别16k或8k采样率的音频数据，所以需要设置 setAudioQuality 为 TRTCCloudDef#TRTC_AUDIO_QUALITY_SPEECH (流畅:采样率:16k;单声道;音频裸码率:16kbps)
@@ -74,7 +74,7 @@ QCloudRealTimeRecognizer realTimeRecognizer = [[QCloudRealTimeRecognizer alloc] 
 ## Android 接入流程
 
 1. 首先需要 [接入 TRTC](https://cloud.tencent.com/document/product/647/32221)，跑通流程。
-2. 根据实时语音识别 [音频流格式要求](https://cloud.tencent.com/document/product/1093/35799)，参考 [TRTC 技术文档]() 设置音频流格式。
+2. 根据实时语音识别 [音频流格式要求](https://cloud.tencent.com/document/product/1093/35799)，参考 [TRTC 技术文档](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html) 设置音频流格式。
 3. 在 [TRTC 接口协议](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html) 里设置音频源代理，并设置 ASR 读取音频源。
 4. ASR 音频源设置为第三方，并实现具体逻辑。
 
