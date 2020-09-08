@@ -1,4 +1,3 @@
-
 ## 引用方式
 ####  集成 SDK 方式
 若不需要将 IoT-SDK 运行在 service 组件中，则只需要依赖 [iot_core](https://github.com/tencentyun/iot-device-java/tree/master/hub-device-android/iot_core)。
@@ -41,17 +40,14 @@
 SDK 提供证书认证与密钥认证两种认证方式。
 - 密钥认证须在 [app-config.json](https://github.com/tencentyun/iot-device-java/blob/master/hub-device-android/app-config.json) 配置信息中填入 PRODUCT_ID、DEVICE_NAME、DEVICE_PSK 所对应的参数。SDK会根据设备配置信息自动生成签名，作为接入物联网通信的凭证。
 - 证书认证须在 [app-config.json](https://github.com/tencentyun/iot-device-java/blob/master/hub-device-android/app-config.json) 配置信息中填入 PRODUCT_ID、DEVICE_NAME 等内容并读取设备证书、设备私钥文件的内容。读取方式分为两种：
-  一.通过 AssetManager 进行读取，此时需在工程 hub-device-android/hub-demo/src/main 路径下创建 assets 目录并将设备证书、私钥放置在该目录中；
-  二.通过 InputStream 进行读取，此时需传入设备证书、私钥的全路径信息。
-  成功读取证书文件与私钥文件之后，需在[IoTMqttFragment.java](https://github.com/tencentyun/iot-device-java/blob/master/hub-device-android/hub-demo/src/main/java/com/tencent/iot/hub/device/android/app/IoTMqttFragment.java) 中设置mDevCertName证书名称与mDevKeyName私钥名称。
-
+ 1. 通过 AssetManager 进行读取，此时需在工程 `hub-device-android/hub-demo/src/main` 路径下创建 assets 目录并将设备证书、私钥放置在该目录中。
+ 2. 通过 InputStream 进行读取，此时需传入设备证书、私钥的全路径信息。
+  a. 成功读取证书文件与私钥文件之后，需在 [IoTMqttFragment.java](https://github.com/tencentyun/iot-device-java/blob/master/hub-device-android/hub-demo/src/main/java/com/tencent/iot/hub/device/android/app/IoTMqttFragment.java) 中设置 mDevCertName 证书名称与 mDevKeyName 私钥名称。
 ```
     private String mDevCertName = "YOUR_DEVICE_NAME_cert.crt";
     private String mDevKeyName  = "YOUR_DEVICE_NAME_private.key";
 ```
-
-配置完成之后在工程中调用SDK中MQTT连接的相关接口即可完成设备的接入。
-
+b. 配置完成之后在工程中调用 SDK 中 MQTT 连接的相关接口，即可完成设备的接入。
    ``` java
     mMqttConnection = new TXGatewayConnection(mContext, mBrokerURL, mProductID, mDevName, mDevPSK,null,null ,mMqttLogFlag, mMqttLogCallBack, mMqttActionCallBack);
     mMqttConnection.connect(options, mqttRequest);
