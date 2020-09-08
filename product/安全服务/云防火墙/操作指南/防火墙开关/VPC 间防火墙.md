@@ -4,7 +4,8 @@
 1. 登录 [云防火墙控制台](https://console.cloud.tencent.com/cfw/switch/vpc)，在左侧导航栏中，选择【防火墙开关】>【VPC 间开关】，进入 VPC 间开关页面。
 2. 在  VPC 间开关页面，单击【防火墙开关】，进入防火墙开关页面，系统会自动探测您的 VPC 信息与互通关系，并在每一对互通的 VPC 间，建立云防火墙开关。
 3. 在防火墙开关页面，找到需要防护的 VPC 间对应的开关，在“防火墙开关”列，单击开关按钮，便可以防护这一对 VPC 间的流量。
-![](https://main.qcloudimg.com/raw/7089ca8cb06526f872d0b92bcb266909.png)
+&nbsp;
+![](https://main.qcloudimg.com/raw/24ff842f51eab996c8dad0916ee8116c.png)
 >?
 >- 当前版本支持的 VPC 互通服务的类型为：对等连接 PC、云联网 CCN，<strong>仅支持中国大陆地区的VPC</strong>。暂不支持跨地域 VPC 互联的情况
 >- 在开关列表中显示的本端 VPC 与对端 VPC 是等价的，不区分方向。</li>
