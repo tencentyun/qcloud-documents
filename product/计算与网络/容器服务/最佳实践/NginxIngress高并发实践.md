@@ -135,7 +135,7 @@ data:
 
 ## 相关文档
 
-- [Nginx Ingress on TKE 部署最佳实践](https://mp.weixin.qq.com/s/NAwz4dlsPuJnqfWYBHkfGg)
+- [在 TKE 上部署 Nginx Ingress](https://cloud.tencent.com/document/product/457/47293)
 - [Nginx Ingress 配置参考](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/)
 - [Tuning NGINX for Performance](https://www.nginx.com/blog/tuning-nginx/)
 - [ngx_http_upstream_module 官方文档](http://nginx.org/en/docs/http/ngx_http_upstream_module.html)
