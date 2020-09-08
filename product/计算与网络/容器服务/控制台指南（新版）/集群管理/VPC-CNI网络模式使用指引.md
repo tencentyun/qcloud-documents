@@ -31,8 +31,7 @@ TKE 有两种方式启用 VPC-CNI：
 ![](https://main.qcloudimg.com/raw/7b21ae12a661e8acced44073689c581a.png)
 
 针对固定 IP 场景，启用 VPC-CNI 后需要设置 IP 回收策略，即设置 Pod 销毁后需要退还 IP 的时长。非固定 IP 的 Pod 销毁后可立即释放 IP，不受此设置的影响。如下图所示：
-![](https://main.qcloudimg.com/raw/6db435ed2756ca6ba8a1262720ad0165.png)
-
+<img style="width:350px" src="https://main.qcloudimg.com/raw/6db435ed2756ca6ba8a1262720ad0165.png" data-nonescope="true">
 
 
 
