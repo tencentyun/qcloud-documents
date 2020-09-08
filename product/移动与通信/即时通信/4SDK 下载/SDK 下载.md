@@ -91,13 +91,13 @@
 </table>
 
 <script>
-  var _mtac = {"senseHash":0,"autoReport":0};
+  var _mtac = {};
   	(function() {
   		var mta = document.createElement("script");
   		mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
   		mta.setAttribute("name", "MTAH5");
-  		mta.setAttribute("sid", "500695621");
-  		mta.setAttribute("cid", "500695622");
+  		mta.setAttribute("sid", "500729087");
+  		mta.setAttribute("cid", "500729088");
   		var s = document.getElementsByTagName("script")[0];
   		s.parentNode.insertBefore(mta, s);
   	})();
