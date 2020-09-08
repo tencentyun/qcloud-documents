@@ -1,9 +1,7 @@
 ## 概述
 
-Nginx Ingress Controller 基于 Nginx 实现 Kubernetes Ingress API，Nginx 是一款高性能网关，在实际生产环境运行时，需要对其进行参数调优，以保证充分发挥出高性能的优势。
-在 [Nginx Ingress on TKE 部署最佳实践](https://mp.weixin.qq.com/s/NAwz4dlsPuJnqfWYBHkfGg) 文档中介绍了 Nginx Ingress 在 TKE 上部署的最佳实践，涉及的部署 YAML 已经包含 Nginx 部分性能方面的参数优化。
-本文将继续展开介绍 Nginx Ingress 性能调优的方法及其原理的解释，包括内核参数与 Nginx 本身的配置调优，让 Nginx Ingress 更好的适配高并发业务场景。
-
+Nginx Ingress Controller 基于 Nginx 实现 Kubernetes Ingress API。Nginx 是一款高性能网关，在实际生产环境运行时，需要对参数进行调优，以保证其充分发挥出高性能的优势。[在 TKE 上部署 Nginx Ingress](https://cloud.tencent.com/document/product/457/47293) 中的部署 YAML 已经包含 Nginx 部分性能方面的参数优化。
+本文将展开介绍针对 Nginx Ingress 全局配置与内核参数调优的方法并介绍其原理，让 Nginx Ingress 更好的适配高并发业务场景。
 
 ## 内核参数调优
 
@@ -12,10 +10,8 @@ Nginx Ingress Controller 基于 Nginx 实现 Kubernetes Ingress API，Nginx 是�
 
 ### 调高连接队列的大小
 
-进程监听的 socket 的连接队列最大大小受限于内核参数 `net.core.somaxconn`，在高并发环境下，如果队列过小，可能导致队列溢出，将使连接部分无法建立。增加 Nginx Ingress 连接队列，只需调整 somaxconn 内核参数的值即可。
-
-进程调用 listen 系统来监听端口时，会传入一个 backlog 参数，该参数决定 socket 的连接队列大
-小，其值不得大于 somaxconn 的取值。Go 程序标准库在 listen 时，默认直接读取 somaxconn 作为队列大小，但 Nginx 监听 socket 时并不会读取 somaxconn，而是读取 `nginx.conf` 。在 `nginx.conf` 中的 listen 端口配置项中，还可以通过 backlog 参数配置连接队列大小，其决定 Nginx listen 端口的连接队列大小。配置示例如下：
+进程监听的 socket 的连接队列大小受限于内核参数 `net.core.somaxconn`，在高并发环境下，如果队列过小，可能导致队列溢出，将使连接部分无法建立。增加 Nginx Ingress 连接队列，只需调整 somaxconn 内核参数的值即可。
+进程调用 listen 系统来监听端口时，会传入一个 backlog 参数，该参数决定 socket 的连接队列大小，其值不得大于 somaxconn 的取值。Go 程序标准库在 listen 时，默认直接读取 somaxconn 作为队列大小，但 Nginx 监听 socket 时并不会读取 somaxconn，而是读取 `nginx.conf` 。在 `nginx.conf` 中的 listen 端口配置项中，还可以通过 backlog 参数配置连接队列大小，其决定 Nginx listen 端口的连接队列大小。配置示例如下：
 ```
 server {
     listen  80  backlog=1024;
@@ -38,10 +34,7 @@ sysctl -w net.core.somaxconn=65535
 
 ### 扩大源端口范围
 
-高并发环境将导致 Nginx Ingress 使用大量源端口与 upstream 建立连接，源端口范围从 `net.ipv4.ip_local_port_range` 内核参数中定义的区间随机选取。
-
-在高并发环境下，端口范围小容易导致源端口耗尽，使得部分连接异常。
-
+高并发环境将导致 Nginx Ingress 使用大量源端口与 upstream 建立连接，源端口范围从 `net.ipv4.ip_local_port_range` 内核参数中定义的区间随机选取。在高并发环境下，端口范围小容易导致源端口耗尽，使得部分连接异常。
 TKE 环境创建的 Pod 源端口范围默认为32768 - 60999，建议执行以下命令扩大源端口范围，调整为1024 - 65535: 
 ```
 sysctl -w net.ipv4.ip_local_port_range="1024 65535
@@ -66,8 +59,7 @@ sysctl -w fs.file-max=1048576
 ```
 
 ### 配置示例
-
-以下为 Nginx Ingress Controller 的 Pod 通过添加 initContainers 进行内核参数配置示例：
+给 Nginx Ingress Controller 的 Pod 添加 initContainers 并设置内核参数。可参考以下代码示例：
 
 ```
 initContainers:
@@ -91,9 +83,9 @@ initContainers:
 
 ### 调高 keepalive 连接最大请求数
 
-Nginx 针对 client 和 upstream 的 keepalive 连接，均有 keepalive_requests 参数来控制单个 keepalive 连接的最大请求数，默认值均为100。当一个 keepalive 连接中请求次数超过这个值时，将断开并重新建立连接。
+Nginx 针对 client 和 upstream 的 keepalive 连接，均有 keepalive_requests 参数来控制单个 keepalive 连接的最大请求数，默认值均为100。当一个 keepalive 连接中请求次数超过默认值时，将断开并重新建立连接。
 
-如果是内网 Ingress，单个 client 的 QPS 可能较大，例如达到10000QPS，Nginx 将可能频繁断开跟 client 建立的 keepalive 连接，并产生大量 TIME_WAIT 状态连接。我们应尽量避免产生大量的 TIME_WAIT 连接，为此建议在高并发环境中，应增大 Nginx 与 client 的 keepalive 连接的最大请求数量，在 Nginx Ingress 的配置对应 `keep-alive-requests`，可以设置为10000，详情请参见 [keep-alive-requests](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#keep-alive-requests)。 
+如果是内网 Ingress，单个 client 的 QPS 可能较大，例如达到10000QPS，Nginx 将可能频繁断开跟 client 建立的 keepalive 连接，并产生大量 TIME_WAIT 状态连接。为避免产生大量的 TIME_WAIT 连接，建议您在高并发环境中增大 Nginx 与 client 的 keepalive 连接的最大请求数量，在 Nginx Ingress 的配置对应 `keep-alive-requests`，可以设置为10000，详情请参见 [keep-alive-requests](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#keep-alive-requests)。 
 
 同样，Nginx 与 upstream 的 keepalive 连接的请求数量的配置是 `upstream-keepalive-requests`，详情请参见 [upstream-keepalive-requests](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#upstream-keepalive-requests)。 
 
@@ -111,8 +103,7 @@ keepalive 默认值为32，在高并发环境下将产生大量请求和连接�
 
 ### 配置示例
 
-Nginx 全局配置通过 configmap 配置（Nginx Ingress Controller 会读取并自动加载该配置）：
-
+Nginx 全局配置通过 configmap 配置（Nginx Ingress Controller 会读取并自动加载该配置）。可参考以下代码示例：
 ```
 apiVersion: v1
 kind: ConfigMap
