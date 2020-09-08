@@ -26,7 +26,7 @@
 QDAudioDataSource *dataSource = [[QDAudioDataSource alloc] init];
 
 //2.创建 QCloudRealTimeRecognizer 识别实例
-QCloudRealTimeRecognizer realTimeRecognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config dataSource:dataSource];
+QCloudRealTimeRecognizer *realTimeRecognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config dataSource:dataSource];
 ```
 
 5. **接入 ASR 的 QCloudAudioDataSource 协议如下，[协议详情](https://cloud.tencent.com/document/product/1093/35723#QCloudAudioDataSource)。代码可参考工程中 QDAudioDataSource.m 文件**。
