@@ -9,8 +9,7 @@
 ![](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblivedemo/doc-assets/demo-official-website.gif)
 
 TWebLive 架构设计如下图所示：
-
-![](https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4607108cdced4b3094cb79513c04a3e0~tplv-k3u1fbpfcp-zoom-1.image)
+![](https://main.qcloudimg.com/raw/503229b90d3714e5340e7c860ee50a8d.png)
 
 ## 二、TWebLive 的优势
 
