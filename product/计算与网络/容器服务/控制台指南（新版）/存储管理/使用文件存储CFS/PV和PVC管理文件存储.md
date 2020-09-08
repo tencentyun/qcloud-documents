@@ -16,7 +16,7 @@
 
 
 ### 通过控制台创建 StorageClass<span id="createStorageClass"></span>
-由于静态创建文件存储类型的 PV 时，需要绑定同类型可用 StorageClass，请参考 [通过控制台创建 StorageClass](https://cloud.tencent.com/document/product/457/44235#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.88.9B.E5.BB.BA-storageclass) 完成创建。
+由于静态创建文件存储类型的 PV 时，需要绑定同类型可用 StorageClass，请参考 [通过控制台创建 StorageClass](https://cloud.tencent.com/document/product/457/44235#.E6.8E.A7.E5.88.B6.E5.8F.B0.E6.93.8D.E4.BD.9C.E6.8C.87.E5.BC.95) 完成创建。
 
 ### 创建文件存储<span id="createCFS"></span>
 1. 登录[ 文件存储控制台](https://console.cloud.tencent.com/cfs/fs?rid=1)，进入“文件系统”页面。
@@ -28,7 +28,7 @@
 	- **存储类型**：提供【标准存储】和【性能存储】两种类型，不同可用区支持类型有一定差异，详情请参见[ 可用地域](https://cloud.tencent.com/document/product/582/43623)。
 	- **文件服务协议**：选择文件系统的协议类型，【NFS】或【CIFS/SMB】。
 		- NFS 协议：更适合于 Linux/Unix 客户端。
-		- CIFS/SMB 协议：更适合于 Windows 客户端。该协议近期公测已结束，详情请参见 [CIFS/SMB 公测说明](https://cloud.tencent.com/document/product/582/9553#cifs.2Fsmb-.E5.85.AC.E6.B5.8B.E8.AF.B4.E6.98.8E)。
+		- CIFS/SMB 协议：更适合于 Windows 客户端。该协议已于 2020 年 9 月 1日正式商用，详情请参见 [CIFS/SMB 商用说明](https://cloud.tencent.com/document/product/582/9553#cifs.2Fsmb-.E5.95.86.E7.94.A8.E8.AF.B4.E6.98.8E)。
 	- **客户端类型**：选择需要访问文件系统的客户端类型，云服务器（含容器、批量计算）或黑石服务器。 由于云服务器和黑石主机分别属于不同的网络，系统会根据您的客户端类型分配该文件系统到指定网络中。
 	- **网络类型**：选择【私有网络】，以实现私有网络下云服务器对文件系统的共享。
 	- **选择网络**：需确保与使用该文件系统的集群处于同一私有网络下。

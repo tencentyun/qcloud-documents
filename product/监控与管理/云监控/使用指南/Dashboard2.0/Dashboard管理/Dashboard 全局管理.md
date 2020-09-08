@@ -1,63 +1,57 @@
+> ?
+> - 新版 Dashboard 已上线，我们衷心欢迎您试用并告诉我们需要改进之处。[单击链接](https://cloud.tencent.com/apply/p/omia0k6sli) 可申请体验！
+> - 欢迎添加云监控小M微信号（hitherecm），备注 Dashboard，我们将拉您进入专属交流群，竭诚为您服务！
+
+
+
 本文将为您介绍如何使用 Dashboard全局配置。
 
 ## Dashboard 全局配置
 1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor)。
 2. 在左侧导航栏中点击【Dashboard列表】，进入Dashboard列表页。
-3. 单击 Dashboard 列表左上角的【新建】按钮，进入新建 Dashboard 管理页。
-4. 在面板区单击【![](https://main.qcloudimg.com/raw/8e26fe2eacdd794457a53a745bd48f3c.png)】或单击Dashboard列表页的【设置】按钮，进入 Dashboard 全局配置页。 Dashboard 全局配置支持基础设置、模板变量、链接管理、JSON，详细说明如下。
+3. 单击 Dashboard 列表左上角的【新建】，进入新建 Dashboard 管理页。
+4. 在面板区单击【![](https://main.qcloudimg.com/raw/8e26fe2eacdd794457a53a745bd48f3c.png)】或单击Dashboard 列表页的【设置】，进入 Dashboard 全局配置页。 Dashboard 全局配置支持基础设置、模板变量、链接管理、JSON，详细说明如下：
+	- **基础设置**：支持自定义 Dashboard 名称和备注。
+	- **模板变量**：支持自定义 Dashboard 数据筛选标签。
+	- **链接管理**：支持自定义 Dashboard 快速跳转链接。您可以把业务相关的链接或面板关联到 Dashboard 中，方便您异障排查时进行快速跳转。
+	- **JSON**：支持 JSON 格式查看、复制，您可以把 JSON 格式部署到您的自建系统，在您的系统查看 Dashboard。
 
-- 基础设置：支持自定义 Dashboard 名称和备注。
-- 模板变量：支持自定义 Dashboard 数据筛选标签。
-- 链接管理：支持自定义 Dashboard 快速跳转链接。您可以把业务相关的链接或面板关联到 Dashboard 中，方便您异障排查时进行快速跳转。
-- JSON：支持 JSON 格式查看、复制，您可以把 JSON 格式部署到您的自建系统，在您的系统查看 Dashboard 。
-
-#### 基础设置
+### 基础设置
 
 您可以对定义 Dashboard 名称和设置 Dashboard 备注。
 ![](https://main.qcloudimg.com/raw/e94ab9cafbf3bae9c5bc959511e772da.png)
 
- #### 模板变量
- 您可以自定义 Dashboard 筛选条件，在 Dashboard 管理页 [使用模板变量](#.E6.9F.A5.E7.9C.8B.E6.A8.A1.E6.9D.BF.E5.8F.98.E9.87.8F) 。目前支持云服务器—基础监控、存储监控和云数据库MySQL主机、备机监控标签筛选。
+### 模板变量
+您可以自定义 Dashboard 筛选条件，在 Dashboard 管理页 [使用模板变量](#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E5.8F.98.E9.87.8F) 。目前支持云服务器—基础监控、存储监控和云数据库MySQL主机、备机监控标签筛选。
 
-1. 新建模板变量
+1. 新建模板变量。
 	单击【模板管理页】>【新增】，定义完模板变量信息后单击【确认】即可。
 	![](https://main.qcloudimg.com/raw/84f4a6d0feb1aa68ce7fe184e02cb5c3.png)		 
-	
 2. 编辑、删除模板变量。
-    在模板变量列表中您可以进行模板变量的删除和编辑。
-	
-	​	![](https://main.qcloudimg.com/raw/2ce8f088a373b4fa63da4ec7e0627b8f.png)
-	
-	>?如需使用模板变量，请参考步骤 [使用模板变量](#.E6.9F.A5.E7.9C.8B.E6.A8.A1.E6.9D.BF.E5.8F.98.E9.87.8F)。
+在模板变量列表中您可以进行模板变量的删除和编辑。
+![](https://main.qcloudimg.com/raw/2ce8f088a373b4fa63da4ec7e0627b8f.png)
+>?如需使用模板变量，请参考步骤 [使用模板变量](#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E5.8F.98.E9.87.8F)。
 
 
-#### 链接管理
-您可以自定义 Dashboard 快速跳转链接。链接管理包含链接名、类型、链接目标和参数，说明如下。
-- 链接名：自定义链接名称。
+### 链接管理
+您可以自定义 Dashboard 快速跳转链接。链接管理包含链接名、类型、链接目标和参数，说明如下：
+- 链接名：自定义链接名称
+- 类型
+  - 自定义链接：支持所有链接
+  - 其它面板：链接到其它面板
+- 链接目标：链接地址或链接面板
+- 参数
+ -  时间：跳转链接页是否同步面板时间
+ - 模板变量：跳转链接页是否包含模板变量
+- 打开方式
+  - 新选项卡：新标签打开链接
+- 当前页：当前标签打开链接
+  
 
-- 类型。
+![](https://main.qcloudimg.com/raw/5f5d1cb38d63216df376e183a2836d93.png)
 
-  - 自定义链接：支持所有链接。
-  - 其它面板：链接到其它面板。
-
-- 链接目标：链接地址或链接面板。
-  
-- 参数。
-  
-  -  时间：跳转链接页是否同步面板时间。
-- 模板变量：跳转链接页是否包含模板变量。
-  
-- 打开方式。
-  
-  - 新选项卡：新标签打开链接。
-- 当前页：当前标签打开链接。
-  
-  
-  
-  ![](https://main.qcloudimg.com/raw/5f5d1cb38d63216df376e183a2836d93.png)
-
-#### JSON
-JSON包含 Dashboard 的属性、模板变量、面板查询等字段，您可以把 JSON 格式部署到您的自建系统，在您的系统可查看对应的 Dashboard 。
+### JSON
+JSON包含 Dashboard 的属性、模板变量、面板查询等字段，您可以把 JSON 格式部署到您的自建系统，在您的系统可查看对应的 Dashboard。
 
 ``` 
 {
@@ -76,18 +70,18 @@ JSON包含 Dashboard 的属性、模板变量、面板查询等字段，您可�
 }
 ```
 
-**JSON字段说明：**
+**JSON 字段说明：**
 
 | 名称        | 说明                                              |
 | ----------- | ------------------------------------------------- |
-| Description | 当前Dashboard 备注                                |
+| Description | 当前 Dashboard 备注                                |
 | Refresh     | 自动刷新的时间间隔                                |
 | Title       | 当前 Dashboard 名称                               |
-| UUID        | Dashboard 唯一标识ID                              |
+| UUID        | Dashboard 唯一标识 ID                              |
 | Version     | Dashboard 的版本，每次保存 Dashboard 都会增加     |
-| Templating  | Dashboard模板变量 ，详情请参考 [模板变量](#step1) |
+| Templating  | Dashboard 模板变量 ，详情请参考 [模板变量](#step1) |
 | Link        | Dashboard 链接，详情请参考 [链接](#step2)         |
-| Panels      | 图表配置 ，请参考 [Panels]                        |
+| Panels      | 图表配置 ，请参考 [Panels](#step3)                        |
 | Time        | Dashboard 的时间范围                              |
 
 **<span id="step1">Templating</sapan>**
@@ -106,7 +100,7 @@ JSON包含 Dashboard 的属性、模板变量、面板查询等字段，您可�
 	]
 ```
 
-**<span id="step2">  Link   </span>**
+**<span id="step2">Link</span>**
 
 ```
 "Links": [ // Dashboard链接
@@ -122,7 +116,7 @@ JSON包含 Dashboard 的属性、模板变量、面板查询等字段，您可�
 	]
 ```
 
-**<span id="step2">  Panels </span>**
+**<span id="step3">Panels</span>**
 
 ```
 "Panels": [ // panel配置
@@ -315,19 +309,17 @@ JSON包含 Dashboard 的属性、模板变量、面板查询等字段，您可�
 			"Type": "graph" // 图表类型
 		},
 	]
-
 ```
 
 
-
- ## 使用模板变量
+## 使用模板变量
 
 1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor)。
-2. 在左侧导航栏中点击【Dashboard 列表】，进入 Dashboard 列表页。
+2. 在左侧导航栏中单击【Dashboard 列表】，进入 Dashboard 列表页。
 3. 找到您需要查看模板变量的 Dashboard，单击对应的面板名称。
 4. 创建模板变量后支持在 作为 Dashboard 和监控图表的快速选择器。
-    - 在Dashboard使用：在 Dashboard 管理页中即可使用模板变量对 Dashboard 展示数据进行筛选。
+    - 在 Dashboard 使用：在 Dashboard 管理页中即可使用模板变量对 Dashboard 展示数据进行筛选。
        ![](https://main.qcloudimg.com/raw/ba7fb73ba166c1479e38c2ed84c385f1.png)
     - 在监控图表中使用：在图表编辑页，快速选择标签进行分组聚合展示实例数据。
        ![](https://main.qcloudimg.com/raw/9899cd8bf31fc6c8ad164aec1b76219a.png)
-    > ?如需编辑图表，请参考 [新建指标—编辑指标]( https://cloud.tencent.com/document/product/248/46761 ) 。
+    > ?如需编辑图表，请参考 [编辑指标]( https://cloud.tencent.com/document/product/248/46761#.E7.BC.96.E8.BE.91.E6.8C.87.E6.A0.87 ) 。

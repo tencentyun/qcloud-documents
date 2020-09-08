@@ -3,6 +3,7 @@
 - SDK 源码地址请参考： [XML iOS SDK](https://github.com/tencentyun/qcloud-sdk-ios.git)。
 - 示例 Demo 可参考：[XML iOS  SDK Demo](https://github.com/tencentyun/qcloud-sdk-ios-samples.git)。
 - SDK 接口与参数文档请参见 [SDK API 参考](https://cos-ios-sdk-doc-1253960454.file.myqcloud.com)。
+- SDK 文档中的所有示例代码请参见 [SDK 代码示例](https://github.com/tencentyun/cos-snippets/tree/master/iOS)。
 - SDK 更新日志请参考：[ ChangeLog](https://github.com/tencentyun/qcloud-sdk-ios/blob/master/CHANGELOG.md)。
 
 ## 准备工作
@@ -406,6 +407,10 @@ put.body =  url;
 [[QCloudCOSTransferMangerService defaultCOSTransferManager] UploadObject:put];
 ```
 
+>?
+>- 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Objc/Examples/cases/TransferUploadObject.m) 查看。
+>- 上传之后，您可以用同样的 Key 生成文件下载链接，具体使用方法见 **生成预签名链接** 文档。但注意如果您的文件是私有读权限，那么下载链接只有一定的有效期。
+
 **Swift**
 
 ```swift
@@ -445,6 +450,10 @@ put.initMultipleUploadFinishBlock = {(multipleUploadInitResult, resumeData) in
 QCloudCOSTransferMangerService.defaultCOSTransferManager().uploadObject(put);
 ```
 
+>?
+>- 更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/TransferUploadObject.swift) 查看。
+>- 上传之后，您可以用同样的 Key 生成文件下载链接，具体使用方法见 **生成预签名链接** 文档。但注意如果您的文件是私有读权限，那么下载链接只有一定的有效期。
+
 ### 下载对象
 
 **Objective-C**
@@ -478,6 +487,8 @@ request.downloadingURL = [NSURL fileURLWithPath:@"Local File Path"];
 [[QCloudCOSTransferMangerService defaultCOSTransferManager] DownloadObject:request];
 ```
 
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Objc/Examples/cases/TransferDownloadObject.m) 查看。
+
 **Swift**
 
 ```swift
@@ -510,4 +521,6 @@ request.finishBlock = { (copyResult, error) in
 
 QCloudCOSTransferMangerService.defaultCOSTransferManager().downloadObject(request);
 ```
+
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/TransferDownloadObject.swift) 查看。
 

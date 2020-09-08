@@ -41,7 +41,7 @@ SDK 中包含了三个文件和一个文件夹，分别是 **libQBarCode.a**、*
 
    **CoreVideo.framework**
 
-   **CoreMedio.framework**
+   **CoreMedia.framework**
 
    **Foundation.framework**
 
@@ -107,7 +107,7 @@ static const NSString *CONTENT = @"content"; // 识别结果信息对应的 Key
   QBarCodeKit *qBarCodeKit;
 }
    
-[sdk initQBarCodeKit:SECRET_ID secretKey:SECRET_KEY resultHandle:^(NSDictionary * _Nonnull resultDic) {
+[sdk initQBarCodeKit:SECRET_ID secretKey:SECRET_KEY teamId:teamId resultHandle:^(NSDictionary * _Nonnull resultDic) {
   NSString *errCode = resultDic[ERRCODE]; // errorCode 为0 授权验证通过
   NSString *errMsg= resultDic[ERRMSG];	// 获取初始化失败信息
 }];

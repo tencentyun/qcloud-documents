@@ -99,12 +99,12 @@ cp hadoop-cos-2.7.3-shaded.jar /opt/cloudera/parcels/CDH-5.16.1-1.cdh5.16.1.p0.3
 下面以 Hadoop 标准测试中的 TeraGen 和 TeraSort 为例：
 
 ```
-hadoop jar./hadoop-mapreduce-examples-2.7.3.jar teragen  -Dmapred.job.maps=500  -Dfs.cosn.upload.buffer=mapped_disk -Dfs.cosn.upload.buffer.size=-1 1099 cosn://examplebucket-1250000000/terasortv1/1k-input
+hadoop jar ./hadoop-mapreduce-examples-2.7.3.jar teragen  -Dmapred.job.maps=500  -Dfs.cosn.upload.buffer=mapped_disk -Dfs.cosn.upload.buffer.size=-1 1099 cosn://examplebucket-1250000000/terasortv1/1k-input
 
-hadoop jar./hadoop-mapreduce-examples-2.7.3.jar terasort -Dmapred.max.split.size=134217728 -Dmapred.min.split.size=134217728 -Dfs.cosn.read.ahead.block.size=4194304 -Dfs.cosn.read.ahead.queue.size=32 cosn://examplebucket-1250000000/terasortv1/1k-input  cosn://examplebucket-1250000000/terasortv1/1k-output
+hadoop jar ./hadoop-mapreduce-examples-2.7.3.jar terasort -Dmapred.max.split.size=134217728 -Dmapred.min.split.size=134217728 -Dfs.cosn.read.ahead.block.size=4194304 -Dfs.cosn.read.ahead.queue.size=32 cosn://examplebucket-1250000000/terasortv1/1k-input  cosn://examplebucket-1250000000/terasortv1/1k-output
 ```
 
->?cosn://scheme 后面请替换为用户大数据业务的存储桶路径。
+>?`cosn://    schema`后面请替换为用户大数据业务的存储桶路径。
 
 #### 2. Hive
 
@@ -174,7 +174,7 @@ Tez 引擎需要将 COSN 的 jar 包导入到 Tez 的压缩包内，下面以 ap
 
 （1）找到 CDH 集群安装的 tez 包，然后解压，例如/usr/local/service/tez/tez-0.8.5.tar.gz。
 （2）将 COSN 的 jar 包放置到解压后的目录下，然后重新压缩输出一个压缩包。
-（3）将新的压缩包上传到 tez.lib.uris 指定的路径下(如果之前存在路径则直接替换即可)。
+（3）将新的压缩包上传到 tez.lib.uris 指定的路径下（如果之前存在路径则直接替换即可）。
 （4）在 CDH 主页面，找到 HIVE，重启 hiveserver 和 hivemetastore。
 
 #### 3. Spark
@@ -189,7 +189,7 @@ Tez 引擎需要将 COSN 的 jar 包导入到 Tez 的压缩包内，下面以 ap
 以 COSN 进行 Spark example word count 测试为例。
 
 ```
-spark-submit  --classorg.apache.spark.examples.JavaWordCount --executor-memory 4g --executor-cores4  ./spark-examples-1.6.0-cdh5.16.1-hadoop2.6.0-cdh5.16.1.jar cosn://examplebucket-1250000000/wordcount
+spark-submit  --class org.apache.spark.examples.JavaWordCount --executor-memory 4g --executor-cores 4  ./spark-examples-1.6.0-cdh5.16.1-hadoop2.6.0-cdh5.16.1.jar cosn://examplebucket-1250000000/wordcount
 ```
 
 执行结果如下：

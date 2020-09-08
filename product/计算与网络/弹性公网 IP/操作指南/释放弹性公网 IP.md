@@ -1,5 +1,8 @@
 若您不再使用弹性公网 IP（EIP），可在控制台将其释放，释放后将不再收取 EIP 的任何费用。
 
+## 前提条件
+释放 EIP 前，需要先解绑 EIP，详情请参见 [解绑 EIP](https://cloud.tencent.com/document/product/1199/41703)。
+
 ## 费用说明
 释放 EIP 后，不同类型账户的费用说明如下：
 <table>

@@ -49,7 +49,7 @@ cosXmlService.putBucketWebsiteAsync(putBucketWebsiteRequest,
 });
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/qcloud-sdk-android/tree/master/Demo/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/BucketWebsite.java) 查看。
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/BucketWebsite.java) 查看。
 
 ## 查询静态网站配置
 
@@ -85,7 +85,7 @@ cosXmlService.getBucketWebsiteAsync(getBucketWebsiteRequest,
 });
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/qcloud-sdk-android/tree/master/Demo/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/BucketWebsite.java) 查看。
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/BucketWebsite.java) 查看。
 
 ## 删除静态网站配置
 
@@ -122,5 +122,5 @@ cosXmlService.deleteBucketWebsiteAsync(deleteBucketWebsiteRequest,
 });
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/qcloud-sdk-android/tree/master/Demo/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/BucketWebsite.java) 查看。
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/BucketWebsite.java) 查看。
 

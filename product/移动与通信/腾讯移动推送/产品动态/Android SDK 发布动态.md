@@ -7,11 +7,17 @@
     <th width=16%>发布时间</th>
     <th width=20%>相关文档</th>
 </tr>
+        <tr>
+        <td>SDK 1.2.0.3 版本发布</td>
+       <td>修复已知问题 </td>
+        <td>2020-07-30</td>
+        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载 SDK</a></td>
+    </tr>
 <tr>
         <td>SDK 1.2.0.2 版本发布</td>
        <td>内部逻辑优化 </td>
         <td>2020-07-01</td>
-        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载 SDK</a></td>
+        <td>-</td>
     </tr>
 </table>
 

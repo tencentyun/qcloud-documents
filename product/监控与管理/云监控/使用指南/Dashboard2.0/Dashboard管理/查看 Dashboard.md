@@ -1,8 +1,14 @@
-Dashboard 支持最近访问面板、收藏面板和自定义面板三种方式切换查看。本文为您介绍新建 Dashboard后如何查看 Dashboard。
+> ?
+> - 新版 Dashboard 已上线，我们衷心欢迎您试用并告诉我们需要改进之处。[单击链接](https://cloud.tencent.com/apply/p/omia0k6sli) 可申请体验！
+> - 欢迎添加云监控小M微信号（hitherecm），备注 Dashboard，我们将拉您进入专属交流群，竭诚为您服务！
 
 
 
-## 前提条件
+Dashboard 支持最近访问面板、收藏面板和自定义面板三种方式切换查看。本文为您介绍新建 Dashboard 后如何查看 Dashboard。
+
+
+
+## 准备工作
 
 1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor)。
 2. 在左侧导航栏中点击【Dashboard 列表】，进入 Dashboard 列表页。
