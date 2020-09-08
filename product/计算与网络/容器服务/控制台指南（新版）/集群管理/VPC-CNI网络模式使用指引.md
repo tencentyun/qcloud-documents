@@ -18,15 +18,6 @@ TKE 后续推出 VPC-CNI 网络模式，即为每个 Pod 插入一张弹性网�
 - 集群内的节点需要和子网处于相同可用区，如果节点买错可用区，Pod 将无法调度。
 - 节点上可调度的 VPC-CNI 模式的 Pod 数量受限于节点所支持插入弹性网卡能绑定 IP 的最大数量。配置越高的机器可插入的弹性网卡数量越多，可以通过查看节点的 Allocatable 来确认。
 
-## 注意事项
-#### 确保 rp_filter 关闭
-使用 VPC-CNI 需要确保 rp_filter 处于关闭状态。可参考以下代码示例：
-``` bash
-sysctl -w net.ipv4.conf.all.rp_filter=0
-sysctl -w net.ipv4.conf.default.rp_filter=0
-```
-
-`tke-cni-agent` 组件自动设置节点的内核参数。若您自己有维护内核参数且打开 rp_filter，会导致网络不通。
 
 ## VPC-CNI 模式操作步骤
 
@@ -46,6 +37,14 @@ TKE 有两种方式启用 VPC-CNI：
 
 
 ### 使用 VPC-CNI
+>! 
+使用 VPC-CNI 需要确保 rp_filter 处于关闭状态。可参考以下代码示例：
+``` bash
+sysctl -w net.ipv4.conf.all.rp_filter=0
+sysctl -w net.ipv4.conf.default.rp_filter=0
+```
+`tke-cni-agent` 组件自动设置节点的内核参数。若您自己有维护内核参数且打开 rp_filter，会导致网络不通。
+>
 - 若使用 [方式1](#VPC-CNI) 启用 VPC-CNI，通过控制台或通过 yaml 创建工作负载，Pod 均默认使用弹性网卡。   
 - 若使用 [方式2](#VPC-CNI) 启用 VPC-CNI（Global Router 与 VPC-CNI 两种模式混用），Pod 默认不使用弹性网卡，需注意以下事项：
   - 通过控制台创建工作负载，VPC-CNI 只支持 StatefulSet 类型，展开高级设置并勾选 `使用VPC-CNI模式`。如下图所示：
