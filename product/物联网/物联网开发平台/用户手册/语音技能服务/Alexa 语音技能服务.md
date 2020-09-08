@@ -57,10 +57,10 @@
 1. 用户使用微信小程序“腾讯连连”绑定物联网开发平台发布的智能设备产品。  
 >!使用微信小程序“腾讯连连”登录的用户，**需要前往个人中心绑定手机号或者邮箱号并且设置密码**，路径为选择【我的】>【个人信息】，进入账号与安全页面，即可绑定手机号或者邮箱号。
 2. **将已绑定的设备改为英文名**，例如：my light，修改后的名称避免使用符号。**设备修改路径为**：小程序【首页】>【选择指定产品名称】>【打开设备详情】>【点击设备名称】，修改后单击【保存】即可。
-![](https://main.qcloudimg.com/raw/eb124d32c90837a38a4a78f836a1be7a.png)
+![](https://main.qcloudimg.com/raw/e8435a54626e368c856f2d734fc04120.png)
 3. 拥有一台 Amazon Alexa 智能音箱，下载 Amazon Alexa App 并绑定该音箱。
 4. Amazon Alexa App 登录腾讯连连的账号，授权设备的控制权。打开菜单，选择【Skill&Games】，发现腾讯连连，选择后进行账号绑定。
-![](https://main.qcloudimg.com/raw/bd8cc505e1454b438a656faba2c23f9b.png)
+![](https://main.qcloudimg.com/raw/4614a7c2280f29e23102e07c6474de5e.png)
 5. 控制设备前，Amazon Alexa 音箱需要先发现设备。您可以对 Amazon Alexa 音箱说：“Alexa, discover devices。”
 >!若是在腾讯连连中修改了产品名称，则在 Amazon Alexa 音箱中需要重新绑定设备。
 
