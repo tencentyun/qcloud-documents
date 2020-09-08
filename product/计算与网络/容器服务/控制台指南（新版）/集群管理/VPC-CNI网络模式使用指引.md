@@ -28,7 +28,7 @@ TKE 有两种方式启用 VPC-CNI：
 >! 使用 [方式1](#VPC-CNI) 启用 VPC-CNI 时，需要展开【高级设置】>【设置IP回收策略】。
 >
 - 方式2：创建集群时选择 Global Router 网络插件，在集群基本信息页面开启 VPC-CNI 模式（两种默认混用）。如下图所示：   
-![](https://main.qcloudimg.com/raw/7b21ae12a661e8acced44073689c581a.png)
+![](https://main.qcloudimg.com/raw/ab4d97e82fff662de4c7532beac46238.png)
 针对固定 IP 场景，启用 VPC-CNI 后需要设置 IP 回收策略，即设置 Pod 销毁后需要退还 IP 的时长。非固定 IP 的 Pod 销毁后可立即释放 IP，不受此设置的影响。如下图所示：<br>
 <img style="width:350px" src="https://main.qcloudimg.com/raw/6db435ed2756ca6ba8a1262720ad0165.png" data-nonescope="true">
 
