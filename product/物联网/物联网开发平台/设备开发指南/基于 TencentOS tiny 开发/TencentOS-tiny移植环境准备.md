@@ -95,7 +95,8 @@ EVB_MX_Plus 开发板板载四个按键，其中 KEY1 连接在 PB12，相关配
 ##   准备 TencentOS tiny 的源码
 
 TencentOS tiny 的源码已经开源，可从[ github](https://github.com/Tencent/TencentOS-tiny) 文件库中下载使用。
-
+>?由于下一步骤只介绍 TencentOS tiny 的内核移植，所以这里只需要用到 arch、board、kernel、osal 四个目录下的源码。
+>
 <table>
 <thead>
 <tr>
@@ -156,6 +157,5 @@ TencentOS tiny 的源码已经开源，可从[ github](https://github.com/Tencen
 </tr>
 </tbody></table>
 
-由于下一步只介绍 TencentOS tiny 的内核移植，所以这里只需要用到 arch、board、kernel、osal 四个目录下的源码。
 ## 下一步操作
 请前往 [步骤二：内核移植](https://cloud.tencent.com/document/product/1081/47956) 进行内核移植操作。

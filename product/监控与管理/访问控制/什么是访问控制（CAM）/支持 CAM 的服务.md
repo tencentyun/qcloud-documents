@@ -239,7 +239,7 @@
 
  | 服务                                                         | 授权粒度  | 控制台 | 根据标签进行授权|  服务角色 |		参考文档 |
 | ------------------------------------------------------------ | ------ | -------- | ------ |  ---- |	 ---- |	
-| [人脸识别](https://cloud.tencent.com/document/product/867) | 服务级| &#10003; | -  |  &#10003; |	[访问管理指南](https://cloud.tencent.com/document/product/867/35076)  |
+| [人脸识别](https://cloud.tencent.com/document/product/867) | 资源级| &#10003; | -  |  &#10003; |	[访问管理指南](https://cloud.tencent.com/document/product/867/35076)  |
 | [人脸核身](https://cloud.tencent.com/document/product/1007) | 服务级| &#10003; | -  |  - |	-  |
 
 ## 人脸特效

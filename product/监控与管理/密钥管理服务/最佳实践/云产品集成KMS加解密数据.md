@@ -30,7 +30,7 @@
 
 ## 云产品的加密策略
 
-基于不同产品的业务内容和客户需求，将会采用不同的的加密方式及其策略。通常情况下，存储加密中的密钥层次结构会至少划分为两层，然后通过 [**信封加密**](https://cloud.tencent.com/document/product/573/8791) 的机制去实现敏感数据的加解密。
+基于不同产品的业务内容和客户需求，将会采用不同的加密方式及其策略。通常情况下，存储加密中的密钥层次结构会至少划分为两层，然后通过 [**信封加密**](https://cloud.tencent.com/document/product/573/8791) 的机制去实现敏感数据的加解密。
 - KMS 中的用户主密钥（Customer Master Key，CMK） 为第一层，KMS 中的数据加密密钥（Data Encryption Key，DEK）为第二层。
 - DEK 是通过 CMK 调用 kms.GenerateDataKey 接口生成，所以 DEK 受 CMK 的加密保护，而 DEK 是对云产品侧的业务数据进行加解密操作与保护。
 
