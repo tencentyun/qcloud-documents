@@ -61,9 +61,10 @@
 >!使用微信小程序“腾讯连连”登录的用户，**需要前往个人中心绑定手机号或者邮箱号并且设置密码**，路径为选择【我的】>【个人信息】，进入账号与安全页面，即可绑定手机号或者邮箱号。
 >
 2. **将已绑定的设备改为英文名**，例如：my light，修改后的名称避免使用符号。**设备修改路径为**：小程序【首页】>【选择指定产品名称】>【打开设备详情】>【点击设备名称】，修改后单击【保存】即可。 
-![](https://main.qcloudimg.com/raw/eb124d32c90837a38a4a78f836a1be7a.png)
+![](https://main.qcloudimg.com/raw/2afdb7d496c5775f0e6f19e46ca5590f.png)
 3. 拥有一台 Google Home 智能音箱，下载 Google Home App 并绑定该音箱。
 4. 在 Google Home App 主页上点击【+】按钮添加设备，选择【Set up devices】列表下的【Works with Google】。搜索并选择“tencentlianlian”，登录腾讯连连的账号进行账号绑定，授权设备的控制权。绑定成功后，您的设备会显示在 Home Control 的 Devices 列表中。 
+![](https://main.qcloudimg.com/raw/cf75d247f613e4b3fbe6f2771aa0361e.jpg)
 
 使用 Google Home 音箱控制产品，支持的功能例句可参考下表。
 
