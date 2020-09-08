@@ -5,7 +5,7 @@ TKE 后续推出 VPC-CNI 网络模式，即为每个 Pod 插入一张弹性网�
 <img style="width:450px" src="https://main.qcloudimg.com/raw/24f9223d9cd7c26789f32bc235f56e51.png" data-nonescope="true">
 
 ## VPC-CNI 模式应用场景
-相比 Global Router，VPC-CNI 具有以下优势及适用场景
+相比 Global Router，VPC-CNI 具有以下优势及适用场景：
 
 |                         优势                                           |                       适用场景                                       | 
 |----------------------------------------------------------------|----------------------------------------------------------------|
