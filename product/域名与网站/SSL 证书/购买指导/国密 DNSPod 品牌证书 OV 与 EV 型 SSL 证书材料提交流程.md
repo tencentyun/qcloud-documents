@@ -1,5 +1,5 @@
 ## 操作场景
-DNSPod 品牌的企业型（OV）与增强型（EV）SSL 证书在购买成功后，需要进行相关材料提交。证书购买流程请参考 [购买流程](https://cloud.tencent.com/document/product/400/47285)。
+DNSPod 品牌的企业型（OV）与增强型（EV）SSL 证书在购买成功后，需要进行相关材料提交。证书购买流程请参考 [购买流程](https://cloud.tencent.com/document/product/400/7995)。
 CA 机构认证审核通过后，将会正式颁发证书，您可下载该证书进行安装。
 
 ## 前提条件
