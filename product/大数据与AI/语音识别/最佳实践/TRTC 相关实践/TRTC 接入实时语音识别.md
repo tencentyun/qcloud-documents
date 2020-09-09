@@ -147,7 +147,7 @@ private ConcurrentLinkedDeque<Short> getDataList() {
 
 ```
 
-6. TRTC 音频源接入 ASR 协议如下，[TRTC 协议详情](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html) 。
+4.3 TRTC 音频源接入 ASR 协议如下，[TRTC 协议详情](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html) 。
 
 ```java
 //1.TRTCCloudListener.TRTCAudioFrameListener 是 TRTC 获取本地麦克风采集到的音频数据回调  由于 ASR 识别16k或8k采样率的音频数据，所以需要设置 setAudioQuality 为 TRTCCloudDef#TRTC_AUDIO_QUALITY_SPEECH （流畅：采样率：16k；单声道；音频裸码率：16kbps）
