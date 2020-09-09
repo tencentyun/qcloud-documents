@@ -74,15 +74,15 @@ Container 类型 Watermark 的具体数据描述如下：
 
 | 节点名称（关键字）     | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Type                | Request.Watermark | 水印类型    | String    | 是   | 无  | 1. Text：文字水印、 Image：图片水印 |
-| Pos                 | Request.Watermark | 基准位置    | String    | 是   | 无  | 1. TopRight、TopLeft、BottomRight、 BottomLeft |
-| LocMode             | Request.Watermark | 偏移方式    | String    | 是   | 无  | 1. Relativity：按比例，Absolute：固定位置 |
-| Dx                  | Request.Watermark | 水平偏移    | String    | 是   | 无  | 1. 值范围：[0 100] <br/> 2. 当 locMode 为 Relativity 时，单位为% <br/> 3. 当 locMode 为 Absolute 时，单位为px |
-| Dy                  | Request.Watermark | 垂直偏移    | String    | 是   | 无  | 1. 值范围：[0 100] <br/> 2. 当 locMode 为 Relativity 时，单位为% <br/> 3. 当 locMode 为 Absolute 时，单位为px |
-| StartTime           | Request.Watermark | 水印开始时间 | String    | 否   | 0   | 1. [0 视频时长] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
-| EndTime             | Request.Watermark | 水印结束时间 | String    | 否   | 视频结束时间  | 1. [0 视频时长] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
-| Image               | Request.Watermark | 图片水印节点 | Container    | 否   | 无  | 无 |
-| Text                | Request.Watermark | 文本水印节点 | Container    | 否   | 无  | 无 |
+| Type                | Request.Watermark | 水印<br/>类型    | String    | 是   | 无  | 1. Text：文字水印、 Image：图片水印 |
+| Pos                 | Request.Watermark | 基准<br/>位置    | String    | 是   | 无  | 1. TopRight、TopLeft、BottomRight、 BottomLeft |
+| LocMode             | Request.Watermark | 偏移<br/>方式    | String    | 是   | 无  | 1. Relativity：按比例，Absolute：固定位置 |
+| Dx                  | Request.Watermark | 水平<br/>偏移    | String    | 是   | 无  | 1. 值范围：[0 100] <br/> 2. 当 locMode 为 Relativity 时，单位为% <br/> 3. 当 locMode 为 Absolute 时，单位为px |
+| Dy                  | Request.Watermark | 垂直<br/>偏移    | String    | 是   | 无  | 1. 值范围：[0 100] <br/> 2. 当 locMode 为 Relativity 时，单位为% <br/> 3. 当 locMode 为 Absolute 时，单位为px |
+| StartTime           | Request.Watermark | 水印<br/>开始<br/>时间 | String    | 否   | 0   | 1. [0 视频时长] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
+| EndTime             | Request.Watermark | 水印<br/>结束<br/>时间 | String    | 否   | 视频结束时间  | 1. [0 视频时长] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
+| Image               | Request.Watermark | 图片<br/>水印<br/>节点 | Container    | 否   | 无  | 无 |
+| Text                | Request.Watermark | 文本<br/>水印<br/>节点 | Container    | 否   | 无  | 无 |
 
 
 Container 类型 Image 的具体数据描述如下：
