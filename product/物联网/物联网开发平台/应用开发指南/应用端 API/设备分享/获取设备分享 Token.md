@@ -9,17 +9,17 @@
 | ----------- | ------ | ---- | ------------------------------------------------------------ |
 | AccessToken | String | 是   | 公共参数，AccessToken 用于对一个已经登录的用户鉴权。         |
 | RequestId   | String | 是   | 公共参数，唯一请求 ID，可自行生成，推荐使用 uuId。定位问题时，需提供该次请求的 RequestId。 |
-| Action      | String | 是   | 公共参数，本接口取值：AppCreateShareDeviceToken              |
-| FamilyId    | String | 是   | 家庭 ID                                                       |
-| ProductId   | String | 是   | 产品 ID                                                       |
-| DeviceName  | String | 是   | 设备名称                                                     |
+| Action      | String | 是   | 公共参数，本接口取值：AppCreateShareDeviceToken。              |
+| FamilyId    | String | 是   | 家庭 ID。                                                       |
+| ProductId   | String | 是   | 产品 ID。                                                       |
+| DeviceName  | String | 是   | 设备名称。                                                     |
 
 ## 3. 输出参数
 
 | 名称             | 类型   | 描述                                                         |
 | ---------------- | ------ | ------------------------------------------------------------ |
 | RequestId        | String | 公共参数，唯一请求 ID，与入参相同，定位问题时，需提供该次请求的 RequestId。 |
-| ShareDeviceToken | String | 设备分享 Token                                                |
+| ShareDeviceToken | String | 设备分享 Token。                                                |
 
 ## 4. 示例
 
@@ -69,8 +69,8 @@ content-type: application/json
 
 | 错误码                                   | 描述               |
 | ---------------------------------------- | ------------------ |
-| InternalError                            | 内部错误           |
-| InvalidParameterValue                    | 参数取值错误       |
-| InvalidParameterValue.InvalidAccessToken | Token 无效          |
-| InvalidParameterValue.NoPermission       | 用户对该设备无权限 |
+| InternalError                            | 内部错误。           |
+| InvalidParameterValue                    | 参数取值错误。       |
+| InvalidParameterValue.InvalidAccessToken | Token 无效。          |
+| InvalidParameterValue.NoPermission       | 用户对该设备无权限。 |
 
