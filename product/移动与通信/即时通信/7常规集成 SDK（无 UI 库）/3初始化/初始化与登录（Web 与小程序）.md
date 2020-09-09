@@ -2,57 +2,58 @@
 
 ### Web 项目
 
-<pre>
-import TIM from 'tim-js-sdk';
-// 发送图片、文件等消息需要的 COS SDK
-import COS from "cos-js-sdk-v5";
+<pre><code><span class="hljs-keyword">import</span> TIM <span class="hljs-keyword">from</span> <span class="hljs-string">'tim-js-sdk'</span>;
+<span class="hljs-comment">// 发送图片、文件等消息需要的 COS SDK</span>
+<span class="hljs-keyword">import</span> COS <span class="hljs-keyword">from</span> <span class="hljs-string">"cos-js-sdk-v5"</span>;
 
-let options = {
-  SDKAppID: 0 // 接入时需要将0替换为您的即时通信 IM 应用的 SDKAppID
+<span class="hljs-keyword">let</span> options = {
+  <span class="hljs-attr">SDKAppID</span>: <span class="hljs-number">0</span> <span class="hljs-comment">// 接入时需要将0替换为您的即时通信 IM 应用的 SDKAppID</span>
 };
-// 创建 SDK 实例，TIM.create() 方法对于同一个 SDKAppID 只会返回同一份实例
-let tim = TIM.create(options); // SDK 实例通常用 tim 表示
+<span class="hljs-comment">// 创建 SDK 实例，TIM.create() 方法对于同一个 SDKAppID 只会返回同一份实例</span>
+<span class="hljs-keyword">let</span> tim = TIM.create(options); <span class="hljs-comment">// SDK 实例通常用 tim 表示</span>
 
-// 设置 SDK 日志输出级别，详细分级请参见 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#setLogLevel">setLogLevel 接口的说明</a>
-tim.setLogLevel(0); // 普通级别，日志量较多，接入时建议使用
-// tim.setLogLevel(1); // release 级别，SDK 输出关键信息，生产环境时建议使用
+<span class="hljs-comment">// 设置 SDK 日志输出级别，详细分级请参见 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#setLogLevel">setLogLevel 接口的说明</a></span>
+tim.setLogLevel(<span class="hljs-number">0</span>); <span class="hljs-comment">// 普通级别，日志量较多，接入时建议使用</span>
+<span class="hljs-comment">// tim.setLogLevel(1); // release 级别，SDK 输出关键信息，生产环境时建议使用</span>
 
-// 注册 COS SDK 插件
-tim.registerPlugin({'cos-js-sdk': COS});
-</pre>
+<span class="hljs-comment">// 注册 COS SDK 插件</span>
+tim.registerPlugin({<span class="hljs-string">'cos-js-sdk'</span>: COS});</code></pre>
+
 
 ### 小程序项目
 
-<pre>
-import TIM from 'tim-wx-sdk';
-// 发送图片、文件等消息需要的 COS SDK
-import COS from "cos-wx-sdk-v5";
+<pre><code><span class="hljs-keyword">import</span> TIM <span class="hljs-keyword">from</span> <span class="hljs-string">'tim-wx-sdk'</span>;
+<span class="hljs-comment">// 发送图片、文件等消息需要的 COS SDK</span>
+<span class="hljs-keyword">import</span> COS <span class="hljs-keyword">from</span> <span class="hljs-string">"cos-wx-sdk-v5"</span>;
 
 
-let options = {
-  SDKAppID: 0 // 接入时需要将0替换为您的即时通信 IM 应用的 SDKAppID
+<span class="hljs-keyword">let</span> options = {
+  <span class="hljs-attr">SDKAppID</span>: <span class="hljs-number">0</span> <span class="hljs-comment">// 接入时需要将0替换为您的即时通信 IM 应用的 SDKAppID</span>
 };
-// 创建 SDK 实例，TIM.create() 方法对于同一个 SDKAppID 只会返回同一份实例
-let tim = TIM.create(options); // SDK 实例通常用 tim 表示
+<span class="hljs-comment">// 创建 SDK 实例，TIM.create() 方法对于同一个 SDKAppID 只会返回同一份实例</span>
+<span class="hljs-keyword">let</span> tim = TIM.create(options); <span class="hljs-comment">// SDK 实例通常用 tim 表示</span>
 
-// 设置 SDK 日志输出级别，详细分级请参见 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#setLogLevel">setLogLevel 接口的说明</a>
-tim.setLogLevel(0); // 普通级别，日志量较多，接入时建议使用
-// tim.setLogLevel(1); // release 级别，SDK 输出关键信息，生产环境时建议使用
+<span class="hljs-comment">// 设置 SDK 日志输出级别，详细分级请参见 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#setLogLevel">setLogLevel 接口的说明</a></span>
+tim.setLogLevel(<span class="hljs-number">0</span>); <span class="hljs-comment">// 普通级别，日志量较多，接入时建议使用</span>
+<span class="hljs-comment">// tim.setLogLevel(1); // release 级别，SDK 输出关键信息，生产环境时建议使用</span>
 
-// 注册 COS SDK 插件
-tim.registerPlugin({'cos-wx-sdk': COS});
-</pre>
+<span class="hljs-comment">// 注册 COS SDK 插件</span>
+tim.registerPlugin({<span class="hljs-string">'cos-wx-sdk'</span>: COS});</code></pre>
+
+
+
 
 ## 设置日志级别
 
-<pre>
-// 设置 SDK 日志输出级别，详细分级请参见 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#setLogLevel">setLogLevel 接口的说明</a>
-tim.setLogLevel(0);
-</pre>
+<pre><code><span class="hljs-comment">// 设置 SDK 日志输出级别，详细分级请参见 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#setLogLevel">setLogLevel 接口的说明</a></span>
+<span class="hljs-selector-tag">tim</span><span class="hljs-selector-class">.setLogLevel</span>(<span class="hljs-number">0</span>);</code></pre>
+
+
 
 ## 事件绑定
 
-<pre>
+
+```
 // 监听事件，例如：
 tim.on(TIM.EVENT.SDK_READY, function(event) {
   // 收到离线消息和会话列表同步完毕通知，接入侧可以调用 sendMessage 等需要鉴权的接口
@@ -71,7 +72,7 @@ tim.on(TIM.EVENT.MESSAGE_REVOKED, function(event) {
   // event.data - 存储 Message 对象的数组 - [Message] - 每个 Message 对象的 isRevoked 属性值为 true
 });
 
-tim.on(TIM.EVENT.MESSAGE_READ_BY_PEER, function(event)) {
+tim.on(TIM.EVENT.MESSAGE_READ_BY_PEER, function(event) {
   // SDK 收到对端已读消息的通知，即已读回执。使用前需要将 SDK 版本升级至 v2.7.0 或以上。仅支持单聊会话。
   // event.name - TIM.EVENT.MESSAGE_READ_BY_PEER
   // event.data - event.data - 存储 Message 对象的数组 - [Message] - 每个 Message 对象的 isPeerRead 属性值为 true
@@ -132,7 +133,8 @@ tim.on(TIM.EVENT.KICKED_OUT, function(event) {
 });
 
 // 开始登录 
-tim.login({userID: 'your userID', userSig: 'your userSig'}); </pre>
+tim.login({userID: 'your userID', userSig: 'your userSig'}); 
+```
 
 参数`options`为`Object`类型：
 
@@ -202,7 +204,6 @@ promise.then(function(imResponse) {
  登出即时通信 IM，通常在切换帐号的时候调用，清除登录态以及内存中的所有数据。 
 
 >!
->
 >- 调用此接口的实例会发布 [`SDK_NOT_READY`](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.SDK_NOT_READY) 事件，此时该实例下线，无法收、发消息。
 >- 如果您在[即时通信 IM 控制台](https://console.cloud.tencent.com/im)配置的“Web端实例同时在线个数”大于 1，且同一账号登录了`a1`和`a2`两个实例（含小程序端），当执行`a1.logout()`后，`a1`会下线，无法收、发消息。而`a2`实例不会受影响。
 >- 多实例被踢：基于第 2 点，如果“Web端实例同时在线个数”配置为 2，且您的某一账号已经登录了 `a1`，`a2`两个实例，当使用此账号成功登录第三个实例`a3`时，`a1`或`a2`中的一个实例会被踢下线（通常是最先处在登录态的实例会触发），这种情况称之为**“多实例被踢”**。假设`a1`实例被踢下线，`a1`实例内部会执行登出流程，然后抛出[`KICKED_OUT`](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.KICKED_OUT)事件，接入侧可以监听此事件，并在触发时跳转到登录页。此时`a1`实例下线，而`a2`、`a3`实例可以正常运行。

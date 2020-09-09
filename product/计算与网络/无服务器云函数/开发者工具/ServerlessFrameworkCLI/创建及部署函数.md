@@ -39,7 +39,7 @@ serverless deploy
 
 ### 配置部署
 云函数组件支持“0”配置部署，即您可直接使用配置文件中的默认值进行部署。同时也支持您根据自身需求，修改可选配置来进一步开发需部署的项目。
-以下是云函数组件配置文件 serverless.yml 的说明，详情请参见 [全量配置及配置说明](https://github.com/serverless-components/tencent-scf/blob/v2/doc/configure.md)。
+以下是云函数组件配置文件 serverless.yml 的说明，详情请参见 [全量配置及配置说明](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)。
 ```
 # serverless.yml
 component: scf # (必填) 引用 component 的名称，当前用到的是 tencent-scf 组件

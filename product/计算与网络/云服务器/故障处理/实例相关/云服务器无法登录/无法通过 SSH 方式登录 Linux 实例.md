@@ -13,6 +13,8 @@
  
 ###  步骤2：查看 sshd 服务端口
 1. <span id="step07">[使用 VNC 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35701)。</span>
+>?当您在无法使用远程登录客户端及其他方式均无法登录实例的情况下，可通过 VNC 方式登录连接实例，观察实例状态并进行问题排查。
+>
 2. 在操作系统界面，执行以下命令，查看是否含有 sshd 服务监听的端口。
 ```
 netstat -tnlp | grep sshd

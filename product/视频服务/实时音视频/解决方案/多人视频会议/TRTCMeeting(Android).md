@@ -96,7 +96,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | API | 描述 |
 |-----|-----|
 | [sendRoomTextMsg](#sendroomtextmsg) | 在房间中广播文本消息，一般用于聊天。|
-| [sendRoomCustomMsg](#sendroomcustommsg) | 发送自定义自定义（信令）消息。|
+| [sendRoomCustomMsg](#sendroomcustommsg) | 发送自定义（信令）消息。|
 
 
 <h2 id="TRTCMeetingDelegate">TRTCMeetingDelegate API 概览</h2>

@@ -10,7 +10,7 @@ AMH 是基于 Linux + Nginx + MySQL + PHP （LNMP）环境运行的虚拟主机�
 
 ## 注意事项<span id="note"></span>
 使用 AMH 搭建网站的过程中需要使用已完成备案，并且已解析到所使用云服务器的域名。
-腾讯云提供 [域名注册](https://dnspod.cloud.tencent.com/)、[网站备案](https://cloud.tencent.com/product/ba) 及 [云解析](https://cloud.tencent.com/product/cns) 服务，您可通过服务并参考 [建站基本流程](https://cloud.tencent.com/document/product/242/8584) 获得可使用域名。
+腾讯云提供 [域名注册](https://dnspod.cloud.tencent.com/)、[网站备案](https://cloud.tencent.com/product/ba) 及 [DNS 解析 DNSPod](https://cloud.tencent.com/product/cns) 服务，您可通过服务并参考 [建站基本流程](https://cloud.tencent.com/document/product/242/8584) 获得可使用域名。
 
 
 ## 操作步骤
@@ -85,7 +85,7 @@ http://云服务器实例的公网 IP:8888
 6. 在 AMFTP 登录页面上，填写 [步骤4](#ftp) 中已创建的 FTP 账号信息，并单击【登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/86b62685fb566e8384a72e668abada1d.png)
 7. 准备 PHP 网站文件。
- - 本文使用 [DedeCMS内容管理系统](http://www.dedecms.com/products/dedecms/)，您可结合实际情况准备相关文件。
+ - 本文使用 DedeCMS 内容管理系统，您可结合实际情况准备相关文件。
  - 请将网站文件压缩为 zip 文件，本文以 `upload.zip` 为例。如下图所示：
  ![](https://main.qcloudimg.com/raw/fd734bafdac587f18f4f188bac182030.png)
 8. 请勾选 AMFTP 中默认的主页文件 `ErrorPages` 和 `index.html`，并单击下方的【删除】。如下图所示：

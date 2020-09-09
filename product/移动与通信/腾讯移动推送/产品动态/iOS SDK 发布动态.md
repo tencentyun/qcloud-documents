@@ -1,5 +1,4 @@
-
-## 2020年6月
+## 2020年7月
 
 <table>
 <tr>
@@ -9,12 +8,14 @@
     <th width=20%>相关文档</th>
 </tr>
     <tr>
-        <td>SDK 1.2.7.1 版本发布</td>
-        <td><li> 减少 SDK 启动耗时</li><li> 新增注册失败的回调接口</li><li>优化账号、标签接口</li><li>修复已知问题</li></td>
-        <td>2020-06-23</td>
-        <td> <a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK下载</a></td>
+        <td>SDK 1.2.7.2 版本发布</td>
+        <td><li> 增加自定义事件上报功能</li><li> 提升“抵达数”上报的成功率</li><li>修复已知问题</li></td>
+        <td>2020-07-23</td>
+        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li></td>
     </tr>        
 </table>
+
+
 
 ## 2020年5月
 
@@ -27,11 +28,12 @@
 </tr>
     <tr>
         <td>SDK 1.2.6.1 版本发布</td>
-        <td><li> 提升稳定性，修复已知问题</li><li> 优化接入，新增注册回调方法</li><li>新增TPNS通道，支持TPNS通道下发消息</li><li>优化数据统计</li></td>
+        <td><li> 提升稳定性，修复已知问题</li><li> 优化接入，新增注册回调方法</li><li>新增 TPNS 通道，支持 TPNS 通道下发消息</li><li>优化数据统计</li></td>
         <td>2020-05-06</td>
-        <td><a href="https://cloud.tencent.com/document/product/548/36663#.E8.B0.83.E8.AF.95.E6.96.B9.E6.B3.95">注册回调方法</a></td>
+        <td><a href="https://cloud.tencent.com/document/product/548/36663#.E8.B0.83.E8.AF.95.E6.96.B9.E6.B3.95">注册回调方法</a></li></td>
     </tr>        
 </table>
+
 
 ## 2020年4月
 
@@ -44,11 +46,12 @@
 </tr>
     <tr>
         <td>SDK 1.2.5.4 版本发布</td>
-        <td><li> 提升稳定性，修复已知问题</li></td>
+        <td>提升稳定性，修复已知问题</li></td>
         <td>2020-04-22</td>
         <td>-</td>
     </tr>
 </table>
+
 
 ## 2020年3月
 
@@ -73,6 +76,7 @@
     </tr>
 </table>
 
+
 ## 2020年2月
 
 <table>
@@ -89,6 +93,7 @@
         <td>-</td>
     </tr>
 </table>
+
 
 ## 2020年1月
 
@@ -107,6 +112,7 @@
     </tr>
 </table>
 
+
 ## 2019年12月
 
 <table>
@@ -118,13 +124,13 @@
 </tr>
     <tr>
         <td>SDK 1.2.4.8 版本发布</td>
-        <td><li>提升稳定性，修复消息统计触发的崩溃问题</li></td>
+        <td>提升稳定性，修复消息统计触发的崩溃问题</li></td>
         <td>2019-12-24</td>
         <td>-</td>
     </tr>
     <tr>
         <td>SDK 1.2.4.7 版本发布</td>
-        <td><li> 提升稳定性，修复消息统计和日志记录触发的崩溃问题</li></td>
+        <td> 提升稳定性，修复消息统计和日志记录触发的崩溃问题</li></td>
         <td>2019-12-19</td>
         <td>-</td>
     </tr>
@@ -142,6 +148,7 @@
     </tr>
 </table>
 
+
 ## 2019年11月
 
 <table>
@@ -153,19 +160,19 @@
 </tr>
     <tr>
         <td>SDK 1.2.4.4 版本发布</td>
-        <td><li> 优化 SDK 注册流程，提升通知消息触达</li></td>
+        <td> 优化 SDK 注册流程，提升通知消息触达</li></td>
         <td>2019-11-28</td>
         <td>-</td>
     </tr>
     <tr>
         <td>SDK 1.2.4.3 版本发布</td>
-        <td><li> 优化提升 SDK 兼容性</li></td>
+        <td> 优化提升 SDK 兼容性</li></td>
         <td>2019-11-26</td>
         <td>-</td>
     </tr>
     <tr>
         <td>SDK 1.2.4.2 版本发布</td>
-        <td><li> 修复 SDK 获取 TPNS Token 的问题</li></td>
+        <td> 修复 SDK 获取 TPNS Token 的问题</li></td>
         <td>2019-11-22</td>
         <td>-</td>
     </tr>
@@ -183,6 +190,7 @@
     </tr>
 </table>
 
+
 ## 2019年10月
 
 <table>
@@ -194,11 +202,12 @@
 </tr>
     <tr>
         <td>SDK 1.2.3.0 版本发布</td>
-        <td><li> 修复一个当设备 Token 变化时出现的问题</li></td>
+        <td>修复一个当设备 Token 变化时出现的问题</li></td>
         <td>2019-10-21</td>
         <td>-</td>
     </tr>
 </table>
+
 
 ## 2019年9月
 
@@ -211,11 +220,12 @@
 </tr>
     <tr>
         <td>SDK 1.2.2.1 版本发布</td>
-        <td><li> 修复一个当 SDK 未启动完成就调用其他接口而产生的网络连接的问题</li></td>
+        <td>修复一个当 SDK 未启动完成就调用其他接口而产生的网络连接的问题</li></td>
         <td>2019-09-29</td>
         <td>-</td>
     </tr>
 </table>
+
 
 ## 2019年08月
 
@@ -245,6 +255,7 @@
         <td>-</td>
     </tr>
 </table>
+
 
 ## 2019年7月
 
@@ -281,8 +292,9 @@
     </tr>
     <tr>
         <td>SDK 1.0.0.0 版本发布</td>
-        <td><li> 初始版本</li></td>
+        <td>初始版本</li></td>
         <td>2019-07-05</td>
         <td>-</td>
     </tr>
 </table>
+

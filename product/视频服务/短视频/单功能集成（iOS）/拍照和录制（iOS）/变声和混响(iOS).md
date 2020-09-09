@@ -1,4 +1,4 @@
-录制变声混响：
+**录制变声混响：**
 ```objc
 //获取 recorder 对象
 recorder = [TXUGCRecord shareInstance];

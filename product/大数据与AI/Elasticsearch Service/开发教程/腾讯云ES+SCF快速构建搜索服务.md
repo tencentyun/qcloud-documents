@@ -36,8 +36,9 @@ Elasticsearch 是一个广泛应用于全文搜索领域的开源搜索引擎，
 
 ## 了解更多
 ### 停用词和用户词典导入
-停用词不会被 ES 检索，用户词典在分词的时候将保留该词。在上面的案例中，我们导入了默认的 [停用词库](https://es-bot-1254139681.cos.ap-guangzhou.myqcloud.com/stopwords.dic) 和 [用户词典](https://es-bot-1254139681.cos.ap-guangzhou.myqcloud.com/user_dict.dic)，您也可以通过 ES 集群详情页的【高级配置】>【更新词典】导入自己的停用词和用户词典。
-![](https://main.qcloudimg.com/raw/8f7ca42fc03372ef68bc3b04713bcae0.png)
+停用词不会被 ES 检索，用户词典在分词时将保留该词。在上面的案例中，我们导入了默认的 [停用词库](https://es-bot-1254139681.cos.ap-guangzhou.myqcloud.com/stopwords.dic) 和 [用户词典](https://es-bot-1254139681.cos.ap-guangzhou.myqcloud.com/user_dict.dic)，您也可以在 ES 集群详情页的【插件列表】>【更新词典】导入自己的停用词和用户词典。
+![](https://main.qcloudimg.com/raw/9fdddd0b2e9e58d228412c0db068802e.png)
+![](https://main.qcloudimg.com/raw/d0bc4d4f55bf4896cc720f154ef048fc.png)
 
 ### 同义词配置
 同义词配置需要在创建索引时指定，支持 Solr 和 WordNet 两种同义词格式，具体可参考 [Solr synonyms](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/analysis-synonym-tokenfilter.html#_solr_synonyms) 对格式的介绍。

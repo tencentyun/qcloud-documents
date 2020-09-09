@@ -237,6 +237,28 @@ function TEB_RECTSELECTED()
 function TEB_REFRESH()
 ```
 
+### TEB_SNAPSHOT
+白板快照回调 
+``` C++
+function TEB_SNAPSHOT(Object data)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| data | Object | 快照数据 |
+
+#### 介绍
+data 参数格式如下： 
+``` 
+{
+     image: "",          //base64
+     userData: "",       //透传数据
+}
+```
+ 
+
+
 
 ## 文件操作回调
 

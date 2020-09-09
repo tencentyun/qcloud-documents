@@ -1,4 +1,4 @@
-您可以使用 secret_id 和 secret_key 对您的 API 进行认证管理。secret_id 和 secret_key 成对出现，这里将它们将称为 secret_id/secret_key 对。
+您可以使用 secret_id 和 secret_key 对您的 API 进行认证管理。secret_id 和 secret_key 成对出现，这里将它们称为 secret_id/secret_key 对。
 在使用 secret_id/secret_key 对认证前，您需要先创建一对 secret_id 和 secret_key。
 
 ## 密钥对鉴权 API

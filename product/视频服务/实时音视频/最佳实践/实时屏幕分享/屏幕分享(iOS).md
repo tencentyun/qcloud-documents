@@ -21,8 +21,8 @@
 
 | 参数项 | 参数名称 | 常规推荐值 |  文字教学场景 | 
 |---------|---------|---------|-----|
-| 分辨率 | videoResolution | 1280 x 720 | 1920 x 1080 | 
-| 帧率 | videoFps | 10 FPS | 8FPS |
+| 分辨率 | videoResolution | 1280 × 720 | 1920 × 1080 | 
+| 帧率 | videoFps | 10 FPS | 8 FPS |
 | 最高码率 | videoBitrate| 1600 kbps | 2000 kbps |
 | 分辨率自适应 | enableAdjustRes | NO | NO |
 
@@ -196,7 +196,7 @@ iOS 系统上的跨应用屏幕分享，需要增加 Extension 录屏进程以�
 
 <span id="launch"> </span>
 #### 步骤4：增加屏幕分享的触发按钮（可选）
-截止到 [步骤3](receive) ，我们的屏幕分享还必须要用户从控制中心中长按录屏按钮来手动启动，那么如何实现类似腾讯会议的点击按钮即可触发的效果呢？
+截止到 [步骤3](#receive) ，我们的屏幕分享还必须要用户从控制中心中长按录屏按钮来手动启动，那么如何实现类似腾讯会议的点击按钮即可触发的效果呢？
 ![](https://main.qcloudimg.com/raw/4a759043c613a558400cce8b539fd7d9.png)
 
 1. 在 [Demo](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCSimpleDemo/Screen) 中寻找 `TRTCBroadcastExtensionLauncher` 这个类，并将其加入到您的工程中。

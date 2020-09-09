@@ -7,6 +7,7 @@
 ## 集成说明
 
 TUIKit 支持 gradle 接入、aar 集成和 module 源码集成。
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2765-53354?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ### gradle 接入集成
 

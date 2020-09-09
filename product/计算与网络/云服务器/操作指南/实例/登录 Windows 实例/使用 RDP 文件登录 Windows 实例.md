@@ -63,7 +63,7 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
 ###  MacOS 系统使用 RDP 登录
 
 >?
->- 以下操作以 Microsoft Remote Desktop for Mac 为例。微软官方已于2017年停止提供 Remote Desktop 客户端的下载链接，转由其子公司 [HockeyApp](https://appcenter.ms/apps) 进行 Beta 版本的发布。
+>- 以下操作以 Microsoft Remote Desktop for Mac 为例。微软官方已于2017年停止提供 Remote Desktop 客户端的下载链接，转由其子公司 HockeyApp 进行 Beta 版本的发布。
 >- 以下操作以连接 Windows Server 2012 R2 操作系统的云服务器为例。
 >
 1. 下载 Microsoft Remote Desktop for Mac 并在本地进行安装。

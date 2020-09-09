@@ -32,4 +32,3 @@ OpenAPI 和 API 网关 paths 对象的映射关系如下表：
 >- OpenAPI 3.0.0 规范的对象定义请参考 [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md)。
 >- 导入 API 功能的操作流程请参见 [导入 API](https://cloud.tencent.com/document/product/628/43133)。
 >- 导入 API 的完整示例请参见 [导入 API 示例](https://cloud.tencent.com/document/product/628/43136)。
->- 导入 API 功能正在内测中，如需使用请提交 [腾讯云 API 网关导入 API 功能内测申请](https://cloud.tencent.com/apply/p/v5h6086wvtp)，我们会在5个工作日内完成审核。

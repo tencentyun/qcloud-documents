@@ -29,73 +29,74 @@ Unity Editor 版本： 2019.1.9+。
 4. 选中新建的 GameObject，拖动 main.cs，添加为该 GameObject 的 Component。
 ![](https://main.qcloudimg.com/raw/b83a9b0bbf7e46ebe09dca89383b016f.jpg)
 5. 参考以下示例代码，将 mgobe package 导入 main.cs。
-```c#
-using Packages.com.unity.mgobe.Runtime.src;
-using Packages.com.unity.mgobe.Runtime.src.SDK;
-using Lagame;
 ```
-
-
+using com.unity.mgobe;
+```
 
 ### 调用 API 
 1. 在 main.cs 中输入以下代码，完成 SDK 初始化，获得 room 实例。
-```c#
+```
 GameInfoPara gameInfo = new GameInfoPara {
-	// 替换 为控制台上的“游戏ID”
-	GameId = "XXXXXXXXXXXXXX",
-	// 玩家 openId
-	OpenId = "openid_123_test",
-	//替换 为控制台上的“游戏Key”
-	SecretKey = "XXXXXXXXXXXXXX"
-};
-ConfigPara config = new ConfigPara {
-	// 替换 为控制台上的“域名”
-	Url = "XXXXXXX.wxlagame.com",
-	ReconnectMaxTimes = 5,
-	ReconnectInterval = 1000,
-	ResendInterval = 1000,
-	ResendTimeout = 10000
-};
-// 初始化监听器 Listener
+		// 替换 为控制台上的“游戏ID”
+		GameId = "xxxxxxxxxx",
+		// 玩家 openId
+		OpenId = "openid_123_test",
+		//替换 为控制台上的“游戏Key”
+		SecretKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+		};
+	
+	ConfigPara config = new ConfigPara {
+		// 替换 为控制台上的“域名”
+		Url = "pm01xrp4.wxlagame.com",
+		ReconnectMaxTimes = 5,
+		ReconnectInterval = 1000,
+		ResendInterval = 1000,
+		ResendTimeout = 10000
+		};
+		
+	// 初始化监听器 Listener
 Listener.Init (gameInfo, config, (ResponseEvent eve) => {
 		if (eve.Code == 0) {
 				Debug.Log ("初始化成功");
-	// 初始化成功之后才能调用其他 API
-	var room = new Room(null);
-	// ...
-}
-// 初始化广播回调事件
+				// 初始化成功之后才能调用其他 API
+				var room = new Room(null);
+				// ...
+		}
+
+		// 初始化广播回调事件
+		// ...
 });
 ```
 
 2. 修改初始化回调函数，调用 room 对象的查询房间接口（getRoomDetail），即可验证是否成功接入对战平台。示例代码如下所示：
-```c#
- // 初始化监听器 Listener
+```
+// 初始化监听器 Listener
 Listener.Init (gameInfo, config, (ResponseEvent eve) => {
-    if (eve.Code == 0) {
-        Debug.Log ("初始化成功");
-        // 初始化成功之后才能调用其他 API
-        //查询玩家自己的房间
-        var room = new Room (null);
-        room.GetRoomDetail ((ResponseEvent e) => {
-            if (e.Code != 0 && e.Code != 20011) {
-                Debug.Log ("初始化失败");
-            }
-            // Type type = e.data.GetType();
-            // Debug.LogFormat ("查询成功: {0}", type);
-            Debug.Log ("查询成功");
-            if (e.Code == 20011) {
-                Debug.Log ("玩家不在房间内");
-            } else {
-                // 玩家已在房间内
-                var res = (GetRoomByRoomIdRsp) e.Data;
-                Debug.LogFormat ("房间名 {0}", res.RoomInfo.Name);
-            }
-        });
-    } else {
-        Debug.LogFormat ("初始化失败: {0}", eve.Code);
-    }
-    // 初始化广播回调事件
+		if (eve.Code == 0) {
+			Debug.Log ("初始化成功");
+			// 初始化成功之后才能调用其他 API
+			// 查询玩家自己的房间
+			var room = new Room (null);
+			room.GetRoomDetail ((ResponseEvent e) => {
+				if (e.Code != 0 && e.Code != 20011) {
+						Debug.Log ("初始化失败");
+				}
+
+				Debug.Log ("查询成功");
+
+				if (e.Code == 20011) {
+						Debug.Log ("玩家不在房间内");
+				} else {
+						// 玩家已在房间内
+						var res = (GetRoomByRoomIdRsp) e.Data;
+						Debug.LogFormat ("房间名 {0}", res.RoomInfo.Name);
+						}
+				});
+			} else {
+					Debug.LogFormat ("初始化失败: {0}", eve.Code);
+			}
+		// 初始化广播回调事件
+		// ...
 });
 ```
 

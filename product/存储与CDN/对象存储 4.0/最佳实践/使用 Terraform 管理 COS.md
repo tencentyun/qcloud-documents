@@ -154,3 +154,4 @@ data "tencentcloud_cos_bucket_object" "mycos" {
 
 若需删除指定的存储桶或对象，从配置文件中，删除定义该存储桶或对象资源的配置信息，然后执行`terraform apply`命令。建议您使用`terraform show`命令来检查删除结果。
 
+

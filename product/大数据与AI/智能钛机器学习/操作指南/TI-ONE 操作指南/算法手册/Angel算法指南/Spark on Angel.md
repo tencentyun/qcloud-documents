@@ -6,10 +6,9 @@ Angel 是由腾讯自研并开源的高性能分布式机器学习和图计算�
 1. **添加组件**
  从左侧菜单栏中，选择【框架】>【机器学习】列表下的【Spark on Angel】节点，并将其拖拽至画布中。
 2. **配置参数**
- - 作业 Jar 包：通过该配置框上传您的 Spark on Angel 应用程序 Jar 包，必填项。
- - 主类名：指定您的 Spark on Angel 应用程序的入口类，即 main 函数所在的类，必填项。
- - 程序参数：您的 Spark on Angel 应用程序所需的参数，即传给 main 函数的参数，可选项。
- - 配置文件：指定您的 Spark on Angel 应用程序用到的配置文件，可选项。
+ - 作业 Jar 包：通过该配置框上传您的 Spark on Angel 应用程序 Jar 包。
+ - 主类名：指定您的 Spark on Angel 应用程序的入口类，即 main 函数所在的类。
+ - 程序参数：您的 Spark on Angel 应用程序所需的参数，即传给 main 函数的参数。
 3. **配置资源**
  - num-executors：任务启动的 spark executor 个数，可根据数据量来配置，一般训练数据量越大，需要的 worker 个数越多。
  - spark.ps.instances：Angel ps 个数，可根据模型大小来配置，一般模型越大，需要的 PS 个数越多。
@@ -17,9 +16,7 @@ Angel 是由腾讯自研并开源的高性能分布式机器学习和图计算�
  - executor 节点资源类型：请选择合适的 executor 节点机型。
  - master 节点资源类型：请选择合适的 master 节点机型。
  - ps 节点资源类型：请选择合适的 ps 节点机型。
- - spark conf 参数
- - spark.angel.tmp.output.path.prefix：angel 临时目录的前缀路径，为 COS 路径。
- - saprk.angel.output.path.deleteonexist：为了防止误删除模型，默认不自动删除模型输出路径的文件。如果需要设置为 true。
+ - spark conf 参数。
 4. **运行**
 单击【保存】并运行工作流。
 5. **查看 Spark 控制台和日志**
@@ -126,17 +123,19 @@ object OfflineRunner {
 
 
 ### 平台配置
-**1. 添加组件**
-从左侧菜单栏中，选择【框架】>【机器学习】列表下的  Spark on Angel 节点，并将其拖拽至画布中。
-**2. 配置参数**
+#### 1. 添加组件
+
+从左侧菜单栏中，选择【框架】>【机器学习】列表下的 Spark on Angel 节点，并将其拖拽至画布中。
+
+#### 2. 配置参数
+
  - 作业 Jar 包：通过该配置框上传本地编译后的 spark-on-angel-examples.jar。
  - 主类名：指定您的 Spark on Angel 应用程序的入口类，即 main 函数所在的类。
  - 程序参数：您的 Spark on Angel 应用程序所需的参数，即传给 main 函数的参数。
- - 配置文件：指定您的 Spark on Angel 应用程序用到的配置文件。
-![](https://main.qcloudimg.com/raw/24a39d78d477e18bf4ff2ab139411980.png)
 
 #### 3. 配置资源
 您可按需选择资源参数。
+
 #### 4. 运行
 单击【保存】并运行工作流。
 

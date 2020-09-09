@@ -1,0 +1,49 @@
+## 接口名称
+ UpdatePlayerSessionCreationPolicy 
+<span id="UpdatePlayerSessionCreationPolicy"></span>
+
+
+## 接口说明
+
+游戏进程可以通过该接口，更新当前游戏服务器会话玩家加入的策略。
+
+## 请求消息体
+
+```
+message UpdatePlayerSessionCreationPolicyRequest {
+   string gameServerSessionId = 1;
+   string newPlayerSessionCreationPolicy = 2;
+}
+```
+
+## 返回消息体
+
+```
+message GseResponse 
+```
+
+## 字段说明
+
+**UpdatePlayerSessionCreationPolicyRequest**
+
+| 字段名                         | 类型   | 说明                                                         |
+| ------------------------------ | ------ | ------------------------------------------------------------ |
+| gameServerSessionId            | string | 对应 GameServerSession 结构的 GameServerSessionId，唯一标记一次 GameServerSession |
+| newPlayerSessionCreationPolicy | string | 更新后的策略，可选值有：<li>**ACCEPT_ALL**（接受所有新玩家会话）<li>**DENY_ALL** （拒绝所有新玩家会话） |
+
+## 使用示例
+
+```
+func (r *rpcClient) UpdatePlayerSessionCreationPolicy(gameServerSessionId, newpolicy string) (*grpcsdk.GseResponse, error) {
+   conn, _ := grpc.DialContext(context.Background(), LOCAL_ADDRESS, grpc.WithInsecure())
+   defer conn.Close()
+
+   req := &grpcsdk.UpdatePlayerSessionCreationPolicyRequest{
+      GameServerSessionId:            gameServerSessionId,
+      NewPlayerSessionCreationPolicy: newpolicy,
+   }
+
+   client := grpcsdk.NewGseGrpcSdkServiceClient(conn)
+   return client.UpdatePlayerSessionCreationPolicy(getContext(), req)
+}
+```
