@@ -85,8 +85,3 @@ content-type: application/json
 | InvalidParameterValue                         | 参数取值错误。      |
 | InvalidParameterValue.InvalidShareDeviceToken | 设备分享 Token 无效。 |
 
-|      |      |
-|---|---|
-|      |      |
-|      |      |
-|      |      |
