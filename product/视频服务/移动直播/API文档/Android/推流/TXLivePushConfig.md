@@ -22,14 +22,14 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| homeOrientation | int | 采集的视频的旋转角度；取值请参见 TXLiveConstants VIDEO_ANGLE_HOME_XXX。 |
+| homeOrientation | int | 采集的视频的旋转角度。 |
 
 __介绍__
 
 接口说明：
-- 默认值：HOME_ORIENTATION_DOWN（竖屏推流）。
-- 常用的还有 HOME_ORIENTATION_RIGHT 和 HOME_ORIENTATION_LEFT，也就是横屏推流。
-- 改变该字段的设置以后，本地摄像头的预览画面方向也会发生改变，请调用 TXLivePush 的 [setRenderRotation](https://cloud.tencent.com/document/product/454/34775#setrenderrotation) 进行矫正。
+- 默认值：TXLiveConstants.VIDEO_ANGLE_HOME_DOWN（竖屏推流）。
+- 其他取值：TXLiveConstants.VIDEO_ANGLE_HOME_RIGHT 和 TXLiveConstants.VIDEO_ANGLE_HOME_LEFT (横屏推流)。
+- 改变该字段的设置以后，本地摄像头的预览画面方向也会发生改变，请调用 TXLivePusher 的 [setRenderRotation](https://cloud.tencent.com/document/product/454/34772#setrenderrotation) 进行矫正。
 
 ***
 

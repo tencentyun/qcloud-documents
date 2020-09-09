@@ -1,7 +1,7 @@
-
+本文将为您介绍 TencentOS tiny 接入腾讯物联网开发平台的框架、模组驱动移植相关操作。
 ## AT 框架、SAL 框架整体架构
 
-AT 框架是我们编写的一个通用 AT 指令解析任务，使开发者只需要调用 AT 框架提供的 API 即可处理与模组的交互数据，SAL 框架全称 Socket Abstract Layer，提供了类似 socket 网络编程的抽象层。基于 AT 框架实现 SAL 的底层函数叫做通信模组的驱动程序。
+AT 框架是我们编写的一个通用 AT 指令解析任务，使开发者只需调用 AT 框架提供的 API 即可处理与模组的交互数据，SAL 框架全称 Socket Abstract Layer，提供了类似 socket 网络编程的抽象层。基于 AT 框架实现 SAL 的底层函数叫做通信模组的驱动程序。
 
 整体架构如下：
 
@@ -12,17 +12,17 @@ AT 框架是我们编写的一个通用 AT 指令解析任务，使开发者只�
 从 TencentOS-tiny 中复制以下五个文件到工程目录中，保持文件架构不变并删除多余文件。
 - 复制 `net\at` 目录下的 `tos_at.h` 和 `tos_at.c` 文件，两个文件实现了 TencentOS tiny AT 的框架。 
 ![](https://main.qcloudimg.com/raw/9948d5be6ddf3d45a88deaa939b4ec73.png)
-- 复制 `platform\hal\st\stm32l4xx\src` 目录下的 `tos_hal_uart.c` 文件，该文件为 TencentOS-tiny AT 框架底层使用的串口驱动HAL层。
+- 复制 `platform\hal\st\stm32l4xx\src` 目录下的 `tos_hal_uart.c` 文件，该文件为 TencentOS-tiny AT 框架底层使用的串口驱动 HAL 层。
 ![](https://main.qcloudimg.com/raw/5662ec84dc7329798974c61d97d6ef7b.png)
 - 复制 `kernel\hal\include` 目录下的 `tos_hal.h` 和 `tos_hal_uart.h` 文件，两个文件为 TencentOS-tiny AT 框架的部分头文件。
 ![](https://main.qcloudimg.com/raw/e53663baaba9c9859d2035a86f3a973c.png)
 
 文件复制完成，接下来开始添加到工程中。
-1. 首先将以上两个`.c`文件添加到 Keil 工程中。
+1. 首先将以上两个 `.c` 文件添加到 Keil 工程中。
 ![](https://main.qcloudimg.com/raw/a2b157526b43905bbbfc056ce61cc51f.png)
-2. 其次将 `net\at` 和 `kernel\hal\include` 两个头文件路径添加到 Keil MDK 中。
+2. 其次将 `net\at` 和 `kernel\hal\include` 目录下两个头文件路径添加到 Keil MDK 中。
 ![](https://main.qcloudimg.com/raw/21d9140898a61a33d03a9448daa8e0dd.png)
-3. 最后在串口中断中配置调用 AT 框架的字节接收函数，编辑`stm32l4xx_it.c`文件。
+3. 最后在串口中断中配置调用 AT 框架的字节接收函数，编辑 `stm32l4xx_it.c` 文件。
  1. 添加 AT 框架的头文件。
 ```c
 /* Private includes ----------------------------------------------------------*/
@@ -45,7 +45,7 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 ```
 >!在回调函数中声明 data 变量在外部定义，这是因为 STM32 HAL 库的机制，需要在初始化完成之后先调用一次串口接收函数，使能串口接收中断，编辑 `usart.c` 文件。
 >
-    1. 在文件开头定义data变量为全局变量：
+    1. 在文件开头定义 data 变量为全局变量：
 ```c
 /* USER CODE BEGIN 0 */
 uint8_t data;
@@ -91,7 +91,7 @@ TencentOS-tiny SAL 框架的实现在 `net\sal_module_wrapper` 目录下的 `sal
 
 ## 移植通信模组驱动
 
-TencentOS-tiny 官方已提供大量的通信模组驱动实现 SAL 框架，覆盖常用的通信方式，例如2G、4G Cat.4、4G Cat.1、NB-IoT等，在`devices`文件夹下,：
+TencentOS-tiny 官方已提供大量的通信模组驱动实现 SAL 框架，覆盖常用的通信方式，例如2G、4G Cat.4、4G Cat.1、NB-IoT 等，在 `devices` 文件夹下,：
 - air724
 - bc26
 - bc25_28_95
@@ -105,7 +105,7 @@ TencentOS-tiny 官方已提供大量的通信模组驱动实现 SAL 框架，覆
 - sim7600ce
 - 欢迎贡献更多驱动...
 
-因为这些驱动都是 SAL 框架的实现，所以这些通信模组的驱动可以根据实际硬件情况**选择一种加入到工程中**，这里我以 Wi-Fi 模组 ESP8266 为例，演示如何加入通信模组驱动到工程中。
+因为这些驱动都是 SAL 框架的实现，所以这些通信模组的驱动可以根据实际硬件情况**选择一种加入到工程中**，这里以 Wi-Fi 模组 ESP8266 为例，演示如何加入通信模组驱动到工程中。
 
 ESP8266 的驱动在 `devices\esp8266` 目录中，将此文件夹从 TencentOS-tiny 官方仓库复制到工程中，保持目录架构不变。
 ![](https://main.qcloudimg.com/raw/653b2f25919a1a41b055feae8be264b0.png)
@@ -114,3 +114,5 @@ ESP8266 的驱动在 `devices\esp8266` 目录中，将此文件夹从 TencentOS-
 然后将 `esp8266.h` 头文件所在路径添加到 Keil MDK 工程中，这样就移植完成。
 ![](https://main.qcloudimg.com/raw/fdcd3241a383e501ac20d2e4162f2505.png)
 
+## 下一步操作
+请前往 [步骤四：移植腾讯云 C-SDK](https://cloud.tencent.com/document/product/1081/47958) 进行内核移植操作。
