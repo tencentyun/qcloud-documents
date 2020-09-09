@@ -138,8 +138,8 @@ Container 类型 Image 的具体数据描述如下：
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
 | Url                 | Response.TemplateList.<br/>Watermark.Image | 水印图地址   | String    | 是   | 无  | 1. 水印图片地址 <br/> 2. 如果水印图片为私有对象时，请携带签名信息 |
 | Mode                 | Response.TemplateList.<br/>Watermark.Image | 尺寸模式    | String    | 是   | 无   | 1. Original：原有尺寸 <br/>  2. Proportion：按比例 <br/> 3. Fixed：固定大小 |
-| Width                | Response.TemplateList.<br/>Watermark.Image | 宽         | String    | 否   | 无   | 1. 当 Mode 为 Original，水印图宽 <br/> 2. 当 Mode 为 Proportion，单位为%，值范围：[0 100]<br/> 3.当 Mode 为 Fixed，单位为px，值范围：[128，4096]，若只设置 Width 时，按照视频原始比例计算 Height<br/> |
-| Height               | Response.TemplateList.<br/>Watermark.Image | 高         | String    | 否   | 无   | 1. 当 Mode 为 Original，水印图高 <br/> 2. 当 Mode 为 Proportion，单位为%，值范围：[0 100]<br/> 3.当 Mode 为 Fixed，单位为px，值范围：[128，4096]，若只设置 Height 时，按照视频原始比例计算 Width<br/>|
+| Width                | Response.TemplateList.<br/>Watermark.Image | 宽         | String    | 否   | 无   | 1. 当 Mode 为 Original，水印图宽 <br/> 2. 当 Mode 为 Proportion，单位为%，值范围：[0 100]<br/> 3. 当 Mode 为 Fixed，单位为px，值范围：[128，4096]，若只设置 Width 时，按照视频原始比例计算 Height<br/> |
+| Height               | Response.TemplateList.<br/>Watermark.Image | 高         | String    | 否   | 无   | 1. 当 Mode 为 Original，水印图高 <br/> 2. 当 Mode 为 Proportion，单位为%，值范围：[0 100]<br/> 3. 当 Mode 为 Fixed，单位为px，值范围：[128，4096]，若只设置 Height 时，按照视频原始比例计算 Width<br/>|
 | Transparency         | Response.TemplateList.<br/>Watermark.Image | 透明度      | String    | 是   | 无   | 1. 值范围：[0 100]，单位% |
 
 
@@ -147,11 +147,11 @@ Container 类型 Text 的具体数据描述如下：
 
 | 节点名称（关键字）     | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| FontSize            | Response.TemplateList.Watermark.Text | 字体大小    | String    | 是   | 无  | 1. 值范围：[0 100]，单位px |
-| FontType            | Response.TemplateList.Watermark.Text | 字体类型    | String    | 是   | 无  | 1.  |
-| FontColor           | Response.TemplateList.Watermark.Text | 字体颜色    | String    | 是   | 无  | 1. 格式：0xRRGGBB |
-| Transparency        | Response.TemplateList.Watermark.Text | 透明度      | String    | 是   | 无  | 1. 值范围：[0 100]，单位%|
-| Text                | Response.TemplateList.Watermark.Text | 水印内容    | String    | 是   | 无  | 1. 长度不超过64个字符，仅支持中文、英文、数字、_、-和*|
+| FontSize            | Response.TemplateList.<br/>Watermark.Text | 字体大小    | String    | 是   | 无  | 1. 值范围：[0 100]，单位px |
+| FontType            | Response.TemplateList.<br/>Watermark.Text | 字体类型    | String    | 是   | 无  | 1. 参考下表  |
+| FontColor           | Response.TemplateList.<br/>Watermark.Text | 字体颜色    | String    | 是   | 无  | 1. 格式：0xRRGGBB |
+| Transparency        | Response.TemplateList.<br/>Watermark.Text | 透明度      | String    | 是   | 无  | 1. 值范围：[0 100]，单位%|
+| Text                | Response.TemplateList.<br/>Watermark.Text | 水印内容    | String    | 是   | 无  | 1. 长度不超过64个字符，仅支持中文、英文、数字、_、-和*|
 
 #### 错误码
 
