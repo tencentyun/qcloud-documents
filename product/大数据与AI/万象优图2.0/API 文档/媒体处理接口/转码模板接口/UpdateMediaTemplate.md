@@ -22,7 +22,6 @@ Content-Type: application/xml
 
 #### 请求头
 
-**公共头部**
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
 
 #### 请求体
