@@ -1,23 +1,23 @@
 ## 1. 接口描述
 
-接口请求域名： 接口请求域名替换
-本接口(AppDescribeShareDeviceToken)用于获取设备分享 Token 信息
+接口请求域名： `iot.cloud.tencent.com/api/exploreropen/tokenapi`。
+本接口（AppDescribeShareDeviceToken）用于获取设备分享 Token 信息。
 
 ## 2. 输入参数
 
 | 名称             | 类型   | 必选 | 描述                                                         |
 | ---------------- | ------ | ---- | ------------------------------------------------------------ |
 | AccessToken      | String | 是   | 公共参数，AccessToken 用于对一个已经登录的用户鉴权。         |
-| RequestId        | String | 是   | 公共参数，唯一请求ID，可自行生成，推荐使用 uuId。定位问题时，需提供该次请求的 RequestId。 |
-| Action           | String | 是   | 公共参数，本接口取值：AppDescribeShareDeviceToken            |
-| ShareDeviceToken | String | 是   | 设备分享Token                                                |
+| RequestId        | String | 是   | 公共参数，唯一请求 ID，可自行生成，推荐使用 uuId。定位问题时，需提供该次请求的 RequestId。 |
+| Action           | String | 是   | 公共参数，本接口取值：AppDescribeShareDeviceToken。            |
+| ShareDeviceToken | String | 是   | 设备分享 Token。                                                |
 
 ## 3. 输出参数
 
 | 名称                 | 类型                                                         | 描述                                                         |
 | -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | RequestId            | String                                                       | 公共参数，唯一请求ID，与入参相同，定位问题时，需提供该次请求的 RequestId。 |
-| ShareDeviceTokenInfo | Object of [ShareDeviceTokenInfo](接口请求域名替换#ShareDeviceTokenInfo) | 响应的结果                                                   |
+| ShareDeviceTokenInfo | Object of [ShareDeviceTokenInfo](https://cloud.tencent.com/document/product/1081/40780#sharedevicetokeninfo) | 响应的结果。                    |
 
 ## 4. 示例
 
@@ -31,7 +31,7 @@ content-type: application/json
 {
   "Action": "AppDescribeShareDeviceToken",
   "AccessToken": "8b4a70dd16105f******************18edd4e78a3bb8ec",
-  "RequestId": "1555507435215",
+  "RequestId": "1555507****15",
   "ShareDeviceToken": "49d2b71dc5814354****8a4c756d3ce9"
 }
 ```
@@ -44,7 +44,7 @@ content-type: application/json
 // 前端可以通过UserId是否为空，来判断绑定情况。
 {
   "Response": {
-    "RequestId": "1555507435215",
+    "RequestId": "1555507****15",
     "ShareDeviceTokenInfo": {
       "FromUserId": "1",
       "FromUserNick": "tests",
@@ -71,7 +71,7 @@ content-type: application/json
       "Code": "InvalidParameterValue.InvalidShareDeviceToken",
       "Message": "设备分享Token无效"
     },
-    "RequestId": "1555507435215"
+    "RequestId": "1555507****15"
   }
 }
 ```
@@ -81,9 +81,9 @@ content-type: application/json
 
 | 错误码                                        | 描述              |
 | --------------------------------------------- | ----------------- |
-| InternalError                                 | 内部错误          |
-| InvalidParameterValue                         | 参数取值错误      |
-| InvalidParameterValue.InvalidShareDeviceToken | 设备分享Token无效 |
+| InternalError                                 | 内部错误。          |
+| InvalidParameterValue                         | 参数取值错误。      |
+| InvalidParameterValue.InvalidShareDeviceToken | 设备分享 Token 无效。 |
 
 |      |      |
 |---|---|
