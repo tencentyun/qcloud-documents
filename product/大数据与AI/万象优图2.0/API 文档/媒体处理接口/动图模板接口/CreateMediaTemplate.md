@@ -100,11 +100,7 @@ Request 节点 TimeInterval 的具体数据描述如下：
 
 #### 响应头
 
-**公共响应头**
 该响应包含公共响应头，详情请参见 [公共响应头部]( https://cloud.tencent.com/document/product/460/42866) 文档。
-
-**特有响应头**
-该响应无特殊的响应头。
 
 #### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
