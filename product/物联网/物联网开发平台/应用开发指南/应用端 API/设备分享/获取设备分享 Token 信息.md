@@ -20,9 +20,6 @@
 | ShareDeviceTokenInfo | Object of [ShareDeviceTokenInfo](https://cloud.tencent.com/document/product/1081/40780#sharedevicetokeninfo) | 响应的结果。                    |
 
 ## 4. 示例
-
-#### 示例1
-
 **输入示例**
 
 ```HTTP
