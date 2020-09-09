@@ -1,6 +1,6 @@
 ## 功能描述
 
-Describe Media Jobs 接口用来拉取符合条件的任务。
+DescribeMediaJobs 接口用来拉取符合条件的任务。
 
 ## 请求
 
