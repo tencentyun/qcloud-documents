@@ -69,7 +69,7 @@ Container 类型 Snapshot 的具体数据描述如下：
 | TimeInterval         | Request.Snapshot | 截图频率 | String    | 否   | 无  | 1. (0 3600] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
 | Count                | Request.Snapshot | 截图数量 | String    | 是   | 无  | 1. (0 10000] |
 | Width                | Request.Snapshot | 宽 | String    | 否   |  视频原<br/>始宽度 | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> 3. 若只设置 Width 时，按照视频原始比例计算 Height |
-| Height                | Request.Snapshot | 高 | String    | 否  | 视频原<br/>始高度  | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> 3. 若只设置Height时，按照视频原始比例计算 Width |
+| Height                | Request.Snapshot | 高 | String    | 否  | 视频原<br/>始高度  | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> 3. 若只设置 Height 时，按照视频原始比例计算 Width |
 
 
 ## 响应
