@@ -34,5 +34,5 @@ workload 已挂载 host 的 `/root/.kube/config` 或者 `/home/ubuntu/.kube/conf
 #### 处理措施
 正确使用 Kubernetes 的 serviceaccount 进行 incluster 方式访问集群，请参见 [Kubernetes官方文档](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)。
 
->! 如果您处于某些特殊场景考虑，仍需要节点下发 admin token 的 Kubeconfig 文件，或者遇到其他任何问题，您可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
+>! 如果您出于某些特殊场景考虑，仍需要节点下发 admin token 的 Kubeconfig 文件，或者遇到其他任何问题，您可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
 
