@@ -21,7 +21,6 @@
 |Status|String|请求结果。|
 
 ## 4. 示例
-#### 示例1
 **输入示例**
 ```HTTP
 POST https://iot.cloud.tencent.com/api/exploreropen/tokenapi HTTP/1.1
