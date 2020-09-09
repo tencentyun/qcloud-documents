@@ -31,7 +31,7 @@ QDAudioDataSource *dataSource = [[QDAudioDataSource alloc] init];
 QCloudRealTimeRecognizer *realTimeRecognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config dataSource:dataSource];
 ```
 
-4.2 **接入 ASR 的 QCloudAudioDataSource 协议如下，[协议详情](https://cloud.tencent.com/document/product/1093/35723#QCloudAudioDataSource)。代码可参考工程中 QDAudioDataSource.m 文件**。
+4.2 **接入 ASR 的 QCloudAudioDataSource 协议如下，[协议详情](https://cloud.tencent.com/document/product/1093/35723#QCloudAudioDataSource) 。代码可参考工程中 QDAudioDataSource.m 文件**。
 
 ```objc
 @interface QDAudioDataSource : NSObject<QCloudAudioDataSource>
@@ -91,7 +91,7 @@ final AudioRecognizeRequest audioRecognizeRequest = new AudioRecognizeRequest.
 .build(); 
 ```
 
-4.2 接入 ASR 的 PcmAudioDataSource 接口实现如下，[协议详情](https://cloud.tencent.com/document/product/1093/35722)。代码可参考工程中 AudioDataSource.java 文件。
+4.2 接入 ASR 的 PcmAudioDataSource 接口实现如下，[协议详情](https://cloud.tencent.com/document/product/1093/35722) 。代码可参考工程中 AudioDataSource.java 文件。
 
 ```java
 private ConcurrentLinkedDeque<Short> shortList = new ConcurrentLinkedDeque<>();
