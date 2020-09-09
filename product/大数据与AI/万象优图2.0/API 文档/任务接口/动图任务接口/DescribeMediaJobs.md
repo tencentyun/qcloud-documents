@@ -19,11 +19,7 @@ Authorization: <Auth String>
 
 #### 请求头
 
-**公共头部**
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/) 文档。
-
-**非公共头部**
-该请求操作无特殊的请求头部信息。
 
 #### 请求体
 
@@ -48,11 +44,7 @@ Authorization: <Auth String>
 
 #### 响应头
 
-**公共响应头**
 此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/) 文档。
-
-**特有响应头**
-该响应无特殊的响应头。
 
 #### 响应体
 
