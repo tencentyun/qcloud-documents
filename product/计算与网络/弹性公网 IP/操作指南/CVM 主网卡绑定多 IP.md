@@ -42,27 +42,24 @@
  - **网关：**如果您未更改其他设置，则网关为子网网段的首个 IP，如下图中的所属子网网段的首个 IP 即为 `10.0.0.1`。
 ![](https://main.qcloudimg.com/raw/130af7fd24d0c052661bec7679545112.png)
 4. 登录云服务器，具体操作请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
-5. <span id="step5">执行如下命令，查看网卡信息，如下图所示，本例中主网卡名称为eth0，具体查询结果以您实际为准。
-
-   ```
+5. <span id="step5">执行如下命令，查看网卡信息，如下图所示，本例中主网卡名称为 eth0，具体查询结果以您实际为准。
+   ```plaintext
    ip address 
    ```
 ![](https://main.qcloudimg.com/raw/ffb68a26e38e8b6ec3c7d0c34e35127e.png)
 6. 执行如下命令，备份网卡信息。
-
-   > 注意：
-   >
-   > 网卡名称**ethx**以[第5步](#step5)查询到的实际网卡名为准。
-   > 
-```
+> 注意：
+> 网卡名称 **ethx** 以[ 第5步 ](#step5)查询到的实际网卡名称为准。
+> 
+```plaintext
 cp /etc/sysconfig/network-scripts/ifcfg-eth0{,.bak}
 ```
 7. 执行如下命令，打开网卡配置文件。
-```
+```plaintext
 vim /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
 8. 按 **i** 切换至编辑模式，把配置文件内容修改为：
-```
+```plaintext
 # Created by cloud-init on instance boot automatically, do not edit.
 #
 # 此处修改为static
@@ -99,11 +96,11 @@ USERCTL=no
 ![](https://main.qcloudimg.com/raw/bbc5a78eab53c430eb3e0edcc04287aa.png)
 9. 完成修改后，按 **Esc**，输入 **:wq!** 并回车，保存配置并返回。
 10. 执行如下命令，重启网络服务。
-```
+```plaintext
 systemctl restart network.service
 ```
 11. 执行如下命令，查看 IP。
-```
+```plaintext
 ip address 
 ```
 ![](https://main.qcloudimg.com/raw/40664f8d1eeae7d3ce3ae94a8e602310.png)
