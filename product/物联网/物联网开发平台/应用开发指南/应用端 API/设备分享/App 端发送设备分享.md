@@ -8,17 +8,17 @@
 |---|---|---|---|
 |AccessToken|String|是|公共参数，AccessToken 用于对一个已经登录的用户鉴权。|
 |RequestId|String|是|公共参数，唯一请求 ID，可自行生成，推荐使用 uuId。定位问题时，需提供该次请求的 RequestId。|
-|Action|String|是|公共参数，本接口取值：AppSendShareDeviceInvite|
-|ProductId|String|是|产品 ID|
-|DeviceName|String|是|设备名称|
-|ToUserID|String|是|被分享用户 ID|
+|Action|String|是|公共参数，本接口取值：AppSendShareDeviceInvite。|
+|ProductId|String|是|产品 ID。|
+|DeviceName|String|是|设备名称。|
+|ToUserID|String|是|被分享用户 ID。|
 
 ## 3. 输出参数
 
 |名称|类型|描述|
 |---|---|---|
 |RequestId|String|公共参数，唯一请求 ID，与入参相同，定位问题时，需提供该次请求的 RequestId。|
-|Status|String|请求结果|
+|Status|String|请求结果。|
 
 ## 4. 示例
 #### 示例1
