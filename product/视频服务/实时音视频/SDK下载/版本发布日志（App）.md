@@ -21,7 +21,7 @@
 - Windows：修复在 Music 音质模式下，开启系统混音 [stopSystemAudioLoopback](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aab0258238e4414c386657151d01ffb23) 后会导致漏回声的问题。
 - Windows：修复在快速调用 enterRoom 和 exitRoom 进退房的情况下，偶现的播放端无声的 BUG。
 - Windows：修复 SDK 对 Visual Stuido 2010 项目的编译兼容性问题。
-- Windows：修复手动接收模式（即 [setDefaultStreamRecvMode(false，false)](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a7a0238314fc1e1f49803c0b22c1019d5) ）下会重复收到 onUserVideoAvailable 事件回调的问题。
+- Windows：修复手动接收模式（即 [setDefaultStreamRecvMode(false，false)](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a7a0238314fc1e1f49803c0b22c1019d5)）下会重复收到 onUserVideoAvailable 事件回调的问题。
 
 
 ## Version 7.6 @ 2020.08.21
