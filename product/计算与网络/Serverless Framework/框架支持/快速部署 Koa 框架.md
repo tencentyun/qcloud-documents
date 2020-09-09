@@ -18,7 +18,7 @@ $ npm install -g serverless
 1.本地创建一个新文件夹，并在文件夹下创建 `serverless.yml`：
 ```console
 $ mkdir test && cd test
-& touch serverless.yml 
+$ touch serverless.yml 
 ```
 2.初始化一个新的 npm 包，并安装 Koa：
 ```
