@@ -5,9 +5,10 @@
 
 ## 问题影响及处理措施
 
-### 用户习惯使用 TKE 集群登录节点进行 kubectl 操作，后续将无法直接在节点上使用。
+
 
 #### 问题现象
+用户习惯使用 TKE 集群登录节点进行 kubectl 操作，后续将无法直接在节点上使用。
 ```bash
 $ kubectl get node
 The connection to the server localhost:8080 was refused - did you specify the right host or port?
