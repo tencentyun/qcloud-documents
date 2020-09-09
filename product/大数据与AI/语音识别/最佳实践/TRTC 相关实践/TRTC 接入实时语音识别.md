@@ -19,6 +19,8 @@
 
 4. ASR 音频源设置为第三方，并实现具体逻辑。
 
+4.1 接入第三方音频源需要在 ASR 接入部分实现 QCloudAudioDataSource 协议。代码示例如下：
+
 ```objective-c
 #import<QCloudSDK/QCloudSDK.h>
 
@@ -29,7 +31,7 @@ QDAudioDataSource *dataSource = [[QDAudioDataSource alloc] init];
 QCloudRealTimeRecognizer *realTimeRecognizer = [[QCloudRealTimeRecognizer alloc] initWithConfig:config dataSource:dataSource];
 ```
 
-5. **接入 ASR 的 QCloudAudioDataSource 协议如下，[协议详情](https://cloud.tencent.com/document/product/1093/35723#QCloudAudioDataSource)。代码可参考工程中 QDAudioDataSource.m 文件**。
+4.2 **接入 ASR 的 QCloudAudioDataSource 协议如下，[协议详情](https://cloud.tencent.com/document/product/1093/35723#QCloudAudioDataSource)。代码可参考工程中 QDAudioDataSource.m 文件**。
 
 ```objc
 @interface QDAudioDataSource : NSObject<QCloudAudioDataSource>
@@ -78,6 +80,8 @@ QCloudRealTimeRecognizer *realTimeRecognizer = [[QCloudRealTimeRecognizer alloc]
 3. 在 [TRTC 接口协议](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html) 里设置音频源代理，并设置 ASR 读取音频源。
 4. ASR 音频源设置为第三方，并实现具体逻辑。
 
+4.1 接入第三方音频源需要在 ASR 接入部分实现 PcmAudioDataSource 接口。代码示例如下：
+
 ```java
 //1.使用第三方外部数据源传入语音数据，自定义 data source 需要实现 PcmAudioDataSource 接口
 AudioDataSource dataSource = new AudioDataSource(); 
@@ -87,7 +91,7 @@ final AudioRecognizeRequest audioRecognizeRequest = new AudioRecognizeRequest.
 .build(); 
 ```
 
-5. 接入 ASR 的 PcmAudioDataSource 接口实现如下，[协议详情](https://cloud.tencent.com/document/product/1093/35722)。代码可参考工程中 AudioDataSource.java 文件。
+4.2 接入 ASR 的 PcmAudioDataSource 接口实现如下，[协议详情](https://cloud.tencent.com/document/product/1093/35722)。代码可参考工程中 AudioDataSource.java 文件。
 
 ```java
 private ConcurrentLinkedDeque<Short> shortList = new ConcurrentLinkedDeque<>();
