@@ -1,5 +1,5 @@
 ## 操作场景
-该任务指导您通过 API 网关控制台创建微服务 API，并对前端和后端配置方法进行了详细说明。
+该任务指导您通过 API 网关控制台创建微服务 API（即后端对接腾讯微服务平台 TSF 的 API），并对前端和后端配置方法进行了详细说明。
 
 ## 操作步骤
 ### 新建微服务 API
@@ -17,20 +17,21 @@
 4. 选择鉴类型：免鉴权或密钥对。
 5. 选择是否支持 CORS。
 6. 填写参数配置。
-![](https://main.qcloudimg.com/raw/8075b27c01188b3dd19ec671cfebcbec.png)
+![](https://main.qcloudimg.com/raw/1fd104a40dfc5e2059e6e0e5d4256429.png)
 **入参**包含了来源于 Header、Query、Path 的参数。其中 Path 参数对应于在 URL 路径中定义的动态参数。
 任一参数均需要指定参数名、参数类型和参数数据类型，同时可以指明是否必填、默认值、示例数据和描述说明。利用这些配置，API 网关可以协助您完成入参的文档化和初步校验。
 在调用时需要传入 X-NameSpace-Code 和 X-MicroService-Name 两个必选参数，这两个参数控制 API 网关的请求发往哪个微服务，可放置在 Header、Path、Query 中，若放在 Path 中，则与通用 API 类似，需要在路径中配置路径参数，例如 `/{X-NameSpace-Code}/{X-MicroService-Name}`，若变量 X-NameSpace-Code=crgt，X-MicroService-Name=coupon-activity，则访问的 URL 为`https://访问域名/crgt/coupon-activity/`。除了这两个固定参数。其他参数配置均与通用 API 一致。
  - X-NameSpace-Code 路径参数是后端配置中所选择的命名空间在 [腾讯微服务平台](https://console.cloud.tencent.com/tsf/namespace) 命名空间中配置的 code 值。
+ ![](https://main.qcloudimg.com/raw/bb9874eb47ad90d767ade31afc73ee58.png)
  - X-MicroService-Name 路径参数是后端配置中所选择的集群在 [腾讯微服务平台](https://console.cloud.tencent.com/tsf/service) 服务治理中配置的微服务名称。
- ![](https://main.qcloudimg.com/raw/88a9a19f7277b56dda5f39f334146900.png)
+ ![](https://main.qcloudimg.com/raw/395cc8be96f21032f0c7f675a0b69ca7.png)
 7. 单击【下一步】，进行后端配置。
 
 ### 后端配置
 1. 选择所对接微服务的集群名称和命名空间。
-![](https://main.qcloudimg.com/raw/12b75372998afa85cd04dae789a4e63c.png)
 2. 选择微服务。API 发布者可在一个 API 中对接多个微服务。
 请确保添加的服务可以被 API 网关访问，包括 cvm 部署的微服务，容器部署的微服务（公网访问和  NodePort 访问）。
+![](https://main.qcloudimg.com/raw/958344a6d8148ce39c9dd0d84843faf4.png)
 >?目前 API 网关只支持将请求转发到 TSF 同一种部署类型（虚拟机或容器）的服务实例上。如果一个服务下既有虚拟机部署、又有容器部署的微服务实例，则不支持将 API 网关作为请求入口。
 3. 配置后端路径。
 具体的后端服务请求路径。如果需要在路径中配置动态参数，请使用`{}` 符号，并在其中填入参数名，此参数名将用于在参数映射的配置中配置为来源于前端配置的入参。这里的路径可与前端不同，做路径映射。为真正服务的请求路径。
@@ -59,4 +60,3 @@ API 的错误码定义，用于指明额外的错误码，错误信息和描述�
 设置访问来源时，至少需要放通 API 网关所在网段 9.0.0.0/8 以及100.64.0.0/10，其他来源随客户需求确定。
 - 对于虚拟机部署的应用，要放通虚拟机上对应的服务端口。对于容器上部署的应用，需要放通的是容器所在虚拟机的服务端口，而不是 nodeport 端口。
 - 对于容器应用，常常发生 IP 漂移的情况，建议将集群中的所有机器都放通容器上运行的需要对外暴露的服务端口。
-
