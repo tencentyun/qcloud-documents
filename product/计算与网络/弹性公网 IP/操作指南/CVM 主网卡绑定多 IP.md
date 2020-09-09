@@ -49,7 +49,7 @@
 ![](https://main.qcloudimg.com/raw/ffb68a26e38e8b6ec3c7d0c34e35127e.png)
 6. 执行如下命令，备份网卡信息。
 > 注意：
-> 网卡名称 **ethx** 以[ 第5步 ](#step5)查询到的实际网卡名称为准。
+>  网卡名称 **ethx** 请替换为[ 第5步 ](#step5)查询到的实际网卡名称。
 > 
 ```plaintext
 cp /etc/sysconfig/network-scripts/ifcfg-eth0{,.bak}
