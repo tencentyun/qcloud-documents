@@ -46,10 +46,10 @@
    ```plaintext
    ip address 
    ```
-![](https://main.qcloudimg.com/raw/ffb68a26e38e8b6ec3c7d0c34e35127e.png)
+![](https://main.qcloudimg.com/raw/a6bbd49ef85aa8f95ccdfcc839ec4383.png)
 6. 执行如下命令，备份网卡信息。
 > 注意：
->  网卡名称 **ethx** 请替换为[ 第5步 ](#step5)查询到的实际网卡名称。
+> 网卡名称 **ethx** 请替换为[ 第5步 ](#step5)查询到的实际网卡名称。
 > 
 ```plaintext
 cp /etc/sysconfig/network-scripts/ifcfg-eth0{,.bak}
