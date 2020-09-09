@@ -22,9 +22,6 @@
 | ShareDeviceToken | String | 设备分享 Token。                                                |
 
 ## 4. 示例
-
-#### 示例1
-
 **输入示例**
 
 ```HTTP
