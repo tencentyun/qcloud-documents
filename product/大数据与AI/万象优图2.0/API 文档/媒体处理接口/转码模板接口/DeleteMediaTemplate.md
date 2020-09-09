@@ -1,6 +1,6 @@
 ## 功能描述
 
-Delete Template 用于删除转码模板。
+DeleteMediaTemplate 用于删除转码模板。
 
 ## 请求
 
@@ -21,11 +21,7 @@ Content-Type: application/xml
 
 #### 请求头
 
-**公共头部**
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
-
-**非公共头部**
-该请求操作无特殊的请求头部信息。
 
 #### 请求体
 
