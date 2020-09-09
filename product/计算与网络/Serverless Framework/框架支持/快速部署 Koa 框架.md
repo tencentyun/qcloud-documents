@@ -52,7 +52,6 @@ module.exports = app
 ```yml
 # serverless.yml
 
-org: orgDemo # (optional) serverless dashboard org. default is the first org you created during signup.
 app: appDemo # (optional) serverless dashboard app. default is the same as the name property.
 stage: dev # (optional) serverless dashboard stage. default is dev.
 component: koa # (required) name of the component. In that case, it's koa.
