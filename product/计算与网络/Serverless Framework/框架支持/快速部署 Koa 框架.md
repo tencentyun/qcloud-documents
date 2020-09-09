@@ -10,15 +10,15 @@ Koa 组件通过使用 serverless-tencent 的基础组件（如 API 网关组件
 
 通过 npm 安装 Serverless：
 ```console
-$ npm install -g serverless
+npm install -g serverless
 ```
 
 ### 2. 创建
 
 1.本地创建一个新文件夹，并在文件夹下创建 `serverless.yml`：
 ```console
-$ mkdir test && cd test
-$ touch serverless.yml 
+mkdir test && cd test
+touch serverless.yml 
 ```
 2.初始化一个新的 npm 包，并安装 Koa：
 ```
@@ -27,7 +27,7 @@ npm i --save koa  # 安装 koa
 ```
 3.本地创建一个 `sls.js` 文件：
 ```console
-$ touch sls.js
+touch sls.js
 ```
 4.在 `sls.js` 文件中创建您的 Koa App：
 ```js
@@ -113,7 +113,7 @@ $ sls remove --debug
 
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建 `.env` 文件：
 ```console
-$ touch .env # 腾讯云的配置信息
+touch .env # 腾讯云的配置信息
 ```
 
 在 `.env` 文件中配置腾讯云的 SecretId 和 SecretKey 信息并保存：
