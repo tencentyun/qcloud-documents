@@ -25,9 +25,6 @@ Content-Type: application/xml
 **公共头部**
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
 
-**非公共头部**
-该请求操作无特殊的请求头部信息。
-
 #### 请求体
 该请求操作的实现需要有如下请求体。
 
@@ -144,11 +141,7 @@ Container 类型 TransConfig 的具体数据描述如下：
 
 #### 响应头
 
-**公共响应头**
 此接口仅返回公共响应头部，详情请参见 [公共响应头部]( https://cloud.tencent.com/document/product/460/42866) 文档。
-
-**特有响应头**
-该响应无特殊的响应头。
 
 #### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
