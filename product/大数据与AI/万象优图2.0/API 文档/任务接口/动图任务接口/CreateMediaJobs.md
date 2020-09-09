@@ -1,6 +1,6 @@
 ## 功能描述
 
-Create Media Jobs 接口用来提交一个动图任务。
+CreateMediaJobs 接口用来提交一个动图任务。
 
 ## 请求
 
