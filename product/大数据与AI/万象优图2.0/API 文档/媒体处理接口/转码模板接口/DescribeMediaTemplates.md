@@ -21,10 +21,10 @@ Content-Type: application/xml
 
 #### 请求头
 
-公共头部
+**公共头部**
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
 
-非公共头部
+**非公共头部**
 该请求操作无特殊的请求头部信息。
 
 #### 请求体
@@ -37,7 +37,7 @@ Content-Type: application/xml
 |:---           |:--       |:--                    |   :--     |   :--    |
 | tag           | 无        | 模板Tag：Transcode       | String    |是|
 | category      | 无   | Official，Custom，默认值: Custom | String    |是|
-| ids           | 无        | 模板ID，以`,`符号分割字符串  | String     |否|
+| ids           | 无        | 模板 ID，以`,`符号分割字符串  | String     |否|
 | name          | 无        | 模板名称前缀              | String     |否|
 | pageNumber    | 无        | 第几页                   | Integer     |否|
 | pageSize      | 无        | 每页个数                 | Integer     |否|
@@ -47,10 +47,10 @@ Content-Type: application/xml
 
 #### 响应头
 
-公共响应头
+**公共响应头**
 此接口仅返回公共响应头部，详情请参见 [公共响应头部]( https://cloud.tencent.com/document/product/460/42866) 文档。
 
-特有响应头
+**特有响应头**
 该响应无特殊的响应头。
 
 #### 响应体
@@ -156,7 +156,7 @@ TransTpl 节点 Video 的具体数据描述如下：
 
 | 节点名称（关键字）         | 父节点        | 描述                  | 类型   | 必选 | 默认值       | 限制                                                         |
 | -------------------------- | ------------- | --------------------- | ------ | ---- | ------------ | ------------------------------------------------------------ |
-| Codec                      | Response.TemplateList.<br/>TransTpl.Video | 编解码<br/>格式            | String | 否   |   视频原始编码 | 1. H.264                                          |
+| Codec                      | Response.TemplateList.<br/>TransTpl.Video | 编解码<br/>格式            | String | 否   |   视频原<br/>始编码 | 1. H.264                                          |
 | Width                      | Response.TemplateList.<br/>TransTpl.Video | 宽                    | String | 否   | 视频原<br/>始宽度 | 1. 值范围：[128，4096]<br/>2. 单位：px<br/>3. 若只设置 Width 时，按照视频原始比例计算 Height |
 | Height                     | Response.TemplateList.<br/>TransTpl.Video | 高                    | String | 否   | 视频原<br/>始高度 | 1. 值范围：[128，4096]<br/>2. 单位：px<br/>3. 若只设置 Height 时，按照视频原始比例计算 Width |
 | Fps                        | Response.TemplateList.<br/>TransTpl.Video | 帧率                  | String | 否   | 视频原<br/>始帧率 | 1. 值范围：(0，60]<br>2. 单位：fps<br>3. 帧率超过60时，设置为60<br/>用户可以设置 fps，如果不设置，那么播放速度按照<br/>原来的时间戳。这里设置 fps 为动图的播放帧率。 |
