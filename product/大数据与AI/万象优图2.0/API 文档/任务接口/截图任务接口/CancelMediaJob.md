@@ -1,6 +1,6 @@
 ## 功能描述
 
-Cancel Media Job 接口用来取消一个任务。
+CancelMediaJob 接口用来取消一个任务。
 
 ## 请求
 
