@@ -168,7 +168,7 @@ Container 节点 JobsDetail 的内容：
 | Operation | Response.JobsDetail | 该任务的规则 |  Container |
 
 Container 节点 Input 的内容：
-同 请求中的 Request.Input节点。
+同请求中的 Request.Input 节点。
 
 Container 节点 Operation 的内容：
 
@@ -179,10 +179,10 @@ Container 节点 Operation 的内容：
 | MediaInfo | Response.JobsDetail.Operation | 转码输出视频的信息，没有时不返回 |  Container |
 
 Container 节点 Output 的内容：
-同 请求中的 Request.Operation.Output 节点。
+同请求中的 Request.Operation.Output 节点。
 
 Container 节点 MediaInfo 的内容：
-同 GenerateMediaInfo 接口中的 Response.MediaInfo 节点。
+同 [GenerateMediaInfo](https://cloud.tencent.com/document/product/460/38935) 接口中的 Response.MediaInfo 节点。
 
 #### 错误码
 
