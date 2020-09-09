@@ -16,4 +16,15 @@
 ## 审核相关问题
 ### 请问云呼叫中心的企业资质审核时效是多久呢？
 我们将会在1个工作日内完成审核。
-审核时间：周一至周日9:00至23:00（法定节假日顺延）
+审核时间：周一至周日9:00至23:00（法定节假日顺延）。
+## 其他问题
+### 头像不存在，该如何处理？
+需要把 UserInfo 存入 globalData 中。
+```
+getApp().globalData.userInfo = userInfo
+```
+### 调用 requestLogin 失败，该如何处理？
+请确保 wx.login() 返回的临时登录凭证未过期且未被使用。
+### 提示获取 roomSig 失败，该如何处理？
+请参考 [调试指引](https://developers.weixin.qq.com/miniprogram/dev/framework/usability/debug.html) 打开调试面板，查看报错 log。
+如无法定位并解决问题，可提供报错 log 截图等相关信息 提交工单 或联系我们（QQ：2982200247）协助处理。
