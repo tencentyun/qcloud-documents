@@ -117,8 +117,7 @@ Container 类型 Image 的具体数据描述如下：
 | Transparency         | Request.Watermark.Image | 透明度      | String    | 是   | 无   | 1. 值范围：[1 100]，单位为% |
 
 水印位置说明：
-![image.png](/uploads/CACE625B9A1C43A5A1F487739DD8E2B7/image.png)
-
+![](https://main.qcloudimg.com/raw/671e72716c633454cc815f3837070876.png)
 Container 类型 Text 的具体数据描述如下：
 
 | 节点名称（关键字）     | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
