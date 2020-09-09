@@ -24,7 +24,7 @@ IVR（Interactive Voice Response）是一种基于电话的语音增值业务的
 ![](https://main.qcloudimg.com/raw/269fd67b05cbc25bc512513cf915e3b3.png)
 >?<li style=" list-style-type:disc;margin-left:20px;">如连线错误，可将鼠标放在连线上单击选中，按键盘上 backspace ⬅️ 键即可删除。<li style=" list-style-type:disc;margin-left:20px;">在页面顶部右上角单击【保存】按钮，即可保存该会话服务流，以防止在搭建过程中因意外导致信息丢失。
 >
-	5. 添加【分支】模块，可支持用户电话按键转接至指定的技能组或播放指定的提示音。若无需导航功能可跳过该步骤，前往 步骤viii。
+	5. 添加【分支】模块，可支持用户电话按键转接至指定的技能组或播放指定的提示音。若无需导航功能可跳过该步骤，前往**步骤viii**。
 <escape>
 <table>
 <tr>
