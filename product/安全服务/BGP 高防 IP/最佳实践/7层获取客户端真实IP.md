@@ -10,7 +10,7 @@ X-Forwareded-For：是一个 HTTP 头部扩展字段，目的是使服务器可�
 当高防 IP 将用户的访问请求转到后端服务器时，会把请求用户的真实 IP 记录在 X-Forwareded-For 字段的首位。因此，源站应用只需要获取 HTTP 头部的 X-Forwarded-For 字段的内容即可。
 
 
-## 通过 DDoS 高防服务直接获取真实 IP
+## 通过 HTTP Header 获取真实 IP
 DDoS 高防服务默认提供获取客户端真实 IP 的功能，下面推荐两种方式获取客户的来源 IP，您可以根据需要，选择任意一种方式进行使用：
 - **方式1**：DDoS 高防服务使用 X-Forwarded-For 的方式获取客户端的真实 IP 地址。
 	- 真实的客户端 IP 会被 DDoS 高防服务放在 HTTP 头部的 X-Forwarded-For 字段，格式如下：
