@@ -103,7 +103,7 @@ exports.main_handler = async (event, context, callback) => {
   const { rows } = await client.query({
       text: 'select * from users',
     });
-  await client.end();
+  await client.release();
   console.log('pgsql query result:',rows)
 }
 ```
