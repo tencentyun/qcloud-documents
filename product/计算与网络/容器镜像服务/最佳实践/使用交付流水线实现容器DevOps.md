@@ -1,5 +1,5 @@
 ## 操作场景
-基于容器镜像服务 TCR 的 [容器化持续部署](https://cloud.tencent.com/document/product/1141/39280#.E5.AE.B9.E5.99.A8.E5.8C.96.E6.8C.81.E7.BB.AD.E9.83.A8.E7.BD.B2) ，本文介绍如何通过交付流水线功能，实现代码变更自动触发镜像构建，并更新容器服务 TKE 集群内应用。
+基于容器镜像服务 TCR 的 [容器化持续部署](https://cloud.tencent.com/document/product/1141/39280#.E5.AE.B9.E5.99.A8.E5.8C.96.E6.8C.81.E7.BB.AD.E9.83.A8.E7.BD.B2)，本文介绍如何通过交付流水线功能，实现代码变更自动触发镜像构建，并更新容器服务 TKE 集群内应用。
 
 ## 前提条件
 - 已开通 [CODING DevOps](https://cloud.tencent.com/document/product/1115/37268) 服务。
