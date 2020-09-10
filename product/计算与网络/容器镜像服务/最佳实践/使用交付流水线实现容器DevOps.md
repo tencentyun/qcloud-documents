@@ -12,15 +12,15 @@
 #### 创建 TKE 标准集群
 >?如已有 TKE 集群，可跳过此步骤。
 >
-前往 [容器服务控制台](https://console.cloud.tencent.com/tke2)，新建 TKE 标准集群，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。
+前往 [容器服务控制台](https://console.cloud.tencent.com/tke2)，新建 TKE 标准集群，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。创建成功即如下图所示：
 ![](https://main.qcloudimg.com/raw/f34a5ac4c6d7b57677d204d5cec452ed.png)
 #### 创建 TCR 企业版实例
 >?如在 TKE 集群所在地域内已有 TCR 实例，可跳过此步骤，否则请在同一地域内新建企业版实例。
 >
-前往实例列表页面，新建企业版实例，详情请参见 [创建企业版实例](https://cloud.tencent.com/document/product/1141/40716)。
+前往实例列表页面，新建企业版实例，详情请参见 [创建企业版实例](https://cloud.tencent.com/document/product/1141/40716)。创建成功即如下图所示：
 ![](https://main.qcloudimg.com/raw/fea3ea042359338b98cbe701797f08b4.png)
 ### 部署容器应用
-当前容器服务 TKE 已支持在控制台内选择容器镜像服务 TCR 企业版镜像创建工作负载。同时，TKE 标准集群可安装 TCR 专属插件，实现内网，免密拉取 TCR 企业版内镜像，详情请参见 [使用 TCR 企业版实例内容器镜像创建工作负载](https://cloud.tencent.com/document/product/457/45624)。
+当前容器服务 TKE 已支持在控制台内选择容器镜像服务 TCR 企业版镜像创建工作负载。同时，TKE 标准集群可安装 TCR 专属插件，实现内网及免密拉取 TCR 企业版内镜像，详情请参见 [使用 TCR 企业版实例内容器镜像创建工作负载](https://cloud.tencent.com/document/product/457/45624)。创建成功即如下图所示：
 ![](https://main.qcloudimg.com/raw/8c0234e04912fed506a8baf85f30bcc5.png)
 
 ### 配置交付流水线
@@ -57,14 +57,14 @@
 ![](https://main.qcloudimg.com/raw/5088ad6dab0a50164cca6bdddb1d848f.png)
 2. 执行流水线
 源代码推送完成后，如符合镜像配置中镜像构建的触发条件，将触发流水线执行。可点击流水线查看该流水线执行记录，并查看具体步骤进度。如下图所示：
-![](https://main.qcloudimg.com/raw/4660504074f4127d135493a7c67852cb.png)
-    - **Checkout**：检出代码。
-    - **Docker Build**：基于镜像构建配置进行镜像构建，并为生成的镜像打上指定规则的Tag，如 getting-started-{tag}-{date}-{commit}。
-    - **Docker Push**：推送镜像，自动推送至关联镜像仓库内。
-    - **Deploy To TKE**：使用最新推送的镜像更新关联工作负载及Pod 内同名镜像。
+![](https://main.qcloudimg.com/raw/81830a9d909b106f3774c9a87e69a661.png)
+  - **Checkout**：检出代码。
+  - **Docker Build**：基于镜像构建配置进行镜像构建，并为生成的镜像打上指定规则的Tag，如 getting-started-{tag}-{date}-{commit}。
+  - **Docker Push**：推送镜像，自动推送至关联镜像仓库内。
+  - **Deploy To TKE**：使用最新推送的镜像更新关联工作负载及Pod 内同名镜像。
 3. 查看应用更新状态
 前往容器服务 TKE 控制台，进入上述集群及工作负载详情页，并选择修订历史，可查看应用更新状态。如下图所示：
-![](https://main.qcloudimg.com/raw/f3bdf9d9929ccf65eb046e25c40486e5.png)
+![](https://main.qcloudimg.com/raw/054ef802d1ea87cebeb46cb736124ba7.png)
 也可直接访问该应用服务，查看是否已更新。本文以 Nginx 服务为例，并通过 Servce 暴露公网服务，查看结果。如下图所示：
 ![](https://main.qcloudimg.com/raw/1a69976b7cb13bc60652c20ff245d72e.png)
 
