@@ -1,6 +1,6 @@
 ### 如何对 LogListener 的进程进行绑核？
 
-使用 taskset 工具进行绑核, `taskset -cp ${cpu number} ${pid>}`。
+使用 taskset 工具进行绑核， `taskset -cp ${cpu number} ${pid>}`。
 
 ### 如何处理 LogListener 占用内存过高，控制资源的使用？
 
@@ -20,13 +20,13 @@ LogListener 低于2.3.0版本不支持监听软连接方式的日志文件和 NF
 
 标示机器组机支持, 参考文档 [配置标示机器组](https://cloud.tencent.com/document/product/614/17412#.E9.85.8D.E7.BD.AE.E6.9C.BA.E5.99.A8.E6.A0.87.E8.AF.86.E6.9C.BA.E5.99.A8.E7.BB.84)。
 
-### LogListener 日志上传策略
+### LogListener 日志上传策略是什么？
 
  - 缓存的日志量超过4M。
  - 缓存的日志条数超过10000条。
  - 读到文件末尾。
 
-### LogListener 支持的最大性能
+### LogListener 支持的最大性能是多少？
 
  - 单行全文日志最大处理能力为115MB/s。
  - 多行全文日志最大处理能力为40MB/s。
