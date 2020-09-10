@@ -75,6 +75,8 @@
 | 对 group by 语法的支持                                | 支持                                 | select col1, col2  from table_a group by col1,col2 where col3 = 'bbb' |
 | 对 union 的支持                                       | 不支持                               | select a.col1,a.col2  from table_a union (select c.col3,c.col5 from table_c) |
 | 对数字类型的分组函数                                | 不支持                               | select  sum(col2),avg(col2),min(col2),max(col2) from table_a where col1='aaa' |
+|对 order by 的支持|只支持非加密字段的排序|select * from table_a order by id desc|
+|临时表|不支持|select * from (select table1.col1,table1.col2,table1.col3,table2.id,table2.col4 from table1,table2 where table1.col1 = table2.col1 ) tmp|
 
 ## 对 JDBC 接口的支持
 
