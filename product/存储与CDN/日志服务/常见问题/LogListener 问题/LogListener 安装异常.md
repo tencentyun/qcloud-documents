@@ -15,7 +15,7 @@
    LogListener 安装目录下的 bin 目录中的可执行文件只支持 Linux 64位内核，执行命令 **uname -a**， 确认内核版本是否为 x86_64。
 2. 确认安装执行命令是否正确。
    具体请参见 [LogListener 安装指南](https://cloud.tencent.com/document/product/614/17414) 文档进行操作。
-3. 确认 Loglistener 版本
+3. 确认 Loglistener 版本。
    日志服务最新特性可能依赖新版 LogListener，若确认是使用新特性异常，请下载 LogListener 最新版本。LogListener 下载及详细安装步骤请参见 [LogListener 安装指南](https://cloud.tencent.com/document/product/614/17414)。
-4. 验证 LogListener 成功安装
-   参考 如何使用 LogListener 快速诊断工具 检查 LogListener 进程、心跳和拉配置是否正常。 
+4. 验证 LogListener 成功安装。
+   参考如何使用 LogListener 快速诊断工具检查 LogListener 进程、心跳和拉配置是否正常。 
