@@ -1,6 +1,6 @@
 ## 功能描述
 
-DescribeMediaTemplates 搜索水印模板。
+DescribeMediaTemplates 用于搜索水印模板。
 
 ## 请求
 
@@ -113,15 +113,15 @@ Container 类型 Watermark 的具体数据描述如下：
 
 | 节点名称（关键字）     | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Type                | Response.TemplateList.Watermark | 水印类型    | String    | 是   | 无  | <li>Text：文字水印<li>Image：图片水印 |
-| Pos                 | Response.TemplateList.Watermark | 基准位置    | String    | 是   | 无  | 1. TopRight、TopLeft、BottomRight、 BottomLeft |
-| LocMode             | Response.TemplateList.Watermark | 偏移方式    | String    | 是   | 无  | <li>Relativity：按比例<li>Absolute：固定位置 |
-| Dx                  | Response.TemplateList.Watermark | 水平偏移    | String    | 是   | 无  | <li>值范围：[0 100] <br/><li>当 locMode 为 Relativity 时，单位为% <br/> <li>当 locMode 为 Absolute 时，单位为px |
-| Dy                  | Response.TemplateList.Watermark | 垂直偏移    | String    | 是   | 无  | <li>值范围：[0 100] <br/><li>当 locMode 为 Relativity 时，单位为% <br/><li>当 locMode 为 Absolute 时，单位为px |
-| StartTime           | Response.TemplateList.Watermark | 水印开始时间 | String    | 否   | 0   | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
-| EndTime             | Response.TemplateList.Watermark | 水印结束时间 | String    | 否   | 视频结束时间  | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
-| Image               | Response.TemplateList.Watermark | 图片水印节点 | Container    | 否   | 无  | 无 |
-| Text                | Response.TemplateList.Watermark | 文本水印节点 | Container    | 否   | 无  | 无 |
+| Type                | Response.TemplateList.<br/>Watermark | 水印类型    | String    | 是   | 无  | <li>Text：文字水印<li>Image：图片水印 |
+| Pos                 | Response.TemplateList.<br/>Watermark | 基准位置    | String    | 是   | 无  | 1. TopRight、TopLeft、BottomRight、 BottomLeft |
+| LocMode             | Response.TemplateList.<br/>Watermark | 偏移方式    | String    | 是   | 无  | <li>Relativity：按比例<li>Absolute：固定位置 |
+| Dx                  | Response.TemplateList.<br/>Watermark | 水平偏移    | String    | 是   | 无  | <li>值范围：[0 100] <br/><li>当 locMode 为 Relativity 时，单位为% <br/> <li>当 locMode 为 Absolute 时，单位为px |
+| Dy                  | Response.TemplateList.<br/>Watermark | 垂直偏移    | String    | 是   | 无  | <li>值范围：[0 100] <br/><li>当 locMode 为 Relativity 时，单位为% <br/><li>当 locMode 为 Absolute 时，单位为px |
+| StartTime           | Response.TemplateList.<br/>Watermark | 水印开始时间 | String    | 否   | 0   | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
+| EndTime             | Response.TemplateList.<br/>Watermark | 水印结束时间 | String    | 否   | 视频结束时间  | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
+| Image               | Response.TemplateList.<br/>Watermark | 图片水印节点 | Container    | 否   | 无  | 无 |
+| Text                | Response.TemplateList.<br/>Watermark | 文本水印节点 | Container    | 否   | 无  | 无 |
 
 
 Container 类型 Image 的具体数据描述如下：
