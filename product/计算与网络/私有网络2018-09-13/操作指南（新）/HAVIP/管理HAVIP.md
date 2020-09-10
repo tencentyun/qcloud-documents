@@ -46,4 +46,4 @@ vrrp_instanceVI_1 {
 >!释放后请更改云服务器中的配置文件。
 >
 ![](https://main.qcloudimg.com/raw/8d39420e157104bb7974f70bfc878687.png)
-))
+
