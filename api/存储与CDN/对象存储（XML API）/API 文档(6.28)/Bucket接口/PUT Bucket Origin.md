@@ -1,6 +1,6 @@
 ## 功能描述
 
-PUT Bucket origin 接口用于设置存储桶的回源。
+PUT Bucket Origin 接口用于设置存储桶的回源。
 
 ## 请求
 
