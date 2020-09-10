@@ -19,6 +19,7 @@ CASB 管理系统由 CASB Plugin、CASB Client、CASB 管理平台组成。
 需已通过 CASB [内测申请](https://cloud.tencent.com/apply/p/2vnlem5njlz)，并已 [购买 CASB 实例](https://cloud.tencent.com/document/product/1303/48148)。
 <span id="done"></span>
 
+<span id="test"></span>
 ## 准备测试环境
 ### 步骤1：提供测试 Demo 应用
 
@@ -217,7 +218,7 @@ $ source /etc/profile
 ### 步骤6：Demo 应用数据实时加解密
 
 1. 确认 Demo 应用的数据库及表已经创建。
-Demo 应用的数据源需要按照 [入门示例]() 创建，连接到数据库确认数据库已创建成功。
+Demo 应用的数据源需要按照 [准备测试环境](#test) 创建，连接到数据库，并确认数据库已创建成功。
 2. 修改配置并启动测试 Demo 应用。
 将 Demo 应用上传到服务器，解压后修改 application.yml 文件，修改如下配置：
 	- 将URL由`jdbc:mysql:// `改为`jdbc:aoe:mysql://`。
