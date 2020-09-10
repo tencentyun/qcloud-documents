@@ -87,7 +87,7 @@ inputs 下的参数为组件配置参数。一个最简单 SCF 组件参数配�
 
 | 参数名 | 说明 | 
 |---------|---------|
-| name |  云函数名称。犹豫云函数又是资源 ID，为了保证资源的唯一性，建议采用 `${name}-${stage}-${app}` 变量方式。 |
+| name |  云函数名称。由于云函数又是资源 ID，为了保证资源的唯一性，建议采用 `${name}-${stage}-${app}` 变量方式。 |
 | src |   代码路径。|
 | handler |  函数处理方法名称 。|
 | runtime |  云函数运行环境。 目前支持: `Nodejs6.10，Nodejs8.9，Nodejs10.15，Nodejs12.16，Python2.7，Python3.6，PHP5，PHP7，Go1，Java8` 。|
