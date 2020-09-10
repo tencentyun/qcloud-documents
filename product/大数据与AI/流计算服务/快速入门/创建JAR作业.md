@@ -5,7 +5,7 @@
 4. 流计算作业 JAR 作业需运行于流计算独享集群，若还没有集群，请参考 [创建独享集群](https://cloud.tencent.com/document/product/849/48298)。
 
 ## 步骤1：JAR 包开发
-创建 JAR 作业需要上传已开发好的 JAR 包，您可以单击 [GitHub 链接](https://github.com/tencentyun/flink-hello-world/releases/tag/0.1)，下载我们提供的 WordeCount 示例 JAR 包（文件名为 flink-hello-world-1.0.0.jar）来完成。
+创建 JAR 作业需要上传已开发好的 JAR 包，您可以单击 [GitHub 链接](https://github.com/tencentyun/flink-hello-world/releases/tag/0.1)，下载我们提供的 WordCount 示例 JAR 包（文件名为 flink-hello-world-1.0.0.jar）来完成。
 
 ## 步骤2：上传 JAR 包
 登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus)，选择【程序包管理】>【新建程序包】。在新建程序包中选择地域，该地域需与独享集群所在地域一致，默认使用本地上传的方式。单击【选择程序包】将打开本地文件选择窗口，选择步骤1中下载的 JAR 包并上传。填写程序包名称、程序包描述、版本说明后，单击【确定】完成新建程序包。完成新建后程序包列表将出现刚新建的程序包。
