@@ -110,7 +110,7 @@ TencentOS-tiny 官方已经将 IoT_Explorer C-SDK 移植适配完成，在 `comp
 2. 然后在云端平台进入设备在线调试，下发控制指令。
 ![](https://main.qcloudimg.com/raw/7298a5f4b0c831f0814a4a59325e4d78.png)
 3. 最后可以在串口助手中查看到设备收到后在串口打印控制指令。
-![](https://main.qcloudimg.com/raw/2691916612ade54ff47636534e160cd7.png)
+![](https://main.qcloudimg.com/raw/e58535b55de995c7be8a46f416a08cd3.png)
 
 ## 步骤八：设备行为调用
 1. 在云端的数据模板中手动新建一个设备行为功能。
@@ -121,7 +121,7 @@ TencentOS-tiny 官方已经将 IoT_Explorer C-SDK 移植适配完成，在 `comp
  - 在云端下发设备行为调用：
 ![](https://main.qcloudimg.com/raw/4320c5a421a5c8d54ac7ee9120e5912c.png)
  - 在串口助手中可以看到设备行为被调用：
- ![](https://main.qcloudimg.com/raw/8361ab21c5c2ff6dd1c33f82892ba918.png)
+![](https://main.qcloudimg.com/raw/e16427b4c7df527826d112d2901f3f5c.png)
 
 ## 步骤九：设备事件调用
 
@@ -131,7 +131,7 @@ TencentOS-tiny 官方已经将 IoT_Explorer C-SDK 移植适配完成，在 `comp
 ![](https://main.qcloudimg.com/raw/9dfd57b19dd6ce96b4e24704905b48a4.png)
 3. 编译程序，下载到开发板中，复位。
  - 在串口助手中可以看到设备上报事件的日志：
-![](https://main.qcloudimg.com/raw/5825feb3252c51391cee08670117bf65.png)
+![](https://main.qcloudimg.com/raw/0cc67c51bd8a3f23396dec35d901f95a.png)
  - 在平台端可以看到设备上报事件的日志：
 ![](https://main.qcloudimg.com/raw/86b8032eccfd6a1901f70ad828ec3cdb.png)
 
