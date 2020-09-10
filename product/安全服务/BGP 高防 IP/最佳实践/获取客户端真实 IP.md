@@ -26,30 +26,6 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
 客户端程序在用户态调用 getpeername，返回的 IP 和 port 即为客户端的原始 IP。
 
 ### 内核包安装步骤
-#### Centos 6.x/7.x
-1. 下载安装包：
- - [Centos 6.x 下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm)
- - [Centos 7.x 下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-3.10.0-693.el7.centos.toa.x86_64.rpm)
-2. 安装包文件。
-```
-rpm -hiv kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm --force	
-```						
-3. 安装完成之后重启主机。
-```
-reboot
-```
-4. 执行命令检查 toa 模块是否加载成功。
-```
-lsmod | grep toa
-```
-5. 没有加载的话手工开启。
-```
-modprobe toa
-```		
-6. 可用下面的命令开启自动加载 toa 模块。
-<pre >
-echo "modprobe toa" >> /etc/rc.d/rc.local
-</pre>
 			
 ####  Ubuntu 16.04
 1. 下载安装包：
