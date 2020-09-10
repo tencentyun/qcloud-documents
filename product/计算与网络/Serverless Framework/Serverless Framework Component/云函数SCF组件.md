@@ -2,7 +2,6 @@
 
 **腾讯云 SCF 云函数组件**通过使用 [Tencent Serverless Framework](https://github.com/serverless/components/tree/cloud)，基于云上 Serverless 服务（云函数及触发器等），实现“0”配置，便捷开发，极速部署您的第一个云函数，该组件支持丰富的配置扩展，提供了目前最易用、低成本并且弹性伸缩的云函数的开发、配置及部署能力。
 
-[Serverless Components >>](http://serverless.com)
 
 ## 快速入门
 
@@ -49,6 +48,7 @@ sls remove
 ## 进阶指导
 ### serverless.yml
 执行 `sls deploy` 时，根据 serverless.yml 文件中的配置对云函数资源进行创建或更新。一份简单的 serverlesss.yml 文件如下：
+>?配置详情请参考 [全量配置文档](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)。
 
 ```
 #scf组件配置样例
@@ -95,7 +95,6 @@ inputs 下的参数为组件配置参数。一个最简单 SCF 组件参数配�
 | region |   云函数所在的区域。|
 | events |   触发器。 支持的触发器为：timer、apigw、cos、cmq、ckafka 。|
 
-配置详情请参考 [全量配置文档](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)。
 
 
 
