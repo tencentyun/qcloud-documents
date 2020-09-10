@@ -15,8 +15,7 @@
 
 #### 创建
 - 方式一：按照 [快速部署](https://cloud.tencent.com/document/product/1154/41775) 操作，选择 SCF 项目模板进行创建。
-- 方式二：直接使用 `sls init` 命令创建。
-快速创建一个 nodejs 的 SCF 示例：
+- 方式二：直接使用 `sls init` 命令创建。快速创建一个 nodejs 的 SCF 示例：
 ```
 sls init scf-demo
 ```
