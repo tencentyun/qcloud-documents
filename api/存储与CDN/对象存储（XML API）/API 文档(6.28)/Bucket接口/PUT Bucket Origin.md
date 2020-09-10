@@ -127,7 +127,7 @@ Container 节点 NewHttpHeader 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
-| Field         | OriginConfiguration.OriginRule.<br/>OriginParameter.HttpHeader.NewHttpHeader | 回源到源站时添加新的自定义头部，默认为空。                        | Container | 否  |
+| Header         | OriginConfiguration.OriginRule.<br/>OriginParameter.HttpHeader.NewHttpHeader | 回源到源站时添加新的自定义头部，默认为空。                        | Container | 否  |
 
 Container 节点 Header 的内容：
 
