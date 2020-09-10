@@ -99,8 +99,8 @@ log_format main '$remote_addr [$http_x_forwarded_for]- $remote_user [$time_local
 ```
 2. 重启 nginx。
 
-## 映射 xff 到 remote_addr
-### Tomcat 配置 xff 映射到 remote_addr
+## 通过插件映射客户端真实 IP
+### Tomcat 配置
 Tomcat 配置 xff 映射到 remote_addr，详情请参见 [tomcat 配置文档]( https://tomcat.apache.org/tomcat-8.5-doc/api/org/apache/catalina/valves/RemoteIpValve.html)。
 配置示例如下：
 ```plaintext
@@ -112,11 +112,15 @@ Tomcat 配置 xff 映射到 remote_addr，详情请参见 [tomcat 配置文档](
  />
 ```
 
-### Apache 映射 xff 到 remote_addr
+### Apache 配置
 Apache 映射 xff 到 remote_addr，需 [安装 mod_remoteip](https://httpd.apache.org/docs/2.4/mod/mod_remoteip.html) 进行操作。
+配置示例如下：
+```plaintext
+RemoteIPHeader X-Forwarded-For
+RemoteIPTrustedProxyList x.x.x.x/24
+```
 
-
-### IIS 6 映射 xff 到 remote_addr
+### IIS 6 配置
 如果您的源站部署了 IIS 6 服务器，您可以通过安装 F5XForwardedFor.dll 插件，从 IIS 6 服务器记录的访问日志中获取访问者真实的 IP 地址。
 1. 下载并安装 F5XForwardedFor.dll 插件。
 2. 根据您服务器的操作系统版本将 x86\Release 或者 x64\Release 目录中的 F5XForwardedFor.dll 文件拷贝至指定目录（如 C:\ISAPIFilters），同时确保 IIS 进程对该目录有读取权限。
@@ -127,7 +131,7 @@ Apache 映射 xff 到 remote_addr，需 [安装 mod_remoteip](https://httpd.apac
 5. 单击【确定】，重启 IIS 6 服务器。
 6. 查看 IIS 6 服务器记录的访问日志（默认的日志路径为：C:\WINDOWS\system32\LogFiles\ ，IIS 日志的文件名称以 .log 为后缀），可获取 X-Forwarded-For 对应的访问者真实 IP。
 
-### IIS 7 映射 xff 到 remote_addr
+### IIS 7 配置
 如果您的源站部署了 IIS 7 服务器，您可以通过安装 F5XForwardedFor 模块，从 IIS 7 服务器记录的访问日志中，获取访问者真实的 IP 地址。
 1. 下载并安装 F5XForwardedFor 模块。
 2. 根据服务器的操作系统版本将 x86\Release 或者 x64\Release 目录中的 F5XFFHttpModule.dll 和 F5XFFHttpModule.ini 文件拷贝到指定目录（如 C:\x_forwarded_for\x86”或“C:\x_forwarded_for\x64 ），并确保 IIS 进程对该目录有读取权限。
