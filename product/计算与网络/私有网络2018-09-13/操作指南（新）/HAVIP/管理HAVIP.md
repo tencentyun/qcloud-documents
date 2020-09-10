@@ -2,7 +2,8 @@
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/)，在左侧导航栏中，选择【IP 与网卡】>【高可用虚拟 IP】。 
 2. 在 HAVIP 管理页面，选择所在地域，单击【申请】。
 3. 输入名称，选择 HAVIP 所在的私有网络和子网，单击【确定】即可。
->?HAVIP 的 IP 地址可以自动分配，也可以手动指定（手动指定的合法校验跟普通内网 IP 一致）。
+>?HAVIP 的 IP 地址可以自动分配，也可以手动填写。如果您选择手动填写，请确认填写内网 IP 在所属子网网段内，且不属于系统保留 IP。
+例如，所属子网网段为：10.0.0.0/24，则可填的内网 IP 范围 为：10.0.0.2 - 10.0.0.254。
 >
 ![](https://main.qcloudimg.com/raw/036b8d78f4b0de150fbd2d1bb2ae143d.png)
 
@@ -22,7 +23,7 @@ HAVIP 用于配合第三方 HA 软件使用，与 CVM 的绑定与解绑不在�
 
 ### 操作示例
 HA 软件中指定 VIP 时（配置文件或操作界面均可），填入您创建的 HAVIP 即可，示例如下：
-```
+```plaintext
 vrrp_instanceVI_1 {    
     state MASTER   
     interface eth0     
