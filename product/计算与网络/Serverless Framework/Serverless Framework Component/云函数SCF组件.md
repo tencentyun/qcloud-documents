@@ -8,14 +8,14 @@
 
 ### 前提条件
 
-- 已安装 Serverless Framework（参考 [Serverless Framework 安装](https://cloud.tencent.com/document/product/1154/48258)）
-- 账号开通 Serverless 相关权限（参考 [Serverless Framework 账号权限](https://cloud.tencent.com/document/product/1154/48260)）
+- 已安装 Serverless Framework（参考 [安装 Serverless Framework](https://cloud.tencent.com/document/product/1154/42990)）
+- 账号开通 Serverless 相关权限（参考 [账号和权限配置](https://cloud.tencent.com/document/product/1154/43006)）
 
 
 ### 操作步骤
 
 #### 创建
-- 方式一：按照 [新手入门](https://cloud.tencent.com/document/product/1154/42990) 操作，选择 SCF 项目模板进行创建。
+- 方式一：按照 [快速部署](https://cloud.tencent.com/document/product/1154/41775) 操作，选择 SCF 项目模板进行创建。
 - 方式二：直接使用 `sls init` 命令创建。
 快速创建一个 nodejs 的 SCF 示例：
 ```
