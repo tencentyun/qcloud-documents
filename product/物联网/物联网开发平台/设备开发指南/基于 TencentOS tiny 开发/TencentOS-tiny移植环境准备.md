@@ -158,4 +158,4 @@ TencentOS tiny 的源码已经开源，可从[ GitHub](https://github.com/Tencen
 </tbody></table>
 
 ##  步骤五：下一步操作
-请前往 [步骤二：内核移植](https://cloud.tencent.com/document/product/1081/47956) 进行内核移植操作。
+请前往 [内核移植](https://cloud.tencent.com/document/product/1081/47956) 进行内核移植操作。
