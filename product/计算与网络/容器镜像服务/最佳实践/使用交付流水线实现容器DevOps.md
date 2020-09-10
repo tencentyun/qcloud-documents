@@ -67,3 +67,4 @@
 ![](https://main.qcloudimg.com/raw/f3bdf9d9929ccf65eb046e25c40486e5.png)
 也可直接访问该应用服务，查看是否已更新。本文以 Nginx 服务为例，并通过 Servce 暴露公网服务，查看结果。如下图所示：
 ![](https://main.qcloudimg.com/raw/1a69976b7cb13bc60652c20ff245d72e.png)
+
