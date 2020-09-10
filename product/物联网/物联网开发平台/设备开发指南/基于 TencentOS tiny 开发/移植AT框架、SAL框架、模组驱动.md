@@ -115,4 +115,4 @@ ESP8266 的驱动在 `devices\esp8266` 目录中，将此文件夹从 TencentOS-
 ![](https://main.qcloudimg.com/raw/fdcd3241a383e501ac20d2e4162f2505.png)
 
 ## 步骤五：下一步操作
-请前往 [步骤四：移植腾讯云 C-SDK](https://cloud.tencent.com/document/product/1081/47958) 进行内核移植操作。
+请前往 [移植腾讯云 C-SDK](https://cloud.tencent.com/document/product/1081/47958) 进行内核移植操作。
