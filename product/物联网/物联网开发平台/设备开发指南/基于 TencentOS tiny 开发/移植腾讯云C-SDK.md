@@ -32,11 +32,11 @@
 
 腾讯云 C-SDK 对接云端时如果配置建立安全链接，将会用到 mbedtls 加密库，所以需要先移植 mbedtls。
 
-TencentOS-tiny 中已经移植适配好 mbedtls 库，并作为 TencentOS-tiny 的一个组件，在 `components\security\mbedtls` 目录下，将此目录复制到工程目录中，复制过程中保持目录架构不变，并将其余的文件删除。
+1. TencentOS-tiny 中已经移植适配好 mbedtls 库，并作为 TencentOS-tiny 的一个组件，在 `components\security\mbedtls` 目录下，将此目录复制到工程目录中，复制过程中保持目录架构不变，并将其余的文件删除。
 ![](https://main.qcloudimg.com/raw/12eb2505fdc85d1209c617146edb9738.png)
-然后将 mbedtls 相关的 `.c` 文件添加到 Keil-MDK 工程中。
+2. 将 mbedtls 相关的 `.c` 文件添加到 Keil-MDK 工程中。
 ![](https://main.qcloudimg.com/raw/4be17d834af4057289a36ffa7ae115a2.png)
-最后将 mbedtls 相关的头文件路径都添加到 Keil-MDK 工程中，移植完成。
+3. 将 mbedtls 相关的头文件路径都添加到 Keil-MDK 工程中，移植完成。
 ![](https://main.qcloudimg.com/raw/42d322db48174d2b8d45d1ac371b776b.png)
 
 >!此时还没有指定 mbedtls 配置文件，编译会报错，继续按后续的步骤操作即可。
