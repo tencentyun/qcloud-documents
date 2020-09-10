@@ -94,7 +94,7 @@ Container 节点 OriginRule 的内容：
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
 |  RulePriority   |  OriginConfiguration.OriginRule   |  通过优先级区分规则执行先后  | Integer   |   是  |
-| OriginType         | OriginConfiguration.OriginRule | 回源类型，支持同步回源（Mirror）和异步回源（Proxy）两种模式。 枚举值：Mirror、Proxy        | Container |   是   |
+| OriginType         | OriginConfiguration.OriginRule | 回源类型，支持同步回源（Mirror）和异步回源（Proxy）两种模式。 枚举值：Mirror、Proxy        | Enum |   是   |
 | OriginCondition             | OriginConfiguration.OriginRule | 回源配置，配置用户使用的 HTTP 传输协议等信息。 | Container    | 是   |
 | OriginParameter | OriginConfiguration.OriginRule | 回源地址相关信息                                 | Container | 是   |
 | OriginInfo   | OriginConfiguration.OriginRule | 源站信息。例如源站域名或者源站 IP 等信息。              | Container    | 是   |
