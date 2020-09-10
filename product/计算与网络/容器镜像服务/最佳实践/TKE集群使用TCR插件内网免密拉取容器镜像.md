@@ -70,3 +70,4 @@ TCR 企业版实例支持网络访问控制，默认拒绝全部来源的外部�
 4. 完成其他参数设置后，单击【创建workload】后查看该工作负载的部署进度。
 部署成功后，可在 “Deployment” 页面查看该工作负载的“运行/期望Pod数量”为“1/1”。如下图所示：
 ![](https://main.qcloudimg.com/raw/cc69105f8d20f2d6ed33e3a90c5d0c9f.png)
+
