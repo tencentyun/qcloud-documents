@@ -103,38 +103,38 @@ Container 节点 OriginCondition 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
-| HTTPStatusCode         | OriginConfiguration.OriginRule.OriginCondition | 触发回源的 HTTP 状态码，默认为404。                        | String | 是   |
-| Prefix         | OriginConfiguration.OriginRule.OriginCondition | 触发回源的文件前缀，默认为空，任意文件均可触发。                        | String | 否   |
+| HTTPStatusCode         | OriginConfiguration.OriginRule.<br/>OriginCondition | 触发回源的 HTTP 状态码，默认为404。                        | String | 是   |
+| Prefix         | OriginConfiguration.OriginRule.<br/>OriginCondition | 触发回源的文件前缀，默认为空，任意文件均可触发。                        | String | 否   |
 
 Container 节点 OriginParameter 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
-| Protocol         | OriginConfiguration.OriginRule.OriginParameter | 回源使用的协议，枚举值为 HTTP（使用 HTTP 协议），HTTPS（使用 HTTPS 协议）、FOLLOW（跟随用户使用的协议），默认值为 FOLLOW。                        | String | 是   |
-| FollowQueryString         | OriginConfiguration.OriginRule.OriginParameter | Proxy 模式下是否需要透传 HTTP 请求串，枚举值：true、false，默认为 true。                      | Boolean | 否   |
-| HttpHeader         | OriginConfiguration.OriginRule.OriginParameter |  Proxy 模式下是否需要 Http 头部传输配置。         | Container | 否   |
-| FollowRedirection         | OriginConfiguration.OriginRule.OriginParameter | Proxy 模式下源站 3XX 响应策略，枚举值：true、false，选择 true 时跟随源站 3xx 重定向请求获取到资源，并将资源保存到 COS 上；选择 false 时透传 3XX 响应，不获取资源），默认为 true。                        | Boolean | 否  |
-| HttpRedirectCode         | OriginConfiguration.OriginRule.OriginParameter | Proxy 模式下的返回码参数，枚举值：301、302，默认为 302。                      | String | 否  |
+| Protocol         | OriginConfiguration.OriginRule.<br/>OriginParameter | 回源使用的协议，枚举值为 HTTP（使用 HTTP 协议），HTTPS（使用 HTTPS 协议）、FOLLOW（跟随用户使用的协议），默认值为 FOLLOW。                        | String | 是   |
+| FollowQueryString         | OriginConfiguration.OriginRule.<br/>OriginParameter | Proxy 模式下是否需要透传 HTTP 请求串，枚举值：true、false，默认为 true。                      | Boolean | 否   |
+| HttpHeader         | OriginConfiguration.OriginRule.<br/>OriginParameter |  Proxy 模式下是否需要 Http 头部传输配置。         | Container | 否   |
+| FollowRedirection         | OriginConfiguration.OriginRule.<br/>OriginParameter | Proxy 模式下源站 3XX 响应策略，枚举值：true、false，选择 true 时跟随源站 3xx 重定向请求获取到资源，并将资源保存到 COS 上；选择 false 时透传 3XX 响应，不获取资源），默认为 true。                        | Boolean | 否  |
+| HttpRedirectCode         | OriginConfiguration.OriginRule.<br/>OriginParameter | Proxy 模式下的返回码参数，枚举值：301、302，默认为 302。                      | String | 否  |
 
 Container 节点 HttpHeader 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
-| FollowHttpHeader         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader |  Proxy 模式下是否传输请求头部，枚举值：true、false，默认为 false。                        | Boolean | 否  |
-| NewHttpHeader         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader | 设置 Proxy 模式传输的请求头部。                        | Container | 否  |
+| FollowHttpHeader         | OriginConfiguration.OriginRule.<br/>OriginParameter.HttpHeader |  Proxy 模式下是否传输请求头部，枚举值：true、false，默认为 false。                        | Boolean | 否  |
+| NewHttpHeader         | OriginConfiguration.OriginRule.<br/>OriginParameter.HttpHeader | 设置 Proxy 模式传输的请求头部。                        | Container | 否  |
 
 Container 节点 NewHttpHeader 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
-| Field         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader.NewHttpHeader | 回源到源站时添加新的自定义头部，默认为空。                        | Container | 否  |
+| Field         | OriginConfiguration.OriginRule.<br/>OriginParameter.HttpHeader.NewHttpHeader | 回源到源站时添加新的自定义头部，默认为空。                        | Container | 否  |
 
 Container 节点 Header 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
-| Key         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader.NewHttpHeader.Header | 用户设置的头部名称，默认为空。形式如 x-cos、oss、amz-ContentType、CacheControl、ContentDisposition、ContentEncoding、HttpExpiresDate、UserMetaData       | String | 否  |
-| Value         | OriginConfiguration.OriginRule.OriginParameter.HttpHeader.NewHttpHeader.Header | 用户设置的头部值，默认为空。          | String | 否  |
+| Key         | OriginConfiguration.OriginRule.<br/>OriginParameter.HttpHeader.NewHttpHeader.Header | 用户设置的头部名称，默认为空。形式如 x-cos、oss、amz-ContentType、CacheControl、ContentDisposition、ContentEncoding、HttpExpiresDate、UserMetaData       | String | 否  |
+| Value         | OriginConfiguration.OriginRule.<br/>OriginParameter.HttpHeader.NewHttpHeader.Header | 用户设置的头部值，默认为空。          | String | 否  |
 
 Container 节点 OriginInfo 的内容：
 
@@ -147,18 +147,18 @@ Container 节点 HostInfo 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
-| HostName         | OriginConfiguration.OriginRule.OriginInfo.HostInfo | 源站域名或者源站 IP。                        | String | 是   |
+| HostName         | OriginConfiguration.OriginRule.<br/>OriginInfo.HostInfo | 源站域名或者源站 IP。                        | String | 是   |
 
 Container 节点 FileInfo 的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                             | 类型      | 是否必选 |
 | :----------------- | :----------------------------- | :----------------------------------------------- | :-------- | :--- |
-| PrefixConfiguration         | OriginConfiguration.OriginRule.OriginInfo.FileInfo | 回源文件前缀配置信息。                        |  Container | 否  |
-| Prefix         | OriginConfiguration.OriginRule.OriginInfo.FileInfo.PrefixConfiguration | 回源文件的文件前缀，默认为空。                        |  String | 否  |
-| SuffixConfiguration         | OriginConfiguration.OriginRule.OriginInfo.FileInfo | 回源文件后缀配置信息。                        |  Container | 否  |
-| Suffix         | OriginConfiguration.OriginRule.OriginInfo.FileInfo.SuffixConfiguration | 回源文件的文件后缀，默认为空。                        |  String | 否  |
-| FixedFileConfiguration         | OriginConfiguration.OriginRule.OriginInfo.FileInfo.FixedFileRedirection | 是否在回源时将文件重定向为其他后缀的文件，枚举值：TRUE、FALSE，默认为 FALSE。  |  Boolean | 否  |
-| FixedFilePath         | OriginConfiguration.OriginRule.OriginInfo.FileInfo.FixedFileConfiguration | 回源的固定文件，默认为空。                        |  String | 否  |
+| PrefixConfiguration         | OriginConfiguration.OriginRule.<br/>OriginInfo.FileInfo | 回源文件前缀配置信息。                        |  Container | 否  |
+| Prefix         | OriginConfiguration.OriginRule.OriginInfo.<br/>FileInfo.PrefixConfiguration | 回源文件的文件前缀，默认为空。                        |  String | 否  |
+| SuffixConfiguration         | OriginConfiguration.OriginRule.<br/>OriginInfo.FileInfo | 回源文件后缀配置信息。                        |  Container | 否  |
+| Suffix         | OriginConfiguration.OriginRule.<br/>OriginInfo.FileInfo.SuffixConfiguration | 回源文件的文件后缀，默认为空。                        |  String | 否  |
+| FixedFileConfiguration         | OriginConfiguration.OriginRule.<br/>OriginInfo.FileInfo.FixedFileRedirection | 是否在回源时将文件重定向为其他后缀的文件，枚举值：TRUE、FALSE，默认为 FALSE。  |  Boolean | 否  |
+| FixedFilePath         | OriginConfiguration.OriginRule.<br/>OriginInfo.FileInfo.FixedFileConfiguration | 回源的固定文件，默认为空。                        |  String | 否  |
 
 ## 响应
 
