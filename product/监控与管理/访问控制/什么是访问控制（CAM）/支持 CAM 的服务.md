@@ -364,7 +364,7 @@
 | ----------------------------------------------------------- | ------ | -------- | ----- | ---- |	 ---- |	
 | [标签](https://cloud.tencent.com/document/product/651) | 操作级 | &#10003;  | - |  - |	 - |	
 | [资源编排 TIC](https://cloud.tencent.com/document/product/1213) | 服务级 | &#10003;  | - |  &#10003;  |	 - |	
-| [云顾问](https://cloud.tencent.com/document/product/1264) | 服务级 | - | - |  &#10003;  |	 - |
+| [云顾问](https://cloud.tencent.com/document/product/1264) | - | - | - |  &#10003;  |	 - |
 
 ## 管理与审计
 
