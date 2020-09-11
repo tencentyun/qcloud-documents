@@ -57,7 +57,7 @@ Go 客户端 Pulsar 官方目前还未更新最新适配的客户端，在官方
    ```go
    import "github.com/TencentCloud/tdmq-go-client/pulsar"
    ```
-3. 前往控制台【角色管理】，找到刚刚创建的角色，单击复制密钥。
+3. 前往 TDMQ 控制台【[角色管理](https://console.cloud.tencent.com/tdmq/role)】，找到刚刚创建的角色，单击复制密钥。
 4. 在创建 Client 的代码中加入刚刚复制的密钥，并添加 ListenerName 参数
  ```go
    client, err := NewClient(ClientOptions{
