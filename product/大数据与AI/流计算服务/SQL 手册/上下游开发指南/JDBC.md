@@ -9,6 +9,7 @@ JDBC 支持用作数据源表（Source，仅限于普通和维表 JOIN 的右表
 如果希望将 JDBC 数据库的变动记录，将其作为流式源表消费，可以使用 [Debezium](https://debezium.io/documentation/reference/1.2/tutorial.html)、[Canal](https://github.com/alibaba/canal) 等，对 JDBC 据库的变更进行捕获和订阅，然后 Flink 即可对这些变更事件进行进一步的处理。可参见 [Kafka](https://cloud.tencent.com/document/product/849/48310)。
 
 ## 示例：用作数据源（Source）
+
 ```sql
 CREATE TABLE `Data-Input` (
       `time` VARCHAR,
@@ -25,8 +26,7 @@ CREATE TABLE `Data-Input` (
     'lookup.cache.ttl' = '5000'       -- 读缓存的 TTL
 );
 ```
-
-## 示例：用作数据目的（Sink）
+## 示例：用作数据目的（Tuple Sink）
 ```sql
 CREATE TABLE `Data-Output` (
       `time` VARCHAR,
@@ -36,9 +36,28 @@ CREATE TABLE `Data-Output` (
     -- 指定数据库连接参数
     'connector' = 'jdbc',
     'url' = 'jdbc:mysql://10.1.28.93:3306/CDB', -- 请替换为您的实际 MySQL 连接参数
-    'table-name' = 'my-table', -- 需要写入的数据表
-    'username' = 'admin',      -- 数据库访问的用户名（需要提供 INSERT 权限）
+    'table-name' = 'my-table',  -- 需要写入的数据表
+    'username' = 'admin',       -- 数据库访问的用户名（需要提供 INSERT 权限）
     'password' = 'MyPa$$w0rd',  -- 数据库访问的密码
+    'sink.buffer-flush.max-rows' = '200',  -- 批量输出的条数
+    'sink.buffer-flush.interval' = '2s'    -- 批量输出的间隔
+);
+```
+
+## 示例：用作数据目的（Upsert Sink）
+```sql
+CREATE TABLE `Data-Output` (
+      `id` BIGINT PRIMARY KEY NOT ENFORCED,
+      `time` VARCHAR,
+      `client_ip` VARCHAR,
+      `method` VARCHAR
+) WITH (
+    -- 指定数据库连接参数
+    'connector' = 'jdbc',
+    'url' = 'jdbc:mysql://10.1.28.93:3306/CDB', -- 请替换为您的实际 MySQL 连接参数
+    'table-name' = 'my-upsert-table', -- 需要写入的数据表
+    'username' = 'admin',             -- 数据库访问的用户名（需要提供 INSERT 权限）
+    'password' = 'MyPa$$w0rd',        -- 数据库访问的密码
     'sink.buffer-flush.max-rows' = '200',  -- 批量输出的条数
     'sink.buffer-flush.interval' = '2s'    -- 批量输出的间隔
 );
