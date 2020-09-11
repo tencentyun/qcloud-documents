@@ -27,8 +27,8 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
 
 ### 内核包安装步骤
 下面将介绍不同的内核版本，TOA 的安装方法，本文涉及两种 TOA：
-- 自研的 TOA 代码（性能上有做优化）：适用于2.x 和 3.x 的内核版本。
-- 开源 TOA 代码：适用于4.x及以上版本。
+- 自研的 TOA 代码（性能上有做优化）：适用于 2.x 和 3.x 的内核版本。
+- 开源 TOA 代码：适用于 4.x 及以上版本。
 >!
 >- TOA 按装依赖内核版本，环境需要具备相应版本的内核代码，根据内核代码进行编译内核插件。
 >- 建议客户灰度升级，内核插件影响较大。
@@ -83,7 +83,7 @@ insmod
 /lib/modules/uname -r/kernel/net/netfilter/ipvs/toa.ko
 ``` 
 7. 查看是否加载成功。
->!如需临时关闭 TOA (rmmod 路径/模块名)。
+>!如需临时关闭 TOA：rmmod 路径/模块名。
 >
 ```plaintext
 lsmod | grep toa
@@ -92,7 +92,7 @@ toa 12886 0
  ``` 
  
 ####  内核版本 3.X
-1. 下载源码包：[toa_kernel_3.x.zip](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/toa_kernel_3.x.zip.zip)
+1. 下载源码包：[toa_kernel_3.x.zip](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/toa_kernel_3.x.zip.zip)。
 2. 安装编译环境。
 ```plaintext
 yum install
@@ -141,7 +141,7 @@ insmod
 /lib/modules/uname -r/kernel/net/netfilter/ipvs/toa.ko
 ```
 8. 查看是否加载成功。
->!如需临时关闭 TOA (rmmod 路径/模块名)。
+>!如需临时关闭 TOA：rmmod 路径/模块名。
 >
 ```plaintext
 lsmod | grep toa
@@ -150,9 +150,11 @@ toa 12886 0
 ```
 
 #### 4.x 及以上版本 
->?需要使用开源 TOA 代码模块（NewToa.zip）。
+>?如需需要使用开源 TOA 代码模块（NewToa.zip）。
 
-1. 下载源码包：[toa_kernel_4.x.zip](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/toa_kernel_4.x.zip.zip) 。
+1. 下载安装包。
+	- 源码包：[toa_kernel_4.x.zip](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/toa_kernel_4.x.zip.zip) 。
+	- 下载内核代码安装文件：[内核代码](http://mirrors.tencent.com/tlinux/2.4/tlinux/x86_64/RPMS/ )。
 2. 根据第1步链接下载客户相关版本内核代码，将相关文件上传到机器上，包括：内核代码 rpm 文件 以及 TOA 源文件。
 3. 安装内核代码。
 ```plaintext
@@ -201,7 +203,7 @@ insmod
 /lib/modules/uname -r/kernel/net/netfilter/ipvs/toa.ko
 ```
 9. 查看是否加载成功。
->?如需临时关闭TOA (rmmod 路径/模块名)
+>?如需临时关闭 TOA：rmmod 路径/模块名。
 >
 ```plaintext
 lsmod | grep toa
