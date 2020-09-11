@@ -53,7 +53,7 @@ tar zxf toa_kernel_*.tar.gz
 ```plaintext
 cd toa
 ```
-5. 执行脚本 toa、sh，编译 make。
+5. 编译 make。
 ```plaintext
 make
 ```
