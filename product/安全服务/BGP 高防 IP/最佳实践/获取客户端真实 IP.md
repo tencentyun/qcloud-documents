@@ -27,9 +27,7 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
 客户端程序在用户态调用 getpeername，返回的 IP 和 port 即为客户端的原始 IP。
 
 ## TOA 模块安装步骤
-下面将介绍不同的内核版本，TOA 的安装方法，本文涉及两种 TOA：
-- 自研的 TOA 代码（性能上有做优化）：适用于 2.x 和 3.x 的内核版本。
-- 开源 TOA 代码：适用于 4.x 及以上版本。
+下面将介绍不同的内核版本，TOA 的安装方法：
 >!
 >- TOA 安装依赖内核版本，环境需要具备相应版本的内核代码，根据内核代码进行编译内核插件。
 >- 建议客户灰度升级，内核插件影响较大。
@@ -38,15 +36,14 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
 			
 1. 下载源码包。
 	- **内核版本 2.X**
-下载源码包：[toa_kernel_2.x.tar.gz](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/toa_kernel_2.x.tar.gz)。
+下载源码包：[toa_kernel_2.x.tar.gz](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/toa_kernel_2.x.tar.gz)
 	- **内核版本 3.X**
 下载源码包：[toa_kernel_3.x.tar.gz](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/toa_kernel_3.x.tar.gz)
 	- **内核版本 4.X**
 下载源码包：[toa_kernel_4.x.tar.gz](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/toa_kernel_4.x.tar.gz)
 2. 安装编译环境。
 ```plaintext
-yum install
-gcc kernel-headers kernel-devel –y
+yum install  gcc kernel-headers kernel-devel –y
 ```
 3. 解压源码包。
 ```plaintext
@@ -56,25 +53,18 @@ tar zxf toa_kernel_*.tar.gz
 ```plaintext
 cd toa
 ```
-5. 更改 Makefile 配置文件中的路径。
-```plaintext
-KERNEL_DIR := /usr/src/kernels/`uname -r`/
-```
-6. 执行脚本 toa、sh，编译 make。
+5. 执行脚本 toa、sh，编译 make。
 ```plaintext
 make
 ```
-7. 移动并加载模块。
+6. 移动并加载模块。
 ```plaintext
-mv toa.ko
-/lib/modules/uname -r/kernel/net/netfilter/ipvs/toa.ko
-insmod
-/lib/modules/uname -r/kernel/net/netfilter/ipvs/toa.ko
+mv toa.ko /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
+insmod /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
 ```
-8. 查看是否加载成功。
+7. 查看是否加载成功。
 ```plaintext
-lsmod | grep toa
-[root@VM_0_2_centos_toa]# lsmod | grep toa
+# lsmod | grep toa
 toa 12886 0
 ```
 
