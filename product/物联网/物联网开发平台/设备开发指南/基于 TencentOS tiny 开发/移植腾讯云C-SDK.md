@@ -106,7 +106,7 @@ TencentOS-tiny 官方已经将 IoT_Explorer C-SDK 移植适配完成，在 `comp
 
 ## 步骤七：下发控制指令
 1. 在串口助手中看到设备查看到在等待平台下发控制指令。
-![](https://img-blog.csdnimg.cn/2020062911240455.png)
+![](https://main.qcloudimg.com/raw/406fb4d193022ddd4084d415bfe4f25f.png)
 2. 然后在云端平台进入设备在线调试，下发控制指令。
 ![](https://main.qcloudimg.com/raw/7298a5f4b0c831f0814a4a59325e4d78.png)
 3. 最后可以在串口助手中查看到设备收到后在串口打印控制指令。
