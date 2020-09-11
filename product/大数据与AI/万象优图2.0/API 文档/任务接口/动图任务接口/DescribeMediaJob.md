@@ -1,5 +1,5 @@
 ## 功能描述
-DescribeMediaJob 接口用来查询指定的任务。
+DescribeMediaJob 用于查询指定的任务。
 
 ## 请求
 
