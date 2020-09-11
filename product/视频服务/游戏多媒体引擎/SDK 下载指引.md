@@ -27,7 +27,7 @@
 <li>语音消息支持变声。</li>
 <li >增加伴奏升降 Key 功能。</li>
 <li >增加不同房间对唱功能（目前处于灰度内测阶段，您可以 <a href="https://console.cloud.tencent.com/workorder/category">提交工单</a> 申请使用）。</li></ul ></td>
-<td>2020-09-09</td> 
+<td>2020-09-11</td> 
 <td><a href="https://cloud.tencent.com/document/product/607/34377">实时语音伴奏</tr>
 </tbody></table>
 
