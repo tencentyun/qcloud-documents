@@ -71,7 +71,7 @@ Container 类型 Watermark 的具体数据描述如下：
 | 节点名称（关键字）     | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
 | Type                | Request.Watermark | 水印<br/>类型    | String    | 是   | 无  | <li>Text：文字水印<li>Image：图片水印 |
-| Pos                 | Request.Watermark | 基准<br/>位置    | String    | 是   | 无  | 1. TopRight、TopLeft、BottomRight、 BottomLeft |
+| Pos                 | Request.Watermark | 基准<br/>位置    | String    | 是   | 无  | <li>TopRight：右上<li>TopLeft：左上<li>BottomRight：右下<li>BottomLeft：左下 |
 | LocMode             | Request.Watermark | 偏移<br/>方式    | String    | 是   | 无  | <li>Relativity：按比例<li>Absolute：固定位置 |
 | Dx                  | Request.Watermark | 水平<br/>偏移    | String    | 是   | 无  | <li>值范围：[0 100] <br/><li>当 locMode 为 Relativity 时，单位为% <br/> <li>当 locMode 为 Absolute 时，单位为px |
 | Dy                  | Request.Watermark | 垂直<br/>偏移    | String    | 是   | 无  | <li>值范围：[0 100] <br/><li>当 locMode 为 Relativity 时，单位为% <br/><li>当 locMode 为 Absolute 时，单位为px |
@@ -164,7 +164,7 @@ Container 节点 Response 的内容：
 
 ```shell
 PUT /template/<TemplateId> HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
 Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 1666
 Content-Type: application/xml
@@ -201,7 +201,7 @@ Content-Length: 100
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
 
 <Response>
     <Template>
