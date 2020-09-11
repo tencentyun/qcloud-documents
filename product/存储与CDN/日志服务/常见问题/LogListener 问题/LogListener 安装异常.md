@@ -1,4 +1,4 @@
-如何安装使用日志服务 LogListener，详情请参阅 [ LogListener 安装指南](https://cloud.tencent.com/document/product/614/17414) 文档，并了解 [ LogListener 机制](https://cloud.tencent.com/document/product/614/17415)。
+如何安装使用日志服务 LogListener，详情请参见 [ LogListener 安装指南](https://cloud.tencent.com/document/product/614/17414) 文档，并了解 [ LogListener 机制](https://cloud.tencent.com/document/product/614/17415)。
 
 ## 可能原因
 
@@ -18,4 +18,4 @@
 3. 确认 Loglistener 版本。
    日志服务最新特性可能依赖新版 LogListener，若确认是使用新特性异常，请下载 LogListener 最新版本。LogListener 下载及详细安装步骤请参见 [LogListener 安装指南](https://cloud.tencent.com/document/product/614/17414)。
 4. 验证 LogListener 成功安装。
-   参考如何使用 LogListener 快速诊断工具检查 LogListener 进程、心跳和拉配置是否正常。 
+   参考如何使用 [LogListener 快速诊断工具](https://cloud.tencent.com/document/product/614/17414#loglistener-.E5.B8.B8.E7.94.A8.E6.93.8D.E4.BD.9C) 检查 LogListener 进程、心跳和拉配置是否正常。 
