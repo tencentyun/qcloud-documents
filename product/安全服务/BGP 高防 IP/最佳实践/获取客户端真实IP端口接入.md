@@ -53,7 +53,7 @@ tar zxf toa_kernel_*.tar.gz
 ```plaintext
 cd toa
 ```
-5. 执行脚本 toa.sh。(3.x 和 4.x 跳过)
+5. 执行脚本 toa.sh(3.x 和 4.x 跳过此步)。
 >?3.x 内核和 4.x 内核无需执行 toa.sh。
 >
 ```plaintext
