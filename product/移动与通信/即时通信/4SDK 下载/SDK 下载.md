@@ -105,6 +105,7 @@
 
 ## 标准版与精简版差异对照表
 精简版目前支持 Android 和 iOS 两个平台，后续会逐步增加对 Windows 和 Mac 平台的支持。下面以 Android 和 iOS 平台下的 SDK 为主，对比一下标准版和精简版的差异。
+
 ### SDK 体积大小对比
 <table>
   <tr>
