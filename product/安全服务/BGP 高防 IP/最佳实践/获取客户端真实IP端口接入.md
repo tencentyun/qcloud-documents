@@ -43,7 +43,7 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
 下载源码包：[toa_kernel_4.x.tar.gz](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/toa_kernel_4.x.tar.gz)
 2. 安装编译环境。
 ```plaintext
-yum install  gcc kernel-headers kernel-devel –y
+yum install gcc kernel-headers kernel-devel –y
 ```
 3. 解压源码包。
 ```plaintext
@@ -63,6 +63,8 @@ mv toa.ko /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
 insmod /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
 ```
 7. 查看是否加载成功。
+>?如需临时关闭 TOA ：rmmod 路径/模块名。
+>
 ```plaintext
 # lsmod | grep toa
 toa 12886 0
