@@ -23,7 +23,7 @@
 2. 使用内置 Connector “blackhole” 创建数据结果表 Data_Output，包含字段 avg_age（BIGINT 型），avg_score（BIGINT 型）。blackhole 是位于集群本地的数据目的，可以不断接收数据。
 3. 将 Data_Intput 中的 age 和 score 取平均数之后存储于 Data_Output。
 
-若要使用其他数据源或数据目的的 Connector，如 Ckafka 或 Elasticsearch，可参考 [上下游开发指南-链接待补充]()，并自行准备数据。
+若要使用其他数据源或数据目的的 Connector，如 Ckafka 或 Elasticsearch，可参考 [上下游开发指南](https://cloud.tencent.com/document/product/849/48263)，并自行准备数据。
 ```mysql
 CREATE TABLE `Data_Input` (
     `id` VARCHAR,
