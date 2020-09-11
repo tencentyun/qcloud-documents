@@ -1,8 +1,9 @@
-## 使用非网站业务转发规则
-DDoS 高防 IP 使用非网站业务转发规则时，源站需使用 toa 模块获取客户端的真实 IP。
+本文档将介绍如何使用 TOA 模块获取客户端的真实 IP。
+## 背景信息
+DDoS 高防 IP 使用非网站业务转发规则时，源站需使用 TOA 模块获取客户端的真实 IP。
 业务请求经过高防 IP 的 4 层转发后，业务服务器端接收到报文后，其看到的源 IP 地址是高防 IP 的出口 IP 地址。为了让服务器端能够获取到用户端实际的 IP 地址，可以使用如下 TOA 的方案。在业务服务的 Linux 服务器上，安装对应的 TOA 内核包，并重启服务器后。业务侧就可以获取到用户端实际的 IP 地址。
 
-### TOA 原理
+## TOA 原理
 高防转发后，数据包同时会做 SNAT 和 DNAT，数据包的源地址和目标地址均修改。
 TCP 协议下，为了将客户端 IP 传给服务器，会将客户端的 IP，port 在转发时放入了自定义的 tcp option 字段。
 		
@@ -25,7 +26,7 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
 
 客户端程序在用户态调用 getpeername，返回的 IP 和 port 即为客户端的原始 IP。
 
-### 内核包安装步骤
+## TOA 模块安装步骤
 下面将介绍不同的内核版本，TOA 的安装方法，本文涉及两种 TOA：
 - 自研的 TOA 代码（性能上有做优化）：适用于 2.x 和 3.x 的内核版本。
 - 开源 TOA 代码：适用于 4.x 及以上版本。
@@ -34,7 +35,7 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
 >- 建议客户灰度升级，内核插件影响较大。
 >- 本篇文章主要介绍解析 TOA 插件的安装，插入 TOA 一般集成在转发引擎中本文不做介绍。
 			
-####  内核版本 2.X
+###  内核版本 2.X
 
 1. 下载源码包：[toa_kernel_2.x.zip](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/toa_kernel_2.x.zip.zip)。
 2. 安装编译环境。
@@ -44,7 +45,7 @@ gcc kernel-headers kernel-devel –y
 ```
 3. 解压源码包。
 ```plaintext
-Unzip toa_kernel_2.x.zip
+unzip toa_kernel_2.x.zip
 ```
 4. 进入 TOA 目录。
 ```plaintext
@@ -91,7 +92,7 @@ lsmod | grep toa
 toa 12886 0
  ``` 
  
-####  内核版本 3.X
+###  内核版本 3.X
 1. 下载源码包：[toa_kernel_3.x.zip](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/toa_kernel_3.x.zip.zip)。
 2. 安装编译环境。
 ```plaintext
@@ -149,7 +150,7 @@ lsmod | grep toa
 toa 12886 0
 ```
 
-#### 4.x 及以上版本 
+### 4.x 及以上版本 
 >?如需需要使用开源 TOA 代码模块（NewToa.zip）。
 
 1. 下载安装包。
