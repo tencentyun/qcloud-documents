@@ -155,7 +155,7 @@ toa 12886 0
 1. 下载安装包。
 	- 源码包：[toa_kernel_4.x.zip](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/toa_kernel_4.x.zip.zip) 。
 	- 下载内核代码安装文件：[内核代码](http://mirrors.tencent.com/tlinux/2.4/tlinux/x86_64/RPMS/ )。
-2. 根据第1步链接下载客户相关版本内核代码，将相关文件上传到机器上，包括：内核代码 rpm 文件 以及 TOA 源文件。
+2. 根据第1步链接下载客户端相关版本内核代码，将相关文件上传到机器上，包括：内核代码 rpm 文件 以及 TOA 源文件。
 3. 安装内核代码。
 ```plaintext
 rpm -ivh XXXX.rpm
