@@ -23,10 +23,10 @@
 </thead>
 <tbody><tr>
 <td>发布 SDK 2.7.0 beta 版本</td>
-<td ><ul style="margin:0;"><li >增加房间管理功能。（灰度中）</li>
+<td ><ul style="margin:0;"><li >增加房间管理功能（目前处于灰度内测阶段，您可以 <a href="https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fworkorder%2Fcategory">提交工单</a> 申请使用）。</li>
 <li>语音消息支持变声。</li>
 <li >增加伴奏升降 Key 功能。</li>
-<li >增加不同房间对唱功能。（灰度中）</li></ul ></td>
+<li >增加不同房间对唱功能（目前处于灰度内测阶段，您可以 <a href="https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fworkorder%2Fcategory">提交工单</a> 申请使用）。</li></ul ></td>
 <td>2020-09-09</td> 
 <td><a href="https://cloud.tencent.com/document/product/607/34377">实时语音伴奏</tr>
 </tbody></table>
