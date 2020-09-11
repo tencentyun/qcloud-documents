@@ -1,3 +1,4 @@
+腾讯云物联网设备端 Andriod SDK 依靠安全且性能强大的数据通道，为物联网领域开发人员提供设备端快速接入云端，并和云端进行双向通信的能力。开发人员只需完成工程的相应配置即可完成设备的接入。
 ## 引用方式
 ####  集成 SDK 方式
 若不需要将 IoT SDK 运行在 service 组件中，则只需要依赖 [iot_core](https://github.com/tencentyun/iot-device-java/tree/master/hub-device-android/iot_core)。
