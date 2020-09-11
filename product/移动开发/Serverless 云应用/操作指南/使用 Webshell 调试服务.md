@@ -1,4 +1,4 @@
-本文将先向您介绍 Serverless云应用 的 Webshell 功能，以及如何使用 Webshell 完成基本的运维需求。
+本文为您介绍 Serverless云应用 的 Webshell 功能，以及如何使用 Webshell 完成基本的运维需求。
 
 
 
@@ -21,11 +21,12 @@
 
 
 
-## 步骤2：进入您需要运维的服务详情
+## 步骤2：进入服务详情页面
 
 单击服务名称进入服务详情页面。
 
-![](https://main.qcloudimg.com/raw/252af6bc138cd26f7f109fe3ed8b5fa2.png)
+
+![](https://main.qcloudimg.com/raw/0f5797a3dec470fe211e1e47a05cecbd.jpg)
 
 
 
