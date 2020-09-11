@@ -10,6 +10,8 @@ Elasticsearch 只支持写入，可以作为 Tuple 数据流的目的表（Sink�
 
 ## 示例：用作 Elasticsearch 6 数据目的（Sink）
 当写入 Elasticsearch 6.x 版本时，请在作业内置 Connector 中选择 `flink-connector-elasticsearch6`。
+>!目前该语法不支持用户名和密码鉴权。如果需要此功能，请使用 Flink 1.10 的旧语法。
+
 ```sql
 CREATE TABLE `Data-Input` (
       `time` VARCHAR,
@@ -20,8 +22,6 @@ CREATE TABLE `Data-Input` (
     'hosts' = 'http://10.28.28.94:9200',   -- Elasticsearch 的连接地址
     'index' = 'my-index',                  -- Elasticsearch 的 Index 名
     'document-type' = '_doc',              -- Elasticsearch 的 Document 类型
-    -- 'connector.username' = 'elastic',   -- 可选参数: Elasticsearch 用户名
-    -- 'connector.password' = '123456',    -- 可选参数: Elasticsearch 密码
     'sink.bulk-flush.max-actions' = '1',   -- 每条数据都刷新
     'format' = 'json'                      -- 输出数据格式, 目前只支持 'json'
 );
@@ -29,6 +29,8 @@ CREATE TABLE `Data-Input` (
 
 ## 示例：用作 Elasticsearch 7 数据目的（Sink）
 当写入 Elasticsearch 7.x 版本时，请在作业内置 Connector 中选择 `flink-connector-elasticsearch7`。
+>!目前该语法不支持用户名和密码鉴权。如果需要此功能，请使用 Flink 1.10 旧语法。
+
 ```sql
 CREATE TABLE `Data-Output` (
       `time` VARCHAR,
@@ -38,8 +40,6 @@ CREATE TABLE `Data-Output` (
     'connector' = 'elasticsearch-7',       -- 输出到 Elasticsearch 7
     'hosts' = 'http://10.28.28.94:9200',   -- Elasticsearch 的连接地址
     'index' = 'my-index',                  -- Elasticsearch 的 Index 名
-    -- 'connector.username' = 'elastic',   -- 可选参数: Elasticsearch 用户名
-    -- 'connector.password' = '123456',    -- 可选参数: Elasticsearch 密码
     'sink.bulk-flush.max-actions' = '1',   -- 每条数据都刷新
     'format' = 'json'                      -- 输出数据格式, 目前只支持 'json'
 );
