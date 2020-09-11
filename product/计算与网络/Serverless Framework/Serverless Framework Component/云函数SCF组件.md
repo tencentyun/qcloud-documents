@@ -1,134 +1,120 @@
-## 操作场景
+## 组件概述
+
 **腾讯云 SCF 云函数组件**通过使用 [Tencent Serverless Framework](https://github.com/serverless/components/tree/cloud)，基于云上 Serverless 服务（云函数及触发器等），实现“0”配置，便捷开发，极速部署您的第一个云函数，该组件支持丰富的配置扩展，提供了目前最易用、低成本并且弹性伸缩的云函数的开发、配置及部署能力。
 
-SCF 组件特性介绍：
 
-- **按需付费**：按照请求的使用量进行收费，没有请求时无需付费。
-- **"0"配置**：只需要关心项目代码，之后部署即可，Serverless Framework 会搞定所有配置。
-- **极速部署**：仅需几秒，部署您的整个云函数应用。
-- **实时日志**：通过实时日志的输出查看业务状态，便于直接在云端开发应用。
-- **云端调试**：针对 Node.js 框架支持一键云端调试能力，屏蔽本地环境的差异。
-- **便捷协作**：通过云端的状态信息和部署日志，方便的进行多人协作开发。
+## 快速入门
 
-## 操作步骤
-### 1. 安装
+### 前提条件
 
-通过 npm 安装最新版本的 Serverless Framework：
-```
-$ npm install -g serverless
-```
+- 已安装 Serverless Framework（参考 [安装 Serverless Framework](https://cloud.tencent.com/document/product/1154/42990)）
+- 账号开通 Serverless 相关权限（参考 [账号和权限配置](https://cloud.tencent.com/document/product/1154/43006)）
 
-### 2. 创建
 
-创建并进入一个全新目录：
-```
-$ mkdir tencent-scf && cd tencent-scf
-```
+### 操作步骤
 
-通过如下命令和模板链接，快速创建一个 SCF 应用：
+#### 创建
+- 方式一：按照 [快速部署](https://cloud.tencent.com/document/product/1154/41775) 操作，选择 SCF 项目模板进行创建。
+- 方式二：直接使用 `sls init` 命令创建。快速创建一个 nodejs 的 SCF 示例：
 ```
-$ serverless init scf-demo
-$ cd example
+sls init scf-demo
 ```
+>?命令中的 `scf-demo` 可以更换成其他语言模板。目前 SCF 组件支持的模板有：go1-helloworld 、nodejs1015-helloworld、php72-helloworld、python36-helloworld。
 
-下载完毕后，目录结构如下所示：
+
+#### 部署
+执行以下命令，将会弹出二维码，直接扫码授权进行部署：
 ```
-|- src
-|   └── index.js
-└──  serverless.yml
+sls deploy
+```
+>?如果鉴权失败，请参考 [权限配置](https://cloud.tencent.com/document/product/1154/43006) 进行授权。
+
+
+#### 查看
+执行以下命令，查看您部署的项目信息：
+```
+sls info
 ```
 
-### 3. 部署
-
-在`serverless.yml`文件下的目录中运行`serverless deploy`进行云函数的部署部署完毕后，您可以在命令行的输出中查看到对应云函数的网关触发器提供的 URL 地址，点击地址即可查看云函数的部署效果。
-
-如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
-
-如果希望查看更多部署过程的信息，可以通过`sls deploy --debug` 命令查看部署过程中的实时日志信息（`sls`是 `serverless` 命令的缩写）。
+#### 移除
+执行以下命令，移除您已经部署的项目：
+```
+sls remove
+```
 
 
-### 4. 配置
 
-腾讯云 SCF 组件支持“0”配置部署，也就是可以直接通过配置文件中的默认值进行部署。但您依然可以修改更多可选配置来进一步开发该项目。
+## 进阶指导
+### serverless.yml
+执行 `sls deploy` 时，根据 serverless.yml 文件中的配置对云函数资源进行创建或更新。一份简单的 serverlesss.yml 文件如下：
+>?配置详情请参考 [全量配置文档](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)。
 
-以下是腾讯云 SCF 组件的`serverless.yml`完整配置说明：
+```
+#scf组件配置样例
+#全量配置参考https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md
 
-```yml
-# serverless.yml
-
+#组件信息
 component: scf # (必填) 引用 component 的名称，当前用到的是 tencent-scf 组件
-name: scfdemo # (必填) 该组件创建的实例名称
-org: test # (可选) 用于记录组织信息，默认值为您的腾讯云账户 appid
-app: scfApp # (可选) 该 SCF 应用名称
-stage: dev # (可选) 用于区分环境信息，默认值是 dev
+name: scfdemo # (必填) 创建的实例名称，请修改成您的实例名称
 
+#组件参数
 inputs:
-  name: scfFunctionName
-  src: ./src
-  runtime: Nodejs10.15 # 云函数的运行时环境。除 Nodejs10.15 外，可选值为：Python2.7、Python3.6、Nodejs6.10、Nodejs8.9、Nodejs12.16、PHP5、PHP7、Golang1、Java8。
-  region: ap-guangzhou
-  handler: index.main_handler
-  events:
-    - apigw:
-        name: serverless_api
+  name: ${name}-${stage}-${app} #函数名称
+  src: ./  #代码路径
+  handler: index.main_handler #入口
+  runtime: Nodejs10.15 # 云函数运行时的环境
+  region: ap-guangzhou # 云函数所在区域
+  events: # 触发器
+    - apigw: # 网关触发器
         parameters:
-          protocols:
-            - http
-            - https
-          serviceName:
-          description: The service of Serverless Framework
-          environment: release
           endpoints:
-            - path: /index
+            - path: /
               method: GET
 ```
 
-查看 [全量配置及配置说明 >>](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)
+serverless.yml 文件包含的信息：
 
-当您根据该配置文件更新配置字段后，再次运行 `serverless deploy` 或者 `serverless` 就可以更新配置到云端。
+#### 组件信息
 
-### 5. 开发调试
+|组件名| 是否必选| 说明 |
+|---------|---------|---------|
+| component | 必填 | component 的名称，使用`sls registry`查询您可以引入的组件。 |
+| name | 必填 | 创建的实例名称，每个组件在部署时将创建一个实例。 |
 
-部署了该云函数 SCF 应用后，可以通过开发调试能力对该项目进行二次开发，从而开发一个生产应用。在本地修改和更新代码后，不需要每次都运行 `serverless deploy` 命令来反复部署。您可以直接通过 `serverless dev` 命令对本地代码的改动进行检测和自动上传。
 
-可以通过在 `serverless.yml`文件所在的目录下运行 `serverless dev` 命令开启开发调试能力。
+#### 参数信息
+inputs 下的参数为组件配置参数。一个最简单 SCF 组件参数配置由以下几部分：
 
-`serverless dev` 同时支持实时输出云端日志，每次部署完毕后，对项目进行访问，即可在命令行中实时输出调用日志，便于查看业务情况和排障。
+| 参数名 | 说明 | 
+|---------|---------|
+| name |  云函数名称。由于云函数又是资源 ID，为了保证资源的唯一性，建议采用 `${name}-${stage}-${app}` 变量方式。 |
+| src |   代码路径。|
+| handler |  函数处理方法名称 。|
+| runtime |  云函数运行环境，目前支持： Python2.7、Python3.6、Nodejs6.10、Nodejs8.9、Nodejs10.15、Nodejs12.16、PHP5、PHP7、Go1、Java8 和 CustomRuntime。|
+| region |   云函数所在的区域。|
+| events |   触发器。 支持的触发器为：timer、apigw、cos、cmq、ckafka 。|
 
-除了实时日志输出之外，针对 Node.js 应用，当前也支持云端调试能力。在开启 `serverless dev` 命令之后，将会自动监听远端端口，并将函数的超时时间临时配置为 900s。此时您可以通过访问 chrome://inspect/#devices 查找远端的调试路径，并直接对云端代码进行断点等调试。在调试模式结束后，需要再次部署从而将代码更新并将超时时间设置为原来的值。详情请参考 [开发模式和云端调试](https://cloud.tencent.com/document/product/1154/43220)。
 
-### 6. 查看状态
 
-在`serverless.yml`文件所在的目录下，通过如下命令查看部署状态：
 
-```
-$ serverless info
-```
+### 账号权限
+部署实例时需要账号授权去操作具体的云资源，目前可以通过两种方式进行授权：**扫码授权**和**密钥授权**。
 
-### 7. 移除
+- **扫码授权**：能快速进行授权部署，但生成的凭证是临时凭证，过期后需要重新扫码。
+- **密钥授权**：能够获得永久授权，需要预先配置账号的 SecretId 和 SecretKey 。
 
-在`serverless.yml`文件所在的目录下，通过以下命令移除部署 SCF 应用。移除后该组件会对应删除云上部署时所创建的所有相关资源。
+配置详情可参考 [权限配置](https://cloud.tencent.com/document/product/1154/43006)。
 
-```
-$ serverless remove
-```
 
-和部署类似，支持通过 `sls remove --debug` 命令查看移除过程中的实时日志信息，`sls`是 `serverless` 命令的缩写。
 
-### 账号配置（可选）
+### 开发调试
 
-当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建 `.env` 文件：
+在 `serverless.yml`文件所在的目录下运行 `sls dev` 可以实时输出云端日志，每次部署完毕后，对项目进行访问，即可在命令行中实时输出调用日志，便于查看业务情况和排障。nodejs 支持开启开发调试能力，将会对本地代码的改动进行检测和自动上传。详情请参考 [开发与调试](https://cloud.tencent.com/document/product/1154/43220)。
 
-```console
-$ touch .env # 腾讯云的配置信息
-```
 
-在`.env`文件中配置腾讯云的 SecretId 和 SecretKey 信息并保存：
-```
-# .env
-TENCENT_SECRET_ID=123
-TENCENT_SECRET_KEY=123
-```
->?
->- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
->- 如果已有腾讯云账号，可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
+
+### 应用管理
+Serverless 部署一个组件实例实质是部署了一个单组件实例的应用。
+
+在应用项目开发过程中，一个应用下可能会存在多个组件实例，如何管理组件实例进行应用项目开发，请参考 [应用管理](https://cloud.tencent.com/document/product/1154/48261)。
+

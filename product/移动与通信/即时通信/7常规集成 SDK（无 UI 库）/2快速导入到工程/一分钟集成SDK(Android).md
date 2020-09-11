@@ -69,7 +69,7 @@ defaultConfig {
 ```
 
 
-## 集成 SDK（jar & so）
+## 集成 SDK
 如果您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 IM SDK：
 
 - **第一步：下载解压 IM SDK**
@@ -77,7 +77,7 @@ defaultConfig {
 ![](https://main.qcloudimg.com/raw/ecc6ae484565b0170c42698825951eba.png)
 
 - **第二步：拷贝 SDK 文件到工程目录**
-将重命名后的 jar 文件和 各个架构的 so 文件分别拷贝到 Android Studio 默认加载的目录下：
+将重命名后的 jar 文件和各个架构的 so 文件分别拷贝到 Android Studio 默认加载的目录下：
 ![](https://main.qcloudimg.com/raw/237b44da2ec04ba87a6cef66aa0b5321.png)
 
 - **第三步：指定 App 使用架构并编译运行**

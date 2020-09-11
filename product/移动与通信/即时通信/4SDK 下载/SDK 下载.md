@@ -62,8 +62,10 @@
 	</tr> 
 </table>
 
-## 精简版-beta
->?精简版在标准版的基础上裁剪了好友列表和会话列表两项能力，并对部分业务逻辑做了优化，以实现更高的执行效率，更小的安装包增量。与标准版相比，精简版在 SDK 体积和安装包增量上都有 3-4 倍的缩减。如果您的 app 没有使用到好友列表和会话列表相关的功能，同时又特别关注安装包增量，精简版是您最好的选择。
+## 精简版
+>?
+>- 精简版在标准版的基础上裁剪了好友列表和会话列表两项能力，并对部分业务逻辑做了优化，以实现更高的执行效率，更小的安装包增量。
+>- 与标准版相比，精简版在 SDK 体积和安装包增量上都有3倍 - 4倍的缩减。如果您的 App 没有使用到好友列表和会话列表相关的功能，同时又特别关注安装包增量，建议您选择精简版。
 <table>
 	<tr>
 		<th align="center">所属平台</th>  
@@ -89,13 +91,13 @@
 </table>
 
 <script>
-  var _mtac = {"senseHash":0,"autoReport":0};
+  var _mtac = {};
   	(function() {
   		var mta = document.createElement("script");
   		mta.src = "//pingjs.qq.com/h5/stats.js?v2.0.4";
   		mta.setAttribute("name", "MTAH5");
-  		mta.setAttribute("sid", "500695621");
-  		mta.setAttribute("cid", "500695622");
+  		mta.setAttribute("sid", "500729087");
+  		mta.setAttribute("cid", "500729088");
   		var s = document.getElementsByTagName("script")[0];
   		s.parentNode.insertBefore(mta, s);
   	})();
@@ -122,7 +124,7 @@
   </tr>
   <tr>
     <td rowspan='5' width="100px" style="text-align:center">群</td>
-	<td width="200px" style="text-align:center">创建群 销毁群 加群 退群</td>
+	<td width="200px" style="text-align:center">创建群、销毁群、加群、退群</td>
     <td width="100px" style="text-align:center">&#10003</td>
     <td width="100px" style="text-align:center">&#10003</td>
   </tr>

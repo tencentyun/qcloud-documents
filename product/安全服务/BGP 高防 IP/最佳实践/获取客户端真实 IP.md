@@ -1,8 +1,9 @@
-## 使用非网站业务转发规则
-DDoS 高防 IP 使用非网站业务转发规则时，源站需使用 toa 模块获取客户端的真实 IP。
+本文档将介绍如何使用 TOA 模块获取客户端的真实 IP。
+## 背景信息
+DDoS 高防 IP 使用非网站业务转发规则时，源站需使用 TOA 模块获取客户端的真实 IP。
 业务请求经过高防 IP 的 4 层转发后，业务服务器端接收到报文后，其看到的源 IP 地址是高防 IP 的出口 IP 地址。为了让服务器端能够获取到用户端实际的 IP 地址，可以使用如下 TOA 的方案。在业务服务的 Linux 服务器上，安装对应的 TOA 内核包，并重启服务器后。业务侧就可以获取到用户端实际的 IP 地址。
 
-### TOA 原理
+## TOA 原理
 高防转发后，数据包同时会做 SNAT 和 DNAT，数据包的源地址和目标地址均修改。
 TCP 协议下，为了将客户端 IP 传给服务器，会将客户端的 IP，port 在转发时放入了自定义的 tcp option 字段。
 		
@@ -25,126 +26,190 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
 
 客户端程序在用户态调用 getpeername，返回的 IP 和 port 即为客户端的原始 IP。
 
-### 内核包安装步骤
-#### Centos 6.x/7.x
-1. 下载安装包：
- - [Centos 6.x 下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm)
- - [Centos 7.x 下载](http://toakernel-1253438722.cossh.myqcloud.com/kernel-3.10.0-693.el7.centos.toa.x86_64.rpm)
-2. 安装包文件。
-```
-rpm -hiv kernel-2.6.32-220.23.1.el6.toa.x86_64.rpm --force	
-```						
-3. 安装完成之后重启主机。
-```
-reboot
-```
-4. 执行命令检查 toa 模块是否加载成功。
-```
-lsmod | grep toa
-```
-5. 没有加载的话手工开启。
-```
-modprobe toa
-```		
-6. 可用下面的命令开启自动加载 toa 模块。
-<pre >
-echo "modprobe toa" >> /etc/rc.d/rc.local
-</pre>
+## TOA 模块安装步骤
+下面将介绍不同的内核版本，TOA 的安装方法，本文涉及两种 TOA：
+- 自研的 TOA 代码（性能上有做优化）：适用于 2.x 和 3.x 的内核版本。
+- 开源 TOA 代码：适用于 4.x 及以上版本。
+>!
+>- TOA 安装依赖内核版本，环境需要具备相应版本的内核代码，根据内核代码进行编译内核插件。
+>- 建议客户灰度升级，内核插件影响较大。
+>- 本篇文章主要介绍解析 TOA 插件的安装，插入 TOA 一般集成在转发引擎中本文不做介绍。
 			
-####  Ubuntu 16.04
-1. 下载安装包：
- - [内核包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-image-4.4.87.toa_1.0_amd64.deb )
- - [内核 header 包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-headers-4.4.87.toa_1.0_amd64.deb)
-2. 安装步骤：
-```
-dpkg -i linux-image-4.4.87.toa_1.0_amd64.deb
-```	
-Headers 包可不装，如需要做相关开发则安装。
-3. 安装完成之后重启主机，然后` lsmod | grep toa `检查 toa 模块是否加载 没有加载的话 `modprobe toa` 开启。
-可用下面的命令开启加载 toa 模块：
-<pre >
-echo "modprobe toa" >> /etc/rc.d/rc.local
-</pre >
-		 
-#### Debian 8
-1. 下载安装包：
- - [内核包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-image-3.16.43.toa_1.0_amd64.deb)
- - [内核 header 包下载](http://toakernel-1253438722.cossh.myqcloud.com/linux-headers-3.16.43.toa_1.0_amd64.deb)
-2. 安装方法与 Ubuntu 相同。
-请根据业务服务器 Linux 操作系统的类型和版本下载对应的内核包，按如下步骤操作。如果没有和用户操作系统一致的内核包，用户还可以参考下文的 **TOA 源代码安装指引**。
+###  内核版本 2.X
 
-### TOA 源代码内核安装指引
-####  源码安装
-1. 下载打好 [ toa 补丁](http://kb.linuxvirtualserver.org/images/3/34/Linux-2.6.32-220.23.1.el6.x86_64.rs.src.tar.gz) 的源码包，单击 toa 补丁即可下载安装包。
-2. 解压。
-3. 编辑 .config，将 `CONFIG_IPV6=M` 改成 `CONFIG_IPV6=y`。
-4. 如果需要加上一些自定义说明，可以编辑 Makefile。
-5. make -jn (n 为线程数)。
-6. `make modules_install`。
-7. `make install`。
-8. 修改 /boot/grub/menu.lst	将 default 改为新安装的内核（title 顺序从0开始）。
-9. Reboot 重启后即为 toa 内核。
-10. `lsmode | grep toa` 检查 toa 模块是否加载	没有加载的话 `modprobe toa` 开启。
+1. 下载源码包：[toa_kernel_2.x.zip](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/toa_kernel_2.x.zip.zip)。
+2. 安装编译环境。
+```plaintext
+yum install
+gcc kernel-headers kernel-devel –y
+```
+3. 解压源码包。
+```plaintext
+unzip toa_kernel_2.x.zip
+```
+4. 进入 TOA 目录。
+```plaintext
+cd toa
+```
+5. 更改 Makefile 配置文件中的路径。
+```plaintext
+vim Makefile
+[root@VM_0_2_centos_toa]# uname -r
+3.10.0-514.26.2.el7.x86_64
+[root@VM_0_2_centos_toa]# cat Makefile
+obj-m := toa.0
+KERNEL_DIR := /usr/src/kernels/3.10.0-514.26.2.el7.x86_64/
+PWD := $(shell pwd)
+#EXTEA_CFLAGS+=-D__GENKSYMS__
+all:
+make -C ¥(KERNEL_DIR) M=$(PWD) modules
+clean:
+rm *.0 *.ko *.mod.c Module.symvers modules.order
+5．执行脚本toa、sh，编译 make
+[root@VM_0_2_centos_toa]# make
+make -C /usr/src/kernels/3.10.0-514.26.2.el7.x86_64/ M=/root/toa modules
+make[1]: Entering directory '/usr/src/kernels/3.10.0-514.26.2.el7.x86_64/'
+CC [M] /root/toa/toa.0
+Building modules, stage 2.
+MODPOST 1 modules
+CC /root/toa/toa.mod.o
+LD [M] /root/toa/toa.ko
+make[1]: Leaving directory '/usr/src/kernels/3.10.0-514.26.2.el7.x86_64/'
+ ```
+6. 移动并加载模块。
+```plaintext
+mv toa.ko
+/lib/modules/uname -r/kernel/net/netfilter/ipvs/toa.ko
+insmod
+/lib/modules/uname -r/kernel/net/netfilter/ipvs/toa.ko
+``` 
+7. 查看是否加载成功。
+>!如需临时关闭 TOA：rmmod 路径/模块名。
+>
+```plaintext
+lsmod | grep toa
+[root@VM_0_2_centos_toa]# lsmod | grep toa
+toa 12886 0
+ ``` 
+ 
+###  内核版本 3.X
+1. 下载源码包：[toa_kernel_3.x.zip](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/toa_kernel_3.x.zip.zip)。
+2. 安装编译环境。
+```plaintext
+yum install
+gcc kernel-headers kernel-devel –y
+```
+3. 解压源码包。
+```plaintext
+unzip toa_kernel_3.x.zip
+```
+4. 进入 TOA 目录。
+```plaintext
+cd toa
+```
+5. 更改 Makefile 配置文件中的路径。
+```plaintext
+vim Makefile
+[root@VM_0_2_centos_toa]# uname -r
+3.10.0-514.26.2.el7.x86_64
+[root@VM_0_2_centos_toa]# cat Makefile
+obj-m := toa.0
+KERNEL_DIR := /usr/src/kernels/3.10.0-514.26.2.el7.x86_64/
+PWD := $(shell pwd)
+#EXTEA_CFLAGS+=-D__GENKSYMS__
+all:
+make -C ¥(KERNEL_DIR) M=$(PWD) modules
+clean:
+rm *.0 *.ko *.mod.c Module.symvers modules.order
+```
+6. 编译 make。
+```plaintext
+[root@VM_0_2_centos_toa]# make
+make -C /usr/src/kernels/3.10.0-514.26.2.el7.x86_64/ M=/root/toa modules
+make[1]: Entering directory '/usr/src/kernels/3.10.0-514.26.2.el7.x86_64/'
+CC [M] /root/toa/toa.0
+Building modules, stage 2.
+MODPOST 1 modules
+CC /root/toa/toa.mod.o
+LD [M] /root/toa/toa.ko
+make[1]: Leaving directory '/usr/src/kernels/3.10.0-514.26.2.el7.x86_64/'
+```
+7. 移动并加载模块。
+```plaintext
+mv toa.ko
+/lib/modules/uname -r/kernel/net/netfilter/ipvs/toa.ko
+insmod
+/lib/modules/uname -r/kernel/net/netfilter/ipvs/toa.ko
+```
+8. 查看是否加载成功。
+>!如需临时关闭 TOA：rmmod 路径/模块名。
+>
+```plaintext
+lsmod | grep toa
+[root@VM_0_2_centos_toa]# lsmod | grep toa
+toa 12886 0
+```
 
-#### 内核包制作
-您可自己制作 rpm 包，也可由我们提供。
-1. 安装 kernel-2.6.32-220.23.1.el6.src.rpm。
-```
-rpm -hiv kernel-2.6.32-220.23.1.el6.src.rpm
-```	
-2. 生成内核源码目录。
-```
-rpmbuild -bp ~/rpmbuild/SPECS/kernel.spec
-```		
-3. 复制一份源码目录。
-```
-cd ~/rpmbuild/BUILD/kernel-2.6.32-220.23.1.el6/ cp -a linux-2.6.32-220.23.1.el6.x86_64/ linux-2.6.32-220.23.1.el6.x86_64_new
-```			   
-4. 在复制出来的源码目录中打 toa 补丁。
-```
-cd ~/rpmbuild/BUILD/kernel-2.6.32-220.23.1.el6/linux-2.6.32-220.23.1.el6.x86_64_new/ 
-patch -p1 < /usr/local/src/linux-2.6.32-220.23.1.el6.x86_64.rs/toa-2.6.32-220.23.1.el6.patch
-```			
-5. 编辑 .config 并拷贝到 SOURCE 目录。
-```
-sed -i 's/CONFIG_IPV6=m/CONFIG_IPV6=y/g' .config 
-echo -e '\n# toa\nCONFIG_TOA=m' >> .config
-cp .config ~/rpmbuild/SOURCES/config-x86_64-generic
-```	
-6. 删除原始源码中的 .config。
-```
-cd ~/rpmbuild/BUILD/kernel-2.6.32-220.23.1.el6/linux-2.6.32-220.23.1.el6.x86_64 
-rm -rf .config
-```
-7. 生成最终 patch。
-```
-cd ~/rpmbuild/BUILD/kernel-2.6.32-220.23.1.el6/
-diff -uNr linux-2.6.32-220.23.1.el6.x86_64 linux-2.6.32-220.23.1.el6.x86_64_new/ >
-~/rpmbuild/SOURCES/toa.patch
-```
-8. 编辑 kernel.spec。
-```
-vim ~/rpmbuild/SPECS/kernel.spec
-```  
-在 ApplyOptionPath 下添加如下两行（还可修改 buildid 等自定义内核包名）： 
-```
-Patch999999: toa.patch
-ApplyOptionalPatch toa.patch
-```
-9. 制作 rpm 包。
-```
-rpmbuild -bb --with baseonly --without kabichk --with firmware --without debuginfo --target=x86_64 ~/rpmbuild/SPECS/kernel.spec
-```
-10. 安装内核 rpm 包。
-```
-rpm -hiv kernel-xxxx.rpm --force
-```	 
-11. 重启，加载 toa 模块。
+### 4.x 及以上版本 
+>?如需需要使用开源 TOA 代码模块（NewToa.zip）。
 
-## 使用网站业务转发规则
-DDoS 高防 IP 使用网站业务转发规则时，可利用 HTTP 头部的 X-Forwareded-For 字段获取客户端真实 IP。
-X-Forwareded-For：是一个 HTTP 头部扩展字段，目的是使服务器可以识别通过代理等方式链接的客户端真正的 IP。
-格式为：
-`X-Forwareded-For：Client，proxy1，proxy2，proxy3……  `
-当高防 IP 将用户的访问请求转到后端服务器时，会把请求用户的真实 IP 记录在 X-Forwareded-For 字段的首位。因此，源站应用只需要获取 HTTP 头部的 X-Forwarded-For 字段的内容即可。
-更多详情请参考 [七层转发获取来访真实 IP 的方法](https://cloud.tencent.com/document/product/214/3728)。
+1. 下载安装包。
+	- 源码包：[toa_kernel_4.x.zip](https://daaa-1254383475.cos.ap-shanghai.myqcloud.com/toa_kernel_4.x.zip.zip) 。
+	- 下载内核代码安装文件：[内核代码](http://mirrors.tencent.com/tlinux/2.4/tlinux/x86_64/RPMS/ )。
+2. 根据第1步链接下载客户端相关版本内核代码，将相关文件上传到机器上，包括：内核代码 rpm 文件 以及 TOA 源文件。
+3. 安装内核代码。
+```plaintext
+rpm -ivh XXXX.rpm
+```
+4. 解压源码包。
+```plaintext
+unzip toa_kernel_4.x.zip
+```
+5. 进入 TOA 目录。
+```plaintext
+cd toa
+```
+6. 更改 Makefile 配置文件中的路径。
+```plaintext
+vim Makefile
+[root@VM_0_2_centos_toa]# uname -r
+3.10.0-514.26.2.el7.x86_64
+[root@VM_0_2_centos_toa]# cat Makefile
+obj-m := toa.0
+KERNEL_DIR := /usr/src/kernels/3.10.0-514.26.2.el7.x86_64/
+PWD := $(shell pwd)
+#EXTEA_CFLAGS+=-D__GENKSYMS__
+all:
+make -C ¥(KERNEL_DIR) M=$(PWD) modules
+clean:
+rm *.0 *.ko *.mod.c Module.symvers modules.order
+```
+7. 编译 make。
+```plaintext
+[root@VM_0_2_centos_toa]# make
+make -C /usr/src/kernels/3.10.0-514.26.2.el7.x86_64/ M=/root/toa modules
+make[1]: Entering directory '/usr/src/kernels/3.10.0-514.26.2.el7.x86_64/'
+CC [M] /root/toa/toa.0
+Building modules, stage 2.
+MODPOST 1 modules
+CC /root/toa/toa.mod.o
+LD [M] /root/toa/toa.ko
+make[1]: Leaving directory '/usr/src/kernels/3.10.0-514.26.2.el7.x86_64/'
+```
+8. 移动并加载模块。
+```plaintext
+mv toa.ko
+/lib/modules/uname -r/kernel/net/netfilter/ipvs/toa.ko
+insmod
+/lib/modules/uname -r/kernel/net/netfilter/ipvs/toa.ko
+```
+9. 查看是否加载成功。
+>?如需临时关闭 TOA：rmmod 路径/模块名。
+>
+```plaintext
+lsmod | grep toa
+[root@VM_0_2_centos_toa]# lsmod | grep toa
+toa 12886 0
+```
+
+
