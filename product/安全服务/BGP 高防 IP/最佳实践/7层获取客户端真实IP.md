@@ -4,6 +4,7 @@
 通常情况下，当用户进行网站访问时，浏览器可能不是直达服务器，中间会部署 CDN 及 DDoS 高防等防护服务。例如，采用这样的架构：“用户 > CDN/DDoS 高防 > 源站服务器” 。
 
 如果您已经使用 DDoS 高防服务，可直接通过高防服务获取访问者的真实 IP，您也可以通过配置网站服务器来获取访问者的真实 IP。DDoS 高防 IP 使用网站业务转发规则时，可利用 HTTP 头部的 X-Forwareded-For 字段获取客户端真实 IP。
+
 X-Forwareded-For：是一个 HTTP 头部扩展字段，目的是使服务器可以识别通过代理等方式链接的客户端真正的 IP。
 格式为：X-Forwareded-For：Client，proxy1，proxy2，proxy3……
 
@@ -100,7 +101,7 @@ log_format main '$remote_addr [$http_x_forwarded_for]- $remote_user [$time_local
 2. 重启 nginx。
 
 ## 通过插件映射客户端真实 IP
-### Tomcat 配置
+### Tomcat 配置方案
 Tomcat 配置 xff 映射到 remote_addr，详情请参见 [tomcat 配置文档]( https://tomcat.apache.org/tomcat-8.5-doc/api/org/apache/catalina/valves/RemoteIpValve.html)。
 配置示例如下：
 ```plaintext
@@ -112,7 +113,7 @@ Tomcat 配置 xff 映射到 remote_addr，详情请参见 [tomcat 配置文档](
  />
 ```
 
-### Apache 配置
+### Apache 配置方案
 Apache 映射 xff 到 remote_addr，需 [安装 mod_remoteip](https://httpd.apache.org/docs/2.4/mod/mod_remoteip.html) 进行操作。
 配置示例如下：
 ```plaintext
@@ -120,9 +121,9 @@ RemoteIPHeader X-Forwarded-For
 RemoteIPTrustedProxyList x.x.x.x/24
 ```
 
-### IIS 6 配置
+### IIS 6 配置方案
 如果您的源站部署了 IIS 6 服务器，您可以通过安装 F5XForwardedFor.dll 插件，从 IIS 6 服务器记录的访问日志中获取访问者真实的 IP 地址。
-1. 下载并安装 F5XForwardedFor.dll 插件。
+1. 下载并安装 [F5XForwardedFor](https://devcentral.f5.com/s/articles/x-forwarded-for-log-filter-for-windows-servers) 模块。
 2. 根据您服务器的操作系统版本将 x86\Release 或者 x64\Release 目录中的 F5XForwardedFor.dll 文件拷贝至指定目录（如 C:\ISAPIFilters），同时确保 IIS 进程对该目录有读取权限。
 3. 打开 IIS 管理器，找到当前开启的网站，在该网站上右键单击【属性】，打开“属性”页面。
 4. 在“属性”页面，切换至 ISAPI筛选器，单击【添加】，在弹出的窗口中，配置如下信息：
@@ -131,10 +132,10 @@ RemoteIPTrustedProxyList x.x.x.x/24
 5. 单击【确定】，重启 IIS 6 服务器。
 6. 查看 IIS 6 服务器记录的访问日志（默认的日志路径为：C:\WINDOWS\system32\LogFiles\ ，IIS 日志的文件名称以 .log 为后缀），可获取 X-Forwarded-For 对应的访问者真实 IP。
 
-### IIS 7 配置
+### IIS 7 配置方案
 如果您的源站部署了 IIS 7 服务器，您可以通过安装 F5XForwardedFor 模块，从 IIS 7 服务器记录的访问日志中，获取访问者真实的 IP 地址。
-1. 下载并安装 F5XForwardedFor 模块。
-2. 根据服务器的操作系统版本将 x86\Release 或者 x64\Release 目录中的 F5XFFHttpModule.dll 和 F5XFFHttpModule.ini 文件拷贝到指定目录（如 C:\x_forwarded_for\x86”或“C:\x_forwarded_for\x64 ），并确保 IIS 进程对该目录有读取权限。
+1. 下载并安装 [F5XForwardedFor](https://devcentral.f5.com/s/articles/x-forwarded-for-log-filter-for-windows-servers) 模块。
+2. 根据服务器的操作系统版本将 x86\Release （或 x64\Release）目录中的 F5XFFHttpModule.dll 和 F5XFFHttpModule.ini 文件拷贝到指定目录（如 C:\x_forwarded_for\x86 或 C:\x_forwarded_for\x64 ），并确保 IIS 进程对该目录有读取权限。
 3. 在 IIS 服务器的选择项中，双击【模块】，进入“模块”界面。
 4. 单击【配置本机模块】，在弹出的对话框中，单击【注册】，按操作系统选择注册模块注册已下载的 DLL 文件。
 	- x86 操作系统：注册模块 x_forwarded_for_x86
