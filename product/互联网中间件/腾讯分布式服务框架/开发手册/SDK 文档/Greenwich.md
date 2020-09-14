@@ -4,10 +4,10 @@
 
 ### Bug 修复
 
-- spring-cloud-tsf-msgw:
-  - 修复网关MSGW SDK 和服务发现SDK不兼容，造成拉取服务列表过快的问题，从而导致注册中心负载压力过大的问题
-- spring-cloud-tsf-consul-discovery:
-  - 修复服务发现线程数不准确（少于需要请求的服务数），导致服务发现线程调度不及时，节点状态更新可能会延迟30s的问题
+- spring-cloud-tsf-msgw：
+修复网关 MSGW SDK 和服务发现 SDK 不兼容，造成拉取服务列表过快的问题，从而导致注册中心负载压力过大的问题。
+- spring-cloud-tsf-consul-discovery：
+修复服务发现线程数不准确（少于需要请求的服务数），导致服务发现线程调度不及时，节点状态更新可能会延迟30s的问题。
   
 ## 1.23.2-Greenwich-RELEASE（2020-08-19）
 
