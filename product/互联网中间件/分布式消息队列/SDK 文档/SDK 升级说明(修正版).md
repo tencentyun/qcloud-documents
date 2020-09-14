@@ -35,11 +35,10 @@
 3. 在创建 Client 的代码中加入刚刚复制的密钥，并添加  `listenerName` 参数
  ```java
    PulsarClient client = PulsarClient.builder()
-       .serviceUrl("pulsar://*.*.*.*:6000/")
-   	  .listenerName("1300*****0/vpc-******/subnet-********")
-       .authentication(
-         AuthenticationFactory.token("eyJh****"))
-       .build();
+			.serviceUrl("pulsar://*.*.*.*:6000/")
+			.listenerName("1300*****0/vpc-******/subnet-********")
+			.authentication(AuthenticationFactory.token("eyJh****"))
+			.build();
 ```
 >?`listenerName` 即“custom:”拼接原先的路由 ID（NetModel），路由 ID 可以在控制台【环境管理】接入点查看并复制。
 
