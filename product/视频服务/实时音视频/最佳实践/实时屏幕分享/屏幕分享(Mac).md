@@ -90,8 +90,8 @@ TRTC SDK 支持三种分享模式，您可以通过 [selectScreenCaptureTarget](
 | 标清（SD） | 960 × 720 | 10 | 400kbps |
 
 ## 观看屏幕分享
-当房间里有一个用户启动了屏幕分享之后，房间里的其他用户会通过 TRTCCloudDelegate 的 `onUserSubStreamAvailable` 获得这个通知。
-之后，希望观看屏幕分享的用户可以通过 [startRemoteSubStreamView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a68d048ccd0d018995e33e9e714e14474) 来启动渲染远端用户辅流画面。
+当房间里有一个用户启动了屏幕分享，会通过辅流进行分享。房间里的其他用户会通过 TRTCCloudListener 中的 [onUserSubStreamAvailable](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#ac45fb0751f7dbd2466a35c8828c9911b) 事件 获得这个通知。
+希望观看屏幕分享的用户可以通过 [startRemoteSubStreamView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a68d048ccd0d018995e33e9e714e14474) 接口来启动渲染远端用户辅流画面。
 
 ```Objective-C
 //示例代码：观看屏幕分享的画面
