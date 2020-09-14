@@ -166,7 +166,7 @@ Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
 
 <Response>
-    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=</RequestId>
+    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzh****=</RequestId>
     <TemplateList>
         <Name>TemplateName</Name>
         <TemplateId>A</TemplateId>
