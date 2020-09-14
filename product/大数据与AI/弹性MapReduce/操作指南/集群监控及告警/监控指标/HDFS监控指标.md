@@ -215,7 +215,7 @@
 | MemHeapUsedM               | MB       | JVM 当前已经使用的 HeapMemory 的大小    |
 | MemHeapCommittedM          | MB       | JVM HeapMemory 提交大小                 |
 | MemHeapMaxM                | MB       | JVM 配置的 HeapMemory 的大小            |
-| MemMaxM                    | MB       | JVM 运行时的可以使用的最大的内存的大小  |
+| MemMaxM                    | MB       | JVM 运行时可以使用的最大内存大小  |
 | ThreadsNew                 | 个       | 处于新建状态的线程数量                  |
 | ThreadsRunnable            | 个       | 处于可运行状态的线程数量                |
 | ThreadsBlocked             | 个       | 处于阻塞状态的线程数量                  |
