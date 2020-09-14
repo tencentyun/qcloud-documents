@@ -57,8 +57,8 @@ Go 客户端 Pulsar 官方目前还未更新最新适配的客户端，在官方
 4. 在创建 Client 的代码中加入刚刚复制的密钥，并添加 ListenerName 参数
  ```go
    client, err := NewClient(ClientOptions{
-			URL:            "pulsar://*.*.*.*:6000",
-			ListenerName:		"custom:1300*****0/vpc-******/subnet-********",
+			URL:             "pulsar://*.*.*.*:6000",
+			ListenerName:	"custom:1300*****0/vpc-******/subnet-********",
 			Authentication: NewAuthenticationToken("eyJh****"),
        })
 ```
