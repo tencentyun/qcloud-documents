@@ -3,7 +3,7 @@
 - **内网连接**：使用云服务器 CVM 直接连接云数据库的内网地址，这种连接方式使用内网高速网络，延迟低。
  - 云服务器和数据库须是同一账号，且同一个[ VPC](https://cloud.tencent.com/document/product/215/20046) 内（保障同一个地域），或同在基础网络内。
  - 内网地址系统默认提供，可在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例列表或实例详情页查看。
->?对于不同的 VPC 下（包括同账号/不同账号，同地域/不同地域）的云服务器和数据库，内网连接方式请参见  [对等连接](https://cloud.tencent.com/document/product/553/18827)。
+>?对于不同的 VPC 下（包括同账号/不同账号，同地域/不同地域）的云服务器和数据库，内网连接方式请参见  [云联网](https://cloud.tencent.com/document/product/877)。
 
 - **外网连接**：无法通过内网连接时，可通过外网地址连接云数据库 MySQL。外网地址需 [手动开启](#waiwang)，可在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页查看，不需要时也可关闭。
  - 仅广州、上海、北京、成都、重庆、中国香港、新加坡、首尔、东京、硅谷的实例支持开启外网连接地址。
