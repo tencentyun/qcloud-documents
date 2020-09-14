@@ -28,7 +28,7 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
 | http_referer         | 访问来源的页面链接地址                                 |
 | http_user_agent      | 客户端浏览器信息                                       |
 | http_x_forwarded_for | 当前端有代理服务器时，追踪记录客户端真实 IP 地址的配置 |
-| msec                 | 日志写入时间，以秒为单位，精度为毫秒的unix时间戳       |
+| msec                 | 日志写入时间，以秒为单位，精度为毫秒的 unix 时间戳       |
 
 >!使用日志分析功能，必须在索引配置中，配置待统计字段的键值索引，并开启统计。
 >![image-20200817202408930](https://main.qcloudimg.com/raw/c2f6b9608764c2007ee20cb2b7b7016f.png)
