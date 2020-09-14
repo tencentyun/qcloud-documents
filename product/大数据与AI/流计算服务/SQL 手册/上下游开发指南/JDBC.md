@@ -102,3 +102,14 @@ CREATE TABLE `Data-Output` (
 ## 读取缓存
 Flink 提供了读取缓存（Lookup Cache）功能，可以提升维表读取的性能。目前该缓存的实现是同步的，默认未启用（每次请求都会读取数据库，吞吐量很低），必须手动设置 `lookup.cache.max-rows` 和 `lookup.cache.ttl` 两个参数来启用该功能。
 > ! 如果缓存的 TTL 太长，或者缓存的条数太多，可能会造成数据库中数据更新后，Flink 作业仍然读取的是缓存中的旧数据。因此对于数据库变动敏感的作业，请谨慎使用缓存功能。
+
+## 批量写入优化
+通过设置 sink.buffer-flush 开头的两个参数，可以实现批量写入数据库。建议配合相应底层数据库的参数，以达到更好的批量写入效果，否则底层仍然会一条一条写入，效率不高。
+- 对于 MySQL，建议在 url 连接参数后加入 rewriteBatchedStatements=true 参数。
+```
+jdbc:mysql://10.1.28.93:3306/CDB?rewriteBatchedStatements=true
+```
+- 对于 PostgreSQL，建议在 url 连接参数后加入 reWriteBatchedInserts=true 参数。
+```
+jdbc:postgresql://10.1.28.93:3306/PG?reWriteBatchedInserts=true&?currentSchema=数据库的Schema
+```
