@@ -10,8 +10,8 @@ CASB 管理系统以免改造的方式，实现云环境下应用中结构化数
 
 CASB 管理系统由 CASB Plugin、CASB Client、CASB 管理平台组成。
 
-- CASB Plugin：为数据安全插件，提供数据加密使用的密码算法，用于实时数据加解密。
-- CASB Client：为客户端管理工具，是数据安全工具套件。由 Extractor 和 Processor 组成，Extractor 用于提取数据库表结构，Processor 用于数据库数据的全量加密和解密。
+- CASB Plugin：数据安全插件，提供数据加密使用的密码算法，用于实时数据加解密。
+- CASB Client：客户端管理工具，是数据安全工具套件。由 Extractor 和 Processor 组成，Extractor 用于提取数据库表结构，Processor 用于数据库数据的全量加密和解密。
 - CASB 管理平台：提供可视化的管理控制台，提供鉴权、权限管理、数据源管理、加解密策略管理等功能。
 
 
@@ -99,7 +99,7 @@ INSERT INTO `user` VALUES ('1288078561810485248', '1234test', 2, 25, '2020-07-25
 ### 步骤2：下载安装客户端工具
 
 1. 在 CASB 管理平台的右上角，单击【下载客户端工具】，下载客户端工具。
-![](https://main.qcloudimg.com/raw/5847fd811121d1cdf2d94cbfd060f03f.png)
+![](https://main.qcloudimg.com/raw/282a1b92f3cc172c06fefda266805d92.png)
 2. 将下载后客户端工具 zip 包，上传到数据库 Linux 服务器或可以连接到数据库的 Liunx 服务器上的任意目录下，以 root 用户执行以下安装命令：
 ```shell
 # 切换root用户
@@ -124,7 +124,7 @@ $ cd  /opt/client/extractor
 # 如下jar包名称根据实际安装后的jar包名称为准，数据库名称，ip，用户名，密码以实际为准
 # 验证数据库连接
 [root@localhost extractor]# java -jar extractor-1.1.6.jar --op=verify --db-type=mysql --host=192.168.10.130 
-  --port=3306 --user=root --password=hellocasb --database=ceshi
+--port=3306 --user=root --password=hellocasb --database=ceshi
 # 如下是提取过程中打印的日志，可做参考
 --op=verify
 --db-type=mysql
@@ -133,11 +133,10 @@ $ cd  /opt/client/extractor
 --user=root
 --password=hellocasb
 --database=ceshi
-user.dir=/opt/client/extractor
-cg-casb.properties loaded from /opt/client/extractor/cg-casb.properties
-Tue Aug 25 09:48:35 CST 2020 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
-八月 25, 2020 9:48:35 上午 com.ciphergateway.aoe.client.common.shell.ConnectionCheckCommand run
-INFO: success
+user.dir=/opt/casb_client/extractor
+cg-casb.properties loaded from /opt/casb_client/extractor/cg-casb.properties
+Tue Sep 15 16:18:00 CST 2020 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+[2020-09-15 16:18:01] success
 # 提取表结构
 [root@localhost extractor]# java -jar extractor-1.1.6-SNAPSHOT.jar --op=extract --db-type=mysql --host=192.168.10.130 --port=3306 --user=root --password=hellocasb 
 # 如下是提取过程中打印的日志，可做参考
@@ -222,7 +221,7 @@ Demo 应用的数据源需要按照 [准备测试环境](#test) 创建，连接�
 2. 修改配置并启动测试 Demo 应用。
 将 Demo 应用上传到服务器，解压后修改 application.yml 文件，修改如下配置：
 	- 将URL由`jdbc:mysql:// `改为`jdbc:aoe:mysql://`。
-	- 将`driver-class-name`的值 改为：`com.ciphergateway.aoe.plugin.engine.AOEDriver`。
+	- 将`driver-class-name`的值 改为：`com.tencent.cloud.aoe.plugin.engine.AOEDriver`。
 	- 可根据实际情况修改端口 port:8095。
 	>!后续使用浏览器访问时需要使用修改后的端口。
 	>
@@ -234,8 +233,8 @@ spring:
 		datasource:
 				# 将URL由jdbc:mysql:// 改为 jdbc:aoe:mysql://
 				url: jdbc:aoe:mysql://10.1.1.211:3306/ceshi?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8
-				# 将driver-class-name 改为：com.ciphergateway.aoe.plugin.engine.AOEDriver
-				driver-class-name: com.ciphergateway.aoe.plugin.engine.AOEDriver
+				# 将driver-class-name 改为：com.tencent.cloud.aoe.plugin.engine.AOEDriver
+				driver-class-name: com.tencent.cloud.aoe.plugin.engine.AOEDriver
 				username: root
 				password: hellocasb
 				hikari:
@@ -319,5 +318,4 @@ $ firewall-cmd --zone=public --add-port=8095/tcp --permanent
 2. 输入账户名及密码，单击【登录】，即可登录 CASB 管理平台。
 3. 在 CASB 管理平台的左侧导航中，单击【系统日志】。
 4. 在“操作日志”页面，可以根据用户、操作、日期进行筛选查看。
-![](https://main.qcloudimg.com/raw/223608d7371c9b5e9c5230b3933ce67d.png)
-
+![](https://main.qcloudimg.com/raw/b04406bf9e69872f12610a7f7ef684c9.png)
