@@ -3,7 +3,7 @@
 
 ## 登录
 
-输入 UserId，单击【Login】，系统则会使用设置的 UserId 进行登录。登录后，界面会新增【Voice Chat】和【Voice Message】两个按钮。
+输入 UserId，单击【Login】，系统则会使用设置的 UserId 进行登录。登录后，界面将会新增【Voice Chat】和【Voice Message】两个按钮。
 - 单击【Voice Chat】，将会进入 [语音聊天](#test1) 功能。
 - 单击【Voice Message】，将会进入 [语音消息](#test2) 功能。
 
@@ -17,7 +17,7 @@
 - RoomType：控制语音质量。
   - Fluency：流畅音质。流畅优先、超低延迟实时语音，应用在游戏内开黑场景，适用于 FPS、MOBA 等类型的游戏。
   - Standard：标准音质。音质较好，延时适中，适用于狼人杀、棋牌等休闲游戏的实时通话场景。
-  - Hign Quality：高清音质。超高音质，延时相对较大，适用于音乐舞蹈类游戏以及语音社交类 App；适用于播放音乐、线上K歌等有高音质要求的场景。
+  - Hign Quality：高清音质。超高音质，延时相对较大，适用于音乐舞蹈类游戏以及语音社交类 App；适用于播放音乐、线上 K 歌等有高音质要求的场景。
  
 单击【JoinRoom】进入房间。
 ![image](https://main.qcloudimg.com/raw/a2ac816eacd95dfa89c8a5cee4f93f40.png)
@@ -26,12 +26,12 @@
 - 3D Voice Effect：打开 3D 音效。
 - Voice Change：修改实时语音音效。
 - 3D Voice Effect setting。
-  - x：自身x轴。
-  - y：自身y轴。
-  - z：自身z轴。
-  - xr：绕x坐标轴旋转的方向。
-  - yr：绕y坐标轴旋转的方向。
-  - zr：绕z坐标轴旋转的方向。
+  - X：自身 x 轴。
+  - Y：自身 y 轴。
+  - Z：自身 z 轴。
+  - XR：绕 x 坐标轴旋转的方向。
+  - YR：绕 y 坐标轴旋转的方向。
+  - ZR：绕 z 坐标轴旋转的方向。
 
 <span id="test2"></span>
 ## 语音消息
