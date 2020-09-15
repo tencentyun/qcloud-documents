@@ -50,7 +50,6 @@ spec:
 ## 日志输入类型
 ### 单行全文格式
 单行全文日志是指一行日志内容为一条完整的日志。日志服务在采集的时候，将使用换行符 `\n` 来作为一条日志日志的结束符。为了统一结构化管理，每条日志都会存在一个默认的键值 `__CONTENT__`，但日志数据本身不再进行日志结构化处理，也不会提取日志字段，日志属性的时间项由日志采集的时间决定。详情请参见 [单行文本格式](https://cloud.tencent.com/document/product/614/17421)。
-
 假设一条日志原始数据为：
 ```
 Tue Jan 22 12:08:15 CST 2019 Installed: libjpeg-turbo-static-1.2.90-6.el7.x86_64
@@ -99,7 +98,6 @@ __CONTENT__:2019-12-15 17:13:06,043 [main] ERROR com.test.logging.FooFactory:\nj
 
 ### 完全正则格式
 完全正则格式通常用来处理结构化的日志，指将一条完整日志按正则方式提取多个 key-value 的日志解析模式。详情请参见  [完全正则格式](https://cloud.tencent.com/document/product/614/32817)。
-
 假设一条日志原始数据为：
 ```
 10.135.46.111 - - [22/Jan/2019:19:19:30 +0800] "GET /my/course/1 HTTP/1.1" 127.0.0.1 200 782 9703 "http://127.0.0.1/course/explore?filter%5Btype%5D=all&filter%5Bprice%5D=all&filter%5BcurrentLevelId%5D=all&orderBy=studentNum" "Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0"  0.354 0.354
@@ -174,7 +172,6 @@ xff: -
 
 ### 分隔符格式
 分隔符日志是指一条日志数据可以根据指定的分隔符将整条日志进行结构化处理，每条完整的日志以换行符 `\n` 为结束标识符。日志服务在进行分隔符格式日志处理时，您需要为每个分开的字段定义唯一的 key。详情请参见 [分隔符格式](https://cloud.tencent.com/document/product/614/17420)。
-
 假设原始日志为：
 ```
 10.20.20.10 ::: [Tue Jan 22 14:49:45 CST 2019 +0800] ::: GET /online/sample HTTP/1.1 ::: 127.0.0.1 ::: 200 ::: 647 ::: 35 ::: http://127.0.0.1/
@@ -273,7 +270,6 @@ spec:
 ```
 
 #### 示例2：采集 production 命名空间中 pod 标签包含 “k8s-app=ingress-gateway” 的 pod 中的 nginx 容器中 `/data/nginx/log/` 路径下名为 `access.log` 的文件
-
 ```
 apiVersion: cls.cloud.tencent.com/v1
 kind: LogConfig
