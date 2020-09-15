@@ -6,7 +6,7 @@ Kafka 0.8.1版本中，Producer API 被重写。该客户端为官方推荐版�
 
 
 ### 新旧版本 Producer API 对比
-- 新版 Producer API  Demo
+- 新版 Producer API Demo
 ```
 Properties props = new Properties();
 props.put("bootstrap.servers", "localhost:4242");
@@ -135,7 +135,7 @@ while (iterator.hasNext()) {
             " group " + props.get("group.id") + //
             ", partition " + msg.partition() + ", " + //
              new String(msg.message()));
-}}
+}
 ```
 
 可以看到，改造成 New Consumer 编写更加简单，最主要的变化是将 ZooKeeper 参数的输入替代成了 Kafka 地址输入。同时，New Consumer 也增加了与 Coodinator 交互的参数配置，一般情况下使用默认配置就足够。
