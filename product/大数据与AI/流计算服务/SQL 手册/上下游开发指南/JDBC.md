@@ -6,7 +6,7 @@ JDBC Connector 提供了对 MySQL、PostgreSQL、Oracle 等常见 JDBC 数据库
 ## 使用范围
 JDBC 支持用作数据源表（Source，仅限于普通和维表 JOIN 的右表），也可以作为 Tuple 数据流的目的表（Sink），还可以作为 Upsert 数据流的目的表（Sink，需要包含主键）。
 
-如果希望将 JDBC 数据库的变动记录，将其作为流式源表消费，可以使用 [Debezium](https://debezium.io/documentation/reference/1.2/tutorial.html)、[Canal](https://github.com/alibaba/canal) 等，对 JDBC 据库的变更进行捕获和订阅，然后 Flink 即可对这些变更事件进行进一步的处理。可参见 [Kafka](https://cloud.tencent.com/document/product/849/48310)。
+如果希望将 JDBC 数据库的变动记录，将其作为流式源表消费，可以使用 [Debezium](https://debezium.io/documentation/reference/1.2/tutorial.html)、[Canal](https://github.com/alibaba/canal) 等，对 JDBC 数据库的变更进行捕获和订阅，然后 Flink 即可对这些变更事件进行进一步的处理。可参见 [Kafka](https://cloud.tencent.com/document/product/849/48310)。
 
 ## 示例：用作数据源（Source）
 
