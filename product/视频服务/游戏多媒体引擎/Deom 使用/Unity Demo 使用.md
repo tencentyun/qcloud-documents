@@ -7,13 +7,13 @@
 - 单击【Voice Chat】，将会进入 [语音聊天](#test1) 功能。
 - 单击【Voice Message】，将会进入 [语音消息](#test2) 功能。
 
-![](https://main.qcloudimg.com/raw/dbacd4455622253ddb07d53e1bc785b8.png)
+<img src="https://main.qcloudimg.com/raw/dbacd4455622253ddb07d53e1bc785b8.png" style="width:85%">
 
 <span id="test1"></span>
 ## 语音聊天
 
 语言聊天界面如下所示：
-![](https://main.qcloudimg.com/raw/0ecb98f219455c1f4402e1ed5e2f196c.png)
+![](https://main.qcloudimg.com/raw/3807e7d6946948c06e47f51ad9e7a2b4.png)
 - RoomId：房间号相同的成员会进入同一个房间。
 - RoomType：控制语音质量。
   - Fluency：流畅音质。流畅优先、超低延迟实时语音，应用在游戏内开黑场景，适用于 FPS、MOBA 等类型的游戏。
@@ -38,7 +38,7 @@
 ## 语音消息
 
 语言消息界面如下所示：
-![image](https://main.qcloudimg.com/raw/c7d01c854b2db48201b3db73f8a23675.png)
+![](https://main.qcloudimg.com/raw/c3461b2510032f033f0417890c636f2d.png)
 - Language：使用的语言。
 - Audio：录制的语音消息和语音时长。单击 ![image](https://main.qcloudimg.com/raw/7d268c4b1bb7e1998792b19a23e7bb63.png) 播放录音，播放过程中再次单击，结束播放。
 - Audio-to-Text：语音转换成的文字，按下【Push To Talk】，开始录制；松开【Push To Talk】，结束录制。
