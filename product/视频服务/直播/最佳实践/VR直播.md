@@ -77,7 +77,7 @@
 1. 通过云直播控制台的【地址生成器】生成对应流的播放地址，具体操作请参见 [生成播放域名](https://cloud.tencent.com/document/product/267/35257#play)。
 >?播放地址 StreamName 要与推流地址 StreamName 一致才能播放对应的流。
 2. 通过[【Insta360 官网】](https://www.insta360.com/cn/download/insta360-one#player_download)下载 Android/iOS 手机端、Windows 端或 Mac 端的全景视频播放器软件。
-![](https://main.qcloudimg.com/raw/643817a5411f0b8c60d1f2a6895a4ca7.png)
+![](https://main.qcloudimg.com/raw/9518ff89ab105b27e15bdc7a86f71905.png)
 3. 进入【Insta360 Player】界面，选择【文件】>【播放流媒体】。
 ![](https://main.qcloudimg.com/raw/d6faa10c3236315ca585d320e8f461ea.png)
 4. 填写【播放地址】，单击【观看】开始播放。如播放地址可正常拉流，则会直接播放。
