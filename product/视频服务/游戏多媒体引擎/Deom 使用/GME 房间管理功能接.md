@@ -6,9 +6,9 @@
 
 导入 GME SDK 后，参照下图将 ImSDK.framework 设置为 Embed&Sign。
 - **XCode10：**
-![](https://main.qcloudimg.com/raw/70b56125788c041b13ca262df2af117b.png)
+![](https://main.qcloudimg.com/raw/55bded873ffc3f5f7e95043c3e77aee3.png)
 - **XCode11：**
-![](https://main.qcloudimg.com/raw/40e4457650d8f2d6a62f41b18146a5a2.png)
+![](https://main.qcloudimg.com/raw/dbb4d0fcebc2f71685969af3d9950bf1.png)
 
 ## ITMGRoomManager
 
