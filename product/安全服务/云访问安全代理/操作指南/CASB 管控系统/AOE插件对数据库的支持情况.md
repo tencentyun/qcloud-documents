@@ -89,9 +89,9 @@ AOE 插件为数据安全插件，提供数据加密使用的密码算法，用�
 
 | 类                | 方法                | 支持情况     |
 | ----------------- | ------------------- | ------------ |
-| DataSource        |                     | 不支持       |
-| Driver            |                     | 支持         |
-| Connection        |                     | 支持         |
+| DataSource        |        -             | 不支持       |
+| Driver            |        -             | 支持         |
+| Connection        |       -              | 支持         |
 | PreparedStatement | setArray            | 不支持       |
 | PreparedStatement | setAsciiStream      | 不支持       |
 | PreparedStatement | setBigDecimal       | 支持         |
@@ -121,7 +121,7 @@ AOE 插件为数据安全插件，提供数据加密使用的密码算法，用�
 | PreparedStatement | setTimestamp        | 支持，不处理 |
 | PreparedStatement | setUnicodeStream    | 支持，不处理 |
 | PreparedStatement | setURL              | 支持，不处理 |
-| Statement         |                     | 支持         |
+| Statement         |               -      | 支持         |
 | ResultSet         | getArray            | 支持，不处理 |
 | ResultSet         | getAsciiStream      | 支持，不处理 |
 | ResultSet         | getBigDecimal       | 支持         |
