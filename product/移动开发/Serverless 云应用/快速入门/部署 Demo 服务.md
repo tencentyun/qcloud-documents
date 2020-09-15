@@ -1,4 +1,4 @@
-本文向您介绍如何将 Demo 服务（Hello World 项目）通过 Serverless 云应用进行部署。
+本文向您介绍如何将 Demo 服务（Hello World 项目）通过云托管进行部署。
 
 
 
@@ -6,16 +6,13 @@
 
 ## 步骤1：登录控制台
 
-登录 [Serverless 云应用控制台](https://console.cloud.tencent.com/tcb/service)，再按需要切换到指定的环境。
-![](https://main.qcloudimg.com/raw/7ccca44479b1c0cf092234a8e0f1ee5a.png)
-
-> ?Serverless 云应用公测期间，需要先 [申请开通](https://cloud.tencent.com/apply/p/y5uji0g6a7p)，审核通过后，云开发控制台的左侧菜单才会出现 【Serverless 云应用】入口，否则入口将不可见。公测结束后，**Serverless 云应用**的入口将对所有云开发用户开放。
-
+登录 [云托管控制台](https://console.cloud.tencent.com/tcb/service)，再按需要切换到指定的环境。
+![](https://main.qcloudimg.com/raw/38110b543ebe9c38b0e25370b1dfaf3a.png)
 
 
 ## 步骤2：新建服务
 
-1. 在 Serverless 云应用控制台服务列表页面，单击【新建服务】。
+1. 在云托管控制台服务列表页面，单击【新建服务】。
 2. 在新建服务页面配置相关选项：
 	- **服务名称**：本文示例填写为“helloworld”。服务名称作为环境下服务的唯一标识，创建成功后不支持修改。
 	- **备注**：展示在服务列表页面，仅您自己在控制台可见，不对部署产生任何影响。
