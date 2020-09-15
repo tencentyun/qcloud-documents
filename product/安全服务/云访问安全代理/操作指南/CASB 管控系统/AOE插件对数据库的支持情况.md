@@ -1,4 +1,11 @@
-本文档将为您介绍 AOE 插件对数据库的支持情况。
+本文档将为您介绍面向切面加密（AOE）插件对数据库的支持情况。
+## 背景信息
+AOE 插件为数据安全插件，提供数据加密使用的密码算法，用于实时数据加解密，插件安装方式请参见 [CASB 管理平台操作指南](https://cloud.tencent.com/document/product/1303/48143) 的数据库加密。
+
+## 数据库版本支持情况
+目前云访问安全代理仅支持 Mysql 5.6及5.7版本，暂不支持其他类型及其他版本数据库。
+
+
 ## 对数据库字段类型的支持
 
 目前支持的数据库类型为 Mysql，支持的字段类型如下：
@@ -33,7 +40,7 @@
 
 | 类型         | 支持情况 | SQL 样例                                                      |
 | ------------ | -------- | ------------------------------------------------------------ |
-| 不指定列插入 | 支持     | insert into table_a  values ('a',1,'bbb','ccc','ddd',3.74, sysdate,); |
+| 不指定列插入 | 支持     | insert into table_a  values ('a',1,'bbb','ccc','ddd',3.74, sysdate); |
 | 指定列插入   | 支持     | insert into  table_a(col1, col3, col4) values('a','bbb','ccc'); |
 
 - **删除语句**：
@@ -58,7 +65,7 @@
 | --------------------------------------------------- | ------------------------------------ | ------------------------------------------------------------ |
 | 对 select * 语法的支持                                | 支持                                 | select * from  table_a;                                      |
 | 条件字段等值匹配                                    | 支持                                 | select col1 from  table_a where col2=1;                      |
-| 条件字段模糊匹配                                    | 只支持完全匹配及从左边完全匹配的情况 | select col1 from  table_a where col3 like '%bbb%';           |
+| 条件字段模糊匹配                                    | 只支持完全匹配及从左边完全匹配的情况 | select col1 from  table_a where col3 like 'bbb%';           |
 | 条件字段范围查询                                    | 不支持                               | select col1 from  table_a where col1 > 'aaa' and col2 < 3;   |
 | 条件字段带函数                                      | 不支持                               | select col1 from  table_a where substr(col1,0,2) = 'aa';     |
 | 条件字段带 in                                        | 支持                                 | select col1 from  table_a where col1 in ('a',b','c');        |
