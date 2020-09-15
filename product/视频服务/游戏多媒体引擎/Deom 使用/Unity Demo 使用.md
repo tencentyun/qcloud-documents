@@ -7,8 +7,7 @@
 - 单击【Voice Chat】，将会进入 [语音聊天](#test1) 功能。
 - 单击【Voice Message】，将会进入 [语音消息](#test2) 功能。
 
-<img src="https://main.qcloudimg.com/raw/dbacd4455622253ddb07d53e1bc785b8.png" style="width:85%">
-
+![](https://main.qcloudimg.com/raw/dbacd4455622253ddb07d53e1bc785b8.png)
 <span id="test1"></span>
 ## 语音聊天
 
