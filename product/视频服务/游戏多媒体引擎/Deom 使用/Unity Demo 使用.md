@@ -1,5 +1,5 @@
 
-为方便 Unity 开发者调试和接入腾讯云游戏多媒体引擎产品 API，这里向您介绍适用于 Unity 开发的 DEMO 使用文档。
+为方便 Unity 开发者调试和接入腾讯云游戏多媒体引擎产品 API，本文为您介绍适用于 Unity 开发的 DEMO 使用参考文档。
 <span id="test"></span>
 ## 登录
 
