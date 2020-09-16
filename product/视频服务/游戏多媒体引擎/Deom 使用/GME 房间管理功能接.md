@@ -34,7 +34,7 @@ EnableMic 相当于同时调用 EnableAudioSend 及 EnableAudioCaptureDevice。
 ```
 | 参数       | 类型      | 含义                                                    |
 | ---------- | --------- | ------------------------------------------------------- |
-| enable     | BOOL      | 填入 YES 即打开某用户麦克风；填入 NO 即关闭某用户麦克风 |
+| enable     | BOOL      | <li> YES：打开某用户麦克风<li>NO：关闭某用户麦克风 |
 | receiverID | NSString* | 填入目标用户 OpenId                                     |
 
 #### 回调
@@ -53,7 +53,7 @@ EnableMic 相当于同时调用 EnableAudioSend 及 EnableAudioCaptureDevice。
 
 | 参数       | 类型      | 含义                                                |
 | ---------- | --------- | --------------------------------------------------- |
-| enable     | BOOL      | 填入 YES 即打开某用户上行；填入 NO 即关闭某用户上行 |
+| enable     | BOOL      | <li> YES：打开某用户上行<li>NO：关闭某用户上行 |
 | receiverID | NSString* | 填入目标用户 OpenId                                 |
 
 #### 回调
@@ -72,7 +72,7 @@ EnableMic 相当于同时调用 EnableAudioSend 及 EnableAudioCaptureDevice。
 
 | 参数       | 类型      | 含义                                                         |
 | ---------- | --------- | ------------------------------------------------------------ |
-| enable     | BOOL      | 填入 YES 即打开某用户音频采集硬件设备；填入 NO 即关闭某用户音频采集硬件设备 |
+| enable     | BOOL      | <li>YES：打开某用户音频采集硬件设备<li>NO：关闭某用户音频采集硬件设备 |
 | receiverID | NSString* | 填入目标用户 OpenId                                          |
 
 #### 回调
@@ -96,7 +96,7 @@ EnableSpeaker 相当于同时调用 EnableAudioRecv 及 EnableAudioPlayDevice。
 
 | 参数       | 类型      | 含义                                                    |
 | ---------- | --------- | ------------------------------------------------------- |
-| enable     | BOOL      | 填入 YES 即打开某用户扬声器；填入 NO 即关闭某用户扬声器 |
+| enable     | BOOL      | <li>YES ：打开某用户扬声器<li>NO：关闭某用户扬声器 |
 | receiverID | NSString* | 填入目标用户 OpenId                                     |
 
 #### 回调
@@ -115,7 +115,7 @@ EnableSpeaker 相当于同时调用 EnableAudioRecv 及 EnableAudioPlayDevice。
 
 | 参数       | 类型      | 含义                                                        |
 | ---------- | --------- | ----------------------------------------------------------- |
-| enable     | BOOL      | 填入 YES 即打开某用户音频下行；填入 NO 即关闭某用户音频下行 |
+| enable     | BOOL      | <li>YES ：打开某用户音频下行<li>NO：即关闭某用户音频下行 |
 | receiverID | NSString* | 填入目标用户 OpenId                                         |
 
 #### 回调
@@ -135,7 +135,7 @@ EnableSpeaker 相当于同时调用 EnableAudioRecv 及 EnableAudioPlayDevice。
 
 | 参数       | 类型      | 含义                                                         |
 | ---------- | --------- | ------------------------------------------------------------ |
-| enable     | BOOL      | 填入 YES 即打开某用户音频播放硬件设备；填入 NO 即关闭某用户音频播放硬件设备 |
+| enable     | BOOL      | <li>YES ：打开某用户音频播放硬件设备<li>NO：关闭某用户音频播放硬件设备 |
 | receiverID | NSString* | 填入目标用户 OpenId                                          |
 
 #### 回调
@@ -206,7 +206,7 @@ EnableSpeaker 相当于同时调用 EnableAudioRecv 及 EnableAudioPlayDevice。
 
 | 参数       | 类型      | 含义                                                        |
 | ---------- | --------- | ----------------------------------------------------------- |
-| enable     | BOOL      | 填入 YES 即允许某用户操作设备；填入 NO 即禁止某用户操作设备 |
+| enable     | BOOL      | <li>YES：允许某用户操作设备<li>NO：禁止某用户操作设备 |
 | receiverID | NSString* | 填入目标用户 OpenId                                         |
 
 #### 回调
@@ -247,7 +247,7 @@ EnableSpeaker 相当于同时调用 EnableAudioRecv 及 EnableAudioPlayDevice。
 
 | 成员      | 含义                     |
 | --------- | ------------------------ |
-| boolValue | 0为关闭命令，1为打开命令 |
+| boolValue | <li>0：关闭命令<li>1：打开命令 |
 
 
 #### 示例代码
