@@ -12,7 +12,7 @@ http://119.29.29.29/d?dn=www.dnspod.cn.&ip=1.1.1.1
 ```
 183.60.57.155
 ```
-![返回值一](https://main.qcloudimg.com/raw/9a3f22ebbc0d6a3dd156822d77122bf5.png)
+![返回值一](https://main.qcloudimg.com/raw/0054892048a523af1ed6e6ff8eddbd89.png)
 - **域名不存在**：如果域名不存在，HTTPDNS 无法查询到最终的 IP 指向，则返回空。输出示例如下：
 ![返回值二](https://main.qcloudimg.com/raw/779fb892c2f4282a5b09f305ea948bbb.png)
 
