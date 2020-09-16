@@ -6,6 +6,7 @@
 输入 UserId，单击【Login】，系统则会使用设置的 UserId 进行登录。登录后，界面将会新增【Voice Chat】和【Voice Message】两个按钮。
 - 单击【Voice Chat】，将会进入 [语音聊天](#test1) 功能。
 - 单击【Voice Message】，将会进入 [语音消息](#test2) 功能。
+
 ![](https://main.qcloudimg.com/raw/dbacd4455622253ddb07d53e1bc785b8.png)
 
 <span id="test1"></span>
