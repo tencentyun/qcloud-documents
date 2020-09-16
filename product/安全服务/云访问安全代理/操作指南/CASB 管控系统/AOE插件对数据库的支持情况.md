@@ -35,6 +35,7 @@ AOE 插件为数据安全插件，提供数据加密使用的密码算法，用�
 | timestamp   | 不支持   |     -     |
 
 ## 对 SQL 语句的支持
+对数据库查询语句的支持情况如下：
 
 - **插入语句**：
 
@@ -86,6 +87,7 @@ AOE 插件为数据安全插件，提供数据加密使用的密码算法，用�
 |临时表|不支持|select * from (select table1.col1,table1.col2,table1.col3,table2.id,table2.col4 from table1,table2 where table1.col1 = table2.col1 ) tmp|
 
 ## 对 JDBC 接口的支持
+对 Java 数据库访问接口的支持情况如下：
 
 | 类                | 方法                | 支持情况     |
 | ----------------- | ------------------- | ------------ |
