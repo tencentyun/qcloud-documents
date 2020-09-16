@@ -1,18 +1,18 @@
 基于 Spring Cloud Greenwich 版本 SDK，支持 spring boot 2.1.6。
 
-## 1.23.4-Greenwich-RELEASE
+## 1.23.4-Greenwich-RELEASE（2020-09-16）
 
 ### Bug 修复
 
-- 修复 mysql 调用链中对多数据源支持
-- 修复 feign 请求调用链中只展示http方法
-- 修复定时任务的线程数问题
-- 修复网关使用就近命名空间的问题
+- 修复 MySQL 调用链中对多数据源支持。
+- 修复 feign 请求调用链中只展示 HTTP 方法。
+- 修复定时任务的线程数问题。
+- 修复网关使用就近命名空间的问题。
     
 
 ### 版本建议
 
-- 支持向后兼容，建议全量升级。
+支持向后兼容，建议全量升级。
 
 ## 1.23.3-Greenwich-RELEASE（2020-09-14）
 
