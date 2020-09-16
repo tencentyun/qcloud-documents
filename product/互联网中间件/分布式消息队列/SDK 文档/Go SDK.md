@@ -9,9 +9,7 @@ TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和
 - 已经准备好 Go 1.11+ 的部署环境（云服务器或其他云资源），且该环境所在的 VPC 已接入TDMQ（参考 [VPC 接入指南](https://cloud.tencent.com/document/product/1179/46240)）。
 - 已获取调用地址（URL）和路由 ID（NetModel）。
 这两个参数均可以在【[环境管理](https://console.cloud.tencent.com/tdmq/env?rid=1)】的接入点列表中获取。请根据客户端部署的云服务器或其他资源所在的私有网络选择正确的接入点来复制参数信息，否则会有无法连接的问题。![](https://main.qcloudimg.com/raw/4edd20db5dabb96bbc42df441a5bebdf.png)
-- 已在 [API 密钥管理](https://console.cloud.tencent.com/capi) 页面获取 SecretID 和 SecretKey。
-  - SecretID 用于标识 API 调用者的身份。
-  - SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥，**SecretKey 需妥善保管，避免泄露**。
+- 已参考 角色与鉴权 文档配置好了角色与权限，并获取到了对应角色的密钥（Token）
 
 ## 操作步骤
 
@@ -40,6 +38,7 @@ go env | grep GOPATH
 # Windows
 go env | findstr GOPATH
 ```
+> 目前 Pulsar 官方尚未更新最新适配的客户端，腾讯云已将适配后的 Go 客户端提交至社区，即将在下个版本发布，在官方适配之前需要先使用腾讯云提供的SDK
 
 ### 创建 Demo工程
 
@@ -56,7 +55,7 @@ require github.com/TencentCloud/tdmq-go-client v0.1.1
 
 2.创建 producer.go 和 consumer.go 测试 Demo 文件。
 
-- producer.go 代码内容如下，关于其中``authParam``参数的详细说明，请参考 [认证字段说明](#cam)。
+- producer.go 代码内容如下，其中```listenerName```即 ```custom:``` 拼接路由ID（NetModel），路由ID可以在控制台【环境管理】接入点查看并复制，```NewAuthenticationToken```即角色密钥，可以在【角色管理】页面复制
 
 ```go
 package main
@@ -70,17 +69,11 @@ import (
 
 func main() {
 
-	authParams := make(map[string]string)
-	authParams["secretId"] = "AKxxxxxxxxxxCx"
-	authParams["secretKey"] = "SDxxxxxxxxxxCb"
-	authParams["region"] = "ap-guangzhou"
-	authParams["ownerUin"] = "xxxxxxxxxx"
-	authParams["uin"] = "xxxxxxxxxx"
-	client, err := pulsar.NewClient(pulsar.ClientOptions{
-		URL:       "pulsar://10.*.*.*:6000",//更换为接入点地址
-		NetModel:  "1300*****0/vpc-******/subnet-********",//更换为接入点路由ID
-		AuthCloud: pulsar.NewAuthenticationCloudCam(authParams)
-	})
+	client, err := NewClient(ClientOptions{
+      		URL:            "pulsar://*.*.*.*:6000",
+  		ListenerName:	"custom:1300*****0/vpc-******/subnet-********",
+      		Authentication: NewAuthenticationToken("eyJh****"),
+    	})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -127,16 +120,10 @@ import (
 
 func main() {
 
-	authParams := make(map[string]string)
-	authParams["secretId"] = "AKxxxxxxxxxxCx"
-	authParams["secretKey"] = "SDxxxxxxxxxxCb"
-	authParams["region"] = "ap-guangzhou"
-	authParams["ownerUin"] = "xxxxxxxxxx"
-	authParams["uin"] = "xxxxxxxxxx"
 	client, err := pulsar.NewClient(pulsar.ClientOptions{
-		URL:       "pulsar://10.*.*.*:6000",//更换为接入点地址
-		NetModel: "1300*****0/vpc-******/subnet-********",//更换为接入点路由ID
-		AuthCloud: pulsar.NewAuthenticationCloudCam(authParams)
+		URL:       	"pulsar://10.*.*.*:6000",//更换为接入点地址
+		ListenerName:	"custom:1300*****0/vpc-******/subnet-********",
+      		Authentication: NewAuthenticationToken("eyJh****"),
 	})
 	if err != nil {
 		log.Fatal(err)
@@ -288,17 +275,4 @@ consumer.ReconsumeLaterAsync(msg, pulsar.NewReconsumeOptionsWithLevel(2), func(i
 	}
 })
 ```
-
-<span id="cam"></span>
-### 认证信息字段说明
-
-Client 进行消息生产或消费时，访问 TDMQ 时会经过 [CAM 认证](https://cloud.tencent.com/document/product/1179/45125)，所以需要在创建 Client 的时候配置 `AuthCloud`参数，`AuthCloud`参数由一个map映射`authParam`组成，关于`authParam`参数的字段说明见下表
-
-| 字段      | 说明                                                         |
-| --------- | ------------------------------------------------------------ |
-| secretId  | 在 [云API密钥](https://console.cloud.tencent.com/capi) 上申请的标识身份的 SecretId，一个 SecretId 对应唯一的 SecretKey ，而 SecretKey 会用来生成请求签名 Signature。 |
-| secretKey | 在 [云API密钥](https://console.cloud.tencent.com/capi) 上由 SecretId生成的一串密钥，一个 SecretId 对应唯一的 SecretKey ，而 SecretKey 会用来生成请求签名 Signature。 |
-| region    | 字符串                                                       |
-| ownerUin  | 主账号的账号 ID                                               |
-| uin       | 当前账号的账号 ID                                             |
 
