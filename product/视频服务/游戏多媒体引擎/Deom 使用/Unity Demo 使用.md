@@ -42,7 +42,7 @@
 
 [登录](#test) 之后，单击【Voice Message】进入语言消息界面：
 - Language：使用的语言。
-- Audio：录制的语音消息和语音时长。单击 ![image](https://main.qcloudimg.com/raw/7d268c4b1bb7e1998792b19a23e7bb63.png) 播放录音，播放过程中再次单击，结束播放。
+- Audio：录制的语音消息和语音时长。单击<img src="https://main.qcloudimg.com/raw/7d268c4b1bb7e1998792b19a23e7bb63.png" width="3%"></img>播放录音，播放过程中再次单击，结束播放。
 - Audio-to-Text：语音转换成的文字，鼠标单击长按【Push To Talk】，开始录制；鼠标松开【Push To Talk】，结束录制。
 
 ![](https://main.qcloudimg.com/raw/c3461b2510032f033f0417890c636f2d.png)
