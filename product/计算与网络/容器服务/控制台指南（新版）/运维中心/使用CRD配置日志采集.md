@@ -1,8 +1,8 @@
 ## 操作场景
-用户不仅可以 [使用控制台配置日志采集](https://cloud.tencent.com/document/product/457/36771)，还可通过 CRD 的方式配置日志采集。CRD 支持采集容器标准输出、容器文件和主机文件，支持多种日志采集格式。
+用户不仅可以 [使用控制台配置日志采集](https://cloud.tencent.com/document/product/457/36771)，还可通过自定义资源定义（CustomResourceDefinitions，CRD）的方式配置日志采集。CRD 支持采集容器标准输出、容器文件和主机文件，支持多种日志采集格式。
 
 ## 创建 CRD
-您只需要定义 LogConfig CRD 即可创建采集配置，log-agent 根据 LogConfig CRD 的变化修改相应的 CLS 日志主题，并设置绑定的机器组。CRD 的格式如下：
+您只需要定义 LogConfig CRD 即可创建采集配置，log-agent 根据 LogConfig CRD 的变化修改相应的日志服务 CLS 日志主题，并设置绑定的机器组。CRD 的格式如下：
 ```
 apiVersion: cls.cloud.tencent.com/v1
    kind: LogConfig                          ## 默认值
@@ -50,11 +50,12 @@ spec:
 ## 日志输入类型
 ### 单行全文格式
 单行全文日志是指一行日志内容为一条完整的日志。日志服务在采集的时候，将使用换行符 `\n` 来作为一条日志日志的结束符。为了统一结构化管理，每条日志都会存在一个默认的键值 `__CONTENT__`，但日志数据本身不再进行日志结构化处理，也不会提取日志字段，日志属性的时间项由日志采集的时间决定。详情请参见 [单行文本格式](https://cloud.tencent.com/document/product/614/17421)。
+
 假设一条日志原始数据为：
 ```
 Tue Jan 22 12:08:15 CST 2019 Installed: libjpeg-turbo-static-1.2.90-6.el7.x86_64
 ```
-LogConfig配置参考示例如下：
+LogConfig 配置参考示例如下：
 ```
 apiVersion: cls.cloud.tencent.com/v1
 kind: LogConfig
@@ -70,7 +71,8 @@ __CONTENT__:Tue Jan 22 12:08:15 CST 2019 Installed: libjpeg-turbo-static-1.2.90-
 ```
 
 ### 多行全文格式
-多行全文日志是指一条完整的日志数据可能跨占多行（例如 Java stacktrace）。在这种情况下，以换行符 `\n` 为日志的结束标识符就显得有些不合理，为了能让日志系统明确区分开每条日志，采用首行正则的方式进行匹配，当某行日志匹配上预先设置的正则表达式，就认为是一条日志的开头，而下一个行首出现作为该条日志的结束标识符。多行全文也会设置一个默认的键值 `__CONTENT__`，但日志数据本身不再进行日志结构化处理，也不会提取日志字段，日志属性的时间项由日志采集的时间决定。详情请参见 [多行文本格式](https://cloud.tencent.com/document/product/614/17422)。
+多行全文日志是指一条完整的日志数据可能跨占多行（例如 Java stacktrace）。该情况下无法使用换行符 `\n` 作为日志的结束标识符，为了使日志系统明确区分每条日志，采用首行正则的方式进行匹配，当某行日志匹配预先设置的正则表达式，即为一条日志的开头，而下一行首出现则作为该条日志的结束标识符。多行全文也会设置一个默认的键值 `__CONTENT__`，但日志数据本身不再进行日志结构化处理，也不会提取日志字段，日志属性的时间项由日志采集的时间决定。详情请参见 [多行文本格式](https://cloud.tencent.com/document/product/614/17422)。
+
 假设一条多行日志原始数据为：
 ```
 2019-12-15 17:13:06,043 [main] ERROR com.test.logging.FooFactory:
@@ -136,7 +138,8 @@ upstream_response_time: 0.354
 ```
 
 ### JSON 格式
-JSON 格式日志会自动提取首层的 key 作为对应字段名，首层的 value 作为对应的字段值，以该方式将整条日志进行结构化处理，每条完整的日志以换行符\n为结束标识符。详情请参见  [JSON 格式](https://cloud.tencent.com/document/product/614/17419)。
+JSON 格式日志会自动提取首层的 key 作为对应字段名。首层的 value 作为对应的字段值，以该方式将整条日志进行结构化处理，每条完整的日志以换行符 `\n` 为结束标识符。详情请参见  [JSON 格式](https://cloud.tencent.com/document/product/614/17419)。
+
 假设一条 JSON 日志原始数据为：
 ```
 {"remote_ip":"10.135.46.111","time_local":"22/Jan/2019:19:19:34 +0800","body_sent":23,"responsetime":0.232,"upstreamtime":"0.232","upstreamhost":"unix:/tmp/php-cgi.sock","http_host":"127.0.0.1","method":"POST","url":"/event/dispatch","request":"POST /event/dispatch HTTP/1.1","xff":"-","referer":"http://127.0.0.1/my/course/4","agent":"Mozilla/5.0 (Windows NT 10.0; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0","response_code":"200"}
@@ -172,6 +175,7 @@ xff: -
 
 ### 分隔符格式
 分隔符日志是指一条日志数据可以根据指定的分隔符将整条日志进行结构化处理，每条完整的日志以换行符 `\n` 为结束标识符。日志服务在进行分隔符格式日志处理时，您需要为每个分开的字段定义唯一的 key。详情请参见 [分隔符格式](https://cloud.tencent.com/document/product/614/17420)。
+
 假设原始日志为：
 ```
 10.20.20.10 ::: [Tue Jan 22 14:49:45 CST 2019 +0800] ::: GET /online/sample HTTP/1.1 ::: 127.0.0.1 ::: 200 ::: 647 ::: 35 ::: http://127.0.0.1/
@@ -234,7 +238,7 @@ spec:
   ...
 ```
 
-#### 示例3：采集 production 命名空间中 pod 标签中包含 “k8s-app=nginx” 的 pod 中的容器的标准输出
+#### 示例3：采集 production 命名空间下 pod 标签中包含 “k8s-app=nginx” 的 pod 中的容器的标准输出
 ```
 apiVersion: cls.cloud.tencent.com/v1
 kind: LogConfig
@@ -250,7 +254,7 @@ spec:
 ```
 
 ### 容器文件
-#### 示例1：采集 production 命名空间中属于 ingress-gateway deployment 的 pod 中的 nginx 容器中 `/data/nginx/log/` 路径下名为 `access.log` 的文件
+#### 示例1：采集 production 命名空间下属于 ingress-gateway deployment 的 pod 中的 nginx 容器中 `/data/nginx/log/` 路径下名为 `access.log` 的文件
 ```
 apiVersion: cls.cloud.tencent.com/v1
 kind: LogConfig
@@ -269,7 +273,7 @@ spec:
   ...
 ```
 
-#### 示例2：采集 production 命名空间中 pod 标签包含 “k8s-app=ingress-gateway” 的 pod 中的 nginx 容器中 `/data/nginx/log/` 路径下名为 `access.log` 的文件
+#### 示例2：采集 production 命名空间下 pod 标签包含 “k8s-app=ingress-gateway” 的 pod 中的 nginx 容器中 `/data/nginx/log/` 路径下名为 `access.log` 的文件
 ```
 apiVersion: cls.cloud.tencent.com/v1
 kind: LogConfig
@@ -301,7 +305,8 @@ spec:
 ```
 
 ## 元数据（Metadata）
-对于容器的标准输（container_stdout）以及容器文件（container_file），除了原始的日志内容，还需要带上容器场景的元数据（例如产生日志的容器 ID）一起上报到日志服务，方便用户查看日志时追溯来源或根据容器标识、特征（例如容器名及labels）进行检索。
+容器标准输出（container_stdout）以及容器文件（container_file），除原始的日志内容外，还需携带容器场景的元数据（例如产生日志的容器 ID）一起上报至日志服务。方便用户查看日志时追溯来源或根据容器标识、特征（例如容器名及 labels）进行检索。
+元数据如下表：
 <table>
 	<tr>
 		<th>字段名</th> <th>含义</th>
