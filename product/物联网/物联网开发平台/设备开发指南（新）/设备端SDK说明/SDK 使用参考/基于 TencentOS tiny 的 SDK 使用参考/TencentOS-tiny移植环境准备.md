@@ -9,11 +9,11 @@ TencentOS tiny 目前主要支持 ARM Cortex M 核芯片的移植，例如 STM32
 
 ##    步骤二：准备编译器环境
 
-TencentOS tiny 支持 Keil MDK、IAR、Gcc 三种开发环境，本文中以 Keil MDK 作为开发环境。
+TencentOS tiny 支持 Keil MDK、IAR、Gcc 三种开发环境，本文以 Keil MDK 作为开发环境。
 1. 移植内核前需要先安装能编译 ARM Cortex M 核的 Keil 编译器（Keil 编译器别名也称为 MDK），可下载 [最新版本5.31](https://www.keil.com/demo/eval/arm.htm) 进行使用。
 >?填写注册信息即可下载，下载完成在 Windows 环境下按照提示安装即可，安装完成后需要自行购买软件 License，避免 32K Flash 下载限制。
 >
-2. 由于新版本的 MDK 编译器和芯片支持包分离，所以 MDK 安装完成后，还需要安装对应芯片的器件支持包（PACK 包）。例如本教程示例的 EVB_MX_Plus 开发板的芯片是 STM32L431RCT6，则需要安装 [Keil.STM32L0xx_DFP.2.0.1.pack](https://www.keil.com/dd2/Pack/#/eula-container) 系列器件支持包。
+2. 由于新版本的 MDK 编译器和芯片支持包分离，所以 MDK 安装完成后，还需要安装对应芯片的器件支持包（PACK 包）。例如本教程示例 EVB_MX_Plus 开发板的芯片是 STM32L431RCT6，则需要安装 [Keil.STM32L0xx_DFP.2.0.1.pack](https://www.keil.com/dd2/Pack/#/eula-container) 系列器件支持包。
 >?您只需根据您的芯片型号，下载对应的 PACK 包即可，同时您也可以在 MDK 集成开发环境中进行在线下载安装。
 
 
