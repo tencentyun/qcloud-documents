@@ -1,5 +1,32 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+## 1.23.4-Finchley-RELEASE
+
+### Bug 修复
+
+- 修复 mysql 调用链中对多数据源支持
+- 修复 feign 请求调用链中只展示http方法
+- 修复定时任务的线程数问题
+- 修复网关使用就近命名空间的问题
+    
+
+### 版本建议
+
+- 支持向后兼容，建议全量升级。
+
+## 1.23.3-Finchley-RELEASE
+
+### Bug 修复
+
+- spring-cloud-tsf-msgw:
+  - 修复网关MSGW SDK 和服务发现SDK不兼容，造成拉取服务列表过快的问题。
+- spring-cloud-tsf-consul-discovery:
+  - 修复服务发现线程数不准确的问题。
+    
+
+### 版本建议
+
+- 支持向后兼容，建议全量升级。
 
 ## 1.23.2-Finchley-RELEASE（2020-08-19）
 
