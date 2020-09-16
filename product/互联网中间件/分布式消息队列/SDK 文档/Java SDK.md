@@ -18,7 +18,9 @@ PulsarClient client = PulsarClient.builder()
     .authentication(AuthenticationFactory.token("eyJh****"))
     .build();
  ```
-> listenerName 即 “custom:” 拼接路由ID（NetModel），路由ID可以在控制台【环境管理】接入点查看并复制
+> - listenerName 即 “custom:” 拼接路由ID（NetModel），路由ID可以在控制台【环境管理】接入点查看并复制
+> - token 即角色的密钥，角色密钥可以在【角色管理】中复制
+
 
 ### 生产消息
 创建好 Client 之后，通过创建一个 Producer，就可以生产消息到指定的 Topic 中。
