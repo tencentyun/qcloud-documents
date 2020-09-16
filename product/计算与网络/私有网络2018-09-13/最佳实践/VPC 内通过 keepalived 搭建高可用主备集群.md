@@ -164,7 +164,7 @@ keepalived 进程的日志仍会写到message文件中。
 
 ### 步骤6：使用 notify_action.sh 进行简单的日志记录
 keepalived 主要日志仍然记录在 /var/log/message。
-```
+```plaintext
 #!/bin/bash
 #/etc/keepalived/notify_action.sh
 log_file=/var/log/keepalived.log
