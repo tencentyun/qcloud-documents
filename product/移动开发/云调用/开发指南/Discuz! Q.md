@@ -20,12 +20,12 @@
 
 |资源	|架构	|
 |--| -- | 
-|[云托管](https://cloud.tencent.com/document/product/1243)	|默认配置0.25核0.5G内存的容器，伸缩范围0-4个实例，遇到CPU负载大于60便会进行扩容。没有流量则会缩容到0，不产生费用 |
+|[云托管](https://cloud.tencent.com/document/product/1243)	|默认配置0.25核0.5G内存的容器，伸缩范围0 - 4个实例，遇到 CPU 负载大于60将会进行扩容。无流量则会缩容到0，不产生费用 |
 |[静态网站托管](https://cloud.tencent.com/document/product/1210)	| 按照实际容量与流量付费|
-|[共享文件存储（Cloud File Storage，CFS）](https://cloud.tencent.com/document/product/582)|按照实际容量付费，DAU 1000 的站点预估消耗量在5GB以下|
+|[共享文件存储（Cloud File Storage，CFS）](https://cloud.tencent.com/document/product/582)|按照实际容量付费，DAU 1000的站点预估消耗量在5GB以下|
 |[云数据库 CynosDB for Mysql](https://cloud.tencent.com/document/product/1003)|数据库1C1G，存储按照容量计费|
 
-部署架构图如下：
+安装 Discuz! Q 资源配置架构图如下：
 ![架构图](https://main.qcloudimg.com/raw/441da6affa73b708ebafa0b7eb26efdd.png)
 
 
@@ -36,11 +36,11 @@
 
 #### 公众号白名单 IP 配置
 
-公众号登录开通时，需要将服务的 IP 添加到公众号的 IP 白名单中。 详情请参见 [第三方登录设置](https://discuz.com/manual-admin/2.html#_2-3-%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E8%AE%BE%E7%BD%AE)
+公众号登录开通时，需要将服务的 IP 添加到公众号的 IP 白名单中，详情请参见 [第三方登录设置](https://discuz.com/manual-admin/2.html#_2-3-%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E8%AE%BE%E7%BD%AE)。
 
-1. 在扩展应用详情页页 API和资源 模块中，点击云托管的服务详情。
+1. 在扩展应用详情页页 API 和资源模块中，单击云托管的服务详情。
 ![查看云托管服务](https://main.qcloudimg.com/raw/e210b5f23304867805926e3c3a4bb07e.png)
-2. 点击服务配置，查看服务的出口 NAT IP。
+2. 单击【服务配置】，查看服务的出口 NAT IP。
 ![NAT IP](https://main.qcloudimg.com/raw/e9b4724b662b52230b7ce5ca5ff270db.png)
 
 #### 版本升级
@@ -57,7 +57,7 @@
 ### 程序配置信息
 
 您可以通过以下配置参数：
-* 环境 ID：选择要部署的环境，在哪个环境下使用。
+* 环境 ID：选择需要部署的环境，在哪个环境下使用。
 * 管理员用户名：Discuz! Q 后台管理系统的管理员用户名，默认为 admin。
 * 管理员密码：Discuz! Q 后台管理系统的管理员密码，第一次安装时，会设置并加密存储在数据库内，之后变更请前往管理系统的用户管理面板重置密码，详情请参见 [用户管理](https://discuz.com/manual-admin/3.html#_3-1-%E7%94%A8%E6%88%B7%E7%AE%A1%E7%90%86)。
 * 数据库用户名：默认为 root，当前不可修改。
