@@ -103,7 +103,7 @@ func main() {
 ```
 
 其中 Topic 名称需要填入完整路径，即`persistent://appid/environment/Topic`的组合，其中`appid/environment/topic`的部分可以从控制台【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。
-![](https://main.qcloudimg.com/raw/5a1fe96ea23b1d4906b7067a3abfd7b5.png)
+![](https://main.qcloudimg.com/raw/a2e32b311b825df9798b8c98df7c3416.png)
 
 
 - consumer.go 的代码内容如下：
