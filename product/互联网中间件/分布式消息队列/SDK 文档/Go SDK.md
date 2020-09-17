@@ -8,8 +8,9 @@ TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和
 - 已经在本地安装 Golang 开发环境（[下载地址](https://studygolang.com/dl)）。
 - 已经准备好 Go 1.11+ 的部署环境（云服务器或其他云资源），且该环境所在的 VPC 已接入TDMQ（参考 [VPC 接入指南](https://cloud.tencent.com/document/product/1179/46240)）。
 - 已获取调用地址（URL）和路由 ID（NetModel）。
-这两个参数均可以在【[环境管理](https://console.cloud.tencent.com/tdmq/env?rid=1)】的接入点列表中获取。请根据客户端部署的云服务器或其他资源所在的私有网络选择正确的接入点来复制参数信息，否则会有无法连接的问题。![](https://main.qcloudimg.com/raw/4edd20db5dabb96bbc42df441a5bebdf.png)
-- 已参考 角色与鉴权 文档配置好了角色与权限，并获取到了对应角色的密钥（Token）
+这两个参数均可以在【[环境管理](https://console.cloud.tencent.com/tdmq/env)】的接入点列表中获取。请根据客户端部署的云服务器或其他资源所在的私有网络选择正确的接入点来复制参数信息，否则会有无法连接的问题。
+![](https://main.qcloudimg.com/raw/6d2535de8a505fe4975690053925884e.png)
+- 已参考 [角色与鉴权](https://cloud.tencent.com/document/product/1179/47543) 文档配置好了角色与权限，并获取到了对应角色的密钥（Token）。
 
 ## 操作步骤
 
@@ -30,7 +31,6 @@ go get -u github.com/TencentCloud/tdmq-go-client
 如果国内网络环境下载比较慢，可以通过配置 [Go Proxy](https://goproxy.io/zh/) 来解决。
 如果处于无法连接外网的环境下，需要先行下载依赖文件 [压缩包](https://github.com/TencentCloud/tdmq-go-client/releases/download/v0.1.1/download.zip)，将压缩包里的文件放在`%GOPATH/pkg/mod/cache/download`文件夹下即可，`%GOPATH`可通过如下指令获取：
 
-
 ```bash
 # linux
 go env | grep GOPATH 
@@ -38,7 +38,7 @@ go env | grep GOPATH
 # Windows
 go env | findstr GOPATH
 ```
-> 目前 Pulsar 官方尚未更新最新适配的客户端，腾讯云已将适配后的 Go 客户端提交至社区，即将在下个版本发布，在官方适配之前需要先使用腾讯云提供的SDK
+>?目前 Pulsar 官方尚未更新最新适配的客户端，腾讯云已将适配后的 Go 客户端提交至社区，即将在下个版本发布，在官方适配之前您需要先使用腾讯云提供的 SDK。
 
 ### 创建 Demo工程
 
@@ -51,11 +51,11 @@ go 1.12
 require github.com/TencentCloud/tdmq-go-client v0.1.1
 ```
 
-上述v0.1.1是 GO SDK 的版本，云上资源环境中下载的依赖文件压缩包也需要是同样的版本。
+上述 v0.1.1是 GO SDK 的版本，云上资源环境中下载的依赖文件压缩包也需要是同样的版本。
 
 2.创建 producer.go 和 consumer.go 测试 Demo 文件。
 
-- producer.go 代码内容如下，其中```listenerName```即 ```custom:``` 拼接路由ID（NetModel），路由ID可以在控制台【环境管理】接入点查看并复制，```NewAuthenticationToken```即角色密钥，可以在【角色管理】页面复制
+- producer.go 代码内容如下，其中`listenerName`即`custom:`拼接路由 ID（NetModel），路由 ID 可以在控制台【[环境管理](https://console.cloud.tencent.com/tdmq/env)】接入点查看并复制，`NewAuthenticationToken`即角色密钥，可以在【[角色管理](https://console.cloud.tencent.com/tdmq/role)】页面复制。
 
 ```go
 package main
