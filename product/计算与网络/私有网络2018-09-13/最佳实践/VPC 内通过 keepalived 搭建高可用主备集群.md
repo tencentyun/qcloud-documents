@@ -9,8 +9,8 @@
 
 ## 注意事项
 
-+ 推荐使用单播方式进行VRRP通信。
-+ 强烈推荐使用Keepalived（**1.2.24版本及以上**），并确保已配置如下参数：
++ 推荐使用单播方式进行 VRRP 通信。
++ 强烈推荐使用 Keepalived（**1.2.24版本及以上**），并确保已配置如下参数：
     ```plaintext
   garp_master_delay 1
   garp_master_refresh 5
@@ -34,11 +34,11 @@
 ### <span id="step1">步骤1：申请 HAVIP
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/)，在左侧导航栏中，选择【IP 与网卡】>【高可用虚拟 IP】。 
 2. 在 HAVIP 管理页面，选择所在地域，单击【申请】。
-3. 在弹出的【申请高可用虚拟IP】对话框中输入名称，选择 HAVIP 所在的私有网络和子网等信息，单击【确定】即可。
+3. 在弹出的【申请高可用虚拟 IP】对话框中输入名称，选择 HAVIP 所在的私有网络和子网等信息，单击【确定】即可。
 > ?HAVIP 的 IP 地址可以自动分配，也可以手动指定（手动指定的合法校验跟普通内网 IP 一致）。
 > 
 ![](https://main.qcloudimg.com/raw/036b8d78f4b0de150fbd2d1bb2ae143d.png)
-申请成功的HAVIP如下图所示。
+申请成功的 HAVIP 如下图所示。
 ![](https://main.qcloudimg.com/raw/57535230c79fe83966efa50c64c7f976.png)
 
 ### 步骤2：在主服务器和备服务器上分别安装 keepalived 软件包
@@ -139,10 +139,10 @@
    ```
 3. 修改完成后，在键盘按“esc”，执行`:wq!`保存配置并退出。
 
-### 步骤4：**VIP绑定弹性公网IP（可选）**  
-1. 在【高可用虚拟IP】控制台中，单击[步骤一](#step1)中申请的HAVIP所在行的【绑定】。
+### 步骤4：**VIP 绑定弹性公网 IP（可选）**  
+1. 在【高可用虚拟 IP】控制台中，单击[步骤一](#step1)中申请的 HAVIP 所在行的【绑定】。
 ![](https://main.qcloudimg.com/raw/92f60018db711b55ca6c6a9531b1fa86.png)
-2. 在弹出的【绑定弹性公网IP】对话框中选择待绑定的EIP，并单击【确定】。如果没有可用的EIP，请先在[弹性公网IP](https://console.cloud.tencent.com/cvm/eip?rid=46)控制台申请。
+2. 在弹出的【绑定弹性公网 IP】对话框中选择待绑定的 EIP，并单击【确定】。如果没有可用的 EIP，请先在[弹性公网 IP](https://console.cloud.tencent.com/cvm/eip?rid=46)控制台申请。
 ![](https://main.qcloudimg.com/raw/e8973f6d16020379f0a695c2fd35b948.png)
 
 ### 步骤5：验证主备倒换时 VIP 及外网 IP 是否正常切换
@@ -156,7 +156,7 @@
    ```plaintext
    /var/log/keealived.log
    ```
-keepalived 进程的日志仍会写到message文件中。
+keepalived 进程的日志仍会写到 message 文件中。
    ```plaintext
    /var/log/message
    ```
