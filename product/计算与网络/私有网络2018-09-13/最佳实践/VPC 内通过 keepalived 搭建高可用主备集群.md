@@ -6,7 +6,7 @@
 在 VPC 的云服务器间可以通过部署 Keepalived 来实现高可用主备集群。Keepalived 是基于 vrrp 协议的一款高可用软件，Keepalived 配置通过 keepalived.conf 文件完成。
 ![](//mc.qcloudimg.com/static/img/a5aa34fb87508284d9e7a07898085728/1.png)
 - 在传统的物理网络中，可以通过 keepalived 的 VRRP 协议协商主备状态，其原理是：主设备周期性发送免费 ARP 报文刷新上联交换机的 MAC 表或终端 ARP 表，触发 VIP 迁移到主设备上。
-- 在腾讯云 VPC 中，支持部署 keepalived 来搭建主备高可用集群。与物理网络相比，主要区别是：
+- 在腾讯云 VPC 中，支持部署 keepalived 来搭建主备高可用集群。与物理网络相比，主要区别是
    - 使用的 VIP 必须是从腾讯云申请的 [高可用虚拟 IP (HAVIP)](https://cloud.tencent.com/document/product/215/36691) 。
    - VIP 有子网属性，只能在同一个子网下的机器间宣告绑定。
 
@@ -19,8 +19,8 @@
   garp_master_refresh 5
   ```
 + 确保同一 VPC 下的每个主备集群需要配置不同的 vrrp router id。
-+ 确定没有采用 strict 模式，即需要删除“vrrp_strict“ 配置。
-+ 控制单个网卡上配置的 VIP 数量，建议目前在单个网卡绑定的高可用虚拟 IP 数量不超过5个。如果需要使用多个虚拟 IP，建议在 keepalived 配置文件的 global_defs 段落添加或修改配置“vrrp_garp_master_repeat 1“。
++ 确定没有采用 strict 模式，即需要删除“vrrp_strict” 配置。
++ 控制单个网卡上配置的 VIP 数量，建议目前在单个网卡绑定的高可用虚拟 IP 数量不超过5个。如果需要使用多个虚拟 IP，建议在 keepalived 配置文件的 global_defs 段落添加或修改配置“vrrp_garp_master_repeat 1”。
 
 ## 操作步骤
 
