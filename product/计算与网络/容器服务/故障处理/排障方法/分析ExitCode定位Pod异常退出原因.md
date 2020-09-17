@@ -238,10 +238,10 @@ Linux 程序被外界中断时会发送中断信号，程序退出时的状态�
 更多状态码含义可参考以下表格：
 <table>
     <tr>
-        <th>Exit Code Number</th>
-        <th>Meaning</th>
-        <th>Example</th>
-        <th>Comments</th>
+        <th>状态码</th>
+        <th>含义</th>
+        <th>示例</th>
+        <th>描述</th>
     </tr>
 </thead>
 <tbody>
