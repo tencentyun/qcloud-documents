@@ -138,7 +138,7 @@ cg-casb.properties loaded from /opt/casb_client/extractor/cg-casb.properties
 Tue Sep 15 16:18:00 CST 2020 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
 [2020-09-15 16:18:01] success
 # 提取表结构
-[root@localhost extractor]# java -jar extractor-1.1.6-SNAPSHOT.jar --op=extract --db-type=mysql --host=192.168.10.130 --port=3306 --user=root --password=hellocasb 
+[root@localhost extractor]# java -jar extractor-1.1.6-release.jar --op=extract --db-type=mysql --host=192.168.10.130 --port=3306 --user=root --password=hellocasb 
 # 如下是提取过程中打印的日志，可做参考
 --op=extract
 --db-type=mysql
@@ -289,9 +289,9 @@ $ firewall-cmd --zone=public --add-port=8095/tcp --permanent
 ~$ cd /opt/casb/processor
 # 如下jar包名称根据实际安装后的jar包名称为准，数据库名称，ip，用户名，密码以实际为准，taskId号为管理平台创建的全量加解密任务id
 # Processor验证数据库连接
-~$ java -jar processor-1.1.12-SNAPSHOT.jar --op=verify --db-type=mysql --host=10.1.1.222 --port=3306 --user=root --password=hellocasb --database=ceshi
+~$ java -jar processor-1.1.12-release.jar --op=verify --db-type=mysql --host=10.1.1.222 --port=3306 --user=root --password=hellocasb --database=ceshi
 # Processor进行全量加解密
-~$ java -jar processor-1.1.12-SNAPSHOT.jar --op=batchUpdate --password=hellocasb --taskId=1294661156949987330 --threads=4
+~$ java -jar processor-1.1.12-release.jar --op=batchUpdate --password=hellocasb --taskId=1294661156949987330 --threads=4 --db-type=mysql
 ```
 	2. 命令执行完成后，查看数据库中 user_name 数据已被加密。
 
