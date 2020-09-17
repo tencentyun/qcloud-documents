@@ -70,9 +70,9 @@ import (
 func main() {
 
 	client, err := NewClient(ClientOptions{
-      		URL:            "pulsar://*.*.*.*:6000",
-  		ListenerName:	"custom:1300*****0/vpc-******/subnet-********",
-      		Authentication: NewAuthenticationToken("eyJh****"),
+		URL:            "pulsar://*.*.*.*:6000",
+		ListenerName:	"custom:1300*****0/vpc-******/subnet-********",
+		Authentication: NewAuthenticationToken("eyJh****"),
     	})
 	if err != nil {
 		log.Fatal(err)
@@ -123,7 +123,7 @@ func main() {
 	client, err := pulsar.NewClient(pulsar.ClientOptions{
 		URL:       	"pulsar://10.*.*.*:6000",//更换为接入点地址
 		ListenerName:	"custom:1300*****0/vpc-******/subnet-********",
-      		Authentication: NewAuthenticationToken("eyJh****"),
+		Authentication: NewAuthenticationToken("eyJh****"),
 	})
 	if err != nil {
 		log.Fatal(err)
