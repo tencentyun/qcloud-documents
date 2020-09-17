@@ -35,13 +35,13 @@ java -version
 参考 [Maven 下载](https://maven.apache.org/download.cgi)。
 
 #### 2.2 设置 MAVEN_HOME 和 PATH 环境变量
-- Windows 系统下
+- Windows 系统下：
 ```
    新建系统变量  MAVEN_HOME   变量值：E:\Maven\apache-maven-3.3.9
    编辑系统变量  Path         添加变量值： ;%MAVEN_HOME%\bin
 ```
 
-- Linux / macOS 系统下
+- Linux / macOS 系统下：
 ```
    export MAVEN_HOME=/usr/local/maven/apache-maven-3.3.9
    export PATH=$MAVEN_HOME/bin:$PATH
@@ -61,7 +61,6 @@ java -version
 ```xml
 <!-- in your <properties> block -->
 <pulsar.version>2.6.1</pulsar.version>
-
 <!-- in your <dependencies> block -->
 <dependency>
   <groupId>org.apache.pulsar</groupId>
@@ -71,4 +70,4 @@ java -version
 ```
 2. 在 `pom.xml` 所在目录执行 `mvn clean package` 即可下载 Java SDK。
 
-> TDMQ现已兼容Pulsar官方Java客户端，您可以直接使用2.6.0以上社区版本的客户端进行开发
+>?TDMQ 现已兼容 Pulsar 官方 Java 客户端，您可以直接使用2.6.0以上社区版本的客户端进行开发。
