@@ -5,8 +5,9 @@ TDMQ 提供了 Java 语言的 SDK 来调用服务，进行消息队列的生产�
 ## 前提条件
 - 已完成 Java SDK 的下载和安装（参考 [Java SDK 下载方式](https://cloud.tencent.com/document/product/1179/44914)）。
 - 已获取调用地址（URL）和路由 ID（NetModel）。
-这两个参数均可以在【[环境管理](https://console.cloud.tencent.com/tdmq/env)】的接入点列表中获取。请根据客户端部署的云服务器或其他资源所在的私有网络选择正确的接入点来复制参数信息，否则会有无法连接的问题。![](https://main.qcloudimg.com/raw/4edd20db5dabb96bbc42df441a5bebdf.png)
-- 已参考 角色与鉴权 文档配置好了角色与权限，并获取到了对应角色的密钥（Token）
+这两个参数均可以在【[环境管理](https://console.cloud.tencent.com/tdmq/env)】的接入点列表中获取。请根据客户端部署的云服务器或其他资源所在的私有网络选择正确的接入点来复制参数信息，否则会有无法连接的问题。
+![](https://main.qcloudimg.com/raw/6d2535de8a505fe4975690053925884e.png)
+- 已参考 [角色与鉴权](https://cloud.tencent.com/document/product/1179/47543) 文档配置好了角色与权限，并获取到了对应角色的密钥（Token）。
 
 ## 操作步骤
 ### 创建 Client
@@ -18,8 +19,9 @@ PulsarClient client = PulsarClient.builder()
     .authentication(AuthenticationFactory.token("eyJh****"))
     .build();
  ```
-> - listenerName 即 “custom:” 拼接路由ID（NetModel），路由ID可以在控制台【环境管理】接入点查看并复制
-> - token 即角色的密钥，角色密钥可以在【角色管理】中复制
+>?
+>- listenerName 即 “custom:” 拼接路由ID（NetModel），路由ID可以在控制台【[环境管理](https://console.cloud.tencent.com/tdmq/env)】接入点查看并复制。
+>- token 即角色的密钥，角色密钥可以在【[角色管理](https://console.cloud.tencent.com/tdmq/role)】中复制。
 
 
 ### 生产消息
@@ -29,7 +31,8 @@ PulsarClient client = PulsarClient.builder()
 Producer<byte[]> producer = client.newProducer().topic("persistent://1300****30/default/mytopic").create();
 producer.send("My message".getBytes());
 ```
-Topic 名称需要填入完整路径，即“persistent://appid/environment/Topic”，appid/environment/topic 的部分可以从控制台上【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。![](https://main.qcloudimg.com/raw/5a1fe96ea23b1d4906b7067a3abfd7b5.png)
+Topic 名称需要填入完整路径，即“persistent://appid/environment/Topic”，appid/environment/topic 的部分可以从控制台上【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。
+![](https://main.qcloudimg.com/raw/a2e32b311b825df9798b8c98df7c3416.png)
 
 这种生产方式是阻塞的方式生产消息到指定的 Topic 中，我们还可以使用异步发送的方式生产消息。
 ```java
@@ -65,7 +68,7 @@ producer.newMessage()
 
 路由模式：
 
-| Mode   |   Description |
+| 模式   |   描述 |
 | ------------ | ------------ |
 |   RoundRobinPartition |  如果消息没有指定 key，为了达到最大吞吐量，消息会以 round-robin 方式被路由所有分区。 请注意 round-robin 并不是作用于每条单独的消息，而是作用于延迟处理的批次边界，以确保批处理有效。 如果为消息指定了 key，发往分区的消息会被分区生产者根据 key 做 hash，然后分散到对应的分区上。 这是默认的模式。 |
 |   SinglePartition |  如果消息没有指定 key，生产者将会随机选择一个分区，并发送所有消息。 如果为消息指定了 key，发往分区的消息会被分区生产者根据 key 做 hash，然后分散到对应的分区上。 |
@@ -73,7 +76,7 @@ producer.newMessage()
 
 顺序保证：
 
-| 顺序保证  | Description  |路由策略与消息 Key|
+| 顺序保证  | 描述  |路由策略与消息 Key|
 | ------------ | ------------ |------------ |
 |每个 key 分区   |  所有具有相同 key 的消息将按顺序排列并放置在相同的分区（Partition）中。 |自同一生产者的所有消息都是有序的|
 |  同一个生产者 |自同一生产者的所有消息都是有序的   |自同一生产者的所有消息都是有序的|
