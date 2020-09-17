@@ -1,4 +1,16 @@
 ## 通用接口
+<style>
+table th:nth-of-type(1){}
+width:100px;
+}
+table th:nth-of-type(2){
+width:100px;
+}
+table th:nth-of-type(3){
+width:100px;
+}
+</style>
+
 | 接口名 | Action | 功能描述 |
 |---------|---------|---------|
 | [查询负载均衡异步接口的执行结果](https://cloud.tencent.com/document/product/214/4007) | DescribeLoadBalancersTaskResult | 查询负载均衡异步操作接口的执行结果。|
@@ -10,6 +22,11 @@
 | [更换 HTTPS 类型负载均衡证书](https://cloud.tencent.com/document/product/214/6045)|ReplaceCert|更换负载均衡使用的证书。|
 | [查询证书关联的负载均衡监听器](https://cloud.tencent.com/document/product/214/6046)| GetCertListWithLoadBalancer | 查询证书关联的负载均衡信息。|
 | [克隆负载均衡](https://cloud.tencent.com/document/product/214/37704)|CloneLB |克隆负载均衡。|
+
+
+
+
+
 
 
 ## 传统型负载均衡相关接口
