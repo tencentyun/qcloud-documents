@@ -1,16 +1,4 @@
 ## 通用接口
-<style>
-table th:nth-of-type(1){}
-width:100px;
-}
-table th:nth-of-type(2){
-width:100px;
-}
-table th:nth-of-type(3){
-width:100px;
-}
-</style>
-
 | 接口名 | Action | 功能描述 |
 |---------|---------|---------|
 | [查询负载均衡异步接口的执行结果](https://cloud.tencent.com/document/product/214/4007) | DescribeLoadBalancersTaskResult | 查询负载均衡异步操作接口的执行结果。|
