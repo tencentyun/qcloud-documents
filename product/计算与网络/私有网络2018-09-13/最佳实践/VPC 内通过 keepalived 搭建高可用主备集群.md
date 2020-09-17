@@ -206,7 +206,7 @@
 ### 步骤4：**VIP绑定弹性公网IP（可选）**  
 
 1. 在 [高可用虚拟 IP](https://console.cloud.tencent.com/vpc/havip) 控制台，单击 [步骤一 ](#step1)中申请的 HAVIP 所在行的【绑定】。
-![](https://main.qcloudimg.com/raw/3972389da1d7199216d68df330773748.png)
+![](https://main.qcloudimg.com/raw/79e1e4c95b29f660997b987a8487bab4.png)
 2. 在弹出的【绑定弹性公网 IP 】对话框中选择待绑定的 EIP，并单击【确定】。如果没有可用的 EIP，请先在 [弹性公网 IP](https://console.cloud.tencent.com/cvm/eip?rid=46)控制台申请。
 ![](https://main.qcloudimg.com/raw/c679a9d21a4e039ae46db333e0e50dcf.png)
 
