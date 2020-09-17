@@ -3,7 +3,8 @@
 >?
 >- 本文档以证书名称 `cloud.tencent.com` 为例，实际名称请以您申请的证书为准。
 >- 本文档以操作系统 Windows10 为例。由于操作系统的版本不同，详细操作步骤略有区别。
->- 安装 SSL 证书前，请您在 IIS 服务器上开启 “443” 端口，避免证书安装后无法启用 HTTPS。判断是否已开启 “443” 端口，可参考 [如何验证443端口是否开启？](https://cloud.tencent.com/document/product/400/45144)
+>- 安装 SSL 证书前，请您在 IIS 服务器上开启 “443” 端口，避免证书安装后无法启用 HTTPS。具体可参考 [服务器如何开启443端口？](https://cloud.tencent.com/document/product/400/45144)
+>- SSL 证书文件上传至服务器方法可参考 [如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
 >
 
 ## 操作步骤

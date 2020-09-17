@@ -1,12 +1,6 @@
 ## 操作场景
 腾讯云容器服务 TKE 支持通过创建 PersistentVolume（PV）/PersistentVolumeClaim（PVC），并为工作负载挂载数据卷的方式使用腾讯云对象存储 COS。本文介绍如何在 TKE 集群中为工作负载挂载对象存储。
 
-
-## 相关概念
-- **PersistentVolume（PV）**：集群内的存储资源。PV 独立于 Pod 的生命周期，可根据不同的 StorageClass 类型创建不同类型的 PV。
-- **PersistentVolumeClaim（PVC）**：集群内的存储请求。例如，PV 是 Pod 使用的节点资源，PVC 则声明使用 PV 资源。当 PV 资源不足时，PVC 可动态创建 PV。
-
-
 ## 准备工作
 ### 安装对象存储扩展组件
 >?
@@ -38,7 +32,7 @@
 ![](https://main.qcloudimg.com/raw/6837245b169037467e1934ff49269dd8.png)
    - **名称**：存储桶名称由 [自定义名称]-[开发商 APPID] 构成。请输入自定义名称，设置后不可修改。命名说明请参见存储桶的 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
    - **所属地域**：请选择本文中目标集群所在地域，设置后不可修改。详情请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)。
-   - **多AZ特性**：开启多 AZ 特性后，可提供同地域多个数据中心的容灾。
+   - **多AZ特性**：开启多 AZ 特性后，可提供同地域多个数据中心的容灾。详情请参见 [多 AZ 特性概述](https://cloud.tencent.com/document/product/436/40548)。
    - **访问权限**：存储桶默认提供【私有读写】、【公有读私有写】和【公有读写】三种访问权限，设置后仍可修改。
       - **私有读写**：仅该存储桶的创建者及有授权的账号具备该存储桶对象的读写权限。存储桶访问权限默认为私有读写，推荐使用。
       - **公有读私有写**：任何人（包括匿名访问者）都具备该存储桶对象的读权限，但仅有存储桶创建者及有授权的账号具备该存储桶对象的写权限。
@@ -51,9 +45,11 @@
 
 ### 获取存储桶子目录<span id="getPath"></span>
 
-1. 在存储桶列表页面，单击选择刚刚创建的存储桶，进入该存储桶的详情页
-2. 选择需要挂载的子文件夹，单击进入。在页面右上角获取子目录路径`/costest`，如下图所示：
-![](https://main.qcloudimg.com/raw/1ce440ed5a4de2b6f4d1f1831e082c63.png)
+1. 在“存储桶列表”页面，选择已创建的存储桶名称，进入该存储桶名称的详情页。
+2. 在存储桶详情页面，选择需要挂载的子文件夹，进入该文件夹详情页。在页面右上角获取子目录路径 `/costest`。如下图所示：
+![](https://main.qcloudimg.com/raw/40426184568dfe55103d98273ecf5e52.png)
+
+
 
 
 
@@ -82,7 +78,7 @@
 >
 1. 在目标集群详情页面，选择左侧菜单栏中的【存储】>【PersistentVolume】，进入 “PersistentVolume” 页面。
 2. 单击【新建】进入“新建PersistentVolume” 页面，参考以下信息创建 PV。如下图所示：
-![](https://main.qcloudimg.com/raw/ca02a5afaa160c6331013e2b88796d97.png) 
+![](https://main.qcloudimg.com/raw/8dd2a6ad66bce8601a57b032a6ca8862.png)
 主要参数信息如下：
 	- **来源设置**：选择【静态创建】。
 	- **名称**：自定义，本文以 `cos-pv` 为例。

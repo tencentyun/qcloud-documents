@@ -45,7 +45,7 @@ request body
 
 具体内容描述如下：
 
-| 节点名称（关键字）       | 父节点                                    | 描述                                                         | 类型      | 必选 |
+| 节点名称（关键字）       | 父节点                                    | 描述                                                         | 类型      | 是否必选 |
 | ------------------------ | ----------------------------------------- | ------------------------------------------------------------ | --------- | ---- |
 | ReplicationConfiguration | 无                                        | 说明所有跨地域配置信息                                       | Container | 是   |
 | Role                     | ReplicationConfiguration                  | 发起者身份标示：`qcs::cam::uin/<OwnerUin>:uin/<SubUin>`      | String    | 是   |
@@ -55,7 +55,7 @@ request body
 | Prefix                   | ReplicationConfiguration.Rule             | 前缀匹配策略，不可重叠，重叠返回错误。前缀匹配根目录为空     | String    | 是   |
 | Destination              | ReplicationConfiguration.Rule             | 目标存储桶信息                                               | Container | 是   |
 | Bucket                   | ReplicationConfiguration.Rule.Destination | 资源标识符：<br>`qcs::cos:<Region>::<BucketName-APPID>`      | String    | 是   |
-| StorageClass             | ReplicationConfiguration.Rule.Destination | 存储级别，枚举值：STANDARD，STANDARD_IA。默认值：原存储桶级别<br>**注意：** 目前跨地域复制暂不支持将复制后的对象指定为归档存储这一存储类型，如果您需要将对象副本设置为归档存储类型，可在目标存储桶中配置生命周期管理，详细操作请参见 [PUT Bucket lifecycle](https://cloud.tencent.com/document/product/436/8280) | String    | 否   |
+| StorageClass             | ReplicationConfiguration.Rule.Destination | 存储类型，枚举值：STANDARD，STANDARD_IA。默认值：原存储类型<br>**注意：** 目前跨地域复制暂不支持将复制后的对象指定为归档存储这一存储类型，如果您需要将对象副本设置为归档存储类型，可在目标存储桶中配置生命周期管理，详细操作请参见 [PUT Bucket lifecycle](https://cloud.tencent.com/document/product/436/8280) | String    | 否   |
 
 ## 响应
 

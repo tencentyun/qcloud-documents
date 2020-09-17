@@ -1,3 +1,4 @@
+
 **运行前必备**：
 下载客户端 [Jedis](https://github.com/xetorthio/jedis/wiki/Getting-started)。
 
@@ -13,7 +14,7 @@ public class HelloRedis {
             /**以下参数分别填写您的 Redis 实例内网 IP、端口号、实例 ID 和密码*/
             String host = "192.168.0.195";
             int port = 6379;
-            String instanceid = "84ffd722-b506-4934-9025-645bb2a0997b";
+            String instanceid = "crs-09xxxqv";
             String password = "1234567q";
             //连接Redis
             Jedis jedis = new Jedis(host, port);

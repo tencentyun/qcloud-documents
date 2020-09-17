@@ -5,21 +5,19 @@
 
 ## 添加依赖
 在 pom.xml 文件中添加如下 dependency。
- ```xml
-
+```xml
 <dependency>
     <groupId>com.tencent.cloud</groupId>
     <artifactId>tct-spring-boot-starter</artifactId>
     <version>1.1.0</version>
 </dependency>
- ```
+```
 
-> ?  使用原有 spring-cloud-tsf-schedule 组件依赖的用户仅需将项目中 pom 依赖的 spring-cloud-tsf-schedule 组件移除，重新引入tct-spring-boot-starter组件依赖，并将对应的 Java 类文件重新 reload 即可完成 SDK 升级操作。
+>!使用原有 spring-cloud-tsf-schedule 组件依赖的用户仅需将项目中 pom 依赖的 spring-cloud-tsf-schedule 组件移除，重新引入 tct-spring-boot-starter 组件依赖，并将对应的 Java 类文件重新 reload 即可完成 SDK 升级操作。
 
 ## 添加配置
 
 在 application.yml 文件中添加如下配置，启用任务调度 SDK。
-
 ```xml
 tct
   // 默认是false 不启用。
@@ -97,7 +95,7 @@ import java.lang.invoke.MethodHandles;
 public class SimpleLogExecutableTask implements ExecutableTask,TerminableTask {
 
     private static final Logger LOG = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-    // Override execute方法，在方法中编写任务逻辑。
+    // Override execute 方法，在方法中编写任务逻辑。
     @Override
     public ProcessResult execute(ExecutableTaskData taskData) {
         ProcessResult result = new ProcessResult();
@@ -127,7 +125,7 @@ public class SimpleLogExecutableTask implements ExecutableTask,TerminableTask {
     @Override
     public TerminateResult cancel(TaskExecuteFuture future, ExecutableTaskData taskData) {
         LogReporter.log(taskData,"task start to cancel");
-        // 编写任务停止执行逻辑， 例如这里通过调用Future的cancel方法。
+        // 编写任务停止执行逻辑， 例如这里通过调用 Future 的 cancel 方法。
         future.cancel(true);
         // 返回终止结果。
         LogReporter.log(taskData,"task cancel success");
@@ -190,15 +188,15 @@ tct:
 SDK 中存在一些参数可以允许通过配置方式进行调配，如下所示：
 ```xml
 tct:
-  // 是否开启任务调度功能，默认false关闭，true则开启。
+  // 是否开启任务调度功能，默认 false 为关闭，true 则开启。
   enabled: true
   client:
     properties:
       // 任务执行的线程总数，默认200
       task.max.threads: 200
-      // 线程池核心线程数量，默认CPU核数+1
+      // 线程池核心线程数量，默认 CPU 核数 + 1
       task.core.threads: <CPU核数+1>
-      // 线程类型: FIXED，CACHED,LIMITED, EAGER
+      // 线程类型: FIXED、CACHED、LIMITED、EAGER
       thread.pool.type: FIXED
 ```
 

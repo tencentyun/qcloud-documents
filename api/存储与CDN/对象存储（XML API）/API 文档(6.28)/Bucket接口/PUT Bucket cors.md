@@ -32,7 +32,7 @@ Authorization: Auth String
 
 提交 **application/xml** 请求数据，包含完整的存储桶跨域资源共享（CORS）配置信息。
 
-```xml
+```plaintext
 <CORSConfiguration>
 	<CORSRule>
 		<AllowedOrigin>string</AllowedOrigin>
@@ -76,7 +76,7 @@ Authorization: Auth String
 | --- | --- | --- | --- | --- |
 | AllowedOrigin | CORSConfiguration.CORSRule | 允许的访问来源，单条 CORSRule 可以配置多个 AllowedOrigin。<br><li>配置支持 `*`，表示全部域名都允许，但不推荐。<br><li>支持单个具体域名，例如 `http://www.example.com`。<br><li>支持 `*` 通配符，通配符可出现在任何位置，包括协议、域名和端口，可匹配0个或多个字符，但是只能有一个 `*`。请谨慎使用通配符，因为可能意外匹配到非预期的来源<br><li>注意不要遗漏协议名 http 或 https，若端口不是默认的80(http)或443(https)，还需要带上端口，例如 `https://example.com:8443`。 | string | 是 |
 | AllowedMethod | CORSConfiguration.CORSRule | 允许的 HTTP 操作方法（Method），对应 CORS 请求响应中的 Access-Control-Allow-Methods 头部，单条 CORSRule 可以配置多个 AllowedMethod。枚举值：PUT、GET、POST、DELETE、HEAD。 | enum | 是 |
-| AllowedHeader | CORSConfiguration.CORSRule | 在发送预检（OPTIONS）请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，不区分大小写，单条 CORSRule 可以配置多个 AllowedHeader。<br><li>可以配置 `*`，代表允许所有头部，为了避免遗漏，推荐配置为 `*`。<br><li>如果不配置为 `*`，那么在 CORS 请求中 Access-Control-Request-Headers 头部出现的每个 Header，都必须在 AllowedHeader 中有对应项。 | string | 是 |
+| AllowedHeader | CORSConfiguration.CORSRule | 在发送预检（OPTIONS）请求时，浏览器会告知服务端接下来的正式请求将使用的自定义 HTTP 请求头部，此配置用于指定允许浏览器发送 CORS 请求时携带的自定义 HTTP 请求头部，不区分英文大小写，单条 CORSRule 可以配置多个 AllowedHeader。<br><li>可以配置`*`，代表允许所有头部，为了避免遗漏，推荐配置为`*`。<br><li>如果不配置为`*`，那么在预检（OPTIONS）请求中 Access-Control-Request-Headers 头部出现的每个 Header，都必须在 AllowedHeader 中有对应项。 | string | 是 |
 | ExposeHeader | CORSConfiguration.CORSRule | 允许浏览器获取的 CORS 请求响应中的头部，不区分大小写，单条 CORSRule 可以配置多个 ExposeHeader。<br><li>默认情况下浏览器只能访问简单响应头部：Cache-Control、Content-Type、Expires、Last-Modified，如果需要访问其他响应头部，需要添加 ExposeHeader 配置。<br><li>不支持配置为 `*`，必须明确配置具体的 Header。<br><li>根据浏览器的实际需求确定，默认推荐填写 ETag，可参考各 API 文档的响应头部分及 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。 | string | 是 |
 | MaxAgeSeconds | CORSConfiguration.CORSRule | 跨域资源共享配置的有效时间，单位为秒，在有效时间内，浏览器无须为同一请求再次发起预检（OPTIONS）请求，对应 CORS 请求响应中的 Access-Control-Max-Age 头部，单条 CORSRule 只能配置一个 MaxAgeSeconds。 | integer | 是 |
 | ID | CORSConfiguration.CORSRule | 单条 CORSRule 配置的 ID，用于在 GET Bucket cors 时查找指定 CORSRule。可选填，单条 CORSRule 最多配置一个 ID。 | string | 否 |

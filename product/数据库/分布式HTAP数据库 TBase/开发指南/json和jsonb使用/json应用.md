@@ -1,5 +1,4 @@
 
-
 ## 创建 json 类型字段表
 ```
 postgres=# create table t_json(id int,f_json json);

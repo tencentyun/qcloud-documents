@@ -2,7 +2,7 @@
 本文档指导您如何使用游戏联机对战引擎 C# SDK。
 
 ## 前提条件
-已在 Unity Editor 中根据指引导入MGOBE，详情请参见 [Unity 游戏项目](https://cloud.tencent.com/document/product/1038/45333)。
+已在 Unity Editor 中根据指引导入 MGOBE，详情请参见 [Unity 游戏项目](https://cloud.tencent.com/document/product/1038/45333)。
 
 ### 初始化监听器 Listener
 在使用 MGOBE API 接口时，主要用到 Listener 对象和 Room 对象。导入 SDK 后，需要先初始化 Listener 对象。
@@ -57,18 +57,20 @@ var room = new Room ();
 ```c#
 // 查询玩家自己的房间
 Room.GetMyRoom (eve => {
-    if (eve.Code == 0) {
-        var data = (GetRoomByRoomIdRsp) eve.Data;
-        // 设置房间信息到 room 实例
-        room.InitRoom (data.RoomInfo);
-        Debug.Log ("玩家已在房间内：", data.RoomInfo.Name);
-    }
+	if (eve.Code == 0) {
+		var data = (GetRoomByRoomIdRsp) eve.Data;
+		// 设置房间信息到 room 实例
+		room.InitRoom (data.RoomInfo);
+		Debug.Log ("玩家已在房间内：" + data.RoomInfo.Name);
+		return;
+	}
 
-    if (eve.Code == 20011) {
-        Debug.Log ("玩家不在房间内");
-    }
+	if (eve.Code == 20011) {
+		Debug.Log ("玩家不在房间内");
+		return;
+	}
 
-    Debug.Log ("调用失败");
+	Debug.Log ("调用失败");
 });
 ```
 
@@ -91,19 +93,22 @@ Listener.Add(room);
 ```c#
 // 广播：房间有新玩家加入
 room.OnJoinRoom = eve => {
-    var data = (Lagame.JoinRoomBst) eve.Data;
-    Debug.Log ("新玩家加入", data.JoinPlayerId);
-};
+	var data = (JoinRoomBst) eve.Data;
+	Debug.Log ("新玩家加入" + data.JoinPlayerId);
+}; 
+
 // 广播：房间有玩家退出
 room.OnLeaveRoom = eve => {
-    var data = (Lagame.LeaveRoomBst) eve.Data;
-    Debug.Log ("玩家退出", data.LeavePlayerId);
-};
+	var data = (LeaveRoomBst) eve.Data;
+	Debug.Log ("玩家退出" + data.LeavePlayerId);
+}; 
+
 // 广播：房间被解散
 room.OnDismissRoom = eve => {
-    var data = (Lagame.JoinRoomBst) eve.Data;
-    Debug.Log ("房间被解散");
+	var data = (JoinRoomBst) eve.Data;
+	Debug.Log ("房间被解散");
 };
+
 // 其他广播
 // ...
 ```
@@ -118,9 +123,52 @@ room.OnDismissRoom = eve => {
  Listener.Remove (room);
 ```
 
+### 创建房间
+可以通过创建房间、加入房间、匹配等方式进入房间，进入房间后可以继续通过房间消息、帧同步、实时服务器相关接口进行游戏。
+创建房间示例如下：
+```
+PlayerInfoPara playerInfoPara = new PlayerInfoPara
+{
+	Name = "测试Name",
+	CustomProfile = "测试CustomProfile",
+	CustomPlayerStatus = 12345,
+};
+
+CreateRoomPara createRoomPara = new CreateRoomPara
+{
+	RoomName = "测试RoomName",
+	RoomType = "测试RoomType",
+	MaxPlayers = 10,
+	IsPrivate = true,
+	CustomProperties = "测试CustomProperties",
+	PlayerInfo = playerInfoPara,
+};
+
+room.CreateRoom(createRoomPara, eve =>
+{
+	if (eve.Code == 0)
+	{
+		// 创建成功
+		Debug.LogFormat ("创建成功 {0}", eve.Data);
+
+		// 使用 room 调用其他API，如 room.StartFrameSync
+		// ...
+
+		return;
+	}
+
+	if (eve.Code == 20010) {
+		Debug.Log ("玩家已在房间内");
+		return;
+	}
+
+	Debug.Log ("调用失败");
+});
+                
+```   
+
 ### 游戏对战
 如果玩家已经加入房间，可以通过帧同步功能进行游戏对战。游戏过程中用到的接口有发送帧消息、帧广播，开发者可以利用这两个接口进行帧同步。帧广播的开始、结束需要使用房间的 startFrameSync、stopFrameSync 接口。
-
 
 #### 开始帧同步
 使用 room.startFrameSync 接口可以开启帧广播。房间内任意一个玩家成功调用该接口将导致全部玩家开始接收帧广播。
@@ -187,14 +235,15 @@ room.OnRecvFrame = eve => {
 使用 room.stopFrameSync 接口可以停止帧广播。房间内任意一个玩家成功调用该接口将导致全部玩家停止接收帧广播。
 
 ```c#
-room.StopFrameSync (null, eve => {
-    if (eve.Code == ErrCode.EcOk) {
-        Debug.Log ("请求成功");
-    }
+room.StopFrameSync (eve => {
+	if (eve.Code == ErrCode.EcOk) {
+			Debug.Log ("请求成功");
+	}
 });
+
 // 广播：停止帧同步
 room.OnStopFrameSync = eve => {
-    RecvFrameBst bst = (RecvFrameBst) eve.Data;
-    Debug.Log ("停止帧同步", eve.Data);
+	RecvFrameBst bst = (RecvFrameBst) eve.Data;
+	Debug.LogFormat ("停止帧同步: {0}", eve.Data);
 };
 ```

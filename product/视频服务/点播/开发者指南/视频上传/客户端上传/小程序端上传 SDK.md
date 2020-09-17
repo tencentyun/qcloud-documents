@@ -7,50 +7,64 @@
 
 **1. 引入 SDK**
 
-```
+- 直接引入文件
+```js
 const VodUploader = require('../../lib/vod-wx-sdk-v2.js');
 ```
+- npm 安装
+````bash
+npm i vod-wx-sdk-v2
+````
 
 **2. 定义获取上传签名的函数**
 
-```
+````js
 getSignature: function(callback) {
     wx.request({
-        url: 'https://xzb.qcloud.com/get_vod_sign',
-        method: 'POST',
-        data: {
-            Action: 'GetVodSignatureV2'
-        },
-        dataType: 'json',
+        /**
+        * 此处省略部分代码
+        */
+        url: url,
         success: function(res) {
-            if (res.data && res.data.data.signature) {
-                callback(res.data.data.signature);
-            } else {
-                return '获取签名失败';
-            }
+            callback(signature)
         }
     });
 }
-```
+````
 
 >?
-- `url`是您派发签名服务的 URL，参见 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219)。
-- `signature`计算规则可参考 [客户端上传签名](https://cloud.tencent.com/document/product/266/9221)。
+>- `url` 是您派发签名服务的 URL，参见 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219)。
+>- `signature` 计算规则可参考 [客户端上传签名](https://cloud.tencent.com/document/product/266/9221)。
 
 **3. 上传视频**
 上传视频是通过调用`VodUploader.start`来实现的，选择视频则通过微信小程序 API 中的`wx.chooseVideo`方法实现。示例如下：
 
-```
- VodUploader.start({
-    mediaFile: videoFile, //必填，把chooseVideo回调的参数(file)传进来
-    getSignature: getSignature, //必填，获取签名的函数
-
-    mediaName: fileName, //选填，视频名称，强烈推荐填写(如果不填，则默认为“来自微信小程序”)
-    coverFile: coverFile, // 选填，视频封面
-    success: function(result) {
-        console.log('success');
+```js
+ const uploader = VodUploader.start({
+    // 必填，把 wx.chooseVideo 回调的参数(file)传进来
+    mediaFile: videoFile, 
+    // 必填，获取签名的函数
+    getSignature: getSignature, 
+    // 选填，视频名称，强烈推荐填写(如果不填，则默认为“来自小程序”)
+    mediaName: fileName, 
+    // 选填，视频封面，把 wx.chooseImage 回调的参数(file)传进来
+    coverFile: coverFile, 
+    // 上传中回调，获取上传进度等信息
+    progress: function(result) {
+        console.log('progress');
         console.log(result);
     },
+    // 上传完成回调，获取上传后的视频 URL 等信息
+    finish: function(result) {
+        console.log('finish');
+        console.log(result);
+        wx.showModal({
+            title: '上传成功',
+            content: 'fileId:' + result.fileId + '\nvideoName:' + result.videoName,
+            showCancel: false
+        });
+    },
+    // 上传错误回调，处理异常
     error: function(result) {
         console.log('error');
         console.log(result);
@@ -60,24 +74,52 @@ getSignature: function(callback) {
             showCancel: false
         });
     },
-    progress: function(result) {
-        console.log('progress');
-        console.log(result);
-    },
-    finish: function(result) {
-        console.log('finish');
-        console.log(result);
-        wx.showModal({
-            title: '上传成功',
-            content: 'fileId:' + result.fileId + '\nvideoName:' + result.videoName,
-            showCancel: false
-        });
-    }
 });
 ```
 
+
+## 接口描述
+
+### VodUploader.start
+
+| 参数名称         | 必填   | 类型       | 参数描述      |
+| ------------ | ---- | -------- | --------- |
+| getSignature    | 是    | Function     | 获取上传签名的函数  |
+| mediaFile | 是 | file | wx.chooseVideo 回调返回的文件对象
+| reportId    | 否    | number     | 填入后，会携带上报至点播后台  |
+| mediaName | 否 | string | 视频名称，推荐填写（如果不填，则默认为“来自小程序”）
+| coverFile | 否 | file | 视频封面，wx.chooseImage 回调返回的文件对象
+| [progress](#y1) | 是 | Function | 上传 progress 事件回调，返回上传进度等信息
+| [finish](#y2) | 是 | Function | 上传结束回调，返回 fileId 等信息
+| [error](#y3) | 是 | Function | 错误处理回调
+
+### `progress`回调<span id="y1"></span>
+
+| 字段名 | 类型 | 字段描述 |
+| ------- | ------- | ------- |
+| loaded | number | 已上传大小 |
+| percent | number | 已上传大小百分比 |
+| speed | number | 上传速度 |
+| total | number | 总大小 |
+
+### `finish`回调<span id="y2"></span>
+
+| 字段名 | 类型 | 字段描述 |
+| ------- | ------- | ------- |
+| coverUrl | string | 封面图 URL，如未上传封面则此处为 undefined |
+| fileId | string | 视频 fileId |
+| videoName | string | 视频名称 |
+| videoUrl | string | 视频链接 |
+
+### `error`回调<span id="y3"></span>
+
+| 字段名 | 类型 | 字段描述 |
+| ------- | ------- | ------- |
+| code | number | 错误码 |
+| message | string | 错误信息 |
+
 ## 其他说明
 
-1. 因为小程序没有获取真实文件名的 API，所以需要在上传视频之前，输入视频名称。如果不输入，SDK 会设置视频名称为“来自小程序”。
-2. 不支持断点续传和分片上传。
-3. 小程序域名信息中，request 和 uploadFile 合法域名，只需加上`vod2.qcloud.com`即可。
+1. 由于小程序没有获取真实文件名的 API，所以需要在上传视频时指定视频名称。如不传入`mediaName`，SDK 会设置视频名称为“来自小程序”。
+2. 默认支持断点续传和分片上传。
+3. 小程序域名信息中，`request`和`uploadFile`为合法域名，只需加上`vod2.qcloud.com`即可。
