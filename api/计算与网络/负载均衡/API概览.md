@@ -9,7 +9,6 @@
 | [负载均衡监控接口](https://cloud.tencent.com/document/product/214/8801)|GetMonitorData|查询负载均衡的监控数据。|
 | [更换 HTTPS 类型负载均衡证书](https://cloud.tencent.com/document/product/214/6045)|ReplaceCert|更换负载均衡使用的证书。|
 | [查询证书关联的负载均衡监听器](https://cloud.tencent.com/document/product/214/6046)| GetCertListWithLoadBalancer | 查询证书关联的负载均衡信息。|
-| [查询 COS 中的七层日志](https://cloud.tencent.com/document/product/214/12235)| DescribeLoadBalancerLog | 查询 COS 中的负载均衡七层日志。|
 | [克隆负载均衡](https://cloud.tencent.com/document/product/214/37704)|CloneLB |克隆负载均衡。|
 
 
