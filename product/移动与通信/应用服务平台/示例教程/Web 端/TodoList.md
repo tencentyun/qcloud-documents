@@ -19,7 +19,7 @@
 
 ## 步骤2：建立本地 Todo List 文件
 
-1. 在本地新建文本文件（Mac 用户推荐使用无格式文本编辑），在文件中填入如下内容，并将第17行代码中的`${envId}`替换为上一步中复制的**环境Id**：
+1. 在本地新建文本文件（Mac 用户推荐使用无格式文本编辑），在文件中填入如下内容，并将第17行代码中的`${envId}`替换为 [准备工作](#step1.3) 中复制的**环境Id**：
 ```js
 <html>
 <head>
@@ -155,7 +155,7 @@
 该步骤中您将使用云开发的**数据库**功能，将 Todo List 应用内的数据存储在云数据库中。
 
 进入云开发控制台的 [数据库](https://console.cloud.tencent.com/tcb/db) 中，单击【新建集合】，新建一个名称为`todo`的集合，如下图所示：
-![](https://main.qcloudimg.com/raw/9ac4adccd92bb8d71e104a9d786f9676.png)
+![](https://main.qcloudimg.com/raw/03ec8f9708f6e9d376851f1e6866dcc6.jpg)
 
 之后 Todo List 内的数据便会存储在这个集合中。
 
@@ -174,7 +174,7 @@
  2. 进入创建好的`todo_getNumber`函数，单击【函数代码】页签，进入函数代码页面。
  3. 在【提交方法】选项中，选择【本地上传ZIP包】，并单击【上传】，将下载的云函数代码包 ZIP上传至云开发中。
  4. 单击【保存】，即可完成上传云函数代码包。
-![](https://main.qcloudimg.com/raw/ba91f11a9865d9b6f0117064d76eed96.png)
+![](https://main.qcloudimg.com/raw/f64fdea53e6db6a50ebbfba8119477cf.jpg)
 
 ## 步骤6：开始使用
 
