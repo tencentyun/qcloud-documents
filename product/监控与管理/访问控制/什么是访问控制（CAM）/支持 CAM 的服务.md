@@ -79,7 +79,7 @@
 | [时序数据库 CTSDB](https://cloud.tencent.com/document/product/652)  |资源级 | &#10003;  | &#10003;    | -    |[访问管理指南](https://cloud.tencent.com/document/product/652/42494) |	
 | [游戏数据库 TcaplusDB](https://cloud.tencent.com/document/product/596)  |资源级 | &#10003;  | &#10003;     | -    |[访问管理指南](https://cloud.tencent.com/document/product/596/42901) |	
 | [数据库智能管家 DBbrain](https://cloud.tencent.com/document/product/1130) |资源级 | &#10003;  | -    | -    |[访问管理指南](https://cloud.tencent.com/document/product/1130/39344)|	
-| [数据传输服务](https://cloud.tencent.com/document/product/571)  | 资源级 |  &#10003;  | -    | &#10003;    |[访问管理指南](https://cloud.tencent.com/document/product/571/38480)|	
+| [数据传输服务](https://cloud.tencent.com/document/product/571)  | 资源级 |  &#10003;  |  &#10003;     | &#10003;    |[访问管理指南](https://cloud.tencent.com/document/product/571/38480)|	
 | [分布式HTAP数据库 TBase](https://cloud.tencent.com/document/product/1129)  | 资源级 |  &#10003;  | &#10003;    | -   |[访问管理指南](https://cloud.tencent.com/document/product/1129/39783) |	
 | [数据库管理](https://cloud.tencent.com/document/product/1130/40879)  | 资源级 |  &#10003;  | -    | -   |[访问管理指南](https://cloud.tencent.com/document/product/1130/45992) |	
 
@@ -204,7 +204,7 @@
  | 服务                                                       | 授权粒度   | 控制台  | 根据标签进行授权 |  服务角色 |	参考文档 |
 | ----------------------------------------------------------- | ------ | --------| ----- |  ---- |	 ---- |
 | [弹性 MapReduce](https://cloud.tencent.com/document/product/589)   | 资源级 | &#10003;  | -   |  &#10003;  |	 [访问管理指南](https://cloud.tencent.com/document/product/589/14625) |
-| [Snova 数据仓库](https://cloud.tencent.com/document/product/878) | 操作级  | &#10003;  | - |  - | [访问管理指南](https://cloud.tencent.com/document/product/878/20072) |
+| [云数据仓库 PostgreSQL](https://cloud.tencent.com/document/product/878) | 资源级  | &#10003;  |  &#10003;  |  - | [访问管理指南](https://cloud.tencent.com/document/product/878/20072) |
 | [流计算服务](https://cloud.tencent.com/document/product/849)  | 服务级   | &#10003;     | -  | &#10003;  | [访问管理指南](https://cloud.tencent.com/document/product/849/38621) |
 | [Elasticsearch Service](https://cloud.tencent.com/document/product/845)  | 资源级  | &#10003; | -   |  -  |	 [访问管理指南](https://cloud.tencent.com/document/product/845/19550) |
 
