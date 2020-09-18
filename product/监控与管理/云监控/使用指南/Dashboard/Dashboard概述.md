@@ -1,4 +1,4 @@
->!本文为旧版 Dashboard 操作文档，旧版 Dashboard 即将下线，建议您使用 [新版 Dashboard](https://cloud.tencent.com/document/product/248/46741)。
+>!本文为旧版 Dashboard 文档，旧版 Dashboard 即将下线，建议您使用 [新版 Dashboard](https://cloud.tencent.com/document/product/248/46741)。
 
 
 Dashboard 提供了预设监控面板服务，云监控自动为您创建常用云产品的监控面板。您也可以自定义监控面板，对跨产品、跨实例的关键指标进行盯屏展示，将同一个业务或集群下的资源集中展示。
