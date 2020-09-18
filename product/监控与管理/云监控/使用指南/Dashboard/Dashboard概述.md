@@ -7,3 +7,12 @@ Dashboard 提供了适用于多种监控场景的跨实例汇聚数据、实时/
 - 大批量实例指标数据汇聚展示功能，大批量监控解决方案。
 - 故障排障时对各实例进行关键指标数据对比。
 - 灵活调节图表顺序、展示区间、刷新频率及粒度，满足个性化的图表需求。
+
+
+
+#### 相关文档
+
+- [创建 Dashboard](https://cloud.tencent.com/document/product/248/42447)
+- [配置 Dashboard](https://cloud.tencent.com/document/product/248/13119)
+- [查看 Dashboard](https://cloud.tencent.com/document/product/248/13120)
+
