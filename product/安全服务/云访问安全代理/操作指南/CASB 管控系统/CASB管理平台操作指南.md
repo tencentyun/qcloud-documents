@@ -1,33 +1,105 @@
-本文档将指导您使用 CASB 管理平台进行数据库加密等操作。
+本文档将以一个 Java 工程为例为您介绍如何进行敏感信息加密，并指导您如何使用 CASB 管理平台的主要功能。
 ## 背景信息
 
-CASB 管控系统以免改造的方式，实现云环境下应用中结构化数据（包括实时数据和历史数据）的存储加密，提供多种加解密及脱敏策略，为公有云供应商提供方便快捷易于部署的数据安全解决方案。
+CASB 管理系统以免改造的方式，实现云环境下应用中结构化数据（包括实时数据和历史数据）的存储加密，提供多种加解密策略，为公有云提供方便快捷易于部署的数据安全解决方案。
 
 ### 拓扑结构
 ![](https://main.qcloudimg.com/raw/e43e546f840341ce43fca97a095bed51.png)
 
-### 实现原理
+### 系统组成
 
-CASB 管控系统由 CASB Plugin、CASB Client、CASB 管理平台组成。
+CASB 管理系统由 CASB Plugin、CASB Client、CASB 管理平台组成。
 
-- CASB Plugin：为数据安全插件，提供数据加密使用的密码算法，用于实时数据加解密。
-- CASB Client：为客户端管理工具，是数据安全工具套件。由 Extractor 和 Processor 组成，Extractor 用于提取数据库表结构，Processor 用于数据库数据的全量加密和解密。
+- CASB Plugin：数据安全插件，提供数据加密使用的密码算法，用于实时数据加解密。
+- CASB Client：客户端管理工具，是数据安全工具套件。由 Extractor 和 Processor 组成，Extractor 用于提取数据库表结构，Processor 用于数据库数据的全量加密和解密。
 - CASB 管理平台：提供可视化的管理控制台，提供鉴权、权限管理、数据源管理、加解密策略管理等功能。
 
 
 ## 前提条件
+需已通过 CASB [内测申请](https://cloud.tencent.com/apply/p/2vnlem5njlz)，并已 [购买 CASB 实例](https://cloud.tencent.com/document/product/1303/48148)。
+<span id="done"></span>
 
-## 数据库加密流程
+<span id="test"></span>
+## 准备测试环境
+### 步骤1：提供测试 Demo 应用
+
+[下载 Demo 应用](https://casb-1300274530.cos.ap-guangzhou.myqcloud.com/demo.zip)，将获取的 Demo 应用传到服务器上，并解压到任意目录。
+
+### 步骤2：创建 Demo 应用的数据库和数据
+在 mysql5.7 数据库下执行如下操作：
+
+```mysql
+-- ----------------------------
+-- 创建数据库
+-- ----------------------------
+CREATE DATABASE casb_test DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- ----------------------------
+-- 创建部门表
+-- ----------------------------
+CREATE TABLE `department`  (
+  `id` 		int(11) NOT NULL AUTO_INCREMENT COMMENT '部门id',
+  `name` 	varchar(255) NOT NULL COMMENT '部门名称',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB COMMENT = '部门表';
+
+-- ----------------------------
+-- 创建用户表
+-- ----------------------------
+CREATE TABLE `user`  (
+  `user_id`             varchar(31) NOT NULL COMMENT '用户id',
+  `user_name`           varchar(20) NOT NULL COMMENT '用户姓名',
+  `user_sex`            int(1) NOT NULL DEFAULT 1 COMMENT '用户性别，1男2女',
+  `user_age`            int(4) NULL DEFAULT NULL COMMENT '用户年龄',
+  `user_birthday`       datetime(0) NULL DEFAULT NULL COMMENT '用户生日',
+  `user_department`     int(11) NULL DEFAULT NULL COMMENT '部门id',
+  `created_time`        datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '创建时间',
+  `created_by`          varchar(31) NULL DEFAULT NULL COMMENT '创建人id',
+  `update_time`         datetime(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0) COMMENT '更新时间',
+  `update_by`           varchar(31) NULL DEFAULT NULL COMMENT '更新人id',
+  `version`             int(11) UNSIGNED ZEROFILL NOT NULL DEFAULT 00000000000 COMMENT '乐观锁',
+  `deleted`             int(1) UNSIGNED ZEROFILL NOT NULL DEFAULT 0 COMMENT '逻辑删除，1已删除0未删除',
+  PRIMARY KEY (`user_id`) USING BTREE
+) ENGINE = InnoDB COMMENT = '用户表';
+
+-- ----------------------------
+-- 向部门表中写入测试数据
+-- ----------------------------
+INSERT INTO `department` VALUES (1, '技术部');
+INSERT INTO `department` VALUES (2, '业务部');
+INSERT INTO `department` VALUES (3, '财务部');
+INSERT INTO `department` VALUES (4, '人事部');
+INSERT INTO `department` VALUES (5, '行政部');
+
+-- ---------------------------- 
+-- 向要用户表中写入
+-- ---------------------------- 
+INSERT INTO `user` VALUES ('1288078496635195392', 'test123', 1, 22, '2020-07-21 00:00:00', 2, '2020-07-28 12:31:08', NULL, '2020-07-28 12:31:08', NULL, 00000000000, 0);
+INSERT INTO `user` VALUES ('1288078561810485248', '1234test', 2, 25, '2020-07-25 00:00:00', 1, '2020-07-28 12:31:08', NULL, '2020-07-28 12:31:08', NULL, 00000000000, 0);
+```
+
+### 步骤3：加密字段扩容
+
+数据加密后，密文数据膨胀，在实施数据加密前需要着重考虑。加密数据中需要保存原始的数据、校验信息以及一些额外的信息，加密后密文数据长度的计算公式为： length = ceil((len * 3 + 34) / 3) * 4 + 3。
+其中：
+- len 为明文数据长度。
+>?数据是中文的时，len乘以3，数据是英文时，len 不变。
+- ceil() 为向上取整
+- length 为计算得到的密文长度
+
+>?在本次示例中，用户表中的`user_name`作为敏感信息进行加密。根据计算公式，我们需要将`user_name`的字段长度由原来的20个字符长度增加到129个字符长度。
+
+## 数据库加密
 ### 步骤1：登录 CASB 管理平台
 
-1. 打开浏览器，输入`https://IP`（其中 IP 为 CASB 管控平台地址），进入登录页面
-2. 输入账户名及密码，单击【登录】，即可登录 CASB 管理平台。
+1. 打开浏览器，输入`https://IP`（其中 IP 为 CASB 管理平台地址），进入登录页面。
+2. 输入账户名 admin 以及在 [CASB 控制台](https://console.cloud.tencent.com/casb) 设置的密码，单击【登录】，即可登录 CASB 管理平台。
 ![](https://main.qcloudimg.com/raw/a78170e0637145171de2b3853c740f45.png)
 
 ### 步骤2：下载安装客户端工具
 
 1. 在 CASB 管理平台的右上角，单击【下载客户端工具】，下载客户端工具。
-![](https://main.qcloudimg.com/raw/5847fd811121d1cdf2d94cbfd060f03f.png)
+![](https://main.qcloudimg.com/raw/282a1b92f3cc172c06fefda266805d92.png)
 2. 将下载后客户端工具 zip 包，上传到数据库 Linux 服务器或可以连接到数据库的 Liunx 服务器上的任意目录下，以 root 用户执行以下安装命令：
 ```shell
 # 切换root用户
@@ -52,7 +124,7 @@ $ cd  /opt/client/extractor
 # 如下jar包名称根据实际安装后的jar包名称为准，数据库名称，ip，用户名，密码以实际为准
 # 验证数据库连接
 [root@localhost extractor]# java -jar extractor-1.1.6.jar --op=verify --db-type=mysql --host=192.168.10.130 
-  --port=3306 --user=root --password=hellocasb --database=ceshi
+--port=3306 --user=root --password=hellocasb --database=ceshi
 # 如下是提取过程中打印的日志，可做参考
 --op=verify
 --db-type=mysql
@@ -61,13 +133,12 @@ $ cd  /opt/client/extractor
 --user=root
 --password=hellocasb
 --database=ceshi
-user.dir=/opt/client/extractor
-cg-casb.properties loaded from /opt/client/extractor/cg-casb.properties
-Tue Aug 25 09:48:35 CST 2020 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
-八月 25, 2020 9:48:35 上午 com.ciphergateway.aoe.client.common.shell.ConnectionCheckCommand run
-INFO: success
+user.dir=/opt/casb_client/extractor
+cg-casb.properties loaded from /opt/casb_client/extractor/cg-casb.properties
+Tue Sep 15 16:18:00 CST 2020 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
+[2020-09-15 16:18:01] success
 # 提取表结构
-[root@localhost extractor]# java -jar extractor-1.1.6-SNAPSHOT.jar --op=extract --db-type=mysql --host=192.168.10.130 --port=3306 --user=root --password=hellocasb 
+[root@localhost extractor]# java -jar extractor-1.1.6-release.jar --op=extract --db-type=mysql --host=192.168.10.130 --port=3306 --user=root --password=hellocasb 
 # 如下是提取过程中打印的日志，可做参考
 --op=extract
 --db-type=mysql
@@ -123,7 +194,7 @@ cg-casb.properties loaded from /opt/client/extractor/cg-casb.properties
  2. 在“应用插件管理”页面，找到需要安装插件的应用，在右侧操作栏，单击【插件详情】，进入制作插件页面。
 ![](https://main.qcloudimg.com/raw/00b9fec2586f3cf288b73fa496b9a811.png)
  3. 在“制作插件”页面，单击【新增插件】。
- 4. 在“新增插件弹窗”中，输入“插件名称”、选择“插件版本”、设置“是否开启插件断连告警”、输入“服务器 IP"，即策略管理平台的服务器 IP 地址、输入”端口“即管理平台端口，输入完成后，单击【确定】，插件制作成功。
+ 4. 在“新增插件弹窗”中，输入“插件名称”、选择“插件版本”、设置“是否开启插件断连告警”、输入“服务器 IP”，即 CASB 管理平台的服务器 IP 地址、输入“端口”即管理平台端口，输入完成后，单击【确定】，插件制作成功。
 ![](https://main.qcloudimg.com/raw/58f254ae8a792baf8d6508d5e49ac3b8.png)
 2. **下载安装插件**
  1. 插件创建完成后，在插件列表中，找到目标插件，并在右侧操作栏，单击【下载】。
@@ -146,11 +217,11 @@ $ source /etc/profile
 ### 步骤6：Demo 应用数据实时加解密
 
 1. 确认 Demo 应用的数据库及表已经创建。
-Demo 应用的数据源需要按照 [入门示例]() 创建，连接到数据库确认数据库已创建成功。
+Demo 应用的数据源需要按照 [准备测试环境](#test) 创建，连接到数据库，并确认数据库已创建成功。
 2. 修改配置并启动测试 Demo 应用。
 将 Demo 应用上传到服务器，解压后修改 application.yml 文件，修改如下配置：
 	- 将URL由`jdbc:mysql:// `改为`jdbc:aoe:mysql://`。
-	- 将`driver-class-name`的值 改为：`com.ciphergateway.aoe.plugin.engine.AOEDriver`。
+	- 将`driver-class-name`的值 改为：`com.tencent.cloud.aoe.plugin.engine.AOEDriver`。
 	- 可根据实际情况修改端口 port:8095。
 	>!后续使用浏览器访问时需要使用修改后的端口。
 	>
@@ -162,8 +233,8 @@ spring:
 		datasource:
 				# 将URL由jdbc:mysql:// 改为 jdbc:aoe:mysql://
 				url: jdbc:aoe:mysql://10.1.1.211:3306/ceshi?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8
-				# 将driver-class-name 改为：com.ciphergateway.aoe.plugin.engine.AOEDriver
-				driver-class-name: com.ciphergateway.aoe.plugin.engine.AOEDriver
+				# 将driver-class-name 改为：com.tencent.cloud.aoe.plugin.engine.AOEDriver
+				driver-class-name: com.tencent.cloud.aoe.plugin.engine.AOEDriver
 				username: root
 				password: hellocasb
 				hikari:
@@ -180,7 +251,7 @@ pagehelper:
 3. 启动测试 Demo 应用，观察日志，确认没有报错。
 ```shell
 $ java -Dloader.path=./lib,$CASB_AOE_PLUGIN_PATH -jar springboot_crud.jar
-注：这个参数$CASB_AOE_PLUGIN_PATH 这是plugin的安装路径，见文中2.2.6.2内容
+注：这个参数$CASB_AOE_PLUGIN_PATH 这是plugin的安装路径，见文中步骤5中内容
 ```
 4. 在防火墙中开放 Demo 应用的端口。
 ```
@@ -218,45 +289,33 @@ $ firewall-cmd --zone=public --add-port=8095/tcp --permanent
 ~$ cd /opt/casb/processor
 # 如下jar包名称根据实际安装后的jar包名称为准，数据库名称，ip，用户名，密码以实际为准，taskId号为管理平台创建的全量加解密任务id
 # Processor验证数据库连接
-~$ java -jar processor-1.1.12-SNAPSHOT.jar --op=verify --db-type=mysql --host=10.1.1.222 --port=3306 --user=root --password=hellocasb --database=ceshi
+~$ java -jar processor-1.1.12-release.jar --op=verify --db-type=mysql --host=10.1.1.222 --port=3306 --user=root --password=hellocasb --database=ceshi
 # Processor进行全量加解密
-~$ java -jar processor-1.1.12-SNAPSHOT.jar --op=batchUpdate --password=hellocasb --taskId=1294661156949987330 --threads=4
+~$ java -jar processor-1.1.12-release.jar --op=batchUpdate --password=hellocasb --taskId=1294661156949987330 --threads=4 --db-type=mysql
 ```
 	2. 命令执行完成后，查看数据库中 user_name 数据已被加密。
 
-## 客户端和插件卸载
-执行如下命令，可将客户端和插件卸载卸载。
-```
-# 进入客户端安装包解压后目录
-~$ cd AOEClient-V1.1.13-1598319153736_300/
-
-# 运行卸载脚本，根据提示输入client目录并确认卸载
-~$ sh unload_client.sh
-
-# 进入插件安装包解压后目录
-~$ cd AOEPlugin-V1.1.10_1596696550082_149 
-
-# 运行卸载脚本，根据提示输入AOEPlugin的安装目录并确认卸载
-~$ sh unload_plugin.sh
-```
-
-## 用户以及权限管理
+## 其他
+### 用户权限管理
+1. 打开浏览器，输入`https://IP`（其中 IP 为 CASB 管理平台地址），进入登录页面。
+2. 输入账户名及密码，单击【登录】，即可登录 CASB 管理平台。
 <span id="role"></span>
-- **角色的新增、修改、删除**
-	1. 在 CASB 管理平台的左侧导航中，单击【用户权限管理】。
-	2. 在“用户权限管理”页面，选择【角色管理】>【新增角色】。
-	3. 在弹出的“角色编辑”对话框中，选择角色，填写“角色名称”，单击【确定】即可新增角色。
-	4. （可选）在角色管理页面，找到目标角色，在右侧操作栏，单击【修改】或【删除】，可对角色进行编辑或删除。
+	- **角色的新增、修改、删除**
+		1. 在 CASB 管理平台的左侧导航中，单击【用户权限管理】。
+		2. 在“用户权限管理”页面，选择【角色管理】>【新增角色】。
+		3. 在弹出的“角色编辑”对话框中，选择角色，填写“角色名称”，单击【确定】即可新增角色。
+		4. （可选）在角色管理页面，找到目标角色，在右侧操作栏，单击【修改】或【删除】，可对角色进行编辑或删除。
 ![](https://main.qcloudimg.com/raw/fd99bc18933eafa95bc82753ab2e9e1c.png)
-- **进行用户的新增、修改、删除**
-	1. 在 CASB 管理平台的左侧导航中，单击【用户权限管理】。
-	2. 在“用户权限管理”页面，选择【用户管理】>【新增用户】。
-	3. 在弹出的“新增用户”对话框中，输入用户名、真实姓名、密码、邮箱、手机号及角色（选择在 [角色管理](#role) 中，所创建的角色）等信息，单击【确定】，即可新增用户。
+	- **进行用户的新增、修改、删除**
+		1. 在 CASB 管理平台的左侧导航中，单击【用户权限管理】。
+		2. 在“用户权限管理”页面，选择【用户管理】>【新增用户】。
+		3. 在弹出的“新增用户”对话框中，输入用户名、真实姓名、密码、邮箱、手机号及角色（选择在 [角色管理](#role) 中，所创建的角色）等信息，单击【确定】，即可新增用户。
 	![](https://main.qcloudimg.com/raw/1d7cfb4761e0536c6b77345f7a8d4834.png)
-	4. （可选）在用户管理页面，找到目标用户，在右侧操作栏，单击【修改】或【删除】，可对角色进行编辑或删除。
+		4. （可选）在用户管理页面，找到目标用户，在右侧操作栏，单击【修改】或【删除】，可对角色进行编辑或删除。
 
-## 日志管理
-1. 在 CASB 管理平台的左侧导航中，单击【系统日志】。
-2. 在“操作日志”页面，可以根据用户、操作、日期进行筛选查看。
-![](https://main.qcloudimg.com/raw/223608d7371c9b5e9c5230b3933ce67d.png)
-
+### 系统日志管理
+1. 打开浏览器，输入`https://IP`（其中 IP 为 CASB 管理平台地址），进入登录页面。
+2. 输入账户名及密码，单击【登录】，即可登录 CASB 管理平台。
+3. 在 CASB 管理平台的左侧导航中，单击【系统日志】。
+4. 在“操作日志”页面，可以根据用户、操作、日期进行筛选查看。
+![](https://main.qcloudimg.com/raw/b04406bf9e69872f12610a7f7ef684c9.png)
