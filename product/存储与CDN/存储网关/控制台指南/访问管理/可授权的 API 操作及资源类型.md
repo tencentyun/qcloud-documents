@@ -9,29 +9,29 @@
 
 | 资源类型     | 授权策略中的资源描述方法                                     |
 | :----------- | ------------------------------------------------------------ |
-| 网关实例     | ` qcs::${csg}:${Region}:uin/${OwnerUin}:gateway/${gatewayid} ` |
-| 文件系统实例 | `qcs::${csg}:${Region}:uin/${OwnerUin}:gateway `<br>`/${gatewayid}/fileshare/${fileshareid} ` |
+| 网关实例     | ` qcs::csg:${Region}:uin/${OwnerUin}:gateway/${gatewayid} `  |
+| 文件系统实例 | `qcs::csg:${Region}:uin/${OwnerUin}:gateway `<br>`/${gatewayid}/fileshare/${fileshareid} ` |
 
 ## 支持资源级授权的 API 列表
 
-| **API 操作**                   | **可授权的资源**                                             | **说明**               |
-| ------------------------------ | ------------------------------------------------------------ | ---------------------- |
-| csg:ListGateways               | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 列出存储网关资源       |
-| csg:DescribeCOS<br>GatewayCache    | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 查看存储网关缓存状态   |
-| csg:StartGateway               | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 启动存储网关           |
-| csg:Shutdown<br>Gateway            | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 停止存储网关           |
-| csg:Terminate<br>Gateway           | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 删除存储网关           |
-| csg:Describe<br>GatewayInformation | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 查看存储网关详情       |
-| csg:Update<br>GatewayInformation   | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 更新存储网关基础配置   |
-| csg:Describe<br>BandwidthRateLimit | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 查看存储网关带宽限制   |
-| csg:UpdateBand<br>widthRateLimit   | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 修改存储网关带宽限制   |
-| csg:ListLocalDisks             | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 列出存储网关已挂载磁盘 |
-| csg:AddCache                   | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 给存储网关挂载新磁盘   |
-| csg:CreateCOS<br>FileShare         | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 创建文件系统           |
-| csg:ListFileShares             | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid}/fileshare/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid}/fileshare/${fileshareid}` | 列出文件系统           |
-| csg:DescribeCOS<br>FileShare       | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid}/fileshare/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid}/fileshare/${fileshareid}` | 查看文件系统详情       |
-| csg:DeleteFileShare            | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid}/fileshare/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid}/fileshare/${fileshareid}` | 删除文件系统           |
-| csg:UpdateCOS<br>FileShare         | ` qcs::${csg}::uin/${OwnerUin}:gateway/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid}/fileshare/* `<br>` qcs::${csg}:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid}/fileshare/${fileshareid}` | 更新文件系统配置       |
+| **API 操作**                       | **可授权的资源**                                             | **说明**               |
+| ---------------------------------- | ------------------------------------------------------------ | ---------------------- |
+| csg:ListGateways                   | ` qcs::csg::uin/${OwnerUin}:gateway/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 列出存储网关资源       |
+| csg:DescribeCOS<br>GatewayCache    | ` qcs::csg::uin/${OwnerUin}:gateway/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 查看存储网关缓存状态   |
+| csg:StartGateway                   | ` qcs::csg::uin/${OwnerUin}:gateway/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 启动存储网关           |
+| csg:Shutdown<br>Gateway            | ` qcs::csg::uin/${OwnerUin}:gateway/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 停止存储网关           |
+| csg:Terminate<br>Gateway           | ` qcs::csg::uin/${OwnerUin}:gateway/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 删除存储网关           |
+| csg:Describe<br>GatewayInformation | ` qcs::csg::uin/${OwnerUin}:gateway/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 查看存储网关详情       |
+| csg:Update<br>GatewayInformation   | ` qcs::csg::uin/${OwnerUin}:gateway/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 更新存储网关基础配置   |
+| csg:Describe<br>BandwidthRateLimit | ` qcs::csg::uin/${OwnerUin}:gateway/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 查看存储网关带宽限制   |
+| csg:UpdateBand<br>widthRateLimit   | ` qcs::csg::uin/${OwnerUin}:gateway/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 修改存储网关带宽限制   |
+| csg:ListLocalDisks                 | ` qcs::csg::uin/${OwnerUin}:gateway/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 列出存储网关已挂载磁盘 |
+| csg:AddCache                       | ` qcs::csg::uin/${OwnerUin}:gateway/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 给存储网关挂载新磁盘   |
+| csg:CreateCOS<br>FileShare         | ` qcs::csg::uin/${OwnerUin}:gateway/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid} ` | 创建文件系统           |
+| csg:ListFileShares                 | ` qcs::csg::uin/${OwnerUin}:gateway/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid}/fileshare/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid}/fileshare/${fileshareid}` | 列出文件系统           |
+| csg:DescribeCOS<br>FileShare       | ` qcs::csg::uin/${OwnerUin}:gateway/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid}/fileshare/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid}/fileshare/${fileshareid}` | 查看文件系统详情       |
+| csg:DeleteFileShare                | ` qcs::csg::uin/${OwnerUin}:gateway/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid}/fileshare/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid}/fileshare/${fileshareid}` | 删除文件系统           |
+| csg:UpdateCOS<br>FileShare         | ` qcs::csg::uin/${OwnerUin}:gateway/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid}/fileshare/* `<br>` qcs::csg:${Region}:uin/${OwnerUin}`<br>`:gateway/${gatewayid}/fileshare/${fileshareid}` | 更新文件系统配置       |
 
 此外，使用存储网关服务，您还需要授权对象存储 COS 以及私有网络 VPC 的相关权限，具体权限如下：
 
@@ -54,4 +54,5 @@ CSG 预设授权策略如下：
 | QcloudCSGReadOnlyAccess | 拥有只读访问主账号下 CSG 所有资源的权限 |
 
 您可以在 CAM 控制台，使用可视化的操作授予子账号预设的权限策略，如您需要授予子账号更为细致的访问权限，请参考 [授权策略语法](https://cloud.tencent.com/document/product/581/47926)。
+
 >! 预设策略中不包含腾讯云其他产品的相关权限，使用 CSG 需要您额外授予子账号访问 COS 及 VPC 相关资源的权限。
