@@ -85,3 +85,8 @@
 | ------------------------------------------------------------ | -------------------------- |
 | [获取索引信息](https://cloud.tencent.com/document/product/614/16906) | 获取指定索引策略的详细信息 |
 | [修改索引任务](https://cloud.tencent.com/document/product/614/16905) | 修改现有的索引任务         |
+
+## 各语言SDK Demo
+| 语言 | 仓库 | 类别 |
+| ---- | ---- | ---- |
+| Java | https://github.com/zwOvO/TencentCloudLogServiceDemo | CLS用户zwovo |
