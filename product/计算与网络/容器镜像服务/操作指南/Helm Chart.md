@@ -28,8 +28,8 @@
 ### 使用控制台上传，下载 Helm Chart
 #### 上传本地 Helm Chart 包
 1. 登录 [容器镜像服务](https://console.cloud.tencent.com/tcr) 控制台，选择左侧导航栏中的【Helm Chart】。
-在“Helm Chart”页面即可查看当前实例内的Helm Chart 仓库列表。如需切换实例，请在页面上方的“实例名称”下拉列表中进行选择。
-2. 单击【上传】，在“上传 Helm Chart”窗口中，参考以下提示进行配置。如下图所示：
+在“Helm Chart”页面即可查看当前实例内的 Helm Chart 仓库列表。如需切换实例，请在页面上方的“实例名称”下拉列表中进行选择。
+2. 单击【上传】，在“上传Helm Chart”窗口中，参考以下提示进行配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/9777e45d62075dc0fa037dd4329a7f8b.png)
  - **所属实例**：当前所选实例。
  - **命名空间**：Helm Chart 所属的命名空间，如果列表为空，请先在该实例内 [新建命名空间](https://cloud.tencent.com/document/product/1141/41803#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)。
@@ -37,7 +37,7 @@
 3. 单击【上传】即可开始上传该Helm Chart 包。上传完成后，可在仓库列表页查看刚刚上传的 Helm Chart，若上传的 Helm Chart 包没有对应的 Helm Chart 仓库，将自动新建一个 Chart 仓库。
 
 #### 下载Helm Chart 包至本地
-1. 在“Helm Chart”页面查看当前实例内的Helm Chart 仓库列表，点击指定仓库，即可进入该 Helm 仓库的版本管理页面。
+1. 在“Helm Chart”页面查看当前实例内的 Helm Chart 仓库列表，点击指定仓库，即可进入该 Helm 仓库的版本管理页面。
 2. 选择该 Chart 仓库内指定版本，点击对应的【下载】，即可自动下载该版本的 Chart 包至本地。根据浏览器及配置的不同，可选择指定下载路径。
 
 
@@ -62,7 +62,7 @@ chmod 700 get_helm.sh
 1. 登录 [容器镜像服务控制台](https://console.cloud.tencent.com/tcr)，在“实例列表”页面选择实例名称，进入实例详情页。
 2. <span id="Step2"></span>参考 [获取实例访问凭证](https://cloud.tencent.com/document/product/1141/41829) 获取用户名及登录密码。
 3. 在节点上执行以下命令，添加希望用于托管 Helm Chart 的命名空间至本地 Helm 仓库。
->!执行命令的机器需确保已在对应实例的公网白名单或已链接的私有网络VPC中，详情请参见 [公网访问控制](https://cloud.tencent.com/document/product/1141/41837)，[内网访问控制](https://cloud.tencent.com/document/product/1141/41838)
+>!执行命令的机器需确保已在对应实例的公网白名单或已链接的私有网络 VPC 中，详情请参见 [公网访问控制](https://cloud.tencent.com/document/product/1141/41837)，[内网访问控制](https://cloud.tencent.com/document/product/1141/41838)
 >
 ```
 helm repo add $instance-$namespace https://$instance.tencentcloudcr.com/chartrepo/$namesapce --username $username --password $instance-token
