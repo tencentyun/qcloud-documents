@@ -54,7 +54,7 @@ IVR（Interactive Voice Response）是一种基于电话的语音增值业务的
 </tr>
 <tr>
 <td>超时时间</td>
-<td> 用户按键超过设定的值后将播放超时提示音。</td>
+<td> 用户按键回复时间超过设定的值后将播放超时提示音。</td>
 <td> 60</td>
 </tr>
 <tr>
