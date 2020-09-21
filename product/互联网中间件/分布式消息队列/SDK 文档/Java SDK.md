@@ -15,7 +15,7 @@ TDMQ 提供了 Java 语言的 SDK 来调用服务，进行消息队列的生产�
 ```java
 PulsarClient client = PulsarClient.builder()
     .serviceUrl("pulsar://*.*.*.*:6000/")
-    .listenerName("1300*****0/vpc-******/subnet-********")
+    .listenerName("custom:1300*****0/vpc-******/subnet-********")
     .authentication(AuthenticationFactory.token("eyJh****"))
     .build();
  ```
