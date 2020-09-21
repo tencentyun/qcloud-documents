@@ -14,8 +14,9 @@
 >?更多云产品的监控指标数据源在陆续完善中。
 
 
+## 前提条件
 
->? 腾讯云监控应用插件运行在 Grafana 6.0或更新的版本上，请先安装 Grafana 环境，详情请参见 [Grafana 安装文档](https://grafana.com/docs/grafana/latest/installation/)。
+腾讯云监控应用插件运行在 Grafana 6.0或更新的版本上，请先安装 Grafana 环境，详情请参见 [Grafana 安装文档](https://grafana.com/docs/grafana/latest/installation/)。
 
 ## 步骤1：基于源码的插件安装
 
@@ -66,7 +67,7 @@
 
 创建 Dashboard 之后，通过配置 Panel 信息，即可获取腾讯云监控的相应监控数据。现在以简单的 Graph 为例，展示如何配置 Panel 信息。
 
-### CVM 云服务器监控
+### 云服务器 CVM 监控
 
 1. 单击 **New Panel** 面板的 【Add Query】，进入 Panel 配置页面。在左侧第一个【Queries】选项卡，通过配置选项获取腾讯云 CVM 云服务器的监控数据。
 2. 【Queries to】数据源列表，选择已配置的包含 CVM 监控服务的腾讯云监控数据源。
@@ -85,7 +86,7 @@
 ### 云数据库 MySQL 监控
 
 1. 单击 **New Panel** 面板的【Add Query】，进入 Panel 配置页面。在左侧第一个 【Queries】 选项卡，通过配置选项获取腾讯云数据库 MySQL 的监控数据。
-2. `Queries to` 数据源列表，选择已配置的包含 CDB 监控服务的腾讯云监控数据源。
+2. 【Queries to】 数据源列表，选择已配置的包含云数据库监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯云数据库 MySQL 监控接口的输入参数，请参见 [拉取监控数据接口](https://cloud.tencent.com/document/product/248/31014)、[云数据库MySQL监控指标文档](https://cloud.tencent.com/document/product/248/45147)，更好地理解各配置项。
    - **Namespace**：命名空间，云服务器监控的命名空间为 **QCE/CDB**。
    - **Region**：地域，地域列表会根据 **Namespace** 选项自动获取，单击选择某一地域。
