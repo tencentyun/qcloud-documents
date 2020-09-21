@@ -45,8 +45,7 @@
 
 ## 步骤3：创建 Dashboard
 
-下文为您介绍创建 Dashboard 的三种方式： 快捷创建、在管理页面创建，导入模板。在创建 Dashboard 前，请先进入 [云监控控制台-Dashboard](https://console.cloud.tencent.com/monitor/dashboard2/default) 页面。
-
+下文为您介绍创建 Dashboard 的三种方式： 快捷创建、在管理页面创建，导入模板
 
 
 #### 方式一：快捷创建
@@ -120,7 +119,7 @@
 
 #### 创建变量
 
-1. 进入某一 [Dashboard](https://console.cloud.tencent.com/monitor/dashboard2/default) 页面，单击右上角的**齿轮**按钮，进入 Dashboard 设置页面。
+1. 进入某一 Dashboard 页面，单击右上角的**齿轮**按钮，进入 Dashboard 设置页面。
 2. 在左侧菜单中，选择【Variables】>【+ Add variable】，进入编辑变量页面。
 	- **Name**：变量名，一般为英文字符串，在 Dashboard 的编辑中使用该变量名替换原特定值。
 	- **Label**：变量的可见标签，用于更显式地描述变量名称。例如，**Name** 设置为“region”，**Lable** 可设置为“地区”。
@@ -140,7 +139,7 @@
 
 ## 应用变量
 
-创建变量后，在 [Dashboard](https://console.cloud.tencent.com/monitor/dashboard2/default) 页面的左上角会展示变量选择框，可以切换变量值。变量有两种引用语法，`$varname` 和 `[[varname]]`。变量常用于 Panel 的查询语句中，以云服务器单机监控 Dashboard 为例，展示如何在查询中使用变量，如下图所示。此外，变量还可以应用在 Panel 标题、Text 文本面板等。
+创建变量后，在 Dashboard 页面的左上角会展示变量选择框，可以切换变量值。变量有两种引用语法，`$varname` 和 `[[varname]]`。变量常用于 Panel 的查询语句中，以云服务器单机监控 Dashboard 为例，展示如何在查询中使用变量，如下图所示。此外，变量还可以应用在 Panel 标题、Text 文本面板等。
 
 
 ![](https://main.qcloudimg.com/raw/1fb3b205cf0c64e51de7f3a69047ed7f.png)
