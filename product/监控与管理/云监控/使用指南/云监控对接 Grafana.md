@@ -45,18 +45,20 @@
 
 ## 步骤3：创建 Dashboard
 
-创建 Dashboard 有以下三种方式： 快捷创建、在管理页面创建，导入模板。
+下文为您介绍创建 Dashboard 的三种方式： 快捷创建、在管理页面创建，导入模板。在创建 Dashboard 前，请先进入 [云监控控制台-Dashboard](https://console.cloud.tencent.com/monitor/dashboard2/default) 页面。
 
-### 快捷创建
+
+
+#### 方式一：快捷创建
 
 鼠标悬浮左侧导航栏的**加号**按钮，单击【+Dashboard】选项，即可创建一个新的 Dashboard。
 
-### 管理页面
+#### 方式二：管理页面
 
 1. 鼠标悬浮左侧导航栏的**田字格**按钮，单击【Manage】选项，进入 Dashboard 管理页面。
 2. 单击【New Dashboard】，创建一个新的 Dashboard。同时，在该页面可以对 Dashboard 进行各种管理操作，例如新建文件夹、移动 Dashboard、导入 Dashboard 等。
 
-### 导入模板
+#### 方式三：导入模板
 
 1. 鼠标悬浮左侧导航栏的**齿轮**按钮，单击 【Plugins】，进入 Plugins 管理页面。
 2. 单击【Tencent Cloud Monitor】，进入应用详情页面，切换至【Dashboards】 选项卡，选择 Dashbboard 模板导入。
@@ -87,7 +89,7 @@
 
 1. 单击 **New Panel** 面板的【Add Query】，进入 Panel 配置页面。在左侧第一个 【Queries】 选项卡，通过配置选项获取腾讯云数据库 MySQL 的监控数据。
 2. 【Queries to】 数据源列表，选择已配置的包含云数据库监控服务的腾讯云监控数据源。
-3. 配置项的内容对齐腾讯云数据库 MySQL 监控接口的输入参数，请参见 [拉取监控数据接口](https://cloud.tencent.com/document/product/248/31014)、[云数据库MySQL监控指标文档](https://cloud.tencent.com/document/product/248/45147)，更好地理解各配置项。
+3. 配置项的内容对齐腾讯云数据库 MySQL 监控接口的输入参数，请参见 [拉取监控数据接口](https://cloud.tencent.com/document/product/248/31014)、[云数据库 MySQL 监控指标文档](https://cloud.tencent.com/document/product/248/45147)，更好地理解各配置项。
    - **Namespace**：命名空间，云服务器监控的命名空间为 **QCE/CDB**。
    - **Region**：地域，地域列表会根据 **Namespace** 选项自动获取，单击选择某一地域。
    - **MetricName**：指标名称，指标列表会根据 **Namespace** 和 **Region** 选项自动获取，单击选择某一指标。
@@ -118,7 +120,7 @@
 
 #### 创建变量
 
-1. 进入某一 Dashboard 页面，单击右上角的**齿轮**按钮，进入 Dashboard 设置页面。
+1. 进入某一 [Dashboard](https://console.cloud.tencent.com/monitor/dashboard2/default) 页面，单击右上角的**齿轮**按钮，进入 Dashboard 设置页面。
 2. 在左侧菜单中，选择【Variables】>【+ Add variable】，进入编辑变量页面。
 	- **Name**：变量名，一般为英文字符串，在 Dashboard 的编辑中使用该变量名替换原特定值。
 	- **Label**：变量的可见标签，用于更显式地描述变量名称。例如，**Name** 设置为“region”，**Lable** 可设置为“地区”。
@@ -138,7 +140,7 @@
 
 ## 应用变量
 
-创建变量后，在 Dashboard 页面的左上角会展示变量选择框，可以切换变量值。变量有两种引用语法，`$varname` 和 `[[varname]]`。变量常用于 Panel 的查询语句中，以云服务器单机监控 Dashboard 为例，展示如何在查询中使用变量，如下图所示。此外，变量还可以应用在 Panel 标题、Text 文本面板等。
+创建变量后，在 [Dashboard](https://console.cloud.tencent.com/monitor/dashboard2/default) 页面的左上角会展示变量选择框，可以切换变量值。变量有两种引用语法，`$varname` 和 `[[varname]]`。变量常用于 Panel 的查询语句中，以云服务器单机监控 Dashboard 为例，展示如何在查询中使用变量，如下图所示。此外，变量还可以应用在 Panel 标题、Text 文本面板等。
 
 
 ![](https://main.qcloudimg.com/raw/1fb3b205cf0c64e51de7f3a69047ed7f.png)
