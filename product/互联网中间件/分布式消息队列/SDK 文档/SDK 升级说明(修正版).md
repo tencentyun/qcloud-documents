@@ -9,8 +9,10 @@
 ### 步骤1：创建角色并授权
 1. 登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，在左侧导航栏单击【角色管理】，进入角色管理页面。
 2. 在角色管理页面，选择地域后，单击【新建】进行新建角色。
+详细操作可参考 [角色与鉴权-新增角色](https://cloud.tencent.com/document/product/1179/47543) 文档。
 ![](https://main.qcloudimg.com/raw/030444db462129f54a35ce19f7a92e41.png)
 3. 在左侧导航栏单击【环境管理】，在所需环境上单击【配置权限】，配置刚刚创建的角色的权限。
+详细操作可参考 [角色与鉴权-编辑角色](https://cloud.tencent.com/document/product/1179/47543) 文档。
 ![](https://main.qcloudimg.com/raw/f4fba0c916941ddafe837f5b775c555c.png)
 
    
@@ -19,8 +21,8 @@
 #### Java 客户端
 当前由于 Pulsar 官方只有 Java 客户端提供了带有 listenerName 参数的最新版本，TDMQ 此次更新需要依赖于 listenerName 参数，所以截止目前只有 Java 客户端可以直接从官网下载。
 
-1. 按照 [Java SDK 下载方式](https://cloud.tencent.com/document/product/1179/44914) 或者[Pulsar 官方文档](https://pulsar.apache.org/docs/zh-CN/2.6.1/client-libraries-java/)更新 Maven 依赖。在此我们仍推荐您按前者的指引使用腾讯云官方提供的SDK。
-2. 前往 TDMQ 控制台【角色管理】，找到刚刚创建的角色，单击复制密钥。
+1. 按照 [Java SDK 下载方式](https://cloud.tencent.com/document/product/1179/44914) 或者 [Pulsar 官方文档](https://pulsar.apache.org/docs/zh-CN/2.6.1/client-libraries-java/) 更新 Maven 依赖。在此我们仍推荐您按前者的指引使用腾讯云官方提供的SDK。
+2. 前往 TDMQ 控制台【[角色管理](https://console.cloud.tencent.com/tdmq/role)】，找到刚刚创建的角色，单击复制密钥。
 3. 在创建 Client 的代码中加入刚刚复制的密钥，并添加  `listenerName` 参数
  ```java
    PulsarClient client = PulsarClient.builder()
@@ -41,7 +43,7 @@ Go 客户端 Pulsar 官方目前还未更新最新适配的客户端，在官方
    ```go
    import "github.com/TencentCloud/tdmq-go-client/pulsar"
    ```
-3. 前往 TDMQ 控制台【角色管理】，找到刚刚创建的角色，单击复制密钥。
+3. 前往 TDMQ 控制台【[角色管理](https://console.cloud.tencent.com/tdmq/role)】，找到刚刚创建的角色，单击复制密钥。
 4. 在创建 Client 的代码中加入刚刚复制的密钥，并添加 ListenerName 参数
  ```go
    client, err := NewClient(ClientOptions{
