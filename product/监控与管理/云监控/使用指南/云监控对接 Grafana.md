@@ -11,18 +11,18 @@
 - 支持私有网络对等连接 监控指标数据源
 - 提供了云服务器、云数据库 MySQL 的具有代表性的 Dashboard 模板
 
-更多云产品的监控指标数据源在陆续完善中。
+>?更多云产品的监控指标数据源在陆续完善中。
 
 ## 操作步骤
 
-> ? 腾讯云监控应用插件运行在 Grafana 6.0或更新的版本上，请先安装 Grafana 环境，详情请参见 [Grafana 安装文档](https://grafana.com/docs/project/building_from_source/) 。
+>? 腾讯云监控应用插件运行在 Grafana 6.0或更新的版本上，请先安装 Grafana 环境，详情请参见 [Grafana 安装文档](https://grafana.com/docs/project/building_from_source/)。
 
 ## 基于源码的插件安装
 
 1. 确保本地的 Grafana 是 6.0版本或更新的版本。
 2. 下载最新版本的 [腾讯云监控应用插件代码](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app)，并将解压后的代码放置在 Grafana 的 `${GRAFANA_HOME}/data/plugins` 目录。
 3. 重启 Grafana 服务。
-4. 鼠标悬浮左侧导航栏的 **齿轮** 图标，单击【Plugins】，进入 Plugins 管理页面，如果插件列表中正常展示 `Tencent Cloud Monitor` APP 插件，表示插件安装成功；
+4. 鼠标悬浮左侧导航栏的 **齿轮** 图标，单击【Plugins】，进入 Plugins 管理页面，如果插件列表中正常展示 `Tencent Cloud Monitor` APP 插件，表示插件安装成功。
 ![](https://main.qcloudimg.com/raw/59d7abe67bb4442555c137fc74a51d8f.png)
 5. 进入应用详情页面，单击【Enable】 ，启用成功后，即可在 Grafana 中使用腾讯云监控应用插件。
 
