@@ -20,7 +20,7 @@ KMS 提供以下两种用户主密钥：
 
 ## 加密原理
 
-不同云产品的业务形态和客户需求，其加密的具体设计略有不同。通常情况下云产品采用 [**信封加密**](https://cloud.tencent.com/document/product/573/8791) 的方式，通过调用 KMS 接口来实现对数据的加解密。
+不同云产品的业务形态和客户需求，其加密的具体设计略有不同。通常情况下云产品采用 [信封加密](https://cloud.tencent.com/document/product/573/8791) 的方式，通过调用 KMS 接口来实现对数据的加解密。
 云产品使用 KMS 加密原理如下图所示：
 ![](https://main.qcloudimg.com/raw/6cc91f924b28b6cbfd08a21ee41ee7cb.jpg)
 加密流程说明如下：
