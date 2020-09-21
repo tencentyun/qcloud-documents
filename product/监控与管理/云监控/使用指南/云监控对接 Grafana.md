@@ -1,6 +1,6 @@
 ## 简介
 
-[腾讯云监控](https://cloud.tencent.com/product/cm) 为用户提供云服务器、云数据库等多个云产品的负载和性能监控指标，用户可以使用云监控控制台、云监控 API 等方式获取相关监控数据。还可以通过腾讯云监控应用插件 Tencent Cloud Monitor App，将云监控数据添加到Grafana 中展示。
+[腾讯云监控](https://cloud.tencent.com/product/cm) 为用户提供云服务器、云数据库等多个云产品的负载和性能监控指标，用户可以使用云监控控制台、云监控 API 等方式获取相关监控数据。还可以通过腾讯云监控应用插件 Tencent Cloud Monitor App，将云监控数据添加到 Grafana 中展示。
 
 #### 支持的云产品：
 
@@ -23,7 +23,7 @@
 2. 下载最新版本的 [腾讯云监控应用插件代码](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app)，并将解压后的代码放置在 Grafana 的 `${GRAFANA_HOME}/data/plugins` 目录。
 3. 重启 Grafana 服务。
 4. 鼠标悬浮左侧导航栏的**齿轮**按钮，单击【Plugins】，进入 Plugins 管理页面，如果插件列表中正常展示 `Tencent Cloud Monitor` APP 插件，表示插件安装成功。
-![](https://main.qcloudimg.com/raw/59d7abe67bb4442555c137fc74a51d8f.png)
+<img src="https://main.qcloudimg.com/raw/59d7abe67bb4442555c137fc74a51d8f.png" width="50%"></img>
 5. 进入应用详情页面，单击【Enable】 ，启用成功后，即可在 Grafana 中使用腾讯云监控应用插件。
 
 ## 配置数据源
@@ -57,7 +57,7 @@
 
 ### 导入模板
 
-1. 鼠标悬浮左侧导航栏的**齿轮** 按钮，单击 【Plugins】，进入 Plugins 管理页面。
+1. 鼠标悬浮左侧导航栏的**齿轮**按钮，单击 【Plugins】，进入 Plugins 管理页面。
 2. 单击【Tencent Cloud Monitor】，进入应用详情页面，切换至【Dashboards】 选项卡，选择 Dashbboard 模板导入。
 ![](https://main.qcloudimg.com/raw/deaa0dee580261470bdc08c0f4e8dc6c.png)
 
@@ -72,12 +72,12 @@
 2. 【Queries to】数据源列表，选择已配置的包含 CVM 监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯云服务器监控接口的输入参数，可参见 [拉取监控数据接口](https://cloud.tencent.com/document/product/248/31014)、 [云服务器监控指标](https://cloud.tencent.com/document/product/248/6843)，更好地理解各配置项。
    - **Namespace**：命名空间，云服务器监控的命名空间为 **QCE/CVM**。
-   - **Region**：地域，地域列表会根据 Namespace 选项自动获取，单击选择某一地域。
-   - **MetricName**：指标名称，指标列表会根据 Namespace 和 Region 选项自动获取，单击选择某一指标。
-   - **Period**：监控统计周期，周期列表会根据 MetricName 选项自动获取，单击选择某一统计周期。
-   - **Instance**：实例，对应输入参数的 Instances.N 字段，实例列表会自动获取。
-     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As InstanceId`，以 **实例ID** 展示实例列表。此外，可以选择 `As InstanceName` 实例名称、`As PrivateIpAddress` 主网卡的内网IP、 `As PublicIpAddress` 主网卡的公网IP。
-     - 可实例列表的获取可参考 [云服务器查询实例列表接口文档](https://cloud.tencent.com/document/api/213/15728)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参考接口文档，配置相应参数。
+   - **Region**：地域，地域列表会根据 **Namespace** 选项自动获取，单击选择某一地域。
+   - **MetricName**：指标名称，指标列表会根据 **Namespace** 和 **Region** 选项自动获取，单击选择某一指标。
+   - **Period**：监控统计周期，周期列表会根据 **MetricName** 选项自动获取，单击选择某一统计周期。
+   - **Instance**：实例，对应输入参数的 **Instances.N** 字段，实例列表会自动获取。
+     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 **As InstanceId**，以 **实例ID** 展示实例列表。此外，可以选择 **As InstanceName** 实例名称、**As PrivateIpAddress** 主网卡的内网IP、 **As PublicIpAddress** 主网卡的公网IP。
+     - 可实例列表的获取可参考 [云服务器查询实例列表接口文档](https://cloud.tencent.com/document/api/213/15728)。切换 **Show Details** 为 **true**，可展示实例请求参数，默认参数为 **Offset = 0**和 **Limit = 20**。如果需要变更实例查询条件，可参考接口文档，配置相应参数。
      >!在本应用中，监控数据的单次查询为原子操作，即查询某一实例的某一指标的监控数据，故实例只能单选，如需查询多实例的监控数据，可单击右上角的【Add Query】增加新的查询。  
      
 ![](https://main.qcloudimg.com/raw/4b341292c5103164b070a4cf3cc2b8cd.png)
@@ -93,7 +93,7 @@
    - **Period**：监控统计周期，周期列表会根据 **MetricName** 选项自动获取，单击选择某一统计周期。
    - **Instance**：实例，对应输入参数的 **Instances.N** 字段，实例列表会自动获取。
      - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 **As InstanceId**，以 **实例ID** 展示实例列表。此外，可以选择 **As InstanceName** 实例名称、 **As Vip** 内网IP。
-     - 实例列表的获取可参见 [云数据库 MySQL 查询实例列表接口文档](https://cloud.tencent.com/document/api/236/15872)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参考接口文档，配置相应参数。
+     - 实例列表的获取可参见 [云数据库 MySQL 查询实例列表接口文档](https://cloud.tencent.com/document/api/236/15872)。切换 **Show Details** 为 **true**，可展示实例请求参数，默认参数为 **Offset = 0** 和 **Limit = 20**。如果需要变更实例查询条件，可参考接口文档，配置相应参数。
      >!在本应用中，监控数据的单次查询为原子操作，即查询某一实例的某一指标的监控数据，故实例只能单选，如需查询多实例的监控数据，可单击右上角的【Add Query】增加新的查询。  
 
 ![CDB Panel Query](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/blob/master/src/image/panel-cdb-query.png?raw=true)
@@ -117,7 +117,7 @@
 
 #### 创建变量
 
-1. 进入某一 Dashboard 页面，点击右上角的 **齿轮** 图标，进入 Dashboard 设置页面。
+1. 进入某一 Dashboard 页面，单击右上角的**齿轮**按钮，进入 Dashboard 设置页面。
 2. 在左侧菜单中，选择【Variables】>【+ Add variable】，进入编辑变量页面。
 	- **Name**：变量名，一般为英文字符串，在 Dashboard 的编辑中使用该变量名替换原特定值。
 	- **Label**：变量的可见标签，用于更显式地描述变量名称。例如，**Name** 设置为“region”，**Lable** 可设置为“地区”。
@@ -130,13 +130,15 @@
 
 #### 配置示例
 以云服务器单机监控 Dashboard 为例，展示如何配置级联变量：地域变量、云服务器实例变量，如下图所示。
-![Variable Region Config](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/blob/master/src/image/variable-region-config.png?raw=true)
-![Variable Instance Config](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/blob/master/src/image/variable-instance-config.png?raw=true)
+![](https://main.qcloudimg.com/raw/ca9bee86bcc812135701417e3e01d632.png)
+![](https://main.qcloudimg.com/raw/5a1747fe167cdb00fdb0e3172cccfc9e.png)
+
+
 
 ## 应用变量
 
 创建变量后，在 Dashboard 页面的左上角会展示变量选择框，可以切换变量值。变量有两种引用语法，`$varname` 和 `[[varname]]`。变量常用于 Panel 的查询语句中，以云服务器单机监控 Dashboard 为例，展示如何在查询中使用变量，如下图所示。此外，变量还可以应用在 Panel 标题、Text 文本面板等。
 
-![Variable Dashboard](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/blob/master/src/image/variable-cvm-dashboard.png?raw=true)
 
-![Variable Panel Query](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/blob/master/src/image/variable-panel-query.png?raw=true)
+![](https://main.qcloudimg.com/raw/1fb3b205cf0c64e51de7f3a69047ed7f.png)
+![](https://main.qcloudimg.com/raw/4b6e33f105c4f0ff8304b757c93e81c7.png)
