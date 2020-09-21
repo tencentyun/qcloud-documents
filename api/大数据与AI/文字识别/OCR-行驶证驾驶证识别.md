@@ -299,8 +299,8 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 | -1308 | 图片下载失败                   |
 | -9001 | 请求 type 错误，不是0或1        |
 | -9002 | 识别失败                     |
-| -9005 | 图片无效                     |
 | -9006 | 预处理失败                    |
+| -9005 | 图片无效                     |
 
 更多其他 API 错误码请查看 [错误码说明](https://cloud.tencent.com/document/product/866/17733) 。
 

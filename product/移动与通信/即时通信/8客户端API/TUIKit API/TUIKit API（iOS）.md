@@ -3,6 +3,7 @@
 
 会话列表 Controller 用于显示最近会话，同时内部会监听会话变更通知，并根据时间做排序。
 
+
 | API | 描述 |
 | --- | --- |
 | [delegate](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/TUIKit/Classes/TUIConversationListController.html) | 委托回调，用于外部处理选中事件 |

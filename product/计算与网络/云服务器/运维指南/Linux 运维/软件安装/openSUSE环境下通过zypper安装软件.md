@@ -67,3 +67,4 @@ rpm -q nginx
 ```
 返回类似如下信息：
 ![](https://main.qcloudimg.com/raw/9950192d2cf51c7ab30c2109b3e52d14.png)
+

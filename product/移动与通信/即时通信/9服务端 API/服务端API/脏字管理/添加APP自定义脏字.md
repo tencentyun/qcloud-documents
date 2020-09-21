@@ -33,13 +33,13 @@ https://console.tim.qq.com/v4/openim_dirty_words/add?sdkappid=88888888&identifie
 | sdkappid           | 创建应用时即时通信 IM 控制台分配的 SDKAppID |
 | identifier         | 必须为 App 管理员帐号，更多详情请参见 [App 管理员](https://cloud.tencent.com/document/product/269/31999#app-.E7.AE.A1.E7.90.86.E5.91.98)                |
 | usersig            | App 管理员帐号生成的签名，具体操作请参见 [生成 UserSig](https://cloud.tencent.com/document/product/269/32688)    |
-| random             | 请输入随机的32位无符号整数                 |
+| random             | 请输入随机的32位无符号整数，取值范围0 - 4294967295                 |
 
 
 ### 最高调用频率
-100次/秒。如需提升调用频率，请根据 [工单模板](https://cloud.tencent.com/document/product/269/3916#rest-api-.E8.B0.83.E7.94.A8.E9.A2.91.E7.8E.87.E8.B0.83.E6.95.B4) 提交工单申请处理。
+200次/秒。
 ### 请求包示例
-支持批量添加 App 自定义的脏字，单次最多可以添加50个脏字。
+支持批量添加 App 自定义的脏字。限制1次添加100个脏词，每个脏词不多于10个UTF-8字符。
 ```
 {
     "DirtyWordsList": [ // 自定义脏字列表（必填），列表中的脏字不能超过50个
@@ -53,7 +53,7 @@ https://console.tim.qq.com/v4/openim_dirty_words/add?sdkappid=88888888&identifie
 
 | 字段 | 类型 | 属性 | 说明 |
 |---------|---------|---------|---------|
-| DirtyWordsList | Array | 必填 |该字段用来指定需要添加的自定义脏字；单次最多可以添加50个脏字，每个脏字的长度不能超过200字节 |
+| DirtyWordsList | Array | 必填 |该字段用来指定需要添加的自定义脏字。限制1次添加100个脏词，每个脏词不多于10个UTF-8字符 |
 
 ### 应答包体示例
 ```

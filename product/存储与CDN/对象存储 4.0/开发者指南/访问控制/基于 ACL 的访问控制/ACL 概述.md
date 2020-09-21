@@ -5,7 +5,7 @@
 >!使用与资源关联的 ACL 管理有一些限制：
 >- 资源的拥有者始终对资源具备 FULL_CONTROL 权限，无法撤销或修改。
 >- 匿名用户无法成为资源拥有者，此时对象资源的拥有者属于存储桶的创建者（腾讯云主账号）。
->- 仅可对腾讯云 CAM 主账号或匿名用户授予权限，无法授予子用户或用户组权限。
+>- 仅可对腾讯云 CAM 主账号或预设用户组授予权限，无法授予自定义用户组权限，不推荐授予子用户权限。
 >- 不支持对权限附加条件。
 >- 不支持显示拒绝的权限。
 >- 一个资源最多可以拥有100条 ACL 策略。
@@ -37,7 +37,7 @@
 
 下表列出了支持在存储桶 ACL 中设置的操作列表：
 
-| 操作集       | 描述                 | 许可的行为                                                   |
+| 操作集       | 描述&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                | 许可的行为                                                   |
 | ------------ | -------------------- | ------------------------------------------------------------ |
 | READ         | 列出对象             | GetBucket，HeadBucket，GetBucketObjectVersions，ListMultipartUploads |
 | WRITE        | 上传、覆盖和删除对象 | PutObject，PutObjectCopy，PostObject，InitiateMultipartUpload， UploadPart，UploadPartCopy，CompleteMultipartUpload， DeleteObject |
@@ -56,7 +56,7 @@
 | READ         | 读取对象           | GetObject，GetObjectVersion，HeadObject |
 | READ_ACP     | 读取对象的 ACL     | GetObjectAcl，GetObjectVersionAcl       |
 | WRITE_ACP    | 写入对象的 ACL     | PutObjectAcl，PutObjectVersionAcl       |
-| FULL_CONTROL | 以上四种权限的集合 | 以上所有行为的集合                      |
+| FULL_CONTROL | 以上三种权限的集合 | 以上所有行为的集合                      |
 
 >?对象不支持授予 WRITE 操作集。
 
@@ -82,7 +82,7 @@
 | public-read               | 创建者具备 FULL_CONTROL 权限，匿名用户组具备 READ 权限                     |
 | authenticated-read        | 创建者具备 FULL_CONTROL 权限，认证用户组具备 READ 权限                  |
 | bucket-owner-read         | 创建者具备 FULL_CONTROL 权限，存储桶拥有者具备 READ 权限                   |
-| bucket-owner-full-control | 创建者和和存储桶拥有者都具备 FULL_CONTROL 权限                             |
+| bucket-owner-full-control | 创建者和存储桶拥有者都具备 FULL_CONTROL 权限                             |
 
 >?对象不支持授予 public-read-write 权限。
 
@@ -133,4 +133,6 @@
   </AccessControlList>
 </AccessControlPolicy>
 ```
+
+
 

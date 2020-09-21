@@ -1,3 +1,4 @@
+
 **运行前必备**：
 下载客户端 [Go-redis](https://github.com/alphazero/Go-Redis)。
 
@@ -62,4 +63,4 @@ func main() {
 ```
 
 **运行结果**：
-![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Go-1.png)
+![](https://main.qcloudimg.com/raw/013f96ad8b05ed5c1eceb4638c24f3b1.png)

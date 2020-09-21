@@ -1,14 +1,17 @@
-本文将指导您如何生成 UserSig。
+UserSig 是用户登录即时通信 IM 的密码，其本质是对 UserID 等信息加密后得到的密文，本文将指导您如何生成 UserSig。
 
+以下视频将帮助您快速了解如何生成 UserSig：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2332-34428?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
+<span id="getkey"></span>
 ## 获取密钥 
 
-1. 登录即时通信 IM [控制台](https://console.cloud.tencent.com/avc)。
- >?如果您还没有应用，请先 [创建应用](https://cloud.tencent.com/document/product/269/3794#.E6.8E.A5.E5.85.A5.E6.AD.A5.E9.AA.A4)，然后执行 [步骤2](#step2)。
+1. 登录即时通信 IM [控制台](https://console.cloud.tencent.com/im)。
+ >?如果您还没有应用，请先 [创建应用](https://cloud.tencent.com/document/product/269/36838#step1)，然后执行 [步骤2](#step2)。
 <span id="step2"></span>
-2. 单击目标应用所在行的【应用配置】，进入应用详情页面。
-3. 单击**帐号体系集成**右侧的【编辑】，配置**帐号管理员**信息，单击【保存】。
- ![](https://main.qcloudimg.com/raw/2ad153a77fe6f838633d23a0c6a4dde1.png)
-4. 单击【查看密钥】，拷贝并保存密钥信息。
+2. 单击目标应用卡片，进入应用的基础配置页面。
+3. 在【基本信息】区域，单击【密钥】右侧的【显示密钥】。
+4. 单击【复制】即可复制并储存密钥信息。
  >!请妥善保管密钥信息，谨防泄露。
 
 ## 客户端计算 UserSig
@@ -21,8 +24,8 @@ IM SDK 示例代码中提供的`GenerateTestUserSig`的开源模块可以帮忙�
 | Objective-C | iOS | [GenerateTestUserSig.h](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h) | 
 |Objective-C | Mac | [GenerateTestUserSig.h](https://github.com/tencentyun/TIMSDK/blob/master/Mac/TUIKitDemo/TUIKitDemo/Debug/GenerateTestUserSig.h) |
 | C++ | Windows | [GenerateTestUserSig.h](https://github.com/tencentyun/TIMSDK/blob/master/cross-platform/Windows/IMApp/IMApp/GenerateTestUserSig.h) |
-| Javascript | Web | [GenerateTestUserSig.js](https://github.com/tencentyun/TIMSDK/blob/master/H5/js/debug/GenerateTestUserSig.js) |
-| Javascript | 小程序 | [GenerateTestUserSig.js](https://github.com/tencentyun/TIMSDK/blob/master/WXMini/debug/GenerateTestUserSig.js) | 
+| Javascript | Web | [GenerateTestUserSig.js](https://github.com/tencentyun/TIMSDK/blob/master/H5/dist/debug/GenerateTestUserSig.js) |
+| Javascript | 小程序 | [GenerateTestUserSig.js](https://github.com/tencentyun/TIMSDK/blob/master/WXMini/dist/wx/debug/GenerateTestUserSig.js) | 
 
 >!该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
 >正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](#GeneratingdynamicUserSig)。
@@ -40,20 +43,33 @@ IM SDK 示例代码中提供的`GenerateTestUserSig`的开源模块可以帮忙�
 | Nodejs | HMAC-SHA256 | [genSig](https://github.com/tencentyun/tls-sig-api-v2-node/blob/master/TLSSigAPIv2.js) | [Github](https://github.com/tencentyun/tls-sig-api-v2-node)|
 | Python | HMAC-SHA256 | [gen_sig](https://github.com/tencentyun/tls-sig-api-v2-python/blob/master/TLSSigAPIv2.py) | [Github](https://github.com/tencentyun/tls-sig-api-v2-python)|
 | C# | HMAC-SHA256 | [GenSig](https://github.com/tencentyun/tls-sig-api-v2-cs/blob/master/tls-sig-api-v2-cs/TLSSigAPIv2.cs) | [Github](https://github.com/tencentyun/tls-sig-api-v2-cs)|
+| C++ | HMAC-SHA256 | [gen_sig](https://github.com/tencentyun/tls-sig-api-v2-cpp)|
+
+UserSig 计算函数中主要包括 SDKAppID、UserID 以及 UserSig 有效期等关键参数，关键参数的详细介绍如下表所示：
+>?下表中的字段名以 Java 语言的源码为例，其他语言略有差异，请以实际字段名为准。
+
+| 字段名示例 | 参数说明 |
+|---------|---------|
+| sdkappid | 应用 SDKAppID，可在即时通信 IM [控制台](https://console.cloud.tencent.com/im) 的应用卡片中获取。 |
+|  userId  | 用户 ID，旧称为 Identifier。   |
+|  expire   | UserSig 的有效期，单位为秒。  |
+|  userbuf | 即时通信 IM 中均默认使用不带 UserBuf 的接口，即该参数默认填写为`null`。<br>实时音视频的部分使用场景中可能需要使用带 UserBuf 的接口，例如进房时，具体介绍请参见 [进房权限保护](https://cloud.tencent.com/document/product/647/32240)。 |
+|  key  | 密钥信息，可在即时通信 IM [控制台](https://console.cloud.tencent.com/im) 的应用详情页面中获取，具体操作请参见 [获取密钥](#getkey)。   |
 
 
+<span id="ECDSA-SHA256"></span>
 ## 老版本算法
 
 为了简化签名计算难度，方便客户更快速地使用腾讯云服务，即时通信 IM 服务自2019.07.19开始启用新的签名算法，从之前的 ECDSA-SHA256 升级为 HMAC-SHA256。 2019.07.19以后创建的 SDKAppID 均会采用新的 HMAC-SHA256 算法。
 
-如果您的 SDKAppID 是2019.07.19之前创建的，可以继续使用老版本的签名算法，算法的源码下载链接如下：
+如果您的 SDKAppID 是2019.07.19之前创建的，建议升级为 [HMAC-SHA256 算法](#GeneratingdynamicUserSig)。您也可以继续使用老版本的签名算法，ECDSA-SHA256 算法的源码下载链接如下：
 
 | 语言版本 | 签名算法 | 下载链接 |
 |:---------:|:---------:|:---------:|
 | Java | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-java)|
-| C++ | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api)|
 | GO | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-golang)|
 | PHP | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-php)|
 | Nodejs | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-node)|
-| C# | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-cs)|
 | Python | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-python)|
+| C# | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api-cs)|
+| C++ | ECDSA-SHA256 | [Github](https://github.com/tencentyun/tls-sig-api)|

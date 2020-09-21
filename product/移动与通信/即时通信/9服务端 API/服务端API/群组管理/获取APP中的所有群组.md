@@ -3,10 +3,9 @@
 
 ## 接口调用说明
 ### 适用的群组类型
-即时通信 IM 内置五种群组类型，详情请参见 [群组系统](https://cloud.tencent.com/document/product/269/1502)。
-自定义的群组类型，详情请参见 [自定义群组形态](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81)。
+即时通信 IM 内置多种群组类型，详情请参见 [群组系统](https://cloud.tencent.com/document/product/269/1502)。自定义的群组类型，详情请参见 [自定义群组形态](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E7.BE.A4.E7.BB.84.E7.B1.BB.E5.9E.8B)。
 
-### 请求 URL示例
+### 请求 URL 示例
 ```
 https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?sdkappid=88888888&identifier=admin&usersig=xxx&random=99999999&contenttype=json
 ```
@@ -20,12 +19,12 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?sdkappid=
 | sdkappid           | 创建应用时即时通信 IM 控制台分配的 SDKAppID |
 | identifier         | 必须为 App 管理员帐号，更多详情请参见 [App 管理员](https://cloud.tencent.com/document/product/269/31999#app-.E7.AE.A1.E7.90.86.E5.91.98)                |
 | usersig            | App 管理员帐号生成的签名，具体操作请参见 [生成 UserSig](https://cloud.tencent.com/document/product/269/32688)    |
-| random             | 请输入随机的32位无符号整数                 |
+| random             | 请输入随机的32位无符号整数，取值范围0 - 4294967295                 |
 
 
 ### 最高调用频率
 
-100次/秒。
+1次/秒。
 
 ### 请求包示例
 

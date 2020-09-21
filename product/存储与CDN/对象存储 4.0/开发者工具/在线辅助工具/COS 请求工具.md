@@ -17,7 +17,7 @@ COS 请求工具是腾讯云对象存储（ COS） 为您提供的 Web 端调试
 选择【对象存储】产品，选择所需的 API 接口，填写该接口下相应的参数，单击发送请求后获取相应的请求响应结果。
 
 COS 请求工具的整体页面，从左至右依次是产品栏，接口栏，参数栏和结果栏。您可以在不同的栏目执行相应的操作，最终在结果栏发送请求并获取响应结果和相关的过程参数信息。如下图所示：
-![](https://main.qcloudimg.com/raw/6329b432ed56516ca311bcbe5720d13f.png)
+![](https://main.qcloudimg.com/raw/5ff123127b7a8ff801f917c3e1c5470b.jpg)
 
 有关 COS 请求工具的详细操作请查看如下步骤。
 
@@ -57,7 +57,7 @@ API 密钥信息是在调用 API 接口这一环节中必填的参数。当您�
 ```http
 GET https://bucketname-appid.cos.ap-region.myqcloud.com/0001.txt
 Host: bucketname-appid.cos.ap-region.myqcloud.com
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDwqaGoCIWIG4hDWdJUTL5e3hn04xiD5kI&q-sign-time=1543398166;1543405366&q-key-time=1543398166;1543405366&q-header-list=host&q-url-param-list=&q-signature=f50ddd3e0b54a92df9d4efe2d0c3734a8c9007ec
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDwqaGoCIWIG4hDWdJUTL5e3hn04xi****&q-sign-time=1543398166;1543405366&q-key-time=1543398166;1543405366&q-header-list=host&q-url-param-list=&q-signature=f50ddd3e0b54a92df9d4efe2d0c3734a8c90****
 ```
 
 首行展示的是您的 HTTP Verb 及访问的链接，次行展示的是访问的域名，最后一行展示的是本次请求的签名信息。对于 PUT 类的请求，其请求头部信息较为复杂，但同样存在一些公共请求头部。有关公共请求头部的信息，请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728)。
@@ -76,8 +76,8 @@ date: Wed, 28 Nov 2018 09:42:49 GMT
 etag: "5a8dd3ad0756a93ded72b823b19dd877"
 last-modified: Tue, 27 Nov 2018 20:05:26 GMT
 server: tencent-cos
-x-cos-request-id: NWJmZTYzMTlfOWUxYzBiMDlfOTA4NF8yMWI2YjE=
-x-cos-version-id: MTg0NDY3NDI1MzAzODkyMjUzNjM
+x-cos-request-id: NWJmZTYzMTlfOWUxYzBiMDlfOTA4NF8yMWI2****
+x-cos-version-id: MTg0NDY3NDI1MzAzODkyMjU****
 hello!
 ```
 

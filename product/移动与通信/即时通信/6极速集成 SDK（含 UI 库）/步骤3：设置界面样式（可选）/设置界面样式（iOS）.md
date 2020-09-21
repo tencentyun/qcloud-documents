@@ -4,8 +4,6 @@
 ### 修改默认头像图片
 
 TUIKit 的界面在显示用户时，会从用户资料中读取头像地址并显示。如果用户没有设置头像，则显示默认头像。
-- 群头像默认头像：<img src="https://main.qcloudimg.com/raw/a81959993b0073329b7dd525cb1630a1.png"  style="margin:0;">
-- 个人默认头像：<img src="https://main.qcloudimg.com/raw/9ff8053cf27137b523633026c0a9f5e4.png"  style="margin:0;">
 
 您可以自定义默认头像的图片。
 ```objectivec
@@ -19,7 +17,7 @@ config.defaultGroupAvatarImage = [UIImage imageNamed:@"Your Image"];
 
 ### 修改头像类型
 
-头像类型提供矩形直角头像、圆形头像和圆角头像三种可选类型，默认头像为矩形直角类型。
+头像类型提供矩形直角头像、圆形头像和圆角头像三种可选类型。
 
 ```objectivec
 typedef NS_ENUM(NSInteger, TUIKitAvatarType) {
@@ -44,14 +42,11 @@ config.avatarCornerRadius = 5.f;
 聊天界面 View 的组合方式如下图所示：
 ![](https://main.qcloudimg.com/raw/391d26b927660d99eec807ec1fe84c3b.png)
 
+### 设置聊天窗口背景
 ```objectivec
 TUIChatController *vc = ...; // 获取聊天窗口对象
 vc.messageController.view.backgroundColor = [UIColor greenColor];
 ```
-
-显示效果下图所示：
-![](https://main.qcloudimg.com/raw/9067bc2de0cd428bdfc228b24b9dbcb8.png)
-
 
 ### 配置消息
 
@@ -89,13 +84,13 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 
 ### 配置头像
 
-头像是所有消息都包含的内容，且属于 layout 配置，通过修改 TUIMessageCellLayout 可改变所有消息的头像样式。
+头像是所有消息都包含的内容，我们首先要获取对应消息的 layout 实例，然后设置头像的大小和位置，以文本消息为例：
 
 #### 设置头像大小
 
 ```objectivec
 // 设置发送头像大小；设置接收的方法类似
-[TUIMessageCellLayout outgoingMessageLayout].avatarSize = CGSizeMake(100, 100);
+[TUIMessageCellLayout outgoingTextMessageLayout].avatarSize = CGSizeMake(100, 100);
 ```
 
 
@@ -103,9 +98,10 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 
 ```objectivec
 // 设置发送位置；设置接收的方法类似
-[TUIMessageCellLayout outgoingMessageLayout].avatarInsets = UIEdgeInsetsMake(10, 10, 20, 20);
+[TUIMessageCellLayout outgoingTextMessageLayout].avatarInsets = UIEdgeInsetsMake(10, 10, 20, 20);
 ```
 
+其他消息类型请获取对应的 layout 实例设置头像的大小和位置。
 
 ### 配置昵称字体和颜色
 
@@ -120,7 +116,7 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 
 ## 配置更多菜单
 
-单击输入框的"+"按钮，可打开更多面板，默认情况下，更多面板中有4个可选项。通过 TUIChatController 的 moreMenus 属性可以配置更多菜单。
+单击输入框的“+”按钮，可打开更多面板，默认情况下，更多面板中有4个可选项。通过 TUIChatController 的 moreMenus 属性可以配置更多菜单。
 本文以删除文件菜单为例，示例代码如下：
 
 ```objectivec
@@ -130,7 +126,7 @@ NSMutableArray *array = [NSMutableArray arrayWithArray:vc.moreMenus];
 vc.moreMenus = array; // 重新设置属性，立即生效
 ```
 显示效果如下图所示：
-![](https://main.qcloudimg.com/raw/19a34761f49c2ffc48e6452f0c1892a6.jpg)
+![](https://main.qcloudimg.com/raw/ddf5937ae221699f30dea212303901f2.jpg)
 
 当用户单击菜单中的按钮时，TUIChatController 会通过回调事件通知上层。
 >?用户单击默认菜单时，也会有回调通知，您可以不作处理。

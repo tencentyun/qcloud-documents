@@ -1,2 +1,0 @@
-Mock will return a response with fixed configurations for an API request. You can configure the fixed data and error code in the response to an API call. Mock is generally used for development test. It can complete the API configuration in advance and return responses when the backend service is not completely developed.
-![mock](//mc.qcloudimg.com/static/img/59d198b75bc21d7af480656cf6ebcc62/image.png)

@@ -1,5 +1,5 @@
 ## 概述
-腾讯云智聆口语评测（Smart Oral Evaluation，SOE）是腾讯云推出的语音评测产品，是基于口语类教育培训场景和腾讯云的语音处理技术，应用特征提取、声学模型和语音识别算法，为儿童和成人提供高准确度的口语发音评测。支持单词、句子和段落模式的评测，多维度反馈口语表现，可广泛应用于中文及英语口语类教学中。
+腾讯云智聆口语评测（Smart Oral Evaluation，SOE）是腾讯云推出的语音评测产品，是基于口语类教育培训场景和腾讯云的语音处理技术，应用特征提取、声学模型和语音识别算法，为儿童和成人提供高准确度的口语发音评测。支持单词、句子和段落模式的评测，多维度反馈口语表现，可广泛应用于中文及英语口语类教学中。    
 TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，用户可以快速接入相关产品功能，如数学作业批改、智聆口语评测等。本文档介绍智聆口语评测 iOS SDK 相关说明，如需其他产品的调用说明，可在对应产品的产品文档查看。
 详细的网络 API 说明请参见 [API 文档](https://cloud.tencent.com/document/product/884/19309)。
 
@@ -14,7 +14,7 @@ SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在【[访问管
 ## 集成 SDK 
 ### 1. 导入 SDK
 从 [Demo 源码](https://github.com/TencentCloud/tencentcloud-sdk-ios-soe) 中获取 SDK 并导入到工程。
-![](http://dldir1.qq.com/hudongzhibo/taisdk/document/taisdk_ios_1.png)
+![](https://main.qcloudimg.com/raw/ba3691482e485a775bf4858cbfa7c327/20191231001.png)
 
 ### 2. 调用接口
 声明并定义对象：
@@ -36,7 +36,7 @@ self.oralEvaluation.delegate = self;
 ```objc
 //1.初始化参数
 TAIOralEvaluationParam *param = [[TAIOralEvaluationParam alloc] init];
-param.sessionId = [NSString stringWithFormat:@"%ld", (long)[[NSDate date] timeIntervalSince1970]];
+param.sessionId = [[NSUUID UUID] UUIDString];
 param.appId = @"";
 param.workMode = TAIOralEvaluationWorkMode_Once;
 param.evalMode = TAIOralEvaluationEvalMode_Sentence;
@@ -60,7 +60,7 @@ param.secretKey = @"";
 ```objc
 //1.初始化参数
 TAIOralEvaluationParam *param = [[TAIOralEvaluationParam alloc] init];
-param.sessionId = [NSString stringWithFormat:@"%ld", (long)[[NSDate date] timeIntervalSince1970]];
+param.sessionId = [[NSUUID UUID] UUIDString];
 param.appId = @"";
 param.workMode = TAIOralEvaluationWorkMode_Once;
 param.evalMode = TAIOralEvaluationEvalMode_Sentence;

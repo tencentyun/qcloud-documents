@@ -19,6 +19,7 @@ COS.getAuthorization 方法用于计算鉴权凭证（Authorization），用以�
 
 获取对象下载的鉴权凭证：
 
+[//]: # (.cssg-snippet-get-authorization)
 ```js
 var Authorization = COS.getAuthorization({
     SecretId: 'COS_SECRETID',
@@ -37,11 +38,11 @@ var Authorization = COS.getAuthorization({
 | --------- | ------------------------------------------------------------ | ------ | ---- |
 | SecretId  | 用户的 SecretId                                              | String | 是   |
 | SecretKey | 用户的 SecretKey                                             | String | 是   |
-| Method    | 操作方法，例如 GET，POST，DELETE， HEAD 等 HTTP 方法           | String | 是   |
+| Method    | 操作方法，例如 GET，POST，DELETE， HEAD 等 HTTP 方法         | String | 是   |
 | Key       | 对象键（Object 的名称），对象在存储桶中的唯一标识<br><li>**如果请求操作是对文件的，则为文件名，且为必须参数**<br><li>如果操作是对于存储桶，则为空 | String | 否   |
 | Query     | 请求的 query 参数对象                                        | Object | 否   |
 | Headers   | 请求的 header 参数对象                                       | Object | 否   |
-| Expires   | 签名几秒后失效，默认为900s                                      | Number | 否   |
+| Expires   | 签名几秒后失效，默认为900秒                                  | Number | 否   |
 
 #### 返回值说明
 
@@ -55,8 +56,9 @@ var Authorization = COS.getAuthorization({
 
 #### 下载请求示例
 
-示例一：获取不带签名的对象 Url。
+示例一：获取不带签名的对象的 Url
 
+[//]: # (.cssg-snippet-get-presign-download-url-nosign)
 ```js
 var url = cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
@@ -66,8 +68,9 @@ var url = cos.getObjectUrl({
 });
 ```
 
-示例二：获取带签名的对象 Url。
+示例二：获取带签名的对象的 Url
 
+[//]: # (.cssg-snippet-get-presign-download-url)
 ```js
 var url = cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
@@ -80,6 +83,7 @@ var url = cos.getObjectUrl({
 
 > ?如果签名过程是异步获取，需要通过 callback 获取带签名 Url。
 
+[//]: # (.cssg-snippet-get-presign-download-url-callback)
 ```js
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
@@ -93,6 +97,7 @@ cos.getObjectUrl({
 
 示例四：指定链接有效时间。
 
+[//]: # (.cssg-snippet-get-presign-download-url-expiration)
 ```js
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
@@ -105,8 +110,9 @@ cos.getObjectUrl({
 });
 ```
 
-示例五：获取对象 Url 并下载对象。
+示例五：获取对象的 Url 并下载对象
 
+[//]: # (.cssg-snippet-get-presign-download-url-then-fetch)
 ```js
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
@@ -136,11 +142,11 @@ cos.getObjectUrl({
 | Bucket  | 存储桶的名称，命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式 | String  | 是   |
 | Region  | 存储桶所在地域，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) | String  | 是   |
 | Key     | 对象键（Object 的名称），对象在存储桶中的唯一标识<br><li>**如果请求操作是对文件的，则为文件名，且为必须参数**<br><li>如果操作是对于存储桶，则为空 | String  | 是   |
-| Sign    | 是否返回带有签名的 Url                                       | Boolean | 否   |
+| Sign    | 是否返回带有签名的 Url，默认为 true                          | Boolean | 否   |
 | Method  | 操作方法，例如 GET，POST，DELETE，HEAD 等 HTTP 方法，默认为 GET | String  | 否   |
 | Query   | 参与签名计算的 query 参数对象                                | Object  | 否   |
 | Headers | 参与签名计算的 header 参数对象                               | Object  | 否   |
-| Expires | 签名几秒后失效，默认为900s                                      | Number  | 否   |
+| Expires | 签名几秒后失效，默认为900秒                                  | Number  | 否   |
 
 #### 返回值说明
 
@@ -160,4 +166,5 @@ function(err, data) { ... }
 | err    | 请求发生错误时返回的对象，包括网络错误和业务错误。如果请求成功则为空，更多详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) | Object |
 | data   | 请求成功时返回的对象，如果请求发生错误，则为空               | Object |
 | - Url  | 计算得到的 Url                                               | String |
+
 

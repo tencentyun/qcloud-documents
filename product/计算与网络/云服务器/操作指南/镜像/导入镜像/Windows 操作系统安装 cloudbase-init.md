@@ -1,6 +1,6 @@
 ## 操作场景
 
-本文档以 Windows Server 2012 R2 64位 操作系统为例，指导您在 Windows 操作系统上安装 Cloudbase-Init。
+本文档以 Windows Server 2012 R2 64位操作系统为例，指导您在 Windows 操作系统上安装 Cloudbase-Init。
 
 <span id="PreparationSoftware"></span>
 ## 准备软件
@@ -60,8 +60,10 @@ allow_reboot=false
 activate_windows=true
 kms_host="kms.tencentyun.com"
 local_scripts_path=C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts\
-C:\powershell
-PS C:\Set-ExecutionPolicy Unrestricted
 ```
 3. 将 `TencentCloudRun.ps1` 脚本拷贝到 `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\LocalScripts` 路径下。
-4. 将 `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\Python\Lib\site-packages\cloudbaseinit\plugins\common` 路径下的 `localscripts.py` 替换为 [准备软件](#PreparationSoftware) 中的  `localscripts.py` 文件。
+4. 右键单击 `TencentCloudRun.ps1` 脚本，选择【属性】，并在弹出窗口中查看脚本是否具备可执行权限。如下图所示：
+![](https://main.qcloudimg.com/raw/3a3a31fc4d0dbd58cacb9211f7a97e79.png)
+ - 如存在 Unblock 选项，则需勾选 Unblock，并单击【OK】退出。 
+ - 如不存在 Unblock 选项，则请跳过本步骤。
+5. 将 `C:\Program Files\Cloudbase Solutions\Cloudbase-Init\Python\Lib\site-packages\cloudbaseinit\plugins\common` 路径下的 `localscripts.py` 替换为 [准备软件](#PreparationSoftware) 中的  `localscripts.py` 文件。

@@ -14,8 +14,8 @@
 
 腾讯云提供自助诊断工具，可以帮助您判断是否由于带宽、防火墙以及安全组设置等常见问题导致无法连接 Windows 实例。70%的故障可以通过工具定位，您可以根据检测到的原因，定位可能引起无法登录的故障问题。
 1. 单击 [自助诊断](https://console.cloud.tencent.com/workorder/check)，打开自助诊断工具。
-2. 输入需要诊断的云服务器 instance-id，单击【开始诊断】。如下图所示：
-![](https://main.qcloudimg.com/raw/0bea1afc1d29eb4e59dab3f4c6e4eace.png)
+2. 根据工具界面提示，选择需要诊断的云服务器，单击【开始检测】。如下图所示：
+![](https://main.qcloudimg.com/raw/169825c8602f00f5cc867e8f73db269c.png)
 
 如果您的问题无法通过故障排查工具检查，建议您 [通过 VNC 的方式登录](#VNC) 云服务器逐步排查故障。
 
@@ -27,20 +27,21 @@
 
 当您无法通过 RDP 或者远程登录软件登录 Windows 实例时，您可以使用腾讯云 VNC 登录的方式登录，帮助您定位故障原因。
 1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/cvm/index)。
-2. 在实例列表中，选择您需要登录的实例，单击【登录】。如下图所示：
-![](https://main.qcloudimg.com/raw/2de172a91ae281de8fbe1ec5c0701c59.png)
+2. 在实例的管理页面，选择您需要登录的实例，单击【登录】。如下图所示：
+![](https://main.qcloudimg.com/raw/038fce530c6c6827796e51d896306a93.png)
 3. 在弹出的 “登录Windows实例” 窗口中，选择【其它方式（VNC）】，单击【立即登录】。
 >? 登录过程中，如果忘记密码，可以在控制台中重置该实例的密码。具体操作可参考 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 >
 4. 在弹出的登录窗口中，选择左上角的 “发送远程命令”，单击 Ctrl-Alt-Delete 进入系统登录界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/2dec43fa6ddb5e442da59c75f7a34b0f.png)
 
+
 <span id="CryptographicProblem"></span>
 ### 密码问题导致无法登录
 
 **故障现象**：密码输入错误、忘记密码或者密码重置失败导致登录不成功。
-**解决方法**：请在 [腾讯云控制台](https://console.cloud.tencent.com/cvm/index) 重置该实例的密码，并重启实例。
-**处理步骤**：重置实例密码的方法请参考 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
+**处理步骤**：请在 [腾讯云控制台](https://console.cloud.tencent.com/cvm/index) 重置该实例的密码，并重启实例。详情请参见 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
+
 
 <span id="BandwidthUtilization"></span>
 ### 带宽利用率过高
@@ -76,7 +77,7 @@
 ![](https://main.qcloudimg.com/raw/9fc46a7133fdb07b631876cd9fa4c253.png)
 如果确定为安全组端口设置问题，可通过工具中的【一键放通】功能放通端口。
 ![](https://main.qcloudimg.com/raw/c6a26565610a1360f187ee10db12a634.png)
-如果您需要自定义设置安全组规则，请参考 [安全组操作](https://cloud.tencent.com/document/product/213/18197) 重新配置安全组规则。
+如果您需要自定义设置安全组规则，请参考 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740) 重新配置安全组规则。
 
 
 <span id="LoginSecuritySoftware"></span>

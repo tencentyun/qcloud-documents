@@ -14,7 +14,7 @@ Upload Part请求实现上传档案的一段数据。支持乱序上传档案段
 
 #### 请求语法
 
-```HTTP
+```plaintext
 PUT /<UID>/vaults/<VaultName>/multipart-uploads/<uploadID> HTTP/1.1
 Host: cas.<Region>.myqcloud.com
 Date: Date

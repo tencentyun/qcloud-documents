@@ -3,7 +3,7 @@
 
 **签名的作用**：
 - 验证请求用户身份：通过用户密钥来确认。
-- 防止内容被篡改：通过对请求内容使用 hash 算法进行签名，通过签名的一致性来判定内容是否备篡改。
+- 防止内容被篡改：通过对请求内容使用 hash 算法进行签名，通过签名的一致性来判定内容是否被篡改。
 - 防止重放攻击：签名内容中包括请求时间、签名时间及有效期，可避免过期请求重放。同时云服务也可以通过请求时间来拒绝过期请求。
 
 
@@ -62,7 +62,7 @@
 | strategyName | 策略名称。 | strategy1 |
 | strategyInfo | 策略描述的内容（这里要传一个 **JSON 字符串**）。 | 见 [示例代码](#示例代码1) |
 | remark | 策略的备注。 | hello test |
-| resource | CMQ 的资源六段式描述，例如`qcs::cmqqueue:bj:uin/1238423:queueName/uin/3232/myqueue`，第一段为固定格式 qcs；第二段为空；第三段表示消息队列的类型，队列模型为 cmqqueue，主题模型为 cmqtopic；第四段为地域信息，例如 gz、bj、sh 若为全地域，则设置为空；第五段为主账号 ID；第六段为资源的描述，`uin/`后的值为创建者 ID，如果资源是主账号创建的，那么该 ID 为主账号 ID，如果为协作者或者子帐号创建的，该 uin 为相应子帐号或者协作者帐号的 ID。 |* |
+| resource | CMQ 的资源六段式描述，例如`qcs::cmqqueue:bj:uin/1238423:queueName/uin/3232/myqueue`<br>第一段为固定格式 qcs；<br>第二段为空；<br>第三段表示消息队列的类型，队列模型为 cmqqueue，主题模型为 cmqtopic；<br>第四段为地域信息，例如 gz、bj、sh 若为全地域，则设置为空；<br>第五段为主账号 `uin/{主账号uin}`；<br>第六段为资源的描述，当为队列模式时，则 `queueName/uin/{创建者Uin}/{队列名字}` ，当为主题模式时该值取 `topicName/uin/{创建者Uin}/{主题名字}`。创建者的 Uin 可以通过控制台详情页获取，或者通过 yunapi 接口 GetQueueAttributes 或者GetTopicAttributes 的返回值 createUin 获取。|* |
 
 - 示例代码：<span id="示例代码1"></span>
 ```
@@ -76,7 +76,7 @@
 
  ![](https://main.qcloudimg.com/raw/c6d7be9b98c8021d1ffc2fac6e4d2522.png)
 
-#### 子账户关联/移除策略（OperateCamStrategy
+#### 子账户关联/移除策略（OperateCamStrategy）
 此接口可给用户或者用户组联/移除策略。
 
 - 策略示例：将 UIN 为“123456”的用户关联到策略 ID 为“666”的策略。

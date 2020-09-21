@@ -70,3 +70,7 @@ dep  : 编译生成的可运行的 JAR 包
 
 #### 关于 cos path
  cos path 默认为是目录， 最终从 HDFS 上拷贝的文件都会存放在该目录下。
+
+
+#### 关于从腾讯云 EMR HDFS 拷贝数据
+从腾讯云 EMR HDFS 拷贝数据到 COS，建议使用高性能 Distcp 工具，请参见 [Hadoop 文件系统与 COS 之间的数据迁移](https://cloud.tencent.com/document/product/436/40603)。

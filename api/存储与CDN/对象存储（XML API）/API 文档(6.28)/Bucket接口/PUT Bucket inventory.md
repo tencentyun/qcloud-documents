@@ -6,6 +6,7 @@ PUT Bucket inventory 用于在存储桶中创建清单任务，您可以对清�
 > - COS 支持在每个存储桶中创建最多1000条清单任务。
 > - 您必须在目标存储桶中写入存储桶策略，以供 COS 将清单任务的结果文件写入该存储桶中。
 > - 调用该请求时，请确保您有足够的权限对存储桶的清单任务进行操作。存储桶所有者默认拥有该权限，若您无该项权限，请先向存储桶所有者申请该项操作的权限。  
+> - 如果您指定了清单投递的前缀，COS 后端会自动在您指定的前缀后边加上`/`。如您指定了`Prefix`作为前缀，则 COS 后端投递的清单报告路径为`Prefix/inventory_report`。
 
 ## 请求
 
@@ -25,19 +26,14 @@ Content-MD5: MD5
 
 调用 PUT Bucket inventory 需要使用清单任务名称的参数。该参数格式如下：
 
-| 参数 | 描述                                                         | 类型   | 必选 |
+| 参数 | 描述                                                         | 类型   | 是否必选 |
 | ---- | ------------------------------------------------------------ | ------ | ---- |
-| id   | 清单任务的名称。<br>缺省值：None<br>合法字符：`a-z，A-Z，0-9，-，_，.` | String | 是   |
+| id   | 清单任务的名称。缺省值：None<br>合法字符：`a-z，A-Z，0-9，-，_，.` | String | 是   |
 
 #### 请求头
 
-#### 公共头部
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
-
-#### 非公共头部
-
-该请求操作无特殊的请求头部信息。
 
 #### 请求体
 
@@ -46,7 +42,7 @@ Content-MD5: MD5
 ```shell
 <InventoryConfiguration>
     <Id>list1</Id>
-    <IsEnabled>True</IsEnabled>
+    <IsEnabled>true</IsEnabled>
     <Destination>
         <COSBucketDestination>
             <Format>CSV</Format>
@@ -76,14 +72,14 @@ Content-MD5: MD5
 </InventoryConfiguration>
 ```
 
-具体内容描述如下：
+具体的节点描述如下：
 
 | 节点名                 | 父节点                 | 描述                                                         | 类型      | 是否必选 |
 | ---------------------- | ---------------------- | ------------------------------------------------------------ | --------- | -------- |
 | InventoryConfiguration | 无                     | 包含清单的配置参数                                         | Container | 是       |
 | Id                     | InventoryConfiguration | 清单的名称，与请求参数中的 id 对应                         | Container | 是       |
-| IsEnabled              | InventoryConfiguration | 清单是否启用的标识。如果设置为 True，清单功能将生效；如果设置为 False，将不生成任何清单 | String    | 是       |
-| IncludedObjectVersions | InventoryConfiguration | 是否在清单中包含对象版本<br>如果设置为 All，清单中将会包含所有对象版本，并在清单中增加 VersionId，IsLatest，DeleteMarker 这几个字段<br>如果设置为 Current，则清单中不包含对象版本信息 | String    | 是       |
+| IsEnabled              | InventoryConfiguration | 清单是否启用的标识：<br><li>如果设置为 true，清单功能将生效<br><li>如果设置为 false，将不生成任何清单 | String    | 是       |
+| IncludedObjectVersions | InventoryConfiguration | 是否在清单中包含对象版本：<br><li>如果设置为 All，清单中将会包含所有对象版本，并在清单中增加 VersionId，IsLatest，DeleteMarker 这几个字段<br><li>如果设置为 Current，则清单中不包含对象版本信息 | String    | 是       |
 | Filter                 | InventoryConfiguration | 筛选待分析对象。清单功能将分析符合 Filter 中设置的前缀的对象 | Container | 否       |
 | Prefix                 | Filter                 | 需要分析的对象的前缀                                       | String    | 否       |
 | OptionalFields         | InventoryConfiguration | 设置清单结果中应包含的分析项目                             | Container | 否       |
@@ -103,13 +99,7 @@ Content-MD5: MD5
 
 #### 响应头
 
-#### 公共响应头 
-
-该响应使用公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
-
-#### 特有响应头
-
-该请求的响应无特殊的响应头。
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 响应体
 
@@ -117,19 +107,14 @@ Content-MD5: MD5
 
 #### 错误码
 
-该请求可能会发生的一些常见的特殊错误如下，常见的错误码请参见 [错误码](https://cloud.tencent.com/document/product/436/7730)文档。
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
-| 错误码                | 描述                                           | 状态码               |
-| --------------------- | ---------------------------------------------- | -------------------- |
-| InvalidArgument       | 不合法的参数值                                 | HTTP 400 Bad Request |
-| TooManyConfigurations | 清单数量已经达到1000条的上限                 | HTTP 400 Bad Request |
-| AccessDenied          | 未授权的访问。您可能不具备访问该存储桶的权限 | HTTP 403 Forbidden   |
 
 ## 实际案例
 
 #### 请求
 
-该示例向存储桶 examplebucket-1250000000 中添加一条名为 list1 的清单任务。
+该示例向存储桶`examplebucket-1250000000`中添加一条名为 list1 的清单任务。
 - 该清单任务分析存储桶中前缀为 myPrefix 的对象及其所有版本。
 - 分析频次为每天一次。
 - 分析维度包括 Size ， LastModifiedDate， StorageClass，ETag，IsMultipartUploaded， ReplicationStatus。
@@ -138,7 +123,7 @@ Content-MD5: MD5
 ```shell
 PUT /?inventory&id=list1 HTTP/1.1
 Date: Mon, 28 Aug 2018 02:53:38 GMT
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1503888878;1503889238&q-key-time=1503888878;1503889238&q-header-list=host&q-url-param-list=inventory&q-signature=254bf9cd3d6615e89a36ab652437f9d45c5f63f9
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1503888878;1503889238&q-key-time=1503888878;1503889238&q-header-list=host&q-url-param-list=inventory&q-signature=254bf9cd3d6615e89a36ab652437f9d45c5f****
 Content-MD5: AAq9nzrpsz5LJ4UEe1f6Q==
 Host: examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com
 Content-Length: 1024
@@ -146,7 +131,7 @@ Content-Length: 1024
 <?xml version = "1.0" encoding = "UTF-8">
 <InventoryConfiguration xmlns = "http://....">
     <Id>list1</Id>
-    <IsEnabled>True</IsEnabled>
+    <IsEnabled>true</IsEnabled>
     <Destination>
         <COSBucketDestination>
             <Format>CSV</Format>
@@ -186,6 +171,6 @@ Content-Type: application/xml
 Content-Length: 0
 Date: Mon, 28 Aug 2018 02:53:38 GMT
 Server: tencent-cos
-x-cos-request-id: NTlhMzg1ZWVfMjQ4OGY3MGFfMWE1NF84Y2M
+x-cos-request-id: NTlhMzg1ZWVfMjQ4OGY3MGFfMWE1NF8****
 ```
 

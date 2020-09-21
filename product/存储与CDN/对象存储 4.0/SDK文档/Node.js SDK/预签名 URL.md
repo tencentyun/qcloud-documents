@@ -19,7 +19,9 @@ COS.getAuthorization 方法用于计算鉴权凭证（Authorization），用以�
 
 获取文件下载的鉴权凭证：
 
+[//]: # (.cssg-snippet-get-authorization)
 ```js
+var COS = require('cos-nodejs-sdk-v5');
 var Authorization = COS.getAuthorization({
     SecretId: 'COS_SECRETID',
     SecretKey: 'COS_SECRETKEY',
@@ -38,10 +40,10 @@ var Authorization = COS.getAuthorization({
 | SecretId  | 用户的 SecretId                                              | String | 是   |
 | SecretKey | 用户的 SecretKey                                             | String | 是   |
 | Method    | 操作方法，如 get，post，delete， head 等 HTTP 方法           | String | 是   |
-| Key       | 对象键（Object 的名称），对象在存储桶中的唯一标识，**如果请求操作是对文件的，则为文件名，且为必须参数**。如果操作是对于 Bucket，则为空 | String | 否   |
+| Key       | 对象键（Object 的名称），对象在存储桶中的唯一标识，**如果请求操作是对文件的，则为文件名，且为必须参数**。如果操作是对于存储桶，则为空 | String | 否   |
 | Query     | 请求的 query 参数对象                                        | Object | 否   |
 | Headers   | 请求的 header 参数对象                                       | Object | 否   |
-| Expires   | 签名几秒后失效，默认为900                                      | Number | 否   |
+| Expires   | 签名几秒后失效，默认为900秒                                  | Number | 否   |
 
 #### 返回值说明
 
@@ -53,10 +55,11 @@ var Authorization = COS.getAuthorization({
 
 示例一：获取不带签名 Object Url。
 
+[//]: # (.cssg-snippet-get-presign-download-url-nosign)
 ```js
 var url = cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
+    Region: 'COS_REGION',
     Key: '1.jpg',
     Sign: false
 });
@@ -64,20 +67,22 @@ var url = cos.getObjectUrl({
 
 示例二：获取带签名 Object Url。
 
+[//]: # (.cssg-snippet-get-presign-download-url)
 ```js
 var url = cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
+    Region: 'COS_REGION',
     Key: '1.jpg'
 });
 ```
 
 示例三：如果签名过程是异步获取，需要通过 callback 获取带签名 Url。
 
+[//]: # (.cssg-snippet-get-presign-download-url-callback)
 ```js
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
+    Region: 'COS_REGION',
     Key: '1.jpg',
     Sign: false
 }, function (err, data) {
@@ -87,10 +92,11 @@ cos.getObjectUrl({
 
 示例四：指定链接有效时间。
 
+[//]: # (.cssg-snippet-get-presign-download-url-expiration)
 ```js
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
+    Region: 'COS_REGION',
     Key: '1.jpg',
     Sign: true,
     Expires: 3600, // 单位秒
@@ -101,16 +107,17 @@ cos.getObjectUrl({
 
 示例五：获取文件 Url 并下载文件。
 
+[//]: # (.cssg-snippet-get-presign-download-url-then-fetch)
 ```js
 var request = require('request');
 var fs = require('fs');
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
+    Region: 'COS_REGION',
     Key: '1.jpg',
     Sign: true
 }, function (err, data) {
-    if (!err) return console.log(err);
+    if (err) return console.log(err);
     console.log(data.Url);
     var req = request(data.Url, function (err, response, body) {
         console.log(err || body);
@@ -124,17 +131,18 @@ cos.getObjectUrl({
 
 示例一：获取预签名 Put Object 上传 Url。
 
+[//]: # (.cssg-snippet-get-presign-upload-url)
 ```js
 var request = require('request');
 var fs = require('fs');
 cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
-    Region: 'ap-beijing',
+    Region: 'COS_REGION',
     Method: 'PUT',
     Key: '1.jpg',
     Sign: true
 }, function (err, data) {
-    if (!err) return console.log(err);
+    if (err) return console.log(err);
     console.log(data.Url);
     var readStream = fs.createReadStream(__dirname + '/1.jpg');
     var req = request({
@@ -151,14 +159,14 @@ cos.getObjectUrl({
 
 | 参数名  | 参数描述                                                     | 类型    | 必填 |
 | ------- | ------------------------------------------------------------ | ------- | ---- |
-| Bucket  | Bucket 的名称，命名规则为 BucketName-APPID，此处填写的存储桶名称必须为此格式 | String  | 是   |
-| Region  | Bucket 所在地域，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) | String  | 是   |
-| Key     | 对象键（Object 的名称），对象在存储桶中的唯一标识，**如果请求操作是对文件的，则为文件名，且为必须参数**。如果操作是对于 Bucket，则为空 | String  | 是   |
+| Bucket  | 存储桶的名称，命名规则为 BucketName-APPID，此处填写的存储桶名称必须为此格式 | String  | 是   |
+| Region  | 存储桶所在地域，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) | String  | 是   |
+| Key     | 对象键（Object 的名称），对象在存储桶中的唯一标识，**如果请求操作是对文件的，则为文件名，且为必须参数**。如果操作是对于存储桶，则为空 | String  | 是   |
 | Sign    | 是否返回带有签名的 Url                                       | Boolean | 否   |
-| Method  | 操作方法，如 get，post，delete， head 等 HTTP 方法，默认 get | String  | 否   |
+| Method  | 操作方法，如 get，post，delete， head 等 HTTP 方法，默认为 get | String  | 否   |
 | Query   | 参与签名计算的 query 参数对象                                | Object  | 否   |
 | Headers | 参与签名计算的 header 参数对象                               | Object  | 否   |
-| Expires | 签名几秒后失效，默认为900                                      | Number  | 否   |
+| Expires | 签名几秒后失效，默认为900秒                                  | Number  | 否   |
 
 ### 返回值说明
 
@@ -175,6 +183,6 @@ function(err, data) { ... }
 
 | 参数名 | 参数描述                                                     | 类型   |
 | ------ | ------------------------------------------------------------ | ------ |
-| err    | 请求发生错误时返回的对象，包括网络错误和业务错误，如果请求成功则为空，更多详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档| Object |
+| err    | 请求发生错误时返回的对象，包括网络错误和业务错误，如果请求成功则为空，更多详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档 | Object |
 | data   | 请求成功时返回的对象，如果请求发生错误，则为空               | Object |
 | - Url  | 计算得到的 Url                                               | String |

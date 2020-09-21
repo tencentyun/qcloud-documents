@@ -1,7 +1,7 @@
 ## 接入准备
 
 ### SDK 获取
-实时语音识别 C++ SDK 以及 Demo 的下载地址：[C++ SDK](https://sdk-1256085166.cos.ap-shanghai.myqcloud.com/c%2B%2B_realtime_asr_sdk.tar.gz )。
+实时语音识别 C++ SDK 以及 Demo 的下载地址：[C++ SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/c%2B%2B_realtime_asr_sdk.zip)。
 
 ### 接入须知
 开发者在调用前请先查看实时语音识别的[ 接口说明](https://cloud.tencent.com/document/product/1093/37138)，了解接口的**使用要求**和**使用步骤**。
@@ -45,7 +45,7 @@ sudo make
 sudo make install
 ```
 
-**openssl**
++ **openssl**
 本 SDK 提供，目录为：c++_realtime\_asr\_sdk/lib。如果不适合客户系统，请客户自行安装方法，版本1.0.2f，下载 [wget 源码]( http://www.openssl.org/source/openssl-1.0.2f.tar.gz)并执行以下命令：
 
 ```
@@ -61,7 +61,7 @@ sudo make install
 自行替换 c++_realtime_asr_sdk/lib 下面的库文件
 ```
 
-**speex**
++ **speex**
 本 SDK 提供，目录为：c++\_realtime\_asr\_sdk/lib，如果不适合客户系统，自行安装方法：下载 [speex 源码](https://speex.org/downloads/)，解压进入源码目录并执行以下命令：
 
 ```

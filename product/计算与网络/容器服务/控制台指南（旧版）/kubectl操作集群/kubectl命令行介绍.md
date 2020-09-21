@@ -73,7 +73,7 @@ status:
 kubectl get services
 ```
 ![Alt text][get]
-在浏览器上输入该 IP， 便可直接访问 nginx 服务。
+在浏览器上输入该 IP， 便可直接访问 Nginx 服务。
 ![Alt text][show]
 
 ### kubectl logs

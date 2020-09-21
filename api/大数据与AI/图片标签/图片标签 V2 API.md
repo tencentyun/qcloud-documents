@@ -1,16 +1,16 @@
 ## 接口概述
 
 ### 服务简介
-图片标签 V2 版接口，用于根据用户上传的图像，识别并返回图片内包含的各种元素，以及属于这些元素的可能性。
+图片标签 V2 版接口，用于根据用户上传的图像，识别并返回图片内包含的各种元素，以及属于这些元素的可能性。  
 
-### url 说明
+### URL 说明
 支持 HTTP 和 HTTPS 两种协议：
 
 `http://recognition.image.myqcloud.com/imagetag/picture_classify`
 
 `https://recognition.image.myqcloud.com/imagetag/picture_classify`
 
->**说明**：如果开发者使用的是 V1 版本，您也可以切换本版本以获得更优体验。
+>?如果开发者使用的是 V1 版本，您也可以切换本版本以获得更优体验。
 
 ## 请求方式
 
@@ -30,7 +30,7 @@
 
 | 参数名称   | 必选 | 类型            | 描述                                       |
 | ------ | ---- | ------------- | ---------------------------------------- |
-| app_id | 是   | String        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                          |
+| App_ID | 是   | String        | 接入项目的唯一标识，可在 [账号信息](https://console.cloud.tencent.com/developer) 或 [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。                          |
 | image  | 否   | String(Bytes) | 使用 base64 编码的二进制图片数据。                     |
 | url    | 否   | String        | 图片 url 地址，url 与 image 两者填一个即可。同时赋值时，则以 url 指定的图像作为输入。 |
 

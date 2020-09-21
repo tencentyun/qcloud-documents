@@ -1,29 +1,35 @@
-- 由于4层负载均衡（TCP 协议）服务可以直接在后端 CVM 获取来访者真实 IP 地址，无需进行额外的配置，下文介绍的均是7层（HTTP 协议）的负载均衡服务的相关内容。
-- 7层负载均衡系统提供 X-Forwarded-For 的方式获取访问者真实 IP，LB 侧默认开启，需要后端服务做相应配置来获取 client IP。
+## 负载均衡获取客户端真实 IP 的说明
+CLB 的四层（TCP/UDP/TCP SSL）和七层（HTTP/HTTPS）服务均支持直接在后端 CVM 上获取客户端真实 IP，无需进行额外配置。
+- 四层负载均衡，在后端 CVM 上获取的源 IP 即为客户端 IP。
+- 七层负载均衡，您可以通过 `X-Forwarded-For` 或 `remote_addr` 字段来直接获取客户端 IP。七层负载均衡的访问日志请参见 [配置访问日志到 CLS](https://cloud.tencent.com/document/product/214/41379)。 
+
+>?
+- 对于 CLB 来说，无需在后端 CVM 上做额外配置即可获取客户端 IP。
+- 对于其他做了 SNAT 的七层负载均衡服务，您需要在后端 CVM 上配置，然后使用 X-Forwarded-For 的方式获取客户端的真实 IP。
 
 下文将对常见的应用服务器配置方案进行介绍。
 
 ## IIS 6 配置方案
-1. 安装插件 F5XForwardedFor.dll，根据自己的服务器操作系统版本将`x86\Release`或者`x64\Release`目录下的`F5XForwardedFor.dll`拷贝到某个目录，这里假设为`C:\ISAPIFilters`，同时确保对 IIS 进程对该目录有读取权限。
+1. 下载与安装插件 [F5XForwardedFor](https://devcentral.f5.com/s/articles/x-forwarded-for-log-filter-for-windows-servers) 模块，根据自己的服务器操作系统版本将`x86\Release`或者`x64\Release`目录下的`F5XForwardedFor.dll`拷贝到某个目录，这里假设为`C:\ISAPIFilters`，同时确保对 IIS 进程对该目录有读取权限。
 2. 打开 IIS 管理器，找到当前开启的网站，在该网站上右键选择【属性】，打开属性页。
-3. 在属性页切换至【ISAPI筛选器】，单击【添加】，弹出添加窗口。
+3. 在属性页切换至【ISAPI 筛选器】，单击【添加】，弹出添加窗口。
 4. 在添加窗口“筛选器名称”中填写“F5XForwardedFor”，“可执行文件”填写`F5XForwardedFor.dll`的完整路径，单击【确定】。
 5. 重启 IIS 服务器，等待配置生效。
 
 ## IIS 7 配置方案
-1. 下载与安装插件 F5XForwardedFor 模块，根据自己的服务器操作系统版本将`x86\Release`或者`x64\Release`目录下的`F5XFFHttpModule.dll`和`F5XFFHttpModule.ini`拷贝到某个目录，这里假设为`C: \F5XForwardedFor`，确保对 IIS 进程对该目录有读取权限。
-2. 选择【IIS服务器】选项，选择【模块功能】。
-![](//mccdn.qcloud.com/static/img/9d7e43382b6b2bdf5753b67ccd248030/image.png)
-3. 双击【模块】功能，单击【配置本机模块】。
-![](//mccdn.qcloud.com/static/img/01620ccc1be3c03569b31dc8bbaa7d73/image.png)
+1. 下载与安装插件 [F5XForwardedFor](https://devcentral.f5.com/s/articles/x-forwarded-for-log-filter-for-windows-servers) 模块，根据自己的服务器操作系统版本将`x86\Release`或者`x64\Release`目录下的`F5XFFHttpModule.dll`和`F5XFFHttpModule.ini`拷贝到某个目录，这里假设为`C:\x_forwarded_for`，确保对 IIS 进程对该目录有读取权限。
+2. 选择【IIS服务器】，双击【模块】功能。
+![](https://main.qcloudimg.com/raw/fd26a3b2e4bfd1f31ee71c9821639213.png)
+3. 单击【配置本机模块】。
+![](https://main.qcloudimg.com/raw/72fa2e2bd9a5c83c852a2debc6877f8e.png)
 4. 在弹出框中单击【注册】。
-![](//mccdn.qcloud.com/static/img/27fd429c05788abbdc6e95adc215e39c/image.png)
+![](https://main.qcloudimg.com/raw/be262498b081c68205618671f4086cbf.png)
 5. 添加下载的 DLL 文件，如下图所示：
-![](//mccdn.qcloud.com/static/img/9e68ee04ef61c911a8dcc7caaf77b678/image.png)
+![](https://main.qcloudimg.com/raw/859107d872f77068ac9ce20f7732e184.png)
 6. 添加完成后，勾选并单击【确定】。
-![](//mccdn.qcloud.com/static/img/c9bf9c597d7c0b2538dade72ed10bd4e/image.png)
-7. 把这两个 DLL 在 “API 和CGI限制”进行添加，并改为允许。
-![](//mccdn.qcloud.com/static/img/bccab999282e71a49aeb144a4dc3c9ed/image.png)
+![](https://main.qcloudimg.com/raw/3b2548c3279d838f800a034397e2d1cf.png)
+7. 在 “ISAPI 和 CGI 限制”添加如上两个 DLL ，并将限制设置为允许。
+![](https://main.qcloudimg.com/raw/5fda5595af334605ffb1f4e76d152139.png)
 8. 重启 IIS 服务器，等待配置生效。
 
 ## Apache 配置方案
@@ -48,7 +54,7 @@ RPAFheader X-Forwarded-For
 ```
 
 ## Nginx 配置方案
-1. Nginx 作为负载均衡获取真实 IP 时使用 http_realip_module，默认安装的 Nginx 是没有安装这个模块的，需要重新编译 Nginx 增加 --with-http_realip_module。
+1. Nginx 作为服务器时，获取客户端真实 IP 使用 http_realip_module，默认安装的 Nginx 是没有安装这个模块的，需要重新编译 Nginx 增加 --with-http_realip_module。
 ```
 wget  http://nginx.org/download/nginx-1.14.0.tar.gz 
 tar  zxvf nginx-1.14.0.tar.gz 
@@ -73,7 +79,7 @@ fastcgi buffer_size 64k;
 fastcgi buffers 4 64k;
 fastcgi busy_buffers_size 128k;
 fastcgi temp_file_write_size 128k;
-<font color="red">
+<font color="#f2777a">
 set_real_ip_from IP地址;（这个IP地址首先不是负载均衡提供的公网IP，具体IP多少可以查看之前nginx日志，如果有多个都要写上。）
 real_ip_header X-Forwarded-For;
  </font>

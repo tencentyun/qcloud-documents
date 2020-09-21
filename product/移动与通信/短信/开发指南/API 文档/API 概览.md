@@ -1,3 +1,8 @@
+>?
+>- 当前页面接口为旧版 API，未来可能停止维护。短信 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 [短信 API 3.0](https://cloud.tencent.com/document/product/382/38763)。
+>- 如果您需要访问短信旧版 API，可继续阅读本章节内容。
+
+
 ## 短信 API 
 |API 名称	|描述| 
 |-----|------| 
@@ -8,36 +13,6 @@
 |[拉取短信状态](https://cloud.tencent.com/document/product/382/5810)	|拉取短信状态，例如下发状态、短信回复等| 
 |[拉取单个手机短信状态](https://cloud.tencent.com/document/product/382/5811)	|拉取单个手机的短信状态，例如下发状态、短信回复等| 
 
-
-## 语音 API 
-|API 名称	|描述| 
-|-----|------| 
-|[发送语音验证码](https://cloud.tencent.com/document/product/382/5812)	|给国内用户发语音验证码，支持英文字母、数字及组合| 
-|[发送语音通知](https://cloud.tencent.com/document/product/382/5813)	|给国内用户发语音通知，支持中文、英文字母、数字及组合，内容长度不超过100字| 
-|[指定模板发送语音通知](https://cloud.tencent.com/document/product/382/18155)	|给国内用户发送指定模板的语音通知| 
-|[语音验证码状态通知](https://cloud.tencent.com/document/product/382/5814)	|通过回调业务 URL 的方式，通知业务方语音验证码下发的状态| 
-|[语音通知状态通知](https://cloud.tencent.com/document/product/382/5816)	|通过回调业务 URL 的方式，通知业务方语音通知下发的状态| 
-|[语音通知按键通知](https://cloud.tencent.com/document/product/382/5815)	|可以通过回调业务 URL 的方式，通知业务方用户按下的键| 
-|[语音送达失败原因推送](https://cloud.tencent.com/document/product/382/6532)	|对语音验证码、语音通知下发失败的号码推送下发失败的原因| 
-
-
-
-
-## 模版 API
-|API 名称	|描述|
-|-----|------|
-|[添加短信模板](https://cloud.tencent.com/document/product/382/5817)	|添加短信模板 |
-|[修改短信模板](https://cloud.tencent.com/document/product/382/8649)	|修改短信模板 |
-|[删除短信模板](https://cloud.tencent.com/document/product/382/5818)	|删除短信模板 |
-|[短信模板状态查询](https://cloud.tencent.com/document/product/382/5819)	|查询申请的短信模板状态 |
-
-## 签名 API
-|API 名称	|描述|
-|-----|------|
-|[添加短信签名](https://cloud.tencent.com/document/product/382/6038)	|添加短信签名|
-|[修改短信签名](https://cloud.tencent.com/document/product/382/8650)	|修改指定短信签名 |
-|[删除短信签名](https://cloud.tencent.com/document/product/382/6039)	|删除指定短信签名 |
-|[短信签名状态查询](https://cloud.tencent.com/document/product/382/6040)	|查询申请的短信签名状态 |
 
 ## 统计 API
 |API 名称	|描述|
