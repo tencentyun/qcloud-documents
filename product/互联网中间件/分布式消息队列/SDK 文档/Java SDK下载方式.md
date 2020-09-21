@@ -60,73 +60,73 @@ java -version
 
 #### 3.1 添加私服配置
 
-找到 Maven 所使用的配置文件，一般在~/.m2/settings.xml中，在 settings.xml 中加入如下配置：
-
-     <profiles>
-          <profile>
-            <id>nexus</id>
-            <repositories>
-                <repository>
-                    <id>central</id>
-                    <url>http://repo1.maven.org/maven2</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                </repository>
-            </repositories>
-            <pluginRepositories>
-                <pluginRepository>
-                    <id>central</id>
-                    <url>http://repo1.maven.org/maven2</url>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                </pluginRepository>
-            </pluginRepositories>
-        </profile>
-        <profile>
-            <id>qcloud-repo</id>
-            <repositories>
-                <repository>
-                    <id>qcloud-central</id>
-                    <name>qcloud mirror central</name>
-                    <url>http://mirrors.cloud.tencent.com/nexus/repository/maven-public/</url>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                </repository>
-                </repositories>
-            <pluginRepositories>
-                <pluginRepository>
-                    <id>qcloud-plugin-central</id>
-                    <url>http://mirrors.cloud.tencent.com/nexus/repository/maven-public/</url>
-                    <snapshots>
-                        <enabled>true</enabled>
-                    </snapshots>
-                    <releases>
-                        <enabled>true</enabled>
-                    </releases>
-                </pluginRepository>
-            </pluginRepositories>
-        </profile>
-      </profiles>
+找到 Maven 所使用的配置文件，一般在 `~/.m2/settings.xml` 中，在 settings.xml 中加入如下配置：
+```
+<profiles>
+     <profile>
+       <id>nexus</id>
+       <repositories>
+           <repository>
+               <id>central</id>
+               <url>http://repo1.maven.org/maven2</url>
+               <releases>
+                   <enabled>true</enabled>
+               </releases>
+               <snapshots>
+                   <enabled>true</enabled>
+               </snapshots>
+           </repository>
+       </repositories>
+       <pluginRepositories>
+           <pluginRepository>
+               <id>central</id>
+               <url>http://repo1.maven.org/maven2</url>
+               <releases>
+                   <enabled>true</enabled>
+               </releases>
+               <snapshots>
+                   <enabled>true</enabled>
+               </snapshots>
+           </pluginRepository>
+       </pluginRepositories>
+   </profile>
+   <profile>
+       <id>qcloud-repo</id>
+       <repositories>
+           <repository>
+               <id>qcloud-central</id>
+               <name>qcloud mirror central</name>
+               <url>http://mirrors.cloud.tencent.com/nexus/repository/maven-public/</url>
+               <snapshots>
+                   <enabled>true</enabled>
+               </snapshots>
+               <releases>
+                   <enabled>true</enabled>
+               </releases>
+           </repository>
+           </repositories>
+       <pluginRepositories>
+           <pluginRepository>
+               <id>qcloud-plugin-central</id>
+               <url>http://mirrors.cloud.tencent.com/nexus/repository/maven-public/</url>
+               <snapshots>
+                   <enabled>true</enabled>
+               </snapshots>
+               <releases>
+                   <enabled>true</enabled>
+               </releases>
+           </pluginRepository>
+       </pluginRepositories>
+   </profile>
+ </profiles>
       
-      <activeProfiles>
-        <activeProfile>nexus</activeProfile>
-        <activeProfile>qcloud-repo</activeProfile>
-     </activeProfiles>
-    
+ <activeProfiles>
+   <activeProfile>nexus</activeProfile>
+   <activeProfile>qcloud-repo</activeProfile>
+</activeProfiles>
+```   
 
-setting.xml 样例文件下载>>  （鼠标右键另存为链接）
+[setting.xml 样例文件下载>>](https://main.qcloudimg.com/raw/0e3c73b64c4ec64ae9b16d1a347db462/settings.xml)（鼠标右键另存为链接）
 
 #### 3.2 验证配置是否成功
 
@@ -145,14 +145,13 @@ mvn help:effective-settings 。
 
 ## 安装 SDK
 
-1. 在您 Java 工程的 pom.xml 中添加以下依赖
+1. 在您 Java 工程的 pom.xml 中添加以下依赖：
 ```xml
     <dependency>
     		<groupId>com.tencent.tdmq</groupId>
     		<artifactId>tdmq-client</artifactId>
     		<version>2.6.0</version>
     </dependency>
- ``` 
-
-2. 在 pom.xml 所在目录执行mvn clean package即可下载 TDMQ SDK
+``` 
+2. 在 pom.xml 所在目录执行 `mvn clean package` 即可下载 TDMQ SDK。
 
