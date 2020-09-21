@@ -75,7 +75,7 @@ GET 请求的请求包大小不得超过32KB。POST 请求使用签名方法 v1�
 
 
 
-## GO API调用方式
+## GO API 调用方式
 
 腾讯云 API 会对每个请求进行身份验证，用户需要使用安全凭证，经过特定的步骤对请求进行签名（Signature），每个请求都需要在公共请求参数中指定该签名结果并以指定的方式和格式发送请求。
 
@@ -107,7 +107,7 @@ curl -X POST https://cvm.tencentcloudapi.com \
 ![](https://main.qcloudimg.com/raw/665e5334b0d5db156ef48a19072ba8bd.png)
 
 ### 步骤2：
-### 1. API 3.0 签名 V3 计算签名获取完成请求参数
+### 1. 获取 API 3.0 V3 版本签名
 签名方法 v3 （TC3-HMAC-SHA256）功能上覆盖了以前的签名方法 v1，而且更安全，支持更大的请求，支持 json 格式，性能有一定提升，推荐使用该签名方法计算签名。
 ![](https://main.qcloudimg.com/raw/f35b61c6b76765f4aae33e9b99673984.png)
 
@@ -345,7 +345,7 @@ func main() {
 }
 ```
 
-###  
+
 ### 2. 获取 API 3.0 V1 版本签名
 
 签名方法 v1 简单易用，但是功能和安全性都不如签名方法 v3，推荐使用签名方法 v3。

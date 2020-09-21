@@ -7,7 +7,7 @@
 
 ## 前提条件
 
-- 已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于8.6版本，建议使用 Node.js10.0 及以上版本）
+- 已安装 [Node.js](https://nodejs.org/en/)（**2020年9月1日起，Serverless 组件不再支持 Node.js10.0 以下版本，请注意升级**）
 - 已开通 [OCR 通用文字识别](https://cloud.tencent.com/product/generalocr) 服务
 
 ## 操作步骤
@@ -41,7 +41,7 @@ Components: 2.31.6
 1.新建一个本地文件夹，使用`serverless init`命令，下载相关 template。
 
 ```console
-$ serverless init -t ocr-app
+$ serverless init ocr-app
 ```
 
 2.在模版中找到 `.env.example` 文件，并改名为 `.env` ，在里面输入您的账户、密钥信息和指定存储桶（此存储桶用于存放上传的图像）。

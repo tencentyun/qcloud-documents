@@ -104,8 +104,8 @@ Elasticsearch 版本升级，需要先进行升级检查、数据备份两个步
   - 若升级过程涉及 ES 集群用户登录认证从关闭到开启，集群需要全量重启，期间集群会停服，服务不可访问，升级完成后才能正常访问，请谨慎选择。
 
 ## 集群升级操作步骤
-1. 登录 [ES 控制台](https://console.cloud.tencent.com/es)，进入集群详情页，单击右上角【升级】。
-![升级入口](https://main.qcloudimg.com/raw/0d3f4b08ac55363e3a023916e3509976.png)
+1. 登录 [ES 控制台](https://console.cloud.tencent.com/es)，进入集群详情页，单击右上角【更多操作】>【升级】。
+![](https://main.qcloudimg.com/raw/a4afeb7d567b32af6f5ba8bf00be4330.png)
 2. 在升级对话框中可以选择升级 Elasticsearch 版本或选择升级高级特性。
 
 ### 升级 Elasticsearch 版本
@@ -129,9 +129,7 @@ Elasticsearch 版本升级，需要先进行升级检查、数据备份两个步
 >- 升级到不同的版本，过程有所不同，具体如下：
 >  - 若升级过程不涉及 ES 集群用户登录认证从关闭到开启，集群需要滚动重启，期间服务访问会受短暂影响，请在服务访问量不大时进行操作。
 >  - 若升级过程涉及 ES 集群用户登录认证从关闭到开启，集群需要全量重启，期间集群会停服，服务不可访问，请谨慎选择。
->  
- 
- ![](https://main.qcloudimg.com/raw/1a75705e3891819ee9c1caca4afcfa43.png)
-
+> 
+![](https://main.qcloudimg.com/raw/1a75705e3891819ee9c1caca4afcfa43.png)
 4. 开始升级后，可以在集群详情页的【集群变更记录】中查看升级进度。
-    ![](https://main.qcloudimg.com/raw/541878aa568db9d88b1fc6fce5b01127.png)
+![](https://main.qcloudimg.com/raw/31f085cebd14f7fa7c3252da1495f48f.png)

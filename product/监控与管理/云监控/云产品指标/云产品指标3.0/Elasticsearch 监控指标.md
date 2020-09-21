@@ -9,8 +9,10 @@ Namespace=QCE/CES
 | Status                             | 集群健康状态               | ES 集群在统计周期内的最新值                               | 集群健康状态:0:Green,1:Yellow,2:Red  | -       | uInstanceId | 60s、300s          |
 | DiskUsageAvg                       | 平均磁盘使用率             | ES 集群在统计周期内各节点磁盘使用率的平均值               | ES 集群各节点磁盘使用率的平均值      | %       | uInstanceId | 60s、300s          |
 | DiskUsageMax                       | 最大磁盘使用率             | ES 集群在统计周期内各节点磁盘使用率的最大值               | ES 集群各节点磁盘使用率的最大值       | %       | uInstanceId | 60s、300s          |
-| JvmMemUsageAvg                     | 平均JVM内存使用率          | ES 集群在统计周期内各节点 JVM 内存使用率的平均值            | ES 集群各节点 JVM 内存使用率的平均值    | %       | uInstanceId | 60s、300s          |
+| JvmMemUsageAvg                     | 平均 JVM 内存使用率          | ES 集群在统计周期内各节点 JVM 内存使用率的平均值            | ES 集群各节点 JVM 内存使用率的平均值    | %       | uInstanceId | 60s、300s          |
 | JvmMemUsageMax                     | 最大 JVM 内存使用率          | ES 集群在统计周期内各节点 JVM 内存使用率的最大值            | ES 集群各节点 JVM 内存使用率的最大值    | %       | uInstanceId | 60s、300s          |
+| JvmOldMemUsageAvg | 平均 JVM old 区内存使用率 |ES 集群在统计周期内各节点 JVM old 区内存使用率的平均值 | ES 集群各节点 JVM old 区的平均内存使用率 | %        | uInstanceId | 60s、300s          |
+| JvmOldMemUsageMax | 最大 JVM old 区内存使用率 | ES 集群在统计周期内各节点 JVM old 区内存使用率的最大值 | ES 集群各节点 JVM old 区的最大内存使用率 | %        | uInstanceId | 60s、300s          |
 | CpuUsageAvg                        | 平均 CPU 使用率              | ES 集群在统计周期内各节点 CPU 使用率的平均值                | ES集群各节点 CPU使用率的平均值        | %       | uInstanceId | 60s、300s          |
 | CpuUsageMax                        | 最大 CPU 使用率              | ES 集群在统计周期内各节点 CPU 使用率的最大值                | ES集群各节点 CPU使用率的最大值        | %       | uInstanceId | 60s、300s          |
 | CpuLoad1minAvg                     | 集群1分钟 CPU 平均负载       | ES 集群在统计周期内各节点1分钟 CPU 负载的平均值             | ES集群各节点 CPU 1分钟CPU负载的平均值 | -       | uInstanceId | 60s、300s          |

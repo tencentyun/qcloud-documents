@@ -74,7 +74,14 @@ TUIKit.login(userID, userSig, new IUIKitCallBack() {
 </table>
 
 - 当用户**在线**收到通话邀请时，TUIKit 会自动展示通话接收 UI，用户可以选择同意或则拒绝通话。
-- 当用户**离线**收到通话邀请时，是没法感知的，通话邀请目前暂不支持离线推送能力。
+- 当用户**离线**收到通话邀请时，如需唤起 App 通话，就要使用到离线推送能力，离线推送的实现请参考 [步骤7](#Step7)。
+
+## 步骤7：离线推送<span id="Step7"></span>
+实现音视频通话的离线推送能力，请参考以下几个步骤：
+1. 配置 App 的 [离线推送](https://cloud.tencent.com/document/product/269/44516)。
+2. 升级 TUIKit 到4.9.1以上版本。
+3. 通过 TUIKit 发起通话邀请的时候，默认会生成一条离线推送消息，消息生成的具体逻辑请参考 [TRTCAVCallImpl.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit/src/main/java/com/tencent/liteav/model/TRTCAVCallImpl.java) 类里面的 `sendOnlineMessageWithOfflinePushInfo` 方法。
+4. 接收通话的一方，在收到离线推送的消息时，请参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类里面 `redirect` 方法唤起通话界面。
 
 ## 常见问题
 ### 1. 若已分别创建实时音视频 SDKAppID 和即时通信 SDKAppID，现需要同时集成 IM SDK 和 TRTC SDK，需要注意什么?

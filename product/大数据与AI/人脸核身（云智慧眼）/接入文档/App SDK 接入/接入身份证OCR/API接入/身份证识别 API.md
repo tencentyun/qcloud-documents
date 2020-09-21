@@ -32,7 +32,7 @@
 |address	| String	| 身份证识别结果：地址<br>如果用户没有正确上传人像面，则没有该字段|
 |authority	| String	| 身份证识别结果：签发机关<br>如果用户没有正确上传国徽面，则没有该字段|
 |validDate	| String	| 身份证识别结果：有效日期<br>如果用户没有正确上传国徽面，则没有该字段|
-|multiWarning	| String	| 正面多重告警码，详情请参见 [错误码](https://cloud.tencent.com/document/product/1007/31082)|
+|multiWarning	| String	| 正面多重告警码，详情请参见 [身份证 OCR 错误码](https://cloud.tencent.com/document/product/1007/47902)|
 |clarity	| String	| 图片清晰度|
 
 **响应示例：**

@@ -30,9 +30,15 @@ TUIKit 组件在 4.8.50 版本之后基于 [TRTC](https://cloud.tencent.com/docu
 pod 'TXIMSDK_TUIKit_iOS'                 // 默认集成了 TXLiteAVSDK_TRTC 音视频库
 // pod 'TXIMSDK_TUIKit_iOS_Professional' // 默认集成了 TXLiteAVSDK_Professional 音视频库
 ```
+腾讯云的 [音视频库](https://cloud.tencent.com/document/product/647/32689) 不能同时集成，会有符号冲突，如果您使用了非 [TRTC](https://cloud.tencent.com/document/product/647/32689#TRTC) 版本的音视频库，建议先去掉，然后 pod 集成 `TXIMSDK_TUIKit_iOS_Professional` 版本，该版本依赖的 [LiteAV_Professional](https://cloud.tencent.com/document/product/647/32689#.E4.B8.93.E4.B8.9A.E7.89.88.EF.BC.88professional.EF.BC.89) 音视频库包含了音视频的所有基础能力。
+
 2. 执行以下命令，下载第三方库至当前工程。
 ```
 pod install
+```
+ 如果无法安装 TUIKit 最新版本，执行以下命令更新本地的 CocoaPods 仓库列表。
+```
+ pod repo update
 ```
 
 
@@ -59,7 +65,7 @@ pod install
 
 <img style="width:180px" src="https://main.qcloudimg.com/raw/17698afaedf9ba86045c03ef85159bec.png"  /> 
 
-当用户点击聊天界面的视频通话或则语音通话时，TUIKit 会自动展示通话邀请 UI，并给对方发起通话邀请请求。
+当用户点击聊天界面的视频通话或者语音通话时，TUIKit 会自动展示通话邀请 UI，并给对方发起通话邀请请求。
 
 ## 步骤6：接受视频或语音通话
 
@@ -74,8 +80,16 @@ pod install
 	 </tr>
 </table>
 
-- 当用户**在线**收到通话邀请时，TUIKit 会自动展示通话接收 UI，用户可以选择同意或则拒绝通话。
-- 当用户**离线**收到通话邀请时，是没法感知的，通话邀请目前暂不支持离线推送能力。
+- 当用户**在线**收到通话邀请时，TUIKit 会自动展示通话接收 UI，用户可以选择同意或者拒绝通话。
+- 当用户**离线**收到通话邀请时，如需唤起 App 通话，就要使用到离线推送能力，离线推送的实现请参考步骤7。
+
+## 步骤7：离线推送
+实现音视频通话的离线推送能力，请参考以下几个步骤：
+1. 配置 App 的 [离线推送](https://cloud.tencent.com/document/product/269/44517)。
+2. 升级 TUIKit  到4.9.1以上版本。
+3. 通过 TUIKit 发起通话邀请成功的时候，默认会生成一条离线推送消息，消息生成的具体逻辑请参考 `TUICall+Signal.m` 类里面的 `sendAPNsForCall` 函数。
+3. 接收通话的一方，在收到离线推送的消息时，请参考 [AppDelegate](https://github.com/tencentyun/TIMSDK/blob/master/iOS/TUIKitDemo/TUIKitDemo/AppDelegate.m) 源码在系统 `didReceiveRemoteNotification` 回调唤起通话界面。
+
 
 ## 常见问题
 ### 1. 若已分别创建实时音视频 SDKAppID 和即时通信 SDKAppID，现需要同时集成 IM SDK 和 TRTC SDK，需要注意什么?
@@ -100,3 +114,8 @@ pod install
 ### 3. 在邀请超时时间内，被邀请者如果离线再上线，能否收到邀请？
 - 如果是单聊通话邀请，被邀请者离线再上线可以收到通话邀请。
 - 如果是群聊通话邀请，被邀请者离线再上线不能收到通话邀请。
+
+### 4. TUIkit 和自己集成的音视频库冲突了？
+腾讯云的 [音视频库](https://cloud.tencent.com/document/product/647/32689) 不能同时集成，会有符号冲突，如果您使用了非 [TRTC](https://cloud.tencent.com/document/product/647/32689#TRTC) 版本的音视频库，建议先去掉，然后 pod 集成 `TXIMSDK_TUIKit_iOS_Professional` 版本，该版本依赖的 [LiteAV_Professional](https://cloud.tencent.com/document/product/647/32689#.E4.B8.93.E4.B8.9A.E7.89.88.EF.BC.88professional.EF.BC.89) 音视频库包含了音视频的所有基础能力。
+**如果您使用了 [LiteAV_Enterprise](https://cloud.tencent.com/document/product/647/32689#Enterprise) 音视频库，暂不支持和 TUIKit 共存。**
+

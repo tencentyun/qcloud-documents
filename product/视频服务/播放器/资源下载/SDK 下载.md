@@ -7,8 +7,8 @@
   </tr>
   <tr align="center">
      <td>版本</td>
-        <td style="text-align:center">SDK（7.4.9211） @ 2020-07-03</td>
-        <td style="text-align:center">SDK（7.4.9211） @ 2020-07-03</td>
+        <td style="text-align:center">SDK（7.7.9458）@ 2020.09.08</td>
+        <td style="text-align:center">SDK（7.7.9457）@ 2020.09.08</td>
   </tr>
   <tr align="center">
     <td>小窗播放</td>
@@ -117,3 +117,6 @@
     s.parentNode.insertBefore(mta, s);
   })();
 </script>
+
+
+
