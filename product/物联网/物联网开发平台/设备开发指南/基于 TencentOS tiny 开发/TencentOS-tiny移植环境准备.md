@@ -1,13 +1,13 @@
 
 本文为您介绍 TencentOS tiny 接入腾讯物联网开发平台相关的准备工作。 
- ##   准备目标硬件（开发板/芯片/模组）
+ ##   步骤一：准备目标硬件（开发板/芯片/模组）
 
 TencentOS tiny 目前主要支持 ARM Cortex M 核芯片的移植，例如 STM32、NXP 芯片支持 Cortex M 核全系列。本教程将使用 TencentOS tiny 官方开发板 EVB_MX_Plus 演示如何移植，其他 ARM Cortex M 系列开发板和芯片移植方法类似。
 
 调试 ARM Cortex M 核还需要仿真器， 由于 EVB_MX_Plus 开发板没有板载 ST-Link 调试器，需要连接外置的仿真器，例如 J-Link、U-Link 等，本教程中使用 ST-Link。
 
 
-##   准备编译器环境
+##    步骤二：准备编译器环境
 
 TencentOS tiny 支持 Keil MDK、IAR、Gcc 三种开发环境，本文中以 Keil MDK 作为开发环境。
 1. 移植内核前需要先安装能编译 ARM Cortex M 核的 Keil 编译器（Keil 编译器别名也称为 MDK），可下载 [最新版本5.31](https://www.keil.com/demo/eval/arm.htm) 进行使用。
@@ -17,7 +17,7 @@ TencentOS tiny 支持 Keil MDK、IAR、Gcc 三种开发环境，本文中以 Kei
 >?您只需根据您的芯片型号，下载对应的 PACK 包即可，同时您也可以在 MDK 集成开发环境中进行在线下载安装。
 
 
-##  准备芯片对应的裸机工程
+##   步骤三：准备芯片对应的裸机工程
 
 移植 TencentOS tiny 基础内核需要您提前准备一个芯片对应的裸机工程，裸机工程包含基本的芯片启动文件、基础配置（时钟、主频等）、以及串口和基本 GPIO 驱动，用于进行 RTOS 测试。
 
@@ -92,7 +92,7 @@ EVB_MX_Plus 开发板板载四个按键，其中 KEY1 连接在 PB12，相关配
 编译工程下载之后，EVB_MX_Plus 开发板的裸机工程生成完成，该工程可直接编译并烧写在开发板上运行。
      
 
-##   准备 TencentOS tiny 的源码
+##    步骤四：准备 TencentOS tiny 的源码
 
 TencentOS tiny 的源码已经开源，可从[ GitHub](https://github.com/Tencent/TencentOS-tiny) 文件库中下载使用。
 >?由于下一步骤只介绍 TencentOS tiny 的内核移植，所以这里只需要用到 arch、board、kernel、osal 四个目录下的源码。
@@ -157,5 +157,5 @@ TencentOS tiny 的源码已经开源，可从[ GitHub](https://github.com/Tencen
 </tr>
 </tbody></table>
 
-## 下一步操作
-请前往 [步骤二：内核移植](https://cloud.tencent.com/document/product/1081/47956) 进行内核移植操作。
+##  步骤五：下一步操作
+请前往 [内核移植](https://cloud.tencent.com/document/product/1081/47956) 进行内核移植操作。

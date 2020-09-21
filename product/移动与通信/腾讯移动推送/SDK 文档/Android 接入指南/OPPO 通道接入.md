@@ -43,8 +43,18 @@ implementation 'com.tencent.tpns:oppo:[VERSION]-release'//OPPO 推送 [VERSION] 
 #### Eclipes 集成方法
 获取移动推送 TPNS  OPPO 通道 SDK 包后，按照移动推送 TPNS 官网手动集成方法，在配置好移动推送 TPNS 主版本的基础下，进行以下设置。
 
-1. 导入 OPPO 推送相关 jar 包，将 oppo4tpns1.1.2.1.jar 导入项目工程中。
-2. 在`Androidmanifest.xml`文件中新增如下配置（二选一）：
+1. 打开 Other-push-jar 文件夹，将 OPPO 推送相关 jar 导入项目工程中。
+2. 在主工程添加类资源文件，代码如下：
+```java
+package com.heytap.mcssdk;
+class R {
+    public static final class string {
+        public static final int system_default_channel = 
+	com.tencent.android.tpns.demo.R.string.oppo_system_default_channel;//可更改为自定义字符串资源ID
+    }
+}
+```
+3. 在 `Androidmanifest.xml` 文件中新增如下配置（二选一）：
  - TPNS Android SDK 1.2.0.2以前的版本使用以下配置：
 ```
 <!--OPPO 推送服务必须权限-->

@@ -14,7 +14,7 @@
 
 * [静态网站托管](https://docs.cloudbase.net/api-reference/manager/node/hosting.html)
 
-* [云接入](https://docs.cloudbase.net/api-reference/manager/node/access.html)
+* [HTTP 访问服务](https://docs.cloudbase.net/api-reference/manager/node/access.html)
 
 * [安全规则](https://docs.cloudbase.net/api-reference/manager/node/rule.html)
 

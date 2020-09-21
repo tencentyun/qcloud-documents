@@ -1,11 +1,11 @@
 
-面向使用 Java 语言的设备，平台提供 Java SDK 实现接入腾讯云物联网开发平台。
+面向使用 Java 语言的设备，平台提供 Java SDK 实现接入腾讯云 IoT Explorer。
 
 ## SDK 获取
 
 SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [explorer-device-java](https://github.com/tencentyun/iot-device-java/tree/master/explorer-device-java)。
 
-如果您想通过 jar 引用方式进行项目开发，可在 module 目录下的 build.gradle 中添加依赖，如下依赖：
+如果您需要通过 jar 引用方式进行项目开发，可在 module 目录下的 build.gradle 中添加依赖，如下依赖：
 
 ```
 dependencies {
@@ -24,6 +24,7 @@ dependencies {
 | TXGatewayClient      | 实现网关设备根据数据模板连接物联网开发平台   |
 | TXGatewaySubdev      | 实现网关子设备根据数据模板连接物联网开发平台 |
 
+腾讯云 IoT Explorer Java SDK 架构图如下：
 <img src="https://main.qcloudimg.com/raw/0b10d226a5465bc7da5ef9429552233e.png" width="90%">
 
 ## SDK API 说明

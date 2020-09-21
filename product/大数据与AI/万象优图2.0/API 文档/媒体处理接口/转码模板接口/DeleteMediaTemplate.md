@@ -1,6 +1,6 @@
 ## 功能描述
 
-Delete Template 用于删除转码模板。
+DeleteMediaTemplate 用于删除转码模板。
 
 ## 请求
 
@@ -21,11 +21,7 @@ Content-Type: application/xml
 
 #### 请求头
 
-**公共头部**
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
-
-**非公共头部**
-该请求操作无特殊的请求头部信息。
 
 #### 请求体
 
@@ -35,11 +31,7 @@ Content-Type: application/xml
 
 #### 响应头
 
-**公共响应头**
 此接口仅返回公共响应头部，详情请参见 [公共响应头部]( https://cloud.tencent.com/document/product/460/42866) 文档。
-
-**特有响应头**
-该响应无特殊的响应头。
 
 #### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
@@ -74,7 +66,7 @@ Container 节点 Response 的内容：
 
 ```shell
 DELETE /template/A HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
 Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 0
 Content-Type: application/xml
@@ -90,10 +82,10 @@ Content-Length: 100
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
 
 <Response>
-    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=</RequestId>
+    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzh****=</RequestId>
     <TemplateId>A</TemplateId>
 <Response>
 ```
