@@ -71,13 +71,13 @@
 
 1. 单击 **New Panel** 面板的 【Add Query】，进入 Panel 配置页面。在左侧第一个【Queries】选项卡，通过配置选项获取腾讯云 CVM 云服务器的监控数据。
 2. 【Queries to】数据源列表，选择已配置的包含 CVM 监控服务的腾讯云监控数据源。
-3. 配置项的内容对齐腾讯云服务器监控接口的输入参数，可参见 [拉取监控数据接口](https://cloud.tencent.com/document/product/248/31014)、 [云服务器监控指标](https://cloud.tencent.com/document/product/248/6843)，更好地理解各配置项。
+3. 配置项的内容对齐腾讯云服务器监控接口的输入参数，可参见 [拉取监控数据接口](https://cloud.tencent.com/document/product/248/31014)、 [云服务器监控指标](https://cloud.tencent.com/document/product/248/6843) 文档。了解各配置项的详细说明。
    - **Namespace**：命名空间，云服务器监控的命名空间为 **QCE/CVM**。
    - **Region**：地域，地域列表会根据 **Namespace** 选项自动获取，单击选择某一地域。
    - **MetricName**：指标名称，指标列表会根据 **Namespace** 和 **Region** 选项自动获取，单击选择某一指标。
    - **Period**：监控统计周期，周期列表会根据 **MetricName** 选项自动获取，单击选择某一统计周期。
    - **Instance**：实例，对应输入参数的 **Instances.N** 字段，实例列表会自动获取。
-     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 **As InstanceId**，以 **实例ID** 展示实例列表。此外，可以选择 **As InstanceName** 实例名称、**As PrivateIpAddress** 主网卡的内网IP、 **As PublicIpAddress** 主网卡的公网IP。
+     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 **As InstanceId**，以**实例 ID** 展示实例列表。此外，可以选择 **As InstanceName** 实例名称、**As PrivateIpAddress** 主网卡的内网 IP、 **As PublicIpAddress** 主网卡的公网IP。
      - 可实例列表的获取可参考 [云服务器查询实例列表接口文档](https://cloud.tencent.com/document/api/213/15728)。切换 **Show Details** 为 **true**，可展示实例请求参数，默认参数为 **Offset = 0**和 **Limit = 20**。如果需要变更实例查询条件，可参考接口文档，配置相应参数。
      >!在本应用中，监控数据的单次查询为原子操作，即查询某一实例的某一指标的监控数据，故实例只能单选，如需查询多实例的监控数据，可单击右上角的【Add Query】增加新的查询。  
      
@@ -101,16 +101,16 @@
 
 ## 模板变量
 
-模板变量 [Variables](https://grafana.com/docs/reference/templating/) 是 Grafana 提供的一种 Dashboard 优化特性，用于创建高度可复用和交互式 Dashboard。模板变量的一般思想是允许 Grafana 从数据源获得不同的度量，并提供一种无需修改仪表板就可以动态更改它的方法。腾讯云监控应用目前提供了地域、云服务器实例、云数据库 MySQL 实例 等变量。已经提供的模板变量如下表所示：  
+模板变量 [Variables](https://grafana.com/docs/reference/templating/) 是 Grafana 提供的一种 Dashboard 优化特性，用于创建高度可复用和交互式 Dashboard。模板变量允许 Grafana 从数据源获得不同的度量，并提供一种无需修改仪表板就可以动态更改它的方法。腾讯云监控应用目前提供了地域、云服务器实例、云数据库 MySQL 实例等变量。已经提供的模板变量如下表所示：  
 
 | 变量    | 示例   | 描述 |   
 | ------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | 
-| 地域                      | Namespace=QCE/CVM&Action=DescribeRegions                     | 参考 [地域接口文档](https://cloud.tencent.com/document/api/213/15708)。<br><li>`Action` 固定为 `DescribeRegions`<br><li>`Namespace` 为云产品对应的命名空间，例如 `QCE/CVM` `QCE/CDB`等<br><li>地区作为变量模板，只支持单选，例如设置成多选或者选中 `All`, 默认选中第一个地区值 |      
-| 云服务器实例              | Namespace=QCE/CVM&Region=ap-beijing&Action=DescribeInstances&Instance<br>Alias=PublicIpAddresses | 参考 [云服务器查询实例列表接口文档](https://cloud.tencent.com/document/api/213/15728)。<br><li>`Namespace` 固定为`QCE/CVM`<br><li>`Action` 固定为`DescribeInstances`<br><li>`Region` 为地域参数，可以为特定的地域值，例如 `ap-beijing`；也可以为变量值，例如 `$region`<br><li>`InstanceAlias` 为实例的展示字段，默认为 `InstanceId`，可选值为 `InstanceName`、`PrivateIpAddresses`、`PublicIpAddresses`<br><li>云服务器实例作为模板变量，同时支持单选和多选 |      
-| 云数据库 MySQL 实例       | Namespace=QCE/CDB&Region=ap-beijing&Action=DescribeInstances&Instance<br>Alias=InstanceId | 参考 [云数据库MySQL查询实例列表接口文档](https://cloud.tencent.com/document/api/236/15872)。<br><li>`Namespace` 固定为`QCE/CDB`<br><li>`Action` 固定为`DescribeInstances`<br><li>`Region` 为地域参数，可以为特定的地域值，例如 `ap-beijing`；也可以为变量值，例如 `$region`<br><li>`InstanceAlias` 为实例的展示字段，默认为 `InstanceId`，可选值为 `InstanceName`、`Vip`<br><li>云数据库实例作为模板变量，同时支持单选和多选 |      
-| 云数据库 PostgreSQL 实例  | Namespace=QCE/POSTGRES&Region=ap-beijing&Action=DescribeInstances&Instance<br>Alias=DBInstanceId | 参考 [云数据库PostgreSQL查询实例列表接口文档](https://cloud.tencent.com/document/api/409/16773)。<br><li>`Namespace` 固定为`QCE/CDB`<br><li>`Action` 固定为`DescribeInstances`<br><li>`Region` 为地域参数，可以为特定的地域值，例如 `ap-beijing`；也可以为变量值，例如 `$region`<br><li>`InstanceAlias` 为实例的展示字段，默认为 `DBInstanceId`，可选值为 `DBInstanceName`，`PrivateIpAddresses`， `PublicIpAddresses`<br><li>云数据库实例作为模板变量，同时支持单选和多选 |      
-| 私有网络 NateGateway 实例 | Namespace=QCE/NAT_GATEWAY&Region=ap-beijing&Action=DescribeInstances&Instance<br>Alias=NatGatewayId | 参考 [私有网络Nat网关查询实例列表接口文档](https://cloud.tencent.com/document/api/215/4088)。<br><li>`Namespace` 固定为`QCE/NAT_GATEWAY`<br><li>`Action` 固定为`DescribeInstances`<br><li>`Region` 为地域参数，可以为特定的地域值，例如 `ap-beijing`；也可以为变量值，例如 `$region`<br><li>`InstanceAlias` 为实例的展示字段，默认为 `NatGatewayId`，可选值为 `NatGatewayName`<br><li>NateGateway 网关实例作为模板变量，同时支持单选和多选 |      
-| 私有网络对等连接实例      | Namespace=QCE/PCX&Region=ap-beijing&Action=DescribeInstances&Instance<br>Alias=peeringConnectionId | 参考 [私有网络对等连接查询实例列表接口文档](https://cloud.tencent.com/document/api/215/2101)。<br><li>`Namespace` 固定为`QCE/PCX`<br><li>`Action` 固定为`DescribeInstances`<br><li>`Region` 为地域参数，可以为特定的地域值，例如 `ap-beijing`；也可以为变量值，例如 `$region`<br><li>`InstanceAlias` 为实例的展示字段，默认为 `peeringConnectionId`，可选值为 `peeringConnectionName`<br><li>对等连接实例作为模板变量，同时支持单选和多选 |      
+| 地域                      | Namespace=QCE/CVM&Action=DescribeRegions                     | 参考 [地域接口文档](https://cloud.tencent.com/document/api/213/15708)<br><li>`Action` 固定为 `DescribeRegions`<br><li>`Namespace` 为云产品对应的命名空间，例如 `QCE/CVM` `QCE/CDB`等<br><li>地区作为变量模板，只支持单选，例如设置成多选或者选中 `All`, 默认选中第一个地区值 |      
+| 云服务器实例              | Namespace=QCE/CVM&Region=ap-beijing&Action=DescribeInstances&Instance<br>Alias=PublicIpAddresses | 参考 [云服务器查询实例列表接口文档](https://cloud.tencent.com/document/api/213/15728)<br><li>`Namespace` 固定为`QCE/CVM`<br><li>`Action` 固定为`DescribeInstances`<br><li>`Region` 为地域参数，可以为特定的地域值，例如 `ap-beijing`；也可以为变量值，例如 `$region`<br><li>`InstanceAlias` 为实例的展示字段，默认为 `InstanceId`，可选值为 `InstanceName`、`PrivateIpAddresses`、`PublicIpAddresses`<br><li>云服务器实例作为模板变量，同时支持单选和多选 |      
+| 云数据库 MySQL 实例       | Namespace=QCE/CDB&Region=ap-beijing&Action=DescribeInstances&Instance<br>Alias=InstanceId | 参考 [云数据库MySQL查询实例列表接口文档](https://cloud.tencent.com/document/api/236/15872)<br><li>`Namespace` 固定为`QCE/CDB`<br><li>`Action` 固定为`DescribeInstances`<br><li>`Region` 为地域参数，可以为特定的地域值，例如 `ap-beijing`；也可以为变量值，例如 `$region`<br><li>`InstanceAlias` 为实例的展示字段，默认为 `InstanceId`，可选值为 `InstanceName`、`Vip`<br><li>云数据库实例作为模板变量，同时支持单选和多选 |      
+| 云数据库 PostgreSQL 实例  | Namespace=QCE/POSTGRES&Region=ap-beijing&Action=DescribeInstances&Instance<br>Alias=DBInstanceId | 参考 [云数据库PostgreSQL查询实例列表接口文档](https://cloud.tencent.com/document/api/409/16773)<br><li>`Namespace` 固定为`QCE/CDB`<br><li>`Action` 固定为`DescribeInstances`<br><li>`Region` 为地域参数，可以为特定的地域值，例如 `ap-beijing`；也可以为变量值，例如 `$region`<br><li>`InstanceAlias` 为实例的展示字段，默认为 `DBInstanceId`，可选值为 `DBInstanceName`，`PrivateIpAddresses`， `PublicIpAddresses`<br><li>云数据库实例作为模板变量，同时支持单选和多选 |      
+| 私有网络 NateGateway 实例 | Namespace=QCE/NAT_GATEWAY&Region=ap-beijing&Action=DescribeInstances&Instance<br>Alias=NatGatewayId | 参考 [私有网络 Nat 网关查询实例列表接口文档](https://cloud.tencent.com/document/api/215/4088)<br><li>`Namespace` 固定为`QCE/NAT_GATEWAY`<br><li>`Action` 固定为`DescribeInstances`<br><li>`Region` 为地域参数，可以为特定的地域值，例如 `ap-beijing`；也可以为变量值，例如 `$region`<br><li>`InstanceAlias` 为实例的展示字段，默认为 `NatGatewayId`，可选值为 `NatGatewayName`<br><li>NateGateway 网关实例作为模板变量，同时支持单选和多选 |      
+| 私有网络对等连接实例      | Namespace=QCE/PCX&Region=ap-beijing&Action=DescribeInstances&Instance<br>Alias=peeringConnectionId | 参考 [私有网络对等连接查询实例列表接口文档](https://cloud.tencent.com/document/api/215/2101)<br><li>`Namespace` 固定为`QCE/PCX`<br><li>`Action` 固定为`DescribeInstances`<br><li>`Region` 为地域参数，可以为特定的地域值，例如 `ap-beijing`；也可以为变量值，例如 `$region`<br><li>`InstanceAlias` 为实例的展示字段，默认为 `peeringConnectionId`，可选值为 `peeringConnectionName`<br><li>对等连接实例作为模板变量，同时支持单选和多选 |      
 
 
 
