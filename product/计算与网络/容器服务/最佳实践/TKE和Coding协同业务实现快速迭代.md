@@ -70,10 +70,13 @@ Coding 是实现 CICD 流程的工具。Coding 提供整套的研发流程管理
 ![](https://main.qcloudimg.com/raw/ee0f237acf7d50d9a4d2ed78f95769f0.png)
 6. 在“选择项目模板”步骤中，单击 “DevOps 项目”进入下一页。
 7. 在“填写项目基本信息”步骤中，自定义设置项目基本信息。本次创建项目名称以 coding-test 为例。如下图所示：
-![](https://main.qcloudimg.com/raw/ca8dbe943869a5c5cd590bb37fc42e1c.png)
-8. 单击【完成创建】即可创建项目。
-    使用 DevOps 项目模板成功创建项目之后，系统将会自动创建一个属于同名代码仓库。如下图所示：
-![git.png](https://main.qcloudimg.com/raw/fbfd9e041d60a5750873549c5157bf28/7%20nj89f8dagt.png)
+![](https://main.qcloudimg.com/raw/e4838a93eb724a1dc865ef408db55e9a.png)
+8. 单击【完成创建】即可创建项目，项目创建完成即跳转至该项目概览页。
+9. 单击该概览页左侧导航栏中【代码仓库】，进入代码仓库详情页。如下图所示：
+![](https://main.qcloudimg.com/raw/67d2b83d9ab4e8400505b8d1dc22d8bc.png)
+10. 单击【新建代码仓库】，在“新建代码仓库”页面自定义设置仓库基本信息。本次创建代码仓库名称以 coding-test 为例。如下图所示：
+![](https://main.qcloudimg.com/raw/2fc4fee7e595b8c88def7a66c9ee7678.png)
+11. 单击【确定】即可。
 
 ### 创建制品库
 软件制品是指由源码编译打包生成的二进制文件，不同的开发语言对应着不同格式的二进制文件，通常可以直接在服务器运行。
