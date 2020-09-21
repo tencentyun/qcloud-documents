@@ -13,11 +13,11 @@
 
 >?更多云产品的监控指标数据源在陆续完善中。
 
-## 操作步骤
+
 
 >? 腾讯云监控应用插件运行在 Grafana 6.0或更新的版本上，请先安装 Grafana 环境，详情请参见 [Grafana 安装文档](https://grafana.com/docs/grafana/latest/installation/)。
 
-## 基于源码的插件安装
+## 步骤1：基于源码的插件安装
 
 1. 确保本地的 Grafana 是 6.0版本或更新的版本。
 2. 下载最新版本的 [腾讯云监控应用插件代码](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app)，并将解压后的代码放置在 Grafana 的 `${GRAFANA_HOME}/data/plugins` 目录。
@@ -26,7 +26,7 @@
 <img src="https://main.qcloudimg.com/raw/59d7abe67bb4442555c137fc74a51d8f.png" width="50%"></img>
 5. 进入应用详情页面，单击【Enable】 ，启用成功后，即可在 Grafana 中使用腾讯云监控应用插件。
 
-## 配置数据源
+## 步骤2：配置数据源
 
 腾讯云监控应用插件通过调用 [云监控 API](https://cloud.tencent.com/document/product/248/30342) 的方式获取各云产品的监控指标数据，通过以下步骤，配置相应云产品的数据源。    
 
@@ -42,7 +42,7 @@
 4. 单击【Save & Test】，测试数据源的配置信息是否正确，配置成功后，即可以在 Dashboard 中使用该数据源。
 
 
-## 创建 Dashboard
+## 步骤3：创建 Dashboard
 
 创建 Dashboard 有以下三种方式： 快捷创建、在管理页面创建，导入模板。
 
@@ -62,7 +62,7 @@
 ![](https://main.qcloudimg.com/raw/deaa0dee580261470bdc08c0f4e8dc6c.png)
 
 
-## 配置 Panel 数据
+## 步骤4：配置 Panel 数据
 
 创建 Dashboard 之后，通过配置 Panel 信息，即可获取腾讯云监控的相应监控数据。现在以简单的 Graph 为例，展示如何配置 Panel 信息。
 
@@ -82,7 +82,7 @@
      
 ![](https://main.qcloudimg.com/raw/4b341292c5103164b070a4cf3cc2b8cd.png)
 
-### CDB 云数据库 MySQL 监控
+### 云数据库 MySQL 监控
 
 1. 单击 **New Panel** 面板的【Add Query】，进入 Panel 配置页面。在左侧第一个 【Queries】 选项卡，通过配置选项获取腾讯云数据库 MySQL 的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 CDB 监控服务的腾讯云监控数据源。
@@ -96,7 +96,7 @@
      - 实例列表的获取可参见 [云数据库 MySQL 查询实例列表接口文档](https://cloud.tencent.com/document/api/236/15872)。切换 **Show Details** 为 **true**，可展示实例请求参数，默认参数为 **Offset = 0** 和 **Limit = 20**。如果需要变更实例查询条件，可参考接口文档，配置相应参数。
      >!在本应用中，监控数据的单次查询为原子操作，即查询某一实例的某一指标的监控数据，故实例只能单选，如需查询多实例的监控数据，可单击右上角的【Add Query】增加新的查询。  
 
-![CDB Panel Query](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/blob/master/src/image/panel-cdb-query.png?raw=true)
+![](https://main.qcloudimg.com/raw/27668754fe4c608a01755b0bb5c9e0df.png)
 
 ## 模板变量
 
