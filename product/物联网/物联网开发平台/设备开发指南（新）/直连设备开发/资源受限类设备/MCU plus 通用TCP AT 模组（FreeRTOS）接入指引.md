@@ -67,4 +67,4 @@ cmake ..
 
 ## SDK 使用参考
 
-请参见 [C SDK 使用参考](https://cloud.tencent.com/document/product/1081/48366)。
+请参见 [C SDK 使用参考](https://cloud.tencent.com/document/product/1081/48377)。
