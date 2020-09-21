@@ -54,7 +54,7 @@ IVR（Interactive Voice Response）是一种基于电话的语音增值业务的
 </tr>
 <tr>
 <td>超时时间</td>
-<td> 用户按键超过设定的值后将播放超时提示音。</td>
+<td> 用户按键回复时间超过设定的值后将播放超时提示音。</td>
 <td> 60</td>
 </tr>
 <tr>
@@ -100,5 +100,5 @@ IVR（Interactive Voice Response）是一种基于电话的语音增值业务的
 </table>
 </escape>
 	7. 添加【结束】模块，将【转人工】模块的出口连接到【结束】模块。
-	8. 单击页面右上角【保存并发布】，完成会话服务流搭建。
+	8. 单击页面右上角【保存】，完成会话服务流搭建。
 ![](https://main.qcloudimg.com/raw/9c251eefea47243a067bc3973c4cf01f.png)
