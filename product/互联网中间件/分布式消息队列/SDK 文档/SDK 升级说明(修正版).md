@@ -19,24 +19,13 @@
 #### Java 客户端
 当前由于 Pulsar 官方只有 Java 客户端提供了带有 listenerName 参数的最新版本，TDMQ 此次更新需要依赖于 listenerName 参数，所以截止目前只有 Java 客户端可以直接从官网下载。
 
-1. 按照 [Pulsar 官方文档](http://pulsar.apache.org/docs/en/client-libraries/) 更新依赖。
- ```xml
-   <!-- in your <properties> block -->
-   <pulsar.version>2.6.1</pulsar.version>
-   
-   <!-- in your <dependencies> block -->
-   <dependency>
-     <groupId>org.apache.pulsar</groupId>
-     <artifactId>pulsar-client</artifactId>
-     <version>${pulsar.version}</version>
-   </dependency>
-```
+1. 按照 [Java SDK 下载方式](https://cloud.tencent.com/document/product/1179/44914) 或者[Pulsar 官方文档](https://pulsar.apache.org/docs/zh-CN/2.6.1/client-libraries-java/)更新 Maven 依赖。在此我们仍推荐您按前者的指引使用腾讯云官方提供的SDK。
 2. 前往 TDMQ 控制台【角色管理】，找到刚刚创建的角色，单击复制密钥。
 3. 在创建 Client 的代码中加入刚刚复制的密钥，并添加  `listenerName` 参数
  ```java
    PulsarClient client = PulsarClient.builder()
 			.serviceUrl("pulsar://*.*.*.*:6000/")
-			.listenerName("1300*****0/vpc-******/subnet-********")
+			.listenerName(custom:"1300*****0/vpc-******/subnet-********")
 			.authentication(AuthenticationFactory.token("eyJh****"))
 			.build();
 ```
@@ -56,7 +45,7 @@ Go 客户端 Pulsar 官方目前还未更新最新适配的客户端，在官方
 4. 在创建 Client 的代码中加入刚刚复制的密钥，并添加 ListenerName 参数
  ```go
    client, err := NewClient(ClientOptions{
-			URL:             "pulsar://*.*.*.*:6000",
+			URL:            "pulsar://*.*.*.*:6000",
 			ListenerName:	"custom:1300*****0/vpc-******/subnet-********",
 			Authentication: NewAuthenticationToken("eyJh****"),
        })
