@@ -97,12 +97,12 @@ iOS 设备收到一条推送消息，用户点击推送消息打开应用时，�
 
 
 
-### iOS13 开发环境下，注册偶现不返回 DeviceToken？
+### iOS 开发环境下，注册偶现不返回 DeviceToken 或提示 APNs 请求 token 失败？
 此问题现象是由于 APNs 服务不稳定导致的，可尝试通过以下方式解决：
 1. 给手机插入 SIM 卡后使用4G网络测试。
 2. 卸载重装、重启 App、关机重启后测试。
 3. 打生产环境的包测试。
-4. 换别的 iOS 13 系统的手机测试  。
+4. 更换其它 iOS 系统的手机测试。
 
 
 ### iOS 如何在测试设备有限的情况下扩大测试规模？
@@ -136,3 +136,9 @@ TestFlight 发布预览版，先将 ipa 包上传到 [App Store Connect](https:/
 ```
 
 
+### App 出现 Crash: you can't call -sendResponse: twice nor after encoding it 报错，该如何处理？
+如果您的 App 集成了 TPNS iOS SDK（1.2.7.2 - 1.2.5.4），且使用到 TPNS 的【撤回】功能，同时 App 侧实现了如下系统回调：
+```
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo  fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+```
+则可能会遇到此问题。您可以使用【覆盖】功能来实现已发送消息的处理。

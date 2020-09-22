@@ -740,7 +740,7 @@ void setBoardScale(int scale)
 | scale | int | 要设置的白板缩放比例 |
 
 #### 介绍
-支持范围: [100，300]，实际缩放比为: scale/100 
+支持范围: [100，1600]，实际缩放比为: scale/100 
 
 
 ### getBoardScale
@@ -858,13 +858,14 @@ void getFileTranscodeProgress(final String taskId)
 ### addTranscodeFile
 添加转码文件 
 ``` Java
-String addTranscodeFile(final TEduBoardTranscodeFileResult result)
+String addTranscodeFile(final TEduBoardTranscodeFileResult result, boolean needSwitch)
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | result | final TEduBoardTranscodeFileResult | 文件转码结果  |
+| needSwitch | boolean | 是否切换到该文件  |
 
 #### 返回
 文件 ID 

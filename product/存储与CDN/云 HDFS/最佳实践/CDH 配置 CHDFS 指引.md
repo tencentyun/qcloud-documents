@@ -55,14 +55,14 @@ CHDFS 大数据组件支持情况如下：
 </property>
 ```
 
-以下为必选 CHDFS 配置项（添加到 core-site.xml 中），CHDFS 其他配置可参见 [挂载 CHDFS](https://cloud.tencent.com/document/product/1105/36368)。
+以下为必选的 CHDFS 配置项（需添加到 core-site.xml 中），CHDFS 其他配置可参见 [挂载 CHDFS](https://cloud.tencent.com/document/product/1105/36368)。
 
 | CHDFS 配置项                   | 值                                               | 含义                                                         |
 | ------------------------------ | ------------------------------------------------ | ------------------------------------------------------------ |
 | fs.ofs.user.appid              | 1250000000                                       | 用户 appid                                                   |
 | fs.ofs.tmp.cache.dir           | /data/emr/hdfs/tmp/chdfs/                        | 本地 cache 的临时目录                                        |
-| fs.ofs.impl                    | com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter | cosn 对 FileSystem 的实现类，固定为 org.apache.hadoop.fs.CosFileSystem |
-| fs.AbstractFileSystem.ofs.impl | com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter       | cosn 对 AbstractFileSystem 的实现类，固定为 org.apache.hadoop.fs.CosN |
+| fs.ofs.impl                    | com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter | chdfs 对 FileSystem 的实现类，固定为 com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter |
+| fs.AbstractFileSystem.ofs.impl | com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter       | chdfs 对 AbstractFileSystem 的实现类，固定为 com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter |
 
 4. 对 HDFS 服务进行操作，单击部署客户端配置，此时以上 core-site.xml 配置会更新到集群里的机器上。
 5. 将 CHDFS 最新的 SDK 包，放置到 CDH HDFS 服务的 jar 包路径下，请根据实际值进行替换，示例如下：
@@ -95,12 +95,12 @@ cp chdfs_hadoop_plugin_network-2.0.jar /opt/cloudera/parcels/CDH-5.16.1-1.cdh5.1
 下面以 Hadoop 标准测试中的 TeraGen 和 TeraSort 为例：
 
 ```
-hadoop jar./hadoop-mapreduce-examples-2.7.3.jar teragen -Dmapred.map.tasks=4 1099 ofs://f4mvdbisuhe-zao3.chdfs.ap-shanghai.myqcloud.com/teragen_5/
+hadoop jar ./hadoop-mapreduce-examples-2.7.3.jar teragen -Dmapred.map.tasks=4 1099 cosn://examplebucket-1250000000/teragen_5/
 
-hadoop jar ./hadoop-mapreduce-examples-2.7.3.jar terasort  -Dmapred.map.tasks=4 ofs://f4mvdbisuhe-zao3.chdfs.ap-shanghai.myqcloud.com/teragen_5/ ofs://f4mvdbisuhe-zao3.chdfs.ap-shanghai.myqcloud.com/result14
+hadoop jar ./hadoop-mapreduce-examples-2.7.3.jar terasort  -Dmapred.map.tasks=4 cosn://examplebucket-1250000000/teragen_5/ cosn://examplebucket-1250000000/result14
 ```
 
->?ofs://scheme 后面请替换为用户 CHDFS 的挂载点路径。
+>?`ofs://     schema`后面请替换为用户 CHDFS 的挂载点路径。
 
 
 ####  2. Hive
@@ -147,7 +147,7 @@ STORED AS INPUTFORMAT
 	OUTPUTFORMAT
   'org.apache.hadoop.hive.ql.io.orc.OrcOutputFormat'
 LOCATION
-  'ofs://f4mvdbisuhe-zao3.chdfs.ap-shanghai.myqcloud.com//user/hive/warehouse/report.db/report_o2o_pid_credit_detail_grant_daily'
+  'cosn://examplebucket-1250000000/user/hive/warehouse/report.db/report_o2o_pid_credit_detail_grant_daily'
 TBLPROPERTIES (
   'last_modified_by'='work',
   'last_modified_time'='1589310646',
@@ -186,7 +186,7 @@ Tez 引擎需要将 CHDFS 的 jar 包导入到 Tez 的压缩包内，下面以 a
 以 CHDFS 进行 Spark example word count 测试为例。
 
 ```
-spark-submit  --classorg.apache.spark.examples.JavaWordCount --executor-memory 4g --executor-cores4  ./spark-examples-1.6.0-cdh5.16.1-hadoop2.6.0-cdh5.16.1.jar ofs://f4mvdbisuhe-zao3.chdfs.ap-shanghai.myqcloud.com/wordcount
+spark-submit  --class org.apache.spark.examples.JavaWordCount --executor-memory 4g --executor-cores 4  ./spark-examples-1.6.0-cdh5.16.1-hadoop2.6.0-cdh5.16.1.jar cosn://examplebucket-1250000000/wordcount
 ```
 
 执行结果如下：
@@ -208,7 +208,7 @@ spark-submit  --classorg.apache.spark.examples.JavaWordCount --executor-memory 4
 以导出 MYSQL 表到 CHDFS 为例，可参考 [关系型数据库和 HDFS 的导入导出](https://cloud.tencent.com/document/product/589/19053)  文档进行测试。
 
 ```
-sqoop import --connect "jdbc:mysql://IP:PORT/mysql" --table sqoop_test --username root --password 123  --target-dir ofs://f4mvdbisuhe-zao3.chdfs.ap-shanghai.myqcloud.com/sqoop_test
+sqoop import --connect "jdbc:mysql://IP:PORT/mysql" --table sqoop_test --username root --password 123  --target-dir cosn://examplebucket-1250000000/sqoop_test
 ```
 
 执行结果如下：

@@ -1,4 +1,4 @@
-本文将指导您使用云接入+云函数托管 Node.js 服务端程序。
+本文将指导您使用HTTP 访问服务+云函数托管 Node.js 服务端程序。
 
 ## 准备工作
 准备一个基础项目目录，详细可参考 [快速开始](https://cloud.tencent.com/document/product/876/41774)。

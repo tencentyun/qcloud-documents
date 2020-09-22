@@ -52,7 +52,7 @@ kubectl describe node <node-name>
 
 ### 检查 Node 是否存在 Pod 没有容忍的污点
 #### 问题分析
-假如节点上存在污点（Taints），而 Pod 上没有响应的容忍（Tolerations），Pod 将不会调度到该 Node。在调度之前，可以先通过 `kubectl describe node <node-name>` 命令查看 Node 已设置污点。示例如下：
+假如节点上存在污点（Taints），而 Pod 上没有相应的容忍（Tolerations），Pod 将不会调度到该 Node。在调度之前，可以先通过 `kubectl describe node <node-name>` 命令查看 Node 已设置污点。示例如下：
 ``` bash
 $ kubectl describe nodes host1
 ...
@@ -94,7 +94,7 @@ kubectl taint nodes host1 special-
 Pod 一直处于 Pending 状态可能是低版本 `kube-scheduler` 的 bug 导致的，该情况可以通过升级调度器版本进行解决。
 
 ### 检查 kube-scheduler 是否正常运行
-请注意时检查 Maser 上的 `kube-scheduler` 是否运行正常，如异常可尝试重启临时恢复。
+请注意时检查 Master 上的 `kube-scheduler` 是否运行正常，如异常可尝试重启临时恢复。
 
 ### 检查驱逐后其他可用节点与当前节点的有状态应用是否不在相同可用区
 

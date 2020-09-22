@@ -10,7 +10,7 @@
 
 ## SDK API 参考
 
-SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](https://cos-ios-sdk-doc-1253960454.file.myqcloud.com/)。
+SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos-ios-sdk-doc-1253960454.file.myqcloud.com/)。
 
 ## 设置跨域配置
 
@@ -28,22 +28,23 @@ QCloudCORSConfiguration* cors = [QCloudCORSConfiguration new];
 
 QCloudCORSRule* rule = [QCloudCORSRule new];
 
-// 配置规则的 ID
+// 配置规则 ID
 rule.identifier = @"rule1";
 
-// 在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用的 HTTP 请求头部，支持通配符 *
+// 跨域请求可以使用的 HTTP 请求头部，支持通配符 *
 rule.allowedHeader = @[@"origin",@"host",@"accept",
                        @"content-type",@"authorization"];
 rule.exposeHeader = @"ETag";
 
-// 允许的 HTTP 操作，例如：GET，PUT，HEAD，POST，DELETE
+// 跨域请求允许的 HTTP 操作，例如：GET，PUT，HEAD，POST，DELETE
 rule.allowedMethod = @[@"GET",@"PUT",@"POST", @"DELETE", @"HEAD"];
 
-// 设置 OPTIONS 请求得到结果的有效期
+// 跨域请求得到结果的有效期
 rule.maxAgeSeconds = 3600;
 
 // 允许的访问来源，支持通配符 *，格式为：协议://域名[:端口]
 rule.allowedOrigin = @"http://cloud.tencent.com";
+
 cors.rules = @[rule];
 putCORS.corsConfiguration = cors;
 
@@ -58,7 +59,7 @@ putCORS.bucket = @"examplebucket-1250000000";
 [[QCloudCOSXMLService defaultCOSXML] PutBucketCORS:putCORS];
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/qcloud-sdk-ios-samples/tree/master/COSAPIDemo/Objc/Examples/cases/BucketCORS.m) 查看。
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Objc/Examples/cases/BucketCORS.m) 查看。
 
 **Swift**
 
@@ -73,37 +74,35 @@ let rule = QCloudCORSRule.init();
 // 配置规则的 ID
 rule.identifier = "rule1";
 
-// 在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，支持通配符 *
+// 跨域请求可以使用的 HTTP 请求头部，支持通配符 *
 rule.allowedHeader = ["origin","host","accept","content-type","authorization"];
 rule.exposeHeader = "Etag";
 
-// 允许的 HTTP 操作，例如：GET，PUT，HEAD，POST，DELETE
+// 跨域请求允许的 HTTP 操作，例如：GET，PUT，HEAD，POST，DELETE
 rule.allowedMethod = ["GET","PUT","POST", "DELETE", "HEAD"];
 
-// 设置 OPTIONS 请求得到结果的有效期
+// 跨域请求得到结果的有效期
 rule.maxAgeSeconds = 3600;
 
 // 允许的访问来源，支持通配符 *，格式为：协议://域名[:端口]
 rule.allowedOrigin = "*";
 
 corsConfig.rules = [rule];
-
 putBucketCorsReq.corsConfiguration = corsConfig;
 
 // 存储桶名称，格式为 BucketName-APPID
 putBucketCorsReq.bucket = "examplebucket-1250000000";
 putBucketCorsReq.finishBlock = {(result,error) in
-    // 可以从 result 中获取服务器返回的 header 信息
-    if error != nil{
-        print(error!);
-    }else{
-        print(result!);
+    if let result = result {
+        // 可以从 result 中获取服务器返回的 header 信息
+    } else {
+        print(error!)
     }
 }
 QCloudCOSXMLService.defaultCOSXML().putBucketCORS(putBucketCorsReq);
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/qcloud-sdk-ios-samples/tree/master/COSAPIDemo/Swift/Examples/cases/BucketCORS.swift) 查看。
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/BucketCORS.swift) 查看。
 
 ## 查询跨域配置
 
@@ -131,7 +130,7 @@ corsReqeust.bucket = @"examplebucket-1250000000";
 [[QCloudCOSXMLService defaultCOSXML] GetBucketCORS:corsReqeust];
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/qcloud-sdk-ios-samples/tree/master/COSAPIDemo/Objc/Examples/cases/BucketCORS.m) 查看。
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Objc/Examples/cases/BucketCORS.m) 查看。
 
 **Swift**
 
@@ -142,17 +141,17 @@ let  getBucketCorsRes = QCloudGetBucketCORSRequest.init();
 // 存储桶名称，格式为 BucketName-APPID
 getBucketCorsRes.bucket = "examplebucket-1250000000";
 getBucketCorsRes.setFinish { (corsConfig, error) in
-    // CORS 设置封装在 corsConfig 中
-    if error != nil{
-        print(error!);
-    }else{
-        print(corsConfig!);
+    if let corsConfig = corsConfig {
+        // 跨域规则列表
+        let rules = corsConfig.rules
+    } else {
+        print(error!)
     }
 }
 QCloudCOSXMLService.defaultCOSXML().getBucketCORS(getBucketCorsRes);
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/qcloud-sdk-ios-samples/tree/master/COSAPIDemo/Swift/Examples/cases/BucketCORS.swift) 查看。
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/BucketCORS.swift) 查看。
 
 ## 删除跨域配置
 
@@ -177,7 +176,7 @@ deleteCORS.bucket = @"examplebucket-1250000000";
 [[QCloudCOSXMLService defaultCOSXML] DeleteBucketCORS:deleteCORS];
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/qcloud-sdk-ios-samples/tree/master/COSAPIDemo/Objc/Examples/cases/BucketCORS.m) 查看。
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Objc/Examples/cases/BucketCORS.m) 查看。
 
 
 **Swift**
@@ -190,16 +189,15 @@ let deleteBucketCorsRequest = QCloudDeleteBucketCORSRequest.init();
 deleteBucketCorsRequest.bucket = "examplebucket-1250000000";
 
 deleteBucketCorsRequest.finishBlock = {(result,error) in
-    // 可以从 result 中获取服务器返回的 header 信息
-    if error != nil{
-        print(error!);
-    }else{
-        print(result!);
+    if let result = result {
+        // 可以从 result 中获取服务器返回的 header 信息
+    } else {
+        print(error!)
     }
 }
 QCloudCOSXMLService.defaultCOSXML().deleteBucketCORS(deleteBucketCorsRequest);
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/qcloud-sdk-ios-samples/tree/master/COSAPIDemo/Swift/Examples/cases/BucketCORS.swift) 查看。
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/iOS/Swift/Examples/cases/BucketCORS.swift) 查看。
 
 

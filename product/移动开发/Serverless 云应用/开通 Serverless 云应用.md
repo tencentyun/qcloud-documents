@@ -1,33 +1,30 @@
-本文为您介绍如何开通 Serverless 云应用服务。
+本文为您介绍如何开通云托管服务。
 
 ## 步骤1：登录云开发控制台
 
-开通 Serverless 云应用之前，您需要先登录 [云开发控制台](https://console.cloud.tencent.com/tcb) 并选择一个**按量计费**的环境。如果您未创建**按量计费**类型的环境，或还未开通云开发，请先根据云开发文档 [开通环境](https://cloud.tencent.com/document/product/876/41391)。
+开通云托管之前，您需要先登录 [云开发控制台](https://console.cloud.tencent.com/tcb) 并选择一个**按量计费**的环境。如果您未创建**按量计费**类型的环境，或还未开通云开发，请先根据云开发文档 [开通环境](https://cloud.tencent.com/document/product/876/41391)。
 
 ## 步骤2：选择环境
 
-一个腾讯云账号下可以创建多个云开发环境。每个环境均可独立选择是否开通 Serverless 云应用。当您销毁某个环境时，环境内的 Serverless 云应用也将随之被删除。
+一个腾讯云账号下可以创建多个云开发环境。每个环境均可独立选择是否开通云托管。当您销毁某个环境时，环境内的云托管也将随之被删除。
 
 ![](https://main.qcloudimg.com/raw/2a3d2731646d326d773e2fd534c31002.png)
 
 > ?
-> - **包年包月**环境无法开通 Serverless 云应用。
-> - 来源为“微信小程序”的环境暂不支持开通 Serverless 云应用。
+> - **包年包月**环境无法开通云托管。
+> - 来源为“微信小程序”的环境暂不支持开通云托管。
 
 
 
-## 步骤3：进入 Serverless 云应用控制台
-
->!Serverless 云应用公测期间，需要先 [申请开通](https://cloud.tencent.com/apply/p/y5uji0g6a7p)，审核通过后，云开发控制台的左侧菜单才将提供 【Serverless 云应用】入口，否则入口将不可见。公测结束后，**Serverless 云应用**的入口将对所有云开发用户开放。
-
+## 步骤3：进入云托管控制台
 
 #### 方式1：
-登录 [云开发控制台](https://console.cloud.tencent.com/tcb)， 进入指定的环境后，在左侧菜单中，单击【Serverless云应用】，进入 Serverless 云应用。
-![](https://main.qcloudimg.com/raw/8396a8acecba5a1d0ae2581965201f3d.jpg)
+登录 [云开发控制台](https://console.cloud.tencent.com/tcb)， 进入指定的环境后，在左侧菜单中，单击【云托管】，进入云托管控制台。
+![](https://main.qcloudimg.com/raw/38110b543ebe9c38b0e25370b1dfaf3a.png)
 
 #### 方式2：
-登录 [Serverless 云应用控制台](https://console.cloud.tencent.com/tcb/service)，再按需要切换到指定的环境。
-![](https://main.qcloudimg.com/raw/4f3023f2b10bc200cd2878c798c2e9f1.jpg)
+登录 [云托管控制台](https://console.cloud.tencent.com/tcb/service)，再按需要切换到指定的环境。
+
 
 
 
@@ -35,28 +32,28 @@
 
 ## 步骤4：立即开通
 
-单击【立即开通】，开始开通 Serverless 云应用。
+单击【立即开通】，开始开通云托管。
 
-![](https://main.qcloudimg.com/raw/c28dbbabd53906f84db237156b8ac850.png)
+![](https://main.qcloudimg.com/raw/b7a1394679586c41045b93067e647d7e.png)
 
 
 
 ## 步骤5：开通设置
 
-- **所在地域**：Serverless云应用当前仅开放上海地域进行公测，更多地域将陆续开放。
-- **Serverless 云应用网络**：网络设置包括 [私有网络 VPC](https://cloud.tencent.com/document/product/215) 和 [子网](https://cloud.tencent.com/document/product/215/20046#.E5.AD.90.E7.BD.91)。以环境为维度，Serverless 云应用中创建的所有服务，都将部署在这同一个 VPC 之中，且成功开通 Serverless 云应用后不支持更换网络设置。网络设置分为如下两种模式：
-  - **系统默认配置**：无论您的腾讯云账号下是否已创建过私有网络 VPC 和子网，Serverless 云应用都将为您自动新建一个 VPC 和子网，并将其绑定您当前的云开发环境。后续您在当前环境下的 Serverless 云应用中创建的所有服务，都将被部署到这个 VPC 和子网中。此过程无需您手动进行任何设置。后续您可以在 [私有网络控制台](https://console.cloud.tencent.com/vpc) 中查看并管理这个由 Serverless 云应用自动创建的 VPC 及子网，也可以将更多云资源（例如云服务器，云数据库等）部署在这个 VPC 之内，以便这些云资源进行互动。
-  ![](https://main.qcloudimg.com/raw/f5399f62887a62973ef88a4384c48437.png)
-  - **自定义配置**：如果您已经创建过私有网络 VPC 和子网，并在其中已经部署有其他云资源（例如云服务器、云数据库等），且希望通过当前环境中的 Serverless 云应用将服务部署到已有的私有网络 VPC 中，以便和此私有网络 VPC 中已有的云资源进行互动。则您可以选择【自定义配置】，然后选择具体的 VPC 和子网。VPC 只能选择一个，子网支持选择多个。
- ![](https://main.qcloudimg.com/raw/5443e7ad6e871c112f69dacd53c52f75.png)
+- **所在地域**：云托管当前仅开放上海地域，更多地域将陆续开放。
+- **云托管网络**：网络设置包括 [私有网络 VPC](https://cloud.tencent.com/document/product/215) 和 [子网](https://cloud.tencent.com/document/product/215/20046#.E5.AD.90.E7.BD.91)。以环境为维度，云托管中创建的所有服务，都将部署在这同一个 VPC 之中，且成功开通云托管后不支持更换网络设置。网络设置分为如下两种模式：
+  - **系统默认配置**：无论您的腾讯云账号下是否已创建过私有网络 VPC 和子网，云托管都将为您自动新建一个 VPC 和子网，并将其绑定您当前的云开发环境。后续您在当前环境下的云托管中创建的所有服务，都将被部署到这个 VPC 和子网中。此过程无需您手动进行任何设置。后续您可以在 [私有网络控制台](https://console.cloud.tencent.com/vpc) 中查看并管理这个由云托管自动创建的 VPC 及子网，也可以将更多云资源（例如云服务器，云数据库等）部署在这个 VPC 之内，以便这些云资源进行互动。
+  ![](https://main.qcloudimg.com/raw/94f202a1b4b1bd97fdf194be0676aefb.png)
+  - **自定义配置**：如果您已经创建过私有网络 VPC 和子网，并在其中已经部署有其他云资源（例如云服务器、云数据库等），且希望通过当前环境中的云托管将服务部署到已有的私有网络 VPC 中，以便和此私有网络 VPC 中已有的云资源进行互动。则您可以选择【自定义配置】，然后选择具体的 VPC 和子网。VPC 只能选择一个，子网支持选择多个。
+ ![](https://main.qcloudimg.com/raw/55810bc8e9ebb676f53918c5a7c1020f.png)
 
 
 
 ## 步骤6：开通成功
 
 单击【提交】，状态变为**开通中**，请等待数秒。
-![](https://main.qcloudimg.com/raw/fa0de696760aab0ef690e079d68973d7.png)
+![](https://main.qcloudimg.com/raw/031cf80d0314c6c5207beabb5f576978.png)
 
-开通成功后，您将自动跳转到 Serverless 云应用的服务列表页面。当前您还没有创建任何服务，列表为空。
-至此您已经成功开通后 **Serverlesss 云应用**服务，您可以单击【新建服务】开始新建您的第一个服务。
-![](https://main.qcloudimg.com/raw/993711f6a2f0a8e704da6a581efc43ad.png)
+开通成功后，您将自动跳转到云托管的服务列表页面。当前您还没有创建任何服务，列表为空。
+至此您已经成功开通后**云托管**服务，您可以单击【新建服务】开始新建您的第一个服务。
+

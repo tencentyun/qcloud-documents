@@ -1,3 +1,4 @@
+
 ## Demo 体验
 <table style="text-align:center;vertical-align:middle;width: 300px">
   <tr>
@@ -5,10 +6,18 @@
     <th width="150px">Windows</th>
   </tr>
   <tr>
-    <td><a href="https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/electron_sdk/solution/education/TRTC_Education_Demo-1.1.0.dmg"><img width="125px" height="125px" src="https://main.qcloudimg.com/raw/d03160ca4e5342a96464aaba1de97923.png"></a></td>
-    <td><a href="https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/electron_sdk/solution/education/TRTC_Education_Demo%20Setup%201.1.0.exe"><img width="125px" height="125px" src="https://main.qcloudimg.com/raw/d03160ca4e5342a96464aaba1de97923.png"></a></td>
+<td>
+		<a href="https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/electron_sdk/solution/education/TRTC_Education_Demo-1.1.0.dmg" >
+		<span style="width:125px;height: 125px;background-image:url(https://main.qcloudimg.com/raw/d03160ca4e5342a96464aaba1de97923.png);background-size: cover;display:block;">
+</span></a></td>
+<td>
+<a href="https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/electron_sdk/solution/education/TRTC_Education_Demo%20Setup%201.1.0.exe">
+<span style="width:125px;height: 125px;background-image:url(https://main.qcloudimg.com/raw/d03160ca4e5342a96464aaba1de97923.png);background-size: cover;display:block;">
+</span></a></td>
   </tr>
 </table>
+
+
 
 
 ## 效果展示
@@ -26,7 +35,9 @@
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
 2. 单击【立即开始】，输入应用名称，例如 `TestEduDemo` ，单击【创建应用】。
 
->?说明：本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PAAS 服务，开通实时音视频后会同步开通即时通信 IM 服务。
+>?本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PAAS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
+
+
 
 <span id="ui.step2"></span>
 ### 步骤2：下载 SDK 和 Demo 源码

@@ -11,7 +11,6 @@
 显示器能清晰展示 URL 为200字节大小的二维码。
 
 ## 4. 关键名词说明
-
 ### 4.1 sn 前缀
 为了确保每个厂商机具的 sn 在云支付系统中不冲突，云支付会给每个厂商分配不同的 sn 前缀。
 
@@ -34,7 +33,6 @@
 此密钥要求高度保密，获取到交易密钥后，必须先加密再写入磁盘，以防攻击者获取到这个交易密钥。
 
 ## 5. 接入准备工作
-
 ### 5.1 申请初始资源
 厂商在正式进入开发阶段时，需要向云支付以邮箱（邮箱地址请咨询负责与厂商对接的人员）的方式申请获取以下内容。
 
@@ -52,7 +50,6 @@
 2. **测试商户。**如果是正式环境测试，则调试人员需要有微信商业版的商户，通过“收款设备”小程序来完成绑定。
 
 ## 6. 机具出厂准备工作
-
 ### 6.1 背景说明
 每台机具的 sn 和初始密钥录入到云支付后台后才能绑定成功，然后才能用于收款，初始密钥说明详见 [4.2 初始密钥](#4.2-.E5.88.9D.E5.A7.8B.E5.AF.86.E9.92.A5)。
 
@@ -61,7 +58,6 @@
 厂商如果想调试绑定相关接口，需要先通这个方式把调试用到的 sn 和初始密钥录入云支付后台。
 
 ### 6.2 录入操作说明
-
 1. **确认 openssl 版本**
 要求版本为 OpenSSL 1.1.0g  2 Nov 2017 及以上，可以通过 openssl version 命令查看版本号。
 2. **生成 sn 和初始密钥文件**
@@ -85,15 +81,12 @@ openssl rsautl -encrypt -inkey public.key -pubin -in encrypt_key.txt -out encryp
 ```
 执行成功后会生成一个密码文件的加密文件`encrypt_key.txt.encrypted`。
 6. **邮件发送加密文件**
-将加密文件发送到 [5.1 申请初始资源](#5.1-.E7.94.B3.E8.AF.B7.E5.88.9D.E5.A7.8B.E8.B5.84.E6.BA.90) 所述的接收加密文件的邮箱地址， 需要发送的文件有`sn_init_key.txt.encrypted`和`encrypt_key.txt.encrypted`。如果要将文件打包进行发送，则必须使用 zip 来压缩。邮件发送时，抄送人需添加厂商相关管理人员。
+将加密文件发送到 [5.1 申请初始资源](#5.1-.E7.94.B3.E8.AF.B7.E5.88.9D.E5.A7.8B.E8.B5.84.E6.BA.90) 所述的接收加密文件的邮箱地址，需要发送的文件有`sn_init_key.txt.encrypted`和`encrypt_key.txt.encrypted`。如果要将文件打包进行发送，则必须使用 zip 来压缩。邮件发送时，抄送人需添加厂商相关管理人员。
 7. **其它说明**
-以上所有文件都以 UTF-8 无 BOM 编码，发送前请先确认不能有可见/不可见的特殊字符。
-邮件发送完成后，销毁`encrypt_key.txt`和`sn_init_key.txt`（无用时销毁）文件，同时需保管好`public.key`文件，这些文件禁止外泄。
+以上所有文件都以 UTF-8 无 BOM 编码，发送前请先确认不能有可见/不可见的特殊字符。邮件发送完成后，销毁`encrypt_key.txt`和`sn_init_key.txt`（无用时销毁）文件，同时需保管好`public.key`文件，这些文件禁止外泄。
 
 ## 7. 机具绑定相关流程说明
-
 ### 7.1 背景说明
-
 商户拿到机具后，需要先操作绑定才能进行收款。机具绑定主要是为了获取支付接口必须的部分参数内容，并在云支付后台建立逻辑绑定关系，从而成功发起收款。
 
 ### 7.2 机具开机或重启
@@ -128,7 +121,7 @@ openssl rsautl -encrypt -inkey public.key -pubin -in encrypt_key.txt -out encryp
  - 机具初始密钥值为：`C852274D372982D5530B692FD77124D3`。
 
  则二维码生成流程为：
- 1. 机具生成的8字节随机字符串（nonce_str）：`c44f32e0`。
+ - 机具生成的8字节随机字符串（nonce_str）：`c44f32e0`。
  2. 机具拼接字符串 ac=p9fa01zex4mi&rs=c44f32e0&sn=LANDI_QM600_LA190000000。
  3. 机具计算 sha256：hmac-sha256(“ac=p9fa01zex4mi&rs=c44f32e0&sn=LANDI_QM600_LA190000000”, “C852274D372982D5530B692FD77124D3”) ，获得 HMAC-SHA256 结果：`E0CA8FDA56464BDF702FCA1AE9692EB99483E065879247763B3A46B576EBF5AC`。
  4. 拼接二维码 URL：`https://payapp.weixin.qq.com/smartqr/entry/home?ac=p9fa01zex4mi&rs=c44f32e0&sn=LANDI_QM600_LA190000000&sign=E0CA8FDA56464BDF702FCA1AE9692EB99483E065879247763B3A46B576EBF5AC`，机具显示器把拼接二维码 URL 展示成二维码。
@@ -137,13 +130,12 @@ openssl rsautl -encrypt -inkey public.key -pubin -in encrypt_key.txt -out encryp
  - 轮询接口：`get_bill_device_bind_info`，详见 [接口说明](#9.-.E6.8E.A5.E5.8F.A3.E8.AF.B4.E6.98.8E)。
  - 轮询时间间隔：由`generate_bill_device_bind_qr_code`接口返回的 interval 指定，单位为秒。假设 interval 为1，则机具每次调用`get_bill_device_bind_info`接口完成后等待1秒再继续调用。
  - 轮询结束条件有两个：
-    1. `get_bill_device_bind_info`接口返回了绑定信息，即应答中 activated为true；
+    - `get_bill_device_bind_info`接口返回了绑定信息，即应答中 activated 为 true；
     2. 轮询超过了二维码有效期，有效期长度由`generate_bill_device_bind_qr_code`接口应答中的 ttl 指定，单位为秒，假如 ttl 为180，表示整个轮询过程超过180秒就必须结束，并停止展示二维码。
 5. **处理绑定信息**
 获取到绑定信息后（即 activated 为 true），把应答中的 e_authen_key 内容先做 base64 解码，再执行解密（解密说明详见 [10.1 AES-128-CBC 解密说明](#10.1-aes-128-cbc-.E8.A7.A3.E5.AF.86.E8.AF.B4.E6.98.8E)），解密密钥为机具初始密钥。解密成功后，把解密后的内容和其它绑定信息使用机具自有加密方式加密一次，最后写入磁盘。
 
 ## 8. 机具收款相关流程说明
-
 ### 8.1 支付
 ![](https://main.qcloudimg.com/raw/ad059b755101589a7d3b9920879bd45c.png)
 刷卡支付接口：`https://pay.qcloud.com/cpay/brief_micro_pay`，详见 [9.6 刷卡支付](#9.6-.E5.88.B7.E5.8D.A1.E6.94.AF.E4.BB.98)。
@@ -172,13 +164,9 @@ openssl rsautl -encrypt -inkey public.key -pubin -in encrypt_key.txt -out encryp
  - 如果机具已绑定，机具启动完成后立即尝试创建与云支付后台的 HTTPS 连接，并保持这个连接，供后续支付使用。如果创建连接过程超时，则跳过此步骤，让机具完成启动。
  - 如果机具未绑定，待机具绑定成功后，立即尝试创建与云支付后台的 HTTPS 连接，并保持这个连接，供后续支付使用。
 3. **保持连接**
-每个 HTTPS 请求头设置`connection: keep-alive`。
-
- 每隔2分钟，进行一次真实的 HTTPS 交互，发送请求：`GET / HTTP/1.1\r\nHost: pay.qcloud.com\r\nConnection: keep-alive\r\n\r\n`，接收完服务器应答后丢掉不处理。
+每个 HTTPS 请求头设置`connection: keep-alive`。每隔2分钟，进行一次真实的 HTTPS 交互，发送请求：`GET / HTTP/1.1\r\nHost: pay.qcloud.com\r\nConnection: keep-alive\r\n\r\n`，接收完服务器应答后丢掉不处理。
 4. **预热连接**
-商家输入完金额并按下确定键之后，每隔0.5秒通过长连接以 GET 方式向后台发送'\r\n' 2个字符，扫码后停止发送，走正常支付流程。GET 请求不会触发后台返回应答。
-
- 伪代码详细说明如下：
+商家输入完金额并按下确定键之后，每隔0.5秒通过长连接以 GET 方式向后台发送'\r\n' 2个字符，扫码后停止发送，走正常支付流程。GET 请求不会触发后台返回应答。伪代码详细说明如下：
 ```
 function uplink_warm_up() {
       while true {
@@ -197,7 +185,6 @@ function uplink_warm_up() {
 ```
 
 ## 9. 接口说明
-
 ### 9.1 接口规范
 
 | 摘要     | 详细说明                                                     |
@@ -211,13 +198,10 @@ function uplink_warm_up() {
 
  
 ### 9.2 获取云支付后台系统时间
-
 #### 接口地址
-
 `https://pay.qcloud.com/cpay/ping`
 
 #### 请求参数
-
 POST 空字符串即可，后台不校验 POST 内容。
 
 #### 应答参数
@@ -236,9 +220,7 @@ curl -H "Content-Type:application/json" -X POST -data '' <https://pay.qcloud.com
 ```
 
 ### 9.3 检查机具绑定信息
-
 #### 接口地址
-
 `https://pay.qcloud.com/cpay/check_bill_device_bind_info`
 
 #### 请求参数
@@ -276,9 +258,7 @@ curl -H "Content-Type:application/json" -X POST -data '' <https://pay.qcloud.com
 | internal_status | 是   | Int    | 4          | 具体说明见 internal_status 错误码表。 |
 
 #### 示例说明
-
 **请求生成示例代码：**
-
 ```
 std::string nonce_str = "ea90ceba"	// 生成8字节随机字符串
 std::string authen_key_hash = hmac_sha256(authen_key, nonce_str); // 计算 authen_key 的 hash 值
@@ -330,7 +310,6 @@ request_str 即为 post 内容。
 }
 ```
 **应答内容示例：**
-
 ```
 {
 	"response_content":"{
@@ -349,9 +328,7 @@ request_str 即为 post 内容。
 ```
 
 ### 9.4. 获取绑定二维码相关信息
-
 #### 接口地址
-
 `https://pay.qcloud.com/cpay/generate_bill_device_bind_qr_code`
 
 #### 请求参数
@@ -403,9 +380,7 @@ request_str 即为 post 内容。
 | interval         | 是   | Int    | 4          | 轮询绑定结果的时间间隔，单位为秒。                       |
 
 #### 示例说明
-
 **请求生成示例代码：**
-
 ```
 Json::Value request_content;
 request_content["sn_code"] = "aaa";
@@ -438,7 +413,6 @@ std::string request_str = w.write(request);
 request_str 即为 post 内容。
 
 **请求内容示例：**
-
 ```
 {
 	"authen_info":{
@@ -461,7 +435,6 @@ request_str 即为 post 内容。
 }
 ```
 **应答内容示例：**
-
 ```
 {
 	"response_content":"{
@@ -487,9 +460,7 @@ request_str 即为 post 内容。
 ```
 
 ### 9.5 获取绑定信息
-
 #### 接口地址
-
 `https://pay.qcloud.com/cpay/get_bill_device_bind_info`
 
 #### 请求参数
@@ -578,7 +549,7 @@ request_str 即为 post 内容。
 
 ```
 {
-	"authen_info":{
+	"authen_info":"{
 		"a":{
 			"authen_code":"09E33D5E1D208569EE634C733F0B1FD933DD690B25F5BF72B386257B7A2113B0",
 			"authen_type":1
@@ -679,9 +650,7 @@ request_str 即为 post 内容。
 | ns     | 是   | String                     | 8          | 8字节随机字符串。                |
 
 #### 示例说明
-
 **请求生成示例代码：**
-
 ```
 Json::Value request_content;
 request_content["ns"] = generate_random_nonce_str();
@@ -701,9 +670,7 @@ request["r"] = rc;
 request["a"] = authen_code;
 return w.write(request);
 ```
-
 **请求内容示例：**
-
 ```
 {
 	"r":"{
@@ -720,9 +687,7 @@ return w.write(request);
 	"a":"A4BCE4DF5C59C1D1532FA38D5C0298E46F224D02D38EFA6A766A5368271413B1"
 }
 ```
-
 **应答内容示例：**
-
 ```
 {
 	"rc":"{
@@ -742,9 +707,7 @@ return w.write(request);
 ```
 
 ### 9.7 查询支付单
-
 #### 接口地址
-
 `https://pay.qcloud.com/cpay/brief_query_order`
 
 #### 请求参数
@@ -792,7 +755,6 @@ return w.write(request);
 | ns     | 是   | String                     | 8          | 8字节随机字符串。                   |
 
 #### 示例说明
-
 **请求生成示例代码：**
 ```
 Json::Value request_content;
@@ -812,7 +774,6 @@ request["r"] = rc;
 request["a"] = authen_code;
 return w.write(request);
 ```
-
 **请求内容示例：**
 ```
 {
@@ -824,7 +785,6 @@ return w.write(request);
 	"a":"D9C1233C5D08288A00975F61DF328E7E76F426C3519284A1F43245703F7CFCFE"
 }
 ```
-
 **应答内容示例：**
 ```
 {
@@ -848,29 +808,21 @@ return w.write(request);
 ```
 
 ### 9.8 退款
-
 #### 接口地址
-
 `https://pay.qcloud.com/cpay/refund`
 
 #### 说明文档链接
-
 [申请退款](https://cloud.tencent.com/document/product/569/37673)
 
 ### 9.9 查询退款单
-
 #### 接口地址
-
 `https://pay.qcloud.com/cpay/query_refund_order`
 
 #### 说明文档链接
-
 [查询退款单](https://cloud.tencent.com/document/product/569/37675)
 
 ### 9.10 支付信息上报
-
 #### 接口地址
-
 `https://pay.qcloud.com/cpay/device_report`
 
 #### 请求参数
@@ -1036,7 +988,7 @@ authen["authen_code"] = authen_code;
 authen["authen_type"] = 1; //统一使用 hmac_sha256，填1
 
 Json::Value authen_info;
-authen_info["a"] = authen;  //key 填”a”就行，表示认证码
+authen_info["a"] = authen;  //key 填"a"就行，表示认证码
 
 Json::Value request;
 request["request_content"] = request_content_str;
@@ -1097,9 +1049,7 @@ request_str 即为 post 内容。
 	}
 }
 ```
-
 **应答内容示例：**
-
 ```
 {
 	"response_content":"{
@@ -1119,10 +1069,9 @@ request_str 即为 post 内容。
 	}
 }
 ```
+
 ### 9.11 查询订单明细
-
 ####  接口地址
-
 `https://pay.qcloud.com/cpay/brief_query_order_list`
 
 #### 请求参数
@@ -1178,7 +1127,7 @@ request_str 即为 post 内容。
 | 参数名 | 必填 | 类型             | 长度(Byte) | 说明                                   |
 | ------ | ---- | ---------------- | ---------- | -------------------------------------- |
 | bo     | 否   | BriefOrder       | -          | 订单结构体，见本节 BriefOrder。          |
-| bro    | 否   | BriefRefundOrder | -          | 退款单结构体， 见本节 BriefRefundOrder。 |
+| bro    | 否   | BriefRefundOrder | -          | 退款单结构体，见本节 BriefRefundOrder。 |
 
 order、refund_order 只包含一个。
 
@@ -1187,7 +1136,7 @@ order、refund_order 只包含一个。
 | 参数名  | 必填 | 类型   | 长度(Byte) | 说明                                                         |
 | ------- | ---- | ------ | ---------- | ------------------------------------------------------------ |
 | spp     | 否   | Int    | 4          | sub_pay_platform：子支付平台，100：普通微信支付，200：普通支付宝，300：会员卡。 |
-| tt      | 否   | Int    | 4          | trade_type：交易类型，1：刷卡支付，2：扫码支付，3：公众号支付，4：App 支付，5：声波支付， 6：H5 支付，8：一码付支付，9：小程序支付。 |
+| tt      | 否   | Int    | 4          | trade_type：交易类型，1：刷卡支付，2：扫码支付，3：公众号支付，4：App 支付，5：声波支付，6：H5 支付，8：一码付支付，9：小程序支付。 |
 | otn     | 是   | String |      32      | out_trade_no：支付单号。                                       |
 | tf      | 否   |    Int    |        8    | total_fee：订单总金额。                                        |
 | ct      | 是   | Int    | 8          | create_time：订单创建时间。                                    |
@@ -1200,7 +1149,7 @@ order、refund_order 只包含一个。
 | 参数名 | 必填 | 类型   | 长度(Byte) | 说明                                                         |
 | ------ | ---- | ------ | ---------- | ------------------------------------------------------------ |
 | spp    | 否   | Int    | 4          | sub_pay_platform：子支付平台，100：普通微信支付，200：普通支付宝，300：会员卡。 |
-| tt     | 否   | Int    | 4          | trade_type：交易类型，1：刷卡支付，2：扫码支付，3：公众号支付，4：App 支付，5：声波支付， 6：H5 支付，8：一码付支付，9：小程序支付。 |
+| tt     | 否   | Int    | 4          | trade_type：交易类型，1：刷卡支付，2：扫码支付，3：公众号支付，4：App 支付，5：声波支付，6：H5 支付，8：一码付支付，9：小程序支付。 |
 | otn    | 是   | String | 32         | out_trade_no：支付单号。                                       |
 | tf     | 是   | Int    | 8          | total_fee：订单总金额。                                        |
 | orn    | 是   | String | 32         | out_refund_no：退款单号。                                      |
@@ -1212,7 +1161,6 @@ order、refund_order 只包含一个。
 
 #### 示例说明
 **请求生成示例代码：**
-
 ```
 Json::Value request_content;
 request_content["spps"].append(100);
@@ -1238,9 +1186,7 @@ request["r"] = rc;
 request["a"] = authen_code;
 return w.write(request);
 ```
-
 **请求内容示例：**
-
 ```
 {	
 	"a":"6A664293966BECE1D72CA468F2B3CD8283113BE4CDF7BC0153C28F29C77054B8",
@@ -1259,9 +1205,7 @@ return w.write(request);
 	}"
 }
 ```
-
 **应答内容示例：**
-
 ```
 {
 	"a":"C6E3976196205719D36909D706206132EFDCFC6B672E45FC05CFDE5933BB8F18",
@@ -1300,9 +1244,7 @@ return w.write(request);
 ```
 
 ### 9.12 查询订单汇总
-
 ####  接口地址
-
 `https://pay.qcloud.com/cpay/brief_query_order_list_overview`
 
 #### 请求参数
@@ -1320,10 +1262,10 @@ return w.write(request);
 | osmi   | 是   | String | -          | out_sub_mch_id：云支付分配的商户 ID，绑定成功后可获取此 ID。     |
 | osi    | 是   | String | -          | out_shop_id：云支付分配的门店 ID，绑定成功后可获取此 ID。       |
 | di     | 是   | String | -          | device_id：云支付分配的设备 ID，绑定后可获取此 ID。              |
-| ot     | 是   | Int    | 4          | order_type: 单据类型，1：支付订单，2：退款单，3：全部单据。    |
+| ot     | 是   | Int    | 4          | order_type：单据类型，1：支付订单，2：退款单，3：全部单据。    |
 | st     | 是   | Int    | 8          | start_time：查询开始时间。                                     |
 | et     | 是   | Int    | 8          | end_time：查询结束时间。                                       |
-| tt     | 否   | Int    | 4          | 交易类型，1：刷卡支付，2：扫码支付，3：公众号支付，4：App 支付，5：声波支付， 6：H5 支付，8：一码付支付，9：小程序支付。机具应填1。 |
+| tt     | 否   | Int    | 4          | 交易类型，1：刷卡支付，2：扫码支付，3：公众号支付，4：App 支付，5：声波支付，6：H5 支付，8：一码付支付，9：小程序支付。机具应填1。 |
 | ns     | 是   | String | 32         | 随机字符串，ASCII 字符（0-9、a-z、A-Z）。                        |
 
 #### 应答参数
@@ -1355,7 +1297,7 @@ return w.write(request);
 | 参数名 | 必填 | 类型 | 长度(Byte) | 说明                                                         |
 | ------ | ---- | ---- | ---------- | ------------------------------------------------------------ |
 | spp    | 否   | Int  | 4          | sub_pay_platform：子支付平台，100：普通微信支付，200：普通支付宝，300：会员卡。 |
-| tt     | 否   | Int  | 4          | trade_type：交易类型，1：刷卡支付，2：扫码支付，3：公众号支付，4：App 支付，5：声波支付， 6：H5 支付，8：一码付支付，9：小程序支付。 |
+| tt     | 否   | Int  | 4          | trade_type：交易类型，1：刷卡支付，2：扫码支付，3：公众号支付，4：App 支付，5：声波支付，6：H5 支付，8：一码付支付，9：小程序支付。 |
 | sc     | 是   | Int  | 8          | success_count：（交易量）不含撤单的，扣款成功交易笔数，有可能是负值。 |
 | sa     | 是   | Int  | 8          | success_amount：不含撤单的，扣款成功交易金额，有可能是负值。   |
 | sta    | 是   | Int  | 8          | settlement_amount：操作人扣款成功结算金额 - 操作人退款结算金额 - 操作人扣款成功撤单结算金额。 |
@@ -1370,7 +1312,6 @@ return w.write(request);
 
 #### 示例说明
 **请求生成示例代码：**
-
 ```
 Json::Value request_content;
 request_content["spps"].append(100);
@@ -1395,7 +1336,6 @@ request["a"] = authen_code;
 return w.write(request);
 ```
 **请求内容示例：**
-
 ```
 {
 	"a":"156073D9F354BF8000E1EF82AC82EDB2836A9D6DF7CDFD33B05ED5DFE3407516",
@@ -1412,9 +1352,7 @@ return w.write(request);
 	}"
 }
 ```
-
 **应答内容示例：**
-
 ```
 {
 	"a":"883E4B4406668C45EECCC331A8967A4A64F07BA79B4F24395A39192F28D0F231",

@@ -12,8 +12,9 @@ Android SDK 是移动推送 TPNS 服务为客户端实现消息推送而提供�
 
 >!在配置 SDK 前，确保已创建 Android 平台的应用。
 
-1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，选择左侧菜单【配置管理】，获取应用的包名、AccessID、AccessKey。
+1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，在【产品管理】>【配置管理】页面获取应用的 AccessID、AccessKey。
 2. 在 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面，获取当前最新版本号。
+![](https://main.qcloudimg.com/raw/14e6c42845be00c1e2cf964482062794.png)
 3. 在 app build.gradle 文件下，配置以下内容：
 
 ```
@@ -45,26 +46,27 @@ dependencies {
     ......
     //添加以下依赖
     implementation 'com.tencent.jg:jg:1.1'
-    implementation 'com.tencent.tpns:tpns:[VERSION]-release' //  TPNS 推送 [VERSION] 为当前SDK版本号,版本号可在 SDK 下载页查看
+    implementation 'com.tencent.tpns:tpns:[VERSION]-release' //  TPNS 推送 [VERSION] 为当前SDK版本号，版本号可在 SDK 下载页查看
 
 }
 ```
 
 >!
  - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
- - 如果您的应用服务接入点为新加坡或者中国香港，请按照下文步骤完成境外服务接入点配置。
+ - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成其他服务接入点域名配置。
    在 Androidanifest 文件 application 标签内添加以下元数据：
 ```
 <application>
 	// 其他安卓组件
 	<meta-data
 			android:name="XG_SERVER_SUFFIX"
-			android:value="境外域名" />
+			android:value="其他服务接入点域名" />
 </application>
 ```
-境外域名如下：
-- 中国香港：`tpns.hk.tencent.com`
+其他服务接入点域名如下：
+- 上海：`tpns.sh.tencent.com`
 - 新加坡：`tpns.sgp.tencent.com`
+- 中国香港：`tpns.hk.tencent.com`
 
 #### 注意事项
 
@@ -179,27 +181,27 @@ dependencies {
         </intent-filter>
     </receiver>
 
-    <!-- 【必须】 移动推送 TPNS service -->
+    <!-- 【必须】移动推送 TPNS service -->
     <service
         android:name="com.tencent.android.tpush.service.XGVipPushService"
         android:persistent="true"
         android:process=":xg_vip_service"></service>
 
-    <!-- 【必须】 通知service，其中android:name部分要改为当前包名 -->
+    <!-- 【必须】通知 service ，android:name 部分改为包名.XGVIP_PUSH_ACTION -->
         <service android:name="com.tencent.android.tpush.rpc.XGRemoteService"
             android:exported="false">
             <intent-filter>
-                <!-- 【必须】 请修改为当前APP名包.XGVIP_PUSH_ACTION -->
+                <!-- 【必须】请修改为当前APP名包.XGVIP_PUSH_ACTION -->
                 <action android:name="应用包名.XGVIP_PUSH_ACTION" />
             </intent-filter>
         </service>
 
-    <!-- 【必须】 【注意】authorities修改为 包名.XGVIP_PUSH_AUTH -->
+    <!-- 【必须】【注意】authorities 修改为包名.XGVIP_PUSH_AUTH -->
     <provider
         android:name="com.tencent.android.tpush.XGPushProvider"
         android:authorities="应用包名.XGVIP_PUSH_AUTH" />
 
-    <!-- 【必须】 【注意】authorities修改为 包名.TPUSH_PROVIDER -->
+    <!-- 【必须】【注意】authorities 修改为包名.TPUSH_PROVIDER -->
     <provider
         android:name="com.tencent.android.tpush.SettingsContentProvider"
         android:authorities="应用包名.TPUSH_PROVIDER" />
@@ -265,20 +267,20 @@ dependencies {
 
 >!
  - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
- - 如果您的应用服务接入点为新加坡或者中国香港，请按照下文步骤完成境外服务接入点配置。
+ - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成其他服务接入点域名配置。
    在 Androidanifest 文件 application 标签内添加以下元数据：
 ```
 <application>
 	// 其他安卓组件
 	<meta-data
 			android:name="XG_SERVER_SUFFIX"
-			android:value="境外域名" />
+			android:value="其他服务接入点域名" />
 </application>
 ```
-境外域名如下：
-- 中国香港：`tpns.hk.tencent.com`
+其他服务接入点域名如下：
+- 上海：`tpns.sh.tencent.com`
 - 新加坡：`tpns.sgp.tencent.com`
-
+- 中国香港：`tpns.hk.tencent.com`
 
 
 ## 调试及设备注册
