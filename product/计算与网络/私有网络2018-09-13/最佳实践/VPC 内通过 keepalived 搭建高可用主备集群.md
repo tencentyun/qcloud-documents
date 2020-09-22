@@ -213,7 +213,7 @@
 ### 步骤5：使用 notify_action.sh 进行简单的日志记录（可选）
 keepalived 主要日志仍然记录在“/var/log/message”中，可以通过添加 notify 的脚本来进行简单的日志记录。
 
-1. 登录云主机，执行 `vim /etc/keepalived/notify_action.sh` 命令添加脚本“notify_action.sh”，脚本内容如下：
+1. 登录云服务器，执行 `vim /etc/keepalived/notify_action.sh` 命令添加脚本“notify_action.sh”，脚本内容如下：
 
    ```plaintext
    #!/bin/bash
