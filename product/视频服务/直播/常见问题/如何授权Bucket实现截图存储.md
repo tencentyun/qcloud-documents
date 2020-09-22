@@ -7,7 +7,7 @@
 > - Bucket name 为 buckettest123，不含 -1259222427。  
 > - 以上信息均可按照业务实际需要配置。
 3. 您可以根据业务需求开启 COS bucket 的 CDN 加速，单击已创建的存储桶名称或【配置管理】，单击左侧的【域名与传输管理】>【默认 CDN 加速域名】，在【默认 CDN 加速域名】配置项中单击【编辑】，把当前状态设置为开启，然后配置下方选项，具体配置方法可参见 [开启默认 CDN 加速域名](https://cloud.tencent.com/document/product/436/36636)，配置完成之后点击【保存】即可开启CDN加速。
- ![](https://main.qcloudimg.com/raw/e3650ed1c36212f03315df043a512ddf.png)
+![](https://main.qcloudimg.com/raw/96538f69d6de9e987f206aa8b26bfa5d.png)
  
  
 
