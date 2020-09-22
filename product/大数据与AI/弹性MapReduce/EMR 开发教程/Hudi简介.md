@@ -75,7 +75,7 @@ hdfs dfs -copyFromLocal demo/config/* /hudi/config/
 ```
 3.	修改 kafka 数据源。
 ```
-/usr/local/service/apps/hudi-0.5.1/demo/config/kafka-source.properties
+/usr/local/service/hudi/demo/config/kafka-source.properties
 bootstrap.servers=kafka_ip:kafka_port
 ```
 上传第一批次数据：
