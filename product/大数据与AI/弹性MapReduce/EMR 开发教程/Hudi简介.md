@@ -136,7 +136,7 @@ spark-submit --class org.apache.hudi.utilities.deltastreamer.HoodieDeltaStreamer
 spark-submit --class org.apache.hudi.utilities.deltastreamer.HoodieDeltaStreamer  --master yarn ./hudi-utilities-bundle_2.11-0.5.1-incubating.jar  --table-type MERGE_ON_READ --source-class org.apache.hudi.utilities.sources.JsonKafkaSource --source-ordering-field ts  --target-base-path /usr/hive/warehouse/stock_ticks_mor --target-table stock_ticks_mor --props /hudi/config/kafka-source.properties --schemaprovider-class org.apache.hudi.utilities.schema.FilebasedSchemaProvider --disable-compaction
 ```
 10.	查询增量数据，查询方法同步骤7。
-11.	使用 hive-cli 工具。
+11.	使用 hudi-cli 工具。
 ```
  cli/bin/hudi-cli.sh
 connect --path /usr/hive/warehouse/stock_ticks_mor
