@@ -98,4 +98,4 @@
 - 增加了统一整合监控面板的能力，您可以在 Dashboard 列表实现监控面板的轻松管理。
 - 增加了监控图表分组功能，您可以在监控面板中轻松整合、收缩同一业务的监控图表。立即使用
 
->?单击 [Dashboard2.0](https://console.cloud.tencent.com/monitor/dashboard2) 即可开始体验。。
+>?单击 [Dashboard2.0](https://console.cloud.tencent.com/monitor/dashboard2) 即可开始体验。
