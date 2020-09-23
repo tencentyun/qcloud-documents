@@ -1,6 +1,6 @@
-## 容器服务 TKE 介绍
+## TKE 介绍
 
-腾讯云容器服务（Tencent Kubernetes Engine ，TKE）是基于原生 Kubernetes 提供以容器为核心的、高度可扩展的高性能容器管理服务。相较于用户自建容器服务，TKE 具备简单易用、灵活拓展、安全可靠、高效、低成本等核心优势。详细介绍请参考 [容器服务文档](https://cloud.tencent.com/document/product/457) 。
+腾讯云容器服务（Tencent Kubernetes Engine，TKE）是基于原生 Kubernetes 提供以容器为核心的、高度可扩展的高性能容器管理服务。相较于用户自建容器服务，TKE 具备简单易用、灵活拓展、安全可靠、高效、低成本等核心优势。详细介绍请参考 [容器服务文档](https://cloud.tencent.com/document/product/457) 。
 
 ## 操作场景
 
@@ -13,7 +13,7 @@ Kubernetes 作为自动化容器操作的开源平台，已经成为开发者的
 ## 操作步骤
 
 <span id="1"></span>
-### 步骤1：创建私有网络 VPC
+### 步骤1：创建 VPC
 1. 登录 [私有网络 VPC 控制台](https://console.cloud.tencent.com/vpc)。
 2. 在左侧导航栏中单击【私有网络】，进入私有网络列表。
 3. 单击【+新建】，在弹出的对话框中填写内容，创建一个私有网络 VPC。
@@ -22,7 +22,7 @@ Kubernetes 作为自动化容器操作的开源平台，已经成为开发者的
 
 
 <span id="2"></span>
-### 步骤2：创建云服务器 CVM
+### 步骤2：创建 CVM
 1. 登录 [云服务器 CVM 控制台](https://console.cloud.tencent.com/cvm)。
 2. 在左侧导航栏中单击【实例】，进入实例列表。
 3. 单击【新建】，打开 CVM 购买页。
@@ -32,7 +32,7 @@ Kubernetes 作为自动化容器操作的开源平台，已经成为开发者的
  ![](https://main.qcloudimg.com/raw/0806dad75b60dcdd8192d1e078bacfb7.png)
  
 <span id="3"></span>
-### 步骤3：在同一 VPC 下创建容器服务 TKE
+### 步骤3：在同一 VPC 下创建 TKE
 1. 登录 [容器服务 TKE 控制台](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中单击【集群】，进入集群列表。
 3. 单击集群列表上方的【新建】，参考 [创建集群](https://cloud.tencent.com/document/product/457/32189) 文档创建一个 TKE 容器集群。
