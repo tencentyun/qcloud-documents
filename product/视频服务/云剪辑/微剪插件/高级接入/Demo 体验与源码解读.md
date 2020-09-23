@@ -80,7 +80,7 @@ Demo 主要以微剪插件为核心，集成了一个简单的视频剪辑小程
 - 导出模块支持**视频导出**、**视频封面生成**、**水印添加**和**导出进度百分比**功能。
 - 导出页核心代码位于 `pages/demo/export`, 核心功能借助插件的`wj-export`组件。
 - 借助 `wj-export` 组件，只需引入一个标签和编写一个 js 文件即可实现视频导出功能。
-	>？ 示例 js 文件位于 `pages/demo/export/index.js`。
+	>? 示例 js 文件位于 `pages/demo/export/index.js`。
 
 
 以上就是 Demo 的功能及代码介绍，建议 [下载](#download) 代码进行阅读。
