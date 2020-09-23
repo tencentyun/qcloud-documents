@@ -102,7 +102,7 @@ spuller = SmsStatusPuller(appid, appkey)
 try:
     # 拉取短信回执
     callback_result = spuller.pull_callback(max_num)
-    # 拉取回复，国际/港澳台短信不支持回复功能
+    # 拉取回复（国际/港澳台短信不支持回复功能）
     reply_result = spuller.pull_reply(max_num)
 except HTTPError as e:
     print(e)
