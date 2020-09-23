@@ -11,13 +11,7 @@ Windows 平台接入腾讯云物联网开发平台可以分为以下3个步骤�
 
 ### 开发环境安装
 
-获取和安装 Visio Studio 2019开发环境。
-
-1. 请访问 [Visual Studio 下载网站](https://visualstudio.microsoft.com/zh-hans/downloads/)，下载并安装 Visio Studio 2019，本文档下载安装的是 v16.2 版本 Community。
-![](https://main.qcloudimg.com/raw/2fd5a35c66683b62f09a93575ad29036.png)
-
-2. 单击【使用 C++ 的桌面开发】，并确保勾选【用于 Windows 的 C++ CMAKE 工具】。
-![](https://main.qcloudimg.com/raw/45914188fe5b51fc8b89cca7d9d03f02.png)
+获取和安装 Visio Studio 2019开发环境，详情请参考 [编译环境说明](https://cloud.tencent.com/document/product/1081/48372#windows-.E7.BC.96.E8.AF.91.E7.8E.AF.E5.A2.83)。
 
 ### 应用开发
 
