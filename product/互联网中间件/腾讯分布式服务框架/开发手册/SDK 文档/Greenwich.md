@@ -1,5 +1,28 @@
 基于 Spring Cloud Greenwich 版本 SDK，支持 spring boot 2.1.6。
 
+## 1.23.4-Greenwich-RELEASE（2020-09-16）
+
+### Bug 修复
+
+- 修复 MySQL 调用链中对多数据源支持。
+- 修复 feign 请求调用链中只展示 HTTP 方法。
+- 修复定时任务的线程数问题。
+- 修复网关使用就近命名空间的问题。
+    
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.3-Greenwich-RELEASE（2020-09-14）
+
+### Bug 修复
+
+- spring-cloud-tsf-msgw：
+修复网关 MSGW SDK 和服务发现 SDK 不兼容，造成拉取服务列表过快的问题，从而导致注册中心负载压力过大的问题。
+- spring-cloud-tsf-consul-discovery：
+修复服务发现线程数不准确（少于需要请求的服务数），导致服务发现线程调度不及时，节点状态更新可能会延迟30s的问题。
+  
 ## 1.23.2-Greenwich-RELEASE（2020-08-19）
 
 ### Bug 修复

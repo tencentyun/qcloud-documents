@@ -1,6 +1,9 @@
 ## 操作场景
 
-在腾讯云容器服务中，Pod Networking 的功能是由基于 IaaS 层私有网络 VPC 的高性能容器网络实现，而 service proxy 功能是由 kube-proxy 所支持的 ipvs/iptables 两种模式提供。因此建议在集群上，只使用 kube-router 的 Network Policy 功能进行网络访问控制。
+在腾讯云容器服务 TKE 中，Pod Networking 的功能是由基于 IaaS 层私有网络 VPC 的高性能容器网络实现，而 service proxy 功能是由 kube-proxy 所支持的 ipvs/iptables 两种模式提供。因此建议在集群上，只使用 kube-router 的 Network Policy 功能进行网络访问控制。
+
+>! 在 TKE 环境中，kube-router 仅作为 kube-proxy 功能的补充，不能完全把 kube-proxy 替换为 kube-router。
+
 
 ## 相关概念
 

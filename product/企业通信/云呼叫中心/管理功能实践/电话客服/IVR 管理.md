@@ -24,7 +24,7 @@ IVR（Interactive Voice Response）是一种基于电话的语音增值业务的
 ![](https://main.qcloudimg.com/raw/269fd67b05cbc25bc512513cf915e3b3.png)
 >?<li style=" list-style-type:disc;margin-left:20px;">如连线错误，可将鼠标放在连线上单击选中，按键盘上 backspace ⬅️ 键即可删除。<li style=" list-style-type:disc;margin-left:20px;">在页面顶部右上角单击【保存】按钮，即可保存该会话服务流，以防止在搭建过程中因意外导致信息丢失。
 >
-	5. 添加【分支】模块，可支持用户电话按键转接至指定的技能组或播放指定的提示音。若无需导航功能可跳过该步骤，前往 步骤viii。
+	5. 添加【分支】模块，可支持用户电话按键转接至指定的技能组或播放指定的提示音。若无需导航功能可跳过该步骤，前往**步骤viii**。
 <escape>
 <table>
 <tr>
@@ -54,7 +54,7 @@ IVR（Interactive Voice Response）是一种基于电话的语音增值业务的
 </tr>
 <tr>
 <td>超时时间</td>
-<td> 用户按键超过设定的值后将播放超时提示音。</td>
+<td> 用户按键回复时间超过设定的值后将播放超时提示音。</td>
 <td> 60</td>
 </tr>
 <tr>
@@ -100,5 +100,5 @@ IVR（Interactive Voice Response）是一种基于电话的语音增值业务的
 </table>
 </escape>
 	7. 添加【结束】模块，将【转人工】模块的出口连接到【结束】模块。
-	8. 完成会话服务流搭建，单击页面右上角【保存并发布】。
+	8. 单击页面右上角【保存】，完成会话服务流搭建。
 ![](https://main.qcloudimg.com/raw/9c251eefea47243a067bc3973c4cf01f.png)

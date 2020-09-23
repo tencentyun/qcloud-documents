@@ -1,6 +1,6 @@
 ### 如何关闭 TPNS 的保活功能？
 
-TPNS默认开启联合保活能力，请在应用初始化的时候，如Application或LauncherActivity 的onCreate中 调用如下接口，并传递 false 值:
+TPNS 默认开启联合保活能力，请在应用初始化的时候，例如 Application 或 LauncherActivity 的 onCreate 中调用如下接口，并传递 false 值:
 ```java
 XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 ```
@@ -16,7 +16,7 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 	 android:exported="false" />    
 ```
 
-若控制台有以下日志打印，则表明联合保活功能已经关闭：`I/TPNS: [ServiceUtil] disable pull up other app`。
+若控制台有以下日志打印，则表明联合保活功能已经关闭：`I/TPush: [ServiceUtil] disable pull up other app`。
 
 ### 推送消息为何收不到？
 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns) ，使用已获取的 Token 进行推送。如无法收到推送，请根据以下情况进行排查：
@@ -52,15 +52,18 @@ TPNS 推荐使用 Intent 方式进行跳转（注：SDK 点击消息默认支持
  - 如要跳转 AboutActivity 指定页面，示例代码如下：
 ```
 <activity
-android:name="com.qq.xg.AboutActivity"
-android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-<intent-filter >
-<action android:name="android.intent.action.VIEW" />
-<category android:name="android.intent.category.DEFAULT"/>
-<data android:scheme="xgscheme"
-android:host="com.xg.push"
-android:path="/notify_detail" />
-</intent-filter>
+            android:name="com.qq.xg.AboutActivity"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            <intent-filter >
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT"/>
+                <!-- 通过自定义 data 块内容指定您的完整 scheme，按照您的配置，将会组成形如"语义名://主机名/路径名"的 url 标识 -->
+                <!-- 为防止和其他应用的跳转目标页面冲突，您可以使用带有 app 名称、app 包名等可以唯一标记应用的字段进行配置-->
+                <data
+                    android:scheme="语义名"
+                    android:host="主机名"
+                    android:path="/路径名" />
+            </intent-filter>
 </activity>
 ```
  - 若使用移动推送 TPNS 管理台设置 Intent 进行跳转，填写方式如下：

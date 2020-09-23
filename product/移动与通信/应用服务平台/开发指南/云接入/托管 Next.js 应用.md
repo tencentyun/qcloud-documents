@@ -75,7 +75,7 @@ $ cloudbase functions:deploy next
 ? 未找到函数发布配置，使用默认配置？ Yes
 ✔ [next] 函数部署成功！
 ```
-然后建立一条云接入路由：
+然后建立一条HTTP 访问服务路由：
 ```
 cloudbase service:create -f next -p /next
 ```

@@ -1,45 +1,40 @@
+>? 计划于北京时间9月21日（周一）23:00 - 9月22日（周二）06:00进行操作停止下发 kubeconfig 文件。
 
-## 背景
+## 问题背景
+当前容器服务 TKE 在节点默认会放置带有 admin token 的 Kubeconfig 文件，用户可以通过此 Kubeconfig 文件方便的操作 Kubernetes 集群，但是当用户节点登录权限管理不慎，可能会导致集群面临安全风险，所以我们将停止下发 Kubeconfig 文件。
 
-早期容器服务 TKE 产品上线时考虑安全不足，为了方便用户在节点上操作集群，在节点上下发了带有 admin token 的 kubeconfig 文件。使用此文件可以方便地对 Kubernetes 集群进行读写操作，但同时也存在越权风险，如用户节点被黑客攻破，黑客即可通过 admin token 的 kubeconfig 文件随意操作整个集群。由此我们将停止下发节点上的 kubeconfig 文件，目前仅涉及增量节点和集群，存量节点不受影响。
+考虑到存量集群可能会在用户自定义脚本中使用 Kubeconfig 文件对集群进行一些初始化的操作，我们将下发一个权限相同但有效期仅为12小时的客户端证书，供用户初始化节点使用，证书过期之后，此 Kubeconfig 文件也相应作废。如仍需使用，请参考 [问题影响及处理措施](#QA) 进行操作。
 
-考虑到存量集群可能会在用户自定义脚本中使用此 kubeconfig 文件对集群进行一些初始化的操作，我们将临时下发一个权限相同但有效期仅为12小时的客户端证书，供用户初始化节点使用。
+>! 如果您出于某些特殊场景考虑，仍需要在节点安装之后默认带有长期 admin 权限而非12小时有效的 Kubeconfig 文件，或者遇到其他任何问题，您可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
 
-## 影响及处理措施
 
-### 问题1：用户习惯，可能您使用TKE集群习惯登录节点进行kubectl操作，后续将无法直接在节点上使用。
 
-#### 现象
 
+
+
+## 问题影响及处理措施<span id="QA"></span>
+
+#### 问题现象
+如用户习惯使用如下命令进行 TKE 集群登录节点进行 Kubectl 操作，命令及报错信息如下：
 ```bash
 $ kubectl get node
 The connection to the server localhost:8080 was refused - did you specify the right host or port?
-# 或者
+```
+
+```bash
 $ kubectl get node
 error: You must be logged in to the server (Unauthorized)
 ```
 
 #### 处理措施
-
-建议您从控制台-集群详情页-集群APIServer信息-Kubeconfig（或者通过云API调用DescribeClusterKubeconfig）中获取到kubeconfig文件之后拷贝到节点使用。
-
-1. 打开集群详情页获取kubeconfig文件（或者通过云API调用DescribeClusterKubeconfig），可以选择开启内网访问，也可直接使用kubernetes的service ip。
-
-   ![](https://main.qcloudimg.com/raw/62ca44dcbb1093a1a14d1b626c694da9.png)
-
-2. 也可获取到default命名空间下的kubernetes的serviceIP，替换掉kubeconfig文件中clusters.cluster.server字段为下图中的https://\<IP\>:443即可。
-
-   ![](https://main.qcloudimg.com/raw/48af13c18a50cf5b9ce4108f3f9543b7.png)
-
-3. 拷贝内容到新节点上的$HOME/.kube/config下
-
-4. 访问kubernetes集群，使用kubectl get nodes 测试是否连通
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+2. 获取当前使用账号的凭证信息 Kubeconfig 文件，请参见 [获取凭证](https://cloud.tencent.com/document/product/457/46105#.E8.8E.B7.E5.8F.96.E5.87.AD.E8.AF.81)。
+3. 获取 Kubeconfig 文件后，可以选择开启内网访问，也可直接使用 Kubernetes 的 service IP。在集群详情页面中，选择左侧的【服务与路由】>【Service】获取 default 命名空间下 Kubernetes 的 service IP。将 Kubeconfig 文件中 clusters.cluster.server 字段替换为 https://\<`IP`\>:443 即可。
+4. 拷贝 Kubeconfig 文件内容到新节点上的 `$HOME/.kube/config` 下。
+5. 访问 Kubeconfig 集群，使用 `kubectl get nodes` 测试是否连通。
 
 ## 特殊场景处理
-
-1. workload有挂载host的/root/.kube/config（或者/home/ubuntu/.kube/config）文件进行使用
-
-   **处理措施**：正确使用kubernetes的serviceaccount进行incluster方式访问集群，参考[这里](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)。
-
-2. 如果您处于某些特殊场景考虑，需要节点仍然下发admin token的kubeconfig文件，或者其他任何问题，可以提交工单，联系我们。
-
+#### 特殊场景
+workload 已挂载 host 的 `/root/.kube/config` 或者 `/home/ubuntu/.kube/config` 文件进行使用。
+#### 处理措施
+正确使用 Kubernetes 的 serviceaccount 进行 incluster 方式访问集群，请参见 [Kubernetes官方文档](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/)。
