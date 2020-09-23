@@ -10,9 +10,9 @@
 
 | 字段类型    | 支持情况 | 可选算法 |
 | ----------- | -------- | -------- |
-| char        | 不支持   |     -     |
+| char        | 支持，但不支持52个及以上汉字，不支持156个及以上字母。   |   AES/SM4    |
 | varchar     | 支持     | AES/SM4  |
-| tinytext    | 支持     | AES/SM4  |
+| tinytext    | 支持，但不支持52个及以上汉字，不支持156个及以上字母。     | AES/SM4  |
 | text        | 支持     | AES/SM4  |
 | longtext    | 支持     | AES/SM4  |
 | tinyblob    | 支持     | AES/SM4  |
