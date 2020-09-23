@@ -20,7 +20,7 @@ Dashboard 是云监控针对云产品指标监控数据，提供的具备可视�
 #### 常见场景：
 
 - 收到指标告警后，您可以通过 Dashboard 分析异常原因。
-  ![](https://main.qcloudimg.com/raw/205c3813cb7c3b2691e5762956a4b949.png)
+  ![](https://main.qcloudimg.com/raw/194c0540326e5eca69e05df23ea8f834.png)
 - 发布新功能后，通过 Dashboard 观察资源是否异常。
 - 实时查看指标，紧急业务高峰时进行性能优化。
 - 通常 Dashboard 查看负载，判断是否需要进行资源扩缩容。
