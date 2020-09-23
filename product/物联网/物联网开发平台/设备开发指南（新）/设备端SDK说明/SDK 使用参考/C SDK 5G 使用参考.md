@@ -48,7 +48,7 @@
 
 ### 3. 填写设备信息
 
-将在腾讯云物联网平台创建的设备的设备信息（以密钥认证设备为例，包括 productId，deviceName 和 diviceSecret），填写到5G SDK 根目录下 device_info.json 中，示例代码如下： 
+将在腾讯云物联网平台创建的设备的设备信息（以密钥认证设备为例，包括 ProductId，DeviceName 和 DiviceSecret），填写到5G SDK 根目录下 device_info.json 中，示例代码如下： 
 ```json
 {
     "auth_mode":"KEY",
