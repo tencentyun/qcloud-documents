@@ -7,14 +7,14 @@ LLSync SDK 当前处于内部测试阶段，暂未开放下载。
 
 ## 软件架构
 
-BLE 设备可以通过 LLSync 协议与移动端 App 或网关设备连接，通过 App 或网关设备接入物联网开发平台。LLSync SDK 结构框图见下图:
+BLE 设备可以通过 LLSync 协议与移动端 App 或网关设备连接，通过 App 或网关设备接入物联网开发平台。LLSync SDK 结构框图见下图：
 
 ![LLSync结构框图](https://main.qcloudimg.com/raw/9fabb2c222ae40d6a93641b745a327bd.png)
 
 SDK 分三层设计，从上至下分别为应用层、LLSync 核心层、HAL 移植层。
 * HAL 移植层：LLSync SDK 需要适配设备硬件和 BLE 协议栈，针对不同的设备和 BLE 协议栈用户需要进行移植和适配。
-* LLSync 核心组件：定义了 BLE 设备和移动端 App 或网关设备之间的通信协议，实现了身份认证，数据解析等功能，用户一般无需改动即可使用。
-* 应用层：LLSync SDK 提供了数据模版的操作函数，用户需要根据使用场景做具体实现。
+* LLSync 核心组件：定义了 BLE 设备和移动端 App 或网关设备之间的通信协议，实现身份认证，数据解析等功能，用户一般无需改动即可使用。
+* 应用层：LLSync SDK 提供数据模版的操作函数，用户需要根据使用场景做具体实现。
 
 ## 目录结构
 
@@ -31,7 +31,7 @@ qcloud_iot_explorer_ble
   │       ├─config                    # ini文件
   │       ├─src                       # 脚本文件
   │           ├─dt_fixed_content      # C代码中的固定内容，无需转换生成
-  │   ├─code_extract             			# 例程代码抽取
+  │   ├─code_extract             	 # 例程代码抽取
   └─src                               # LLSync核心代码，用户一般无需修改
       ├─core                          # LLSync源码
       ├─internal_inc                  # 内部头文件
