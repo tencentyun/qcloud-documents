@@ -113,7 +113,7 @@ You must provide the Content-Length HTTP header。
 POST /coss3/app?append&position=0 HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Tue, 16 Jan 2016 21:32:00 GMT
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1484208848;32557104848&q-key-time=1484208848;32557104848&q-header-list=host&q-url-param-list=append;position&q-signature=855fe6b833fadf20570f7f650e2120e17ce8a2fe
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3M****&q-sign-time=1484208848;32557104848&q-key-time=1484208848;32557104848&q-header-list=host&q-url-param-list=append;position&q-signature=855fe6b833fadf20570f7f650e2120e17ce8a2fe
 Content-Length: 4096
 
 [Object]
