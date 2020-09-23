@@ -1,6 +1,6 @@
 ## MQTT 协议说明
 
-目前物联网通信支持 MQTT 标准协议接入(兼容3.1.1版本协议)，具体的协议请参见 [MQTT 3.1.1](http://mqtt.org/?spm=5176.doc30540.2.3.BU9nwt) 协议文档。
+目前物联网通信支持 MQTT 标准协议接入(兼容3.1.1版本协议)，具体的协议请参见 [MQTT 3.1.1](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html) 协议文档。
 
 ### 和标准 MQTT 区别
 
@@ -38,7 +38,7 @@ MQTT 协议支持通过设备证书和密钥签名两种方式接入物联网通
 
 ### 证书认证设备接入指引
 
-物联网平台采用 TLS 加密方式来保障设备传输数据时的安全性。证书设备接入时，获取到证书设备的证书、私钥与 CA 证书文件之后，设置好 KeepAlive，ClientId，UserName，PassWord 等内容（采用腾讯云设备端 SDK 方式接入的设备无需设置，SDK 可根据设备信息自动生成）。设备向指定的 URL 上传认证文件，通过之后发送 MqttConnect 消息即可完成证书设备基于 TCP 的 MQTT 接入。
+物联网平台采用 TLS 加密方式来保障设备传输数据时的安全性。证书设备接入时，获取到证书设备的证书、私钥与 CA 证书文件之后，设置好 KeepAlive，ClientId，UserName，PassWord 等内容（采用腾讯云设备端 SDK 方式接入的设备无需设置，SDK 可根据设备信息自动生成）。设备向证书认证对应的 URL 上传认证文件，通过之后发送 MqttConnect 消息即可完成证书设备基于 TCP 的 MQTT 接入。
 
 ### 密钥认证设备接入指引
 
@@ -65,7 +65,8 @@ password 字段格式为：
 ${token};hmac 签名方法
 其中 hmac 签名方法字段填写第三步用到的摘要算法，可选的值有 hmacsha256 和 hmacsha1。
 ```
-作为对照，用户生成签名的 Python 代码为：
+作为对照，用户生成签名的 Python、Java 代码示例如下；
+Python 代码为：
 ```
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
@@ -79,7 +80,7 @@ import sys
 # 生成指定长度的随机字符串
 def RandomConnid(length):
         return  ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(length))
-# 生成接入物联云需要的各参数
+# 生成接入物联网通信平台需要的各参数
 def IotHmac(productID, devicename, devicePsk):
         # 1. 生成 connid 为一个随机字符串，方便后台定位问题
         connid   = RandomConnid(5)
@@ -91,7 +92,7 @@ def IotHmac(productID, devicename, devicePsk):
         username = "{};12010126;{};{}".format(clientid, connid, expiry)
         # 5. 对 username 进行签名，生成token
         token = hmac.new(devicePsk.decode("base64"), username, digestmod=hashlib.sha256).hexdigest()
-        # 6. 根据物联云通信平台规则生成 password 字段
+        # 6. 根据物联网通信平台规则生成 password 字段
         password = "{};{}".format(token, "hmacsha256")
         return {
             "clientid" : clientid,
@@ -104,6 +105,97 @@ if __name__ == '__main__':
 将上述代码保存到 IotHmac.py，执行下面的命令即可（Python2.7 版本）。这里 "YOUR_PRODUCTID"、 "YOUR_DEVICENAME" 和"YOUR_PSK" 是填写您实际创建设备的产品 ID、设备名称和设备密钥。
 ```
 python IotHmac.py "YOUR_PRODUCTID" "YOUR_DEVICENAME" "YOUR_PSK" 
+```
+Java代码为：
+```
+import javax.crypto.Mac;
+import javax.crypto.spec.SecretKeySpec;
+import java.util.*;
+public class IotHmac {
+ public static void main(String[] args) throws Exception {
+System.out.println(IotHmac("YOUR_PRODUCTID","YOUR_DEVICENAME","YOUR_PSK"));
+}
+public static Map<String, String> IotHmac(String productID, String devicename, String 
+devicePsk) throws Exception {
+					final Base64.Decoder decoder = Base64.getDecoder();
+			//1. 生成 connid 为一个随机字符串，方便后台定位问题
+			String connid = HMACSHA256.getRandomString2(5);
+			//2. 生成过期时间，表示签名的过期时间,从纪元1970年1月1日 00:00:00 UTC 时间至今秒数的 UTF8 字符串
+			Long expiry = Calendar.getInstance().getTimeInMillis()/1000 +600;
+			//3. 生成 MQTT 的 clientid 部分, 格式为 ${productid}${devicename}
+			String clientid = productID+devicename;
+			//4. 生成 MQTT 的 username 部分, 格式为 ${clientid};${sdkappid};${connid};${expiry}
+			String username = clientid+";"+"12010126;"+connid+";"+expiry;
+			//5.  对 username 进行签名，生成token、根据物联网通信平台规则生成 password 字段
+			String password = HMACSHA256.getSignature(username.getBytes(), decoder.decode(devicePsk)) + ";hmacsha256";
+			Map<String,String> map = new HashMap<>();
+			map.put("clientid",clientid);
+			map.put("username",username);
+			map.put("password",password);
+			return map;
+		}
+		public static class HMACSHA256 {
+			private static final String HMAC_SHA256 = "HmacSHA256";
+			/**
+			 * 生成签名数据
+			 *
+			 * @param data 待加密的数据
+			 * @param key  加密使用的key
+			 * @return 生成16进制编码的字符串
+			 */
+			public static String getSignature(byte[] data, byte[] key)  {
+					try {
+							SecretKeySpec signingKey = new SecretKeySpec(key, HMAC_SHA256);
+							Mac mac = Mac.getInstance(HMAC_SHA256);
+							mac.init(signingKey);
+							byte[] rawHmac = mac.doFinal(data);
+							return bytesToHexString(rawHmac);
+					}catch (Exception e) {
+							e.printStackTrace();
+					}
+					return null;
+			}
+        /**
+         * byte[]数组转换为16进制的字符串
+         *
+         * @param bytes 要转换的字节数组
+         * @return 转换后的结果
+         */
+        private static String bytesToHexString(byte[] bytes) {
+            StringBuilder sb = new StringBuilder();
+            for (int i = 0; i < bytes.length; i++) {
+                String hex = Integer.toHexString(0xFF & bytes[i]);
+                if (hex.length() == 1) {
+                    sb.append('0');
+                }
+                sb.append(hex);
+            }
+            return sb.toString();
+        }
+        public static String getRandomString2(int length) {
+            Random random = new Random();
+            StringBuffer sb = new StringBuffer();
+            for (int i = 0; i < length; i++) {
+                int number = random.nextInt(3);
+                long result = 0;
+                switch (number) {
+                    case 0:
+                        result = Math.round(Math.random() * 25 + 65);
+                        sb.append(String.valueOf((char) result));
+                        break;
+                    case 1:
+                        result = Math.round(Math.random() * 25 + 97);
+                        sb.append(String.valueOf((char) result));
+                        break;
+                    case 2:
+                        sb.append(String.valueOf(new Random().nextInt(10)));
+                        break;
+                }
+            }
+            return sb.toString();
+        }
+    }
+}
 ```
 6. 最终将上面生成的参数填入对应的MQTT connect 报文中。
 7. 将 clientid 填入到 MQTT 协议的 clientid 字段。

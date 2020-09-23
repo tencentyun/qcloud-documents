@@ -50,7 +50,7 @@
 
 #### 交互开发配置
 配置产品在小程序端的控制面板、配网引导、快捷入口，若不配置则使用系统默认配置。
-![](https://main.qcloudimg.com/raw/f876ae6e0c8f6e60a7cab86ae2618e4c.png)
+![](https://main.qcloudimg.com/raw/d7cd315eaa560aa16a1991d31f56342d.jpg)
 
 
 

@@ -1,3 +1,7 @@
+>?云监控 Dashborad 全新改版，已于近期上线，欢迎大家使用新版 Dashboard 监控云上服务性能。旧版 Dashboard 即将下线，如需访问旧版文档，请参见 [旧版 Dashboard](https://cloud.tencent.com/document/product/248/13118)。
+
+
+
 Dashboard 支持最近访问面板、收藏面板和自定义面板三种方式切换查看。本文为您介绍新建 Dashboard 后如何查看 Dashboard。
 
 

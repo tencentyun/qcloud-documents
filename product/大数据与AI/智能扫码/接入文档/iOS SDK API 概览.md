@@ -48,7 +48,7 @@ QBarCodeKit 的单例对象。
 #### initQBarCodeKit
 
 ```objective-c
-- (void) initQBarCodeKit:(NSString *)secretId secretKey:(NSString *)secretkey resultHandle:(resultCodeContent)handle 
+- (void) initQBarCodeKit:(NSString *)secretId secretKey:(NSString *)secretkey teamId:(NSString *)teamId resultHandle:(resultCodeContent)handle 
 ```
 
 功能描述：
@@ -60,6 +60,8 @@ QBarCodeKit 的单例对象。
 **secretId** 用户在后台申请的 secretId 信息
 
 **secretkey** 用户在后台申请后获取的专属密钥信息
+
+**teamId** 用户申请所填写的 development team id
 
 **handle** 用于接收初始化与鉴权认证的结果回调，并将结果放到 [resultCodeContent](#resultCodeContent) 中
 

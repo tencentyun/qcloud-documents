@@ -24,7 +24,8 @@ put_bucket_tagging(Bucket, Tagging={}, **kwargs)
 
 #### 请求示例
 
-```
+[//]: # (.cssg-snippet-put-bucket-tagging)
+```py
 response = client.put_bucket_tagging(
     Bucket='examplebucket-1250000000',
     Tagging={
@@ -67,7 +68,8 @@ get_bucket_tagging(Bucket, **kwargs)
 
 #### 请求示例
 
-```
+[//]: # (.cssg-snippet-get-bucket-tagging)
+```py
 response = client.get_bucket_tagging(
     Bucket='examplebucket-1250000000'
 )
@@ -116,7 +118,8 @@ delete_bucket_tagging(Bucket, **kwargs)
 
 #### 请求示例
 
-```
+[//]: # (.cssg-snippet-delete-bucket-tagging)
+```py
 response = client.delete_bucket_tagging(
     Bucket='examplebucket-1250000000'
 )

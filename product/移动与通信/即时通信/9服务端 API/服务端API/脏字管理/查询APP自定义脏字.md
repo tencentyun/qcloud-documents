@@ -27,8 +27,9 @@ https://console.tim.qq.com/v4/openim_dirty_words/get?sdkappid=88888888&identifie
 
 ### 最高调用频率
 200次/秒。
+
 ### 请求包示例
-此接口为 GET 请求，不需要请求体。
+此接口为 GET 请求，不需要请求体。分页返回查询结果，每页200个脏字。
 
 ### 应答包体示例
 ```

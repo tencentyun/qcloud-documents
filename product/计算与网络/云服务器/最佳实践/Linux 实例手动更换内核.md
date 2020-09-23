@@ -40,7 +40,7 @@ vim /etc/default/grub
 2. 按 **i** 切换至编辑模式，将 `GRUB_DEFAULT=saved` 修改为 `GRUB_DEFAULT=0`。
 ![](https://main.qcloudimg.com/raw/484e7a6e818dc44c2d4debb9230e0b46.png)
 3. 按 **Esc**，输入 **:wq**，保存文件并返回。
-4. 执行以下命令，重新生成 Kernrl 配置。
+4. 执行以下命令，重新生成 Kernel 配置。
 ```
 grub2-mkconfig -o /boot/grub2/grub.cfg
 ```

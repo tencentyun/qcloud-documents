@@ -17,6 +17,10 @@ https://api.tpns.hk.tencent.com/v3/device/account/batchoperate
 ```shell
 https://api.tpns.sgp.tencent.com/v3/device/account/batchoperate
 ```
+上海服务接入点:
+```shell
+https://api.tpns.sh.tencent.com/v3/device/account/batchoperate
+```
 
 **接口功能**：异步接口。本接口只负责任务下发，当前不支持实时操作。
 

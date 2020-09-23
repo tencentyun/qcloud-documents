@@ -60,16 +60,23 @@ pod install //安装 SDK
 如 checkTargetOtherLinkFlagForObjc 报错，是因为 build setting 中，Other link flags 未添加 -ObjC。
 
 >! 如果您的应用服务接入点为广州，SDK 默认实现该配置。
-如果您的应用服务接入点为新加坡或者中国香港，请按照下文步骤完成境外服务接入点配置。
+如果您的应用服务接入点为上海、新加坡或者中国香港，请按照下文步骤完成其他服务接入点域名配置。
 1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
 2. 在`startXGWithAccessID:accessKey:delegate:`方法之前调用头文件中的配置`域名`接口：
-如需接入新加坡服务接入点 则将域名设置为```tpns.sgp.tencent.com```。
+
+如需接入上海服务接入点，则将域名设置为```tpns.sh.tencent.com```。
+**示例**
+``` object-c
+/// @note TPNS SDK1.2.7.1+
+[[XGPush defaultManager] configureClusterDomainName:@"tpns.sh.tencent.com"];
+```
+如需接入新加坡服务接入点，则将域名设置为```tpns.sgp.tencent.com```。
 **示例**
 ``` object-c
 /// @note TPNS SDK1.2.7.1+
 [[XGPush defaultManager] configureClusterDomainName:@"tpns.sgp.tencent.com"];
 ```
-如需接入中国香港服务接入点 则将域名设置为```tpns.hk.tencent.com```。
+如需接入中国香港服务接入点，则将域名设置为```tpns.hk.tencent.com```。
 **示例**
 ``` object-c
 /// @note TPNS SDK1.2.7.1+
@@ -118,7 +125,15 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 - 接收图片、音视频富媒体消息。
 
 接入步骤请参考文档 [通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
->!如果未集成此接口，则统计数据中消息“抵达数”与“点击数”一致。
+>!如果未集成此接口，则无法统计“抵达数”。
+
+
+未集成通知服务扩展插件：
+![](https://main.qcloudimg.com/raw/79c01ccaffca8be63341b18ad48ea9a7.png)
+
+集成通知服务扩展插件后：
+![](https://main.qcloudimg.com/raw/9930f71a63d23b2da0c86b023f8e769f.png)
+
 
 ## 调试方法
 #### 开启 Debug 模式

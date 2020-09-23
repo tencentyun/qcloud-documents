@@ -1,11 +1,11 @@
 ## 背景说明
 云函数是腾讯云为企业和开发者们提供的无服务器执行环境，具体可参见 [云函数 SCF](https://cloud.tencent.com/product/scf)，下文简称 SCF。
 
-CDW 常见使用场景是将消息中间件的信息同步到 CDW 后再进行分析。本文提供了一种便捷的方法，即使用 SCF 实时的将 Kafka 中的数据导入到 CDW，无需用户维护任何服务。
+CDWPG 常见使用场景是将消息中间件的信息同步到 CDWPG 后再进行分析。本文提供了一种便捷的方法，即使用 SCF 实时的将 Kafka 中的数据导入到 CDWPG，无需用户维护任何服务。
 
 ## 注意事项
 - 该云函数目前只能将腾讯云 CKafka 作为数据源，暂不支持自建 Kafka。
-- 该云函数目前只能将 CDW 中的某一张表作为目标数据写入，如果有多张表的需求，请按照以下流程每张表创建对应的云函数。
+- 该云函数目前只能将 CDWPG 中的某一张表作为目标数据写入，如果有多张表的需求，请按照以下流程每张表创建对应的云函数。
 
 ## 使用步骤
 
@@ -34,7 +34,7 @@ CDW 常见使用场景是将消息中间件的信息同步到 CDW 后再进行�
 	<tr>
 		<td>DB_HOST</td>
 		<td>是</td>
-		<td>如果函数是私有网络，并且和 CDW 是在同一子网，则可以填写 CDW 的内网 IP，否则需要填写外网 IP，并配置白名单</td>
+		<td>如果函数是私有网络，并且和 CDWPG 是在同一子网，则可以填写 CDWPG 的内网 IP，否则需要填写外网 IP，并配置白名单</td>
 	</tr>
 	<tr>
 		<td>DB_USER</td>
@@ -59,24 +59,59 @@ CDW 常见使用场景是将消息中间件的信息同步到 CDW 后再进行�
 	<tr>
 		<td>DB_PORT</td>
 		<td>否</td>
-		<td>CDW 端口，默认为5436</td>
+		<td>CDWPG 端口，默认为5436</td>
 	</tr>
 	<tr>
-		<td>MSG_SEPARATOR</td>
+		<td>MSG_SEPARATOR_ASCII</td>
 		<td>否</td>
-		<td>CKafka 中消费的分隔符，默认为逗号，也就是 csv 格式</td>
+		<td>CKafka 中数据分隔符的 ASCII 码，默认为39（逗号），由于逗号经常会出现在业务数据中，这里建议使用11（Vertical tab）</td>
 	</tr>
 	<tr>
 		<td>MSG_NULL</td>
 		<td>否</td>
 		<td>CKafka 中消费的 NULL 值，默认是 \N</td>
 	</tr>
+	<tr>
+		<td>REPLACE_0X00</td>
+		<td>否</td>
+		<td>是否替换字符串中的0x00，默认是0（1表示替换）</td>
+	</tr>
+	<tr>
+		<td>ENABLE_DEBUG</td>
+		<td>否</td>
+		<td>是否打印错误的记录，默认是0（1表示打印）</td>
+	</tr>
+	<tr>
+		<td>ENABLE_COS</td>
+		<td>否</td>
+		<td>是否把未写入记录转储到 COS 上，默认是0（1表示转储）</td>
+	</tr>	
+	<tr>
+		<td>COS_SECRET_ID</td>
+		<td>否</td>
+		<td>访问 COS 的 secret_id，ENABLE_COS 如果为1，该字段必填</td>
+	</tr>	
+	<tr>
+		<td>COS_SECRET_KEY</td>
+		<td>否</td>
+		<td>访问 COS 的 secret_key，ENABLE_COS 如果为1，该字段必填</td>
+	</tr>	
+	<tr>
+		<td>COS_BUCKET</td>
+		<td>否</td>
+		<td>COS 存储桶名称，ENABLE_COS 如果为1，该字段必填</td>
+	</tr>	
+	<tr>
+		<td>STATMENT_TIMEOUT</td>
+		<td>否</td>
+		<td>查询超时时间，默认是50秒</td>
+	</tr>	
 </tbody>
 </table>
 - **网络配置**
- - 私有网络：建议**启用**私有网络，并将 VPC 和子网的值配置的与 CDW 相同。
+ - 私有网络：建议**启用**私有网络，并将 VPC 和子网的值配置的与 CDWPG 相同。
  ![](https://main.qcloudimg.com/raw/528bf58229140b1e263bd2135d0a59c6.png)
- 下图为 CDW 对应的值。
+ 下图为 CDWPG 对应的值。
 ![](https://main.qcloudimg.com/raw/69f95bd32b0a9057f9880dd6bf22e859.png)
  - 公网访问：建议同时**启用**公网访问。
 
