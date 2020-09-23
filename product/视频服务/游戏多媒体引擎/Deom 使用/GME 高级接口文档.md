@@ -12,7 +12,7 @@
 | keyString | 不同的 Key 代表不同的功能        |
 | value     |<li> 0：代表关闭<li>1：代表开启 |
 
-### Key 
+#### Key 
 不同的 Key 代表不同的功能，参数 Key 可填写的字段如下：
 - **OptionMixWithOthers**
 混音选项。开启后可以把后台播放的音乐与前台通话语音同时播放。
@@ -46,7 +46,7 @@ public abstract int SetRecvMixStreamCount(int nCount);
 [[ITMGContext GetInstance] SetAdvanceParams:SetForceUseMediaVol value:1]
 ```
 
-### value
+#### value
 不同的 value 代表不同的功能，可填的数值及其代表的含义如下：
 - **1**：房间1开麦克风后为媒体音量（原为通话音量）。
 - **2**：房间2开麦克风后为媒体音量（原为通话音量）。
