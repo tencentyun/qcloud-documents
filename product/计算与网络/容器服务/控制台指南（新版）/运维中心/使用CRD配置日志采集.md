@@ -2,8 +2,8 @@
 用户不仅可以 [使用控制台配置日志采集](https://cloud.tencent.com/document/product/457/36771)，还可通过自定义资源定义（CustomResourceDefinitions，CRD）的方式配置日志采集。CRD 支持采集容器标准输出、容器文件和主机文件，支持多种日志采集格式。
 
 ## 前提条件
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
-2. 确认已开启日志采集功能，详情请参见 [开启日志采集](https://cloud.tencent.com/document/product/457/36771)。
+- 已登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+- 已开启日志采集功能，详情请参见 [开启日志采集](https://cloud.tencent.com/document/product/457/36771)。
 
 
 ## 创建 CRD
