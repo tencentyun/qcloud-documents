@@ -48,18 +48,18 @@ wj-player是支持微剪运行的核心组件，它是由轨道数据驱动运�
   | filters     | Array  | [{<br />key: 'lujing',<br />name: '滤镜'<br />src: 'wxfile://xxxxx'<br />}] | 定制化effect列表 | 否 |
   | effects     | Array  | [{<br />name: EffectName,<br />fragment: Shader代码字符串<br />}] | 定制化shader列表 | 否 |
   | status     | String  | playing | 初始播放状态 | 否 |
-  | bindready | Function |  | 播放器初始化完成回调 |  |
-  | bindplay | Function |  | 播放器开始播放 |  |
-  | bindpaused | Function |  | 播放器暂停回调 |  |
-  | bindwaiting | Function |  | 播放器加载中的回调 |  |
-  | bindloadcomplete | Function |  | 播放器所有Clip加载完毕时触发 |  |
-  | binddataupdated | Function |  | 播放器updateData完成时触发<br />e.detail = [Tracks] |  |
-  | bindtimeupdate | Function |  | 播放进度变化时触发<br />e.detail = time |  |
-  | bindtapped | Function |  | 播放器点击 |  |
-  | bindended | Function |  | 播放完成 |  |
-  | bindtexttouchstart | Function |  | 文字开始触摸 |  |
-  | bindtexttouchend | Function |  | 文字触摸结束 |  |
-  | bindtexttouchmove | Function |  | 文字移动 |  |
+  | bindready | Function | - | 播放器初始化完成回调 | 否 |
+  | bindplay | Function | - | 播放器开始播放 | 否 |
+  | bindpaused | Function | - | 播放器暂停回调 | 否 |
+  | bindwaiting | Function | - | 播放器加载中的回调 | 否 |
+  | bindloadcomplete | Function | - | 播放器所有Clip加载完毕时触发 | 否 |
+  | binddataupdated | Function | - | 播放器updateData完成时触发<br />e.detail = [Tracks] | 否 |
+  | bindtimeupdate | Function | -| 播放进度变化时触发<br />e.detail = time | 否 |
+  | bindtapped | Function | - | 播放器点击 | 否 |
+  | bindended | Function | - | 播放完成 | 否 |
+  | bindtexttouchstart | Function | - | 文字开始触摸 | 否 |
+  | bindtexttouchend | Function | - | 文字触摸结束 | 否 |
+  | bindtexttouchmove | Function | - | 文字移动 | 否 |
 
 
 * 方法
@@ -582,8 +582,8 @@ wj-player是支持微剪运行的核心组件，它是由轨道数据驱动运�
   | -------- | ------ | ---------------- | -------- | -------- |
   | settings     | Object  | 参考下方settings 默认值 | 设置 | 否 |
   | clips     | `Array<clip>`  |  []  | 初始Clip，参考下方clip结构 | 否 |
-  | bindready | Function |  | 组件加载完成回调 |  |
-  | bindmediachanged | Function |  | 选择Clip的回调<br />e.detail = {track: `Array<Track>`} |  |
+  | bindready | Function | - | 组件加载完成回调 | 否 |
+  | bindmediachanged | Function | - | 选择Clip的回调<br />e.detail = {track: `Array<Track>`} | 否 |
 
 	**settings 默认值：**
 	
@@ -677,16 +677,16 @@ wj-player是支持微剪运行的核心组件，它是由轨道数据驱动运�
   | trackInfo     |  Track  |  null  | Track数据，参考下方说明 | 是 |
   | time | Number | 0 | 当前展示时间，控制时间轴的位置 | 否 |
   | settings     | Object  | 参考下方settings 默认值 | 设置 | 否 |
-  | bindthumbdone | Function |  | 缩略图绘制完成事件| 否 |
-  | bindthumbtouchstart | Function |  | 缩略图touch start 事件| 否 |
-  | bindthumbscroll | Function |  | 缩略图滚动事件 <br>{<br>time: 当前时间轴指向的时间<br>}| 否 |
-  | bindtimerollertouchstart | Function |  | 时间轴touch start 事件| 否 |
-  | bindtimerollertouchend | Function |  | 时间轴touch end 事件| 否 |
-  | bindtimerollermove | Function |  | 时间轴拖动事件（拖动左右手柄，时间轴跟随手柄的位置移动）<br>{<br>time: 当前时间轴指向的时间<br>actionType: 事件触发类型（拖拽时间轴触发：moveRoller、拖拽手柄触发：moveHandler）<br>}| 否 |
-  | bindhandlertouchstart | Function |  | 左右手柄touch start 事件| 否 |
-  | bindhandlermove | Function |  | 左右手柄拖动事件<br>{<br>startTime: 左手柄代表时间<br>endTime: 右手柄代表时间<br>} | 否 |
-  | bindclipped | Function |  | 裁切发生事件 <br>{<br>innerTrackInfo: 裁切后的Track数据<br>time: 当前时间轴指向时间<br>actionType: 事件触发类型（拖拽缩略图触发：scrollThumb、拖拽手柄触发：moveHandler）<br>}| 否 |
-  | bindended | Function |  | 时间轴播放到末尾（右手柄位置）事件| 否 |
+  | bindthumbdone | Function | - | 缩略图绘制完成事件| 否 |
+  | bindthumbtouchstart | Function | - | 缩略图touch start 事件| 否 |
+  | bindthumbscroll | Function | - | 缩略图滚动事件 <br>{<br>time: 当前时间轴指向的时间<br>}| 否 |
+  | bindtimerollertouchstart | Function | - | 时间轴touch start 事件| 否 |
+  | bindtimerollertouchend | Function | - | 时间轴touch end 事件| 否 |
+  | bindtimerollermove | Function | - | 时间轴拖动事件（拖动左右手柄，时间轴跟随手柄的位置移动）<br>{<br>time: 当前时间轴指向的时间<br>actionType: 事件触发类型（拖拽时间轴触发：moveRoller、拖拽手柄触发：moveHandler）<br>}| 否 |
+  | bindhandlertouchstart | Function | - | 左右手柄touch start 事件| 否 |
+  | bindhandlermove | Function | - | 左右手柄拖动事件<br>{<br>startTime: 左手柄代表时间<br>endTime: 右手柄代表时间<br>} | 否 |
+  | bindclipped | Function | - | 裁切发生事件 <br>{<br>innerTrackInfo: 裁切后的Track数据<br>time: 当前时间轴指向时间<br>actionType: 事件触发类型（拖拽缩略图触发：scrollThumb、拖拽手柄触发：moveHandler）<br>}| 否 |
+  | bindended | Function | - | 时间轴播放到末尾（右手柄位置）事件| 否 |
 
 
  **trackInfo 结构：**
@@ -766,14 +766,14 @@ wj-player是支持微剪运行的核心组件，它是由轨道数据驱动运�
   | ----------------- | ----------------------------- | ------ | ------------------------------------------------------------ | ---- |
   | tracks            | Array<Track>                  | []     | 导出视频的轨道信息                                           | 是   |
   | quality           | Enum('high', 'medium', 'low') | medium | 导出视频质量选项。提供high, medium, low三个选项。<br />以标准16：9视频为例，<br />high导出分辨率为1080\*1920；<br />medium导出分辨率为720\*1280；<br />low导出分辨率为540\*960； | 否   |
-  | showloading       | Boolean                       |        | 是否显示默认的导出进度toast，默认false。                     | 否   |
-  | watermark         | String                        |        | 集成简易的水印功能。由于小程序对下载文件域名的限制，请将图片先downloadFile到本地，使用本地临时链接。 | 否   |
-  | bindready         | Function                      |        | 导出组件加载完成时触发                                       |      |
-  | bindexportstart   | Function                      |        | 导出流程开始                                                 |      |
-  | bindprogress      | Function                      |        | 导出进度更新<br />e.detail =  {<br />progress: Number<br />} |      |
-  | bindexportsuccess | Function                      |        | 导出成功<br />{<br/>	code: 0, //成功<br/>	tempFilePath: 'wxfile://xxx.mp4',<br/>  coverInfo: {<br/>    path: xxx,<br/>    width: 544,<br/>    height: 960<br/>  }, // 封面信息<br/>  video: {<br/>    width: '544', //视频分辨率<br/>	  height: '960',<br/>	  fps: 30, //帧率<br/>  }<br/>	duration: 3000 //单位 ms<br/>} |      |
-  | bindexportfail    | Function                      |        | 导出失败<br />{<br />message: String,<br />error: errorStack<br />} |      |
-  | bindthumbready    | Function                      |        | 默认封面图生成<br />{<br />path: String,<br />height:1080,<br />width: 720<br />} |      |
+  | showloading       | Boolean                       |    false    | 是否显示默认的导出进度toast，默认false。                     | 否   |
+  | watermark         | String                        |    -    | 集成简易的水印功能。由于小程序对下载文件域名的限制，请将图片先downloadFile到本地，使用本地临时链接。 | 否   |
+  | bindready         | Function                      |    -    | 导出组件加载完成时触发                                       |   否  |
+  | bindexportstart   | Function                      |    -    | 导出流程开始                                                 |  否    |
+  | bindprogress      | Function                      |   -   | 导出进度更新<br />e.detail =  {<br />progress: Number<br />} |    否  |
+  | bindexportsuccess | Function                      |    -    | 导出成功<br />{<br/>	code: 0, //成功<br/>	tempFilePath: 'wxfile://xxx.mp4',<br/>  coverInfo: {<br/>    path: xxx,<br/>    width: 544,<br/>    height: 960<br/>  }, // 封面信息<br/>  video: {<br/>    width: '544', //视频分辨率<br/>	  height: '960',<br/>	  fps: 30, //帧率<br/>  }<br/>	duration: 3000 //单位 ms<br/>} |   否   |
+  | bindexportfail    | Function                      |    -    | 导出失败<br />{<br />message: String,<br />error: errorStack<br />} |   否   |
+  | bindthumbready    | Function                      |    -    | 默认封面图生成<br />{<br />path: String,<br />height:1080,<br />width: 720<br />} |   否   |
 
   
 
@@ -811,8 +811,8 @@ wj-player是支持微剪运行的核心组件，它是由轨道数据驱动运�
   | color     | String | #fff  | 字体颜色，标准css颜色值，默认白色 | 否 |
   | bgColor     | String | transparent | 背景色，标准css颜色值，默认透明 | 否 |
   | colorList     | Array  | 组件默认颜色集合 | [{key: 唯一标识, value: 标准css颜色值}] | 否 |
-  | bindconfirm | Function |  | 用户输入完成。<br />e.detail = { value: 文本内容, <br/>color: 文本颜色, <br/>bgColor: 背景色, <br/>showTextBg: 是否显示背景色 } |  |
-  | bindclose | Function |  | 用户取消输入 |  |
+  | bindconfirm | Function | - | 用户输入完成。<br />e.detail = { value: 文本内容, <br/>color: 文本颜色, <br/>bgColor: 背景色, <br/>showTextBg: 是否显示背景色 } | 否 |
+  | bindclose | Function | - | 用户取消输入 | 否 |
 
 * 操作说明
 
