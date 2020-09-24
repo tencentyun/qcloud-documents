@@ -11,16 +11,16 @@
 
 | 参数名称 | 必选 | 参数类型 | 参数描述 |
 |---------|---------|---------|---------|
-| meetingId | 是 | String| 有效的会议 I。  |
-| userid | 是 | String| 调用方用于标示用户的唯一 ID（例如企业用户可以为企业账户英文名、个人用户可以为手机号等）  |
-| instanceid | 是 | Integer|用户的终端设备类型： <br>1 - PC <br>2 - Mac<br>3 - Android <br>4 - iOS <br>5 - Web <br>6 - iPad <br>7 - Android Pad <br>8 - 小程序 |
+| meetingId | 是 | String| 有效的会议 ID。  |
+| userid | 是 | String| 调用方用于标示用户的唯一 ID（例如企业用户可以为企业账户英文名、个人用户可以为手机号等）。  |
+| instanceid | 是 | Integer|用户的终端设备类型。 <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序 |
 
 
 ## 输出参数
 | 参数名称 |参数类型 | 参数描述 |
 |---------|---------|---------|
-| meeting_number | integer | 会议数量  |
-|meeting_info_list  | [Array](#Array) | 会议列表 |
+| meeting_number | integer | 会议数量。  |
+|meeting_info_list  | [Array](#Array) | 会议列表。 |
 
 
 <span id="Array"></span>
@@ -28,52 +28,52 @@
 
 | 参数名称 |参数类型 | 参数描述 |
 |---------|---------|---------|
-|subject  |String | 会议主题  |
-|meeting_id   |String| 会议的唯一标示  |
-|meeting_code    |String| 会议 App 的呼入号码  |
-|password   |String | 会议密码  |
-|status|String|当前会议状态：<br>MEETING_STATE_INVALID：非法或未知的会议状态，错误状态<br>  MEETING_STATE_INIT：会议的初始状态，表示还没有人入会<br>  MEETING_STATE_CANCELLED：会议已取消<br> MEETING_STATE_STARTED：会议已开始，有人入会<br>MEETING_STATE_ENDED：会议已结束<br>MEETING_STATE_RECYCLED：会议号已被回收|
-|hosts   |String 数组 | 会议主持人列表   |
-|participants  |String数组|邀请的参会者 |
-|start_time  |String | 会议开始时间戳（单位秒） |
-|end_time  |String | 会议结束时间戳（单位秒）  |
-|settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置|
-| meeting_type           | Integer        | 会议类型<br>0 - 普通会议<br>1 - 周期性会议 |
-| recurring_rule         | period_meeting | 周期性会议设置                           |
-| sub_meetings           | 子会议对象数组 | 周期性子会议列表                         |
-| has_more_sub_meeting   | Integer        | 0 - 没有更多   <br>1 - 还有更多子会议特例      |
-| remain_sub_meetings    | Integer        | 剩余子会议场数                           |
-| current_sub_meeting_id | String         | 当前子会议 ID（进行中\|即将开始）      |
+|subject  |String | 会议主题。  |
+|meeting_id   |String| 会议的唯一标示。  |
+|meeting_code    |String| 会议 App 的呼入号码。  |
+|password   |String | 会议密码。  |
+|status|String|当前会议状态：<br>MEETING_STATE_INVALID：非法或未知的会议状态，错误状态。<br>  MEETING_STATE_INIT：会议的初始状态，表示还没有人入会。<br>  MEETING_STATE_CANCELLED：会议已取消。<br> MEETING_STATE_STARTED：会议已开始，有人入会。<br>MEETING_STATE_ENDED：会议已结束。<br>MEETING_STATE_RECYCLED：会议号已被回收。|
+|hosts   |String 数组 | 会议主持人列表。   |
+|participants  |String数组|邀请的参会者。 |
+|start_time  |String | 会议开始时间戳（单位秒）。 |
+|end_time  |String | 会议结束时间戳（单位秒）。  |
+|settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置。|
+| meeting_type           | Integer        | 会议类型。<br>0：普通会议<br>1：周期性会议 |
+| recurring_rule         | period_meeting | 周期性会议设置。                           |
+| sub_meetings           | 子会议对象数组 | 周期性子会议列表。                         |
+| has_more_sub_meeting   | Integer        | 0：没有更多。   <br>1：还有更多子会议特例。      |
+| remain_sub_meetings    | Integer        | 剩余子会议场数。                           |
+| current_sub_meeting_id | String         | 当前子会议 ID（进行中\|即将开始） 。     |
 
 <span id="settings"></span>
 **会议媒体参数对象**
 
 | 参数名称                        | 参数类型 | 参数描述                                                     |
 | ------------------------------- | -------- | ------------------------------------------------------------ |
-| mute_enable_join                | Bool     | 加入静音状态                                                 |
-| allow_unmute_self               | Bool     | 静音自解除允许                                               |
-| allow_in_before_host            | Bool     | 允许成员在主持人进会前加入会议                               |
-| auto_in_waiting_room            | Bool     | 开启等候室                                                   |
-| allow_screen_shared_watermark   | Bool     | 开启屏幕共享水印                                             |
-| only_allow_enterprise_user_join | Bool     | 是否仅企业内部成员可入会 <br>true：仅企业内部用户可入会 <br>false：所有人可入会 |
+| mute_enable_join                | Bool     | 加入静音状态。                                                 |
+| allow_unmute_self               | Bool     | 静音自解除允许。                                               |
+| allow_in_before_host            | Bool     | 允许成员在主持人进会前加入会议。                               |
+| auto_in_waiting_room            | Bool     | 开启等候室。                                                   |
+| allow_screen_shared_watermark   | Bool     | 开启屏幕共享水印。                                             |
+| only_allow_enterprise_user_join | Bool     | 是否仅企业内部成员可入会。 <br>true：仅企业内部用户可入会 <br>false：所有人可入会 |
 
 **子会议对象**
 
 | 参数名称       | 参数类型 | 参数描述                           |
 | -------------- | -------- | ---------------------------------- |
-| sub_meeting_id | String   | 子会议 ID                           |
-| status         | Integer  | 子会议状态<br>0 - 默认存在<br> 1 - 已删除 |
-| start_time     | Integer  | 子会议开始时间（UTC 秒）            |
-| end_time       | Integer  | 子会议结束时间（UTC 秒）            |
+| sub_meeting_id | String   | 子会议 ID。                           |
+| status         | Integer  | 子会议状态。<br>0：默认存在<br> 1：已删除 |
+| start_time     | Integer  | 子会议开始时间（UTC 秒）。            |
+| end_time       | Integer  | 子会议结束时间（UTC 秒）。           |
 
 **周期性会议 period_meeting**
 
 | 参数名称       | 必选 | 参数类型 | 参数描述                                                     |
 | -------------- | ---- | -------- | ------------------------------------------------------------ |
-| recurring_type | 否   | integer  | 周期性会议频率，默认值为0<br>0 - 每天<br> 1 - 每个工作日<br>2 - 每周<br>3 - 每两周<br>4 - 每月<br> |
-| until_type     | 否   | integer  | 结束重复类型，默认值为0<br>0 - 按日期结束重复<br>1 - 按次数结束重复 |
-| until_date     | 否   | integer  | 结束日期时间戳，默认值为当前日期 + 7天                             |
-| until_count    | 否   | integer  | 限定会议次数（1-50次），默认值为7次                              |
+| recurring_type | 否   | integer  | 周期性会议频率，默认值为0。<br>0：每天<br> 1：每个工作日<br>2：每周<br>3：每两周<br>4：每月<br> |
+| until_type     | 否   | integer  | 结束重复类型，默认值为0。<br>0：按日期结束重复<br>1：按次数结束重复 |
+| until_date     | 否   | integer  | 结束日期时间戳，默认值为当前日期 + 7天。                             |
+| until_count    | 否   | integer  | 限定会议次数（1-50次），默认值为7次。                              |
 
 ## 示例
 #### 输入示例
