@@ -1,6 +1,6 @@
 ## TKE 介绍
 
-腾讯云容器服务（Tencent Kubernetes Engine，TKE）是基于原生 Kubernetes 提供以容器为核心的、高度可扩展的高性能容器管理服务。相较于用户自建容器服务，TKE 具备简单易用、灵活拓展、安全可靠、高效、低成本等核心优势。详细介绍请参考 [容器服务文档](https://cloud.tencent.com/document/product/457) 。
+腾讯云容器服务（Tencent Kubernetes Engine，TKE）是基于原生 Kubernetes 提供以容器为核心的、高度可扩展的高性能容器管理服务。相较于用户自建容器服务，TKE 具备简单易用、灵活拓展、安全可靠、高效、低成本等核心优势。详细介绍请参考 [容器服务文档](https://cloud.tencent.com/document/product/457)。
 
 ## 操作场景
 
@@ -18,7 +18,7 @@ Kubernetes 作为自动化容器操作的开源平台，已经成为开发者的
 2. 在左侧导航栏中单击【私有网络】，进入私有网络列表。
 3. 单击【+新建】，在弹出的对话框中填写内容，创建一个私有网络 VPC。
 详细操作请参考 [管理私有网络](https://cloud.tencent.com/document/product/215/36515)。
- ![](https://main.qcloudimg.com/raw/960e423558a59a055d6995929fd3ae6c.png)
+ <img src="https://main.qcloudimg.com/raw/960e423558a59a055d6995929fd3ae6c.png" width="80%" height="80%">
 
 
 <span id="2"></span>
@@ -29,7 +29,7 @@ Kubernetes 作为自动化容器操作的开源平台，已经成为开发者的
 4. 参考 [创建实例](https://cloud.tencent.com/document/product/213/4855) 文档，根据步骤操作，创建一个云服务器 CVM。
 >?CVM 的网络需要选择 [步骤1](#1) 中创建的 VPC 和子网，其余配置项均采用默认配置即可。本文中创建了一个标准型 S5 的 CVM 实例。
 
- ![](https://main.qcloudimg.com/raw/5eb612c02a613a82cfd48ea701d23db2.png)
+  <img src="https://main.qcloudimg.com/raw/5eb612c02a613a82cfd48ea701d23db2.png" width="80%" height="80%">
  
 <span id="3"></span>
 ### 步骤3：在同一 VPC 下创建 TKE
@@ -69,7 +69,7 @@ Kubernetes 作为自动化容器操作的开源平台，已经成为开发者的
 4. 在 API 创建页面依次填写前端配置、后端配置、响应配置后单击【完成】，完成 API 的创建。
 >!填写后端配置时，后端类型选择“HTTP”，VPC 信息选择步骤一所创建的 VPC，VPC 内资源选择“CLB”，后端路径填“/”即可。
 
-![](https://main.qcloudimg.com/raw/b6879ebde2cafabc3d5056240480e9f2.png)
+  <img src="https://main.qcloudimg.com/raw/b6879ebde2cafabc3d5056240480e9f2.png" width="60%" height="60%">
 
 <span id="7"></span>
 ### 步骤7：放通 API 网关内网网段
@@ -86,4 +86,5 @@ Kubernetes 作为自动化容器操作的开源平台，已经成为开发者的
 2. 在服务列表中单击服务名称，进入服务详情页。
 3. 在服务详情页的【服务信息】Tab 页中，单击页面右上角的【发布】，将服务发布至“发布”环境。
 4. 请求 [步骤7](#7) 中创建的 API，可以看到 Nginx 页面即代表访问成功。
-	 ![](https://main.qcloudimg.com/raw/7c2d94c0bfc199305a68df3f0eb0001c.png)
+
+<img src="https://main.qcloudimg.com/raw/7c2d94c0bfc199305a68df3f0eb0001c.png" width="60%" height="60%">
