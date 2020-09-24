@@ -4,7 +4,7 @@
 ### 效果展示
 部分功能界面截图如下：
 <figure class="third">
-    <image src="https://main.qcloudimg.com/raw/e3cd33fde7cedb842a1183ff6a8c6d80.png" width="200"/>
+    <image src="https://imgcache.qq.com/operation/dianshi/other/outsidex.e8c9ab7920cc8945c1192952fce826cc68f3902f.jpeg" width="200"/>
     <image src="https://main.qcloudimg.com/raw/cca34aef6ca4defbbab0f6de3c7ad363.png" width="200"/>
     <image src="https://main.qcloudimg.com/raw/8af6a657387e167fdb74b0e592aef11b.png" width="200"/>
 </figure>
