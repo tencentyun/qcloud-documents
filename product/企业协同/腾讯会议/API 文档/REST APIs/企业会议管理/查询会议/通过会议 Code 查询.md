@@ -41,7 +41,7 @@
 | sub_meetings           | 子会议对象数组 | 周期性子会议列表。                         |
 | has_more_sub_meeting   | integer        | 0：无更多。  <br> 1：有更多子会议特例。      |
 | remain_sub_meetings    | Integer        | 剩余子会议场数。                           |
-| current_sub_meeting_id | String         | 当前子会议 ID（进行中/即将开始）。         |
+| current_sub_meeting_id | String         | 当前子会议 ID（进行中 / 即将开始）。         |
 
 <span id="settings"></span>
 **会议媒体参数对象**
