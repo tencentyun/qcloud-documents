@@ -102,7 +102,7 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
         "test1"      
       ],      
       "join_url": "https://wemeet.qq.com/w/5NmV29k",
-      “meeting_type”:0,      
+      "meeting_type":0,      
       "settings": {        
         "mute_enable_join": true,        
         "allow_unmute_self": false,
