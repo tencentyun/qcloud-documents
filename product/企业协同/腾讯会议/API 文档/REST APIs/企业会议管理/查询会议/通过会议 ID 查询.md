@@ -38,10 +38,10 @@
 |start_time  |String | 会议开始时间戳（单位秒）。 |
 |end_time  |String | 会议结束时间戳（单位秒）。  |
 |settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置。|
-| meeting_type           | Integer        | 会议类型。<br>0：普通会议<br>1：周期性会议 |
+| meeting_type           | Integer        | 会议类型：<br>0：普通会议<br>1：周期性会议。 |
 | recurring_rule         | period_meeting | 周期性会议设置。                           |
 | sub_meetings           | 子会议对象数组 | 周期性子会议列表。                         |
-| has_more_sub_meeting   | Integer        | 0：无更多。   <br>1：有更多子会议特例。      |
+| has_more_sub_meeting   | Integer        | 0：无更多   <br>1：有更多子会议特例。      |
 | remain_sub_meetings    | Integer        | 剩余子会议场数。                           |
 | current_sub_meeting_id | String         | 当前子会议 ID（进行中 / 即将开始）。     |
 
