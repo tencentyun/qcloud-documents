@@ -4,8 +4,7 @@
 
 ### 使用方式
 
-1. 配置 JSON 文件
-
+1. 配置 JSON 文件：
 ```
   {
       "usingComponents": {
@@ -13,9 +12,7 @@
       }
   }
 ```
-
-2. 引入组件:
-
+2. 引入组件：
 ```html
   <wj-player
       class="player" 
