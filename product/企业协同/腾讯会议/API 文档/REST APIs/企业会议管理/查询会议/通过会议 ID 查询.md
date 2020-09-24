@@ -32,7 +32,7 @@
 |meeting_id   |String| 会议的唯一标示。  |
 |meeting_code    |String| 会议 App 的呼入号码。  |
 |password   |String | 会议密码。  |
-|status|String|当前会议状态：<br>MEETING_STATE_INVALID：非法或未知的会议状态，错误状态。<br>  MEETING_STATE_INIT：会议的初始状态，表示还没有人入会。<br>  MEETING_STATE_CANCELLED：会议已取消。<br> MEETING_STATE_STARTED：会议已开始，有人入会。<br>MEETING_STATE_ENDED：会议已结束。<br>MEETING_STATE_RECYCLED：会议号已被回收。|
+|status|String|当前会议状态：<br>MEETING_STATE_INVALID：非法或未知的会议状态，错误状态。<br>  MEETING_STATE_INIT：会议的初始状态，表示尚无人入会。<br>  MEETING_STATE_CANCELLED：会议已取消。<br> MEETING_STATE_STARTED：会议已开始，有人入会。<br>MEETING_STATE_ENDED：会议已结束。<br>MEETING_STATE_RECYCLED：会议号已被回收。|
 |hosts   |String 数组 | 会议主持人列表。   |
 |participants  |String数组|邀请的参会者。 |
 |start_time  |String | 会议开始时间戳（单位秒）。 |
@@ -41,9 +41,9 @@
 | meeting_type           | Integer        | 会议类型。<br>0：普通会议<br>1：周期性会议 |
 | recurring_rule         | period_meeting | 周期性会议设置。                           |
 | sub_meetings           | 子会议对象数组 | 周期性子会议列表。                         |
-| has_more_sub_meeting   | Integer        | 0：没有更多。   <br>1：还有更多子会议特例。      |
+| has_more_sub_meeting   | Integer        | 0：无更多。   <br>1：有更多子会议特例。      |
 | remain_sub_meetings    | Integer        | 剩余子会议场数。                           |
-| current_sub_meeting_id | String         | 当前子会议 ID（进行中\|即将开始） 。     |
+| current_sub_meeting_id | String         | 当前子会议 ID（进行中 / 即将开始）。     |
 
 <span id="settings"></span>
 **会议媒体参数对象**
