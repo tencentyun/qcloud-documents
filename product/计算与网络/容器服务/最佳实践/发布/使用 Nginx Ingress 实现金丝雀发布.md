@@ -8,7 +8,7 @@
 
 ## Nginx Ingress 可以用在哪些发布场景 ?
 
-使用 Nginx Ingress 来实现金丝雀发布，可以用在哪些场景呢？这个主要看使用什么策略进行流量切分，目前 Nginx Ingress 支持基于Header、Cookie 和服务权重这 3 种流量切分的策略，基于它们可以实现以下两种发布场景。
+使用 Nginx Ingress 来实现金丝雀发布，可以用在哪些场景呢？这个主要看使用什么策略进行流量切分，目前 Nginx Ingress 支持基于 Header、Cookie 和服务权重这 3 种流量切分的策略，基于它们可以实现以下两种发布场景。
 
 ### 场景一: 将新版本灰度给部分用户
 
@@ -24,7 +24,7 @@
 
 ## 注解说明
 
-我们通过给 Ingress 资源指定 Nginx Ingress 所支持的一些 annotation 可以实现金丝雀发布，我们需要给服务创建两个 Ingress，一个正常的 Ingress，另一个是带 `nginx.ingress.kubernetes.io/canary: "true"` 这个固定的 annotation 的 Ingress，我们姑且称它为 Canary Ingress，一般代表新版本的服务，结合另外针对流量切分策略的 annotation 一起配置即可实现多种场景的金丝雀发布，以下对这些 annotation 详细介绍下:
+我们通过给 Ingress 资源指定 Nginx Ingress 所支持的一些 annotation 可以实现金丝雀发布，需要给服务创建两个 Ingress，一个正常的 Ingress，另一个是带 `nginx.ingress.kubernetes.io/canary: "true"` 这个固定的 annotation 的 Ingress，我们姑且称它为 Canary Ingress，一般代表新版本的服务，结合另外针对流量切分策略的 annotation 一起配置即可实现多种场景的金丝雀发布，以下对这些 annotation 详细介绍下:
 
 * `nginx.ingress.kubernetes.io/canary-by-header`: 表示如果请求头中包含这里指定的 header 名称，并且值为 `always` 的话，就将该请求转发给该 Ingress 定义的对应后端服务；如果值为 `never` 就不转发，可以用于回滚到旧版；如果是其它值则忽略该 annotation。
 * `nginx.ingress.kubernetes.io/canary-by-header-value`: 这个可以作为 ``canary-by-header`的补充，允许指定请求头的值可以自定义成其它值，不再只能是 `always` 或 `never`；当请求头的值命中这里的自定义值时，请求将会转发给该 Ingress 定义的对应后端服务，如果是其它值则将会忽略该 annotation。
