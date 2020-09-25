@@ -16,7 +16,7 @@ Service YAML 的语义无法定义的负载均衡的参数和功能，可以通�
   * `spec.loadBalancer.l4Listeners.port`：监听端口
 
 ## Service与TkeServiceConfig关联行为
-1. 创建Loadbalancer模式Service时，设置**service.cloud.tencent.com/tke-service-config-auto:&lt;true&gt;** ，将自动创建<ServiceName>-service-config。 您也可以通过 **service.cloud.tencent.com/tke-service-config:&lt;config-name&gt;**直接指定您自行创建的TkeServiceConfig. 两个注解不可同时使用。 
+1. 创建Loadbalancer模式Service时，设置**service.cloud.tencent.com/tke-service-config-auto:&lt;true&gt;** ，将自动创建<ServiceName>-auto-service-config。 您也可以通过 **service.cloud.tencent.com/tke-service-config:&lt;config-name&gt;**直接指定您自行创建的TkeServiceConfig. 两个注解不可同时使用。 
 2. 其中自动创建的TkeServiceConfig存在以下同步行为
   - 更新Service资源时，新增若干四层监听器时，如果这个监听器或转发规则没有对应的TkeServiceConfig配置片段。Service-Controller主动添加TkeServiceConfig对应片段。
   - 删除若干四层监听器时，Service-controller组件主动删除TkeServiceConfig对应片段。

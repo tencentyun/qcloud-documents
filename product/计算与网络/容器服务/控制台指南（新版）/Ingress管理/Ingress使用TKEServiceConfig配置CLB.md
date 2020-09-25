@@ -24,7 +24,7 @@ Ingress YAML 的语义无法定义的负载均衡参数和功能，可以通过 
 
 
 ## Ingress与TkeServiceConfig关联行为
-1. 创建Ingress时，设置**service.cloud.tencent.com/tke-service-config-auto:&lt;true&gt;** ，将自动创建<ServiceName>-service-config。 您也可以通过 **service.cloud.tencent.com/tke-service-config:&lt;config-name&gt;**直接指定您自行创建的TkeServiceConfig. 两个注解不可同时使用。 
+1. 创建Ingress时，设置**service.cloud.tencent.com/tke-service-config-auto:&lt;true&gt;** ，将自动创建<IngressName>-auto-ingress-config。 您也可以通过 **service.cloud.tencent.com/tke-service-config:&lt;config-name&gt;**直接指定您自行创建的TkeServiceConfig. 两个注解不可同时使用。 
 2. 其中自动创建的TkeServiceConfig存在以下同步行为
   - 更新Ingress资源时，新增若干7层转发规则时，如果这个转发规则没有对应的TkeServiceConfig配置片段。Ingress-Controller主动添加TkeServiceConfig对应片段。
   - 删除若干7层转发规则时，Ingress-Controller组件主动删除TkeServiceConfig对应片段。
