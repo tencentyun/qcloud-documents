@@ -26,6 +26,11 @@
 
 ![架构图](https://main.qcloudimg.com/raw/441da6affa73b708ebafa0b7eb26efdd.png)
 
+## 安装流程
+
+![disucz入口](https://main.qcloudimg.com/raw/69482ddda7cc18bf2fbc15d559417578.png)
+![disucz安装](https://main.qcloudimg.com/raw/81bb3905d3972d4f298b9c1fbc551944.png)
+
 ## 常见问题
 ### 小程序部署
 小程序的部署需要单独提审，安装完本扩展应用后，需要参考 [构建/发布Discuz! Q小程序与H5前端](https://discuz.com/docs/uniapp_hbuilderx.html#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95) 进行构建发布小程序端的代码。

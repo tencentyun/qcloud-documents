@@ -19,9 +19,9 @@
 
 ### 步骤1：安装扩展
 
-您可以通过 [云开发控制台](https://console.cloud.tencent.com/tcb/cloudaccess) 安装和管理扩展。
+您可以通过 [云开发控制台](https://console.cloud.tencent.com/tcb/extensions) 安装和管理扩展。
 
-1. 进入云开发控制台 [云调用](https://console.cloud.tencent.com/tcb/cloudaccess) 页面。
+1. 进入云开发控制台 [云调用](https://console.cloud.tencent.com/tcb/extensions) 页面。
 2. 单击 Hello World 扩展能力的【安装】，进行安装扩展。
 	 ![](https://main.qcloudimg.com/raw/1955ccf06eb35d45a6cff3feef5475c2.png)
 3. 扩展能力安装完毕后，会在该环境内新建一个云函数 `tcb_hello_world` 和一个云数据库集合 `tcb_hello_world`。
