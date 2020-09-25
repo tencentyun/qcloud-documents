@@ -138,7 +138,7 @@ cg-casb.properties loaded from /opt/casb_client/extractor/cg-casb.properties
 Tue Sep 15 16:18:00 CST 2020 WARN: Establishing SSL connection without server's identity verification is not recommended. According to MySQL 5.5.45+, 5.6.26+ and 5.7.6+ requirements SSL connection must be established by default if explicit option isn't set. For compliance with existing applications not using SSL the verifyServerCertificate property is set to 'false'. You need either to explicitly disable SSL by setting useSSL=false, or set useSSL=true and provide truststore for server certificate verification.
 [2020-09-15 16:18:01] success
 # 提取表结构
-[root@localhost extractor]# java -jar extractor-1.1.6-SNAPSHOT.jar --op=extract --db-type=mysql --host=192.168.10.130 --port=3306 --user=root --password=hellocasb 
+[root@localhost extractor]# java -jar extractor-1.1.6-release.jar --op=extract --db-type=mysql --host=192.168.10.130 --port=3306 --user=root --password=hellocasb 
 # 如下是提取过程中打印的日志，可做参考
 --op=extract
 --db-type=mysql
@@ -194,7 +194,7 @@ cg-casb.properties loaded from /opt/client/extractor/cg-casb.properties
  2. 在“应用插件管理”页面，找到需要安装插件的应用，在右侧操作栏，单击【插件详情】，进入制作插件页面。
 ![](https://main.qcloudimg.com/raw/00b9fec2586f3cf288b73fa496b9a811.png)
  3. 在“制作插件”页面，单击【新增插件】。
- 4. 在“新增插件弹窗”中，输入“插件名称”、选择“插件版本”、设置“是否开启插件断连告警”、输入“服务器 IP"，即 CASB 管理平台的服务器 IP 地址、输入”端口“即管理平台端口，输入完成后，单击【确定】，插件制作成功。
+ 4. 在“新增插件弹窗”中，输入“插件名称”、选择“插件版本”、设置“是否开启插件断连告警”、输入“服务器 IP”，即 CASB 管理平台的服务器 IP 地址、输入“端口”即管理平台端口，输入完成后，单击【确定】，插件制作成功。
 ![](https://main.qcloudimg.com/raw/58f254ae8a792baf8d6508d5e49ac3b8.png)
 2. **下载安装插件**
  1. 插件创建完成后，在插件列表中，找到目标插件，并在右侧操作栏，单击【下载】。
@@ -289,16 +289,16 @@ $ firewall-cmd --zone=public --add-port=8095/tcp --permanent
 ~$ cd /opt/casb/processor
 # 如下jar包名称根据实际安装后的jar包名称为准，数据库名称，ip，用户名，密码以实际为准，taskId号为管理平台创建的全量加解密任务id
 # Processor验证数据库连接
-~$ java -jar processor-1.1.12-SNAPSHOT.jar --op=verify --db-type=mysql --host=10.1.1.222 --port=3306 --user=root --password=hellocasb --database=ceshi
+~$ java -jar processor-1.1.12-release.jar --op=verify --db-type=mysql --host=10.1.1.222 --port=3306 --user=root --password=hellocasb --database=ceshi
 # Processor进行全量加解密
-~$ java -jar processor-1.1.12-SNAPSHOT.jar --op=batchUpdate --password=hellocasb --taskId=1294661156949987330 --threads=4
+~$ java -jar processor-1.1.12-release.jar --op=batchUpdate --password=hellocasb --taskId=1294661156949987330 --threads=4 --db-type=mysql
 ```
 	2. 命令执行完成后，查看数据库中 user_name 数据已被加密。
 
 ## 其他
-### 用户以及权限管理
- 1. 打开浏览器，输入`https://IP`（其中 IP 为 CASB 管理平台地址），进入登录页面
- 2. 输入账户名及密码，单击【登录】，即可登录 CASB 管理平台。
+### 用户权限管理
+1. 打开浏览器，输入`https://IP`（其中 IP 为 CASB 管理平台地址），进入登录页面。
+2. 输入账户名及密码，单击【登录】，即可登录 CASB 管理平台。
 <span id="role"></span>
 	- **角色的新增、修改、删除**
 		1. 在 CASB 管理平台的左侧导航中，单击【用户权限管理】。
@@ -313,8 +313,8 @@ $ firewall-cmd --zone=public --add-port=8095/tcp --permanent
 	![](https://main.qcloudimg.com/raw/1d7cfb4761e0536c6b77345f7a8d4834.png)
 		4. （可选）在用户管理页面，找到目标用户，在右侧操作栏，单击【修改】或【删除】，可对角色进行编辑或删除。
 
-### 系统日志
-1. 打开浏览器，输入`https://IP`（其中 IP 为 CASB 管理平台地址），进入登录页面
+### 系统日志管理
+1. 打开浏览器，输入`https://IP`（其中 IP 为 CASB 管理平台地址），进入登录页面。
 2. 输入账户名及密码，单击【登录】，即可登录 CASB 管理平台。
 3. 在 CASB 管理平台的左侧导航中，单击【系统日志】。
 4. 在“操作日志”页面，可以根据用户、操作、日期进行筛选查看。

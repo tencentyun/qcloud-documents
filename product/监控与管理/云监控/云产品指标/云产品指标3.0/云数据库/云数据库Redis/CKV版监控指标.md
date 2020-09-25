@@ -12,8 +12,8 @@ Namespace=QCE/REDIS
 | 入流量       | InFlow          | 1分钟内入流量总和                                | 每分钟采集，5分钟粒度数据是按最近5分钟内求和   | Mb/分钟 |redis_uuid|
 | Key总个数       | Keys             | 1分钟内key数量的最大值                            | 每分钟采集，5分钟粒度数据是按最近5分钟内求最大值 | 个     |redis_uuid|
 | 出流量       | OutFlow         | 1分钟内出流量总和                                | 每分钟采集，5分钟粒度数据是按最近5分钟内求和   | Mb/分钟 |redis_uuid|
-| 写请求    | StatGet         | 1分钟内 get、hget、hgetall、hmget、mget、getbit、getrange 命令请求数 | 每分钟采集，5分钟粒度数据是按最近5分钟内求和   | 次/分钟  |redis_uuid|
-| 读请求    | StatSet         | 1分钟内 set、hset、hmset、hsetnx、lset、mset、msetnx、setbit、setex、setrange、setnx 命令请求数 | 每分钟采集，5分钟粒度数据是按最近5分钟内求和   | 次/分钟  |redis_uuid|
+| 读请求    | StatGet         | 1分钟内 get、hget、hgetall、hmget、mget、getbit、getrange 命令请求数 | 每分钟采集，5分钟粒度数据是按最近5分钟内求和   | 次/分钟  |redis_uuid|
+| 写请求    | StatSet         | 1分钟内 set、hset、hmset、hsetnx、lset、mset、msetnx、setbit、setex、setrange、setnx 命令请求数 | 每分钟采集，5分钟粒度数据是按最近5分钟内求和   | 次/分钟  |redis_uuid|
 | 内存使用量       | Storage          | 1分钟内已使用容量的最大值                            | 每分钟采集，5分钟粒度数据是按最近5分钟内求最大值 | MB/分钟 |redis_uuid|
 | 内存使用率       | StorageUs       | 1分钟内已使用容量的百分比最大值                         | 每分钟采集，5分钟粒度数据是按最近5分钟内求最大值 | %     |redis_uuid|
 

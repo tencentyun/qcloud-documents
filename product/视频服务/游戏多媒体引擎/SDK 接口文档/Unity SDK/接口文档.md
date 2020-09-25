@@ -1,6 +1,6 @@
 为方便 Unity 开发者调试和接入腾讯云游戏多媒体引擎产品 API，这里向您介绍适用于 Unity 开发的接入技术文档。
 
->?此文档对应 GME sdk version：2.5。
+>?此文档对应 GME sdk version：2.7。
 
 ## 使用 GME 重要事项
 
@@ -747,7 +747,8 @@ ITMGContext.GetInstance().GetAudioCtrl().GetSpeakerVolume();
 
 
 ### 启动耳返
-此接口用于启动耳返。
+此接口用于启动耳返，需要 EnableLoopBack+EnableSpeaker 才可以听到自己声音。
+
 ####  函数原型  
 ```
 ITMGContext GetAudioCtrl EnableLoopBack(bool enable)
