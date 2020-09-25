@@ -27,7 +27,7 @@ ssl: false
 lowercaseOutputName: false
 lowercaseOutputLabelNames: false
 ```
->!更多配置项请参考 [Prometheusr](https://prometheus.io/docs/introduction/overview/) 官方文档。
+>!更多配置项请参考 [Prometheus](https://prometheus.io/docs/introduction/overview/) 官方文档。
 >
 2. 准备 jar 包文件，可前往 [jmx_exporter](https://github.com/prometheus/jmx_exporter) 的 Github 页面获取最新的 jar 包下载地址。执行以下命令，下载到当前目录。
 ``` bash
