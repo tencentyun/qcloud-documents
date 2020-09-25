@@ -129,10 +129,9 @@ Kubernetes 集群提供了服务注册的机制，只需要将您的服务以 `M
 ## 新模式使用指引
 
 ### 前置要求
-
-1. `Kubernetes`集群版本需要高于 1.12。
-2. 集群网络模式必须开启`VPC-CNI`弹性网卡模式。
-3. 直连模式`Service`使用的工作负载需使用`VPC-CNI`弹性网卡模式。
+- `Kubernetes` 集群版本需高于 1.12。
+2. 集群网络模式需开启 `VPC-CNI` 弹性网卡模式。
+3. 直连模式 `Service` 使用的工作负载需为 `VPC-CNI` 弹性网卡模式。
 
 ### 控制台操作指引
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
