@@ -31,8 +31,8 @@
 
 ## 安装流程
 
-![disucz 入口](https://main.qcloudimg.com/raw/69482ddda7cc18bf2fbc15d559417578.png)
-![disucz 安装](https://main.qcloudimg.com/raw/81bb3905d3972d4f298b9c1fbc551944.png)
+![Disucz 入口](https://main.qcloudimg.com/raw/69482ddda7cc18bf2fbc15d559417578.png)
+![Disucz 安装](https://main.qcloudimg.com/raw/81bb3905d3972d4f298b9c1fbc551944.png)
 
 
 
