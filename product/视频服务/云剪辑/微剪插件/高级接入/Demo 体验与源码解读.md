@@ -56,7 +56,7 @@ Demo 主要以微剪插件为核心，集成了一个简单的视频剪辑小程
 
 #### <span id="cut">裁切模块</span>
 - 裁切模块支持**单段视频时长选择**和**多段视频组合时长选择**功能。
-- 裁切页的核心代码位于 `pages/demo/preview`, 核心功能借助插件的 `wj-clipper` 和 `wj-player`组件。
+- 裁切页的核心代码位于 `pages/demo/preview`，核心功能借助插件的 `wj-clipper` 和 `wj-player`组件。
 - 进入裁切页后，裁切器会自动生成缩略图以及拖拽式 seek 游标，可选择视频的时长。
 - 视频的裁切过程中，您可通过 `wj-player` 组件实时查看视频裁切状态。
 - 裁切好视频后，`wj-clipper` 会自动生成调整之后的 `media track`。
