@@ -143,11 +143,14 @@ this.player = player;
 <td>id 可以自定义，如果不传则由播放器内部自动生成。</td>
 </tr></table>
   2. 因为 Clip 需要运行在 Track中，接下来将 Clip 添加进 media 轨道：
+  
 ```javascript
       this.mediaTrack.clips = [videoClip1];
 ```
+
 3. 添加图片 Clip。
   1. 添加图片 Clip，设置图片的 Clip 的 type 为 image。
+  
 ```javascript
       let imageClip1 = new global['wj-types'].Clip({
         id: 'image1',
@@ -310,13 +313,17 @@ videoClip1.startAt = 1;
 <td>滤镜的关键字，参考 <a href="#filterList">filterList</a> 结构。</td>
 </tr></table>
   3. 将 Clip 加入轨道：
+  
 ```javascript
   this.filterTrack.clips = [filterClip1]
 ```
+
   4. 更新播放器：
+  
 ```javascript
   this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack]);
 ```
+
 > ? 此时您的播放器中拥有了3条轨道，媒体，音乐和滤镜。
 3. 添加多个滤镜片段。
 和添加多个视频 Clip 类似，您需要按照 [添加滤镜片段](#filter_step2) 创建另一个 filterClip2，添加到轨道中，然后更新播放器即可。
@@ -387,10 +394,12 @@ videoClip1.startAt = 1;
 <td>特效的关键字，参见 <a href="#effectList">effectList</a> 结构。</td>
 </tr></table>
   3. 将 Clip 加入轨道：
+  
 ```javascript
   this.effectTrack.clips = [effectClip1]
 ```
   4.  更新播放器：
+  
 ```javascript
   this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrackm, this.effectTrack]);
 ```
@@ -669,11 +678,107 @@ clipper 组件接受的 trackInfo 数据相比于标准的 Track 多了几个属
 - 裁切器涉及两个重要概念：缩略图展示区间、裁切区间。
   - **缩略图展示区间**：与 Clip 对象的 section 属性的值有关，start、end 属性决定单个 Clip 展示的缩略图时间区间。
   - **裁切区间**：与 trackInfo 的 innerStartTime、innerEndTime 字段的值有关，决定了整个 Track 裁切区间的起始时间。
-- 通常来讲，裁切是双向的（缩小区间、放大区间），故提供给 clipper 组件的 Track 数据应该始终为全量数据，即将希望展示到组件中的数据都通过 Clip 的 section 体现出来，而不仅限于裁切区间展示的数据。
-- 不要将裁切后的数据传递给 clipper 组件，除非您真的只想在此基础上继续裁切出更小的区间。
 - 通过 [获取组件实例](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/events.html) 的方式，可以调用组件暴露的 `getValidTrackData` 方法，将裁切区间外的无效数据过滤掉。
 - 触发 clipped 事件的操作：左右手柄 touch-end、缩略图滚动停止。
 - 触发 timerollermove 事件的操作：左右手柄 move、时间轴 move。
+### 示例
+通过两个示例解释下上述裁切器相关字段的含义，下例默认最大裁切区间都为60s
+
+示例1：单段裁切示例
+![](https://cdn.cdn-go.cn/mp-video-edit-static/latest/images/clipper_single.png)
+上述track由一个clip组成，时长为100s，自上而下状态分别对应：初始状态、向左拖动缩略图、向右拖动「左手柄」
+
+对应的数据结构变化如下：
+```
+// 初始状态
+track={
+    ……
+    clips:[
+      {
+        ……
+        section:{
+          start:0,
+          end:100
+        }
+      }
+    ],
+    innerStartTime:0,
+    innerEndTime:60,
+    scrollStartTime:0
+  }
+```
+```
+// 向左拖动缩略图、至20s的距离
+track={
+    ……
+    clips:[
+      {
+        ……
+        section:{
+          start:0,
+          end:100
+        }
+      }
+    ],
+    innerStartTime:20,
+    innerEndTime:80,
+    scrollStartTime:20
+  }
+```
+```
+// 向右拖动「左手柄」，至10s的距离
+track={
+    ……
+    clips:[
+      {
+        ……
+        section:{
+          start:0,
+          end:100
+        }
+      }
+    ],
+    innerStartTime:30,
+    innerEndTime:80,
+    scrollStartTime:20
+  }
+```
+示例2：多段裁切示例
+![](https://cdn.cdn-go.cn/mp-video-edit-static/latest/images/clipper_multi.png)
+上述track由3个clip组成，时长分别为30s、15s、55s，track的总时长为100s。
+
+对应的track数据如下所示：
+```
+track={
+    ……
+    clips:[
+      {
+        ……
+        section:{
+          start:0,
+          end:30
+        }
+      },
+      {
+        ……
+        section:{
+          start:0,
+          end:15
+        }
+      },
+      {
+        ……
+        section:{
+          start:0,
+          end:55
+        }
+      },
+    ],
+    innerStartTime:20,
+    innerEndTime:80,
+    scrollStartTime:20
+  }
+```
 
 
 ## 导出：wj-export
