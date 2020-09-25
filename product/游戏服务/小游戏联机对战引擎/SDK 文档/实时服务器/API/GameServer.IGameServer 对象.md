@@ -545,3 +545,5 @@ gameServer.onStopFrameSync = args => {
     args.SDK.logger.debug("onStopFrameSync", bst.roomInfo);
 };
 ```
+
+

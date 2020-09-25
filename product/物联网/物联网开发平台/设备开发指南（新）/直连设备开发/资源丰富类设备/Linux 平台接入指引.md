@@ -43,13 +43,11 @@ set(FEATURE_DEBUG_DEV_INFO_USED  OFF)
 #### 2. 执行脚本编译
 
 - 编译库和示例
-
 ```bash
 ./cmake_build.sh
 ```
 
 - 只编译示例（完整编译后）
-
 ```bash
 ./cmake_build.sh samples
 ```

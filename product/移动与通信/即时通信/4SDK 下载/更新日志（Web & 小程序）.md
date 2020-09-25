@@ -1,3 +1,15 @@
+### 2.7.8 @2020.9.24
+
+**新增**
+
+[TIM.create](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/TIM.html#.create) 接口新增 `oversea` 参数，设置为 `true` 时 SDK 使用海外域名，避免被干扰。
+
+**修复**
+
+- SDK 处于 not ready 状态时，调用相关 API 返回值为 `undefined` 的问题。
+- 统计相关问题。
+
+
 ### 2.7.7 @2020.8.12
 
 **新增**

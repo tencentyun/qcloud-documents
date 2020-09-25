@@ -1,6 +1,6 @@
 为方便 iOS 开发者调试和接入腾讯云游戏多媒体引擎产品 API，这里向您介绍适用于 iOS 开发的接入技术文档。
 
->?此文档对应 GME sdk version：2.5。
+>?此文档对应 GME sdk version：2.7。
 
 ## 使用 GME 重要事项
 
@@ -793,7 +793,8 @@ ITMGContext GetAudioCtrl -(int)GetSpeakerVolume
 
 
 ### 启动耳返
-此接口用于启动耳返。
+此接口用于启动耳返，需要 EnableLoopBack+EnableSpeaker 才可以听到自己声音。
+
 ####  函数原型  
 ```
 ITMGContext GetAudioCtrl -(QAVResult)EnableLoopBack:(BOOL)enable

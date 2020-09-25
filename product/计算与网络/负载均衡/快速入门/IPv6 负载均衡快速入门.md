@@ -90,7 +90,7 @@ vim  /etc/nginx/nginx.conf
 
 使用具有 IPv6 公网能力的客户端，访问域名或者负载均衡的 IPv6 地址，如果能够正常访问云服务器的 Web 服务，则表明 IPv6 负载均衡工作正常，示例步骤如下：
 1. 打开 [腾讯云域名注册页面](https://dnspod.cloud.tencent.com/) 进行域名查询和注册。本例以`qcloudipv6test.com` 为例，详情请参考 [域名注册](https://cloud.tencent.com/document/product/242/9595)。
-2. 登录 [DNS 解析 DNSPod 控制台](https://console.cloud.tencent.com/cns)，单击您所购买的【域名】，在“记录管理”页面单击【添加记录】按钮，为域名添加 AAAA 记录，输入如下内容并保存：
+2. 登录 [DNS 解析 DNSPod 控制台](https://console.cloud.tencent.com/cns)，单击您所购买的【域名】，在“记录管理”页面单击【添加记录】，为域名添加 AAAA 记录，输入如下内容并保存：
    - 主机记录：即域名前缀，本例设为`www`。
    - 记录类型：`AAAA记录`。
    - 线路类型：默认。
