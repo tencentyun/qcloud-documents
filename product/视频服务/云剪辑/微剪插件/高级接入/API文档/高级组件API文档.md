@@ -3,7 +3,6 @@
 `wj-player` 是支持微剪运行的核心组件，它是由轨道数据驱动运行的播放器，并内置了一些常用功能。
 
 ### 使用方式
-
 1. 配置 JSON 文件：
 ```
   {
@@ -32,28 +31,28 @@
 
 | 属性名               | 类型     | 默认值                                                       | 说明                                                         | 必填 |
 | -------------------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
-| containerStyleConfig | Object   | `{height: 1334, width: 750}`                                 | 播放器的尺寸                                                 | 否   |
-| mode                 | String   | default                                                      | <li />default：video 模式<li />offscreen：decoder offscreen 模式（导出模式） | 否   |
-| allowSetVolumn       | Boolean  | false                                                        | 是否需要调整视频原声音量                                     | 否   |
-| enableTapPause       | Boolean  | false                                                        | 是否启用点击暂停                                             | 否   |
-| enablePauseIcon      | Boolean  | true                                                         | 是否显示暂停按钮                                             | 否   |
-| preloadFilter        | Boolean  | true                                                         | 是否启用滤镜预加载                                           | 否   |
-| preloadFilterKeys    | Array    | ['key1', 'key2']                                             | 需要提前加载的滤镜                                           | 否   |
+| containerStyleConfig | Object   | `{height: 1334, width: 750}`| 播放器的尺寸   | 否   |
+| mode                 | String   | default| <li />default：video 模式<li />offscreen：decoder offscreen 模式（导出模式） | 否   |
+| allowSetVolumn       | Boolean  | false| 是否需要调整视频原声音量                                     | 否   |
+| enableTapPause       | Boolean  | false| 是否启用点击暂停                                             | 否   |
+| enablePauseIcon      | Boolean  | true| 是否显示暂停按钮                                             | 否   |
+| preloadFilter        | Boolean  | true| 是否启用滤镜预加载                                           | 否   |
+| preloadFilterKeys    | Array    | ['key1', 'key2']| 需要提前加载的滤镜                                           | 否   |
 | filters              | Array    | [{<br />key: 'lujing',<br />name: '滤镜'<br />src: 'wxfile://xxxxx'<br />}] | 定制化 effect 列表                                           | 否   |
-| effects              | Array    | [{<br />name: EffectName,<br />fragment: Shader 代码字符串<br />}] | 定制化 shader 列表                                           | 否   |
-| status               | String   | playing                                                      | 初始播放状态                                                 | 否   |
-| bindready            | Function | -                                                            | 播放器初始化完成回调                                         | 否   |
-| bindplay             | Function | -                                                            | 播放器开始播放                                               | 否   |
-| bindpaused           | Function | -                                                            | 播放器暂停回调                                               | 否   |
-| bindwaiting          | Function | -                                                            | 播放器加载中的回调                                           | 否   |
-| bindloadcomplete     | Function | -                                                            | 播放器所有 Clip 加载完毕时触发                               | 否   |
-| binddataupdated      | Function | -                                                            | 播放器 updateData 完成时触发<br />e.detail = [Tracks]        | 否   |
-| bindtimeupdate       | Function | -                                                            | 播放进度变化时触发<br />e.detail = time                      | 否   |
-| bindtapped           | Function | -                                                            | 播放器点击                                                   | 否   |
-| bindended            | Function | -                                                            | 播放完成                                                     | 否   |
-| bindtexttouchstart   | Function | -                                                            | 文字开始触摸                                                 | 否   |
-| bindtexttouchend     | Function | -                                                            | 文字触摸结束                                                 | 否   |
-| bindtexttouchmove    | Function | -                                                            | 文字移动                                                     | 否   |
+| effects              | Array    | [{<br />name: EffectName,<br />fragment: Shader 代码字符串<br />}] | 定制化 shader 列表| 否   |
+| status               | String   | playing| 初始播放状态                                                 | 否   |
+| bindready            | Function | -| 播放器初始化完成回调| 否   |
+| bindplay             | Function | -| 播放器开始播放| 否   |
+| bindpaused           | Function | -| 播放器暂停回调                                               | 否   |
+| bindwaiting          | Function | -| 播放器加载中的回调                                           | 否   |
+| bindloadcomplete     | Function | -| 播放器所有 Clip 加载完毕时触发                               | 否   |
+| binddataupdated      | Function | -| 播放器 updateData 完成时触发<br />e.detail = [Tracks]        | 否   |
+| bindtimeupdate       | Function | -| 播放进度变化时触发<br />e.detail = time                      | 否   |
+| bindtapped           | Function | -| 播放器点击                                                   | 否   |
+| bindended            | Function | -| 播放完成                                                     | 否   |
+| bindtexttouchstart   | Function | -| 文字开始触摸                                                 | 否   |
+| bindtexttouchend     | Function | -| 文字触摸结束                                                 | 否   |
+| bindtexttouchmove    | Function | -| 文字移动                                                     | 否   |
 
 
 ### 方法说明
@@ -143,15 +142,12 @@ this.player = player;
 <td>id 可以自定义，如果不传则由播放器内部自动生成。</td>
 </tr></table>
   2. 因为 Clip 需要运行在 Track中，接下来将 Clip 添加进 media 轨道：
-  
 ```javascript
       this.mediaTrack.clips = [videoClip1];
 ```
-
 3. 添加图片 Clip。
   1. 添加图片 Clip，设置图片的 Clip 的 type 为 image。
-  
-```javascript
+  ```javascript
       let imageClip1 = new global['wj-types'].Clip({
         id: 'image1',
         type: 'image',
@@ -196,7 +192,6 @@ videoClip1.startAt = 1;
 ```javascript
   this.player.updateData([this.mediaTrack]);
 ```
-
 6. 删除某个视频。<span id="delect_video"></span>
   在 media 轨道中删除对应的 Clip 即可，以删除 videoClip1 为例：
   1. 获取视频对应的 id（`video1`）进行删除。
@@ -265,7 +260,7 @@ videoClip1.startAt = 1;
 ```
 4. 删除音乐。
  在播放器的轨道中去掉 `this.musicTrack` 音乐轨道，并重新调用 `updateData` 即可成功删除音乐。
-  ```javascript
+```javascript
   this.player.updateData([this.mediaTrack]);
 ```
 
@@ -313,17 +308,13 @@ videoClip1.startAt = 1;
 <td>滤镜的关键字，参考 <a href="#filterList">filterList</a> 结构。</td>
 </tr></table>
   3. 将 Clip 加入轨道：
-  
 ```javascript
   this.filterTrack.clips = [filterClip1]
 ```
-
   4. 更新播放器：
-  
-```javascript
+ ```javascript
   this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack]);
 ```
-
 > ? 此时您的播放器中拥有了3条轨道，媒体，音乐和滤镜。
 3. 添加多个滤镜片段。
 和添加多个视频 Clip 类似，您需要按照 [添加滤镜片段](#filter_step2) 创建另一个 filterClip2，添加到轨道中，然后更新播放器即可。
@@ -394,12 +385,10 @@ videoClip1.startAt = 1;
 <td>特效的关键字，参见 <a href="#effectList">effectList</a> 结构。</td>
 </tr></table>
   3. 将 Clip 加入轨道：
-  
 ```javascript
   this.effectTrack.clips = [effectClip1]
 ```
   4.  更新播放器：
-  
 ```javascript
   this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrackm, this.effectTrack]);
 ```
@@ -681,12 +670,13 @@ clipper 组件接受的 trackInfo 数据相比于标准的 Track 多了几个属
 - 通过 [获取组件实例](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/events.html) 的方式，可以调用组件暴露的 `getValidTrackData` 方法，将裁切区间外的无效数据过滤掉。
 - 触发 clipped 事件的操作：左右手柄 touch-end、缩略图滚动停止。
 - 触发 timerollermove 事件的操作：左右手柄 move、时间轴 move。
-### 示例
-通过两个示例解释下上述裁切器相关字段的含义，下例默认最大裁切区间都为60s
 
-示例1：单段裁切示例
-![](https://cdn.cdn-go.cn/mp-video-edit-static/latest/images/clipper_single.png)
-上述track由一个clip组成，时长为100s，自上而下状态分别对应：初始状态、向左拖动缩略图、向右拖动「左手柄」
+### 裁剪示例
+通过两个示例解释下上述裁切器相关字段的含义，下例默认最大裁切区间都为60s。
+
+#### 示例1：单段裁切示例
+![](https://main.qcloudimg.com/raw/3c40b1ceaacf4531cf70f6a4f12de377.png)
+上述 Track 由一个 Clip 组成，时长为100s，自上而下状态分别对应：初始状态、向左拖动缩略图、向右拖动「左手柄」。
 
 对应的数据结构变化如下：
 ```
@@ -743,11 +733,11 @@ track={
     scrollStartTime:20
   }
 ```
-示例2：多段裁切示例
-![](https://cdn.cdn-go.cn/mp-video-edit-static/latest/images/clipper_multi.png)
-上述track由3个clip组成，时长分别为30s、15s、55s，track的总时长为100s。
+#### 示例2：多段裁切示例
+![](https://main.qcloudimg.com/raw/403467e0c4a33f975e6a5b82d87e446c.png)
+上述 Track 由3个 Clip 组成，时长分别为30s、15s、55s，track的总时长为100s。
 
-对应的track数据如下所示：
+对应的 Track 数据如下所示：
 ```
 track={
     ……
