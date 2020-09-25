@@ -356,7 +356,7 @@ videoClip1.startAt = 1;
 ```javascript
   const effectList = this.player.getEffects();
 ```
-<b>effectList</b> 的数据结构如下：
+<b id="effectList">effectList</b> 的数据结构如下：
 ```
     [
       {
@@ -543,9 +543,9 @@ videoClip1.startAt = 1;
   | 属性名           | 类型          | 默认值                  | 说明                                                   | 是否必填 |
   | ---------------- | ------------- | ----------------------- | ------------------------------------------------------ | -------- |
   | settings         | Object        | 参见 [settings 默认值](#camera_settings) | 设置                                                   | 否       |
-  | clips            | `Array<clip>` | []                      | 初始 Clip，具体请参见 [clip 结构](#camera_clip)                             | 否       |
+  | clips            | `Array<clip>` | []  | 初始 Clip，具体请参见 [clip 结构](#camera_clip)                             | 否       |
   | bindready        | Function      | -                       | 组件加载完成回调                                       | 否       |
-  | bindmediachanged | Function      | -                       | 选择 Clip 的回调<br />`e.detail = {track: Array<Track>`} | 否       |
+  | bindmediachanged | Function      | -                       | 选择 Clip 的回调<pre style="margin:0" />`e.detail = {track: Array<Track>`}</pre> | 否       |
 
 ####   settings 默认值<span id="camera_settings"></span>
 ```
@@ -580,7 +580,7 @@ videoClip1.startAt = 1;
 - 拍摄时长受 **小程序平台限制，最大值为 30**。
 - 视频 Clip 数量最大值为5，Clip（图片+视频）数量最大值为9。
 - Clip 展示页展示已选择或已拍摄 Clip，单击 Clip 右上角的删除按钮可删除单个 Clip；单击空白处可删除全部 Clip。
-- 小程序平台限制，无法在插件中直接调用 `wx.navigateTo` 实现页面跳转，只能使用 [navigator 组件](https://developers.weixin.qq.com/miniprogram/dev/component/navigator.html) ，故我们预留了一个 `slot插槽` 供用户实现个性化跳转需求，使用方式如下：
+- 小程序平台限制，无法在插件中直接调用 `wx.navigateTo` 实现页面跳转，只能使用 [navigator 组件](https://developers.weixin.qq.com/miniprogram/dev/component/navigator.html) ，故我们预留了一个 `slot 插槽` 供用户实现个性化跳转需求，使用方式如下：
 ```
   <wj-camera bindmediachanged="onMediaChanged" clips="{{clips}}">
       <view 
@@ -631,13 +631,13 @@ videoClip1.startAt = 1;
 | settings                 | Object   | 请参见 [settings 默认值](#clipper_settings) | 设置| 否|
 | bindthumbdone            | Function | -| 缩略图绘制完成事件                                           | 否|
 | bindthumbtouchstart      | Function | -| 缩略图 touch start 事件                                       | 否|
-| bindthumbscroll          | Function | -| 缩略图滚动事件 <br>{<br>time：当前时间轴指向的时间<br>}| 否|
+| bindthumbscroll          | Function | -| 缩略图滚动事件 <pre style="margin:0">{<br>time：当前时间轴指向的时间<br>}</pre>| 否|
 | bindtimerollertouchstart | Function | -| 时间轴 touch start 事件| 否|
 | bindtimerollertouchend   | Function | -| 时间轴 touch end 事件                                         | 否       |
-| bindtimerollermove       | Function | -| 时间轴拖动事件（拖动左右手柄，时间轴跟随手柄的位置移动）<br>{<br>time: 当前时间轴指向的时间<br>actionType: 事件触发类型（拖拽时间轴触发：moveRoller、拖拽手柄触发：moveHandler）<br>} | 否|
+| bindtimerollermove       | Function | -| 时间轴拖动事件（拖动左右手柄，时间轴跟随手柄的位置移动）<pre style="margin:0">{<br>time: 当前时间轴指向的时间<br>actionType: 事件触发类型（拖拽时间轴触发：moveRoller、拖拽手柄触发：moveHandler）<br>}</pre> | 否|
 | bindhandlertouchstart    | Function | -| 左右手柄 touch start 事件| 否|
-| bindhandlermove          | Function | -| 左右手柄拖动事件<br>{<br>startTime：左手柄代表时间<br>endTime：右手柄代表时间<br>} | 否|
-| bindclipped              | Function | -| 裁切发生事件 <br>{<br>innerTrackInfo：裁切后的 Track 数据<br>time：当前时间轴指向时间<br>actionType：事件触发类型（拖拽缩略图触发 scrollThumb，拖拽手柄触发 moveHandler）<br>} | 否       |
+| bindhandlermove          | Function | -| 左右手柄拖动事件<pre style="margin:0">{<br>startTime：左手柄代表时间<br>endTime：右手柄代表时间<br>}</pre> | 否|
+| bindclipped              | Function | -| 裁切发生事件 <pre style="margin:0">{<br>innerTrackInfo：裁切后的 Track 数据<br>time：当前时间轴指向时间<br>actionType：事件触发类型（拖拽缩略图触发 scrollThumb，拖拽手柄触发 moveHandler）<br>}</pre> | 否       |
 | bindended                | Function | -| 时间轴播放到末尾（右手柄位置）事件| 否       |
 
 
@@ -662,7 +662,7 @@ clipper 组件接受的 trackInfo 数据相比于标准的 Track 多了几个属
 ### 组件实例属性
 | 属性名            | 类型     | 参数            | 说明                                                         |
 | ----------------- | -------- | --------------- | ------------------------------------------------------------ |
-| getValidTrackData | Function | ` Array<Track>` | 根据 [trackInfo](#clipper_trackInfo) 的 innerStartTime、innerEndTime 值获取有效的 Track 数据 |
+| getValidTrackData | Function |  Array&lt;Track&gt; | 根据 [trackInfo](#clipper_trackInfo) 的 innerStartTime、innerEndTime 值获取有效的 Track 数据 |
 
 **说明**：
 - 裁切器涉及两个重要概念：缩略图展示区间、裁切区间。
@@ -713,10 +713,10 @@ clipper 组件接受的 trackInfo 数据相比于标准的 Track 多了几个属
 | watermark         | String                        | -      | 集成简易的水印功能。由于小程序对下载文件域名的限制，请将图片先 downloadFile 到本地，使用本地临时链接 | 否   |
 | bindready         | Function                      | -      | 导出组件加载完成时触发                                       | 否   |
 | bindexportstart   | Function                      | -      | 导出流程开始                                                 | 否   |
-| bindprogress      | Function                      | -      | 导出进度更新<pre>e.detail =  {<br />progress: Number<br />} </pre>| 否   |
-| bindexportsuccess | Function                      | -      | 导出成功<pre>{<br/> code: 0, //成功<br/>  tempFilePath: 'wxfile://xxx.mp4',<br/>  coverInfo: {<br/>    path: xxx,<br/>    width: 544,<br/>    height: 960<br/>  }, // 封面信息<br/>  video: {<br/>    width: '544', //视频分辨率<br/>    height: '960',<br/>   fps: 30, //帧率<br/>  }<br/>  duration: 3000 //单位 ms<br/>}</pre> | 否   |
-| bindexportfail    | Function                      | -      | 导出失败<pre>{<br/>message: String,<br />error: errorStack<br />}</pre>| 否   |
-| bindthumbready    | Function                      | -      | 默认封面图生成<pre>{<br/>path: String,<br/>height:1080,<br />width: 720<br/>}</pre> | 否   |
+| bindprogress      | Function                      | -      | 导出进度更新<pre style="margin:0">e.detail =  {<br />progress: Number<br />} </pre>| 否   |
+| bindexportsuccess | Function                      | -      | 导出成功<pre style="margin:0">{<br/> code: 0, //成功<br/>  tempFilePath: 'wxfile://xxx.mp4',<br/>  coverInfo: {<br/>    path: xxx,<br/>    width: 544,<br/>    height: 960<br/>  }, // 封面信息<br/>  video: {<br/>    width: '544', //视频分辨率<br/>    height: '960',<br/>   fps: 30, //帧率<br/>  }<br/>  duration: 3000 //单位 ms<br/>}</pre> | 否   |
+| bindexportfail    | Function                      | -      | 导出失败<pre style="margin:0">{<br/>message: String,<br />error: errorStack<br />}</pre>| 否   |
+| bindthumbready    | Function                      | -      | 默认封面图生成<pre style="margin:0">{<br/>path: String,<br/>height:1080,<br />width: 720<br/>}</pre> | 否   |
 
   
 >? 
@@ -751,7 +751,7 @@ clipper 组件接受的 trackInfo 数据相比于标准的 Track 多了几个属
   | color       | String   | #fff             | 字体颜色，标准 css 颜色值，默认白色                            | 否   |
   | bgColor     | String   | transparent      | 背景色，标准 css 颜色值，默认透明                              | 否   |
   | colorList   | Array    | 组件默认颜色集合 | [{key：唯一标识，value：标准 css 颜色值}]                      | 否   |
-  | bindconfirm | Function | -                | 用户输入完成：<pre>e.detail = { value: 文本内容, <br/>color: 文本颜色, <br/>bgColor: 背景色, <br/>showTextBg: 是否显示背景色 } </pre>| 否   |
+  | bindconfirm | Function | -                | 用户输入完成：<pre style="margin:0">e.detail = { value: 文本内容, <br/>color: 文本颜色, <br/>bgColor: 背景色, <br/>showTextBg: 是否显示背景色 <br/>} </pre>| 否   |
   | bindclose   | Function | -                | 用户取消输入                                                 | 否   |
 
 ### 操作说明
