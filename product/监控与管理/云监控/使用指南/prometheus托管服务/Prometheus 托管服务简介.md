@@ -1,4 +1,4 @@
-﻿云监控 Prometheus 服务在继承开源 Prometheus 监控能力的同时 ，又提供高可用的 Prometheus 托管服务及与开源的可视化 Grafana 高度集成，为您提供开箱即用的 Prometheus 服务的同时又提供了可视化监控的能力，减少用户的开发及运维成本。
+云监控 Prometheus 服务在继承开源 Prometheus 监控能力的同时 ，并提供高可用的 Prometheus 托管服务及与开源的可视化 Grafana 高度集成，为您提供开箱即用的 Prometheus 服务的同时又提供了可视化监控的能力，减少用户的开发及运维成本。
 
 ## Prometheus 简介
 Prometheus 受启发于 Google 的 Brogmon 监控系统（相似的 Kubernetes 是从 Google 的 Brog 系统演变而来），从2012年开始由前 Google 工程师在 Soundcloud 以开源软件的形式进行研发，并且于2015年早期对外发布早期版本。2016年5月继 Kubernetes 之后成为第二个正式加入 [Cloud Native Computing Foundation(CNCF)](https://cncf.io/) 基金会的项目，同年6月正式发布 1.0 版本。2017年底发布了基于全新存储层的 2.0 版本，现在最常见的 Kubernetes 容器管理系统中，通常会搭配 Prometheus 进行监控。
