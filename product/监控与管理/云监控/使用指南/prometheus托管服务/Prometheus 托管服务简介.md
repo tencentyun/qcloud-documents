@@ -1,10 +1,10 @@
-云监控 Prometheus 服务在继承开源 Prometheus 监控能力的同时 ，并提供高可用的 Prometheus 托管服务及与开源的可视化 Grafana 高度集成，为您提供开箱即用的 Prometheus 服务的同时又提供了可视化监控的能力，减少用户的开发及运维成本。
+云监控 Prometheus 服务在继承开源 Prometheus 监控能力的同时 ，并提供高可用的 Prometheus 托管服务及与开源的可视化 Grafana 高度集成，为您提供开通即可快速使用 的 Prometheus 服务同时又提供了可视化监控的能力，减少用户的开发及运维成本。
 
 ## Prometheus 简介
 Prometheus 受启发于 Google 的 Brogmon 监控系统（相似的 Kubernetes 是从 Google 的 Brog 系统演变而来），从2012年开始由前 Google 工程师在 Soundcloud 以开源软件的形式进行研发，并且于2015年早期对外发布早期版本。2016年5月继 Kubernetes 之后成为第二个正式加入 [Cloud Native Computing Foundation(CNCF)](https://cncf.io/) 基金会的项目，同年6月正式发布 1.0 版本。2017年底发布了基于全新存储层的 2.0 版本，现在最常见的 Kubernetes 容器管理系统中，通常会搭配 Prometheus 进行监控。
 
 Prometheus 具有如下特性：
-- 自定义多维数据模型(时序列数据由 Metric 和一组 Key/Value Label 组成)。
+- 自定义多维数据模型（时序列数据由 Metric 和一组 Key/Value Label 组成）。
 - 灵活而强大的查询语言 PromQL，可利用多维数据完成复杂的监控查询。
 - 不依赖分布式存储，支持单主节点工作。
 - 通过基于 HTTP 的 Pull 方式采集时序数据。
@@ -30,6 +30,6 @@ Prometheus 具有如下特性：
 - Prometheus 托管服务结合腾讯云云存储服务及自身的副本能力，为您提供了可用性更强的 Prometheus 监控服务，减少系统中断运行次数。
 
 ### 节省开发运维成本
-- 云监控提供了原生的Prometheus一站式服务，在您购买 Prometheus 实例之后，可以快速与腾讯云容器服务(TKE)集成，Prometheus 为运行在 Kubernetes 之上的服务提供监控服务，免去用户搭建运维及开发成本。
-- 配合 Prometheus，云监控提供了开箱即用的 Grafana 服务，同时也集成了丰富的 Kubernetes 基础监控的 Dashboard，以及常用服务监控的 Dashboard，用户可以开箱即用，免去自己维护 Dashboard 的成本。
-- 基于云监控告警通道的能力，打通Prometheus Alertmanager，同时提供丰富的报警规则模板，免去用户学习告警配置的成本。
+- 云监控提供了原生的 Prometheus 一站式服务，在您购买 Prometheus 实例之后，可以快速与腾讯云容器服务 TKE 集成，Prometheus 为运行在 Kubernetes 之上的服务提供监控服务，免去用户搭建运维及开发成本。
+- 配合 Prometheus，云监控提供了开通即可使用的 Grafana 服务，同时也集成了丰富的 Kubernetes 基础监控的 Dashboard，以及常用服务监控的 Dashboard，用户开通后即可快速使用，免去自己维护 Dashboard 到成本。
+- 基于云监控告警通道的能力，打通 Prometheus Alertmanager，同时提供丰富的报警规则模板，免去用户学习告警配置的成本。
