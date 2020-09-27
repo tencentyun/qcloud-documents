@@ -76,7 +76,7 @@ params对象有效字段描述：
 | appid                   | number   | 必填     | 用户的腾讯云 [APPID](https://console.cloud.tencent.com/developer) |
 | debug                   | boolean  | 可选     | true 为自动显示 webrtc 状态信息，否则需要按 `CTRL+~` 快捷键显示。默认值：false |
 | showLogo                | boolean  | 可选     | 隐藏腾讯云 Logo，true 为隐藏，false 为不隐藏。默认值为 true  |
-| mask                    | boolean  | 可选     | 默认值为 true，false 则隐藏 `click to start` 蒙层            |
+| mask                    | boolean  | 可选     | false 为隐藏 `click to start` 蒙层，默认值为 true            |
 | mic                     | boolean  | 可选     | 开启本地麦克风，true 为开启，false 为关闭。默认值为 false     |
 | nativeCursor            | boolean  | 可选     | 是否显示本地鼠标，true 为显示，false 为隐藏。默认值为 true   |
 | tabletMode              | boolean  | 可选     | true 为使用平板滑动鼠标模式，false 为绝对映射模式。该参数只针对移动端，PC 端忽略该参数。默认值：false |
