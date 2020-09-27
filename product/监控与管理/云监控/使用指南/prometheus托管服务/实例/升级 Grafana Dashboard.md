@@ -1,6 +1,12 @@
-## 操作场景
+
 
 为了方便用户在云监控 Prometheus 监控服务，会不断优化或新增预设的 Grafana Dashboard，用户可以更新预设 Grafana Dashboard。
+
+## 准备工作
+
+申请开通云监控 [Prometheus 托管服务](https://cloud.tencent.com/apply/p/cb3dj6vzk8s)。目前 Prometheus 托管服务暂不收费，需要您申请开通。
+
+
 
 ## 操作步骤
 
