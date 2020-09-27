@@ -1,15 +1,15 @@
 ## 概述
 
-Kubernetes 官方提供了 NodePort 类型的 Service，即给所有节点开通一个相同端口用于暴露该 Service。大多云上负载均衡 （Cloud Load Balancer，CLB） 类型 Service 的传统实现也都是基于 NodePort，即 CLB 后端绑各节点的 NodePort，CLB 接收外界流量，转发到其中一个节点的 NodePort 上，再通过 Kubernetes 内部的 CLB，使用 iptables 或 ipvs 转发到 Pod。示意图如下：
+Kubernetes 官方提供了 NodePort 类型的 Service，即给所有节点开通一个相同端口用于暴露该 Service。大多云上负载均衡 （Cloud Load Balancer，CLB） 类型 Service 的传统实现也都是基于 NodePort。即 CLB 后端绑各节点的 NodePort，CLB 接收外界流量，转发到其中一个节点的 NodePort 上，再通过 Kubernetes 内部的 CLB，使用 iptables 或 ipvs 转发到 Pod。示意图如下：
 <img style="width:80%" src="https://main.qcloudimg.com/raw/dd6fa146520ca178ab17bc94e7f0fb1f.png" data-nonescope="true">
-容器服务 TKE 默认的 CLB 类型 Service 与默认的 Ingress 实现方式与此相同，但目前还支持了 LB 直通 Pod 的方式，即 CLB  后端直接绑定 Pod IP + Port，不绑定节点的 NortPort。示意图如下：
+容器服务 TKE 默认的 CLB 类型 Service 与默认的 Ingress 实现方式与此相同，但目前还支持了 CLB 直通 Pod 的方式，即 CLB  后端直接绑定 Pod IP + Port，不绑定节点的 NortPort。示意图如下：
 <img style="width:35%" src="https://main.qcloudimg.com/raw/26a46cfd9e9687ec455260028b19353f.png" data-nonescope="true">
 
 ## 实现方式分析
 
 ### 传统 NodePort 方式问题分析
-通常会使用 LB 直接绑定 NortPort 的方式来实现云上 Ingress 或 LB 类型的 Service，但此传统 NodePort 实现方式会存在以下问题：
-- 流量从 LB 转发到 NodePort 之后还需要进行 SNAT 再转发到 Pod，带来一些额外的性能损耗。
+通常会使用 CLB 直接绑定 NortPort 的方式来创建云上 Ingress 或 LB 类型的 Service，但此传统 NodePort 实现方式会存在以下问题：
+- 流量从 CLB 转发到 NodePort 之后还需要进行 SNAT 再转发到 Pod，带来一些额外的性能损耗。
 - 如果流量过于集中到某几个 NodePort 时（例如，使用 nodeSelector 部署网关到固定几台节点上），可能导致源端口耗尽或 conntrack 插入冲突。
 - NodePort 本身也充当负载均衡器，CLB 绑定过多节点 NodePort 时可能导致负载均衡状态过于分散，导致全局负载不均。
 
@@ -29,9 +29,9 @@ Kubernetes 官方提供了 NodePort 类型的 Service，即给所有节点开通
 
 ## 前提条件
 - Kubernetes 集群版本需高于1.12。
-CLB 直接绑定 Pod 时检查 Pod 是否 Ready，需查看 Pod 是否 Running、是否通过 readinessProbe，还需是否通过 CLB 对 Pod 的健康监测，此项依赖于 `ReadinessGate` 特性，该特性在 Kubernetes 1.12 开始支持。
+CLB 直接绑定 Pod 时检查 Pod 是否 Ready，需查看 Pod 是否 Running、是否通过 readinessProbe，及是否通过 CLB 对 Pod 的健康监测，此项依赖于 `ReadinessGate` 特性，该特性在 Kubernetes 1.12 开始支持。
 - 集群网络模式必须开启 `VPC-CNI` 弹性网卡模式。可参考 [确认是否开启弹性网卡](#ElasticNetworkCard) 步骤进行确认。
-目前 CLB 直通 Pod 的实现基于弹性网卡，普通的网络模式暂时不支持。
+目前 CLB 直通 Pod 的实现基于弹性网卡，暂不支持普通的网络模式。
 
 ## 操作步骤
 ### 确认是否开启弹性网卡<span id="ElasticNetworkCard"></span>
