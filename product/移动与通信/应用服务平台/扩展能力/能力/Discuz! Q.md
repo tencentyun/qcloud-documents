@@ -31,9 +31,22 @@
 
 ## 安装流程
 
+点击前往[云开发控制台](https://console.cloud.tencent.com/tcb/env/index)
+
+1. 新建环境
+2. 环境创建完后，点击 环境卡片
+3. 点击底部的[扩展应用](https://console.cloud.tencent.com/tcb/extensions/index)，在更多扩展能力中，可以看到 Discuz!Q 应用。
+4. 进入扩展安装流程
+    - 确认应用相关资源
+    - 授予云开发相关资源的操作权限
+    - 扩展云资源准备，声明会依赖的2个资源(文件存储、云数据库)
+    - 扩展程序配置，请勿长期使用默认的密码，注意**修改密码**，避免管理后台被他人登录
+5. 已安装列表里显示 Discuz!Q 应用正在安装中，安装完成后点击可进入详情页。
+6. 详情页内，可以查看 Discuz!Q 的访问地址。
+
 ![disucz入口](https://main.qcloudimg.com/raw/69482ddda7cc18bf2fbc15d559417578.png)
 ![disucz安装](https://main.qcloudimg.com/raw/81bb3905d3972d4f298b9c1fbc551944.png)
-
+![discuz详情页](https://main.qcloudimg.com/raw/009a5504f4f2f439f53ee5ae2478be1c.png)
 ## 常见问题
 ### 小程序部署
 小程序的部署需要单独提审，安装完本扩展应用后，需要参考 [构建/发布Discuz! Q小程序与H5前端](https://discuz.com/docs/uniapp_hbuilderx.html#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95) 进行构建发布小程序端的代码。
