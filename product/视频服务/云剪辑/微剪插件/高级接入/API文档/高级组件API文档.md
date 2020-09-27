@@ -75,7 +75,7 @@
 
 >? 
 >- 定制滤镜目前只支持 LUT 图滤镜，由于小程序下载文件的限制，LUT 图需要先 downloadFile 到本地。
->- 定制特效需要传入特效的片元着色器，详情见 [高级功能-自定义特效和滤镜](https://tcloud-doc.isd.com/document/product/1156/48621?!preview&!editLang=zh)。
+>- 定制特效需要传入特效的片元着色器，详情见 [高级功能-自定义特效和滤镜](https://cloud.tencent.com/document/product/1156/48621)。
 
 ### 播放器使用示例
 
