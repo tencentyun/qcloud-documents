@@ -32,7 +32,7 @@
 | 属性名               | 类型     | 默认值                                                       | 说明                                                         | 必填 |
 | -------------------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
 | containerStyleConfig | Object   | `{height: 1334, width: 750}`| 播放器的尺寸   | 否   |
-| mode                 | String   | default| <li />default：video 模式<li />offscreen：decoder offscreen 模式（导出模式） | 否   |
+| mode                 | String   | default| <li />default：video 模式<li />offscreen：decoder offscreen 模式（导出模式），推荐直接使用 `wj-export` 组件 | 否   |
 | allowSetVolumn       | Boolean  | false| 是否需要调整视频原声音量                                     | 否   |
 | enableTapPause       | Boolean  | false| 是否启用点击暂停                                             | 否   |
 | enablePauseIcon      | Boolean  | true| 是否显示暂停按钮                                             | 否   |
