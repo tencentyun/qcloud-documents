@@ -29,7 +29,7 @@
 <table>
     <tr><th width="12%" >参数名</th><th width="38%">参数描述</th><th width="50%">如何配置</th></tr>
     <tr>
-        <td>主机记录	</td>
+		<td><a href="https://cloud.tencent.com/document/product/302/3468#.E4.B8.BB.E6.9C.BA.E8.AE.B0.E5.BD.95.E7.9A.84.E7.94.A8.E6.B3.95.E6.9C.89.E4.BB.80.E4.B9.88.EF.BC.9F">主机记录</a>	</td>
         <td>填写子域名的前缀	</td>
         <td>
             <ul style="margin-bottom:0;">
@@ -40,22 +40,22 @@
         </td>
     </tr>
     <tr>
-        <td>记录类型</td>
+		<td><a href="https://cloud.tencent.com/document/product/302/3468#.E8.AE.B0.E5.BD.95.E7.B1.BB.E5.9E.8B.E7.9A.84.E5.90.AB.E4.B9.89.E6.98.AF.E4.BB.80.E4.B9.88.EF.BC.9F">记录类型</a></td>
         <td>记录类型，此处为 CNAME 类型</td>
         <td>将域名指向另一个域名，请选择：<b>CNAME</b></td>
     </tr>
     <tr>
-        <td>线路类型</td>
+        <td><a href="https://cloud.tencent.com/document/product/302/3468#.E7.BA.BF.E8.B7.AF.E7.9A.84.E7.94.A8.E6.B3.95.E6.9C.89.E4.BB.80.E4.B9.88.EF.BC.9F">线路类型</a></td>
         <td>用于 DNS 服务器在解析域名时，根据访问者的来源，返回对应的服务器 IP 地址</td>
         <td>选择：<b>默认</b></td>
     </tr>
     <tr>
-        <td>记录值</td>
+        <td><a href="https://cloud.tencent.com/document/product/302/3468#.E8.AE.B0.E5.BD.95.E5.80.BC.E5.A6.82.E4.BD.95.E5.A1.AB.E5.86.99.EF.BC.9F">记录值</a></td>
         <td>需指向的域名，填写腾讯云控制台【<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>】域名对应的 CNAME 值</td>
         <td>填写格式为：<code><b style="color:red;">xxxx</b>.livecdn.liveplay.myqcloud.com</code></td>
     </tr>
     <tr>
-        <td>TTL(秒)</td>
+        <td><a href="https://cloud.tencent.com/document/product/302/3468#.E8.AE.B0.E5.BD.95.E5.80.BC.E5.A6.82.E4.BD.95.E5.A1.AB.E5.86.99.EF.BC.9F">TTL(秒)</a></td>
         <td>缓存的生存时间，默认最常用的<b>600秒</b></td>
         <td>建议填写<b>600秒</b></td>
     </tr>
