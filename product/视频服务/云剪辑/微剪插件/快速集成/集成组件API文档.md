@@ -1,4 +1,4 @@
-### 1. 拍摄组件
+## 拍摄组件
 在需要展示视频编辑能力的页面 JSON 内引入插件，名称可自定，如下方暂定为 my-clip：
 ```
 {
@@ -19,9 +19,10 @@ const plugin = requirePlugin("myPlugin")
 console.log(plugin)
 ```
 clip 为插件的入口，因此插件内部除导出功能外所用到的参数均从 clip 传入。
-### 2. 导出组件
+
+##  导出组件
 export 是一个集成了视频导出功能的可定义外观组件。
-#### 组件引入
+### 组件引入
 ```
 {
     "usingComponents": {
@@ -43,7 +44,7 @@ export 是一个集成了视频导出功能的可定义外观组件。
 ```
 导出需要 tap 事件触发，内部需要包含可点击的组件，并且不能 catch 事件。
 
-#### 处理返回的数据:
+### 处理返回的数据
 ```
 handleExportSuccess(e) {
   console.log(e.detail)
@@ -67,7 +68,7 @@ handleExportSuccess(e) {
   duration: 3000 //单位 ms
 }
 ```
-#### 处理预览图数据:
+### 处理预览图数据
 ```
 handleThumbReady(e) {
   console.log(e.detail)
@@ -82,11 +83,11 @@ handleThumbReady(e) {
 }
 ```
 
-## 3. 插件参数
+##  插件参数
 
 | 参数名称        | 类型     | 是否必填 | 说明                       |
 | --------------- | -------- | -------- | -------------------------- |
-| appid           | string   | 否       | 请到腾讯云账号信息中查看   |
+| appid           | string   | 否       | 请到 [腾讯云账号信息](https://console.cloud.tencent.com/developer) 中查看   |
 | settings        | object   | 否       | 用于自定义配置，包括 UI 样式 |
 | bindInitedEvent | function | 否       | 插件初始化事件回调         |
 

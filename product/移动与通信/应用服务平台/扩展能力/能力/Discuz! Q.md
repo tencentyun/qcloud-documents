@@ -29,6 +29,13 @@
 ![架构图](https://main.qcloudimg.com/raw/441da6affa73b708ebafa0b7eb26efdd.png)
 
 
+## 安装流程
+
+![Disucz 入口](https://main.qcloudimg.com/raw/69482ddda7cc18bf2fbc15d559417578.png)
+![Disucz 安装](https://main.qcloudimg.com/raw/81bb3905d3972d4f298b9c1fbc551944.png)
+
+
+
 ## 常见问题
 #### 小程序部署
 
