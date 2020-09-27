@@ -53,7 +53,7 @@
 | 属性                      | 类型         | 默认值     | 必填 | 说明                                                         |
 | :------------------------ | :----------- | :--------- | :--- | :----------------------------------------------------------- |
 | liveAppID                 | Number       | 0          | 是   | 用户的腾讯云 AppID                                           |
-| playUrl                   | String       | ""         | 是   | 需用小程序直播播放域名生成的播放地址，详见 [自助拼接直播地址](https://cloud.tencent.com/document/product/267/32720#.E5.A6.82.E4.BD.95.E8.87.AA.E4.B8.BB.E6.8B.BC.E8.A3.85.E6.92.AD.E6.94.BE-url.EF.BC.9F) |
+| playUrl                   | String       | ""         | 是   | 需用小程序直播播放域名生成的播放地址，详见 [自主拼装直播 URL](https://cloud.tencent.com/document/product/267/32720) |
 | version                   | Number       | 1          | 否   | 1.2.4版本插件参数，此处必填值为：2。旧方案接入：填1或不填。高版本无需填写。 |
 | mode                      | String       | "live"     | 否   | live（直播），RTC（实时通话，该模式延时更低）                |
 | orientation               | String       | "vertical" | 否   | 画面方向，可选值有 vertical、horizontal                      |

@@ -1,9 +1,10 @@
 ## 简介
-为了精准统计消息抵达率和接收富媒体消息，SDK 提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达和接收富媒体消息，您可以按以下指引使用此功能。
+为了**精准统计消息抵达率和接收富媒体消息**，SDK 提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达和接收富媒体消息，您可以按以下指引使用此功能。
 
 ## 创建通知拓展 Target
 1. 在 xcode 菜单栏，选择 【File】>【New】> 【Target】。
 >?
+>- 主工程的 Bundle Id 和 Service 的 Bundle Id 必须不同，且 Service 的 Bundle Id 必须以主工程的 Bundle Id 为前缀（例如，主工程的 Bundle Id：com.tencent.tpns，Service 的 Bundle Id：com.tencent.tpns.service）。
 >- 若主工程 Target 最低支持版本小于10.0，扩展 Target 系统版本设置为10.0。
 >- 若主工程 Target 最低支持版本大于10.0，则扩展 Target 系统版本与主工程 Target 版本一致。
 

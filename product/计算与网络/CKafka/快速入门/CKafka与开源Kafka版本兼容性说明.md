@@ -1,4 +1,4 @@
-CKafka 兼容0.9系列和0.10系列的生产/消费接口，如果接入低版本（如0.8版本）的自建 Kafka，您需要对接口进行相应改造。本文将从生产端和消费端对比0.8版本 Kafka 和高版本 Kafka，并提供改造方式。
+CKafka 兼容0.9以上的生产/消费接口（目前可以直接购买的版本包括0.9、0.10、1.1.1、2.4.2版本），如果接入低版本（如0.8版本）的自建 Kafka，您需要对接口进行相应改造。本文将从生产端和消费端对比0.8版本 Kafka 和高版本 Kafka，并提供改造方式。
 
 ## Kafka Producer 
 ### 概述
@@ -6,7 +6,7 @@ Kafka 0.8.1版本中，Producer API 被重写。该客户端为官方推荐版�
 
 
 ### 新旧版本 Producer API 对比
-- 新版 Producer API  Demo
+- 新版 Producer API Demo
 ```
 Properties props = new Properties();
 props.put("bootstrap.servers", "localhost:4242");
@@ -135,7 +135,7 @@ while (iterator.hasNext()) {
             " group " + props.get("group.id") + //
             ", partition " + msg.partition() + ", " + //
              new String(msg.message()));
-}}
+}
 ```
 
 可以看到，改造成 New Consumer 编写更加简单，最主要的变化是将 ZooKeeper 参数的输入替代成了 Kafka 地址输入。同时，New Consumer 也增加了与 Coodinator 交互的参数配置，一般情况下使用默认配置就足够。

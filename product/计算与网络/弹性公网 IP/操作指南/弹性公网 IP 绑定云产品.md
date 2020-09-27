@@ -28,10 +28,7 @@
 <td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#2" target="_blank">按小时带宽</a></td>
 <td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a>。</td>
 </tr>
-<tr>
-<td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#.E5.85.B1.E4.BA.AB.E5.B8.A6.E5.AE.BD.E5.8C.85" target="_blank">共享带宽包</a></td>
-<td>该 EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a>。若该共享带宽包中还加入了其他 EIP，其他 EIP 的收费不受影响。</td>
-</tr>
+
 </tbody></table>
 
 ## 操作场景

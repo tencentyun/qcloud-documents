@@ -14,7 +14,8 @@ Coding 目前无缝对接 TKE 服务，本文档介绍在 Coding 中如何实现
 ### CI（Continuous Integration）
 
 持续集成（Continuous Integration）简称 CI。在 CI 环境中，当开发者频繁地对代码进行更改合并，系统就会自动构建应用并运行不同级别的自动化测试来验证更改，以确保更改内容不会对应用造成破坏。测试内容涵盖了从类和函数到构成整个应用的不同模块。如果自动化测试发现新代码和现有代码之间存在冲突，CI 可以轻松且快速地修复错误。如下图所示：
-![ci.jpg](https://main.qcloudimg.com/raw/affb69c501ba39c196eedd5f24ad853c/2.png)
+![](https://main.qcloudimg.com/raw/645f2a056fa79574dd9efb424f483785.png)
+
 
 ### CD（Continuous Delivery 和 Continuous Deployment）
 > ? 持续交付与持续部署的区别：持续交付是一种能力，持续部署是一种方式。
@@ -25,11 +26,9 @@ Coding 目前无缝对接 TKE 服务，本文档介绍在 Coding 中如何实现
   - 交付给质量团队或用户。
 
   具体流程如下图所示：
-![cd.jpg](https://main.qcloudimg.com/raw/bea8b96fe8cd01995bcd9aa6e6101198/3.png)
-
+![](https://main.qcloudimg.com/raw/c9e69c621bd787d93d17d103cf0b902e.png)
 - 持续部署（Continuous Deployment）简称 CD，是 CICD 的最后一个阶段。持续部署将持续交付在内的所有变更自动部署到生产环境。一般情况下，出于业务考虑可以选择不部署，如需部署必须先实施持续交付。具体流程如下图所示：
-![](https://main.qcloudimg.com/raw/c5aa5c9f53a7d12ee8e5c9cb6a751d24.png)
-
+![](https://main.qcloudimg.com/raw/597edfd80f9a23ebb223e7ecd54d7714.png)
 
 
 

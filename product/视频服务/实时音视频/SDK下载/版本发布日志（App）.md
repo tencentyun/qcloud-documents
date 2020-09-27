@@ -1,3 +1,29 @@
+## Version 7.7 @ 2020.09.08
+
+**优化**
+
+- 全平台：优化辅路（即屏幕分享）的秒开速度。
+- iOS：优化内部线程模型，提升在30路以上并发播放的场景中的运行稳定性。
+- iOS&Android：优化 Audio 模块的性能，提升首帧的采集延迟，新版本可以更快的获得首个音频帧。
+- iOS&Android：优化点播播放器（VodPlayer）和 TRTC 同时使用时的音量大小和音质表现。
+- iOS&Android：增加对 wav 音频格式的背景音乐和音效文件的支持。
+- Windows：优化在某些低端摄像头下 CPU 使用率过高的问题。
+- Windows：优化对多款 USB 摄像头和麦克风的兼容性，提升设备的打开成功率。
+- Windows：优化摄像头和麦克风设备的选择策略，避免由于摄像头或麦克风在使用中插拔导致的采集异常问题。
+
+**修复**
+
+- 全平台：修复弱网情况下调用 muteLocalVideo 和 muteLocalAudio 接口时会偶现播放异常的 BUG。
+- iOS：修复播放音效在低端 iPhone 或 iPad 上可能会失败的 BUG。
+- iOS：修复 iPad Pro 屏幕分享出的画面出现变形拉伸的问题。
+- iOS：修复 App 内屏幕贡献在用户拒绝权限之后，还会持续弹出几次屏幕录制权限申请提示的问题。
+- Windows：解决笔记本或者台式机在长时间休眠后，退房 [onExitRoom](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#a0a45883a23a200b0e9ea38fdde1da4bd) 事件通知不会回调的问题。
+- Windows：修复在 Music 音质模式下，开启系统混音 [stopSystemAudioLoopback](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aab0258238e4414c386657151d01ffb23) 后会导致漏回声的问题。
+- Windows：修复在快速调用 enterRoom 和 exitRoom 进退房的情况下，偶现的播放端无声的 BUG。
+- Windows：修复 SDK 对 Visual Stuido 2010 项目的编译兼容性问题。
+- Windows：修复手动接收模式（即 [setDefaultStreamRecvMode(false，false)](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a7a0238314fc1e1f49803c0b22c1019d5)）下会重复收到 onUserVideoAvailable 事件回调的问题。
+
+
 ## Version 7.6 @ 2020.08.21
 **新增**
 

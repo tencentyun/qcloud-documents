@@ -67,6 +67,6 @@ Global.ErrCode = ErrCode;
 Global.ENUM = ENUM;
 Global.gameInfo = gameInfo;
 
-
 ```
+
 

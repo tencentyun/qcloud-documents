@@ -26,8 +26,7 @@
  - IP 地址范围：目前仅支持随机。
  - 固定 Pod IP：选择【开启】。
 
-### Yaml 示例
-
+#### Yaml 示例
 ```yaml
 apiVersion: apps/v1
 kind: StatefulSet
