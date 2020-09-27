@@ -24,7 +24,7 @@
 - 登录  [微信公众平台](https://mp.weixin.qq.com/)，注册微信小程序并获得小程序的 appid。
 - 获得微剪插件使用权限。
 
->? 具体操作请参见 [准备工作](https://tcloud-doc.isd.com/document/product/1156/45645?!preview&!editLang=zh)。
+>? 具体操作请参见 [准备工作](https://cloud.tencent.com/document/product/1156/45645)。
 
 
 <span id="download"></span>
