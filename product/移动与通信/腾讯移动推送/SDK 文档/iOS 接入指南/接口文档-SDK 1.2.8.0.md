@@ -109,7 +109,7 @@ SDK 1.2.7.2 新增，当注册推送服务失败会走此回调。
 
 #### 参数说明 
 
-- accounts:账号数组。
+- accounts：账号数组。
 
 > ?
 >- 账号操作需要使用字典数组且 key 是固定要求。
@@ -153,7 +153,7 @@ SDK 1.2.7.2 新增，当注册推送服务失败会走此回调。
 > ?
 > - 此接口为追加方式。
 >- 此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用
->- 单个应用最多可以有10000个自定义 tag， 每个设备 token 最多可绑定100个自定义 tag，如需提高该限制，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们，每个自定义 tag 可绑定的设备 token 数量无限制。
+>- 单个应用最多可以有10000个自定义 tag， 每个设备 Token 最多可绑定100个自定义 tag，如需提高该限制，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们，每个自定义 tag 可绑定的设备 Token 数量无限制。
 
 #### 操作接口 
 
@@ -230,7 +230,7 @@ SDK 1.2.7.2 新增，当注册推送服务失败会走此回调。
 
 #### 接口说明
 
-添加或更新用户属性（key-value结构，若原来没有该 key 的用户属性 value，则新增；若原来有该key的用户属性 value，则更新该 value）。
+添加或更新用户属性（key-value 结构，若原来没有该 key 的用户属性 value，则新增；若原来有该 key 的用户属性 value，则更新该 value）。
 
 > ?- 此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
 
