@@ -24,13 +24,14 @@
 - 登录  [微信公众平台](https://mp.weixin.qq.com/)，注册微信小程序并获得小程序的 appid。
 - 获得微剪插件使用权限。
 
->? 具体操作请参见 [准备工作](https://tcloud-doc.isd.com/document/product/1156/45645?!preview&!editLang=zh)。
+>? 具体操作请参见 [准备工作](https://cloud.tencent.com/document/product/1156/45645)。
 
 
 <span id="download"></span>
 ## Demo 下载
-1. 单击 [下载 Demo 源码](https://imgcache.qq.com/operation/dianshi/other/demo_zip.724601d25ee9eb8b2abccf64a5855fd7ee301812.zip)，可以下载到带注释的 Demo 小程序源码。
+1. 单击 [GitHub](https://github.com/tencentyun/weijian-sdk/tree/master/outside-demo)，可以查看带注释的 Demo 小程序源码。
 2. 使用小程序 [开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html) 打开，使用手机扫一扫即可体验。
+
 
 ## 源码解读
 

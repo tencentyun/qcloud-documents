@@ -1,3 +1,21 @@
+## 2020年9月
+
+<table>
+<tr>
+    <th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+</tr>
+    <tr>
+        <td>SDK 1.2.8.0 版本发布</td>
+        <td><li> 新增「用户属性」相关接口，用于个性化推送</li><li> 新增「应用内消息」功能，以及若干应用内消息模板</li><li>修复已知问题</li></td>
+        <td>2020-09-27</td>
+        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li></td>
+    </tr>        
+</table>
+
+
 ## 2020年7月
 
 <table>
@@ -11,7 +29,7 @@
         <td>SDK 1.2.7.2 版本发布</td>
         <td><li> 增加自定义事件上报功能</li><li> 提升“抵达数”上报的成功率</li><li>修复已知问题</li></td>
         <td>2020-07-23</td>
-        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li></td>
+        <td>-</a></li></td>
     </tr>        
 </table>
 
