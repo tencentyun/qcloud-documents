@@ -1,6 +1,6 @@
 为了方便用户查看 Prometheus 抓取运行的状态，实时了解监控数据是否正常被 Prometheus Agent 抓取到。
 
-## 前提条件
+## 准备工作
 
 - 已经对某个容器服务 （TKE) 安装了 Prometheus Agent，具体可以参考 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
 - 通过容器服务列表点击【集群 ID】进入到容器服务集成管理页面。
