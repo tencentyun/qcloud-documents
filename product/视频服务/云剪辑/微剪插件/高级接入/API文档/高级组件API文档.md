@@ -220,20 +220,21 @@ videoClip1.startAt = 1;
 2. 添加音乐片段：
   1. 添加音乐 Clip，设置音乐 Clip 的 type 为 music。
 ```javascript
-      let musicClip1 = new global['wj-types'].Clip({
-        id: 'music1',
-        type: 'music',
-        info: {
-          tempFilePath: 'wxfile:xxxx',
-        },
-        section: new global['wj-types'].ClipSection({
-          start: 0,
-          end: 1000
-        }),
-        startAt: 0
-      })
+	let musicClip1 = new global['wj-types'].Clip({
+		id: 'music1',
+		type: 'music',
+		info: {
+			tempFilePath: 'http://xxx.xxx.mp3',
+		},
+		section: new global['wj-types'].ClipSection({
+			start: 0,
+			end: 1000
+		}),
+		startAt: 0
+	})
 ```
 > ?
+> - `tempFilePath` 为在线音乐地址。
 > - 参数基本与视频的 Clip一致，具体请参见 [Clip 参数详解](#clip_parameter)。
 > - section 的 end 值为1000， 一般用于给整个视频添加一段音乐的情况，播放器内部会自动调整为实际的视频时长。
   2. 将 musicClip1 加入到 musicTrack 中：
