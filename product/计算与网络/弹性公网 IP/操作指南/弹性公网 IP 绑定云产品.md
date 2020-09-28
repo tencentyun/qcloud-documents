@@ -11,12 +11,12 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>非带宽上移账户</td>
+<td>传统账户类型</td>
 <td align="center">-</td>
 <td>EIP 本身不收取任何费用，仅在 CVM 上收取 <a href="https://cloud.tencent.com/document/product/213/10578" target="_blank">公网网络费用</a>。</td>
 </tr>
 <tr>
-<td rowspan="4">带宽上移账户</td>
+<td rowspan="4">标准账户类型</td>
 <td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#1" target="_blank">按流量</a></td>
 <td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a>。</td>
 </tr>
@@ -46,8 +46,8 @@
 <thead>
 <tr>
 <th width="17%">绑定的云资源</th>
-<th width="43%">非带宽上移账户</th>
-<th width="40%">带宽上移账户</th>
+<th width="43%">传统账户类型</th>
+<th width="40%">标准账户类型</th>
 </tr>
 </thead>
 <tbody>
