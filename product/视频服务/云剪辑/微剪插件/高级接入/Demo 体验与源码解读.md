@@ -24,13 +24,14 @@
 - 登录  [微信公众平台](https://mp.weixin.qq.com/)，注册微信小程序并获得小程序的 appid。
 - 获得微剪插件使用权限。
 
->? 具体操作请参见 [准备工作](https://tcloud-doc.isd.com/document/product/1156/45645?!preview&!editLang=zh)。
+>? 具体操作请参见 [准备工作](https://cloud.tencent.com/document/product/1156/45645)。
 
 
 <span id="download"></span>
 ## Demo 下载
-1. 单击 [下载 Demo 源码](https://imgcache.qq.com/operation/dianshi/other/demo_zip.724601d25ee9eb8b2abccf64a5855fd7ee301812.zip)，可以下载到带注释的 Demo 小程序源码。
+1. 单击 [GitHub](https://github.com/tencentyun/weijian-sdk/tree/master/outside-demo)，可以查看带注释的 Demo 小程序源码。
 2. 使用小程序 [开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html) 打开，使用手机扫一扫即可体验。
+
 
 ## 源码解读
 
@@ -56,7 +57,7 @@ Demo 主要以微剪插件为核心，集成了一个简单的视频剪辑小程
 
 #### <span id="cut">裁切模块</span>
 - 裁切模块支持**单段视频时长选择**和**多段视频组合时长选择**功能。
-- 裁切页的核心代码位于 `pages/demo/preview`, 核心功能借助插件的 `wj-clipper` 和 `wj-player`组件。
+- 裁切页的核心代码位于 `pages/demo/preview`，核心功能借助插件的 `wj-clipper` 和 `wj-player`组件。
 - 进入裁切页后，裁切器会自动生成缩略图以及拖拽式 seek 游标，可选择视频的时长。
 - 视频的裁切过程中，您可通过 `wj-player` 组件实时查看视频裁切状态。
 - 裁切好视频后，`wj-clipper` 会自动生成调整之后的 `media track`。

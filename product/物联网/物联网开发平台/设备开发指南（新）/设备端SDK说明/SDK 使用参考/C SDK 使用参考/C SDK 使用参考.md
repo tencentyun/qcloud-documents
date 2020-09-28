@@ -27,8 +27,8 @@ SDK 分四层设计，从上至下分别为平台服务层、核心协议层、�
 |---|---|
 |Linux|[Linux 平台接入指引](https://cloud.tencent.com/document/product/1081/48387)|
 |Windows|[Windows 平台接入指引](https://cloud.tencent.com/document/product/1081/48392)|
-|MCU+通用AT模组+nonOS|[MCU+通用TCP AT 模组（FreeRTOS）接入指引](https://cloud.tencent.com/document/product/1081/48396)|
-|MCU+通用AT模组+nonOS|[MCU 通用TCP AT 模组（nonOS）接入指引](https://cloud.tencent.com/document/product/1081/48397)|
+|MCU+ 通用 AT 模组+nonOS|[MCU+ 通用 TCP AT 模组（FreeRTOS）接入指引](https://cloud.tencent.com/document/product/1081/48396)|
+|MCU+ 通用 AT 模组+nonOS|[MCU+ 通用 TCP AT 模组（nonOS）接入指引](https://cloud.tencent.com/document/product/1081/48397)|
 |FreeRTOS+lwIP|[FreeRTOS+lwIP 平台接入指引](https://cloud.tencent.com/document/product/1081/48388)|
 |其他平台|[C SDK 移植接入指引](https://cloud.tencent.com/document/product/1081/48389)|
 
