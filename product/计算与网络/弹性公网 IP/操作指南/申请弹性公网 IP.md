@@ -15,12 +15,12 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>非带宽上移账户</td>
+<td>传统账户类型</td>
 <td align="center">-</td>
 <td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#ip" target="_blank">IP 资源费用</a>。</td>
 </tr>
 <tr>
-<td rowspan="4">带宽上移账户</td>
+<td rowspan="4">标准账户类型</td>
 <td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#1" target="_blank">按流量</a></td>
 <td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#ip" target="_blank"> IP 资源费用</a>。</td>
 </tr>
@@ -43,7 +43,7 @@
 3. 在弹出的“申请EIP”窗口中，请按照您的账户类型，分别进行如下操作：
 > ? 若您无法确定账户类型，请参见 [账户类型区分](https://cloud.tencent.com/document/product/1199/41692#judge)。
 >
- - **非带宽上移账户**
+ - **传统账户类型**
 <table>
 <thead>
 <tr>
@@ -65,7 +65,7 @@
 <td>如需添加标签可在此进行添加，可通过标签进行权限管理。</td>
 </tr>
 </tbody></table>
- - **带宽上移账户**
+ - **标准账户类型**
 <table>
 <thead>
 <tr>
