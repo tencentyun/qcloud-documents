@@ -1,25 +1,25 @@
 ## 操作场景
-腾讯云 Kubernetes 集群实现蓝绿发布或灰度发布通常需向集群额外部署其他开源工具，例如 Nginx Ingress、Traefik 或将业务部署至服务网格 Service Mesh，利用服务网格的能力实现。这些方案均具有一定难度，若您的蓝绿发布或灰度需求不复杂，且不期望集群引入过多的组件或复杂的用法，则可参考本文利用 Kubernetes 原生的特性以及腾讯云容器服务 TKE、弹性容器服务 EKS 集群自带的LB 插件实现简单的蓝绿发布和灰度发布。
+腾讯云 Kubernetes 集群实现蓝绿发布或灰度发布通常需向集群额外部署其他开源工具，例如 Nginx Ingress、Traefik 或将业务部署至服务网格 Service Mesh，利用服务网格的能力实现。这些方案均具有一定难度，若您的蓝绿发布或灰度需求不复杂，且不期望集群引入过多的组件或复杂的用法，则可参考本文利用 Kubernetes 原生的特性以及腾讯云容器服务 TKE、弹性容器服务 EKS 集群自带的 LB 插件实现简单的蓝绿发布和灰度发布。
 >!本文仅适用于 TKE 集群及 EKS 集群。
 
 ## 原理介绍
 用户通常使用 Deployment、StatefulSet 等 Kubernetes 自带的工作负载来部署业务，每个工作负载管理一组 Pod。以 Deployment 为例，示意图如下：
 <img style="width:30%" src="https://main.qcloudimg.com/raw/bcbda91a3bd75840afd4a23fbc136310.png" data-nonescope="true">
-通常还会为每个工作负载创建对应的 Service，Service 通过 selector 来匹配后端 Pod，其他服务或者外部通过访问 Service 即可访问到后端 Pod 提供的服务。如需外暴露可直接将 Service 类型设置为 LoadBalancer，LB 插件会自动为其创建腾讯云负载均衡 CLB 作为流量入口。 
+通常还会为每个工作负载创建对应的 Service，Service 通过 selector 来匹配后端 Pod，其他服务或者外部通过访问 Service 即可访问到后端 Pod 提供的服务。如需对外暴露可直接将 Service 类型设置为 LoadBalancer，LB 插件会自动为其创建腾讯云负载均衡 CLB 作为流量入口。 
 
 ### 蓝绿发布原理
 以 Deployment 为例，集群中已部署两个不同版本的 Deployment，其 Pod 拥有共同的 label。但有一个 label 值不同，用于区分不同的版本。Service 使用 selector 选中了其中一个版本的 Deployment 的 Pod，此时通过修改 Service 的 selector 中决定服务版本的 label 的值来改变 Service 后端对应的 Deployment，即可实现让服务从一个版本直接切换到另一个版本。示意图如下：
-<img style="width:80%" src="https://main.qcloudimg.com/raw/f38aec8893abdcb311e05a132ec37440.png" data-nonescope="true">
+<img style="width:90%" src="https://main.qcloudimg.com/raw/f38aec8893abdcb311e05a132ec37440.png" data-nonescope="true">
 
 ### 灰度发布原理
-用户通常会为每个工作负载创建一个 Service，但 Kubernetes 未限制 Servcie 需与工作负载一一对应。Service 通过 selector 匹配后端 Pod，若不同工作负载的 Pod 可被同一 selector 选中，即可实现一个 Service 对应多个版本工作负载。调整不同版本工作版本的副本数即调整不同版本服务的权重。示意图如下：
-<img style="width:80%" src="https://main.qcloudimg.com/raw/e271e9d585524b899807c6059afac03d.png" data-nonescope="true">
+用户通常会为每个工作负载创建一个 Service，但 Kubernetes 未限制 Servcie 需与工作负载一一对应。Service 通过 selector 匹配后端 Pod，若不同工作负载的 Pod 被同一 selector 选中，即可实现一个 Service 对应多个版本工作负载。调整不同版本工作版本的副本数即调整不同版本服务的权重。示意图如下：
+<img style="width:90%" src="https://main.qcloudimg.com/raw/e271e9d585524b899807c6059afac03d.png" data-nonescope="true">
 
 
 ## 操作步骤
 ### 使用 YAML 创建资源
 本文提供以下两种方式使用 YAML 部署工作负载及创建 Servcie：
- - 方式1：在单击 TKE 或 EKS 集群详情页右上角的【YAML创建资源】，并将本文示例的 YAML 文件内容输入编辑界面。
+ - 方式1：单击 TKE 或 EKS 集群详情页右上角的【YAML创建资源】，并将本文示例的 YAML 文件内容输入编辑界面。
  - 方式2：将示例 YAML 保存为文件，再使用 kubectl 指定 YAML 文件进行创建。例如 `kubectl apply -f xx.yaml`。
 
 
