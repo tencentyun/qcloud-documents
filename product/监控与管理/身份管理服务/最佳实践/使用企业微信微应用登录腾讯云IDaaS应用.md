@@ -29,9 +29,13 @@
 ![](https://main.qcloudimg.com/raw/7b24fb102d2d6156ff97f61e570f893d.png)
 3.	创建成功后，获得企业微信授权登录回调域和应用主页地址。
 复制目标应用地址 url，并将“<此位置替换为跳转目标 IDaaS 应用 ID>”替换为要访问的应用 ID，如
-`https://open.weixin.qq.com/connect/oauth2/authorize?appid=ww01a04ace0ad7af0e&redirect_uri=https%3A%2F%2Fbanhuatian.cloudidaas.com%2Fidp%2Fwxwork-app%2Fcallback%3Fidp_id%3D4470%26idaas_app_id%3D<此位置替换为跳转目标 IDaaS 应用 ID>&response_type=code&scope=snsapi_base#wechat_redirect`
+```html
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=ww01a04ace0ad7af0e&redirect_uri=https%3A%2F%2Fbanhuatian.cloudidaas.com%2Fidp%2Fwxwork-app%2Fcallback%3Fidp_id%3D4470%26idaas_app_id%3D<此位置替换为跳转目标 IDaaS 应用 ID>&response_type=code&scope=snsapi_base#wechat_redirect
+```
 替换为
-`https://open.weixin.qq.com/connect/oauth2/authorize?appid=ww01a04ace0ad7af0e&redirect_uri=https%3A%2F%2Fbanhuatian.cloudidaas.com%2Fidp%2Fwxwork-app%2Fcallback%3Fidp_id%3D4470%26idaas_app_id%3D421262bc1cd3&response_type=code&scope=snsapi_base#wechat_redirect`
+```html
+https://open.weixin.qq.com/connect/oauth2/authorize?appid=ww01a04ace0ad7af0e&redirect_uri=https%3A%2F%2Fbanhuatian.cloudidaas.com%2Fidp%2Fwxwork-app%2Fcallback%3Fidp_id%3D4470%26idaas_app_id%3D421262bc1cd3&response_type=code&scope=snsapi_base#wechat_redirect
+```
 复制“企业微信授权登录回调域”和替换应用ID后的“目标应用地址”，填写到企业微信微应用的设置中。
 ![](https://main.qcloudimg.com/raw/af1b903fae98302af4cbf579ecb3e849.png)
  
