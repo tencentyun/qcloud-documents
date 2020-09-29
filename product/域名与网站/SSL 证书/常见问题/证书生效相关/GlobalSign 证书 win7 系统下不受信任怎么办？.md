@@ -4,10 +4,10 @@
 ## 解决办法
 您可以使用交叉证书方式，将在旧根下签发的证书链到新根，即可保证使用旧根的证书时，可跟使用新根的证书一样被同一个客户端信任。
 
-将以下交叉证书放置于证书链最后位置。重启 SSL 服务，证书即可正常使用。
+请使用文本编辑器，打开 Nginx 目录下的 .crt 文件，将以下交叉证书复制粘贴放置于证书链最后位置。重启 Nginx 服务，证书即可正常使用。
 
 **交叉证书**
-```
+```javascript 
 -----BEGIN CERTIFICATE-----
 MIIETjCCAzagAwIBAgINAe5fFp3/lzUrZGXWajANBgkqhkiG9w0BAQsFADBXMQsw
 CQYDVQQGEwJCRTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTEQMA4GA1UECxMH
