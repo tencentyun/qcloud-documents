@@ -168,7 +168,7 @@ Container 类型 Output 的具体数据描述如下：
 | ------------------ | ------------------------ | ------------------------------------------------------------ | ------ | -------- |
 | Region             | Request.Operation.Output | 存储桶的地域                                                 | String | 是       |
 | Bucket             | Request.Operation.Output | 存储结果的存储桶                                             | String | 是       |
-| Object             | Request.Operation.Output | 输出文件路径。<br/>**非表格文件输出文件名需包含${Number}或${Page}参数。**多个输出文件，${Number}表示序号从1开始，${Page}表示序号与预览页码一致。<li>${Number}表示多个输出文件，序号从1开始，例如输入abc_${Number}.jpg，预览某文件5-6页，则输出文件名为abc_1.jpg，abc_2.jpg<li>${Page}表示多个输出文件，序号与预览页码一致，例如输入abc_${Page}.jpg，预览某文件5-6页，则输出文件名为abc_5.jpg，abc_6.jpg<br/>**表格文件输出路径需包含${SheetID}占位符，输出文件名必须包含${Number}参数。<br><li>例如/${SheetID}/abc_${Number}.jpg，先根据 excel 转换的表格数，生成对应数量的文件夹，再在对应的文件夹下，生成对应数量的图片文件 | String | 是       |
+| Object             | Request.Operation.Output | 输出文件路径。<br/>**非表格文件输出文件名需包含${Number}或${Page}参数。**多个输出文件，${Number}表示序号从1开始，${Page}表示序号与预览页码一致。<li>${Number}表示多个输出文件，序号从1开始，例如输入abc_${Number}.jpg，预览某文件5-6页，则输出文件名为abc_1.jpg，abc_2.jpg<li>${Page}表示多个输出文件，序号与预览页码一致，例如输入abc_${Page}.jpg，预览某文件5-6页，则输出文件名为abc_5.jpg，abc_6.jpg<br/>**表格文件输出路径需包含${SheetID}占位符，输出文件名必须包含${Number}参数。**<br><li>例如/${SheetID}/abc_${Number}.jpg，先根据 excel 转换的表格数，生成对应数量的文件夹，再在对应的文件夹下，生成对应数量的图片文件 | String | 是       |
 
 
 
