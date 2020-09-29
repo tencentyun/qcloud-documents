@@ -2,7 +2,7 @@
 
 使用腾讯云身份管理服务 IDaaS 与企业微信微应用集成，实现在企业微信微应用单点登录进入 IDaaS 应用。
 ## 实现效果
-在企业微信的微应用中打开 IDaaS 的工作台，点击微应用直接进入 IDaaS 中的应用。
+在企业微信的微应用中打开 IDaaS 的工作台，单击微应用直接进入 IDaaS 中的应用。
 ![](https://main.qcloudimg.com/raw/2cf43a93f06a60370813ffb5393f36a2.gif)
 仅需4个步骤即可实现：
 ![](https://main.qcloudimg.com/raw/2380966375fc32f2472f4b16a5f3db45.png)
