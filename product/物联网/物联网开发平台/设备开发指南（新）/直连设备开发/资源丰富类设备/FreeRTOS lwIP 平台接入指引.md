@@ -3,7 +3,7 @@ FreeRTOS 作为一个微内核系统，主要提供任务创建及调度和任�
 
 ## SDK 获取
 
-SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [C SDK](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c)。
+SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [C SDK](https://github.com/tencentyun/qcloud-iot-explorer-sdk-embedded-c/releases)。
 
 >?SDK 在 **platform/os/freertos** 里提供了一个基于 **FreeRTOS+lwIP+newlib** 的参考实现，该实现已在乐鑫 ESP8266 平台上验证测试。
 
