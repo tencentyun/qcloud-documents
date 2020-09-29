@@ -16,19 +16,47 @@ MCU+ 定制 MQTT AT 模组（Wi-Fi 类）接入腾讯云物联网开发平台可
 
 - #### hal_export.h
 该源文件主要提供 HAL 层对外的 API 接口以及线程栈大小设置。
-
-| 序号 | 宏定义                  | 说明                     |
-| ---- | ----------------------- | ------------------------ |
-| 1    | PARSE_THREAD_STACK_SIZE | 串口 AT 解析线程栈大小。 |
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>宏定义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>PARSE_THREAD_STACK_SIZE</td>
+<td>串口 AT 解析线程栈大小。</td>
+</tr>
+</tbody></table>
 
 - #### config.h
 该源文件主要提供相关宏开关控制。
-
-| 序号 | 宏定义              | 说明                                                         |
-| ---- | ------------------- | ------------------------------------------------------------ |
-| 1    | OS_USED             | 是否使用 OS，目前的 AT-SDK 是基于多线程框架的，所以 OS 是必须的。 |
-| 2    | AUTH_MODE_KEY       | 认证方式，证书认证还是密钥认证。                             |
-| 3    | DEBUG_DEV_INFO_USED | 默认使能该宏，设备信息使用调试信息，正式量产关闭该宏，并实现设备信息存取接口。 |
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>宏定义</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>OS_USED</td>
+<td>是否使用 OS，目前的 AT-SDK 是基于多线程框架的，所以 OS 是必须的。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>AUTH_MODE_KEY</td>
+<td>认证方式，证书认证还是密钥认证。</td>
+</tr>
+<tr>
+<td>3</td>
+<td>DEBUG_DEV_INFO_USED</td>
+<td>默认使能该宏，设备信息使用调试信息，正式量产关闭该宏，并实现设备信息存取接口。</td>
+</tr>
+</tbody></table>
 
 - #### hal_at.c
 该源文件主要实现 AT 串口初始化、串口收发、模组开关机。
