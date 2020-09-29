@@ -20,7 +20,7 @@
 
 ## 在 TKE 使用场景下如何获取客户端真实源 IP？
 
-在TKE中默认的外部负载均衡器是 [腾讯云负载均衡器](https://cloud.tencent.com/product/clb)，作为服务流量的访问首入口，腾讯云负载均衡器会将请求流量负载转发到 Kubernetes 工作节点的 Kubernets Service（默认），此负载均衡过程会保留客户端真实源 IP（透传转发），但在 Kubernetes Service 转发场景下，无论是使用 iptbales 还是 ipvs 的负载均衡转发模式，转发时都会对数据包做 SNAT，即不会保留客户端真实源 IP，为了能够准确的获取到客户端的真实源 IP，在 TKE 使用场景下，主要有四种方法获取客户端真实源 IP，下面将逐个展开介绍下：
+在TKE中默认的外部负载均衡器是 [腾讯云负载均衡器](https://cloud.tencent.com/product/clb)，作为服务流量的访问首入口，腾讯云负载均衡器会将请求流量负载转发到 Kubernetes 工作节点的 Kubernets Service（默认），此负载均衡过程会保留客户端真实源 IP（透传转发），但在 Kubernetes Service 转发场景下，无论是使用 iptbales 还是 ipvs 的负载均衡转发模式，转发时都会对数据包做 SNAT，即不会保留客户端真实源 IP，为了能够准确的获取到客户端的真实源 IP，在 TKE 使用场景下，主要有四种方法获取客户端真实源 IP，下面将逐个展开介绍下。
 
 
 
@@ -60,7 +60,7 @@ spec:
 
 ![LB_TO_POD](https://main.qcloudimg.com/raw/bb9884e4b7bfaa776e8741a468694f65.jpg)
 
-详细介绍和配置请参考文档 [TKE场景下腾讯云CLB直通Pod使用场景介绍]()。
+详细介绍和配置请参考文档 [TKE场景下腾讯云CLB直通Pod使用场景介绍](https://cloud.tencent.com/document/product/457/48793)。
 
 优点：TKE原生支持的功能特性，只需在控制台按照文档配置即可。
 
@@ -76,7 +76,7 @@ spec:
 
 在场景一中，[腾讯云负载均衡器](https://cloud.tencent.com/product/clb)（CLB 七层） 默认会将客户端真实源IP放到 HTTP Header 的 `X-Forwarded-For` 和 `X-Real-IP`  字段，当服务流量在经过 Service 四层转发后会保留上述字段，后端通过WEB服务器代理配置或应用代码方式获取到客户端真实源IP，详情参考请文档 [负载均衡如何获取客户端真实 IP - 最佳实践 - 文档中心 - 腾讯云](https://cloud.tencent.com/document/product/214/3728)；
 
-在场景二中， Nginx Ingress 服务部署需要 Nginx Ingress 能直接感知客户端真实源 IP，可以采用保留客户端源IP的配置方式（详情参考 [kubernets设置外部负载均衡器说明](https://kubernetes.io/zh/docs/tasks/access-application-cluster/create-external-load-balancer/) ），或通过 CLB 直通 Pod 的方式（详情参考 [TKE场景下腾讯云CLB直通Pod使用场景介绍]()），当 Nginx Ingress 在转发请求时会通过 `X-Forwarded-For` 和 `X-Real-IP`  字段来记录客户端源 IP，后端可以通过此字段获得客户端真实源 IP。
+在场景二中， Nginx Ingress 服务部署需要 Nginx Ingress 能直接感知客户端真实源 IP，可以采用保留客户端源IP的配置方式（详情参考 [kubernets设置外部负载均衡器说明](https://kubernetes.io/zh/docs/tasks/access-application-cluster/create-external-load-balancer/) ），或通过 CLB 直通 Pod 的方式（详情参考 [TKE场景下腾讯云CLB直通Pod使用场景介绍](https://cloud.tencent.com/document/product/457/48793)），当 Nginx Ingress 在转发请求时会通过 `X-Forwarded-For` 和 `X-Real-IP`  字段来记录客户端源 IP，后端可以通过此字段获得客户端真实源 IP。
 
 
 
@@ -92,7 +92,7 @@ spec:
 
 ![image-20200928151556491](https://main.qcloudimg.com/raw/116eadeaad1b2d200477e47c24d6beef.png)
 
-待配置生效后，在后端通过获取 HTTP Header 中的 `X-Forwarded-For` 或 `X-Real-IP` 字段值得到客户端真实源 IP。抓包测试结果示例如下：
+待配置生效后，在后端通过获取 HTTP Header 中的 `X-Forwarded-For` 或 `X-Real-IP` 字段值得到客户端真实源 IP。后端抓包测试结果示例如下：
 
 ![image-20200928193102234](https://main.qcloudimg.com/raw/a5f36c927c12c616c37039fb0d7a5e76.png)
 
@@ -126,7 +126,7 @@ spec:
 
 
 
-待配置生效后，在后端获取 Http Header 中的 `X-Forwarded-For` 或 `X-Real-IP` 字段值得到客户端真实源 IP，测试结果示例如下：
+待配置生效后，在后端获取 Http Header 中的 `X-Forwarded-For` 或 `X-Real-IP` 字段值得到客户端真实源 IP，后端抓包测试结果示例如下：
 
 ![image-20200928195217294](https://main.qcloudimg.com/raw/5285ddcb8f56cb3efbc184293b7076b3.png)
 
@@ -169,7 +169,7 @@ TOA 内核模块原理和加载方式参考 [全球应用加速 获取访问用�
 - TKE 容器服务网络模式介绍：[容器服务 GlobalRouter 附加 VPC-CNI 模式说明 - 用户指南 - 文档中心 - 腾讯云](https://cloud.tencent.com/document/product/457/34993)
 
 
-- TKE 场景下 CLB 直通 Pod 使用介绍：[待补充...]
+- TKE 场景下 CLB 直通 Pod 使用介绍：[在 TKE 上使用负载均衡直通 Pod - 最佳实践](https://cloud.tencent.com/document/product/457/48793)
 
 
 - TOA 模块使用介绍：[全球应用加速 获取访问用户真实 IP - 操作指南 - 文档中心 - 腾讯云](https://cloud.tencent.com/document/product/608/14426)
