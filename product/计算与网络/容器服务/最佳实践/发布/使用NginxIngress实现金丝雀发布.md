@@ -10,7 +10,7 @@
 针对此场景可使用 Nginx Ingress 基于 Header 或 Cookie 进行流量切分的策略来发布，业务使用 Header 或 Cookie 来标识不同类型的用户，并通过配置 Ingress 来实现让带有指定 Header 或 Cookie 的请求被转发到新版本，其它请求仍然转发到旧版本，从而将新版本灰度给部分用户。示意图如下：
 <img style="width:80%" src="https://main.qcloudimg.com/raw/d13fbc13f02b00d2bb9817c4d2839268.jpg" data-nonescope="true">
 
-### 场景2: 切换一定比例的流量到新版本
+### 场景2: 切分一定比例的流量到新版本
 假设线上已运行了一套对外提供7层服务的 Service B，此时修复了 Service B 的部分问题，需灰度上线新版本 Service B'。但不期望直接替换原有的 Service B，需先切换10%的流量至新版本，待运行一段时间足够稳定后再逐渐加大新版本流量比例直至完全替换旧版本，最终平滑下线旧版本。示意图如下：
 <img style="width:80%" src="https://main.qcloudimg.com/raw/2ab50d5a6d3572e5cbfe6b14180d3105.jpg" data-nonescope="true">
 
