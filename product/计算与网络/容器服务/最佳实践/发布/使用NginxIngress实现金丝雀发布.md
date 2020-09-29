@@ -1,4 +1,4 @@
-本文将介绍如何使用 Nginx Ingress 实现金丝雀发布的使用场景、用法详解及实践。
+本文将介绍使用 Nginx Ingress 实现金丝雀发布的使用场景、用法详解及实践。
 >?使用 Nginx Ingress 实现金丝雀发布的集群，需部署 Nginx Ingress 作为 Ingress Controller，并且对外暴露统一的流量入口。详情请参见 [在 TKE 上部署 Nginx Ingress](https://cloud.tencent.com/document/product/457/47293)。
 
 ## 使用场景
@@ -6,39 +6,38 @@
 
 
 ### 场景1: 灰度新版本到部分用户
-假设线上已运行了一套对外提供7层服务的 Service A，此时需上线开发的新版本 Service A'，但不期望直接替换原有的 Service A，
-仅灰度部分用户，待运行一段时间足够稳定后再逐渐全量上线新版本，平滑下线旧版本。
+假设线上已运行了一套对外提供7层服务的 Service A，此时需上线开发的新版本 Service A'，但不期望直接替换原有的 Service A，仅灰度部分用户，待运行一段时间足够稳定后再逐渐全量上线新版本，平滑下线旧版本。
 针对此场景可使用 Nginx Ingress 基于 Header 或 Cookie 进行流量切分的策略来发布，业务使用 Header 或 Cookie 来标识不同类型的用户，并通过配置 Ingress 来实现让带有指定 Header 或 Cookie 的请求被转发到新版本，其它请求仍然转发到旧版本，从而将新版本灰度给部分用户。示意图如下：
-<img style="width:60%" src="https://main.qcloudimg.com/raw/d13fbc13f02b00d2bb9817c4d2839268.jpg" data-nonescope="true">
+<img style="width:80%" src="https://main.qcloudimg.com/raw/d13fbc13f02b00d2bb9817c4d2839268.jpg" data-nonescope="true">
 
 ### 场景2: 切换一定比例的流量到新版本
 假设线上已运行了一套对外提供7层服务的 Service B，此时修复了 Service B 的部分问题，需灰度上线新版本 Service B'。但不期望直接替换原有的 Service B，需先切换10%的流量至新版本，待运行一段时间足够稳定后再逐渐加大新版本流量比例直至完全替换旧版本，最终平滑下线旧版本。示意图如下：
-<img style="width:60%" src="https://main.qcloudimg.com/raw/2ab50d5a6d3572e5cbfe6b14180d3105.jpg" data-nonescope="true">
+<img style="width:80%" src="https://main.qcloudimg.com/raw/2ab50d5a6d3572e5cbfe6b14180d3105.jpg" data-nonescope="true">
 
 ## 注解说明
-通过给 Ingress 资源指定 Nginx Ingress 所支持的 annotation 可实现金丝雀发布。需给服务创建2个 Ingress，其中1个常规 Ingress，另1个为带 `nginx.ingress.kubernetes.io/canary: "true"` 此固定的 annotation 的 Ingress，称为 Canary Ingress。Canary Ingress 一般代表新版本的服务，结合另外针对流量切分策略的 annotation 一起配置即可实现多种场景的金丝雀发布。以下为相关 annotation 的详细介绍：
+通过给 Ingress 资源指定 Nginx Ingress 所支持的 annotation 可实现金丝雀发布。需给服务创建2个 Ingress，其中1个常规 Ingress，另1个为带 `nginx.ingress.kubernetes.io/canary: "true"` 固定的 annotation 的 Ingress，称为 Canary Ingress。Canary Ingress 一般代表新版本的服务，结合另外针对流量切分策略的 annotation 一起配置即可实现多种场景的金丝雀发布。以下为相关 annotation 的详细介绍：
 
-- `nginx.ingress.kubernetes.io/canary-by-header`
+- **`nginx.ingress.kubernetes.io/canary-by-header`**
 表示如果请求头中包含指定的 header 名称，并且值为 `always`，就将该请求转发给该 Ingress 定义的对应后端服务。如果值为 `never` 则不转发，可以用于回滚到旧版。如果为其他值则忽略该 annotation。
 
-- `nginx.ingress.kubernetes.io/canary-by-header-value`
+- **`nginx.ingress.kubernetes.io/canary-by-header-value`**
 该 annotation 可以作为 `canary-by-header` 的补充，可指定请求头为自定义值，包含但不限于 `always` 或 `never`。当请求头的值命中指定的自定义值时，请求将会转发给该 Ingress 定义的对应后端服务，如果是其它值则忽略该 annotation。
-* `nginx.ingress.kubernetes.io/canary-by-header-pattern`
+* **`nginx.ingress.kubernetes.io/canary-by-header-pattern`**
 与 `canary-by-header-value` 类似，区别为该 annotation 用正则表达式匹配请求头的值，而不是只固定某一个值。如果该 annotation 与 `canary-by-header-value` 同时存在，该 annotation 将被忽略。
-* `nginx.ingress.kubernetes.io/canary-by-cookie`
+* **`nginx.ingress.kubernetes.io/canary-by-cookie`**
 与 `canary-by-header` 类似，该 annotation 用于 cookie，仅支持 `always` 和 `never`。
-* `nginx.ingress.kubernetes.io/canary-weight`
+* **`nginx.ingress.kubernetes.io/canary-weight`**
 表示 Canary Ingress 所分配流量的比例的百分比，取值范围 [0-100]。例如，设置为10，则表示分配10%的流量给 Canary Ingress 对应的后端服务。
 
 >?
 >- 以上规则会按优先顺序进行评估，优先顺序为： `canary-by-header -> canary-by-cookie -> canary-weight`。
->- 当 Ingress 被标记为 Canary Ingress 时，除了 `nginx.ingress.kubernetes.io/load-balance` 和  `nginx.ingress.kubernetes.io/upstream-hash-by` 之外，所有其他非 Canary 注释都将被忽略。
+>- 当 Ingress 被标记为 Canary Ingress 时，除了 `nginx.ingress.kubernetes.io/load-balance` 和  `nginx.ingress.kubernetes.io/upstream-hash-by` 外，所有其他非 Canary 注释都将被忽略。
 
 
 
 ## 使用示例
 >!
->以下示例环境以 TKE 集群为为例，您可通过示例快速上手 Nginx Ingress 的金丝雀发布。其中需注意以下事项：
+>以下示例环境以 TKE 集群为为例，您可通过示例快速上手 Nginx Ingress 的金丝雀发布。需注意以下事项：
 > - 相同服务的 Canary Ingress 仅能够定义一个，导致后端服务最多支持两个版本。
 2. Ingress 里必须配置域名，否则不会有效果。
 3. 即便流量完全切到了 Canary Ingress 上，旧版服务仍需存在，否在会出现报错。
