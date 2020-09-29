@@ -16,6 +16,11 @@ https://api.tpns.hk.tencent.com/v3/push/package/upload
 ```plaintext
 https://api.tpns.sgp.tencent.com/v3/push/package/upload
 ```
+上海服务接入点:
+
+```plaintext
+https://api.tpns.sh.tencent.com/v3/push/package/upload
+```
 
 **接口功能**：用户需要通过文件的方式，对批量账号上传号码包文件。然后对号码包中的文件进行推送。号码包推送接口主要包括号码包上传接口、以及号码包推送接口。
 

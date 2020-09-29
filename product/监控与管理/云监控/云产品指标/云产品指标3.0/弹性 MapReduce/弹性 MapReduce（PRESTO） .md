@@ -48,11 +48,11 @@ Namespace=QCE/TXMR_PRESTO
 | PrestoWGcUtilGcTimeGct                                  | GC 时间_FGCT                             | s        | 垃圾回收时间消耗                        | host4prestoprestoworker、<br>id4prestoprestoworker |
 | PrestoWGcUtilGcTimeYgct                                 | GC 时间_YGCT                             | s        | Young GC 消耗时间                       | host4prestoprestoworker、<br>id4prestoprestoworker |
 | PrestoWGcUtilMemoryS0                                   | 内存区域占比_S0                          | %        | Survivor 0区内存使用占比                | host4prestoprestoworker、<br>id4prestoprestoworker |
-| PrestoWDataOneMinute<br>RateInputdatasizeoneminute      | 数据输入输出速率_InputDataSizeOneMinute  | %        | Eden 区内存使用占比                     | host4prestoprestoworker、<br>id4prestoprestoworker |
+| PrestoWGcUtilMemoryE     | 内存区域占比\_E  | %        | Eden 区内存使用占比                     | host4prestoprestoworker、<br>id4prestoprestoworker |
 | PrestoWGcUtilMemoryCcs                                  | 内存区域占比_CCS                         | %        | Compressed class space 区内存使用占比   | host4prestoprestoworker、<br>id4prestoprestoworker |
 | PrestoWGcUtilMemoryS1                                   | 内存区域占比_S1                          | %        | Survivor 1区内存使用占比                | host4prestoprestoworker、<br>id4prestoprestoworker |
-| PrestoWGcUtilMemoryO                                    | 数据输入输出速率_InputDataSizeOneMinute  | %        | Old 区内存使用占比                      | host4prestoprestoworker、<br>id4prestoprestoworker |
-| PrestoWGcUtilMemoryM                                    | 数据输入输出速率_InputDataSizeOneMinute  | %        | Metaspace 区内存使用占比                | host4prestoprestoworker、<br>id4prestoprestoworker |
+| PrestoWGcUtilMemoryO                                    |内存区域占比\_O  | %        | Old 区内存使用占比                      | host4prestoprestoworker、<br>id4prestoprestoworker |
+| PrestoWGcUtilMemoryM                                    | 内存区域占比\_M  | %        | Metaspace 区内存使用占比                | host4prestoprestoworker、<br>id4prestoprestoworker |
 | PrestoWJvmMemMem<br>nonheapusedm                        | JVM 内存_MemNonHeapUsedM                 | MB       | JVM 当前已经使用的 NonHeapMemory 的数量 | host4prestoprestoworker、<br>id4prestoprestoworker |
 | PrestoWJvmMemMem<br>nonheapcommittedm                   | JVM 内存_MemNonHeapCommittedM            | MB       | JVM 当前已经提交的 NonHeapMemory 的数量 | host4prestoprestoworker、<br>id4prestoprestoworker |
 | PrestoWJvmMem<br>Memheapusedm                           | JVM 内存_MemHeapUsedM                    | MB       | JVM 当前已经使用的 HeapMemory 的数量    | host4prestoprestoworker、<br>id4prestoprestoworker |

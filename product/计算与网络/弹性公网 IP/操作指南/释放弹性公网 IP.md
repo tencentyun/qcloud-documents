@@ -1,5 +1,8 @@
 若您不再使用弹性公网 IP（EIP），可在控制台将其释放，释放后将不再收取 EIP 的任何费用。
 
+## 前提条件
+释放 EIP 前，需要先解绑 EIP，详情请参见 [解绑 EIP](https://cloud.tencent.com/document/product/1199/41703)。
+
 ## 费用说明
 释放 EIP 后，不同类型账户的费用说明如下：
 <table>
@@ -11,12 +14,12 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>非带宽上移账户</td>
+<td>传统账户类型</td>
 <td align="center">-</td>
 <td>EIP 不收取任何费用。</td>
 </tr>
 <tr>
-<td rowspan="4">带宽上移账户</td>
+<td rowspan="4">标准账户类型</td>
 <td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#1" target="_blank">按流量</a></td>
 <td>EIP 不收取任何费用。</td>
 </tr>
@@ -27,10 +30,6 @@
 <tr>
 <td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#2" target="_blank">按小时带宽</a></td>
 <td>EIP 不收取 IP 资源费用，且停止收取公网网络费用。</td>
-</tr>
-<tr>
-<td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#.E5.85.B1.E4.BA.AB.E5.B8.A6.E5.AE.BD.E5.8C.85" target="_blank">共享带宽包</a></td>
-<td>该 EIP 不收取 IP 资源费用，且停止收取公网网络费用。若该共享带宽包中还加入了其他 EIP，其他 EIP 的收费不受影响。</td>
 </tr>
 </tbody></table>
 

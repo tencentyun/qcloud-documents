@@ -7,7 +7,7 @@ DescribeDocProcessJobs 用于拉取符合条件的文档预览任务。
 #### 请求示例
 
 ```shell
-GET /doc_jobs?size=&states=&queueId=&startCreationTime=&endCreationTime= HTTP/1.1
+GET /doc_jobs?queueId=<queueId>&tag=DocProcess HTTP/1.1
 Host: <BucketName-APPID>.ci.<Region>.myqcloud.com
 Date: <GMT Date>
 Authorization: <Auth String>
@@ -65,7 +65,7 @@ Container 节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点   | 描述                                                         | 类型      |
 | :----------------- | :------- | :----------------------------------------------------------- | :-------- |
-| JobsDetail         | Response | 任务的详细信息，同 CreateDocProcessJobs 接口中的 Response.JobsDetail 节点 | Container |
+| JobsDetail         | Response | 任务的详细信息，同 [CreateDocProcessJobs](https://cloud.tencent.com/document/product/460/46942#.E5.93.8D.E5.BA.94) 接口中的 Response.JobsDetail 节点 | Container |
 | NextToken          | Response | 翻页的上下文 Token                                           | String    |
 
 #### 错误码

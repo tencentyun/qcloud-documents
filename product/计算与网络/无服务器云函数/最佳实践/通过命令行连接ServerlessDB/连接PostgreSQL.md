@@ -103,7 +103,8 @@ exports.main_handler = async (event, context, callback) => {
   const { rows } = await client.query({
       text: 'select * from users',
     });
-  await client.end();
+  await client.release();
+  // 此处要求 postgresql 版本为 8.0 及以上，请检查您的 pg 依赖项版本，如果您使用的版本为 8.0 以下，请通过 client.end（）来释放链接
   console.log('pgsql query result:',rows)
 }
 ```

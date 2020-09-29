@@ -10,11 +10,11 @@ EKS 日志采集功能需要在创建工作负载时为每个弹性集群手动�
 ## 说明事项
 EKS 日志采集功能开启后，日志采集 Agent 根据您配置的采集路径和消费端，将采集到的日志以 JSON 的形式发送到您指定的消费端。消费端及采集路径说明如下：
   - **消费端**：日志采集服务支持 Kafka 或 CLS 作为日志的消费端。
-  - **采集路径**：需要采集的指定容器日志的路径。采集路径支持采集标准输出（stdout）和绝对路径，支持 * 通配，多个采集路径以“,”分隔。 
+  - **采集路径**：需要采集的日志的路径。采集路径支持采集标准输出（stdout）和绝对路径，支持 * 通配，多个采集路径以“,”分隔。 
 
 ## 前提条件
 
-- 需确认 Kubernetes 集群内节点能够访问日志消费端。
+- 需确认 Kubernetes 集群能够访问日志消费端。
 - 日志长度限制为单条512K，如果超过则会截断。
 
 
@@ -22,8 +22,7 @@ EKS 日志采集功能开启后，日志采集 Agent 根据您配置的采集路
 
 <span id="output"></span>
 ### 配置日志采集 
-EKS 日志采集功能支持采集 Kubernetes 集群内指定容器的标准输出日志，您可以根据自己的需求，灵活配置采集规则。
-采集到的日志信息将会以 JSON 格式输出到您指定的消费端，并会附加相关的 Kubernetes metadata，包括容器所属 pod 的 label 和 annotation 等信息。具体操作步骤如下：
+EKS 日志采集功能采集到的日志信息将会以 JSON 格式输出到您指定的消费端，并会附加相关的 Kubernetes metadata，包括容器所属 pod 的 label 和 annotation 等信息。具体操作步骤如下：
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【弹性集群】。
 2. 进入“弹性集群”页面，选择需要日志采集的集群 ID，进入集群管理页面。
 3. 在左侧“工作负载”中选择需要的工作负载类型，进入对应页面后选择【新建】。
@@ -31,17 +30,32 @@ EKS 日志采集功能支持采集 Kubernetes 集群内指定容器的标准输�
 ![](https://main.qcloudimg.com/raw/0ef3ce835e4d30651a48f54df9b23acb.png)
 5. 参考以下信息进行日志消费端配置，您可选择 CLS 或 Kafka 作为日志消费端。如下图所示：
   - 推荐选择 [日志服务（CLS）](https://cloud.tencent.com/product/cls) 为消费端，并选择日志集和日志主题。若无合适的日志集，请参考 [配置日志服务 CLS 作为日志消费端](#step1)。
-   - 若选择 Kfaka 为消费端，请参考 [配置 Kafka 作为日志消费端](#step2)。
-![](https://main.qcloudimg.com/raw/bd701d18315e8ca09c91adb5c1994081.png)
-6. 选择 SecretId 和 SecretKey 进行日志采集授权。如下图所示：<span id="y"></span>
-    第一列：选择 Secret。选择您以 [API 密钥](https://console.cloud.tencent.com/cam/capi) 中的 SecretId 和 SecretKey 作为变量值，进行创建的 Secret 集群配置。
-    第二列：选择 Secret 相应的变量名。
-	![](https://main.qcloudimg.com/raw/d03939b8078bc2c789c17ff17a689bac.png)
+   - 若选择 Kafka 为消费端，请参考 [配置 Kafka 作为日志消费端](#step2)。
+![](https://main.qcloudimg.com/raw/4a0e6bef8d5b0c800dfdb6de9104fe4c.png)
+6. 选择角色或者密钥进行授权。
 >! 
- - API 密钥对应的用户需具备访问日志服务（CLS）的权限。
- - 若无 API 密钥，需新建 API 密钥。详情请参见 [访问密钥](https://cloud.tencent.com/document/product/598/40487)。
- - 若无合适的 secret，需新建 secret。详情请参见 [Secret 管理](https://cloud.tencent.com/document/product/457/31718)。
->
+ - 同一 pod 下的容器只能选择同一种授权方式，以您最后修改的授权方式为准。例如第一个容器选择了密钥授权，第二个选择了角色授权，最终两个容器都是角色授权。
+ - 同一 pod 下的容器只能选择同一个角色授权。
+
+
+**角色授权**
+ - 选择具有访问日志服务 CLS 权限的角色名称，如下图所示：
+![](https://main.qcloudimg.com/raw/eb325a52c59486e1051a381ee8ae135d.png)
+ - 若无合适的角色，创建过程参考以下步骤：
+1. 登录访问管理控制台，在左侧导航栏选择【[角色](https://console.cloud.tencent.com/cam/role)】。
+2. 在“角色”页面，单击【新建角色】。
+3. 在“选择角色载体” 弹窗中，选择【腾讯云产品服务】，进入【新建自定义角色】页面。
+4. 在“输入角色载体信息”步骤中，选择绑定【云服务器（cvm）】载体，单击【下一步】。
+5. 在“配置角色策略”步骤中，选择【QcloudCLSAccessForApiGateWayRole】策略，单击【下一步】。
+6. 在“审阅”步骤中，输入您的角色名称，审阅您即将创建角色的相关信息，单击【完成】后即完成自定义角色创建。详情请参见 [创建角色](https://cloud.tencent.com/document/product/598/19381)。
+
+**密钥授权**
+- 选择您利用账号 API 密钥的 SecretId 和 SecretKey 作为变量值进行创建的集群 Secret 配置名称。
+![](https://main.qcloudimg.com/raw/90103c9759c3e2df9bd6f66a507e60fb.png)
+- 若无合适的 Secret，需新建 Secret。详情请参见 [Secret 管理](https://cloud.tencent.com/document/product/457/31718)。其中 SecretId 和 SecretKey 可在 [API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。
+>! API 密钥对应的用户需具备访问日志服务（CLS）的权限。若无 API 密钥，需新建 API 密钥。详情请参见 [访问密钥](https://cloud.tencent.com/document/product/598/40487)。
+
+
 7. 配置采集路径。如下图所示：
 ![](https://main.qcloudimg.com/raw/7b9799a0d2a6d1200318dfc35243ea52.png)
 至此已完成日志采集功能配置，您可按需进行该工作负载的其他配置。
@@ -54,20 +68,13 @@ EKS 日志采集功能支持指定用户自建的 Kafka 实例、日志服务 CL
 ![](https://main.qcloudimg.com/raw/2a226f61d5db3a048f804e83d3f0debb.png)
 #### 配置 CLS 作为日志消费端<span id="step1"></span> 
 - 日志服务 CLS 目前只能支持同地域的容器集群进行日志采集上报。详情请参见 [创建日志集和日志主题](https://cloud.tencent.com/document/product/614/34340)。
-- 创建日志集时，由于弹性容器服务的日志有独立的采集能力，新建日志集不需要开启【使用LogListener】。如下图所示：
-![](https://main.qcloudimg.com/raw/7444cb3e96707452a021188c9a3d83e2.png)
 - 打开日志主题的【日志索引】。如下图所示：
 ![](https://main.qcloudimg.com/raw/a8413fb410367e01acfa9ff62e7a291d.png)
 
 
 <span id="yaml"></span>
 ### 通过 yaml 配置日志采集 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【弹性集群】。
-2. 进入“弹性集群”页面，选择需要日志采集的集群 ID，进入集群管理页面。
-3. 在左侧“工作负载”中选择需要的工作负载类型，进入工作负载管理页面。
-4. 在工作负载管理页面中，选择需配置工作负载所在行右侧的【更多】>【编辑YAML】或单击页面右上角的【YAML创建资源】，进入 YAML 编辑页面。如下图所示：
-![](https://main.qcloudimg.com/raw/c9977eac05f4adb6e26ec895d1c4548d.png)
-5. 在 “更新Deployment” 页面，通过新增环境变量的方式进行配置。本文提供 [采集日志到 Kafka](#a)，[通过 secret 采集日志到 cls](#b)，和 [通过 role 采集日志到 cls](#c) 三种方式，请按需选择：
+本文提供 [采集日志到 Kafka](#a)，[通过 secret 采集日志到 cls](#b)，和 [通过 role 采集日志到 cls](#c) 三种方式，请按需选择：
 
   **方式1：采集日志到 Kafka**<span id="a"></span>
 通过增加环境变量开启日志采集。
@@ -141,7 +148,7 @@ labels:
 	</tr>
 </table>
 
-  **方式2：通过 secret 采集日志到 cls**<span id="b"></span>  
+  **方式2：通过密钥采集日志到 cls**<span id="b"></span>  
 #### 创建 secret<span id="z"></span>
 通过 kubectl 执行以下命令，获取进行 base64编码的 secretid 和 secretkey，详情请参考 [secret 管理](https://cloud.tencent.com/document/product/457/31718)。  
 其中，secretid 及 secretkey 请替换为您实际使用的 secretid 和 secretkey。
@@ -272,25 +279,10 @@ spec:
 	</tr>
 </table>
 
-  **方式3：通过 role 采集日志到 cls**<span id="c"></span>
-#### 创建 role  
-在 [访问管理控制台](https://console.cloud.tencent.com/cam/role) 创建 role，创建 role 时选择腾讯云产品服务，绑定云服务器 CVM 载体，详情请参考 [创建角色](https://cloud.tencent.com/document/product/598/19381)。
-如果需要日志采集，请在【策略】>【新建自定义策略】>【按策略语法创建】中添加如下策略，并将此策略关联到上述新建角色，详情请参考 [创建策略](https://cloud.tencent.com/document/product/598/37739)。
-```shell
-{
-    "version": "2.0",
-    "statement": [
-        {
-            "action": [
-                "cls:pushLog"
-            ],
-            "resource": "*",
-            "effect": "allow"
-        }
-    ]
-}
-```
-在pod template 中新增 annotation，指定 role 的名称，获取该 role 包含的权限策略。
+  **方式3：通过角色采集日志到 cls**<span id="c"></span>
+#### 创建角色  
+在 [访问管理控制台](https://console.cloud.tencent.com/cam/role) 新建角色，选择【腾讯云产品服务】，绑定【云服务器 CVM】载体，选择【QcloudCLSAccessForApiGateWayRole】策略。详情请参考 [创建角色](https://cloud.tencent.com/document/product/598/19381)。
+在 pod template 中新增 annotation，指定 role 的名称，获取该 role 包含的权限策略。
 ```shell
 template:
   metadata:
@@ -383,16 +375,17 @@ spec:
 </table>
 5. 添加完成后，单击【完成】，即可更新 YAML 增加日志配置。
 <span id="new"></span>
+>! 若 yaml 中同时配置了密钥和角色授权，pod 实际上采用的是角色授权。
+>
+
 
 ### 更新日志采集 
 您可通过控制台和 yaml 更新日志采集，请参考以下步骤：
 #### 通过控制台更新日志采集
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【弹性集群】。
 2. 选择需要配置日志采集的集群 ID，进入集群管理页面。
-3. 选择左侧【工作负载】，单击需要更新日志采集的工作负载所在行右侧的【更新Pod配置】。如下图所示：
+3. 选择左侧【工作负载】，单击需要更新日志采集的工作负载所在行右侧的【更新Pod配置】>【显示高级设置】，修改对应的配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/a5f93ff2724f199619f998b1b2040be1.png)
-4. 在环境变量中，根据配置对应变量名的变动修改相应的变量值，变量名对应的含义可在 [配置日志采集](#y) 查看。如下图所示：
-![](https://main.qcloudimg.com/raw/a1bdcf2903de94ecd8ca9cb9cd6b14ee.png)
 5. 单击【完成】即可更新。
 
 #### 通过 yaml 更新日志采集

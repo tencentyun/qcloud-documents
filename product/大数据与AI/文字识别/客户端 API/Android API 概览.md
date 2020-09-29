@@ -234,7 +234,7 @@ public interface ISDKKitResultListener {
     "Nation": "汉",
     "Birth": "1987/1/1",
     "Address": "北京市石景山区高新技术园腾讯大楼",
-    "IdNum": "440524198701010014",
+    "IdNum": "440524******010014",
     "Authority": "",
     "ValidDate": "",
     "AdvancedInfo": "{}",

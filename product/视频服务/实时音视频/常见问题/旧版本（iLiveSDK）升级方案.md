@@ -9,8 +9,6 @@
 | CDN 推流 | 使用 REST API 开启 |  支持客户端开启 | 
 | 云端线路  |  V1 线路 |   V2 线路  |
 
-旧版本（iLiveSDK）文档访问及 SDK 下载需提交 [申请](https://cloud.tencent.com/apply/p/ajfd2ucmiht)，通过后才能下载使用。
-
 ### TRTC V1（iLiveSDK）如何升级至 V2（LiteAVSDK）？
 - 如果您的**项目从未集成过 TRTC SDK**，强烈推荐直接使用 V2（LiteAVSDK），V2 在通话质量、线路规格、接入难度以及功能扩展上均有优势。
 - 如果您的**项目已经稳定并且没有问题**，由于 V1 和 V2 的云端线路目前是不互通的，如果您的项目已经进入稳定运营阶段，可以暂时不升级。

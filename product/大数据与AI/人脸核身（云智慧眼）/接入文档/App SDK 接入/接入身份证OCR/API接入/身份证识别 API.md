@@ -1,3 +1,5 @@
+>!如果因自身业务需要对 OCR 识别的影像文件进行存储或其他用途，请合作方务必自行保存订单号，通过订单号拉取 OCR 识别的影像文件是唯一方式。
+
 合作方后台服务上送 sign、请求参数到身份证识别后台服务。
 - **请求 URL：**`https://ida.webank.com/api/paas/idcardocrapp`
 - **请求方法：**POST
@@ -32,7 +34,7 @@
 |address	| String	| 身份证识别结果：地址<br>如果用户没有正确上传人像面，则没有该字段|
 |authority	| String	| 身份证识别结果：签发机关<br>如果用户没有正确上传国徽面，则没有该字段|
 |validDate	| String	| 身份证识别结果：有效日期<br>如果用户没有正确上传国徽面，则没有该字段|
-|multiWarning	| String	| 正面多重告警码，详情请参见 [错误码](https://cloud.tencent.com/document/product/1007/31082)|
+|multiWarning	| String	| 正面多重告警码，详情请参见 [身份证 OCR 错误码](https://cloud.tencent.com/document/product/1007/47902)|
 |clarity	| String	| 图片清晰度|
 
 **响应示例：**

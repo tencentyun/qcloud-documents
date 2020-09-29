@@ -1,3 +1,14 @@
+## Version 7.7.330 @ 2020.09.11
+
+**新增**
+Windows & Mac：新增 [setAudioQuality](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setAudioQuality) 用于设置音频质量。
+
+**改进**
+- Windows：优化在某些低端摄像头下 CPU 使用率过高的问题。
+- Windows：优化对多款 USB 摄像头和麦克风的兼容性，提升设备的打开成功率。
+- Windows：优化摄像头和麦克风设备的选择策略，避免由于摄像头或麦克风在使用中插拔导致的采集异常问题。
+- Windows & Mac：其他 bug 修复。
+
 ## Version 7.6.300 @ 2020.08.26
 
 **新增**

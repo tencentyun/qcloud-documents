@@ -1,8 +1,9 @@
 本文档将为您介绍 Mac 系统如何登录堡垒机。
+
 ## 操作场景
 
 运维用户如需通过 Mac 系统登录堡垒机，可使用 Mac_SecureCRT、Mac_Terminal  或 Mac_Iterm 工具进行登录。
-
+>!仅3.0.7版本堡垒机支持使用 Mac 系统登录堡垒机功能，如需升级请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=517&level2_id=727&source=0&data_title=%E5%85%B6%E4%BB%96%E8%85%BE%E8%AE%AF%E4%BA%91%E4%BA%A7%E5%93%81&level3_id=728&radio_title=%E5%8A%9F%E8%83%BD%E5%92%A8%E8%AF%A2&queue=3026&scene_code=17783&step=2) 联系我们。
 
 ## 操作步骤
 ### 步骤1：下载并运行控件

@@ -1,4 +1,5 @@
 ## SDK 功能列表
+
 <table width="850px">
   <tr align="center">
      <th style="text-align:center">功能</th>
@@ -7,8 +8,8 @@
   </tr>
   <tr align="center">
      <td>版本</td>
-        <td style="text-align:center">SDK（7.6.9359）@ 2020-08-24</td>
-        <td style="text-align:center">SDK（7.6.9376）@ 2020-08-24</td>
+        <td style="text-align:center">SDK（7.8.9518）@ 2020.09.27</td>
+        <td style="text-align:center">SDK（ 7.8.9518）@ 2020.09.27</td>
   </tr>
   <tr align="center">
     <td>小窗播放</td>

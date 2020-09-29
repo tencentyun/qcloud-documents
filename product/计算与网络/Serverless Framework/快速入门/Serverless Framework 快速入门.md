@@ -15,10 +15,10 @@
 ```
 $ serverless
 Serverless: 当前未检测到 Serverless 项目，是否希望新建一个项目？ (Y/n) y
-Serverless: 请选择您希望创建的 Serverless 应用 (Use arrow keys)
-❯ Express.js app 
-  SCF Function 
-  Website app 
+Serverless: 请选择您希望创建的 Serverless 应用 (Use arrow keys or type to search)
+❯ Express.js 项目模板
+  SCF 函数项目模板
+  Website 项目模板
 Serverless: 请输入项目名称 express-app
 
 express-app 项目已成功创建！

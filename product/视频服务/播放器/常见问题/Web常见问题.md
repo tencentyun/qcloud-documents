@@ -83,7 +83,7 @@ HLS 加密视频的播放流程有别于常规视频，通常需要确保获取 
 ### 视频激活播放后强制全屏
 **问题表现：**在单击视频激活播放后，直接全屏播放，通常出现在 Android、iOS 的微信、手机 QQ、QQ 浏览器等浏览器中。
 
-**解决方案：**如需实现页面内（非全屏）播放，需要在 video 标签中加入 playsinline 和 webkit-playsinline 属性，腾讯云播放器默认会在 video 标签中加上 playsinline 和 webkit-playsinline 属性。iOS10+ 识别 playsinline 属性，版本小于10的系统识别 webkit-playsinline 属性。经测试，在 iOS Safari 中可以实现页面内（内联）播放。Android 端识别 webkit-playsinline，但是由于 Android 的开放性，出现了许多定制浏览器，这些属性不一定生效，例如，在 TBS 内核浏览器（包括不限于微信、手机 QQ，QQ 浏览器）中，可能需要使用同层播放器属性（[接入文档](https://x5.tencent.com/tbs/guide/video.html)），避免系统强制全屏视频。
+**解决方案：**如需实现页面内（非全屏）播放，需要在 video 标签中加入 playsinline 和 webkit-playsinline 属性，腾讯云播放器默认会在 video 标签中加上 playsinline 和 webkit-playsinline 属性。iOS10+ 识别 playsinline 属性，版本小于10的系统识别 webkit-playsinline 属性。经测试，在 iOS Safari 中可以实现页面内（内联）播放。Android 端识别 webkit-playsinline，但是由于 Android 的开放性，出现了许多定制浏览器，这些属性不一定生效，例如，在 TBS 内核浏览器（包括不限于微信、手机 QQ，QQ 浏览器）中，可能需要使用同层播放器属性（[接入文档](https://x5.tencent.com/docs/video.html)），避免系统强制全屏视频。
 
 如果已配置以上提到的属性仍会强制全屏，则通用解决方案无效，需要浏览器厂商提供解决方案。
 

@@ -13,7 +13,7 @@ Guetzli 图片压缩是数据万象推出的视觉无损压缩服务，能够对
 
 ## 功能体验
 
-您可在线体验 Guetzli 压缩功能，单击前往 [数据万象体验馆](https://cloud.tencent.com/act/pro/pictureSlimming)。
+您可在线体验 Guetzli 压缩功能，单击前往 [数据万象体验馆](https://cloud.tencent.com/act/pro/ciExhibition)。
 
 
 ## 适用场景

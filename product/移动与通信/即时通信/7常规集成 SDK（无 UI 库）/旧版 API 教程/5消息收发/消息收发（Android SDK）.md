@@ -1230,18 +1230,6 @@ public TIMGroupMemberInfo getSenderGroupMemberProfile()
 public long timestamp()
 ```
 
-### 消息删除
-
-目前暂不支持 Server 消息删除，只能在本地删除。通过 `TIMMessage` 中的 `remove` 接口可以删除消息，删除后使用 `getMessage` 拉取消息，不会返回被删除的消息。
-
-```
-/**
- * 将消息状态标记为删除
- * @return 成功或失败
- */
-public boolean remove()
-```
-
 ### 消息 ID
 
 消息 ID 也有两种，一种是当消息生成时，就已经固定（`msgId`），这种方式可能跟其他用户产生的消息冲突，需要再加一个时间维度，可以认为 10 分钟以内的消息可以使用 `msgId` 区分。另外一种，当消息发送成功以后才能固定下来（`uniqueId`），这种方式能保证全局唯一。这两种方式都需要在同一个会话内判断。
@@ -1476,37 +1464,26 @@ con.getMessage(10, //获取此会话最近的 10 条消息
 
 ### 删除会话
 
-IM SDK 的 `TIMManager` 中提供了两种删除会话的方式，一种只删除会话，但保留了所有消息；另一种在删除会话的同时，也删除掉会话相关的消息。可以根据不同应用场景选择合适的方式。
-
->!
-> - 删除本地消息的情况下，C2C 会话将无法获取到删除会话前的历史消息。
-> - 删除本地消息的情况下，群组会话通过 `getMessage` 仍然会拉取到漫游消息，所以存在删除消息成功，但是拉取消息的时候仍然获取到删除会话前的历史消息的情况，取决于是否重新从漫游拉回到本地。如果不需要拉取漫游，可以通过 `getLocalMessage` 获取消息，或者只通过 `getMessage` 拉取指定条数（如未读条数数量）的消息。
+删除会话的同时 IM SDK 会删除该会话的本地和漫游消息，会话和消息删除后，无法再恢复。
 
 **原型：**
 
 ```
 /**
- * 删除会话缓存
+ * 删除本地和服务器上保存的单个会话，以及该会话中的本地和服务器的所有消息
+ *
  * @param type 会话类型
  * @param peer 参与会话的对方, C2C 会话为对方帐号 identifier, 群组会话为群组 ID
  * @return true 成功  false 失败
  */
 public boolean deleteConversation(TIMConversationType type, String peer)
 
-
-/**
- * 删除会话缓存并同时删除该会话相关的本地消息
- * @param type 会话类型
- * @param peer 参与会话的对方, C2C 会话为对方帐号 identifier, 群组会话为群组 ID
- * @return true 成功  false 失败
- */
-public boolean deleteConversationAndLocalMsgs(TIMConversationType type, String peer)
 ```
 
-以下示例中删除了与用户 hello 的 C2C 会话。**示例：**
+以下示例中删除了与用户 user1 的 C2C 会话。**示例：**
 
 ```
-TIMManager.getInstance().deleteConversation(TIMConversationType.C2C, "hello");
+TIMManager.getInstance().deleteConversation(TIMConversationType.C2C, "user1");
 ```
 
 ### 同步获取会话最后的消息
@@ -1595,20 +1572,22 @@ public void setUserDefinedData(byte[] userDefinedData)
  */
 public long getTimestamp()
 ```
-### 删除会话本地消息
+### 删除会话消息
 
-IM SDK 提供了保留会话的情况下，清空会话本地聊天记录的功能。通过调用 `TIMConversation` 的 `deleteLocalMessage` 接口实现。
-
->!群组会话在清空本地聊天记录后，仍然会通过漫游拉取到本地删除了的历史消息。
+IM SDK 支持删除会话的本地及漫游消息，消息删除后，无法再恢复。
 
 
 **原型：**
 ```
 /**
- * 批量删除本会话的全部本地聊天记录
- * @param callback 回调
+ * 删除当前会话的本地及漫游消息
+ * 
+ * 该接口会删除本地历史的同时也会把漫游消息即保存在服务器上的消息也删除，卸载重装后无法再拉取到。需要注意的是：
+ *  1. 一次最多只能删除 30 条消息。
+ *  2. 一秒钟最多只能调用一次。
+ *  3. 如果该账号在其他设备上拉取过这些消息，那么调用该接口删除后，这些消息仍然会保存在那些设备上，即删除消息不支持多端同步。
  */
-public void deleteLocalMessage(@NonNull TIMCallBack callback)
+public void deleteMessages(List<TIMMessage> messages, TIMCallBack callback)
 ```
 
 ### 查找本地消息
