@@ -18,7 +18,11 @@ Tencent Linux 适用于下列场景：
 	<tr><td><b>安全更新</b></td><td>Tencent Linux 会定期进行更新，增强安全性及功能</td></tr>
 </table>
 
-## 发布说明
+## Tencent Linux 2.4环境说明
+| 发布时间 | 镜像版本 | 版本说明 |
+|---------|---------|---------|
+| 2019年9月17日 | Tencent Linux release 2.4 (Final) | 镜像 ID：img-hdt9xxkt<br>内核版本：4.14.105<br>发布地域：所有地域 |
+
 ### 用户态环境
 用户态软件包保持与最新版 CentOS 7兼容，CentOS 7版本的软件包可以直接在 Tencent Linux 2.4 中使用。
 
@@ -57,6 +61,7 @@ Usage:
 
 #### Tencent Linux 2.4 内核
 基于社区 longterm 版本4.14内核，详情请参见 [TencentOS-kernel](https://github.com/Tencent/TencentOS-kernel)。
+
 
 ## 获取 Tlinux
 您可通过下列方法获取并使用 Tencent Linux：
