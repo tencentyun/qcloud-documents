@@ -1,5 +1,3 @@
-## 如何启用群直播？
-
 如果您已经集成了 IM，群直播入口默认已经集成，群直播效果如下：
 <table>
 <tr><td  style="border-color:white">
