@@ -1,18 +1,14 @@
-为物理专线/专线通道配置指标告警/事件告警策略后，还可以在云监控控制台查看告警历史和具体事件信息。
+为物理专线/专线通道配置指标告警/事件告警策略后，可以在云监控控制台查看告警历史和具体事件信息。
 
 ## 前提条件
-
-您已配置告警策略，具体请参见 [配置告警]()。
+您已配置告警策略，具体请参见 [配置告警](https://cloud.tencent.com/document/product/216/48581)。
 
 ## 查看告警历史
 
 1. 登录[ 云监控](https://console.cloud.tencent.com/monitor/overview) 控制台，并在左侧导航栏单击【告警历史】。
-
 2. 在“告警历史”页面上方选择告警历史的时间段。
-
    “告警历史”页面展示了告警的事件、告警内容、持续时长、告警状态等内容，具体入下图所示。
-
-   ![](https://main.qcloudimg.com/raw/7624056685c0fb39cee96ef427f2784f.png)
+  ![](https://main.qcloudimg.com/raw/7624056685c0fb39cee96ef427f2784f.png)
 
 ## 查看产品事件
 
@@ -23,7 +19,4 @@
 >
  ![](https://main.qcloudimg.com/raw/7aec8cdd2b3c29e33fef93eae7cb3111.png)
 3. 若需未未配置告警策略的产品事件配置告警，则在该产品事件右侧“告警配置”列单击【新增配置】，并在“新建策略”页面按需修改策略，然后单击【完成】。
-
-   ![](https://main.qcloudimg.com/raw/7c78917c63d7c7f0521b83304c2c4cf5.png)
-
-
+ ![](https://main.qcloudimg.com/raw/7c78917c63d7c7f0521b83304c2c4cf5.png)

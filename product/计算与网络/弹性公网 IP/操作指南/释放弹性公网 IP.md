@@ -14,12 +14,12 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>非带宽上移账户</td>
+<td>传统账户类型</td>
 <td align="center">-</td>
 <td>EIP 不收取任何费用。</td>
 </tr>
 <tr>
-<td rowspan="4">带宽上移账户</td>
+<td rowspan="4">标准账户类型</td>
 <td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#1" target="_blank">按流量</a></td>
 <td>EIP 不收取任何费用。</td>
 </tr>

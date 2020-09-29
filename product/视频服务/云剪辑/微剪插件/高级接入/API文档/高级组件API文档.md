@@ -32,7 +32,7 @@
 | 属性名               | 类型     | 默认值                                                       | 说明                                                         | 必填 |
 | -------------------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
 | containerStyleConfig | Object   | `{height: 1334, width: 750}`| 播放器的尺寸   | 否   |
-| mode                 | String   | default| <li />default：video 模式<li />offscreen：decoder offscreen 模式（导出模式） | 否   |
+| mode                 | String   | default| <li />default：video 模式<li />offscreen：decoder offscreen 模式（导出模式），推荐直接使用 `wj-export` 组件 | 否   |
 | allowSetVolumn       | Boolean  | false| 是否需要调整视频原声音量                                     | 否   |
 | enableTapPause       | Boolean  | false| 是否启用点击暂停                                             | 否   |
 | enablePauseIcon      | Boolean  | true| 是否显示暂停按钮                                             | 否   |
@@ -75,7 +75,7 @@
 
 >? 
 >- 定制滤镜目前只支持 LUT 图滤镜，由于小程序下载文件的限制，LUT 图需要先 downloadFile 到本地。
->- 定制特效需要传入特效的片元着色器，详情见 [高级功能-自定义特效和滤镜](https://tcloud-doc.isd.com/document/product/1156/48621?!preview&!editLang=zh)。
+>- 定制特效需要传入特效的片元着色器，详情见 [高级功能-自定义特效和滤镜](https://cloud.tencent.com/document/product/1156/48621)。
 
 ### 播放器使用示例
 
@@ -220,20 +220,21 @@ videoClip1.startAt = 1;
 2. 添加音乐片段：
   1. 添加音乐 Clip，设置音乐 Clip 的 type 为 music。
 ```javascript
-      let musicClip1 = new global['wj-types'].Clip({
-        id: 'music1',
-        type: 'music',
-        info: {
-          tempFilePath: 'wxfile:xxxx',
-        },
-        section: new global['wj-types'].ClipSection({
-          start: 0,
-          end: 1000
-        }),
-        startAt: 0
-      })
+	let musicClip1 = new global['wj-types'].Clip({
+		id: 'music1',
+		type: 'music',
+		info: {
+			tempFilePath: 'http://xxx.xxx.mp3',
+		},
+		section: new global['wj-types'].ClipSection({
+			start: 0,
+			end: 1000
+		}),
+		startAt: 0
+	})
 ```
 > ?
+> - `tempFilePath` 为在线音乐地址。
 > - 参数基本与视频的 Clip一致，具体请参见 [Clip 参数详解](#clip_parameter)。
 > - section 的 end 值为1000， 一般用于给整个视频添加一段音乐的情况，播放器内部会自动调整为实际的视频时长。
   2. 将 musicClip1 加入到 musicTrack 中：

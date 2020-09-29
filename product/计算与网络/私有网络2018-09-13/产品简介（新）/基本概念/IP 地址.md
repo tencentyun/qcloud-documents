@@ -55,7 +55,7 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 <tr>
 <td colspan="2" >IP 资源费用</td>
 <td>普通公网 IP 可免费使用。</td>
-<td>IP 资源费用是弹性公网 IP 费用组成的一部分，根据非带宽上移和带宽上移不同类型的账户收费情况不同，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/41692#.E8.B4.B9.E7.94.A8.E7.BB.84.E6.88.90">费用组成</a>。</td>
+<td>IP 资源费用是弹性公网 IP 费用组成的一部分，针对传统账户类型和标准账户类型，不同类型的账户收费情况不同，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/41692#.E8.B4.B9.E7.94.A8.E7.BB.84.E6.88.90">费用组成</a>。</td>
 </tr>
 <tr>
 <td colspan="2" rowspan="2">配额</td>
