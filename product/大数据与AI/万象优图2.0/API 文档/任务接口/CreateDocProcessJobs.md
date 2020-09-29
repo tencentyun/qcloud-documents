@@ -2,14 +2,15 @@
 
 CreateDocProcessJobs 接口用于提交一个文档预览任务。
 
-目前支持的输入文件类型包含如下格式：
-- 演示文件：pptx、ppt、pot、potx、pps、ppsx、dps、dpt、pptm、potm、ppsm。
--  文字文件：doc、dot、wps、wpt、docx、dotx、docm、dotm。
--  表格文件：xls、xlt、et、ett、xlsx、xltx、csv、xlsb、xlsm、xltm、ets。
->?表格文件，一张表可能分割为多页转换，生成多张图片。
-- 其他格式文件： pdf、 lrc、 c、 cpp、 h、 asm、 s、 java、 asp、 bat、 bas、 prg、 cmd、 rtf、 txt、 log、 xml、 htm、 html。
-
-输入文件大小限制在100MB之内。
+>!
+>- 目前支持的输入文件类型包含如下格式：
+>  演示文件：pptx、ppt、pot、potx、pps、ppsx、dps、dpt、pptm、potm、ppsm。
+>  文字文件：doc、dot、wps、wpt、docx、dotx、docm、dotm。
+>  表格文件：xls、xlt、et、ett、xlsx、xltx、csv、xlsb、xlsm、xltm、ets。
+ - 表格文件，一张表可能分割为多页转换，生成多张图片。
+>
+>  其他格式文件： pdf、 lrc、 c、 cpp、 h、 asm、 s、 java、 asp、 bat、 bas、 prg、 cmd、 rtf、 txt、 log、 xml、 htm、 html。
+>- 输入文件大小限制在100MB之内。
 
 
 ## 请求
@@ -158,7 +159,7 @@ Container 类型 DocProcess 的具体数据描述如下：
 | TgtType            | Request.Operation.DocProcess | 转换输出目标文件类型：png，转成 png 格式的图片文件；jpg，转成 jpg 格式的图片文件；如果传入的格式未能识别，默认使用 jpg 格式 | String | 否       |
 | SheetId          | Request.Operation.DocProcess | 表格文件参数，转换第 X 个表，默认为1；设置 SheetId 为0，即转换文档中全部表                                   | Int    | 否       |
 | StartPage          | Request.Operation.DocProcess | 从第 X 页开始转换，默认为1；<br>在表格文件中，一张表可能分割为多页转换，生成多张图片。StartPage 表示从指定 SheetId 的第 X 页开始转换，默认为1                                   | Int   | 否       |
-| EndPage            | Request.Operation.DocProcess | 转换至第 x 页，默认为-1，<br>即转换文档中全部页。在表格文件中，一张表可能分割为多页转换，生成多张图片。EndPage 表示转换至指定 SheetId 的第 X 页，默认为-1，即转换全部页。 | Int    | 否       |
+| EndPage            | Request.Operation.DocProcess | 转换至第 X 页，默认为-1，<br>即转换文档中全部页。在表格文件中，一张表可能分割为多页转换，生成多张图片。EndPage 表示转换至指定 SheetId 的第 X 页，默认为-1，即转换全部页。 | Int    | 否       |
 | ImageParams        | Request.Operation.DocProcess | 转换后的图片处理参数，支持 [基础图片处理](https://cloud.tencent.com/document/product/460/6924) 所有处理参数，多个处理参数可通过 [管道操作符](https://cloud.tencent.com/document/product/460/15293) 分隔，从而实现在一次访问中按顺序对图片进行不同处理 | String | 否       |
 
 
