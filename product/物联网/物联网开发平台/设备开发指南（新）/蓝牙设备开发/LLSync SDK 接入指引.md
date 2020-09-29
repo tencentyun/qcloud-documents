@@ -3,7 +3,7 @@
 
 ## SDK 获取
 
-SDK 当前暂未开放下载。
+SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [LLSync SDK](https://github.com/tencentyun/qcloud-iot-explorer-BLE-sdk-embedded)。
 
 ## 接入指引
 
