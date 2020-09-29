@@ -6,9 +6,7 @@
 
 ## 准备工作
 ### 安装文件存储扩展组件
->?
->- 使用扩展组件功能前需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
->- 若您的集群已安装 CFS-CSI 的扩展组件，则请跳过此步骤。
+>? 若您的集群已安装 CFS-CSI 的扩展组件，则请跳过此步骤。
 >
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 单击左侧导航栏中的【集群】，进入【集群管理】页面。
