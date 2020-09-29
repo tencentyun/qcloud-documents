@@ -9,7 +9,7 @@
  
 ## 实现步骤
 ### 添加 IDaaS 应用
-在 IDaaS 中已创建好一个应用。如腾讯云控制台，并获得其应用 ID：421262****，创建步骤详见 [创建应用](https://cloud.tencent.com/document/product/1106/36360)）。
+在 IDaaS 中已创建好一个应用。如腾讯云控制台，并获得其应用 ID：421262****，创建步骤详见 [创建应用](https://cloud.tencent.com/document/product/1106/36360)。
  ![](https://main.qcloudimg.com/raw/738f11c8d9654f588034713f0583f120.png)
 
 ### 创建自建应用
