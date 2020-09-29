@@ -1,7 +1,14 @@
 ## 如何启用群直播？
 
 如果您已经集成了 IM，群直播入口默认已经集成，群直播效果如下：
-![]()
+<table>
+<tr><td  style="border-color:white">
+<video width="320" height="640" src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/video/startGroupLive.mp4" controls  muted></video>
+ </td><td style="border-color:white">
+ <video width="320" height="640" src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/video/enterGroupLive.mp4" controls muted>
+ </video>
+  </td></tr>
+ </table>
  
 如果您还开通音视频服务，请按如下步骤开通：
 
