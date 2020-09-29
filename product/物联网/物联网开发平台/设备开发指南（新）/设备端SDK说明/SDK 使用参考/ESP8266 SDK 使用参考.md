@@ -9,6 +9,6 @@ SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [ESP8266
 
 |配网协议|参考文档|
 |---|---|
-|AirKiss|[AirKiss 配网开发](设备开发指南\设备配网开发\AirKiss配网开发)|
+|AirKiss|[AirKiss 配网开发](https://cloud.tencent.com/document/product/1081/48406)|
 |SmartConfig|[SmartConfig 配网开发](https://cloud.tencent.com/document/product/1081/48405)|
 |softAP|[softAP 配网开发](https://cloud.tencent.com/document/product/1081/48404)|
