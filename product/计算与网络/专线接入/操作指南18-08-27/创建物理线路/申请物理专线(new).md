@@ -1,11 +1,10 @@
 完成专线需求整理后，您需要在腾讯云控制台提交物理专线（包括黑石、ECN 等）需求，并同时联系符合[《专线接入审核标准》](https://cloud.tencent.com/document/product/216/45875)的运营商进行物理专线建设需求沟通。本文将介绍如何在腾讯云控制台申请物理专线。
 
-## 工作流程
+## 操作流程
+![](https://main.qcloudimg.com/raw/d64ca02ad714a150cda8f1e639bcc595.png)
 
-![](https://main.qcloudimg.com/raw/4de34b93a6a66c25f2059a0389b74660.png)
 
-## 操作步骤
-
+## 申请物理专线
 建设申请发起后，物理专线状态将转换为“申请中”，腾讯云将在3个工作日内进行资源评估和方案设计。
 1. 登录 [专线接入控制台]( https://console.cloud.tencent.com/dc/dc)，在“物理专线”页面上方单击 【+新建】。
 2. 在“新建物理专线”页面阅读《腾讯云专线接入服务协议》，完成后在左下角勾选【我已阅读并同意[《腾讯云专线接入服务协议》](https://cloud.tencent.com/document/product/216/45873)】，并单击【下一步】。
