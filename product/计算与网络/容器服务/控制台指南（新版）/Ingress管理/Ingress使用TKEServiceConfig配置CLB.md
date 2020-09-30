@@ -22,12 +22,21 @@ Ingress YAML 的语义无法定义的负载均衡参数和功能，可以通过 
 
 >?当您的域名配置为默认值，即公网或内网 VIP 时，可以通过 domain 填空值的方式进行配置。
 
-## TkeServiceConfig 的同步行为
-- 当用户在 Ingress 中使用配置注解时，负载均衡将会即刻进行设置同步。
-- 当用户在 Ingress 中删除配置注解时，负载均衡将会保持不变。
-- 修改 `TkeServiceConfig` 配置时，引用该配置的 Ingress 的负载均衡将会根据新的 `TkeServiceConfig` 进行设置同步。
-- 当 Ingress 的监听器没有找到对应配置时，该监听器将不会进行修改。
-- Ingress 的监听器找到对应配置时，若配置中没有声明的属性，该监听器将不会进行修改。
+
+## Ingress与TkeServiceConfig关联行为
+1. 创建Ingress时，设置**service.cloud.tencent.com/tke-service-config-auto:&lt;true&gt;** ，将自动创建<IngressName>-auto-ingress-config。 您也可以通过 **service.cloud.tencent.com/tke-service-config:&lt;config-name&gt;**直接指定您自行创建的TkeServiceConfig. 两个注解不可同时使用。 
+2. 其中自动创建的TkeServiceConfig存在以下同步行为
+  - 更新Ingress资源时，新增若干7层转发规则时，如果这个转发规则没有对应的TkeServiceConfig配置片段。Ingress-Controller主动添加TkeServiceConfig对应片段。
+  - 删除若干7层转发规则时，Ingress-Controller组件主动删除TkeServiceConfig对应片段。
+  - 删除Ingress资源时，联级删除这个TkeServiceConfig。
+  - 用户修改Ingress默认的TkeServiceConfig，TkeServiceConfig内容同样会被应用到负载均衡。
+3. 您也可以参考下列TkeServiceConfig完整配置参考自行创建需要的CLB配置，Service通过注解：**service.cloud.tencent.com/tke-service-config:&lt;config-name&gt;**引用该配置。
+4. 其中您手动创建的TkeServiceConfig存在以下同步行为
+  - 当用户在 Ingress 中使用配置注解时，负载均衡将会即刻进行设置同步。
+  - 当用户在 Ingress 中删除配置注解时，负载均衡将会保持不变。
+  - 修改 `TkeServiceConfig` 配置时，引用该配置的 Ingress 的负载均衡将会根据新的 `TkeServiceConfig` 进行设置同步。
+  - 当 Ingress 的监听器没有找到对应配置时，该监听器将不会进行修改。
+  - Ingress 的监听器找到对应配置时，若配置中没有声明的属性，该监听器将不会进行修改。
 
 ## 示例
 
@@ -111,6 +120,9 @@ metadata:
     kubernetes.io/ingress.http-rules: '[{"path":"/health","backend":{"serviceName":"jetty-service","servicePort":"80"}}]'
     kubernetes.io/ingress.https-rules: '[{"path":"/","backend":{"serviceName":"jetty-service","servicePort":"443","host":"sample.tencent.com"}}]'
     ingress.cloud.tencent.com/tke-service-config: jetty-ingress-config
+    # 指定已有的tke-service-config
+    # service.cloud.tencent.com/tke-service-config-auto: true 
+    # 自动创建tke-service-config
   name: jetty-ingress
   namespace: default
 spec:

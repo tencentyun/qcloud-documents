@@ -15,12 +15,20 @@ Service YAML 的语义无法定义的负载均衡的参数和功能，可以通�
   * `spec.loadBalancer.l4Listeners.protocol`：四层协议
   * `spec.loadBalancer.l4Listeners.port`：监听端口
 
-## TkeServiceConfig 的同步行为
-* 当用户在 Service 中添加配置注解时，负载均衡将会立即进行设置同步。
-* 当用户在 Service 中删除配置注解时，负载均衡将会保持不变。
-* 修改 `TkeServiceConfig` 配置时，引用该配置 Service 的负载均衡将会根据新的 `TkeServiceConfig` 进行设置同步。
-* Service 的监听器未找到对应配置时，该监听器将不会进行修改。
-* Service 的监听器找到对应配置时，若配置中没有声明的属性，该监听器将不会进行修改。
+## Service与TkeServiceConfig关联行为
+1. 创建Loadbalancer模式Service时，设置**service.cloud.tencent.com/tke-service-config-auto:&lt;true&gt;** ，将自动创建<ServiceName>-auto-service-config。 您也可以通过 **service.cloud.tencent.com/tke-service-config:&lt;config-name&gt;**直接指定您自行创建的TkeServiceConfig. 两个注解不可同时使用。 
+2. 其中自动创建的TkeServiceConfig存在以下同步行为
+  - 更新Service资源时，新增若干四层监听器时，如果这个监听器或转发规则没有对应的TkeServiceConfig配置片段。Service-Controller主动添加TkeServiceConfig对应片段。
+  - 删除若干四层监听器时，Service-controller组件主动删除TkeServiceConfig对应片段。
+  - 删除Service资源时，联级删除这个TkeServiceConfig。
+  - 用户修改Service默认的TkeServiceConfig，TkeServiceConfig内容同样会被应用到负载均衡。
+3. 您也可以参考下列TkeServiceConfig完整配置参考自行创建需要的CLB配置，Service通过注解：**service.cloud.tencent.com/tke-service-config:&lt;config-name&gt;**引用该配置。
+4. 其中您手动创建的TkeServiceConfig存在以下同步行为
+  - 当用户在 Service 中添加配置注解时，负载均衡将会立即进行设置同步。
+  - 当用户在 Service 中删除配置注解时，负载均衡将会保持不变。
+  - 修改 `TkeServiceConfig` 配置时，引用该配置 Service 的负载均衡将会根据新的 `TkeServiceConfig` 进行设置同步。
+  - Service 的监听器未找到对应配置时，该监听器将不会进行修改。
+  - Service 的监听器找到对应配置时，若配置中没有声明的属性，该监听器将不会进行修改。
 
 
 ## 完整配置参考  
@@ -103,7 +111,10 @@ apiVersion: v1
 kind: Service
 metadata:
   annotations:
-    service.cloud.tencent.com/tke-service-config: jetty-service-config
+    service.cloud.tencent.com/tke-service-config: jetty-service-config 
+    # 指定已有的tke-service-config
+    # service.cloud.tencent.com/tke-service-config-auto: true 
+    # 自动创建tke-service-config
   name: jetty-service
   namespace: default
 spec:
