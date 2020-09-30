@@ -4,7 +4,7 @@
 
 ## 步骤一：创建云端设备
 
-登录腾讯云 [物联网开发平台控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fiotexplorer)，创建云端设备，详情可参考 [基于 TencentOS tiny 接入指引](https://cloud.tencent.com/document/product/1081/47886#.E6.8E.A7.E5.88.B6.E5.8F.B0.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 。
+登录腾讯云 [物联网开发平台控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fiotexplorer)，创建云端设备，详情可参考 [基于 TencentOS tiny 接入指引](https://cloud.tencent.com/document/product/1081/47886) 。
 
 另外，数据模板是将物理实体设备进行数字化描述，构建其数字模型。在物联网开发平台定义数据模板即定义产品功能，完成功能定义后，系统将自动生成该产品的数据模板。进入 [物联网开发控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fiotexplorer)，单击【项目】>【产品开发】>【智能灯产品】>【数据模板】>【新建功能】，填写功能信息。
 ![](https://main.qcloudimg.com/raw/3ac50f4b29ea551fac091d782e707610.jpg)
