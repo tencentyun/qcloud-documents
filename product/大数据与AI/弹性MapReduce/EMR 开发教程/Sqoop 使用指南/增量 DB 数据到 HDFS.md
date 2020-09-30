@@ -128,7 +128,12 @@ mysql> select max(time) from sqoop_test;
 ```
 [hadoop@172 sqoop]$ bin/sqoop job --create job2 -- import --connect jdbc:mysql://$mysqlIP/test --username root -P --table sqoop_test --check-column time --incremental lastmodified --merge-key id --last-value '2018-07-03 16:02:29' --target-dir /sqoop
 ```
-其中 $mysqlIP 为您的 MySQL 的内网地址。新增了几个参数，--check-column 必须使用 timestamp，--incremental 模式选择 lastmodified，--merge-key 选择 ID，--last-value 为我们查询到的表中的最后更新时间。在此时间后做出的更新都会被同步到 HDFS 中，而 Sqoop job 每次会自动保存和更新该值。
+**参数说明：**
+- $mysqlIP 为您的 MySQL 的内网地址。
+- --check-column 必须使用 timestamp。
+- --incremental 模式选择 lastmodified。
+- --merge-key 选择 ID。
+- --last-value 为我们查询到的表中的最后更新时间。在此时间后做出的更新都会被同步到 HDFS 中，而 Sqoop job 每次会自动保存和更新该值。
 
 对 MySQL 中的 sqoop_test 表添加数据并做出更改：
 ```
