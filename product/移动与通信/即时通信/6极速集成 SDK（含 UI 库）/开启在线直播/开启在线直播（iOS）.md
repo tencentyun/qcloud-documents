@@ -1,4 +1,4 @@
->?TUIKit 5.0.8 版本开始基于 TRTC 实现了支持直播功能的 TUIKit_live UI组件。
+>?TUIKit 5.0.8 版本开始基于 TRTC 实现了支持直播功能的 TUIKit_live UI 组件。
 
 在您导入 TUIKit 后，仅需简单的几步就可以快速启用直播功能。如果您还没有导入 TUIKit ，请根据 [步骤2：导入TUIKit](#step2) 中的 pods 方式导入 TUIKit ，默认就会导入 TUIKit_live 直播 UI 组件。
 
