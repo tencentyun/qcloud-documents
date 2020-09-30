@@ -1,7 +1,7 @@
 ## Hadoop 命令
 
 ### 未获取 ticket
-当启用了 kerberos 时，执行 hadoop 的命令时都需要提前获取 ticket。
+当已启用 kerberos 时，执行 hadoop 命令时都需要提前获取 ticket。
 
 如果没有获取 ticket，则会出现如下错误信息：
 ```

@@ -55,19 +55,103 @@ java -version
 若出现正常的版本号信息后，说明 Maven 安装成功。
 
 
+
+### 3. Maven 配置 TDMQ 私服地址 
+
+#### 3.1 添加私服配置
+
+找到 Maven 所使用的配置文件，一般在 `~/.m2/settings.xml` 中，在 settings.xml 中加入如下配置：
+```
+<profiles>
+     <profile>
+       <id>nexus</id>
+       <repositories>
+           <repository>
+               <id>central</id>
+               <url>http://repo1.maven.org/maven2</url>
+               <releases>
+                   <enabled>true</enabled>
+               </releases>
+               <snapshots>
+                   <enabled>true</enabled>
+               </snapshots>
+           </repository>
+       </repositories>
+       <pluginRepositories>
+           <pluginRepository>
+               <id>central</id>
+               <url>http://repo1.maven.org/maven2</url>
+               <releases>
+                   <enabled>true</enabled>
+               </releases>
+               <snapshots>
+                   <enabled>true</enabled>
+               </snapshots>
+           </pluginRepository>
+       </pluginRepositories>
+   </profile>
+   <profile>
+       <id>qcloud-repo</id>
+       <repositories>
+           <repository>
+               <id>qcloud-central</id>
+               <name>qcloud mirror central</name>
+               <url>http://mirrors.cloud.tencent.com/nexus/repository/maven-public/</url>
+               <snapshots>
+                   <enabled>true</enabled>
+               </snapshots>
+               <releases>
+                   <enabled>true</enabled>
+               </releases>
+           </repository>
+           </repositories>
+       <pluginRepositories>
+           <pluginRepository>
+               <id>qcloud-plugin-central</id>
+               <url>http://mirrors.cloud.tencent.com/nexus/repository/maven-public/</url>
+               <snapshots>
+                   <enabled>true</enabled>
+               </snapshots>
+               <releases>
+                   <enabled>true</enabled>
+               </releases>
+           </pluginRepository>
+       </pluginRepositories>
+   </profile>
+ </profiles>
+      
+ <activeProfiles>
+   <activeProfile>nexus</activeProfile>
+   <activeProfile>qcloud-repo</activeProfile>
+</activeProfiles>
+```   
+
+[setting.xml 样例文件下载>>](https://main.qcloudimg.com/raw/0e3c73b64c4ec64ae9b16d1a347db462/settings.xml)（鼠标右键另存为链接）
+
+#### 3.2 验证配置是否成功
+
+在命令行执行如下命令
+```
+mvn help:effective-settings 。
+```
+
+- 查看执行结果，没有错误表明 setting.xml 格式正确。
+- profiles 中包含 qcloud-repo ，则表明 qcloud-repo 私服已经加入到 
+- profiles 中；activeProfiles 中包含 qcloud-repo，则表明 qcloud-repo 私服已经激活成功。可以通过mvn help:effective-settings | grep 'qcloud-repo'命令检查。
+
+![](https://main.qcloudimg.com/raw/43645276539f8a85703f137ae2bb65fc.png)
+
+执行正确的 Maven 命令后，如果无法下载 qcloud 相关依赖包，请重启 IDE，或者检查 IDE Maven 相关配置。
+
 ## 安装 SDK
 
-1. 在您 Java 工程的 `pom.xml` 中添加以下依赖：
+1. 在您 Java 工程的 pom.xml 中添加以下依赖：
 ```xml
-<!-- in your <properties> block -->
-<pulsar.version>2.6.1</pulsar.version>
-<!-- in your <dependencies> block -->
-<dependency>
-  <groupId>org.apache.pulsar</groupId>
-  <artifactId>pulsar-client</artifactId>
-  <version>2.6.0</version>
-</dependency>
-```
-2. 在 `pom.xml` 所在目录执行 `mvn clean package` 即可下载 Java SDK。
+    <dependency>
+    		<groupId>com.tencent.tdmq</groupId>
+    		<artifactId>tdmq-client</artifactId>
+    		<version>2.6.0</version>
+    </dependency>
+``` 
+2. 在 pom.xml 所在目录执行 `mvn clean package` 即可下载 TDMQ SDK。
 
->?TDMQ 现已兼容 Pulsar 官方 Java 客户端，您可以直接使用2.6.0以上社区版本的客户端进行开发。

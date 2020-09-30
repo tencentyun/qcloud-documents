@@ -261,7 +261,10 @@ implementation  'com.google.firebase:firebase-messaging:17.6.0'
 -keep public class * extends android.app.Service
 -keep public class * extends android.content.BroadcastReceiver
 -keep class com.tencent.android.tpush.** {*;}
--keep class com.tencent.bigdata.baseapi.** {*;}
--keep class com.tencent.bigdata.mqttchannel.** {*;}
+-keep class com.tencent.tpns.baseapi.** {*;} 
+-keep class com.tencent.tpns.mqttchannel.** {*;}
 -keep class com.tencent.tpns.dataacquisition.** {*;}
+
+-keep class com.tencent.bigdata.baseapi.** {*;}   // 1.2.0.1 及以上版本不需要此条配置
+-keep class com.tencent.bigdata.mqttchannel.** {*;}  // 1.2.0.1 及以上版本不需要此条配置
 ```

@@ -10,7 +10,7 @@
 - 如使用子账号进行操作，请参考 [企业版授权方案示例](https://cloud.tencent.com/document/product/1141/41417) 提前为子账号授予对应实例的操作权限。
 
 ## 操作步骤
-### 控制台管理 Helm Chart
+### 使用控制台管理 Helm Chart
 1. 登录 [容器镜像服务](https://console.cloud.tencent.com/tcr) 控制台，选择左侧导航栏中的【Helm Chart】。
 2. 在 “Helm Chart” 页面即可查看当前实例内的 Helm Chart 列表。如需切换实例，请在页面上方的“实例名称”下拉列表中进行选择。如下图所示：
 ![](https://main.qcloudimg.com/raw/bb5e725e3517261a9b97c8936042fb1b.png)
@@ -20,28 +20,30 @@
    - **创建时间**：Helm 首次推送至仓库的时间。
    - **操作**：单击【删除】以删除当前仓库。
 3. 单击指定 Helm Chart 仓库名称，进入该仓库详情页。
-	- **版本管理**：此页面展示当前仓库内已有的 Chart 版本，可下载或删除指定版本。如下图所示：
-	![](https://main.qcloudimg.com/raw/7506918178122613d8f88fffa95ac406.png)
+	- **版本管理**：此页面展示当前仓库内已有的 Chart 版本，可【下载】或【删除】指定版本。如下图所示：
+![](https://main.qcloudimg.com/raw/d7540f28ae109843a3c2a4eebc1747fd.png)
 	- **基本信息**：此页面可浏览指定 Chart 版本内的详细信息，如 Chart.yaml。如下图所示：
 	![](https://main.qcloudimg.com/raw/245e50656e42d1a17d380889feeeda7d.png)
 
-### 使用控制台上传，下载 Helm Chart
+### 使用控制台上传及下载 Helm Chart
 #### 上传本地 Helm Chart 包
 1. 登录 [容器镜像服务](https://console.cloud.tencent.com/tcr) 控制台，选择左侧导航栏中的【Helm Chart】。
 在“Helm Chart”页面即可查看当前实例内的 Helm Chart 仓库列表。如需切换实例，请在页面上方的“实例名称”下拉列表中进行选择。
 2. 单击【上传】，在“上传Helm Chart”窗口中，参考以下提示进行配置。如下图所示：
-![](https://main.qcloudimg.com/raw/9777e45d62075dc0fa037dd4329a7f8b.png)
+![](https://main.qcloudimg.com/raw/cef715cd91348c2f6583b0a16485c431.png)
  - **所属实例**：当前所选实例。
  - **命名空间**：Helm Chart 所属的命名空间，如果列表为空，请先在该实例内 [新建命名空间](https://cloud.tencent.com/document/product/1141/41803#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)。
- - **Chart 包**：点击后选择本地已下载的 Helm Chart 包。仅支持 .tgz 格式的 Helm Chart压缩包，请避免上传其他类型文件。请注意，上传同名文件将覆盖已有 Chart，请谨慎操作。
-3. 单击【上传】即可开始上传该Helm Chart 包。上传完成后，可在仓库列表页查看刚刚上传的 Helm Chart，若上传的 Helm Chart 包没有对应的 Helm Chart 仓库，将自动新建一个 Chart 仓库。
+ - **Chart 包**：单击后选择本地已下载的 Helm Chart 包。
+>! 仅支持 .tgz 格式的 Helm Chart压缩包，请避免上传其他类型文件。请注意，上传同名文件将覆盖已有 Chart，请谨慎操作。
+>
+3. 单击【上传】即可开始上传该 Helm Chart 包。上传完成后，可在仓库列表页查看已上传的 Helm Chart，若上传的 Helm Chart 包没有对应的 Helm Chart 仓库，将自动新建一个 Chart 仓库。
 
-#### 下载Helm Chart 包至本地
-1. 在“Helm Chart”页面查看当前实例内的 Helm Chart 仓库列表，点击指定仓库，即可进入该 Helm 仓库的版本管理页面。
-2. 选择该 Chart 仓库内指定版本，点击对应的【下载】，即可自动下载该版本的 Chart 包至本地。根据浏览器及配置的不同，可选择指定下载路径。
+#### 下载 Helm Chart 包至本地
+1. 在【Helm Chart】页面查看当前实例内的 Helm Chart 仓库列表。单击指定仓库，即可进入该 Helm 仓库的版本管理页面。
+2. 选择该 Chart 仓库内指定版本，单击该版本所在行右侧的【下载】，即可自动下载该版本的 Chart 包至本地。根据浏览器及配置的不同，可选择指定下载路径。
 
 
-### 使用 Helm 客户端上传，下载 Helm Chart
+### 使用 Helm 客户端上传及下载 Helm Chart
 #### 安装 Helm 客户端
 >?
 >- 若您当前希望在容器服务 TKE 中使用 Helm，请选择 Helm v3.x.x 版本。可执行 `helm version -c` 命令查看已安装的客户端版本。

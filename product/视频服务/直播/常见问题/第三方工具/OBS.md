@@ -5,7 +5,8 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 
 ## 准备工作
 - 安装 [OBS](https://obsproject.com/download?spm=a2c4g.11186623.2.15.6aac1445JPlKR8) 工具。
-- 登录 [云直播控制台](https://console.cloud.tencent.com/live)，并添加 [推流域名](https://cloud.tencent.com/document/product/267/20381)。
+- 已 [开通云直播服务](https://console.cloud.tencent.com/live)，并准备已备案的域名，[添加为播放域名](https://cloud.tencent.com/document/product/267/20381)（系统提供默认的推流域名可以使用，也可以添加自定义域名推流）
+>? 新用户立享 [9.9元 100GB 直播流量包](https://cloud.tencent.com/act/pro/xinyonghu)，更多规格资源包 [立即前往选购](https://buy.cloud.tencent.com/live )。
 
 ## 获取推流地址<span id="step0"></span>
 1. 登录云直播控制台，进入[【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)，进行如下配置：

@@ -35,7 +35,7 @@ SDK 分四层设计，从上至下分别为应用层、核心协议层、AT 传�
 | usr_logic                       | 自动生成的基于用户产品定义的业务逻辑框架代码。               |
 | ─  data_config.c             | 用户定义的数据点。                                           |
 | ─  events_config.c           | 用户定义的事件。                                             |
-| ─  data_template_usr_logic.c | 用户业务处理逻辑框架，实现预留的上下行业务逻辑处理函数即可。 |
+| ─data_template_usr_logic.c | 用户业务处理逻辑框架，实现预留的上下行业务逻辑处理函数即可。 |
 | tools                           | 代码生成脚本。                                               |
 | README.md                       | SDK 使用说明。                                               |
 
@@ -43,8 +43,8 @@ SDK 分四层设计，从上至下分别为应用层、核心协议层、AT 传�
 
 |开发平台|参考文档|
 |---|---|
-|MCU+定制AT模组（蜂窝类）|[MCU+定制MQTT AT模组（蜂窝类）接入指引](https://cloud.tencent.com/document/product/1081/48395)|
-|MCU+定制AT模组（wifi类）|[MCU+定制MQTT AT模组（wifi 类）接入指引](https://cloud.tencent.com/document/product/1081/48394)|
+|MCU+ 定制 AT 模组（蜂窝类）|[MCU+定制MQTT AT模组（蜂窝类）接入指引](https://cloud.tencent.com/document/product/1081/48395)|
+|MCU+ 定制 AT 模组（wi-Fi类）|[MCU+定制MQTT AT模组（wifi 类）接入指引](https://cloud.tencent.com/document/product/1081/48394)|
 
 ## SDK 接口说明
 

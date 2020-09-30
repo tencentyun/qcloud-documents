@@ -213,7 +213,7 @@
 ### 步骤5：使用 notify_action.sh 进行简单的日志记录（可选）
 keepalived 主要日志仍然记录在“/var/log/message”中，可以通过添加 notify 的脚本来进行简单的日志记录。
 
-1. 登录云主机，执行 `vim /etc/keepalived/notify_action.sh` 命令添加脚本“notify_action.sh”，脚本内容如下：
+1. 登录云服务器，执行 `vim /etc/keepalived/notify_action.sh` 命令添加脚本“notify_action.sh”，脚本内容如下：
 
    ```plaintext
    #!/bin/bash
@@ -259,5 +259,5 @@ keepalived 主要日志仍然记录在“/var/log/message”中，可以通过�
 
 通过重启 keepalived 进程、重启子机等方式模拟主机故障，检测 VIP 是否能正常迁移。
 
-- 如果完成了主备切换，则可以看到控制台的绑定主机已经切换为 backup 云主机。
+- 如果完成了主备切换，则可以看到控制台的绑定主机已经切换为 backup 云服务器。
 - 另外，也可以从 VPC 内 ping VIP 的方式，查看网络中断到恢复的时间间隔，每切换一次，ping 中断的时间大约为4秒。从公网侧 ping HAVIP 绑定的 EIP，可以查看网络中断到恢复的时间间隔，每切换一次，ping 中断的时间大致为4秒。

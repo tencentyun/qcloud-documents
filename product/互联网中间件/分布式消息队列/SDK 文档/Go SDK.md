@@ -24,7 +24,7 @@ TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和
 
 3. 打开命令控制台，运行以下命令：
 ```bash
-go get -u "github.com/TencentCloud/tdmq-go-client/pulsar@v0.2.0-beta.1"
+go get -u "github.com/TencentCloud/tdmq-go-client@v0.2.0-beta.1"
 ```
 
 
@@ -48,7 +48,7 @@ module example/godemo
 
 go 1.12
 
-require github.com/TencentCloud/tdmq-go-client v0.1.1
+require github.com/TencentCloud/tdmq-go-client v0.2.0-beta.1
 ```
 
 上述 v0.1.1是 GO SDK 的版本，云上资源环境中下载的依赖文件压缩包也需要是同样的版本。
@@ -71,7 +71,7 @@ func main() {
 
 	client, err := NewClient(ClientOptions{
 		URL:            "pulsar://*.*.*.*:6000",
-		ListenerName:	"custom:1300*****0/vpc-******/subnet-********",
+		ListenerName:   "custom:1300*****0/vpc-******/subnet-********",
 		Authentication: NewAuthenticationToken("eyJh****"),
     	})
 	if err != nil {
@@ -147,6 +147,8 @@ func main() {
 		}
 		fmt.Printf("Received message msgId: %#v -- content: '%s' -- topic : '%v'\n",
 			msg.ID(), string(msg.Payload()), msg.Topic())
+		
+		consumer.Ack(msg)
 	}
 }
 ```

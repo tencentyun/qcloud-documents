@@ -118,9 +118,4 @@ if (!wifi_connected) {
 | `wifi_config_error_handle.c` | 设备错误日志处理，主要依赖于 FreeRTOS。                      |
 | `wifi_config_log_handle.c`   | 设备运行上报日志处理，主要依赖于 FreeRTOS。                  |
 
-|      |      |
-| ---- | ---- |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
+

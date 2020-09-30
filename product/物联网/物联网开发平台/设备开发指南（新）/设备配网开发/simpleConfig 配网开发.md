@@ -1,12 +1,12 @@
 ## 操作场景
 
-#### 基本原理
+### 基本原理
 
 1. 设备进入 Wi-Fi 混杂模式（promiscuous mode）以监听捕获周围的 Wi-Fi 报文。由于设备暂未联网，且 Wi-Fi 网络的数据帧已通过加密，设备无法获取payload 的内容，但可以获取报文的某些特征数据，例如每个报文的长度，同时对于某些数据帧，例如 UDP 的广播包或多播包，其报文的帧头结构比较固定，较容易识别。
 2. 此时在手机 App 或者小程序侧，即可通过发送 UDP 的广播包或多播包，并利用报文的特征，例如，长度变化进行编码。
 3. 将目标 Wi-Fi 路由器的 SSID/PSW 字符以约定的编码方式发送出去，设备端在捕获到 UDP 报文后，按约定的方式进行解码，即可得到目标 Wi-Fi 路由器的相关信息并进行联网。
 
-#### 设备绑定流程
+### 设备绑定流程
 
 一键配网方式配网，每个厂商编码方式和报文选择上有自己的协议，对于RTK8720CF，采用的协议是Realtek simpleConifg协议，参考文档Realtek提供的文档`AN0011 Realtek wlan simple configuration.pdf`。
 
@@ -16,8 +16,8 @@
 目前腾讯连连小程序已支持 simpleConfig 配网，并提供了相应的 [小程序 SDK](https://www.npmjs.com/package/qcloud-iotexplorer-appdev-sdk)。
 
 simpleConfig 方式配网及设备绑定的示例流程图如下：
-![](https://main.qcloudimg.com/raw/a954c9c11a882c1369b0face0f47aedf.png)
-
+![](https://main.qcloudimg.com/raw/134acffc88c4887f44307ed0c4039e33.png)
+## 操作步骤
 ### simpleConfig 配网步骤
 
 simpleConfig 配网设备端与腾讯连连小程序及后台交互的数据协议操作如下：
@@ -118,12 +118,3 @@ static void qcloud_demo_task(void *arg)
 | `wifi_config_error_handle.c` | 设备错误日志处理，主要依赖于 FreeRTOS。                      |
 | `wifi_config_log_handle.c`   | 设备配网日志收集和上报，主要依赖于 FreeRTOS。                |
 
-|      |      |
-|---------|---------|
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
-|      |      |
