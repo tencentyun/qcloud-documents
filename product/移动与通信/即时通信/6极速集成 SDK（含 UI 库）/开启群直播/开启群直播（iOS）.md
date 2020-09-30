@@ -138,7 +138,7 @@ TUILiveRoomAudienceViewController *audienceVC = [[TUILiveRoomAudienceViewControl
 
 ### 如何自定义礼物？
 
-TUIKit_live SDK 支持用户自定义礼物，如果修改礼物内容或来源时，请在 TUIKit_live 中找到 TUILiveDefaultGiftAdapterImp.m 文件，修改服务器请求地址，或者请求逻辑，仅需保证最后返回的数据与现在的数据格式一致即可。
+TUIKit_live SDK 支持用户自定义礼物，如果修改礼物内容或来源时，请在 TUIKit_live 中的 `TUILiveDefaultGiftAdapterImp.m` 文件中修改服务器请求地址，或者请求逻辑；仅需保证最后返回的数据与现在的数据格式一致即可。
 
 ```objectivec
 //eg 数据格式，完整参考链接：https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gift_data.json，json字符串内容如下：
