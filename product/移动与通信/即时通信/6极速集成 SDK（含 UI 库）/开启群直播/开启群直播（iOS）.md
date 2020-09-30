@@ -1,11 +1,11 @@
 TUIKit 5.0.8 版本开始基于 TRTC 实现了支持直播功能的 TUIKit_live UI组件。
-在您导入 TUIKit 后，仅需简单的几步就可以快速启用直播功能。如果您还没有导入 TUIKit ，请根据 [步骤1：导入TUIKit](#step1) 中的 pods 方式导入 TUIKit ，默认就会导入 TUIKit_live 直播 UI 组件。
+在您导入 TUIKit 后，仅需简单的几步就可以快速启用直播功能。如果您还没有导入 TUIKit ，请根据 [步骤2：导入TUIKit](#step2) 中的 pods 方式导入 TUIKit ，默认就会导入 TUIKit_live 直播 UI 组件。
 
 TUIKit_live 直播UI组件集成后的直播效果：
 
 |                          直播观众页                          |                          主播准备页                          |                          主播开播页                          |
 | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
-| <img src="/download/attachments/365503494/IMG_C82BF27829CB-1.jpeg?version=1&modificationDate=1600843845986&api=v2" width="300" height="600"> | <img src="/download/attachments/365503494/IMG_281C0722A2B8-1.jpeg?version=1&modificationDate=1600843909540&api=v2" width="300" height="600"> | <img src="/download/attachments/365503494/IMG_E8D0B78C9E1A-1.jpeg?version=1&modificationDate=1600843946511&api=v2" width="300" height="600"> |
+| <img src="" width="300" height="600"> | <img src="" width="300" height="600"> | <img src="" width="300" height="600"> |
 
 <span id="step1"></span>
 ## 步骤1：开通音视频服务
@@ -102,7 +102,8 @@ TUILiveRoomAudienceViewController *audienceVC = [[TUILiveRoomAudienceViewControl
 创建观众端 TUILiveRoomAudienceViewController 时，如果设置 useCdn 为 NO，则默认使用 TRTC 进行观看；如果设置 useCdn 为 YES，且设置了 cdnUrl，则会采用 CDN 进行观看。
 
 TRTC 采用 UDP 协议进行传输音视频数据，标准直播 CDN 则采用的 RTMP/HLS/FLV 等协议进行数据传输。TRTC 的特点是延迟低，上下麦体验更加流畅，但价格会比标准直播的 CDN 高。
-如果您对观看延迟要求不高，可以使用 CDN 观看，以降低成本。
+
+>?如果您对观看延迟要求不高，可以使用 CDN 观看，以降低成本。
 
 ### 前提条件
   已开通腾讯 [云直播](https://console.cloud.tencent.com/live) 服务。应国家相关部门的要求，直播播放必须配置播放域名，具体操作请参考 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
