@@ -2,7 +2,7 @@
 
 ### 基本原理
 
-1. 设备进入 Wi-Fi 混杂模式（promiscuous mode）以监听捕获周围的 Wi-Fi 报文。由于设备暂未联网，且 Wi-Fi 网络的数据帧已通过加密，设备无法获取 payload 的内容，但可以获取报文的某些特征数据，例如每个报文的长度。同时对于某些数据帧，例如 UDP 的广播包或多播包，其报文的帧头结构比较固定，较容易识别。
+1. 设备进入 Wi-Fi 混杂模式（promiscuous mode）以监听捕获周围的 Wi-Fi 报文。由于设备暂未联网，且 Wi-Fi 网络的数据帧已通过加密，设备无法获取 payload 的内容，但可以获取报文的某些特征数据，例如每个报文的长度。同时对于某些数据帧，例如，UDP 的广播包或多播包，其报文的帧头结构比较固定，较容易识别。
 2. 此时在手机 App 或者小程序侧，即可通过发送 UDP 的广播包或多播包，并利用报文的特征，例如，长度变化进行编码。
 3. 将目标 Wi-Fi 路由器的 SSID/PSW 字符以约定的编码方式发送出去，设备端在捕获到 UDP 报文后，按约定的方式进行解码，即可得到目标 Wi-Fi 路由器的相关信息并进行联网。
 
@@ -13,7 +13,7 @@ SmartConfig 方式配网，每个厂商编码方式和报文选择上有自己�
 - 基于该协议，设备端在连接 Wi-Fi 路由器成功后，将会告知手机端自己的 IP 地址。
 - 此时手机端可以通过数据通道，例如，TCP/UDP 通讯将后台提供的配网 Token 发送给设备，并由设备转发至物联网后台，依据 Token 可以进行设备绑定。
 
-目前腾讯连连小程序已支持采用 ESP-TOUCH 协议进行 SmartConfig 配网，并提供了相应的 [小程序 SDK](https://www.npmjs.com/package/qcloud-iotexplorer-appdev-sdk)。
+目前腾讯连连小程序已支持采用 ESP-TOUCH 协议进行 SmartConfig 配网，并提供相应的 [小程序 SDK](https://www.npmjs.com/package/qcloud-iotexplorer-appdev-sdk)。
 SmartConfig 方式配网及设备绑定的示例流程图如下：
 ![](https://main.qcloudimg.com/raw/5adcf2af5b97c45b9cf3e66feb2a254b.png)
 
