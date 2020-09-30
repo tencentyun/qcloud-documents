@@ -24,14 +24,15 @@ TkeServiceConfig 不会帮您配置并修改协议、端口、域名以及转发
 
 
 ## Ingress 与 TkeServiceConfig 关联行为
-1. 创建 Ingress 时，设置 **service.cloud.tencent.com/tke-service-config-auto:&lt;true&gt;** ，将自动创建 &lt;IngressName>-auto-ingress-config。 您也可以通过 **service.cloud.tencent.com/tke-service-config:&lt;config-name&gt;** 直接指定您自行创建的 TkeServiceConfig。两个注解不可同时使用。 
-2. 其中自动创建的 TkeServiceConfig 存在以下同步行为：
+1. 创建 Ingress 时，设置 **ingress.cloud.tencent.com/tke-service-config-auto:&lt;true&gt;** ，将自动创建 &lt;IngressName>-auto-ingress-config。 您也可以通过 **service.cloud.tencent.com/tke-service-config:&lt;config-name&gt;** 直接指定您自行创建的 TkeServiceConfig。两个注解不可同时使用。 
+2. 您为 Service\Ingress 使用的自定义配置，名称不能以 `-auto-service-config` 与 `-auto-service-config` 为后缀。
+3. 其中自动创建的 TkeServiceConfig 存在以下同步行为：
   - 更新 Ingress 资源时，新增若干7层转发规则，如果该转发规则没有对应的 TkeServiceConfig 配置片段。Ingress-Controller 将主动添加 TkeServiceConfig 对应片段。
   - 删除若干7层转发规则时，Ingress-Controller 组件将主动删除 TkeServiceConfig 对应片段。
   - 删除 Ingress 资源时，联级删除该 TkeServiceConfig。
   - 用户修改 Ingress 默认的 TkeServiceConfig，TkeServiceConfig 内容同样会被应用到负载均衡。
-3. 您也可以参考下列 TkeServiceConfig 完整配置参考，自行创建需要的 CLB 配置，Service 通过注解 **service.cloud.tencent.com/tke-service-config:&lt;config-name&gt;** 引用该配置。
-4. 其中您手动创建的 TkeServiceConfig 存在以下同步行为：
+4. 您也可以参考下列 TkeServiceConfig 完整配置参考，自行创建需要的 CLB 配置，Service 通过注解 **service.cloud.tencent.com/tke-service-config:&lt;config-name&gt;** 引用该配置。
+5. 其中您手动创建的 TkeServiceConfig 存在以下同步行为：
   - 当用户在 Ingress 中使用配置注解时，负载均衡将会即刻进行设置同步。
   - 当用户在 Ingress 中删除配置注解时，负载均衡将会保持不变。
   - 修改 TkeServiceConfig 配置时，引用该配置的 Ingress 的负载均衡将会根据新的 TkeServiceConfig 进行设置同步。
