@@ -23,25 +23,20 @@ SmartConfig 方式配网及设备绑定的示例流程图如下：
 ### SmartConfig 配网协议示例
 
 SmartConfig 配网设备端与腾讯连连小程序及后台交互的数据协议操作如下：
-
 1. 腾讯连连小程序进入配网模式后，则可以在物联网开发平台服务获取到当次配网的 Token。小程序相关操作可以参考 [生成 Wi-Fi 设备配网 Token](https://cloud.tencent.com/document/product/1081/44044)。
 2. 使 Wi-Fi 设备进入 SmartConfig 配网模式，若设备有指示灯在快闪，则说明进入配网模式成功。
 3. 小程序按照提示依次获取 Wi-Fi 列表，输入家里目标路由器的 SSID/PSW，按下一步后，将通过 SmartConfig 方式发送报文。
 4. 设备端通过监听捕获 SmartConfig 报文，解析出目标路由器的 SSID/PSW 并进行联网，联网成功后，设备会告知小程序自己的 IP 地址，同时开始连接物联网后台。
 5. 小程序作为 UDP 客户端会连接 Wi-Fi 设备上面的 UDP 服务（默认端口为**8266**）。给设备发送配网 Token，JSON 格式为：
-
 ```json
    {"cmdType":0,"token":"6xx82618a9d529a2ee777****528a0fd"} 
 ```
-
 发送完成后，等待设备 UDP 回复设备信息及配网协议版本号：
-
 ```json  
    {"cmdType":2,"productId":"OSPB5ASRWT","deviceName":"dev_01","protoVersion":"2.0"}
 ```
-
 6. 如果2秒之内未收到设备回复，则重复步骤5，UDP 客户端重复发送配网 Token。（如果重复发送5次都没有收到回复，则认为配网失败，Wi-Fi 设备有异常）
-7. 如果步骤5收到设备回复，则说明设备端已经收到 Token，并准备上报 Token。此时小程序会开始通过 Token 轮询物联网后台来确认配网及设备绑定是否成功。小程序相关操作可以参考 [查询配网Token状态](https://cloud.tencent.com/document/product/1081/44045)。
+7. 如果步骤5收到设备回复，则说明设备端已经收到 Token，并准备上报 Token。此时小程序会开始通过 Token 轮询物联网后台来确认配网及设备绑定是否成功。小程序相关操作可以参考 [查询配网 Token 状态](https://cloud.tencent.com/document/product/1081/44045)。
 8. 设备端在成功连接 Wi-Fi 路由器后，需要通过 MQTT 连接物联网后台，并将小程序发送来的配网 Token 通过下面 MQTT 报文上报给后台服务：
 
 ```json
