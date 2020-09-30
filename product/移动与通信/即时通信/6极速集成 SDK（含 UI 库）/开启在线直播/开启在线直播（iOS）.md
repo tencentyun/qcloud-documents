@@ -98,7 +98,7 @@ TUILiveRoomAudienceViewController *audienceVC = [[TUILiveRoomAudienceViewControl
    在直播广场页点击任意直播间，参照 [步骤4：观众端观看直播](#step4) 生成观看端即可观看。
 
 <span id="step6"></span>
-## 步骤6: 使用CDN节省成本
+## 步骤6：使用 CDN 节省成本
 
 创建观众端 TUILiveRoomAudienceViewController 时，如果设置 useCdn 为 NO，则默认使用 TRTC 进行观看；如果设置 useCdn 为 YES，且设置了 cdnUrl，则会采用 CDN 进行观看。
 
