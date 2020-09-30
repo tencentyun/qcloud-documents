@@ -117,7 +117,8 @@
 | [网站备案](https://cloud.tencent.com/document/product/243)   | 服务级    | &#10003;   | -   |  - |	- |	
 | [SSL证书](https://cloud.tencent.com/document/product/400)   | 资源级    | &#10003;   | -   |  - |	[访问管理指南](https://cloud.tencent.com/document/product/400/40432) |	
 | [移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379)   | 操作级    | &#10003;   | -   |  - |		[访问管理指南](https://cloud.tencent.com/document/product/379/45155) |	
-| [企业邮箱](https://cloud.tencent.com/product/exmail)   | 操作级    | &#10003;   | -   |  - |	- |	
+| [腾讯企业邮](https://cloud.tencent.com/product/exmail)   | 操作级    | &#10003;   | -   |  - |	- |	
+| [网站建设](https://cloud.tencent.com/document/product/1276)   | 操作级    | &#10003;   | -   |  - |	- |	
 
 ## 网络安全	
 
@@ -141,6 +142,7 @@
 | [密钥管理系统](https://cloud.tencent.com/document/product/573) | 资源级   | &#10003;  | -  |  -     |[访问管理指南](https://cloud.tencent.com/document/product/573/10126) |	
 | [凭据管理系统](https://cloud.tencent.com/document/product/1140)    | 资源级  | &#10003; | -   | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1140/40869)|
 | [数据保险箱](https://cloud.tencent.com/document/product/1232)    | 操作级  | &#10003; | -   | &#10003; |- |
+| [云访问安全代理](https://cloud.tencent.com/document/product/1303)    | 操作级  | &#10003; | -   | &#10003; |- |
 
 ## 业务安全
 
@@ -255,7 +257,8 @@
  | 服务                                                           | 授权粒度 | 控制台 | 根据标签进行授权 |  服务角色 |	参考文档 |
 | ------------------------------------------------------------| ------ | -------- | ------- | ---- |	---- |	
 | [语音合成](https://cloud.tencent.com/document/product/1073)  | 操作级 |  &#10003; | -  |  - |	 - |	
-| [语音识别](https://cloud.tencent.com/document/product/1093)  | 操作级 |  &#10003; | -  |  - |	 - |	
+| [语音识别](https://cloud.tencent.com/document/product/1093)  | 资源级 |  &#10003; | &#10003;  |  - |	 [访问管理指南](https://cloud.tencent.com/document/product/1093/48421) |	
+| [声音复刻](https://cloud.tencent.com/document/product/1283)  | 操作级 |  &#10003; |  -  |  - |	 - |	
 
 ## 自然语言处理	
 
@@ -319,7 +322,7 @@
  | 服务                                                        | 授权粒度  | 控制台 | 根据标签进行授权 |  服务角色 |	参考文档 |
 | ------------------------------------------------------------  | ------ | -------- | ------- | ---- |	---- |	
 | [ 腾讯移动推送](https://cloud.tencent.com/document/product/548)   |资源级  | &#10003; | -   |  -   |	[访问管理指南](https://cloud.tencent.com/document/product/548/41370)   |
-| [ 正版曲库直通车（版权音乐助手）](https://cloud.tencent.com/document/product/1155)   |服务级  | &#10003; | -   |  -   |	-   |
+| [ 正版曲库直通车](https://cloud.tencent.com/document/product/1155)   |资源级  | &#10003; | &#10003;    |  -   |	[访问管理指南](https://cloud.tencent.com/document/product/1155/48577)   |
 | [ 正版图库直通车](https://cloud.tencent.com/document/product/1181)   |服务级  | &#10003; | -   |  -   |	-   |
 
 ## 云通信	
@@ -346,7 +349,7 @@
 
  | 服务                                                          | 授权粒度 | 控制台  | 根据标签进行授权  |服务角色 |	参考文档 |
 | ----------------------------------------------------------- | ------ | -------- | ------ |  ---- |	 ---- |
-| [腾讯云区块链服务 TBaaS](https://cloud.tencent.com/document/product/663) | 操作级   | &#10003; | -  | &#10003; |	[访问管理指南](https://cloud.tencent.com/document/product/663/38486)|	
+| [腾讯云区块链服务 TBaaS](https://cloud.tencent.com/document/product/663) | 资源级   | &#10003; | &#10003; | &#10003; |	[访问管理指南](https://cloud.tencent.com/document/product/663/38486)|	
 
 ## 企业应用	
 
@@ -396,6 +399,7 @@
 | [数字版权管理解决方案](https://cloud.tencent.com/document/product/1000)  | 操作级 | -  | -  |  - |- |
 | [互动直播](https://cloud.tencent.com/solution/ilvb) | 服务级  | &#10003;   | -   |  -   |	-  |	
 | [云游戏](https://cloud.tencent.com/document/product/1162) | 操作级  | &#10003;   | -   |  -   |	-  |	
+| [智能制造](https://cloud.tencent.com/solution/i-mfg) | 服务级  | &#10003;   | -   |  -   |	-  |	
 
 ## 开发者工具
 
