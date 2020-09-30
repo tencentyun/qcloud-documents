@@ -147,6 +147,8 @@ func main() {
 		}
 		fmt.Printf("Received message msgId: %#v -- content: '%s' -- topic : '%v'\n",
 			msg.ID(), string(msg.Payload()), msg.Topic())
+		
+		consumer.Ack(msg)
 	}
 }
 ```
