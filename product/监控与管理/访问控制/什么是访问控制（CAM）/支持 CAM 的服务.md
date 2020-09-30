@@ -392,7 +392,7 @@
 
 | 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档                                                     |
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
-| [云监控](https://cloud.tencent.com/document/product/248)     | 资源级   | &#10003; | -                | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/248/48707) |
+| [云监控](https://cloud.tencent.com/document/product/248)     | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/248/48707) |
 | [云拨测](https://cloud.tencent.com/document/product/280)     | 服务级   | &#10003; | -                | -        | -                                                            |
 | [迁移服务平台](https://cloud.tencent.com/document/product/659) | 服务级   | &#10003; | -                | &#10003; | -                                                            |
 
