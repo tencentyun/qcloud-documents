@@ -52,8 +52,6 @@ TUIKit.login(userID, userSig, new IUIKitCallBack() {
 创建主播端，您需要创建 `TUILiveRoomAnchorLayout` 并设置一个唯一的 roomid，即可开播。
 
 ```java
-import com.tencent.qcloud.tim.tuikit.live.modules.liveroom.TUILiveRoomAnchorLayout;
-......
 TUILiveRoomAnchorLayout layoutTuiLiverRomAnchor = findViewById(R.id.tui_liveroom_anchor_layout);
 // 接收主播创建成功/退出 回调
 layoutTuiLiverRomAnchor.setLiveRoomAnchorLayoutDelegate(this);
@@ -66,8 +64,6 @@ layoutTuiLiverRomAnchor.initWithRoomId(getSupportFragmentManager(), 12345);
 创建观众端，您需要创建 `TUILiveRoomAudienceLayout` 并设置和主播端一致的 roomId 即可观看该主播的直播。
 
 ```java
-import com.tencent.qcloud.tim.tuikit.live.modules.liveroom.TUILiveRoomAudienceLayout;
-......
 TUILiveRoomAudienceLayout roomAudienceLayout = findViewById(R.id.layout_room_audience);
 // 初始化观众页，设置与主播端一致的 roomId，即可观看该主播的直播，anchorId为主播id
 // useCDN 可以先设置成 false，如果您有CDN播放的需求，可以参照后面章节
@@ -91,15 +87,13 @@ roomAudienceLayout.initWithRoomId(getSupportFragmentManager(), 12345, “1280”
 // 创建房间成功回调
 public void onRoomCreate(final TRTCLiveRoomDef.TRTCLiveRoomInfo roomInfo) {
     // 上报新的直播间创建成功
-    RoomManager.getInstance().createRoom(roomInfo.roomId, RoomManager.TYPE_LIVE_ROOM,
-    new RoomManager.ActionCallback());
+    RoomManager.getInstance().createRoom(roomInfo.roomId, RoomManager.TYPE_LIVE_ROOM, null);
 }
 
 // 退出/停止直播回调
 public void onRoomDestroy(TRTCLiveRoomDef.TRTCLiveRoomInfo roomInfo) {
     // 销毁房间
-    String type = RoomManager.TYPE_LIVE_ROOM;
-    RoomManager.getInstance().destroyRoom(roomInfo.roomId, type, null);
+    RoomManager.getInstance().destroyRoom(roomInfo.roomId, RoomManager.TYPE_LIVE_ROOM, null);
 }
 ```
 2. 创建直播广场页 UI：
@@ -134,9 +128,8 @@ TRTC 采用 UDP 协议进行传输音视频数据，标准直播 CDN 则采用�
 
 ```
 // eg: 假设您的 配置播放域名并完成 CNAME 中设置的域名为 my.com，那么默认播放 URL 为 http://[播放域名]/live/[sdkappid]_[roomId]_[userID]_main.flv
-// 
 TUILiveRoomAudienceLayout roomAudienceLayout = findViewById(R.id.layout_room_audience);
-roomAudienceLayout.initWithRoomId(getSupportFragmentManager(), 12345, “12565”, true, "http://[播放域名]/live/[sdkappid]_[roomId]_[userID]_main.flv");
+roomAudienceLayout.initWithRoomId(getSupportFragmentManager(), 12345, "12565", true, "http://[播放域名]/live/[sdkappid]_[roomId]_[userID]_main.flv");
 ```
 
 >!  更多关于 TRTC 旁路直播的介绍，可以查看 [实现 CDN 直播观看](https://cloud.tencent.com/document/product/647/16826) 和  [云端混流服务](https://cloud.tencent.com/document/product/647/16827)。
