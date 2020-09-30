@@ -38,7 +38,7 @@ TUIKit_live 直播UI组件集成后的直播效果：
 
 ```objectivec
 #import "TUIKitLive.h"
-/// roomId：123456，观众端也需要设置和主播端一样的roomid才可以看到该主播。这里的roomid仅用于测试，实际应该生成一个唯一的值。
+/// roomId：123456，观众端需要设置和主播端一样的 roomid 才可以看到直播。这里的 roomid 仅用于测试，实际应该生成一个唯一的值。
 TUILiveRoomAnchorViewController *anchorVC = [[TUILiveRoomAnchorViewController alloc] initWithRoomId:123456];
 /// 接收主播创建成功/退出 回调
 anchorVC.delegate =  self ; 
@@ -81,14 +81,14 @@ TUILiveRoomAudienceViewController *audienceVC = [[TUILiveRoomAudienceViewControl
 - (void)onRoomCreate:(TRTCLiveRoomInfo *roomInfo) {
     NSSTring *roomId = roomInfo.roomId;
 	/// 上报新的直播间创建成功
-	TUILiveRoomManager.create(roomId)
+	[TUILiveRoomManager.sharedManager createRoom:sdkAppId type:@"liveRoom" success:nil failed:nil];
 }
 
 /// 退出/停止直播回调
 - (void)onRoomDestroy:(TRTCLiveRoomInfo *roomInfo) {
     NSSTring *roomId = roomInfo.roomId;
 	/// 上报直播间销毁
-	TUILiveRoomManager.destroy(roomId)
+  [TUILiveRoomManager.sharedManager destroyRoom:sdkAppId type:@"liveRoom" success:nil failed:nil];
 }
 ```
 
