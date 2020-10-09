@@ -1,3 +1,4 @@
+云监控 Prometheus 服务在继承开源 Prometheus 监控能力的同时 ，还提供高可用的 Prometheus 托管服务及与开源可视化的 Grafana，为您减少用户的开发及运维成本。
 对于已创建腾讯云容器服务 TKE 的用户，您可以在云监控创建 Prometheus 实例并安装 Prometheus 监控插件对其进行监控，同时云监控 Prometheus 服务集成 Grafana 及预定义 Dashboard 来查看不同维度的性能指标数据。
 
 ## 准备工作
