@@ -36,9 +36,11 @@ pod install //安装 SDK
 
 #### 方式二：手动导入
 1. 进入腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏中【下载】即可。
-2. 打开 demo 目录下的 SDK 文件夹，将 XGPush.h 及 libXG-SDK-Cloud.a 添加到工程，打开 ---XGPushStatistics 文件夹，获取 XGMTACloud.framework。
-3. 在 Build Phases 下，添加以下 Framework：
+2. 打开 demo 目录下的 SDK 文件夹，将 XGPush.h 及 libXG-SDK-Cloud.a 添加到工程，打开 XGPushStatistics 文件夹，获取 XGMTACloud.framework。
+3. 将InAppMessage文件夹导入到工程并在 Build Setting->Framework Search Paths 添加查找路径。（若您SDK版本低于1.2.8.0，则可以忽略此步骤）
+4. 在 Build Phases 下，添加以下 Framework：
  ```
+ * TPNSInAppMessage.framework
  * XGMTACloud.framework
  * CoreTelephony.framework
  * SystemConfiguration.framework
@@ -49,8 +51,8 @@ pod install //安装 SDK
  * CFNetwork.framework
  * libc++.tbd
 ```
-4. 添加完成后，库的引用如下：
-![](https://main.qcloudimg.com/raw/92f32ba9287713e009988ba8ee962ec8.png)
+5. 添加完成后，库的引用如下：
+![](https://main.qcloudimg.com/raw/79976648574060954cebfb894cc5cdd4.png)
 
 ### 工程配置
 1. 在工程配置和后台模式中打开推送，如下图所示：

@@ -19,10 +19,6 @@ Tencent Linux 适用于下列场景：
 </table>
 
 ## Tencent Linux 2.4环境说明
-| 发布时间 | 镜像版本 | 版本说明 |
-|---------|---------|---------|
-| 2019年9月17日 | Tencent Linux release 2.4 (Final) | 镜像 ID：img-hdt9xxkt<br>内核版本：4.14.105<br>发布地域：所有地域 |
-
 ### 用户态环境
 用户态软件包保持与最新版 CentOS 7兼容，CentOS 7版本的软件包可以直接在 Tencent Linux 2.4 中使用。
 
@@ -69,6 +65,12 @@ Usage:
 操作详情请参见 [创建实例](https://cloud.tencent.com/document/product/213/4855)。
 - 已创建的云服务器实例，可通过重装系统将现有操作系统更换为 Tencent Linux。
 操作详情请参见 [重装系统](https://cloud.tencent.com/document/product/213/4933)。
+
+## 发布说明
+| 发布时间 | 镜像版本 | 版本说明 |
+|---------|---------|---------|
+| 2019年9月17日 | Tencent Linux release 2.4 (Final) | 镜像 ID：img-hdt9xxkt<br>内核版本：4.14.105<br>发布地域：所有地域 |
+
 
 ## 技术支持
 腾讯云为 Tencent Linux 提供如下技术支持：
