@@ -4,9 +4,11 @@
 
 TUIKit_live 直播UI组件集成后的直播效果：
 
-|直播观众页                          |主播准备页                          |主播开播页                          |
-| ------- | ------- | ------- |
-| <img src="" width="300" height="600"> | <img src="" width="300" height="600"> | <img src="" width="300" height="600"> |
+|              直播观众页               |              主播准备页               |              主播开播页               |
+| :-----------------------------------: | :-----------------------------------: | :-----------------------------------: |
+| <img src="https://main.qcloudimg.com/raw/0fc6805db789719d00f00991163fa221.jpg" width="300" height="600"> | <img src="https://main.qcloudimg.com/raw/7981702bce71b8a8bb95ba4525a9b1e0.jpg" width="300" height="600"> | <img src="https://main.qcloudimg.com/raw/9ea7d501a30138378acd0b4dcb804f72.jpg" width="300" height="600"> |
+
+
 
 <span id="step1"></span>
 ## 步骤1：开通音视频服务
