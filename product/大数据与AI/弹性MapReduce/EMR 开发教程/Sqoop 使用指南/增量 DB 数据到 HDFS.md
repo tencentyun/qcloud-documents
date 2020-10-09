@@ -70,7 +70,7 @@ root -P --table sqoop_test --check-column id  --incremental append --last-value 
 ```
 <property>
   <name>sqoop.metastore.client.enable.autoconnect</name>
-  <value>ture</value>
+  <value>true</value>
 </property>
 ```
 然后在 bin 目录下启动 sqoop-metastore 服务：
