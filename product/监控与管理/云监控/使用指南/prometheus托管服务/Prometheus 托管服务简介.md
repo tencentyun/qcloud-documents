@@ -1,4 +1,4 @@
-云监控 Prometheus 服务在继承开源 Prometheus 监控能力的同时 ，并提供高可用的 Prometheus 托管服务及与开源的可视化 Grafana 高度集成，为您提供开通即可快速使用 的 Prometheus 服务同时又提供了可视化监控的能力，减少用户的开发及运维成本。
+云监控 Prometheus 服务在继承开源 Prometheus 监控能力的同时 ，还提供高可用的 Prometheus 托管服务及与开源可视化的 Grafana，为您减少用户的开发及运维成本。
 
 ## Prometheus 简介
 
