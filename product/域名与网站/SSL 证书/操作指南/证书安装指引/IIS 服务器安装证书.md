@@ -23,7 +23,9 @@
 3. 在服务器证书窗口的右侧 “操作” 栏中，单击【导入】。如下图所示：
 ![](https://main.qcloudimg.com/raw/160833eb7c00b81f4c1024bb0efc6d8d.png)
 4. 在弹出的 “导入证书” 窗口中，选择证书文件存放路径，输入密码，单击【确定】。如下图所示：
->? 申请证书时若设置了私钥密码，输入密码时，请输入私钥密码。若申请证书时未设置私钥密码，输入密码时，请输入 IIS 文件夹中 keystorePass.txt 文件的密码。具体操作请参考 [私钥密码指引](https://cloud.tencent.com/doc/product/400/4461)。
+>? 
+>- 申请证书时若设置了私钥密码，输入密码时，请输入私钥密码。若申请证书时未设置私钥密码，输入密码时，请输入 IIS 文件夹中 keystorePass.txt 文件的密码。
+>- 如果私钥密码不慎遗忘，请 [工单联系](https://console.cloud.tencent.com/workorder/category) 腾讯云工程师删除该证书，然后重新申请该域名证书。
 >
 ![](https://main.qcloudimg.com/raw/32e710a2240601010ac82576ddd403ad.png)
 5. 选择网站下的站点名称，并单击右侧 “操作” 栏的【绑定】。如下图所示：
