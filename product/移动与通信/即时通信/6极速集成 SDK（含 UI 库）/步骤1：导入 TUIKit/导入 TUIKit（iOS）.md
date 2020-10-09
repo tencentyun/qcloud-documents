@@ -35,7 +35,7 @@ pod install
 1. 在 Framework Search Path 中加上 ImSDK 的文件路径，手动地将 TUIKit 和 ImSDK 目录添加到您的工程。
 2. 手动将 TUIKit 使用的第三方库添加到您的工程：
  - [MMLayout - Tag : 0.2.0](https://github.com/annidy/MMLayout)
- - [SDWebImage - Tag : 5.5.2](https://github.com/SDWebImage/SDWebImage)
+ - [SDWebImage - Tag : 5.9.0](https://github.com/SDWebImage/SDWebImage/tree/5.9.0)
  - [ReactiveObjC - Tag  : 3.1.1](https://github.com/ReactiveCocoa/ReactiveObjC.git)
  - [Toast - Tag  : 4.0.0](https://github.com/scalessec/Toast)
  - [TXLiteAVSDK_TRTC](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/SDK)

@@ -209,8 +209,23 @@ iOS 系统上的跨应用屏幕分享，需要增加 Extension 录屏进程以�
 }
 ```
 
->!
->苹果在 iOS 12.0 中增加了 `RPSystemBroadcastPickerView` 可以从应用中弹出启动器供用户确认启动屏幕分享，到目前为止, `RPSystemBroadcastPickerView` 尚不支持自定义界面，也没有官方的唤起方法。
+>!苹果在 iOS 12.0 中增加了 `RPSystemBroadcastPickerView` 可以从应用中弹出启动器供用户确认启动屏幕分享，到目前为止, `RPSystemBroadcastPickerView` 尚不支持自定义界面，也没有官方的唤起方法。
 >TRTCBroadcastExtensionLauncher 的原理就是遍历 `RPSystemBroadcastPickerView` 的子 View 寻找 UIButton 并触发了其点击事件。
 > **但该方案不被苹果官方推荐，并可能在新一轮的系统更新中失效，因此 [步骤4](#launch) 只是一个可选方案，您需要自行承担风险来选用此方案。**
+
+## 观看屏幕分享
+- **观看 Mac / Windows 屏幕分享**
+  当房间里有一个 Mac / Windows 用户启动了屏幕分享，会通过辅流进行分享。房间里的其他用户会通过 TRTCCloudDelegate 中的 [onUserSubStreamAvailable](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a15be39bb902bf917321b26701e961286) 事件获得这个通知。
+  希望观看屏幕分享的用户可以通过 [startRemoteSubStreamView](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ae029514645970e7d32470cf1c7aca716) 接口来启动渲染远端用户辅流画面。
+
+- **观看 Android / iOS 屏幕分享**
+  若用户通过 Android / iOS 进行屏幕分享，会通过主流进行分享。房间里的其他用户会通过 TRTCCloudDelegate 中的 [onUserVideoAvailable](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a533d6ea3982a922dd6c0f3d05af4ce80) 事件获得这个通知。
+  希望观看屏幕分享的用户可以通过 [startRemoteView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#af85283710ba6071e9fd77cc485baed49) 接口来启动渲染远端用户主流画面。
+
+
+
+
+
+
+
 

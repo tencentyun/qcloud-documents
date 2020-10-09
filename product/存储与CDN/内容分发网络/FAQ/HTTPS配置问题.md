@@ -13,18 +13,18 @@ HTTP 回源：不需要。
 HTTPS 回源：源站更新证书，CDN 节点也需要同步更新。客户端到节点，节点到源站证书是需要一致的，否则会导致回源失败。
 
 ### CDN 有没有方法让用户控制只允许 HTTPS 访问，禁止 HTTP 访问？
-使用强制 HTTPS 功能。证书配置成功后，会出现“强制跳转”开关，开启后，即使用户发起 HTTP 请求，也会强制跳转为 HTTPS 进行访问。
-![](https://main.qcloudimg.com/raw/c5e8ff7861cc4e00baa0e886d7f783c4.png)
+使用强制扭转功能。HTTPS 证书配置成功后，可以开启 Http->Https 功能，开启后，即使用户发起 HTTP 请求，也会强制跳转为 HTTPS 进行访问。
+![](https://main.qcloudimg.com/raw/7161b36b260f3af2d75931b2e567295d.png)
 
 
 ### 配置了 CDN，HTTPS 无法访问？
 
-要把网站的 HTTPS 证书上传到 CDN，操作如下：
+要使用 HTTPS 访问，操作如下：
 1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，单击左侧导航栏的 【域名管理】 进入域名管理页面。单击域名右侧【管理】按钮，进入管理页面。
-![图片描述](https://main.qcloudimg.com/raw/9f5202ff57eb14f40dee3b15e4a37cdf.png)
-2. 单击【高级配置】，找到 HTTPS 配置模块。单击【前往配置】，跳转至证书管理页面配置证书。配置流程请参阅  [证书配置](https://cloud.tencent.com/document/product/228/41687#.E8.AF.81.E4.B9.A6.E9.85.8D.E7.BD.AE) 。![图片描述](https://main.qcloudimg.com/raw/f8c4570d1a4847aab84c30ff0dc2e22d.png)
-3. 证书配置成功后，会出现【强制跳转 HTTPS】开关。开启后，即使用户发起 HTTP 请求，也会强制跳转为 HTTPS 请求进行访问：
-![图片描述](https://main.qcloudimg.com/raw/da5fb8ee7294231e27d65cd177dfd992.png)
+![](https://main.qcloudimg.com/raw/63c5127bf5c12d7aa0be52e6ba1a2e31.png)
+2. 单击【Https 配置】，找到 HTTPS 配置模块。单击【前往配置】，跳转至证书管理页面配置证书。配置流程请参阅 [证书配置](https://cloud.tencent.com/document/product/228/41687#.E8.AF.81.E4.B9.A6.E9.85.8D.E7.BD.AE)。
+![](https://main.qcloudimg.com/raw/ee07c4ae76b31612d2954305ade4e828.png)
+证书配置成功后即可开启 HTTPS 访问。
 
 
 

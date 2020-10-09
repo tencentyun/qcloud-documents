@@ -100,17 +100,17 @@ try:
     # sms helper：https://cloud.tencent.com/document/product/382/3773
 
     # 模板名称 
-	$req.TemplateName = "腾讯云"
+	req.TemplateName = "腾讯云"
 	# 模板内容 
-	$req.TemplateContent = "{1}为您的登录验证码，请于{2}分钟内填写，如非本人操作，请忽略本短信。"
+	req.TemplateContent = "{1}为您的登录验证码，请于{2}分钟内填写，如非本人操作，请忽略本短信。"
 	# 短信类型：0表示普通短信, 1表示营销短信 
-	$req.SmsType = 0;
+	req.SmsType = 0;
 	# 是否国际/港澳台短信：
 	# 0：表示国内短信
 	# 1：表示国际/港澳台短信 
-	$req.International = 0
+	req.International = 0
 	# 模板备注：例如申请原因，使用场景等 
-	$req.Remark = "xxx"
+	req.Remark = "xxx"
 
     # 通过 client 对象调用 AddSmsTemplate 方法发起请求。注意请求方法名与请求对象是对应的
     resp = client.AddSmsTemplate(req)

@@ -11,12 +11,12 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>非带宽上移账户</td>
+<td>传统账户类型</td>
 <td align="center">-</td>
 <td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#ip" target="_blank">IP 资源费用</a>。</td>
 </tr>
 <tr>
-<td rowspan="4">带宽上移账户</td>
+<td rowspan="4">标准账户类型</td>
 <td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#1" target="_blank">按流量</a></td>
 <td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#ip" target="_blank"> IP 资源费用</a>。</td>
 </tr>
@@ -27,10 +27,6 @@
 <tr>
 <td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#2" target="_blank">按小时带宽</a></td>
 <td>EIP 不收取 IP 资源费用，仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a> 。</td>
-</tr>
-<tr>
-<td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#.E5.85.B1.E4.BA.AB.E5.B8.A6.E5.AE.BD.E5.8C.85" target="_blank">共享带宽包</a></td>
-<td>该 EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#ip" target="_blank">IP 资源费用</a>。若该共享带宽包中还加入了其他 EIP，其他 EIP 的收费不受影响。</td>
 </tr>
 </tbody></table>
 
@@ -44,7 +40,7 @@
 3. 在弹出的“解绑EIP”窗口中，确认解绑信息，单击【确定】。
 > ?
 > - NAT 网关至少需绑定一个 EIP，因此，若与 EIP 解绑的云资源为 NAT 网关，且该 EIP 为 NAT 网关绑定的唯一 EIP，则无法解绑。
-> - 对于非带宽上移账户，可以在解绑时勾选【解绑时免费分配普通公网 IP】。
+> - 对于传统账户类型，可以在解绑时勾选【解绑时免费分配普通公网 IP】。
 >
 ![](https://main.qcloudimg.com/raw/1b08a8d041eaf1a22d801ff268b9dd5f.png)
 4. 在弹出的提示框中，单击【确定】，即可完成与云资源的解绑。
