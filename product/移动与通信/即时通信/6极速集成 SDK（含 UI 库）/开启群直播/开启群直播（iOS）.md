@@ -8,22 +8,20 @@
   </td></tr>
  </table>
  
-如果您还未集成 IM ，请按如下步骤集成 IM：
+如果您还未集成 IM，请按如下步骤集成 IM：
 
 <span id="Step1"></span>
 
 ## 步骤1：开通音视频服务
 
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) ，单击目标应用卡片，进入应用的基础配置页面。
-
 2. 单击【开通腾讯实时音视频服务】区域的【立即开通】。
-
 3. 在弹出的开通实时音视频 TRTC 服务对话框中，单击【确认】。
 系统将为您在 [实时音视频控制台](https://console.cloud.tencent.com/trtc) 创建一个与当前 IM 应用相同 SDKAppID 的实时音视频应用，二者帐号与鉴权可复用。
 
 <span id="step2"></span>
 ## 步骤2：初始化 TUIKit 
-初始化 TUIKit 需要传入 [步骤1](#step1) 生成的 SDKAppID（如果已经集成了 TUIKit，请跳过此步骤）。
+初始化 TUIKit 需要传入 [步骤1](#Step1) 生成的 SDKAppID（如果已经集成了 TUIKit，请跳过此步骤）。
 ```
 [[TUIKit sharedInstance] setupWithAppId:SDKAppID];
 ```
@@ -42,7 +40,7 @@
 
 <span id="step4"></span>
 ## 步骤4：打开/关闭群直播
-TUIKitLive中已经默认打开了群直播，如果您不需要集成群直播，可在通过 TUIKit 配置关闭群直播入口即可，代码如下：
+TUIKitLive 中已经默认打开了群直播，如果您不需要集成群直播，可在通过 TUIKit 配置关闭群直播入口即可，代码如下：
 
 ```
 // enableGroupLiveEntry	true：开启；false：关闭	默认：true
