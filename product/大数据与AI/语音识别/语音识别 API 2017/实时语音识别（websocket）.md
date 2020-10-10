@@ -28,12 +28,12 @@
 
 | 字段名 | 类型 | 描述 |
 |---------|---------|---------|
-| code | Interger | 状态码，0代表正常，非0值表示发生错误。 |
+| code | Integer | 状态码，0代表正常，非0值表示发生错误。 |
 | message | String | 错误说明，发生错误时显示这个错误发生的具体原因，随着业务发展或体验优化，此文本可能会经常保持变更或更新。 |
 | voice_id | String | 音频流唯一 id，由客户端在握手阶段生成并赋值在调用参数中。 |
 | message_id | String | 本 message 唯一 id。 |
 | result | Result | 最新语音识别结果。 |
-| final | Interger | 该字段返回1时表示音频流全部识别结束。 |
+| final | Integer | 该字段返回1时表示音频流全部识别结束。 |
 
 
 其中识别结果 Result 结构体格式为：
@@ -41,13 +41,13 @@
 
 | 字段名 | 类型 | 描述 |
 |---------|---------|---------|
-| slice_type | Interger | 该识别结果类型，0表示一句话开始，1表示一句话进行中，2表示一句话结束。<br>根据一句话时间长度以及后台处理情况，一句话识别过程中后台可能返回的 message 序列为：<br>0-1*-2：1*表示一个或者多个结果类型为1的 message。<br>0-2:后台仅返回一句话开始与结束两个 message。<br>2:后台仅返回一句话完整结果的 message。 |
-| index | Interger | 当前一句话结果在整个音频流中的序号，从0开始逐句递增。 |
-| start_time | Interger | 当前一句话结果在整个音频流中的起始时间。 |
-| end_time | Interger | 当前一句话结果在整个音频流中的结束时间。 |
+| slice_type | Integer | 该识别结果类型，0表示一句话开始，1表示一句话进行中，2表示一句话结束。<br>根据一句话时间长度以及后台处理情况，一句话识别过程中后台可能返回的 message 序列为：<br>0-1*-2：1*表示一个或者多个结果类型为1的 message。<br>0-2:后台仅返回一句话开始与结束两个 message。<br>2:后台仅返回一句话完整结果的 message。 |
+| index | Integer | 当前一句话结果在整个音频流中的序号，从0开始逐句递增。 |
+| start_time | Integer | 当前一句话结果在整个音频流中的起始时间。 |
+| end_time | Integer | 当前一句话结果在整个音频流中的结束时间。 |
 | voice_text_str | String | 当前一句话文本结果，编码为 UTF8。 |
-| word_size | Interger | 当前一句话的词结果个数。 |
-| word_list | Word Array | 当前一句话的词列表，Word 结构体格式为：<br>word：String 类型，该词的内容；<br>start_time：Interger 类型，该词在整个音频流中的起始时间；<br>end_time：Interger 类型，该词在整个音频中的结束时间；<br>stable_flag：Interger 类型，该词的稳态结果，0表示该词在后续识别中可能发生变化，1表示该词在后续识别过程中不会变化。 |
+| word_size | Integer | 当前一句话的词结果个数。 |
+| word_list | Word Array | 当前一句话的词列表，Word 结构体格式为：<br>word：String 类型，该词的内容；<br>start_time：Integer 类型，该词在整个音频流中的起始时间；<br>end_time：Integer 类型，该词在整个音频中的结束时间；<br>stable_flag：Integer 类型，该词的稳态结果，0表示该词在后续识别中可能发生变化，1表示该词在后续识别过程中不会变化。 |
 
 ### 3.1 握手阶段
 
@@ -73,19 +73,19 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 | 参数名称 | 必填 | 类型 | 描述 |
 |---------|---------|---------|---------|
 | secretid | 是 | String | 腾讯云注册账号的密钥 SecretId，可通过 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 获取。 |
-| timestamp | 是 | Interger | 当前 UNIX 时间戳，单位为秒。如果与当前时间相差过大，会引起签名过期错误。 |
-| expired | 是 | Interger | 签名的有效期截止时间 UNIX 时间戳，单位为秒。expired 必须大于 timestamp 且 expired - timestamp 小于90天。 |
-| nonce | 是 | Interger | 随机正整数。用户需自行生成，最长 10 位。 |
+| timestamp | 是 | Integer | 当前 UNIX 时间戳，单位为秒。如果与当前时间相差过大，会引起签名过期错误。 |
+| expired | 是 | Integer | 签名的有效期截止时间 UNIX 时间戳，单位为秒。expired 必须大于 timestamp 且 expired - timestamp 小于90天。 |
+| nonce | 是 | Integer | 随机正整数。用户需自行生成，最长 10 位。 |
 | engine_model_type | 是 | String | 引擎模型类型。<br>• 8k_zh：电话 8k 中文普通话通用；<br>• 8k_zh_finance：电话 8k 金融领域模型；<br>• 16k_zh：16k 中文普通话通用；<br>• 16k_en：16k 英语；<br>• 16k_ca：16k 粤语；<br>• 16k_ko：16k 韩语；<br>• 16k_zh-TW：16k 中文普通话繁体。 |
 | voice_id | 是 | String | 16 位 String 串作为每个音频的唯一标识，用户自己生成。 |
-| voice_format | 否 | Interger | 语音编码方式，可选，默认值为 4。1：wav(pcm)；4：speex(sp)；6：silk；8：mp3。 |
-| needvad | 否 | Interger | 0：关闭 vad，1：开启 vad。<br>如果语音分片长度超过60秒，用户需开启 vad。 |
+| voice_format | 否 | Integer | 语音编码方式，可选，默认值为 4。1：wav(pcm)；4：speex(sp)；6：silk；8：mp3。 |
+| needvad | 否 | Integer | 0：关闭 vad，1：开启 vad。<br>如果语音分片长度超过60秒，用户需开启 vad。 |
 | hotword_id | 否 | String | 热词 id。用于调用对应的热词表，如果在调用语音识别服务时，不进行单独的热词 id 设置，自动生效默认热词；如果进行了单独的热词 id 设置，那么将生效单独设置的热词 id。 |
-| filter_dirty | 否 | Interger | 是否过滤脏词（目前支持中文普通话引擎）。默认为0。0：不过滤脏词；1：过滤脏词；2：将脏词替换为 * 。 |
-| filter_modal | 否 | Interger | 是否过语气词（目前支持中文普通话引擎）。默认为0。0：不过滤语气词；1：部分过滤；2：严格过滤 。 |
-| filter_punc | 否 | Interger | 是否过滤句末的句号（目前支持中文普通话引擎）。默认为0。0：不过滤句末的句号；1：过滤句末的句号。 |
-| convert_num_mode | 否 | Interger | 是否进行阿拉伯数字智能转换。0：全部转为中文数字；1：根据场景智能转换为阿拉伯数字。 |
-| word_info | 否 | Interger | 是否显示词级别时间戳。0：不显示；1：显示。支持引擎：8k_zh, 8k_zh_finance, 16k_zh, 16k_en, 16k_ca，默认为0。 |
+| filter_dirty | 否 | Integer | 是否过滤脏词（目前支持中文普通话引擎）。默认为0。0：不过滤脏词；1：过滤脏词；2：将脏词替换为 * 。 |
+| filter_modal | 否 | Integer | 是否过语气词（目前支持中文普通话引擎）。默认为0。0：不过滤语气词；1：部分过滤；2：严格过滤 。 |
+| filter_punc | 否 | Integer | 是否过滤句末的句号（目前支持中文普通话引擎）。默认为0。0：不过滤句末的句号；1：过滤句末的句号。 |
+| convert_num_mode | 否 | Integer | 是否进行阿拉伯数字智能转换。0：全部转为中文数字；1：根据场景智能转换为阿拉伯数字。 |
+| word_info | 否 | Integer | 是否显示词级别时间戳。0：不显示；1：显示。支持引擎：8k_zh, 8k_zh_finance, 16k_zh, 16k_en, 16k_ca，默认为0。 |
 | signature | 是 | String | 接口签名参数 |
 
 <span id="sign"></span>
@@ -169,7 +169,7 @@ wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1
 
 
 ```
-{"code":126,"message":"后台识别服务器音频分片等待超时","voice_id":"CzhjnqBkv8lk5pRUxhpX","message_id":"CzhjnqBkv8lk5pRUxhpX_241"}
+{"code":4008,"message":"后台识别服务器音频分片等待超时","voice_id":"CzhjnqBkv8lk5pRUxhpX","message_id":"CzhjnqBkv8lk5pRUxhpX_241"}
 ```
 
 ## 4. 错误码
