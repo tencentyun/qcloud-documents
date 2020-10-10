@@ -47,26 +47,42 @@
 6. 详情页内，可以查看 Discuz!Q 的访问地址。
 ![discuz详情页](https://main.qcloudimg.com/raw/009a5504f4f2f439f53ee5ae2478be1c.png)
 
+
 ## 常见问题
 
 ### 部署异常
 
+
 安装过程中可能遇到一些异常，请根据异常提示查看以下解决方案进行解决。如果遇到无法解决的问题，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们，我们将协助你解决。
 ![安装异常](https://main.qcloudimg.com/raw/1e8022496f7c221a6f84fa02ddd5859e.png)
 
+
+
 #### 账户余额不足
+
 
 Discuz!Q 应用创建时，会一同创建云数据库 CynosDB for Mysql。创建数据库资源会预先扣1个小时的费用，为了保证服务的可用，推荐先 [充值腾讯云账户](https://console.cloud.tencent.com/expense/recharge) 5元钱。
 
+
 #### 云接入根路径已经被占用
 
+
 Discuz!Q 将会占用根路径，如果当前环境被占用，推荐再创建一个按量计费环境进行安装。
+
+
+### CynosDB 被隔离
+
+错误信息 `queryClusterDetail failed, err=DescribeClusters invalid response.detail.status[isolated]`，代表 CynosDB 集群被隔离，请前往回收站将该集群恢复或者直接删除。
+
+
 
 ### 小程序部署
 
 小程序的部署需要单独提审，安装完本扩展应用后，需要参考 [构建/发布 Discuz! Q小程序与 H5 前端](https://discuz.com/docs/uniapp_hbuilderx.html#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95) 进行构建发布小程序端的代码。
 
+
 ### 公众号白名单 IP 配置
+
 
 公众号登录开通时，需要将服务的 IP 添加到公众号的 IP 白名单中，详情请参见 [第三方登录设置](https://discuz.com/manual-admin/2.html#_2-3-%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E8%AE%BE%E7%BD%AE) 文档。
 
