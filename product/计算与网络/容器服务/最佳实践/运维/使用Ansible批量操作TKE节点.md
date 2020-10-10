@@ -3,8 +3,7 @@
 
 
 ## 原理介绍
-
-Ansible 是 RedHat 开源的一款运维工具，可以直接通过 SSH 协议批量操作机器，无需事先进行手动安装依赖等操作，十分便捷。原理示意图如下：
+Ansible 是一款流行的开源运维工具，可以直接通过 SSH 协议批量操作机器，无需事先进行手动安装依赖等操作，十分便捷。原理示意图如下：
 <img style="width:70%" src="https://main.qcloudimg.com/raw/90d1658ff2105497d2ea3a5b54c92bda.png" data-nonescope="true">
 
 ## 操作步骤
