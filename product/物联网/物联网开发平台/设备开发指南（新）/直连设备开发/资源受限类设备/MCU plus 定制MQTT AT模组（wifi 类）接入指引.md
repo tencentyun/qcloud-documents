@@ -15,7 +15,7 @@ MCU+ 定制 MQTT AT 模组（Wi-Fi 类）接入腾讯云物联网开发平台可
 移植部分需要实现的 HAL 层适配接口请参考 hal_export.h，需要实现串口的收发接口（中断接收），延时函数，模组上下电及 OS 相关接口适配（互斥锁、动态内存申请释放、线程创建），适配层接口单独剥离在 port 目录。
 
 - #### hal_export.h
-该源文件主要提供 HAL 层对外的 API 接口及 HAL 层宏开关控制。
+该源文件主要提供 HAL 层对外的 API 接口以及线程栈大小设置。
 <table>
 <thead>
 <tr>
@@ -29,162 +29,32 @@ MCU+ 定制 MQTT AT 模组（Wi-Fi 类）接入腾讯云物联网开发平台可
 <td>PARSE_THREAD_STACK_SIZE</td>
 <td>串口 AT 解析线程栈大小。</td>
 </tr>
-<tr>
-<td>2</td>
-<td>OS_USED</td>
-<td>是否使用 OS，目前的 AT-SDK 是基于多线程框架的，所以 OS 是必须的。</td>
-</tr>
-<tr>
-<td>3</td>
-<td>AUTH_MODE_KEY</td>
-<td>认证方式，证书认证还是密钥认证。</td>
-</tr>
-<tr>
-<td>4</td>
-<td>DEBUG_DEV_INFO_USED</td>
-<td>默认使能该宏，设备信息使用调试信息，正式量产关闭该宏，并实现设备信息存取接口。</td>
-</tr>
 </tbody></table>
 
-- #### hal_os.c
-该源文件主要实现打印、延时、时间戳、锁、线程创建、设备信息存取等。
+- #### config.h
+该源文件主要提供相关宏开关控制。
 <table>
 <thead>
 <tr>
 <th>序号</th>
-<th>HAL_API</th>
+<th>宏定义</th>
 <th>说明</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>1</td>
-<td>HAL_Printf</td>
-<td>打印函数，log 输出需要，可选实现。</td>
+<td>OS_USED</td>
+<td>是否使用 OS。目前的 AT-SDK 是基于多线程框架的，所以 OS 是必须的。</td>
 </tr>
 <tr>
 <td>2</td>
-<td>HAL_Snprintf</td>
-<td>格式化打印，JSON 数据处理需要，必须实现。</td>
+<td>AUTH_MODE_KEY</td>
+<td>认证方式。证书认证或者密钥认证。</td>
 </tr>
 <tr>
 <td>3</td>
-<td>HAL_Vsnprintf</td>
-<td>格式化输出， 可选实现。</td>
-</tr>
-<tr>
-<td>4</td>
-<td>HAL_DelayMs</td>
-<td>毫秒延时，必选实现。</td>
-</tr>
-<tr>
-<td>5</td>
-<td>HAL_DelayUs</td>
-<td>微妙延时，可选实现。</td>
-</tr>
-<tr>
-<td>6</td>
-<td>HAL_GetTimeMs</td>
-<td>获取毫秒数，必选实现。</td>
-</tr>
-<tr>
-<td>7</td>
-<td>HAL_GetTimeSeconds</td>
-<td>获取时间戳，必须实现，时戳不需绝对准确，但不可重复。</td>
-</tr>
-<tr>
-<td>8</td>
-<td>hal_thread_create</td>
-<td>线程创建，必选实现。</td>
-</tr>
-<tr>
-<td>9</td>
-<td>hal_thread_destroy</td>
-<td>线程销毁，必选实现。</td>
-</tr>
-<tr>
-<td>10</td>
-<td>HAL_SleepMs</td>
-<td>放权延时，必选实现。</td>
-</tr>
-<tr>
-<td>11</td>
-<td>HAL_MutexCreate</td>
-<td>互斥锁创建，必选实现。</td>
-</tr>
-<tr>
-<td>12</td>
-<td>HAL_MutexDestroy</td>
-<td>互斥锁销毁，必选实现。</td>
-</tr>
-<tr>
-<td>13</td>
-<td>HAL_MutexLock</td>
-<td>获取互斥锁，必选实现。</td>
-</tr>
-<tr>
-<td>14</td>
-<td>HAL_MutexUnlock</td>
-<td>释放互斥锁，必选实现。</td>
-</tr>
-<tr>
-<td>15</td>
-<td>HAL_Malloc</td>
-<td>动态内存申请，必选实现。</td>
-</tr>
-<tr>
-<td>16</td>
-<td>HAL_Free</td>
-<td>动态内存释放，必选实现。</td>
-</tr>
-<tr>
-<td>17</td>
-<td>HAL_GetProductID</td>
-<td>获取产品 ID，必选实现。</td>
-</tr>
-<tr>
-<td>18</td>
-<td>HAL_SetProductID</td>
-<td>设置产品 ID，必须存放在非易失性存储介质，必选实现。</td>
-</tr>
-<tr>
-<td>19</td>
-<td>HAL_GetDevName</td>
-<td>获取设备名，必选实现。</td>
-</tr>
-<tr>
-<td>20</td>
-<td>HAL_SetDevName</td>
-<td>设置设备名，必须存放在非易失性存储介质，必选实现。</td>
-</tr>
-<tr>
-<td>21</td>
-<td>HAL_GetDevSec</td>
-<td>获取设备密钥，密钥认证方式为必选实现。</td>
-</tr>
-<tr>
-<td>22</td>
-<td>HAL_SetDevSec</td>
-<td>设置设备密钥，必须存放在非易失性存储介质，密钥认证方式为必选实现。</td>
-</tr>
-<tr>
-<td>23</td>
-<td>HAL_GetDevCertName</td>
-<td>获取设备证书文件名，证书认证方式为必选实现。</td>
-</tr>
-<tr>
-<td>24</td>
-<td>HAL_SetDevCertName</td>
-<td>设置设备证书文件名，必须存放在非易失性存储介质，证书认证方式为必选实现。</td>
-</tr>
-<tr>
-<td>25</td>
-<td>HAL_GetDevPrivateKeyName</td>
-<td>获取设备证书私钥文件名，证书认证方式为必选实现。</td>
-</tr>
-<tr>
-<td>26</td>
-<td>HAL_SetDevPrivateKeyName</td>
-<td>设置设备证书私钥文件名，必须存放在非易失性存储介质，证书认证方式为必选实现。</td>
+<td>DEBUG_DEV_INFO_USED</td>
+<td>默认使能该宏，设备信息使用调试信息，正式量产关闭该宏，并实现设备信息存取接口。</td>
 </tr>
 </tbody></table>
 
@@ -220,9 +90,9 @@ MCU+ 定制 MQTT AT 模组（Wi-Fi 类）接入腾讯云物联网开发平台可
 </tr>
 </tbody></table>
 - ####  module_api_inf.c
-该源文件主要实现了配网/注网 API 业务适配和基于腾讯云物联网 AT 指令的 MQTT 交互，但有一个关于联网/注网的 API（module_register_network）需要根据模组适配。代码基于 [ESP8266 腾讯云物联网定制 AT 固件](https://main.qcloudimg.com/raw/6811fc7631dcf0ce5509ccbdba5c72b7.zip) 实现了 Wi-Fi 直连的方式连接网络，但更常用的场景是根据特定事件（例如：按键）触发配网（softAP/一键配网），这块的逻辑各具体业务逻辑需自行实现。
+该源文件主要实现配网/注网 API 业务适配和基于腾讯云物联网 AT 指令的 MQTT 交互，但有一个关于联网/注网的 API（module_register_network）需要根据模组适配。代码基于 [ESP8266 腾讯云物联网定制 AT 固件](https://main.qcloudimg.com/raw/6811fc7631dcf0ce5509ccbdba5c72b7.zip) 实现 Wi-Fi 直连的方式连接网络，但更常用的场景是根据特定事件（例如：按键）触发配网（softAP/一键配网），这块的逻辑各具体业务逻辑需自行实现。
 
- ESP8266 有封装配网指令和示例 App。对于蜂窝模组，则是使用特定的网络注册指令。请参照 [module_handshake](https://github.com/tencentyun/qcloud-iot-sdk-tencent-at-based/blob/master/include/module_api_inf.h) 函数应用 AT-SDK 的 AT 框架添加和模组的 AT 指令交互。
+ ESP8266 有封装配网指令和示例 App。对于蜂窝模组，则是使用特定的网络注册指令。请参考 [module_handshake](https://github.com/tencentyun/qcloud-iot-sdk-tencent-at-based/blob/master/include/module_api_inf.h) 函数应用 AT-SDK 的 AT 框架添加和模组的 AT 指令交互。
  ```c
 //模组联网（NB/2/3/4G注册网络）、wifi配网（一键配网/softAP）暂时很难统一,需要用户根据具体模组适配。
 //开发者参照 module_handshake API使用AT框架的API和模组交互，实现适配。
@@ -323,12 +193,12 @@ Sample 目录一共有3个示例，用户可以参考各示例根据业务逻辑
 
 | 序号  | 示例名称                        | 说明|
 | ---- | -------------------------------| ----------------------------------|
-| 1    | mqtt_sample.c                  | MQTT 示例，该示例示例基于定制的 AT 指令如何便捷的接入腾讯物联网平台及收发数据。|
+| 1    | mqtt_sample.c                  | MQTT 示例，该示例介绍了基于定制的 AT 指令如何便捷的接入腾讯物联网平台及收发数据。|
 | 2    | shadow_sample.c                | 影子示例，基于 AT 实现的 MQTT 协议，进一步封装的影子协议。               |
-| 3    | light_data_template_sample.c   | 基于智能灯的控制场景，示例具体的产品如何应用数据模板及事件功能。        |
+| 3    | light_data_template_sample.c   | 基于智能灯的控制场景，介绍具体的产品如何应用数据模板及事件功能。        |
 
-更多详情请参见 [数据模板协议](https://cloud.tencent.com/document/product/1081/34916)。
+更多详情请参考 [数据模板协议](https://cloud.tencent.com/document/product/1081/34916)。
 
 ## SDK 使用参考
 
-请参见 [AT SDK 使用参考](https://cloud.tencent.com/document/product/1081/48366)。
+请参考 [AT SDK 使用参考](https://cloud.tencent.com/document/product/1081/48366)。

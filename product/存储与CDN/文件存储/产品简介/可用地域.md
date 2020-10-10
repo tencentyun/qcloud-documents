@@ -10,7 +10,7 @@
 		<th>适用的存储类型</th>
   </tr>
   <tr>
-    <td rowspan="5">北京</td>
+    <td rowspan="4">北京</td>
     <td>北京一区</td>
 		<td rowspan="2">标准存储</td>
   </tr>
@@ -22,11 +22,8 @@
 		<td>标准存储<br>性能存储</td>
   </tr>
 		<tr>
-    <td>北京四区</td>
-		<td rowspan="2">标准存储</td>
-  </tr>
-	<tr>
     <td>北京五区</td>
+		<td >标准存储</td>
   </tr>
 	<tr>
     <td rowspan="3">上海</td>

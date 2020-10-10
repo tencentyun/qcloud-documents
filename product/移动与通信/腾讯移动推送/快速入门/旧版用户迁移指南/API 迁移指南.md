@@ -7,7 +7,7 @@
 
 | 协议字段 | 字段含义说明 | 变动说明 |
 | ----------------- | ------------ | ------------------------------------------------------------ |
-| openapi.xg.qq.com | 域名 | 请根据购买的集群选择对应的域名地址：<br/>1. 广州集群：api.tpns.tencent.com<br/>2. 中国香港集群：api.tpns.hk.tencent.com<br/>3. 新加坡集群：api.tpns.sgp.tencent.com |
+| openapi.xg.qq.com | 域名 | 请根据选择的服务接入点选择对应的域名地址：<br>1. 广州服务接入点：api.tpns.tencent.com<br>2. 中国香港服务接入点：api.tpns.hk.tencent.com<br>3. 新加坡服务接入点：api.tpns.sgp.tencent.com<br>4. 上海服务接入点：api.tpns.sh.tencent.com |
 
 ## V3 接口协议变动说明
 

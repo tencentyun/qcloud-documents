@@ -5,7 +5,7 @@ mysql> create table test1 ( a int, b int, c char(20),primary key (a,b),unique ke
 Query OK, 0 rows affected (0.07 sec)
 ```
 
-在分布式实例中，shardkey 对应后端数据库的分区字段，因此必须是主键以及所有唯一索引的一部分，否则无法创建表。
+在分布式实例中，shardkey 对应后端数据库的分区字段，因此每一个唯一索引和主键都必须要包含这个 shardkey，否则无法创建表。
 - 场景1：存在多个唯一索引时报错。
 ```
 mysql> create table test1 ( a int, b int, c char(20),primary key (a,b),unique key u_1(a,c),unique key u_2(b,c) ) shardkey=a;;

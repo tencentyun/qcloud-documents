@@ -3,7 +3,7 @@
 
 ## SDK 获取
 
-SDK 当前暂未开放下载。
+SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [LLSync SDK](https://github.com/tencentyun/qcloud-iot-explorer-BLE-sdk-embedded)。
 
 ## 接入指引
 
@@ -40,7 +40,7 @@ SDK 当前暂未开放下载。
 <tbody><tr>
 <td align="center">1</td>
 <td align="center">ble_get_product_id</td>
-<td align="center">获取设备三元信息之产品ID</td>
+<td align="center">获取设备三元信息之产品 ID</td>
 </tr>
 <tr>
 <td align="center">2</td>
@@ -55,7 +55,7 @@ SDK 当前暂未开放下载。
 <tr>
 <td align="center">4</td>
 <td align="center">ble_get_mac</td>
-<td align="center">获取设备蓝牙MAC地址</td>
+<td align="center">获取设备蓝牙 MAC 地址</td>
 </tr>
 <tr>
 <td align="center">5</td>
@@ -69,8 +69,8 @@ SDK 当前暂未开放下载。
 </tr>
 <tr>
 <td align="center">7</td>
-<td align="center">log接口</td>
-<td align="center">在<code>ble_qiot_configh</code>中适配log接口</td>
+<td align="center">log 接口</td>
+<td align="center">在<code>ble_qiot_configh</code>中适配 log 接口</td>
 </tr>
 <tr>
 <td align="center">8</td>
@@ -197,5 +197,5 @@ extract code success
 
 ## SDK使用参考
 
-请参见 [LLSync SDK 使用参考](https://cloud.tencent.com/document/product/1081/48399)
+请参考 [LLSync SDK 使用参考](https://cloud.tencent.com/document/product/1081/48399)
 

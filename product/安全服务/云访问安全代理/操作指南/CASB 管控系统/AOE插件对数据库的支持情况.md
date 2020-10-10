@@ -10,9 +10,9 @@
 
 | 字段类型    | 支持情况 | 可选算法 |
 | ----------- | -------- | -------- |
-| char        | 支持<br>支持51个及以内汉字<br>支持155个及以内字母   |   AES/SM4    |
+| char        | <li>支持51个及以内汉字</li><li>支持155个及以内字母</li>   |   AES/SM4    |
 | varchar     | 支持     | AES/SM4  |
-| tinytext    | 支持<br>支持51个及以内汉字<br>支持155个及以内字母    | AES/SM4  |
+| tinytext    | <li>支持51个及以内汉字</li><li>支持155个及以内字母</li>    | AES/SM4  |
 | text        | 支持     | AES/SM4  |
 | longtext    | 支持     | AES/SM4  |
 | tinyblob    | 支持     | AES/SM4  |

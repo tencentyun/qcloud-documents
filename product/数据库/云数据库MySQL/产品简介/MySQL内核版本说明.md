@@ -129,7 +129,7 @@
 ## MySQL 5.6
 ### 20190930
 #### 新特性：
-- 用户可通过 show full processlist 查询“用户线程内存使用信息”，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。  
+- 用户可通过 show full processlist 查询“用户线程内存使用信息”。  
 
 #### 官方 bug 修复：
 - 修复备库 replication filter 所引起的 gtid 空洞的问题。
