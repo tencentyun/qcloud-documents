@@ -313,6 +313,7 @@ subscribeEvents(this.rtcCloud);
 | [onAudioDeviceCaptureVolumeChanged](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onAudioDeviceCaptureVolumeChanged) | 当前音频采集设备音量变化回调。 |
 | [onAudioDevicePlayoutVolumeChanged](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onAudioDevicePlayoutVolumeChanged) | 当前音频播放设备音量变化回调。 |
 
+
 ### 自定义消息的接收回调
 
 | API | 描述 |
