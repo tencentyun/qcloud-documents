@@ -1,11 +1,11 @@
 ## 操作场景
-容器服务 TKE 集群新增节点可通过在“自定义数据”中填入脚本来进行批量操作。例如，统一修改内核参数。您可参考本文，对已新增的存量节点进行批量操作。本文介绍使用开源工具 Ansible 对存量 TKE 节点进行批量操作。
+容器服务 TKE 集群新增节点可通过在“自定义数据”中填入脚本来进行批量操作，例如统一修改内核参数。但如需对已新增的存量节点进行批量操作，您可参考本文使用开源工具 Ansible 进行操作。
 
 
 ## 原理介绍
 
-Ansible 是 RedHat 开源的一款运维工具，可以直接通过 SSH 协议批量操作机器，无需事先进行手动登录机器并安装依赖等操作，十分便捷。原理示意图如下所示：
-<img style="width:60%" src="https://main.qcloudimg.com/raw/90d1658ff2105497d2ea3a5b54c92bda.png">
+Ansible 是 RedHat 开源的一款运维工具，可以直接通过 SSH 协议批量操作机器，无需事先进行手动安装依赖等操作，十分便捷。原理示意图如下：
+<img style="width:70%" src="https://main.qcloudimg.com/raw/90d1658ff2105497d2ea3a5b54c92bda.png" data-nonescope="true">
 
 ## 操作步骤
 ### 准备 Ansible 控制节点
