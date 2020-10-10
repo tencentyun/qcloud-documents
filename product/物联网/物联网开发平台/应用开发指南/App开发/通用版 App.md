@@ -4,12 +4,12 @@
 
 ## 下载方式
 - **iOS**
-iOS 通用版 App 目前发布 Beat 版本，可以通过 [testflight](https://testflight.apple.com/join/ynwoAjjM) 进行下载体验。
->?您需要使用 iOS 系统手机访问链接进行 [下载](https://testflight.apple.com/join/ynwoAjjM)。
+iOS 通用版 App 目前发布 Beat 版本，可以通过 [testflight](https://testflight.apple.com/join/q4UmX0KA) 进行下载体验。
+>?您需要使用 iOS 系统手机访问链接进行 [下载](https://testflight.apple.com/join/q4UmX0KA)。
 >
 
 - **Android**
-Android 通用版 App 目前已经上架到各大安卓应用市场，可以前往对应的手机应用市场搜索**腾讯连连**进行下载体验。
+Android 通用版 App 目前已经上架到各大安卓应用市场，包括小米应用商店，华为应用市场、OPPO 应用商店、vivo 应用商店、360手机助手以及安智市场，可以前往对应的手机应用市场搜索**腾讯连连**进行下载体验。
 
 ## 功能模块介绍
 
