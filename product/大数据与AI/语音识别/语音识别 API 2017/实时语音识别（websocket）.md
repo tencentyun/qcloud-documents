@@ -49,7 +49,7 @@
 | word_size | Interger | 当前一句话的词结果个数。 |
 | word_list | Word Array | 当前一句话的词列表，Word 结构体格式为：<br>word：String 类型，该词的内容；<br>start_time：Interger 类型，该词在整个音频流中的起始时间；<br>end_time：Interger 类型，该词在整个音频中的结束时间；<br>stable_flag：Interger 类型，该词的稳态结果，0表示该词在后续识别中可能发生变化，1表示该词在后续识别过程中不会变化。 |
 
-### 3.1. 握手阶段
+### 3.1 握手阶段
 
 #### 3.1.1 请求格式
 
