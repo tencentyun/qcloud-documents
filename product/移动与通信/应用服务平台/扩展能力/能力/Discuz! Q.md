@@ -103,9 +103,9 @@ Discuz!Q 将会占用根路径，如果当前环境被占用，推荐再创建�
 
 1. 查看 CynosDB 所在的私有网络，并且将集群名更改为 DiscuzCynosDB。
 ![](https://main.qcloudimg.com/raw/3549cec77f92046bada85b9ab79f05e7.png)
-2. 创建一个新的按量计费环境，并且开通云托管，选择自定义配置，勾选 CynosDB 所在的私有网络，默认请勾选所有子网
+2. 创建一个新的按量计费环境，并且开通云托管，选择自定义配置，勾选 CynosDB 所在的私有网络，默认请勾选所有子网。
 ![](https://main.qcloudimg.com/raw/eada2b2dac2ee060380da78055da1b5b.png)
-3. 回到扩展应用页面安装 Discuz!Q
+3. 回到扩展应用页面安装 Discuz!Q。
 
 
 ## 其他
