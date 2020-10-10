@@ -9,7 +9,7 @@
 #### SDK 引入
 只需要在您的 Web 页面中添加如下代码即可：
 ```html
-<script src="https://imgcache.qq.com/open/qcloud/soe/TencentSOE-0.1.0.js"></script>
+<script src="https://aiedu.qcloud.com/soe/TencentSOE-0.1.4.js"></script>
 ```
 
 #### 创建对象
@@ -125,6 +125,7 @@ let recorder = new TencentSOE({
  * 开始录音
  * @param {
  *   RefText: 'string', // 测评文本，必填
+ *   TimeStamp: 'Integer', // unix 时间戳，单位精确到秒，选填， 例 1602225857
  *   error: function() {}, // 录音过程出现错误回调，选填
  *   complete: function() {}, // 录音1分钟自动停止回调（微信端），选填
  *   success: function() {}, // 录音1分钟自动测评回调（微信端），建议填写，否则超时后无法获取测评结果
