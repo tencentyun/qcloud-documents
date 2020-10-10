@@ -48,9 +48,9 @@
 ![discuz详情页](https://main.qcloudimg.com/raw/009a5504f4f2f439f53ee5ae2478be1c.png)
 
 
-## 常见问题
 
-### 部署异常
+
+## 部署异常
 
 
 安装过程中可能遇到一些异常，请根据异常提示查看以下解决方案进行解决。如果遇到无法解决的问题，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们，我们将协助您解决问题。
@@ -58,13 +58,13 @@
 
 
 
-#### 账户余额不足
+### 账户余额不足
 
 
 Discuz!Q 应用创建时，会一同创建云数据库 CynosDB for Mysql。创建数据库资源会预先扣1个小时的费用，为了保证服务的可用，推荐先 [充值腾讯云账户](https://console.cloud.tencent.com/expense/recharge) 5元钱。
 
 
-#### 云接入根路径已经被占用
+### 云接入根路径已经被占用
 
 
 Discuz!Q 将会占用根路径，如果当前环境被占用，推荐再创建一个按量计费环境进行安装。
@@ -74,7 +74,11 @@ Discuz!Q 将会占用根路径，如果当前环境被占用，推荐再创建�
 
 错误信息 `queryClusterDetail failed, err=DescribeClusters invalid response.detail.status[isolated]`，代表 CynosDB 集群被隔离，请前往回收站将该集群恢复或者直接删除。
 
+### 共享文件存储 CFS 资源售罄
 
+错误信息：“参数值错误：该地域无法提供服务”，代表共享文件存储 CFS 该地域可用区售罄。我们将及时补货，请耐心等待。
+
+## 常见问题
 
 ### 小程序部署
 
