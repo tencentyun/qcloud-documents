@@ -18,7 +18,7 @@ WordPress File Manager < 6.9
 
 ## 修复建议
 官方发布升级插件修复该漏洞，腾讯安全建议您：
-- 更新 WordPress File Manager  版本至6.9 及以上。
+- 更新 WordPress File Manager  版本至6.9及以上。
 - 推荐采取腾讯云 Web 应用防火墙检测并拦截此次攻击。
 
 
