@@ -60,7 +60,7 @@ Discuz!Q 应用创建时，会一同创建云数据库 CynosDB for Mysql。创�
 
 #### 1.2 云接入根路径已经被占用
 
-discuz!Q 将会占用根路径，如果当前环境被占用，推荐再创建一个后付费环境进行安装
+discuz!Q 将会占用根路径，如果当前环境被占用，推荐再创建一个按量计费环境进行安装
 
 ### 2、小程序部署
 
@@ -85,7 +85,7 @@ discuz!Q 将会占用根路径，如果当前环境被占用，推荐再创建�
 
 1. 查看 CynosDB 所在的私有网络，并且将集群名更改为 DiscuzCynosDB
 ![CynosDB](https://main.qcloudimg.com/raw/dd6df61daa65f348de75ce3a6f4013da.png)
-2. 创建一个新的后付费环境，并且开通云托管，选择自定义配置，勾选 CynosDB 所在的私有网络，默认请勾选所有子网
+2. 创建一个新的按量计费环境，并且开通云托管，选择自定义配置，勾选 CynosDB 所在的私有网络，默认请勾选所有子网
 ![云托管](https://main.qcloudimg.com/raw/ed9a67c9cc820f4cde1b97ac73cdf25f.png)
 3. 回到扩展应用页面安装 Discuz!Q
 
