@@ -49,45 +49,48 @@
 
 ## 常见问题
 
-### 1、部署异常
+### 部署异常
 
-安装过程中可能遇到一些异常，请根据异常提示查看以下解决方案进行解决。如果遇到无法解决的问题，请提工单，我们将协助你解决。
+安装过程中可能遇到一些异常，请根据异常提示查看以下解决方案进行解决。如果遇到无法解决的问题，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们，我们将协助你解决。
 ![安装异常](https://main.qcloudimg.com/raw/1e8022496f7c221a6f84fa02ddd5859e.png)
 
-#### 1.1 账户余额不足
+#### 账户余额不足
 
-Discuz!Q 应用创建时，会一同创建云数据库 CynosDB for Mysql。创建数据库资源会预先扣1个小时的费用，为了保证服务的可用，推荐先[充值腾讯云账户](https://console.cloud.tencent.com/expense/recharge) 5元钱。
+Discuz!Q 应用创建时，会一同创建云数据库 CynosDB for Mysql。创建数据库资源会预先扣1个小时的费用，为了保证服务的可用，推荐先 [充值腾讯云账户](https://console.cloud.tencent.com/expense/recharge) 5元钱。
 
-#### 1.2 云接入根路径已经被占用
+#### 云接入根路径已经被占用
 
-discuz!Q 将会占用根路径，如果当前环境被占用，推荐再创建一个按量计费环境进行安装
+Discuz!Q 将会占用根路径，如果当前环境被占用，推荐再创建一个按量计费环境进行安装。
 
-### 2、小程序部署
+### 小程序部署
 
-小程序的部署需要单独提审，安装完本扩展应用后，需要参考 [构建/发布Discuz! Q小程序与H5前端](https://discuz.com/docs/uniapp_hbuilderx.html#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95) 进行构建发布小程序端的代码。
+小程序的部署需要单独提审，安装完本扩展应用后，需要参考 [构建/发布 Discuz! Q小程序与 H5 前端](https://discuz.com/docs/uniapp_hbuilderx.html#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95) 进行构建发布小程序端的代码。
 
-### 3、公众号白名单IP配置
+### 公众号白名单 IP 配置
 
-公众号登录开通时，需要将服务的 IP 添加到公众号的 IP 白名单中。 详情参考文档[第三方登录设置](https://discuz.com/manual-admin/2.html#_2-3-%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E8%AE%BE%E7%BD%AE)
+公众号登录开通时，需要将服务的 IP 添加到公众号的 IP 白名单中，详情请参见 [第三方登录设置](https://discuz.com/manual-admin/2.html#_2-3-%E7%AC%AC%E4%B8%89%E6%96%B9%E7%99%BB%E5%BD%95%E8%AE%BE%E7%BD%AE) 文档。
 
-1、在扩展应用详情页页 API和资源 模块中，点击云托管的服务详情![查看云托管服务](https://main.qcloudimg.com/raw/e210b5f23304867805926e3c3a4bb07e.png)
-2、点击服务配置，查看服务的出口 NAT IP。![NAT IP](https://main.qcloudimg.com/raw/e9b4724b662b52230b7ce5ca5ff270db.png)
+1. 在扩展应用详情页 API 和资源模块中，单击云托管的服务详情。
+![查看云托管服务](https://main.qcloudimg.com/raw/e210b5f23304867805926e3c3a4bb07e.png)
+2. 单击服务配置，查看服务的出口 NAT IP。
+![NAT IP](https://main.qcloudimg.com/raw/e9b4724b662b52230b7ce5ca5ff270db.png)
 
-### 4、版本升级
+### 版本升级
 
 云开发会定期跟踪 Discuz! Q 的大的版本更新，为您推送版本升级，可一键完成升级操作。
 
-### 5、复用已有的 CynosDB 集群
+### 复用已有的 CynosDB 集群
 
-本应用会选取当前环境所处地域，并且在同一个vpc下，集群名为 DiscuzCynosDB 的数据库实例。如果不存在，则会创建新的集群。
+本应用会选取当前环境所处地域，并且在同一个 vpc 下，集群名为 DiscuzCynosDB 的数据库实例。如果不存在，则会创建新的集群。
 
 如果希望复用已有 CynosDB 集群，可参考如下步骤。
 
-1. 查看 CynosDB 所在的私有网络，并且将集群名更改为 DiscuzCynosDB
-![CynosDB](https://main.qcloudimg.com/raw/dd6df61daa65f348de75ce3a6f4013da.png)
+1. 查看 CynosDB 所在的私有网络，并且将集群名更改为 DiscuzCynosDB。
+![](https://main.qcloudimg.com/raw/3549cec77f92046bada85b9ab79f05e7.png)
 2. 创建一个新的按量计费环境，并且开通云托管，选择自定义配置，勾选 CynosDB 所在的私有网络，默认请勾选所有子网
-![云托管](https://main.qcloudimg.com/raw/ed9a67c9cc820f4cde1b97ac73cdf25f.png)
+![](https://main.qcloudimg.com/raw/eada2b2dac2ee060380da78055da1b5b.png)
 3. 回到扩展应用页面安装 Discuz!Q
+
 
 ## 其他
 ### 程序配置信息
