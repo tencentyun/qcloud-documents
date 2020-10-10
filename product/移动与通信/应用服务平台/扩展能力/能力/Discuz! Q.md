@@ -47,24 +47,24 @@
 6. 详情页内，可以查看 Discuz!Q 的访问地址。
 ![discuz详情页](https://main.qcloudimg.com/raw/009a5504f4f2f439f53ee5ae2478be1c.png)
 
-## 常见问题
-
-### 部署异常
+## 部署异常
 
 安装过程中可能遇到一些异常，请根据异常提示查看以下解决方案进行解决。如果遇到无法解决的问题，请提工单，我们将协助你解决。
 ![安装异常](https://main.qcloudimg.com/raw/1e8022496f7c221a6f84fa02ddd5859e.png)
 
-#### 账户余额不足
+### 账户余额不足
 
 Discuz!Q 应用创建时，会一同创建云数据库 CynosDB for Mysql。创建数据库资源会预先扣1个小时的费用，为了保证服务的可用，推荐先[充值腾讯云账户](https://console.cloud.tencent.com/expense/recharge) 5元钱。
 
-#### 云接入根路径已经被占用
+### 云接入根路径已经被占用
 
 discuz!Q 将会占用根路径，如果当前环境被占用，推荐再创建一个按量计费环境进行安装
 
-#### CynosDB 被隔离
+### CynosDB 被隔离
 
 错误信息 `queryClusterDetail failed, err=DescribeClusters invalid response.detail.status[isolated]`，代表 CynosDB 集群被隔离，请前往回收站将该集群恢复或者直接删除。
+
+## 常见问题
 
 ### 小程序部署
 
