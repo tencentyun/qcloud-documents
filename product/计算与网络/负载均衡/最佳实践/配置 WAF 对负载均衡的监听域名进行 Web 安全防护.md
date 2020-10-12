@@ -5,6 +5,9 @@
 - 您已成功创建 HTTP 监听器或 HTTPS 监听器，并且域名可以正常访问。操作详情请参考 [负载均衡快速入门](https://cloud.tencent.com/document/product/214/8975)。
 - 您已成功购买负载均衡型 WAF。购买方式请参考 [购买方式](https://cloud.tencent.com/document/product/627/47429)。
 
+## 限制条件
+目前仅 IPv4 版本的负载均衡支持负载均衡型 WAF 防护，IPv6 和 IPv6 NAT64 版本的负载均衡暂不支持。
+
 ## 操作步骤
 <span id ="step1"></span>
 ### 步骤一：确认负载均衡域名配置
