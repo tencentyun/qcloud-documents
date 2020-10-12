@@ -164,13 +164,40 @@ $ zip demo.zip index.sh bootstrap
 
 #### 调用函数
 
-由于 serverless.yml 中添加了 `events` 为 `apigw` 的配置，因此创建函数的同时也创建了 api 网关。通过以下链接，即可使用 api 网关访问云函数。
+由于 serverless.yml 中添加了 `events` 为 `apigw` 的配置，因此创建函数的同时也创建了 api 网关，可通过 api 网关访问云函数。例如：
 ```
 http://service-xxxxxx-123456789.gz.apigw.tencentcs.com/release/
 ```
 返回类似如下信息，即表示访问成功。
 ```
-Echoing request: '{"headerParameters":{},"headers":{"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9","accept-encoding":"gzip, deflate","accept-language":"zh-CN,zh-TW;q=0.9,zh;q=0.8,en-US;q=0.7,en;q=0.6","cache-control":"max-age=259200","connection":"keep-alive","host":"service-eiu4aljg-1259787414.gz.apigw.tencentcs.com","upgrade-insecure-requests":"1","user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36","x-anonymous-consumer":"true","x-api-requestid":"b8b69e08336bb7f3e06276c8c9******","x-api-scheme":"http","x-b3-traceid":"b8b69e08336bb7f3e06276c8c9******","x-qualifier":"$LATEST"},"httpMethod":"GET","path":"/","pathParameters":{},"queryString":{},"queryStringParameters":{},"requestContext":{"httpMethod":"GET","identity":{},"path":"/","serviceId":"service-xxxxx","sourceIp":"10.10.10.1","stage":"release"}}'
+Echoing request: 
+'{
+		"headerParameters":{},
+		"headers":{
+"accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+		"accept-encoding":"gzip, deflate",
+		"accept-language":"zh-CN,zh-TW;q=0.9,zh;q=0.8,en-US;q=0.7,en;q=0.6",
+		"cache-control":"max-age=259200",
+		"connection":"keep-alive",
+		"host":"service-eiu4aljg-1259787414.gz.apigw.tencentcs.com",
+		"upgrade-insecure-requests":"1",
+		"user-agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36",
+		"x-anonymous-consumer":"true",
+		"x-api-requestid":"b8b69e08336bb7f3e06276c8c9******",
+		"x-api-scheme":"http",
+		"x-b3-traceid":"b8b69e08336bb7f3e06276c8c9******",
+		"x-qualifier":"$LATEST"},
+		"httpMethod":"GET",
+		"path":"/",
+		"pathParameters":{},
+		"queryString":{},
+		"queryStringParameters":{},
+		"requestContext":{"httpMethod":"GET","identity":{},"path":"/",
+		"serviceId":"service-xxxxx",
+		"sourceIp":"10.10.10.1",
+		"stage":"release"
+		}
+}'
 ```
 
 
