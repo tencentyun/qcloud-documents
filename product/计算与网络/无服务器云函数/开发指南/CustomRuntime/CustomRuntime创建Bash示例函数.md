@@ -122,7 +122,6 @@ $ zip demo.zip index.sh bootstrap
    #组件信息
    component: scf # 组件名称，本例中为scf组件
    name: ap-guangzhou_default_helloworld # 实例名称
-   
    #组件参数
    inputs:
      name: helloworld #函数名称
@@ -146,8 +145,7 @@ $ zip demo.zip index.sh bootstrap
 3. 执行部署命令 `sls deploy` 创建云函数。
 ```
    serverless ⚡framework
-   Action: "deploy" - Stage: "dev" - App: "ap-guangzhou_default_helloworld" - Instance: "ap-guangzhou_default_helloworld"
-   
+   Action: "deploy" - Stage: "dev" - App: "ap-guangzhou_default_helloworld" - Instance: "ap-guangzhou_default_helloworld"   
    functionName: helloworld
    description:  helloworld blank template function.
    namespace:    default
@@ -158,10 +156,8 @@ $ zip demo.zip index.sh bootstrap
    traffic:      1
    triggers: 
      apigw: 
-       - http://service-xxxxxx-123456789.gz.apigw.tencentcs.com/release/
-   
-   Full details: https://serverless.cloud.tencent.com/apps/ap-guangzhou_default_helloworld/ap-guangzhou_default_helloworld/dev
-   
+       - http://service-xxxxxx-123456789.gz.apigw.tencentcs.com/release/   
+   Full details: https://serverless.cloud.tencent.com/apps/ap-guangzhou_default_helloworld/ap-guangzhou_default_helloworld/dev   
    36s › ap-guangzhou_default_helloworld › Success
 ```
 >? 更多 SCF 组件使用，请参见 [SCF 组件](https://cloud.tencent.com/document/product/1154/39271)。
