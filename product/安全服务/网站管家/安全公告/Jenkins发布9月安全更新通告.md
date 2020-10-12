@@ -12,7 +12,7 @@
 
 其中以下漏洞定义为高危：
 - CVE-2020-2248（JSGames Plugin XSS 漏洞）
-- CVE-2020-2247（Klocwork Analysis Plugin中的 XXE 漏洞）
+- CVE-2020-2247（Klocwork Analysis Plugin 中的 XXE 漏洞）
 - CVE-2020-2246（Valgrind plugin XSS 漏洞）
 - CVE-2020-2245（Valgrind plugin XXE 漏洞）
 - CVE-2020-2244（Build Failure Analyzer Plugin 存在 XSS 漏洞）
@@ -34,24 +34,24 @@ Jenkins 是一款基于 Java 开发的开源项目，用于持续集成和持续
 	- database Plugin CSRF 漏洞和越权漏洞 CVE-2020-2241 (CSRF)，CVE-2020-2242（permission check）。
 	- database Plugin 1.6 和更早版本在实现表单验证的方法中不执行权限检查。 这使具有对 Jenkins 的“Overall/Read ”访问权限的攻击者，可以使用攻击者指定的用户名和密码连接到攻击者指定的数据库服务器。此外，此表单验证方法不需要 POST 请求，从而导致跨站点请求伪造（CSRF）漏洞。
 	- database Plugin 1.7 需要 POST 请求和受影响的表单验证方法的“Overall/Read”权限。
-- **Cadence vManager Plugin 存在存储型XSS 漏洞 CVE-2020-2243**
+- **Cadence vManager Plugin 存在存储型 XSS 漏洞 CVE-2020-2243**
 	- Cadence vManager Plugin 3.0.4 及更早版本不会在工具提示中转义构建说明，从而导致存储的跨站点脚本（XSS）漏洞可由具有运行/更新权限的攻击者利用。
 	- Cadence vManager Plugin 3.0.5 删除了受影响的工具提示。
 - **Build Failure Analyzer Plugin 存在 XSS 漏洞  CVE-2020-2244**
-	- Build Failure Analyzer Plugin 1.27.0 及更早版本不会在表单验证响应中转义匹配的文本，从而导致跨站点脚本（XSS）漏洞，攻击者可以利用此漏洞，从而能够为用于测试构建日志指示的构建提供控制台输出。
+	- Build Failure Analyzer Plugin 1.27.0 及更早版本不会在表单验证响应中转义匹配的文本，从而导致跨站点脚本（XSS）漏洞，攻击者可以利用此漏洞，为用于测试构建日志指示的构建提供控制台输出。
 	- Build Failure Analyzer Plugin 1.27.1 会在受影响的表单验证响应中转义匹配的文本。
 - **Valgrind Plugin 存在 XXE 漏洞 CVE-2020-2245**
-	- Valgrind Plugin 0.28 和更早版本没有配置其 XML 解析器来防止 XML 外部实体（XXE）攻击，从而使用户能够控制 Valgrind Plugin 解析器的输入文件，使 Jenkins 解析使用外部实体，从Jenkins控制器或服务器端请求伪造中提取机密的制作好的文件。  
+	- Valgrind Plugin 0.28 和更早版本没有配置其 XML 解析器来防止 XML 外部实体（XXE）攻击，从而使攻击者能够控制 Valgrind Plugin 解析器的输入文件，使 Jenkins 解析使用外部实体，从 Jenkins 控制器或服务器端请求伪造中提取机密的制作好的文件。  
 	- 截至本公告发布之时，尚无修复程序。
 - **Valgrind Plugin 中存储的 XSS 漏洞 CVE-2020-2246**
 	- Valgrind Plugin 0.28 和更早版本不会在 Valgrind XML 报表中转义内容，从而导致存储的跨站点脚本（XSS）漏洞可由能够控制 Valgrind XML 报告内容的攻击者利用。
 	- 截至本公告发布之时，尚无修复程序。
 
-- **Klocwork Analysis Plugin 中的XXE漏洞 CVE-2020-2247**
-	- Klocwork Analysis Plugin 2020.2.1和更早版本没有配置其 XML 解析器来防止 XML 外部实体（XXE）攻击，从而用户能够控制 Klocwork 插件解析器的输入文件，使 Jenkins 解析使用外部实体，从 Jenkins 控制器或服务器端请求伪造中提取机密的制作好的文件。
+- **Klocwork Analysis Plugin 中的 XXE 漏洞 CVE-2020-2247**
+	- Klocwork Analysis Plugin 2020.2.1和更早版本没有配置其 XML 解析器来防止 XML 外部实体（XXE）攻击，从而攻击者能够控制 Klocwork 插件解析器的输入文件，使 Jenkins 解析使用外部实体，从 Jenkins 控制器或服务器端请求伪造中提取机密的制作好的文件。
 	- 截至本公告发布之时，尚无修复程序。
-- **JSGames Plugin 存在反射型的XSS漏洞 CVE-2020-2248**
-	- JSGames Plugin 0.2及更早版本将URL的一部分作为代码进行评估，从而会导致反映出跨站点脚本（XSS）漏洞。
+- **JSGames Plugin 存在反射型的 XSS 漏洞 CVE-2020-2248**
+	- JSGames Plugin 0.2及更早版本将 URL 的一部分作为代码进行评估，从而会导致反映出跨站点脚本（XSS）漏洞。
 	- 截至本公告发布之时，尚无修复程序。
 - **Team Foundation Server Plugin 以明文格式存储凭据 CVE-2020-2249**
 	Team Foundation Server Plugin 5.157.1 和更早版本将 Webhook 机密未加密地存储，在 Jenkins 控制器的全局配置文件中 hudson.plugins.tfs.TeamPluginGlobalConfig.xml 作为其配置的一部分，攻击者可以访问 Jenkins 控制器文件系统来查看此凭据。
@@ -64,14 +64,13 @@ Jenkins 是一款基于 Java 开发的开源项目，用于持续集成和持续
 	- 截至本公告发布之时，尚无修复程序。
 
 ## 风险等级
-
-- CVE-2020-2240 高风险
-- CVE-2020-2241 中风险
-- CVE-2020-2242 中风险
 - CVE-2020-2249 低风险
 - CVE-2020-2239 低风险
+- CVE-2020-2241 中风险
+- CVE-2020-2242 中风险
 - CVE-2020-2250 中风险
 - CVE-2020-2251 中风险
+- CVE-2020-2240 高风险
 - CVE-2020-2247 高风险
 - CVE-2020-2248 高风险
 - CVE-2020-2246 高风险
@@ -111,9 +110,9 @@ Jenkins 是一款基于 Java 开发的开源项目，用于持续集成和持续
 
 ## 修复建议
 官方发布部分升级插件修复该漏洞，但是由于部分插件缺少修复版本，腾讯云安全建议您：
-- 更新对应 Jenkins 插件（由于明文存储漏洞是由于为本地漏洞，需等待插件更新）。
-- 由于 Jenkins 的敏感性，建议 Jenkins 不对外开放，如果有公网访问需求，可以在腾讯云 Web 应用防火墙上面 [配置 IP 白名单](https://cloud.tencent.com/document/product/627/35359) 等访问策略
-- 推荐企业用户采取腾讯云 Web 应用防火墙检测并拦截 Jenkins 9月安全更新通告中基于网络的漏洞的攻击。
+- 更新对应 Jenkins 插件（由于明文存储漏洞为本地漏洞，需等待插件更新）。
+- 由于 Jenkins 的敏感性，建议 Jenkins 不对外开放，如果有公网访问需求，可以在腾讯云 Web 应用防火墙上面 [配置 IP 白名单](https://cloud.tencent.com/document/product/627/35359) 等访问策略。
+- 推荐企业用户采取腾讯云 Web 应用防火墙检测并拦截 Jenkins 9月安全更新通告中基于网络的漏洞攻击。
 
 腾讯云 Web 应用防火墙（Web Application Firewall）已支持拦截防御 Jenkins 9月安全更新通告内包含的漏洞。
 
