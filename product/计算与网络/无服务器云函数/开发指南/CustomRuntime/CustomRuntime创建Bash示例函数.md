@@ -117,7 +117,7 @@ $ zip demo.zip index.sh bootstrap
 #### 创建函数
 
 1. 安装 [Serverless Framework](https://cloud.tencent.com/document/product/1154/42990)。
-2. 在 [bootstrap](#bootstrap) 目录下配置 Serverless.yml 文件，执行以下命令，创建 dotnet 函数：
+2. 在 [bootstrap](#bootstrap) 目录下配置 Serverless.yml 文件，创建 dotnet 函数：
 ```
    #组件信息
    component: scf # 组件名称，本例中为scf组件
@@ -142,7 +142,7 @@ $ zip demo.zip index.sh bootstrap
 ```
 >! SCF 组件的详细配置，请参见 [全量配置文档](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)。 
 >
-3. 执行部署命令 `sls deploy` 创建云函数。
+3. 执行 `sls deploy` 命令创建云函数创建成功则返回结果如下：
 ```
    serverless ⚡framework
    Action: "deploy" - Stage: "dev" - App: "ap-guangzhou_default_helloworld" - Instance: "ap-guangzhou_default_helloworld"   
