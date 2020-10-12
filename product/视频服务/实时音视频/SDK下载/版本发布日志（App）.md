@@ -1,7 +1,7 @@
 ## Version 7.8 @ 2020.09.29
 
 **新增**
-- Mac：新增系统音量变化回调，详见：[TRTCCloudDelegate.onAudioDevicePlayoutVolumeChanged](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#af24c0f0258e83ab644e242ee0d01277f)。
+- Mac：新增系统音量变化回调，详见 [TRTCCloudDelegate.onAudioDevicePlayoutVolumeChanged](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#af24c0f0258e83ab644e242ee0d01277f)。
 - Windows：新增支持跨屏指定区域进行屏幕分享。
 - Windows：新增窗口分享支持过滤指定窗口进行抗遮挡，详见 [TRTCCloud.addExcludedShareWindow](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ae5141a9331c3675f17fbdc922f376b06) 和 [TRTCCloud.removeExcludedShareWindow](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a08504ce347b593c0191904611da5cfd2)。
 - Windows：新增系统音量变化回调，详见 [ITRTCCloudCallback.onAudioDevicePlayoutVolumeChanged](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#a39cf2644243dceaccd82933f11f4db12)。
@@ -16,7 +16,7 @@
 - Windows：兼容虚拟摄像头 e2eSoft Vacm。
 - Windows：支持同时调用 startLocalPreview 和 startCameraDeviceTest。
 - Windows：支持屏幕分享走主路的同时，调用 startLocalPreview 开启本地预览。
-- Windows：降低因SDK内部播放缓冲引发音频延迟较大的问题。
+- Windows：降低因 SDK 内部播放缓冲引发音频延迟较大的问题。
 - Windows：优化音频启动逻辑，在仅播放的情况下不占用麦克风。
 
 
@@ -24,7 +24,7 @@
 **修复**
 - iOS：修复 iPhone SE 播放声音小的问题。
 - iOS：修复子房间 (TRTCCloud.createSubCloud) 调用 muteRemoteAudio 触发 crash 的问题。
-- iOS：修复偶现渲染 crash。
+- iOS：修复偶现渲染 crash 问题。
 - iOS：修复前后台切换时在部分 iPad 视频渲染偶现卡死主线程的问题。
 - iOS：修复已知内存泄露。
 - iOS：修复 iOS14 提示“查找并连接本地网络上的设备”的问题。
