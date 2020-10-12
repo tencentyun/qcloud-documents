@@ -164,11 +164,7 @@ $ zip demo.zip index.sh bootstrap
 
 #### 调用函数
 
-由于 serverless.yml 中添加了 `events` 为 `apigw` 的配置，因此创建函数的同时也创建了 api 网关，可通过 api 网关访问云函数。例如：
-```
-http://service-xxxxxx-123456789.gz.apigw.tencentcs.com/release/
-```
-返回类似如下信息，即表示访问成功。
+由于 serverless.yml 中添加了 `events` 为 `apigw` 的配置，因此创建函数的同时也创建了 api 网关，可通过 api 网关访问云函数。返回类似如下信息，即表示访问成功。
 ```
 Echoing request: 
 '{
