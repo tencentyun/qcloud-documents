@@ -140,7 +140,7 @@ $ zip demo.zip index.sh bootstrap
                - path: /
                  method: GET
 ```
->! SCF 组件的详细配置，请参见 [全量配置文档](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)。 
+>? SCF 组件的详细配置，请参见 [全量配置文档](https://github.com/serverless-components/tencent-scf/blob/master/docs/configure.md)。 
 >
 3. 执行 `sls deploy` 命令创建云函数，创建成功则返回结果如下：
 ```
