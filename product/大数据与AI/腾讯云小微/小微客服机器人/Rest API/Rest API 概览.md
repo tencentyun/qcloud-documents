@@ -26,3 +26,4 @@
 | 删除知识库分类    | yun.tim.qq.com/v3/prophet/del_class        |
 | 获取知识库分类列表    | yun.tim.qq.com/v3/prophet/get_class_list        |
 | 批量更新知识点所属分类    | yun.tim.qq.com/v3/prophet/update_qa_class   |
+  

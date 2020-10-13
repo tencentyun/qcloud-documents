@@ -81,6 +81,7 @@ Alluxio 允许客户在向本地 worker 写入数据块时选择一个层级偏�
 对现有文件或目录的所有操作都要求用户指定 AlluxioURI。使用 AlluxioURI，用户可以使用 FileSystem 中的任何方法来访问资源。
 
 AlluxioURI 可用于执行 Alluxio FileSystem 操作，例如修改文件元数据、ttl 或 pin 状态，或者获取输入流来读取文件。例如，要读取一个文件：
+
 ```
 FileSystem fs = FileSystem.Factory.get();
 AlluxioURI path = new AlluxioURI("/myFile");

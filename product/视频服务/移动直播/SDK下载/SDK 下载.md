@@ -3,10 +3,11 @@
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2343-35187?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 
+    
 <h2 id="Smart">直播基础版（Smart）</h2>
-
+ 
 基础版仅包含直播推流（TXLivePusher）和直播播放（TXLivePlayer）两项功能，对 App 的安装包体积增量最小，适合仅使用移动直播相关功能的客户。
-
+   
 <table>
    <tr>
       <th width="0px" style="text-align:center">所属平台</td>
@@ -90,7 +91,7 @@
 <h2 id="Enterprise">企业版（Enterprise）</h2>
 
 企业版除了包含专业版的所有功能以外，还集成了一套 AI 特效组件，支持大眼、瘦脸、美容和动效贴纸挂件等能力。
-下载企业版 SDK 后需要解压密码和授权 License 才能运行，解压密码和企业版 License 先 [申请企业版 License](https://cloud.tencent.com/product/x-magic)，或请 [联系腾讯云商务](https://cloud.tencent.com/apply/p/h1qsz5vhvko) 进行申请。
+下载企业版 SDK 后需要解压密码和授权 License 才能运行，获取解压密码和企业版 License，需要先 [申请企业版 License](https://cloud.tencent.com/product/x-magic)，或请 [联系腾讯云商务](https://cloud.tencent.com/apply/p/h1qsz5vhvko) 进行申请。
 
 <table>
    <tr>

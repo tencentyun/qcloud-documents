@@ -31,6 +31,7 @@ log.retention.check.interval.ms=300000
 ```
 >?其他未列出的 Broker 配置参考 [开源 Kafka 默认配置](http://kafka.apache.org/0102/documentation.html#brokerconfigs)。
 
+<span id="topic"></span>
 ## Topic 配置参数说明
 #### 1. 选取合适的分区数量
 
@@ -130,7 +131,7 @@ retry.backoff.ms=100
 
 ```
 # 是否在消费消息后将 offset 同步到 Broker，当 Consumer 失败后就能从 Broker 获取最新的 offset
-auto.commit.enable=true
+enable.auto.commit=true
 
 # 当 auto.commit.enable=true 时，自动提交 Offset 的时间间隔，建议设置至少1000
 auto.commit.interval.ms=5000

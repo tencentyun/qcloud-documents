@@ -168,5 +168,5 @@ SecretKey | String | 是 | SecretKey
 名称 | 类型  | 是否必选 | 描述 | 示例
 -----|------|-----|------|------
 StartTask | String | 是 | 依赖关系的起点任务名称 | Task1
-EndTask | String | 是 | 依赖关系的起点任务名称 | Task2
+EndTask | String | 是 | 依赖关系的终点任务名称 | Task2
 

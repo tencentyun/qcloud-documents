@@ -1,0 +1,20 @@
+腾讯云游戏多媒体引擎（Game Multimedia Engine，GME）提供高质量低成本的一站式语音解决方案，全面覆盖游戏、社交、娱乐、直播、电商等多种泛互联网行业应用场景。支持多人实时语音、3D 位置语音、语音消息转文本和语音分析等功能。
+
+下表为云审计支持的游戏多媒体引擎操作列表：
+
+| 操作名称           | 资源类型 | 事件名称                           |
+|----------------|------|--------------------------------|
+| 创建 GME 应用        | gme  | CreateApp                      |
+| 创建应用           | gme  | CreateApplication              |
+| 删除录制文件列表       | gme  | DeleteRecordFileList           |
+| 查询某账号下的应用列表    | gme  | DescribeApplicationList        |
+| 获取应用用量统计数据     | gme  | DescribeAppStatistics          |
+| 获取鉴黄用量数据       | gme  | DescribePornStatistics         |
+| 查询录制文件列表       | gme  | DescribeRecordFileList         |
+| 获取语音消息及转文本统计数据 | gme  | DescribeVoiceMessageStatistics |
+| 下载用量数据         | gme  | DownloadApplicationData        |
+| 下载公私钥          | gme  | DownloadKey                    |
+| 下载录制文件地址列表     | gme  | DownloadRecordFileUrlList      |
+| 修改应用基本信息       | gme  | ModifyApplication              |
+| 修改应用开关状态       | gme  | ModifyAppStatus                |
+| 修改密钥           | gme  | ModifySecretKey                |

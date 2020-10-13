@@ -15,8 +15,8 @@ SDK 支持微信支付和支付宝。
 
 ## 下载地址
 - [Windows 环境 C++](https://main.qcloudimg.com/raw/8b159f9a7f202d1896ac66ae6c0bf0e4.zip)：其中刷卡支付和扫码支付为异步方式，接口调用成功只代表支付提交成功，支付结果需要通过查询订单获取；取消订单、申请退款、退款查询、门店上传、门店下载接口为同步调用云支付接口。解压后包含以下两个目录：   
-	- `CloudPayAPI\_SDK\_CPP\_DLL`目录，包含编译好的 dll 库，可直接使用。  
-	- `CloudPayAPI\_SDK\_CPP`目录，包含源码，开发者可自行编译。  
+ - `CloudPayAPI\_SDK\_CPP\_DLL` 目录，包含编译好的 dll 库，可直接使用。  
+ - `CloudPayAPI\_SDK\_CPP`目录，包含源码，开发者可自行编译。  
 - [C](https://main.qcloudimg.com/raw/daa50afec21c3d8c8030b783448ba10a.zip)：所有接口均为同步接口。
 - [C#](https://main.qcloudimg.com/raw/b104bf696c175aeb3b712ebe1b488342.rar)：所有接口均为同步接口。
 - [Java](https://tyx-cloudpay-1253256722.cos.ap-chengdu.myqcloud.com/%E5%BE%AE%E4%BF%A1%E4%BA%91%E6%94%AF%E4%BB%98_JAVA_SDK_1.6.zip)：所有接口均为同步接口。

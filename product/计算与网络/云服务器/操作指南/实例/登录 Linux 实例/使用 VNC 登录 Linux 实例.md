@@ -14,7 +14,7 @@ Windows，Linux 和 Mac OS 系统
 - VNC 登录为独享终端，即同一时间只有一个用户可以使用 VNC 登录。
 
 ## 前提条件
-已获取登录实例的管理员帐号及密码（或密钥）。
+已获取登录实例的管理员帐号及密码。
 - 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
 - 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 
@@ -33,7 +33,9 @@ Windows，Linux 和 Mac OS 系统
 
 ## 后续操作
 
+
 当您成功登录云服务器后，您可以在腾讯云服务器上搭建个人站点，论坛或者使用其他操作。相关操作可参考：
+-  [Linux 常用操作及命令](https://cloud.tencent.com/document/product/213/2150) 
 - [搭建 WordPress 个人站点](https://cloud.tencent.com/document/product/213/34064)
 - [搭建 Discuz! 论坛](https://cloud.tencent.com/document/product/213/34065)
 

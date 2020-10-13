@@ -1,11 +1,13 @@
 域名接入云直播后，系统会为您自动分配一个 CNAME 域名（以`.liveplay.myqcloud.com`为后缀)，可在【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】列表中查看。CNAME 域名不能直接访问，您需要在域名服务提供商处完成 CNAME 配置，配置生效后，即可享受云直播服务。
 
+以下视频将为您介绍如何在腾讯云配置域名 CNAME 解析的过程：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2751-53266?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 注意事项
 - 推流域名和播放域名均需完成 CNAME 解析。
 - 请前往您的域名解析服务商处配置 CNAME 记录，具体操作请咨询您的域名解析服务提供商。
 - CNAME 设置完成后约15分钟生效。若您设置多层 CNAME，云直播无法有效监测解析结果，请以实际的访问情况为参考。
-- 若 CNAME 设置完成后长时间未显示成功，请前往参见 [CNAME 配置问题定位](https://cloud.tencent.com/document/product/267/30010#.E9.85.8D.E7.BD.AE.E5.AE.8C.E6.88.90-cname-.E5.90.8E.EF.BC.8C.E4.BE.9D.E6.97.A7.E6.98.BE.E7.A4.BA-cname-.E6.9C.AA.E9.85.8D.E7.BD.AE.E6.98.AF.E4.BB.80.E4.B9.88.E5.8E.9F.E5.9B.A0.EF.BC.9F)。
+- 若 CNAME 设置完成后长时间未显示成功，请前往参见 [CNAME 配置问题定位](https://cloud.tencent.com/document/product/267/45252)。
 
 ## 前提条件
 - 已在 [域名注册](https://dnspod.cloud.tencent.com/?from=qcloudProductDns) 申请域名，并备案成功。
@@ -27,7 +29,7 @@
 <table>
     <tr><th width="12%" >参数名</th><th width="38%">参数描述</th><th width="50%">如何配置</th></tr>
     <tr>
-        <td>主机记录	</td>
+		<td><a href="https://cloud.tencent.com/document/product/302/3468#.E4.B8.BB.E6.9C.BA.E8.AE.B0.E5.BD.95.E7.9A.84.E7.94.A8.E6.B3.95.E6.9C.89.E4.BB.80.E4.B9.88.EF.BC.9F">主机记录</a>	</td>
         <td>填写子域名的前缀	</td>
         <td>
             <ul style="margin-bottom:0;">
@@ -38,22 +40,22 @@
         </td>
     </tr>
     <tr>
-        <td>记录类型</td>
+		<td><a href="https://cloud.tencent.com/document/product/302/3468#.E8.AE.B0.E5.BD.95.E7.B1.BB.E5.9E.8B.E7.9A.84.E5.90.AB.E4.B9.89.E6.98.AF.E4.BB.80.E4.B9.88.EF.BC.9F">记录类型</a></td>
         <td>记录类型，此处为 CNAME 类型</td>
         <td>将域名指向另一个域名，请选择：<b>CNAME</b></td>
     </tr>
     <tr>
-        <td>线路类型</td>
+        <td><a href="https://cloud.tencent.com/document/product/302/3468#.E7.BA.BF.E8.B7.AF.E7.9A.84.E7.94.A8.E6.B3.95.E6.9C.89.E4.BB.80.E4.B9.88.EF.BC.9F">线路类型</a></td>
         <td>用于 DNS 服务器在解析域名时，根据访问者的来源，返回对应的服务器 IP 地址</td>
         <td>选择：<b>默认</b></td>
     </tr>
     <tr>
-        <td>记录值</td>
+        <td><a href="https://cloud.tencent.com/document/product/302/3468#.E8.AE.B0.E5.BD.95.E5.80.BC.E5.A6.82.E4.BD.95.E5.A1.AB.E5.86.99.EF.BC.9F">记录值</a></td>
         <td>需指向的域名，填写腾讯云控制台【<a href="https://console.cloud.tencent.com/live/domainmanage">域名管理</a>】域名对应的 CNAME 值</td>
         <td>填写格式为：<code><b style="color:red;">xxxx</b>.livecdn.liveplay.myqcloud.com</code></td>
     </tr>
     <tr>
-        <td>TTL(秒)</td>
+        <td><a href="https://cloud.tencent.com/document/product/302/3468#.E8.AE.B0.E5.BD.95.E5.80.BC.E5.A6.82.E4.BD.95.E5.A1.AB.E5.86.99.EF.BC.9F">TTL(秒)</a></td>
         <td>缓存的生存时间，默认最常用的<b>600秒</b></td>
         <td>建议填写<b>600秒</b></td>
     </tr>
@@ -138,4 +140,4 @@
 ![](https://main.qcloudimg.com/raw/8bad41428852a7c32111933b33e8853c.png)
 
 
->!若 CNAME 设置完成后长时间未显示成功，可参考 [CNAME 配置问题定位。](https://cloud.tencent.com/document/product/267/30010#.E9.85.8D.E7.BD.AE.E5.AE.8C.E6.88.90-cname-.E5.90.8E.EF.BC.8C.E4.BE.9D.E6.97.A7.E6.98.BE.E7.A4.BA-cname-.E6.9C.AA.E9.85.8D.E7.BD.AE.E6.98.AF.E4.BB.80.E4.B9.88.E5.8E.9F.E5.9B.A0.EF.BC.9F)
+>!若 CNAME 设置完成后长时间未显示成功，可参考 [CNAME 配置问题定位。](https://cloud.tencent.com/document/product/267/45252)

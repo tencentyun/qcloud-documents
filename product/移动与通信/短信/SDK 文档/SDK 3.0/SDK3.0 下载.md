@@ -9,3 +9,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 |JavaScript  | [Node.js SDK 文档](https://cloud.tencent.com/document/product/382/43197)   | [Node.js SDK](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)|
 |C# | [C# SDK 文档](https://cloud.tencent.com/document/product/382/43198)  | [C# SDK](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)|
 |Go | [Go SDK 文档](https://cloud.tencent.com/document/product/382/43199)  | [Go SDK](https://github.com/TencentCloud/tencentcloud-sdk-go)|
+
+>!
+- 本章节短信 SDK 均为最新 SDK 3.0，后续短信相关新增功能都会在此章节更新。我们强烈推荐您使用最新的 SDK 3.0 以及配套的 API 3.0 接口。
+- 现有2.0版本的 API 和 SDK 功能依然保持，未来可能停止维护，如您仍需使用旧版 SDK 可参考 [短信 SDK 2.0](https://cloud.tencent.com/document/product/382/5804)。

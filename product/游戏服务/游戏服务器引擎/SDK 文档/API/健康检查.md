@@ -1,0 +1,44 @@
+<span id="OnHealthCheck"></span>
+## 接口名称
+
+ OnHealthCheck
+
+## 接口描述
+GSE 会每隔一分钟调用一次该接口，用于获取游戏进程的健康状态，游戏进程需通过该接口，返回当前进程的健康状态。
+
+## 请求消息体
+
+```
+message HealthCheckRequest {
+}
+```
+
+## 返回消息体
+
+```
+message HealthCheckResponse {
+    bool healthStatus = 1;
+}
+```
+
+## 字段说明
+
+**HealthCheckResponse**
+
+| 字段名       | 类型 | 说明                              |
+| ------------ | ---- | --------------------------------- |
+| healthStatus | bool | 进程健康返回 true，否则返回 false |
+
+
+## 使用示例
+
+```
+func (s *rpcService) OnHealthCheck(ctx context.Context, req *grpcsdk.HealthCheckRequest) (*grpcsdk.HealthCheckResponse, error) {
+	resp := &grpcsdk.HealthCheckResponse{
+		HealthStatus: s.healthStatus,  //标记当前进程的健康状况
+	}
+
+	return resp, nil
+}
+```
+

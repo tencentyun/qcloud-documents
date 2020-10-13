@@ -22,6 +22,7 @@ public Guzzle\Service\Resource\Model PutBucketDomain(array $args = array());
 
 #### 请求示例
 
+[//]: # (.cssg-snippet-put-bucket-domain)
 ```php
 try {
     $result = $cosClient->putBucketDomain(array( 
@@ -77,6 +78,7 @@ public Guzzle\Service\Resource\Model GetBucketDomain(array $args = array());
 
 #### 请求示例
 
+[//]: # (.cssg-snippet-get-bucket-domain)
 ```php
 try {
     $result = $cosClient->getBucketDomain(array( 

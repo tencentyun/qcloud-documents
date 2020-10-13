@@ -24,11 +24,8 @@ Content-Type: application/xml
 
 #### 请求头
 
-此接口除使用公共请求头部外，还支持以下请求头部，了解公共请求头部详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-|名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	|描述	|类型	|是否必选|
-|---|---|---|---|
-|Content-MD5	|RFC 1864 中定义的经过 Base64 编码的请求体内容 MD5 哈希值，用于完整性检查，验证请求体在传输过程中是否发生变化	|string	|是|
 
 #### 请求体
 
@@ -68,19 +65,11 @@ Content-Type: application/xml
 
 #### 响应体
 
-该请求响应体为空。
+该响应体为空。
 
 #### 错误码
 
-以下描述此请求可能会发生的一些特殊的且常见的错误情况：
-
-| 错误码                | 描述                                                         | HTTP 状态码                                                  |
-| --------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| SignatureDoesNotMatch | 提供的签名不符合规则，返回该错误码                           | 403 [Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3) |
-| NoSuchBucket          | 如果试图添加的规则所在的 Bucket 不存在，返回该错误码         | 404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) |
-| MalformedXML          | XML 格式不合法，请跟 restful api 文档仔细比对                | 400 [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) |
-| BadRequest            | 如超过了允许一个 Bucket 最大设置的 Tag 数量，目前最大支持10个 | 400 [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) |
-| InvalidTag            | Tag 的 key 和 value 中包含了保留字符串 cos: 或者 Project     | 400 [Bad Request](https://tools.ietf.org/html/rfc7231#section-6.5.1) |
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -93,7 +82,7 @@ PUT /?tagging HTTP/1.1
 User-Agent: curl/7.29.0
 Accept: */*
 Host: examplebucket-1250000000.cos.ap-chengdu.myqcloud.com
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDrbAYjEBqqdEconpFi8NPFsOjrnX4LYUE&q-sign-time=1516361923;1517361973&q-key-time=1516361923;1517361973&q-url-param-list=tagging&q-header-list=content-md5;host&q-signature=71251feb4501494edcfbd01747fa873003759404
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDrbAYjEBqqdEconpFi8NPFsOjrnX4****&q-sign-time=1516361923;1517361973&q-key-time=1516361923;1517361973&q-url-param-list=tagging&q-header-list=content-md5;host&q-signature=71251feb4501494edcfbd01747fa87300375****
 Content-MD5: LIbd5t5HLPhuNWYkP6qHcQ==
 Content-Length: 127
 Content-Type: application/xml
@@ -121,5 +110,5 @@ Content-Length: 0
 Connection: keep-alive
 Date: Fri, 19 Jan 2018 11:40:22 GMT
 Server: tencent-cos
-x-cos-request-id: NWE2MWQ5MjZfMTBhYzM1MGFfMTA5ODVfMTVjNDM=
+x-cos-request-id: NWE2MWQ5MjZfMTBhYzM1MGFfMTA5ODVfMTVj****
 ```

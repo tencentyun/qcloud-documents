@@ -13,8 +13,7 @@ import pip
 pip.main(['install', "package_name"])
 ```
 
-
-
+ 
 ## 操作步骤
 
 1. **添加组件**

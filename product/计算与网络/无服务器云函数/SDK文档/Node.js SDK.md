@@ -47,7 +47,7 @@ exports.main_handler = (event, context, callback) => {
     callback(null, event); 
 
     // 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
-    let cred = new Credential("AKIDqeHm8Jn8mEYhgWkhOwJUUj4KQPDpqj3C", "75rRuGRSHtKvTwMgsvnwxmTyJSODrMkx");
+    let cred = new Credential("AKIxxxxxxPDpqj3C", "75rxxxxxxyJSODrMkx");
 
      // 实例化要请求产品的client对象，以及函数所在的地域
     let client = new ScfClient(cred, "ap-shanghai");

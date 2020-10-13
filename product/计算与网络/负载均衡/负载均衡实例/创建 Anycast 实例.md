@@ -1,6 +1,6 @@
-负载均衡支持创建 Anycast 负载均衡（下文也叫 Anycast CLB）实例，Anycast CLB 是支持全球动态加速的负载均衡服务，CLB 的 VIP 会发布在全球多个地域，客户端接入最近的 POP 接入点，通过腾讯云数据中心高速互联网转发到云服务器上。
+负载均衡支持创建 Anycast 负载均衡（下文也叫 Anycast CLB）实例，Anycast CLB 是支持多地动态加速的负载均衡服务，CLB 的 VIP 会发布在多个地域，客户端接入最近的 POP 接入点，通过腾讯云数据中心高速互联网转发到云服务器上。
 Anycast CLB 能实现网络传输的质量优化和多入口就近接入，减少网络传输的抖动、丢包，最终提升云上应用的服务质量，扩大服务范围，精简后端部署。
->?本功能内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/act/apply/aia)。
+>?本功能内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/47mdddtoc56)。
 
 ## 什么是 Anycast
 Anycast 又称为任播或泛播，指同一个 IP 在多个地域同时发布路由，路由算法会把用户流量送达到最近的路由器。
@@ -17,7 +17,7 @@ Anycast CLB 用 Anycast 的方式把 VIP 同时发布到多个地域，请求包
 ## Anycast CLB 架构
 Anycast CLB 的架构如下图所示。
 ![](https://main.qcloudimg.com/raw/246a76b59853740089f012832c0a5fb0.svg)
-Anycast CLB 的 VIP 会发布在全球多个地域，客户端接入最近的 POP 接入点，通过腾讯云内网将访问流量极速转发至云服务器。
+Anycast CLB 的 VIP 会发布在多个地域，客户端接入最近的 POP 接入点，通过腾讯云内网将访问流量极速转发至云服务器。
 
 ### Anycast 发布域
 Anycast 发布域是加速 IP 地址发布的地点，即 Anycast CLB 的 VIP 所发布的 POP 接入点，客户端会接入最近的 POP 点。目前 Anycast CLB 支持同时发布在：北京、上海、广州、香港、多伦多、硅谷、法兰克福、弗吉尼亚、莫斯科、新加坡、首尔、孟买、曼谷和东京。
@@ -33,8 +33,8 @@ Anycast 发布域是加速 IP 地址发布的地点，即 Anycast CLB 的 VIP �
 >- Anycast EIP 支持绑定内网负载均衡，不支持绑定传统型内网负载均衡。
 >
 ## Anycast CLB 使用场景
-### 全球同服
-游戏客户希望全球多个地域玩家在同一区内（或者企业在全球各地的分公司希望使用同一个数据中心），可以把后端服务部署在一个地域（如广州），购买一个广州地域的 Anycast CLB，根据需要选择发布域，全球玩家（或员工）将就近接入，并访问同一套后端服务。
+### 多地同服
+游戏客户希望多个地域玩家在同一区内（或者企业在各地的分公司希望使用同一个数据中心），可以把后端服务部署在一个地域（如广州），购买一个广州地域的 Anycast CLB，根据需要选择发布域，多地玩家（或员工）将就近接入，并访问同一套后端服务。
 ![](https://main.qcloudimg.com/raw/052fa943c9cdfa90c98a4f84ec0976e0.svg)
 
 ### 游戏加速
@@ -44,7 +44,7 @@ Anycast CLB 在游戏加速中的应用也非常广泛，游戏请求就近接�
 
 ## 操作指南
 ### 前提条件
-本功能内测中，操作前请确保您的 [内测申请](https://cloud.tencent.com/act/apply/aia) 已通过。
+本功能内测中，操作前请确保您的 [内测申请](https://cloud.tencent.com/apply/p/47mdddtoc56) 已通过。
 ### 操作步骤
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在左侧导航栏中，单击 【[弹性公网IP ](https://console.cloud.tencent.com/cvm/eip2)】，进入 “弹性公网IP” 管理页面。

@@ -34,7 +34,7 @@ Authorization: Auth String
 </AccelerateConfiguration>
 ```
 
-具体的数据内容如下：
+具体的节点描述如下：
 
 | 节点名称（关键字）      | 父节点                  | 描述                                                 | 类型      |
 | ----------------------- | ----------------------- | ---------------------------------------------------- | --------- |
@@ -54,12 +54,8 @@ Authorization: Auth String
 
 #### 错误码
 
-该请求操作可能会出现如下错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
-| 错误码          | HTTP状态码      | 描述                                                         |
-| --------------- | --------------- | ------------------------------------------------------------ |
-| InvalidArgument | 400 Bad Request | 1. 如果请求的 xml body 为空，将返回 InvalidArgument。<br>2. 开启全球加速的状态只有 Enabled 和 Suspended 两个合法值，如果写了其他状态，会返回 InvalidArgument。 |
-| InvalidDigest   | 400 Bad Request | 携带的 Content-MD5 和服务端计算的请求 body 的不一致。        |
 
 ## 实际案例
 
@@ -87,5 +83,5 @@ Content-Length: 0
 Connection: keep-alive
 Date: Wed, 23 Aug 2019 08:14:53 GMT
 Server: tencent-cos
-x-cos-request-id: NTk5ZDM5N2RfMjNiMjM1MGFfMmRiX2Y0ZThm
+x-cos-request-id: NTk5ZDM5N2RfMjNiMjM1MGFfMmRiX2Y0****
 ```

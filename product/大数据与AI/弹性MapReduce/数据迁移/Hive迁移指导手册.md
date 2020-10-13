@@ -1,7 +1,6 @@
 Hive 迁移涉及两部分，数据迁移和元数据迁移。Hive 表数据主要存储在 HDFS 上，故数据的迁移主要在 HDFS 层。Hive 的元数据主要存储在关系型数据库，可平滑迁移到云上 TencentDB，并可保障高可用。
 
 ### Hive 元数据迁移
-
 1. Dump 源 Hive 元数据库。
 ```
 mysqldump -hX.X.X.X -uroot -pXXXX --single-transaction --set-gtid-purged=OFF hivemetastore > hivemetastore-src.sql  
@@ -12,17 +11,14 @@ mysqldump -hX.X.X.X -uroot -pXXXX --single-transaction --set-gtid-purged=OFF hiv
 # hivemetastor 是 Hive 元数据库名 
 ```
 2. 确认目标 Hive 表数据在 HDFS 中的缺省路径。
-Hive 表数据在 HDFS中 的缺省路径由`hive-site.xml`中的`hive.metastore.warehouse.dir`指定。如果 Hive 表在 HDFS 的存储位置依然保持与源 Hive 一致，那么需要修改为与源 Hive 数据库中的值一致。
-
- 例如：源`hive-site.xml`中`hive.metastore.warehouse.dir`为下面的值。
+Hive 表数据在 HDFS 中的缺省路径由`hive-site.xml`中的`hive.metastore.warehouse.dir`指定。如果 Hive 表在 HDFS 的存储位置依然保持与源 Hive 一致，那么需要修改为与源 Hive 数据库中的值一致。例如，源`hive-site.xml`中`hive.metastore.warehouse.dir`为下面的值。
 ```
 <property>  
     <name>hive.metastore.warehouse.dir</name>  
     <value>/apps/hive/warehouse</value>  
 </property>  
 ```
-
- 目标`hive-site.xml`中`hive.metastore.warehouse.dir`为下面的值。
+目标`hive-site.xml`中`hive.metastore.warehouse.dir`为下面的值。
 ```
 <property>  
     <name>hive.metastore.warehouse.dir</name>  
@@ -59,19 +55,14 @@ mysql> SELECT DB_LOCATION_URI from DBS;
 | hdfs://HDFS2648/usr/hive/warehouse/hitest.db |  
 +-----------------------------------------------+ 
 ```
-
- 其中`hdfs://HDFS2648`是 HDFS 默认文件系统名，由`core-site.xml`中的`fs.defaultFS`指定。
+其中`hdfs://HDFS2648`是 HDFS 默认文件系统名，由`core-site.xml`中的`fs.defaultFS`指定。
 ```
 <property>  
     <name>fs.defaultFS</name>  
     <value>hdfs://HDFS2648</value>  
 </property> 
 ```
-`/usr/hive/warehouse`为 Hive 表在 HDFS 中的默认存储路径，也是`hive-site.xml`中`hive.metastore.warehouse.dir`指定的值。
-
- 所以我们需要修改源 hive 元数据 sql 文件中的 SDS.LOCATION 和 DBS.DB_LOCATION_URI 两个字段。确保被导入的 Hive 元数据库中的这两个字段使用的是正确的路径。
-
- 可以使用下面 sed 命令批量修改 sql 文件。
+`/usr/hive/warehouse`为 Hive 表在 HDFS 中的默认存储路径，也是`hive-site.xml`中`hive.metastore.warehouse.dir`指定的值。所以我们需要修改源 hive 元数据 sql 文件中的 SDS.LOCATION 和 DBS.DB_LOCATION_URI 两个字段。确保被导入的 Hive 元数据库中的这两个字段使用的是正确的路径。可使用如下 sed 命令批量修改 sql 文件。
 ```
 替换ip：sed -i 's/oldcluster-ip:4007/newcluster-ip:4007/g' hivemetastore-src.sql  
 替换defaultFS：sed -i 's/old-defaultFS/new-defaultFS/g' hivemetastore-src.sql  
@@ -105,8 +96,7 @@ mysql -hX.X.X.X -uroot -pXXXX hivemetastore < hivemetastore-src.sql
 hive --service version 
 ```
 hive 的升级脚本存放在`/usr/local/service/hive/scripts/metastore/upgrade/mysql/`目录下。
-
- hive 不支持跨版本升级，例如 hive 从1.2升级到2.3.0需要依次执行：
+hive 不支持跨版本升级，例如 hive 从1.2升级到2.3.0需要依次执行：
 ```
 upgrade-1.2.0-to-2.0.0.mysql.sql -> upgrade-2.0.0-to-2.1.0.mysql.sql -> upgrade-2.1.0-to-2.2.0.mysql.sql -> upgrade-2.2.0-to-2.3.0.mysql.sql
 ```

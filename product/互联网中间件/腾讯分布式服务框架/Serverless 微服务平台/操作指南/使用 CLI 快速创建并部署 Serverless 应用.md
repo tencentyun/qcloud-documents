@@ -31,7 +31,7 @@ chmod +x create_app.sh
 ```shell
 #!/bin/sh
 
-# 这里需要按照您实际部署的 region 进行调整，例如ap-shanghai、ap-beijing
+# 这里需要按照您实际部署的 region 进行调整，例如 ap-shanghai、ap-beijing
 REGION="ap-guangzhou"
 
 # 这里需要按您实际需要的应用名称（不能和当前地域下已有应用重名）进行调整
@@ -55,7 +55,7 @@ PKG_TYPE="zip"
 # 配置地域
 tccli configure set region $REGION
 
-# 获取程序包MD5和大小
+# 获取程序包 MD5 和大小
 PKG_MD5=$(md5sum $PKG_LOCAL_PATH | awk  '{print $1}')
 PKG_SIZE=$(ls -l $PKG_LOCAL_PATH | awk  '{print $5}')
 echo "your pkg md5: $PKG_MD5, size: $PKG_SIZE"

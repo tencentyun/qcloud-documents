@@ -84,13 +84,13 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 
 ### 配置头像
 
-头像是所有消息都包含的内容，且属于 layout 配置，通过修改 TUIMessageCellLayout 可改变所有消息的头像样式。
+头像是所有消息都包含的内容，我们首先要获取对应消息的 layout 实例，然后设置头像的大小和位置，以文本消息为例：
 
 #### 设置头像大小
 
 ```objectivec
 // 设置发送头像大小；设置接收的方法类似
-[TUIMessageCellLayout outgoingMessageLayout].avatarSize = CGSizeMake(100, 100);
+[TUIMessageCellLayout outgoingTextMessageLayout].avatarSize = CGSizeMake(100, 100);
 ```
 
 
@@ -98,9 +98,10 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 
 ```objectivec
 // 设置发送位置；设置接收的方法类似
-[TUIMessageCellLayout outgoingMessageLayout].avatarInsets = UIEdgeInsetsMake(10, 10, 20, 20);
+[TUIMessageCellLayout outgoingTextMessageLayout].avatarInsets = UIEdgeInsetsMake(10, 10, 20, 20);
 ```
 
+其他消息类型请获取对应的 layout 实例设置头像的大小和位置。
 
 ### 配置昵称字体和颜色
 

@@ -13,10 +13,7 @@ iPhone 的兼容性适配，需在配置里加上摄像头和麦克风的使用�
 由于 Android 机器碎片化严重，用系统 WebView 调起系统摄像头完成视频录制可能存在很多兼容性问题，如部分机器出现调不起摄像头、调起摄像头无法录制视频等。
 实现兼容性处理步骤如下：
 1. 引入工具类
-	- [下载 SDK](https://share.weiyun.com/5VTnQgj)，请联系您的产品对接专员获取密码。
-	- 下载 [WBH5FaceVerifySDK.java](https://share.weiyun.com/5ZPKj2H) 文件（下载密码请咨询您的产品对接专员），并将文件拷贝到项目中。
-
-
+下载 [WBH5FaceVerifySDK.java](https://share.weiyun.com/5VTnQgj) 文件（下载密码请咨询您的产品对接专员），并将文件拷贝到项目中。
 2. 申请权限
  1. 在 Manifest.xml 文件中增加申请以下权限
  ```

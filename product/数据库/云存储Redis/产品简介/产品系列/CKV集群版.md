@@ -1,3 +1,5 @@
+>?云数据库 Redis CKV 版已暂停售卖，建议您选择 [云数据库 Redis 内存版](https://cloud.tencent.com/document/product/239/18336)。
+
 云数据库 Redis CKV 版（集群架构）提供双副本集群实例，突破单线程瓶颈，可极大满足对于大容量或高性能的业务需求，CKV 版（集群架构）兼容 Redis 3.2 版本协议和命令，最大支持128个分片，支持12GB - 48TB容量。
 
 ## 功能特性

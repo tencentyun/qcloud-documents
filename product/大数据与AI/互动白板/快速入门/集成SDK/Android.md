@@ -72,6 +72,44 @@ dependencies {
 单击 Sync Now 按钮，完成 TEduBoard SDK 集成。
 
 
+### Google Play 境外版本集成方式
+互动白板默认使用了腾讯浏览服务提供的 TBS SDK 。为了 apk 包大小增量，及时动态发版解决安全隐患，TBS SDK 采用了后台动态下发内核的方案。由于 Google Play 禁止任何二进制代码的下发（包括 so、dex、jar ）和插件化技术的使用，如果您有多渠道打包能力，您可以在境外版本须接入仅保留接口的 TBS SDK ，保证编译通过。
+
+集成方法如下：
+
+#### 1.下载并导入精简版 TBS SDK
+下载([下载地址](https://sdk-1259648581.cos.ap-nanjing.myqcloud.com/android/tbs/tbs_sdk_noimpl_43799.jar)) TBS SDK 的 jar 文件并拷贝到工程的 app/libs 目录下。
+
+![](https://main.qcloudimg.com/raw/a3a00d36964e50f3ec4605900d9c8ab1.png)
+
+#### 2. 指定本地仓库路径
+
+在工程 app/build.gradle 中，添加 flatDir 配置，指定本地仓库路径。
+
+```grovy
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+```
+![](https://main.qcloudimg.com/raw/79dd734da4ab48a503a11765cf128894.png)
+
+#### 3.  添加 SDK 依赖
+
+在 app/build.gradle 中，添加引用 jar 包以及不带 TBS 模块的白板 SDK。
+
+```grovy
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.tencent.teduboard:TEduBoardSdkNoTbs:2.4.8.31'
+    ...
+}
+```
+![](https://main.qcloudimg.com/raw/233c90a563a5288e1654eb6e459f313a.png)
+
+注意，这种情况下不能依赖带 TBS 模块的白板 SDK，否则会导致依赖冲突，无法编译通过。
+
 ## 配置 App 权限
 
 在 AndroidManifest.xml 中配置 App 的权限，TEduBoard SDK 需要以下权限：
@@ -136,19 +174,7 @@ SDK 所有回调都在主线程内执行，因此可以在回调里直接执行 
 
 #### 3. 白板数据同步
 
-白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 支持两种不同的数据同步模式。
-
-**使用腾讯云 IMSDK 同步数据**
-
-如果您在使用白板的同时使用了腾讯云 IMSDK，则只需要在初始化白板控制器时进行指定 initParam 参数的 timSync 字段为 true 即可实现数据同步。
-```java
-// 使用腾讯的 IM 进行消息传递，前提是您的项目中已经集成 TIM。
-// TEduBoardInitParam 的 timSync 的默认值为 true
-TEduBoardController.TEduBoardInitParam initParam = new TEduBoardController.TEduBoardInitParam(); 
-initParam.timSync = true;
-```
-
->! 您需要自行实现 IMSDK 的登录、加入群组等操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
+白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 默认使用 IMSDK 作为信令通道，您需要自行实现 IMSDK 的初始化、登录、加入群组操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
 
 步骤一、初始化 IMSDK
 
@@ -215,27 +241,6 @@ TIMGroupManager.getInstance().createGroup(param, new TIMValueCallBack<String>() 
 
 1. 推荐业务后台使用 [IM REST API](https://cloud.tencent.com/document/product/269/1615) 提前创建群组。
 2. 不同的群组类型，群组功能以及成员数量有所区别，具体请查看 [IM 群组系统](https://cloud.tencent.com/document/product/269/1502)。
-
-**使用自定义的数据通道同步数据**
-
-如果使用自已的通道进行消息传递，则需要按下面步骤进行：
-
-```java
-//（1）将 TEduBoardInitParam 的 timSync 参数初始为 NO
-TEduBoardController.TEduBoardInitParam initParam = new TEduBoardController.TEduBoardInitParam(); 
-initParam.timSync = false;
-
-//（2）TEduBoard 有数据要同步给其他用户时，将调用 TEduBoardDelegate 接口中的 onTEBSyncData 函数
- @Override
- public void onTEBSyncData(String data) {
-   // 使用自定义的通道，发送 data 数据给其他白板用户。
- }
-
-//（3）在收到其他用户的信息时，将消息传递给 TEduBoard.
-mBoard.addSyncData(data);
-```
-
->! 实时录制功能在自定义数据通道模式下不可用
 
 
 #### 4. 销毁白板

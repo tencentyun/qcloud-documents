@@ -1,4 +1,5 @@
 ## SDK 功能简介
+
 语音消息 SDK 支持以下操作：
 - [发送语音验证码](#发送语音验证码)
 - [指定模板发送语音通知](#指定模板发送语音通知)
@@ -11,7 +12,7 @@
 
 ## SDK 使用指南
 ### 相关资料
-各个接口及其参数的详情介绍请参见 [API 指南](https://cloud.tencent.com/document/product/1128/37530) 、[SDK 文档](https://github.com/qcloudsms/qcloudsms_csharp) 和 [错误码](https://cloud.tencent.com/document/product/1128/37531)。
+各个接口及其参数的详情介绍请参见 [API 指南](https://cloud.tencent.com/document/product/1128/37530) 、[SDK 文档](https://github.com/qcloudsms/qcloudsms_js) 和 [错误码](https://cloud.tencent.com/document/product/1128/37531)。
 
 ### 前提条件
 在使用 SDK 前，您需要准备以下信息：

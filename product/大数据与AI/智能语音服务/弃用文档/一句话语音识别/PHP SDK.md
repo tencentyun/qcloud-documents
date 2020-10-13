@@ -15,7 +15,7 @@
 require('SASRsdk.php');
 //用户需要修改为自己腾讯云官网账号中的appid，secretid与secret_key
 $secretKey = 'kKm26uXCgLtGRWVJvKtGU0LYdWCgOvGP';
-$SecretId = 'AKID31NbfXbpBLJ4kGJrytc9UfgVAlGltJJ8';
+$SecretId = 'AKID31NbfXbpBLJ4kGJrytc9UfgVAlG*****';
 // 识别引擎 8k or 16k
 $EngSerViceType = '16k';
 // 语音数据来源 0:语音url，1:语音数据bodydata

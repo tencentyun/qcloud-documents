@@ -72,7 +72,7 @@
 7. 参考以下信息进行访问设置。如下图所示：
 ![](https://main.qcloudimg.com/raw/1199b006bed6caab09ea25975afb5df1.png)
  - **Service**：勾选【启用】。
- - **服务访问方式**：服务的访问方式决定该服务的网络属性，不同访问方式的服务可提供不同网络能力。详情请参见 [Service 管理](https://cloud.tencent.com/document/product/457/31710#.E7.AE.80.E4.BB.8B.3Cspan-id.3D.22introduction.22.3E.3C.2Fspan.3E)。
+ - **服务访问方式**：服务的访问方式决定该服务的网络属性，不同访问方式的服务可提供不同网络能力。详情请参见 [服务访问方式](https://cloud.tencent.com/document/product/457/45487#.E6.9C.8D.E5.8A.A1.E8.AE.BF.E9.97.AE.E6.96.B9.E5.BC.8F)。
  - **负载均衡器**：根据实际需求进行选择。
  - **端口映射**：选择”协议“，填写“容器端口”和“服务端口”。
 8. 单击【创建Workload】，即可完成服务的创建。创建完成的服务将出现在服务列表中。

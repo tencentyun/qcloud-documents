@@ -28,3 +28,5 @@
 ![](https://main.qcloudimg.com/raw/f4c849c61dac096b9a0535bf6e7a2b9e.png)
 - 在 “云服务器配置” 页面，TKE 将自动根据选择的机型进行 GPU 的驱动安装等初始流程，您无需关心基础镜像。 
 
+
+

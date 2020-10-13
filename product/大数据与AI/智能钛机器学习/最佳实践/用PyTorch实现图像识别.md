@@ -43,7 +43,7 @@ PyTorch 是一个开源的深度学习框架，对深度学习算法进行训练
 ![](https://main.qcloudimg.com/raw/bb805639b4e5dcf1714a2281620d37d1.png) 
 
 #### 二、利用 PyTorch 框架运行自定义代码 
-1. 在智能钛控制台的左侧导航栏中，选择【框架】>【深度学习】>【PyTorch】，并拖入画布中。  
+1. 在 [智能钛机器学习平台控制台](https://console.cloud.tencent.com/tione/project/list) 的左侧导航栏中，选择【框架】>【深度学习】>【PyTorch】，并拖入画布中。  
 2. 右键【PyTorch】，选择【重命名】，输入新名称：手写数字识别，单击【确定】。  
 3. 单击【手写数字识别】，在右侧弹出的配置栏中配置框架参数。 
   - 单击【程序脚本】，在自动弹出的【资源列表】中上传本地的用户自定义代码（此处您可直接下载本文提供的源代码 [mnist.py](https://ayunga-1256633383.cos.ap-chengdu.myqcloud.com/mnist.py) 到本地，然后上传到工作流进行案例学习）。  

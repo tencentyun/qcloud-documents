@@ -155,13 +155,13 @@ int main(int argc, const char * argv[]) {
 	string SecretId="Your SecretId";
 	string SecretKey="Your SecretKey";
 	//8k or 16k
-	string EngSerViceType="16k";
+	string EngSerViceType="16k_zh";
 	//1 or 0
-	//填1的时候URL可以设置为空
+	//填1的时候 URL 可以设置为空
 	string SourceType="0";
 	//wav or mp3
 	string VoiceFormat="wav";
-	string fileURI="https://ruskin-1256085166.cos.ap-guangzhou.myqcloud.com/test.wav";
+	string fileURI="https://asr-audio-1300466766.cos.ap-nanjing.myqcloud.com/test16k.wav";
 	//string fileURI="test.wav";
 	TCloudSASR *sasrdemo=new TCloudSASR();
 

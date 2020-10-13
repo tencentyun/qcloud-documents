@@ -21,18 +21,20 @@
 
 ```html
 <!-- axios SDK -->
-<script src="https://resources-tiw.qcloudtrtc.com/board/third/axios/axios.min.js"></script>
+<script src="https://res.qcloudtiw.com/board/third/axios/axios.min.js"></script>
 <!-- COS SDK -->
-<script src="https://resources-tiw.qcloudtrtc.com/board/third/cos/5.1.0/cos.min.js"></script>
+<script src="https://res.qcloudtiw.com/board/third/cos/5.1.0/cos.min.js"></script>
 <!-- TEduBoard SDK -->
-<script src="https://resources-tiw.qcloudtrtc.com/board/2.4.6/TEduBoard.min.js"></script>
+<script src="https://res.qcloudtiw.com/board/2.5.1/TEduBoard.min.js"></script>
 ```
 
 如果您需要添加视频文件还需要添加以下代码：
 ```html
-<link href="https://resources-tiw.qcloudtrtc.com/board/third/videojs/video-js.min.css" rel="stylesheet">
-<script src="https://resources-tiw.qcloudtrtc.com/board/third/videojs/video.min.js"></script>
+<link href="https://res.qcloudtiw.com/board/third/videojs/1.0.0/video-js.min.css" rel="stylesheet">
+<script src="https://res.qcloudtiw.com/board/third/videojs/1.0.0/video.min.js"></script>
 ```
+
+> 目前互动白板中依赖 axios, cos，请使用 script:src 的方式加载，这样能够保证在全局访问到 axios 和 cos，不支持 import 的方式。
 
 ## 使用 TEduBoard SDK
 
@@ -42,7 +44,7 @@
 ```
 var initParams = {
   id: domId, // dom节点id
-  classId: classId, // 整数
+  classId: classId, // 课堂 ID，32位整型，取值范围[1, 4294967294]
   sdkAppId: sdkAppId, // 整数
   userId: userId, // 字符串
   userSig: userSig, // 字符串
@@ -70,9 +72,7 @@ teduBoard.on(TEduBoard.EVENT.TEB_WARNING, (code, msg) => {
 
 #### 3. 白板数据同步
 
-白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 支持两种不同的数据同步模式。
-
-**使用腾讯云 IMSDK 同步数据**
+白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 默认使用 IMSDK 作为信令通道，您需要自行实现 IMSDK 的初始化、登录、加入群组操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
 
  - 监听事件 TEduBoard.EVENT.TEB_SYNCDATA
 
@@ -125,18 +125,3 @@ this.tim.on(window.TIM.EVENT.MESSAGE_RECEIVED, () => {
 }, this)
 
 ```
-
-**使用自定义的数据通道同步数据**
-
-```
-teduBoard.on(TEduBoard.EVENT.TEB_SYNCDATA, data => {
-  // 通过自定义数据通道同步出去
-});
-
-// 在收到其他用户的信息时，将消息传递给 TEduBoard
-teduBoard.addSyncData(data);
-```
-
-> 以下两种情况，实时录制功能可不可用：
-- 实时录制功能在使用腾讯云 IMSDK 同步数据时，自定义消息中的 extension 不等于'TXWhiteBoardExt'时不可用。
-- 实时录制功能在自定义数据通道模式下不可用。

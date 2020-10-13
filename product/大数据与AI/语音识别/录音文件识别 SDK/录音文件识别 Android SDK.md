@@ -54,11 +54,15 @@ recognizer.setCallback(this);
 
 #### 调用方式示例
 + ##### 通过语音 url 调用
-```
-  QCloudFileRecognitionParams params = (QCloudFileRecognitionParams) QCloudFileRecognitionParams.defaultRequestParams();
-  params.setUrl("http://client-sdk-1255628450.cossh.myqcloud.com/test%20audio/voice_WGVNG_8000.mp3");
-  params.setSourceType(QCloudSourceType.QCloudSourceTypeUrl);
-  fileRecognizer.recognize(params);
+```  
+     QCloudFileRecognitionParams params = (QCloudFileRecognitionParams) QCloudFileRecognitionParams.defaultRequestParams();
+                    params.setUrl("http://client-sdk-1255628450.cossh.myqcloud.com/test%20audio/voice_WGVNG_800.mp3");
+                    params.setSourceType(QCloudSourceType.QCloudSourceTypeUrl);
+                    params.setFilterDirty(0);// 0 ：默认状态 不过滤脏话 1：过滤脏话
+                    params.setFilterModal(0);// 0 ：默认状态 不过滤语气词  1：过滤部分语气词 2:严格过滤
+                    params.setConvertNumMode(1);//1：默认状态 根据场景智能转换为阿拉伯数字；0：全部转为中文数字。
+                    params.setHotwordId("");  // 热词 id。用于调用对应的热词表，如果在调用语音识别服务时，不进行单独的热词 id 设置，自动生效默认热词；如果进行了单独的热词 id 设置，那么将生效单独设置的热词 id。
+                    fileRecognizer.recognize(params);
 ```
 
 + ##### 通过语音数据调用
@@ -69,10 +73,14 @@ recognizer.setCallback(this);
   byte[] audioData = new byte[length];
   is.read(audioData);
 
-  QCloudFileRecognitionParams params = (QCloudFileRecognitionParams) QCloudFileRecognitionParams.defaultRequestParams();
-  params.setData(audioData);
-  params.setSourceType(QCloudSourceType.QCloudSourceTypeData);
-  fileRecognizer.recognize(params);
+    QCloudFileRecognitionParams params = (QCloudFileRecognitionParams) QCloudFileRecognitionParams.defaultRequestParams();
+                    params.setData(audioData);
+                    params.setSourceType(QCloudSourceType.QCloudSourceTypeData);
+                    params.setFilterDirty(0);// 0 ：默认状态 不过滤脏话 1：过滤脏话
+                    params.setFilterModal(0);// 0 ：默认状态 不过滤语气词  1：过滤部分语气词 2:严格过滤
+                    params.setConvertNumMode(1);//1：默认状态 根据场景智能转换为阿拉伯数字；0：全部转为中文数字。
+                    params.setHotwordId(""); // 热词 id。用于调用对应的热词表，如果在调用语音识别服务时，不进行单独的热词 id 设置，自动生效默认热词；如果进行了单独的热词 id 设置，那么将生效单独设置的热词 id。
+                    fileRecognizer.recognize(params);
 ```
 
 
@@ -104,8 +112,10 @@ public interface QCloudFileRecognizerListener {
      * @param recognizer 录音文件识别实例
      * @param requestId 请求唯一标识别
      * @param result 识别文本
+     * @param status 任务状态码：0：任务等待 1：任务执行中 2:任务成功 3：任务失败 
      * @param exception 异常信息
+     *
      */
-    public abstract void recognizeResult(QCloudFileRecognizer recognizer, final long requestId, String result, Exception exception);
+    void recognizeResult(QCloudFileRecognizer recognizer, final long requestId, String result, int status,Exception exception);
 }
 ```

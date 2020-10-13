@@ -13,12 +13,12 @@
    <tr> 
      <td>小米推送</td> 
      <td>MIUI</td> 
-     <td>使用小米推送 MiPush_SDK_Client_3_6_12.jar</td> 
+     <td>使用小米推送 MiPush_SDK_Client_3_7_6.jar</td> 
    </tr> 
    <tr> 
      <td>华为推送</td> 
      <td>EMUI</td> 
-     <td>华为移动服务版本 20401300 以上，SDK 版本 push:2.6.3.301</td> 
+     <td>华为推送版本 com.huawei.hms:push:5.0.0.300</td> 
    </tr> 
    <tr> 
      <td nowrap="nowrap">Google FCM 推送</td> 
@@ -28,17 +28,17 @@
    <tr> 
      <td>魅族推送</td> 
      <td>Flyme</td> 
-     <td>使用魅族推送 push-internal:3.6.+</td> 
+     <td>使用魅族推送 com.meizu.flyme.internet:push-internal:3.9.7</td> 
    </tr> 
    <tr> 
      <td nowrap="nowrap">OPPO 推送</td> 
      <td>ColorOS</td> 
-     <td>并非所有 OPPO 机型和版本都支持使用 OPPO 推送，SDK 版本 mcssdk-2.0.2.jar</td> 
+     <td>并非所有 OPPO 机型和版本都支持使用 OPPO 推送，SDK 版本 com.heytap.msp-push-2.1.0.aar</td> 
    </tr>  
    <tr> 
      <td nowrap="nowrap">vivo 推送</td> 
      <td nowrap="nowrap">FuntouchOS</td> 
-     <td>并非所有 vivo 机型和版本都支持使用 vivo 推送，SDK 版本 vivo_pushsdk_v2.3.1.jar</td> 
+     <td>并非所有 vivo 机型和版本都支持使用 vivo 推送，SDK 版本 vivo_pushsdk-v2.9.0.0.aar</td> 
    </tr> 
 </table>
 
@@ -101,7 +101,7 @@
 
 #### 打开应用内指定界面
 
-1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下：
+1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下，可以参考 Demo 的 [AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/AndroidManifest.xml)：
 
    ```
    <activity
@@ -144,7 +144,7 @@
 **步骤1：发送端设置自定义内容**
 在发消息前设置每条消息的通知栏自定义内容。
 
-- Android 端示例：
+- 下面是 Android 端简单示例，也可以参考 TUIKit 中的 [ChatManagerKit.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/base/ChatManagerKit.java) 类的 sendMessage() 方法中对应的逻辑：
 
   ```
   JSONObject jsonObject = new JSONObject();
@@ -171,14 +171,14 @@
 
 **步骤2：接收端获取自定义内容**
 
-- 若 [添加证书](#xiaomiStep1_2) 时设置【点击通知后】的操作为【打开应用】，当点击通知栏的消息时，会触发小米推送 SDK 的  `onNotificationMessageClicked(Context context, MiPushMessage miPushMessage)` 回调，自定义内容可以从 `miPushMessage` 中获取。
+- 若 [添加证书](#xiaomiStep1_2) 时设置【点击通知后】的操作为【打开应用】，当点击通知栏的消息时，会触发小米推送 SDK 的  `onNotificationMessageClicked(Context context, MiPushMessage miPushMessage)` 回调，自定义内容可以从 `miPushMessage` 中获取，可以参考 [XiaomiMsgReceiver.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/XiaomiMsgReceiver.java) 的解析实现。
 
   ```
   Map extra = miPushMessage.getExtra();
   String extContent = extra.get("ext");
   ```
 
-- 若 [添加证书](#xiaomiStep1_2) 时设置【点击通知后】的操作为【打开应用内指定界面】，封装消息的 `MiPushMessage` 对象通过 `Intent` 传到客户端，客户端在相应的 `Activity` 中获取自定义内容。
+- 若 [添加证书](#xiaomiStep1_2) 时设置【点击通知后】的操作为【打开应用内指定界面】，封装消息的 `MiPushMessage` 对象通过 `Intent` 传到客户端，客户端在相应的 `Activity` 中获取自定义内容，可以参考  [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
 
   ```
     Bundle bundle = getIntent().getExtras(); 
@@ -202,11 +202,12 @@
  - **应用包名称**：填写华为推送服务应用的**包名**
  - **AppID**：填写华为推送服务应用的 **APP ID**
  - **AppSecret**：填写华为推送服务应用的 **APP SECRET**
+ - **角标参数**：填写应用入口完整 `Activity` 类名，用作华为桌面应用角标显示，请参考 [华为桌面角标开发指导书](https://developer.huawei.com/consumer/cn/doc/development/system-References/30802)
  - **点击通知后**：选择点击通知栏消息后的响应操作， 支持**打开应用**、**打开网页**和**打开应用内指定界面**，更多详情请参见 [配置点击通知栏消息事件](#huawei_click)
    当设置为【打开应用】或【打开应用内指定界面】操作时，支持 [透传自定义内容](#huawei_custom)。
-    ![](https://main.qcloudimg.com/raw/5f5386db721ac107b9ab3da421decb49.png)
-   单击【确认】保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
-   ![](https://main.qcloudimg.com/raw/bcce6ae63e5e7f221256463445165f90.png)
+    ![](https://main.qcloudimg.com/raw/852b40d2a8a5aacd4327f94130976563.png)
+   单击【保存】保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
+   ![](https://main.qcloudimg.com/raw/4f4b2a5c01c524d13434f0b5ca4c4b2c.png)
 
 ### 集成推送 SDK
 
@@ -232,7 +233,7 @@
 
 #### 打开应用内指定界面
 
-1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下：
+1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下，可以参考 Demo 的 [AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/AndroidManifest.xml)：
 
    ```
    <activity
@@ -269,8 +270,45 @@
 
 ### 透传自定义内容
 
-由于华为推送的兼容性问题在某些机器上获取不到透传的信息，因此这里没有给出示例。我们会积极跟华为的相关人员沟通，解决后即刻上线。
-	
+>!由于华为推送的兼容性问题，透传内容只能在部分 EUI10+ 的设备上收到。
+
+**步骤1：发送端设置自定义内容**
+在发消息前设置每条消息的通知栏自定义内容。
+
+- 下面是 Android 端简单示例，也可以参考 TUIKit 中 [ChatManagerKit.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/base/ChatManagerKit.java)  类的 sendMessage() 方法中对应的逻辑：
+
+  ```
+  JSONObject jsonObject = new JSONObject();
+  try {
+      jsonObject.put("extKey", "ext content");
+  } catch (JSONException e) {
+      e.printStackTrace();
+  }
+  String extContent = jsonObject.toString();
+  
+  V2TIMOfflinePushInfo v2TIMOfflinePushInfo = new V2TIMOfflinePushInfo();
+  v2TIMOfflinePushInfo.setExt(extContent.getBytes());
+  V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, userID, null, V2TIMMessage.V2TIM_PRIORITY_DEFAULT, false,  v2TIMOfflinePushInfo, new V2TIMSendCallback<V2TIMMessage>() {
+      @Override
+      public void onError(int code, String desc) {}
+      @Override
+      public void onSuccess(V2TIMMessage v2TIMMessage) {}
+      @Override
+      public void onProgress(int progress) {}
+  });
+  ```
+
+- 服务端示例请参见 [OfflinePushInfo 的格式示例](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E) 
+
+**步骤2：接收端获取自定义内容**
+
+- 若 [添加证书](#huaweiStep1_1) 时设置【点击通知后】的操作为【打开应用】或【打开应用内指定界面】，当点击通知栏的消息时，客户端可以在相应的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
+
+```
+Bundle bundle = getIntent().getExtras();
+String value = bundle.getString("ext"); 
+```
+
 
 ## OPPO 推送
 
@@ -348,7 +386,7 @@
 
 **Intent action**
 
-1. 在 AndroidManifest 要打开的 Activity 中做如下配置，并且必须加上 category 且不能有 data 数据。
+1. 在 AndroidManifest 要打开的 Activity 中做如下配置，并且必须加上 category 且不能有 data 数据，可以参考 Demo 的 [AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/AndroidManifest.xml)：
 
 ```
 <intent-filter>
@@ -368,7 +406,7 @@
 **步骤1：发送端设置自定义内容**
 在发消息前设置每条消息的通知栏自定义内容。
 
-- Android 端示例：
+- 下面是 Android 端简单示例，也可以参考 TUIKit 中的 [ChatManagerKit.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/base/ChatManagerKit.java) 类的 sendMessage() 方法中对应的逻辑：
 
   ```
   JSONObject jsonObject = new JSONObject();
@@ -394,7 +432,7 @@
 - 服务端示例请参见 [OfflinePushInfo 的格式示例](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E) 
 
 **步骤2：接收端获取自定义内容**
-当点击通知栏的消息时，客户端在启动的 `Activity` 中获取自定义内容。
+当点击通知栏的消息时，客户端在启动的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
 
 ```
 Bundle bundle = intent.getExtras();
@@ -452,7 +490,7 @@ Bundle bundle = intent.getExtras();
 
 #### 打开应用内指定界面
 
-1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下：
+1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下，可以参考 Demo 的 [AndroidManifest.xml](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/AndroidManifest.xml)：
 
    ```
    <activity
@@ -494,7 +532,7 @@ Bundle bundle = intent.getExtras();
 **步骤1：发送端设置自定义内容**
 在发消息前设置每条消息的通知栏自定义内容。
 
-- Android 端示例：
+- 下面是 Android 端简单示例，也可以参考 TUIKit 中的 [ChatManagerKit.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/base/ChatManagerKit.java) 类的 sendMessage() 方法中对应的逻辑：
 
   ```
   JSONObject jsonObject = new JSONObject();
@@ -520,7 +558,7 @@ Bundle bundle = intent.getExtras();
 - 服务端示例请参见 [OfflinePushInfo 的格式示例](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E) 
 
 **步骤2：接收端获取自定义内容**
-点击通知栏的消息时，会触发 vivo 推送 SDK 的 `onNotificationMessageClicked(Context context, UPSNotificationMessage upsNotificationMessage)` 回调，自定义内容可以从 `upsNotificationMessage` 中获取。
+点击通知栏的消息时，会触发 vivo 推送 SDK 的 `onNotificationMessageClicked(Context context, UPSNotificationMessage upsNotificationMessage)` 回调，自定义内容可以从 `upsNotificationMessage` 中获取，可以参考 [VIVOPushMessageReceiverImpl.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/VIVOPushMessageReceiverImpl.java) 的解析实现。
 
 ```
 Map<String, String> paramMap = upsNotificationMessage.getParams();
@@ -575,16 +613,16 @@ String extContent = paramMap.get("ext");
 您需要在 [添加证书](#meizuStep1_2) 时选择【打开应用内指定界面】并输入需要打开的 Activity 的完整类名，例如 `com.tencent.qcloud.tim.demo.chat.ChatActivity`。
 ![](https://main.qcloudimg.com/raw/64d67e324cc53b0ff0631586d9ec1ef5.png)
 
-<span id="xiaomi_custom"></span>
+<span id="meizu_custom"></span>
 
 ### 透传自定义内容
 
-[添加证书](#Step2) 时设置【点击通知后】为【打开应用】或【打开应用内指定界面】操作才支持透传自定义内容。
+[添加证书](#meizuStep1_2) 时设置【点击通知后】为【打开应用】或【打开应用内指定界面】操作才支持透传自定义内容。
 
 **步骤1：发送端设置自定义内容**
 在发消息前设置每条消息的通知栏自定义内容。
 
-- Android 端示例：
+- 下面是 Android 端简单示例，也可以参考 TUIKit 中的 [ChatManagerKit.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/base/ChatManagerKit.java) 类的 sendMessage() 方法中对应的逻辑：
 
   ```
   JSONObject jsonObject = new JSONObject();
@@ -617,7 +655,7 @@ String extContent = paramMap.get("ext");
 String extContent = mzPushMessage.getSelfDefineContentString();
 ```
 
-另外，客户端也可以在打开的 `Activity` 中获取自定义内容。
+另外，客户端也可以在打开的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
 
 ```
 Bundle bundle = getIntent().getExtras();
@@ -629,41 +667,30 @@ String extContent = bundle.getString("ext");
 ### 集成 SDK
 
 <span id="fcmStep1_1"></span>
-
 1. 打开 [Firebase 云消息传递](https://firebase.google.com) 注册账号并创建应用。
-   <span id="fcmStep1_2"></span>
-2. 登录 [Firebase 控制台](https://console.firebase.google.com)，单击您的应用卡片，进入应用配置页面。单击 Project Overview 右侧的 <img src="https://main.qcloudimg.com/raw/0d062411405553c9fae29f8e0daf02ad.png"  style="margin:0;">，选择【项目设置】>【云消息传递】，记录**旧版服务器密钥**和**发送者 ID**。
-   <span id="fcmStep1_2"></span>
-3. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击【Android平台推送设置】区域的【添加证书】。根据 [步骤1](#fcmStep1_2) 中获取的信息设置以下参数：
-
- - **推送平台**：选择**Google**
- - **应用包名称**：填写客户 App 的包名
- - **发送者ID**：填写 Google 推送服务应用的**发送者 ID**
- - **旧版服务器密钥**：填写 Google 推送服务应用的**旧版服务器密钥**
-   ![](https://main.qcloudimg.com/raw/2e051e4e8f0b4b5f123b768f3355e260.png)
-   单击【确认】保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
-    ![](https://main.qcloudimg.com/raw/bb07b06f5ab9dee0ce17a3eee65101e8.png)
+<span id="fcmStep1_2"></span>
+2. 登录 [Firebase 控制台](https://console.firebase.google.com)，单击您的应用卡片，进入应用配置页面。单击 Project Overview 右侧的 <img src="https://main.qcloudimg.com/raw/0d062411405553c9fae29f8e0daf02ad.png"  style="margin:0;">，选择【项目设置】>【服务帐号】，单击【生成新的私钥】下载私钥文件。
+<span id="fcmStep1_3"></span>
+3. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击【Android平台推送设置】区域的【添加证书】。上传 [步骤2](#fcmStep1_2) 中获取的私钥文件。
+ ![](https://main.qcloudimg.com/raw/b18e2414561c6733b24c56cd1e866f21.png)
+4. 单击【确认】保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
+ ![](https://main.qcloudimg.com/raw/2199bbf955cf52f09b78af6a97ab8122.png)
 
 ### 集成推送 SDK
 
 1. 请参考 [Firebase 云消息传递](https://firebase.google.com/docs/cloud-messaging/android/client) 设置 Firebase，集成 FCM SDK。参考 [FCM 测试指引](https://firebase.google.com/docs/cloud-messaging/android/first-message?authuser=0) 测试通知消息，确保已成功集成 FCM。
 2. 调用 `FirebaseInstanceId.getInstance().getInstanceId()` 后，在回调里获取当前 App 的唯一标识 token。当登录 IM SDK 成功后，需要调用 [setOfflinePushConfig](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 将**证书 ID** 和 **token** 上报到即时通信 IM 服务端。
 
-成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后将消息通过小米推送通知到用户端。
+成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后将消息通过 FCM 推送通知到用户端。
 
-<span id="xiaomi_custom"></span>
+<span id="fcm_custom"></span>
 
 ### 透传自定义内容
-
-[添加证书](#Step2) 时设置【点击通知后】为【打开应用】或【打开应用内指定界面】操作才支持透传自定义内容。
 
 **步骤1：发送端设置自定义内容**
 在发消息前设置每条消息的通知栏自定义内容。
 
->!
->OPPO 要求自定义的数据必须是 json 格式，否则收不到推送。
-
-- Android 端示例：
+- 下面是 Android 端简单示例，也可以参考 TUIKit 中 [ChatManagerKit.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/tuikit/src/main/java/com/tencent/qcloud/tim/uikit/modules/chat/base/ChatManagerKit.java) 类的 sendMessage() 方法中对应的逻辑：
 
   ```
   JSONObject jsonObject = new JSONObject();
@@ -689,7 +716,7 @@ String extContent = bundle.getString("ext");
 - 服务端示例请参见 [OfflinePushInfo 的格式示例](https://cloud.tencent.com/document/product/269/2720#.E7.A6.BB.E7.BA.BF.E6.8E.A8.E9.80.81-offlinepushinfo-.E8.AF.B4.E6.98.8E) 
 
 **步骤2：接收端获取自定义内容**
-当点击通知栏的消息时，客户端在相应的 `Activity` 中获取自定义内容。
+当点击通知栏的消息时，客户端在相应的 `Activity` 中获取自定义内容，可以参考 [OfflineMessageDispatcher.java](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/thirdpush/OfflineMessageDispatcher.java) 类的 parseOfflineMessage(Intent intent) 方法实现。
 
 ```
 Bundle bundle = getIntent().getExtras();
@@ -703,53 +730,6 @@ String value = bundle.getString("ext");
 ## 自定义离线推送展示
 
 请在调用  [sendMessage](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageManager.html#a318c40c8547cb9e8a0de7b0e871fdbfe) 发送消息的时候使用 `V2TIMOfflinePushInfo` 中的 [setTitle](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#a7d4a73d6a1db487dd96f658bdbc98ae9) 和 [setDesc](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#a78c8e202aa4e0859468ce40bde6fd602) 接口来分别设置通知栏消息的标题和内容。
-
-## 自定义离线推送点击跳转逻辑
-
-请在调用 [sendMessage](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageManager.html#a318c40c8547cb9e8a0de7b0e871fdbfe) 发送消息时使用 `V2TIMOfflinePushInfo` 中的 [setExt](https://docs-1252463788.cos.ap-shanghai.myqcloud.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#a9346ecab2e35ff516b24c27b0584a9a2) 接口设置自定义内容，当用户点击通知栏消息启动 APP 时，可以根据获取到 `ext` 字段内容跳转到指定的 UI 界面。
-
-我们以 “denny 给 vinson 发送消息” 的场景为例。
-
-- 发送方：denny 要在发送消息的时候设置推送扩展字段 ext：
-
-  ```
-  JSONObject jsonObject = new JSONObject();
-  try {
-  	jsonObject.put("action", "jump to denny");
-  } catch (JSONException e) {
-  	e.printStackTrace();
-  }
-  String extContent = jsonObject.toString();
-  V2TIMOfflinePushInfo v2TIMOfflinePushInfo = new V2TIMOfflinePushInfo();
-  v2TIMOfflinePushInfo.setExt(extContent.getBytes());
-  
-  V2TIMManager.getMessageManager().sendMessage(v2TIMMessage, "vinson", null, V2TIMMessage.V2TIM_PRIORITY_DEFAULT, false,  v2TIMOfflinePushInfo, new V2TIMSendCallback<V2TIMMessage>() {
-  	@Override
-  	public void onError(int code, String desc) {}
-  	@Override
-  	public void onSuccess(V2TIMMessage v2TIMMessage) {}
-  	@Override
-  	public void onProgress(int progress) {}
-  });
-  ```
-
-- 接收方：vinson 的 App 虽然不在线，但可以接收到手机厂商（我们以 OPPO 手机为例）的离线推送，当 vinson 点击推送消息时会启动 App：
-
-  ```
-  // vinson 启动 APP 后在打开的 Activity 中获取自定义内容
-  Bundle bundle = intent.getExtras();
-  Set<String> set = bundle.keySet();
-  if (set != null) {
-  	for (String key : set) {
-  		// 其中 key 和 value 分别为发送端设置的 extKey 和 ext content
-  		String value = bundle.getString(key);
-  		if (value.equals("jump to denny")) {
-  			// 跳转到和 denny 的聊天界面
-  			...
-  		}
-  	}
-  }
-  ```
 
 ## 常见问题
 

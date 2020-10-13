@@ -1,6 +1,6 @@
 ## 功能描述
 
-Delete Vault Notifications请求实现删除指定文件库通知回调策略。
+Delete Vault Notifications 请求实现删除指定文件库通知回调策略。
 
 请求成功，返回204 No Content。
 

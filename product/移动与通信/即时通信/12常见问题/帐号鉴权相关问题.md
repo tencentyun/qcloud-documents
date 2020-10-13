@@ -1,4 +1,4 @@
-### JNI 方式使用 API 出现下面的问题？
+### JNI 方式使用 API 出现下面的问题该如何处理？
 
 ```
 Exception in thread "main" java.lang.UnsatisfiedLinkError:
@@ -9,7 +9,7 @@ com.tls.tls_sigcheck.tls_gen_signature_ex2(Ljava/lang/String;Ljava/lang/String;L
 
 排除动态库路径不正确的因素后，请确认代码中 package 路径是否正确，因为 JNI 动态库在编译时，接口的名称都是通过 package 路径生成的，所以不要尝试修改 tls_sigcheck.java 中的 package 路径自行编译，如此会导致上述问题。
 
-### JNI 方式使用 API 出现下面问题？
+### JNI 方式使用 API 出现下面问题该如何处理？
 
 ```
 Exception in thread "main" java.lang.UnsatisfiedLinkError: *** Can't load IA 32-bit *** on a AMD 64-bit platform

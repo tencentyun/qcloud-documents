@@ -1,5 +1,102 @@
-
 基于 Spring Cloud Greenwich 版本 SDK，支持 spring boot 2.1.6。
+
+## 1.24.0-Greenwich-RELEASE（2020-09-25）
+
+### Bug 修复
+
+- spring-cloud-tsf-consul-config：
+  - 修复本地加密配置不能正确解密的问题。
+  - 修复 MySQL 调用链对多数据源支持。
+- spring-cloud-tsf-core：
+  增加线程上下文接口，在父亲线程中塞入线程局部变量后，子线程不论是线程池反复使用还是一次性使用都能正确继承父线程局部变量。
+  
+### 新特性
+- 支持云上 Spring Cloud 应用平滑迁移 TSF。
+- 支持 PostgreSQL 组件调用链。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.5-Greenwich-RELEASE （2020-09-21）
+
+### 优化
+调整泳道入口行为。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.4-Greenwich-RELEASE（2020-09-16）
+
+### Bug 修复
+
+- 修复 MySQL 调用链中对多数据源支持。
+- 修复 feign 请求调用链中只展示 HTTP 方法。
+- 修复定时任务的线程数问题。
+- 修复网关使用就近命名空间的问题。
+    
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.3-Greenwich-RELEASE（2020-09-14）
+
+### Bug 修复
+
+- spring-cloud-tsf-msgw：
+修复网关 MSGW SDK 和服务发现 SDK 不兼容，造成拉取服务列表过快的问题，从而导致注册中心负载压力过大的问题。
+- spring-cloud-tsf-consul-discovery：
+修复服务发现线程数不准确（少于需要请求的服务数），导致服务发现线程调度不及时，节点状态更新可能会延迟30s的问题。
+  
+## 1.23.2-Greenwich-RELEASE（2020-08-19）
+
+### Bug 修复
+
+spring-cloud-tsf-msgw-zuul：
+  - 修复无法在 filter 中使用 Feign 发起微服务调用的问题。
+  - 修复 application/x-www-form-urlencoded 类型请求，当绑定插件通过 zuul 网关代理访问时错误问题。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.1-Greenwich-RELEASE（2020-08-12）
+
+### Bug 修复
+
+spring-cloud-tsf-msgw：
+修复 scg 版本网关不支持 HTTP 请求中文编码的问题。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.0-Greenwich-RELEASE（2020-07-06）
+
+### 新特性
+
+- spring-cloud-tsf-msgw：
+  - 新增网关路径重写配置功能。
+  - 新增网关微信小程序登录插件功能。 
+- spring-cloud-tsf-sleuth：新增调用链支持 RocketMQ。
+- spring-cloud-tsf-core：
+  - 监控数据结构中增加 HTTP 请求方法、以及请求模版路径。
+  - 调用链数据结构中增加 HTTP 请求方法。
+
+### Bug 修复
+
+- spring-cloud-tsf-msgw：
+  - 修复数据同步时，可能会短暂获取到错误数据的问题。
+  - 修复 SCG Tag 中数据未正确清除的问题。
+- 处理 tomcat 组件开源漏洞风险：
+  - 升级 org.apache.tomcat.embed.tomcat-embed-core 到9.0.36版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-el 到9.0.36版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到9.0.36版本。
+- spring-cloud-tsf-sleuth：修复 Kafka 中的类型转发错误。
+  
+  
 
 ## 1.22.1-Greenwich-RELEASE（2020-05-06）
 
@@ -28,6 +125,27 @@
 ### 优化
 
 优化默认日志配置支持容器部署场景。
+
+## 1.21.4-Greenwich-RELEASE (2020-08-20)
+### bug 修复
+- 处理 MySQL 中 SQL 获取截断的问题。
+- 修复 MySQL 调用链中对多数据源支持。
+
+## 1.21.3-Greenwich-RELEASE（2020-07-16）
+### Bug 修复
+修复 MySQL 中 SQL 获取截断的问题。
+
+## 1.21.2-Greenwich-RELEASE（2020-07-06）
+
+### Bug 修复
+处理 tomcat 组件开源漏洞风险：
+  - 升级 org.apache.tomcat.embed.tomcat-embed-core 到9.0.36版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-el 到9.0.36版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到9.0.36版本。
+
+### 优化
+- 调整泳道标签的传递属性
+- 调整泳道入口行为
 
 ## 1.21.1-Greenwich-RELEASE（2020-04-29）
 

@@ -5,8 +5,8 @@ Guetzli 图片压缩是数据万象推出的视觉无损压缩服务，能够对
 ## 操作步骤
 1. 开发者可通过控制台开通服务，开通后该存储桶中的图片在下载时会进行 Guetzli 压缩，并将压缩后的图片更新至 CDN 节点（如已开通 CDN 服务）。
 >!Guetzli 压缩是付费服务，具体费用可查看 [购买指南](https://cloud.tencent.com/doc/product/460/6970)。
-2. 登录 [数据万象控制台](https://console.cloud.tencent.com/ci) ，在【Bucket 管理】页面选择需操作的存储桶（如 buckettest），进入存储桶管理页面。
-3. 单击【样式管理】页签，开启 Guetzli 图片压缩功能，即可使用。
+2. 登录 [数据万象控制台](https://console.cloud.tencent.com/ci) ，在【存储桶管理】页面选择需操作的存储桶（如 buckettest），进入存储桶管理页面。
+3. 单击【图片处理】页签，开启 Guetzli 图片压缩功能，即可使用。
 ![](https://main.qcloudimg.com/raw/6ec2b5af7e7712ec68b9c77c4afd03e3.png)
 
 

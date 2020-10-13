@@ -1,81 +1,192 @@
 ## 功能描述
-OPTIONS Object 接口实现 Object 跨域访问配置的预请求。即在发送跨域请求之前会发送一个 OPTIONS 请求并带上特定的来源域，HTTP 方法和 Header 信息等给 COS，以决定是否可以发送真正的跨域请求。当 CORS 配置不存在时，请求返回403 Forbidden。可以通过 PUT Bucket cors 接口来开启 Bucket 的 CORS 支持。
+
+OPTIONS Object 用于跨域资源共享（CORS）的预检（Preflight）请求。当浏览器发起 CORS 请求时，浏览器会判断是否有必要发起预检请求，如有必要则浏览器会在发起 CORS 请求前自动发出预检请求，所以在正常情况下，前端开发者不需要自己去发起这样的请求。
+- 如果指定存储桶存在 CORS 配置且预检条件符合存储桶的 CORS 配置，则 COS 正常返回，允许浏览器继续 CORS 请求。
+- 如果指定存储桶不存在 CORS 配置或预检条件不符合存储桶的 CORS 配置，则 COS 返回 HTTP 403 Forbidden，此时浏览器将停止 CORS 请求并向前端抛出异常。
+- 有关存储桶的 CORS 配置，可参见 [PUT Bucket cors](https://cloud.tencent.com/document/product/436/8279) 文档。
 
 ## 请求
+
 #### 请求示例
 
-```shell
+```plaintext
 OPTIONS /<ObjectKey> HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Origin: Origin
-Access-Control-Request-Method: HTTPMethod
-Access-Control-Request-Headers: RequestHeader
-Authorization: Auth String
+Access-Control-Request-Method: RequestMethod
 ```
 
->?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>!
+>- 虽然上述示例指定了对象键（ObjectKey），但在实际使用过程中可针对存储桶域名下的任意资源（包含根目录）发起预检请求，例如 `OPTIONS / HTTP/1.1` 或者 `OPTIONS /?lifecycle HTTP/1.1` 等。
+>- 预检请求由浏览器自动发出，因此预检请求无需也无法携带 Authorization 请求签名。
+
+#### 请求参数
+
+此接口的请求参数由浏览器自动根据跨域访问的目标资源决定，开发者无需关注。
 
 #### 请求头
-#### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-#### 非公共头部
+此接口的请求头由浏览器自动根据跨域访问的具体行为决定，开发者无需关注。
 
-名称|类型|描述|必选
----|---|---|---
-Origin|string|模拟跨域访问的请求来源域名|是
-Access-Control-Request-Method|string|模拟跨域访问的请求 HTTP 方法|是
-Access-Control-Request-Headers|string|模拟跨域访问的请求头部|否
+| 名称 | 描述 | 类型 | 是否必选 |
+| --- | --- | --- | --- |
+| Origin | 发起 CORS 请求的域名。 | string | 是 |
+| Access-Control-Request-Method | 发起 CORS 请求所用的方法（Method） | string | 是 |
+| Access-Control-Request-Headers | 发起 CORS 请求时使用的 HTTP 请求头部，不区分英文大小写，可使用英文逗号(,)分隔多个头部 | string | 否 |
 
 #### 请求体
-该请求的请求体为空。
+
+此接口无请求体。
 
 ## 响应
+
 #### 响应头
-#### 公共响应头
-该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
-#### 特有响应头
+此接口的响应头由浏览器自动识别处理并控制是否允许 CORS 请求，开发者无需关注。
 
-该请求操作的特有响应头具体数据为：
-
-|名称|类型|描述|
-|---|---|---|
-|Access-Control-Allow-Origin|string|模拟跨域访问的请求来源域名，当来源不允许的时候，此 Header 不返回|
-|Access-Control-Allow-Methods|string|模拟跨域访问的请求 HTTP 方法，当请求方法不允许的时候，此 Header 不返回|
-|Access-Control-Allow-Headers|string|模拟跨域访问的请求头部，当模拟任何请求头部不允许的时候，此 Header 不返回该请求头部|
-|Access-Control-Expose-Headers|string|模拟跨域访问的请求 HTTP 方法，当请求方法不允许的时候，此 Header 不返回|
-|Access-Control-Max-Age|string|设置 OPTIONS 请求得到结果的有效期|
+| 名称 | 描述 | 类型 |
+| --- | --- | --- |
+| Access-Control-Allow-Origin | 允许发起 CORS 的域名，可能的值有以下两种：<br><li>`*`：代表允许所有域名<br><li>请求头 Origin 中指定的域名：代表允许指定域名 | string |
+| Access-Control-Allow-Methods | 允许发起 CORS 请求所使用的方法（Method），可使用英文逗号(,)分隔多个方法 | string |
+| Access-Control-Expose-Headers | 允许浏览器获取的 CORS 请求中的 HTTP 响应头部，不区分英文大小写，可使用英文逗号(,)分隔多个头部 | string |
+| Access-Control-Max-Age | CORS 配置的有效时间，单位为秒，在有效时间内，浏览器无须为同一请求再次发起预检请求 | integer |
 
 #### 响应体
-该响应体为空。
+
+此接口响应体为空。
+
+#### 错误码
+
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
+以下案例均由浏览器根据发起的 CORS 请求自动发起的预检请求，开发者无需关注。
+
+#### 案例一：针对 PUT Object 发起预检请求
+
 #### 请求
 
-```shell
+```plaintext
 OPTIONS /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
-Date: Thu, 12 Jan 2017 17:26:53 GMT
-Origin: http://www.qq.com
+Date: Thu, 09 Jul 2020 14:49:22 GMT
+Origin: https://example.com
 Access-Control-Request-Method: PUT
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1487070734;32466654734&q-key-time=1487070734;32559966734&q-header-list=host&q-url-param-list=&q-signature=2ac3ada19910f44836ae0df72a0ec1003f34324b
+Access-Control-Request-Headers: content-md5,content-type,x-cos-meta-author
+Connection: close
 ```
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
-Content-Type: application/xml
-Content-Length: 16087
-Connection: keep-alive
-x-cos-request-id: NTg3NzRiZGRfYmRjMzVfM2Y2OF81N2YzNA==
-Date: Thu, 12 Jan 2017 17:26:53 GMT
-ETag: \"9a4802d5c99dafe1c04da0a8e7e166bf\"
-Access-Control-Allow-Origin: http://www.qq.com
-Access-Control-Allow-Methods: PUT
-Access-Control-Expose-Headers: x-cos-request-id
+Content-Length: 0
+Connection: close
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Headers: content-md5,content-type,x-cos-meta-author
+Access-Control-Allow-Methods: PUT,GET,POST,DELETE,HEAD
+Access-Control-Allow-Origin: https://example.com
+Access-Control-Expose-Headers: Content-Length,ETag,x-cos-meta-author
+Access-Control-Max-Age: 600
+Date: Thu, 09 Jul 2020 14:49:22 GMT
 Server: tencent-cos
+x-cos-request-id: NWYwNzJlNzJfODRjOTJhMDlfMjU0MWNfMTNmZDM5****
+```
+
+#### 案例二：针对 GET Object 时携带 Range 请求头部发起预检请求
+
+#### 请求
+
+```plaintext
+OPTIONS /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Thu, 09 Jul 2020 14:49:22 GMT
+Origin: https://example.com
+Access-Control-Request-Method: GET
+Access-Control-Request-Headers: range
+Connection: close
+```
+
+#### 响应
+
+```plaintext
+HTTP/1.1 200 OK
+Content-Length: 0
+Connection: close
+Access-Control-Allow-Headers: range,x-cos-server-side-encryption-customer-algorithm,x-cos-server-side-encryption-customer-key,x-cos-server-side-encryption-customer-key-md5
+Access-Control-Allow-Methods: GET,HEAD
+Access-Control-Allow-Origin: *
+Access-Control-Expose-Headers: Content-Length,ETag,x-cos-meta-author
+Access-Control-Max-Age: 600
+Date: Thu, 09 Jul 2020 14:49:22 GMT
+Server: tencent-cos
+x-cos-request-id: NWYwNzJlNzJfZDUyNzVkNjRfYTA2Ml8yNGEz****
+```
+
+#### 案例三：针对 PUT Bucket lifecycle 发起预检请求
+
+#### 请求
+
+```plaintext
+OPTIONS /?lifecycle HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Thu, 09 Jul 2020 14:29:40 GMT
+Origin: https://bar.com
+Access-Control-Request-Method: PUT
+Access-Control-Request-Headers: content-md5,content-type
+Connection: close
+```
+
+#### 响应
+
+```plaintext
+HTTP/1.1 200 OK
+Content-Length: 0
+Connection: close
+Access-Control-Allow-Credentials: true
+Access-Control-Allow-Headers: content-md5,content-type
+Access-Control-Allow-Methods: PUT,GET,POST,DELETE,HEAD
+Access-Control-Allow-Origin: https://bar.com
+Access-Control-Expose-Headers: Content-Length,ETag,x-cos-meta-author
+Access-Control-Max-Age: 600
+Date: Thu, 09 Jul 2020 14:29:40 GMT
+Server: tencent-cos
+x-cos-request-id: NWYwNzI5ZDRfNjFiMDJhMDlfYzk2NF8xYmZl****
+```
+
+#### 案例四：指定存储桶不存在 CORS 配置或预检条件不符合存储桶的 CORS 配置
+
+#### 请求
+
+```plaintext
+OPTIONS /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Thu, 09 Jul 2020 11:45:26 GMT
+Origin: https://example.com
+Access-Control-Request-Method: PUT
+Connection: close
+```
+
+#### 响应
+
+```plaintext
+HTTP/1.1 403 Forbidden
+Content-Type: application/xml
+Content-Length: 687
+Connection: close
+Date: Thu, 09 Jul 2020 11:45:26 GMT
+Server: tencent-cos
+x-cos-request-id: NWYwNzAzNTZfNzNjODJhMDlfMzRiM2ZfMThjMjk4****
+x-cos-trace-id: OGVmYzZiMmQzYjA2OWNhODk0NTRkMTBiOWVmMDAxODc0OWRkZjk0ZDM1NmI1M2E2MTRlY2MzZDhmNmI5MWI1OWE4OGMxZjNjY2JiNTBmMTVmMWY1MzAzYzkyZGQ2ZWM4OWM4Y2M5MzI5ZmUzN2FjZDk1OTRjYWI5Yjg5OTJlZDA=
+
+<?xml version='1.0' encoding='utf-8' ?>
+<Error>
+	<Code>AccessForbidden</Code>
+	<Message>CORSResponse: This CORS request is not allowed. This is usually because the evalution of Origin, request method / Access-Control-Request-Method or Access-Control-Requet-Headers are not whitelisted by the resource&apos;s CORS spec</Message>
+	<Resource>examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleobject</Resource>
+	<RequestId>NWYwNzAzNTZfNzNjODJhMDlfMzRiM2ZfMThjMjk4****</RequestId>
+	<TraceId>OGVmYzZiMmQzYjA2OWNhODk0NTRkMTBiOWVmMDAxODc0OWRkZjk0ZDM1NmI1M2E2MTRlY2MzZDhmNmI5MWI1OWE4OGMxZjNjY2JiNTBmMTVmMWY1MzAzYzkyZGQ2ZWM4OWM4Y2M5MzI5ZmUzN2FjZDk1OTRjYWI5Yjg5OTJlZDA=</TraceId>
+</Error>
 ```

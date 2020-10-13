@@ -1,0 +1,16 @@
+安全运营中心（Security Operation Center，SOC）是腾讯云原生的统一安全运营与管理平台，提供资产自动化盘点、互联网攻击面测绘、云安全配置风险检查、合规风险评估、流量威胁感知、泄漏监测、日志审计与检索调查、安全编排与自动化响应及安全可视化等能力，帮助云上用户实现事前安全预防，事中事件监测与威胁检测，事后响应处置的一站式、可视化、自动化的云上安全运营管理。
+
+下表为云审计支持的安全运营中心操作列表：
+
+| 操作名称                | 资源类型 | 事件名称                          |
+|---------------------|------|-------------------------------|
+| 操作泄露监控数据            | ssa  | SaDivulgeDataOperate          |
+| 删除监测扫描规则策略          | ssa  | SaDivulgeScanRuleDelete       |
+| 设置泄露监测产品监测扫描规则策略    | ssa  | SaDivulgeScanRuleMutate       |
+| 删除泄露监测产品监测白名单       | ssa  | SaDivulgeScanWhiteDelete      |
+| 设置泄露监测产品白名单         | ssa  | SaDivulgeScanWhiteMutate      |
+| 安全情报\_一键漏扫\_SLA 协议确认 | ssa  | SaIntelligenceYdVulScanSlaSet |
+| 开通云态势感知产品服务         | ssa  | SaSecProductOpen              |
+| 设置安全周报配置            | ssa  | SaSecWeeklySetConfig          |
+| 上报用户行为              | ssa  | SaUserBehaviorReport          |
+| 自定义用户 Logo 及名称信息      | ssa  | SaUserLogoModify              |

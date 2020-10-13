@@ -1,13 +1,13 @@
 ## 前提条件
  - UBA 功能目前正在试用中，已 [开通安全运营中心高级版](https://buy.cloud.tencent.com/soc) 的用户可获得试用资格。
- - 在使用 UBA 功能前，需已完成 [UAB 初始化配置](https://cloud.tencent.com/document/product/664/41790)。
+ - 在使用 UBA 功能前，需已完成 [UBA 初始化配置](https://cloud.tencent.com/document/product/664/41790)。
 
 ## 操作步骤
 1. 登录 [安全运营中心控制台](https://console.cloud.tencent.com/ssav2/account)，在左侧导航栏，单击【UBA】，在 UBA 页面中，单击【概览】，进入 UBA 概览页。
 2. 在 UBA 概览页，您可以查看用户总览、用户风险概况、近七天风险用户、用户操作分布、用户登录来源、用户操作云产品类型 Top5、用户操作行为类型 Top5。
 	- **用户总览**
 	用户总览展示了用户总数、正常用户数、风险用户数，包括账号主体下的主账号、子账号及协作者，统计时间可选近24小时、近7天或近30天。命中风险场景的用户为风险用户。用户权限遍历场景，每天06:00后更新前一天的数据，其他场景数据更新可能会延迟6小时。具体命中规则，可以查看 [风险场景命中规则](https://cloud.tencent.com/document/product/664/41792#.E9.A3.8E.E9.99.A9.E5.9C.BA.E6.99.AF.E5.91.BD.E4.B8.AD.E8.A7.84.E5.88.99)。
-![](https://main.qcloudimg.com/raw/13c1eca3e450ef64aed36a98950049ac.png)
+![](https://main.qcloudimg.com/raw/316b0572b962f38df1bb663b7045eb30.png)
 	- **用户风险概况**
 	用户风险概况展示了用户权限提升、用户权限遍历、资产高风险权限修改、新用户高危操作四个场景的命中用户数，统计时间可以选择近24小时、近7天或近30天。用户权限遍历场景，每天06:00后更新前一天的数据，其他场景数据更新可能会延迟6小时。具体命中规则，可以查看 [风险场景命中规则](https://cloud.tencent.com/document/product/664/41792#.E9.A3.8E.E9.99.A9.E5.9C.BA.E6.99.AF.E5.91.BD.E4.B8.AD.E8.A7.84.E5.88.99)。
 	![](https://main.qcloudimg.com/raw/84943ea0a72a3e27f167e929cce61891.png)

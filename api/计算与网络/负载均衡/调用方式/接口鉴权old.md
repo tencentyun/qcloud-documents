@@ -9,15 +9,15 @@
 
 ## 生成签名串
 假设上一步申请的 SecretId 和 SecretKey 分别是：
- - SecretId：AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA。
- - SecretKey：Gu5t9xGARNpq86cd98joQYCN3Cozk1qA。
+ - SecretId：AKID****J5yKBZQpn74WFkmLPx3gnPhESA。
+ - SecretKey：Gu5t****pq86cd98joQYCN3Cozk1qA。
 
 以查询 CVM 实例列表请求为例，请求参数为：
 
 | 参数 | 参数写法 | 
 |---------|---------|
 | 方法名 | Action=DescribeInstances | 
-| SecretId | SecretId= AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA | 
+| SecretId | SecretId= AKID****J5yKBZQpn74WFkmLPx3gnPhESA | 
 | 当前时间戳 | Timestamp=1408704141 | 
 | 随机正整数 | Nonce=345122 | 
 | 区域 | Region=gz | 
@@ -33,7 +33,7 @@
   'Action' : 'DescribeInstances',
   'Nonce' : 345122,
   'Region' : 'gz',
-  'SecretId' : 'AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA',
+  'SecretId' : 'AKID****J5yKBZQpn74WFkmLPx3gnPhESA',
   'Timestamp' : 1408704141
   'instanceIds.0' : 'qcvm12345',
   'instanceIds.1' : 'qcvm56789',
@@ -44,7 +44,7 @@
 把上一步排序好的请求参数，格式化成 k=v，然后用"&"拼接在一起，注意 v 为原始值而非 url 编码后的值。结果为：
 
 ```
-Action=DescribeInstances&Nonce=345122&Region=gz&SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA&Timestamp=1408704141& instanceIds.0=qcvm12345&instanceIds.1=qcvm56789
+Action=DescribeInstances&Nonce=345122&Region=gz&SecretId=AKID****J5yKBZQpn74WFkmLPx3gnPhESA&Timestamp=1408704141& instanceIds.0=qcvm12345&instanceIds.1=qcvm56789
 ```
 
 ### 拼接签名原文字符串
@@ -61,7 +61,7 @@ Action=DescribeInstances&Nonce=345122&Region=gz&SecretId=AKIDz8krbsJ5yKBZQpn74WF
 示例拼接结果为：
 
 ```
-GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances&Nonce= 345122&Region=gz&SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA&Timestamp=1408704141
+GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances&Nonce= 345122&Region=gz&SecretId=AKID****J5yKBZQpn74WFkmLPx3gnPhESA&Timestamp=1408704141
 ```
 
 ### 生成签名串
@@ -72,7 +72,7 @@ GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances&Nonce= 345122&Region
 
 ```
 $secretKey = 'Gu5t9xGARNpq86cd98joQYCN3Cozk1qA';
-$srcStr = 'GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances&Nonce=345122&Region=gz&SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA&Timestamp=1408704141';
+$srcStr = 'GETcvm.api.qcloud.com/v2/index.php?Action=DescribeInstances&Nonce=345122&Region=gz&SecretId=AKID****J5yKBZQpn74WFkmLPx3gnPhESA&Timestamp=1408704141';
 $signStr = base64_encode(hash_hmac('sha1', $srcStr, $secretKey, true));
 echo $signStr;
 ```
@@ -98,7 +98,7 @@ HgIYOPcx5lN6gz8JsCFBNAWp2oQ=
 https://cvm.api.qcloud.com/v2/index.php?Action=DescribeInstances
 &Nonce=345122
 &Region=gz
-&SecretId=AKIDz8krbsJ5yKBZQpn74WFkmLPx3gnPhESA
+&SecretId=AKID****J5yKBZQpn74WFkmLPx3gnPhESA
 &Signature=HgIYOPcx5lN6gz8JsCFBNAWp2oQ%3D
 &Timestamp=1408704141
 &instanceIds.0=qcvm12345

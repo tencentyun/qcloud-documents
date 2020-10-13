@@ -5,7 +5,7 @@
 
 进入`loglistener`安装目录，通过以下脚本启动 LogListener：
 
-```shell
+```plaintext
 cd loglistener/tools; ./start.sh
 ```
 

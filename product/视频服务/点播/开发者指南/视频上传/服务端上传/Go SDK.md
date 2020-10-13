@@ -204,6 +204,103 @@ func main() {
 }
 ```
 
+### 使用临时证书上传
+传入临时证书的相关密钥信息，使用临时证书验证身份并进行上传。
+```
+package main
+
+import (
+	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
+	"github.com/tencentyun/vod-go-sdk"
+	"fmt"
+)
+
+func main() {
+    client := &vod.VodUploadClient{}
+    client.SecretId = "Credentials TmpSecretId"
+    client.SecretKey = "Credentials TmpSecretKey"
+    client.Token = "Credentials Token"
+    
+    req := vod.NewVodUploadRequest()
+    req.MediaFilePath = common.StringPtr("/data/video/Wildlife.mp4")
+    
+    rsp, err := client.Upload("ap-guangzhou", req)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    fmt.Println(*rsp.Response.FileId)
+    fmt.Println(*rsp.Response.MediaUrl)
+}
+```
+
+
+### 设置代理上传
+设置上传代理，涉及协议及数据都会经过代理进行处理，开发者可以借助代理在自己公司内网上传文件到腾讯云。
+```
+package main
+
+import (
+	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
+	"github.com/tencentyun/vod-go-sdk"
+	"fmt"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    client := &vod.VodUploadClient{}
+    client.SecretId = "your secretId"
+    client.SecretKey = "your secretKey"
+    proxyUrl, _ := url.Parse("your proxy url")
+	client.Transport = &http.Transport{
+		Proxy: http.ProxyURL(proxyUrl),
+	}
+    
+    req := vod.NewVodUploadRequest()
+    req.MediaFilePath = common.StringPtr("/data/video/Wildlife.mp4")
+    
+    rsp, err := client.Upload("ap-guangzhou", req)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    fmt.Println(*rsp.Response.FileId)
+    fmt.Println(*rsp.Response.MediaUrl)
+}
+```
+
+### 自适应码流文件上传
+本 SDK 支持上传的自适应码流格式包括 HLS 和 DASH，同时要求 manifest（M3U8 或 MPD）所引用的媒体文件必须为相对路径（即不可以是 URL 和绝对路径），且位于 manifest 的同级目录或者下级目录（即不可以使用`../`）。在调用 SDK 上传接口时，`MediaFilePath`参数填写 manifest 路径，SDK 会解析出相关的媒体文件列表一并上传。
+
+```
+package main
+
+import (
+	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
+	"github.com/tencentyun/vod-go-sdk"
+	"fmt"
+)
+
+func main() {
+    client := &vod.VodUploadClient{}
+    client.SecretId = "your secretId"
+    client.SecretKey = "your secretKey"
+    
+    req := vod.NewVodUploadRequest()
+    req.MediaFilePath = common.StringPtr("/data/video/prog_index.m3u8")
+    
+    rsp, err := client.Upload("ap-guangzhou", req)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    fmt.Println(*rsp.Response.FileId)
+    fmt.Println(*rsp.Response.MediaUrl)
+    fmt.Println(*rsp.Response.CoverUrl)
+}
+```
+
 ## 接口描述
 上传客户端类`VodUploadClient`
 

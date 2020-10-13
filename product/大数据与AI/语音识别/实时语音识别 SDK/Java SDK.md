@@ -11,13 +11,15 @@
 **环境依赖**
 该接口需要满足 JDK1.8 及以上版本。
 
-**安装 SDK**
-+ 本 SDK 文件夹包含了 Jar 包和源码。源码可通过 Eclipse 直接打开，或将 src 拷至 IDEA 等软件中使用。    
-+ 可以先浏览 docs 目录中的“压缩包目录结构说明.png”，了解该SDK的主要结构。   
+**安装 SDK**  
++ 本 SDK 文件夹包含了 Jar 包和源码。源码可通过 Eclipse 直接打开，或将 src 拷至 IDEA 等软件中使用。可以先浏览 docs 目录中的“压缩包目录结构说明.png”，了解该 SDK 的主要结构。   
+
 + Jar 包使用步骤举例如下：
-	+ 找到 out 和 lib 文件夹中的 jar 文件。将所有的 jar文件 复制到您的工程文件夹中。如果第三方 jar 文件和您已使用的 jar 文件有重复，可选择其一。
+	+ 找到 out 和 lib 文件夹中的 jar 文件。将所有的 jar文件 复制到您的工程文件夹中。如果第三方 jar 文件和您已使用的 jar 文件有重复，可选择其一。  
+	+ 将 jar 文件 include 到您的项目中。包括 out 文件夹中的 real\_asr\_sdk\_\*.\*.jar 和 lib 中的所有依赖工具包。
 	+ 右键单击 Eclipse 选择【您的项目】>【Properties】>【Java Build Path】>【Add JARs】。
-	+ 将 jar 文件 include 到您的项目中。包括 out 文件夹中的 real\_asr\_sdk\_1.5.jar 和 lib 中的所有依赖工具包。
+	+ 其他 IDE 请参考对应的导入 jar 包流程添加即可，目前暂不支持 maven 仓库管理。
+	
 
 + 添加完成后用户即可在工程中使用实时语音 SDK 。
 
@@ -166,8 +168,7 @@ public class RasrRequestSample {
 
 	/**
 	 * 初始化基础参数, 请将下面的参数值配置成您自己的值。
-	 * 
-	 * 参数获取方法可参考： <a href="https://cloud.tencent.com/document/product/441/6203">签名鉴权 获取签名所需信息</a>
+	 * 具体参数及密钥请参考接口说明。
 	 */
 	private static void initBaseParameters() {
 		AsrInternalConfig.setSdkRole(SdkRole.ONLINE); // VAD版用户请务必赋值为 SdkRole.VAD

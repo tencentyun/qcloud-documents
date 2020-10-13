@@ -1,0 +1,37 @@
+腾讯云游戏数据库 TcaplusDB 借鉴非关系型数据库的设计理念和技术，结合游戏特点，平衡性能和成本，专为游戏数据存储打造。目前已为《王者荣耀》、《穿越火线》、《火影忍者》等千万级 DAU 大作提供了稳定的数据存储服务，依托腾讯云遍布全球五大洲（亚洲、欧洲、北美洲、南美洲、大洋洲）的基础设备服务节点，游戏开发商只需接入一次，便可在全球使用。
+
+下表为云审计支持的游戏数据库操作列表：
+
+| 操作名称                    | 资源类型      | 事件名称                    |
+|-------------------------|-----------|-------------------------|
+| 清除表数据                   | tcaplusdb | ClearTables             |
+| 创建备份                    | tcaplusdb | CreateBackup            |
+| 创建集群                    | tcaplusdb | CreateCluster           |
+| 新建表格组                   | tcaplusdb | CreateTableGroup        |
+| 批量创建表                   | tcaplusdb | CreateTables            |
+| 删除集群                    | tcaplusdb | DeleteCluster           |
+| 删除 IDL 描述文件               | tcaplusdb | DeleteIdlFiles          |
+| 删除表格组                   | tcaplusdb | DeleteTableGroup        |
+| 删除 TcaplusDB 表的全局分布式索引    | tcaplusdb | DeleteTableIndex        |
+| 删除表                     | tcaplusdb | DeleteTables            |
+| 查询集群信息列表                | tcaplusdb | DescribeClusters        |
+| 获取集群关联的标签列表             | tcaplusdb | DescribeClusterTags     |
+| 查询表描述文件详情               | tcaplusdb | DescribeIdlFileInfos    |
+| 查询地域列表                  | tcaplusdb | DescribeRegions         |
+| 查询表格组列表                 | tcaplusdb | DescribeTableGroups     |
+| 获取表格组关联的标签列表            | tcaplusdb | DescribeTableGroupTags  |
+| 查询表详情                   | tcaplusdb | DescribeTables          |
+| 查询回收站中的表详情              | tcaplusdb | DescribeTablesInRecycle |
+| 获取表格标签列表                | tcaplusdb | DescribeTableTags       |
+| 查询任务列表                  | tcaplusdb | DescribeTasks           |
+| 查询本用户是否在白名单中            | tcaplusdb | DescribeUinInWhitelist  |
+| 修改集群名称                  | tcaplusdb | ModifyClusterName       |
+| 修改集群密码                  | tcaplusdb | ModifyClusterPassword   |
+| 修改集群标签                  | tcaplusdb | ModifyClusterTags       |
+| 修改表格组名称                 | tcaplusdb | ModifyTableGroupName    |
+| 修改表格组标签                 | tcaplusdb | ModifyTableGroupTags    |
+| 修改表备注信息                 | tcaplusdb | ModifyTableMemos        |
+| 批量修改表结构                 | tcaplusdb | ModifyTables            |
+| 修改表格标签                  | tcaplusdb | ModifyTableTags         |
+| 恢复回收站中的表                | tcaplusdb | RecoverRecycleTables    |
+| 创建、修改 TcaplusDB 表的全局分布式索引 | tcaplusdb | SetTableIndex           |

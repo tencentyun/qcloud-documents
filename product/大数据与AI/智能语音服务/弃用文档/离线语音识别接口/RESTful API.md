@@ -78,21 +78,21 @@ URL 中各字段含义如下：
 用户通过 [签名生成](#sign) 的签名 5Zb1hKd8uo4H+AgpMbktZhHqqjY=，通过语音 url（https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav） 的方式请求录音文件识别服务，服务的引擎模型为8k\_0，识别的录音文件为单声道，采样率为8k。
 
 ```
-curl -sv -H 'Authorization:5Zb1hKd8uo4H+AgpMbktZhHqqjY=' 'https://aai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num=1&engine_model_type=8k_0&expired=1561464926&nonce=6666&projectid=0&res_text_format=0&res_type=1&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&source_type=0&sub_service_type=0&timestamp=1561461326&url=https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav'
+curl -sv -H 'Authorization:5Zb1hKd8uo4H+AgpMbktZhHqqjY=' 'https://aai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num=1&engine_model_type=8k_0&expired=1561464926&nonce=6666&projectid=0&res_text_format=0&res_type=1&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO*****&source_type=0&sub_service_type=0&timestamp=1561461326&url=https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav'
 ```
 **示例2** 
 用户通过本地语音上传方式请求。
 用户通过 [签名生成](#sign) 的签名 j8AY1RkedGSoDxCjAEtT2pq/r1w=，通过本地上传语音（voicedata 为用户实际上传的从音频文件读取的音频数据）的方式请求录音文件识别服务，服务的引擎模型为8k\_0，识别的录音文件为单声道，采样率为8k。 
 
 ```
-curl -sv -H 'Authorization:j8AY1RkedGSoDxCjAEtT2pq/r1w=' 'https://aai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num=1&engine_model_type=8k_0&expired=1561465286&nonce=6666&projectid=0&res_text_format=0&res_type=1&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&source_type=1&sub_service_type=0&timestamp=1561461686' -d 'voicedata'
+curl -sv -H 'Authorization:j8AY1RkedGSoDxCjAEtT2pq/r1w=' 'https://aai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num=1&engine_model_type=8k_0&expired=1561465286&nonce=6666&projectid=0&res_text_format=0&res_type=1&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO*****&source_type=1&sub_service_type=0&timestamp=1561461686' -d 'voicedata'
 ``` 
 <span id="sign"></span>
 **签名生成**
-这里以 Appid = 1259228442, SecretId = AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r 为例拼接签名原文，则拼接的签名原文为：
+这里以 Appid = 1259228442, SecretId = AKIDoQq1zhZMN8dv0psmvud6OUKuGPO***** 为例拼接签名原文，则拼接的签名原文为：
 
 ```
-POSTaai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num=1&engine_model_type=8k_0&expired=1561464926&nonce=6666&projectid=0&res_text_format=0&res_type=1&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&source_type=0&sub_service_type=0&timestamp=1561461326&url=https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav
+POSTaai.qcloud.com/asr/v1/1259228442?callback_url=http://test.qq.com&channel_num=1&engine_model_type=8k_0&expired=1561464926&nonce=6666&projectid=0&res_text_format=0&res_type=1&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO*****&source_type=0&sub_service_type=0&timestamp=1561461326&url=https://xuhai2-1255824371.cos.ap-chengdu.myqcloud.com/test.wav
 ```
 对签名原文和 SecretKey= kFpwoX5RYQ2SkqpeHgqmSzHK7h3A2fni，使用 **HmacSha1** 算法进行加密处理：
 

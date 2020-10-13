@@ -116,3 +116,11 @@ PlayRecordedFile
 SpeechToText
 ```
 
+## GME 2.5 升级 GME 2.7 
+### 增加接口
+#### PlayRecordedFile(const char* filePath, ITMG_VOICE_TYPE voiceType)
+此接口用于播放带有变声效果的语音消息。
+
+#### SetAccompanyKey(int nKey)
+此接口用于设置实时语音伴奏升降调。
+

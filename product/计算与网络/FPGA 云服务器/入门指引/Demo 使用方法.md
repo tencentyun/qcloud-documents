@@ -20,8 +20,8 @@ FPGA 云服务器入门指引图片目录放置在 `/data/images` 目录下，�
 ## 模型目录
 FPGA 云服务器入门指引模型目录放置在 `/data/models` 目录下，保存了在 ImageNet LSVRC-2012 比赛中使用的 Alexnet 的网络结构、模型参数文件、图片均值文件和标签文件等。
 ## Demo 使用说明
-1.	进入 Demo 目录下的`build`目录，运行 `./build`。
-2.	进入`test/script`目录，运行`./test_demo.sh`。
+1.	进入 Demo 目录下的 `build` 目录，运行 `./build`。
+2.	进入 `test/script` 目录，运行`./test_demo.sh`。
 3.	结果保存在当前目录下`fpga_res.txt`文件中，文件内容为`/data/images`目录下所有图片的分类结果。本文档展示的 Alexnet 模型结果为千分类，仅展示概率最高的3种分类。
 取其中2行分类结果如下所示：
 ```

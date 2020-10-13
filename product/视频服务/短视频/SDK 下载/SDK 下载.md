@@ -1,5 +1,5 @@
-## 短视频 SDK 各版本下载
-<table>
+## 短视频 SDK 各版本下载             
+<table> 
    <tr>
       <th width="85px" style="text-align:center">功能模块</td>
       <th width="85px" style="text-align:center">功能项</td>
@@ -328,8 +328,8 @@
       <td>SDK 的一年使用权（精简版和基础版含腾讯云点播流量套餐）。</td>
       <td style="text-align:center">￥1699元/年</td>
       <td style="text-align:center">￥8399元/年</td>
-      <td style="text-align:center">￥15W/年 </td>
-      <td style="text-align:center">￥50W/年 </td>
+      <td style="text-align:center">￥15万元/年 </td>
+      <td style="text-align:center">￥50万元/年 </td>
    </tr>
 </table>
 
@@ -378,3 +378,10 @@
     s.parentNode.insertBefore(mta, s);
   })();
 </script>
+
+
+
+
+
+
+

@@ -1,6 +1,7 @@
 
 TUIKit 已经在内部完成了基本消息的渲染工作，您可以很简单地通过属性设置来调节消息展示样式，也可以重新自定义消息样式。
 
+
 ## 基本消息类型
 TUIKit 基本消息类型请参见 [MessageInfo.java](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/Android/TUIKit/com/tencent/qcloud/tim/uikit/modules/message/MessageInfo.html)。
 <table>
@@ -68,66 +69,39 @@ messageLayout.setOnCustomMessageDrawListener(new CustomMessageDraw());
 
 ### 示例代码
 
-下列示例代码将呈现一个完整的自定义消息的过程，您也可以直接 [下载](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/helper/ChatLayoutHelper.java) 完整的 Demo。
+下列示例代码将呈现一个完整的自定义消息解析的过程，您也可以直接 [下载](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/helper/ChatLayoutHelper.java) 完整的 Demo。
 ```java
-public static class CustomMessageDraw implements IOnCustomMessageDrawListener {
+public class CustomMessageDraw implements IOnCustomMessageDrawListener {
 
-    /**
-         * 自定义消息渲染时，会调用该方法，本方法实现了自定义消息的创建，以及交互逻辑
-         * @param parent 自定义消息显示的父 View，需要把创建的自定义消息 View 添加到 parent 里
-         * @param info 消息的具体信息
-         */
-    @Override
-    public void onDraw(ICustomMessageViewGroup parent, MessageInfo info) {
-        View view = null;
-        // 获取到自定义消息的 JSON 数据
-        TIMCustomElem elem = (TIMCustomElem) info.getTIMMessage().getElement(0);
-        // 自定义的 JSON 数据，需要解析成 bean 实例
-        final CustomMessageData customMessageData = new Gson().fromJson(new String(elem.getData()), CustomMessageData.class);
-        // 通过类型来创建不同的自定义消息展示 View
-        switch(customMessageData.type) {
-            case CustomMessageData.TYPE_HYPERLINK:
-                view = LayoutInflater.from(DemoApplication.instance()).inflate(R.layout.test_custom_message_layout1, null, false);
-                // 把自定义消息 View 添加到 TUIKit 内部的父容器里
-                parent.addMessageContentView(view);
-                break;
-            case CustomMessageData.TYPE_PUSH_TEXT_VIDEO:
-                view = LayoutInflater.from(DemoApplication.instance()).inflate(R.layout.test_custom_message_layout2, null, false);
-                // 把自定义消息 View 添加到 TUIKit 内部的父容器里
-                parent.addMessageItemView(view);
-                break;
-        }
-
-        // 自定义消息 View 的实现，这里仅仅展示文本信息，并且实现超链接跳转
-        TextView textView = view.findViewById(R.id.test_custom_message_tv);
-        textView.setText(customMessageData.text);
-        textView.setClickable(true);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent();
-                intent.setAction("android.intent.action.VIEW");
-                Uri content_url = Uri.parse(customMessageData.url);
-                intent.setData(content_url);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                DemoApplication.instance().startActivity(intent);
-            }
-        });
-    }
-}
-
-/**
- * 自定义消息的 bean 实体，用来与 JSON 的相互转化
- */
-public static class CustomMessageData {
-    // 超文本类型，点击可以跳转到一个 Webview
-    final static int TYPE_HYPERLINK = 1;
-    // 视频+说明类型
-    final static int TYPE_PUSH_TEXT_VIDEO = 2;
-    // 自定义消息类型，根据业务可能会有很多种
-    int type = TYPE_HYPERLINK;
-    String text = "欢迎加入即时通信 IM 大家庭！查看详情>>";
-    String url = "https://cloud.tencent.com/document/product/269";
+	/**
+	 * 自定义消息渲染时，会调用该方法，本方法实现了自定义消息的创建，以及交互逻辑
+	 *
+	 * @param parent 自定义消息显示的父View，需要把创建的自定义消息view添加到parent里
+	 * @param info   消息的具体信息
+	 */
+	@Override
+	public void onDraw(ICustomMessageViewGroup parent, MessageInfo info) {
+		// 获取到自定义消息的json数据
+		if (info.getTimMessage().getElemType() != V2TIMMessage.V2TIM_ELEM_TYPE_CUSTOM) {
+			return;
+		}
+		V2TIMCustomElem elem = info.getTimMessage().getCustomElem();
+		// 自定义的json数据，需要解析成bean实例
+		CustomHelloMessage data = null;
+		try {
+			data = new Gson().fromJson(new String(elem.getData()), CustomHelloMessage.class);
+		} catch (Exception e) {
+			DemoLog.w(TAG, "invalid json: " + new String(elem.getData()) + " " + e.getMessage());
+		}
+		if (data == null) {
+			DemoLog.e(TAG, "No Custom Data: " + new String(elem.getData()));
+		} else if (data.version == TUIKitConstants.JSON_VERSION_1
+				|| (data.version == TUIKitConstants.JSON_VERSION_4 && data.businessID.equals("text_link"))) {
+			CustomHelloTIMUIController.onDraw(parent, data);
+		} else {
+			DemoLog.w(TAG, "unsupported version: " + data);
+		}
+	}
 }
 ```
 

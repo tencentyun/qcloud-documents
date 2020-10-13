@@ -55,7 +55,7 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 <tr>
 <td colspan="2" >IP 资源费用</td>
 <td>普通公网 IP 可免费使用。</td>
-<td>IP 资源费用是弹性公网 IP 费用组成的一部分，根据非带宽上移和带宽上移不同类型的账户收费情况不同，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/41692#.E8.B4.B9.E7.94.A8.E7.BB.84.E6.88.90">费用组成</a>。</td>
+<td>IP 资源费用是弹性公网 IP 费用组成的一部分，针对传统账户类型和标准账户类型，不同类型的账户收费情况不同，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/41692#.E8.B4.B9.E7.94.A8.E7.BB.84.E6.88.90">费用组成</a>。</td>
 </tr>
 <tr>
 <td colspan="2" rowspan="2">配额</td>
@@ -63,7 +63,7 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 <td>每个账户每个地域（Region）可申请：20个。</td>
 </tr>
 <tr>
-<td colspan="2">每台云服务器绑定公网 IP （包括普通公网 IP 和 EIP）数配额请参见 <a href="https://cloud.tencent.com/document/product/1199/41648?!#.E7.BB.91.E5.AE.9A.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.99.90.E5.88.B6" target="_blank">绑定云服务器限制
+<td colspan="2">每台云服务器绑定公网 IP（包括普通公网 IP 和 EIP）数配额请参见 <a href="https://cloud.tencent.com/document/product/1199/41648?!#.E7.BB.91.E5.AE.9A.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E9.99.90.E5.88.B6" target="_blank">绑定云服务器限制
 </a>。
 </td>
 </tr>
@@ -111,4 +111,9 @@ IPv6 地址开通 IPv6 公网后，即作为公网 IPv6 地址具有了访问 IP
 目前弹性公网 IPv6 处于内测中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/c28sebss8v)。
 #### 计费说明
 腾讯云对使用公网 IPv6 地址访问 IPv6 公网产生的公网网络流量，将收取公网网络费用，详情请参见 [弹性公网 IPv6-购买指南](https://cloud.tencent.com/document/product/1142/38129)。
+
+
+## 相关信息
+- 如需快速搭建一个具有 IPv4 CIDR 的私有网络（VPC），请参见 [快速搭建 IPv4 私有网络](https://cloud.tencent.com/document/product/215/30716)。
+- 如需了解弹性公网 IP 相关内容，请参见 [弹性公网 IP](https://cloud.tencent.com/document/product/215/37567)。
 

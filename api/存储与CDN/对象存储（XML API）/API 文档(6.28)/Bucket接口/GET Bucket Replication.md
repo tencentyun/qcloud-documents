@@ -14,25 +14,17 @@ Authorization: Auth String
 >?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求头
-#### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-#### 非公共头部
-该请求操作无特殊的请求头部信息。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+
 
 #### 请求体
 该请求的请求体为空。
 
 ## 响应
 #### 响应头
-#### 公共响应头 
-该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
-#### 特有响应头
-
-|参数项|类型|描述|
-|---|---|---|
-|x-cos-replication-rule-creation-time|UTC 时间戳格式|跨地域复制规则创建时间|
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 响应体
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
@@ -51,9 +43,9 @@ Authorization: Auth String
 </ReplicationConfiguration>
 ```
 
-具体内容描述如下：
+具体的节点描述如下：
 
-|节点名称（关键字）|    父节点|    描述    |类型|    必选|
+|节点名称（关键字）|    父节点|    描述    |类型|    是否必选|
 |---|---|---|---|---|
 |ReplicationConfiguration    |无    |说明所有跨地域配置信息    |Container    |是|
 |Role|ReplicationConfiguration    |发起者身份标示：<br>`qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>`  |String    |是|
@@ -66,13 +58,12 @@ Authorization: Auth String
 |StorageClass    |ReplicationConfiguration.Rule.Destination    |存储级别，枚举值：Standard，Standard_IA，默认值：原存储桶级别    |String    |否|
 
 
-## 错误分析
-该请求可能会发生的一些常见的特殊错误如下，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+#### 错误码
+
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 
-| 错误代码                              | 描述                   | 状态码        |
-| ------------------------------------- | ---------------------- | ------------- |
-| ReplicationConfigurationNotFoundError | 无查询的跨地域复制规则 | 404 Not Found |
+
 
 ## 实际案例
 
@@ -97,7 +88,7 @@ Connection: keep-alive
 Date: Fri, 14 Apr 2019 07:17:19 GMT
 Server: tencent-cos
 x-cos-replication-rule-creation-time: Fri, 14 Apr 2019 07:06:19 GMT
-x-cos-request-id: NWQwMzQ5ZmZfMjBiNDU4NjRfNjAwOV84MzA2MjE=
+x-cos-request-id: NWQwMzQ5ZmZfMjBiNDU4NjRfNjAwOV84MzA2****
 <ReplicationConfiguration>
 	<Role>qcs::cam::uin/100000000001:uin/100000000001</Role>
 	<Rule>
@@ -105,7 +96,7 @@ x-cos-request-id: NWQwMzQ5ZmZfMjBiNDU4NjRfNjAwOV84MzA2MjE=
 		<ID>RuleId_01</ID>
 		<Prefix>testPrefix</Prefix>
 		<Destination>
-			<Bucket>qcs::cos:ap-guangzhou::destinationBucket-1250000000</Bucket>
+			<Bucket>qcs::cos:ap-guangzhou::destinationbucket-1250000000</Bucket>
 		</Destination>
 	</Rule>
 </ReplicationConfiguration>

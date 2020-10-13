@@ -3,7 +3,7 @@
 手机录屏直播，即可以直接把主播的手机画面作为直播源，同时可以叠加摄像头预览，应用于游戏直播、移动端 App 演示等需要手机屏幕画面的场景。
 >?直播中叠加摄像头预览，即通过在手机上添加浮框，显示摄像头预览画面。录屏的时候会把浮框预览画面一并录制下来，达到叠加摄像头预览的效果。具体实现方法可参见  [小直播源码](https://github.com/tencentyun/MLVBSDK/blob/master/Android/XiaoZhiBo/app/src/main/java/com/tencent/qcloud/xiaozhibo/anchor/screen/widget/FloatingCameraView.java)。
 
-![](https://main.qcloudimg.com/raw/c8b39da129043f471c44bdb4396111c4.jpg)
+![](https://main.qcloudimg.com/raw/5be5fa0002348a29614bb129084455a5.png)
 
 ## 限制说明
 - Android 5.0 系统以后开始支持录屏功能。
@@ -16,7 +16,8 @@
 ## 对接攻略
 <span id="step_1"></span>
 ### 步骤 1：添加 Activity
-在 manifest 文件中黏贴进如下一个 activity。
+
+在 manifest 文件中粘贴如下 activity（若项目代码中存在则不需要添加）。
 ```xml
 <activity 
     android:name="com.tencent.rtmp.video.TXScreenCapture$TXScreenCaptureAssistantActivity" 
@@ -29,7 +30,7 @@
 
 不过在创建 LivePush 对象之前，还需要您指定一个 **LivePushConfig** 对象，该对象的用途是决定 LivePush 推流时各个环节的配置参数，例如推流用多大的分辨率、每秒钟要多少帧画面（FPS）以及多少秒一个I帧（ Gop）等等。
 
-LivePushConfig 在 new 出来之后便已经装配了一些我们反复调过的参数，如果您不需要自己定制这些配置，简单地塞给 LivePush 对象就可以了。如果您有相关领域的经验基础，需要对这些默认配置进行调整，可以阅读进阶篇中的内容。
+LivePushConfig 在 new 出来之后便已经装配了一些我们反复调过的参数，如果您不需要自己定制这些配置，简单地塞给 LivePush 对象就可以了。如果您有相关领域的经验基础，需要对这些默认配置进行调整，可以阅读 [进阶篇](https://cloud.tencent.com/document/product/454/34771) 中的内容。
 
 ```java
 TXLivePusher mLivePusher = new TXLivePusher(getActivity());
@@ -77,8 +78,7 @@ public void triggerPrivateMode() {
 ```
  
 ### 步骤 5：设置 Logo 水印
-最近相关政策规定，直播的视频必须要打上水印，所以这个之前看起来并不是特别起眼的功能现在要重点说一下：
-腾讯视频云目前支持两种水印设置方式：一种是在推流 SDK 进行设置，原理是在 SDK 内部进行视频编码前就给画面打上水印。另一种方式是在云端打水印，也就是云端对视频进行解析并添加水印 Logo。
+**据相关政策规定，直播视频必须加上水印。**腾讯视频云目前支持两种水印设置方式：一种是在推流 SDK 进行设置，原理是在 SDK 内部进行视频编码前就给画面打上水印。另一种方式是在云端打水印，也就是云端对视频进行解析并添加水印 Logo。
 
 这里我们特别建议您使用 SDK 添加水印，因为在云端打水印有三个明显的问题：
  - 这是一种很耗云端机器的服务，而且不是免费的，会拉高您的费用成本。

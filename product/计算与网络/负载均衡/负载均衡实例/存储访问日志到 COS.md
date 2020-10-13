@@ -1,4 +1,4 @@
->!配置访问日志到 COS 将于2020-05-15 00:00:00关闭新增（其中广州地域将于2020-04-26 00:00:00关闭新增），所有地域将于2020-06-30 00:00:00正式下线该功能，详情请参见 [CLB 配置访问日志到 COS 功能下线公告](https://cloud.tencent.com/document/product/214/43659)，请使用升级版功能：[配置访问日志到 CLS](https://cloud.tencent.com/document/product/214/41379)。
+ >!配置访问日志到 COS 将于2020-05-15 00:00:00关闭新增（其中广州地域将于2020-04-26 00:00:00关闭新增），所有地域将于2020-06-30 00:00:00正式下线该功能，详情请参见 [CLB 配置访问日志到 COS 功能下线公告](https://cloud.tencent.com/document/product/214/43659)，请使用升级版功能：[配置访问日志到 CLS](https://cloud.tencent.com/document/product/214/41379)。
 
 负载均衡支持配置七层（HTTP/HTTPS）访问日志（Access Log），访问日志可以帮助您了解客户端请求、辅助排查问题、分析梳理访问数据等。当前访问日志支持存储到 COS 中下载分析，支持的地域包括广州、上海、北京、香港、上海金融和深圳金融。
 
@@ -9,20 +9,29 @@
 >?
 - 当前日志聚合粒度为1小时，日志数据的传输会有一定的延迟。
 - 当前负载均衡仅支持公网七层（HTTP/HTTPS）日志的存储和下载，不支持四层（TCP/UDP）和内网七层日志的存储和下载。
-- 当前负载均衡日志服务免费，COS 存储的免费额度按照文档 [免费额度](https://cloud.tencent.com/document/product/436/6240) 中所示，提供50G免费存储空间。如您的日志量级较大，请及时清理数据。
+- 负载均衡配置访问日志到 COS 的功能免费，用户仅需支付对象存储 COS 的费用， COS 面向所有新用户有一定量的免费额度，详情请参见 [免费额度](https://cloud.tencent.com/document/product/436/6240) 。
 - 在支持配置访问日志到 COS 的地域中，若您不开启访问日志，腾讯云默认为您保留3天的日志；若您开启访问日志，存储时间则依 COS 存储而定。其他地域暂不支持配置访问日志。
 
 
-## 开启访问日志
+## 开启访问日志存入 COS
 1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3)。
-2. 单击需进行配置的负载均衡 ID，进入“负载均衡基本信息”页面。
-3. 在“日志访问”模块，编辑日志存入 COS。
-![](https://main.qcloudimg.com/raw/4929ec08f86278f8bdbc7cf2df48b25f.png)
+2. 在"负载均衡"列表页面，单击想要配置的负载均衡 ID，进入“负载均衡基本信息”页面。
+3. 在“访问日志”模块，编辑日志存入 COS。
+![](https://main.qcloudimg.com/raw/948ca531935af6a102885d3a941852e0.png)
 4. 在弹出框中，开启访问日志，并选择相应 COS 中的存放 bucket。如您没有创建COS 的 bucket，请 [新建 bucket](https://console.cloud.tencent.com/cos4/bucket) 后，选取相应的存储位置。
 ![](https://main.qcloudimg.com/raw/e8f3506ade5fe73c2267c3f294c957b4.png)
-5. 单击【提交】，则请求日志会自动在 bucket 下创建 lb-id 为名称的文件夹进行存储。
+5. 点击【提交】，请求日志会自动在 bucket 下，创建以 lb-id 为名称的文件夹进行存储。
 6. 配置完成后，单击 bucket 地址可以直接跳转到日志下载页面。
-7. <span id="close" />（可选）若想关闭访问日志，可再次编辑日志存入 COS，在弹框中进行关闭并提交即可。
+
+## 关闭访问日志存入 COS
+1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3)。
+2. 在"负载均衡"列表页面，单击想要配置的负载均衡 ID，进入“负载均衡基本信息”页面。
+3. 在“访问日志”模块，编辑日志存入 COS。
+![](https://main.qcloudimg.com/raw/948ca531935af6a102885d3a941852e0.png)
+4. 在弹出框中，关闭访问日志， 点击【提交】 即可 。
+![](https://main.qcloudimg.com/raw/86dbea54d3b697a03ed449b398679461.png)   
+ 配置完成如下，关闭后将不支持再开启 COS 日志， 详见 [关于CLB配置访问日志到COS下线的公告](https://cloud.tencent.com/document/product/214/43659)。
+![](https://main.qcloudimg.com/raw/43a489e82953e4b27acca5a541912704.png)
 
 ## 日志格式及变量说明
 ### 日志格式
@@ -61,3 +70,4 @@
 | ssl_cipher| SSL 加密套件。|
 | ssl_protocol	| SSL 协议版本。 |
 | ssl_session_reused |SSL SESSION 复用。|	 
+

@@ -20,7 +20,7 @@ public class SASRtest {
     public static void main(String[] args) {
 
         //用户需修改为自己的SecretId，SecretKey
-        String SecretId = "AKID31NbfXbpBLJ4kGJrytc9UfgVAlGltJJ8";
+        String SecretId = "AKID31NbfXbpBLJ4kGJrytc9UfgVAlG*****";
         String SecretKey = "kKm26uXCgLtGRWVJvKtGU0LYdWCgOvGP";
 
         // 识别引擎 8k or 16k

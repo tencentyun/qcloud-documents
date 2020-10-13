@@ -8,7 +8,7 @@ Initiate Multipart Upload 请求实现初始化分段上传，此请求将返回
 
 #### 请求语法
 
-```HTTP
+```plaintext
 POST /<UID>/vaults/<VaultName>/multipart-uploads HTTP/1.1
 Host: cas.<Region>.myqcloud.com
 Date: Date
@@ -16,7 +16,7 @@ Authorization: Auth
 x-cas-archive-description: ArchiveDescription
 x-cas-part-size: PartSize
 ```
-。
+
 #### 请求参数
 
 无特殊请求参数。

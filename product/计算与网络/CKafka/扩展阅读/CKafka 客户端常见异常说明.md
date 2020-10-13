@@ -39,3 +39,4 @@
 | NotCoordinatorForGroupException | 当前节点不是该 ConsumerGroup的Coordinator，Coordinator 迁移到别的节点。| 服务器端升级时可能短暂出现，客户端会自动重试。 |
 | IllegalGenerationException | ConsumerGroup 的 generation不合法。| 可能心跳超时或有新消费者加入，Consumer 会自动重新尝试加入 ConsumerGroup。 |
 | RebalanceInProgressException | ConsumerGroup 正在进行 rebalance。| 可能心跳超时或有新消费者加入，Consumer 会自动重新尝试加入 ConsumerGroup。 |
+
