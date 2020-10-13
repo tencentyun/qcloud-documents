@@ -68,6 +68,6 @@ time5.cloud.tencent.com
 出现该错误通常是 `/etc/ntp.conf` 中的 listen 网络设备未配置 IP 或配置了非实例的内网主 IP，请核实并确认。如是，则更改为主 IP 后重启 ntpd 即可。
 
 ### 使用外网 NTP 时间服务器同步时间时，出现报错该如何处理？
-与腾讯云提供的外网 NTP 时间服务器同步时间时，出现 `no server suitable for synchronization found` 报错。如下图所示：
+使用外网 NTP 时间服务器同步时间时，出现 `no server suitable for synchronization found` 报错。如下图所示：
 ![](https://main.qcloudimg.com/raw/1909910bc2a86a5f93e09f4601654327.png)
 可能原因是实例的公网 IP 在受到 DDOS 攻击时，会触发 NTP 的反射防护策略，针对访问腾讯云的源端口123外网流量全部拦截，导致时间同步异常。建议您在使用实例时尽量使用内网 NTP 时间服务器进行时间同步。
