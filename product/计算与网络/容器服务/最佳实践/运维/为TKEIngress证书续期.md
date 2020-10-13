@@ -1,5 +1,5 @@
-## 操作背景
-使用 TKE 控制台创建的 Ingress 配置的证书会引用 [SSL 证书](https://console.cloud.tencent.com/ssl) 里托管的证书，如果 Ingress 使用的时间很长，证书可能会面临过期的风险，一旦证书过期，可能就会对线上业务造成很大的影响。所以，我们需要在证书过期前进行续期，本文将介绍如何为 Ingress 证书续期。
+## 操作场景
+使用 TKE 控制台创建的 Ingress 配置的证书会引用 [SSL 证书](https://console.cloud.tencent.com/ssl) 中托管的证书，若 Ingress 使用时间较长，证书存在过期的风险。一旦证书过期，则会对线上业务造成巨大影响，因此需要在证书过期前进行续期，本文将介绍如何为 Ingress 证书续期。
 
 ## 操作步骤
 ### 查询快过期的证书
