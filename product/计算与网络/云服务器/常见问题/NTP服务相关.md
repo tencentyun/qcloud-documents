@@ -10,21 +10,21 @@ vi /etc/ntp.conf
 ```
 server ntpupdate.tencentyun.com minpoll 4 maxpoll 5
 ```
-配置完成后如下图所示：
+配置完成后如下图所示，输入 **:wq** 保存更改并退出。
 ![](https://main.qcloudimg.com/raw/b414cf3c657e020c4386f67d195d298b.png)
 3. 重启 ntpd 服务后，执行 `ntpd -p` 命令，即可查看 poll 值为16（即2<sup>4</sup>）。如下图所示：
 ![](https://main.qcloudimg.com/raw/9fa0c72751de74d3b6e72cc1ca831952.png)
 
 ### 腾讯云提供的 ntpd 时间源服务器 time1.cloud.tencent.com 所提供的时间是从什么源头获取的？
-NTP 时钟上有为北斗时间源。
+NTP 时钟上游为北斗时间源。
  
 ### NTP 服务配置报错 localhost.localdomain timeout 是什么原因，如何修复？
-报错信息如下所示：
+报错信息如下图所示：
 ![](https://main.qcloudimg.com/raw/1b3158135475e6cfbee28d2373685616.png)
 出现该错误可能是您进行了 POSTROUTING，请核实并确认。如是，则请将 `ntp.conf` 配置文件中的源 IP 改为 eth0 的 IP 即可。
 
 ### 云下机器是否可与云上机器共用一个 NTP？是否可提供 NTP 同步地址？
-内网 NTP 仅腾讯云上实例可用。若云下机器有外网，则可通过配置外网 NTP 源实现同步。地址如下：
+内网 NTP 仅腾讯云上实例可用。若云下机器支持外网，则可通过配置外网 NTP 源实现同步。地址如下：
 - 内网 NTP 服务器
 ```
 time1.tencentyun.com
@@ -48,12 +48,12 @@ time5.cloud.tencent.com
  - [Windows 实例：配置 NTP 服务](https://cloud.tencent.com/document/product/213/30394)
 
 ### 云服务器无法 ping 通 NTP 服务器，是否影响 NTP 同步？
-不影响。NTP 域名是禁止 ping 的，仅需确保 NTP 服务正常访问即可。
+不影响。NTP 域名禁止 ping，仅需确保您的 NTP 服务正常访问即可。
 
 ### 为什么使用自定义镜像创建的云服务器 ntp.conf 内容被还原了？
 系统内 Cloud-Init 初始化导致，请您在制作自定义镜像前删除 `/etc/cloud/cloud.cfg` 中 NTP 相关配置。详情请参见 [Cloud-Init 和 Cloudbase-Init 问题](https://cloud.tencent.com/document/product/213/19670)。
 
-### 若改变内网 DNS，会有哪些具体影响
+### 若改变内网 DNS，会有哪些具体影响？
 涉及到腾讯云内部域名解析的业务均会被影响。例如：
 - 影响 yum 下载，yum 源默认是腾讯内网的域名。若修改了 DNS 则还需修改 yum 源。
 - 影响监控数据上报，该功能依赖内网域名。
