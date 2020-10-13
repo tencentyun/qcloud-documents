@@ -808,8 +808,8 @@ track={
 | quality           | Enum('high', 'medium', 'low') | medium | 导出视频质量选项。提供 high，medium，low 三个选项。以标准16：9视频为例：<li/>high 导出分辨率为1080\*1920<li/>medium 导出分辨率为720\*1280<li/>low 导出分辨率为 540\*960 | 否   |
 | showloading       | Boolean                       | false  | 是否显示默认的导出进度 toast，默认值：false                    | 否   |
 | watermark         | String                        | -      | 水印地址，支持线上链接和本地临时地址 | 否   |
-| watermarX | Number | 15 | 水印基于左上角X偏移量 | 否 |
-| watermarY | Number | 15 | 水印基于左上角Y偏移量 | 否 |
+| watermarkX | Number | 15 | 水印基于左上角X偏移量 | 否 |
+| watermarkY | Number | 15 | 水印基于左上角Y偏移量 | 否 |
 | bindready         | Function                      | -      | 导出组件加载完成时触发                                       | 否   |
 | bindexportstart   | Function                      | -      | 导出流程开始                                                 | 否   |
 | bindprogress      | Function                      | -      | 导出进度更新<pre style="margin:0">e.detail =  {<br />progress: Number<br />} </pre>| 否   |
@@ -826,12 +826,13 @@ track={
 
 ##### 线上地址
 如果需要使用在线图片，请按如下步骤配置。
-1. 在小程序根目录下引入 index.js，目录`miniprogram/index.js`。
-		```
+1. 在小程序根目录下引入 index.js，目录：`miniprogram/index.js`。
+```
 		module.exports = {
 			downloadFile:wx.downloadFile
 		}
-		```
+```
+
 2. 	在 `app.json` 中将 downloadFile 方法导出到插件。
       ```json
         "plugins": {
@@ -846,7 +847,7 @@ track={
 
 ##### 本地地址
 
-传入`wxfile://` 开头的本地临时地址即可
+传入`wxfile://` 开头的本地临时地址即可。
 
 >?导出组件提供了`slot插槽`以定制导出组件的实际 UI，并监听内部冒泡的 tap 事件以触发导出流程；如果需要手动触发导出流程，可以使用`wx.selectComponent`获取组件实例并调用实例的`start`方法。
 
