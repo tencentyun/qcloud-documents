@@ -66,7 +66,7 @@ TUILiveRoomAudienceViewController *audienceVC = [[TUILiveRoomAudienceViewControl
 ```
 
 <span id="step5"></span>
-## 步骤5：实现直播广场
+## 步骤5：实现直播大厅
 
 现在，您已经拥有了主播端和观众端，还需要一个直播房间列表将两者关联起来。
 - 主播端创建房间成功后，将房间 ID 记录到后端。
@@ -94,10 +94,10 @@ TUILiveRoomAudienceViewController *audienceVC = [[TUILiveRoomAudienceViewControl
 }
 ```
 
-2.  创建直播广场页 UI：
-   直播广场页用于展示直播列表，具体实现请参考 Demo 中 `TUILiveRoomListViewController` 的实现。
+2.  创建直播大厅页 UI：
+   直播大厅页用于展示直播列表，具体实现请参考 Demo 中 `TUILiveRoomListViewController` 的实现。
 3.  单击观看：
-   在直播广场页点击任意直播间，参照 [步骤4：观众端观看直播](#step4) 生成观看端即可观看。
+   在直播大厅页点击任意直播间，参照 [步骤4：观众端观看直播](#step4) 生成观看端即可观看。
 
 <span id="step6"></span>
 ## 步骤6：使用 CDN 节省成本

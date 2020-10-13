@@ -70,7 +70,7 @@ TUILiveRoomAudienceLayout roomAudienceLayout = findViewById(R.id.layout_room_aud
 roomAudienceLayout.initWithRoomId(getSupportFragmentManager(), 12345, “1280”, false, “”);
 ```
 
-## 步骤6：实现直播广场<span id="step6"></span>
+## 步骤6：实现直播大厅<span id="step6"></span>
 
 现在，您已经拥有了主播端和观众端，还需要一个直播房间列表将两者关联起来。
 
@@ -96,10 +96,10 @@ public void onRoomDestroy(TRTCLiveRoomDef.TRTCLiveRoomInfo roomInfo) {
     RoomManager.getInstance().destroyRoom(roomInfo.roomId, RoomManager.TYPE_LIVE_ROOM, null);
 }
 ```
-2. 创建直播广场页 UI：
-直播广场页用于展示直播列表，具体实现请参考 Demo 中 `LiveRoomFragment.java` 的实现
+2. 创建直播大厅页 UI：
+直播大厅页用于展示直播列表，具体实现请参考 Demo 中 `LiveRoomFragment.java` 的实现
 3. 单击观看：
-在直播广场页单击任意直播间，参照 [步骤5：观众端观看直播](#step5) 生成观看端即可观看。
+在直播大厅页单击任意直播间，参照 [步骤5：观众端观看直播](#step5) 生成观看端即可观看。
 
 ## 步骤7：使用 CDN 节省成本<span id="step7"></span>
 
