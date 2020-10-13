@@ -5,7 +5,7 @@
 vi /etc/ntp.conf
 ```
 2. 按 **i** 进入编辑模式，进行以下配置：
-  1. 如有 `server ntpupdate.tencentyun.com iburst`，请在行首添加 `#` 进行注释。
+  1. 如有 `server ntpupdate.tencentyun.com iburst` 或 `server time1.tencentyun.com iburst`，请在行首添加 `#` 进行注释。
   2. 添加以下配置，其中 `minpoll 4` 表示最小为2<sup>4</sup>，`maxpoll 5` 表示最大为2<sup>5</sup>。
 ```
 server ntpupdate.tencentyun.com minpoll 4 maxpoll 5
@@ -15,7 +15,7 @@ server ntpupdate.tencentyun.com minpoll 4 maxpoll 5
 3. 重启 ntpd 服务后，执行 `ntpd -p` 命令，即可查看 poll 值为16（即2<sup>4</sup>）。如下图所示：
 ![](https://main.qcloudimg.com/raw/9fa0c72751de74d3b6e72cc1ca831952.png)
 
-### 腾讯云提供的 ntpd 时间源服务器 time1.cloud.tencent.com 所提供的时间是从什么源头获取的？
+### 腾讯云提供的 ntpd 时间源服务器所提供的时间是从什么源头获取的？
 NTP 时钟上游为北斗时间源。
  
 ### NTP 服务配置报错 localhost.localdomain timeout 是什么原因，如何修复？
@@ -67,3 +67,7 @@ time5.cloud.tencent.com
 ![](https://main.qcloudimg.com/raw/88972a2aeda155c10000e8576d16bbe9.png)
 出现该错误通常是 `/etc/ntp.conf` 中的 listen 网络设备未配置 IP 或配置了非实例的内网主 IP，请核实并确认。如是，则更改为主 IP 后重启 ntpd 即可。
 
+### 与腾讯云提供的外网 NTP 时间服务器同步时间时，出现报错该如何处理？
+与腾讯云提供的外网 NTP 时间服务器同步时间时，出现 `no server suitable for synchronization found` 报错。如下图所示：
+![](https://main.qcloudimg.com/raw/1909910bc2a86a5f93e09f4601654327.png)
+可能原因是实例的公网 IP 在受到 DDOS 攻击时，会触发 NTP 的反射防护策略，针对访问腾讯云的源端口123外网流量全部拦截，导致时间同步异常。建议您在使用时可尽量使用内网 NTP 时间服务器进行时间同步。
