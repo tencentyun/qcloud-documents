@@ -34,7 +34,7 @@ docker tag getting-started:latest demo-tcr.tencentcloudcr.com/docker/getting-sta
 ```
 docker push demo-tcr.tencentcloudcr.com/docker/getting-started:latest
 ```
-推送成功后，即可前往控制台的 “[镜像仓库](https://console.cloud.tencent.com/tcr/repository)” 页面，选择仓库名进入详情页面查看。
+推送成功后，即可前往控制台的 “[镜像仓库](https://console.cloud.tencent.com/tcr/repository)” 页面，选择仓库名并进入详情页面查看。
 
 ### 配置 TKE 集群访问 TCR 实例<span id="deployTKE"></span>
 TCR 企业版实例支持网络访问控制，默认拒绝全部来源的外部访问。您可根据 TKE 集群的网络配置，选择通过公网或内网访问指定实例，拉取容器镜像。若 TKE 集群与 TCR 实例部署在同一地域，建议通过内网访问方式拉取容器镜像，该方式可提升拉取速度，并节约公网流量成本。
