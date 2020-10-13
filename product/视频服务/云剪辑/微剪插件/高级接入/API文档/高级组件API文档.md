@@ -817,11 +817,6 @@ track={
 | bindexportfail    | Function                      | -      | 导出失败<pre style="margin:0">{<br/>message: String,<br />error: errorStack<br />}</pre>| 否   |
 | bindthumbready    | Function                      | -      | 默认封面图生成<pre style="margin:0">{<br/>path: String,<br/>height:1080,<br />width: 720<br/>}</pre> | 否   |
 
-  
->? 
->- 导出组件提供了 `slot插槽` 以定制导出组件的实际 UI，并监听内部冒泡的 tap 事件以触发导出流程。
->- 如果需要手动触发导出流程，可以使用 `wx.selectComponent` 获取组件实例并调用实例的 `start` 方法。
-
 #### 添加水印
 
 ##### 线上地址
@@ -883,11 +878,4 @@ track={
 
 ### 操作说明
   输入文字，单颜色列表实时更换文本颜色，单击左侧 T 图标实时更换背景颜色。
-  
-  
-  
-  
-  
-  
-  
   
