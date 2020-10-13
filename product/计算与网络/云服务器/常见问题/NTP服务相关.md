@@ -11,7 +11,7 @@ vi /etc/ntp.conf
 server ntpupdate.tencentyun.com minpoll 4 maxpoll 5
 ```
 配置完成后如下图所示，输入 **:wq** 保存更改并退出。
-![](https://main.qcloudimg.com/raw/b414cf3c657e020c4386f67d195d298b.png)
+![](https://main.qcloudimg.com/raw/32a0a6be2d5373ef4c8c48cec737df14.png)
 3. 重启 ntpd 服务后，执行 `ntpd -p` 命令，即可查看 poll 值为16（即2<sup>4</sup>）。如下图所示：
 ![](https://main.qcloudimg.com/raw/9fa0c72751de74d3b6e72cc1ca831952.png)
 
