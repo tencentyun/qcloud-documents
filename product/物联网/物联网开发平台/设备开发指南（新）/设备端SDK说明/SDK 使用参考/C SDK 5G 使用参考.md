@@ -1,4 +1,7 @@
 
+## SDK 获取
+SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [C SDK 5G](https://github.com/tencentyun/qcloud-iot-explorer-5G-sdk-embedded)。
+
 ## 5G SDK 架构
 5G SDK 集成  IoT Explorer C SDK，通过 MQTT 协议与 IoT Explorer 保持双向连接，实现5G模组状态上报、用户指令下发等基础通信功能。5G SDK 架构图如下：
 ![architecture](https://main.qcloudimg.com/raw/49489e2ba2c9135cbebec7cc04d14ebd/5G-SDK-architecture.png)
@@ -7,7 +10,7 @@
   提供模组管理、故障管理、软件安装和 Web 服务功能。
   - 模组管理通过模组的通用 AT 指令或专用信令接口（例如：高通的 QMI）读取模组/网络状态、配置网络参数和发起拨号操作，实现终端入网和运行状态监控。
   - 故障管理利用网络故障诊断工具、系统日志以及其它诊断手段，在进程运行异常时对网络、模组以及上位机进行故障定位并对可排除的故障进行系统恢复。当检测到无法排除的故障时，记录当前故障的特征，待设备通过其它途径恢复正常后，上报该次故障。同时，故障管理可提供模组固件升级功能。
-  - 软件安装监听并执行用户通过IoT Explorer下发的软件安装指令。利用此功能的典型应用是 VPN 客户端软件的安装。
+  - 软件安装监听并执行用户通过 IoT Explorer 下发的软件安装指令。利用此功能的典型应用是 VPN 客户端软件的安装。
   - Web 服务为本地应用提供一组 RESTFul API 访问及配置模组，调用 QoS 加速功能。
 - **网络层**
   提供隧道配置和 QoS 加速功能。

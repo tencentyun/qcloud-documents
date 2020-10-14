@@ -22,7 +22,7 @@ TencentOS tiny 支持 Keil MDK、IAR、Gcc 三种开发环境，本文以 Keil M
 移植 TencentOS tiny 基础内核需要您提前准备一个芯片对应的裸机工程，裸机工程包含基本的芯片启动文件、基础配置（时钟、主频等）、以及串口和基本 GPIO 驱动，用于进行 RTOS 测试。
 
 本教程使用 ST 官方的 [STM32CubeMX](https://www.st.com/content/st_com/zh/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-configurators-and-code-generators/stm32cubemx.html) 软件进行自动化生成 MDK 裸机工程，同时，安装 STM32CubeMx 需确保已安装好 JDK 环境。CubeMX 安装完成后，使用 CubeMX 在 EVB_MX_Plus 开发板上生成裸机工程。
->?如果您的芯片不是 STM32，而是其他厂商的 ARM Cortex M 系列，您可以根据产商的指导准备裸机工程，但后续内核移植步骤一致。
+>?如果您的芯片不是 STM32，而是其他厂商的 ARM Cortex M 系列，您可以根据厂商的指导准备裸机工程，但后续内核移植步骤一致。
 
 ###  1. 启动 STM32CubeMX，新建工程
 
@@ -83,7 +83,7 @@ EVB_MX_Plus 开发板板载四个按键，其中 KEY1 连接在 PB12，相关配
 
 ![](https://main.qcloudimg.com/raw/a4bf1b6f838aedd6d0e98f5ea20b09db.png)
 
-### 10.  keil 的裸机工程
+### 10.  Keil 的裸机工程
 
 打开生成的裸机工程效果如下：
 

@@ -7,9 +7,9 @@
 
 ## 说明事项
 - **于2020年8月17日前创建的集群，其 Service 创建的 CLB 默认支持复用相同的 CLB。**
-开启复用功能的集群，其中 Service 创建的 CLB 默认将配置 `tke-lb-serviceId:` 和 `<lb_listener_id>:<lb_listener_id>` 两个标签。每个 CLB 具备单独的 key 和 value，生成的标签数量较多。您可通过 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1%20TKE&step=1) 联系我们关闭此类型集群的复用 CLB 功能，并清理标签。
+开启复用功能的集群，其中 Service 创建的 CLB 将默认配置 `<serviceUUID>:tke-lb-serviceId` 和 `<serviceUUID>_<lb_listener_id>:<lb_listener_id>` 两个标签。每个 CLB 具备单独的 key 和 value，生成的标签数量较多。您可通过 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1%20TKE&step=1) 联系我们关闭此类型集群的复用 CLB 功能，并清理标签。
 - **于2020年8月17日起创建的集群，默认关闭多 Service 复用相同 CLB 的功能。**
-关闭复用功能的集群，其中 Service 创建的 CLB 默认将配置 `tke-lb-serviceId:` 和 `<lb_listener_id>:<lb_listener_id>` 两个标签。所有 Service 管理 CLB 复用同一批标签 Key，标签 Key 数量可控。您可通过 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1%20TKE&step=1) 联系我们开启需要使用多个 Service 复用相同 CLB 的功能。
+关闭复用功能的集群，其中 Service 创建的 CLB 将默认配置 `tke-lb-serviceuuid:<serviceUUID>` 标签。所有 Service 使用同一批标签 Key，标签 Key 数量可控。您可通过 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1%20TKE&step=1) 联系我们开启需要使用多个 Service 复用相同 CLB 的功能。
 - **在 Service 复用场景下，单个负载均衡管理的监听器数量不能超过10个。**
 
    

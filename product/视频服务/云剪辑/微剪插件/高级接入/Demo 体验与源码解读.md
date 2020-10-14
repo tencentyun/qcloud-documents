@@ -29,8 +29,9 @@
 
 <span id="download"></span>
 ## Demo 下载
-1. 单击 [下载 Demo 源码](https://imgcache.qq.com/operation/dianshi/other/demo_zip.724601d25ee9eb8b2abccf64a5855fd7ee301812.zip)，可以下载到带注释的 Demo 小程序源码。
+1. 单击 [GitHub](https://github.com/tencentyun/weijian-sdk/tree/master/outside-demo)，可以查看带注释的 Demo 小程序源码。
 2. 使用小程序 [开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html) 打开，使用手机扫一扫即可体验。
+
 
 ## 源码解读
 
