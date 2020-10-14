@@ -737,17 +737,17 @@ sdk.appDevSdk
 
 应用开发 SDK 实例，H5 SDK 底层依赖 [应用开发小程序端 SDK](https://github.com/tencentyun/qcloud-iotexplorer-appdev-miniprogram-sdk#readme)，更多调用能力请参考应用开发 SDK 文档。
 
-### JSSDK
+### JS SDK
 
 ```typescript
 sdk.wx
 ```
 
-微信 JSSDK 实例，具体用法请参见 [小程序 web-view 文档](https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html)，使用前需要先调用 [初始化 JSSDK](#sdk-wx-sdk-ready)。
+微信 JS SDK 实例，具体用法请参见 [小程序 web-view 文档](https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html)，使用前需要先调用 [初始化 JS SDK](#sdk-wx-sdk-ready)。
 
 <span id="sdk-wx-sdk-ready"></span>
 
-### 初始化 JSSDK
+### 初始化 JS SDK
 
 ```typescript
 sdk.wxSdkReady() => Promise
