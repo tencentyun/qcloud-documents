@@ -18,11 +18,13 @@
 目前腾讯云提供了 Android 端的文字识别体验 App，[扫码下载](https://cloud.tencent.com/document/product/866/47384) 即可体验文字识别客户端 SDK 能力。
 
 
-### SDK 接入
+## 客户端 SDK 下载
 
-文字识别客户端 SDK 目前支持 Android、iOS 双平台。
+客户端 SDK 下载目前支持 Android、iOS 双平台。
 
 | 所属平台 | SDK 包                                                        | Github                                               | Demo 运行说明                                                 | SDK 集成指引                                                  |
 | -------- | ------------------------------------------------------------ | ---------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| iOS      | [下载地址](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.2/OCR_iOS_SDK_V1.0.2.zip) | [Github](https://github.com/TencentCloud/tc-ocr-sdk) | [一分钟跑通 Demo](https://cloud.tencent.com/document/product/866/47302) | [iOS 端集成文档](https://cloud.tencent.com/document/product/866/47304) |
-| Android  | [下载地址](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.2/OCR_Android_SDK_V1.0.2.zip) | [Github](https://github.com/TencentCloud/tc-ocr-sdk) | [一分钟跑通 Demo](https://cloud.tencent.com/document/product/866/47303) | [Android 端集成文档](https://cloud.tencent.com/document/product/866/47305) |
+| iOS      | [下载地址](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.4/OCR_iOS_SDK_V1.0.4.zip) | [Github](https://github.com/TencentCloud/tc-ocr-sdk) | [一分钟跑通 Demo](https://cloud.tencent.com/document/product/866/47302) | [iOS 端集成文档](https://cloud.tencent.com/document/product/866/47304) |
+| Android  | [下载地址](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.4/OCR_Android_SDK_V1.0.4.zip) | [Github](https://github.com/TencentCloud/tc-ocr-sdk) | [一分钟跑通 Demo](https://cloud.tencent.com/document/product/866/47303) | [Android 端集成文档](https://cloud.tencent.com/document/product/866/47305) |
+
+
