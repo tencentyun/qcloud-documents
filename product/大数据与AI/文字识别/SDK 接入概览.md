@@ -18,7 +18,7 @@
 目前腾讯云提供了 Android 端的文字识别体验 App，[扫码下载](https://cloud.tencent.com/document/product/866/47384) 即可体验文字识别客户端 SDK 能力。
 
 
-## 客户端 SDK 下载
+### 客户端 SDK 下载
 
 客户端 SDK 下载目前支持 Android、iOS 双平台。
 
