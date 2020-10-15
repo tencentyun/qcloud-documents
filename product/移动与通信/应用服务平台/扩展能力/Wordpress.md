@@ -1,4 +1,4 @@
-云开发支持一键部署 [Wordpress](https://zh-cn.wordpress.com/) 应用。通过云托管结合静态网站托管、共享文件存储（Cloud File Storage，CFS）、云数据库 TencentDB for MySQL 等各项云计算资源能力，为给你提供高性能、高可靠性、可弹性扩缩容的的应用体验。
+云开发支持一键部署 [Wordpress](https://zh-cn.wordpress.com/) 应用。通过云托管结合静态网站托管、共享文件存储（Cloud File Storage，CFS）、云数据库 TencentDB for MySQL 等各项云计算资源能力，给您提供高性能、高可靠性、可弹性扩缩容的应用体验。
 
 | 方案特性 | 介绍                                                                                         |
 | -------- | -------------------------------------------------------------------------------------------- |
