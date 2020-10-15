@@ -73,7 +73,7 @@ Container 类型 Operation 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 必选 |
 | ------------------ | ----------------- | ------------------------------------------------------------ | --------- | ---- |
-| ConcatTemplate               | Request.Operation | 指定拼接参数，同创建拼接模板 <br/>CreateMediaTemplate 接口中的   | Container | 否   |
+| ConcatTemplate               | Request.Operation | 指定拼接参数，同创建拼接模板 <br/>CreateMediaTemplate 接口中的 Request.ConcatTemplate   | Container | 否   |
 | TemplateId                   | Request.Operation | 指定的模版 ID                                          | String    | 否   |
 | Output                       | Request.Operation | 结果输出地址                                          | Container | 是   |
 
