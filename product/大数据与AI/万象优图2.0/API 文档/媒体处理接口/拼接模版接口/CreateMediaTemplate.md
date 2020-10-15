@@ -92,18 +92,18 @@ Container 类型 ConcatFragment 的具体数据描述如下：
 
 | 节点名称（关键字）     | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Url                 | Request.ConcatTemplate.ConcatFragment | 拼接对象地址   | String    | 是   | 无   | 同 bucket 对象文件 |
-| Mode                | Request.ConcatTemplate.ConcatFragment | 节点类型      | String    | 是   | 无   | <li>Start：开头 </br><li>End：结尾 |
+| Url                 | Request.ConcatTemplate.<br/>ConcatFragment | 拼接对象地址   | String    | 是   | 无   | 同 bucket 对象文件 |
+| Mode                | Request.ConcatTemplate.<br/>ConcatFragment | 节点类型      | String    | 是   | 无   | <li>Start：开头 </br><li>End：结尾 |
 
 
 Container 类型 Audio 的具体数据描述如下：
 
 | 节点名称（关键字）     | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Codec              | Request.ConcatTemplate.Audio | 编解码格式     | String | 是   | 文件原编码    | 取值 aac、mp3                                                |
-| Samplerate         | Request.ConcatTemplate.Audio | 采样率         | String | 否   | 文件原采样率  | <li>单位：Hz<br/><li>可选 11025、22050、32000、44100、48000、96000<br/><li>不同的封装，mp3 支持不同的采样率，如下表所示|
-| Bitrate            | Request.ConcatTemplate.Audio | 音频码率   | String | 否   | 文件原音频码率   | <li>单位：Kbps<br/><li>值范围：[8，1000]                       |
-| Channels           | Request.ConcatTemplate.Audio | 声道数         | String | 否   | 文件原声道数      | <li>当 Codec 设置为 aac，支持1、2、4、5、6、8<br/><li>当 Codec 设置为 mp3，支持1、2 |
+| Codec              | Request.ConcatTemplate.<br/>Audio | 编解码格式     | String | 是   | 文件原编码    | 取值 aac、mp3                                                |
+| Samplerate         | Request.ConcatTemplate.<br/>Audio | 采样率         | String | 否   | 文件原采样率  | <li>单位：Hz<br/><li>可选 11025、22050、32000、44100、48000、96000<br/><li>不同的封装，mp3 支持不同的采样率，如下表所示|
+| Bitrate            | Request.ConcatTemplate.<br/>Audio | 音频码率   | String | 否   | 文件原音频码率   | <li>单位：Kbps<br/><li>值范围：[8，1000]                       |
+| Channels           | Request.ConcatTemplate.<br/>Audio | 声道数         | String | 否   | 文件原声道数      | <li>当 Codec 设置为 aac，支持1、2、4、5、6、8<br/><li>当 Codec 设置为 mp3，支持1、2 |
 
 Y表示支持这种采样率，N表示不支持
 
@@ -115,18 +115,18 @@ Container 类型 Container 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
 | ------------------ | ------- | ---------------------------------------------------- | --------- | ---- |
-| Format                | Request.ConcatTemplate.Container | 容器格式：mp4，flv，hls，ts, mp3, aac   | String    | 是   |
+| Format                | Request.ConcatTemplate.<br/>Container | 容器格式：mp4，flv，hls，ts, mp3, aac   | String    | 是   |
 
 Container 类型 Video 的具体数据描述如下：
 
 | 节点名称（关键字）         | 父节点        | 描述                  | 类型   | 必选 | 默认值       | 限制                                                         |
 | -------------------------- | ------------- | --------------------- | ------ | ---- | ------------ | ------------------------------------------------------------ |
-| Codec                      | Request.ConcatTemplate.Video | 编解码格式             | String | 是   |   H.264 | H.264                                          |
-| Width                      | Request.ConcatTemplate.Video | 宽                    | String | 否   | 视频原始宽度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Width 时，按照视频原始比例计算 Height |
-| Height                     | Request.ConcatTemplate.Video | 高                    | String | 否   | 视频原始高度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Height 时，按照视频原始比例计算 Width |
-| Fps                        | Request.ConcatTemplate.Video | 帧率                  | String | 否   | 无 | <li>值范围：(0，60]<br><li>单位：fps |
-| Bitrate                    | Request.ConcatTemplate.Video | 视频输出文件的码率      | String | 否   |  无           | <li>值范围：[10，50000]<br/><li>单位：Kbps                     |
-| Remove                     | Request.ConcatTemplate.Video | 是否删除视频流         | String | 否   | false        | 取值 true、false
+| Codec                      | Request.ConcatTemplate.<br/>Video | 编解码格式             | String | 是   |   H.264 | H.264                                          |
+| Width                      | Request.ConcatTemplate.<br/>Video | 宽                    | String | 否   | 视频原始宽度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Width 时，按照视频原始比例计算 Height |
+| Height                     | Request.ConcatTemplate.<br/>Video | 高                    | String | 否   | 视频原始高度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Height 时，按照视频原始比例计算 Width |
+| Fps                        | Request.ConcatTemplate.<br/>Video | 帧率                  | String | 否   | 无 | <li>值范围：(0，60]<br><li>单位：fps |
+| Bitrate                    | Request.ConcatTemplate.<br/>Video | 视频输出文件的码率      | String | 否   |  无           | <li>值范围：[10，50000]<br/><li>单位：Kbps                     |
+| Remove                     | Request.ConcatTemplate.<br/>Video | 是否删除视频流         | String | 否   | false        | 取值 true、false
 
 ## 响应
 
