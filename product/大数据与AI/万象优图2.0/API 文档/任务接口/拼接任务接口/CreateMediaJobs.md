@@ -1,5 +1,5 @@
 ## 功能描述
-Create Media Jobs 用于提交一个任务。
+CreateMediaJobs 用于提交一个任务。
 
 ## 请求
 
