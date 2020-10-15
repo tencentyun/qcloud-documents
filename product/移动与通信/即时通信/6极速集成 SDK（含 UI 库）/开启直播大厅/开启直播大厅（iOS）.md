@@ -194,7 +194,7 @@ anchorVC.delegate = self;
 ///  开启PK
 [anchorVC eanblePK: YES];
 ```
-2. 在主播端 TUILiveRoomAnchorViewController 的回调函数 getPKRoomIDList: 设置 PK 列表数据。
+2. 在主播端 TUILiveRoomAnchorViewController 的回调函数 `getPKRoomIDList:` 设置 PK 列表数据。
 ```objectivec 
 - (void)getPKRoomIDList:(TUILiveOnRoomListCallback)callback {
 	/// 如果您创建带PK功能，需要在这个回调通过 callback 返回可以PK的主播房间id数组。
