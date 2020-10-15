@@ -17,7 +17,7 @@ TUIKit 支持 CocoaPods 方式和手动集成两种方式。我们推荐使用 C
 #use_frameworks!   // TUIKit 使用到了第三方静态库，这个设置需要屏蔽
 install! 'cocoapods', :disable_input_output_paths => true  // TXIMSDK_TUIKit_live_iOS 使用了 *.xcassets 资源文件，需要加上这条语句防止与项目中资源文件冲突。
 
-pod 'TXIMSDK_TUIKit_iOS'                 // 集成聊天，关系链，群组功能，默认依赖 TXLiteAVSDK_TRTC 音视频库
+ pod 'TXIMSDK_TUIKit_iOS'                 // 集成聊天，关系链，群组功能，默认依赖 TXLiteAVSDK_TRTC 音视频库
 // pod 'TXIMSDK_TUIKit_iOS_Professional' // 集成聊天，关系链，群组功能，默认依赖 TXLiteAVSDK_Professional 音视频库
 pod 'TXIMSDK_TUIKit_live_iOS'		 // 集成群直播，直播广场，默认依赖 TXLiteAVSDK_TRTC 音视频库
 // pod 'TXIMSDK_TUIKit_iOS_Professional' // 集成群直播，直播广场，默认依赖 TXLiteAVSDK_Professional 音视频库
