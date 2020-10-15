@@ -20,6 +20,8 @@
 >?请您在 [SSL 证书控制台](https://console.cloud.tencent.com/ssl) 下载证书文件，并上传 Nginx 文件内容至证书与私钥文件。
 >
 ![](https://main.qcloudimg.com/raw/d276400ebbd532393623d3dfe4f30cad.png)
+ - **证书文件**：请上传 Nginx 目录下 .crt 后缀证书文件。
+ - **私钥文件**：请上传 Nginx 目录下 .key 后缀私钥文件。
 5. 单击【确认上传】。证书状态为 “证书部署成功” 即可完成部署证书操作。如下图所示：
 ![](https://main.qcloudimg.com/raw/a66d1a4865cc733d8e7fc635ad913eb2.png)
 
