@@ -131,26 +131,26 @@ Container 类型 ConcatTemplate 的具体数据描述如下：
 | 节点名称（关键字）     | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
 | ConcatFragment      | Response.TemplateList.ConcatTemplate | 拼接节点    | Container    | 是   | 无  | 无 |
-| Audio               | Response.TemplateList.ConcatTemplate | 基准位置    | String    | 是   | 无  | 无 |
-| Video               | Response.TemplateList.ConcatTemplate | 视频参数    | Container    | 是   | 无  | 无 |
-| Container           | Response.TemplateList.ConcatTemplate | 封装格式    | Container    | 是   | 无  | 无 |
+| Audio               | Response.TemplateList.<br/>ConcatTemplate | 基准位置    | String    | 是   | 无  | 无 |
+| Video               | Response.TemplateList.<br/>ConcatTemplate | 视频参数    | Container    | 是   | 无  | 无 |
+| Container           | Response.TemplateList.<br/>ConcatTemplate | 封装格式    | Container    | 是   | 无  | 无 |
 
 Container 类型 ConcatFragment 的具体数据描述如下：
 
 | 节点名称（关键字）     | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Url                 | Response.TemplateList.ConcatTemplate.ConcatFragment | 拼接对象地址   | String    | 是   | 无   | 同 bucket 对象文件 |
-| Mode                | Response.TemplateList.ConcatTemplate.ConcatFragment | 节点类型      | String    | 是   | 无   |<li>Start：开头 </br><li>End：结尾 |
+| Url                 | Response.TemplateList.<br/>ConcatTemplate.ConcatFragment | 拼接对象地址   | String    | 是   | 无   | 同 bucket 对象文件 |
+| Mode                | Response.TemplateList.<br/>ConcatTemplate.ConcatFragment | 节点类型      | String    | 是   | 无   |<li>Start：开头 </br><li>End：结尾 |
 
 
 Container 类型 Audio 的具体数据描述如下：
 
 | 节点名称（关键字）     | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Codec              | Response.TemplateList.ConcatTemplate.Audio | 编解码格式     | String | 否   | aac    | 取值 aac、mp3                                                |
-| Samplerate         | Response.TemplateList.ConcatTemplate.Audio | 采样率         | String | 否   | 44100  |<li>单位：Hz<br/><li>可选 11025、22050、32000、44100、48000、96000<br/><li>不同的封装，mp3 支持不同的采样率，如下表所示|
-| Bitrate            | Response.TemplateList.ConcatTemplate.Audio | 原始音频码率   | String | 否   | 无    | <li>单位：Kbps<br/><li>值范围：[8，1000]                       |
-| Channels           | Response.TemplateList.ConcatTemplate.Audio | 声道数         | String | 否   | 无      | <li>当 Codec 设置为 aac，支持1、2、4、5、6、8<br/><li>当 Codec 设置为mp3，支持1、2 |
+| Codec              | Response.TemplateList.<br/>ConcatTemplate.Audio | 编解码格式     | String | 否   | aac    | 取值 aac、mp3                                                |
+| Samplerate         | Response.TemplateList.<br/>ConcatTemplate.Audio | 采样率         | String | 否   | 44100  |<li>单位：Hz<br/><li>可选 11025、22050、32000、44100、48000、96000<br/><li>不同的封装，mp3 支持不同的采样率，如下表所示|
+| Bitrate            | Response.TemplateList.<br/>ConcatTemplate.Audio | 原始音频码率   | String | 否   | 无    | <li>单位：Kbps<br/><li>值范围：[8，1000]                       |
+| Channels           | Response.TemplateList.<br/>ConcatTemplate.Audio | 声道数         | String | 否   | 无      | <li>当 Codec 设置为 aac，支持1、2、4、5、6、8<br/><li>当 Codec 设置为mp3，支持1、2 |
 
 Y表示支持这种采样率，N表示不支持
 
@@ -162,18 +162,18 @@ Container 类型 Container 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
 | ------------------ | ------- | ---------------------------------------------------- | --------- | ---- |
-| Format                | Request.ConcatTemplate.Container | 容器格式：mp4，flv，hls，ts, mp3, aac   | String    | 是   |
+| Format                | Request.ConcatTemplate.<br/>Container | 容器格式：mp4，flv，hls，ts, mp3, aac   | String    | 是   |
 
 Container 类型 Video 的具体数据描述如下：
 
 | 节点名称（关键字）         | 父节点        | 描述                  | 类型   | 必选 | 默认值       | 限制                                                         |
 | -------------------------- | ------------- | --------------------- | ------ | ---- | ------------ | ------------------------------------------------------------ |
-| Codec                      | Response.TemplateList.ConcatTemplate.Video | 编解码格式             | String | 否   |   H.264 | H.264                                          |
-| Width                      | Response.TemplateList.ConcatTemplate.Video | 宽                    | String | 否   | 视频原始宽度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Width 时，按照视频原始比例计算 Height |
-| Height                     | Response.TemplateList.ConcatTemplate.Video | 高                    | String | 否   | 视频原始高度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Height 时，按照视频原始比例计算 Width |
-| Fps                        | Response.TemplateList.ConcatTemplate.Video | 帧率                  | String | 否   | 无 | <li>值范围：(0，60]<br><li>单位：fps |
-| Bitrate                    | Response.TemplateList.ConcatTemplate.Video | 视频输出文件的码率      | String | 否   |  无           | <li>值范围：[10，50000]<br/><li>单位：Kbps                     |
-| Remove                     | Response.TemplateList.ConcatTemplate.Video | 是否删除视频流         | String | 否   | false        | 取值 true、false
+| Codec                      | Response.TemplateList.<br/>ConcatTemplate.Video | 编解码格式             | String | 否   |   H.264 | H.264                                          |
+| Width                      | Response.TemplateList.<br/>ConcatTemplate.Video | 宽                    | String | 否   | 视频原始宽度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Width 时，按照视频原始比例计算 Height |
+| Height                     | Response.TemplateList.<br/>ConcatTemplate.Video | 高                    | String | 否   | 视频原始高度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Height 时，按照视频原始比例计算 Width |
+| Fps                        | Response.TemplateList.<br/>ConcatTemplate.Video | 帧率                  | String | 否   | 无 | <li>值范围：(0，60]<br><li>单位：fps |
+| Bitrate                    | Response.TemplateList.<br/>ConcatTemplate.Video | 视频输出文件的码率      | String | 否   |  无           | <li>值范围：[10，50000]<br/><li>单位：Kbps                     |
+| Remove                     | Response.TemplateList.<br/>ConcatTemplate.Video | 是否删除视频流         | String | 否   | false        | 取值 true、false
 
 
 #### 错误码
@@ -186,7 +186,7 @@ Container 类型 Video 的具体数据描述如下：
 
 ```shell
 GET /template?ids=A,B,C HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98****-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
 Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 0
 Content-Type: application/xml
@@ -202,10 +202,10 @@ Content-Length: 100
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
 
 <Response>
-    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=</RequestId>
+    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzh****=</RequestId>
     <TotalCount>1</TotalCount>
     <PageNumber>1</PageNumber>
     <PageSize>10</PageSize>
@@ -253,7 +253,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
 
 ```shell
 GET /template?page_size=10&page_number=1 HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98****-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
 Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 0
 Content-Type: application/xml
@@ -269,10 +269,10 @@ Content-Length: 100
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
 
 <Response>
-    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=</RequestId>
+    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzh****=</RequestId>
     <TotalCount>1</TotalCount>
     <PageNumber>1</PageNumber>
     <PageSize>10</PageSize>
