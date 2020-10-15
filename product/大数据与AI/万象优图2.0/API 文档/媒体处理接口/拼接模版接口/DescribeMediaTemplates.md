@@ -1,5 +1,5 @@
 ## 功能描述
-DescribeMediaTemplates 搜索拼接模板。
+DescribeMediaTemplates 用于搜索拼接模板。
 
 ## 请求
 
