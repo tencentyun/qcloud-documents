@@ -1,7 +1,7 @@
 ## 概述
 ![](https://main.qcloudimg.com/raw/e2b8ff1a050e043bbc50bd0e65926a54.png)
-- 请按照 [兼容性配置](https://cloud.tencent.com/document/product/1007/35886#pz) 指引进行 iOS 及 Android 手机的兼容性适配。
-- 选择至少10款手机进行 [兼容性验证](https://cloud.tencent.com/document/product/1007/35886#yz)，需覆盖 Android 系统版本4.0 - 2.0。
+- 请按照 [兼容性配置](#pz) 指引进行 iOS 及 Android 手机的兼容性适配。
+- 选择至少10款手机进行 [兼容性验证](#yz)，需覆盖 Android 系统版本4.0 - 2.0。
 
 <span id='pz'></span>
 ## 兼容性配置
@@ -9,6 +9,7 @@
 iPhone 的兼容性适配，需在配置里加上摄像头和麦克风的使用权限。App 的 info.plist 中加入：
 `.NSMicrophoneUsageDescription`   
 `.NSCameraUsageDescription`
+
 ### Android 接入
 由于 Android 机器碎片化严重，用系统 WebView 调起系统摄像头完成视频录制可能存在很多兼容性问题，如部分机器出现调不起摄像头、调起摄像头无法录制视频等。
 实现兼容性处理步骤如下：
