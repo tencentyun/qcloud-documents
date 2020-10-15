@@ -9,7 +9,7 @@
 #### SDK 引入
 只需要在您的 Web 页面中添加如下代码即可：
 ```html
-<script src="https://imgcache.qq.com/open/qcloud/soe/TencentSOE-0.1.0.js"></script>
+<script src="https://aiedu.qcloud.com/soe/TencentSOE-0.1.4.js"></script>
 ```
 
 #### 创建对象
@@ -125,6 +125,7 @@ let recorder = new TencentSOE({
  * 开始录音
  * @param {
  *   RefText: 'string', // 测评文本，必填
+ *   TimeStamp: 'Integer', // unix 时间戳，单位精确到秒，选填， 例 1602225857
  *   error: function() {}, // 录音过程出现错误回调，选填
  *   complete: function() {}, // 录音1分钟自动停止回调（微信端），选填
  *   success: function() {}, // 录音1分钟自动测评回调（微信端），建议填写，否则超时后无法获取测评结果
@@ -269,14 +270,14 @@ module.exports = async function(req, res, next) {
 ### 平台和兼容性
 | 操作系统平台	  | 浏览器/webview                  | 版本要求 | 备注|
 |  :---:      | :---                           | :---   | :--- |
-| iOS         | Safari ( 只支持Safari )         | 11.1.2 | |
-| Android     | TBS （微信和手机QQ的默认Webview）  | 43600  | 微信和手机 QQ 默认内置的浏览器内核为TBS。[TBS 介绍](https://x5.tencent.com/) |
+| iOS         | Safari ( 只支持 Safari )         | 11.1.2 | |
+| Android     | TBS （微信和手机 QQ 的默认 webview）  | 43600  | 微信和手机 QQ 默认内置的浏览器内核为 TBS。[TBS 介绍](https://x5.tencent.com/) |
 | Android     | Chrome                         | 60+    | |
 | Mac         | Chrome                         | 47+    | |
 | Mac         | Safari                         | 11+    | |
 | Windows(PC) | Chrome                         | 52+    | |
-| Windows(PC) | QQ浏览器                        | 10.2   | |
-| 微信端       | 微信默认webview                  | 无     | 需引入微信 JS-SDK|
+| Windows(PC) | QQ 浏览器                        | 10.2   | |
+| 微信端       | 微信默认 webview                  | 无     | 需引入微信 JS-SDK|
 
 > Tip：
 非本地环境必须使用 HTTPS 协议

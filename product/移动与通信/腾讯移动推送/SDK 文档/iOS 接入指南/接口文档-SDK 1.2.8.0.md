@@ -114,6 +114,7 @@ SDK 1.2.7.2 新增，当注册推送服务失败会走此回调。
 - accounts：账号数组。
 
 > ?
+>- 每个账号最多支持绑定100个 token。
 >- 账号操作需要使用字典数组且 key 是固定要求。
 >- Objective-C 的写法 :@[@{@"accountType":@(0),@"account":identifier}]；
 >- Swift 的写法：[["accountType":NSNumber(0),"account":identifier]]

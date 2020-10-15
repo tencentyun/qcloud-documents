@@ -27,8 +27,8 @@
 - 购买腾讯云云服务器（CVM）用于执行服务部署脚本，详见 [CVM 计费](https://cloud.tencent.com/document/product/213/2180)。
 - 使用腾讯云云函数（SCF）提供上传页面和签名派发服务，详见 [SCF 计费](https://cloud.tencent.com/document/product/583/12284) 和 [SCF 免费额度](https://cloud.tencent.com/document/product/583/12282)。
 - 使用腾讯云 API 网关为 SCF 提供外网接口，详见 [API 网关计费](https://cloud.tencent.com/document/product/628/39300)。
-- 消耗云点播（VOD）存储用于存储上传的视频，详见 [存储计费](https://cloud.tencent.com/document/product/266/14666#.E8.A7.86.E9.A2.91.E5.AD.98.E5.82.A8) 和 [存储资源包](https://cloud.tencent.com/document/product/266/14667#1.-.E5.AD.98.E5.82.A8.E8.B5.84.E6.BA.90.E5.8C.85)。
-- 消耗云点播流量用于播放视频，详见 [流量计费](https://cloud.tencent.com/document/product/266/14666#.E8.A7.86.E9.A2.91.E5.8A.A0.E9.80.9F) 和 [流量资源包](https://cloud.tencent.com/document/product/266/14667#2.-.E6.B5.81.E9.87.8F.E8.B5.84.E6.BA.90.E5.8C.85)。
+- 消耗云点播（VOD）存储用于存储上传的视频，详见 [存储计费](https://cloud.tencent.com/document/product/266/14666#.E5.AA.92.E8.B5.84.E5.AD.98.E5.82.A8.3Cspan-id.3D.22media_storage.22.3E.3C.2Fspan.3E) 和 [存储资源包](https://cloud.tencent.com/document/product/266/14667#1.-.E5.AD.98.E5.82.A8.E8.B5.84.E6.BA.90.E5.8C.85)。
+- 消耗云点播流量用于播放视频，详见 [流量计费](https://cloud.tencent.com/document/product/266/14666#.E5.8A.A0.E9.80.9F.E6.9C.8D.E5.8A.A1.3Cspan-id.3D.22speed.22.3E.3C.2Fspan.3E) 和 [流量资源包](https://cloud.tencent.com/document/product/266/14667#2.-.E6.B5.81.E9.87.8F.E8.B5.84.E6.BA.90.E5.8C.85)。
 
 ## 快速部署 Web 上传 Demo
 
