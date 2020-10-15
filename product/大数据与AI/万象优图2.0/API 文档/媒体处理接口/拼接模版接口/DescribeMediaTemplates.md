@@ -182,6 +182,7 @@ Container 类型 Video 的具体数据描述如下：
 
 ## 实际案例
 
+**案例一：按照模板 ID 维度查询**
 #### 请求
 
 ```shell
@@ -249,6 +250,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
 </Response>
 ```
 
+**案例二：按照分页列表维度查询**
 #### 请求
 
 ```shell
