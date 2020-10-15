@@ -102,8 +102,8 @@ SDK 1.2.7.2 新增，当注册推送服务失败会走此回调。
 清空已有账号，然后批量添加账号。
 
 > ?
-> 1. 此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
-> 2. 如果您是多账号体系，需要以追加的方式设置账号，请参考 SDK 包内 XGPush.h 文件中的 `appendAccounts:` 接口。
+此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
+
 
 ```Objective-C
 - (void)clearAndAppendAccounts:(nonnull NSArray<NSDictionary *> *)accounts;
