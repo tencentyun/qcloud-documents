@@ -1,3 +1,28 @@
+## 2020年10月
+
+<table>
+     <tr>
+         <th width="20%">动态名称</th>  
+         <th width="50%">动态描述</th>  
+         <th width="15%">发布时间</th>  
+         <th width="15%">相关文档</th>  
+     </tr> 
+     <tr>
+         <td> SDK 5.0.10 标准版本发布</td>
+         <td><ul stype="margin:0:">
+               <li> 优化信令接口，支持设置在线消息 onlineUserOnly 和离线推送信息 offlinePushInfo 参数。</li>
+		<li> 优化获取单个会话接口的异步回调。</li>
+		 <li> 会话增加获取群类型接口，方便会话列表展示过滤。</li>
+		 <li> 新增群直播功能，连麦、送礼、美颜、变声等功能一应俱全。</li>
+		  <li> 新增直播大厅，支持连麦、PK、点赞、送礼、美颜、弹幕、好友关注等。</li>
+		 <li> 优化语音视频信令识别问题。</li>
+         </td>
+         <td> 2020-10-15 </td>
+         <td> <a href="https://cloud.tencent.com/document/product/269/36887">SDK 下载</a></td>
+     </tr>	
+</table>
+
+
 ## 2020年09月
 
 <table>
