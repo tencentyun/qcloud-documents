@@ -81,16 +81,15 @@ roomAudienceLayout.initWithRoomId(getSupportFragmentManager(), 12345, “1280”
 由于房间列表千差万别，我们暂时未提供服务端房间列表搭建示例，您可以参考 Demo 中的 [`RoomManager`](https://github.com/tencentyun/TIMSDK/blob/master/Android/app/src/main/java/com/tencent/qcloud/tim/demo/scenes/net/RoomManager.java) 来实现客户端上报的逻辑。
 
 1. 主播端创建成功后，在主播端回调函数中，上报开播、停播信息。
-
 ```java
 // TUILiveRoomAnchorLayoutDelegate
 // 创建房间成功回调
 public void onRoomCreate(final TRTCLiveRoomDef.TRTCLiveRoomInfo roomInfo) {
     // 上报新的直播间创建成功
     RoomManager.getInstance().createRoom(roomInfo.roomId, RoomManager.TYPE_LIVE_ROOM, null);
-}
+} 
 
-// 退出/停止直播回调
+ // 退出/停止直播回调
 public void onRoomDestroy(TRTCLiveRoomDef.TRTCLiveRoomInfo roomInfo) {
     // 销毁房间
     RoomManager.getInstance().destroyRoom(roomInfo.roomId, RoomManager.TYPE_LIVE_ROOM, null);
