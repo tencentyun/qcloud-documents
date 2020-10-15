@@ -1,12 +1,12 @@
->? TUIKit 5.0.8 版本开始基于 TRTC 实现了支持直播功能的 TUIKit_live UI 组件。
+>? TUIKit 5.0.10 版本开始基于 TRTC 实现了支持直播功能的 TUIKit_live UI 组件。
 
 在您导入 TUIKit 后，仅需简单的几步就可以快速启用直播功能。如果您还没有导入 TUIKit ，请根据 [步骤2：导入TUIKit](#step2) 中的方式导入 `tuikit` 和 `tuiki-live`。
 
 TUIKit_live 直播UI组件集成后的直播效果：
 
-|              直播观众页               |              主播准备页               |              主播开播页               |
+|              直播广场页               |              主播准备页               |              主播开播页               |
 | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: |
-| <img src="https://main.qcloudimg.com/raw/0fc6805db789719d00f00991163fa221.jpg" width="300" height="600"> | <img src="https://main.qcloudimg.com/raw/7981702bce71b8a8bb95ba4525a9b1e0.jpg" width="300" height="600"> | <img src="https://main.qcloudimg.com/raw/9ea7d501a30138378acd0b4dcb804f72.jpg" width="300" height="600"> |
+| <img src="https://main.qcloudimg.com/raw/cad568b62a39ee5608e080363364db72.jpg" width="300" height="600"> | <img src="https://main.qcloudimg.com/raw/7981702bce71b8a8bb95ba4525a9b1e0.jpg" width="300" height="600"> | <img src="https://main.qcloudimg.com/raw/9ea7d501a30138378acd0b4dcb804f72.jpg" width="300" height="600"> |
 
 
 ## 步骤1：开通音视频服务<span id="step1"></span>
@@ -101,13 +101,13 @@ public void onRoomDestroy(TRTCLiveRoomDef.TRTCLiveRoomInfo roomInfo) {
 3. 单击观看：
 在直播大厅页单击任意直播间，参照 [步骤5：观众端观看直播](#step5) 生成观看端即可观看。
 
-## 步骤7：使用 CDN 节省成本<span id="step7"></span>
+## 步骤7：使用直播 CDN 观看<span id="step7"></span>
 
 创建观众端 TUILiveRoomAudienceLayout 时，如果设置 useCdn 为 false，则默认使用 TRTC 进行观看；如果设置 useCdn 为 true，且设置了 cdnDomain，则会采用 CDN 进行观看。
 
 TRTC 采用 UDP 协议进行传输音视频数据，标准直播 CDN 则采用的 RTMP/HLS/FLV 等协议进行数据传输。TRTC 的特点是延迟低，上下麦体验更加流畅，但价格会比标准直播的 CDN 高。
 
->? 若您对观看延迟要求不高，可以使用 CDN 观看，以降低成本。
+若您对观看延迟要求不高，可以使用 CDN 观看，以降低成本。
 
 #### 前提条件
 
