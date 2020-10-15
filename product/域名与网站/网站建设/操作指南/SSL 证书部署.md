@@ -6,7 +6,9 @@
 - 已拥有绑定域名对应的 SSL 证书。
 - 已购买标准版网站建设服务。
 
->?如需购买 SSL 证书，您可以在腾讯云 [SSL 证书购买页](https://buy.cloud.tencent.com/ssl?fromSource=ssl) 进行购买。详情请查看 [购买指南](https://cloud.tencent.com/document/product/400/7995)。
+>?
+>- 如需购买 SSL 证书，您可以在腾讯云 [SSL 证书购买页](https://buy.cloud.tencent.com/ssl?fromSource=ssl) 进行购买。详情请查看 [购买指南](https://cloud.tencent.com/document/product/400/7995)。
+>- 网站建设暂不支持国密证书（DNSPod 证书）部署。
 
 ## 操作步骤
 
