@@ -186,6 +186,7 @@ TUIKit_live SDK 支持用户自定义礼物，如果修改礼物内容或来源�
 如果您希望实现 PK 功能，仅需完成以下两个步骤：
 
 1. 在主播端创建 TUILiveRoomAnchorViewController 时开启 PK。
+
 ```objectivec 
 TUILiveRoomAnchorViewController *anchorVC = [[TUILiveRoomAnchorViewController alloc] initWithRoomId:123456];
 anchorVC.delegate = self;
@@ -193,6 +194,7 @@ anchorVC.delegate = self;
 [anchorVC eanblePK: YES];
 ```
 2. 在主播端 TUILiveRoomAnchorViewController 的回调函数中 `getPKRoomIDList:` 设置 PK 列表数据。
+
 ```objectivec
 - (void)getPKRoomIDList:(TUILiveOnRoomListCallback)callback {
 	/// 如果您创建带PK功能，需要在这个回调通过 callback 返回可以PK的主播房间id数组。
