@@ -41,7 +41,8 @@ TUIKit_live 直播UI组件集成后的直播效果：
 ```objectivec
 #import "TUIKitLive.h"
 /// roomId：123456，观众端需要设置和主播端一样的 roomid 才可以看到直播。这里的 roomid 仅用于测试，实际应该生成一个唯一的值。
-TUILiveRoomAnchorViewController *anchorVC = [[TUILiveRoomAnchorViewController alloc] initWithRoomId:123456];
+TUILiveRoomAnchorViewController *anchorVC = 
+[[TUILiveRoomAnchorViewController alloc] initWithRoomId:123456];
 /// 接收主播创建成功/退出 回调
 anchorVC.delegate =  self ; 
 [anchorVC eanblePK: NO];
@@ -187,13 +188,14 @@ TUIKit_live SDK 支持用户自定义礼物，如果修改礼物内容或来源�
 
 1. 在主播端创建 TUILiveRoomAnchorViewController 时开启 PK。
 ```objectivec 
-TUILiveRoomAnchorViewController *anchorVC = [[TUILiveRoomAnchorViewController alloc] initWithRoomId:123456];
+TUILiveRoomAnchorViewController *anchorVC = 
+[[TUILiveRoomAnchorViewController alloc] initWithRoomId:123456];
 anchorVC.delegate = self;
 ///  开启PK
 [anchorVC eanblePK: YES];
 ```
-2. 在主播端 TUILiveRoomAnchorViewController 的回调函数中 `getPKRoomIDList:` 设置 PK 列表数据。
-```objectivec
+2. 在主播端 TUILiveRoomAnchorViewController 的回调函数 getPKRoomIDList: 设置 PK 列表数据。
+```objectivec 
 - (void)getPKRoomIDList:(TUILiveOnRoomListCallback)callback {
 	/// 如果您创建带PK功能，需要在这个回调通过 callback 返回可以PK的主播房间id数组。
    	callback(@[@"12345", @"123456"]);
