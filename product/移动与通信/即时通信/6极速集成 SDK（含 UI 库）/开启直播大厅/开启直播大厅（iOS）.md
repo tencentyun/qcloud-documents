@@ -60,10 +60,11 @@ anchorVC.delegate =  self ;
 /// useCDN 可以先设置成 NO，如果您有CDN播放的需求，可以参照后面章节
 /// anchorId 该直播间的主播userId，建议设置，选填
 /// cdnUrl cdn播放地址，eg：http://[播放域名]/live/[sdkappid]_[roomId]_[userID]_main.flv
-TUILiveRoomAudienceViewController *audienceVC = [[TUILiveRoomAudienceViewController alloc] initWithRoomId:123456 
-												 anchorId:nil 
-												   useCdn:NO 
-												   cdnUrl:@""];
+TUILiveRoomAudienceViewController *audienceVC =
+[[TUILiveRoomAudienceViewController alloc] initWithRoomId:123456
+						 anchorId:nil
+						   useCdn:NO
+						   cdnUrl:@""];
 /// 根据项目的情况，push/present 展示观众页viewController
 [self.navigationController pushViewController:anchorVC animated: YES];
 ```
@@ -86,14 +87,20 @@ TUILiveRoomAudienceViewController *audienceVC = [[TUILiveRoomAudienceViewControl
 - (void)onRoomCreate:(TRTCLiveRoomInfo *roomInfo) {
     NSSTring *roomId = roomInfo.roomId;
 	/// 上报新的直播间创建成功
-	[TUILiveRoomManager.sharedManager createRoom:sdkAppId type:@"liveRoom" success:nil failed:nil];
+	[TUILiveRoomManager.sharedManager createRoom:sdkAppId 
+						type:@"liveRoom" 
+					     success:nil
+					      failed:nil];
 }
 
 /// 退出/停止直播回调
 - (void)onRoomDestroy:(TRTCLiveRoomInfo *roomInfo) {
     NSSTring *roomId = roomInfo.roomId;
 	/// 上报直播间销毁
-  [TUILiveRoomManager.sharedManager destroyRoom:sdkAppId type:@"liveRoom" success:nil failed:nil];
+  [TUILiveRoomManager.sharedManager destroyRoom:sdkAppId 
+   					   type:@"liveRoom"
+					success:nil 
+					 failed:nil];
 }
 ```
 
@@ -128,10 +135,11 @@ TRTC 采用 UDP 协议进行传输音视频数据，标准直播 CDN 则采用�
 ```
 /// eg: 假设您的 配置播放域名并完成 CNAME 中设置的域名为 my.com，那么默认播放 URL 为 http://[播放域名]/live/[sdkAppId]_[roomId]_[userId]_main.flv
 /// 
-TUILiveRoomAudienceViewController *audienceVC = [[TUILiveRoomAudienceViewController alloc] initWithRoomId:123456 
-												 anchorId:nil 
-												   useCdn:YES 
-												   cdnUrl:@"http://[播放域名]/live/[sdkAppId]_[roomId]_[userId]_main.flv"];
+TUILiveRoomAudienceViewController *audienceVC = 
+[[TUILiveRoomAudienceViewController alloc] initWithRoomId:123456 
+						 anchorId:nil 
+						   useCdn:YES 
+						   cdnUrl:@"http://[播放域名]/live/[sdkAppId]_[roomId]_[userId]_main.flv"];
 ```
 
 >!  更多关于 TRTC 旁路直播的介绍，可以查看 [实现 CDN 直播观看](https://cloud.tencent.com/document/product/647/16826) 和  [云端混流服务](https://cloud.tencent.com/document/product/647/16827)。
@@ -179,17 +187,17 @@ TUIKit_live SDK 支持用户自定义礼物，如果修改礼物内容或来源�
 
 1. 在主播端创建 TUILiveRoomAnchorViewController 时开启 PK。
 ```objectivec 
-	TUILiveRoomAnchorViewController *anchorVC = [[TUILiveRoomAnchorViewController alloc] initWithRoomId:123456];
-	anchorVC.delegate = self;
-	///  开启PK
-	[anchorVC eanblePK: YES];
+TUILiveRoomAnchorViewController *anchorVC = [[TUILiveRoomAnchorViewController alloc] initWithRoomId:123456];
+anchorVC.delegate = self;
+///  开启PK
+[anchorVC eanblePK: YES];
 ```
 2. 在主播端 TUILiveRoomAnchorViewController 的回调函数中 `getPKRoomIDList:` 设置 PK 列表数据。
 ```objectivec
-	- (void)getPKRoomIDList:(TUILiveOnRoomListCallback)callback {
-		/// 如果您创建带PK功能，需要在这个回调通过 callback 返回可以PK的主播房间id数组。
-			callback(@[@"12345", @"123456"]);
-	}
+- (void)getPKRoomIDList:(TUILiveOnRoomListCallback)callback {
+	/// 如果您创建带PK功能，需要在这个回调通过 callback 返回可以PK的主播房间id数组。
+   	callback(@[@"12345", @"123456"]);
+}
 ```
 
 
