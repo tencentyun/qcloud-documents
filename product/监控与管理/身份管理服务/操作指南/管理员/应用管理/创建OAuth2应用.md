@@ -28,7 +28,7 @@ https://mycorp.cloudidaas.com/open/oauth2/authorize?client_id=<client_id>&redire
 
 | 参数          | 必选 | 说明                                                         |
 | ------------- | ---- | ------------------------------------------------------------ |
-| client_id     | 是   | 客户端 ID, 可以在应用详情信息”面板中“授权登录”卡片可以查询到  |
+| client_id     | 是   | 客户端 ID, 可以在应用“详情信息”面板中“授权登录”卡片可以查询到  |
 | redirect_uri  | 是   | 用户授权后的回调链接，请遵循 URL 规范作 URL Encode           |
 | response_type | 是   | 返回类型，此时固定为：`code`                                 |
 | scope         | 是   | 授权范围，支持 `basic` 或 `userinfo`                         |
