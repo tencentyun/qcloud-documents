@@ -51,7 +51,7 @@ Serverless SSR 为您提供了完整的控制台开发应用流程，该任务�
 
 ## 自定义路由项目改造指引
 
-您可以通过上传 zip 包的方式，将您的本地项目迅速部署到云端，如果您的 Next.js 项目本身运行就是基于 express 自定义服务的，则您需要在项目中自定义入口文件 sls.js，需要参考您的服务启动文件进行修改。以下是一个模板文件：
+导入已有项目时，如果您的 Next.js 项目本身运行就是基于 express 自定义服务的，则您需要在项目中自定义入口文件  `sls.js`，或在控制台填入您自己的启动文件名，以下是一个模板文件：
 ```js
 const express = require('express')
 const next = require('next')
