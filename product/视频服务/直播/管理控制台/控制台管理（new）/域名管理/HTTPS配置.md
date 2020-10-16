@@ -54,7 +54,7 @@ HTTPS 功能支持开启和关闭。关闭此服务后，云直播将不再为�
 
 ## 常见问题
 - [直播 HTTPS 配置要填写什么格式的证书？](https://cloud.tencent.com/document/product/267/45252#que5)
-- [如何辨认证书是 PEM 格式还是 DER格式？](https://cloud.tencent.com/document/product/267/45252#que6)
+- [如何辨认证书是 PEM 格式还是 DER 格式？](https://cloud.tencent.com/document/product/267/45252#que6)
 
 
 
