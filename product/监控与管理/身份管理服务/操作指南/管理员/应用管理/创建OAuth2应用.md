@@ -1,6 +1,6 @@
 此篇文档将向您介绍 Web 网页应用如何使用 IDaaS OAuth API 实现自建应用对 IDaaS 目录用户进行身份鉴权并获取用户授权的身份信息。
 
-## 步骤一：创建Oauth应用
+## 步骤一：创建 Oauth 应用
 
 登录 [IDaaS 控制台](https://console.cloud.tencent.com/idaas)，选择【应用管理】>【新建应用】。在新建应用页面，选择【自定义 OAuth2 应用程序】，创建应用。
 ![](https://main.qcloudimg.com/raw/41eac619aadd6291c29a8fab578a1ec2.png)
@@ -28,7 +28,7 @@ https://mycorp.cloudidaas.com/open/oauth2/authorize?client_id=<client_id>&redire
 
 | 参数          | 必选 | 说明                                                         |
 | ------------- | ---- | ------------------------------------------------------------ |
-| client_id     | 是   | 客户端ID, 可以在应用详情信息”面板中“授权登录”卡片可以查询到  |
+| client_id     | 是   | 客户端 ID, 可以在应用详情信息”面板中“授权登录”卡片可以查询到  |
 | redirect_uri  | 是   | 用户授权后的回调链接，请遵循 URL 规范作 URL Encode           |
 | response_type | 是   | 返回类型，此时固定为：`code`                                 |
 | scope         | 是   | 授权范围，支持 `basic` 或 `userinfo`                         |
@@ -47,8 +47,8 @@ https://mycorp.cloudidaas.com/open/oauth2/authorize?client_id=<client_id>&redire
 | 参数          | 必选 | 说明                                                         |
 | ------------- | ---- | ------------------------------------------------------------ |
 | code          | 是   | 授权码，从 `redirect_uri` 的 query 参数可以获得              |
-| client_id     | 是   | 客户端ID, 可以在应用“详情信息”面板中“授权登录”卡片可以查询到 |
-| client_secret | 是   | 客户端秘钥, 可以在应用“详情信息”面板中“授权登录”卡片可以查询到 |
+| client_id     | 是   | 客户端 ID, 可以在应用“详情信息”面板中“授权登录”卡片可以查询到 |
+| client_secret | 是   | 客户端密钥, 可以在应用“详情信息”面板中“授权登录”卡片可以查询到 |
 | redirect_uri  | 是   | 用户授权后的回调链接                                         |
 | grant_type    | 是   | 此时固定为：`authorization_code`                             |
 
