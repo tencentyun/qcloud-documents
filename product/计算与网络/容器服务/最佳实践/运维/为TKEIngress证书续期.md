@@ -1,41 +1,31 @@
 ## 操作场景
-使用 TKE 控制台创建的 Ingress 配置的证书会引用 [SSL 证书](https://console.cloud.tencent.com/ssl) 中托管的证书，若 Ingress 使用时间较长，证书存在过期的风险。一旦证书过期，则会对线上业务造成巨大影响，因此需要在证书过期前进行续期，本文将介绍如何为 Ingress 证书续期。
+使用 TKE 控制台创建的 Ingress 配置的证书会引用 [SSL 证书](https://console.cloud.tencent.com/ssl) 中托管的证书，若 Ingress 使用时间较长，证书存在过期的风险。一旦证书过期，会对线上业务造成巨大影响，因此需要在证书过期前进行续期，本文将介绍如何为 Ingress 证书续期。
 
 ## 操作步骤
-### 查询快过期的证书
+### 查询将过期的证书
 
-在 [SSL证书-证书管理](https://console.cloud.tencent.com/ssl) 页面按到期时间升序排列显示证书，找到快过期的证书:
-
-<img style="width:80%" src="https://main.qcloudimg.com/raw/d9ec77161d6afae329594d8095f9efce.png" data-nonescope="true">
+登录 [SSL 证书控制台](https://console.cloud.tencent.com/ssl)，在【证书管理】页面按到期时间升序排列显示证书，查看即将过期的证书。如下图所示：
+![](https://main.qcloudimg.com/raw/0bae29bc1aca5a423b8191f7cb645307.png)
 
 ### 添加新证书
 
-为旧证书续期生成新证书，根据自身情况选择购买证书、申请免费证书或上传证书中一种方式来添加新证书:
+为旧证书续期生成新证书，可根据自身情况选择【购买证书】、【申请免费证书】或【上传证书】中的任意一种方式来添加新证书。如下图所示：
+![](https://main.qcloudimg.com/raw/e40ef8a2c5b65feb84525d1d00953f5e.png)
 
-<img style="width:80%" src="https://main.qcloudimg.com/raw/53f057b42edca1d97758f0c3a7544fff.png" data-nonescope="true">
 
 ### 查看旧证书被哪些 Ingress 引用
-
-鼠标放到旧证书的 `关联资源` 一列的图标上，可以看到有哪些负载均衡器在引用这个证书:
-
-<img style="width:80%" src="https://main.qcloudimg.com/raw/e609ffaae64608ac52eac0808dacefa4.png" data-nonescope="true">
-
-点击负载均衡器的 ID 跳转到负载均衡器详情页面，如果是 TKE Ingress 的负载均衡器，可以看到被打上了 `tke-clusterId` 和 `tke-lb-ingress-uuid` 的标签，分别表示集群 ID 和 Ingress 资源的 UID:
-
-<img style="width:80%" src="https://main.qcloudimg.com/raw/5dc86312c388666bcb05eb2459296649.png" data-nonescope="true">
-
-点击编辑图标，可以展开标签详情:
-
-<img style="width:80%" src="https://main.qcloudimg.com/raw/c401a2d3a6b240c8c4d09e901ee30375.png" data-nonescope="true">
-
-使用 kubectl 查询这个集群 ID 对应集群的 Ingress，过滤 uid 为 `tke-lb-ingress.uuid` 对应值的 Ingress 资源:
-
+1. 登录 [SSL 证书控制台](https://console.cloud.tencent.com/ssl)，选择旧证书右侧的【关联资源】即可查看引用此证书的负载均衡器。如下图所示：
+![](https://main.qcloudimg.com/raw/0d5eddfa39dad5ff0746f8b9d117de23.png)
+2. 点击负载均衡器的 ID 跳转到【负载均衡】详情页面。如果是 TKE Ingress 的负载均衡器，在标签栏会出现 `tke-clusterId` 和 `tke-lb-ingress-uuid` 的标签，分别表示集群 ID 和 Ingress 资源的 UID。如下图所示：
+![](https://main.qcloudimg.com/raw/c7314ab88a9b1e5e8614cd2d6d481a08.png)
+3. 在负载均衡器的“基本信息”页面，点击标签行右侧的编辑按钮，即可进入“编辑标签”页面。如下图所示：
+![](https://main.qcloudimg.com/raw/a014a893a1bbfbe3105c590d23e8a096.png)
+4. 使用 Kubectl 可以查询集群 ID 对应集群的 Ingress，过滤 uid 为 `tke-lb-ingress.uuid` 对应值的 Ingress 资源。参考代码示例如下：
 ```
-$ kubectl get ingress --all-namespaces -o=custom-columns=NAMESPACE:.metadata.namespace,INGRESS:.metadata.name,UID:.metadata.uid | grep 1a4b0e4d-9e62-11ea-a329-eec697a28b35
-api-prod    gateway      1a4b0e4d-9e62-11ea-a329-eec697a28b35
+$ kubectl get ingress --all-namespaces -o=custom-columns=NAMESPACE:.metadata.namespace,INGRESS:.metadata.name,UID:.metadata.uid | grep 1a******-****-****-a329-eec697a28b35
+api-prod    gateway      1a******-****-****-a329-eec697a28b35
 ```
-
-上面命令示例中查询出了该集群中 `api-prod/gateway` 这个 Ingress 引用了这个证书，所以我们需要更新下这个 Ingress。
+由查询结果可知，该集群中 `api-prod/gateway` 引用了此证书，因此需要更新这个 Ingress。
 
 ### 更新 Ingress
 
