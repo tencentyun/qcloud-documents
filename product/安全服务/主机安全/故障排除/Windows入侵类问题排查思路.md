@@ -38,7 +38,7 @@
         HKEY_CURRENT_USER\software\micorsoft\windows\currentversion\run
         HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Run
         HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Runonce
-    检查右侧是否有启动异常的项目，如有请删除，并建议安装杀毒软件进行病毒查杀，清除残留病毒或木马。
+    检查注册表右侧是否有启动异常的项目，如有请删除，并建议安装杀毒软件进行病毒查杀，清除残留病毒或木马。
  - 风险性：高。
 
 1. 查看正在连接的会话。
@@ -50,7 +50,7 @@
 
 ### 四. 检查第三方软件漏洞
 1. 如果您服务器内有运行对外应用软件（WWW、FTP 等），请您对软件进行配置，**限制应用程序的权限，禁止目录浏览或文件写权限**。
-1. **开通腾讯云 Web 应用防火墙防护**，查看 Web 应用防护攻击日志。
+2. [开通腾讯云 Web 应用防火墙](https://buy.cloud.tencent.com/buy/wsm) 防护，查看 Web 应用防护攻击日志。
 
 ## 如何恢复网站或系统
 1. **系统确认被入侵后，往往系统文件会被更改和替换，此时系统已经变得不可信，最好的方法就是重新安装系统，同时给新系统安装所有补丁**。
