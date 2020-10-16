@@ -10,9 +10,11 @@
 ## 步骤二：开启应用授权登录
 
 进入已创建的 OAuth2 应用的详情中，在“配置内容”面板中的“OAuth 应用协议配置”卡片中，单击【编辑】，补充可信域名和回调 URI。
+>! 回调 URI 应在可信域名下。
+
 ![](https://main.qcloudimg.com/raw/cbccc093b6d39e5c48a145613854953e.png)
 完成补充信息并提交后，将自动分配 `client_id` 和 `client_secret`，如下图：
-![](https://main.qcloudimg.com/raw/e75ef07d1c169300ac477400c05e026a.png)
+![](https://main.qcloudimg.com/raw/0eaef2cc529a240361a055c8121975c7.png)
 
 
 
