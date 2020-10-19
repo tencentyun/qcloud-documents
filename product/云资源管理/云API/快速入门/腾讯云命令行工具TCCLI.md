@@ -4,13 +4,13 @@
 - [基础功能](#primaryfunction)
  - 配置 TCCLI
  - helper 信息支持中文信息
- - 支持 json，table，text 输出格式
+ - 支持 JSON，table，text 输出格式
 - [高级功能](#sophisticatedfunctions)
  - 多版本接口访问
  - 指定最近的接入点（Endpoint）
  - 返回结果过滤
- - 支持输出入参数据结构到 json 文件
- - 支持从 json 文件读取参数
+ - 支持输出入参数据结构到 JSON 文件
+ - 支持从 JSON 文件读取参数
 
 
 
@@ -125,45 +125,35 @@ tccli configure
 
 ### 基础功能<span id="primaryfunction"></span>
 
-TCCLI 支持自主配置，helper 信息支持中文信息且支持 json、table 及 text 输出格式。
-
->!请注意 demo 中非简单类型的参数必须为标准 JSON 格式。 
+TCCLI 支持自主配置，helper 信息支持中文信息且支持 JSON、table 及 text 输出格式。
+>! 请注意 demo 中非简单类型的参数必须为标准 JSON 格式。 
 >
 以下示例介绍如何使用 TCCLI：
 1. 执行以下命令创建一台 CVM：
 ```bash
 $ tccli cvm RunInstances --InstanceChargeType POSTPAID_BY_HOUR --InstanceChargePrepaid '{"Period":1,"RenewFlag":"DISABLE_NOTIFY_AND_MANUAL_RENEW"}' --Placement '{"Zone":"ap-guangzhou-2"}' --InstanceType S1.SMALL1 --ImageId img-8toqc6s3 --SystemDisk '{"DiskType":"CLOUD_BASIC", "DiskSize":50}' --InternetAccessible '{"InternetChargeType":"TRAFFIC_POSTPAID_BY_HOUR","InternetMaxBandwidthOut":10,"PublicIpAssigned":true}' --InstanceCount 1 --InstanceName TCCLI-TEST --LoginSettings '{"Password":"isd@cloud"}' --SecurityGroupIds '["sg-0rszg2vb"]' --HostName TCCLI-HOST-NAME1
 ```
-
 2. 执行以下命令获取 CVM 的监控数据：
 ```bash
 tccli monitor GetMonitorData --Namespace "QCE/CVM" --Period 300 --MetricName "CPUUsage" --Instances '[{"Dimensions":[{"Name":"InstanceId","Value":"ins-cac6a4w8"}]}]'
 ```
-
 3. 执行 `tccli help` 命令，查看支持的产品，支持中文。
-
 ```bash
 [root@VM_33_50_centos ~]# tccli help
 NAME
     tccli
-
 DESCRIPTION
     tccli (Tencent Cloud Command Line Interface) is a tool to manage your Tencent Cloud services.
-
 CONFIGURE
     Before using tccli, you should use the command(tccli configure) to configure your profile as the default For more in
     formation, please enter tccli configure help
-
 USEAGE
     tccli [options] <service> [options] <action> [options] [options and parameters]
-
 OPTIONS
     help
     show the tccli help info
-
     --version
     show the version of tccli
-
 AVAILABLE SERVICES
     af
     介绍如何使用API对借贷反欺诈进行操作，包括借贷反欺诈等。
@@ -174,29 +164,21 @@ AVAILABLE SERVICES
     ......
 ```
 4. 以 CVM 为例，执行 `tccli cvm help` 命令，查看产品支持的接口。
-
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm help
 NAME
     cvm
-
 AVAILABLE VERSIONS
     2017-03-12
-
     默认只展示最新版本信息，查看其它版本帮助信息加 --version xxxx-xx-xx
-
 DESCRIPTION
     cvm-2017-03-12
-
     介绍如何使用API对云服务器进行操作，包括使用并管理实例、镜像、密钥等资源。
-
 USEAGE
     tccli cvm <action> [--param...]
-
 OPTIONS
     help
     show the tccli cvm help info
-
 AVAILABLE ACTIONS
     AllocateHosts
     创建CDH实例
@@ -207,39 +189,28 @@ AVAILABLE ACTIONS
     ......
 ```
 5. 以 CBS 的 DescribeDisks 接口为例，执行 `tccli cbs DescribeDisks help` 命令，查看接口支持的参数。
-
 ```bash
 [root@VM_33_50_centos ~]# tccli cbs DescribeDisks help
 NAME
     DescribeDisks
-
 DESCRIPTION
     cbs-2017-03-12-DescribeDisks
-
     本接口（DescribeDisks）用于查询云硬盘列表。
-    
     * 可以根据云硬盘ID、云硬盘类型或者云硬盘状态等信息来查询云硬盘的详细信息，不同条件之间为与(AND)的关系，过滤信息详细请
     见过滤器`Filter`。
     * 如果参数为空，返回当前用户一定数量（`Limit`所指定的数量，默认为20）的云硬盘列表。
-
 USEAGE
     tccli cbs DescribeDisks [--param...]
-
 OPTIONS
     help
     show the tccli cbs DescribeDisks help info
-
     --region
     identify the region to which the instance you want to work with belongs.
-
     --timeout
     specify a request timeout
-
     --secretKey
     specify a SecretKey
-
     ......  
-
 AVAILABLE PARAMS
     --Limit (Integer | Optional)
     返回数量，默认为20，最大值为100。关于`Limit`的更进一步介绍请参考 API [简介](/document/product/362/15633)中的相关小节。
@@ -250,9 +221,9 @@ AVAILABLE PARAMS
     偏移量，默认为0。关于`Offset`的更进一步介绍请参考API[简介](/document/product/362/15633)中的相关小节。
     ......
 ```
+6. 输出格式支持 JSON、table 及 text 格式。
 
-6. 输出格式
- - json 格式
+JSON 格式
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm DescribeRegions 
 {
@@ -298,7 +269,8 @@ AVAILABLE PARAMS
     "RequestId": "e5125cf1-58c3-46b8-a17b-316f18eed021"
 }
 ```
- - table 格式
+
+table 格式
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm DescribeRegions --output table
 --------------------------------------------------------
@@ -335,7 +307,7 @@ AVAILABLE PARAMS
 |+-------------------+----------------+---------------+|
 ```
 
-- text 格式
+text 格式
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm DescribeRegions --output text
 70bbd02f-dc25-452c-a784-afc5c34018ae    20
@@ -477,13 +449,13 @@ tccli cvm DescribeZones --endpoint cvm.ap-guangzhou.tencentcloudapi.com
     ]
 ```
 
-#### 输出入参数据结构到 json 文件
+#### 输出入参数据结构到 JSON 文件
 
 ```bash
 [root@VM_180_248_centos ~]# tccli cvm RunInstances  --generate-cli-skeleton > /tmp/RunInstances.json
 ```
-#### 从 json 文件读取参数，--cli-input-json 后接 file://+文件路径
 
+#### 从 JSON 文件读取参数，--cli-input-json 后接 file://+文件路径
 ```bash
 [root@VM_180_248_centos ~]# tccli cvm RunInstances --cli-input-json file:///tmp/RunInstances.json
 {
