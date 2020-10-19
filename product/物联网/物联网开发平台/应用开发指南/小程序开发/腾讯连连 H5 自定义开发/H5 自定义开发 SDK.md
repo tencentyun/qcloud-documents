@@ -1056,7 +1056,6 @@ sdk.goDeviceInfoPage({ deviceId?: string }) => Promise
 ### 跳转小程序的修改设备名称页面
 
 - **接口定义**
-  执行以下命令代码跳转小程序的修改设备名称页面：
 ```typescript
 sdk.goEditDeviceNamePage: ({ deviceId?: string, name?: string }) => Promise
 ```
@@ -1138,6 +1137,7 @@ sdk.goShareDevicePage({ deviceId?: string }) => Promise
 ### 小程序刷新数据
 
 要求小程序在当前 H5 面板关闭后进行一次数据刷新。
+
 **接口定义**
 ```typescript
 sdk.reloadAfterUnmount() => Promise
@@ -1237,7 +1237,6 @@ sdk.requestTokenApi(action, data, options) => Promise
 ```typescript
 sdk.on(type: string, listener: (...args) => void) => void
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -1294,7 +1293,6 @@ sdk.off(type: string, listener: (...args) => void) => void
 </tbody></table>
 
 ### WebSocket 事件
-
 - **wsClose 事件**：WebSocket 的 `close` 事件。
 <table>
 <thead>
@@ -1315,7 +1313,6 @@ sdk.off(type: string, listener: (...args) => void) => void
 <td>string</td>
 </tr>
 </tbody></table>
-
 - **wsError 事件**：WebSocket 的错误事件。
 - **wsControl 事件**：当 WebSocket 收到 `control` 指令后触发。
 <table>
@@ -1337,7 +1334,6 @@ sdk.off(type: string, listener: (...args) => void) => void
 <td>object</td>
 </tr>
 </tbody></table>
-
 - **wsReport 事件**：当 WebSocket 收到 `report` 指令后触发。
 <table>
 <thead>
@@ -1358,7 +1354,6 @@ sdk.off(type: string, listener: (...args) => void) => void
 <td>object</td>
 </tr>
 </tbody></table>
-
 - **wsStatusChange 事件**：当 WebSocket 收到 `wsStatusChange` 指令后触发。
 <table>
 <thead>
@@ -1474,16 +1469,13 @@ sdk.bluetoothAdapter.addAdapter(DemoDeviceAdapter);
 初始化蓝牙模块，包括初始化蓝牙模块、打通小程序间蓝牙通信以及注册全局回调等。本接口可重复调用，可在每次使用蓝牙模块前调用。
 
  - **接口定义**
-
 ```typescript
 sdk.blueToothAdapter.init() => Promise<void>
-
 ```
 
  - **返回值**
    返回一个带缓存的 Promise，初始化成功后 resolve。若初始化未完成或已初始化成功，则多次调用后返回同一个 Promise。若初始化失败，则该缓存的 Promise 在 reject 之后会被释放，再次调用则将重新初始化。
  - **示例代码**
-
 ```javascript
 sdk.blueToothAdapter.init().then(() => {
   // 调用蓝牙模块能力
@@ -1497,7 +1489,6 @@ sdk.blueToothAdapter.init().then(() => {
 开始搜索蓝牙设备。（将会调用 [wx.startBluetoothDevicesDiscovery](https://developers.weixin.qq.com/miniprogram/dev/api/device/bluetooth/wx.startBluetoothDevicesDiscovery.html)，比较耗费系统资源，务必在不需要搜索后调用 [停止搜索蓝牙设备](#sdk-bluetooth-adapter-stop-search)，如离开页面后）
 
 -  **接口定义**
-
 ```typescript
 sdk.blueToothAdapter.startSearch({
     serviceId?: string,
@@ -1510,7 +1501,6 @@ sdk.blueToothAdapter.startSearch({
 ```
 
 - **参数说明**
-
 <table>
 <thead>
 <tr>
@@ -1552,7 +1542,7 @@ sdk.blueToothAdapter.startSearch({
 </tr>
 <tr>
 <td>timeout</td>
-<td>可选，默认 20000，单位毫秒，超过指定时长没有搜索到设备后将会触发超时错误</td>
+<td>可选，默认20000，单位毫秒，超过指定时长没有搜索到设备后将会触发超时错误</td>
 <td>number</td>
 <td>是</td>
 </tr>
@@ -1565,8 +1555,7 @@ sdk.blueToothAdapter.startSearch({
 
 #### 停止搜索蓝牙设备
 
-##### 接口定义
-
+**接口定义**
 ```typescript
 sdk.blueToothAdapter.stopSearch() => void
 ```
@@ -1577,8 +1566,7 @@ sdk.blueToothAdapter.stopSearch() => void
 
 开始搜索蓝牙设备，并在搜索到第一个满足条件的设备后停止搜索。
 
-##### 接口定义
-
+- **接口定义**
 ```typescript
 sdk.blueToothAdapter.searchDevice({
   deviceName: string,
@@ -1586,121 +1574,206 @@ sdk.blueToothAdapter.searchDevice({
   serviceIds?: string[],
   ignoreDeviceIds?: string[]
 }) => Promise<DeviceInfo>
-
 ```
 
-##### 参数说明
+- **参数说明**
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+<th>必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>deviceName</td>
+<td>指定需要搜索的设备 deviceName</td>
+<td>string</td>
+<td>是</td>
+</tr>
+<tr>
+<td>serviceId</td>
+<td>指定需要搜索的 serviceId，不传的话会使用当前支持的所有 DeviceAdapter 的 serviceId 来匹配</td>
+<td>string</td>
+<td>否</td>
+</tr>
+<tr>
+<td>serviceIds</td>
+<td>参数描述同 serviceId</td>
+<td>string[]</td>
+<td>否</td>
+</tr>
+<tr>
+<td>ignoreDeviceIds</td>
+<td>可选，需要过滤掉的 deviceId 列表（例如刚添加完的设备），搜索结果中将不会出现这些设备</td>
+<td>string[]</td>
+<td>否</td>
+</tr>
+</tbody></table>
 
-| 参数名          | 参数描述                                                     | 类型     | 必填 |
-| --------------- | ------------------------------------------------------------ | -------- | ---- |
-| deviceName      | 指定需要搜索的设备 deviceName                                | string   | 是   |
-| serviceId       | 指定需要搜索的 serviceId，不传的话会使用当前支持的所有 DeviceAdapter 的 serviceId 来匹配 | string   | 否   |
-| serviceIds      | 参数描述同 serviceId                                         | string[] | 否   |
-| ignoreDeviceIds | 可选，需要过滤掉的 deviceId 列表（例如刚添加完的设备），搜索结果中将不会出现这些设备 | string[] | 否   |
-
-##### 返回值
-
+- **返回值**
 返回一个 Promise，在找到第一个满足条件的设备后 resolve。
 
 #### 连接蓝牙设备
 
 连接指定蓝牙设备。
 
-##### 接口定义
-
+- **接口定义**
 ```typescript
 blueToothAdapter.connectDevice(deviceInfo: DeviceInfo, options?: { autoNotify?: boolean }) => Promise<DeviceAdapter>
-
 ```
+- **参数说明**
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+<th>必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>deviceInfo</td>
+<td>传入 <a href="#sdk-bluetooth-adapter-start-search">开始搜索蓝牙设备</a> 或 <a href="#sdk-bluetooth-adapter-search-device">搜索单个蓝牙设备</a> 接口搜索出来的 DeviceInfo</td>
+<td>DeviceInfo</td>
+<td>是</td>
+</tr>
+<tr>
+<td>options.autoNotify</td>
+<td>可选，默认为 true。指定为 true 时，在连接设备后，会自动去拉取服务列表，以及主服务下的特征值列表，并会自动订阅第一个 notifyId 或 indicateId 特征值的 notify。若设备含有多个服务或多个 notify 特征值，请传 false，并自行通过 getBLEDeviceServices、getBLEDeviceCharacteristics、notifyBLECharacteristicValueChange等方法获取及订阅特征值。</td>
+<td>boolean</td>
+<td>否</td>
+</tr>
+</tbody></table>
 
-##### 参数说明
-
-| 参数名             | 参数描述                                                     | 类型       | 必填 |
-| ------------------ | ------------------------------------------------------------ | ---------- | ---- |
-| deviceInfo         | 传入 [开始搜索蓝牙设备](#sdk-bluetooth-adapter-start-search) 或 [搜索单个蓝牙设备](#sdk-bluetooth-adapter-search-device) 接口搜索出来的 DeviceInfo | DeviceInfo | 是   |
-| options.autoNotify | 可选，默认为 true。指定为 true 时，在连接设备后，会自动去拉取服务列表，以及主服务下的特征值列表，并会自动订阅第一个 notifyId 或 indicateId 特征值的 notify。若设备含有多个服务或多个 notify 特征值，请传 false，并自行通过 getBLEDeviceServices、getBLEDeviceCharacteristics、notifyBLECharacteristicValueChange等方法获取及订阅特征值。 | boolean    | 否   |
-
-##### 返回值
-
+- **返回值**
 返回一个 Promise，连接成功后返回设备适配器。
 
 #### 获取设备适配器实例
 
 根据 `deviceId` 查询对应的设备适配器实例。
 
-##### 接口定义
-
+- **接口定义**
 ```typescript
 sdk.blueToothAdapter.getDeviceAdapter(deviceId: string) => DeviceAdapter
 ```
 
-##### 参数说明
+- **参数说明**
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+<th>必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>deviceId</td>
+<td>要获取设备适配器实例的 deviceId</td>
+<td>string</td>
+<td>是</td>
+</tr>
+</tbody></table>
 
-| 参数名   | 参数描述                        | 类型   | 必填 |
-| -------- | ------------------------------- | ------ | ---- |
-| deviceId | 要获取设备适配器实例的 deviceId | string | 是   |
-
-##### 返回值
-
+- **返回值**
 返回对应 `deviceId` 的设备适配器实例。
 
 #### 监听事件
-
 监听蓝牙适配器事件。
 
-##### 接口定义
-
+- **接口定义**
 ```typescript
 sdk.blueToothAdapter.on(type: string, listener: (...args) => void) => void
 ```
 
-##### 参数说明
-
-| 参数名   | 参数描述             | 类型              | 必填 |
-| -------- | -------------------- | ----------------- | ---- |
-| type     | 要监听的事件         | string            | 是   |
-| listener | 事件触发时的回调函数 | (...args) => void | 是   |
+- **参数说明**
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+<th>必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>type</td>
+<td>要监听的事件</td>
+<td>string</td>
+<td>是</td>
+</tr>
+<tr>
+<td>listener</td>
+<td>事件触发时的回调函数</td>
+<td>(...args) =&gt; void</td>
+<td>是</td>
+</tr>
+</tbody></table>
 
 #### 取消监听事件
-
 取消监听蓝牙适配器事件。
 
-##### 接口定义
-
+- **接口定义**
 ```typescript
 sdk.blueToothAdapter.off(type: string, listener: (...args) => void) => void
 ```
 
-##### 参数说明
-
-| 参数名   | 参数描述                                                   | 类型              | 必填 |
-| -------- | ---------------------------------------------------------- | ----------------- | ---- |
-| type     | 要取消监听的事件                                           | string            | 是   |
-| listener | 要取消监听的事件的回调函数，不传则清除该事件的所有回调函数 | (...args) => void | 否   |
+- **参数说明**
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+<th>必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>type</td>
+<td>要取消监听的事件</td>
+<td>string</td>
+<td>是</td>
+</tr>
+<tr>
+<td>listener</td>
+<td>要取消监听的事件的回调函数，不传则清除该事件的所有回调函数</td>
+<td>(...args) =&gt; void</td>
+<td>否</td>
+</tr>
+</tbody></table>
 
 #### 蓝牙适配器事件
 
-##### adapterStateChange 事件
-
-当适配器状态变化时触发。
-
-| 参数名      | 参数描述                   | 类型    |
-| ----------- | -------------------------- | ------- |
-| available   | 蓝牙适配器是否可用         | boolean |
-| discovering | 蓝牙适配器是否处于搜索状态 | boolean |
+**adapterStateChange 事件**：当适配器状态变化时触发。
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>available</td>
+<td>蓝牙适配器是否可用</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>discovering</td>
+<td>蓝牙适配器是否处于搜索状态</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
 
 ### 设备适配器
 
 #### 自定义设备适配器
-
 自定义设备适配器类需要继承 `DeviceAdapter`，并补充以下实现。
 
-##### serviceId
-
-自定义设备适配器类需要设置该属性，代表该设备的主服务 ID。
-
-##### deviceFilter
-
+- **serviceId**：自定义设备适配器类需要设置该属性，代表该设备的主服务 ID。
+- **deviceFilter**：自定义设备适配器类需要实现该静态方法，在搜索蓝牙设备时会将每个搜出的设备信息传入该方法，如果判断是本产品的设备，则需在除入参 deviceInfo 之外返回设备唯一标识 deviceName 及 serviceId，否则返回空。
 ```typescript
 DeviceAdapter.deviceFilter: (deviceInfo: DeviceInfo) => { 
   deviceName: string, 
@@ -1708,11 +1781,7 @@ DeviceAdapter.deviceFilter: (deviceInfo: DeviceInfo) => {
   ...deviceInfo
 }
 ```
-
-自定义设备适配器类需要实现该静态方法，在搜索蓝牙设备时会将每个搜出的设备信息传入该方法，如果判断是本产品的设备，则需在除入参 deviceInfo 之外返回设备唯一标识 deviceName 及 serviceId，否则返回空。
-
-##### handleBLEMessage
-
+- **handleBLEMessage**：自定义设备适配器类需要实现该方法，用于处理收到 `onBLECharacteristicValueChange` 回调后的协议解析。
 ```typescript
 DeviceAdapter.handleBLEMessage: (hexString, { serviceId, characteristicId }) => {
   reportData?: any,
@@ -1720,65 +1789,94 @@ DeviceAdapter.handleBLEMessage: (hexString, { serviceId, characteristicId }) => 
 }
 ```
 
-自定义设备适配器类需要实现该方法，用于处理收到 `onBLECharacteristicValueChange` 回调后的协议解析。
-
 返回值中如果返回 `reportData`，则会将该部分数据上报到云端（注意需与产品定义物模型匹配），其他字段则会透传到 `message` 事件的 payload 中。
 
 #### 设备适配器属性
-
-| 属性名           | 属性描述                                                     | 类型    |
-| ---------------- | ------------------------------------------------------------ | ------- |
-| explorerDeviceId | 只读，设备的 explorerDeviceId                                | string  |
-| isConnected      | 只读，设备当前是否连接状态                                   | boolean |
-| deviceId         | 只读，设备的 deviceId                                        | string  |
-| serviceId        | 只读，设备的主服务ID，实际上既是挂在构造函数上的静态属性 DeviceAdapter.serviceId | string  |
-| originName       | 只读，设备的原始名称，即小程序接口搜索出来时的 name 字段     | string  |
-| explorerDeviceId | 只读，设备的 explorerDeviceId                                | string  |
+<table>
+<thead>
+<tr>
+<th>属性名</th>
+<th>属性描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>explorerDeviceId</td>
+<td>只读，设备的 explorerDeviceId</td>
+<td>string</td>
+</tr>
+<tr>
+<td>isConnected</td>
+<td>只读，设备当前是否连接状态</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>deviceId</td>
+<td>只读，设备的 deviceId</td>
+<td>string</td>
+</tr>
+<tr>
+<td>serviceId</td>
+<td>只读，设备的主服务 ID，实际上既是挂在构造函数上的静态属性 DeviceAdapter.serviceId</td>
+<td>string</td>
+</tr>
+<tr>
+<td>originName</td>
+<td>只读，设备的原始名称，即小程序接口搜索出来时的 name 字段</td>
+<td>string</td>
+</tr>
+<tr>
+<td>explorerDeviceId</td>
+<td>只读，设备的 explorerDeviceId</td>
+<td>string</td>
+</tr>
+</tbody></table>
 
 #### 断开设备连接
-
-##### 接口定义
-
+**接口定义**
 ```typescript
 deviceAdapter.disconnectDevice() => void
 ```
 
 #### 获取设备服务列表
 
-##### 接口定义
-
+- **接口定义**
 ```typescript
 deviceAdapter.getBLEDeviceServices() => Promise<ServiceList>
 ```
 
-##### 返回值
-
+- **返回值**
 返回一个 Promise，`ServiceList` 数据结构请参见 [wx.getBLEDeviceServices](https://developers.weixin.qq.com/miniprogram/dev/api/device/bluetooth-ble/wx.getBLEDeviceServices.html)。
 
 #### 获取设备指定服务的特征值列表
-
 获取设备指定服务中的特征值列表，并将特征值存放在 `deviceAdapter` 实例上。
-
-##### 接口定义
-
+- **接口定义**
 ```typescript
 deviceAdapter.getBLEDeviceCharacteristics({ serviceId: string }) => Promise<CharacteristicsList>
 ```
+- **参数说明**
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+<th>必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>serviceId</td>
+<td>可选，指定要获取特征值列表的服务 ID，默认为主服务 ID</td>
+<td>string</td>
+<td>否</td>
+</tr>
+</tbody></table>
 
-##### 参数说明
-
-| 参数名    | 参数描述                                             | 类型   | 必填 |
-| --------- | ---------------------------------------------------- | ------ | ---- |
-| serviceId | 可选，指定要获取特征值列表的服务 id，默认为主服务 id | string | 否   |
-
-##### 返回值
-
+- **返回值**
 返回一个 Promise，`CharacteristicsList` 数据结构请参见 [wx.getBLEDeviceCharacteristics](https://developers.weixin.qq.com/miniprogram/dev/api/device/bluetooth-ble/wx.getBLEDeviceCharacteristics.html)。
 
-##### 说明
-
-会将获取到的特征值按照如下数据结构存放在 `deviceAdapter` 实例上。
-
+- **说明**
+将获取到的特征值按照如下数据结构存放在 `deviceAdapter` 实例上。
 ```typescript
 deviceAdapter.characteristicsMap[serviceId] = {
   notifyIds: string[],
@@ -1790,42 +1888,53 @@ deviceAdapter.characteristicsMap[serviceId] = {
 
 #### 读取指定特征值的二进制数据
 
-##### 接口定义
-
+- **接口定义**
 ```typescript
 deviceAdapter.readBLECharacteristicValue({
   serviceId?: string,
   characteristicId: string
 }) => Promise<void>
 ```
+- **参数说明**
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+<th>必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>serviceId</td>
+<td>可选，默认为主服务 ID</td>
+<td>string</td>
+<td>否</td>
+</tr>
+<tr>
+<td>characteristicId</td>
+<td>需要读取的特征值 ID，默认会取主服务下的第一个 read 特征值</td>
+<td>string</td>
+<td>是</td>
+</tr>
+</tbody></table>
 
-##### 参数说明
-
-| 参数名           | 参数描述                                                  | 类型   | 必填 |
-| ---------------- | --------------------------------------------------------- | ------ | ---- |
-| serviceId        | 可选，默认为主服务 id                                     | string | 否   |
-| characteristicId | 需要读取的特征值 id，默认会取主服务下的第一个 read 特征值 | string | 是   |
-
-##### 返回值
-
+- **返回值**
 返回一个 Promise。接口读取到的信息需要在 `onBLECharacteristicValueChange` 方法注册的回调中获取，具体参见 [wx.readBLECharacteristicValue](https://developers.weixin.qq.com/miniprogram/dev/api/device/bluetooth-ble/wx.readBLECharacteristicValue.html)。
 
 #### 获取蓝牙设备信号强度
 
-##### 接口定义
-
+- **接口定义**
 ```typescript
 deviceAdapter.getBLEDeviceRSSI() => Promise
 ```
 
-##### 返回值
-
+- **返回值**
 返回一个 Promise，具体数据结构请参见 [wx.getBLEDeviceRSSI](https://developers.weixin.qq.com/miniprogram/dev/api/device/bluetooth-ble/wx.getBLEDeviceRSSI.html)。
 
 #### 启用特征值变化时的 notify 功能
 
-##### 接口定义
-
+- **接口定义**
 ```typescript
 deviceAdapter.notifyBLECharacteristicValueChange({
   characteristicId?: string,
@@ -1834,22 +1943,42 @@ deviceAdapter.notifyBLECharacteristicValueChange({
 }) => Promise<void>
 ```
 
-##### 参数说明
+- **参数说明**
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+<th>必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>serviceId</td>
+<td>需要订阅的服务 ID，默认会取主服务 ID</td>
+<td>string</td>
+<td>否</td>
+</tr>
+<tr>
+<td>characteristicId</td>
+<td>需要订阅的特征值 ID，默认会取主服务下的第一个 notify 或 indicate 特征值</td>
+<td>string</td>
+<td>否</td>
+</tr>
+<tr>
+<td>state</td>
+<td>是否启用 notify，默认为 true</td>
+<td>boolean</td>
+<td>否</td>
+</tr>
+</tbody></table>
 
-| 参数名           | 参数描述                                                     | 类型    | 必填 |
-| ---------------- | ------------------------------------------------------------ | ------- | ---- |
-| serviceId        | 需要订阅的服务 id，默认会取主服务 id                         | string  | 否   |
-| characteristicId | 需要订阅的特征值 id，默认会取主服务下的第一个 notify 或 indicate 特征值 | string  | 否   |
-| state            | 是否启用 notify，默认为 true                                 | boolean | 否   |
-
-##### 返回值
-
+- **返回值**
 返回一个 Promise。
 
 #### 写入二进制数据到指定特征值中
 
-##### 接口定义
-
+- **接口定义**
 ```typescript
 deviceAdapter.write(hexString: string, options?: {
   writeId?: string,
@@ -1857,96 +1986,157 @@ deviceAdapter.write(hexString: string, options?: {
 }) => Promise
 ```
 
-##### 参数说明
-
-| 参数名            | 参数描述                                                    | 类型   | 必填 |
-| ----------------- | ----------------------------------------------------------- | ------ | ---- |
-| hexString         | 需要写给蓝牙设备的十六进制字符串                            | string | 是   |
-| options.writeId   | 可选，需要写入的特征值 id，默认会取主服务下的第一个 writeId | string | 否   |
-| options.serviceId | 可选，需要写入的服务 id，默认会取主服务 id                  | string | 否   |
+- **参数说明**
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+<th>必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>hexString</td>
+<td>需要写给蓝牙设备的十六进制字符串</td>
+<td>string</td>
+<td>是</td>
+</tr>
+<tr>
+<td>options.writeId</td>
+<td>可选，需要写入的特征值 ID，默认会取主服务下的第一个 writeId</td>
+<td>string</td>
+<td>否</td>
+</tr>
+<tr>
+<td>options.serviceId</td>
+<td>可选，需要写入的服务 ID，默认会取主服务 ID</td>
+<td>string</td>
+<td>否</td>
+</tr>
+</tbody></table>
 
 #### 监听事件
 
 监听设备适配器事件。
 
-##### 接口定义
-
+- **接口定义**
 ```typescript
 deviceAdapter.on(type: string, listener: (...args) => void) => void
 ```
-
-##### 参数说明
-
-| 参数名   | 参数描述             | 类型              | 必填 |
-| -------- | -------------------- | ----------------- | ---- |
-| type     | 要监听的事件         | string            | 是   |
-| listener | 事件触发时的回调函数 | (...args) => void | 是   |
+- **参数说明**
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+<th>必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>type</td>
+<td>要监听的事件</td>
+<td>string</td>
+<td>是</td>
+</tr>
+<tr>
+<td>listener</td>
+<td>事件触发时的回调函数</td>
+<td>(...args) =&gt; void</td>
+<td>是</td>
+</tr>
+</tbody></table>
 
 #### 取消监听事件
-
 取消监听设备适配器事件。
 
-##### 接口定义
-
+- **接口定义**
 ```typescript
 deviceAdapter.off(type: string, listener: (...args) => void) => void
 ```
-
-##### 参数说明
-
-| 参数名   | 参数描述                                                   | 类型              | 必填 |
-| -------- | ---------------------------------------------------------- | ----------------- | ---- |
-| type     | 要取消监听的事件                                           | string            | 是   |
-| listener | 要取消监听的事件的回调函数，不传则清除该事件的所有回调函数 | (...args) => void | 否   |
+- **参数说明**
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+<th>必填</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>type</td>
+<td>要取消监听的事件</td>
+<td>string</td>
+<td>是</td>
+</tr>
+<tr>
+<td>listener</td>
+<td>要取消监听的事件的回调函数，不传则清除该事件的所有回调函数</td>
+<td>(...args) =&gt; void</td>
+<td>否</td>
+</tr>
+</tbody></table>
 
 #### 设备适配器事件
-
-##### connect 事件
-
-设备连接后触发。
-
-##### disconnect 事件
-
-设备断开后触发。
-
-##### message 事件
-
-当收到 `onBLECharacteristicValueChange` 回调，并经过 `handleBLEMessage` 处理后触发。
-
-| 参数名       | 参数描述                                                     | 类型    |
-| ------------ | ------------------------------------------------------------ | ------- |
-| timestamp    | 收到设备消息的时间戳，单位毫秒                               | number  |
-| dataReported | 收到设备的消息是否已上报云端                                 | boolean |
-| （其他）     | handleBLEMessage 函数返回的其他参数将会透传到 message 事件中 | any     |
-
-##### bLEConnectionStateChange 事件
-
-当 `onBleConnectionStateChange` 触发时触发，若 `connected` 为 true，则接下来会触发 `connect` 事件，否则会触发 `disconnect` 事件。
-
-| 参数名    | 参数描述     | 类型    |
-| --------- | ------------ | ------- |
-| connected | 设备是否连接 | boolean |
-
+- **connect 事件**：设备连接后触发。
+- **disconnect 事件**：设备断开后触发。
+- **message 事件**：当收到 `onBLECharacteristicValueChange` 回调，并经过 `handleBLEMessage` 处理后触发。
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>timestamp</td>
+<td>收到设备消息的时间戳，单位毫秒</td>
+<td>number</td>
+</tr>
+<tr>
+<td>dataReported</td>
+<td>收到设备的消息是否已上报云端</td>
+<td>boolean</td>
+</tr>
+<tr>
+<td>（其他）</td>
+<td>handleBLEMessage 函数返回的其他参数将会透传到 message 事件中</td>
+<td>any</td>
+</tr>
+</tbody></table>
+- **bLEConnectionStateChange 事件**：当 `onBleConnectionStateChange` 触发时触发，若 `connected` 为 true，则接下来会触发 `connect` 事件，否则会触发 `disconnect` 事件。
+<table>
+<thead>
+<tr>
+<th>参数名</th>
+<th>参数描述</th>
+<th>类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>connected</td>
+<td>设备是否连接</td>
+<td>boolean</td>
+</tr>
+</tbody></table>
 
 ## 底层 SDK 能力
 
 ### 应用开发 SDK
-
 H5 SDK 底层依赖应用开发小程序端 SDK。通过以下代码可以获取应用开发 SDK 的实例，更多调用能力请参考 [应用开发小程序端 SDK](https://github.com/tencentyun/qcloud-iotexplorer-appdev-miniprogram-sdk#readme) 文档。
 
-#### 接口定义
-
+**接口定义**
 ```typescript
 sdk.appDevSdk
 ```
 
-
 ### 微信 JS SDK
-
 通过以下代码可以获取微信 JSSDK 实例，具体用法请参见 [小程序 web-view 文档](https://developers.weixin.qq.com/miniprogram/dev/component/web-view.html)。使用前需要先调用 [初始化 JSSDK](#sdk-wx-sdk-ready)。
 
-#### 接口定义
-
+**接口定义**
 ```typescript
 sdk.wx
 ```
@@ -1956,18 +2146,13 @@ sdk.wx
 
 ### 初始化 JS SDK
 
-#### 接口定义
-
+- **接口定义**
 ```typescript
 sdk.wxSdkReady() => Promise
 ```
-
-#### 返回值
-
+- **返回值**
 返回一个带缓存的 Promise，初始化成功后 resolve。若初始化未完成或已初始化成功，则多次调用后返回同一个 Promise。若初始化失败，则该缓存的 Promise 在 reject 之后会被释放，再次调用则将重新初始化。
-
-#### 示例代码
-
+- **示例代码**
 ```javascript
 sdk.wxSdkReady().then(() => wx.miniProgram.navigateBack());
 ```
