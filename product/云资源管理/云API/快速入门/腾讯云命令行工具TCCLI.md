@@ -87,16 +87,16 @@ tccli configure
 2. 您可执行以下命令进入命令行模式，通过命令行模式您可以在自动化脚本中配置您的信息。 
 ```bash
  # set子命令可以设置某一配置，也可同时配置多个。
- tccli configure set secretId AKIDwLw1234xxxxxxxxxxxnR2OTI787aBCDP
+ tccli configure set secretId AKIDwLw1234***********nR2OTI787aBCDP
  tccli configure set region ap-guangzhou  output json
  # get子命令用于获取配置信息。
  tccli configure get secretKey
- secretKey = OxXj7khcV1234xxxxxxxxxdCc1LiArFd
+ secretKey = OxXj7khcV1234*********dCc1LiArFd
  # list子命令打印所有配置信息。
  tccli configure list
  credential:
- secretId =  AKIDwLw1234xxxxxxxxxxnR2OTI787aBCDP
- secretKey =  OxXj7khcV1234xxxxxxxxxdCc1LiArFd
+ secretId =  AKIDwLw1234**********nR2OTI787aBCDP
+ secretKey =  OxXj7khcV1234*********dCc1LiArFd
  configure:
  region =  ap-guangzhou
  output =  json
@@ -106,12 +106,12 @@ tccli configure
 ```bash
  # 在交互模式中指定账户名 test。
  $ tccli configure --profile test
- TencentCloud API secretId [*BCDP]:AKIDwLw1234xxxxxxexxxxR2OTI787aBCDP
- TencentCloud API secretKey [*ArFd]:OxXj7khcV1234xxxxxxxxxdCc1LiArFd
+ TencentCloud API secretId [*BCDP]:AKIDwLw1234***********R2OTI787aBCDP
+ TencentCloud API secretKey [*ArFd]:OxXj7khcV1234*********dCc1LiArFd
  region: ap-guangzhou
  output[json]:
  # set/get/list子命令指定账户名 test。此命令与上条命令作用相同
- $ tccli configure set region ap-guangzhou  output json secretId AKIDwLw1234xxxxxxexxxxR2OTI787aBCDP secretKey OxXj7khcV1234xxxxxxxxxdCc1LiArFd --profile test
+ $ tccli configure set region ap-guangzhou  output json secretId AKIDwLw1234***********R2OTI787aBCDP secretKey OxXj7khcV1234*********dCc1LiArFd --profile test
  # 已可以修改单独一个，例如修改地域：
  $ tccli configure set region ap-beijing
  # 查看test用户密钥key或查看配置, 使用命令如下：
@@ -266,7 +266,7 @@ JSON 格式
         }, 
         ......
     ], 
-    "RequestId": "e5125cf1-58c3-46b8-a17b-316f18eed021"
+    "RequestId": "e5125cf1-****-****-****-316f18eed021"
 }
 ```
 
@@ -278,7 +278,7 @@ table 格式
 +---------------------------------------+--------------+
 |               RequestId               | TotalCount   |
 +---------------------------------------+--------------+
-|  1af5f2a0-acb6-4af7-b239-462f0271a69f |  20          |
+|  1af5f2a0-****-****-****-462f0271a69f |  20          |
 +---------------------------------------+--------------+
 ||                      RegionSet                     ||
 |+-------------------+----------------+---------------+|
@@ -310,7 +310,7 @@ table 格式
 text 格式
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm DescribeRegions --output text
-70bbd02f-dc25-452c-a784-afc5c34018ae    20
+70bbd02f-****-****-****-afc5c34018ae    20
 REGIONSET       ap-bangkok      亚太地区(曼谷)  AVAILABLE
 REGIONSET       ap-beijing      华北地区(北京)  AVAILABLE
 REGIONSET       ap-chengdu      西南地区(成都)  AVAILABLE
@@ -396,7 +396,7 @@ tccli cvm DescribeZones --endpoint cvm.ap-guangzhou.tencentcloudapi.com
             "ZoneName": "广州四区"
         }
     ],
-    "RequestId": "4fd313a6-155f-4c7a-bf86-898c02fcae02"
+    "RequestId": "4fd313a6-****-****-****-898c02fcae02"
    }
 ```
 2. 只看某个字段。
@@ -459,7 +459,7 @@ tccli cvm DescribeZones --endpoint cvm.ap-guangzhou.tencentcloudapi.com
 ```bash
 [root@VM_180_248_centos ~]# tccli cvm RunInstances --cli-input-json file:///tmp/RunInstances.json
 {
-        "RequestId": "20e2b42d-3260-4750-9293-79116208330e", 
+        "RequestId": "20e2b42d-****-****-****-79116208330e", 
         "InstanceIdSet": null
 }
 ```
