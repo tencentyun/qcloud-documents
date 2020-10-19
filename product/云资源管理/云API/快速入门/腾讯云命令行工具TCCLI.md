@@ -20,7 +20,7 @@
 >- Python 版本必须为2.7及以上版本，更多内容请参考 [Python](https://www.python.org/) 和 [pip](https://pypi.org/project/pip/) 官网文档。 
 >- TCCLI 依赖于 TencentCloudApi Python SDK，如果 TencentCloudApi Python SDK 的版本号小于要安装 TCCLI 版本号，在安装 TCCLI 时会自动升级 TencentCloudApi Python SDK。
 >
-2. 下面以 Linux 为例（Windows 系统按 **Win+R** 打开运行窗口输入 cmd 并单击【确定】）。
+2. Windows 系统按 **Win+R** 打开运行窗口输入 cmd 并单击【确定】，本文以 Linux 为例。
 3. 在命令行窗口中，执行以下命令进行 TCCLI 安装。
 ```
 pip install tccli
@@ -129,11 +129,11 @@ TCCLI 支持自主配置，helper 信息支持中文信息且支持 JSON、table
 >! 请注意 demo 中非简单类型的参数必须为标准 JSON 格式。 
 >
 以下示例介绍如何使用 TCCLI：
-1. 执行以下命令创建一台 CVM：
+1. 执行以下命令，创建一台 CVM：
 ```bash
 $ tccli cvm RunInstances --InstanceChargeType POSTPAID_BY_HOUR --InstanceChargePrepaid '{"Period":1,"RenewFlag":"DISABLE_NOTIFY_AND_MANUAL_RENEW"}' --Placement '{"Zone":"ap-guangzhou-2"}' --InstanceType S1.SMALL1 --ImageId img-8toqc6s3 --SystemDisk '{"DiskType":"CLOUD_BASIC", "DiskSize":50}' --InternetAccessible '{"InternetChargeType":"TRAFFIC_POSTPAID_BY_HOUR","InternetMaxBandwidthOut":10,"PublicIpAssigned":true}' --InstanceCount 1 --InstanceName TCCLI-TEST --LoginSettings '{"Password":"isd@cloud"}' --SecurityGroupIds '["sg-0rszg2vb"]' --HostName TCCLI-HOST-NAME1
 ```
-2. 执行以下命令获取 CVM 的监控数据：
+2. 执行以下命令，获取 CVM 的监控数据：
 ```bash
 tccli monitor GetMonitorData --Namespace "QCE/CVM" --Period 300 --MetricName "CPUUsage" --Instances '[{"Dimensions":[{"Name":"InstanceId","Value":"ins-cac6a4w8"}]}]'
 ```
