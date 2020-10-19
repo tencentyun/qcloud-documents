@@ -222,8 +222,7 @@ AVAILABLE PARAMS
     ......
 ```
 6. 输出格式支持 JSON、table 及 text 格式。
-
-JSON 格式
+**JSON 格式**
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm DescribeRegions 
 {
@@ -269,11 +268,10 @@ JSON 格式
     "RequestId": "e5125cf1-****-****-****-316f18eed021"
 }
 ```
-
-table 格式
+**table 格式**
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm DescribeRegions --output table
---------------------------------------------------------
+--
 |                        action                        |
 +---------------------------------------+--------------+
 |               RequestId               | TotalCount   |
@@ -306,8 +304,7 @@ table 格式
 ||  na-toronto       |  北美地区(多伦多)     |  AVAILABLE    ||
 |+-------------------+----------------+---------------+|
 ```
-
-text 格式
+ **text 格式**
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm DescribeRegions --output text
 70bbd02f-****-****-****-afc5c34018ae    20
