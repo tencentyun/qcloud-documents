@@ -30,7 +30,7 @@
 
 ### 配置项1、2 - AccessID、AccessKey
 
-登录 [TPNS控制台](https://console.cloud.tencent.com/tpns)。
+登录 [TPNS 控制台](https://console.cloud.tencent.com/tpns)。
 
 1. 产品管理 - 要配置推送能力的产品，选择 iOS 或者 macOS 平台的配置管理。
    ![](https://main.qcloudimg.com/raw/5f812069da22e2c345ef69a4ad1b920c.jpg)
