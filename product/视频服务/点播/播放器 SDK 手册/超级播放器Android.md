@@ -24,7 +24,7 @@ compile(name: 'libsuperplayer', ext: 'aar')
 // 超级播放器弹幕集成的第三方库
 compile 'com.github.ctiao:DanmakuFlameMaster:0.5.3'
 ```
-
+   
 4. 在项目`build.gralde`中添加：
 
 ```
