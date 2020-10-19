@@ -1,10 +1,10 @@
-## 简介
+
 
 本文档提供移动推送 TPNS  iOS 应用快速接入指引。使用本地工具无代码集成，一键为您的 iOS 应用配置推送功能。
 
 ## 接入前准备
 
-1. 接入 SDK 之前，需要您前往 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参见 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
+1. 接入 SDK 之前，需要您前往 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详情请参见 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
    ![](https://main.qcloudimg.com/raw/a6f7bd9a751cde939069d8ef2c3e5e12.png)
 2. 在【配置管理】页面上传推送证书，您可以参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664) 操作获取推送证书。
    ![](https://main.qcloudimg.com/raw/aea977e64071e69ad4743aa9217efb25.png)
@@ -15,10 +15,11 @@
    ![](https://main.qcloudimg.com/raw/b900deaadd11180abd6918e400ed55b6.png)
 5. 此时会提示“无法打开 TPNS Smart Tool”。
    ![](https://main.qcloudimg.com/raw/67334a5258eb5d879c54663d158029ee.png)
-6. 前往【系统偏好设置】>【安全性与隐私】>通用中单击【仍要打开】。
+6. 前往【系统偏好设置】>【安全性与隐私】> 通用中单击【仍要打开】。
    ![](https://main.qcloudimg.com/raw/2c5313c7d0e07ef38e231c16f056dfb2.jpg)
-7. 按照系统提示输入本机密码确认操作，正确无误后再次单击"仍要打开"，此时会出现"打开"按钮。
+7. 按照系统提示输入本机密码确认操作，正确无误后再次单击【仍要打开】，此时会出现【打开】，单击【打开】。
    ![](https://main.qcloudimg.com/raw/9737b9509dd4beb08520ef9298136af5.png)
+
 
 ## 开始接入
 
@@ -59,11 +60,11 @@
 >- 若您是**初次集成 TPNS**，建议同时勾选5和6，否则无法获取推送抵达数据且无法下发富媒体推送。
 >- 您可以单独集成配置项5或者6，也可以同时集成5和6，请根据您的项目情况自行选择。
 
-### 配置项1 - 6都填好之后，就可以进行 TPNS SDK 一键集成了
+### 进行 TPNS SDK 集成
 
-- 配置项都填好之后，【一键集成】将变成蓝色可单击状态。
+1. 完成上述6项配置之后，【一键集成】将变成蓝色可单击状态，单击【一键集成】。
   ![](https://main.qcloudimg.com/raw/30059198465ce5fb475e848aa2214372.jpg)
-- 集成成功之后，会展示如下弹框。
+2. 集成成功之后，将展示如下弹框。
   ![](https://main.qcloudimg.com/raw/764b0e1a12f51b2d48f106439ab5539a.jpg)
 
 ## 集成成功后的项目结构及工程配置
@@ -77,7 +78,7 @@
 
 将 iPhone 设备连接 Xcode，安装 App 并观察控制台日志，若显示如下相似日志，表明客户端已经正确集成 SDK：
 
-```
+```plaintext
 [TPNS] Current device token is 9298da5605c3b242261b57****376e409f826c2caf87aa0e6112f944
 [TPNS] Current TPNS token is 00c30e0aeddff1270d8****dc594606dc184
 ```
