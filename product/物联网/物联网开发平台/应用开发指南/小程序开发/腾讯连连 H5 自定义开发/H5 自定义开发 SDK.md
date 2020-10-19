@@ -37,7 +37,6 @@ sdk.getProductInfo({ productId?: string }) => Promise<{
   UpdateTime: number,
 }>
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -55,7 +54,6 @@ sdk.getProductInfo({ productId?: string }) => Promise<{
 <td>否</td>
 </tr>
 </tbody></table>
-
 - **返回值**
   返回一个 Promise，输出参数如下。
 <table>
@@ -132,7 +130,6 @@ sdk.getDeviceInfo({ deviceId?: string }) => Promise<{
   CreateTime: string
 }>
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -150,7 +147,6 @@ sdk.getDeviceInfo({ deviceId?: string }) => Promise<{
 <td>否</td>
 </tr>
 </tbody></table>
-
 - **返回值**
   返回一个 Promise，输出参数请参见 [DeviceList](https://cloud.tencent.com/document/product/1081/40780#devicelist)（非分享设备）和 [ShareDevices](https://cloud.tencent.com/document/product/1081/40780#sharedevices)（分享设备）。
 
@@ -162,7 +158,6 @@ sdk.getDeviceInfo({ deviceId?: string }) => Promise<{
 ```typescript
 sdk.controlDeviceData(data, deviceId?: string) => Promise
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -186,7 +181,6 @@ sdk.controlDeviceData(data, deviceId?: string) => Promise
 <td>否</td>
 </tr>
 </tbody></table>
-
 - **返回值**
   返回一个 Promise，输出参数请参见 [用户控制设备](https://cloud.tencent.com/document/product/1081/40805)。
 
@@ -196,7 +190,6 @@ sdk.controlDeviceData(data, deviceId?: string) => Promise
 ```typescript
 sdk.getDeviceData({ deviceId?: string }) => Promise<object>
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -214,7 +207,6 @@ sdk.getDeviceData({ deviceId?: string }) => Promise<object>
 <td>否</td>
 </tr>
 </tbody></table>
-
 - **返回值**
   返回一个 Promise，输出参数为设备的物模型数据。
 
@@ -236,7 +228,6 @@ sdk.getDeviceDataHistory({
   Results: DataHistoryItem[]
 }>
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -278,7 +269,6 @@ sdk.getDeviceDataHistory({
 <td>是</td>
 </tr>
 </tbody></table>
-
 - **返回值**
   返回一个 Promise，输出参数请参见 [获取设备物模型历史数据](https://cloud.tencent.com/document/product/1081/43119)。
 
@@ -288,7 +278,6 @@ sdk.getDeviceDataHistory({
 ```typescript
 sdk.getDeviceStatus({ deviceId?: string }) => Promise<0 | 1>
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -306,7 +295,6 @@ sdk.getDeviceStatus({ deviceId?: string }) => Promise<0 | 1>
 <td>否</td>
 </tr>
 </tbody></table>
-
 - **返回值**
   返回一个 Promise，输出参数取值如下：
  - 0：设备离线
@@ -318,7 +306,6 @@ sdk.getDeviceStatus({ deviceId?: string }) => Promise<0 | 1>
 ```typescript
 sdk.deleteDevice({ deviceId?: string }) => Promise<void>
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -336,7 +323,6 @@ sdk.deleteDevice({ deviceId?: string }) => Promise<void>
 <td>否</td>
 </tr>
 </tbody></table>
-
 - **返回值**
   返回一个 Promise。
 
@@ -347,7 +333,6 @@ sdk.deleteDevice({ deviceId?: string }) => Promise<void>
 ```typescript
 sdk.getShareParams({ deviceId?: string }) => Promise<any>
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -365,7 +350,6 @@ sdk.getShareParams({ deviceId?: string }) => Promise<any>
 <td>否</td>
 </tr>
 </tbody></table>
-
 - **返回值**
   返回一个 Promise，输出参数为自定义分享参数。
 
@@ -385,7 +369,6 @@ sdk.checkFirmwareUpgrade({
   DstVersion: string,
 }>
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -409,7 +392,6 @@ sdk.checkFirmwareUpgrade({
 <td>否</td>
 </tr>
 </tbody></table>
-
 - **返回值**
   返回一个 Promise，输出参数请参见 [查询设备固件是否升级](https://cloud.tencent.com/document/product/1081/47129)。
 	
@@ -420,7 +402,6 @@ sdk.checkFirmwareUpgrade({
 ```typescript
 sdk.goFirmwareUpgradePage({ deviceId?: string }) => Promise
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -454,7 +435,6 @@ sdk.getUserInfo() => Promise<{
   UserID: string
 }>
 ```
-
 -  **返回值**
    返回一个 Promise，输出参数如下。
 <table>
@@ -510,7 +490,6 @@ tips 组件，样式和风格与连连小程序一致。
 ```typescript
 sdk.tips.show(message, options) => Promise
 ```
-
  - **参数说明**
 <table>
 <thead>
@@ -590,12 +569,12 @@ sdk.tips.show(message, {
 ```typescript
 sdk.tips.showLoading(message, options) => Promise
 ```
-
  - **参数说明**
    请参见 [展示 tips 参数说明](#sdk-tips-show)。
 
 #### 关闭 loading tips
   [展示 loading tips](#sdk-tips-show-loading-tips) 后必须主动调用本接口，否则 tips 将会一直保留。
+	
 **接口定义**
 ```typescript
 sdk.tips.hideLoading() => Promise
@@ -635,7 +614,6 @@ sdk.tips.show(getErrorMsg(error), { type: 'error', ...options });
 ```typescript
 sdk.tips.showError(error, options) => Promise
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -664,6 +642,7 @@ sdk.tips.showError(error, options) => Promise
 
 #### 展示模态对话框
 展示一个弹窗，参数、功能、样式同小程序原生 showModal 基本一致。
+
  - **接口定义**
 ```typescript
 sdk.tips.showModal({
@@ -729,7 +708,6 @@ sdk.tips.showModal({
 <td>否</td>
 </tr>
 </tbody></table>
-
  - **返回值**
   返回一个 `Promise<boolean>`：
   - true ：代表用户单击确认。
@@ -737,11 +715,11 @@ sdk.tips.showModal({
 
 #### 展示确认模态对话框
  基于 `sdk.tips.showModal` 封装，用于向用户进行二次确认操作时使用。
+ 
  - **接口定义**
 ```typescript
 sdk.tips.confirm(title, content, options) => Promise<boolean>
 ```
-
  - **参数说明**
 <table>
 <thead>
@@ -771,7 +749,6 @@ sdk.tips.confirm(title, content, options) => Promise<boolean>
 <td>否</td>
 </tr>
 </tbody></table>
-
  - **示例代码**
  用户确认示例代码如下：
 ```javascript
@@ -783,11 +760,11 @@ if (isConfirm) {
 
 #### 展示提示模态对话框
   基于 `sdk.tips.showModal` 封装，用于向用户进行消息提示操作时使用。
+	
  - **接口定义**
 ```typescript
 sdk.tips.alert(content, options) => Promise<boolean>
 ```
-
  -  **参数说明**
 <table>
 <thead>
@@ -986,7 +963,6 @@ sdk.goDeviceDetailPage({
   shareParams?: object | string,
 }) => Promise
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -1024,17 +1000,16 @@ sdk.goDeviceDetailPage({
 </tbody></table>
 
 ### 跳转小程序的反馈页面
+
 **接口定义**
 ```typescript
 sdk.goFeedBackPage() => Promise
 ```
-
 ### 跳转小程序的设备信息页面
 - **接口定义**
 ```typescript
 sdk.goDeviceInfoPage({ deviceId?: string }) => Promise
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -1059,7 +1034,6 @@ sdk.goDeviceInfoPage({ deviceId?: string }) => Promise
 ```typescript
 sdk.goEditDeviceNamePage: ({ deviceId?: string, name?: string }) => Promise
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -1090,7 +1064,6 @@ sdk.goEditDeviceNamePage: ({ deviceId?: string, name?: string }) => Promise
 ```typescript
 sdk.goRoomSettingPage({ deviceId?: string }) => Promise
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -1115,7 +1088,6 @@ sdk.goRoomSettingPage({ deviceId?: string }) => Promise
 ```typescript
 sdk.goShareDevicePage({ deviceId?: string }) => Promise
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -1159,7 +1131,6 @@ sdk.navBack() => Promise
 ```typescript
 sdk.setShareConfig({ title: string, imgUrl: string? }) => Promise
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -1194,7 +1165,6 @@ H5 SDK 对应用端 API 的调用过程进行了封装，发送请求时会自�
 ```typescript
 sdk.requestTokenApi(action, data, options) => Promise
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -1224,7 +1194,6 @@ sdk.requestTokenApi(action, data, options) => Promise
 <td>否</td>
 </tr>
 </tbody></table>
-
 - **返回值**
  - 请求成功（code=0）：返回一个 resolved 的 Promise，其值为应用端 API 响应中的 `Response` 部分数据。
  - 请求失败：返回一个 rejected 的 Promise，其值的数据结构为：`{ code, msg, ...detail }`。
@@ -1267,7 +1236,6 @@ sdk.on(type: string, listener: (...args) => void) => void
 ```typescript
 sdk.off(type: string, listener: (...args) => void) => void
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -1413,7 +1381,6 @@ sdk.off(type: string, listener: (...args) => void) => void
 ```typescript
 sdk.bluetoothAdapter.addAdapter(deviceAdapter: DeviceAdapterConstructor) => void
 ```
-
  - **参数说明**
 <table>
 <thead>
@@ -1431,7 +1398,6 @@ sdk.bluetoothAdapter.addAdapter(deviceAdapter: DeviceAdapterConstructor) => void
 <td>是</td>
 </tr>
 </tbody></table>
-
  - **示例代码**
  ```javascript
 class DemoDeviceAdapter extends DeviceAdapter {
@@ -1472,7 +1438,6 @@ sdk.bluetoothAdapter.addAdapter(DemoDeviceAdapter);
 ```typescript
 sdk.blueToothAdapter.init() => Promise<void>
 ```
-
  - **返回值**
    返回一个带缓存的 Promise，初始化成功后 resolve。若初始化未完成或已初始化成功，则多次调用后返回同一个 Promise。若初始化失败，则该缓存的 Promise 在 reject 之后会被释放，再次调用则将重新初始化。
  - **示例代码**
@@ -1499,7 +1464,6 @@ sdk.blueToothAdapter.startSearch({
     timeout: number
 }) => Promise<void>
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -1547,7 +1511,6 @@ sdk.blueToothAdapter.startSearch({
 <td>是</td>
 </tr>
 </tbody></table>
-
 - **返回值**
   返回一个 Promise。
 
@@ -1575,7 +1538,6 @@ sdk.blueToothAdapter.searchDevice({
   ignoreDeviceIds?: string[]
 }) => Promise<DeviceInfo>
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -1611,7 +1573,6 @@ sdk.blueToothAdapter.searchDevice({
 <td>否</td>
 </tr>
 </tbody></table>
-
 - **返回值**
 返回一个 Promise，在找到第一个满足条件的设备后 resolve。
 
@@ -1646,7 +1607,6 @@ blueToothAdapter.connectDevice(deviceInfo: DeviceInfo, options?: { autoNotify?: 
 <td>否</td>
 </tr>
 </tbody></table>
-
 - **返回值**
 返回一个 Promise，连接成功后返回设备适配器。
 
@@ -1658,7 +1618,6 @@ blueToothAdapter.connectDevice(deviceInfo: DeviceInfo, options?: { autoNotify?: 
 ```typescript
 sdk.blueToothAdapter.getDeviceAdapter(deviceId: string) => DeviceAdapter
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -1676,7 +1635,6 @@ sdk.blueToothAdapter.getDeviceAdapter(deviceId: string) => DeviceAdapter
 <td>是</td>
 </tr>
 </tbody></table>
-
 - **返回值**
 返回对应 `deviceId` 的设备适配器实例。
 
@@ -1687,7 +1645,6 @@ sdk.blueToothAdapter.getDeviceAdapter(deviceId: string) => DeviceAdapter
 ```typescript
 sdk.blueToothAdapter.on(type: string, listener: (...args) => void) => void
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -1719,7 +1676,6 @@ sdk.blueToothAdapter.on(type: string, listener: (...args) => void) => void
 ```typescript
 sdk.blueToothAdapter.off(type: string, listener: (...args) => void) => void
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -1844,7 +1800,6 @@ deviceAdapter.disconnectDevice() => void
 ```typescript
 deviceAdapter.getBLEDeviceServices() => Promise<ServiceList>
 ```
-
 - **返回值**
 返回一个 Promise，`ServiceList` 数据结构请参见 [wx.getBLEDeviceServices](https://developers.weixin.qq.com/miniprogram/dev/api/device/bluetooth-ble/wx.getBLEDeviceServices.html)。
 
@@ -1871,10 +1826,8 @@ deviceAdapter.getBLEDeviceCharacteristics({ serviceId: string }) => Promise<Char
 <td>否</td>
 </tr>
 </tbody></table>
-
 - **返回值**
 返回一个 Promise，`CharacteristicsList` 数据结构请参见 [wx.getBLEDeviceCharacteristics](https://developers.weixin.qq.com/miniprogram/dev/api/device/bluetooth-ble/wx.getBLEDeviceCharacteristics.html)。
-
 - **说明**
 将获取到的特征值按照如下数据结构存放在 `deviceAdapter` 实例上。
 ```typescript
@@ -1918,7 +1871,6 @@ deviceAdapter.readBLECharacteristicValue({
 <td>是</td>
 </tr>
 </tbody></table>
-
 - **返回值**
 返回一个 Promise。接口读取到的信息需要在 `onBLECharacteristicValueChange` 方法注册的回调中获取，具体参见 [wx.readBLECharacteristicValue](https://developers.weixin.qq.com/miniprogram/dev/api/device/bluetooth-ble/wx.readBLECharacteristicValue.html)。
 
@@ -1928,7 +1880,6 @@ deviceAdapter.readBLECharacteristicValue({
 ```typescript
 deviceAdapter.getBLEDeviceRSSI() => Promise
 ```
-
 - **返回值**
 返回一个 Promise，具体数据结构请参见 [wx.getBLEDeviceRSSI](https://developers.weixin.qq.com/miniprogram/dev/api/device/bluetooth-ble/wx.getBLEDeviceRSSI.html)。
 
@@ -1942,7 +1893,6 @@ deviceAdapter.notifyBLECharacteristicValueChange({
   state?: boolean
 }) => Promise<void>
 ```
-
 - **参数说明**
 <table>
 <thead>
@@ -1972,7 +1922,6 @@ deviceAdapter.notifyBLECharacteristicValueChange({
 <td>否</td>
 </tr>
 </tbody></table>
-
 - **返回值**
 返回一个 Promise。
 
@@ -1985,7 +1934,6 @@ deviceAdapter.write(hexString: string, options?: {
   serviceId?: string
 }) => Promise
 ```
-
 - **参数说明**
 <table>
 <thead>
