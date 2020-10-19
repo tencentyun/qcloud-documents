@@ -1,22 +1,18 @@
 欢迎使用腾讯云命令行工具 TCCLI，TCCLI 是管理腾讯云资源的统一工具。通过腾讯云命令行工具，您可以快速轻松的调用腾讯云 API 来管理您的腾讯云资源。您还可以基于腾讯云的命令行工具来做自动化和脚本处理，能够以更多样的方式进行组合和重用。 
 
-腾讯云TCCLI提供能力如下：
+腾讯云 TCCLI 包含基础功能和高级功能，详情参见下表：
+- [基础功能](#primaryfunction)
+ - 配置 TCCLI
+ - helper 信息支持中文信息
+ - 支持 json，table，text 输出格式
+- [高级功能](#sophisticatedfunctions)
+ - 多版本接口访问
+ - 指定最近的接入点（Endpoint）
+ - 返回结果过滤
+ - 支持输出入参数据结构到 json 文件
+ - 支持从 json 文件读取参数
 
-基础功能
 
-- 配置TCCLI
-- helper信息支持中文信息
-- 支持json,table,text输出格式
-
-高级功能
-
-- 多版本接口访问
-- 指定最近的接入点（Endpoint） 
-- 返回结果过滤 
-- 支持输出入参数据结构到json文件 
-- 支持从json文件读取参数
-
-您可以根据需要按照以下步骤进行使用
 
 ## 安装 TCCLI
 1. 安装 Python 环境和 pip 工具，安装命令行工具前请确保您的系统已经安装了 Python 环境和 pip 工具。详情请参见 [Python SDK](https://cloud.tencent.com/document/sdk/Python) 文档。
@@ -24,30 +20,31 @@
 >- Python 版本必须为2.7及以上版本，更多内容请参考 [Python](https://www.python.org/) 和 [pip](https://pypi.org/project/pip/) 官网文档。 
 >- TCCLI 依赖于 TencentCloudApi Python SDK，如果 TencentCloudApi Python SDK 的版本号小于要安装 TCCLI 版本号，在安装 TCCLI 时会自动升级 TencentCloudApi Python SDK。
 >
-2. 下面以 Linux 为例（ Windows 系统按 **Win+R** 打开运行窗口输入 cmd 并单击【确定】）。
+2. 下面以 Linux 为例（Windows 系统按 **Win+R** 打开运行窗口输入 cmd 并单击【确定】）。
 3. 在命令行窗口中，执行以下命令进行 TCCLI 安装。
 ```
 pip install tccli
 ```
-注意：如果是从3.0.252.3以下版本升级的需要执行
+>! 3.0.252.3以下版本升级需要执行以下代码：
 ```
 sudo pip uninstall tccli jmespath
 sudo pip install tccli
 ```
+>
 4. 执行以下命令，查看 TCCLI 是否安装成功。
 ```
 tccli --version
 ```
-返回类似如下结果，则说明已成功安装 TCCLI。如下图所示：
+返回类似如下结果，则说明已成功安装 TCCLI。
 ```bash
 [root@VM_180_248_centos ~]# tccli --version
 3.0.250.1
 ```
-5. 如果您的环境是 Linux 环境，您可以通过以下命令启动自动补全功能，支持大小写自动纠错：
+5. 在 Linux 环境中，执行以下命令启动自动补全功能，支持大小写自动纠错：
 ```bash
 complete -C 'tccli_completer' tccli
 ```
-
+以下代码片段展示自动补全过程：
 ```bash
 [root@VM_33_50_centos ~]# tccli c
 cam          cbs          cdn          chdfs        ckafka       cloudhsm     cms          cr           cynosdb 
@@ -126,26 +123,24 @@ tccli configure
 
 ## 使用 TCCLI
 
-### 基础功能
+### 基础功能<span id="primaryfunction"></span>
 
-TCCLI支持自主配置，helper信息支持中文信息，支持json,table,text输出格式。
+TCCLI 支持自主配置，helper 信息支持中文信息且支持 json、table 及 text 输出格式。
 
-以下示例介绍如何使用 TCCLI
 >!请注意 demo 中非简单类型的参数必须为标准 JSON 格式。 
 >
-
-1. 执行以下命令创建一台CVM：
+以下示例介绍如何使用 TCCLI：
+1. 执行以下命令创建一台 CVM：
 ```bash
 $ tccli cvm RunInstances --InstanceChargeType POSTPAID_BY_HOUR --InstanceChargePrepaid '{"Period":1,"RenewFlag":"DISABLE_NOTIFY_AND_MANUAL_RENEW"}' --Placement '{"Zone":"ap-guangzhou-2"}' --InstanceType S1.SMALL1 --ImageId img-8toqc6s3 --SystemDisk '{"DiskType":"CLOUD_BASIC", "DiskSize":50}' --InternetAccessible '{"InternetChargeType":"TRAFFIC_POSTPAID_BY_HOUR","InternetMaxBandwidthOut":10,"PublicIpAssigned":true}' --InstanceCount 1 --InstanceName TCCLI-TEST --LoginSettings '{"Password":"isd@cloud"}' --SecurityGroupIds '["sg-0rszg2vb"]' --HostName TCCLI-HOST-NAME1
 ```
 
-2. 执行以下命令获取云产品CVM的监控数据
+2. 执行以下命令获取 CVM 的监控数据：
 ```bash
 tccli monitor GetMonitorData --Namespace "QCE/CVM" --Period 300 --MetricName "CPUUsage" --Instances '[{"Dimensions":[{"Name":"InstanceId","Value":"ins-cac6a4w8"}]}]'
 ```
 
-您还可通过以下命令，进一步使用 TCCLI：
-- 执行 `tccli help` 命令，查看支持的产品，支持中文。
+3. 执行 `tccli help` 命令，查看支持的产品，支持中文。
 
 ```bash
 [root@VM_33_50_centos ~]# tccli help
@@ -169,20 +164,16 @@ OPTIONS
     --version
     show the version of tccli
 
-
 AVAILABLE SERVICES
     af
     介绍如何使用API对借贷反欺诈进行操作，包括借贷反欺诈等。
-
     afc
     介绍如何使用API对定制建模进行操作，包括定制建模等。
-
     ame
     介绍如何使用API对正版曲库直通车进行操作，包括素材获取、数据上报等。
-
     ......
 ```
-- 以 CVM 为例，执行 `tccli cvm help` 命令，查看产品支持的接口。
+4. 以 CVM 为例，执行 `tccli cvm help` 命令，查看产品支持的接口。
 
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm help
@@ -209,16 +200,13 @@ OPTIONS
 AVAILABLE ACTIONS
     AllocateHosts
     创建CDH实例
-
     AssociateInstancesKeyPairs
     绑定密钥对
-
     AssociateSecurityGroups
     绑定安全组
-
     ......
 ```
-- 以 CBS 的 DescribeDisks 接口为例，执行 `tccli cbs DescribeDisks help` 命令，查看接口支持的参数。
+5. 以 CBS 的 DescribeDisks 接口为例，执行 `tccli cbs DescribeDisks help` 命令，查看接口支持的参数。
 
 ```bash
 [root@VM_33_50_centos ~]# tccli cbs DescribeDisks help
@@ -255,19 +243,16 @@ OPTIONS
 AVAILABLE PARAMS
     --Limit (Integer | Optional)
     返回数量，默认为20，最大值为100。关于`Limit`的更进一步介绍请参考 API [简介](/document/product/362/15633)中的相关小节。
-
     --OrderField (String | Optional)
     云盘列表排序的依据字段。取值范围：<br><li>CREATE_TIME：依据云盘的创建时间排序<br><li>DEADLINE：依据云盘的到期时间排序
     <br>默认按云盘创建时间排序。
-
     --Offset (Integer | Optional)
     偏移量，默认为0。关于`Offset`的更进一步介绍请参考API[简介](/document/product/362/15633)中的相关小节。
-
     ......
 ```
 
-- 输出json格式
-
+6. 输出格式
+ - json 格式
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm DescribeRegions 
 {
@@ -313,8 +298,7 @@ AVAILABLE PARAMS
     "RequestId": "e5125cf1-58c3-46b8-a17b-316f18eed021"
 }
 ```
-- 输出 table 格式
-
+ - table 格式
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm DescribeRegions --output table
 --------------------------------------------------------
@@ -350,8 +334,8 @@ AVAILABLE PARAMS
 ||  na-toronto       |  北美地区(多伦多)     |  AVAILABLE    ||
 |+-------------------+----------------+---------------+|
 ```
-- 输出 text 格式
 
+- text 格式
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm DescribeRegions --output text
 70bbd02f-dc25-452c-a784-afc5c34018ae    20
@@ -377,18 +361,19 @@ REGIONSET       na-siliconvalley        美国西部(硅谷)  AVAILABLE
 REGIONSET       na-toronto      北美地区(多伦多)        AVAILABLE
 ```
 
-### 高级功能
+### 高级功能<span id="sophisticatedfunctions"></span>
 
-该步骤以 CVM 为例，详细介绍了如何使用 TCCLI 高级功能，包括多版本接口访问、指定最近的接入点、返回结果过滤、输出入参数据结构到json文件以及从json文件读取参数等。
+该步骤以 CVM 为例，详细介绍了如何使用 TCCLI 高级功能，包括多版本接口访问、指定最近的接入点、返回结果过滤、输出入参数据结构到 json 文件以及从 json 文件读取参数等。
 
 #### 多版本接口访问
 
-某些产品可能存在多个版本的接口，TCCLI 默认访问最新版本的接口。如果您想访问特定旧版本的接口，可以通过以下方式实现。
+某些产品可能存在多个版本的接口，TCCLI 默认访问最新版本的接口。如果您想访问特定旧版本的接口，可以通过以下方式实现：
+- 方式1：设置 cvm 产品默认使用版本：2017-03-12
 ```bash
-# 设置 cvm 产品默认使用版本:2017-03-12
 tccli configure set cvm.version 2017-03-12
-
-# 在实时使用时指定版本号。
+```
+- 方式2：在实时使用时指定版本号
+```
 tccli cvm help --version 2017-03-12
 tccli cvm DescribeZones help --version 2017-03-12
 tccli cvm DescribeZones --version 2017-03-12
@@ -397,11 +382,12 @@ tccli cvm DescribeZones --version 2017-03-12
 #### 指定最近的接入点（Endpoint）
 
 TCCLI 默认会请求就近的接口点访问服务，您也可以针对某一产品指定自己的 Endpoint。
+- 设置 cvm 产品默认 endpoint
 ```bash
-# 设置cvm产品默认 endpoint
 tccli configure set cvm.endpoint cvm.ap-guangzhou.tencentcloudapi.com
-
-# 调用时实时指定。
+```
+- 调用时实时指定
+```
 tccli cvm DescribeZones --endpoint cvm.ap-guangzhou.tencentcloudapi.com
 ```
 
@@ -491,12 +477,12 @@ tccli cvm DescribeZones --endpoint cvm.ap-guangzhou.tencentcloudapi.com
     ]
 ```
 
-#### 输出入参数据结构到json文件
+#### 输出入参数据结构到 json 文件
 
 ```bash
 [root@VM_180_248_centos ~]# tccli cvm RunInstances  --generate-cli-skeleton > /tmp/RunInstances.json
 ```
-#### 从json文件读取参数，--cli-input-json后接file://+文件路径
+#### 从 json 文件读取参数，--cli-input-json 后接 file://+文件路径
 
 ```bash
 [root@VM_180_248_centos ~]# tccli cvm RunInstances --cli-input-json file:///tmp/RunInstances.json
