@@ -60,7 +60,7 @@
 ### 远程端口配置异常
 **故障现象**：远程无法连接，远程访问端口非默认端口、被修改或者22端口没打开。
 **定位思路**：是否能 ping 通实例的公网 IP，通过 telnet 命令检测端口是否打开。
-**处理步骤**：具体操作可参考 [端口问题导致无法远程登录](https://cloud.tencent.com/document/product/213/10232)。
+**处理步骤**：具体操作可参考 [无法通过 SSH 方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/37925)。
 
 <span id="SafetyGroupRule"></span>
 ### 安全组规则不当
