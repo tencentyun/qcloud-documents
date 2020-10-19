@@ -49,5 +49,16 @@ HTTPS 配置生效时间约2小时，请于提交证书后2小时左右访问该
 ### 步骤3：修改配置
 HTTPS 功能支持开启和关闭。关闭此服务后，云直播将不再为该域名提供 HTTPS 服务。若证书已过期，需更新为新的有效证书。
  
- 
- >? 更多证书相关指引请参见 [SSL 证书操作指南](https://cloud.tencent.com/document/product/400/4141)。
+>? 更多证书相关指引请参见 [SSL 证书操作指南](https://cloud.tencent.com/document/product/400/4141)。
+
+
+## 常见问题
+- [直播 HTTPS 配置要填写什么格式的证书？](https://cloud.tencent.com/document/product/267/45252#que5)
+- [如何辨认证书是 PEM 格式还是 DER 格式？](https://cloud.tencent.com/document/product/267/45252#que6)
+
+
+
+
+
+
+

@@ -8,7 +8,7 @@ RuleId 在 SaaS 化服务调用中使用，您在申请开通腾讯云慧眼服�
 
 ### SaaS 化服务中， SDK 文件怎么获取？
 
-您可以在 [人脸核身控制台-自动接入](https://console.cloud.tencent.com/faceid)，创建完流程并通过审核后，可以在控制台下载对应的 SDK。
+您可以在 [人脸核身控制台-自助接入](https://console.cloud.tencent.com/faceid)，创建完流程并通过审核后，可以在控制台下载对应的 SDK。
 
 ### SaaS 化服务中，通用 H5 接口，是否和公众号绑定，其他公众号也要用这个接口，要重新申请吗？
 

@@ -42,6 +42,8 @@
 | has_more_sub_meeting   | integer        | 0：无更多。  <br> 1：有更多子会议特例。      |
 | remain_sub_meetings    | Integer        | 剩余子会议场数。                           |
 | current_sub_meeting_id | String         | 当前子会议 ID（进行中 / 即将开始）。         |
+| enable_live | Boolean      | 是否开启直播（会议创建人才有权限查询）。   |
+| live_config | 直播信息对象 | 会议的直播配置（会议创建人才有权限查询）。 |
 
 <span id="settings"></span>
 **会议媒体参数对象**
@@ -74,6 +76,17 @@
 | until_type     | 否   | integer  | 结束重复类型，默认值为0。<br>0：按日期结束重复<br>1：按次数结束重复 |
 | until_date     | 否   | integer  | 结束日期时间戳，默认值为当前日期 + 7天。                             |
 | until_count    | 否   | integer  | 限定会议次数（1-50次）默认值为7次。                              |
+
+**直播信息对象**
+
+| 参数名称           | 参数类型 | 参数描述         |
+| ------------------ | -------- | ---------------- |
+| live_subject       | string   | 直播主题。         |
+| live_summary       | string   | 直播简介。         |
+| live_password      | string   | 直播密码。         |
+| enable_live_im     | Boolean  | 是否开启直播互动。 |
+| enable_live_replay | Boolean  | 是否开启直播回放。 |
+| live_addr          | string   | 直播观看地址。     |
 
 ## 示例
 #### 输入示例
@@ -111,7 +124,16 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
 	    "auto_in_waiting_room": false,
 	    "allow_screen_shared_watermark": true,
 	    "only_allow_enterprise_user_join": false     
-      }    
+      },
+      "enable_live":true,
+      "live_config":{
+            "live_subject":"test",
+            "live_summary":"test", 
+            "live_password":"654321",
+            "enable_live_im":true,
+            "enable_live_replay":true,
+            "live_addr":"https://meeting.tencent.com/l/xxxx"
+        }
     }  
   ]
 }
@@ -184,7 +206,16 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
       "meeting_type": 1,
       "has_more_sub_meetings": 0,
       "remain_sub_meetings": 5,
-      "current_sub_meeting_id": "1599622242"
+      "current_sub_meeting_id": "1599622242",
+      "enable_live":true,
+      "live_config":{
+            "live_subject":"test",
+            "live_summary":"test", 
+            "live_password":"654321",
+            "enable_live_im":true,
+            "enable_live_replay":true,
+            "live_addr":"https://meeting.tencent.com/l/xxxx"
+        }
     }
   ]
 }
