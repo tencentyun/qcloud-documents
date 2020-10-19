@@ -14,7 +14,7 @@ Spark 安装在 EMR 云服务器的`/usr/local/service`路径下（`/usr/local/s
 ![](https://main.qcloudimg.com/raw/57a68801574c926d085c90de16dbdc3c.png)
 2. 依次登录每个 NodeManager 所在节点。
  - 首先，需要登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)，这里我们可以使用 XShell 登录 Master 节点。
- - 使用 SSH 登录到其他 NodeManager 所在节点。指令为`ssh $user@$ip`，$user 为登录的用户名，$ip 为远程主机 IP（即步骤1中确定的 IP 地址）。
+ - 使用 SSH 登录到其他 NodeManager 所在节点。指令为`ssh $user@$ip`，$user 为登录的用户名，$ip 为远程节点 IP（即步骤1中确定的 IP 地址）。
 ![](https://main.qcloudimg.com/raw/d83d844103c4a6050a83700fadaf79dd.png)
  - 验证已经成功切换。
 ![](https://main.qcloudimg.com/raw/30f0578b2cc19daebbdd82df8d95c13e.png)
