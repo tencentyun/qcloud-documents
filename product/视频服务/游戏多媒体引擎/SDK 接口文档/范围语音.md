@@ -48,7 +48,7 @@ b. 不同小队情况下，双方开启“所有人”的语音状态情况下�
 
 ### 1. 设置 TeamID
 
-通过此方法设置队伍号，必须在 EnterRoom 之前调用，否则将直接返回错误码：AV_ERR_ROOM_NOT_EXITED(1202)。
+通过此方法设置队伍号，必须在 EnterRoom 之前调用，否则将直接返回错误码：AV_ERR_ROOM_NOT_EXITED(1202)。如果是退房后再进房，请在退房成功回调回来之后再调用设置队伍号接口。
 
 >!在退房时，此参数不会自动重置为0，所以一旦决定调用此语音模式，请在每次 EnterRoom 之前都调用此方法设置 TeamID。
 
@@ -107,7 +107,7 @@ public void OnEvent(ITMGContext.ITMG_MAIN_EVENT_TYPE type, Intent data) {
         }
 	}
 ```
-在进房成功后，调用 UpdateAudioRecvRange，及每帧调用 UpdateSelfPosition。
+在进房成功后，调用 UpdateAudioRecvRange（至少调用一次），及每帧调用 UpdateSelfPosition。
 
 
 ### 4. 设置接收语音距离范围
