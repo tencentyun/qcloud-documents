@@ -115,20 +115,19 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
       "password": "1111",      
       "status": "MEETING_STATE_ENDED",      
       "start_time": "1572085800",      
-      "end_time": "1572089400", 
-      "type": 1,     
-      "hosts": [  
-      {
+      "end_time": "1572089400",      
+      "hosts": [        
+          {
           "userid": "tester"
-        }
+        }    
       ],      
       "participants": [        
-         {
+          {
           "userid": "tester"
         }     
       ],      
       "join_url": "https://wemeet.qq.com/w/5NmV29k",
-      "meeting_type": 0,      
+      "meeting_type":0,      
       "settings": {        
         "mute_enable_join": true,        
         "allow_unmute_self": false,
@@ -136,17 +135,17 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
         "allow_in_before_host": true,
 	    "auto_in_waiting_room": false,
 	    "allow_screen_shared_watermark": true,
-	    "only_allow_enterprise_user_join": false       
+	    "only_allow_enterprise_user_join": false     
       },
-       "enable_live":true,
-        "live_config":{
+      "enable_live":true,
+      "live_config":{
             "live_subject":"test",
-            "live_summary":"test",
+            "live_summary":"test", 
             "live_password":"654321",
             "enable_live_im":true,
             "enable_live_replay":true,
             "live_addr":"https://meeting.tencent.com/l/xxxx"
-        }    
+        }
     }  
   ]
 }
