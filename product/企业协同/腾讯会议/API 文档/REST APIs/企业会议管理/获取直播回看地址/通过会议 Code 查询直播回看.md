@@ -46,28 +46,27 @@ GET https://api.meeting.qq.com/v1/meetings/live_play/replays?meeting_code=134185
 #### 输出示例
 ```
 {
-    "meeting_number":1,
-    "meeting_info_list":[
-        {
-            "meeting_id":"1900004128969145064",
-            "meeting_code":"13418515243",
-            "subject":"tester预定的会议",
-            "live_replay_list":[
-                {
-                    
-"video_url":"https://meeting.tencent.com/l/xxxxx",
-                    "live_subject":"tester直播主题",
-                    "live_room_id":"206830819"
-                },
-                {
-               
-"video_url":"https://meeting.tencent.com/l/xxxxx",
-                    "live_subject":"tester直播主题",
-                    "live_room_id":"112594341"
-                }
-            ]
-        }
-    ]
+    "meeting_number":1,
+    "meeting_info_list":[
+        {
+            "meeting_id":"1900004128969145064",
+            "meeting_code":"13418515243",
+            "subject":"tester预定的会议",
+            "live_replay_list":[
+                {
+                    "video_url":"https://meeting.tencent.com/l/xxxx",
+                    "live_subject":"tester预定的会议",
+                    "live_room_id":"206830819"
+                },
+                {
+                    "video_url":"https://meeting.tencent.com/l/xxxx",
+                    "live_subject":"leonxsun预定的会议",
+                    "live_room_id":"112594341"
+                }
+            ]
+        }
+    ]
 }
+
 							 
 ```
