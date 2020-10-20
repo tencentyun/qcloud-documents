@@ -1,8 +1,8 @@
-## 第 1 步：编写基础应用
+## 步骤1：编写基础应用
 
 安装 [.NET Core SDK 3.1](https://www.microsoft.com/net/core)。在 Console 中，使用 dotnet 命令新建一个空 Web 项目：
 
-```sh
+```plaintext
 dotnet new web -o helloworld-csharp
 cd helloworld-csharp
 ```
@@ -82,7 +82,7 @@ namespace helloworld_csharp
 
 以上代码会创建一个基本的 Web 服务器，并监听 `8080` 端口。
 
-## 第 2 步：将应用容器化
+## 步骤2：将应用容器化
 
 在项目根目录下，创建一个名为 `Dockerfile` 的文件，内容如下：
 
@@ -115,28 +115,28 @@ ENTRYPOINT ["dotnet", "helloworld-csharp.dll"]
 
 添加一个 `.dockerignore` 文件，以从容器映像中排除文件：
 
-```
+```plaintext
 **/obj/
 **/bin/
 ```
 
-## 第 3 步（可选）：本地构建镜像
+## 步骤3（可选）：本地构建镜像
 
 如果您本地已经安装了 Docker，可以运行以下命令，在本地构建 Docker 镜像：
 
-```sh
+```plaintext
 docker build -t helloworld-csharp .
 ```
 
 构建成功后，运行 `docker images`，可以看到构建出的镜像：
 
-```
+```plaintext
 REPOSITORY          TAG       IMAGE ID         CREATED            SIZE
 helloworld-csharp   latest    1c8dfb88c823     8 seconds ago      105MB
 ```
 
 随后您可以将此镜像上传至您的镜像仓库。
 
-## 第 4 步：部署到 CloudBase 云托管
+## 步骤4：部署到 CloudBase 云托管
 
-请参考 [部署服务](https://cloud.tencent.com/document/product/1243/46127) 与 [版本配置说明](https://cloud.tencent.com/document/product/1243/49177)。
+请参见 [部署服务](https://cloud.tencent.com/document/product/1243/46127) 与 [版本配置说明](https://cloud.tencent.com/document/product/1243/49177)。
