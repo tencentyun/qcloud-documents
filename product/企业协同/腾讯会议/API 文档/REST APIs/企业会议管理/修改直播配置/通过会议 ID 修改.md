@@ -1,6 +1,6 @@
 
 ## 接口描述
-描述：通过会议 ID 修改直播配置信息。
+描述：通过会议 Code 修改直播配置信息。
 调用方式：PUT
 接口请求域名：`https://api.meeting.qq.com/v1/meetings/${meeting_id}/live_play/config`
 
