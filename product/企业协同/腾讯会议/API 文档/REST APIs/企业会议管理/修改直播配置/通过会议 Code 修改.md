@@ -29,7 +29,7 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 
 ## 示例
 #### 输入示例
-```
+```Plaintext
 PUT https://api.meeting.qq.com/v1/meetings/live_play/config
 
 {
