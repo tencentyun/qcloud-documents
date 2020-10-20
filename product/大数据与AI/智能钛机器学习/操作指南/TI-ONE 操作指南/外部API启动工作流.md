@@ -9,6 +9,6 @@
 4. 用户在 TIONE 提供的 [外部调用工作流 jar 包](https://1-1259675134.cos.ap-guangzhou.myqcloud.com/runflow.jar) 的客户端安装路径下，运行命令：
 `java -cp runflow.jar tione.demo.Demo ${secret_id} ${secret_key} ${region} ${flow_id}`
 例如：`java -cp runflow.jar tione.demo.Demo xxx yyy ap-shanghai 3035`其中，
-- ${secret_id} 和 ${secret_key} 为个人帐户信息，可在 [腾讯云访问管理](https://console.cloud.tencent.com/cam/capi) 中查看。
-- ${region} 和 ${flow_id} 为用户通过工作流网页链接得到的 TIONE 工作流的“流 ID 信息”和“工作流所在地域信息”。
+ - ${secret_id} 和 ${secret_key} 为个人帐户信息，可在 [腾讯云访问管理](https://console.cloud.tencent.com/cam/capi) 中查看。
+ - ${region} 和 ${flow_id} 为用户通过工作流网页链接得到的 TIONE 工作流的“流 ID 信息”和“工作流所在地域信息”。
 5. 刷新 TIONE 对应工作流页面，即可看到已成功开始运行工作流。
