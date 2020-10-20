@@ -8,15 +8,14 @@
 - 服务消费方（hello-world-provider），使用 CloudBase 云托管部署；
 - 注册中心（nacos），使用腾讯云 CVM 部署。
 
-## 部署流程
 
 >? 以下所有涉及的 CVM 实例、云托管实例，都处于同一个 VPC 内。您可以在云托管详情内看到您的应用所属的 VPC。
 
-### 第 1 步：部署注册中心
+## 步骤1：部署注册中心
 
 在您的 CVM 实例内安装并启动 Nacos，具体可以参考 [Nacos 文档](https://nacos.io/zh-cn/docs/quick-start.html)
 
-### 第 2 步：创建服务提供方
+## 步骤2：创建服务提供方
 
 创建 Maven 项目，在 `pom.xml` 文件中添加依赖：
 
@@ -156,7 +155,7 @@ public class ProviderApplication {
 mvn clean package
 ```
 
-### 第 3 步：部署服务提供方
+## 步骤3：部署服务提供方
 
 开通 CloudBase 云托管，创建服务 `hello-world-provider`，然后创建一个版本：
 
@@ -166,7 +165,7 @@ mvn clean package
 
 ![](https://main.qcloudimg.com/raw/fd6ef566091da7d517b8e22937529d23.png)
 
-### 第 4 步：创建服务消费方
+## 步骤4：创建服务消费方
 
 创建 Maven 项目，在 `pom.xml` 文件中添加依赖：
 
@@ -311,7 +310,7 @@ server.port=8081
 
 并执行 `mvn clean package` 将本地的程序打成可执行的 `jar` 包。
 
-### 第 5 步：部署服务消费方
+## 步骤5：部署服务消费方
 
 创建一个新的云托管服务 `hello-world-consumer`，然后创建一个版本：
 
@@ -325,7 +324,7 @@ server.port=8081
 
 ![](https://main.qcloudimg.com/raw/ac48b436a4b407e244597c7b32626c2d.jpg)
 
-### 验证服务
+## 验证服务
 
 浏览器访问上图中的 HTTP 地址：
 
