@@ -229,6 +229,13 @@ spring-cloud-tsf-gateway  新增 tag plugin 中 path 类型取值。
 
 支持向后兼容，建议全量升级。
 
+## 1.18.4-Finchley-RELEASE（2020-10-20）
+### 优化
+- spring-cloud-tsf-sleuth 修改调用sql存储的最长长度到 64000 字符
+
+### 版本建议
+- 支持向后兼容，建议全量升级。
+
 ## 1.18.3-Finchley-RELEASE（2020-10-13）
 
 ### Bug 修复
