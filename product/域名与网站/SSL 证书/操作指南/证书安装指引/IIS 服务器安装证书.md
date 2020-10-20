@@ -35,7 +35,7 @@
 7. 在 “添加网站绑定” 的窗口中，将网站类型设置为 https，端口设置为443，主机名请填写您当前申请证书的域名，并指定对应的 SSL 证书，单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/4e536ad37fd30b6d24be9454996f4661.png)
 8. 添加完成后，即可在 “网站绑定” 窗口中查看到新添加的内容。
-9. 请使用 `https://cloud.tencent.com` 进行访问
+9. 请使用 `https://cloud.tencent.com` 进行访问。
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 
