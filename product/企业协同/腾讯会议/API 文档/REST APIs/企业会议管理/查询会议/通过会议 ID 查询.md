@@ -33,8 +33,9 @@
 |meeting_code    |String| 会议 App 的呼入号码。  |
 |password   |String | 会议密码。  |
 |status|String|当前会议状态：<br>MEETING_STATE_INVALID：非法或未知的会议状态，错误状态。<br>  MEETING_STATE_INIT：会议的初始状态，表示尚无人入会。<br>  MEETING_STATE_CANCELLED：会议已取消。<br> MEETING_STATE_STARTED：会议已开始，有人入会。<br>MEETING_STATE_ENDED：会议已结束。<br>MEETING_STATE_RECYCLED：会议号已被回收。|
-|hosts   |String 数组 | 会议主持人列表。   |
-|participants  |String数组|邀请的参会者。 |
+|type   |Integer  | 会议类型：<br>0：预约会议类型<br>1：快速会议类型。   |
+|hosts   |用户对象数组  | 会议主持人列表。   |
+|participants  |用户对象数组|邀请的参会者。 |
 |start_time  |String | 会议开始时间戳（单位秒）。 |
 |end_time  |String | 会议结束时间戳（单位秒）。  |
 |settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置。|
@@ -48,6 +49,13 @@
 | live_config | 直播信息对象 | 会议的直播配置（会议创建人才有权限查询）。 |
 
 <span id="settings"></span>
+
+**用户对象**
+
+| 参数名称 | 参数类型 | 参数描述 |
+| -------- | -------- | -------- |
+| userid   | String   | 用户 ID。   |
+
 **会议媒体参数对象**
 
 | 参数名称                        | 参数类型 | 参数描述                                                     |
@@ -111,10 +119,14 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
       "end_time": "1572089400", 
       "type": 1,     
       "hosts": [  
-        "tester" 
+      {
+          "userid": "tester"
+        }
       ],      
       "participants": [        
-        "test1"      
+         {
+          "userid": "tester"
+        }     
       ],      
       "join_url": "https://wemeet.qq.com/w/5NmV29k",
       "meeting_type": 0,      
