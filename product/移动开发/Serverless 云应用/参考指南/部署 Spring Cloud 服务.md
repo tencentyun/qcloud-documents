@@ -39,7 +39,7 @@ java -jar app.jar &
 5. 安装成功后，打开 CVM 对应公网的 IP 和端口（项目默认为 `8280`）可查看到如下的界面：
 ![](https://main.qcloudimg.com/raw/8dd203402c84ae0a43419edc177dbc9b.png)
 
-## 第 2 步：部署配置中心（config-server）
+## 步骤2：部署配置中心（config-server）
 
 1. 首先需要您准备一个腾讯云 CVM 实例，如果您没有实例，可以前往腾讯云 CVM 购买。
 >? 为了更接近真实的服务场景，我们建议您使用与上文的注册中心不同的 CVM 示例。
@@ -69,7 +69,7 @@ java -jar app.jar &
 ![](https://main.qcloudimg.com/raw/432c74209219f377a5c13dbf44dac433.png)
 3. 进入示例项目 `hello-service/src/main/resources` 目录，修改 `application.yml`，将 Eureka 的地址改为对应地址，如下图：
 ![](https://main.qcloudimg.com/raw/8cb877698c7c77a7fccf36804dede364.png)
-4. 然后登陆 CloudBase 云托管控制台，选择新建版本，将示例项目的 `/hello-service` 目录上传，同时版本配置参考如下：
+4. 然后登录 CloudBase 云托管控制台，选择新建版本，将示例项目的 `/hello-service` 目录上传，同时版本配置参考如下：
 ![](https://main.qcloudimg.com/raw/bfd406578dd8aa7874a766bf0616630b.png)
 5. 部署成功后，会在云开发控制台看到版本状态为【正常】：
 ![](https://main.qcloudimg.com/raw/c1eaf2ecef7c9d059fd534349bbbe0ac.png)
@@ -82,7 +82,7 @@ java -jar app.jar &
 ![](https://main.qcloudimg.com/raw/f6c9694f9aca40e038d387ae6653a2d7.png)
 2. 进入示例项目 `hello-client/src/main/resources` 目录，修改 `application.yml`，将 Eureka 的地址改为对应地址，如下图：
 ![](https://main.qcloudimg.com/raw/0831b976cb9a2eb3fc6e8feadf7c8270.png)
-3. 然后登陆 CloudBase 云托管控制台，选择新建版本，将示例项目的 `/hello-client` 目录上传，同时版本配置参考如下：
+3. 然后登录 CloudBase 云托管控制台，选择新建版本，将示例项目的 `/hello-client` 目录上传，同时版本配置参考如下：
 ![](https://main.qcloudimg.com/raw/3c08d7b04f6cc9ef82fef4273bf4107c.png)
 4. 部署成功后，会在云开发控制台看到版本状态为【正常】：
 ![](https://main.qcloudimg.com/raw/fbaf54c3e056714fb2a7fe44c679a8a3.png)
