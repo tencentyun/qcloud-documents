@@ -21,6 +21,10 @@ Serverless Framework 是无服务器应用框架，提供将云函数 SCF、API 
 
 该报错是由于账户欠费，无法创建新的后付费资源所导致的。请您检查账户是否欠费，账户冲正后即可解决。
 
+### 使用 Window Powershell 部署无权限如何处理？
+
+Windows powershell 的权限管理比较严格，需要执行 `set-executionpolicy remotesigned` 命令后即可正常部署。此外，Windows 环境下建议通过 `serverless deploy` 全拼方式部署。
+
 ### 开发环境在中国境外时如何部署？
 问题描述：由于 Serverless Framework 在部署时会默认检测是否为中国用户，如果开发环境在中国境外，但希望使用中国版体验的 Serverless Framework 可以配置。
 

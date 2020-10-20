@@ -4,8 +4,11 @@ vivo 通道是由 vivo 官方提供的系统级推送通道。在 vivo 手机上
 
 >?
 - 如遇到 debug 版本点击通知后无法拉起 App，请在权限设置中找到后台弹出界面，并开启当前应用的权限开关。
-- vivo 通道暂不支持应用内消息，此类型的消息会以通知的形式展示。
-- vivo 通道对应用的每日推送量（包含通知和透传消息）有一定的限制，限制量官方未给出明确说明，超过限制部分会走 TPNS 通道进行补推发送。
+- vivo 通道暂不支持应用内消息，此类型的消息将通过 TPNS 通道下发。
+- vivo 通道对应用的每日推送量有额度限制，详情请参见 [厂商通道限额说明](https://cloud.tencent.com/document/product/548/43794)，超过限制部分将走 TPNS 通道进行补推发送。
+- vivo 通道7:00 - 23:00允许推送消息，其他时间只能推送系统消息，系统消息申请详情请参见 [vivo 系统消息申请指南](https://cloud.tencent.com/document/product/548/44531#vivozhinan)。
+- vivo 通道单应用单用户每天接收运营消息条数上限为5条，系统消息不限接收条数。
+- vivo 通道仅支持部分较新的机型和对应的系统及以上系统，详情请参见 [vivo 推送常见问题汇总](https://dev.vivo.com.cn/documentCenter/doc/156#w1-08608733)。
 
 ## 操作步骤
 ### 获取密钥
@@ -24,10 +27,10 @@ vivo 通道是由 vivo 官方提供的系统级推送通道。在 vivo 手机上
 ```
 2. 导入 vivo 推送相关依赖。示例代码如下：
 ```js
-implementation 'com.tencent.tpns:vivo:[VERSION]-release' // vivo  推送 [VERSION] 为当前SDK版本号,版本号可在SDK下载页查看
+implementation 'com.tencent.tpns:vivo:[VERSION]-release' // vivo  推送 [VERSION] 为当前 SDK 版本号,版本号可在 SDK 下载页查看
 ```
 
-
+>? vivo 推送 [VERSION] 为当前 SDK 版本号，版本号可在 [SDK 下载页](https://console.cloud.tencent.com/tpns/sdkdownload) 查看。
 
 
 #### Eclipes 集成方法
@@ -69,7 +72,7 @@ implementation 'com.tencent.tpns:vivo:[VERSION]-release' // vivo  推送 [VERSIO
 
 
 ### 开启 vivo 推送
-在调用移动推送 TPNS  ```XGPushManager.registerPush``` 之前，开启第三方推送接口：
+在调用移动推送 TPNS  `XGPushManager.registerPush` 之前，开启第三方推送接口：
 
 ```java
 //打开第三方推送
@@ -79,7 +82,6 @@ XGPushConfig.enableOtherPush(getApplicationContext(), true);
 //注册成功的日志如下
  I/XINGE: [XGOtherPush] other push token is : 15646472431991408944055  other push type: vivo
 I/XINGE: [PushServiceBroadcastHandler]  bind OtherPushToken success ack with [accId = 1500xxxxxx  , rsp = 0]  token = 0139f9840030882cfe7cc791aebc800ed270 otherPushType = vivo otherPushToken = 15646472431991408944055
-
 ```
 
 
@@ -90,7 +92,6 @@ I/XINGE: [PushServiceBroadcastHandler]  bind OtherPushToken success ack with [ac
 -keep class com.vivo.push.**{*; }
 -keep class com.vivo.vms.**{*; }
 -keep class com.tencent.android.vivopush.VivoPushMessageReceiver{*;}
-
 ```
 
 >?混淆规则需要放在 App 项目级别的 proguard-rules.pro 文件中。

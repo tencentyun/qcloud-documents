@@ -77,7 +77,7 @@ content-type: application/json
 |UnauthorizedOperation|无操作权限|
 |UnauthorizedOperation.APPNoPermissionToStudioProduct|App 对操作该产品无权限|
 |UnauthorizedOperation.NoPermissionToFamily|操作该家庭无权限|
-|ResourceNotFound|资源部存在|
+|ResourceNotFound|资源不存在|
 |ResourceNotFound.StudioFamilyNotExist|家庭未创建或是已删除|
 |ResourceNotFound.StudioProductNotExist|产品尚未创建或已被删除|
 |ResourceNotFound.DeviceNotExist|设备未创建或是已删除|

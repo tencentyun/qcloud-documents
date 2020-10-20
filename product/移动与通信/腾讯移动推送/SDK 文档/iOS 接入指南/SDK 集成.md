@@ -11,17 +11,15 @@
 
 ## SDK 集成
 ### 接入前准备
-1. 接入 SDK 之前，请前往腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241) 文档。
-![](https://main.qcloudimg.com/raw/c07fde02517072a093ac48482e92e9ea.png)
-2. 应用创建完成后，您可以参考 [申请试用](https://cloud.tencent.com/document/product/548/37241#.E7.94.B3.E8.AF.B7.E8.AF.95.E7.94.A8) 或 [购买推送服务](https://cloud.tencent.com/document/product/548/37242) ，为您的应用申请试用或者购买推送服务。
-![](https://main.qcloudimg.com/raw/c0324b24ada1e1ffc40d72aa77d3c30f.png)
-3. 单击【配置管理】，进入管理页面。
-![](https://main.qcloudimg.com/raw/a00e9000d53aa4a3ccb0294ef9e719de.png)
-4. 单击【上传证书】，完成上传操作。推送证书获取详情请参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664)  。
-![](https://main.qcloudimg.com/raw/c4eaeb3f2d9c3fbb42dbb75f2c5c12dc.png)
-5. 证书上传成功后，在应用信息栏中，获取应用 Access ID 和 Access KEY。
+1. 接入 SDK 之前，请前往移动推送 TPNS  [控制台](https://console.cloud.tencent.com/tpns) 创建产品和 iOS 应用，详细操作可参考 [创建产品和应用](https://cloud.tencent.com/document/product/548/37241)。
+   ![](https://main.qcloudimg.com/raw/29089bca0d0378db21e2df69930346fe.png)
+2. 单击【配置管理】，进入管理页面。
+   ![](https://main.qcloudimg.com/raw/69d6c1d7d8729a17e0b829a648019cff.png)
+3. 单击【上传证书】，完成上传操作。推送证书获取详情请参考 [证书获取指引](https://cloud.tencent.com/document/product/548/36664)。
+   ![](https://main.qcloudimg.com/raw/c4eaeb3f2d9c3fbb42dbb75f2c5c12dc.png)
+4. 证书上传成功后，在应用信息栏中，获取应用 Access ID 和 Access KEY。
 
-### 导入 SDK（三选一）
+### 导入 SDK（二选一）
 #### 方式一：Cocoapods 导入
 通过 Cocoapods 下载地址：
 ``` 
@@ -36,17 +34,13 @@ pod search TPNS-iOS
 pod install //安装 SDK 
 ```  
 
-#### 方式二：carthage 导入
-在 Cartfile 文件中指明依赖的第三方库：
-```
-github "xingePush/carthage-TPNS-iOS"
-```
-
-#### 方式三：手动导入
+#### 方式二：手动导入
 1. 进入腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏中【下载】即可。
-2. 打开 demo 目录下的 SDK 文件夹，将 XGPush.h 及 libXG-SDK-Cloud.a 添加到工程，打开 ---XGPushStatistics 文件夹，获取 XGMTACloud.framework。
-3. 在 Build Phases 下，添加以下 Framework：
+2. 打开 demo 目录下的 SDK 文件夹，将 XGPush.h 及 libXG-SDK-Cloud.a 添加到工程，打开 XGPushStatistics 文件夹，获取 XGMTACloud.framework。
+3. 将 InAppMessage 文件夹导入到工程并在【Build Setting】>【Framework Search Paths】 添加查找路径（若您 SDK 版本低于1.2.8.0，则可以忽略此步骤）。
+4. 在 Build Phases 下，添加以下 Framework：
  ```
+ * TPNSInAppMessage.framework
  * XGMTACloud.framework
  * CoreTelephony.framework
  * SystemConfiguration.framework
@@ -57,8 +51,8 @@ github "xingePush/carthage-TPNS-iOS"
  * CFNetwork.framework
  * libc++.tbd
 ```
-4. 添加完成后，库的引用如下：
-![](https://main.qcloudimg.com/raw/92f32ba9287713e009988ba8ee962ec8.png)
+5. 添加完成后，库的引用如下：
+![](https://main.qcloudimg.com/raw/79976648574060954cebfb894cc5cdd4.png)
 
 ### 工程配置
 1. 在工程配置和后台模式中打开推送，如下图所示：
@@ -68,18 +62,27 @@ github "xingePush/carthage-TPNS-iOS"
 如 checkTargetOtherLinkFlagForObjc 报错，是因为 build setting 中，Other link flags 未添加 -ObjC。
 
 >! 如果您的应用服务接入点为广州，SDK 默认实现该配置。
-如果您的应用服务接入点为新加坡或者中国香港，请按照下文步骤完成境外服务接入点配置。
+如果您的应用服务接入点为上海、新加坡或者中国香港，请按照下文步骤完成其他服务接入点域名配置。
 1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
-2. 在 `startXGWithAppID` 方法之前调用头文件中的配置 `域名` 接口：
-如需接入新加坡服务接入点 则将域名设置为```tpns.sgp.tencent.com```。
+2. 在`startXGWithAccessID:accessKey:delegate:`方法之前调用头文件中的配置`域名`接口：
+
+如需接入上海服务接入点，则将域名设置为```tpns.sh.tencent.com```。
 **示例**
 ``` object-c
- [[XGPush defaultManager] configureClusterDomainName:@"tpns.sgp.tencent.com"];
+/// @note TPNS SDK1.2.7.1+
+[[XGPush defaultManager] configureClusterDomainName:@"tpns.sh.tencent.com"];
 ```
-如需接入中国香港服务接入点 则将域名设置为```tpns.hk.tencent.com```。
+如需接入新加坡服务接入点，则将域名设置为```tpns.sgp.tencent.com```。
 **示例**
 ``` object-c
- [[XGPush defaultManager] configureClusterDomainName:@"tpns.hk.tencent.com"];
+/// @note TPNS SDK1.2.7.1+
+[[XGPush defaultManager] configureClusterDomainName:@"tpns.sgp.tencent.com"];
+```
+如需接入中国香港服务接入点，则将域名设置为```tpns.hk.tencent.com```。
+**示例**
+``` object-c
+/// @note TPNS SDK1.2.7.1+
+[[XGPush defaultManager] configureClusterDomainName:@"tpns.hk.tencent.com"];
 ```
 
 ### 接入样例
@@ -124,7 +127,15 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 - 接收图片、音视频富媒体消息。
 
 接入步骤请参考文档 [通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
->!如果未集成此接口，则统计数据中消息“抵达数”与“点击数”一致。
+>!如果未集成此接口，则无法统计“抵达数”。
+
+
+未集成通知服务扩展插件：
+![](https://main.qcloudimg.com/raw/79c01ccaffca8be63341b18ad48ea9a7.png)
+
+集成通知服务扩展插件后：
+![](https://main.qcloudimg.com/raw/9930f71a63d23b2da0c86b023f8e769f.png)
+
 
 ## 调试方法
 #### 开启 Debug 模式
@@ -132,7 +143,7 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 
 #### 示例代码
 ```
-//打开debug开关
+//打开 debug 开关
 [[XGPush defaultManager] setEnableDebug:YES];
 ```
 
@@ -144,7 +155,7 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 @param deviceToken APNs 生成的 Device Token
 @param xgToken TPNS 生成的 Token，推送消息时需要使用此值。TPNS 维护此值与 APNs 的 Device Token 的映射关系
 @param error 错误信息，若 error 为 nil 则注册推送服务成功
-@note TPNS SDK1.2.5.3+
+@note TPNS SDK1.2.6.0+
 */
 - (void)xgPushDidRegisteredDeviceToken:(nullable NSString *)deviceToken xgToken:(nullable NSString *)xgToken error:(nullable NSError *)error;
 
@@ -186,6 +197,9 @@ NSNumber *msgType = tpnsInfo[@"msgtype"];
 
 统一点击消息回调，此回调方法为应用所有状态（前台、后台、关闭）下的通知消息点击回调。
 ```objective-c
+/// 统一点击回调
+/// @param response 如果 iOS 10+/macOS 10.14+ 则为 UNNotificationResponse，低于目标版本则为 NSDictionary
+/// @note TPNS SDK1.2.7.1+
 - (void)xgPushDidReceiveNotificationResponse:(nonnull id)response withCompletionHandler:(nonnull void (^)(void))completionHandler;
 ```
 
@@ -206,11 +220,11 @@ NSNumber *msgType = tpnsInfo[@"msgtype"];
 #### 用法
 
 - 引入头文件：`XGForFreeVersion.h` 。
-- 在 `startXGWithAppID:appKey:delegate:` 之前调用此接口，参考示例：
+- 在`startXGWithAccessID:accessKey:delegate:`之前调用此接口，参考示例：
 
 ```objective-c
 [XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
-[[XGPush defaultManager] startXGWithAppID: <#your tpns access ID#>appKey:<#your tpns access key#> delegate:<#your delegate#>];
+[[XGPush defaultManager] startXGWithAccessID: <#your tpns access ID#>appKey:<#your tpns access key#> delegate:<#your delegate#>];
 ```
 >!如果未做以上配置，在信鸽和腾讯移动推送两个平台上同时推送时，可能会出现重复消息。
 

@@ -65,3 +65,4 @@ whoami /user
 ```
 返回类似如下信息，则表示 SID 已完成修改。
 ![](https://main.qcloudimg.com/raw/656f5974a213347edc75c49c6e7ec166.png)
+

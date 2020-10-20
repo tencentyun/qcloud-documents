@@ -93,7 +93,7 @@ var maxNum = 10;  // 单次拉取最大量
 var spuller = qcloudsms.SmsStatusPuller();
 // 拉取短信回执
 spuller.pullCallback(maxNum, callback);
-// 拉取回复，国际/港澳台短信不支持回复功能
+// 拉取回复（国际/港澳台短信不支持回复功能）
 spuller.pullReply(maxNum, callback);
 ```
 

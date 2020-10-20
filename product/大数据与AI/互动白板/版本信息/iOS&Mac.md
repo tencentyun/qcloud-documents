@@ -1,3 +1,26 @@
+
+### 2.5.2.10 @ 2020.08.07
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.5.2.10.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.5.2.10.zip)
+
+- 新增回调
+    - 新增 H5PPT 状态回调 onTEBH5PPTStatusChanged
+
+
+### 2.5.1.9 @ 2020.07.23
+* [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.5.1.9.zip)
+* [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.5.1.9.zip)
+
+- 功能支持
+    - 图片元素支持任意角度旋转和八个方向的缩放
+- 接口优化
+    - 调用 deleteFile 接口删除非当前文件，则不跳转至默认文件 #DEFAULT
+- bug fix
+    - 修复文字工具在某些输入法下输入过程中，看不见已输入的文字问题
+    - 修复移动端文字工具在白板边界位置点击，键盘会闪一下的问题
+- 接口变更
+    - addTranscodeFile 增加参数 needSwitch，表示添加文件后是否切换到该文件
+    
 ### 2.5.0.8 @ 2020.07.2
 * [单击下载 SDK（iOS）](https://sdk.qcloudtiw.com/ios/TEduBoard_2.5.0.8.zip)
 * [单击下载 SDK（macOS）](https://sdk.qcloudtiw.com/mac/TEduBoard_Mac_2.5.0.8.zip)

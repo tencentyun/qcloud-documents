@@ -1,3 +1,5 @@
+>!如果因自身业务需要对 OCR 识别的影像文件进行存储或其他用途，请合作方务必自行保存订单号，通过订单号拉取 OCR 识别的影像文件是唯一方式。
+
 合作方后台服务上送 sign、请求参数到身份证识别后台服务。
 ## 请求
 - **请求 URL：**`https://ida.webank.com/api/paas/bankcardocrapp`
@@ -27,7 +29,7 @@
 | bankcardNo        |String       | 银行卡识别结果：银行卡号                         |
 | bankcardValidDate |String       | 银行卡识别结果：银行卡有效时间                      |
 | bankcardNoPhoto   | Base64 String | 银行卡识别结果：银行卡卡号照片                      |
-|multiWarningCode | String | 多重告警码，含义请参考 [错误码](https://cloud.tencent.com/document/product/1007/31082) |
+|multiWarningCode | String | 多重告警码，含义请参考 [银行卡 OCR 错误码](https://cloud.tencent.com/document/product/1007/47903) |
 | clarity       | String | 图片清晰度                |
 
 >?success：false 无意义，合作伙伴可忽略，无需处理。

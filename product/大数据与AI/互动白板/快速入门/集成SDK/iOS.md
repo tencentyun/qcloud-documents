@@ -101,8 +101,8 @@ _boardController = [[TEduBoardController alloc] initWithAuthParam:authParam room
 ```objc
 - (void)onTEBHistroyDataSyncCompleted
 {
-  //（1）获取白板 NSView
-  NSView *boardView = [_boardController getBoardRenderView];
+  //（1）获取白板 UIView
+  UIView *boardView = [_boardController getBoardRenderView];
   //（2）设置显示位置和大小
   boardView.frame = CGRectMake(0, 0, width, height);
   //（3）添加到父视图中
@@ -117,11 +117,7 @@ _boardController = [[TEduBoardController alloc] initWithAuthParam:authParam room
 
 #### 4. 白板数据同步
 
-白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK支持两种不同的数据同步模式。
-
-**使用腾讯云 IMSDK 同步数据（推荐）**
-
-您需要自行实现 IMSDK 的初始化、登录、加入群组操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
+白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 默认使用 IMSDK 作为信令通道，您需要自行实现 IMSDK 的初始化、登录、加入群组操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
 
 步骤一、初始化 IMSDK
 
@@ -184,27 +180,6 @@ __weak typeof(self) ws = self;
 
 1. 推荐业务后台使用 [IM REST API](https://cloud.tencent.com/document/product/269/1615) 提前创建群组。
 2. 不同的群组类型，群组功能以及成员数量有所区别，具体请查看 [IM 群组系统](https://cloud.tencent.com/document/product/269/1502)。
-
-**使用自定义的数据通道同步数据**
-
-如果使用自已的通道进行消息传递，则需要按下面步骤进行：
-
-```objc
-//（1）将 TEduBoardInitParam 的 timSync 参数初始为 NO
-TEduBoardInitParam *initParam = [[TEduBoardInitParam alloc] init];
-initParam.timSync = NO;
-_boardController = [[TEduBoardController alloc] initWithAuthParam:authParam roomId:_classId initParam:initParam];
-
-//（2）TEduBoard 有数据要同步给其他用户时，将调用 TEduBoardDelegate 接口中的 onTEBSyncData 函数
-- (void)onTEBSyncData:(NSString *)data {
-//使用自定义的通道，发送 data 数据给其他白板用户。
-}
-
-//（3）在收到其他用户的信息时，将消息传递给 TEduBoard.
-[_boardController addSyncData:data];
-```
-
->! 实时录制功能在自定义数据通道模式下不可用
 
 
 #### 5. 销毁白板

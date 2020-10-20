@@ -219,7 +219,7 @@ public interface IOrderService {
 | confirmClass  | String   | 否   | @DtfTcc 注解所在 Class                         | Confirm 操作类名                |
 | confirmMethod | String   | 否   | confirm 前缀 + @DtfTcc 注解方法名首字母大写    | Confirm 操作方法名              |
 | cancelClass   | String   | 否   | @DtfTcc 注解所在 Class                         | Cancel 操作类名                 |
-| cancelMethod  | String   | 否   | Cancel 前缀 + @DtfTcc注解方法名名称首字母大写 | Cancel 操作方法名               |
+| cancelMethod  | String   | 否   | Cancel 前缀 + @DtfTcc 注解方法名首字母大写 | Cancel 操作方法名               |
 | rollbackFor   | Class<? extends Throwable>[] | 否   | {}                                           | 分支事务在识别到以下异常时回滚主事务，未配置时不回滚 |
 
 在上面的例子中：

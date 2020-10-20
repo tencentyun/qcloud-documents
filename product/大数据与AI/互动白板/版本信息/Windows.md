@@ -1,4 +1,25 @@
-### 2.5.0.119 @ 2020.07.2
+### 2.5.2.132 @2020.08.07
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.5.2.132.zip)
+
+- 新增回调
+    - 新增 H5PPT 状态回调 onTEBH5PPTStatusChanged
+    
+### 2.5.1.123 @2020.07.27
+* [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.5.1.123.zip)
+
+- 功能支持
+    - 图片元素支持任意角度旋转和八个方向的缩放
+- 接口优化
+    - 调用 deleteFile 接口删除非当前文件，则不跳转至默认文件 #DEFAULT
+- bug fix
+    - 修复文字工具在某些输入法下输入过程中，看不见已输入的文字问题
+- 接口变更
+    - addTranscodeFile 增加参数 needSwitch，表示添加文件后是否切换到该文件
+- 内核升级
+    - 升级CEF版本到83.5.0+gbf03589
+    - 升级Chromium内核到83.0.4103.106
+
+### 2.5.0.119 @2020.07.2
 * [单击下载 SDK](https://sdk.qcloudtiw.com/win32/binary_2.5.0.119.zip)
 
 - 功能变更

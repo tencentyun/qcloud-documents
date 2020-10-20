@@ -3,6 +3,7 @@
 POST Object 接口请求可以将本地不超过5GB的对象（Object）以网页表单（HTML Form）的形式上传至指定存储桶中。该 API 的请求者需要对存储桶有写入权限。
 
 > !
+>
 > - POST Object 接口不使用 COS 对象存储统一的请求签名，而是拥有自己的签名要求，请参见本文档的 [签名保护](#id1) 及相关字段的描述。
 > - 如果试图添加已存在的同名对象且没有启用版本控制，则新上传的对象将覆盖原来的对象，成功时按照指定的返回方式正常返回。
 
@@ -31,20 +32,21 @@ Content-Length: Content Length
 
 **表单字段**
 
-| 名称                    | 描述                                                         | 类型   | 是否必选 |
-| ----------------------- | ------------------------------------------------------------ | ------ | -------- |
-| key                     | 对象键，可在对象键中指定`${filename}`通配符，此时将使用实际上传的文件的文件名替换对象键中的通配符，相关示例请参见本文档的 [案例七](#step7) | string | 是       |
-| Cache-Control           | RFC 2616 中定义的缓存指令，将作为对象元数据保存              | string | 否       |
-| Content-Disposition     | RFC 2616 中定义的文件名称，将作为对象元数据保存              | string | 否       |
-| Content-Encoding        | RFC 2616 中定义的编码格式，将作为对象元数据保存              | string | 否       |
-| Content-Type            | RFC 2616 中定义的 HTTP 内容类型（MIME），将作为对象元数据保存<br>**注意：**通过网页表单上传文件时，浏览器会自动把指定文件的 MIME 类型携带在请求中，但对象存储 COS 并不会使用浏览器携带的 MIME 类型，您需要显式指定 Content-Type 表单字段作为对象的内容类型 | string | 否       |
-| Expires                 | RFC 2616 中定义的缓存失效时间，将作为对象元数据保存          | string | 否       |
-| success_action_redirect | 上传成功时重定向的目标 URL 地址，如果设置，那么在上传成功时将返回 HTTP 状态码为303（Redirect）及 Location 响应头部，Location 响应头部的值为该字段指定的 URL 地址，并附加 bucket、key 和 etag 参数，相关示例请参见本文档的 [案例八](#step8) | string | 否       |
-| success_action_status   | 上传成功时返回的 HTTP 状态码，可选200、201或204，默认为204。如果指定了 success_action_redirect 字段，则此字段会被忽略。相关示例请参见本文档的 [案例九](#step9) | number | 否       |
-| x-cos-meta-\*           | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为对象元数据保存，大小限制为2KB<br>**注意：**用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-） | string | 否       |
-| x-cos-storage-class     | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD、MAZ_STANDARD_IA、STANDARD_IA、ARCHIVE。默认值：STANDARD | Enum   | 否       |
-| Content-MD5             | 经过 Base64 编码的文件内容 MD5 哈希值，用于完整性检查，验证文件内容在传输过程中是否发生变化 | string | 否       |
-| file                    | 文件的信息和内容，通过网页表单上传时，浏览器将自动设置该字段的值为正确的格式<br>**注意：**file 字段必须放在整个表单的最后面。 | file   | 是       |
+| 名称                    | 描述                                                         | 类型    | 是否必选 |
+| ----------------------- | ------------------------------------------------------------ | ------- | -------- |
+| key                     | 对象键，可在对象键中指定`${filename}`通配符，此时将使用实际上传的文件的文件名替换对象键中的通配符，相关示例请参见本文档的 [案例七](#step7) | string  | 是       |
+| Cache-Control           | RFC 2616 中定义的缓存指令，将作为对象元数据保存              | string  | 否       |
+| Content-Disposition     | RFC 2616 中定义的文件名称，将作为对象元数据保存              | string  | 否       |
+| Content-Encoding        | RFC 2616 中定义的编码格式，将作为对象元数据保存              | string  | 否       |
+| Content-Type            | RFC 2616 中定义的 HTTP 内容类型（MIME），将作为对象元数据保存<br>**注意：**通过网页表单上传文件时，浏览器会自动把指定文件的 MIME 类型携带在请求中，但对象存储 COS 并不会使用浏览器携带的 MIME 类型，您需要显式指定 Content-Type 表单字段作为对象的内容类型 | string  | 否       |
+| Expires                 | RFC 2616 中定义的缓存失效时间，将作为对象元数据保存          | string  | 否       |
+| success_action_redirect | 上传成功时重定向的目标 URL 地址，如果设置，那么在上传成功时将返回 HTTP 状态码为303（Redirect）及 Location 响应头部，Location 响应头部的值为该字段指定的 URL 地址，并附加 bucket、key 和 etag 参数，相关示例请参见本文档的 [案例八](#step8) | string  | 否       |
+| success_action_status   | 上传成功时返回的 HTTP 状态码，可选200、201或204，默认为204。如果指定了 success_action_redirect 字段，则此字段会被忽略。相关示例请参见本文档的 [案例九](#step9) | number  | 否       |
+| x-cos-meta-\*           | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为对象元数据保存，大小限制为2KB<br>**注意：**用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-） | string  | 否       |
+| x-cos-storage-class     | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD、MAZ_STANDARD_IA、INTELLIGENT_TIERING、MAZ_INTELLIGENT_TIERING、STANDARD_IA、ARCHIVE、DEEP_ARCHIVE。默认值：STANDARD | Enum    | 否       |
+| x-cos-traffic-limit     | 针对本次上传进行流量控制的限速值，必须为数字，单位默认为 bit/s。限速值设置范围为819200 - 838860800，即100KB/s - 100MB/s，如果超出该范围将返回400错误 | integer | 否       |
+| Content-MD5             | 经过 Base64 编码的文件内容 MD5 哈希值，用于完整性检查，验证文件内容在传输过程中是否发生变化 | string  | 否       |
+| file                    | 文件的信息和内容，通过网页表单上传时，浏览器将自动设置该字段的值为正确的格式<br>**注意：**file 字段必须放在整个表单的最后面。 | file    | 是       |
 
 **访问控制列表（ACL）相关表单字段**
 
@@ -159,13 +161,14 @@ c. 拼接签名有效时间，格式为`StartTimestamp;EndTimestamp`，即为 Ke
 
 将上述策略和签名相关信息，以下表中描述的方式附加到表单中：
 
-| 名称             | 描述                                   | 类型   | 是否必选 |
-| ---------------- | -------------------------------------- | ------ | -------- |
-| policy           | 经过 Base64 编码的“策略”（Policy）内容 | string | 是       |
-| q-sign-algorithm | 签名哈希算法，固定为 sha1              | string | 是       |
-| q-ak             | 上文所述的 SecretId                    | string | 是       |
-| q-key-time       | 上文所生成的 KeyTime                   | string | 是       |
-| q-signature      | 上文所生成的 Signature                 | string | 是       |
+| 名称                 | 描述                                                         | 类型   | 是否必选                                   |
+| -------------------- | ------------------------------------------------------------ | ------ | ------------------------------------------ |
+| x-cos-security-token | 使用临时安全凭证时需要传入的安全令牌字段，详情请参见 [临时安全凭证](https://cloud.tencent.com/document/product/436/31315#.E4.B8.B4.E6.97.B6.E5.AE.89.E5.85.A8.E5.87.AD.E8.AF.81) 相关说明 | string | 否，当使用临时<br>密钥时，此表单项为必选项 |
+| policy               | 经过 Base64 编码的“策略”（Policy）内容                       | string | 是                                         |
+| q-sign-algorithm     | 签名哈希算法，固定为 sha1                                    | string | 是                                         |
+| q-ak                 | 上文所述的 SecretId                                          | string | 是                                         |
+| q-key-time           | 上文所生成的 KeyTime                                         | string | 是                                         |
+| q-signature          | 上文所生成的 Signature                                       | string | 是                                         |
 
 >!签名表单字段需要在 file 表单字段之前。
 

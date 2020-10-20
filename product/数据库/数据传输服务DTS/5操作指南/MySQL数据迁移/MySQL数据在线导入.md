@@ -15,7 +15,7 @@
 ### 源实例 super 权限
 大部分场景对源实例无 super 权限要求，仅以下场景中需具有源实例的 super 权限。
 - 用户在“数据一致性检测”中选择了“全量检测”校验模式。
-- 若在 binlog 同步过程中，用户在源实例创建了 Event，且这个 Event 指定了非用于 DTS 数据迁移的账号做 DEFINER，此时不具备 super 权限将会报错。
+- 若在 binlog 同步过程中，用户在源实例创建了 Event，且这个 Event 指定了非用于 DTS 数据迁移的帐号做 DEFINER，此时不具备 super 权限将会报错。
 
 ### 支持迁移的数据库
 - 支持基础网络、VPC 网络的 CVM 自建 MySQL 数据库迁移至 TencentDB 实例。
@@ -26,9 +26,9 @@
 1. 检查目标 TencentDB 实例是否有同名库表，避免冲突。
 2. 检查数据库版本，可支持 MySQL 5.1/5.5/5.6/5.7 版本迁移上云；由于目前腾讯云 TencentDB 已不再支持 MySQL 5.1 版本，因此我们推荐您在迁移前完成 MySQL 5.1 升级到 MySQL 5.5，然后再迁移至 TencentDB for MySQL 5.5。当然您也可以选择使用 DTS 数据迁移工具直接从本地 MySQL 5.1 迁移至腾讯云 TencentDB for MySQL 5.5。
 3. 检查目标 TencentDB 实例容量必须大于源实例。
-4. 在源 MySQL 数据库上创建迁移账号（若有已授权可用于数据迁移的账号，也可不创建）。
+4. 在源 MySQL 数据库上创建迁移帐号（若有已授权可用于数据迁移的帐号，也可不创建）。
 ```  	
-        GRANT ALL PRIVILEGES ON *.* TO "迁移账号"@"%" IDENTIFIED BY "迁移密码";
+        GRANT ALL PRIVILEGES ON *.* TO "迁移帐号"@"%" IDENTIFIED BY "迁移密码";
     		FLUSH PRIVILEGES;	
 ```
 5. 确认源库 MySQL 变量。
@@ -74,10 +74,10 @@
 
 | 源库类型 | 说明 | 
 |---------|---------|
-| 有公网 IP 的 MySQL | 能够通过公网 IP 访问的 MySQL 数据库，所需信息：<li> MySQL 主机地址<li> MySQL 端口<li> MySQL 账号<li> MySQL 密码	 | 
-| 云服务器上的自建 MySQL | 支持基础网络和私有网络两种环境下基于 CVM 的自建 MySQL 数据库，使用时需要指定 CVM 的实例 ID，所需信息：<li>所属地域：CVM 自建 MySQL，均可通过腾讯云内网迁移到云数据库 MySQL<li>云服务器实例 ID<li>MySQL 端口<li> MySQL 账号<li>MySQL 密码			 | 
-| 专线接入腾讯云的 MySQL | 本地 IDC 自建 MySQL 使用 [专线接入 DC](https://cloud.tencent.com/product/dc) 服务与腾讯云相连接后，可使用DTS数据迁移至腾讯云。所需信息：<li>专线网关：接入腾讯云的数据库服务器所使用的专线网关，了解 [专线网关](https://cloud.tencent.com/document/product/216/19256)<li>私有网络：专线网关所属的私有网络<li>MySQL 主机地址：IDC 内的 MySQL 主机地址，DTS 数据迁移将通过专线网关映射 IP 后访问<li> MySQL 端口<li> MySQL 账号<li> MySQL 密码 | 
-| VPN 接入的 MySQL | 本地 IDC 自建 MySQL 通过 [腾讯云 VPN 连接服务](https://cloud.tencent.com/product/vpn) 或云服务器上自建 VPN 服务接入与腾讯云相连接后，可使用 DTS 数据迁移至腾讯云。所需信息：<li>所属地域：目前仅支持同地域内的 VPN 服务<li>VPN 类型：云 VPN 服务或云服务器上自建 VPN <li>VPN 网关：仅云 VPN 服务需要补充 VPN 网关信息，了解 [VPN](https://cloud.tencent.com/document/product/215/20084)<li> 私有网络：VPN 服务所属的私有网络 <li> MySQL 主机地址：IDC 内的 MySQL 主机地址，DTS 数据迁移将通过专线网关映射 IP 后访问<li> MySQL 端口<li> MySQL 账号<li> MySQL 密码	 | 
+| 有公网 IP 的 MySQL | 能够通过公网 IP 访问的 MySQL 数据库，所需信息：<li> MySQL 主机地址<li> MySQL 端口<li> MySQL 帐号<li> MySQL 密码	 | 
+| 云服务器上的自建 MySQL | 支持基础网络和私有网络两种环境下基于 CVM 的自建 MySQL 数据库，使用时需要指定 CVM 的实例 ID，所需信息：<li>所属地域：CVM 自建 MySQL，均可通过腾讯云内网迁移到云数据库 MySQL<li>云服务器实例 ID<li>MySQL 端口<li> MySQL 帐号<li>MySQL 密码			 | 
+| 专线接入腾讯云的 MySQL | 本地 IDC 自建 MySQL 使用 [专线接入 DC](https://cloud.tencent.com/product/dc) 服务与腾讯云相连接后，可使用DTS数据迁移至腾讯云。所需信息：<li>专线网关：接入腾讯云的数据库服务器所使用的专线网关，了解 [专线网关](https://cloud.tencent.com/document/product/216/19256)<li>私有网络：专线网关所属的私有网络<li>MySQL 主机地址：IDC 内的 MySQL 主机地址，DTS 数据迁移将通过专线网关映射 IP 后访问<li> MySQL 端口<li> MySQL 帐号<li> MySQL 密码 | 
+| VPN 接入的 MySQL | 本地 IDC 自建 MySQL 通过 [腾讯云 VPN 连接服务](https://cloud.tencent.com/product/vpn) 或云服务器上自建 VPN 服务接入与腾讯云相连接后，可使用 DTS 数据迁移至腾讯云。所需信息：<li>所属地域：目前仅支持同地域内的 VPN 服务<li>VPN 类型：云 VPN 服务或云服务器上自建 VPN <li>VPN 网关：仅云 VPN 服务需要补充 VPN 网关信息，了解 [VPN](https://cloud.tencent.com/document/product/215/20084)<li> 私有网络：VPN 服务所属的私有网络 <li> MySQL 主机地址：IDC 内的 MySQL 主机地址，DTS 数据迁移将通过专线网关映射 IP 后访问<li> MySQL 端口<li> MySQL 帐号<li> MySQL 密码	 | 
 
 #### c. 目标库设置
 选择目标数据库实例，并输入目标库上的帐号及密码。
@@ -90,7 +90,7 @@
 
 **数据迁移**：将选中数据库中的数据导出，然后在 TencentDB for MySQL 中导入。
 **增量同步**：在进行数据导出导入后，设置 TencentDB for MySQL 为源库的备库，进行主备增量同步。
-**覆盖 root 账号**：因 root 账号将用于云数据库安全效验，若源库 root 账号不存在，会对后续使用 TencentDB 造成不便。因此在整实例迁移时，需指定是否使用源库 root 账号覆盖目标库 root 账号。如需使用源库 root 账号或目标库未设置 root，则选【是】，如需保留目标库的 root 账号，则选【否】。
+**覆盖 root 帐号**：因 root 帐号将用于云数据库安全校验，若源库 root 帐号不存在，会对后续使用 TencentDB 造成不便。因此在整实例迁移时，需指定是否使用源库 root 帐号覆盖目标库 root 帐号。如需使用源库 root 帐号或目标库未设置 root，则选【是】，如需保留目标库的 root 帐号，则选【否】。
 **是否只读**：选择只读后，在数据迁移过程中，从源数据库迁移的数据在目标数据库只能读取（Read Only），无法更改，直至用户单击完成迁移任务。
 ![](https://main.qcloudimg.com/raw/574d4f59462d52b70d2071284dbcce4a.png)
 
@@ -118,7 +118,7 @@
 
 ### 7. 增量同步
 在创建迁移任务时默认必选增量同步选项，在数据迁移完成后，会将目标 TencentDB for MySQL 库设置成源数据库的备库，通过主备同步来把迁移过程中源库的新增的数据同步到目标 TencentDB for MySQL 库中。此时，源库上的修改都会同步到目标 TencentDB for MySQL 中。
-在迁移完成后，您可以单击【完成】，源库和目标库同步关系会断开，再将业务切换到目标 TencentDB for MySQL 实例上则可完成迁移。
+
 >!在断开同步前，不要往目标数据库实例写入数据，否则可能引起源库和目标库数据不一致而数据比对失败，从而导致迁移失败。
 
 
@@ -135,5 +135,7 @@
 ### 9. 完成迁移
 >!当迁移处于“未结束”状态时，迁移任务将一直进行，数据持续同步。
 
-当迁移进度达到100%时，可在单击右侧【完成】，完成迁移任务。完成后效果如下：
+当迁移进度达到100%、目标与源库数据差距为0MB及目标与源库时间延迟为0秒时，即表示数据已经同步一致，可在单击右侧【完成】完成迁移任务。
+![](https://main.qcloudimg.com/raw/886a3c922df903a812bcbb7120aa847e.png)
+完成后效果如下：
 ![](https://main.qcloudimg.com/raw/a539d58244ae7ffcbdc367b655fd1738.png)

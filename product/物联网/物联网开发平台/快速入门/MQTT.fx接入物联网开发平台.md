@@ -16,21 +16,47 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows、 Mac、Lin
 
 #### 参数说明
 
-| 参数           | 说明                                                         |
-| -------------- | ------------------------------------------------------------ |
-| Profile Name   | 用户自定义名称                                               |
-| Broker Address | MQTT 服务器连接地址，广州域设备填入：PRODUCT_ID.iotcloud.tencentdevices.com，这里 PRODUCT_ID 为变量参数，用户需填入创建产品时自动生成的产品 ID，<br>例如 T****DS8G.iotcloud.tencentdevices.com |
-| Broker Port         | MQTT 服务器连接端口，填入：1883。本文主要针对密钥认证类型的产品，端口必须是1883，如果您想通过8883接口接入，建议使用证书认证型产品自行接入。     
-| Client ID           | MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名，如："TXXXXDS8Gdev001 "，TXXXXDS8G 是产品 ID，dev001 是设备名称。 |
-| Connection Timeout  | 连接超时时间秒。                                 |
-| Keep Alive Interval | 心跳间隔时间秒。                                 |
-| Auto Reconnect      | 断网自动重连。                                   |
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Profile Name</td>
+<td>用户自定义名称</td>
+</tr>
+<tr>
+<td>Broker Address</td>
+<td>MQTT 服务器连接地址，广州域设备填入：PRODUCT_ID.iotcloud.tencentdevices.com，这里 PRODUCT_ID 为变量参数，用户需填入创建产品时自动生成的产品 ID，<br>例如 T****DS8G.iotcloud.tencentdevices.com</td>
+</tr>
+<tr>
+<td>Broker Port</td>
+<td>MQTT 服务器连接端口，填入：1883。本文主要针对密钥认证类型的产品，端口必须是1883，如果您想通过8883接口接入，建议使用证书认证型产品自行接入。</td>
+</tr>
+<tr>
+<td>Client ID</td>
+<td>MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名，如："TXXXXDS8Gdev001 "，TXXXXDS8G 是产品 ID，dev001 是设备名称。</td>
+</tr>
+<tr>
+<td>Connection Timeout</td>
+<td>连接超时时间（秒）。</td>
+</tr>
+<tr>
+<td>Keep Alive Interval</td>
+<td>心跳间隔时间（秒）。</td>
+</tr>
+<tr>
+<td>Auto Reconnect</td>
+<td>断网自动重连。</td>
+</tr>
+</tbody></table>
 
 5. 单击【User Credentials】，填写 User Name 和 Password。
-![](https://main.qcloudimg.com/raw/555608dcb2b2adb66db3a598f8459cf6.png)
- >?
-  > - **User Name**	：MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名 + SDKAppID + connid+expiry。创建完产品即可在产品列表页和产品详情页查看 ProductID，如："TO****DS8Gdev001;12010126;E4F3Q;1591948593"，仅替换示例中的产品 ID + 设备名即可，后面的三个参数本身由物联网通信接入 SDK 自动生成，也可由腾讯云物联网平台提供的 [生成小工具](https://iot-public-resource-1256872341.cos.ap-guangzhou.myqcloud.com/password%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7TencentIoT.zip) 自动生成。
- > - **Password**	：Password 必须填写，用户可以使用物联网平台提供的 [生成小工具](https://iot-public-resource-1256872341.cos.ap-guangzhou.myqcloud.com/password%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7TencentIoT.zip) 自动生成Password，也可以按照文档 [手动生成Password](https://cloud.tencent.com/document/product/634/32546)。
+ - **User Name**	：MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名 + SDKAppID + connid+expiry。创建完产品即可在产品列表页和产品详情页查看 ProductID，如："TO****DS8Gdev001;12010126;E4F3Q;1591948593"，仅替换示例中的产品 ID + 设备名即可，后面的三个参数本身由物联网通信接入 SDK 自动生成，也可由腾讯云物联网平台提供的 [生成小工具](https://iot-public-resource-1256872341.cos.ap-guangzhou.myqcloud.com/password%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7TencentIoT.zip) 自动生成。
+ - **Password**	：Password 必须填写，用户可以使用物联网平台提供的 [生成小工具](https://iot-public-resource-1256872341.cos.ap-guangzhou.myqcloud.com/password%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7TencentIoT.zip) 自动生成Password，也可以按照文档 [手动生成Password](https://cloud.tencent.com/document/product/634/32546)。
+ ![](https://main.qcloudimg.com/raw/555608dcb2b2adb66db3a598f8459cf6.png)
 6. 完成以上步骤设置后，单击【Apply】和【OK】进行保存，并在配置文件框中选择刚才创建的文件名，单击【Connect】。
 7. 当右上角圆形图标为绿色时，说明已连接 IoT Cloud 成功，即可进行发布和订阅等操作。
    ![](https://main.qcloudimg.com/raw/3490e194d3162adc32ecb77f1bcc46ce.png)

@@ -918,7 +918,7 @@ virtual void SetBoardScale(uint32_t scale)=0
 | scale | uint32_t | 要设置的白板缩放比例 |
 
 #### 介绍
-支持范围: [100，300]，实际缩放比为: scale/100 
+支持范围: [100，1600]，实际缩放比为: scale/100 
 
 
 ### GetBoardScale
@@ -1009,13 +1009,14 @@ virtual void GetFileTranscodeProgress(const char *taskId)=0
 ### AddTranscodeFile
 添加转码文件 
 ``` C++
-virtual const char* AddTranscodeFile(const TEduBoardTranscodeFileResult &result)=0
+virtual const char* AddTranscodeFile(const TEduBoardTranscodeFileResult &result, bool needSwitch=true)=0
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | result | const TEduBoardTranscodeFileResult & | 文件转码结果  |
+| needSwitch | bool |  |
 
 #### 返回
 文件 ID 

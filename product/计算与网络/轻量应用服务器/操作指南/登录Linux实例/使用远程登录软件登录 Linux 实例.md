@@ -18,7 +18,7 @@ Windows
 
 ## 注意事项
 
-使用 Ubuntu 镜像创建的实例默认禁用 `root` 用户名通过密码的方式登录实例。如需开启，请参考 [Ubuntu 系统如何使用 root 用户登录实例？](https://cloud.tencent.com/document/product/213/17278#ubuntu-.E7.B3.BB.E7.BB.9F.E5.A6.82.E4.BD.95.E4.BD.BF.E7.94.A8-root-.E7.94.A8.E6.88.B7.E7.99.BB.E5.BD.95.E5.AE.9E.E4.BE.8B.EF.BC.9F)。
+使用 Ubuntu 镜像创建的实例默认禁用 `root` 用户名通过密码的方式登录实例。如需开启，请参考 [Ubuntu 系统如何使用 root 用户登录实例？](https://cloud.tencent.com/document/product/1207/44569#ubuntu-.E7.B3.BB.E7.BB.9F.E5.A6.82.E4.BD.95.E4.BD.BF.E7.94.A8-root-.E7.94.A8.E6.88.B7.E7.99.BB.E5.BD.95.E5.AE.9E.E4.BE.8B.EF.BC.9F)。
 
 ## 操作步骤
 
@@ -37,6 +37,8 @@ PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
 配置 “Host Name” 后，再配置 “Saved Sessions” 并保存，则后续使用时您可直接双击 “Saved Sessions” 下保存的会话名称即可登录服务器。
 4. 单击【Open】，进入 “PuTTY” 的运行界面，提示 “login as:”。
 5. 在 “login as” 后输入用户名，如 `root`，按 **Enter**。
+>?若您使用了除 Ubuntu 系统镜像外的其他 Linux 系统镜像创建实例，则均可使用 `root` 作为用户名。Ubuntu 系统的默认用户名是 ubuntu，如需使用 `root` 用户名登录，则请参考 [Ubuntu 系统如何使用 root 用户登录实例？](https://cloud.tencent.com/document/product/1207/44569#ubuntu-.E7.B3.BB.E7.BB.9F.E5.A6.82.E4.BD.95.E4.BD.BF.E7.94.A8-root-.E7.94.A8.E6.88.B7.E7.99.BB.E5.BD.95.E5.AE.9E.E4.BE.8B.EF.BC.9F)。
+>
 6. 在 “Password” 后输入密码，按 **Enter**。
 输入的密码默认不显示，如下图所示：
 ![](https://main.qcloudimg.com/raw/9e7ddc631de2a27bfd35f9225de85506.png)

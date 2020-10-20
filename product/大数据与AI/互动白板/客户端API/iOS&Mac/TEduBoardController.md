@@ -698,7 +698,7 @@ SDK 版本号
 | scale | UInt32 | 要设置的白板缩放比例 |
 
 #### 介绍
-支持范围: [100，300]，实际缩放比为: scale / 100 
+支持范围: [100，1600]，实际缩放比为: scale / 100 
 
 
 ### getBoardScale
@@ -843,16 +843,17 @@ Reload 等同于重新加载历史数据，会触发白板初始化时除 onTEBI
 转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
 
 
-### addTranscodeFile:
+### addTranscodeFile:needSwitch:
 添加转码文件 
 ``` Objective-C
-- (NSString *)addTranscodeFile:(TEduBoardTranscodeFileResult *)result 
+- (NSString *)addTranscodeFile:(TEduBoardTranscodeFileResult *)result needSwitch:(BOOL)needSwitch 
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | result | TEduBoardTranscodeFileResult * | 文件转码结果  |
+| needSwitch | BOOL | 是否跳转到该文件  |
 
 #### 返回
 文件ID 
@@ -1164,3 +1165,8 @@ play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认�
 
 #### 警告
 当传入文件的 URL 重复时，返回 URL 对应的 文件 ID 
+
+
+
+
+

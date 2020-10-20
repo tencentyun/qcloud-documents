@@ -1,22 +1,15 @@
 ## 操作场景
 腾讯云容器服务 TKE 支持通过创建 PersistentVolume（PV）/PersistentVolumeClaim（PVC），并为工作负载挂载数据卷的方式使用腾讯云对象存储 COS。本文介绍如何在 TKE 集群中为工作负载挂载对象存储。
 
-
-## 相关概念
-- **PersistentVolume（PV）**：集群内的存储资源。PV 独立于 Pod 的生命周期，可根据不同的 StorageClass 类型创建不同类型的 PV。
-- **PersistentVolumeClaim（PVC）**：集群内的存储请求。例如，PV 是 Pod 使用的节点资源，PVC 则声明使用 PV 资源。当 PV 资源不足时，PVC 可动态创建 PV。
-
-
 ## 准备工作
 ### 安装对象存储扩展组件
->?
->- 使用扩展组件功前能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
->- 若您的集群已安装 COS-CSI 扩展组件，则请跳过此步骤。
+>? 若您的集群已安装 COS-CSI 扩展组件，则请跳过此步骤。
 >
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
-2. 在“扩展组件”管理页面上方选择需使用对象存储扩展组件的集群及其所在地域，并单击【新建】。
-3. 在“新建扩展组件”页面，选择【COS 腾讯云对象存储】并单击【完成】即可。
-
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+2. 选择左侧导航栏中的【集群】，进入集群管理界面。
+3. 选择需新建组件的集群 ID，单击集群详情页左侧栏中的【组件管理】。
+4. 在“组件管理”页面，单击【新建】，进入“新建组件”页面。
+5. 勾选【COS（腾讯云对象存储）】并单击完成即可。
 
 ### 创建访问密钥<span id="CreatAccessKey"></span>
 >!
