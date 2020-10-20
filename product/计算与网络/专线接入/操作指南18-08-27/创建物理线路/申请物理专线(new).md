@@ -2,9 +2,9 @@
 
 ## 操作流程
 ![](https://main.qcloudimg.com/raw/c6ba803cb0dc73b4e8f3c0689a020b96.png)
-1. [创建物理专线](https://tcloud-doc.isd.com/document/product/216/48586?!preview&!editLang=zh#buzhou1)：在控制台同步您的物理专线需求，完成后专线状态为“申请中”。
-2. [资源评估和方案设计](https://tcloud-doc.isd.com/document/product/216/48586?!preview&!editLang=zh#buzhou2)：腾讯云收到您的专线需求后，将进行资源评估，专线状态进入“评估中”；随后专线经理与您同步确认专线设计方案，完成后专线状态为“待付款”。
-3. [支付费用](https://tcloud-doc.isd.com/document/product/216/48586?!preview&!editLang=zh#buzhou3)：在控制台完成付款后，专线状态进入“建设中”。您还需要联系运营商和腾讯云共同完成专线建设和专线验收，并在控制台确认验收，完成后专线状态为“运行中”。
+1. [创建物理专线](https://cloud.tencent.com/document/product/216/48586#.E6.AD.A5.E9.AA.A4.E4.B8.80.EF.BC.9A.E5.88.9B.E5.BB.BA.E7.89.A9.E7.90.86.E4.B8.93.E7.BA.BF)：在控制台同步您的物理专线需求，完成后专线状态为“申请中”。
+2. [资源评估和方案设计](https://cloud.tencent.com/document/product/216/48586#.E6.AD.A5.E9.AA.A4.E4.BA.8C.EF.BC.9A.E8.B5.84.E6.BA.90.E8.AF.84.E4.BC.B0.E5.92.8C.E6.96.B9.E6.A1.88.E8.AE.BE.E8.AE.A1)：腾讯云收到您的专线需求后，将进行资源评估，专线状态进入“评估中”；随后专线经理与您同步确认专线设计方案，完成后专线状态为“待付款”。
+3. [支付费用](https://cloud.tencent.com/document/product/216/48586#.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E6.94.AF.E4.BB.98.E8.B4.B9.E7.94.A8)：在控制台完成付款后，专线状态进入“建设中”。您还需要联系运营商和腾讯云共同完成专线建设和专线验收，并在控制台确认验收，完成后专线状态为“运行中”。
 
 ## 操作步骤
 
