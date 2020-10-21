@@ -110,16 +110,12 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
       "status": "MEETING_STATE_ENDED",      
       "start_time": "1572085800",      
       "end_time": "1572089400",      
-      "hosts": [        
-          {
-          "userid": "tester"
-        }    
+     "hosts": [        
+        "tester"      
       ],      
       "participants": [        
-          {
-          "userid": "tester"
-        }     
-      ],      
+        "test1"      
+      ],
       "join_url": "https://wemeet.qq.com/w/5NmV29k",
       "meeting_type":0,      
       "settings": {        
