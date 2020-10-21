@@ -1,9 +1,7 @@
 您可以在腾讯云控制台，查看物理专线或专用通道的网络监控数据，帮助您排查网络故障。您还可以通过 API 查看监控信息，详情请参见 [专线接入-物理专线监控指标](https://cloud.tencent.com/document/product/248/35227)。
 
 ## 操作步骤
-
 1. 登录 [专线接入](https://console.cloud.tencent.com/vpc/dc) 控制台。
-
 2. 查看物理专线网络监控数据。
  1. 在左侧导航栏单击【物理专线】
  2. 在物理专线列表中，单击目标物理专线“监控”列的<img width="3%" src="https://main.qcloudimg.com/raw/52d8549cc2412c6527f332a3b88be44d.png"  >。
@@ -34,4 +32,3 @@
  - 出流量：专线网关的平均每秒出流量。
  - 入流量：专线网关的平均每秒入流量。
 ![](https://main.qcloudimg.com/raw/b4b6fd958f17b7c3cd801891f50bacfe.png)
-
