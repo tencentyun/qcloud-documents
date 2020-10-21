@@ -30,18 +30,13 @@
  ![](https://main.qcloudimg.com/raw/f27507dc4bc9ff186fc3300e830ab8da.png)
 4. 设置告警渠道，根据需求，配置告警接收组、有效时段、接收渠道（邮件、对象、微信）。
  >? 若您没有接收组，请单击【新增接收组】进行配置，具体配置请参见 [创建告警接收组](https://cloud.tencent.com/document/product/248/6217)。
-
-   ![](https://main.qcloudimg.com/raw/cf50eb76d452f8e57b34c118a3181baf.png)
-
+![](https://main.qcloudimg.com/raw/cf50eb76d452f8e57b34c118a3181baf.png)
 5. （可选）根据需求，配置接口回调，填写公网可访问到的 url 作为回调接口地址（域名或 IP[:端口][/path]），云监控将及时把告警信息推送到该地址。
    ![img](https://main.qcloudimg.com/raw/220a802d27d1fecaf563bed8d39ac487.png)
-
 6. 完成配置后，单击【完成】。
 
 ## 管理告警策略
-
 创建告警策略后，您可以在控制台进行启停、复制、删除等操作。
-
 1. 在[ 云监控](https://console.cloud.tencent.com/monitor/overview) 控制台左侧导航栏选择【告警配置】>【告警策略】。
 2. 按需在“告警策略”页面进行以下操作：
    - 若需停用该策略，则在目标告警策略右侧“告警启停”列关闭开关，若需启用该告警策略，则打开开关。
