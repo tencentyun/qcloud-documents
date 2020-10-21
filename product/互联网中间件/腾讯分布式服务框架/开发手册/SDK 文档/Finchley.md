@@ -119,22 +119,22 @@ spring-cloud-tsf-msgw：
 
 ## 1.21.6-Finchley-RELEASE（2020-10-19）
 ### Bug 修复
-- 处理 Spring 组件开源漏洞风险，升级 Spring Framework 到 5.0.19 版本
-- spring-cloud-tsf-core 修复与 spring-boot-devtools 的冲突
+- 处理 Spring 组件开源漏洞风险，升级 Spring Framework 到 5.0.19 版本。
+- spring-cloud-tsf-core 修复与 spring-boot-devtools 的冲突。
 
 ### 优化
-- spring-cloud-tsf-gateway 支持服务熔断能力
-- spring-cloud-tsf-sleuth 修改调用sql存储的最长长度到 64000 字符
+- spring-cloud-tsf-gateway 支持服务熔断能力。
+- spring-cloud-tsf-sleuth 修改调用 SQL 存储的最长长度到64000字符。
 
 ### 版本建议
-- 支持向后兼容，建议全量升级。
+支持向后兼容，建议全量升级。
 
 ## 1.21.5-Finchley-RELEASE（2020-09-09）
 ### 优化
-- spring-cloud-tsf-gateway 优化因配置被误删除可能导致的问题
+spring-cloud-tsf-gateway 优化因配置被误删除可能导致的问题。
 
 ### 版本建议
-- 支持向后兼容，建议全量升级。
+支持向后兼容，建议全量升级。
 
 ## 1.21.4-Finchley-RELEASE（2020-08-20）
 ### Bug 修复
@@ -158,7 +158,7 @@ spring-cloud-tsf-gateway 网关兼容新插件类型。
 
 ### Bug 修复
 
-处理tomcat组件开源漏洞风险：
+处理 tomcat 组件开源漏洞风险：
   - 升级 org.apache.tomcat.embed.tomcat-embed-core到 8.5.56版本。
   - 升级 org.apache.tomcat.embed.tomcat-embed-el 到8.5.56版本。
   - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到8.5.56版本。
@@ -354,7 +354,7 @@ spring-cloud-tsf-sleuth bug fixed：
 
 支持向后兼容，建议全量升级。
 
-### 1.14.2-Finchley-RELEASE（2019-08-14）
+## 1.14.2-Finchley-RELEASE（2019-08-14）
 
 ### Bug 修复
 
