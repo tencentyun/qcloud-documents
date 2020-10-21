@@ -13,14 +13,15 @@ Serverless SSR 为您提供了完整的控制台开发应用流程，该任务�
  >?
  >- 目前只支持 Next.js、Nuxt.js 两个框架的项目部署。
  >- 导入已有项目时，如果您使用了 Express 等 web 框架替代默认的Web Server，需要做简单的改造，请看[自定义路由项目改造](https://cloud.tencent.com/document/product/1242/49214) 文档。
+4. 单击【创建】，Serverless SSR 将为您自动部署应用，您可以查看项目的部署日志。
+>?部署时如果跳出部署页面，将无法返回。
 
 <span id="1"></span>
 #### 模版创建
 
 如果选择模版创建，您可以通过选择 Serverless SSR 提供的项目模版，快速创建一个 SSR 应用，模版部署时，Serverless SSR 将为默认您完成以下配置：
-
-- 新建层，并将项目依赖包 node_modules 存放在层中，层的使用请参考[产品文档](https://cloud.tencent.com/document/product/583/40159)。
-- 新建 COS 存储桶，拆分静态资源，将静态资源托管到 COS 桶中
+1. 新建层，并将项目依赖包 node_modules 存放在层中。层的使用请参考 [层管理](https://cloud.tencent.com/document/product/583/40159)。
+2. 新建 COS 存储桶，拆分静态资源，将静态资源托管到 COS 桶中。
 
 ![](https://main.qcloudimg.com/raw/95d59eee024ef505ccc957aedde09eab.png)
 
@@ -41,8 +42,7 @@ Serverless SSR 为您提供了完整的控制台开发应用流程，该任务�
  您可以通过上传文件夹的方式直接导入本地项目，Serverless SSR 将自动为您创建层，并将依赖包 node_modules 传入层中完成部署。
  ![](https://main.qcloudimg.com/raw/fcec3a99d97fc50bf3e9152a4ce76a9d.png)
  
-4. 单击【创建】，Serverless SSR 将为您自动部署应用，您可以查看项目的部署日志
->?部署时如果跳出部署页面，将无法返回。
+
    
 ### 步骤2：管理应用
 在 [Serverless 应用](https://console.cloud.tencent.com/ssr) 页面，单击目标 Nuxt.js 应用进入应用详情页，查看项目部署后输出的基本信息、项目请求次数、项目报错统计等多项监控指标，方便您轻松实现项目的管理运维。
