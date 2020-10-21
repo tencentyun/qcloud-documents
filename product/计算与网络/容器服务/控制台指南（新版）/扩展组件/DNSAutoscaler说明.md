@@ -1,13 +1,12 @@
-## DNSAutoscaler 介绍
+## 简介
 
 ### 组件介绍
 
-DNSAutoscaler 是一个 DNS 自动水平伸缩的组件，通过一个 deployment 获取集群的节点数和核数，根据预设的伸缩策略，自动水平伸缩 dns 的副本数。目前的伸缩模式有两种，分别是 linear 线性模式和 ladder 阶梯模式。
+DNSAutoscaler 是 DNS 自动水平伸缩组件，可通过一个 deployment 获取集群的节点数和核数，根据预设的伸缩策略，自动水平伸缩 DNS 的副本数。目前的伸缩模式分为两种，分别是 Linear 线性模式和 Ladder 阶梯模式。
 
 #### Linear Mode
 
 ConfigMap 配置示例
-
 ```
 data:
   linear: |-
@@ -68,13 +67,12 @@ coresToReplicas 取 3（64<400<512）,
 | tke-dns-autoscaler | ClusterRole        | \                        | kube-system    |
 | tke-dns-autoscaler | ClusterRoleBinding | \                        | kube-system    |
 
-### 限制条件
+## 限制条件
 
 1. 仅在 1.8 版本以上的 kubernetes 集群支持
-
 2. 集群中的 dns server 的工作负载为 deployment/coredns
 
-### 使用方法
+## 使用方法
 
 1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【集群】。
 
