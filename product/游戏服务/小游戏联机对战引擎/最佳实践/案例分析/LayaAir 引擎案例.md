@@ -20,7 +20,7 @@
 1. 立即下载 [题题对战游戏源码](https://mgobe-1258556906.cos.ap-shanghai.myqcloud.com/demo/%E9%A2%98%E9%A2%98%E5%AF%B9%E6%88%98.zip)，解压得源码文件。
 2. 在游戏联机对战引擎控制台，开通游戏联机对战引擎服务，获取游戏 ID、游戏 KEY、域名等。详情请参见 [开通服务](https://cloud.tencent.com/document/product/1038/33299)。
 3. 在游戏联机对战引擎控制台，新建匹配、创建匹配规则，获取匹配 code。详情请参见 [匹配配置](https://cloud.tencent.com/document/product/1038/34949)。
-4. 在游戏联机对战引擎控制台，开通 [自定义服务逻辑](https://cloud.tencent.com/document/product/1038/34950)，创建实时服务器，上传开发者代码，发布服务，最终实现游戏的状态同步。
+4. 在游戏联机对战引擎控制台，创建 [实时服务器](https://cloud.tencent.com/document/product/1038/34950)，上传您的代码，发布服务，最终实现游戏的状态同步。
 5. 用 LayaAir 直接打开代码文件中的客户端文件，即可快速构建题题对战游戏。详细的构建步骤见题题对战 [视频教程](https://cloud.tencent.com/document/product/1038/38114)。
 ![](https://main.qcloudimg.com/raw/2e2844317fab4e413d2f593ead8c86fe.png)
 
