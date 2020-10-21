@@ -234,7 +234,7 @@ data:
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: test-Ingress
+  name: test-ingress
   annotations:
     kubernetes.io/Ingress.class: nginx
 spec:
