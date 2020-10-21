@@ -10,7 +10,7 @@ LNMP 环境是指在 Linux 系统下，由 Nginx + MySQL/MariaDB + PHP 组成的
 本文搭建的 LNMP 环境软件组成版本及说明如下：
 Linux：Linux 操作系统，本文以 CentOS 8.0 为例。
 Nginx：Web 服务器，本文以 Nginx 1.18.0 为例。
-MySQL：数据库，本文以 MySQL 5.1.73 为例。
+MySQL：数据库，本文以 MySQL 8.0.21 为例。
 PHP：脚本语言，本文以 PHP 7.4.11 为例。
 
 ## 前提条件
@@ -170,9 +170,9 @@ systemctl enable php-fpm
 ```
 echo "<?php phpinfo(); ?>" >> /usr/share/nginx/html/index.php
 ```
-2. 在本地浏览器中访问如下地址，查看环境配置是否成功。
+2. 在本地浏览器中访问如下地址，查看环境配置是否成功。如何获取实例公网 IP，请参见 [获取公网 IP 地址](https://cloud.tencent.com/document/product/213/17940)。
 ```
-http://云服务器实例的公网 IP
+http://云服务器实例的公网 IP/index.php
 ```
 显示结果如下，则说明环境配置成功。
 ![](https://main.qcloudimg.com/raw/182c0f73df20d66216a9b73d571b2093.png)
