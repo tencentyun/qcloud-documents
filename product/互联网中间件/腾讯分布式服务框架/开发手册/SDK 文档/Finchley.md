@@ -231,17 +231,18 @@ spring-cloud-tsf-gateway  新增 tag plugin 中 path 类型取值。
 
 ## 1.18.4-Finchley-RELEASE（2020-10-20）
 ### 优化
-- spring-cloud-tsf-sleuth 修改调用sql存储的最长长度到 64000 字符
+spring-cloud-tsf-sleuth 修改调用 SQL 存储的最长长度到64000字符。
+
 
 ### 版本建议
-- 支持向后兼容，建议全量升级。
+支持向后兼容，建议全量升级。
 
 ## 1.18.3-Finchley-RELEASE（2020-10-13）
 
 ### Bug 修复
 
-- 处理 Spring 组件开源漏洞风险，升级 Spring Framework 到 5.0.19 版本
-- spring-cloud-tsf-core 修复与 spring-boot-devtools 的冲突
+- 处理 Spring 组件开源漏洞风险，升级 Spring Framework 到5.0.19版本。
+- spring-cloud-tsf-core 修复与 spring-boot-devtools 的冲突。
 
 ### 版本建议
 
@@ -413,7 +414,7 @@ spring-cloud-tsf-sleuth bug fixed：
 
 支持向后兼容，建议全量升级。
 
-### 1.12.3-Finchley-RELEASE（2019-05-17）
+## 1.12.3-Finchley-RELEASE（2019-05-17）
 
 ### Bug 修复
 
