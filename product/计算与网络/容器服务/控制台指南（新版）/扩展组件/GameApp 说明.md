@@ -34,11 +34,12 @@
 ## 使用方法
 
 ### 组件安装
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
-2. 在“扩展组件”管理页面上方，选择地域及需安装 GameApp 的集群，并单击【新建】。如下图所示：
-![](https://main.qcloudimg.com/raw/887d95fb6d298edbb4e9a329440c22c1.png)
-3. 在“新建扩展组件”页面，选择【GameApp 组件】后，单击【完成】即可安装成功。
 
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【集群】。
+2. 在“集群管理”页面上方选择目标集群所在地域下的集群 ID，进入集群详情页。
+3. 在集群详情页左侧导航栏中单击【组件管理】，进入【组件管理】页面。
+4. 在“组件管理”页面，单击【新建】，进入【新建组件】页面。
+5. 在“新建组件”页面，选择【GameApp 组件】，单击【完成】即可安装成功。
 
 
 ### Yaml 创建并使用 GameApp 工作负载
@@ -108,7 +109,7 @@ kubectl exec test-gameapp-1 printenv clearSHM
 true
 ```
 执行结果返回 [步骤1](#step1) 中所设置的参数，则说明 env 注入成功。
-4. 执行以下命令，仅设置升级镜像。
+3. 执行以下命令，仅设置升级镜像。
 ```
 kubectl patch gameapp test-gameapp --type=json -p'[{"op":"replace","path":"/spec/template/spec/containers/0/image","value":"nginx:1.14"}]'
 ```

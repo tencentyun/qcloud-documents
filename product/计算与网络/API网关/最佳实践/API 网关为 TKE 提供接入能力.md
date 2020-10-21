@@ -4,7 +4,8 @@
 
 ## 操作场景
 
-Kubernetes 作为自动化容器操作的开源平台，已经成为开发者的主流选择。但 Kubernetes 集群没有足够的接入能力，在面对大型应用时，这一点显得尤为突出。将 API 网关作为 Kubernetes 的接入层，能大幅提高 Kubernetes 集群的接入能力，并为 Kubernetes 集群带来 API 网关的高级能力，满足更多用户的更多场景。
+Kubernetes 作为自动化容器操作的开源平台，已经成为开发者的主流选择。但 Kubernetes 集群没有足够的接入能力，在面对大型应用时，这一点显得尤为突出。将 API 网关作为 Kubernetes 的接入层，能大幅提高 Kubernetes 集群的接入能力，并为 Kubernetes 集群带来 API 网关的高级能力，满足更多用户的更多场景。以下是本场景的架构图：
+![](https://main.qcloudimg.com/raw/5a7a5514e002aabf475958127b499e0c.svg)
 
 ## 前提条件
 
@@ -38,7 +39,7 @@ Kubernetes 作为自动化容器操作的开源平台，已经成为开发者的
 3. 单击集群列表上方的【新建】，参考 [创建集群](https://cloud.tencent.com/document/product/457/32189) 文档创建一个 TKE 容器集群。
  >!
 >- 第1步-集群信息中，【集群网络】需选择步骤一中创建的 VPC。
->- 第2步-选择机型中，【节点来源】选择已有节点；【Master 节点】选择平台托管，【Work 配置】选择 [步骤2](#2) 中创建的 CVM。
+>- 第2步-选择机型中，【节点来源】选择已有节点；【Master 节点】选择平台托管，【Worker 配置】选择 [步骤2](#2) 中创建的 CVM。
 >- 其余配置项均采用默认配置即可。
  
  ![](https://main.qcloudimg.com/raw/861608f37d306d90dd1f9173ad17203e.png)
@@ -84,7 +85,7 @@ Kubernetes 作为自动化容器操作的开源平台，已经成为开发者的
 ### 步骤8：发布 API 网关服务并测试
 1. 在 [API 网关控制台](https://console.cloud.tencent.com/apigateway) 左侧导航栏中单击【服务】，进入服务列表。
 2. 在服务列表中单击服务名称，进入服务详情页。
-3. 在服务详情页的【服务信息】Tab 页中，单击页面右上角的【发布】，将服务发布至“发布”环境。
-4. 请求 [步骤7](#7) 中创建的 API，可以看到 Nginx 页面即代表访问成功。
+3. 在服务详情页的【基本配置】Tab 页中，单击页面右上角的【发布】，将服务发布至“发布”环境。
+4. 请求 [步骤6](#6) 中创建的 API，可以看到 Nginx 页面即代表访问成功。
 
 <img src="https://main.qcloudimg.com/raw/7c2d94c0bfc199305a68df3f0eb0001c.png" width="60%" height="60%">
