@@ -20,8 +20,8 @@ Serverless SSR 为您提供了完整的控制台开发应用流程，该任务�
 #### 应用模版创建
 
 如果选择模版创建，您可以通过选择 Serverless SSR 提供的项目模版，快速创建一个 SSR 应用，模版部署时，Serverless SSR 将为默认您完成以下配置：
-- 新建层，并将项目依赖包 node_modules 存放在层中，层的使用请参考 [层管理](https://cloud.tencent.com/document/product/583/40159)。
-- 新建 COS 存储桶，拆分静态资源，将静态资源托管到 COS 桶中。
+1. 新建层，并将项目依赖包 node_modules 存放在层中，层的使用请参考 [层管理](https://cloud.tencent.com/document/product/583/40159)。
+2. 新建 COS 存储桶，拆分静态资源，将静态资源托管到 COS 桶中。
 ![](https://main.qcloudimg.com/raw/33a09a5fcf29dce6cb97f512c1113744.png)
 
 您还可以在【高级配置】部分，为您的项目进行静态资源存储、自定义域名、CDN 加速等高级能力的配置。
