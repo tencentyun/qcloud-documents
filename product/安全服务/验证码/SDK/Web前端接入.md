@@ -1,7 +1,7 @@
 >!网页及 App（iOS 和 Android） 皆可使用 Web 前端方式进行接入。
 
 ## 前提条件
-接入验证码前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecret。注册完成后，您可以在控制台的 [基础配置](https://console.cloud.tencent.com/captcha/detail?appid=2043913615) 中查看 AppID 以及 AppSecret。
+接入验证码前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecret。注册完成后，您可以在验证码控制台的验证详情的基础配置中，查看 AppID 以及 AppSecret。
 ## 接入步骤
 ### 快速接入
 以下为 Web 端快速接入流程，适用于每次都需要进行人机验证的场景（登录、注册、下发短信、活动等）。
