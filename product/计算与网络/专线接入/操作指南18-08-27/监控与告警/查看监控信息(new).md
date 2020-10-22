@@ -1,4 +1,4 @@
-您可以在腾讯云控制台，查看物理专线或专用通道的网络监控数据，帮助您排查网络故障。您还可以通过 API 查看监控信息，详情请参见 [专线接入-物理专线监控指标](https://cloud.tencent.com/document/product/248/35227)。
+您可以在腾讯云控制台，查看物理专线、专用通道或专线接入的网络监控数据，帮助您排查网络故障。您还可以通过 API 查看监控信息，详情请参见 [专线接入-物理专线监控指标](https://cloud.tencent.com/document/product/248/35227)。
 
 ## 操作步骤
 1. 登录 [专线接入](https://console.cloud.tencent.com/vpc/dc) 控制台。
