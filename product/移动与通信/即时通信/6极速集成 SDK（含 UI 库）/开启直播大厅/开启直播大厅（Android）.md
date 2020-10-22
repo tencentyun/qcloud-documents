@@ -96,7 +96,7 @@ public void onRoomDestroy(TRTCLiveRoomDef.TRTCLiveRoomInfo roomInfo) {
 }
 ```
 2. 创建直播大厅页 UI：
-直播大厅页用于展示直播列表，具体实现请参考 Demo 中 `LiveRoomFragment.java` 的实现
+直播大厅页用于展示直播列表，具体实现请参考 Demo 中 `LiveRoomFragment.java` 的实现。
 3. 单击观看：
 在直播大厅页单击任意直播间，参照 [步骤5：观众端观看直播](#step5) 生成观看端即可观看。
 
