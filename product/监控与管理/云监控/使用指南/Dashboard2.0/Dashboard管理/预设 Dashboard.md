@@ -14,5 +14,5 @@
 ## 查看预设 Dashboard
 
 1. 登录 [云监控—默认Dashboard](https://console.cloud.tencent.com/monitor/dashboard2/default)。
-2. 在左上角的面板切换框，切换到“云服务器 CVM 预设面板”。即可查看云服务器默认 Dashboard 。
+2. 在左上角的面板切换框，切换到“云服务器 CVM 预设面板”。即可查看云服务器默认 Dashboard。
 ![](https://main.qcloudimg.com/raw/af3db3af5eb210522e5dd071747230e3.png)
