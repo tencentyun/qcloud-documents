@@ -353,7 +353,7 @@ catch(TencentCloudSDKException $e) {
 }
 ```
 
-## 常见问题
+## <span id="point">常见问题</span>
 ### 代理
 在有代理的环境下，需要设置系统环境变量`https_proxy`，否则可能无法正常调用，抛出连接超时的异常。
 或使用 GuzzleHttp 代理配置：
