@@ -30,10 +30,10 @@ TSF 长期维护 LTS (Long Term Support) 版本，SDK的第三位版本号会根
 
 对于 TSF 私有云的用户，SDK 版本号需要和 TSF 平台版本**保持一致**，SDK的缺陷会在第三位版本号上体现，例如用户使用 TSF 1.12.4 版本，推荐使用的 SDK 版本为 1.12.x。
 
-|TSF 私有化平台版本| 支持 SDK 版本|
-|----|------|
-|1.23.x|[1.23.4-Finchley-RELEASE](https://cloud.tencent.com/document/product/649/38984#1.23.4-finchley-release.EF.BC.882020-09-16.EF.BC.89)、[1.23.5-Greenwich-RELEASE](https://cloud.tencent.com/document/product/649/38985#1.23.5-greenwich-release-.EF.BC.882020-09-21.EF.BC.89)|
-|1.21.x|[1.21.4-Edgware-RELEASE](https://cloud.tencent.com/document/product/649/38983#1.21.4-edgware-release.EF.BC.882020-08-20.EF.BC.89)、[1.21.4-Finchley-RELEASE](https://cloud.tencent.com/document/product/649/38984#1.21.4-finchley-release.EF.BC.882020-08-20.EF.BC.89)、[1.21.4-Greenwich-RELEASE](https://cloud.tencent.com/document/product/649/38985#1.21.4-greenwich-release-(2020-08-20))|
-|1.18.x|[1.18.1-Edgware-RELEASE](https://cloud.tencent.com/document/product/649/38983#1.18.1-edgware-release.EF.BC.882020-01-14.EF.BC.89)、[1.18.1-Finchley-RELEASE](https://cloud.tencent.com/document/product/649/38984#1.18.1-finchley-release.EF.BC.882020-01-14.EF.BC.892)、[1.18.1-Greenwich-RELEASE](https://cloud.tencent.com/document/product/649/38985#1.18.1-greenwich-release.EF.BC.882020-01-14.EF.BC.89)|
-|1.12.x|[1.12.5-Edgware-RELEASE](https://cloud.tencent.com/document/product/649/38983#1.12.5-edgware-release.EF.BC.882020-07-17.EF.BC.89)、[1.12.5-Finchley-RELEASE](https://cloud.tencent.com/document/product/649/38984#1.12.5-finchley-release.EF.BC.882020-07-17.EF.BC.892)|
+|TSF 私有化平台版本| Edgware|Finchley|Greenwich|
+|----|------|----|------|
+|1.23.x|1.21.4-Edgware-RELEASE|1.23.4-Finchley-RELEASE|1.23.5-Greenwich-RELEASE|
+|1.21.x|1.21.4-Edgware-RELEASE|1.21.6-Finchley-RELEASE|1.21.4-Greenwich-RELEASE|
+|1.18.x|1.18.1-Edgware-RELEASE|1.18.4-Finchley-RELEASE|1.18.1-Greenwich-RELEASE|
+|1.12.x|1.12.5-Edgware-RELEASE|1.12.5-Finchley-RELEASE|-|
 
