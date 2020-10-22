@@ -1,17 +1,14 @@
 ## 操作场景
-使用 TKE 控制台创建的 Ingress 配置的证书会引用 [SSL 证书](https://console.cloud.tencent.com/ssl) 中托管的证书，若 Ingress 使用时间较长，证书存在过期的风险。一旦证书过期，会对线上业务造成巨大影响，因此需要在证书过期前进行续期，本文将介绍如何为 Ingress 证书续期。
+使用容器服务 TKE 控制台创建的 Ingress 配置的证书，会引用 [SSL 证书](https://console.cloud.tencent.com/ssl) 中托管的证书，若 Ingress 使用时间较长，证书存在过期的风险。证书过期会对线上业务造成巨大影响，因此需要在证书过期前进行续期，您可参考本文为 Ingress 证书续期。
 
 ## 操作步骤
-### 查询将过期的证书
+### 查询证书到期时间
 
-登录 [SSL 证书控制台](https://console.cloud.tencent.com/ssl)，在【证书管理】页面按到期时间升序排列显示证书，查看即将过期的证书。如下图所示：
-![](https://main.qcloudimg.com/raw/0bae29bc1aca5a423b8191f7cb645307.png)
+1. 登录 [SSL 证书控制台](https://console.cloud.tencent.com/ssl)，选择左侧导航栏中的【证书管理】。
+2. 在证书列表项的“到期时间”中，查看即将过期的证书。
 
-### 添加新证书
-
-为旧证书续期生成新证书，可根据自身情况选择【购买证书】、【申请免费证书】或【上传证书】中的任意一种方式来添加新证书。如下图所示：
-![](https://main.qcloudimg.com/raw/e40ef8a2c5b65feb84525d1d00953f5e.png)
-
+### 新增证书
+在“证书管理”页面中，为旧证书续期生成新证书。您可根据自身情况选择【购买证书】、【申请免费证书】或【上传证书】中的任意一种方式来添加新证书。
 
 ### 查看引用旧证书的 Ingress <span id="ingress"></span>
 1. 登录 [SSL 证书控制台](https://console.cloud.tencent.com/ssl)，选择旧证书右侧的【关联资源】即可查看引用此证书的负载均衡器。如下图所示：
