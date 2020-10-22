@@ -1,6 +1,6 @@
 >? TUIKit 5.0.10 版本开始基于 TRTC 实现了支持直播功能的 TUIKit_live UI 组件。
 
-在您导入 TUIKit 后，仅需简单的几步就可以快速启用直播功能。如果您还没有导入 TUIKit ，请根据 [步骤2：导入TUIKit](#step2) 中的方式导入 `tuikit` 和 `tuiki-live`。
+在您的项目导入 TUIKit 后，仅需简单的几步就可以快速启用直播功能。如果您还没有导入 TUIKit ，请根据 [步骤2：导入TUIKit](#step2) 中的方式导入 `tuikit` 和 `tuiki-live`。
 
 TUIKit_live 直播UI组件集成后的直播效果：
 
@@ -178,7 +178,7 @@ layoutTuiLiverRomAnchor.setLiveRoomAnchorLayoutDelegate(this);
 2. 在主播端 TUILiveRoomAnchorLayout 的回调函数中 getRoomPKList 设置 PK 列表数据。
 ```java
 public void getRoomPKList(final TUILiveRoomAnchorLayout.OnRoomListCallback callback) {
-    /// 如果您创建带PK功能，需要在这个回调通过 callback 返回可以PK的主播房间id数组。
+    /// 如果您创建的房间需要PK功能，在这个回调通过 callback 返回可以PK的主播房间id数组。
     RoomManager.getInstance().getRoomList(RoomManager.TYPE_LIVE_ROOM, new RoomManager.GetRoomListCallback() {
         @Override
         public void onSuccess(List<String> roomIdList) {

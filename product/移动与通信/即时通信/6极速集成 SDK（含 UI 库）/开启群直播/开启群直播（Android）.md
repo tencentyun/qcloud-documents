@@ -1,4 +1,4 @@
-如果您已经集成了 IM，群直播入口默认已经集成，群直播效果如下：
+如果您的项目已经导入了 TUIKit，群直播入口默认已经集成，群直播效果如下：
 <table>
 <tr><td  style="border-color:white">
 <video width="320" height="640" src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/video/startGroupLive.mp4" controls  muted></video>
@@ -8,7 +8,7 @@
   </td></tr>
  </table>
  
-如果您还开通音视频服务，请按如下步骤开通：
+如果您还未开通音视频服务，请按如下步骤开通：
 
 <span id="step1"></span>
 
@@ -20,7 +20,7 @@
 
 <span id="step2"></span>
 ## 步骤2：初始化 TUIKit 
-初始化 TUIKit 需要传入 [步骤1](#step1) 生成的 SDKAppID（如果已经集成了 TUIKit，请跳过此步骤）。
+初始化 TUIKit 需要传入 [步骤1](#step1) 生成的 SDKAppID（如果您的项目已经集成了 TUIKit，请跳过此步骤）。
 ```
 TUIKit.init(Context, SDKAppID, new ConfigHelper().getConfigs());
 ```
