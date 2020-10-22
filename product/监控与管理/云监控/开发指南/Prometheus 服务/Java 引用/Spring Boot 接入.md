@@ -1,4 +1,4 @@
-## 场景
+## 操作场景
 
 在使用 Spring Boot 作为开发框架时，需要监控应用的状态，例如 JVM/Spring MVC 等。腾讯云 Prometheus 托管服务基于 Spring Actuator 机制采集 JVM 等数据，结合配套提供的 Grafana Dashboard 可以方便的监控 Spring Boot 应用的状态。
 
@@ -12,14 +12,14 @@
 
 ## 操作步骤
 
-> ?Spring Boot 已经提供了 actuator 组件来对应用进行监控，简化了开发的使用成本，所以这里直接使用 actuator 为 Spring Boot 应用进行监控埋点，基于 Spring Boot 2.0 及以上的版本，低版本会有配置上的差别需要注意。
+> ?Spring Boot 已提供 actuator 组件来对应用进行监控，简化了开发的使用成本，所以这里直接使用 actuator 为 Spring Boot 应用进行监控埋点，基于 Spring Boot 2.0 及以上的版本，低版本会有配置上的差别需要注意。
 
 ### 修改应用的依赖及配置
 
 #### 步骤1：修改 pom 依赖 
 
-项目中已经引用了 `spring-boot-starter-web` 的基础上，在 `pom.xml` 文件中添加 `actuator/prometheus` Maven 依赖项。
-```
+项目中已经引用 `spring-boot-starter-web` 的基础上，在 `pom.xml` 文件中添加 `actuator/prometheus` Maven 依赖项。
+```xml
 <dependency>
   <groupId>org.springframework.boot</groupId>
   <artifactId>spring-boot-starter-actuator</artifactId>
@@ -32,7 +32,7 @@
 
 #### 步骤2：修改配置
 
-在 `resources` 目录下的 `application.yml` 文件中修改 `actuator` 相关的配置来暴露 Prometheus 协议的指标数据。
+编辑 `resources` 目录下的 `application.yml` 文件，修改 `actuator` 相关的配置来暴露 Prometheus 协议的指标数据。
 ```
 management:
   endpoints:
@@ -54,7 +54,7 @@ management:
 
 #### 步骤3：本地验证
 
-在项目当前目录下面，运行 `mvn spring-boot:run` 之后，可以通过 `http://localhost:8080/actuator/prometheus` 访问到 Prometheus 协议的指标数据，说明相关的依赖配置已经正确。
+在项目当前目录下，运行 `mvn spring-boot:run` 之后，可以通过 `http://localhost:8080/actuator/prometheus` 访问到 Prometheus 协议的指标数据，说明相关的依赖配置已经正确。
 
 > ?例子中配置默认配置，对应的端口和路径以实际项目为准。
 
@@ -62,11 +62,11 @@ management:
 
 #### 步骤1：本地配置 Docker 镜像环境
 
-如果本地之前没有配置过 Docker 镜像环境，可以参考【[使用私有镜像仓库管理应用镜像](https://cloud.tencent.com/document/product/457/9117)】，如果已经配置可以直接到下一步。
+如果本地之前未配置过 Docker 镜像环境，可以参考 [镜像仓库基本教程](https://cloud.tencent.com/document/product/457/9117) 进行配置，如果已经配置可以直接执行下一步。
 
 #### 步骤2：打包及上传镜像
 
-1. 在项目根目录下添加 `Dockerfile` ，下面是一个简单的例子，以实际项目需要修改 `Dockerfile` 。
+1. 在项目根目录下添加 `Dockerfile` ，下面是一个简单的例子，实际项目需要修改 `Dockerfile` 。
 ```plaintext
 FROM openjdk:8-jdk
 WORKDIR /spring-boot-demo
@@ -89,11 +89,11 @@ docker push ccr.ccs.tencentyun.com/prom_spring_demo/spring-boot-demo:latest
 #### 步骤3：应用部署
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)，选择需要部署的容器集群。
-通过【工作负载】>【Deployment】进入 `Deployment` 管理页面，选择对应的 `命名空间` 来进行部署服务，这里选择通过控制台的方式创建，同时打开 Service 访问方式，您也可以选择通过命令行的方式创建。
+2. 单击【工作负载】>【Deployment】，进入 Deployment 管理页面，选择对应的命名空间来进行部署服务，这里选择通过控制台的方式创建，同时打开 Service 访问方式，您也可以选择通过命令行的方式创建。
 ![](https://main.qcloudimg.com/raw/396a36fccd6f9c5568bcdac692626114.png)
 ![](https://main.qcloudimg.com/raw/22e6bb4a200f2664a8005f54f977a72b.png)
-2. 为对应的 `Service` 添加 K8S Labels，如果使用命令新建的时候可以把 Labels 直接加上，这里介绍在容器控制台调整配置，选择需要调整的容器集群。
-通过【服务与路由】>【Service】进入 `Service` 管理页面，选择对应的 `命名空间` 来进行调整 `Service Yaml` 配置，如下图。
+2. 为对应的 Service 添加 K8S Labels，如果使用命令方式新建，可以把 Labels 直接加上。这里介绍在容器控制台调整配置，选择需要调整的容器集群。
+单击【服务与路由】>【Service】进入 Service 管理页面，选择对应的命名空间来进行调整 Service Yaml 配置，如下图。
 ![](https://main.qcloudimg.com/raw/fab7f044fdc658a7608214d86eed740e.png)
   ```
   apiVersion: v1
@@ -122,8 +122,8 @@ docker push ccr.ccs.tencentyun.com/prom_spring_demo/spring-boot-demo:latest
 #### 步骤4：添加采取任务
 
 1. 登录 [云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
-2. 通过集成容器服务列表点击【集群 ID】进入到容器服务集成管理页面。
-3. 通过服务发现添加 `Service Monitor`，目前支持基于 `Labels` 发现对应的目标实例地址，所以可以对一些服务添加特定的 `K8S Labels`，这样以后在这个 `Labels` 下的服务都会被 Prometheus 服务自动识别出来，不需要再为每个服务一一添加采取任务，以上面的例子配置信息如下：
+2. 单击集成容器服务列表【集群 ID】，进入到容器服务集成管理页面。
+3. 通过服务发现添加 Service Monitor，目前支持基于 Labels 发现对应的目标实例地址，所以可以对一些服务添加特定的 K8S Labels，配置之后在这个 Labels 下的服务都会被 Prometheus 服务自动识别出来，不需要再为每个服务一一添加采取任务。已该例子配置信息如下：
 > ?这里需要注意的是 `port` 的取值为 `service yaml` 配置文件里的 `spec/ports/name` 对应的值。
 >
 ```
