@@ -83,7 +83,7 @@ Container 类型 ConcatTemplate 的具体数据描述如下：
 
 | 节点名称（关键字）     | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| ConcatFragment      |  Request.Operation.<br/>ConcatTemplate | 拼接节点    | Container 数组    | 是   | 无  | 支持多个文件，按照文件顺序拼接 |
+| Concat<br/>Fragment      |  Request.Operation.<br/>ConcatTemplate | 拼接节点    | Container 数组    | 是   | 无  | 支持多个文件，按照文件顺序拼接 |
 | Audio               |  Request.Operation.<br/>ConcatTemplate | 音频参数，同创建拼接模板中 <br/>Request.ConcatTemplate.Audio  | String    | 是   | 无  | 无 |
 | Video               |  Request.Operation.<br/>ConcatTemplate | 视频参数，同创建拼接模板中<br/>Request.ConcatTemplate.Video  | Container    | 是   | 无  | 无 |
 | Container           |  Request.Operation.<br/>ConcatTemplate | 封装格式，同创建拼接模板中<br/>Request.ConcatTemplate.Container   | Container    | 是   | 无  | 无 |
@@ -93,9 +93,9 @@ Container 类型 ConcatFragment 的具体数据描述如下：
 
 | 节点名称（关键字）     | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Url                 | Request.Operation.<br/>ConcatTemplate.ConcatFragment | 拼接对象地址   | String    | 是   | 无   | 同 bucket 对象文件 |
-| StartTime           | Request.Operation.<br/>ConcatTemplate.ConcatFragment | 开始时间   | String    | 否   | 视频开始   | <li>[0 视频时长] <br/><li>单位为秒 <br/>  |
-| EndTime             | Request.Operation.<br/>ConcatTemplate.ConcatFragment | 结束时间   | String    | 否   | 视频结束   | <li>[0 视频时长] <br/><li>单位为秒 <br/>  |
+| Url                 | Request.Operation.<br/>ConcatTemplate.<br/>ConcatFragment | 拼接对象地址   | String    | 是   | 无   | 同 bucket 对象文件 |
+| StartTime           | Request.Operation.<br/>ConcatTemplate.<br/>ConcatFragment | 开始时间   | String    | 否   | 视频开始   | <li>[0 视频时长] <br/><li>单位为秒 <br/>  |
+| EndTime             | Request.Operation.<br/>ConcatTemplate.<br/>ConcatFragment | 结束时间   | String    | 否   | 视频结束   | <li>[0 视频时长] <br/><li>单位为秒 <br/>  |
 
 Container 类型 Output 的具体数据描述如下：
 
