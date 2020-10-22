@@ -5,7 +5,7 @@ DescribeMediaJob 用于查询指定的任务。
 
 #### 请求示例
 
-```
+```plaintext
 GET /jobs/<jobId> HTTP/1.1
 Host: <BucketName-APPID>.ci.<Region>.myqcloud.com
 Date: <GMT Date>
