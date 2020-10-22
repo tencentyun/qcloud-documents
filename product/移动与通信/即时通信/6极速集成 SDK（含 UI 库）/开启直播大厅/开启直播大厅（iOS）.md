@@ -1,6 +1,6 @@
 >?TUIKit 5.0.10 版本开始基于 TRTC 实现了支持直播功能的 TUIKit_live UI 组件。
 
-在您导入 TUIKit 后，仅需简单的几步就可以快速启用直播功能。如果您还没有导入 TUIKit ，请根据 [步骤2：导入TUIKit](#step2) 中的 pods 方式导入 TUIKit ，默认就会导入 TUIKit_live 直播 UI 组件。
+在您的项目导入 TUIKit 后，仅需简单的几步就可以快速启用直播功能。如果您还没有导入 TUIKit ，请根据 [步骤2：导入TUIKit](#step2) 中的 pods 方式导入 TUIKit ，默认就会导入 TUIKit_live 直播 UI 组件。
 
 TUIKit_live 直播UI组件集成后的直播效果：
 
@@ -200,7 +200,7 @@ anchorVC.delegate = self;
 
 ```objectivec
 - (void)getPKRoomIDList:(TUILiveOnRoomListCallback)callback {
-	/// 如果您创建带PK功能，需要在这个回调通过 callback 返回可以PK的主播房间id数组。
+	/// 如果您创建的房间需要PK功能，在这个回调通过 callback 返回可以PK的主播房间id数组。
    	callback(@[@"12345", @"123456"]);
 }
 ```
