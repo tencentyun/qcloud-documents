@@ -1,4 +1,4 @@
-您可以在腾讯云控制台，查看物理专线、专用通道或专线接入的网络监控数据，帮助您排查网络故障。您还可以通过 API 查看监控信息，详情请参见 [专线接入-物理专线监控指标](https://cloud.tencent.com/document/product/248/35227)。
+您可以在腾讯云控制台，查看物理专线或专用通道的网络监控数据，帮助您排查网络故障。您还可以通过 API 查看监控信息，详情请参见 [专线接入-物理专线监控指标](https://cloud.tencent.com/document/product/248/35227)。
 
 ## 操作步骤
 1. 登录 [专线接入](https://console.cloud.tencent.com/vpc/dc) 控制台。
@@ -11,7 +11,7 @@
       - 网络入带宽：物理专线的平均每秒入流量。
       - 端口丢包：端口每秒丢包的个数。
       - 端口错包：端口每秒错包的个数。
-![](https://main.qcloudimg.com/raw/22d473e940a6dd1b0202585ab2a2e3fa.png)
+ ![](https://main.qcloudimg.com/raw/7309063e57b0df6654c308f36a2fa57d.png)
 3. 查看专用通道网络监控数据。
  1. 在左侧导航栏单击【专用通道】。
  2. 在专用通道列表页面，单击单击目标专用“监控”列的<img width="3%" src="https://main.qcloudimg.com/raw/52d8549cc2412c6527f332a3b88be44d.png"  >。
@@ -31,4 +31,4 @@
     - 入量包：专线网关的平均每秒入包量。
     - 出流量：专线网关的平均每秒出流量。
     - 入流量：专线网关的平均每秒入流量。
-![](https://main.qcloudimg.com/raw/b4b6fd958f17b7c3cd801891f50bacfe.png)
+![](https://main.qcloudimg.com/raw/0567ea3d423edd4eecee6c083b20c249.png)
