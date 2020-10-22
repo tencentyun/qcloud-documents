@@ -11,7 +11,7 @@
 ![](https://main.qcloudimg.com/raw/fb964c6fbeb9e362821c8f2cc0bd9316.png)
 
 ## 方案效果
-- 打破地域防护能力的限制，可具有最大300Gpbs的 DDoS 高防包 DDoS 防护能力。
+- 打破地域防护能力的限制，可具有最大300Gpbs的 DDoS 防护能力。
 - 业务流量使用腾讯云的内网专线进行转发，可靠性高、延迟小。
 - 充分享用腾讯云 DDoS 网络的优势，所有公网 IP 均为 BGP IP，延迟低。
 

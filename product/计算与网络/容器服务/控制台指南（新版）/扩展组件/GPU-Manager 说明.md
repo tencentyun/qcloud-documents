@@ -14,10 +14,10 @@ GPU Manager 提供一个 All-in-One 的 GPU 管理器，基于 Kubernetes Device
 
 在集群内部署 GPU-Manager Add-on，将在集群内部署以下 Kubernetes 对象：
 
-| Kubernetes 对象名称        | 类型         | 默认占用资源 | 所属 Namespaces |
+| Kubernetes 对象名称        | 类型         | 建议预留资源 | 所属 Namespaces |
 | --------------------- | ---------- | ------ | ------------ |
-| gpu-manager-daemonset | DaemonSet  | /      | kube-system  |
-| gpu-quota-admission   | Deployment | /      | kube-system  |
+| gpu-manager-daemonset | DaemonSet  | 每节点 1 核 CPU, 1Gi 内存     | kube-system  |
+| gpu-quota-admission   | Deployment |1 核 CPU, 1Gi 内存       | kube-system  |
 
 ## 使用场景
 
@@ -28,25 +28,26 @@ GPU Manager 提供一个 All-in-One 的 GPU 管理器，基于 Kubernetes Device
 -  每张 GPU 卡一共有100个单位的资源，仅支持0 - 1的小数卡，以及1的倍数的整数卡设置。显存资源是以256MiB为最小的一个单位的分配显存。
 - 使用 GPU-Manager 要求集群内包含 GPU 机型节点。
 
+
+
 ## 使用方法
 
 ### 组件安装
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
-2. 在“扩展组件”管理页面上方，选择地域及需安装 GPU-Manage 的集群，并单击【新建】。如下图所示：
-![](https://main.qcloudimg.com/raw/d087e46c782e0fe391bb0abd7d2af71d.png)
-3. 在“新建扩展组件”页面，选择【GpuManagerr 组件】后，单击【完成】即可安装成功。
 
-
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【集群】。
+2. 在“集群管理”页面上方选择目标集群所在地域下的集群 ID，进入集群详情页。
+3. 在集群详情页左侧导航栏中单击【组件管理】，进入【组件管理】页面。
+4. 在“组件管理”页面，单击【新建】，进入【新建组件】页面。
+5. 在“新建组件”页面，选择【GpuManager 组件】，单击【完成】即可安装成功。
 
 ### 创建细粒度的 GPU 工作负载
-当 GPU-Manage 组件成功安装后，您可通过以下两种方式创建细粒度的 GPU 工作负载。
+当 GpuManager 组件成功安装后，您可通过以下两种方式创建细粒度的 GPU 工作负载。
 
 #### 方式一：通过 TKE 控制台创建
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
 2. 选择需要创建 GPU 应用的集群，进入工作负载管理页，并单击【新建】。
-3. 在“新建Workload”页面根据实际需求进行配置，可在“GPU限制”配置细粒度的 GPU 工作负载。如下图所示：
-![](https://main.qcloudimg.com/raw/1158f1e99e049a83c48692e19ae6aa6b.png)
-
+3. 在“新建Workload”页面根据实际需求进行配置，可在“GPU资源”配置细粒度的 GPU 工作负载。如下图所示：
+![](https://main.qcloudimg.com/raw/044d6ab9a8c17611f761024c26b6dfde.png)
 
 #### 方式二：通过 yaml 创建
 >?在提交时通过 yaml 为容器设置 GPU 的使用资源，核资源需要在 resource 上填写 `tencent.com/vcuda-core`，显存资源需要在 resource 上填写 `tencent.com/vcuda-memory`。
