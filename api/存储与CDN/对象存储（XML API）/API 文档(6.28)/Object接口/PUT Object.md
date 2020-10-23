@@ -39,16 +39,16 @@ Authorization: Auth String
 
 此接口除使用公共请求头部外，还支持以下请求头部，了解公共请求头部详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-| 名称                | 描述                                                         | 类型   | 是否必选 |
-| ------------------- | ------------------------------------------------------------ | ------ | -------- |
-| Cache-Control       | RFC 2616 中定义的缓存指令，将作为对象元数据保存              | string | 否       |
-| Content-Disposition | RFC 2616 中定义的文件名称，将作为对象元数据保存              | string | 否       |
-| Content-Encoding    | RFC 2616 中定义的编码格式，将作为对象元数据保存              | string | 否       |
-| Content-Type        | RFC 2616 中定义的 HTTP 请求内容类型（MIME），此头部用于描述待上传对象的内容类型，将作为对象元数据保存。<br>例如`text/html`或`image/jpeg` | string | 是       |
-| Expires             | RFC 2616 中定义的缓存失效时间，将作为对象元数据保存          | string | 否       |
-| Transfer-Encoding   | 如果希望在上传时分块传输，则指定 Transfer-Encoding: chunked 请求头部，此时请求体遵循 RFC 2616 中定义的传输编码格式，且不能指定 Content-Length 请求头部 | string | 否       |
-| x-cos-meta-\*       | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为对象元数据保存，大小限制为2KB<br>**注意：**用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-） | string | 否       |
-| x-cos-storage-class | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD，MAZ_STANDARD_IA，STANDARD_IA，ARCHIVE。默认值：STANDARD | Enum   | 否       |
+| 名称                | 描述                                                         | 类型    | 是否必选 |
+| ------------------- | ------------------------------------------------------------ | ------- | -------- |
+| Cache-Control       | RFC 2616 中定义的缓存指令，将作为对象元数据保存              | string  | 否       |
+| Content-Disposition | RFC 2616 中定义的文件名称，将作为对象元数据保存              | string  | 否       |
+| Content-Encoding    | RFC 2616 中定义的编码格式，将作为对象元数据保存              | string  | 否       |
+| Content-Type        | RFC 2616 中定义的 HTTP 请求内容类型（MIME），此头部用于描述待上传对象的内容类型，将作为对象元数据保存。<br>例如`text/html`或`image/jpeg` | string  | 是       |
+| Expires             | RFC 2616 中定义的缓存失效时间，将作为对象元数据保存          | string  | 否       |
+| Transfer-Encoding   | 如果希望在上传时分块传输，则指定 Transfer-Encoding: chunked 请求头部，此时请求体遵循 RFC 2616 中定义的传输编码格式，且不能指定 Content-Length 请求头部 | string  | 否       |
+| x-cos-meta-\*       | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为对象元数据保存，大小限制为2KB<br>**注意：**用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-） | string  | 否       |
+| x-cos-storage-class | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD，MAZ_STANDARD_IA，INTELLIGENT_TIERING，MAZ_INTELLIGENT_TIERING，STANDARD_IA，ARCHIVE，DEEP_ARCHIVE。默认值：STANDARD | Enum    | 否       |
 | x-cos-traffic-limit | 针对本次上传进行流量控制的限速值，必须为数字，单位默认为 bit/s。限速值设置范围为819200 - 838860800，即100KB/s - 100MB/s，如果超出该范围将返回400错误 | integer | 否       |
 
 **访问控制列表（ACL）相关头部**

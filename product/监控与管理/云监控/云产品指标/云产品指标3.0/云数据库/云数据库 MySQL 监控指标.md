@@ -71,8 +71,8 @@ Namespace=QCE/CDB
 | TableLocksImmediate          | 立即释放的表锁数                         | 立即释放的表锁个数                                           | 个      | InstanceId、InstanceType |
 | OpenFiles                    | 打开文件总数                             | 当前数据库打开文件总数                                       | 个      | InstanceId、InstanceType |
 | LogCapacity                  | 日志使用量                               | 当前数据库日志使用量                                         | MB      | InstanceId、InstanceType |
-| SlaveIoRunning               | IO 线程状态                               | Slave下 IO 线程状态                                          | —       | InstanceId、InstanceType |
-| SlaveSqlRunning              | SQL 线程状态                              | Slave下 ISQL 线程状态                                         | —       | InstanceId、InstanceType |
+| SlaveIoRunning               | IO 线程状态                               | Slave 下 IO 线程状态                                          | —       | InstanceId、InstanceType |
+| SlaveSqlRunning              | SQL 线程状态                              | Slave 下 SQL 线程状态                                         | —       | InstanceId、InstanceType |
 | MasterSlaveSyncDistance      | 主从延迟距离                             | 主从 binlog 差距                                             | MB      | InstanceId、InstanceType |
 | SecondsBehindMaster          | 主从延迟时间                             | 主从延迟时间                                                 | MB      | InstanceId、InstanceType |
 

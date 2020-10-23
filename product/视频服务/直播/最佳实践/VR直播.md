@@ -29,8 +29,8 @@
 1. 开通腾讯云直播服务。
 2. 已添加推流域名和播放域名，具体操作请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
 3. 一台已经连接好的“Insta360 Pro 2”相机，具体连接操作步骤可参见 [Insta360 Pro 2 说明书](https://onlinemanual.insta360.com/pro2/zh-cn/live/prepare/3)。
-4. 通过[【Insta360 官网】](http://insta360.com/download/insta360-pro2?locale=zh-cn)下载 Android/iOS 手机端、Windows 端 或 Mac 端的相机控制软件。
- ![](https://main.qcloudimg.com/raw/d36bcf1b1f00c2b85889ef04f538530e.png)
+4. 通过[【Insta360 官网】](https://www.insta360.com/cn/download/insta360-pro2?locale=zh-cn#pro_download)下载 Android/iOS 手机端、Windows 端 或 Mac 端的相机控制软件。
+ ![](https://main.qcloudimg.com/raw/e15c63657c22d51cc3e934e6ceb07d87.png)
 5. 软件下载完成之后需要对相机进行调试，调试方法参见 [基础拍摄准备-相机调试](https://onlinemanual.insta360.com/pro2/zh-cn/basic/prepare/adjustment)。
 
 
@@ -76,8 +76,8 @@
 ## 步骤2：直播播放
 1. 通过云直播控制台的【地址生成器】生成对应流的播放地址，具体操作请参见 [生成播放域名](https://cloud.tencent.com/document/product/267/35257#play)。
 >?播放地址 StreamName 要与推流地址 StreamName 一致才能播放对应的流。
-2. 通过[【Insta360 官网】](https://www.insta360.com/download/insta360-one)下载 Android/iOS 手机端、Windows 端或 Mac 端的全景视频播放器软件。
-![](https://main.qcloudimg.com/raw/a63a315890bb83f4cab383656a3c72a9.png)
+2. 通过[【Insta360 官网】](https://www.insta360.com/cn/download/insta360-one#player_download)下载 Android/iOS 手机端、Windows 端或 Mac 端的全景视频播放器软件。
+![](https://main.qcloudimg.com/raw/9518ff89ab105b27e15bdc7a86f71905.png)
 3. 进入【Insta360 Player】界面，选择【文件】>【播放流媒体】。
 ![](https://main.qcloudimg.com/raw/d6faa10c3236315ca585d320e8f461ea.png)
 4. 填写【播放地址】，单击【观看】开始播放。如播放地址可正常拉流，则会直接播放。

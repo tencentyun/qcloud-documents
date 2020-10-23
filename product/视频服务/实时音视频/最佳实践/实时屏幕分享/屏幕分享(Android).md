@@ -12,7 +12,15 @@
 |  &#10003; |  &#10003; |  &#10003;  |&#10003;  |   &#10003;  |   ×   |  &#10003;  |
 
 ## 启动屏幕分享
-要开启 Android 端的屏幕分享，只需调用 `TRTCCloud` 中的  [startScreenCapture()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa6671fc587513dad7df580556e43be58) 接口即可。但如果要达到稳定和清晰的分享效果，您需要关注如下两个问题：
+要开启 Android 端的屏幕分享，只需调用 `TRTCCloud` 中的  [startScreenCapture()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa6671fc587513dad7df580556e43be58) 接口即可。但如果要达到稳定和清晰的分享效果，您需要关注如下三个问题：
+
+#### 添加 Activity
+在 manifest 文件中粘贴如下 activity（若项目代码中存在则不需要添加）。
+```xml
+<activity 
+    android:name="com.tencent.rtmp.video.TXScreenCapture$TXScreenCaptureAssistantActivity" 
+    android:theme="@android:style/Theme.Translucent"/>
+```
 
 #### 设定视频编码参数
 通过设置 [startScreenCapture()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa6671fc587513dad7df580556e43be58)  中的首个参数 `encParams` ，您可以指定屏幕分享的编码质量。如果您指定 `encParams` 为 null，SDK 会自动使用之前设定的编码参数，我们推荐的参数设定如下：
@@ -59,8 +67,14 @@ public void showView(View view, int width, int height) {
 答案很简单：只需要在屏幕上悬浮一个摄像头画面即可，这样一来，TRTC 在采集屏幕画面的同时也会将摄像头画面一并分享出去。
 
 ## 观看屏幕分享
-当房间里有一个用户启动了屏幕分享，房间里的其他用户会通过  `TRTCCloudListener` 中的 [onUserSubStreamAvailable](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#a80bcaac82e5372245746a4bc63656390) 事件 获得这个通知。
-希望观看屏幕分享的用户可以通过 [startRemoteSubStreamView](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#acdbe3829d20f58cedd5a0c2f49ea24dc) 接口来启动渲染远端用户辅流画面。
+- **观看 Mac / Windows 屏幕分享**
+  当房间里有一个 Mac / Windows 用户启动了屏幕分享，会通过辅流进行分享。房间里的其他用户会通过 TRTCCloudDelegate 中的 [onUserSubStreamAvailable](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a15be39bb902bf917321b26701e961286) 事件获得这个通知。
+  希望观看屏幕分享的用户可以通过 [startRemoteSubStreamView](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ae029514645970e7d32470cf1c7aca716) 接口来启动渲染远端用户辅流画面。
+
+- **观看 Android / iOS 屏幕分享**
+  若用户通过 Android / iOS 进行屏幕分享，会通过主流进行分享。房间里的其他用户会通过 TRTCCloudDelegate 中的 [onUserVideoAvailable](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#ac1a0222f5b3e56176151eefe851deb05) 事件获得这个通知。
+  希望观看屏幕分享的用户可以通过 [startRemoteView](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a57541db91ce032ada911ea6ea2be3b2c) 接口来启动渲染远端用户主流画面。
+
 
 ```java
 //示例代码：观看屏幕分享的画面

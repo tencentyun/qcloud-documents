@@ -1258,21 +1258,6 @@ NSString * snapshot_path = @"/xxx/snapshot.jpg";
 @end
 ```
 
-### 消息删除
-
-目前暂不支持 Server 消息删除，只能在本地删除，通过这种方法删除的消息，仅是本地打上删除的标记，并未真正删除，在程序没有卸载的情况下通过`getMessage`也不会返回已经被标记为删除的消息。
-
-```
-@interface TIMMessage : NSObject
-/**
- *  删除消息：注意这里仅修改状态
- *
- *  @return TRUE 成功
- */
--(BOOL) remove;
-@end
-```
-
 ### 消息 ID
 
 消息 ID 分为两种，一种是当消息生成时，就已经固定（`msgId`），这种方式可能跟其他用户产生的消息冲突，需要再加一个时间维度，可以认为10分钟以内的消息可以使用 `msgId` 区分。另外一种，当消息发送成功以后才能固定下来（`uniqueId`），这种方式能保证全局唯一。这两种方式都需要在同一个会话内判断。
@@ -1504,30 +1489,25 @@ fail | 失败回调
 
 ### 删除会话
 
-删除会话有两种方式，一种只删除会话，但保留了所有消息，另一种在删除会话的同时，也删除掉会话相关的消息。可以根据不同应用场景选择合适的方式。另外需要注意的是，如果删除本地消息，对于群组，通过 `getMessage` 会拉取到漫游消息，所以存在删除消息成功，但是拉取到消息的情况，取决于是否重新从漫游拉回到本地。如果不需要拉取漫游，可以通过 `getLocalMessage` 获取消息，或者只通过 `getMessage` 拉取指定条数（如未读条数数量）的消息。其中 `deleteConversation` 仅删除会话，`deleteConversationAndMessages` 删除会话以及消息。
+删除会话的同时 IM SDK 会删除该会话的本地和漫游消息，会话和消息删除后，无法再恢复。
 
 **原型：**
 
 ```
 @protocol TIMManager : NSObject
 /**
- *  删除会话
  *
- *  @param type 会话类型，TIM_C2C 表示单聊 TIM_GROUP 表示群聊
- *  @param receiver    用户identifier 或者 群组 ID
+ *  删除会话的同时会把会话的漫游消息从本地和后台都删除。
  *
- *  @return TRUE:删除成功  FALSE:删除失败
+ *  @param type 会话类型，详情请参考 TIMComm.h 里面的 TIMConversationType 定义
+ *  @param conversationId 会话 Id
+ *                        单聊类型（C2C）   ：为对方 userID；
+ *                        群组类型（GROUP） ：为群组 groupId；
+ *                        系统类型（SYSTEM）：为 @""
+ *
+ *  @return YES:删除成功；NO:删除失败
  */
--(BOOL) deleteConversation:(TIMConversationType)type receiver:(NSString*)receiver;
-/**
- *  删除会话和消息
- *
- *  @param type 会话类型，TIM_C2C 表示单聊 TIM_GROUP 表示群聊
- *  @param receiver    用户 identifier 或者 群组 ID
- *
- *  @return TRUE：删除成功  FALSE：删除失败
- */
--(BOOL) deleteConversationAndMessages:(TIMConversationType)type receiver:(NSString*)receiver;
+- (BOOL)deleteConversation:(TIMConversationType)type receiver:(NSString*)conversationId;
 @end
 ```
 
@@ -1536,7 +1516,7 @@ fail | 失败回调
 参数|说明
 ---|---
 type|会话类型，如果是单聊，填写 TIM_C2C，如果是群聊，填写 TIM_GROUP
-receiver|会话标识，单聊情况下，receiver 为对方用户 identifier，群聊情况下，receiver 为群组 ID
+conversationId|会话标识，单聊情况下，receiver 为对方用户 identifier，群聊情况下，receiver 为群组 ID
 
 示例中删除好友『iOS_002』的 C2C 会话。**示例：**
 
@@ -1661,23 +1641,23 @@ UI 展示最近联系人列表时，时常会展示用户的草稿内容，在2.
 ---|---
 draft | 需要设置的草稿 ，需要清空会话草稿时传入 nil
 
-### 删除本地会话消息
+### 删除会话消息
 
-IM SDK 支持保留会话同时删除本地的会话消息。**再次拉取消息时群组类型会话会从服务器重新拉取到消息**。
+IM SDK 支持删除会话的本地及漫游消息，消息删除后，无法再恢复。
 
 **原型：**
 
 ```
 @interface TIMConversation : NSObject
 /**
- *  删除本地会话消息
+ *  删除当前会话的本地及漫游消息
  *
  *  @param succ  成功时回调
  *  @param fail  失败时回调
  *
  *  @return 0 本次操作成功
  */
--(int) deleteLocalMessage:(TIMSucc)succ fail:(TIMFail)fail;
+- (int)deleteMessages:(NSArray<TIMMessage *>*)msgList succ:(TIMSucc)succ fail:(TIMFail)fail;
 @end
 ```
 
@@ -1685,6 +1665,7 @@ IM SDK 支持保留会话同时删除本地的会话消息。**再次拉取消
 
 参数|说明
 ---|---
+msgList | 需要删除的消息列表
 succ | 成功回调
 fail | 失败回调
 
@@ -1793,3 +1774,4 @@ IM SDK 在 3.1.0 版本开始提供撤回消息的接口。可以通过调用 `T
 - **群事件消息：**当群资料变更，如群名变更或者群内成员变更，在群里会有系统发出一条群事件消息，开发者可在收到消息时可选择是否展示给用户，同时可刷新群资料或者群成员。详细内容可参阅：[群组管理-群事件消息](/doc/product/269/群组管理（iOS%20SDK）#.E7.BE.A4.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF)。
 
 - **群系统消息：**当被管理员踢出群组，被邀请加入群组等事件发生时，系统会给用户发出群系统消息，相关细节可参阅 [群组管理-群系统消息](/doc/product/269/群组管理（iOS%20SDK）#.E7.BE.A4.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF)。
+

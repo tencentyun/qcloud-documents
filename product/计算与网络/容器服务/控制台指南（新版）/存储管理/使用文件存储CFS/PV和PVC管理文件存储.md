@@ -6,14 +6,13 @@
 
 ## 准备工作
 ### 安装文件存储扩展组件
->?
->- 使用扩展组件功能前需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
->- 若您的集群已安装 CFS-CSI 的扩展组件，则请跳过此步骤。
+>? 若您的集群已安装 CFS-CSI 的扩展组件，则请跳过此步骤。
 >
-1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
-2. 在“扩展组件”管理页面上方选择需使用文件存储扩展组件的集群及其所在地域，并单击【新建】。
-3. 在“新建扩展组件”页面，选择【CFS 腾讯云文件存储】并单击【完成】即可。
-
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+2. 单击左侧导航栏中的【集群】，进入【集群管理】页面。
+3. 选择需新建组件的集群 ID，进入【集群详情】页面。
+4. 在“集群详情页”，选择【组件管理】>【新建】，进入【新建组件】页面。
+5. 在“新建组件”页面，勾选【CFS（腾讯云文件存储）】并单击【完成】即可。
 
 ### 通过控制台创建 StorageClass<span id="createStorageClass"></span>
 由于静态创建文件存储类型的 PV 时，需要绑定同类型可用 StorageClass，请参考 [通过控制台创建 StorageClass](https://cloud.tencent.com/document/product/457/44235#.E6.8E.A7.E5.88.B6.E5.8F.B0.E6.93.8D.E4.BD.9C.E6.8C.87.E5.BC.95) 完成创建。
