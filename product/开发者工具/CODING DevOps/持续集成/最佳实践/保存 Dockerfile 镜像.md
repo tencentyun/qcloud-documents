@@ -1,14 +1,14 @@
-本文为您详细介绍如何使用持续集成插件调取已录入的凭据。
+本文为您详细介绍如何在持续集成中保存 Dockerfile 镜像用于下次构建任务。
 
 ## 前提条件
 
-设置 CODING 持续集成插件的前提：您的腾讯云账号需要开通 CODING DevOps 服务，详情请参见 [开通服务](https://cloud.tencent.com/document/product/1115/37268)。
+使用 CODING 持续集成的前提是，您的腾讯云账号需要开通 CODING DevOps 服务，详情请参见  [开通服务](https://cloud.tencent.com/document/product/1115/37268)。
 
-## 进入持续集成
+## 进入项目
 
 1. 登录 [CODING 控制台](https://console.cloud.tencent.com/coding)，单击团队域名进入 CODING 使用页面。
-2. 单击页面右上角的 <img src ="https://main.qcloudimg.com/raw/d94a8e60dd3a41d0af07d72ae0e9d70e.png" style ="margin:0">，进入项目列表页面，点击项目图标进入目标项目。
-3. 进入左侧菜单中的【持续集成】>【构建计划】。
+2. 单击页面右上角的 <img src ="https://main.qcloudimg.com/raw/d94a8e60dd3a41d0af07d72ae0e9d70e.png" style ="margin:0">，进入项目列表页面，单击项目图标进入目标项目。
+3. 进入项目后点击左下角的《项目设置》。
 
 ## 功能介绍
 
@@ -18,7 +18,7 @@
 
 在 CODING 持续集成任务构建过程当中，如果将 Github 的账号密码等重要信息硬编码在配置文件内，将会有极大的安全隐患。通过 CODING 的[凭据管理](/docs/project/features/credential.html)功能，将凭据 ID 写入配置文件中进行服务调用。在接下来的插件功能使用中，请确保您已将凭据托管至 CODING 中。
 
-### 快速开始
+## 快速开始
 
 下面以调取凭据管理中的云 API 密钥为例，演示如何使用 Jenkinsfile 配置快速调取已录入的凭据。
 
@@ -32,7 +32,7 @@
 
 3.  在构建于部署中新建计划列表，并填写相应的 Jenkinsfile 配置
 
-### Jenkinsfile 配置
+## Jenkinsfile 配置
 
 ```groovy
 pipeline {
@@ -60,7 +60,7 @@ pipeline {
 
 ![](https://help-assets.codehub.cn/enterprise/20200925113410.png)
 
-### 参数说明
+## 参数说明
 
 | 参数名称              | 是否必填 | 默认值 | 说明                             |
 |-------------------|------|-----|--------------------------------|
