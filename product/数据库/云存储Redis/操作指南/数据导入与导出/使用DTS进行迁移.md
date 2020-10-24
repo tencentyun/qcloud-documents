@@ -17,7 +17,7 @@
 
 #### 支持版本
 - DTS 迁移服务支持的版本包括 Redis 2.8、3.0、3.2、4.0、5.0。
-- 支持的架构包括单节点、redis cluster、codis、tewmproxy。
+- 支持的架构包括单节点、redis cluster、codis、twemproxy。
 - 迁移权限要求：DTS 迁移数据需要源实例支持 SYNC 或者 PSYNC 命令。
 
 #### 支持网络
@@ -114,8 +114,8 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
 | 实例 ID | 目标实例 ID |同步数据到目标实例 | 是 |
 
 **集群版迁移说明**
-DTS 服务支持 Redis 集群版迁移，不论是 Redis Cluster、Codis 或者是 tewmproxy 架构的集群方案，只需要在 DTS 任务创建的节点信息中，将原集群的所有分片节点地址以及密码填入节点信息即可，强烈建议从源实例的副本节点（从节点）进行数据迁移，避免影响源实例的业务访问。DTS支持无密码迁移，迁移填充信息参考如下：
-![](https://main.qcloudimg.com/raw/08cd54d22beabddfec6e4e3ef72d1cca.png)
+DTS 服务支持 Redis 集群版迁移，不论是 Redis Cluster、Codis 或者是 twemproxy 架构的集群方案，只需要在 DTS 任务创建的节点信息中，将原集群的所有分片节点地址以及密码填入节点信息即可，强烈建议从源实例的副本节点（从节点）进行数据迁移，避免影响源实例的业务访问。DTS支持无密码迁移，迁移填充信息参考如下：
+![](https://main.qcloudimg.com/raw/23a1465fd8c26cd250c853971970548a.png)
 
 ### 4. 启动迁移任务
 1）网络连通性测试成功，单击【保存】。

@@ -21,7 +21,9 @@
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
 2. 单击【立即开始】，输入应用名称，例如`TestVoiceRoom` ，单击【创建应用】。
 
->?本功能需同时使用 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PAAS 服务，开通实时音视频后会同步开通即时通信 IM 服务。
+>?本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PAAS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
+
+
 
 <span id="ui.step2"></span>
 ### 步骤2：下载 SDK 和 Demo 源码
@@ -169,12 +171,11 @@ self.voiceRoom.setSelfProfile(userName: userName, avatarUrl: avatarURL) { (code,
     // 结果回调           
 }
 
-// 2.主播开播前预览并设置美颜参数
+// 2.主播端创建房间
 let param = VoiceRoomParam.init()
-param.roomName = roomInfo.roomName
-param.needRequest = roomInfo.needRequest
-param.seatCount = roomInfo.memberCount
-param.coverUrl = roomInfo.coverUrl
+param.roomName = "房间名称"
+param.needRequest = true // 观众上麦是否需要主播同意
+param.coverUrl = "封面URL"
 param.seatCount = 7 // 房间座位数，这里一共7个座位，房主占了一个后观众剩下6个座位
 param.seatInfoList = []
 for _ in 0..<param.seatCount {
@@ -191,15 +192,6 @@ self.voiceRoom.createRoom(roomID: yourRoomID, roomParam: param) { (code, message
         } else {
             // 房主占座失败
         }
-    }
-}
-
-// 3.主播创建房间
-let param = TRTCCreateRoomParam(roomName: "测试房间", coverUrl: "")
-mLiveRoom.createRoom(roomID: 123456789, roomParam: param) { [weak self] (code, error) in
-    if code == 0 {
-        // 4.主播开启推流并将流发布到 CDN
-        self?.mLiveRoom.startPublish(streamID: mSelfUserId + "_stream", callback: nil)
     }
 }
 

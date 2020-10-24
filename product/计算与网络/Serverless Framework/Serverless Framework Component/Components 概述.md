@@ -13,9 +13,9 @@ Serverless Components 可以通过非常简单的`serverless.yml`创建和部署
 
 ### Serverless Framework Components 最佳实践
 
-- [@serverless/tencent-scf](https://github.com/serverless-components/tencent-scf/tree/v2/) - 腾讯云云函数组件
-- [@serverless/tencent-express](https://github.com/serverless-components/tencent-express/tree/v2/) - 快速部署基于 Express.js 的后端服务到腾讯云函数的组件
-- [@serverless/tencent-website](https://github.com/serverless-components/tencent-website/tree/v2/) - 快速部署静态网站到腾讯云的组件
+- [@serverless/tencent-scf](https://github.com/serverless-components/tencent-scf/tree/master/) - 腾讯云云函数组件
+- [@serverless/tencent-express](https://github.com/serverless-components/tencent-express/tree/master/) - 快速部署基于 Express.js 的后端服务到腾讯云函数的组件
+- [@serverless/tencent-website](https://github.com/serverless-components/tencent-website/tree/master/) - 快速部署静态网站到腾讯云的组件
 
 
 ### Serverless Components 支持列表
@@ -23,33 +23,26 @@ Serverless Components 可以通过非常简单的`serverless.yml`创建和部署
 当前 Serverless Components 支持丰富的多语言开发框架和应用，具体如下：
 
 **基础组件**：
--  [@serverless/tencent-postgresql](https://github.com/serverless-components/tencent-postgresql/tree/v2) - 腾讯云 PG DB Serverless 数据库组件
+-  [@serverless/tencent-postgresql](https://github.com/serverless-components/tencent-postgresql/tree/master) - 腾讯云 PG DB Serverless 数据库组件
 - [@serverless/tencent-apigateway](https://github.com/serverless-components/tencent-apigateway) - 腾讯云 API 网关组件
 - [@serverless/tencent-cos](https://github.com/serverless-components/tencent-cos) - 腾讯云对象存储组件
-- [@serverless/tencent-scf](https://github.com/serverless-components/tencent-scf/tree/v2) - 腾讯云云函数组件
+- [@serverless/tencent-scf](https://github.com/serverless-components/tencent-scf/tree/master) - 腾讯云云函数组件
 - [@serverless/tencent-cdn](https://github.com/serverless-components/tencent-cdn) - 腾讯云 CDN 组件
-- [@serverless/tencent-cam-role](https://github.com/serverless-components/tencent-cam-role) - 腾讯云 CAM 角色组件
-- [@serverless/tencent-cam-policy](https://github.com/serverless-components/tencent-cam-policy) - 腾讯云 CAM 策略组件
-- [@serverless/tencent-vpc](https://github.com/serverless-components/tencent-vpc/tree/v2) - 腾讯云 VPC 私有网络组件
-- [@serverless/tencent-ssl](https://github.com/serverless-tencent/tencent-ssl) - 腾讯云 SSL 证书组件
+- [@serverless/tencent-vpc](https://github.com/serverless-components/tencent-vpc/tree/master) - 腾讯云 VPC 私有网络组件
 
 
 
 **高阶组件**：
-- [@serverless/tencent-nextjs](https://github.com/serverless-components/tencent-nextjs/tree/v2) - 快速部署基于 Next.js 框架到腾讯云函数的组件
-- [@serverless/tencent-nuxtjs](https://github.com/serverless-components/tencent-nuxtjs/tree/v2) - 快速部署基于 Nuxt.js 框架到腾讯云函数的组件
-- [@serverless/tencent-express](https://github.com/serverless-components/tencent-express/tree/v2) - 快速部署基于 Express.js 的后端服务到腾讯云函数的组件
-- [@serverless/tencent-egg](https://github.com/serverless-components/tencent-egg/tree/v2) - 快速部署基于 Egg.js 的后端服务到腾讯云函数的组件
-- [@serverless/tencent-koa](https://github.com/serverless-components/tencent-koa/tree/v2) - 快速部署基于 Koa.js 的后端服务到腾讯云函数的组件
+- [@serverless/tencent-nextjs](https://github.com/serverless-components/tencent-nextjs/tree/master) - 快速部署基于 Next.js 框架到腾讯云函数的组件
+- [@serverless/tencent-nuxtjs](https://github.com/serverless-components/tencent-nuxtjs/tree/master) - 快速部署基于 Nuxt.js 框架到腾讯云函数的组件
+- [@serverless/tencent-express](https://github.com/serverless-components/tencent-express/tree/master) - 快速部署基于 Express.js 的后端服务到腾讯云函数的组件
+- [@serverless/tencent-egg](https://github.com/serverless-components/tencent-egg/tree/master) - 快速部署基于 Egg.js 的后端服务到腾讯云函数的组件
+- [@serverless/tencent-koa](https://github.com/serverless-components/tencent-koa/tree/master) - 快速部署基于 Koa.js 的后端服务到腾讯云函数的组件
 - [@serverless/tencent-flask](https://github.com/serverless-components/tencent-flask) - 腾讯云 Python Flask RESTful API 组件
-- [@serverless/tencent-django](https://github.com/serverless-tencent/tencent-django/tree/v2) - 腾讯云 Python Django RESTful API 组件
-- [@serverless/tencent-tornado](https://github.com/serverless-tencent/tencent-tornado) - 腾讯云 Python Tornado RESTful API 组件
-- [@serverless/tencent-pyramid](https://github.com/serverless-tencent/tencent-pyramid) - 腾讯云 Python Pyramid RESTful API 组件
-- [@serverless/tencent-bottle](https://github.com/serverless-tencent/tencent-bottle) - 腾讯云 Python Bottle RESTful API 组件
+- [@serverless/tencent-django](https://github.com/serverless-tencent/tencent-django/tree/master) - 腾讯云 Python Django RESTful API 组件
 - [@serverless/tencent-laravel](https://github.com/serverless-components/tencent-laravel) - 腾讯云 PHP Laravel RESTful API 组件
 - [@serverless/tencent-thinkphp](https://github.com/serverless-components/tencent-thinkphp) - 腾讯云 ThinkPHP RESTful API 组件
-- [@serverless/tencent-website](https://github.com/serverless-components/tencent-website/tree/v2) - 快速部署静态网站到腾讯云的组件
-- [@serverless/serverless-global](https://github.com/serverless-tencent/serverless-global) - 管理全局变量的组件
+- [@serverless/tencent-website](https://github.com/serverless-components/tencent-website/tree/master) - 快速部署静态网站到腾讯云的组件
 
 **第三方贡献**：
 - [@authing/serverless-oidc](https://github.com/Authing/serverless-oidc) - 快速部署基于 Authing 的身份认证组件

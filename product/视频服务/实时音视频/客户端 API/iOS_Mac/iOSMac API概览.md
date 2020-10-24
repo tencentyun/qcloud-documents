@@ -20,6 +20,8 @@
 | [connectOtherRoom](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a062bc48550b479a6b7c1662836b8c4a5) | 请求跨房通话（主播 PK）。 |
 | [disconnectOtherRoom](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#abd656e4c9b6a01231810ae897627e9bc) | 退出跨房通话。 |
 | [setDefaultStreamRecvMode](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ada2e2155e0e7c3001c6bb6dca1d93048) | 设置音视频数据接收模式，需要在进房前设置才能生效。 |
+| [createSubCloud](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a6100a5f395442d38ce9adab922382caf) | 创建子 [TRTCCloud](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#interfaceTRTCCloud) 实例。 |
+| [destroySubCloud](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a19e0d7921ac494fb588a4654d97abe86) | 销毁子 [TRTCCloud](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#interfaceTRTCCloud) 实例。 |
 
 
 ### CDN 相关接口函数
@@ -39,9 +41,12 @@
 |-----|-----|
 | [startLocalPreview](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a3fc1ae11b21944b2f354db258438100e) | 开启本地视频的预览画面 (iOS 版本)。 |
 | [startLocalPreview](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a3fc1ae11b21944b2f354db258438100e2) | 开启本地视频的预览画面 (Mac 版本)。 |
+| [updateLocalView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#abf20f249b4b43fff64f944b4aefe54cb) | 更新本地视频预览画面的窗口。 |
 | [stopLocalPreview](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a01ee967e3180a5e2fc0e37e9e99e85b3) | 停止本地视频采集及预览。 |
 | [muteLocalVideo](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#af85ea151beebda2f86c3802f3a6a9e82) | 暂停/恢复推送本地的视频数据。 |
+| [setVideoMuteImage](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ad730c168c066599b6c4c987fd7b7c3a2) | 设置暂停推送本地视频时要推送的图片。 |
 | [startRemoteView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#af85283710ba6071e9fd77cc485baed49) | 开始显示远端视频画面。 |
+| [updateRemoteView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa27f954e6301fb57a143b27429b63d87) | 更新远端视频画面的窗口。 |
 | [stopRemoteView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2b7e96e4b527798507ff743c61a6a066) | 停止显示远端视频画面，同时不再拉取该远端用户的视频数据流。 |
 | [stopAllRemoteView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aaa75cd1b98c226bb7b8a19412b204d2b) | 停止显示所有远端视频画面，同时不再拉取远端用户的视频数据流。 |
 | [muteRemoteVideoStream](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aaf4376c4822aa9924733f8f165f17683) | 暂停/恢复接收指定的远端视频流。 |
@@ -111,12 +116,15 @@
 | [setCurrentMicDevice](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a5141fec83e7f071e913bfc539c193ac6) | 设置要使用的麦克风。 |
 | [getCurrentMicDeviceVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#af69d237159163eebcb6876e767d7692e) | 获取当前麦克风设备音量。 |
 | [setCurrentMicDeviceVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aaa6810f64c153e779697dc2d5bd30f6a) | 设置麦克风设备的音量。 |
+| [setCurrentMicDeviceMute](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a88569e62fe75b7ea98cc012169f22bfe) | 设置系统当前麦克风设备的静音状态。 |
+| [getCurrentMicDeviceMute](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ae9c936081b96348ce047337a1d3bb7b0) | 获取系统当前麦克风设备是否静音。 |
 | [getSpeakerDevicesList](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a0267678df702f119b8124ed31533d74a) | 获取扬声器设备列表。 |
 | [getCurrentSpeakerDevice](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a6ba78519e9c98c1eecd365154882d53f) | 获取当前的扬声器设备。 |
 | [setCurrentSpeakerDevice](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a6c951071ac218930680febd84314ee05) | 设置要使用的扬声器。 |
 | [getCurrentSpeakerDeviceVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa25ac85f6f84b352175aebb9c7007247) | 当前扬声器设备音量。 |
 | [setCurrentSpeakerDeviceVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a019001b23569c8b6da7f3276af58e0a7) | 设置当前扬声器音量。 |
-
+| [setCurrentSpeakerDeviceMute](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a738ea0dffd48d5bc2b05b146eb79ec46) | 设置系统当前扬声器设备的静音状态。 |
+| [getCurrentSpeakerDeviceMute](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a793d11364882c7fac7f9200f8761400c) | 获取系统当前扬声器设备是否静音。 |
 
 ### 美颜滤镜相关接口函数
 
@@ -302,6 +310,8 @@
 | [onAudioRouteChanged](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a1859305732dfd03de63c9b780f99d513) | 音频路由发生变化（仅 iOS），音频路由即声音由哪里输出（扬声器或听筒）。 |
 | [onUserVoiceVolume](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a7775c3fbd84b8da3b7a75bdea27ed5c5) | 用于提示音量大小的回调，包括每个 userId 的音量和远端总音量。 |
 | [onDevice](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a0152908c497bd5ee5225251d9e93e500) | 本地设备通断回调。 |
+| [onAudioDeviceCaptureVolumeChanged](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a1c36efd81dc4edf88fc3bc6af83b1b5a) | 当前音频采集设备音量变化回调。 |
+| [onAudioDevicePlayoutVolumeChanged](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#af24c0f0258e83ab644e242ee0d01277f) | 当前音频播放设备音量变化回调。 |
 
 
 ### 自定义消息的接收回调
@@ -352,8 +362,9 @@
 
 | API | 描述 |
 |-----|-----|
-| [onCapturedAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#ab2296899861c97044513d6d21192f90c) | 本地麦克风采集到的音频数据回调。 |
-| [onPlayAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a3f4b821c6edf43b3744b5ca2749980d7) | 混音前的每一路远程用户的音频数据，即混音前的各路原始数据。例如，对某一路音频进行文字转换时，您必须使用该路音频的原始数据。 |
+| [onCapturedRawAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#aeaeaf9e7091c75e1a072d576a57d7f5c) | 本地麦克风采集到的原始音频数据回调。 |
+| [onLocalProcessedAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a73a3e7de3c5c340957f119bb0f8744b0) | 本地采集并经过音频模块前处理后的音频数据回调。 |
+| [onRemoteUserAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#aa392c17c27bae1505f148bf541b7746a) | 混音前的每一路远程用户的音频数据，即混音前的各路原始数据。例如，对某一路音频进行文字转换时，您必须使用该路音频的原始数据。 |
 | [onMixedPlayAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a5a8a0bf6f8d02c33b2fe01c6175dfd4e) | 各路音频数据混合后的音频数据。 |
 
 

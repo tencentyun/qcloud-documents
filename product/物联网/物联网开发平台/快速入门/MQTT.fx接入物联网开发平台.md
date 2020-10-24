@@ -41,11 +41,11 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows、 Mac、Lin
 </tr>
 <tr>
 <td>Connection Timeout</td>
-<td>连接超时时间秒。</td>
+<td>连接超时时间（秒）。</td>
 </tr>
 <tr>
 <td>Keep Alive Interval</td>
-<td>心跳间隔时间秒。</td>
+<td>心跳间隔时间（秒）。</td>
 </tr>
 <tr>
 <td>Auto Reconnect</td>

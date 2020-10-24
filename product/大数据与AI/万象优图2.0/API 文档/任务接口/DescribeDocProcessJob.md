@@ -86,7 +86,7 @@ Container 节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点   | 描述                                                         | 类型      |
 | :----------------- | :------- | :----------------------------------------------------------- | :-------- |
-| JobsDetail         | Response | 任务的详细信息，同 CreateDocProcessJobs 接口的 Response.JobsDetail 节点 | Container |
+| JobsDetail         | Response | 任务的详细信息，同 [CreateDocProcessJobs](https://cloud.tencent.com/document/product/460/46942#.E5.93.8D.E5.BA.94) 接口的 Response.JobsDetail 节点 | Container |
 | NonExistJobIds     | Response | 查询的 ID 中不存在的任务，所有任务都存在时不返回             | String    |
 
 
@@ -94,9 +94,9 @@ Container 节点 Operation 的内容：
 
 | 节点名称（关键字） | 父节点                        | 描述                                                         | 类型      |
 | :----------------- | :---------------------------- | :----------------------------------------------------------- | :-------- |
-| DocProcess         | Response.JobsDetail.Operation | 文档预览任务参数，同 CreateDocProcessJobs 接口的 Request.Operation.DocProcess 节点 | Container |
+| DocProcess         | Response.JobsDetail.Operation | 文档预览任务参数，同 [CreateDocProcessJobs](https://cloud.tencent.com/document/product/460/46942#.E8.AF.B7.E6.B1.82) 接口的 Request.Operation.DocProcess 节点 | Container |
 | DocProcessResult   | Response.JobsDetail.Operation | 在 job 的类型为 DocProcess 且 job 状态为 success 时，返回文档预览任务结果详情 | Container |
-| Output             | Response.JobsDetail.Operation | 结果输出地址，同 CreateDocProcessJobs 接口的 Request.Operation.Output 节点 | Container |
+| Output             | Response.JobsDetail.Operation | 结果输出地址，同 [CreateDocProcessJobs](https://cloud.tencent.com/document/product/460/46942#.E8.AF.B7.E6.B1.82) 接口的 Request.Operation.Output 节点 | Container |
 
 #### 错误码
 

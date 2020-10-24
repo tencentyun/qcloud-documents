@@ -18,7 +18,8 @@ PUT Bucket domain 用于为存储桶配置自定义域名。
 
 #### 方法原型
 
-```
+[//]: # (.cssg-snippet-put-bucket-domain)
+```py
 put_bucket_domain(Bucket, DomainConfiguration={}, **kwargs)
 ```
 
@@ -78,6 +79,7 @@ get_bucket_domain(Bucket, **kwargs)
 
 #### 请求示例
 
+[//]: # (.cssg-snippet-get-bucket-domain)
 ```
 response = client.get_bucket_domain(
     Bucket='examplebucket-1250000000'
@@ -131,6 +133,7 @@ delete_bucket_domain(Bucket, **kwargs)
 
 #### 请求示例
 
+[//]: # (.cssg-snippet-delete-bucket-domain)
 ```
 response = client.delete_bucket_domain(
     Bucket='examplebucket-1250000000'

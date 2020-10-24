@@ -17,7 +17,7 @@
 
 ## 方案优势
 
-对比使用云主机自建 Ckafka Consumer 的方式，云函数具备以下优势：
+对比使用云服务器自建 Ckafka Consumer 的方式，云函数具备以下优势：
 - 云函数控制台支持一键开启 Ckafka 触发器，帮助用户自动创建 Consumer，并由云函数平台来维护组件的高可用。
 - Ckafka 触发器自身支持很多实用的配置：支持配置 offset 位置、支持配置1 - 1万消息聚合条数、支持配置1 - 1万次重试次数等。
 - 基于云函数开发的业务逻辑，天然支持弹性伸缩，无需额外搭建和维护服务器集群等。
@@ -80,7 +80,7 @@
 
 
 ### 创建 Ckafka 触发器
-1. 在“函数配置”页面，选择函数侧边栏【触发器管理】，单击【创建触发器】。
+1. 在“函数配置”页面，选择函数侧边栏【触发管理】，单击【创建触发器】。
 2. 在弹出的“创建触发器”窗口中，参考以下信息进行配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/0e513da4e33ec49292af74e2d95fc9d5.png)
 主要参数信息如下，其余参数请保持默认配置：
@@ -94,9 +94,11 @@
 
 
 ### 查看 ES 和函数运行日志
+>!如果您还未将实际数据接入消息队列 Ckafka，您可以通过 [客户端工具](https://cloud.tencent.com/document/product/597/30932) 模拟消息生产。
+>
 - 选择函数侧边栏【日志查询】，即可查看函数运行日志。如下图所示：
 ![](https://main.qcloudimg.com/raw/da6d2085affcedc728c1b3e3b1bf6eb4.png)
-- 查看 Kibana。详情请参见 [通过 Kibana 访问集群](https://tcloud-doc.isd.com/document/product/845/19541)。
+- 查看 Kibana。详情请参见 [通过 Kibana 访问集群](https://cloud.tencent.com/document/product/845/19541)。
 ![](https://main.qcloudimg.com/raw/974199a28188cb11a43b5e89e5f660b5.png)
 
 

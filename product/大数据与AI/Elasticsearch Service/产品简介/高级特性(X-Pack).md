@@ -15,7 +15,9 @@
 
 ## 高级特性介绍
 本文对部分常用高级特性进行了说明，完整的高级特性及说明，可查看官方说明 [Elastic Stack 订阅](https://www.elastic.co/cn/subscriptions) 、[API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/xpack-api.html)。
->! 部分功能在不同的高级特性版本（基础、白金、开源）间有区别。
+>! 
+>- 部分功能在不同的高级特性版本（基础、白金、开源）间有区别。
+>- 部分功能在较老的腾讯云 ES 版本不支持，若您遇到此问题可 [提工单](https://console.cloud.tencent.com/workorder/category) 咨询。
 
 - **安全（Security）**  
 支持索引和字段级别读写等细分权限的控制管理，实现数据安全防护、业务访问隔离，向正确的人员授予访问权限，阻止恶意破坏和数据泄露，有效的保障数据安全。
@@ -79,7 +81,7 @@
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
-    <td class="tg-s268"><a href="#machine_learning">Machine Learning</a></td>
+    <td class="tg-s268"><a href="#machine_learning">机器学习</a></td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
@@ -116,7 +118,7 @@
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>
   </tr>
   <tr>
-    <td class="tg-0lax">Machine Learning</td>
+    <td class="tg-0lax">机器学习</td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/77ef3c9aa6959f7027acb2484781c491.png"  alt="不包含" /></td>
     <td class="tg-s6z2"><img src="https://main.qcloudimg.com/raw/7d8fd809e55e9a63c0122b2e3e702a23.png"  alt="包含全部" /></td>

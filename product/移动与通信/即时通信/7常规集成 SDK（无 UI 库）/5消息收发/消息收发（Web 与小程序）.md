@@ -306,7 +306,7 @@ tim.createFileMessage(options)
 
 <pre><code class="language-javascript"><span class="hljs-comment">// Web 端发送文件消息示例1 - 传入 DOM 节点</span>
 <span class="hljs-comment">// 1. 创建文件消息实例，接口返回的实例可以上屏</span>
-<span class="hljs-keyword">let</span> message = createFileMessage({
+<span class="hljs-keyword">let</span> message = tim.createFileMessage({
   <span class="hljs-attr">to</span>: <span class="hljs-string">'user1'</span>,
   <span class="hljs-attr">conversationType</span>: TIM.TYPES.CONV_C2C,
   <span class="hljs-comment">// 消息优先级，用于群聊（v2.4.2起支持）。如果某个群的消息超过了频率限制，后台会优先下发高优先级的消息，详细请参考 <a href="https://cloud.tencent.com/document/product/269/3663#.E6.B6.88.E6.81.AF.E4.BC.98.E5.85.88.E7.BA.A7.E4.B8.8E.E9.A2.91.E7.8E.87.E6.8E.A7.E5.88.B6">消息优先级与频率控制</a></span>

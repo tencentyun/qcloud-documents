@@ -50,4 +50,4 @@
 
 <span id="que9"></span>
 ### 购买移动直播 License 可以用于小程序直播吗？
-不支持，移动直播 License 仅支持 iOS 和 Android 端的 App 在使用移动直播 SDK 直播功能时使用。小程序端接入直播功能需要先具备对应的服务类目，详情参见 [方案选择](https://cloud.tencent.com/document/product/1078/37707)。
+不支持，移动直播 License 仅支持 iOS 和 Android 端的 App 在使用移动直播 SDK 直播功能时使用。小程序端接入直播功能需要先具备对应的服务类目，详情参见 [方案选择](https://cloud.tencent.com/document/product/1078/37707)。  

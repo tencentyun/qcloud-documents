@@ -1,7 +1,7 @@
 >!网页及 App（iOS 和 Android） 皆可使用 Web 前端方式进行接入。
 
 ## 前提条件
-接入验证码前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecret。注册完成后，您可以在控制台的 [基础配置](https://console.cloud.tencent.com/captcha/detail?appid=2043913615) 中查看 AppID 以及 AppSecret。
+接入验证码前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecret。注册完成后，您可以在验证码控制台的验证详情的基础配置中，查看 AppID 以及 AppSecret。
 ## 接入步骤
 ### 快速接入
 以下为 Web 端快速接入流程，适用于每次都需要进行人机验证的场景（登录、注册、下发短信、活动等）。
@@ -36,7 +36,7 @@ window.callback = function(res){
 }
 ```
 
-完成以上操作后，单击激活验证码的 DOM 元素，即可弹出验证码。至此，验证码客户端接入已完成，您可以进行 [后台 API 接入](https://cloud.tencent.com/document/product/1110/36926) 操作。
+完成以上操作后，单击激活验证码的 DOM 元素，即可弹出验证码。至此，验证码客户端接入已完成，您需要进行 [后台 API 接入](https://cloud.tencent.com/document/product/1110/36926) 操作。
 ### 定制接入
 验证码会在全局注册一个 TencentCaptcha 类，业务方可以使用 TencentCaptcha 类自行初始化验证码，并对验证码进行显示或者隐藏操作。
 默认的验证码的 JS（TCaptcha.js）在加载完成后，会检测页面中是否存在`id="TencentCaptcha"`的元素，如果存在，则会自动将验证码的触发事件绑定在该元素上。如不希望默认绑定，请避免使用`id="TencentCaptcha"`的元素。

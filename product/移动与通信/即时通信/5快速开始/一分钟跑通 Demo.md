@@ -1,6 +1,9 @@
 本文介绍如何快速跑通即时通信 IM 的体验 Demo。
-以下视频将帮助您快速了解如何跑通即时通信 IM 的体验 Demo：
-<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2269-33124?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+以下视频将帮助您快速了解如何跑通即时通信 IM 的体验 Demo（以 Android 端为例）：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/3130-56294?source=gw.pro.media&withPoster=1&notip=1"></iframe></div>
+
+>?更多实操教学视频请参见：[一分钟跑通 Demo（iOS 端、小程序）](https://cloud.tencent.com/edu/learning/course-3130-56316)。
+
 
 <span id="step1"></span>
 ## 步骤1：创建应用
@@ -25,6 +28,7 @@
 ## 步骤3：下载并配置 Demo 源码
 
 1. 下载即时通信 IM Demo 工程，具体下载地址请参见 [SDK 下载](https://cloud.tencent.com/document/product/269/36887)。
+>?为尊重表情设计版权，下载的 Demo 工程中不包含大表情元素切图，您可以使用自己本地表情包来配置代码。未授权使用 IM Demo 中的表情包可能会构成设计侵权。
 2. 打开所属终端目录的工程，找到对应的`GenerateTestUserSig`文件。
  <table>
      <tr>
@@ -103,6 +107,12 @@ pod install
 3. 编译运行：
  - iOS 进入 iOS/TUIKitDemo 文件夹，打开`TUIKitDemo.xcworkspace`编译运行。
  - Mac 进入Mac/TUIKitDemo 文件夹，打开`TUIKitDemo.xcworkspace`编译运行。
+
+
+## 开启进阶功能
+- [开启视频通话](https://cloud.tencent.com/document/product/269/46141)
+- [开启群直播](https://cloud.tencent.com/document/product/269/48909)
+- [开启直播大厅](https://cloud.tencent.com/document/product/269/48959)
 
 ## 相关文档
 - [价格说明](https://cloud.tencent.com/document/product/269/11673)

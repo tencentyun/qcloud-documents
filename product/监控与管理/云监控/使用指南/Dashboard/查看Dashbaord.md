@@ -1,3 +1,6 @@
+>!本文为旧版 Dashboard 文档，旧版 Dashboard 即将下线，建议您使用 [新版 Dashboard](https://cloud.tencent.com/document/product/248/46741)。
+
+
 ## 简介
 该指南指导您如何查看 Dashboard 图表数据。
 

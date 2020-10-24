@@ -1,5 +1,72 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+## 1.24.0-Finchley-RELEASE（2020-09-25）
+
+### Bug 修复
+
+- spring-cloud-tsf-consul-config：
+  - 修复本地加密配置不能正确解密的问题。
+  - 修复 MySQL 调用链对多数据源支持。
+- spring-cloud-tsf-core：
+  增加线程上下文接口，在父亲线程中塞入线程局部变量后，子线程不论是线程池反复使用还是一次性使用都能正确继承父线程局部变量。
+  
+### 新特性
+- 支持云上 Spring Cloud 应用平滑迁移 TSF。
+- 支持 PostgreSQL 组件调用链。
+    
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.4-Finchley-RELEASE（2020-09-16）
+
+### Bug 修复
+
+- 修复 MySQL 调用链中对多数据源支持。
+- 修复 feign 请求调用链中只展示 HTTP 方法。
+- 修复定时任务的线程数问题。
+- 修复网关使用就近命名空间的问题。
+    
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.3-Finchley-RELEASE（2020-09-14）
+
+### Bug 修复
+
+- spring-cloud-tsf-msgw：
+修复网关 MSGW SDK 和服务发现 SDK 不兼容，造成拉取服务列表过快的问题，从而导致注册中心负载压力过大的问题。
+- spring-cloud-tsf-consul-discovery：
+修复服务发现线程数不准确（少于需要请求的服务数），导致服务发现线程调度不及时，节点状态更新可能会延迟30s的问题。
+    
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.2-Finchley-RELEASE（2020-08-19）
+
+### Bug 修复
+
+spring-cloud-tsf-msgw：
+修复 application/x-www-form-urlencoded 类型请求，当绑定插件通过 zuul 网关代理访问时出错的问题。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.1-Finchley-RELEASE（2020-08-12）
+
+### Bug 修复
+
+spring-cloud-tsf-msgw：
+ 修复 scg 版本网关不支持 HTTP 请求中文编码的问题。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
 ## 1.23.0-Finchley-RELEASE（2020-07-06）
 
 ### 新特性
@@ -18,7 +85,7 @@
 - spring-cloud-tsf-msgw：
   - 修复数据同步时，可能会短暂获取到错误数据的问题。
   - 修复 SCG Tag 中数据未正确清除的问题。
-- 处理tomcat组件开源漏洞风险：
+- 处理 tomcat 组件开源漏洞风险：
   - 升级 org.apache.tomcat.embed.tomcat-embed-core 到8.5.56版本。
   - 升级 org.apache.tomcat.embed.tomcat-embed-el 到8.5.56版本。
   - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到8.5.56版本。
@@ -50,15 +117,51 @@
 - 优化默认日志配置支持容器部署场景。
 - 优化 TSF MSGW zuul 依赖。
 
-## 1.21.2-Finchley-RELEASE (2020-07-06)
+## 1.21.6-Finchley-RELEASE（2020-10-19）
+### Bug 修复
+- 处理 Spring 组件开源漏洞风险，升级 Spring Framework 到 5.0.19 版本。
+- spring-cloud-tsf-core 修复与 spring-boot-devtools 的冲突。
+
+### 优化
+- spring-cloud-tsf-gateway 支持服务熔断能力。
+- spring-cloud-tsf-sleuth 修改调用 SQL 存储的最长长度到64000字符。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.21.5-Finchley-RELEASE（2020-09-09）
+### 优化
+spring-cloud-tsf-gateway 优化因配置被误删除可能导致的问题。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.21.4-Finchley-RELEASE（2020-08-20）
+### Bug 修复
+- 修复 MySQL 调用链支持多数据源问题。
+- 修复 feign 请求调用链只展示 HTTP 方法。
+- spring-cloud-tsf-msgw：
+ 修复 application/x-www-form-urlencoded 类型请求，当绑定插件通过 zuul 网关代理访问时出错的问题。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.21.3-Finchley-RELEASE（2020-07-16）
+### Bug 修复
+- 修复网关 MSGW SDK 和服务发现 SDK 不兼容，造成拉取服务列表过快的问题。
+- 修复 MySQL 调用链中 SQL 截断问题。
+
+### 优化
+spring-cloud-tsf-gateway 网关兼容新插件类型。
+
+## 1.21.2-Finchley-RELEASE（2020-07-06）
 
 ### Bug 修复
 
-- 处理tomcat组件开源漏洞风险。
-  - 升级org.apache.tomcat.embed.tomcat-embed-core到8.5.56版本。
-  - 升级org.apache.tomcat.embed.tomcat-embed-el到8.5.56版本。
-  - 升级org.apache.tomcat.embed.tomcat-embed-websocket到8.5.56版本。
-
+处理 tomcat 组件开源漏洞风险：
+  - 升级 org.apache.tomcat.embed.tomcat-embed-core到 8.5.56版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-el 到8.5.56版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到8.5.56版本。
 
 ### 优化
 
@@ -121,6 +224,39 @@ spring-cloud-tsf-gateway  新增 tag plugin 中 path 类型取值。
 ### 新特性
 
 新增`服务熔断`功能。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.18.4-Finchley-RELEASE（2020-10-20）
+### 优化
+spring-cloud-tsf-sleuth 修改调用 SQL 存储的最长长度到64000字符。
+
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.18.3-Finchley-RELEASE（2020-10-13）
+
+### Bug 修复
+
+- 处理 Spring 组件开源漏洞风险，升级 Spring Framework 到5.0.19版本。
+- spring-cloud-tsf-core 修复与 spring-boot-devtools 的冲突。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.18.2-Finchley-RELEASE（2020-08-21）
+
+### Bug 修复
+
+- spring-cloud-tsf-route 修复网关使用就近命名空间的问题。
+- spring-cloud-tsf-consul-discovery 修复服务发现线程池上限的问题。
+- spring-cloud-tsf-sleuth 修复 MySQL 调用链支持多数据源问题。
+- spring-cloud-tsf-gateway 修复网关 MSGW SDK 和服务发现 SDK 不兼容，造成拉取服务列表过快的问题。
+- spring-cloud-tsf-gateway 兼容低版本 MSGW SDK。
 
 ### 版本建议
 
@@ -219,7 +355,7 @@ spring-cloud-tsf-sleuth bug fixed：
 
 支持向后兼容，建议全量升级。
 
-### 1.14.2-Finchley-RELEASE（2019-08-14）
+## 1.14.2-Finchley-RELEASE（2019-08-14）
 
 ### Bug 修复
 
@@ -278,7 +414,7 @@ spring-cloud-tsf-sleuth bug fixed：
 
 支持向后兼容，建议全量升级。
 
-### 1.12.3-Finchley-RELEASE（2019-05-17）
+## 1.12.3-Finchley-RELEASE（2019-05-17）
 
 ### Bug 修复
 

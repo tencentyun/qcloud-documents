@@ -248,8 +248,8 @@ function getGseGrpcSdkServiceClient() {
 }
 ```
 
-## Nodej DEMO
- 1. [单击这里](https://gsegrpcdemo-1301007756.cos.ap-guangzhou.myqcloud.com/nodejs-demo.zip)，您可下载 Nodej DEMO 代码。
+## Nodejs DEMO
+ 1. [单击这里](https://gsegrpcdemo-1301007756.cos.ap-guangzhou.myqcloud.com/nodejs-demo.zip)，您可下载 Nodejs DEMO 代码。
  2. 生成 gRPC 代码。
 Nodejs版本使用 grpc/proto-loader 直接加载pb文件，不需要生成gRPC-nodejs代码。
  3. 启动服务端，供 GSE 调用。

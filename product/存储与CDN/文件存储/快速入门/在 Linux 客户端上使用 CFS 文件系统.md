@@ -66,7 +66,7 @@ mkdir /local/test
 **NFS v4.0 挂载**
 使用下列命令实现 NFS v4.0 挂载。
 ```shell
-//以下命令可以到 CFS 控制台-文件系统详情-挂载点详情中获取，由于部分旧版本文件系统不支持 noresvport参数，具体挂载命令请以控制台建议命令为主。配置 norevsport 参数后，在网络重连时使用新的TCP端口，可以保障在网络异常到恢复期间、客户端和文件系统的连接不会终端，建议启用该参数。
+//以下命令可以到 CFS 控制台-文件系统详情-挂载点详情中获取，由于部分旧版本文件系统不支持 noresvport参数，具体挂载命令请以控制台建议命令为主。配置 norevsport 参数后，在网络重连时使用新的TCP端口，可以保障在网络异常到恢复期间、客户端和文件系统的连接不会中断，建议启用该参数。
 //另，部分旧版本Linux内核需要使用 vers=4 挂载，若使用 vers=4.0 挂载有异常，可以尝试修改为 vers=4。
 sudo mount -t nfs -o vers=4.0，noresvport <挂载点IP>:/ <待挂载目录>
 ```
@@ -81,13 +81,13 @@ sudo mount -t nfs -o vers=4.0，noresvport <挂载点IP>:/ <待挂载目录>
 示例：
 - 挂载 CFS 根目录：
 ```plaintext
-//以下命令可以到 CFS 控制台-文件系统详情-挂载点详情中获取，由于部分旧版本文件系统不支持 noresvport参数，具体挂载命令请以控制台建议命令为主。配置 norevsport 参数后，在网络重连时使用新的TCP端口，可以保障在网络异常到恢复期间、客户端和文件系统的连接不会终端，建议启用该参数。
+//以下命令可以到 CFS 控制台-文件系统详情-挂载点详情中获取，由于部分旧版本文件系统不支持 noresvport参数，具体挂载命令请以控制台建议命令为主。配置 norevsport 参数后，在网络重连时使用新的TCP端口，可以保障在网络异常到恢复期间、客户端和文件系统的连接不会中断，建议启用该参数。
 //另，部分旧版本Linux内核需要使用 vers=4 挂载，若使用 vers=4.0 挂载有异常，可以尝试修改为 vers=4。
 sudo mount -t nfs -o vers=4.0，noresvport 10.0.24.4:/ /localfolder
 ```
 - 挂载 CFS 子目录：
 ```plaintext
-//以下命令可以到 CFS 控制台-文件系统详情-挂载点详情中获取，由于部分旧版本文件系统不支持 noresvport参数，具体挂载命令请以控制台建议命令为主。配置 norevsport 参数后，在网络重连时使用新的TCP端口，可以保障在网络异常到恢复期间、客户端和文件系统的连接不会终端，建议启用该参数。
+//以下命令可以到 CFS 控制台-文件系统详情-挂载点详情中获取，由于部分旧版本文件系统不支持 noresvport参数，具体挂载命令请以控制台建议命令为主。配置 norevsport 参数后，在网络重连时使用新的TCP端口，可以保障在网络异常到恢复期间、客户端和文件系统的连接不会中断，建议启用该参数。
 //另，部分旧版本Linux内核需要使用 vers=4 挂载，若使用 vers=4.0 挂载有异常，可以尝试修改为 vers=4。
 sudo mount -t nfs -o vers=4.0，noresvport 10.0.24.4:/subfolder /localfolder 
 ```
@@ -95,7 +95,7 @@ sudo mount -t nfs -o vers=4.0，noresvport 10.0.24.4:/subfolder /localfolder
 **NFS v3.0 挂载**
 使用下列命令实现 NFS v3.0 挂载。
 ```plaintext
-//以下命令可以到 CFS 控制台-文件系统详情-挂载点详情中获取，由于部分旧版本文件系统不支持 noresvport参数，具体挂载命令请以控制台建议命令为主。配置 norevsport 参数后，在网络重连时使用新的TCP端口，可以保障在网络异常到恢复期间、客户端和文件系统的连接不会终端，建议启用该参数。
+//以下命令可以到 CFS 控制台-文件系统详情-挂载点详情中获取，由于部分旧版本文件系统不支持 noresvport参数，具体挂载命令请以控制台建议命令为主。配置 norevsport 参数后，在网络重连时使用新的TCP端口，可以保障在网络异常到恢复期间、客户端和文件系统的连接不会中断，建议启用该参数。
 //另，部分旧版本Linux内核需要使用 vers=4 挂载，若使用 vers=4.0 挂载有异常，可以尝试修改为 vers=4。
 sudo mount -t nfs -o vers=3,nolock,proto=tcp，noresvport <挂载点IP>:/<fsid> <待挂载目录>
 ```
@@ -107,7 +107,7 @@ sudo mount -t nfs -o vers=3,nolock,proto=tcp，noresvport <挂载点IP>:/<fsid> 
 
 挂载 CFS 子目录示例如下：
 ```plaintext
-//以下命令可以到 CFS 控制台-文件系统详情-挂载点详情中获取，由于部分旧版本文件系统不支持 noresvport参数，具体挂载命令请以控制台建议命令为主。配置 norevsport 参数后，在网络重连时使用新的TCP端口，可以保障在网络异常到恢复期间、客户端和文件系统的连接不会终端，建议启用该参数。
+//以下命令可以到 CFS 控制台-文件系统详情-挂载点详情中获取，由于部分旧版本文件系统不支持 noresvport参数，具体挂载命令请以控制台建议命令为主。配置 norevsport 参数后，在网络重连时使用新的TCP端口，可以保障在网络异常到恢复期间、客户端和文件系统的连接不会中断，建议启用该参数。
 //另，部分旧版本Linux内核需要使用 vers=4 挂载，若使用 vers=4.0 挂载有异常，可以尝试修改为 vers=4。
 sudo mount -t nfs -o vers=3,nolock,proto=tcp，noresvport 10.0.24.4:/z3r6k95r /localfolder 
 ```
@@ -125,7 +125,6 @@ df -h
 >!为避免后续误操作，非特殊需求情况下强烈建议不要对已挂载 CFS 文件系统或其他文件系统的目录重复执行挂载（mount）操作。
 
 ### 挂载 CIFS/SMB 文件系统
->!CIFS/SMB 协议文件系统公测中，更多信息请参见 [CIFS/SMB公测说明](https://cloud.tencent.com/document/product/582/9553#cifs.2Fsmb-.E5.85.AC.E6.B5.8B.E8.AF.B4.E6.98.8E)。
 
 #### 1. 启动 CIFS 客户端
 挂载前，请确保系统中已经安装了`cifs-utils`，安装方法如下：

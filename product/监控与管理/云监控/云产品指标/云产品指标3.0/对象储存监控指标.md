@@ -28,15 +28,24 @@ Namespace=QCE/COS
 | SiaStorage             | 低频存储-存储空间 | MB   | appid、bucket |
 | NelStorage             | 近线存储-存储空间 | MB   | appid、bucket |
 | ArcStorage             | 归档存储-存储空间 | MB   | appid、bucket |
-| MazStdStorage          | 多AZ标准存储-存储空间 | MB   | appid、bucket |
+| MazStdStorage          | 多 AZ 标准存储-存储空间 | MB   | appid、bucket |
 | StdObjectNumber        | 标准存储-对象数量     | 个   | appid、bucket |
-| MazStdObjectNumber     | 多AZ标准存储-对象数量 | 个   | appid、bucket |
+| MazStdObjectNumber     | 多 AZ 标准存储-对象数量 | 个   | appid、bucket |
 | IaObjectNumber         | 低频存储-对象数量     | 个   | appid、bucket |
 | NlObjectNumber         | 近线存储-对象数量     | 个   | appid、bucket |
 |MazIaReadRequests | 多 AZ 低频存储-读请求 | 个 |appid、bucket|
 |MazIaWriteRequests|多 AZ 低频存储-写请求|个 |appid、bucket|
 |MazIaStorage|多 AZ 低频存储-存储容量|MB |appid、bucket|
 |MazIaObjectNumber|多 AZ 低频存储-对象数量|个 |appid、bucket|
+| StdMultipartNumber           | 标准存储碎片文件数        | 个   | appid、bucket |
+| MazStdMultipartNumber        | 多 AZ 标准存储碎片文件数     | 个   | appid、bucket |
+| IaMultipartNumber            | 低频存储碎片文件数        | 个   | appid、bucket |
+| MazIaMultipartNumber         | 多 AZ 低频存储碎片文件数     | 个   | appid、bucket |
+| ArcMultipartNumber           | 归档存储碎片文件数        | 个   | appid、bucket |
+| MazArcMultipartNumber        | 多 AZ 归档存储碎片文件数     | 个   | appid、bucket |
+| NlMultipartNumber            | 进线存储碎片文件数        | 个   | appid、bucket |
+| ItFrequentMultipartNumber    | 智能分层高频碎片文件数    | 个   | appid、bucket |
+| MazItFrequentMultipartNumber | 多 AZ 智能分层高频碎片文件数 | 个   | appid、bucket |
 
 
 ### 流量类

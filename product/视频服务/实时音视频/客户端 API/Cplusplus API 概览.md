@@ -26,6 +26,8 @@
 | [connectOtherRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ae472af11c30db29fcd21ea01854ab32f) | 请求跨房通话（主播 PK）。 |
 | [disconnectOtherRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a08870fd955f90d02879e966dcd02bfd3) | 关闭跨房连麦。 |
 | [setDefaultStreamRecvMode](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a7a0238314fc1e1f49803c0b22c1019d5) | 设置音视频数据接收模式，需要在进房前设置才能生效。 |
+| [createSubCloud](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a5ce8b3f393ad3e46a3af39b045c1c5a2) | 创建子 TRTCCloud 实例。 |
+| [destroySubCloud](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a0555e9e9d9d02c8c116946915f969d18) | 销毁子 TRTCCloud 实例。 |
 
 
 ### CDN 相关接口函数
@@ -44,9 +46,11 @@
 | API | 描述 |
 |-----|-----|
 | [startLocalPreview](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a0a3067221345da8eb3f32a3430dd42ff) | 开启本地视频的预览画面。 |
+| [updateLocalView](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ae5211a2739df8d8ec6017559b3aa0299) | 更新本地视频预览画面的窗口。 |
 | [stopLocalPreview](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#af7003d2c12f5f783115ada43a715abe7) | 停止本地视频采集及预览。 |
 | [muteLocalVideo](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a6070313a28d3302c94ad807c636eb60f) | 暂停/恢复推送本地的视频数据。 |
 | [startRemoteView](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a33a6e3765d6ca52d572224bc6e25dbcb) | 开始显示远端视频画面。 |
+| [updateRemoteView](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a8c8247cbc679ea144ffb393b6b940c9e) | 更新远端视频渲染的窗口。 |
 | [stopRemoteView](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a7749979db2dd017d7cd8377c73e92720) | 停止显示远端视频画面，同时不再拉取该远端用户的视频数据流。 |
 | [stopAllRemoteView](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a7a55fb85c4135abfbe00af529cdaf9bc) | 停止显示所有远端视频画面，同时不再拉取远端用户的视频数据流。 |
 | [muteRemoteVideoStream](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a22155f6fe17dde77a16c273e0d5a02a3) | 暂停/恢复接收指定的远端视频流。 |
@@ -102,11 +106,15 @@
 | [setCurrentMicDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a4edae1445c3195d5d2ba2333ccbe4fff) | 设置要使用的麦克风。 |
 | [getCurrentMicDeviceVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a342920bf68b0286b91a049f540de5ccb) | 获取系统当前麦克风设备音量。 |
 | [setCurrentMicDeviceVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a227e6698697648b7a7ee9470a87f12f1) | 设置系统当前麦克风设备的音量。 |
+| [setCurrentMicDeviceMute](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a8f23271de1960a44917632cecdd6c9da) | 设置系统当前麦克风设备的是否静音。 |
+| [getCurrentMicDeviceMute](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a8a8badf62eee1021f9315f11df0f597f) | 获取系统当前麦克风设备是否静音。 |
 | [getSpeakerDevicesList](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ad500c64d8823bed4c4a31ab6b19c1e08) | 获取扬声器设备列表。 |
 | [getCurrentSpeakerDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ad0dc1a89532d3654b271ed724b4281fd) | 获取当前的扬声器设备。 |
 | [setCurrentSpeakerDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ab11c3c87d603a71dc1d3f2caef05bf98) | 设置要使用的扬声器。 |
 | [getCurrentSpeakerVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a24c9e3210c99e6331a3dff598f7fb490) | 获取系统当前扬声器设备音量。 |
 | [setCurrentSpeakerVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ad8393f22304422cb143a1362c03cca59) | 设置系统当前扬声器设备音量。 |
+| [setCurrentSpeakerDeviceMute](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a9ea2038ac3168f6cfb21d2b954cb343e) | 设置系统当前扬声器设备的是否静音。 |
+| [getCurrentSpeakerDeviceMute](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aa0b3c0ed3701f7dc289a69c18a934b41) | 获取系统当前扬声器设备是否静音。 |
 
 
 ### 美颜相关接口函数
@@ -143,6 +151,9 @@
 | [setRemoteSubStreamViewRotation](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a11a2965ee1192569afd1482cfce6816e) | 设置辅路画面（TRTCVideoStreamTypeSub，一般用于屏幕分享）的顺时针旋转角度。 |
 | [setSubStreamEncoderParam](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#abdc3d6339afd741bd8d3ed88ea551282) | 设置屏幕分享的编码器参数。 |
 | [setSubStreamMixVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aff8dd1456e5bebff5495d84683c7f83e) | 设置屏幕分享的混音音量大小。 |
+| [addExcludedShareWindow](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ae5141a9331c3675f17fbdc922f376b06) | 将指定窗口加入屏幕分享的排除列表中，加入排除列表中的窗口不会被分享出去。 |
+| [removeExcludedShareWindow](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a08504ce347b593c0191904611da5cfd2) | 将指定窗口从屏幕分享的排除列表中移除。 |
+| [removeAllExcludedShareWindow](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#abb20ff837f1f5955bea349ff95002a10) | 将所有窗口从屏幕分享的排除列表中移除。 |
 
 
 ### 自定义采集和渲染
@@ -288,6 +299,8 @@
 | [onDeviceChange](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#ac86c1b0d445a33f6340394b3b78490bd) | 本地设备通断回调。 |
 | [onTestMicVolume](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#a9f0101fa8222c6163f1b23fcce81e22b) | 麦克风测试音量回调。 |
 | [onTestSpeakerVolume](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#a04bb10b06af17cdc43b7831336736539) | 扬声器测试音量回调。 |
+| [onAudioDeviceCaptureVolumeChanged](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#ac4d69b7652c54ad7bdd4b954e7016a64) | 当前音频采集设备音量变化通知。 |
+| [onAudioDevicePlayoutVolumeChanged](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#a39cf2644243dceaccd82933f11f4db12) | 当前音频播放设备音量变化通知。 |
 
 
 ### 自定义消息的接收回调

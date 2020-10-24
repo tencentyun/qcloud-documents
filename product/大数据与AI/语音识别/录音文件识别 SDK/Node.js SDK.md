@@ -22,7 +22,7 @@
 #### 通过语音 URL 请求
 ``` js
 //将 require 中路径替换为项目中 SDK 的真实路径
-const tencentcloud = require("../nodejs_record_asr_sdk_v3");
+const tencentcloud = require("../../nodejs_record_asr_sdk_v3");
 
 // 导入对应产品模块的 client models 以及需要用到的模块
 const AsrClient = tencentcloud.asr.v20190614.Client;
@@ -50,13 +50,21 @@ let client = new AsrClient(cred, "", clientProfile);
 // 实例化一个请求对象
 let req = new models.CreateRecTaskRequest();
 // 设置接口需要的参数，参考 接入须知 中 [请求接口说明]
-req.EngineModelType = '16k_0';
+req.EngineModelType = '16k_zh';
 req.ChannelNum = 1;
 req.ResTextFormat = 0;
 req.SourceType = 0;
-req.Url = 'https://ruskin-1256085166.cos.ap-guangzhou.myqcloud.com/test.wav';
+req.Url = 'https://asr-audio-1300466766.cos.ap-nanjing.myqcloud.com/test16k.wav';
 
-// 通过client对象调用想要访问的接口，需要传入请求对象以及响应回调函数
+// 非必填参数，可根据业务自行添加
+// req.HotwordId = '08003a00000000000000000000000000';
+// req.FilterDirty = 0;
+// req.FilterModal = 0;
+// req.ConvertNumMode = 0;
+// req.CallbackUrl = '';
+
+
+// 通过 client 对象调用想要访问的接口，需要传入请求对象以及响应回调函数
 client.CreateRecTask(req, function(errMsg, response) {
     if (errMsg) {
         console.log(errMsg);
@@ -69,8 +77,8 @@ client.CreateRecTask(req, function(errMsg, response) {
 #### 通过上传本地录音文件请求
 
 ``` js
-//将require中路径替换为项目中 SDK 的真实路径
-const tencentcloud = require("../nodejs_record_asr_sdk_v3");
+//将 require 中路径替换为项目中 SDK 的真实路径
+const tencentcloud = require("../../nodejs_record_asr_sdk_v3");
 
 // 导入对应产品模块的 client models 以及需要用到的模块
 const AsrClient = tencentcloud.asr.v20190614.Client;
@@ -97,23 +105,30 @@ let client = new AsrClient(cred, "", clientProfile);
 
 const fs = require('fs');
 const path = require('path');
-//需要将"本地录音文件地址"替换为用户录音文件地址，例：'./test.wav'
-let filePath = path.resolve('本地录音文件地址');
+//需要将"../demo/test16k.wav"替换为用户录音文件地址
+let filePath = path.resolve('../demo/test16k.wav');
 let data = fs.readFileSync(filePath);
-//将音频文件转为 base64 格式，注意：转为 base64 后数据要小于5MB，否则不能成功请求识别
+//将音频文件转为base64格式，注意：转为base64后数据要小于5MB，否则不能成功请求识别
 data = Buffer.from(data).toString('base64'); 
-//此数据长度为数据未进行 base64 编码时的数据长度
-let dataLen = fs.statSync('本地录音文件地址').size;
+//此数据长度为数据未进行base64编码时的数据长度
+let dataLen = fs.statSync('../demo/test16k.wav').size;
 
 // 实例化一个请求对象
 let req = new models.CreateRecTaskRequest();
 // 设置接口需要的参数，参考 接入须知 中 [请求接口说明]
-req.EngineModelType = '16k_0';
+req.EngineModelType = '16k_zh';
 req.ChannelNum = 1;
 req.ResTextFormat = 0;
 req.SourceType = 1;
 req.Data = data;
 req.DataLen = dataLen;
+// 非必填参数，可根据业务自行添加
+// req.HotwordId = '08003a00000000000000000000000000';
+// req.FilterDirty = 0;
+// req.FilterModal = 0;
+// req.ConvertNumMode = 0;
+// req.CallbackUrl = '';
+
 
 // 通过 client 对象调用想要访问的接口，需要传入请求对象以及响应回调函数
 client.CreateRecTask(req, function(errMsg, response) {

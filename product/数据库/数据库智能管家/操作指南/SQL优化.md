@@ -4,10 +4,10 @@ SQL 优化不仅能够为用户提供的专家级别的 SQL 优化建议，同�
 
 您可手动输入 SQL 语句，执行分析得到该语句的性能评估结果以及优化建议。
 
->?SQL 优化目前仅支持云数据库 MySQL（不含基础版）。
+>?SQL 优化目前支持云数据库 MySQL（不含基础版）、云数据库 CynosDB（兼容 MySQL 版）。
 
 ## 优化器执行
-1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/analysis)，在左侧导航选择【诊断优化】，在上方选择【SQL 优化】页。
+1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/analysis)，在左侧导航选择【诊断优化】，在上方选择对应数据库，然后选择【SQL 优化】页。
 2. 在 SQL 优化页，可以查看数据库表信息、 SQL 详细信息和 SQL 执行信息。
  - 左侧栏展示数据库、表、字段、索引名，可按数据库名筛选数据库，单击表旁的【表结构】可查看表详情。
  - 右侧栏展示 SQL 的详细信息，也可直接筛选数据“库”、“表”、“类型”，支持“表格”和“DDL”两种展示模式。

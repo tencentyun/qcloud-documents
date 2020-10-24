@@ -99,7 +99,7 @@ server {
     ssl_certificate 1_cloud.tencent.com_bundle.crt;   #填写您的证书文件名称，例如：1_cloud.tencent.com_bundle.crt
     ssl_certificate_key 2_cloud.tencent.com.key;    #填写您的私钥文件名称，例如：2_cloud.tencent.com.key
     ssl_session_timeout 5m;
-    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;  # 可按照该协议进行配置
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;  # 可参考此 SSL 协议进行配置
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;   #可按照此加密套件配置，写法遵循 openssl 标准
     ssl_prefer_server_ciphers on;
     location ~* \.php$ {
@@ -135,7 +135,7 @@ nginx: configuration file /usr/local/lighthouse/softwares/nginx/conf/nginx.conf 
 您可以通过配置服务器，让其自动将 HTTP 的请求重定向到 HTTPS。可以参考以下步骤进行设置：
 
 1. Nginx 支持 rewrite 功能。若您在编译时没有删除 pcre，则可在 HTTP 的 server 中增加 `return 301 https://$host$request_uri;`，即可将默认80端口的请求重定向为 HTTPS。
-您需要对 `nginx.conf` 文件进行修改，在“证书安装”中的 [步骤5](#Step4) 的配置之后继续添加如下配置：
+您需要对 `nginx.conf` 文件进行修改，在“证书安装”中的 [步骤4](#Step4) 的配置之后继续添加如下配置：
 ```
 server {
     listen 80;

@@ -24,7 +24,7 @@
 ![](https://main.qcloudimg.com/raw/1e52f535cd9eb5712ddf6c4760952e70.png)
 	- **服务访问方式**：选择为【提供公网访问】或【VPC内网访问】。
 	- **网络模式**：勾选【采用负载均衡直连Pod模式】。
-	- **Workload绑定**：选择【引用Worklocad】，并在弹出窗口中选择 VPC-CNI 模式的后端工作负载。
+	- **Workload绑定**：选择【引用Workload】，并在弹出窗口中选择 VPC-CNI 模式的后端工作负载。
 3. 单击【创建服务】，完成创建。
 
 ### YAML 操作指引

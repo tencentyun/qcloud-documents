@@ -39,7 +39,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | [getUserInfo](#getuserinfo)                     | 获取房间内指定人员的详细信息，enterMeeting() 成功后调用才有效。 |
 | [startRemoteView](#startremoteview)             | 播放指定成员的远端视频画面。                                 |
 | [stopRemoteView](#stopremoteview)               | 停止播放远端视频画面。                                       |
-| [setRemoteViewFillMode](#setremoteviewfillmode) | 根据用户id和设置远端图像的渲染模式。                         |
+| [setRemoteViewFillMode](#setremoteviewfillmode) | 根据用户 ID 和设置远端图像的渲染模式。                         |
 | [setRemoteViewRotation](#setremoteviewrotation) | 设置远端图像的顺时针旋转角度。                               |
 | [muteRemoteAudio](#muteremoteaudio)             | 屏蔽远端指定成员的声音。                                     |
 | [muteRemoteVideoStream](#muteremotevideostream) | 屏蔽远端指定成员的视频流。                                   |
@@ -392,8 +392,8 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 参数     | 类型              | 含义                                                         |
 | -------- | ----------------- | ------------------------------------------------------------ |
-| userId   | NSString          | 用户 ID。                                             |
-| fillMode | TRTCVideoFillMode | 填充或适应模式，默认值：填充（TRTCVideoFillMode_Fill） 详情请参见[TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#afda6658d1bf7dc9bc1445838b95d21ff) |
+| userId   | NSString          | 用户 ID。                                                    |
+| fillMode | TRTCVideoFillMode | 填充或适应模式，默认值：填充（TRTCVideoFillMode_Fill），详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#afda6658d1bf7dc9bc1445838b95d21ff)。 |
 
 ### setRemoteViewRotation
 
@@ -407,8 +407,8 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 参数     | 类型      | 含义                                                         |
 | -------- | --------- | ------------------------------------------------------------ |
-| userId   | NSString  | 对方的用户 ID。                                             |
-| rotation | NSInteger | 顺时针旋转角度, 详情请参见[TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2ef26a9ede0ba4fa6c5739229e1eee90) |
+| userId   | NSString  | 对方的用户 ID。                                              |
+| rotation | NSInteger | 顺时针旋转角度, 详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2ef26a9ede0ba4fa6c5739229e1eee90)。 |
 
 ### muteRemoteAudio
 
@@ -469,7 +469,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ### switchCamera
 
-切换前后摄像头
+切换前后摄像头。
 
 ```objective-c
 - (void)switchCamera:(BOOL)isFront;
@@ -483,7 +483,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ### setVideoResolution
 
-设置分辨率
+设置分辨率。
 
 ```objective-c
 - (void)setVideoResolution:(TRTCVideoResolution)resolution;
@@ -493,11 +493,11 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 参数       | 类型                | 含义                                                         |
 | ---------- | ------------------- | ------------------------------------------------------------ |
-| resolution | TRTCVideoResolution | 视频分辨率, 详细请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#gaa58db9156c82d75257499cb5e0cdf0e5) |
+| resolution | TRTCVideoResolution | 视频分辨率, 详细请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#gaa58db9156c82d75257499cb5e0cdf0e5)。 |
 
 ### setVideoFps
 
-设置帧率
+设置帧率。
 
 ```objective-c
 - (void)setVideoFps:(int)fps;
@@ -505,15 +505,15 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 参数如下表所示：
 
-| 参数 | 类型 | 含义         |
-| ---- | ---- | ------------ |
-| fps  | int  | 视频采集帧率 |
+| 参数 | 类型 | 含义           |
+| ---- | ---- | -------------- |
+| fps  | int  | 视频采集帧率。 |
 
 >? 【推荐取值】 15fps或20fps，5fps以下，卡顿感明显。10fps以下，会有轻微卡顿感。20fps以上，则过于浪费（电影的帧率为24fps）。
 
 ### setVideoBitrate
 
-设置码率
+设置码率。
 
 ```objective-c
 - (void)setVideoBitrate:(int)bitrate;
@@ -523,13 +523,13 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 参数    | 类型 | 含义                                                         |
 | ------- | ---- | ------------------------------------------------------------ |
-| bitrate | int  | 码率，SDK 会按照目标码率进行编码，只有在网络不佳的情况下才会主动降低视频码率。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#a21a93f89a608f4642ecc9d81ef25a454) |
+| bitrate | int  | 码率，SDK 会按照目标码率进行编码，只有在网络不佳的情况下才会主动降低视频码率。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#a21a93f89a608f4642ecc9d81ef25a454)。 |
 
 >?【推荐取值】请参考 TRTCVideoResolution 在各档位注释的最佳码率，也可以在此基础上适当调高。 例如 TRTC_VIDEO_RESOLUTION_1280_720 对应1200kbps的目标码率，您也可以设置为1500kbps以便获得更好的清晰度观感。
 
 ### setLocalViewMirror
 
-设置本地画面镜像预览模式
+设置本地画面镜像预览模式。
 
 ```objective-c
 - (void)setLocalViewMirror:(TRTCLocalVideoMirrorType)type;
@@ -539,7 +539,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 参数 | 类型                     | 含义                                                         |
 | ---- | ------------------------ | ------------------------------------------------------------ |
-| type | TRTCLocalVideoMirrorType | 镜像模式。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#a21a93f89a608f4642ecc9d81ef25a454) |
+| type | TRTCLocalVideoMirrorType | 镜像模式。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#a21a93f89a608f4642ecc9d81ef25a454)。 |
 
 
 
@@ -547,7 +547,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ### startMicrophone
 
-开启麦克风采集
+开启麦克风采集。
 
 ```objective-c
 - (void)startMicrophone;
@@ -555,7 +555,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ### stopMicrophone
 
-停止麦克风采集
+停止麦克风采集。
 
 ```objective-c
 - (void)stopMicrophone;
@@ -563,7 +563,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ### setAudioQuality
 
-设置音质
+设置音质。
 
 ```objective-c
 - (void)setAudioQuality:(TRTCAudioQuality)quality;
@@ -573,11 +573,11 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 参数    | 类型             | 含义                                                         |
 | ------- | ---------------- | ------------------------------------------------------------ |
-| quality | TRTCAudioQuality | 音频质量。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2cdffa1529fcaec866404f4f9b92ec53) |
+| quality | TRTCAudioQuality | 音频质量。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2cdffa1529fcaec866404f4f9b92ec53)。 |
 
 ### muteLocalAudio
 
-静音/取消静音本地的音频
+静音/取消静音本地的音频。
 
 ```objective-c
 - (void)muteLocalAudio:(BOOL)mute;
@@ -587,11 +587,11 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 参数 | 类型 | 含义                                                         |
 | ---- | ---- | ------------------------------------------------------------ |
-| mute | BOOL | 静音/取消静音。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a4ada386a75d8042a432da05fde5552d9) |
+| mute | BOOL | 静音/取消静音。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a4ada386a75d8042a432da05fde5552d9)。 |
 
 ### setSpeaker
 
-设置开启扬声器
+设置开启扬声器。
 
 ```objective-c
 - (void)setSpeaker:(BOOL)useSpeaker;
@@ -599,13 +599,13 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 参数如下表所示：
 
-| 参数       | 类型 | 含义                   |
-| ---------- | ---- | ---------------------- |
-| useSpeaker | BOOL | true:扬声器 false:听筒 |
+| 参数       | 类型 | 含义                         |
+| ---------- | ---- | ---------------------------- |
+| useSpeaker | BOOL | true：扬声器 ；false：听筒。 |
 
 ### setAudioCaptureVolume
 
-设置麦克风采集音量
+设置麦克风采集音量。
 
 ```objective-c
 - (void)setAudioCaptureVolume:(NSInteger)volume;
@@ -619,7 +619,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ### setAudioPlayoutVolume
 
-设置播放音量
+设置播放音量。
 
 ```objective-c
 - (void)setAudioPlayoutVolume:(NSInteger)volume;
@@ -633,7 +633,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ### startFileDumping
 
-开始录音
+开始录音。
 
 ```objective-c
 - (void)startFileDumping:(TRTCAudioRecordingParams *)params;
@@ -643,13 +643,13 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 | 参数   | 类型                     | 含义                                                         |
 | ------ | ------------------------ | ------------------------------------------------------------ |
-| params | TRTCAudioRecordingParams | 录音参数。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCAudioRecordingParams) |
+| params | TRTCAudioRecordingParams | 录音参数。详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCAudioRecordingParams)。 |
 
 >? 该方法调用后， SDK 会将通话过程中的所有音频（包括本地音频，远端音频，BGM 等）录制到一个文件里。无论是否进房，调用该接口都生效。如果调用 exitMeeting 时还在录音，录音会自动停止。
 
 ### stopFileDumping
 
-停止录音
+停止录音。
 
 ```objective-c
 - (void)stopFileDumping;
@@ -657,7 +657,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ### enableAudioEvaluation
 
-启用音量大小提示
+启用音量大小提示。
 
 ```objective-c
 - (void)enableAudioEvaluation:(BOOL)enable;
@@ -665,9 +665,9 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 参数如下表所示：
 
-| 参数   | 类型 | 含义                   |
-| ------ | ---- | ---------------------- |
-| enable | BOOL | true 打开 false 关闭。 |
+| 参数   | 类型 | 含义                      |
+| ------ | ---- | ------------------------- |
+| enable | BOOL | true：打开；false：关闭。 |
 
 >? 开启后会在 onUserVolumeUpdate 中获取到 SDK 对音量大小值的评估。
 
@@ -739,7 +739,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ### getBeautyManager
 
-获取美颜管理对象 [TXBeautyManager](http://doc.qcloudtrtc.com/group__TXBeautyManager__ios.html)
+获取美颜管理对象 [TXBeautyManager](http://doc.qcloudtrtc.com/group__TXBeautyManager__ios.html)。
 
 ```objective-c
 - (TXBeautyManager *)getBeautyManager;
@@ -841,13 +841,13 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 | 参数          | 类型                       | 含义           |
 | ------------- | -------------------------- | -------------- |
 | localQuality  | TRTCQualityInfo            | 上行网络质量。 |
-| remoteQuality | NSArray<TRTCQualityInfo *> | 下行网络质量。 |
+| remoteQuality | NSArray&lt;TRTCQualityInfo *&gt; | 下行网络质量。 |
 
->? 详情请参见[TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a723002319845fbfc03db501aa9da6c28)
+>? 详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a723002319845fbfc03db501aa9da6c28)。
 
 ### onUserVolumeUpdate
 
-启用音量大小提示，会通知每个成员的音量大小
+启用音量大小提示，会通知每个成员的音量大小。
 
 ```objective-c
 - (void)onUserVolumeUpdate:(NSString *)userId volume:(NSInteger)volume;
@@ -1012,9 +1012,9 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 参数如下表所示：
 
-| 参数   | 类型 | 含义                                               |
-| ------ | ---- | -------------------------------------------------- |
-| reason | int  | 停止原因，0：用户主动停止；1：屏幕窗口关闭导致停止 |
+| 参数   | 类型 | 含义                                                 |
+| ------ | ---- | ---------------------------------------------------- |
+| reason | int  | 停止原因，0：用户主动停止；1：屏幕窗口关闭导致停止。 |
 
 
 
@@ -1024,7 +1024,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ### userId
 
-用户ID。
+用户 ID。
 
 ```objective-c
 @property (nonatomic, strong) NSString *userId;
@@ -1040,7 +1040,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ### avatarURL
 
-用户头像URL。
+用户头像 URL。
 
 ```objective-c
 @property (nonatomic, strong) NSString *avatarURL;

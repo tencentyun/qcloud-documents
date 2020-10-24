@@ -40,8 +40,8 @@
 ### 密码问题导致无法登录
 
 **故障现象**：密码输入错误、忘记密码或者密码重置失败导致登录不成功。
-**解决方法**：请在 [腾讯云控制台](https://console.cloud.tencent.com/cvm/index) 重置该实例的密码，并重启实例。
-**处理步骤**：重置实例密码的方法请参考 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
+**处理步骤**：请在 [腾讯云控制台](https://console.cloud.tencent.com/cvm/index) 重置该实例的密码，并重启实例。详情请参见 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
+
 
 <span id="BandwidthUtilization"></span>
 ### 带宽利用率过高
