@@ -167,3 +167,6 @@ Web 推流和 Web 低延时观看用到了 WebRTC 技术。目前主要在桌面
 
 - [TWebLive 接口手册](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblive/TWebLive.html)
 - [一分钟跑通 Web 直播互动组件](https://cloud.tencent.com/document/product/269/47959)
+
+## 相关文档
+[折扣活动](https://cloud.tencent.com/document/product/269/46181)

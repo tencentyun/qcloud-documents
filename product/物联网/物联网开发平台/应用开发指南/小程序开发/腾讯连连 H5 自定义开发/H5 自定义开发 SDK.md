@@ -27,14 +27,14 @@ H5 SDK 提供产品信息、设备数据、用户信息与家庭信息等基本�
 - **接口定义**
 ```typescript
 sdk.getProductInfo({ productId?: string }) => Promise<{
-  ProductId: string,
-  Name: string,
-  Description: string,
-  DataTemplate: string,
-  NetType: string,
-  CategoryId: number,
-  ProductType: number,
-  UpdateTime: number,
+	ProductId: string,
+	Name: string,
+	Description: string,
+	DataTemplate: string,
+	NetType: string,
+	CategoryId: number,
+	ProductType: number,
+	UpdateTime: number,
 }>
 ```
 - **参数说明**
@@ -112,22 +112,22 @@ sdk.getProductInfo({ productId?: string }) => Promise<{
 - **接口定义**
 ```typescript
 sdk.getDeviceInfo({ deviceId?: string }) => Promise<{
-  ProductId: string,
-  DeviceName: string,
-  DeviceId: string,
-  IconUrl: string,
-  AliasName: string,
-  UserId: string,
-  RoomId: string,
-  CreateTime: number,
-  UpdateTime: number
+	ProductId: string,
+	DeviceName: string,
+	DeviceId: string,
+	IconUrl: string,
+	AliasName: string,
+	UserId: string,
+	RoomId: string,
+	CreateTime: number,
+	UpdateTime: number
 } | {
-  ProductId: string,
-  DeviceName: string,
-  DeviceId: string,
-  IconUrl: string,
-  AliasName: string,
-  CreateTime: string
+	ProductId: string,
+	DeviceName: string,
+	DeviceId: string,
+	IconUrl: string,
+	AliasName: string,
+	CreateTime: string
 }>
 ```
 - **参数说明**
@@ -215,17 +215,17 @@ sdk.getDeviceData({ deviceId?: string }) => Promise<object>
 - **接口定义**
 ```typescript
 sdk.getDeviceDataHistory({
-  FieldName: string,
-  MaxTime: number,
-  MinTime: number,
-  Context?: string,
-  Limit: number
+	FieldName: string,
+	MaxTime: number,
+	MinTime: number,
+	Context?: string,
+	Limit: number
 }) => Promise<{
-  RequestId: string,
-  Context: string,
-  FieldName: string,
-  Listover: boolean,
-  Results: DataHistoryItem[]
+	RequestId: string,
+	Context: string,
+	FieldName: string,
+	Listover: boolean,
+	Results: DataHistoryItem[]
 }>
 ```
 - **参数说明**
@@ -362,11 +362,11 @@ sdk.getShareParams({ deviceId?: string }) => Promise<any>
 - **接口定义**
 ```typescript
 sdk.checkFirmwareUpgrade({
-  deviceId?: string,
-  silent?: boolean
+	deviceId?: string,
+	silent?: boolean
 }) => Promise<{
-  CurrentVersion: string,
-  DstVersion: string,
+	CurrentVersion: string,
+	DstVersion: string,
 }>
 ```
 - **参数说明**
@@ -427,12 +427,12 @@ sdk.goFirmwareUpgradePage({ deviceId?: string }) => Promise
 - **接口定义**
 ```typescript
 sdk.getUserInfo() => Promise<{
-  Avatar: string,
-  CountryCode: string,
-  Email: string,
-  NickName: string,
-  PhoneNumber: string,
-  UserID: string
+	Avatar: string,
+	CountryCode: string,
+	Email: string,
+	NickName: string,
+	PhoneNumber: string,
+	UserID: string
 }>
 ```
 -  **返回值**
@@ -646,13 +646,13 @@ sdk.tips.showError(error, options) => Promise
  - **接口定义**
 ```typescript
 sdk.tips.showModal({
-  title?: string,
-  content?: string,
-  showCancel?: boolean,
-  cancelText?: string,
-  cancelColor?: string,
-  confirmText?: string,
-  confirmColor?: string,
+	 title?: string,
+	 content?: string,
+	 showCancel?: boolean,
+	 cancelText?: string,
+	 cancelColor?: string,
+	 confirmText?: string,
+	 confirmColor?: string,
 }) => Promise<boolean>
 ```
  - **参数说明**
@@ -825,13 +825,13 @@ sdk.hideOfflineTip() => void
 - **接口定义**
 ```typescript
 sdk.showDeviceDetail({
-  deviceInfo?: object,
-  labelWidth?: number,
-  marginTop?: number,
-  shareParams?: object,
-  extendItems?: ExtendItemConfig[],
-  extendButtons?: ExtendButtonConfig[],
-  containerClassName?: string
+	deviceInfo?: object,
+	labelWidth?: number,
+	marginTop?: number,
+	shareParams?: object,
+	extendItems?: ExtendItemConfig[],
+	extendButtons?: ExtendButtonConfig[],
+	containerClassName?: string
 }) => void
 ```
 - **参数说明**
@@ -957,10 +957,10 @@ sdk.hideDeviceDetail() => void
 - **接口定义**
 ```typescript
 sdk.goDeviceDetailPage({
-  reload?: boolean,
-  deviceId?: string,
-  isShareDevice?: string,
-  shareParams?: object | string,
+	reload?: boolean,
+	deviceId?: string,
+	isShareDevice?: string,
+	shareParams?: object | string,
 }) => Promise
 ```
 - **参数说明**
@@ -1401,31 +1401,31 @@ sdk.bluetoothAdapter.addAdapter(deviceAdapter: DeviceAdapterConstructor) => void
  - **示例代码**
  ```javascript
 class DemoDeviceAdapter extends DeviceAdapter {
-  static serviceId = '0000FFF0-0000-1000-8000-00805F9B34CC';
-  static deviceFilter(deviceInfo) {
-    if (deviceInfo.advertisServiceUUIDs) {
-      const matchedServiceId = deviceInfo.advertisServiceUUIDs.find(id => id === DemoDeviceAdapter.serviceId);
-      if (matchedServiceId && deviceInfo.advertisData) {
-        try {
-          const macArr = deviceInfo.advertisData.slice(2);
-          const mac = macArr.join(':');
-          return {
-            ...deviceInfo,
-            deviceName: mac,
-            serviceId: matchedServiceId,
-          };
-        } catch (err) {
-          console.error('parse mac error', err);
-        }
-      }
-    }
-  }
-  handleBLEMessage(hex) {
-    return {
-      type: 'unknown',
-      data: hex,
-    };
-  }
+	static serviceId = '0000FFF0-0000-1000-8000-00805F9B34CC';
+	static deviceFilter(deviceInfo) {
+		if (deviceInfo.advertisServiceUUIDs) {
+			const matchedServiceId = deviceInfo.advertisServiceUUIDs.find(id => id === DemoDeviceAdapter.serviceId);
+			if (matchedServiceId && deviceInfo.advertisData) {
+				try {
+					const macArr = deviceInfo.advertisData.slice(2);
+					const mac = macArr.join(':');
+					return {
+						...deviceInfo,
+						deviceName: mac,
+						serviceId: matchedServiceId,
+					};
+				} catch (err) {
+					console.error('parse mac error', err);
+				}
+			}
+		}
+	}
+	handleBLEMessage(hex) {
+		return {
+			type: 'unknown',
+			data: hex,
+		};
+	}
 }
 sdk.bluetoothAdapter.addAdapter(DemoDeviceAdapter);
  ```
@@ -1456,12 +1456,12 @@ sdk.blueToothAdapter.init().then(() => {
 -  **接口定义**
 ```typescript
 sdk.blueToothAdapter.startSearch({
-    serviceId?: string,
-    serviceIds?: string[],
-    ignoreDeviceIds?: string[],
-    onSearch: (DeviceInfo[]) => void,
-    onError: (Error) => void,
-    timeout: number
+	 serviceId?: string,
+	 serviceIds?: string[],
+	 ignoreDeviceIds?: string[],
+	 onSearch: (DeviceInfo[]) => void,
+ 	onError: (Error) => void,
+	 timeout: number
 }) => Promise<void>
 ```
 - **参数说明**
@@ -1532,10 +1532,10 @@ sdk.blueToothAdapter.stopSearch() => void
 - **接口定义**
 ```typescript
 sdk.blueToothAdapter.searchDevice({
-  deviceName: string,
-  serviceId?: string,
-  serviceIds?: string[],
-  ignoreDeviceIds?: string[]
+	deviceName: string,
+	serviceId?: string,
+	serviceIds?: string[],
+	ignoreDeviceIds?: string[]
 }) => Promise<DeviceInfo>
 ```
 - **参数说明**
@@ -1732,16 +1732,16 @@ sdk.blueToothAdapter.off(type: string, listener: (...args) => void) => void
 - **deviceFilter**：自定义设备适配器类需要实现该静态方法，在搜索蓝牙设备时会将每个搜出的设备信息传入该方法，如果判断是本产品的设备，则需在除入参 deviceInfo 之外返回设备唯一标识 deviceName 及 serviceId，否则返回空。
 ```typescript
 DeviceAdapter.deviceFilter: (deviceInfo: DeviceInfo) => { 
-  deviceName: string, 
-  serviceId: string,
-  ...deviceInfo
+	deviceName: string, 
+	serviceId: string,
+	...deviceInfo
 }
 ```
 - **handleBLEMessage**：自定义设备适配器类需要实现该方法，用于处理收到 `onBLECharacteristicValueChange` 回调后的协议解析。
 ```typescript
 DeviceAdapter.handleBLEMessage: (hexString, { serviceId, characteristicId }) => {
-  reportData?: any,
-  ...any
+	reportData?: any,
+	...any
 }
 ```
 
@@ -1832,10 +1832,10 @@ deviceAdapter.getBLEDeviceCharacteristics({ serviceId: string }) => Promise<Char
 将获取到的特征值按照如下数据结构存放在 `deviceAdapter` 实例上。
 ```typescript
 deviceAdapter.characteristicsMap[serviceId] = {
-  notifyIds: string[],
-  indicateIds: string[],
-  writeIds: string[],
-  readIds: string[]
+	notifyIds: string[],
+	indicateIds: string[],
+	writeIds: string[],
+	readIds: string[]
 }
 ```
 
@@ -1844,8 +1844,8 @@ deviceAdapter.characteristicsMap[serviceId] = {
 - **接口定义**
 ```typescript
 deviceAdapter.readBLECharacteristicValue({
-  serviceId?: string,
-  characteristicId: string
+	serviceId?: string,
+	characteristicId: string
 }) => Promise<void>
 ```
 - **参数说明**
@@ -1888,9 +1888,9 @@ deviceAdapter.getBLEDeviceRSSI() => Promise
 - **接口定义**
 ```typescript
 deviceAdapter.notifyBLECharacteristicValueChange({
-  characteristicId?: string,
-  serviceId?: string,
-  state?: boolean
+	characteristicId?: string,
+	serviceId?: string,
+	state?: boolean
 }) => Promise<void>
 ```
 - **参数说明**
@@ -1930,8 +1930,8 @@ deviceAdapter.notifyBLECharacteristicValueChange({
 - **接口定义**
 ```typescript
 deviceAdapter.write(hexString: string, options?: {
-  writeId?: string,
-  serviceId?: string
+	writeId?: string,
+	serviceId?: string
 }) => Promise
 ```
 - **参数说明**
