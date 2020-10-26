@@ -111,7 +111,11 @@ TRTCCallingContext.off(EVENT.INVITED)
 
 <span id="call"></span>
 #### call({userID, type})
-进行某个 user 进行呼叫，其中 type 为通话类型，1：语音通话，2：视频通话。
+进行某个 user 进行呼叫。
+
+| 参数|    含义   |
+| --------------- | ---------- | 
+|type| 通话类型，type = 1：语音通话，type = 2：视频通话。|
 
 ```javascript
 let userID = 'test'
@@ -163,8 +167,10 @@ TRTCCallingContext.hangup()
 
 ####  setMicMute(isMute) 
 设置麦克风状态。
-- 当 isMute 取值为 true：关闭麦克风。
-- 当 isMute 取值为 false：打开麦克风。
+
+| 参数|    含义   |
+| --------------- | ---------- | 
+|isMute| true：关闭麦克风，false：打开麦克风。 |
 
 ```javascript
 TRTCCallingContext.setMicMute(true) // 开启麦克风
@@ -173,8 +179,10 @@ TRTCCallingContext.setMicMute(true) // 开启麦克风
 <span id="setHandsFree"></span>
 ####  setHandsFree(isHandsFree) 
 设置声音播放状态。
-- 当 isHandsFree 取值为 true：外放模式。
-- 当 isHandsFree 取值为 false： 听筒模式。
+
+| 参数|    含义   |
+| --------------- | ---------- | 
+|isHandsFree| true：外放模式，false：听筒模式。 |
 
 ```javascript
 TRTCCallingContext.setHandsFree(true) // 开启外放模式
