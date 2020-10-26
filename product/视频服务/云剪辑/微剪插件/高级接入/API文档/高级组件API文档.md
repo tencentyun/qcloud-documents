@@ -2,9 +2,14 @@
 
 `wj-player` 是支持微剪运行的核心组件，它是由轨道数据驱动运行的播放器，并内置了一些常用功能。
 
+> v1.4.0后新增功能：
+>
+> 1. 贴纸，详见文档[贴纸和文字]()
+> 2. 文字和贴纸内置编辑控件，详见文档[编辑控件]()
+
 ### 使用方式
 1. 配置 JSON 文件：
-```
+```json
   {
       "usingComponents": {
         "wj-player": "plugin://myPlugin/wj-player"
@@ -31,30 +36,31 @@
 
 | 属性名               | 类型     | 默认值                                                       | 说明                                                         | 必填 |
 | -------------------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
-| containerStyleConfig | Object   | `{height: 1334, width: 750}`| 播放器的尺寸   | 否   |
-| mode                 | String   | default| <li />default：video 模式<li />offscreen：decoder offscreen 模式（导出模式），推荐直接使用 `wj-export` 组件 | 否   |
-| allowSetVolumn       | Boolean  | false| 是否需要调整视频原声音量                                     | 否   |
-| enableTapPause       | Boolean  | false| 是否启用点击暂停                                             | 否   |
-| enablePauseIcon      | Boolean  | true| 是否显示暂停按钮                                             | 否   |
-| preloadFilter        | Boolean  | true| 是否启用滤镜预加载                                           | 否   |
-| preloadFilterKeys    | Array    | ['key1', 'key2']| 需要提前加载的滤镜                                           | 否   |
+| containerStyleConfig | Object   | `{height: 1334, width: 750}`                                 | 播放器的尺寸                                                 | 否   |
+| mode                 | String   | default                                                      | <li />default：video 模式<li />offscreen：decoder offscreen 模式（导出模式），推荐直接使用 `wj-export` 组件 | 否   |
+| allowSetVolumn       | Boolean  | false                                                        | 是否需要调整视频原声音量                                     | 否   |
+| enableTapPause       | Boolean  | false                                                        | 是否启用点击暂停                                             | 否   |
+| enablePauseIcon      | Boolean  | true                                                         | 是否显示暂停按钮                                             | 否   |
+| enableClipEdit      | Boolean  | true                                                         | 是否启用编辑控件，编辑控件详见[编辑控件]()                        | 否   |
+| preloadFilter        | Boolean  | true                                                         | 是否启用滤镜预加载                                           | 否   |
+| preloadFilterKeys    | Array    | ['key1', 'key2']                                             | 需要提前加载的滤镜                                           | 否   |
 | filters              | Array    | [{<br />key: 'lujing',<br />name: '滤镜'<br />src: 'wxfile://xxxxx'<br />}] | 定制化 effect 列表                                           | 否   |
-| effects              | Array    | [{<br />name: EffectName,<br />fragment: Shader 代码字符串<br />}] | 定制化 shader 列表| 否   |
-| status               | String   | playing| 初始播放状态                                                 | 否   |
-| bindready            | Function | -| 播放器初始化完成回调| 否   |
-| bindplay             | Function | -| 播放器开始播放| 否   |
-| bindpaused           | Function | -| 播放器暂停回调                                               | 否   |
-| bindwaiting          | Function | -| 播放器加载中的回调                                           | 否   |
-| bindloadcomplete     | Function | -| 播放器所有 Clip 加载完毕时触发                               | 否   |
-| binddataupdated      | Function | -| 播放器 updateData 完成时触发<br />e.detail = [Tracks]        | 否   |
-| bindtimeupdate       | Function | -| 播放进度变化时触发<br />e.detail = time                      | 否   |
-| bindtapped           | Function | -| 播放器点击                                                   | 否   |
-| bindended            | Function | -| 播放完成                                                     | 否   |
-| bindtexttouchstart   | Function | -| 文字开始触摸                                                 | 否   |
-| bindtexttouchend     | Function | -| 文字触摸结束                                                 | 否   |
-| bindtexttouchmove    | Function | -| 文字移动                                                     | 否   |
-
-
+| effects              | Array    | [{<br />name: EffectName,<br />fragment: Shader 代码字符串<br />}] | 定制化 shader 列表                                           | 否   |
+| status               | String   | playing                                                      | 初始播放状态                                                 | 否   |
+| bindready            | Function | -                                                            | 播放器初始化完成回调                                         | 否   |
+| bindplay             | Function | -                                                            | 播放器开始播放                                               | 否   |
+| bindpaused           | Function | -                                                            | 播放器暂停回调                                               | 否   |
+| bindwaiting          | Function | -                                                            | 播放器加载中的回调                                           | 否   |
+| bindloadcomplete     | Function | -                                                            | 播放器所有 Clip 加载完毕时触发                               | 否   |
+| binddataupdated      | Function | -                                                            | 播放器 updateData 完成时触发<br />e.detail = [Tracks]        | 否   |
+| bindtimeupdate       | Function | -                                                            | 播放进度变化时触发<br />e.detail = time                      | 否   |
+| bindtapped           | Function | -                                                            | 播放器点击                                                   | 否   |
+| bindended            | Function | -                                                            | 播放完成                                                     | 否   |
+| bindtexttouchstart   | Function | -                                                            | 文字开始触摸(v1.4.0后废弃)                                   | 否   |
+| bindtexttouchend     | Function | -                                                            | 文字触摸结束(v1.4.0后废弃)                                   | 否   |
+| bindtexttouchmove    | Function | -                                                            | 文字移动(v1.4.0后废弃)                                       | 否   |
+| bindclipedit    | Function | 详见[编辑控件]()                                                     |clip位移、旋转、缩放                                   | 否   |
+| bindclipoperation   | Function | 详见[编辑控件]()                                                     |编辑控件按钮点击                                 | 否   |
 ### 方法说明
 
 | 方法名        | 参数   | 返回值       | 说明                                     |
@@ -70,12 +76,14 @@
 | getDuration   | -      | Number       | 获取视频总时长                           |
 | getTracks     | -      | Array        | 获取当前轨道                             |
 | getPlayStatus | -      | String       | 获取当前播放状态                         |
+| hideClipControl| -      | -           | 强制隐藏所有的编辑控件                         |
+| preloadSticker| String（spritesheet地址或key值）| -       | 异步方法，预加载贴纸       |
 
 播放器围绕 Tracks 和 Clips 进行视频渲染， 前文数据结构详细介绍了 Tracks 和 Clips 直接的关系。接下来，我们一起来看一下如何对播放器进行渲染。
 
->? 
 >- 定制滤镜目前只支持 LUT 图滤镜，由于小程序下载文件的限制，LUT 图需要先 downloadFile 到本地。
 >- 定制特效需要传入特效的片元着色器，详情见 [高级功能-自定义特效和滤镜](https://cloud.tencent.com/document/product/1156/48621)。
+>- v1.4.0之后支持贴纸渲染，贴纸和文字的位移和缩放，详见[高级功能-贴纸和文字](),[高级功能-编辑控件]()
 
 ### 播放器使用示例
 
@@ -141,10 +149,12 @@ this.player = player;
 <td>id</td>
 <td>id 可以自定义，如果不传则由播放器内部自动生成。</td>
 </tr></table>
-  2. 因为 Clip 需要运行在 Track中，接下来将 Clip 添加进 media 轨道：
+
+2. 因为 Clip 需要运行在 Track中，接下来将 Clip 添加进 media 轨道：
 ```javascript
       this.mediaTrack.clips = [videoClip1];
 ```
+
 3. 添加图片 Clip。
   1. 添加图片 Clip，设置图片的 Clip 的 type 为 image。
   ```javascript
@@ -159,12 +169,13 @@ this.player = player;
         },
         startAt: 4
       })
+  ```
 ```
   >? 
   >- 图片类型 Clip 的 duration 默认值为3（与 settings 配置项中的 imgDisplayDuration 属性保持一致即可）。
   >- 上述 Clip 的 startAt 值为4，是因为此前我们已经加入了一个 video Clip，其 section 为4（end-start），即当前 Clip 之前的所有 Clip 的有效 section 之和。
   2. 把图片添加到 media 轨道：
-```javascript
+​```javascript
     this.mediaTrack.clips = [videoClip1, imageClip1];
 ```
 >? 可以看到此时媒体轨道中已经添加一个视频和一张图片。以此类推，您可以按照这种方式添加更多的视频或者图片。
@@ -233,11 +244,10 @@ videoClip1.startAt = 1;
 		startAt: 0
 	})
 ```
-> ?
 > - `tempFilePath` 为在线音乐地址。
 > - 参数基本与视频的 Clip一致，具体请参见 [Clip 参数详解](#clip_parameter)。
 > - section 的 end 值为1000， 一般用于给整个视频添加一段音乐的情况，播放器内部会自动调整为实际的视频时长。
-  2. 将 musicClip1 加入到 musicTrack 中：
+> 2. 将 musicClip1 加入到 musicTrack 中：
 ```javascript
   this.musicTrack.clips = [musicClip1];
 ```
@@ -275,11 +285,11 @@ videoClip1.startAt = 1;
 ```
 2. 添加滤镜片段。<span id="filter_step2"></span>
   1. 获取播放器内部提供的默认滤镜：
-```javascript
-  const filterList = this.player.getFilters();
-```
-<b id="filterList">filterList</b> 的数据结构如下所示：
-```
+  ```javascript
+    const filterList = this.player.getFilters();
+  ```
+  <b id="filterList">filterList</b> 的数据结构如下所示：
+  ```
     [
       {
         key: 'effect1',
@@ -289,9 +299,9 @@ videoClip1.startAt = 1;
         name: '特效2'
       }
     ]
-```
+  ```
   2. 创建 filter clip：
-```javascript
+  ```javascript
       let filterClip1 = new global['wj-types'].Clip({
         id: 'filter1',
         type: 'filter',
@@ -302,21 +312,22 @@ videoClip1.startAt = 1;
         }),
         startAt: 0
       })
-```
-<table>
-<tr><th>参数</th><th>说明</th></tr><tr>
-<td>key</td>
-<td>滤镜的关键字，参考 <a href="#filterList">filterList</a> 结构。</td>
-</tr></table>
+  ```
+  <table>
+  <tr><th>参数</th><th>说明</th></tr><tr>
+  <td>key</td>
+  <td>滤镜的关键字，参考 <a href="#filterList">filterList</a> 结构。</td>
+  </tr></table>
+
   3. 将 Clip 加入轨道：
-```javascript
-  this.filterTrack.clips = [filterClip1]
-```
+  ```javascript
+    this.filterTrack.clips = [filterClip1]
+  ```
   4. 更新播放器：
- ```javascript
+  ```javascript
   this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack]);
-```
-> ? 此时您的播放器中拥有了3条轨道，媒体，音乐和滤镜。
+  ```
+  > ? 此时您的播放器中拥有了3条轨道，媒体，音乐和滤镜。
 3. 添加多个滤镜片段。
 和添加多个视频 Clip 类似，您需要按照 [添加滤镜片段](#filter_step2) 创建另一个 filterClip2，添加到轨道中，然后更新播放器即可。
 ```javascript
@@ -470,7 +481,7 @@ videoClip1.startAt = 1;
 </tr></table>
 
 		>? **文字的位置控制**逻辑在播放器内部，所以您只需要把文字添加进播放器，通过拖拽挪动文字位置，相应的位置信息将初始化传入的文字统一位于视频的中心位置。
-  
+
   2. 将新创建的 textClip 添加到轨道中：
 ```javascript
     this.textTrack.clips = [textClip1]
@@ -517,12 +528,102 @@ videoClip1.startAt = 1;
     this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack, this.textTrack1, this.textTrack2]);
 ```
 
+
 >! **由于小程序限制，最多只能存在5个文字。 可以添加5个文字轨道，一个轨道中一段文字；或者一个轨道中，5段文字，即文字 Clip 总共不能超过5个。**
 
+6. 给文字添加字体
+由于小程序插件无法调用`wx.loadFontFace`方法，因此需要小程序手动暴露该接口给插件，或者在小程序内提前加载字体后再传入插件渲染。详情可参考[高级功能-自定义贴纸和字体]()。
+> 内置字体列表获取请参考[高级功能-内置资源]()
+
+加载字体:
+```javascript
+loadFontFace({
+	family: 'fangzhengyouhei',
+  source: "https://fontPath",
+  scopes: ['webview','native'],
+  success(res) {
+    console.log('font success')
+    console.log(res.status)
+    resolve()
+  },
+  fail: function(res) {
+    console.log('font fail')
+    console.log(res.status)
+    reject()
+  }
+});
+```
+构造对应的文字clip：
+```javascript
+  let mytext = new global['wj-types'].Clip({
+    type: 'text',
+    content: {
+      content: "文字", // 文字内容
+      style: {
+        type: 'background', // 文字样式
+        color: '#ffffff', // 文字颜色
+        backgroundColor: '#ff00ff',
+        fontfamily: 'fangzhengyouhei',
+        fontloaded: true
+      },
+      position: {
+        x: 50,
+        y: 90
+      },
+    },
+    section: {
+      start: 0,
+      end: 10,
+      duration: 10
+    },
+    
+  })
+```
+
+#### 添加贴纸轨道
+
+1. 创建贴纸轨道
+
+   ```javascript
+   this.stickerTrack = new global['wj-types'].Track({
+       type: 'sticker',
+       clips: []
+   });
+   ```
+
+2. 添加贴纸片段
+
+   ```javascript
+   let stickerclip = new global['wj-types'].Clip({
+     id: 'my-sticker',
+     type: 'sticker',
+     section: {
+       start: 0,
+       end: 10,
+       duration: 10
+     },
+     designSize: {
+        xPercent: 0.20, //初始位置
+        yPercent: 0.30,
+        rotation: 0.4, // 旋转角度（单位弧度）
+        scale: 2 // 缩放尺寸
+     },
+     startAt: 0,
+     key: 'guodong',  // 贴纸key
+   })
+   this.stickerTrack.clips.push(stickerclip)
+   this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack, this.stickerTrack]);
+   ```
+
+   > 内置贴纸列表获取请参考[高级功能-内置资源]()
+
+   更多属性请参考[数据结构文档]()。
 
 ## 照相机：wj-camera
 
 相机组件提供用户拍摄（前置、后置），访问相册增加 Clip（图片、视频），展示已选 Clip 列表，删除 Clip（单个删除、整体删除）等基本功能，是 Clip 的入口组件。
+
+1.4.0版本开始组件支持多段拍摄，设置倒计时等。
 
 ### 使用方式
 1. 配置 JSON 文件：
@@ -540,12 +641,19 @@ videoClip1.startAt = 1;
 
 ### 属性说明
 
-  | 属性名           | 类型          | 默认值                  | 说明                                                   | 是否必填 |
-  | ---------------- | ------------- | ----------------------- | ------------------------------------------------------ | -------- |
-  | settings         | Object        | 参见 [settings 默认值](#camera_settings) | 设置                                                   | 否       |
-  | clips            | `Array<clip>` | []  | 初始 Clip，具体请参见 [clip 结构](#camera_clip)                             | 否       |
-  | bindready        | Function      | -                       | 组件加载完成回调                                       | 否       |
-  | bindmediachanged | Function      | -                       | 选择 Clip 的回调<pre style="margin:0" />`e.detail = {track: Array<Track>`}</pre> | 否       |
+| 属性名           | 类型          | 默认值                  | 说明                                                   | 是否必填 |
+| ---------------- | ------------- | ----------------------- | ------------------------------------------------------ | -------- |
+| settings         | Object        | 参见 [settings 默认值](#camera_settings) | 设置                                                   | 否       |
+| clips            | `Array<clip>` | []  | 初始 Clip，具体请参见 [clip 结构](#camera_clip)                             | 否       |
+| mode            | String | 'simple'  | simple: 简单模式 </br> advanced: 高级模式，支持滤镜 | 否       |
+| countdown            | Number | 0  | 拍摄倒计时 | 否       |
+| filter            | String | 空  | advanced模式下使用的滤镜名称 | 否       |
+| bindready        | Function      | -                       | 组件加载完成回调                                       | 否       |
+| bindtapstartrecord        | Function      | -                       | 拍摄按钮点击事件                       | 否       |
+| bindtapstoprecord       | Function      | -                       | 停止按钮点击事件                       | 否       |
+| bindswipetoright       | Function      | -                       | 右划事件（仅advanced模式有效）                       | 否       |
+| bindswipetoleft       | Function      | -                       | 左划事件 （仅advanced模式有效）                      | 否       |
+| bindmediachanged | Function      | -                       | 选择 Clip 的回调<pre style="margin:0" />`e.detail = {track: Array<Track>`}</pre> | 否       |
 
 ####   settings 默认值<span id="camera_settings"></span>
 ```
@@ -559,7 +667,9 @@ videoClip1.startAt = 1;
       defaultBdColor: 'rgba(255,88,76,0.5)', // 录制按钮默认状态外边框颜色
       recordBgColor: '#fff', // 录制按钮录制状态外边框颜色
       chooseVideoIcon: './images/choose_video.png', // 选择按钮
-      switchDirectionIcon: './images/switch_camera.png' // 切换按钮
+      switchDirectionIcon: './images/switch_camera.png', // 切换按钮
+      deleteRecord: './images/delete_record.png', // 拍摄界面删除按钮
+      completeRecord: './images/complete_record.png' // 完成拍摄按钮
   }
 ```
 
@@ -577,7 +687,8 @@ videoClip1.startAt = 1;
 
 **说明**：
 - 主界面底部三个操作按钮，分别为：切换摄像头方向、拍摄、跳转相册。
-- 拍摄时长受 **小程序平台限制，最大值为 30**。
+- 1.4.0版本开始支持多段拍摄，中途点击拍摄按钮会暂停并保存，再次点击继续拍摄。点击右侧【删除】按钮可删除已拍摄片段，点击【完成】按钮结束拍摄。
+- 拍摄总时长受 **小程序平台限制，最大值为 30s**。
 - 视频 Clip 数量最大值为5，Clip（图片+视频）数量最大值为9。
 - Clip 展示页展示已选择或已拍摄 Clip，单击 Clip 右上角的删除按钮可删除单个 Clip；单击空白处可删除全部 Clip。
 - 小程序平台限制，无法在插件中直接调用 `wx.navigateTo` 实现页面跳转，只能使用 [navigator 组件](https://developers.weixin.qq.com/miniprogram/dev/component/navigator.html) ，故我们预留了一个 `slot 插槽` 供用户实现个性化跳转需求，使用方式如下：
@@ -658,7 +769,7 @@ clipper 组件接受的 trackInfo 数据相比于标准的 Track 多了几个属
     mainColor: "rgba(255,88,76)" // 裁切器主题色
   }
 ```
-  
+
 ### 组件实例属性
 | 属性名            | 类型     | 参数            | 说明                                                         |
 | ----------------- | -------- | --------------- | ------------------------------------------------------------ |
@@ -849,7 +960,7 @@ track={
 
 ## 文字编辑：wj-textEditor
 
-文字编辑组件是一个简单的模拟原生输入框的组件，用于向视频中添加文本贴纸。支持动态修改文本的颜色及背景色，提供实时预览功能。
+文字编辑组件是一个简单的模拟原生输入框的组件，用于向视频中添加文本贴纸。支持动态修改文本的颜色、背景色及字体（1.4.0版本新增），提供实时预览功能。
 
 ### 使用方式
 1. 配置 JSON 文件：
@@ -867,15 +978,19 @@ track={
 
 ### 属性说明
 
-  | 属性名      | 类型     | 默认值           | 备注                                                         | 必填 |
-  | ----------- | -------- | ---------------- | ------------------------------------------------------------ | ---- |
-  | value       | String   | 空               | 文本内容                                                     | 否   |
-  | color       | String   | #fff             | 字体颜色，标准 css 颜色值，默认白色                            | 否   |
-  | bgColor     | String   | transparent      | 背景色，标准 css 颜色值，默认透明                              | 否   |
-  | colorList   | Array    | 组件默认颜色集合 | [{key：唯一标识，value：标准 css 颜色值}]                      | 否   |
-  | bindconfirm | Function | -                | 用户输入完成：<pre style="margin:0">e.detail = { value: 文本内容, <br/>color: 文本颜色, <br/>bgColor: 背景色, <br/>showTextBg: 是否显示背景色 <br/>} </pre>| 否   |
-  | bindclose   | Function | -                | 用户取消输入                                                 | 否   |
+| 属性名      | 类型     | 默认值           | 备注                                                         | 必填 |
+| ----------- | -------- | ---------------- | ------------------------------------------------------------ | ---- |
+| value       | String   | 空               | 文本内容                                                     | 否   |
+| color       | String   | #fff             | 字体颜色，标准 css 颜色值，默认白色                            | 否   |
+| bgColor     | String   | transparent      | 背景色，标准 css 颜色值，默认透明                              | 否   |
+| fontStyle     | Object   | {fontfamily:'moren',fonturl:''}      |  {fontfamily:字体名称标识（字母）,fonturl:字体文件地址}  | 否   |
+| colorList   | Array    | 组件默认颜色集合 | [{key：唯一标识，value：标准 css 颜色值}]                      | 否   |
+| fontList   | Array    | 组件默认字体集合 | [{name: 字体名称（汉字）,family: 字体名称标识（字母） ,url: 字体文件地址}]                      | 否   |
+| bindconfirm | Function | -                | 用户输入完成：<pre style="margin:0">e.detail = { value: 文本内容, <br/>color: 文本颜色, <br/>bgColor: 背景色, <br/>showTextBg: 是否显示背景色 <br/>family: 字体名称,<br/>fontUrl: 字体文件地址,<br/>fontloaded: 是否已下载字体文件<br/>} </pre>| 否   |
+| bindclose   | Function | -                | 用户取消输入                                                 | 否   |
 
 ### 操作说明
   输入文字，单颜色列表实时更换文本颜色，单击左侧 T 图标实时更换背景颜色。
-  
+
+  1.4.0版本开始支持修改字体啦。
+
