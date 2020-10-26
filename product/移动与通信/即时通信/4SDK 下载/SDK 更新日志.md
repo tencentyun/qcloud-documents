@@ -19,8 +19,8 @@
 ### TUIKit & Demo
 
 **iOS/Android**
-- 新增群直播功能，连麦、送礼、美颜、变声等功能一应俱全
-- 新增直播大厅，支持连麦、PK、点赞、送礼、美颜、弹幕、好友关注等
+- 新增 [群直播](https://cloud.tencent.com/document/product/269/48909) 功能，连麦、送礼、美颜、变声等功能一应俱全
+- 新增 [直播大厅](https://cloud.tencent.com/document/product/269/48959)，支持连麦、PK、点赞、送礼、美颜、弹幕、好友关注等
 - 优化语音视频信令识别问题
 
 
