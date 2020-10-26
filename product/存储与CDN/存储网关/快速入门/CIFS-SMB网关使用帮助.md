@@ -255,8 +255,8 @@ Password: csg123
 ![](https://mc.qcloudimg.com/static/img/ba1f23f1ceaec7a46e47a25594960b39/image.png)
 
 
-#### 打开 "映射网路驱动器"
-登录到需要挂载文件系统的 Windows 上，在 "开始" 菜单中找到 "计算机"，单击鼠标右键出现菜单，单击菜单中的 "映射网路驱动器"。 
+#### 打开 "映射网络驱动器"
+登录到需要挂载文件系统的 Windows 上，在 "开始" 菜单中找到 "计算机"，单击鼠标右键出现菜单，单击菜单中的 "映射网络驱动器"。 
 ![](https://mc.qcloudimg.com/static/img/5696d66a83d4e9b35196274f89e07dfc/image.png)
 ![](https://mc.qcloudimg.com/static/img/6eeb1c0838e6aab185ed8b76dc736912/image.png)
 
