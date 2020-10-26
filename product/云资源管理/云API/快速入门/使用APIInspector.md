@@ -11,7 +11,7 @@ API Inspector 是云 API 新推出的一款产品功能，用户可通过此功�
 
 API Inspector 与 API Explorer 共同成为腾讯云 API 用户学习和调试 API 的一体化解决方案，具有以下特性：
 - **自动录制**：如果您想要了解功能背后的 API，可在控制台操作相应的功能时获得相关 API 调用信息，详情请参见 [自动录制 API 调用](#AutomaticRecordingAPI)。                         
-- **一键生成**：自动生成各语言的 API 代码片段参数预填充，详情请参见 [一键生成 API 代码](#AutomaticGeneratedAPI)。                         
+- **一键生成**：自动生成各语言的 API 代码片段参数预填充，可直接运行，详情请参见 [一键生成 API 代码](#AutomaticGeneratedAPI)。                         
 - **在线调试**：提供 API Explorer 一键在线调试功能，可实现自动生成多语言 SDK 代码、在线调用、发送真实请求及签名串自动生成等功能。降低了 SDK 的使用难度，详情请参见 [API Explorer 在线调试](#APIExplorer)。
  
 ## 功能介绍
