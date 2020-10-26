@@ -1,4 +1,4 @@
-API Inspector 是云 API 新推出的一款产品功能，用户可通过此功能查看控制台的每一步操作关联的 API 调用情况，并自动生成各语言版本的 API 代码，可通过 [API Explorer](https://cloud.tencent.com/document/product/1278/46697) 在线调试。 
+API Inspector 是云 API 新推出的一款产品功能，用户可通过此功能查看控制台每一步操作关联的 API 调用情况，并自动生成各语言版本的 API 代码，也可前往 [API Explorer](https://cloud.tencent.com/document/product/1278/46697) 在线调试。 
 
 >!
 >- API Inspector 仅展示以下域名中公开的 [云 API 3.0](https://cloud.tencent.com/document/api) 接口信息：
@@ -23,18 +23,18 @@ API Inspector 与 API Explorer 共同成为腾讯云 API 用户学习和调试 A
 
 ### 自动录制 API 调用<span id="AutomaticRecordingAPI"></span>
 本文以修改实例名称为例，介绍 API Inspector 的自动录制功能：
-1. 将某个实例名称修改为 API Inspector，具体操作操作请参见 [修改实例名称](https://cloud.tencent.com/document/product/213/16562)。
+1. 将某个实例名称修改为 API Inspector，具体操作请参见 [修改实例名称](https://cloud.tencent.com/document/product/213/16562)。
 2. 开启 API Inspector 功能，即可查看涉及改名操作的所有 API 调用。如下图所示：
 ![](https://main.qcloudimg.com/raw/61c3bdd96ef5996e76c8a26aef25ccfd.png)
 您可勾选“隐藏Describe类接口”，查看功能核心接口。如下图所示： 
-![](https://main.qcloudimg.com/raw/4cfff61802f24f37f41cf9dc944e5dd2.png)
+![](https://main.qcloudimg.com/raw/13e7d5ea7d15920bc8b31f7bf834c160.png)
 
 
 ### 一键生成 API 代码<span id="AutomaticGeneratedAPI"></span>
-当控制台操作涉及的 API 录制完成后，您可单击 API 名称，一键生成可实现自动生成 Java、Python、Node.js、PHP、GO 及 .NET 语言的 API 代码片段参数预填充。可选择<img src="https://main.qcloudimg.com/raw/c87d07f7c2d1f7519b9b80f19d158e62.png" style="margin:-3px 0px">复制对应格式的代码段，如下图所示：
+当控制台操作涉及的 API 录制完成后，您可单击 API 名称，一键生成 Java、Python、Node.js、PHP、GO 及 .NET 语言的 API 代码片段及参数预填充。可选择<img src="https://main.qcloudimg.com/raw/c87d07f7c2d1f7519b9b80f19d158e62.png" style="margin:-3px 0px">复制对应格式的代码段，如下图所示：
 ![](https://main.qcloudimg.com/raw/7b3ec4af4b4c58ff3370636624a388fd.png)
 
 
-### API Explorer在线调试<span id="APIExplorer"></span>
-您可选择 <img src="https://main.qcloudimg.com/raw/c87d07f7c2d1f7519b9b80f19d158e62.png" style="margin:-3px 0px"> 或【前往API Explorer】直接调试对应的功能，也可选择 <img src="https://main.qcloudimg.com/raw/68a84eebfed1c31bf37294902156d986.png" style="margin:-3px 0px"> 查看对应接口文档。如下图所示：
+### API Explorer 在线调试<span id="APIExplorer"></span>
+您可选择 <img src="https://main.qcloudimg.com/raw/753d4cb89c7dc582b11ed66811143716.png" style="margin:-3px 0px"> 或【前往API Explorer】，使用 API Explorer 工具直接调试对应的功能，也可选择 <img src="https://main.qcloudimg.com/raw/68a84eebfed1c31bf37294902156d986.png" style="margin:-3px 0px"> 查看对应接口文档。如下图所示：
 ![](https://main.qcloudimg.com/raw/b90455b43fdcaa11e8d5a91acd08f656.png)
