@@ -35,7 +35,7 @@ P2P Addon 是容器镜像服务 TCR 推出的基于 P2P 技术的容器镜像加
  - Tracker 的 limit 限制为：2核 CPU 和4G 内存。
 - 需要根据集群的节点规模，估算启动的 Proxy 个数。Proxy 运行节点的最低配置为4C8G，内网带宽1.5GB/s，单个 Proxy 服务可支撑200个集群节点。
 - 需要主动为 Proxy 和 Tracker 组件选择部署节点，使用方式为手动为节点打 K8S 标签，详情请参见 [使用方法](#Instructions)。Proxy 和 Agent 所在的节点需要能够访问的仓库源站。
-- Agent 组件将会占用节点的5004端口，以及 P2P 专用通信端口6881（Agent）和6882（Proxy）。节点安全组需要添加的配置为：入站规则放通 TCP 和 UDP 的30000 - 32768 端口、以及 VPC 内 IP 全放通。出站规则放通全部（TKE 集群 work 节点默认安全组已满足要求）。Agent、Proxy 组件会分别创建本地工作目录 `/p2p_agent_data` 和 `/p2p_proxy_data` 用于缓存容器镜像，请提前确认节点已预留足够的存储空间。
+- Agent 组件将会占用节点的5004端口，以及 P2P 专用通信端口6881（Agent）和6882（Proxy）。Agent、Proxy 组件会分别创建本地工作目录 `/p2p_agent_data` 和 `/p2p_proxy_data` 用于缓存容器镜像，请提前确认节点已预留足够的存储空间。
 
 ## 组件安装要求
 - 选取合适的节点部署运行 Proxy 组件。
@@ -45,6 +45,28 @@ P2P Addon 是容器镜像服务 TCR 推出的基于 P2P 技术的容器镜像加
 
 
 ## 使用方法<span id="Instructions"></span>
+
+
+- 选取合适的节点部署运行 Proxy 组件。
+可通过 `kubectl label nodes XXXX proxy=p2p-proxy` 命令标记节点，插件安装时将自动在这些节点中部署该组件。安装后如果需要调整 Proxy 组件的个数，可在指定节点上添加或者删除该 label 后，修改集群中 kube-system 命名空间下 p2p-proxy 工作负载的副本个数。
+- 选取合适的节点部署运行 Tracker 组件。
+可通过 `kubectl label nodes XXXX tracker=p2p-tracker` 命令标记节点，插件安装时将自动在这些节点中部署该组件。安装后如果需要调整 Tracker 的个数，可在指定节点上添加或者删除该 label 后，修改集群中 kube-system 命名空间下 p2p-tracker 工作负载的副本个数。
+- 节点安全组需要添加的配置为：入站规则放通 TCP 和 UDP 的30000 - 32768 端口、以及 VPC 内 IP 全放通。出站规则放通全部（TKE 集群 work 节点默认安全组已满足要求）。
+- 选择指定集群 [开启 P2P Addon 插件](#start)。填写需要加速的镜像仓库域名，节点拉取限速、Proxy 个数，Tracker 个数。安装后如果需要重新调整下载的最高速度，可修改 p2p-agent configmap 中的 downloadRate 和 uploadRate。
+
+
+
+
+
+
+
+## 开启插件
+
+
+
+
+
+
 1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【集群】。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的【组件管理】，进入“组件列表”页面。
