@@ -28,7 +28,7 @@ sudo ls /sys/firmware/efi
 需检查的系统关键文件包括且不限于以下文件：
 >? 请遵循相关发行版的标准，确保系统关键文件位置和权限正确无误，可以正常读写。
 >
- - /etc/grub/grub.cfg： kernel 参数里推荐使用 uuid 挂载 root，其它方式（如 root=/dev/sda）可能导致系统无法启动。
+ - /etc/grub2.cfg： kernel 参数里推荐使用 uuid 挂载 root，其它方式（如 root=/dev/sda）可能导致系统无法启动。
  - /etc/fstab：请勿挂载其它硬盘，迁移后可能会由于磁盘缺失导致系统无法启动。
  - /etc/shadow：权限正常，可以读写。
 

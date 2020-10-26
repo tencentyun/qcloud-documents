@@ -84,7 +84,8 @@ public void initWithConfig(Context context, OcrSDKConfig config)
 #### updateFederationToken()
 
 ```java
-public void updateFederationToken(final String tmpSecretId, final String tmpSecretKey, final String token)
+public void updateFederationToken(final String tmpSecretId, final String tmpSecretKey,
+                                  final String token)
 ```
 
 功能描述：
@@ -105,7 +106,8 @@ public void updateFederationToken(final String tmpSecretId, final String tmpSecr
 #### startProcessOcr()
 
 ```java
-public void startProcessOcr(Activity activity, OcrType ocrType, CustomConfigUi customConfigUi, ISDKKitResultListener resultListener)
+public void startProcessOcr(Activity activity, OcrType ocrType,
+                                CustomConfigUi customConfigUi, ISDKKitResultListener resultListener)
 ```
 
 功能描述：
@@ -118,7 +120,7 @@ public void startProcessOcr(Activity activity, OcrType ocrType, CustomConfigUi c
 | ----------------------------------------------- | -------------- | ------------------------------------------------------------ |
 | Activity                                        | activity       | 启动 OCR 默认界面的当前界面 Activity 对象                        |
 | [OcrType](#OcrType)                             | ocrType        | 启动的 OCR 识别类型                                            |
-| [CustomConfigUi](#CustomConfigUi)               | customConfigUi | 启动默认界面时候传入的界面配置参数，如需完全使用默认配置，可传入null |
+| [CustomConfigUi](#CustomConfigUi)               | customConfigUi | 启动默认界面时候传入的界面配置参数，如需完全使用默认配置，可传入 null |
 | [ISDKKitResultListener](#ISDKKitResultListener) | resultListener | 用于接收 OCR 识别结果的回调对象                                |
 
  
@@ -130,24 +132,27 @@ OcrSDKConfig 是在 OCR 初始化时需要传入的 SDK 的配置信息实体类
 
 支持参数及其默认值如下：
 
-| 类型                        | 名称             | 含义                                                         | 默认值                                       |
-| --------------------------- | ---------------- | ------------------------------------------------------------ | -------------------------------------------- |
-| [OcrType](#OcrType)         | OcrType          | 默认识别类型                                                 | IDCardOCR_FRONT，IDCardOCR_BACK 均代表 id_card |
-| [OcrModeType](#OcrModeType) | ModeType         | 识别模式类型：OCR_DETECT_MANUAL 代表手动拍摄模式，OCR_DETECT_AUTO_MANUAL 代表自动 + 手动模式（先使用自动超时后转为手动拍照模式） | OCR_DETECT_AUTO_MANUAL为默认模式             |
-| String       | secretId | 请求使用的密钥信息（如果使用固定密钥模式，可传入固定密钥） | 空                               |
-| String                      | secretKey        | 请求使用的密钥信息（如果使用固定密钥模式，可传入固定密钥）   | 空                                           |
-| String                      | tempToken        | 请求使用的临时 token 信息                                      | 空                                           |
-| boolean                     | CropIdCard       | 开启身份证照片裁剪（去掉证件外多余的边缘、自动矫正拍摄角度）开关 | false                                        |
-| boolean                     | CropPortrait     | 开启人像照片裁剪（自动抠取身份证头像区域）                   | false                                        |
-| boolean                     | CopyWarn         | 开启复印件告警                                               | false                                        |
-| boolean                     | BorderCheckWarn  | 开启边框和框内遮挡告警                                       | false                                        |
-| boolean                     | ReshootWarn      | 开启翻拍告警                                                 | false                                        |
-| boolean                     | DetectPsWarn     | 开启 PS 检测告警                                               | false                                        |
-| boolean                     | TempIdWarn       | 开启临时身份证告警                                           | false                                        |
-| boolean                     | InvalidDateWarn  | 开启身份证有效日期不合法告警                                 | false                                        |
-| boolean                     | Quality          | 开启图片质量分数（评价图片的模糊程度）                       | false                                        |
-| String                      | RetImageType     | 图像预处理，检测图片倾斜的角度，将原本倾斜的图片围绕中心点转正，最终输出一张正的名片抠图。 | 空                                           |
-
+| 类型                | 名称            | 含义                                                         | 默认值                                       |
+| ------------------- | --------------- | ------------------------------------------------------------ | -------------------------------------------- |
+| [OcrType](#OcrType) | OcrType         | 默认识别类型                                                 | IDCardOCR_FRONT，IDCardOCR_BACK 均代表 id_card |
+| int                 | CardType        | 身份证模式时正反面0正，1反                                   | 0正面                                        |
+| int                 | ModeType        | 识别模式类型：0代表手动拍摄模式，1代码自动捕获模式，2代表自动+手动模式（先使用自动超时后转为手动拍照模式） | 2代表自动 + 手动模式                           |
+| int                 | AutoTimeout     | 自动捕获超时（毫秒单位，内部上限30秒）                       | 10000毫秒                                    |
+| String              | ResultUrl       | 发送识别请求的 ResultUrl 信息                                  | https://ocr.tencentcloudapi.com/             |
+| String              | secretId        | 请求使用的密钥信息（如果使用固定密钥模式，可传入固定密钥）   | 空                                           |
+| String              | secretKey       | 请求使用的密钥信息（如果使用固定密钥模式，可传入固定密钥）   | 空                                           |
+| String              | tempToken       | 请求使用的临时 token 信息                                      | 空                                           |
+| boolean             | CropIdCard      | 开启身份证照片裁剪（去掉证件外多余的边缘、自动矫正拍摄角度）开关 | false                                        |
+| boolean             | CropPortrait    | 开启人像照片裁剪（自动抠取身份证头像区域）                   | false                                        |
+| boolean             | CopyWarn        | 开启复印件告警                                               | false                                        |
+| boolean             | BorderCheckWarn | 开启边框和框内遮挡告警                                       | false                                        |
+| boolean             | ReshootWarn     | 开启翻拍告警                                                 | false                                        |
+| boolean             | DetectPsWarn    | 开启 PS 检测告警                                               | false                                        |
+| boolean             | TempIdWarn      | 开启临时身份证告警                                           | false                                        |
+| boolean             | InvalidDateWarn | 开启身份证有效日期不合法告警                                 | false                                        |
+| boolean             | Quality         | 开启图片质量分数（评价图片的模糊程度                         | false                                        |
+| String              | RetImageType    | 图像预处理，检测图片倾斜的角度，将原本倾斜的图片围绕中心点转正，最终输出一张正的名片抠图。 | 空                                           |
+| boolean             | RetImage        | 马来西亚身份证是否返回图片                                   | false                                        |
 
 
 <span id="OcrType"></span>
@@ -155,21 +160,21 @@ OcrSDKConfig 是在 OCR 初始化时需要传入的 SDK 的配置信息实体类
 
 OcrType 是一个枚举类型，列举了当前文字识别 OCR 的 SDK 所支持业务类型的种类，大致如下：
 
-| OcrType类型             | 代表含义             |
-| ----------------------- | -------------------- |
-| OcrType.IDCardOCR_FRONT | 身份证人像面识别模式 |
-| OcrType.IDCardOCR_BACK  | 身份证国徽面识别模式 |
-| OcrType.BankCardOCR     | 银行卡正面识别模式   |
-| OcrType.BusinessCardOCR | 名片卡正面识别模式   |
+| OcrTyp e类型             | 代表含义               |
+| ----------------------- | ---------------------- |
+| OcrType.IDCardOCR_FRONT | 身份证人像面识别模式   |
+| OcrType.IDCardOCR_BACK  | 身份证国徽面识别模式   |
+| OcrType.BankCardOCR     | 银行卡正面识别模式     |
+| OcrType.BusinessCardOCR | 名片卡正面识别模式     |
+| OcrType.MLIdCardOCR     | 马来西亚身份证识别模式 |
 
 
 
-<span id="OcrModeType"></span>
 ### OcrModeType
 
 OcrModeType 是一个枚举类型，列举了卡片识别模式
 
-| OcrModeType类型        | 代表含义                                           |
+| OcrModeType 类型        | 代表含义                                           |
 | ---------------------- | -------------------------------------------------- |
 | OCR_DETECT_MANUAL      | 手动拍摄模式                                       |
 | OCR_DETECT_AUTO_MANUAL | 自动识别模式（tips：20s后提示 是否切换到手动拍摄） |
@@ -204,7 +209,7 @@ OcrModeType 是一个枚举类型，列举了卡片识别模式
 
 ```java
 /**
- * OCR识别结果的回调类
+ * OCR 识别结果的回调类
  */
 public interface ISDKKitResultListener {
     /**
@@ -242,7 +247,7 @@ public interface ISDKKitResultListener {
  }
 ```
 
-身份证反面请求返回 response 结果示例：
+身份证反面请求返回response结果示例：
 
 ```json
 {
@@ -259,7 +264,7 @@ public interface ISDKKitResultListener {
  }
 ```
 
-银行卡请求返回 response 结果示例：
+银行卡请求返回response结果示例：
 
 ```json
 {
@@ -270,7 +275,7 @@ public interface ISDKKitResultListener {
  }
 ```
 
-名片请求结果返回 response 结果示例：
+名片请求结果返回response结果示例：
 
  ```json
 {
@@ -297,11 +302,11 @@ public interface ISDKKitResultListener {
       },
       {
         "Name": "邮箱",
-        "Value": "abcdefg@tencent.com"
+        "Value": "ab***fg@tencent.com"
       },
       {
         "Name": "手机",
-        "Value": "+86-13312345678"
+        "Value": "+86-133****5678"
       },
       {
         "Name": "QQ",

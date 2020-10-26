@@ -24,7 +24,7 @@
 	 ![](https://main.qcloudimg.com/raw/c0c4830e62cb975e55ffd38354c6ced5.png)
 	4. 进行数据同步设置，目前支持手动同步和自动定时同步。若选择定时同步，可选同步频率。
 	![](https://main.qcloudimg.com/raw/a0fd46c7480c94177e28e8492a7ffff5.png)
-	5. 配置完成后，单击【确认】完成。之后下载并安装 Qcloud AD Agent。
+	5. 配置完成后，单击【保存并启用】完成。之后下载并安装 Qcloud AD Agent。
 	![](https://main.qcloudimg.com/raw/f929f795320f5b3ce5d8ea39dd54625b.png)
 4. 下载并安装 Qcloud AD Agent。
 	1. 在 LDAP/AD 数据源详情页下载 AD Agent。

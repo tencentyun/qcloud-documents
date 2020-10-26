@@ -1,3 +1,19 @@
+### 2.8.0 @2020.10.20
+
+**新增**
+
+- [getGroupOnlineMemberCount](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupOnlineMemberCount)，支持查询直播群在线人数。
+- 发送图片消息接入图片压缩，接入侧根据可根据业务需要展示原图或者缩略图，请查看 [ImagePayload](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.ImagePayload)。
+
+**修复**
+
+Taro 3.x 集成 WebIM 时的兼容性问题。
+
+**变更**
+
+缩减 SDK 体积。[tim-js-sdk](https://www.npmjs.com/package/tim-js-sdk) 体积减小8.5%，[tim-wx-sdk](https://www.npmjs.com/package/tim-wx-sdk) 体积减小15%。
+
+
 ### 2.7.8 @2020.9.24
 
 **新增**

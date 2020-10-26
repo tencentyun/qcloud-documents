@@ -21,3 +21,4 @@
 |segment.ms|-|1day - 90days|Segment 分片滚动的时长，单位为 ms，最小值为86400000ms。 |
 |retention.ms|默认为实例的消息保留时间|60000ms - 90days|Topic 维度的消息保留时间。|
 |max.message.bytes|-|0B - 8MB|Topic 维度的最大消息大小。不填写则默认实例维度消息大小为1MB。|
+

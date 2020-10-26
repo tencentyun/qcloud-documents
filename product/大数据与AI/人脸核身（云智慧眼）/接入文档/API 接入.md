@@ -7,7 +7,6 @@ API 接入详情请参见 [人脸核身 API 文档](https://cloud.tencent.com/do
 | --------------- | ----------------------------------- |
 |[活体人脸核身](https://cloud.tencent.com/document/api/1007/31818)|上传视频与公安权威库比对 |
 |[活体人脸比对](https://cloud.tencent.com/document/api/1007/31819)|传入视频和照片，对视频中的人与上传照片进行比对 |
-|[活体检测](https://cloud.tencent.com/document/product/1007/35330)| 传入视频，判断视频中的人是否为真人录制 |
 |[照片人脸核身](https://cloud.tencent.com/document/product/1007/31820)|传入照片和身份信息，判断该照片与公安权威库的证件照是否属于同一个人|
 |[获取动作顺序](https://cloud.tencent.com/document/api/1007/31822)| 活体检测使用动作模式时，需先调用该接口获取动作顺序 |
 |[获取数字验证码](https://cloud.tencent.com/document/api/1007/31821) | 活体检测使用数字模式时，需先调用该接口获取数字验证码|

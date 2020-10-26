@@ -4,13 +4,13 @@
 ## Linux 参数介绍
 **tcp_timestamps ：** 是否开启 tcp timestamps 选项，timestamps 是在 tcp 三次握手过程中协商的，任意一方不支持，该连接就不会使用 timestamps 选项。
 **tcp_tw_recycle ：**  是否开启 tcp time_wait 状态回收。
-**tcp_tw_resuse ：** 开启后，可直接回收超过1s的 time_wait 状态的连接。
+**tcp_tw_reuse ：** 开启后，可直接回收超过1s的 time_wait 状态的连接。
 
 ## 原因分析
-客户端timewait太多，是因为客户端主动断开连接，客户端每断开一个连接，该连接都会进入timewait状态，默认60s超时回收。一般情况下，遇到这种场景时，客户会选择打开 `tcp_tw_recycle` 和 `tcp_tw_resuse` 两个参数，便于回收timewait状态连接。
-然而当前 CLB 没有打开 `tcp_timestamps` 选项，导致客户端打开的 `tcp_tw_recycle` 和 `tcp_tw_resuse` 都不会生效，不能快速回收 timewait 状态连接。下面会解释几个 Linux 参数的含义和 CLB 不能开启 `tcp_timestamps` 的原因。
+客户端timewait太多，是因为客户端主动断开连接，客户端每断开一个连接，该连接都会进入timewait状态，默认60s超时回收。一般情况下，遇到这种场景时，客户会选择打开 `tcp_tw_recycle` 和 `tcp_tw_reuse` 两个参数，便于回收timewait状态连接。
+然而当前 CLB 没有打开 `tcp_timestamps` 选项，导致客户端打开的 `tcp_tw_recycle` 和 `tcp_tw_reuse` 都不会生效，不能快速回收 timewait 状态连接。下面会解释几个 Linux 参数的含义和 CLB 不能开启 `tcp_timestamps` 的原因。
 
-1. tcp_tw_recycle 和 tcp_tw_resuse只有在 tcp_timestamps 打开时才会生效。
+1. tcp_tw_recycle 和 tcp_tw_reuse只有在 tcp_timestamps 打开时才会生效。
 
 2. tcp_timestamps和tcp_tw_recycle是不能同时打开的，因为公网客户端经过 NAT 网关访问服务器，会存在问题，原因如下：
 

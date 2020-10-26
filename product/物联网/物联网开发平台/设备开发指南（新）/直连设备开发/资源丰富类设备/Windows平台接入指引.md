@@ -3,7 +3,7 @@ C SDK 已提供 Windows 下基于 MSVC 的适配， 开发人员可以通过安�
 
 ## SDK 获取
 
-SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [C SDK](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c)。
+SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [C SDK](https://github.com/tencentyun/qcloud-iot-explorer-sdk-embedded-c/releases)。
 
 ## 接入指引
 
@@ -11,11 +11,11 @@ Windows 平台接入腾讯云物联网开发平台可以分为以下3个步骤�
 
 ### 开发环境安装
 
-获取和安装 Visio Studio 2019开发环境，详情请参考 [编译环境说明](https://cloud.tencent.com/document/product/1081/48372#windows-.E7.BC.96.E8.AF.91.E7.8E.AF.E5.A2.83)。
+获取和安装 Visio Studio 2019开发环境，详情请参见 [编译环境说明](https://cloud.tencent.com/document/product/1081/48372#windows-.E7.BC.96.E8.AF.91.E7.8E.AF.E5.A2.83)。
 
 ### 应用开发
 
-请参考 [SDK samples](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/tree/master/samples) 目录下的例程进行开发。
+请参见 [SDK samples](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/tree/master/samples) 目录下的例程进行开发。
 
 ### 编译并运行
 
