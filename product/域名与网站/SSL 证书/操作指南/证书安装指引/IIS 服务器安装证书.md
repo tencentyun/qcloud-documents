@@ -2,7 +2,7 @@
 本文档指导您如何在 IIS 中安装 SSL 证书。
 >?
 >- 本文档以证书名称 `cloud.tencent.com` 为例，实际名称请以您申请的证书为准。
->- 本文档以操作系统 Windows10 为例。由于操作系统的版本不同，详细操作步骤略有区别。
+>- 本文档以操作系统 Windows Server 2012 R2 为例。由于操作系统的版本不同，详细操作步骤略有区别。
 >- 安装 SSL 证书前，请您在 IIS 服务器上开启 “443” 端口，避免证书安装后无法启用 HTTPS。具体可参考 [服务器如何开启443端口？](https://cloud.tencent.com/document/product/400/45144)
 >- SSL 证书文件上传至服务器方法可参考 [如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
 >
@@ -19,21 +19,23 @@
   - CSR 文件内容：	`cloud.tencent.com.csr` 文件
   >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 2. 打开 IIS 服务管理器，选择计算机名称，双击打开 “服务器证书”。如下图所示：
-![](https://main.qcloudimg.com/raw/3fff5cb577517b57995680b0b5ffa089.png)
+![](https://main.qcloudimg.com/raw/f81cfa90c5bed2470837ab1e04dd029e.png)
 3. 在服务器证书窗口的右侧 “操作” 栏中，单击【导入】。如下图所示：
-![](https://main.qcloudimg.com/raw/160833eb7c00b81f4c1024bb0efc6d8d.png)
+![](https://main.qcloudimg.com/raw/b1b6d531d89ea5b70a348521a9568740.png)
 4. 在弹出的 “导入证书” 窗口中，选择证书文件存放路径，输入密码，单击【确定】。如下图所示：
->? 申请证书时若设置了私钥密码，输入密码时，请输入私钥密码。若申请证书时未设置私钥密码，输入密码时，请输入 IIS 文件夹中 keystorePass.txt 文件的密码。具体操作请参考 [私钥密码指引](https://cloud.tencent.com/doc/product/400/4461)。
+>? 
+>- 申请证书时若设置了私钥密码，输入密码时，请输入私钥密码。若申请证书时未设置私钥密码，输入密码时，请输入 IIS 文件夹中 keystorePass.txt 文件的密码。
+>- 如果私钥密码不慎遗忘，请 [工单联系](https://console.cloud.tencent.com/workorder/category) 腾讯云工程师删除该证书，然后重新申请该域名证书。
 >
-![](https://main.qcloudimg.com/raw/32e710a2240601010ac82576ddd403ad.png)
+![](https://main.qcloudimg.com/raw/b3084eae5e0502d1ea730e130adc6b61.png)
 5. 选择网站下的站点名称，并单击右侧 “操作” 栏的【绑定】。如下图所示：
-![](https://main.qcloudimg.com/raw/b2567cb66ba2315837e8c18adab2287c.png)
+![](https://main.qcloudimg.com/raw/d9a68b79c3130e3cf19ffc89fb60472b.png)
 6. 在弹出的 “网站绑定” 窗口中，单击【添加】。如下图所示：
-![](https://main.qcloudimg.com/raw/84020faaf7c2899ff6290372acc4c608.png)
+![](https://main.qcloudimg.com/raw/83570ec33b564a66f2fd29c46f727016.png)
 7. 在 “添加网站绑定” 的窗口中，将网站类型设置为 https，端口设置为443，主机名请填写您当前申请证书的域名，并指定对应的 SSL 证书，单击【确定】。如下图所示：
-![](https://main.qcloudimg.com/raw/12dde01596ff7a5cd3e39a47b225cc36.png)
-8. 添加完成后，即可在 “网站绑定” 窗口中查看到新添加的内容。如下图所示：
-![](https://main.qcloudimg.com/raw/db2ab433f6868e775535bb20febf63db.png)
+![](https://main.qcloudimg.com/raw/4e536ad37fd30b6d24be9454996f4661.png)
+8. 添加完成后，即可在 “网站绑定” 窗口中查看到新添加的内容。
+9. 请使用 `https://cloud.tencent.com` 进行访问。
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 
@@ -45,11 +47,11 @@
 2. 选择网站下的站点名称，双击打开 “URL 重写”。如下图所示：
 >!执行该步骤前请下载安装 [rewrite 模块](https://www.iis.net/downloads/microsoft/url-rewrite)。
 >
-![](https://main.qcloudimg.com/raw/3333c80eaa29a208346541cd55d298c9.png)
+![](https://main.qcloudimg.com/raw/1598d33791e582e133e847ed5a79e129.png)
 3. 进入 “URL 重写” 页面，并单击右侧 “操作” 栏的【添加规则】。如下图所示：
-![](https://main.qcloudimg.com/raw/089257c578a3afec51eda00fedd61ac6.png)
+![](https://main.qcloudimg.com/raw/2c9ac65d66166b8618e3bb58aa237db4.png)
 4. 在弹出的 “添加规则”窗口中，选择【空白规则】，单击【确定】。如下图所示：
-![](https://main.qcloudimg.com/raw/7cbd21bda514331f55a1eaeab86b4328.png)
+![](https://main.qcloudimg.com/raw/26df81828a18a24198ccc8136f836dfb.png)
 5. 进入 “编辑入站规则” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/13ee58091b5b006f00dbe004f2740564.png)
   - 名称：填写强制 HTTPS。

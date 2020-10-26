@@ -76,8 +76,8 @@
 1. 在 dependencies 中添加 TRTCSDK 和 IMSDK 的依赖。
 ```
 dependencies {
-       complie "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
-       complie 'com.tencent.imsdk:imsdk:latest.release'
+       compile "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
+       compile 'com.tencent.imsdk:imsdk:latest.release'
 }
 ```
 >?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。

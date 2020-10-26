@@ -807,7 +807,9 @@ track={
 | tracks            | Array&lt;Track&gt;                 | []     | 导出视频的轨道信息                                           | 是   |
 | quality           | Enum('high', 'medium', 'low') | medium | 导出视频质量选项。提供 high，medium，low 三个选项。以标准16：9视频为例：<li/>high 导出分辨率为1080\*1920<li/>medium 导出分辨率为720\*1280<li/>low 导出分辨率为 540\*960 | 否   |
 | showloading       | Boolean                       | false  | 是否显示默认的导出进度 toast，默认值：false                    | 否   |
-| watermark         | String                        | -      | 集成简易的水印功能。由于小程序对下载文件域名的限制，请将图片先 downloadFile 到本地，使用本地临时链接 | 否   |
+| watermark         | String                        | -      | 水印地址，支持线上链接和本地临时地址 | 否   |
+| watermarkX | Number | 15 | 水印基于左上角X偏移量 | 否 |
+| watermarkY | Number | 15 | 水印基于左上角Y偏移量 | 否 |
 | bindready         | Function                      | -      | 导出组件加载完成时触发                                       | 否   |
 | bindexportstart   | Function                      | -      | 导出流程开始                                                 | 否   |
 | bindprogress      | Function                      | -      | 导出进度更新<pre style="margin:0">e.detail =  {<br />progress: Number<br />} </pre>| 否   |
@@ -815,12 +817,35 @@ track={
 | bindexportfail    | Function                      | -      | 导出失败<pre style="margin:0">{<br/>message: String,<br />error: errorStack<br />}</pre>| 否   |
 | bindthumbready    | Function                      | -      | 默认封面图生成<pre style="margin:0">{<br/>path: String,<br/>height:1080,<br />width: 720<br/>}</pre> | 否   |
 
-  
->? 
->- 导出组件提供了 `slot插槽` 以定制导出组件的实际 UI，并监听内部冒泡的 tap 事件以触发导出流程。
->- 如果需要手动触发导出流程，可以使用 `wx.selectComponent` 获取组件实例并调用实例的 `start` 方法。
+#### 添加水印
 
-    
+##### 线上地址
+如果需要使用在线图片，请按如下步骤配置。
+1. 在小程序根目录下引入 index.js，目录：`miniprogram/index.js`。
+```
+		module.exports = {
+			downloadFile:wx.downloadFile
+		}
+```
+
+2. 	在 `app.json` 中将 downloadFile 方法导出到插件。
+      ```json
+        "plugins": {
+          "myPlugin": {
+            "provider": "wx76f1d77827f78beb",
+            "version": "xxxx.xxx.xxx",
+            "export": "index.js"
+          }
+        },
+      ```
+3. 进入小程序管理后台，将在线图片域名配置进 `request` 和 `downloadFile` 白名单即可。
+
+##### 本地地址
+
+传入`wxfile://` 开头的本地临时地址即可。
+
+>?导出组件提供了`slot插槽`以定制导出组件的实际 UI，并监听内部冒泡的 tap 事件以触发导出流程；如果需要手动触发导出流程，可以使用`wx.selectComponent`获取组件实例并调用实例的`start`方法。
+
 
 ## 文字编辑：wj-textEditor
 
@@ -853,11 +878,4 @@ track={
 
 ### 操作说明
   输入文字，单颜色列表实时更换文本颜色，单击左侧 T 图标实时更换背景颜色。
-  
-  
-  
-  
-  
-  
-  
   

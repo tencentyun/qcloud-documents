@@ -49,5 +49,5 @@ docker run -e FOO='foo' -e BAR='bar' --name=container_name container_image
 ```
 docker run --name=kubedns gcr.io/google_containers/kubedns-amd64:1.7 /kube-dns --domain=cluster.local. --dns-port=10053 -v 2
 ```
-指定了容器进程的命令为： /kube-dns，并指定了三个参数：`-domain=cluster.local.` `--dns-port=10053` 和 `-v 2`。在控制台中参数设置如下图所示：
-![](https://mc.qcloudimg.com/static/img/cf991cd098b96c19b70b1da4e11507c5/image.png)
+指定了容器进程的命令为： /kube-dns，并指定了三个参数：`--domain=cluster.local.` `--dns-port=10053` 和 `-v 2`。在控制台中参数设置如下图所示：
+![](https://main.qcloudimg.com/raw/5b020f45b4adf268754671757ef44c41.png)

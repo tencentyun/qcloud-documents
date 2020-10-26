@@ -1,15 +1,8 @@
-## 导语
-
-腾讯云 Web 直播互动组件（TWebLive）是腾讯云终端研发团队推出的一个新的 SDK，开发者只需简单接入，就能快速实现 Web 推/拉流、实时互动等功能。
-
 ## 一、TWebLive 简介
 
-[TWebLive](https://www.npmjs.com/package/tweblive) 即腾讯云 Web 直播互动组件，是腾讯云终端研发团队推出的一个新的 SDK，集成了 [腾讯云实时音视频 TRTC](https://cloud.tencent.com/product/trtc/)、[腾讯云即时通信 IM](https://cloud.tencent.com/product/im)、[腾讯云超级播放器 TCPlayer](https://cloud.tencent.com/document/product/454/7503)，覆盖了 Web 直播互动场景常见的功能（推流、开/关麦、开/关摄像头、微信分享观看、聊天点赞等），并封装了简单易用的 [API](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblive/TWebLive.html)，接入后可快速实现 Web 端推流、拉流以及实时聊天互动功能。
+[TWebLive](https://trtc.qcloud.com/tweblive/index.html#/) 即腾讯云 Web 直播互动组件，是腾讯云终端研发团队推出的一个新的 [SDK](https://www.npmjs.com/package/tweblive)，集成了 [腾讯云实时音视频 TRTC](https://cloud.tencent.com/product/trtc/)、[腾讯云即时通信 IM](https://cloud.tencent.com/product/im)、[腾讯云超级播放器 TCPlayer](https://cloud.tencent.com/document/product/454/7503)，覆盖了 Web 直播互动场景常见的功能（推流、开/关麦、开/关摄像头、微信分享观看、聊天点赞等），并封装了简单易用的 [API](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblive/TWebLive.html)，接入后可快速实现 Web 端推流、拉流以及实时聊天互动功能。
 
 ![](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblivedemo/doc-assets/demo-official-website.gif)
-
-TWebLive 架构设计如下图所示：
-![](https://main.qcloudimg.com/raw/503229b90d3714e5340e7c860ee50a8d.png)
 
 ## 二、TWebLive 的优势
 
@@ -135,8 +128,10 @@ im.enterRoom('your roomID').then((imResponse) => {
 npm i tweblive --save
 ```
 
-## 四、平台支持
+## 四、架构与平台支持
 
+TWebLive 架构设计如下图所示：
+![](https://main.qcloudimg.com/raw/503229b90d3714e5340e7c860ee50a8d.png)
 Web 推流和 Web 低延时观看用到了 WebRTC 技术。目前主要在桌面版 Chrome 浏览器、桌面版 Safari 浏览器以及移动版 Safari 浏览器上有较为完整的支持，其他平台（例如 Android 平台的浏览器）支持情况均比较差，具体如下：
 
 | 操作系统 | 浏览器类型 | 浏览器最低版本要求 | 接收（播放）| 发送（上麦）| 屏幕分享 |
@@ -164,7 +159,7 @@ Web 推流和 Web 低延时观看用到了 WebRTC 技术。目前主要在桌面
 
 本文为您介绍了腾讯云新的 Web 直播互动组件：TWebLive，通过接入此 SDK，开发者可以快速轻便地实现 Web 推流、Web 低延时观看、CDN 观看以及实时聊天互动（或弹幕）等功能，能够很好替换传统的 flash 推流方案。
 
-同时，提供详细的接入方案和 [在线 Demo](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblivedemo/index.html) 供您体验。目前 TWebLive 在主流的桌面浏览器上也有较好的支持，在移动端支持小程序的解决方案。
+同时，提供详细的接入方案和 [在线 Demo](https://trtc.qcloud.com/tweblive/index.html#/) 供您体验。目前 TWebLive 在主流的桌面浏览器上也有较好的支持，在移动端支持小程序的解决方案。
 
 后续，我们会提供更全方位的直播功能服务，例如：推流端支持屏幕分享、图片消息互动、观众端多线路观看（WebRTC 低延时线路和 CDN 线路）、主播观众连麦互动等功能。
 
@@ -172,3 +167,6 @@ Web 推流和 Web 低延时观看用到了 WebRTC 技术。目前主要在桌面
 
 - [TWebLive 接口手册](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblive/TWebLive.html)
 - [一分钟跑通 Web 直播互动组件](https://cloud.tencent.com/document/product/269/47959)
+
+## 相关文档
+[折扣活动](https://cloud.tencent.com/document/product/269/46181)
