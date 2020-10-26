@@ -115,7 +115,11 @@ TRTCCallingContext.off(EVENT.INVITED)
 
 <span id="call"></span>
 #### call({userID, type})
-进行某个 user 进行呼叫，其中 type 为通话类型，1：语音通话，2：视频通话。
+进行某个 user 进行呼叫。
+
+| 参数 | 含义 | 
+|---------|---------|
+| type | 通话类型，type = 1：语音通话，type =2：视频通话。 | 
 
 ```javascript
 let userID = 'test'
