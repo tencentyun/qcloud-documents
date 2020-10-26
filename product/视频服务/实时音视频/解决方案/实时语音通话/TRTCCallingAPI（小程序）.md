@@ -42,8 +42,7 @@ TRTCCalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯�
 |[setHandsFree(isHandsFree)](#setHandsFree)|设置声音播放状态。<li/>当 isHandsFree 取值为 true：外放模式。<li/>当 isHandsFree 取值为 false： 听筒模式。|
 
 ## 属性表
-### TRTCCalling 属性
-
+### &lt;TRTCCalling&gt; 属性
 `<TRTCCalling>` 只有 config 一个属性，通过该属性传入以下参数：
 
 | 参数 | 类型 |  必填项 |  说明 |
