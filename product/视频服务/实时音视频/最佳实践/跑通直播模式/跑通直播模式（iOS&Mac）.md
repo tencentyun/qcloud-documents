@@ -26,7 +26,7 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 ### 步骤1：集成 SDK
 您可以选择以下方式将 **TRTC SDK** 集成到项目中。
 #### 方式一：使用 CocoaPods 集成
-1. 安装 **CocoaPods** ，具体操作请参考 [CocoaPods 官网安装说明](https://guides.cocoapods.org/using/getting-started.html)。
+1. 安装 **CocoaPods** ，具体操作请参见 [CocoaPods 官网安装说明](https://guides.cocoapods.org/using/getting-started.html)。
 2. 打开您当前项目根目录下的`Podfile`文件，添加以下内容：
 >?如果该目录下没有`Podfile`文件，请先执行`pod init`命令新建文件再添加以下内容。
 >
