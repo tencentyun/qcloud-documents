@@ -21,7 +21,7 @@ TRTCCalling小程序组件是基于腾讯云实时音视频（TRTC）和腾讯�
 | API | 描述 |
 |---------|---------|
 |[call({userID, type})](#off)|发出C2C通话邀请|
-|[groupCall({userIDList, type, groupID})](#groupCall)|群组邀请通话（请先创建IM群组）|
+|[groupCall({userIDList, type, groupID})](#groupCall)|群组邀请通话（请先创建[IM群组](https://cloud.tencent.com/document/product/269/37459)）|
 
 ### 被邀请方函数
 
