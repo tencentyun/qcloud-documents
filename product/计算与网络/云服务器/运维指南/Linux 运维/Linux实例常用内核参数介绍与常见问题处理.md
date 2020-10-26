@@ -36,16 +36,16 @@
 <code>net.ipv4.tcp_mem</code><br>
 <code>net.ipv4.tcp_rmem</code>
 </td>
-<td>这些参数配置了数据接收的缓存大小。配置过大容易造成内存资源浪费，过小则会导致丢包。建议判断自身业务属于高并发连接或少并发高吞吐量情形，进行优化配置。<br>rmem_default 的理论最优配置策略为带宽/RTT 积，其配置会覆盖 tcp_rmem，不单独配置。rmem_max 配置约为 rmem_default 的5倍。tcp_mem 为总的 TCP 占用内存，一般由 OS 自动配置为 CVM 可用内存的3/32、1/8或3/16，tcp_mem 及 rmem_default 也决定了最大并发链接数。</td>
-<td><code>rmem_default=655360</code><br>
-<code>rmem_max=3276800</code></td>
+<td>这些参数配置了数据接收的缓存大小。配置过大容易造成内存资源浪费，过小则会导致丢包。建议判断自身业务属于高并发连接或少并发高吞吐量情形，进行优化配置。<ul><li>rmem_default 的理论最优配置策略为带宽/RTT 积，其配置会覆盖 tcp_rmem，不单独配置。</li><li>rmem_max 配置约为 rmem_default 的5倍。</li><li>tcp_mem 为总的 TCP 占用内存，一般由 OS 自动配置为 CVM 可用内存的3/32、1/8或3/16，tcp_mem 及 rmem_default 也决定了最大并发链接数。</li></ul></td>
+<td><code>rmem_default<br>=655360</code><br>
+<code>rmem_max<br>=3276800</code></td>
 </tr>
 <tr>
 <td><code>net.core.wmem_default</code><br>
 <code>net.core.wmem_max</code><br>
 <code>net.ipv4.tcp_wmem</code>
 </td>
-<td>这些参数用于数据发送缓存，腾讯云平台上数据发送通常不会出现问题，可不做配置。</td>
+<td>这些参数用于配置数据发送缓存，腾讯云平台上数据发送通常不会出现问题，可不做配置。</td>
 <td>-</td>
 </tr>
 <tr>
@@ -70,7 +70,7 @@
 <td><code>net.ipv4.ip_forward</code><br>
 <code>net.ipv6.conf.all.forwarding</code>
 </td>
-<td>IP 转发功能，若使用 docker 的路由转发场景可将其配置为1。</td>
+<td>IP 转发功能，若用于 docker 的路由转发场景可将其配置为1。</td>
 <td>0</td>
 </tr>
 <tr>
@@ -108,7 +108,7 @@
 </tr>
 <tr>
 <td><code>vm.vfs_cache_pressure</code></td>
-<td>原始值为100，表示扫描 dentry 的力度。以100为基准，该值越大内核回收算法越倾向于回收内存。很多基于 curl 的业务上，通常由于 dentry 的积累导致占满所有可用内存，容易触发 OOM 或内核 bug 之类的问题。综合考虑回收频率和性能后，选择配置为250，您可按需调整。</td>
+<td>原始值为100，表示扫描 dentry 的力度。以100为基准，该值越大内核回收算法越倾向于回收内存。很多基于 curl 的业务上，通常由于 dentry 的积累导致占满所有可用内存，容易触发 OOM 或内核 bug 之类的问题。综合考虑回收频率和性能后，选择配置为250，可按需调整。</td>
 <td>250</td>
 </tr>
 <tr>
@@ -131,9 +131,9 @@
 <td><code>kernel.shmall</code><br>
 <code>kernel.shmmax</code>
 </td>
-<td>shmmax 设置一次分配 shared memory 的最大长度，单位为 byte。shmall 设置一共能分配 hared memory 的最大长度，单位为 page。</td>
-<td><code>kernel.shmmax=68719476736</code><br>
-<code>kernel.shmall = 4294967296</code>
+<td><ul><li>shmmax 设置一次分配 shared memory 的最大长度，单位为 byte。</li><li>shmall 设置一共能分配 hared memory 的最大长度，单位为 page。</li></ul></td>
+<td><code>kernel.shmmax<br>=68719476736</code><br>
+<code>kernel.shmall<br>=4294967296</code>
 </td>
 </tr>
 </table>
@@ -147,7 +147,7 @@
 <td><code>fs.file-max</code><br>
 <code>fs.nr_open</code>
 </td>
-<td>分别控制系统所有单进程能同时打开的最大文件数量，file-max 由 OS 启动时自动配置，近似为10万/GB。nr_open 为固定值1048576，但为针对用户态打开最大文件数的限制，一般不改动这个值，通常为设置 ulimit -n 实现，对应配置文件为 /etc/security/limits.conf。</td>
+<td>分别控制系统所有单进程能同时打开的最大文件数量：<ul><li>file-max 由 OS 启动时自动配置，近似为10万/GB。</li><li>nr_open 为固定值1048576，但为针对用户态打开最大文件数的限制，一般不改动这个值，通常为设置 ulimit -n 实现，对应配置文件为 /etc/security/limits.conf。</li></ul></td>
 <td>
 <code>ulimit 的 open files 为100001</code><br>
 <code>fs.nr_open=1048576</code>
@@ -196,9 +196,8 @@
 <code>vm.dirty_ratio</code><br>
 <code>vm.dirty_writeback_centisecs</code>
 </td>
-<td>这部分参数主要配置 IO 写回磁盘的策略，dirty_background_bytes/dirty_bytes 和 dirty_background_ratio/dirty_ratio 分别对应内存脏页阈值的绝对数量和比例数量，一般情况下设置 ratio。dirty_background_ratio 指当文件系统缓存脏页数量达到系统内存百分之多少时（默认10%）唤醒内核的 flush 等进程，写回磁盘。dirty_ratio 是最大脏页比例，当脏页数达到该比例时，必须将所有脏数据提交到磁盘，同时所有新的 IO 都会被阻塞，直到脏数据被写入磁盘，通常会造成 IO 卡顿。系统先会达到 vm.dirty_background_ratio 的条件然后触发 flush 进程进行异步的回写操作，此时应用进程仍然可以进行写操作，如果达到 vm.dirty_ratio 这个参数所设定的值，此时操作系统会转入同步地处理脏页的过程，阻塞应用进程。<br>
-vm.dirty_expire_centisecs 表示脏页能存活的时间，flush 进程会检查数据是否超过了该时间限制，单位为1/100秒。<br>
-vm.dirty_writeback_centisecs 表示 flush 进程的唤醒周期，单位为1/100秒。
+<td>这部分参数主要配置 IO 写回磁盘的策略：<ul><li>dirty_background_bytes/dirty_bytes 和 dirty_background_ratio/dirty_ratio 分别对应内存脏页阈值的绝对数量和比例数量，一般情况下设置 ratio。</li><li>dirty_background_ratio 指当文件系统缓存脏页数量达到系统内存百分之多少时（默认10%）唤醒内核的 flush 等进程，写回磁盘。</li><li>dirty_ratio 为最大脏页比例，当脏页数达到该比例时，必须将所有脏数据提交到磁盘，同时所有新的 IO 都会被阻塞，直到脏数据被写入磁盘，通常会造成 IO 卡顿。系统先会达到 vm.dirty_background_ratio 的条件然后触发 flush 进程进行异步的回写操作，此时应用进程仍然可以进行写操作，如果达到 vm.dirty_ratio 这个参数所设定的值，此时操作系统会转入同步地处理脏页的过程，阻塞应用进程。<br>
+</li><li>vm.dirty_expire_centisecs 表示脏页能存活的时间，flush 进程会检查数据是否超过了该时间限制，单位为1/100秒。</li><li>vm.dirty_writeback_centisecs 表示 flush 进程的唤醒周期，单位为1/100秒。</li></ul>
 </td>
 <td>-</td>
 </table>
