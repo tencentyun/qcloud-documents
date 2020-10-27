@@ -14,7 +14,7 @@ OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上
 ## 操作步骤
 ### 开通权限
 使用 OPPO 企业开发者帐号，登录 [OPPO 开发平台](https://open.oppomobile.com/)，在【管理中心】>【应用服务平台】>【移动应用列表】>【选择应用】>【开发服务】>【推送服务】中完成 OPPO PUSH 权限申请。
-
+![](https://main.qcloudimg.com/raw/335a4f36768a8afc77a3034be067cd5e.png)
 ### 获取密钥
 >?仅开发者帐号（主帐号）可查看。
 
