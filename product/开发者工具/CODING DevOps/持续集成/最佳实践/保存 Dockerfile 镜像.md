@@ -16,7 +16,7 @@
 
 ## 使用插件快速调取已录入的凭据
 
-在 CODING 持续集成任务构建过程当中，如果将 Github 的账号密码等重要信息硬编码在配置文件内，将会有极大的安全隐患。通过 CODING 的[凭据管理](/docs/project/features/credential.html)功能，将凭据 ID 写入配置文件中进行服务调用。在接下来的插件功能使用中，请确保您已将凭据托管至 CODING 中。
+在 CODING 持续集成任务构建过程当中，如果将 Github 的账号密码等重要信息硬编码在配置文件内，将会有极大的安全隐患。通过 CODING 的 [凭据管理](https://cloud.tencent.com/document/product/1113/48846) 功能，将凭据 ID 写入配置文件中进行服务调用。在接下来的插件功能使用中，请确保您已将凭据托管至 CODING 中。
 
 ## 快速开始
 
@@ -24,7 +24,7 @@
 
 1.  将获取到的 API 密钥上传至 CODING 进行托管以获得凭据 ID。
 ![](https://main.qcloudimg.com/raw/9dbe0deb533ee222d0871bfa55c6ec4d.png)
-2.  在变量与缓存中点选【增加环境变量】>【类别选择 CODING 凭据】>【选择您需调取的凭据】。
+2.  在变量与缓存中选择【增加环境变量】>【类别选择 CODING 凭据】>【选择您需调取的凭据】。
 ![](https://main.qcloudimg.com/raw/9ab5c8d6ce931fba2f3b5dfa4489bfc1.png)
 3.  在构建于部署中新建计划列表，并填写相应的 Jenkinsfile 配置
 
