@@ -2,10 +2,9 @@
 
 `wj-player` 是支持微剪运行的核心组件，它是由轨道数据驱动运行的播放器，并内置了一些常用功能。
 
-> v1.4.0后新增功能：
->
-> 1. 贴纸，详见文档[贴纸和文字]()
-> 2. 文字和贴纸内置编辑控件，详见文档[编辑控件]()
+>v1.4.0后新增功能：
+>1. 贴纸，详见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440)。
+2. 文字和贴纸内置编辑控件，详见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
 
 ### 使用方式
 1. 配置 JSON 文件：
@@ -41,7 +40,7 @@
 | allowSetVolumn       | Boolean  | false                                                        | 是否需要调整视频原声音量                                     | 否   |
 | enableTapPause       | Boolean  | false                                                        | 是否启用点击暂停                                             | 否   |
 | enablePauseIcon      | Boolean  | true                                                         | 是否显示暂停按钮                                             | 否   |
-| enableClipEdit      | Boolean  | true                                                         | 是否启用编辑控件，编辑控件详见[编辑控件]()                        | 否   |
+| enableClipEdit      | Boolean  | true                                                         | 是否启用编辑控件，编辑控件详见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)                        | 否   |
 | preloadFilter        | Boolean  | true                                                         | 是否启用滤镜预加载                                           | 否   |
 | preloadFilterKeys    | Array    | ['key1', 'key2']                                             | 需要提前加载的滤镜                                           | 否   |
 | filters              | Array    | [{<br />key: 'lujing',<br />name: '滤镜'<br />src: 'wxfile://xxxxx'<br />}] | 定制化 effect 列表                                           | 否   |
@@ -59,8 +58,9 @@
 | bindtexttouchstart   | Function | -                                                            | 文字开始触摸(v1.4.0后废弃)                                   | 否   |
 | bindtexttouchend     | Function | -                                                            | 文字触摸结束(v1.4.0后废弃)                                   | 否   |
 | bindtexttouchmove    | Function | -                                                            | 文字移动(v1.4.0后废弃)                                       | 否   |
-| bindclipedit    | Function | 详见[编辑控件]()                                                     |clip位移、旋转、缩放                                   | 否   |
-| bindclipoperation   | Function | 详见[编辑控件]()                                                     |编辑控件按钮点击                                 | 否   |
+| bindclipedit    | Function | 详见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441#.E4.BD.8D.E7.A7.BB.E3.80.81.E7.BC.A9.E6.94.BE.E5.92.8C.E6.97.8B.E8.BD.AC)                                                     |clip 位移、旋转、缩放                                   | 否   |
+| bindclipoperation   | Function | 详见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441#.E5.85.B6.E4.BB.96.E6.8C.89.E9.92.AE)                                                     |编辑控件按钮点击                                 | 否   |
+
 ### 方法说明
 
 | 方法名        | 参数   | 返回值       | 说明                                     |
@@ -77,13 +77,13 @@
 | getTracks     | -      | Array        | 获取当前轨道                             |
 | getPlayStatus | -      | String       | 获取当前播放状态                         |
 | hideClipControl| -      | -           | 强制隐藏所有的编辑控件                         |
-| preloadSticker| String（spritesheet地址或key值）| -       | 异步方法，预加载贴纸       |
+| preloadSticker| String（spritesheet 地址或 key 值）| -       | 异步方法，预加载贴纸       |
 
 播放器围绕 Tracks 和 Clips 进行视频渲染， 前文数据结构详细介绍了 Tracks 和 Clips 直接的关系。接下来，我们一起来看一下如何对播放器进行渲染。
 
 >- 定制滤镜目前只支持 LUT 图滤镜，由于小程序下载文件的限制，LUT 图需要先 downloadFile 到本地。
->- 定制特效需要传入特效的片元着色器，详情见 [高级功能-自定义特效和滤镜](https://cloud.tencent.com/document/product/1156/48621)。
->- v1.4.0之后支持贴纸渲染，贴纸和文字的位移和缩放，详见[高级功能-贴纸和文字](),[高级功能-编辑控件]()
+>- 定制特效需要传入特效的片元着色器，详情见 [自定义特效和滤镜](https://cloud.tencent.com/document/product/1156/48621)。
+>- v1.4.0之后支持贴纸渲染，贴纸和文字的位移和缩放，详见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440) 和 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
 
 ### 播放器使用示例
 
@@ -116,7 +116,7 @@ this.player = player;
 ```
 >?`global['wj-types']` 是在全局存储的插件暴露出来的对象，方便进行播放器的 Track 和 Clip 的操作。
 2. 添加视频 Clip：
-  1. 向 mediaTrack 媒体轨道中添加视频 Clip，设置视频 Clip 的 type 为 video。
+	1. 向 mediaTrack 媒体轨道中添加视频 Clip，设置视频 Clip 的 type 为 video。
 ```javascript
       let videoClip1 = new global['wj-types'].Clip({
         id: 'video1',
@@ -144,7 +144,7 @@ this.player = player;
 <td>利用插件提供的 ClipSection 进行视频的时间范围选择，示例中选择了该视频0秒-4秒的区间片段。缺省值 start 为0，end 为 info 的 duration 值。</td>
 </tr><tr>
 <td>startAt</td>
-<td>视频在轨道中的起始位置，也就是基于整个播放时长的起始时间，同一个 media track 中存在多个clip的情况非常有用，它决定了某个 clip 在整个 track 中的位置。</td>
+<td>视频在轨道中的起始位置，也就是基于整个播放时长的起始时间，同一个 media track 中存在多个 clip 的情况非常有用，它决定了某个 clip 在整个 track 中的位置。</td>
 </tr><tr>
 <td>id</td>
 <td>id 可以自定义，如果不传则由播放器内部自动生成。</td>
@@ -170,12 +170,11 @@ this.player = player;
         startAt: 4
       })
   ```
-```
   >? 
   >- 图片类型 Clip 的 duration 默认值为3（与 settings 配置项中的 imgDisplayDuration 属性保持一致即可）。
   >- 上述 Clip 的 startAt 值为4，是因为此前我们已经加入了一个 video Clip，其 section 为4（end-start），即当前 Clip 之前的所有 Clip 的有效 section 之和。
   2. 把图片添加到 media 轨道：
-​```javascript
+```javascript
     this.mediaTrack.clips = [videoClip1, imageClip1];
 ```
 >? 可以看到此时媒体轨道中已经添加一个视频和一张图片。以此类推，您可以按照这种方式添加更多的视频或者图片。
@@ -245,7 +244,7 @@ videoClip1.startAt = 1;
 	})
 ```
 > - `tempFilePath` 为在线音乐地址。
-> - 参数基本与视频的 Clip一致，具体请参见 [Clip 参数详解](#clip_parameter)。
+> - 参数基本与视频的 Clip 一致，具体请参见 [Clip 参数详解](#clip_parameter)。
 > - section 的 end 值为1000， 一般用于给整个视频添加一段音乐的情况，播放器内部会自动调整为实际的视频时长。
 > 2. 将 musicClip1 加入到 musicTrack 中：
 ```javascript
@@ -334,7 +333,7 @@ videoClip1.startAt = 1;
   this.filterTrack.clips = [filterClip1, filterClip2]
 ```
 4. 修改滤镜。
-  修改滤镜对应的 Clip属性，更新播放即可查看。以修改滤镜的时间信息为例：
+  修改滤镜对应的 Clip 属性，更新播放即可查看。以修改滤镜的时间信息为例：
 ```
     filterClip1.section = new global['wj-types'].ClipSection({
       start: 0,
@@ -532,8 +531,8 @@ videoClip1.startAt = 1;
 >! **由于小程序限制，最多只能存在5个文字。 可以添加5个文字轨道，一个轨道中一段文字；或者一个轨道中，5段文字，即文字 Clip 总共不能超过5个。**
 
 6. 给文字添加字体
-由于小程序插件无法调用`wx.loadFontFace`方法，因此需要小程序手动暴露该接口给插件，或者在小程序内提前加载字体后再传入插件渲染。详情可参考[高级功能-自定义贴纸和字体]()。
-> 内置字体列表获取请参考[高级功能-内置资源]()
+由于小程序插件无法调用`wx.loadFontFace`方法，因此需要小程序手动暴露该接口给插件，或者在小程序内提前加载字体后再传入插件渲染。详情可参考 [自定义贴纸和字体](https://cloud.tencent.com/document/product/1156/49440)。
+>? 内置字体列表获取请参考 [内置资源](https://cloud.tencent.com/document/product/1156/49439)。
 
 加载字体:
 ```javascript
@@ -553,7 +552,7 @@ loadFontFace({
   }
 });
 ```
-构造对应的文字clip：
+构造对应的文字 clip：
 ```javascript
   let mytext = new global['wj-types'].Clip({
     type: 'text',
@@ -615,15 +614,14 @@ loadFontFace({
    this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack, this.stickerTrack]);
    ```
 
-   > 内置贴纸列表获取请参考[高级功能-内置资源]()
+   >? 内置贴纸列表获取请参考 [内置资源](https://cloud.tencent.com/document/product/1156/49439)。
 
-   更多属性请参考[数据结构文档]()。
+   更多属性请参考 [数据结构文档](https://cloud.tencent.com/document/product/1156/48616)。
 
 ## 照相机：wj-camera
 
 相机组件提供用户拍摄（前置、后置），访问相册增加 Clip（图片、视频），展示已选 Clip 列表，删除 Clip（单个删除、整体删除）等基本功能，是 Clip 的入口组件。
-
-1.4.0版本开始组件支持多段拍摄，设置倒计时等。
+>?1.4.0版本开始组件支持多段拍摄，设置倒计时等。
 
 ### 使用方式
 1. 配置 JSON 文件：
@@ -685,9 +683,9 @@ loadFontFace({
   }
 ```
 
-**说明**：
+#### 说明
 - 主界面底部三个操作按钮，分别为：切换摄像头方向、拍摄、跳转相册。
-- 1.4.0版本开始支持多段拍摄，中途点击拍摄按钮会暂停并保存，再次点击继续拍摄。点击右侧【删除】按钮可删除已拍摄片段，点击【完成】按钮结束拍摄。
+- 1.4.0版本开始支持多段拍摄，中途点击拍摄按钮会暂停并保存，再次点击继续拍摄。单击右侧【删除】按钮可删除已拍摄片段，单击【完成】按钮结束拍摄。
 - 拍摄总时长受 **小程序平台限制，最大值为 30s**。
 - 视频 Clip 数量最大值为5，Clip（图片+视频）数量最大值为9。
 - Clip 展示页展示已选择或已拍摄 Clip，单击 Clip 右上角的删除按钮可删除单个 Clip；单击空白处可删除全部 Clip。
@@ -775,7 +773,7 @@ clipper 组件接受的 trackInfo 数据相比于标准的 Track 多了几个属
 | ----------------- | -------- | --------------- | ------------------------------------------------------------ |
 | getValidTrackData | Function |  Array&lt;Track&gt; | 根据 [trackInfo](#clipper_trackInfo) 的 innerStartTime、innerEndTime 值获取有效的 Track 数据 |
 
-**说明**：
+#### 说明
 - 裁切器涉及两个重要概念：缩略图展示区间、裁切区间。
   - **缩略图展示区间**：与 Clip 对象的 section 属性的值有关，start、end 属性决定单个 Clip 展示的缩略图时间区间。
   - **裁切区间**：与 trackInfo 的 innerStartTime、innerEndTime 字段的值有关，决定了整个 Track 裁切区间的起始时间。
@@ -847,7 +845,7 @@ track={
 ```
 #### 示例2：多段裁切示例
 ![](https://main.qcloudimg.com/raw/403467e0c4a33f975e6a5b82d87e446c.png)
-上述 Track 由3个 Clip 组成，时长分别为30s、15s、55s，track的总时长为100s。
+上述 Track 由3个 Clip 组成，时长分别为30s、15s、55s，track 的总时长为100s。
 
 对应的 Track 数据如下所示：
 ```
@@ -955,7 +953,7 @@ track={
 
 传入`wxfile://` 开头的本地临时地址即可。
 
->?导出组件提供了`slot插槽`以定制导出组件的实际 UI，并监听内部冒泡的 tap 事件以触发导出流程；如果需要手动触发导出流程，可以使用`wx.selectComponent`获取组件实例并调用实例的`start`方法。
+>?导出组件提供了`slot 插槽`以定制导出组件的实际 UI，并监听内部冒泡的 tap 事件以触发导出流程；如果需要手动触发导出流程，可以使用`wx.selectComponent`获取组件实例并调用实例的`start`方法。
 
 
 ## 文字编辑：wj-textEditor
@@ -990,7 +988,6 @@ track={
 | bindclose   | Function | -                | 用户取消输入                                                 | 否   |
 
 ### 操作说明
-  输入文字，单颜色列表实时更换文本颜色，单击左侧 T 图标实时更换背景颜色。
-
-  1.4.0版本开始支持修改字体啦。
+输入文字，单颜色列表实时更换文本颜色，单击左侧 T 图标实时更换背景颜色。
+>?1.4.0版本开始支持修改字体。
 
