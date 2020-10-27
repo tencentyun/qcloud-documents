@@ -666,10 +666,7 @@ Promise
 trtcRoomContext.setViewRect({
   userID: 'xxx',
   streamType: 'main',
-  xAxis: '480rpx',
-  yAxis: '160rpx',
-  width: '240rpx',
-  height: '320rpx',
+  xAxis: 480rpx, yAxis: 160rpx, width: 240rpx, height: 320rpx,
 }).then((event)=>{
   // 设置成功
 })
