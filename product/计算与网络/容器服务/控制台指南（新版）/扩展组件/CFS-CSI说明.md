@@ -42,7 +42,7 @@ CFS 接入简单，您无需调节自身业务结构，或者是进行复杂的�
 ![](https://main.qcloudimg.com/raw/ef128d1f27b6d3089ee8654f4080d8dc.png)
 4. 单击【创建StorageClass】，完成创建。
 
-### 创建 PersistentPerVolumeClaim
+### 创建 PersistentVolumeClaim
 1. 在“集群管理”页面单击使用 CFS 的集群 ID，进入集群详情页。
 2. 在左侧导航栏中选择【存储】>【PersistentVolumeClaim】，单击【新建】进入 “新建PersistentVolumeClaim” 页面。
 3. 根据实际需求，创建 CFS 类型 PersistentVolumeClaim，选择上述步骤创建的 StorageClass。
