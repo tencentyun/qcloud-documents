@@ -118,7 +118,7 @@ SDK 1.2.7.2 新增，当注册推送服务失败会走此回调。
 > - 账号操作需要使用字典数组且 key 是固定要求。
 > - Objective-C 的写法 :@[@{@"accountType":@(0),@"account":identifier}]；
 > - Swift 的写法：[["accountType":NSNumber(0),"account":identifier]]
-> - 更多 accountType 请参照 XGPushTokenAccountType 枚举。
+> - 更多 accountType 请参照 SDK 包内 XGPush.h 文件中的 XGPushTokenAccountType 枚举。
 
 #### 示例代码
 
