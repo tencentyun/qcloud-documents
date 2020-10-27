@@ -68,7 +68,7 @@ mkdir /local/test
 ```shell
 //以下命令可以到 CFS 控制台-文件系统详情-挂载点详情中获取，由于部分旧版本文件系统不支持 noresvport参数，具体挂载命令请以控制台建议命令为主。配置 norevsport 参数后，在网络重连时使用新的TCP端口，可以保障在网络异常到恢复期间、客户端和文件系统的连接不会中断，建议启用该参数。
 //另，部分旧版本Linux内核需要使用 vers=4 挂载，若使用 vers=4.0 挂载有异常，可以尝试修改为 vers=4。
-sudo mount -t nfs -o vers=4.0，noresvport <挂载点IP>:/ <待挂载目录>
+sudo mount -t nfs -o vers=4.0,noresvport <挂载点IP>:/ <待挂载目录>
 ```
 
 - 挂载点IP：指创建文件系统时，自动的生成的挂载点 IP。
@@ -83,13 +83,13 @@ sudo mount -t nfs -o vers=4.0，noresvport <挂载点IP>:/ <待挂载目录>
 ```plaintext
 //以下命令可以到 CFS 控制台-文件系统详情-挂载点详情中获取，由于部分旧版本文件系统不支持 noresvport参数，具体挂载命令请以控制台建议命令为主。配置 norevsport 参数后，在网络重连时使用新的TCP端口，可以保障在网络异常到恢复期间、客户端和文件系统的连接不会中断，建议启用该参数。
 //另，部分旧版本Linux内核需要使用 vers=4 挂载，若使用 vers=4.0 挂载有异常，可以尝试修改为 vers=4。
-sudo mount -t nfs -o vers=4.0，noresvport 10.0.24.4:/ /localfolder
+sudo mount -t nfs -o vers=4.0,noresvport 10.0.24.4:/ /localfolder
 ```
 - 挂载 CFS 子目录：
 ```plaintext
 //以下命令可以到 CFS 控制台-文件系统详情-挂载点详情中获取，由于部分旧版本文件系统不支持 noresvport参数，具体挂载命令请以控制台建议命令为主。配置 norevsport 参数后，在网络重连时使用新的TCP端口，可以保障在网络异常到恢复期间、客户端和文件系统的连接不会中断，建议启用该参数。
 //另，部分旧版本Linux内核需要使用 vers=4 挂载，若使用 vers=4.0 挂载有异常，可以尝试修改为 vers=4。
-sudo mount -t nfs -o vers=4.0，noresvport 10.0.24.4:/subfolder /localfolder 
+sudo mount -t nfs -o vers=4.0,noresvport 10.0.24.4:/subfolder /localfolder 
 ```
 
 **NFS v3.0 挂载**
