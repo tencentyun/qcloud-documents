@@ -81,6 +81,7 @@
 
 播放器围绕 Tracks 和 Clips 进行视频渲染， 前文数据结构详细介绍了 Tracks 和 Clips 直接的关系。接下来，我们一起来看一下如何对播放器进行渲染。
 
+>?
 >- 定制滤镜目前只支持 LUT 图滤镜，由于小程序下载文件的限制，LUT 图需要先 downloadFile 到本地。
 >- 定制特效需要传入特效的片元着色器，详情见 [自定义特效和滤镜](https://cloud.tencent.com/document/product/1156/48621)。
 >- v1.4.0之后支持贴纸渲染，贴纸和文字的位移和缩放，详见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440) 和 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
@@ -243,6 +244,7 @@ videoClip1.startAt = 1;
 		startAt: 0
 	})
 ```
+>?
 > - `tempFilePath` 为在线音乐地址。
 > - 参数基本与视频的 Clip 一致，具体请参见 [Clip 参数详解](#clip_parameter)。
 > - section 的 end 值为1000， 一般用于给整个视频添加一段音乐的情况，播放器内部会自动调整为实际的视频时长。
