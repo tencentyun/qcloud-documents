@@ -4,9 +4,9 @@
 P2P Addon 是容器镜像服务 TCR 推出的基于 P2P 技术的容器镜像加速分发插件，可应用于大规模容器服务 TKE 集群快速拉取 GB 级容器镜像，支持上千节点的并发拉取。
 
 该组件由 `p2p-agent`、`p2p-proxy` 和 `p2p-tracker` 组成：
-- `p2p-agent`：部署在集群中每个节点上，代理每个节点的镜像拉取请求，并转发至 P2P 网络的各个 peer（node 节点）间。
-- `p2p-proxy`：部署在集群部分节点上，作为原始种子连接被加速的镜像仓库。proxy 节点既需要做种，也需要从目标镜像仓库中拉取原始数据。
-- `p2p-tracker`：部署在集群部分节点上，开源 bittorrent 协议的 tracker 服务。
+- p2p-agent：部署在集群中每个节点上，代理每个节点的镜像拉取请求，并转发至 P2P 网络的各个 peer（node 节点）间。
+- p2p-proxy：部署在集群部分节点上，作为原始种子连接被加速的镜像仓库。proxy 节点既需要做种，也需要从目标镜像仓库中拉取原始数据。
+- p2p-tracker：部署在集群部分节点上，开源 bittorrent 协议的 tracker 服务。
 
 ### 部署在集群内 Kubernetes 对象
 
@@ -38,15 +38,10 @@ P2P Addon 是容器镜像服务 TCR 推出的基于 P2P 技术的容器镜像加
 - Agent 组件将会占用节点的5004端口，以及 P2P 专用通信端口6881（Agent）和6882（Proxy）。Agent、Proxy 组件会分别创建本地工作目录 `/p2p_agent_data` 和 `/p2p_proxy_data` 用于缓存容器镜像，请提前确认节点已预留足够的存储空间。
 
 ## 组件安装要求
-- 选取合适的节点部署运行 Proxy 组件。
-可通过 `kubectl label nodes XXXX proxy=p2p-proxy` 命令标记节点，插件安装时将自动在这些节点中部署该组件。安装后如果需要调整 Proxy 组件的个数，可在指定节点上添加或者删除该 label 后，修改集群中 kube-system 命名空间下 p2p-proxy 工作负载的副本个数。
-- 选取合适的节点部署运行 Tracker 组件。
-可通过 `kubectl label nodes XXXX tracker=p2p-tracker` 命令标记节点，插件安装时将自动在这些节点中部署该组件。安装后如果需要调整 Tracker 的个数，可在指定节点上添加或者删除该 label 后，修改集群中 kube-system 命名空间下 p2p-tracker 工作负载的副本个数。
+
 
 
 ## 使用方法<span id="Instructions"></span>
-
-
 - 选取合适的节点部署运行 Proxy 组件。
 可通过 `kubectl label nodes XXXX proxy=p2p-proxy` 命令标记节点，插件安装时将自动在这些节点中部署该组件。安装后如果需要调整 Proxy 组件的个数，可在指定节点上添加或者删除该 label 后，修改集群中 kube-system 命名空间下 p2p-proxy 工作负载的副本个数。
 - 选取合适的节点部署运行 Tracker 组件。
@@ -59,14 +54,7 @@ P2P Addon 是容器镜像服务 TCR 推出的基于 P2P 技术的容器镜像加
 
 
 
-
-## 开启插件
-
-
-
-
-
-
+## 操作步骤<span id="start"></span>
 1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【集群】。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的【组件管理】，进入“组件列表”页面。
