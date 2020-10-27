@@ -36,7 +36,7 @@
 <code>net.ipv4.tcp_mem</code><br>
 <code>net.ipv4.tcp_rmem</code>
 </td>
-<td>这些参数配置了数据接收的缓存大小。配置过大容易造成内存资源浪费，过小则会导致丢包。建议判断自身业务是否属于高并发连接或少并发高吞吐量情形，进行优化配置。<ul><li>rmem_default 的理论最优配置策略为带宽/RTT 积，其配置会覆盖 tcp_rmem，不单独配置。</li><li>rmem_max 配置约为 rmem_default 的5倍。</li><li>tcp_mem 为总的 TCP 占用内存，一般由 OS 自动配置为 CVM 可用内存的3/32、1/8或3/16，tcp_mem 及 rmem_default 也决定了最大并发链接数。</li></ul></td>
+<td>这些参数配置了数据接收的缓存大小。配置过大容易造成内存资源浪费，过小则会导致丢包。建议判断自身业务是否属于高并发连接或少并发高吞吐量情形，进行优化配置。<ul><li>rmem_default 的理论最优配置策略为带宽/RTT 积，其配置会覆盖 tcp_rmem，tcp_rmem 不单独配置。</li><li>rmem_max 配置约为 rmem_default 的5倍。</li><li>tcp_mem 为总的 TCP 占用内存，一般由 OS 自动配置为 CVM 可用内存的3/32、1/8或3/16，tcp_mem 及 rmem_default 也决定了最大并发链接数。</li></ul></td>
 <td><code>rmem_default<br>=655360</code><br>
 <code>rmem_max<br>=3276800</code></td>
 </tr>
@@ -45,7 +45,7 @@
 <code>net.core.wmem_max</code><br>
 <code>net.ipv4.tcp_wmem</code>
 </td>
-<td>这些参数用于配置数据发送缓存，腾讯云平台上数据发送通常不会出现问题，可不做配置。</td>
+<td>这些参数用于配置数据发送缓存，腾讯云平台上数据发送通常不会出现瓶颈，可不做配置。</td>
 <td>-</td>
 </tr>
 <tr>
@@ -131,7 +131,7 @@
 <td><code>kernel.shmall</code><br>
 <code>kernel.shmmax</code>
 </td>
-<td><ul><li>shmmax 设置一次分配 shared memory 的最大长度，单位为 byte。</li><li>shmall 设置一共能分配 hared memory 的最大长度，单位为 page。</li></ul></td>
+<td><ul><li>shmmax 设置一次分配 shared memory 的最大长度，单位为 byte。</li><li>shmall 设置一共能分配 shared memory 的最大长度，单位为 page。</li></ul></td>
 <td><code>kernel.shmmax<br>=68719476736</code><br>
 <code>kernel.shmall<br>=4294967296</code>
 </td>
@@ -147,7 +147,7 @@
 <td><code>fs.file-max</code><br>
 <code>fs.nr_open</code>
 </td>
-<td>分别控制系统所有单进程能同时打开的最大文件数量：<ul><li>file-max 由 OS 启动时自动配置，近似为10万/GB。</li><li>nr_open 为固定值1048576，但为针对用户态打开最大文件数的限制，一般不改动这个值，通常设置 ulimit -n 实现，对应配置文件为 /etc/security/limits.conf。</li></ul></td>
+<td>分别控制系统所有进程和单进程能同时打开的最大文件数量：<ul><li>file-max 由 OS 启动时自动配置，近似为10万/GB。</li><li>nr_open 为固定值1048576，但为针对用户态打开最大文件数的限制，一般不改动这个值，通常设置 ulimit -n 实现，对应配置文件为 /etc/security/limits.conf。</li></ul></td>
 <td>
 <code>ulimit 的 open files 为100001</code><br>
 <code>fs.nr_open=1048576</code>
