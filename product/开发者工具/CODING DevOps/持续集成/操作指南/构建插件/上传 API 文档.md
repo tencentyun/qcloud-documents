@@ -7,7 +7,7 @@
 ## 进入持续集成
 
 1. 登录 [CODING 控制台](https://console.cloud.tencent.com/coding)，单击团队域名进入 CODING 使用页面。
-2. 单击页面右上角的 <img src ="https://main.qcloudimg.com/raw/d94a8e60dd3a41d0af07d72ae0e9d70e.png" style ="margin:0">，进入项目列表页面，点击项目图标进入目标项目。
+2. 单击页面右上角的 <img src ="https://main.qcloudimg.com/raw/d94a8e60dd3a41d0af07d72ae0e9d70e.png" style ="margin:0">，进入项目列表页面，单击项目图标进入目标项目。
 3. 进入左侧菜单中的【持续集成】>【构建计划】>【API 文档】>【自定义构建过程】。
 
 ## 功能介绍
@@ -27,21 +27,17 @@ ls storage/api-docs/api-docs.json
 
 ### 创建空的 API 文档
 
-在【文档管理】->【API 文档】中创建一个空的 API 文档。
-
-![](https://help-assets.codehub.cn/enterprise/20200826194900.png)
+在【文档管理】>【API 文档】中创建一个空的 API 文档。
+![1](https://main.qcloudimg.com/raw/c91b59c7beeb8e73f272b59d90ae97c9.png)
 
 ### 使用图形化界面生成并上传 API 文档
 
 使用【持续集成】的图形化编辑器，添加一个步骤「执行 Shell 脚本」，填入生成 API 文档的命令。
-
-![](https://help-assets.codehub.cn/enterprise/20200826194306.png)
+![2](https://main.qcloudimg.com/raw/329f139cfea29e1f6dda5b8dd3a9ea87.png)
 
 再添加一个步骤「读取代码生成 API 文档」，「语言 & 注释库」选择「其他」，填写之前生成的 `json` 文件路径，并且选择之前创建的「API 文档」。
-
-![](https://help-assets.codehub.cn/enterprise/20200826194340.png)
-
-![](https://help-assets.codehub.cn/enterprise/20200907153442.png)
+![3](https://main.qcloudimg.com/raw/27db1f312c5f32f9ac1562fd5bc9a343.png)
+![4](https://main.qcloudimg.com/raw/9d911dfd256114c7e65d7682c93e2e9a.png)
 
 ### Jenkinsfile
 
