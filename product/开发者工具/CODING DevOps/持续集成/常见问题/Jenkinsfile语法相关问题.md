@@ -143,7 +143,7 @@ pipeline {
 
 ### Jenkinsfile 两种配置来源的区别
 
-在创建构建计划时，你可以设置 Jenkinsfile 的配置来源，**使用代码仓库中的 Jenkinsfile** 和**使用静态配置的 Jenkinsfile** 有什么区别？
+在创建构建计划时，您可以设置 Jenkinsfile 的配置来源，**使用代码仓库中的 Jenkinsfile** 和**使用静态配置的 Jenkinsfile** 有什么区别？
 
 **使用代码仓库中的 Jenkinsfile 有以下特点：**
 
