@@ -63,7 +63,7 @@ remote.allowAnyHosts = true
 
 node {
     withCredentials([sshUserPrivateKey(credentialsId: 'sshUser', keyFileVariable: 'identity')]) {
-        // ssh 登陆用户名
+        // ssh 登录用户名
         remote.user = 'root'
         // 私钥文件地址
         remote.identityFile = identity
