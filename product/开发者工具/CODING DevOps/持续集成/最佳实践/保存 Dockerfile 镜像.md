@@ -54,7 +54,7 @@ pipeline {
 
 4.  构建完成
 
-![](https://help-assets.codehub.cn/enterprise/20200925113410.png)
+![](https://main.qcloudimg.com/raw/7c59555ce5909dd1a08e77ffdd8349fc.png)
 
 ## 参数说明
 
