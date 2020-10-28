@@ -51,6 +51,8 @@ Authorization: Auth String
 | x-cos-copy-source-If-Match            | 当对象的 ETag 与指定的值一致，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
 | x-cos-copy-source-If-None-Match       | 当对象的 ETag 与指定的值不一致，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
 | x-cos-storage-class                   | 目标对象的存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 INTELLIGENT_TIERING，MAZ_INTELLIGENT_TIERING，STANDARD_IA，ARCHIVE，DEEP_ARCHIVE。默认值：STANDARD | Enum   | 否       |
+|  x-cos-tagging   |  对象的标签集合，最多可设置10个标签（例如，“ Key1=Value1&Key2=Value2”）。 标签集合中的 Key 和 Value 必须先进行 URL 编码。| string| 否  |
+
 
 **目标对象元数据相关头部**
 
