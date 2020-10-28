@@ -16,7 +16,8 @@ Prometheus 具有如下特性：
 
 ## 云监控 Prometheus 服务优势
 
-![](https://main.qcloudimg.com/raw/ef425686ad7ec73919b38278faeca488.png)
+<img src="https://main.qcloudimg.com/raw/ef425686ad7ec73919b38278faeca488.png" data-nonescope="true"></img>
+
 
 与开源的 Prometheus 对比，云监控 Prometheus 服务有哪些优势？
 - 更轻量、更稳定、可用性更高。
