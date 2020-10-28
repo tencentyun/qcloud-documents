@@ -2,7 +2,7 @@
 
 `wj-player` 是支持微剪运行的核心组件，它是由轨道数据驱动运行的播放器，并内置了一些常用功能。
 
->v1.4.0后新增功能：
+>?v1.4.0后新增功能：
 >1. 贴纸，详见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440)。
 2. 文字和贴纸内置编辑控件，详见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
 
@@ -150,12 +150,10 @@ this.player = player;
 <td>id</td>
 <td>id 可以自定义，如果不传则由播放器内部自动生成。</td>
 </tr></table>
-
 2. 因为 Clip 需要运行在 Track中，接下来将 Clip 添加进 media 轨道：
 ```javascript
       this.mediaTrack.clips = [videoClip1];
 ```
-
 3. 添加图片 Clip。
   1. 添加图片 Clip，设置图片的 Clip 的 type 为 image。
   ```javascript
@@ -244,15 +242,15 @@ videoClip1.startAt = 1;
 		startAt: 0
 	})
 ```
->?
-> - `tempFilePath` 为在线音乐地址。
-> - 参数基本与视频的 Clip 一致，具体请参见 [Clip 参数详解](#clip_parameter)。
-> - section 的 end 值为1000， 一般用于给整个视频添加一段音乐的情况，播放器内部会自动调整为实际的视频时长。
-> 2. 将 musicClip1 加入到 musicTrack 中：
-```javascript
-  this.musicTrack.clips = [musicClip1];
-```
-  3. 将音乐轨道加入播放器轨道：
+#### 说明
+	- `tempFilePath` 为在线音乐地址。
+	- 参数基本与视频的 Clip 一致，具体请参见 [Clip 参数详解](#clip_parameter)。
+	- section 的 end 值为1000， 一般用于给整个视频添加一段音乐的情况，播放器内部会自动调整为实际的视频时长。
+	- 将 musicClip1 加入到 musicTrack 中：
+	```javascript
+		this.musicTrack.clips = [musicClip1];
+	```
+  - 将音乐轨道加入播放器轨道：
 ```javascript
   this.player.updateData([this.mediaTrack, this.musicTrack]);
 ```
@@ -319,7 +317,6 @@ videoClip1.startAt = 1;
   <td>key</td>
   <td>滤镜的关键字，参考 <a href="#filterList">filterList</a> 结构。</td>
   </tr></table>
-
   3. 将 Clip 加入轨道：
   ```javascript
     this.filterTrack.clips = [filterClip1]
@@ -445,35 +442,33 @@ videoClip1.startAt = 1;
   this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack]);
 ```
 
-  
-
 #### 添加文字轨道
 1. 添加文字轨道。
 ```javascript
-  this.textTrack1 = new global['wj-types'].Track({
-    type: 'text',
-    clips: []
-  });
+this.textTrack1 = new global['wj-types'].Track({
+		type: 'text',
+		clips: []
+	});
 ```
 2. 添加文字片段。
   1. 创建 textClip： 
 ```javascript
-    let textClip1 = new global['wj-types'].Clip({
-        type: 'text',
-        startAt: 0,
-        section: new global['wj-types'].ClipSection({
-          start: 0,
-          end: 100
-        }),
-        content: {
-            content: text.value, // 文字内容
-            style: {
-                type: text.bgColor === 'transparent' ? 'normal' : 'background', // 文字样式
-                color: text.color, // 文字颜色
-                backgroundColor: text.bgColor
-            }
-        },
-    })
+let textClip1 = new global['wj-types'].Clip({
+		type: 'text',
+		startAt: 0,
+		section: new global['wj-types'].ClipSection({
+			start: 0,
+			end: 100
+		}),
+		content: {
+				content: text.value, // 文字内容
+				style: {
+						type: text.bgColor === 'transparent' ? 'normal' : 'background', // 文字样式
+						color: text.color, // 文字颜色
+						backgroundColor: text.bgColor
+				}
+		},
+})
 ```
 <table>
 <tr><th>参数</th><th>说明</th></tr><tr>
@@ -481,29 +476,29 @@ videoClip1.startAt = 1;
 <td>content 为文字的内容，可通过 style 自定义文字的颜色和背景颜色。</td>
 </tr></table>
 
-		>? **文字的位置控制**逻辑在播放器内部，所以您只需要把文字添加进播放器，通过拖拽挪动文字位置，相应的位置信息将初始化传入的文字统一位于视频的中心位置。
+	>? **文字的位置控制**逻辑在播放器内部，所以您只需要把文字添加进播放器，通过拖拽挪动文字位置，相应的位置信息将初始化传入的文字统一位于视频的中心位置。
 
   2. 将新创建的 textClip 添加到轨道中：
 ```javascript
-    this.textTrack.clips = [textClip1]
+this.textTrack.clips = [textClip1]
 ```
-  当然，您也可以在一个轨道添加多个文字，文字 Clip 的 section 没有重叠。
+当然，您也可以在一个轨道添加多个文字，文字 Clip 的 section 没有重叠。
 ```javascript
-    this.textTrack.clips = [textClip1, textClips2, ...]
+this.textTrack.clips = [textClip1, textClips2, ...]
 ```
 3. 更新文字。
 前往所需更新的文字修改对应的 Clip 属性即可，以更新 textClip1 的文字颜色为例：
 ```javascript
-  textClip1.style.color = 'blue'
+textClip1.style.color = 'blue'
 ```
 4. 删除文字，主要分以下两种情况：
   - **删除 Clip**，以删除 textClips2 为例：
 ```javascript
-  this.textTrack.clips = [textClip1, textClips3
+this.textTrack.clips = [textClip1, textClips3]
 ```
  - **删除整个文字轨道**：
 ```javascript
-  this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack]);
+this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack]);
 ```
 5. 多个文字共存。
 在同一个轨道中添加多个 [文字 Clip]() 的情况下，各个文字 Clip 之间的 section 是不存在交集的，即某一时刻页面最多显示一个文字。假设需要多个文字同时展示的情况下，则需要通过多个文字 Track 实现，每个轨道中只包含一个文字 Clip。
@@ -522,21 +517,16 @@ videoClip1.startAt = 1;
 
   this.textTrack1.clips = [textClip2];
 
-  ... // 以此类推
+ ... // 以此类推
 ```
   创建完文字轨道后，更新播放器即可。
 ```javascript
     this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack, this.textTrack1, this.textTrack2]);
 ```
-
-
 >! **由于小程序限制，最多只能存在5个文字。 可以添加5个文字轨道，一个轨道中一段文字；或者一个轨道中，5段文字，即文字 Clip 总共不能超过5个。**
-
-6. 给文字添加字体
-由于小程序插件无法调用`wx.loadFontFace`方法，因此需要小程序手动暴露该接口给插件，或者在小程序内提前加载字体后再传入插件渲染。详情可参考 [自定义贴纸和字体](https://cloud.tencent.com/document/product/1156/49440)。
->? 内置字体列表获取请参考 [内置资源](https://cloud.tencent.com/document/product/1156/49439)。
-
-加载字体:
+6. 给文字添加字体。
+由于小程序插件无法调用 wx.loadFontFace 方法，因此需要小程序手动暴露该接口给插件，或者在小程序内提前加载字体后再传入插件渲染。详情可参考 [自定义贴纸和字体](https://cloud.tencent.com/document/product/1156/49440)。
+**加载字体**：
 ```javascript
 loadFontFace({
 	family: 'fangzhengyouhei',
@@ -554,7 +544,7 @@ loadFontFace({
   }
 });
 ```
-构造对应的文字 clip：
+**构造对应的文字 clip**：
 ```javascript
   let mytext = new global['wj-types'].Clip({
     type: 'text',
@@ -577,24 +567,20 @@ loadFontFace({
       end: 10,
       duration: 10
     },
-    
   })
 ```
+>? 内置字体列表获取请参考 [内置资源](https://cloud.tencent.com/document/product/1156/49439)。
 
 #### 添加贴纸轨道
-
 1. 创建贴纸轨道
-
-   ```javascript
+```javascript
    this.stickerTrack = new global['wj-types'].Track({
        type: 'sticker',
        clips: []
    });
-   ```
-
+```
 2. 添加贴纸片段
-
-   ```javascript
+```javascript
    let stickerclip = new global['wj-types'].Clip({
      id: 'my-sticker',
      type: 'sticker',
@@ -614,11 +600,9 @@ loadFontFace({
    })
    this.stickerTrack.clips.push(stickerclip)
    this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack, this.stickerTrack]);
-   ```
+```
 
-   >? 内置贴纸列表获取请参考 [内置资源](https://cloud.tencent.com/document/product/1156/49439)。
-
-   更多属性请参考 [数据结构文档](https://cloud.tencent.com/document/product/1156/48616)。
+   >? 内置贴纸列表获取请参考 [内置资源](https://cloud.tencent.com/document/product/1156/49439)。更多属性请参考 [数据结构文档](https://cloud.tencent.com/document/product/1156/48616)。
 
 ## 照相机：wj-camera
 
@@ -655,7 +639,7 @@ loadFontFace({
 | bindswipetoleft       | Function      | -                       | 左划事件 （仅advanced模式有效）                      | 否       |
 | bindmediachanged | Function      | -                       | 选择 Clip 的回调<pre style="margin:0" />`e.detail = {track: Array<Track>`}</pre> | 否       |
 
-####   settings 默认值<span id="camera_settings"></span>
+#### settings 默认值<span id="camera_settings"></span>
 ```
   {
       videoMaxDuration: 30, // 拍摄时长限制（秒）
@@ -687,10 +671,10 @@ loadFontFace({
 
 #### 说明
 - 主界面底部三个操作按钮，分别为：切换摄像头方向、拍摄、跳转相册。
-- 1.4.0版本开始支持多段拍摄，中途点击拍摄按钮会暂停并保存，再次点击继续拍摄。单击右侧【删除】按钮可删除已拍摄片段，单击【完成】按钮结束拍摄。
+- 1.4.0版本开始支持多段拍摄，中途单击拍摄按钮会暂停并保存，再次单击继续拍摄。单击右侧【删除】可删除已拍摄片段，单击【完成】结束拍摄。
 - 拍摄总时长受 **小程序平台限制，最大值为 30s**。
 - 视频 Clip 数量最大值为5，Clip（图片+视频）数量最大值为9。
-- Clip 展示页展示已选择或已拍摄 Clip，单击 Clip 右上角的删除按钮可删除单个 Clip；单击空白处可删除全部 Clip。
+- Clip 展示页展示已选择或已拍摄 Clip，单击 Clip 右上角的【删除】可删除单个 Clip；单击空白处可删除全部 Clip。
 - 小程序平台限制，无法在插件中直接调用 `wx.navigateTo` 实现页面跳转，只能使用 [navigator 组件](https://developers.weixin.qq.com/miniprogram/dev/component/navigator.html) ，故我们预留了一个 `slot 插槽` 供用户实现个性化跳转需求，使用方式如下：
 ```
   <wj-camera bindmediachanged="onMediaChanged" clips="{{clips}}">
