@@ -274,6 +274,7 @@ videoClip1.startAt = 1;
   this.player.updateData([this.mediaTrack]);
 ```
 
+
 ####  添加滤镜轨道
 1. 添加滤镜轨道。
 ```javascript
@@ -442,6 +443,7 @@ videoClip1.startAt = 1;
   this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack]);
 ```
 
+<span id = "sss"></span>
 #### 添加文字轨道
 1. 添加文字轨道。
 ```javascript
@@ -451,38 +453,36 @@ this.textTrack1 = new global['wj-types'].Track({
 	});
 ```
 2. 添加文字片段。
-  1. 创建 textClip： 
+	1. 创建 textClip：
 ```javascript
-let textClip1 = new global['wj-types'].Clip({
-		type: 'text',
-		startAt: 0,
-		section: new global['wj-types'].ClipSection({
-			start: 0,
-			end: 100
-		}),
-		content: {
-				content: text.value, // 文字内容
-				style: {
-						type: text.bgColor === 'transparent' ? 'normal' : 'background', // 文字样式
-						color: text.color, // 文字颜色
-						backgroundColor: text.bgColor
-				}
-		},
-})
-```
+	let textClip1 = new global['wj-types'].Clip({
+			type: 'text',
+			startAt: 0,
+			section: new global['wj-types'].ClipSection({
+				start: 0,
+				end: 100
+			}),
+			content: {
+					content: text.value, // 文字内容
+					style: {
+							type: text.bgColor === 'transparent' ? 'normal' : 'background', // 文字样式
+							color: text.color, // 文字颜色
+							backgroundColor: text.bgColor
+					}
+			},
+	})```
 <table>
 <tr><th>参数</th><th>说明</th></tr><tr>
 <td>content</td>
 <td>content 为文字的内容，可通过 style 自定义文字的颜色和背景颜色。</td>
 </tr></table>
-
-	>? **文字的位置控制**逻辑在播放器内部，所以您只需要把文字添加进播放器，通过拖拽挪动文字位置，相应的位置信息将初始化传入的文字统一位于视频的中心位置。
-
+ <b>文字的位置控制</b>逻辑在播放器内部，所以您只需要把文字添加进播放器，通过拖拽挪动文字位置，相应的位置信息将初始化传入的文字统一位于视频的中心位置。
+ 
   2. 将新创建的 textClip 添加到轨道中：
 ```javascript
 this.textTrack.clips = [textClip1]
 ```
-当然，您也可以在一个轨道添加多个文字，文字 Clip 的 section 没有重叠。
+<span id = "more_clip"></span>当然，您也可以在一个轨道添加多个文字，文字 Clip 的 section 没有重叠。
 ```javascript
 this.textTrack.clips = [textClip1, textClips2, ...]
 ```
@@ -492,7 +492,7 @@ this.textTrack.clips = [textClip1, textClips2, ...]
 textClip1.style.color = 'blue'
 ```
 4. 删除文字，主要分以下两种情况：
-  - **删除 Clip**，以删除 textClips2 为例：
+ - **删除 Clip**，以删除 textClips2 为例：
 ```javascript
 this.textTrack.clips = [textClip1, textClips3]
 ```
@@ -501,7 +501,7 @@ this.textTrack.clips = [textClip1, textClips3]
 this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack]);
 ```
 5. 多个文字共存。
-在同一个轨道中添加多个 [文字 Clip]() 的情况下，各个文字 Clip 之间的 section 是不存在交集的，即某一时刻页面最多显示一个文字。假设需要多个文字同时展示的情况下，则需要通过多个文字 Track 实现，每个轨道中只包含一个文字 Clip。
+在同一个轨道中添加多个 [文字 Clip](#more_clip) 的情况下，各个文字 Clip 之间的 section 是不存在交集的，即某一时刻页面最多显示一个文字。假设需要多个文字同时展示的情况下，则需要通过多个文字 Track 实现，每个轨道中只包含一个文字 Clip。
 ```javascript
   this.textTrack1 = new global['wj-types'].Track({
     type: 'text',
@@ -524,6 +524,7 @@ this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack]);
     this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack, this.textTrack1, this.textTrack2]);
 ```
 >! **由于小程序限制，最多只能存在5个文字。 可以添加5个文字轨道，一个轨道中一段文字；或者一个轨道中，5段文字，即文字 Clip 总共不能超过5个。**
+>
 6. 给文字添加字体。
 由于小程序插件无法调用 wx.loadFontFace 方法，因此需要小程序手动暴露该接口给插件，或者在小程序内提前加载字体后再传入插件渲染。详情可参考 [自定义贴纸和字体](https://cloud.tencent.com/document/product/1156/49440)。
 **加载字体**：
@@ -601,7 +602,6 @@ loadFontFace({
    this.stickerTrack.clips.push(stickerclip)
    this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack, this.stickerTrack]);
 ```
-
    >? 内置贴纸列表获取请参考 [内置资源](https://cloud.tencent.com/document/product/1156/49439)。更多属性请参考 [数据结构文档](https://cloud.tencent.com/document/product/1156/48616)。
 
 ## 照相机：wj-camera
@@ -773,7 +773,6 @@ clipper 组件接受的 trackInfo 数据相比于标准的 Track 多了几个属
 #### 示例1：单段裁切示例
 ![](https://main.qcloudimg.com/raw/3c40b1ceaacf4531cf70f6a4f12de377.png)
 上述 Track 由一个 Clip 组成，时长为100s，自上而下状态分别对应：初始状态、向左拖动缩略图、向右拖动「左手柄」。
-
 对应的数据结构变化如下：
 ```
 // 初始状态
@@ -869,6 +868,7 @@ track={
 
 ## 导出：wj-export
 导出组件提供了视频导出的功能，内部复用了 `wj-player`，针对小程序导出进行了专门处理。
+>!受微信安卓客户端 7.0.19 版本策略影响，导出表现偏慢，预计在11月底的版本修复。
 
 ### 使用方式
 1. 配置 JSON 文件：
@@ -913,7 +913,6 @@ track={
 | bindthumbready    | Function                      | -      | 默认封面图生成<pre style="margin:0">{<br/>path: String,<br/>height:1080,<br />width: 720<br/>}</pre> | 否   |
 
 #### 添加水印
-
 ##### 线上地址
 如果需要使用在线图片，请按如下步骤配置。
 1. 在小程序根目录下引入 index.js，目录：`miniprogram/index.js`。
@@ -922,7 +921,6 @@ track={
 			downloadFile:wx.downloadFile
 		}
 ```
-
 2. 	在 `app.json` 中将 downloadFile 方法导出到插件。
       ```json
         "plugins": {
@@ -936,9 +934,7 @@ track={
 3. 进入小程序管理后台，将在线图片域名配置进 `request` 和 `downloadFile` 白名单即可。
 
 ##### 本地地址
-
 传入`wxfile://` 开头的本地临时地址即可。
-
 >?导出组件提供了`slot 插槽`以定制导出组件的实际 UI，并监听内部冒泡的 tap 事件以触发导出流程；如果需要手动触发导出流程，可以使用`wx.selectComponent`获取组件实例并调用实例的`start`方法。
 
 
