@@ -1,5 +1,33 @@
-## Version 7.8 @ 2020.09.29
+## Version 7.9 @ 2020.10.27
+**新增**
+- Mac：屏幕分享支持过滤选定的窗口，用户可以将自己不希望分享出去的窗口排除掉，从而更好地保护用户的隐私。
+- Windows：屏幕分享支持设置“正在分享”提示边框的描边颜色以及边框宽度。
+- Windows：屏幕分享在分享整个桌面时支持开启高性能模式。
+- 全平台：支持自定义加密，用户可以对编码后的音视频数据通过暴露的 C 接口进行二次处理。
+- 全平台：在 TRTCRemoteStatistics 中新增音频卡顿信息回调 `audioTotalBlockTime` 和 `audioBlockRate`。
 
+**优化**
+- iOS：优化了音频模块的启动速度，让首个音频帧可以更快地采集并发送出去。
+- Windows：优化系统回采的回声消除算法，让开启系统回采（SystemLoopback）时有更好的回声消除能力。
+- Windows：优化屏幕分享功能中的窗口采集抗遮挡能力，支持设置过滤窗口。
+- Android：针对大部分 Android 机型进行了耳返效果的优化，使耳返延迟降低到一个更舒适的水平。
+- Android：针对 Music 模式（在 startLocalAudio 时指定）下的点对点延迟进行了进一步的优化。
+- 全平台：在手动订阅模式下，优化了观众和主播角色互切时的声音流畅度。
+- 全平台：优化了音视频通话中的弱网抗性，在较差的网络下也能有更优质的音频流畅度。
+- 全平台：修复部分偶现的崩溃问题，提升 SDK 的稳定性。
+
+**修复**
+- iOS：修复部分场景下偶现的视频画面不渲染问题。
+- iOS：修复用户在戴耳机并且是 Default 音质下偶现的杂音问题。
+- iOS：修复部分已知的内存泄露问题。
+- iOS：修复偶现的 replaykit 扩展录屏结束后的 crash 问题。
+- iOS：解决模拟器环境下的编译问题。
+- Android：修复部分手机在 App 长时间切到后台，之后又再次切回前台时偶现的音画不同步问题。
+- Android：修复切后台后没有释放麦克风的问题。
+- Android：修复 SDK 内部部分 OpenGL 资源未及时释放的问题。
+- Windows：修复个别场景下偶现的杂音问题。
+
+## Version 7.8 @ 2020.09.29
 **新增**
 - Mac：新增系统音量变化回调，详见 [TRTCCloudDelegate.onAudioDevicePlayoutVolumeChanged](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#af24c0f0258e83ab644e242ee0d01277f)。
 - Windows：新增支持跨屏指定区域进行屏幕分享。
