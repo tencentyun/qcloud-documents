@@ -6,7 +6,7 @@
 
 
 ## 操作步骤
-### 步骤1：对 Thrundbird 配置 S/MIME 证书
+### 步骤1：对 Thunderbird 配置 S/MIME 证书
 
 1. 购买邮件（S/MIME）证书后，线下业务人员将发送给您邮件证书压缩包，获取邮件证书压缩包至 macOS 系统，并进行解压。
 2. 在 macOS 首页，选择【Thunderbird】>【首选项】。
