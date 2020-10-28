@@ -1,8 +1,8 @@
-本文档将指导您如何在 mACOS 系统下为 OutLook 配置邮件（S/MIME）证书。
+本文档将指导您如何在 macOS 系统下为 OutLook 配置邮件（S/MIME）证书。
 
 ## 前提条件
-- 已在 macos 系统上安装 OutLook 客户端。（本文以 macos 10.13.6、Outlook 2013 版本为例）
-- 需已 [申请购买邮件（S/MIME）证书]()。
+- 已在 macOS 系统上安装 OutLook 客户端。（本文以 macOS 10.13.6、Outlook 2013 版本为例）
+- 已 [申请购买邮件（S/MIME）证书]()。
 
 
 ## 操作步骤
