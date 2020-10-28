@@ -2,7 +2,7 @@ API Inspector 是云 API 新推出的一款产品功能，用户可通过此功�
 
 >!
 >- API Inspector 仅展示公开的 [云 API 3.0](https://cloud.tencent.com/document/api) 接口信息。
-> - API Inspector 功能目前处于控制台和用户双维度灰度阶段，如需使用，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
+> - API Inspector 功能目前处于控制台和用户双维度灰度阶段。
 > 控制台目前仅在云服务器控制台的 [实例](https://console.cloud.tencent.com/cvm/instance/index?rid=1)、[专用宿主机](https://console.cloud.tencent.com/cvm/cdh)、[置放群组](https://console.cloud.tencent.com/cvm/ps)、[弹性伸缩](https://console.cloud.tencent.com/autoscaling/group)，[SSH密钥](https://console.cloud.tencent.com/cvm/sshkey) 以及 [回收站](https://console.cloud.tencent.com/cvm/recycler/cvm?rid=1) 菜单中开放。
 >
 
