@@ -5,7 +5,7 @@ AirKiss 是微信为 Wi-Fi 设备提供的配网技术，具体文档请参考 [
 
 ### 基本原理
 
-1. 设备进入 Wi-Fi 混杂模式（promiscuous mode）以监听捕获周围的 Wi-Fi 报文。由于设备暂未联网，且 Wi-Fi 网络的数据帧已通过加密，设备无法获取 payload 的内容，但可以获取报文的某些特征数据，例如每个报文的长度，同时对于某些数据帧，例如 UDP 的广播包或多播包，其报文的帧头结构比较固定，较容易识别。
+1. 设备进入 Wi-Fi 混杂模式（promiscuous mode）以监听捕获周围的 Wi-Fi 报文。由于设备暂未联网，且 Wi-Fi 网络的数据帧已通过加密，设备无法获取 payload 的内容，但可以获取报文的某些特征数据，例如，每个报文的长度，同时对于某些数据帧，例如，UDP 的广播包或多播包，其报文的帧头结构比较固定，较容易识别。
 2. 此时在手机 App 或者小程序侧，即可通过发送 UDP 的广播包或多播包，并利用报文的特征，例如，长度变化进行编码。
 3. 将目标 Wi-Fi 路由器的 SSID/PSW 字符以约定的编码方式发送出去，设备端在捕获到 UDP 报文后，按约定的方式进行解码，即可得到目标 Wi-Fi 路由器的相关信息并进行联网。
 
@@ -13,7 +13,7 @@ AirKiss 是微信为 Wi-Fi 设备提供的配网技术，具体文档请参考 [
 
 基于 AirKiss 协议，设备端在连接 Wi-Fi 路由器成功后，会往手机端回复 UDP 报文。手机端获取设备端的 IP 地址之后，同样可以通过 UDP，将后台提供的配网 Token 发送给设备，并由设备转发至物联网后台，依据 Token 可以进行设备绑定。
 
-腾讯连连小程序已支持采用 AirKiss 协议进行配网，并提供了相应的 [小程序 SDK](https://github.com/tencentyun/qcloud-iotexplorer-appdev-miniprogram-sdk)。
+腾讯连连小程序已支持采用 AirKiss 协议进行配网，并提供相应的 [小程序 SDK](https://github.com/tencentyun/qcloud-iotexplorer-appdev-miniprogram-sdk)。
 AirKiss 方式配网及设备绑定的示例流程图如下：
 ![](https://main.qcloudimg.com/raw/8e7f638de7dc02853463a59e32dec223.png)
 
@@ -29,17 +29,13 @@ AirKiss 配网设备端与腾讯连连小程序及后台交互的数据协议操
 3. 小程序按照提示依次获取 Wi-Fi 列表，输入家里目标路由器的 SSID/PSW，按下一步后，将通过 AirKiss 方式发送报文。
 4. 设备端通过监听捕获 AirKiss 报文，解析出目标路由器的 SSID/PSW 并进行联网，联网成功后，设备会告知小程序自己的 IP 地址，同时开始连接物联网后台。
 5. 小程序作为 UDP 客户端会连接 Wi-Fi 设备上面的 UDP 服务（默认端口为**8266**）。给设备发送配网 Token，JSON 格式为：
-
 ```json
    {"cmdType":0,"token":"6aa12345a9d529a2****7aa6e528a0fd"} 
 ```
-
 发送完成后，等待设备 UDP 回复设备信息及配网协议版本号：
-
 ```json
    {"cmdType":2,"productId":"AAAA5AAAAA","deviceName":"dev_01","protoVersion":"2.0"}
 ```
-
 6. 如果2秒之内没有收到设备回复，则重复步骤5，UDP 客户端重复发送配网 Token。（如果重复发送5次都没有收到回复，则认为配网失败，Wi-Fi 设备有异常。）
 7. 如果步骤5收到设备回复，则说明设备端已经收到 Token，并准备上报 Token。此时小程序会开始通过 Token 轮询物联网后台来确认配网及设备绑定是否成功。小程序相关操作可以参考 [查询配网 Token 状态](https://cloud.tencent.com/document/product/1081/44045)。
 8. 设备端在成功连接 Wi-Fi 路由器后，需要通过 MQTT 连接物联网后台，并将小程序发送来的配网 Token 通过下面 MQTT 报文上报给后台服务：

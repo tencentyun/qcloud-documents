@@ -2,14 +2,15 @@
 
 CreateDocProcessJobs 接口用于提交一个文档预览任务。
 
-目前支持的输入文件类型包含如下格式：
-- 演示文件：pptx、ppt、pot、potx、pps、ppsx、dps、dpt、pptm、potm、ppsm。
--  文字文件：doc、dot、wps、wpt、docx、dotx、docm、dotm。
--  表格文件：xls、xlt、et、ett、xlsx、xltx、csv、xlsb、xlsm、xltm、ets。
->?表格文件，一张表可能分割为多页转换，生成多张图片。
-- 其他格式文件： pdf、 lrc、 c、 cpp、 h、 asm、 s、 java、 asp、 bat、 bas、 prg、 cmd、 rtf、 txt、 log、 xml、 htm、 html。
-
-输入文件大小限制在100MB之内。
+>!
+>- 目前支持的输入文件类型包含如下格式：
+>  演示文件：pptx、ppt、pot、potx、pps、ppsx、dps、dpt、pptm、potm、ppsm。
+>  文字文件：doc、dot、wps、wpt、docx、dotx、docm、dotm。
+>  表格文件：xls、xlt、et、ett、xlsx、xltx、csv、xlsb、xlsm、xltm、ets。
+ - 表格文件，一张表可能分割为多页转换，生成多张图片。
+>
+>  其他格式文件： pdf、 lrc、 c、 cpp、 h、 asm、 s、 java、 asp、 bat、 bas、 prg、 cmd、 rtf、 txt、 log、 xml、 htm、 html。
+>- 输入文件大小限制在100MB之内。
 
 
 ## 请求
@@ -158,7 +159,7 @@ Container 类型 DocProcess 的具体数据描述如下：
 | TgtType            | Request.Operation.DocProcess | 转换输出目标文件类型：png，转成 png 格式的图片文件；jpg，转成 jpg 格式的图片文件；如果传入的格式未能识别，默认使用 jpg 格式 | String | 否       |
 | SheetId          | Request.Operation.DocProcess | 表格文件参数，转换第 X 个表，默认为1；设置 SheetId 为0，即转换文档中全部表                                   | Int    | 否       |
 | StartPage          | Request.Operation.DocProcess | 从第 X 页开始转换，默认为1；<br>在表格文件中，一张表可能分割为多页转换，生成多张图片。StartPage 表示从指定 SheetId 的第 X 页开始转换，默认为1                                   | Int   | 否       |
-| EndPage            | Request.Operation.DocProcess | 转换至第 x 页，默认为-1，<br>即转换文档中全部页。在表格文件中，一张表可能分割为多页转换，生成多张图片。EndPage 表示转换至指定 SheetId 的第 X 页，默认为-1，即转换全部页。 | Int    | 否       |
+| EndPage            | Request.Operation.DocProcess | 转换至第 X 页，默认为-1，<br>即转换文档中全部页。在表格文件中，一张表可能分割为多页转换，生成多张图片。EndPage 表示转换至指定 SheetId 的第 X 页，默认为-1，即转换全部页。 | Int    | 否       |
 | ImageParams        | Request.Operation.DocProcess | 转换后的图片处理参数，支持 [基础图片处理](https://cloud.tencent.com/document/product/460/6924) 所有处理参数，多个处理参数可通过 [管道操作符](https://cloud.tencent.com/document/product/460/15293) 分隔，从而实现在一次访问中按顺序对图片进行不同处理 | String | 否       |
 
 
@@ -168,7 +169,7 @@ Container 类型 Output 的具体数据描述如下：
 | ------------------ | ------------------------ | ------------------------------------------------------------ | ------ | -------- |
 | Region             | Request.Operation.Output | 存储桶的地域                                                 | String | 是       |
 | Bucket             | Request.Operation.Output | 存储结果的存储桶                                             | String | 是       |
-| Object             | Request.Operation.Output | 输出文件路径。<br/>**非表格文件输出文件名需包含${Number}或${Page}参数。**多个输出文件，${Number}表示序号从1开始，${Page}表示序号与预览页码一致。<li>${Number}表示多个输出文件，序号从1开始，例如输入abc_${Number}.jpg，预览某文件5-6页，则输出文件名为abc_1.jpg，abc_2.jpg<li>${Page}表示多个输出文件，序号与预览页码一致，例如输入abc_${Page}.jpg，预览某文件5-6页，则输出文件名为abc_5.jpg，abc_6.jpg<br/>**表格文件输出路径需包含${SheetID}占位符，输出文件名必须包含${Number}参数。<br><li>例如/${SheetID}/abc_${Number}.jpg，先根据 excel 转换的表格数，生成对应数量的文件夹，再在对应的文件夹下，生成对应数量的图片文件 | String | 是       |
+| Object             | Request.Operation.Output | 输出文件路径。<br/>**非表格文件输出文件名需包含${Number}或${Page}参数。**多个输出文件，${Number}表示序号从1开始，${Page}表示序号与预览页码一致。<li>${Number}表示多个输出文件，序号从1开始，例如输入abc_${Number}.jpg，预览某文件5-6页，则输出文件名为abc_1.jpg，abc_2.jpg<li>${Page}表示多个输出文件，序号与预览页码一致，例如输入abc_${Page}.jpg，预览某文件5-6页，则输出文件名为abc_5.jpg，abc_6.jpg<br/>**表格文件输出路径需包含${SheetID}占位符，输出文件名必须包含${Number}参数。**<li>例如/${SheetID}/<br>abc_${Number}.jpg，先根据 excel 转换的表格数，生成对应数量的文件夹，再在对应的文件夹下，生成对应数量的图片文件 | String | 是       |
 
 
 

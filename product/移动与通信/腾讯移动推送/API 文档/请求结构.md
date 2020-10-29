@@ -1,0 +1,32 @@
+## 服务地址
+
+移动推送 TPNS 目前部署有广州、上海、中国香港、新加坡（亚太东南）四个服务接入点，不同服务接入点之间数据完全隔离，您可根据创建产品时选择的「服务接入点」选择服务地址。
+![](https://main.qcloudimg.com/raw/4f4e93bac7fc7cb0816634e46b7968a7.png)
+
+目前支持的服务地址列表如下：
+
+| 服务接入点名称     | 服务地址                          |
+| ------------------ | --------------------------------- |
+| 广州服务接入点     | https://api.tpns.tencent.com/     |
+| 上海服务接入点     | https://api.tpns.sh.tencent.com/  |
+| 中国香港服务接入点 | https://api.tpns.hk.tencent.com/  |
+| 新加坡服务接入点   | https://api.tpns.sgp.tencent.com/ |
+
+
+## 通信协议
+
+腾讯云 API 的所有接口均通过 HTTPS 进行通信，提供高安全性的通信通道。
+
+## 请求方法
+
+支持的 HTTP 请求方法：
+- POST
+
+POST 请求支持的 Content-Type 类型：
+
+1. application/json。
+2. multipart/form-data（仅部分接口支持）。
+
+## 字符编码
+
+均使用 `UTF-8` 编码。

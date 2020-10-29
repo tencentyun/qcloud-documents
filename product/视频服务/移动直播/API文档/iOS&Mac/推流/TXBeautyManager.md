@@ -1,7 +1,7 @@
 
 美颜、美容、动效挂件类基础函数。
 
-### setBeautyStyle
+### setBeautyStyle 
 
 设置美颜类型。 
 ```

@@ -72,7 +72,7 @@ func main() {
 	client, err := NewClient(ClientOptions{
 		URL:            "pulsar://*.*.*.*:6000",
 		ListenerName:   "custom:1300*****0/vpc-******/subnet-********",
-		Authentication: NewAuthenticationToken("eyJh****"),
+		Authentication: pulsar.NewAuthenticationToken(),
     	})
 	if err != nil {
 		log.Fatal(err)
@@ -147,6 +147,8 @@ func main() {
 		}
 		fmt.Printf("Received message msgId: %#v -- content: '%s' -- topic : '%v'\n",
 			msg.ID(), string(msg.Payload()), msg.Topic())
+		
+		consumer.Ack(msg)
 	}
 }
 ```

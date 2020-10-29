@@ -8,7 +8,7 @@ RuleId 在 SaaS 化服务调用中使用，您在申请开通腾讯云慧眼服�
 
 ### SaaS 化服务中， SDK 文件怎么获取？
 
-您可以在 [人脸核身控制台-自动接入](https://console.cloud.tencent.com/faceid)，创建完流程并通过审核后，可以在控制台下载对应的 SDK。
+您可以在 [人脸核身控制台-自助接入](https://console.cloud.tencent.com/faceid)，创建完流程并通过审核后，可以在控制台下载对应的 SDK。
 
 ### SaaS 化服务中，通用 H5 接口，是否和公众号绑定，其他公众号也要用这个接口，要重新申请吗？
 
@@ -28,3 +28,6 @@ iOS App：拉起人脸核身时，initWithServerUrl 需要设置为`https:\\face
 ### SaaS 获取验证结果信息，有很多字段为 null，是什么原因？
 
 若在未完成验证前调用该接口，数据可能为 null，需要走完全流程后再去拉取。
+
+### Biztoken 一直有效吗？
+一次核身流程的标识，Biztoken 有效时间为7,200秒；完成认证后，三天内可用 Biztoken 多次获取验证结果信息。
