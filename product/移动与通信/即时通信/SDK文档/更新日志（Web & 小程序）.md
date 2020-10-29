@@ -1,3 +1,18 @@
+### 2.8.1 @2020.10.29
+
+**新增**
+
+支持发送 bmp 格式的图片。
+
+**变更**
+
+发送方发送在线消息和接收方接收在线消息,都不更新 [会话对象](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html) 的 `unreadCount` 和 `lastMessage`。
+
+**修复**
+
+同步最近联系人列表异常导致 SDK 无法 ready 的问题。
+
+
 ### 2.8.0 @2020.10.20
 
 **新增**
