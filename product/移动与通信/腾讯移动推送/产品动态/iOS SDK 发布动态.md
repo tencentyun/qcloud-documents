@@ -1,3 +1,20 @@
+## 2020年10月
+
+<table>
+<tr>
+    <th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+</tr>
+    <tr>
+        <td>SDK 1.2.8.1 版本发布</td>
+        <td>>修复已知问题</td>
+        <td>2020-10-29</td>
+        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li></td>
+    </tr>        
+</table>
+
 ## 2020年9月
 
 <table>
