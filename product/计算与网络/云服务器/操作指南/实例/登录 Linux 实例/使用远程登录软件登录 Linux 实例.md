@@ -65,7 +65,7 @@ PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
  配置 “Host Name” 后，再配置 “Saved Sessions” 并保存，则后续使用时您可直接双击 “Saved Sessions” 下保存的会话名称即可登录服务器。
 9. 单击【Open】，进入 “PuTTY” 的运行界面，提示 “login as:”。
 10. 在 “login as” 后输入用户名，按 **Enter**。
-11. 若按照 [步骤4](#Step4) 设置了加密私钥的密码，则请在 “Passphrase for key "imported-openssh-key":” 输入后密码按 **Enter**。
+11. 若按照 [步骤4](#Step4) 设置了加密私钥的密码，则请在 “Passphrase for key "imported-openssh-key":” 输入密码后按 **Enter**。
 输入的密码默认不显示，如下图所示：
 ![](https://main.qcloudimg.com/raw/89b2ef5f04a6402f0b1832301fa811cb.png)
 登录完成后，命令提示符左侧将显示当前登录云服务器的信息。
