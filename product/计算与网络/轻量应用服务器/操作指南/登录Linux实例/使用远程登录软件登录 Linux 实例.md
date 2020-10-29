@@ -53,6 +53,8 @@ PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
 例如，选择并打开文件名为 david 的私钥文件。
 ![](https://main.qcloudimg.com/raw/0110ba722331fb2892a8e6822ec3f709.png)
 4. <span id="Step4"></span>在 PuTTY Key Generator 窗口中，输入密钥名和加密私钥的密码，单击【Save private key】。如下图所示：
+>?您可选择不设置加密私钥的密码。
+>
 ![](https://main.qcloudimg.com/raw/58a250d3f3d1b78eff3edaab64cd01c0.png)
 5. 在弹出的窗口中，选择您存放密钥的路径，并在文件名栏输入“密钥名.ppk”，单击【保存】。例如，将 david 私钥文件另存为 david.ppk 密钥文件。如下图所示：
 ![](https://main.qcloudimg.com/raw/d0fa9fd8aad7d2259bd8a0ce48ae5160.png)
@@ -69,6 +71,9 @@ PuTTY 的获取方式：[点此获取](https://www.chiark.greenend.org.uk/~sgtat
 配置 “Host Name” 后，再配置 “Saved Sessions” 并保存，则后续使用时您可直接双击 “Saved Sessions” 下保存的会话名称即可登录服务器。
 10. 单击【Open】，进入 “PuTTY” 的运行界面，提示 “login as:”。
 11. 在 “login as” 后输入用户名，如 `root`，按 **Enter**。
-12. 输入 [步骤4](#Step4) 中已设置的加密私钥的密码，密码默认不显示，并按 **Enter**。如下图所示：
+12. 若按照 [步骤4](#Step4) 设置了加密私钥的密码，则请输入后按 **Enter**，密码默认不显示。如下图所示：
 ![](https://main.qcloudimg.com/raw/401da3ef001f103115aa8ba8c54d6ec8.png)
 登录完成后，命令提示符左侧将显示当前登录轻量应用服务器的信息。
+
+
+
