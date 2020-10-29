@@ -4,13 +4,13 @@
 
 ## 概述
 
-DevOps 理念被越来越多的企业采纳，DevOps 是 Development 和 Operations 的组合词，代表着重视「软件开发人员(Dev)」和「IT 运维技术人员(Ops)」之间沟通合作的文化；旨在透过自动化「软件交付」和「架构变更」的流程，使得构建、 测试、发布软件的过程能够更加地快捷、频繁和可靠。在云原生时代，我们更需要 Devops 思维来实现敏捷开发， 本文将介绍和实践专为云原生打造的 TKE 容器 DevOps 服务，实现从代码提交时触发镜像的自动构建，再到镜像构建成功触发自动部署流程将应用部署、更新到 TKE 集群中的一整套无缝衔接的 Devops 流水线。
+DevOps 理念被越来越多的企业采纳，DevOps 是 Development 和 Operations 的组合词，代表着重视「软件开发人员(Dev)」和「IT 运维技术人员(Ops)」之间沟通合作的文化；旨在透过自动化「软件交付」和「架构变更」的流程，使得构建、 测试、发布软件的过程能够更加地快捷、频繁和可靠。在云原生时代，我们更需要 Devops 思维来实现敏捷开发， 本文将介绍和实践专为云原生打造的 TKE 容器 DevOps 服务，实现从代码提交时触发镜像的自动构建，再到镜像构建成功时触发自动部署流程将应用部署、更新到 TKE 集群中的一整套无缝衔接的 Devops 流水线。
 
 
 
 ## TKE 容器 DevOps 简介
 
-TKE 容器 DevOps 是 [容器服务 TKE](https://cloud.tencent.com/document/product/457/)、[容器镜像服务 TCR](https://cloud.tencent.com/document/product/1141/39278) 和 [CODING DevOps](https://cloud.tencent.com/product/coding) 三个服务紧密结合，面向容器业务场景，提供自动化代码编译、容器镜像构建、镜像推送及应用部署等功能，共同提供强大的一站式云原生 DevOps 服务。容器 DevOps 快速入门请参考 [TKE 和 Coding 协同业务实现快速迭代](https://cloud.tencent.com/document/product/457/47834) 最佳实践文档。
+TKE 容器 DevOps 是 [容器服务 TKE](https://cloud.tencent.com/document/product/457/)、[容器镜像服务 TCR](https://cloud.tencent.com/document/product/1141/39278) 和 [CODING DevOps](https://cloud.tencent.com/product/coding) 三个服务紧密结合，面向容器业务场景，具备自动化代码编译、容器镜像构建、镜像推送及应用部署等功能，为客户提供强大的一站式云原生 DevOps 服务。容器 DevOps 快速入门请参考 [TKE 和 Coding 协同业务实现快速迭代](https://cloud.tencent.com/document/product/457/47834) 最佳实践文档。
 
 
 
@@ -60,7 +60,7 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops服务，下面将按�
 
 ![image-20201027154142270](https://main.qcloudimg.com/raw/a3d7667b654b2391ad01b6846b0345ec.png)
 
-步骤 2：点击已创建的测试项目 “test-jokey” 进入创建的项目主页面，在【代码仓库】中新建代码仓库，如下图所示：
+步骤 2：点击已创建的测试项目 “test-jokey” 进入项目主页面，在【代码仓库】菜单中新建测试代码仓库，如下图所示：
 
 ![image-20201027153950849](https://main.qcloudimg.com/raw/bb420e9c94b4030918f63bdc283ecf47.png)
 
@@ -74,11 +74,11 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops服务，下面将按�
 
 步骤 2：根据构建计划模版选择要检出的代码源和配置 TCR 访问凭证相关环境变量， 右边可以看到模版生成的 Jenkinsfile 预览，如下图：
 
-> tips：Coding devops 和 TCR 实例之间内网互通，镜像 push 默认使用内网传输，无需另外配置。
+> 提示：Coding devops 和 TCR 实例之间内网互通，镜像 push 默认使用内网传输，无需另外配置。
 
 ![image-20201027210052362](https://main.qcloudimg.com/raw/05b1948809f31370d26405dce27aa628.png)
 
-使用构建模版生成的构建项目，也可以通过点击构建项目的【设置】菜单再对构建详情进行自定义配置，构建项目配置页面如下： 
+使用构建模版生成的构建项目，也可以通过点击构建项目的【设置】菜单再对构建详情进行自定义配置，构建计划配置页面的功能说明如下： 
 
 ![image-20201027155032737](https://main.qcloudimg.com/raw/5d1bc0409904065284650ccddccbf216.png)
 
@@ -102,7 +102,7 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops服务，下面将按�
 
 ​	构建计划完成时可向指定的 Coding 团队成员发送通知提醒。
 
-另外还可以在【项目配置-> 开发者选项->WebHook】 中新建 WebHook 的方式将事件通知推送到企业微信等即时通信平台，详情请参考 [WebHook](https://help.coding.net/docs/project/open/webhook.html) 和 [绑定企业微信群机器人](https://help.coding.net/docs/project/open/wechat-robot.html)，配置示例如下图：
+另外还可以在【项目配置 -> 开发者选项 -> WebHook】 中新建 WebHook 的方式将事件通知推送到企业微信等即时通信平台，详情请参考 [WebHook](https://help.coding.net/docs/project/open/webhook.html) 和 [绑定企业微信群机器人](https://help.coding.net/docs/project/open/wechat-robot.html)，配置示例如下图：
 
 ![image-20201029142314911](https://main.qcloudimg.com/raw/abe21b637c7cc88a0a969694286dc5d3.png)
 
@@ -118,7 +118,7 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops服务，下面将按�
 
 ##### 配置云账号
 
-请参考 [云账号](https://help.coding.net/docs/cd/cloudaccount.html) 文档，添加配置部署云上资源的访问云账号信息，可以选择【腾讯云 TKE】或者【Kubernetes】 类型的云账号，输入相关认证配置添加云账号，在这里我们选择了【Kubernetes】方式绑定。
+请参考 [云账号](https://help.coding.net/docs/cd/cloudaccount.html) 文档，添加配置部署云上资源的访问云账号信息，可以选择【腾讯云 TKE】或者【Kubernetes】 类型的云账号，输入相关认证配置添加云账号，这里选择了【Kubernetes】方式绑定。
 
 ![image-20201028153949177](https://main.qcloudimg.com/raw/6105020867677b0608177ef8e07c746e.png)
 
@@ -132,7 +132,7 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops服务，下面将按�
 
 ![image-20201028163103428](https://main.qcloudimg.com/raw/fb37c8e0ccd00b5ed65b2a1bf22d3d48.png)
 
-在新建的应用中创建部署流程时，选择【Kubernetes】流程模版，再根据实际需要选择模版下的流程，这里我们选择下图中第二个流程，部署 Deployment 和 Service 到 Kubernets 集群的流程：
+在新建的应用中创建部署流程时，选择【Kubernetes】流程模版，再根据实际需要选择模版下的流程，这里选择了下图中第二个流程，部署 Deployment 和 Service 到 Kubernets 集群的流程：
 
 ![image-20201029110126926](https://main.qcloudimg.com/raw/f47ed856b705531f86a61b0cfd1e4c33.png)
 
@@ -179,9 +179,10 @@ spec:
 关于 TKE 拉取 TCR 私有仓库镜像有两种方式：
 
 - 在 TCR 支持区域内可配置 TKE 免密拉取 TCR 容器镜像，关于 TCR 支持区域请参考 [支持地域](https://cloud.tencent.com/document/product/1141/40540)，关于如何配置可参考文档 [TKE 集群使用 TCR 插件内网免密拉取容器镜像](https://cloud.tencent.com/document/product/1141/48184)。
-- 手动配置 TKE 拉取 TCR 私有仓库镜像访问凭证，配置方式可参考 [TKE 配置私有仓库访问示例](https://help.coding.net/docs/cd/question/private-repo.html#Kubernetes-%E4%BA%91%E8%B4%A6%E5%8F%B7%EF%BC%88TKE-%E9%9B%86%E7%BE%A4%EF%BC%89) 。
+- 手动配置 TKE 拉取 TCR 私有仓库镜像的访问凭证，配置方式可参考 [TKE 配置私有仓库访问示例](https://help.coding.net/docs/cd/question/private-repo.html#Kubernetes-%E4%BA%91%E8%B4%A6%E5%8F%B7%EF%BC%88TKE-%E9%9B%86%E7%BE%A4%EF%BC%89) 。
 
-这里的配置示例我们使用了手动配置 TKE 拉取 TCR 私有仓库镜像访问凭证的方式。
+> 注意：上面的 Deployment YAML 示例使用了 “手动配置 TKE 拉取 TCR 私有仓库镜像的访问凭证” 的方式。
+>
 
 自定义的 Service Manifest YAML 示例：
 
@@ -200,11 +201,9 @@ spec:
     app: devops-app
 ```
 
-另外可以为部署流程的每个阶段配置自定义事件通知（可选），以便方便快捷的获知部署流程执行情况，这里我配置了企业微信通知方式，获取企业微信 Webook 机器人链接的方法可参考 [创建企业微信群机器人](https://help.coding.net/docs/project/open/wechat-robot.html#%E5%88%9B%E5%BB%BA%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%BE%A4%E6%9C%BA%E5%99%A8%E4%BA%BA)。
+另外可以为部署流程的每个阶段配置自定义事件通知（可选），以便方便快捷的获知部署流程执行情况，这里配置了企业微信通知方式，获取企业微信 Webook 机器人链接的方法可参考 [创建企业微信群机器人](https://help.coding.net/docs/project/open/wechat-robot.html#%E5%88%9B%E5%BB%BA%E4%BC%81%E4%B8%9A%E5%BE%AE%E4%BF%A1%E7%BE%A4%E6%9C%BA%E5%99%A8%E4%BA%BA)。
 
 ![image-20201029142546113](https://main.qcloudimg.com/raw/b6b69f6ef2a564b9ef0a049c66bafab0.png)
-
-
 
 ##### 关联项目和应用
 
@@ -213,6 +212,8 @@ spec:
 ##### 提单发布
 
 提单发布使用和配置请参考文档 [新建发布单](https://help.coding.net/docs/cd/app-project.html#%E6%96%B0%E5%BB%BA%E5%8F%91%E5%B8%83%E5%8D%95)。
+
+
 
 想了解更多关于 Coding 持续部署的详细介绍请参考 [持续部署介绍](https://help.coding.net/docs/cd/overview.html)。
 
@@ -228,9 +229,9 @@ spec:
 
 ![image-20201028211045329](https://main.qcloudimg.com/raw/5f369aa9ab3eb5f97ac9a78e015dc6cc.png)
 
-如果配置了企业微信 Webhook 通知，企业微信也会收到对应的即时通知消息，如下图所示：
+如果为持续集成配置了企业微信 Webhook 通知，企业微信也会收到相应的即时通知消息，如下图所示：
 
-![image-20201029150905001](https://main.qcloudimg.com/raw/8aef0a8ad7d5d9e498b57e455e467642.png)
+![image-20201029170912443](https://main.qcloudimg.com/raw/0b22628dd8da488f1c982e00b42b78dd.png)
 
 当构建计划生成 Docker 镜像制品时，又会自动触发关联的【持续部署】流程，将新的镜像应用更新到 TKE 集群中：
 
@@ -238,10 +239,10 @@ spec:
 
 如果部署流程有配置企业微信通知的话，当部署流程任务完成时，会收到对应的企业微信部署完成通知，如下图所示：
 
-![image-20201029151614599](https://main.qcloudimg.com/raw/432d1451d14075b37f8a0613108cca22.png)
+![image-20201029171424492](https://main.qcloudimg.com/raw/a3e7d8b6b7da770c06b577e50fbdae1f.png)
 
 此时，可以在 TKE 中看到已经成功更新了工作负载：
 
 ![image-20201028214913813](https://main.qcloudimg.com/raw/6ab74e1d81f6c1f44c302ffbaeb1babc.png)
 
-从测试验证过程可以看出，我们使用 TKE 容器 DevOps 功能实现了从源码更新到业务发布的整套自动化流程。
+从测试验证结果可以看出，我们在 TKE 中实现了从源码更新到业务发布的整套 DevOps 流程。
