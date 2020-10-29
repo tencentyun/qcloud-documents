@@ -9,7 +9,7 @@
 </tr>
     <tr>
         <td>SDK 1.2.8.1 版本发布</td>
-        <td>>修复已知问题</td>
+        <td>修复已知问题</td>
         <td>2020-10-29</td>
         <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li></td>
     </tr>        
