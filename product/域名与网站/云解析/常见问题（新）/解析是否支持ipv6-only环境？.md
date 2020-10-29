@@ -27,13 +27,13 @@ DNS 一般是通过 IP 地址库来实现 GEO 分地区解析，而 IPv6 没有�
 
 ### 一个域名分别指定了电信、联通的 IP，但有时候电信或联通中有一个 IP 会不通，能否设置自动暂停不通 IP 的解析？
 使用 D 监控功能可以实现。
-具体请参考：[D 监控的使用教程](https://support.dnspod.cn/Kb/showarticle/?qtype=%E5%8A%9F%E8%83%BD%E4%BB%8B%E7%BB%8D%E5%8F%8A%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B&tsid=16)。
+具体请参考：[D 监控的使用教程](https://support.dnspod.cn/d-monitor/)。
 
 ### 删除或暂停记录后，为什么执行 ping 命令连接域名还能得到 IP 呢？
 原因是地方 ISP 提供商的服务器（递归服务器）缓存导致的，请耐心等待地方缓存失效，缓存失效时间理论上为之前记录设置的 TTL 时间。
 
 ### 域名的解析结果和解析 IP 不一致是什么原因？
-建议使用 DNSPod 官方网站【帮助中心】>【[快速诊断](https://support.dnspod.cn/Tools/tools/)】诊断，如果您换域名解析商未过72小时且换了新空间，请耐心等待生效。
+建议使用 DNSPod 官方网站的 [域名自助诊断](https://domaintool.cloud.tencent.com/result?from=newDNSPod) 功能，如果您换域名解析商未过72小时且换了新空间，请耐心等待生效。
 
 ### 在智能解析中，为什么联通用户解析到了电信服务器的 IP？
 1. 首先请确认您所使用的网络是非杭州华数和北京长宽的线路。

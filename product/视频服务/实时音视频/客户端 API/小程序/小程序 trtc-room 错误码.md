@@ -14,3 +14,4 @@
 | -100006 | 权限位校验失败，请检查 privateMapKey 是否正确 |
 | -100015 | SDKAppID 异常，请检查 SDKAppID 是否正确       |
 | -100018 | userSig 校验失败，请检查 userSig 是否正确     |
+ 

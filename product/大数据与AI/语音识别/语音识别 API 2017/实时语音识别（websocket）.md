@@ -18,7 +18,7 @@
 | 接口鉴权 | 签名鉴权机制，详见 [签名生成](#sign) |
 | 响应格式 | 统一采用 JSON 格式 |
 | 数据发送 | 建议每40ms发送40ms时长（即1:1实时率）的数据包，对应8k采样率为640字节，16k采样率为1280字节。<br>音频发送速率过快超过1:1实时率或者音频数据包之间发送间隔超过6秒，可能导致引擎出错，后台将返回错误并主动断开连接。 |
-| 并发限制 | 默认单账号限制并发连接数为20路。 |
+| 并发限制 | 默认单账号限制并发连接数为20路，如您有提高并发限制的需求，[请提工单](https://console.cloud.tencent.com/workorder/category) 进行咨询。 |
 
 
 ## 3. 接口调用流程
@@ -41,7 +41,7 @@
 
 | 字段名 | 类型 | 描述 |
 |---------|---------|---------|
-| slice_type | Integer | 该识别结果类型，0表示一句话开始，1表示一句话进行中，2表示一句话结束。<br>根据一句话时间长度以及后台处理情况，一句话识别过程中后台可能返回的 message 序列为：<br>0-1*-2：1*表示一个或者多个结果类型为1的 message。<br>0-2:后台仅返回一句话开始与结束两个 message。<br>2:后台仅返回一句话完整结果的 message。 |
+| slice_type | Integer | 该识别结果类型，0表示一句话开始，1表示一句话进行中，2表示一句话结束。<br>根据一句话时间长度以及后台处理情况，一句话识别过程中后台可能返回的 message 序列为：<br>0-1-2：1表示一个或者多个结果类型为1的 message。<br>0-2:后台仅返回一句话开始与结束两个 message。<br>2:后台仅返回一句话完整结果的 message。 |
 | index | Integer | 当前一句话结果在整个音频流中的序号，从0开始逐句递增。 |
 | start_time | Integer | 当前一句话结果在整个音频流中的起始时间。 |
 | end_time | Integer | 当前一句话结果在整个音频流中的结束时间。 |
@@ -85,7 +85,7 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 | filter_modal | 否 | Integer | 是否过语气词（目前支持中文普通话引擎）。默认为0。0：不过滤语气词；1：部分过滤；2：严格过滤 。 |
 | filter_punc | 否 | Integer | 是否过滤句末的句号（目前支持中文普通话引擎）。默认为0。0：不过滤句末的句号；1：过滤句末的句号。 |
 | convert_num_mode | 否 | Integer | 是否进行阿拉伯数字智能转换。0：全部转为中文数字；1：根据场景智能转换为阿拉伯数字。 |
-| word_info | 否 | Integer | 是否显示词级别时间戳。0：不显示；1：显示。支持引擎：8k_zh, 8k_zh_finance, 16k_zh, 16k_en, 16k_ca，默认为0。 |
+| word_info | 否 | Integer | 是否显示词级别时间戳。0：不显示；1：显示，不包含标点时间戳，2：显示，包含标点时间戳。支持引擎8k_zh，8k_zh_finance，16k_zh，16k_en，16k_ca，16k_zh-TW，默认为0。 |
 | signature | 是 | String | 接口签名参数 |
 
 <span id="sign"></span>
@@ -172,7 +172,11 @@ wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1
 {"code":4008,"message":"后台识别服务器音频分片等待超时","voice_id":"CzhjnqBkv8lk5pRUxhpX","message_id":"CzhjnqBkv8lk5pRUxhpX_241"}
 ```
 
-## 4. 错误码
+## 4. 开发者资源
+### SDK
+- [Tencent Cloud Speech SDK for Go](https://github.com/TencentCloud/tencentcloud-speech-sdk-go)
+
+## 5. 错误码
 
 
 | 数值 | 说明 |
