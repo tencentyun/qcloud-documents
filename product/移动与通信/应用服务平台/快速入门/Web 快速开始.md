@@ -73,7 +73,7 @@ mkdir my-cloudbase-app && cd my-cloudbase-app && touch index.html && touch cloud
 
 1. 登录腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb)，单击已创建的环境，进入环境页面。
 2. 选择左侧菜单栏【环境】>【安全配置】，进入安全配置页面。
-3. 单击【添加域名】，将域名添加到【Web 安全域名】。
+3. 单击【添加域名】，将域名添加到【WEB 安全域名】。
 ![](https://main.qcloudimg.com/raw/41f33bb17b5f809bc596c04cb042a2d5.jpg)
 >? 这里我们将 `localhost:5000` 加入到安全域名中，让此域名下的页面可以使用 SDK 访问云开发服务。
 
