@@ -98,18 +98,18 @@
 | API | 描述 |
 |-----|-----|
 | [getMicDevicesList](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#af52dcefa14a0838a98d878620e4a8e83) | 获取麦克风设备列表。 |
-| [setCurrentMicDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a7a7bc332f677f536e2697e6f30235241) | 设置要使用的麦克风。 |
 | [getCurrentMicDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aeea733cfe13334913e7e8d1cbb4d35ff) | 获取当前选择的麦克风。 |
+| [setCurrentMicDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a7a7bc332f677f536e2697e6f30235241) | 设置要使用的麦克风。 |
 | [getCurrentMicDeviceVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a5feaad27747bc7e909de43444aa86e2f) | 获取系统当前麦克风设备音量。 |
 | [setCurrentMicDeviceVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a02cdbf0a22ec4effeb662da83d7b5218) | 设置系统当前麦克风设备的音量。 |
 | [getSpeakerDevicesList](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a9f680a2953562c62e5024ef98e691803) | 获取扬声器设备列表。 |
-| [setCurrentSpeakerDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a3d8a1b1f3c71a08faaff27edaef3f80f) | 设置要使用的扬声器。 |
 | [getCurrentSpeakerDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#af38430fc0b347637e5b050481b2d6065) | 获取当前的扬声器设备。 |
+| [setCurrentSpeakerDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a3d8a1b1f3c71a08faaff27edaef3f80f) | 设置要使用的扬声器。 |
 | [getCurrentSpeakerVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a1617113ec7db9d646b27233da8132b48) | 获取系统当前扬声器设备音量。 |
 | [setCurrentSpeakerVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a5fe7bfacc946565df7d14a91f6de9f21) | 设置系统当前扬声器设备音量。 |
 
 
-### 美颜相关接口函数
+### 美颜特效和图像水印
 
 | API | 描述 |
 |-----|-----|
@@ -132,17 +132,17 @@
 
 | API | 描述 |
 |-----|-----|
+| [startScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#adde6382876b0afab78bab89e8be8e254) | 启动屏幕分享。 |
+| [stopScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ad02093be5c603f66f356978169946a18) | 停止屏幕采集。 |
+| [pauseScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a448e432a91c092f80421d377425fb1bb) | 暂停屏幕分享。 |
+| [resumeScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ad1fc32927622168e9b3cbb3f70043450) | 恢复屏幕分享。 |
+| [getScreenCaptureSources](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a1eda1853bfc49c43a35e4d945dfccd7a) | 枚举可共享的窗口列表。 |
+| [selectScreenCaptureTarget](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a2aabe079ed38fb5122be988434a81a92) | 设置屏幕共享参数，该方法在屏幕共享过程中也可以调用。 |
 | [startRemoteSubStreamView](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ae029514645970e7d32470cf1c7aca716) | 开始渲染远端用户辅流画面。 |
 | [stopRemoteSubStreamView](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a92ad3b6468abc72890c053a94765c4de) | 停止显示远端用户的屏幕分享画面。 |
 | [setRemoteSubStreamViewFillMode](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a23a2fc554362748ef3d0c543918fd35d) | 设置辅流画面的渲染模式。 |
 | [setRemoteSubStreamViewRotation](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#acd8fb23b00e6638466f65512723a7395) | 设置屏幕分享画面的顺时针旋转角度。 |
-| [getScreenCaptureSources](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a1eda1853bfc49c43a35e4d945dfccd7a) | 枚举可共享的窗口列表。 |
-| [selectScreenCaptureTarget](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a2aabe079ed38fb5122be988434a81a92) | 设置屏幕共享参数，该方法在屏幕共享过程中也可以调用。 |
-| [startScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#adde6382876b0afab78bab89e8be8e254) | 启动屏幕分享。 |
-| [pauseScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a448e432a91c092f80421d377425fb1bb) | 暂停屏幕分享。 |
-| [resumeScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ad1fc32927622168e9b3cbb3f70043450) | 恢复屏幕分享。 |
-| [stopScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ad02093be5c603f66f356978169946a18) | 停止屏幕采集。 |
-| [setSubStreamEncoderParam](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a7e9588c951feaf2d70c8bd6412432f09) | 设置屏幕分享的编码器参数。 |
+| [setSubStreamEncoderParam](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ae8c2f4248a165d3b8846316e035c9b3b) | 设置屏幕分享的编码器参数。 |
 | [setSubStreamMixVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aabc643e4be3add7e08b8fb3f1a9789a9) | 设置辅流的混音音量大小。 |
 
 
@@ -217,9 +217,7 @@
 | [setAllAudioEffectsVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a19416181cce88c58052a4eb2e87adeb8) | 设置所有音效的音量。 |
 | [pauseAudioEffect](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a43f83a1323cc39c1610c61cf79ab652c) | 暂停音效。 |
 | [resumeAudioEffect](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a23b65446d7dd9835da888b5285867629) | 恢复音效。 |
-| [startSystemAudioLoopback](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aac7057a9556fc1b1b106733a87069e06) | 打开系统声音采集。 |
-| [stopSystemAudioLoopback](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#adef486f26a2c7d74a8cccb537367e66a) | 关闭系统声音采集。 |
-| [setSystemAudioLoopbackVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a2bb76d46a5fcf037c560ab8f09b1825f) | 设置系统声音采集的音量。 |
+| [selectScreenCaptureTarget](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a2aabe079ed38fb5122be988434a81a922) | 设置屏幕共享参数。 |
 
 
 ## TRTCCloudCallback @ TXLiteAVSDK

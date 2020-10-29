@@ -24,7 +24,7 @@ Linux 内核在监听套接字收到三次握手的 ACK 包之后，会从 `SYN_
 
 然后用 `inet_getname_toa hook inet_getname`，在获取源 IP 地址和端口时，首先调用原来的`inet_getname`，然后判断 `sk_user_data` 是否为空，如果有数据从其中提取真实的 IP 和 port，替换 `inet_getname` 的返回。
 
-客户端程序在用户态调用 getpeername，返回的 IP 和 port 即为客户端的原始 IP。
+程序在用户态调用 getpeername，返回的 IP 和 port 即为客户端的原始 IP。
 
 ## TOA 模块安装步骤
 下面将介绍不同的内核版本，TOA 的安装方法：
