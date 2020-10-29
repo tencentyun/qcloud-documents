@@ -196,7 +196,7 @@ metadata:
 spec:
   ports:
     - port: 5000
-      protocol: http
+      protocol: TCP
   selector:
     app: devops-app
 ```
