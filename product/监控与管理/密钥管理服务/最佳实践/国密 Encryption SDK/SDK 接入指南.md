@@ -127,7 +127,7 @@
 
 ### 步骤1：开通 KMS 旗舰版
 国密 Encryption SDK 仅适用于密钥管理系统旗舰版，开通 KMS 旗舰版，详情请参见 [购买方式](https://cloud.tencent.com/document/product/573/18809)。
-
+<span id="test2"></span>
 ### 步骤2：创建用户主密钥
 登录 [密钥管理系统控制台](https://console.cloud.tencent.com/kms2)，创建用户主密钥，并保证其状态为已启用。具体操作详情请参见 [创建密钥](https://cloud.tencent.com/document/product/573/8875)。
 >?为了容灾互备，建议设置至少2个可用区的用户主密钥 CMK，国密 Encryption SDK 最多支持设置5个用户主密钥 CMK （调用原生接口可忽略）。
@@ -137,32 +137,27 @@
 进入[Encryption SDK 页面]( https://console.cloud.tencent.com/kms2/sdk )，单击操作栏【下载】按钮，在弹窗中选择 SDK 语言版本，单击【确定】后成功下载。
 
 ### 步骤4：在代码中引用加密 SDK
-1. 加密 SDK 依赖 curl，如果没有，请提前安装，安装示例如下：
-  - **ubuntu**
+1. 加密 SDK 依赖 curl，如果没有，请提前安装，各不同操作系统的安装命令如下：
+  - **Ubuntu**
   ```
 	sudo apt-get install libcurl4-openssl-dev
 	```
-  - **centos**
+  - **CentOS**
   ```
     yum install libcurl-devel
  ```
-2. 把下载的 tar 包解压到本地，进入 src 目录
-3. 配置环境变量，参考 setenv.sh，对应的操作指令如下：
- - export LD_LIBRARY_PATH=../lib:../lib/proto
- - export OPENSSL_ENGINES=../lib/engines-1.1
-4. 修改 Demo 文件 demo_kms_pro.c 和 demo_original.c（Go 语言版本 demo_original.go 和 demo_kms_pro.go）
- - demo_kms_pro 是基于 KMS 的密钥保护方式的 Demo，demo_original 是基于原生的加密方式的 Demo，两种模式的差异请查看接口文档，用户根据需要修改其中一个即可。
-   - 参数内容替换：
-     - 在腾讯云平台中，需要查询到您的 secretId 和 secretKey，然后替换文件中对应的 "replace-with-real-secretId"、"replace-with-real-secretKey" 字符串；
-     - 将步骤二创建的主密钥 ID 替换文件中的 "replace-with-realkeyid" 字符串。
-5. 编译Demo文件
-   - C语言版本Demo直接执行make。
-   - Go语言版本Demo可以运行go_make.sh进行编译，也可选择直接使用如下命令编译：
-     - go build demo_original.go kms_enc_sdk.go
-     - go build demo_kms_pro.go kms_enc_sdk.go
-   - 编译完成后，生成可执行文件demo_kms_pro和demo_original。
+2. 把下载的 tar 包解压到本地，进入 src 目录。
+3. 执行 setenv.sh，配置环境变量。setenv.sh 包含的操作指令如下：
+```
+ export LD_LIBRARY_PATH=../lib:../lib/proto
+ export OPENSSL_ENGINES=../lib/engines-1.1
+```
+4. 修改 `src`路径下的 `demo_kms_pro.c` 和 `demo_original.c`文件。国密 Encryption SDK 支持基于 KMS 的密钥保护（`demo_kms_pro.c`）和原生加密（`demo_original.c`）的两种加密方式，两种模式的差异请参见 [接口文档](https://cloud.tencent.com/document/product/573/49527)，用户根据需要修改其中一个即可，参数替换如下：
+     - 将您创建 [secretId 和 secretKey]()，替换为文件中对应的 "replace-with-real-secretId"、"replace-with-real-secretKey" 字符串。
+     - 将 [步骤2](#test) 创建的主密钥 ID 替换文件中的 "replace-with-realkeyid" 字符串。
+5. 编译 `src`路径下的 `make` 文件。
 6. 运行可执行文件
->!使用正确的secretId、secretKey和主密钥ID的用例，Demo才可以正常运行。
+>!使用正确的 secretId、secretKey 和主密钥 ID ，Demo 才可以正常运行。
 
 ## C SDK KMS 示例 
 
