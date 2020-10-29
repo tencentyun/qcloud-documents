@@ -8,7 +8,7 @@
 ## 操作步骤
 ### 步骤1：安装证书文件
 
-1. 购买邮件（S/MIME）证书后，线下业务人员将发送给您邮件证书压缩包，获取邮件证书压缩包并进行解压。
+1. 购买邮件（S/MIME）证书后，线下业务人员将发送给您邮件证书压缩包，获取邮件证书压缩包至Windows10 系统中，并进行解压。
 2. 在 Windows 中，双击 \*.pfx 后缀证书文件。
 <span id="step1"></span>
 3. 在弹出的“证书导入向导”中，如果需要设置密码，可将私钥密码输入，单击【下一步】，即可设置成功。
@@ -25,7 +25,7 @@
 5. 在“导入/导出数字标识”窗口中，勾选“从某文件导入现有的数字标识” ，然后单击【浏览...】，选取证书文件，单击【确定】。
 <img src="https://main.qcloudimg.com/raw/dc0317ac8538a41f8206eb7d74c5ae70.png" style="zoom:85%;" />
 6. 输入在 [步骤1](#step1) 中设置的证书密码，单击【确定】。
-![](https://main.qcloudimg.com/raw/7d32d664e36b587d86f648ca13965be6.png)
+![](https://main.qcloudimg.com/raw/63d686290224a13677b1970a430960dd.png)
 7.  在弹出的安全对话框中，单击【确定】。
 ![](https://main.qcloudimg.com/raw/745ecde27ac78d68a9405c9e086367eb.png)
 
@@ -65,5 +65,7 @@
 ![](https://main.qcloudimg.com/raw/bb344668421a775ebbbff8dc08a1c0c6.png)
 - **加密邮件发送**
 新建邮件，编辑内容后，在上方导航中，单击【加密】及【签署】，即可发送加密邮件。
+>!发送加密邮件需要对方公钥信息，如果需要对方的公钥信息，可让对方先发送一封签名邮件到您的邮箱帐户中，即可给对方发送加密邮件。
+>
 ![](https://main.qcloudimg.com/raw/babf4da18119abdf05fbbe38b7860636.png)
 
