@@ -322,7 +322,7 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 | cmkKeyId  | C.char * | 主密钥 CMK 的 ID，从 KMS 控制台中查询 |
 | dataKey   | C.char * | 存储的 Datakey 对应的密文              |
 
-### C.struct_MsgHead 结构体说明：
+### C.struct_MsgHead 结构体说明
 
 | 参数名称          | 类型                        | 说明                                                         |
 | ----------------- | --------------------------- | ------------------------------------------------------------ |
@@ -330,8 +330,16 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 | encryptionContext | C.char *                    | 用于标识 DataKey 的辅助字段，key/value 对的 JSON 字符串格式，最大支持2048字节。如：{"name":"test","date":"20200228"} |
 | dataKeyNum        | C.int                       | 使用的加密后 DataKey 数量，和有效的主密钥 CMK 数量相关，由各个地域的主密钥加密产生 |
 | dataKey           | Array of C.EncryptedDataKey | DataKey 的信息列表，详情请参见 [C.EncryptedDataKey 结构体说明](#test6) |
-| blockType         | C.enum_BlockType            | 密文加密分块的枚举值，用于标识该密文是否被分块 |
+| blockType         | C.enum_BlockType            | 密文加密分块的枚举值，用于标识该密文是否被分块，详情请参见 [C.enum_BlockType 结构体说明](#test7) |
 | blockLength       | C.int                       | 分块的长度            |
+
+<span id="test7"></span>
+### C.enum_BlockType 结构体说明
+
+| 枚举值        | 数值 | 说明             |
+| ------------- | ---- | ---------------- |
+| C.WITHOUT_BLOCK | 1    | 密文加密未做分块 |
+| C.WITH_BLOCK    | 2    | 密文加密开设分块 |
 
 ### KMS 加密方式接口调用示例
 KMS 加密方式接口调用示例如下：
