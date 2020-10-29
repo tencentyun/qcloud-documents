@@ -35,8 +35,8 @@ TRTCCalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯�
 
 | API | 描述 |
 |---------|---------|
-|[login()](#login) | 初始化信令SDK，执行后才能正常进行信令收发。 |
-|[logout()](#logout)|登出信令SDK，执行后不再能收发信令。|
+|[login()](#login) | 初始化信令 SDK，执行后才能正常进行信令收发。 |
+|[logout()](#logout)|登出信令 SDK，执行后不再能收发信令。|
 |[hangup()](#hangup)|结束当前通话。|
 |[setMicMute(isMute)](#setMicMute)|设置麦克风状态。<li/>当 isMute 取值为 true：关闭麦克风。<li/>当 isMute 取值为 false：打开麦克风。|
 |[setHandsFree(isHandsFree)](#setHandsFree)|设置声音播放状态。<li/>当 isHandsFree 取值为 true：外放模式。<li/>当 isHandsFree 取值为 false： 听筒模式。|
@@ -165,6 +165,7 @@ TRTCCallingContext.on(EVENT.INVITED, () => {
 TRTCCallingContext.hangup()
 ```
 
+<span id="setMicMute"></span>
 ####  setMicMute(isMute) 
 设置麦克风状态。
 
@@ -296,7 +297,7 @@ trtcRoomContext.on(EVENT.ERROR,(event)=>{
 ```
 ## 常见问题
 #### 为什么拨打不通，或者被踢下线？
-组件暂不支持多实例登入，不支持**离线推送信令**功能，请您确认账号登入的唯一性。
+组件暂不支持多实例登录，不支持**离线推送信令**功能，请您确认账号登录的唯一性。
 
-- 多实例：一个 userID 重复登入，或在不同端登入，将会引起信令的混乱。
+- 多实例：一个 userID 重复登录，或在不同端登录，将会引起信令的混乱。
 - 离线推送：实例在线才能接收消息，实例离线时接收到的信令不会在上线后重新推送。
