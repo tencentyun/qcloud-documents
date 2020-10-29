@@ -153,7 +153,7 @@
  export OPENSSL_ENGINES=../lib/engines-1.1
 ```
 4. 修改 `src`路径下的 `demo_kms_pro.c` 和 `demo_original.c`文件。国密 Encryption SDK 支持基于 KMS 的密钥保护（`demo_kms_pro.c`）和原生加密（`demo_original.c`）的两种加密方式，两种模式的差异请参见 [接口文档](https://cloud.tencent.com/document/product/573/49527)，用户根据需要修改其中一个即可，参数替换如下：
-     - 将您创建 [secretId 和 secretKey]()，替换为文件中对应的 "replace-with-real-secretId"、"replace-with-real-secretKey" 字符串。
+     - 使用主账号登录[ API 密钥管理控制台 ](https://console.cloud.tencent.com/cam/capi)获取您的 secretId 和 secretKey，并替换为文件中对应的 "replace-with-real-secretId"、"replace-with-real-secretKey" 字符串。
      - 将 [步骤2](#test) 创建的主密钥 ID 替换文件中的 "replace-with-realkeyid" 字符串。
 5. 编译 `src`路径下的 `make` 文件。
 6. 运行可执行文件
