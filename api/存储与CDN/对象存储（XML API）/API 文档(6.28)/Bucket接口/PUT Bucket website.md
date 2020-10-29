@@ -40,8 +40,12 @@ Authorization: Auth String
 	<RedirectAllRequestsTo>
 		<Protocol>string</Protocol>
 	</RedirectAllRequestsTo>
+    <AutoAddressing>
+        <Status>Enabled|Disabled</Status>
+    </AutoAddressing>
 	<ErrorDocument>
 		<Key>string</Key>
+		<OriginalHttpStatus>Enabled|Disabled</OriginalHttpStatus>
 	</ErrorDocument>
 	<RoutingRules>
 		<RoutingRule>
@@ -78,6 +82,7 @@ Authorization: Auth String
 | --- | --- | --- | --- | --- |
 | IndexDocument | WebsiteConfiguration | 索引文档配置 | Container | 是 |
 | RedirectAllRequestsTo | WebsiteConfiguration | 重定向所有请求配置 | Container | 否 |
+| AutoAddressing     |   WebsiteConfiguration |   用于配置是否忽略扩展名，Status 值为 Enabled 或 Disabled  | Container | 否 |
 | ErrorDocument | WebsiteConfiguration | 错误文档配置 | Container | 否 |
 | RoutingRules | WebsiteConfiguration | 重定向规则配置，最多设置100条 RoutingRule | Container | 否 |
 
@@ -98,6 +103,7 @@ Authorization: Auth String
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
 | Key | WebsiteConfiguration.ErrorDocument | 指定通用错误文档的对象键，当发生错误且未命中重定向规则中的错误码重定向时，将返回该对象键的内容 | string | 是 |
+|  OriginalHttpStatus   |  WebsiteConfiguration.ErrorDocument  |  用于配置命中重定向文档状态码，值为 Enabled 或 Disabled  |  String  |  否  |
 
 **Container 节点 RoutingRules 的内容：**
 
