@@ -36,4 +36,6 @@
 ![](https://main.qcloudimg.com/raw/0e75fba53850abcf0dbde92d02294f02.png)
 - **发送加密文件**
 新建邮件，编辑内容后，在上方导航中，单击【加密】及【签名】，即可将邮件添加数字签名并进行加密。
+>!发送加密邮件需要拥有对方公钥信息，否则加密邮件无法发送成功。
+>
 ![](https://main.qcloudimg.com/raw/976e331178c06a2ebbfca9ce3ae32404.png)
