@@ -28,7 +28,7 @@ cat /proc/cpuinfo|grep avx
 
 ## 初始化 SDK 接口 
 
-#### InitSdk
+### InitSdk
 
 - 功能描述：检验用户是否已开通 KMS 旗舰版服务。
 - 参数说明：
@@ -44,37 +44,35 @@ cat /proc/cpuinfo|grep avx
     <td rowspan="3">入参</td>
     <td>region</td>
 	  <td>是</td>
-    <td>char</td>	
-      <td>CMK 地域信息字符串，详见产品支持的<a href="https://cloud.tencent.com/document/product/1038/33406">地域列表</a></td>
+    <td>char *</td>	
+      <td>CMK 地域信息字符串，详见产品支持的 <a href="https://cloud.tencent.com/document/product/573/34406#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8">地域列表</a></td>
   </tr>
   <tr>
     <td>secretId</td>
 	  <td>是</td>
-    <td>char </td>		
+    <td>char *</td>		
 		<td>云账户 API 密钥 ID</td>
   </tr>
   <tr>
     <td>secretKey</td>
 	  <td>是</td>
-    <td>char</td>			
+    <td>char *</td>			
 		<td>云账户 API 密钥 Key</td>
   </tr>
  </table>
-- 返回值：初始化成功返回0，否则返回相应的错误码，-15表示未开通KMS服务，-16表示需升级为KMS旗舰版。
+- 返回值：初始化成功返回0，否则返回相应的 [错误码](#test2)。
 
->>!
->  - 需注意 SecretId 和 SecretKey 的保密存储：
->    腾讯云接口认证主要依靠 SecretID 和 SecretKey，SecretID 和 SecretKey 是用户的唯一认证凭证。业务系统需要该凭证调用腾讯云接口. 
->  - 需注意 SecretID 和 SecretKey 的权限控制：
->    建议使用子账号，根据业务需要进行接口授权的方式管控风险。
+>!
+>  - 需注意 SecretId 和 SecretKey 的保密存储：腾讯云接口认证主要依靠 SecretID 和 SecretKey，SecretID 和 SecretKey 是用户的唯一认证凭证。业务系统需要该凭证调用腾讯云接口。
+>  - 需注意 SecretId 和 SecretKey 的权限控制：建议使用子账号，根据业务需要进行接口授权的方式管控风险。
 
-### KMS密钥保护方式接口说明：
+## KMS 密钥保护方式接口说明
+KMS 密钥保护方式基于 KMS 密钥管理平台实现，由 KMS 提供密钥的全生命周期管理，其中接口包括主密钥信息列表的新建添加、KeyManager 的初始化、加解密接口等。
 
-#### NewMasterKey
+### NewMasterKey
 
 - 功能描述：把用户首个主密钥加入主密钥信息列表。
 - 参数说明：
-
 <table>
   <tr>
     <th>属性</th>
@@ -88,33 +86,30 @@ cat /proc/cpuinfo|grep avx
     <td>masterKeys</td>
 	  <td>是</td>
     <td>char *</td>	
-		<td>主密钥信息列表，长度根据用户加入的密钥数量来确定，每个CMK占用的空间为Region和KeyId长度。</td>
+		<td>主密钥信息列表，长度根据用户加入的密钥数量来确定，每个CMK 占用的空间为 region 和 KeyId 长度。</td>
   </tr>
   <tr>
 	   <td rowspan="2">入参</td>
     <td>cmkRegion</td>
 	  <td>是</td>
     <td>char *</td>		
-		<td>主密钥（CMK）地域信息</td>
+		<td>主密钥 CMK 地域信息</td>
   </tr>
   <tr>
     <td>cmkKeyId</td>
 	  <td>是</td>
     <td>char *</td>			
-		<td>主密钥（CMK）的ID，从KMS控制台中查询</td>
+		<td>主密钥 CMK 的 ID，从 KMS 控制台中查询</td>
   </tr>
  </table>
+- 返回值：加入主密钥调用成功返回0，否则返回相应的 [错误码](#test2)。
 
-
-- 返回值：加入主密钥调用成功返回0，否则返回相应的错误码。
-
-> 注意：用于加密的首个主密钥，在KMS平台中是处于**生效**的状态。
+>!用于加密的首个主密钥，在 KMS 平台中是处于**生效**的状态。
 
 #### AddMasterKey
 
-- 功能描述：加入备用的用户主密钥，目的是为了灾备，当首个主密钥无法使用时，会使用的备用密钥，最多支持加入4个。
+- 功能描述：加入备用的用户主密钥，目的是为了灾备，当首个主密钥无法使用时，将会使用的备用密钥，最多支持加入4个。
 - 参数说明：
-
 <table>
   <tr>
     <th>属性</th>
@@ -128,34 +123,30 @@ cat /proc/cpuinfo|grep avx
     <td>masterKeys</td>
 	  <td>是</td>
     <td>char *</td>	
-		<td>主密钥信息列表，长度根据用户加入的密钥数量来确定，每个CMK占用的空间为Region和KeyId长度。</td>
+		<td>主密钥信息列表，长度根据用户加入的密钥数量来确定，每个 CMK 占用的空间为 region 和 KeyId 长度。</td>
   </tr>
   <tr>
     <td rowspan="2">入参</td>	
     <td>cmkRegion</td>
 	  <td>是</td>
     <td>char *</td>		
-		<td>主密钥（CMK）地域信息</td>
+		<td>主密钥 CMK 地域信息</td>
   </tr>
   <tr>
     <td>cmkKeyId</td>
 	  <td>是</td>
     <td>char *</td>			
-		<td>主密钥（CMK）的ID，从KMS控制台中查询</td>
+		<td>主密钥 CMK 的 ID，从 KMS 控制台中查询</td>
   </tr>
  </table>
+- 返回值：加入主密钥调用成功返回0，否则返回相应的 [错误码](#test2)。
 
-
-- 返回值：加入主密钥调用成功返回0，否则返回相应的错误码。
-
-> 注意：请保证masterKeys留有足够的空间，否则可能产生内存错误。
+>!请保证 masterKeys 至少保留有512字节的空间，否则可能会产生内存错误。
 
 <span id="test"></span>
-#### InitKeyManager
-
-- 功能描述：初始化KeyManager的结构体，KeyManager用来保存密钥管理相关参数，包含主密钥信息、密钥加密次数、密钥生效时间等，具体看后续参数。
+### InitKeyManager
+- 功能描述：初始化 KeyManager 的结构体，KeyManager 用来保存密钥管理相关参数，包含主密钥信息、密钥加密次数、密钥生效时间等。
 - 参数说明：
-
 <table>
   <tr>
     <th>属性</th>
@@ -176,48 +167,45 @@ cat /proc/cpuinfo|grep avx
     <td>masterKeys</td>
 	  <td>是</td>
     <td>char *</td>		
-		<td>主密钥（CMK）信息列表</td>
+		<td>主密钥 CMK 信息列表</td>
   </tr>
   <tr>
     <td>msgCount</td>
 	  <td>是</td>
     <td>int</td>			
-		<td>每个缓存DataKey可加密的消息数量，加密的数量达到后，会重新向KMS后台请求，生成新的DataKey，设置为0表示没有限制使用次数。</td>
+		<td>每个缓存 DataKey 可加密的消息数量，加密的数量达到后，会重新向 KMS 后台请求，生成新的 DataKey，设置为0表示没有限制使用次数</td>
   </tr>
   <tr>
     <td>enExpiretime</td>
 	  <td>是</td>
     <td>int</td>			
-		<td>加密使用的DataKey在缓存中的有效期，单位为秒。和消息数量一起生效，消息数量超过或者超时时间达到，都会触发DataKey的替换，0表示不过期。</td>
+		<td>加密使用的 DataKey 在缓存中的有效期，单位为秒。和消息数量一起生效，消息数量超过或者超时时间达到，都会触发 DataKey 的替换，0表示不过期</td>
   </tr>
   <tr>
     <td>deExpiretime</td>
 	  <td>是</td>
     <td>int</td>			
-		<td>解密使用的DataKey缓存的有效期，单位为秒，0表示不过期。</td>
+		<td>解密使用的 DataKey 缓存的有效期，单位为秒，0表示不过期</td>
   </tr>
   <tr>
     <td>secretId</td>
 	  <td>是</td>
     <td>char *</td>	
-		<td>云账户API密钥ID</td>
+		<td>云账户 API 密钥 ID</td>
   </tr>
   <tr>
     <td>secretKey</td>
 	  <td>是</td>
     <td>char *</td>		
-		<td>云账户API密钥Key</td>
+		<td>云账户 API 密钥 Key</td>
   </tr>
-  <tr>
 </table>
+- 返回值：初始化成功返回0，否则返回相应的 [错误码](#test2)。
 
-- 返回值：初始化成功返回0，否则返回相应的错误码。
+### Encrypt
 
-#### Encrypt
-
-- 功能描述：使用kms平台创建的DataKey，进行本地数据加密。
+- 功能描述：使用 KMS 平台创建的 DataKey，进行本地数据加密。
 - 参数说明：
-
 <table>
   <tr>
     <th>属性</th>
@@ -243,13 +231,13 @@ cat /proc/cpuinfo|grep avx
     <td>keyManager</td>
 	  <td>是</td>
     <td>struct of KeyManager *</td>			
-		<td>已经初始化的KeyManager结构体指针</td>
+		<td>已经初始化的 KeyManager 结构体指针</td>
   </tr>
   <tr>
     <td>masterKeys</td>
 	  <td>是</td>
     <td>char *</td>			
-		<td>主密钥（CMK）信息列表</td>
+		<td>主密钥 CMK 信息列表</td>
   </tr>
   <tr>
     <td>algorithm</td>
@@ -261,7 +249,7 @@ cat /proc/cpuinfo|grep avx
     <td>encryptionContext</td>
 	  <td>是</td>
     <td>char *</td>	
-		<td>用于标识DataKey的辅助字段，key/value对的json字符串格式,最大支持2048字节。如：{"name":"test","date":"20200228"}</td>
+		<td>用于标识 DataKey 的辅助字段，key/value 对的 JSON 字符串格式，最大支持2048字节。例如{"name":"test","date":"20200228"}</td>
   </tr>
   <tr>
     <td>blockSize</td>
@@ -274,7 +262,7 @@ cat /proc/cpuinfo|grep avx
     <td>header</td>
 	  <td>是</td>
     <td>struct of MsgHead *</td>		
-    <td>头部数据结构体，用于返回本次加密的一些基本信息，具体请查看后续描述。</td>
+    <td>头部数据结构体，用于返回本次加密的一些基本信息，具体请查看后续描述</td>
   </tr>
   <tr>
     <td>cipher</td>
@@ -288,58 +276,57 @@ cat /proc/cpuinfo|grep avx
     <td>size_t</td>
     <td>密文长度，单位 byte</td>
   </tr>
-</table>
-
-- 返回值：加密成功返回0，否则返回相应的错误码。
+</table> 
+- 返回值：加密成功返回0，否则返回相应的 [错误码](#test2)。
 
 > 注意：加密后的数据，会加入DataKey相关信息，只能使用KMS密钥保护方式的接口进行解密。
 >
-
 <span id="test1"></span>
-#### 支持的加密算法列表：
+### 支持的加密算法列表
 
 | 枚举值                     | 数值 | 说明                            |
 | -------------------------- | ---- | ------------------------------- |
-| SM4_CBC_128_WITH_SIGNATURE | 1    | 使用SM3HAC签名的SM4 CBC模式     |
-| SM4_CBC_128                | 2    | 不使用签名的SM4 CBC模式加密     |
-| SM4_GCM_128_WITH_SIGNATURE | 3    | 使用SM3HAC签名的SM4 GCM模式     |
-| SM4_GCM_128                | 4    | 不使用签名的SM4 GCM模式加密算法 |
-| SM4_CTR_128_WITH_SIGNATURE | 5    | 使用SM3HAC签名的SM4 CTR模式     |
-| SM4_CTR_128                | 6    | 不使用签名的SM4 CTR模式         |
-| SM4_ECB_128_WITH_SIGNATURE | 7    | 使用SM3HAC签名的SM4 ECB模式     |
-| SM4_ECB_128                | 8    | 不使用签名的SM4 ECB模式         |
+| SM4_CBC_128_WITH_SIGNATURE | 1    | 使用 SM3 HAC 签名的 SM4 CBC 模式     |
+| SM4_CBC_128                | 2    | 不使用签名的 SM4 CBC 模式加密     |
+| SM4_GCM_128_WITH_SIGNATURE | 3    | 使用 SM3 HAC 签名的 SM4 GCM 模式     |
+| SM4_GCM_128                | 4    | 不使用签名的 SM4 GCM 模式加密算法 |
+| SM4_CTR_128_WITH_SIGNATURE | 5    | 使用 SM3 HAC 签名的 SM4 CTR 模式     |
+| SM4_CTR_128                | 6    | 不使用签名的 SM4 CTR 模式         |
+| SM4_ECB_128_WITH_SIGNATURE | 7    | 使用 SM3 HAC 签名的 SM4 ECB 模式     |
+| SM4_ECB_128                | 8    | 不使用签名的 SM4 ECB 模式         |
 
-#### EncryptedDataKey结构体说明：
+<span id="test3"></span>
+### EncryptedDataKey 结构体说明
 
 | 参数名称  | 类型   | 说明                                 |
 | --------- | ------ | ------------------------------------ |
-| cmkRegion | char * | 主密钥（CMK）地域信息                |
-| cmkKeyId  | char * | 主密钥（CMK）的ID，从KMS控制台中查询 |
-| dataKey   | char * | 存储的datakey对应的密文              |
+| cmkRegion | char * | 主密钥 CMK 地域信息                |
+| cmkKeyId  | char * | 主密钥 CMK 的 ID，从 KMS 控制台中查询 |
+| dataKey   | char * | 存储的 DataKey 对应的密文              |
 
-#### MsgHead结构体说明：
+### MsgHead结构体说明
 
 | 参数名称          | 类型                      | 说明                                                         |
 | ----------------- | ------------------------- | ------------------------------------------------------------ |
-| algorithm         | enum                      | 算法枚举值，参照上面的加密算法列表                           |
-| encryptionContext | char *                    | 用于标识DataKey的辅助字段，key/value对的json字符串格式,最大支持2048字节。如：{"name":"test","date":"20200228"} |
-| dataKeyNum        | int                       | 使用的加密后DataKey数量，和有效的主密钥(CMK)数量相关，由各个地域的主密钥加密产生 |
-| dataKey           | Array of EncryptedDataKey | DataKey的信息列表，包含的字段参照上面的EncryptedDataKey结构体说明 |
-| blockType         | enum                      | 密文加密分块的枚举值，用于标识该密文是否被分块，参照下面的BlockType枚举值说明 |
+| algorithm         | enum                      | 算法枚举值，请参见 [加密算法列表](#test1)                           |
+| encryptionContext | char *                    | 用于标识 DataKey 的辅助字段，key/value 对的 JSON 字符串格式，最大支持2048字节。例如{"name":"test","date":"20200228"} |
+| dataKeyNum        | int                       | 使用的加密后 DataKey 数量和有效的主密钥 CMK 数量相关，由各个地域的主密钥加密产生 |
+| dataKey           | Array of EncryptedDataKey | DataKey 的信息列表，详情请参见 [EncryptedDataKey 结构体说明](#test3) |
+| blockType         | enum                      | 密文加密分块的枚举值，用于标识该密文是否被分块，详情请参见 [BlockType 结构体说明](#test4) |
 | blockLength       | int                       | 分块的长度                                                   |
 
-#### BlockType结构体说明：
+<span id="test4"></span>
+### BlockType 结构体说明
 
 | 枚举值        | 数值 | 说明             |
 | ------------- | ---- | ---------------- |
 | WITHOUT_BLOCK | 1    | 密文加密未做分块 |
 | WITH_BLOCK    | 2    | 密文加密开设分块 |
 
-#### Decrypt
+### Decrypt
 
 - 功能描述：方法用于解密密文，得到明文数据。
 - 参数说明：
-
 <table>
   <tr>
     <th>属性</th>
@@ -365,7 +352,7 @@ cat /proc/cpuinfo|grep avx
     <td>keyManager</td>
 	  <td>是</td>
     <td>struct of KeyManager *</td>			
-		<td>已经初始化的KeyManager结构体指针</td>
+		<td>已经初始化的 KeyManager 结构体指针</td>
   </tr>  <tr>
     <td rowspan="3">出参</td>
     <td>header</td>
@@ -386,11 +373,10 @@ cat /proc/cpuinfo|grep avx
     <td>明文长度，单位 byte</td>
   </tr>
 </table>
+- 返回值：解密成功则返回0，否则返回相应的 [错误码](#test2)。
 
-- 返回值：解密成功则返回0，否则返回相应的错误码。
-
-#### KMS加密方式接口调用示例：
-
+### KMS 加密方式接口调用示例
+KMS 加密方式接口调用示例代码如下：
 ```
 #include<stdio.h>
 #include "kms_enc_sdk.h"
@@ -436,8 +422,8 @@ int CBCEnAndDeTest(struct KeyManager *p,unsigned char plaintext[],char masterKey
 
         strcpy(encryptionContext,"{\"name\":\"test\",\"date\":\"20200228\"}");
 
-        NewMasterKey(masterKeys,"ap-guangzhou","replace-with-realkeyid");
-        AddMasterKey(masterKeys,"ap-beijing","replace-with-realkeyid");
+        NewMasterKey(masterKeys,"ap-guangzhou","replace-with-****keyid");
+        AddMasterKey(masterKeys,"ap-beijing","replace-with-****keyid");
 
         /*初始化        可加密的消息数量设置为0即缓存不过期*/
         i_ret = InitKeyManager(&keymanager,masterKeys,0,0,0,p->secretId,p->secretKey);
@@ -483,9 +469,9 @@ int main()
         struct KeyManager keymanager;
 
         strcpy(region,"ap-guangzhou");
-        strcpy(keymanager.secretId,"replace-with-real-secretId");
-        strcpy(keymanager.secretKey,"replace-with-real-secretKey");
-        strcpy(plaintext,"abcdefg123456789abcdefg123456789abcdefg");
+        strcpy(keymanager.secretId,"replace-with-real-****etId");
+        strcpy(keymanager.secretKey,"replace-with-real-****etKey");
+        strcpy(plaintext,"abcdefg12345678****defg123456789abcdefg");
 
         i_ret = InitSdk(region,keymanager.secretId,keymanager.secretKey);
         if ( 0 != i_ret )
@@ -494,8 +480,8 @@ int main()
                 return ( -1 );
         }
 
-        NewMasterKey(masterKeys,"ap-guangzhou","replace-with-real-secretKey");
-        AddMasterKey(masterKeys,"ap-beijing","replace-with-real-secretKey");
+        NewMasterKey(masterKeys,"ap-guangzhou","replace-with-real-****etKey");
+        AddMasterKey(masterKeys,"ap-beijing","replace-with-real-****etKey");
        
         CBCEnAndDeTest(&keymanager,plaintext,masterKeys);
 
@@ -504,18 +490,15 @@ int main()
 
 ```
 
-### 原生加密方式的接口说明：
+## 原生加密方式的接口说明
 
-原生加密方式对应的服务也需要升级为旗舰版，与KMS密钥保护方式相比，原生加密方式需要用户自己生成加密密钥进行加解密，由用户保证密钥的安全性。出于安全与合规的考虑，建议用户使用KMS密钥保护方式。
+原生加密方式对应的服务也需要升级为 KMS 旗舰版，与 KMS 密钥保护方式相比，原生加密方式需要用户本身生成加密密钥进行加解密，由用户保证密钥的安全性。出于安全与合规的考虑，建议用户使用 KMS 密钥保护方式。
+>?其中 CTR 模式加密没有填充，其他的模式加密采用 PKCS#7 标准进行填充。
 
-其中CTR模式加密没有填充，其他的模式加密采用PKCS#7标准进行填充。
+### Sm2Sign
 
-
-#### Sm2Sign
-
-- 功能描述：使用SM2算法进行签名。
+- 功能描述：使用 SM2 算法进行签名。
 - 参数说明：
-
 <table>
   <tr>
     <th>属性</th>
@@ -562,16 +545,14 @@ int main()
     <td>签名数据的长度，单位 byte</td>
   </tr>
 </table>
-
 - 返回值：数据签名成功返回0，否则返回相应的错误码。
 
-> 注意：公钥和私钥的长度为固定长度，用户如果输入长度不一致的数据，可能导致内存访问异常。
+>!公钥和私钥的长度为固定长度，用户如果输入长度不一致的数据，可能导致内存访问异常。
 
-#### Sm2Verify
+### Sm2Verify
 
-- 功能描述：使用SM2算法进行验签。
+- 功能描述：使用 SM2 算法进行验签。
 - 参数说明：
-
 <table>
   <tr>
     <th>属性</th>
@@ -613,16 +594,14 @@ int main()
     <td>原文数据的长度，单位 byte</td>
   </tr>
 </table>
+- 返回值：验签成功返回0，否则返回相应的 [错误码](#test2)。
 
-- 返回值：验签成功返回0，否则返回相应的错误码。
+>!公钥长度为固定长度64字节，用户如果输入长度不一致的数据，可能导致内存访问异常。
 
-> 注意：公钥长度为固定长度64字节，用户如果输入长度不一致的数据，可能导致内存访问异常。
+### Sm2Encrypt
 
-#### Sm2Encrypt
-
-- 功能描述：使用SM2算法进行加密。
+- 功能描述：使用 SM2 算法进行加密。
 - 参数说明：
-
 <table>
   <tr>
     <th>属性</th>
@@ -642,7 +621,7 @@ int main()
     <td>source</td>
 	  <td>是</td>
     <td>unsigned char *</td>	
-		<td>SM2加密的源数据</td>
+		<td>SM2 加密的源数据</td>
    </tr>
    <tr>
     <td>sourceLength</td>
@@ -664,16 +643,14 @@ int main()
 		<td>密文数据长度，单位 byte</td>
    </tr>	 
  </table>
+- 返回值：加密成功返回0，否则返回相应的 [错误码](#test2)。
 
-- 返回值：加密成功返回0，否则返回相应的错误码。
+>!SM2 加密适用于小数据的场景，不建议加密超过256k的数据。
 
-> 注意：SM2加密适用于小数据的场景，不建议加密超过256k的数据。
-
-#### Sm2Decrypt
+### Sm2Decrypt
 
 - 功能描述：使用SM2算法进行解密。
 - 参数说明：
-
 <table>
   <tr>
     <th>属性</th>
@@ -715,14 +692,12 @@ int main()
 	<td>明文数据长度，单位 byte</td>
    </tr>	 
  </table>
+- 返回值：解密成功返回0，否则返回相应的 [错误码](#test2)。
 
-- 返回值：解密成功返回0，否则返回相应的错误码。
+### Sm3Hmac
 
-#### Sm3Hmac
-
-- 功能描述：使用SM3哈希运算Hmac计算。
+- 功能描述：使用 SM3 哈希运算 Hmac 计算。
 - 参数说明：
-
 <table>
   <tr>
     <th>属性</th>
@@ -748,36 +723,34 @@ int main()
     <td>hmacKey</td>
 	  <td>是</td>
     <td>unsigned char *</td>	
-		<td>计算Hmac的密钥内容</td>
+		<td>计算 Hmac 的密钥内容</td>
   </tr>
   <tr>
     <td>keyLen</td>
 	  <td>是</td>
     <td>int</td>		
-		<td>计算Hmac的密钥长度，单位 byte</td>
+		<td>计算 Hmac 的密钥长度，单位 byte</td>
   </tr>
   <tr>
     <td rowspan="2">出参</td>
     <td>hmac</td>
 	  <td>是</td>
     <td>unsigned char *</td>		
-    <td>生成的Hmac值</td>
+    <td>生成的 Hmac 值</td>
   </tr>
   <tr>
     <td>hmacLen</td>
 	  <td>是</td>
     <td>int *</td>
-    <td>Hmac长度，单位 byte</td>
+    <td>Hmac 长度，单位 byte</td>
   </tr>
 </table>
+- 返回值：接口调用成功返回0，否则返回相应的 [错误码](#test2)。
 
-- 返回值：接口调用成功返回0，否则返回相应的错误码。
+### Sm4CbcEncrypt/Sm4CtrEncrypt
 
-#### Sm4CbcEncrypt/Sm4CtrEncrypt
-
-- 功能描述：使用SM4加密算法CBC、CTR模式的加密。
+- 功能描述：使用 SM4 加密算法 CBC、CTR 模式的加密。
 - 参数说明：
-
 <table>
   <tr>
     <th>属性</th>
@@ -825,15 +798,12 @@ int main()
     <td>密文数据长度，单位 byte</td>
   </tr>
 </table>
+- 返回值：加密成功返回0，否则返回相应的 [错误码](#test2)。
 
+### Sm4CbcDecrypt/Sm4CtrDecrypt
 
-- 返回值：加密成功返回0，否则返回相应的错误码。
-
-#### Sm4CbcDecrypt/Sm4CtrDecrypt
-
-- 功能描述：用于SM4加密算法CBC、CTR模式下的解密。
+- 功能描述：用于 SM4 加密算法 CBC、CTR 模式下的解密。
 - 参数说明：
-
 <table>
   <tr>
     <th>属性</th>
@@ -881,15 +851,11 @@ int main()
     <td>解密后的明文数据长度，单位 byte</td>
   </tr>
 </table>
+- 返回值：解密成功返回0，否则返回相应的 [错误码](#test)。
 
-
-- 返回值：解密成功返回0，否则返回相应的错误码。
-
-#### Sm4EcbEncrypt
-
-- 功能描述：方法是用于SM4加密算法ECB模式下的加密。
+### Sm4EcbEncrypt
+- 功能描述：方法是用于 SM4 加密算法 ECB 模式下的加密。
 - 参数说明：
-
 <table>
   <tr>
     <th>属性</th>
@@ -931,14 +897,12 @@ int main()
     <td>密文数据长度，单位 byte</td>
   </tr>
 </table>
-
-- 返回值：加密成功返回0，否则返回相应的错误码。
+- 返回值：加密成功返回0，否则返回相应的 [错误码](#test2)。
 
 #### Sm4EcbDecrypt
 
-- 功能描述：使用SM4加密算法ECB模式下的解密。
+- 功能描述：使用 SM4 加密算法 ECB 模式下的解密。
 - 参数说明：
-
 <table>
   <tr>
     <th>属性</th>
@@ -980,14 +944,12 @@ int main()
     <td>解密后的明文数据长度，单位 byte</td>
   </tr>
 </table>
-
-- 返回值：解密成功返回0，否则返回相应的错误码。
+- 返回值：解密成功返回0，否则返回相应的 [错误码](#test2)。
 
 #### Sm4GcmEncrypt
 
-- 功能描述：用于SM4加密算法GCM模式下的加密。
+- 功能描述：用于 SM4 加密算法 GCM 模式下的加密。
 - 参数说明：
-
 <table>
   <tr>
     <th>属性</th>
@@ -1065,15 +1027,12 @@ int main()
     <td>密文数据长度，单位 byte</td>
   </tr>
 </table>
-
-
-- 返回值：加密成功返回0，否则返回相应的错误码。
+- 返回值：加密成功返回0，否则返回相应的 [错误码](#test2)。
 
 #### Sm4GcmDecrypt
 
-- 功能描述：使用SM4加密算法GCM模式下的解密。
+- 功能描述：使用 SM4 加密算法 GCM 模式下的解密。
 - 参数说明：
-
 <table>
   <tr>
     <th>属性</th>
@@ -1151,12 +1110,10 @@ int main()
     <td>解密后的明文数据长度，单位 byte</td>
   </tr>
 </table>
+- 返回值：解密成功返回0，否则返回相应的 [错误码](#test2)。
 
-
-- 返回值：解密成功返回0，否则返回相应的错误码。
-
-### 原生加密方式的接口调用示例：
-
+### 原生加密方式的接口调用示例
+原生加密方式的接口调用示例代码如下：
 ```
 #include<stdio.h>
 #include "kms_enc_sdk.h"
@@ -1218,8 +1175,8 @@ int main()
 	memset(secretKey,0,sizeof(secretKey));
 	
 	strcpy(region,"ap-guangzhou");
-	strcpy(secretId,"replace-with-real-secretId");
-	strcpy(secretKey,"replace-with-real-secretKey");
+	strcpy(secretId,"replace-with-real-****etId");
+	strcpy(secretKey,"replace-with-real-****etKey");
 	
 	i_ret = InitSdk(region,secretId,secretKey);
 	if ( i_ret != 0 )
@@ -1235,7 +1192,8 @@ return ( 0 );
 
 ```
 
-#### 错误码
+<span id="test2"></span>
+## 错误码
 
 | 返回值 | 枚举值                   | 说明                       |
 | ------ | ------------------------ | -------------------------- |
@@ -1244,15 +1202,15 @@ return ( 0 );
 | -2     | ES_ENCRYPT_SOURCE_EMPTY  | 加密的原文为空             |
 | -3     | ES_NO_CMKEY              | 未设置主密钥               |
 | -4     | ES_ALGRITHM_ERR          | 算法不支持                 |
-| -5     | ES_GENERATE_DATAKEY_ERR  | 产生DataKey错误            |
-| -6     | ES_ENCRYPT_DATA_ERR      | 加密DataKey错误            |
-| -7     | ES_MARSHAL_PROTOBUF_ERR  | 序列化ProtoBuf出错         |
+| -5     | ES_GENERATE_DATAKEY_ERR  | 产生 DataKey 错误            |
+| -6     | ES_ENCRYPT_DATA_ERR      | 加密 DataKey 错误            |
+| -7     | ES_MARSHAL_PROTOBUF_ERR  | 序列化 ProtoBuf 出错         |
 | -8     | ES_CIPHER_TEXT_TOO_SHORT | 密文数据太短               |
-| -9     | ES_GET_PROTO_ERR         | 获取ProtoBuf报文出错       |
-| -10    | ES_PARSE_PROTO_ERR       | 解析ProtoBuf报文出错       |
-| -11    | ES_DECRYPT_DATAKEY_ERR   | 解密DataKey错误            |
-| -12    | ES_SET_DATAKEY_ERR       | 设置DataKey错误            |
+| -9     | ES_GET_PROTO_ERR         | 获取 ProtoBuf 报文出错       |
+| -10    | ES_PARSE_PROTO_ERR       | 解析 ProtoBuf 报文出错       |
+| -11    | ES_DECRYPT_DATAKEY_ERR   | 解密 DataKey 错误            |
+| -12    | ES_SET_DATAKEY_ERR       | 设置 DataKey 错误            |
 | -13    | ES_DIGEST_INVALIDATE     | 签名不合法，导致校验不通过 |
 | -14    | ES_MEMORY_ERR            | 内存错误                   |
-| -15    | ES_KMSSERVICE_ERR        | KMS服务未开通              |
-| -16    | ES_USEREDITION_ERR       | 未升级为KMS旗舰版          |
+| -15    | ES_KMSSERVICE_ERR        | KMS 服务未开通              |
+| -16    | ES_USEREDITION_ERR       | 未升级为 KMS 旗舰版          |
