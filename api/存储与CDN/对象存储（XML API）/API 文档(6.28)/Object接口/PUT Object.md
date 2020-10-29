@@ -50,7 +50,7 @@ Authorization: Auth String
 | x-cos-meta-\*       | 包括用户自定义元数据头部后缀和用户自定义元数据信息，将作为对象元数据保存，大小限制为2KB<br>**注意：**用户自定义元数据信息支持下划线（_），但用户自定义元数据头部后缀不支持下划线，仅支持减号（-） | string  | 否       |
 | x-cos-storage-class | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD，MAZ_STANDARD_IA，INTELLIGENT_TIERING，MAZ_INTELLIGENT_TIERING，STANDARD_IA，ARCHIVE，DEEP_ARCHIVE。默认值：STANDARD | enum    | 否       |
 | x-cos-traffic-limit | 针对本次上传进行流量控制的限速值，必须为数字，单位默认为 bit/s。限速值设置范围为819200 - 838860800，即100KB/s - 100MB/s，如果超出该范围将返回400错误 | integer | 否       |
-|  x-cos-tagging   |对象的标签集合，最多可设置10个标签（例如，"Key1=Value1&Key2=Value2"）。 标签集合中的 Key 和 Value 必须先进行 URL 编码。| string| 否  |
+|  x-cos-tagging   |对象的标签集合，最多可设置10个标签（例如，Key1=Value1&Key2=Value2）。 标签集合中的 Key 和 Value 必须先进行 URL 编码。| string| 否  |
 
 
 
