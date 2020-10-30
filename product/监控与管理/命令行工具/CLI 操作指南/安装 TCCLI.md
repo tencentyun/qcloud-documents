@@ -1,5 +1,3 @@
-
-
 本文指导您如何安装 TCCLI。
 
 ## 前提条件
@@ -32,7 +30,7 @@ tccli version
 #### 命令补全
 
 如果您的环境是 Linux 环境，您可以通过以下命令启动自动补全功能：
-```bash
+```plaintext
 complete -C 'tccli_completer' tccli
 ```
-也可以将该命令加入环境变量（/etc/profile）中，使自动补全功能一直有效。
+也可以将该命令加入环境变量（`/etc/profile`）中，使自动补全功能一直有效。
