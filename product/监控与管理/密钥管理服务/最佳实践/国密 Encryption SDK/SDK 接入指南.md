@@ -3,125 +3,24 @@
 ## 环境依赖
 - 开发环境仅支持 glibc 2.12 及其以上版本。
 - Linux 系统支持情况，已经在下述平台验证：
-<table>
-<thead>
-<tr>
-<th>系统版本</th>
-<th>位数</th>
-<th>支持情况</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Tencent Linux release 2.4（Final）</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>CentOS 8.0</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>CentOS 7.8</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>CentOS 7.5</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>CentOS 7.4</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>CentOS 7.3</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>CentOS 7.2</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>CentOS 6.9</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>CentOS 6.9</td>
-<td>32</td>
-<td>不支持</td>
-</tr>
-<tr>
-<td>CentOS 6.8</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>CentOS 6.5</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>CoreOS 1745.5.0</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>Debian 9.0</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>Debian 8.2</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>Debian 8.2</td>
-<td>32</td>
-<td>不支持</td>
-</tr>
-<tr>
-<td>Debian 10.2</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>FreeBSD 11.1</td>
-<td>64</td>
-<td>不支持</td>
-</tr>
-<tr>
-<td>openSUSE 42.3</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>Ubuntu Server 18.04.1 LTS</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>Ubuntu Server 16.04.1 LTS</td>
-<td>64</td>
-<td>支持</td>
-</tr>
-<tr>
-<td>Ubuntu Server 16.04.1 LTS</td>
-<td>32</td>
-<td>不支持</td>
-</tr>
-<tr>
-<td>Ubuntu Server 14.04.1 LTS</td>
-<td>32</td>
-<td>不支持</td>
-</tr>
-</tbody></table>
+
+| 系统版本                           | 位数 | 支持情况 |
+| ---------------------------------- | ---- | -------- |
+| Tencent Linux release 2.4（Final） | 64   | 支持     |
+| CentOS 7.8                         | 64   | 支持     |
+| CentOS 7.7                         | 64   | 支持     |
+| CentOS 7.6                         | 64   | 支持     |
+| CentOS 7.5                         | 64   | 支持     |
+| CentOS 7.4                         | 64   | 支持     |
+| CentOS 7.3                         | 64   | 支持     |
+| CentOS 7.2                         | 64   | 支持     |
+| CentOS 6.9                         | 64   | 支持     |
+| CentOS 6.8                         | 64   | 支持     |
+| Debian 9.0                         | 64   | 支持     |
+| Ubuntu Server 16.04.1 LTS          | 64   | 支持     |
+| Ubuntu Server 14.04.1 LTS          | 64   | 支持     |
+
+SDK基于OpenSSL1.0改造，在OpenSSL1.1以上版本运行会有兼容性问题，后续版本会兼容高版本的OpenSSL
 
 ### 接入指引
 
