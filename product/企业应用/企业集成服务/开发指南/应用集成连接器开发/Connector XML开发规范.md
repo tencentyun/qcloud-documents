@@ -106,7 +106,7 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
         <payload/>
         <attributes/>
     </output>
-</trigger>
+</operation>
 ```
 
 "**operation**" 节点的属性有：
