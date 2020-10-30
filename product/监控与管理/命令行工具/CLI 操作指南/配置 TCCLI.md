@@ -50,25 +50,26 @@ TencentCloud API secretId [*BCDP]:AKIDz8krbsJ5yKBZQpn74WFkmLPx3*******
 TencentCloud API secretKey [*ArFd]:Gu5t9xGARNpq86cd98joQYCN3*******
 region: ap-guangzhou
 output[json]:
-# set/get/list子命令指定账户名 test
+# set/get/list 子命令指定账户名 test
 $ tccli configure set region ap-guangzhou  output json  --profile test
 $ tccli configure get secretKey      --profile test
 $ tccli configure list      --profile test
 在调用接口时指定账户（以 cvm DescribeZones 接口为例）
 $ tccli cvm DescribeZones --profile test
 ```
-4. 新版 TCCLI 支持配置云 API 密钥对到环境变量，让您的信息更安全。下文以 Linux 系统配置为例，您可以通过如下两种方式进行配置：
+4. TCCLI 支持配置云 API 密钥对到环境变量，让您的信息更安全。下文以 Linux 系统配置为例，您可以通过如下两种方式进行配置：
 	- 使用 export 命令（临时性）：
 	```bash
-	# 设置云 API密钥 SecretId
+	# 设置云 API 密钥 SecretId
 	$ export TENCENTCLOUD_SECRET_ID=AKIDz8krbsJ5yKBZQpn74WFkmLPx3*******
-	# 设置云 API密钥 SecretKey
+	# 设置云 API 密钥 SecretKey
 	$ export TENCENTCLOUD_SECRET_KEY=Gu5t9xGARNpq86cd98joQYCN3*******
 	# 设置云产品地域
 	$ export TENCENTCLOUD_REGION=ap-guangzhou
 	```
-	- 写入 profile 文件(永久性)。编辑 /etc/profile 文件，在该文件中，加入如下命令：
+	- 写入 profile 文件（永久性）：
 	```bash
+	# 编辑 /etc/profile 文件，写入如下内容
 	export TENCENTCLOUD_SECRET_ID=AKIDz8krbsJ5yKBZQpn74WFkmLPx3*******
 	export TENCENTCLOUD_SECRET_KEY=Gu5t9xGARNpq86cd98joQYCN3*******
 	export TENCENTCLOUD_REGION=ap-guangzhou
