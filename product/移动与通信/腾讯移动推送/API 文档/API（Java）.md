@@ -22,7 +22,7 @@ Maven  依赖引用方式：
 | proxy | Proxy | 否 | Proxy.NO\_PROXY | 如果需要设置代理可以设定该参数 |
 | connectTimeOut | Integer | 否 | 10s | 链接超时时间设置 |
 | readTimeOut | Integer | 否 | 10s | 请求超时时间设置 |
-| domainUrl | String | 否 | https://openapi.xg.qq.com/ | 请求接口服务域名地址默认请求信鸽平台的接口地址，使用时需要更改为 `https://api.tpns.tencent.com/`|
+| domainUrl | String | 否 | https://openapi.xg.qq.com/ | 请求接口服务域名地址默认请求信鸽平台的接口地址，使用时需要根据您产品的服务接入点选择[请求服务地址](https://cloud.tencent.com/document/product/548/39064)。|
 
 ### 示例
 ``` java
@@ -42,3 +42,10 @@ JSONObject ret =  xingeApp.pushApp(pushAppRequest );
 
 ## 服务端返回码
 ret_code 含义可参考 [服务端错误码](https://cloud.tencent.com/document/product/548/39080)。
+
+## 常见问题
+1.接口返回错误码10101或403是什么原因，如何解决？
+答：请检查应用AccessID与SecretKey是否匹配，domainUrl与产品服务接入点是否匹配。
+
+2.接口返回错误码1008007，参数校验失败如何解决？
+答：请参考[推送示例](https://cloud.tencent.com/document/product/548/39064#ios-.E5.8D.95.E8.AE.BE.E5.A4.87.E6.8E.A8.E9.80.81.E8.AF.B7.E6.B1.82.E6.B6.88.E6.81.AF)检查参数填写是否缺失或字段类型填写有误。
