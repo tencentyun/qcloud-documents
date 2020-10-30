@@ -894,8 +894,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td rowspan="5">数字+金额标识符</td>
 <td>12.00RMB</td>
 <td>十二人民币</td>
-<td rowspan="11">支持AUD(澳元) 、CAD（加元）、 HKD（港币）、JPY（日元）、USD（美元）、CHF（瑞士法郎）、NOK（挪威克朗）、SEK（瑞典克朗）、GBP（英镑）、 RMB（人民币）、CNY（元）和EUR（欧元）。
-支持的数字格式包括：整数、小数以及以逗号分隔的国际写法。</td>
+<td rowspan="11">支持AUD(澳元) 、CAD（加元）、 HKD（港币）、JPY（日元）、USD（美元）、CHF（瑞士法郎）、NOK（挪威克朗）、SEK（瑞典克朗）、GBP（英镑）、 RMB（人民币）、CNY（元）和EUR（欧元）。支持的数字格式包括：整数、小数以及以逗号分隔的国际写法。</td>
 </tr>
 <tr>
 <td>12.50RMB</td>
