@@ -29,8 +29,7 @@ tccli cvm RunInstances
 ```
 2. 如果调用接口参数是复杂类型时，可以加 `--cli-unfold-argument`参数，进行参数补全，使用复杂类型点(`.`)展开的方式调用，降低输入难度。
 ```bash
-tccli cvm RunInstances \
---cli-unfold-argument \
+tccli cvm RunInstances --cli-unfold-argument \
 --Placement.Zone ap-guangzhou-3 \
 --ImageId img-8toqc6s3 \
 --DryRun True
