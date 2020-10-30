@@ -27,7 +27,7 @@ tccli cvm RunInstances
 --SecurityGroupIds '["sg-0rszg2vb"]'
 --HostName TCCLI-HOST-NAME1
 ```
-2. 如果调用接口参数是复杂类型时，需加 `--cli-unfold-argument`参数，进行参数补全，使用复杂类型点(`.`)展开的方式调用，降低输入难度。
+2. 如果调用接口参数是复杂类型时，可以加 `--cli-unfold-argument`参数，进行参数补全，使用复杂类型点(`.`)展开的方式调用，降低输入难度。
 ```bash
 tccli cvm RunInstances \
 --cli-unfold-argument \
