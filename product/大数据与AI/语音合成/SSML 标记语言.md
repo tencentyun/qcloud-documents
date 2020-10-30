@@ -7,14 +7,14 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 ### 使用方式
 >? • 目前只有中文合成支持 SSML 功能。
 > • 语音合成服务支持的 SSML 标签请见下文，`<speak>` 标签内的未定义标签不合成，xml 格式错误可能导致停止该 `<speak>` 标签的合成。
-> • 语音合成的 ssml 功能支持多个 `<speak>` 标签闭合嵌套于文本之中。如：
+> • 语音合成的 SSML 功能支持多个 `<speak>` 标签闭合嵌套于文本之中。如：
 
 
 ```
 <speak>她叫<say-as interpret-as="name">任盈盈</say-as>。
 她的电话号码是<say-as interpret-as="telephone">+86-15188888888</say-as>。
 她今年<say-as interpret-as="cardinal">22</say-as>岁了。
-她有一个快递，单号是<say-as interpret-as="digits">5648 2345 1423 7588</say-as>。
+她有一个快递，单号是<say-as interpret-as="digits">5648234514237588</say-as>。
 她的地址是<say-as interpret-as="address">深南大道10000号3单元304</say-as>。
 </speak>再补充一下，<speak>
 她的用户名是<say-as interpret-as="characters">b888_uαβγ</say-as>。
@@ -27,14 +27,14 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 ```
 {
  "Action" : "TextToVoice",
- "AppId" : 1256237915,
+ "AppId" : 12345,
  "Codec" : "mp3",
  "Expired" : 1603271036,
  "ModelType" : 1,
  "PrimaryLanguage" : 1,
  "ProjectId" : 0,
  "SampleRate" : 8000,
- "SecretId" : "AKIDTaR5Uc1nqELBl4wLW*****KLOZDaqW5N",
+ "SecretId" : "AKID****",
  "SessionId" : "1234",
  "Speed" : 0,
  "Text" : "<speak>电话号码是<say-as interpret-as=\"telephone\">4008110510</say-as>。</speak>",
@@ -50,7 +50,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 - 描述
 
 ```
-<speak>标签是所有待支持SSML标签的根节点。一切需要调用SSML标签的文本都要包含在<speak></speak>中。speak标签不支持属性。
+<speak>标签是所有待支持SSML标签的根节点。一切需要调用SSML标签的文本都要包含在<speak>“”</speak>中。speak标签不支持属性。
 ```
 
 - 语法
@@ -119,7 +119,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 | 属性名称 | 属性类型 | 属性值 | 是否必选 | 描述 |
 |---------|---------|---------|---------|---------|
 | alphabet | String | py | 是 | “py”表示拼音。 |
-| ph | String | 标签内文本对应的拼音串 | 是 | 拼音用法的赋值规范：<br>- 字与字的拼音用空格分隔，拼音的数目必须与字数相等。<br>- 每个拼音由发音和音调组成，音调为1~5的数字编号，其中”5”表示轻声。 |
+| ph | String | 标签内文本对应的拼音串 | 是 | 拼音用法的赋值规范：<br>- 字与字的拼音用空格分隔，拼音的数目必须与字数相等。<br>- 每个拼音由发音和音调组成，音调为1~5的数字编号，其中“5”表示轻声。 |
 
 - 标签关系
 `<phoneme>`标签仅包括文本。
