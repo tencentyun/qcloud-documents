@@ -69,7 +69,7 @@ import (
 
 func main() {
 
-	client, err := NewClient(ClientOptions{
+	client, err := pulsar.NewClient(pulsar.ClientOptions{
 		URL:            "pulsar://*.*.*.*:6000",
 		ListenerName:   "custom:1300*****0/vpc-******/subnet-********",
 		Authentication: pulsar.NewAuthenticationToken(),
