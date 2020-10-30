@@ -971,7 +971,7 @@ module.exports = {
   "export": "index.js"
 }
 ```
-4. 在你的小程序开发者后台，配置`reuqest`和`downloadFile`加入域名 `https://cdn.cdn-go.cn`当中。
+4. 在您的小程序开发者后台，配置`reuqest`和`downloadFile`加入域名 `https://cdn.cdn-go.cn`当中。
 
 ### 属性说明
 
