@@ -80,10 +80,11 @@
 
 SDK 基于 OpenSSL1.0 改造，在 OpenSSL1.1 以上版本运行会有兼容性问题，后续版本会兼容高版本的 OpenSSL。
 
-### 接入指引
+## 接入指引
 
 ### 步骤1：开通 KMS 旗舰版
 国密 Encryption SDK 仅适用于密钥管理系统旗舰版，开通 KMS 旗舰版，详情请参见 [购买方式](https://cloud.tencent.com/document/product/573/18809)。
+
 <span id="test2"></span>
 ### 步骤2：创建用户主密钥
 登录 [密钥管理系统控制台](https://console.cloud.tencent.com/kms2)，创建用户主密钥，并保证其状态为已启用。具体操作详情请参见 [创建密钥](https://cloud.tencent.com/document/product/573/8875)。
@@ -91,7 +92,7 @@ SDK 基于 OpenSSL1.0 改造，在 OpenSSL1.1 以上版本运行会有兼容性�
 >
 <span id="test"></span>
 ### 步骤3：下载 SDK
-进入[Encryption SDK 页面]( https://console.cloud.tencent.com/kms2/sdk )，单击操作栏【下载】按钮，在弹窗中选择 SDK 语言版本，单击【确定】后成功下载。
+进入 [Encryption SDK 页面]( https://console.cloud.tencent.com/kms2/sdk )，单击操作栏【下载】，在弹窗中选择 SDK 语言版本，单击【确定】后成功下载。
 
 ### 步骤4：在代码中引用加密 SDK
 1. 加密 SDK 依赖 curl，如果没有，请提前安装，各不同操作系统的安装命令如下：
@@ -103,7 +104,7 @@ SDK 基于 OpenSSL1.0 改造，在 OpenSSL1.1 以上版本运行会有兼容性�
   ```
     yum install libcurl-devel
  ```
-2. 把下载的 tar 包解压到本地，进入 src 目录。
+2. 将下载的 tar 包解压到本地，进入 src 目录。
 3. 执行 setenv.sh，配置环境变量。setenv.sh 包含的操作指令如下：
 ```
  export LD_LIBRARY_PATH=../lib:../lib/proto
@@ -111,15 +112,15 @@ SDK 基于 OpenSSL1.0 改造，在 OpenSSL1.1 以上版本运行会有兼容性�
 ```
 4. 修改 `src`路径下的 `demo_kms_pro.c` 和 `demo_original.c`文件。国密 Encryption SDK 支持基于 KMS 的密钥保护（`demo_kms_pro.c`）和原生加密（`demo_original.c`）的两种加密方式，两种模式的差异请参见 [接口文档](https://cloud.tencent.com/document/product/573/49527)，用户根据需要修改其中一个即可，参数替换如下：
      - 使用主账号登录[ API 密钥管理控制台 ](https://console.cloud.tencent.com/cam/capi)获取您的 secretId 和 secretKey，并替换为文件中对应的 "replace-with-real-secretId"、"replace-with-real-secretKey" 字符串。
-     - 将 [步骤2](#test) 创建的主密钥 ID 替换文件中的 "replace-with-realkeyid" 字符串。
+     - 将 [步骤2](#test2) 创建的主密钥 ID 替换文件中的 "replace-with-realkeyid" 字符串。
 5. 编译 `src`路径下的 `make` 文件。
-6. 运行可执行文件
+6. 运行可执行文件。
 >!使用正确的 secretId、secretKey 和主密钥 ID ，Demo 才可以正常运行。
 
 ## C SDK KMS 示例 
 
 ### 加解密函数
-- **InitSdk**：初始化函数，是用于检验用户是否已开通 KMS 旗舰版服务。
+- **InitSdk**：初始化函数，用于检验用户是否已开通 KMS 旗舰版服务。
 - **InitKeyManager**：用户主密钥初始化函数。
 - **NewMasterKey**：设定主要的用户主密钥函数，即调用加解密操作时首要的密钥。
 - **AddMasterKey**：设定备用的用户主密钥，与 NewMasterKey 中设定的密钥形成 CMK 密钥列表，目的是为了容灾互备，以防首要主密钥无法使用时，可以使用密钥列表中的其他密钥。
