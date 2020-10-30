@@ -10,18 +10,18 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 | 错误码               | 错误消息                 |
 | -------------------- | -------------------- |
 | InvalidParameter     | 参数错误             |
-| KmsAccessError       | 访问KMS出错          |
-| GenerateDataKeyError | 产生DataKey错误      |
-| EncryptDataKeyError  | 加密DataKey错误      |
+| KmsAccessError       | 访问 KMS 出错          |
+| GenerateDataKeyError | 产生 DataKey 错误      |
+| EncryptDataKeyError  | 加密 DataKey 错误      |
 | LocalEncryptError    | 本地加密出错         |
 | UnknownError         | 未知错误             |
 | CheckAlgorithmError  | 加密算法出错         |
-| InvalidMessage       | 获取ProtoBuf报文出错 |
-| DecryptDataKeyError  | 解密DataKey出错      |
+| InvalidMessage       | 获取 ProtoBuf 报文出错 |
+| DecryptDataKeyError  | 解密 DataKey 出错      |
 | SignCheckFail        | 签名校验失败         |
 | LocalDecryptError    | 本地解密出错         |
-| KmsServiceError      | KMS服务未开通        |
-| UserEditionError     | KMS未升级为旗舰版    |
+| KmsServiceError      | KMS 服务未开通        |
+| UserEditionError     | KMS 未升级为旗舰版    |
 
 ## 初始化SDK接口
 
@@ -61,7 +61,7 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
   - 当接口返回值为非nil，代表初始化失败， 详情请参见 [错误码](#test)。
  
 >!
->  - 需注意 SecretId 和 SecretKey 的保密存储：腾讯云接口认证主要依靠 SecretID 和 SecretKey，SecretID 和 SecretKey 是用户的唯一认证凭证。业务系统需要该凭证调用腾讯云接口.。
+>  - 需注意 SecretId 和 SecretKey 的保密存储：腾讯云接口认证主要依靠 SecretID 和 SecretKey，SecretID 和 SecretKey 是用户的唯一认证凭证。业务系统需要该凭证调用腾讯云接口。
 >  - 需注意 SecretID 和 SecretKey 的权限控制：建议使用子账号，根据业务需要进行接口授权的方式管控风险。
 
 ## KMS加密方式的接口说明
@@ -83,24 +83,24 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 <td>masterKeys</td>
 <td>是</td>
 <td>[]byte</td>
-<td>主密钥信息列表，长度根据用户加入的密钥数量来确定，每个CMK占用的空间为Region和KeyId长度。</td>
+<td>主密钥信息列表，长度根据用户加入的密钥数量来确定，每个 CMK 占用的空间为 Region 和 KeyId 长度。</td>
 </tr>
 <tr>
 <td>cmkRegion</td>
 <td>是</td>
 <td>string</td>
-<td>主密钥（CMK）地域信息</td>
+<td>主密钥 CMK 地域信息</td>
 </tr>
 <tr>
 <td>cmkKeyId</td>
 <td>是</td>
 <td>string</td>
-<td>主密钥（CMK）的ID，从KMS控制台中查询</td>
+<td>主密钥 CMK的 ID，从 KMS 控制台中查询</td>
 </tr>
 </tbody></table>
 - 返回值：接口返回 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示添加成功。
-  - 当接口返回值为非nil，代表添加失败， 详情请参见 [错误码](#test)。
+  - 当接口返回值为非 nil，代表添加失败， 详情请参见 [错误码](#test)。
 
 >!请确保用于加密的首个主密钥，在 KMS 平台中是处于**生效**的状态。
 
@@ -138,7 +138,7 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 </tbody></table>
 - 返回值：接口返回 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示添加成功。
-  - 当接口返回值为非nil，代表添加失败， 详情请参见 [错误码](#test)。
+  - 当接口返回值为非 nil，代表添加失败， 详情请参见 [错误码](#test)。
 
 
 ### InitKeyManager
@@ -199,7 +199,7 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 </tbody></table>
 - 返回值：接口返回 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示初始化成功。
-  - 当接口返回值为非nil，代表初始化失败， 详情请参见 [错误码](#test)。
+  - 当接口返回值为非 nil，代表初始化失败， 详情请参见 [错误码](#test)。
 
 #### Encrypt
 
@@ -259,7 +259,7 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 </tbody></table>
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示加密成功。
-  - 当接口返回值为非nil，代表加密失败， 详情请参见 [错误码](#test)。
+  - 当接口返回值为非 nil，代表加密失败， 详情请参见 [错误码](#test)。
 
 >!加密后的数据，会加入 DataKey 相关信息，只能使用 KMS 密钥保护方式的接口进行解密。
 
@@ -297,7 +297,7 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 </tbody></table>
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示解密成功，解密后的明文内容在返回的字符数组中。
-  - 当接口返回值为非nil，代表解密失败， 详情请参见 [错误码](#test)。
+  - 当接口返回值为非 nil，代表解密失败， 详情请参见 [错误码](#test)。
 
 <span id="test5"></span>
 ### C.enum_Algorithm 支持的加密算法列表
@@ -441,7 +441,7 @@ func main() {
 </tbody></table>
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示签名成功，签名内容在返回的字符数组中。
-  - 当接口返回值为非nil，代表签名失败， 详情请参见 [错误码](#test)。
+  - 当接口返回值为非 nil，代表签名失败， 详情请参见 [错误码](#test)。
 
 >!公钥和私钥的长度为固定长度，用户如果输入长度不一致的数据，可能导致内存访问异常。
 
@@ -479,7 +479,7 @@ func main() {
 </tbody></table>
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示验签成功，签名内容在返回的字符数组中。
-  - 当接口返回值为非nil，代表验签失败， 详情请参见 [错误码](#test)。
+  - 当接口返回值为非 nil，代表验签失败， 详情请参见 [错误码](#test)。
 
 >!公钥长度为固定长度64字节，用户如果输入长度不一致的数据，可能导致内存访问异常。
 
@@ -511,7 +511,7 @@ func main() {
 </tbody></table>
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示加密成功，加密后的密文内容在返回的字符数组中。
-  - 当接口返回值为非nil，代表加密失败， 详情请参见 [错误码](#test)。
+  - 当接口返回值为非 nil，代表加密失败， 详情请参见 [错误码](#test)。
 
 >!SM2 加密适用于小数据的场景，不建议加密超过256k的数据。
 
@@ -543,7 +543,7 @@ func main() {
 </tbody></table>
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示解密成功，解密后的明文内容在返回。
-  - 当接口返回值为非nil，表示解密失败， 详情请参见 [错误码](#test)。
+  - 当接口返回值为非 nil，表示解密失败， 详情请参见 [错误码](#test)。
 
 ### Sm3Hmac
 
@@ -573,7 +573,7 @@ func main() {
 </tbody></table>
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示 Hmac 计算成功，Hmac 内容在返回的字符数组中。
-  - 当接口返回值为非nil，表示Hmac计算失败， 详情请参见 [错误码](#test)。
+  - 当接口返回值为非 nil，表示Hmac计算失败， 详情请参见 [错误码](#test)。
 
 
 ### Sm4CbcEncrypt/Sm4CtrEncrypt
@@ -610,7 +610,7 @@ func main() {
 </tbody></table>
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示加密成功，加密后的密文内容在返回的字符数组中。
-  - 当接口返回值为非nil，表示加密失败， 详情请参见 [错误码](#test)。
+  - 当接口返回值为非 nil，表示加密失败， 详情请参见 [错误码](#test)。
 
 
 ### Sm4CbcDecrypt/Sm4CtrDecrypt
@@ -647,7 +647,7 @@ func main() {
 </tbody></table>
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示解密成功，解密后的明文内容在返回的字符数组中。
-  - 当接口返回值为非nil，表示解密失败， 详情请参见 [错误码](#test)。
+  - 当接口返回值为非 nil，表示解密失败， 详情请参见 [错误码](#test)。
 
 
 ### Sm4EcbEncrypt
@@ -678,7 +678,7 @@ func main() {
 </tbody></table>
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示加密成功，加密后的密文内容在返回的字符数组中。
-  - 当接口返回值为非nil，表示加密失败， 详情请参见 [错误码](#test)。
+  - 当接口返回值为非 nil，表示加密失败， 详情请参见 [错误码](#test)。
 
 
 ### Sm4EcbDecrypt
@@ -709,7 +709,7 @@ func main() {
 </tbody></table>
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示解密成功，解密后的密文内容在返回的字符数组中。
-  - 当接口返回值为非nil，表示解密失败， 详情请参见 [错误码](#test)。
+  - 当接口返回值为非 nil，表示解密失败， 详情请参见 [错误码](#test)。
 
 
 ### Sm4GcmEncrypt
@@ -758,7 +758,7 @@ func main() {
 </tbody></table>
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示加密成功，加密后的密文内容在返回的字符数组中。
-  - 当接口返回值为非nil，表示加密失败， 详情请参见 [错误码](#test)。
+  - 当接口返回值为非 nil，表示加密失败， 详情请参见 [错误码](#test)。
 
 ### Sm4GcmDecrypt
 
@@ -806,7 +806,7 @@ func main() {
 </tbody></table>
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示解密成功，解密后的明文内容在解密后的字符数组中。
-  - 当接口返回值为非nil，表示解密失败， 详情请参见 [错误码](#test)。
+  - 当接口返回值为非 nil，表示解密失败， 详情请参见 [错误码](#test)。
 
 ### 原生加密方式的接口调用示例
 原生加密方式的接口调用示例如下：
