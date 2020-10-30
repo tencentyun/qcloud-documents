@@ -9,7 +9,7 @@
 
 ## 操作示例
 
->! demo 中非简单类型的参数必须为标准 JSON 格式。
+>! 以下示例中非简单类型的参数，必须为标准 JSON 格式。
 
 1. 以创建一台 CVM 为例，执行以下命令。
 ```bash
@@ -27,7 +27,7 @@ tccli cvm RunInstances
 --SecurityGroupIds '["sg-0rszg2vb"]'
 --HostName TCCLI-HOST-NAME1
 ```
-2. 如果调用接口参数是复杂类型时，需加 `--cli-unfold-argument`（可补全）参数，进行参数补全，使用复杂类型点(.)展开的方式调用，降低输入难度。（`3.0.273.1` 版本开始支持）
+2. 如果调用接口参数是复杂类型时，需加 `--cli-unfold-argument`参数，进行参数补全，使用复杂类型点(`.`)展开的方式调用，降低输入难度。
 ```bash
 $ tccli cvm RunInstances 
 --cli-unfold-argument
@@ -35,7 +35,10 @@ $ tccli cvm RunInstances
 --ImageId img-8toqc6s3
 --DryRun True
 ```
-3. 如果您不清楚接口入参，加`--generate-cli-skeleton`（可补全）参数可输出一份 JSON 格式入参骨架。（`3.0.273.1` 版本开始支持）
+>?
+>- `--cli-unfold-argument`命令，可通过 Tab 键进行补全，详情请参见 [命令补全](https://cloud.tencent.com/document/product/440/34012#.E5.91.BD.E4.BB.A4.E8.A1.A5.E5.85.A8)。
+>- `--cli-unfold-argument`命令需`3.0.273.1` 版本及以上。
+3. 如果您不清楚接口入参，可加`--generate-cli-skeleton`参数输出一份 JSON 格式入参骨架。
 ```bash
 # 可将 json 格式入参骨架直接输入到 json 文件中
 # $ tccli cvm DescribeInstances --generate-cli-skeleton > /home/test.json
@@ -56,11 +59,20 @@ $ tccli cvm DescribeInstances --generate-cli-skeleton
     "Offset": "Integer"
 }
 ```
-4. 如果接口入参比较多，加`--cli-input-json`（可补全）参数支持 JSON 文件输入（后面需要加上`file://+文件路径`）。（`3.0.250.2`版本开始支持）。
+>?
+>- `--generate-cli-skeleton`可通过 Tab 键进行补全，详情请参见 [命令补全](https://cloud.tencent.com/document/product/440/34012#.E5.91.BD.E4.BB.A4.E8.A1.A5.E5.85.A8)。
+>- `--generate-cli-skeleton`需`3.0.273.1`版本及以上。
+4. 如果接口入参比较多，可加`--cli-input-json`参数，该参数支持 JSON 文件输入（后面需要加上`file://+文件路径`）。
 ```bash
- $ tccli cvm DescribeInstances --cli-input-json file:///home/test.json
+$ tccli cvm DescribeInstances --cli-input-json file:///home/test.json
 ```
+>?
+>- `--cli-input-json`可通过 Tab 键进行补全，详情请参见 [命令补全](https://cloud.tencent.com/document/product/440/34012#.E5.91.BD.E4.BB.A4.E8.A1.A5.E5.85.A8)。
+>- `--cli-input-json`需`3.0.250.2`版本及以上。
 
 
-## 说明
-更多功能，您可以通过`tccli help`查看支持的产品，通过`tccli cvm help`（以 CVM 举例）查看产品支持的接口。通过`tccli cbs DescribeDisks help`（以 CBS 产品的 DescribeDisks 接口为例） 查看接口支持的参数。
+
+## 更多命令
+- `tccli help`：查看支持的产品
+- `tccli cvm help`（以 CVM 举例）：查看产品支持的接口
+- `tccli cbs DescribeDisks help`（以 CBS 产品的 DescribeDisks 接口为例）： 查看接口支持的参数
