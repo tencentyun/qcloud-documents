@@ -13,18 +13,18 @@
 
 1. 以创建一台 CVM 为例，执行以下命令。
 ```bash
-tccli cvm RunInstances 
---InstanceChargeType POSTPAID_BY_HOUR 
+tccli cvm RunInstances
+--InstanceChargeType POSTPAID_BY_HOUR
 --InstanceChargePrepaid '{"Period":1,"RenewFlag":"DISABLE_NOTIFY_AND_MANUAL_RENEW"}'
---Placement '{"Zone":"ap-guangzhou-2"}' 
---InstanceType S1.SMALL1 
---ImageId img-8toqc6s3 
+--Placement '{"Zone":"ap-guangzhou-2"}'
+--InstanceType S1.SMALL1
+--ImageId img-8toqc6s3
 --SystemDisk '{"DiskType":"CLOUD_BASIC", "DiskSize":50}'
 --InternetAccessible '{"InternetChargeType":"TRAFFIC_POSTPAID_BY_HOUR","InternetMaxBandwidthOut":10,"PublicIpAssigned":true}' 
 --InstanceCount 1
---InstanceName TCCLI-TEST 
---LoginSettings '{"Password":"TCCLI"}' 
---SecurityGroupIds '["sg-0rszg2vb"]' 
+--InstanceName TCCLI-TEST
+--LoginSettings '{"Password":"TCCLI"}'
+--SecurityGroupIds '["sg-0rszg2vb"]'
 --HostName TCCLI-HOST-NAME1
 ```
 2. 如果调用接口参数是复杂类型时，需加 `--cli-unfold-argument`（可补全）参数，进行参数补全，使用复杂类型点(.)展开的方式调用，降低输入难度。（`3.0.273.1` 版本开始支持）
