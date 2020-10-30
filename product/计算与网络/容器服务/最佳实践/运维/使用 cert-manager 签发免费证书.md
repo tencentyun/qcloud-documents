@@ -51,9 +51,9 @@ kubectl apply --validate=false -f https://raw.githubusercontent.com/TencentCloud
 
 ### HTTP-01 校验方式签发证书
 
-如果使用 HTTP-01 的校验方式，需要用到 Ingress 来配合校验。cert-manager 会通过自动修改 Ingress 规则或自动新增 Ingress 来实现对外暴露校验所需的临时 HTTP 路径，此时是在给 Issuer 配置 http01 校验，指定 Ingress 的 `name` 或 `class` 的区别。
+若使用 HTTP-01 的校验方式，则需要用到 Ingress 来配合校验。cert-manager 会通过自动修改 Ingress 规则或自动新增 Ingress 来实现对外暴露校验所需的临时 HTTP 路径，此时是在给 Issuer 配置 http01 校验，指定 Ingress 的 `name` 或 `class` 的区别。
 
-TKE 自带的 Ingress 中，每个 Ingress 资源都会对应一个 CLB，如果使用 TKE 自带的 Ingress 暴露服务，并且使用 HTTP-01 方式校验，那么只能使用自动修改 Ingress 的方式，不能自动新增 Ingress。因为自动新增的 Ingress 会自动创建其它 CLB，使对外的 IP 地址与后端服务的 Ingress 不一致，Let's Encrypt 校验时将无法从服务的 Ingress 找到校验所需的临时路径，从而导致校验失败，无法签发证书。如果使用自建 Ingress，例如 [在 TKE 上部署 Nginx Ingress](https://cloud.tencent.com/document/product/457/47293)，同一个 Ingress class 的 Ingress 共享同一个 CLB，这样就可以使用自动新增 Ingress 的方式。
+TKE 自带的 Ingress 中，每个 Ingress 资源都会对应一个 CLB，如果使用 TKE 自带的 Ingress 暴露服务，并且使用 HTTP-01 方式校验，那么只能使用自动修改 Ingress 的方式，不能自动新增 Ingress。因为自动新增的 Ingress 会自动创建其它 CLB，使对外的 IP 地址与后端服务的 Ingress 不一致，Let's Encrypt 校验时将无法从服务的 Ingress 找到校验所需的临时路径，从而导致校验失败，无法签发证书。如果使用自建 Ingress，例如 [在 TKE 上部署 Nginx Ingress](https://cloud.tencent.com/document/product/457/47293)，同一个 Ingress class 的 Ingress 共享同一个 CLB，使用自动新增 Ingress 的方式。
 
 
 
@@ -65,8 +65,8 @@ TKE 自带的 Ingress 中，每个 Ingress 资源都会对应一个 CLB，如果
 
 
 #### 示例
-如果服务使用 TKE 自带的 Ingress 暴露服务，不适合用 cert-manager 签发管理免费证书，因为证书从 [证书管理](https://console.cloud.tencent.com/ssl) 中被引用，不在 K8S 中管理。
-假设是 [在 TKE 上部署 Nginx Ingress](https://cloud.tencent.com/document/product/457/47293)，且后端服务的 Ingress 是 `prod/web`，参考以下代码示例创建 Issuer：
+如果服务使用 TKE 自带的 Ingress 暴露服务，不适合用 cert-manager 签发管理免费证书，因为证书从 [证书管理](https://console.cloud.tencent.com/ssl) 中被引用，不在 K8s 中管理。
+假设是 [在 TKE 上部署 Nginx Ingress](https://cloud.tencent.com/document/product/457/47293)，且后端服务的 Ingress 是 `prod/web`，可参考以下代码示例创建 Issuer：
 ``` yaml
 apiVersion: cert-manager.io/v1
 kind: Issuer
@@ -83,7 +83,7 @@ spec:
        ingress:
          name: web # 指定被自动修改的 Ingress 名称
 ```
-使用 Issuer 签发证书，cert-manager 会自动修改 Ingress 的资源 `prod/web`，以暴露校验所需的临时路径。参考以下代码示例，自动新增 Ingress：
+使用 Issuer 签发证书，cert-manager 会自动创建 Ingress 资源，并自动修改 Ingress 的资源 `prod/web`，以暴露校验所需的临时路径。参考以下代码示例，自动新增 Ingress：
 ``` yaml
 apiVersion: cert-manager.io/v1
 kind: Issuer
@@ -101,7 +101,6 @@ spec:
          class: nginx # 指定自动创建的 Ingress 的 ingress class
 ```
 
-使用上面的 Issuer 签发证书，cert-manager 会自动创建 Ingress 资源，以暴露校验所需的临时路径。
 
 有 Issuer 后，参考以下代码示例，可以创建 Certificate 并引用 Issuer 进行签发：
 ``` yaml
@@ -121,34 +120,24 @@ spec:
 
 ### DNS-01 校验方式签发证书
 
-如果使用 DNS-01 的校验方式，就需要看你使用的哪个 DNS 提供商了，cert-manager 内置了一些 DNS 提供商的支持，详细列表和用法请参考 [Supported DNS01 providers](https://cert-manager.io/docs/configuration/acme/dns01/#supported-dns01-providers)，不过 cert-manager 不可能去支持所有的 DNS 提供商，如果没有你所使用的 DNS 提供商怎么办呢？有两种方案:
+若使用 DNS-01 的校验方式，则需要选择 DNS 提供商。cert-manager 内置 DNS 提供商的支持，详细列表和用法请参见 [Supported DNS01 providers](https://cert-manager.io/docs/configuration/acme/dns01/#supported-dns01-providers)。若需要使用列表外的 DNS 提供商，可参考以下两种方案：
+#### 方案1：设置 Custom Nameserver
+在 DNS 提供商后台设置 custom nameserver，指向 cloudflare 这种可以管理其它 DNS 提供商域名的 nameserver 地址，具体地址可登录 cloudflare 后台查看。如下图所示：
+<img style="width:80%" src="https://main.qcloudimg.com/raw/9e07f843cae3ff5123442e7dc5b024d0.png" data-nonescope="true">
+namecheap 可以设置 custom nameserver，如下图所示：
+<img style="width:80%" src="https://main.qcloudimg.com/raw/1ad9889154d2b4125cef8a41de26d413.png" data-nonescope="true">
+最后配置 Issuer 指定 DNS-01 验证时，加上 cloudflare 的一些信息即可(见下文示例)。
 
-* 方案一：设置 Custom Nameserver。在你的 DNS 提供商后台设置 custom nameserver，指向像 cloudflare 这种可以管理其它 DNS 提供商域名的 nameserver 地址，具体地址可登录 cloudflare 后台查看:
-
-  <img style="width:80%" src="https://main.qcloudimg.com/raw/9e07f843cae3ff5123442e7dc5b024d0.png" data-nonescope="true">
-
-  下面是 namecheap 设置 custom nameserver 的示例:
-
-  <img style="width:80%" src="https://main.qcloudimg.com/raw/1ad9889154d2b4125cef8a41de26d413.png" data-nonescope="true">
-
-  最后配置 Issuer 指定 DNS-01 验证时，加上 cloudflare 的一些信息即可(见下文示例)。
-
-* 方案二：使用 Webhook。使用 cert-manager 的 Webhook 来扩展 cert-manager 的 DNS-01 验证所支持的 DNS 提供商，已经有许多第三方实现，包括国内常用的 DNSPod 与阿里 DNS，详细列表参考: [Webhook](https://cert-manager.io/docs/configuration/acme/dns01/#webhook)。
-
-
-下面以 cloudflare 为例来签发证书：
-
-1. 登录 cloudflare，点到 `My Profile > API Tokens > Create Token` 来创建 Token:
-
-   <img style="width:80%" src="https://main.qcloudimg.com/raw/4c18b4884f3ec7c5f57aa53e9fbffe9f.png" data-nonescope="true">
-
-   复制 Token 并妥善保管:
-
-   <img style="width:80%" src="https://main.qcloudimg.com/raw/48bd91b641ff15263856a7b272da7188.png" data-nonescope="true">
-
-   将 Token 保存到 Secret 中:
-
-   ``` yaml
+#### 方案2：使用 Webhook
+使用 cert-manager 的 Webhook 来扩展 cert-manager 的 DNS-01 验证所支持的 DNS 提供商，已经有许多第三方实现，包括国内常用的 DNSPod 与阿里 DNS，详细列表和用法请参见 [Webhook](https://cert-manager.io/docs/configuration/acme/dns01/#webhook)。
+参考以下步骤，以 cloudflare 为例来签发证书：
+1. 登录 cloudflare，并创建 Token。如下图所示：
+<img style="width:80%" src="https://main.qcloudimg.com/raw/4c18b4884f3ec7c5f57aa53e9fbffe9f.png" data-nonescope="true">
+2. 复制 Token 并将 Token 保存到 Secret 中。
+>! 如需创建 ClusterIssuer，Secret 需要创建在 cert-manager 所在命名空间中。
+>如需创建 Issuer，Secret 需要创建在 Issuer 所在命名空间中。
+>
+``` yaml
    apiVersion: v1
    kind: Secret
    metadata:
@@ -156,14 +145,10 @@ spec:
      namespace: cert-manager
    type: Opaque
    stringData:
-     api-token: <API Token> # 粘贴 Token 到这里，不需要 base64 加密。
-   ```
-
-   >! 如果是要创建 ClusterIssuer，Secret 需要创建在 cert-manager 所在命名空间中，如果是 Issuer，那就创建在 Issuer 所在命名空间中。
-
-   创建 ClusterIssuer:
-
-   ``` yaml
+     api-token: <API Token> # 将 Token 粘贴到此处，不需要 base64 加密。
+```
+3. 创建 ClusterIssuer。
+``` yaml
    apiVersion: cert-manager.io/v1
    kind: ClusterIssuer
    metadata:
@@ -180,10 +165,9 @@ spec:
              apiTokenSecretRef:
                key: api-token
                name: cloudflare-api-token-secret # 引用保存 cloudflare 认证信息的 Secret
-   ```
-
-创建 Certificate:
-   ``` yaml
+```
+4. <span id="Certificate"></span>创建 Certificate。
+``` yaml
    apiVersion: cert-manager.io/v1
    kind: Certificate
    metadata:
@@ -196,26 +180,21 @@ spec:
        kind: ClusterIssuer
        name: letsencrypt-dns01 # 引用 ClusterIssuer，指示采用 dns01 方式进行校验
      secretName: test-mydomain-com-tls # 最终签发出来的证书会保存在这个 Secret 里面
-   ```
+```
 
 ### 获取和使用证书
 
-创建好 Certificate 后，等一小会儿，我们可以 kubectl 查看是否签发成功:
-
+[创建 Certificate](#Certificate) 后，即可在 kubectl 查看证书是否签发成功。
 ```
 $ kubectl get certificate -n prod
 NAME                READY   SECRET                  AGE
 test-mydomain-com   True    test-mydomain-com-tls   1m
 ```
-
-如果 `READY` 为  `False` 表示失败，可以通过 describe 查看 event 来排查失败原因:
-
+如果 `READY` 为  `False` 则表示签发失败，可以通过 describe 查看 event 来排查失败原因。
 ```
 $ kubectl describe certificate test-mydomain-com -n prod
 ```
-
-如果为 `True` 表示签发成功，证书就保存在我们所指定的 Secret 中 (上面的例子是 `default/test-mydomain-com-tls`)，可以通过 kubectl 查看:
-
+如果为 `True` 则表示签发成功，证书将保存在所指定的 Secret 中。例如，`default/test-mydomain-com-tls`。可以通过 kubectl 查看，其中 `tls.crt` 是证书，`tls.key` 是密钥。
 ```
 $ kubectl get secret test-mydomain-com-tls -n default
 ...
@@ -223,11 +202,7 @@ data:
   tls.crt: <cert>
   tls.key: <private key>
 ```
-
-其中 `tls.crt` 就是证书，`tls.key` 是密钥。
-
-你可以将它们挂载到你需要证书的应用中，或者使用自建的 Ingress，可以直接在 Ingress 中引用 secret，示例:
-
+您可以将它们挂载到需要证书的应用中，或者直接在自建的 Ingress 中引用 secret。可参考以下示例：
 ``` yaml
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
