@@ -2,10 +2,10 @@
 
 ## 操作场景
 
-命令行工具集成了腾讯云所有支持云 API 的产品，可以在命令行下完成对腾讯云产品的配置和管理。包括使用 TCCLI 创建云服务器、操作云服务器、通过 TCCLI 创建 CBS 盘、查看 CBS 盘使用情况、通过 TCCLI 创建 VPC 网络、往 VPC 网络中添加资源等，所有在控制台页面能完成的操作，均能在命令行工具上执行命令实现。
+命令行工具集成了腾讯云所有支持云 API 的产品，可以在命令行下完成对腾讯云产品的配置和管理。包括使用 TCCLI 创建云服务器、操作云服务器、通过 TCCLI 创建 CBS 盘、查看 CBS 盘使用情况、通过 TCCLI 创建 VPC 网络、往 VPC 网络中添加资源等，所有在控制台页面能完成的操作，均能在命令行工具上执行命令实现。例如：
 
-* 通过`tccli cvm DescribeInstances`命令查看当前账号有哪些云服务器。
-* 通过`tccli cbs DescribeDisks`命令查看有 CBS 盘列表。
+* 通过 `tccli cvm DescribeInstances` 命令查看当前账号有哪些云服务器。
+* 通过 `tccli cbs DescribeDisks` 命令查看有 CBS 盘列表。
 
 ## 操作示例
 
@@ -36,8 +36,8 @@ $ tccli cvm RunInstances
 --DryRun True
 ```
 >?
->- `--cli-unfold-argument`命令，可通过 Tab 键进行补全，详情请参见 [命令补全](https://cloud.tencent.com/document/product/440/34012#.E5.91.BD.E4.BB.A4.E8.A1.A5.E5.85.A8)。
->- `--cli-unfold-argument`命令需`3.0.273.1` 版本及以上。
+>- `--cli-unfold-argument` 命令可通过 Tab 键进行补全，详情请参见 [命令补全](https://cloud.tencent.com/document/product/440/34012#.E5.91.BD.E4.BB.A4.E8.A1.A5.E5.85.A8)。
+>- `--cli-unfold-argument` 命令需`3.0.273.1` 版本及以上。
 3. 如果您不清楚接口入参，可加`--generate-cli-skeleton`参数输出一份 JSON 格式入参骨架。
 ```bash
 # 可将 json 格式入参骨架直接输入到 json 文件中
@@ -60,15 +60,15 @@ $ tccli cvm DescribeInstances --generate-cli-skeleton
 }
 ```
 >?
->- `--generate-cli-skeleton`可通过 Tab 键进行补全，详情请参见 [命令补全](https://cloud.tencent.com/document/product/440/34012#.E5.91.BD.E4.BB.A4.E8.A1.A5.E5.85.A8)。
->- `--generate-cli-skeleton`需`3.0.273.1`版本及以上。
-4. 如果接口入参比较多，可加`--cli-input-json`参数，该参数支持 JSON 文件输入（后面需要加上`file://+文件路径`）。
+>- `--generate-cli-skeleton` 命令可通过 Tab 键进行补全，详情请参见 [命令补全](https://cloud.tencent.com/document/product/440/34012#.E5.91.BD.E4.BB.A4.E8.A1.A5.E5.85.A8)。
+>- `--generate-cli-skeleton` 命令需`3.0.273.1`版本及以上。
+4. 如果接口入参比较多，可加 `--cli-input-json` 参数，该参数支持 JSON 文件输入（后面需要加上 `file://+文件路径`）。
 ```bash
 $ tccli cvm DescribeInstances --cli-input-json file:///home/test.json
 ```
 >?
->- `--cli-input-json`可通过 Tab 键进行补全，详情请参见 [命令补全](https://cloud.tencent.com/document/product/440/34012#.E5.91.BD.E4.BB.A4.E8.A1.A5.E5.85.A8)。
->- `--cli-input-json`需`3.0.250.2`版本及以上。
+>- `--cli-input-json` 命令可通过 Tab 键进行补全，详情请参见 [命令补全](https://cloud.tencent.com/document/product/440/34012#.E5.91.BD.E4.BB.A4.E8.A1.A5.E5.85.A8)。
+>- `--cli-input-json` 命令需`3.0.250.2`版本及以上。
 
 
 
