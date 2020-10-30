@@ -19,7 +19,7 @@ Maven  依赖引用方式：
 
 | 参数名 | 类型 | 必需 | 默认值 | 参数描述 |
 | --- | --- | --- | --- | --- |
-| appId | Integer | 是 | 无 | 推送目标 accessID（Android 应用为1500开头的十位数，iOS 为1600开头） |
+| appId | Integer | 是 | 无 | 推送目标 accessID（可在 [产品管理](https://console.cloud.tencent.com/tpns) 页面获取） |
 | secretKey | String | 是 | 无 | 推送密钥 |
 | proxy | Proxy | 否 | Proxy.NO\_PROXY | 如果需要设置代理可以设定该参数 |
 | connectTimeOut | Integer | 否 | 10s | 链接超时时间设置 |
@@ -47,7 +47,7 @@ ret_code 含义可参考 [服务端错误码](https://cloud.tencent.com/document
 
 ## 常见问题
 1. 接口返回错误码10101或403是什么原因，如何解决？
-答：请检查应用 AccessID 与 SecretKey 是否匹配，domainUrl 与产品服务接入点是否匹配。
+答：请检查应用 AccessID 与 SecretKey 是否匹配，domainUrl 与产品 [服务接入点](https://cloud.tencent.com/document/product/548/49157) 是否匹配。
 
 2. 接口返回错误码1008007，参数校验失败如何解决？
 答：请参考 [推送示例](https://cloud.tencent.com/document/product/548/39064#ios-.E5.8D.95.E8.AE.BE.E5.A4.87.E6.8E.A8.E9.80.81.E8.AF.B7.E6.B1.82.E6.B6.88.E6.81.AF)，检查参数填写是否缺失或字段类型填写有误。
