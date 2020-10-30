@@ -102,14 +102,14 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
-| Status  |  WebsiteConfiguration.AutoAddressing   |    用于配置是否忽略扩展名 ，可选值为 Enabled 或 Disabled，默认为 Disabled  | String | 否 |
+| Status  |  WebsiteConfiguration.AutoAddressing   |    用于配置是否忽略 HTML 拓展名，可选值为 Enabled 或 Disabled，默认为 Disabled  | String | 否 |
 
 **Container 节点 ErrorDocument 的内容：**
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
 | Key | WebsiteConfiguration.ErrorDocument | 指定通用错误文档的对象键，当发生错误且未命中重定向规则中的错误码重定向时，将返回该对象键的内容 | String | 是 |
-|  OriginalHttpStatus   |  WebsiteConfiguration.ErrorDocument  |  用于配置命中重定向文档状态码，可选值为 Enabled 或 Disabled，默认为 Enabled	  |  String  |  否  |
+|  OriginalHttpStatus   |  WebsiteConfiguration.ErrorDocument  |  用于配置命中错误文档的 HTTP 状态码，可选值为 Enabled 或 Disabled，默认为 Enabled	  |  String  |  否  |
 
 **Container 节点 RoutingRules 的内容：**
 
