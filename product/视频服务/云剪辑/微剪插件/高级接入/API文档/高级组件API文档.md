@@ -931,7 +931,7 @@ track={
           }
         },
       ```
-3. 进入小程序管理后台，将在线图片域名配置进 `request` 和 `downloadFile` 白名单即可。
+3. 进入小程序管理后台，将在线图片域名配置进`request`和`downloadFile`白名单即可。
 
 ##### 本地地址
 传入`wxfile://` 开头的本地临时地址即可。
@@ -955,6 +955,23 @@ track={
 ```
   <wj-textEditor value="{{textValue}}" bindconfirm="onConfirmText"/>
 ```
+3. 字体的下载需要借助小程序的 loadFontFace 方法
+`index.js` 将 loadFontFace 方法 exports 输出。
+```
+module.exports = {
+  downloadFile:wx.downloadFile,
+  loadFontFace: wx.loadFontFace
+}
+```
+`app.json`
+```json
+"myPlugin": {
+  "provider": "wx76f1d77827f78beb",
+  "version": "1.4.3",
+  "export": "index.js"
+}
+```
+4. 在你的小程序开发者后台，配置`reuqest`和`downloadFile`加入域名 `https://cdn.cdn-go.cn`当中。
 
 ### 属性说明
 
