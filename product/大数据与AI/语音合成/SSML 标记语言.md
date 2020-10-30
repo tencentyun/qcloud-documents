@@ -1,4 +1,4 @@
-﻿## TTS 支持 SSML
+## TTS 支持 SSML
 
 ### 概述
 SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加准确、具体的定义合成音频的效果。
@@ -34,7 +34,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
  "PrimaryLanguage" : 1,
  "ProjectId" : 0,
  "SampleRate" : 8000,
- "SecretId" : "AKIDTaR5Uc1nqELBl4wLWQ3PU2KLOZDaqW5N",
+ "SecretId" : "AKIDTaR5Uc1nqELBl4wLW*****KLOZDaqW5N",
  "SessionId" : "1234",
  "Speed" : 0,
  "Text" : "<speak>电话号码是<say-as interpret-as=\"telephone\">4008110510</say-as>。</speak>",
