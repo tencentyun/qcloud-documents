@@ -148,7 +148,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 
 | 属性名称 | 属性类型 | 属性值 | 是否必选 | 描述 |
 |---------|---------|---------|---------|---------|
-| interpret-as | String | cardinal/digits/telephone/name/address/id/characters<br>/punctuation/date/time/currency/measure | 是 | 指示出标签内文本的信息类型：<br>• cardinal：按整数或小数发音。<br>• digits：按数字发音。<br>• telephone：按电话号码常用方式发音。<br>• name：按人名发音。<br>• address：按地址发音。<br>• id：适用于账户名、昵称等。<br>• characters：将标签内的文本按字符一一读出。<br>• punctuation：将标签内的文本按标点符号的方式读出来。<br>• date：按日期发音。<br>• time：按时间发音。<br>• currency：按金额发音。<br>• measure：按计量单位发音。 |
+| interpret-as | String | cardinal/digits/telephone/name/address/<br>id/characters/punctuation/<br>date/time/currency/measure | 是 | 指示出标签内文本的信息类型：<br>• cardinal：按整数或小数发音。<br>• digits：按数字发音。<br>• telephone：按电话号码常用方式发音。<br>• name：按人名发音。<br>• address：按地址发音。<br>• id：适用于账户名、昵称等。<br>• characters：将标签内的文本按字符一一读出。<br>• punctuation：将标签内的文本按标点符号的方式读出来。<br>• date：按日期发音。<br>• time：按时间发音。<br>• currency：按金额发音。<br>• measure：按计量单位发音。 |
 
 - 各`<say-as>`类型支持范围
  • cardinal
