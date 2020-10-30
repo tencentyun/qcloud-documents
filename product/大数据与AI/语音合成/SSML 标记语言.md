@@ -534,7 +534,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <tr>
 <td rowspan="7">标点符号</td>
 <td>…</td>
-<td>c</td>
+<td>省略号</td>
 <td rowspan="7">支持常见中英文标点。输出的空格表示每个字符之间插入停顿，即字符一个一个地读。<br>标签内的文本如果包含XML的特殊字符，需要做字符转义。常用的共有5个：<br>&amp;lt;<br>&amp;gt;<br>&amp;amp;<br>&amp;quot;<br>&amp;apos;<br>分别对应<、>、& 、"、'。
 </td>
 </tr>
@@ -559,7 +559,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td>小于 等号 大于 问号 at</td>
 </tr>
 <tr>
-<td>[]^_</td>
+<td>[\]^_</td>
 <td>左方括号 反斜线 右方括号 脱字符 下划线</td>
 </tr>
 </table>
@@ -894,7 +894,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 <td rowspan="5">数字+金额标识符</td>
 <td>12.00RMB</td>
 <td>十二人民币</td>
-<td rowspan="5">支持AUD(澳元) 、CAD（加元）、 HKD（港币）、JPY（日元）、USD（美元）、CHF（瑞士法郎）、NOK（挪威克朗）、SEK（瑞典克朗）、GBP（英镑）、 RMB（人民币）、CNY（元）和EUR（欧元）。支持的数字格式包括：整数、小数以及以逗号分隔的国际写法。</td>
+<td rowspan="5">支持AUD(澳元) 、CAD（加元）、 HKD（港币）、JPY（日元）、USD（美元）、CHF（瑞士法郎）、NOK（挪威克朗）、SEK（瑞典克朗）、GBP（英镑）、 RMB（人民币）、CNY（元）和EUR（欧元）。<br>支持的数字格式包括：整数、小数以及以逗号分隔的国际写法。</td>
 </tr>
 <tr>
 <td>12.50RMB</td>
@@ -924,7 +924,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 </tr>
 <tr>
 <td>$12.12</td>
-<td>二点一二美元</td>
+<td>十二点一二美元</td>
 </tr>
 <tr>
 <td>$12,000</td>
