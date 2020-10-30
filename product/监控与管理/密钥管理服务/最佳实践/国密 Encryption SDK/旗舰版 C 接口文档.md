@@ -82,7 +82,7 @@ KMS 密钥保护方式基于 KMS 密钥管理平台实现，由 KMS 提供密钥
     <th>描述</th>
   </tr>
   <tr>
-    <td rowspan="1">出入参</td>
+    <td rowspan="1">出参</td>
     <td>masterKeys</td>
 	  <td>是</td>
     <td>char *</td>	
@@ -119,7 +119,7 @@ KMS 密钥保护方式基于 KMS 密钥管理平台实现，由 KMS 提供密钥
     <th>描述</th>
   </tr>
   <tr>
-    <td rowspan="1">出入参</td>
+    <td rowspan="1">出参</td>
     <td>masterKeys</td>
 	  <td>是</td>
     <td>char *</td>	
@@ -156,7 +156,7 @@ KMS 密钥保护方式基于 KMS 密钥管理平台实现，由 KMS 提供密钥
     <th>描述</th>
   </tr>
   <tr>
-    <td rowspan="1">出入参</td>
+    <td rowspan="1">出参</td>
     <td>keyManager</td>
 	  <td>是</td>
     <td>struct of KeyManager *</td>	
@@ -279,7 +279,7 @@ KMS 密钥保护方式基于 KMS 密钥管理平台实现，由 KMS 提供密钥
 </table> 
 - 返回值：加密成功返回0，否则返回相应的 [错误码](#test2)。
 
-> 注意：加密后的数据，会加入DataKey相关信息，只能使用KMS密钥保护方式的接口进行解密。
+>!加密后的数据，会加入DataKey相关信息，只能使用KMS密钥保护方式的接口进行解密。
 >
 <span id="test1"></span>
 ### 支持的加密算法列表
@@ -512,13 +512,13 @@ int main()
     <td>pubKey</td>
 	  <td>是</td>
     <td>unsigned char *</td>	
-		<td>未编码的公钥内容，数据长度固定为64字节。</td>
+		<td>未编码的公钥内容，数据长度固定为64字节。\</td>
   </tr>
   <tr>
     <td>priKey</td>
 	  <td>是</td>
     <td>unsigned char *</td>		
-		<td>未编码的私钥内容，数据长度固定为32字节。</td>
+		<td>未编码的私钥内容，数据长度固定为32字节。\</td>
   </tr>  
 		<td>msg</td>
 	  <td>是</td>
