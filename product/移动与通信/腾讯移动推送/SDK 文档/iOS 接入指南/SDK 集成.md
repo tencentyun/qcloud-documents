@@ -173,7 +173,7 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 [TPNS] Current device token is 9298da5605c3b242261b57****376e409f826c2caf87aa0e6112f944
 [TPNS] Current TPNS token is 00c30e0aeddff1270d8****dc594606dc184  
 ```
->!在推送单个目标设备时请使用 XG 36位的 Token。
+>!在推送单个目标设备时请使用 TPNS 36位的 Token。
 
 ## 统一接收消息及点击消息回调说明
 统一接收消息回调，当应用在前台收到通知消息，以及所有状态（前台、后台、关闭）下收到静默消息会走此回调。
