@@ -21,7 +21,7 @@ Node-Problem-Detector-Plus 是 Kubernetes 集群节点的健康监测组件。�
 您可以通过检测相应的指标，提前预知节点的资源压力，可以在节点开始驱逐 Pod 之前手动释放或扩容节点资源压力，防止 Kubenetes 进行资源回收或节点不可用可能带来的损失。
 
 ## 限制条件
-在集群中使用 NPD，需要在集群内安装该扩展组件，NPD 容器将被限制使用（0.5核 CPU，80M 内存）的系统资源。
+在集群中使用 NPD，需要在集群内安装该扩展组件，NPD 容器将被限制使用（0.5核 CPU，80M内存）的系统资源。
 
 
 ## 使用方法
@@ -39,22 +39,23 @@ Node-Problem-Detector-Plus 是 Kubernetes 集群节点的健康监测组件。�
 
 
 
-## Node Conditions
+## 附录
+### Node Conditions
 
-安装 NPD 插件后，会在节点中增加一些特定的 Conditions：
+安装 NPD 插件后，会在节点中增加以下特定的 Conditions：
 
 |Condition Type            | 默认值 | 描述                                                                     |
 | ------------------------- | ------ | ------------------------------------------------------------------------ |
 | ReadonlyFilesystem        | False  | 文件系统是否只读                                                         |
-| FDPressure                | False  | 查看主机的文件描述符数量是否达到最大值的 80%                             |
-| FrequentKubeletRestart    | False  | Kubelet 是否在 20Min 内重启超过 5 次                                     |
+| FDPressure                | False  | 查看主机的文件描述符数量是否达到最大值的80%                             |
+| FrequentKubeletRestart    | False  | Kubelet 是否在20Min内重启超过5次                                     |
 | CorruptDockerOverlay2     | False  | DockerImage 是否存在问题                                                 |
 | KubeletProblem            | False  | Kubelet service 是否 Running                                             |
 | KernelDeadlock            | False  | 内核是否存在死锁                                                         |
-| FrequentDockerRestart     | False  | Docker 是否在 20Min 内重启超过 5 次                                      |
-| FrequentContainerdRestart | False  | Containerd 是否在 20Min 内重启超过 5 次                                  |
+| FrequentDockerRestart     | False  | Docker 是否在20Min内重启超过5次                                          |
+| FrequentContainerdRestart | False  | Containerd 是否在20Min内重启超过5次                                      |
 | DockerdProblem            | False  | Docker service 是否 Running（若节点运行时为 Containerd，则一直为 False） |
-| ContainerdProblem         | False  | Containerd service 是否 Running（若节点运行时为 Docker，则一直为 False   |
-| ThreadPressure            | False  | 系统目前线程数是否达到最大值的 90%                                       |
-| NetworkUnavailable        | False  | NTP service 是否 Running                                                 |
+| ContainerdProblem         | False  | Containerd service 是否 Running（若节点运行时为 Docker，则一直为 False） |
+| ThreadPressure            | False  | 系统目前线程数是否达到最大值的90%                                       |
+| NetworkUnavailable        | False  | NTP service 是否 Running                                                |
 | SerfFailed                | False  | 分布式检测节点网络健康状态                                               |
