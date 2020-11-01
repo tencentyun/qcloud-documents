@@ -10,7 +10,7 @@ Node-Problem-Detector-Plus 是 Kubernetes 集群节点的健康监测组件。�
 
 | kubernetes 对象名称   | 类型               | 资源量 |  Namespaces |
 | --------------------- | ------------------ | ------------ | --------------- |
-| node-problem-detector | DaemonSet          | 0.5C 80M     | kube-system     |
+| node-problem-detector | DaemonSet          | 0.5C80M     | kube-system     |
 | node-problem-detector | ServiceAccount     | \            | kube-system     |
 | node-problem-detector | ClusterRole        | \            | \               |
 | node-problem-detector | ClusterRoleBinding | \            | \               |
