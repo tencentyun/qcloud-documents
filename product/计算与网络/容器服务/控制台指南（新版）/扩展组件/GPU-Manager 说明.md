@@ -16,7 +16,7 @@ GPU Manager 提供一个 All-in-One 的 GPU 管理器，基于 Kubernetes Device
 | Kubernetes 对象名称        | 类型         | 建议预留资源 | 所属 Namespaces |
 | --------------------- | ---------- | ------ | ------------ |
 | gpu-manager-daemonset | DaemonSet  | 每节点1核 CPU, 1Gi内存     | kube-system  |
-| gpu-quota-admission   | Deployment |1核 CPU, 1Gi内存       | kube-system  |
+| gpu-quota-admission   | Deployment | 每节点1核 CPU, 1Gi内存      | kube-system  |
 
 ## 使用场景
 
