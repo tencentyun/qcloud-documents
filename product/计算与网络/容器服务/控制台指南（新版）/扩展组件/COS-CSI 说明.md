@@ -41,5 +41,5 @@ Kubernetes-csi-tencentcloud COS 插件实现 CSI 的接口，可帮助您在容�
 
 
 ### 使用对象存储 COS
-您可在 TKE 集群中为工作负载挂载对象存储，详情请参见 [使用对象存储 COS](https://cloud.tencent.com/document/product/457/44232)。
+您可在 TKE 集群中为工作负载挂载对象存储，详情请参见 [使用对象存储 COS](https://cloud.tencent.com/document/product/457/44232#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4)。
 
