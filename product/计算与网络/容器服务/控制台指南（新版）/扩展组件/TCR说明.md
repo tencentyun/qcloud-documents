@@ -20,8 +20,8 @@ TCR Addon 是容器镜像服务 TCR 推出的容器镜像内网免密拉取的�
 | tcr-assistant-webhook-service                  | Service                        | 1                      | tcr-assistant-system |
 | tcr-assistant-validating-webhook-configuration | ValidatingWebhookConfiguration | 1                      | tcr-assistant-system |
 | imagepullsecrets.tcr.tencentcloudcr.com        | CustomResourceDefinition       | 1                      | tcr-assistant-system |
-| tcr.ips\*                                      | ImagePullSecret CRD            | (2-3)                  | tcr-assistant-system |
-| tcr.ips\*                                      | Secret                         | (2-3)\*{Namespace No.} | tcr-assistant-system |
+| tcr.ips*                                      | ImagePullSecret CRD            | (2-3)                  | tcr-assistant-system |
+| tcr.ips*                                      | Secret                         | (2-3)*{Namespace No.} | tcr-assistant-system |
 | tcr-assistant-controller-manager               | Deployment                     | 1                      | tcr-assistant-system |
 | updater-config                                 | ConfigMap                      | 1                      | tcr-assistant-system |
 | hosts-updater                                  | DaemonSet                      | {Node No.}             | tcr-assistant-system |
@@ -68,8 +68,13 @@ Kubernetes 集群拉取镜像时将通过节点网络访问 TCR，当通过公�
 	- **内网访问配置（可选功能）**：确认集群与关联 TCR 实例已建立内网访问链路，并启用内网解析功能。如已通过手动修改集群节点 Host 或使用自建 DNS 服务实现内网解析，可不启用该功能。
 	>!该功能启用后，内网访问域名将强制解析至关联的 TCR 实例提供的内网访问地址，无法用于公网访问。
 	>
-4. 单击【完成】即可创建组件，组件创建完成后，如需修改组件相关配置，请删除组件并重新配置及安装。
->!删除组件将不会同时删除自动创建的专属访问凭证，可前往 TCR 控制台手动禁用或删除。
+4. 单击【完成】即可创建插件，插件创建完成后，如需修改插件相关配置，请删除插件并重新配置及安装。
+>!删除插件将不会同时删除自动创建的专属访问凭证，可前往 TCR 控制台手动禁用或删除。
+
+
+
+
+
 
 
 ## 相关信息
@@ -77,7 +82,7 @@ Kubernetes 集群拉取镜像时将通过节点网络访问 TCR，当通过公�
 
 - **关联实例**：当前集群需要使用的 TCR 企业版实例，插件将自动为当前集群配置该 Registry 实例的访问凭证及内网域名解析。
 - **免密拉取配置**：
-  - **命名空间**：免密拉取功能生效的命名空间，可指定单个、多个命名空间，或直接使用 `_` 指定集群内全部命名空间（含新建的命名空间）。默认配置为 `_` ，即将在当前集群的全部命名空间内生效。插件安装完成后，可在生效的命名空间内查看插件自动创建的 Secret。
+  - **命名空间**：免密拉取功能生效的命名空间，可指定单个、多个命名空间，或直接使用 `*` 指定集群内全部命名空间（含新建的命名空间）。默认配置为 `*` ，即将在当前集群的全部命名空间内生效。插件安装完成后，可在生效的命名空间内查看插件自动创建的 Secret。
   - **ServiceAccount**：免密拉取功能生效的 ServiceAccount，可指定单个、多个 ServiceAccount，或直接使用 `_` 指定命名空间内全部 ServiceAccount（含新建的 ServiceAccount）。默认配置为 `_` ，即将在当前集群的指定命名空间内的全部 ServiceAccount 生效。
   - **访问凭证描述**：启用集群免密拉取功能，将在关联的企业版实例内自动创建该集群专用的长期访问凭证，此描述用于提示该访问凭证的使用场景，默认为：TKE 集群（cls-xxxxxxx）专用访问凭证，其中 cls-xxxxxxx 为当前集群的唯一 ID。
 - **内网访问配置**：
