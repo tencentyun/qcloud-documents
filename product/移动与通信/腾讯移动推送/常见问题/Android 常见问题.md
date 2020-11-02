@@ -32,6 +32,7 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 - 查看设备是否开启通知栏权限，OPPO，vivo 等手机，需要手动开启通知栏权限。
 
 
+
 ### 设备注册失败的原因？
 - 新创建的 App 会有一分钟左右的数据同步过程，在此期间，注册可能返回20错误码，稍后重试即可。
 - **参数填写有误**：Access ID 和 Access Key 是否正确配置，常见错误是误用 Secret key ，或者 Access key 头尾有空格。
@@ -43,6 +44,22 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 - 目前第三方推送都无法保证关闭应用后，仍可收到推送消息，该问题为手机定制 ROM 对移动推送 TPNS  Service 的限制问题，移动推送 TPNS 的一切活动，都需要建立在移动推送 TPNS 的 Service 能够正常联网运行，Service 被终止后，由系统、安全软件和用户操作限定是否能够再次启动。
 - QQ 和微信是系统级别的应用白名单，相关的 Service 不会因为关闭应用而退出，所以用户感知推出应用过后，仍可收到消息，其实相关的 Service 还是能够在后台存活的。
 - Android 端在应用退出移动推送 TPNS  Service 和移动推送 TPNS 的服务器断开连接后，此时给这个设备下发的消息，会变成离线消息，离线消息最多保存72小时，每个设备最多保存三条，如果有多条离线消息，只保留最新的三条消息。在关闭应用期间推送的消息，如开启应用无法收到，请检查是否调用了反注册接口：XGPushManager.unregisterPush\(this\)。
+
+
+
+### 在非华为手机上安装了华为移动服务，且在 App 中集成了 TPNS SDK，会导致华为推送及其它组件功能失效，如何解决？
+
+自 TPNS SDK 1.1.6.3 版本起，为避免**在非本品牌手机上、其他品牌的推送服务在后台自启、传输用户数据**，会在非本品牌手机上禁用其他品牌的推送服务组件。
+华为在账号、游戏、推送等不同功能上有一些公共组件，TPNS 禁用推送组件可能会导致其它服务功能在非华为品牌手机上同样不能启动；若您需要关闭此禁用功能，可配置以下内容：
+在 AndroidManifest.xml 文件 application 标签下添加节点配置，并重装应用（需卸载后重装）。
+```xml
+<meta-data
+		android:name="tpns-disable-component-huawei-v2"
+		android:value="false" />
+<meta-data
+		android:name="tpns-disable-component-huawei-v4"
+		android:value="false" />
+```
 
 
 ### 如何设置消息点击事件？
