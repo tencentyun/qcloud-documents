@@ -39,3 +39,5 @@
 问题原因：mac 10.12 + Python 3.6 及以上环境中，Python 不再读取系统路径证书，导致读取证书失败，调用腾讯云 云 API 部署时 SSL 验证失败。
 
 解决方法：在 Python 安装目录下，执行 `Install Certificates.command` 脚本，会自动安装 certifi 包，解决证书问题。
+
+
