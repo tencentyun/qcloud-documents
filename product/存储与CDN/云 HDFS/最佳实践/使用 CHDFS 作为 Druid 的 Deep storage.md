@@ -66,3 +66,4 @@ druid.storage.storageDirectory=ofs://<mountpoint>/<druid-path>
 
 #### 开始使用
 依次启动 Druid 进程，Druid 数据就可加载到 CHDFS 中。
+
