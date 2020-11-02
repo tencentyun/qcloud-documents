@@ -13,6 +13,16 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 | instanceid   | 是   | Integer  | 用户的终端设备类型。 |
 | live_config  | 是   | Object   | 直播配置。           |
 
+#### 直播配置对象
+| 参数名称             | 参数类型 | 参数描述         |
+| -------------------- | -------- | ---------------- |
+| live_subject         | String   | 直播主题。         |
+| live_summary         | String   | 直播简介。         |
+| enable_live_password | String   | 是否开启直播密码。 |
+| live_password        | string   | 直播密码。         |
+| enable_live_im       | Boolean  | 是否开启直播互动。 |
+| enable_live_replay   | Integer  | 是否开启直播回放。 |
+
 ## 输出参数
 成功则返回空消息体，失败则返回错误码和错误信息。
 
@@ -49,5 +59,5 @@ PUT https://api.meeting.qq.com/v1/meetings/live_play/config
 
 #### 输出示例（失败时返回）
 ```
-{"error_info":{"error_code":200005,"message":"Json Schema validation failed!"}
+{"error_info":{"error_code":200005,"message":"Json Schema validation failed!"}}
 ```
