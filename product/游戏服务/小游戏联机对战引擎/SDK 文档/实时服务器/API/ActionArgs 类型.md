@@ -209,6 +209,7 @@ IGetRoomByRoomIdRsp 定义如下：
 
 >?调用该接口需要在 mgobexsCode 配置正确的游戏 ID 和后端密钥。
 
+
 **使用示例**
 
 ```
