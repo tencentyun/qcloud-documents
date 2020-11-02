@@ -38,10 +38,11 @@ DNS-01 校验方式的优点是不依赖 Ingress，并支持泛域名。缺点�
 ## 操作步骤
 
 ### 安装 cert-manager
->! 集群版本不得低于1.16。
+
+通常使用 yaml 方式一键安装 cert-manager 到集群，可参考官网文档 [Installing with regular manifests](https://cert-manager.io/docs/installation/kubernetes/#installing-with-regular-manifests)。
+cert-manager 官方使用的镜像在 `quay.io` 进行拉取。也可以执行以下命令，使用同步到国内 CCR 的镜像一键安装：
+>! 使用命令安装方式要求集群版本不得低于1.16。
 >
-- 使用 yaml 方式：一键安装 cert-manager 到集群，详情可参见 [Installing with regular manifests](https://cert-manager.io/docs/installation/kubernetes/#installing-with-regular-manifests)。
-- 使用镜像方式：通过 cert-manager 官方镜像 `quay.io` 进行拉取。也可以执行以下命令，使用同步到国内 CCR 的镜像一键安装：
 ```
 kubectl apply --validate=false -f https://raw.githubusercontent.com/TencentCloudContainerTeam/manifest/master/cert-manager/cert-manager.yaml
 ```
