@@ -1,4 +1,4 @@
-本文档将指导您如何在 macOS 系统下，为 Thunderbird 配置邮件（[S/MIME](https://cloud.tencent.com/document/product/1325/49416)）证书。
+本文档将指导您如何在 macOS 系统下，为 Thunderbird 配置邮件（[S/MIME](https://cloud.tencent.com/document/product/1325/49418)）证书。
 
 ## 前提条件
 - 已在 macOS 系统上安装 Thunderbird 客户端。
@@ -8,7 +8,7 @@
 ## 操作步骤
 ### 步骤1：对 Thunderbird 配置 S/MIME 证书
 
-1. 购买邮件（S/MIME）证书后，线下业务人员将发送给您邮件证书压缩包，获取邮件证书压缩包至 macOS 系统，并进行解压。
+1. 购买邮件（S/MIME）证书并信息审核通过后，线下业务人员将发送给您邮件证书压缩包，获取邮件证书压缩包至 macOS 系统，并进行解压。
 2. 在 macOS 首页，选择【Thunderbird】>【首选项】。
 <img src="https://main.qcloudimg.com/raw/44dbe59860173a899a1984d7d5b1d956.png" style="zoom:65%;" />
 3. 在弹框中选择证书标签，并单击【管理证书】。
