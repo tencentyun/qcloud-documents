@@ -115,5 +115,6 @@ IPv6 地址开通 IPv6 公网后，即作为公网 IPv6 地址具有了访问 IP
 
 ## 相关信息
 - 如需快速搭建一个具有 IPv4 CIDR 的私有网络（VPC），请参见 [快速搭建 IPv4 私有网络](https://cloud.tencent.com/document/product/215/30716)。
+- 如需快速搭建一个具有 IPv6 CIDR 的私有网络（VPC），请参见[ 搭建IPv6 私有网络](https://cloud.tencent.com/document/product/215/47557)。
 - 如需了解弹性公网 IP 相关内容，请参见 [弹性公网 IP](https://cloud.tencent.com/document/product/215/37567)。
 
