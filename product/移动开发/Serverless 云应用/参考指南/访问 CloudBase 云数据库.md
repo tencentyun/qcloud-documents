@@ -17,9 +17,10 @@ db.collection("todos")
   });
 ```
 
->? CloudBase 服务端 SDK 已经与云托管进行集成，无需手工填入密钥即可使用。
+>? 
+> CloudBase 服务端 SDK 已经与云托管进行集成，无需手工填入密钥即可使用。
 
-## 步骤1：初始化 SDK
+## 步骤 1：初始化 SDK
 
 ```js
 const cloudbase = require("@cloudbase/node-sdk");
@@ -28,7 +29,7 @@ const app = cloudbase.init({
 });
 ```
 
-## 步骤2：调用云数据库
+## 步骤 2：调用云数据库
 
 ```js
 const db = app.database();
