@@ -157,35 +157,6 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 以上两种情况，需要在 drawable 不同分辨率的文件夹下对应放置一张名称必须为 stat_sys_third_app_notify 的图片，详情请参考 [TPNS Android SDK](https://console.cloud.tencent.com/tpns/sdkdownload) 中的 flyme-notification-res 文件夹。
 
 
-### 集成华为推送通道时遇到组件依赖冲突如何解决?
-项目使用了华为 HMS 2.x.x 游戏、支付、账号等其他服务组件，因依赖 `com.tencent.tpns:huawei:1.1.x.x-release` 集成华为推送通道而遇到组件依赖冲突时，请按照以下步骤集成华为厂商通道：
-1. 取消项目对 `"com.tencent.tpns:huawei:[VERSION]-release"` 此单个依赖包的依赖。
-2. 在参照华为开发者平台官方文档集成华为官方 SDK 时，请同时勾选 push 模块，为华为 SDK 添加 push 功能。
-3. 在 HMSAgent 模块的源代码中，就工具类 `com.huawei.android.hms.agent.common.StrUtils`做以下修改，以解决华为 SDK 内部一处异常造成的华为厂商 token 注册失败问题。
-修改前：
-```java
-package com.huawei.android.hms.agent.common;
-public final class StrUtils {
-    public static String objDesc(Object object) {
-        return object == null ? "null" : (object.getClass().getName()+'@'+ Integer.toHexString(object.hashCode()));
-    }
-}
-```
-修改后：
-```java
-package com.huawei.android.hms.agent.common;
-public final class StrUtils {
-    public static String objDesc(Object object) {
-        String s = "";
-        try {
-            s = Integer.toHexString(object.hashCode());
-        } catch (Throwable e) {
-        }
-        return object == null ? "null" : (object.getClass().getName()+'@'+ s);
-    }
-}
-```
-
 
 ### 使用控制台快速集成时出现异常，如何解决？
 1. 如果集成出现异常， 则将 `tpns-configs.json `文件中的 `"debug"` 字段置为` true`,  运行命令： 

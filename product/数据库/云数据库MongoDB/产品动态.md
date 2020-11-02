@@ -1,3 +1,22 @@
+
+## 2020年10月
+<table>
+<tr>
+<th width=20%>动态名称</th>
+<th width=50%>动态描述</th>
+<th width=10%>发布时间</th>
+<th width=20%>相关文档</th>
+</tr>
+<tbody><tr>
+<td>云监控告警支持节点、副本集级别指标告警配置</td>
+<td>云监控支持对 MongoDB 实例进行节点级别的告警配置，如对 CPU 使用率、内存使用率等指标进行指标告警配置。</td>
+<td>2020-10</td>
+<td><a href="https://cloud.tencent.com/document/product/240/7118" target="_blank">配置告警</a>
+</td>
+</tr>
+</tbody></table>
+
+
 ## 2020年08月
 <table>
 <tr>
