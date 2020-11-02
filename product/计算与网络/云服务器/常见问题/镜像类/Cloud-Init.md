@@ -163,3 +163,5 @@ pkg_resources.DistributionNotFound: pyyaml
  1. 将 cloudbase-init 服务改为 LocalSystem 服务，具体操作方式请参见 [Cloudbase-Init 服务运行排查方案](#checkcloudbase-init) 的 [步骤 2](#step02)。 
  2. 将 cloudbase-init 服务启动类型改为自动。 具体操作方式请参见 [Cloudbase-Init 服务运行排查方案](#checkcloudbase-init) 的 [步骤 2](#step02)。
  3. 卸载对应的安全软件， 或在安全软件里面对 cloudbase-init 服务的相关操作加白名单。
+
+
