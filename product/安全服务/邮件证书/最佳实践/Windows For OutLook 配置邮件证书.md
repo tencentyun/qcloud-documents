@@ -15,7 +15,7 @@
 <img src="https://main.qcloudimg.com/raw/09eb20202ccd941c6e66a6997a7f0df7.png" style="zoom:90%;" />
 
 ### 步骤2：配置 Outlook 客户端
-1. 打开 Outlook ，在主菜单中，单击【文件】。
+1. 打开 Windows10 ，在主菜单中，单击【文件】。
 2. 在左侧导航中，单击【选项】。
 ![](https://main.qcloudimg.com/raw/077f862d101bab03bb91723780f1f700.png)
 3. 在“Outlook 选项”窗口的左侧导航中，单击【信任中心】，在“Microsoft Outlook 信任中心”模块，单击【信任中心设置】。
