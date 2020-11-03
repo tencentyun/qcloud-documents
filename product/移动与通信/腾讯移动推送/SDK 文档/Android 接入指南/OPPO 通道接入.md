@@ -36,9 +36,9 @@ Opush 申请开通成功后，您可在【[OPPO 推送平台](https://push.oppo.
 
 导入 OPPO 推送相关依赖。示例代码如下：
 ```js
-implementation 'com.tencent.tpns:oppo:[VERSION]-release'//OPPO 推送 [VERSION] 为当前 SDK 版本号，版本号可在 SDK 下载页查看
+implementation 'com.tencent.tpns:oppo:[VERSION]-release'//OPPO 推送 [VERSION] 为当前 SDK 版本号，版本号可在 Android SDK 发布动态查看
 ```
->? OPPO 推送 [VERSION] 为当前 SDK 版本号，版本号可在 [SDK 下载页](https://console.cloud.tencent.com/tpns/sdkdownload) 查看。
+>? OPPO 推送 [VERSION] 为当前 SDK 版本号，版本号可在 [Android SDK 发布动态](https://console.cloud.tencent.com/tpns/sdkdownload) 查看。
 
 
 
