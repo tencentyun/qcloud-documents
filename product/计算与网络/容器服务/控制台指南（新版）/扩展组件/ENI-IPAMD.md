@@ -22,3 +22,6 @@ ENI-IPAMD 运行在特定节点或 master 上，是一个 IP 资源分配管理�
 | tke-eni-ipamd       | Service    | \                        | kube-system     |
 | tke-cni-agent-conf  | ConfigMap  | \                        | kube-system     |
 
+## 相关文档
+- [VPC-CNI 网络模式使用指引](https://cloud.tencent.com/document/product/457/48040)
+- [GlobalRouter 附加 VPC-CNI 模式说明](https://cloud.tencent.com/document/product/457/34993)
