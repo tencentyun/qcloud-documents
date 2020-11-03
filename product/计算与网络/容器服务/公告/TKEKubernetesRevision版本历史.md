@@ -127,9 +127,9 @@
     <td>v1.14.3-tke.17</td>
     <td><ul class="params">
 	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/74781">pr74781</a>，将 ConfigMap 及 Secret 默认更新策略由 Cache 改为 Watch（kubelet）。</li>
-	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/93403">93403</a>，移去 kubelet 的更新中不属于 kubelet 的 Pod Condition 的错误打印信息（kubelet）。</li>
-	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89629">pr89629，解决 configmap 变更后挂载 subpath 的容器重启永远失败的问题（kubelet）。</li>
-	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/8094">pr80942，修复 ipvs 模式下，删除 service 后，规则未删除的问题（kube-proxy）。</li>
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/93403">pr93403</a>，移去 kubelet 的更新中不属于 kubelet 的 Pod Condition 的错误打印信息（kubelet）。</li>
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89629">pr89629</a>，解决 configmap 变更后挂载 subpath 的容器重启永远失败的问题（kubelet）。</li>
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/8094">pr80942</a>，修复 ipvs 模式下，删除 service 后，规则未删除的问题（kube-proxy）。</li>
             <li>QcloudCbs 支持 BulkVolumeVerification（kube-controller-manager）。</li></ul></td>
 </tr>
 <tr>
