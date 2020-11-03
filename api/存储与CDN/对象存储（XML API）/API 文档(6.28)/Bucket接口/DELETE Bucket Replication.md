@@ -41,7 +41,7 @@ Authorization: Auth String
 
 #### 请求
 
-下述请求示例展示了从存储桶`originbucket-1250000000`中删除跨地域配置信息。
+下述请求示例展示了从存储桶`originbucket-1250000000`中删除配置信息。
 
 ```shell
 DELETE /?replication HTTP/1.1
