@@ -122,8 +122,8 @@ SDK 基于 OpenSSL1.0 改造，在 OpenSSL1.1 以上版本运行会有兼容性�
 ### 加解密函数
 - **InitSdk**：初始化函数，用于检验用户是否已开通 KMS 旗舰版服务。
 - **InitKeyManager**：用户主密钥初始化函数。
-- **NewMasterKey**：设定主要的用户主密钥函数，即调用加解密操作时首要的密钥。
-- **AddMasterKey**：设定备用的用户主密钥，与 NewMasterKey 中设定的密钥形成 CMK 密钥列表，目的是为了容灾互备，以防首要主密钥无法使用时，可以使用密钥列表中的其他密钥。
+- **NewMasterKey**：设定主 CMK，在调用加解密函数时，会优先使用主 CMK，建议设置和 SDK 运行环境相同区域的 CMK 以减少延时。当主 CMK 不可用时，会使用 AddMasterKey 函数设定的备用CMK。
+- **AddMasterKey**：设定备用的 CMK，备用 CMK 建议设定在不同区域，其备用 CMK 与 NewMasterKey 中设定的密钥形成 CMK 密钥列表，目的是为了容灾互备，以防首要主密钥无法使用时，可以使用密钥列表中的其他密钥。
 - **Encrypt**：加密函数。
 - **Decrypt**：解密函数。
 
