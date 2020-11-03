@@ -223,7 +223,7 @@
 <tr>
     <td>2020-08-04</td>
     <td>v1.12.4-tke.23</td>
-    <td>合并 <a href="https://github.com/kubernetes/kubernetes/pull/78883">pr78883</a>，修复默认会给 pod.spec.container.SecurityContext.ProcMount 增加默认值的 bug。</td>
+    <td>合并 <a href="https://github.com/kubernetes/kubernetes/pull/78881">pr78881</a>，修复默认会给 pod.spec.container.SecurityContext.ProcMount 增加默认值的 bug。</td>
 </tr>
 <tr>
     <td>2020-07-28</td>	
