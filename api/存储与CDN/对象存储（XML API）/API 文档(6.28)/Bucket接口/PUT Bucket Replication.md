@@ -48,7 +48,7 @@ request body
 
 | 节点名称（关键字）       | 父节点                                    | 描述                                                         | 类型      | 是否必选 |
 | ------------------------ | ----------------------------------------- | ------------------------------------------------------------ | --------- | -------- |
-| ReplicationConfiguration | 无                                        | 说明所有跨地域配置信息                                       | Container | 是       |
+| ReplicationConfiguration | 无                                        | 说明所有复制配置信息                                       | Container | 是       |
 | Role                     | ReplicationConfiguration                  | 发起者身份标示：`qcs::cam::uin/<OwnerUin>:uin/<SubUin>`      | String    | 是       |
 | Rule                     | ReplicationConfiguration                  | 具体配置信息，最多支持1000个                                 | Container | 是       |
 | ID                       | ReplicationConfiguration.Rule             | 用来标注具体 Rule 的名称                                     | String    | 否       |
