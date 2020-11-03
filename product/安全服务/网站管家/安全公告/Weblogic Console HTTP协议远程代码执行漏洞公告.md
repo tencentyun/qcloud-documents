@@ -23,9 +23,9 @@
 
 ## 修复建议
 官方已发布新版本安全产品修复该漏洞，腾讯云安全建议您：
-- 推荐方案：安装更新补丁
+- 推荐方案：及时 [安装更新补丁](https://www.oracle.com/security-alerts/cpuoct2020.html)
 - 使用 Web 应用防火墙拦截防御此类 Weblogic 漏洞攻击。
 
 
 ## 参考信息
-如有需要，您可以查看 [官方安全更新公告](https://www.oracle.com/security-alerts/cpuoct2020.html) 并进行相关升级。
+更多信息，请参见 [官方安全更新公告](https://www.oracle.com/security-alerts/cpuoct2020.html) 。
