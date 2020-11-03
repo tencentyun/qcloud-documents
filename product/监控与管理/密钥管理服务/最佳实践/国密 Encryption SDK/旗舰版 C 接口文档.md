@@ -249,7 +249,7 @@ KMS 密钥保护方式基于 KMS 密钥管理平台实现，由 KMS 提供密钥
     <td>encryptionContext</td>
 	  <td>是</td>
     <td>char *</td>	
-		<td>用于标识 DataKey 的辅助字段，key/value 对的 JSON 字符串格式，最大支持2048字节。例如{"name":"test","date":"20200228"}</td>
+		<td>用于标识 DataKey 的辅助字段，key/value 对的 JSON 字符串格式，最大支持1024字节。例如{"name":"test","date":"20200228"}</td>
   </tr>
   <tr>
     <td>blockSize</td>
@@ -309,7 +309,7 @@ KMS 密钥保护方式基于 KMS 密钥管理平台实现，由 KMS 提供密钥
 | 参数名称          | 类型                      | 说明                                                         |
 | ----------------- | ------------------------- | ------------------------------------------------------------ |
 | algorithm         | enum                      | 算法枚举值，请参见 [加密算法列表](#test1)                           |
-| encryptionContext | char *                    | 用于标识 DataKey 的辅助字段，key/value 对的 JSON 字符串格式，最大支持2048字节。例如{"name":"test","date":"20200228"} |
+| encryptionContext | char *                    | 用于标识 DataKey 的辅助字段，key/value 对的 JSON 字符串格式，最大支持1024字节。例如{"name":"test","date":"20200228"} |
 | dataKeyNum        | int                       | 使用的加密后 DataKey 数量和有效的主密钥 CMK 数量相关，由各个地域的主密钥加密产生 |
 | dataKey           | Array of EncryptedDataKey | DataKey 的信息列表，详情请参见 [EncryptedDataKey 结构体说明](#test3) |
 | blockType         | enum                      | 密文加密分块的枚举值，用于标识该密文是否被分块，详情请参见 [BlockType 结构体说明](#test4) |
@@ -376,7 +376,7 @@ KMS 密钥保护方式基于 KMS 密钥管理平台实现，由 KMS 提供密钥
 - 返回值：解密成功则返回0，否则返回相应的 [错误码](#test2)。
 
 ### KMS 加密方式接口调用示例
-KMS 加密方式接口调用示例代码如下：
+KMS 密钥保护方式接口调用示例如下：
 ```
 #include<stdio.h>
 #include "kms_enc_sdk.h"
@@ -410,7 +410,7 @@ int CBCEnAndDeTest(struct KeyManager *p,unsigned char plaintext[],char masterKey
         memset(ch_cipher,0,sizeof(ch_cipher));
         memset(ch_dedata,0,sizeof(ch_dedata));
 
-        unsigned char encryptionContext[2048];
+        unsigned char encryptionContext[1024];
         memset(encryptionContext,0,sizeof(encryptionContext));
         i_cipherlen = 0;
         i_dedatalen = 0;
