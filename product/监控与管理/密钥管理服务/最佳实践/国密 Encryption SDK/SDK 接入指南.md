@@ -168,7 +168,7 @@ int CBCEnAndDeTest(struct KeyManager *p,unsigned char plaintext[],char masterKey
         memset(ch_cipher,0,sizeof(ch_cipher));
         memset(ch_dedata,0,sizeof(ch_dedata));
 
-        unsigned char encryptionContext[2048];
+        unsigned char encryptionContext[1024];
         memset(encryptionContext,0,sizeof(encryptionContext));
         i_cipherlen = 0;
         i_dedatalen = 0;
