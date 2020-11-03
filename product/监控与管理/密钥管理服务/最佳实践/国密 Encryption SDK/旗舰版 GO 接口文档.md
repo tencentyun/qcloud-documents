@@ -633,7 +633,7 @@ func main() {
 <td>加密后的数据</td>
 </tr>
 <tr>
-<td>Key</td>
+<td>key</td>
 <td>是</td>
 <td>[]byte</td>
 <td>用户自定义的 SM4 密钥，长度固定为128位(16字节)</td>
@@ -670,7 +670,7 @@ func main() {
 <td>原文数据</td>
 </tr>
 <tr>
-<td>Key</td>
+<td>key</td>
 <td>是</td>
 <td>[]byte</td>
 <td>用户自定义的 SM4 密钥，长度固定为128位(16字节)</td>
@@ -701,7 +701,7 @@ func main() {
 <td>加密后的数据</td>
 </tr>
 <tr>
-<td>Key</td>
+<td>key</td>
 <td>是</td>
 <td>[]byte</td>
 <td>用户自定义的SM4密钥，长度固定为128位(16字节)</td>
