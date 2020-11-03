@@ -7,9 +7,9 @@
 - [**身份证识别**](https://cloud.tencent.com/document/product/866/33524)
 - [**银行卡识别**](https://cloud.tencent.com/document/product/866/36216)
 - [**名片识别**](https://cloud.tencent.com/document/product/866/36214)
-- [**马来西亚身份证识别**](https://cloud.tencent.com/document/product/866/37656)
+- [**马来西亚身份证识别**](https://cloud.tencent.com/document/product/866/37656)（小程序 SDK 暂不支持）
 
-![图片](https://main.qcloudimg.com/raw/dd378199c8dbbff1360d9952dbbc2bca.png)（小程序 SDK 暂不支持）
+![图片](https://main.qcloudimg.com/raw/dd378199c8dbbff1360d9952dbbc2bca.png)
 
 后续将逐步加入更多文字识别能力，敬请期待！
 
