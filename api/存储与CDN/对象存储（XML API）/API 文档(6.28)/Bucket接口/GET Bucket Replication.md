@@ -52,7 +52,7 @@ Authorization: Auth String
 
 | 节点名称（关键字）       | 父节点                                    | 描述                                                         | 类型      | 是否必选 |
 | ------------------------ | ----------------------------------------- | ------------------------------------------------------------ | --------- | -------- |
-| ReplicationConfiguration | 无                                        | 说明所有跨地域配置信息                                       | Container | 是       |
+| ReplicationConfiguration | 无                                        | 说明所有复制配置信息                                      | Container | 是       |
 | Role                     | ReplicationConfiguration                  | 发起者身份标示：<br>`qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>` | String    | 是       |
 | Rule                     | ReplicationConfiguration                  | 具体配置信息，最多支持1000个，所有策略只能指向一个目标存储桶 | Container | 是       |
 | ID                       | ReplicationConfiguration.Rule             | 用来标注具体 Rule 的名称                                     | String    | 否       |
@@ -74,7 +74,7 @@ Authorization: Auth String
 
 #### 请求
 
-下述请求示例展示了从存储桶`originbucket-1250000000`中查询跨地域配置信息。
+下述请求示例展示了从存储桶`originbucket-1250000000`中查询配置信息。
 
 ```shell
 GET /?replication HTTP/1.1
