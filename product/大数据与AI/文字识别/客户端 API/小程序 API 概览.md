@@ -60,7 +60,7 @@ ocrSdk.start({
 
 | 参数名称                                | 参数简介       |    参数类型  |  默认值     |  是否必选   |
 | ------------------------------------- | ------------- | ----------- | ------     | -------- |
-| [getAuthorization](#getAuthorization:) | 获取临时密钥的方法 |   function  |  无    |  否（注：生产环境中强烈推荐使用该方法）  |
+| [getAuthorization](#getAuthorization:) | 获取临时密钥的方法 |   function  |  无    |  否（生产环境中推荐使用）  |
 | [secretId](#secretId:)                 | SecretId 密钥  |    string   |  无  |  否（注：仅推荐在本地开发时使用）   |
 | [secretKey](#secretKey:)               | SecretKey 密钥  |   string    |  无    |  否（注：仅推荐在本地开发时使用）   |
 | [ocrType](#ocrType:)                   | OCR 识别类型    |   ocrType  |  无  |  是   |
