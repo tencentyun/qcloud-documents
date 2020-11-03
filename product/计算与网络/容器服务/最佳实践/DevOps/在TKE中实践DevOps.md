@@ -150,6 +150,10 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops服务，下面将按�
 
 自定义 Deployment YAML 示例如下：
 
+> 提示：关于持续部署更新策略
+>
+> 本示例仅使用了一个简单的 Deployment  YAML 部署到 Kubernetes 集群，使用了默认的滚动部署（RollingUpdate）更新策略。实际上，可以借助 Nginx-ingress / Istio 等工具配置更高级的更新策略，如蓝绿发布、金丝雀、A/B 测试等，具体使用方法请参阅 [蓝绿发布](https://help.coding.net/docs/best-practices/cd/blue-green.html) 、 [Nginx-ingress 实现自动化灰度发布](https://help.coding.net/docs/best-practices/cd/nginx-ingress.html)、 [持续部署 + TKE Mesh 灰度发布实践](https://help.coding.net/docs/best-practices/cd/tke-mesh.html)。
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
