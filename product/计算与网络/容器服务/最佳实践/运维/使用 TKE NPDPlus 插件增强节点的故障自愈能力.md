@@ -8,11 +8,11 @@ NPD（node-problem-detector）是 Kubernetes 社区开源的集群节点的健�
 ## TKE NPDPlus 组件介绍
 在 TKE 中通过扩展组件的形式集成了 NPD，并且对 NPD 的能力做了增强，称为 NodeProblemDetectorPlus（NPDPlus）扩展组件。用户可以对已有集群一键部署 NPDPlus 扩展组件，也可以在创建集群的时候同时部署 NPDPlus。TKE 提取了可以通过特定形式发现节点异常的指标，并将其集成在 NPDPlus 中。例如，可以在 NPDPlus 容器中检测 Kubelet 和 Docker 的 systemd 状态，以及检测主机的文件描述符和线程数压力等。
 
-TKE 使用 NPDPlus 是为了能够提前发现节点的不可用状态，而不是当节点已经不健康后再上报状态。当用户在 TKE 集群中部署了 NPDPlus 后，使用命令 `kubectl describe node` 后会出现一些 Node Condition，例如，FDPressure 表示该节点上已经使用的文件描述符数量是否已经达到机器允许最大值的80%。ThreadPressure 表示节点上的线程数是否已经达到机器允许的90%等。用户可以监控这些 Condition，当异常状态出现时，提前采取规避策略。详情请参见 [Node Conditions](https://cloud.tencent.com/document/product/457/49422)。
+TKE 使用 NPDPlus 是为了能够提前发现节点的不可用状态，而不是当节点已经不健康后再上报状态。当用户在 TKE 集群中部署了 NPDPlus 后，使用命令 `kubectl describe node` 后会出现一些 Node Condition，例如，FDPressure 表示该节点上已经使用的文件描述符数量是否已经达到机器允许最大值的80%。ThreadPressure 表示节点上的线程数是否已经达到机器允许的90%等。用户可以监控这些 Condition，当异常状态出现时，提前采取规避策略。详情请参见 [Node Conditions](https://cloud.tencent.com/document/product/457/49422#node-conditions)。
 
 同时，Kubernetes 目前认为节点 NotReady 的机制依赖于 kube-controller-manager 的参数设定，当节点网络完全不通的情况下 Kubernetes 很难在秒级别发现节点的异常，在一些场景下（例如直播、在线会议等）是不能接受的。针对这种场景，NPDPlus 中继承了分布式节点健康检测功能，可以在秒级快速地检测节点网络状态，以及是否能在不依赖与 Kubernetes master 组件通信时，与其他节点相互通信。
 
-TKE NPDPlus 组件使用详情请参见 [NodeProblemDetectorPlus 使用方法](https://cloud.tencent.com/document/product/457/49422)。
+TKE NPDPlus 组件使用详情请参见 [NodeProblemDetectorPlus 使用方法](https://cloud.tencent.com/document/product/457/49422#.E4.BD.BF.E7.94.A8.E6.96.B9.E6.B3.95)。
 
 ## 节点自愈
 
