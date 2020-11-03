@@ -134,7 +134,7 @@ SDK 基于 OpenSSL1.0 改造，在 OpenSSL1.1 以上版本运行会有兼容性�
 > 2. 原生加密方法包含 SM2、SM3 及 SM4，详细的函数及参数说明请参见 [步骤3](#test) 下载的 SDK 头文件 kms_enc_sdk.h。
 
 ### 示例代码
-C KMS 的加解密示例代码如下：
+KMS 密钥保护方式接口调用示例如下：
 ```
 #include<stdio.h>
 #include "kms_enc_sdk.h"
