@@ -13,7 +13,7 @@ Serverless SSR 为您提供了完整的控制台开发应用流程，该任务�
  - 创建方式：支持 [**应用模版**](#1) 创建和 [**导入已有项目**](#2) 两种方式，您可以根据自己的实际情况，选择相应的创建方案。
  >?
  >- 目前只支持 Next.js、Nuxt.js 两个框架的项目部署。
- >- 导入已有项目时，如果您使用了 Express 等 web 框架替代默认的Web Server，需要做简单的改造，请看[自定义路由项目改造](https://cloud.tencent.com/document/product/1242/49214) 文档。
+ >- 导入已有项目时，如果您使用了 Express 等 web 框架替代默认的Web Server，需要做简单的改造，具体请参考 [自定义路由项目改造](https://cloud.tencent.com/document/product/1242/49214) 文档。
 4. 单击【创建】，Serverless SSR 将为您自动部署应用，您可以查看项目的部署日志。
 >?部署时如果跳出部署页面，将无法返回。
 
