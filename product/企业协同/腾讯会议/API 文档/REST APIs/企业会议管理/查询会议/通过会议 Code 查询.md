@@ -11,7 +11,7 @@
 |---------|---------|---------|---------|
 |meeting_code | 是 | String |有效的9位数字会议号码。|
 |userid | 是 | String |调用方用于标示用户的唯一 ID（例如企业用户可以为企业账户英文名、个人用户可以为手机号等）。|
-|instanceid | 是 | Integer |用户的终端设备类型。 <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序|
+|instanceid | 是 | Integer |用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序。|
 
 ## 输出参数
 
