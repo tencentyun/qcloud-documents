@@ -36,7 +36,7 @@
 2. 推送服务注册成功的日志如下：
 
 ```
-XG register push success with token:6ed8af8d7b18049d9fed116a9db9c71ab44d5565
+TPNS register push success with token:6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 ```
 
 若未搜索到 Token，请查看注册接口返回的错误码，根据 [错误码对照表](https://cloud.tencent.com/document/product/548/36660) 排查。
