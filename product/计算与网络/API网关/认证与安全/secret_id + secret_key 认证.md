@@ -11,11 +11,13 @@ API 创建完成后，您需要使用 “使用计划” 功能将密钥对与 A
 
 ## 计算方法
 ### 最终发送内容
-最终发送的 HTTP 请求内至少包含两个 header：Date 和 X-Date 二选一以及 Authorization，可以包含更多 header。
+最终发送的 HTTP 请求内至少包含两个 header：Date 和 X-Date 二选一以及 Authorization，可以包含 Source 等更多 header。
 
 Date header 的值为 GMT 格式的 HTTP 请求构造时间，例如 Fri, 09 Oct 2015 00:00:00 GMT。
 
 X-Date header 的值为 GMT 格式的 HTTP 请求构造时间，例如 Mon, 19 Mar 2018 12:08:40 GMT。15分钟超时。
+
+Source header 代表签名水印值，可以填写任意值或不填写。
 
 Authorization header 的形如 `Authorization: hmac id="secret_id", algorithm="hmac-sha1", headers="date source", signature="Base64(HMAC-SHA1(signing_str, secret_key))"`。
 
@@ -59,7 +61,7 @@ source: AndriodApp
 ## 注意事项
 
 ### header 对应
-Authorization 中 headers 位置填入的需要是参与计算签名的 header 的名称，并建议转换为小写，以 ascii 空格分隔。
+Authorization 中 headers 位置填入的需要是参与计算签名的 header 的名称，并建议转换为小写，以 ascii 空格分隔。例如，参与计算的 header 为 date 和 source时，此位置的形式为 headers="date source"；参与计算的 header 仅为 x-date 时，此位置的形式为 headers="x-date"。
 
 ### 签名内容生成
 排列内容时，请注意 header 名后面跟的冒号和空格，如有遗失也可能导致校验无法通过。SecretId、SecretKey、URL、Host 需要修改为真实信息。 
