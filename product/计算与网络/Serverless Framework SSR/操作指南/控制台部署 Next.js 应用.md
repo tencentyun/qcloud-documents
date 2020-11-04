@@ -7,9 +7,9 @@ Serverless SSR 为您提供了完整的控制台开发应用流程，该任务�
 1. 登录 [Serverless SSR 控制台](https://console.cloud.tencent.com/ssr)。
 2. 单击【新建应用】 ，进入项目创建页面。
 3. 根据页面提示，填写应用基本信息。
- - 应用名：2 - 63个字符，只能包含小写字母、数字及分隔符“-”、且必须以小写字母开头，数字或小写字母结尾。
- - 环境：选择 dev、test、prod 任一种方式，也支持自定义环境
- - 地域：与云函数支持地域相同，相见[地域列表](https://cloud.tencent.com/document/api/583/17238#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)
+ - 应用名：2 - 63个字符，只能包含小写字母、数字及分隔符“-”、且必须以小写字母开头，数字或小写字母结尾。创建后不可更改。
+ - 环境：选择 dev、test、prod 任一种方式，也支持自定义环境。
+ - 地域：与云函数支持地域相同，详情请参考 [地域列表](https://cloud.tencent.com/document/api/583/17238#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
  - 创建方式：支持 **[应用模版](#1)** 创建和 **[导入已有项目](#2)** 两种方式，您可以根据自己的实际情况，选择相应的创建方案。
  >?
  >- 目前只支持 Next.js、Nuxt.js 两个框架的项目部署。
@@ -34,23 +34,25 @@ Serverless SSR 为您提供了完整的控制台开发应用流程，该任务�
  Serverless SSR 支持您通过**代码托管导入**和**文件夹上传**两种方式实现已有项目迁移，目前支持 Next.js 和 Nuxt.js 两个 SSR 框架。
  
  - 代码托管
- 目前支持 **GitHub、GitLab、Gitee** 的代码仓库地址，也支持公开的自定义代码库，您可以通过选择应用的触发方式，完成应用的自动更新，详细文档请参考[项目触发方式管理]()。
- ![](https://img.serverlesscloud.cn/2020112/1604291862303-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-11-02%2012.36.38.png)
+ 目前支持 **GitHub、GitLab、Gitee** 的代码仓库地址，也支持公开的自定义代码库，您可以通过选择应用的触发方式，完成应用的自动更新，详情请参考 [项目触发方式管理]()。
+ ![](https://main.qcloudimg.com/raw/120257e5c810fb9050965806f37fae0b.png)
  
  - 文件夹上传
  您可以通过上传文件夹的方式直接导入本地项目，Serverless SSR 将自动为您创建层，并将依赖包 node_modules 传入层中完成部署。
- ![](https://img.serverlesscloud.cn/2020112/1604291867476-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-11-02%2012.36.56.png)
+ ![](https://main.qcloudimg.com/raw/3ad3998d05ec22d309b3fe60505f069c.png)
 
 
    
 ### 步骤2：资源管理
 在 [Serverless 应用](https://console.cloud.tencent.com/ssr) 页面，单击目标 Next.js 应用进入应用详情页，查看项目部署后输出的基本信息、项目请求次数、项目报错统计等多项监控指标，方便您轻松实现项目的管理运维。
- ![](https://img.serverlesscloud.cn/2020112/1604292155305-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-11-02%2012.40.12.png)
+<img src="https://main.qcloudimg.com/raw/b55916d9b944ce1281e5530c1db54115.png" width="770px">
+
 
 
 ### 步骤3：开发部署
-点击"开发部署"标签页，您可以轻松地实现应用的配置修改与二次部署上传，支持**本地上传、代码托管、cli开发**三种方式。
-![](https://img.serverlesscloud.cn/2020112/1604292318164-%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202020-11-02%2012.43.47.png)
+在应用详情页顶部，单击【开发部署】，您可以轻松地实现应用的配置修改与二次部署上传，支持**本地上传、代码托管、CLI 开发**三种方式。
+<img src="https://main.qcloudimg.com/raw/5b727ac0d6715f339574e37d3580ac89.png" width="770px">
+
 
 ## 自定义路由项目改造指引
 
