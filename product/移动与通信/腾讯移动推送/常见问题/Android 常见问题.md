@@ -87,11 +87,11 @@ TPNS 推荐使用 Intent 方式进行跳转（注：SDK 点击消息默认支持
 ![](https://main.qcloudimg.com/raw/a904c7c7917fb7d69bf741f7b6e52099.png)
  - 若使用服务端 SDK ，设置 Intent 进行跳转，可设置 Intent 为（以 Java SDK 为例）：
 ```
-action.setIntent("xgscheme://com.xg.push/notify_detail");
+action.setIntent("xgscheme://com.tpns.push/notify_detail");
 ```
  - 若需要带上 param1 和 param2 等参数，您可以做如下设置：
 ```
-action.setIntent("xgscheme://com.xg.push/notify_detail?param1=aa&param2=bb");
+action.setIntent("xgscheme://com.tpns.push/notify_detail?param1=aa&param2=bb");
 ```
 
 **终端获取参数**：
@@ -114,7 +114,7 @@ Uri uri = getIntent().getData();
    sanitizer.parseUrl(url);
    String value1 = sanitizer.getValue("key1");
    String value2 = sanitizer.getValue("key2");
-   Log.i("XG" , "value1 = " + value1 + " value2 = " + value2);
+   Log.i("TPNS" , "value1 = " + value1 + " value2 = " + value2);
 }
 ```
 
