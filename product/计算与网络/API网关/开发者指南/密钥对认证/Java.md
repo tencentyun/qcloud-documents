@@ -177,7 +177,7 @@ public class SignAndSend {
             // 打开和 URL 之间的连接
             URLConnection connection = realUrl.openConnection();
             httpUrlCon = (HttpURLConnection)connection;
-            // 设置通用的请求属性，Source是签名水印值，可填写任意值，Demo中使用“xxxxxx”
+            // 设置通用的请求属性，Source 是签名水印值，可填写任意值，Demo 中使用“xxxxxx”
             httpUrlCon.setRequestProperty("Host", url);
             httpUrlCon.setRequestProperty("Accept", "text/html, */*; q=0.01");
             httpUrlCon.setRequestProperty("Source","xxxxxx");
