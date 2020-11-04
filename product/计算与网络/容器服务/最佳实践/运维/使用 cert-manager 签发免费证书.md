@@ -7,9 +7,7 @@
 ### cert-manager 工作原理
 
 cert-manager 部署到 Kubernetes 集群后会查阅其所支持的自定义资源 CRD，可通过创建 CRD 资源来指示 cert-manager 签发证书并为证书自动续期。如下图所示：
-
-<img style="width:80%" src="https://cert-manager.io/images/high-level-overview.svg" data-nonescope="true">
-
+![](https://main.qcloudimg.com/raw/f4e57b54c56515446c86ba05e7bc8f6c.svg)
 - **Issuer/ClusterIssuer**：用于指示 cert-manager 签发证书的方式，本文主要讲解签发免费证书的 ACME 方式。
 >? Issuer 与 ClusterIssuer 之间的区别是：Issuer 只能用来签发自身所在 namespace 下的证书，ClusterIssuer 可以签发任意 namespace 下的证书。
 >
