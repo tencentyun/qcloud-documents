@@ -3,7 +3,7 @@
 
 可单击下方按钮一键部署：
 
-<div style="background-color:#00A4FF; width: 125px; height: 35px; line-height:35px; text-align:center;"><a href="(https://console.cloud.tencent.com/tcb/env/index?action=CreateAndDeployCloudBaseProject&appUrl=https%3A%2F%2Fgithub.com%2FTencentCloudBase%2Fcloudbase-examples&workDir=cloudbaserun%2Fpython&appName=python-hello-world" target="_blank"  style="color: white; font-size:13px;">部署到云开发</a></div>
+<div style="background-color:#00A4FF; width: 125px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/tcb/env/index?action=CreateAndDeployCloudBaseProject&appUrl=https%3A%2F%2Fgithub.com%2FTencentCloudBase%2Fcloudbase-examples&workDir=cloudbaserun%2Fpython&appName=python-hello-world" target="_blank"  style="color: white; font-size:13px;">部署到云开发</a></div>
 
 
 ## 第 1 步：编写基础应用
