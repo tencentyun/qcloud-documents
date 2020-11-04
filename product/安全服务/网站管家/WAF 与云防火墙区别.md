@@ -1,7 +1,7 @@
 <table>
 <thead>
 <tr>
-<th style ="width:95px;height:45px;position:relative;text-align:left;padding:5px 7px;font-weight:900;" valign="top" rowspan="2"><div style="position:absolute;width:1px;height:128px;top:0;left:0;background-color: #d9d9d9;display:block;transform:rotate(-57deg);transform-origin:top;valign=top;"  ></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;产品<br>对比项</th>
+<th style ="width:95px;height:45px;position:relative;text-align:left;padding:5px 7px;font-weight:900;" valign="top" rowspan="2"><div style="position:absolute;width:1px;height:128px;top:0;left:0;background-color: #d9d9d9;display:block;transform:rotate(-53deg);transform-origin:top;valign=top;"  ></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;产品<br><br>对比项</th>
 <th colspan="2">腾讯云 Web 应用防火墙（WAF）</th>
 <th rowspan="2">腾讯云防火墙（CFW）</th>
 </tr>
