@@ -227,7 +227,7 @@ scp $localfile root@公网IP地址:$remotefolder
 ## 4. 准备数据并运行样例
 使用 sparkSQL 来操作存放在 HDFS 上的数据。首先将数据上传到 HDFS 中，这里我们使用自带的文件 people.json，存放在路径`/usr/local/service/spark/examples/src/main/resources/`下，使用如下指令把该文件上传到 HDFS 中：
 ```
-[hadoop@10 hadoop]$ hadoop fs -put "/usr/local/service/spark/examples/src/main/resources/people.json 
+[hadoop@10 hadoop]$ hadoop fs -put /usr/local/service/spark/examples/src/main/resources/people.json 
 /user/hadoop
 ```
 测试文件用户也可以另选，这里`/user/hadoop/`是 HDFS 下的文件夹，如果没有用户可以自己创建。
