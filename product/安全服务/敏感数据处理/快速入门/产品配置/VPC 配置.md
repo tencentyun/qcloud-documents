@@ -1,7 +1,7 @@
 为了确保您的 VPC 网络和 DMask 所属 VPC 网络互通，需要完成 “对等连接” 和 “路由表” 配置。
 
 ## 配置对等连接
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【云计算与网络】>【私有网络】，进入私有网络控制台。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/conn?rid=1)。
 2. 在左侧导航中单击【对等连接】，单击【新建】。
 ![](https://main.qcloudimg.com/raw/d4f8200e3ff795c9d27846dc708ee53b.png)
 3. 在弹出框中，填写配置项，配置完毕后，单击【创建】。配置项填写说明如下：
@@ -16,7 +16,7 @@
 
 ## 配置路由表
 配置完对等连接后，开始配置 “路由表”。
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【云计算与网络】>【私有网络】，进入私有网络控制台。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/route?rid=1)。
 2. 在左侧导航中单击【路由表】，单击【新建】。
 ![](https://main.qcloudimg.com/raw/200659eb4a69897efc9b6c843c9de7fb.png)
 3. 在弹出框中，填写配置项，配置完毕后，单击【创建】。配置项填写说明如下：
