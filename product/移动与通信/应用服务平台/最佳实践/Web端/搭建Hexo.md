@@ -1,4 +1,5 @@
-### 步骤1：安装 CloudBase CLI 以及本地部署 Hexo
+
+## 步骤1：安装 CloudBase CLI 以及本地部署 Hexo
 1. 在本地安装 Node.js：如果未安装则前往 [NodeJS官网](https://nodejs.org) 下载安装。确保 Node.js 安装成功。
 2. 打开命令提示符，执行如下命令：
 ```
@@ -20,7 +21,7 @@ hexo s
 
 
 
-### 步骤2：创建云开发环境
+## 步骤2：创建云开发环境
 1. 打开浏览器，进入腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb)，单击【立即创建】，新建一个环境来进行部署。
 ![](https://main.qcloudimg.com/raw/373ce011bfad392b5c2fedd8008bb6f5.png)
 如果您之前创建过环境，可以继续使用已创建的**按量计费**环境，或者再次新建环境。
@@ -35,7 +36,7 @@ hexo s
 
 
 
-### 步骤3：初始化云开发 CLI
+## 步骤3：初始化云开发 CLI
 1. 打开命令提示符，输入如下代码：
 ```
 cloudbase login
@@ -45,7 +46,7 @@ cloudbase login
 
 
 
-### 步骤4：构建 Hexo 部署文件
+## 步骤4：构建 Hexo 部署文件
 1. 打开命令提示符，定位到步骤一新建的Hexo目录中，执行如下代码：
 ```
 Hexo g
@@ -59,7 +60,7 @@ cloudbase hosting:deploy public -e [EnvID]
 ![](https://main.qcloudimg.com/raw/a3835aacdbde4049d2cced769af62e17.png)
 
 
-### 步骤5：浏览部署的 Hexo
+## 步骤5：浏览部署的 Hexo
 1. 打开浏览器，进入 [腾讯云·云开发控制台](https://console.cloud.tencent.com/tcb)，单击部署的云开发环境，进入后单击左侧栏的【网站托管】-【设置】，在域名信息中找到默认域名。
 ![](https://main.qcloudimg.com/raw/ebd5e516a098daf471507f7e149996ea.png)
 2. 在浏览器中打开此链接，则看到线上部署好的 Hexo 博客。

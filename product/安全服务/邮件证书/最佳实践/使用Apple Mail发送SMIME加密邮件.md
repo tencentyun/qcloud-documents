@@ -1,13 +1,13 @@
 
 
-本文档将指导您如何在 macOS 系统下使用 Apple Mail 发送 [S/MIME](https://cloud.tencent.com/document/product/1325/49416) 加密邮件。
+本文档将指导您如何在 macOS 系统下使用 Apple Mail 发送 [S/MIME](https://cloud.tencent.com/document/product/1325/49418) 加密邮件，本文以 macOS 10.13.6 版本为例进行说明。
 
 ## 前提条件
 已 [申请购买邮件（S/MIME）证书](https://cloud.tencent.com/apply/p/cn69mmv599k)。
 
 ## 操作步骤
 ### 步骤1：安装证书文件
-1. 购买邮件（S/MIME）证书后，线下业务人员将发送给您邮件证书压缩包，获取邮件证书压缩包至 macOS 系统，并进行解压。
+1. 购买邮件（S/MIME）证书并通过信息审核后，线下业务人员将发送给您邮件证书压缩包，获取邮件证书压缩包至 macOS 系统，并进行解压。
 2. 在 Finder 中，双击 \*.p12 后缀文件，打开“钥匙串访问”应用程序。（文件扩展名是 .p12）。
 3. 在提示框中，输入\*.p12 后缀证书文件的使用密码，单击【OK】。
 >?密码可在邮件证书压缩包中获取。

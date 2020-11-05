@@ -5,7 +5,7 @@
 
 - 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629) 。
 - 进入 [文字识别控制台](https://console.cloud.tencent.com/ocr/general)，即可开通相应服务，并在 [账号中心](https://console.cloud.tencent.com/cam/capi) 获取 API 密钥。
-- 并将 orc_demo 文件下载到本地。
+- 并将 OcrDemo 文件下载到本地。
 
 
 ### 环境要求
@@ -21,7 +21,7 @@
 
 #### 步骤1：导入工程
 
-打开微信开发者工具，导入 orc_demo 项目工程
+打开微信开发者工具，导入 OcrDemo 项目工程
 
 #### 步骤2：若使用真机调试，请在开发者工具中登录您的微信开发者账号
 

@@ -15,7 +15,7 @@ Android 超级播放器 SDK 是腾讯云开源的一款播放器组件，简单�
 ### aar 集成
 
 1. 下载 SDK + Demo 开发包，项目地址为 [Android](https://github.com/tencentyun/SuperPlayer_Android)。
-2. 导入`SDK/LiteAVSDK_XXX.aar`以及`Demo/player/libs/libsuperplayer.aar`到工程中去。
+2. 导入`SDK/LiteAVSDK_XXX.aar` 以及 `Demo/superplayerkit` 这个 module 复制到工程中。
 3. 在`app/build.gralde`中添加依赖：
 ```java
 compile(name: 'LiteAVSDK_Professional', ext: 'aar')

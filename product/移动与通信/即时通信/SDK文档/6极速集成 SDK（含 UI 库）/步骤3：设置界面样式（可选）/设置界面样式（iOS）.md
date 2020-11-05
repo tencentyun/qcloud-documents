@@ -110,7 +110,7 @@ vc.messageController.view.backgroundColor = [UIColor greenColor];
 ```objectivec
 // 设置接收消息的昵称字体；设置发送的方法类似，但默认情况下不显示发送方的昵称
 [TUIMessageCellData setIncommingNameFont:[UIFont systemFontOfSize:20]];
-[TUIMessageCellData setOutgoingTextColor:[UIColor redColor]];
+[TUIMessageCellData setIncommingNameColor:[UIColor redColor]];
 ```
 
 

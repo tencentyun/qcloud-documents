@@ -284,3 +284,5 @@ int SetRecordKaraokeType(int type)
 | ------------- |:-------------:|-------------
 | type    		|int |此类型同等于实时语音音效中的K歌音效特效类型，具体可参考 [K 歌音效特效](https://cloud.tencent.com/document/product/607/34378#k-.E6.AD.8C.E9.9F.B3.E6.95.88.E7.89.B9.E6.95.88)。|
 
+
+

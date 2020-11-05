@@ -1,3 +1,4 @@
+
 ## 简介
 FDW（FOREIGN DATA WRAPPER，外部数据包装器）是 PostgreSQL 提供用于访问外部数据源的一类插件，外部数据源包括本实例其他库中数据或者其他实例的数据。
 FDW 插件有很多分类，根据不同目标数据库实例类型可以定义不同的 FDW 插件，例如：postgres_fdw、mysql_fdw、mongo_fdw 等。使用过程包含以下步骤：
