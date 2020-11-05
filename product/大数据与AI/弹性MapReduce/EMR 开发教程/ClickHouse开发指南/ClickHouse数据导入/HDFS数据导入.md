@@ -25,7 +25,7 @@ ENGINE = HDFS('hdfs://172.30.1.146:4007/clickhouse/globs/*.csv', 'CSV')
 
 HDFS Engine 使用方法`ENGINE = HDFS(URI, format)`，可参考 [Table Engine HDFS](https://clickhouse.tech/docs/en/operations/table_engines/hdfs/)。
 
-`URI`为 HDFS 路径，如果包含通配符，则表是只读的。通配符的文件匹配在查询时执行，而不是在创建表时执行。也就是说，只有两次查询之间匹配的文件数目或者内容有变化，两次查询的结果才能够体现这种差异。支持的通配符如下：
+`URI`为 HDFS 路径，如果包含通配符，则表是只读的。通配符的文件匹配在查询时执行，而不是在创建表时执行。也就是说，如果两次查询之间匹配的文件数目或者内容有变化，两次查询的结果才能够体现这种差异。支持的通配符如下：
 - `*`匹配除路径分隔符`/`外的任意数量的字符，包括空字符串。
 - `?`匹配一个字符。
 - `{some_string,another_string,yet_another_one}`匹配`some_string`、`another_string`或者`yet_another_one`。
