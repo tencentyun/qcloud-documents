@@ -1,5 +1,5 @@
 ## 组件介绍
-TRTCCalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯云信令 SDK（TSignalling）组合而成，支持1V1，多人场景下的语音通话。TRTCCalling 是一个开源组件，依赖闭源的信令SDK（TSignalling）进行状态管理，通过 C2C 通信，完成信令传递。组件可快速服务线上客服，咨询，医疗问诊，跨端实时通话等应用场景。您可前往 [【Github】](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini/TRTCScenesDemo)或单击 [【ZIP】](https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/TRTC_WXMini_latest.zip)，下载相关 SDK 及配套的 Demo 源码。
+TRTCCalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯云信令 SDK（TSignalling）组合而成，支持1V1，多人场景下的语音通话。TRTCCalling 是一个开源组件，依赖闭源的信令 SDK（TSignalling）进行状态管理，通过 C2C 通信，完成信令传递。组件可快速服务线上客服，咨询，医疗问诊，跨端实时通话等应用场景。您可前往 [【Github】](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini/TRTCScenesDemo)或单击 [【ZIP】](https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/TRTC_WXMini_latest.zip)，下载相关 SDK 及配套的 Demo 源码。
 ![](https://main.qcloudimg.com/raw/6b1368e2186abcd5126fc1c165f2fb78.png)
 
 ## TRTCCalling API 概览
@@ -35,8 +35,8 @@ TRTCCalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯�
 
 | API | 描述 |
 |---------|---------|
-|[login()](#login) | 初始化信令SDK，执行后才能正常进行信令收发。 |
-|[logout()](#logout)|登出信令SDK，执行后不再能收发信令。|
+|[login()](#login) | 初始化信令 SDK，执行后才能正常进行信令收发。 |
+|[logout()](#logout)|登出信令 SDK，执行后不再能收发信令。|
 |[hangup()](#hangup)|结束当前通话。|
 |[setMicMute(isMute)](#setMicMute)|设置麦克风状态。<li/>当 isMute 取值为 true：关闭麦克风。<li/>当 isMute 取值为 false：打开麦克风。|
 |[setHandsFree(isHandsFree)](#setHandsFree)|设置声音播放状态。<li/>当 isHandsFree 取值为 true：外放模式。<li/>当 isHandsFree 取值为 false： 听筒模式。|
@@ -165,6 +165,7 @@ TRTCCallingContext.on(EVENT.INVITED, () => {
 TRTCCallingContext.hangup()
 ```
 
+<span id="setMicMute"></span>
 ####  setMicMute(isMute) 
 设置麦克风状态。
 

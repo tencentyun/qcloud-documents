@@ -50,6 +50,9 @@ cd /etc/nginx/conf.d
 cp default.conf default.conf.bak
 ```
 5. 执行以下命令，打开 default.conf 文件。
+```
+vim default.conf
+```
 6. 按 **i** 切换至编辑模式，编辑 default.conf 文件。
   1. 在 location 的 index 项中添加 index.php。如下图所示：
 ![](https://main.qcloudimg.com/raw/32df0b8ba82278cd96cf86152738677e.png)

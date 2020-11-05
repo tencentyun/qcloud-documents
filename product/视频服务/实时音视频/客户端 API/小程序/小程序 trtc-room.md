@@ -652,10 +652,10 @@ trtcRoomContext.setViewVisible({
 |:-----------|:-------|:-------|:------------------------------------------------------------------|
 | userID     | String | -      | 必填，用户 ID。                                                        |
 | streamType | String | -      | 设置远端用户时必填，远端用户的流类型，可选值：<li>main：主流。</li><li>aux：辅流（屏幕分享）。</li>   |
-| xAxis      | Number | -      | 可选，视图的横坐标。                                                   |
-| yAxis      | Number | -      | 可选，视图的纵坐标。                                                   |
-| width      | Number | -      | 可选，设置视图的宽度。                                                 |
-| height     | Number | -      | 可选，设置视图的高度。                                                 |
+| xAxis      | String | -      | 可选，视图的横坐标。                                                   |
+| yAxis      | String | -      | 可选，视图的纵坐标。                                                   |
+| width      | String | -      | 可选，设置视图的宽度。                                                 |
+| height     | String | -      | 可选，设置视图的高度。                                                 |
 
 **返回值：**
 
@@ -666,9 +666,9 @@ Promise
 trtcRoomContext.setViewRect({
   userID: 'xxx',
   streamType: 'main',
-  xAxis: '480rpx',
-  yAxis: '160rpx',
-  width: '240rpx',
+  xAxis: '480rpx', 
+  yAxis: '160rpx', 
+  width: '240rpx', 
   height: '320rpx',
 }).then((event)=>{
   // 设置成功

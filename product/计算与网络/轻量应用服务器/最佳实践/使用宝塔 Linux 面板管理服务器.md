@@ -9,7 +9,7 @@
 
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)。
 2. 单击【新建】，进入轻量应用服务器购买页面。
-![](https://main.qcloudimg.com/raw/8c7cdaa5f02eb1b77a1fad36004a2baf.png)
+![](https://main.qcloudimg.com/raw/0a9919c73ecc4ee41f761c2dab923f2d.png)
  - **地域**：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，地域选择 “广州”。
  - **镜像**：选择 “宝塔Linux面板 7.2.0” 应用镜像。
  - **实例套餐**：按照所需的服务器配置（CPU、内存、系统盘、峰值带宽、每月流量），选择一种实例套餐。
@@ -32,7 +32,7 @@
 ![](https://main.qcloudimg.com/raw/398a98028b70d1697fa20c14782c2b23.png)
 11. 复制并记录宝塔 Linux 面板的用户名与密码（即 “username” 和 “password”）。
 12. 关闭登录窗口，并返回该实例的应用管理详情页。
-13. 在“应用内软件信息”栏中，单击宝塔 Linux 面板的【首页地址】，进入宝塔面板页面。
+13. 在“应用内软件信息”栏中获取宝塔 Linux 面板的【首页地址】，并使用浏览器访问，进入宝塔面板页面。
 ![](https://main.qcloudimg.com/raw/60f0f6af7d4e2d085b142593349903fb.png)
 14. 输入记录的用户名与密码（即 “username” 和 “password”），单击【登录】。
 15. 根据实际的业务需求，在面板中选择相关的套件安装和部署网站。

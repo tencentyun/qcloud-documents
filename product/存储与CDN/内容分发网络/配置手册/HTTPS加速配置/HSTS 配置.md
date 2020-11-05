@@ -12,7 +12,7 @@ HSTS 即 HTTP Strict Transport Security，是国际互联网工程组织 IETE �
 
 ## 配置指南
 
-登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面，第四栏【Https 配置】中可看到 HSTS 配置模块，默认情况下为关闭状态：
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面，【Https 配置】中可看到 HSTS 配置模块，默认情况下为关闭状态：
 ![](https://main.qcloudimg.com/raw/f9c2e5d2796fc254ae316bd560bcf2c3.png)
 单击开启，可进行相关配置：
 ![](https://main.qcloudimg.com/raw/cdcc8afd16cb9fe284eb307db8022fa7.png)
