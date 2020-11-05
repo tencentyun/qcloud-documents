@@ -32,7 +32,7 @@
 |meeting_id   |String| 会议的唯一标示。  |
 |meeting_code    |String| 会议 App 的呼入号码。  |
 |password   |String | 会议密码。  |
-|status|String|当前会议状态：<br>MEETING_STATE_INVALID：非法或未知的会议状态，错误状态。<br>  MEETING_STATE_INIT：会议待开始。会议预定到预定结束时间前，会议尚无人进会。<br>  MEETING_STATE_CANCELLED：会议已取消。主持人主动取消会议，待开始的会议才能取消，且取消的会议无法再进入。<br> MEETING_STATE_STARTED：会议已开始。会议中有人则表示会议进行中。<br>MEETING_STATE_ENDED：会议已删除。会议已过预定结束时间且尚无人进会时，主持人主动删除会议，已删除的会议无法再进入。<br>MEETING_STATE_NULL：会议无状态。会议已过预定结束时间，会议尚无人进会。<br>MEETING_STATE_RECYCLED：会议已回收。会议已过预定开始时间30天，则会议号将被后台回收，无法再进入。|
+|status|String|当前会议状态：<br>MEETING_STATE_INVALID：<br> 非法或未知的会议状态，错误状态。<br>  MEETING_STATE_INIT：<br> 会议待开始。会议预定到预定结束时间前，会议尚无人进会。<br>  MEETING_STATE_CANCELLED：<br> 会议已取消。主持人主动取消会议，待开始的会议才能取消，且取消的会议无法再进入。<br> MEETING_STATE_STARTED：<br> 会议已开始。会议中有人则表示会议进行中。<br>MEETING_STATE_ENDED：<br> 会议已删除。会议已过预定结束时间且尚无人进会时，主持人删除会议，已删除的会议无法再进入。<br>MEETING_STATE_NULL：<br> 会议无状态。会议已过预定结束时间，会议尚无人进会。<br>MEETING_STATE_RECYCLED：<br> 会议已回收。会议已过预定开始时间30天，则会议号将被后台回收，无法再进入。|
 |type   |Integer  | 会议类型：<br>0：预约会议类型<br>1：快速会议类型。   |
 |hosts   |用户对象数组  | 会议主持人列表。   |
 |participants  |用户对象数组 |邀请的参会者。 |
