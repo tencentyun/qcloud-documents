@@ -15,7 +15,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 <table>
         <thead>
         <tr>
-            <th width="9%">类型</th>
+            <th width="11%">类型</th>
             <th width="3%">实例</th>
             <th width="17%">GPU 类型</th>
             <th width="34%">可用镜像</th>
@@ -27,46 +27,44 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td rowspan="8">计算型</td>
                 <td rowspan="2">GN10X<br>GN10Xp</td> 
                 <td>Tesla V100 NVLink 32G</td>
-                <td>CentOS 7.2 及以上<br>Ubuntu 14.04 及以上<br>Windows Server 2012 及以上</td>
+                <td><ul class="params"><li>CentOS 7.2 及以上</li><li>Ubuntu 14.04 及以上</li><li>Windows Server 2012 及以上</li></td>
                 <td><ul class="params"><li>GN10X：广州、上海、南京、北京、成都、重庆、新加坡、硅谷、法兰克福、孟买</li><li>GN10Xp：广州、上海、南京、北京、成都、重庆、香港、法兰克福</li></ul></td>
             </tr>
             <tr>
 				<td>vGPU - Tesla V100 NVLink 32G</td> 
-                <td>CentOS 7.6 64位 GRID91<br>Ubuntu Server 18.04.1 64位 GRID91</td>
+                <td><ul class="params"><li>CentOS 7.6 64位 GRID91</li><li>Ubuntu Server 18.04.1 64位 GRID91</li></ul></td>
                 <td><ul class="params"><li>GN10X：广州、上海、南京、北京、成都、重庆</li><li>GN10Xp：广州、上海、南京、北京、成都、重庆、香港</li></ul></td>
 			</tr>
             <tr>
                 <td>GN8</td> 
                 <td>Tesla P40</td>
-                <td>CentOS 7.2 及以上<br>Ubuntu 14.04 及以上<br>Windows Server 2012 及以上</td>
+                <td  rowspan=2><ul class="params"><li>CentOS 7.2 及以上</li><li>Ubuntu 14.04 及以上</li><li>Windows Server 2012 及以上</li></td>
                 <td>广州、上海、北京、成都、重庆、香港、硅谷</td>
             </tr>
             <tr>
                 <td rowspan="2">GN7</td> 
                 <td>Tesla T4</td>
-                <td>CentOS 7.2 及以上<br>Ubuntu 14.04 及以上<br>Windows Server 2012 及以上</td>
                 <td>广州、上海、南京、北京、成都、重庆、香港、新加坡、硅谷、孟买、弗吉尼亚、法兰克福</td>
             </tr><tr>
 				<td>vGPU - Tesla T4</td> 
-                <td>CentOS 7.6 64位 GRID91<br>Ubuntu Server 18.04.1 64位 GRID91</td>
+                <td><ul class="params"><li>CentOS 7.6 64位 GRID91</li><li>Ubuntu Server 18.04.1 64位 GRID91</li></td>
                 <td>广州、上海、南京、北京、成都、重庆、香港、硅谷</td>
 			</tr><tr>
             </tr><tr>
                 <td>GN6<br>GN6S</td> 
                 <td>Tesla P4</td>
-            	<td>CentOS 7.2 及以上<br>Ubuntu 14.04 及以上<br>Windows Server 2012 及以上</td>
+            	<td  rowspan=2><ul class="params"><li>CentOS 7.2 及以上</li><li>Ubuntu 14.04 及以上</li><li>Windows Server 2012 及以上</li></td>
                 <td><ul class="params"><li>GN6：成都</li><li>GN6S：广州、上海、北京</li></ul></td>
             </tr>
                 <tr><td>GN2</td> 
                 <td>Tesla M40</td>
-                <td>CentOS 7.2 及以上<br>Ubuntu 14.04 及以上<br>Windows Server 2012 及以上</td>
                 <td>广州、北京、上海</td>
             </tr>
             <tr>
                 <td>渲染型</td>
                 <td>GN7vw</td> 
                 <td>Tesla T4</td>
-                <td>CentOS 7.6 64位 GRID91<br>Ubuntu Server 18.04.1 64位 GRID91<br>Windows Server 2016数据中心版 64位中文版 GRID93</td>
+                <td><ul class="params"><li>CentOS 7.6 64位 GRID91</li><li>Ubuntu Server 18.04.1 64位 GRID91</li><li>Windows Server 2016数据中心版 64位中文版 GRID93</li></td>
                 <td>北京、上海、广州、南京、成都、重庆、香港、新加坡、孟买、硅谷、弗吉尼亚、法兰克福</td>
             </tr>
         </tbody>
