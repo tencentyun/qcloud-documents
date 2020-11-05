@@ -6,18 +6,18 @@
 
 <span id="1"></span>
 ## 操作步骤
-转储 Elasticsearch 的方案将使用 SCF 的 Ckafka 触发器进行，通过 Ckafka 触发器消息转储到 Elasticsearch。
+转储 Elasticsearch 的方案将使用 SCF 的 Ckafka 触发器进行，通过 Ckafka 触发器将消息转储到 Elasticsearch。
 1. 登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在实例列表页，单击目标实例 ID，进入**topic 管理**标签页。
 3. 在 topic 管理标签页，单击操作列的【消息转储】。
-4. 单击【添加消息转储】，选择转储类型为 Elasticsearch
-![](https://main.qcloudimg.com/raw/7638234c13feea1c4266cb491adc713d.png)
+4. 单击【添加消息转储】，选择转储类型为 Elasticsearch。
+![](https://main.qcloudimg.com/raw/ef35ef87117791731fffff3b6c8a28ff.png)
  - 起始位置：转储时历史消息的处理方式，topic offset 设置。
  - 角色授权：使用云函数 SCF 产品功能，您需要授予一个第三方角色代替您执行访问相关产品权限。
  - 云函数授权：知晓并同意开通创建云函数，该函数创建后需用户前往云函数设置更多高级配置及查看监控信息。
- - 自建集群：如ES集群为自建集群，请将自建集群开关保持开启状态，并填写示例IP。如 Elasticsearch 集群为腾讯云集群，则直接选取相关集群信息即可。
+ - 自建集群：如 ES 集群为自建集群，请将自建集群开关保持开启状态，并填写示例 IP。如 Elasticsearch 集群为腾讯云集群，则直接选取相关集群信息即可。
  - 实例集群：选取腾讯云 Elasticsearch Service 实例集群信息。
- - 实例IP：输入自建 Elasticsearch 实例公网IP，如：1.1.1.1:9200。该项输入的 IP 应为公网IP或可被云函数直接访问的内网 IP，VPC设置相关参考云函数 [网络配置管理](https://cloud.tencent.com/document/product/583/38202)
+ - 实例IP：输入自建 Elasticsearch 实例公网 IP，如：1.1.1.1:9200。该项输入的 IP 应为公网 IP 或可被云函数直接访问的内网 IP，VPC 设置相关参考云函数 [网络配置管理](https://cloud.tencent.com/document/product/583/38202)
  - 实例用户名：输入 Elasticsearch 实例用户名，腾讯云 Elasticsearch 默认用户名为 elastic，且不可更改。
  - 实例密码：输入  Elasticsearch 实例密码。
 5. 创建完成后，单击【提交】，即可完成转储创建。创建完成后不会立即开启转储，需在控制台手动开启。
@@ -26,11 +26,11 @@
 ## 数据清洗设置
 在创建流程中，无法直接跨进行数据清洗或字段定义等操作，需对函数代码进行自定义改造。数据清洗操作流程如下：
 1. [新建 Elasticsearch 转储](#1)，并跳转到云函数控制台。
-![](https://main.qcloudimg.com/raw/5fa27c30423f6e45e37cdabfac423f86.png)
+![](https://main.qcloudimg.com/raw/dcf1b93b0f91e90171977a63af50dead.png)
 2. 在函数代码中修相关配置信息。
-![](https://main.qcloudimg.com/raw/2502e7191463411e65807e06fc33b6b3.png)
-当前模版代码拥有显性注释，可根据注释填写，主要配置列举：
+![](https://main.qcloudimg.com/raw/d53d4fd5aec72743c44be5b8efa623be.png)
 
+当前模版代码拥有显性注释，可根据注释填写，主要配置列举：
 ```
 # 自定义es索引
 def createIndex(ES_Index_KeyWord, ES_Index_TimeFormat):
@@ -59,9 +59,8 @@ def cleanData(data):
 
 ## 日志查看与排障
 
-Ckafka 转储能力基于 SCF 实现，可在 SCF 日志中查询到相关转储的信息及转储状态。
-
-![](https://main.qcloudimg.com/raw/0cb9cfa7ee0643d19c0ef158d2e9e370.png)
+Ckafka 转储能力基于 SCF 实现，可在 [SCF 控制台](https://console.cloud.tencent.com/scf) 的日志中查询到相关转储的信息及转储状态。
+![](https://main.qcloudimg.com/raw/70f36ef4d426b6aae1ca30301514bf56.png)
 
 ## 产品限制和费用计算
 - 转储速度与 Ckafka 实例峰值带宽上限有关，如出现消费速度过慢，请检查 Ckafka 实例的峰值带宽。
