@@ -2,7 +2,7 @@
 本文介绍如何将 Kafka 中的数据导入到 ClickHouse 集群的方案。
 >?想获取更多关于 ClickHouse 技术交流，可 [提交工单](https://console.cloud.tencent.com/workorder/category)，我们将您拉入 ClickHouse 技术交流群。
 
-Kafka 是目前应用非常广泛的开源消息中间件，常用场景就是做为数据总线收集各个服务的数据，下游各种数据服务订阅消费数据，生成各种报表或数据应用等。Clickhouse 自带了 Kafka Engine，使得 Clickhouse 和 Kafka 的集成变得非常容易。
+Kafka 是目前应用非常广泛的开源消息中间件，常用场景就是做数据总线收集各个服务的数据，下游各种数据服务订阅消费数据，生成各种报表或数据应用等。Clickhouse 自带了 Kafka Engine，使得 Clickhouse 和 Kafka 的集成变得非常容易。
  
 将 Kafka 中数据导入到 ClickHouse 的标准流程是：
 - 在 ClickHouse 中建立 Kafka Engine 外表，作为 Kafka 数据源的一个接口。
