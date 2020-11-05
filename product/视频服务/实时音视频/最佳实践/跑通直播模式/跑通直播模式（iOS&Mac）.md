@@ -18,7 +18,7 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 您可以登录 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCSimpleDemo) 获取本文档相关的示例代码。
 ![](https://main.qcloudimg.com/raw/36d48ade96419f5233c43359e93675b7.png)
 
->?如果访问 Github 较慢，您也可以直接下载 [TXLiteAVSDK_TRTC_iOS_latest.zip](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip)。
+>?如果访问 Github 较慢，您也可以直接下载 [TXLiteAVSDK_TRTC_iOS_latest.zip](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip)。
 
 
 ## 操作步骤
@@ -120,7 +120,7 @@ trtcCloud.startLocalAudio()
  - Pitu ：仅 [企业版](https://cloud.tencent.com/document/product/647/32689#Enterprise) 才支持。
 3. 主播端调用 [setBeautyLevel()](http://doc.qcloudtrtc.com/group__TXBeautyManager__ios.html#af864d9466d5161e1926e47bae0e3f027) 可以设置磨皮的级别，一般设置为5即可。
 4. 主播端调用 [setWhitenessLevel()](http://doc.qcloudtrtc.com/group__TXBeautyManager__ios.html#a199b265f6013e0cca0ff99f731d60ff4) 可以设置美白级别，一般设置为5即可。
-5. 由于 iPhone 的摄像头调色默认偏黄，建议调用 [setFilter()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a1b0c2a9e82a408881281c7468a74f2c0) 为主播增加美白特效，美白特效所对应的滤镜文件的下载地址：[滤镜文件](https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/filter/filterPNG.zip)。
+5. 由于 iPhone 的摄像头调色默认偏黄，建议调用 [setFilter()](https://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a1b0c2a9e82a408881281c7468a74f2c0) 为主播增加美白特效，美白特效所对应的滤镜文件的下载地址：[滤镜文件](https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/filter/filterPNG.zip)。
 
 ![](https://main.qcloudimg.com/raw/61ef817e3c12944665f1b7098c584ee3.jpg)
 
