@@ -6,14 +6,14 @@ Real Time-Thread（以下简称 RT-Thread）是一个嵌入式实时多线程操
 
 RT-Thread 接入腾讯云物联网开发平台可以分为以下4个步骤。
 
-### 步骤一:开发环境安装
+### 步骤一：开发环境安装
 
-安装 RT-Thread 开发环境，详情抢参见 [RT-Thread 开发环境搭建](https://www.rt-thread.org/document/site/application-note/setup/standard-project/an0017-standard-project/)。
+安装 RT-Thread 开发环境，详情请参见 [RT-Thread 开发环境搭建](https://www.rt-thread.org/document/site/application-note/setup/standard-project/an0017-standard-project/)。
 
 ### 步骤二：软件包下载
 
 1. 执行 `scons --menuconfig` 命令打开配置面板。
-勾选`RT-Thread online packages => IoT - internet of things => IoT Cloud => tencent-iot-sdk `。![](https://main.qcloudimg.com/raw/be04ca289618c898ee94d5bd77c04c98.png)
+勾选 `【RT-Thread online packages】>【IoT - internet of things】>【IoT Cloud】>【tencent-iot-sdk】`。![](https://main.qcloudimg.com/raw/be04ca289618c898ee94d5bd77c04c98.png)
 2. 执行 `pkgs --update` 命令更新软件包，腾讯云物联网 C SDK 将被下载到 packages 目录。
 
 
@@ -30,8 +30,8 @@ RT-Thread 接入腾讯云物联网开发平台可以分为以下4个步骤。
     - **Enable err log upload**： 是否使能错误日志上传云端。
     - **Enable TLS/DTLS**： 是否使能 TLS，若使能，则会关联选中 mbedTLS 软件包。
     - **Select Product Type**：产品类型为自定义或者数据模板协议产品。
-    - **Enable event**：选用数据模板的前提下是否使能事件功能。
-    - **Enable Action**：选用数据模板的前提下是否使能行为功能。
+    - **Enable event**：选用数据模板的前提下，是否使能事件功能。
+    - **Enable Action**：选用数据模板的前提下，是否使能行为功能。
     - **Enable Smart_light Sample**：是否使能智能灯场景示例。
     - **Enable OTA**：是否使能 OTA 示例。若使能 OTA 可进一步选择下载使用 HTTPS 或者 HTTP。
     - **Enable GateWay**：是否使能网关示例。
@@ -110,4 +110,4 @@ RT-Thread 接入腾讯云物联网开发平台可以分为以下4个步骤。
   详情请参见 [软件包](https://github.com/tencentyun/tencent-cloud-iot-package-for-rtthread) 中的示例程序进行开发。
 
 ## SDK 使用参考
-详情可请参见 [C SDK 使用参考](https://cloud.tencent.com/document/product/1081/48377) 
+详情可请参见 [C SDK 使用参考](https://cloud.tencent.com/document/product/1081/48377) 。
