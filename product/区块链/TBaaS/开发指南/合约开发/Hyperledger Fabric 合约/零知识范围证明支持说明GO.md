@@ -11,7 +11,7 @@ TBaaS 的零知识范围证明能力，主要体现在以下两个方面：
 下面将分别对零知识范围证明工具 Bulletproofs 和 Pedersen 进行说明。
 
 ## 零知识范围证明工具 Bulletproofs
-Bulletproofs 工具是零知识范围证明 Bulletproofs 算法的用户端工具。零知识范围证明算法在提供验证一个数值属于 [0, 264] 的同时，不向验证者泄露此数值。该工具提供生成范围证明、验证范围证明与承诺的有效性、范围证明的同态运算(加、减、乘)等功能。您可访问 [Bulletproofs](https://tbaasdoc-1259695942.cos.ap-guangzhou.myqcloud.com/bulletproofs) 进行下载。
+Bulletproofs 工具是零知识范围证明 Bulletproofs 算法的用户端工具。零知识范围证明算法在提供验证一个数值属于 [0, 2<sup>64</sup>] 的同时，不向验证者泄露此数值。该工具提供生成范围证明、验证范围证明与承诺的有效性、范围证明的同态运算(加、减、乘)等功能。您可访问 [Bulletproofs](https://tbaasdoc-1259695942.cos.ap-guangzhou.myqcloud.com/bulletproofs) 进行下载。
 
 ### 使用说明
 <table>
