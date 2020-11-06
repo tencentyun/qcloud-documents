@@ -18,7 +18,7 @@
 3. 若出现以下提示，则表示 SDK 接入成功 。
 ![](https://main.qcloudimg.com/raw/393d62182039f2164517d18b86cdb52a.png)
 	- 若出现以下提示，请确认该应用是否开通试用或购买了推送服务。
-	- ![](https://main.qcloudimg.com/raw/0be6c16b6421faf7855c13f2bd670a19.png)
+![](https://main.qcloudimg.com/raw/0be6c16b6421faf7855c13f2bd670a19.png)
 	可在 [产品管理](https://console.cloud.tencent.com/tpns) 页面查看当前应用服务状态，在您申请试用或购买后30分钟内可开通服务。
 	![](https://main.qcloudimg.com/raw/058b0ef8a861acb3986aee92adc63e8e.png)
 	- 若出现以下提示，请确认 App 是否成功注册推送服务，可参见 [接入结果验证](#jierujieguo)。
@@ -33,7 +33,7 @@
    如出现有类似上图日志，则表明 TPNS-SDK 的插件集成方式已经成功。
 2. 推送服务注册成功的日志如下：
 ```plaintext
-XG register push success with token:6ed8af8d7b18049d9fed116a9db9c71ab44d5565
+XG register push success with token:6ed8af8d7b18049d9fed116a9db9c71ab4aabb65
 ```
 若未搜索到 Token，请查看注册接口返回的错误码，根据 [错误码对照表](https://cloud.tencent.com/document/product/548/36660) 排查。
 
@@ -59,4 +59,4 @@ XG register push success with token:6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 3. 在项目的 External Libraries 中查看是否有相关依赖。
  ![](https://main.qcloudimg.com/raw/1de82d05f351939883e1870ae7300c44.png)
 4. 如果日志显示 `Execution failed for task ':Paracraft:checkTPNS'`，说明检查到有新版本的 TPNS Android SDK 可以升级。如果不希望检查更新，可以在 tpns-configs.json 文件中添加 `"upgrade": false`，效果如下图：
-![](https://main.qcloudimg.com/raw/9eb6a2e108a7a4d1abdd10ef5c1cffdd.png)
+<img src="https://main.qcloudimg.com/raw/9eb6a2e108a7a4d1abdd10ef5c1cffdd.png" width="70%"></img>
