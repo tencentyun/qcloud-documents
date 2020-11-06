@@ -13,7 +13,17 @@ RT-Thread 接入腾讯云物联网开发平台可以分为以下4个步骤。
 ### 步骤二：软件包下载
 
 1. 执行 `scons --menuconfig` 命令打开配置面板。
-勾选 `【RT-Thread online packages】>【IoT - internet of things】>【IoT Cloud】>【tencent-iot-sdk】`。![](https://main.qcloudimg.com/raw/be04ca289618c898ee94d5bd77c04c98.png)
+勾选 `【RT-Thread online packages】>【IoT - internet of things】>【IoT Cloud】>【tencent-iot-sdk】`。
+```
+[ ] OneNET: China Mobile OneNet cloud SDK for RT-Thread  ----                        
+[ ] GAgent: GAgent of Gizwits in RT-Thread  ----                                     
+[ ] Ali-iotkit: Aliyun cloud sdk 'iotkit-embedded' for RT-Thread  ----               
+[ ] Azure IoT SDK: Microsoft azure cloud SDK for RT-Thread  ----                     
+[*] Tencent-IoT:  Tencent Cloud IoT Explorer Platform SDK for RT-Thread  --->        
+[ ] jiot-c-sdk: JIGUANG IoT Cloud Client SDK for RT_Thread  ----                     
+[ ] ucloud_iot_sdk: Ucloud iot sdk for uiot-core platform.  ----                     
+[ ] Joylink Cloud SDK for IoT platform  ----     
+```
 2. 执行 `pkgs --update` 命令更新软件包，腾讯云物联网 C SDK 将被下载到 packages 目录。
 
 
@@ -21,7 +31,25 @@ RT-Thread 接入腾讯云物联网开发平台可以分为以下4个步骤。
 
 1. 执行 `scons --menuconfig` 命令打开配置面板，对 C SDK 进行配置。
  - **选择路径**：`RT-Thread online packages => IoT - internet of things => IoT Cloud => tencent-iot-sdk `。
-![](https://main.qcloudimg.com/raw/421b6d2fbd7e5325585b797d08abe0b1.png)
+```
+--- Tencent-IoT:  Tencent Cloud IoT Explorer Platform SDK for RT-Thread        
+(0WUKPUCOTC) Config Product Id                                                 
+(dev001) Config Device Name                                                    
+(N6B8M91PB4YDTRCpqvOp4w==) Config Device Secret                                
+[ ]   Enable dynamic register                                                  
+[ ]   Enable err log upload                                                    
+[ ]   Enable multi thread function                                             
+[*]   Enable TLS/DTLS                                                          
+           Select Product Type (Data template protocol)  --->                       
+[*]   Enable Event                                                             
+[*]   Enable Action                                                            
+[*]   Enable Smart_light Sample                                                
+[*]   Enable OTA                                                               
+             Config OTA download by https or http (Download by http)  --->          
+[ ]   Enable GateWay                                                           
+		   Version (latest)  ---> 
+```
+
  - **参数说明**
     - **Config Product Id**：配置产品 ID，平台创建生成。
     - **Config Device Name**：配置设备名，平台创建生成。
@@ -110,4 +138,4 @@ RT-Thread 接入腾讯云物联网开发平台可以分为以下4个步骤。
   详情请参见 [软件包](https://github.com/tencentyun/tencent-cloud-iot-package-for-rtthread) 中的示例程序进行开发。
 
 ## SDK 使用参考
-详情可请参见 [C SDK 使用参考](https://cloud.tencent.com/document/product/1081/48377) 。
+详情请参见 [C SDK 使用参考](https://cloud.tencent.com/document/product/1081/48377) 。
