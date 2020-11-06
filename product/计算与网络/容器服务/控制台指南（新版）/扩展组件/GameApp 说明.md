@@ -29,7 +29,7 @@
 - 支持 Kubernetes 1.10 以上版本的集群。
 - 需设置 kube-apiserver 的启动参数为：` --feature-gates=CustomResourceSubresources=true`。
 
->?推荐您在 [腾讯云容器服务](https://cloud.tencent.com/product/tke2) 中购买 1.12.4 版本集群，无需修改任何参数，开箱可用。
+>?推荐您在 [腾讯云容器服务](https://console.qcloud.com/tke2) 中购买 1.12.4 版本集群，无需修改任何参数，开箱可用。
 
 ## 使用方法
 
