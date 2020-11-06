@@ -26,7 +26,7 @@
 
 <span id="ui.step2"></span>
 ### 步骤2：下载 SDK 和 Demo 源码
-1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android)】跳转至 Github（或单击【[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
+1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android)】跳转至 Github（或单击【[ZIP](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
  ![](https://main.qcloudimg.com/raw/c3067ef0d7244bfdd3bc31eef191c5fc.png)
 2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
 
@@ -76,8 +76,8 @@
 1. 在 dependencies 中添加 TRTCSDK 和 IMSDK 的依赖。
 ```
 dependencies {
-       complie "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
-       complie 'com.tencent.imsdk:imsdk:latest.release'
+       compile "com.tencent.liteav:LiteAVSDK_TRTC:latest.release"
+       compile 'com.tencent.imsdk:imsdk:latest.release'
 }
 ```
 >?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。

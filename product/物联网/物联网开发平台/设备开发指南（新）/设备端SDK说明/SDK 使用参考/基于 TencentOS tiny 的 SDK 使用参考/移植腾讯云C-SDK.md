@@ -1,20 +1,19 @@
 
-腾讯云物联网开发平台 IoT Explorer 设备端 C-SDK ，配合平台对设备数据模板化的定义，实现和云端基于数据模板协议的数据交互框架，开发者基于 IoT_Explorer C-SDK 数据模板框架，通过脚本自动生成模板代码，快速实现设备和平台、设备和应用之间的数据交互。
+腾讯云物联网开发平台 IoT Explorer 设备端 C SDK ，配合平台对设备数据模板化的定义，实现和云端基于数据模板协议的数据交互框架，开发者基于 IoT_Explorer C-SDK 数据模板框架，通过脚本自动生成模板代码，快速实现设备和平台、设备和应用之间的数据交互。
 
 
-## 步骤一：云端创建设备
+## 步骤一：创建云端设备
 
-登录腾讯云 [物联网开发平台控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fiotexplorer)，创建云端设备，详情可参考 [基于 TencentOS tiny 接入指引](https://cloud.tencent.com/document/product/1081/47886#.E6.8E.A7.E5.88.B6.E5.8F.B0.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 。
+登录腾讯云 [物联网开发平台控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fiotexplorer)，创建云端设备，详情可参考 [基于 TencentOS tiny 接入指引](https://cloud.tencent.com/document/product/1081/47886) 。
 
-另外，数据模板是将物理实体设备进行数字化描述，构建其数字模型。在物联网开发平台定义数据模板即定义产品功能，完成功能定义后，系统将自动生成该产品的数据模板。
-单击【控制台】>【项目】>【产品开发】>【智能灯产品】>【数据模板】>【新建功能】，填写功能信息。
+另外，数据模板是将物理实体设备进行数字化描述，构建其数字模型。在物联网开发平台定义数据模板即定义产品功能，完成功能定义后，系统将自动生成该产品的数据模板。进入 [物联网开发控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fiotexplorer)，单击【项目】>【产品开发】>【智能灯产品】>【数据模板】>【新建功能】，填写功能信息。
 ![](https://main.qcloudimg.com/raw/3ac50f4b29ea551fac091d782e707610.jpg)
-功能类型包含三元种元素：
+功能类型包含三种元素：
 
 | 功能元素 | 功能描述                                                     |  功能标识符  |
 | :------: | ------------------------------------------------------------ | :----------: |
 |   属性   | 包括布尔型、整数型、字符型、浮点型、枚举型和时间型等6种基本数据类型；<br>用于描述设备的实时状态，支持读取和设置，如模式、亮度、开关等。 | PropertiesId |
-|   事件   | 包括告警、故障和信息三种类型，事件型功能属性可以添加具体的事件参数，这些参数可以由属性中6种基本数据类型组成；<br>用于描述设备运行时的事件，包括告警、信息和故障等三种事件类型，可添加多个输出参数，如环境传感器检测到空气质量很差，空调异常告警等。 |   EventId    |
+|   事件   | 包括告警、故障和信息3种类型，事件型功能属性可以添加具体的事件参数，这些参数可以由属性中6种基本数据类型组成；<br>用于描述设备运行时的事件，包括告警、信息和故障等3种事件类型，可添加多个输出参数，如环境传感器检测到空气质量很差，空调异常告警等。 |   EventId    |
 |   行为   | 用于描述复杂的业务逻辑，可添加多个调用参数和返回参数，可用于让设备执行某项定特定的任务。例如，开锁动作需要知道是哪个用户在什么时间开锁，锁的状态如何等。并且行为的输入参数和输出参数可添加上述6种属性的基本数据类型。 |   ActionId   |
 
 数据类型支持以下6种：
@@ -30,7 +29,7 @@
 ![](https://main.qcloudimg.com/raw/444e0a291390f93ab2ccb7b0fe743b39.jpg)
 ## 步骤二：移植 mbedtls
 
-腾讯云 C-SDK 对接云端时如果配置建立安全链接，将会用到 mbedtls 加密库，所以需要先移植 mbedtls。
+腾讯云 C SDK 对接云端时如果配置建立安全链接，将会用到 mbedtls 加密库，所以需要先移植 mbedtls。
 
 1. TencentOS-tiny 中已经移植适配好 mbedtls 库，并作为 TencentOS-tiny 的一个组件，在 `components\security\mbedtls` 目录下，将此目录复制到工程目录中，复制过程中保持目录架构不变，并将其余的文件删除。
 ![](https://main.qcloudimg.com/raw/12eb2505fdc85d1209c617146edb9738.png)
@@ -41,27 +40,27 @@
 
 >!此时还没有指定 mbedtls 配置文件，编译会报错，继续按后续的步骤操作即可。
 
-## 步骤三：移植腾讯云 C-SDK
+## 步骤三：移植腾讯云 C SDK
 
-TencentOS-tiny 官方已经将 IoT_Explorer C-SDK 移植适配完成，在 `components\connectivity\qcloud-iot-explorer-sdk` 目录下，其中：
-- 3rdparty：IoT_Explorer C-SDK 源码。
+TencentOS-tiny 官方已经将 IoT_Explorer C SDK 移植适配完成，在 `components\connectivity\qcloud-iot-explorer-sdk` 目录下，其中：
+- 3rdparty：IoT_Explorer C SDK 源码。
 - port\TencentOS_tiny：移植适配文件 qcloud/port。
 
 用于使用 TencentOS-tiny 物联网操作系统时，只需要添加相关文件，并修改云端设备对接信息即可，方便快捷。
 
-接下来将介绍基于之前步骤已移植成功的网络工程，讲述如何移植 C-SDK。
+接下来将介绍基于之前步骤已移植成功的网络工程，讲述如何移植 C SDK。
 
 1. 将 TencentOS-tiny 源码中 `qcloud-iot-explorer-sdk` 整个目录复制到工程目录中，保持原有目录架构不变并删除其余的目录。
 ![](https://main.qcloudimg.com/raw/20b21e8a5f13cb19b9e2802abc8f8521.png)
-2. 添加腾讯云 C-SDK 移植到 TencentOS-tiny 的适配文件。
+2. 添加腾讯云 C SDK 移植到 TencentOS-tiny 的适配文件。
 ![](https://main.qcloudimg.com/raw/2875e17c0940fcf4037b7853f80f5632.png)
-3. 添加腾讯云 C-SDK 中的 mqtt 协议相关源码。
+3. 添加腾讯云 C SDK 中的 MQTT 协议相关源码。
 ![](https://main.qcloudimg.com/raw/19cb720e898de181ad0bc1d04f503b94.png)
-4. 添加腾讯云 C-SDK 中的数据模板相关源码。
+4. 添加腾讯云 C SDK 中的数据模板相关源码。
 ![](https://main.qcloudimg.com/raw/386aa4c4f45beb0a3e5f81dc71300894.png)
-5. 添加腾讯云 C-SDK 中所使用到的工具源码。
+5. 添加腾讯云 C SDK 中所使用到的工具源码。
 ![](https://main.qcloudimg.com/raw/0d568acb0ee2ed63a4cf7aba35ccd08e.png)
-6. 添加腾讯云 C-SDK 中所用到网络封装层源。
+6. 添加腾讯云 C SDK 中所用到网络封装层源。
 ![](https://main.qcloudimg.com/raw/2500cb4739ca7e543ec5676d0799c13e.png)
 7. 添加所有用到的头文件路径。
 ![](https://main.qcloudimg.com/raw/f32de0894c46b4e71d52d157fc44c3d8.png)
@@ -80,11 +79,11 @@ TencentOS-tiny 官方已经将 IoT_Explorer C-SDK 移植适配完成，在 `comp
 
 ## 步骤五：加入示例代码
 
-1. 由于腾讯云 C-SDK 的测试代码较多，所以将直接使用官方仓库中提供的示例文件。
+1. 由于腾讯云 C SDK 的测试代码较多，所以将直接使用官方仓库中提供的示例文件。
  1. 在 `examples\qcloud_iot_explorer_sdk_data_template` 目录下，将此目录复制到工程目录中，保持原有目录架构不变。
  ![](https://main.qcloudimg.com/raw/f4c02b60f205a6e2252de9c1569228f2.png)
  2. 将示例代码加入到 Keil-MDK 工程中。
- >!请勿将 `data_config.c` 文件加入！
+ >!请勿将 `data_config.c` 文件加入。
  >
  ![](https://main.qcloudimg.com/raw/ea7b825477b2e68280a2fbcb5aff1f4c.png)
  3. 修改 `entry.c` 中的配置信息。
@@ -99,14 +98,14 @@ TencentOS-tiny 官方已经将 IoT_Explorer C-SDK 移植适配完成，在 `comp
 ## 步骤六：查看设备状态
 
 1.	保持 light Demo 程序为运行状态。
-2.	进入【控制台】>【产品开发】>【设备调试】，可查看到设备 "dev001" 的状态为“上线”状态，表示 Demo 程序已成功连接上开发平台。
+2.	进入【[控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fiotexplorer)】>【产品开发】>【设备调试】，可查看到设备 "dev001" 的状态为“上线”状态，表示 Demo 程序已成功连接上开发平台。
 ![](https://main.qcloudimg.com/raw/a83eb554c2958e705d49451bfa217602.png)
 3.	单击【查看】，可进入设备详情页。
 ![](https://main.qcloudimg.com/raw/c08da8cf2b2748d93368059740cbe6fa.png)
 
 ## 步骤七：下发控制指令
 1. 在串口助手中看到设备查看到在等待平台下发控制指令。
-![](https://img-blog.csdnimg.cn/2020062911240455.png)
+![](https://main.qcloudimg.com/raw/af3a86c84005005ace0daac3f6fc4a95.png)
 2. 然后在云端平台进入设备在线调试，下发控制指令。
 ![](https://main.qcloudimg.com/raw/7298a5f4b0c831f0814a4a59325e4d78.png)
 3. 最后可以在串口助手中查看到设备收到后在串口打印控制指令。

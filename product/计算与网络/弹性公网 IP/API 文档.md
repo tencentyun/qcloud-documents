@@ -25,10 +25,6 @@
 <td>查询 EIP 列表</td>
 </tr>
 <tr>
-<td><a href="https://cloud.tencent.com/document/api/215/43278" target="_blank">DescribeSecurityGroupReferences</a></td>
-<td>查询安全组被引用信息</td>
-</tr>
-<tr>
 <td><a href="https://cloud.tencent.com/document/api/215/36271" target="_blank">DescribeTaskResult</a></td>
 <td>查询异步任务执行结果</td>
 </tr>

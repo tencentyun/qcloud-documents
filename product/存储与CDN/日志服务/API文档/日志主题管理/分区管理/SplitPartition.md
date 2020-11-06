@@ -18,12 +18,13 @@ Authorization: <AuthorizationString>
 
 #### 请求参数
 
-| 字段名       | 类型   | 位置  | 是否必须 | 说明                                               |
-| ------------ | ------ | ----- | -------- | -------------------------------------------------- |
-| topic_id     | string | query | 是       | 分区所属的日志主题 ID                              |
-| partition_id | int    | query | 是       | 需分裂的主题分区编号                               |
-| action       | string | query | 是       | 操作类型，action 需要设置为 split                 |
-| split_key    | string | query | 是       | 主题分区的分裂位置，32位16进制字符串（不含0x部分） |
+| 字段名       | 类型   | 位置  | 是否必须 | 说明                                                         |
+| ------------ | ------ | ----- | -------- | ------------------------------------------------------------ |
+| topic_id     | string | query | 是       | 分区所属的日志主题 ID                                        |
+| partition_id | int    | query | 是       | 需分裂的主题分区编号                                         |
+| action       | string | query | 是       | 操作类型，action 需要设置为 split                            |
+| split_key    | string | query | 否       | 分裂成两个时，可以指定主题分区的分裂位置，32位16进制字符串（不含0x部分）;当分裂成3个及以上时，按平均方式分裂，此参数不生效 |
+| number       | int    | query | 否       | 分裂的个数，默认值为2                                        |
 
 ## 响应
 
@@ -67,13 +68,13 @@ Content-Length: 21
 
 #### 响应参数
 
-| 字段名              | 类型   | 说明                                                |
-| ------------------- | ------ | --------------------------------------------------- |
-| partition_id        | int    | 主题分区编号                                        |
+| 字段名              | 类型   | 说明                                                         |
+| ------------------- | ------ | ------------------------------------------------------------ |
+| partition_id        | int    | 主题分区编号                                                 |
 | status              | string | 主题分区状态：<br><li>readwrite：读写态<br><li>readonly：只读态 |
-| inclusive_begin_key | string | 主题分区范围的起始位置                              |
-| exclusive_end_key   | string | 主题分区范围的结束位置                              |
-| create_time         | string | 主题分区的创建时间                                  |
+| inclusive_begin_key | string | 主题分区范围的起始位置                                       |
+| exclusive_end_key   | string | 主题分区范围的结束位置                                       |
+| create_time         | string | 主题分区的创建时间                                           |
 
 ## 错误码
 

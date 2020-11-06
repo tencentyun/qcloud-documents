@@ -4,7 +4,7 @@
 Core 节点磁盘利用率超过90%，nodemanager 会置为不健康状态（Unhealthy Nodes）。
 
 #### 解决方案
-1. 建议添加云监控，设置 EMR 子机磁盘利用率定在80% - 85%时告警，避免节点磁盘利用率超过90%时，nodemanager 节点状态不健康。
+1. 建议添加云监控，设置 EMR 子机磁盘利用率在80% - 85%时告警，避免节点磁盘利用率超过90%时，nodemanager 节点状态不健康。
 云监控配置 EMR 磁盘利用率地址：
 `https://console.cloud.tencent.com/monitor/policyTemplate`
 ![](https://main.qcloudimg.com/raw/75fd5e90d94ec11e178bd336f19e814c.png)

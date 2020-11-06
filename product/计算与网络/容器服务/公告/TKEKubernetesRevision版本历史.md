@@ -5,10 +5,18 @@
 </thead>
 <tbody>
 <tr>
+    <td>2020-10-13</td>	
+    <td>v1.18.4-tke.3</td>	
+    <td><ul class="params">
+		<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89629">pr89629</a>，解决 configmap 变更后挂载 subpath 的容器重启永远失败的问题（kubelet）。</li>
+	        <li>QcloudCbs 支持 BulkVolumeVerification（kube-controller-manager）。</li>
+	        <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/94430">pr94430</a>，修复 client-go reflector 无法检测到 "Too large resource version" 错误的问题（kubelet）。</li></ul></td>
+</tr>
+<tr>
     <td>2020-08-12</td>	
     <td>v1.18.4-tke.2</td>	
     <td><ul class="params">
-		<li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/93403">pr93403</a>，移去 kubelet 的更新不属于 kubelet 的 Pod Condition 的错误打印信息（kubelet）。</li>
+		<li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/93403">pr93403</a>，移去 kubelet 的更新不属于 kubelet 的 Pod Condition 的错误打印信息（kubelet）。</li></ul></td>
 </tr>
 <tr>
     <td>2020-08-04</td>	
@@ -33,7 +41,7 @@
     <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91500">pr91500</a>，修复 KUBERNETES_SERVICE_HOST 环境变量缺失的问题（kubelet）。</li>
     <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/92537">92537</a>，修复 client-go reflector 无法从 "Too large resource version" 错误恢复的问题（kube-apiserver、kube-controller-manager、kube-scheduler、kubelet 及 kube-proxy）。</li>
     <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/92969">pr92969</a>，修复 CVE-2020-8559从被侵入节点提升权限从而侵入其他节点的问题（kube-apiserver）。</li>
-    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/92921">pr92921</a>，修复 CVE-2020-8557通过写入 “/etc/hosts” 耗尽磁盘空间的 DOS 攻击问题（kubelet）。</li>
+    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/92921">pr92921</a>，修复 CVE-2020-8557通过写入 “/etc/hosts” 耗尽磁盘空间的 DOS 攻击问题（kubelet）。</li></ul></td>
 </tr>
 </tbody></table>
 
@@ -45,6 +53,17 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+<tr>
+    <td>2020-10-13</td>	
+    <td>v1.16.3-tke.11</td>	
+    <td><ul class="params">
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/92971">pr92971</a>，修复 CVE-2020-8559从被侵入节点提升权限从而侵入其他节点的问题（kube-apiserver）。</li>
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/92924">pr92924</a>，修复 CVE-2020-8557通过写入 /etc/hosts 耗尽磁盘空间的 DOS 攻击问题（kubelet）。</li>
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/93403">pr93403</a>，移去 kubelet 的更新不属于kubelet 的 Pod Condition 的错误打印信息（kubelet）。</li>
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89629">pr89629</a>，解决 configmap 变更后挂载 subpath 的容器重启永远失败的问题（kubelet）。</li>
+	    <li>QcloudCbs支持BulkVolumeVerification（kube-controller-manager）。</li>
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/84998">pr84998</a>，解决 node 删除后对应的 node lease 对象可能会被重建造成垃圾数据的问题（kubelet）。</li></ul></td>
+</tr>
 <tr>
     <td>2020-07-28</td>	
     <td>v1.16.3-tke.10</td>	
@@ -103,6 +122,16 @@
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
 <tbody>
+<tr>
+    <td>2020-10-13</td>
+    <td>v1.14.3-tke.17</td>
+    <td><ul class="params">
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/74781">pr74781</a>，将 ConfigMap 及 Secret 默认更新策略由 Cache 改为 Watch（kubelet）。</li>
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/93403">pr93403</a>，移去 kubelet 的更新中不属于 kubelet 的 Pod Condition 的错误打印信息（kubelet）。</li>
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89629">pr89629</a>，解决 configmap 变更后挂载 subpath 的容器重启永远失败的问题（kubelet）。</li>
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/8094">pr80942</a>，修复 ipvs 模式下，删除 service 后，规则未删除的问题（kube-proxy）。</li>
+            <li>QcloudCbs 支持 BulkVolumeVerification（kube-controller-manager）。</li></ul></td>
+</tr>
 <tr>
     <td>2020-08-04</td>
     <td>v1.14.3-tke.16</td>
@@ -188,9 +217,13 @@
 </thead>
 <tbody>
 <tr>
+    <td>2020-10-13</td>
+    <td>v1.12.4-tke.24</td>
+    <td> <a href="https://github.com/kubernetes/kubernetes/pull/93403">合并93403</a>，移去 kubelet 的更新不属于 kubelet 的 Pod Condition 的错误打印信息（kubelet）。</td>
+<tr>
     <td>2020-08-04</td>
     <td>v1.12.4-tke.23</td>
-    <td>合并 <a href="https://github.com/kubernetes/kubernetes/pull/78883">pr78883</a>，修复默认会给 pod.spec.container.SecurityContext.ProcMount 增加默认值的 bug。</td>
+    <td>合并 <a href="https://github.com/kubernetes/kubernetes/pull/78881">pr78881</a>，修复默认会给 pod.spec.container.SecurityContext.ProcMount 增加默认值的 bug。</td>
 </tr>
 <tr>
     <td>2020-07-28</td>	

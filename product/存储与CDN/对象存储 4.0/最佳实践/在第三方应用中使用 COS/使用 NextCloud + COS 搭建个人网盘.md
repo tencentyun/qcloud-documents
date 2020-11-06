@@ -331,7 +331,7 @@ chown -R nginx:nginx /var/www
 ```
 3. 备份当前的 Nginx 配置文件 `/etc/nginx/nginx.conf`，您可以：
    a）执行 `cp /etc/nginx/nginx.conf ~/nginx.conf.bak` 将当前配置文件备份到家（HOME）目录。
-   b）使用 SFTP 或 SCP 等软件加当前配置文件下载到本地计算机。
+   b）使用 SFTP 或 SCP 等软件将当前配置文件下载到本地计算机。
 4. 将`/etc/nginx/nginx.conf` 修改或替换为如下内容：
 
 ```plaintext
@@ -494,7 +494,7 @@ systemctl start nginx
 ### 获取 API 密钥
 
 1. 登录腾讯云 [访问密钥控制台](https://console.cloud.tencent.com/cam/capi)。
-2. 记录表格中【密钥】中的**SecretId**和**SecretKey**。如果表格中没有有效密钥，可单击左上角【新建密钥】按钮创建新的密钥。
+2. 记录表格中【密钥】中的**SecretId**和**SecretKey**。如果表格中没有有效密钥，可单击左上角【新建密钥】创建新的密钥。
    ![](https://main.qcloudimg.com/raw/39ad3be8edd97e4c72d4b5c745032b16.png)
 
 ### 修改 NextCloud 服务端配置文件

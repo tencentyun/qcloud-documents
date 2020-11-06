@@ -43,7 +43,7 @@ G:\maven-demo>mvn package
 
 ### 示例1：查询可用区（DescribeZones）
 
-以 [查询可用区](https://cloud.tencent.com/document/product/213/15707) 接口为例，创建`DescribeZones.java`文件（例如上述 [示例项目](#p2) 中的`G:\maven-demo\src\main\java\com\Demo\App.java`），并写入以下代码：
+以 [查询可用区](https://cloud.tencent.com/document/product/213/15707) 接口为例，创建`DescribeZones.java`文件（例如上述 Maven 安装示例中的`G:\maven-demo\src\main\java\com\Demo\App.java`），并写入以下代码：
 
 ```java
 import com.tencentcloudapi.common.Credential;

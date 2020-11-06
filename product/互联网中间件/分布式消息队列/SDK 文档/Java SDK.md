@@ -15,7 +15,7 @@ TDMQ 提供了 Java 语言的 SDK 来调用服务，进行消息队列的生产�
 ```java
 PulsarClient client = PulsarClient.builder()
     .serviceUrl("pulsar://*.*.*.*:6000/")
-    .listenerName("1300*****0/vpc-******/subnet-********")
+    .listenerName("custom:1300*****0/vpc-******/subnet-********")
     .authentication(AuthenticationFactory.token("eyJh****"))
     .build();
  ```
@@ -94,22 +94,22 @@ Consumer consumer = client.newConsumer()
 	.subscriptionName("my-subscription")
 	.subscribe();
 while (true) {
-  //等待接收消息
-  Message msg = consumer.receive();
-  try {
-  	  System.out.printf("Message received: %s", new String(msg.getData()));
-      //消息ACK
-  	  consumer.acknowledge(msg);   
-  } catch (Exception e) {
-    //处理出错
-	// enableRetry=true 才能使用重试方法
-	consumer.reconsumeLater(msg, 1000L, TimeUnit.MILLISECONDS);//消息按照指定的延迟时间重试
-	//consumer.reconsumeLater(msg);按照延迟等级进行重试，多次重试默认自增延迟等级
-    //consumer.reconsumeLater(msg, 1);按照指定的延迟等级进行重试
-	//delayLevel =1 代表1s,
-	//delayLevel =2 代表5s,
-	//默认延迟等级"1s 5s 10s 30s 1m 2m 3m 4m 5m 6m 7m 8m 9m 10m 20m 30m 1h 2h"
-  }
+      //等待接收消息
+      Message msg = consumer.receive();
+      try {
+  	      System.out.printf("Message received: %s", new String(msg.getData()));
+          //消息ACK
+  	      consumer.acknowledge(msg);   
+      } catch (Exception e) {
+        //处理出错
+	    // enableRetry=true 才能使用重试方法
+	    consumer.reconsumeLater(msg, 1000L, TimeUnit.MILLISECONDS);//消息按照指定的延迟时间重试
+	    //consumer.reconsumeLater(msg);按照延迟等级进行重试，多次重试默认自增延迟等级
+        //consumer.reconsumeLater(msg, 1);按照指定的延迟等级进行重试
+    	//delayLevel =1 代表1s,
+    	//delayLevel =2 代表5s,
+	    //默认延迟等级"1s 5s 10s 30s 1m 2m 3m 4m 5m 6m 7m 8m 9m 10m 20m 30m 1h 2h"
+      }
 }
 ```
 

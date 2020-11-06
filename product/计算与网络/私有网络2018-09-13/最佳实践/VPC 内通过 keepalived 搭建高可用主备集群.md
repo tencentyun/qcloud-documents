@@ -6,7 +6,7 @@
 在 VPC 的云服务器间可以通过部署 Keepalived 来实现高可用主备集群。Keepalived 是基于 vrrp 协议的一款高可用软件，Keepalived 配置通过 keepalived.conf 文件完成。
 ![](//mc.qcloudimg.com/static/img/a5aa34fb87508284d9e7a07898085728/1.png)
 - 在传统的物理网络中，可以通过 keepalived 的 VRRP 协议协商主备状态，其原理是：主设备周期性发送免费 ARP 报文刷新上联交换机的 MAC 表或终端 ARP 表，触发 VIP 迁移到主设备上。
-- 在腾讯云 VPC 中，支持部署 keepalived 来搭建主备高可用集群。与物理网络相比，主要区别是
+- 在腾讯云 VPC 中，支持部署 keepalived 来搭建主备高可用集群。与物理网络相比，主要区别是：
    - 使用的 VIP 必须是从腾讯云申请的 [高可用虚拟 IP (HAVIP)](https://cloud.tencent.com/document/product/215/36691) 。
    - VIP 有子网属性，只能在同一个子网下的机器间宣告绑定。
 
@@ -213,7 +213,7 @@
 ### 步骤5：使用 notify_action.sh 进行简单的日志记录（可选）
 keepalived 主要日志仍然记录在“/var/log/message”中，可以通过添加 notify 的脚本来进行简单的日志记录。
 
-1. 登录云主机，执行 `vim /etc/keepalived/notify_action.sh` 命令添加脚本“notify_action.sh”，脚本内容如下：
+1. 登录云服务器，执行 `vim /etc/keepalived/notify_action.sh` 命令添加脚本“notify_action.sh”，脚本内容如下：
 
    ```plaintext
    #!/bin/bash
@@ -259,5 +259,5 @@ keepalived 主要日志仍然记录在“/var/log/message”中，可以通过�
 
 通过重启 keepalived 进程、重启子机等方式模拟主机故障，检测 VIP 是否能正常迁移。
 
-- 如果完成了主备切换，则可以看到控制台的绑定主机已经切换为 backup 云主机。
+- 如果完成了主备切换，则可以看到控制台的绑定主机已经切换为 backup 云服务器。
 - 另外，也可以从 VPC 内 ping VIP 的方式，查看网络中断到恢复的时间间隔，每切换一次，ping 中断的时间大约为4秒。从公网侧 ping HAVIP 绑定的 EIP，可以查看网络中断到恢复的时间间隔，每切换一次，ping 中断的时间大致为4秒。

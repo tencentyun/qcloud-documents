@@ -9,8 +9,8 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 | 操作系统 | 浏览器类型 | 浏览器最低版本要求 | 接收（播放）| 发送（上麦）| 屏幕分享 |
 |:-------:|:-------:|:-------:|:-------:|:-------:| :-------:|
 | Mac OS  | 桌面版 Safari 浏览器 |  11+ | 支持 | 支持 | 不支持 |
-| Mac OS  | 桌面版 Chrome 浏览器 |  56+ | 支持 | 支持 | 支持（需要 chrome72+ 版本） |
-| Windows  | 桌面版 Chrome 浏览器|  56+ | 支持 | 支持 | 支持（需要 chrome72+ 版本） |
+| Mac OS  | 桌面版 Chrome 浏览器 |  56+ | 支持 | 支持 | 支持（需要 Chrome72+ 版本） |
+| Windows  | 桌面版 Chrome 浏览器|  56+ | 支持 | 支持 | 支持（需要 Chrome72+ 版本） |
 | Windows  | 桌面版 QQ 浏览器 |  10.4 | 支持 | 支持 | 不支持 |
 | iOS | 移动版 Safari 浏览器 | 11.1.2 | 支持 | 支持 | 不支持 |
 | iOS | 微信内嵌网页| 12.1.4 | 支持 | 不支持 | 不支持 |
@@ -19,7 +19,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 | Android | 微信内嵌网页| - | 不支持 | 不支持 | 不支持 |
 
 >! 
->- 您可以在浏览器中打开 [WebRTC 能力测试](https://www.qcloudtrtc.com/webrtc-samples/abilitytest/index.html) 页面进行检测是否完整支持 WebRTC。例如公众号等浏览器环境。
+>- 您可以在浏览器中打开 [WebRTC 能力测试](https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/web/demo/env-detect/index.html) 页面进行检测是否完整支持 WebRTC。例如公众号等浏览器环境。
 >- 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC 桌面浏览器端 SDK 的正常运行。
 
 <span id="requirements"></span>
@@ -41,7 +41,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 
 <span id="step2"></span>
 ### 步骤2：下载 SDK 和 Demo 源码
-1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/Web)】跳转至 Github（或单击【[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/H5_latest.zip?_ga=1.195966252.185644906.1567570704)】），下载相关 SDK 及配套的 Demo 源码。
+1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/Web)】跳转至 Github（或单击【[ZIP](https://liteavsdk-1252463788.cosgz.myqcloud.com/H5_latest.zip?_ga=1.195966252.185644906.1567570704)】），下载相关 SDK 及配套的 Demo 源码。
  ![](https://main.qcloudimg.com/raw/0f35fe3bafe9fcdbd7cc73f991984d1a.png)
 2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
 

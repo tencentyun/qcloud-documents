@@ -132,7 +132,7 @@ CREATE TABLE `Data-Output` (
 | 参数值                      | 必填 | 默认值     | 描述                                                         |
 | --------------------------- | ----- | ---------- | ------------------------------------------------------------ |
 | csv.field-delimiter         | 否    | ,          | 指定 CSV 字段分隔符，默认是半角逗号。                        |
-| csv.line-delimiter          | 否    | U&'\\000A' | 指定 CSV 的行分隔符，默认是换行符`\n`，SQL 中必须用`U&'\\000A'`表示。如果需要使用回车符`\r`，SQL 中必须使用`U&'\\000D'`表示。 |
+| csv.line-delimiter          | 否    | U&'\\000A' | 指定 CSV 的行分隔符，默认是换行符`\n`，SQL 中必须用`U&'\000A'`表示。如果需要使用回车符`\r`，SQL 中必须使用`U&'\000D'`表示。 |
 | csv.disable-quote-character | 否    | false| 禁止字段包围引号。如果为 true，则 'csv.quote-character' 选项不可用。|
 | csv.quote-character         | 否    | ''         | 字段包围引号，引号内部的作为整体看待。默认是`''`。          |
 | csv.ignore-parse-errors     | 否    | false      | 忽略处理错误。对于无法解析的字段，会输出为 null。            |

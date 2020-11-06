@@ -24,6 +24,19 @@
 | [sendGroupTextMessage](http://doc.qcloudtrtc.com/im/interfaceV2TIMManager.html#a07788874071937fac6c7093185b145f7) | 发送群聊普通文本消息 |
 | [sendGroupCustomMessage](http://doc.qcloudtrtc.com/im/interfaceV2TIMManager.html#a537560a58d49aad36406f6d9db6ded65) | 发送群聊自定义（信令）消息 |
 
+## 信令接口
+| API | 描述 |
+|---------|---------|
+| [addSignalingListener](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Signaling_08.html#a3a7fde0d4d5a342bd93299deaf98e1d1) | 添加信令监听。 |
+| [removeSignalingListener](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Signaling_08.html#ae730297ec335735eee3c2f3c464bde33) | 移除信令监听 |
+| [invite](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Signaling_08.html#a0c7b9134995c78f3e2b855acdf65ac12) | 邀请某个人。 |
+| [inviteInGroup](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Signaling_08.html#a1ea8dcc4ee2200bf5913a40efd76bf4e) | 邀请群内的某些人 |
+| [cancel](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Signaling_08.html#acaac35e5db28db783420b5eb39d53e6f) | 邀请方取消邀请。 |
+| [accept](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Signaling_08.html#a1ffb6daba9deed8780f869205daf7771) | 接收方接收邀请 |
+| [reject](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Signaling_08.html#a39e685924aaa4d22daa88f2ec96aa827) | 接收方拒绝邀请。 |
+| [getSignalingInfo](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Signaling_08.html#a0b149836793b8f2d54889b1c3ae40362) | 获取信令信息。 |
+| [addInvitedSignaling](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Signaling_08.html#aedfb31fdd3289af36c092b55adeed231) | 添加邀请信令（可以用于群离线推送消息触发的邀请信令）。 |
+
 ## 高级消息收发接口
 如果您需要收发图片、视频、文件等富媒体消息，并需要撤回消息、标记已读、查询历史消息等高级功能，推荐使用下面这套高级消息接口（简单消息接口和高级消息接口请不要混用）。
 

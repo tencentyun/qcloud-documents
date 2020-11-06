@@ -8,7 +8,7 @@
 </tr>
 <tr>
 <td>创建共享带宽包</td>
-<td><a href="https://cloud.tencent.com/doc/api/245/2107">CreateBandwidthPackage</a></td>
+<td><a href="https://cloud.tencent.com/document/product/215/19212">CreateBandwidthPackage</a></td>
 <td>创建设备带宽包和 IP 带宽包。</td>
 </tr>
 <tr>
