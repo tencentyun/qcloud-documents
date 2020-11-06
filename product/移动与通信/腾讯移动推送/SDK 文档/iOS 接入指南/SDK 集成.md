@@ -173,7 +173,7 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 >!在推送单个目标设备时请使用 TPNS 36位的 Token。
 
 ## 统一接收消息及点击消息回调说明
-TPNS及APNs通道统一接收消息回调，当应用在前台收到通知消息，以及所有状态（前台、后台、关闭）下收到静默消息会走此回调。
+TPNS 及 APNs 通道统一接收消息回调，当应用在前台收到通知消息，以及所有状态（前台、后台、关闭）下收到静默消息会走此回调。
 ```objective-c
 - (void)xgPushDidReceiveRemoteNotification:(nonnull id)notification withCompletionHandler:(nullable void (^)(NSUInteger))completionHandler;
 ```
