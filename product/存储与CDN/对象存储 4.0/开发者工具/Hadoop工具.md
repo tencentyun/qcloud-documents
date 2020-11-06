@@ -74,8 +74,8 @@ done
 |      fs.cosn.retry.<br>interval.seconds      | 每次重试的时间间隔。                                         |                              3                               |   否   |
 | fs.cosn.<br>server-side-encryption.algorithm | 配置 COS 服务端加密算法，支持 SSE-C 和 SSE-COS，默认为空，不加密。 |                              无                              |   否   |
 |    fs.cosn.<br>server-side-encryption.key    | 当开启 COS 的 SSE-C 服务端加密算法时，必须配置 SSE-C 的密钥，<br>密钥格式为 base64 编码的 AES-256 密钥，默认为空，不加密。 |                              无                              |   否   |
-| fs.cosn.<br>crc64.checksum.enabled | 是否开启 CRC64 校验。默认不开启，此时无法使用 hadoop fs -checksum 命令<br>获取文件的 CRC64校验值。 | false | 否 |
-|fs.cosn.<br>crc32c.checksum.enabled    | 是否开启 CRC32C 校验。默认不开启，此时无法使用 hadoop fs -checksum 命令。获取文件的 CRC32C 校验值，只能开启一种校验方式：crc32c 或 crc64。| false | 否 |
+| fs.cosn.<br>crc64.checksum.enabled | 是否开启 CRC64 校验。默认不开启，此时无法使用 hadoop fs -checksum 命令获取文件的 CRC64 校验值。 | false | 否 |
+|fs.cosn.<br>crc32c.checksum.enabled    | 是否开启 CRC32C 校验。默认不开启，此时无法使用 hadoop fs -checksum 命令获取文件的 CRC32C 校验值，只能开启一种校验方式：crc32c 或 crc64。| false | 否 |
 | fs.cosn.traffic.limit | 上传带宽的控制选项，819200 - 838860800 bits/s，默认值为-1，默认表示不限制。 | 无 | 否 | 
 
 
