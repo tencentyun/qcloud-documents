@@ -14,7 +14,7 @@ RT-Thread 接入腾讯云物联网开发平台可以分为以下4个步骤。
 
 1. 执行 `scons --menuconfig` 命令打开配置面板。
 勾选 `【RT-Thread online packages】>【IoT - internet of things】>【IoT Cloud】>【tencent-iot-sdk】`。
-```
+```plaintext
 [ ] OneNET: China Mobile OneNet cloud SDK for RT-Thread  ----                        
 [ ] GAgent: GAgent of Gizwits in RT-Thread  ----                                     
 [ ] Ali-iotkit: Aliyun cloud sdk 'iotkit-embedded' for RT-Thread  ----               
@@ -31,7 +31,7 @@ RT-Thread 接入腾讯云物联网开发平台可以分为以下4个步骤。
 
 1. 执行 `scons --menuconfig` 命令打开配置面板，对 C SDK 进行配置。
  - **选择路径**：`RT-Thread online packages => IoT - internet of things => IoT Cloud => tencent-iot-sdk `。
-```
+```plaintext
 --- Tencent-IoT:  Tencent Cloud IoT Explorer Platform SDK for RT-Thread        
 (0WUKPUCOTC) Config Product Id                                                 
 (dev001) Config Device Name                                                    
@@ -67,7 +67,7 @@ RT-Thread 接入腾讯云物联网开发平台可以分为以下4个步骤。
 2. 编译并运行示例程序。
 本文以数据模板智能灯 + TLS 为例进行介绍，展示设备和物联网开发平台基于 [数据模板协议](https://cloud.tencent.com/document/product/1081/34916) 的通信示例使能 TLS。物联网开发平台下发控制灯为红色的命令，设备端收取消息，打印颜色，并上报对应消息。
  - 配置选项
-     ```c
+     ```plaintext
      --- Tencent-IoT:  Tencent Cloud IoT Explorer Platform SDK for RT-Thread     
      --- Tencent-IoT:  Tencent Cloud IoT Explorer Platform SDK for RT-Thread               
         (0WUKPUCOTC) Config Product Id                                                     
@@ -86,7 +86,7 @@ RT-Thread 接入腾讯云物联网开发平台可以分为以下4个步骤。
               Version (latest)  --->   
      ```
  - 运行示例
-     ```c
+     ```plaintext
       \ | /
      - RT -     Thread Operating System
       / | \     4.0.3 build Jun 15 2020
