@@ -7,7 +7,7 @@
 
 ## 操作步骤
 Pulsar Java SDK 接入步骤如下：
-1. 按照 [Pulsar 官方文档](http://pulsar.apache.org/docs/en/client-libraries/) 添加 Maven 依赖。
+1. 按照 [Pulsar 官方文档](http://pulsar.apache.org/docs/en/client-libraries-java/) 添加 Maven 依赖。
    ```xml
    <!-- in your <properties> block -->
    <pulsar.version>2.6.1</pulsar.version>

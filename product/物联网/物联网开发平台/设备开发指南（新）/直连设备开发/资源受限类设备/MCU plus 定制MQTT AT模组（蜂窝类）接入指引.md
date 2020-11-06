@@ -33,12 +33,12 @@ MCU+ 定制 MQTT AT 模组（蜂窝类）接入腾讯云物联网开发平台可
 <tr>
 <td>2</td>
 <td>OS_USED</td>
-<td>是否使用 OS，目前的 AT-SDK 是基于多线程框架的，所以 OS 是必须的。</td>
+<td>是否使用 OS。目前的 AT-SDK 是基于多线程框架的，所以 OS 是必须的。</td>
 </tr>
 <tr>
 <td>3</td>
 <td>AUTH_MODE_KEY</td>
-<td>认证方式，证书认证还是密钥认证。</td>
+<td>认证方式。证书认证或者密钥认证。</td>
 </tr>
 <tr>
 <td>4</td>
@@ -222,7 +222,7 @@ MCU+ 定制 MQTT AT 模组（蜂窝类）接入腾讯云物联网开发平台可
 </tbody></table>
 
 - #### module_api_inf.c
-该源文件主要实现了配网/注网 API 业务适配和基于腾讯云物联网 AT 指令的 MQTT 交互，但有一个关于联网/注网的API（module_register_network）需要根据模组适配。代码基于 [ESP8266 腾讯云物联网定制 AT 固件](https://main.qcloudimg.com/raw/6811fc7631dcf0ce5509ccbdba5c72b7.zip) 实现了 Wi-Fi 直连的方式连接网络，但更常用的场景是根据特定事件（例如：按键）触发配网（softAP/一键配网），这块的逻辑各具体业务逻辑需自行实现。
+该源文件主要实现配网/注网 API 业务适配和基于腾讯云物联网 AT 指令的 MQTT 交互，但有一个关于联网/注网的API（module_register_network）需要根据模组适配。代码基于 [ESP8266 腾讯云物联网定制 AT 固件](https://main.qcloudimg.com/raw/6811fc7631dcf0ce5509ccbdba5c72b7.zip) 实现 Wi-Fi 直连的方式连接网络，但更常用的场景是根据特定事件（例如：按键）触发配网（softAP/一键配网），这块的逻辑各具体业务逻辑需自行实现。
 
  ESP8266 有封装配网指令和示例 App。对于蜂窝模组，则是使用特定的网络注册指令。请参考 [module_handshake](https://github.com/tencentyun/qcloud-iot-sdk-tencent-at-based/blob/master/include/module_api_inf.h) 函数应用 AT-SDK 的 AT 框架添加和模组的 AT 指令交互。
 ```c
@@ -325,12 +325,12 @@ Sample 目录一共有3个示例，用户可以参考各示例根据业务逻辑
 
 | 序号  | 示例名称                        | 说明|
 | ---- | -------------------------------| ----------------------------------|
-| 1    | mqtt_sample.c                  | MQTT 示例，该示例示例基于定制的 AT 指令如何便捷的接入腾讯物联网平台及收发数据。|
+| 1    | mqtt_sample.c                  | MQTT 示例，该示例介绍了基于定制的 AT 指令如何便捷的接入腾讯物联网平台及收发数据。|
 | 2    | shadow_sample.c                | 影子示例，基于 AT 实现的 MQTT 协议，进一步封装的影子协议。               |
-| 3    | light_data_template_sample.c   | 基于智能灯的控制场景，示例具体的产品如何应用数据模板及事件功能。        |
+| 3    | light_data_template_sample.c   | 基于智能灯的控制场景，介绍具体的产品如何应用数据模板及事件功能。        |
 
-更多详情请参见 [数据模板协议](https://cloud.tencent.com/document/product/1081/34916)。
+更多详情请参考 [数据模板协议](https://cloud.tencent.com/document/product/1081/34916)。
 
 ## SDK 使用参考
 
-请参见 [AT SDK 使用参考](https://cloud.tencent.com/document/product/1081/48366)。
+请参考 [AT SDK 使用参考](https://cloud.tencent.com/document/product/1081/48366)。

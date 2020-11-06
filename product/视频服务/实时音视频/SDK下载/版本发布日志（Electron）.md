@@ -1,3 +1,9 @@
+## Version 7.8.342 @ 2020.10.10
+
+**新增**
+- Windows & Mac：新增 [onAudioDeviceCaptureVolumeChanged](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onAudioDeviceCaptureVolumeChanged) 当前音频采集设备音量变化回调。
+- Windows & Mac：新增 [onAudioDevicePlayoutVolumeChanged](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onAudioDevicePlayoutVolumeChanged) 当前音频播放设备音量变化回调。
+
 ## Version 7.7.330 @ 2020.09.11
 
 **新增**

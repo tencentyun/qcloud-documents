@@ -8,9 +8,9 @@
 
 ## Android 端 OCR SDK 接入流程
 
-### Android 端 OCR SDK介绍
+### Android 端OCR SDK 介绍
 
-SDK 提供的文件为 **OcrSDKv1.0.2-alpha.aar** （具体版本号以官网下载为准），该文件封装了 OCR 识别终端能力。目前包括了身份证识别、银行卡识别以及名片识别。
+SDK提供的文件为 **OcrSDKv1.0.2-alpha.aar** (具体版本号以官网下载为准)，该文件封装了 OCR 识别终端能力。目前包括了身份证识别、银行卡识别以及名片识别。
 
 
 
@@ -22,13 +22,16 @@ SDK 提供的文件为 **OcrSDKv1.0.2-alpha.aar** （具体版本号以官网下
 
 ### 接入步骤
 
-1. 将 **OcrSDKv1.0.2-alpha.aar** 添加到您工程目录的 libs 目录下。![](https://main.qcloudimg.com/raw/613a018bdf4cf3690745481d51621c39.png)
+1. 将 **OcrSDKv1.0.2-alpha.aar** 添加到您工程目录的 libs 目录下。![](https://main.qcloudimg.com/raw/817e191497ae168a2f9890e5d85ce936.png)
 
 2. 在您工程的 **build.gradle** 中进行如下配置：
  ```groovy
 dependencies {
   // 依赖腾讯云的 OcrSDK 的 aar
   implementation files('libs/OcrSDKv1.0.2-alpha.aar')
+  
+  // Ocr 依赖 xlog 组件需要添加引用
+  implementation 'com.tencent.mars:mars-xlog:1.2.3'
 }
  ```
 
@@ -89,9 +92,9 @@ OcrSDKKit.getInstance().updateFederationToken(tmpSecretId, tmpSecretKey, token);
 
 
 
-#### OCR 识别：
+#### ocr 识别：
 
-当您需要使用 OCR 识别的功能的时候您可以直接调用识别接口，进行 OCR 业务识别。
+当您需要使用 OCR 识别的功能的时候，您可以直接调用识别接口，进行 OCR 业务识别。
 
 ```java
 // 启动 ocr 识别，识别类型为身份证正面
@@ -110,12 +113,13 @@ OcrSDKKit.getInstance().startProcessOcr(MainActivity.this, OcrType.IDCardOCR_FRO
 
 目前 OCR SDK 支持四种类型的识别模式如下表所示。
 
-| OcrType 类型             | 代表含义             |
-| ----------------------- | -------------------- |
-| OcrType.IDCardOCR_FRONT | 身份证人像面识别模式 |
-| OcrType.IDCardOCR_BACK  | 身份证国徽面识别模式 |
-| OcrType.BankCardOCR     | 银行卡正面识别模式   |
-| OcrType.BusinessCardOCR | 名片卡正面识别模式   |
+| OcrType 类型             | 代表含义               |
+| ----------------------- | ---------------------- |
+| OcrType.IDCardOCR_FRONT | 身份证人像面识别模式   |
+| OcrType.IDCardOCR_BACK  | 身份证国徽面识别模式   |
+| OcrType.BankCardOCR     | 银行卡正面识别模式     |
+| OcrType.BusinessCardOCR | 名片卡正面识别模式     |
+| OcrType.MLIdCardOCR     | 马来西亚身份证识别模式 |
 
 
 
@@ -151,7 +155,7 @@ protected void onDestroy() {
 
 ```java
 #保留自定义的 OcrSDKKit 类和类成员不被混淆
--keep class com.tencent.ocr.sdk.common.** {*;}
+-keep class com.tencent.ocr.sdk.** {*;}
 
 #第三方 jar 包不被混淆
 -keep class com.tencent.youtu.** {*;}
@@ -159,4 +163,34 @@ protected void onDestroy() {
 ```
 
 ​	
+
+### 常见问题
+
+1. 如同时集成慧眼 SDK，出现 **More than one file was found with OS independent path 'lib/armeabi-v7a/libopencv_world.so'.** 的问题。
+
+​	主要是 OCR SDK 和慧眼 SDK 都添加了 libopencv_world.so 这个库，解决办法可以在 build.gradle 中添加如下配置：
+
+```groovy
+android {
+		...
+		    // 过滤重复定义 so 的问题
+    packagingOptions{
+        pickFirst 'lib/armeabi-v7a/libopencv_world.so'
+    }
+}
+```
+
+2. 如同时集成智能扫码 SDK，出现 **More than one file was found with OS independent path 'lib/armeabi-v7a/libc++_shared.so'.** 的问题。
+
+主要是由于智能扫码和 xlog 中 native 库冲突了，解决方法可以在 build.gradle 中添加如下配置：
+
+```groovy
+android {
+		...
+		    // 过滤重复定义 so 的问题
+    packagingOptions{
+        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
+    }
+}
+```
 

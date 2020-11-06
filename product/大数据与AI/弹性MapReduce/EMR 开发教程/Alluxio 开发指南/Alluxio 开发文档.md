@@ -63,13 +63,13 @@ Alluxio 提供了位置策略来选择要存储文件块到哪一个 worker。
 
 用户可以轻松地覆盖默认的策略类配置文件中的属性`alluxio.user.file.write.location.policy.class`。内置的策略包括：
 - LocalFirstPolicy (alluxio.client.file.policy.LocalFirstPolicy) 
-首先返回本地主机，如果本地 worker 没有足够的块容量，它从活动 worker 列表中随机选择一名 worker。这是默认的策略。
+首先返回本地节点，如果本地 worker 没有足够的块容量，它从活动 worker 列表中随机选择一名 worker。这是默认的策略。
 - MostAvailableFirstPolicy (alluxio.client.file.policy.MostAvailableFirstPolicy)
 返回具有最多可用字节的 worker。
 - RoundRobinPolicy (alluxio.client.file.policy.RoundRobinPolicy)
 以循环方式选择下一个 worker，跳过没有足够容量的 worker。
 - SpecificHostPolicy (alluxio.client.file.policy.SpecificHostPolicy)
-返回具有指定主机名的 worker。此策略不能设置为默认策略。
+返回具有指定节点名的 worker。此策略不能设置为默认策略。
 
 Alluxio 支持自定义策略，所以您也可以通过实现接口`alluxio.client.file.policyFileWriteLocationPolicy`制定适合自己的策略。
 >!默认策略必须有一个空的构造函数。并使用 ASYNC_THROUGH 写入类型，所有块的文件必须写入同一个 worker。
@@ -81,6 +81,7 @@ Alluxio 允许客户在向本地 worker 写入数据块时选择一个层级偏�
 对现有文件或目录的所有操作都要求用户指定 AlluxioURI。使用 AlluxioURI，用户可以使用 FileSystem 中的任何方法来访问资源。
 
 AlluxioURI 可用于执行 Alluxio FileSystem 操作，例如修改文件元数据、ttl 或 pin 状态，或者获取输入流来读取文件。例如，要读取一个文件：
+
 ```
 FileSystem fs = FileSystem.Factory.get();
 AlluxioURI path = new AlluxioURI("/myFile");

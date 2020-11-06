@@ -151,7 +151,6 @@ DevEUI 等信息可从 LoRa 节点开发板背面贴纸上获取。
 ![](https://main.qcloudimg.com/raw/0ddf029ee09642f8a24f20e0d5fa7e50.png)
 
 
-
 ### 配置修改
 
 请按照如下步骤完成相关配置：

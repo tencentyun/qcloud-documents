@@ -30,7 +30,7 @@ Android SDK移植指引，详情请参见 [Android 平台接入指引](https://c
 | ---------------------------- | -----------------------------------|
 | connect                      |  MQTT 连接                          |
 | reconnect                    |  MQTT 重连                          |
-| disConnect                   |  断开 MQTT连接                       |
+| disConnect                   |  断开 MQTT 连接                       |
 | publish                      |  发布 MQTT 消息                      |
 | subscribe                    |  订阅 MQTT 主题                      |
 | unSubscribe                  |  取消订阅 MQTT 主题                   |

@@ -4,7 +4,7 @@ TSF 支持原生 Spring Cloud 微服务框架，开发者只需要添加依赖�
 
 
 ## 兼容性说明
-TSF 兼容主流 SDK 版本（Edgware、Finchley、Greenwich），具体可参考 [SDK 版本概述]()。Spring Cloud 功能 、开源实现及 TSF 兼容性如下表所示：
+TSF 兼容主流 SDK 版本（Edgware、Finchley、Greenwich），具体可参考 [SDK 版本概述](https://cloud.tencent.com/document/product/649/49320)。Spring Cloud 功能、开源实现及 TSF 兼容性如下表所示：
 <style>
 table th:first-of-type {
 	width: 150px;

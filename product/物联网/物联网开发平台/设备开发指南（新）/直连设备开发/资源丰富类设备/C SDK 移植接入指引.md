@@ -3,11 +3,11 @@
 
 ## SDK 获取
 
-SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [C SDK](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c)。
+SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [C SDK](https://github.com/tencentyun/qcloud-iot-explorer-sdk-embedded-c/releases)。
 
 ## 接入指引
 
-非典型平台接入腾讯云物联网开发平台可以分为以下3个步骤。
+非典型平台接入腾讯云物联网开发平台可以分为以下2个步骤。
 
 ### 硬件抽象层移植
 
@@ -279,4 +279,4 @@ SDK 在 [platform/os](https://github.com/tencentyun/qcloud-iot-sdk-embedded-c/tr
 
 ## SDK 使用参考
 
-请参见 [C SDK 使用参考](https://cloud.tencent.com/document/product/1081/48377)。
+请参考 [C SDK 使用参考](https://cloud.tencent.com/document/product/1081/48377)。

@@ -36,7 +36,7 @@
  - **Chart 包**：单击后选择本地已下载的 Helm Chart 包。
 >! 仅支持 .tgz 格式的 Helm Chart压缩包，请避免上传其他类型文件。请注意，上传同名文件将覆盖已有 Chart，请谨慎操作。
 >
-3. 单击【上传】即可开始上传该 Helm Chart 包。上传完成后，可在仓库列表页查看刚刚上传的 Helm Chart，若上传的 Helm Chart 包没有对应的 Helm Chart 仓库，将自动新建一个 Chart 仓库。
+3. 单击【上传】即可开始上传该 Helm Chart 包。上传完成后，可在仓库列表页查看已上传的 Helm Chart，若上传的 Helm Chart 包没有对应的 Helm Chart 仓库，将自动新建一个 Chart 仓库。
 
 #### 下载 Helm Chart 包至本地
 1. 在【Helm Chart】页面查看当前实例内的 Helm Chart 仓库列表。单击指定仓库，即可进入该 Helm 仓库的版本管理页面。
@@ -80,6 +80,8 @@ helm repo add $instance-$namespace https://$instance.tencentcloudcr.com/chartrep
 
 #### 推送 Helm Chart
 1. 安装 Helm Push 插件
+>! 请安装 0.9.0 及以上版本的 helm-push 插件，避免因版本不兼容等问题造成无法正常推送 helm chart。
+>
 使用 Helm CLI 上传 Chart 包需要安装 helm-push 插件，该插件支持使用 `helm push` 指令推送 helm chart 至指定 repo，同时支持上传目录及压缩包。
 ```
 helm plugin install https://github.com/chartmuseum/helm-push

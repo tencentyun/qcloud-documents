@@ -102,7 +102,7 @@ Container 类型 Output 的具体数据描述如下：
     <CreationTime></CreationTime>
     <EndTime></EndTime>
     <QueueId></QueueId>
-    <Tag>SmartCover<Tag>
+    <Tag>SmartCover</Tag>
     <Input>
       <Object></Object>
     </Input>
@@ -182,7 +182,7 @@ Content-Length: 166
 Content-Type: application/xml
 
 <Request>
-  <Tag>SmartCover<Tag>
+  <Tag>SmartCover</Tag>
   <Input>
     <Object>test.mp4</Object>
   </Input>
@@ -217,7 +217,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
     <CreationTime>2019-07-07T12:12:12+0800</CreationTime>
     <EndTime></EndTime>
     <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
-    <Tag>SmartCover<Tag>
+    <Tag>SmartCover</Tag>
     <Input>
       <Object>test.mp4</Object>
     </Input>
