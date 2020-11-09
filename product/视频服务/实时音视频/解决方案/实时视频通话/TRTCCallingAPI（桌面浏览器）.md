@@ -1,5 +1,3 @@
-﻿# TRTCCalling API（WEB)
-
 ## TRTCCalling 简介
 
 [TRTCCalling](https://www.npmjs.com/package/trtc-calling-js) 组件，是我们基于腾讯云 Web 版的 [TRTC SDK](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html) 和 [信令(TSignalling) SDK](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tsignaling/TSignaling.html) 组合而成的一个功能组件，用于支持双人和多人场景下的音视频通话通能。
