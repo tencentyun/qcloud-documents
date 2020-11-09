@@ -13,6 +13,7 @@
 | FamilyId    | String | 是   | 家庭 ID。                                                       |
 | ProductId   | String | 是   | 产品 ID。                                                       |
 | DeviceName  | String | 是   | 设备名称。                                                     |
+| TokenContext  | String | 否   | 分享的上下文。                                                   |
 
 ## 3. 输出参数
 
