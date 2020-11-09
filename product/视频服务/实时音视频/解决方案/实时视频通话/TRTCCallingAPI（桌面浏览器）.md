@@ -1,6 +1,6 @@
 ## TRTCCalling 简介
 
-[TRTCCalling](https://www.npmjs.com/package/trtc-calling-js) 组件，是我们基于腾讯云 Web 版的 [TRTC SDK](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html) 和 [信令(TSignalling) SDK](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tsignaling/TSignaling.html) 组合而成的一个功能组件，用于支持双人和多人场景下的音视频通话通能。
+[TRTCCalling](https://www.npmjs.com/package/trtc-calling-js) 组件，是我们基于腾讯云 Web 版的 [TRTC SDK](https://trtc-1252463788.file.myqcloud.com/web/docs/TRTC.html) 和 [信令（TSignalling）SDK](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tsignaling/TSignaling.html) 组合而成的一个功能组件，用于支持双人和多人场景下的音视频通话通能。
 
 组件封装了简单易用的 [API](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/trtc-calling-js-doc/TRTCCalling.html)，以方便您快速实现视频通话和语音通话功能。
 
@@ -49,7 +49,7 @@
 
 ### 创建 TRTCCalling 组件实例
 
-首先，您需要在实时音视频 [控制台](https://console.cloud.tencent.com/trtc/app) 中创建一个应用，并取得 SDKAppID。
+首先，您需要在 [实时音视频控制台](https://console.cloud.tencent.com/trtc/app) 中创建一个应用，并取得 SDKAppID。
 之后，就可以通过 `new TRTCCalling()` 方法获取 TRTCCalling 组件的一个实例。
 
 ```javascript
