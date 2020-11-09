@@ -84,7 +84,7 @@ SAML 示例如下：
 ```
 
 在 SAML 断言的  AttributeStatement 元素中，必须包含以下腾讯云要求的 Attribute 元素：
-1.  Name 属性值为 https://cloud.tencent.com/SAML/Attributes/Role 的 Attribute 元素该元素为必选，可以有多个。其包含的 AttributeValue 元素取值代表允许当前用户扮演的角色，取值的格式是由角色描述与身份提供商描述组合而成的，中间用英文逗号（,）隔开。
+1.  Name 属性值为 https://cloud.tencent.com/SAML/Attributes/Role 的 Attribute 元素，该元素为必选，可以有多个。其包含的 AttributeValue 元素取值代表允许当前用户扮演的角色，取值的格式是由角色描述与身份提供商描述组合而成的，中间用英文逗号（,）隔开。
   > ? 如果是多个，当使用控制台登录时，将会在界面上列出所有角色供用户选择。
   > 
 以下是一个 Role Attribute 元素示例：
