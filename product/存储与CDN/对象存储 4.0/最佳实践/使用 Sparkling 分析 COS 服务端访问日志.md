@@ -57,3 +57,4 @@
 
 3. 选择柱状图进行可视化，如下图所示：
    ![](https://main.qcloudimg.com/raw/630f7e6223a7894ba34b7595f67f4fe3.jpg)
+

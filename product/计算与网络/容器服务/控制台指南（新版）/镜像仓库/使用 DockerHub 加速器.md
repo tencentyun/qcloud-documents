@@ -16,7 +16,7 @@ LOG_LEVEL="--log-level=warn"
 REGISTRY_MIRROR="--registry-mirror=https://mirror.ccs.tencentyun.com"
 ```
 ## CVM 实例通用配置
-### Liunx 
+### Linux 
 >?本文以 Ubuntu 16.04+、Debian 8+、CentOS 7 的配置为例，其他版本请结合实际情况进行配置。
 >
 1. 创建或修改 `/etc/docker/daemon.json` 文件，并写入以下内容：
@@ -33,6 +33,7 @@ $ sudo systemctl daemon-reload
 ```
 ```
 $ sudo systemctl restart docker
+# Ubuntu16.04 请执行 sudo systemctl restart dockerd 命令
 ```
 
 ### Windows 10

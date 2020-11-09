@@ -7,6 +7,6 @@ HTTPS（Hypertext Transfer Protocol Secure）指超文本传输安全协议，�
 ### 如何配置 HTTPS 证书？
 您可以在 GCD 控制台中证书管理页面配置 HTTPS 证书。
 
-### 源站的 HTTPS 证书更新了，GCD上需要同步更新吗？
+### 源站的 HTTPS 证书更新了，GCD 上需要同步更新吗？
 - HTTP 回源：不需要。
 - HTTPS 回源：源站更新证书，GCD 节点也需要同步更新。您需要保持客户端 - 节点 - 源站证书一致，否则会导致回源失败。

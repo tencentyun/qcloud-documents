@@ -23,15 +23,15 @@ Storm 可以把 CKafka 作为`spout`，消费数据进行处理；也可以作�
 
 
 ### 申请创建 CKafka 实例
-
-![](https://mc.qcloudimg.com/static/img/d2ae59d6670c641c73ddcc3d0b7fa364/image.png)
+登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)，创建一个 CKafka 实例（参考 [创建实例](https://cloud.tencent.com/document/product/597/30931)）。
+![](https://main.qcloudimg.com/raw/bf723ed1332095a76b37e1299898a2ee.png)
 
 ### 创建 Topic
-
-![](https://mc.qcloudimg.com/static/img/0b6d4b8f9b18951cbc5ba3b16cd5ea8a/image.png)
+在实例下创建一个 Topic（参考 [创建Topic](https://cloud.tencent.com/document/product/597/40415)）。
+![](https://main.qcloudimg.com/raw/3e1909c802351381113a66c6fcb1efb6.png)
 
 ### maven 依赖
-pom.xml配置如下
+pom.xml 配置如下：
 ```xml
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
@@ -213,7 +213,7 @@ public class SerialSentenceSpout extends BaseRichSpout {
 
 
 
-为`tuple`加上 key、message 两个字段，当 key 为 null 时，生产的消息均匀分配到各个 partition，指定了 key 后将按照 key 值 hash 到特定 partition 上
+为`tuple`加上 key、message 两个字段，当 key 为 null 时，生产的消息均匀分配到各个 partition，指定了 key 后将按照 key 值 hash 到特定 partition 上：
 
 ```java
 //AddMessageKeyBolt.java
@@ -556,7 +556,7 @@ public class TopologyKafkaConsumerTrident {
 ```
 
 ### 提交 Storm
-使用 mvn package 编译后,可以提交到本地集群进行 debug 测试，也可以提交到正式集群进行运行
+使用 mvn package 编译后，可以提交到本地集群进行 debug 测试，也可以提交到正式集群进行运行。
 ```bash
 storm jar your_jar_name.jar topology_name
 ```

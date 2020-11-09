@@ -1,3 +1,4 @@
+
 Drupal 是使用 PHP 语言编写的开源内容管理框架（Content Management Framework），它由内容管理系统（Content Management System）和 PHP  开发框架（Framework）共同构成。Drupal 可用于构造提供多种功能和服务的动态网站，能支持从个人博客到大型社区等各种不同应用的网站项目。
 您可以通过本教程了解如何在腾讯云服务器上搭建 Drupal 电子商务网站。
 使用的软件环境为：CentOS7.2、Drupal7.56、PHP5.4.16。
@@ -49,7 +50,7 @@ service httpd start
 ### 安装 PHP 
 1. 在云服务器实例中使用`yum`安装 PHP 及其扩展。
 ```
-yum install php php-dom php-dg php-mysql php-pdo -y
+yum install php php-dom php-gd php-mysql php-pdo -y
 ```
 2. 在云服务器`/var/www/html`目录下创建一个 info.php 文件来检查 PHP 是否安装成功，示例代码如下：
 ```

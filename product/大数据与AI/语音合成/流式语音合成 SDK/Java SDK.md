@@ -1,4 +1,4 @@
-流式语音合成 Java SDK [下载地址](https://ruskin-1256085166.cos.ap-guangzhou.myqcloud.com/tts_sdk/java_stream_tts_sdk.tar.gz )。
+流式语音合成 Java SDK [下载地址](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/tts/java_stream_tts_sdk.zip)。
 
 接口请求域名：tts.cloud.tencent.com/stream。
 
@@ -10,13 +10,13 @@ jdk1.8及以上
 
 本文件夹包含了 Jar 包和源码。源码可通过 Eclipse 直接打开，或将 src 拷至 IDEA 等软件中。
 
-JAR 包使用步骤举例如下：
-1. 找到：out 和 lib 文件夹中的 jar 文件，一共16个(包括5个source jar）。
-2. 将 jar 复制到您的工程文件夹中。如果第三方 Jar 和您已使用的 Jar 有重复，可选择其一。
-3. 右键单击 Eclipse ，选择【您的项目】>【Properties】>【Java Build Path】>【Add JARs】。
-4. 将 jar文件 include 到您的项目中。包括：out文件夹中的：tts-sdk-1.0.jar 和第三方的10个依赖工具包。
+JAR 包使用步骤举例如下：  
+1. 找到：out 和 lib 文件夹中的 jar 文件，包括 tts-sdk-\*.\*.jar 和依赖的 jar 包。  
+2. 将 jar 复制到您的工程文件夹中。如果 jar 包和您已使用的 jar 有重复，可选择其一。  
+3. 右键单击 Eclipse ，选择【您的项目】>【Properties】>【Java Build Path】>【Add JARs】。  
+4. 其他 IDE 参考对应的导入 jar 包流程添加即可，目前暂不支持 maven 仓库管理。
 
-添加完成后，用户就可以在工程中使用TTS语音合成SDK了。
+添加完成后，用户就可以在工程中使用 TTS 语音合成 SDK 了。
 
 ##  <span id="result">获取用户信息</span>
 **获取 AppID，SecretId 与 SecretKey**
@@ -28,13 +28,12 @@ JAR 包使用步骤举例如下：
 
 ```
 /**
-* 用户的语音请求基本参数，仅需配置一次，全局使用。通常是注册腾讯云账号后，登录控制台，从“个人 API 密钥”中获得。
-* 获取方法请查看： <a href="https://cloud.tencent.com/document/product/441/6203">签名鉴权 获取签名所需信息</a>
+* 获取方法如上
 * 请用户务必将自己的各项参数值赋值到本类对应变量中。
 */
 public class AsrBaseConfig {
-	public static String secretId = "AKID31NbfXbpBLJ4kGJrytc9UfgVAlGltJJ8";
-	public static String secretKey = "kKm26uXCgLtGRWVJvKtGU0LYdWCgOvGP";
+	public static String secretId = "AKID31NbfXbpBLJ4kGJrytc9UfgVAlG*****";
+	public static String secretKey = "kKm26uXCgLtGRWVJvKtGU0LYdWC*****";
 	public static String appId = "1255628450";
 }
 ```
@@ -55,7 +54,7 @@ public class AsrBaseConfig {
 | Volume | 否 | Float | 音量大小，范围：[0，10]，分别对应11个等级的音量，默认值为0，代表正常音量。没有静音选项。<br>输入除以上整数之外的其他参数不生效，按默认值处理。|
 | Speed | 否 | Int | 语速，范围：[-2，2]分别对应不同语速：<br>-2代表0.6倍 <br>-1代表0.8倍<br>0代表1.0倍（默认）<br>1代表1.2倍<br>2代表1.5倍<br>输入除以上整数之外的其他参数不生效，按默认值处理。|
 | ProjectId | 否 | Int | 项目 ID，可以根据控制台-账号中心-项目管理中的配置填写，如无配置请填写默认项目ID:0 。|
-| VoiceType | 否 | Int | 音色选择：<br>0：亲和女声（默认）<br>1：亲和男声<br>2：成熟男声<br>4：温暖女声<br>5：情感女声<br>6：情感男声|
+| VoiceType | 否 | Int | 详见：[语音合成 API 文档中的 VoiceType 参数](https://cloud.tencent.com/document/product/1073/37995)。|
 | PrimaryLanguage | 否 | Int | 主语言类型：<br>1：中文（默认）<br>2：英文 |
 | SampleRate | 否 | Int | 音频采样率：<br>16000:16k（默认）<br>8000:8k |
 | Codec | 否 | String | 返回音频格式：<br>opus：返回多段含 opus 压缩分片音频，数据量小，建议使用（默认）。<br>pcm：返回二进制 pcm 音频，使用简单，但数据量大。|
@@ -65,7 +64,6 @@ public class AsrBaseConfig {
 ```
 /*
 ** 初始化基础参数, 请将下面的参数值配置成您自己的值。配置可中途修改，正常情况下立即生效。
-** 参数获取方法可参考： <a href="https://cloud.tencent.com/document/product/441/6203">签名鉴权 获取签名所需信息</a>
 */
 private static void initBaseParameters() {
 	// Required
@@ -183,8 +181,6 @@ public class TtsRequestSample {
 
 	/**
 	 * 初始化基础参数, 请将下面的参数值配置成您自己的值。配置可中途修改，正常情况下立即生效。
-	 * 
-	 * 参数获取方法可参考： <a href="https://cloud.tencent.com/document/product/441/6203">签名鉴权 获取签名所需信息</a>
 	 */
 	private static void initBaseParameters() {
 		// Required

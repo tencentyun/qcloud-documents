@@ -4,7 +4,7 @@ PUT Object acl 接口用来写入对象的访问控制列表（ACL），您可�
 > !
 > - 通过请求头设置 ACL 和通过请求体设置 ACL，两种方式只能选择其中一种。
 > - PUT Object acl 是一个覆盖操作，传入新的 ACL 将覆盖原有 ACL。
-> - 仅可对腾讯云 CAM 主账号或匿名用户授予权限，如需授予授予子用户或用户组权限请使用 [PUT Bucket policy](https://cloud.tencent.com/document/product/436/8282) 接口。有关 ACL 的详细说明，请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752)。
+> - 仅可对腾讯云 CAM 主账号或匿名用户授予权限，如需授予子用户或用户组权限请使用 [PUT Bucket policy](https://cloud.tencent.com/document/product/436/8282) 接口。有关 ACL 的详细说明，请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752)。
 > - 该 API 的请求者需要对指定对象有写入 ACL 权限。
 
 ## 请求

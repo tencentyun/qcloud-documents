@@ -5,7 +5,7 @@
 - ACL 访问控制列表（Access Control List），帮助用户定义一组权限规则，允许/拒绝用户 user 通过 IP 读/写 Topic 资源  resource。
 
 ## 前提条件
-该功能目前处于灰度测试阶段，如需试用请通过 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=335&source=0&data_title=%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97CMQ/CKAFKA/IoT%20MQ&step=1) 的方式开通白名单。
+该功能目前处于灰度测试阶段，如需试用请通过 [提交内测申请](https://cloud.tencent.com/apply/p/70089qycbxa) 的方式开通白名单,申请提交后我们将在5个工作日内进行审核并与您取得联系。
 
 ## 操作步骤
 
@@ -18,7 +18,7 @@
 
 ####  Client 端配置
 1. 在 CKafka 实例的用户管理页面，单击【新建】，创建用户。
-![](https://main.qcloudimg.com/raw/f164bde6857b4a0a23b69ccfd41f5c8e.png)
+![](https://main.qcloudimg.com/raw/43fc21203648cbb27b91ba1d37b218f2.png)
 2. 输入用户名和密码信息，单击【提交】完成用户新增。
 ![](https://main.qcloudimg.com/raw/8c8e2e57d320ba2b25e0aecf0dbb3b28.png)
 
@@ -33,7 +33,7 @@ security.protocol=SASL_PLAINTEXT
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="instanceId#admin" password="admin";
 ```
 其中，sasl.jaas.config 部分的 username 和 password 说明如下： 
- - username：包含实例 ID 和用户名，使用`#`拼接，实例 ID 为客户端需要连接的 CKafka 实例（可通过腾讯云控制台可查看该实例），用户名可通过**控制台 ACL 策略管理模块**进行设置。
+ - username：**包含实例 ID 和用户名，使用 `#` 拼接**，实例 ID 为客户端需要连接的 CKafka 实例（可通过腾讯云控制台可查看该实例），用户名可通过**控制台 ACL 策略管理模块**进行设置。
  - password：部分为用户名对应的密码。
  
 **配置文件示例**<span id="配置文件示例"></span>
@@ -92,8 +92,8 @@ Properties props = new Properties();
 props.put("bootstrap.servers", "yourbrokers");
 props.put("security.protocol", "SASL_PLAINTEXT");
 props.put("sasl.mechanism", "PLAIN");
-props.put("key.serializer", "org.apache.kafka.common.serialization.IntegerSerializer");
-props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer");
+props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
+props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 props.put("session.timeout.ms", 30000)
 props.put("sasl.jaas.config", "org.apache.kafka.common.security.plain.PlainLoginModule required username=\"yourinstance#yourusername\" password=\"yourpassword\";");
 org.apache.kafka.clients.consumer.KafkaConsumer<Integer, String> consumer = new org.apache.kafka.clients.consumer.KafkaConsumer<>(props);
@@ -175,6 +175,135 @@ consumer = KafkaConsumer (
     api_version=(0,10,0)
 )
 ```
-更多配置及用法请参考 [Python-Kafka 文档](https://kafka-python.readthedocs.io/en/master/apidoc/modules.html) 。
+更多配置及用法请参考 [Python-Kafka 文档](https://kafka-python.readthedocs.io/en/master/apidoc/modules.html)。
 
+#### Go 客户端
+
+```
+package main
+
+import (
+	"context"
+	"log"
+	"os"
+	"os/signal"
+	"sync"
+	"syscall"
+	"time"
+
+	"github.com/Shopify/sarama"
+)
+
+func main() {
+	server := []string{"yourckafkavip"}
+	groupID := "yourgroupid"
+	topic := []string{"yourtopicname"}
+	config := sarama.NewConfig()
+	//指定 Kafka 版本，选择和购买的 CKafka 相对应的版本，如果不指定，sarama 会使用最低支持的版本
+	config.Version = sarama.V1_1_1_0
+	config.Net.SASL.Enable = true
+	config.Net.SASL.User = "yourinstance#yourusername"
+	config.Net.SASL.Password = "yourpassword"
+
+	//producer
+	proClient, err := sarama.NewClient(server, config)
+	if err != nil {
+		log.Fatalf("unable to create kafka client: %q", err)
+	}
+	defer proClient.Close()
+	producer, err := sarama.NewAsyncProducerFromClient(proClient)
+	if err != nil {
+		log.Fatalln("failed to start Sarama producer:", err)
+	}
+	defer producer.Close()
+
+	go func() {
+		ticker := time.NewTicker(time.Second)
+		for {
+			select {
+			case t := <-ticker.C:
+				//向一个topic生产消息
+				msg := &sarama.ProducerMessage{
+					Topic: topic[0],
+					Key:   sarama.StringEncoder(t.Second()),
+					Value: sarama.StringEncoder("Hello World!"),
+				}
+				producer.Input() <- msg
+			}
+		}
+	}()
+	//consumer group
+	consumer := Consumer{
+		ready: make(chan bool),
+	}
+	ctx, cancel := context.WithCancel(context.Background())
+	client, err := sarama.NewConsumerGroup(server, groupID, config)
+	if err != nil {
+		log.Panicf("Error creating consumer group client: %v", err)
+	}
+	wg := &sync.WaitGroup{}
+	wg.Add(1)
+	go func() {
+		defer wg.Done()
+		for {
+			//Consume 需要在一个无限循环中调用，当重平衡发生的时候，需要重新创建 consumer session 来获得新 ConsumeClaim
+			if err := client.Consume(ctx, topic, &consumer); err != nil {
+				log.Panicf("Error from consumer: %v", err)
+			}
+			//如果 context 设置为取消，则直接退出
+			if ctx.Err() != nil {
+				return
+			}
+			consumer.ready = make(chan bool)
+		}
+	}()
+	log.Println("Sarama consumer up and running!...")
+
+	sigterm := make(chan os.Signal, 1)
+	signal.Notify(sigterm, syscall.SIGINT, syscall.SIGTERM)
+	select {
+	case <-ctx.Done():
+		log.Println("terminating: context cancelled")
+	case <-sigterm:
+		log.Println("terminating: via signal")
+	}
+	cancel()
+	wg.Wait()
+	if err = client.Close(); err != nil {
+		log.Panicf("Error closing client: %v", err)
+	}
+}
+
+//Consumer 消费者结构体
+type Consumer struct {
+	ready chan bool
+}
+
+//Setup 函数会在创建新的 consumer session 的时候调用，调用时期发生在 ConsumeClaim 调用前
+func (consumer *Consumer) Setup(sarama.ConsumerGroupSession) error {
+	// Mark the consumer as ready
+	close(consumer.ready)
+	return nil
+}
+
+//Cleanup 函数会在所有的 ConsumeClaim 协程退出后被调用
+func (consumer *Consumer) Cleanup(sarama.ConsumerGroupSession) error {
+	return nil
+}
+
+// ConsumeClaim 是实际处理消息的函数
+func (consumer *Consumer) ConsumeClaim(session sarama.ConsumerGroupSession, claim sarama.ConsumerGroupClaim) error {
+
+	// 注意:
+	// 不要使用协程启动以下代码.
+	// ConsumeClaim 会自己拉起协程，具体行为见源码:
+	// https://github.com/Shopify/sarama/blob/master/consumer_group.go#L27-L29
+	for message := range claim.Messages() {
+		log.Printf("Message claimed: value = %s, timestamp = %v, topic = %s", string(message.Value), message.Timestamp, message.Topic)
+		session.MarkMessage(message, "")
+	}
+
+	return nil
+}
+```
 

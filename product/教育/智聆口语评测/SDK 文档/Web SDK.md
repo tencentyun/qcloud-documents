@@ -1,5 +1,5 @@
 ### 概述
-腾讯云智聆口语评测（Smart Oral Evaluation，SOE）是腾讯云推出的语音评测产品，是基于口语类教育培训场景和腾讯云的语音处理技术，应用特征提取、声学模型和语音识别算法，为儿童和成人提供高准确度的口语发音评测。腾讯云智聆口语评测支持单词和句子模式的评测，多维度反馈口语表现，可广泛应用于中文及英语口语类教学中。
+腾讯云智聆口语评测（Smart Oral Evaluation，SOE）是腾讯云推出的语音评测产品，是基于口语类教育培训场景和腾讯云的语音处理技术，应用特征提取、声学模型和语音识别算法，为儿童和成人提供高准确度的口语发音评测。腾讯云智聆口语评测支持单词和句子模式的评测，多维度反馈口语表现，可广泛应用于中文及英语口语类教学中。   
 
 本 SDK 为智聆口语测评的 Web 版本，封装了对智聆口语测评网络 API 的调用及本地音频文件处理，并提供简单的录音功能，使用者可以专注于从业务切入，方便简洁地进行二次开发。
 本文档只对 Web SDK 进行描述，详细的网络 API 说明请参见 [API 文档](https://cloud.tencent.com/document/product/884/19309)。
@@ -9,7 +9,7 @@
 #### SDK 引入
 只需要在您的 Web 页面中添加如下代码即可：
 ```html
-<script src="https://imgcache.qq.com/open/qcloud/soe/TencentSOE-0.1.0.js"></script>
+<script src="https://aiedu.qcloud.com/soe/TencentSOE-0.1.4.js"></script>
 ```
 
 #### 创建对象
@@ -102,7 +102,7 @@ let recorder = new TencentSOE({
 ##### TransInitUrl 接口说明：
 接口方法为 POST，需要对前端传来的参数进行签名，再调用云 API 的 TransmitOralProcessWithInit （发音数据传输接口附带初始化过程）接口，返回的数据格式不必再做封装，透传云 API 返回的数据即可，成功返回{"Response":{"RequestId": "xxx"...}}，
 失败返回{"Response":{"RequestId":"xxx","Error":{"xxx":"xxx"}...}}，用户可自行实现签名逻辑，
-也可参考[Tencent Cloud API 3.0 SDK](https://cloud.tencent.com/document/product/884/32828)）
+也可参考[Tencent Cloud API 3.0 SDK](https://cloud.tencent.com/document/product/884/32828)
 
 - 方式三（不推荐）：前端使用固定密钥计算授权凭证，该方式适用于前端调试，若使用此方式，请避免泄露密钥
 ```
@@ -125,6 +125,7 @@ let recorder = new TencentSOE({
  * 开始录音
  * @param {
  *   RefText: 'string', // 测评文本，必填
+ *   TimeStamp: 'Integer', // unix 时间戳，单位精确到秒，选填， 例 1602225857
  *   error: function() {}, // 录音过程出现错误回调，选填
  *   complete: function() {}, // 录音1分钟自动停止回调（微信端），选填
  *   success: function() {}, // 录音1分钟自动测评回调（微信端），建议填写，否则超时后无法获取测评结果
@@ -269,14 +270,14 @@ module.exports = async function(req, res, next) {
 ### 平台和兼容性
 | 操作系统平台	  | 浏览器/webview                  | 版本要求 | 备注|
 |  :---:      | :---                           | :---   | :--- |
-| iOS         | Safari ( 只支持Safari )         | 11.1.2 | |
-| Android     | TBS （微信和手机QQ的默认Webview）  | 43600  | 微信和手机 QQ 默认内置的浏览器内核为TBS。[TBS 介绍](https://x5.tencent.com/) |
+| iOS         | Safari ( 只支持 Safari )         | 11.1.2 | |
+| Android     | TBS （微信和手机 QQ 的默认 webview）  | 43600  | 微信和手机 QQ 默认内置的浏览器内核为 TBS。[TBS 介绍](https://x5.tencent.com/) |
 | Android     | Chrome                         | 60+    | |
 | Mac         | Chrome                         | 47+    | |
 | Mac         | Safari                         | 11+    | |
 | Windows(PC) | Chrome                         | 52+    | |
-| Windows(PC) | QQ浏览器                        | 10.2   | |
-| 微信端       | 微信默认webview                  | 无     | 需引入微信 JS-SDK|
+| Windows(PC) | QQ 浏览器                        | 10.2   | |
+| 微信端       | 微信默认 webview                  | 无     | 需引入微信 JS-SDK|
 
 > Tip：
-非本地环境必须使用 https 协议
+非本地环境必须使用 HTTPS 协议

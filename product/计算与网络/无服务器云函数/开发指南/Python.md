@@ -35,7 +35,7 @@ Python 环境下的入参包括 event 和 context，两者均为 Python dict 类
 您可以在函数内使用 `raise Exception` 的方式抛出异常。抛出的异常会在函数运行环境中被捕捉到并在日志中以 `Traceback` 的形式展示。
 
 ## 日志
-您可以在程序中使用 `print` 或使用 `logging` 模块来完成日志输出。例如如下函数：
+您可以在程序中使用 `print` 或使用 `logging` 模块来完成日志输出。例如，如下函数：
 ```python
 import logging
 logger = logging.getLogger()
@@ -47,6 +47,10 @@ def main_handler(event, context):
 ```
 
 输出内容您可以在函数日志中的 `log` 位置查看。
+
+## 如何安装依赖
+
+请参考 [依赖安装](https://cloud.tencent.com/document/product/583/39780)。
 
 
 ## 已包含的库及使用方法
@@ -83,7 +87,7 @@ from qcloud_cos_v4 import UploadFileRequest
 您可以在 [这里](https://wiki.python.org/moin/Python2orPython3) 查看 Python 官方对 Python 2 或 Python 3 语言选择的建议。
 
 Python 3 云端运行时已支持的库如下表：
->?若您需要使用表中尚未支持的库，请在本地安装并打包上传后使用。
+>?若您需要使用表中尚未支持的库，请在本地安装并打包上传后使用。详情请参见 [安装依赖库](https://cloud.tencent.com/document/product/583/39780#python-.E8.BF.90.E8.A1.8C.E6.97.B6)。
 >
 
 |库名称|版本|
@@ -190,6 +194,14 @@ Python 2 云端运行时已支持的库如下表：
 | urllib3                      | 1.22      |
 | Werkzeug                     | 0.14.1    |
 | wheel                        | 0.31.1    |
+
+
+## 更多指引
+您可参考以下文档，使用相关功能：
+- [使用 SCF 连接数据库](<https://cloud.tencent.com/document/product/583/38012>)
+- [网络配置管理](<https://cloud.tencent.com/document/product/583/38202>)
+- [角色与授权](<https://cloud.tencent.com/document/product/583/32389>)
+
 
 
 

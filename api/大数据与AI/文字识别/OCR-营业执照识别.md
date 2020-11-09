@@ -202,8 +202,8 @@ Content-Disposition: form-data; name="appid"
 | -9002 | 识别失败                     |
 | -9005 | 图片无效                     |
 | -9006 | 预处理失败                    |
-| -9501 | 营业执照 OCR 预处理失败             |
 | -9502 | 营业执照 OCR 识别失败              |
+| -9501 | 营业执照 OCR 预处理失败             |
 
 
 更多其他 API 错误码请查看 [错误码说明](https://cloud.tencent.com/document/product/866/17733)。

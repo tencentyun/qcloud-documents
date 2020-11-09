@@ -41,7 +41,7 @@ logLevelSDK 是 mgobexsCode 对象的一个属性，类型为字符串，表示�
 |---|---|
 |debug+|打印 debug、info、error|
 |info+|打印 info、error|
-|error+|打印 error|
+|error+|打印 error（默认值）|
 
 #### 使用示例
 
@@ -62,7 +62,7 @@ logLevel 是 mgobexsCode 对象的一个属性，类型为字符串，表示开�
 |---|---|
 |debug+|打印 debug、info、error|
 |info+|打印 info、error|
-|error+|打印 error|
+|error+|打印 error（默认值）|
 
 #### 使用示例
 
@@ -128,3 +128,4 @@ exports.mgobexsCode = {
     gameServer
 };
 ```
+

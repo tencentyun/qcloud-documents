@@ -1,10 +1,10 @@
-## 相关说明
-腾讯云 MongoDB 默认提供了 “rwuser” 和 “mongouser” 两个用户名分别支持 “MONGODB-CR” 和 “SCRAM-SHA-1” 两种认证方式，对于这两种认证方式，连接 URI 需要做不同的处理，具体参见 [连接示例](https://cloud.tencent.com/doc/product/240/3563) 文档。
 
-Python 驱动下载 [pymongo](https://pypi.python.org/pypi/pymongo/)。
+## 相关说明
+云数据库 MongoDB 默认提供 rwuser 和 mongouser 两个用户名，分别支持 MONGODB-CR 和 SCRAM-SHA-1 两种认证方式，对于这两种认证方式，连接 URI 需要做不同的处理，具体参见 [连接实例](https://cloud.tencent.com/document/product/240/7092)。
+
+[Python 驱动下载](https://pypi.python.org/pypi/pymongo/) 
 
 ## 快速开始
-
 ### Python 示例代码 1
 
 ```
@@ -49,7 +49,6 @@ for doc in db.somecoll.find({"somekey":"yiqihapi"}):
 ```
 
 输出：
-
 
 ```
 5734431e101e2f6d699b37ef

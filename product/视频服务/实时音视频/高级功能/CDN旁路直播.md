@@ -7,14 +7,14 @@
 
 ## Demo
 我们在实时音视频 [Demo](https://cloud.tencent.com/document/product/647/17021) 中加入了旁路直播功能，您可以在视频通话的过程中单击【更多功能】找到该功能的体验入口（播放器 TXLivePlayer 的下载地址在 [移动直播页面](https://cloud.tencent.com/document/product/454/6555)）。
-![](https://main.qcloudimg.com/raw/1d663f77c71bee9914b60609edaf1fef.jpg)
+![](https://main.qcloudimg.com/raw/3d237e98f64184ad22b7493c10951223.jpg)
 
 ## 示例代码
 
 | 所属平台 | 计算 CDN 观看地址 | 设置云端混流参数 |
 |---------|---------|---------|
-| iOS | 文件： [TRTCMoreViewController.m](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCDemo/TRTC/TRTCMoreViewController.m) <br>函数：onBtnClick() | 文件：[TRTCMainViewController.m](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCDemo/TRTC/TRTCMainViewController.m)<br>函数：updateCloudMixtureParams() |
-| Android | 文件：[CdnPlayManager.java](https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/sdkadapter/cdn/CdnPlayManager.java)<br>函数：initPlayUrl() | 文件：[TRTCRemoteUserManager.java](https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTCDemo/app/src/main/java/com/tencent/liteav/demo/trtc/sdkadapter/remoteuser/TRTCRemoteUserManager.java)<br>函数：updateCloudMixtureParams() |
+| iOS | 文件：[TRTCCloudManager.m](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCDemo/TRTC/Settings/SDKManager/Feature/TRTCCloudManager.m) <br>函数：getCdnUrlOfUser() | 文件：[TRTCCloudManager.m](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCDemo/TRTC/Settings/SDKManager/Feature/TRTCCloudManager.m)<br>函数：updateCloudMixtureParams() |
+| Android | 文件：[CdnPlayManager.java](https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTCDemo/trtc/src/main/java/com/tencent/liteav/demo/trtc/sdkadapter/cdn/CdnPlayManager.java)<br>函数：initPlayUrl() | 文件：[TRTCRemoteUserManager.java](https://github.com/tencentyun/TRTCSDK/blob/master/Android/TRTCDemo/trtc/src/main/java/com/tencent/liteav/demo/trtc/sdkadapter/remoteuser/TRTCRemoteUserManager.java)<br>函数：updateCloudMixtureParams() |
 | Windows（C++） |  文件：[TRTCSettingViewController.cpp](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/DuilibDemo/TRTCSettingViewController.cpp)<br>函数：NotifyOtherTab | 文件：[TRTCCloudCore.cpp](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/DuilibDemo/sdkinterface/TRTCCloudCore.cpp)<br>函数：updateMixTranCodeInfo() |
 | Windows（C#） |  文件：[TRTCMainForm.cs](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/CSharpDemo/TRTCMainForm.cs)<br>函数：OnShareUrlLabelClick| 文件：[TRTCMainForm.cs](https://github.com/tencentyun/TRTCSDK/blob/master/Windows/CSharpDemo/TRTCMainForm.cs)<br>函数：UpdateMixTranCodeInfo() |
 | Mac |  暂无 | 文件：[TRTCMainWindowController.m](https://github.com/tencentyun/TRTCSDK/blob/master/Mac/TRTCDemo/TRTC/TRTCMainWindowController.m)<br>函数：updateCloudMixtureParams() |
@@ -27,39 +27,46 @@
 4. 主播进入连麦或者 PK 状态后，通过 TRTCCloud 中的 `setMixTranscodingConfig()` 接口，可通知云端进行视频混流（即将多路视频画面混合成一路），使原 CDN 地址中的视频画面从单人画面变成多人混合画面。过程中，一直观看的观众无需切换直播 CDN 地址。
 5. 当连麦结束后，主播可以再次调用 `setMixTranscodingConfig()` 接口关闭混流，将 CDN 地址中的视频画面恢复为单人画面。
 
+## 前提条件
+已开通腾讯 [云直播](https://console.cloud.tencent.com/live) 服务。应国家相关部门的要求，直播播放必须配置播放域名，具体操作请参考 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
+
 ## 使用步骤
 
 ### 步骤1：开通服务
 
-登录 [实时音视频控制台](https://console.cloud.tencent.com/rav) ，单击目标应用卡片，选择【功能配置】，您可以开启“自动旁路直播”功能。开启此功能的前提是需要先开通腾讯 [云直播](https://console.cloud.tencent.com/live) 服务。
-![](https://main.qcloudimg.com/raw/91672da223a6eb7c24e8c9891018ead1.png)
+1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)。
+2. 在左侧导航栏选择【应用管理】，单击目标应用所在行的【功能配置】。
+3. 单击【启动自动旁路直播】右侧的<img src="https://main.qcloudimg.com/raw/8f08eba741586e96dbe3b30c6804e9b6.png"  style="margin:0;">，在弹出的【开启自动旁路直播】对话框中，单击【确定】。
+4. 在弹出的【选择旁路直播类型】对话框中，选择合适的直播类型，单击【确定】保存设置。
 
 ### 步骤2：独立画面
 
 开启旁路直播功能后， TRTC 房间里的每一路画面都配备一路对应的播放地址，该地址的格式如下：
 ```
-http://[bizid].liveplay.myqcloud.com/live/[streamid].flv
+http://播放域名/live/[StreamId].flv
 ```
+其中 `播放域名`、`StreamId` 都是需要您填写的部分，具体的填写规则如下：
+- 流类型：一般情况下，摄像头画面的流类型是 main，屏幕分享的流类型是 aux。
+ >!WebRTC 端同时只支持一路上行，因此 WebRTC 上屏幕分享的流类型是 main。
+ >
+- StreamId 计算方法：
+ - 2020年01月09日及此后新建的应用，或此前已创建但从未使用过的应用，`StreamId = urlencode(SDKAppID_房间号_userId_流类型)`，即由`SDKAppID_房间号_userId_流类型`计算的流 ID 经过 URL 编码而成。
+ - 2020年01月09日前创建且使用过的应用，`StreamId = bizid_MD5(房间号_userId_流类型)`
+- SDKAppID：请在 [实时音视频控制台](https://console.cloud.tencent.com/trtc/app) 选择已经创建的应用，在“应用信息”中获取。 
+ ![](https://main.qcloudimg.com/raw/5d54378547d8bb38c60ae153039da196.png)
 
-其中 `bizid`、`streamid` 都是需要您填写的部分，具体的填写规则如下：
-
-- bizid： 一个与直播服务相关的数字，请在 [实时音视频控制台](https://console.cloud.tencent.com/rav) 选择已经创建的应用，单击【帐号信息】后，在“直播信息”中获取。
-![](https://main.qcloudimg.com/raw/86cdab23f18d4c8369d2a908320e52aa.png)
-- 流类型：摄像头画面的流类型是 main，屏幕分享的流类型是 aux（有个例外，由于 WebRTC 端同时只支持一路上行，所以 WebRTC 上屏幕分享的流类型也是 main）。
-- `streamid = bizid_MD5 (房间号_userId_流类型)`，即由`bizid`、`_`以及`“房间号_userId_流类型”计算 MD5 的结果`拼接而成。
-
-
-我们通过如下示例来详细地展示一次计算过程，您可以参照该示例来计算您自己的 CDN 播放地址：
+我们通过如下示例来详细地展示 StreamId 的计算过程，您可以参照该示例来计算您自己的 CDN 播放地址：
+>?本文以2020年01月09日创建的应用计算 StreamId 为例。
+>
 ```
-例如，bizid = 8888，进行旁路直播的房间号 = 12345、userId = userA，用户当前使用了摄像头。
+例如，SDKAppID = 12345678，进行旁路直播的房间号 = 12345、userId = userA，使用摄像头画面。
 
-1. 计算 MD5(12345_userA_main) = 8d0261436c375bb0dea901d86d7d70e8
+1. StreamId = urlencode(12345678_12345_userA_main) = 12345678_12345_userA_main
 2. 拼接后 userA 这一路的腾讯云 CDN 观看地址为：
- flv 协议：http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.flv
- hls 协议：http://8888.liveplay.myqcloud.com/live/8888_8d0261436c375bb0dea901d86d7d70e8.m3u8
+ flv 协议：http://播放域名/live/12345678_12345_userA_main.flv
+ hls 协议：http://播放域名/live/12345678_12345_userA_main.m3u8
 ```
 
->! 上述示例中，`[bizid].liveplay.myqcloud.com` 这个部分被称为播放域名。应国家相关部门的要求，如果您的 App 希望发布到应用市场上，则必须使用自己申请的播放域名，配置方法很简单，只需要在 “直播控制台 > [域名管理](https://console.cloud.tencent.com/live/domainmanage)” 界面中添加您自己的播放域名即可。 `[bizid].liveplay.myqcloud.com` 域名只能用于调试，且腾讯云正在逐步回收该域名，因此不能保证其在未来的可用性。
 
 ### 步骤3：混合画面
 

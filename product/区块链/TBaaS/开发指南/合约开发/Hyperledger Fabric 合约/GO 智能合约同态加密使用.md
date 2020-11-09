@@ -241,4 +241,3 @@ func (t *SimpleChaincode) query(stub shim.ChaincodeStubInterface, args []string)
 
 
 
-

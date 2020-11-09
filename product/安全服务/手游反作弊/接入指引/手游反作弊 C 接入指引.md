@@ -44,8 +44,7 @@ libtersafe2.so
 3. 添加 tp2.jar 后在 [Order and Export] 中选中 tp2.jar
 ![](https://mc.qcloudimg.com/static/img/e19cbe55f0997e7bdb68eeef275a1fb4/image.png)
 4. 再在 Android 工程加载游戏 so 的地方，添加对 libtersafe2.so 的引用。
->**注意：**
->libtersafe2.so 的加载顺序，需要在游戏自己的 so 之前。
+>!libtersafe2.so 的加载顺序，需要在游戏自己的 so 之前。
 
 ### 修改 Android.mk
 1. 在 jin/Android.mk 中添加如下代码, 用于加载 libtersafe2.so。
@@ -74,15 +73,15 @@ LOCAL_SHARED_LIBRARIES:=libtp2
 | app_key | 是 | 由腾讯云官网分配 game_key，与 game_id 对应  |
 
 - gameId 和 AppKey 在腾讯云官网（xxxxxxxxxxxx）注册完新游戏后自动生成。
-- ** 返回值 **：0 表示调用成功
+- **返回值**：0 表示调用成功
 
 ### 用户登录接口
-** 函数原型 **
+**函数原型**
 ```
 int tp2_setuserinfo(int account_type, int world_id, string open_id, string role_id);
 ```
 
-** 参数说明 **
+**参数说明**
 
 | 参数 | 说明 |
 |---------|---------|
@@ -105,12 +104,12 @@ ENTRY_ID_OTHERS = 99, // 其他平台
 };
 ```
 - world_id 由游戏自定义，如果游戏没有分区可填 0。
-- role_id 用于区分同一帐号同一分区下的不同角色，如果没有角色区分可填””。
+- role_id 用于区分同一帐号同一分区下的不同角色，如果没有角色区分可填""（空）。
 - open_id 由所在运营平台分配，用于唯一区分用户。
-- ** 返回值 **：0 表示调用成功
+- **返回值**：0 表示调用成功。
 
 ### 前后台切换接口
-** 函数原型 **
+**函数原型**
 ```
 int tp2_setgamestatus (int status);
 ```
@@ -119,7 +118,7 @@ int tp2_setgamestatus (int status);
 |---------|---------|
 | status | 前台 TP2_GAME_STATUS_FRONTEND<br> 后台 TP2_GAME_STATUS_BACKEND |
 
-** 枚举类型 **
+**枚举类型**
 ```
 enum TP2GameStatus
 {
@@ -128,7 +127,7 @@ TP2_GAME_STATUS_BACKEND = 2 // 后台
 }
 ```
 
-- ** 返回值 **：0 表示调用成功
+- **返回值**：0 表示调用成功
 
 ### 调用时机
 1. tp2_sdk_init_ex 在游戏启动的第一时间调用，参数为游戏 ID 和 App_key 信息。更早时机调用安全接口函数可以更安全的保护游戏进程。

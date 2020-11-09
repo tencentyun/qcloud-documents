@@ -3,12 +3,13 @@
 Initiate Job 请求实现将档案或者档案列表取出到缓存池。操作完成后，用户可以通过 Get Job Output 请求读取对应档案或者档案列表。
 
 ### 细节分析
+
 检索任务所对应的三种模式下的时间如下表：
 
 |  任务类型   | Expedited | Standard | Bulk    |
 | --------- | --------- | -------- | ------- |
 | 检索档案的任务时间 | 1-5分钟，<br>最大支持256MB 文件    | 3-5小时   | 5-12小时 |
-| 检索档案列表的任务时间 | --|3-5小时   |--|
+| 检索档案列表的任务时间 | -|3-5小时   |-|
 
 Initiate Job 请求还实现了同账户之内**从归档存储导入档案到对象存储**和**从对象存储导入对象到归档存储**两个特性。这两个特性需在 [CAS 控制台](https://console.cloud.tencent.com/cas/vault) 的【权限管理】中**预配置内部系统权限**，赋予 COS 所有操作行为的权限。
 
@@ -32,7 +33,7 @@ Authorization: Auth
 ```
 
 ### 请求头部
-无特殊请求头部，其他头部请参见 [公共请求头部](https://cloud.tencent.com/document/product/572/8743) 章节。
+无特殊请求头部，其他头部请参见 [公共请求头部](https://cloud.tencent.com/document/product/572/8743) 文档。
 
 ### 请求参数
 无特殊请求参数。
@@ -60,7 +61,7 @@ Authorization: Auth
 | ArchiveId          | 检索的档案的 ID                                | String | 是    |
 | CallBackUrl        | 回调的 HTTP 地址，地址必须以 `http://` 或者 `https://` 开头   | String | 否    |
 | Description        | 任务的描述                                    | String | 否    |
-| RetrievalByteRange | 档案检索操作要检索的字节范围。其格式为“*StartByteValue*-*EndByteValue*”。如果未指定，则检索整个档案。如果指定了字节范围，则字节范围必须以兆字节 (1024\*1024) 对齐，这意味着，*StartByteValue* 必须可被1MB 整除，并且 *EndByteValue* 加1必须可被1MB 整除，或者等于指定为档案字节大小值减1的结束值。如果 RetrievalByteRange 没有以兆字节对齐，则此操作会返回`400`响应。 | String | 否    |
+| RetrievalByteRange | 档案检索操作要检索的字节范围。其格式为“StartByteValue-EndByteValue”。如果未指定，则检索整个档案。如果指定了字节范围，则字节范围必须以兆字节 (1024\*1024) 对齐，这意味着，StartByteValue 必须可被1MB 整除，并且 EndByteValue 加1必须可被1MB整除，或者等于指定为档案字节大小值减1的结束值。如果 RetrievalByteRange 没有以兆字节对齐，则此操作会返回`400`响应。 | String | 否    |
 | Tier               | Archive 检索的检索类型。枚举值： `Expedited`、`Standard` 和 `Bulk`。默认值：`Standard`。| String | 否    |
 
 #### 检索档案列表
@@ -115,14 +116,14 @@ Authorization: Auth
 
 | 名称                 | 描述                                       | 类型     | 必选   |
 | ------------------ | ---------------------------------------- | ------ | ---- |
-| Type               | 任务类型，将档案导入COS时，此处填写` push-to-cos`        | String | 是    |
+| Type               | 任务类型，将档案导入COS时，此处填写`push-to-cos`        | String | 是    |
 | ArchiveId          | 检索的档案的 ID                                | String | 是    |
 | CallBackUrl        | 回调的HTTP地址，地址必须以 http:// 或者 https:// 开头   | String | 否    |
 | Description        | 任务的描述                                    | String | 否    |
-| RetrievalByteRange | 档案检索操作要检索的字节范围。其格式为“*StartByteValue*-*EndByteValue*”。如果未指定，则检索整个档案。如果指定了字节范围，则字节范围必须以兆字节 (1 024\*1 024) 对齐，这意味着，*StartByteValue* 必须可被1MB 整除，并且 *EndByteValue* 加 1 必须可被 1MB 整除，或者等于指定为档案字节大小值减 1 的结束值。如果 RetrievalByteRange 没有以兆字节对齐，则此操作会返回 `400` 响应。 | String | 否    |
+| RetrievalByteRange | 档案检索操作要检索的字节范围。其格式为“StartByteValue-EndByteValue”。如果未指定，则检索整个档案。如果指定了字节范围，则字节范围必须以兆字节 (1 024\*1 024) 对齐，这意味着，StartByteValue 必须可被1MB 整除，并且 EndByteValue 加 1 必须可被 1MB 整除，或者等于指定为档案字节大小值减 1 的结束值。如果 RetrievalByteRange 没有以兆字节对齐，则此操作会返回 `400` 响应。 | String | 否    |
 | Tier               | Archive检索的检索类型。枚举值： `Expedited` ，`Standard` ，`Bulk`。默认值：`Standard` | String | 否    |
-| Bucket             | COS中目标Bucket的域名                          | String | 是    |
-| Object             | COS中目标Bucket的Object地址                    | String | 是    |
+| Bucket             | COS 中目标 Bucket 的域名                          | String | 是    |
+| Object             | COS 中目标 Bucket 的 Object 地址                    | String | 是    |
 
 
 #### 从 COS 中拉取对象文件
@@ -175,3 +176,4 @@ Authorization: Auth
 
 ### 返回内容
 无返回内容。
+

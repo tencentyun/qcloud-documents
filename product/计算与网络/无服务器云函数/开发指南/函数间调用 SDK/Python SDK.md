@@ -6,7 +6,7 @@ Tencentserverless 是腾讯云云函数 SDK，集成云函数业务流接口，�
 Tencentserverless SDK 的功能特性可分为以下几点：
 
 * 高性能，低时延的进行函数调用。
-* 填写必须的参数后，即可快速进行函数间的调用（SDK 会默认获取环境变量中的参数，例如 region，secretId 等）。
+* 填写必须的参数后，即可快速进行函数间的调用（SDK 会默认获取环境变量中的参数，例如 region，SecretId 等）。
 * 支持内网域名的访问。
 * 支持 keepalive 能力。
 * 支持跨地域函数调用。
@@ -38,6 +38,7 @@ def main_handler(event, context):
 
 ```python
 # -*- coding: utf8 -*-
+from tencentserverless import scf 
 from tencentserverless.scf import Client
 from tencentserverless.exception import TencentServerlessSDKException
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
@@ -64,6 +65,7 @@ def main_handler(event, context):
 
 ```python
 # -*- coding: utf8 -*-
+from tencentserverless import scf 
 from tencentserverless.scf import Client
 from tencentserverless.exception import TencentServerlessSDKException
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
@@ -138,6 +140,7 @@ def main_handler(event, context):
 
 ```python
 # -*- coding: utf8 -*-
+from tencentserverless import scf 
 from tencentserverless.scf import Client
 from tencentserverless.exception import TencentServerlessSDKException
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
@@ -194,11 +197,11 @@ prepare to invoke a function!
 	</tr>
 	<tr>
 	<td>secret_id</td> 	<td>否</td> 	<td><code>String</code></td>
-		<td>用户 secret_id， 默认是从云函数环境变量中获取，<b>本地调试必填</b>。</td>
+		<td>用户 SecretId， 默认是从云函数环境变量中获取，<b>本地调试必填</b>。</td>
 	</tr>
 	<tr>
 	<td>secret_key</td> 	<td>否</td> 	<td><code>String</code></td>
-		<td>用户 secret_key， 默认是从云函数环境变量中获取，<b>本地调试必填</b>。</td>
+		<td>用户 SecretKey， 默认是从云函数环境变量中获取，<b>本地调试必填</b>。</td>
 	</tr>
 	<tr>
 		<td>token</td> 	<td>否</td> 	<td><code>String</code></td>
@@ -242,8 +245,8 @@ prepare to invoke a function!
 | 参数名        | 是否必填 |  类型  |                    描述                                      |
 |---------|---------|---------|---------|
 | region        |    否    | `String` | 地域信息，默认与调用接口的函数所属地域相同，本地调用默认是广州。|
-| secret_id     |    否    | `String` | 用户 secret_id， 默认是从云函数环境变量中获取，**本地调试必填**。|
-| secret_key    |    否    | `String` | 用户 secret_key， 默认是从云函数环境变量中获取，**本地调试必填**。|
+| secret_id     |    否    | `String` | 用户 SecretId， 默认是从云函数环境变量中获取，**本地调试必填**。|
+| secret_key    |    否    | `String` | 用户 SecretKey， 默认是从云函数环境变量中获取，**本地调试必填**。|
 | token         |    否    | `String` | 用户 token，默认从云函数环境变量中获取。|
 | function_name |    是    | `String` | 函数名称。 |
 | qualifier     |    否    | `String` | 函数版本，默认为 $LATEST。 |
@@ -265,7 +268,7 @@ prepare to invoke a function!
 |---------|---------|
 | get_code | 返回错误码信息 |
 |get_message|返回错误信息|
-|get_request_id |返回 request_id 信息 |
+|get_request_id |返回 RequestId 信息 |
 |get_response | 返回 response 信息|
 | get_stack_trace |  返回 stack_trace 信息 |
 

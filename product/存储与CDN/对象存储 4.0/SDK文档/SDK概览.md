@@ -28,3 +28,8 @@
 | Python SDK       | [升级到 XML Python SDK](https://cloud.tencent.com/document/product/436/31356)   |
 
 >?历史版本 SDK 文档请参见 [历史版本 SDK](https://cloud.tencent.com/document/product/436/13698)。
+
+
+
+以下视频为您简单介绍 COS SDK：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1996-23896?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>

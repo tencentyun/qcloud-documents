@@ -204,6 +204,103 @@ func main() {
 }
 ```
 
+### 使用临时证书上传
+传入临时证书的相关密钥信息，使用临时证书验证身份并进行上传。
+```
+package main
+
+import (
+	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
+	"github.com/tencentyun/vod-go-sdk"
+	"fmt"
+)
+
+func main() {
+    client := &vod.VodUploadClient{}
+    client.SecretId = "Credentials TmpSecretId"
+    client.SecretKey = "Credentials TmpSecretKey"
+    client.Token = "Credentials Token"
+    
+    req := vod.NewVodUploadRequest()
+    req.MediaFilePath = common.StringPtr("/data/video/Wildlife.mp4")
+    
+    rsp, err := client.Upload("ap-guangzhou", req)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    fmt.Println(*rsp.Response.FileId)
+    fmt.Println(*rsp.Response.MediaUrl)
+}
+```
+
+
+### 设置代理上传
+设置上传代理，涉及协议及数据都会经过代理进行处理，开发者可以借助代理在自己公司内网上传文件到腾讯云。
+```
+package main
+
+import (
+	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
+	"github.com/tencentyun/vod-go-sdk"
+	"fmt"
+    "net/http"
+    "net/url"
+)
+
+func main() {
+    client := &vod.VodUploadClient{}
+    client.SecretId = "your secretId"
+    client.SecretKey = "your secretKey"
+    proxyUrl, _ := url.Parse("your proxy url")
+	client.Transport = &http.Transport{
+		Proxy: http.ProxyURL(proxyUrl),
+	}
+    
+    req := vod.NewVodUploadRequest()
+    req.MediaFilePath = common.StringPtr("/data/video/Wildlife.mp4")
+    
+    rsp, err := client.Upload("ap-guangzhou", req)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    fmt.Println(*rsp.Response.FileId)
+    fmt.Println(*rsp.Response.MediaUrl)
+}
+```
+
+### 自适应码流文件上传
+本 SDK 支持上传的自适应码流格式包括 HLS 和 DASH，同时要求 manifest（M3U8 或 MPD）所引用的媒体文件必须为相对路径（即不可以是 URL 和绝对路径），且位于 manifest 的同级目录或者下级目录（即不可以使用`../`）。在调用 SDK 上传接口时，`MediaFilePath`参数填写 manifest 路径，SDK 会解析出相关的媒体文件列表一并上传。
+
+```
+package main
+
+import (
+	"github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
+	"github.com/tencentyun/vod-go-sdk"
+	"fmt"
+)
+
+func main() {
+    client := &vod.VodUploadClient{}
+    client.SecretId = "your secretId"
+    client.SecretKey = "your secretKey"
+    
+    req := vod.NewVodUploadRequest()
+    req.MediaFilePath = common.StringPtr("/data/video/prog_index.m3u8")
+    
+    rsp, err := client.Upload("ap-guangzhou", req)
+    if err != nil {
+        fmt.Println(err)
+        return
+    }
+    fmt.Println(*rsp.Response.FileId)
+    fmt.Println(*rsp.Response.MediaUrl)
+    fmt.Println(*rsp.Response.CoverUrl)
+}
+```
+
 ## 接口描述
 上传客户端类`VodUploadClient`
 
@@ -217,12 +314,12 @@ func main() {
 | 属性名称      | 属性描述                   | 类型&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 必填   |
 | --------- | ---------------------- | ------- | ---- |
 | MediaFilePath   | 待上传的媒体文件路径。必须为本地路径，不支持 URL。| String 指针 | 是    |
-| MediaType   | 待上传的媒体文件类型，可选类型请参见 [视频上传综述](https://cloud.tencent.com/document/product/266/9760#.E6.96.87.E4.BB.B6.E7.B1.BB.E5.9E.8B)，若 MediaFilePath 路径带后缀可不填。        | String 指针 | 否    |
+| MediaType   | 待上传的媒体文件类型，可选类型请参见 [媒体上传综述](https://cloud.tencent.com/document/product/266/9760#.E5.AA.92.E4.BD.93.E7.B1.BB.E5.9E.8B)，若 MediaFilePath 路径带后缀可不填。        | String 指针 | 否    |
 | MediaName   | 上传后的媒体名称，若不填默认采用 MediaFilePath 的文件名。      | String 指针 | 否    |
 | CoverFilePath   | 待上传的封面文件路径。必须为本地路径，不支持 URL。 | String 指针 | 否    |
-| CoverType   | 待上传的封面文件类型，可选类型请参见 [视频上传综述](https://cloud.tencent.com/document/product/266/9760#.E5.B0.81.E9.9D.A2.E7.B1.BB.E5.9E.8B)，若 CoverFilePath 路径带后缀可不填。        | String 指针 | 否    |
+| CoverType   | 待上传的封面文件类型，可选类型请参见 [媒体上传综述](https://cloud.tencent.com/document/product/266/9760#.E5.AA.92.E4.BD.93.E7.B1.BB.E5.9E.8B)，若 CoverFilePath 路径带后缀可不填。        | String 指针 | 否    |
 | Procedure   | 上传后需要自动执行的任务流名称，该参数在创建任务流（[API 方式](/document/product/266/33897) 或 [控制台方式](https://console.cloud.tencent.com/vod/video-process/taskflow)）时由用户指定。具体请参考 [任务流综述](https://cloud.tencent.com/document/product/266/33475#.E4.BB.BB.E5.8A.A1.E6.B5.81)。       | String 指针 | 否    |
-| ExpireTime   | 媒体文件过期时间，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#iso-.E6.97.A5.E6.9C.9F.E6.A0.BC.E5.BC.8F)。        | String 指针 | 否    |
+| ExpireTime   | 媒体文件过期时间，格式按照 ISO 8601 标准表示，详见 [ISO 日期格式说明](https://cloud.tencent.com/document/product/266/11732#52)。        | String 指针 | 否    |
 | ClassId   | 分类 ID，用于对媒体进行分类管理，可通过 [创建分类](https://cloud.tencent.com/document/product/266/31772) 接口，创建分类，获得分类 ID。        | int64 指针 | 否    |
 | SourceContext   | 来源上下文，用于透传用户请求信息，上传回调接口将返回该字段值，最长250个字符。        | String 指针 | 否    |
 | SubAppId   | 云点播 [子应用](/document/product/266/14574) ID。如果要访问子应用中的资源，则将该字段填写为子应用 ID，否则无需填写该字段。        | uint64 指针 | 否    |

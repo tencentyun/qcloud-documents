@@ -38,8 +38,8 @@
 ```
 5. 验证运行命令后，输出如下日志
 ```
-[Folder Operation Result : [ 53(sum)/ 53(ok) / 0(fail)]
-[File Operation Result: [22(sum)/ 22(ok) / 0(fail) / 0(skip)]
+[Folder Operation Result : [ 53(sum)/ 53(ok) / 0(fail)]]
+[File Operation Result: [22(sum)/ 22(ok) / 0(fail) / 0(skip)]]
 [Used Time: 3 s]
 ```
  - sum 表示总共需要迁移的文件数。
@@ -50,7 +50,7 @@
 您也可以登录 COS 控制台查看数据是否已经正确迁移过来。
 
 ### 常见问题  
-- 请确保填写的配置信息，包括 appID、密钥信息、bucket 和 region 信息正确，以及机器的时间和北京时间一致(如相差1分钟左右是正常的)，如果相差较大，请设置机器时间。  
+- 请确保填写的配置信息，包括 appID、密钥信息、bucket 和 region 信息正确，以及机器的时间和北京时间一致（如相差1分钟左右是正常的），如果相差较大，请设置机器时间。  
 - 请保证对于 DateNode，拷贝程序所在的机器也可以连接。因 NameNode 有外网 IP 可以连接，但获取的 block 所在的 DateNode 机器是内网 IP，无法连接上，因此建议同步程序放在 Hadoop 的某个节点上执行，保证对 NameNode 和 DateNode 皆可访问。
 - 权限问题，用当前账户使用 Hadoop 命令下载文件，看是否正常，再使用同步工具同步 Hadoop 上的数据。    
 - 对于 COS 上已存在的文件，默认进行重传覆盖，除非用户明确的指定 -skip_if_len_match，当文件长度一致时则跳过上传。    

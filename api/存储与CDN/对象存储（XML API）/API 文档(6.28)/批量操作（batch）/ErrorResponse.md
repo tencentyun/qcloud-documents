@@ -43,3 +43,4 @@ HTTP/1.1 400
 | ServiceUnavailable | 加载持久性数据出错                                | 500    | Any                               |
 | ServiceUnavailable | 无法创建新任务                                    | 500    | CreateJob                         |
 | TooManyJobs        | 任务已达上限，服务器不可用                        | 500    | CreateJob                         |
+

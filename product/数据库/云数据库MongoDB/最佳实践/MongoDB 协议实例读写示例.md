@@ -1,6 +1,8 @@
-以 Python 代码示例来演示 MongoDB 分片集群的数据基本读写，分片集群实例创建完成之后
-```
+
+本文以 Python 代码示例来演示 MongoDB 分片集群的数据基本读写操作。首先在控制台创建分片集群实例，创建完成之后，在业务侧补充下述代码：
+
 示例代码：
+```
 #!/usr/bin/python
 import pymongo
 import random
@@ -40,12 +42,5 @@ print 'list all docs'
 for i in db.num.find(): print i
 ```
 
-运行结果
+运行结果：
 ![](https://mc.qcloudimg.com/static/img/31987aadbb94da6277c7313e4d6d8a95/shili.png)
-
-
-
-
-
-
-

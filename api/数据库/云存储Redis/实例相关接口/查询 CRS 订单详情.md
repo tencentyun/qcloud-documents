@@ -26,7 +26,7 @@
 |---------|---------|---------|
 | dealDetails.dealId | String | 订单号ID，调用云API时使用此ID |
 | dealDetails.dealName | String | 长订单ID，反馈订单问题给官方客服使用此ID |
-| dealDetails.zoneId | Int | 可用区id|
+| dealDetails.zoneId | Int | 可用区ID|
 | dealDetails.goodsNum | Int | 订单关联的实例数 |
 | dealDetails.creater | String | 创建用户uin |
 | dealDetails.creatTime | String | 订单创建时间 |

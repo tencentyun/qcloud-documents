@@ -135,7 +135,7 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
 ```
 {
   "websocket":{
-    "action":"data recv",
+    "action":"data send",
     "secConnectionID":"xawexasdfewezdfsdfeasdfffa==",
     "dataType":"text", 
     "data":"xxx"
@@ -146,7 +146,7 @@ WebSocket 协议是基于 TCP 的一种新的网络协议。它实现了浏览�
 <table>
 <tr><th>参数</th><th>内容</th></tr>
 <tr><td>websocket</td><td>数据传输的详细信息。</td></tr>
-<tr><td>action</td><td>本次请求的动作，例如 “data recv”。</td></tr>
+<tr><td>action</td><td>本次请求的动作，本文以 “data send” 为例。</td></tr>
 <tr><td>secConnectionID</td><td>字符串，是标识 WebSocket 连接的 ID。原始长度为128Bit，是经过 base64 编码后的字符串，共32个字符</td></tr>
 <tr><td>dataType</td><td>传输数据的类型。<ul><li>“binary”：表示二进制。</li><li>“text”：表示文本。</li></ul></td></tr>
 <tr><td>data</td><td>传输的数据。如果 “dataType” 是 “binary”，则为 base64 编码后的二进制流；如果 “dataType” 是 “text”，则为字符串。</td></tr>

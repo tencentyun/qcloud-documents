@@ -6,9 +6,10 @@
 
 ## 使用说明
 - IPv6 负载均衡内测中，如需使用，请提 [工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=163&source=0&data_title=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20LB&step=1)。
-- 支持创建 IPv6 负载均衡的地域包括：北京、上海、广州、上海金融云、深圳金融云。
+- 支持创建 IPv6 负载均衡的地域请参见 [购买指南](https://cloud.tencent.com/document/product/1142/38129)。
 - IPv6 负载均衡不支持传统型负载均衡。
 - IPv6 负载均衡支持获取客户端 IPv6 源地址。四层 IPv6 负载均衡支持直接获取客户端 IPv6 源地址，七层 IPv6 负载均衡支持通过 HTTP 的 X-Forwarded-For 头域获取客户端 IPv6 源地址。
+- 当前 IPv6 负载均衡是纯公网负载均衡，相同 VPC 的客户端无法通过内网访问该 IPv6 负载均衡。
 - 互联网 IPv6 网络大环境还处于建设初期，如出现线路访问不通的情况，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 反馈，另外在内测期间，不提供 SLA 保障。
 
 ## 步骤1：搭建云服务器并配置 IPv6
@@ -34,7 +35,7 @@ vim  /etc/nginx/nginx.conf
 1. 登录腾讯云官网，进入 [负载均衡购买页](https://buy.cloud.tencent.com/lb)。
 2. 请正确选择如下参数：
  - 计费模式：仅支持按量计费。
- - 地域：北京、上海、广州、上海金融、深圳金融。
+ - 地域：选择目标地域。
  - IP 版本：IPv6。
  - 运营商类型：BGP。
  - 网络：请务必选择已获取 IPv6 CIDR 的私有网络和子网。
@@ -59,9 +60,9 @@ vim  /etc/nginx/nginx.conf
 1. 在“监听器管理”中，选中刚才新建的监听器 IPv6test，单击【＋】，开始添加规则。
 2. 在弹出框中，配置域名、URL 路径和均衡方式，单击【下一步】。
   - 域名：您的后端服务所使用的域名，本例使用 ` www.qcloudipv6test.com`。域名支持通配符，详情请参见 [七层转发域名和 URL 规则说明](https://cloud.tencent.com/document/product/214/9032)。
-  - URL 路径：您的后端服务的访问路径，本例使用 `/image/`。
+  - URL 路径：您的后端服务的访问路径，本例使用 `/`。
   - 均衡方式选择“加权轮询”。
-![](https://main.qcloudimg.com/raw/0160021beeb4f075027efe53cfce4a8f.png)
+![](https://main.qcloudimg.com/raw/b3bfa52c7fbc8a7222c372329c004132.png)
 3. 配置健康检查：开启健康检查，检查域名使用默认的转发域名和转发路径，单击【下一步】。
 ![](https://main.qcloudimg.com/raw/37665ef7950ceacf4f2bd0efd91d38d4.png)
 4. 会话保持：开启会话保持并配置保持时间，单击【提交】。
@@ -76,7 +77,7 @@ vim  /etc/nginx/nginx.conf
 >?绑定云服务器前，请确定该云服务器已获取 IPv6 地址。
 
 1. 在“监听器管理”页面，选中并展开刚才创建的监听器，选中域名、选中 URL 路径，在右侧即可看到该 URL 路径绑定的云服务器 IPv6 信息，单击【绑定】。
-2. 在弹框中，选择云服务器，并设置云服务器的 Nginx 服务端口均为80，设置权重（默认值10），单击【确定】。
+2. 在弹框中，选择云服务器，并设置云服务器的 Nginx 服务默认端口为80，设置权重（默认值10），单击【确定】。
 ![](https://main.qcloudimg.com/raw/475b9360540372bda5ad1987bf7aa6f5.png)
 3. 成功绑定云服务器后：
  - 请确认端口状态是否为“健康”，如果为“健康”，请进行 [步骤4：测试 IPv6 负载均衡](#.E6.AD.A5.E9.AA.A44.EF.BC.9A.E6.B5.8B.E8.AF.95-ipv6-.E8.B4.9F.E8.BD.BD.E5.9D.87.E8.A1.A1)。
@@ -87,8 +88,15 @@ vim  /etc/nginx/nginx.conf
 ## 步骤4：测试 IPv6 负载均衡
 配置完成 IPv6 负载均衡后，可以验证该架构是否生效，即验证通过一个 CLB 实例下不同的域名 + URL 访问不同的后端云服务器，也即验证内容路由（content-based routing） 的功能是否可用。
 
-使用具有 IPv6 公网能力的客户端，访问域名或者负载均衡的 IPv6 地址，如果能够正常访问云服务器的 Web 服务，则表明 IPv6 负载均衡工作正常，有如下两种测试方式：
-- 方式一：通过 Ping 域名来验证，如下图：
+使用具有 IPv6 公网能力的客户端，访问域名或者负载均衡的 IPv6 地址，如果能够正常访问云服务器的 Web 服务，则表明 IPv6 负载均衡工作正常，示例步骤如下：
+1. 打开 [腾讯云域名注册页面](https://dnspod.cloud.tencent.com/) 进行域名查询和注册。本例以`qcloudipv6test.com` 为例，详情请参考 [域名注册](https://cloud.tencent.com/document/product/242/9595)。
+2. 登录 [DNS 解析 DNSPod 控制台](https://console.cloud.tencent.com/cns)，单击您所购买的【域名】，在“记录管理”页面单击【添加记录】，为域名添加 AAAA 记录，输入如下内容并保存：
+   - 主机记录：即域名前缀，本例设为`www`。
+   - 记录类型：`AAAA记录`。
+   - 线路类型：默认。
+   - 记录值：填写负载均衡的 IPv6 地址。
+   - TTL：设置为默认值“600s”。
+3. 添加域名解析后，通过 Ping 域名进行验证，如下图：
 ![](https://main.qcloudimg.com/raw/9b0fdfd7b14fa59b8bd6447a9a953d0f.png)
-- 方式二：通过访问负载均衡的 IPv6 地址来验证，如下图：
-![](https://main.qcloudimg.com/raw/ffde1160855d7b4fa0d98c9b753589ab.png)
+4. 再通过浏览器访问域名来验证，如下图：
+![](https://main.qcloudimg.com/raw/77a28d46b830e44db2856b029f5f8697.png)

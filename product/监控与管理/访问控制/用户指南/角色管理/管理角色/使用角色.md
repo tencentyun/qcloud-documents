@@ -31,8 +31,8 @@ durationSeconds=7200
 {
 	"credentials": {
 		"sessionToken": "5e776c4216ff4d31a7c74fe194a978a3ff2a42864",
-		"tmpSecretId": "AKIDcAZnqgar9ByWq6m7ucIn8LNEuY2MkPCl",
-		"tmpSecretKey": "VpxrX0IMCpHXWL0Wr3KQNCqJix1uhMqD"
+		"tmpSecretId": "AKI***PCl",
+		"tmpSecretKey": "Vpx***MqD"
 	},
 	"expiredTime": 1506433269,
 	"expiration": "2018-09-26T13:41:09Z"

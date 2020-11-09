@@ -1,6 +1,6 @@
 ## 注意事项
 - 所有场景默认采用 UTF-8 编码。
-- Access Token 必须缓存在磁盘并定时刷新，建议每20分钟请求新的 Access Token，原 Access Token 2小时（7200秒）失效，获取之后立即请使用最新的 Access Token。旧的 Access Token 只有一分钟的并存期 。
+- Access Token 必须缓存在磁盘并定时刷新，建议每20分钟请求新的 Access Token，原 Access Token 2小时（7200秒）失效，获取之后请立即使用最新的 Access Token。
 - 每次用户登录时必须重新获取 ticket。
 
 ## 请求
@@ -55,7 +55,7 @@ https://idasc.webank.com/api/oauth2/access_token?app_id=xxx&secret=xxx&grant_typ
 }
 ```
 >!
->- code 不为0则表示获取失败，可以根据 code 和 msg 字段进行定位和调试。code 详情请参见 [错误码](https://cloud.tencent.com/document/product/1007/31082)。
+>- code 不为0则表示获取失败，可以根据 code 和 msg 字段进行定位和调试。code 详情请参见 [SaaS 服务错误码](https://cloud.tencent.com/document/product/1007/47912)。
 >- expire_in 为 access_token 的最大生存时间，单位：秒，合作伙伴在**判定有效期时以此为准**。
 >- expire_time 为 access_token 失效的绝对时间，由于各服务器时间差异，不能以此作为有效期的判定依据，只作为展示使用。
 >- 修改 secret 之后，该 app_id 生成的 access_token 和 ticket 都失效。

@@ -52,7 +52,7 @@ HAVING SUM(amount) > 50
 - 不含窗口的 GROUP BY 会更新之前发出的记录，因而会产生 Upsert 类型的数据流，只允许写入含主键的云数据库 MySQL、PostgreSQL 数据目的表（Sink），且主键必须与 GROUP BY 语句里 Upsert 字段一致。
 
 #### 含时间窗口的 GROUP BY
-本示例定义了一个包含时间窗口的 GROUP BY 查询语句。关于时间窗口函数的使用方法，请参见 [时间相关函数](/document/product/849/18075)。
+本示例定义了一个包含时间窗口的 GROUP BY 查询语句。关于时间窗口函数的使用方法，请参见 [时间窗口函数](/document/product/849/18077)。
 ```
 SELECT user, SUM(amount)
 FROM Orders
@@ -78,7 +78,7 @@ GROUP BY a
 目前流和流的连接也分为两种：含时间范围的和不含时间范围的。前者会生成 Append 类型的流，而后者会生成 Upsert 类型的流。
 
 #### 含时间范围的流-流 JOIN
-含时间范围的 JOIN 的 WEHERE 条件中需要至少一个等值连接的 JOIN 条件和一个指定的时间范围。这个时间范围可以用 <、<=、>=、> 或 BETWEEN … AND 等来表示。
+含时间范围的 JOIN 的 WHERE 条件中需要至少一个等值连接的 JOIN 条件和一个指定的时间范围。这个时间范围可以用 <、<=、>=、> 或 BETWEEN … AND 等来表示。
 
 **时间范围的示例：**
 ```

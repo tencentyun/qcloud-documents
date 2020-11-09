@@ -47,10 +47,7 @@ yum install -y nginx
 vim /etc/nginx/nginx.conf
 ```
 6. 按 “**i**” 切换至编辑模式，编辑 `nginx.conf` 文件。
-7. 找到 `server{...}`，并将 `server` 大括号中相应的配置信息替换为如下内容。
-   用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
->? 若 `nginx.conf` 文件中未找到 `server{...}`，请在 `include /etc/nginx/conf.d/*conf;`上方添加如下内容。
->
+7. 找到 `server{...}`，并将 `server` 大括号中相应的配置信息替换为如下内容。用于取消对 IPv6 地址的监听，同时配置 Nginx，实现与 PHP 的联动。
 ```
 server {
 	listen       80;
@@ -79,6 +76,8 @@ server {
 	}
 }
 ```
+若 `nginx.conf` 文件中未找到 `server{...}`，请在 `include /etc/nginx/conf.d/*conf;`上方添加以上的 `server{...}` 配置内容。如下图所示：
+![](https://main.qcloudimg.com/raw/d438c6aa947a30441e3a86cfb3d9867c.png)
 8. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 9. 执行以下命令，启动 Nginx。
 ```
@@ -191,6 +190,3 @@ http://云服务器实例的公网 IP
 - 云服务器的登录问题，可参考 [密码及密钥](https://cloud.tencent.com/document/product/213/18120)、[登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 - 云服务器的网络问题，可参考 [IP 地址](https://cloud.tencent.com/document/product/213/17285)、[端口与安全组](https://cloud.tencent.com/document/product/213/2502)。
 - 云服务器硬盘问题，可参考 [系统盘和数据盘](https://cloud.tencent.com/document/product/213/17351)。
-
-
-

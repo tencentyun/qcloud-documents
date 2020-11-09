@@ -47,7 +47,7 @@ PHP 环境下的入参包括 $event 、$context。
 
 ## 已安装扩展
 
-如下列出目前已安装的 PHP 扩展供参考，如有其他扩展需求请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=668&source=0&data_title=%E6%97%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BA%91%E5%87%BD%E6%95%B0%20SCF&step=1) 联系我们。
+如下列出目前已安装的 PHP 扩展：
 - date
 - libxml
 - openssl
@@ -101,3 +101,9 @@ PHP 环境下的入参包括 $event 、$context。
 - swoole (PHP7)
 
 您也可以随时在函数中通过 `print_r(get_loaded_extensions());` 代码打印查看已安装的扩展。
+
+## 更多指引
+您可参考以下文档，使用相关功能：
+- [使用 SCF 连接数据库](<https://cloud.tencent.com/document/product/583/38012>)
+- [网络配置管理](<https://cloud.tencent.com/document/product/583/38202>)
+- [角色与授权](<https://cloud.tencent.com/document/product/583/32389>)

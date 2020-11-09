@@ -45,3 +45,4 @@
 8. 安装完成后，在云服务器的浏览器中访问 `http://localhost/`，验证 IIS 是否安装成功。
 若出现以下界面，即表示成功安装。
 ![](https://main.qcloudimg.com/raw/b11cd8170e7646daa3b9ca904b181cf4.png)
+
