@@ -83,36 +83,37 @@ SAML 示例如下：
 </samlp:Response>
 ```
 
-在SAML断言的 `AttributeStatement` 元素中，必须包含以下腾讯云要求的 `Attribute` 元素：
+在 SAML 断言的  AttributeStatement 元素中，必须包含以下腾讯云要求的 Attribute 元素：
 
-其中：
+1.  Name` 属性值为 `https://cloud.tencent.com/SAML/Attributes/Role` 的 Attribute 元素该元素为必选，可以有多个。其包含的 `AttributeValue 元素取值代表允许当前用户扮演的角色，取值的格式是由角色描述与身份提供商描述组合而成的，中间用英文逗号（,）隔开。这两个 ARN 您可以在控制台获取：
 
-1、 `Name` 属性值为 `https://cloud.tencent.com/SAML/Attributes/Role` 的 `Attribute` 元素该元素为必选，可以有多个。其包含的 `AttributeValue` 元素取值代表允许当前用户扮演的角色，取值的格式是由角色描述与身份提供商描述组合而成的，中间用英文逗号（,）隔开。这两个ARN您可以在控制台获取：
+- 角色描述：可前往 [角色 - 控制台](https://console.cloud.tencent.com/cam/role)，角色详情页面可以查看对应的描述。
 
-- 角色描述：在CAM角色管理页面可以查看对应的描述。
+- 身份提供商描述：可前往 [身份提供商 - 控制台](https://console.cloud.tencent.com/cam/idp)，身份提供商详情页面可以查看对应的描述。
 
-- 身份提供商描述：在CAM身份提供商信息页面可以查看对应的描述。
-
-  说明如果是多个，当使用控制台登录时，将会在界面上列出所有角色供用户选择。
+  > ? 如果是多个，当使用控制台登录时，将会在界面上列出所有角色供用户选择。
 
   以下是一个 Role Attribute 元素示例：
 
   ```
-  <Attribute Name="https://cloud.tencent.com/SAML/Attributes/Role">        <AttributeValue>qcs:cam::$account_id:role/role1,qcs:cam::$account_id:saml-provider/idp1</AttributeValue>  <AttributeValue>qcs:cam::$account_id:role/role2,qcs:cam::$account_id:saml-provider/idp2</AttributeValue></Attribute>               
+  <Attribute Name="https://cloud.tencent.com/SAML/Attributes/Role">        <AttributeValue>qcs:cam::$account_id:role/role1,qcs:cam::$account_id:saml-provider/idp1</AttributeValue>  <AttributeValue>qcs:cam::$account_id:role/role2,qcs:cam::$account_id:saml-provider/idp2</AttributeValue>
+  </Attribute>               
   ```
 
-  如果是同一个身份提供商，也可以合并为一条，不同角色ARN之间使用英文分号（;） 隔开
+  如果是同一个身份提供商，也可以合并为一条，不同角色 ARN 之间使用英文分号（;） 隔开
 
   ```
-  <Attribute Name="https://cloud.tencent.com/SAML/Attributes/Role">        <AttributeValue>qcs:cam::$account_id:role/role1;qcs:cam::$account_id:role/role2,qcs:cam::$account_id:saml-provider/idp1</AttributeValue></Attribute>               
+  <Attribute Name="https://cloud.tencent.com/SAML/Attributes/Role">        <AttributeValue>qcs:cam::$account_id:role/role1;qcs:cam::$account_id:role/role2,qcs:cam::$account_id:saml-provider/idp1</AttributeValue>
+  </Attribute>               
   ```
 
-  说明 $account_id 是定义角色和身份提供商的腾讯云云账号ID。
+  > ? $account_id 是定义角色和身份提供商的腾讯云云账号 ID。
 
-  2、Name 属性值为 https://cloud.tencent.com/SAML/Attributes/RoleSessionName 的 Attribute
+2. Name 属性值为 https://cloud.tencent.com/SAML/Attributes/RoleSessionName 的 Attribute
 
-    元素该元素为必选且只能有一个。该字段由用户自定义，长度不超过32个字符。以下是一个RoleSessionName Attribute 元素示例：
+   元素该元素为必选且只能有一个。该字段由用户自定义，长度不超过32个字符。以下是一个RoleSessionName Attribute 元素示例：
 
   ```
-  <Attribute Name="https://cloud.tencent.com/SAML/Attributes/RoleSessionName">  <AttributeValue>user_name</AttributeValue></Attribute>                  
+<Attribute Name="https://cloud.tencent.com/SAML/Attributes/RoleSessionName">  <AttributeValue>user_name</AttributeValue>
+</Attribute>                  
   ```
