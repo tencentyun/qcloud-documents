@@ -13,8 +13,8 @@ TCCC SDK 旨在满足具有开发资源的客户，将 TCCC 的能力便捷地�
 ### 步骤2：获取 SDK 登录 Token
 
 获取 Token 接口的相关说明，请查阅 [创建 SDK 登录 Token](https://cloud.tencent.com/document/api/679/49227)。除了文档中使用 SDK 或者接口的方式获取之外，通过 [API Explorer](https://console.cloud.tencent.com/api/explorer?Product=ccc&Version=2020-02-10&Action=CreateSDKLoginToken) 可以**更快速**获取 Token，并用于调试。
-![](https://main.qcloudimg.com/raw/446da4e24d5d1052dd17ecae01174fe7.png)
-进入 API Explorer 界面之后，使用上图步骤获取到的密钥发送请求。
+<span id = "above"></span>![](https://main.qcloudimg.com/raw/446da4e24d5d1052dd17ecae01174fe7.png)
+进入 API Explorer 界面之后，使用 [上图步骤](#above) 获取到的密钥发送请求。
 ![](https://main.qcloudimg.com/raw/9ca0ca3737b0e3c0ff3bf81d1b097fd8.png)
 >!Token 的有效期目前只有 10 分钟，请在获取到之后立即进行调试使用，避免过期。
 
