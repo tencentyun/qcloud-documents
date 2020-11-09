@@ -1,10 +1,17 @@
+代码示例：[Java](https://github.com/TencentCloudBase/cloudbase-examples/tree/master/cloudbaserun/java)
+
+可单击下方按钮一键部署：
+
+<div style="background-color:#00A4FF; width: 125px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/tcb/env/index?action=CreateAndDeployCloudBaseProject&appUrl=https%3A%2F%2Fgithub.com%2FTencentCloudBase%2Fcloudbase-examples&workDir=cloudbaserun%2Fjava&appName=java-hello-world" target="_blank"  style="color: white; font-size:13px;">部署到云开发</a></div>
+
+
 ## 第 1 步：编写基础应用
 
 首先我们创建一个 Spring Boot 应用。
 
 使用 curl 和 unzip 命令新建一个空 Web 项目：
 
-```sh
+```plaintext
 curl https://start.spring.io/starter.zip \
     -d dependencies=web \
     -d javaVersion=1.8 \
@@ -19,7 +26,8 @@ cd helloworld
 
 上述命令将创建一个 Spring Boot 项目。
 
->? 如需在 Windows 系统上使用上述 curl 命令，您需要以下命令行之一：
+>? 
+> 如需在 Windows 系统上使用上述 curl 命令，您需要以下命令行之一：
 > 
 > - [WSL（推荐）](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 > - [cygwin](https://cygwin.com/install.html)

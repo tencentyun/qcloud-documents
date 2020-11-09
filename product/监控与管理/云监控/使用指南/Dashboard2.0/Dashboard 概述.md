@@ -1,4 +1,4 @@
->?云监控 Dashborad 全新改版，已于近期上线，欢迎大家使用新版 Dashboard 监控云上服务性能。旧版 Dashboard 即将下线，如需访问旧版文档，请参见 [旧版 Dashboard](https://cloud.tencent.com/document/product/248/13118)。
+
 
 ## 什么是 Dashboard?
 
@@ -6,7 +6,7 @@ Dashboard 是云监控针对云产品指标监控数据，提供的具备可视�
 
 
 您可以对云产品指标创建 Dashbaord，Dashboard 会自动将监控数据以精美的图表形式呈现在监控面板中，使监控数据更加直观，协助您通过趋势和异常值分析指标。
-![](https://main.qcloudimg.com/raw/cfa7baddd0ac22c4614b78c89572a883.png)
+![](https://main.qcloudimg.com/raw/7ab6d9f9b322661d7f17085a5b4f5593.png)
 
 ## 功能介绍
 
@@ -36,7 +36,7 @@ Dashboard 是云监控针对云产品指标监控数据，提供的具备可视�
 | ------------------------- | -------- |
 | 自定义 Dashboard（面板）  | 20个     |
 | 每个 Dashboard 中的图表数 | 20个     |
-| 每个图表可绑定实例数      | 12个     |
+| 每个图表可绑定实例数      | 50个     |
 
 
 

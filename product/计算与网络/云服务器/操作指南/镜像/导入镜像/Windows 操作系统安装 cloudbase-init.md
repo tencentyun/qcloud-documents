@@ -18,16 +18,16 @@
 
 1. 在操作系统界面，双击打开 Cloudbase-Init 安装包。
 2. 在弹出的安全警告提示框中，单击【运行】，进入 Cloudbase-Init 安装界面。如下图所示：
-![](https://main.qcloudimg.com/raw/bdeb8ff4370dc6da38da6749154e449f.png)
+![](https://main.qcloudimg.com/raw/3249309f71fccaf73feeaa5bb55301c3.png)
 3. 单击【Next】。
 4. 勾选【I accept the terms in the License Agreement】，连续单击2次【Next】。
-5. 在 “Configuration options” 界面，将 “**Serial port for logging**” 设置为 “**COM1**”，单击【Next】。如下图所示：
-![](https://main.qcloudimg.com/raw/a41580e9b21e4550245b661b44682937.png)
+5. 在 “Configuration options” 界面，将 “**Serial port for logging**” 设置为 “**COM1**”，勾选 “Run Cloudbase-Init service as LocalSystem”，并单击【Next】。如下图所示：
+![](https://main.qcloudimg.com/raw/a772c35958cdf3be511dab58f730e7be.png)
 6. 单击【Install】，安装 Cloudbase-Init。
 7. 待 Cloudbase-Init 完成安装后，单击【Finish】，关闭 Cloudbase-Init 安装界面。如下图所示：
 >! 关闭 Cloudbase-Init 安装界面时，请勿勾选任何复选框，不要运行 Sysprep。
 >
-![](https://main.qcloudimg.com/raw/d2d6c30def7812af9d7e484f5e8ccaa9.png)
+![](https://main.qcloudimg.com/raw/9cb4414c157c535e0f102f6088187a29.png)
 
 ### 修改 cloudbase-init 配置文件 
 

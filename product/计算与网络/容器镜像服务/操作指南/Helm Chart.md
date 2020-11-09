@@ -80,6 +80,8 @@ helm repo add $instance-$namespace https://$instance.tencentcloudcr.com/chartrep
 
 #### 推送 Helm Chart
 1. 安装 Helm Push 插件
+>! 请安装 0.9.0 及以上版本的 helm-push 插件，避免因版本不兼容等问题造成无法正常推送 helm chart。
+>
 使用 Helm CLI 上传 Chart 包需要安装 helm-push 插件，该插件支持使用 `helm push` 指令推送 helm chart 至指定 repo，同时支持上传目录及压缩包。
 ```
 helm plugin install https://github.com/chartmuseum/helm-push

@@ -108,3 +108,6 @@ K8S 中存在的 Bug 会导致 Daemonset Pod 持续 Terminating，Kubernetes 1.1
 - 临时解决方法：确保 rollingUpdate 类型 Daemonset 使用 nodeSelector 而不使用 nodeAffinity。
 - 彻底解决方法：参考文档[ 升级集群 ](https://cloud.tencent.com/document/product/457/32192)步骤将集群 Kubernetes 版本升级至 1.12。
 
+
+
+

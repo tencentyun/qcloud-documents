@@ -10,7 +10,7 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 | ---------- | ---- | -------- | ------------------ |
 | meetingId  | 是   | String   | 有效的会议 ID。       |
 | userid     | 是   | String   | 调用 API 的用户 ID。   |
-| instanceid | 是   | Integer  | 用户的终端设备类型。 |
+| instanceid | 是   | Integer  | 用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序。 |
 
 ## 输出参数
 
@@ -19,7 +19,7 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 | meeting_number    | Integer  | 会议数量。 |
 | meeting_info_list | Array    | 会议列表。 |
 
-## 会议对象
+#### 会议对象
 
 | 参数名称         | 参数类型     | 参数描述                             |
 | ---------------- | ------------ | ------------------------------------ |
@@ -28,7 +28,7 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 | subject          | String       | 会议主题。                             |
 | live_replay_list | 直播回看数组 | 直播回看数组（会议创建人才有权限查询）。 |
 
-## 直播回放对象
+#### 直播回放对象
 
 | 参数名称     | 参数类型 | 参数描述     |
 | ------------ | -------- | ------------ |
@@ -39,35 +39,33 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 ## 示例
 #### 输入示例
 
-```
+```plaintext
 GET https://api.meeting.qq.com/v1/meetings/5939741786564101932/live_play/replays?userid=tester&instanceid=1
 ```
 
 #### 输出示例
 ```
 {
-    "meeting_number":1,
-    "meeting_info_list":[
-        {
-            "meeting_id":"1900004128969145064",
-            "meeting_code":"13418515243",
-            "subject":"tester预定的会议",
-            "live_replay_list":[
-                {
-                    
-"video_url":"https://meeting.tencent.com/l/xxxxx",
-                    "live_subject":"tester直播主题",
-                    "live_room_id":"206830819"
-                },
-                {
-            
-"video_url":"https://meeting.tencent.com/l/xxxxx",
-                    "live_subject":"tester直播主题",
-                    "live_room_id":"112594341"
-                }
-            ]
-        }
-    ]
+    "meeting_number":1,
+    "meeting_info_list":[
+        {
+            "meeting_id":"1900004128969145064",
+            "meeting_code":"13418515243",
+            "subject":"tester预定的会议",
+            "live_replay_list":[
+                {
+                    "video_url":"https://meeting.tencent.com/l/xxxx",
+                    "live_subject":"tester预定的会议",
+                    "live_room_id":"206830819"
+                },
+                {
+                    "video_url":"https://meeting.tencent.com/l/xxxx",
+                    "live_subject":"leonxsun预定的会议",
+                    "live_room_id":"112594341"
+                }
+            ]
+        }
+    ]
 }
 						
 ```
