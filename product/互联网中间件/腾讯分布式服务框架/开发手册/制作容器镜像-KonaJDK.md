@@ -1,7 +1,6 @@
 
 该任务指导您通过 Spring Cloud 和 Mesh 两种方式制作容器镜像。
 
-如需使用Tencent KonaJDK 替换openJDK，请查看《制作容器镜像-KonaJDK》说明
 
 ## 准备构建材料
 ### Spring Cloud 应用构建材料
@@ -10,12 +9,15 @@
 
 简化版本的 Dockerfile 不包含文件配置和 JVM 监控功能，仅需要用户替换掉 Dockerfile 中 Spring Cloud 应用 jar 包名称，您也可以先试用 TSF 提供的 Spring Cloud 应用 Demo JAR 包（[下载地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/spring%20cloud%20demo/provider-demo-0.0.1-SNAPSHOT.jar)）。
 
+关于JDK版本，推荐使用Tencent KonaJDK，请下载KonaJDK安装文件（[下载地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/java-8-konajdk.rpm))
+
 >!在 Spring Cloud 应用 JAR 包同级目录下编写 Dockerfile。
 
 ```dockerfile
 FROM centos:7
 RUN echo "ip_resolve=4" >> /etc/yum.conf
-RUN yum update -y && yum install -y java-1.8.0-openjdk
+#安装 KonaJDK 
+RUN yum update -y && yum install -y ./java-8-konajdk.rpm
 
 # 设置时区。这对于日志、调用链等功能能否在 TSF 控制台被检索到非常重要。
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
@@ -28,7 +30,8 @@ COPY ${jar} ${workdir}
 WORKDIR ${workdir}
 
 # JAVA_OPTS 环境变量的值为部署组的 JVM 启动参数，在运行时 bash 替换。使用 exec 以使 Java 程序可以接收 SIGTERM 信号。
-CMD ["sh", "-ec", "exec java ${JAVA_OPTS} -jar ${jar}"]
+# 考虑到容器场景对于内存的要求，建议添加-Xshare:off选项关闭CDS功能
+CMD ["sh", "-ec", "exec java ${JAVA_OPTS} -Xshare:off -jar ${jar}"]
 ```
 
 **2. 使用 JVM 监控功能**
@@ -40,7 +43,8 @@ CMD ["sh", "-ec", "exec java ${JAVA_OPTS} -jar ${jar}"]
 ```dockerfile
 FROM centos:7
 RUN echo "ip_resolve=4" >> /etc/yum.conf
-RUN yum update -y && yum install -y java-1.8.0-openjdk
+#安装 KonaJDK 
+RUN yum update -y && yum install -y ./java-8-konajdk.rpm
 # 设置时区。这对于日志、调用链等功能能否在 TSF 控制台被检索到非常重要。
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "Asia/Shanghai" > /etc/timezone
@@ -59,7 +63,8 @@ RUN mkdir -p /data/tsf_apm/monitor/jvm-metrics/
 
 # JAVA_OPTS 环境变量的值为部署组的 JVM 启动参数，在运行时 bash 替换。使用 exec 以使 Java 程序可以接收 SIGTERM 信号。
 # 使用 JVM监控功能需要加上 gclog 和 javaagent 的配置, 否则将无法提供 jvm 监控能力
-CMD ["sh", "-ec", "exec java -Xloggc:/data/tsf_apm/monitor/jvm-metrics/gclog.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -verbose:gc -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=8 -XX:GCLogFileSize=50M -javaagent:${workdir}/${agentjar}=hascontroller=true ${JAVA_OPTS} -jar ${jar}"]
+# 考虑到容器场景对于内存的要求，建议添加-Xshare:off选项关闭CDS功能
+CMD ["sh", "-ec", "exec java -Xloggc:/data/tsf_apm/monitor/jvm-metrics/gclog.log -XX:+PrintGCDateStamps -XX:+PrintGCDetails -verbose:gc -XX:+UseGCLogFileRotation -XX:NumberOfGCLogFiles=8 -XX:GCLogFileSize=50M -javaagent:${workdir}/${agentjar}=hascontroller=true ${JAVA_OPTS} -Xshare:off -jar ${jar}"]
 ```
 
 **3. 使用文件配置**
@@ -69,7 +74,9 @@ CMD ["sh", "-ec", "exec java -Xloggc:/data/tsf_apm/monitor/jvm-metrics/gclog.log
 ```dockerfile
 FROM centos:7
 RUN echo "ip_resolve=4" >> /etc/yum.conf
-RUN yum update -y && yum install -y java-1.8.0-openjdk
+#安装 KonaJDK 
+RUN yum update -y && yum install -y ./java-8-konajdk.rpm
+
 # 设置时区。这对于日志、调用链等功能能否在 TSF 控制台被检索到非常重要。
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "Asia/Shanghai" > /etc/timezone
@@ -84,7 +91,8 @@ WORKDIR ${workdir}
 ADD tsf-consul-template-docker.tar.gz /root/
 
 # JAVA_OPTS 环境变量的值为部署组的 JVM 启动参数，在运行时 bash 替换。使用 exec 以使 Java 程序可以接收 SIGTERM 信号。
-CMD ["sh", "-ec", "sh /root/tsf-consul-template-docker/script/start.sh; exec java ${JAVA_OPTS} -jar ${jar}"]
+# 考虑到容器场景对于内存的要求，建议添加-Xshare:off选项关闭CDS功能
+CMD ["sh", "-ec", "sh /root/tsf-consul-template-docker/script/start.sh; exec java ${JAVA_OPTS} -Xshare:off -jar ${jar}"]
 ```
 
 **私有化版本使用建议：**
@@ -92,7 +100,7 @@ CMD ["sh", "-ec", "sh /root/tsf-consul-template-docker/script/start.sh; exec jav
 私有化的 TSF 要支持 stdout 日志，需要在启动命令中将 stdout 及 stderr 重定向到一个文件中。将上文的`CMD`一行替换成：
 ```
 RUN mkdir -p /data/tsf_std/stdout/logs
-CMD ["sh", "-ec", "exec java ${JAVA_OPTS} -jar ${jar} 2>&1 > /data/tsf_std/stdout/logs/sys_log.log"]
+CMD ["sh", "-ec", "exec java ${JAVA_OPTS} -Xshare:off -jar ${jar} 2>&1 > /data/tsf_std/stdout/logs/sys_log.log"]
 ```
 
 ### Mesh 应用构建材料
