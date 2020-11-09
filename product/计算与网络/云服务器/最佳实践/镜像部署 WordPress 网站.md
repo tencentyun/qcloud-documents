@@ -16,14 +16,9 @@
 2. 根据页面提示选择机型，并在 “镜像” 中单击【镜像市场】，选择【从镜像市场选择】。如下图所示：
 >! 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有【镜像市场】，请选择其他支持镜像市场的地域。
 >
-<<<<<<< HEAD
-3. 在搜索框中输入 wordpress 进行搜索，按需选择镜像。本文以选择 “WordPress博客平台（CentOS 6.8 64位）” 镜像为例。如下图所示：
-![](https://main.qcloudimg.com/raw/c6527d889c2106092a34f26135ad2c94.png)
-=======
 ![](https://main.qcloudimg.com/raw/f65014010e9d40e71b945a189ed574f2.png)
 3. 在弹出的【镜像市场】对话框中，选择【建站系统】> 【WordPress博客平台】，单击【免费使用】。如下图所示：
 <img src="https://main.qcloudimg.com/raw/6a3645a1e4c5d3a51e6d917eca2a28ec.png" style="width: 88%;"></img>
->>>>>>> parent of 00e6620783f... Update 镜像部署 WordPress 网站.md
 更多关于此镜像信息，请参见 [WordPress博客平台（CentOS 6.8 64位）](https://market.cloud.tencent.com/products/63)。
 4. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择【开始重装】完成 WordPress 建站系统的购买。
 
