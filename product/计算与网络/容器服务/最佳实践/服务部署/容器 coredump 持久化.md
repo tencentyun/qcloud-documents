@@ -32,7 +32,8 @@ echo "/tmp/cores/core.%h.%e.%p.%t" > /proc/sys/kernel/core_pattern
 ### 创建存储桶
 
 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5/bucket)，手动创建 COS 存储桶，用于存储容器 coredump 生成的 core 文件。具体操作步骤请参见 [创建存储桶](https://cloud.tencent.com/document/product/457/44232#.E5.88.9B.E5.BB.BA.E5.AD.98.E5.82.A8.E6.A1.B6.3Cspan-id.3D.22creatbucket.22.3E.3C.2Fspan.3E)。如下图所示：
-![](https://main.qcloudimg.com/raw/d8190e5495757da27f729319c4981e4b.png)
+![](https://main.qcloudimg.com/raw/a981dcd8f35dcd94f7e20ea8f67a0a6d.png)
+
 
 ### 创建 Secret<span id="secret"></span>
 - 若通过控制台使用对象存储，可参见 [创建可以访问对象存储的 Secret](https://cloud.tencent.com/document/product/457/44232#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E4.BD.BF.E7.94.A8.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8)。
@@ -49,7 +50,7 @@ kubectl create secret generic cos-secret -n kube-system  --from-literal=SecretId
 #### 创建 PV<span id="pv"></span>
 1. 在目标集群详情页面，选择左侧菜单栏中的【存储】>【PersistentVolume】，进入 “PersistentVolume” 页面。
 2. 单击【新建】进入“新建PersistentVolume” 页面，参考以下信息创建 PV。如下图所示：
-![](https://main.qcloudimg.com/raw/a0537e5d6d558a3861a205e84b9add84.png)
+![](https://main.qcloudimg.com/raw/d2301b77ad197f86f9131656d5e5339b.png)
 主要参数信息如下：
  - **来源设置**：选择【静态创建】。
  - **Secret**：选择已在 [创建 Secret](#secret) 中创建的 Secret，本文以 cos-secret 为例（kube-system 命名空间下）。
@@ -61,7 +62,7 @@ kubectl create secret generic cos-secret -n kube-system  --from-literal=SecretId
 #### 创建 PVC<span id="pvc"></span>
 1. 在目标集群详情页，选择左侧菜单栏中的【存储】>【PersistentVolumeClaim】，进入 “PersistentVolumeClaim” 页面。
 2. 单击【新建】进入“新建PersistentVolumeClaim” 页面，参考以下信息创建 PVC。如下图所示：
-![](https://main.qcloudimg.com/raw/c3fd441fcbb9516091114925d91f59fd.png)
+![](https://main.qcloudimg.com/raw/b8e1a09f37a34264a8b251c0362d43a8.png)
 主要参数信息如下：
  - **命名空间**：要与需要挂载存储 COS 的 PVC 的容器所在命名空间相同，如果有多个命名空间，可以创建多对 PV 与 PVC。
  - **PersistentVolume**：选择在 [创建 PV](#pv) 中已创建的 PV 的名称。
