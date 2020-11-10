@@ -9,7 +9,7 @@
 ### Android 接入
 #### **Android 接入主要流程如下：**
 1. 在 Android 端利用 WebView 加载，需要接入滑动验证码组件的页面。
-2. 通过 js 调用代码，并把验证码 SDK 返回的参数值传到 Android App 的业务端。
+2. 通过 JS 调用代码，并把验证码 SDK 返回的参数值传到 Android App 的业务端。
 3. Android 代码中获取票据后，把相关数据传入业务侧后端服务进行验证。
 
 #### **Android 接入的详细操作步骤如下：**
@@ -78,7 +78,7 @@ public class JsBridge {
      }
  }
 ```
-6. 在 H5 业务页面中，集成验证码 SDK，并通过 js 调用 SDK 获取验证码相关数据，最后使用 JSBridge 传回数据给具体业务端。
+6. 在 H5 业务页面中，集成验证码 SDK，并通过 JS 调用 SDK 获取验证码相关数据，最后使用 JSBridge 传回数据给具体业务端。
 >!如需隐藏验证码帮助按钮等功能，请参见 [Web 前端接入](https://cloud.tencent.com/document/product/1110/36841#.E9.85.8D.E7.BD.AE.E5.8F.82.E6.95.B0) 文档。
 >
 ```
@@ -97,7 +97,7 @@ public class JsBridge {
         /* callback */
                 if(res && res.ret === 0) {
                         // 获取票据、随机数并调用App端注入的方法传入票据、随机数，进行后台票据校验
-						const result = { randstr:res.randstr, ticket:res.ticket };
+						var result = { randstr:res.randstr, ticket:res.ticket };
 					    window.jsBridge.getData(JSON.stringify(result));
                 }
     });
@@ -179,7 +179,7 @@ public class JsBridge {
 -(void)webView:(WKWebView *)webView didReceiveServerRedirectForProvisionalNavigation:(WKNavigation *)navigation {
 }
 ```
-4. js 将参数传给 oc。
+4. JS 将参数传给 OC。
 ```
 <p style="text-align:center"> <button id="btn2" type = "button" onclick = "jsToOcFunction()"> JS调用OC：带参数  </button> </p>
 function jsToOcFunction()
