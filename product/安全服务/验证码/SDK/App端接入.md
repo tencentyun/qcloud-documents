@@ -4,7 +4,7 @@
 >!小程序插件 AppID 仅限 [小程序插件接入方式](https://cloud.tencent.com/document/product/1110/49319) 使用，请勿使用在 Web 前端接入。
 
 ## 接入步骤
-以下为 APP 端接入流程，适用于每次都需要进行人机验证的场景（如登录、注册、下发短信、活动等），App（iOS 和 Android） 皆使用 Web 前端 H5 方式进行接入。
+以下为 App 端接入流程，适用于每次都需要进行人机验证的场景（如登录、注册、下发短信、活动等），App（iOS 和 Android） 皆使用 Web 前端 H5 方式进行接入。
 
 ### Android 接入
 - 在 Android 端利用 WebView 加载需要接入滑动验证码组件的页面。
