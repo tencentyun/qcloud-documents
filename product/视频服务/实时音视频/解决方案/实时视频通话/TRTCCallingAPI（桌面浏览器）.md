@@ -12,37 +12,37 @@
 
 | API                                       | 描述         |
 | ----------------------------------------- | ------------ |
-| [on(eventName, callback, context)](#on)   | 订阅事件     |
-| [off(eventName, callback, context)](#off) | 取消事件订阅 |
+| [on(eventName, callback, context)](#on(eventname.2C-callback.2C-context))   | 订阅事件     |
+| [off(eventName, callback, context)](#off(eventname.2C-callback.2C-context)) | 取消事件订阅 |
 
 #### SDK 基础函数
 
 | API                                | 描述                                           |
 | ---------------------------------- | ---------------------------------------------- |
-| [login({userID, userSig})](#login) | 登录 IM 接口，所有功能需要先进行登录后才能使用 |
-| [logout()](#logout)                | 登出接口，登出后无法再进行拨打操作             |
+| [login({userID, userSig})](#login(.7Buserid.2C-usersig.7D)) | 登录 IM 接口，所有功能需要先进行登录后才能使用 |
+| [logout()](#logout())                | 登出接口，登出后无法再进行拨打操作             |
 
 #### 通话操作相关接口函数
 
 | API                                                  | 描述         |
 | ---------------------------------------------------- | ------------ |
-| [call({userID, type, timeout}))](#off)               | 单人通话邀请 |
-| [groupCall({userIDList, type, groupID})](#groupCall) | 群聊通话邀请 |
-| [accept({inviteID, roomID, callType})](#accept)      | 接受通话邀请 |
-| [reject({inviteID, isBusy, callType})](#reject)      | 拒绝通话邀请 |
-| [hangup()](#hangup)                                  | 挂断当前通话 |
+| [call({userID, type, timeout}))](#call(.7Buserid.2C-type.2C-timeout.7D))               | 单人通话邀请 |
+| [groupCall({userIDList, type, groupID})](#groupcall(.7Buseridlist.2C-type.2C-groupid.7D)) | 群聊通话邀请 |
+| [accept({inviteID, roomID, callType})](#accept(.7Binviteid.2C-roomid.2C-calltype.7D))      | 接受通话邀请 |
+| [reject({inviteID, isBusy, callType})](#reject(.7Binviteid.2C-isbusy.2C-calltype.7D))      | 拒绝通话邀请 |
+| [hangup()](#hangup())                                  | 挂断当前通话 |
 
 #### 视频控制相关接口函数
 
 | API                                                          | 描述               |
 | ------------------------------------------------------------ | ------------------ |
-| [startRemoteView({userID, videoViewDomID})](#startRemoteView) | 启动远端画面渲染   |
-| [stopRemoteView({userID, videoViewDomID})](#stopRemoteView)  | 停止远端画面渲染   |
-| [startLocalView({userID, videoViewDomID})](#startLocalView)  | 启动本地画面渲染   |
-| [stopLocalView({userID, videoViewDomID})](#stopLocalView)    | 停止本地画面渲染   |
-| [openCamera()](#openCamera)                                  | 启动摄像头         |
-| [closeCamera()](#closeCamera)                                | 关闭摄像头         |
-| [setMicMute(isMute)](#setMicMute)                            | 设备麦克风是否静音 |
+| [startRemoteView({userID, videoViewDomID})](#startremoteview(.7Buserid.2C-videoviewdomid.7D)) | 启动远端画面渲染   |
+| [stopRemoteView({userID, videoViewDomID})](#stopremoteview(.7Buserid.2C-videoviewdomid.7D))  | 停止远端画面渲染   |
+| [startLocalView({userID, videoViewDomID})](#startlocalview(.7Buserid.2C-videoviewdomid.7D))  | 启动本地画面渲染   |
+| [stopLocalView({userID, videoViewDomID})](#stoplocalview(.7Buserid.2C-videoviewdomid.7D))    | 停止本地画面渲染   |
+| [openCamera()](#opencamera())                                  | 启动摄像头         |
+| [closeCamera()](#closecamera())                                | 关闭摄像头         |
+| [setMicMute(isMute)](#setmicmute(ismute))                            | 设备麦克风是否静音 |
 
 
 ## TRTCCalling 详解
@@ -61,7 +61,8 @@ let trtcCalling = new TRTCCalling(options);
 
 ### 事件订阅/取消订阅相关接口函数 
 
-<span id="on"></span>
+
+
 
 #### on(eventName, callback, context)
 
@@ -74,7 +75,8 @@ let handleInvite = function ({inviteID, sponsor, inviteData}) {
 trtcCalling.on('onInvited', handleInvite, this);
 ```
 
-<span id="off"></span>
+
+
 
 #### off(eventName, callback, context)
 
@@ -88,8 +90,6 @@ trtcCalling.off('onInvited', handleInvite, this);
 ```
 
 ### SDK 基础函数
-
-<span id="login"></span>
 
 #### login({userID, userSig})
 
@@ -106,7 +106,8 @@ trtcCalling.login({userID, userSig})
 | userID  | String | 当前用户的 ID，字符串类型，只允许包含英文字母（a-z 和 A-Z）、数字（0-9）、连词符（-）和下划线（\_）。 |
 | userSig | String | 腾讯云设计的一种安全保护签名，获取方式请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。 |
 
-<span id="logout"></span>
+
+
 
 #### logout()
 
@@ -118,7 +119,8 @@ trtcCalling.logout()
 
 ### 通话操作相关接口函数
 
-<span id="call"></span>
+
+
 
 #### call({userID, type, timeout})
 
@@ -134,13 +136,12 @@ trtcCalling.call({userID, type, timeout})
 | ------- | ------ | ------------------------ |
 | userID  | String | 被邀请方 userID          |
 | type    | Number | 1：语音通话，2：视频通话 |
-| timeout | Number | 0为不超时, 单位 s（秒）  |
+| timeout | Number | 0为不超时，单位 s（秒）  |
 
-<span id="groupCall"></span>
+
 
 #### groupCall({userIDList, type, groupID})
-
-> groupID 参数是 IM SDK 中的群组 ID，如果填写该参数，那么通话请求消息是通过群消息系统广播出去的，这种消息广播方式比较简单可靠。如果不填写，那么 TRTCCalling 组件会采用单发消息逐一通知。
+groupID 参数是 IM SDK 中的群组 ID，如果填写该参数，那么通话请求消息是通过群消息系统广播出去的，这种消息广播方式比较简单可靠。如果不填写，那么 TRTCCalling 组件会采用单发消息逐一通知。
 
 ```javascript
 trtcCalling.groupCall({userIDList, type, groupID})
@@ -152,15 +153,14 @@ trtcCalling.groupCall({userIDList, type, groupID})
 | ---------- | ------ | ------------------------ |
 | userIDList | Array  | 邀请列表                 |
 | type       | Number | 1：语音通话，2：视频通话 |
-| groupID    | String | IM 群组 ID （选填）      |
+| groupID    | String | IM 群组 ID（选填）      |
 
-<span id="accept"></span>
+
+
 
 #### accept({inviteID, roomID, callType})
-
 当收到邀请后，调用该接口将接受当前的邀请。
-
-> 当上一个 invitation 未处理完成时，组件会默认占线，之后的邀请都会回复忙线。
+>? 当上一个 invitation 未处理完成时，组件会默认占线，之后的邀请都会回复忙线。
 
 ```javascript
 import TrtcCalling from 'trtc-calling-js';
@@ -178,10 +178,9 @@ trtcCalling.on(TrtcCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
 | roomID   | Number | 通话房间号 ID            |
 | callType | Number | 1：语音通话，2：视频通话 |
 
-<span id="reject"></span>
+
 
 #### reject({inviteID, isBusy, callType})
-
 当收到邀请后，调用该接口将拒绝当前的邀请。
 
 ```javascript
@@ -200,10 +199,8 @@ trtcCalling.on(TrtcCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
 | isBusy   | Boolean | 是否是忙线中             |
 | callType | Number  | 1：语音通话，2：视频通话 |
 
-<span id="hangup"></span>
 
 #### hangup()
-
 1. 当您处于通话中，可以调用该函数结束通话。
 2. 当未拨通时, 可用来取消通话。
 
@@ -212,13 +209,8 @@ trtcCalling.hangup()
 ```
 
 
-
 ### 视频控制相关接口函数
-
-<span id="startRemoteView"></span>
-
 #### startRemoteView({userID, videoViewDomID})
-
 将远端用户的摄像头数据渲染到指定的 DOM ID 节点里。
 
 ```javascript
@@ -232,10 +224,7 @@ trtcCalling.startRemoteView({userID, videoViewDomID})
 | userID         | String | 用户 ID                                                   |
 | videoViewDomID | String | 该用户数据将通过渲染到该 DOM ID 节点的 video 标签进行播放 |
 
-<span id="stopRemoteView"></span>
-
 #### stopRemoteView({userID, videoViewDomID})
-
 将远端用户的摄像头数据渲染的 DOM 节点删除。
 
 ```javascript
@@ -247,12 +236,9 @@ trtcCalling.stopRemoteView({userID, videoViewDomID})
 | 参数           | 类型   | 含义                                              |
 | -------------- | ------ | ------------------------------------------------- |
 | userID         | String | 用户 ID                                           |
-| videoViewDomID | String | 该 DOM ID 节点的 video 标签进行移除, 停止播放视频 |
-
-<span id="startLocalView"></span>
+| videoViewDomID | String | 该 DOM ID 节点的 video 标签进行移除，停止播放视频 |
 
 #### startLocalView({userID, videoViewDomID})
-
 将本地用户的摄像头数据渲染到指定的 DOM ID 节点里。
 
 ```javascript
@@ -265,8 +251,6 @@ trtcCalling.startLocalView({userID, videoViewDomID})
 | -------------- | ------ | ----------------------------------------------------------- |
 | userID         | String | 用户 ID                                                     |
 | videoViewDomID | String | 本地用户数据将通过渲染到该 DOM ID 节点的 video 标签进行播放 |
-
-<span id="stopLocalView"></span>
 
 #### stopLocalView({userID, videoViewDomID})
 
@@ -281,32 +265,23 @@ trtcCalling.stopLocalView({userID, videoViewDomID})
 | 参数           | 类型   | 含义                                              |
 | -------------- | ------ | ------------------------------------------------- |
 | userID         | String | 用户 ID                                           |
-| videoViewDomID | String | 该 DOM ID 节点的 video 标签进行移除, 停止播放视频 |
-
-<span id="openCamera"></span>
+| videoViewDomID | String | 该 DOM ID 节点的 video 标签进行移除，停止播放视频 |
 
 #### openCamera()
-
 开启本地摄像头。
 
 ```javascript
 trtcCalling.openCamera()
 ```
 
-<span id="closeCamera"></span>
-
 ####  closeCamera()
-
 关闭摄像头。
 
 ```javascript
 trtcCalling.closeCamera()
 ```
 
-<span id="setMicMute"></span>
-
 ####  setMicMute(isMute) 
-
 开启/关闭麦克风。
 
 ```javascript
@@ -319,8 +294,8 @@ trtcCalling.setMicMute(true) // 开启麦克风
 | ------ | ------- | ------------------------------------------ |
 | isMute | Boolean | <li/>true: 麦克风关闭 <li/>false: 麦克风打开 |
 
-<span id="event"></span>
 
+<span id="event"></span>
 ## TRTCCalling 事件表
 
 您可以参考如下代码捕获来自 TRTCCalling 组件的各种事件：
@@ -338,18 +313,18 @@ trtcCalling.on(TrtcCalling.EVENT.REJECT, handleInviteeReject)
 
 |         CODE         |   事件接收方   |           说明            |
 | :------------------: | :------------: | :-----------------------: |
-|        REJECT        |     邀请方     |     被邀用户拒绝通话      |
-|       NO_RESP        |     邀请方     |    被邀用户超时无应答     |
-|      LINE_BUSY       |     邀请方     | 被邀用户正在通话中，忙线  |
-|       INVITED        |     被邀方     |      收到了邀请通知       |
-|    CALLING_CANCEL    |     被邀方     |     本次通话被取消了      |
-|   CALLING_TIMEOUT    |     被邀方     |    本次通话超时未应答     |
-|      USER_ENTER      | 邀请方和被邀方 |         用户进房          |
-|      USER_LEAVE      | 邀请方和被邀方 |       用户退出房间        |
-|       CALL_END       | 邀请方和被邀方 |       本次通话结束        |
-|      KICKED_OUT      | 邀请方和被邀方 |   重复登录，被踢出房间    |
-| USER_VIDEO_AVAILABLE | 邀请方和被邀方 | 远端用户开启/关闭了摄像头 |
-| USER_AUDIO_AVAILABLE | 邀请方和被邀方 | 远端用户开启/关闭了麦克风 |
+|        [REJECT](#reject)        |     邀请方     |     被邀用户拒绝通话      |
+|       [NO_RESP](#no_resp)        |     邀请方     |    被邀用户超时无应答     |
+|      [LINE_BUSY](#line_busy)       |     邀请方     | 被邀用户正在通话中，忙线  |
+|       [INVITED](#invited)        |     被邀方     |      收到了邀请通知       |
+|    [CALLING_CANCEL](#calling_cancel)    |     被邀方     |     本次通话被取消了      |
+|   [CALLING_TIMEOUT](#calling_timeout)    |     被邀方     |    本次通话超时未应答     |
+|      [USER_ENTER](#user_enter)      | 邀请方和被邀方 |         用户进房          |
+|      [USER_LEAVE](#user_leave)      | 邀请方和被邀方 |       用户退出房间        |
+|       [CALL_END](#call_end)       | 邀请方和被邀方 |       本次通话结束        |
+|      [KICKED_OUT](#kicked_out)      | 邀请方和被邀方 |   重复登录，被踢出房间    |
+| [USER_VIDEO_AVAILABLE](#user_video_available) | 邀请方和被邀方 | 远端用户开启/关闭了摄像头 |
+| [USER_AUDIO_AVAILABLE](#user_audio_available) | 邀请方和被邀方 | 远端用户开启/关闭了麦克风 |
 
 ### 通用事件回调
 
@@ -492,7 +467,6 @@ function handleInviteeLineBusy({userID}) {
 ### 被邀请方事件回调
 
 #### INVITED
-
 收到邀请通知。
 
 ```javascript
@@ -548,7 +522,6 @@ trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
 ## 常见问题
 
 #### 为什么拨打不通，或者被踢下线？
-
 组件暂不支持多实例登入，不支持**离线推送信令**功能，请您确认登入账号的唯一性。
 > ?
 > - **多实例**：一个 UserID 重复登入，或在不同端登入，将会引起信令的混乱。
