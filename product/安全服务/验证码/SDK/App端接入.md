@@ -7,11 +7,12 @@
 以下为 App 端接入流程，适用于每次都需要进行人机验证的场景（如登录、注册、下发短信、活动等），App（iOS 和 Android） 皆使用 Web 前端 H5 方式进行接入。
 
 ### Android 接入
-- 在 Android 端利用 WebView 加载需要接入滑动验证码组件的页面。
-- 通过 js 调用代码并把验证码 SDK 返回的参数值传到 Android App 的业务端。
-- Android 代码中获取票据后，把相关数据传入业务侧后端服务进行验证。
+#### **Android 接入主要流程如下：**
+1. 在 Android 端利用 WebView 加载需要接入滑动验证码组件的页面。
+2. 通过 js 调用代码并把验证码 SDK 返回的参数值传到 Android App 的业务端。
+3. Android 代码中获取票据后，把相关数据传入业务侧后端服务进行验证。
 
-
+#### **Android 接入的详细操作步骤如下：**
 1. 在项目的工程中，新建一个 Activity 并导入 WebView 组件所需的包。
 ```
 import android.webkit.WebView;
