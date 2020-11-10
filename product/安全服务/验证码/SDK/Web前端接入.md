@@ -115,7 +115,9 @@ TencentCaptcha 的实例提供一些操作验证码的常用方法：
 <span id="pzcs"></span>
 ### 配置参数
 options 提供以下配置参数：
-
+>! 
+- 验证码弹窗内部不支持调整样式大小，如果需要调整，可在弹窗最外层`id=tcaptcha_transform`的元素设置 `transform:scale();`。
+- 如果手机原生端有设置左右滑动手势，需在调用验证码 show 方法前禁用，验证完成后再打开，防止与验证码滑动事件冲突。
 <table>
 <thead>
 <tr>
@@ -151,4 +153,4 @@ options 提供以下配置参数：
 </tr>
 </tbody></table>
 
->! 验证码弹窗内部不支持调整样式大小，如果需要调整，可在弹窗最外层 id=tcaptcha_transform 的元素设置 `transform:scale();`。
+
