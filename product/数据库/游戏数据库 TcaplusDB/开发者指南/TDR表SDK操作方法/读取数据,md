@@ -135,7 +135,7 @@ int32_t InitServiceAPI()
 }
 ```
 
-## 通过 API 发送 GET 请求
+## 通过 API 发送 get 请求
 ```
 int32_t SendGetRequest()
 {
