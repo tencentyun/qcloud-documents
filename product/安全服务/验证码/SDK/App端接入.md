@@ -8,8 +8,8 @@
 
 ### Android 接入
 #### **Android 接入主要流程如下：**
-1. 在 Android 端利用 WebView 加载需要接入滑动验证码组件的页面。
-2. 通过 js 调用代码并把验证码 SDK 返回的参数值传到 Android App 的业务端。
+1. 在 Android 端利用 WebView 加载，需要接入滑动验证码组件的页面。
+2. 通过 js 调用代码，并把验证码 SDK 返回的参数值传到 Android App 的业务端。
 3. Android 代码中获取票据后，把相关数据传入业务侧后端服务进行验证。
 
 #### **Android 接入的详细操作步骤如下：**
@@ -78,7 +78,7 @@ public class JsBridge {
      }
  }
 ```
-6. 在 H5 业务页面中，集成验证码 SDK，并通过 js 调用 SDK 获取验证码相关数据，最后使用 jsBridge 传回数据给具体业务端。
+6. 在 H5 业务页面中，集成验证码 SDK，并通过 js 调用 SDK 获取验证码相关数据，最后使用 JSBridge 传回数据给具体业务端。
 >!如需隐藏验证码帮助按钮等功能，请参见 [Web 前端接入](https://cloud.tencent.com/document/product/1110/36841#.E9.85.8D.E7.BD.AE.E5.8F.82.E6.95.B0) 文档。
 >
 ```
@@ -110,9 +110,9 @@ public class JsBridge {
 
 ### iOS 接入
 #### **iOS 接入主要流程如下：**
-1. 在 iOS 中打开 Webview，通过 JS bridge 触发 HTML 页面 ，同时注入方法，供 HTML 调用传入票据结果。
+1. 在 iOS 中打开 WebView，通过 JSBridge 触发 HTML 页面 ，同时注入方法，供 HTML 调用传入票据结果。
 2. 在 HTML 页面中，接入示例代码，滑动验证码后，需要在回调函数中判断票据，并调用 iOS 注入的方法传入票据结果。
-3. 需要回调数据通过 JS bridge 返回到 iOS，需要把票据传入业务侧后端服务。
+3. 需要回调数据通过 JSBridge 返回到 iOS，需要把票据传入业务侧后端服务。
 
 #### **iOS 接入的详细操作步骤如下：**
 1. 在控制器或 view 中导入 WebKit 库。
