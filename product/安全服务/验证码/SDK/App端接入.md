@@ -20,7 +20,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebViewClient;
 import android.webkit.WebChromeClient;
 ```
-2. 添加相关权限。
+2. 添加相关权限，如开启网络访问权限以及开启允许 App 进行非 HTTPS 请求等。
 ```
 <uses-permission android:name="android.permission.INTERNET"/>
 <application android:usesCleartextTraffic="true">...</application>
