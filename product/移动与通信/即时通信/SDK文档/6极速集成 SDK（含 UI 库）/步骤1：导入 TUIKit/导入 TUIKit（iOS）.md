@@ -13,7 +13,7 @@
 TUIKit 支持 CocoaPods 方式和手动集成两种方式。我们推荐使用 CocoaPods 方式集成，以便随时更新至最新版本。
 
 1. 在 Podfile 中增加以下内容。
-```
+```objectivec
 // TUIKit 使用到了第三方静态库，这个设置需要屏蔽
 #use_frameworks!
 
