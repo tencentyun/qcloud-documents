@@ -19,7 +19,7 @@
 <tr>
 <th style="font-weight:700;" colspan=2>应用场景</th>
 <td>
-<ul class="params">
+<ul style="margin:-3px 0px">
 <li>企业官网、个人展示网站、博客、论坛、电商等各类网站和 Web 应用服务</li>
 <li>个人云盘、图床服务</li>
 <li>微信小程序、小游戏后端服务</li>
@@ -73,10 +73,3 @@
 >- 目前不支持变更已完成购买的实例的套餐配置。
 >详情请参见 [使用限制](https://cloud.tencent.com/document/product/1207/44376)。
 >
-
-
-<style>
- .params{
-	 margin:-3px 0px;
- }
-</style>
