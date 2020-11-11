@@ -48,5 +48,5 @@
 | fs.ofs.block.max.memory.cache.mb  | chdfs插件使用的内存buffer的大小, 单位MB。(对读写都有加速作用) |    16     |    否    |
 |  fs.ofs.block.max.file.cache.mb   |  chdfs插件使用的磁盘buffer的大小, 单位MB。(对写有加速作用)   |    256    |    否    |
 |   fs.ofs.prev.read.block.count    | 读取时，预读的chdfs block数量(chdfs的底层block大小一般为4MB) |     4     |    否    |
-|      fs.ofs.plugin.info.log       |          是否打印插件的调试日志, 日志以info级别打印(true|false) |   false   |    否    |
+|      fs.ofs.plugin.info.log       |          是否打印插件的调试日志, 日志以info级别打印(true\|false) |   false   |    否    |
 
