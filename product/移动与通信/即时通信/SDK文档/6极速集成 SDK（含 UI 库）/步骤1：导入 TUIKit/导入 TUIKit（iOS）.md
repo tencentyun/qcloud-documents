@@ -14,7 +14,7 @@ TUIKit 支持 CocoaPods 方式和手动集成两种方式。我们推荐使用 C
 
 <ol><li>在 Podfile 中增加以下内容。
 
-```objectivec
+```ruby
 
 // TUIKit 使用到了第三方静态库，这个设置需要屏蔽
 #use_frameworks!
@@ -43,7 +43,7 @@ pod 'TXIMSDK_TUIKit_live_iOS'
 ```bash
 pod install
 ```
- <li>如果无法安装 SDK 最新版本，执行以下命令更新本地的 CocoaPods 仓库列表。<br>
+ 如果无法安装 SDK 最新版本，执行以下命令更新本地的 CocoaPods 仓库列表。<br>
  
 ```bash
  pod repo update
