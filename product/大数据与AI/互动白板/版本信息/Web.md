@@ -1,3 +1,46 @@
+### 2.5.5 @ 2020.11.05
+* 链接地址：https://res.qcloudtiw.com/board/2.5.5/TEduBoard.min.js
+
+- 新增特性：
+    1. [新增文字工具预设文本内容](./TEduBoard.html#setNextTextInput)
+    2. [优化白板缩放移动工具](./TEduBoard.html#.TEduBoardToolType)，支持鼠标滚轮缩放，焦点缩放，按shift键缩小等
+    3. [新增白板缩放工具图标](./TEduBoard.html#setZoomCursorIcon)
+    4. [新增自定义图形工具](./TEduBoard.html#.TEduBoardToolType)
+    5. [新增自定义图形的元素类型](./TEduBoard.html#.TEduBoardElementType)
+    6. 新增白板放大后显示滚动条
+- Bug 修复
+    1. Mac端鼠标缓慢移除白板左边缘和上边缘，鼠标指针不隐藏的bug
+    2. 修复偶现画笔不消失的bug
+- 缩放移动工具使用说明：
+    
+    ![](https://main.qcloudimg.com/raw/4b467dd838aaac65aa66d26a4c55572f.png)
+    
+
+### 2.5.4 @ 2020.10.15
+* 链接地址：https://res.qcloudtiw.com/board/2.5.4/TEduBoard.min.js
+
+- 新增工具类型
+    - 1. 新增正圆，正方形工具类，同时支持椭圆工具和矩形工具按shift键画正圆和正方形
+- 优化
+    - 优化橡皮擦擦除箭头工具不精确的问题
+- Bug 修复
+    - 修复多端同时移动图片元素不同步的问题。
+    - 修复已知问题。
+
+
+### 2.5.3 @ 2020.08.31
+* 链接地址：https://res.qcloudtiw.com/board/2.5.3/TEduBoard.min.js
+
+- 新增回调
+    - 新增视频状态回调 TEDU_BOARD_VIDEO_STATUS_WAITING 和 TEDU_BOARD_VIDEO_STATUS_PLAYING
+- Bug 修复
+    - 修复激光笔各端显示比例不一致问题
+    - 修复白板操作在移动端偶现延迟问题
+    - 修复涂鸦到白板外笔迹微变问题
+- 优化
+    - 桌面端画笔使用时持续展示
+    - 视频多次播放失败后回调 ERROR 状态
+    
 ### 2.5.2 @ 2020.08.07
 * 链接地址：https://res.qcloudtiw.com/board/2.5.2/TEduBoard.min.js
 

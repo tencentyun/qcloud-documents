@@ -7,7 +7,9 @@
 - 容器场景：您需重新编写 dockerfile，生成新的镜像后重新部署服务实例，详情请参考 [制作容器镜像](https://cloud.tencent.com/document/product/649/17007)。
 
 另外， JVM 监控功能依赖 javaagent，jdk1.5 以后才引入了 javaagent 技术，所以您需使用 jdk1.6 及以上版本，建议您使用 jdk1.8。
->!apm-agent 监听39411端口，java-agent 监听11339端口，请注意避免冲突。
+>!
+- TencentCloudJvmMonitor-1.1.0监听11339端口，请注意避免冲突。
+- 请在新建容器部署组时需要额外加上端口映射。
 
 ### 火焰图采集失败如何处理？
 火焰图适用于在 CPU 利用率持续较高的情况下进行热点函数分析。

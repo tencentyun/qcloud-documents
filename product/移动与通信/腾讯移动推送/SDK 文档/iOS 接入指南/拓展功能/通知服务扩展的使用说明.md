@@ -64,9 +64,10 @@ end
 - (void)didReceiveNotificationRequest:(UNNotificationRequest *)request withContentHandler:(void (^)(UNNotificationContent *_Nonnull))contentHandler {
     self.contentHandler = contentHandler;
     self.bestAttemptContent = [request.content mutableCopy];
-    /// 境外集群，请开启对应集群配置（非境外集群无需使用）
-//    [XGExtension defaultManager].reportDomainName = @"tpns.hk.tencent.com"; /// 中国香港集群
-//    [XGExtension defaultManager].reportDomainName = @"tpns.sgp.tencent.com";  /// 新加坡集群
+	 /// 非广州集群，请开启对应集群配置（广州集群无需使用）
+    //  [XGExtension defaultManager].reportDomainName = @"tpns.hk.tencent.com"; /// 中国香港集群
+    //  [XGExtension defaultManager].reportDomainName = @"tpns.sgp.tencent.com";  /// 新加坡集群
+    //  [XGExtension defaultManager].reportDomainName = @"tpns.sh.tencent.com";  /// 上海集群
     [[XGExtension defaultManager] handleNotificationRequest:request accessID:<your accessID> accessKey:<your accessKey
 		> contentHandler:^(NSArray<UNNotificationAttachment *> * _Nullable attachments, NSError * _Nullable error) {
         self.bestAttemptContent.attachments = attachments;

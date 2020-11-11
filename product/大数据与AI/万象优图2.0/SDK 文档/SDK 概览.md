@@ -5,7 +5,7 @@
 | ----------- | --------------------------------------- |
 | Android SDK |[快速入门](https://cloud.tencent.com/document/product/460/47735) |
 | iOS SDK     | [快速入门](https://cloud.tencent.com/document/product/460/47730)     |
-| Java SDK |[快速入门](https://cloud.tencent.com/document/product/460/47735) |
+| Java SDK |[快速入门](https://cloud.tencent.com/document/product/460/49286) |
 
 
 >?

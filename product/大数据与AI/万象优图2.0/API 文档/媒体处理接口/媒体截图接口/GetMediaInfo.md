@@ -148,8 +148,8 @@ Container 节点 Format 的内容：
 | FormatLongName | Response.<br>MediaInfo.Format | 容器格式的详细名字 |  String |
 | StartTime | Response.MediaInfo.<br>Format | 起始时间，单位为秒 |  Float |
 | Duration | Response.MediaInfo.<br>Format | 时长，单位为秒 |  Float |
-| Bitrate | Response.MediaInfo.<br>Format | 比特率，单位为kbps |  Int |
-| Size | Response.MediaInfo.<br>Format | 大小，单位为Byte |  Int |
+| Bitrate | Response.MediaInfo.<br>Format | 比特率，单位为 kbps |  Int |
+| Size | Response.MediaInfo.<br>Format | 大小，单位为 Byte |  Int |
 
 Container 节点 Video 的内容：
 
@@ -176,7 +176,7 @@ Container 节点 Video 的内容：
 | Timebase | Response.MediaInfo.<br>Stream.Video | 时基 |  String |
 | StartTime | Response.MediaInfo.<br>Stream.Video | 视频开始时间，单位为秒 |  Float |
 | Duration | Response.MediaInfo.<br>Stream.Video | 视频时长，单位为秒 |  Float |
-| Bitrate | Response.MediaInfo.<br>Stream.Video | 比特率，单位为kbps |  Float |
+| Bitrate | Response.MediaInfo.<br>Stream.Video | 比特率，单位为 kbps |  Float |
 | NumFrames | Response.MediaInfo.<br>Stream.Video | 总帧数 |  Int |
 | Language | Response.MediaInfo.<br>Stream.Video | 语言 |  String |
 
@@ -219,7 +219,7 @@ Container 节点 Subtitle 的内容：
 GET /for-test.mp4?ci-process=videoinfo HTTP/1.1
 Host: bucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Mar 2016 09:45:46 GMT
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484213027;32557109027&q-key-time=1484213027;32557109027&q-header-list=host&q-url-param-list=acl&q-signature=dcc1eb2022b79cb2a780bf062d3a40e120b40652
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfG****-sign-time=1484213027;32557109027&q-key-time=1484213027;32557109027&q-header-list=host&q-url-param-list=acl&q-signature=dcc1eb2022b79cb2a780bf062d3a40e120b4****
 Content-Length: 0
 ```
 

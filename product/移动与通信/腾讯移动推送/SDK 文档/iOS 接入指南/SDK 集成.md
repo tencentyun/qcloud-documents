@@ -1,9 +1,6 @@
 ## 简介
 本文档提供关于 SDK 接入以及开启推送服务的示例代码（SDK 版本：V1.0+ 版本）。
->!如果您是从 [信鸽平台](https://xg.qq.com) 迁移至腾讯移动推送平台，请务必：
-1. 实现 [注销信鸽平台推送服务接口](#zhuxiao)。
-2. 参考 [iOS 迁移指南](https://cloud.tencent.com/document/product/548/41610)  文档，根据您 App 的集成情况，实现相应的变更，完成后返回当前文档。
-3. 完成下述文档的集成工作。
+
 
 ## SDK 组成
 - doc 文件夹：腾讯移动推送 iOS SDK 开发指南。
@@ -123,11 +120,11 @@ return YES;
 
 ## 通知服务扩展插件集成
 SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使用以下扩展功能：
-- 精准统计消息抵达。
-- 接收图片、音视频富媒体消息。
+- 精准统计 APNs 通道消息抵达。
+- 接收 APNs 通道图片、音视频富媒体消息。
 
 接入步骤请参考文档 [通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
->!如果未集成此接口，则无法统计“抵达数”。
+>!如果未集成此接口，则无法统计 APNs 通道“抵达数”。
 
 
 未集成通知服务扩展插件：
@@ -173,10 +170,10 @@ SDK 提供了 Service Extension 接口，可供客户端调用，从而可以使
 [TPNS] Current device token is 9298da5605c3b242261b57****376e409f826c2caf87aa0e6112f944
 [TPNS] Current TPNS token is 00c30e0aeddff1270d8****dc594606dc184  
 ```
->!在推送单个目标设备时请使用 XG 36位的 Token。
+>!在推送单个目标设备时请使用 TPNS 36位的 Token。
 
 ## 统一接收消息及点击消息回调说明
-统一接收消息回调，当应用在前台收到通知消息，以及所有状态（前台、后台、关闭）下收到静默消息会走此回调。
+TPNS 及 APNs 通道统一接收消息回调，当应用在前台收到通知消息，以及所有状态（前台、后台、关闭）下收到静默消息会走此回调。
 ```objective-c
 - (void)xgPushDidReceiveRemoteNotification:(nonnull id)notification withCompletionHandler:(nullable void (^)(NSUInteger))completionHandler;
 ```

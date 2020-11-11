@@ -116,6 +116,7 @@ mysql> select a from (select * from test1 where a=1) as t;
 +---+
 1 row in set (0.00 sec)
 ```
+>?子查询时不指定 shardkey，即可查询结果。
 
 ## 复杂 SQL
 对于不能满足推荐方式的 SQL，由于需要做跨节点的数据交互，所以性能会差一些。

@@ -20,3 +20,4 @@
     - 如果尝试失败，邮件会发送到 MX 优先级为10的 `mxbiz2.qq.com`。
 ![](https://main.qcloudimg.com/raw/9afc6671fb9e9e4c3a3e31db65ba7fc3.png)
 4. 单击【保存】，完成添加。
+

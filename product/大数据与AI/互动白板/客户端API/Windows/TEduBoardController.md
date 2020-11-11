@@ -108,6 +108,18 @@ EDUSDK_API bool EnableTEduBoardOffscreenRender(uint32_t maxFps = 30)
 启用离屏渲染时，SDK 不再创建白板 VIEW，而是通过 onTEBOffscreenPaint 回调接口将白板离屏渲染的像素数据抛出 
 
 
+### EnableTEduBoardCrashReport
+启用白板 Crash 上报 
+``` C++
+EDUSDK_API bool EnableTEduBoardCrashReport()
+```
+#### 返回
+启用白板 Crash 上报是否成功 
+
+#### 警告
+该接口必须要在第一次调用 CreateTEduBoardController 之前调用才有效，否则将会失败 
+
+
 ### GetTEduBoardRenderProcessHandler
 获取 SDK 内部的 CefRenderProcessHandler 
 ``` C++
@@ -781,6 +793,43 @@ virtual void AddImageElement(const char *url)=0
 | --- | --- | --- |
 | url | const char * | 要添加的图片元素 URL 地址，编码格式为 UTF8  |
 
+#### 警告
+该接口已废弃，请使用 AddElement 接口代替 
+
+
+### AddElement
+添加白板元素 
+``` C++
+virtual const char* AddElement(TEduBoardElementType type, const char *url)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| type | TEduBoardElementType | 白板元素类型  |
+| url | const char * | 要使用的元素 URL，编码格式为 UTF8，为 nullptr 表示不指定 URL  |
+
+#### 返回
+元素 ID，用于后续删除操作
+
+#### 介绍
+添加到白板的元素浮动在白板背景之上，支持拖动、缩放、删除 
+
+
+### RemoveElement
+删除白板元素 
+``` C++
+virtual bool RemoveElement(const char *elementId)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | const char * | 元素 ID  |
+
+#### 返回
+删除操作是否成功 
+
 
 ### DeleteBoard
 删除一页白板 
@@ -966,6 +1015,32 @@ virtual void Snapshot(const TEduBoardSnapshotInfo &info)=0
 | info | const TEduBoardSnapshotInfo & | 快照信息  |
 
 
+### SetNextTextInput
+预设文本工具内容 
+``` C++
+virtual void SetNextTextInput(const char *input, bool focus)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| input | const char * | 预设文本内容，取消预设则设置为空  |
+| focus | bool | 是否继续保持焦点  |
+
+
+### SetZoomCursorIcon
+设置放大缩小工具的指针图标 
+``` C++
+virtual void SetZoomCursorIcon(const TEduBoardCursorIcon &zoomIn, const TEduBoardCursorIcon &zoomOut)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| zoomIn | const TEduBoardCursorIcon & | 放大工具图标  |
+| zoomOut | const TEduBoardCursorIcon & | 缩小工具图标  |
+
+
 
 ## 文件操作接口
 
@@ -1016,7 +1091,7 @@ virtual const char* AddTranscodeFile(const TEduBoardTranscodeFileResult &result,
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | result | const TEduBoardTranscodeFileResult & | 文件转码结果  |
-| needSwitch | bool |  |
+| needSwitch | bool | 是否需要在文件加载成功后自动切换到该文件  |
 
 #### 返回
 文件 ID 

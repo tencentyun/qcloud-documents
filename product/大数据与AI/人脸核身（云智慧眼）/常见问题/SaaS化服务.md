@@ -28,3 +28,6 @@ iOS App：拉起人脸核身时，initWithServerUrl 需要设置为`https:\\face
 ### SaaS 获取验证结果信息，有很多字段为 null，是什么原因？
 
 若在未完成验证前调用该接口，数据可能为 null，需要走完全流程后再去拉取。
+
+### Biztoken 一直有效吗？
+一次核身流程的标识，Biztoken 有效时间为7,200秒；完成认证后，三天内可用 Biztoken 多次获取验证结果信息。
