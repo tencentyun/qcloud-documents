@@ -27,7 +27,7 @@ HA 软件中指定 VIP 时（配置文件或操作界面均可），填入您创
 vrrp_instanceVI_1 {
 #注意主备参数选择
     state MASTER               #设置初始状态为"备"。
-    interface eth0             #设置绑定 VIP 的网卡 例如 eth0
+    interface eth0             #设置绑定 VIP 的网卡，例如 eth0
     virtual_router_id 51       #配置集群 virtual_router_id 值
 		nopreempt                  #设置非抢占模式
 		preempt_delay 10           #抢占延时10分钟
