@@ -469,10 +469,10 @@ function TEB_H5PPT_STATUS_CHANGED(TEduBoardH5PPTStatus status, Object data)
 | data | Object | 回调数据 |
 
 #### 介绍
-data参数格式如下： 
+data 参数格式如下： 
 ``` 
 {
-     fileId: "",      //文件ID
+     fileId: "",      //文件 ID
      message: "",     //描述信息
 }
 ```

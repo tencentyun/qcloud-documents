@@ -12,8 +12,10 @@
 
 TUIKit 支持 CocoaPods 方式和手动集成两种方式。我们推荐使用 CocoaPods 方式集成，以便随时更新至最新版本。
 
-1. 在 Podfile 中增加以下内容。
-```
+<ol><li>在 Podfile 中增加以下内容。
+
+```ruby
+
 // TUIKit 使用到了第三方静态库，这个设置需要屏蔽
 #use_frameworks!
 
@@ -22,7 +24,7 @@ install! 'cocoapods', :disable_input_output_paths => true
 
 // 集成聊天，关系链，群组功能，默认依赖 TXLiteAVSDK_TRTC 音视频库
  pod 'TXIMSDK_TUIKit_iOS'  
- 
+	 
 // 集成聊天，关系链，群组功能，默认依赖 TXLiteAVSDK_Professional 音视频库
 // pod 'TXIMSDK_TUIKit_iOS_Professional' 
 
@@ -31,18 +33,22 @@ pod 'TXIMSDK_TUIKit_live_iOS'
 
 // 集成群直播，直播广场，默认依赖 TXLiteAVSDK_Professional 音视频库
 // pod 'TXIMSDK_TUIKit_live_iOS_Professional' 
+
 ```
+
 腾讯云的 [音视频库](https://cloud.tencent.com/document/product/647/32689) 不能同时集成，会有符号冲突，如果您使用了非 [TRTC](https://cloud.tencent.com/document/product/647/32689#TRTC) 版本的音视频库，建议先去掉，然后 pod 集成 `TXIMSDK_TUIKit_iOS_Professional` 版本，该版本依赖的 [LiteAV_Professional](https://cloud.tencent.com/document/product/647/32689#.E4.B8.93.E4.B8.9A.E7.89.88.EF.BC.88professional.EF.BC.89) 音视频库包含了音视频的所有基础能力。
 
-2. 执行以下命令，安装 TUIKit。
+<li> 执行以下命令，安装 TUIKit。<br>
+
 ```bash
 pod install
 ```
- 如果无法安装 SDK 最新版本，执行以下命令更新本地的 CocoaPods 仓库列表。
+ 如果无法安装 SDK 最新版本，执行以下命令更新本地的 CocoaPods 仓库列表。<br>
+ 
 ```bash
  pod repo update
 ```
-
+</ol></li>
 
 ### 手动集成（不推荐）
 

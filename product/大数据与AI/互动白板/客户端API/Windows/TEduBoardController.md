@@ -109,15 +109,15 @@ EDUSDK_API bool EnableTEduBoardOffscreenRender(uint32_t maxFps = 30)
 
 
 ### EnableTEduBoardCrashReport
-启用白板Crash上报 
+启用白板 Crash 上报 
 ``` C++
 EDUSDK_API bool EnableTEduBoardCrashReport()
 ```
 #### 返回
-启用白板Crash上报是否成功 
+启用白板 Crash 上报是否成功 
 
 #### 警告
-该接口必须要在第一次调用CreateTEduBoardController之前调用才有效，否则将会失败 
+该接口必须要在第一次调用 CreateTEduBoardController 之前调用才有效，否则将会失败 
 
 
 ### GetTEduBoardRenderProcessHandler
@@ -794,7 +794,7 @@ virtual void AddImageElement(const char *url)=0
 | url | const char * | 要添加的图片元素 URL 地址，编码格式为 UTF8  |
 
 #### 警告
-该接口已废弃，请使用AddElement接口代替 
+该接口已废弃，请使用 AddElement 接口代替 
 
 
 ### AddElement
@@ -807,7 +807,7 @@ virtual const char* AddElement(TEduBoardElementType type, const char *url)=0
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | type | TEduBoardElementType | 白板元素类型  |
-| url | const char * | 要使用的元素 URL，编码格式为 UTF8，为 nullptr 表示不指定URL  |
+| url | const char * | 要使用的元素 URL，编码格式为 UTF8，为 nullptr 表示不指定 URL  |
 
 #### 返回
 元素 ID，用于后续删除操作
