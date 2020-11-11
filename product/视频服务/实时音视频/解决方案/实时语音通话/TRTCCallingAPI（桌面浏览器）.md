@@ -161,7 +161,7 @@ trtcCalling.on(TrtcCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
 
 | 参数     | 类型   | 含义                    |
 | -------- | ------ | ----------------------- |
-| inviteID | String | 邀邀请 ID，标识一次邀请 |
+| inviteID | String | 邀请 ID，标识一次邀请 |
 | roomID   | Number | 通话房间号 ID           |
 | callType | Number | 1：语音通话，2：视频通话  |
 
