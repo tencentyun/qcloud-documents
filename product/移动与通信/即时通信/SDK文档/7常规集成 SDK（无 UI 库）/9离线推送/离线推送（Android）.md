@@ -21,7 +21,7 @@
      <td>华为推送</td> 
      <td>EMUI</td> 
      <td>使用华为推送，
-		 添加依赖：implementation 'com.tencent.tpns:huawei:1.2.1.2-release'和 implementation 'com.huawei.hms:push:5.0.2.300'</td> 
+		 添加依赖：implementation 'com.tencent.tpns:huawei:1.2.1.2-release' 和 implementation 'com.huawei.hms:push:5.0.2.300'</td> 
    </tr> 
    <tr> 
      <td nowrap="nowrap">Google FCM 推送</td> 
