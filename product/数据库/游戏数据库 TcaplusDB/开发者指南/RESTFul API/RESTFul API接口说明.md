@@ -1,4 +1,4 @@
-本文档为 Tcaplus RESTful API v1.0 用户手册
+本文档为 Tcaplus RESTful API v1.0 用户手册。
 
 ## 概述
 Tcaplus RESTful API 为开发者提供了一种通过 HTTP 请求与 Tcaplus 数据库远程交互的方式。当您通过 RESTful API 用 Json 携带数据发送 HTTP 请求后，您会收到对应的 Json 格式的响应包。开发者可以通过任何语言或工具发送 RESTful API 请求对数据进行增、删、改、查操作。
