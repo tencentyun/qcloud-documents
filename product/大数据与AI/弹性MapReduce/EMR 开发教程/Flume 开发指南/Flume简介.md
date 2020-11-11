@@ -18,7 +18,7 @@ Sink 负责将 events 传输到下一跳或最终目的，成功完成后将 eve
 - flume 安装在 EMR 云服务器（core 节点和 task 节点）的`/usr/local/service/flume`路径下。
 
 ### 配置 Flume 
-进入 `/usr/local/service/flume` 文件夹，并在创建 example.conf 文件。
+进入 `/usr/local/service/flume` 文件夹，并创建 example.conf 文件。
 ![](https://main.qcloudimg.com/raw/ac14a7fa53ba406cbc48e6c2b1c0a201.png)
 ```
  # example.conf: A single-node Flume configuration
