@@ -18,11 +18,18 @@
 </tr>
 <tr>
 <th style="font-weight:700;" colspan=2>应用场景</th>
-<td>小型网站、Web 应用、博客、论坛、云端开发测试和学习环境</td>
+<td>
+<ul class="params">
+<li>企业官网、个人展示网站、博客、论坛、电商等各类网站和 Web 应用服务</li>
+<li>个人云盘、图床服务</li>
+<li>微信小程序、小游戏后端服务</li>
+<li>云端开发测试环境、学习环境</li>
+</ul>
+</td>
 <td>全业务场景</td>
 </tr>
 <tr>
-<th style="font-weight:700;" rowspan=4>计费</th>
+<th style="font-weight:700;" rowspan=3>计费</th>
 <th style="font-weight:700;">付费模式</th>
 <td>包年包月预付费 </td>
 <td>包含包年包月、按量付费、竞价实例多种付费方式 </td>
@@ -30,17 +37,12 @@
 <tr>
 <th style="font-weight:700;">售卖方式</th>
 <td>高性价比套餐（计算、网络、存储资源组合）形式售卖</td>
-<td>各项资源（计算、网络、存储等）独立叠加计费 </td>
+<td>各项资源灵活选配，独立叠加计费 </td>
 </tr>
 <tr>
 <th style="font-weight:700;">网络计费</th>
 <td>高带宽流量包模式</td>
 <td>固定带宽/流量用量</td>
-</tr>
-<tr>
-<th style="font-weight:700;">退费规则</th>
-<td>统一退费规则，支持退还一定数量额度的实例</td>
-<td>对应多种付费方式有不同的退费规则</td>
 </tr>
 <tr>
 <th style="font-weight:700;" rowspan=4>主要功能</th>
@@ -50,12 +52,12 @@
 </tr>
 <tr>
 <th style="font-weight:700;">应用部署</th>
-<td>预置应用系统所需的最佳软件组合（例如 LAMP），一键实现应用软件、依赖的运行环境安装以及相关初始化配置</td>
-<td>创建实例时自行选择环境或创建实例后自行部署应用 </td>
+<td>预置应用系统所需的最佳软件栈（例如 LAMP），一键实现应用软件、依赖的运行环境安装以及相关初始化配置</td>
+<td>通常为创建实例后自行部署应用，或使用镜像市场</td>
 </tr>
 <tr>
 <th style="font-weight:700;">镜像</th>
-<td>提供丰富且优质的 Lighthouse 专用应用镜像，以及常用的系统镜像 </td>
+<td>提供丰富且优质的 Lighthouse 专有应用镜像，以及常用的系统镜像 </td>
 <td>公共镜像、自定义镜像、共享镜像、镜像市场 </td>
 </tr>
 <tr>
@@ -71,3 +73,10 @@
 >- 目前不支持变更已完成购买的实例的套餐配置。
 >详情请参见 [使用限制](https://cloud.tencent.com/document/product/1207/44376)。
 >
+
+
+<style>
+ .params{
+	 margin:-3px 0px;
+ }
+</style>
