@@ -28,7 +28,7 @@
 <!--appId-->      
 <property>
 		 <name>fs.ofs.user.appid</name>
-		 <value>125000001</value>
+		 <value>1250000000</value>
 </property>
 ```
 4.	将 core-site.xml 同步到所有 hadoop 节点上。
