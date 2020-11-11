@@ -21,6 +21,6 @@ LoRa 设备调试与其他产品的设备调试的操作步骤基本一致，只
  
 DevEUI、AppKey、DevAddr、NwkSKey、AppSKey 一般为 LoRaWAN 节点设备厂商提供。如果是自行开发协议栈，可以按需配置，只要平台和节点实际配置的内容一致即可。
   下图示例中为 OTAA 加网方式，如果需要切换到 ABP 加网方式，可以在【设备开发】界面中调整 “LoRaWAN 参数配置” 中的加网方式。
-![](https://main.qcloudimg.com/raw/43820d6c5c7e73369ecb16f858c96fa6.png)
+![](https://main.qcloudimg.com/raw/29ae6692c8716846fab6bb4d79391408.png)
 3. 创建成功后，您将会在“设备调试”列表页中，查看到新建成功的设备。
 
