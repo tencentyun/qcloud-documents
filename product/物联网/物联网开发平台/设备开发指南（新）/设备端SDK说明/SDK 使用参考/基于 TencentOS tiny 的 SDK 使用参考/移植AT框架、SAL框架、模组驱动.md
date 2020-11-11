@@ -1,5 +1,5 @@
 本文将为您介绍 TencentOS tiny 接入腾讯物联网开发平台的框架、模组驱动移植相关操作。
-## 步骤一：AT 框架、SAL 框架整体架构
+## 步骤1：AT 框架、SAL 框架整体架构
 
 AT 框架是我们编写的一个通用 AT 指令解析任务，使开发者只需调用 AT 框架提供的 API 即可处理与模组的交互数据，SAL 框架全称 Socket Abstract Layer，提供了类似 socket 网络编程的抽象层。基于 AT 框架实现 SAL 的底层函数叫做通信模组的驱动程序。
 
@@ -7,7 +7,7 @@ AT 框架是我们编写的一个通用 AT 指令解析任务，使开发者只�
 
 ![](https://main.qcloudimg.com/raw/92ca691e35b66b052bbdbee2e6c8c8c6.png)
 
-##  步骤二：移植 AT 框架
+##  步骤2：移植 AT 框架
 
 从 TencentOS-tiny 中复制以下五个文件到工程目录中，保持文件架构不变并删除多余文件。
 - 复制 `net\at` 目录下的 `tos_at.h` 和 `tos_at.c` 文件，两个文件实现了 TencentOS tiny AT 的框架。 
@@ -18,8 +18,10 @@ AT 框架是我们编写的一个通用 AT 指令解析任务，使开发者只�
 ![](https://main.qcloudimg.com/raw/e53663baaba9c9859d2035a86f3a973c.png)
 
 文件复制完成，接下来开始添加到工程中。
-1. 将以上两个 `.c` 文件添加到 Keil 工程中。
-![](https://main.qcloudimg.com/raw/a2b157526b43905bbbfc056ce61cc51f.png)
+1. 在 Keil 工程中添加 at 分组目录。
+2. 将 `net\at\src` 目录下的 tos_at.c 文件添加至 at 目录下。
+3. 将 `platform\hal\st\stm32l4xx\src` 目录下的 tos_hal_uart.c 文件添加至 at 目录下。
+![](https://main.qcloudimg.com/raw/27c4511c95c58dd7e3fb7ac6b8549e6e.png)
 2. 将 `net\at` 和 `kernel\hal\include` 目录下两个头文件路径添加到 Keil MDK 中。
 ![](https://main.qcloudimg.com/raw/21d9140898a61a33d03a9448daa8e0dd.png)
 3. 在串口中断中配置调用 AT 框架的字节接收函数，编辑 `stm32l4xx_it.c` 文件。
@@ -74,22 +76,25 @@ void MX_LPUART1_UART_Init(void)
 }
 ```
 
-因为此工程中只配置 LPUART1 和 USART2 两个串口，所以需要将 HAL 驱动中其余的串口屏蔽，否则将会报错。
-![](https://main.qcloudimg.com/raw/b639b0f817feef905977ca167b2f38c2.png)
+因为此工程中只配置 LPUART1 和 USART2 两个串口，所以需要将 HAL 驱动中其余的串口屏蔽，否则将会报错，操作如下：
+1. 屏蔽 USART1 的初始化代码。
+2. 屏蔽 USART3 的初始化代码。
+![](https://main.qcloudimg.com/raw/2d2853aa96f1a1caa5072315ebd4c1b9.png)
 
 由于 AT 框架使用的缓冲区都是动态内存，所以需要将系统中默认动态内存池的大小至少修改为0x8000。
 ![](https://main.qcloudimg.com/raw/d9ddd86f9fad71827a34da2ab63b3fbd.png)
 
-## 步骤三：移植 SAL 框架
+## 步骤3：移植 SAL 框架
 
 1. TencentOS-tiny SAL 框架的实现在 `net\sal_module_wrapper` 目录下的 `sal_module_wrapper.h` 和 `sal_module_wrapper.c` 两个文件中，将这个文件夹从 TencentOS-tiny 官方仓库复制到工程目录下，并且保持原有架构不变。
 ![](https://main.qcloudimg.com/raw/82da4fb2d8a06f53cf2a3c50ed367c77.png)
-2. 将 `sal_module_wrapper.c` 文件添加到 Keil MDK 工程中。
+2. 在 Keil 工程中新建 sal 目录。
+2. 将 `sal_module_wrapper.c` 文件添加至 sal 目录下。
 ![](https://main.qcloudimg.com/raw/04f4163415c4ac939f4f606e4f7cc88f.png)
 3. 将头文件 `sal_module_wrapper.h` 所在目录添加到 Keil MDK 中。
 ![](https://main.qcloudimg.com/raw/0bdb1543fbe89112950a27823e08592d.png)
 
-## 步骤四：移植通信模组驱动
+## 步骤4：移植通信模组驱动
 
 TencentOS-tiny 官方已提供大量的通信模组驱动实现 SAL 框架，覆盖常用的通信方式，例如2G、4G Cat.4、4G Cat.1、NB-IoT 等，在 `devices` 文件夹下,：
 - air724
@@ -109,12 +114,13 @@ TencentOS-tiny 官方已提供大量的通信模组驱动实现 SAL 框架，覆
 
 ESP8266 的驱动在 `devices\esp8266` 目录中，将此文件夹从 TencentOS-tiny 官方仓库复制到工程中，保持目录架构不变。
 ![](https://main.qcloudimg.com/raw/653b2f25919a1a41b055feae8be264b0.png)
-1. 将 `esp8266.c` 文件加入到 Keil MDK 工程中。
+1. 子啊 Keil 工程中新建 devices 目录分组。
+2. 将 `esp8266.c` 文件添加至 devices 目录下。
 ![](https://main.qcloudimg.com/raw/1393d6d5b281df84d774682d06f699f9.png)
-2. 将 `esp8266.h` 头文件所在路径添加到 Keil MDK 工程中，这样就移植完成。
+2. 将 `esp8266.h` 头文件所在路径添加到 Keil MDK 工程中，即可移植完成。
 ![](https://main.qcloudimg.com/raw/fdcd3241a383e501ac20d2e4162f2505.png)
 
-## 步骤五：测试网络通信
+## 步骤5：测试网络通信
 
 移植完成之后，修改 `main.c`，编写代码来测试网络通信是否正常。
 
@@ -187,13 +193,18 @@ typedef enum hal_uart_port_en {
 测试网络通信时需要的任务栈较大，所以增大 task1 的任务栈大小为512字节：
 ![](https://main.qcloudimg.com/raw/bb7c2cfb7aa0d27a07761b3993620a27.png)
 同时，为了避免 task2 运行打印的信息对网络测试信息产生干扰，将创建 task2 的代码屏蔽：
-![](https://main.qcloudimg.com/raw/cec0caae6c2c83d182408152d184e0c3.png)
+![](https://main.qcloudimg.com/raw/ab18c4c1e7ee7b258c2117afaae7c246.png)
 >!TCP 测试服务器需要自己搭建或者使用一些小工具，此处不再详述。
 >
 编译程序，下载到开发板，在串口查看接收到服务端发送来的消息：
-![](https://main.qcloudimg.com/raw/f617c49622ae49ca0d3a4ab30899f864.png)
+1. ESP8266 初始化成功。
+2. EPS8266 入网成功。
+3. ESP8266 与服务器建立 TCP Socket 成功。
+4. ESP8266 发送数据成功。
+5. ESP8266 收到服务器发送的数据成功。
+![](https://main.qcloudimg.com/raw/bafbbd8144156104b9602fa89aef8e98.png)
 
 至此，测试完成。
 
-## 步骤六：下一步操作
+## 步骤6：下一步操作
 请前往 [移植腾讯云 C-SDK](https://cloud.tencent.com/document/product/1081/47958) 进行内核移植操作。

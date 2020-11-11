@@ -45,7 +45,7 @@
             log_slave_updates = 1           
 ```
 6. 修改变量值。
-  a.  修改源库 MySQL 配置文件`my.cnf`，需重启：
+  a.  对于自建 MySQL 数据库，修改源库 MySQL 配置文件`my.cnf`，需重启：
 ```
   	        log-bin=[自定义binlog文件名]
 ```
