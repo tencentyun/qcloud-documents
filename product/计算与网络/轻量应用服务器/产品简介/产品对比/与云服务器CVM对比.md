@@ -22,7 +22,7 @@
 <td>全业务场景</td>
 </tr>
 <tr>
-<th style="font-weight:700;" rowspan=3>计费</th>
+<th style="font-weight:700;" rowspan=4>计费</th>
 <th style="font-weight:700;">付费模式</th>
 <td>包年包月预付费 </td>
 <td>包含包年包月、按量付费、竞价实例多种付费方式 </td>
@@ -38,6 +38,11 @@
 <td>固定带宽/流量用量</td>
 </tr>
 <tr>
+<th style="font-weight:700;">退费规则</th>
+<td>支持一定数量额度的实例进行退还操作</td>
+<td>对应多种付费方式有不同的退费规则</td>
+</tr>
+<tr>
 <th style="font-weight:700;" rowspan=4>主要功能</th>
 <th style="font-weight:700;">控制台</th>
 <td>一站式整合，独立且简化的控制台 </td>
@@ -46,7 +51,7 @@
 <tr>
 <th style="font-weight:700;">应用部署</th>
 <td>预置应用系统所需的最佳软件组合（例如 LAMP），一键实现应用软件、依赖的运行环境安装以及相关初始化配置</td>
-<td>创建云服务后自行部署应用 </td>
+<td>创建实例时自行选择环境或创建实例后自行部署应用 </td>
 </tr>
 <tr>
 <th style="font-weight:700;">镜像</th>
