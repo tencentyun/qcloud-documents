@@ -756,10 +756,10 @@ NSString 版本号字符串
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | url | NSString * | 网页或者图片的 url，只支持 https 协议的网址或者图片 url  |
-| type | TEduBoardElementType | 元素类型，当设置TEDU_BOARD_ELEMENT_IMAGE时，等价于addImageElement方法  |
+| type | TEduBoardElementType | 元素类型，当设置 TEDU_BOARD_ELEMENT_IMAGE 时，等价于 addImageElement 方法  |
 
 #### 返回
-元素ID 
+元素 ID 
 
 #### 警告
 （1）当 type = TEDU_BOARD_ELEMENT_IMAGE，支持 png、jpg、gif、svg 格式的本地和网络图片，当 url 是一个有效的本地文件地址时，该文件会被自动上传到 COS，上传进度回调 onTEBFileUploadStatus （2）当 type = TEDU_BOARD_ELEMENT_CUSTOM_GRAPH，仅支持网络 url，请与自定义图形工具 TEDU_BOARD_TOOL_TYPE_BOARD_CUSTOM_GRAPH 配合使用 
