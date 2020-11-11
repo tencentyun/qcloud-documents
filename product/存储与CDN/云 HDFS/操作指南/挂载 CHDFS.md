@@ -37,3 +37,16 @@
 6.	可以使用 hadoop 其他命令，或者 mr 任务在 CHDFS 上运行数据任务。
 对于 mr 任务，可以通过`-Dfs.defaultFS=ofs://${mountpoint}/`将本次任务的默认输入输出 FS 改为 CHDFS。
 
+## 配置项说明
+
+
+|              配置项               |                             说明                             |  默认值   | 是否必填 |
+| :-------------------------------: | :----------------------------------------------------------: | :-------: | :------: |
+|       fs.ofs.tmp.cache.dir        |    临时目录, 用于chdfs插件运行中作数据buffer以及相关JAR包    |    无     |    是    |
+|       fs.ofs.map.block.size       | chdfs文件系统的block大小, 单位字节。默认为128MB(只对map切分有影响, 和chdfs底层存储切块大小无关) | 134217728 |    否    |
+| fs.ofs.data.transfer.thread.count |               chdfs传输数据时的并行线程数                |    32     |    否    |
+| fs.ofs.block.max.memory.cache.mb  | chdfs插件使用的内存buffer的大小, 单位MB。(对读写都有加速作用) |    16     |    否    |
+|  fs.ofs.block.max.file.cache.mb   |  chdfs插件使用的磁盘buffer的大小, 单位MB。(对写有加速作用)   |    256    |    否    |
+|   fs.ofs.prev.read.block.count    | 读取时，预读的chdfs block数量(chdfs的底层block大小一般为4MB) |     4     |    否    |
+|      fs.ofs.plugin.info.log       |          是否打印插件的调试日志, 日志以info级别打印(true|false) |   false   |    否    |
+
