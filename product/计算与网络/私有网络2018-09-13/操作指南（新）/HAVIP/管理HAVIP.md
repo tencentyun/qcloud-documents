@@ -22,7 +22,7 @@ HAVIP 用于配合第三方 HA 软件使用，与 CVM 的绑定与解绑不在�
 >?常见的 HA 软件有：Linux 下的 HeartBeat、keepalived、pacemaker，Windows下的 MSCS 等。
 
 ### 操作示例
-HA 软件中指定 VIP 时（配置文件或操作界面均可），填入您创建的 HAVIP 即可，示例如下：
+HA软件指定VIP时（配置文件），填入您创建的HAVIP即可，示例如下：
 ```plaintext
 vrrp_instanceVI_1 {
 #注意主备参数选择
