@@ -86,10 +86,10 @@ TencentOS-tiny 官方已经将 IoT_Explorer C SDK 移植适配完成，在 `comp
 ## 步骤4：修改端云对接信息
 
 修改 `HAL_Device_tencentos_tiny.c` 文件。在 `TencentOS-tiny\components\connectivity\qcloud-iot-explorer-sdk\port\TencentOS_tiny` 目录中，将下图中的数据分别替换为控制台【设备详情页】中的参数并保存。
-- 产品 ID： 将控制台的产品 ID ，复制到上图 sg_product_id。
-- 设备名称： 将控制台的设备名称，复制到上图 sg_device_name。
-- 设备密钥：将控制台的设备密钥，复制到上图sg_device_secret。
-![](https://main.qcloudimg.com/raw/cadab6199c68fc70debc7e02a6580731.png)
+- 产品 ID： 将控制台的产品 ID ，复制到下图 sg_product_id。
+- 设备名称： 将控制台的设备名称，复制到下图 sg_device_name。
+- 设备密钥：将控制台的设备密钥，复制到下图 sg_device_secret。
+![](https://main.qcloudimg.com/raw/38461264f3317e674b34aee86a8c8a33.png)
 
 ## 步骤5：加入示例代码
 
@@ -99,14 +99,16 @@ TencentOS-tiny 官方已经将 IoT_Explorer C SDK 移植适配完成，在 `comp
  2. 将示例代码加入到 Keil-MDK 工程中。
  >!请勿将 `data_config.c` 文件加入。
  >
- ![](https://main.qcloudimg.com/raw/ea7b825477b2e68280a2fbcb5aff1f4c.png)
+    1. 在 Keil 工程中新增 examples 目录分组。
+    2. 将 `examples\qcloud_iot_explorer_sdk_data_template` 目录下的文件添加至 example 目录下。
+![](https://main.qcloudimg.com/raw/9a8ff427fcc534716084e12e9f09ba7d.png)
  3. 修改 `entry.c` 中的配置信息。
- ![](https://main.qcloudimg.com/raw/d1dc0309a19ff454112f64fbc3111da2.png)
+![](https://main.qcloudimg.com/raw/634802ce66eed194119fafe3007fef55.png)
 
 2. 示例代码中的任务入口函数为 application_entry，所以需要将 task1 任务的任务入口函数修改为 application_entry，并再次扩大 task1 的任务栈为4096字节，使示例程序正常运行。
 ![](https://main.qcloudimg.com/raw/eeaad945f1d3dd547e95696bc3be17e1.png)
 3. 然后修改创建任务的代码。
-![](https://main.qcloudimg.com/raw/898b6543db6c65f9b816e6928f9efb06.png)
+![](https://main.qcloudimg.com/raw/0204d8b237e2c5ec1e3153332e8c0c5a.png)
 4. 最后进行编译，将程序下载到开发板中，复位开发板后开始运行，便可以在串口助手中查看打印信息。
 
 ## 步骤6：查看设备状态
@@ -119,11 +121,11 @@ TencentOS-tiny 官方已经将 IoT_Explorer C SDK 移植适配完成，在 `comp
 
 ## 步骤7：下发控制指令
 1. 在串口助手中看到设备查看到在等待平台下发控制指令。
-![](https://main.qcloudimg.com/raw/af3a86c84005005ace0daac3f6fc4a95.png)
+![](https://main.qcloudimg.com/raw/cbc63e3dab5f777ea9101209035f88f1.png)
 2. 然后在云端平台进入设备在线调试，下发控制指令。
 ![](https://main.qcloudimg.com/raw/7298a5f4b0c831f0814a4a59325e4d78.png)
 3. 最后可以在串口助手中查看到设备收到后在串口打印控制指令。
-![](https://main.qcloudimg.com/raw/e58535b55de995c7be8a46f416a08cd3.png)
+![](https://main.qcloudimg.com/raw/e53d6c15dc441d4049b2a3e75888cdc6.png)
 
 ## 步骤8：设备行为调用
 1. 在云端的数据模板中手动新建一个设备行为功能。
@@ -134,17 +136,17 @@ TencentOS-tiny 官方已经将 IoT_Explorer C SDK 移植适配完成，在 `comp
  - 在云端下发设备行为调用：
 ![](https://main.qcloudimg.com/raw/4320c5a421a5c8d54ac7ee9120e5912c.png)
  - 在串口助手中可以看到设备行为被调用：
-![](https://main.qcloudimg.com/raw/e16427b4c7df527826d112d2901f3f5c.png)
+![](https://main.qcloudimg.com/raw/45ba81613db4951e9f023b0156bb3f72.png)
 
 ## 步骤9：设备事件调用
 
 1. 修改 `config.h` 文件，将设备行为调用关闭，开启设备事件支持。
-![](https://main.qcloudimg.com/raw/602e0f0d6d6049f74b30c9b46dd7aa46.png)
-2. 修改 `data_template_sample.c` 文件，关闭设备行为调用示例，开启事件上报示例。
-![](https://main.qcloudimg.com/raw/9dfd57b19dd6ce96b4e24704905b48a4.png)
+![](https://main.qcloudimg.com/raw/9acffe18e3fe691b59da9bb3e4e24ed5.png)
+2. 修改 `data_template_sample.c` 文件，开启事件上报示例，屏蔽设备行为调用示例。
+![](https://main.qcloudimg.com/raw/fec5cb657faba5cb805b1c1849bf46da.png)
 3. 编译程序，下载到开发板中，复位。
  - 在串口助手中可以看到设备上报事件的日志：
-![](https://main.qcloudimg.com/raw/0cc67c51bd8a3f23396dec35d901f95a.png)
+![](https://main.qcloudimg.com/raw/c0e27c9ad677b2656fea7cf1091a8916.png)
  - 在平台端可以看到设备上报事件的日志：
 ![](https://main.qcloudimg.com/raw/86b8032eccfd6a1901f70ad828ec3cdb.png)
 
