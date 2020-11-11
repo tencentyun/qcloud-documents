@@ -35,7 +35,7 @@ pgagent_11 hostaddr=IP地址 dbname=数据库 user=用户名 port=端口 passwor
 root      158553       1  0 Oct30 ?        00:00:15 pgagent_11 hostaddr=IP地址 dbname=数据库 user=用户名 port=端口 password=密码
 ```
 
-### 通过 pgAdmin 工具来配置 pgAgent Jobs
+### 通过 pgAdmin 配置 pgAgent Jobs
 1. 登录 [PostgreSQL 控制台](https://console.cloud.tencent.com/postgres)，在实例列表单击实例名，进入实例详情页，开启外网地址。
 2. 打开 pgAdmin 4，通过外网地址访问您的 PostgreSQL，此时可以在界面中看到 pgAgent Jobs。
 ![](https://main.qcloudimg.com/raw/9c12d37faee93b1db78c07e5aefaed58.png)
