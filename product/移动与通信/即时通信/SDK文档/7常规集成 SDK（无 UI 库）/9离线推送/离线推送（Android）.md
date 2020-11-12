@@ -87,7 +87,10 @@
 
 ### 集成推送 SDK
 
-1. 请添加小米依赖：implementation 'com.tencent.tpns:xiaomi:1.2.1.2-release'。
+1. 请添加小米依赖：
+```
+implementation 'com.tencent.tpns:xiaomi:1.2.1.2-release'
+```
 2. 请参考 [小米推送集成指南](https://dev.mi.com/console/doc/detail?pId=41)，其中不需要下载集成小米客户端 SDK， 并在小米控制台测试通知消息，确保已成功集成。
 3. 通过调用 `MiPushClient.registerPush` 来对小米推送服务进行初始化，注册成功后您将在自定义的 `BroadcastReceiver` 的 `onReceiveRegisterResult` 中收到注册结果。其中 `regId` 为当前设备上当前 App 的唯一标识。当登录 IM SDK 成功后，需要调用 [setOfflinePushConfig](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 将**证书 ID** 和 **regId** 上报到即时通信 IM 服务端。
 
@@ -221,7 +224,11 @@
 
 ### 集成推送 SDK
 
-1. 请添加华为依赖：implementation 'com.tencent.tpns:huawei:1.2.1.2-release' 和 implementation 'com.huawei.hms:push:5.0.2.300'。
+1. 请添加华为依赖：
+```
+implementation 'com.tencent.tpns:huawei:1.2.1.2-release'
+implementation 'com.huawei.hms:push:5.0.2.300'
+```
 2. 请参考 [华为推送集成指南](https://developer.huawei.com/consumer/cn/doc/development/HMS-3-Guides/push-Preparations)，其中不需要集成 HMS SDK，并在华为控制台测试通知消息，确保已成功集成。
 3. 通过调用华为 `HmsInstanceId.getToken` 接口向服务端请求应用的唯一标识 Push Token，`Push Token` 为当前设备上当前 App 的唯一标识。当登录 IM SDK 成功后，需要调用 [setOfflinePushConfig](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 将**证书 ID** 和 **Push Token** 上报到即时通信 IM 服务端。
 
@@ -367,7 +374,10 @@ String value = bundle.getString("ext");
 
 ### 集成推送 SDK
 
-1. 请添加 OPPO 依赖：implementation 'com.tencent.tpns:oppo:1.2.1.2-release' 。
+1. 请添加 OPPO 依赖：
+```
+implementation 'com.tencent.tpns:oppo:1.2.1.2-release'
+```
 2. 请参考 [OPPO PUSH SDK 接口文档](https://open.oppomobile.com/wiki/doc#id=10196)，其中不需要下载集成 OPPO 客户端 SDK，并在 OPPO 控制台测试通知消息，确保已成功集成。
 3. 通过调用 OPPO SDK 中的`PushManager.getInstance().register(…)`初始化 Opush 推送服务。
    注册成功后，您可以在 `PushCallback` 的 `onRegister` 回调方法中得到`regId`，`regId` 为当前设备上当前 App 的唯一标识。当登录 IM SDK 成功后，需要调用 [setOfflinePushConfig](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 将**证书 ID** 和 **regId** 上报到即时通信 IM 服务端。
@@ -480,7 +490,10 @@ Bundle bundle = intent.getExtras();
 
 ### 集成推送 SDK
 
-1. 请添加 vivo 依赖：implementation 'com.tencent.tpns:vivo:1.2.1.2-release' 。
+1. 请添加 vivo 依赖：
+```
+implementation 'com.tencent.tpns:vivo:1.2.1.2-release'
+```
 2. 请参考 [vivo 推送集成指南](https://dev.vivo.com.cn/documentCenter/doc/365)，其中不需要下载集成 vivo 客户端 SDK，并在 vivo 控制台测试通知消息，确保已成功集成。
 3. 通过调用 `PushClient.getInstance(getApplicationContext()).initialize()` 来对 vivo 推送服务进行初始化，并调用 `PushClient.getInstance(getApplicationContext()).turnOnPush()` 启动推送，成功后您将在自定义的 `BroadcastReceiver` 的 `onReceiveRegId` 中收到 `regId`，`regId` 为当前设备上当前 App 的唯一标识。当登录 IM SDK 成功后，需要调用 [setOfflinePushConfig](http://doc.qcloudtrtc.com/im/classcom11tencent11imsdk11v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 将**证书 ID** 和 **regId** 上报到即时通信 IM 服务端。
 
@@ -601,7 +614,10 @@ String extContent = paramMap.get("ext");
 
 ### 集成推送 SDK
 
-1. 请添加魅族依赖：implementation 'com.tencent.tpns:meizu:1.2.1.2-release' 。
+1. 请添加魅族依赖：
+```
+implementation 'com.tencent.tpns:meizu:1.2.1.2-release'
+```
 2. 请参考 [魅族推送接入](http://open-wiki.flyme.cn/doc-wiki/index#id?129)，其中不需要下载集成魅族客户端 SDK，并在其控制台测试通知消息，确保已成功集成。
 3. 通过调用 `PushManager.register` 来对魅族推送服务进行初始化，注册成功后您将在自定义的 `BroadcastReceiver` 的 `onRegisterStatus` 中收到注册结果。其中 `registerStatus.getPushId()` 为当前设备上当前 App 的唯一标识。当登录 IM SDK 成功后，需要调用 [setOfflinePushConfig](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 将**证书 ID** 和 **PushId** 上报到即时通信 IM 服务端。
 
@@ -764,6 +780,7 @@ OPPO 手机收不到推送一般有以下几种情况：
 
 ### 同时集成了即时通信 IM 和 TPNS，存在大量的厂商类冲突，这种问题怎么解决？
 目前 IM 已使用 TPNS 提供的厂商 jar 包，可前往[IM 离线推送（Android）文档页面](https://cloud.tencent.com/document/product/269/44516)替换相关依赖包，替换后即可解决。
+
 
 
 
