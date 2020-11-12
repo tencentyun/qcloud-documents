@@ -18,7 +18,7 @@ Theia IDE 是一套构建基于 Web 的云端 IDE 的开源框架，是一个可
 6. <span id="Step6"></span>在“应用内软件信息”栏中，单击<img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin:-3px 0px"/>，复制获取 Theia 1.5.0 的管理员帐户密码的命令。
 7. 在“应用内软件信息”栏中，单击【登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/86c5b9650acf9d6b0f4bc0ad3e16156d.png)
-8. <span id="Step8"></span>在弹出的登录窗口中，粘贴 [步骤6](Step6) 复制的命令并按 **Enter**。
+8. <span id="Step8"></span>在弹出的登录窗口中，粘贴 [步骤6](#Step6) 复制的命令并按 **Enter**。
 即可获取 Theia IDE 管理员账号（admin）和对应的密码，请妥善保管并记录。
 9. 关闭登录窗口，并返回该实例的应用管理详情页。
 10. 在“应用内软件信息”栏中，单击 Theia 1.5.0 的【访问地址】。
@@ -127,7 +127,7 @@ Theia IDE 是一套构建基于 Web 的云端 IDE 的开源框架，是一个可
 <img src="https://main.qcloudimg.com/raw/6e6e83d3bc7476029b662997be9c1525.png" style="margin:-3px 0px">
 </li>
 <li class="roman">在配置文件展开的下拉列表中，选择【{ } GDB CDT Local debugging】。</li>
-<li class="roman">将配置文件中的 <code>${command:askProgramPath}</code> 替换为 <code>c/a.out</code>，并保存修改。</li>
+<li class="roman">将配置文件中的 <code>/${command:askProgramPath}</code> 替换为 <code>/c++/a.out</code>，并保存修改。</li>
 <li class="roman">选择 DEBUG 栏中的<img src="https://main.qcloudimg.com/raw/7090e9c3a03493c183e8a259896dcde9.png" style="margin:-3px 0px">，打开 Debug Console。</li>
 <li class="roman">选择 DEBUG 栏中的<img src="https://main.qcloudimg.com/raw/8d1ae32ecac7a0865835e8f3cfb7916c.png" style="margin:-3px 0px"/>，运行程序。执行结果如下图所示：
 <br>
