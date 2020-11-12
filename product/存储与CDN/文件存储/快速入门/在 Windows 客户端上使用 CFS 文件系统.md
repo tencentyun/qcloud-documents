@@ -109,7 +109,8 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 （1）找到如下注册表路径 【HKEY_LOCAL_MACHINE】 > 【SOFTWARE】 > 【Microsoft】 > 【ClientForNFS】 > 【CurrentVersion】 > 【User】 > 【Default】 > 【Mount】。
 （2）在右侧内容区右键新建【DWORD (64-位)值】，名称为”Locking”，值为”0” 。
 
-	d. 验证读写
+
+d. 验证读写
   确认后，页面直接进入到已经挂载的文件系统中。可以右键新建一个文件来验证读写的正确性。
 	<img src="https://main.qcloudimg.com/raw/208537681d0ab96cd801e22332a419a9.jpeg" width="80%">
 - 通过 CMD 命令行挂载
