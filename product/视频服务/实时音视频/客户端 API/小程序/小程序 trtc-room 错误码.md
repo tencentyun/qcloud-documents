@@ -16,4 +16,4 @@
 | -100015 | SDKAppID 异常，请检查 SDKAppID 是否正确       |
 | -100018 | userSig 校验失败，请检查 userSig 是否正确     |
 
-其他的错误码可以查询对应[ios错误码](https://cloud.tencent.com/document/product/647/32257)和[Android错误码](https://cloud.tencent.com/document/product/647/38307)，小程序和native端的错误码是保持一致的。
+其他的错误码可以查询对应 [iOS 错误码](https://cloud.tencent.com/document/product/647/32257) 和 [Android 错误码](https://cloud.tencent.com/document/product/647/38307)，小程序和 native 端的错误码是保持一致的。
