@@ -1,5 +1,5 @@
 ## 操作场景
-Theia IDE 是一套构建基于 Web 的云端 IDE 的开源框架，是一个可扩展的平台，具备良好的多语言支持能力，并支持 VS Code 扩展。腾讯云轻量应用服务器提供 Theia IDE 镜像，已安装 Go、Python、Node.js、Clang 及 OpenJDK 开发环境，您可使用它便捷的跨平台，并可快速进行项目及业务开发。
+Theia IDE 是一套构建基于 Web 的云端 IDE 的开源框架，是一个可扩展的平台，具备良好的多语言支持能力，并支持 VS Code 扩展。腾讯云轻量应用服务器提供 Theia IDE 镜像，已安装 Go、Python、Node.js、Clang 及 OpenJDK 开发环境，您可通过该平台便捷的实现跨平台，并可快速进行项目及业务开发。
 
 ## 操作步骤
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
@@ -35,7 +35,7 @@ Theia IDE 是一套构建基于 Web 的云端 IDE 的开源框架，是一个可
 
 
 ### 使用示例
->?该步骤以命令行及界面两种方式运行多语言程序示例，您可按需选择对应开发语言进行操作。
+>?Theia IDE 目前支持 Python、Java、Go、C/C++ 及 Node.js 语言。该步骤以命令行及界面两种方式分别运行 Python、Go 及 C++ 语言程序示例，您可按需选择对应语言进行操作。
 >
 
 #### Python
