@@ -18,6 +18,16 @@
 
 支持向后兼容，建议全量升级。
 
+## 1.23.5-Finchley-RELEASE（2020-11-11）
+### 优化
+- spring-cloud-tsf-msgw-zuul 支持服务熔断能力
+- spring-cloud-tsf-sleuth 修改调用 SQL 存储的最长长度到64000字符。
+- 调整泳道入口行为
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
 ## 1.23.4-Finchley-RELEASE（2020-09-16）
 
 ### Bug 修复
