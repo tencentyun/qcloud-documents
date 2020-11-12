@@ -386,7 +386,7 @@ virtual void onTEBH5FileStatusChanged(const char *fileId, TEduBoardH5FileStatus 
 
 
 ### onTEBH5PPTStatusChanged
-H5PPT文件状态改变回调 
+H5PPT 文件状态改变回调 
 ``` C++
 virtual void onTEBH5PPTStatusChanged(const char *fileId, TEduBoardH5PPTStatus status, const char *message)
 ```
