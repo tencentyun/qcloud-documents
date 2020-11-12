@@ -17,7 +17,7 @@
 ![161709](//mc.qcloudimg.com/static/img/b5784ed03d0f2fd07195c9c3ae1e5075/image.png)
 
 #### 4. 测试配置是否成功
-单击【开始】（或快捷键：Win+R）>【运行】（输入 cmd）>【确定】（或者按 Enter 键），在弹出的窗口中输入命令 Python 并按Enter键。若出现如图信息，则说明 Python 2.7 安装成功：
+单击【开始】（或快捷键：Win+R）>【运行】（输入 cmd）>【确定】（或者按 Enter 键），在弹出的窗口中输入命令 Python 并按 Enter 键。若出现如图信息，则说明 Python 2.7 安装成功：
 ![152355](//mc.qcloudimg.com/static/img/026d7738b234171b285a98f0e751038a/image.png)
 
 ## Linux
