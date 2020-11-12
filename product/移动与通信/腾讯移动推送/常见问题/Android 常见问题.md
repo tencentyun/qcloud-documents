@@ -167,11 +167,25 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 #### 魅族通道排查路径
 与小米通道的排查方法类似，参考小米通道的排查路径即可。
 
+
+
+### 同时集成了即时通信 IM 和 TPNS，存在大量的厂商类冲突，该如何解决？
+目前 IM 已使用 TPNS 提供的厂商 jar 包，可前往 [IM 离线推送（Android）文档](https://cloud.tencent.com/document/product/269/44516) 替换相关依赖包，替换后即可解决。
+
+
+
+
+
 ### Flyme 6.0 及以下版本的魅族手机，为何消息抵达设备却不在通知栏展示？
 1.  Flyme 6.0 及以下版本的魅族手机，使用手动集成方式。
 2.  Flyme 6.0 及以下版本的魅族手机，使用自动集成方式，且使用的 TPNS Android SDK 为1.1.4.0 以下的版本。
 
 以上两种情况，需要在 drawable 不同分辨率的文件夹下对应放置一张名称必须为 stat_sys_third_app_notify 的图片，详情请参考 [TPNS Android SDK](https://console.cloud.tencent.com/tpns/sdkdownload) 中的 flyme-notification-res 文件夹。
+
+
+
+
+
 
 
 
