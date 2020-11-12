@@ -2,18 +2,15 @@
 * 链接地址：https://res.qcloudtiw.com/board/2.5.5/TEduBoard.min.js
 
 - 新增特性：
-    1. [新增文字工具预设文本内容](./TEduBoard.html#setNextTextInput)
-    2. [优化白板缩放移动工具](./TEduBoard.html#.TEduBoardToolType)，支持鼠标滚轮缩放，焦点缩放，按 shift 键缩小等
-    3. [新增白板缩放工具图标](./TEduBoard.html#setZoomCursorIcon)
-    4. [新增自定义图形工具](./TEduBoard.html#.TEduBoardToolType)
-    5. [新增自定义图形的元素类型](./TEduBoard.html#.TEduBoardElementType)
+    1. 新增文字工具预设文本内容 setNextTextInput
+    2. 优化白板缩放移动工具，支持鼠标滚轮缩放，焦点缩放，按 shift 键缩小等
+    3. 新增白板缩放工具图标 setZoomCursorIcon
+    4. TEduBoardToolType 新增自定义图形工具
+    5. TEduBoardElementType 新增自定义图形的元素类型
     6. 新增白板放大后显示滚动条
 - Bug 修复
     1. Mac 端鼠标缓慢移除白板左边缘和上边缘，鼠标指针不隐藏的 bug
     2. 修复偶现画笔不消失的 bug
-- 缩放移动工具使用说明：
-    
-    ![](https://main.qcloudimg.com/raw/4b467dd838aaac65aa66d26a4c55572f.png)
     
 
 ### 2.5.4 @ 2020.10.15
@@ -313,4 +310,7 @@
         - 点选、框选、移动涂鸦、撤销、重做
         - 白板缩放、移动
         - 文件展示（静态：支持PPT、PDF、WORD、EXCEL）、多文件支持
-        - PPT动画展示
+        - PPT 动画展示
+
+
+
