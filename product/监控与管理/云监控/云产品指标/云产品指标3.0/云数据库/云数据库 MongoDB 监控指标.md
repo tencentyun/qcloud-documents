@@ -33,7 +33,7 @@ Namespace=QCE/CMONGO
 | Oplogreservedtime | oplog保存时间                | oplog 记录中最后一次操作和首次操作时间差    | 小时   | target（副本集 ID)  |
 | CacheDirty        | Cache 脏数据百分比            | 当前内存 Cache 中脏数据百分比                 | %      | target（副本集 ID)  |
 | CacheUsed         | Cache 使用百分比              | 当前 Cache 使用百分比                         | %      | target（副本集 ID)  |
-| HitRatio          | Cache 命中率                  | 当前 Cache 命中率 * 100%                        | %      | target（副本集 ID)  |
+| HitRatio          | Cache 命中率                  | 当前 Cache 命中率                        | %      | target（副本集 ID)  |
 | CpuUsage          | CPU 使用率                   | CPU 使用率                                  | %      | target（节点 ID)    |
 | MemUsage          | 内存使用率                   | 内存使用率                                  | %      | target（节点 ID)    |
 | NetIn             | 网络入流量                   | 网络入流量                                  | MB/s   | target（节点 ID)    |
@@ -58,7 +58,6 @@ Namespace=QCE/CMONGO
 
 > ?云数据库 Instances.N.Dimensions.0.Value 的取值:
 > 腾讯云提供的 MongoDB 为集群服务，可以查询“整个集群”、“某个副本集”、“某个节点”三个维度的监控数据：
->
 > - “整个集群”维度：代表了您所购买的某一个 MongoDB 实例，这个维度可以查询整个实例的读写请求次数、容量使用率、超时请求等。
 > - “某个副本集”维度：可查询集群下的某一个副本集内部的容量使用率和主从延迟。副本集实例本身只包含一个副本集，分片实例的每一片都是一个副本。
 > - “某个节点”维度：可以查询集群内的任意节点的 CPU、内存等信息。
