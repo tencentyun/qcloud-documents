@@ -5,7 +5,7 @@
 ### 新特性
 - 支持云上 Spring Cloud 应用平滑迁移 TSF。
 - 支持 PostgreSQL 组件调用链。
-- 
+
 ### Bug 修复
 - spring-cloud-tsf-consul-config：
   - 修复本地加密配置不能正确解密的问题。
