@@ -4,7 +4,7 @@
 
 **iOS/Mac平台**
 
-- iOS 支持 iphone 和 ipad 同时在线
+- iOS 支持 iPhone 和 iPad 同时在线
 - Mac 支持 arm64 架构
 
 **Android平台**
