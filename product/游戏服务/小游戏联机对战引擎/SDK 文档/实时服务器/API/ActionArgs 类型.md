@@ -238,14 +238,14 @@ SDK.getRoomByRoomId(getRoomByRoomIdPara, event => {
 
 IChangeRoomPara 定义如下：
 
-|属性名|类型/值|描述|可选|
+|属性名|类型/值|描述|是否必填|
 |:---|---|---|---|
-|roomId|string|房间 ID||
-|roomName|string|房间名称|是|
-|owner|string|房主 ID|是|
-|isPrivate|boolean|是否私有|是|
-|isForbidJoin|boolean|是否禁止加入房间|是|
-|customProperties|string|自定义房间属性|是|
+|roomId|string|房间 ID|是|
+|roomName|string|房间名称|否|
+|owner|string|房主 ID|否|
+|isPrivate|boolean|是否私有|否|
+|isForbidJoin|boolean|是否禁止加入房间|否|
+|customProperties|string|自定义房间属性|否|
 
 IChangeRoomRsp 定义如下：
 

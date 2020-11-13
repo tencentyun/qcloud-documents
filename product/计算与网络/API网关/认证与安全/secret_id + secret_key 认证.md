@@ -35,9 +35,9 @@ Authorization header 的形如 `Authorization: hmac id="secret_id", algorithm="h
 首先生成签名内容，签名内容由自定义的 header 组成，header 内建议至少包含 date，可以包含更多其他 header。
 
 header 按如下要求转换后按顺序排列：
-* header 名转换为小写，跟 **ascii 字符**和**ascii 空格字符**。
+* header 名转换为小写，跟 **ascii 字符**和 **ascii 空格字符**。
 * 然后附加 header 值。
-* 如果不是最后一条需构造签名的 header，附上**ascii 换行字符`\n`**。
+* 如果不是最后一条需构造签名的 header，附上 **ascii 换行字符`\n`**。
 
 例如有两个 header 参与构建签名内容（仅为示例，请根据业务实际情况填写字段）：
 ```
@@ -61,7 +61,7 @@ source: AndriodApp
 ## 注意事项
 
 ### header 对应
-Authorization 中 headers 位置填入的需要是参与计算签名的 header 的名称，并建议转换为小写，以 ascii 空格分隔。例如，参与计算的 header 为 date 和 source时，此位置的形式为 headers="date source"；参与计算的 header 仅为 x-date 时，此位置的形式为 headers="x-date"。
+Authorization 中 headers 位置填入的需要是参与计算签名的 header 的名称，并建议转换为小写，以 ascii 空格分隔。例如，参与计算的 header 为 date 和 source 时，此位置的形式为 headers="date source"；参与计算的 header 仅为 x-date 时，此位置的形式为 headers="x-date"。
 
 ### 签名内容生成
 排列内容时，请注意 header 名后面跟的冒号和空格，如有遗失也可能导致校验无法通过。SecretId、SecretKey、URL、Host 需要修改为真实信息。 

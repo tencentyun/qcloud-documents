@@ -1,4 +1,4 @@
-本文档为 Tcaplus RESTful API v1.0 用户手册
+本文档为 Tcaplus RESTful API v1.0 用户手册。
 
 ## 概述
 Tcaplus RESTful API 为开发者提供了一种通过 HTTP 请求与 Tcaplus 数据库远程交互的方式。当您通过 RESTful API 用 Json 携带数据发送 HTTP 请求后，您会收到对应的 Json 格式的响应包。开发者可以通过任何语言或工具发送 RESTful API 请求对数据进行增、删、改、查操作。
@@ -479,6 +479,7 @@ GET /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records?keys={JSON
 ```
 
 从一个 Tcaplus pb 表中通过指定一条记录的 key 信息查询此记录。本操作只查询和传输用户通过 select 变量指定的字段的值，这将减少网络传输流量，这是与 GetRecord 操作最大的不同之处。如果数据记录不存在，将会返回错误。
+
 必须在 URI 中指定`keys`和`select`变量。keys 指定所有主键的值，select 指定需要显示的 value 字段的名称，并且用户可以通过点分路径的方式指定嵌套结构中的字段，例如 “pay.total_money”。
 
 >!请求的变量必须通过 urlencode 编码，请将url中的空格编码为"%20"而不是"+"。

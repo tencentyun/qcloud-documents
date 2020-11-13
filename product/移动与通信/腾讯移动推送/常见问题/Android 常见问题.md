@@ -87,11 +87,11 @@ TPNS 推荐使用 Intent 方式进行跳转（注：SDK 点击消息默认支持
 ![](https://main.qcloudimg.com/raw/a904c7c7917fb7d69bf741f7b6e52099.png)
  - 若使用服务端 SDK ，设置 Intent 进行跳转，可设置 Intent 为（以 Java SDK 为例）：
 ```
-action.setIntent("xgscheme://com.xg.push/notify_detail");
+action.setIntent("xgscheme://com.tpns.push/notify_detail");
 ```
  - 若需要带上 param1 和 param2 等参数，您可以做如下设置：
 ```
-action.setIntent("xgscheme://com.xg.push/notify_detail?param1=aa&param2=bb");
+action.setIntent("xgscheme://com.tpns.push/notify_detail?param1=aa&param2=bb");
 ```
 
 **终端获取参数**：
@@ -114,7 +114,7 @@ Uri uri = getIntent().getData();
    sanitizer.parseUrl(url);
    String value1 = sanitizer.getValue("key1");
    String value2 = sanitizer.getValue("key2");
-   Log.i("XG" , "value1 = " + value1 + " value2 = " + value2);
+   Log.i("TPNS" , "value1 = " + value1 + " value2 = " + value2);
 }
 ```
 
@@ -167,11 +167,25 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 #### 魅族通道排查路径
 与小米通道的排查方法类似，参考小米通道的排查路径即可。
 
+
+
+### 同时集成了即时通信 IM 和 TPNS，存在大量的厂商类冲突，该如何解决？
+目前 IM 已使用 TPNS 提供的厂商 jar 包，可前往 [IM 离线推送（Android）文档](https://cloud.tencent.com/document/product/269/44516) 替换相关依赖包，替换后即可解决。
+
+
+
+
+
 ### Flyme 6.0 及以下版本的魅族手机，为何消息抵达设备却不在通知栏展示？
 1.  Flyme 6.0 及以下版本的魅族手机，使用手动集成方式。
 2.  Flyme 6.0 及以下版本的魅族手机，使用自动集成方式，且使用的 TPNS Android SDK 为1.1.4.0 以下的版本。
 
 以上两种情况，需要在 drawable 不同分辨率的文件夹下对应放置一张名称必须为 stat_sys_third_app_notify 的图片，详情请参考 [TPNS Android SDK](https://console.cloud.tencent.com/tpns/sdkdownload) 中的 flyme-notification-res 文件夹。
+
+
+
+
+
 
 
 
