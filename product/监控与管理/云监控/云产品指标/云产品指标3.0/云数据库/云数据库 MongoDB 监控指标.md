@@ -59,7 +59,7 @@ Namespace=QCE/CMONGO
 | SlaveDelay        | 主从延迟      | 主从单位时间内平均延迟                   | 秒   | target（副本集 ID） |
 | Oplogreservedtime | oplog 保存时间 | oplog 记录中最后一次操作和首次操作时间差 | 小时 | target（副本集 ID)  |
 
-#### 3. Cache类
+#### 3. Cache 类
 
 | 指标英文名 | 指标中文名         | 含义                          | 单位 | 维度               |
 | :--------- | :----------------- | :---------------------------- | :--- | :----------------- |
@@ -67,7 +67,7 @@ Namespace=QCE/CMONGO
 | CacheUsed  | Cache 使用百分比   | 当前 Cache 使用百分比         | %    | target（副本集 ID) |
 | HitRatio   | Cache 命中率       | 当前 Cache 命中率             | %    | target（副本集 ID) |
 
-### Mongo节点
+### Mongo 节点
 
 #### 1. 系统类
 
