@@ -4,12 +4,12 @@
 
 **iOS/Mac平台**
 
-- iOS 支持 iphone 和 ipad 同时在线
+- iOS 支持 iPhone 和 iPad 同时在线
 - Mac 支持 arm64 架构
 
 **Android平台**
-- 修复android版本稳定性问题
-- 替换为标准TRTC依赖包
+- 修复 Android 版本稳定性问题
+- 替换为标准 TRTC 依赖包
 
 ## 最新精简版 5.0.108 @2020.11.02
 
