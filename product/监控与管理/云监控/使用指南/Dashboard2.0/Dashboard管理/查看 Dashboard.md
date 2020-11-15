@@ -3,7 +3,7 @@ Dashboard 支持最近访问面板、收藏面板和自定义面板三种方式�
 ## 准备工作
 
 1. 登录 [云监控控制台](https://console.cloud.tencent.com/monitor)。
-2. 在左侧导航栏中点击【Dashboard 列表】，进入 Dashboard 列表页。
+2. 在左侧导航栏中单击【Dashboard】>【Dashboard 列表】，进入 Dashboard 列表页。
 
 ## 全屏查看
 
