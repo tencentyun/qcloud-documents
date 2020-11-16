@@ -25,7 +25,7 @@
 
 
 >!
- **购买点播套餐包并绑定 License 后，请确认 Bundle ID 和 Package Name 无误，一旦提交，License 的信息不能再做修改。**
+ 购买点播套餐包并绑定 License 后，请确认 Bundle ID 和 Package Name 无误，一旦提交，License 的信息不能再做修改。
 
 ## 新增短视频 License
 
