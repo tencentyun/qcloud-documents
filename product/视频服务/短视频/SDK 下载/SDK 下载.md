@@ -1,5 +1,5 @@
 ## 短视频 SDK 各版本下载             
-<table>    
+<table>     
    <tr>
       <th width="85px" style="text-align:center">功能模块</td>
       <th width="85px" style="text-align:center">功能项</td>
