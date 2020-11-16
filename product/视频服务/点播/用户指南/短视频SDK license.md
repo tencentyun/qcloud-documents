@@ -43,7 +43,7 @@
 3. 单击【确认续期】即可。
 	![](https://main.qcloudimg.com/raw/5d1d551707a5a41e69f201ca00ef549d.png)
 
-#### 示例
+### 示例
 
 - 用户于2019-02-02购买 [流量资源包50TB](https://buy.cloud.tencent.com/vod)（有效期：2019-02-02至2020-02-01），赠送基础版 License 有效期则为：2019-02-02至2020-02-01。
 - 若用户需要进行续期，续期流量资源包200TB（2019-07-02至2020-07-01），则 License 的有效期为：2019-07-02至2020-07-01。
@@ -52,7 +52,7 @@
 
 目前仅支持短视频 License 由精简版升级至基础版，升级 License 为 [对应资源包赠送的 License 规格](https://cloud.tencent.com/document/product/584/9368#.E8.B4.AD.E4.B9.B0.E8.AF.B4.E6.98.8E)。
 
-#### 示例
+### 示例
 
 用户购买 [流量资源包10TB](https://buy.cloud.tencent.com/vod)（赠送精简版 License），如需升级至基础版 License，则 [云点播控制台](https://console.cloud.tencent.com/vod/license) 需要存在50TB或200TB资源包。
 
