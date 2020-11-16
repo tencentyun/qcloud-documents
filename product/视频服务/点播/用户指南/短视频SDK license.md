@@ -108,3 +108,4 @@
 
 4.  **License 可以同时支持多个 App 吗？**
 一个 License 只能对应一个 PackageName 和 BundleID，不支持多个 App。
+
