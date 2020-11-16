@@ -8,7 +8,6 @@
 ![](https://main.qcloudimg.com/raw/bdd927a3b000daebb8f4b3b758517764.png)
 2. 创建成功后页面会显示生成的 License 信息，这里需要记下 Key 和 LicenseUrl，在 SDK 的初始化时需要传入这两个参数。
 ![](https://main.qcloudimg.com/raw/1c181ff0fe99c93f9c01d09bd1b3ca65.png)
-
 >? 基础版 License，有效期为14天，可申请两次。
 
 ## 购买正式版 License
