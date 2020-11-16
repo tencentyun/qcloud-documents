@@ -9,7 +9,7 @@
 2. 创建成功后页面会显示生成的 License 信息，这里需要记下 Key 和 LicenseUrl，在 SDK 的初始化时需要传入这两个参数。
 ![](https://main.qcloudimg.com/raw/1c181ff0fe99c93f9c01d09bd1b3ca65.png)
 
->?基础版 License，有效期为14天，可申请两次。
+>? 基础版 License，有效期为14天，可申请两次。
 
 ## 购买正式版 License
 
@@ -23,7 +23,7 @@
 | [基础版 SDK（UGC）](https://cloud.tencent.com/document/product/584/9366#sdk) | [点播流量资源包 50TB 或 200TB](https://buy.cloud.tencent.com/vod?t=ugsv&amp;from=console-license-bottom-ugsv) | 
 
 
->!购买点播套餐包并绑定 License 后，请确认 Bundle ID 和 Package Name 无误，一旦提交，License 的信息不能再做修改。
+>! 购买点播套餐包并绑定 License 后，请确认 Bundle ID 和 Package Name 无误，一旦提交，License 的信息不能再做修改。
 
 ## 新增短视频 License
 
@@ -34,7 +34,7 @@
 4. 录入信息，单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/f4bc43f4f3220dfc493e9758afd2b4f8.png)
 
->?说明：创建成功后您可以在 [License 管理页](https://console.cloud.tencent.com/vod/license) 上查阅详细信息。
+>? 说明：创建成功后您可以在 [License 管理页](https://console.cloud.tencent.com/vod/license) 上查阅详细信息。
 
 ## 续期短视频 License
 
