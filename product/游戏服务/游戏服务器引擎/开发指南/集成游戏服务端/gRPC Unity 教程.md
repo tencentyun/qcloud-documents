@@ -56,116 +56,111 @@ windows 下命令为
 
 ### 步骤3： Unity 服务端开发使用 GSE SDK
 
-将 [步骤2](#test2) 中生成的四个 `.cs` 文件拷贝到 Unity 项目中（可以拷贝到 Assets/Scripts/目录下单独的文件夹中），便可使用 GSE SDK 进行开发，可参考unity-demo（demo中未导入解压后的gRPC文件，仅包含示例代码）
-首先用户需要实现 ```gameserver_grpcsdk_service.proto``` 定义的三个接口 ```OnHealthCheck```、```OnStartGameServerSession``` 和``` OnProcessTerminate``` .
+将 [步骤2](#test2) 中生成的四个 `.cs` 文件拷贝到 Unity 项目中（可以拷贝到 Assets 或 Scripts 或目录下单独的文件夹中），便可使用 GSE SDK 进行开发，可参考unity-demo（demo中未导入解压后的gRPC文件，仅包含示例代码）。
+1. 实现 `gameserver_grpcsdk_service.proto` 定义的三个接口 `OnHealthCheck`、`OnStartGameServerSession` 和 ` OnProcessTerminate` 。
+```
+public class GrpcServer : GameServerGrpcSdkService.GameServerGrpcSdkServiceBase
+	{
+			private static Logs logger
+			{
+					get
+					{
+							return new Logs();
+					}
+			}
 
+			// 健康检查
+			public override Task<HealthCheckResponse> OnHealthCheck(HealthCheckRequest request, ServerCallContext context)
+			{
+					logger.Println($"OnHealthCheck, HealthStatus: {GseManager.HealthStatus}");
+					logger.Println($"OnHealthCheck, GameServerSession: {GseManager.GetGameServerSession()}");
+					return Task.FromResult(new HealthCheckResponse
+					{
+							HealthStatus = GseManager.HealthStatus
+					});
+			}
 
-		public class GrpcServer : GameServerGrpcSdkService.GameServerGrpcSdkServiceBase
+			// 接收游戏会话
+			public override Task<GseResponse> OnStartGameServerSession(StartGameServerSessionRequest request, ServerCallContext context)
+			{
+					logger.Println($"OnStartGameServerSession, request: {request}");
+					GseManager.SetGameServerSession(request.GameServerSession);
+					var resp = GseManager.ActivateGameServerSession(request.GameServerSession.GameServerSessionId, request.GameServerSession.MaxPlayers);
+					logger.Println($"OnStartGameServerSession, resp: {resp}");
+					return Task.FromResult(resp);
+			}
+
+			// 结束游戏进程
+			public override Task<GseResponse> OnProcessTerminate(ProcessTerminateRequest request, ServerCallContext context)
+			{
+					logger.Println($"OnProcessTerminate, request: {request}");
+					// 设置进程终止时间
+					GseManager.SetTerminationTime(request.TerminationTime);
+					// 终止游戏服务器会话
+					GseManager.TerminateGameServerSession();
+					// 进程退出
+					GseManager.ProcessEnding();
+					return Task.FromResult(new GseResponse());
+			}
+	}
+```
+2. 开发 Unity 服务端程序（以 ChatServer 为例）。 
+```
+public static void StartChatServer(int clientPort)
+	{
+			RegisterHandlers();
+			logger.Println("ChatServer Listen at " + clientPort);
+			NetworkServer.Listen(clientPort);
+	}
+```
+3. 开发 gRPC 服务端。
+```
+public static void StartGrpcServer(int clientPort, int grpcPort, string logPath)
+	{
+			try
+			{
+					Server server = new Server
+					{
+							Services = { GameServerGrpcSdkService.BindService(new GrpcServer()) },
+							Ports = { new ServerPort("127.0.0.1", grpcPort, ServerCredentials.Insecure) },
+					};
+					server.Start();
+					logger.Println("GrpcServer Start On localhost:" + grpcPort);
+					GseManager.ProcessReady(new string[] { logPath }, clientPort, grpcPort);
+			}
+			catch (System.Exception e)
+			{
+					logger.Println("error: " + e.Message);
+			}
+	}
+```
+4. 启动开发者本身实现的服务端和 gRPC 服务端。
+```
+public class StartServers : MonoBehaviour
+		{
+				private int grpcPort = PortServer.GenerateRandomPort(2000, 6000);
+				private int chatPort = PortServer.GenerateRandomPort(6001, 10000);
+				private const string logPath = "./log/log.txt";
+				// Start is called before the first frame update
+				[Obsolete]
+				void Start()
 				{
-						private static Logs logger
-						{
-								get
-								{
-										return new Logs();
-								}
-						}
-	
-						// 健康检查
-						public override Task<HealthCheckResponse> OnHealthCheck(HealthCheckRequest request, ServerCallContext context)
-						{
-								logger.Println($"OnHealthCheck, HealthStatus: {GseManager.HealthStatus}");
-								logger.Println($"OnHealthCheck, GameServerSession: {GseManager.GetGameServerSession()}");
-								return Task.FromResult(new HealthCheckResponse
-								{
-										HealthStatus = GseManager.HealthStatus
-								});
-						}
-	
-						// 接收游戏会话
-						public override Task<GseResponse> OnStartGameServerSession(StartGameServerSessionRequest request, ServerCallContext context)
-						{
-								logger.Println($"OnStartGameServerSession, request: {request}");
-								GseManager.SetGameServerSession(request.GameServerSession);
-								var resp = GseManager.ActivateGameServerSession(request.GameServerSession.GameServerSessionId, request.GameServerSession.MaxPlayers);
-								logger.Println($"OnStartGameServerSession, resp: {resp}");
-								return Task.FromResult(resp);
-						}
-	
-						// 结束游戏进程
-						public override Task<GseResponse> OnProcessTerminate(ProcessTerminateRequest request, ServerCallContext context)
-						{
-								logger.Println($"OnProcessTerminate, request: {request}");
-								// 设置进程终止时间
-								GseManager.SetTerminationTime(request.TerminationTime);
-								// 终止游戏服务器会话
-								GseManager.TerminateGameServerSession();
-								// 进程退出
-								GseManager.ProcessEnding();
-								return Task.FromResult(new GseResponse());
-						}
-				}
+				// Start ChatServer By UNet's NetWorkServer, Listen on UDP protocol
+				MyChatServer.StartChatServer(chatPort);
 
-其次用户需要开发自己的Unity服务端程序（以ChatServer为例）  
+				// Start GrpcServer By Grpc, Listen on TCP protocol
+				MyGrpcServer.StartGrpcServer(chatPort, grpcPort, logPath);
+		}
 
-
-
-		 public static void StartChatServer(int clientPort)
-				{
-						RegisterHandlers();
-						logger.Println("ChatServer Listen at " + clientPort);
-						NetworkServer.Listen(clientPort);
-				}
-
-再次开发 gRPC 服务端
-
-
-		 public static void StartGrpcServer(int clientPort, int grpcPort, string logPath)
-				{
-						try
-						{
-								Server server = new Server
-								{
-										Services = { GameServerGrpcSdkService.BindService(new GrpcServer()) },
-										Ports = { new ServerPort("127.0.0.1", grpcPort, ServerCredentials.Insecure) },
-								};
-								server.Start();
-								logger.Println("GrpcServer Start On localhost:" + grpcPort);
-								GseManager.ProcessReady(new string[] { logPath }, clientPort, grpcPort);
-						}
-						catch (System.Exception e)
-						{
-								logger.Println("error: " + e.Message);
-						}
-				}
-
-最后启动用户自己实现的服务端和gRPC服务端  
-
-
-	 public class StartServers : MonoBehaviour
-				{
-						private int grpcPort = PortServer.GenerateRandomPort(2000, 6000);
-						private int chatPort = PortServer.GenerateRandomPort(6001, 10000);
-						private const string logPath = "./log/log.txt";
-						// Start is called before the first frame update
-						[Obsolete]
-						void Start()
-						{
-						// Start ChatServer By UNet's NetWorkServer, Listen on UDP protocol
-						MyChatServer.StartChatServer(chatPort);
-	
-						// Start GrpcServer By Grpc, Listen on TCP protocol
-						MyGrpcServer.StartGrpcServer(chatPort, grpcPort, logPath);
-				}
-	
-				void OnGUI()
-				{
-				}
-		}  
-
+		void OnGUI()
+		{
+		}
+}  
+```
 
 ## 常见问题
 <span id="test1"></span>
-### 将下载的` grpc_unity_package.VERSION.zip` 文件解压到Unity项目中后，Unity IDE报错 （如<u>[ 缺陷22251](https://github.com/grpc/grpc/issues/22251)</u> 中描述）：
+### 将下载的 `grpc_unity_package.VERSION.zip` 文件解压到 Unity 项目中后，Unity IDE 报错 （如[ 缺陷22251](https://github.com/grpc/grpc/issues/22251) 中描述）：
 
 ```` 
  1. Error: Could not load signature of Google.Protobuf.ByteString:get_Span due to:Could not load file or assembly 'System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=' or one of its dependencies. assembly:System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken= type:<unknown type> member:(null) signature:
@@ -181,5 +176,4 @@ windows 下命令为
 ![](https://main.qcloudimg.com/raw/f2926b2ac676f2e1e1ce85b8bae397f1.png)
 解决办法：Unity Editor 中，```File -> Build Settings.. ```勾选 ```Server Build```，重新打包
 ![](https://main.qcloudimg.com/raw/3ffa6a320c4269669c411f32cf7597f0.png)
-
 
