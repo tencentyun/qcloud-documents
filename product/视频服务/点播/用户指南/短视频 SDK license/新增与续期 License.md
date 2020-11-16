@@ -2,7 +2,7 @@
 
 ## 申请测试版 License
  <span id="step1"></span>
-您可以免费申请测试版 License（基础版 License，免费测试有效期为14天，可申请两次，共28天。）体验测试，具体步骤如下：
+您可以免费申请测试版 License（基础版 License，免费测试有效期为14天，可申请两次，共28天）体验测试，具体步骤如下：
 ### 步骤1：申请试用版 License
  
 1. 登录腾讯云官网，进入 [云点播控制台](https://console.cloud.tencent.com/vod/license)，左侧菜单中选择 【License 管理】 >【短视频 SDK License】。
