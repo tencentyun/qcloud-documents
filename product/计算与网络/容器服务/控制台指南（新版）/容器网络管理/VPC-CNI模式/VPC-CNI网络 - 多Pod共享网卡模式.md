@@ -34,7 +34,8 @@ VPC-CNI 多Pod共享网卡模式使用原理图如下所示：
 使用 VPC-CNI 需要确保 rp_filter 处于关闭状态。可参考以下代码示例：
 ``` bash
 sysctl -w net.ipv4.conf.all.rp_filter=0
-sysctl -w net.ipv4.conf.default.rp_filter=0
+# 假设 eth0 为主网卡
+sysctl -w net.ipv4.conf.eth0.rp_filter=0
 ```
 `tke-eni-agent` 组件自动设置节点的内核参数。若您自己有维护内核参数且打开 rp_filter，会导致网络不通。
 >
