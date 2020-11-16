@@ -18,7 +18,7 @@
 
 | SDK 版本 | 套餐包 | 
 |---------|---------|
-| [精简版 SDK（UGC_Smart）](https://cloud.tencent.com/document/product/584/9366#sdk) | 点播流量资源包 10TB | 
+| [精简版 SDK（UGC_Smart）](https://cloud.tencent.com/document/product/584/9366#sdk) | [点播流量资源包 10TB](https://buy.cloud.tencent.com/vod?t=ugsv&amp;from=console-license-bottom-ugsv) | 
 | [基础版 SDK（UGC）](https://cloud.tencent.com/document/product/584/9366#sdk) | [点播流量资源包 50TB 或 200TB](https://buy.cloud.tencent.com/vod?t=ugsv&amp;from=console-license-bottom-ugsv) | 
 
 >!购买点播套餐包并绑定 License 后，请确认 Bundle ID 和 Package Name 无误，一旦提交，License 的信息不能再做修改。
@@ -45,7 +45,7 @@
 
 #### 示例
 
-- 用户于2019-02-02购买[流量资源包50TB](https://buy.cloud.tencent.com/vod)（有效期：2019-02-02至2020-02-01），赠送基础版 License 有效期则为：2019-02-02至2020-02-01。
+- 用户于2019-02-02购买 [流量资源包50TB](https://buy.cloud.tencent.com/vod)（有效期：2019-02-02至2020-02-01），赠送基础版 License 有效期则为：2019-02-02至2020-02-01。
 - 若用户需要进行续期，续期流量资源包200TB（2019-07-02至2020-07-01），则 License 的有效期为：2019-07-02至2020-07-01。
 
 ## 升级短视频 License
