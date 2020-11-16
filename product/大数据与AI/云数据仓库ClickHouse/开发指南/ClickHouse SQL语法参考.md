@@ -210,7 +210,6 @@ INSERT INTO [db.]table [(c1, c2, c3)] SELECT ...
 ## 删除数据
 ClickHouse 使用 DROP 或 TRUNCATE 语句来完成数据删除。
 >?DROP 删除元数据和数据，TRUNCATE 只删除数据。
-
 ```
 DROP DATABASE [IF EXISTS] db [ON CLUSTER cluster]DROP [TEMPORARY] TABLE [IF EXISTS] [db.]name [ON CLUSTER cluster]
 TRUNCATE TABLE [IF EXISTS] [db.]name [ON CLUSTER cluster]
