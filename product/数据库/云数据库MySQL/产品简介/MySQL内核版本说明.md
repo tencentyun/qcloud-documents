@@ -15,6 +15,18 @@
 - 修复全文索引中，词组查找（phrase search）在多字节字符集下存在的崩溃问题。
 
 ## MySQL 5.7
+### 20200630
+#### 新特性：
+- 支持 SELECT FOR UPDATE/SHARE 语句使用 NOWAIT 和 SKIP LOCKED 选项。
+- 支持大事务优化功能，可缓解因大事务导致主从延迟、备份失败等问题。
+- 审计性能优化：支持异步审计功能。
+
+#### 官方 bug 修复：
+- 修复 digest_add_token 函数里面的溢出问题。
+- 修复 insert blob 导致实例 crash 的问题。
+- 修复 hash scan 在 event 中出现对同一行更新而找不到记录，所造成主从中断的问题。
+- 修复对 performance_schema 查询时 hang 住的问题。
+
 ### 20200331
 #### 新特性：
 - 新增官方 MySQL 5.7.22 版本的 JSON 系列函数。
@@ -117,7 +129,7 @@
 ## MySQL 5.6
 ### 20190930
 #### 新特性：
-- 用户可通过 show full processlist 查询“用户线程内存使用信息”，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。  
+- 用户可通过 show full processlist 查询“用户线程内存使用信息”。  
 
 #### 官方 bug 修复：
 - 修复备库 replication filter 所引起的 gtid 空洞的问题。

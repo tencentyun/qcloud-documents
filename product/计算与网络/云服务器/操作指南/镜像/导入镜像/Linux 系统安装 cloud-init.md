@@ -244,7 +244,7 @@ apt-get update -y
 ```
   2. 执行以下命令，安装 Python-pip。
 ```
-yum install python-pip -y
+apt-get install python-pip -y
 ```
 
 

@@ -8,9 +8,9 @@ GET Object 接口请求可以将 COS 存储桶中的对象（Object）下载至�
 
 当启用版本控制时，该 GET 操作可以使用 versionId 请求参数指定要返回的版本 ID，此时将返回对象的指定版本。若指定版本为删除标记，则返回 HTTP 响应码404（Not Found），否则将返回指定对象的最新版本。
 
-#### 归档存储类型
+#### 归档类型
 
-如果该 GET 请求操作的对象为**归档（ARCHIVE）存储类型**，且没有使用 [POST Object restore](https://cloud.tencent.com/document/product/436/12633) 进行恢复（或恢复后的副本已被过期删除），那么该请求将返回 HTTP 响应码403（Forbidden），同时在响应体中包含错误信息，其中错误码（Code）为 InvalidObjectState，表示对象的当前状态无法被 GET 请求操作，需要先经过恢复。
+如果该 GET 请求操作的对象为**归档存储和深度归档存储类型**，且没有使用 [POST Object restore](https://cloud.tencent.com/document/product/436/12633) 进行恢复（或恢复后的副本已被过期删除），那么该请求将返回 HTTP 响应码403（Forbidden），同时在响应体中包含错误信息，其中错误码（Code）为 InvalidObjectState，表示对象的当前状态无法被 GET 请求操作，需要先经过恢复。
 
 ## 请求
 
@@ -41,14 +41,14 @@ Authorization: Auth String
 
 此接口除使用公共请求头部外，还支持以下请求头部，了解公共请求头部详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-| 名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述                                                         | 类型   | 是否必选 |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------ | -------- |
-| Range                                                        | RFC 2616 中定义的字节范围，范围值必须使用 bytes=first-last 格式且仅支持单一范围，不支持多重范围。first 和 last 都是基于0开始的偏移量。<br>例如 bytes=0-9，表示下载对象的开头10个字节的数据；bytes=5-9，表示下载对象的第6到第10个字节。此时返回 HTTP 状态码206（Partial Content）及 Content-Range 响应头部。<br>如果 first 超过对象的大小，则返回 HTTP 状态码416（Requested Range Not Satisfiable）错误。如果不指定，则表示下载整个对象 | string | 否       |
-| If-Modified-Since                                            | 当对象在指定时间后被修改，则返回对象，否则返回 HTTP 状态码为304（Not Modified） | string | 否       |
-| If-Unmodified-Since                                          | 当对象在指定时间后未被修改，则返回对象，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
-| If-Match                                                     | 当对象的 ETag 与指定的值一致，则返回对象，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
-| If-None-Match                                                | 当对象的 ETag 与指定的值不一致，则返回对象，否则返回 HTTP 状态码为304（Not Modified） | string | 否       |
-| x-cos-traffic-limit | 针对本次下载进行流量控制的限速值，必须为数字，单位默认为 bit/s。限速值设置范围为819200 - 838860800，即100KB/s - 100MB/s，如果超出该范围将返回400错误 | integer | 否       |
+| 名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述                                                         | 类型    | 是否必选 |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------- | -------- |
+| Range                                                        | RFC 2616 中定义的字节范围，范围值必须使用 bytes=first-last 格式且仅支持单一范围，不支持多重范围。first 和 last 都是基于0开始的偏移量。<br>例如 bytes=0-9，表示下载对象的开头10个字节的数据；bytes=5-9，表示下载对象的第6到第10个字节。此时返回 HTTP 状态码206（Partial Content）及 Content-Range 响应头部。<br>如果 first 超过对象的大小，则返回 HTTP 状态码416（Requested Range Not Satisfiable）错误。如果不指定，则表示下载整个对象 | string  | 否       |
+| If-Modified-Since                                            | 当对象在指定时间后被修改，则返回对象，否则返回 HTTP 状态码为304（Not Modified） | string  | 否       |
+| If-Unmodified-Since                                          | 当对象在指定时间后未被修改，则返回对象，否则返回 HTTP 状态码为412（Precondition Failed） | string  | 否       |
+| If-Match                                                     | 当对象的 ETag 与指定的值一致，则返回对象，否则返回 HTTP 状态码为412（Precondition Failed） | string  | 否       |
+| If-None-Match                                                | 当对象的 ETag 与指定的值不一致，则返回对象，否则返回 HTTP 状态码为304（Not Modified） | string  | 否       |
+| x-cos-traffic-limit                                          | 针对本次下载进行流量控制的限速值，必须为数字，单位默认为 bit/s。限速值设置范围为819200 - 838860800，即100KB/s - 100MB/s，如果超出该范围将返回400错误 | integer | 否       |
 
 **服务端加密相关头部**
 
@@ -72,7 +72,8 @@ Authorization: Auth String
 | Content-Range                                                | RFC 2616 中定义的返回内容的字节范围，仅当请求中指定了 Range 请求头部时才会返回该头部 | string |
 | Expires                                                      | RFC 2616 中定义的缓存失效时间，仅当对象元数据包含此项或通过请求参数指定了此项时才会返回该头部 | string |
 | x-cos-meta-\*                                                | 包括用户自定义元数据头部后缀和用户自定义元数据信息           | string |
-| x-cos-storage-class                                          | 对象存储类型，枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD、MAZ_STANDARD_IA、STANDARD_IA、ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | Enum   |
+| x-cos-storage-class                                          | 对象存储类型，枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD、MAZ_STANDARD_IA、INTELLIGENT_TIERING、MAZ_INTELLIGENT_TIERING、STANDARD_IA、ARCHIVE、DEEP_ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | enum   |
+|  x-cos-storage-tier  |  当对象的存储类型为智能分层存储时，该头部表示对象所处的存储层，有效值：FREQUENT、INFREQUENT。  |  enum  |
 
 **版本控制相关头部**
 
@@ -280,7 +281,6 @@ x-cos-server-side-encryption: cos/kms
 x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
 
 [Object Content]
-
 ```
 
 #### 案例七：使用服务端加密 SSE-C
@@ -296,7 +296,6 @@ x-cos-server-side-encryption-customer-key: MDEyMzQ1Njc4OUFCQ0RFRjAxMjM0NTY3ODlBQ
 x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586511383;1586518583&q-key-time=1586511383;1586518583&q-header-list=date;host;x-cos-server-side-encryption-customer-algorithm;x-cos-server-side-encryption-customer-key;x-cos-server-side-encryption-customer-key-md5&q-url-param-list=&q-signature=7da5c304f9439df949b6550ab23aea67a5f0****
 Connection: close
-
 ```
 
 #### 响应
@@ -317,7 +316,6 @@ x-cos-server-side-encryption-customer-algorithm: AES256
 x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
 
 [Object Content]
-
 ```
 
 #### 案例八：下载对象最新版本（启用版本控制）
@@ -330,7 +328,6 @@ Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Apr 2020 12:30:02 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586521802;1586529002&q-key-time=1586521802;1586529002&q-header-list=date;host&q-url-param-list=&q-signature=51b3c33f4cfae5d7b31ad61a974db7374f39****
 Connection: close
-
 ```
 
 #### 响应
@@ -350,7 +347,6 @@ x-cos-request-id: NWU5MDY2Y2FfMzFiYjBiMDlfMjE2NzVfMTgz****
 x-cos-version-id: MTg0NDUxNTc1NTE5MTc1NjM4MDA
 
 [Object Content Version 2]
-
 ```
 
 #### 案例九：下载对象指定版本（启用版本控制）
@@ -363,7 +359,6 @@ Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Apr 2020 09:36:45 GMT
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586511405;1586518605&q-key-time=1586511405;1586518605&q-header-list=date;host&q-url-param-list=versionid&q-signature=31aeb69334b973ef7406300a182de0645c91****
 Connection: close
-
 ```
 
 #### 响应
@@ -383,7 +378,6 @@ x-cos-request-id: NWU5MDNlMmRfNzBiODJhMDlfZTYwZl8xM2Fh****
 x-cos-version-id: MTg0NDUxNTc1NjIzMTQ1MDAwODg
 
 [Object Content]
-
 ```
 
 #### 案例十：指定 Range 请求头部下载部分内容
@@ -397,7 +391,6 @@ Date: Fri, 10 Apr 2020 12:32:37 GMT
 Range: bytes=8-14
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586521957;1586529157&q-key-time=1586521957;1586529157&q-header-list=date;host;range&q-url-param-list=&q-signature=719273479357f4b4b4c7d4f5ceb631753101****
 Connection: close
-
 ```
 
 #### 响应
@@ -417,7 +410,6 @@ x-cos-hash-crc64ecma: 16749565679157681890
 x-cos-request-id: NWU5MDY3NjVfY2VjODJhMDlfOWVlZl8xNmMy****
 
 Content
-
 ```
 
 #### 案例十一：下载未经恢复的归档（ARCHIVE）存储类型的对象
@@ -453,6 +445,5 @@ x-cos-storage-class: ARCHIVE
 	<RequestId>NWUwNGEwMjRfZDcyNzVkNjRfNjZlM183Zjcx****</RequestId>
 	<TraceId>OGVmYzZiMmQzYjA2OWNhODk0NTRkMTBiOWVmMDAxODc0OWRkZjk0ZDM1NmI1M2E2MTRlY2MzZDhmNmI5MWI1OTBjNjIyOGVlZmJlNDg4NDQ1MzAzMjA2ZDg4OGQ3MDhlMjIzYjI1ZWUwODY5YjdlMTBjY2EwNTgyZWMyMjc0Mjc=</TraceId>
 </Error>
-
 ```
 

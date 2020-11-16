@@ -12,11 +12,10 @@
 不支持自定义非 net 开头的内核参数。
 
 ### Workload
-- 不支持部署 DaemonSet 类型的工作负载。
-- 不支持 hostPath 作为数据卷。
+不支持部署 DaemonSet 类型的工作负载。
 
 ### Service
 不支持部署 NodePort 类型的服务。
 
 ### Volume
-不支持共享卷（emptyDir）的 Linux filesystem event（INOTIFY）特性。
+不支持 hostpath 类型的数据卷。

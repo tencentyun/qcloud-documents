@@ -1,4 +1,39 @@
-## 2020年7月
+## 2020年10月
+
+<table>
+<tr>
+    <th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+</tr>
+    <tr>
+        <td>SDK 1.2.8.1 版本发布</td>
+        <td>修复已知问题</td>
+        <td>2020-10-29</td>
+        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li></td>
+    </tr>        
+</table>
+
+## 2020年09月
+
+<table>
+<tr>
+    <th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+</tr>
+    <tr>
+        <td>SDK 1.2.8.0 版本发布</td>
+        <td><li> 新增「用户属性」相关接口，用于个性化推送</li><li> 新增「应用内消息」功能，以及若干应用内消息模板</li><li>修复已知问题</li></td>
+        <td>2020-09-27</td>
+        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li></td>
+    </tr>        
+</table>
+
+
+## 2020年07月
 
 <table>
 <tr>
@@ -11,13 +46,13 @@
         <td>SDK 1.2.7.2 版本发布</td>
         <td><li> 增加自定义事件上报功能</li><li> 提升“抵达数”上报的成功率</li><li>修复已知问题</li></td>
         <td>2020-07-23</td>
-        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li></td>
+        <td>-</a></li></td>
     </tr>        
 </table>
 
 
 
-## 2020年5月
+## 2020年05月
 
 <table>
 <tr>
@@ -35,7 +70,7 @@
 </table>
 
 
-## 2020年4月
+## 2020年04月
 
 <table>
 <tr>
@@ -53,7 +88,7 @@
 </table>
 
 
-## 2020年3月
+## 2020年03月
 
 <table>
 <tr>
@@ -77,7 +112,7 @@
 </table>
 
 
-## 2020年2月
+## 2020年02月
 
 <table>
 <tr>
@@ -95,7 +130,7 @@
 </table>
 
 
-## 2020年1月
+## 2020年01月
 
 <table>
 <tr>
@@ -209,7 +244,7 @@
 </table>
 
 
-## 2019年9月
+## 2019年09月
 
 <table>
 <tr>
@@ -250,14 +285,14 @@
     </tr>
     <tr>
         <td>SDK 1.2.1.0 版本发布</td>
-        <td><li> 新增查询信鸽服务生成的 Token 接口</li><li> 修复单账号绑定失败的问题</li></td>
+        <td><li> 新增查询 TPNS 服务生成的 Token 接口</li><li> 修复单账号绑定失败的问题</li></td>
         <td>2019-08-08</td>
         <td>-</td>
     </tr>
 </table>
 
 
-## 2019年7月
+## 2019年07月
 
 <table>
 <tr>

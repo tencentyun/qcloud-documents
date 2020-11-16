@@ -10,7 +10,7 @@
 >- SSL 证书文件上传至服务器方法可参考 [如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
 
 ### 下载 Windows For Nginx 国密版
-| Nginx 版本 | 34位 | 64位 |
+| Nginx 版本 | 32位 | 64位 |
 |---------|---------|---------|
 | 1.16.0 | - | [单击下载](https://www.wotrus.com/download/gm_nginx-1.16.0.zip) |
 | 1.17.0 | [单击下载](https://www.wotrus.com/download/gm_nginx-1.17.0.zip ) | - |

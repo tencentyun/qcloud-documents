@@ -134,3 +134,4 @@ bin/datax.py job/hdfs_job.json
 读写失败总数                    :                   0
 ```
 
+

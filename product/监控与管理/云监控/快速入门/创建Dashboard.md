@@ -1,3 +1,7 @@
+>!本文为旧版 Dashboard 操作文档，旧版 Dashboard 即将下线，建议您使用 [新版 Dashboard](https://cloud.tencent.com/document/product/248/47115)。
+
+
+
 本文主要介绍 Dashboard 的功能和操作步骤，方便您快速创建 Dashboard。
 
 ## 功能介绍

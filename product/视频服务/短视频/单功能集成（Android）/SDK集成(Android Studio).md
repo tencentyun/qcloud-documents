@@ -287,6 +287,7 @@ public class DemoApplication extends Application {
 
 		String string = TXUGCBase.getInstance().getLicenceInfo(this);
 		Log.i("SDK", "string=" + string);
+		UGCKit.init(this);
 	}
 }
 

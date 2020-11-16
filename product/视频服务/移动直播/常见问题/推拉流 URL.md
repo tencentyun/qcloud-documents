@@ -4,7 +4,7 @@
 - 已在【云直播控制台】>【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】中添加推流/播放域名，具体操作请参见 [添加自有域名](https://cloud.tencent.com/document/product/267/20381)。
 - 成功 [配置域名 CNAME](https://cloud.tencent.com/document/product/267/19908)。
 
-### 如何手动生成直播 URL？
+### 如何手动生成直播 URL？  
 1. 登录云直播控制台。	
 2. 选择进入【辅助工具】>[【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)，进入如下配置：
 	1. 按需选择生成类型。

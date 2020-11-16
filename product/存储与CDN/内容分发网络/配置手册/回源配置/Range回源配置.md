@@ -12,16 +12,16 @@
 ## 配置指南
 ### 查看配置
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面，第四栏【回源配置】中可看到 Range 回源配置，默认情况下为关闭状态，若为 COS 源站域名，则默认为开启状态：
-![](https://main.qcloudimg.com/raw/432dd0c9c4e89a1a7ebcd0fe51cbf704.png)
+![](https://main.qcloudimg.com/raw/4b70cbb960c9eae8a89903ffb8ec5ec8.png)
 
 ### 修改配置
 通过单击开关，可对 Range 回源配置进行开启或关闭操作，开启 Range 回源配置时，需要确认源站已经支持 Range 请求，否则可能会导致回源失败。
-![](https://main.qcloudimg.com/raw/725ae7fabccfb1a3de205968c56a2951.png)
+![](https://main.qcloudimg.com/raw/f9744888f88352bfc6c1dea6cb7ea229.png)
 
-> !若您的加速域名服务区域为全球加速，设置的 Range 回源配置 全球生效，不支持境内、境外差异化配置
+> !若您的加速域名服务区域为全球加速，设置的 Range 回源配置全球生效，不支持境内、境外差异化配置
 
 ## 配置示例
 若域名`cloud.tencent.com`的 Range 回源配置如下：
-![](https://main.qcloudimg.com/raw/432dd0c9c4e89a1a7ebcd0fe51cbf704.png)
+![](https://main.qcloudimg.com/raw/07a1be72a1fa80c103ffb01f2dcb9a5d.png)
 用户 A 请求资源：`http://cloud.tencent.com/test.apk`，节点收到请求后，发现缓存的`test.apk`文件已过期，此时发起回源请求，节点回源使用 Range 请求，分片获取资源并缓存。若此时用户 B 发起的也为 Range 请求，当节点上存储的分片已满足 Range 中指定的字节段，则会直接返回给用户，无需等所有分片获取完毕。
 

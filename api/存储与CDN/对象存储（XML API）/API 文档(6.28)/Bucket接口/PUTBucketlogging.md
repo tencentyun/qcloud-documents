@@ -56,6 +56,8 @@ Container 节点 LoggingEnabled 的内容：
 | TargetBucket | LoggingEnabled | 存放日志的目标存储桶，可以是同一个存储桶（但不推荐），或同一账户下、同一地域的存储桶 | String | 否 |
 | TargetPrefix | LoggingEnabled | 日志存放在目标存储桶的指定路径 | String | 否 |
 
+>?用户指定存放日志的存储桶和路径后，生成的日志文件名格式为：`目标存储桶/路径前缀{YYYY}/{MM}/{DD}/{time}_{random}_{index}.gz`。
+
 ## 响应
 
 #### 响应头

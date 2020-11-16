@@ -7,7 +7,7 @@
 
 ## 前提条件
 
-- 已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于8.6版本，建议使用 Node.js10.0 及以上版本）
+- 已安装 [Node.js](https://nodejs.org/en/)（**2020年9月1日起，Serverless 组件不再支持 Node.js10.0 以下版本，请注意升级**）
 - 已开通 [OCR 通用文字识别](https://cloud.tencent.com/product/generalocr) 服务
 
 ## 操作步骤

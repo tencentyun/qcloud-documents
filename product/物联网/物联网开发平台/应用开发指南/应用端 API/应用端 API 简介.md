@@ -11,6 +11,7 @@
 
 登录前，要通过相关用户接口换取 `accesstoken` 完成登录，调用url 为 `..../appapi`，`accesstoken` 用于标识一个用户。当用户登录完毕后，使用 url 为 `.../tokenapi` 的相关 API 完成其他操作。
 
+
 ## 签名算法
 
 #### 获取应用 AppKey 和 AppSecret
@@ -30,7 +31,7 @@
 - AppKey： `ahPxdK*****TGrejd`
 - AppSecret： `NcbHqk******TCGbKnQH`
 
-> 本文仅为示例，请您根据自己实际的 `AppKey` 和 `AppSecret` 进行后续操作。
+>?本文仅为示例，请您根据自己实际的 `AppKey` 和 `AppSecret` 进行后续操作。
 
 以通过手机号注册账号 `AppCreateCellphoneUser` 请求为例，当用户调用这一接口时，其请求参数**可能**如下：
 

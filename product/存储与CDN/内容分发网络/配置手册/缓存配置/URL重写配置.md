@@ -56,7 +56,7 @@
 则实际访问情况如下：
 
 + 客户端请求`www.test.com/access`，CDN 节点将返回`www.test.com/origin/index.html`的内容。
-+ 客户端请求`www.test.com/test/a.jpg`，CDN 节点将返回`www.test.com/test/a.jpg`的内容。
++ 客户端请求`www.test.com/test/a.jpg`，CDN 节点将返回`www.test.com/testnew/b.jpg`的内容。
 
 
 

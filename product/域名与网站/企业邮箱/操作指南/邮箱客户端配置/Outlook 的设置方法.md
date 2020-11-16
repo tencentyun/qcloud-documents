@@ -1,5 +1,5 @@
 ## 操作场景
-开通企业邮箱后，您可以在 Windows 系统安装并使用 Outlook 客户端进行邮件收发。本文将指导您如何在 Windows 系统中设置 Outlook 客户端。
+开通腾讯企业邮后，您可以在 Windows 系统安装并使用 Outlook 客户端进行邮件收发。本文将指导您如何在 Windows 系统中设置 Outlook 客户端。
 
 ## 前提条件
 本文以 Microsoft Outlook 2010 为例。

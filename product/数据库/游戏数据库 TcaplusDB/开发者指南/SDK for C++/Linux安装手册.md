@@ -40,13 +40,13 @@ libprotoc 2.6.1
 ```
 
 ## 操作步骤
-### 安装 SDK 
+### 步骤1：安装 SDK 
 首先将 SDK 下载至开发服务器，然后执行命令将文件安装至指定安装目录。
 ```
 tar –xzf <安装包路径> -C <安装目录>，
 ```
 
-### 校验
+### 步骤2：校验
 安装完成后，根目录结构如下表所示：
 
 | 目录及文件 | 说明 |
@@ -57,7 +57,7 @@ tar –xzf <安装包路径> -C <安装目录>，
 | lib/libtcaplusprotobufapi.a | TCAPLUS Protobuf API 库文件 |
 | examples/tcaplus/ProtoBuf | TCAPLUS Protobuf API 应用示例 |
 
-### 运行 example 访问 TcaplusDB
+### 步骤3：运行 example 访问 TcaplusDB
 GameSvr 游戏服务器中对应数据访问逻辑的开发，可以参考 example 中的各接口示例。
 
 1. 解压 TcaplusDB PB API 发布包。

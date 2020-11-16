@@ -6,14 +6,13 @@
 
 ## 准备工作
 ### 安装文件存储扩展组件
->?
->- 使用扩展组件功能前需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
->- 若您的集群已安装 CFS-CSI 的扩展组件，则请跳过此步骤。
+>? 若您的集群已安装 CFS-CSI 的扩展组件，则请跳过此步骤。
 >
-1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
-2. 在“扩展组件”管理页面上方选择需使用文件存储扩展组件的集群及其所在地域，并单击【新建】。
-3. 在“新建扩展组件”页面，选择【CFS 腾讯云文件存储】并单击【完成】即可。
-
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+2. 单击左侧导航栏中的【集群】，进入【集群管理】页面。
+3. 选择需新建组件的集群 ID，进入【集群详情】页面。
+4. 在“集群详情页”，选择【组件管理】>【新建】，进入【新建组件】页面。
+5. 在“新建组件”页面，勾选【CFS（腾讯云文件存储）】并单击【完成】即可。
 
 ### 通过控制台创建 StorageClass<span id="createStorageClass"></span>
 由于静态创建文件存储类型的 PV 时，需要绑定同类型可用 StorageClass，请参考 [通过控制台创建 StorageClass](https://cloud.tencent.com/document/product/457/44235#.E6.8E.A7.E5.88.B6.E5.8F.B0.E6.93.8D.E4.BD.9C.E6.8C.87.E5.BC.95) 完成创建。
@@ -28,7 +27,7 @@
 	- **存储类型**：提供【标准存储】和【性能存储】两种类型，不同可用区支持类型有一定差异，详情请参见[ 可用地域](https://cloud.tencent.com/document/product/582/43623)。
 	- **文件服务协议**：选择文件系统的协议类型，【NFS】或【CIFS/SMB】。
 		- NFS 协议：更适合于 Linux/Unix 客户端。
-		- CIFS/SMB 协议：更适合于 Windows 客户端。该协议近期公测已结束，详情请参见 [CIFS/SMB 公测说明](https://cloud.tencent.com/document/product/582/9553#cifs.2Fsmb-.E5.85.AC.E6.B5.8B.E8.AF.B4.E6.98.8E)。
+		- CIFS/SMB 协议：更适合于 Windows 客户端。该协议已于 2020 年 9 月 1日正式商用，详情请参见 [CIFS/SMB 商用说明](https://cloud.tencent.com/document/product/582/9553#cifs.2Fsmb-.E5.95.86.E7.94.A8.E8.AF.B4.E6.98.8E)。
 	- **客户端类型**：选择需要访问文件系统的客户端类型，云服务器（含容器、批量计算）或黑石服务器。 由于云服务器和黑石主机分别属于不同的网络，系统会根据您的客户端类型分配该文件系统到指定网络中。
 	- **网络类型**：选择【私有网络】，以实现私有网络下云服务器对文件系统的共享。
 	- **选择网络**：需确保与使用该文件系统的集群处于同一私有网络下。

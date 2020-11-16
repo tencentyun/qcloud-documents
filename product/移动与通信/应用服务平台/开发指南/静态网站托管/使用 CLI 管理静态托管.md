@@ -22,12 +22,18 @@ cloudbase hosting:deploy . -e envId
 cloudbase hosting:deploy ./static/index.js static/index.js -e envId
 ```
 
-## 删除文件
+## 删除文件和文件夹
 
-您可以使用下面的命令删除静态网站的存储空间中的文件或文件夹。
+您可以使用下面的命令删除静态网站的存储空间中的文件：
 
 ```bash
 cloudbase hosting:delete cloudPath -e envId
+```
+
+您可以使用下面的命令删除静态网站的存储空间中的文件夹：
+
+```bash
+cloudbase hosting:delete -d cloudPath -e envId
 ```
 
 ## 查看文件列表

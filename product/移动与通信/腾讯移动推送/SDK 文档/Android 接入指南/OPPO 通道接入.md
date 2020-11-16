@@ -5,8 +5,8 @@ OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上
 
 
 >?
-- OPPO 通道暂不支持应用内消息的发送，此类型的消息会以通知的形式展示。
-- OPPO 通道对应用的每日推送量（包含通知和透传消息）有一定的限制，限制量官方未给出明确说明，超过限制部分会走 TPNS 通道进行补推发送。
+- OPPO 通道暂不支持应用内消息的发送，此类型的消息会通过 TPNS 通道进行下发。
+- OPPO 通道对应用的每日推送量有额度限制，详情请参见 [厂商通道限额说明](https://cloud.tencent.com/document/product/548/43794#oppo-.E5.B9.B3.E5.8F.B0.E9.99.90.E5.88.B6)，超过限制部分将走 TPNS 通道进行补推发送。
 - OPPO 通道需要 OPPO 手机系统 ColorOS V3.1 及以上支持。
 
 
@@ -14,6 +14,8 @@ OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上
 ## 操作步骤
 ### 开通权限
 使用 OPPO 企业开发者帐号，登录 [OPPO 开发平台](https://open.oppomobile.com/)，在【管理中心】>【应用服务平台】>【移动应用列表】>【选择应用】>【开发服务】>【推送服务】中完成 OPPO PUSH 权限申请。
+![](https://main.qcloudimg.com/raw/11f429ba46161b1cea16c233cebc5627.png)
+
 
 ### 获取密钥
 >?仅开发者帐号（主帐号）可查看。
@@ -34,17 +36,27 @@ Opush 申请开通成功后，您可在【[OPPO 推送平台](https://push.oppo.
 
 导入 OPPO 推送相关依赖。示例代码如下：
 ```js
-implementation 'com.tencent.tpns:oppo:[VERSION]-release'//oppo推送 [VERSION] 为当前SDK版本号,版本号可在SDK下载页查看
+implementation 'com.tencent.tpns:oppo:[VERSION]-release'//OPPO 推送 [VERSION] 为当前 SDK 版本号，版本号可在 Android SDK 发布动态查看
 ```
-
+>? OPPO 推送 [VERSION] 为当前 SDK 版本号，版本号可在 [Android SDK 发布动态](https://console.cloud.tencent.com/tpns/sdkdownload) 查看。
 
 
 
 #### Eclipes 集成方法
 获取移动推送 TPNS  OPPO 通道 SDK 包后，按照移动推送 TPNS 官网手动集成方法，在配置好移动推送 TPNS 主版本的基础下，进行以下设置。
 
-1. 导入 OPPO 推送相关 jar 包，将 oppo4tpns1.1.2.1.jar 导入项目工程中。
-2. 在`Androidmanifest.xml`文件中新增如下配置（二选一）：
+1. 打开 Other-push-jar 文件夹，将 OPPO 推送相关 jar 导入项目工程中。
+2. 在主工程添加类资源文件，代码如下：
+```java
+package com.heytap.mcssdk;
+class R {
+    public static final class string {
+        public static final int system_default_channel = 
+	com.tencent.android.tpns.demo.R.string.oppo_system_default_channel;//可更改为自定义字符串资源ID
+    }
+}
+```
+3. 在 `Androidmanifest.xml` 文件中新增如下配置（二选一）：
  - TPNS Android SDK 1.2.0.2以前的版本使用以下配置：
 ```
 <!--OPPO 推送服务必须权限-->

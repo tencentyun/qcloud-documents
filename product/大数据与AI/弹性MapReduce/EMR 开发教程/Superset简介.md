@@ -39,7 +39,7 @@ EMR 上的 Superset，原装了对 Mysql、Hive、Presto、Impala、Kylin、Drui
 
 
 ## 自行添加新 Database
-Superset 支持的 [Database](https://superset.incubator.apache.org/installation.html#database-dependencies)。如果您需要安装其他的数据库，可通过如下操作进行：
+Superset 支持 Database。如果您需要安装其他的数据库，可通过如下操作进行：
 1. 登录 EMR 集群 master 所在机器。
 2. 执行命令`source /usr/local/service/superset/bin/activate`。
 3. pip3 install 对应的 Python 库。

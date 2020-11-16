@@ -65,16 +65,21 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 4. 单击 **Link Binary with Libraries** 项展开，单击底下的+号图标去添加依赖库。
 ![](https://main.qcloudimg.com/raw/17046154417930f9d31b6452782df55d.jpg)
 5. 依次添加所下载的 SDK Framework 及其所需依赖库：`AudioUnit.framework`、`libc++.tbd` 和 `Accelerate.framework`。  
-   添加后如下图所示：
-  ![](https://main.qcloudimg.com/raw/7bddb832347a971f3e69238480fa3e8d.jpg)
+添加后如下图所示：
+![](https://main.qcloudimg.com/raw/258ffc87c493d23cf591bb2ff9102677.png)
 
 ## 授权摄像头和麦克风使用权限
 使用 SDK 的音视频功能，需要授权麦克风和摄像头的使用权限。在 App 的 Info.plist 中添加以下两项，分别对应麦克风和摄像头在系统弹出授权对话框时的提示信息。
 - **Privacy - Microphone Usage Description**，并填入麦克风使用目的提示语。
 - **Privacy - Camera Usage Description**，并填入摄像头使用目的提示语 。
-如下图所示
+如下图所示：
 ![](https://main.qcloudimg.com/raw/be76bd6f3f22d31385d871710b51b771.jpg) 
 
+如果 App 启用了 **App Sandbox** 或 **Hardened Runtime**，需要勾选上 `Network`、`Camera` 和 `Audio Input` 这几个选项。
+- App Sandbox 配置如下图所示：
+![](https://main.qcloudimg.com/raw/b77d2ab814e6e14e8bed17efdcbee1a6.png)
+- Hardened Runtime 配置如下图所示：
+![](https://main.qcloudimg.com/raw/2b569e1c95bb4c97b7045112d6e3ce9c.png)
 
 ## 引用 TRTC SDK
 项目代码中使用 SDK 有两种方式：

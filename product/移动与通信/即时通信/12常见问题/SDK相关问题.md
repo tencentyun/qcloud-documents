@@ -1,6 +1,6 @@
 
 ### TUIKit 源码是否支持 Androidx？
-TUIKit 源码暂不支持 Androidx。
+TUIKit 最新源码已经支持 Androidx。
 
 ### 登录报错 6012 或  TLSSDK exchange ticket fail ？
 
