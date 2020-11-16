@@ -2,9 +2,9 @@
 您可以通过下述方式为VPC-CNI模式创建的弹性网卡绑定指定的安全组。
 
 ### 前置条件
-1. 授权 VPCAllAccess 权限给 IPAMD 使用的角色
-2. IPAMD组件版本在v3.2.0+（可通过镜像tag查看）
-3. IPAMD组件启动了安全组能力，启动参数: --enable-security-groups（默认已启用）
+1. IPAMD组件版本在v3.2.0+（可通过镜像tag查看）
+2. IPAMD组件启动了安全组能力，启动参数: --enable-security-groups（默认未启用）
+3. 目前仅支持多Pod共享网卡模式
 
 #### IPAMD开启安全特性
 - 修改现存的 tke-eni-ipamd deployment：`kubectl edit deploy tke-eni-ipamd -n kube-system`。

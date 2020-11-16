@@ -24,7 +24,8 @@ VPC-CNI 多Pod共享网卡模式使用原理图如下所示：
 ![](https://main.qcloudimg.com/raw/96f2d2c978aaa37146a7035a0c3eadd9.png)
 - 集群网络是用户的 VPC, 节点和容器子网属于该VPC.
 - 容器子网可以选择多个VPC内的子网。
-- 集群每新增一个节点，申请一张弹性网卡，同时为该网卡一次性申请该网卡能绑定IP数量上限的IP资源，用于该节点上PodIP地址。
+- 非固定 IP 模式下（默认模式），集群每新增一个节点，申请一张弹性网卡，同时为该网卡一次性申请该网卡能绑定IP数量上限的IP资源，用于该节点上PodIP地址。
+- 固定 IP 模式下，集群每新增一个节点，申请一张弹性网卡，但不会提前绑定任何辅助 IP。集群中每次新建一个使用 VPC-CNI 模式的 Pod，才会即时申请绑定辅助 IP 到相应节点的网卡上。
 - 节点删除时，释放网卡占用的IP资源。
 
 
@@ -33,9 +34,10 @@ VPC-CNI 多Pod共享网卡模式使用原理图如下所示：
 使用 VPC-CNI 需要确保 rp_filter 处于关闭状态。可参考以下代码示例：
 ``` bash
 sysctl -w net.ipv4.conf.all.rp_filter=0
-sysctl -w net.ipv4.conf.default.rp_filter=0
+# 假设 eth0 为主网卡
+sysctl -w net.ipv4.conf.eth0.rp_filter=0
 ```
-`tke-cni-agent` 组件自动设置节点的内核参数。若您自己有维护内核参数且打开 rp_filter，会导致网络不通。
+`tke-eni-agent` 组件自动设置节点的内核参数。若您自己有维护内核参数且打开 rp_filter，会导致网络不通。
 >
 #### VPC-CNI 模式操作步骤
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
