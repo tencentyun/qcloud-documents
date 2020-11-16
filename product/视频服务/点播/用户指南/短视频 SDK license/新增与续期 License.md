@@ -64,4 +64,3 @@
 #### 示例
 
 用户购买 [流量资源包10TB](https://buy.cloud.tencent.com/vod)（赠送精简版 License），如需升级至基础版 License，则 [云点播控制台](https://console.cloud.tencent.com/vod/license) 需要存在50TB或200TB资源包。
-
