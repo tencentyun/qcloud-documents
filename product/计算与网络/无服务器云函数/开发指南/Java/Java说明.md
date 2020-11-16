@@ -10,10 +10,36 @@ Java 开发的 SCF 云函数的代码形态一般如下所示：
 package example;
 
 public class Hello {
-    public String mainHandler(String name) {
+    public String mainHandler(KeyValueClass kv) {
         System.out.println("Hello world!");
-        return String.format("Hello %s.", name);
+        System.out.println(String.format("key1 = %s", kv.getKey1()));
+        System.out.println(String.format("key2 = %s", kv.getKey2()));
+        return String.format("Hello World");
     }
+}
+```
+建立参数 KeyValueClass 类：
+```java
+package example;
+public class KeyValueClass {
+    String key1;
+    String key2;
+    
+    public String getKey1() {
+        return this.key1;
+    }   
+    public void setKey1(String key1) {
+        this.key1 = key1;
+    }   
+    public String getKey2() {
+        return this.key2;
+    }   
+    public void setKey2(String key2) {
+        this.key2 = key2;
+    }   
+    
+    public KeyValueClass() {
+    }   
 }
 ```
 
@@ -37,12 +63,16 @@ public class Hello {
 
 ## 日志
 您可以在程序中使用如下语句来完成日志输出：
-
 ```java
 System.out.println("Hello world!");
 ```
-
-输出内容您可以在函数日志中的 `log` 位置查看。
+也可以使用 `java.util.logging.Logger` 作为日志输出：
+```java
+Logger logger = Logger.getLogger("AnyLoggerName");
+logger.setLevel(Level.INFO);
+logger.info("logging message here!");
+```
+输出内容可以在函数日志中的 `log` 位置查看。
 
 ## 测试
 通过控制台界面的测试按钮，可以打开测试界面，实时触发云函数并查看运行结果。针对代码例子，由于入参是 `String name` 字符串类型，因此在使用调试界面进行触发运行时，需要输入的为字符串内容，例如 `"Tencent Cloud"`。

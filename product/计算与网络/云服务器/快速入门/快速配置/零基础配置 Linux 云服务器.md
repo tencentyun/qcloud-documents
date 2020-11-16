@@ -52,4 +52,4 @@
 - 忘记云服务器登录密码？
 请参考 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 - 登录不成功？如何定位问题？
-请参考 [无法登录 Windows 实例](https://cloud.tencent.com/document/product/213/10339)。
+请参考 [无法登录 Linux 实例](https://cloud.tencent.com/document/product/213/35574)。

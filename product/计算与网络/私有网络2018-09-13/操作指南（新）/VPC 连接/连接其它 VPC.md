@@ -1,4 +1,4 @@
-您可以通过对等连接、云联网连接不同的 VPC。您可通过如下视频了解 VPC 连接其它 VPC 的相关信息。
+您可以通过对等连接、云联网连接不同的 VPC。您可通过如下视频了解 VPC 间连接的相关信息。 
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2354-35384?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 ## 对等连接

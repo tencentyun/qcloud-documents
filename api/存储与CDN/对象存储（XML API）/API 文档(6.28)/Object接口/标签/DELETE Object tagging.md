@@ -12,7 +12,7 @@ DELETE Object tagging 接口用于删除指定对象下已有的对象标签。
 
 #### 请求示例
 
-```shell
+```plaintext
 DELETE /<ObjecKey>?tagging&VersionId=VersionId HTTP 1.1
 Host:<BucketName-APPID>.cos.<Region>.myqcloud.com
 Date:date
@@ -47,13 +47,7 @@ Authorization: Auth String
 
 #### 错误码
 
-以下描述此请求可能会发生的一些特殊的且常见的错误情况，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
-
-| 错误码                | 描述                                   | HTTP 状态码   |
-| --------------------- | -------------------------------------- | ------------- |
-| SignatureDoesNotMatch | 提供的签名不符合规则，返回该错误码     | 403 Forbidden |
-| NoSuchObject          | 如果尝试操作的对象不存在，返回该错误码 | 404 Not Found |
-| NoSuchTagSetError     | 请求的对象中未设置存储桶标签           | 404 Not Found |
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -63,7 +57,7 @@ Authorization: Auth String
 
 如下请求申请删除存储桶`examplebucket-1250000000`中的对象`exampleobject.txt`下已有的标签信息。COS 解析该请求后删除该对象中的所有标签。
 
-```shell
+```plaintext
 DELETE /exampleobject.txt?tagging HTTP/1.1
 User-Agent: curl/7.29.0
 Accept: */*
@@ -75,7 +69,7 @@ Content-Type: application/xml
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 204 No Content
 Content-Type: application/xml
 Connection: close
@@ -88,7 +82,7 @@ Date: Fri, 19 Jan 2020 11:40:22 GMT
 
 如下请求申请删除存储桶`examplebucket-1250000000`中的对象`exampleobject.txt`下已有的标签信息，删除时指定对象版本号为`MTg0NDUxNTgwODg2MTEzMTQyOTI `。COS解析该请求后删除该版本的对象中的所有标签。
 
-```shell
+```plaintext
 DELETE /exampleobject.txt?tagging&VersionId=MTg0NDUxNTgwODg2MTEzMTQyOTI  HTTP/1.1
 User-Agent: curl/7.29.0
 Accept: */*
@@ -100,7 +94,7 @@ Content-Type: application/xml
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 204 No Content
 Content-Type: application/xml
 Connection: close

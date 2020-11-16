@@ -72,7 +72,7 @@
 
 - [Kafka](https://clickhouse.tech/docs/zh/operations/table_engines/kafka/)：此引擎与 Apache Kafka 结合使用。
 - [MySQL](https://clickhouse.tech/docs/zh/operations/table_engines/mysql/)：MySQL 引擎可以对存储在远程 MySQL 服务器上的数据执行 SELECT 查询。
-- [ODBC](https://clickhouse.tech/docs/zh/operations/table_engines/jdbc/)：此引擎允许 ClickHouse 通过 ODBC 接口访问外部数据库。
+- [ODBC](https://clickhouse.tech/docs/zh/engines/table_engines/integrations/odbc/)：此引擎允许 ClickHouse 通过 ODBC 接口访问外部数据库。
 - [JDBC](https://clickhouse.tech/docs/zh/operations/table_engines/jdbc/)：此引擎允许 ClickHouse 通过 JDBC 接口访问外部数据库。
 - [HDFS](https://clickhouse.tech/docs/zh/operations/table_engines/hdfs/)：此引擎允许 ClickHouse 访问 HDFS 上的数据。
 

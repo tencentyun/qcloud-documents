@@ -38,7 +38,7 @@ https://cfs.test.api.qcloud.com/v2/index.php?Action=UpdateCfsPGroup
 
 #### 输出
 
-```
+```plaintext
 {
     "code": 0,
     "message": "",

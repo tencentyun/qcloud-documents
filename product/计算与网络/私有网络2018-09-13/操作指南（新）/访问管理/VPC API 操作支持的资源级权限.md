@@ -1,4 +1,4 @@
-在 CAM 中，可对私有网络资源进行以下 API 操作的授权， 具体 API 支持的资源和条件的对应关系如下：
+在 CAM 中，可对私有网络资源进行以下 API 操作的授权， 具体 API 支持的资源和条件的对应关系如下： 
 >!表中未列出的 VPC API 操作，即表示该 VPC API 操作不支持资源级权限。针对不支持资源级权限的 VPC API 操作，您仍可以向用户授予使用该操作的权限，但策略语句的资源元素必须指定为 *。
 
 <table border=3D0 cellpadding=3D0 cellspacing=3D0 width=3D504 style=3D'bord=

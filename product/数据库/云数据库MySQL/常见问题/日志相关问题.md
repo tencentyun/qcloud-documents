@@ -1,0 +1,21 @@
+### 如何查看 binlog 日志？
+您可登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb)，在【备份恢复】>【日志备份列表】页面下载查看日志。
+![](https://main.qcloudimg.com/raw/80e006c2d5165ecfa9ce9395d59d01f8.png)
+
+### 为什么数据库实例没有 binlog 日志？
+有可能是当前 binlog 写入速度较慢，一直未切割，因此控制台一直未显示。
+
+MySQL 控制台显示 binlog 逻辑为：
+1. binlog 写满 256MB 进行一次切割。
+2. 已经切割的 binlog 文件上传 COS。
+3. 控制台上显示上传到 COS 的 binlog 文件。
+以上三步耗时约3分钟。
+
+您可以登录数据库，执行 `flush logs` 命令，3分钟左右后即可在控制台查看 binlog 日志。
+
+### 我想查看最新的 binlog 日志，怎么办？
+您可以登录数据库，执行 `flush logs` 命令，3分钟左右后即可在控制台查看 binlog 日志。
+
+### binlog 日志如何备份？ 
+binlog 日志系统每天自动备份，您可以在控制台的【备份恢复】>【日志备份列表】页面设置日志备份保留时间。
+

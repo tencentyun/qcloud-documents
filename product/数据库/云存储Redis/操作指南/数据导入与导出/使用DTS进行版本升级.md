@@ -1,5 +1,5 @@
 ## 操作场景
-云数据库 Redis [4.0、5.0 标准版](https://cloud.tencent.com/document/product/239/36151) 和 [4.0、5.0 集群版](https://cloud.tencent.com/document/product/239/18336) 提供更灵活的规格配置、更高的性能及更完善的功能。如果您使用的 Redis 版本较低，为保证更好的云数据库服务体验，建议您升级至 Redis 4.0、5.0 版本。
+云数据库 Redis [4.0、5.0 内存版（标准架构）](https://cloud.tencent.com/document/product/239/36151) 和 [4.0、5.0 内存版（集群架构）](https://cloud.tencent.com/document/product/239/18336) 提供更灵活的规格配置、更高的性能及更完善的功能。如果您使用的 Redis 版本较低，为保证更好的云数据库服务体验，建议您升级至 Redis 4.0、5.0 版本。
 
 云数据库 Redis 实例版本升级通过数据传输服务 DTS 以热迁移的方式进行，保证升级过程中 Redis 实例业务不停服，能实时增量更新数据。
 
@@ -15,34 +15,34 @@
     <td colspan=4 align=center>目标实例版本</td>
     </tr>
     <tr>
-    <td>4.0标准版</td>
-		<td>4.0集群版</td>
-		<td>5.0标准版</td>
-		<td>5.0集群版</td>
+    <td>4.0内存版（标准架构）</td>
+		<td>4.0内存版（集群架构）</td>
+		<td>5.0内存版（标准架构）</td>
+		<td>5.0内存版（集群架构）</td>
     </tr>
     <tr>
-    <td>2.8标准版</td>
+    <td>2.8内存版（标准架构）</td>
     <td>✓</td>
     <td>✓</td>
 		<td>✓</td>
     <td>✓</td>
     </tr>
     <tr>
-    <td>4.0标准版</td>
+    <td>4.0内存版（标准架构）</td>
     <td>-</td>
     <td>✓</td>
 	  <td>✓</td>
 		<td>✓</td>
     </tr>
 		<tr>
-    <td>4.0集群版</td>
+    <td>4.0内存版（集群架构）</td>
     <td>-</td>
 		<td>-</td>
     <td>✓</td>
 		<td>✓</td>
     </tr>
 		<tr>
-    <td>5.0标准版</td>
+    <td>5.0内存版（标准架构）</td>
     <td>-</td>
 		<td>-</td>
 		<td>-</td>
@@ -53,11 +53,11 @@
 
 ## 前提条件
 - 需是正常运行状态下的 Redis 源实例。
-- 已购买 Redis 4.0、5.0 标准版或 Redis 4.0、5.0 集群版实例。
->?数据量小于12GB，且后续数据增长不超过60GB，QPS 不超过4W的情况，或是需要事务支持的情况，建议选择 Redis 4.0、5.0 标准版，否则建议选择  Redis 4.0、5.0 集群版。
+- 已购买 Redis 4.0、5.0 内存版（标准架构）或 Redis 4.0、5.0 内存版（集群架构）实例。
+>?数据量小于12GB，且后续数据增长不超过60GB，QPS 不超过4W的情况，或是需要事务支持的情况，建议选择 Redis 4.0、5.0 内存版（标准架构），否则建议选择  Redis 4.0、5.0 内存版（集群架构）。
 
 ## 操作步骤
-1. 使用 DTS 从云数据库 Redis 源实例，迁移数据至 Redis 4.0、5.0 标准版或 Redis 4.0、5.0 集群版实例，请参见 [使用 DTS 进行迁移](https://cloud.tencent.com/document/product/239/31958#1.-.E6.96.B0.E5.BB.BA.E8.BF.81.E7.A7.BB.E4.BB.BB.E5.8A.A1)。
+1. 使用 DTS 从云数据库 Redis 源实例，迁移数据至 Redis 4.0、5.0 内存版（标准架构）或 Redis 4.0、5.0 内存版（集群架构）实例，请参见 [使用 DTS 进行迁移](https://cloud.tencent.com/document/product/239/31958#1.-.E6.96.B0.E5.BB.BA.E8.BF.81.E7.A7.BB.E4.BB.BB.E5.8A.A1)。
 2. 数据同步完成，业务侧验证数据无误后，可根据业务 QPS 等指标选择时间断开 Redis 源实例连接，将连接切换到 Redis 目标实例，切换方法有以下两种：
 **登录控制台切换：**
  1) 记录 Redis 源实例的旧 IP 地址并修改 IP 地址。

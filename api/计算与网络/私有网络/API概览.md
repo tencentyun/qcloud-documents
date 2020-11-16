@@ -1,4 +1,4 @@
->?当前页面接口为旧版 API，未来可能停止维护。私有网络 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 [私有网络 API 3.0](https://cloud.tencent.com/document/api/215/15755)。
+>?当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。私有网络 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 [私有网络 API 3.0](https://cloud.tencent.com/document/api/215/15755)。
 ## 1. VPC 相关接口
 
 | 接口功能            | Action ID                                | 功能描述                    |

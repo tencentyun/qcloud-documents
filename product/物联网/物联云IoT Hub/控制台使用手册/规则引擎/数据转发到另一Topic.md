@@ -14,17 +14,24 @@ WHERE house="tencent" AND temperature > 40
 ```
 
 此规则从消息中提取了 `t` 和 `house` 这两个字段的值，假定 `house` 字段的内容为 `tencent`。
-此时如果定义了转发给 `house_monitor/app/{house}` 这个 Topic，那么规则引擎则会将这个 Topic 中的 `${house}` 变量替换为 "tencent"， 从而将 `t` 和 `house` 的字段内容发送给 `house_monitor/app/tencent` 这个 Topic。
+此时如果定义了转发给 `house_monitor/${house}/app这个 Topic，那么规则引擎则会将这个 Topic 中的 `${house}` 变量替换为 "tencent"， 从而将 `t` 和 `house` 的字段内容发送给 `house_monitor/tencent/app` 这个 Topic。
 
 转发全过程如下图所示：
-![image](https://mc.qcloudimg.com/static/img/2fd61f602479ab39f47e7d6eb4f93558/gui3.png)
+![image](https://main.qcloudimg.com/raw/d4914e4b87c30f9240bbfcd62411be8a.png)
+
 ## 配置
 1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，选择左侧菜单栏【规则引擎】，单击需要配置的规则。
 2. 在规则详情页面，单击【添加行为操作】。
 3. 在弹出的“添加规则”窗口，填写相关信息。单击【保存】即可。
  - 选择行为类型为“republish”。
  - 填写要转发至的 Topic 名称。
- ![image](https://main.qcloudimg.com/raw/6618725758f9fd71cfca57512e93cec9.png)
+![](https://main.qcloudimg.com/raw/ecec657128df4e50498213fda2aaa23f.jpg)
 
 物联网通信平台即可将上报数据发转至该 Topic。
+
+## 转发消息服务质量等级
+
+消息从源 Topic 转发到其它 Topic 时消息服务质量等级不会变化。
+- 设备端发布的消息服务质量等级为 QOS0 时则规则引擎将按照 QOS0 的消息进行转发，发布的消息服务质量等级为 QOS1 时则按照 QOS1 进行转发。
+- 转发的消息服务质量等级为0时，若转发失败则消息会被丢弃；转发的消息服务质量等级为1，若消息转发失败则会进行转发重试。重试按照3s，6s，9s的时间间隔依次进行三次，若三次重试均失败则将消息保存在离线消息队列。
 

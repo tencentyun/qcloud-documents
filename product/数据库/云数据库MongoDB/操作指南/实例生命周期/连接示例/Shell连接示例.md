@@ -6,6 +6,8 @@
 ```
 mongo 10.66.187.127:27017/admin -u mongouser -p thepasswordA1
 ```
+>!使用连接串访问 MongoDB 时，如密码包含特殊字符，则特殊字符需要进行转义成 URL 编码才能正常识别，例如，@需要转义为%40。
+>
 如图：
 ![典型的连接命令截图示例](https://mc.qcloudimg.com/static/img/ce6b26f8cd6b1cc2981bc0cd44f9d09d/shell_default.png)
 

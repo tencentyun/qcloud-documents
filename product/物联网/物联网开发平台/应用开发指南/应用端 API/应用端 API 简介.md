@@ -11,11 +11,17 @@
 
 登录前，要通过相关用户接口换取 `accesstoken` 完成登录，调用url 为 `..../appapi`，`accesstoken` 用于标识一个用户。当用户登录完毕后，使用 url 为 `.../tokenapi` 的相关 API 完成其他操作。
 
+
 ## 签名算法
 
 #### 获取应用 AppKey 和 AppSecret
 
 如果用户不使用腾讯官方的“腾讯连连”小程序，用户也可通过平台开放能力开发自有品牌小程序。在创建应用的时候，平台会为用户生成小程序对应的安全凭证。安全凭证包括 AppKey 和 AppSecret。AppKey 是用于标识 API 调用者身份，AppSecret 是用于加密签名字符串和服务器端验证签名字符串的密钥。**用户应严格保管其 AppSecret，避免泄露**。
+
+具体获取步骤如下：
+1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，进入开发中心。
+2. 选择左侧菜单【应用开发】>【小程序开发】，新建小程序，具体新建步骤参见 [应用开发](https://cloud.tencent.com/document/product/1081/40291#.E6.96.B0.E5.BB.BA.E5.B0.8F.E7.A8.8B.E5.BA.8F)。
+3. 创建小程序成功后，即可获取系统自动生成的 AppKey 与 AppSecret。
 
 #### 生成签名串
 
@@ -25,7 +31,7 @@
 - AppKey： `ahPxdK*****TGrejd`
 - AppSecret： `NcbHqk******TCGbKnQH`
 
-> 本文仅为示例，请您根据自己实际的 `AppKey` 和 `AppSecret` 进行后续操作。
+>?本文仅为示例，请您根据自己实际的 `AppKey` 和 `AppSecret` 进行后续操作。
 
 以通过手机号注册账号 `AppCreateCellphoneUser` 请求为例，当用户调用这一接口时，其请求参数**可能**如下：
 

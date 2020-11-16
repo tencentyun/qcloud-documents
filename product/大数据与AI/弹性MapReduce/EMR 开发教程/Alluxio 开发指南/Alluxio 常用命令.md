@@ -16,10 +16,10 @@
 |getCapacityBytes	|getCapacityBytes	|获取 Alluxio 文件系统的容量。
 |getUsedBytes	|getUsedBytes|	获取 Alluxio 文件系统已使用的字节数。
 |help	|help "cmd"	| 打印给定命令的帮助信息，如果没有给定命令，打印所有支持的命令的帮助信息。
-|leader	| leader |	打印当前 Alluxio leader master 节点主机名。
+|leader	| leader |	打印当前 Alluxio leader master 节点名。
 |load	|load "path"	|将底层文件系统的文件或者目录加载到 Alluxio 中。
 |loadMetadata	|loadMetadata "path"	| 将底层文件系统的文件或者目录的元数据加载到 Alluxio 中。
-|location	|location "path" |	输出包含某个文件数据的主机。
+|location	|location "path" |	输出包含某个文件数据的节点。
 |ls	| ls "path" |	列出给定路径下的所有直接文件和目录的信息，例如大小。
 |masterInfo	| masterInfo	|打印 Alluxio master 容错相关的信息，例如，leader 的地址、所有 master 的地址列表以及配置的 Zookeeper 地址。
 |mkdir	| mkdir "path1" ... "pathn" |	在给定路径下创建文件夹，以及需要的父文件夹，多个路径用空格或者 tab 分隔，如果其中的任何一个路径已经存在，该命令失败。
@@ -256,7 +256,7 @@ $ ./bin/alluxio fs getUsedBytes
 ## leader
 
 **背景**
-leader 命令打印当前 Alluxio 的 leader master 节点主机名。
+leader 命令打印当前 Alluxio 的 leader master 节点名。
 
 **操作示例**
 ```
@@ -301,8 +301,7 @@ $ ./bin/alluxio fs location /data/2015/logs-1.txt
 ## ls
 
 **背景**
-
-ls 命令列出一个文件夹下的所有子文件和子文件夹及文件大小、上次修改时间以及文件的内存状态。对一个文件使用 ls 命令仅仅会显示该文件的信息。 ls 命令也将任意文件或者目录下的子目录的元数据从底层存储系统加载到 Alluxio 命名空间，如果 Alluxio 还没有这部分元数据的话。 ls 命令查询底层文件系统中匹配给定路径的文件或者目录，然后会在 Alluxio 中创建一个该文件的镜像文件。只有元数据，例如文件名和大小，会以这种方式加载而不发生数据传输。
+ls 命令列出一个文件夹下的所有子文件和子文件夹及文件大小、上次修改时间以及文件的内存状态。对一个文件使用 ls 命令仅仅会显示该文件的信息。ls 命令也将任意文件或者目录下的子目录的元数据从底层存储系统加载到 Alluxio 命名空间，如果 Alluxio 还没有这部分元数据的话。ls 命令查询底层文件系统中匹配给定路径的文件或者目录，然后会在 Alluxio 中创建一个该文件的镜像文件。只有元数据，例如文件名和大小，会以这种方式加载而不发生数据传输。
 
 选项：
 
@@ -443,11 +442,11 @@ $ ./bin/alluxio fs setTtl -action free /data/good-for-one-day 86400000
 stat 命令将一个文件或者文件夹的主要信息输出到控制台，这主要是为了让用户调试他们的系统。一般来说，在 Web UI 上查看文件信息要容易理解得多。
 
 可以指定 -f 来按指定格式显示信息：
-- “%N”：文件名；
-- “%z”：文件大小（bytes）；
-- “%u”：文件拥有者；
-- “%g”：拥有者所在组名；
-- “%y” or “%Y”： 编辑时间，`%y shows ‘yyyy-MM-dd HH:mm:ss’ (the UTC date), %Y`为自从 January 1, 1970 UTC 以来的毫秒数；
+- “%N”：文件名。
+- “%z”：文件大小（bytes）。
+- “%u”：文件拥有者。
+- “%g”：拥有者所在组名。
+- “%y” or “%Y”：编辑时间，`%y shows ‘yyyy-MM-dd HH:mm:ss’ (the UTC date), %Y`为自从 January 1, 1970 UTC 以来的毫秒数。
 - “%b”：为文件分配的数据块数。
 
 **操作示例**

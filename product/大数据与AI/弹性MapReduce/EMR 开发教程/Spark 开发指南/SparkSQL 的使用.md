@@ -1,6 +1,7 @@
 Spark 为结构化数据处理引入了一个称为 Spark SQL 的编程模块。它提供了一个称为 DataFrame 的编程抽象，并且可以充当分布式 SQL 查询引擎。
+
 ## 1. 开发准备
-确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置见面选择了 Spark 组件。
+确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择了 Spark 组件。
  
 ## 2. 使用 SparkSQL 交互式控制台
 在使用 SparkSQL 之前请登录 EMR 集群的 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入 EMR 命令行界面。
@@ -16,42 +17,37 @@ Spark 为结构化数据处理引入了一个称为 Spark SQL 的编程模块。
 ```
 其中 --master 表示您的 master URL，--num-executors 表示 executor 数量，--executor-memory 表示 executor 的储存容量。以上参数也可以根据您的实际情况作出修改，您也可以通过`sbin/start-thriftserver.sh` 或者`sbin/stop-thriftserver.sh`来启动或者停止一个 SparkSQLthriftserver。
 
-下面介绍一些 SparkSQL 的基本操作。
-
-
-新建一个数据库并查看：
+**下面介绍一些 SparkSQL 的基本操作：**
+- 新建一个数据库并查看：
 ```
 spark-sql> create database sparksql;
 Time taken: 0.907 seconds
-
 spark-sql> show databases;
 default
 sparksql
 test
 Time taken: 0.131 seconds, Fetched 5 row(s)
 ```
-在新建的数据库中新建一个表，并进行查看：
+- 在新建的数据库中新建一个表，并进行查看：
 ```
 spark-sql> use sparksql;
 Time taken: 0.076 seconds
-
 spark-sql> create table sparksql_test(a int,b string);
 Time taken: 0.374 seconds
-
 spark-sql> show tables;
 sparksql_test	false
 Time taken: 0.12 seconds, Fetched 1 row(s)
 ```
-向表中插入两行数据并查看：
+- 向表中插入两行数据并查看：
 ```
 spark-sql> insert into sparksql_test values (42,'hello'),(48,'world');
 Time taken: 2.641 seconds
-
 spark-sql> select * from sparksql_test;
 42	hello
 48	world
 Time taken: 0.503 seconds, Fetched 2 row(s)
 ```
+
 更多命令行参数使用教程请参考 [社区文档](http://spark.apache.org/docs/latest/sql-programming-guide.html)。
 
 ## 3. 使用 Maven 创建工程
@@ -229,14 +225,14 @@ scp $localfile root@公网IP地址:$remotefolder
 其中，$localfile 是您的本地文件的路径加名称，root 为 CVM 服务器用户名，公网 IP 可以在 EMR 控制台的节点信息中或者在云服务器控制台查看。$remotefolder 是您想存放文件的 CVM 服务器路径。上传完成后，在 EMR 集群命令行中即可查看对应文件夹下是否有相应文件。
 
 ## 4. 准备数据并运行样例
-使用 sparkSQL 来操作存放在 HDFS 上的数据。首先将数据上传到 HDFS 中，这里我们使用自带的文件 people.json，存放在路径`/usr/local/service/spark/exa-mples/src/main/resources/`下，使用如下指令把该文件上传到 HDFS 中：
+使用 sparkSQL 来操作存放在 HDFS 上的数据。首先将数据上传到 HDFS 中，这里我们使用自带的文件 people.json，存放在路径`/usr/local/service/spark/examples/src/main/resources/`下，使用如下指令把该文件上传到 HDFS 中：
 ```
-[hadoop@10 hadoop]$ hadoop fs -put /usr/local/service/spark/examples/src/ma-in/resources/ 
+[hadoop@10 hadoop]$ hadoop fs -put /usr/local/service/spark/examples/src/main/resources/people.json 
 /user/hadoop
 ```
 测试文件用户也可以另选，这里`/user/hadoop/`是 HDFS 下的文件夹，如果没有用户可以自己创建。
 
-接下来就可以执行样例了，首先请登录 EMR 集群的 master 节点，并且切换到 Hadoop 用户如使用 SparkSQL 交互式控制台中所示，使用以下命令执行样例：
+**执行样例**，首先请登录 EMR 集群的 master 节点，并且切换到 Hadoop 用户如使用 SparkSQL 交互式控制台中所示，使用以下命令执行样例：
 ```
 [hadoop@10spark]$ bin/spark-submit --class Demo --master yarn-client $yourjarpackage /  
 /user/hadoop/people.json  /user/hadoop/$output

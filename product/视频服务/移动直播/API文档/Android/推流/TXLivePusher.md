@@ -11,7 +11,7 @@ __介绍__
 - 针对腾讯云的推流地址，会采用 QUIC 协议进行加速，配合改进后的 BBR2 带宽测算方案，可以最大限度的利用主播的上行带宽，降低直播卡顿率。
 - 内嵌套的 Qos 流量控制技术具备上行网络自适应能力，可以根据主播端网络的具体情况实时调节音视频数据量。
 - 内嵌多套美颜磨皮算法（自然&光滑）和多款色彩空间滤镜（支持自定义滤镜），可以根据需要自行选择。
-- 商业版包含了基于优图 AI 人脸识别技术的大眼、瘦脸、隆鼻以及动效挂架，只需要购买**优图 License** 就可以零成本集成。
+- 企业版 SDK 包含了大眼、瘦脸以及隆鼻等功能，配合高级美颜动效素材，可快速地完成功能集成。
 - 支持自定义的音视频采集和渲染，让您可以根据项目需要选择自己的音视频数据源。
 
 
@@ -866,7 +866,7 @@ __参数__
 ## 更多实用接口
 ### sendMessageEx
 
-发送 SEI 消息，播放端 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34775#txliveplayer) 通过 onPlayEvent(EVT_PLAY_GET_MESSAGE) 来接收该消息。
+发送 SEI 消息，播放端 [TXLivePlayer](https://cloud.tencent.com/document/product/454/34775#txliveplayer) 通过 onPlayEvent(PLAY_EVT_GET_MESSAGE) 来接收该消息。
 ```
 boolean sendMessageEx(byte [] msg)
 ```

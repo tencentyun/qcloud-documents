@@ -6,7 +6,7 @@
 开发者在调用前请先查看录音文件语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37823)，了解接口的**使用要求**和**使用步骤**。
 
 ## 快速接入
-以下分别是通过**语音 URL** 和**本地语音上传**请求方式的 demo 以及**轮询**识别结果的 demo ，来帮助客户快速接入。
+以下分别是通过**语音 URL** 和**本地语音上传**请求方式的 demo 以及**轮询**识别结果的 demo ，来帮助客户快速接入。 
 
 + **通过语音 URL 方式请求**
 
@@ -45,7 +45,7 @@ public class CreateRecTask
             
             AsrClient client = new AsrClient(cred, "ap-shanghai", clientProfile);
             
-            String params = "{\"EngineModelType\":\"16k_0\",\"ChannelNum\":1,\"ResTextFormat\":0,\"SourceType\":0,\"Url\":\"http://ttsgz-1255628450.cos.ap-guangzhou.myqcloud.com/20190813/cbf318cd-273e-4b7c-bab0-50a1885c9b96.wav\"}";
+            String params = "{\"EngineModelType\":\"16k_zh\",\"ChannelNum\":1,\"ResTextFormat\":0,\"SourceType\":0,\"Url\":\"https://asr-audio-1300466766.cos.ap-nanjing.myqcloud.com/test16k.wav\"}";
             CreateRecTaskRequest req = CreateRecTaskRequest.fromJsonString(params, CreateRecTaskRequest.class);
             
             CreateRecTaskResponse resp = client.CreateRecTask(req);
@@ -95,7 +95,7 @@ public class CreateRecTask
             
             AsrClient client = new AsrClient(cred, "ap-shanghai", clientProfile);
             
-            String params = "{\"EngineModelType\":\"16k_0\",\"ChannelNum\":1,\"ResTextFormat\":0,\"SourceType\":1}";
+            String params = "{\"EngineModelType\":\"16k_zh\",\"ChannelNum\":1,\"ResTextFormat\":0,\"SourceType\":1}";
             CreateRecTaskRequest req = CreateRecTaskRequest.fromJsonString(params, CreateRecTaskRequest.class);
 
             File file = new File("/Users/ruskinli/eclipse-workspace/TencentSentence/src/test.wav");

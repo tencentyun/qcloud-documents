@@ -44,7 +44,7 @@ Authorization: Auth String
 </AccelerateConfiguration>
 ```
 
-具体的数据内容如下：
+具体的节点描述如下：
 
 | 节点名称（关键字）      | 父节点                  | 描述                                                 | 类型      |
 | ----------------------- | ----------------------- | ---------------------------------------------------- | --------- |
@@ -54,7 +54,7 @@ Authorization: Auth String
 
 #### 错误码
 
-此接口无特殊错误信息，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -77,7 +77,7 @@ Content-Length: 73
 Connection: keep-alive
 Date: Wed, 23 Aug 2019 08:14:53 GMT
 Server: tencent-cos
-x-cos-request-id: NTk5ZDM5N2RfMjNiMjM1MGFfMmRiX2Y0ZThm
+x-cos-request-id: NTk5ZDM5N2RfMjNiMjM1MGFfMmRiX2Y0****
 
 <AccelerateConfiguration>
   <Status>Enabled</Status>
@@ -94,7 +94,7 @@ Content-Length: 73
 Connection: keep-alive
 Date: Wed, 23 Aug 2019 08:14:53 GMT
 Server: tencent-cos
-x-cos-request-id: NTk5ZDM5N2RfMjNiMjM1MGFfMmRiX2Y0ZThm
+x-cos-request-id: NTk5ZDM5N2RfMjNiMjM1MGFfMmRiX2Y0****
 
 <AccelerateConfiguration>
   <Status>Disabled</Status>
@@ -111,7 +111,7 @@ Content-Length: 73
 Connection: keep-alive
 Date: Wed, 23 Aug 2019 08:14:53 GMT
 Server: tencent-cos
-x-cos-request-id: NTk5ZDM5N2RfMjNiMjM1MGFfMmRiX2Y0ZThm
+x-cos-request-id: NTk5ZDM5N2RfMjNiMjM1MGFfMmRiX2Y0****
 
 <AccelerateConfiguration/>
 ```

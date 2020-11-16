@@ -14,7 +14,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 - 已在访问管理控制台 >【[API密钥管理](https://console.cloud.tencent.com/cam/capi)】页面获取 SecretID 和 SecretKey。
  - SecretID 用于标识 API 调用者的身份。
  - SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥，**SecretKey 需妥善保管，避免泄露**。
-- 已获取调用地址（endpoint），短信的调用地址为`sms.tencentcloudapi.com`。
+- 短信的调用地址为`sms.tencentcloudapi.com`。
 
 ## 相关资料
 - 各个接口及其参数的详细介绍请参见 [API 文档](https://cloud.tencent.com/document/product/382/38764)。
@@ -80,7 +80,7 @@ clientProfile.signMethod = "HmacSHA256";
 clientProfile.httpProfile = httpProfile;
 
 /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
- * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+ * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com *
  * 实例化 SMS 的 client 对象
  * 第二个参数是地域信息，可以直接填写字符串 ap-guangzhou，或者引用预设的常量 */
 let client = new smsClient(cred, "ap-guangzhou", clientProfile);
@@ -162,7 +162,7 @@ clientProfile.signMethod = "HmacSHA256";
 clientProfile.httpProfile = httpProfile;
 
 /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
- * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+ * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com *
  * 实例化 SMS 的 client 对象
  * 第二个参数是地域信息，可以直接填写字符串 ap-guangzhou，或者引用预设的常量 */
 let client = new smsClient(cred, "ap-guangzhou", clientProfile);
@@ -249,7 +249,7 @@ clientProfile.signMethod = "HmacSHA256";
 clientProfile.httpProfile = httpProfile;
 
 /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
- * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+ * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com *
  * 实例化 SMS 的 client 对象
  * 第二个参数是地域信息，可以直接填写字符串 ap-guangzhou，或者引用预设的常量 */
 let client = new smsClient(cred, "ap-guangzhou", clientProfile);
@@ -323,7 +323,7 @@ clientProfile.signMethod = "HmacSHA256";
 clientProfile.httpProfile = httpProfile;
 
 /* SDK 会自动指定域名，通常无需指定域名，但访问金融区的服务时必须手动指定域名
- * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com */
+ * 例如 SMS 的上海金融区域名为 sms.ap-shanghai-fsi.tencentcloudapi.com *
  * 实例化 SMS 的 client 对象
  * 第二个参数是地域信息，可以直接填写字符串 ap-guangzhou，或者引用预设的常量 */
 let client = new smsClient(cred, "ap-guangzhou", clientProfile);

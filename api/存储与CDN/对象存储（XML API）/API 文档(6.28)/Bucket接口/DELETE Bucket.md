@@ -14,7 +14,7 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
->?Authorization: Auth String （详情请参阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求参数
 
@@ -22,17 +22,16 @@ Authorization: Auth String
 
 #### 请求头
 
-此接口仅使用公共请求头部，详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 请求体
-
-此接口无请求体。
+该请求的请求体为空。
 
 ## 响应
 
 #### 响应头
 
-此接口仅返回公共响应头部，详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 响应体
 
@@ -40,12 +39,8 @@ Authorization: Auth String
 
 #### 错误码
 
-此接口的特殊错误信息如下所述，全部错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
-错误码|描述|HTTP 状态码
----|---|---
-BucketNotEmpty|存储桶不为空|409 Conflict
-NoSuchBucket|指定的存储桶不存在|404 Not Found
 
 ## 实际案例
 

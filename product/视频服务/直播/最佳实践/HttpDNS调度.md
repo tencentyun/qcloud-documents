@@ -50,4 +50,4 @@ https://server_ip/play_domain/live/ streamname -123.ts?xxxxxxxxxx
 rtmp://server_ip/play_domain/live/ streamname?xxxxxxxxxx
 ```
 
->!以上方案均基于云直播海外的调度平台，不可完全参照在国内使用。
+>!以上方案均基于云直播海外的调度平台，不可完全参照在国内使用。 

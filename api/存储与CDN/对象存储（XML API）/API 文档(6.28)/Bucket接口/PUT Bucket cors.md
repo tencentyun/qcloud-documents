@@ -1,122 +1,152 @@
 ## 功能描述
-PUT Bucket cors 接口用于请求设置 Bucket 的跨域资源共享权限，您可以通过传入 XML 格式的配置文件来实现配置，文件大小限制为64KB。默认情况下，Bucket 的持有者直接有权限使用该 API 接口，Bucket 持有者也可以将权限授予其他用户。
+
+PUT Bucket cors 请求用于为存储桶配置跨域资源共享（CORS）访问控制，您可以通过传入 XML 格式的配置文件来实现配置，文件大小限制为64KB。
 
 ## 请求
+
 #### 请求示例
 
-```sh
+```plaintext
 PUT /?cors HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
-Content-Length: length
 Content-Type: application/xml
+Content-Length: Content Length
 Content-MD5: MD5
 Authorization: Auth String
 
+[Request Body]
 ```
 
->?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>? Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
+#### 请求参数
+
+此接口无请求参数。
 
 #### 请求头
 
-此接口除使用公共请求头部外，还支持以下必选请求头部，了解公共请求头部详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
-
-|名称	|描述	|类型|	是否必选|
-|---|---|----|----|
-|Content-MD5|	RFC 1864 中定义的经过 Base64 编码的请求体内容 MD5 哈希值，用于完整性检查，验证请求体在传输过程中是否发生变化   |	string	|  是 |
-
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 请求体
-请求的请求体为跨域规则。
 
-```http
-<?xml version="1.0" encoding="UTF-8" ?>
+提交 **application/xml** 请求数据，包含完整的存储桶跨域资源共享（CORS）配置信息。
+
+```plaintext
 <CORSConfiguration>
-    <CORSRule>
-        <ID>1234</ID>
-        <AllowedOrigin>http://www.qq.com</AllowedOrigin>
-        <AllowedMethod>PUT</AllowedMethod>
-        <AllowedHeader>x-cos-meta-test</AllowedHeader>
-        <MaxAgeSeconds>500</MaxAgeSeconds>
-        <ExposeHeader>x-cos-meta-test1</ExposeHeader>
-    </CORSRule>
+	<CORSRule>
+		<AllowedOrigin>string</AllowedOrigin>
+		<AllowedMethod>enum</AllowedMethod>
+		<AllowedMethod>enum</AllowedMethod>
+		<AllowedHeader>string</AllowedHeader>
+		<AllowedHeader>string</AllowedHeader>
+		<ExposeHeader>string</ExposeHeader>
+		<ExposeHeader>string</ExposeHeader>
+		<MaxAgeSeconds>integer</MaxAgeSeconds>
+	</CORSRule>
+	<CORSRule>
+		<ID>string</ID>
+		<AllowedOrigin>string</AllowedOrigin>
+		<AllowedOrigin>string</AllowedOrigin>
+		<AllowedMethod>enum</AllowedMethod>
+		<AllowedMethod>enum</AllowedMethod>
+		<AllowedHeader>string</AllowedHeader>
+		<ExposeHeader>string</ExposeHeader>
+		<ExposeHeader>string</ExposeHeader>
+		<MaxAgeSeconds>integer</MaxAgeSeconds>
+	</CORSRule>
 </CORSConfiguration>
 ```
 
+具体的节点描述如下：
 
-具体的数据描述如下：
+| 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
+| --- | --- | --- | --- | --- |
+| CORSConfiguration | 无 | 包含 PUT Bucket cors 操作的所有请求信息 | Container | 否 |
 
-|节点名称（关键字）|父节点|描述|类型|是否必选|
-|---|---|---|---|---|
-|CORSConfiguration|无|说明跨域资源共享配置的所有信息，最多可以包含100条 CORSRule|Container|是|
+**Container 节点 CORSConfiguration 的内容：**
 
-Container 节点 CORSConfiguration 的内容：
+| 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
+| --- | --- | --- | --- | --- |
+| CORSRule | CORSConfiguration | 说明单条跨域资源共享（CORS）配置的所有信息，最多可以包含100条 CORSRule | Container | 是 |
 
-| 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 是否必选 |
-| ------------------ | ----------------- | ------------------------------------------------------------ | --------- | ---- |
-| CORSRule           | CORSConfiguration | 说明跨域资源共享配置的所有信息，最多可以包含100条 CORSRule | Container | 是   |
+**Container 节点 CORSRule 的内容：**
 
-Container 节点 CORSRule 的内容：
-
-|节点名称（关键字）|父节点|描述|类型|是否必选|
-|---|---|---|---|---|
-|ID|CORSConfiguration.CORSRule|配置规则的 ID，可选填|string|否|
-|AllowedOrigin|CORSConfiguration.CORSRule|允许的访问来源，支持通配符`*`，格式为：`协议://域名[:端口]`，例如：`http://www.qq.com`|strings|是|
-|AllowedMethod|CORSConfiguration.CORSRule|允许的 HTTP 操作，枚举值：GET，PUT，HEAD，POST，DELETE|strings|是|
-|AllowedHeader|CORSConfiguration.CORSRule|在发送 OPTIONS 请求时告知服务端，接下来的请求可以使用哪些自定义的 HTTP 请求头部，支持通配符`*`|strings|是|
-|MaxAgeSeconds|CORSConfiguration.CORSRule|设置 OPTIONS 请求得到结果的有效期|integer|是|
-|ExposeHeader|CORSConfiguration.CORSRule|设置浏览器可以接收到的来自服务器端的自定义头部信息|strings|是|
-
+| 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
+| --- | --- | --- | --- | --- |
+| AllowedOrigin | CORSConfiguration.CORSRule | 允许的访问来源，单条 CORSRule 可以配置多个 AllowedOrigin。<br><li>配置支持 `*`，表示全部域名都允许，但不推荐。<br><li>支持单个具体域名，例如 `http://www.example.com`。<br><li>支持 `*` 通配符，通配符可出现在任何位置，包括协议、域名和端口，可匹配0个或多个字符，但是只能有一个 `*`。请谨慎使用通配符，因为可能意外匹配到非预期的来源<br><li>注意不要遗漏协议名 http 或 https，若端口不是默认的80(http)或443(https)，还需要带上端口，例如 `https://example.com:8443`。 | string | 是 |
+| AllowedMethod | CORSConfiguration.CORSRule | 允许的 HTTP 操作方法（Method），对应 CORS 请求响应中的 Access-Control-Allow-Methods 头部，单条 CORSRule 可以配置多个 AllowedMethod。枚举值：PUT、GET、POST、DELETE、HEAD。 | enum | 是 |
+| AllowedHeader | CORSConfiguration.CORSRule | 在发送预检（OPTIONS）请求时，浏览器会告知服务端接下来的正式请求将使用的自定义 HTTP 请求头部，此配置用于指定允许浏览器发送 CORS 请求时携带的自定义 HTTP 请求头部，不区分英文大小写，单条 CORSRule 可以配置多个 AllowedHeader。<br><li>可以配置`*`，代表允许所有头部，为了避免遗漏，推荐配置为`*`。<br><li>如果不配置为`*`，那么在预检（OPTIONS）请求中 Access-Control-Request-Headers 头部出现的每个 Header，都必须在 AllowedHeader 中有对应项。 | string | 是 |
+| ExposeHeader | CORSConfiguration.CORSRule | 允许浏览器获取的 CORS 请求响应中的头部，不区分大小写，单条 CORSRule 可以配置多个 ExposeHeader。<br><li>默认情况下浏览器只能访问简单响应头部：Cache-Control、Content-Type、Expires、Last-Modified，如果需要访问其他响应头部，需要添加 ExposeHeader 配置。<br><li>不支持配置为 `*`，必须明确配置具体的 Header。<br><li>根据浏览器的实际需求确定，默认推荐填写 ETag，可参考各 API 文档的响应头部分及 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。 | string | 是 |
+| MaxAgeSeconds | CORSConfiguration.CORSRule | 跨域资源共享配置的有效时间，单位为秒，在有效时间内，浏览器无须为同一请求再次发起预检（OPTIONS）请求，对应 CORS 请求响应中的 Access-Control-Max-Age 头部，单条 CORSRule 只能配置一个 MaxAgeSeconds。 | integer | 是 |
+| ID | CORSConfiguration.CORSRule | 单条 CORSRule 配置的 ID，用于在 GET Bucket cors 时查找指定 CORSRule。可选填，单条 CORSRule 最多配置一个 ID。 | string | 否 |
 
 ## 响应
+
 #### 响应头
 
 此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 响应体
-该请求响应体为空。
+
+此接口响应体为空。
 
 #### 错误码
 
-|错误码|描述|HTTP 状态码|
-|---|---|---|
-|SignatureDoesNotMatch|提供的签名不符合规则，返回该错误码|403 [Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3) |
-|NoSuchBucket|如果试图添加的规则所在的 Bucket 不存在，返回该错误码|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) |
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
 #### 请求
 
-```sh
+```plaintext
 PUT /?cors HTTP/1.1
-Host: examplebucket-1250000000.cos.ap-chengdu.myqcloud.com
-Content-MD5: q+xJ56ypmuOSKbkohlpZIg==
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Thu, 09 Jul 2020 11:15:01 GMT
 Content-Type: application/xml
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDVMyLTL4B8rVt52LTozzPZBYffPs9****&q-sign-time=1578385303;1578392503&q-key-time=1578385303;1578392503&q-header-list=content-md5;content-type;host&q-url-param-list=cors&q-signature=730a82c7afed2a6c051870d54895193235e8****
-Content-Length: 385
+Content-Length: 1185
+Content-MD5: ZNkhBxyjkaZcs1j7/cIE2A==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1594293301;1594300501&q-key-time=1594293301;1594300501&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=cors&q-signature=2ec71624468abfbd5c8ea2679e1365b29f3a****
+Connection: close
 
-<?xml version="1.0" encoding="UTF-8" ?>
 <CORSConfiguration>
-    <CORSRule>
-        <ID>1234</ID>
-        <AllowedOrigin>http://www.qq.com</AllowedOrigin>
-        <AllowedMethod>PUT</AllowedMethod>
-        <AllowedHeader>x-cos-meta-test</AllowedHeader>
-        <MaxAgeSeconds>500</MaxAgeSeconds>
-        <ExposeHeader>x-cos-meta-test1</ExposeHeader>
-    </CORSRule>
+	<CORSRule>
+		<AllowedOrigin>*</AllowedOrigin>
+		<AllowedMethod>GET</AllowedMethod>
+		<AllowedMethod>HEAD</AllowedMethod>
+		<AllowedHeader>Range</AllowedHeader>
+		<AllowedHeader>x-cos-server-side-encryption-customer-algorithm</AllowedHeader>
+		<AllowedHeader>x-cos-server-side-encryption-customer-key</AllowedHeader>
+		<AllowedHeader>x-cos-server-side-encryption-customer-key-MD5</AllowedHeader>
+		<ExposeHeader>Content-Length</ExposeHeader>
+		<ExposeHeader>ETag</ExposeHeader>
+		<ExposeHeader>x-cos-meta-author</ExposeHeader>
+		<MaxAgeSeconds>600</MaxAgeSeconds>
+	</CORSRule>
+	<CORSRule>
+		<ID>example-id</ID>
+		<AllowedOrigin>https://example.com</AllowedOrigin>
+		<AllowedOrigin>https://example.net</AllowedOrigin>
+		<AllowedMethod>PUT</AllowedMethod>
+		<AllowedMethod>GET</AllowedMethod>
+		...
+		<AllowedMethod>HEAD</AllowedMethod>
+		<AllowedHeader>*</AllowedHeader>
+		<ExposeHeader>Content-Length</ExposeHeader>
+		<ExposeHeader>ETag</ExposeHeader>
+		<ExposeHeader>x-cos-meta-author</ExposeHeader>
+		<MaxAgeSeconds>600</MaxAgeSeconds>
+	</CORSRule>
 </CORSConfiguration>
 ```
 
 #### 响应
 
-```sh
+```plaintext
 HTTP/1.1 200 OK
-content-length: 0
-connection: close
-date: Tue, 07 Jan 2020 08:21:44 GMT
-server: tencent-cos
-x-cos-request-id: NWUxNDNmOThfNWFiMjU4NjRfMWIxYl9lYWY1****
+Content-Length: 0
+Connection: close
+Date: Thu, 09 Jul 2020 11:15:01 GMT
+Server: tencent-cos
+x-cos-request-id: NWYwNmZjMzVfMzFiYjBiMDlfZjgzYV8xZDky****
 ```
-

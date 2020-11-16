@@ -1,7 +1,7 @@
-## Filebeats 简介
+## Filebeat 简介
 [Beats 平台](https://www.elastic.co/cn/products/beats) 集合了多种单一用途数据采集器。这些采集器安装后可用作轻量型代理，从成百上千或成千上万台机器向目标发送采集数据。
 ![](https://main.qcloudimg.com/raw/e48ad4b5a9d1d4576bbb5f574125b8aa.png)
-Beats 有多种采集器，您可以根据自身的需求下载对应的采集器。本文以 Filebeats（轻量型日志采集器）为例，向您介绍 Filebeats 接入 CKafka 的操作指方法，及接入后常见问题的解决方法。
+Beats 有多种采集器，您可以根据自身的需求下载对应的采集器。本文以 Filebeat（轻量型日志采集器）为例，向您介绍 Filebeat 接入 CKafka 的操作指方法，及接入后常见问题的解决方法。
 
 
 ## 操作步骤
@@ -79,7 +79,7 @@ echo ckafka3 >> testlog
 2019-03-20T08:55:02.199+0800    INFO    kafka/log.go:53 producer/broker/478 shut down
 ```
 出现大量 INFO 可能是 Filebeat 版本有问题，因为 Elastic 家族的产品发版速度很频繁，而且不同大版本有很多不兼容。
-例如：6.5.x默认 Kafka 的版本是1.0.0，而5.6.x默认的是0.8.2.0。
+例如：6.5.x 默认支持 Kafka 的版本是 0.9、0.10、1.1.0、2.0.0，而 5.6.x 默认支持的是0.8.2.0。
 
 您需要检查配置文件中的版本配置：
 ```

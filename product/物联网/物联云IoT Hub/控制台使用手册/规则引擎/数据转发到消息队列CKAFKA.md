@@ -2,7 +2,7 @@
 规则引擎支持用户配置规则将符合条件的设备上报数据转发到 [消息队列 CKAFKA](https://cloud.tencent.com/product/CKafka) （以下简称 CKAFKA ），用户的应用服务器再从 CKAFKA 中读取数据内容进行处理。以此利用 CKAFKA 高吞吐量的优势，为用户打造高可用性的消息链路。  
 
 下图展示了规则引擎将数据转发给 CKAFKA 的整个过程：
-![avatar](https://main.qcloudimg.com/raw/ae9179db06123982f14857891aeabb8a.png)
+![](https://main.qcloudimg.com/raw/dead88cb3fe3a5c986b6522565967193.png)
 
 ## 配置
 1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击左侧菜单【规则引擎】。

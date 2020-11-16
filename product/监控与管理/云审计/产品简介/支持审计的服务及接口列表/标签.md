@@ -1,0 +1,19 @@
+随着腾讯云用户资源数量的增加，用户管理资源的难度也随之增加。为方便用户更快速有效地查询和管理各种资源，腾讯云推出标签这一产品。人们可以通过标签来进行腾讯云已有资源的分类管理，通过预设标签来进行资源规划。标签是一些充当元数据的词和短语，用于标识和组织腾讯云资源。标签限制随资源而有所不同，但大多数最多可以有 50 个标签。
+
+下表为云审计支持的标签操作列表：
+
+| 操作名称               | 资源类型 | 事件名称                         |
+|--------------------|------|------------------------------|
+| 标签关联资源             | tag  | AddResourceTag               |
+| 创建标签               | tag  | CreateTag                    |
+| 删除资源标签             | tag  | DeleteResourceTag            |
+| 删除标签               | tag  | DeleteTag                    |
+| 标签查询菜单列表           | tag  | GetResourceMenu              |
+| 通过标签查询资源列表         | tag  | GetResourcesByTags           |
+| 查询资源标签             | tag  | GetResourceTags              |
+| 查询资源所有标签键标签值       | tag  | GetResourceTagsByResourceIds |
+| 查询标签键              | tag  | GetTagKeys                   |
+| 查询标签列表             | tag  | GetTags                      |
+| 查询标签值              | tag  | GetTagValues                 |
+| 批量操作（添加更新删除）资源所有标签 | tag  | ModifyResourceTags           |
+| 修改资源标签值            | tag  | UpdateResourceTagValue       |

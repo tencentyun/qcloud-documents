@@ -11,7 +11,7 @@
 
 ## VSM 管理主机配置
 远程登录购买的云服务器 CVM，登录前并做如图的配置，这样就可以在 VSM 管理主机中使用身份认卡 USBKey 了。 
-（1）在【本地资源】中，打开【详细信息】。
+1. 在【本地资源】中，打开【详细信息】。
 ![](https://main.qcloudimg.com/raw/1b43fa63182fa686294e7f4b38ea96ce.png)
-（2）勾选【稍后插入的驱动器】。
-![](https://main.qcloudimg.com/raw/0fb087c988a774be8eb2180121e90260.png)
+2. 勾选【稍后插入的驱动器】。
+![](https://main.qcloudimg.com/raw/240b7e27f6bd8af445d49085473791bc.png)

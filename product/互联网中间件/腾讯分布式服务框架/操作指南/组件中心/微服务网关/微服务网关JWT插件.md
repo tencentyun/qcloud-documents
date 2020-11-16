@@ -13,8 +13,8 @@ Header 部分是一个 JSON 对象，描述 JWT 的元数据，示例如下：
    "typ": "JWT"
 }
 ```
-- `alg`属性表示签名的算法（algorithm），默认是 HMAC SHA256（写成 HS256）。
-- `typ`属性表示这个令牌（token）的类型（type），JWT 令牌统一写为`JWT`。
+- `alg` 属性表示签名的算法（algorithm），默认是 HMAC SHA256（写成 HS256）。
+- `typ` 属性表示这个令牌（token）的类型（type），JWT 令牌统一写为 `JWT`。
 
 最后，将上面的 JSON 对象使用 Base64URL 算法转成字符串，即为 JWT 令牌中的 Header 部分。
 
@@ -162,7 +162,7 @@ public static void main(String[] args) throws JoseException, MalformedClaimExcep
 ### 1. 新建插件
 微服务网关已经对外提供了 JWT 认证功能，用户可在【[TSF 控制台](https://console.cloud.tencent.com/tsf?rid=1)】>【微服务网关】>【插件管理】页面创建 JWT 类型插件。
 ![](https://main.qcloudimg.com/raw/c5a490b04b9168b1d2ee56b9df2e25a1.png)
-* 校验参数值：指用户存放 JWT 令牌（Token）参数名称，示例中参数名为`token`。
+* 校验参数值：指用户存放 JWT 令牌（Token）参数名称，示例中参数名为 `token`。
 * 校验参数携带位置：指用户存放 JWT 令牌（Token）的位置，目前支持 Query 和 Header 两种携带方式，示例中为 Query 方式。
 * 公钥对 kid：密钥 ID（“kid”），用来标识此密钥。
 * 公钥对 JSON 串：公钥对，示例中值为：
@@ -182,10 +182,10 @@ public static void main(String[] args) throws JoseException, MalformedClaimExcep
       "location":"header"
   }]
   ```
-该示例表示，将 claim 中参数为`email`的值，通过放入 HTTP header 透传给下游，并重新命名为`new_email`。
- - `parameterName`属性表示 claim 数据中待透传参数的名称。
+该示例表示，将 claim 中参数为 `email` 的值，通过放入 HTTP header 透传给下游，并重新命名为 `new_email`。
+ - `parameterName` 属性表示 claim 数据中待透传参数的名称。
  - `mappingParameterName` 属性表示需要转换的参数名称。
- - `location`属性表示透传此值的位置。
+ - `location` 属性表示透传此值的位置。
   
 ### 2. 插件绑定对象  
 微服务网关插件通过绑定分组或 API 来生效。 

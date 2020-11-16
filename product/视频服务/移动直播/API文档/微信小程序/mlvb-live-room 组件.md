@@ -12,7 +12,7 @@
 | beauty    | Number  | 0 - 5                     | 可选，默认5，美颜级别0 - 5。  |
 | muted     | Boolean | true，false             | 可选，默认 false，是否静音。    |
 | debug     | Boolean | true，false             | 可选，默认 false，是否打印推流 debug 信息。   |
-| bindonRoomEvent     | function |   -           | 必要，监听 mlvb-live-room 组件返回的事件。   |
+| bindRoomEvent     | function |   -           | 必要，监听 mlvb-live-room 组件返回的事件。   |
 
 
 
@@ -63,7 +63,7 @@ liveroom.pause();
 	beauty="{{beauty}}"
 	muted="{{muted}}"
 	debug="{{debug}}"
-	bindonRoomEvent="onRoomEvent">
+	bindRoomEvent="onRoomEvent">
 </mlvb-live-room>
 
 

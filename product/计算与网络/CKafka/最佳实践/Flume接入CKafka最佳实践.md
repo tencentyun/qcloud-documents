@@ -54,7 +54,7 @@ tier1.sources.source1.kafka.consumer.group.id = custom.g.id
 | type	| 必须为：org.apache.flume.sink.kafka.KafkaSink |
 | kafka.bootstrap.servers	| Kafka Broker 的服务器 |
 |kafka.topics	| Kafka 中数据来源 Topic|
-|flumeBatchSize	| 每次写入的 Bacth 大小 |
+|kafka.flumeBatchSize	| 每次写入的 Bacth 大小 |
 |kafka.producer.acks	 | 	Kafka 生产者的生产策略 |
 
 示例：

@@ -154,6 +154,7 @@ cosfs <BucketName-APPID> <MountPoint> -ourl=<CosDomainName> -odbglevel=info -oal
 - -odbglevel 指定日志级别。
 - -oallow_other 允许非挂载用户访问挂载文件夹。
 
+
 **示例：**
 
 ```shell
@@ -194,9 +195,6 @@ v1.0.5 之前版本 COSFS 的配置文件格式是：
 ####  -onoxattr
 禁用 getattr/setxattr 功能，在1.0.9之前版本的 COSFS 不支持设置和获取扩展属性，如果在挂载时使用了 use_xattr 选项，可能会导致 mv 文件到 Bucket 失败。
 
-#### -ouse_cache=[path]
-使用缓存目录缓存文件，path 为本地缓存目录路径，该选项可以在文件缓存下来后，加速文件的读写（非第一次读写），如果不需要本地缓存或本地磁盘容量有限，可不指定该选项。
-
 #### -opasswd_file=[path]
 该选项可以指定 COSFS 密钥文件的所在路径，该选项设定的密钥文件需要设置权限为600。
 
@@ -212,8 +210,6 @@ v1.0.5 之前版本 COSFS 的配置文件格式是：
 该选项允许用户 id 为 [uid] 的用户不受挂载目录中文件权限位的限制，可以访问挂载目录中的所有文件。
 获取用户 uid 可以使用 id 命令，格式` id -u username`。例如执行`id -u user_00`，可获取到用户 user_00 的 uid。
 
-#### -oensure_diskfree=[size]
-用来指定当缓存文件所在磁盘，剩余空间不足 [size] MB 大小时，COSFS 运行将尽量减少使用磁盘空间（单位： MB）。 COSFS 的上传下载都会使用磁盘文件缓存，当上传大文件时，若不指定该参数，会写满缓存文件所在的磁盘。如果指定 -ouse_cache=[path] 参数，缓存文件位于 path 目录下，否则，在 /tmp 目录下。
 
 ## 常见问题
 如果您在使用 COSFS 工具过程中，有相关的疑问，请参见 [COSFS 工具类常见问题](https://cloud.tencent.com/document/product/436/30743)。

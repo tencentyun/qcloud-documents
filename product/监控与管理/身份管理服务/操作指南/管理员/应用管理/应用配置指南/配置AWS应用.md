@@ -7,6 +7,7 @@
 - 您已有 AWS 账号，并有权限管理 IAM。
 
 ## 操作步骤
+
 ### 创建 AWS 控制台应用
 1. 管理员登录 [IDaaS 控制台](https://console.cloud.tencent.com/idaas)。
 2. 在左侧导航栏中，单击【应用管理】，进入应用管理页面。

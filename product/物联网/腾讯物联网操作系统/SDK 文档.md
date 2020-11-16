@@ -46,7 +46,7 @@ int tos_knl_is_running(void);
 void tos_knl_irq_enter(void);
 ```
 
-- 功能描述：此函数应该在中断服务函数开始之前被调用。
+- 功能描述：此函数应该在中断服务函数开始前被调用。
 - 参数解释：无。
 - 返回值：无。
 
@@ -58,7 +58,7 @@ void tos_knl_irq_enter(void);
 void tos_knl_irq_leave(void);
 ```
 
-- 功能描述：此函数应该在中断服务函数结束之前被调用。
+- 功能描述：此函数应该在中断服务函数结束前被调用。
 - 参数解释：无。
 - 返回值：无。
 

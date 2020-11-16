@@ -91,13 +91,17 @@ vim /etc/default/docker
 DOCKER_OPTS="--registry-mirror=https://mirror.ccs.tencentyun.com"
 ```
 - 适用于 Centos 7 操作系统：
- 1. 执行以下命令，打开 `/etc/sysconfig/docker` 配置文件。
+ 1. 执行以下命令，打开 `/etc/docker/daemon.json` 配置文件。
 ```
-vim /etc/sysconfig/docker
+vim /etc/docker/daemon.json
 ```
  2. 按 **i** 切换至编辑模式，添加以下内容，并保存。
 ```
-OPTIONS='--registry-mirror=https://mirror.ccs.tencentyun.com'
+{
+   "registry-mirrors": [
+       "https://mirror.ccs.tencentyun.com"
+  ]
+}
 ```
 - 适用于已安装 Boot2Docker 的 Windows 操作系统：
  1. 进入 Boot2Docker Start Shell，并执行以下命令：

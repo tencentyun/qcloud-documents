@@ -1,7 +1,7 @@
 ## 概述
 ![](https://main.qcloudimg.com/raw/e2b8ff1a050e043bbc50bd0e65926a54.png)
-- 请按照 [兼容性配置](https://cloud.tencent.com/document/product/1007/35886#pz) 指引进行 iOS 及 Android 手机的兼容性适配。
-- 选择至少10款手机进行 [兼容性验证](https://cloud.tencent.com/document/product/1007/35886#yz)，需覆盖 Android 系统版本4.0 - 9.0。
+- 请按照 [兼容性配置](#pz) 指引进行 iOS 及 Android 手机的兼容性适配。
+- 选择至少10款手机进行 [兼容性验证](#yz)，需覆盖 Android 系统版本4.0 - 10.0。
 
 <span id='pz'></span>
 ## 兼容性配置
@@ -9,14 +9,12 @@
 iPhone 的兼容性适配，需在配置里加上摄像头和麦克风的使用权限。App 的 info.plist 中加入：
 `.NSMicrophoneUsageDescription`   
 `.NSCameraUsageDescription`
+
 ### Android 接入
 由于 Android 机器碎片化严重，用系统 WebView 调起系统摄像头完成视频录制可能存在很多兼容性问题，如部分机器出现调不起摄像头、调起摄像头无法录制视频等。
 实现兼容性处理步骤如下：
 1. 引入工具类
-	- [下载 SDK](https://share.weiyun.com/5VTnQgj)，请联系您的产品对接专员获取密码。
-	- 下载 [WBH5FaceVerifySDK.java](https://share.weiyun.com/5ZPKj2H) 文件（下载密码请咨询您的产品对接专员），并将文件拷贝到项目中。
-
-
+下载 [WBH5FaceVerifySDK.java](https://share.weiyun.com/5VTnQgj) 文件（下载密码请咨询您的产品对接专员），并将文件拷贝到项目中。
 2. 申请权限
  1. 在 Manifest.xml 文件中增加申请以下权限
  ```
@@ -102,7 +100,7 @@ WebView 所属的 Activity 必须重写如下函数：
 <span id='yz'></span>
 ## 兼容性验证
 为了验证合作方 Android 端已经兼容了摄像头的处理，建议合作方做如下兼容性测试。
-- 从下面的机型列表中选择覆盖 Android4.0 - 9.0 版本号的机型进行测试。
+- 从下面的机型列表中选择覆盖 Android4.0 - 10.0 版本号的机型进行测试。
 - 每个系统版本号选取至少2款不同手机。
 
 |手机品牌	|手机型号|	Android 系统版本|

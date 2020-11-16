@@ -18,7 +18,7 @@ Tencentcloud-Serverless-Nodejs SDK 的功能特性可分为以下几点：
 已安装 Node.js 8.9 及以上版本。
 - 运行环境
 已安装 tencentcloud-serverless-nodejs SDK，支持 Windows、Linux 和 Mac 操作系统。
-- 建议安装 [SCF CLI](https://github.com/tencentyun/scfcli)，可快速部署本地云函数。
+- 建议使用 [Serverless Framework CLI](https://cloud.tencent.com/document/product/583/37510)，可快速部署本地云函数。
 
 ### 安装 tencentcloud-serverless-nodejs SDK
 #### 通过 npm 安装（推荐）
@@ -32,16 +32,28 @@ npm install tencentcloud-serverless-nodejs
 安装完成后，在 `testNodejsSDK` 目录下可以查看到 `node_modules`，`package.json` 和 `package-lock.json`。
 
 #### 通过源码包安装
-前往 [Github 代码托管地址](https://github.com/TencentCloud/tencentcloud-serverless-nodejs)下载最新源码包，解压源码包后进行安装。
+前往 [Github 代码托管地址](https://github.com/TencentCloud/tencentcloud-serverless-nodejs) 下载最新源码包，解压源码包后进行安装。
 
+#### 使用云函数在线依赖安装
+使用 [云函数在线依赖安装](https://cloud.tencent.com/document/product/583/37920)，在 `package.json` 中执行以下命令并进行安装。
+```js
+{
+    "dependencies": {
+    "tencentcloud-serverless-nodejs":"*"
+  }
+}
+```
 
 
 ### 云端函数互调
 #### 示例
 >!
->- 不同地域下的函数互调，须指定地域，命名规则参见 [地域列表](https://cloud.tencent.com/document/api/583/17238#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
+> - 不同地域下的函数互调，须指定地域，命名规则参见 [地域列表](https://cloud.tencent.com/document/api/583/17238#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
 > - 如果不指定地域，默认为同地域下函数互调。
 > - 命名空间不指定，默认为 default。
+> - 需要打开调用方函数外网访问权限。
+> - 如果没有手动传入 secretId 和 secretKey 等参数，函数需绑定有 SCF Invoke 权限（或者包含 SCF Invoke，例如 SCF FullAccess）的角色，可参考 [创建函数运行角色](https://cloud.tencent.com/document/product/583/41755)。
+
 
 1. <span id="Step1"></span>创建一个地域为【北京】，名称为 “FuncInvoked”，并用于**被调用**的 Node.js 云函数。该云函数内容如下：
 ```js
@@ -55,24 +67,22 @@ exports.main_handler = async (event, context, callback) => {
 ```
 2. 在 `testNodejsSDK` 目录下新建文件 `index.js`，并输入如下示例代码，创建**发起调用**的 Node.js 云函数。
 ```js
-const sdk = require('tencentcloud-serverless-nodejs')
-exports.main_handler = async (event,context,callback)=>{
-      sdk.init({
-          region: 'ap-beijing'
-      }) // 如果sdk运行在云函数中，初始化时可以不传secretId,secretKey
-
-      console.log('prepare to invoke a function!')
-      const res = await sdk.invoke({
-          functionName: 'FuncInvoked',
-          qualifier: '$LATEST',
-          data: JSON.stringify({
-              key:'value'
-          }),
-          namespace:'default'
-      })
-      console.log(res)
-      //return res
-      return 'Already invoked a function!'
+const { SDK, LogType }  = require('tencentcloud-serverless-nodejs')
+exports.main_handler = async (event, context) => {
+  context.callbackWaitsForEmptyEventLoop = false
+  const sdk = new SDK({
+    region:'ap-beijing'
+  }) //如果在云函数中运行并且绑定了有SCF调用资格的运行角色，会默认取环境变量中的鉴权信息
+  const res = await sdk.invoke({
+    functionName: 'FuncInvoked',
+    logType: LogType.Tail,
+    data: {
+      name: 'test',
+      role: 'test_role'
+    }
+  })
+  console.log(res)
+  // return res
 }
 ```
 其中主要参数获取途径如下：
@@ -111,31 +121,24 @@ exports.main_handler = async (event, context, callback) => {
 
 2. 在 `testNodejsSDK` 目录下新建文件 `index.js`，作为**发起调用**的 Node.js 云函数，并输入如下示例代码：
 ```js
-const sdk = require('tencentcloud-serverless-nodejs')
-exports.main_handler = async (event, context, callback) => {
-      sdk.init({
-          region: 'ap-beijing',
-         secretId: 'AKxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxj',
-          secretKey: 'WtxxxxxxxxxxxxxxxxxxxxxxxxxxxxqL'
-      }) // 替换为您的 secretId 和 secretKey
-      console.log('prepare to invoke a function!')
-      const res = await sdk.invoke({
-          functionName: 'FuncInvoked',
-          qualifier: '$LATEST',
-          data: JSON.stringify({
-              key:'value'
-          }),
-          namespace:'default'
-      })
-      console.log(res)
-      //return res
-      console.log('Already invoked a function!')
-  }
-  if (process.env.NODE_ENV === 'development') {
-      const event = {
-          test: '123'
-      }
-      exports.main_handler(event)
+const { SDK, LogType }  = require('tencentcloud-serverless-nodejs')
+exports.main_handler = async (event, context) => {
+  context.callbackWaitsForEmptyEventLoop = false
+  const sdk = new SDK({
+    region:'ap-beijing',
+    secretId: 'AKxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxj',
+    secretKey: 'WtxxxxxxxxxxxxxxxxxxxxxxxxxxxxqL'
+  }) //如果在云函数中运行并且绑定了有SCF调用资格的运行角色，会默认取环境变量中的鉴权信息
+  const res = await sdk.invoke({
+    functionName: 'FuncInvoked',
+    logType: LogType.Tail,
+    data: {
+      name: 'test',
+      role: 'test_role'
+    }
+  })
+  console.log(res)
+  // return res
 }
 ```
 >!secretId 及 secretKey：指云 API 的密钥 ID 和密钥 Key。您可以通过登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)，选择【访问密钥】>【API 密钥管理】，获取相关密钥或创建相关密钥。

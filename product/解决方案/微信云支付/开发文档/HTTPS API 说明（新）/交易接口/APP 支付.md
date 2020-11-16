@@ -183,25 +183,25 @@ prepare_id	|是|	String	|微信返回的支付交易会话 ID。
         }  
     },  
     "request_content": "{  
-            "pay_mch_key": {  
-                "out_sub_mch_id": "sz01LG0dvp4O09jjuPbA",  
-                "wxpay_pay_mch_key_ext": {  
-                    "mob_app_id": "wx87dd198b78jucir8"  
-                },  
-                "out_mch_id": "sz01fdd7icm7JKjkkfc3",  
-                "out_shop_id": "sz011Zszd73bocifI9eG",  
-                "pay_platform": 1,  
-                "out_mch_id": "sz01MaHltuPggtcvcTUM"  
-            },  
-            "nonce_str": "k8s03nyOPIQxju4lw69CCfeUWL66GDBH",  
-            "pay_content": {  
-                "body": "body",  
-                "fee_type": "CNY",  
-                "out_trade_no": "011888520000211567600739877620",  
-                "total_fee": 100,  
-                "time_expire": 1567601636  
-            }  
-        }"  
+		"pay_mch_key": {  
+			"out_sub_mch_id": "sz01LG0dvp4O09jjuPbA",  
+			"wxpay_pay_mch_key_ext": {  
+					"mob_app_id": "wx87dd198b78jucir8"  
+			},  
+			"out_mch_id": "sz01fdd7icm7JKjkkfc3",  
+			"out_shop_id": "sz011Zszd73bocifI9eG",  
+			"pay_platform": 1,  
+			"out_mch_id": "sz01MaHltuPggtcvcTUM"  
+		},  
+		"nonce_str": "k8s03nyOPIQxju4lw69CCfeUWL66GDBH",  
+		"pay_content": {  
+			"body": "body",  
+			"fee_type": "CNY",  
+			"out_trade_no": "011888520000211567600739877620",  
+			"total_fee": 100,  
+			"time_expire": 1567601636  
+		}  
+	}"  
 }  
 ```
 **输出参数示例：**
@@ -209,34 +209,34 @@ prepare_id	|是|	String	|微信返回的支付交易会话 ID。
 ```
 {  
     "response_content": "{  
-            "status": 0,  
-            "description": "\u64CD\u4F5C\u6210\u529F\u3002",  
-            "log_id": 3637968353,  
-            "internal_status": 0,  
-            "app_pay": {  
-                "pay_mch_key": {  
-                    "pay_platform": 1,  
-                    "out_mch_id": "sz01fdd7icm7JKjkkfc3",  
-                    "out_sub_mch_id": "sz01LG0dvp4O09jjuPbA",  
-                    "out_shop_id": "sz011Zszd73bocifI9eG",  
-                    "sub_pay_platform": 100,  
-                    "wxpay_pay_mch_key_ext": {  
-                        "app_id": "wx0b0ebc671d51405b",  
-                    }  
-                },  
-                "nonce_str": "zWbxyYBupz2DDIRiO9u9BsmjbAQsmnGv",  
-                "sdk_args": {  
-                    "wxpay": {  
-                        "app_id": "wx87dd198b78jucir8",  
-                        "partner_id": "257300488",  
-                        "package_value": "Sign=WXPay",  
-                        "nonce_str": "k8s03nyOPIQxju4lw69CCfeUWL66GDBH",  
-                        "timestamp": "1567600739",  
-                        "sign": "B3E62ECF398573085397AFCAE1568A8A"  
-                    }  
-                }  
-            }  
-        }",  
+		"status": 0,  
+		"description": "\u64CD\u4F5C\u6210\u529F\u3002",  
+		"log_id": 3637968353,  
+		"internal_status": 0,  
+		"app_pay": {  
+			"pay_mch_key": {  
+				"pay_platform": 1,  
+				"out_mch_id": "sz01fdd7icm7JKjkkfc3",  
+				"out_sub_mch_id": "sz01LG0dvp4O09jjuPbA",  
+				"out_shop_id": "sz011Zszd73bocifI9eG",  
+				"sub_pay_platform": 100,  
+				"wxpay_pay_mch_key_ext": {  
+					"app_id": "wx0b0ebc671d51405b",  
+				}  
+			},  
+			"nonce_str": "zWbxyYBupz2DDIRiO9u9BsmjbAQsmnGv",  
+			"sdk_args": {  
+				"wxpay": {  
+					"app_id": "wx87dd198b78jucir8",  
+					"partner_id": "257300488",  
+					"package_value": "Sign=WXPay",  
+					"nonce_str": "k8s03nyOPIQxju4lw69CCfeUWL66GDBH",  
+					"timestamp": "1567600739",  
+					"sign": "B3E62ECF398573085397AFCAE1568A8A"  
+				}  
+			}  
+		} 
+	}",  
     "authen_info": {  
         "a": {  
             "authen_type": 1,  

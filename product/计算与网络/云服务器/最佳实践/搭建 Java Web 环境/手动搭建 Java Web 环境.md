@@ -8,7 +8,7 @@
 ## 示例软件版本
 本文搭建的 Java Web 环境组成版本及说明如下：
 - Linux：Linux 操作系统，本文以 CentOS 7.6 为例。
-- Apache Tomcat：Web 应用服务器，本文以 Apache Tomcat 8.5.47 为例。
+- Apache Tomcat：Web 应用服务器，本文以 Apache Tomcat 8.5.55 为例。
 - JDK：Java 开发工具包，本文以 JDK 1.8.0_221 为例。
 
 
@@ -40,7 +40,7 @@ tar xzf jdk-8u221-linux-x64.tar.gz -C /usr/java
 ```
 vim /etc/profile
 ```
-5. 按 “**i**” 切换至编辑模式，在 `export PATH USER ...` 后另起一行，根据您实际使用的 JDK 版本添加以下内容。
+5. 按 **i** 切换至编辑模式，在 `export PATH USER ...` 后另起一行，根据您实际使用的 JDK 版本添加以下内容。
 ```
 export JAVA_HOME=/usr/java/jdk1.8.0_221（您的 JDK 版本）
 export CLASSPATH=$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib
@@ -48,7 +48,7 @@ export PATH=$JAVA_HOME/bin:$PATH
 ```
 添加完成后，如下图所示：
 ![](https://main.qcloudimg.com/raw/a4d0466eca6c4c0ef219f571b7d165de.png)
-6. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+6. 按 **Esc**，输入 **:wq**，保存文件并返回。
 7. 执行以下命令，读取环境变量。
 ```
 source /etc/profile
@@ -62,37 +62,37 @@ java -version
 
 ### 步骤3：安装 Tomcat
 1. 执行以下命令，下载 Tomcat 源码包，您可根据实际需求下载不同版本 Tomcat。
->?本文使用 Apache 官网提供下载网址，您可前往 [Apache 官网](https://tomcat.apache.org/) 获取更多安装信息。
+>?本文使用 Apache 官网提供下载网址，若出现下载链接失效等错误或需要其他 Tomcat 版本时，可前往 [Apache 官网](https://tomcat.apache.org/) 获取更多安装信息。
 >
 ```
-wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.47/bin/apache-tomcat-8.5.47.tar.gz
+wget https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-8/v8.5.55/bin/apache-tomcat-8.5.55.tar.gz
 ```
 2. 执行以下命令，解压 Tomcat 源码包。
 ```
-tar xzf apache-tomcat-8.5.47.tar.gz
+tar xzf apache-tomcat-8.5.55.tar.gz
 ```
 3. 执行以下命令，将解压后的文件夹下的文件移动到 `/usr/local/tomcat/` 目录下。
 ```
-mv apache-tomcat-8.5.47 /usr/local/tomcat/
+mv apache-tomcat-8.5.55 /usr/local/tomcat/
 ```
 4. 执行以下命令，打开 `server.xml` 文件。
 ```
 vim /usr/local/tomcat/conf/server.xml
 ```
-5. 找到 `<Host ... appBase="webapps">`，按 “**i**” 切换至编辑模式，将 `appBase="webapps"` 替换为以下内容：
+5. 找到 `<Host ... appBase="webapps">`，按 **i** 切换至编辑模式，将 `appBase="webapps"` 替换为以下内容：
 ```
 appBase="/usr/local/tomcat/webapps"
 ```
-6. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+6. 按 **Esc**，输入 **:wq**，保存文件并返回。
 7. 执行以下命令，新建 `setenv.sh` 文件。
 ```
 vi /usr/local/tomcat/bin/setenv.sh
 ```
-8. 按 “**i**” 切换至编辑模式，输入以下内容，设置 JVM 的内存参数。
+8. 按 **i** 切换至编辑模式，输入以下内容，设置 JVM 的内存参数。
 ```
 JAVA_OPTS='-Djava.security.egd=file:/dev/./urandom -server -Xms256m -Xmx496m -Dfile.encoding=UTF-8' 
 ```
-9. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+9. 按 **Esc**，输入 **:wq**，保存文件并返回。
 10. 执行以下命令，启动 Tomcat。
 ```
 /usr/local/tomcat/bin/startup.sh

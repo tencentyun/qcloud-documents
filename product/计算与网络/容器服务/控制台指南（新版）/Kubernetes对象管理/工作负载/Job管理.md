@@ -97,7 +97,6 @@ job       1         0            1m
 ```
 
 ### 删除 Job
-
 执行以下命令，删除 Job。
 ```
 kubectl delete job [NAME]

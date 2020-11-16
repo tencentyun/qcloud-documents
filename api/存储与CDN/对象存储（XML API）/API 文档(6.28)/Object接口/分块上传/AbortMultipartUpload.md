@@ -13,13 +13,13 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
->?Authorization: Auth String （详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>?Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求参数
 
 具体内容如下：
 
-|参数名称|描述|类型|必选|
+|参数名称|描述|类型|是否必选|
 |---|---|---|---|
 |uploadId|标识本次分块上传的 ID。<br>使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置 |String|是|
 
@@ -28,7 +28,7 @@ Authorization: Auth String
 
 
 #### 请求体
-该请求的请求体空。
+该请求的请求体为空。
 
 ## 响应
 
@@ -37,8 +37,11 @@ Authorization: Auth String
 
 
 #### 响应体
-该请求的响应体为空。
+该响应体为空。
 
+#### 错误码
+
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -47,7 +50,7 @@ Authorization: Auth String
 DELETE /exampleobject?uploadId=1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Tue, 26 Oct 2013 21:22:00 GMT
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUjfGFO&q-sign-time=1484728626;32557624626&q-key-time=1484728626;32557624626&q-header-list=host&q-url-param-list=uploadId&q-signature=2d3036b57cade4a257b48a3a5dc922779a562b18
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDWtTCBYjM5OwLB9CAwA1Qb2ThTSUj****&q-sign-time=1484728626;32557624626&q-key-time=1484728626;32557624626&q-header-list=host&q-url-param-list=uploadId&q-signature=2d3036b57cade4a257b48a3a5dc922779a56****
 ```
 
 #### 响应
@@ -58,5 +61,5 @@ Content-Length: 0
 Connection: keep-alive
 Date: Tue, 26 Oct 2013 21:22:00 GMT
 Server: tencent-cos
-x-cos-request-id: NTg3ZjI5MzlfOTgxZjRlXzZhYjNfMjBh
+x-cos-request-id: NTg3ZjI5MzlfOTgxZjRlXzZhYjNf****
 ```

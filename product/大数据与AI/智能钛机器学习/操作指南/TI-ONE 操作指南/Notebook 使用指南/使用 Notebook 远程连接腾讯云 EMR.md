@@ -19,7 +19,7 @@
 
 ### 新建 Notebook 配置 EMR 连接凭据
 登录 [智能钛机器学习平台控制台](https://console.cloud.tencent.com/tione/notebook/instance) ，选择与 EMR 集群相同的地域，单击【新增实例】，打开 VPC 选项，请确保此处的 VPC 和子网与新建 EMR 时的选择相同。
-![](https://main.qcloudimg.com/raw/ed577fdfeb420cc44b234075d9930c04.png)
+![](https://main.qcloudimg.com/raw/ba98aefb04e8fbfa6734e6269a8a22cc.png)
 
 打开 Notebook，在启动界面的最下面找到 Terminal。
 ![](https://main.qcloudimg.com/raw/35cd31f20118b434f914d0ef22f5f750.png)

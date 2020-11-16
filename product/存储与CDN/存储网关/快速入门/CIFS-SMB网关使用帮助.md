@@ -255,8 +255,8 @@ Password: csg123
 ![](https://mc.qcloudimg.com/static/img/ba1f23f1ceaec7a46e47a25594960b39/image.png)
 
 
-#### 打开 "映射网路驱动器"
-登录到需要挂载文件系统的 Windows 上，在 "开始" 菜单中找到 "计算机"，单击鼠标右键出现菜单，单击菜单中的 "映射网路驱动器"。 
+#### 打开 "映射网络驱动器"
+登录到需要挂载文件系统的 Windows 上，在 "开始" 菜单中找到 "计算机"，单击鼠标右键出现菜单，单击菜单中的 "映射网络驱动器"。 
 ![](https://mc.qcloudimg.com/static/img/5696d66a83d4e9b35196274f89e07dfc/image.png)
 ![](https://mc.qcloudimg.com/static/img/6eeb1c0838e6aab185ed8b76dc736912/image.png)
 
@@ -314,3 +314,4 @@ Password: csg123
 ### CIFS/SMB 文件系统挂载时目录被锁
 
 若从多台机器使用相同用户名/密码访问同一文件系统，系统会视这一类操作行为为非法，因而会拒绝访问。若有需要，请分别使用不同的用户名及密码登录不同主机来访问同一个文件系统。
+

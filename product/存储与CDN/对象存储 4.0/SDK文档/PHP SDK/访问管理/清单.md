@@ -22,6 +22,7 @@ public Guzzle\Service\Resource\Model PutBucketInventory(array $args = array());
 
 #### 请求示例
 
+[//]: # (.cssg-snippet-put-bucket-inventory)
 ```php
 try {
     $result = $cosClient->putBucketInventory(array(
@@ -106,6 +107,7 @@ public Guzzle\Service\Resource\Model GutBucketInventory(array $args = array());
 
 #### 请求示例
 
+[//]: # (.cssg-snippet-get-bucket-inventory)
 ```php
 try {
     $result = $cosClient->getBucketInvnetory(array(
@@ -201,6 +203,7 @@ public Guzzle\Service\Resource\Model DeleteBucketInventory(array $args = array()
 
 #### 请求示例
 
+[//]: # (.cssg-snippet-delete-bucket-inventory)
 ```php
 try {
     $result = $cosClient->deleteBucketInvnetory(array(

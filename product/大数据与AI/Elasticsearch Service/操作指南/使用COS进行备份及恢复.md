@@ -20,7 +20,7 @@ PUT _snapshot/my_cos_backup
 - access_key_id：腾讯云 API 密钥 SecretId。
 - access_key_secret：腾讯云 API 密钥 SecretKey。
 - bucket：COS Bucket 名字，**名字不能带`-{appId}`后缀**。
-- region：COS Bucket 地域，建议与 ES 集群同地域。
+- region：COS Bucket 地域，**此地域必须与 ES 集群为同一地域**。地域编码可参考 [地域和可用区](https://cloud.tencent.com/document/product/213/6091)。
 - base_path：备份目录。   
 
 ## 列出仓库信息

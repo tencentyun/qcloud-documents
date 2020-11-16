@@ -19,13 +19,8 @@ Authorization: Auth String
 
 #### 请求头
 
-#### 公共头部
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
-该请求操作的实现使用公共请求头，了解公共请求头详情，请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728 "公共请求头部") 文档。
-
-#### 非公共头部
-
-该请求操作无特殊的请求头部信息。
 
 #### 请求体
 
@@ -35,27 +30,16 @@ Authorization: Auth String
 
 #### 响应头
 
-#### 公共响应头
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
-该响应使用公共响应头，了解公共响应头详情，请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 文档。
-
-#### 特有响应头
-
-该请求操作无特殊的响应头部信息。
 
 #### 响应体
 
-该请求无特殊响应体信息。
+该响应体为空。
 
 #### 错误码
 
-以下描述此请求可能会发生的一些特殊的且常见的错误情况：
-
-| 错误码                | 描述                                                 | HTTP 状态码                                                  |
-| --------------------- | ---------------------------------------------------- | ------------------------------------------------------------ |
-| SignatureDoesNotMatch | 提供的签名不符合规则，返回该错误码                   | 403 [Forbidden](https://tools.ietf.org/html/rfc7231#section-6.5.3) |
-| NoSuchBucket          | 如果试图添加的规则所在的 Bucket 不存在，返回该错误码 | 404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) |
-| NoSuchTagSetError     | 请求的存储桶中未设置存储桶标签                       | 404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4) |
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -68,7 +52,7 @@ DELETE /?tagging HTTP/1.1
 User-Agent: curl/7.29.0
 Accept: */*
 Host: examplebucket-1250000000.cos.ap-chengdu.myqcloud.com
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDrbAYjEBqqdEconpFi8NPFsOjrnX4LYUE&q-sign-time=1516361923;1517361973&q-key-time=1516361923;1517361973&q-url-param-list=tagging&q-header-list=content-md5;host&q-signature=71251feb4501494edcfbd01747fa873003759404
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDrbAYjEBqqdEconpFi8NPFsOjrnX4****&q-sign-time=1516361923;1517361973&q-key-time=1516361923;1517361973&q-url-param-list=tagging&q-header-list=content-md5;host&q-signature=71251feb4501494edcfbd01747fa87300375****
 Content-Md5: LIbd5t5HLPhuNWYkP6qHcQ==
 Content-Length: 127
 Content-Type: application/xml

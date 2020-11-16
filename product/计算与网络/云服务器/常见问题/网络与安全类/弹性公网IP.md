@@ -17,18 +17,6 @@
 具体操作详情可参见 [释放 EIP](https://cloud.tencent.com/document/product/213/16586#.E9.87.8A.E6.94.BE.E5.BC.B9.E6.80.A7.E5.85.AC.E7.BD.91-ip)。
 - 当您需要保留某个弹性公网 IP 又需要停止扣费时，您可以将其绑定在设备（CVM，NAT）上，绑定状态下的弹性公网 IP 便不再扣费。
 
-### 云服务器没有公网 IP 如何实现公网访问？
-如果您在购买机器时未购买公网 IP 或者已将公网 IP 退还，您可以在 [弹性公网 IP 控制台 ](https://console.cloud.tencent.com/cvm/eip)申请弹性公网 IP，然后绑定到您的机器，实现公网访问。
-
-### 能否更换我的公网 IP 地址？
-
-您可以为您的云服务器更换公网 IP，具体操作请参见 [更换实例公网 IP](https://cloud.tencent.com/document/product/213/16642)。
-
-### 如何保持公网 IP 地址不变？
-
-当您需要保留账户中的某个特定公网 IP 时，可将其先转换为弹性公网 IP，绑定设备后即可使用该 IP 进行公网访问。只要不进行**释放**操作，该弹性公网 IP 便会一直保留在您的账户中。
-相关操作请参见 [弹性公网 IP](https://cloud.tencent.com/document/product/213/16586)。
-
 ### 弹性公网 IP 能否再转换为普通公网 IP？
 
 弹性公网 IP 无法再次转换为普通公网 IP。
