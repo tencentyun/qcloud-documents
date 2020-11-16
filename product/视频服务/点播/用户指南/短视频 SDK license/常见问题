@@ -4,7 +4,7 @@
 测试 License 试用期最多28天，不能延期，到期后请尽快购买正式 License。
 
 ### 2、测试 License 能否更改 Android 的 PackageName 和 iOS 的 BundleID?
-测试 License 支持更改，在 [云点播控制台](https://console.cloud.tencent.com/vod/license) 选择测试 License 信息右上角，单击【编辑】修改。
+测试 License 支持更改，在 [云点播控制台](https://console.cloud.tencent.com/vod/license) 选择测试 License 信息右上角，单击【编辑】可进行修改。
 
 ### 3、正式 License 能否更改 Android 的 PackageName 和 iOS 的 BundleID?
 当前版本，正式 License 不能更改 PackageName 和 BundleID，后续版本会加以支持。
