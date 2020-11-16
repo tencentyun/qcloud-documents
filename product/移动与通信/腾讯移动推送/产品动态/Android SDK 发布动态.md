@@ -1,3 +1,20 @@
+## 2020年11月
+
+<table>
+<tr>
+    <th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+</tr>
+        <tr>
+        <td>SDK 1.2.1.3 版本发布</td>
+       <td>内部逻辑优化</td>
+        <td>2020-11-11</td>
+        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载 SDK</a></td>
+    </tr>
+</table>
+
 ## 2020年10月
 
 <table>
@@ -18,7 +35,7 @@
 
 
 
-## 2020年7月
+## 2020年07月
 
 <table>
 <tr>
@@ -41,7 +58,7 @@
     </tr>
 </table>
 
-## 2020年6月
+## 2020年06月
 
 <table>
 <tr>
@@ -66,7 +83,7 @@
     </tr>
 </table>
 
-## 2020年4月
+## 2020年04月
 
 <table>
 <tr>
@@ -95,7 +112,7 @@
     </tr>
 </table>
 
-## 2020年3月
+## 2020年03月
 <table>
 <tr>
     <th width=20%>动态名称</th>
@@ -111,7 +128,7 @@
     </tr>
 </table>
 
-## 2020年1月
+## 2020年01月
 
 <table>
 <tr>
@@ -203,7 +220,7 @@
     </tr>
 </table>
 
-## 2019年9月
+## 2019年09月
 
 <table>
 <tr>

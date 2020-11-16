@@ -31,7 +31,7 @@
 - AppKey： `ahPxdK*****TGrejd`
 - AppSecret： `NcbHqk******TCGbKnQH`
 
-> 本文仅为示例，请您根据自己实际的 `AppKey` 和 `AppSecret` 进行后续操作。
+>?本文仅为示例，请您根据自己实际的 `AppKey` 和 `AppSecret` 进行后续操作。
 
 以通过手机号注册账号 `AppCreateCellphoneUser` 请求为例，当用户调用这一接口时，其请求参数**可能**如下：
 
