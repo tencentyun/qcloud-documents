@@ -48,7 +48,7 @@
 
 您可以在 [云点播控制台](https://console.cloud.tencent.com/vod/license) 查看 License 的有效期，正式版本的 License 有效期为一年。如您需要对指定的 License 续期，请确保已购买资源包的情况下，进行如下操作：
  ### 步骤1：进入续租页
-进入 [短视频 License](https://console.cloud.tencent.com/vod/license) ，选择您需要续期的 License，单击右上角的【续期】，进入短视频 License 续期页。
+进入[短视频 License](https://console.cloud.tencent.com/vod/license)，选择您需要续期的 License，单击右上角的【续期】，进入短视频 License 续期页。
  ### 步骤2：确认续租
 选择当前账户可绑定的资源包，单击【确认续期】即可。
 	![](https://main.qcloudimg.com/raw/5d1d551707a5a41e69f201ca00ef549d.png)
