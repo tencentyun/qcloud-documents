@@ -157,7 +157,7 @@
 - Windows：修复多个已知的 crash 问题。
 - Windows：修复摄像头和麦克风拔掉后重新插入不会自动开启设备的问题。
 - iOS：修复在 iOS 10 上背景音乐接口在传入特定规则的文件路径时会崩溃的 BUG。
-- Android：修复频繁快速的 enterRoom 和 exitRoom 后偶先的无声问题。
+- Android：修复频繁快速的 enterRoom 和 exitRoom 后偶现的无声问题。
 - Android：修复偶现的录屏推流黑屏的问题。
 
 
