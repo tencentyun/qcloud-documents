@@ -1,50 +1,42 @@
-# 在 TKE 中实践 DevOps
+
 
 
 
 ## 概述
 
-DevOps 理念被越来越多的企业采纳，DevOps 是 Development 和 Operations 的组合词，代表着重视「软件开发人员(Dev)」和「IT 运维技术人员(Ops)」之间沟通合作的文化；旨在透过自动化「软件交付」和「架构变更」的流程，使得构建、 测试、发布软件的过程能够更加地快捷、频繁和可靠。在云原生时代，我们更需要 Devops 思维来实现敏捷开发， 本文将介绍和实践专为云原生打造的 TKE 容器 DevOps 服务，实现从代码提交时触发镜像的自动构建，再到镜像构建成功时触发自动部署流程将应用部署、更新到 TKE 集群中的一整套无缝衔接的 Devops 流水线。
+DevOps 理念被越来越多的企业采纳，DevOps 是 Development 和 Operations 的组合词，代表着重视“软件开发人员（Dev）”和 “IT 运维技术人员（Ops）”之间沟通合作的文化，旨在透过自动化“软件交付”和“架构变更”的流程，使得构建、测试、发布软件的过程能够更加地快捷、频繁和可靠。在云原生时代，使用 Devops 思维可实现敏捷开发，本文将介绍和实践专为云原生打造的 TKE 容器 DevOps 服务，实现从代码提交时触发镜像的自动构建，再到镜像构建成功时触发自动部署流程将应用部署、更新到 TKE 集群中的一整套无缝衔接的 Devops 流水线。
 
 
 
-## TKE 容器 DevOps 简介
+## TKE 容器 DevOps 
+### 简介
 
-TKE 容器 DevOps 是 [容器服务 TKE](https://cloud.tencent.com/document/product/457/)、[容器镜像服务 TCR](https://cloud.tencent.com/document/product/1141/39278) 和 [CODING DevOps](https://cloud.tencent.com/product/coding) 三个服务紧密结合，面向容器业务场景，具备自动化代码编译、容器镜像构建、镜像推送及应用部署等功能，为客户提供强大的一站式云原生 DevOps 服务。容器 DevOps 快速入门请参考 [TKE 和 Coding 协同业务实现快速迭代](https://cloud.tencent.com/document/product/457/47834) 最佳实践文档。
+TKE 容器 DevOps 是 [容器服务 TKE](https://cloud.tencent.com/document/product/457/)、[容器镜像服务 TCR](https://cloud.tencent.com/document/product/1141/39278) 和 [CODING DevOps](https://cloud.tencent.com/product/coding) 服务紧密结合，面向容器业务场景，具备自动化代码编译、容器镜像构建、镜像推送及应用部署等功能，为客户提供强大的一站式云原生 DevOps 服务。容器 DevOps 快速入门请参见 [TKE 和 Coding 协同业务实现快速迭代](https://cloud.tencent.com/document/product/457/47834) 。
 
 
 
-## TKE 容器 DevOps 业务流程
+### 业务流程
 
-TKE 容器 DevOps 服务贯穿了整个应用开发和部署流程的全生命周期管理，实现了从更新代码到应用部署、更新的自动化，如下图所示：
-
+TKE 容器 DevOps 服务贯穿了整个应用开发和部署流程的全生命周期管理，实现了从更新代码到应用部署、更新的自动化，业务流程如下图所示：
 ![process](https://main.qcloudimg.com/raw/19a60b1a7ee79e58188676085808d535.svg)
 
 
+## 前提条件
 
-## 如何使用 TKE 容器 DevOps
+- 已创建 TKE 测试集群，创建过程可参见 [部署容器服务TKE](https://cloud.tencent.com/document/product/457/11741)。
+- 开通 [容器镜像服务 TCR](https://cloud.tencent.com/document/product/1141/39278) 服务。并已创建可访问的 TCR 测试实例和生成测试实例访问凭证。TCR 需要开通企业标准版或高级版支持云原生交付工作流，详情请参见 [容器镜像服务购买指南](https://cloud.tencent.com/document/product/1141/40540)。目前 TCR 支持区域请参见 [支持地域](https://cloud.tencent.com/document/product/1141/40540)。
+- 已开通 [CODING DevOps](https://cloud.tencent.com/document/product/1115/37268) 服务，并已创建和完善 Coding Devops 团队。如使用子账号进行操作，请使用主账号在 [CODING DevOps 控制台](https://console.cloud.tencent.com/coding/container-devops) 快速创建拥有权限的子用户或参考 [子用户权限设置](https://cloud.tencent.com/document/product/598/10594) 提前为子账号授予对应实例的操作权限。
+	
+	
+## 操作步骤
 
-### 操作场景
 
-TKE 容器 Devops 功能提供了强大的云原生 Devops服务，下面将按照上述 TKE 容器 Devops 业务流程图来实现从源码更新到业务发布的整套自动化流程。
+TKE 容器 Devops 功能提供了强大的云原生 Devops 服务，本文将介绍 TKE 容器 Devops 如何实现从源码更新到业务发布的整套自动化流程。
 
-### 前提条件
 
-- 创建 TKE 测试集群
 
-  关于如何创建可参考文档 [部署容器服务TKE](https://cloud.tencent.com/document/product/457/11741)。
 
-- 开通 [容器镜像服务 TCR](https://cloud.tencent.com/document/product/1141/39278) 服务
-
-  已创建可访问的 TCR 测试实例和生成测试实例访问凭证。 TCR 需要开通企业标准版或高级版支持云原生交付工作流，详情请参考 [容器镜像服务购买指南](https://cloud.tencent.com/document/product/1141/40540)，目前 TCR 支持区域请参考 [支持地域](https://cloud.tencent.com/document/product/1141/40540)。
-
-- 开通 [CODING DevOps](https://cloud.tencent.com/document/product/1115/37268) 服务
-
-  已创建和完善了 Coding Devops 团队。如使用子账号进行操作，请使用主账号在 [CODING DevOps](https://console.cloud.tencent.com/coding/container-devops) 控制台快速创建拥有权限的子用户或参考 [子用户权限设置](https://cloud.tencent.com/document/product/598/10594) 提前为子账号授予对应实例的操作权限。
-
-### 操作步骤
-
-#### TKE 容器 Devops 访问入口
+### TKE 容器 Devops 访问入口
 
 在 TKE 控制台左侧功能菜单栏点击【Devops】功能链接即可进入【容器 Devops】介绍界面，如下图所示：
 
@@ -52,7 +44,7 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops服务，下面将按�
 
 点击 【立即使用】即可跳转到所属团队的 Coding 主页面使用相关 DevOps 功能。
 
-#### 配置代码托管
+### 配置代码托管
 
 在 Coding 团队主页面创建一个测试项目和测试代码仓库，关于 Coding 代码托管介绍请参考 [代码托管介绍](https://help.coding.net/docs/host/introduce.html ) 。创建步骤如下：
 
@@ -64,7 +56,7 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops服务，下面将按�
 
 ![image-20201027153950849](https://main.qcloudimg.com/raw/bb420e9c94b4030918f63bdc283ecf47.png)
 
-#### 创建构建计划
+### 创建构建计划
 
 在测试项目 “test-jokey” 主页面左侧菜单【持续集成】的子菜单 【构建计划】中创建一个构建计划，构建计划是持续集成的基本单元，可以通过选择构建计划模版快速创建一个构建计划，详情请参考文档 [快速开始持续集成](https://help.coding.net/docs/ci/start.html)。
 
@@ -110,13 +102,13 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops服务，下面将按�
 
 
 
-#### 创建持续部署
+### 创建持续部署
 
 在测试项目 “test-jokey” 主页面左侧菜单 【持续集成】的子菜单 【Kubernetes】中根据步骤引导创建持续部署流水线，如下图所示：
 
 ![image-20201028162532013](https://main.qcloudimg.com/raw/86962357bdba8d0cfffef2b8b03353b0.png)
 
-##### 配置云账号
+#### 配置云账号
 
 请参考 [云账号](https://help.coding.net/docs/cd/cloudaccount.html) 文档，添加配置部署云上资源的访问云账号信息，可以选择【腾讯云 TKE】或者【Kubernetes】 类型的云账号，输入相关认证配置添加云账号，这里选择了【Kubernetes】方式绑定。
 
@@ -124,7 +116,7 @@ TKE 容器 Devops 功能提供了强大的云原生 Devops服务，下面将按�
 
 
 
-##### 配置应用和流程
+#### 配置应用和流程
 
 关于 Coding 应用与项目相关说明请参考文档 [应用与项目](https://help.coding.net/docs/cd/app-project.html)和 [流程配置](https://help.coding.net/docs/cd/pipe/overview.html) ，这里仅简单说明下在配置应用和流程过程中的关键配置项。
 
@@ -209,11 +201,11 @@ spec:
 
 ![image-20201029142546113](https://main.qcloudimg.com/raw/b6b69f6ef2a564b9ef0a049c66bafab0.png)
 
-##### 关联项目和应用
+#### 关联项目和应用
 
 关联项目和应用配置请参考文档 [项目和应用关联](https://help.coding.net/docs/cd/app-project.html#%E5%BA%94%E7%94%A8%E4%B8%8E%E9%A1%B9%E7%9B%AE%E5%85%B3%E8%81%94)。
 
-##### 提单发布
+#### 提单发布
 
 提单发布使用和配置请参考文档 [新建发布单](https://help.coding.net/docs/cd/app-project.html#%E6%96%B0%E5%BB%BA%E5%8F%91%E5%B8%83%E5%8D%95)。
 
@@ -223,7 +215,7 @@ spec:
 
 
 
-### 测试验证
+## 测试验证
 
 在项目代码文件中修改添加如下所示的 v2 API 代码后提交 master 分支：
 
