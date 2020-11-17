@@ -13,7 +13,7 @@
 
  
 ### 步骤2：生成 License 信息
-点击 【免费创建】后，页面会显示生成的 License 信息，这里需要记下 Key 和 LicenseUrl，在 SDK 的初始化时需要传入这两个参数。
+点击【免费创建】后，页面会显示生成的 License 信息，这里需要记下 Key 和 LicenseUrl，在 SDK 的初始化时需要传入这两个参数。
 ![](https://main.qcloudimg.com/raw/1c181ff0fe99c93f9c01d09bd1b3ca65.png)
 
 ## 购买正式版 License
@@ -65,3 +65,4 @@
 #### 示例
 
 用户购买 [流量资源包10TB](https://buy.cloud.tencent.com/vod)（赠送精简版 License），如需升级至基础版 License，则 [云点播控制台](https://console.cloud.tencent.com/vod/license) 需要存在50TB或200TB资源包。
+
