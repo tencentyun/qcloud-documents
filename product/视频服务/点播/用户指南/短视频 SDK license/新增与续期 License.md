@@ -18,7 +18,7 @@
 
 ## 购买正式版 License
 
-当您的测试 License 到期后，您需要进入 [云点播控制台](https://console.cloud.tencent.com/vod/license) 创建正式 License。如您购买[流量资源包10T](https://buy.cloud.tencent.com/vod)、[流量资源包50T](https://buy.cloud.tencent.com/vod)、[流量资源包200T](https://buy.cloud.tencent.com/vod)中的任意一种，云点播都会赠送一个 License，该 License 需在 [云点播控制台](https://console.cloud.tencent.com/vod/license) 和 [流量资源包](https://cloud.tencent.com/document/product/266/14667#2.-.E6.B5.81.E9.87.8F.E8.B5.84.E6.BA.90.E5.8C.85) 绑定后才可以创建成功，且该 License 的有效期和资源包的有效期一致，支持对 License 进行升级、续期、变更。
+当您的测试 License 到期后，您需要进入 [云点播控制台](https://console.cloud.tencent.com/vod/license) 创建正式 License。如您购买 [流量资源包10T](https://buy.cloud.tencent.com/vod)、[流量资源包50T](https://buy.cloud.tencent.com/vod)、[流量资源包200T](https://buy.cloud.tencent.com/vod) 中的任意一种，云点播都会赠送一个 License，该 License 需在 [云点播控制台](https://console.cloud.tencent.com/vod/license) 和 [流量资源包](https://cloud.tencent.com/document/product/266/14667#2.-.E6.B5.81.E9.87.8F.E8.B5.84.E6.BA.90.E5.8C.85) 绑定后才可以创建成功，且该 License 的有效期和资源包的有效期一致，支持对 License 进行升级、续期、变更。
 
 **SDK 版本 License 与您需要购买的点播套餐包对应关系如下：**
 
@@ -32,9 +32,9 @@
 ## 新增短视频 License
 
  ### 步骤1：购买 License
-进入[短视频 License](https://console.cloud.tencent.com/vod/license)，单击【新增 License】，进入短视频 License 新增页。
+进入 [短视频 License](https://console.cloud.tencent.com/vod/license)，单击【新增 License】，进入短视频 License 新增页。
 ![](https://main.qcloudimg.com/raw/a925a612f55ce6f0b9db96d541e0d6bf.png)
-选择当前账户可绑定的资源包。若无已购买资源包，请单击【购买页】前往选购[流量资源包10TB](https://buy.cloud.tencent.com/vod)、[流量资源包50TB](https://buy.cloud.tencent.com/vod)、[流量资源包200TB](https://buy.cloud.tencent.com/vod)中的任意一种。
+选择当前账户可绑定的资源包。若无已购买资源包，请单击【购买页】前往选购 [流量资源包10TB](https://buy.cloud.tencent.com/vod)、[流量资源包50TB](https://buy.cloud.tencent.com/vod)、[流量资源包200TB](https://buy.cloud.tencent.com/vod) 中的任意一种。
 ![](https://main.qcloudimg.com/raw/07384dc91eca502e3ba77469ab2affeb.png)
  
 ### 步骤2：License 设置
@@ -48,7 +48,7 @@
 
 您可以在 [云点播控制台](https://console.cloud.tencent.com/vod/license) 查看 License 的有效期，正式版本的 License 有效期为一年。如您需要对指定的 License 续期，请确保已购买资源包的情况下，进行如下操作：
  ### 步骤1：进入续租页
-进入[短视频 License](https://console.cloud.tencent.com/vod/license)，选择您需要续期的 License，单击右上角的【续期】，进入短视频 License 续期页。
+进入 [短视频 License](https://console.cloud.tencent.com/vod/license)，选择您需要续期的 License，单击右上角的【续期】，进入短视频 License 续期页。
  ### 步骤2：确认续租
 选择当前账户可绑定的资源包，单击【确认续期】即可。
 	![](https://main.qcloudimg.com/raw/5d1d551707a5a41e69f201ca00ef549d.png)
@@ -60,7 +60,7 @@
 
 ## 升级短视频 License
 
-目前仅支持短视频 License 由精简版升级至基础版，升级 License 为[对应资源包赠送的 License 规格](https://cloud.tencent.com/document/product/584/9368#.E8.B4.AD.E4.B9.B0.E8.AF.B4.E6.98.8E)。
+目前仅支持短视频 License 由精简版升级至基础版，升级 License 为 [对应资源包赠送的 License 规格](https://cloud.tencent.com/document/product/584/9368#.E8.B4.AD.E4.B9.B0.E8.AF.B4.E6.98.8E)。
 
 #### 示例
 
