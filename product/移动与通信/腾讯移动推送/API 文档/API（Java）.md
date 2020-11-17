@@ -29,7 +29,7 @@ Maven  依赖引用方式：
 | readTimeOut    | Integer | 否   | 10s                        | 请求超时时间设置                                             |
 | domainUrl      | String  | 否   | https://openapi.xg.qq.com/ | 请求接口服务域名地址，默认为请求信鸽平台的接口地址。使用时需要根据您产品的服务接入点选择 [请求服务地址](https://cloud.tencent.com/document/product/548/49157) |
 
-#### 示例
+### 示例
 
 ```java
 XingeApp xingeApp = new XingeApp.Builder()
