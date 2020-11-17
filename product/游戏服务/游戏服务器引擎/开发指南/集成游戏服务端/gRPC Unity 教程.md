@@ -45,12 +45,14 @@ Unity 接入 GSE SDK 包括以下几个步骤：
 ![](https://main.qcloudimg.com/raw/0ae70c8558f0a07a04d72554004faa76.png)
 2. 将压缩包解压得到 `protoc` 和 `grpc_csharp_plugin` 可执行程序。
 ![](https://main.qcloudimg.com/raw/026e83a43d6d3d078d7d2acc12771827.png)
+<span id="test3"></span>
 3. 拷贝 `protoc` 和 `grpc_csharp_plugin` 可执行程序到和 Protobuf 文件同一目录下，并在该目录下执行以下两条命令生成 `C#` 代码：
- - `protoc -I ./ --csharp_out=. GseGrpcSdkService.proto --grpc_out=. --plugin=protoc-gen-grpc=grpc_csharp_plugin`
- - ` protoc -I ./ --csharp_out=. GameServerGrpcSdkService.proto --grpc_out=. --plugin=protoc-gen-grpc=grpc_csharp_plugin`
-windows 下命令为
- - ` ./protoc -I ./ --csharp_out=. GseGrpcSdkService.proto --grpc_out=. --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe `
- - ` ./protoc -I ./ --csharp_out=. GameServerGrpcSdkService.proto --grpc_out=. --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe`
+ -  **MAC 和 Linux 环境命令如下：**
+    - `protoc -I ./ --csharp_out=. GseGrpcSdkService.proto --grpc_out=. --plugin=protoc-gen-grpc=grpc_csharp_plugin`
+    - ` protoc -I ./ --csharp_out=. GameServerGrpcSdkService.proto --grpc_out=. --plugin=protoc-gen-grpc=grpc_csharp_plugin`
+ - **Windows 环境命令如下：**
+    - ` ./protoc -I ./ --csharp_out=. GseGrpcSdkService.proto --grpc_out=. --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe `
+    - ` ./protoc -I ./ --csharp_out=. GameServerGrpcSdkService.proto --grpc_out=. --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe`
  
   ![](https://main.qcloudimg.com/raw/dad39ec6bfabea5ee2025b83596fc711.png)
 
@@ -158,15 +160,29 @@ public class StartServers : MonoBehaviour
 }  
 ```
 
+##	Unity DEMO
+1.	[单击这里]( https://gsegrpcdemo-1301007756.cos.ap-guangzhou.myqcloud.com/unity-demo.zip)，您可以下载 Unity DEMO代码。
+2.	导入 grpc unity package。
+   将 [步骤2](#test2) 中  grpc_unity_package 解压到 Demo 工程 unity-demo 或 Assets 目录下。
+3.	根据 [Protobuf](#test3) 文件生成 C# 代码。
+4.	启动服务端，供 GSE 调用。
+ - 服务端实现，在 `unity-demo/Assets/Scripts/Api` 目录下的 `GrpcServer.cs` 文件中实现服务端的三个接口。
+ - 服务端运行，在 `unity-demo/Assets/Scripts` 目录下的 `MyGrpcServer.cs` 文件中，创建 `gRPC Server`， `StartServers.cs` 从而启动 `gRPC Server`。
+5.	客户端连接 GSE 的 gRPC 服务端。
+ - 客户端实现，在 `unity-demo/Assets/Scripts/Gsemanager` 目录下的 `Gsemanager.cs` 文件实现客户端的九个接口。
+ - 连接服务端，创建一个 gRPC channel，指定要连接的主机和服务器端口，然后使用此 channel 创建存根实例。
+6.	编译运行。
+   使用 Unity Editor 打包目标系统的可执行程序，并打包为生成包，启动路径配置可执行程序名（需根据实际的可执行程序名称填写）。
+
 ## 常见问题
 <span id="test1"></span>
-### 将下载的 `grpc_unity_package.VERSION.zip` 文件解压到 Unity 项目中后，Unity IDE 报错 （例如[ 缺陷22251](https://github.com/grpc/grpc/issues/22251) 中描述）怎么处理？
+#### 将下载的 `grpc_unity_package.VERSION.zip` 文件解压到 Unity 项目中后，Unity IDE 报错 （例如[ 缺陷22251](https://github.com/grpc/grpc/issues/22251) 中描述）怎么处理？
 重新下载 v2.26 版本 [grpc_unity_package.2.26.0-dev.zip](https://packages.grpc.io/archive/2019/12/a02d6b9be81cbadb60eed88b3b44498ba27bcba9-edd81ac6-e3d1-461a-a263-2b06ae913c3f/index.xml) 并解压。
 
-### 打包 MacOS 服务端程序，运行时出现 `error: grpc_csharp_ext` 错误怎么处理？
+#### 打包 MacOS 服务端程序，运行时出现 `error: grpc_csharp_ext` 错误怎么处理？
 重命名  `Assert/Plugins/Grpc.Core/runtimes/osx/x64 ` 路径下的  `grpc_csharp_ext.bundle` 文件为 `grpc_csharp_ext`，再将文件拷贝到路径 `YourUnityApp.app/Contents/Frameworks/MonoEmbedRuntime/osx` 下，路径中不存在的目录新建即可。
 
-### 打包 Linux 服务端程序，运行时出现 `Unable to preload the following plugins: ScreenSelector.so` 错误怎么处理？
+#### 打包 Linux 服务端程序，运行时出现 `Unable to preload the following plugins: ScreenSelector.so` 错误怎么处理？
 Unity Editor 中，在 `【File】>【Build Settings】` 下勾选  `【Server Build】`，重新打包。
 
 
