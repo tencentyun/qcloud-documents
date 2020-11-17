@@ -86,7 +86,7 @@ region=ap-guangzhou,s3ForcePathStyle="true",s3Url=https://cos.ap-guangzhou.myqcl
 
 参数说明：
 
-​	--provider：声明使用 `aws` 提供的插件类型
+​	--provider：声明使用 `aws` 提供的插件类型。
 
 ​	--plugins：使用 AWS S3 兼容 API 插件  “velero-plugin-for-aws ”。
 
