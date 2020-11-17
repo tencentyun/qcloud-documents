@@ -9,3 +9,6 @@
 
 ### 4、License 可以同时支持多个 App 吗？
 一个 License 只能对应一个 PackageName 和 BundleID，不支持多个 App。
+
+### 5、License 应该如何确认绑定关系（Android 的 PackageName 和 iOS 的 BundleID）?
+在填写时用户需要确认绑定正式上架 App Store 的 iOS 所对应的 Bundle ID 和正式上架应用市场 Android 的 Package Name。

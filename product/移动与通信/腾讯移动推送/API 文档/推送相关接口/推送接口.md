@@ -212,8 +212,8 @@ Android 平台具体字段如下表：
 | title                    | String | message | 无     | 是   | 消息标题                                                     |
 | content                  | String | message | 无     | 是   | 消息内容                                                     |
 | accept_time              | Array  | message | 无     | 否   | 消息将在哪些时间段允许推送给用户。<li>单个元素由 "start" 和 "end" 组成的起止时间对组成<li>"start" 和 "end" 由 hour （小时）和 min（分钟）描述对应时刻，详细参考具体示例。<li>**注意：**因厂商限制， 仅对 TPNS 通道有效 |
-| thread_id                | String | message | 无     | 否   | 通知分组折叠的组别识别名                                     |
-| thread_sumtext           | String | message | 无     | 否   | 通知分组折叠后显示的摘要，thread_id 非空时有效               |
+| thread_id                | String | message | 无     | 否   | 通知分组折叠的组别识别名<li>**注意：**因厂商限制， 仅对 TPNS 通道有效                                     |
+| thread_sumtext           | String | message | 无     | 否   | 通知分组折叠后显示的摘要，thread_id 非空时有效<li>**注意：**因厂商限制， 仅对 TPNS 通道有效               |
 | xg_media_resources       | String | message | 无     | 否   | 通知栏大图片 url 地址，仅对 TPNS 通道和小米通道生效；<li>**注意：**如需使用小米通道大图通知功能，需先调用小米图片上传接口上传图片文件，获取小米指定的图片地址 pic_url ，再填入 TPNS 推送对应的参数 xg_media_resources 中。详情请参见 [小米推送富文本消息](https://dev.mi.com/console/doc/detail?pId=1163#_10_0)  文档中的上传大图 API 部分 |
 | xg_media_audio_resources | String | message | 无     | 否   | 音频富媒体元素地址。<li>支持 mp3 格式音频，建议大小在5MB以内。<li>**注意：**仅 TPNS 通道支持该参数下发，其他通道不下发该参数。 |
 | android                  | Object | message | 无     | 否   | 安卓通知高级设置结构体，请参见 [Android 结构体说明](#intent1) |
