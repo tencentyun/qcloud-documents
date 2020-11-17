@@ -32,7 +32,7 @@
 ## 新增短视频 License
 
  ### 步骤1：购买 License
-进入 [短视频 License](https://console.cloud.tencent.com/vod/license) ，单击【新增 License】，进入短视频 License 新增页。
+进入[短视频 License](https://console.cloud.tencent.com/vod/license)，单击【新增 License】，进入短视频 License 新增页。
 ![](https://main.qcloudimg.com/raw/a925a612f55ce6f0b9db96d541e0d6bf.png)
 选择当前账户可绑定的资源包。若无已购买资源包，请单击【购买页】前往选购[流量资源包10TB](https://buy.cloud.tencent.com/vod)、[流量资源包50TB](https://buy.cloud.tencent.com/vod)、[流量资源包200TB](https://buy.cloud.tencent.com/vod)中的任意一种。
 ![](https://main.qcloudimg.com/raw/07384dc91eca502e3ba77469ab2affeb.png)
