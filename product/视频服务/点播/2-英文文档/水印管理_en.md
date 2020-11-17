@@ -1,5 +1,5 @@
 In "Watermark Management", you can upload images in PNG format as watermarks of the videos, and configure the default watermark and the positions of watermarks in the videos.
-Log in to Tencent Cloud [VOD Console](https://console.cloud.tencent.com/video), click "Watermark Management" in the left menu bar to go to the watermark management list page, and click "Upload" to upload the watermark image.
+Log in to Tencent Cloud [VOD Console](https://console.cloud.tencent.com/vod), click "Watermark Management" in the left menu bar to go to the watermark management list page, and click "Upload" to upload the watermark image.
 >Watermark images in png format are supported, and the file size must be less than 200 KB<200*200 px。
 
 ![](https://mc.qcloudimg.com/static/img/e6f9073a0185e9cf6ac3f0bcf19b8af4/image.png)

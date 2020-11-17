@@ -1,227 +1,435 @@
 ## 功能描述
-DELETE Multiple Object 接口请求实现在指定 Bucket 中批量删除 Object，单次请求最大支持批量删除1000个 Object。对于响应结果，COS 提供 Verbose 和 Quiet 两种模式：Verbose 模式将返回每个 Object 的删除结果；Quiet 模式只返回报错的 Object 信息。
->!此请求必须携带 Content-MD5 用来校验 Body 的完整性。
 
-### 细节分析
-1. 每一个批量删除请求，最多只能包含1000需要删除的对象。
-2. 批量删除支持二种模式的放回，verbose 模式和 quiet 模式，默认为 verbose 模式。verbose 模式返回每个 key 的删除情况，quiet 模式只返回删除失败的 key 的情况。
-3. 批量删除需要携带 Content-MD5 头部，用以校验请求 body 没有被修改。
-4. 批量删除请求允许删除一个不存在的 key，仍然认为成功。
+DELETE Multiple Objects 接口请求可以批量删除指定存储桶中的多个对象（Object），单次请求支持最多删除1000个对象。对于响应结果，COS 提供 Quiet 模式和 Verbose 模式：
+
+- Quiet 模式在响应中仅包含删除失败的对象信息和错误信息。
+- Verbose 模式在响应中包含每个对象的删除结果信息。
+
+该 API 的请求者需要对存储桶有写入权限。
+
+#### 版本控制
+
+当启用版本控制时，该请求操作可以为每一个要删除的对象指定版本 ID，此时将永久删除对象的指定版本或指定删除标记，否则将创建一个删除标记作为指定对象的最新版本。
+
+当针对某个对象的删除操作创建或删除了删除标记，那么该对象的删除结果将同时返回 &lt;DeleteMarker>true&lt;/DeleteMarker&gt; 和 &lt;DeleteMarkerVersionId&gt; 元素，代表该请求操作创建或删除了指定对象的删除标记。
+
+当针对某个对象的删除操作永久删除了特定的版本 ID（包括删除标记的版本 ID），那么该对象的删除结果将返回 &lt;VersionId&gt; 元素，代表该请求操作删除的版本 ID。
 
 ## 请求
 
-语法示例：
-```shell
+#### 请求示例
+
+```plaintext
 POST /?delete HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
-Content-Length: length
 Content-Type: application/xml
+Content-Length: Content Length
 Content-MD5: MD5
 Authorization: Auth String
 
+[Request Body]
+```
+
+> ? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+
+#### 请求参数
+
+此接口无请求参数。
+
+#### 请求头
+
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+
+#### 请求体
+
+提交 **application/xml** 请求数据，包含要删除的对象信息。
+
+```xml
 <Delete>
-  <Quiet></Quiet>
-  <Object>
-    <Key></Key>
-  </Object>
-  <Object>
-    <Key></Key>
-  </Object>
-  ...
+	<Quiet>boolean</Quiet>
+	<Object>
+		<Key>string</Key>
+	</Object>
+	<Object>
+		<Key>string</Key>
+		<VersionId>string</VersionId>
+	</Object>
 </Delete>
 ```
 
-> Authorization: Auth String （详细参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+具体的节点描述如下：
 
-### 请求行
-```shell
-POST /?delete HTTP/1.1
-```
-该 API 接口接受 POST 请求。
+| 节点名称（关键字） | 父节点 | 描述                                            | 类型      | 是否必选 |
+| ------------------ | ------ | ----------------------------------------------- | --------- | -------- |
+| Delete             | 无     | 包含 DELETE Multiple Objects 操作的所有请求信息 | Container | 是       |
 
-### 请求头
+**Container 节点 Delete 的内容：**
 
-#### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
+| 节点名称（关键字） | 父节点 | 描述                                                         | 类型      | 是否必选 |
+| ------------------ | ------ | ------------------------------------------------------------ | --------- | -------- |
+| Quiet              | Delete | 布尔值，默认为 false <br><li>true 为使用 Quiet 模式，在响应中仅包含删除失败的对象信息和错误信息<br><li>false 为使用 Verbose 模式，在响应中包含每个对象的删除结果 | boolean   | 是       |
+| Object             | Delete | 单个要删除的目标对象的信息                                   | Container | 是       |
 
-#### 非公共头部
-**必选头部**
-该请求操作的实现使用如下必选头部：
-<style rel="stylesheet"> table th:nth-of-type(1) { width: 200px;	} </style>
+**Container 节点 Object 的内容：**
 
-|名称|描述|类型|必选|
-|:---|:---|:---|:---|
-| Content-Length | RFC 2616 中定义的 HTTP 请求内容长度（字节）| String | 是 |
-| Content-MD5 | RFC 1864 中定义的经过 Base64 编码的 128-bit 内容 MD5 校验值。此头部用来校验文件内容是否发生变化| String | 是 |
-
-### 请求体
-该请求的请求体具体节点内容为：
-```shell
-<Delete>
-  <Quiet></Quiet>
-  <Object>
-    <Key></Key>
-  </Object>
-  <Object>
-    <Key></Key>
-  </Object>
-  ...
-</Delete>
-```
-
-具体内容描述如下：
-
-|节点名称（关键字）|父节点|描述|类型|必选|
-|:---|:---|:---|:---|:---|
-| DELETE |无| 说明本次删除的返回结果方式和目标 Object | Container | 是 |
-| Quiet | DELETE|布尔值，这个值决定了是否启动 Quiet 模式。<br> 值为 true 启动 Quiet 模式，值为 false 则启动 Verbose 模式，默认值为 False | Boolean | 否 |
-| Object |DELETE |说明每个将要删除的目标 Object 信息| Container | 是 |
-| Key | DELETE.Object |目标 Object 文件名称| String | 是 |
-
+| 节点名称（关键字）                                           | 父节点        | 描述                                                         | 类型   | 是否必选 |
+| ------------------------------------------------------------ | ------------- | ------------------------------------------------------------ | ------ | -------- |
+| Key&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Delete.Object | 要删除的目标对象的对象键                                     | string | 是       |
+| VersionId                                                    | Delete.Object | 当启用版本控制并且要删除对象的指定版本时需指定该元素，值为要删除的版本 ID。若未开启版本控制或开启版本控制但需要插入删除标记，则无需指定该元素 | string | 是       |
 
 ## 响应
 
-### 响应头
-#### 公共响应头 
-该响应使用公共响应头,了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
-#### 特有响应头
-该请求操作无特殊的响应头。
+#### 响应头
 
-### 响应体
-该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
-```shell
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
+
+#### 响应体
+
+请求成功，返回 **application/xml** 数据，包含删除结果信息。
+
+```xml
 <DeleteResult>
-  <Deleted>
-    <Key></Key>
-  </Deleted>
-  <Error>
-    <Key></Key>
-    <Code></Code>
-    <Message></Message>
-  </Error>
+	<Deleted>
+		<Key>string</Key>
+		<DeleteMarker>boolean</DeleteMarker>
+		<DeleteMarkerVersionId>string</DeleteMarkerVersionId>
+	</Deleted>
+	<Deleted>
+		<Key>string</Key>
+		<VersionId>string</VersionId>
+	</Deleted>
+	<Deleted>
+		<Key>string</Key>
+		<DeleteMarker>boolean</DeleteMarker>
+		<DeleteMarkerVersionId>string</DeleteMarkerVersionId>
+		<VersionId>string</VersionId>
+	</Deleted>
+	<Error>
+		<Key>string</Key>
+		<VersionId>string</VersionId>
+		<Code>string</Code>
+		<Message>string</Message>
+	</Error>
 </DeleteResult>
 ```
-具体内容如下：
 
-|节点名称（关键字）|父节点|描述|类型|
-|:---|:---|:---|:---|
-| DeleteResult |无| 说明本次删除返回结果的方式和目标 Object | Container | 
+具体的节点描述如下：
 
-Container 节点 DeleteResult 的内容：
+| 节点名称（关键字） | 父节点 | 描述                                        | 类型      |
+| ------------------ | ------ | ------------------------------------------- | --------- |
+| DeleteResult       | 无     | 保存 DELETE Multiple Objects 结果的所有信息 | Container |
 
-|节点名称（关键字）|父节点|描述|类型|
-|:---|:---|:---|:---|
-| Deleted | DeleteResult |说明本次删除的成功 Object 信息 | Boolean | 
-| Error| DeleteResult | 说明本次删除的失败 Object 信息 | Container | 
+**Container 节点 DeleteResult 的内容：**
 
-Container 节点 Deleted 的内容：
+| 节点名称（关键字） | 父节点       | 描述                                                        | 类型      |
+| ------------------ | ------------ | ----------------------------------------------------------- | --------- |
+| Deleted            | DeleteResult | 单个删除成功的对象条目，仅当使用 Verbose 模式才会返回该元素 | Container |
+| Error              | DeleteResult | 单个删除失败的对象条目                                      | Container |
 
-|节点名称（关键字）|父节点|描述|类型|
-|:---|:---|:---|:---|
-| Key | DeleteResult.Deleted | Object 的名称 | String |
+**Container 节点 Deleted 的内容：**
 
-Container 节点 Error 的内容：
+| 节点名称（关键字）    | 父节点               | 描述                                                         | 类型    |
+| --------------------- | -------------------- | ------------------------------------------------------------ | ------- |
+| Key                   | DeleteResult.Deleted | 删除成功的对象的对象键                                       | string  |
+| DeleteMarker          | DeleteResult.Deleted | 仅当对该对象的删除创建了一个删除标记，或删除的是该对象的一个删除标记时才返回该元素，布尔值，固定为 true | boolean |
+| DeleteMarkerVersionId | DeleteResult.Deleted | 仅当对该对象的删除创建了一个删除标记，或删除的是该对象的一个删除标记时才返回该元素，值为创建或删除的删除标记的版本 ID | string  |
+| VersionId             | DeleteResult.Deleted | 删除成功的版本 ID，仅当请求中指定了要删除对象的版本 ID 时才返回该元素 | string  |
 
-|节点名称（关键字）|父节点|描述|类型|
-|:---|:---|:---|:---|
-| Key | DeleteResult.Error | 删除失败的 Object 的名称 | String |
-| Code  | DeleteResult.Error | 删除失败的错误代码 | String |
-| Message | DeleteResult.Error | 删除失败的错误信息 | String |
+**Container 节点 Error 的内容：**
 
+| 节点名称（关键字） | 父节点             | 描述                                                         | 类型   |
+| ------------------ | ------------------ | ------------------------------------------------------------ | ------ |
+| Key                | DeleteResult.Error | 删除失败的对象的对象键                                       | string |
+| VersionId          | DeleteResult.Error | 删除失败的版本 ID，仅当请求中指定了要删除对象的版本 ID 时才返回该元素 | string |
+| Code               | DeleteResult.Error | 删除失败的错误码，用来定位唯一的错误条件和确定错误场景       | string |
+| Message            | DeleteResult.Error | 删除失败的具体错误信息                                       | string |
 
-### 错误分析
-以下描述此请求可能会发生的一些特殊的且常见的错误情况：
+#### 错误码
 
-| 错误码            |  HTTP状态码         |描述                                       |
-| ------------- | --------------------------------------- | -------------- |
-| InvalidRequest | 400 Bad Request |没有携带必填字段 Content-MD5，同时返回 `Missing required header for this request: Content-MD5` 错误信息 | 
-| MalformedXML   | 400 Bad Request |如果请求的 key 的个数，超过1000，则会返回 MalformedXML 错误，同时返回 `delete key size is greater than 1000` | 
-| InvalidDigest  | 400 Bad Request |携带的 Content-MD5 和服务端计算的请求 body 的不一致          | 
-
-
-获取更多关于 COS 的错误码的信息，或者产品所有的错误列表，请查看 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
-### 请求
-```shell
+#### 案例一：简单案例
+
+#### 请求
+
+```plaintext
 POST /?delete HTTP/1.1
-Host: lelu06-1252400000.cos.ap-guangzhou.myqcloud.com
-Date: Wed, 23 Oct 2016 21:32:00 GMT
-Connection: keep-alive
-Accept-Encoding: gzip, deflate
-Accept: */*
-User-Agent: python-requests/2.12.4
-Authorization: q-sign-algorithm=sha1&q-ak=AKID15IsskiBQKTZbAo6WhgcBqVls9SmuG00&q-sign-time=1480932292;1981012292&q-key-time=1480932292;1981012292&q-url-param-list=delete&q-header-list=host&q-signature=c54f22fd92232a76972ba599cba25a8a733d2fef
-Content-MD5: yoLiNjQuvB7lu8cEmPafrQ==
-Content-Length: 125
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Tue, 20 Aug 2019 11:59:35 GMT
+Content-Type: application/xml
+Content-Length: 158
+Content-MD5: zUd/xgzNGDrqJMJUOWV2AQ==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1566302375;1566309575&q-key-time=1566302375;1566309575&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=delete&q-signature=82f77c745ca66fe8c5d93274b3fc44fb895c****
+Connection: close
 
 <Delete>
-  <Quiet>true</Quiet>
-  <Object>
-    <Key>aa</Key>
-  </Object>
-  <Object>
-    <Key>aaa</Key>
-  </Object>
+	<Quiet>false</Quiet>
+	<Object>
+		<Key>example-object-1.jpg</Key>
+	</Object>
+	<Object>
+		<Key>example-object-2.jpg</Key>
+	</Object>
 </Delete>
 ```
 
-### 响应
-```shell
+#### 响应
+
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Content-Length: 17
-Connection: keep-alive
-Date: Tue, 22 Aug 2017 12:00:48 GMT
+Content-Length: 144
+Connection: close
+Date: Tue, 20 Aug 2019 11:59:35 GMT
 Server: tencent-cos
-x-cos-request-id: NTk5YzFjZjBfZWFhZDM1MGFfMjkwZV9lZGM3ZQ==
+x-cos-request-id: NWQ1YmUwYTdfM2FiMDJhMDlfYzczN18zMGM1****
+
+<DeleteResult>
+	<Deleted>
+		<Key>example-object-1.jpg</Key>
+	</Deleted>
+	<Deleted>
+		<Key>example-object-2.jpg</Key>
+	</Deleted>
+</DeleteResult>
+```
+
+#### 案例二：简单案例（Quiet 模式）
+
+#### 请求
+
+```plaintext
+POST /?delete HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Tue, 20 Aug 2019 12:12:26 GMT
+Content-Type: application/xml
+Content-Length: 157
+Content-MD5: +iI9kJvM2k/y5y3nHcn8BQ==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1566303146;1566310346&q-key-time=1566303146;1566310346&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=delete&q-signature=16581dcc0ae999ce343488de2449436ee182****
+Connection: close
+
+<Delete>
+	<Quiet>true</Quiet>
+	<Object>
+		<Key>example-object-1.jpg</Key>
+	</Object>
+	<Object>
+		<Key>example-object-2.jpg</Key>
+	</Object>
+</Delete>
+```
+
+#### 响应
+
+```plaintext
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 15
+Connection: close
+Date: Tue, 20 Aug 2019 12:12:27 GMT
+Server: tencent-cos
+x-cos-request-id: NWQ1YmUzYWFfMTljMDJhMDlfNTg3ZV8zNDI0****
 
 <DeleteResult/>
 ```
 
-### 请求
-```shell
+#### 案例三：启用版本控制（创建删除标记）
+
+#### 请求
+
+```plaintext
 POST /?delete HTTP/1.1
-Host: lelu06-1252400000.cos.ap-guangzhou.myqcloud.com
-Date: Tue, 22 Aug 2017 12:16:35 GMT
-Connection: keep-alive
-Accept-Encoding: gzip, deflate
-Accept: */*
-User-Agent: python-requests/2.12.4
-Authorization: q-sign-algorithm=sha1&q-ak=AKID15IsskiBQKTZbAo6WhgcBqVls9SmuG00&q-sign-time=1480932292;1981012292&q-key-time=1480932292;1981012292&q-url-param-list=delete&q-header-list=host&q-signature=c54f22fd92232a76972ba599cba25a8a733d2fef
-Content-MD5: V0XuU8V7aqMYeWyD3BC2nQ==
-Content-Length: 126
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Wed, 21 Aug 2019 12:04:03 GMT
+Content-Type: application/xml
+Content-Length: 100
+Content-MD5: MowFtlG7iwK7Wmk79IVXFA==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1566389043;1566396243&q-key-time=1566389043;1566396243&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=delete&q-signature=b1aee84c567b16e5e6c8634c2760a0e5d348****
+Connection: close
 
 <Delete>
-  <Quiet>false</Quiet>
-  <Object>
-    <Key>aa</Key>
-  </Object>
-  <Object>
-    <Key>aaa</Key>
-  </Object>
+	<Quiet>false</Quiet>
+	<Object>
+		<Key>example-object-1.jpg</Key>
+	</Object>
 </Delete>
 ```
 
-### 响应
-```shell
+#### 响应
+
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Content-Length: 111
-Connection: keep-alive
-Date: Tue, 22 Aug 2017 12:16:35 GMT
+Content-Length: 200
+Connection: close
+Date: Wed, 21 Aug 2019 12:04:03 GMT
 Server: tencent-cos
-x-cos-request-id: NTk5YzIwYTNfMzFhYzM1MGFfMmNmOWZfZWVhNjQ=
+x-cos-request-id: NWQ1ZDMzMzNfNDhiNDBiMDlfMmIzNzZfMTBh****
 
 <DeleteResult>
- <Deleted>
-  <Key>aa</Key>
- </Deleted>
- <Deleted>
-  <Key>aaa</Key>
- </Deleted>
+	<Deleted>
+		<Key>example-object-1.jpg</Key>
+		<DeleteMarker>true</DeleteMarker>
+		<DeleteMarkerVersionId>MTg0NDUxNzc2ODQ2NjU3ODM4NTc</DeleteMarkerVersionId>
+	</Deleted>
 </DeleteResult>
 ```
 
+#### 案例四：删除指定版本
+
+#### 请求
+
+```plaintext
+POST /?delete HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Wed, 21 Aug 2019 11:24:43 GMT
+Content-Type: application/xml
+Content-Length: 154
+Content-MD5: EwFydeQSMzaHWi0qMTOGWw==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1566386683;1566393883&q-key-time=1566386683;1566393883&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=delete&q-signature=2b6261e526960a433124b752fd21a7a9a363****
+Connection: close
+
+<Delete>
+	<Quiet>false</Quiet>
+	<Object>
+		<Key>example-object-2.jpg</Key>
+		<VersionId>MTg0NDUxNzc2ODcwMjYyNjIwMTM</VersionId>
+	</Object>
+</Delete>
+```
+
+#### 响应
+
+```plaintext
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 140
+Connection: close
+Date: Wed, 21 Aug 2019 11:24:44 GMT
+Server: tencent-cos
+x-cos-request-id: NWQ1ZDI5ZmJfNDhiNDBiMDlfMmIzODNfMTA0****
+
+<DeleteResult>
+	<Deleted>
+		<Key>example-object-2.jpg</Key>
+		<VersionId>MTg0NDUxNzc2ODcwMjYyNjIwMTM</VersionId>
+	</Deleted>
+</DeleteResult>
+```
+
+#### 案例五：删除指定删除标记
+
+#### 请求
+
+```plaintext
+POST /?delete HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Wed, 21 Aug 2019 12:04:04 GMT
+Content-Type: application/xml
+Content-Length: 154
+Content-MD5: EKphCPpHcKiVqJtMqE+DmA==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1566389044;1566396244&q-key-time=1566389044;1566396244&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=delete&q-signature=f6b49a9b98386632b9545a4cc087449f789f****
+Connection: close
+
+<Delete>
+	<Quiet>false</Quiet>
+	<Object>
+		<Key>example-object-1.jpg</Key>
+		<VersionId>MTg0NDUxNzc2ODQ2NjU3ODM4NTc</VersionId>
+	</Object>
+</Delete>
+```
+
+#### 响应
+
+```plaintext
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 253
+Connection: close
+Date: Wed, 21 Aug 2019 12:04:04 GMT
+Server: tencent-cos
+x-cos-request-id: NWQ1ZDMzMzRfYmIwMmEwOV83YTQzXzEyM2Ri****
+
+<DeleteResult>
+	<Deleted>
+		<Key>example-object-1.jpg</Key>
+		<DeleteMarker>true</DeleteMarker>
+		<DeleteMarkerVersionId>MTg0NDUxNzc2ODQ2NjU3ODM4NTc</DeleteMarkerVersionId>
+		<VersionId>MTg0NDUxNzc2ODQ2NjU3ODM4NTc</VersionId>
+	</Deleted>
+</DeleteResult>
+```
+
+#### 案例六：部分删除失败
+
+#### 请求
+
+```plaintext
+POST /?delete HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Wed, 21 Aug 2019 12:04:05 GMT
+Content-Type: application/xml
+Content-Length: 436
+Content-MD5: ZAbgvje31aO+0j7pkEkYvQ==
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1566389045;1566396245&q-key-time=1566389045;1566396245&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=delete&q-signature=543a9f9f65c45e533a415afe5d014cdc9c73****
+Connection: close
+
+<Delete>
+	<Quiet>false</Quiet>
+	<Object>
+		<Key>example-object-1.jpg</Key>
+	</Object>
+	<Object>
+		<Key>example-object-2.jpg</Key>
+		<VersionId>MTg0NDUxNzc2ODQ2NjQ1MjM5MTk</VersionId>
+	</Object>
+	<Object>
+		<Key>example-object-3.jpg</Key>
+		<VersionId>MTg0NDUxNzc2ODQ2NjQwMTIwMDI</VersionId>
+	</Object>
+	<Object>
+		<Key>example-object-4.jpg</Key>
+		<VersionId>MTg0NDUxNzc2ODQ2NjQ0NjI0MDQ</VersionId>
+	</Object>
+</Delete>
+```
+
+#### 响应
+
+```plaintext
+HTTP/1.1 200 OK
+Content-Type: application/xml
+Content-Length: 703
+Connection: close
+Date: Wed, 21 Aug 2019 12:04:06 GMT
+Server: tencent-cos
+x-cos-request-id: NWQ1ZDMzMzVfOTNjMjJhMDlfMzhiM18xMWY3****
+
+<DeleteResult>
+	<Deleted>
+		<Key>example-object-1.jpg</Key>
+		<DeleteMarker>true</DeleteMarker>
+		<DeleteMarkerVersionId>MTg0NDUxNzc2ODQ2NjM1NTI2NDY</DeleteMarkerVersionId>
+	</Deleted>
+	<Deleted>
+		<Key>example-object-2.jpg</Key>
+		<VersionId>MTg0NDUxNzc2ODQ2NjQ1MjM5MTk</VersionId>
+	</Deleted>
+	<Deleted>
+		<Key>example-object-3.jpg</Key>
+		<DeleteMarker>true</DeleteMarker>
+		<DeleteMarkerVersionId>MTg0NDUxNzc2ODQ2NjQwMTIwMDI</DeleteMarkerVersionId>
+		<VersionId>MTg0NDUxNzc2ODQ2NjQwMTIwMDI</VersionId>
+	</Deleted>
+	<Error>
+		<Key>example-object-4.jpg</Key>
+		<VersionId>MTg0NDUxNzc2ODQ2NjQ0NjI0MDQ</VersionId>
+		<Code>PathConflict</Code>
+		<Message>Path conflict.</Message>
+	</Error>
+</DeleteResult>
+```

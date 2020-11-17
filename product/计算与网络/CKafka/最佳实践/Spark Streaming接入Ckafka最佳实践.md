@@ -1,13 +1,11 @@
 ## Spark Streaming 简介
 Spark Streaming 是 Spark Core 的一个扩展，用于高吞吐且容错地处理持续性的数据，目前支持的外部输入有 Kafka、Flume、HDFS/S3、Kinesis、Twitter 和 TCP socket。
- 
 ![Alt text](https://mc.qcloudimg.com/static/img/b95ad071d2273bde7b9d8b64894c7ce6/111.png)
 
-Spark Streaming 将连续数据抽象成 DStream(Discretized Stream)，而 DStream 由一系列连续的 RDD(弹性分布式数据集)组成，每个 RDD 是一定时间间隔内产生的数据。使用函数对 DStream 进行处理其实即为对这些 RDD 进行处理。
-
+Spark Streaming 将连续数据抽象成 DStream（Discretized Stream），而 DStream 由一系列连续的 RDD（弹性分布式数据集）组成，每个 RDD 是一定时间间隔内产生的数据。使用函数对 DStream 进行处理其实即为对这些 RDD 进行处理。
 ![Alt text](https://mc.qcloudimg.com/static/img/f6f2869bc18bffc9a8e4e807276dd5a6/222.png)
 
-目前 Spark Streaming 对 Kafka 作为数据输入的支持分为稳定版本与实验版本：
+使用 Spark Streaming 作为 Kafka 的数据输入时，可支持 Kafka 稳定版本与实验版本：
 
 | Kafka Version | spark-streaming-kafka-0.8 |   spark-streaming-kafka-0.10   |
 | :-------- | :--------| :------|
@@ -28,16 +26,18 @@ Spark Streaming 将连续数据抽象成 DStream(Discretized Stream)，而 DStre
 ## Spark Streaming 接入 CKafka
 
 ### 申请 Ckafka 实例
-![Alt text](https://mc.qcloudimg.com/static/img/d7ee601da4d342cb2651d6a39db99e45/1501596501359.png)
-确认网络类型是否与当前使用网络相符。
+登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)，创建一个 CKafka 实例（参考 [创建实例](https://cloud.tencent.com/document/product/597/30931)）。
+>?确认网络类型是否与当前使用网络相符。
 
-### 创建 topic
-![Alt text](https://mc.qcloudimg.com/static/img/2d07bc5d5cac3be1ff03e7da099783f1/1501596195835.png)
+![](https://main.qcloudimg.com/raw/41cdd13de9e1fe2f602f9e66daf46da7.png)
 
-这里创建了一个名为 spark_test 的 topic，接下来将以该 topic 为例介绍如何生产消费
-[内网IP与端口]即为生产消费需要用到的 bootstrap-server。
+### 创建 Topic
+在实例下创建一个 Topic（参考 [创建 Topic](https://cloud.tencent.com/document/product/597/40415)）。
+![](https://main.qcloudimg.com/raw/175cc4f3defcb58ef5e7166d07b929f5.png)
+内网 IP 与端口：是生产消费需要用到的 bootstrap-server。
+这里创建了一个名为 spark_test 的 Topic，接下来将以该 Topic 为例介绍如何生产消费。
 
-### 云主机环境
+### 云服务器环境
 **Centos6.8 系统**
 
 | package  | version | 
@@ -50,20 +50,18 @@ Spark Streaming 将连续数据抽象成 DStream(Discretized Stream)，而 DStre
 | Java | 1.8 |
 
 ### 向 CKafka 中生产
-目前 CKafka 支持 0.9.0.x、0.10.0.x、0.10.1.x、0.10.2.x 版本。
-这里使用 0.10.2.1 版本的 Kafka 依赖。
-`build.sbt`
+目前 CKafka 支持 0.9.0.x、0.10.0.x、0.10.1.x、0.10.2.x 版本。这里使用 0.10.2.1 版本的 Kafka 依赖。
+1. 在`build.sbt`添加依赖：
 ```scala
 name := "Producer Example"
 version := "1.0"
 scalaVersion := "2.11.8"
 libraryDependencies += "org.apache.kafka" % "kafka-clients" % "0.10.2.1"
 ```
-`producer_example.scala`
+2. 配置`producer_example.scala`：
 ```scala
 import java.util.Properties
 import org.apache.kafka.clients.producer._
-
 object ProducerExample extends App {
     val  props = new Properties()
     props.put("bootstrap.servers", "172.16.16.12:9092") //实例信息中的内网 IP 与端口
@@ -72,7 +70,7 @@ object ProducerExample extends App {
     props.put("value.serializer", "org.apache.kafka.common.serialization.StringSerializer")
 
     val producer = new KafkaProducer[String, String](props)
-    val TOPIC="test"  //指定要生产的 topic
+    val TOPIC="test"  //指定要生产的 Topic
     for(i<- 1 to 50){
 	        val record = new ProducerRecord(TOPIC, "key", s"hello $i") //生产 key 是"key",value 是 hello i 的消息
 	        producer.send(record)
@@ -82,11 +80,13 @@ object ProducerExample extends App {
     producer.close() //最后要断开
 }
 ```
-有关更多 ProducerRecord 的用法请参考 [ProducerRecord](https://kafka.apache.org/0100/javadoc/org/apache/kafka/clients/producer/ProducerRecord.html) 文档。
+
+更多有关 ProducerRecord 的用法请参考 [ProducerRecord](https://kafka.apache.org/0100/javadoc/org/apache/kafka/clients/producer/ProducerRecord.html) 文档。
 
 ### 从 Ckafka 消费
+<span id="build.sbt"></span>
 #### DirectStream
-在`build.sbt`添加依赖：
+1. 在`build.sbt`添加依赖：
 ```scala
 name := "Consumer Example"
 version := "1.0"
@@ -96,7 +96,7 @@ libraryDependencies += "org.apache.spark" %% "spark-streaming" % "2.1.0"
 libraryDependencies += "org.apache.spark" %% "spark-streaming-kafka-0-10" % "2.1.0"
 ```
 
-`DirectStream_example.scala`
+2. 配置`DirectStream_example.scala`：
 ```scala
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.common.serialization.StringDeserializer
@@ -111,7 +111,6 @@ import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
 import collection.JavaConversions._
 import Array._
-
 object Kafka {
     def main(args: Array[String]) {
         val kafkaParams = Map[String, Object](
@@ -161,9 +160,10 @@ object Kafka {
     }
 }
 ```
+
 #### RDD
-`build.sbt`配置同上。
-`RDD_example`
+1. 配置`build.sbt`（配置同上，[单击查看](#build.sbt)）。
+2. 配置`RDD_example`：
 ```scala
 import org.apache.kafka.clients.consumer.ConsumerRecord
 import org.apache.kafka.common.serialization.StringDeserializer
@@ -177,8 +177,6 @@ import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
 import collection.JavaConversions._
 import Array._
-
-
 object Kafka {
     def main(args: Array[String]) {
         val kafkaParams = Map[String, Object](
@@ -211,7 +209,7 @@ object Kafka {
 更多`kafkaParams`用法参考 [kafkaParams](http://kafka.apache.org/documentation.html#newconsumerconfigs) 文档。
 
 ### 配置环境
-#### 安装sbt
+#### 安装 sbt
 1. 在 [sbt 官网](http://www.scala-sbt.org/download.html) 上下载 sbt 包。
 2. 解压后在 sbt 的目录下创建一个 sbt_run.sh 脚本并增加可执行权限，脚本内容如下：
 ```bash
@@ -229,7 +227,7 @@ chmod u+x ./sbt_run.sh
 ```
 若能看到 sbt 版本说明可以正常运行。
 
-#### 安装protobuf
+#### 安装 protobuf
 1. 下载 [protobuf](https://github.com/google/protobuf/releases) 相应版本。
 2. 解压后进入目录。
 ```bash
@@ -286,7 +284,7 @@ export PATH=$PATH:$JAVA_HOME
 ./bin/hadoop version
 ```
 若能显示版本信息说明能正常运行。
-10. 配置单机伪分布式(可根据需要搭建不同形式的集群)。
+10. 配置单机伪分布式（可根据需要搭建不同形式的集群）。
 ```bash
 vim /etc/profile
 ```

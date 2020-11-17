@@ -1,5 +1,0 @@
-您在使用参数模板时，可能碰到诸如创建 IP 地址、创建端口协议、在安全组中引用参数模板等问题。本文将介绍使用参数模板以及与其相关的产品的常用操作，供您参考。
-## 常用操作
-- [创建 IP 地址](https://cloud.tencent.com/document/product/215/20174)
-- [创建端口协议](https://cloud.tencent.com/document/product/215/20175)
-- [在安全组中引用参数模板](https://cloud.tencent.com/document/product/215/20176)

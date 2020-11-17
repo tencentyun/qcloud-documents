@@ -10,7 +10,7 @@
 | 参数        | 是否必选 | 类型 | 描述                                   |
 | ---------------- | -------- | ------ | ---------------------------------------- |
 | captchaType      | 是       | UInt   | [验证码类型](https://cloud.tencent.com/doc/product/295/6622#2.-.E5.A4.A9.E5.BE.A1.E9.AA.8C.E8.AF.81.E7.A0.81.E7.B1.BB.E5.9E.8B) |
-| disturbLevel     | 是       | UInt   | [验证码干扰程度](https://cloud.tencent.com/document/product/295/6622#2.2-.E9.AA.8C.E8.AF.81.E7.A0.81.E5.8F.82.E6.95.B0) |
+| disturbLevel     | 是       | UInt   | 验证码干扰程度 |
 | isHttps          | 是       | UInt   | 返回的 JavaScript 中是否使用 HTTPS<br/>1：HTTPS   |
 | clientType       | 是       | UInt   | 客户端类型<br/>1：手机 Web 页面<br/>2：PCWeb 页面<br/>4：App          |
 | accountType      | 是       | UInt   | 用户账号类型<br/>0：其他账号<br/>1：QQ 开放帐号<br/>2：微信开放帐号 <br/>4：手机账号<br/>6：手机动态码<br/>7：邮箱账号 |
@@ -41,7 +41,7 @@
 ```
 https://csec.api.qcloud.com/v2/index.php?Action=CaptchaIframeQuery
 &<公共请求参数>
-&secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
+&secretId=AKID******AB2iBS8s2DCzazCD2g7OUq4Zw
 &captchaType=1
 &disturbLevel=1
 &isHttps=1

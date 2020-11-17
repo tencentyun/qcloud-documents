@@ -46,11 +46,11 @@ cloud-init modules --mode=final
 <tr>
 	<td>/etc/hosts 的初始化</td>
 	<td>实例<b>首次启动</b>时，Cloud-Init 会默认将 <code>/etc/hosts</code> 初始化为 <code>127.0.0.1 $hostname</code>。</td>
-	<td>当您使用自定义镜像创建或重装实例时，您想保持自定义镜像内部自定义的 /etc/hosts 设置，可以在制作自定义镜像之前在 <code>/etc/cloud/cloud.cfg</code> 里面删除 <code>- scripts-user</code> 这行配置。</td>
+	<td>当您使用自定义镜像创建或重装实例时，您想保持自定义镜像内部自定义的 /etc/hosts 设置，可以在制作自定义镜像之前在 <code>/etc/cloud/cloud.cfg</code> 里面删除 <code>- scripts-user</code> 与 <code>- ['update_etc_hosts', 'once-per-instance']</code> 这两行配置。</td>
 	<td>
 		<ul style="margin: 0px;">
-			<li>如果您禁用了 <code>- scripts-user</code> 这行配置，实例内部的 <code>/var/lib/cloud/instance/scripts/runcmd</code> 初始化脚本将不会被执行，并会同时影响其他子项的初始化（主要涉及：云监控、云安全的安装、软件源的设置）。同时，在您创建子机时，自定义脚本也不会被执行。。</li>
-			<li>每当子机重启时，部分存量机器 <code>/etc/hosts</code> 的设置都会被覆盖。解决方案请参见 <a href="https://cloud.tencent.com/document/product/213/34698">如何有效的修改 Linux 实例的 etc hosts 配置</a></li>
+			<li>如果您禁用了 <code>- scripts-user</code> 这行配置，实例内部的 <code>/var/lib/cloud/instance/scripts/runcmd</code> 初始化脚本将不会被执行，并会同时影响其他子项的初始化（主要涉及：云监控、云安全的安装、软件源的设置）。同时，在您创建子机时，自定义脚本也不会被执行。</li>
+			<li>每当子机重启时，部分存量机器 <code>/etc/hosts</code> 的设置都会被覆盖。解决方案请参见 <a href="https://cloud.tencent.com/document/product/213/34698">如何有效的修改 Linux 实例的 etc hosts 配置</a>。</li>
 		</ul>
 	</td>
 </tr>
@@ -163,3 +163,5 @@ pkg_resources.DistributionNotFound: pyyaml
  1. 将 cloudbase-init 服务改为 LocalSystem 服务，具体操作方式请参见 [Cloudbase-Init 服务运行排查方案](#checkcloudbase-init) 的 [步骤 2](#step02)。 
  2. 将 cloudbase-init 服务启动类型改为自动。 具体操作方式请参见 [Cloudbase-Init 服务运行排查方案](#checkcloudbase-init) 的 [步骤 2](#step02)。
  3. 卸载对应的安全软件， 或在安全软件里面对 cloudbase-init 服务的相关操作加白名单。
+
+

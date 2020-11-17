@@ -12,7 +12,7 @@
 |---------|---------|---------|---------|
 |instanceId | 是| String|（过滤条件）按照实例 ID 过滤。|
 |group|是|String  |kafka 消费分组。|
-|topics|否|String Array|表示需要重置 offset 的 topic 数组，不填表示全部 topic。|
+|topics|否|String Array|表示需要重置 offset 的 topic 数组，不填表示全部 topic。<br>传参方法请参见 [topic.N（数组参数）](https://cloud.tencent.com/document/product/597/14358#topic)|
 |strategy|是|Int|重置 offset 的策略，入参含义：<br> 0：对齐 shift-by 参数，代表把 offset 向前或向后移动 shift 条。<br> 1：对齐参考(by-duration,to-datetime,to-earliest,to-latest),代表把 offset 移动到指定timestamp的位置。<br> 2：对齐参考(to-offset)，代表把 offset 移动到指定的 offset 位置。|
 |shift|否|Int|当 strategy 为 0 时，必须包含该字段，可以大于零代表会把 offset 向后移动 shift 条，小于零则将 offset 向前回溯 shift 条数。正确重置后新的 offset 应该是(old_offset + shift)，**如果新的 offset 小于 partition 的 earliest 则会设置为 earliest，如果大于partition 的 latest 则会设置为 latest**。|
 |timestamp|否|Int|	单位：ms。当 strategy 为 1 时，必须包含该字段，其中 -2 表示重置 offset 到最开始的位置，-1 表示重置到最新的位置(相当于清空)，其它值则代表指定的时间，会获取 topic 中指定时间的 offset 然后进行重置，**如果指定的时间不存在消息，则获取最末尾的 offset**。|

@@ -42,7 +42,7 @@ int cos_gen_presigned_url(const cos_request_options_t *options,
 
 ## 预签名请求示例
 
-可在 options 参数中设置永久密钥或临时密钥来获取预签名 URL。
+可在 options 参数中设置永久密钥或临时密钥来获取预签名 URL：
 
 ```cpp
 cos_pool_t *p = NULL;

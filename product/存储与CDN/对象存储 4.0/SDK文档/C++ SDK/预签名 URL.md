@@ -90,7 +90,7 @@ typedef enum {
 ```
 
 ## 预签名请求示例
-可根据 CosConfig 类设置永久密钥或临时密钥发起预签名请求，具体配置文件内容请参阅 [快速入门](https://cloud.tencent.com/document/product/436/12301) 文档。
+可根据 CosConfig 类设置永久密钥或临时密钥发起预签名请求，具体配置文件内容请参见 [快速入门](https://cloud.tencent.com/document/product/436/12301) 文档。
 
 ```cpp
 qcloud_cos::CosConfig config("./config.json");

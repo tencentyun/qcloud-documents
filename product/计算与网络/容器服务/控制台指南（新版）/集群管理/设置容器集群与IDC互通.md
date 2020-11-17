@@ -18,7 +18,7 @@
 7. 根据 IDC 使用的协议类型，选择操作方式。
  - 若 IDC 使用的是 BGP 协议，容器网段路由将自动同步。
  - 若是其他协议，需在 IDC 内配置访问容器网段下一跳路由到专线网关。
-8. 验证容器与与 IDC 互通。
+8. 验证容器与 IDC 互通。
 
 ### 通过 VPN 方式互通
 
@@ -36,7 +36,7 @@
 #### 添加容器网段
 
 >! 一个子网只能绑定一个路由表，若关联多个路由表，将被替换成最后一个绑定的路由表。
-
+>
 1. 在左侧导航栏中，单击【[路由表](https://console.cloud.tencent.com/vpc/route)】，进入路由表管理页面。
 2. <span id="addCIDRStep2">找到 [设置同地域集群间互通](https://cloud.tencent.com/document/product/457/32197) 或者 [设置跨地域集群间互通](https://cloud.tencent.com/document/product/457/32198) 时配置的路由表，单击该路由表的 ID/名称，进入路由表的详情页面。</span>
 3. 单击【+新增路由策略】，追加容器网段。
@@ -49,3 +49,8 @@
 ![](https://main.qcloudimg.com/raw/118676ef1a435f250ad1a92f11f4cf96.png)
 容器间与 VPN 对端子机已经实现互通。
 >? 如需云上容器与 IDC 机房通过 IPsec VPN 互通，主要需要设置 **SPD策略**和**路由表**。
+
+
+
+
+

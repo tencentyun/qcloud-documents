@@ -7,8 +7,8 @@
 
 - **HLS**： 苹果公司力推的标准，在移动终端的浏览器上的支持度较好（在 iOS 和大部分 Android 设备上，都可以使用系统浏览器进行播放），但 IE 的支持情况依赖 FLASH 的二次开发工作（例如使用腾讯视频云的 FLASH 播放器控件）。其精简的 m3u8 的索引结构可以规避 **MP4** 的索引慢问题，如果是用于点播，是非常不错的选择。
 
-- **FLV**： Adobe 公司所推的标准，目前直播平台最常用的封装格式，在 PC 端有 FLASH 的强力支持，但在移动终端只有 APP 实现播放器才有可能支持（或者使用本播放器），大部分手机端浏览器均不支持。目前腾讯视频云的直播录制，采用的就是 FLV 视频格式。
-![](//mc.qcloudimg.com/static/img/9e79a1e82a61b5ae6c45e6da93f3980a/image.png)
+- **FLV**： Adobe 公司所推的标准，目前直播平台最常用的封装格式，在 PC 端有 FLASH 的强力支持，但在移动终端只有 App 实现播放器才有可能支持（或者使用本播放器），大部分手机端浏览器均不支持。目前腾讯视频云的直播录制，采用的就是 FLV 视频格式。
+![](https://main.qcloudimg.com/raw/5f570224943c38024d67bdf6d97c500e.png)
 
 ## 基础篇
 在线点播的接口依然复用直播的接口类，即 TXLivePlayer，所以使用方式上有诸多类似之处。
@@ -47,7 +47,7 @@ NSString *vodUrl = @"http://2527.vod.myqcloud.com/xxx.mp4";
 
 ### step 5: 画面调整
 如果您希望调整画面的显示方式，SDK 也提供了多种选择：
-![enter image description here](http://qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/player_demo_render_mode.jpg)
+![](https://main.qcloudimg.com/raw/541c5eaca744f7505ae60363ab099d20.jpg)
 
 ##### setRenderMode
 * RENDER_MODE_FULL_FILL_SCREEN  - 将图像等比例铺满整个屏幕，多余部分裁剪掉，此模式下画面不留黑边。
@@ -63,7 +63,7 @@ NSString *vodUrl = @"http://2527.vod.myqcloud.com/xxx.mp4";
 
 ## 状态篇
 ### 1. 播放事件
-直播里的状态我们可以关系，也可以不关心，但是点播就不同了，如下三个事件是我们必然要关心的：
+直播里的状态我们可以关心，也可以不关心，但是点播就不同了，如下三个事件是我们必然要关心的：
 
 | 事件ID                   | 数值   | 含义说明   |
 | :--------------------- | :--- | :----- |

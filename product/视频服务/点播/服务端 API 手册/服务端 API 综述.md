@@ -10,8 +10,8 @@
 * [接口请求参数](https://cloud.tencent.com/document/api/213/6977)
 * [最终请求形式](https://cloud.tencent.com/document/api/213/6978)
 
-#### 签名方法
-* [签名方法](https://cloud.tencent.com/document/api/213/6984)
+<!---#### 签名方法
+* [签名方法](https://cloud.tencent.com/document/api/213/6984)--->
 
 #### 返回结果
 * [正确返回结果](https://cloud.tencent.com/document/api/213/6980)
@@ -143,4 +143,6 @@
 [云 API]: https://cloud.tencent.com/product/api "云 API"
 [公共错误码]: https://cloud.tencent.com/document/api/213/10146 "公共错误码"
 [SDK]: https://cloud.tencent.com/document/developer-resource "SDK"
+
+
 

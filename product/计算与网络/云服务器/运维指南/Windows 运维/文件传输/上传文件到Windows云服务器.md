@@ -9,17 +9,28 @@
 ## 操作步骤
 >? 以下操作步骤以 Windows 7 操作系统的本地计算机为例，根据操作系统的不同，详细操作步骤略有区别。
 >
+### 获取公网 IP
+登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，在实例列表页面记录需上传文件云服务器的公网 IP。如下图所示：
+![](https://main.qcloudimg.com/raw/ea509a3a924e9cafc54af146acaa03d7.png)
+
+### 上传文件
 1. 在本地计算机，使用快捷键【Windows + R】，打开【运行】窗口。
 2. 在弹出的【运行】窗口中，输入 **mstsc**，单击【确定】，打开【远程桌面连接】对话框。
 3. 在【远程桌面连接】对话框中，输入云服务器公网 IP 地址，单击【选项】。如下图所示：
-![](//mc.qcloudimg.com/static/img/80ab67bbac77365528e1e4ebd8fbb023/image.png)
-2. 在【常规】页签中，输入云服务器公网 IP 地址和用户名 Administrator。如下图所示：
-![](//mc.qcloudimg.com/static/img/b673c814747e0a3e8c934b5a84dfa89e/image.png)
-3. 选择【本地资源】页签，单击【详细信息】。如下图所示：
-![](//mccdn.qcloud.com/img56b1c57c38874.png)
-4. 在弹出的【本地设备和资源】窗口中，选择【驱动器】模块，勾选需要上传到 Windows 云服务器的文件所在的本地硬盘，单击【确定】。如下图所示：
-![](//mccdn.qcloud.com/img56b1c582c8471.png)
-5. 本地配置完成后，单击【连接】，远程登录 Windows 云服务器。
-6. 在 Windows 云服务器中，单击【开始】>【计算机】，即可以看到挂载到云服务器上的本地硬盘。如下图所示：
+![](https://main.qcloudimg.com/raw/5b2a435c715317cf299bfbc07a09b802.png)
+4. 在【常规】页签中，输入云服务器公网 IP 地址和用户名 Administrator。如下图所示：
+![](https://main.qcloudimg.com/raw/09c2f84a3fa140c07b5a22a14b1f20cc.png)
+5. 选择【本地资源】页签，单击【详细信息】。如下图所示：
+![](https://main.qcloudimg.com/raw/0b33b2b83914f1a158bc174a2644d674.png)
+6. 在弹出的【本地设备和资源】窗口中，选择【驱动器】模块，勾选需要上传到 Windows 云服务器的文件所在的本地硬盘，单击【确定】。如下图所示：
+![](https://main.qcloudimg.com/raw/ed51f0181d2c964ff96323a9ff957203.png)
+7. 本地配置完成后，单击【连接】，远程登录 Windows 云服务器。
+8. 在 Windows 云服务器中，单击【开始】>【计算机】，即可以看到挂载到云服务器上的本地硬盘。如下图所示：
 ![](https://main.qcloudimg.com/raw/8e59dbca8d7cc7293669bf7adaf8985a.png)
-6. 双击打开本地硬盘，将需要拷贝的本地文件复制到 Windows 云服务器中，即完成文件上传操作。 
+9. 双击打开已挂载的本地硬盘，并将需要拷贝的本地文件复制到 Windows 云服务器的其他硬盘中，即完成文件上传操作。
+例如，将本地硬盘（E）中的 A 文件复制到 Windows 云服务器的 C: 盘中。
+
+### 下载文件
+如需将 Windows 云服务器中的文件下载至本地计算机，也可以参照上传文件的操作，将所需文件从 Windows 云服务器中复制到挂载的本地硬盘中，即可完成文件下载操作。
+
+

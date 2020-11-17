@@ -8,6 +8,7 @@
 sign=Base64(Hmac-sha1(plaintext, secretkey))。
 secretkey：摘要算法 key，在腾讯云创建 App 时分配。
 plaintext（原文）：“appid&timestamp”。
+
 ## OpenApi 接口说明
 ### 发送消息接口
 
@@ -28,7 +29,7 @@ plaintext（原文）：“appid&timestamp”。
 | plat | string | 否 | 推送目标手机平台，默认 0= 所有平台 1=iphone 2= Android。 |
 | tag | string | 是 | 消息标签，会填在 STMsg.Tag 推给客户端。 |
 | content | string | 是 | 消息内容。 |
-| aps | string | 否 | os 离线消息内容，json 格式，见苹果文档。 |
+| aps | string | 否 | OS 离线消息内容，json 格式，见苹果文档。 |
 | only_online | string | 否 | 1= 表示只发当前在线用户，默认 0 在线离线都会发。 |
 | expire | string | 否 | 消息有效期，单位秒，表示从现在起经过该时间之后该消息将被丢弃。 |
 

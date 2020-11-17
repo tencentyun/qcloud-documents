@@ -1,3 +1,7 @@
+>!
+>- 本文档为3.0版本的格式回调，2.0版本的历史格式回调请参见 [历史格式回调](https://cloud.tencent.com/document/product/266/33796#url-.E6.8B.89.E5.8F.96.E8.A7.86.E9.A2.91.E4.B8.8A.E4.BC.A0.E5.AE.8C.E6.88.90) 文档。
+>- 建议您将回调版本逐步迁移到3.0格式，2.0格式回调的文档将不再维护。
+
 ## 事件名称
 PullComplete
 
@@ -11,10 +15,10 @@ PullComplete
 
 ```json
 {
-    "version": "4.0", 
-    "eventType": "PullComplete", 
-    "data": {
-        "TaskId": "Pull-f5ac8127b3b6b85cdc13f237c6005d8", 
+    "EventType": "PullComplete", 
+    "PullCompleteEvent": {
+        "TaskId": "125676836723-Pull-f5ac8127b3b6b85cdc13f237c6005d8", 
+        "Status": "FINISH",
         "ErrCode": 0, 
         "Message": "SUCCESS", 
         "FileId": "14508071098244959037", 
@@ -42,7 +46,9 @@ PullComplete
             }
         }, 
         "FileUrl": "http://125676836723.vod2.myqcloud.com/xxx/xxx/xxx.mp4", 
-        "ProcedureTaskId": ""
+        "ProcedureTaskId": "",
+        "SessionContext": "",
+        "SessionId": ""
     }
 }
 ```
@@ -58,7 +64,8 @@ PullComplete
                 "EventHandle": "EventHandleX", 
                 "EventType": "PullComplete", 
                 "PullCompleteEvent": {
-                    "TaskId": "Pull-f5ac8127b3b6b85cdc13f237c6005d8", 
+                    "TaskId": "125676836723-Pull-f5ac8127b3b6b85cdc13f237c6005d8", 
+                    "Status": "FINISH",
                     "ErrCode": 0, 
                     "Message": "SUCCESS", 
                     "FileId": "14508071098244959037", 
@@ -86,10 +93,14 @@ PullComplete
                         }
                     }, 
                     "FileUrl": "http://125676836723.vod2.myqcloud.com/xxx/xxx/xxx.mp4", 
-                    "ProcedureTaskId": ""
+                    "ProcedureTaskId": "",
+                    "SessionContext": "",
+                    "SessionId": ""
                 }
             }
         ]
     }
 }
 ```
+
+

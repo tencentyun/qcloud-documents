@@ -2,7 +2,7 @@
 
 > **注意：**  
 >1. 前提：已经 **创建集群** 并已添加节点（单击了解 [创建集群](https://cloud.tencent.com/document/product/457/11741)）。  
->2. 请先确保成功容器服务所在的 VPC 和您 IDC 机房通过专线或 VPN 连接，（单击了解 [VPN 连接](https://cloud.tencent.com/document/product/554/18988)）子机间能互通，若通道未连接，可以参考 [详情](https://cloud.tencent.com/document/product/215/17010) 排查。
+>2. 请先确保成功容器服务所在的 VPC 和您 IDC 机房通过专线或 VPN 连接，（单击了解 [VPN 连接](https://cloud.tencent.com/document/product/554/18988)）子机间能互通，若通道未连接，可以参考 [功能类常见问题](https://cloud.tencent.com/document/product/554/18904) 排查。
 > 
 
 ## 专线打通
@@ -13,7 +13,7 @@
 4. 验证容器节点与 IDC 互通。（**请保证本步骤验证通过**）
 6. 准备地域，appId，集群 Id，vpcId，专线网关 Id 等信息，[提交工单](https://console.cloud.tencent.com/workorder/category) 打通容器网络。
 7. 若 IDC 使用的是 BGP 协议，容器网段路由将自动同步。若是其他协议，需在 IDC 内配置访问容器网段下一跳路由到专线网关。
-8. 验证容器与与 IDC 互通。
+8. 验证容器与 IDC 互通。
 
 ## VPN 打通
 ### 步骤 1

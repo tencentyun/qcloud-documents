@@ -24,7 +24,7 @@ FETCH [ forward_direction { FROM | IN } ] cursorname
 ## 描述
 FETCH 从之前创建的一个游标中检索行。
 
-游标具有一个相关联的位置，FETCH 会用到该位置。 游标位置可能会位于查询结果的第一行之前、结果中任意行之上或者结果的最后一行之后。 
+游标具有一个相关联的位置，FETCH 会用到该位置。游标位置可能会位于查询结果的第一行之前、结果中任意行之上或者结果的最后一行之后。 
 在被创建时，游标被定位在第一行之前。在取出 一些行后，该游标被定位在最近被取出的行上。如果 FETCH 运行超过了可用行的末尾，则该游标会被定位在最后一行之后。FETCH ALL 将总是让游标被定位于最后一行之后。
 
 NEXT、FIRST、LAST、ABSOLUTE、RELATIVE 形式会在适当移动游标后取出一行。如果没有这样一行，将返回一个空结果，并且视情况将游标定位在第一行之前或者最后一行之后。
@@ -38,7 +38,7 @@ RELATIVE 0 、FORWARD 0 都会请求检索当前行但不移动游标，也就�
 ```sql
 FETCH count
 ```
-count 是取得的行数（可能为零）。注意在 psql 中，命令标签将不会实际显示，因为 psql 会显示被取得的行。
+count 是取得的行数（可能为零）。在 psql 中，命令标签将不会实际显示，因为 psql 会显示被取得的行。
 
 ## 参数
 forward_direction
@@ -69,7 +69,7 @@ FORWARD
 取出下一行（和 NEXT 相同）。
 
 FORWARD count
-取出接下来的 count 行。 FORWARD 0 重新取出当前行。
+取出接下来的 count 行。FORWARD 0 重新取出当前行。
 
 FORWARD ALL
 取出所有剩下的行。
@@ -127,7 +127,7 @@ UPDATE films SET kind = 'Dramatic' WHERE CURRENT OF c_films;
 ## 兼容性
 SQL 标准只在嵌入式 SQL 和模块中使用游标。数据库允许游标在交互式的环境下使用。
 
-这里描述的 FETCH 变体返回数据时就好像数据是一个 SELECT 结果，而不是被放在主变量中。除这一点之外，FETCH完全向上兼容于 SQL 标准。
+这里描述的 FETCH 变体返回数据时就好像数据是一个 SELECT 结果，而不是被放在主变量中。除这一点之外，FETCH 完全向上兼容于 SQL 标准。
 
 涉及 FORWARD 形式的 FETCH ，以及形式 FETCH count 和 FETCHALL（其中 FORWARD 是隐式的）都是数据库扩展。不支持 BACKWARD。
 

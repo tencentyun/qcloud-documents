@@ -97,3 +97,5 @@
 |HLS 视频简单剪切|	[SimpleClipHls](https://cloud.tencent.com/document/product/266/8859)|将源视频文件按指定偏移时间进行剪切，新生成的视频文件（目标文件）将拥有新的 FileID。|
 |截图地址设为视频封面|	[DescribeVodCover](https://cloud.tencent.com/document/product/266/8814)|-|
 
+
+

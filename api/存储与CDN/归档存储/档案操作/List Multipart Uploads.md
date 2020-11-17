@@ -1,6 +1,6 @@
 ## 功能描述
 
-List Multipart Uploads请求实现列出正在进行中的分段上传
+List Multipart Uploads 请求实现列出正在进行中的分段上传。
 
 ## 请求
 
@@ -26,7 +26,7 @@ Authorization: Auth
 
 ### 请求内容
 
-无请求内容
+无请求内容。
 
 ## 返回值
 
@@ -60,3 +60,4 @@ Authorization: Auth
 	]
 }
 ```
+

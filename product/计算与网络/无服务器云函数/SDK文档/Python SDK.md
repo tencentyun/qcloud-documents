@@ -26,7 +26,7 @@ $ python setup.py install
 | 接口名称 | 接口功能                            |
 | :--- | :------------------------------------ |
 | [CreateFunction](https://cloud.tencent.com/document/api/583/18586)   | 创建函数          |
-| [DeleteFunction](https://cloud.tencent.com/document/api/583/18585)   | 删除函数范        |
+| [DeleteFunction](https://cloud.tencent.com/document/api/583/18585)   | 删除函数        |
 | [GetFunction](https://cloud.tencent.com/document/api/583/18584)      | 获取函数详细信息   |
 | [GetFunctionLogs](https://cloud.tencent.com/document/api/583/18583)  | 获取函数运行日志   |
 | [Invoke](https://cloud.tencent.com/document/api/583/17243)           | 运行函数          |
@@ -83,4 +83,7 @@ pip install tencentcloud-sdk-python -t .
 
 - 注意在控制台创建函数时的执行方法，需要和 zip 文件里的代码文件和执行函数对应。
 - 最终生成的 zip 包如果大于50MB，需要通过 COS 上传。
-- 云 API 默认限频为每秒20次，如果需要开大并发，可以 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=668&source=0&data_title=%E6%97%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BA%91%E5%87%BD%E6%95%B0%20SCF&step=1) 申请。
+- 云 API 默认限频为每秒20次，如需提升并发上限，可以 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=668&source=0&data_title=%E6%97%A0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%BA%91%E5%87%BD%E6%95%B0%20SCF&step=1) 申请。
+
+## 相关信息
+您也可以使用腾讯云云函数 SDK（Tencentserverless SDK），该 SDK 集成云函数业务流接口，简化云函数的调用方法，使您无需再进行公有云 API 接口的封装。详情请参见 [函数间调用 SDK](https://cloud.tencent.com/document/product/583/37102)。

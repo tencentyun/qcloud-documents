@@ -8,7 +8,7 @@
 | [OCR-通用印刷体识别](https://cloud.tencent.com/document/product/866/17600)   | 支持多场景、任意版面下印刷图片或实拍照片的文字识别。|
 | [OCR-身份证识别](https://cloud.tencent.com/document/product/866/17597)     | 支持二代身份证正反面所有字段的识别，包括姓名、性别、民族、出生日期、住址、公民身份证号、签发机关、有效期限；具备翻拍、复印件、临时身份证的识别告警功能。 |
 | [OCR-行驶证/驾驶证识别](https://cloud.tencent.com/document/product/866/17599) | 支持对行驶证主页和副页所有字段的自动定位与识别，支持对驾驶证主页所有字段的自动定位与识别。 |
-| [OCR-车牌号识别](https://cloud.tencent.com/document/product/866/17601)      | 支持对中国大陆机动车车牌的自动定位和识别，并返回地域编号和车牌号信息。 |
+| [OCR-车牌号识别](https://cloud.tencent.com/document/product/866/17601)      | 支持对中国大陆机动车车牌的自动定位和识别，并返回车牌号信息和地域编号。 |
 | [OCR-营业执照识别](https://cloud.tencent.com/document/product/866/17598)    | 支持营业执照图像全部字段的识别，包括注册号、法定代表人、公司名称、地址、营业期限、经营范围和主体类型。 |
 | [OCR-手写体识别](https://cloud.tencent.com/document/product/866/17596)    |支持多场景、任意版面下整图文字中的手写中文、英文、字母、数字、常见字符的识别。针对手写“字体无规则、字迹潦草、模糊”等特点，进行识别能力的增强。 |
 | [OCR-名片识别（V2）](https://cloud.tencent.com/document/product/866/17595)      | 支持对名片各字段的自动定位与识别，包含姓名、电话、手机号、邮箱、公司、部门、职位、网址、地址、QQ、微信等。 |

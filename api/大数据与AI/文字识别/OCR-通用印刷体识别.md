@@ -1,11 +1,11 @@
->! 
-- 通用印刷体识别全面升级接口，算法更强、性能更优，欢迎立即体验 [新版通用印刷体识别](https://cloud.tencent.com/document/product/866/33526 )。
-- 新老版本的接口计费模式相同，且共享计费阶梯，您可以在【文字识别控制台】>【[通用印刷体识别](https://console.cloud.tencent.com/ai/ocr/general)】中查看调用情况。
-- 老版本接口我们仍继续维护，但建议您使用  [新版通用印刷体识别](https://cloud.tencent.com/document/product/866/33526 )，体验更优服务。
+>!
+- 通用印刷体识别接口全面升级，算法更强、性能更优，支持子账号调用。欢迎立即体验 [新版通用印刷体识别](https://cloud.tencent.com/document/product/866/33526)。
+- 新老版本的接口计费模式相同，且共享计费阶梯和资源包，您可以在【文字识别控制台】>【[通用印刷体识别](https://console.cloud.tencent.com/ai/ocr/general)】中查看调用情况。
+- 老版本接口我们仍继续维护，但不支持新客户开通调用，建议您使用 [新版通用印刷体识别](https://cloud.tencent.com/document/product/866/33526)，体验更优服务。
 ## 接口描述
 接口请求域名：`https://recognition.image.myqcloud.com/ocr/general`
 本接口（general）用于提供图片整体文字的检测和识别服务，返回文字框位置与文字内容。支持多场景、任意版面下整图文字的识别，以及中英文、字母、数字的识别。应用场景：印刷文档识别、广告图文字识别、街景店招识别、菜单识别、视频标题识别、互联网头像文字识别等。
->!本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
+>?本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
 
 
 ## 请求头 header
@@ -15,7 +15,7 @@
 | -------------- | -----|----------------------------------- | ---------------------------------------- |
 | host           |  是   | recognition.image.myqcloud.com        | 腾讯云文字识别服务器域名。                       |
 | content-length |  否   | 包体总长度                          | 每个请求的包体大小限制为6MB，不支持 .gif 类型的动图。 |
-| content-type   | 是|application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1. 使用 application/json 格式，参数 url 或  image，其值为图片链接或图片 base64 编码；<br>2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。    |
+| content-type   | 是|application/json  或者  multipart/form-data | 根据不同接口选择：<br/>1. 使用 application/json 格式，参数 url 或  image，其值为图片链接或图片 base64 编码。<br>2. 使用 multipart/form-data 格式，参数为 image，其值为图片的二进制内容。    |
 | authorization  | 是| 鉴权签名      | 多次有效签名，用于鉴权，生成方式见 [鉴权签名方法](https://cloud.tencent.com/document/product/866/17734)。 |
 
 >!如选择 multipart/form-data，请使用 HTTP 框架/库推荐的方式设置请求的 content-type，不推荐直接调用 setheader 等方法设置，否则可能导致 boundary 缺失引起请求失败。
@@ -165,7 +165,7 @@ Content-Type: application/json
 | -1301 | 参数为空                       |
 | -1304 | 参数过长                       |
 | -1308 | 图片下载失败                     |
-| -9003 | OCR 识别失败                   |
 | -9021 | 未检测到文本 |
+| -9003 | OCR 识别失败                   |
 
 更多其他 API 错误码请查看 [错误码说明](https://cloud.tencent.com/document/product/866/17733) 。

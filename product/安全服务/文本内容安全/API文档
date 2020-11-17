@@ -1,0 +1,16 @@
+文本内容安全的 API 调用方法如下：
+- [更新历史](https://cloud.tencent.com/document/product/669/34498)
+- [简介](https://cloud.tencent.com/document/product/669/34490)
+- 调用方式
+	- [请求结构](https://cloud.tencent.com/document/product/669/34493)
+	- [公共参数](https://cloud.tencent.com/document/product/669/34494)
+	- [接口鉴权 v3](https://cloud.tencent.com/document/product/669/34495)
+	- [接口鉴权](https://cloud.tencent.com/document/product/669/34496)
+	- [返回结果](https://cloud.tencent.com/document/product/669/34497)
+- 文本内容安全相关接口
+	- [文本内容检测](https://cloud.tencent.com/document/product/669/34502)
+	- [新增文本样本库](https://cloud.tencent.com/document/product/669/35620)
+	- [删除文字样本库](https://cloud.tencent.com/document/product/669/35619)
+	- [查询文字样本库](https://cloud.tencent.com/document/product/669/35618)
+- [数据结构](https://cloud.tencent.com/document/product/669/34506)
+- [错误码](https://cloud.tencent.com/document/product/669/34507)

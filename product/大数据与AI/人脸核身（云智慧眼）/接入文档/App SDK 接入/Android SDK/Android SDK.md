@@ -1,5 +1,5 @@
-腾讯云人脸核身针对 Android 端提供 SDK，开发人员可以将相应的 SDK 添加到项目工程中，直接调用 SDK 中提供的 OCR 识别、活体检测和1：1人脸比对服务。
-![](https://main.qcloudimg.com/raw/5afc0c1af3405bf9aa78a4905b1c0ea5.png)
+腾讯云人脸核身针对 Android 端提供 SDK，开发人员可以将相应的 SDK 添加到项目工程中，直接调用 SDK 中提供的 OCR 识别、活体检测和1:1人脸比对服务。
+![](https://main.qcloudimg.com/raw/ba6e243fdce04a0a9aea85f26516a3e6.png)
 
 ## 业务流程
 ![](https://main.qcloudimg.com/raw/d63b182923580043c11be2da419e3694.png)
@@ -155,7 +155,7 @@ private IdentityCallback mListener = new IdentityCallback() {
 ```
 
 **2. 添加 jar 包和资源**
-参照 AuthDemo，将 AuthSDK.jar 添加到接入方 App 中的 libs 目录下，将 res 目录下的资源文件添加到接入方 App 的 res 下的相应目录下，以及 assets 目录下的文件添加到 APP的assets 下，将libcurl.so、libUlsFunction.so、libulsTracker_native.so 添加到 jniLibs 下。
+参照 AuthDemo，将 AuthSDK.jar 添加到接入方 App 中的 libs 目录下，将 res 目录下的资源文件添加到接入方 App 的 res 下的相应目录下，以及 assets 目录下的文件添加到 App 的assets 下，将libcurl.so、libUlsFunction.so、libulsTracker_native.so 添加到 jniLibs 下。
 
 **3. 初始化 SDK 及调用实名核身接口**
 具体流程跟上面 [aar 接入方式](#aar) 中的3 - 4步骤一致，此处不再赘述。

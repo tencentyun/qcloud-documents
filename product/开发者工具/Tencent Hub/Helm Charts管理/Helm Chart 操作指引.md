@@ -1,22 +1,22 @@
 ## 控制台操作指引
 ### 新建 Helm Chart
-1. 前往 Tencent Hub 控制台；
-2. 选择 Helm 仓库；
-3. 单击新建，填写相关信息；
+1. 前往 Tencent Hub 控制台。
+2. 选择 Helm 仓库。
+3. 单击新建，填写相关信息。
 4. 完成。
 
 ### 上传 Helm Chart
 
 >!上传的 Chart 包的以下描述文件决定 Chart 包上传到哪个仓库。
 - Chart.yaml 是 Chart 的关键元数据描述文件，有几个关键的字段需要关注下：
-  - name : Chart 的名称，Chart 上传后会使用该字段作为 Chart 的名称；
-  - version : Chart 的版本，Chart 上传后会使用该字段作为 Chart 的版本号，如果有相同的版本号已经上传，将会覆盖之前上传的；
-  - description : Chart 的简短描述；
+  - name : Chart 的名称，Chart 上传后会使用该字段作为 Chart 的名称。
+  - version : Chart 的版本，Chart 上传后会使用该字段作为 Chart 的版本号，如果有相同的版本号已经上传，将会覆盖之前上传的。
+  - description : Chart 的简短描述。
 - README.md 是 Chart 的说明文档，markdown 格式。
 
-1. 前往 Tencent Hub 控制台；
-2. 选择 Helm 仓库；
-3. 单击上传，选择需要上传的 Chart 包；
+1. 前往 Tencent Hub 控制台。
+2. 选择 Helm 仓库。
+3. 单击上传，选择需要上传的 Chart 包。
 4. 完成。
 
 

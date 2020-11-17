@@ -10,22 +10,23 @@ __介绍__
 - 针对腾讯云的推流地址，会采用 QUIC 协议进行加速，配合改进后的 BBR2 带宽测算方案，可以最大限度的利用主播的上行带宽，降低直播卡顿率。
 - 内嵌套的 Qos 流量控制技术具备上行网络自适应能力，可以根据主播端网络的具体情况实时调节音视频数据量。
 - 内嵌多套美颜磨皮算法（自然&光滑）和多款色彩空间滤镜（支持自定义滤镜），可以根据需要自行选择。
-- 商业版包含了基于优图 AI 人脸识别技术的大眼、瘦脸、隆鼻以及动效挂架，只需要购买**优图 License** 就可以零成本集成。
+- 企业版 SDK 包含了大眼、瘦脸以及隆鼻等功能，配合高级美颜动效素材，可快速地完成功能集成。
 - 支持自定义的音视频采集和渲染，让您可以根据项目需要选择自己的音视频数据源。
+
 
 
 
 ## SDK 基础函数
 ### config
 
-设置 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 推流配置项，见“TXLivePushConfig.h”文件中的详细定义。
+设置 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) 推流配置项，见`TXLivePushConfig.h`文件中的详细定义。
 ```
 @property (nonatomic, copy) TXLivePushConfig * config
 ```
 ***
 ### delegate
 
-设置推流回调接口，见“TXLivePushListener.h”文件中的详细定义。
+设置推流回调接口，见`TXLivePushListener.h`文件中的详细定义。
 ```
 @property (nonatomic, weak) id< TXLivePushListener > delegate
 ```
@@ -41,7 +42,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| config | [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) * | [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 推流配置项，见“TXLivePushConfig.h”文件中的详细定义。 |
+| config | [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) * | [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) 推流配置项，见`TXLivePushConfig.h`文件中的详细定义。 |
 
 ***
 
@@ -69,7 +70,7 @@ __参数__
 
 __介绍__
 
-启动预览后并不会立刻开始 RTMP 推流，需要调用 startPush  才能真正开始推流。
+启动预览后并不会立刻开始 RTMP 推流，需要调用 startPush 才能真正开始推流。
 
 ***
 
@@ -93,7 +94,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| rtmpURL | NSString * | 推流地址，参考文档：[获取推流地址](https://cloud.tencent.com/document/product/267/32720)。 |
+| rtmpURL | NSString * | 推流地址，请参见 [获取推流地址](https://cloud.tencent.com/document/product/267/32720)。 |
 
 __返回__
 
@@ -103,8 +104,7 @@ __介绍__
 
 针对腾讯云的推流地址，会采用 QUIC 协议进行加速，配合改进后的 BBR2 带宽测算方案，可以最大限度的利用主播的上行带宽，降低直播卡顿率。
 
->?
->-5 返回码代表 license 校验失败，TXLivePusher 需要 [license](https://cloud.tencent.com/document/product/454/34750) 校验通过才能工作。
+>?-5返回码代表 license 校验失败，TXLivePusher 需要 [license](https://cloud.tencent.com/document/product/454/34750)校验通过才能工作。
 
 
 ***
@@ -127,9 +127,9 @@ __介绍__
 
 __介绍__
 
-SDK 会暂时停止摄像头采集，并使用 [TXLivePushConfig.pauseImg](https://cloud.tencent.com/document/product/454/34756#pauseimg) 中指定的图片作为替代图像进行推流，也就是所谓的“垫片”。 这项功能常用于 App 被切到后台运行的场景，尤其是在 iOS 系统中，当 App 切到后台以后，操作系统不会再允许该 App 继续使用摄像头。 此时就可以通过调用 [pausePush](https://cloud.tencent.com/document/product/454/34755#pausepush) 进入垫片状态。
+SDK 会暂时停止摄像头采集，并使用 [TXLivePushConfig.pauseImg](https://cloud.tencent.com/document/product/454/34756) 中指定的图片作为替代图像进行推流，也就是所谓的“垫片”。 这项功能常用于 App 被切到后台运行的场景，尤其是在 iOS 系统中，当 App 切到后台以后，操作系统不会再允许该 App 继续使用摄像头。 此时就可以通过调用 [pausePush](https://cloud.tencent.com/document/product/454/34755#pausepush) 进入垫片状态。
 对于绝大多数推流服务器而言，如果超过一定时间不推视频数据，服务器会断开当前的推流链接。
-在 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 您可以指定：
+在 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) 您可以指定：
 - pauseImg 设置后台推流的默认图片，默认为黑色背景。
 - pauseFps 设置后台推流帧率，最小值为5，最大值为20，默认为10。
 - pauseTime 设置后台推流持续时长，单位秒，默认300秒。
@@ -187,7 +187,7 @@ __参数__
 
 __介绍__
 
-推荐设置：秀场直播 quality：HIGH_DEFINITION；adjustBitrate：NO；adjustResolution：NO。参考文档：[设定清晰度](https://cloud.tencent.com/document/product/454/7879#step-4.3A-.E8.AE.BE.E5.AE.9A.E6.B8.85.E6.99.B0.E5.BA.A6)。
+推荐设置：秀场直播 quality：HIGH_DEFINITION；adjustBitrate：NO；adjustResolution：NO。请参见 [设定清晰度](https://cloud.tencent.com/document/product/454/7879#7.-.E8.AE.BE.E5.AE.9A.E7.94.BB.E9.9D.A2.E6.B8.85.E6.99.B0.E5.BA.A6)。
 
 >?adjustResolution 早期被引入是为了让 TXLivePusher 能够满足视频通话这一封闭场景下的一些需求，现已不推荐使用。 如果您有视频通话的需求，可以使用我们专门为视频通话打造的 [TRTC](https://cloud.tencent.com/product/trtc) 服务。 由于目前很多 H5 播放器不支持分辨率动态变化，所以开启分辨率自适应以后，会导致 H5 播放端和录制文件的很多兼容问题。
 
@@ -230,7 +230,6 @@ __介绍__
 由于前置摄像头采集的画面是取自手机的观察视角，如果将采集到的画面直接展示给观众，是完全没有问题的。 但如果将采集到的画面也直接显示给主播，则会跟主播照镜子时的体验完全相反，会让主播感觉到很奇怪。 因此，SDK 会默认开启本地摄像头预览画面的镜像效果，让主播直播时跟照镜子时保持一个体验效果。
 setMirror 所影响的则是观众端看到的视频效果，如果想要保持观众端看到的效果跟主播端保持一致，需要开启镜像； 如果想要让观众端看到正常的未经处理过的画面（如主播弹吉他的时候有类似需求），则可以关闭镜像。
 
->?仅当前使用前置摄像头时，setMirror 接口才会生效，在使用后置摄像头时此接口无效。
 
 
 ***
@@ -250,7 +249,7 @@ __参数__
 
 __介绍__
 
-该接口仅能够改变主播本地预览画面的方向，而不会改变观众端的画面效果。 如果希望改变观众端看到的视频画面的方向，比如原来是540 x 960，希望变成960 x 540，则可以通过设置 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 中的 homeOrientation 来实现。
+该接口仅能够改变主播本地预览画面的方向，而不会改变观众端的画面效果。 如果希望改变观众端看到的视频画面的方向，例如原来是540 × 960，希望变成960 × 540，则可以通过设置 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) 中的 homeOrientation 来实现。
 
 
 <pre>
@@ -316,7 +315,7 @@ __参数__
 
 __介绍__
 
-SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 中的 touchFocus 选项关闭自动对焦，改用手动对焦。 改用手动对焦之后，需要由主播自己点击摄像头预览画面上的某个区域，来手动指导摄像头对焦。
+SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) 中的 touchFocus 选项关闭自动对焦，改用手动对焦。 改用手动对焦之后，需要由主播自己单击摄像头预览画面上的某个区域，来手动指导摄像头对焦。
 
 >?早期 SDK 版本仅仅提供了手动和自动对焦的选择开关，并不支持设置对焦位置，3.0版本以后，手动对焦的接口才开放出来。
 
@@ -325,201 +324,22 @@ SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConf
 
 
 ## 美颜相关接口
-### setBeautyStyle
+### getBeautyManager
 
-设置美颜级别和美白级别。
+获取美颜管理对象 [TXBeautyManager](https://cloud.tencent.com/document/product/454/39382)。
 ```
-- (void)setBeautyStyle:(TX_Enum_Type_BeautyStyle)beautyStyle beautyLevel:(float)beautyLevel whitenessLevel:(float)whitenessLevel ruddinessLevel:(float)ruddinessLevel 
+- (TXBeautyManager *)getBeautyManager 
 ```
 
-__参数__
+>通过美颜管理，您可以使用以下功能：
+>- 设置”美颜风格”、”美白”、“红润”、“大眼”、“瘦脸”、“V脸”、“下巴”、“短脸”、“小鼻”、“亮眼”、“白牙”、“祛眼袋”、“祛皱纹”、“祛法令纹”等美容效果。
+>- 调整“发际线”、“眼间距”、“眼角”、“嘴形”、“鼻翼”、“鼻子位置”、“嘴唇厚度”、“脸型”。
+>- 设置人脸挂件（素材）等动态效果。
+>- 添加美妆。
+>- 进行手势识别。
 
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| beautyStyle | TX_Enum_Type_BeautyStyle | 使用哪种磨皮算法，支持光滑和自然两种，光滑风格磨皮更加明显，适合秀场直播。见“TXLiveSDKTypeDef.h”中的 TX_Enum_Type_BeautyStyle 定义。 |
-| beautyLevel | float | 美颜级别，取值范围：0 - 9； 0表示关闭，1 - 9值越大，效果越明显。 |
-| whitenessLevel | float | 美白级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-| ruddinessLevel | float | 红润级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
 
 ***
-
-### setFilter
-
-设置指定素材滤镜特效。
-```
-- (void)setFilter:(TXImage *)image 
-```
-
->?滤镜图片一定要用 png 格式，Demo 用到的滤镜查找表图片位于 TXLiteAVDemo/Resource/Beauty/filter/FilterResource.bundle 中。
-
-***
-
-### setSpecialRatio
-
-设置滤镜浓度。
-```
-- (void)setSpecialRatio:(float)specialValue 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| specialValue | float | 取值范围0 - 1的浮点型数字，取值越大滤镜效果越明显，默认取值0.5。 |
-
-__介绍__
-
-在美女秀场等应用场景里，滤镜浓度的要求会比较高，以便更加突显主播的差异。 我们默认的滤镜浓度是0.5，如果您觉得滤镜效果不明显，可以使用下面的接口进行调节。
-
-***
-
-
-## 商业版美颜和动效挂件
-### setEyeScaleLevel
-
-设置大眼级别（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setEyeScaleLevel:(float)eyeScaleLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| eyeScaleLevel | float | 大眼级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
-### setFaceScaleLevel
-
-设置瘦脸级别（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setFaceScaleLevel:(float)faceScaleLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| faceScaleLevel | float | 瘦脸级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
-### setFaceVLevel
-
-设置 V 脸级别（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setFaceVLevel:(float)faceVLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| faceVLevel | float | V 脸级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
-### setChinLevel
-
-设置下巴拉伸或收缩（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setChinLevel:(float)chinLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| chinLevel | float | 下巴拉伸或收缩级别，取值范围：-9 - 9；0 表示关闭，小于0表示收缩，大于0表示拉伸。 |
-
-***
-
-### setFaceShortLevel
-
-设置短脸级别（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setFaceShortLevel:(float)faceShortlevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| faceShortlevel | float | 短脸级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
-### setNoseSlimLevel
-
-设置瘦鼻级别（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setNoseSlimLevel:(float)noseSlimLevel 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| noseSlimLevel | float | 瘦鼻级别，取值范围：0 - 9；0表示关闭，1 - 9值越大，效果越明显。 |
-
-***
-
-### setGreenScreenFile
-
-设置绿幕背景视频（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setGreenScreenFile:(NSURL *)file 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| file | NSURL * | 视频文件路径。支持 MP4；nil 表示关闭特效。 |
-
-__介绍__
-
-此处的绿幕功能并非智能抠背，它需要被拍摄者的背后有一块绿色的幕布来辅助产生特效。
-
-***
-
-### selectMotionTmpl
-
-选择使用哪一款 AI 动效挂件（商业版有效，其它版本设置此参数无效）。
-```
-- (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| tmplName | NSString * | 动效名称。 |
-| tmplDir | NSString * | 动效所在目录。 |
-
-***
-
-### setMotionMute
-
-设置动效静音（商业版有效，其它版本设置此参数无效）。
-```
-- (void)setMotionMute:(BOOL)motionMute 
-```
-
-__参数__
-
-| 参数 | 类型 | 含义 |
-|-----|-----|-----|
-| motionMute | BOOL | YES：静音；NO：不静音。 |
-
-__介绍__
-
-有些挂件本身会有声音特效，通过此 API 可以关闭这些特效播放时所带的声音效果。
-
-***
-
-
 ## 音频相关接口
 ### setMute
 
@@ -639,7 +459,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | float | 音量大小，1为正常音量，建议值为0 - 2之间的浮点数，如果需要增益可以设置更大的值。 |
+| volume | float | 音量大小，1为正常音量，范围是0 - 1之间的浮点数。 |
 
 __返回__
 
@@ -658,7 +478,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| volume | float | 音量大小，1为正常音量，建议值为0 - 2之间的浮点数，如果需要增益可以设置更大的值。 |
+| volume | float | 音量大小，1为正常音量，范围是0 - 1之间的浮点数。 |
 
 __返回__
 
@@ -696,7 +516,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| reverbType | TXReverbType | 混响类型，详见“TXLiveSDKTypeDef.h”中的 TXReverbType 定义。 |
+| reverbType | TXReverbType | 混响类型，详见`TXLiveSDKTypeDef.h`中的 TXReverbType 定义。 |
 
 __返回__
 
@@ -715,7 +535,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| voiceChangerType | TXVoiceChangerType | 混响类型，详见“TXLiveSDKTypeDef.h”中的 voiceChangerType 定义。 |
+| voiceChangerType | TXVoiceChangerType | 混响类型，详见`TXLiveSDKTypeDef.h`中的 voiceChangerType 定义。 |
 
 __返回__
 
@@ -727,7 +547,7 @@ YES：成功；NO：失败。
 ## 本地录制接口
 ### recordDelegate
 
-录制回调接口，详见 "TXLiveRecordTypeDef.h" 中的 TXLiveRecordListener 定义。
+录制回调接口，详见`TXLiveRecordTypeDef.h`中的 TXLiveRecordListener 定义。
 ```
 @property (nonatomic, weak) id< TXLiveRecordListener > recordDelegate
 ```
@@ -750,9 +570,9 @@ __返回__
 0：成功；-1：videoPath 为空；-2：上次录制尚未结束，请先调用 stopRecord；-3：推流尚未开始。
 
 >?
->1.&nbsp;只有启动推流后才能开始录制，非推流状态下启动录制无效。
->1.&nbsp;出于安装包体积的考虑，仅专业版和商业版两个版本的 LiteAVSDK 支持该功能，直播精简版仅定义了接口但并未实现。
->2.&nbsp;录制过程中请勿动态切换分辨率和软硬编，会有很大概率导致生成的视频异常。
+>1. &nbsp;只有启动推流后才能开始录制，非推流状态下启动录制无效。
+>2. &nbsp;出于安装包体积的考虑，仅专业版和商业版两个版本的 LiteAVSDK 支持该功能，直播精简版仅定义了接口但并未实现。
+>3. &nbsp;录制过程中请勿动态切换分辨率和软硬编，会有很大概率导致生成的视频异常。
 
 ***
 
@@ -793,23 +613,23 @@ __参数__
 
 __介绍__
 
-自定义视频采集和自定义视频处理不能同时开启，与自定义视频采集不同，自定义视频处理依然是由 SDK 采集摄像头的画面， 但 SDK 会通过 TXVideoCustomProcessDelegate（见“TXVideoCustomProcessDelegate.h”）回调将数据回调给您的 App 进行二次加工。
-如果要开启自定义视频处理，需要给 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 中的 customModeType 属性增加 CUSTOM_MODE_VIDEO_PREPROCESS 选项。
+自定义视频采集和自定义视频处理不能同时开启，与自定义视频采集不同，自定义视频处理依然是由 SDK 采集摄像头的画面， 但 SDK 会通过 TXVideoCustomProcessDelegate（见`TXVideoCustomProcessDelegate.h`）回调将数据回调给您的 App 进行二次加工。
+如果要开启自定义视频处理，需要给 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) 中的 customModeType 属性增加 CUSTOM_MODE_VIDEO_PREPROCESS 选项。
 
 >?出于性能和稳定性考虑，一般不建议开启此特性。
 
 ***
 ### audioProcessDelegate
 
-自定义视频处理回调。
+自定义音频处理回调。
 ```
 @property (nonatomic, weak) id< TXAudioCustomProcessDelegate > audioProcessDelegate
 ```
 
 __介绍__
 
-自定义音频采集和自定义音频处理不能同时开启，与自定义音频采集不同，自定义音频处理依然是由 SDK 采集麦克风的声音， 但 SDK 会通过 TXAudioCustomProcessDelegate（见“TXAudioCustomProcessDelegate.h”）回调将数据回调给您的 App 进行二次加工。
-如果要开启自定义音频处理，需要给 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 中的 customModeType 属性增加 CUSTOM_MODE_AUDIO_PREPROCESS 选项。
+自定义音频采集和自定义音频处理不能同时开启，与自定义音频采集不同，自定义音频处理依然是由 SDK 采集麦克风的声音， 但 SDK 会通过 TXAudioCustomProcessDelegate（见`TXAudioCustomProcessDelegate.h`）回调将数据回调给您的 App 进行二次加工。
+如果要开启自定义音频处理，需要给 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) 中的 customModeType 属性增加 CUSTOM_MODE_AUDIO_PREPROCESS 选项。
 
 >?出于性能和稳定性考虑，一般不建议开启此特性。
 
@@ -831,8 +651,8 @@ __介绍__
 
 在自定义视频采集模式下，SDK 不再继续从摄像头采集图像，只保留编码和发送能力，您需要定时地发送自己采集的 SampleBuffer。 要开启自定义视频采集，需要完成如下两个步骤：
 
-1. 开启自定义采集：给 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 中的 customModeType 属性增加 CUSTOM_MODE_VIDEO_CAPTURE 选项，代表开启自定义视频采集。
-2. 设定视频分辨率：将 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 中的 sampleBufferSize 属性设置为您期望的分辨率。 如果期望编码分辨率跟采集分辨率一致，可以不设置 sampleBufferSize 属性，而是将 autoSampleBufferSize 设置为 YES。
+1. 开启自定义采集：给 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) 中的 customModeType 属性增加 CUSTOM_MODE_VIDEO_CAPTURE 选项，代表开启自定义视频采集。
+2. 设定视频分辨率：将 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) 中的 sampleBufferSize 属性设置为您期望的分辨率。 如果期望编码分辨率跟采集分辨率一致，可以不设置 sampleBufferSize 属性，而是将 autoSampleBufferSize 设置为 YES。
 
 >?
 >1. 开启自定义视频采集后，即无需再调用 startPreview 来开启摄像头采集。
@@ -858,8 +678,8 @@ __介绍__
 
 在自定义音频采集模式下，SDK 不再继续从麦克风采集声音，只保留编码和发送能力，您需要定时地发送自己采集的声音数据（PCM 格式） 要开启自定义音频采集，需要完成如下两个步骤：
 
-1. 开启自定义采集：给 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 中的 customModeType 属性增加 CUSTOM_MODE_AUDIO_CAPTURE 选项，代表开启自定义音频采集。
-2. 设定音频采样率：将 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 中的 audioSampleRate 属性设置为您期望的音频采样率，audioChannels 设置为期望的声道数，默认值：1（单声道）。
+1. 开启自定义采集：给 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) 中的 customModeType 属性增加 CUSTOM_MODE_AUDIO_CAPTURE 选项，代表开启自定义音频采集。
+2. 设定音频采样率：将 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) 中的 audioSampleRate 属性设置为您期望的音频采样率，audioChannels 设置为期望的声道数，默认值：1（单声道）。
 
 >?SDK 对每次传入的 PCM buffer 大小有严格要求，每一个采样点要求是16位宽。 如果是单声道，请保证传入的 PCM 长度为2048；如果是双声道，请保证传入的 PCM 长度为4096。
 
@@ -884,8 +704,8 @@ __介绍__
 
 相比于 sendCustomPCMData，sendAudioSampleBuffer 主要用于 ReplayKit 录屏推流的场景。 要开启自定义音频采集，需要完成如下两个步骤：
 
-1. 开启自定义采集：给 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 中的 customModeType 属性增加 CUSTOM_MODE_AUDIO_CAPTURE 选项，代表开启自定义音频采集。
-2. 设定音频采样率：将 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756#txlivepushconfig) 中的 audioSampleRate 属性设置为您期望的音频采样率，audioChannels 设置为期望的声道数，默认值：1（单声道）。
+1. 开启自定义采集：给 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) 中的 customModeType 属性增加 CUSTOM_MODE_AUDIO_CAPTURE 选项，代表开启自定义音频采集。
+2. 设定音频采样率：将 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) 中的 audioSampleRate 属性设置为您期望的音频采样率，audioChannels 设置为期望的声道数，默认值：1（单声道）。
 
 
 当使用 ReplayKit 做录屏推流时，iOS 的 ReplayKit 接口会回调两种类型的声音数据：

@@ -6,52 +6,40 @@
 
 ### 下载 Helm 客户端
 
-执行以下命令，下载 Helm 客户端。
+依次执行以下命令，下载 Helm 客户端。关于安装 Helm 的更多信息，请参见 [Installing Helm](https://helm.sh/docs/intro/install/)。
 ```
-curl -O https://storage.googleapis.com/kubernetes-helm/helm-v2.10.0-linux-amd64.tar.gz
-tar xzvf helm-v2.10.0-linux-amd64.tar.gz
-sudo cp linux-amd64/helm /usr/local/bin/helm
+curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
 ```
-
-### 配置 Helm 为 Client-only
-
-执行以下命令，将 Helm 配置为 Client-only。
 ```
-helm init --client-only
+chmod 700 get_helm.sh
 ```
-
-### 内网通过 Helm 客户端连接集群
-
-#### 目标集群节点
-
-您可以直接使用。
-
-#### 非目标集群节点
-
-1. 执行以下命令，将目标集群 Tiller 服务的 type 修改为内网 Loadbalancer 模式。
->! 请将以下命令中 “service.kubernetes.io/qcloud-loadbalancer-internal-subnetid” 的值替换为需要生产 CLB 的子网 ID。
- 
- ```
-kubectl patch svc $(kubectl get svc -l app=helm,name=tiller -n kube-system -o=jsonpath={.items[0].metadata.name}) -n kube-system -p '{"metadata":{"annotations":{"service.kubernetes.io/qcloud-loadbalancer-internal-subnetid":"subnet-88888888"}},"spec":{"type":"LoadBalancer"}}'
 ```
-2. 执行以下命令，在目标集群节点上获取 $EXTERNALIP。
-```
-  kubectl get svc -l app=helm,name=tiller -n kube-system -o=jsonpath={.items[0].status.loadBalancer.ingress[0].ip}
-```
-3. 执行以下命令，在目标集群节点上获取 $PORT。
-```
-kubectl get svc -l app=helm,name=tiller -n kube-system -o=jsonpath={.items[0].spec.ports[0].port}
-```
-4. 执行以下命令，在 Helm 客户端节点上导入环境变量。
-```
-export HELM_HOST=$EXTERNALIP:$PORT
-```
-5. 执行以下命令，命令验证 Helm 客户端。
-```
-[centos ~]# helm ls
-NAME     	REVISION	UPDATED                 	STATUS  	CHART          	APP VERSION	NAMESPACE
-wordpress	1       	Mon Jan 21 14:22:30 2019	DEPLOYED	wordpress-5.0.1	5.0.1      	default
+./get_helm.sh
 ```
 
 
+### 配置 Helm Chart 仓库（可选）
+1. 执行以下命令，配置 kubernetes 官方仓库。
+```
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+```
+2. 执行以下命令，配置腾讯云应用市场。
+```
+helm repo add tkemarket https://market-tke.tencentcloudcr.com/chartrepo/opensource-stable
+```
+3. [配置 TCR 私有 Helm 仓库](https://cloud.tencent.com/document/product/1141/41944#.E6.B7.BB.E5.8A.A0-helm-.E4.BB.93.E5.BA.93)。
+
+
+### 连接集群
+
+Helm v3对比 Helm v2已移除 Tiller 组件，Helm 客户端可直接连接集群的 ApiServer，应用相关的版本数据直接存储在 Kubernetes 中。如下图所示：
+![](https://main.qcloudimg.com/raw/a1c2fc3a632f3369b14c72498c573593.png)
+Helm Client 使用 TKE 生成的客户端证书访问集群，具体操作步骤如下：
+1. 通过 TKE 控制台或 API [获取可用公网或内网访问的 Kubeconfig](https://cloud.tencent.com/document/product/457/32191#.E9.85.8D.E7.BD.AE-kubeconfig)。
+2. 连接目标集群可参考以下两种方式：
+  -  使用上述获取的 kubeconfig，对 Helm Client 所在机器的 kubectl config use-contest 进行配置。 
+  - 执行以下命令，通过指定参数的形式访问目标集群。
+```
+helm  install ....  --kubeconfig [kubeconfig所在路径]
+```
 

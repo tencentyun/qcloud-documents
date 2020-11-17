@@ -1,0 +1,42 @@
+## 操作场景
+为了保护用户业务，避免因服务误删除导致的业务损失，如果服务中有 API 或未下线的服务，则此服务不能直接删除。用户必须依次进行下线服务、查询该服务的 API 列表、批量删除服务下 API、删除服务等步骤后才能删除服务，非常繁琐。
+
+针对此问题，腾讯云 API 网关团队和腾讯云 Serverless Framework 团队推出了 Serverless Cleaner，用于快速删除 API 网关服务。
+
+## 操作步骤
+1. 前往 [下载地址](https://github.com/serverless-plus/serverless-cleaner) ，下载 Serverless Cleaner。
+2. 使用命令行工具进入 Serverless Cleaner 所在目录。
+3. 在命令行工具中输入如下命令，安装依赖文件。
+```shell
+$ npm install
+```
+4. 安装依赖文件完成后，进入 Serverless Cleaner 所在目录，复制 config.example.js 并重命名为 config.js。
+5. 根据需要删除服务的信息，修改 config.js 的内容。
+```JavaScript
+module.exports = {
+	tencent: {
+		// 资源所在地域，如果您未修改，可以在运行时输入
+		region: 'ap-guangzhou',
+		// 身份认证
+		credentials: {
+			SecretId: '',
+			SecretKey: '',
+		},
+		apigwOptions: {
+			// 不会被删除的服务的 ID，在您使用  Serverless Cleaner 之前，请将您重要的服务 ID 输入到这里，避免影响业务
+			exclude: [],
+			// 将被删除的服务的 ID，优先级高于 exclude。如果 exclude 与 include 中存在同一个服务 ID，该服务将被删除
+			include: [],
+		},
+		scfOptions: {
+			// 删除 SCF 资源时需要使用，仅清除 API 网关服务时无需填写
+			exclude: [],
+			include: [],
+		},
+	},
+};
+```
+6. 在命令行工具中输入如下命令，进行服务清除。
+```shell
+$ npm run clean
+```

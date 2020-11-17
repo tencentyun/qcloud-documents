@@ -1,11 +1,11 @@
 CMQ 目前已开放基于 TCP 协议的 SDK 调用，支持普通消息、事务消息、延迟消息、异步消息的收发功能。其中，事务消息特性仅通过 TCP 方式实现。
-TCP 协议目前支持公网访问以及私有网络的 CVM 内网访问方式，暂时不支持基础网络的内网访问方式。
+TCP 协议目前支持公网访问以及同地域的私有网络的 CVM 内网访问方式，暂时不支持基础网络的内网访问方式。
 本文主要介绍 TCP SDK 使用方式，提供 Demo 工程的安装、下载、配置及运行示例，帮助工程师快速搭建 CMQ 测试工程。
 ## TCP 协议优势
 - **更少的计算资源**
 HTTP 针对请求鉴权，每次请求都需要签名；TCP 针对链接鉴权，只需要建立连接的时候对链接鉴权，节约客户端计算资源。
 - **更安全的客户端线程**
-HTTP 客户端非线程安全；TCP 客户端线程安全，多个线程可使用相同的链接，节省链接资源。
+TCP 客户端线程安全，多个线程可使用相同的链接，节省链接资源。
 - **更高效的传输效率**
 TCP 传输提高有效数据占比，在相同客户端下，拥有更高的吞吐量和 QPS，相比 HTTP 具有更高效的传输效率。
 - **更优的使用体验**
@@ -69,7 +69,7 @@ String queue = “创建的队列名”
 | 北美     | http://cmq-nameserver-ca.tencentcloudapi.com| http://cmq-nameserver-vpc-ca.api.tencentyun.com |   
 | 成都     | http://cmq-nameserver-cd.tencentcloudapi.com | http://cmq-nameserver-vpc-cd.api.tencentyun.com|    
 | 重庆     | http://cmq-nameserver-cq.tencentcloudapi.com | http://cmq-nameserver-vpc-cq.api.tencentyun.com |    
-| 香港     |http://cmq-nameserver-hk.tencentcloudapi.com | http://cmq-nameserver-vpc-hk.api.tencentyun.com |    
+| 中国香港     |http://cmq-nameserver-hk.tencentcloudapi.com | http://cmq-nameserver-vpc-hk.api.tencentyun.com |    
 | 韩国     | http://cmq-nameserver-kr.tencentcloudapi.com | http://cmq-nameserver-vpc-kr.api.tencentyun.com |     
 | 俄罗斯   | http://cmq-nameserver-ru.tencentcloudapi.com | http://cmq-nameserver-vpc-ru.api.tencentyun.com|     
 | 新加坡   | http://cmq-nameserver-sg.tencentcloudapi.com                 | http://cmq-nameserver-vpc-sg.api.tencentyun.com          |     
@@ -78,3 +78,4 @@ String queue = “创建的队列名”
 | 泰国     | http://cmq-nameserver-th.tencentcloudapi.com| http://cmq-nameserver-vpc-th.api.tencentyun.com |     
 | 美东     | http://cmq-nameserver-use.tencentcloudapi.com | http://cmq-nameserver-vpc-use.api.tencentyun.com        |  
 | 美西     | http://cmq-nameserver-usw.tencentcloudapi.com | http://cmq-nameserver-vpc-usw.api.tencentyun.com |     
+

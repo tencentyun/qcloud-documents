@@ -6,4 +6,4 @@ NAT 网关创建好后，您可以使用 [修改路由表](https://cloud.tencent
 3. 修改子网关联路由表
 路由策略配置完成后，您可以使用 [修改子网关联的路由表](https://cloud.tencent.com/doc/api/245/1416) 接口将需要通过 NAT 网关访问 Internet 的子网指向上述路由表。
 
-NAT 网关具体使用场景，请参见 <a href="https://cloud.tencent.com/doc/product/215/1682#2.-nat.E7.BD.91.E5.85.B3" title="NAT网关">NAT 网关说明</a>。
+NAT 网关具体使用场景，请参见 <a href="https://cloud.tencent.com/document/product/552/12953" title="NAT网关">NAT 网关-应用场景</a>。

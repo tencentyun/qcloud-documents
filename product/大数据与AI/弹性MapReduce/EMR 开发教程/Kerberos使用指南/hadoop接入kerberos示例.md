@@ -1,9 +1,9 @@
->!本文简单介绍 Hadoop 如何修改配置接入 kerberos，如果是通过腾讯云 EMR 购买的安全集群，系统会自动配置好，无需自行配置。
+本文介绍 Hadoop 如何修改配置接入 kerberos。如果是通过腾讯云 EMR 购买的安全集群，系统会自动配置好，无需自行配置。
 
 ## 前提条件
-- kdc 服务已经搭建好。
-- Hadoop 相关的 principals 已经创建好。
-- keytab 文件分发到了各台服务器上（假设 keytab 文件路径为 /var/krb5kdc/emr.keytab）。
+- kdc 服务已搭建成功。
+- Hadoop 相关的 principals 已创建完成。
+- keytab 文件分发到了各台服务器上（假设 keytab 文件路径为`/var/krb5kdc/emr.keytab`）。
 
 ## Hadoop 接入 kerberos
 Hadoop 主要包含 HDFS 与 Yarn 服务，需要分别修改这两部分配置并重启服务进程。

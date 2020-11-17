@@ -1,3 +1,5 @@
+>!您目前查阅的是历史版本 SDK 文档，已不再更新和维护，我们建议您查阅新版 [SDK 文档](https://cloud.tencent.com/document/product/436/6474)。
+
 ## 开发准备
 
 ### 相关资源
@@ -50,7 +52,7 @@ Credentials cred = new Credentials(appId, secretId, secretKey);
 ```java
 // 初始化客户端配置
 ClientConfig clientConfig = new ClientConfig();
-// 设置bucket所在的区域，比如华南园区：gz； 华北园区：tj；华东园区：sh ；
+// 设置bucket所在的区域，例如华南园区：gz； 华北园区：tj；华东园区：sh ；
 clientConfig.setRegion("gz");
 ```
 
@@ -566,7 +568,7 @@ String getDownLoadSign(String bucketName, String cosPath, Credentials cred, long
 | :------: | :---------: | :--: | :----------------------------------: |
 |  bucket  |   unicode   |  无   |               bucket 名称               |
 | cos_path |   unicode   |  无   |              要签名的 cos 路径               |
-|   cred   | Credentials |  无   | 用户身份信息, 包括 appid，secretId，secretkey |
+|   cred   | Credentials |  无   | 用户身份信息，包括 APPID，SecretId，Secretkey |
 | expired  |    long     |  无   |           签名过期时间， UNIX 时间戳            |
 
 #### 返回值
@@ -589,5 +591,5 @@ String signStr = Sign.getDownLoadSign(bucketName, "/pic/test.jpg", cred, expired
 | :--: | :----------------------------------: |
 |  0   |                 操作成功                 |
 |  -1  | 输入参数错误，例如输入的本地文件路径不存在，cos 文件路径不符合规范 |
-|  -2  |             网络错误，如404等              |
+|  -2  |             网络错误，例如404等              |
 |  -3  |           连接 cos 时发生异常，如连接超时           |

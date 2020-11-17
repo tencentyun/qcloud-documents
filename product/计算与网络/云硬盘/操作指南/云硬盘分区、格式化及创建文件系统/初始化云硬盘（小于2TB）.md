@@ -3,50 +3,44 @@
 
 
 ## 前提条件
->! 
->- 格式化数据盘会将数据将被全部清空，请确保数据盘中没有数据或已备份重要数据。
->- 为避免服务发生异常，格式化前请确保云服务器已停止对外服务。
->
 已 [挂载云硬盘](/doc/product/362/5745) 至云服务器。
+
+## 注意事项
+- 您可先了解 [云硬盘使用注意事项](https://cloud.tencent.com/document/product/362/17819#.E4.BA.91.E7.A1.AC.E7.9B.98.E4.BD.BF.E7.94.A8.E4.B8.8A.E6.9C.89.E4.BB.80.E4.B9.88.E6.B3.A8.E6.84.8F.E4.BA.8B.E9.A1.B9.EF.BC.9F) 后再对云硬盘进行相关操作，以免损坏重要数据。
+- 格式化数据盘会将数据全部清空，请确保数据盘中没有数据或已备份重要数据。
+- 为避免服务发生异常，格式化前请确保云服务器已停止对外服务。
 
 ## 操作步骤
 
 <span id="Windows2008"></span>
 ### 初始化云硬盘（Windows）
->?本文将以 Windows Server 2008 操作系统为例，不同操作系统的格式化操作可能不同，本文仅供参考。
-
+>?本文将以 Windows Server 2012 R2 操作系统为例，不同操作系统的格式化操作可能不同，本文仅供参考。
+>
 1. [登录 Windows 云服务器](https://cloud.tencent.com/document/product/213/5435)。
-2. 在云服务器桌面，单击【开始】。
-3. 右键单击开始菜单中的【计算机】，选择【管理】。
-4. 在左侧导航树中，选择【存储】>【磁盘管理】。进入【磁盘管理】页面。
- ![](https://main.qcloudimg.com/raw/6ccd2a2958137036311a9eb02c0b430b.png)
-
->?若新增磁盘处于脱机状态（如上图），需要先执行 [步骤5](#online) 联机后再执行 [步骤6](#initialize) 进行初始化。否则直接执行 [步骤6](#initialize) 进行初始化。
-
-<span id="online"></span>
-5. 在右侧窗格中出现磁盘列表，右键单击磁盘1区域，在菜单列表中选择【联机】，进行联机。联机后，磁盘1由【脱机】状态变为【没有初始化】。
- ![](https://main.qcloudimg.com/raw/a6b5296ab23c0c361440b7d5b97bc493.png)
- 
-<span id="initialize"></span>
-6. 右键单击磁盘1区域，在菜单列表中选择【初始化磁盘】。
- ![](https://main.qcloudimg.com/raw/b38f04f488ff40b26e12d33aa1f83ee1.png)
-7. 在【初始化磁盘】对话框中显示需要初始化的磁盘，选中【MBR（主启动记录）】或【GPT（GUID 分区表）】，单击【确定】。
+2. 在云服务器桌面，右键单击左下角的<img src="https://main.qcloudimg.com/raw/3d815ac1c196b47b2eea7c3a516c3d88.png" style="margin:-6px 0px">。
+3. 在弹出的菜单中，选择【磁盘管理】打开“磁盘管理”窗口。如下图所示：
+![](https://main.qcloudimg.com/raw/fcf4fe5cafbbf4e3a52db750a4c3e2e2.png)
+>?若新增磁盘处于脱机状态（如上图），需要先执行 [步骤4](#online) 联机后再执行 [步骤5](#initialize) 进行初始化。否则直接执行 [步骤5](#initialize) 进行初始化。
+4. <span id="online"></span>在右侧窗格中出现磁盘列表，右键单击磁盘1区域，在菜单列表中选择【联机】，进行联机。联机后，磁盘1由【脱机】状态变为【没有初始化】。如下图所示：
+![](https://main.qcloudimg.com/raw/4d3c952ca5ffdd3b1a4874191c33dc8c.png)
+5. <span id="initialize"></span>右键单击磁盘1区域，在菜单列表中选择【初始化磁盘】。如下图所示：
+![](https://main.qcloudimg.com/raw/e20181dc979f1b018baba0ccaa0c5291.png)
+6. 在【初始化磁盘】对话框中显示需要初始化的磁盘，选中【MBR（主启动记录）】或【GPT（GUID 分区表）】，单击【确定】。如下图所示：
 >!磁盘投入使用后再切换磁盘分区形式，磁盘上的原有数据将会清除，因此请根据实际需求合理选择分区形式。
 >
- ![](https://main.qcloudimg.com/raw/a7de4fb54fb5585a3a2ee808566679af.png)
-8. 右键单击磁盘上未分配的区域，选择【新建简单卷】。
- ![](https://main.qcloudimg.com/raw/f7d4e90dfd4d766ca80a6ab35b991d89.png)
-9. 弹出【新建简单卷向导】对话框，根据界面提示，单击【下一步】。
- ![](https://main.qcloudimg.com/raw/205037d66e5f7fbd844be0a9c1ba3852.png)
-10. 根据实际情况指定卷大小，默认为最大值，单击【下一步】。
-11. 分配驱动器号，单击【下一步】。
- ![](https://main.qcloudimg.com/raw/68478d5a03ce84be545c8792ea355324.png)
-12. 选择【按下列设置格式化这个卷】，并根据实际情况设置参数，格式化新分区，单击【下一步】完成分区创建。
- ![](https://main.qcloudimg.com/raw/3519b7d616dadbea6789ae2201a6f5ea.png)
-13. 单击【完成】完成向导。需要等待片刻让系统完成初始化操作，当卷状态为【状态良好】时，表示初始化磁盘成功。
-  ![](https://main.qcloudimg.com/raw/bb944e741233634c15b957a6ea1b1fee.png)
+![](https://main.qcloudimg.com/raw/688d59f40d9d26ae59ee201e433cee2e.png)
+7. 右键单击磁盘上未分配的区域，选择【新建简单卷】。如下图所示：
+![](https://main.qcloudimg.com/raw/912b77a52bb1e531d4c6bf5403841657.png)
+8. 弹出【新建简单卷向导】对话框，根据界面提示，单击【下一步】。
+9. 根据实际情况指定卷大小，默认为最大值，单击【下一步】。
+10. 分配驱动器号，单击【下一步】。如下图所示：
+![](https://main.qcloudimg.com/raw/1f61b5dcd5c965fa3e3bc11983475d38.png)
+11. 选择【按下列设置格式化这个卷】，并根据实际情况设置参数，格式化新分区，单击【下一步】完成分区创建。
+![](https://main.qcloudimg.com/raw/608ffc67e52b53691bf64f2b2411b948.png)
+12. 单击【完成】完成向导。需要等待片刻让系统完成初始化操作，当卷状态为【状态良好】时，表示初始化磁盘成功。
+![](https://main.qcloudimg.com/raw/148e9db3163df781b0832df1da25059f.png)
   初始化成功后，进入【计算机】界面可以查看到新磁盘。
-  ![](https://main.qcloudimg.com/raw/f54cd20f227707853eb8c9a8a6142ebf.png)
+![](https://main.qcloudimg.com/raw/05261659e6d9eed38da84a933c20ba12.png)
 
 <span id="Linux"></span>
 ### 初始化云硬盘（Linux）
@@ -307,4 +301,5 @@ UUID=d489ca1c-5057-4536-81cb-ceb2847f9954 /data/newpart   ext4 defaults     0   
 
 ## 相关操作
 [初始化云硬盘（大于等于2TB）](https://cloud.tencent.com/document/product/362/6735)
+
 

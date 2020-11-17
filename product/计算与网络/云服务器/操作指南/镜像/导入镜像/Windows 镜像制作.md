@@ -1,20 +1,21 @@
 ## 操作场景
 
-本文档指导您如何制作 Windows 镜像。
+本文档以 Windows Server 2012 操作系统为例，指导您如何制作 Windows 镜像。
 
 ## 操作步骤
 
 ### 准备工作
 
 制作系统盘镜像导出时，需要进行以下检查：
->? 如果您是通过数据盘镜像导出，则可以忽略此操作。
+>? 如果您是通过数据盘镜像导出，则可以跳过此操作。
 >
 #### 检查 OS 分区和启动方式
 
-1. 依次打开【控制面板】>【磁盘管理】，在磁盘右键选择【属性】，查看磁盘分区形式。如下图所示：
-![image](https://main.qcloudimg.com/raw/4052bede45120da38445995a6d66b1a6.jpg)
+1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: 0;">，打开 Windows PowerShell 窗口。
+2. 在 Windows PowerShell 窗口中，输入 **diskmgmt.msc**，按 **Enter**，打开 “磁盘管理”。
+3. 右键单击需要检查的磁盘 >【属性】，选择【卷】页签，查看磁盘分区形式。
 2. 判断磁盘分区形式是否为 GPT 分区。
- - 是，因服务迁移暂不支持 GPT 分区，请提交工单反馈。
+ - 是，因服务迁移暂不支持 GPT 分区，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&step=1) 反馈。
  - 否，请执行下一步。
 3. 使用管理员身份打开 CMD，并执行以下命令，检验操作系统是否以 EFI 方式启动。
 ```
@@ -40,13 +41,8 @@ resumeobject            {1bcd0c6f-1935-11e8-8d3e-3464a915af28}
 nx                      OptIn
 bootmenupolicy          Standard
 ```
- - 若 `path` 参数中含有 efi，则表示当前操作系统以 EFI 方式启动，请提交工单反馈。
+ - 若 `path` 参数中含有 efi，则表示当前操作系统以 EFI 方式启动，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&step=1) 反馈。
  - 若 `path` 参数中没有 efi，请执行下一步。
-
-
-#### 检查网络配置
-
-目前服务迁移不支持 IPv6，不支持多网卡。依赖于 IPv6 和多网卡的服务都无法正常工作。
 
 #### 卸载软件
 
@@ -94,7 +90,7 @@ bootmenupolicy          Standard
 [点此下载 disk2vhd 工具 >>](https://download.sysinternals.com/files/Disk2vhd.zip)
 3. 选择需要导出的镜像存放路径，勾选需要复制的卷，单击【Create】。如下图所示：
 >! 
-> - disk2vhd 需要 Windows 预装 VSS（卷影拷贝服务）功能后才能运行。
+> - disk2vhd 需要 Windows 预装 VSS（卷影拷贝服务）功能后才能运行。关于 VSS 功能的更多信息请参见 [Volume Shadow Copy Service](https://docs.microsoft.com/zh-cn/windows/win32/vss/volume-shadow-copy-service-portal?redirectedfrom=MSDN)。
 > - 请勿勾选 “Use Vhdx”，目前系统不支持 vhdx 格式的镜像。
 > - 建议勾选 “Use volume Shadow Copy”，使用卷影复制功能，将能更好地保证数据完整性。
 > 

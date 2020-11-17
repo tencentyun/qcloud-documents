@@ -1,4 +1,7 @@
+### 调用 API 网关有哪些常见错误？
 用户调用 API 网关时，常见的 HTTP 错误码及说明如下：
+
+**前台错误**：
 
 | 错误码 | 日志中错误提示                                               | 说明                                                         |
 | ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -43,6 +46,7 @@
 | 404    | There is no api match uri[$uri].                              | 在该请求地址对应的服务下找不到对应 URI 匹配的 API。               |
 | 404    | Not allow use HTTPS protocol或者Not allow use HTTP protocol.  | 该请求地址对应的服务并不支持对应 HTTP 协议类型。                 |
 | 404    | Found no api.                                                 | 请求没有匹配到 API。                                            |
+| 405    | Method Not Allowed.                                           | 不允许的 HTTP 请求方法。                                        |
 | 426    | Not allow use HTTPS protocol.                                 | 不允许用 HTTPS 协议。                                            |
 | 426    | Not allow use HTTP protocol.                                  | 不允许用 HTTP 协议。                                             |
 | 426    | Not allow use xxx protocol.                                   | 不允许用 xxx 协议。                                              |
@@ -60,6 +64,11 @@
 | 481    | Oauth found no public key.                                    | 没有找到公钥。                                                 |
 | 481    | Mock config error.                                            | mock 的配置出错。                                               |
 | 499    | Client closed connetion.                                      | 客户端主动中断连接。                                           |
+
+**后台错误**：
+
+| 错误码 | 日志中错误提示                                               | 说明                                                         |
+| ------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 500    | Error occurred during query params.                           | query 参数处理出错。                                            |
 | 500    | Internal Server Error.                                        | 1. 其他 APIGW 内部逻辑错误。<br>2. 若 API 为 proxy 类型，访问了没有权限访问的后端地址也会报该错误。 |
 | 502    | Bad Gateway.                                                  | 连接后端服务出错，可能情况：<br>1. 后端拒绝服务，全部请求都为502。 <br>2. 后端高负载，导致部分请求响应为502。 |

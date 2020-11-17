@@ -1,5 +1,5 @@
 
-Log in to Tencent Cloud [VOD Console](https://console.cloud.tencent.com/video), click "Video Management" in the left menu bar to go to the cloud video management page, and then click the ID of the video to be published to go to the details page.
+Log in to Tencent Cloud [VOD Console](https://console.cloud.tencent.com/vod), click "Video Management" in the left menu bar to go to the cloud video management page, and then click the ID of the video to be published to go to the details page.
 Click "Video Publishing" to switch to the video publishing tab, on which you can perform the following operations:
 ![](https://mc.qcloudimg.com/static/img/e44fd6bf4d0f63dfe59edba15e5cd56f/image.png)
 On the Video Publishing tab, you can select "Publish URL of Video Source File", or "Web Player Code Native to Video".
