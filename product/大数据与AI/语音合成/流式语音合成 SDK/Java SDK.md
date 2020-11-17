@@ -23,7 +23,7 @@
 ## TTS SDK 说明
 ###  关键类说明
 
-- SpeechClient  用于创建 SpeechRecognizer 语音合成器的客户端，通过 SpeechClient.newInstance 创建该实例，newInstance 为单例实现。
+- SpeechClient 通过 SpeechClient.newInstance 创建该实例，newInstance 为单例实现。
 - SpeechSynthesizer 语音合成器，通过客户端 speechClient.newSpeechSynthesizer 创建实例。
 - SpeechSynthesizerRequest 用于配置请求参数，可通过 SpeechSynthesizerRequest.initialize() 方法进行初始化。
 - SpeechSynthesizerResponse 请求响应。
