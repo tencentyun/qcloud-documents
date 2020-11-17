@@ -193,7 +193,7 @@ sdk.plugins['wifiConfSoftAp'].start({
 ### softAP 配网
 
 关于 softAP 方式配网的流程，请参见 [softAP 配网开发](https://cloud.tencent.com/document/product/1081/43695)。各端交互的简易的流程如下：
-![SoftAPFlows](https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/14dec8d5fa7a389e118fe5f5ad18d1eb/1605000864116.png)
+![SoftAPFlows](https://main.qcloudimg.com/raw/858ade66bfbcadc01c389a07cdd5fed2.png)
 腾讯连连中 `SoftAP`配网页面如下，供开发者开发时参考。
 ![SoftAPUI](https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/14dec8d5fa7a389e118fe5f5ad18d1eb/1605000905805.gif)
 
@@ -354,7 +354,7 @@ module.exports = SoftApConfigure;
 ### SmartConfig 配网
 
 关于 SmartConfig 方式配网的流程，请参见 [SmartConfig 配网开发](https://cloud.tencent.com/document/product/1081/43696)。一键配网的配网流程图文版本如下：
-![oneKeyConfigure](https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/14dec8d5fa7a389e118fe5f5ad18d1eb/1605000843258.png)
+![oneKeyConfigure](https://main.qcloudimg.com/raw/f60365f1a09b87ded109ca2e4fc1493e.png)
 腾讯连连中一键配网的页面交互流程如下，也给出来作为参考。
 ![oneKeyConfigureWeapp](https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/14dec8d5fa7a389e118fe5f5ad18d1eb/1605000924657.gif)
 
@@ -482,7 +482,7 @@ module.exports = SmartConfigConfigure;
 ### SimpleConfig 配网
 
 关于 SimpleConfig 方式配网的流程，请参见 [SimpleConfig 配网开发](https://cloud.tencent.com/document/product/1081/48407)。一键配网的配网流程图文版本如下：
-![oneKeyConfigure](https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/14dec8d5fa7a389e118fe5f5ad18d1eb/1605000843258.png)
+![oneKeyConfigure](https://main.qcloudimg.com/raw/f60365f1a09b87ded109ca2e4fc1493e.png)
 腾讯连连中一键配网的页面交互流程如下，也给出来作为参考。
 ![oneKeyConfigureWeapp](https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/14dec8d5fa7a389e118fe5f5ad18d1eb/1605000924657.gif)
 
@@ -608,7 +608,7 @@ module.exports = SimpleConfigConfigure;
 ### AirKiss 配网
 
 关于 AirKiss 方式配网的流程，请参见 [AirKiss 配网开发](https://cloud.tencent.com/document/product/1081/48406)。一键配网的配网流程图文版本如下：
-![oneKeyConfigure](https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/14dec8d5fa7a389e118fe5f5ad18d1eb/1605000843258.png)
+![oneKeyConfigure](https://main.qcloudimg.com/raw/f60365f1a09b87ded109ca2e4fc1493e.png)
 腾讯连连中一键配网的页面交互流程如下，也给出来作为参考。
 ![oneKeyConfigureWeapp](https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/14dec8d5fa7a389e118fe5f5ad18d1eb/1605000924657.gif)
 
