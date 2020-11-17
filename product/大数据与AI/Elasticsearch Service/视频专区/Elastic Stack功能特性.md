@@ -6,10 +6,10 @@
 </tr>
 <tr>
 <td>用 Elastic Stack 监控网站资源</td>
-<td><a href="https://cloud.tencent.com/edu/learning/course-3106?from=13724">学习当前完整课程</a></td>
+<td><a href="https://cloud.tencent.com/edu/learning/course-3106">学习当前完整课程</a></td>
 </tr>
 <tr>
 <td>腾讯 ES 海量规模内核优化剖析</td>
-<td><a href="https://cloud.tencent.com/edu/learning/course-3129?from=13724">学习当前完整课程</a></td>
+<td><a href="https://cloud.tencent.com/edu/learning/course-3129">学习当前完整课程</a></td>
 </tr>
 </table>
