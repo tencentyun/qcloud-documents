@@ -6,7 +6,7 @@
 
 ### 步骤1：申请 License
  
-进入[云点播控制台](https://console.cloud.tencent.com/vod/license)，左侧菜单中选择 【License 管理】 >【短视频 SDK License】。
+进入 [云点播控制台](https://console.cloud.tencent.com/vod/license)，左侧菜单中选择 【License 管理】 >【短视频 SDK License】。
 ![](https://main.qcloudimg.com/raw/d7be56a797addeed6e3959b5ab7f3114.png)
 单击 【立即申请】，在 License 管理设置中，请填写对应 App Name、Package Name 以及 Bundle ID。
 ![](https://main.qcloudimg.com/raw/bdd927a3b000daebb8f4b3b758517764.png)
