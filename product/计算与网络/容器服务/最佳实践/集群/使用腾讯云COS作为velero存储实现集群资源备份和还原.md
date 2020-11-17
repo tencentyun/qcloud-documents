@@ -104,7 +104,7 @@ region=ap-guangzhou,s3ForcePathStyle="true",s3Url=https://cos.ap-guangzhou.myqcl
 
 ​		s3ForcePathStyle： 使用 S3 文件路径格式。
 
-​		s3Url：腾讯云 COS 兼容的 S3 API 访问地址.
+​		s3Url：腾讯云 COS 兼容的 S3 API 访问地址。
 
 Velero 支持使用免费开源备份工具 [restic](https://github.com/restic/restic) 备份和还原 Kubernetes 存储卷数据 (不支持 `hostPath` 卷，详情请参阅 [restic限制](https://velero.io/docs/v1.5/restic/#limitations))，这种集成是 Velero 备份功能的补充，建议开启。
 
