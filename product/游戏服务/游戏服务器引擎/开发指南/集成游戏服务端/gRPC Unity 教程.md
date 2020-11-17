@@ -160,20 +160,13 @@ public class StartServers : MonoBehaviour
 
 ## 常见问题
 <span id="test1"></span>
-### 将下载的 `grpc_unity_package.VERSION.zip` 文件解压到 Unity 项目中后，Unity IDE 报错 （如[ 缺陷22251](https://github.com/grpc/grpc/issues/22251) 中描述）：
+### 将下载的 `grpc_unity_package.VERSION.zip` 文件解压到 Unity 项目中后，Unity IDE 报错 （例如[ 缺陷22251](https://github.com/grpc/grpc/issues/22251) 中描述）怎么处理？
+重新下载 v2.26 版本 [grpc_unity_package.2.26.0-dev.zip](https://packages.grpc.io/archive/2019/12/a02d6b9be81cbadb60eed88b3b44498ba27bcba9-edd81ac6-e3d1-461a-a263-2b06ae913c3f/index.xml) 并解压。
 
-```` 
- 1. Error: Could not load signature of Google.Protobuf.ByteString:get_Span due to:Could not load file or assembly 'System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=' or one of its dependencies. assembly:System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken= type:<unknown type> member:(null) signature:
- 2. Unloading broken assembly Assets/Plugins/Google.Protobuf/lib/net45/Google.Protobuf.dll, this assembly can cause crashes in the runtime
-````
+### 打包 MacOS 服务端程序，运行时出现 `error: grpc_csharp_ext` 错误怎么处理？
+重命名  `Assert/Plugins/Grpc.Core/runtimes/osx/x64 ` 路径下的  `grpc_csharp_ext.bundle` 文件为 `grpc_csharp_ext`，再将文件拷贝到路径 `YourUnityApp.app/Contents/Frameworks/MonoEmbedRuntime/osx` 下，路径中不存在的目录新建即可。
 
-解决办法：下载 2.26 版本```  grpc_unity_package.2.26.0-dev.zip``` 并解压，<u>[下载地址](https://packages.grpc.io/archive/2019/12/a02d6b9be81cbadb60eed88b3b44498ba27bcba9-edd81ac6-e3d1-461a-a263-2b06ae913c3f/index.xml)</u>
+### 打包 Linux 服务端程序，运行时出现 `Unable to preload the following plugins: ScreenSelector.so` 错误怎么处理？
+Unity Editor 中，在 `【File】>【Build Settings】` 下勾选  `【Server Build】`，重新打包。
 
-### 打包 MacOS 服务端程序，运行时可能出现以下错误：```error: grpc_csharp_ext```![](https://main.qcloudimg.com/raw/703dc0dd20342b4aff5d499f2ac1df85.png)
-解决办法：重命名路径 ```Assert/Plugins/Grpc.Core/runtimes/osx/x64 ```下文件 ```grpc_csharp_ext.bundle``` 为``` grpc_csharp_ext```，拷贝到路径 ```YourUnityApp.app/Contents/Frameworks/MonoEmbedRuntime/osx``` 下，路径中不存在的目录新建即可
-
-### 打包 Linux 服务端程序，运行时可能出现以下错误：```Unable to preload the following plugins: ScreenSelector.so```
-![](https://main.qcloudimg.com/raw/f2926b2ac676f2e1e1ce85b8bae397f1.png)
-解决办法：Unity Editor 中，```File -> Build Settings.. ```勾选 ```Server Build```，重新打包
-![](https://main.qcloudimg.com/raw/3ffa6a320c4269669c411f32cf7597f0.png)
 
