@@ -14,7 +14,7 @@
 
  
 ### 步骤2：生成 License 信息
-1. 测试 License 成功创建后，页面会显示生成的 License 信息，这里需要记下 Key 和 LicenseUrl，在 SDK 的初始化时需要传入这两个参数。
+测试 License 成功创建后，页面会显示生成的 License 信息，这里需要记下 Key 和 LicenseUrl，在 SDK 的初始化时需要传入这两个参数。
 ![](https://main.qcloudimg.com/raw/1c181ff0fe99c93f9c01d09bd1b3ca65.png)
 
 ## 购买正式版 License
@@ -39,8 +39,8 @@
 ![](https://main.qcloudimg.com/raw/07384dc91eca502e3ba77469ab2affeb.png)
 3. 单击【确认并继续完成 License 设置】，进入 License 设置页。
 
-### 步骤2：配置License 信息
-1. 在 License 设置页填写对应的 App Name、Package Name 以及 Bundle ID，单击【确定】即可。
+### 步骤2：配置 License 信息
+在 License 设置页填写对应的 App Name、Package Name 以及 Bundle ID，单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/f4bc43f4f3220dfc493e9758afd2b4f8.png)
 
 >? 创建成功后您可以在 [License 管理页](https://console.cloud.tencent.com/vod/license) 上查阅详细信息。
