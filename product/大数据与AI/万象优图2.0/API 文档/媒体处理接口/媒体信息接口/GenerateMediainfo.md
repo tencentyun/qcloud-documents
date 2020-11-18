@@ -294,7 +294,7 @@ x-ci-request-id: NTg3NzRiMjVfYmRjMzVfMTViMl82ZGZm****
                                 <AvgFps>24/1</AvgFps>
                                 <Bitrate>938.164000</Bitrate>
                                 <CodecLongName>H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10</CodecLongName>
-                                <CodecName>h264</CodecName>
+                                <CodecName>H.264</CodecName>
                                 <CodecTag>0x31637661</CodecTag>
                                 <CodecTagString>avc1</CodecTagString>
                                 <CodecTimeBase>1/12288</CodecTimeBase>

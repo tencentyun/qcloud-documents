@@ -239,7 +239,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 则加速流地址为：
 `rtmp://domain/live/test?txTime=5c2acacc&txSecret=b77e812107e1d8b8f247885a46e1bd34&bizid=2157`。
 
->? 防盗链计算默认使用推流防盗链 Key，如果有自定义播放防盗链 Key 则需要使用播放防盗链 Key。
+>? 防盗链计算默认使用推流防盗链 Key。
 
 - **播放类型需要指定 ACC**
 在调用 startPlay 函数时，需要指定 type 为 **PLAY_TYPE_LIVE_RTMP_ACC**，SDK 会使用 RTMP-UDP 协议拉取直播流。

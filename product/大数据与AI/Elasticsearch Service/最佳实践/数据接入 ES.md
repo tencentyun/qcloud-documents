@@ -1,6 +1,6 @@
-腾讯云 Elasticsearch 服务提供在用户 VPC 内通过私有网络 VIP 访问集群的方式，用户可通过 Elasticsearch REST client 编写代码访问集群并将自己的数据导入到集群中，也可以通过官方提供的组件（如 logstash 和 beat）接入自己的数据。
+腾讯云 Elasticsearch 服务提供在用户 VPC 内通过私有网络 VIP 访问集群的方式，用户可通过 Elasticsearch REST Client 编写代码访问集群并将自己的数据导入到集群中，也可以通过官方提供的组件（如 logstash 和 beats）接入自己的数据。
 
-本文以官方的 logstash 和 beats 为例，介绍不同类型的数据源接入 ES 的方式。
+本文以官方提供的组件 logstash 和 beats 为例，介绍不同类型的数据源接入 ES 的方式。
 
 ## 准备工作
 因访问 ES 集群需要在用户 VPC 内进行，因此用户需要创建一台和 ES 集群相同 VPC 下的 CVM 实例或者 Docker 集群。
@@ -37,7 +37,7 @@ docker run --rm -it -v ~/pipeline/:/usr/share/logstash/pipeline/ docker.elastic.
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke)，选择左侧菜单栏【集群】>【新建】创建集群。
 ![](https://main.qcloudimg.com/raw/b1b68327d77395cc47377ce14fc5a966.png)
 2. 选择左侧菜单栏【服务】，单击【新建】创建服务。
-![](https://main.qcloudimg.com/raw/833fc4952ff0e2bc128ee35f3066c8b2.png)
+![](https://main.qcloudimg.com/raw/38204d13bb2e9a1414cd03e9d3bc6b5d.png)
 3. 选取 logstash 镜像。
 本例中使用 TencentHub 镜像仓库提供的 logstash 镜像，用户也可以自行创建 logstash 镜像。
 ![](https://main.qcloudimg.com/raw/a111cd590027c187a31df5017130c151.png)
@@ -131,7 +131,7 @@ output {
 ## 使用 Beats 接入 ES 集群
 Beats 包含多种单一用途的采集器，这些采集器比较轻量，可以部署并运行在服务器中收集日志、监控等数据，相对 logstashBeats 占用系统资源较少。
 
-Beats 包含用于收集文件类型数据的 FileBeat、收集监控指标数据的 MetricBeat、收集网络包数据的 PacketBeat 等，用户也可以基于官方的 libbeat 库根据自己的需求开发自己的 Beat 组件。
+Beats 包含用于收集文件类型数据的 FileBeat、收集监控指标数据的 MetricBeat、收集网络包数据的 PacketBeat 等，用户也可以基于官方的 libbeat 库根据自己的需求开发自己的 Beats 组件。
 
 ### CVM 中访问 ES 集群
 1. 安装部署 filebeat。

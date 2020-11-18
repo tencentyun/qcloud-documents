@@ -244,7 +244,7 @@ SELECT id,COUNT(*) FROM tbl WHERE age>30 GROUP BY id;
 - 使用INSERT ... ON DUPLICATE KEY update (INSERT IGNORE)来避免不必要的查询。
 - INSERT、UPDATE、DELETE语句中不要使用不确定值的函数，例如：RAND()和NOW()。
 - 多条INSERT语句要合并成一条批量提交，一次不要超过500行数据。
-- 禁止在UPDATE语句中，讲&quot;,&quot;写成AND，非常危险，例如：
+- 禁止在UPDATE语句中，将&quot;,&quot;写成AND，非常危险，例如：
 ```
 UPDATE tbl SET fid=fid+1000, gid=gid+1000 WHERE id > 2;
 ```

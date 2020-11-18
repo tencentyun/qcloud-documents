@@ -14,8 +14,7 @@
 
 ## 使用示例
 以下示例表示用户必须在 10.217.182.3/24 或者 111.21.33.72/24 网段才能调用云 API 访问 cos:PutObject，如下图：
-
-![](https://main.qcloudimg.com/raw/e581b11ca9eb6060df8162d1ccba5df2.png)
+![](https://main.qcloudimg.com/raw/80dae3b183a7682b60188d9ed8fae31e.png)
 
 策略语法如下：
 ```

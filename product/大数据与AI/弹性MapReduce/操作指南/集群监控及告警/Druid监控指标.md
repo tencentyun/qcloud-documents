@@ -38,12 +38,6 @@
 | broker.query.interrupted.count | 次   | number of queries interrupted due to cancellation  or timeout |
 | normal.count                   | 个   | 查询延迟 < 1s的次数                                            |
 | abnormal.count                 | 个   | 查询延迟 >= 1s的次数                                           |
-| normal.count                   | 个   | 查询延迟 < 1s的次数                                            |
-| abnormal.count                 | 个   | 查询延迟 >= 1s的次数                                           |
-| normal.count                   | 个   | 查询延迟 < 1s的次数                                            |
-| abnormal.count                 | 个   | 查询延迟 >= 1s的次数                                           |
-| normal.count                   | 个   | 查询延迟 < 1s的次数                                            |
-| abnormal.count                 | 个   | 查询延迟 >= 1s的次数                                           |
 
 ### Druid- coordinator
 
@@ -143,12 +137,6 @@
 | historical.query.success.count     | 次    | historical 查询成功次数                                       |
 | historical.query.failed.count      | 次    | historical 查询失败次数                                       |
 | historical.query.interrupted.count | 次    | historical 查询被中断次数                                     |
-| normal.count                       | 个    | 查询延迟 < 1s的次数                                            |
-| abnormal.count                     | 个    | 查询延迟 >= 1s的次数                                           |
-| normal.count                       | 个    | 查询延迟 < 1s的次数                                            |
-| abnormal.count                     | 个    | 查询延迟 >= 1s的次数                                           |
-| normal.count                       | 个    | 查询延迟 < 1s的次数                                            |
-| abnormal.count                     | 个    | 查询延迟 >= 1s的次数                                           |
 | normal.count                       | 个    | 查询延迟 < 1s的次数                                            |
 | abnormal.count                     | 个    | 查询延迟 >= 1s的次数                                           |
 

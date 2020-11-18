@@ -24,7 +24,8 @@ put_bucket_website(Bucket, WebsiteConfiguration={}, **kwargs)
 
 #### 请求示例
 
-```
+[//]: # (.cssg-snippet-put-bucket-website)
+```py
 response = client.put_bucket_website(
     Bucket='bucket',
     WebsiteConfiguration={
@@ -94,6 +95,7 @@ get_bucket_website(Bucket, **kwargs)
 
 #### 请求示例
 
+[//]: # (.cssg-snippet-get-bucket-website)
 ```
 response = client.get_bucket_website(
     Bucket='examplebucket-1250000000'
@@ -170,6 +172,7 @@ delete_bucket_website(Bucket, **kwargs)
 
 #### 请求示例
 
+[//]: # (.cssg-snippet-delete-bucket-website)
 ```
 response = client.delete_bucket_website(
     Bucket='examplebucket-1250000000'

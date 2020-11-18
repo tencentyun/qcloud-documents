@@ -161,7 +161,7 @@ TensorFlow 是 Google 开源的一种深度学习系统，智能钛为用户提�
  - SciPy 1.0.0
  - NumPy 1.14.0
 
-1. 在智能钛控制台的左侧导航栏，选择【框架】>【深度学习】>【 TensorFlow】，并拖入画布中。
+1. 在 [智能钛机器学习平台控制台](https://console.cloud.tencent.com/tione/project/list) 的左侧导航栏，选择【框架】>【深度学习】>【 TensorFlow】，并拖入画布中。
 2. 单击该组件，在右侧弹窗中配置组件参数和资源参数。
 ![](https://main.qcloudimg.com/raw/9009730a50d712f8066118a0ff3a2682.png)
  - 程序脚本：
@@ -185,10 +185,8 @@ TensorFlow 是 Google 开源的一种深度学习系统，智能钛为用户提�
  - 资源类型：您可按需选择。
 
 #### 三、运行调度及评估效果查看
-单击画布上方运行按钮可运行工作流，更多详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/45653#.E8.BF.90.E8.A1.8C.E5.B7.A5.E4.BD.9C.E6.B5.81)。运行成功后在组件上右击，在【Tensorflow 控制台】>【App 详情】中查看 stdout.log 和 stderr.log 两个日志。
-在 stdout.log 日志中我们可以看到模型效果。
-模型效果如下图展示：
-![](https://main.qcloudimg.com/raw/715f546ff695d3965ec4e5f69d0e6a9a.png)
+单击画布上方运行按钮可运行工作流，更多详情请参考 [运行工作流](https://cloud.tencent.com/document/product/851/45653#.E8.BF.90.E8.A1.8C.E5.B7.A5.E4.BD.9C.E6.B5.81)。运行成功后在组件上右击，在【Tensorflow 日志】>【日志详情】中查看日志，模型效果如下图展示：
+![](https://main.qcloudimg.com/raw/5baec332b121ffd37aba6bbc441befe1.png)
 
 至此，我们完成了利用智能钛机器学习平台的深度学习框架 TensorFlow 运行自定义代码的全部流程。
 

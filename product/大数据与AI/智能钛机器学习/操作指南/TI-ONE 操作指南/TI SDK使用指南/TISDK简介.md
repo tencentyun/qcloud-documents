@@ -1,13 +1,13 @@
 为了方便您有效地使用智能钛机器学习平台的 TI SDK，本文档为您提供入门指导。
 
 ## 概述
-TI SDK 是腾讯云智能钛机器学习平台 TI-ONE 提供的开源软件包，让用户可以通过代码（SDK/API）向 TI-ONE 提交机器学习和深度学习的训练任务。SDK 简单易用，让用户专注于模型和算法等业务逻辑，无需关心底层硬件和系统配置；同时 SDK 又通过镜像规范和集成云上各种组件服务提供了强大的灵活性，例如，用户可以通过 SDK 提供的训练日志、资源监控和指标监控等特性对训练过程了如指掌。目前您可以在智能钛的 Notebook 内直接使用 TI SDK，也可以在本地 IDE 环境中使用 TI SDK，单击下载 [TI SDK](https://ti-ap-guangzhou-1300268737.cos.ap-guangzhou.myqcloud.com/%20ti-python-sdk/ti_sdk_python-1.3.0-py3-none-any.whl) 。
+TI SDK 是腾讯云智能钛机器学习平台 TI-ONE 提供的开源软件包，让用户可以通过代码（SDK/API）向 TI-ONE 提交机器学习和深度学习的训练任务。SDK 简单易用，让用户专注于模型和算法等业务逻辑，无需关心底层硬件和系统配置；同时 SDK 又通过镜像规范和集成云上各种组件服务提供了强大的灵活性，例如，用户可以通过 SDK 提供的训练日志、资源监控和指标监控等特性对训练过程了如指掌。目前您可以在智能钛的 Notebook 内直接使用 TI SDK；也可以在本地 IDE 环境中使用 TI SDK，直接使用 pip 命令安装：pip install ti-sdk-python 。
 
 ## 核心特性
 
 - 内置了深度优化的 TensorFlow 和 PyTorch 等多种流行的深度学习框架，提供单机和多机多卡训练的能力。
 - 对接丰富的云上服务（CLS、CM、COS、CBS、CFS、VPC、CAM、CLB 等），利用对象存储 COS、容器服务 TKE、日志服务 CLS、云监控 Monitor 等腾讯云上成熟的组件作为支撑，帮助用户在云上快速搭建自己的机器学习和深度学习训练任务。
-- 通过 API/SDK 方式使用机器学习平台能力，支持 CPU 和 GPU 等多种算力类型 。
+- 通过 API/SDK 方式使用机器学习平台能力，支持 CPU 和 GPU 等多种算力类型。
 - 跟用户 VPC 互通、安全访问用户 VPC 内的服务和资源。 
 - 对接 CFS（Cloud File System），支持超大文件和高速 I/O 的述求。
 - 支持自定义镜像（满足智能钛镜像规范）。

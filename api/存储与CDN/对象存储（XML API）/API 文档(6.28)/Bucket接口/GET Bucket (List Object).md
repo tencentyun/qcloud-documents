@@ -73,6 +73,7 @@ Authorization: Auth String
 			<DisplayName>string</DisplayName>
 		</Owner>
 		<StorageClass>Enum</StorageClass>
+		<StorageTier>Enum</StorageTier>
 	</Contents>
 	<Contents>
 		<Key>string</Key>
@@ -92,7 +93,7 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 |
 | --- | --- | --- | --- |
-| ListBucketResult | 无 | 保存 GET Bucket 结果的所有信息 | Container |
+| ListBucketResult | 无 | 保存 GET Bucket 结果的所有信息 | container |
 
 **Container 节点 ListBucketResult 的内容：**
 
@@ -106,8 +107,8 @@ Authorization: Auth String
 | Delimiter | ListBucketResult | 分隔符，对应请求中的 delimiter 参数，且仅当请求中指定了 delimiter 参数才会返回该节点 | string |
 | IsTruncated | ListBucketResult | 响应条目是否被截断，布尔值，例如 true 或 false | boolean |
 | NextMarker | ListBucketResult | 仅当响应条目有截断（IsTruncated 为 true）才会返回该节点，该节点的值为当前响应条目中的最后一个对象键，当需要继续请求后续条目时，将该节点的值作为下一次请求的 marker 参数传入 | string |
-| CommonPrefixes | ListBucketResult | 从 prefix 或从头（如未指定 prefix）到首个 delimiter 之间相同的部分，定义为 Common Prefix。仅当请求中指定了 delimiter 参数才有可能返回该节点 | Container |
-| Contents | ListBucketResult | 对象条目 | Container |
+| CommonPrefixes | ListBucketResult | 从 prefix 或从头（如未指定 prefix）到首个 delimiter 之间相同的部分，定义为 Common Prefix。仅当请求中指定了 delimiter 参数才有可能返回该节点 | container |
+| Contents | ListBucketResult | 对象条目 | container |
 
 **Container 节点 CommonPrefixes 的内容：**
 
@@ -123,8 +124,9 @@ Authorization: Auth String
 | LastModified | ListBucketResult.Contents | 对象最后修改时间，为 ISO8601 格式，如2019-05-24T10:56:40Z | date |
 | ETag | ListBucketResult.Contents | 对象的实体标签（Entity Tag），是对象被创建时标识对象内容的信息标签，可用于检查对象的内容是否发生变化，<br>例如“8e0b617ca298a564c3331da28dcb50df”，此头部并不一定返回对象的 MD5 值，而是根据对象上传和加密方式而有所不同 | string |
 | Size | ListBucketResult.Contents | 对象大小，单位为 Byte | integer |
-| Owner | ListBucketResult.Contents | 对象持有者信息 | Container |
-| StorageClass | ListBucketResult.Contents | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE | Enum |
+| Owner | ListBucketResult.Contents | 对象持有者信息 | container |
+| StorageClass | ListBucketResult.Contents | 对象存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE | enum |
+|  x-cos-storage-tier  | ListBucketResult.Contents |当对象的存储类型为智能分层存储时，该头部表示对象所处的存储层，有效值：FREQUENT、INFREQUENT  |  enum  |
 
 **Container 节点 Contents.Owner 的内容：**
 

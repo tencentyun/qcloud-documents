@@ -17,8 +17,8 @@ cd cloudbase_demo
 
 ```yaml
 dependencies:
-  cloudbase_core: ^0.0.4
-  cloudbase_auth: ^0.0.4
+  cloudbase_core: ^0.0.9
+  cloudbase_auth: ^0.0.11
 ```
 
 从 `pub` 安装依赖。
@@ -29,7 +29,7 @@ flutter pub get
 
 ## 第 3 步：创建移动应用安全来源的凭证
 
-打开[安全设置页面](https://console.cloud.tencent.com/tcb/env/setting?tab=safetyConfig)中，在移动应用安全来源里**添加应用**. 
+打开[安全设置页面](https://console.cloud.tencent.com/tcb/env/safety)中，在移动应用安全来源里**添加应用**. 
 
 <img src="https://main.qcloudimg.com/raw/1c088bc3ddb41faad995d2a8c43186e4.png">
 
@@ -49,33 +49,35 @@ flutter pub get
 import 'package:cloudbase_core/cloudbase_core.dart';
 import 'package:cloudbase_auth/cloudbase_auth.dart';
 
-// 初始化 CloudBase
-CloudBaseCore core = CloudBaseCore.init({
-    // 填写您的云开发 env
-    'env': 'your-env-id',
-    // 填写您的移动应用安全来源凭证
-    // 这里应该判断平台，来填写对应的凭证
-    'appAccess': {
-      // 凭证
-      'key': 'your-app-access-key',
-      // 版本
-      'version': 'your-app-access-version'
-    }
-});
-
-// 获取登录状态
-CloudBaseAuth auth = CloudBaseAuth(core);
-CloudBaseAuthState authState = await auth.getAuthState();
-
-// 唤起匿名登录
-if (authState == null) {
-  await auth.signInAnonymously().then((success) {
-    // 登录成功
-    print(success);
-  }).catchError((err) {
-    // 登录失败
-    print(err);
+void main() async {
+  // 初始化 CloudBase
+  CloudBaseCore core = CloudBaseCore.init({
+      // 填写您的云开发 env
+      'env': 'your-env-id',
+      // 填写您的移动应用安全来源凭证
+      // 生成凭证的应用标识必须是 Android 包名或者 iOS BundleID
+      'appAccess': {
+        // 凭证
+        'key': 'your-app-access-key',
+        // 版本
+        'version': 'your-app-access-version'
+      }
   });
+
+  // 获取登录状态
+  CloudBaseAuth auth = CloudBaseAuth(core);
+  CloudBaseAuthState authState = await auth.getAuthState();
+
+  // 唤起匿名登录
+  if (authState == null) {
+    await auth.signInAnonymously().then((success) {
+      // 登录成功
+      print(success);
+    }).catchError((err) {
+      // 登录失败
+      print(err);
+    });
+  }
 }
 ```
 

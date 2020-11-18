@@ -22,14 +22,14 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| homeOrientation | int | 采集的视频的旋转角度；取值请参见 TXLiveConstants VIDEO_ANGLE_HOME_XXX。 |
+| homeOrientation | int | 采集的视频的旋转角度。 |
 
 __介绍__
 
 接口说明：
-- 默认值：HOME_ORIENTATION_DOWN（竖屏推流）。
-- 常用的还有 HOME_ORIENTATION_RIGHT 和 HOME_ORIENTATION_LEFT，也就是横屏推流。
-- 改变该字段的设置以后，本地摄像头的预览画面方向也会发生改变，请调用 TXLivePush 的 [setRenderRotation](https://cloud.tencent.com/document/product/454/34775#setrenderrotation) 进行矫正。
+- 默认值：TXLiveConstants.VIDEO_ANGLE_HOME_DOWN（竖屏推流）。
+- 其他取值：TXLiveConstants.VIDEO_ANGLE_HOME_RIGHT 和 TXLiveConstants.VIDEO_ANGLE_HOME_LEFT (横屏推流)。
+- 改变该字段的设置以后，本地摄像头的预览画面方向也会发生改变，请调用 TXLivePusher 的 [setRenderRotation](https://cloud.tencent.com/document/product/454/34772#setrenderrotation) 进行矫正。
 
 ***
 
@@ -183,7 +183,8 @@ __介绍__
 
 接口说明：
 - 默认值：最大持续时间为300秒，帧率为10。
-- 调用 [TXLivePusher](https://cloud.tencent.com/document/product/454/34772#txlivepusher) 的 pausePush() 接口，会暂停摄像头采集并进入垫片推流状态，如果该状态一直保持， 可能会消耗主播过多的手机流量，本字段用于指定垫片推流的最大持续时间，超过后即断开与云服务器的连接。
+- 调用 [TXLivePusher](https://cloud.tencent.com/document/product/454/34772#txlivepusher) 的 pausePush() 接口，会暂停摄像头采集并进入垫片推流状态，如果该状态一直保持， 可能会消耗主播过多的手机流量，本字段用于指定垫片推流的最大持续时间，超过后不会断开云服务器的链接，但会进入纯音频推流。
+>? 若您的移动直播服务是在2018年09月之前开通的，指定垫片推流持续时间超过后即会断开云服务器的连接。
 
 ***
 
@@ -652,7 +653,7 @@ __介绍__
 - 默认值：TXLiveConstants#AUDIO_VOLUME_TYPE_AUTO。
 - 
 - 默认值：TXLiveConstants#AUDIO_VOLUME_TYPE_AUTO。
-- TXLiveConstants#AUDIO_VOLUME_TYPE_AUTO 表示通话音量类型。
+- TXLiveConstants#AUDIO_VOLUME_TYPE_VOIP 表示通话音量类型。
 - TXLiveConstants#AUDIO_VOLUME_TYPE_MEDIA 表示媒体音量类型。
 
 

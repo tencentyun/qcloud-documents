@@ -1,7 +1,7 @@
 ## 简介
 
 超级播放器 SDK 是腾讯云开源的一款播放器组件，简单几行代码即可拥有类似腾讯视频强大的播放功能，包括横竖屏切换、清晰度选择、手势和小窗等基础功能，还支持视频缓存，软硬解切换和倍速播放等特殊功能，相比系统播放器，支持格式更多，兼容性更好，功能更强大，同时还具备首屏秒开、低延迟的优点，以及视频缩略图等高级能力。
-
+ 
 ## SDK 下载
 
 点播 iOS 超级播放器的项目地址是 [SuperPlayer_iOS](https://github.com/tencentyun/SuperPlayer_iOS)。
@@ -101,3 +101,4 @@ model.videoId.pSign = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6MTQwMDMy
 
 完整功能可扫码下载视频云工具包体验，或直接运行工程 Demo。
 <img src="https://main.qcloudimg.com/raw/ee8557feb41a36d90e2b2f454b39e29a.png" width="150">
+

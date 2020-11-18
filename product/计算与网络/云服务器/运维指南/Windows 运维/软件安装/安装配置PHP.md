@@ -5,7 +5,7 @@
 
 ## 前提条件
 
-- 已登录 Windows 云服务器，并已在该云服务器中完成 IIS 角色的添加和安装。详情请参见 [安装配置 IIS](https://cloud.tencent.com/document/product/213/2755)。
+- 已登录 Windows 云服务器，并已在该云服务器中完成 IIS 角色的添加和安装。详情请参见 [安装 IIS 服务](https://cloud.tencent.com/document/product/213/2755)。
 - 已获取 Windows 云服务器的公网 IP。详情请参见 [获取公网 IP 地址](https://cloud.tencent.com/document/product/213/17940)。
 
 ## 操作步骤

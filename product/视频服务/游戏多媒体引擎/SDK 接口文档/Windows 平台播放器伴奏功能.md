@@ -84,3 +84,4 @@ virtual int SetSpeakerDeviceVolume(int vol) = 0;
 
 #### 函数原型
 virtual int GetSpeakerDeviceVolume() = 0;
+

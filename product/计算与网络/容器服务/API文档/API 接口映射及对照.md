@@ -47,7 +47,7 @@
 	</tr>
 	<tr>
 		<td><a href="https://cloud.tencent.com/document/product/457/18333">查询集群 Request 和 Limit 信息（DescribeClusterRequestLimitInfo）</a></td>
-		<td rowspan=2>Kubernetes API</td>
+		<td rowspan=2><a href="https://cloud.tencent.com/document/product/457/46276">Kubernetes API</a></td>
 	</tr>
 	<tr>
 			<td><a href="https://cloud.tencent.com/document/product/457/13999">修改节点 Label（ModifyClusterNodeLabel）</a></td>
@@ -61,7 +61,7 @@
 	</tr>
 	<tr>
 		<td><a href="https://cloud.tencent.com/document/product/457/18429">修改集群命名空间描述（ModifyNamespaceDescription）</a></td>
-		<td>Kubernetes API</td>
+		<td><a href="https://cloud.tencent.com/document/product/457/46276">Kubernetes API</a></td>
 	</tr>
 	<tr>
 		<td><ul class="params"><li><a href="https://cloud.tencent.com/document/product/457/18433">操作集群外网访问地址（OperateClusterVip） </a></li><li><a href="https://cloud.tencent.com/document/product/457/9426">查询异步任务结果（DescribeClusterTaskResult）</a></li></td>
@@ -73,7 +73,7 @@
 	</tr>
 	<tr>
 		<td><a href="https://cloud.tencent.com/document/product/457/18322">设置集群节点为是否可调度（ModifyClusterNodeSchedulable）</a></td>
-		<td>Kubernetes API</a></td>
+		<td><a href="https://cloud.tencent.com/document/product/457/46276">Kubernetes API</a></a></td>
 	</tr>
 	<tr>
 		<td><a href="https://cloud.tencent.com/document/product/457/17559">添加第三方私有镜像仓库（AddHubInfo）</a></td>
@@ -120,7 +120,7 @@
 	<tr>
 		<td rowspan=14  colspan=2>服务相关</td>
 		<td><a href="https://cloud.tencent.com/document/product/457/9436">创建服务（CreateClusterService）</a></td>
-		<td rowspan=25>Kubernetes API</td>
+		<td rowspan=25><a href="https://cloud.tencent.com/document/product/457/46276">Kubernetes API</a></td>
 	</tr>
 	<tr>
 		<td><a href="https://cloud.tencent.com/document/product/457/9440">查询服务列表（DescribeClusterService）</a></td>

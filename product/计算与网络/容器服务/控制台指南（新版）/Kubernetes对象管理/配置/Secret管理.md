@@ -180,3 +180,6 @@ apiVersion: v1
    - name: test-secret ## 设置来源 Secret 文件名
    restartPolicy: Never
 ```
+
+
+

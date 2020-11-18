@@ -1,4 +1,4 @@
-## 静态贴纸
+## 静态贴纸 
 设置静态贴纸的方法：
 ```
 public void setPasterList(List pasterList);

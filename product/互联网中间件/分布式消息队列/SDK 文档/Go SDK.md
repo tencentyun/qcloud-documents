@@ -4,41 +4,58 @@ TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和
 本文主要介绍 Go SDK 的使用方式，提供 Demo 工程的环境配置、下载、代码编写及运行示例，帮助工程师快速搭建 TDMQ 测试工程。
 
 ## 前提条件
-已经在本地安装 Golang 开发环境（[下载地址](https://studygolang.com/dl)）。
+
+- 已经在本地安装 Golang 开发环境（[下载地址](https://studygolang.com/dl)）。
+- 已经准备好 Go 1.11+ 的部署环境（云服务器或其他云资源），且该环境所在的 VPC 已接入TDMQ（参考 [VPC 接入指南](https://cloud.tencent.com/document/product/1179/46240)）。
+- 已获取调用地址（URL）和路由 ID（NetModel）。
+这两个参数均可以在【[环境管理](https://console.cloud.tencent.com/tdmq/env)】的接入点列表中获取。请根据客户端部署的云服务器或其他资源所在的私有网络选择正确的接入点来复制参数信息，否则会有无法连接的问题。
+![](https://main.qcloudimg.com/raw/6d2535de8a505fe4975690053925884e.png)
+- 已参考 [角色与鉴权](https://cloud.tencent.com/document/product/1179/47543) 文档配置好了角色与权限，并获取到了对应角色的密钥（Token）。
 
 ## 操作步骤
 
 ### 准备 Demo 环境
 
 1. 安装 IDE
-您可以 [安装 GoLand](https://www.jetbrains.com/zh-cn/go/promo) 或其它的 Go IDE 来运行这个 Demo（本文以 Go Land 为例）。
+   您可以 [安装 GoLand](https://www.jetbrains.com/zh-cn/go/promo) 或其它的 Go IDE 运行这个 Demo，直接通过`go run`执行也可以。
 
 2. 配置 GCC 环境
-因为现在的 SDK 依赖了 CGO 的库，所以需要本地配置64位 GCC，可以通过 [MinGW](http://mingw-w64.org/) 来安装。
+   因为现在的 SDK 依赖了 CGO 的库，所以需要本地配置64位 GCC，可以通过 [MinGW](http://mingw-w64.org/) 来安装。
 
 3. 打开命令控制台，运行以下命令：
 ```bash
-go get -u github.com/TencentCloud/tdmq-go-client
+go get -u "github.com/TencentCloud/tdmq-go-client@v0.2.0-beta.1"
 ```
 
->?如果国内网络环境下载比较慢，可以通过配置 [Go Proxy](https://goproxy.io/zh/) 来解决。
+
+如果国内网络环境下载比较慢，可以通过配置 [Go Proxy](https://goproxy.io/zh/) 来解决。
+如果处于无法连接外网的环境下，需要先行下载依赖文件 [压缩包](https://github.com/TencentCloud/tdmq-go-client/releases/download/v0.1.1/download.zip)，将压缩包里的文件放在`%GOPATH/pkg/mod/cache/download`文件夹下即可，`%GOPATH`可通过如下指令获取：
+
+```bash
+# linux
+go env | grep GOPATH 
+
+# Windows
+go env | findstr GOPATH
+```
+>?目前 Pulsar 官方尚未更新最新适配的客户端，腾讯云已将适配后的 Go 客户端提交至社区，即将在下个版本发布，在官方适配之前您需要先使用腾讯云提供的 SDK。
 
 ### 创建 Demo工程
 
-1.使用 IDE 创建一个新工程（如果是在云环境中使用，则需要 [配置 CAM 权限认证](#cam)），在文件夹中创建 go.mod 文件并编辑如下：
-
+1.使用 IDE 创建一个新工程，在文件夹中创建 go.mod 文件并编辑如下：
 ```go
-module zyuanyuz/godemo
+module example/godemo
 
 go 1.12
 
-require github.com/TencentCloud/tdmq-go-client latest
+require github.com/TencentCloud/tdmq-go-client v0.2.0-beta.1
 ```
 
-Demo 基础的版本，只需要成功启动了 TDMQ 的集群即可，无需配置其它认证数据。
+上述 v0.1.1是 GO SDK 的版本，云上资源环境中下载的依赖文件压缩包也需要是同样的版本。
 
 2.创建 producer.go 和 consumer.go 测试 Demo 文件。
-- producer.go 代码内容如下：
+
+- producer.go 代码内容如下，其中`listenerName`即`custom:`拼接路由 ID（NetModel），路由 ID 可以在控制台【[环境管理](https://console.cloud.tencent.com/tdmq/env)】接入点查看并复制，`NewAuthenticationToken`即角色密钥，可以在【[角色管理](https://console.cloud.tencent.com/tdmq/role)】页面复制。
 
 ```go
 package main
@@ -51,9 +68,12 @@ import (
 )
 
 func main() {
+
 	client, err := pulsar.NewClient(pulsar.ClientOptions{
-		URL: "pulsar://localhost:6650",   //这里配置为 TDMQ 集群的 Broker 地址
-	})
+		URL:            "pulsar://*.*.*.*:6000",
+		ListenerName:   "custom:1300*****0/vpc-******/subnet-********",
+		Authentication: pulsar.NewAuthenticationToken(),
+    	})
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -82,6 +102,10 @@ func main() {
 }
 ```
 
+其中 Topic 名称需要填入完整路径，即`persistent://appid/environment/Topic`的组合，其中`appid/environment/topic`的部分可以从控制台【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。
+![](https://main.qcloudimg.com/raw/a2e32b311b825df9798b8c98df7c3416.png)
+
+
 - consumer.go 的代码内容如下：
 
 ```go
@@ -97,7 +121,9 @@ import (
 func main() {
 
 	client, err := pulsar.NewClient(pulsar.ClientOptions{
-		URL: "pulsar://localhost:6650",   //这里配置为 TDMQ 集群的 Broker 地址
+		URL:       	"pulsar://10.*.*.*:6000",//更换为接入点地址
+		ListenerName:	"custom:1300*****0/vpc-******/subnet-********",
+		Authentication: NewAuthenticationToken("eyJh****"),
 	})
 	if err != nil {
 		log.Fatal(err)
@@ -105,7 +131,7 @@ func main() {
 	defer client.Close()
 
 	consumer, err := client.Subscribe(pulsar.ConsumerOptions{
-		Topics:           []string{"topic-1"},
+		Topics:           []string{"persistent://appid/namespace/topic-1"},
 		SubscriptionName: "my-sub",
 		Type:             pulsar.Shared,
 	})
@@ -121,13 +147,26 @@ func main() {
 		}
 		fmt.Printf("Received message msgId: %#v -- content: '%s' -- topic : '%v'\n",
 			msg.ID(), string(msg.Payload()), msg.Topic())
+		
+		consumer.Ack(msg)
 	}
 }
 ```
 
-3.先启动 consumer.go，再启动 producer.go，观察控制台消息：
+### 测试验证
+
+您需要先将 Demo 代码打包上传到云服务器上，且确认该云服务器所在的私有网络 VPC 和 TDMQ 中配置的接入点吻合。
+
+接下来进入 Demo 测试，先执行`go run`指令启动`consumer.go`，命令如下：
+
+```bash
+go run consumer.go
+```
+
+再类似启动 producer.go，观察控制台消息：
 
 在 producer.go 运行的控制台可以看到有10条消息发送成功：
+
 ```bash
 2020/02/20 20:20:20 Published message:  &{581 0 0 0 <nil> <nil>}
 2020/02/20 20:20:20 Published message:  &{581 1 0 0 <nil> <nil>}
@@ -142,6 +181,7 @@ func main() {
 ```
 
 在 consumer.go 运行的控制台可以看到消息被成功接收并打印出来：
+
 ```bash
 Received message msgId: &pulsar.messageID{ledgerID:581, entryID:0, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 0' -- topic : 'persistent://appid/namespace/topic-1'
 
@@ -156,50 +196,6 @@ Received message msgId: &pulsar.messageID{ledgerID:581, entryID:3, batchIdx:0, p
 
 则 Go 版本的 SDK Demo 运行成功。
 
-<span id="cam"></span>
-### 配置 CAM 认证
-
-配置 CAM 认证方式访问 TDMQ 的集群需要在创建 Client 的时候配置 AuthCloud 参数，CAM 认证的配置方式示例如下，需要正确配置需要的参数：
-```go 
-authParams := make(map[string]string)
-authParams["secretId"] = "AKxxxxxxxxxxCx"
-authParams["secretKey"] = "SDxxxxxxxxxxCb"
-authParams["region"] = "ap-guangzhou"
-authParams["ownerUin"] = "xxxxxxxxxx"
-authParams["uin"] = "xxxxxxxxxx"
-client, err := pulsar.NewClient(pulsar.ClientOptions{
-	URL:       "pulsar://9.xx.xx.8:6650",
-	AuthCloud: pulsar.NewAuthenticationCloudCam(authParams), //在这里配置CAM认证
-})
-if err != nil {
-	log.Fatal(err)
-}
-defer client.Close()
-```
-
-配置完成之后，即可正常创建生产者和消费者来使用 TDMQ 服务，创建的方式如下所示：
-```go
-//创建 Producer
-producer, err := client.CreateProducer(pulsar.ProducerOptions{
-	DisableBatching: true,
-	Topic:           "persistent://appid/namespace/topic-1",
-})
-if err != nil {
-	log.Fatal(err)
-}
-defer producer.Close()
-
-//创建 Consumer
-consumer, err := client.Subscribe(pulsar.ConsumerOptions{
-	Topics:           []string{"persistent://appid/namespace/topic-1", "persistent://appid/namespace/topic-2"},
-	SubscriptionName: "my-sub",
-	Type:             pulsar.Shared,	
-})
-if err != nil {
-	log.Fatal(err)
-}
-defer consumer.Close()
-```
 
 ### Tag 功能
 
@@ -281,7 +277,4 @@ consumer.ReconsumeLaterAsync(msg, pulsar.NewReconsumeOptionsWithLevel(2), func(i
 	}
 })
 ```
-
-
-
 

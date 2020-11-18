@@ -1,0 +1,39 @@
+云直播（Cloud Streaming Services，CSS）依托腾讯强大的技术平台，将腾讯视频等核心业务底层能力开放给用户，为用户提供专业稳定快速的直播接入和分发服务，具有低延迟、高安全、高性能、易接入、多终端、多码率支持等特点。云直播全面满足超低延迟和超大并发访问量的音视频需求，并提供腾讯自研的推流 SDK 和播放器 SDK，方便客户端定制自己的推流端和播放端 App。
+
+下表为云审计支持的云直播操作列表：
+
+| 操作名称          | 资源类型 | 事件名称                        |
+|---------------|------|-----------------------------|
+| 延迟播放          | live | AddDelayLiveStream          |
+| 添加域名          | live | AddLiveDomain               |
+| 添加水印          | live | AddLiveWatermark            |
+| 域名绑定证书        | live | BindLiveDomainCert          |
+| 关闭实时日志        | live | CloseRealTimeLogAnalysis    |
+| 新增极速高清配置      | live | CreateLiveAiTranscodeConf   |
+| 创建直播 IM 信息      | live | CreateLiveAvcInfo           |
+| 创建回调规则        | live | CreateLiveCallbackRule      |
+| 创建回调模板        | live | CreateLiveCallbackTemplate  |
+| 添加证书          | live | CreateLiveCert              |
+| 新增域名策略        | live | CreateLiveDomainStrategy    |
+| 创建即时录制任务      | live | CreateLiveInstantRecord     |
+| 创建即时截图任务      | live | CreateLiveInstantSnapshot   |
+| 创建录制任务        | live | CreateLiveRecord            |
+| 创建录制规则        | live | CreateLiveRecordRule        |
+| 创建录制模板        | live | CreateLiveRecordTemplate    |
+| 创建截图规则        | live | CreateLiveSnapshotRule      |
+| 创建截图模板        | live | CreateLiveSnapshotTemplate  |
+| 创建转码规则        | live | CreateLiveTranscodeRule     |
+| 创建转码模板        | live | CreateLiveTranscodeTemplate |
+| 创建水印规则        | live | CreateLiveWatermarkRule     |
+| 创建日志主题        | live | CreateLogAnalysisTheme      |
+| 添加拉流配置        | live | CreatePullStreamConfig      |
+| 删除回调规则        | live | DeleteLiveCallbackRule      |
+| 删除日志主题        | live | DeleteLogAnalysisTheme      |
+| 查询导播台列表       | live | DescribeCasterList          |
+| 直播控制台主页       | live | DescribeLiveQcloudCom       |
+| 断开直播流         | live | DropLiveStream              |
+| 修改应用的房间信息     | live | ModifyLiveAvcAccountInfo    |
+| 修改或者创建 License | live | ModifyLiveLicense           |
+| 修改日志主题        | live | ModifyLogAnalysisTheme      |
+| 打开实时日志        | live | OpenRealTimeLogAnalysis     |
+| AVC 应用新旧切换     | live | UpDowngradeAvcInfo          |

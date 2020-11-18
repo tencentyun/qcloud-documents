@@ -7,13 +7,14 @@
 
 ## 准备工作
 ### 安装文件存储扩展组件
->?
->- 使用扩展组件功能前需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
->- 若您的集群已安装 CFS-CSI 的扩展组件，则请跳过此步骤。
+>? 若您的集群已安装 CFS-CSI 的扩展组件，则请跳过此步骤。
 >
-1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
-2. 在“扩展组件”管理页面上方选择需使用文件存储扩展组件的集群及其所在地域，并单击【新建】。
-3. 在“新建扩展组件”页面，选择【CFS 腾讯云文件存储】并单击【完成】即可。
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+2. 单击左侧导航栏中的【集群】，进入【集群管理】页面。
+3. 选择需新建组件的集群 ID，进入【集群详情】页面。
+4. 在“集群详情页”，选择【组件管理】>【新建】，进入【新建组件】页面。
+5. 在“新建组件”页面，勾选【CFS（腾讯云文件存储）】并单击【完成】即可。
+
 
 
 ### 创建子网
@@ -35,8 +36,8 @@
 
 
 ## 操作步骤
-
-### 通过控制台创建 StorageClass 
+### 控制台操作指引
+#### 通过控制台创建 StorageClass<span id="create"></span>
 1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【集群】。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的【存储】>【StorageClass】，进入 “StorageClass” 页面。如下所示：
@@ -56,7 +57,50 @@
 	- **回收策略**：云盘的回收策略，提供【删除】和【保留】两种回收策略。出于数据安全考虑，推荐使用保留回收策略。
 5. 单击【新建 StorageClass 】即可。
 
-### 通过 Kubectl 创建 StorageClass
+
+#### 使用指定 StorageClass 创建 PVC<span id="createPVC"></span>
+1. 在“集群管理”页，选择需创建 PVC 的集群 ID。
+2. 在集群详情页，选择左侧菜单栏中的【存储】>【PersistentVolumeClaim】，进入 “PersistentVolumeClaim” 信息页面。如下图所示：
+![](https://main.qcloudimg.com/raw/e771b0d7e010605c3701de3f20831a96.png)
+3. 选择【新建】进入“新建PersistentVolumeClaim” 页面，参考以下信息设置 PVC 关键参数。如下图所示：
+![](https://main.qcloudimg.com/raw/17d188dba93ffa0c50818144d4a20378.png)
+主要参数信息如下：
+   - **名称**：自定义，本文以 `cfs-pvc` 为例。
+   - **命名空间**：选择 “default ”。
+   - **Provisioner**：选择【文件存储 CFS】。
+   - **读写权限**：文件存储仅支持多机读写。
+   - **StorageClass**：按需指定 StorageClass，本文选择以在 [创建 StorageClass](#create) 步骤中创建的 `cfs-storageclass` 为例。
+ >? 
+ >- PVC 和 PV 会绑定在同一个 StorageClass 下。
+>- 不指定 StorageClass 意味着该 PVC 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
+> 
+   - **PersistVolume**：按需指定 PersistentVolume，本文以不指定 PersistentVolume 为例。
+>? 
+>- 系统首先会筛选当前集群内是否存在符合绑定规则的 PV，若没有则根据 PVC 和所选 StorageClass 的参数动态创建PV与之绑定。
+>- 系统不允许在不指定 StorageClass 的情况下同时选择不指定 PersistVolume。
+>- 不指定 PersistVolume。详情请参见 [查看PV和PVC的绑定规则](https://cloud.tencent.com/document/product/457/47014)。
+> 
+4. 单击【创建 PersistentVolumeClaim】，即可完成创建。
+
+#### 创建 Workload 使用 PVC 数据卷
+>?该步骤以创建工作负载 Deployment 为例。
+>
+1. 在“集群管理”页面，选择目标集群 ID，进入待部署 Workload 的集群的 “Deployment” 页面。
+2. 选择【新建】，进入“新建Workload” 页面，参考[ 创建 Deployment ](https://cloud.tencent.com/document/product/457/31705#.E5.88.9B.E5.BB.BA-deployment)进行创建，并参考以下信息进行数据卷挂载。如下图所示：
+![](https://main.qcloudimg.com/raw/813ba45a062ed57f8959121e484537d1.png)
+	- **数据卷（选填）**：
+		- **挂载方式**：选择“使用已有PVC”。
+		- **数据卷名称**：自定义，本文以 `cfs-vol` 为例。
+		- **选择 PVC**：选择在步骤 [创建 PVC](#createPVC2) 中已创建的 “cfs-pvc”。
+	- **实例内容器**：单击【添加挂载点】，进行挂载点设置。
+       - **数据卷**：选择该步骤中已添加的数据卷“cfs-vol”。
+       - **目标路径**：填写目标路径，本文以 `/cache` 为例。
+       - **挂载子路径**：仅挂载选中数据卷中的子路径或单一文件。例如， `/data` 或 `/test.txt`。
+3. 单击【创建Workload】，完成创建。
+ > ! 如使用 PVC 挂载模式，则数据卷只能挂载到一台 Node 主机上。
+
+
+### Kubectl 操作指引
 
 您还可以直接通过 Kubectl 创建 StorageClass，模板如下：
 ```yaml

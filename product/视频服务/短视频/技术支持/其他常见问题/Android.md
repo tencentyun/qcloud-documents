@@ -1,4 +1,4 @@
-
+<span id="que1"></span>
 ### 目前短视频录制生成的分辨率支持自定义吗？有哪些可定制化的输出？
 短视频录制可定制参数包括 fps（每秒钟有多少帧画面），GOP（多少秒编出一个关键I帧）大小，视频码率（每秒钟编码器产生的音视频数据的多少），录制最大/最小时长，录制的分辨率以常量方式提供了三种分辨率供您选择：360 x 640、540 x 960、720 x 1280。
 
@@ -20,6 +20,8 @@ customConfig.videoFps = mFps;             // FPS
 customConfig.isFront = mFront;            // 是否前置摄像头
 mTXCameraRecord.startCameraCustomPreview(customConfig, mVideoView);
 ```
+
+<span id="que2"></span>
 ### Android 短视频录制结束，为什么没有收到 onRecordComplete 回调？
 开始录制短视频前，请先通过调用 TXUGCRecord 类的 setVideoRecordListener() 接口设置录制回调的监听器
 结束时，需要调用 TXUGCRecord 类的 stopRecord() 接口结束录制。
@@ -35,6 +37,8 @@ mTXCameraRecord.setVideoRecordListener(this);
 mTXCameraRecord.stopRecord();
 ```
 
+
+<span id="que3"></span>
 ### 短视频退出录制，开启第二次录制，如何继续接着上一次内容录制？
 Demo 在 onRecordComplete 回调之后，调用了 mTXCameraRecord.getPartsManager().deleteAllParts()，用于清除分片文件，因为 stopRecord 已经将分片文件合成完成。
 
@@ -55,6 +59,7 @@ public void onRecordComplete(TXRecordCommon.TXRecordResult result) {
     }
 ```
 
+<span id="que4"></span>
 ### 为什么短视频录制设置背景音没有生效？
 设置背景音乐一定要在启动录制（TXUGCRecord 的 startRecord）接口之前设置才能生效。代码调用顺序参照下面示例：
 
@@ -72,6 +77,7 @@ mTXCameraRecord.playBGMFromTime(0, mBGMDuration);
 int result = mTXCameraRecord.startRecord(customVideoPath, customPartFolder, customCoverPath);
 ```
 
+<span id="que5"></span>
 ### 录制是否有拍照功能？
 短视频 SDK 有拍照功能，调用 TXUGCRecord 类的 snapshot 接口，以 TXRecordCommon.ITXSnapshotListener 回调异步返回拍照的图片，代码示例如下：
 
@@ -89,6 +95,7 @@ private void snapshot() {
 }
 ```
 
+<span id="que6"></span>
 ### 变速录制速度的倍数是多少？
 变速录制不支持自定义速度  
 
@@ -106,15 +113,18 @@ private void snapshot() {
 mTXCameraRecord.setRecordSpeed(TXRecordCommon.RECORD_SPEED_FAST);
 ```
 
+<span id="que7"></span>
 ### 导入视频的格式要求？是否支持导入分辨率大于720P（例如2K，4K）的视频？导入文件限制有具体大小吗？ 
 导入视频目前 Android 端仅支持 MP4，分辨率没有做限制，导入文件不限制大小。
 
 - 导入视频的分辨率没有做限制，不管原视频多大，经过预处理后最大是720P。
 - 为了快速的导入视频，SDK4.7后可以不经过预处理（一些功能收到限制，倒放，单针预览等），对于分辨率大于720P的视频，建议需要加上预处理，因为预览是将每一帧解码，一些手机的性能不好，导致解码一帧并渲染到界面的时间过长，导致卡顿。
 
+<span id="que8"></span>
 ### 目前短视频编辑支持哪种格式的背景音乐？
 目前仅支持 MP3 和 M4A 类型。
 
+<span id="que9"></span>
 ### 目前短视频编辑有哪些可定制化的输出？
 短视频编辑可定制视频码率（SDK4.5及以上）、音频码率（SDK4.7及以上）、分辨率以常量方式提供了四种分辨率供您选择：360 x 640、480 x 640、540 x 960、720 x 1280。
 
@@ -132,6 +142,7 @@ mTXVideoEditer.setVideoBitrate(3600);
 mTXVideoEditer.generateVideo(TXVideoEditConstants.VIDEO_COMPRESSED_720P, mVideoOutputPath);
 ```
 
+<span id="que10"></span>
 ### 通过短视频录制功能录制的视频，其中的音频是可以剥离出来的吗？ 
 目前短视频录制不支持同时录制 BGM 和人声，所以进入编辑后，重新设置 BGM，可以将原声音量设为0，达到替换 BGM 的目的，代码如下所示：
 
@@ -145,6 +156,7 @@ mTXVideoEditer.setBGM(bgmPath);
 mTXVideoEditer.setBGMVolume(1.0f);
 ```
 
+<span id="que11"></span>
 ### 预览画面在同一个 Activity 窗口和全屏模式如何切换？
 动态修改传入 SDK 视频预览 View 父布局的大小，SDK 内部会根据父布局的大小，根据视频宽高动态调整视频的大小。  
 SDK 接口的调用顺序：
@@ -182,6 +194,7 @@ private void initPlayerLayout(boolean isFullScreen) {
 }
 ```
 
+<span id="que12"></span>
 ### 短视频编辑时，腾讯云短视频 Demo 是把“剪辑”和“滤镜”等功能放在一个页面处理。不过，我们公司产品是把“剪辑”功能和“滤镜”分成两个页面？
 可以先进行裁剪（setCutTimeFrom）+ 预处理（processVideo）同时执行，结果生成一个裁剪后的视频预处理完的视频，再进行各种编辑的操作，将裁剪设置成整个时长（setCutTimeFrom），最后调用 generateVideo 生成视频，防止压缩两次导致画质降低。
 

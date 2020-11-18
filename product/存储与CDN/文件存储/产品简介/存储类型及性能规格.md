@@ -12,7 +12,7 @@ CFS 文件存储提供了标准型及性能型两种类型的文件系统，以�
     <td>标准型</td>
     <td nowrap="nowrap">   
     <li>存储空间随写入量弹性扩容，最大容量160TB</li>
-    <li>吞吐随文件系统容量线性扩容，最大1.2GB/s </li>
+    <li>吞吐随文件系统容量线性扩容，最大300MB/s </li>
     <li>最大 IOPS 4K （4KB大小文件随机读写）</li>
     </td>
     <td nowrap="nowrap"><li>低成本<br><li>大容量</td>
