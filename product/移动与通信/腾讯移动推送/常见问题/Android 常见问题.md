@@ -1,6 +1,3 @@
-### 什么是 TPNS 通道？
-- TPNS 通道是移动推送 TPNS 的自建通道，依赖移动推送 TPNS Service 在线（与移动推送 TPNS 后台服务器保持长连接）才能下发消息，因此 TPNS 通道的实际发送一般比其他厂商通道的数据要低。
-- 如果需要实现离线推送，建议集成厂商通道，请参考 [厂商通道接入指南](https://cloud.tencent.com/document/product/548/45909)。
 
 
 ### 如何关闭 TPNS 的保活功能？
@@ -44,6 +41,13 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 - **注册返回错误**：若控制台返回10004、10002、20等错误码，请参见 [Android SDK 错误码](https://cloud.tencent.com/document/product/548/36660)。
 - **注册无回调**：确认当前网络情况是否良好，建议使用4G网络测试，Wi-Fi 由于使用人数过多可能造成网络带宽不足。
 - **努比亚品牌的手机**：在2015年下半年和2016年出的机器均无法注册，具体机型包括 Nubia Z11 系列，NubiaZ11S 系列，NubiaZ9S 系列。
+
+
+### 什么是 TPNS 通道？
+- TPNS 通道是移动推送 TPNS 的自建通道，依赖移动推送 TPNS Service 在线（与移动推送 TPNS 后台服务器保持长连接）才能下发消息，因此 TPNS 通道的实际发送一般比其他厂商通道的数据要低。
+- 如果需要实现离线推送，建议集成厂商通道，请参考 [厂商通道接入指南](https://cloud.tencent.com/document/product/548/45909)。
+
+
 
 ### 为何关闭应用后，无法收到推送？
 - 目前第三方推送都无法保证关闭应用后仍可收到推送消息，该问题为手机定制 ROM 对移动推送 TPNS  Service 的限制问题，移动推送的 TPNS 通道推送，需要建立在移动推送 TPNS 的 Service 能够与移动推送 TPNS 后台服务器保持长连接，Service 被终止后，需由系统、安全软件和用户操作决定是否能够再次启动。
