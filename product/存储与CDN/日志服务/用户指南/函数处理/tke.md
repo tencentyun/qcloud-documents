@@ -17,7 +17,7 @@ kubectl apply -f https://raw.githubusercontent.com/TencentCloudContainerTeam/man
 
 方式二（推荐）：如果要保证使用 metrics-server 最新版，请按照以下步骤进行操作。
 
-### 下载官方部署 yaml
+### 下载 yaml 部署文件
 
 执行以下命令，下载 metrics-server 的最新部署 components.yaml 文件。
 
@@ -43,7 +43,7 @@ containers:
 	image: ccr.ccs.tencentyun.com/mirrors/metrics-server:v0.4.0 # 国内集群，请替换成该镜像地址
 ```
 
-### 部署
+### 部署 metrics-server
 
 修改 components.yaml 之后，执行以下命令，通过 kubectl 一键部署到集群：
 ``` bash
