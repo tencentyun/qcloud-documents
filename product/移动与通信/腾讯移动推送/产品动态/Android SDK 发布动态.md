@@ -26,7 +26,7 @@
 </tr>
         <tr>
         <td>SDK 1.2.1.1 版本发布</td>
-       <td><li>新增「用户属性」相关接口，用于个性化推送</li> <li>新增「应用内消息」功能，以及若干应用内消息模板</li><li>SO 文件优化更新</li><li>SDK 内部优化</li></td>
+				<td><li>新增「<b>用户属性</b>」相关接口，用于个性化推送</li> <li>新增「<b>应用内消息</b>」功能，以及若干应用内消息模板</li><li>SO 文件优化更新</li><li>SDK 内部优化</li></td>
         <td>2020-10-12</td>
         <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载 SDK</a></td>
     </tr>
