@@ -32,6 +32,7 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 - 查看设备是否开启通知栏权限，OPPO，vivo 等手机，需要手动开启通知栏权限。
 
 
+
 ### 设备注册失败的原因？
 - 新创建的 App 会有一分钟左右的数据同步过程，在此期间，注册可能返回20错误码，稍后重试即可。
 - **参数填写有误**：Access ID 和 Access Key 是否正确配置，常见错误是误用 Secret key ，或者 Access key 头尾有空格。
@@ -43,6 +44,22 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 - 目前第三方推送都无法保证关闭应用后，仍可收到推送消息，该问题为手机定制 ROM 对移动推送 TPNS  Service 的限制问题，移动推送 TPNS 的一切活动，都需要建立在移动推送 TPNS 的 Service 能够正常联网运行，Service 被终止后，由系统、安全软件和用户操作限定是否能够再次启动。
 - QQ 和微信是系统级别的应用白名单，相关的 Service 不会因为关闭应用而退出，所以用户感知推出应用过后，仍可收到消息，其实相关的 Service 还是能够在后台存活的。
 - Android 端在应用退出移动推送 TPNS  Service 和移动推送 TPNS 的服务器断开连接后，此时给这个设备下发的消息，会变成离线消息，离线消息最多保存72小时，每个设备最多保存三条，如果有多条离线消息，只保留最新的三条消息。在关闭应用期间推送的消息，如开启应用无法收到，请检查是否调用了反注册接口：XGPushManager.unregisterPush\(this\)。
+
+
+
+### 在非华为手机上安装了华为移动服务，且在 App 中集成了 TPNS SDK，会导致华为推送及其它组件功能失效，如何解决？
+
+自 TPNS SDK 1.1.6.3 版本起，为避免**在非本品牌手机上、其他品牌的推送服务在后台自启、传输用户数据**，会在非本品牌手机上禁用其他品牌的推送服务组件。
+华为在账号、游戏、推送等不同功能上有一些公共组件，TPNS 禁用推送组件可能会导致其它服务功能在非华为品牌手机上同样不能启动；若您需要关闭此禁用功能，可配置以下内容：
+在 AndroidManifest.xml 文件 application 标签下添加节点配置，并重装应用（需卸载后重装）。
+```xml
+<meta-data
+		android:name="tpns-disable-component-huawei-v2"
+		android:value="false" />
+<meta-data
+		android:name="tpns-disable-component-huawei-v4"
+		android:value="false" />
+```
 
 
 ### 如何设置消息点击事件？
@@ -70,11 +87,11 @@ TPNS 推荐使用 Intent 方式进行跳转（注：SDK 点击消息默认支持
 ![](https://main.qcloudimg.com/raw/a904c7c7917fb7d69bf741f7b6e52099.png)
  - 若使用服务端 SDK ，设置 Intent 进行跳转，可设置 Intent 为（以 Java SDK 为例）：
 ```
-action.setIntent("xgscheme://com.xg.push/notify_detail");
+action.setIntent("xgscheme://com.tpns.push/notify_detail");
 ```
  - 若需要带上 param1 和 param2 等参数，您可以做如下设置：
 ```
-action.setIntent("xgscheme://com.xg.push/notify_detail?param1=aa&param2=bb");
+action.setIntent("xgscheme://com.tpns.push/notify_detail?param1=aa&param2=bb");
 ```
 
 **终端获取参数**：
@@ -97,7 +114,7 @@ Uri uri = getIntent().getData();
    sanitizer.parseUrl(url);
    String value1 = sanitizer.getValue("key1");
    String value2 = sanitizer.getValue("key2");
-   Log.i("XG" , "value1 = " + value1 + " value2 = " + value2);
+   Log.i("TPNS" , "value1 = " + value1 + " value2 = " + value2);
 }
 ```
 
@@ -150,6 +167,15 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 #### 魅族通道排查路径
 与小米通道的排查方法类似，参考小米通道的排查路径即可。
 
+
+
+### 同时集成了即时通信 IM 和 TPNS，存在大量的厂商类冲突，该如何解决？
+目前 IM 已使用 TPNS 提供的厂商 jar 包，可前往 [IM 离线推送（Android）文档](https://cloud.tencent.com/document/product/269/44516) 替换相关依赖包，替换后即可解决。
+
+
+
+
+
 ### Flyme 6.0 及以下版本的魅族手机，为何消息抵达设备却不在通知栏展示？
 1.  Flyme 6.0 及以下版本的魅族手机，使用手动集成方式。
 2.  Flyme 6.0 及以下版本的魅族手机，使用自动集成方式，且使用的 TPNS Android SDK 为1.1.4.0 以下的版本。
@@ -157,34 +183,10 @@ XGPushConfig.setMiPushAppKey(this,MIPUSH_APPKEY);
 以上两种情况，需要在 drawable 不同分辨率的文件夹下对应放置一张名称必须为 stat_sys_third_app_notify 的图片，详情请参考 [TPNS Android SDK](https://console.cloud.tencent.com/tpns/sdkdownload) 中的 flyme-notification-res 文件夹。
 
 
-### 集成华为推送通道时遇到组件依赖冲突如何解决?
-项目使用了华为 HMS 2.x.x 游戏、支付、账号等其他服务组件，因依赖 `com.tencent.tpns:huawei:1.1.x.x-release` 集成华为推送通道而遇到组件依赖冲突时，请按照以下步骤集成华为厂商通道：
-1. 取消项目对 `"com.tencent.tpns:huawei:[VERSION]-release"` 此单个依赖包的依赖。
-2. 在参照华为开发者平台官方文档集成华为官方 SDK 时，请同时勾选 push 模块，为华为 SDK 添加 push 功能。
-3. 在 HMSAgent 模块的源代码中，就工具类 `com.huawei.android.hms.agent.common.StrUtils`做以下修改，以解决华为 SDK 内部一处异常造成的华为厂商 token 注册失败问题。
-修改前：
-```java
-package com.huawei.android.hms.agent.common;
-public final class StrUtils {
-    public static String objDesc(Object object) {
-        return object == null ? "null" : (object.getClass().getName()+'@'+ Integer.toHexString(object.hashCode()));
-    }
-}
-```
-修改后：
-```java
-package com.huawei.android.hms.agent.common;
-public final class StrUtils {
-    public static String objDesc(Object object) {
-        String s = "";
-        try {
-            s = Integer.toHexString(object.hashCode());
-        } catch (Throwable e) {
-        }
-        return object == null ? "null" : (object.getClass().getName()+'@'+ s);
-    }
-}
-```
+
+
+
+
 
 
 ### 使用控制台快速集成时出现异常，如何解决？

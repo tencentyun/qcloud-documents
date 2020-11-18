@@ -32,6 +32,7 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import sun.misc.BASE64Encoder;
 
+// 签名工具类
 class Signature {
     private String secretId;
     private String secretKey;
@@ -39,7 +40,7 @@ class Signature {
     private int random;
     private int signValidDuration;
 
-    private static final String HMAC_ALGORITHM = "HmacSHA1";
+    private static final String HMAC_ALGORITHM = "HmacSHA1"; //签名算法
     private static final String CONTENT_CHARSET = "UTF-8";
 
     public static byte[] byteMerger(byte[] byte1, byte[] byte2) {
@@ -49,10 +50,12 @@ class Signature {
         return byte3;
     }
 
+    // 获取签名
     public String getUploadSignature() throws Exception {
         String strSign = "";
         String contextStr = "";
 
+        // 生成原始参数字符串
         long endTime = (currentTime + signValidDuration);
         contextStr += "secretId=" + java.net.URLEncoder.encode(secretId, "utf8");
         contextStr += "&currentTimeStamp=" + currentTime;
@@ -103,11 +106,12 @@ class Signature {
 public class Test {
     public static void main(String[] args) {
         Signature sign = new Signature();
+        // 设置 App 的云 API 密钥
         sign.setSecretId("个人 API 密钥中的 Secret Id");
         sign.setSecretKey("个人 API 密钥中的 Secret Key");
         sign.setCurrentTime(System.currentTimeMillis() / 1000);
         sign.setRandom(new Random().nextInt(java.lang.Integer.MAX_VALUE));
-        sign.setSignValidDuration(3600 * 24 * 2);
+        sign.setSignValidDuration(3600 * 24 * 2); // 签名有效期：2天
 
         try {
             String signature = sign.getUploadSignature();

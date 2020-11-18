@@ -106,7 +106,7 @@ this.player = player;
 
 #### 添加媒体轨道
 `wj-player` 的播放必须有一条媒体轨道， 视频或者图片都需要加入到媒体轨道里。步骤如下：
->? 因为图片在播放器中将会默认当做3秒的静态视频播放，类似抖音。所以在播放器中图片和视频都俗属于媒体元素。
+>? 因为图片在播放器中将会默认当做3秒的静态视频播放，类似抖音。所以在播放器中图片和视频都属于媒体元素。
 
 1. 创建视频轨道 Track，设置视频轨道的 type 为 media。
 ```javascript
@@ -931,7 +931,7 @@ track={
           }
         },
       ```
-3. 进入小程序管理后台，将在线图片域名配置进 `request` 和 `downloadFile` 白名单即可。
+3. 进入小程序管理后台，将在线图片域名配置进`request`和`downloadFile`白名单即可。
 
 ##### 本地地址
 传入`wxfile://` 开头的本地临时地址即可。
@@ -955,6 +955,23 @@ track={
 ```
   <wj-textEditor value="{{textValue}}" bindconfirm="onConfirmText"/>
 ```
+3. 字体的下载需要借助小程序的 loadFontFace 方法
+`index.js` 将 loadFontFace 方法 exports 输出。
+```
+module.exports = {
+  downloadFile:wx.downloadFile,
+  loadFontFace: wx.loadFontFace
+}
+```
+`app.json`
+```json
+"myPlugin": {
+  "provider": "wx76f1d77827f78beb",
+  "version": "1.4.3",
+  "export": "index.js"
+}
+```
+4. 在您的小程序开发者后台，配置`reuqest`和`downloadFile`加入域名 `https://cdn.cdn-go.cn`当中。
 
 ### 属性说明
 
@@ -973,6 +990,5 @@ track={
 ### 操作说明
 输入文字，单颜色列表实时更换文本颜色，单击左侧 T 图标实时更换背景颜色。
 >?1.4.0版本开始支持修改字体。
-
->?1.4.3版本优化了字体缓存的逻辑，请避免使用`wx:if`控制`wj-textEditor`的显示，推荐使用`show`属性来控制以达到更好的加载性能。
+1.4.3版本优化了字体缓存的逻辑，请避免使用`wx:if`控制`wj-textEditor`的显示，推荐使用`show`属性来控制以达到更好的加载性能。
 

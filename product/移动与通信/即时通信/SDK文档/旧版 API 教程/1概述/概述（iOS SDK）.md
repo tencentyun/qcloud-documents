@@ -5,7 +5,7 @@
 ![](https://main.qcloudimg.com/raw/1cdf0ae83214cd804e13e54cafc3e288.jpg)
 
 **消息：**IM SDK 中消息（Message）表示要发送给对方的内容，消息包括若干属性，如是否自己已读，是否已经发送成功，发送人帐号，消息产生时间等。一条消息由若干 `Elem` 组合而成，每种 `Elem` 可以是文本、图片、表情等等，消息支持多种 `Elem` 组合发送。
-
+ 
 ![](https://main.qcloudimg.com/raw/61e24f0e5e9d0f3bba699609bc604d42.png)
 
 **群组 ID：**群组 ID 唯一标识一个群，由后台生成，创建群组时返回。

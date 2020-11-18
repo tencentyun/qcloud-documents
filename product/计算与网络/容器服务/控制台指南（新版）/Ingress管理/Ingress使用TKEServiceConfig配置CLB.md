@@ -166,7 +166,7 @@ spec:
         rules:
         - url: "/health"
           healthCheck:
-            enabled: false
+            enable: false
     - protocol: HTTPS
       port: 443
       domains:
@@ -174,10 +174,10 @@ spec:
         rules:
         - url: "/"
           session:
-            enabled: true
+            enable: true
             sessionExpireTime: 3600
           healthCheck:
-            enabled: true
+            enable: true
             intervalTime: 10
             healthNum: 2
             unHealthNum: 2

@@ -44,7 +44,9 @@
 
 这里的离线是指在没有退出登录的情况下，应用被系统或者用户关闭。在这种情况下，如果还想收到 IM SDK 的消息提醒，可以集成即时通信 IM 离线推送。
 
->!对于已经退出登录（主动登出或者被踢下线）的用户，不会收到任何消息通知。
+>!
+>- 对于已经退出登录（主动登出或者被踢下线）的用户，不会收到任何消息通知。
+>- 对于小米和华为厂商，如果在厂商开发者官网配置了 ChannelID，需要在 [即时通信 IM 控制台](https://console.qcloud.com/avc) 配置同样的 ChannelID,否则可能推送不成功；不配置会受限频影响。
 
 实现离线消息推送的过程如下：
 
@@ -59,11 +61,11 @@
 
 ### 配置推送证书
 
-<span id="xiaomiStep1_1"></span>
+<span id="xiaomiStep1_1"></span>
 
 1. 打开 [小米开放平台官网](https://dev.mi.com/console/) 进行注册并通过开发者认证。登录小米开放平台的管理控制台，选择【应用服务】>【PUSH服务】，创建小米推送服务应用，记录**`主包名`**、**`AppID`**、**`AppSecret`**信息。
    ![](https://main.qcloudimg.com/raw/7a291196c6f4800d5d1c9b9e23aed617.jpg)
-   <span id="xiaomiStep1_2"></span>
+   <span id="xiaomiStep1_2"></span>
 2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击【Android平台推送设置】区域的【添加证书】。根据 [步骤1](#Step1_1) 中获取的信息设置以下参数：
 
  - **推送平台**：选择**小米**
@@ -83,7 +85,7 @@
 
 成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后将消息通过小米推送通知到用户端。
 
-<span id="xiaomi_click"></span>
+<span id="xiaomi_click"></span>
 
 ### 配置点击通知栏消息事件
 
@@ -135,7 +137,7 @@
 3. 在 [添加证书](#xiaomiStep1_2) 时选择【打开应用内指定界面】并输入上述打印结果。
    ![](https://main.qcloudimg.com/raw/26a2bb370cfb5525f3eb1ddeef47c490.png)
 
-<span id="xiaomi_custom"></span>
+<span id="xiaomi_custom"></span>
 
 ### 透传自定义内容
 
@@ -191,11 +193,11 @@
 
 ### 配置推送证书
 
-<span id="huaweiStep1_1"></span>
+<span id="huaweiStep1_1"></span>
 
 1. 打开 [华为开发者联盟官网](https://developer.huawei.com/consumer/cn/) 进行注册并通过开发者认证。进入管理中心，选择【应用服务】>【开发服务】>【PUSH】，创建华为推送服务应用。记录**`包名`**、**`APP ID`**、**`APP SECRET`**信息。
    ![](https://main.qcloudimg.com/raw/50d36c2cfb7a32acefd8ace44e1ef71f.png)
-   <span id="huaweiStep1_2"></span>
+   <span id="huaweiStep1_2"></span>
 2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击【Android平台推送设置】区域的【添加证书】。根据 [步骤1](#huaweiStep1_1) 中获取的信息设置以下参数：
 
  - **推送平台**：选择**华为**
@@ -216,7 +218,7 @@
 
 成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后将消息通过小米推送通知到用户端。
 
-<span id="xiaomi_click"></span>
+<span id="xiaomi_click"></span>
 
 ### 配置点击通知栏消息事件
 
@@ -266,7 +268,7 @@
 
 3. 在 [添加证书](#huaweiStep1_2) 时选择【打开应用内指定界面】并输入上述打印结果。
 
-<span id="huawei_custom"></span>
+<span id="huawei_custom"></span>
 
 ### 透传自定义内容
 
@@ -314,10 +316,10 @@ String value = bundle.getString("ext");
 
 ### 配置推送证书
 
-<span id="oppoStep1_1"></span>
+<span id="oppoStep1_1"></span>
 
 1. 打开 [OPPO PUSH 服务开启指南](https://open.oppomobile.com/wiki/doc#id=10195) 开通 PUSH 服务。在 [OPPO 推送平台](https://push.oppo.com/) >【配置管理】>【应用配置】页面，您可以查看详细的应用信息，记录 `AppId`、`AppKey`、`AppSecret`和`MasterSecret`信息。
-   <span id="oppoStep1_2"></span>
+   <span id="oppoStep1_2"></span>
 
 2. 按照 OPPO 官网要求，在 OPPO Android 8.0 及以上系统版本必须配置 ChannelID，否则推送消息无法展示。您需要先在 App 中创建对应的 ChannelID（例如 `tuikit`）：
 
@@ -339,7 +341,7 @@ String value = bundle.getString("ext");
    		}
    ```
 
-   <span id="oppoStep1_3"></span>
+   <span id="oppoStep1_3"></span>
 
 3. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击【Android平台推送设置】区域的【添加证书】。根据 [步骤1](#oppoStep1_1) 中获取的信息设置以下参数：
 
@@ -362,7 +364,7 @@ String value = bundle.getString("ext");
 
 成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后将消息通过小米推送通知到用户端。
 
-<span id="oppo_click"></span>
+<span id="oppo_click"></span>
 
 ### 配置点击通知栏消息事件
 
@@ -397,7 +399,7 @@ String value = bundle.getString("ext");
 
 2. 在控制台上填入 `android.intent.action.VIEW`。
 
-<span id="oppo_custom"></span>
+<span id="oppo_custom"></span>
 
 ### 透传自定义内容
 
@@ -450,10 +452,10 @@ Bundle bundle = intent.getExtras();
 
 ### 配置推送证书
 
-<span id="vivoStep1_1"></span>
+<span id="vivoStep1_1"></span>
 
 1. [vivo 开放平台官网](https://dev.vivo.com.cn/home) 进行注册并通过开发者认证。登录其开放平台的管理中心，选择【消息推送】>【创建】>【测试推送】，创建 vivo 推送服务应用。记录**APP ID**、**APP key**和**APP secret**信息。
-   <span id="vivoStep1_2"></span>
+   <span id="vivoStep1_2"></span>
 2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击【Android平台推送设置】区域的【添加证书】。根据 [步骤1](#vivoStep1_1) 中获取的信息设置以下参数：
 
  - **推送平台**：选择 **vivo**
@@ -473,7 +475,7 @@ Bundle bundle = intent.getExtras();
 
 成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后将消息通过小米推送通知到用户端。
 
-<span id="vivo_click"></span>
+<span id="vivo_click"></span>
 
 ### 配置点击通知栏消息事件
 
@@ -523,7 +525,7 @@ Bundle bundle = intent.getExtras();
 
 3. 在 [添加证书](#vivoStep1_2) 时选择【打开应用内指定界面】并输入上述打印结果。
 
-<span id="vivo_custom"></span>
+<span id="vivo_custom"></span>
 
 ### 透传自定义内容
 
@@ -569,11 +571,11 @@ String extContent = paramMap.get("ext");
 
 ### 配置推送证书
 
-<span id="meizuStep1_1"></span>
+<span id="meizuStep1_1"></span>
 
 1. 打开 [魅族开放平台官网](http://open.flyme.cn) 进行注册并通过开发者认证。登录其控制台，选择【开发服务】>【Flyme推送】，创建魅族推送服务应用。记录**`应用包名`**、**`App ID`**、**`App Secret`**信息。
    ![](https://main.qcloudimg.com/raw/e0674cc1bca92fd549c03a3523b2144c.png)
-   <span id="meizuStep1_2"></span>
+   <span id="meizuStep1_2"></span>
 2. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击【Android平台推送设置】区域的【添加证书】。根据 [步骤1](#meizuStep1_1) 中获取的信息设置以下参数：
 
  - **推送平台**：选择**魅族**
@@ -593,7 +595,7 @@ String extContent = paramMap.get("ext");
 
 成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后将消息通过小米推送通知到用户端。
 
-<span id="meizu_click"></span>
+<span id="meizu_click"></span>
 
 ### 配置点击通知栏消息事件
 
@@ -666,11 +668,11 @@ String extContent = bundle.getString("ext");
 
 ### 集成 SDK
 
-<span id="fcmStep1_1"></span>
+<span id="fcmStep1_1"></span>
 1. 打开 [Firebase 云消息传递](https://firebase.google.com) 注册账号并创建应用。
-<span id="fcmStep1_2"></span>
+<span id="fcmStep1_2"></span>
 2. 登录 [Firebase 控制台](https://console.firebase.google.com)，单击您的应用卡片，进入应用配置页面。单击 Project Overview 右侧的 <img src="https://main.qcloudimg.com/raw/0d062411405553c9fae29f8e0daf02ad.png"  style="margin:0;">，选择【项目设置】>【服务帐号】，单击【生成新的私钥】下载私钥文件。
-<span id="fcmStep1_3"></span>
+<span id="fcmStep1_3"></span>
 3. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面，单击【Android平台推送设置】区域的【添加证书】。上传 [步骤2](#fcmStep1_2) 中获取的私钥文件。
  ![](https://main.qcloudimg.com/raw/b18e2414561c6733b24c56cd1e866f21.png)
 4. 单击【确认】保存信息，记录证书的**`ID`**。证书信息保存后10分钟内生效。
@@ -747,4 +749,3 @@ OPPO 手机收不到推送一般有以下几种情况：
 ### 自定义消息为什么收不到离线推送？
 
 自定义消息的离线推送和普通消息不太一样，自定义消息的内容我们无法解析，不能确定推送的内容，所以默认不推送，如果您有推送需求，需要您在 [sendMessage](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMMessageManager.html#a318c40c8547cb9e8a0de7b0e871fdbfe) 的时候设置 [offlinePushInfo](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html) 的 [desc](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushInfo.html#a78c8e202aa4e0859468ce40bde6fd602) 字段，推送的时候会默认展示 desc 信息。
-

@@ -12,7 +12,7 @@ Host: <Region>.cls.tencentyun.com
 Content-Type: application/json
 Authorization: <AuthorizationString>
 
-{"consumer_group": "cls_demo_consumer_group", "consumer_id": "consumer_id", "partitiotn_id_list": []}
+{"consumer_group": "cls_demo_consumer_group", "consumer_id": "consumer_id", "partition_id_list": []}
 ```
 
 #### 请求头

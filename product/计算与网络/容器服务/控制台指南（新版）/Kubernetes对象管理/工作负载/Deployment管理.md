@@ -205,3 +205,6 @@ kubectl autoscale deployment [NAME] --min=10 --max=15 --cpu-percent=80
 ```
 kubectl delete deployment [NAME]
 ```
+
+
+

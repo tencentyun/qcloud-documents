@@ -52,7 +52,7 @@
 
 ## 出现问题？
 非常抱歉您在使用时出现问题，您可以第一时间通过 <a href="https://console.cloud.tencent.com/workorder/category" hotrep="document.guide.2764.link4">提交工单</a> 联系我们，也可以先参考相关文档进行问题定位和解决。
-以下是用户在使用云服务器的时出现的常见问题，建议您先参考文档进行问题定位和解决。
+以下是用户在使用云服务器时出现的常见问题，建议您先参考文档进行问题定位和解决。
 - 忘记云服务器登录密码？
 请参考 <a href="https://cloud.tencent.com/document/product/213/16566" hotrep="document.guide.2764.link5">重置实例密码</a>。
 - 登录不成功？如何定位问题？

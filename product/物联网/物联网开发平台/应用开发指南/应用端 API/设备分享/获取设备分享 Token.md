@@ -10,9 +10,10 @@
 | AccessToken | String | 是   | 公共参数，AccessToken 用于对一个已经登录的用户鉴权。         |
 | RequestId   | String | 是   | 公共参数，唯一请求 ID，可自行生成，推荐使用 uuid。定位问题时，需提供该次请求的 RequestId。 |
 | Action      | String | 是   | 公共参数，本接口取值：AppCreateShareDeviceToken。              |
-| FamilyId    | String | 是   | 家庭 ID。                                                       |
+| FamilyId    | String | 是   | 家庭 ID，成功创建家庭后，返回的 FamilyId                                                       |
 | ProductId   | String | 是   | 产品 ID。                                                       |
 | DeviceName  | String | 是   | 设备名称。                                                     |
+| TokenContext  | String | 否   | 分享的上下文。                                                   |
 
 ## 3. 输出参数
 
