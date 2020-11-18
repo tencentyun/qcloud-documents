@@ -1,27 +1,31 @@
-## 背景
+## 操作场景
 
-当 TKE 集群配置了节点池并启用了弹性伸缩，在节点资源不够时可以触发节点的自动扩容 (自动买机器并加入集群)，但这个扩容流程需要一定的时间才能完成，在一些流量突高的场景，这个扩容速度可能会显得太慢，影响业务。 `tke-autoscaling-placeholder` 可以用于在 TKE 上实现秒级伸缩，应对这种流量突高的场景。
+当 TKE 集群配置节点池并启用弹性伸缩，在节点资源不够时可以触发节点的自动扩容 (自动购买机器并加入集群)，但该扩容流程需要一定的时间才能完成，在一些流量突高的场景，该扩容速度可能会显得太慢，影响业务。 而 `tke-autoscaling-placeholder` 可以用于在 TKE 上实现秒级伸缩，应对流量突高场景。本文将介绍如何使用 tke-autoscaling-placeholder 实现秒级弹性伸缩。
 
-## 原理
+## 实现原理
 
-`tke-autoscaling-placeholder` 实际就是利用低优先级的 Pod 对资源进行提前占位(带 request 的 pause 容器，实际不怎么消耗资源)，为一些可能会出现流量突高的高优先级业务预留部分资源作为缓冲，当需要扩容 Pod 时，高优先级的 Pod 就可以快速抢占低优先级 Pod 的资源进行调度，而低优先级的 `tke-autoscaling-placeholder` 的 Pod 则会被 "挤走"，状态变成 Pending，如果配置了节点池并启用弹性伸缩，就会触发节点的扩容。这样，由于有了一些资源作为缓冲，即使节点扩容慢，也能保证一些 Pod 能够快速扩容并调度上，实现秒级伸缩。要调整预留的缓冲资源多少，可根据实际需求调整 `tke-autoscaling-placeholder` 的 request 或副本数。
+`tke-autoscaling-placeholder` 将利用低优先级的 Pod 对资源进行提前占位（带 request 的 pause 容器，实际消耗资源量低），为一些可能会出现流量突高的高优先级业务预留部分资源作为缓冲，当需要扩容 Pod 时，高优先级的 Pod 就可以快速抢占低优先级 Pod 的资源进行调度，而低优先级的 `tke-autoscaling-placeholder` 的 Pod 则会被 "挤走"，状态变成 Pending，如果配置了节点池并启用弹性伸缩，就会触发节点的扩容。这样，由于通过一些资源作为缓冲，即使节点扩容慢，也能保证一些 Pod 能够快速扩容并调度上，实现秒级伸缩。调整预留的缓冲资源多少，可根据实际需求调整 `tke-autoscaling-placeholder` 的 request 或副本数。
 
 ## 使用限制
 
-使用该应用要求集群版本在 1.18 以上。
+使用该应用要求集群版本在1.18以上。
 
 ## 操作步骤
 
 ### 安装 tke-autoscaling-placeholder
 
-在应用市场找到 `tke-autoscaling-placeholder`，点击进入应用详情，再点 `创建应用`:
-
+1. 前往容器服务控制台 [应用市场](https://console.cloud.tencent.com/tke2/market) 页面。
+2. 在应用市场页面搜索框，输入 `tke-autoscaling-placeholder` 进行搜索，找到该应用。
+![](https://main.qcloudimg.com/raw/b48a227c35dd1c52633a838c72e95b26.jpg)
+3. 单击应用进入应用详情页面之后，单击【创建应用】，配置项说明如下：
 ![](https://main.qcloudimg.com/raw/bb081fd1923819c4a85c4b2cff80ff11.png)
-
-选择要部署的集群 id 与 namespace，应用的配置参数中最重要的是 `replicaCount` 与 `resources.request`，分别表示 `tke-autoscaling-placeholder` 的副本数与每个副本占位的资源大小，它们共同决定缓冲资源的大小，可以根据流量突高需要的额外资源量来估算进行设置。
-
-最后点击创建，你可以查看这些进行资源占位的 Pod 是否启动成功:
-
+ - **名称**：输入应用名称。最长63个字符，只能包含小写字母、数字及分隔符“-”，且必须以小写字母开头，数字或小写字母结尾。
+ - **地域**：现在需要部署的集群所在地域。
+ - **集群类型**：选择【标准集群】。
+ - **集群**：选择需要部署的集群 ID。
+ - **Namespace**：选择需要部署的 namespace。
+ - **参数**：配置参数中最重要的是 `replicaCount` 与 `resources.request`，分别表示 `tke-autoscaling-placeholder` 的副本数与每个副本占位的资源大小，它们共同决定缓冲资源的大小，可以根据流量突高需要的额外资源量来估算进行设置。
+4. 单击【创建】，您可以查看进行资源占位的 Pod 是否启动成功，示例如下：
 ``` bash
 $ kubectl get pod -n default
 tke-autoscaling-placeholder-b58fd9d5d-2p6ww   1/1     Running   0          8s
@@ -36,23 +40,23 @@ tke-autoscaling-placeholder-b58fd9d5d-ph7vl   1/1     Running   0          8s
 tke-autoscaling-placeholder-b58fd9d5d-xmrmv   1/1     Running   0          8s
 ```
 
- `tke-autoscaling-placeholder`  的完整配置参考下面的表格:
+ `tke-autoscaling-placeholder`  的完整配置参考下面的表格：
 
 | 参数                        | 描述                                                       | 默认值                                        |
 | --------------------------- | ---------------------------------------------------------- | --------------------------------------------- |
-| `replicaCount`              | placeholder 的副本数                                       | `10`                                          |
+| `replicaCount`              | placeholder 的副本数                                       | 10                                          |
 | `image`                     | placeholder 的镜像地址                                     | `ccr.ccs.tencentyun.com/library/pause:latest` |
-| `resources.requests.cpu`    | 单个 placeholder 副本占位的 cpu 资源大小                   | `300m`                                        |
-| `resources.requests.memory` | 单个 placeholder 副本占位的内存大小                        | `600Mi`                                       |
-| `lowPriorityClass.create`   | 是否创建低优先级的 PriorityClass (用于被 placeholder 引用) | `true`                                        |
-| `lowPriorityClass.name`     | 低优先级的 PriorityClass 的名称                            | `low-priority`                                |
-| `nodeSelector`              | 指定 placeholder 被调度到带有特定 label 的节点             | `{}`                                          |
-| `tolerations`               | 指定 placeholder 要容忍的污点                              | `[]`                                          |
-| `affinity`                  | 指定 placeholder 的亲和性配置                              | `{}`                                          |
+| `resources.requests.cpu`    | 单个 placeholder 副本占位的 cpu 资源大小                   | 300m                                        |
+| `resources.requests.memory` | 单个 placeholder 副本占位的内存大小                        | 600Mi                                       |
+| `lowPriorityClass.create`   | 是否创建低优先级的 PriorityClass (用于被 placeholder 引用) | true                                        |
+| `lowPriorityClass.name`     | 低优先级的 PriorityClass 的名称                            | low-priority                                |
+| `nodeSelector`              | 指定 placeholder 被调度到带有特定 label 的节点             | {}                                          |
+| `tolerations`               | 指定 placeholder 要容忍的污点                              | []                                        |
+| `affinity`                  | 指定 placeholder 的亲和性配置                              | {}                                         |
 
 ### 部署高优先级 Pod
 
- `tke-autoscaling-placeholder` 的优先级很低，我们的业务 Pod 可以指定一个高优先的 PriorityClass，方便抢占资源实现快速扩容，如果没有可以先创建一个:
+ `tke-autoscaling-placeholder` 的优先级很低，我们的业务 Pod 可以指定一个高优先的 PriorityClass，方便抢占资源实现快速扩容，如果没有可以先创建一个：
 
 ``` yaml
 apiVersion: scheduling.k8s.io/v1
@@ -64,7 +68,7 @@ globalDefault: false
 description: "high priority class"
 ```
 
-在我们的业务 Pod 中指定 `priorityClassName` 为高优先的 PriorityClass:
+在我们的业务 Pod 中指定 `priorityClassName` 为高优先的 PriorityClass：
 
 ``` yaml
 apiVersion: apps/v1
@@ -118,11 +122,11 @@ tke-autoscaling-placeholder-b58fd9d5d-zxtwp   0/1     Pending   0          23s
 
 如果配置了节点池弹性伸缩，就会触发节点的扩容，虽然节点速度速度慢，但由于我们的缓冲资源都给了业务 Pod，业务能够快速得到扩容，也就不会影响业务。
 
-## 小结
+## 实践总结
 
 本文介绍了 `tke-autoscaling-placeholder` 这个用于实现秒级伸缩的工具，巧妙的利用了 Pod 优先级与抢占的特点，提前部署一些用于占位资源的低优先级 "空 Pod" 作为缓冲资源填充，在流量突高并且集群资源不够的情况下抢占这些低优先级的 "空 Pod" 的资源，同时触发节点扩容，实现在资源紧张的情况下也能做到秒级伸缩，不影响业务。
 
-## 参考资料
+## 相关文档
 
 * [Pod 优先级与抢占](https://kubernetes.io/zh/docs/concepts/configuration/pod-priority-preemption/)
 * [创建节点池](https://cloud.tencent.com/document/product/457/43735)
