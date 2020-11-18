@@ -1,8 +1,8 @@
 ## 操作场景
 
-[metrics-server]() 可实现 Kubernetes 的 Resource Metrics API (metrics.k8s.io)，通过此 API 可以查询 pod 与 node 的部分监控指标，pod 的监控指标用于 [HPA](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)、[VPA](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) 与 `kubectl top pods` 命令，而 node 指标目前只用于 `kubectl top nodes` 命令。TKE 自带了一个 Resource Metrics API 的实现，指向 hpa-metrics-server，仅提供 pod 的监控指标。
+[metrics-server]() 可实现 Kubernetes 的 Resource Metrics API (metrics.k8s.io)，通过此 API 可以查询 pod 与 node 的部分监控指标，pod 的监控指标用于 [HPA](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)、[VPA](https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler) 与 `kubectl top pods` 命令，而 node 指标目前只用于 `kubectl top nodes` 命令。TKE 自带一个 Resource Metrics API 的实现，指向 hpa-metrics-server，目前提供 pod 的监控指标。
 
-如果期望使用 `kubectl top nodes` 获取节点的监控概览，可以安装 metrics-server 到集群，会替换 Resource Metrics API 的实现，指向 metrics-server。安装 metrics-server 不会影响在 TKE 控制台创建的 HPA，因为控制台创建的 HPA 不会用到 Resource Metrics，只会用 Custom Metrics。
+如果期望通过 `kubectl top nodes` 获取节点的监控概览，可以将 metrics-server 安装到集群，替换 Resource Metrics API 的实现，使其指向 metrics-server。TKE 控制台创建的 HPA 不会用到 Resource Metrics，只会使用 Custom Metrics，因此安装 metrics-server 不会影响在 TKE 控制台创建的 HPA。本文将介绍如何在 TKE 上安装 metrics-server。
 
 
 
@@ -15,11 +15,11 @@
 kubectl apply -f https://raw.githubusercontent.com/TencentCloudContainerTeam/manifest/master/metrics-server/components.yaml
 ```
 
-方式二（推荐）：如果要保证使用最新版，请按照以下步骤进行操作。
+方式二（推荐）：如果要保证使用 metrics-server 最新版，请按照以下步骤进行操作。
 
 ### 下载官方部署 yaml
 
-执行以下命令，下载 metrics-server 的最新部署 components.yaml 文件：
+执行以下命令，下载 metrics-server 的最新部署 components.yaml 文件。
 
 ```bash
 wget https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
@@ -27,7 +27,8 @@ wget https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/
 
 ### 修改 metrics-server 启动参数
 
-metrics-server 会请求每台节点的 kubelet 接口来获取监控数据，接口通过 HTTPS 暴露，但 TKE 节点的 kubelet 使用d 的是自签证书，metrics-server 直接请求  kubelet 接口，将报证书校验失败的错误，因此我们需要在 components.yaml文件中加上 `--kubelet-insecure-tls` 启动参数。另外，由于 metrics-server 官方镜像仓库存储在 `k8s.gcr.io` ，国内可能无法直接拉取，可以自行同步到 CCR 或直接使用已同步好镜像的 `ccr.ccs.tencentyun.com/mirrors/metrics-server:v0.4.0`。
+metrics-server 会请求每台节点的 kubelet 接口来获取监控数据，接口通过 HTTPS 暴露，但 TKE 节点的 kubelet 使用的是自签证书，若 metrics-server 直接请求  kubelet 接口，将报证书校验失败的错误，因此我们需要在 components.yaml 文件中加上 `--kubelet-insecure-tls` 启动参数。
+另外，由于 metrics-server 官方镜像仓库存储在 `k8s.gcr.io` ，国内可能无法直接拉取，您可以自行同步到 CCR 或直接使用已同步好镜像的 `ccr.ccs.tencentyun.com/mirrors/metrics-server:v0.4.0`。
 
 components.yaml 文件修改示例如下：
 
