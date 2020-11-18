@@ -9,13 +9,6 @@
 
 ## 操作步骤
 
-方式一（不推荐）：您可以执行以下命令一键安装 metrics-server，但该方式无法保证与最新版同步。
-
-``` bash
-kubectl apply -f https://raw.githubusercontent.com/TencentCloudContainerTeam/manifest/master/metrics-server/components.yaml
-```
-
-方式二（推荐）：如果要保证使用 metrics-server 最新版，请按照以下步骤进行操作。
 
 ### 下载 yaml 部署文件
 
@@ -51,14 +44,19 @@ kubectl apply -f components.yaml
 ```
 
 
+>?通过上述步骤，即可安装部署 metrics-server。您也可以执行如下命令一键安装 metrics-server，但该方式无法保证与最新版同步。
+``` bash
+kubectl apply -f https://raw.githubusercontent.com/TencentCloudContainerTeam/manifest/master/metrics-server/components.yaml
+```
+
 ### 检查运行状态
 
-1. 执行以下命令，检查 metrics-server 是否正常启动。
+1. 执行以下命令，检查 metrics-server 是否正常启动。示例如下：
 ```bash
 $ kubectl get pod -n kube-system | grep metrics-server
 metrics-server-f976cb7d-8hssz         1/1     Running   0          1m
 ```
-2. 执行以下命令，检查配置文件。
+2. 执行以下命令，检查配置文件。示例如下：
 ``` bash
 $ kubectl get --raw /apis/metrics.k8s.io/v1beta1  | jq
 {
@@ -89,7 +87,7 @@ $ kubectl get --raw /apis/metrics.k8s.io/v1beta1  | jq
   ]
 }
 ```
-3. 执行以下命令，检查节点占用性能情况。
+3. 执行以下命令，检查节点占用性能情况。示例如下：
 ```bash
 $ kubectl top nodes
 NAME    CPU(cores)   CPU%   MEMORY(bytes)   MEMORY%
