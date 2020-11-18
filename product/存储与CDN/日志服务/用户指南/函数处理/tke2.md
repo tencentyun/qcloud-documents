@@ -41,22 +41,66 @@ tke-autoscaling-placeholder-b58fd9d5d-xmrmv   1/1     Running   0          8s
 ```
 
  `tke-autoscaling-placeholder`  的完整配置参考下面的表格：
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>描述</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>replicaCount</td>
+<td>placeholder 的副本数</td>
+<td>10</td>
+</tr>
+<tr>
+<td>image</td>
+<td>placeholder 的镜像地址</td>
+<td><code>ccr.ccs.tencentyun.com<br>/library/pause:latest</code></td>
+</tr>
+<tr>
+<td>resources.requests.cpu</td>
+<td>单个 placeholder 副本占位的 cpu 资源大小</td>
+<td>300m</td>
+</tr>
+<tr>
+<td>resources.requests.memory</td>
+<td>单个 placeholder 副本占位的内存大小</td>
+<td>600Mi</td>
+</tr>
+<tr>
+<td>lowPriorityClass.create</td>
+<td>是否创建低优先级的 PriorityClass (用于被 placeholder 引用)</td>
+<td>true</td>
+</tr>
+<tr>
+<td>lowPriorityClass.name</td>
+<td>低优先级的 PriorityClass 的名称</td>
+<td>low-priority</td>
+</tr>
+<tr>
+<td>nodeSelector</td>
+<td>指定 placeholder 被调度到带有特定 label 的节点</td>
+<td>{}</td>
+</tr>
+<tr>
+<td>tolerations</td>
+<td>指定 placeholder 要容忍的污点</td>
+<td>[]</td>
+</tr>
+<tr>
+<td>affinity</td>
+<td>指定 placeholder 的亲和性配置</td>
+<td>{}</td>
+</tr>
+</tbody></table>
 
-| 参数                        | 描述                                                       | 默认值                                        |
-| --------------------------- | ---------------------------------------------------------- | --------------------------------------------- |
-| `replicaCount`              | placeholder 的副本数                                       | 10                                          |
-| `image`                     | placeholder 的镜像地址                                     | `ccr.ccs.tencentyun.com/library/pause:latest` |
-| `resources.requests.cpu`    | 单个 placeholder 副本占位的 cpu 资源大小                   | 300m                                        |
-| `resources.requests.memory` | 单个 placeholder 副本占位的内存大小                        | 600Mi                                       |
-| `lowPriorityClass.create`   | 是否创建低优先级的 PriorityClass (用于被 placeholder 引用) | true                                        |
-| `lowPriorityClass.name`     | 低优先级的 PriorityClass 的名称                            | low-priority                                |
-| `nodeSelector`              | 指定 placeholder 被调度到带有特定 label 的节点             | {}                                          |
-| `tolerations`               | 指定 placeholder 要容忍的污点                              | []                                        |
-| `affinity`                  | 指定 placeholder 的亲和性配置                              | {}                                         |
+
 
 ### 部署高优先级 Pod
 
- `tke-autoscaling-placeholder` 的优先级很低，我们的业务 Pod 可以指定一个高优先的 PriorityClass，方便抢占资源实现快速扩容，如果没有可以先创建一个：
+ `tke-autoscaling-placeholder` 默认优先级很低，我们的业务 Pod 可以指定一个高优先的 PriorityClass，方便抢占资源实现快速扩容，如果还未创建 PriorityClass，您可以参考以下示例进行创建：
 
 ``` yaml
 apiVersion: scheduling.k8s.io/v1
@@ -95,7 +139,7 @@ spec:
             memory: 800Mi
 ```
 
-当集群节点资源不够，扩容出来的高优先级业务 Pod 就可以将低优先级的 `tke-autoscaling-placeholder` 的 Pod 资源抢占过来并调度上，然后 `tke-autoscaling-placeholder`  的 Pod 再 Pending:
+当集群节点资源不够，扩容出来的高优先级业务 Pod 就可以将低优先级的 `tke-autoscaling-placeholder` 的 Pod 资源抢占过来并调度上，然后 `tke-autoscaling-placeholder`  的 Pod 再 Pending：
 
 ``` yaml
 $ kubectl get pod -n default
