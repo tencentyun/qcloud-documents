@@ -30,7 +30,7 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 
 ### 为何注册成功，无法收到推送？
 
-请参考 [排查工具指南](https://cloud.tencent.com/document/product/548/48774) 使用排查工具进行自动化排查，一般有如下错误：
+请参见 [排查工具指南](https://cloud.tencent.com/document/product/548/48774) 使用排查工具进行自动化排查，一般有如下错误：
 
 - 请查看当前应用包名，是否与注册移动推送 TPNS 应用时填写的应用包名不一致。如果不一致，推送时，建议开启多包名推送。
 - 检查手机网络是否异常，切换4G网络，进行测试。
@@ -43,7 +43,7 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 ### 什么是 TPNS 通道？
 
 - TPNS 通道是移动推送 TPNS 的自建通道，依赖移动推送 TPNS Service 在线（与移动推送 TPNS 后台服务器保持长连接）才能下发消息，因此 TPNS 通道的实际发送一般比其他厂商通道的数据要低。
-- 如果需要实现离线推送，建议集成厂商通道，请参考 [厂商通道接入指南](https://cloud.tencent.com/document/product/548/45909)。
+- 如果需要实现离线推送，建议集成厂商通道，请参见 [厂商通道接入指南](https://cloud.tencent.com/document/product/548/45909)。
 
 
 
@@ -51,7 +51,7 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 
 - 目前第三方推送都无法保证关闭应用后仍可收到推送消息，该问题为手机定制 ROM 对移动推送 TPNS  Service 的限制问题，移动推送的 TPNS 通道推送，需要建立在移动推送 TPNS 的 Service 能够与移动推送 TPNS 后台服务器保持长连接，Service 被终止后，需由系统、安全软件和用户操作决定是否能够再次启动。
 - 移动推送 TPNS 的 Service 和移动推送 TPNS 的服务器断开连接后，此时给这个设备下发的消息，将变成离线消息，离线消息最多保存72小时，每个设备最多保存三条，如果有多条离线消息，只保留最新的三条消息。在关闭应用期间推送的消息，如开启应用无法收到，请检查是否调用了反注册接口：XGPushManager.unregisterPush\(this\)。
-- 如果已经集成厂商通道，但是仍收不到离线推送，请先在 [排查工具](https://console.cloud.tencent.com/tpns/user-tools) 上查询该 Token 是否已经注册上厂商通道，如果未注册成功，请参考 [厂商通道注册失败排查指南](https://cloud.tencent.com/document/product/548/45659) 进行排查。
+- 如果已经集成厂商通道，但是仍收不到离线推送，请先在 [排查工具](https://console.cloud.tencent.com/tpns/user-tools) 上查询该 Token 是否已经注册上厂商通道，如果未注册成功，请参见 [厂商通道注册失败排查指南](https://cloud.tencent.com/document/product/548/45659) 进行排查。
 - QQ 和微信是系统级别的应用白名单，相关的 Service 不会因为关闭应用而退出，所以用户感知推出应用过后，仍可收到消息，但相关的 Service 仍能够在后台存活。
 
 ### 在非华为手机上安装了华为移动服务，且在 App 中集成了 TPNS SDK，会导致华为推送及其它组件功能失效，如何解决？
@@ -157,7 +157,7 @@ Uri uri = getIntent().getData();
 
 
 
-表示您的应用注册该厂商通道失败，您可以通过获取厂商通道注册失败的返回码来进行问题定位和排查，详情参考[厂商通道注册失败排查指南](https://cloud.tencent.com/document/product/548/45659)。
+表示您的应用注册该厂商通道失败，您可以通过获取厂商通道注册失败的返回码来进行问题定位和排查，详情请参见 [厂商通道注册失败排查指南](https://cloud.tencent.com/document/product/548/45659)。
 
 ### 同时集成了即时通信 IM 和 TPNS，存在大量的厂商类冲突，该如何解决？
 
@@ -200,6 +200,6 @@ android.useAndroidX=trueandroid.enableJetifier=true
 ```
 
 > ? 
-> - android.useAndroidX=true 表示当前项目启用 AndroidX。
-> - android.enableJetifier=true 表示将依赖包迁移到 AndroidX。 
+> - android.useAndroidX=true，表示当前项目启用 AndroidX。
+> - android.enableJetifier=true，表示将依赖包迁移到 AndroidX。 
 
