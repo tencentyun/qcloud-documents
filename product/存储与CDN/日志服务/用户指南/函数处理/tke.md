@@ -44,7 +44,7 @@ kubectl apply -f components.yaml
 ```
 
 
->?通过上述步骤，即可安装部署 metrics-server。您也可以执行如下命令一键安装 metrics-server，但该方式无法保证与最新版同步。
+>?通过上述步骤，即可安装部署 metrics-server。您也可以执行以下命令一键安装 metrics-server，但该方式无法保证与最新版同步。
 ``` bash
 kubectl apply -f https://raw.githubusercontent.com/TencentCloudContainerTeam/manifest/master/metrics-server/components.yaml
 ```
