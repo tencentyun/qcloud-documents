@@ -25,22 +25,7 @@
  - **集群**：选择需要部署的集群 ID。
  - **Namespace**：选择需要部署的 namespace。
  - **参数**：配置参数中最重要的是 `replicaCount` 与 `resources.request`，分别表示 `tke-autoscaling-placeholder` 的副本数与每个副本占位的资源大小，它们共同决定缓冲资源的大小，可以根据流量突高需要的额外资源量来估算进行设置。
-4. 单击【创建】，您可以查看进行资源占位的 Pod 是否启动成功，示例如下：
-``` bash
-$ kubectl get pod -n default
-tke-autoscaling-placeholder-b58fd9d5d-2p6ww   1/1     Running   0          8s
-tke-autoscaling-placeholder-b58fd9d5d-55jw7   1/1     Running   0          8s
-tke-autoscaling-placeholder-b58fd9d5d-6rq9r   1/1     Running   0          8s
-tke-autoscaling-placeholder-b58fd9d5d-7c95t   1/1     Running   0          8s
-tke-autoscaling-placeholder-b58fd9d5d-bfg8r   1/1     Running   0          8s
-tke-autoscaling-placeholder-b58fd9d5d-cfqt6   1/1     Running   0          8s
-tke-autoscaling-placeholder-b58fd9d5d-gmfmr   1/1     Running   0          8s
-tke-autoscaling-placeholder-b58fd9d5d-grwlh   1/1     Running   0          8s
-tke-autoscaling-placeholder-b58fd9d5d-ph7vl   1/1     Running   0          8s
-tke-autoscaling-placeholder-b58fd9d5d-xmrmv   1/1     Running   0          8s
-```
-
- `tke-autoscaling-placeholder`  的完整配置参考下面的表格：
+ `tke-autoscaling-placeholder`  完整参数配置说明请参考以下表格：
 <table>
 <thead>
 <tr>
@@ -95,6 +80,22 @@ tke-autoscaling-placeholder-b58fd9d5d-xmrmv   1/1     Running   0          8s
 <td>{}</td>
 </tr>
 </tbody></table>
+4. 单击【创建】，您可以查看进行资源占位的 Pod 是否启动成功，示例如下：
+``` bash
+$ kubectl get pod -n default
+tke-autoscaling-placeholder-b58fd9d5d-2p6ww   1/1     Running   0          8s
+tke-autoscaling-placeholder-b58fd9d5d-55jw7   1/1     Running   0          8s
+tke-autoscaling-placeholder-b58fd9d5d-6rq9r   1/1     Running   0          8s
+tke-autoscaling-placeholder-b58fd9d5d-7c95t   1/1     Running   0          8s
+tke-autoscaling-placeholder-b58fd9d5d-bfg8r   1/1     Running   0          8s
+tke-autoscaling-placeholder-b58fd9d5d-cfqt6   1/1     Running   0          8s
+tke-autoscaling-placeholder-b58fd9d5d-gmfmr   1/1     Running   0          8s
+tke-autoscaling-placeholder-b58fd9d5d-grwlh   1/1     Running   0          8s
+tke-autoscaling-placeholder-b58fd9d5d-ph7vl   1/1     Running   0          8s
+tke-autoscaling-placeholder-b58fd9d5d-xmrmv   1/1     Running   0          8s
+```
+
+ 
 
 
 
