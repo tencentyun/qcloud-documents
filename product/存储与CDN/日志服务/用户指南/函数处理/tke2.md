@@ -4,7 +4,7 @@
 
 ## 实现原理
 
-`tke-autoscaling-placeholder` 将利用低优先级的 Pod 对资源进行提前占位（带 request 的 pause 容器，实际消耗资源量低），为一些可能会出现流量突高的高优先级业务预留部分资源作为缓冲，当需要扩容 Pod 时，高优先级的 Pod 就可以快速抢占低优先级 Pod 的资源进行调度，而低优先级的 `tke-autoscaling-placeholder` 的 Pod 则会被 "挤走"，状态变成 Pending，如果配置了节点池并启用弹性伸缩，就会触发节点的扩容。这样，由于通过一些资源作为缓冲，即使节点扩容慢，也能保证一些 Pod 能够快速扩容并调度上，实现秒级伸缩。调整预留的缓冲资源多少，可根据实际需求调整 `tke-autoscaling-placeholder` 的 request 或副本数。
+`tke-autoscaling-placeholder` 利用低优先级的 Pod 对资源进行提前占位（带 request 的 pause 容器，实际消耗资源量低），为一些可能会出现流量突高的高优先级业务预留部分资源作为缓冲。当需要扩容 Pod 时，高优先级的 Pod 就可以快速抢占低优先级 Pod 的资源进行调度，而低优先级的 `tke-autoscaling-placeholder` 的 Pod 则会被 "挤走"，状态变成 Pending，如果配置了节点池并启用弹性伸缩，就会触发节点的扩容。由于通过一些资源作为缓冲，即使节点扩容慢，也能保证一些 Pod 能够快速扩容并调度上，实现秒级伸缩。调整预留的缓冲资源多少，可根据实际需求调整 `tke-autoscaling-placeholder` 的 request 或副本数。
 
 ## 使用限制
 
@@ -17,10 +17,10 @@
 1. 前往容器服务控制台 [应用市场](https://console.cloud.tencent.com/tke2/market) 页面。
 2. 在应用市场页面搜索框，输入 `tke-autoscaling-placeholder` 进行搜索，找到该应用。
 ![](https://main.qcloudimg.com/raw/b48a227c35dd1c52633a838c72e95b26.jpg)
-3. 单击应用进入应用详情页面之后，单击【创建应用】，配置项说明如下：
+3. 单击应用进入应用详情页面之后，单击【创建应用】，配置说明如下：
 ![](https://main.qcloudimg.com/raw/bb081fd1923819c4a85c4b2cff80ff11.png)
  - **名称**：输入应用名称。最长63个字符，只能包含小写字母、数字及分隔符“-”，且必须以小写字母开头，数字或小写字母结尾。
- - **地域**：现在需要部署的集群所在地域。
+ - **地域**：选择需要部署的集群所在地域。
  - **集群类型**：选择【标准集群】。
  - **集群**：选择需要部署的集群 ID。
  - **Namespace**：选择需要部署的 namespace。
@@ -46,7 +46,7 @@
 </tr>
 <tr>
 <td>resources.requests.cpu</td>
-<td>单个 placeholder 副本占位的 cpu 资源大小</td>
+<td>单个 placeholder 副本占位的 CPU 资源大小</td>
 <td>300m</td>
 </tr>
 <tr>
@@ -80,7 +80,8 @@
 <td>{}</td>
 </tr>
 </tbody></table>
-4. 单击【创建】，您可以查看进行资源占位的 Pod 是否启动成功，示例如下：
+4. 单击【创建】，即可创建 tke-autoscaling-placeholder 应用。
+5. 您可以执行以下命令，查看进行资源占位的 Pod 是否启动成功，示例如下：
 ``` bash
 $ kubectl get pod -n default
 tke-autoscaling-placeholder-b58fd9d5d-2p6ww   1/1     Running   0          8s
@@ -101,7 +102,7 @@ tke-autoscaling-placeholder-b58fd9d5d-xmrmv   1/1     Running   0          8s
 
 ### 部署高优先级 Pod
 
- `tke-autoscaling-placeholder` 默认优先级很低，我们的业务 Pod 可以指定一个高优先的 PriorityClass，方便抢占资源实现快速扩容，如果还未创建 PriorityClass，您可以参考以下示例进行创建：
+ `tke-autoscaling-placeholder` 默认优先级很低，我们的业务 Pod 可以指定一个高优先的 PriorityClass，方便抢占资源实现快速扩容。如果还未创建 PriorityClass，您可以参考如下示例进行创建：
 
 ``` yaml
 apiVersion: scheduling.k8s.io/v1
@@ -113,7 +114,7 @@ globalDefault: false
 description: "high priority class"
 ```
 
-在我们的业务 Pod 中指定 `priorityClassName` 为高优先的 PriorityClass：
+在我们的业务 Pod 中指定 `priorityClassName` 为高优先的 PriorityClass。示例如下：
 
 ``` yaml
 apiVersion: apps/v1
@@ -140,9 +141,9 @@ spec:
             memory: 800Mi
 ```
 
-当集群节点资源不够，扩容出来的高优先级业务 Pod 就可以将低优先级的 `tke-autoscaling-placeholder` 的 Pod 资源抢占过来并调度上，然后 `tke-autoscaling-placeholder`  的 Pod 再 Pending：
+当集群节点资源不够，扩容出来的高优先级业务 Pod 就可以将低优先级的 `tke-autoscaling-placeholder` 的 Pod 资源抢占过来并调度上，然后 `tke-autoscaling-placeholder`  的 Pod 再 Pending。示例如下：
 
-``` yaml
+```yaml
 $ kubectl get pod -n default
 NAME                                          READY   STATUS    RESTARTS   AGE
 nginx-bf79bbc8b-5kxcw                         1/1     Running   0          23s
@@ -165,11 +166,11 @@ tke-autoscaling-placeholder-b58fd9d5d-xmrmv   1/1     Running   0          94m
 tke-autoscaling-placeholder-b58fd9d5d-zxtwp   0/1     Pending   0          23s
 ```
 
-如果配置了节点池弹性伸缩，就会触发节点的扩容，虽然节点速度速度慢，但由于我们的缓冲资源都给了业务 Pod，业务能够快速得到扩容，也就不会影响业务。
+如果配置了节点池弹性伸缩，则将触发节点的扩容，虽然节点速度速度慢，但由于我们的缓冲资源都分配到业务 Pod，业务能够快速得到扩容，因此不会影响业务的正常运行。
 
 ## 实践总结
 
-本文介绍了 `tke-autoscaling-placeholder` 这个用于实现秒级伸缩的工具，巧妙的利用了 Pod 优先级与抢占的特点，提前部署一些用于占位资源的低优先级 "空 Pod" 作为缓冲资源填充，在流量突高并且集群资源不够的情况下抢占这些低优先级的 "空 Pod" 的资源，同时触发节点扩容，实现在资源紧张的情况下也能做到秒级伸缩，不影响业务。
+本文介绍了用于实现秒级伸缩的工具  `tke-autoscaling-placeholder`，巧妙的利用了 Pod 优先级与抢占的特点，提前部署一些用于占位资源的低优先级“空 Pod”作为缓冲资源填充，在流量突高并且集群资源不够的情况下抢占这些低优先级的“空 Pod”的资源，同时触发节点扩容，实现在资源紧张的情况下也能做到秒级伸缩，不影响业务运行。
 
 ## 相关文档
 
