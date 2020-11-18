@@ -32,8 +32,8 @@
 <tr>
 <th style="font-weight:700;" rowspan=3>计费</th>
 <th style="font-weight:700;">付费模式</th>
-<td>包年包月预付费 </td>
-<td>包含包年包月、按量付费、竞价实例多种付费方式 </td>
+<td>包年包月预付费，详情请参见 <a href="https://cloud.tencent.com/document/product/1207/44368">计费概述</a></td>
+<td>包含包年包月、按量付费、竞价实例多种付费方式，详情请参见 <a href="https://cloud.tencent.com/document/product/213/2180">计费模式</a> </td>
 </tr>
 <tr>
 <th style="font-weight:700;">售卖方式</th>
@@ -53,7 +53,7 @@
 </tr>
 <tr>
 <th style="font-weight:700;">应用部署</th>
-<td>预置应用系统所需的软件栈最优组合（例如 LAMP），一键实现应用软件、依赖的运行环境安装以及相关初始化配置</td>
+<td>开箱即用，预置应用系统所需的软件栈最优组合（例如 LAMP），一键实现应用软件、依赖的运行环境安装以及相关初始化配置</td>
 <td>通常为创建实例后自行部署应用，或使用镜像市场</td>
 </tr>
 <tr>

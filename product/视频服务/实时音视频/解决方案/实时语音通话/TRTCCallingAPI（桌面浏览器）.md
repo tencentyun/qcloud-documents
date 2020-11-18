@@ -181,7 +181,7 @@ trtcCalling.on(TrtcCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
 
 | 参数     | 类型    | 含义                    |
 | -------- | ------- | ----------------------- |
-| inviteID | String  | 邀邀请 ID，标识一次邀请 |
+| inviteID | String  | 邀请 ID，标识一次邀请 |
 | isBusy   | Boolean | 是否是忙线中            |
 | callType | Number  | 1：语音通话，2：视频通话  |
 
