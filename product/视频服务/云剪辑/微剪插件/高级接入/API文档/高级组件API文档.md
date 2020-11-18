@@ -6,6 +6,9 @@
 >1. 贴纸，详见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440)。
 2. 文字和贴纸内置编辑控件，详见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
 
+>?v1.5.0后新增功能：
+>转场和动效，详见[转场和动效]()
+
 ### 使用方式
 1. 配置 JSON 文件：
 ```json
@@ -913,7 +916,7 @@ track={
 | bindthumbready    | Function                      | -      | 默认封面图生成<pre style="margin:0">{<br/>path: String,<br/>height:1080,<br />width: 720<br/>}</pre> | 否   |
 
 #### 添加水印
-##### 线上地址
+##### 线上地址（v1.5.0之前版本需做以下配置，1.5.0新增云函数支持，无需以下配置）
 如果需要使用在线图片，请按如下步骤配置。
 1. 在小程序根目录下引入 index.js，目录：`miniprogram/index.js`。
 ```

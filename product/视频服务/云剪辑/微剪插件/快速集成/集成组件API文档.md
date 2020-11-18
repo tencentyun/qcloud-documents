@@ -19,6 +19,7 @@ const plugin = requirePlugin("myPlugin")
 console.log(plugin)
 ```
 clip 为插件的入口，因此插件内部除导出功能外所用到的参数均从 clip 传入。
+
 >?`1.4.2`版本以后加入了字体功能，需要额外进行字体配置：
 `index.js`
 ```javascript
@@ -136,6 +137,7 @@ export default {
     clipMaxDuration: 60, // 裁切时长的默认限制
     imgDisplayDuration: 3, // 单张图片默认展示时间（秒）
     exportPagePath: "/pages/main/export/index", // 默认跳进插件自己提供的页面
+    editMode: ['album', 'manual']// 启用的编辑模式
     style: {
       // 主题色
       primaryColor: "#ff584c",
