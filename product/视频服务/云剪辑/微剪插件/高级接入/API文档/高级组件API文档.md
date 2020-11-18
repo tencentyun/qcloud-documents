@@ -7,7 +7,7 @@
 2. 文字和贴纸内置编辑控件，详见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
 
 >?v1.5.0后新增功能：
->转场和动效，详见[转场和动效]()
+>转场和动效，详见 [转场和动效](https://cloud.tencent.com/document/product/1156/50070)。
 
 ### 使用方式
 1. 配置 JSON 文件：
