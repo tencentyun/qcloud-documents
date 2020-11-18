@@ -1,3 +1,8 @@
+### 什么是TPNS 通道？
+- TPNS 通道是移动推送 TPNS 的自建通道，依赖移动推送 TPNS Service 在线（与移动推送 TPNS 后台服务器保持长连接）才能下发消息，因此 TPNS 通道的实际发送一般比其他厂商通道的数据要低。
+- 如果需要实现离线推送，建议集成厂商通道，请参考 [厂商通道接入指南](https://cloud.tencent.com/document/product/548/45909)。
+
+
 ### 如何关闭 TPNS 的保活功能？
 
 TPNS 默认开启联合保活能力，请在应用初始化的时候，例如 Application 或 LauncherActivity 的 onCreate 中调用如下接口，并传递 false 值:
@@ -41,10 +46,10 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 - **努比亚品牌的手机**：在2015年下半年和2016年出的机器均无法注册，具体机型包括 Nubia Z11 系列，NubiaZ11S 系列，NubiaZ9S 系列。
 
 ### 为何关闭应用后，无法收到推送？
-- 目前第三方推送都无法保证关闭应用后，仍可收到推送消息，该问题为手机定制 ROM 对移动推送 TPNS  Service 的限制问题，移动推送 TPNS 的一切活动，都需要建立在移动推送 TPNS 的 Service 能够正常联网运行，Service 被终止后，由系统、安全软件和用户操作限定是否能够再次启动。
-- QQ 和微信是系统级别的应用白名单，相关的 Service 不会因为关闭应用而退出，所以用户感知推出应用过后，仍可收到消息，其实相关的 Service 还是能够在后台存活的。
-- Android 端在应用退出移动推送 TPNS  Service 和移动推送 TPNS 的服务器断开连接后，此时给这个设备下发的消息，会变成离线消息，离线消息最多保存72小时，每个设备最多保存三条，如果有多条离线消息，只保留最新的三条消息。在关闭应用期间推送的消息，如开启应用无法收到，请检查是否调用了反注册接口：XGPushManager.unregisterPush\(this\)。
-
+- 目前第三方推送都无法保证关闭应用后仍可收到推送消息，该问题为手机定制 ROM 对移动推送 TPNS  Service 的限制问题，移动推送的 TPNS 通道推送，需要建立在移动推送 TPNS 的 Service 能够与移动推送 TPNS 后台服务器保持长连接，Service 被终止后，需由系统、安全软件和用户操作决定是否能够再次启动。
+- 移动推送 TPNS 的 Service 和移动推送 TPNS 的服务器断开连接后，此时给这个设备下发的消息，将变成离线消息，离线消息最多保存72小时，每个设备最多保存三条，如果有多条离线消息，只保留最新的三条消息。在关闭应用期间推送的消息，如开启应用无法收到，请检查是否调用了反注册接口：XGPushManager.unregisterPush\(this\)。
+- 如果已经集成厂商通道，但是仍收不到离线推送，请先在 [排查工具](https://console.cloud.tencent.com/tpns/user-tools) 上查询该 Token 是否已经注册上厂商通道，如果未注册成功，请参考 [厂商通道注册失败排查指南](https://cloud.tencent.com/document/product/548/45659) 进行排查。
+- QQ 和微信是系统级别的应用白名单，相关的 Service 不会因为关闭应用而退出，所以用户感知推出应用过后，仍可收到消息，但相关的 Service 仍能够在后台存活。
 
 
 ### 在非华为手机上安装了华为移动服务，且在 App 中集成了 TPNS SDK，会导致华为推送及其它组件功能失效，如何解决？
