@@ -232,7 +232,7 @@ ocrSdk.start({
 
 <center>
     <img style="border-radius: 0.3125em;width: 690px" 
-    src="https://ocr-static-1254418846.file.myqcloud.com/mpsdk/images/document/%E8%87%AA%E5%8A%A8%E8%AF%86%E5%88%AB%E6%A8%A1%E5%BC%8F%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F.jpg">
+    src="https://main.qcloudimg.com/raw/90e3266b4396d3abd9097f0e4231e454.jpg">
     <br>
     <div>自动识别模式生命周期</div>
 </center>
