@@ -1,4 +1,4 @@
-### 什么是TPNS 通道？
+### 什么是 TPNS 通道？
 - TPNS 通道是移动推送 TPNS 的自建通道，依赖移动推送 TPNS Service 在线（与移动推送 TPNS 后台服务器保持长连接）才能下发消息，因此 TPNS 通道的实际发送一般比其他厂商通道的数据要低。
 - 如果需要实现离线推送，建议集成厂商通道，请参考 [厂商通道接入指南](https://cloud.tencent.com/document/product/548/45909)。
 
