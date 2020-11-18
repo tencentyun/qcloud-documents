@@ -123,7 +123,7 @@ s.close();
 - SDK 文件包含 a 文件和 h 文件，目录结构如下：
  ![](https://main.qcloudimg.com/raw/11c1012406344128256a363e593bb2ec.png)
 - 接口说明：
-<table>![](https://main.qcloudimg.com/raw/4ecce64e8d49226ad683a594f4aa3cf2.png)
+<table>
 <tbody>
 <tr>
 <th>接口名称</th>
@@ -137,8 +137,8 @@ s.close();
 ![](https://main.qcloudimg.com/raw/4ab142c35d9d85b6365e9eecce5f66d8.png)
 2. 将 SDK 文件添加到 Xcode。右键工程名，单击 “Add Files to”。
 ![](https://main.qcloudimg.com/raw/babb1d9440fc75f8f79eca4efa007dfe.png)
-3. 在对话框中勾选 “Create folder references”，选中 SDK 的两个文件，单击 Add。
-![](https://main.qcloudimg.com/raw/f1138f885e75dd176ec82a59dabc9f96.png)
+3. 在对话框中勾选 “Create folder references”，选中 SDK 的两个文件，单击【Add】。
+![](https://main.qcloudimg.com/raw/bb83314a0468f9cc189bb36268ca2853.png)
 4. 左键工程名，选择 General，将 a 文件添加到 “Linked Framews and Libraries”：
 ![](https://main.qcloudimg.com/raw/286f35e15a6e269b62f489fd9c838904.png)
 5. 如果是 Swift 项目，需要创建桥文件，Object-C 项目可以跳过此步骤。创建一个 Header File，命名为 bridge.h。并在文件中添加以下代码：
