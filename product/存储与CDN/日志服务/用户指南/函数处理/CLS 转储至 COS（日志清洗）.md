@@ -1,37 +1,40 @@
 ## 操作场景
 
-在本文档示例中，我们用到了日志服务（CLS），云函数（SCF），对象存储（COS）。其中，CLS 主要用于日志采集，SCF 主要提供数据加工的节点计算能力，COS 主要提供终端永久性存储能力。数据处理流程图参考 [函数处理概述](#概述URL)。
+在本文档示例中，我们用到了日志服务（CLS），云函数（SCF），对象存储（COS）。其中，CLS 主要用于日志采集，SCF 主要提供数据加工的节点计算能力，COS 主要提供终端永久性存储能力。数据处理流程图请参见 [函数处理概述](https://cloud.tencent.com/document/product/614/49851)。
 
 ## 操作步骤
 
 <span id="step01"></span>
 
-### 创建 日志集
+### 创建日志集
 
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏中单击【日志集管理】。
-2. 进入日志集管理页面，选择日志集的地域。
+2. 进入日志集管理页面，在页面上方选择日志集的地域。
 3. 单击【创建日志集】，在弹出的创建日志集窗口中，填写相关信息：
    ![](https://main.qcloudimg.com/raw/52704e1f3bdf6efe4c7e9b266e2ca451.jpg)
 4. 单击【确定】，即可创建日志集。
 
+
+
+
 <span id="step02"></span>
 
-### 创建 日志主题
+### 创建日志主题
 
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏中单击【日志集管理】。
 2. 找到已创建的日志集，在其右侧操作栏中，单击【查看】，进入日志集详情页面。
 3. 单击【新增日志主题】，在新增日志主题窗口中，填写如下相关信息：
    - 日志主题名称：例如：nginx。
    - 主题分区（Partition）数量： 主题分区介绍请参见 [主题分区介绍](https://cloud.tencent.com/document/product/614/39259)，默认新建1个分区。
-     ![](https://main.qcloudimg.com/raw/d22c9d090a380376a1de4b56f19bc27a.jpg)
+    ![](https://main.qcloudimg.com/raw/d22c9d090a380376a1de4b56f19bc27a.jpg)
 4. 单击【确定】，新增日志主题。
 5. 日志主题新增成功，将进入日志主题管理页。
    ![](https://main.qcloudimg.com/raw/08e9dc61f1cc8bfcb1923345c86bef45.jpg)
 
-> ?
->
-> - ETL 数据处理的源端和终端均为CLS，故至少需创建两个Topic
->   <span id="step03"></span>
+> ? ETL 数据处理的源端和终端均为 CLS，故至少需创建两个 Topic。
+
+
+<span id="step03"></span>
 
 ### 创建云函数 SCF
 
@@ -42,7 +45,7 @@
 - **函数名称**：命名为 “LogAnalysis”。
 - **运行环境**：选择 “Python 2.7”。
 - **创建方式**：选择【模板函数】。
-- **模糊搜索**：输入“CLS转储COS”，并进行搜索。
+- **模糊搜索**：输入“CLS 转储 COS”，并进行搜索。
   单击模板中的【查看详情】，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
   ![](https://main.qcloudimg.com/raw/e42d9b4102f3e13ebf1722de5875d1ac.png)
 
@@ -52,10 +55,8 @@
    ![](https://main.qcloudimg.com/raw/3112dba5a8cac82c295c17a593ed222e.png)
    #环境变量部分
 
-> ! 
->
-> - 函数需要在【函数配置】页面中，选择和CLS相同的 VPC 和子网。如下图所示：
->   ![](https://main.qcloudimg.com/raw/a329381190dcf6ad0883f5f8a51a9567.png)
+> ! 函数需要在【函数配置】页面中，选择和 CLS 相同的 VPC 和子网。如下图所示：
+>  ![](https://main.qcloudimg.com/raw/a329381190dcf6ad0883f5f8a51a9567.png)
 
 <span id="step04"></span>
 
