@@ -958,7 +958,7 @@ track={
 ```
   <wj-textEditor value="{{textValue}}" bindconfirm="onConfirmText"/>
 ```
-3. 字体的下载需要借助小程序的 loadFontFace 方法，需要在`index.js`中，将 loadFontFace 方法 exports 输出。
+3. 字体的下载需要借助小程序的 loadFontFace 方法，需要在`index.js`中，将 loadFontFace 方法通过 exports 输出。
 ```
 module.exports = {
   downloadFile:wx.downloadFile,
