@@ -21,14 +21,14 @@ console.log(plugin)
 clip 为插件的入口，因此插件内部除导出功能外所用到的参数均从 clip 传入。
 
 >?`1.4.2`版本以后加入了字体功能，需要额外进行字体配置：
-`index.js`
+字体的下载需要借助小程序的 loadFontFace 方法，需要在`index.js`中，将 loadFontFace 方法通过 exports 输出。
 ```javascript
 module.exports = {
   downloadFile: wx.downloadFile,
   loadFontFace: wx.loadFontFace
 }
 ```
-`app.json`
+在`app.json`中将 loadFontFace 方法导出到插件。
 ```json
 "myPlugin": {
   "provider": "wx76f1d77827f78beb",
@@ -37,7 +37,7 @@ module.exports = {
 }
 ```
 
-> !1.4.2版本以后加入了字体功能，需要 export 小程序的 loadFontFace 方法, 并将`https://cdn.cdn-go.cn`配置到小程序后台的 `reuqest` 和 `downloadFile` 白名单中。
+> !1.4.2 版本以后加入了字体功能，需要 export 小程序的 loadFontFace 方法, 并将`https://cdn.cdn-go.cn`配置到小程序后台的 `reuqest` 和 `downloadFile` 白名单中。
 ##  导出组件
 export 是一个集成了视频导出功能的可定义外观组件。
 >!受微信 Android 客户端 7.0.19 版本策略影响，导出表现偏慢，预计在11月底的版本修复。
