@@ -1,5 +1,6 @@
 ## 操作场景
-在本文档示例中，我们用到了日志服务（CLS），云函数（SCF），消息队列（Ckafka）。其中，CLS 主要用于日志采集，SCF 主要提供数据加工的节点计算能力，Ckafka 主要提供数据流终端转储能力。数据处理流程图请参见 [函数处理概述](https://cloud.tencent.com/document/product/614/49851)。
+
+本文为您介绍如何将 CLS 日志转储至 Ckafka，我们用到了日志服务（CLS），云函数（SCF），消息队列（Ckafka）。其中，CLS 主要用于日志采集，SCF 主要提供数据加工的节点计算能力，Ckafka 主要提供数据流终端转储能力。数据处理流程图请参见 [函数处理概述](https://cloud.tencent.com/document/product/614/49851)。
 
 
 
@@ -71,5 +72,5 @@
 2. 切换至 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。
 在函数详情页面中选择【日志查询】页签，可以看到打印出的日志信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/b4d8dd0a4a236ab4cb35f2e7d3160649.png)
-3. 切换至对象存储 Ckafka 控制台，查看数据转储及加工结果。
+3. 切换至 [Ckafka 控制台](https://console.cloud.tencent.com/ckafka)，查看数据转储及加工结果。
 >?您可以根据自身的需求编写具体的数据加工处理方法。
