@@ -1,6 +1,6 @@
 ## 操作场景
 
-本文为您介绍如何将 CLS 日志转储至 Ckafka，我们用到了日志服务（CLS），云函数（SCF），消息队列（Ckafka）。其中，CLS 主要用于日志采集，SCF 主要提供数据加工的节点计算能力，Ckafka 主要提供数据流终端转储能力。数据处理流程图请参见 [函数处理概述](https://cloud.tencent.com/document/product/614/49851)。
+本文为您介绍如何通过云函数 SCF 将 CLS 日志转储至消息队列 Ckafka。其中，CLS 主要用于日志采集，SCF 主要提供数据加工的节点计算能力，Ckafka 主要提供数据流终端转储能力。数据处理流程图请参见 [函数处理概述](https://cloud.tencent.com/document/product/614/49851)。
 
 
 
