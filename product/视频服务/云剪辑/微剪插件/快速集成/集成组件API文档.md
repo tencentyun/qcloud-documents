@@ -19,8 +19,7 @@ const plugin = requirePlugin("myPlugin")
 console.log(plugin)
 ```
 clip 为插件的入口，因此插件内部除导出功能外所用到的参数均从 clip 传入。
-
->?`1.4.2`版本以后加入了字体功能，需要额外进行字体配置：
+1.4.2 版本以后加入了字体功能，需要额外进行字体配置：
 字体的下载需要借助小程序的 loadFontFace 方法，需要在`index.js`中，将 loadFontFace 方法通过 exports 输出。
 ```javascript
 module.exports = {
