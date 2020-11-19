@@ -3,8 +3,8 @@
 `wj-player` 是支持微剪运行的核心组件，它是由轨道数据驱动运行的播放器，并内置了一些常用功能。
 
 >?v1.4.0后新增功能：
->1. 贴纸，详情请参见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440)。
->2. 文字和贴纸内置编辑控件，详情请参见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
+>- 贴纸，详情请参见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440)。
+>- 文字和贴纸内置编辑控件，详情请参见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
 >
 >v1.5.0后新增功能：
 >转场和动效，详情请参见 [转场和动效](https://cloud.tencent.com/document/product/1156/50070)。
