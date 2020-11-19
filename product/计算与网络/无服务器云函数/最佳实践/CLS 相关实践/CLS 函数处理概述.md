@@ -23,12 +23,12 @@
 
 | 函数处理场景                                               | 描述说明                                |
 | ------------------------------------------------------------ | --------------------------------------- |
-| [ ETL 日志加工](https://cloud.tencent.com/document/product/583/49591) | 日志数据通过云函数进行日志清洗，日志加工，格式转换等操作  |
-| CLS 转储至 Ckafka（日志清洗） | 日志数据通过云函数进行日志清洗等操作并投递至Ckafka  |
-| [CLS 转储至 COS（日志清洗）](https://cloud.tencent.com/document/product/583/49589) | 日志数据通过云函数进行日志清洗等操作并投递至COS   |
-| CLS 转储至 CDW | 日志数据通过云函数投递至 CDW   |
-| CLS 转储至 ES | 日志数据通过云函数投递至 ES   |
-|CLS 实时日志分析| 使用日志服务CLS进行简单实时日志分析能力  |
+| [ETL 日志加工](https://cloud.tencent.com/document/product/583/49591) | 日志数据通过云函数进行日志清洗，日志加工，格式转换等操作。  |
+| [CLS 转储至 Ckafka（日志清洗）](https://cloud.tencent.com/document/product/614/49878) | 日志数据通过云函数进行日志清洗等操作并投递至 Ckafka。  |
+| [CLS 转储至 COS（日志清洗）](https://cloud.tencent.com/document/product/614/50077) | 日志数据通过云函数进行日志清洗等操作并投递至 COS。   |
+| CLS 转储至 CDW | 日志数据通过云函数投递至 CDW。   |
+| [CLS 转储至 ES](https://cloud.tencent.com/document/product/614/50079) | 日志数据通过云函数投递至 ES。   |
+|[CLS 实时日志分析](https://cloud.tencent.com/document/product/614/50080)| 使用日志服务 CLS 进行简单实时日志分析能力。  |
 
 
 >! 数据投递至云函数，云函数侧将产生相应的计算费用，计费详情请参见 [云函数 SCF 计费概述](https://cloud.tencent.com/document/product/583/17299)。
