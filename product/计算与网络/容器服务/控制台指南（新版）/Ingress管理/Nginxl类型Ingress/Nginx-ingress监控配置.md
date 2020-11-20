@@ -18,5 +18,5 @@ TKE Nginx-ingress 开监控功能会关联一个云原生监控Prometheus，云�
 
 补充Grafana面板。
 
-
+![](https://main.qcloudimg.com/raw/66ce3486814a46fa639a38807f51d607.png)
 
