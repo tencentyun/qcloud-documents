@@ -5,7 +5,7 @@
 
 设置美颜类型。
 ```
-void setBeautyStyle(int beautyStyle)
+void setBeautyStyle(int beautyStyle) 
 ```
 __参数__
 
@@ -297,7 +297,7 @@ __参数__
 |-----|-----|-----|
 | mouthShapeLevel | int | 嘴型级别，取值范围0 - 9；0表示关闭，1 - 9值越大，嘴越小。 |
 
-### setNoseWingLevel
+### setNoseWingLevel 
 设置鼻翼 （商用企业版有效，其它版本设置此参数无效）。
 ```
 void setNoseWingLevel(int noseWingLevel)

@@ -16,10 +16,10 @@
 |getCapacityBytes	|getCapacityBytes	|获取 Alluxio 文件系统的容量。
 |getUsedBytes	|getUsedBytes|	获取 Alluxio 文件系统已使用的字节数。
 |help	|help "cmd"	| 打印给定命令的帮助信息，如果没有给定命令，打印所有支持的命令的帮助信息。
-|leader	| leader |	打印当前 Alluxio leader master 节点主机名。
+|leader	| leader |	打印当前 Alluxio leader master 节点名。
 |load	|load "path"	|将底层文件系统的文件或者目录加载到 Alluxio 中。
 |loadMetadata	|loadMetadata "path"	| 将底层文件系统的文件或者目录的元数据加载到 Alluxio 中。
-|location	|location "path" |	输出包含某个文件数据的主机。
+|location	|location "path" |	输出包含某个文件数据的节点。
 |ls	| ls "path" |	列出给定路径下的所有直接文件和目录的信息，例如大小。
 |masterInfo	| masterInfo	|打印 Alluxio master 容错相关的信息，例如，leader 的地址、所有 master 的地址列表以及配置的 Zookeeper 地址。
 |mkdir	| mkdir "path1" ... "pathn" |	在给定路径下创建文件夹，以及需要的父文件夹，多个路径用空格或者 tab 分隔，如果其中的任何一个路径已经存在，该命令失败。
@@ -256,7 +256,7 @@ $ ./bin/alluxio fs getUsedBytes
 ## leader
 
 **背景**
-leader 命令打印当前 Alluxio 的 leader master 节点主机名。
+leader 命令打印当前 Alluxio 的 leader master 节点名。
 
 **操作示例**
 ```

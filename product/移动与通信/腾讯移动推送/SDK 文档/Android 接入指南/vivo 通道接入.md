@@ -27,10 +27,10 @@ vivo 通道是由 vivo 官方提供的系统级推送通道。在 vivo 手机上
 ```
 2. 导入 vivo 推送相关依赖。示例代码如下：
 ```js
-implementation 'com.tencent.tpns:vivo:[VERSION]-release' // vivo  推送 [VERSION] 为当前 SDK 版本号,版本号可在 SDK 下载页查看
+implementation 'com.tencent.tpns:vivo:[VERSION]-release' // vivo  推送 [VERSION] 为当前 SDK 版本号,版本号可在 Android SDK 发布动态查看
 ```
 
->? vivo 推送 [VERSION] 为当前 SDK 版本号，版本号可在 [SDK 下载页](https://console.cloud.tencent.com/tpns/sdkdownload) 查看。
+>? vivo 推送 [VERSION] 为当前 SDK 版本号，版本号可在 [Android SDK 发布动态](https://cloud.tencent.com/document/product/548/44520) 查看。
 
 
 #### Eclipes 集成方法

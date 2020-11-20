@@ -11,7 +11,7 @@
 |---------|---------|---------|---------|
 |meeting_code | 是 | String |有效的9位数字会议号码。|
 |userid | 是 | String |调用方用于标示用户的唯一 ID（例如企业用户可以为企业账户英文名、个人用户可以为手机号等）。|
-|instanceid | 是 | Integer |用户的终端设备类型。 <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序|
+|instanceid | 是 | Integer |用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序。|
 
 ## 输出参数
 
@@ -30,9 +30,9 @@
 |meeting_id   |String| 会议的唯一标示 。  |
 |meeting_code    |String| 会议 App 的呼入号码。  |
 |password   |String | 会议密码。  |
-|status|String|当前会议状态：<br>MEETING_STATE_INVALID：非法或未知的会议状态，错误状态。<br>  MEETING_STATE_INIT：会议的初始状态，表示尚无人入会。<br>  MEETING_STATE_CANCELLED：会议已取消。<br> MEETING_STATE_STARTED：会议已开始，有人入会。<br>MEETING_STATE_ENDED：会议已结束。<br>MEETING_STATE_RECYCLED：会议号已被回收。|
-|hosts   |String 数组 | 会议主持人列表 。  |
-|participants  |String数组|邀请的参会者 。|
+|status|String|当前会议状态：<br>1. MEETING_STATE_INVALID：<br> 非法或未知的会议状态，错误状态。<br>  2. MEETING_STATE_INIT：<br> 会议待开始。会议预定到预定结束时间前，会议尚无人进会。<br>  3. MEETING_STATE_CANCELLED：<br> 会议已取消。主持人主动取消会议，待开始的会议才能取消，且取消的会议无法再进入。<br> 4. MEETING_STATE_STARTED：<br> 会议已开始。会议中有人则表示会议进行中。<br>5. MEETING_STATE_ENDED：<br> 会议已删除。会议已过预定结束时间且尚无人进会时，主持人删除会议，已删除的会议无法再进入。<br>6. MEETING_STATE_NULL：<br> 会议无状态。会议已过预定结束时间，会议尚无人进会。<br>7. MEETING_STATE_RECYCLED：<br> 会议已回收。会议已过预定开始时间30天，则会议号将被后台回收，无法再进入。  |
+|hosts   |用户对象数组 | 会议主持人列表 。  |
+|participants  |用户对象数组|邀请的参会者 。|
 |start_time  |String | 会议开始时间戳（单位秒）。 |
 |end_time  |String | 会议结束时间戳（单位秒）。 |
 |settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置。|
@@ -42,8 +42,11 @@
 | has_more_sub_meeting   | integer        | 0：无更多。  <br> 1：有更多子会议特例。      |
 | remain_sub_meetings    | Integer        | 剩余子会议场数。                           |
 | current_sub_meeting_id | String         | 当前子会议 ID（进行中 / 即将开始）。         |
+| enable_live | Boolean      | 是否开启直播（会议创建人才有权限查询）。   |
+| live_config | 直播信息对象 | 会议的直播配置（会议创建人才有权限查询）。 |
 
 <span id="settings"></span>
+
 **会议媒体参数对象**
 
 | 参数名称                        | 参数类型 | 参数描述                                                     |
@@ -75,6 +78,17 @@
 | until_date     | 否   | integer  | 结束日期时间戳，默认值为当前日期 + 7天。                             |
 | until_count    | 否   | integer  | 限定会议次数（1-50次）默认值为7次。                              |
 
+**直播信息对象**
+
+| 参数名称           | 参数类型 | 参数描述         |
+| ------------------ | -------- | ---------------- |
+| live_subject       | string   | 直播主题。         |
+| live_summary       | string   | 直播简介。         |
+| live_password      | string   | 直播密码。         |
+| enable_live_im     | Boolean  | 是否开启直播互动。 |
+| enable_live_replay | Boolean  | 是否开启直播回放。 |
+| live_addr          | string   | 直播观看地址。     |
+
 ## 示例
 #### 输入示例
 
@@ -95,12 +109,12 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
       "status": "MEETING_STATE_ENDED",      
       "start_time": "1572085800",      
       "end_time": "1572089400",      
-      "hosts": [        
+     "hosts": [        
         "tester"      
       ],      
       "participants": [        
         "test1"      
-      ],      
+      ],
       "join_url": "https://wemeet.qq.com/w/5NmV29k",
       "meeting_type":0,      
       "settings": {        
@@ -111,7 +125,16 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
 	    "auto_in_waiting_room": false,
 	    "allow_screen_shared_watermark": true,
 	    "only_allow_enterprise_user_join": false     
-      }    
+      },
+      "enable_live":true,
+      "live_config":{
+            "live_subject":"test",
+            "live_summary":"test", 
+            "live_password":"654321",
+            "enable_live_im":true,
+            "enable_live_replay":true,
+            "live_addr":"https://meeting.tencent.com/l/xxxx"
+        }
     }  
   ]
 }
@@ -184,7 +207,16 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
       "meeting_type": 1,
       "has_more_sub_meetings": 0,
       "remain_sub_meetings": 5,
-      "current_sub_meeting_id": "1599622242"
+      "current_sub_meeting_id": "1599622242",
+      "enable_live":true,
+      "live_config":{
+            "live_subject":"test",
+            "live_summary":"test", 
+            "live_password":"654321",
+            "enable_live_im":true,
+            "enable_live_replay":true,
+            "live_addr":"https://meeting.tencent.com/l/xxxx"
+        }
     }
   ]
 }

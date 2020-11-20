@@ -15,7 +15,7 @@
 - 已在访问管理控制台 >【[API密钥管理](https://console.cloud.tencent.com/cam/capi)】页面获取 SecretID 和 SecretKey。
  - SecretID 用于标识 API 调用者的身份。
  - SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥，**SecretKey 需妥善保管，避免泄露**。
-- 已获取调用地址（endpoint），短信的调用地址为`sms.tencentcloudapi.com`。
+- 短信的调用地址为`sms.tencentcloudapi.com`。
 
 ## 相关资料
 - 各个接口及其参数的详细介绍请参见 [API 文档](https://cloud.tencent.com/document/product/382/38764)。

@@ -12,7 +12,7 @@
 
 #### 步骤1：下载  Windows SDK
 
-[下载 SDK](https://tic-res-1259648581.file.myqcloud.com/demo/Windows.zip)，解压并打开文件，包含以下部分：
+[下载 SDK](https://demo.qcloudtiw.com/win/exe/tic_demo.zip)，解压并打开文件，包含以下部分：
 
 |              目录/文件名              |           说明          |
 |---------------------------------------|-------------------------|

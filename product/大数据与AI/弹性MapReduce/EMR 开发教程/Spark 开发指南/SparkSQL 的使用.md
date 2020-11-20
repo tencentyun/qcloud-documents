@@ -1,7 +1,7 @@
 Spark 为结构化数据处理引入了一个称为 Spark SQL 的编程模块。它提供了一个称为 DataFrame 的编程抽象，并且可以充当分布式 SQL 查询引擎。
 
 ## 1. 开发准备
-确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置见面选择了 Spark 组件。
+确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择了 Spark 组件。
  
 ## 2. 使用 SparkSQL 交互式控制台
 在使用 SparkSQL 之前请登录 EMR 集群的 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入 EMR 命令行界面。
@@ -225,14 +225,14 @@ scp $localfile root@公网IP地址:$remotefolder
 其中，$localfile 是您的本地文件的路径加名称，root 为 CVM 服务器用户名，公网 IP 可以在 EMR 控制台的节点信息中或者在云服务器控制台查看。$remotefolder 是您想存放文件的 CVM 服务器路径。上传完成后，在 EMR 集群命令行中即可查看对应文件夹下是否有相应文件。
 
 ## 4. 准备数据并运行样例
-使用 sparkSQL 来操作存放在 HDFS 上的数据。首先将数据上传到 HDFS 中，这里我们使用自带的文件 people.json，存放在路径`/usr/local/service/spark/exa-mples/src/main/resources/`下，使用如下指令把该文件上传到 HDFS 中：
+使用 sparkSQL 来操作存放在 HDFS 上的数据。首先将数据上传到 HDFS 中，这里我们使用自带的文件 people.json，存放在路径`/usr/local/service/spark/examples/src/main/resources/`下，使用如下指令把该文件上传到 HDFS 中：
 ```
-[hadoop@10 hadoop]$ hadoop fs -put /usr/local/service/spark/examples/src/ma-in/resources/ 
+[hadoop@10 hadoop]$ hadoop fs -put /usr/local/service/spark/examples/src/main/resources/people.json 
 /user/hadoop
 ```
 测试文件用户也可以另选，这里`/user/hadoop/`是 HDFS 下的文件夹，如果没有用户可以自己创建。
 
-接下来就可以执行样例了，首先请登录 EMR 集群的 master 节点，并且切换到 Hadoop 用户如使用 SparkSQL 交互式控制台中所示，使用以下命令执行样例：
+**执行样例**，首先请登录 EMR 集群的 master 节点，并且切换到 Hadoop 用户如使用 SparkSQL 交互式控制台中所示，使用以下命令执行样例：
 ```
 [hadoop@10spark]$ bin/spark-submit --class Demo --master yarn-client $yourjarpackage /  
 /user/hadoop/people.json  /user/hadoop/$output

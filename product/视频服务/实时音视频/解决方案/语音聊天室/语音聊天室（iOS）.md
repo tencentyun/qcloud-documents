@@ -27,7 +27,7 @@
 
 <span id="ui.step2"></span>
 ### 步骤2：下载 SDK 和 Demo 源码
-1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS)】跳转至 Github（或单击【[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
+1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS)】跳转至 Github（或单击【[ZIP](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
  ![](https://main.qcloudimg.com/raw/716b5af9207ad2b11835dec4e2d15da0.png)
 2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
 
@@ -171,12 +171,11 @@ self.voiceRoom.setSelfProfile(userName: userName, avatarUrl: avatarURL) { (code,
     // 结果回调           
 }
 
-// 2.主播开播前预览并设置美颜参数
+// 2.主播端创建房间
 let param = VoiceRoomParam.init()
-param.roomName = roomInfo.roomName
-param.needRequest = roomInfo.needRequest
-param.seatCount = roomInfo.memberCount
-param.coverUrl = roomInfo.coverUrl
+param.roomName = "房间名称"
+param.needRequest = true // 观众上麦是否需要主播同意
+param.coverUrl = "封面URL"
 param.seatCount = 7 // 房间座位数，这里一共7个座位，房主占了一个后观众剩下6个座位
 param.seatInfoList = []
 for _ in 0..<param.seatCount {
@@ -193,15 +192,6 @@ self.voiceRoom.createRoom(roomID: yourRoomID, roomParam: param) { (code, message
         } else {
             // 房主占座失败
         }
-    }
-}
-
-// 3.主播创建房间
-let param = TRTCCreateRoomParam(roomName: "测试房间", coverUrl: "")
-mLiveRoom.createRoom(roomID: 123456789, roomParam: param) { [weak self] (code, error) in
-    if code == 0 {
-        // 4.主播开启推流并将流发布到 CDN
-        self?.mLiveRoom.startPublish(streamID: mSelfUserId + "_stream", callback: nil)
     }
 }
 

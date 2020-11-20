@@ -331,7 +331,7 @@ chown -R nginx:nginx /var/www
 ```
 3. 备份当前的 Nginx 配置文件 `/etc/nginx/nginx.conf`，您可以：
    a）执行 `cp /etc/nginx/nginx.conf ~/nginx.conf.bak` 将当前配置文件备份到家（HOME）目录。
-   b）使用 SFTP 或 SCP 等软件加当前配置文件下载到本地计算机。
+   b）使用 SFTP 或 SCP 等软件将当前配置文件下载到本地计算机。
 4. 将`/etc/nginx/nginx.conf` 修改或替换为如下内容：
 
 ```plaintext
