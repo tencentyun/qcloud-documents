@@ -8,11 +8,11 @@
 
 ## Unity 接入 gRPC
 
-目前 Unity 接入 gRPC 处于实验阶段，更多信息可参见 [README](https://github.com/grpc/grpc/tree/master/src/csharp/experimental)。具体操作步骤如下：
+gRPC 对 Unity 的支持仍处于实验阶段，更多信息可参见 [README](https://github.com/grpc/grpc/tree/master/src/csharp/experimental)。具体操作步骤如下：
 
 ### 步骤1：创建 Unity 项目 
 
-需要创建一个针对 `.NET 4.x` 同等效果版本的 Unity 项目，由于 gRPC 使用的 API 仅在 `.NET 4.5+`可用，所以这一步是必需的，通过【Edit】>【Project Setting】>【Player】>【Configuration】>【Scripting Runtime Version】进行设置。
+需要创建一个针对 `.NET 4.x` 等效版本的 Unity 项目，由于 gRPC 使用的 API 仅在 `.NET 4.5+`可用，所以这一步是必需的，通过【Edit】>【Project Setting】>【Player】>【Configuration】>【Scripting Runtime Version】进行设置。
 ![](https://main.qcloudimg.com/raw/c28d0dc10bded3be2e98358a95a374fa.jpg)
 
 <span id="test"></span>
@@ -30,7 +30,7 @@
 
 ### 步骤4：测试 
 
-Unity IDE 将取出文件并自动添加到项目中，您即可在代码中使用 gRPC 和 Protobuf，如果 Unity IDE 提示错误，详情可参见 [常见问题](#test1)。
+[Unity Editor](#test1) 将取出文件并自动添加到项目中，您即可在代码中使用 gRPC 和 Protobuf，如果 Unity Editor 提示错误，详情可参见 [常见问题](#test1)。
 
 ## Unity 接入 GSE SDK
 
@@ -54,6 +54,7 @@ Unity 接入 GSE SDK 包括以下几个步骤：
     - ` ./protoc -I ./ --csharp_out=. GseGrpcSdkService.proto --grpc_out=. --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe `
     - ` ./protoc -I ./ --csharp_out=. GameServerGrpcSdkService.proto --grpc_out=. --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe`
  
+ 如下图所示生成四个 .cs 代码文件的资源。
   ![](https://main.qcloudimg.com/raw/dad39ec6bfabea5ee2025b83596fc711.png)
 
 ### 步骤3： Unity 服务端开发使用 GSE SDK
@@ -61,50 +62,47 @@ Unity 接入 GSE SDK 包括以下几个步骤：
 将 [步骤2](#test2) 中生成的四个 `.cs` 文件拷贝到 Unity 项目中（可以拷贝到 Assets 或 Scripts 或目录下单独的文件夹中），便可使用 GSE SDK 进行开发，可参考unity-demo（demo中未导入解压后的gRPC文件，仅包含示例代码）。
 1. 实现 `gameserver_grpcsdk_service.proto` 定义的三个接口 `OnHealthCheck`、`OnStartGameServerSession` 和 ` OnProcessTerminate` 。
 ```
-public class GrpcServer : GameServerGrpcSdkService.GameServerGrpcSdkServiceBase
-	{
-			private static Logs logger
-			{
-					get
-					{
-							return new Logs();
-					}
-			}
-
-			// 健康检查
-			public override Task<HealthCheckResponse> OnHealthCheck(HealthCheckRequest request, ServerCallContext context)
-			{
-					logger.Println($"OnHealthCheck, HealthStatus: {GseManager.HealthStatus}");
-					logger.Println($"OnHealthCheck, GameServerSession: {GseManager.GetGameServerSession()}");
-					return Task.FromResult(new HealthCheckResponse
-					{
-							HealthStatus = GseManager.HealthStatus
-					});
-			}
-
-			// 接收游戏会话
-			public override Task<GseResponse> OnStartGameServerSession(StartGameServerSessionRequest request, ServerCallContext context)
-			{
-					logger.Println($"OnStartGameServerSession, request: {request}");
-					GseManager.SetGameServerSession(request.GameServerSession);
-					var resp = GseManager.ActivateGameServerSession(request.GameServerSession.GameServerSessionId, request.GameServerSession.MaxPlayers);
-					logger.Println($"OnStartGameServerSession, resp: {resp}");
-					return Task.FromResult(resp);
-			}
-
-			// 结束游戏进程
-			public override Task<GseResponse> OnProcessTerminate(ProcessTerminateRequest request, ServerCallContext context)
-			{
-					logger.Println($"OnProcessTerminate, request: {request}");
-					// 设置进程终止时间
-					GseManager.SetTerminationTime(request.TerminationTime);
-					// 终止游戏服务器会话
-					GseManager.TerminateGameServerSession();
-					// 进程退出
-					GseManager.ProcessEnding();
-					return Task.FromResult(new GseResponse());
-			}
-	}
+ public class GrpcServer : GameServerGrpcSdkService.GameServerGrpcSdkServiceBase
+    {
+        private static Logs logger
+        {
+            get
+            {
+                return new Logs();
+            }
+        }
+        // 健康检查
+        public override Task<HealthCheckResponse> OnHealthCheck(HealthCheckRequest request, ServerCallContext context)
+        {
+            logger.Println($"OnHealthCheck, HealthStatus: {GseManager.HealthStatus}");
+            logger.Println($"OnHealthCheck, GameServerSession: {GseManager.GetGameServerSession()}");
+            return Task.FromResult(new HealthCheckResponse
+            {
+                HealthStatus = GseManager.HealthStatus
+            });
+        }
+        // 接收游戏会话
+        public override Task<GseResponse> OnStartGameServerSession(StartGameServerSessionRequest request, ServerCallContext context)
+        {
+            logger.Println($"OnStartGameServerSession, request: {request}");
+            GseManager.SetGameServerSession(request.GameServerSession);
+            var resp = GseManager.ActivateGameServerSession(request.GameServerSession.GameServerSessionId, request.GameServerSession.MaxPlayers);
+            logger.Println($"OnStartGameServerSession, resp: {resp}");
+            return Task.FromResult(resp);
+        }    
+        // 结束游戏进程
+        public override Task<GseResponse> OnProcessTerminate(ProcessTerminateRequest request, ServerCallContext context)
+        {
+            logger.Println($"OnProcessTerminate, request: {request}");
+            // 设置进程终止时间
+            GseManager.SetTerminationTime(request.TerminationTime);
+            // 终止游戏服务器会话
+            GseManager.TerminateGameServerSession();
+            // 进程退出
+            GseManager.ProcessEnding();
+            return Task.FromResult(new GseResponse());
+        }
+    }
 ```
 2. 开发 Unity 服务端程序（以 ChatServer 为例）。 
 ```
@@ -160,10 +158,11 @@ public class StartServers : MonoBehaviour
 }  
 ```
 
+<span id="test1"></span>
 ##	Unity DEMO
 1.	[单击这里]( https://gsegrpcdemo-1301007756.cos.ap-guangzhou.myqcloud.com/unity-demo.zip)，您可以下载 Unity DEMO代码。
 2.	导入 grpc unity package。
-   将 [步骤2](#test2) 中  grpc_unity_package 解压到 Demo 工程 unity-demo 或 Assets 目录下。
+   将 [步骤2](#test2) 中  grpc_unity_package 解压到 Demo 工程 unity-demo/Assets 目录下。
 3.	根据 [Protobuf](#test3) 文件生成 C# 代码。
 4.	启动服务端，供 GSE 调用。
  - 服务端实现，在 `unity-demo/Assets/Scripts/Api` 目录下的 `GrpcServer.cs` 文件中实现服务端的三个接口。
