@@ -20,7 +20,7 @@
 #### 方式一：Cocoapods 导入
 通过 Cocoapods 下载地址：
 ``` 
-pod 'TPNS-iOS' 
+pod 'TPNS-iOS', '~> 版本'  // 如果不指定版本则默认为本地 pod TPNS-iOS 最新版本
 ```
 >?
  - 首次下载需要登录 [仓库地址](https://git.code.tencent.com/users/sign_in)，并在【账户】菜单栏中 [设置用户名和密码](https://code.tencent.com/help/productionDoc/profile#password)。设置成功后，在 Terminal 输入对应的用户名和密码，后续即可正常使用，当前 PC 不需要再次登录。
