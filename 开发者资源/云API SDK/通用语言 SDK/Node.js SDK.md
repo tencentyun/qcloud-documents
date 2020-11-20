@@ -119,7 +119,7 @@ client.DescribeZones().then(
 ## 相关配置
 
 ### 代理
-如有代理的环境下，需要设置系统环境变量 `https_proxy` ，否则可能无法正常调用，抛出连接超时的异常的现象。
+如有代理的环境下，需要设置系统环境变量 `https_proxy` ，否则可能无法正常调用，抛出连接超时的异常现象。
 
 ## 旧版 SDK
 我们推荐使用新版 Node.js SDK，如果一定要使用旧版 SDK，请前往 [GitHub 仓库下载](https://github.com/CFETeam/qcloudapi-sdk) 。
