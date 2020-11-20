@@ -1,7 +1,7 @@
 ## 简介
 
 - 欢迎使用腾讯云开发者工具套件（SDK），Node.js SDK 4.0 是云 API 3.0 平台的配套工具。新版 SDK 4.0 实现了统一化，各个语言版本的 SDK 具备使用方法相同，接口调用方式相同，错误码和返回包格式相同等优点。
-- 本文以 Node.js SDK 4.0 为例，提供首次使用开发工具包的简单示例。方便 Node.js 开发者调试和接入腾讯云产品 API，让您快速获取腾讯云 Node.js SDK 并开始调用。
+- 本文以 Node.js SDK 4.0 为例，介绍首次使用开发工具包和简单示例。方便 Node.js 开发者调试和接入腾讯云产品 API，让您快速获取腾讯云 Node.js SDK 并开始调用。
 - 目前已支持云服务器 CVM、私有网络 VPC 、云硬盘 CBS 等 [腾讯云产品](https://cloud.tencent.com/document/sdk/Description)，后续会支持其他云产品接入。
 
 ## 依赖环境
