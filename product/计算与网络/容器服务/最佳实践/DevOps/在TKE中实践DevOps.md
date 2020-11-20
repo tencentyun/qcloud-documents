@@ -161,15 +161,15 @@ spec:
 ## 测试验证
 
 在项目代码文件中修改添加如下图所示的 v2 API 代码后提交 master 分支：
-![](https://main.qcloudimg.com/raw/987cee85ef9925832a1a795afaaa5ded.png)
+![](https://main.qcloudimg.com/raw/edf184f16d1feaf6255a417947556242.png)
 由于【持续集成】中的构建计划使用了 “代码更新时自动执行” 的事件触发配置，了解相关触发配置请参见 [触发规则](https://help.coding.net/docs/devops/ci/trigger.html)。当提交修改的代码时，会自动触发关联的构建计划执行，如下图所示：
 ![image-20201028211045329](https://main.qcloudimg.com/raw/5f369aa9ab3eb5f97ac9a78e015dc6cc.png)
 如果为持续集成配置企业微信 Webhook 通知，企业微信也会收到相应的即时通知消息，如下图所示：
-![image-20201029170912443](https://main.qcloudimg.com/raw/0b22628dd8da488f1c982e00b42b78dd.png)
+![](https://main.qcloudimg.com/raw/e84e986ffe004abaa9d6a601aca947b4.png)
 当构建计划生成 Docker 镜像制品时，又会自动触发关联的【持续部署】流程，将新的镜像应用更新到 TKE 集群中，如下图所示：
 ![image-20201028211358719](https://main.qcloudimg.com/raw/e4ecb43fec5cba253d5e20a16c7c8bed.png)
 如果部署流程有配置企业微信通知的话，当部署流程任务完成时，会收到对应的企业微信部署完成通知，如下图所示：
-![](https://main.qcloudimg.com/raw/37fe522fa4236edd8ceb5664d30d42e4.png)
+![](https://main.qcloudimg.com/raw/c393b7f3cb8ca6dd224a3ae7b9cf9229.png)
 此时，可以在 TKE 中看到已经成功更新了工作负载，如下图所示：
 ![image-20201028214913813](https://main.qcloudimg.com/raw/6ab74e1d81f6c1f44c302ffbaeb1babc.png)
 从测试验证结果可以看出，我们在 TKE 中实现了从源码更新到业务发布的整套 DevOps 流程。
