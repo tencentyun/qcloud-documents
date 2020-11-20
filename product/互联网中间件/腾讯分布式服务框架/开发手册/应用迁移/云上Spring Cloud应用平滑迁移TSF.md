@@ -44,12 +44,13 @@
 ## 操作步骤
 1. 在迁移的服务应用的 pom.xml 文件中引入 TSF 依赖：
 ```java
-<dependency>
-		<groupId>com.tencent.tsf</groupId>
-		<artifactId>spring-cloud-tsf-dependencies</artifactId>
-		<version>1.24.0-Finchley-RELEASE</version>
-</dependency>
+<parent>
+        <groupId>com.tencent.tsf</groupId>
+        <artifactId>spring-cloud-tsf-dependencies</artifactId>
+        <version><!-- 调整为 SDK 最新版本号 --></version>
+</parent>
 ```
+>!应用该功能 SDK 版本必须在1.24.0-Finchley-RELEASE、1.24.0-Greenwich-RELEASE 以上。
 2. 在 `application.properties` 中添加双注册发现配置。
 exclude 字段代表不将服务注册到哪些服务注册中心引擎；subscribes 字段代表从哪些服务注册引擎发现服务信息。
 ```java

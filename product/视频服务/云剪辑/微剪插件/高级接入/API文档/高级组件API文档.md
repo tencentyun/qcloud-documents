@@ -3,11 +3,11 @@
 `wj-player` 是支持微剪运行的核心组件，它是由轨道数据驱动运行的播放器，并内置了一些常用功能。
 
 >?v1.4.0后新增功能：
->1. 贴纸，详见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440)。
-2. 文字和贴纸内置编辑控件，详见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
-
->?v1.5.0后新增功能：
->转场和动效，详见[转场和动效]()
+>- 贴纸，详情请参见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440)。
+>- 文字和贴纸内置编辑控件，详情请参见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
+>
+>v1.5.0后新增功能：
+>转场和动效，详情请参见 [转场和动效](https://cloud.tencent.com/document/product/1156/50070)。
 
 ### 使用方式
 1. 配置 JSON 文件：
@@ -108,7 +108,7 @@ this.player = player;
 ```
 
 #### 添加媒体轨道
-`wj-player` 的播放必须有一条媒体轨道， 视频或者图片都需要加入到媒体轨道里。步骤如下：
+`wj-player`的播放必须有一条媒体轨道， 视频或者图片都需要加入到媒体轨道里。步骤如下：
 >? 因为图片在播放器中将会默认当做3秒的静态视频播放，类似抖音。所以在播放器中图片和视频都属于媒体元素。
 
 1. 创建视频轨道 Track，设置视频轨道的 type 为 media。
@@ -118,7 +118,7 @@ this.player = player;
     clips: []
   });
 ```
->?`global['wj-types']` 是在全局存储的插件暴露出来的对象，方便进行播放器的 Track 和 Clip 的操作。
+>?`global['wj-types']`是在全局存储的插件暴露出来的对象，方便进行播放器的 Track 和 Clip 的操作。
 2. 添加视频 Clip：
 	1. 向 mediaTrack 媒体轨道中添加视频 Clip，设置视频 Clip 的 type 为 video。
 ```javascript
@@ -153,7 +153,7 @@ this.player = player;
 <td>id</td>
 <td>id 可以自定义，如果不传则由播放器内部自动生成。</td>
 </tr></table>
-2. 因为 Clip 需要运行在 Track中，接下来将 Clip 添加进 media 轨道：
+2. 因为 Clip 需要运行在 Track 中，接下来将 Clip 添加进 media 轨道：
 ```javascript
       this.mediaTrack.clips = [videoClip1];
 ```
@@ -205,7 +205,7 @@ videoClip1.startAt = 1;
   this.player.updateData([this.mediaTrack]);
 ```
 6. 删除某个视频。<span id="delect_video"></span>
-  在 media 轨道中删除对应的 Clip 即可，以删除 videoClip1 为例：
+    在 media 轨道中删除对应的 Clip 即可，以删除 videoClip1 为例：
   1. 获取视频对应的 id（`video1`）进行删除。
 ```javascript 
       this.mediaTrack.clips.forEach((item, index) => {
@@ -247,7 +247,7 @@ videoClip1.startAt = 1;
 ```
 #### 说明
 	- `tempFilePath` 为在线音乐地址。
-	- 参数基本与视频的 Clip 一致，具体请参见 [Clip 参数详解](#clip_parameter)。
+	- 参数基本与视频的 Clip 一致，具体详情请参见 [Clip 参数详解](#clip_parameter)。
 	- section 的 end 值为1000， 一般用于给整个视频添加一段音乐的情况，播放器内部会自动调整为实际的视频时长。
 	- 将 musicClip1 加入到 musicTrack 中：
 	```javascript
@@ -259,7 +259,7 @@ videoClip1.startAt = 1;
 ```
 >? 可以看到此时播放器内拥有了两条轨道，媒体和音乐。
 3. 修改音乐。
-修改音乐和修改视频 Clip 是一样的，具体请参见 [修改视频时长](#change_video)。以修改音乐的起始时间为例：
+修改音乐和修改视频 Clip 是一样的，具体详情请参见 [修改视频时长](#change_video)。以修改音乐的起始时间为例：
 ```javascript
   musicClip1.startAt = 8;
 ```
@@ -336,7 +336,7 @@ videoClip1.startAt = 1;
   this.filterTrack.clips = [filterClip1, filterClip2]
 ```
 4. 修改滤镜。
-  修改滤镜对应的 Clip 属性，更新播放即可查看。以修改滤镜的时间信息为例：
+    修改滤镜对应的 Clip 属性，更新播放即可查看。以修改滤镜的时间信息为例：
 ```
     filterClip1.section = new global['wj-types'].ClipSection({
       start: 0,
@@ -482,7 +482,7 @@ this.textTrack1 = new global['wj-types'].Track({
  <b>文字的位置控制</b>逻辑在播放器内部，所以您只需要把文字添加进播放器，通过拖拽挪动文字位置，相应的位置信息将初始化传入的文字统一位于视频的中心位置。
  
   2. 将新创建的 textClip 添加到轨道中：
-```javascript
+​```javascript
 this.textTrack.clips = [textClip1]
 ```
 <span id = "more_clip"></span>当然，您也可以在一个轨道添加多个文字，文字 Clip 的 section 没有重叠。
@@ -631,7 +631,7 @@ loadFontFace({
 | 属性名           | 类型          | 默认值                  | 说明                                                   | 是否必填 |
 | ---------------- | ------------- | ----------------------- | ------------------------------------------------------ | -------- |
 | settings         | Object        | 参见 [settings 默认值](#camera_settings) | 设置                                                   | 否       |
-| clips            | `Array<clip>` | []  | 初始 Clip，具体请参见 [clip 结构](#camera_clip)                             | 否       |
+| clips            | `Array<clip>` | []  | 初始 Clip，具体详情请参见 [clip 结构](#camera_clip)                           | 否       |
 | mode            | String | 'simple'  | simple: 简单模式 </br> advanced: 高级模式，支持滤镜 | 否       |
 | countdown            | Number | 0  | 拍摄倒计时 | 否       |
 | filter            | String | 空  | advanced模式下使用的滤镜名称 | 否       |
@@ -724,9 +724,9 @@ loadFontFace({
 ### 属性说明
 | 属性名                   | 类型     | 默认值                  | 说明                                                         | 是否必填 |
 | ------------------------ | -------- | ----------------------- | ------------------------------------------------------------ | -------- |
-| trackInfo| Track    | null| Track 数据，请参见 [trackInfo 结构](#clipper_trackInfo)| 是|
+| trackInfo| Track    | null| Track 数据，详情请参见 [trackInfo 结构](#clipper_trackInfo) | 是|
 | time                     | Number   | 0| 当前展示时间，控制时间轴的位置| 否|
-| settings                 | Object   | 请参见 [settings 默认值](#clipper_settings) | 设置| 否|
+| settings                 | Object   | 详情请参见 [settings 默认值](#clipper_settings) | 设置| 否|
 | bindthumbdone            | Function | -| 缩略图绘制完成事件                                           | 否|
 | bindthumbtouchstart      | Function | -| 缩略图 touch start 事件                                       | 否|
 | bindthumbscroll          | Function | -| 缩略图滚动事件 <pre style="margin:0">{<br>time：当前时间轴指向的时间<br>}</pre>| 否|
@@ -870,7 +870,7 @@ track={
 
 
 ## 导出：wj-export
-导出组件提供了视频导出的功能，内部复用了 `wj-player`，针对小程序导出进行了专门处理。
+导出组件提供了视频导出的功能，内部复用了`wj-player`，针对小程序导出进行了专门处理。
 >!受微信 Android 客户端 7.0.19 版本策略影响，导出表现偏慢，预计在11月底的版本修复。
 
 ### 使用方式
@@ -916,7 +916,7 @@ track={
 | bindthumbready    | Function                      | -      | 默认封面图生成<pre style="margin:0">{<br/>path: String,<br/>height:1080,<br />width: 720<br/>}</pre> | 否   |
 
 #### 添加水印
-##### 线上地址（v1.5.0之前版本需做以下配置，1.5.0新增云函数支持，无需以下配置）
+##### 线上地址（v1.5.0 之前版本需做以下配置，1.5.0 新增云函数支持，无需以下配置）
 如果需要使用在线图片，请按如下步骤配置。
 1. 在小程序根目录下引入 index.js，目录：`miniprogram/index.js`。
 ```
@@ -924,7 +924,7 @@ track={
 			downloadFile:wx.downloadFile
 		}
 ```
-2. 	在 `app.json` 中将 downloadFile 方法导出到插件。
+2. 在`app.json`中将 downloadFile 方法导出到插件。
       ```json
         "plugins": {
           "myPlugin": {
@@ -937,13 +937,13 @@ track={
 3. 进入小程序管理后台，将在线图片域名配置进`request`和`downloadFile`白名单即可。
 
 ##### 本地地址
-传入`wxfile://` 开头的本地临时地址即可。
+传入`wxfile://`开头的本地临时地址即可。
 >?导出组件提供了`slot 插槽`以定制导出组件的实际 UI，并监听内部冒泡的 tap 事件以触发导出流程；如果需要手动触发导出流程，可以使用`wx.selectComponent`获取组件实例并调用实例的`start`方法。
 
 
 ## 文字编辑：wj-textEditor
 
-文字编辑组件是一个简单的模拟原生输入框的组件，用于向视频中添加文本贴纸。支持动态修改文本的颜色、背景色及字体（1.4.0版本新增），提供实时预览功能。
+文字编辑组件是一个简单的模拟原生输入框的组件，用于向视频中添加文本贴纸。支持动态修改文本的颜色、背景色及字体（1.4.0 版本新增），提供实时预览功能。
 
 ### 使用方式
 1. 配置 JSON 文件：
@@ -958,15 +958,14 @@ track={
 ```
   <wj-textEditor value="{{textValue}}" bindconfirm="onConfirmText"/>
 ```
-3. 字体的下载需要借助小程序的 loadFontFace 方法
-`index.js` 将 loadFontFace 方法 exports 输出。
+3. 字体的下载需要借助小程序的 loadFontFace 方法，需要在`index.js`中，将 loadFontFace 方法通过 exports 输出。
 ```
 module.exports = {
   downloadFile:wx.downloadFile,
-  loadFontFace: wx.loadFontFace
+  loadFontFace:wx.loadFontFace
 }
 ```
-`app.json`
+在`app.json`中将 loadFontFace 方法导出到插件。
 ```json
 "myPlugin": {
   "provider": "wx76f1d77827f78beb",
@@ -992,6 +991,7 @@ module.exports = {
 
 ### 操作说明
 输入文字，单颜色列表实时更换文本颜色，单击左侧 T 图标实时更换背景颜色。
->?1.4.0版本开始支持修改字体。
-1.4.3版本优化了字体缓存的逻辑，请避免使用`wx:if`控制`wj-textEditor`的显示，推荐使用`show`属性来控制以达到更好的加载性能。
+>?
+>- 1.4.0版本开始支持修改字体。
+- 1.4.3版本优化了字体缓存的逻辑，请避免使用`wx:if`控制`wj-textEditor`的显示，推荐使用`show`属性来控制以达到更好的加载性能。
 

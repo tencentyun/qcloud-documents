@@ -161,6 +161,12 @@ Container 类型 DocProcess 的具体数据描述如下：
 | StartPage          | Request.Operation.DocProcess | 从第 X 页开始转换，默认为1；<br>在表格文件中，一张表可能分割为多页转换，生成多张图片。StartPage 表示从指定 SheetId 的第 X 页开始转换，默认为1                                   | Int   | 否       |
 | EndPage            | Request.Operation.DocProcess | 转换至第 X 页，默认为-1，<br>即转换文档中全部页。在表格文件中，一张表可能分割为多页转换，生成多张图片。EndPage 表示转换至指定 SheetId 的第 X 页，默认为-1，即转换全部页。 | Int    | 否       |
 | ImageParams        | Request.Operation.DocProcess | 转换后的图片处理参数，支持 [基础图片处理](https://cloud.tencent.com/document/product/460/6924) 所有处理参数，多个处理参数可通过 [管道操作符](https://cloud.tencent.com/document/product/460/15293) 分隔，从而实现在一次访问中按顺序对图片进行不同处理 | String | 否       |
+| DocPassword       | Request.Operation.DocProcess | Office 文档的打开密码，如果需要转换有密码的文档，请设置该字段  | String | 否     |
+| Comments       | Request.Operation.DocProcess | 是否隐藏批注和应用修订，默认为 0。0：隐藏批注，应用修订；1：显示批注和修订  | Int | 否     |
+| PaperDirection       | Request.Operation.DocProcess | 表格文件转换纸张方向，0代表垂直方向，非0代表水平方向，默认为0   | Int | 否     |
+| Quality           | Request.Operation.DocProces|  生成预览图的图片质量，取值范围 [1-100] ，默认值100。 例:值为100，代表生成图片质量为100%   | Int | 否      |
+| Zoom             | Request.Operation.DocProces|预览图片的缩放参数，取值范围[10-300]， 默认值100。 例:值为300，代表图片缩放比例为300% 即放大三倍   | Int | 否      |
+
 
 
 Container 类型 Output 的具体数据描述如下：
