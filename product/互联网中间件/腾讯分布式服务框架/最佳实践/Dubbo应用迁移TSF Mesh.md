@@ -21,7 +21,7 @@
 
 ### 步骤1：修改配置通过直连服务名方式访问服务提供者
 
-配置直连服务提供者的方式，详情请参考 Dubbo 官方文档 [直连提供者](http://dubbo.apache.org/zh-cn/docs/user/demos/explicit-target.html)。
+配置直连服务提供者的方式，详情请参考 Dubbo 官方文档 [直连提供者](http://dubbo.apache.org/zh/docs/v2.7/user/examples/explicit-target/)。
 
 在 Dubbo Mesh Demo 中，greet 服务需要访问 hello 服务，采用 XML 配置方式，可以配置为：
 ```xml
