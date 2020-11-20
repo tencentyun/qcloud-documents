@@ -41,10 +41,10 @@ CLS 后台的消费模块在消费到消息后，会根据**最长等待时间**
 	"topic_id": "xxxx-xx-xx-xx-yyyyyyyy",
 	"topic_name": "testname",
 	"records": [{
-		"timestamp": "2017-07-14 20:43:00",
+		"timestamp": "1605578090000000",
 		"content": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 	}, {
-		"timestamp": "2017-07-14 20:42:00",
+		"timestamp": "1605578090000000",
 		"content": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 	}]
 }
@@ -56,5 +56,5 @@ CLS 后台的消费模块在消费到消息后，会根据**最长等待时间**
 | ---------- | --- |
 | topic_id |  日志主题的 ID |
 | topic_name   | 	日志主题的名称 |
-| timestamp |  日志生产时间 |
+| timestamp |  日志生产时间，微秒级时间戳 |
 | content |  日志内容  |
