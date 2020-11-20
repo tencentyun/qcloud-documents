@@ -177,7 +177,7 @@ public class StartServers : MonoBehaviour
 ## 常见问题
 <span id="test1"></span>
 #### 将下载的 `grpc_unity_package.VERSION.zip` 文件解压到 Unity 项目中后，Unity IDE 报错 （例如[ 缺陷22251](https://github.com/grpc/grpc/issues/22251) 中描述）怎么处理？
-重新下载 v2.26 版本 [grpc_unity_package.2.26.0-dev.zip](https://packages.grpc.io/archive/2019/12/a02d6b9be81cbadb60eed88b3b44498ba27bcba9-edd81ac6-e3d1-461a-a263-2b06ae913c3f/index.xml) 并解压。
+解决方案：重新下载 v2.26 版本 [grpc_unity_package.2.26.0-dev.zip](https://packages.grpc.io/archive/2019/12/a02d6b9be81cbadb60eed88b3b44498ba27bcba9-edd81ac6-e3d1-461a-a263-2b06ae913c3f/index.xml) 并解压。
 
 #### 打包 MacOS 服务端程序，运行时出现 `error: grpc_csharp_ext` 错误怎么处理？
 <img src="https://main.qcloudimg.com/raw/703dc0dd20342b4aff5d499f2ac1df85.png" style="width: 718px;"></img>
