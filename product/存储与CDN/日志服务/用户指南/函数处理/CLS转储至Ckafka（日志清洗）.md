@@ -22,7 +22,7 @@
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏中单击【日志集管理】。
 2. 找到已创建的日志集，在其右侧操作栏中，单击【查看】，进入日志集详情页面。
 3. 单击【新增日志主题】，在新增日志主题窗口中，填写如下相关信息：
-	- 日志主题名称：例如：nginx。
+	- 日志主题名称：例如 nginx。
 	- 主题分区（Partition）数量： 主题分区介绍请参见 [主题分区介绍](https://cloud.tencent.com/document/product/614/39259)，默认新建1个分区。
 ![](https://main.qcloudimg.com/raw/d22c9d090a380376a1de4b56f19bc27a.jpg)
 4. 单击【确定】，即可新增日志主题。
@@ -45,9 +45,6 @@
 <img src="https://main.qcloudimg.com/raw/5abe24345c11c2d76a8509dfbd633fdd.png" width="100%"></img>
 4. 基本信息配置完成之后，单击【下一步】，进入函数配置页面。
 5. 函数配置保持默认配置，单击【完成】，完成函数的创建。
-6. 在使用本模板函数时，您需要按照提示在函数配置中，添加环境变量。
- 进入已创建的云函数“函数配置”页面，单击右上角【编辑】，新增环境变量参考表格进行填写。如下图所示：
-![](https://main.qcloudimg.com/raw/3112dba5a8cac82c295c17a593ed222e.png)
 >!  函数需要在【函数配置】页面中，选择和 CLS 相同的 VPC 和子网。如下图所示：
 ![](https://main.qcloudimg.com/raw/a329381190dcf6ad0883f5f8a51a9567.png)
 
