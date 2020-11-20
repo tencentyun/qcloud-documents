@@ -1,6 +1,6 @@
 ## 功能描述
 
-DescribeMediaBuckets 接口用于查询已经开通媒体处理功能的Bucket。
+DescribeMediaBuckets 接口用于查询已经开通媒体处理功能的 Bucket。
 
 ## 请求
 
