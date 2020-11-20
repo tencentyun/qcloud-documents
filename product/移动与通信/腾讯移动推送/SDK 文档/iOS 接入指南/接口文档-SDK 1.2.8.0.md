@@ -418,26 +418,6 @@ handler：查询结果的返回方法。
 [[XGPush defaultManager] uploadLogCompletionHandler:nil];
 ```
 
-## 注销信鸽平台推送服务
-
-#### 接口说明
-
-背景：如果 App 的推送服务是从信鸽平台（`https://xg.qq.com`）迁移到腾讯移动推送平台，在两个平台同时推送时，可能会出现重复消息。因此需要调用 TPNS SDK(1.2.5.3+) 的接口将设备信息在信鸽平台中进行反注册。
-引入头文件：XGForFreeVersion.h，在 startXGWithAccessID 之前调用：
-
-```
-@property uint32_t freeAccessId;
-```
-
-#### 参数说明
-
-- @freeAccessId 信鸽平台的 accessId（SDK1.2.5.3+）。
-
-#### 示例代码
-
-```
-[XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
-```
 
 ## TPNS 日志托管
 
