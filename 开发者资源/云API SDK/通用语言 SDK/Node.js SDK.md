@@ -15,7 +15,7 @@
 
 ## 安装 SDK
 
-### 通过 Npm 安装
+### 方式一：通过 Npm 安装
 
 通过 npm 获取安装是使用 Node.js SDK 的推荐方法，npm 是 Node.js 的包管理工具。关于 npm 详细介绍可参见 [ npm 官网](https://www.npmjs.com/) 。
 
@@ -25,7 +25,7 @@ npm install tencentcloud-sdk-nodejs --save
 ```
 2. 在您的代码中引用对应模块代码，可参考下文使用 SDK 示例。
 
-### 通过源码包安装
+### 方式二：通过源码包安装
 
 1. 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-nodejs) 下载源码压缩包。
 2. 解压源码包到您项目合适的位置。
