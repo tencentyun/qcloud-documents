@@ -7,6 +7,7 @@
 1. 支持 Pod 销毁 IP 保留，Pod 迁移 IP 不变，从而实现固定 IP
 1. 支持多子网，但不支持跨子网调度固定 IP 的 Pod， 因此固定 IP 模式的 Pod 不支持跨可用区调度
 1. 支持 Pod IP 自动关联弹性公网 IP，从而可支持 Pod 外访
+1. 共享网卡的固定 IP 模式，固定 IP 的 Pod 销毁后，其 IP 只在集群范围内保留。若有其他集群或者业务（如 CVM、CDB、CLB 等）使用了同一子网，可能会导致保留的固定 IP 被占用，Pod 再启动的时候会拿不到 IP。**因此请保证该模式的容器子网是独占使用。**
 
 ### 使用方法
 您可以通过以下两种方式使用固定 IP
@@ -24,7 +25,7 @@
 ##### 操作步骤
 
 ##### 控制台使用
-1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，并进入【[集群](https://console.qcloud.com/tke2/cluster?rid=1)】的管理页面。。
+1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，并进入【[集群](https://console.qcloud.com/tke2/cluster?rid=1)】的管理页面。
 2. 选择需要查看的集群ID/名称，进入该集群的管理页面。
 3. 选择 【工作负载】>【StatefulSet】，进入【StatefulSet】的集群管理页面。
 4. 单击【新建】，查看【实例数量】。如下图所示：
@@ -75,12 +76,45 @@ spec:
           requests:
             tke.cloud.tencent.com/eni-ip: "1" 
 ```
-- spec.template.annotations：tke.cloud.tencent.com/networks: "tke-route-eni"  表明 Pod 使用 VPC-CNI 模式。
+- spec.template.annotations：`tke.cloud.tencent.com/networks: "tke-route-eni"`  表明 Pod 使用共享网卡的 VPC-CNI 模式，如果使用的是独立网卡的 VPC-CNI 模式，请将值修改成 `"tke-direct-eni"`。
 - spec.template.annotations：创建 VPC-CNI 模式的 Pod，您需要设置 annotations，即 `tke.cloud.tencent.com/vpc-ip-claim-delete-policy`，默认是 “Immediate”，Pod 销毁后，关联的 IP 同时被销毁，如需固定 IP，则需设置成 “Never”，Pod 销毁后 IP 也将会保留，那么下一次同名的 Pod 拉起后，会使用之前的 IP。
-- spec.template.spec.containers.0.resources：创建 VPC-CNI 模式的 Pod，您需要添加 requests 和 limits 限制，即 `tke.cloud.tencent.com/eni-ip`。
+- spec.template.spec.containers.0.resources：创建共享网卡的 VPC-CNI 模式的 Pod，您需要添加 requests 和 limits 限制，即`tke.cloud.tencent.com/eni-ip`。如果是独立网卡的 VPC-CNI 模式，则添加`tke.cloud.tencent.com/direct-eni`。
+
+### 固定 IP 的保留和回收
+固定 IP 模式下，使用 VPC-CNI 模式的 Pod 创建以后，网络组件会为该 Pod 在同一个 namespace 下创建同名的 CRD 对象 `VpcIPClaim`。该对象描述 Pod 对 IP 的需求。网络组件随后会根据这个对象创建 CRD 对象 `VpcIP`，并关联对应的 `VpcIPClaim`。`VpcIP` 以实际的 IP 地址为名，表示实际的 IP 地址占用。用户可以通过以下命令查看集群使用的容器子网内 IP 的使用情况：
+```
+kubectl get vip
+```
+
+对于非固定 IP 的 Pod，其 Pod 销毁后 `VpcIPClaim` 也会被销毁，`VpcIP`随之销毁回收。而对于固定 IP 的 Pod，其 Pod 销毁后 `VpcIPClaim` 仍然保留，`VpcIP`也因此保留。同名的 Pod 启动后会使用同名的 `VpcIPClaim` 关联的 `VpcIP`，从而实现 IP 地址保留。
+
+由于网络组件在集群范围内分配 IP 时会依据 `VpcIP`信息找寻可用 IP，因此固定 IP 的地址若不使用需要及时回收（目前的默认策略是永不回收），否则会导致 IP 浪费而无 IP 可用。以下是几种 IP 回收方法。
+
+#### 过期回收（默认支持）
+在创建集群页面，在选用 VPC-CNI 模式且启用固定 IP 支持以后，在高级设置中可以设置 IP 回收策略，如图。
+![]()
+此处可以设置 Pod 销毁后多少秒回收保留的固定 IP。
+
+#### 手动回收
+对于急需回收的 IP 地址，需要先确定需回收的 IP 被哪个 Pod 占用，找到对应的 Pod 的名称空间和名称，然后可以通过以下命令手动回收：
+```
+kubectl delete vipc <podname> -n <namespace>
+```
+注意需要保证该 Pod 已经销毁，否则会导致 Pod 网络不可用。
+
+#### 级联回收
+目前的固定 IP 与 Pod 强绑定，而与具体的 Workload 无关（如 deployment, statefulset 等）。Pod 销毁后，固定 IP 不好确定何时回收。TKE 实现了删除 Pod 所属的 Workload 后就删除固定 IP。
+
+开启方法：
+- 修改现存的 tke-eni-ipamd deployment：`kubectl edit deploy tke-eni-ipamd -n kube-system`。
+- 在 `spec.template.spec.containers[0].args` 中加入启动参数:
+```yaml
+        - --enable-ownerref
+```
+修改后，ipamd 会自动重启并生效。生效后，增量 Workload 可实现级联删除固定 IP，存量 Workload 暂不能支持。
 
 ### 相关其他特性
-#### 1.（默认开启，共享网卡模式）Pod IP 自动关联弹性公网IP(EIP)
+#### 共享网卡模式的 Pod IP 自动关联弹性公网IP(EIP)
 
 目前共享网卡的固定 IP 模式默认支持 Pod IP 自动关联 EIP。若需关联 EIP，可参考以下 Yaml 示例：
 ```yaml
@@ -133,18 +167,6 @@ spec:
 使用限制：
 各节点可绑定的 EIP 资源受到相关配额限制和云服务器的绑定数量限制，详情可参考[EIP使用限制](https://cloud.tencent.com/document/product/1199/41648#eip-.E9.85.8D.E9.A2.9D.E9.99.90.E5.88.B6)。
 各节点可绑定的最大 EIP 数量为云服务器绑定数量减 1。
-
-#### 2.（默认未开启）固定 IP Workload 级联删除
-
-目前的固定 IP 与 Pod 强绑定，而与具体的 Workload 无关（如 deployment, statefulset 等）。Pod 销毁后，固定 IP 不好确定何时回收。 TKE实现了删除 Pod 所属的 Workload 后就删除固定 IP。
-
-开启方法：
-- 修改现存的 tke-eni-ipamd deployment：`kubectl edit deploy tke-eni-ipamd -n kube-system`。
-- 在 `spec.template.spec.containers[0].args` 中加入启动参数:
-```yaml
-        - --enable-ownerref
-```
-修改后，ipamd 会自动重启并生效。生效后，增量 Workload 可实现级联删除固定 IP，存量 Workload 暂不能支持。
 
 
 ### 固定IP模式常见问题
