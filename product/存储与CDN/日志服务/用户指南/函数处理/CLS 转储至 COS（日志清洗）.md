@@ -29,7 +29,7 @@
 4. 单击【确定】，新增日志主题。
 5. 日志主题新增成功，将进入日志主题管理页。
    ![](https://main.qcloudimg.com/raw/08e9dc61f1cc8bfcb1923345c86bef45.jpg)
-> ? ETL 数据处理的源端和终端均为 CLS，故至少需创建两个 Topic。
+
 
 
 <span id="step03"></span>
