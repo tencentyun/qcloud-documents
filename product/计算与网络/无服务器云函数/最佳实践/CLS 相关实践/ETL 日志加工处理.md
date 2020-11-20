@@ -1,6 +1,6 @@
 ## 操作场景
 
-本文为您介绍使用 [云函数 SCF]() 对 CLS 日志进行加工处理。其中，CLS 主要用于日志采集，SCF 主要提供数据加工的节点计算能力。
+本文为您介绍使用 [云函数 SCF](https://cloud.tencent.com/document/product/583) 对 CLS 日志进行加工处理。其中，CLS 主要用于日志采集，SCF 主要提供数据加工的节点计算能力。
 数据流程如下：
 ![](https://main.qcloudimg.com/raw/a85af098f1795b522140a6a4fadac0a6.svg)
 
