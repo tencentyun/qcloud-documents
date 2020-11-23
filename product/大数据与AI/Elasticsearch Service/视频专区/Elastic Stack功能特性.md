@@ -21,12 +21,12 @@
 <td><a href="https://cloud.tencent.com/edu/learning/course-2944">学习当前完整课程</a></td>
 </tr>
 <tr>
-<td>由浅入深介绍 Elastic Stack 里的机器学习功能（第一期）</td>
+<td>Elastic Stack 机器学习（第一期）</td>
 <td><a href="https://cloud.tencent.com/edu/learning/course-2949">学习当前完整课程</a></td>
 </tr>
 <tr>
 <tr>
-<td>由浅入深介绍 Elastic Stack 里的机器学习功能（第二期）</td>
+<td>Elastic Stack 机器学习（第二期）</td>
 <td><a href="https://cloud.tencent.com/edu/learning/course-2950">学习当前完整课程</a></td>
 </tr>
 <tr>
