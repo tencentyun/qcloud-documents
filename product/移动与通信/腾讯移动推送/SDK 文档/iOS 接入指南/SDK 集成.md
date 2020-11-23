@@ -183,10 +183,12 @@ TPNS 及 APNs 通道统一接收消息回调，当应用在前台收到通知消
 ```
 NSDictionary *tpnsInfo = notificationDic[@"xg"];
 NSNumber *msgType = tpnsInfo[@"msgtype"];
- if ([UIApplication sharedApplication].applicationState == UIApplicationStateActive && msgType.integerValue == 1) {
+if (msgType.integerValue == 1) {
         /// 前台收到通知消息
-    } else {
-        /// 静默消息
+    } else if (msgType.integerValue == 2) {
+        /// 收到静默消息
+    } else if (msgType.integerValue == 9) {
+        /// 收到本地通知（TPNS本地通知）
     }
 ```
 
