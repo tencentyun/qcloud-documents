@@ -189,12 +189,6 @@ NSNumber *msgType = tpnsInfo[@"msgtype"];
         /// 静默消息
     }
 ```
-- TPNS 统一消息回调 `xgPushDidReceiveRemoteNotification` 会处理消息接收，并自动后续调用 `application:didReceiveRemoteNotification:fetchCompletionHandler` 方法。然而，该方法也可能被其他 SDK 也进行 hook 调用。
-- 如果您只集成了 TPNS 推送平台，我们不推荐实现此方法，只在统一消息回调中进行处理。
-- 如果您集成了多推送平台，并且需要在 `application:didReceiveRemoteNotification:fetchCompletionHandler` 方法处理其他推送平台的业务，请参照如下指引，避免业务重复：
- - 您需要区分平台消息，在两个消息回调方法中分别拿到消息字典后通过“xg”字段来区分是否是 TPNS 平台的消息，如果是 TPNS 的消息则在 `xgPushDidReceiveRemoteNotification` 方法进行处理，非 TPNS 消息请统一在 `application:didReceiveRemoteNotification:fetchCompletionHandler` 方法处理
- - `xgPushDidReceiveRemoteNotification` 和 `application:didReceiveRemoteNotification:fetchCompletionHandler` 如果都执行，总共只需要调用一次 `completionHandler`。如果其他 SDK 也调用 `completionHandler`，确保整体的 `completionHandler` 只调用一次。这样可以防止由于多次 `completionHandler` 而引起的 crash。
-
 
 统一点击消息回调，此回调方法为应用所有状态（前台、后台、关闭）下的通知消息点击回调。
 ```objective-c
@@ -203,6 +197,14 @@ NSNumber *msgType = tpnsInfo[@"msgtype"];
 /// @note TPNS SDK1.2.7.1+
 - (void)xgPushDidReceiveNotificationResponse:(nonnull id)response withCompletionHandler:(nonnull void (^)(void))completionHandler;
 ```
+
+>!
+>- TPNS 统一消息回调 `xgPushDidReceiveRemoteNotification` 会处理消息接收，并自动后续调用 `application:didReceiveRemoteNotification:fetchCompletionHandler` 方法。然而，该方法也可能被其他 SDK 也进行 hook 调用。
+- 如果您只集成了 TPNS 推送平台，我们不推荐实现此方法，只在统一消息回调中进行处理。
+- 如果您集成了多推送平台，并且需要在 `application:didReceiveRemoteNotification:fetchCompletionHandler` 方法处理其他推送平台的业务，请参照如下指引，避免业务重复：
+ - 您需要区分平台消息，在两个消息回调方法中分别拿到消息字典后通过“xg”字段来区分是否是 TPNS 平台的消息，如果是 TPNS 的消息则在 `xgPushDidReceiveRemoteNotification` 方法进行处理，非 TPNS 消息请统一在 `application:didReceiveRemoteNotification:fetchCompletionHandler` 方法处理
+ - `xgPushDidReceiveRemoteNotification` 和 `application:didReceiveRemoteNotification:fetchCompletionHandler` 如果都执行，总共只需要调用一次 `completionHandler`。如果其他 SDK 也调用 `completionHandler`，确保整体的 `completionHandler` 只调用一次。这样可以防止由于多次 `completionHandler` 而引起的 crash。
+
 
 
 
