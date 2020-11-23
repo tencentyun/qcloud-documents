@@ -1,4 +1,4 @@
-导出器 **wj-export** 组件提供了视频导出的功能，内部复用了 [**wj-player**](https://cloud.tencent.com/document/product/1156/50158)，针对小程序导出进行了专门处理。
+导出器 **wj-export** 组件提供了视频导出的功能，内部复用了 [**wj-player** 组件](https://cloud.tencent.com/document/product/1156/50158)，针对小程序导出进行了专门处理。
 >!受微信 Android 客户端 7.0.19 版本策略影响，导出表现偏慢，预计在11月底的版本修复。
 
 ## 使用方式
