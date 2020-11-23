@@ -30,7 +30,7 @@
 <td><a href="https://cloud.tencent.com/edu/learning/course-2950">学习当前完整课程</a></td>
 </tr>
 <tr>
-<td>腾讯 Elasticsearch 海量规模背后的内核优化剖析</td>
+<td>腾讯 ES 海量规模内核优化剖析</td>
 <td><a href="https://cloud.tencent.com/edu/learning/course-3106">学习当前完整课程</a></td>
 </tr>
 <tr>
