@@ -1,6 +1,4 @@
-## 文字编辑：wj-textEditor
-
-文字编辑组件是一个简单的模拟原生输入框的组件，用于向视频中添加文本贴纸。支持动态修改文本的颜色、背景色及字体（1.4.0 版本新增），提供实时预览功能。
+文字编辑 **wj-textEditor** 组件是一个简单的模拟原生输入框的组件，用于向视频中添加文本贴纸。支持动态修改文本的颜色、背景色及字体（1.4.0 版本新增），提供实时预览功能。
 
 ### 使用方式
 1. 配置 JSON 文件：
@@ -12,7 +10,7 @@
   }
 ```
 2. 在 wxml 中引入组件：
-```
+```wxml
   <wj-textEditor value="{{textValue}}" bindconfirm="onConfirmText"/>
 ```
 3. 字体的下载需要借助小程序的 loadFontFace 方法，需要在`index.js`中，将 loadFontFace 方法通过 exports 输出。
