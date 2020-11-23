@@ -156,3 +156,17 @@ public class StartServers : MonoBehaviour
 		}
 }
 ```
+
+##	Unity DEMO
+1.	[单击这里]( https://gsegrpcdemo-1301007756.cos.ap-guangzhou.myqcloud.com/unity-demo.zip)，您可以下载 Unity DEMO代码。
+2.	导入 grpc unity package。
+   将 [步骤2](#test2) 中  grpc_unity_package 解压到 Demo 工程 unity-demo/Assets 目录下。
+3.	根据 [Protobuf](#test3) 文件生成 C# 代码。
+4.	启动服务端，供 GSE 调用。
+ - 服务端实现，在 `unity-demo/Assets/Scripts/Api` 目录下的 `GrpcServer.cs` 文件中实现服务端的三个接口。
+ - 服务端运行，在 `unity-demo/Assets/Scripts` 目录下的 `MyGrpcServer.cs` 文件中，创建 `gRPC Server`， `StartServers.cs` 从而启动 `gRPC Server`。
+5.	客户端连接 GSE 的 gRPC 服务端。
+ - 客户端实现，在 `unity-demo/Assets/Scripts/Gsemanager` 目录下的 `Gsemanager.cs` 文件实现客户端的九个接口。
+ - 连接服务端，创建一个 gRPC channel，指定要连接的主机和服务器端口，然后使用此 channel 创建存根实例。
+6.	编译运行。
+   使用 Unity Editor 打包目标系统的可执行程序，并打包为生成包，启动路径配置可执行程序名（需根据实际的可执行程序名称填写）。
