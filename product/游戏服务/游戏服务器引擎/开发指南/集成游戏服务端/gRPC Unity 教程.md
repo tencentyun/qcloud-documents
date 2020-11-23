@@ -30,7 +30,7 @@ gRPC 对 Unity 的支持仍处于实验阶段，更多信息可参见 [README](h
 
 ### 步骤4：测试 
 
-[Unity Editor](#test1) 将取出文件并自动添加到项目中，您即可在代码中使用 gRPC 和 Protobuf，如果 Unity Editor 提示错误，详情可参见 [常见问题](#test1)。
+Unity Editor 将取出文件并自动添加到项目中，您即可在代码中使用 gRPC 和 Protobuf，如果 Unity Editor 提示错误，详情可参见 [常见问题](#test1)。
 
 ## Unity 接入 GSE SDK
 
@@ -54,7 +54,7 @@ Unity 接入 GSE SDK 包括以下几个步骤：
     - ` ./protoc -I ./ --csharp_out=. GseGrpcSdkService.proto --grpc_out=. --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe `
     - ` ./protoc -I ./ --csharp_out=. GameServerGrpcSdkService.proto --grpc_out=. --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe`
  
- 如下图所示生成四个 .cs 代码文件的资源。
+ 如下图所示生成四个 .cs 代码文件。
   ![](https://main.qcloudimg.com/raw/dad39ec6bfabea5ee2025b83596fc711.png)
 
 ### 步骤3： Unity 服务端开发使用 GSE SDK
@@ -107,84 +107,52 @@ Unity 接入 GSE SDK 包括以下几个步骤：
 2. 开发 Unity 服务端程序（以 ChatServer 为例）。 
 ```
 public static void StartChatServer(int clientPort)
-	{
-			RegisterHandlers();
-			logger.Println("ChatServer Listen at " + clientPort);
-			NetworkServer.Listen(clientPort);
-	}
+    {
+        RegisterHandlers();
+        logger.Println("ChatServer Listen at " + clientPort);
+        NetworkServer.Listen(clientPort);
+    }
 ```
 3. 开发 gRPC 服务端。
 ```
 public static void StartGrpcServer(int clientPort, int grpcPort, string logPath)
-	{
-			try
-			{
-					Server server = new Server
-					{
-							Services = { GameServerGrpcSdkService.BindService(new GrpcServer()) },
-							Ports = { new ServerPort("127.0.0.1", grpcPort, ServerCredentials.Insecure) },
-					};
-					server.Start();
-					logger.Println("GrpcServer Start On localhost:" + grpcPort);
-					GseManager.ProcessReady(new string[] { logPath }, clientPort, grpcPort);
-			}
-			catch (System.Exception e)
-			{
-					logger.Println("error: " + e.Message);
-			}
-	}
+    {
+        try
+        {
+           Server server = new Server
+           {
+              Services = { GameServerGrpcSdkService.BindService(new GrpcServer()) },
+              Ports = { new ServerPort("127.0.0.1", grpcPort, ServerCredentials.Insecure) },
+            };
+            server.Start();
+            logger.Println("GrpcServer Start On localhost:" + grpcPort);
+            GseManager.ProcessReady(new string[] { logPath }, clientPort, grpcPort);
+        }
+        catch (System.Exception e)
+        {
+           logger.Println("error: " + e.Message);
+        }
+    }
 ```
 4. 启动开发者本身实现的服务端和 gRPC 服务端。
 ```
 public class StartServers : MonoBehaviour
+{
+		private int grpcPort = PortServer.GenerateRandomPort(2000, 6000);
+		private int chatPort = PortServer.GenerateRandomPort(6001, 10000);
+		private const string logPath = "./log/log.txt";
+		// Start is called before the first frame update
+		[Obsolete]
+		void Start()
 		{
-				private int grpcPort = PortServer.GenerateRandomPort(2000, 6000);
-				private int chatPort = PortServer.GenerateRandomPort(6001, 10000);
-				private const string logPath = "./log/log.txt";
-				// Start is called before the first frame update
-				[Obsolete]
-				void Start()
-				{
-				// Start ChatServer By UNet's NetWorkServer, Listen on UDP protocol
-				MyChatServer.StartChatServer(chatPort);
-
-				// Start GrpcServer By Grpc, Listen on TCP protocol
-				MyGrpcServer.StartGrpcServer(chatPort, grpcPort, logPath);
+			 // Start ChatServer By UNet's NetWorkServer, Listen on UDP protocol
+			 MyChatServer.StartChatServer(chatPort);
+			 // Start GrpcServer By Grpc, Listen on TCP protocol
+			 MyGrpcServer.StartGrpcServer(chatPort, grpcPort, logPath);
 		}
-
+		[Obsolete]
 		void OnGUI()
 		{
 		}
-}  
+}
 ```
-
-<span id="test1"></span>
-##	Unity DEMO
-1.	[单击这里]( https://gsegrpcdemo-1301007756.cos.ap-guangzhou.myqcloud.com/unity-demo.zip)，您可以下载 Unity DEMO代码。
-2.	导入 grpc unity package。
-   将 [步骤2](#test2) 中  grpc_unity_package 解压到 Demo 工程 unity-demo/Assets 目录下。
-3.	根据 [Protobuf](#test3) 文件生成 C# 代码。
-4.	启动服务端，供 GSE 调用。
- - 服务端实现，在 `unity-demo/Assets/Scripts/Api` 目录下的 `GrpcServer.cs` 文件中实现服务端的三个接口。
- - 服务端运行，在 `unity-demo/Assets/Scripts` 目录下的 `MyGrpcServer.cs` 文件中，创建 `gRPC Server`， `StartServers.cs` 从而启动 `gRPC Server`。
-5.	客户端连接 GSE 的 gRPC 服务端。
- - 客户端实现，在 `unity-demo/Assets/Scripts/Gsemanager` 目录下的 `Gsemanager.cs` 文件实现客户端的九个接口。
- - 连接服务端，创建一个 gRPC channel，指定要连接的主机和服务器端口，然后使用此 channel 创建存根实例。
-6.	编译运行。
-   使用 Unity Editor 打包目标系统的可执行程序，并打包为生成包，启动路径配置可执行程序名（需根据实际的可执行程序名称填写）。
-
-## 常见问题
-<span id="test1"></span>
-#### 将下载的 `grpc_unity_package.VERSION.zip` 文件解压到 Unity 项目中后，Unity Editor 报错 （例如[ 缺陷22251](https://github.com/grpc/grpc/issues/22251) 中描述）怎么处理？
-解决方案：重新下载 v2.26 版本 [grpc_unity_package.2.26.0-dev.zip](https://packages.grpc.io/archive/2019/12/a02d6b9be81cbadb60eed88b3b44498ba27bcba9-edd81ac6-e3d1-461a-a263-2b06ae913c3f/index.xml) 并解压。
-
-#### 打包 MacOS 服务端程序，运行时出现 `error: grpc_csharp_ext` 错误怎么处理？
-<img src="https://main.qcloudimg.com/raw/703dc0dd20342b4aff5d499f2ac1df85.png" style="width: 718px;"></img>
-解决方案：重命名  `Assert/Plugins/Grpc.Core/runtimes/osx/x64 ` 路径下的  `grpc_csharp_ext.bundle` 文件为 `grpc_csharp_ext`，再将文件拷贝到路径 `YourUnityApp.app/Contents/Frameworks/MonoEmbedRuntime/osx` 下，路径中不存在的目录新建即可。
-
-#### 打包 Linux 服务端程序，运行时出现 `Unable to preload the following plugins: ScreenSelector.so` 错误怎么处理？
-<img src="https://main.qcloudimg.com/raw/f2926b2ac676f2e1e1ce85b8bae397f1.png" style="width: 718px;"></img>
-解决方案：Unity Editor 中，在 `【File】>【Build Settings】` 下勾选  `【Server Build】`，重新打包。
-<img src="https://main.qcloudimg.com/raw/3ffa6a320c4269669c411f32cf7597f0.png" style="width: 718px;"></img>
-
-
