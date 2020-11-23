@@ -125,7 +125,7 @@ room.OnDismissRoom = eve => {
 
 ### 创建房间
 可以通过创建房间、加入房间、匹配等方式进入房间，进入房间后可以继续通过房间消息、帧同步、实时服务器相关接口进行游戏。
-创建房间示例如下：
+创建房间示例代码如下：
 ```
 PlayerInfoPara playerInfoPara = new PlayerInfoPara
 {
