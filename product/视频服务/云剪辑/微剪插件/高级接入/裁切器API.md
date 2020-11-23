@@ -1,4 +1,4 @@
-裁切器**wj-clipper**组件接收标准的 Track 数据，根据一定的规则生成 Clip 的缩略图，绘制到组件中。裁切器通常与 [**wj-player** 组件](https://cloud.tencent.com/document/product/1156/50158) 搭配使用，实现实时的裁切预览功能。
+裁切器 **wj-clipper** 组件接收标准的 Track 数据，根据一定的规则生成 Clip 的缩略图，绘制到组件中。裁切器通常与 [**wj-player** 组件](https://cloud.tencent.com/document/product/1156/50158) 搭配使用，实现实时的裁切预览功能。
 
 ## 使用方式
 1. 配置 JSON 文件：
