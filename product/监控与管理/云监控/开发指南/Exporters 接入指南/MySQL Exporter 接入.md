@@ -82,7 +82,7 @@ MySQL Exporter 使用各种 `Collector` 来控制采集数据的启停，具体�
 | collect.heartbeat                                        | 5.1        | 从 [heartbeat](#heartbeat-.E5.BF.83.E8.B7.B3.E6.A3.80.E6.B5.8B) 中采集监控数据。                  |
 | collect.heartbeat.database                               | 5.1        | 数据库心跳检测的数据源。(默认：heartbeat)                    |
 | collect.heartbeat.table                                  | 5.1        | 表心跳检测的数据源。 (默认：heartbeat)                       |
-| collect.heartbeat.utc                                    | 5.1        | 对当前的数据库服务器使用 UTC 时间戳 (`pt-heartbeat` is called with `--utc`)。(默认: false) |
+| collect.heartbeat.utc                                    | 5.1        | 对当前的数据库服务器使用 UTC 时间戳（`pt-heartbeat` is called with `--utc`）。（默认：false） |
 
 ## 全局配置参数
 
