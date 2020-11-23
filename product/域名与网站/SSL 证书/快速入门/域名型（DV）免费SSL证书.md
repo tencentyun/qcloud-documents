@@ -8,13 +8,29 @@
 ## 申请免费证书
 
 1. 登录 [SSL证书管理控制台](https://console.cloud.tencent.com/ssl)，选择【证书管理】>【证书列表】，单击【申请免费证书】。如下图所示：
-![](https://main.qcloudimg.com/raw/386c4db32d43af0ee2ce026f26420d11.png)
+![](https://main.qcloudimg.com/raw/ec1f3684853a8ab3308942621d053065.png)
 2. 在弹出的【确认证书类型】窗口中，单击【确定】。如下图所示：
-![](https://main.qcloudimg.com/raw/67c9a271ea357da40cba2bb10f272354.png)
+![](https://main.qcloudimg.com/raw/bd1d90455818626c0f1f242ffb23303c.png)
+
 3. 填写证书申请内容，例如 `qcloud.com`，`cloud.tencent.com`，`demo.test.qlcoud.com`。
-![](https://main.qcloudimg.com/raw/2ab25b49b5c81742719f28a3c3008e5b.png)
-4. 单击【下一步】，选择域名身份验证。
-5. 单击【确认申请】，完成域名身份验证即可获取证书，具体可参考 [域名验证指引](https://cloud.tencent.com/document/product/400/4142)。
+
+![](https://main.qcloudimg.com/raw/89e50b8021ebadec1253ca34908f6a7c.png)
+**算法选择**：勾选所需证书的加密算法。详情算法说明请查看：[如何选择证书加密算法？](1)
+**证书绑定域名**：即绑定证书的域名，请填写单个域名。例如tencent.com、ssl.tencent.com。
+**申请邮箱**：请输入您的邮箱地址。
+**证书备注名**：可选，请输入证书的备注名称。不可超过200字。
+**私钥密码**：可选，为了保障私钥安全，目前**不支持密码找回**功能，请您牢记私钥密码。
+>?
+> 如需部署腾讯云负载均衡、CDN等云服务，请勿填写私钥密码 。
+**标签**：您可选选择您证书标签。通过标签来进行腾讯云已有资源的分类管理，通过预设标签来进行资源规划。详情请查看：[标签](https://cloud.tencent.com/document/product/651)
+**所属项目**：您可选选择您证书所属项目，方便您通过项目管理您的证书。
+
+
+4. 单击【下一步】，选择域名验证方式。验证方式详情请查看：[域名验证方式](https://cloud.tencent.com/document/product/400/4142#2.E3.80.81.E6.89.8B.E5.8A.A8dns.E9.AA.8C.E8.AF.81)。
+5. 单击【下一步】，完成域名身份验证即可获取证书，具体操作可参考 [域名验证指引](https://cloud.tencent.com/document/product/400/4142)。
+
+
+
 
 >?
  - 免费证书提供二级域名证书申请。
@@ -23,4 +39,4 @@
  
 ## 下载和部署
 完成域名审核后，颁发的证书可下载到本地，或者部署到腾讯云相关云服务。如下图所示：
-![](https://main.qcloudimg.com/raw/573219f8f6e954e681d27c8f0eb79746.png)
+![](https://main.qcloudimg.com/raw/9a5da5fd8ad024b312dda508572317b9.png)
