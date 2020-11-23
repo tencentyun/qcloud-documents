@@ -51,7 +51,7 @@
 </tr>
 <tr>
 <td>带宽上限</td>
-<td>支持2 - 100000Mbps</td>
+<td><ul><li>若端口规格选择 1G，则可设置的带宽上限范围为 2Mbps-1000Mbps。</li><li>若端口规格选择 10G，则可设置的带宽上限范围为 2Mbps-10000Mbps。</li></ul></td>
 <td>- </td>
 </tr>
 </table>
