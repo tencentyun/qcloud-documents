@@ -4,7 +4,7 @@
 
 即时通信 IM 目前支持小米推送、华为推送、魅族推送、vivo 推送、OPPO 推送以及 Google FCM 推送，即时通信 IM 使用的厂商通道依赖由 [移动推送 TPNS](https://cloud.tencent.com/product/tpns) 统一提供和维护，无需再额外集成厂商通道。当您添加 [移动推送 TPNS](https://cloud.tencent.com/product/tpns) 的厂商通道依赖后，即可使用即时通信 IM 的离线推送功能，若您只使用 IM 的离线推送功能将不会产生额外费用。目前支持的厂商通道如下：
 
->?如您需提升推送的抵达率，或进行多样化推送，推荐您安装 [移动推送 TPNS](https://cloud.tencent.com/product/tpns) 的 [SDK](https://console.cloud.tencent.com/tpns/sdkdownload) 体验完整的推送服务。若您同时使用即时通信 IM 和 [移动推送 TPNS](https://cloud.tencent.com/product/tpns)，无需重复集成厂商通道）
+>?如需提升推送的抵达率，或进行多样化推送，推荐您安装 [移动推送 TPNS](https://cloud.tencent.com/product/tpns) 的 [SDK](https://console.cloud.tencent.com/tpns/sdkdownload) 体验完整的推送服务。若您同时使用即时通信 IM 和 [移动推送 TPNS](https://cloud.tencent.com/product/tpns)，无需重复集成厂商通道）
 <table> 
    <tr> 
      <th nowrap="nowrap">推送通道</th> 
@@ -20,16 +20,13 @@
    <tr> 
      <td>华为推送</td> 
      <td>EMUI</td> 
-     <td>使用华为推送，添加依赖：
-implementation 'com.tencent.tpns:huawei:1.2.1.2-release'
-和<br> implementation 'com.huawei.hms:push:5.0.2.300'
+     <td>使用华为推送，添加依赖：implementation 'com.tencent.tpns:huawei:1.2.1.2-release' 和 implementation 'com.huawei.hms:push:5.0.2.300'
 </td> 
    </tr> 
    <tr> 
      <td nowrap="nowrap">Google FCM 推送</td> 
      <td nowrap="nowrap">Android 4.1 及以上</td> 
-     <td>手机端需安装 Google Play Services 且在中国大陆地区以外使用。<br>
-添加依赖：implementation 'com.google.firebase:firebase-messaging:20.2.3'
+     <td>手机端需安装 Google Play Services 且在中国大陆地区以外使用。添加依赖：implementation 'com.google.firebase:firebase-messaging:20.2.3'
 </td> 
    </tr> 
    <tr> 
@@ -41,13 +38,13 @@ implementation 'com.tencent.tpns:huawei:1.2.1.2-release'
    <tr> 
      <td nowrap="nowrap">OPPO 推送</td> 
      <td>ColorOS</td> 
-     <td>并非所有 OPPO 机型和版本都支持使用 OPPO 推送。使用 OPPO 推送，<br>添加依赖：implementation 'com.tencent.tpns:oppo:1.2.1.2-release'
+     <td>并非所有 OPPO 机型和版本都支持使用 OPPO 推送。使用 OPPO 推送，添加依赖：implementation 'com.tencent.tpns:oppo:1.2.1.2-release'
 </td> 
    </tr>  
    <tr> 
      <td nowrap="nowrap">vivo 推送</td> 
      <td nowrap="nowrap">FuntouchOS</td> 
-     <td>并非所有 OPPO 机型和版本都支持使用 OPPO 推送。使用 vivo 推送，<br>添加依赖：implementation 'com.tencent.tpns:vivo:1.2.1.2-release'
+     <td>并非所有 OPPO 机型和版本都支持使用 OPPO 推送。使用 vivo 推送，添加依赖：implementation 'com.tencent.tpns:vivo:1.2.1.2-release'
 </td> 
    </tr> 
 </table>
