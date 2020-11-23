@@ -194,34 +194,34 @@ spec:
 > ? `port` 的取值为 `service yaml` 配置文件里的 `spec/ports/name` 对应的值。
 
 ```yaml
-  apiVersion: monitoring.coreos.com/v1
-  kind: ServiceMonitor
-  metadata:
-    # 填写一个唯一名称
-    name: spring-mvc-demo
-    # namespace固定，不要修改
-    namespace: cm-prometheus
-  spec:
-    endpoints:
-    - interval: 30s
-      # 填写service yaml中Prometheus Exporter对应的Port的Name
-      port: 2112
-      # 填写Prometheus Exporter对应的Path的值，不填默认/metrics
-      path: /metrics
-    # 选择要监控service所在的namespace
-    namespaceSelector:
-      matchNames:
-      - golang-demo
-    # 填写要监控service的Label值，以定位目标service
-    selector:
-      matchLabels:
-        app: golang-app-demo
-    relabelings:
-      # ** 必须要有一个 label 为 application，这里假设 k8s 有一个 label 为 app，
-      # 我们通过 relabel 的 replace 动作把它替换成了 application
-      - action: replace
-        sourceLabels:  [__meta_kubernetes_pod_label_app]
-        targetLabel: application
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+	# 填写一个唯一名称
+	name: spring-mvc-demo
+	# namespace固定，不要修改
+	namespace: cm-prometheus
+spec:
+	endpoints:
+	- interval: 30s
+		# 填写service yaml中Prometheus Exporter对应的Port的Name
+		port: 2112
+		# 填写Prometheus Exporter对应的Path的值，不填默认/metrics
+		path: /metrics
+	# 选择要监控service所在的namespace
+	namespaceSelector:
+		matchNames:
+		- golang-demo
+	# 填写要监控service的Label值，以定位目标service
+	selector:
+		matchLabels:
+			app: golang-app-demo
+	relabelings:
+		# ** 必须要有一个 label 为 application，这里假设 k8s 有一个 label 为 app，
+		# 我们通过 relabel 的 replace 动作把它替换成了 application
+		- action: replace
+			sourceLabels:  [__meta_kubernetes_pod_label_app]
+			targetLabel: application
 ```
 
 >!示例中名称为 application 的 Label 必须配置，否则无法使用我们提供一些其它的开箱即用的集成功能。更多高阶用法请参见 [ServiceMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#servicemonitor) 或 [PodMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#podmonitor)。
@@ -236,6 +236,6 @@ spec:
 
 ## 总结
 
-本文通过两个示例展示了如何将 Golang 相关的指标暴露给 Prometheus 托管服务，以及如何使用内置的可视化的图表查看监控数据。文档只使用了计数类型 Counter 的指标，对于其它场景可能还需要 Gauge，Histgram 以及 Summary 类型的指标，可参见 [指标类型](https://prometheus.io/docs/concepts/metric_types/)。
+本文通过两个示例展示了如何将 Golang 相关的指标暴露给 Prometheus 托管服务，以及如何使用内置的可视化的图表查看监控数据。文档只使用了计数类型 Counter 的指标，对于其它场景可能还需要 Gauge，Histgram 以及 Summary 类型的指标， [指标类型](https://prometheus.io/docs/concepts/metric_types/)。
 
 对于其它应用场景，我们会集成更多框架提供更多开箱即用的指标监控、可视化面板以及告警模板。
