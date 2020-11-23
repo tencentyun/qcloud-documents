@@ -22,6 +22,7 @@
 | [setDefaultStreamRecvMode](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a0b8d004665d5003ce1d9a48a9ab551b3) | 设置音视频数据接收模式，需要在进房前设置才能生效。           |
 | [createSubCloud](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3c4a93d24e0ef076168b44cf3545a8d4) | 创建子 [TRTCCloud](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloud) 实例。 |
 | [destroySubCloud](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a6dc091ead812c50497c4b4e87e5c2fcf) | 销毁子 [TRTCCloud](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloud) 实例。 |
+| [switchRoom](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a09fbe471def0c1790357fc2b70149784) | 切换房间。 |
 
 
 ### CDN 相关接口函数
@@ -50,25 +51,21 @@
 | [muteAllRemoteVideoStreams](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a2d8a7b74068026a85158262cc9aedd66) | 暂停/恢复接收所有远端视频流。                                |
 | [setVideoEncoderParam](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ae047d96922cb1c19135433fa7908e6ce) | 设置视频编码器相关参数。                                     |
 | [setNetworkQosParam](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a02631a5e4251657875535c38ab319239) | 设置网络流控相关参数。                                       |
-| [setLocalViewFillMode](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#af36ab721c670e5871e5b21a41518b51d) | 设置本地图像的渲染模式。                                     |
-| [setRemoteViewFillMode](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ab4197bc2efb62b471b49f926bab9352f) | 设置远端图像的渲染模式。                                     |
-| [setLocalViewRotation](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a87fd1307871debc7c051de4878eb6d69) | 设置本地图像的顺时针旋转角度。                               |
-| [setRemoteViewRotation](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a8478d804d2a07520ce2bc5466b727839) | 设置远端图像的顺时针旋转角度。                               |
+| [setLocalRenderParams](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#afe6ea1bf7c959722595356a9b7fc2179) | 设置本地图像的渲染模式。 |
+| [setRemoteRenderParams](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a069766641cee1aff4844d0beaa18ee13) | 设置远端图像相关参数。 |
 | [setVideoEncoderRotation](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a272afecae1d291033cb9cd4b1d7b52e0) | 设置视频编码输出的画面方向，即设置远端用户观看到的和服务器录制的画面方向。 |
-| [setLocalViewMirror](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa353b5cf5662c43252eb8e5132f041c1) | 设置本地摄像头预览画面的镜像模式。                           |
-| [setVideoEncoderMirror](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a32d9ba3696b305373508253f9bee8236) | 设置编码器输出的画面镜像模式。                               |
-| [setGSensorMode](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#abbbe1548bfba0bd082a08478ce35e9bc) | 设置重力感应的适应模式。                                     |
-| [enableEncSmallVideoStream](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3a040c5012cf572b9dfabcca87f2cbb7) | 开启大小画面双路编码模式。                                   |
+| [setVideoEncoderMirror](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a32d9ba3696b305373508253f9bee8236) | 设置编码器输出的画面镜像模式。 |
+| [setGSensorMode](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#abbbe1548bfba0bd082a08478ce35e9bc) | 设置重力感应的适应模式。 |
+| [enableEncSmallVideoStream](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3a040c5012cf572b9dfabcca87f2cbb7) | 开启大小画面双路编码模式。 |
 | [setRemoteVideoStreamType](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a2a018cc1010587ea9b0fbd791eb3c54f) | 选定观看指定 uid 的大画面或小画面。                          |
-| [setPriorRemoteVideoStreamType](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ad2efc2703c86ee009bd4a1d440d0c1e0) | 设定观看方优先选择的视频质量。                               |
-| [snapshotVideo](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ae75285c95fc53651e24fa23c4141093b) | 视频画面截图。                                               |
+| [setPriorRemoteVideoStreamType](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ad2efc2703c86ee009bd4a1d440d0c1e0) | 设定观看方优先选择的视频质量。 |
+| [snapshotVideo](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ae75285c95fc53651e24fa23c4141093b) | 视频画面截图。 |
 
 
 ### 音频相关接口函数
 
 | API                                                          | 描述                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [setAudioQuality](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a955cccaddccb0c993351c656067bee55) | 设置音频质量 主播端的音质越高，观众端的听感越好，但传输所依赖的带宽也就越高，在带宽有限的场景下也更容易出现卡顿。 |
 | [startLocalAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a9428ef48d67e19ba91272c9cf967e35e) | 开启本地音频的采集和上行。                                   |
 | [stopLocalAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a272bba21d046347ac42d76069ba5972c) | 关闭本地音频的采集和上行。                                   |
 | [muteLocalAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86) | 静音/取消静音本地的音频。                                    |
@@ -86,18 +83,11 @@
 | [enableAudioEarMonitoring](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a9306bca7c6a13e0443a3fa1b40c9f343) | 开启耳返。                                                   |
 
 
-### 摄像头相关接口函数
+### 设备管理接口
 
-| API                                                          | 描述                                   |
-| ------------------------------------------------------------ | -------------------------------------- |
-| [switchCamera](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a1b43a65a32f9dcb81b39b9c51c5bc4c6) | 切换摄像头。                           |
-| [isCameraZoomSupported](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ac7ae26eca2f9a673121803d6d175b034) | 查询当前摄像头是否支持缩放。           |
-| [setZoom](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a9f761eebdf04f724e0d1591c41c6045f) | 设置摄像头缩放因子（焦距）。           |
-| [isCameraTorchSupported](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a645183ba7c0cea748973796cb38aad8c) | 查询是否支持开关闪光灯（手电筒模式）。 |
-| [enableTorch](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a09253f6547914d54058831b61325e770) | 开关闪光灯。                           |
-| [isCameraFocusPositionInPreviewSupported](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#abd39aca40adfc8da6beaf32141f84cfa) | 查询是否支持设置焦点。                 |
-| [setFocusPosition](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa7c65fb033727804e7a79b8f135c776c) | 设置摄像头焦点。                       |
-| [isCameraAutoFocusFaceModeSupported](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a23f25ffb81215a32517da78455459ff2) | 查询是否支持自动识别人脸位置。         |
+| API | 描述 |
+|-----|-----|
+| [getDeviceManager](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ae66395bc404d205fcd7fe9082ca85ce9) | 获取设备管理模块。 |
 
 
 ### 美颜滤镜相关接口函数
@@ -123,10 +113,6 @@
 | [stopScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ab6c3014f6f88c775aa91fccea19ce8a4) | 停止屏幕采集。                     |
 | [pauseScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a56af9ada2d43cfb497fe44fa6d4b99cf) | 暂停屏幕分享。                     |
 | [resumeScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a155ed7b6bcf2edf3259d26b8f8fdfe7e) | 恢复屏幕分享。                     |
-| [startRemoteSubStreamView](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#acdbe3829d20f58cedd5a0c2f49ea24dc) | 开始显示远端用户的屏幕分享画面。   |
-| [stopRemoteSubStreamView](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ae5f540d795425046c9166b0a2361a8de) | 停止显示远端用户的屏幕分享画面。   |
-| [setRemoteSubStreamViewFillMode](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a73f66e66ffee44e19ebb4d8c56c89718) | 设置屏幕分享画面的显示模式。       |
-| [setRemoteSubStreamViewRotation](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#affdf177b468fdf40a41782e2e47524cc) | 设置屏幕分享画面的顺时针旋转角度。 |
 
 
 ### 自定义采集和渲染
@@ -140,7 +126,6 @@
 | [enableCustomAudioCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a206b9ce3594aa535b633d4f7c8f97210) | 启用音频自定义采集模式。        |
 | [sendCustomAudioData](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a30a542b7d540c8699595a22ca3401f29) | 向 SDK 投送自己采集的音频数据。 |
 | [setAudioFrameListener](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a034b6fce9a517267acd874c243efc575) | 设置音频数据回调。 |
-| [setEncodedDataProcessingListener](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a2ef4e7b980517544bcd014ae781c5257) | 设置编码后的数据回调。 |
 
 
 ### 自定义消息发送
@@ -210,6 +195,27 @@
 | [setAllAudioEffectsVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a9bb41c4ff1a5b24ca742fe3ce45a2bc0) | 设置所有音效的音量。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
 | [pauseAudioEffect](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ab32923d04ce164b82879b3e05833959f) | 暂停音效。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
 | [resumeAudioEffect](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a33ab6e798d3da245435166464b702d4f) | 恢复音效。v7.3 版本弃用，请使用 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TXAudioEffectManager__android.html) 设置音效和背景音乐。 |
+| [startRemoteView](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a57541db91ce032ada911ea6ea2be3b2c2) | 开始显示远端视频画面 弃用v7.9 版本弃用，请使用 startRemoteView(userId, streamType, view)。 |
+| [stopRemoteView](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a8f3e86bc219090d0e8f2d5c2fab4467a2) | 停止显示远端视频画面，同时不再拉取该远端用户的视频数据流。 |
+| [setLocalViewFillMode](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#af36ab721c670e5871e5b21a41518b51d) | 设置本地图像的渲染模式。 |
+| [setLocalViewRotation](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a87fd1307871debc7c051de4878eb6d69) | 设置本地图像的顺时针旋转角度。 |
+| [setLocalViewMirror](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa353b5cf5662c43252eb8e5132f041c1) | 设置本地摄像头预览画面的镜像模式。 |
+| [setRemoteViewFillMode](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ab4197bc2efb62b471b49f926bab9352f) | 设置远端图像的渲染模式。 |
+| [setRemoteViewRotation](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a8478d804d2a07520ce2bc5466b727839) | 设置远端图像的顺时针旋转角度。 |
+| [setAudioQuality](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a955cccaddccb0c993351c656067bee55) | 设置音频质量 主播端的音质越高，观众端的听感越好，但传输所依赖的带宽也就越高，在带宽有限的场景下也更容易出现卡顿。 |
+| [startLocalAudio](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a9428ef48d67e19ba91272c9cf967e35e2) | 开启本地音频的采集和上行。 |
+| [startRemoteSubStreamView](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#acdbe3829d20f58cedd5a0c2f49ea24dc) | 开始显示远端用户的屏幕分享画面。 |
+| [stopRemoteSubStreamView](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ae5f540d795425046c9166b0a2361a8de) | 停止显示远端用户的屏幕分享画面。 |
+| [setRemoteSubStreamViewFillMode](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a73f66e66ffee44e19ebb4d8c56c89718) | 设置屏幕分享画面的显示模式。 |
+| [setRemoteSubStreamViewRotation](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#affdf177b468fdf40a41782e2e47524cc) | 设置屏幕分享画面的顺时针旋转角度。 |
+| [switchCamera](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a1b43a65a32f9dcb81b39b9c51c5bc4c6) | 切换摄像头 弃用v7.9 版本弃用，请使用 TXDeviceManager 中的函数。 |
+| [isCameraZoomSupported](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ac7ae26eca2f9a673121803d6d175b034) | 查询当前摄像头是否支持缩放 弃用v7.9 版本弃用，请使用 TXDeviceManager 中的函数。 |
+| [setZoom](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a9f761eebdf04f724e0d1591c41c6045f) | 设置摄像头缩放因子（焦距）。 |
+| [isCameraTorchSupported](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a645183ba7c0cea748973796cb38aad8c) | 查询是否支持开关闪光灯（手电筒模式） 弃用v7.9 版本弃用，请使用 TXDeviceManager 中的函数。 |
+| [enableTorch](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a09253f6547914d54058831b61325e770) | 开关闪光灯。 |
+| [isCameraFocusPositionInPreviewSupported](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#abd39aca40adfc8da6beaf32141f84cfa) | 查询是否支持设置焦点 弃用v7.9 版本弃用，请使用 TXDeviceManager 中的函数。 |
+| [setFocusPosition](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa7c65fb033727804e7a79b8f135c776c) | 设置摄像头焦点。 |
+| [isCameraAutoFocusFaceModeSupported](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a23f25ffb81215a32517da78455459ff2) | 查询是否支持自动识别人脸位置 弃用v7.9 版本弃用，请使用 TXDeviceManager 中的函数。 |
 
 
 ### 播放背景音乐的回调接口
@@ -245,6 +251,7 @@
 | [onSwitchRole](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#a6a4b7f39bc5dfb0c5d75ef8802e2e758) | 切换角色的事件回调。                |
 | [onConnectOtherRoom](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#ac9fd524ab9de446f4aaf502f80859e95) | 请求跨房通话（主播 PK）的结果回调。 |
 | [onDisConnectOtherRoom](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#a6f7db4f0aaadad2cdfa822ba0060414c) | 结束跨房通话（主播 PK）的结果回调。 |
+| [onSwitchRoom](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#a9778a84932f02de9be52ea7513f606c1) | 切换房间 (switchRoom) 的结果回调。 |
 
 
 ### 成员事件回调
@@ -369,6 +376,7 @@
 | [TRTCParams](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#a1751af68516425e5556e2057d0c90915) | 进房参数。                              |
 | [TRTCVideoEncParam](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCVideoEncParam) | 编码参数。                              |
 | [TRTCNetworkQosParam](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCNetworkQosParam) | 网络流控相关参数。                      |
+| [TRTCRenderParams](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCRenderParams) | 远端图像参数。 |
 | [TRTCQuality](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCQuality) | 视频（或网络）质量。                    |
 | [TRTCTexture](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCTexture) | 视频纹理数据，包含纹理 ID 及 EGL 环境。 |
 | [TRTCVideoFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCVideoFrame) | 视频帧信息。                            |
@@ -381,6 +389,7 @@
 | [TRTCAudioRecordingParams](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCAudioRecordingParams) | 录音参数。 |
 | [TRTCAudioEffectParam](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#ad82a59c2209c0596dabaee1152820494) | 音效。 |
 | [TRTCScreenShareParams](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCCloudDef_1_1TRTCScreenShareParams) | 屏幕分享参数。 |
+| [TRTCSwitchRoomConfig](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#a1b79e0e45a5f137df2e1995af7c0885c) | 切换房间参数。 |
 | [TRTCStatistics](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCStatistics) | 统计数据。 |
 | [TRTCRemoteStatistics](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCStatistics_1_1TRTCRemoteStatistics) | 远端成员的音视频统计信息。 |
 | [TRTCLocalStatistics](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#classcom_1_1tencent_1_1trtc_1_1TRTCStatistics_1_1TRTCLocalStatistics) | 自己本地的音视频统计信息。 |

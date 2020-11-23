@@ -95,3 +95,6 @@ echo $signStr
 CKu55Y3ZD6RuxpjPySM6U99imbs=
 ```
 使用其它程序设计语言开发时，可用上面示例中的原文进行签名验证，得到的签名串与例子中的一致即可。
+
+## 调试工具
+使用应用端 API [调试工具](https://iot.cloud.tencent.com/apidebug)，快速调试应用端 API。

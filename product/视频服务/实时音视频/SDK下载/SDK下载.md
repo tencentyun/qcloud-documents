@@ -1,7 +1,7 @@
 以下视频将为您介绍实时音视频各个版本的 SDK： 
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2497-42188?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
-
+ 
 <h2 id="TRTC">精简版（TRTC）</h2> 
 精简版仅包含 TRTC 和直播播放（TXLivePlayer）两项功能，对 App 的安装包体积增量最小，适合仅使用 TRTC 相关功能的客户。
 
@@ -137,6 +137,7 @@
 
 
 <h2 id="Enterprise">企业版（Enterprise）</h2>
+
 企业版除包含专业版的所有功能以外，还集成了 AI 美颜特效组件，支持大眼、瘦脸、美容和动效贴纸、挂件等 AI 美颜特效能力。AI 美颜特效属于增值服务，由 [美颜特效 SDK](https://cloud.tencent.com/document/product/616) 收取相关费用，计费详情请参见 [美颜特效 SDK 价格总览](https://cloud.tencent.com/document/product/616/36807)。企业版下载后需要美颜特效 SDK 的解压密码和授权 License 才能运行，解码密码和授权 License 请根据 [美颜特效 SDK 购买流程](https://cloud.tencent.com/document/product/616/11235) 获取。
 
 <table>

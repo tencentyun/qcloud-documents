@@ -2,18 +2,28 @@
 
 ## 1.24.0-Finchley-RELEASE（2020-09-25）
 
-### Bug 修复
+### 新特性
+- 支持云上 Spring Cloud 应用平滑迁移 TSF。
+- 支持 PostgreSQL 组件调用链。
 
+### Bug 修复
 - spring-cloud-tsf-consul-config：
   - 修复本地加密配置不能正确解密的问题。
   - 修复 MySQL 调用链对多数据源支持。
 - spring-cloud-tsf-core：
   增加线程上下文接口，在父亲线程中塞入线程局部变量后，子线程不论是线程池反复使用还是一次性使用都能正确继承父线程局部变量。
   
-### 新特性
-- 支持云上 Spring Cloud 应用平滑迁移 TSF。
-- 支持 PostgreSQL 组件调用链。
-    
+ 
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.5-Finchley-RELEASE（2020-11-11）
+### 优化
+- spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
+- spring-cloud-tsf-sleuth 修改调用 SQL 存储的最长长度到64000字符。
+- 调整泳道入口行为。
+
 ### 版本建议
 
 支持向后兼容，建议全量升级。
