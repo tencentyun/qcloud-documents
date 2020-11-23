@@ -75,22 +75,22 @@
 ![](https://main.qcloudimg.com/raw/2a60cc0a4e797fbb0163393e3233f9d6.png)
 以下是几种常见的检索清单报告的检索语句：
  - 查询某一天某类存储类型有多少文件：
-```
+```plaintext
 select count(*) from cosobject s where s._7 = <storage_class>
 select count(*) from cosobject s where s._7 = 'Standard'
 ```
  - 查询某一天某类存储类型有多少 MB 容量：
-```
+```plaintext
 select SUM(CAST(s._4 AS FLOAT))/1024/1024 from cosobject s where s._7 = <storage_class>
 select SUM(CAST(s._4 AS FLOAT))/1024/1024 from cosobject s where s._7 = 'Standard'
 ```
  - 查询某类存储类型小于64KB的文件数量：
-```
+```plaintext
 select count(*) from cosobject s where s._7 = <storage_class>  and CAST(s._4 AS FLOAT) < <SIZE>
 select count(*) from cosobject s where s._7 = 'Standard_IA' and s._4 < 64*1024
 ```
  - 查询桶内跨地域复制失败的文件数量：
-```
+```plaintext
 select count(*) from cosobject s where s._9 = 'Failed'
 ```
 
