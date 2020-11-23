@@ -1,15 +1,12 @@
-## 播放器：wj-player
-
-`wj-player` 是支持微剪运行的核心组件，它是由轨道数据驱动运行的播放器，并内置了一些常用功能。
-
->?v1.4.0后新增功能：
+播放器 **wj-player** 是支持微剪运行的核心组件，它是由轨道数据驱动运行的播放器，并内置了一些常用功能。
+>?v1.4.0 后新增功能：
 >- 贴纸，详情请参见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440)。
 >- 文字和贴纸内置编辑控件，详情请参见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
 >
->v1.5.0后新增功能：
+>v1.5.0 后新增功能：
 >转场和动效，详情请参见 [转场和动效](https://cloud.tencent.com/document/product/1156/50070)。
 
-### 使用方式
+## 使用方式
 1. 配置 JSON 文件：
 ```json
   {
@@ -34,12 +31,12 @@
       bindended="playerEnd"></wj-player>
 ```
 
-### 属性说明
+## 属性说明
 
 | 属性名               | 类型     | 默认值                                                       | 说明                                                         | 必填 |
 | -------------------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ---- |
 | containerStyleConfig | Object   | `{height: 1334, width: 750}`                                 | 播放器的尺寸                                                 | 否   |
-| mode                 | String   | default                                                      | <li />default：video 模式<li />offscreen：decoder offscreen 模式（导出模式），推荐直接使用 `wj-export` 组件 | 否   |
+| mode                 | String   | default                                                      | <li />default：video 模式<li />offscreen：decoder offscreen 模式（导出模式），推荐直接使用`wj-export`组件 | 否   |
 | allowSetVolumn       | Boolean  | false                                                        | 是否需要调整视频原声音量                                     | 否   |
 | enableTapPause       | Boolean  | false                                                        | 是否启用点击暂停                                             | 否   |
 | enablePauseIcon      | Boolean  | true                                                         | 是否显示暂停按钮                                             | 否   |
@@ -64,7 +61,7 @@
 | bindclipedit    | Function | 详见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441#.E4.BD.8D.E7.A7.BB.E3.80.81.E7.BC.A9.E6.94.BE.E5.92.8C.E6.97.8B.E8.BD.AC)                                                     |clip 位移、旋转、缩放                                   | 否   |
 | bindclipoperation   | Function | 详见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441#.E5.85.B6.E4.BB.96.E6.8C.89.E9.92.AE)                                                     |编辑控件按钮点击                                 | 否   |
 
-### 方法说明
+## 方法说明
 
 | 方法名        | 参数   | 返回值       | 说明                                     |
 | ------------- | ------ | ------------ | ---------------------------------------- |
@@ -83,20 +80,15 @@
 | preloadSticker| String（spritesheet 地址或 key 值）| -       | 异步方法，预加载贴纸       |
 
 播放器围绕 Tracks 和 Clips 进行视频渲染， 前文数据结构详细介绍了 Tracks 和 Clips 直接的关系。接下来，我们一起来看一下如何对播放器进行渲染。
-
 >?
 >- 定制滤镜目前只支持 LUT 图滤镜，由于小程序下载文件的限制，LUT 图需要先 downloadFile 到本地。
 >- 定制特效需要传入特效的片元着色器，详情见 [自定义特效和滤镜](https://cloud.tencent.com/document/product/1156/48621)。
->- v1.4.0之后支持贴纸渲染，贴纸和文字的位移和缩放，详见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440) 和 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
+>- v1.4.0 之后支持贴纸渲染，贴纸和文字的位移和缩放，详见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440) 和 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
 
-### 播放器使用示例
-
+## 播放器使用示例
 下述内容为您讲解如何使用播放器添加各种类型的轨道。
-
-#### 获取播放器实例
-
-使用调用播放器支持的方法，需要先获取 `player` 组件的实例。步骤如下：
-
+### 获取播放器实例
+使用调用播放器支持的方法，需要先获取`player`组件的实例。步骤如下：
 1.  wxml 里设置组件 id：
 ```html
 <wj-player id="my-player"></wj-player>
@@ -107,10 +99,10 @@ let player = this.selectComponent("#my-player")
 this.player = player;
 ```
 
-#### 添加媒体轨道
+### 媒体轨道使用说明
 `wj-player`的播放必须有一条媒体轨道， 视频或者图片都需要加入到媒体轨道里。步骤如下：
 >? 因为图片在播放器中将会默认当做3秒的静态视频播放，类似抖音。所以在播放器中图片和视频都属于媒体元素。
-
+>
 1. 创建视频轨道 Track，设置视频轨道的 type 为 media。
 ```javascript
   this.mediaTrack = new global['wj-types'].Track({
@@ -153,7 +145,7 @@ this.player = player;
 <td>id</td>
 <td>id 可以自定义，如果不传则由播放器内部自动生成。</td>
 </tr></table>
-2. 因为 Clip 需要运行在 Track 中，接下来将 Clip 添加进 media 轨道：
+	2. 因为 Clip 需要运行在 Track 中，接下来将 Clip 添加进 media 轨道：
 ```javascript
       this.mediaTrack.clips = [videoClip1];
 ```
@@ -181,11 +173,11 @@ this.player = player;
 ```
 >? 可以看到此时媒体轨道中已经添加一个视频和一张图片。以此类推，您可以按照这种方式添加更多的视频或者图片。
 4. 更新播放器。<span id="updata_play"></span>
-播放器均通过 `updateData` 方法实现更新，`updateData` 接受的参数为包含轨道的数组。以创建的媒体轨道后更新播放器为例，只需`updateData([媒体轨道])` 即可 ：
+播放器均通过`updateData`方法实现更新`updateData`接受的参数为包含轨道的数组。以创建的媒体轨道后更新播放器为例，只需`updateData([媒体轨道])`即可 ：
 ```javascript
   this.player.updateData([this.mediaTrack]);
 ```
->? 以此类推，若您的播放器中包含视频，音乐，特效等，则 `updateData([媒体轨道，音乐轨道， 特效轨道])`。
+>? 以此类推，若您的播放器中包含视频，音乐，特效等，则`updateData([媒体轨道，音乐轨道， 特效轨道])`。
 5. 修改视频时长。<span id="change_video"></span>
 以修改视频片段 videoClip1 时长为例，直接修改 videoClip1 的 section 属性。
 ```javascript
@@ -220,8 +212,7 @@ videoClip1.startAt = 1;
   this.player.updateData([this.mediaTrack]);
 ```
 
-####   添加音乐轨道
-
+### 音乐轨道使用说明
 1. 添加音乐轨道：
 ```javascript
   this.musicTrack = new global['wj-types'].Track({
@@ -245,8 +236,8 @@ videoClip1.startAt = 1;
 		startAt: 0
 	})
 ```
-#### 说明
-	- `tempFilePath` 为在线音乐地址。
+>?
+	- `tempFilePath`为在线音乐地址。
 	- 参数基本与视频的 Clip 一致，具体详情请参见 [Clip 参数详解](#clip_parameter)。
 	- section 的 end 值为1000， 一般用于给整个视频添加一段音乐的情况，播放器内部会自动调整为实际的视频时长。
 	- 将 musicClip1 加入到 musicTrack 中：
@@ -272,13 +263,13 @@ videoClip1.startAt = 1;
   this.player.updateData([this.mediaTrack, this.musicTrack]);
 ```
 4. 删除音乐。
- 在播放器的轨道中去掉 `this.musicTrack` 音乐轨道，并重新调用 `updateData` 即可成功删除音乐。
+ 在播放器的轨道中去掉`this.musicTrack`音乐轨道，并重新调用`updateData`即可成功删除音乐。
 ```javascript
   this.player.updateData([this.mediaTrack]);
 ```
 
 
-####  添加滤镜轨道
+### 滤镜轨道使用说明
 1. 添加滤镜轨道。
 ```javascript
   this.filterTrack = new global['wj-types'].Track({
@@ -291,7 +282,7 @@ videoClip1.startAt = 1;
   ```javascript
     const filterList = this.player.getFilters();
   ```
-  <b id="filterList">filterList</b> 的数据结构如下所示：
+	<span id="filterList"></span>**filterList** 的数据结构如下所示：
   ```
     [
       {
@@ -345,7 +336,7 @@ videoClip1.startAt = 1;
 ```
 更新播放器即可查看效果。
 5. 删除滤镜，主要分以下两种情况：
-  - **删除滤镜轨道中的滤镜**：只需在 `this.filterTrack.clips` 中通过 id 找到对应的  Clip 进行删除即可。
+  - **删除滤镜轨道中的滤镜**：只需在`this.filterTrack.clips`中通过 id 找到对应的 Clip 进行删除即可。
 ```javascript
   this.filterTrack.clips.forEach((item, index) => {
       if(item.id === 'filter_id') {
@@ -355,7 +346,7 @@ videoClip1.startAt = 1;
 ```
   - **删除整个滤镜轨道**：在 updateData 的数组去掉  `this.filterTrack` 即可。
 
-#### 添加特效轨道
+### 特效轨道使用说明
 1. 添加特效轨道。
 ```javascript
   this.effectTrack = new global['wj-types'].Track({
@@ -447,7 +438,7 @@ videoClip1.startAt = 1;
 ```
 
 <span id = "sss"></span>
-#### 添加文字轨道
+### 文字轨道使用说明
 1. 添加文字轨道。
 ```javascript
 this.textTrack1 = new global['wj-types'].Track({
@@ -482,7 +473,7 @@ this.textTrack1 = new global['wj-types'].Track({
  <b>文字的位置控制</b>逻辑在播放器内部，所以您只需要把文字添加进播放器，通过拖拽挪动文字位置，相应的位置信息将初始化传入的文字统一位于视频的中心位置。
  
   2. 将新创建的 textClip 添加到轨道中：
-​```javascript
+```javascript
 this.textTrack.clips = [textClip1]
 ```
 <span id = "more_clip"></span>当然，您也可以在一个轨道添加多个文字，文字 Clip 的 section 没有重叠。
@@ -575,7 +566,7 @@ loadFontFace({
 ```
 >? 内置字体列表获取请参考 [内置资源](https://cloud.tencent.com/document/product/1156/49439)。
 
-#### 添加贴纸轨道
+### 贴纸轨道使用说明
 1. 创建贴纸轨道
 ```javascript
    this.stickerTrack = new global['wj-types'].Track({
