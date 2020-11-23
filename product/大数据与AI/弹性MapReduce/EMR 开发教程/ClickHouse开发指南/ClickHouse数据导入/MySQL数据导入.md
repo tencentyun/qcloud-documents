@@ -21,9 +21,10 @@ ClickHouse 的 MySQL 表引擎可以对存储在远程 MySQL 服务器上的数�
 还可以将步骤2/3合并成一个步骤，即采用`CREATE TABLE AS SELECT * FROM`方式来达到同样效果。
 
 **ClickHouse 支持 MySQL 外表引擎，是否还有必要将数据导入到 ClickHouse 中？**      
-有必要。MySQL 外表引擎，本身不存储数据，数据存储在 MySQL 中。在复制查询中，特别是有 JOIN 的情况下，访问外表是相当慢的，甚至不可能完成。该方案有明显缺陷，无法增量导入数据。
+是非常有必要的。MySQL 外表引擎，本身不存储数据，数据存储在 MySQL 中。在复制查询中，特别是有 JOIN 的情况下，访问外表是相当慢的，甚至不可能完成。该方案有明显缺陷，无法增量导入数据。
 
 ## 基于 Altinity 的工具实现数据导入（推荐方案）
+
 Altinity 提供了一个工具 [clickhouse-mysql-data-reader](https://github.com/Altinity/clickhouse-mysql-data-reader) 来实现数据导入。该工具可以实现 MySQL 的存量数据导出和增量数据的导出。
 
 按照官网推荐，使用 [pypy](https://github.com/squeaky-pl/portable-pypy#portable-pypy-distribution-for-linux) 工具能够显著提升 clickhouse-mysql-data-reader 导入数据的性能。
@@ -45,7 +46,6 @@ FLUSH PRIVILEGES;
 ```
 
 ## 数据导入
-
 准备工作完成后，即可使用该工具完成数据从 MySQL 导入到 ClickHouse 集群中。具体步骤如下：
 1. 使用 clickhouse-mysql-data-reader 生成建表 SQL。
 ![](https://main.qcloudimg.com/raw/aca912daf06add4f2bbcfc713c9762dc.jpg)
@@ -55,14 +55,53 @@ FLUSH PRIVILEGES;
 3. 导入增量数据
 ![](https://main.qcloudimg.com/raw/f617557e73c30d7695848af7bf52074a.jpg)
 其中，参数含义如下：
- - **src-host**：MySQL 数据库 IP。
- - **src-user**：MySQL 数据库用户名。
- - **src-password**：MySQL 数据库密码。
- - **create-table-sql-template**：生产 ClickHouse 的建表脚本。
- - **with-create-database**：建表脚本中增加创建数据库语句。
- - **src-tables**：源表（MySQL 表）。
- - **mempool-max-flush-interval**：mempool flush 的时间周期。
- - **src-server-id**：源 MySQL 是否为 master 节点。
- - **src-resume**：断点续传。
- - **src-wait**：等待数据。
- - **nice-pause**：如果没有数据，睡眠的时间间隔。
+<table>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+<tr>
+<td>src-host</td>
+<td>MySQL 数据库 IP</td>
+</tr>
+<tr>
+<td>src-user</td>
+<td>MySQL 数据库用户名</td>
+</tr>
+<tr>
+<td>src-password</td>
+<td>MySQL 数据库密码</td>
+</tr>
+<tr>
+<td>create-table-sql-template</td>
+<td>生产 ClickHouse 的建表脚本</td>
+</tr>
+<tr>
+<td>with-create-database</td>
+<td>建表脚本中增加创建数据库语句</td>
+</tr>
+<tr>
+<td>src-tables</td>
+<td>源表（MySQL 表）</td>
+</tr>
+<tr>
+<td>mempool-max-flush-interval</td>
+<td>mempool flush 的时间周期</td>
+</tr>
+<tr>
+<td>src-server-id</td>
+<td>源 MySQL 是否为 master 节点</td>
+</tr>
+<tr>
+<td>src-resume</td>
+<td>断点续传</td>
+</tr>
+<tr>
+<td>src-wait</td>
+<td>等待数据</td>
+</tr>
+<tr>
+<td>nice-pause</td>
+<td>如果没有数据，睡眠的时间间隔</td>
+</tr>
+</table>
