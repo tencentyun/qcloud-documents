@@ -227,7 +227,7 @@ room.onDismissRoom = event => console.log("房间被解散");
 // ...
 ```
 
-其他广播接口可以参考 [Room 对象](https://cloud.tencent.com/document/product/1038/33325)。
+其他广播接口您可参考 [Room 对象](https://cloud.tencent.com/document/product/1038/33325)。
 
 #### 移除监听
 如果不想再接收该 Room 实例的广播，可以从 Listener 中移除：
