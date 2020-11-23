@@ -94,7 +94,7 @@ ENGINE = MergeTree()
 PARTITION BY toYYYYMM(ts)
 ORDER BY tag
 ```
-- **步骤3：**创建 Metrialized View 抓取数据
+- **步骤3：**创建 Materialized View 抓取数据
 本文采用如下语句创建 MV：
 ```
 CREATE MATERIALIZED VIEW source_mv TO target AS

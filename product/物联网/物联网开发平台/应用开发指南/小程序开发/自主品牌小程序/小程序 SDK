@@ -159,7 +159,7 @@ sdk.requestApi('AppGetFamilyDeviceList', { FamilyId: 'default' })
 ## 设备配网
 
 SDK 目前支持 SoftAP 和 SmartConfig 和 SimpleConfig 和 AirKiss 这四种方式进行设备配网。这四种配网方式是以**插件**的方式按需引入的，这里为了方便大家理解，下图是设计思路，可以看出这4个插件的依赖关系
-![plug](https://iot-public-1256872341.cos.ap-guangzhou.myqcloud.com/14dec8d5fa7a389e118fe5f5ad18d1eb/1604995366449.jpg)
+![](https://main.qcloudimg.com/raw/b903c4270d9442edf79588958addf5e9.jpg)
 
 通过4步可以运行插件，以`SoftAp`为例，其余的配网方式步骤一样，后面关于配网步骤和参数说明会具体阐述。
 

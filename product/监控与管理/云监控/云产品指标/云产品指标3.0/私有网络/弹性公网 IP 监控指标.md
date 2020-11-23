@@ -10,6 +10,7 @@ Namespace=QCE/LB
 | VipIntraffic  | 外网入带宽 | Mbps  | Eip  |
 | VipOutpkg     | 出包量     | 个/秒 | Eip  |
 | VipInpkg      | 入包量     | 个/秒 | Eip  |
+|AccOuttraffic | 外网出流量  | MB   | Eip|
 
 > ?每个指标对应的统计粒度（Period）可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度信息。
 
@@ -22,7 +23,7 @@ Namespace=QCE/LB
 
 ## 入参说明
 
-查询私有网络弹性公网 IP 监控接口监控数据，入参取值如下：
+**查询私有网络弹性公网 IP 监控接口监控数据，入参取值如下：**
 &Namespace=QCE/LB
 &Instances.N.Dimensions.0.Name=eip
-&Instances.N.Dimensions.0.Value 为弹性公网IP的唯一 ID
+&Instances.N.Dimensions.0.Value=弹性公网IP的唯一 ID

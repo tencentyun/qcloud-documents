@@ -110,9 +110,9 @@ RAK LoRa 环境监测套件接入到物联网开发平台，通过物联网开�
 
 在设备调试页面中，单击【新建设备】，设备名为 RAK7205_1。
 - DevEUI：每一个设备有一个唯一的身份识别地址，DevEUI 为 60c5a8fffe75fefe，如下图所示：
-![](https://main.qcloudimg.com/raw/80bc2a0d4e3585132c4d4c1b90816291.png)
-- AppKey：设备的密钥。本例中填写 6fbdbb37b8c0dbd82af4e93f74c64177，用户可以填写为其他值。
-![](https://main.qcloudimg.com/raw/28c3ecf3e16a9597d349478c5e05c09d.png)
+![](https://main.qcloudimg.com/raw/5825a5253f36d0bbf071f8cc0399d678.png)
+- AppKey：设备的密钥。本例中填写 6fbdbb37b8c0dbd82af4e93f****4177，用户可以填写为其他值。
+![](https://main.qcloudimg.com/raw/f5d7801a5cf2f9a0c0dbd1e16a39cbab.png)
 
 >!DevEUI 和 AppKey 统一使用小写字母。
 
@@ -127,16 +127,16 @@ RAK LoRa 环境监测套件接入到物联网开发平台，通过物联网开�
 ```
 at+set_config=lora:dev_eui:60c5a8fffe75fefe
 at+set_config=lora:app_eui:800000000000001b
-at+set_config=lora:app_key:6fbdbb37b8c0dbd82af4e93f74c64177
+at+set_config=lora:app_key:6fbdbb37b8c0dbd82af4e93f****4177
 at+join
 ```
-![](https://main.qcloudimg.com/raw/d16abb46faa73e6780ecf56641c5b181.png)
+![](https://main.qcloudimg.com/raw/6a0663aa8a80c7f56d0c6296012f9db0.png)
 2. 当您看到“Join Success 字样”，代表设备已经连接成功。
 
 ## 查看设备状态
 
 1. 保持 LoRa 节点和 LoRa 网关为运行状态。
-2. 进入【控制台】>【产品开发】>【设备调试】，可查看到设备 "RAK5205" 。
+2. 进入【控制台】>【产品开发】>【设备调试】，可查看到设备 "RAK****" 。
 3. 单击【调试】，可进入设备详情页。
 4. 单击【设备属性】，可查询设备上报到开发平台的最新数据及历史数据。
  -  设备属性的最新值：会显示设备上报的最新数据。

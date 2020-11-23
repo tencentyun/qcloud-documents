@@ -12,7 +12,10 @@ vivo 通道是由 vivo 官方提供的系统级推送通道。在 vivo 手机上
 
 ## 操作步骤
 ### 获取密钥
-开发者需向 vivo 申请开通推送权限，获取到 AppID 、AppKey、AppSecret 三个密钥。详情请参见 [快速接入指引](https://dev.vivo.com.cn/documentCenter/doc/180)。
+1. 开发者需向 vivo 申请开通推送权限，获取到 AppID 、AppKey、AppSecret 三个密钥参数。详情请参见 [快速接入指引](https://dev.vivo.com.cn/documentCenter/doc/180)。
+2. 复制应用的 AppId、AppKey 和 AppSecret 参数填入 【[移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)】>【配置管理】>【基础配置】>【vivo 官方推送通道】栏目中。
+
+
 
 ###  配置内容
 #### AndroidStudio 集成方法

@@ -96,3 +96,8 @@
      5. 单击【确定】，提交所配置的规则。
 6. 导入规则，单击【导入规则】，可以从本地选择文件导入，您可以指定导入位置、下载导入模板和导出现有规则。
   ![](https://main.qcloudimg.com/raw/5245c289432715cc14408e86a65ecab6.png)
+  
+## 相关信息
+- 如需在云防火墙控制台对互联网边界的入向与出向流量进行管控，请参见 [互联网边界规则](https://cloud.tencent.com/document/product/1132/46932)。
+- 如需在在云防火墙控制台设置 VPC 间规则，请参见 [VPC 间规则](https://cloud.tencent.com/document/product/1132/46934)。
+- 如需了解云防火墙的访问控制功能的特殊应用场景，请参见 [特殊应用场景](https://cloud.tencent.com/document/product/1132/46935)。

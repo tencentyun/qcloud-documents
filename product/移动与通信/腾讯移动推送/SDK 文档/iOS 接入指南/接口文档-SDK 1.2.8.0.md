@@ -101,6 +101,7 @@ SDK 1.2.7.2 新增，当注册推送服务失败会走此回调。
 
 清空已有账号，然后批量添加账号。
 
+
 ```Objective-C
 - (void)clearAndAppendAccounts:(nonnull NSArray<NSDictionary *> *)accounts;
 ```
