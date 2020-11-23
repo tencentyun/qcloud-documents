@@ -1,10 +1,9 @@
 ### 2.8.5 @2020.11.23
-
-变更
+**变更**
 
 [logout](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#logout) 接口在 SDK 未 ready 时可以调用。
 
-修复
+**修复**
 
 - 已读回执和已读通知同时存在时 SDK 运行时错误。
 - 登出后再次匿名加入直播群失败。
