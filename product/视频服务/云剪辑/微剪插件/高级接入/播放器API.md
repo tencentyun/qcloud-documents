@@ -1,4 +1,4 @@
-播放器`wj-player`是支持微剪运行的核心组件，它是由轨道数据驱动运行的播放器，并内置了一些常用功能。
+播放器**wj-player**是支持微剪运行的核心组件，它是由轨道数据驱动运行的播放器，并内置了一些常用功能。
 
 >?v1.4.0后新增功能：
 >- 贴纸，详情请参见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440)。
@@ -100,7 +100,7 @@ let player = this.selectComponent("#my-player")
 this.player = player;
 ```
 
-### 添加媒体轨道
+### 媒体轨道使用说明
 `wj-player`的播放必须有一条媒体轨道， 视频或者图片都需要加入到媒体轨道里。步骤如下：
 >? 因为图片在播放器中将会默认当做3秒的静态视频播放，类似抖音。所以在播放器中图片和视频都属于媒体元素。
 >
@@ -213,7 +213,7 @@ videoClip1.startAt = 1;
   this.player.updateData([this.mediaTrack]);
 ```
 
-### 添加音乐轨道
+### 音乐轨道使用说明
 1. 添加音乐轨道：
 ```javascript
   this.musicTrack = new global['wj-types'].Track({
@@ -270,7 +270,7 @@ videoClip1.startAt = 1;
 ```
 
 
-###  添加滤镜轨道
+### 滤镜轨道使用说明
 1. 添加滤镜轨道。
 ```javascript
   this.filterTrack = new global['wj-types'].Track({
@@ -283,7 +283,7 @@ videoClip1.startAt = 1;
   ```javascript
     const filterList = this.player.getFilters();
   ```
-  <b id="filterList">filterList</b> 的数据结构如下所示：
+	<span id="filterList"></span>**filterList** 的数据结构如下所示：
   ```
     [
       {
@@ -347,7 +347,7 @@ videoClip1.startAt = 1;
 ```
   - **删除整个滤镜轨道**：在 updateData 的数组去掉  `this.filterTrack` 即可。
 
-### 添加特效轨道
+### 特效轨道使用说明
 1. 添加特效轨道。
 ```javascript
   this.effectTrack = new global['wj-types'].Track({
@@ -439,7 +439,7 @@ videoClip1.startAt = 1;
 ```
 
 <span id = "sss"></span>
-### 添加文字轨道
+### 文字轨道使用说明
 1. 添加文字轨道。
 ```javascript
 this.textTrack1 = new global['wj-types'].Track({
@@ -567,7 +567,7 @@ loadFontFace({
 ```
 >? 内置字体列表获取请参考 [内置资源](https://cloud.tencent.com/document/product/1156/49439)。
 
-#### 添加贴纸轨道
+### 贴纸轨道使用说明
 1. 创建贴纸轨道
 ```javascript
    this.stickerTrack = new global['wj-types'].Track({
