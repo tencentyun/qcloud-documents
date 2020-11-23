@@ -59,7 +59,7 @@ Unity 接入 GSE SDK 包括以下几个步骤：
 
 ### 步骤3： Unity 服务端开发使用 GSE SDK
 
-将 [步骤2](#test2) 中生成的四个 `.cs` 文件拷贝到 Unity 项目中（可以拷贝到 Assets/Scripts/目录下单独的文件夹中），便可使用 GSE SDK 进行开发，详情可参考见 [Unity DEMO](#test3)。
+将 [步骤2](#test2) 中生成的四个 `.cs` 文件拷贝到 Unity 项目中（可以拷贝到 Assets/Scripts/目录下单独的文件夹中），便可使用 GSE SDK 进行开发，详情可参见 [Unity DEMO](#test3)。
 1. 实现 `gameserver_grpcsdk_service.proto` 定义的三个接口 `OnHealthCheck`、`OnStartGameServerSession` 和 ` OnProcessTerminate` 。
 ```
  public class GrpcServer : GameServerGrpcSdkService.GameServerGrpcSdkServiceBase
