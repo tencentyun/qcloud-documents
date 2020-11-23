@@ -30,7 +30,7 @@ gRPC 对 Unity 的支持仍处于实验阶段，更多信息可参见 [README](h
 
 ### 步骤4：测试 
 
-Unity Editor 将取出文件并自动添加到项目中，您即可在代码中使用 gRPC 和 Protobuf，如果 Unity Editor 提示错误，详情可参见 [常见问题](#test1)。
+Unity Editor 将取出文件并自动添加到项目中，您即可在代码中使用 gRPC 和 Protobuf，如果 Unity Editor 提示错误，详情可参见 [常见问题](https://cloud.tencent.com/document/product/1165/50191)。
 
 ## Unity 接入 GSE SDK
 
