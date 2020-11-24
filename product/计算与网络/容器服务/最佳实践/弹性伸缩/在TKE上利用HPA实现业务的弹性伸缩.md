@@ -32,7 +32,7 @@ Pod 水平自动扩缩特性由 Kubernetes API 资源和控制器实现。资源
 ## 操作步骤
 ### 部署测试工作负载
 
-以 Deployment 资源类型的工作负载为例，创建一个单副本数，服务类型为 WEB 服务的 “hpa-test” 工作负载。在容器服务控制台创建Deployment 类型工作负载方法请参见 [Deployment 管理](https://cloud.tencent.com/document/product/457/31705)。
+以 Deployment 资源类型的工作负载为例，创建一个单副本数，服务类型为  Web 服务的 “hpa-test” 工作负载。在容器服务控制台创建Deployment 类型工作负载方法请参见 [Deployment 管理](https://cloud.tencent.com/document/product/457/31705)。
 本示例创建结果如下图所示： 
 ![image-20201105173748658](https://main.qcloudimg.com/raw/8f66b02ddfe9b5d5062c1f9e0e1e5333.png)
 
