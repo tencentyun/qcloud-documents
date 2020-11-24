@@ -1,16 +1,12 @@
-# 使用腾讯云 COS 作为 Velero 存储实现集群资源备份和还原
-
-
 
 ## 概述
 
-Velero（以前称为 Heptio Ark）是一个开源工具，可以安全地备份和还原，执行灾难恢复以及迁移 Kubernetes 群集资源和持久卷，可以在 TKE 集群或自建 Kubenetes 集群中部署 Velero 用于：
-
+开源工具 Velero（曾用名 Heptio Ark）可以安全地备份和还原集群资源，执行灾难恢复以及迁移 Kubernetes 群集资源和持久卷。在 TKE 集群或自建 Kubenetes 集群中部署 Velero 可以实现以下功能：
 - 备份群集资源并在丢失的情况下进行还原。
 - 将集群资源迁移到其他群集。
 - 将生产集群资源复制到开发和测试集群。
 
-Velero 工作原理图如下图所示（*来源于 Velero 官网*），当用户执行备份命令时，调用自定义资源 API 创建备份对象（1），BackupController 控制器 watch 到生成的备份对象时（2）执行备份操作（3），备份完成后将备份的集群资源和存储卷快照上传到Velero 的后端存储（4和5）；类似的，当执行还原操作时，Velero 会将指定备份对象的数据从后端存储同步到 Kubernetes 集群完成还原工作。
+Velero 工作原理图如下图所示（*来源于 Velero 官网*），当用户执行备份命令时，调用自定义资源 API 创建备份对象（1），BackupController 控制器检测到生成的备份对象时（2）执行备份操作（3），备份完成后将备份的集群资源和存储卷快照上传到 Velero 的后端存储（4和5）；类似的，当执行还原操作时，Velero 会将指定备份对象的数据从后端存储同步到 Kubernetes 集群完成还原工作。
 
 ![backup-process](https://main.qcloudimg.com/raw/1aea8598f3c0345101e91b586544896d.png)
 

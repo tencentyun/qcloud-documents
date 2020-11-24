@@ -77,7 +77,10 @@ dependencies {
 ```
 // 创建 trtcCloud 实例
 mTRTCCloud = TRTCCloud.sharedInstance(getApplicationContext());
-mTRTCCloud.setListener(new TRTCCloudListener());
+mTRTCCloud.setListener(new TRTCCloudListener(){
+    // 回调处理
+    ...
+});
 ```
 2. 设置`setListener`属性注册事件回调，并监听相关事件和错误通知。
 ```
