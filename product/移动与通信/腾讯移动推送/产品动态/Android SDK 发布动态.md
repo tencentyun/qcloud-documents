@@ -9,7 +9,7 @@
 </tr>
         <tr>
         <td>SDK 1.2.1.3 版本发布</td>
-       <td>内部逻辑优化</td>
+       <td><li>内部逻辑优化<li>此版本起正式支持华为推送 V5 版本 SDK，请参考<a href="https://cloud.tencent.com/document/product/548/45909">华为通道 V5 接入 SDK</a> 更新集成配置</td>
         <td>2020-11-11</td>
         <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载 SDK</a></td>
     </tr>
