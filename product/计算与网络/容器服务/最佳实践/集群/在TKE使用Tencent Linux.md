@@ -2,24 +2,24 @@
 
 容器的底层实现深度依赖于内核的众多特性，例如 overlay 文件系统、namespace、cgroup 等，因此内核的功能和稳定性，在很大程度上，决定了整个容器 PaaS 平台的功能和稳定性。Tencent Linux 是腾讯官方运营的 Linux 版本，本文推荐容器服务 TKE 用户使用 Tencent Linux 作为节点 OS 镜像。
 
-
-### Tencent Linux 概述
+## Tencent Linux
+###  概述
 Tencent Linux 由腾讯内核和虚拟化团队负责维护。Tencent Linux 2.4 基于 CentOS 7 版本，用户态软件包保持与最新版 CentOS 7 兼容，CentOS 7 版本软件包可以直接在 Tencent Linux 2.4 中使用。
 
-### Tencent Linux 内核版本
+### 内核版本
 Tencent Linux 2.4目前是4.14内核，点击可获取 [代码和 rpm 包](https://github.com/Tencent/TencentOS-kernel)。
 
-### Tencent Linux 与 CentOS 的区别
+### 与 CentOS 的区别
 关键区别在于内核版本的不同。例如用户态有少量调整、YUM 源的配置等，详情可参见 [Tencent Linux](https://cloud.tencent.com/document/product/213/38027)。
 
-### Tencent Linux 和 TKE Optimized 镜像的关系
+### 与 TKE Optimized 镜像的关系
 Tencent Linux 和 TKE Optimized 镜像的内核相同，但 Tencent Linux 2.4是腾讯云服务器 CVM 公共镜像，TKE Optimized 镜像是市场镜像。
 
 容器服务 TKE 将使用 `Tencent Linux2.4` 来替代 `CentOS 7.6 TKE Optimized` 以及 `Ubuntu18.04 TKE Optimized`。目前使用 `CentOS 7.6 TKE Optimized` 和 `Ubuntu18.04 TKE Optimized` 的集群仍可以继续使用，但新建集群将不再支持以上两种 OS 镜像。
 
 11月下旬 TKE 用户可参考以下步骤，自行在控制台操作，将集群新创建的节点的 OS 镜像切换为 `Tencent Linux2.4`。操作步骤请参见 [修改操作系统](#revise)。
 
-### Tencent Linux 优势
+### 优势
 Tencent Linux 相比 CentOS 和 Ubuntu 等发行版的主要优势在于：
 - 经过腾讯大量内部业务多年的验证和打磨。
 - 顶级内核专家团队的支持。
