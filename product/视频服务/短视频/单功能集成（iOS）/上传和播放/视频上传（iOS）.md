@@ -16,7 +16,7 @@
 至此整个视频上传-处理流程结束。
 
 ### 签名生成
-有关客户端上传签名的详细介绍请参考点播 [客户端上传签名](https://cloud.tencent.com/document/product/266/9221)。
+有关客户端上传签名的详细介绍请参见点播 [客户端上传签名](https://cloud.tencent.com/document/product/266/9221)。
 
 ### 签名派发服务实现示例
 

@@ -48,6 +48,7 @@ SSE-KMS 加密即使用 KMS 托管密钥的服务端加密。KMS 是腾讯云推
 > - SSE-KMS 仅加密对象数据，不会加密任何对象元数据。
 > - 目前 SSE-KMS 仅支持北京、上海、广州地域。
 > - 使用 SSE-KMS 加密，会产生额外费用，由 KMS 收取，详情请参见 [KMS 计费概述](https://cloud.tencent.com/document/product/573/34388)。
+> - 使用 SSE-KMS 加密的对象必须使用有效签名访问，不可被匿名用户访问。
 
 #### 使用对象存储控制台
 

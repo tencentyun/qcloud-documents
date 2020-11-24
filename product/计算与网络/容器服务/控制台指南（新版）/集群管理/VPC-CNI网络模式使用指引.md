@@ -20,7 +20,7 @@ TKE 后续推出 VPC-CNI 网络模式，即为每个 Pod 插入一张弹性网�
 
 
 ## VPC-CNI 模式操作步骤
-
+登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 ### 启用 VPC-CNI<span id="VPC-CNI"></span>
 TKE 有两种方式启用 VPC-CNI：
 - 方式1：创建集群时选择 VPC-CNI 网络插件。如下图所示：
@@ -143,8 +143,10 @@ data:
 >!
 - 将要增加的子网 id 加入 `TKE_ENI_IPAMD_SUBNET_ID`，通过 `:` 分隔即可。需注意加入的子网应为空，即子网内没有云服务器、负载均衡等云上资源，否则会造成冲突。
 - 如果看到 TKE_ENI_IPAMD_ZONE 的配置，可忽略，该项配置已废弃。
-
-
+- 修改 ipamd 组件的配置以后，还需要执行以下命令删除重建 ipamd pod，才能使修改生效：
+  ```
+  kubectl -nkube-system get po -ocustom-columns=Name:.metadata.name | grep ipamd | kubectl -nkube-system delete po
+  ```
 
 
 

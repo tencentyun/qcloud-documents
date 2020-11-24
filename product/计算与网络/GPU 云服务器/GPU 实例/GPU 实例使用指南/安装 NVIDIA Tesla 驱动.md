@@ -3,7 +3,7 @@ GPU 云服务器正常工作需提前安装正确的基础设施软件，对 NVI
 - 驱动 GPU 工作的硬件驱动程序。
 - 上层应用程序所需要的库。
 
-若把 NVIDIA GPU 用作通用计算，则需安装 Tesla Driver + CUDA，本文仅介绍如何安装 Tesla Driver，如何安装 CUDA 请参考 [安装 CUDA 驱动指引](https://cloud.tencent.com/document/product/560/8064)。
+若把 NVIDIA GPU 用作通用计算，则需安装 Tesla Driver + CUDA。本文以 CentOS 操作系统为例，介绍如何安装 Tesla Driver，如何安装 CUDA 请参考 [安装 CUDA 驱动指引](https://cloud.tencent.com/document/product/560/8064)。
 
 >?为方便用户，用户可以在创建 GPU 云服务器时，在服务市场里选择预装特定版本驱动和 CUDA 的镜像。详情请参见 [选择镜像](https://cloud.tencent.com/document/product/560/30211#.E6.AD.A5.E9.AA.A43.EF.BC.9A.E9.80.89.E6.8B.A9.E9.95.9C.E5.83.8F)。
 

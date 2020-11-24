@@ -1,6 +1,5 @@
-
 使用 mysqldump 工具导入数据简单易上手，但停机时间较长，适用于数据量不大，或允许停机时间较长的场景。
-<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2680-51926?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 
 1. 使用 mysqldump 数据导出工具，将本地数据库数据导出为数据文件。
 >?导出期间请勿进行数据更新。本步骤仅导出数据，不包括存储过程、触发器和函数。

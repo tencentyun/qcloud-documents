@@ -26,18 +26,28 @@ RTMP|只适用直播|`rtmp://xxx.liveplay.myqcloud.com/live/xxx`|支持|不支�
 MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 
 >! 播放 RTMP 格式的视频必须启用 Flash，目前浏览器默认禁用 Flash，需用户手动开启。
+
+**功能支持**
+
+|功能\浏览器|Chrome|Firefox|Edge|QQ 浏览器|Mac Safari|iOS Safari|iOS 微信 QQ|Android Chrome|Android 微信、QQ|手机 QQ 浏览器|IE 8,9,10,11|
+|---|---|---|---|---|---|---|---|---|---|---|---|
+|设置封面|✔|✔|✔|✔|✔|✔|✔|✔|✔|✔|✔|
+|多清晰度支持|✔|✔|✔|✔|✔|✖|✖|✖|✖|✖|✔|
+|定制错误提示语|✔|✔|✔|✔|✔|✖|✖|✖|✖|✖|✔|
+
+
 ## 对接攻略
 
 ### Step1. 页面准备工作
 在需要播放视频的页面（PC 或 H5）中引入初始化脚本。
 ```
-<script src="https://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.2.js" charset="utf-8"></script>;
+<script src="https://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.3.js" charset="utf-8"></script>;
 ```
 
 如果在域名限制区域，可以引入以下链接：
 
 ```
-<script src="https://cloudcache.tencent-cloud.com/open/qcloud/video/vcplayer/TcPlayer-2.3.2.js" charset="utf-8"></script>;
+<script src="https://cloudcache.tencent-cloud.com/open/qcloud/video/vcplayer/TcPlayer-2.3.3.js" charset="utf-8"></script>;
 ```
 
 >! 直接用本地网页无法调试，Web 播放器无法处理该情况下的跨域问题。
@@ -262,7 +272,7 @@ https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-error.html
 | flashUrl        | String   | 无       | 可以设置 flash swf url。 <br>（**备注：该选项只对 PC 平台生效** [v2.2.1+]）  |
 | h5_flv          | Boolean  | false    | 是否启用 flv.js 的播放 flv。启用时播放器将在支持 MSE 的浏览器下，采用 flv.js 播放 flv，然而并不是所有支持 MSE 的浏览器都可以使用 flv.js，所以播放器不会默认开启这个属性，[v2.2.0+]。   <br> 示例: true |
 | x5_player       | Boolean  | false    | 是否启用 TBS 的播放 flv 或 hls 。启用时播放器将在 TBS 模式下(例如 Android 的微信、QQ 浏览器），将 flv 或 hls 播放地址直接赋给 `<video>` 播放。[TBS 视频能力](https://x5.tencent.com/tbs/product/video.html) [v2.2.0+]。   <br> 示例:  true   |
-| x5_type         | String   | 无       | 通过 video 属性 “x5-video-player-type” 声明启用同层 H5 播放器，支持的值：H5 (该属性为 TBS 内核实验性属性，非 TBS 内核不支持)，[TBS H5 同层播放器接入规范](https://x5.tencent.com/tbs/guide/video.html)。   <br> 示例："h5"  |
+| x5_type         | String   | 无       | 通过 video 属性 “x5-video-player-type” 声明启用同层 H5 播放器，支持的值：h5-page (该属性为 TBS 内核实验性属性，非 TBS 内核不支持)，[TBS H5 同层播放器接入规范](https://x5.tencent.com/docs/video.html)。   <br> 示例："h5-page"  |
 | x5_fullscreen   | String   | 无       | 通过 video 属性 “x5-video-player-fullscreen” 声明视频播放时是否进入到 TBS 的全屏模式，支持的值：true (该属性为 TBS 内核实验性属性，非 TBS 内核不支持) 。   <br> 示例："true"   |
 | x5_orientation  | Number   | 无       | 通过 video 属性 “x5-video-orientation” 声明 TBS 播放器支持的方向，可选值：0（landscape 横屏），1：（portraint竖屏），2：（landscape &verbar; portrait 跟随手机自动旋转）。 (该属性为 TBS 内核实验性属性，非 TBS 内核不支持) [v2.2.0+]。  <br> 示例：0   |
 | wording         | Object   | 无       | 自定义文案。   <br> 示例：{ 2032: '请求视频失败，请检查网络'}  |

@@ -2,7 +2,7 @@
 
 Android SDK 是移动推送 TPNS 服务为客户端实现消息推送而提供给开发者的接口，本文将提供 AndroidStudio Gradle 自动集成和 Android Studio 手动集成两种方式。
 
->!如果您是从 [信鸽平台](https://xg.qq.com) 迁移至移动推送 TPNS 推送平台，请务必使用 [Android 迁移指南](https://cloud.tencent.com/document/product/548/41609) 调整集成配置。
+
 
 ## SDK 集成（二选一）
 
@@ -12,8 +12,9 @@ Android SDK 是移动推送 TPNS 服务为客户端实现消息推送而提供�
 
 >!在配置 SDK 前，确保已创建 Android 平台的应用。
 
-1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，选择左侧菜单【配置管理】，获取应用的包名、AccessID、AccessKey。
+1. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，在【产品管理】>【配置管理】页面获取应用的 AccessID、AccessKey。
 2. 在 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面，获取当前最新版本号。
+![](https://main.qcloudimg.com/raw/14e6c42845be00c1e2cf964482062794.png)
 3. 在 app build.gradle 文件下，配置以下内容：
 
 ```
@@ -45,7 +46,7 @@ dependencies {
     ......
     //添加以下依赖
     implementation 'com.tencent.jg:jg:1.1'
-    implementation 'com.tencent.tpns:tpns:[VERSION]-release' //  TPNS 推送 [VERSION] 为当前SDK版本号，版本号可在 SDK 下载页查看
+    implementation 'com.tencent.tpns:tpns:[VERSION]-release' //  TPNS 推送 [VERSION] 为当前 SDK 版本号，版本号可在 Android 发布动态页查看
 
 }
 ```

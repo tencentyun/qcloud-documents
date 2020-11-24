@@ -1,7 +1,7 @@
 ## 操作场景
 Koa 组件通过使用 serverless-tencent 的基础组件（如 API 网关组件、SCF 组件等），可以帮助我们快速、方便的在腾讯云创建、配置和管理一个 [Koa 框架](https://koajs.com/)。
 
->!2020年9月1日起，Serverless 组件不再支持 Node.js10.0 以下版本，请注意升级。
+>!建议您使用 Node.js10.0 及以上版本，否则 Component V2 部署有可能报错。
 
 ## 操作步骤
 通过 Koa 组件，对一个 Koa 应用进行完整的创建、配置、部署和删除等操作。支持命令如下：
@@ -10,14 +10,15 @@ Koa 组件通过使用 serverless-tencent 的基础组件（如 API 网关组件
 
 通过 npm 安装 Serverless：
 ```console
-$ npm install -g serverless
+npm install -g serverless
 ```
 
 ### 2. 创建
 
-1.本地创建一个 `serverless.yml` 文件：
+1.本地创建一个新文件夹，并在文件夹下创建 `serverless.yml`：
 ```console
-$ touch serverless.yml
+mkdir test && cd test
+touch serverless.yml 
 ```
 2.初始化一个新的 npm 包，并安装 Koa：
 ```
@@ -26,7 +27,7 @@ npm i --save koa  # 安装 koa
 ```
 3.本地创建一个 `sls.js` 文件：
 ```console
-$ touch sls.js
+touch sls.js
 ```
 4.在 `sls.js` 文件中创建您的 Koa App：
 ```js
@@ -51,7 +52,6 @@ module.exports = app
 ```yml
 # serverless.yml
 
-org: orgDemo # (optional) serverless dashboard org. default is the first org you created during signup.
 app: appDemo # (optional) serverless dashboard app. default is the same as the name property.
 stage: dev # (optional) serverless dashboard stage. default is dev.
 component: koa # (required) name of the component. In that case, it's koa.
@@ -112,7 +112,7 @@ $ sls remove --debug
 
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建 `.env` 文件：
 ```console
-$ touch .env # 腾讯云的配置信息
+touch .env # 腾讯云的配置信息
 ```
 
 在 `.env` 文件中配置腾讯云的 SecretId 和 SecretKey 信息并保存：

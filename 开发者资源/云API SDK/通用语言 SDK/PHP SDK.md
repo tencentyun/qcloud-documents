@@ -27,6 +27,7 @@ composer config -g repos.packagist composer https://mirrors.tencent.com/composer
 ```
 composer require tencentcloud/tencentcloud-sdk-php
 ```
+>?如果只想安装某个产品的，可以使用`composer require tencentcloud/产品名`，例如`composer require tencentcloud/cvm`。
 
 如下图所示，即安装 SDK 成功。
 ![](https://main.qcloudimg.com/raw/e8948ce3e75f37d10236f5f32ad558da.png)

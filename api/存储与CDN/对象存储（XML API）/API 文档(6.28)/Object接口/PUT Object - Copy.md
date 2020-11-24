@@ -49,7 +49,8 @@ Authorization: Auth String
 | x-cos-copy-source-If-Unmodified-Since | 当对象在指定时间后未被修改，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
 | x-cos-copy-source-If-Match            | 当对象的 ETag 与指定的值一致，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
 | x-cos-copy-source-If-None-Match       | 当对象的 ETag 与指定的值不一致，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
-| x-cos-storage-class                   | 目标对象的存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 STANDARD_IA，ARCHIVE。默认值：STANDARD | Enum   | 否       |
+| x-cos-storage-class                   | 目标对象的存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 INTELLIGENT_TIERING，MAZ_INTELLIGENT_TIERING，STANDARD_IA，ARCHIVE，DEEP_ARCHIVE。默认值：STANDARD | Enum   | 否       |
+| x-cos-tagging                         | 对象的标签集合，最多可设置10个标签（例如，Key1=Value1&Key2=Value2）。 标签集合中的 Key 和 Value 必须先进行 URL 编码。 | string | 否       |
 
 **目标对象元数据相关头部**
 
@@ -256,7 +257,7 @@ x-cos-request-id: NWU5MGI5MDRfNmRjMDJhMDlfZGNmYl8yMDVh****
 
 #### 案例四：修改对象存储类型
 
-本案例演示将对象从标准存储转换为归档存储，该使用方法也适合标准存储与低频存储之间的互相转换，如果希望将归档存储的对象转换为其他存储类型，需要首先使用 [POST Object restore](https://cloud.tencent.com/document/product/436/12633) 将归档存储的对象回热，才能使用该接口请求转换存储类型。
+本案例演示将对象从标准存储转换为归档存储，该使用方法也适合标准存储与低频存储之间的互相转换，如果希望将归档存储或深度归档存储的对象转换为其他存储类型，需要首先使用 [POST Object restore](https://cloud.tencent.com/document/product/436/12633) 将归档存储或深度归档存储的对象回热，才能使用该接口请求转换存储类型。
 
 #### 请求
 
@@ -270,7 +271,6 @@ x-cos-copy-source: examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleo
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586542862;1586550062&q-key-time=1586542862;1586550062&q-header-list=content-length;date;host;x-cos-copy-source;x-cos-metadata-directive;x-cos-storage-class&q-url-param-list=&q-signature=8726a359b342cb1cace6945812ee8379c3ad****
 Connection: close
-
 ```
 
 #### 响应
@@ -290,7 +290,6 @@ x-cos-request-id: NWU5MGI5MGVfN2RiNDBiMDlfMTk1MjhfMWZm****
 	<CRC64>16749565679157681890</CRC64>
 	<LastModified>2020-04-10T18:21:55Z</LastModified>
 </CopyObjectResult>
-
 ```
 
 #### 案例五：将未加密的对象复制为使用 SSE-COS 加密的目标对象
@@ -306,7 +305,6 @@ x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586542872;1586550072&q-key-time=1586542872;1586550072&q-header-list=content-length;date;host;x-cos-copy-source;x-cos-server-side-encryption&q-url-param-list=&q-signature=ee94ef60dfb512882b368be12c6d47526433****
 Connection: close
-
 ```
 
 #### 响应
@@ -327,7 +325,6 @@ x-cos-server-side-encryption: AES256
 	<CRC64>16749565679157681890</CRC64>
 	<LastModified>2020-04-10T18:21:13Z</LastModified>
 </CopyObjectResult>
-
 ```
 
 #### 案例六：将未加密的对象复制为使用 SSE-KMS 加密的目标对象
@@ -345,7 +342,6 @@ x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586542883;1586550083&q-key-time=1586542883;1586550083&q-header-list=content-length;date;host;x-cos-copy-source;x-cos-server-side-encryption;x-cos-server-side-encryption-context;x-cos-server-side-encryption-cos-kms-key-id&q-url-param-list=&q-signature=28055a7cf07d7dde858fd924d6c0963b0c68****
 Connection: close
-
 ```
 
 #### 响应
@@ -367,7 +363,6 @@ x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085***
 	<CRC64>16749565679157681890</CRC64>
 	<LastModified>2020-04-10T18:22:16Z</LastModified>
 </CopyObjectResult>
-
 ```
 
 #### 案例七：复制 SSE-C 加密的对象并更换密钥
@@ -388,7 +383,6 @@ x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586542904;1586550104&q-key-time=1586542904;1586550104&q-header-list=content-length;date;host;x-cos-copy-source;x-cos-copy-source-server-side-encryption-customer-algorithm;x-cos-copy-source-server-side-encryption-customer-key;x-cos-copy-source-server-side-encryption-customer-key-md5;x-cos-server-side-encryption-customer-algorithm;x-cos-server-side-encryption-customer-key;x-cos-server-side-encryption-customer-key-md5&q-url-param-list=&q-signature=dece274320f748bb0c736b13e5409cd1c35f****
 Connection: close
-
 ```
 
 #### 响应
@@ -410,7 +404,6 @@ x-cos-server-side-encryption-customer-key-MD5: hRasmdxgYDKV3nvbahU1MA==
 	<CRC64>16749565679157681890</CRC64>
 	<LastModified>2020-04-10T18:22:31Z</LastModified>
 </CopyObjectResult>
-
 ```
 
 #### 案例八：将 SSE-C 加密的对象修改为不加密
@@ -429,7 +422,6 @@ x-cos-copy-source: examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleo
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586542925;1586550125&q-key-time=1586542925;1586550125&q-header-list=content-length;date;host;x-cos-copy-source;x-cos-copy-source-server-side-encryption-customer-algorithm;x-cos-copy-source-server-side-encryption-customer-key;x-cos-copy-source-server-side-encryption-customer-key-md5;x-cos-metadata-directive&q-url-param-list=&q-signature=b57bc8f6d666e9d722d30ad7d3ab442d9c43****
 Connection: close
-
 ```
 
 #### 响应
@@ -449,7 +441,6 @@ x-cos-request-id: NWU5MGI5NGRfOWFjOTJhMDlfMjg2NDdfMTA0****
 	<CRC64>16749565679157681890</CRC64>
 	<LastModified>2020-04-10T18:22:58Z</LastModified>
 </CopyObjectResult>
-
 ```
 
 #### 案例九：指定源对象的版本
@@ -464,7 +455,6 @@ x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example.
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586627495;1586634695&q-key-time=1586627495;1586634695&q-header-list=content-length;date;host;x-cos-copy-source&q-url-param-list=&q-signature=da80bd079b2c1fdb0dd961dea8568ee8d998****
 Connection: close
-
 ```
 
 #### 响应
@@ -485,7 +475,6 @@ x-cos-request-id: NWU5MjAzYTdfMWZjMDJhMDlfNTE4N18zNGU2****
 	<CRC64>16749565679157681890</CRC64>
 	<LastModified>2020-04-11T17:51:35Z</LastModified>
 </CopyObjectResult>
-
 ```
 
 #### 案例十：复制对象到启用版本控制的存储桶
@@ -500,7 +489,6 @@ x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example.
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586627516;1586634716&q-key-time=1586627516;1586634716&q-header-list=content-length;date;host;x-cos-copy-source&q-url-param-list=&q-signature=2c79d63b6078ace6fc9430fb6533b9a9ade1****
 Connection: close
-
 ```
 
 #### 响应
@@ -521,6 +509,5 @@ x-cos-request-id: NWU5MjAzYmNfNjRiMDJhMDlfOTE3N18yYWI4****
 	<LastModified>2020-04-11T17:51:56Z</LastModified>
 	<VersionId>MTg0NDUxNTc0NDYxOTI4MzU0MDI</VersionId>
 </CopyObjectResult>
-
 ```
 

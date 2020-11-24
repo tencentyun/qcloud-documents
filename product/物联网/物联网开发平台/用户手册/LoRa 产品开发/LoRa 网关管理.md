@@ -24,7 +24,6 @@
 ![](https://main.qcloudimg.com/raw/8fa4b51d45f3de44ba9bdde5262aaa05.png)
 4. 网关新建成功后，您可在网关列表页查看到“GW1”。
 
-
 ### 用户 LoRa 网关操作
 
 >?用户的 LoRaWAN 网关需支持 [Packet Forwarder 协议](https://github.com/Lora-net/packet_forwarder/blob/master/PROTOCOL.TXT)。

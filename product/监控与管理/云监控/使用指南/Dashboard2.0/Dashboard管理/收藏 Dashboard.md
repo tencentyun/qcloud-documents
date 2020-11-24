@@ -1,9 +1,3 @@
-> ?
-> - 新版 Dashboard 已上线，我们衷心欢迎您试用并告诉我们需要改进之处。[单击链接](https://cloud.tencent.com/apply/p/omia0k6sli) 可申请体验！
-> - 欢迎添加云监控小M微信号（hitherecm），备注 Dashboard，我们将拉您进入专属交流群，竭诚为您服务！
-
-
-
 本文将为您介绍如何收藏 Dashboard。
 
 ## 操作步骤
@@ -14,4 +8,4 @@
 2. 在左侧导航栏中点击【Dashboard 列表】，进入 Dashboard 列表页。
 3. 在 Dashboard 列表中，找到您需要收藏的 Dashboard，单击对应的面板名，进入 Dashboard 管理页。
 4. 如下图单击【![](https://main.qcloudimg.com/raw/84c8d89448e297dbb3e1eedd795797ea.png)】，提示“收藏成功”即可。
-![](https://main.qcloudimg.com/raw/f32bfb952af30c3b2da5eac38fba3e36.png)
+![](https://main.qcloudimg.com/raw/4eb2e2de177b23ec648c0531b2c457c4.png)

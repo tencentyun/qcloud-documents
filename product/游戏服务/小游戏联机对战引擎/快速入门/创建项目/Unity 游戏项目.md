@@ -6,8 +6,8 @@ Unity Editor 版本： 2019.1.9+。
 
 ## 前提条件
 
-- 已在游戏联机对战引擎控制台创建游戏实例，并开通联机对战服务。
-- 已获取游戏 gameID 和 secretKey。
+- 已在游戏联机对战引擎控制台创建游戏，并开通联机对战服务，您可参考 [开通服务](https://cloud.tencent.com/document/product/1038/33299)。
+- 已获取游戏 gameID 和 secretKey，您可在游戏概览的基本信息里查看。
 
 
 ## 操作步骤
@@ -20,7 +20,9 @@ Unity Editor 版本： 2019.1.9+。
 
 
 ### 导入 Mgobe Package
-1. 将 com.unity.Mgobe.unitypackage 拖入 editor 中的 Project 栏，单击【import】进行 package 导入。 单击进入 [Package 下载](https://cloud.tencent.com/document/product/1038/33406) 页面。
+1. 将 `com.unity.Mgobe.unitypackage` 拖入 editor 中的 Project 栏，单击【import】进行 package 导入。 
+>?您可通过 [SDK 下载](https://cloud.tencent.com/document/product/1038/33406) 页面，下载 Package 即 Unity SDK 。
+>
 ![](https://main.qcloudimg.com/raw/77671c4601cd26f2cffdce577b802528.jpg)
 ![](https://main.qcloudimg.com/raw/2cc301f6917c6a7026558fb2ca920079.jpg)
 2. 在 Assets 目录下创建 “Scripts” 文件夹，并新建 Scripts/main.cs 文件。

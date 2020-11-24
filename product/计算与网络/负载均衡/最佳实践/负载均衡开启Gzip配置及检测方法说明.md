@@ -72,3 +72,4 @@ text/html text/plain text/css application/x-javascript text/javascript applicati
 ```
 curl -I -H "Accept-Encoding: gzip, deflate" "http://cloud.tencent.com/example/"
 ```
+

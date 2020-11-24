@@ -42,7 +42,7 @@ PUT hot_data_index/_settings
 ```
 - 对于冷数据，设置索引如下：
 ```
-PUT hot_data_index/_settings
+PUT warm_data_index/_settings
 {
   "index.routing.allocation.require.temperature": "warm"
 }

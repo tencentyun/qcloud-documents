@@ -1,8 +1,14 @@
 ## 下载 Demo 
-- Python Demo（vm）： [tsf_python_vm_demo](https://main.qcloudimg.com/raw/7a47d828d43dc5fa905ab8960db687b9/tsf_python_vm_demo-1225.tar.gz) 
-- Python Demo（docker）： [tsf_python_docker_demo](https://main.qcloudimg.com/raw/b4a0a86d3eb11bcee368b3eccf6e3052/tsf_python_docker_demo-1225.tar.gz)
-- .NET Demo（vm & docker）： [tsf_mesh_demo_dotnet](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/tsf_mesh_demo_dotnet.zip) ，其中 REAME.md 介绍了程序包和镜像两种构建方式。
-- Java Demo（vm）：[tsf_mesh_demo_java](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/mesh-demo/tsf-mesh-demo-java.zip)
+|  Demo 语言  |  下载地址  | 说明 |
+| --- | --- | --- |
+| Python Demo（vm）|  [tsf_python_vm_demo](https://main.qcloudimg.com/raw/7a47d828d43dc5fa905ab8960db687b9/tsf_python_vm_demo-1225.tar.gz) | -  |
+| Python Demo（docker）| [tsf_python_docker_demo](https://main.qcloudimg.com/raw/b4a0a86d3eb11bcee368b3eccf6e3052/tsf_python_docker_demo-1225.tar.gz) | - |
+| <nobr>.NET Demo（vm & docker）</nobr>| [tsf_mesh_demo_dotnet](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/tsf_mesh_demo_dotnet.zip) | 其中 REAME.md 介绍了程序包和镜像两种构建方式|
+| Java Demo（vm）| [tsf_mesh_demo_java](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/mesh-demo/tsf-mesh-demo-java.zip) |- |
+| PHP Demo（vm）| [tsf_php_vm_demo](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/mesh-demo/tsf_mesh_demo_php.tar.gz) | - |
+| Dubbo Demo（vm）| [tsf_mesh_dubbo_vm_demo](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/mesh-demo/tsf-mesh-dubbo-demo.tar.gz) | - |
+
+>!Mesh 的部署和使用与语言无关，具体可参考 Python 使用方式进行改造。
 
 ## 调用说明
 下文以 Python Demo 为例进行介绍。Python Demo 提供了3个应用，对应的服务名和应用监听端口为：
