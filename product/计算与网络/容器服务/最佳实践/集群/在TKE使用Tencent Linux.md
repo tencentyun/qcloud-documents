@@ -54,27 +54,20 @@ Tecent Linux 根据内部与外部的用户在大规模落地实践中遇到的�
 
 - **容器资源展示隔离**
 很多 golang、java 程序的高效运行依赖于正确获取进程可用的 CPU 和内存资源。但这类程序在容器中获取到的是节点的 CPU 和内存资源，与实际容器所分配的资源并不匹配，往往会造成进程的线程池等参数不合理，从而带来问题。
-
 社区主流的解决方案是通过部署 FUSE 实现的 LXCFS 来实现 `/proc/cpuinfo`，`/proc/meminfo` 等资源展示按容器隔离。此方案需要在节点部署 LXCFS 文件系统，也需要在 POD sepc 中插入相关 volume 和挂载点的配置。详情可参见 [Kubernetes Demystified: Using LXCFS to Improve Container Resource Visibility](https://dzone.com/articles/kubernetes-demystified-using-lxcfs-to-improve-cont)。
-
 Tencnet Linux 内核中实现了类似 LXCFS 特性，用户无需在节点部署 LXCFS 文件系统，也无需修改 POD spec。只需在节点开启一个全局开关 `sysctl -w kernel.stats_isolated=1`，容器中读取 `/proc/cpuinfo`，`/proc/meminfo` 等文件获取的就是按容器隔离的，就是这么简单。
-
 另外，考虑到有些特殊容器，例如节点监控组件，可能就是需要读取节点级的信息。为了解决这个问题，专门增加了容器级的开关`kernel.container_stats_isolated`。在主机级开关开启的情况下，只需要在容器的启动脚本里面，关闭容器级的开关(`sysctl -w kernel.container_stats_isolated=0`)，以后在这个容器里面读取 `/proc/cpuinfo`，`/proc/meminfo` 等文件获取的就是主机的信息了。(注：容器级开关必须在容器中设置，才能对本容器生效)
-
 使用详情可参见 [容器内 CPU、内存、进程、磁盘等信息隔离](https://github.com/Tencent/TencentOS-kernel/wiki/container-resource-view-isolation)。
 
 - **更多内核参数的隔离**
-
-- net.ipv4.tcp_max_orphans
-- net.ipv4.tcp_workaround_signed_windows
-- net.ipv4.tcp_rmem
-- net.ipv4.tcp_wmem
-- vm.max_map_count
-
+ - net.ipv4.tcp_max_orphans
+ - net.ipv4.tcp_workaround_signed_windows
+ - net.ipv4.tcp_rmem
+ - net.ipv4.tcp_wmem
+ - vm.max_map_count
 以上内核参数为业务经常需要定制修改的。但是社区内核里面并没有对这些参数做 namespace 化隔离。一个容器对以上参数的修改，会对主机以及所有其他容器都起作用。Tencent Linux 根据内外部客户的需求，实现了这些内核参数的 namespace 化隔离，业务容器可以放心的对这些参数进行个性化设置而不用担心对其他业务的干扰了。
 
 - **容器缺省内核参数优化**
-
 在高并发的情况下，可能会发生半连接队列满而丢包，可以通过调大 `net.core.somaxconn` 来缓解问题。但是容器网络 namespace 里面的 `net.core.somaxconn` 缺省值只有128，而且是代码写死的。在 Tencent Linux 内核中，我们把这个缺省值调整到 4096， 从而可以减少高并发情况下半连接队列满的丢包问题。
 
  ## 操作步骤
