@@ -77,8 +77,11 @@ Tencnet Linux 内核中实现了类似 LXCFS 特性，用户无需在节点部�
 
 在高并发的情况下，可能会发生半连接队列满而丢包，可以通过调大 `net.core.somaxconn` 来缓解问题。但是容器网络 namespace 里面的 `net.core.somaxconn` 缺省值只有128，而且是代码写死的。在 Tencent Linux 内核中，我们把这个缺省值调整到 4096， 从而可以减少高并发情况下半连接队列满的丢包问题。
 
- 
+ ## 操作步骤
+如果希望 TKE 集群的节点使用 Tencent Linux 的操作系统，需要在 [创建集群](https://cloud.tencent.com/document/product/457/32189) 时，在设置集群的基本信息页面选择操作系统 `Tencent Linux`。如下图所示：
+![](https://main.qcloudimg.com/raw/9376e923fb4e30de1e05f89708fa46c6.png)
 
+>! Tencent Linux 除了支持普通的云服务器机型外，还支持黑石物理机与 Nvidia GPU 的机型。
 
 ## 相关操作
 ### 修改操作系统<span id="revise"></span>
