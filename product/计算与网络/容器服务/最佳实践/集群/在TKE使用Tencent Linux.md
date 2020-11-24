@@ -15,8 +15,7 @@ Tencent Linux 2.4目前是4.14内核，可获取 [代码和 rpm 包](https://git
 ## Tencent Linux 与 TKE Optimized 镜像的关系
 Tencent Linux 和 TKE Optimized 镜像的内核相同，但 Tencent Linux 2.4是腾讯云服务器 CVM 公共镜像，TKE Optimized 镜像是市场镜像。
 
-容器服务 TKE 将使用 `Tencent Linux2.4` 来替代 `CentOS 7.6 TKE Optimized` 以及 `Ubuntu18.04 TKE Optimized`。目前使用 `CentOS 7.6 TKE Optimized` 和 `Ubuntu18.04 TKE Optimized` 的集群仍可以继续使用，但新建集群将不再支持以上两种 OS 镜像。
->! 11月下旬 TKE 用户可参考  [修改操作系统](#revise) 步骤，将集群新创建的节点的 OS 镜像切换为 `Tencent Linux2.4`。
+容器服务 TKE 将使用 `Tencent Linux2.4` 来替代 `CentOS 7.6 TKE Optimized` 以及 `Ubuntu18.04 TKE Optimized`。目前使用 `CentOS 7.6 TKE Optimized` 和 `Ubuntu18.04 TKE Optimized` 的集群仍可以继续使用，但新建集群将不再支持以上两种 OS 镜像。用户可参考 [修改操作系统](#revise) 步骤，将集群新创建的节点的 OS 镜像切换为 `Tencent Linux2.4`。
 
 ## Tencent Linux 优势
 Tencent Linux 相比 CentOS 和 Ubuntu 等发行版的主要优势在于：
