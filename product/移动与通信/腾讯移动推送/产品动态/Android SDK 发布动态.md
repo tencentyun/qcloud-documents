@@ -9,7 +9,7 @@
 </tr>
         <tr>
         <td>SDK 1.2.1.3 版本发布</td>
-       <td>内部逻辑优化</td>
+       <td><li>内部逻辑优化<li>此版本起正式支持华为推送 V5 版本 SDK，请参考 <a href="https://cloud.tencent.com/document/product/548/45909">华为通道 V5 接入 SDK</a> 更新集成配置</td>
         <td>2020-11-11</td>
         <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载 SDK</a></td>
     </tr>
@@ -28,7 +28,7 @@
         <td>SDK 1.2.1.1 版本发布</td>
 				<td><li>新增「<b>用户属性</b>」相关接口，用于个性化推送</li> <li>新增「<b>应用内消息</b>」功能，以及若干应用内消息模板</li><li>SO 文件优化更新</li><li>SDK 内部优化</li></td>
         <td>2020-10-12</td>
-        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载 SDK</a></td>
+        <td>-</td>
     </tr>
 </table>
 

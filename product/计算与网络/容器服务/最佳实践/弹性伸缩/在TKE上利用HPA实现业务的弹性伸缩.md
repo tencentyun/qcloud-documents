@@ -18,7 +18,7 @@ Pod 水平自动扩缩特性由 Kubernetes API 资源和控制器实现。资源
 ![hpa](https://main.qcloudimg.com/raw/0d5a5ba9445f1f74abcf8f4acf2d89f8.jpg)
 重点内容说明：
 - **HPA Controller**：控制 HPA 扩缩逻辑的控制组件。
-- **Metrics Aggeregator**：度量指标聚合器。通常情况下，控制器将从一系列的聚合 API（`metrics.k8s.io`、`custom.metrics.k8s.io` 和 `external.metrics.k8s.io`）中获取度量值。`metrics.k8s.io` API 通常由 Metrics 服务器提供，社区版可提供基本的 CPU、内存度量类型。相比于社区版，TKE 使用自定义 Metrics Server 采集可支持更广泛的的 HPA 的度量指标触发类型，提供包括 CPU 、内存、硬盘、网络和 GPU 相关指标，了解更多详细内容请参见 [TKE 自动伸缩指标说明]( https://cloud.tencent.com/document/product/457/38929)。
+- **Metrics Aggeregator**：度量指标聚合器。通常情况下，控制器将从一系列的聚合 API（`metrics.k8s.io`、`custom.metrics.k8s.io` 和 `external.metrics.k8s.io`）中获取度量值。`metrics.k8s.io` API 通常由 Metrics 服务器提供，社区版可提供基本的 CPU、内存度量类型。相比于社区版，TKE 使用自定义 Metrics Server 采集可支持更广泛的 HPA 的度量指标触发类型，提供包括 CPU 、内存、硬盘、网络和 GPU 相关指标，了解更多详细内容请参见 [TKE 自动伸缩指标说明]( https://cloud.tencent.com/document/product/457/38929)。
 >? 控制器也可从 Heapster 获取指标。但自 Kubernetes 1.11 版本起，从 Heapster 获取指标特性的方式已废弃。
 >
 - **HPA 计算目标副本数算法**：TKE HPA 扩缩容算法请参见 [工作原理](https://cloud.tencent.com/document/product/457/37384#.E5.B7.A5.E4.BD.9C.E5.8E.9F.E7.90.86)，更多详细算法请参见 [算法细节](https://kubernetes.io/zh/docs/tasks/run-application/horizontal-pod-autoscale/#algorithm-details)。
@@ -32,7 +32,7 @@ Pod 水平自动扩缩特性由 Kubernetes API 资源和控制器实现。资源
 ## 操作步骤
 ### 部署测试工作负载
 
-以 Deployment 资源类型的工作负载为例，创建一个单副本数，服务类型为 WEB 服务的 “hpa-test” 工作负载。在容器服务控制台创建Deployment 类型工作负载方法请参见 [Deployment 管理](https://cloud.tencent.com/document/product/457/31705)。
+以 Deployment 资源类型的工作负载为例，创建一个单副本数，服务类型为  Web 服务的 “hpa-test” 工作负载。在容器服务控制台创建Deployment 类型工作负载方法请参见 [Deployment 管理](https://cloud.tencent.com/document/product/457/31705)。
 本示例创建结果如下图所示： 
 ![image-20201105173748658](https://main.qcloudimg.com/raw/8f66b02ddfe9b5d5062c1f9e0e1e5333.png)
 
@@ -65,7 +65,7 @@ while true; do wget -q -O - hpa-test.default.svc.cluster.local; done
 ![image-20201106165205910](https://main.qcloudimg.com/raw/19acc1b78c28863e1857836294d64310.png)
 但从下图工作负载的 Pod 数量监控可以看出，工作负载在16:30分时才触发了 HPA 的缩容，原因是触发 HPA 缩容后有默认5分钟容忍的时间算法，以防止度量指标短时间波动导致的频繁的扩缩容，详情请参见 [冷却 / 延迟支持](https://kubernetes.io/zh/docs/tasks/run-application/horizontal-pod-autoscale/#%E5%86%B7%E5%8D%B4-%E5%BB%B6%E8%BF%9F%E6%94%AF%E6%8C%81)。从下图可以看出工作负载副本数在停止命令5分钟后按照 HPA [扩缩容算法](https://cloud.tencent.com/document/product/457/37384#.E5.B7.A5.E4.BD.9C.E5.8E.9F.E7.90.86) 缩容到了最初设定的1个副本数。如下图所示：
 ![image-20201106164648921](https://main.qcloudimg.com/raw/58a538f52c3601759036dc9a0ee455cb.png)
-当 TKE 发生 HPA 扩缩容事件时，会在对应的 HPA 实例的事件列表展示。需要注意的是事件通知列表的时间分为 “首次出现时间” 和 “最后出现时间”，“首次出现时间” 表示相同事件第一次出现的时间，”最后出现时间” 为相同事件出现的最新时间，所以从下图事件列表 “最后出现时间” 字段可以看到本示例扩容事件时间点是16:21:03，缩容事件时间是16.29:42，时间点与工作负载监控看到的时间点相吻合。如下图所示：
+当 TKE 发生 HPA 扩缩容事件时，会在对应的 HPA 实例的事件列表展示。需要注意的是事件通知列表的时间分为 “首次出现时间” 和 “最后出现时间”，“首次出现时间” 表示相同事件第一次出现的时间，“最后出现时间” 为相同事件出现的最新时间，所以从下图事件列表 “最后出现时间” 字段可以看到本示例扩容事件时间点是16:21:03，缩容事件时间是16.29:42，时间点与工作负载监控看到的时间点相吻合。如下图所示：
 ![image-20201106164245358](https://main.qcloudimg.com/raw/2d1bc7a10640ae779130ca2d35a85498.png)
 此外，工作负载事件列表也会记录 HPA 发生时工作负载的增删副本数事件，从下图可以看出工作负载扩缩容时间点与 HPA 事件列表的时间点也是吻合的，增加副本数时间点是16:21:03，减少副本数时间点是16:29:42。
 ![image-20201106164329173](https://main.qcloudimg.com/raw/956d37b12ec4246945c75bfd482251af.png)

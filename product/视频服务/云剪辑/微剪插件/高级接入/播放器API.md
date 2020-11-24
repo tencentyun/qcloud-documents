@@ -1,10 +1,9 @@
-播放器**wj-player**是支持微剪运行的核心组件，它是由轨道数据驱动运行的播放器，并内置了一些常用功能。
-
->?v1.4.0后新增功能：
+播放器 **wj-player** 是支持微剪运行的核心组件，它是由轨道数据驱动运行的播放器，并内置了一些常用功能。
+>?v1.4.0 后新增功能：
 >- 贴纸，详情请参见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440)。
 >- 文字和贴纸内置编辑控件，详情请参见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
 >
->v1.5.0后新增功能：
+>v1.5.0 后新增功能：
 >转场和动效，详情请参见 [转场和动效](https://cloud.tencent.com/document/product/1156/50070)。
 
 ## 使用方式
@@ -84,7 +83,7 @@
 >?
 >- 定制滤镜目前只支持 LUT 图滤镜，由于小程序下载文件的限制，LUT 图需要先 downloadFile 到本地。
 >- 定制特效需要传入特效的片元着色器，详情见 [自定义特效和滤镜](https://cloud.tencent.com/document/product/1156/48621)。
->- v1.4.0之后支持贴纸渲染，贴纸和文字的位移和缩放，详见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440) 和 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
+>- v1.4.0 之后支持贴纸渲染，贴纸和文字的位移和缩放，详见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440) 和 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
 
 ## 播放器使用示例
 下述内容为您讲解如何使用播放器添加各种类型的轨道。
