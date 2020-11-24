@@ -2122,7 +2122,7 @@ sdk.voiceRecognition({...}) => Promise<{...}>
 
 #### 监听识别结果 - asrResponse
 
-对于“录音文件”场景，如果音频文件过大，后台可能会对音频文件进行分片识别，每个分片识别完成后，都会推送一条 websocket 消息，但推送的消息不保证顺序（例如有可能分片2的结果先到达）。
+对于“录音文件”场景，如果音频文件过大，后台可能会对音频文件进行分片识别，每个分片识别完成后，都将推送一条 websocket 消息，但推送的消息不保证顺序（例如有可能分片2的结果先到达）。
 
 对于“asrResponse”事件，实际是基于“wsControl”事件进行二次封装；当然，您也可以通过监听“wsControl”事件获取识别结果。
 
@@ -2135,7 +2135,7 @@ sdk.on('asrResponse', ({ deviceId, data }) => void)
 | 参数名                 | 参数描述            | 类型     |
 |:--------------------|:----------------|:-------|
 | deviceId            | 设备ID            | string |
-| data                |                 | object |
+| data                |  识别结果数据               | object |
 | data.resource_token | 某个设备下，音频文件的唯一标示 | string |
 | data.result_code    | 状态码，0代表成功      | number |
 | data.total_num   | 分片总数   | number |
@@ -2152,12 +2152,14 @@ sdk.getAsrDownloadUrl({...}) => Promise<{...}>
 ```
 
 #### 参数说明
+
 | 参数名                 | 参数描述            | 类型     | 必填   |
 |:--------------------|:----------------|:-------|:-----|
 | DeviceId            | 设备 ID            | string | 是 |
 | ResourceToken       | 调用 voiceRecognition 返回的 ResourceToken    | string | 是 |
 
 #### 返回值说明
+
 | 参数名                 | 参数描述            | 类型     |
 |:--------------------|:----------------|:-------|
 | ResourceURL       | cos 访问链接            | string |
@@ -2165,11 +2167,10 @@ sdk.getAsrDownloadUrl({...}) => Promise<{...}>
 
 
 
-
 ## 底层 SDK 能力
 
 ### 应用开发 SDK
-H5 SDK 底层依赖应用开发小程序端 SDK。通过以下代码可以获取应用开发 SDK 的实例，更多调用能力请参考 [应用开发小程序端 SDK](https://github.com/tencentyun/qcloud-iotexplorer-appdev-miniprogram-sdk#readme) 文档。
+H5 SDK 底层依赖应用开发小程序端 SDK。通过以下代码可以获取应用开发 SDK 的实例，更多调用能力请参见 [应用开发小程序端 SDK](https://github.com/tencentyun/qcloud-iotexplorer-appdev-miniprogram-sdk#readme) 文档。
 
 **接口定义**
 ```typescript
