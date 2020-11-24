@@ -59,7 +59,7 @@ Tecent Linux 根据内部与外部的用户在大规模落地实践中遇到的�
 
 Tencnet Linux 内核中实现了类似 LXCFS 特性，用户无需在节点部署 LXCFS 文件系统，也无需修改 POD spec。只需在节点开启一个全局开关 `sysctl -w kernel.stats_isolated=1`，容器中读取 `/proc/cpuinfo`，`/proc/meminfo` 等文件获取的就是按容器隔离的，就是这么简单。
 
-另外，考虑到有些特殊容器， 比如节点监控组件， 可能就是需要读取节点级的信息。为了解决这个问题，专门增加了容器级的开关`kernel.container_stats_isolated`。在主机级开关开启的情况下，只需要在容器的启动脚本里面，关闭容器级的开关(`sysctl -w kernel.container_stats_isolated=0`)，以后在这个容器里面读取 `/proc/cpuinfo`，`/proc/meminfo` 等文件获取的就是主机的信息了。(注：容器级开关必须在容器中设置，才能对本容器生效)
+另外，考虑到有些特殊容器，例如节点监控组件，可能就是需要读取节点级的信息。为了解决这个问题，专门增加了容器级的开关`kernel.container_stats_isolated`。在主机级开关开启的情况下，只需要在容器的启动脚本里面，关闭容器级的开关(`sysctl -w kernel.container_stats_isolated=0`)，以后在这个容器里面读取 `/proc/cpuinfo`，`/proc/meminfo` 等文件获取的就是主机的信息了。(注：容器级开关必须在容器中设置，才能对本容器生效)
 
 使用详情可参见 [容器内 CPU、内存、进程、磁盘等信息隔离](https://github.com/Tencent/TencentOS-kernel/wiki/container-resource-view-isolation)。
 
