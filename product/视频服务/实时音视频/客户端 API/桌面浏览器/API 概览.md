@@ -5,7 +5,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 - 如果您的应用场景主要为教育场景，那么教师端推荐使用稳定性更好的 [Electron](https://cloud.tencent.com/document/product/647/38549) 解决方案，支持大小双路画面，更灵活的屏幕分享方案以及更强大的弱网络恢复能力。
 
 <table>
-<thead><tr><th width="14%">操作系统</th>
+<thead><tr><th width="15%">操作系统</th>
 <th width="24%">浏览器类型</th>
 <th>浏览器最低<br>版本要求</th>
 <th>接收（播放）</th>
