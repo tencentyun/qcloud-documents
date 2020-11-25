@@ -38,7 +38,7 @@ COSDistcp 基于 MapReduce 框架实现，在 Mapper 中对文件进行分组，
 |          --help          | 输出 COSDistcp 支持的参数选项<br> 示例：--help |                              无                              |   否   |
 |          --src=LOCATION          | 指定拷贝的源目录，可以是 HDFS 或者 COS 路径<br> 示例：--src=hdfs://user/logs/ |                              无                              |   是   |
 |         --dest=LOCATION          | 指定拷贝的目标目录，可以是 HDFS 或者 COS 路径<br> 示例：--dest=cosn://examplebucket-1250000000/user/logs |       无       |   是   |
-|       --srcPattern=PATTERN       | 指定正则表达式对源目录中的文件进行过滤<br>示例：--srcPattern='**.log**'<br>**注意：您需要将参数使用单引号包围，以避免符号`*`被 shell 解释**。 | 无 | 否 |
+|       --srcPattern=PATTERN       | 指定正则表达式对源目录中的文件进行过滤<br>示例：--srcPattern=**'.log'**<br>**注意：您需要将参数使用单引号包围，以避免符号`*`被 shell 解释**。 | 无 | 否 |
 |       --reducerNumber=VALUE       | 指定 reducer 进程数目<br>示例：--reducerNumber=10 |                             10                             |   否   |
 |       --workerNumber=VALUE       | 指定每个 reducer 中的拷贝线程数，COSDistcp 在每个 reducer 中创建该参数大小的拷贝线程池<br>示例：--workerNumber=10 |                             10                             |   否   |
 |      --filesPerMapper=VALUE      | 指定每个 MapReduce 输入文件中的文件信息行数<br>示例：--filesPerMapper=10000 |                              500000                              |   否   |
@@ -46,7 +46,7 @@ COSDistcp 基于 MapReduce 框架实现，在 Mapper 中对文件进行分组，
 |        --targetSize=VALUE        | 指定目标文件的大小，单位:MB，与--groupBy一起使用<br>示例：--targetSize=10              |                              无                              |   否   |
 |       --outputCodec=VALUE        | 指定输出文件的压缩方式，可选 gzip、lzo、snappy、none 和 keep, 其中：<br> 1. keep 保持原有文件的压缩方式<br>2. none 则根据文件后缀对文件进行解压<br>示例：--outputCodec=gzip | keep | 否 |
 |        --deleteOnSuccess         | 指定源文件拷贝到目标目录成功时，立即删除源文件<br>示例：--deleteOnSuccess | false | 否 |
-| --multipartUploadChunkSize=VALUE | 指定 Hadoop-COS 插件传输文件到 COS 时分块的大小，COS 支持的最大分块数为 10000，您可根据文件大小，调整分块大小，单位：MB，默认为8MB，<br>示例：--multipartUploadChunkSize=20 | 8MB |   否   |
+| --multipartUploadChunkSize=VALUE | 指定 Hadoop-COS 插件传输文件到 COS 时分块的大小，COS 支持的最大分块数为 10000，您可根据文件大小，调整分块大小，单位：MB，默认为8MB<br>示例：--multipartUploadChunkSize=20 | 8MB |   否   |
 |    --cosServerSideEncryption     | 指定上传文件到 COS 时使用加解密算法 SSE-COS<br />示例：--cosServerSideEncryption | false | 否 |
 |      --outputManifest=VALUE      | 指定拷贝完成的时候，在目标目录下生成本次拷贝到目标文件信息列表（GZIP 压缩）<br>示例：--outputManifest=manifest.gz | 无 | 否 |
 |    --requirePreviousManifest     | 要求指定 --previousManifest=VALUE 参数，以进行增量拷贝<br>示例：--requirePreviousManifest |     false      | 否 |
@@ -112,7 +112,7 @@ hadoop jar cos-distcp-1.0.jar --src /data/warehouse --dest cosn://examplebucket-
 执行命令`--bandWidth`，数值单位为MB。限制每个迁移文件的读取带宽为 10MB/s，示例如下：
 
 ```plaintext
-$ hadoop jar cos-distcp-1.0.jar  --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --bandWidth=10
+hadoop jar cos-distcp-1.0.jar  --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --bandWidth=10
 ```
 
 ### 指定 Hadoop-COS 的文件检验和类型
@@ -192,7 +192,7 @@ hadoop jar cos-distcp-1.0.jar --src /data/warehouse --dest  cosn://examplebucket
 
 执行命令`--diffMode`、`--diffOutput`：
 - `--diffMode` 可选值为 length 和 length-checksum。
- - `--diffMode=length`表示根据文件大小是否相同，获取差异文件列表；
+ - `--diffMode=length`表示根据文件大小是否相同，获取差异文件列表。
  - `--diffMode=length-checksum`，根据文件大小和 CRC 检验和是否相同，获取差异文件列表。
 - `--diffOutput` 指定 diff 操作的输出目录。
 
