@@ -94,7 +94,7 @@ hadoop jar cos-distcp-1.0.jar  --src /data/warehouse/logs --dest cosn://exampleb
 - 通过 `--workerNumber` 指定每个 reducer 内的拷贝线程数
 
 ```plaintext
-hadoop jar cos-distcp-1.0.jar --src /data/warehouse/ --dest cosn://examplebucket-1250000000/data/warehouse --reducerNumber=10 --workerNumber=32
+hadoop jar cos-distcp-1.0.jar --src /data/warehouse/ --dest cosn://examplebucket-1250000000/data/warehouse --reducerNumber=10 --workerNumber=10
 ```
 
 ### 删除源文件
