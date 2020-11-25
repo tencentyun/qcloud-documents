@@ -23,20 +23,3 @@
 弹出气泡提示续期成功后，随即右上角的【续期】 消失，便完成测试版 License 续期14天的操作。
 ![](https://main.qcloudimg.com/raw/b1a65e43cbf6360ee23bd140dba53c2d.png)
 >?您的测试版 License 体验完28天后到期，请前往 [购买正式版 License](https://buy.cloud.tencent.com/vod)。
-
-## 查看测试版 License
-### 方式一：控制台查看  License
-您可通过 [云点播控制台](https://console.cloud.tencent.com/vod/license) 查看测试版 License 的有效期，在试用版 License 区域，点击 【三角图形】展开 App Name 即可查看 License 的有效期。
-![](https://main.qcloudimg.com/raw/335d701b57511bf1b72bb653673bb59c.png)
-
-### 方式二：调用法查看  License
-在 License 设置成功后稍等一段时间（依据网络情况而定），可以通过调用以下方法查看 License 信息。
-
-- iOS：
-```
-NSLog(@"%@", [TXUGCBase getLicenceInfo]);
-```
-- Android：
-```
-TXUGCBase.getInstance().getLicenceInfo(context);
-```
