@@ -39,7 +39,7 @@ TXUGCBase.getInstance().getLicenceInfo(context);
 ## License 使用方法
 在调用 SDK 的相关接口前调用如下所示方法进行 License 的设置。
 
-- iOS 建议在`- [AppDelegate application:didFinishLaunchingWithOptions:]`中添加：
+- iOS 建议在`[AppDelegate application:didFinishLaunchingWithOptions:]`中添加：
 ```
 [TXUGCBase setLicenceURL:LicenceUrl key:Key];
 ```
