@@ -24,6 +24,17 @@
 ![](https://main.qcloudimg.com/raw/b1a65e43cbf6360ee23bd140dba53c2d.png)
 >?您的测试版 License 体验完28天后到期，请前往 [购买正式版 License](https://buy.cloud.tencent.com/vod)。
 
+## 查看测试版 License
+在 License 设置成功后稍等一段时间（依据网络情况而定），可以通过调用以下方法查看 License 信息。
+
+- iOS：
+```
+NSLog(@"%@", [TXUGCBase getLicenceInfo]);
+```
+- Android：
+```
+TXUGCBase.getInstance().getLicenceInfo(context);
+
 ## License 使用方法
 在调用 SDK 的相关接口前调用如下所示方法进行 License 的设置。
 
