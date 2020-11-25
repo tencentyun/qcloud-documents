@@ -5,7 +5,7 @@
 
 #### 工具下载
 
-[mysql-gp-sync.zip](https://packagedown-online-1256722404.cos.ap-guangzhou.myqcloud.com/sync/mysql-gp-sync-1.0.0.zip)
+[mysql-gp-sync.zip](https://packagedown-online-1256722404.cos.ap-guangzhou.myqcloud.com/sync/mysql-gp-sync-1.1.0.zip)
 
 #### 实时同步限制
 - 需同步的 mysql 表必须包含主键。
