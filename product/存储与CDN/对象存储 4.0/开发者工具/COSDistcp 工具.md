@@ -38,7 +38,7 @@ COSDistcp 基于 MapReduce 框架实现，在 Mapper 中对文件进行分组，
 |          --help          | 输出 COSDistcp 支持的参数选项<br> 示例：--help |                              无                              |   否   |
 |          --src=LOCATION          | 指定拷贝的源目录，可以是 HDFS 或者 COS 路径<br> 示例：--src=hdfs://user/logs/ |                              无                              |   是   |
 |         --dest=LOCATION          | 指定拷贝的目标目录，可以是 HDFS 或者 COS 路径<br> 示例：--dest=cosn://examplebucket-1250000000/user/logs |       无       |   是   |
-|       --srcPattern=PATTERN       | 指定正则表达式对源目录中的文件进行过滤<br>示例：--srcPattern='.*.log'<br>**注意：您需要将参数使用单引号包围，以避免符号`*`被 shell 解释**。 | 无 | 否 |
+|       --srcPattern=PATTERN       | 指定正则表达式对源目录中的文件进行过滤<br>示例：`--srcPattern='.*.log'`<br>**注意：您需要将参数使用单引号包围，以避免符号`*`被 shell 解释**。 | 无 | 否 |
 |       --reducerNumber=VALUE       | 指定 reducer 进程数目<br>示例：--reducerNumber=10 |                             10                             |   否   |
 |       --workerNumber=VALUE       | 指定每个 reducer 中的拷贝线程数，COSDistcp 在每个 reducer 中创建该参数大小的拷贝线程池<br>示例：--workerNumber=10 |                             10                             |   否   |
 |      --filesPerMapper=VALUE      | 指定每个 Mapper 输入文件的行数<br>示例：--filesPerMapper=10000 |                              500000                              |   否   |
@@ -94,7 +94,7 @@ hadoop jar cos-distcp-1.0.jar  --src /data/warehouse/logs --dest cosn://exampleb
 - 通过 `--workerNumber` 指定每个 reducer 内的拷贝线程数
 
 ```plaintext
-hadoop jar cos-distcp-1.0.jar --src /data/warehouse/ --dest cosn://examplebucket-1250000000/data/warehouse --reducerNumber=10 --workerNumber=32
+hadoop jar cos-distcp-1.0.jar --src /data/warehouse/ --dest cosn://examplebucket-1250000000/data/warehouse --reducerNumber=10 --workerNumber=10
 ```
 
 ### 删除源文件
