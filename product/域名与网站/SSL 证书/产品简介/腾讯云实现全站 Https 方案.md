@@ -11,13 +11,10 @@
 >
 1. 选择您需要部署的证书，单击【部署】。如下图所示：
 ![](https://main.qcloudimg.com/raw/fe9df64283baa8440e5a3f1c20bf93b0.png)
-
 2. 根据项目和地区筛选 CLB 实例，且只能选择一个实例。如下图所示：
 >!目前不支持华南地区-深圳金融。
 >
-
 ![](https://main.qcloudimg.com/raw/b2c5f3665d0d20ecd1fe6dd6d74c8e02.png)
-
 3. 单击【确认】，跳转到 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3)，进入实例【基本信息】页面。
 4. 选择【监听器管理】页签。
 5. 在【HTTP/HTTPS 监听器】中单击【新建】，弹出【创建监听器】弹窗。
@@ -41,5 +38,5 @@
  - 选择 **协议跟随** 回源配置，您的源站需要部署有效证书，否则将导致回源失败。配置成功后，用户至 CDN 节点请求为 HTTP 时，CDN 节点回源请求也为 HTTP。用户至 CDN 节点请求为 HTTPS 时，CDN 节点回源请求也为 HTTPS。
  - 若域名源站修改 HTTPS 端口为非 443 端口，会导致配置失败。
  - COS 源或 FTP 源域名仅支持 HTTP 回源。
-6. 配置成功后，您可以在【证书管理】页面看到已经配置成功的域名以及证书情况。如下图所示：
+5. 配置成功后，您可以在【证书管理】页面看到已经配置成功的域名以及证书情况。如下图所示：
 ![](https://main.qcloudimg.com/raw/c30cb345a0cca5d567f3b00d1425e59e.png)
