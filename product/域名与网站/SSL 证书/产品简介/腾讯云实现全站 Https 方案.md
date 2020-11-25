@@ -6,7 +6,8 @@
 ## 前提条件
 成功申请获取证书（参考 [如何免费申请域名型证书](https://cloud.tencent.com/document/product/400/6814)）。
 
-## 步骤2：部署证书到负载均衡
+## 操作步骤
+### 部署证书到负载均衡
 >!操作之前，请确认您的 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3) 是否有实例，若没有实例，请您先创建实例。
 >
 1. 选择您需要部署的证书，单击【部署】。如下图所示：
@@ -22,7 +23,7 @@
 ![](https://main.qcloudimg.com/raw/6beb94b001fb5ead265e4fff72b6674f.png)
 7. 继续完成创建监听器的其他配置，即可实现负载均衡的 HTTPS。
 
-## 步骤3：部署证书到 CDN
+### 部署证书到 CDN
  >!
  - 域名需要已经接入 CDN，且状态为**部署中**或**已启动**，关闭状态的域名无法部署证书。具体操作请参考 [接入域名](https://cloud.tencent.com/document/product/228/41215)。
  - COS 或 数据万象开启 CDN 加速后，默认的 .file.myqcloud.com 或 .image.myqcloud.com 域名无法配置证书。
