@@ -1,25 +1,16 @@
-## License 使用方法
+License 查询页展示小程序播放器插件 License、短视频 SDK License 的基本信息，包括测试版或已购 License 都可在此页面查询。
 
-在调用 SDK 的相关接口前调用如下所示方法进行 License 的设置。
 
-- iOS 建议在：`[AppDelegate application:didFinishLaunchingWithOptions:] `添加如下：
- ```
- [TXUGCBase setLicenceURL:LicenceUrl key:Key];
- ``` 
-- Android 建议在 application 中添加：
- ```
- TXUGCBase.getInstance().setLicence(context, LicenceUrl, Key);
- ```
 
-## License 信息查看
+![](https://main.qcloudimg.com/raw/ade0103c1f070fef166499b9d8acb56c.png)
 
-在 License 设置成功后稍等一段时间（依据网络情况而定），可以通过调用以下方法查看 License 信息。
 
-- iOS：
- ```
- NSLog(@"%@", [TXUGCBase getLicenceInfo]);```
- 
-- Android：
- ```
- TXUGCBase.getInstance().getLicenceInfo(context);
- ```
+- **类型**：展示该账号下用的 License 的种类和数目。
+- **领取/购买时间**：表示获取 License 的时间。
+- **到期时间**：表示 License 的有效时间。
+- **状态**：分为已过期和可用。
+
+
+更多相关的插件信息请前往 [小程序播放器插件]() 或 [短视频 SDK]() 进行查询。
+
+>!License 如已激活或已绑定将视作已使用，不支持退款。
