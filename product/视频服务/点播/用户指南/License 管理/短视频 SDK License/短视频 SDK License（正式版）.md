@@ -1,7 +1,7 @@
 短视频 SDK License 用于激活短视频 SDK 的使用权限，用户可以在控制台上对短视频 SDK 进行新增、升级和续期。更多详细的短视频 SDK 功能说明，请参见 [短视频 UGSV](https://cloud.tencent.com/document/product/584/9366)。
 
 ## 购买正式版 License
-当短视频测试版 License 试用28天到期后，请前往 [购买页](https://buy.cloud.tencent.com/vod?p=mp) 购买正式版 License。当您购买 [流量资源包10T](https://buy.cloud.tencent.com/vod)、[流量资源包50T](https://buy.cloud.tencent.com/vod)、[流量资源包200T](https://buy.cloud.tencent.com/vod) 中的任意规格，系统都会赠送对应短视频 License 版本一个。您需要通过 [云点播控制台](https://console.cloud.tencent.com/vod/license/video) 将此 License 与流量资源包绑定即可创建成功，方法请参见 [新增短视频 License]()。其有效期与流量资源包一致，支持升级、续期及变更等操作。
+当短视频测试版 License 试用28天到期后，请前往 [购买页](https://buy.cloud.tencent.com/vod?p=mp) 购买正式版 License。当您购买 [流量资源包10T](https://buy.cloud.tencent.com/vod)、[流量资源包50T](https://buy.cloud.tencent.com/vod)、[流量资源包200T](https://buy.cloud.tencent.com/vod) 中的任意规格，系统都会赠送对应版本的短视频 License 一个。您需要通过 [云点播控制台](https://console.cloud.tencent.com/vod/license/video) 将此 License 与流量资源包绑定即可创建成功，方法请参见 [新增短视频 License]()。其有效期与流量资源包一致，支持升级、续期及变更等操作。
 
 短视频 SDK License 版本与您所购买的云点播流量套餐包对应表如下：
 
