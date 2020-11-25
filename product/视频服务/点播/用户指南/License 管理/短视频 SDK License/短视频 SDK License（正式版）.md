@@ -48,8 +48,6 @@
 **示例**
 用户已购买流量资源包10TB（赠送精简版 License），如需从精简版 License 升级至基础版 License，则控制台需要存在50TB或200TB流量资源包以满足升级条件。
 
-短视频 SDK License 用于激活短视频 SDK 的使用权限，用户可以在控制台申请测试版短视频License 或续期、查看等操作。更多详细的短视频 SDK 功能说明，请参见 [短视频 UGSV](https://cloud.tencent.com/document/product/584/9366)。
-
 ## 查看正式版 License
 在 License 设置成功后稍等一段时间（依据网络情况而定），可以通过调用以下方法查看 License 信息。
 
