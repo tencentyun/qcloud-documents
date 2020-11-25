@@ -50,6 +50,30 @@
 用户已购买流量资源包10TB（赠送精简版 License），如需从精简版 License 升级至基础版 License，则控制台需要存在50TB或200TB流量资源包以满足升级条件。
 
 短视频 SDK License 用于激活短视频 SDK 的使用权限，用户可以在控制台申请测试版短视频License 或续期、查看等操作。更多详细的短视频 SDK 功能说明，请参见 [短视频 UGSV](https://cloud.tencent.com/document/product/584/9366)。
+
+## 查看正式版 License
+在 License 设置成功后稍等一段时间（依据网络情况而定），可以通过调用以下方法查看 License 信息。
+
+- iOS：
+```
+NSLog(@"%@", [TXUGCBase getLicenceInfo]);
+```
+- Android：
+```
+TXUGCBase.getInstance().getLicenceInfo(context);
+
+## License 使用方法
+在调用 SDK 的相关接口前调用如下所示方法进行 License 的设置。
+
+- iOS 建议在`- [AppDelegate application:didFinishLaunchingWithOptions:]`中添加：
+```
+[TXUGCBase setLicenceURL:LicenceUrl key:Key];
+```
+- Android 建议在 application 中添加：
+```
+TXUGCBase.getInstance().setLicence(context, LicenceUrl, Key);
+```
+
 ## 申请测试版 License
 您可以申请测试版 License 免费体验各项功能，其使用权限对应正式版短视频 SDK License 中的基础版。首次申请试用14天，可免费续期一次，合计28天。请参见 [点播流量资源包与正式版短视频 SDK License 对照表。](https://cloud.tencent.com/document/product/266/33149#.E7.9F.AD.E8.A7.86.E9.A2.91-sdk-license)申请步骤如下：
 
