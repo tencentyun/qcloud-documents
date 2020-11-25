@@ -15,7 +15,7 @@
 ![](https://main.qcloudimg.com/raw/ec1f3684853a8ab3308942621d053065.png)
 2. 在弹出的【确认证书类型】窗口中，单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/bd1d90455818626c0f1f242ffb23303c.png)
-3. 填写证书申请内容，例如 `qcloud.com`，`cloud.tencent.com`，`demo.test.qlcoud.com`。并单击【下一步】。
+3. 填写证书申请内容，例如 `qcloud.com`，`cloud.tencent.com`，`demo.test.qlcoud.com`，并单击【下一步】。
 ![](https://main.qcloudimg.com/raw/89e50b8021ebadec1253ca34908f6a7c.png)
  - **算法选择**：勾选所需证书的加密算法。
  - **证书绑定域名**：即绑定证书的域名，请填写单个域名。例如 tencent.com、ssl.tencent.com。
@@ -25,7 +25,7 @@
 >!如需部署腾讯云负载均衡、CDN 等云服务，请勿填写私钥密码。
  - **所属项目**：请选择您证书所属项目，方便您通过项目管理您的证书。
 4. 选择域名验证方式，并单击【下一步】。
-5. 根据【验证操作】提示，完成域名身份验证即可获取证书，具体操作可参考 [域名验证指引](https://cloud.tencent.com/document/product/400/4142)。
+5. 根据【验证操作】提示，完成域名身份验证即可获取证书。具体操作可参考 [域名验证指引](https://cloud.tencent.com/document/product/400/4142)。
 >?单击【查看域名验证状态】，即可查看当前域名验证的状态。
 >- 验证中：系统正在进行验证检查。
 >- 等待验证：等待添加域名验证操作。
