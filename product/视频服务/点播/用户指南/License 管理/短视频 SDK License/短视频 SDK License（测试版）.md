@@ -20,7 +20,7 @@
 进入【[短视频 SDK License](https://console.cloud.tencent.com/vod/license/video)】页面，在试用版 License 区域，单击右上角的【续期】。
 ![](https://main.qcloudimg.com/raw/089a73cd3619a2633184e343da0e1835.png)
 ### 步骤2：完成续期 License
-弹出气泡提示续期成功后，随即右上角的【续期】 消失，便完成测试版 License 续期14天的操作。
+弹出气泡提示续期成功后，随即右上角的【续期】 消失便完成测试版 License 续期14天的操作。
 ![](https://main.qcloudimg.com/raw/b1a65e43cbf6360ee23bd140dba53c2d.png)
 >?您的测试版 License 体验完28天后到期，请前往 [购买正式版 License](https://buy.cloud.tencent.com/vod)。
 
@@ -34,4 +34,16 @@ NSLog(@"%@", [TXUGCBase getLicenceInfo]);
 - Android：
 ```
 TXUGCBase.getInstance().getLicenceInfo(context);
+```
+
+## License 使用方法
+在调用 SDK 的相关接口前调用如下所示方法进行 License 的设置。
+
+- iOS 建议在`- [AppDelegate application:didFinishLaunchingWithOptions:]`中添加：
+```
+[TXUGCBase setLicenceURL:LicenceUrl key:Key];
+```
+- Android 建议在 application 中添加：
+```
+TXUGCBase.getInstance().setLicence(context, LicenceUrl, Key);
 ```
