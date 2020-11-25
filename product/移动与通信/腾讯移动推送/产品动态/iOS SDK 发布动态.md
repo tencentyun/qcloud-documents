@@ -60,7 +60,7 @@
         <td>SDK 1.2.8.0 版本发布</td>
 				<td><li> 新增「<b>用户属性</b>」相关接口，用于个性化推送</li><li> 新增「<b>应用内消息</b>」功能，以及若干应用内消息模板</li><li>修复已知问题</li></td>
         <td>2020-09-27</td>
-        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li></td>
+        <td>-</li></td>
     </tr>        
 </table>
 
