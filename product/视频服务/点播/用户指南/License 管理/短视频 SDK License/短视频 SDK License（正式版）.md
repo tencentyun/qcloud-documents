@@ -7,7 +7,7 @@
 
 | 短视频 SDK 版本 | 套餐包 |
 |---------|---------|
-| [精简版 SDK（UGC_Smart）](https://cloud.tencent.com/document/product/584/9366#sdk) |[云点播流量资源包 10TB](https://buy.cloud.tencent.com/vod?t=ugsv&from=console-license-bottom-ugsv)| 
+| [精简版 SDK（UGC_Smart）](https://cloud.tencent.com/document/product/584/9366#sdk) |[云点播流量资源包10TB](https://buy.cloud.tencent.com/vod?t=ugsv&from=console-license-bottom-ugsv)| 
 | [基础版 SDK（UGC）](https://cloud.tencent.com/document/product/584/9366#sdk) |[云点播流量资源包50TB或200TB](https://buy.cloud.tencent.com/vod?t=ugsv&from=console-license-bottom-ugsv) | 
 
 
