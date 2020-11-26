@@ -11,7 +11,7 @@
 | [基础版 SDK（UGC）](https://cloud.tencent.com/document/product/584/9366#sdk) |[云点播流量资源包50TB或200TB](https://buy.cloud.tencent.com/vod?t=ugsv&from=console-license-bottom-ugsv) | 
 
 
->!**购买点播套餐包并绑定 License 后，请确认 [Bundle ID 和 Package Name]( https://cloud.tencent.com/document/product/266/50296#5.E3.80.81license-.E5.BA.94.E8.AF.A5.E5.A6.82.E4.BD.95.E7.A1.AE.E8.AE.A4.E7.BB.91.E5.AE.9A.E5.85.B3.E7.B3.BB.EF.BC.88android-.E7.9A.84-packagename-.E5.92.8C-ios-.E7.9A.84-bundleid.EF.BC.89.3F) 无误，一旦提交，License 信息不能再做修改。**
+
 
 
 ## 新增短视频 License
@@ -29,7 +29,7 @@
 ![](https://main.qcloudimg.com/raw/4e431708c0e9043b98059cd136666700.png)
 2. 单击【确定】即可。
 
->! 正式版 License 一经绑定不能再做修改。
+>!**购买点播套餐包并绑定 License 后，请确认 [Bundle ID 和 Package Name]( https://cloud.tencent.com/document/product/266/50296#5.E3.80.81license-.E5.BA.94.E8.AF.A5.E5.A6.82.E4.BD.95.E7.A1.AE.E8.AE.A4.E7.BB.91.E5.AE.9A.E5.85.B3.E7.B3.BB.EF.BC.88android-.E7.9A.84-packagename-.E5.92.8C-ios-.E7.9A.84-bundleid.EF.BC.89.3F) 无误，一旦提交，License 信息不能再做修改。**
 
 ## 续期正式版 License
 您可以在 [云点播控制台](https://console.cloud.tencent.com/vod/license) 查看 License 的有效期，正式版本的 License 有效期为一年。若您对指定 License 进行续期，请保证已购买流量资源包的情况下，操作如下：
