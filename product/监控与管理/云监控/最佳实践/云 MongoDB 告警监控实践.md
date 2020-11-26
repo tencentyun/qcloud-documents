@@ -1,6 +1,6 @@
 ## 云 MongoDB 简介
 
-云数据库 MongoDB（TencentDB for MongoDB）是腾讯云基于开源非关系型数据库 MongoDB 专业打造的高性能、分布式数据存储服务，完全兼容 MongoDB 协议，适用于面向非关系型数据库的场景。
+[云数据库 MongoDB](https://cloud.tencent.com/document/product/240)（TencentDB for MongoDB）是腾讯云基于开源非关系型数据库 MongoDB 专业打造的高性能、分布式数据存储服务，完全兼容 MongoDB 协议，适用于面向非关系型数据库的场景。
 
 **产品特点:**
 
@@ -199,12 +199,12 @@
 
 <table>
    <tr>
-      <th>类别</th>
-      <th>指标英文名</th>
-      <th>指标中文名</th>
-      <th>含义</th>
-      <th>单位</th>
-      <th>维度</th>
+      <th width="10%">类别</th>
+      <th width="15%">指标英文名</th>
+      <th width="20%">指标中文名</th>
+      <th width="30%">含义</th>
+      <th width="10%" >单位</th>
+      <th width="15%">维度</th>
    </tr>
    <tr>
       <td>系统类</td>
@@ -262,12 +262,12 @@
 
 <table>
    <tr>
-      <th>类别</th>
-      <th>指标英文名</th>
-      <th>指标中文名</th>
-      <th>含义</th>
-      <th>单位</th>
-      <th>维度</th>
+      <th width="10%">类别</th>
+      <th width="15%">指标英文名</th>
+      <th width="20%">指标中文名</th>
+      <th width="30%">含义</th>
+      <th width="10%" >单位</th>
+      <th width="15%">维度</th>
    </tr>
    <tr>
       <td rowspan="5">系统类</td>
@@ -395,7 +395,7 @@
 
 #### 云数据库 MongoDB 副集本维度
 
-- **磁盘使用率>80%**
+- **磁盘使用率 > 80%**
 代码副本集容量使用率，副本集容量使用率达到100%会被写封禁，影响用户写入，所以需要用户注意提前扩容。
 
 
