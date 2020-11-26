@@ -71,7 +71,7 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 >?
 - initGroup 会更新 Group 实例的 groupInfo，接受 [MGOBE.types.GroupInfo](https://cloud.tencent.com/document/product/1038/35534#groupinfo) 或 { id: string; } 类型的参数。
 - 如果不传参数，该方法将清空 Group 实例的 groupInfo 属性。
-- 当玩家需要加入指定 ID 队组时，需要使用该接口初始化 Group 实例的 groupInfo 属性，然后才能通过调用 joinGroup 方法，加入该 Group 实例所代表的队组。
+- 当玩家需要加入指定 ID 队组时，要使用该接口初始化 Group 实例的 groupInfo 属性，然后才能通过调用 joinGroup 方法，加入该 Group 实例所代表的队组。
 
 
 #### 返回值说明
@@ -435,7 +435,7 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 |callback|[MGOBE.types.ReqCallback](https://cloud.tencent.com/document/product/1038/33331#.E5.93.8D.E5.BA.94.E5.9B.9E.E8.B0.83.E5.87.BD.E6.95.B0-mgobe.types.reqcallback)[&lt;MGOBE.types.SendToGroupClientRsp&gt;](https://cloud.tencent.com/document/product/1038/35534#sendtogroupclientrsp)|响应回调函数|
 
 >?
-- 调用结果将在 callback 中异步返回。调用成功后所指定的接收消息玩家将收到 onRecvFromGroupClient 广播。
+- 调用结果将在 callback 中异步返回。调用成功后所指定接收消息的玩家将收到 onRecvFromGroupClient 广播。
 - 当 recvType 值为 1（即 GROUP_ALL ） 时，队组内全部玩家将收到消息。
 - 当 recvType 值为 2（即 GROUP_OTHERS ） 时，队组内除消息发送者外的其他玩家将收到消息。
 - 当 recvType 值为 3（即 GROUP_SOME ） 时，接收消息玩家由 recvPlayerList 决定。
