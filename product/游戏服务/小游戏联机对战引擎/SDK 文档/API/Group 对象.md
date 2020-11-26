@@ -71,7 +71,7 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 >?
 - initGroup 会更新 Group 实例的 groupInfo，接受 [MGOBE.types.GroupInfo](https://cloud.tencent.com/document/product/1038/35534#groupinfo) 或 { id: string; } 类型的参数。
 - 如果不传参数，该方法将清空 Group 实例的 groupInfo 属性。
-- 当玩家需要加入指定 ID 队组时，要使用该接口初始化 Group 实例的 groupInfo 属性，然后才能通过调用 joinGroup 方法，加入该 Group 实例所代表的队组。
+- 当玩家要加入指定 ID 队组时，要使用该接口初始化 Group 实例的 groupInfo 属性，然后才能通过调用 joinGroup 方法，加入该 Group 实例所代表的队组。
 
 
 #### 返回值说明
