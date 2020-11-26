@@ -24,5 +24,5 @@
 | [DescribeLiveRecordTemplates](https://cloud.tencent.com/document/api/267/32609) | 获取录制模板列表 |
 | [ModifyLiveRecordTemplate](https://cloud.tencent.com/document/api/267/32608) | 修改录制模板配置 |
 | [StopRecordTask](https://cloud.tencent.com/document/api/267/45981) | 终止录制任务（新）                         |
-| [DescribeConcurrentRecordStreamNum](https://cloud.tencent.com/document/product/267/42219) | 查询并发录制路数，对慢直播和普通直播适用。 |
+| [DescribeConcurrentRecordStreamNum](https://cloud.tencent.com/document/product/267/42219) | 查询并发录制路数，对慢直播和普通直播适用 |
 

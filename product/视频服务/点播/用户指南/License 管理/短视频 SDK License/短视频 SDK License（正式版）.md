@@ -1,7 +1,7 @@
 短视频 SDK License 用于激活短视频 SDK 的使用权限，用户可以在控制台上对短视频 SDK 进行新增、升级和续期。更多详细的短视频 SDK 功能说明，请参见 [短视频 UGSV](https://cloud.tencent.com/document/product/584/9366)。
 
 ## 购买正式版 License
-当短视频测试版 License 试用28天到期后，请前往 [购买页](https://buy.cloud.tencent.com/vod?p=mp) 购买正式版 License。当您购买 [流量资源包10T](https://buy.cloud.tencent.com/vod)、[流量资源包50T](https://buy.cloud.tencent.com/vod)、[流量资源包200T](https://buy.cloud.tencent.com/vod) 中的任意规格，系统都会赠送对应版本的短视频 License 一个。您需要通过 [云点播控制台](https://console.cloud.tencent.com/vod/license/video) 将赠送的 License 与流量资源包绑定即可使用，方法请参见 [新增短视频 License]()。该 License 有效期与流量资源包一致，支持升级、续期及变更等操作。
+当短视频测试版 License 试用28天到期后，请前往 [购买页](https://buy.cloud.tencent.com/vod?p=mp) 购买正式版 License。当您购买 [流量资源包10T](https://buy.cloud.tencent.com/vod)、[流量资源包50T](https://buy.cloud.tencent.com/vod)、[流量资源包200T](https://buy.cloud.tencent.com/vod) 中的任意规格，系统都会赠送对应版本的短视频 License 一个。您需要通过 [云点播控制台](https://console.cloud.tencent.com/vod/license/video) 将赠送的 License 与流量资源包绑定即可使用，方法请参见 [新增短视频 License](https://tcloud-doc.isd.com/document/product/266/50290?!preview&!editLang=zh#.E6.96.B0.E5.A2.9E.E7.9F.AD.E8.A7.86.E9.A2.91-license)。该 License 有效期与流量资源包一致，支持升级、续期及变更等操作。
 
 短视频 SDK License 版本与您所购买的云点播流量套餐包对应表如下：
 
@@ -11,7 +11,7 @@
 | [基础版 SDK（UGC）](https://cloud.tencent.com/document/product/584/9366#sdk) |[云点播流量资源包50TB或200TB](https://buy.cloud.tencent.com/vod?t=ugsv&from=console-license-bottom-ugsv) | 
 
 
->!**购买点播套餐包并绑定 License 后，请确认 [Bundle ID 和 Package Name](https://cloud.tencent.com/document/product/266/49972#que5) 无误，一旦提交，License 信息不能再做修改。**
+
 
 
 ## 新增短视频 License
@@ -29,7 +29,7 @@
 ![](https://main.qcloudimg.com/raw/4e431708c0e9043b98059cd136666700.png)
 2. 单击【确定】即可。
 
->! 正式版 License 一经绑定不能再做修改。
+>!**购买点播套餐包并绑定 License 后，请确认 [Bundle ID 和 Package Name]( https://cloud.tencent.com/document/product/266/50296#5.E3.80.81license-.E5.BA.94.E8.AF.A5.E5.A6.82.E4.BD.95.E7.A1.AE.E8.AE.A4.E7.BB.91.E5.AE.9A.E5.85.B3.E7.B3.BB.EF.BC.88android-.E7.9A.84-packagename-.E5.92.8C-ios-.E7.9A.84-bundleid.EF.BC.89.3F) 无误，一旦提交，License 信息不能再做修改。**
 
 ## 续期正式版 License
 您可以在 [云点播控制台](https://console.cloud.tencent.com/vod/license) 查看 License 的有效期，正式版本的 License 有效期为一年。若您对指定 License 进行续期，请保证已购买流量资源包的情况下，操作如下：
