@@ -102,11 +102,11 @@
 
 ## 标准版与精简版差异对比
 >- SDK 从 5.0 版本开始新增精简版，原有版本称为标准版。
->- 精简版与标准版同时支持 V2 API，在接口能力上完全一致。
+>- 精简版与标准版同时支持<a href="https://cloud.tencent.com/document/product/269/44498"> V2 API</a>，在接口能力上完全一致。
 >- 精简版不再支持旧版 API，标准版继续支持旧版 API。
 >- 在 SDK 体积和安装包增量上，精简版与标准版相比有大幅度缩减。
 >- 精简版目前支持 Android 和 iOS 两个平台，后续会逐步增加对 Windows 和 Mac 平台的支持。
->- 如果您没有接入过旧版 API，建议您直接使用 V2 API，选择精简版 SDK；如果您已经接入了旧版 API，推荐您升级到 V2 API，逐步切换到精简版 SDK。
+>- 如果您没有接入过旧版 API，建议您直接使用<a href="https://cloud.tencent.com/document/product/269/44498"> V2 API</a>，选择精简版 SDK；如果您已经接入了旧版 API，推荐您升级到<a href="https://cloud.tencent.com/document/product/269/44498"> V2 API</a>，逐步切换到精简版 SDK。
 
 ### SDK 体积大小对比
 <table>
