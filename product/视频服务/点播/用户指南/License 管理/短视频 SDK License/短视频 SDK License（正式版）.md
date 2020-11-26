@@ -11,7 +11,7 @@
 | [基础版 SDK（UGC）](https://cloud.tencent.com/document/product/584/9366#sdk) |[云点播流量资源包50TB或200TB](https://buy.cloud.tencent.com/vod?t=ugsv&from=console-license-bottom-ugsv) | 
 
 
->!**购买点播套餐包并绑定 License 后，请确认 [Bundle ID 和 Package Name](https://cloud.tencent.com/document/product/266/49972#que5) 无误，一旦提交，License 信息不能再做修改。**
+>!**购买点播套餐包并绑定 License 后，请确认 [Bundle ID 和 Package Name]( https://cloud.tencent.com/document/product/266/50296#5.E3.80.81license-.E5.BA.94.E8.AF.A5.E5.A6.82.E4.BD.95.E7.A1.AE.E8.AE.A4.E7.BB.91.E5.AE.9A.E5.85.B3.E7.B3.BB.EF.BC.88android-.E7.9A.84-packagename-.E5.92.8C-ios-.E7.9A.84-bundleid.EF.BC.89.3F) 无误，一旦提交，License 信息不能再做修改。**
 
 
 ## 新增短视频 License
