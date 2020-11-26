@@ -20,14 +20,16 @@ Ingress 是允许访问到集群内 Service 的规则的集合，您可以通过
 3. 单击需要创建 Ingress 的集群 ID，进入待创建 Ingress 的集群管理页面。
 4. 选择【服务】>【Ingress】，进入 Ingress 信息页面。
 5. 单击【新建】，进入“新建Ingress”页面。如下图所示：
-![](https://main.qcloudimg.com/raw/04f2bf803386acda57d41d2b29540d50.png)
+![](https://main.qcloudimg.com/raw/29d53d98e4c87c3ba903bb315db805f6.png)
 6. 根据实际需求，设置 Ingress 参数。关键参数信息如下：
  - Ingress名称：自定义。
  - 网络类型：默认为 “公网”，请根据实际需求进行选择。
+ - IP 版本：提供 IPv4 和 IPv6 NAT64 两种版本，请根据实际需求进行选择。
  - 负载均衡器：可自动创建或使用已有 CLB。
  - 命名空间：根据实际需求进行选择。
  - 监听端口：默认为【Http:80】，请根据实际情况进行选择。
- 如果勾选【Https:443】则需绑定服务器证书，以保证访问安全。详情请参见 [SSL 证书格式要求及格式转换说明](https://cloud.tencent.com/document/product/214/5369)。
+ 如果勾选【Https:443】则需绑定服务器证书，以保证访问安全。详情请参见 [SSL 证书格式要求及格式转换说明](https://cloud.tencent.com/document/product/214/5369)。如下图所示：
+  ![](https://main.qcloudimg.com/raw/bac88931cefa66b614f7735c13ac9a0c.png)
  - 转发配置：根据实际需求进行设置。
 7. 单击【创建Ingress】，完成创建。
 

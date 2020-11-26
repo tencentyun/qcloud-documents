@@ -117,7 +117,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?sdkappid=
 
 ## 接口调试工具
 
-通过 [REST API 在线调试工具](https://avc.cloud.tencent.com/im/APITester/APITester.html#v4/group_open_http_svc/get_appid_group_list) 调试本接口。
+通过 [REST API 在线调试工具](https://29294-22989-29805-29810.cdn-go.cn/api-test.html#v4/group_open_http_svc/get_appid_group_list) 调试本接口。
 
 ## 参考
 获取用户所加入的群组（[v4/group_open_http_svc/get_joined_group_list](https://cloud.tencent.com/document/product/269/1625)）。

@@ -33,3 +33,5 @@ scp 云服务器帐号@云服务器实例公网 IP/域名:云服务器文件地�
 ```
 scp root@129.20.0.2:/home/Inmp0.4.tar.gz /home/Inmp0.4.tar.gz
 ```
+
+

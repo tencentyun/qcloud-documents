@@ -143,8 +143,10 @@ data:
 >!
 - 将要增加的子网 id 加入 `TKE_ENI_IPAMD_SUBNET_ID`，通过 `:` 分隔即可。需注意加入的子网应为空，即子网内没有云服务器、负载均衡等云上资源，否则会造成冲突。
 - 如果看到 TKE_ENI_IPAMD_ZONE 的配置，可忽略，该项配置已废弃。
-
-
+- 修改 ipamd 组件的配置以后，还需要执行以下命令删除重建 ipamd pod，才能使修改生效：
+  ```
+  kubectl -nkube-system get po -ocustom-columns=Name:.metadata.name | grep ipamd | kubectl -nkube-system delete po
+  ```
 
 
 

@@ -130,9 +130,9 @@ Consumer<byte[]> consumer = client.newConsumer()
 - 指定标签（TAG） 
 ```java
 Consumer consumer = client.newConsumer()
-		.topicByTag(”persistent://1300****30/default/mytopic“, "TagA || TagB")
-		//.topic(”my-topic“, "*") 订阅所有
-		//.topicByTagsPattern(”my-topic“, "Tag.*")正则表达式
+		.topicByTag("persistent://1300****30/default/mytopic", "TagA || TagB")
+		//.topic("my-topic", "*") 订阅所有
+		//.topicByTagsPattern("my-topic", "Tag.*")正则表达式
 		.subscriptionName("my-subscription")
 		.subscriptionType(SubscriptionType.Shared)
 		.subscribe();
