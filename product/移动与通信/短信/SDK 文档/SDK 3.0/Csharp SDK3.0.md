@@ -64,7 +64,8 @@ namespace TencentCloudExamples
                  * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
                  * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
                  * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
-                 * CAM 密匙查询：https://console.cloud.tencent.com/cam/capi*/
+                 * CAM 密匙查询：https://console.cloud.tencent.com/cam/capi
+                 */
                 Credential cred = new Credential {
                     SecretId = "xxx",
                     SecretKey = "xxx"
@@ -112,7 +113,8 @@ namespace TencentCloudExamples
 	             * SDK 提供对基本类型的指针引用封装函数
 	             * 帮助链接：
 	             * 短信控制台：https://console.cloud.tencent.com/sms/smslist
-	             * sms helper：https://cloud.tencent.com/document/product/382/3773 */
+	             * sms helper：https://cloud.tencent.com/document/product/382/3773
+	             */
                 
 			        	/* 模板名称 */
                 req.TemplateName = "腾讯云";
@@ -167,7 +169,8 @@ namespace TencentCloudExamples
                  * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
                  * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
                  * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
-                 * CAM 密匙查询：https://console.cloud.tencent.com/cam/capi*/
+                 * CAM 密匙查询：https://console.cloud.tencent.com/cam/capi
+                 */
                 Credential cred = new Credential {
                     SecretId = "xxx",
                     SecretKey = "xxx"
@@ -215,7 +218,8 @@ namespace TencentCloudExamples
 	             * SDK 提供对基本类型的指针引用封装函数
 	             * 帮助链接：
 	             * 短信控制台：https://console.cloud.tencent.com/sms/smslist
-	             * sms helper：https://cloud.tencent.com/document/product/382/3773 */
+	             * sms helper：https://cloud.tencent.com/document/product/382/3773
+	             */
                 
                 req.SmsSdkAppid = "1400787878";
                 /* 短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名，可登录 [短信控制台] 查看签名信息 */
@@ -276,7 +280,8 @@ namespace TencentCloudExamples
                  * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
                  * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
                  * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
-                 * CAM 密匙查询：https://console.cloud.tencent.com/cam/capi*/
+                 * CAM 密匙查询：https://console.cloud.tencent.com/cam/capi
+                 */
                 Credential cred = new Credential {
                     SecretId = "xxx",
                     SecretKey = "xxx"
@@ -369,7 +374,8 @@ namespace TencentCloudExamples
                  * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
                  * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
                  * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
-                 * CAM 密匙查询：https://console.cloud.tencent.com/cam/capi*/
+                 * CAM 密匙查询：https://console.cloud.tencent.com/cam/capi
+                 */
                 Credential cred = new Credential {
                     SecretId = "xxx",
                     SecretKey = "xxx"
@@ -417,7 +423,8 @@ namespace TencentCloudExamples
 	             * SDK 提供对基本类型的指针引用封装函数
 	             * 帮助链接：
 	             * 短信控制台：https://console.cloud.tencent.com/sms/smslist
-	             * sms helper：https://cloud.tencent.com/document/product/382/3773 */
+	             * sms helper：https://cloud.tencent.com/document/product/382/3773
+	             */
                 
 				/* 短信应用 ID: 在 [短信控制台] 添加应用后生成的实际 SDKAppID，例如1400006666 */
 				req.SmsSdkAppid = "1400009099";
