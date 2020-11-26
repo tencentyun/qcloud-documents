@@ -68,7 +68,7 @@ MySQL 整体逻辑架构如下图所示，主要分为 [服务层](.E6.9C.8D.E5.
 
 ### 多实例
 
-![](https://main.qcloudimg.com/raw/6dc9553e5e903f87c8e4fafbefd535c5.png)
+<img src="https://main.qcloudimg.com/raw/6dc9553e5e903f87c8e4fafbefd535c5.png" data-nonescope="true">
 
 - 只读实例：只开放读能力，分担主实例读压力，实现读写分离。
 - 主实例：可读写，主从实时热备，保证高可用，支持一主两从强同步，零误差，无错乱。
@@ -91,7 +91,9 @@ MySQL 整体逻辑架构如下图所示，主要分为 [服务层](.E6.9C.8D.E5.
 
 ### 备份和回档机制
 
-![](https://main.qcloudimg.com/raw/b6a2eeec1788fa7f9c5b675d24a5d623.png)
+
+
+<img src="https://main.qcloudimg.com/raw/b6a2eeec1788fa7f9c5b675d24a5d623.png" data-nonescope="true">
 
 云数据库 MySQL 每日自动冷备，备份于业务低峰期在备机上完成，不影响现网业务。
 
