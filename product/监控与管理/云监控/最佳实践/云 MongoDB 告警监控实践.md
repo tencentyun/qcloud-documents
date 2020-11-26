@@ -68,12 +68,12 @@
 
 <table>
    <tr>
-      <th>类别</th>
-      <th>指标英文名</th>
-      <th>指标中文名</th>
-      <th>含义</th>
-      <th>单位</th>
-      <th>维度</th>
+      <th width="10%">类别</th>
+      <th width="15%">指标英文名</th>
+      <th width="20%">指标中文名</th>
+      <th width="30%">含义</th>
+      <th width="10%" >单位</th>
+      <th width="15%">维度</th>
    </tr>
    <tr>
       <td rowspan="10">请求类</td>
