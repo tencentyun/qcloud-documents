@@ -13,9 +13,10 @@
 
 **分片集群**
 
-1. 每个副本集就是一个分片。
-2. 数据写入会根据片健经过一定的hash算法写入不同的片中，不需要应用程序3.根据需要去指定读写库表。
-3. 存储量扩容只需要添加分片即可。
+1. 每个副本集是一个分片。
+2. 数据写入会根据片健经过一定的 hash 算法写入不同的片中，不需要应用程序。
+3. 根据需要去指定读写库表。
+4. 存储量扩容只需要添加分片即可。
 ![](https://main.qcloudimg.com/raw/39fec6f08d91bf31272722a305026689.png)
 
 **自动容灾**
@@ -39,9 +40,10 @@
 
 **完整的备份机制**
  
-1. MongoDB 支持全量备份和增量备份两种备份方式
-2. 回档功能支持实例回档和库表级别的细粒度回档，极大的减少了海量数据库实例的管理难度。
+1. MongoDB 支持**全量备份**和**增量备份**两种备份方式。
+2. 回档功能支持实例回档和库表级别的细粒度回档，极大降低了海量数据库实例的管理难度。
 ![](https://main.qcloudimg.com/raw/c2b10ab1825823a3126995b209df7e33.png)
+
 
 **灵活的读写分离策略**
 
@@ -51,6 +53,7 @@
 
 
 **提供库表回档**
+
 1. 细粒度快速处理错误。
 2. 可回档至7天内的任意时刻。
 ![](https://main.qcloudimg.com/raw/734b3bde096ed03e3446895c1dcce7f0.png)
@@ -127,8 +130,8 @@
    </tr>
    <tr>
       <td>Commands</td>
-      <td>command请求次数</td>
-      <td>单位时间内command请求次数</td>
+      <td>Command 请求次数</td>
+      <td>单位时间内 Command 请求次数</td>
       <td>次</td>
       <td>target（实例 ID）</td>
    </tr>
@@ -224,30 +227,30 @@
    </tr>
    <tr>
       <td>Oplogreservedtime</td>
-      <td>oplog保存时间</td>
+      <td>oplog 保存时间</td>
       <td>oplog 记录中最后一次操作和首次操作时间差</td>
       <td>小时</td>
       <td>target（副本集 ID)</td>
    </tr>
    <tr>
-      <td rowspan="3">Cache类</td>
+      <td rowspan="3">Cache 类</td>
       <td>CacheDirty</td>
-      <td>Cache脏数据百分比</td>
-      <td>当前内存Cache中脏数据百分比</td>
+      <td>Cache 脏数据百分比</td>
+      <td>当前内存 Cache 中脏数据百分比</td>
       <td>%</td>
       <td>target（副本集 ID)</td>
    </tr>
    <tr>
       <td>CacheUsed</td>
-      <td>Cache使用百分比</td>
-      <td>当前Cache使用百分比</td>
+      <td>Cache 使用百分比</td>
+      <td>当前 Cache 使用百分比</td>
       <td>%</td>
       <td>target（副本集 ID)</td>
    </tr>
    <tr>
       <td>HitRatio</td>
-      <td>Cache命中率</td>
-      <td>当前Cache命中率</td>
+      <td>Cache 命中率</td>
+      <td>当前 Cache 命中率</td>
       <td>%</td>
       <td>target（副本集 ID)</td>
    </tr>
@@ -330,30 +333,30 @@
    </tr>
    <tr>
       <td>Ar</td>
-      <td>WT引擎的ActiveRead</td>
+      <td>WT 引擎的 ActiveRead</td>
       <td>Read 请求活跃个数</td>
       <td>个</td>
       <td>target（节点 ID)</td>
    </tr>
    <tr>
       <td>Aw</td>
-      <td>WT引擎的ActiveWrite</td>
+      <td>WT 引擎的ActiveWrite</td>
       <td>Write 请求活跃个数</td>
       <td>个</td>
       <td>target（节点 ID)</td>
    </tr>
    <tr>
-      <td rowspan="2">TTL索引类</td>
+      <td rowspan="2">TTL 索引类</td>
       <td>TtlDeleted</td>
-      <td>TTL删除的数据条数</td>
-      <td>TTL删除的数据条数</td>
+      <td>TTL 删除的数据条数</td>
+      <td>TTL 删除的数据条数</td>
       <td>个</td>
       <td>target（节点 ID)</td>
    </tr>
    <tr>
       <td>TtlPass</td>
-      <td>TTL运转轮数</td>
-      <td>TTL运转轮数</td>
+      <td>TTL 运转轮数</td>
+      <td>TTL 运转轮数</td>
       <td>个</td>
       <td>target（节点 ID)</td>
    </tr>
@@ -441,6 +444,6 @@ Qr>100，Qw>100，Ar>100，Aw>100
 	- 选择 MongoDB 副本集
 	- 选择 MongoDB 节点
 	 ![](https://main.qcloudimg.com/raw/91dca17a764ba86211f0ac6710f07eb2.png)
-	- 选择 MongoDB 实例，副本集，节点，系统会自动展示出预设的 Dashboard。
+	- 选择 MongoDB 实例，副本集，节点，系统会自动展示出预设的 Dashboard
 	 ![](https://main.qcloudimg.com/raw/1efcbc0d25561c0f6a4a21662b47eaac.png)
 
