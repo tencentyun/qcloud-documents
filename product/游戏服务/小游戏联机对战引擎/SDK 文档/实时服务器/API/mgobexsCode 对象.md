@@ -1,5 +1,5 @@
 
-mgobexsCode 对象是自定义服务的入口，开发者需要在代码中导出该对象。
+mgobexsCode 对象是实时服务器的入口，开发者需要在代码中导出该对象。
 
 ### gameServer 属性
 
@@ -56,7 +56,7 @@ exports.mgobexsCode = {
 
 #### 描述
 
-logLevel 是 mgobexsCode 对象的一个属性，类型为字符串，表示开发者代码内使用 ActionArgs.SDK.logger 时的日志打印级别。只能填写以下值：
+logLevel 是 mgobexsCode 对象的一个属性，类型为字符串，表示您代码内使用 ActionArgs.SDK.logger 时的日志打印级别。只能填写以下值：
 
 |值|含义|
 |---|---|
@@ -78,7 +78,7 @@ exports.mgobexsCode = {
 ### onInitGameServer 属性
 
 #### 描述
-onInitGameServer 是 mgobexsCode 对象的一个属性，类型为 function。该函数在实时服务器初始化后会被调用，开发者可以在该函数内初始化 TCB 实例。
+onInitGameServer 是 mgobexsCode 对象的一个属性，类型为 function。该函数在实时服务器初始化后会被调用，您可以在该函数内初始化 TCB 实例。
 
 #### 参数说明
 
