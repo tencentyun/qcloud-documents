@@ -320,13 +320,14 @@ coscmd upload -rs D:/doc / --ignore *.txt,*.doc
 ```plaintext
 #命令格式
 coscmd list <cospath>
-
 #操作示例
 coscmd list doc/
 #递归查询该存储桶下所有的文件列表、文件数量和文件大小
 coscmd list -ar
 #递归查询 examplefolder 前缀的所有文件列表
 coscmd list examplefolder/ -ar
+#查询该存储桶下所有文件的历史版本
+coscmd list -v
 ```
 
 >?
@@ -361,6 +362,8 @@ coscmd download <cospath> <localpath>
 #操作示例
 coscmd download doc/ D:/
 coscmd download doc/folder/ D:/
+#下载一个带有版本 ID 的 picture.jpg 文件到 D盘
+coscmd download picture.jpg --versionId MTg0NDUxMzc2OTM4NTExNTg7Tjg D:/
 ```
 
 - 下载文件夹命令如下：
@@ -431,6 +434,8 @@ coscmd delete -r <cospath>
 #操作示例
 coscmd delete -r doc
 coscmd delete -r folder/doc
+#删除 doc 文件夹下的所有版本控制文件
+coscmd delete -r doc/ --versions
 ```
 
 >?
