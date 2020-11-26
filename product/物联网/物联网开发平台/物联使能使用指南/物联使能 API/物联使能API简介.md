@@ -48,7 +48,7 @@
 | Signature  | String | 公共参数，请求的签名                                         | 根据实际算法生成                     |
 | Timestamp  | Int64  | 公共参数，当前的  UNIX 时间戳（秒级）                        | 1546315200                           |
 | Nonce      | Int64  | 公共参数，随机正整数，与时间戳一起，用于 API 防重放          | 71087795                             |
-| ProductId  | String | 产品ID                                                       | ProductA                             |
+| ProductId  | String | 产品 ID                                                       | ProductA                             |
 | DeviceName | String | 设备名称                                                     | Device001                            |
 
 
