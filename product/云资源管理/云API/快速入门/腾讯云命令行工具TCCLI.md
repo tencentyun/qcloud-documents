@@ -14,7 +14,8 @@
 - 指定最近的接入点（Endpoint） 
 - 返回结果过滤 
 - 支持输出入参数据结构到json文件 
-- 支持从json文件读取参数
+- 支持从json文件读取参数调用
+- 复杂类型点(.)连接展开方式调用
 
 您可以根据需要按照以下步骤进行使用
 
@@ -130,18 +131,50 @@ tccli configure
 
 TCCLI支持自主配置，helper信息支持中文信息，支持json,table,text输出格式。
 
-以下示例介绍如何使用 TCCLI
+下面介绍如何使用 TCCLI
 >!请注意 demo 中非简单类型的参数必须为标准 JSON 格式。 
 >
 
-1. 执行以下命令创建一台CVM：
+TCCLI 目前支持三种调用方式
+* json 字符串入参调用
+* json 文件入参调用 --cli-input-json
+* 复杂类型点(.)连接展开形式入参调用 --cli-unfold-argument
+
+1. json 字符串入参调用
+
+执行以下命令创建一台CVM：
 ```bash
 $ tccli cvm RunInstances --InstanceChargeType POSTPAID_BY_HOUR --InstanceChargePrepaid '{"Period":1,"RenewFlag":"DISABLE_NOTIFY_AND_MANUAL_RENEW"}' --Placement '{"Zone":"ap-guangzhou-2"}' --InstanceType S1.SMALL1 --ImageId img-8toqc6s3 --SystemDisk '{"DiskType":"CLOUD_BASIC", "DiskSize":50}' --InternetAccessible '{"InternetChargeType":"TRAFFIC_POSTPAID_BY_HOUR","InternetMaxBandwidthOut":10,"PublicIpAssigned":true}' --InstanceCount 1 --InstanceName TCCLI-TEST --LoginSettings '{"Password":"isd@cloud"}' --SecurityGroupIds '["sg-0rszg2vb"]' --HostName TCCLI-HOST-NAME1
 ```
 
-2. 执行以下命令获取云产品CVM的监控数据
+执行以下命令获取云产品CVM的监控数据
 ```bash
-tccli monitor GetMonitorData --Namespace "QCE/CVM" --Period 300 --MetricName "CPUUsage" --Instances '[{"Dimensions":[{"Name":"InstanceId","Value":"ins-cac6a4w8"}]}]'
+[root@VM_33_50_centos ~]# tccli monitor GetMonitorData --Namespace "QCE/CVM" --Period 300 --MetricName "CPUUsage" --Instances '[{"Dimensions":[{"Name":"InstanceId","Value":"ins-cac6a4w8"}]}]'
+```
+
+2. json 文件入参调用（--cli-input-json）
+
+输出入参数据结构到json文件
+```bash
+[root@VM_33_50_centos ~]# tccli cvm RunInstances  --generate-cli-skeleton > /tmp/RunInstances.json
+```
+
+修改文件中参数值为自己的值，用json文件做入参，--cli-input-json后接file://+文件路径
+```bash
+[root@VM_33_50_centos ~]# tccli cvm RunInstances --cli-input-json file:///tmp/RunInstances.json
+{
+        "RequestId": "20e2b42d-3260-4750-9293-79116208330e", 
+        "InstanceIdSet": null
+}
+```
+
+3. 复杂类型点(.)连接展开形式入参调用（--cli-unfold-argument）
+
+复杂类型点连接展开调用是将复杂类型按用点连接的形式展开，可以充分利用命令行自动补全机制，来解决入参较复杂时，命令行输入困难，且易出错问题。展开方式如下：
+复杂类型{"a":{"b": "c"}}展开为 --a.b c；复杂类型数组使用.0, .1表示数组的第一个、第二个元素。基本类型数组不需要使用.0, .1，直接将数组多个元素用空格隔开依次输入，例如：--Integer 10 20； --String str1 str2
+
+```bash
+[root@VM_33_50_centos ~]# tccli cvm RunInstances --cli-unfold-argument --InstanceChargeType POSTPAID_BY_HOUR --InstanceChargePrepaid.Period 1 --InstanceChargePrepaid.RenewFlag DISABLE_NOTIFY_AND_MANUAL_RENEW --Placement.Zone ap-guangzhou-2 --InstanceType S1.SMALL1 --ImageId img-8toqc6s3 --SystemDisk.DiskType CLOUD_BASIC --SystemDisk.DiskSize 50 --InternetAccessible.InternetChargeType TRAFFIC_POSTPAID_BY_HOUR --InternetAccessible.InternetMaxBandwidthOut 10 --InternetAccessible.PublicIpAssigned True --InstanceCount 1 --InstanceName TCCLI-TEST --LoginSettings.Password isd@cloud --SecurityGroupIds sg-0rszg2vb --HostName TCCLI-HOST-NAME1
 ```
 
 您还可通过以下命令，进一步使用 TCCLI：
@@ -489,21 +522,6 @@ tccli cvm DescribeZones --endpoint cvm.ap-guangzhou.tencentcloudapi.com
                     "id": "100004"
             }
     ]
-```
-
-#### 输出入参数据结构到json文件
-
-```bash
-[root@VM_180_248_centos ~]# tccli cvm RunInstances  --generate-cli-skeleton > /tmp/RunInstances.json
-```
-#### 从json文件读取参数，--cli-input-json后接file://+文件路径
-
-```bash
-[root@VM_180_248_centos ~]# tccli cvm RunInstances --cli-input-json file:///tmp/RunInstances.json
-{
-        "RequestId": "20e2b42d-3260-4750-9293-79116208330e", 
-        "InstanceIdSet": null
-}
 ```
 
 ## 相关问题
