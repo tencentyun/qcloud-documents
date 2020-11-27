@@ -1,30 +1,23 @@
-背景知识
+## 背景知识
 
-前文介绍了serviceGroup设计思想（[最佳实践：边缘容器 serviceGroup 功能](https://cloud.tencent.com/document/product/457/46923)），以及如何通过yaml管理资源，本文将介绍如何通过控制台管理serviceGroup资源
-
- 
-
-控制台操作
-
-**创建** **deploymentGrid****资源**
-
-第一步，进入DeploymentGrid页面
-
-![图形用户界面, 应用程序  描述已自动生成](file:///C:/Users/V_XIXI~1/AppData/Local/Temp/msohtmlclip1/01/clip_image002.png)
+前文介绍了ServiceGroup设计思想（[最佳实践：边缘容器 serviceGroup 功能](https://cloud.tencent.com/document/product/457/46923)），以及如何通过yaml管理资源，本文将介绍如何通过控制台管理serviceGroup资源.
 
  
 
-第二步，创建资源
 
-![图形用户界面, 应用程序  描述已自动生成](file:///C:/Users/V_XIXI~1/AppData/Local/Temp/msohtmlclip1/01/clip_image004.png)
+## 创建 DeploymentGrid 资源
+### 新建 DeploymentGrid
+1. 登录容器服务控制台，选择左侧导航栏中的【[边缘集群](https://console.cloud.tencent.com/tke2/edge?rid=1)】。
+2. 在“边缘集群”页面单击需要创建 DeploymentGrid 资源的集群 ID，进入待创建 DeploymentGrid 的边缘集群管理页面。
+3. 选择【ServiceGroup】>【DeploymentGrid】，进入 “DeploymentGrid” 管理页面。
+4. 单击【新建】，进入 “新建DeploymentGrid” 页面。如下图所示：
+![](https://main.qcloudimg.com/raw/d8ea1886b686a835cb4241b9c1943b37.png)
+  根据实际需求，设置 DeploymentGrid 参数。关键参数信息如下：
+ - 工作负载名：DeploymentGrid 资源名。
+ - NodeGroup：新建资源绑定的 NodeGroup。填写已有的 NodeGroup 将会自动产生关联，否则将新建一个 NodeGroup。
+ - 实例内容器：需输入 Container 相关信息。
+5. 单击【创建DeploymentGrid】，完成创建。
 
-第一个红框，填写 DeploymentGrid 资源名
-
-第二个红框，填写新建的资源绑定的NodeGroup（后续会介绍如何管理NodeGroup），如果填写的NodeGroup尚未存在则会新建，若已存在则会建立关联关系
-
-第三个红框，填写 container 相关信息
-
- 
 
 第三步，查看资源
 
