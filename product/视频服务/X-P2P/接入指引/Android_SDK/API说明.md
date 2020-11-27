@@ -1,6 +1,6 @@
-SDK 接口除初始化接口，其余接口均由 HTTP 实现，请求格式为 `http:://${XNet.proxyOf}${func}?${param}`
+SDK 接口除初始化接口，其余接口均由 HTTP 实现，请求格式为：`http:://${XNet.proxyOf}${func}?${param}`。
 
->! 在初始化返回值为 false 或者 `"XNet.proxyOf"` 时，意味着没有成功使用 P2P 播放视频，不应再向其发起 HTTP 请求，否则会遇到502等错误，也可认为没有成功使用 P2P 播放器的标志。
+>! 在初始化返回值为 false 或 `XNet.proxyOf` 时，意味着没有成功使用 P2P 播放视频，不应再向其发起 HTTP 请求，否则会遇到502等错误，也可认为没有成功使用 P2P 播放器的标志。
 
 ## 直播接口
 ### 统计
@@ -22,7 +22,7 @@ SDK 接口除初始化接口，其余接口均由 HTTP 实现，请求格式为 
 #### 返回参数
 <table>
 <tr><th>返回码</th><th>说明</th></tr><tr>
-<td><a href="200">200</a></td>
+<td><a href="#code_200">200</a></td>
 <td>查询成功</td>
 </tr><tr>
 <td>404</td>
@@ -31,10 +31,13 @@ SDK 接口除初始化接口，其余接口均由 HTTP 实现，请求格式为 
 
 其中，返回码 200 返回的内容为 JSON 格式，详细说明如下：
 
-| 参数名称      | 类型 | 说明            |
-| ------------- | ---- | --------------- |
-| flow.p2pBytes | num  | 对应频道 P2P 流量 |
-| flow.cdnBytes | num  | 对应频道 CDN 流量 |
+<table><tr>
+<th id="code_200">参数名称</th><th>类型</th><th>说明</th>
+</tr><tr>
+<td>flow.p2pBytes</td><td>num</td><td>对应频道 P2P 流量</td>
+</tr><tr>
+<td>flow.cdnBytes</td><td>num</td><td>对应频道 CDN 流量</td>
+</tr></table>
 
 #### 示例
 - **请求示例**
