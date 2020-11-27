@@ -22,7 +22,7 @@
 ### 步骤2：完成续期 License
 弹出气泡提示续期成功后，随即右上角的【续期】 消失便完成测试版 License 续期14天的操作。
 ![](https://main.qcloudimg.com/raw/b1a65e43cbf6360ee23bd140dba53c2d.png)
->?您的测试版 License 体验完28天后到期，请前往 [购买正式版 License](https://tcloud-doc.isd.com/document/product/266/50290?!preview&!editLang=zh#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
+>?您的测试版 License 体验完28天后到期，请前往 [购买正式版 License](https://cloud.tencent.com/document/product/266/50290#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
 
 ## 查看测试版 License
 在 License 设置成功后稍等一段时间（依据网络情况而定），可以通过调用以下方法查看 License 信息。
