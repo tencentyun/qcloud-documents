@@ -19,7 +19,7 @@
 
 ### 步骤1：添加短视频 License
 1. 进入 [短视频 License](https://console.cloud.tencent.com/vod/license) ，单击【新增 License】，进入短视频 License 新增页。
-![](https://main.qcloudimg.com/raw/ff6252ca1182fb17682fb6c4891c36c2.png)
+![](https://main.qcloudimg.com/raw/19356e9f166a6725af38e315c3e4a7ef.png)
 2. 请选择当前账户可用的资源包来绑定。若提示无可用资源包，请单击【[购买页](https://buy.cloud.tencent.com/vod?p=mp)】前往选购 [流量资源包10TB](https://buy.cloud.tencent.com/vod?p=mp)、[流量资源包50TB](https://buy.cloud.tencent.com/vod?p=mp) 或 [流量资源包200TB](https://buy.cloud.tencent.com/vod?p=mp) 中的任意一种。请参见 [点播流量资源包与短视频 SDK License 版本对应表](https://cloud.tencent.com/document/product/266/33149#.E7.9F.AD.E8.A7.86.E9.A2.91-sdk-license)。
 ![](https://main.qcloudimg.com/raw/0db35cf7b4722c4eebea35fb41ca6cf9.png)
 3. 单击【确认并继续完成 License 设置】跳转到 License 设置页。
