@@ -31,8 +31,8 @@
  
 1. 选择您需要部署的证书，单击【部署】。如下图所示：
 ![](https://main.qcloudimg.com/raw/fe9df64283baa8440e5a3f1c20bf93b0.png)
-2. 在弹出的选择部署类型窗口中，勾选【CDN】，并单击【确认】。
-3. 跳转到 CDN 控制台，进入【配置证书】详情页，已显示对应的域名、证书来源以及证书 ID。
+2. 在弹出的【选择部署类型】窗口中，选择【CDN】，并单击【确认】。
+3. 跳转到 [CDN 控制台](https://console.cloud.tencent.com/cdn)，进入【配置证书】详情页，已显示对应的域名、证书来源以及证书 ID。
 4. 选择回源协议方式，您可以选择 CDN 节点回源站获取资源时的回源方式。如下图所示：
 ![](https://main.qcloudimg.com/raw/890219d7c165edf23c7fe64d14fa9c65.png)
  - 选择 **HTTP** 回源配置成功后，用户至 CDN 节点请求支持 HTTPS/HTTP，CDN 节点回源站请求均为 HTTP。
