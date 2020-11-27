@@ -123,7 +123,7 @@
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 
-若您不了解通过 HTTPS 访问网站的方式，可以通过配置服务器，让其自动将 HTTP 的请求重定向到 HTTPS。您可以通过以下操作设置：
+如果您需要将 HTTP 请求自动重定向到 HTTPS。您可以通过以下操作设置：
 1. 编辑  `/usr/*/conf` 目录下的 `web.xml` 文件，找到 `</welcome-file-list>` 标签。
 2. 在 `</welcome-file-list>` 下面换行，并添加以下内容：
 ```

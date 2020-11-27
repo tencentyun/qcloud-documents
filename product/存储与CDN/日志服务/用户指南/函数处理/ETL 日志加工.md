@@ -1,8 +1,8 @@
 ## 操作场景
 
-本文为您介绍使用 [云函数 SCF]() 对 CLS 日志进行加工处理。其中，CLS 主要用于日志采集，SCF 主要提供数据加工的节点计算能力。
+本文为您介绍使用 [云函数 SCF](https://cloud.tencent.com/document/product/583) 对 CLS 日志进行加工处理。其中，CLS 主要用于日志采集，SCF 主要提供数据加工的节点计算能力。
 数据流程如下：
-![](https://main.qcloudimg.com/raw/a85af098f1795b522140a6a4fadac0a6.svg)
+![](https://main.qcloudimg.com/raw/5225188c50c85b874e8f96bee8ff1bdb.jpg)
 
 ## 操作步骤
 
@@ -25,7 +25,7 @@
 3. 单击【新增日志主题】，在新增日志主题窗口中，填写如下相关信息：
    - 日志主题名称：例如：nginx。
    - 主题分区（Partition）数量： 主题分区介绍请参见 [主题分区介绍](https://cloud.tencent.com/document/product/614/39259)，默认新建1个分区。
-     ![](https://main.qcloudimg.com/raw/d22c9d090a380376a1de4b56f19bc27a.jpg)
+   ![](https://main.qcloudimg.com/raw/8b2da321ec50fce2315395ac067a7605.jpg)
 4. 单击【确定】，新增日志主题。
 5. 日志主题新增成功，将进入日志主题管理页。
    ![](https://main.qcloudimg.com/raw/08e9dc61f1cc8bfcb1923345c86bef45.jpg)

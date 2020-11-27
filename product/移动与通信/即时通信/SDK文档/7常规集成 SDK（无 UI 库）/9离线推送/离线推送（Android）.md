@@ -87,7 +87,7 @@
 
 ### 集成推送 SDK
 1. 请添加小米依赖：implementation 'com.tencent.tpns:xiaomi:1.2.1.2-release'。
-2. 请参考[小米推送集成指南](https://dev.mi.com/console/doc/detail?pId=41) 集成 SDK，并在小米控制台测试通知消息，确保已成功集成。
+2. 请参考 [小米推送集成指南](https://dev.mi.com/console/doc/detail?pId=41)，并在小米控制台测试通知消息，确保已成功集成。
 3. 通过调用 `MiPushClient.registerPush` 来对小米推送服务进行初始化，注册成功后您将在自定义的 `BroadcastReceiver` 的 `onReceiveRegisterResult` 中收到注册结果。其中 `regId` 为当前设备上当前 App 的唯一标识。当登录 IM SDK 成功后，需要调用 [setOfflinePushConfig](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 将**证书 ID** 和 **regId** 上报到即时通信 IM 服务端。
 
 成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后将消息通过小米推送通知到用户端。
@@ -220,7 +220,7 @@
 
 ### 集成推送 SDK
 1. 请添加华为依赖：implementation 'com.tencent.tpns:huawei:1.2.1.2-release' 和 implementation 'com.huawei.hms:push:5.0.2.300'。
-2. 请参考[华为推送集成指南](https://developer.huawei.com/consumer/cn/doc/development/HMS-3-Guides/push-Preparations)集成 SDK，并在华为控制台测试通知消息，确保已成功集成。
+2. 请参考 [华为推送集成指南](https://developer.huawei.com/consumer/cn/doc/development/HMS-3-Guides/push-Preparations)，并在华为控制台测试通知消息，确保已成功集成。
 3. 通过调用华为 `HmsInstanceId.getToken` 接口向服务端请求应用的唯一标识 Push Token，`Push Token` 为当前设备上当前 App 的唯一标识。当登录 IM SDK 成功后，需要调用 [setOfflinePushConfig](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 将**证书 ID** 和 **Push Token** 上报到即时通信 IM 服务端。
 
 成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后将消息通过小米推送通知到用户端。
@@ -365,7 +365,7 @@ String value = bundle.getString("ext");
 
 ### 集成推送 SDK
 1. 请添加 OPPO 依赖：implementation 'com.tencent.tpns:oppo:1.2.1.2-release' 。
-2. 请参考 [OPPO PUSH SDK 接口文档](https://open.oppomobile.com/wiki/doc#id=10196) 集成 SDK，并在 OPPO 控制台测试通知消息，确保已成功集成。
+2. 请参考 [OPPO PUSH SDK 接口文档](https://open.oppomobile.com/wiki/doc#id=10196)，并在 OPPO 控制台测试通知消息，确保已成功集成。
 3. 通过调用 OPPO SDK 中的`PushManager.getInstance().register(…)`初始化 Opush 推送服务。
    注册成功后，您可以在 `PushCallback` 的 `onRegister` 回调方法中得到`regId`，`regId` 为当前设备上当前 App 的唯一标识。当登录 IM SDK 成功后，需要调用 [setOfflinePushConfig](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 将**证书 ID** 和 **regId** 上报到即时通信 IM 服务端。
 
@@ -477,7 +477,7 @@ Bundle bundle = intent.getExtras();
 
 ### 集成推送 SDK
 1. 请添加 vivo 依赖：implementation 'com.tencent.tpns:vivo:1.2.1.2-release' 。
-2. 请参考 [vivo 推送集成指南](https://dev.vivo.com.cn/documentCenter/doc/233#w2-08354405) 集成 SDK，并在 vivo 控制台测试通知消息，确保已成功集成。
+2. 请参考 [vivo 推送集成指南](https://dev.vivo.com.cn/documentCenter/doc/233#w2-08354405)，并在 vivo 控制台测试通知消息，确保已成功集成。
 3. 通过调用 `PushClient.getInstance(getApplicationContext()).initialize()` 来对 vivo 推送服务进行初始化，并调用 `PushClient.getInstance(getApplicationContext()).turnOnPush()` 启动推送，成功后您将在自定义的 `BroadcastReceiver` 的 `onReceiveRegId` 中收到 `regId`，`regId` 为当前设备上当前 App 的唯一标识。当登录 IM SDK 成功后，需要调用 [setOfflinePushConfig](http://doc.qcloudtrtc.com/im/classcom11tencent11imsdk11v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 将**证书 ID** 和 **regId** 上报到即时通信 IM 服务端。
 
 成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后将消息通过小米推送通知到用户端。
@@ -598,7 +598,7 @@ String extContent = paramMap.get("ext");
 ### 集成推送 SDK
 
 1. 请添加魅族依赖：implementation 'com.tencent.tpns:meizu:1.2.1.2-release' 。
-2. 请参考[魅族推送接入](http://open-wiki.flyme.cn/doc-wiki/index#id?129) 集成 SDK，并在其控制台测试通知消息，确保已成功集成。
+2. 请参考 [魅族推送接入](http://open-wiki.flyme.cn/doc-wiki/index#id?129)，并在其控制台测试通知消息，确保已成功集成。
 3. 通过调用 `PushManager.register` 来对魅族推送服务进行初始化，注册成功后您将在自定义的 `BroadcastReceiver` 的 `onRegisterStatus` 中收到注册结果。其中 `registerStatus.getPushId()` 为当前设备上当前 App 的唯一标识。当登录 IM SDK 成功后，需要调用 [setOfflinePushConfig](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 将**证书 ID** 和 **PushId** 上报到即时通信 IM 服务端。
 
 成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后将消息通过小米推送通知到用户端。
@@ -689,7 +689,7 @@ String extContent = bundle.getString("ext");
 ### 集成推送 SDK
 
 1. 请添加 FCM 依赖：implementation 'com.google.firebase:firebase-messaging:20.2.3'。
-1. 请参考 [Firebase 云消息传递](https://firebase.google.com/docs/cloud-messaging/android/client) 设置 Firebase，集成 FCM SDK。参考 [FCM 测试指引](https://firebase.google.com/docs/cloud-messaging/android/first-message?authuser=0) 测试通知消息，确保已成功集成 FCM。
+1. 请参考 [Firebase 云消息传递](https://firebase.google.com/docs/cloud-messaging/android/client) 设置 Firebase。参考 [FCM 测试指引](https://firebase.google.com/docs/cloud-messaging/android/first-message?authuser=0) 测试通知消息，确保已成功集成 FCM。
 2. 调用 `FirebaseInstanceId.getInstance().getInstanceId()` 后，在回调里获取当前 App 的唯一标识 token。当登录 IM SDK 成功后，需要调用 [setOfflinePushConfig](http://doc.qcloudtrtc.com/im/classcom_1_1tencent_1_1imsdk_1_1v2_1_1V2TIMOfflinePushManager.html#a494d6cafe50ba25503979a4e0f14c28e) 将**证书 ID** 和 **token** 上报到即时通信 IM 服务端。
 
 成功上报证书 ID 及 regId 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后将消息通过 FCM 推送通知到用户端。

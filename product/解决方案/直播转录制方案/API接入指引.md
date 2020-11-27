@@ -1,4 +1,4 @@
-直播转录制解决方案现已打通云直播 API 接口，全新的 API 接口文档更加规范和全面，统一的参数风格和公共错误码，统一的 SDK/CLI 版本与 API 文档严格一致，给您带来简单快捷的使用体验。支持全地域就近接入让您更快连接腾讯云产品。
+直播转录制解决方案现已打通云直播和云点播 API 接口，全新的 API 接口文档更加规范和全面，统一的参数风格和公共错误码，统一的 SDK/CLI 版本与 API 文档严格一致，给您带来简单快捷的使用体验。支持全地域就近接入让您更快连接腾讯云产品。
 >! 请您在使用直播录制相关的 API 前，确保已充分理解直播录制功能并完全同意直播来录制的计费规则，详情请参见 [购买指南](https://cloud.tencent.com/document/product/1358/50144?!preview&!editLang=zh)。
 
 ## 云直播相关接口
@@ -24,5 +24,5 @@
 | [DescribeLiveRecordTemplates](https://cloud.tencent.com/document/api/267/32609) | 获取录制模板列表 |
 | [ModifyLiveRecordTemplate](https://cloud.tencent.com/document/api/267/32608) | 修改录制模板配置 |
 | [StopRecordTask](https://cloud.tencent.com/document/api/267/45981) | 终止录制任务（新）                         |
-| [DescribeConcurrentRecordStreamNum](https://cloud.tencent.com/document/product/267/42219) | 查询并发录制路数，对慢直播和普通直播适用。 |
+| [DescribeConcurrentRecordStreamNum](https://cloud.tencent.com/document/product/267/42219) | 查询并发录制路数，对慢直播和普通直播适用 |
 
