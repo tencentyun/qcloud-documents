@@ -59,7 +59,7 @@ cd coscmd
 python setup.py install
 ```
 
-> !Python 版本为2.6时，pip 安装依赖库时容易失败，推荐使用该方法安装。
+> !Python 版本为2.6时，pip 安装依赖库时容易失败，推荐使用该方法安装。如果您安装的是最新 Python 版本（例如3.9.0），则已集成 pip，您无需再次安装。 
 
 #### 3. 离线安装
 
@@ -184,10 +184,10 @@ coscmd config [OPTION]...<FILE>...
 
 通常情况下，若您只需要进行简单的操作，可参照以下操作示例进行快速配置。
 
->?配置前，您需要先在 COS 控制台创建一个存储桶，并创建密钥信息。
+>?配置前，您需要先在 COS 控制台创建一个用于配置参数的存储桶（例如 configure_bucket-1250000000），并创建密钥信息。
 
 ```shell
-coscmd config -a AChT4ThiXAbpBDEFGhT4ThiXAbp**** -s WE54wreefvds3462refgwewe**** -b examplebucket-1250000000 -r ap-beijing
+coscmd config -a AChT4ThiXAbpBDEFGhT4ThiXAbp**** -s WE54wreefvds3462refgwewe**** -b configure_bucket-1250000000 -r ap-chengdu
 ```
 
 
@@ -229,7 +229,7 @@ anonymous = False
 ```plaintext
 #命令格式
 coscmd -b <BucketName-APPID> -r <region> <action> ...
-#操作示例-创建一个名称为 examplebucket 的存储桶
+#操作示例-创建一个名称为 examplebucket 的存储桶，所属地域为北京的存储桶
 coscmd -b examplebucket-1250000000 -r ap-beijing createbucket
 #操作示例-将 D 盘下的文件 picture.jpg 上传到名称为 examplebucket 的存储桶
 coscmd -b examplebucket-1250000000 -r ap-beijing upload D:/picture.jpg /
@@ -543,7 +543,7 @@ coscmd -b examplebucket1-1250000000 -r ap-guangzhou move -r examplebucket2-12500
 命令如下：
 ```plaintext
 #命令格式
-coscmd putobjectacl --<permissions> <UIN> picture.jpg
+coscmd putobjectacl --grant-<permissions> <UIN> <cospath>
 #授予账号 100000000001 拥有 picture.jpg 的读取权限
 coscmd putobjectacl --grant-read 100000000001 picture.jpg
 #查询文件的访问权限
