@@ -224,7 +224,7 @@
 | [云数据仓库 PostgreSQL](https://cloud.tencent.com/document/product/878) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/878/20072) |
 | [流计算服务](https://cloud.tencent.com/document/product/849) | 服务级   | &#10003; | -                | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/849/38621) |
 | [Elasticsearch Service](https://cloud.tencent.com/document/product/845) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/845/19550) |
-| [云数据仓库 ClickHouse](https://cloud.tencent.com/document/product/1299) | 操作级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/845/19550) |
+| [云数据仓库 ClickHouse](https://cloud.tencent.com/document/product/1299) | 操作级   | &#10003; | -                | -        | -                                                            |
 
 ## 云智大数据可视化
 
@@ -452,7 +452,3 @@
 | 服务                                           | 服务角色 |
 | ---------------------------------------------- | -------- |
 | [腾讯区块链开发平台](https://trustsql.qq.com/) | &#10003; |
-
-|      |      |
-| ---- | ---- |
-|      |      |
