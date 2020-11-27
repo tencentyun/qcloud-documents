@@ -20,7 +20,6 @@
 <td>IE</td><td align="center">不支持</td>
 </tr></table>
 
-
 > ? 您可以 [单击此处](http://devcenter.qvb.qcloud.com/demo/h5/h5-test.html) 查看浏览器是否支持以上特性。
 
 ### 支持的流媒体格式
@@ -44,17 +43,16 @@
 -  集成 SDK 到播放器（flv.js）的 Demo，请参见 [此处](https://devcenter.qvb.qcloud.com/demo/h5/pcdn/v1/p2pdemo.html)。
 
 ## 准备工作
-
-在集成工作开始之前，需要在云官网 [此处](https://cloud.tencent.com/apply/p/npwwbfakdis) 提交申请后，再联系我们的研发工程师，确保 CDN 分发域名及 domain 白名单已完成配置。
+在 [提交 X-P2P 开通申请](https://cloud.tencent.com/apply/p/npwwbfakdis) 后，再联系我们的研发工程师，确保 CDN 分发域名及 domain 白名单已完成配置。
 
 ## 集成步骤
 
-1. 在 Web 端 H5 播放页加载腾讯云 XP2P 的 SDK，载方式示例如下（假设 SDK 名称为：`qvbp2p.js`）：
+1. 在 Web 端 H5 播放页加载腾讯云 X-P2P 的 SDK，载方式示例如下（假设 SDK 名称为：`qvbp2p.js`）：
 ``` javascript
    <script src='qvbp2p.js'></script>
 ```
-2. 根据 SDK 提供的接口调用腾讯云 XP2P 服务。
-   SDK 提供的 `window.QVBP2P` 接口是 SDK 的入口类，支持访问一些常量和生成 QVBP2P 实例。QVBP2P 函数详情如下：
+2. 根据 SDK 提供的接口调用腾讯云 X-P2P 服务。
+SDK 提供的 `window.QVBP2P` 接口是 SDK 的入口类，支持访问一些常量和生成 QVBP2P 实例。QVBP2P 函数详情如下：
 <table>
 <tr><th>QVBP2P 函数</th><th>说明</th></tr><tr>
 <td>QVBP2P.ComEvents</td>
