@@ -47,7 +47,7 @@ pip install coscmd
 pip install coscmd -U
 ```
 
-> ! 当 pip 版本号大于等于10.0.0 时，升级或安装依赖库时可能会出现失败，建议使用 pip 版本 9.x（pip install pip==9.0.0）。
+> ! 当 pip 版本号大于等于10.0.0 时，升级或安装依赖库时可能会出现失败，建议使用 pip 版本 9.x（pip install pip==9.0.0）。如果您安装的是最新 Python 版本（例如3.9.0），则已集成 pip，您无需再次安装。
 
 #### 2. 源码安装（不推荐）
 
@@ -59,7 +59,7 @@ cd coscmd
 python setup.py install
 ```
 
-> !Python 版本为2.6时，pip 安装依赖库时容易失败，推荐使用该方法安装。如果您安装的是最新 Python 版本（例如3.9.0），则已集成 pip，您无需再次安装。 
+> !Python 版本为2.6时，pip 安装依赖库时容易失败，推荐使用该方法安装。 
 
 #### 3. 离线安装
 
