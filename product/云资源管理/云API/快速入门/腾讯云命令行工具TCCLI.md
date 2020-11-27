@@ -10,7 +10,8 @@
  - 指定最近的接入点（Endpoint）
  - 返回结果过滤
  - 支持输出入参数据结构到 JSON 文件
- - 支持从 JSON 文件读取参数
+ - 支持从 JSON 文件读取参数调用
+ - 复杂类型点(.)连接展开方式调用
 
 
 
@@ -128,16 +129,51 @@ tccli configure
 TCCLI 支持自主配置，helper 信息支持中文信息且支持 JSON、table 及 text 输出格式。
 >! 请注意 demo 中非简单类型的参数必须为标准 JSON 格式。 
 >
-以下示例介绍如何使用 TCCLI：
-1. 执行以下命令，创建一台 CVM：
+
+TCCLI 目前支持三种调用方式
+* json 字符串入参调用
+* json 文件入参调用 --cli-input-json
+* 复杂类型点(.)连接展开形式入参调用 --cli-unfold-argument
+
+- json 字符串入参调用
+
+执行以下命令创建一台CVM：
 ```bash
 $ tccli cvm RunInstances --InstanceChargeType POSTPAID_BY_HOUR --InstanceChargePrepaid '{"Period":1,"RenewFlag":"DISABLE_NOTIFY_AND_MANUAL_RENEW"}' --Placement '{"Zone":"ap-guangzhou-2"}' --InstanceType S1.SMALL1 --ImageId img-8toqc6s3 --SystemDisk '{"DiskType":"CLOUD_BASIC", "DiskSize":50}' --InternetAccessible '{"InternetChargeType":"TRAFFIC_POSTPAID_BY_HOUR","InternetMaxBandwidthOut":10,"PublicIpAssigned":true}' --InstanceCount 1 --InstanceName TCCLI-TEST --LoginSettings '{"Password":"isd@cloud"}' --SecurityGroupIds '["sg-0rszg2vb"]' --HostName TCCLI-HOST-NAME1
 ```
-2. 执行以下命令，获取 CVM 的监控数据：
+
+执行以下命令获取云产品CVM的监控数据
 ```bash
-tccli monitor GetMonitorData --Namespace "QCE/CVM" --Period 300 --MetricName "CPUUsage" --Instances '[{"Dimensions":[{"Name":"InstanceId","Value":"ins-cac6a4w8"}]}]'
+[root@VM_33_50_centos ~]# tccli monitor GetMonitorData --Namespace "QCE/CVM" --Period 300 --MetricName "CPUUsage" --Instances '[{"Dimensions":[{"Name":"InstanceId","Value":"ins-cac6a4w8"}]}]'
 ```
-3. 执行 `tccli help` 命令，查看支持的产品，支持中文。
+
+- json 文件入参调用（--cli-input-json）
+
+输出入参数据结构到json文件
+```bash
+[root@VM_33_50_centos ~]# tccli cvm RunInstances  --generate-cli-skeleton > /tmp/RunInstances.json
+```
+
+修改文件中参数值为自己的值，用json文件做入参，--cli-input-json后接file://+文件路径
+```bash
+[root@VM_33_50_centos ~]# tccli cvm RunInstances --cli-input-json file:///tmp/RunInstances.json
+{
+        "RequestId": "20e2b42d-3260-4750-9293-79116208330e", 
+        "InstanceIdSet": null
+}
+```
+
+- 复杂类型点(.)连接展开形式入参调用（--cli-unfold-argument）
+
+复杂类型点连接展开调用是将复杂类型按用点连接的形式展开，可以充分利用命令行自动补全机制，来解决入参较复杂时，命令行输入困难，且易出错问题。展开方式如下：
+复杂类型{"a":{"b": "c"}}展开为 --a.b c；复杂类型数组使用.0, .1表示数组的第一个、第二个元素。基本类型数组不需要使用.0, .1，直接将数组多个元素用空格隔开依次输入，例如：--Integer 10 20； --String str1 str2
+
+```bash
+[root@VM_33_50_centos ~]# tccli cvm RunInstances --cli-unfold-argument --InstanceChargeType POSTPAID_BY_HOUR --InstanceChargePrepaid.Period 1 --InstanceChargePrepaid.RenewFlag DISABLE_NOTIFY_AND_MANUAL_RENEW --Placement.Zone ap-guangzhou-2 --InstanceType S1.SMALL1 --ImageId img-8toqc6s3 --SystemDisk.DiskType CLOUD_BASIC --SystemDisk.DiskSize 50 --InternetAccessible.InternetChargeType TRAFFIC_POSTPAID_BY_HOUR --InternetAccessible.InternetMaxBandwidthOut 10 --InternetAccessible.PublicIpAssigned True --InstanceCount 1 --InstanceName TCCLI-TEST --LoginSettings.Password isd@cloud --SecurityGroupIds sg-0rszg2vb --HostName TCCLI-HOST-NAME1
+```
+
+您还可通过以下命令，进一步使用 TCCLI：
+- 执行 `tccli help` 命令，查看支持的产品，支持中文。
 ```bash
 [root@VM_33_50_centos ~]# tccli help
 NAME
@@ -163,7 +199,7 @@ AVAILABLE SERVICES
     介绍如何使用API对正版曲库直通车进行操作，包括素材获取、数据上报等。
     ......
 ```
-4. 以 CVM 为例，执行 `tccli cvm help` 命令，查看产品支持的接口。
+- 以 CVM 为例，执行 `tccli cvm help` 命令，查看产品支持的接口。
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm help
 NAME
@@ -188,7 +224,7 @@ AVAILABLE ACTIONS
     绑定安全组
     ......
 ```
-5. 以 CBS 的 DescribeDisks 接口为例，执行 `tccli cbs DescribeDisks help` 命令，查看接口支持的参数。
+- 以 CBS 的 DescribeDisks 接口为例，执行 `tccli cbs DescribeDisks help` 命令，查看接口支持的参数。
 ```bash
 [root@VM_33_50_centos ~]# tccli cbs DescribeDisks help
 NAME
@@ -221,7 +257,7 @@ AVAILABLE PARAMS
     偏移量，默认为0。关于`Offset`的更进一步介绍请参考API[简介](/document/product/362/15633)中的相关小节。
     ......
 ```
-6. 输出格式支持 JSON、table 及 text 格式。
+- 输出格式支持 JSON、table 及 text 格式。
 **JSON 格式**
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm DescribeRegions 
@@ -396,12 +432,12 @@ tccli cvm DescribeZones --endpoint cvm.ap-guangzhou.tencentcloudapi.com
     "RequestId": "4fd313a6-****-****-****-898c02fcae02"
    }
 ```
-2. 只看某个字段。
+- 只看某个字段。
 ```bash
 [root@VM_180_248_centos ~]# tccli cvm DescribeZones  --filter TotalCount
 4
 ```
-3. 指定某个数组类型对象的第 N 个子对象的信息。
+- 指定某个数组类型对象的第 N 个子对象的信息。
 ```bash
  [root@VM_180_248_centos ~]# tccli cvm DescribeZones  --filter ZoneSet[0]
  {
@@ -411,7 +447,7 @@ tccli cvm DescribeZones --endpoint cvm.ap-guangzhou.tencentcloudapi.com
 	"ZoneName": "广州一区"
  }
 ```
-4. 指定数组类型对象下所有某个名称的子对象的某个字段。
+- 指定数组类型对象下所有某个名称的子对象的某个字段。
 ```bash
    [root@VM_180_248_centos ~]# tccli cvm DescribeZones  --filter ZoneSet[*].ZoneName
    [
@@ -421,7 +457,7 @@ tccli cvm DescribeZones --endpoint cvm.ap-guangzhou.tencentcloudapi.com
     "广州四区"
    ]
 ```
-5. 过滤数组里的子对象，同时还以新的名称展示。 
+- 过滤数组里的子对象，同时还以新的名称展示。 
 >!需要将说明过滤行为的内容用单引号包裹起来。
 >
 ```bash
@@ -444,21 +480,6 @@ tccli cvm DescribeZones --endpoint cvm.ap-guangzhou.tencentcloudapi.com
                     "id": "100004"
             }
     ]
-```
-
-#### 输出入参数据结构到 JSON 文件
-
-```bash
-[root@VM_180_248_centos ~]# tccli cvm RunInstances  --generate-cli-skeleton > /tmp/RunInstances.json
-```
-
-#### 从 JSON 文件读取参数，--cli-input-json 后接 file://+文件路径
-```bash
-[root@VM_180_248_centos ~]# tccli cvm RunInstances --cli-input-json file:///tmp/RunInstances.json
-{
-        "RequestId": "20e2b42d-****-****-****-79116208330e", 
-        "InstanceIdSet": null
-}
 ```
 
 ## 相关问题
