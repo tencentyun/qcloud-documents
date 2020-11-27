@@ -99,7 +99,7 @@ hadoop jar cos-distcp-1.0.jar --src /data/warehouse/ --dest cosn://examplebucket
 
 ### 删除源文件
 
-以参数`--deleteOnSuccess`，将 `/data/warehouse`执行命令，目录下文件从 HDFS 同步到 COS 后，立即删除源目录中的对应文件：
+以参数`--deleteOnSuccess`执行命令，将 `/data/warehouse`目录下文件从 HDFS 同步到 COS 后，立即删除源目录中的对应文件：
 
 ```plaintext
 hadoop jar cos-distcp-1.0.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --deleteOnSuccess
