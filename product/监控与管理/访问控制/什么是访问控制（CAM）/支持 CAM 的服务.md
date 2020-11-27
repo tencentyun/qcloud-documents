@@ -185,6 +185,7 @@
 | [Web 应用防火墙](https://cloud.tencent.com/document/product/627) | 操作级   | &#10003; | -                | -        | -        |
 | [漏洞扫描服务](https://cloud.tencent.com/document/product/692) | 操作级   | &#10003; | -                | &#10003; | -        |
 | [网络资产风险监测系统](https://cloud.tencent.com/document/product/1088) | 服务级   | &#10003; | -                | &#10003; | -        |
+| [小程序应用安全](https://cloud.tencent.com/document/product/1223) | 操作级   | &#10003; | -                | -        | -        |
 
 ## 视频服务
 
