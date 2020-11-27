@@ -193,7 +193,7 @@ coscmd config -a AChT4ThiXAbpBDEFGhT4ThiXAbp**** -s WE54wreefvds3462refgwewe****
 
 ### 修改配置文件
 
-在 Windows 环境下，可以直接编辑`.cos.conf`文件，该文件是位于【我的文档】下的一个隐藏文件），该文件初始时不存在，是通过`coscmd config`命令生成，用户也可以手动创建。
+在 Windows 环境下，可以直接编辑`.cos.conf`文件，该文件是位于【我的文档】下的一个隐藏文件，该文件初始时不存在，是通过`coscmd config`命令生成，用户也可以手动创建。
 
 配置参数完成后的`.cos.conf`文件，内容示例如下所示：
 ```plaintext
