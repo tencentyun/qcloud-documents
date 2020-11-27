@@ -1,19 +1,34 @@
 欢迎使用腾讯云命令行工具 TCCLI，TCCLI 是管理腾讯云资源的统一工具。通过腾讯云命令行工具，您可以快速轻松的调用腾讯云 API 来管理您的腾讯云资源。您还可以基于腾讯云的命令行工具来做自动化和脚本处理，能够以更多样的方式进行组合和重用。 
 
-腾讯云 TCCLI 包含基础功能和高级功能，详情参见下表：
-- [基础功能](#primaryfunction)
- - 配置 TCCLI
- - helper 信息支持中文信息
- - 支持 JSON，table，text 输出格式
-- [高级功能](#sophisticatedfunctions)
- - 多版本接口访问
- - 指定最近的接入点（Endpoint）
- - 返回结果过滤
- - 支持输出入参数据结构到 JSON 文件
- - 支持从 JSON 文件读取参数调用
- - 复杂类型点(.)连接展开方式调用
-
-
+腾讯云 TCCLI 包含基础功能和高级功能，请参见下表：
+<table>
+<tr>
+<th>功能</th><th>描述</th>
+</tr>
+<tr>
+<td><a href="#primaryfunction">基础功能</a></td>
+<td>
+<ul style="margin:0px">
+<li>配置 TCCLI</li>
+<li>helper 信息支持中文信息</li>
+<li>支持 JSON、table 及 text 输出格式</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><a href="#sophisticatedfunctions">高级功能</a></td>
+<td>
+<ul style="margin:0px">
+<li>多版本接口访问</li>
+<li>指定最近的接入点（Endpoint）</li>
+<li>返回结果过滤</li>
+<li>支持输出入参数据结构到 JSON 文件</li>
+<li>支持从 JSON 文件读取参数调用</li>
+<li>复杂类型点（.）连接展开方式调用</li>
+</ul>
+</td>
+</tr>
+</table>
 
 ## 安装 TCCLI
 1. 安装 Python 环境和 pip 工具，安装命令行工具前请确保您的系统已经安装了 Python 环境和 pip 工具。详情请参见 [Python SDK](https://cloud.tencent.com/document/sdk/Python) 文档。
@@ -80,8 +95,8 @@ tccli configure
  region: 
  output[json]:
 ```
- * **secretId**：云 API 密钥 SecretId，前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 获取（一个主账号最多可以申请两个云 API 密钥）。
- * **secretKey**：云 API 密钥 SecretKey，前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 获取。
+ * **secretId**：云 API 密钥 SecretId，请前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 获取（一个主账号最多可以申请两个云 API 密钥）。
+ * **secretKey**：云 API 密钥 SecretKey，请前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 获取。
  * **region**： 云产品地域，请前往对应云产品的 [API 文档](https://cloud.tencent.com/document/api) 获取可用的 region。例如云服务器的 [地域列表](https://cloud.tencent.com/document/api/213/15692#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
  * **output**： 可选参数，请求回包输出格式，支持 JSON、table 及 text 三种格式，默认为 JSON。
      更多信息请执行 `tccli configure help` 命令查看。
@@ -125,36 +140,30 @@ tccli configure
 ## 使用 TCCLI
 
 ### 基础功能<span id="primaryfunction"></span>
-
 TCCLI 支持自主配置，helper 信息支持中文信息且支持 JSON、table 及 text 输出格式。
->! 请注意 demo 中非简单类型的参数必须为标准 JSON 格式。 
+>! 请注意示例中非简单类型的参数必须为标准 JSON 格式。 
 >
+TCCLI 目前支持以下三种调用方式：
+* JSON 字符串入参调用
+* JSON 文件入参调用 --cli-input-json
+* 复杂类型点（.）连接展开形式入参调用 --cli-unfold-argument
 
-TCCLI 目前支持三种调用方式
-* json 字符串入参调用
-* json 文件入参调用 --cli-input-json
-* 复杂类型点(.)连接展开形式入参调用 --cli-unfold-argument
-
-- json 字符串入参调用
-
-执行以下命令创建一台CVM：
+#### JSON 字符串入参调用示例
+- 执行以下命令，创建一台 CVM。
 ```bash
 $ tccli cvm RunInstances --InstanceChargeType POSTPAID_BY_HOUR --InstanceChargePrepaid '{"Period":1,"RenewFlag":"DISABLE_NOTIFY_AND_MANUAL_RENEW"}' --Placement '{"Zone":"ap-guangzhou-2"}' --InstanceType S1.SMALL1 --ImageId img-8toqc6s3 --SystemDisk '{"DiskType":"CLOUD_BASIC", "DiskSize":50}' --InternetAccessible '{"InternetChargeType":"TRAFFIC_POSTPAID_BY_HOUR","InternetMaxBandwidthOut":10,"PublicIpAssigned":true}' --InstanceCount 1 --InstanceName TCCLI-TEST --LoginSettings '{"Password":"isd@cloud"}' --SecurityGroupIds '["sg-0rszg2vb"]' --HostName TCCLI-HOST-NAME1
 ```
-
-执行以下命令获取云产品CVM的监控数据
+- 执行以下命令，获取云产品 CVM 的监控数据。
 ```bash
 [root@VM_33_50_centos ~]# tccli monitor GetMonitorData --Namespace "QCE/CVM" --Period 300 --MetricName "CPUUsage" --Instances '[{"Dimensions":[{"Name":"InstanceId","Value":"ins-cac6a4w8"}]}]'
 ```
 
-- json 文件入参调用（--cli-input-json）
-
-输出入参数据结构到json文件
+#### JSON 文件入参调用（--cli-input-json）示例
+1. 执行以下命令，输出入参数据结构到 JSON 文件。
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm RunInstances  --generate-cli-skeleton > /tmp/RunInstances.json
 ```
-
-修改文件中参数值为自己的值，用json文件做入参，--cli-input-json后接file://+文件路径
+2. 将文件中参数值替换为实际使用值，并使用该 JSON 文件作为入参，格式为 `--cli-input-json` 后接 `file://+文件路径`。示例如下：
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm RunInstances --cli-input-json file:///tmp/RunInstances.json
 {
@@ -163,15 +172,17 @@ $ tccli cvm RunInstances --InstanceChargeType POSTPAID_BY_HOUR --InstanceChargeP
 }
 ```
 
-- 复杂类型点(.)连接展开形式入参调用（--cli-unfold-argument）
+#### 复杂类型点（.）连接展开形式入参调用（--cli-unfold-argument）示例
+复杂类型点连接展开调用是将复杂类型按用点连接的形式展开，此方式可充分利用命令行自动补全机制来解决入参较复杂时的命令行输入困难，且易出错问题。展开方式如下：
+复杂类型 `{"a":{"b": "c"}}` 展开为 `--a.b c`。复杂类型数组使用`.0`，` .1`表示数组的第一个、第二个元素。基本类型数组不需要使用`.0`，`.1`，直接将数组多个元素用空格隔开依次输入，例如 `--Integer 10 20`，`--String str1 str2`。
 
-复杂类型点连接展开调用是将复杂类型按用点连接的形式展开，可以充分利用命令行自动补全机制，来解决入参较复杂时，命令行输入困难，且易出错问题。展开方式如下：
-复杂类型{"a":{"b": "c"}}展开为 --a.b c；复杂类型数组使用.0, .1表示数组的第一个、第二个元素。基本类型数组不需要使用.0, .1，直接将数组多个元素用空格隔开依次输入，例如：--Integer 10 20； --String str1 str2
-
+执行以下命令，创建一台 CVM。
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm RunInstances --cli-unfold-argument --InstanceChargeType POSTPAID_BY_HOUR --InstanceChargePrepaid.Period 1 --InstanceChargePrepaid.RenewFlag DISABLE_NOTIFY_AND_MANUAL_RENEW --Placement.Zone ap-guangzhou-2 --InstanceType S1.SMALL1 --ImageId img-8toqc6s3 --SystemDisk.DiskType CLOUD_BASIC --SystemDisk.DiskSize 50 --InternetAccessible.InternetChargeType TRAFFIC_POSTPAID_BY_HOUR --InternetAccessible.InternetMaxBandwidthOut 10 --InternetAccessible.PublicIpAssigned True --InstanceCount 1 --InstanceName TCCLI-TEST --LoginSettings.Password isd@cloud --SecurityGroupIds sg-0rszg2vb --HostName TCCLI-HOST-NAME1
 ```
 
+
+#### 更多使用示例
 您还可通过以下命令，进一步使用 TCCLI：
 - 执行 `tccli help` 命令，查看支持的产品，支持中文。
 ```bash
@@ -199,7 +210,7 @@ AVAILABLE SERVICES
     介绍如何使用API对正版曲库直通车进行操作，包括素材获取、数据上报等。
     ......
 ```
-- 以 CVM 为例，执行 `tccli cvm help` 命令，查看产品支持的接口。
+- 执行 `tccli cvm help` 命令，查看产品支持的接口。本文以 CVM 为例。
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm help
 NAME
@@ -224,7 +235,7 @@ AVAILABLE ACTIONS
     绑定安全组
     ......
 ```
-- 以 CBS 的 DescribeDisks 接口为例，执行 `tccli cbs DescribeDisks help` 命令，查看接口支持的参数。
+- 执行 `tccli cbs DescribeDisks help` 命令，查看接口支持的参数。本文以 CBS 的 DescribeDisks 接口为例。
 ```bash
 [root@VM_33_50_centos ~]# tccli cbs DescribeDisks help
 NAME
@@ -258,7 +269,7 @@ AVAILABLE PARAMS
     ......
 ```
 - 输出格式支持 JSON、table 及 text 格式。
-**JSON 格式**
+  - **JSON 格式**：
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm DescribeRegions 
 {
@@ -304,7 +315,7 @@ AVAILABLE PARAMS
     "RequestId": "e5125cf1-****-****-****-316f18eed021"
 }
 ```
-**table 格式**
+ - **table 格式**：
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm DescribeRegions --output table
 --
@@ -340,7 +351,7 @@ AVAILABLE PARAMS
 ||  na-toronto       |  北美地区(多伦多)     |  AVAILABLE    ||
 |+-------------------+----------------+---------------+|
 ```
- **text 格式**
+ - **text 格式**：
 ```bash
 [root@VM_33_50_centos ~]# tccli cvm DescribeRegions --output text
 70bbd02f-****-****-****-afc5c34018ae    20
@@ -367,13 +378,11 @@ REGIONSET       na-toronto      北美地区(多伦多)        AVAILABLE
 ```
 
 ### 高级功能<span id="sophisticatedfunctions"></span>
-
-该步骤以 CVM 为例，详细介绍了如何使用 TCCLI 高级功能，包括多版本接口访问、指定最近的接入点、返回结果过滤、输出入参数据结构到 json 文件以及从 json 文件读取参数等。
+该步骤以 CVM 为例，详细介绍了如何使用 TCCLI 高级功能，包括多版本接口访问、指定最近的接入点、返回结果过滤、输出入参数据结构到 JSON 文件以及从 JSON 文件读取参数等。
 
 #### 多版本接口访问
-
 某些产品可能存在多个版本的接口，TCCLI 默认访问最新版本的接口。如果您想访问特定旧版本的接口，可以通过以下方式实现：
-- 方式1：设置 cvm 产品默认使用版本：2017-03-12
+- 方式1：设置 CVM 产品默认使用版本：2017-03-12
 ```bash
 tccli configure set cvm.version 2017-03-12
 ```
@@ -385,9 +394,8 @@ tccli cvm DescribeZones --version 2017-03-12
 ```
 
 #### 指定最近的接入点（Endpoint）
-
 TCCLI 默认会请求就近的接口点访问服务，您也可以针对某一产品指定自己的 Endpoint。
-- 设置 cvm 产品默认 endpoint
+- 设置 CVM 产品默认 endpoint
 ```bash
 tccli configure set cvm.endpoint cvm.ap-guangzhou.tencentcloudapi.com
 ```
@@ -397,7 +405,6 @@ tccli cvm DescribeZones --endpoint cvm.ap-guangzhou.tencentcloudapi.com
 ```
 
 #### 返回结果过滤
-
 - 以 CVM DescribeZones 接口的返回为例，不加任何过滤时的输出。
 ```bash
    [root@VM_180_248_centos ~]# tccli cvm DescribeZones
@@ -432,7 +439,7 @@ tccli cvm DescribeZones --endpoint cvm.ap-guangzhou.tencentcloudapi.com
     "RequestId": "4fd313a6-****-****-****-898c02fcae02"
    }
 ```
-- 只看某个字段。
+- 仅查看某个字段。
 ```bash
 [root@VM_180_248_centos ~]# tccli cvm DescribeZones  --filter TotalCount
 4
