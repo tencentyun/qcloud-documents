@@ -16,7 +16,7 @@
 >!目前不支持华南地区-深圳金融。
 >
 ![](https://main.qcloudimg.com/raw/b2c5f3665d0d20ecd1fe6dd6d74c8e02.png)
-3. 单击【确认】，跳转到 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3)，进入实例【基本信息】页面。
+3. 单击【确定】，跳转到 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3)，进入实例【基本信息】页面。
 4. 选择【监听器管理】页签。
 5. 在【HTTP/HTTPS 监听器】中单击【新建】，弹出【创建监听器】弹窗。
 6. 将【监听协议端口】切换到 HTTPS，服务器证书为已选中的证书，然后完成剩余的基本配置。如下图所示：
@@ -31,7 +31,7 @@
  
 1. 选择您需要部署的证书，单击【部署】。如下图所示：
 ![](https://main.qcloudimg.com/raw/fe9df64283baa8440e5a3f1c20bf93b0.png)
-2. 在弹出的【选择部署类型】窗口中，选择【CDN】，并单击【确认】。
+2. 在弹出的【选择部署类型】窗口中，选择【CDN】，并单击【确定】。
 3. 跳转到 [CDN 控制台](https://console.cloud.tencent.com/cdn)，进入【配置证书】详情页，已显示对应的域名、证书来源以及证书 ID。
 4. 选择回源协议方式，您可以选择 CDN 节点回源站获取资源时的回源方式。如下图所示：
 ![](https://main.qcloudimg.com/raw/890219d7c165edf23c7fe64d14fa9c65.png)
