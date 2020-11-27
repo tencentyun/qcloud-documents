@@ -80,7 +80,7 @@
   
 将格式化后的各个参数用 `"&"` 拼接在一起，最终生成的请求字符串为：
 ```
-Action=ServiceDescribeDeviceData&AppKey=ServiceAppKey&DeviceName=Device001& Nonce=71087795&ProductId=ProductA&RequestId=476c990a-f5b7-1575-987c-4ef70e474932&Timestamp=1546315200
+Action=ServiceDescribeDeviceData&AppKey=ServiceAppKey&DeviceName=Device001&Nonce=71087795&ProductId=ProductA&RequestId=476c990a-f5b7-1575-987c-4ef70e474932&Timestamp=1546315200
 ```
 
 3. 生成签名串
@@ -88,7 +88,7 @@ Action=ServiceDescribeDeviceData&AppKey=ServiceAppKey&DeviceName=Device001& Nonc
    具体代码如下，以 PHP 语言为例：
 ```
 $secretKey = 'ServiceAppSecret';
-$srcStr = 'Action=ServiceDescribeDeviceData&AppKey=ServiceAppKey&DeviceName=Device001& Nonce=71087795&ProductId=ProductA&RequestId=476c990a-f5b7-1575-987c-4ef70e474932&Timestamp=1546315200';
+$srcStr = 'Action=ServiceDescribeDeviceData&AppKey=ServiceAppKey&DeviceName=Device001&Nonce=71087795&ProductId=ProductA&RequestId=476c990a-f5b7-1575-987c-4ef70e474932&Timestamp=1546315200';
 $signStr = base64_encode(hash_hmac('sha1', $srcStr, $secretKey, true));
 echo $signStr
 ```
