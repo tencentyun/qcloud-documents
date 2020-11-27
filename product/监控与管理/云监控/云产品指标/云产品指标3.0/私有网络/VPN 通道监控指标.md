@@ -4,7 +4,7 @@ Namespace=QCE/VPNX
 
 ## 监控指标
 
-| 指标英文名   | 指标中文名    | 含义                    | 单位  | 维度      |
+| 指标英文名   | 指标中文名    | 指标含义                    | 单位  | 维度      |
 | ------------ | ------------- | ----------------------- | ----- | --------- |
 | OutBandwidth | VPN 通道出带宽 | VPN 通道平均每秒出流量   | Mbps  | vpnConnId |
 | InBandwidth  | VPN 通道入带宽 | VPN 通道平均每秒入流量   | Mbps  | vpnConnId |
