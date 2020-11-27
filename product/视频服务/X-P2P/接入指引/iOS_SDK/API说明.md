@@ -21,14 +21,14 @@ SDK 接口除初始化接口, 其余接口均由 HTTP 实现，请求格式为 `
 </tr><tr>
 <td>404</td><td>查询失败，频道不存在</td>
 </tr></table>
-
-
-其中，返回码 200 返回的 JSON 内容，格式详细说明如下：<span id="code_200"></span>
-
-| 参数名称      | 类型 | 说明            |
-| ------------- | ---- | --------------- |
-| flow.p2pBytes | num  | 对应频道 P2P 流量 |
-| flow.cdnBytes | num  | 对应频道 CDN 流量 |
+其中，返回码 200 返回的 JSON 内容，格式详细说明如下：
+<table  id="code_200">
+<tr><th>参数名称</th><th>类型</th><th>说明</th></tr>
+<tr>
+<td>flow.p2pBytes</td><td>num</td><td>对应频道 P2P 流量</td>
+</tr><tr>
+<td>flow.cdnBytes</td><td>num</td><td>对应频道 CDN 流量</td>
+</tr></table>
 
 ### 示例
 - **请求示例：**
