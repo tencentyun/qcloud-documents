@@ -20,8 +20,9 @@ OPPO 通道是由 OPPO 官方提供的系统级推送通道。在 OPPO 手机上
 ### 获取密钥
 >?仅开发者帐号（主帐号）可查看。
 
-Opush 申请开通成功后，您可在【[OPPO 推送平台](https://push.oppo.com/)】>【配置管理】>【应用配置页面】，查看 AppKey、AppSecret 和 MasterSecret。
+1. Opush 申请开通成功后，您可在【[OPPO 推送平台](https://push.oppo.com/)】>【配置管理】>【应用配置页面】，查看 AppKey、AppSecret 和 MasterSecret。
 ![](https://main.qcloudimg.com/raw/7753e738a004854d63cf4c8e4c07d51c.png)
+2. 复制应用的 AppId、AppKey 和 AppSecret 参数填入 【[移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)】>【配置管理】>【基础配置】>【 OPPO 官方推送通道】栏目中。
 
 ### 配置推送通道
 为兼容安卓8.0及以上版本的 OPPO 手机的通道配置，用户需在 OPPO 管理台上，创建一个 TPNS 推送的默认通道。详情请参见 [OPPO 官方文档](https://open.oppomobile.com/wiki/doc/#id=10198)。
@@ -116,8 +117,9 @@ XGPushConfig.setOppoPushAppKey(getApplicationContext(), "Oppo的AppSecret");
 XGPushConfig.enableOtherPush(getApplicationContext(), true);
 
 //注册成功的日志如下
-I/XINGE: [XGOtherPush] other push token is : CN_93394e648ee5a73f5c5a0835b2a7e3d5  other push type: oppo
-I/XINGE: [h] >> bind OtherPushToken success ack with [accId = 1500xxxxxx  , rsp = 0]  token = 0114d716bfe01d75f861d05a920cca8c8226 otherPushType = oppo otherPushToken = CN_93394e648ee5a73f5c5a0835b2a7e3d5
+I/TPush: [RegisterReservedInfo] Reservert info: other push token is : CN_fc0f0b38220cba7a1bcbda20857e021b  other push type: oppo
+I/TPush: [PushServiceBroadcastHandler] >> bind OtherPushToken success ack with [accId = 150000****  , rsp = 0]  token = 007a4105425********52ac1e1360c6780f3 otherPushType = oppo otherPushToken = CN_fc0f0b3822****7a1bcbda20857e021b
+
 ```
 
 

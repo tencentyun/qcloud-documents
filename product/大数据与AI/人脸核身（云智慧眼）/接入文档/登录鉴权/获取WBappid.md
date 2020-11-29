@@ -2,9 +2,6 @@
 ## 操作场景
 通过使用 App SDK、独立 H5、PC 端 H5 的方式接入腾讯云人脸核身时，需要获取业务流程唯一标识 WBappid，本文档将介绍如何登录控制台获取 WBappid。
 
-## 前提条件
-已登录腾讯云慧眼 [人脸核身控制台](https://console.cloud.tencent.com/faceid)。
-
 ## 操作步骤
 1. 登录腾讯云慧眼 [人脸核身控制台](https://console.cloud.tencent.com/faceid)，单击左侧菜单栏【自助接入】，单击【SDK/独立 H5 服务】>【申请 WBappid】。
 ![](https://main.qcloudimg.com/raw/b7adff96fe44616bbbf04baf4b584647.png)

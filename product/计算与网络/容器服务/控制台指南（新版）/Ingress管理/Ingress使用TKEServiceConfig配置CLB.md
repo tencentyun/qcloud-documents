@@ -184,7 +184,7 @@ spec:
             httpCheckPath: "/checkHealth"
             httpCheckDomain: "sample.tencent.com"
             httpCheckMethod: HEAD
-          scheduler: IP_HASH
+          scheduler: WRR
 ```
 该示例包含以下配置：
 该 TkeServiceConfig 名称为 `jetty-ingress-config`。且在七层监听器配置中，声明了两段配置：
@@ -193,7 +193,7 @@ spec:
 2. 443端口的 HTTPS 监听器将会被配置。其中包含域名配置，域名是 `sample.tencent.com`。该域名下仅描述了一个转发路径为`/`的转发规则配置，其中配置包含以下内容：
  - 打开健康检查，健康检查间隔调整为10s，健康阈值2次，不健康阈值2次。通过 HEAD 请求进行健康检查，检查路径为 `/checkHealth`，检查域名为 `sample.tencent.com`。
  - 打开会话保持功能，会话保持的超时时间设置为3600s。
- - 转发策略配置为：根据源 IP 哈希。
+ - 转发策略配置为：按权重轮询。
 
 ### kubectl 配置命令
 ```

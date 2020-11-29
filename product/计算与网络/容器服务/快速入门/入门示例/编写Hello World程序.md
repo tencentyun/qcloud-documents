@@ -81,7 +81,7 @@ docker images
 #### 上传该镜像到 qcloud 镜像仓库
 >!上传镜像需满足以下条件：
 >- 已在 [我的镜像](https://console.cloud.tencent.com/tke2/registry/user/space) 创建命名空间。
->- 已登录 [腾讯云 registry](https://cloud.tencent.com/document/product/457/9117#.E7.99.BB.E5.BD.95.E5.88.B0.E8.85.BE.E8.AE.AF.E4.BA.91-registry)，更多镜像操作请参见 [镜像仓库基本教程](https://cloud.tencent.com/document/product/457/9117)。
+>- 已登录 [腾讯云 registry](https://cloud.tencent.com/document/product/1141/50332#.E6.8E.A8.E9.80.81.E9.95.9C.E5.83.8F.E5.88.B0.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93)，更多镜像操作请参见 [镜像仓库基本教程](https://cloud.tencent.com/document/product/457/9117)。
 
 依次执行以下命令，上传镜像到 qcloud 镜像仓库。
 ```shell

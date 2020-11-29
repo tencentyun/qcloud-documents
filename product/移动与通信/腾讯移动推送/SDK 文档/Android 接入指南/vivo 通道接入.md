@@ -12,7 +12,10 @@ vivo 通道是由 vivo 官方提供的系统级推送通道。在 vivo 手机上
 
 ## 操作步骤
 ### 获取密钥
-开发者需向 vivo 申请开通推送权限，获取到 AppID 、AppKey、AppSecret 三个密钥。详情请参见 [快速接入指引](https://dev.vivo.com.cn/documentCenter/doc/180)。
+1. 开发者需向 vivo 申请开通推送权限，获取到 AppID 、AppKey、AppSecret 三个密钥参数。详情请参见 [快速接入指引](https://dev.vivo.com.cn/documentCenter/doc/180)。
+2. 复制应用的 AppId、AppKey 和 AppSecret 参数填入 【[移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)】>【配置管理】>【基础配置】>【vivo 官方推送通道】栏目中。
+
+
 
 ###  配置内容
 #### AndroidStudio 集成方法
@@ -80,8 +83,9 @@ XGPushConfig.enableOtherPush(getApplicationContext(), true);
 
 
 //注册成功的日志如下
- I/XINGE: [XGOtherPush] other push token is : 15646472431991408944055  other push type: vivo
-I/XINGE: [PushServiceBroadcastHandler]  bind OtherPushToken success ack with [accId = 1500xxxxxx  , rsp = 0]  token = 0139f9840030882cfe7cc791aebc800ed270 otherPushType = vivo otherPushToken = 15646472431991408944055
+I/TPush: [OtherPushClient] handleUpdateToken other push token is : 160612459******08955218 other push type: vivo
+I/TPush: [PushServiceBroadcastHandler] >> bind OtherPushToken success ack with [accId = 150000****  , rsp = 0]  token = 01a22fb503a33******66b89fad6be3ed343 otherPushType = vivo otherPushToken = 160612459******08955218
+
 ```
 
 
