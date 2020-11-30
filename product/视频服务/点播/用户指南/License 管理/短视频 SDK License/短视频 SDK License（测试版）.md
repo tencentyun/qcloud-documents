@@ -11,18 +11,18 @@
 
 ### 步骤2：保存测试  License
 当免费测试版 License 成功创建后，页面会显示生成的 License 信息，在 SDK 初始化配置时需要传入 Key 和 LicenseUrl 这两个参数，请妥善保存以下信息。
-![](https://main.qcloudimg.com/raw/47e51c894db9d9f75b9a91c138a88920.png)
+![](https://main.qcloudimg.com/raw/462a7e30ba254bd11aab4837a9a72df6.png)
 
 
 ## 续期测试版 License
 您可以在 [云点播控制台](https://console.cloud.tencent.com/vod/license) 查看测试版 License 的有效期，测试版的 License 全程有效期为28天。当首次试用14天的测试版 License 临近到期，需对其续期1次，步骤如下：
 ### 步骤1：申请续期 License
 进入【[短视频 SDK License](https://console.cloud.tencent.com/vod/license/video)】页面，在试用版 License 区域，单击右上角的【续期】。
-![](https://main.qcloudimg.com/raw/089a73cd3619a2633184e343da0e1835.png)
+![](https://main.qcloudimg.com/raw/e65d5c74fae8489999ce3a458ea11cda.png)
 ### 步骤2：完成续期 License
 弹出气泡提示续期成功后，随即右上角的【续期】 消失便完成测试版 License 续期14天的操作。
-![](https://main.qcloudimg.com/raw/b1a65e43cbf6360ee23bd140dba53c2d.png)
->?您的测试版 License 体验完28天后到期，请前往 [购买正式版 License](https://tcloud-doc.isd.com/document/product/266/50290?!preview&!editLang=zh#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
+![](https://main.qcloudimg.com/raw/bfc310e48f927b1d88e0eee5670b30d2.png)
+>?您的测试版 License 体验完28天后到期，请前往 [购买正式版 License](https://cloud.tencent.com/document/product/266/50290#.E8.B4.AD.E4.B9.B0.E6.AD.A3.E5.BC.8F.E7.89.88-license)。
 
 ## 查看测试版 License
 在 License 设置成功后稍等一段时间（依据网络情况而定），可以通过调用以下方法查看 License 信息。

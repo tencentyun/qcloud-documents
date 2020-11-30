@@ -1,11 +1,11 @@
 
-mgobexsCode 对象是实时服务器的入口，开发者需要在代码中导出该对象。
+mgobexsCode 对象是实时服务器的入口，您需要在代码中导出该对象。
 
 ### gameServer 属性
 
 #### 描述
 
-gameServer 是 mgobexsCode 对象的一个属性，类型为 [GameServer.IGameServer](https://cloud.tencent.com/document/product/1038/34991) 。开发者需要实现一个 [GameServer.IGameServer](https://cloud.tencent.com/document/product/1038/34991) 对象，并赋值给 gameServer。
+gameServer 是 mgobexsCode 对象的一个属性，类型为 [GameServer.IGameServer](https://cloud.tencent.com/document/product/1038/34991) 。您需要实现一个 [GameServer.IGameServer](https://cloud.tencent.com/document/product/1038/34991) 对象，并赋值给 gameServer。
 
 #### 使用示例
 
@@ -110,7 +110,7 @@ exports.mgobexsCode = {
 ### gameInfo 属性
 
 #### 描述
-gameInfo 是 mgobexsCode 对象的一个属性，类型为 object。开发者如果需要在实时服务器调用 getRoomByRoomId、changeRoom、changeCustomPlayerStatus、removePlayer 方法需要实现该对象。该对象属性如下：
+gameInfo 是 mgobexsCode 对象的一个属性，类型为 object。您如果需要在实时服务器调用 getRoomByRoomId、changeRoom、changeCustomPlayerStatus、removePlayer 方法需要实现该对象。该对象属性如下：
 
 |属性名|类型|描述|
 |:---|---|---|
