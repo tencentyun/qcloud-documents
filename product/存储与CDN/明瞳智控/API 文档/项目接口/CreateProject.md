@@ -52,16 +52,16 @@ Container 类型 Request 的具体数据描述如下：
 | ------------------ | ------- | ---------------------------------------- | --------- | ---- |
 | Mode               | Request | 接入类型: HTTP                           | String    | 是   |
 | Name               | Request | 项目名称 仅支持中文、英文、数字、_、-和* | String    | 是   |
-| Bucket             | Request | bucket信息                               | Container | 否   |
+| Bucket             | Request | bucket 信息                               | Container | 否   |
 
 
 Container 类型 Bucket 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Region                | Request.Bucket | bucket地区 | String    | 是   | 无 | 无|
-| BucketId            | Request.Bucket | bucket的ID | String      | 是   | 无  | 无 |
-| Prefix            | Request.Bucket     | 对象key前缀 | String    | 否   | 无  | 无 |
+| Region                | Request.Bucket | bucket 地区 | String    | 是   | 无 | 无|
+| BucketId            | Request.Bucket | bucket 的 ID | String      | 是   | 无  | 无 |
+| Prefix            | Request.Bucket     | 对象 key 前缀 | String    | 否   | 无  | 无 |
 
 
 
@@ -105,11 +105,11 @@ Container节点Response的内容：
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
 | Name               | Response | 项目名字                                                     | String    |
 | Desc               | Response | 项目描述                                                     | String    |
-| ProjectId          | Response | 项目ID                                                      | String    |
+| ProjectId          | Response | 项目 ID                                                      | String    |
 | Mode               | Response | 接入类型                                                     | String    |
 | UpdateTime         | Response | 更新时间                                                     | String    |
 | CreateTime         | Response | 创建时间                                                     | String    |
-| Bucket             | Response | 其详细的参数，同上述请求体部分Bucket说明                          | Container |
+| Bucket             | Response | 其详细的参数，同上述请求体部分 Bucket 说明                          | Container |
 
 
 ### 错误码
@@ -122,7 +122,7 @@ Container节点Response的内容：
 
 ```shell
 POST /project HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0**********&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0**********&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
 Host: iss.ap-beijing.myqcloud.com
 Content-Length: 1666
 Content-Type: application/xml
