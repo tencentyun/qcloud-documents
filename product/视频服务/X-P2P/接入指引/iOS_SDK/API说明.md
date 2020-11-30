@@ -10,7 +10,7 @@ SDK 接口除初始化接口, 其余接口均由 HTTP 实现，请求格式为 `
 
 | 参数名称 | 必选 | 类型   | 说明                                               |
 | -------- | ---- | ------ | -------------------------------------------------- |
-| channel  | 是   | string | 默认为 url 中的 resource，否则为频道请求中的 channel 值 |
+| xresid  | 是   | string | 默认为 URL 中的 resource，否则为频道请求中的 xresid 值 |
 
 ### 返回参数
 
@@ -33,9 +33,9 @@ SDK 接口除初始化接口, 其余接口均由 HTTP 实现，请求格式为 `
 ### 示例
 - **请求示例：**
 ```
-http://127.0.0.1:16080/live.p2p.com/stat?channel=xxx
+http://127.0.0.1:16080/live.p2p.com/stat?xresid=xxx
 ```
->! channel 即 `http://127.0.0.1:16080/live.p2p.com/resoruce.ext` 中的 resource。
+>! xresid 即 `http://127.0.0.1:16080/live.p2p.com/resoruce.ext` 中的 resource。
 - **返回示例：**
 ``` json
 "{"flow":{"p2pBytes":0,"cdnBytes":0}}"
