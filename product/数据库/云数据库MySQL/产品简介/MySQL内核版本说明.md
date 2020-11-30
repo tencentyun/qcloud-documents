@@ -138,7 +138,7 @@
 - 修复主备 rename table 都 hang 住的问题。 
 - 修复当设置 event_scheduler 为 disable，cdb_skip_event_scheduler 从 on 改为 off 时，出现 crash 问题。 
 - 修复 tencentroot 最大链接数未计入 srv_max_n_threads，造成 sync_wait_array 相关断言失败的问题。 
-- 修复由于阿里 MySQL 5.6 和 腾讯 MySQL 5.6 的系统库中有些表的结构不同，导致主从开启并行复制时，出现 crash 问题。 
+- 修复由于其他云服务的 MySQL 5.6 和 腾讯 MySQL 5.6 的系统库中有些表的结构不同，导致主从开启并行复制时，出现 crash 问题。 
 - 修复 INSERT ON DUPLICATE KEY UPDATE THE WRONG ROW 问题。 
 - 修复 index_mapping 出现错误问题。 
 - 修复 mtr 失败 bug 问题。 
