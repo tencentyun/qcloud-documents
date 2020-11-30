@@ -1,3 +1,6 @@
+本文介绍如何设置样式（Android）
+以下视频将帮助您快速了解如何修改头像、配置聊天界面、配置更多菜单。
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/3130-57629?source=gw.pro.media&withPoster=1&notip=1"></iframe></div>
 
 ## 设置会话列表
 会话列表 Layout 由标题区 TitleBarLayout 与列表区 ConversationListLayout 组成，每部分都提供了 UI 样式以及事件注册的接口可供修改。

@@ -79,7 +79,7 @@ pip install Django -t ./
 通过`sls`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息
 
 ```shell
-$ sls --debug
+$ sls deploy --debug
 ```
 
 ### 5. 移除
