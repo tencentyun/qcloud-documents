@@ -1,5 +1,5 @@
 
-[边缘容器 serviceGroup 功能](https://cloud.tencent.com/document/product/457/46923) 介绍了 ServiceGroup 设计思想，以及如何通过 yaml 管理资源，本文将介绍如何通过控制台管理 ServiceGroup 资源.
+[边缘容器 serviceGroup 功能](https://cloud.tencent.com/document/product/457/46923) 介绍了 ServiceGroup 设计思想，以及如何通过 yaml 管理资源，本文将介绍如何通过控制台管理 ServiceGroup 资源。
 
  
 
