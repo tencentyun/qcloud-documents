@@ -83,11 +83,12 @@ ServiceGroup 的流量闭环能力将微服务之间的调用闭环在同一个 
 在一个边缘集群中经常需要管理多个机房的节点，同一个机房内的节点网络可达，机房之间不可达，需将微服务之间的调用控制在同一个机房内。为了使 ServiceGroup 功能更加通用，可将流量控制在一个 NodeUnit 内。
 
  
-## 使用 ServiceGroup 部署边缘微服务
+## 使用示例 
+### 使用 ServiceGroup 部署边缘微服务
 
-1. 假设微服务有 svc-a、svc-b、svc-c，服务间存在调用关系或服务需要一起部署，对应的是deployment-a、deployment-b、deployment-c。
+1. 假设微服务有 svc-a、svc-b、svc-c，服务间存在调用关系或服务需要一起部署，对应的是 deployment-a、deployment-b、deployment-c。
 2. 分别创建 deploymentGrid-a、deploymentGrid-b、deploymentGrid-c，并且关联相同的 NodeGroup，假设名为 service-group-1。
-3. 创建 serviceGrid-a、serviceGrid-b、serviceGrid-c，关联 service-group-1，分别绑定deploymentGrid-a、deploymentGrid-b、deploymentGrid-c。
+3. 创建 serviceGrid-a、serviceGrid-b、serviceGrid-c，关联 service-group-1，分别绑定 deploymentGrid-a、deploymentGrid-b、deploymentGrid-c。
 4. 在 service-group-1 中管理 NodeUnit 及各 NodeUnit 下的机器节点。
 
 完成上述操作后，即可实现每个 NodeUnit 中的 a、b、c 的调用流量在本 NodeUnit 中闭环。
