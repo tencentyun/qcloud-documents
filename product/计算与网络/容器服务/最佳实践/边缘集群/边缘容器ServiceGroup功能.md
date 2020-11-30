@@ -30,8 +30,8 @@ ServiceGroup 整体架构示意图如下：
 
 - NodeUnit 通常是位于同一边缘站点内的一个或多个计算资源实例，需确保同一 NodeUnit 中的节点内网互通。
 - ServiceGroup 组中的服务运行在一个 NodeUnit 内。
-- TKE Edge 允许用户设置服务在一个 NodeUnit 中运行的 Pod 数量。
-- TKE Edge 能够把服务之间的调用限制在本 NodeUnit 内。
+- ECK 允许用户设置服务在一个 NodeUnit 中运行的 Pod 数量。
+- ECK 能够把服务之间的调用限制在本 NodeUnit 内。
 
 #### NodeGroup
 
