@@ -125,7 +125,7 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 ```shell
 GET /template?ids=A,B,C HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0**********&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0**********&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
 Host: iss.ap-beijing.myqcloud.com
 Content-Length: 0
 Content-Type: application/xml
@@ -171,7 +171,7 @@ x-iss-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
 
 ```shell
 GET /template?pageSize=10&pageNumber=1 HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0**********&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0**********&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
 Host:iss.ap-beijing.myqcloud.com
 Content-Length: 0
 Content-Type: application/xml
