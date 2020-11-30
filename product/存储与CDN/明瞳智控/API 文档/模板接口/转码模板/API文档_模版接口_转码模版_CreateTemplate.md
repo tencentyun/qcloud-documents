@@ -108,15 +108,15 @@ Container 类型 Video 的具体数据描述如下：
 | 节点名称（关键字）         | 父节点        | 描述                  | 类型   | 必选 | 默认值       | 限制                                                         |
 | -------------------------- | ------------- | --------------------- | ------ | ---- | ------------ | ------------------------------------------------------------ |
 | Codec                      | Request.Video | 编解码格式            | String | 否   |   H.264 | 1. H.264                                          |
-| Width                      | Request.Video | 宽                    | String | 否   | 视频原始宽度 | 1. 值范围：[128，4096]<br/>2. 单位：px<br/>3. 若只设置Width时，按照视频原始比例计算Height |
-| Height                     | Request.Video | 高                    | String | 否   | 视频原始高度 | 1. 值范围：[128，4096]<br/>2. 单位：px<br/>3. 若只设置Height时，按照视频原始比例计算Width |
+| Width                      | Request.Video | 宽                    | String | 否   | 视频原始宽度 | 1. 值范围：[128，4096]<br/>2. 单位：px<br/>3. 若只设置 Width 时，按照视频原始比例计算 Height |
+| Height                     | Request.Video | 高                    | String | 否   | 视频原始高度 | 1. 值范围：[128，4096]<br/>2. 单位：px<br/>3. 若只设置 Height 时，按照视频原始比例计算 Width |
 | Fps                        | Request.Video | 帧率                  | String | 否   | 无 | 1. 值范围：(0，60]<br>2. 单位：fps |
 | Remove                     | Request.Video | 是否删除视频流        | String | 否   | false        | 1. true、false                                               |
-| Profile                    | Request.Video | 编码级别              | String | 否   | high         | 1. 支持baseline、main、high<br/>2. baseline：适合移动设备；<br/>3. main：适合标准分辨率设备；<br/>4. high：适合高分辨率设备;<br/>5. 仅H.264支持此参数。 |
+| Profile                    | Request.Video | 编码级别              | String | 否   | high         | 1. 支持 baseline、main、high<br/>2. baseline：适合移动设备；<br/>3. main：适合标准分辨率设备；<br/>4. high：适合高分辨率设备;<br/>5. 仅 H.264支持此参数。 |
 | Bitrate                    | Request.Video | 视频输出文件的码率    | String | 否   |  无           | 1. 值范围：[10，50000]<br/>2. 单位：Kbps                     |
-| Crf                        | Request.Video | 码率-质量控制因子     | String | 否   | 无           | 1. 值范围：(0，51]<br/>2. 如果设置了Crf，则Bitrate的设置失效 |
+| Crf                        | Request.Video | 码率-质量控制因子     | String | 否   | 无           | 1. 值范围：(0，51]<br/>2. 如果设置了 Crf，则 Bitrate 的设置失效 |
 | Gop                        | Request.Video | 关键帧间最大帧数      | String | 否   |  无            | 1. 值范围：[0，100000]                                          |
-| Preset                     | Request.Video | 视频算法器预置        | String | 否   | medium       | 1. 仅H.264支持该参数<br/>2. 取值veryfast、fast、medium、slow、slower |
+| Preset                     | Request.Video | 视频算法器预置        | String | 否   | medium       | 1. 仅 H.264支持该参数<br/>2. 取值 veryfast、fast、medium、slow、slower |
 | Bufsize                    | Request.Video | 缓冲区大小            | String | 否   | 无            | 1. 值范围：[1000，128000]<br/>2. 单位：Kb<br/> |
 | Maxrate                    | Request.Video | 视频码率峰值          | String | 否   | 无            | 1. 值范围：[10，50000]<br/>2. 单位：Kbps<br/> |
 | HlsTsTime                  | Request.Video | hls分片时间           | String | 否   | 5            | 1. (0 视频时长] <br/> 2. 单位为秒 |
@@ -126,8 +126,8 @@ Container 类型 TimeInterval 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Start                | Request.TimeInterval | 开始时间 | String    | 否   | 无 | 1. [0 视频时长] <br/> 2. 单位为秒 <br/> 3. 支持float格式，执行精度精确到毫秒 |
-| Duration             | Request.TimeInterval | 持续时间 | String    | 否   | 无 | 1. [0 视频时长] <br/> 2. 单位为秒 <br/> 3. 支持float格式，执行精度精确到毫秒 |
+| Start                | Request.TimeInterval | 开始时间 | String    | 否   | 无 | 1. [0 视频时长] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
+| Duration             | Request.TimeInterval | 持续时间 | String    | 否   | 无 | 1. [0 视频时长] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
 
 
 Container 类型 Audio 的具体数据描述如下：
@@ -137,7 +137,7 @@ Container 类型 Audio 的具体数据描述如下：
 | Codec              | Request.Audio | 编解码格式     | String | 否   | aac    | 取值 aac、mp3                                                |
 | Samplerate         | Request.Audio | 采样率         | String | 否   | 44100  | 1. 单位：Hz<br/>2. 可选 11025、22050、32000、44100、48000、96000<br/>3. 不同的封装，mp3 支持不同的采样率，如下表所示|
 | Bitrate            | Request.Audio | 原始音频码率   | String | 否   | 无    | 1. 单位：Kbps<br/>2. 值范围：[8，1000]                       |
-| Channels           | Request.Audio | 声道数         | String | 否   | 无      | 1. 当Codec设置为aac，支持1、2、4、5、6、8<br/>2. 当Codec设置为mp3，支持1、2 |
+| Channels           | Request.Audio | 声道数         | String | 否   | 无      | 1. 当 Codec 设置为 aac，支持1、2、4、5、6、8<br/>2. 当 Codec 设置为 mp3，支持1、2 |
 | Remove             | Request.Audio | 是否删除音频流 | String | 否   | false    | 取值 true、false                                             |
 
 
@@ -155,12 +155,12 @@ Container 类型 TransConfig 的具体数据描述如下：
 | 节点名称（关键字）    | 父节点              | 描述             | 类型   | 必选 | 默认值 | 限制                                                         |
 | --------------------- | ------------------- | ---------------- | ------ | ---- | ------ | ------------------------------------------------------------ |
 | AdjDarMethod          | Request.TransConfig | 分辨率调整方式   | String | 否   | none   | 1. 取值 scale、crop、pad、none。<br/>2. 当输出视频的宽高比与原视频不等时，需要此参数进行执行调整方式。 |
-| IsCheckReso           | Request.TransConfig | 是否检查分辨率   | String | 否   | false  | 1. true、false <br/> 2. 当为false时，按照配置参数转码 |
-| ResoAdjMethod         | Request.TransConfig | 分辨率调整方式   | String | 否   | 0      | 1. 取值0、1；0 表示使用原视频分辨率；1表示返回转码失败<br/>2. 当IsCheckReso为true时生效 |
-| IsCheckVideoBitrate   | Request.TransConfig | 是否检查视频码率 | String | 否   | false  | 1. true、false <br/>2. 当为false时，按照配置参数转码 |
-| VideoBitrateAdjMethod | Request.TransConfig | 视频码率调整方式 | String | 否   | 0      | 1. 取值0、1；0 表示使用原视频码率；1表示返回转码失败<br/>2. 当IsCheckVideoBitrate为true时生效 |
-| IsCheckAudioBitrate   | Request.TransConfig | 是否检查音频码率 | String | 否   | false  | 1. true、false <br/>2. 当为false时，按照配置参数转码<br/> |
-| AudioBitrateAdjMethod | Request.TransConfig | 音频码率调整方式 | String | 否   | 0      | 1. 取值0、1；0 表示使用原音频码率；1表示返回转码失败<br/>2. 当IsCheckAudioBitrate为true时生效 |
+| IsCheckReso           | Request.TransConfig | 是否检查分辨率   | String | 否   | false  | 1. true、false <br/> 2. 当为 false 时，按照配置参数转码 |
+| ResoAdjMethod         | Request.TransConfig | 分辨率调整方式   | String | 否   | 0      | 1. 取值0、1；0 表示使用原视频分辨率；1表示返回转码失败<br/>2. 当 IsCheckReso 为 true 时生效 |
+| IsCheckVideoBitrate   | Request.TransConfig | 是否检查视频码率 | String | 否   | false  | 1. true、false <br/>2. 当为 false 时，按照配置参数转码 |
+| VideoBitrateAdjMethod | Request.TransConfig | 视频码率调整方式 | String | 否   | 0      | 1. 取值0、1；0 表示使用原视频码率；1表示返回转码失败<br/>2. 当 IsCheckVideoBitrate 为 true 时生效 |
+| IsCheckAudioBitrate   | Request.TransConfig | 是否检查音频码率 | String | 否   | false  | 1. true、false <br/>2. 当为 false 时，按照配置参数转码<br/> |
+| AudioBitrateAdjMethod | Request.TransConfig | 音频码率调整方式 | String | 否   | 0      | 1. 取值0、1；0 表示使用原音频码率；1表示返回转码失败<br/>2. 当 IsCheckAudioBitrate 为 true 时生效 |
 
 ## 响应
 ### 响应头
@@ -244,11 +244,11 @@ Container节点TransTpl的内容：
 
 | 节点名称（关键字） | 父节点                         | 描述                                    | 类型      |
 | :----------------- | :----------------------------- | :-------------------------------------- | :-------- |
-| TimeInterval       | Response.TemplateList.TransTpl | 同请求体中的Request.TimeInterval | Container |
-| Container          | Response.TemplateList.TransTpl | 同请求体中的Request.Container    | Container |
-| Video              | Response.TemplateList.TransTpl | 同请求体中的Request.Video        | Container |
-| Audio              | Response.TemplateList.TransTpl | 同请求体中的Request.Audio        | Container |
-| TransConfig        | Response.TemplateList.TransTpl | 同请求体中的Request.TransConfig  | Container |
+| TimeInterval       | Response.TemplateList.TransTpl | 同请求体中的 Request.TimeInterval | Container |
+| Container          | Response.TemplateList.TransTpl | 同请求体中的 Request.Container    | Container |
+| Video              | Response.TemplateList.TransTpl | 同请求体中的 Request.Video        | Container |
+| Audio              | Response.TemplateList.TransTpl | 同请求体中的 Request.Audio        | Container |
+| TransConfig        | Response.TemplateList.TransTpl | 同请求体中的 Request.TransConfig  | Container |
 
 
 ### 错误码
