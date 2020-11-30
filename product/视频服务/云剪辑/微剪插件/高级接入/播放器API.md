@@ -256,7 +256,7 @@ videoClip1.startAt = 1;
 ```
 音乐有一个比较特殊的属性：**音量**，取值范围为[0，1]，1为最大音量。示例：
 ```javascript
-  musicClip1.volume = 0.5;
+  musicClip1.audio.volume = 0.5;
 ```
 修改完成后，更新播放器即可。
 ```javascript
