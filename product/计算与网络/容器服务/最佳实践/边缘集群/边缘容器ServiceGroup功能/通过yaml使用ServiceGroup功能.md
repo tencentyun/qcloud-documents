@@ -3,7 +3,7 @@
 ## 操作场景
 边缘计算场景下，往往需要在同一个集群中管理多个边缘站点，每个边缘站点内有一个或多个计算节点。同时需要在每个站点中都运行一组有业务逻辑联系的服务，每个站点内的服务具备一套完整的功能，可以为用户提供服务。但由于网络限制，有业务联系的服务之间不希望或者不能跨站点访问。
 
-目前，已有 [常规方案](https://cloud.tencent.com/document/product/457/46923#.E5.B8.B8.E8.A7.84.E6.96.B9.E6.A1.88.3Cspan-id.3D.22step1.22.3E.3C.2Fspan.3E) 应对上述问题，但是仍有痛点无法解决。为此，边缘容器服务 ECK 提供 ServiceGroup 特性，只需两个 yaml 文件即可轻松实现上百地域的服务部署，且无需进行应用适配或改造。
+目前，已有 [常规方案](https://cloud.tencent.com/document/product/457/46923#.E5.B8.B8.E8.A7.84.E6.96.B9.E6.A1.88.3Cspan-id.3D.22rule.22.3E.3C.2Fspan.3E) 应对上述问题，但是仍有痛点无法解决。为此，边缘容器服务 ECK 提供 ServiceGroup 特性，只需两个 yaml 文件即可轻松实现上百地域的服务部署，且无需进行应用适配或改造。
 
 本文以在边缘部署 nginx 为例。若您希望在多个节点组内分别部署 nginx 服务，需依次执行以下步骤。
 
@@ -25,7 +25,7 @@
 4. 选择需要编辑标签的节点所在行右侧的【更多】>【编辑标签】。
 5. 在弹出的“编辑标签”窗口，参考以下信息新增 Label。如下图所示：
    ![](https://main.qcloudimg.com/raw/28596c7e60903b064df642f3a823427e.png)   
-   - 参考 [整体架构](#OverallStructure) 章节，选择 Node12及 Node14编辑 Label：`zone=nodeunit1`。Node21及 Node23编辑 Label：`zone=nodeunit2`。
+   - 参考 [整体架构](https://cloud.tencent.com/document/product/457/46923#OverallStructure) 章节，选择 Node12及 Node14编辑 Label：`zone=nodeunit1`。Node21及 Node23编辑 Label：`zone=nodeunit2`。
    - Label 的 key 需与 ServiceGroup 的 UniqKey 一致，value 是 NodeUnit 的唯一key。value 相同的节点表示属于同一个 NodeUnit。
    - 如果同一个集群中有多个 ServiceGroup，请为每一个 ServiceGroup 分配不同的 Uniqkey。
 6. 单击【确定】即可。
