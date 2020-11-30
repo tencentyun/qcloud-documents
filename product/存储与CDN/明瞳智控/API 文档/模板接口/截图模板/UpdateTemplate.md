@@ -118,7 +118,7 @@ Container节点Response的内容：
 | TemplateId         | Response | 模版ID                                                      | String    |
 | UpdateTime         | Response | 更新时间                                                     | String    |
 | CreateTime         | Response | 创建时间                                                     | String    |
-| Snapshot           | Response | 其详细的模版参数，同上述请求体部分Snapshot说明 | Container |
+| Snapshot           | Response | 其详细的模版参数，同上述请求体部分 Snapshot 说明 | Container |
 
 ### 错误码
 
@@ -130,7 +130,7 @@ Container节点Response的内容：
 
 ```shell
 PUT /template/<TemplateId> HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0**********&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0**********&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
 Host: iss.ap-beijing.myqcloud.com
 Content-Length: 1666
 Content-Type: application/xml
