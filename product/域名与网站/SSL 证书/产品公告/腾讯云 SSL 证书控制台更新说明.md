@@ -5,7 +5,7 @@
 ## 功能概述
 <table>
 <tr>
-<th width: 15%; >模块</th>
+<th width:15%; >模块</th>
 <th>说明</th>
 </tr>
 <tr>
