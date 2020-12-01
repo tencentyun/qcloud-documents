@@ -9,7 +9,7 @@ http:://${XNet.proxyOf}${func}?${param}
 ### 接口描述
 - 描述：请求对应频道的统计数据
 - 方法：GET
-- 路径：`/stat?channel=${resource}`
+- 路径：`/stat?xresid=${resource}`
 
 ### 请求参数
 <table>
@@ -42,7 +42,7 @@ http:://${XNet.proxyOf}${func}?${param}
 ### 示例
 - **请求示例**
 ```
-	http://127.0.0.1:16080/live.p2p.com/stat?xresid=xxx
+	http://127.0.0.1:16080/live.p2p.com/stat?xresid=${yourURL}
 ```
 >? xresid 默认为` http://127.0.0.1:16080/live.p2p.com/streamId.flv` 中的 `streamId`，或用户在播放时主动指定直播流资源唯一的 ID。
 - **返回示例**
