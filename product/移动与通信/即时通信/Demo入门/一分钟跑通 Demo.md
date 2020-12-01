@@ -1,6 +1,4 @@
 本文介绍如何快速跑通即时通信 IM 的体验 Demo。
-以下视频将帮助您快速了解如何跑通即时通信 IM 的体验 Demo（以 Android 端为例）：
-<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/3130-56294?source=gw.pro.media&withPoster=1&notip=1"></iframe></div>
 
 >?更多实操教学视频请参见：[一分钟跑通 Demo（iOS 端、小程序）](https://cloud.tencent.com/edu/learning/course-3130-56316)。
 
