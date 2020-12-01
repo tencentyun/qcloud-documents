@@ -14,12 +14,12 @@ Content-Type: application/xml
 
 ```
 
->? Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>? Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/1344/50456) 文档）。
 
 
 ### 请求头
 #### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/1344/50451) 文档。
 #### 非公共头部
 该请求操作无特殊的请求头部信息。
 
@@ -42,7 +42,7 @@ Content-Type: application/xml
 ### 响应头
 
 #### 公共响应头
-该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部]( https://cloud.tencent.com/document/product/460/42866) 文档。
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部]( https://cloud.tencent.com/document/product/1344/50452) 文档。
 #### 特有响应头
 该响应无特殊的响应头。
 
