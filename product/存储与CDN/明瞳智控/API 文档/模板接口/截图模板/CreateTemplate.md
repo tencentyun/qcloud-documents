@@ -63,12 +63,12 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Mode                | Request.Snapshot | 截图模式 | String    | 是   | Interval | 1. 值范围：{Interval}<br/> 2. Interval模式：Start，TimeInterval，Count参数生效。当设置Count，未设置TimeInterval时，表示截取所有帧，共Count张图片<br/>|
-| Start                | Request.Snapshot | 开始时间 | String    | 是   | 0 | 1. [0 视频时长] <br/> 2. 单位为秒 <br/> 3. 支持float格式，执行精度精确到毫秒 |
-| TimeInterval         | Request.Snapshot | 截图频率 | String    | 否   | 无  | 1. (0 3600] <br/> 2. 单位为秒 <br/> 3. 支持float格式，执行精度精确到毫秒 |
+| Mode                | Request.Snapshot | 截图模式 | String    | 是   | Interval | 1. 值范围：{Interval}<br/> 2. Interval 模式：Start，TimeInterval，Count 参数生效。当设置 Count，未设置 TimeInterval 时，表示截取所有帧，共 Count 张图片<br/>|
+| Start                | Request.Snapshot | 开始时间 | String    | 是   | 0 | 1. [0 视频时长] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
+| TimeInterval         | Request.Snapshot | 截图频率 | String    | 否   | 无  | 1. (0 3600] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
 | Count                | Request.Snapshot | 截图数量 | String    | 是   | 无  | 1. (0 10000] |
-| Width                | Request.Snapshot | 宽 | String    | 否   |  视频原始宽度 | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> 3. 若只设置Width时，按照视频原始比例计算Height<br/> |
-| Height                | Request.Snapshot | 高 | String    | 否  | 视频原始高度  | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> 3. 若只设置Height时，按照视频原始比例计算Width<br/> |
+| Width                | Request.Snapshot | 宽 | String    | 否   |  视频原始宽度 | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> 3. 若只设置 Width 时，按照视频原始比例计算 Height <br/> |
+| Height                | Request.Snapshot | 高 | String    | 否  | 视频原始高度  | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> 3. 若只设置 Height 时，按照视频原始比例计算 Width <br/> |
 
 
 ## 响应
@@ -108,7 +108,7 @@ Container 类型 Snapshot 的具体数据描述如下：
 | :----------------- | :----- | :----------------------------------------------------- | :-------- |
 | Response           | 无     | 保存结果的容器 | Container |
 
-Container节点Response的内容：
+Container 节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
