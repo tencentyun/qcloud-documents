@@ -1,4 +1,7 @@
-SDK 接口除初始化接口，其余接口均由 HTTP 实现，请求格式为：`http:://${XNet.proxyOf}${func}?${param}`。
+SDK 接口除初始化接口，其余接口均由 HTTP 实现，请求格式为：
+```
+http:://${XNet.proxyOf}${func}?${param}
+```
 
 >! 在初始化返回值为 false 或 `XNet.proxyOf` 时，意味着没有成功使用 P2P 播放视频，不应再向其发起 HTTP 请求，否则会遇到502等错误，也可认为没有成功使用 P2P 播放器的标志。
 
