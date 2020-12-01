@@ -235,30 +235,27 @@ videoClip1.startAt = 1;
 		}),
 		startAt: 0
 	})
-```
->?
-	- `tempFilePath`为在线音乐地址。
-	- 参数基本与视频的 Clip 一致，具体详情请参见 [Clip 参数详解](#clip_parameter)。
-	- section 的 end 值为1000， 一般用于给整个视频添加一段音乐的情况，播放器内部会自动调整为实际的视频时长。
-	- 将 musicClip1 加入到 musicTrack 中：
+```>?
+>- `tempFilePath`为在线音乐地址。
+>- 参数基本与视频的 Clip 一致，具体详情请参见 [Clip 参数详解](#clip_parameter)。
+>- section 的 end 值为1000， 一般用于给整个视频添加一段音乐的情况，播放器内部会自动调整为实际的视频时长。
+ 2. 将 musicClip1 加入到 musicTrack 中：
 	```javascript
 		this.musicTrack.clips = [musicClip1];
 	```
-  - 将音乐轨道加入播放器轨道：
+  3. 将音乐轨道加入播放器轨道：
 ```javascript
   this.player.updateData([this.mediaTrack, this.musicTrack]);
-```
->? 可以看到此时播放器内拥有了两条轨道，媒体和音乐。
+```>? 可以看到此时播放器内拥有了两条轨道，媒体和音乐。
+>
 3. 修改音乐。
 修改音乐和修改视频 Clip 是一样的，具体详情请参见 [修改视频时长](#change_video)。以修改音乐的起始时间为例：
 ```javascript
   musicClip1.startAt = 8;
-```
-音乐有一个比较特殊的属性：**音量**，取值范围为[0，1]，1为最大音量。示例：
+```音乐有一个比较特殊的属性：**音量**，取值范围为[0，1]，1为最大音量。示例：
 ```javascript
   musicClip1.audio.volume = 0.5;
-```
-修改完成后，更新播放器即可。
+```修改完成后，更新播放器即可。
 ```javascript
   this.player.updateData([this.mediaTrack, this.musicTrack]);
 ```
@@ -597,4 +594,3 @@ loadFontFace({
    this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack, this.stickerTrack]);
 ```
    >? 内置贴纸列表获取请参考 [内置资源](https://cloud.tencent.com/document/product/1156/49439)。更多属性请参考 [数据结构文档](https://cloud.tencent.com/document/product/1156/48616)。
-
