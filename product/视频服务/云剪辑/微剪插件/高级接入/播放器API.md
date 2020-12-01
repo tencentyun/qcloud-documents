@@ -109,8 +109,7 @@ this.player = player;
     type: 'media',
     clips: []
   });
-```
->?`global['wj-types']`是在全局存储的插件暴露出来的对象，方便进行播放器的 Track 和 Clip 的操作。
+```>?`global['wj-types']`是在全局存储的插件暴露出来的对象，方便进行播放器的 Track 和 Clip 的操作。
 2. 添加视频 Clip：
 	1. 向 mediaTrack 媒体轨道中添加视频 Clip，设置视频 Clip 的 type 为 video。
 ```javascript
@@ -129,8 +128,7 @@ this.player = player;
         }),
         startAt: 0
       })
-```
-<table>
+```<table>
 <tr><th id="clip_parameter">参数</th><th>说明</th></tr>
 <tr>
 <td>info</td>
@@ -147,7 +145,7 @@ this.player = player;
 </tr></table>
 	2. 因为 Clip 需要运行在 Track 中，接下来将 Clip 添加进 media 轨道：
 ```javascript
-      this.mediaTrack.clips = [videoClip1];
+this.mediaTrack.clips = [videoClip1];
 ```
 3. 添加图片 Clip。
   1. 添加图片 Clip，设置图片的 Clip 的 type 为 image。
@@ -163,21 +161,18 @@ this.player = player;
         },
         startAt: 4
       })
-  ```
-  >? 
+  ```  >? 
   >- 图片类型 Clip 的 duration 默认值为3（与 settings 配置项中的 imgDisplayDuration 属性保持一致即可）。
   >- 上述 Clip 的 startAt 值为4，是因为此前我们已经加入了一个 video Clip，其 section 为4（end-start），即当前 Clip 之前的所有 Clip 的有效 section 之和。
   2. 把图片添加到 media 轨道：
 ```javascript
     this.mediaTrack.clips = [videoClip1, imageClip1];
-```
->? 可以看到此时媒体轨道中已经添加一个视频和一张图片。以此类推，您可以按照这种方式添加更多的视频或者图片。
+```>? 可以看到此时媒体轨道中已经添加一个视频和一张图片。以此类推，您可以按照这种方式添加更多的视频或者图片。
 4. 更新播放器。<span id="updata_play"></span>
 播放器均通过`updateData`方法实现更新`updateData`接受的参数为包含轨道的数组。以创建的媒体轨道后更新播放器为例，只需`updateData([媒体轨道])`即可 ：
 ```javascript
   this.player.updateData([this.mediaTrack]);
-```
->? 以此类推，若您的播放器中包含视频，音乐，特效等，则`updateData([媒体轨道，音乐轨道， 特效轨道])`。
+```>? 以此类推，若您的播放器中包含视频，音乐，特效等，则`updateData([媒体轨道，音乐轨道， 特效轨道])`。
 5. 修改视频时长。<span id="change_video"></span>
 以修改视频片段 videoClip1 时长为例，直接修改 videoClip1 的 section 属性。
 ```javascript
@@ -185,20 +180,18 @@ videoClip1.section = new global['wj-types'].ClipSection({
     start: 1,
     end: 4
 }),
-```
-同理，若您想修改 videoClip1 基于整体的开始播放时间。
+```同理，若您想修改 videoClip1 基于整体的开始播放时间。
 ```javascript
 videoClip1.startAt = 1;
-```
->! 对 Clip 的 section 或者 startAt 进行修改后，会影响到后续 Clip 的 startAt 值，需要按照上文提到的累加原则将其值更新一下。
+```>! 对 Clip 的 section 或者 startAt 进行修改后，会影响到后续 Clip 的 startAt 值，需要按照上文提到的累加原则将其值更新一下。
 >
 修改完成后，更新一下播放器即可。
 ```javascript
   this.player.updateData([this.mediaTrack]);
 ```
 6. 删除某个视频。<span id="delect_video"></span>
-    在 media 轨道中删除对应的 Clip 即可，以删除 videoClip1 为例：
-  1. 获取视频对应的 id（`video1`）进行删除。
+在 media 轨道中删除对应的 Clip 即可，以删除 videoClip1 为例：
+	1. 获取视频对应的 id（`video1`）进行删除。
 ```javascript 
       this.mediaTrack.clips.forEach((item, index) => {
         if(item.id === 'video1') {
@@ -206,8 +199,8 @@ videoClip1.startAt = 1;
         }
       })
 ```
-  2. 更新 Clip 的 startAt 值。
-  3. 更新播放器。
+ 2. 更新 Clip 的 startAt 值。
+ 3. 更新播放器。
 ```javascript
   this.player.updateData([this.mediaTrack]);
 ```
@@ -278,8 +271,7 @@ videoClip1.startAt = 1;
   1. 获取播放器内部提供的默认滤镜：
   ```javascript
     const filterList = this.player.getFilters();
-  ```
-	<span id="filterList"></span>**filterList** 的数据结构如下所示：
+  ```	<span id="filterList"></span>**filterList** 的数据结构如下所示：
   ```
     [
       {
@@ -303,8 +295,7 @@ videoClip1.startAt = 1;
         }),
         startAt: 0
       })
-  ```
-  <table>
+  ```  <table>
   <tr><th>参数</th><th>说明</th></tr><tr>
   <td>key</td>
   <td>滤镜的关键字，参考 <a href="#filterList">filterList</a> 结构。</td>
@@ -316,8 +307,7 @@ videoClip1.startAt = 1;
   4. 更新播放器：
   ```javascript
   this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack]);
-  ```
-  > ? 此时您的播放器中拥有了3条轨道，媒体，音乐和滤镜。
+  ```> ? 此时您的播放器中拥有了3条轨道，媒体，音乐和滤镜。
 3. 添加多个滤镜片段。
 和添加多个视频 Clip 类似，您需要按照 [添加滤镜片段](#filter_step2) 创建另一个 filterClip2，添加到轨道中，然后更新播放器即可。
 ```javascript
@@ -355,8 +345,7 @@ videoClip1.startAt = 1;
   1. 获取播放器内部提供的默认特效：
 ```javascript
   const effectList = this.player.getEffects();
-```
-<b id="effectList">effectList</b> 的数据结构如下：
+```<b id="effectList">effectList</b> 的数据结构如下：
 ```
     [
       {
@@ -380,8 +369,7 @@ videoClip1.startAt = 1;
         }),
         startAt: 0
       })
-```
-<table>
+```<table>
 <tr><th>参数</th><th>说明</th></tr><tr>
 <td>key</td>
 <td>特效的关键字，参见 <a href="#effectList">effectList</a> 结构。</td>
@@ -393,8 +381,7 @@ videoClip1.startAt = 1;
   4.  更新播放器：
 ```javascript
   this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrackm, this.effectTrack]);
-```
->? 此时您的播放器中拥有了4条轨道：媒体、音乐、滤镜和特效。
+```>? 此时您的播放器中拥有了4条轨道：媒体、音乐、滤镜和特效。
 3. 添加多个特效片段。
   1. 创建多个 effectClip：
 ```javascript
@@ -413,8 +400,7 @@ videoClip1.startAt = 1;
   2. 将新创建的 effectClip 添加到轨道中：
 ```javascript
   this.effectTrack.clips = [filterClip1, filterClip2, filterClip3...]
-```
-更新播放器即可查看效果。
+```更新播放器即可查看效果。
 4. 修改特效。
 修改特效对应的 Clip 属性，更新播放即可查看。以修改特效的持续时间为例：
 ```javascript
@@ -461,19 +447,17 @@ this.textTrack1 = new global['wj-types'].Track({
 							backgroundColor: text.bgColor
 					}
 			},
-	})```
-<table>
+	})```<table>
 <tr><th>参数</th><th>说明</th></tr><tr>
 <td>content</td>
 <td>content 为文字的内容，可通过 style 自定义文字的颜色和背景颜色。</td>
 </tr></table>
- <b>文字的位置控制</b>逻辑在播放器内部，所以您只需要把文字添加进播放器，通过拖拽挪动文字位置，相应的位置信息将初始化传入的文字统一位于视频的中心位置。
+<b>文字的位置控制</b>逻辑在播放器内部，所以您只需要把文字添加进播放器，通过拖拽挪动文字位置，相应的位置信息将初始化传入的文字统一位于视频的中心位置。
  
   2. 将新创建的 textClip 添加到轨道中：
 ```javascript
 this.textTrack.clips = [textClip1]
-```
-<span id = "more_clip"></span>当然，您也可以在一个轨道添加多个文字，文字 Clip 的 section 没有重叠。
+```<span id = "more_clip"></span>当然，您也可以在一个轨道添加多个文字，文字 Clip 的 section 没有重叠。
 ```javascript
 this.textTrack.clips = [textClip1, textClips2, ...]
 ```
@@ -513,8 +497,7 @@ this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack]);
   创建完文字轨道后，更新播放器即可。
 ```javascript
     this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack, this.textTrack1, this.textTrack2]);
-```
->! **由于小程序限制，最多只能存在5个文字。 可以添加5个文字轨道，一个轨道中一段文字；或者一个轨道中，5段文字，即文字 Clip 总共不能超过5个。**
+```>! **由于小程序限制，最多只能存在5个文字。 可以添加5个文字轨道，一个轨道中一段文字；或者一个轨道中，5段文字，即文字 Clip 总共不能超过5个。**
 >
 6. 给文字添加字体。
 由于小程序插件无法调用 wx.loadFontFace 方法，因此需要小程序手动暴露该接口给插件，或者在小程序内提前加载字体后再传入插件渲染。详情可参考 [自定义贴纸和字体](https://cloud.tencent.com/document/product/1156/49440)。
@@ -535,8 +518,7 @@ loadFontFace({
     reject()
   }
 });
-```
-**构造对应的文字 clip**：
+```**构造对应的文字 clip**：
 ```javascript
   let mytext = new global['wj-types'].Clip({
     type: 'text',
@@ -560,8 +542,7 @@ loadFontFace({
       duration: 10
     },
   })
-```
->? 内置字体列表获取请参考 [内置资源](https://cloud.tencent.com/document/product/1156/49439)。
+```>? 内置字体列表获取请参考 [内置资源](https://cloud.tencent.com/document/product/1156/49439)。
 
 ### 贴纸轨道使用说明
 1. 创建贴纸轨道
@@ -592,5 +573,4 @@ loadFontFace({
    })
    this.stickerTrack.clips.push(stickerclip)
    this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack, this.stickerTrack]);
-```
-   >? 内置贴纸列表获取请参考 [内置资源](https://cloud.tencent.com/document/product/1156/49439)。更多属性请参考 [数据结构文档](https://cloud.tencent.com/document/product/1156/48616)。
+```>? 内置贴纸列表获取请参考 [内置资源](https://cloud.tencent.com/document/product/1156/49439)。更多属性请参考 [数据结构文档](https://cloud.tencent.com/document/product/1156/48616)。
