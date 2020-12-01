@@ -32,7 +32,7 @@ http:://${host}:${port}/${func}?${param}
 ### 示例
 - **请求示例：**
 ```
-http://127.0.0.1:16080/live.p2p.com/stat?xresid=xxx
+http://127.0.0.1:16080/live.p2p.com/stat?xresid=${yourURL}
 ```
 >? xresid 即 `http://127.0.0.1:16080/live.p2p.com/resoruce.ext` 中的 resource。
 - **返回示例：**
