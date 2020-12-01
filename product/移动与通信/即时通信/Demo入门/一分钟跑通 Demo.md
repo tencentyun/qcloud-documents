@@ -2,8 +2,6 @@
 
 >?更多实操教学视频请参见：[一分钟跑通 Demo（iOS 端、小程序）](https://cloud.tencent.com/edu/learning/course-3130-56316)。
 
-
-<span id="step1"></span>
 ## 步骤1：创建应用
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
  >?如果您已有应用，请记录其 SDKAppID 并 [获取密钥信息](#step2)。
@@ -15,14 +13,12 @@
   ![](https://main.qcloudimg.com/raw/2753962b67754a9ebb2a2a5b8042f2ef.png)
   
 
-<span id="step2"></span>
 ## 步骤2：获取密钥信息
 
 1. 单击目标应用卡片，进入应用的基础配置页面，
 2. 在【基本信息】区域，单击【显示密钥】，复制并保存密钥信息。
  >!请妥善保管密钥信息，谨防泄露。
 
-<span id="step3"></span>
 ## 步骤3：下载并配置 Demo 源码
 
 1. 下载即时通信 IM Demo 工程，具体下载地址请参见 [SDK 下载](https://cloud.tencent.com/document/product/269/36887)。
@@ -115,5 +111,3 @@ pod install
 ## 相关文档
 - [价格说明](https://cloud.tencent.com/document/product/269/11673)
 - [折扣活动](https://cloud.tencent.com/document/product/269/46181)
-
-
