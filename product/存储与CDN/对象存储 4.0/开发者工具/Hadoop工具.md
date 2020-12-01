@@ -17,7 +17,7 @@ Hadoop-2.6.0及以上版本。
 
 >?
 >1. 目前 Hadoop-COS 已经正式被 Apache Hadoop-3.3.0 [官方集成](https://hadoop.apache.org/docs/r3.3.0/hadoop-cos/cloud-storage/index.html)。
->2. 在 Apache Hadoop-3.3.0 之前版本或 CDH 集成 Hadoop-cos jar 包后，需要重启 NameNode 才能加载到 jar 包。
+>2. 在 Apache Hadoop-3.3.0 之前版本或 CDH 集成 Hadoop-cos jar 包后，需要重启 NodeManager 才能加载到 jar 包。
 >3. 需要编译具体 Hadoop 版本的 jar 包时，可更改 pom 文件中 hadoop.version 进行编译。
 
 
