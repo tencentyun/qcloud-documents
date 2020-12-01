@@ -154,7 +154,7 @@ Container 节点 Output 的内容：
 
 ### 错误码
 
-该请求无特有错误信息，常见的错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
+该请求无特有错误信息，常见的错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/1344/50457) 文档。
 
 ## 实际案例
 
