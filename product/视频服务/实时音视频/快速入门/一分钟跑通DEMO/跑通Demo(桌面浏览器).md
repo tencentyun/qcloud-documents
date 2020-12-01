@@ -8,73 +8,117 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 
 
 
-<table><tr>
-<th>操作系统</th><th width="22%">浏览器类型</th><th>浏览器最低<br>版本要求</th><th width="16%">接收（播放）</th><th width="16%">发送（上麦）</th><th>屏幕分享</th>
+<table>
+<thead>
+<tr>
+<th width="15%">操作系统</th>
+<th width="24%">浏览器类型</th>
+<th>浏览器最低<br>版本要求</th>
+<th>接收（播放）</th>
+<th>发送（上麦）</th>
+<th>屏幕分享</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mac OS</td>
+<td>桌面版 Safari 浏览器</td>
+<td>11+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持（需要 Safari 13+ 版本）</td>
 </tr><tr>
-	<td>Mac OS</td>
-	<td>桌面版 Safari 浏览器</td>
-	<td>11+</td>
-	<td>支持</td>
-	<td>支持</td>
-	<td>不支持</td>
+<td>Mac OS</td>
+<td>桌面版 Chrome 浏览器</td>
+<td>56+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持（需要 Chrome 72+ 版本）</td>
 </tr><tr>
-	<td>Mac OS</td>
-	<td>桌面版 Chrome 浏览器</td>
-	<td>56+</td>
-	<td>支持</td>
-	<td>支持</td>
-	<td>支持（需要 Chrome72+ 版本）</td>
+<td>Mac OS</td>
+<td>桌面版 Firefox 浏览器</td>
+<td>56+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持（需要 Firefox 66+ 版本）</td>
 </tr><tr>
-	<td>Windows</td>
-	<td>桌面版 Chrome 浏览器</td>
-	<td>56+</td>
-	<td>支持</td>
-	<td>支持</td>
-	<td>支持（需要 Chrome72+ 版本）</td>
+<td>Mac OS</td>
+<td>桌面版 Edge 浏览器</td>
+<td>80+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
 </tr><tr>
-	<td>Windows</td>
-	<td>桌面版 QQ 浏览器</td>
-	<td>10.4</td>
-	<td>支持</td>
-	<td>支持</td>
-	<td>不支持</td>
+<td>Windows</td>
+<td>桌面版 Chrome 浏览器</td>
+<td>56+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持（需要 Chrome 72+ 版本）</td>
 </tr><tr>
-<td>iOS</td>
-	<td>移动版 Safari 浏览器</td>
-	<td>11.1.2</td>
-	<td>支持</td>
-	<td>支持</td>
-	<td>不支持</td>
+<td>Windows</td>
+<td>桌面版 QQ 浏览器（极速内核）</td>
+<td>10.4+</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
 </tr><tr>
-	<td>iOS</td>
-	<td>微信内嵌网页</td>
-	<td>12.1.4</td>
-	<td>支持</td>
-	<td>不支持</td>
-	<td>不支持</td>
+<td>Windows</td>
+<td>桌面版 Firefox 浏览器</td>
+<td>56+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持（需要 Firefox 66+ 版本）</td>
 </tr><tr>
-	<td>Android</td>
-	<td>移动版 QQ 浏览器</td>
-	<td>-</td>
-	<td>不支持</td>
-	<td>不支持</td>
-	<td>不支持</td>
+<td>Windows</td>
+<td>桌面版 Edge 浏览器</td>
+<td>80+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
 </tr><tr>
-	<td>Android</td>
-	<td>移动版 UC 浏览器</td>
-	<td>-</td>
-	<td>不支持</td>
-	<td>不支持</td>
-	<td>不支持</td>
+<td>iOS 11.1.2+</td>
+<td>移动版 Safari 浏览器</td>
+<td>11+</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
 </tr><tr>
-	<td>Android</td>
-	<td>微信内嵌网页</td>
-	<td>-</td>
-	<td>不支持</td>
-	<td>不支持</td>
-	<td>不支持</td>
-</tr></table>
-
+<td>iOS 12.1.4+</td>
+<td>微信内嵌网页</td>
+<td>-</td>
+<td>支持</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr><tr>
+<td>Android</td>
+<td>移动版 QQ 浏览器</td>
+<td>-</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr><tr>
+<td>Android</td>
+<td>移动版 UC 浏览器</td>
+<td>-</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr><tr>
+<td>Android</td>
+<td>微信内嵌网页（TBS 内核）</td>
+<td>-</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+</tr><tr>
+<td>Android</td>
+<td>微信内嵌网页（XWEB 内核）</td>
+<td>-</td>
+<td>支持</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr>
+</tbody></table>
 
 >! 
 >- 您可以在浏览器中打开 [WebRTC 能力测试](https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/web/demo/env-detect/index.html) 页面进行检测是否完整支持 WebRTC。例如公众号等浏览器环境。

@@ -83,8 +83,9 @@ XGPushConfig.enableOtherPush(getApplicationContext(), true);
 
 
 //注册成功的日志如下
- I/XINGE: [XGOtherPush] other push token is : 15646472431991408944055  other push type: vivo
-I/XINGE: [PushServiceBroadcastHandler]  bind OtherPushToken success ack with [accId = 1500xxxxxx  , rsp = 0]  token = 0139f9840030882cfe7cc791aebc800ed270 otherPushType = vivo otherPushToken = 15646472431991408944055
+I/TPush: [OtherPushClient] handleUpdateToken other push token is : 160612459******08955218 other push type: vivo
+I/TPush: [PushServiceBroadcastHandler] >> bind OtherPushToken success ack with [accId = 150000****  , rsp = 0]  token = 01a22fb503a33******66b89fad6be3ed343 otherPushType = vivo otherPushToken = 160612459******08955218
+
 ```
 
 

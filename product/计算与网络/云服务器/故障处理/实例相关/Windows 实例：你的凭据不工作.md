@@ -45,6 +45,10 @@ Windows 操作系统的本地计算机通过 RDP 协议（如 MSTSC 方式）远
 3. 单击【添加 Windows 凭据】，进入添加 Windows 凭据界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/724a1b20fe2560f2c047082c32f18161.png)
 4. 输入当前登录的云服务器 IP 地址，以及用户名和密码，单击【确定】。
+>?
+> - 云服务器 IP 地址即为云服务器公网 IP 地址，请参考 [获取公网 IP 地址](https://cloud.tencent.com/document/product/213/17940) 获取。
+> - Windows 实例默认用户名为 `Administrator`，密码由您在创建实例时设置。如果您忘记了登录密码，请参考 [重置实例密码](https://cloud.tencent.com/document/product/213/16566) 进行密码重置。
+>
 5. 重新连接 Windows 云服务器，验证连接是否成功。
  - 是，任务结束。
  - 否，请执行步骤4：关闭云服务器密码保护共享。

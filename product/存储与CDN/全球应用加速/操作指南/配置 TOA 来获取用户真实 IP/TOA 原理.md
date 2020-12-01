@@ -19,9 +19,9 @@ struct ip_vs_tcpo_addr {
 ## 通过 Proxy Protocol 获取客户端真实 IP
 Proxy Protocol 是通过为 TCP 添加一个头部信息，来方便的传递客户端信息（协议栈、源 IP、目的 IP、源端口、目的端口等），在网络情况复杂又需要获取用户真实 IP 时非常有用。其本质是在三次握手结束后由代理在连接中插入一个携带了原始连接四元组信息的数据包。
 
-Proxy Protocol 方式获取客户端 IP 需要在控制台配置使用(当前仅支持 协议为TCP的监听器使用)，加速服务在和源站建立连接后，会在传输的第一个payload的报文前插入Proxy Protocol 协议文本。
+Proxy Protocol 方式获取客户端 IP 需要在控制台配置使用(当前仅支持协议为 TCP 的监听器使用)，加速服务在和源站建立连接后，会在传输的第一个 payload 的报文前插入Proxy Protocol 协议文本。
 
-当前 Nginx 和 HaProxy 都已经支持 Proxy Protocol 协议，如下，Nginx 配置支持 Proxy Protocol 协议只需要将参数proxy_protocol添加在server块中的listen指令后：
+当前 Nginx 和 HaProxy 都已经支持 Proxy Protocol 协议，如下，Nginx 配置支持 Proxy Protocol 协议只需要将参数 proxy_protocol 添加在 server 块中的 listen 指令后：
 ```
 http {
     #...

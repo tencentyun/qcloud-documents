@@ -1,23 +1,102 @@
 
 腾讯会议支持的 H.323/SIP 设备具体如下：
 
-| **终端品牌** | **终端设备型号** | **兼容版本号**  |
-| ------------ | ---------------- | --------------- |
-| Poly         | Group310         | 6.0版本及以上   |
-| Poly         | Group500         | 6.0版本及以上   |
-| Poly         | Group550         | 6.0版本及以上   |
-| Poly         | HDX6000          | 3.1版本及以上   |
-| Poly         | HDX7000          | 3.1版本及以上   |
-| Poly         | HDX8000          | 3.1版本及以上   |
-| 思科         | SX20             | ce9.6版本及以上 |
-| 思科         | SX10             | ce9.4版本及以上 |
-| 思科         | DX80             | ce9.4版本及以上 |
-| 思科         | C40              | TC7.3版本及以上 |
-| 华为         | TE40             | 6.10版本及以上  |
-| 华为         | TE30             | 6.10版本及以上  |
-| 华为         | TE20             | 3.30版本及以上  |
-| 华为         | TE10             | 3.30版本及以上  |
-| 亿联         | VC200            | V43版本及以上   |
-| 亿联         | VC500            | V43版本及以上   |
-| 亿联         | VC800            | V43版本及以上   |
-| 亿联         | VC880            | V43版本及以上   |
+<table>
+<thead>
+<tr>
+<th><strong>终端品牌</strong></th>
+<th><strong>终端设备型号</strong></th>
+<th><strong>兼容版本号</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td rowspan=6>Poly</td>
+<td>Group310</td>
+<td>6.0版本及以上</td>
+</tr>
+<tr>
+
+<td>Group500</td>
+<td>6.0版本及以上</td>
+</tr>
+<tr>
+
+<td>Group550</td>
+<td>6.0版本及以上</td>
+</tr>
+<tr>
+
+<td>HDX6000</td>
+<td>3.1版本及以上</td>
+</tr>
+<tr>
+
+<td>HDX7000</td>
+<td>3.1版本及以上</td>
+</tr>
+<tr>
+
+<td>HDX8000</td>
+<td>3.1版本及以上</td>
+</tr>
+<tr>
+<td  rowspan=4>思科</td>
+<td>SX20</td>
+<td>ce9.6版本及以上</td>
+</tr>
+<tr>
+
+<td>SX10</td>
+<td>ce9.4版本及以上</td>
+</tr>
+<tr>
+
+<td>DX80</td>
+<td>ce9.4版本及以上</td>
+</tr>
+<tr>
+
+<td>C40</td>
+<td>TC7.3版本及以上</td>
+</tr>
+<tr>
+<td  rowspan=4>华为</td>
+<td>TE40</td>
+<td>6.10版本及以上</td>
+</tr>
+<tr>
+
+<td>TE30</td>
+<td>6.10版本及以上</td>
+</tr>
+<tr>
+
+<td>TE20</td>
+<td>3.30版本及以上</td>
+</tr>
+<tr>
+
+<td>TE10</td>
+<td>3.30版本及以上</td>
+</tr>
+<tr>
+<td rowspan=4>亿联</td>
+<td>VC200</td>
+<td>V43版本及以上</td>
+</tr>
+<tr>
+
+<td>VC500</td>
+<td>V43版本及以上</td>
+</tr>
+<tr>
+
+<td>VC800</td>
+<td>V43版本及以上</td>
+</tr>
+<tr>
+
+<td>VC880</td>
+<td>V43版本及以上</td>
+</tr>
+</tbody></table>
