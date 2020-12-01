@@ -12,9 +12,20 @@
 
 ## 配置指南
 
+
+
+### 查看配置
+
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可在【回源配置】中看到回源 Request Header 配置，默认情况下为关闭状态，无任何配置：
+![](https://main.qcloudimg.com/raw/59069be8821b2987df5d0b3eeaae55d0.png)
+
+### 新增规则
+单击【新增回源头部规则】可配置回源 Request Header 规则：
+<img src="https://main.qcloudimg.com/raw/27f604176964cc6e42aa4ac4b540d9bd.png" height="284" width="476" />
+
 ### 配置约束
 
-- 自定义请求头部配置规则最多可配置10条。
+- 回源 Request Header 配置规则最多可配置10条。
 - 生效类型支持全部文件、文件类型、文件目录、指定文件路径四种模式，暂不支持正则匹配。
 - 若用户端发起请求中已存在头部信息，生效的已配置的 Request Header 在回源时会覆盖原有头部。
 - 多条规则支持调整优先级。
@@ -23,13 +34,6 @@
 - 自定义头部的 Key 值长度默认为1 - 100个字符，由数字0 - 9、字符a - z、A - Z，及特殊符 `-` 组成。
 - 自定义头部的 Value 长度为1 - 1000个字符，不支持中文。
 - 部分标准头部不支持自助添加，具体清单请看文档最后部分说明。
-
-### 配置说明
-
-登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可在【回源配置】中看到回源 Request Header 配置，默认情况下为关闭状态，无任何配置：
-![](https://main.qcloudimg.com/raw/59069be8821b2987df5d0b3eeaae55d0.png)
-单击【新增回源头部规则】可配置回源 Request Header 规则：
-<img src="https://main.qcloudimg.com/raw/27f604176964cc6e42aa4ac4b540d9bd.png" height="284" width="476" />
 
 
 > !
