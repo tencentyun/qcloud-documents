@@ -1,7 +1,7 @@
 登录 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus)，创建 SQL 作业后，在【作业管理】中单击要进行开发的作业名称，然后单击【分析开发】即可在作业草稿中进行作业开发。
 
 ## 编写和调试 SQL
-开发 SQL 作业需在 SQL 编辑器中输入 SQL 分析语句并在下方进行作业参数设置。单击【分析模板】可以快速在编辑器中插入常用的 Ckafka 或 JDBC 等数据流的定义语句。单击【保存】可以将 SQL 语句和作业参数信息同时保存。具体的参数含义详见 [参数设置](https://cloud.tencent.com/document/product/849/48287#.E5.8F.82.E6.95.B0.E8.AE.BE.E7.BD.AE)。
+开发 SQL 作业需在 SQL 编辑器中输入 SQL 分析语句并在下方进行作业参数设置。单击【分析模板】可以快速在编辑器中插入常用的 Ckafka 或 JDBC 等数据流的定义语句。单击【保存】可以将 SQL 语句和作业参数信息同时保存。具体的参数含义详见 [参数设置](#.E5.8F.82.E6.95.B0.E8.AE.BE.E7.BD.AE)。
 
 SQL 语句的编写请参考 [SQL 开发指南](https://cloud.tencent.com/document/product/849/18030)。
 ![](https://main.qcloudimg.com/raw/70a41b4315b2582486bb1f6b89be4403.png)
