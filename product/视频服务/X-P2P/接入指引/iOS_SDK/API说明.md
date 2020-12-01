@@ -8,7 +8,7 @@ http:://${host}/${func}?${param}
 ### 接口说明
 - 描述：请求对应频道的统计数据
 - 方法：GET
-- 路径：`/stat?channel=${resource}`
+- 路径：`/stat?xresid=${resource}`
 
 ### 请求参数
 
