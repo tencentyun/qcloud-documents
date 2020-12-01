@@ -2,15 +2,16 @@
 如果在使用过程中有任何疑问、建议或意见，请 [联系我们](https://cloud.tencent.com/document/product/400/35259)，感谢您的使用。
 >!SSL 新版控制台将采取逐步开放的形式同步更新，至**2020年12月15日前**将完成所有 SSL 新版控制台更新。
 
+
 ## 功能概述
 <table>
 <tr>
-<th width:30%; >模块</th>
+<th style="width:15%;">模块</th>
 <th>说明</th>
 </tr>
 <tr>
-<td  style="padding: 10px 10px" >证书概览</td>
-<td style="padding: 5px 5px">SSL 证书概览页可用于 SSL 证书申请状态与监控状态的查看与进行相关操作。包含以下功能：<ul><li>申请状态：可快速查看待提交、验证中、已签发、审核失败的 SSL 证书，并进行相关操作。</li><li>监控状态：可快速查看访问正常、访问异常、过期预警的 SSL 证书监控信息并查看对应的 SSLPod 监控报告。</li></ul></td>
+<td  style="height:5px">证书概览</td>
+<td style="height:5px">SSL 证书概览页可用于 SSL 证书申请状态与监控状态的查看与进行相关操作。包含以下功能：<ul><li>申请状态：可快速查看待提交、验证中、已签发、审核失败的 SSL 证书，并进行相关操作。</li><li>监控状态：可快速查看访问正常、访问异常、过期预警的 SSL 证书监控信息并查看对应的 SSLPod 监控报告。</li></ul></td>
 </tr>
 <tr>
 <td>我的证书</td>
