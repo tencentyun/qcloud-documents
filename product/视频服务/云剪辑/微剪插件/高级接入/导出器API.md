@@ -1,5 +1,5 @@
 导出器 **wj-export** 组件提供了视频导出的功能，内部复用了 [**wj-player** 组件](https://cloud.tencent.com/document/product/1156/50158)，针对小程序导出进行了专门处理。
->!受微信 Android 客户端 7.0.19 版本策略影响，导出表现偏慢，预计在11月底的版本修复。
+>!受微信 Android 客户端 7.0.19 版本策略影响，导出表现偏慢，预计在11月底的版本（7.0.21）修复。
 
 ## 使用方式
 1. 配置 JSON 文件：
@@ -68,5 +68,17 @@
 
 #### 本地地址
 传入`wxfile://`开头的本地临时地址即可。
->?导出组件提供了`slot 插槽`以定制导出组件的实际 UI，并监听内部冒泡的 tap 事件以触发导出流程；如果需要手动触发导出流程，可以使用`wx.selectComponent`获取组件实例并调用实例的`start`方法。
+>?导出组件提供了`slot 插槽`以定制导出组件的实际 UI，并监听内部冒泡的 tap 事件以触发导出流程；如果需要手动触发导出流程，可以使用`wx.selectComponent`获取组件实例并调用实例的`exportToLocal`方法，如下所示：
+
+```
+<wj-export id='export' tracks="{{exportTracks}}" 
+    bindexportsuccess="onExportSuccess"
+    bindready="onExportReady"></wj-export>
+```
+```
+  export(){
+    let exporter = this.selectComponent("#export")
+    exporter.exportToLocal()
+  }
+```
 
