@@ -1,4 +1,8 @@
-SDK 接口除初始化接口, 其余接口均由 HTTP 实现，请求格式为 `http:://${host}/${func}?${param}`，其中 `${host}` 为本地代理服务器，通过 `XNet.HTTP_PROXY` 获取。
+SDK 接口除初始化接口，其余接口均由 HTTP 实现，请求格式为：
+```
+http:://${host}/${func}?${param}
+```
+其中 `${host}` 为本地代理服务器，通过 `XNet.HTTP_PROXY` 获取。
 
 ## 统计
 ### 接口说明
