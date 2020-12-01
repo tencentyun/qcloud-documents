@@ -1,3 +1,41 @@
+### 2.5.5.70 @ 2020.11.09
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.5.70.zip)
+
+- 新增特性：
+    - 新增文字工具预设文本内容 setNextTextInput
+    - 优化白板缩放工具，支持鼠标滚轮缩放，焦点缩放，按 shift 键缩小交互方式
+    - TEduBoardToolType 新增自定义图形工具
+    - 新增 addElement 接口，支持添加自定义图形的元素
+    - 新增 onTEBAddElement 回调
+    - 新增白板放大后显示滚动条
+- Bug 修复
+    - 修复偶现画笔不消失的 bug
+    
+### 2.5.4.67 @ 2020.10.15
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.4.67.zip)
+
+- 新增工具类型
+    - 新增正圆，正方形工具类，同时支持椭圆工具和矩形工具按 shift 键画正圆和正方形
+- 优化
+    - 优化橡皮擦擦除箭头工具不精确的问题
+- Bug 修复
+    - 修复多端同时移动图片元素不同步的问题
+    - 修复其他已知问题
+
+### 2.5.3.61 @ 2020.08.31
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.3.61.zip)
+
+- 新增回调
+    - 新增视频状态回调 TEDU_BOARD_VIDEO_STATUS_WAITING 和 TEDU_BOARD_VIDEO_STATUS_PLAYING
+- Bug 修复
+    - 修复激光笔各端显示比例不一致问题
+    - 修复白板操作在移动端偶现延迟问题
+    - 修复涂鸦到白板外笔迹微变问题
+- 优化
+    - 桌面端画笔使用时持续展示
+    - 视频多次播放失败后回调 ERROR 状态
+    - 日志上报相关优化
+    
 ### 2.5.2.49 @ 2020.08.18
 * [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.2.49.zip)
 - WebView 版本更新

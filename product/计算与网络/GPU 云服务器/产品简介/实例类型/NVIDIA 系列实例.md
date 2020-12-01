@@ -145,7 +145,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 >?GN2 视频编解码支持 H.264，不支持 H.265。详情请参见 [视频编码和解码 GPU 支持列表](https://developer.nvidia.com/video-encode-decode-gpu-support-matrix)。
 
 ### 图形图像处理
-推荐使用 GN7vw，免除了 vDWS License 申请及搭建服务器步骤，是图形图像处理应用场景的首选。目前 GN7vw 处于内测阶段，如需使用，请前往 [申请](https://cloud.tencent.com/apply/p/l133eutcwd9) 页面。
+推荐使用 GN7vw，免除了 vDWS License 申请及搭建服务器步骤，是图形图像处理应用场景的首选。目前 GN7vw 处于限量购买阶段，如需使用，请前往 [申请](https://cloud.tencent.com/apply/p/l133eutcwd9) 页面。
 
 NVIDIA GN* 系列其他实例（GN2 除外）可以通过安装 GRID Driver 的方式来支持图形图像处理，但是需要额外购买 License，详情请参见 [安装 NVIDIA GRID 驱动](https://cloud.tencent.com/document/product/560/30060)。
 
@@ -332,7 +332,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 </table>
 
 
->?**vGPU**：GN10X 实例簇提供支持 vGPU 的实例类型。目前 vGPU 类型处于内测阶段，如需使用，请前往 [申请页面](https://cloud.tencent.com/apply/p/itgrxpby8al)。vGPU 的类型为 vComputeServer，仅支持 CUDA 计算 API。
+>?**vGPU**：GN10X 实例簇提供支持 vGPU 的实例类型。目前 vGPU 类型处于限量购买阶段，如需使用，请前往 [申请页面](https://cloud.tencent.com/apply/p/itgrxpby8al)。vGPU 的类型为 vComputeServer，仅支持 CUDA 计算 API。
 
 
 
@@ -704,9 +704,8 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 ## 渲染型 GN7vw
 
 **NVIDIA 实例 GN7vw** 是在 GN7 基础上配置 vDWS License 服务器并安装 GRID driver 的渲染型实例，适用于图形图像处理（3D 渲染，视频编解码）场景。使用该实例，您可免除手动配置 GPU 图形图像处理基础环境。
->!
->- GPU 渲染型 GN7vw 现处于内测阶段，目前仅提供试用版 vDWS License。如需使用，请前往 [申请](https://cloud.tencent.com/apply/p/l133eutcwd9) 页面。
->- 切换正式版本前，会进行通知（邮件、短信、站内信等方式），请您关注。切换到正式版本后，需要您使用适配的镜像重装实例的操作系统，以适应新版本中 GRID 驱动。
+>!GPU 渲染型 GN7vw 现处于限量购买阶段，如需使用，请前往 [申请](https://cloud.tencent.com/apply/p/l133eutcwd9) 页面。
+>
 
 
 

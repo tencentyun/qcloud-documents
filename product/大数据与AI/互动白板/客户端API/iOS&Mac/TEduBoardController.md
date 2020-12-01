@@ -15,7 +15,7 @@
 | delegate | id< TEduBoardDelegate > | 事件回调监听  |
 
 #### 警告
-建议在 Init 之前调用该方法以支持错误处理 
+建议在调用 initWithAuthParam 之后马上调用该方法以支持错误处理 
 
 
 ### removeDelegate:
@@ -147,10 +147,7 @@
 + (NSString *)getVersion
 ```
 #### 返回
-SDK 版本号
-
-#### 介绍
-获取 SDK 版本号 返回值内存由 SDK 内部管理，用户不需要自己释放 
+NSString 版本号字符串 
 
 
 
@@ -743,7 +740,58 @@ SDK 版本号
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | NSString * | 【必填】图片地址 支持 png/jpg/gif/svg 格式的本地和网络图片，当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。上传进度回调 onTEBFileUploadProgress，上传结果回调 onTEBFileUploadStatus  |
+| url | NSString * | 【必填】图片地址  |
+
+#### 警告
+此接口将被废弃，请使用 addElement 添加元素 支持 png/jpg/gif/svg 格式的本地和网络图片，当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。上传进度回调 onTEBFileUploadProgress，上传结果回调 onTEBFileUploadStatus 
+
+
+### addElement:type:
+添加白板元素 
+``` Objective-C
+- (NSString *)addElement:(NSString *)url type:(TEduBoardElementType)type 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | NSString * | 网页或者图片的 url，只支持 https 协议的网址或者图片 url  |
+| type | TEduBoardElementType | 元素类型，当设置 TEDU_BOARD_ELEMENT_IMAGE 时，等价于 addImageElement 方法  |
+
+#### 返回
+元素 ID 
+
+#### 警告
+（1）当 type = TEDU_BOARD_ELEMENT_IMAGE，支持 png、jpg、gif、svg 格式的本地和网络图片，当 url 是一个有效的本地文件地址时，该文件会被自动上传到 COS，上传进度回调 onTEBFileUploadStatus （2）当 type = TEDU_BOARD_ELEMENT_CUSTOM_GRAPH，仅支持网络 url，请与自定义图形工具 TEDU_BOARD_TOOL_TYPE_BOARD_CUSTOM_GRAPH 配合使用 
+
+
+### setNextTextInput:focus:
+预设文本工具内容 
+``` Objective-C
+- (void)setNextTextInput:(NSString *)input focus:(BOOL)focus 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| input | NSString * | 预设文本内容，取消预设则设置为空  |
+| focus | BOOL | 是否继续保持焦点  |
+
+
+### setZoomCursorIcon:zoomOutCursorIcon:
+预设文本工具内容 
+``` Objective-C
+- (void)setZoomCursorIcon:(TEduBoardCursorIcon *)zoomIn zoomOutCursorIcon:(TEduBoardCursorIcon *)zoomOut 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| zoomIn | TEduBoardCursorIcon * | 放大工具图标  |
+| zoomOut | TEduBoardCursorIcon * | 缩小工具图标  |
+
+#### 警告
+该接口只在桌面端支持 
 
 
 ### setHandwritingEnable:

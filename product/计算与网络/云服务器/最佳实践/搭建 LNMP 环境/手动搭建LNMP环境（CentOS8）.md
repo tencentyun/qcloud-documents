@@ -56,7 +56,7 @@ vim default.conf
 6. 按 **i** 切换至编辑模式，编辑 default.conf 文件。
   1. 在 location 的 index 项中添加 index.php。如下图所示：
 ![](https://main.qcloudimg.com/raw/32df0b8ba82278cd96cf86152738677e.png)
-  2. 删除 location ~ \.php$ 前的 `#`，并修改以下配置项：
+  2. 删除 location ~ \.php$ 大括号前的 `#`，并修改以下配置项：
     - 修改 root 项为您的网站根目录，即 location 中的 root 项，本文以 `/usr/share/nginx/html;` 为例。
     - 修改 fastcgi_pass 项为 `unix:/run/php-fpm/www.sock;`，Nginx 通过 UNIX 套接字与 PHP-FPM 建立联系，该配置与 `/etc/php-fpm.d/www.conf` 文件内的 listen 配置一致。
     - 将 fastcgi_param  SCRIPT_FILENAME 后的 `$document_root$fastcgi_script_name;` 替换为 `$document_root$fastcgi_script_name;`。
@@ -101,12 +101,12 @@ mysql_secure_installation
     - 0：表示低。
     - 1：表示中。
     - 2：表示高。
-  3. 设置 MySQL 密码并进行确认，输入密码默认不显示。
-  4. 输入 `y` 并按 **Enter**，再次输入密码。
+  3. 设置 MySQL 密码并按 **Enter** ，输入密码默认不显示。
+  4. 再次输入密码并按 **Enter**，输入 `y` 确认设置该密码。
   5. 输入 `y` 并按 **Enter**，移除匿名用户。
-  6. 设置是否允许远程连接 MySQL：
-    - 不需要远程连接：输入 `y` 并按 **Enter**。
-    - 需要远程连接：输入 `n` 并按 **Enter**。
+  6. 设置是否禁止远程连接 MySQL：
+    - 禁止远程连接：输入 `y` 并按 **Enter**。
+    - 允许远程连接：输入 `n` 并按 **Enter**。
   7. 输入 `y` 并按 **Enter**，删除 test 库及对 test 库的访问权限。
   8. 输入 `y` 并按 **Enter**，重新加载授权表。
 

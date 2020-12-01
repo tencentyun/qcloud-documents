@@ -43,7 +43,7 @@ export interface ActionArgs<T> {
 ### gameData 属性
 
 **描述**
-该属性类型为 GameData，表示游戏数据，开发者可以用来实现游戏状态同步等功能。在第一次执行 gameServer.onCreateRoom 时会被初始化，在执行 gameServer.onDestroyRoom 时会被销毁。
+该属性类型为 GameData，表示游戏数据，您可以用来实现游戏状态同步等功能。在第一次执行 gameServer.onCreateRoom 时会被初始化，在执行 gameServer.onDestroyRoom 时会被销毁。
 
 ### room 属性
 
@@ -55,7 +55,7 @@ export interface ActionArgs<T> {
 **描述**
 该属性类型为 object，包含了一个类型为 GameData 的子属性 data，用于更新游戏数据 gameData。
 
-如果开发者需要重新给 gameData 赋值，可以参考以下代码：
+如果您需要重新给 gameData 赋值，可以参考以下代码：
 
 ```
 const newData = {};
@@ -238,14 +238,14 @@ SDK.getRoomByRoomId(getRoomByRoomIdPara, event => {
 
 IChangeRoomPara 定义如下：
 
-|属性名|类型/值|描述|可选|
+|属性名|类型/值|描述|是否必填|
 |:---|---|---|---|
-|roomId|string|房间 ID||
-|roomName|string|房间名称|是|
-|owner|string|房主 ID|是|
-|isPrivate|boolean|是否私有|是|
-|isForbidJoin|boolean|是否禁止加入房间|是|
-|customProperties|string|自定义房间属性|是|
+|roomId|string|房间 ID|是|
+|roomName|string|房间名称|否|
+|owner|string|房主 ID|否|
+|isPrivate|boolean|是否私有|否|
+|isForbidJoin|boolean|是否禁止加入房间|否|
+|customProperties|string|自定义房间属性|否|
 
 IChangeRoomRsp 定义如下：
 

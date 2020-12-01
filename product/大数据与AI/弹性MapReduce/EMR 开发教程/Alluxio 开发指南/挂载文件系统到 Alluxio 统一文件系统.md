@@ -38,6 +38,8 @@ bin/alluxio fs mount /hdfs hdfs://data
 挂载成功后，通过`alluxio fs ls`命令，查看挂载内容。
 
  **示例3：将 CHDFS 通过 mount 挂载到 Alluxio**
+ >?只有 EMR2.5.0 + alluxio2.3.0+ 以上才支持。
+ >
 ```
 alluxio fs mount   \ 
  --option alluxio.underfs.hdfs.configuration=/usr/local/service/hadoop/etc/hadoop/core-site.xml  \
