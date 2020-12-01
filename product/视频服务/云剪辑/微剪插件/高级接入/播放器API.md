@@ -105,29 +105,29 @@ this.player = player;
 >
 1. 创建视频轨道 Track，设置视频轨道的 type 为 media。
 ```javascript
-  this.mediaTrack = new global['wj-types'].Track({
-    type: 'media',
-    clips: []
-  });
+this.mediaTrack = new global['wj-types'].Track({
+	type: 'media',
+	clips: []
+});
 ```>?`global['wj-types']`是在全局存储的插件暴露出来的对象，方便进行播放器的 Track 和 Clip 的操作。
 2. 添加视频 Clip：
 	1. 向 mediaTrack 媒体轨道中添加视频 Clip，设置视频 Clip 的 type 为 video。
 ```javascript
-      let videoClip1 = new global['wj-types'].Clip({
-        id: 'video1',
-        type: 'video',
-        info: {
-          tempFilePath: 'wxfile:xxxx',
-          width: '',
-          height: '',
-          duration: 5
-        },
-        section: new global['wj-types'].ClipSection({
-          start: 0,
-          end: 4
-        }),
-        startAt: 0
-      })
+let videoClip1 = new global['wj-types'].Clip({
+	id: 'video1',
+	type: 'video',
+	info: {
+		tempFilePath: 'wxfile:xxxx',
+		width: '',
+		height: '',
+		duration: 5
+	},
+	section: new global['wj-types'].ClipSection({
+		start: 0,
+		end: 4
+	}),
+	startAt: 0
+})
 ```<table>
 <tr><th id="clip_parameter">参数</th><th>说明</th></tr>
 <tr>
@@ -150,35 +150,35 @@ this.mediaTrack.clips = [videoClip1];
 3. 添加图片 Clip。
   1. 添加图片 Clip，设置图片的 Clip 的 type 为 image。
   ```javascript
-      let imageClip1 = new global['wj-types'].Clip({
-        id: 'image1',
-        type: 'image',
-        info: {
-          tempFilePath: 'wxfile:xxxx',
-          width: '',
-          height: '',
-          duration: 3
-        },
-        startAt: 4
-      })
+let imageClip1 = new global['wj-types'].Clip({
+	id: 'image1',
+	type: 'image',
+	info: {
+		tempFilePath: 'wxfile:xxxx',
+		width: '',
+		height: '',
+		duration: 3
+	},
+	startAt: 4
+})
   ```  >? 
   >- 图片类型 Clip 的 duration 默认值为3（与 settings 配置项中的 imgDisplayDuration 属性保持一致即可）。
   >- 上述 Clip 的 startAt 值为4，是因为此前我们已经加入了一个 video Clip，其 section 为4（end-start），即当前 Clip 之前的所有 Clip 的有效 section 之和。
   2. 把图片添加到 media 轨道：
 ```javascript
-    this.mediaTrack.clips = [videoClip1, imageClip1];
+this.mediaTrack.clips = [videoClip1, imageClip1];
 ```>? 可以看到此时媒体轨道中已经添加一个视频和一张图片。以此类推，您可以按照这种方式添加更多的视频或者图片。
 4. 更新播放器。<span id="updata_play"></span>
 播放器均通过`updateData`方法实现更新`updateData`接受的参数为包含轨道的数组。以创建的媒体轨道后更新播放器为例，只需`updateData([媒体轨道])`即可 ：
 ```javascript
-  this.player.updateData([this.mediaTrack]);
+this.player.updateData([this.mediaTrack]);
 ```>? 以此类推，若您的播放器中包含视频，音乐，特效等，则`updateData([媒体轨道，音乐轨道， 特效轨道])`。
 5. 修改视频时长。<span id="change_video"></span>
 以修改视频片段 videoClip1 时长为例，直接修改 videoClip1 的 section 属性。
 ```javascript
 videoClip1.section = new global['wj-types'].ClipSection({
-    start: 1,
-    end: 4
+			start: 1,
+			end: 4
 }),
 ```同理，若您想修改 videoClip1 基于整体的开始播放时间。
 ```javascript
@@ -193,40 +193,40 @@ videoClip1.startAt = 1;
 在 media 轨道中删除对应的 Clip 即可，以删除 videoClip1 为例：
 	1. 获取视频对应的 id（`video1`）进行删除。
 ```javascript 
-      this.mediaTrack.clips.forEach((item, index) => {
-        if(item.id === 'video1') {
-          this.mediaTrack.clips.splice(index, 1)
-        }
-      })
+this.mediaTrack.clips.forEach((item, index) => {
+			if(item.id === 'video1') {
+				this.mediaTrack.clips.splice(index, 1)
+			}
+})
 ```
  2. 更新 Clip 的 startAt 值。
  3. 更新播放器。
 ```javascript
-  this.player.updateData([this.mediaTrack]);
+this.player.updateData([this.mediaTrack]);
 ```
 
 ### 音乐轨道使用说明
 1. 添加音乐轨道：
 ```javascript
-  this.musicTrack = new global['wj-types'].Track({
-    type: 'music',
-    clips: []
-  });
+this.musicTrack = new global['wj-types'].Track({
+			type: 'music',
+			clips: []
+});
 ```
 2. 添加音乐片段：
   1. 添加音乐 Clip，设置音乐 Clip 的 type 为 music。
 ```javascript
 	let musicClip1 = new global['wj-types'].Clip({
-		id: 'music1',
-		type: 'music',
-		info: {
-			tempFilePath: 'http://xxx.xxx.mp3',
-		},
-		section: new global['wj-types'].ClipSection({
-			start: 0,
-			end: 1000
-		}),
-		startAt: 0
+			id: 'music1',
+			type: 'music',
+			info: {
+				tempFilePath: 'http://xxx.xxx.mp3',
+			},
+			section: new global['wj-types'].ClipSection({
+				start: 0,
+				end: 1000
+			}),
+			startAt: 0
 	})
 ```>?
 >- `tempFilePath`为在线音乐地址。
@@ -262,10 +262,10 @@ videoClip1.startAt = 1;
 ### 滤镜轨道使用说明
 1. 添加滤镜轨道。
 ```javascript
-  this.filterTrack = new global['wj-types'].Track({
-    type: 'filter',
-    clips: []
-  });
+this.filterTrack = new global['wj-types'].Track({
+			type: 'filter',
+			clips: []
+});
 ```
 2. 添加滤镜片段。<span id="filter_step2"></span>
   1. 获取播放器内部提供的默认滤镜：
@@ -273,28 +273,29 @@ videoClip1.startAt = 1;
     const filterList = this.player.getFilters();
   ```	<span id="filterList"></span>**filterList** 的数据结构如下所示：
   ```
-    [
-      {
-        key: 'effect1',
-        name: '特效1'
-      },{
-        key: 'effect2',
-        name: '特效2'
-      }
-    ]
+[
+					{
+						key: 'effect1',
+						name: '特效1'
+					},
+					{
+						key: 'effect2',
+						name: '特效2'
+					}
+]
   ```
   2. 创建 filter clip：
   ```javascript
-      let filterClip1 = new global['wj-types'].Clip({
-        id: 'filter1',
-        type: 'filter',
-        key: 'baixi',
-        section: new global['wj-types'].ClipSection({
-          start: 0,
-          end: 3
-        }),
-        startAt: 0
-      })
+let filterClip1 = new global['wj-types'].Clip({
+					id: 'filter1',
+					type: 'filter',
+					key: 'baixi',
+					section: new global['wj-types'].ClipSection({
+						start: 0,
+						end: 3
+					}),
+					startAt: 0
+})
   ```  <table>
   <tr><th>参数</th><th>说明</th></tr><tr>
   <td>key</td>
@@ -302,7 +303,7 @@ videoClip1.startAt = 1;
   </tr></table>
   3. 将 Clip 加入轨道：
   ```javascript
-    this.filterTrack.clips = [filterClip1]
+  this.filterTrack.clips = [filterClip1]
   ```
   4. 更新播放器：
   ```javascript
@@ -315,31 +316,31 @@ videoClip1.startAt = 1;
 ```
 4. 修改滤镜。
     修改滤镜对应的 Clip 属性，更新播放即可查看。以修改滤镜的时间信息为例：
-```
-    filterClip1.section = new global['wj-types'].ClipSection({
-      start: 0,
-      end: 5
-    });
+```javascript
+filterClip1.section = new global['wj-types'].ClipSection({
+			start: 0,
+			end: 5
+});
 ```
 更新播放器即可查看效果。
 5. 删除滤镜，主要分以下两种情况：
   - **删除滤镜轨道中的滤镜**：只需在`this.filterTrack.clips`中通过 id 找到对应的 Clip 进行删除即可。
 ```javascript
-  this.filterTrack.clips.forEach((item, index) => {
-      if(item.id === 'filter_id') {
-        this.filterTrack.clips.splice(index, 1)
-      }
-  })
+this.filterTrack.clips.forEach((item, index) => {
+			if(item.id === 'filter_id') {
+				this.filterTrack.clips.splice(index, 1)
+			}
+})
 ```
   - **删除整个滤镜轨道**：在 updateData 的数组去掉  `this.filterTrack` 即可。
 
 ### 特效轨道使用说明
 1. 添加特效轨道。
 ```javascript
-  this.effectTrack = new global['wj-types'].Track({
-      type: 'effect',
-      clips: []
-    });
+this.effectTrack = new global['wj-types'].Track({
+			type: 'effect',
+			clips: []
+});
 ```
 2. 添加滤镜片段。<span id="effect_step2"></span>
   1. 获取播放器内部提供的默认特效：
@@ -347,28 +348,28 @@ videoClip1.startAt = 1;
   const effectList = this.player.getEffects();
 ```<b id="effectList">effectList</b> 的数据结构如下：
 ```
-    [
-      {
-        key: 'effect1',
-        name: '特效1'
-      },{
-        key: 'effect2',
-        name: '特效2'
-      }
-    ]
+[
+			{
+				key: 'effect1',
+				name: '特效1'
+			},{
+				key: 'effect2',
+				name: '特效2'
+			}
+]
 ```
   2. 创建 effect Clip：
 ```javascript
-    let effectClip1 = new global['wj-types'].Clip({
-        id: 'effect1',
-        type: 'effect',
-        key: 'effect1',
-        section: new global['wj-types'].ClipSection({
-          start: 0,
-          end: 3
-        }),
-        startAt: 0
-      })
+let effectClip1 = new global['wj-types'].Clip({
+			id: 'effect1',
+			type: 'effect',
+			key: 'effect1',
+			section: new global['wj-types'].ClipSection({
+				start: 0,
+				end: 3
+			}),
+			startAt: 0
+})
 ```<table>
 <tr><th>参数</th><th>说明</th></tr><tr>
 <td>key</td>
@@ -385,17 +386,17 @@ videoClip1.startAt = 1;
 3. 添加多个特效片段。
   1. 创建多个 effectClip：
 ```javascript
-      let effectClip2 = new global['wj-types'].Clip({
-        id: 'effect2',
-        type: 'effect',
-        key: 'effect2',
-        section: new global['wj-types'].ClipSection({
-          start: 0,
-          end: 2
-        }),
-        startAt: 3
-      })
-      let effectClip3 = ...
+let effectClip2 = new global['wj-types'].Clip({
+			id: 'effect2',
+			type: 'effect',
+			key: 'effect2',
+			section: new global['wj-types'].ClipSection({
+				start: 0,
+				end: 2
+			}),
+			startAt: 3
+})
+let effectClip3 = ...
 ```
   2. 将新创建的 effectClip 添加到轨道中：
 ```javascript
@@ -404,20 +405,20 @@ videoClip1.startAt = 1;
 4. 修改特效。
 修改特效对应的 Clip 属性，更新播放即可查看。以修改特效的持续时间为例：
 ```javascript
-  effectClip1.section = new global['wj-types'].ClipSection({
-    start: 0,
-    end: 5
-  });
+effectClip1.section = new global['wj-types'].ClipSection({
+			start: 0,
+			end: 5
+});
 ```
 5. 删除特效，主要分以下两种情况：
   - **删除轨道中的滤镜**，以删除 effectClip2 为例：
 ```javascript
-    this.effectTrack.clips = [effectClip1, effectClip3...];
-    this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrackm, this.effectTrack]);
+this.effectTrack.clips = [effectClip1, effectClip3...];
+this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrackm, this.effectTrack]);
 ```
   - **删除整个特效轨道**：
 ```javascript
-  this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack]);
+this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack]);
 ```
 
 <span id = "sss"></span>
@@ -425,9 +426,9 @@ videoClip1.startAt = 1;
 1. 添加文字轨道。
 ```javascript
 this.textTrack1 = new global['wj-types'].Track({
-		type: 'text',
-		clips: []
-	});
+			type: 'text',
+			clips: []
+});
 ```
 2. 添加文字片段。
 	1. 创建 textClip：
@@ -478,25 +479,25 @@ this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack]);
 5. 多个文字共存。
 在同一个轨道中添加多个 [文字 Clip](#more_clip) 的情况下，各个文字 Clip 之间的 section 是不存在交集的，即某一时刻页面最多显示一个文字。假设需要多个文字同时展示的情况下，则需要通过多个文字 Track 实现，每个轨道中只包含一个文字 Clip。
 ```javascript
-  this.textTrack1 = new global['wj-types'].Track({
-    type: 'text',
-    clips: []
-  });
+this.textTrack1 = new global['wj-types'].Track({
+		type: 'text',
+		clips: []
+		});
 
-  this.textTrack1.clips = [textClip1];
+		this.textTrack1.clips = [textClip1];
 
-  this.textTrack2 = new global['wj-types'].Track({
-    type: 'text',
-    clips: []
-  });
+		this.textTrack2 = new global['wj-types'].Track({
+		type: 'text',
+		clips: []
+});
 
-  this.textTrack1.clips = [textClip2];
+this.textTrack1.clips = [textClip2];
 
- ... // 以此类推
+... // 以此类推
 ```
   创建完文字轨道后，更新播放器即可。
 ```javascript
-    this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack, this.textTrack1, this.textTrack2]);
+this.player.updateData([this.mediaTrack, this.musicTrack,this.filterTrack, this.textTrack1, this.textTrack2]);
 ```>! **由于小程序限制，最多只能存在5个文字。 可以添加5个文字轨道，一个轨道中一段文字；或者一个轨道中，5段文字，即文字 Clip 总共不能超过5个。**
 >
 6. 给文字添加字体。
@@ -504,73 +505,73 @@ this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack]);
 **加载字体**：
 ```javascript
 loadFontFace({
-	family: 'fangzhengyouhei',
-  source: "https://fontPath",
-  scopes: ['webview','native'],
-  success(res) {
-    console.log('font success')
-    console.log(res.status)
-    resolve()
-  },
-  fail: function(res) {
-    console.log('font fail')
-    console.log(res.status)
-    reject()
-  }
+		family: 'fangzhengyouhei',
+		source: "https://fontPath",
+		scopes: ['webview','native'],
+		success(res) {
+			console.log('font success')
+			console.log(res.status)
+			resolve()
+		},
+		fail: function(res) {
+			console.log('font fail')
+			console.log(res.status)
+			reject()
+		}
 });
 ```**构造对应的文字 clip**：
 ```javascript
-  let mytext = new global['wj-types'].Clip({
-    type: 'text',
-    content: {
-      content: "文字", // 文字内容
-      style: {
-        type: 'background', // 文字样式
-        color: '#ffffff', // 文字颜色
-        backgroundColor: '#ff00ff',
-        fontfamily: 'fangzhengyouhei',
-        fontloaded: true
-      },
-      position: {
-        x: 50,
-        y: 90
-      },
-    },
-    section: {
-      start: 0,
-      end: 10,
-      duration: 10
-    },
-  })
+let mytext = new global['wj-types'].Clip({
+	type: 'text',
+	content: {
+		content: "文字", // 文字内容
+		style: {
+			type: 'background', // 文字样式
+			color: '#ffffff', // 文字颜色
+			backgroundColor: '#ff00ff',
+			fontfamily: 'fangzhengyouhei',
+			fontloaded: true
+		},
+		position: {
+			x: 50,
+			y: 90
+		},
+	},
+	section: {
+		start: 0,
+		end: 10,
+		duration: 10
+	},
+})
 ```>? 内置字体列表获取请参考 [内置资源](https://cloud.tencent.com/document/product/1156/49439)。
 
 ### 贴纸轨道使用说明
 1. 创建贴纸轨道
 ```javascript
-   this.stickerTrack = new global['wj-types'].Track({
-       type: 'sticker',
-       clips: []
-   });
+ this.stickerTrack = new global['wj-types'].Track({
+			 type: 'sticker',
+			 clips: []
+ });
 ```
 2. 添加贴纸片段
 ```javascript
-   let stickerclip = new global['wj-types'].Clip({
-     id: 'my-sticker',
-     type: 'sticker',
-     section: {
-       start: 0,
-       end: 10,
-       duration: 10
-     },
-     designSize: {
-        xPercent: 0.20, //初始位置
-        yPercent: 0.30,
-        rotation: 0.4, // 旋转角度（单位弧度）
-        scale: 2 // 缩放尺寸
-     },
-     startAt: 0,
-     key: 'guodong',  // 贴纸key
-   })
-   this.stickerTrack.clips.push(stickerclip)
-   this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack, this.stickerTrack]);
+ let stickerclip = new global['wj-types'].Clip({
+	 id: 'my-sticker',
+	 type: 'sticker',
+	 section: {
+		 start: 0,
+		 end: 10,
+		 duration: 10
+	 },
+	 designSize: {
+			xPercent: 0.20, //初始位置
+			yPercent: 0.30,
+			rotation: 0.4, // 旋转角度（单位弧度）
+			scale: 2 // 缩放尺寸
+	 },
+	 startAt: 0,
+	 key: 'guodong',  // 贴纸key
+ })
+ this.stickerTrack.clips.push(stickerclip)
+ this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack, this.stickerTrack]);
 ```>? 内置贴纸列表获取请参考 [内置资源](https://cloud.tencent.com/document/product/1156/49439)。更多属性请参考 [数据结构文档](https://cloud.tencent.com/document/product/1156/48616)。
