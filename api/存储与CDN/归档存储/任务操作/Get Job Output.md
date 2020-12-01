@@ -1,6 +1,6 @@
 ## 功能描述
 
-Get Job Output 请求用来输出缓存池中检索出来的 Archive 或Archive列表，缓存池中的内容24小时有效。请求所有数据成功后，返回 200 OK。请求部分数据成功时，返回 206 Partial Content。
+Get Job Output 请求用来输出缓存池中检索出来的 Archive 或 Archive 列表，缓存池中的内容24小时有效。请求所有数据成功后，返回 200 OK。请求部分数据成功时，返回 206 Partial Content。
 
 支持跨账户操作。当操作本账户时，UID 为"-"。
 
@@ -39,8 +39,8 @@ Range:ByteRangeToRetrieve
 | 名称                     | 描述                                       | 类型     |
 | ---------------------- | ---------------------------------------- | ------ |
 | Content-Range          | 返回的字节范围       。                          | String |
-| Content-Type           | 根据内容类型判断输出是Archive还是Archive列表，若为Archive，该值为`application/octet-stream`；若为JSON格式Archive列表，该值为 `application/json`；若为CSV格式Archive列表，该值为  `text/csv` 。 | String |
-| x-cas-sha256-tree-hash | Output中的数据树形哈希，当Job为Archive的一棵子树，且获取Job的Range范围也是一棵子树才返回该头部。 | String |
+| Content-Type           | 根据内容类型判断输出是 Archive 还是 Archive 列表，若为 Archive，该值为`application/octet-stream`；若为 JSON 格式 Archive 列表，该值为`application/json`；若为CSV格式Archive列表，该值为  `text/csv` 。 | String |
+| x-cas-sha256-tree-hash | Output 中的数据树形哈希，当 Job 为 Archive 的一棵子树，且获取 Job 的 Range 范围也是一棵子树才返回该头部。 | String |
 
 ### 返回内容
 
@@ -78,3 +78,4 @@ Range:ByteRangeToRetrieve
 **取回 Archive**
 
 下载对应 Archive。
+

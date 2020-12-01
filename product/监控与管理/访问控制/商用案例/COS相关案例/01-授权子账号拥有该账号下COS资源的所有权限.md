@@ -1,4 +1,4 @@
-企业帐号 CompanyExample（ownerUin为12345678）下有一个子账号 Developer，该子账号需要拥有对企业帐号 CompanyExample 的 COS 服务的完全管理权限（创建、管理、访问 COS 的存储桶或者对象）。
+企业帐号 CompanyExample（ownerUin 为 12345678）下有一个子账号 Developer，该子账号需要拥有对企业帐号 CompanyExample 的 COS 服务的完全管理权限（创建、管理、访问 COS 的存储桶或者对象）。
 
 方案 A：
 
@@ -10,12 +10,13 @@
 ```
  {
     "version": "2.0",
-    "statement":
+    "statement":[
      {
          "effect": "allow",
          "action": "cos:*",
          "resource": "*"
      }
+   ]
 }
 ```
 步骤 2：将该策略授权给子账号。授权方式请参考 [授权管理](https://cloud.tencent.com/document/product/378/8961)。

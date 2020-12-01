@@ -1,17 +1,26 @@
-虚拟机部署 Demo： [tsf_python_vm_demo](https://main.qcloudimg.com/raw/7a47d828d43dc5fa905ab8960db687b9/tsf_python_vm_demo-1225.tar.gz) 
-容器部署 Demo： [tsf_python_docker_demo](https://main.qcloudimg.com/raw/b4a0a86d3eb11bcee368b3eccf6e3052/tsf_python_docker_demo-1225.tar.gz)
+## 下载 Demo 
+|  Demo 语言  |  下载地址  | 说明 |
+| --- | --- | --- |
+| Python Demo（vm）|  [tsf_python_vm_demo](https://main.qcloudimg.com/raw/7a47d828d43dc5fa905ab8960db687b9/tsf_python_vm_demo-1225.tar.gz) | -  |
+| Python Demo（docker）| [tsf_python_docker_demo](https://main.qcloudimg.com/raw/b4a0a86d3eb11bcee368b3eccf6e3052/tsf_python_docker_demo-1225.tar.gz) | - |
+| <nobr>.NET Demo（vm & docker）</nobr>| [tsf_mesh_demo_dotnet](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/tsf_mesh_demo_dotnet.zip) | 其中 REAME.md 介绍了程序包和镜像两种构建方式|
+| Java Demo（vm）| [tsf_mesh_demo_java](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/mesh-demo/tsf-mesh-demo-java.zip) |- |
+| PHP Demo（vm）| [tsf_php_vm_demo](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/mesh-demo/tsf_mesh_demo_php.tar.gz) | - |
+| Dubbo Demo（vm）| [tsf_mesh_dubbo_vm_demo](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/mesh-demo/tsf-mesh-dubbo-demo.tar.gz) | - |
 
+>!Mesh 的部署和使用与语言无关，具体可参考 Python 使用方式进行改造。
 
-
-Demo 提供了3个 Python 应用，对应的服务名和应用监听端口为：
+## 调用说明
+下文以 Python Demo 为例进行介绍。Python Demo 提供了3个应用，对应的服务名和应用监听端口为：
 - user （8089）
 - shop （8090）
 - promotion （8091）
 
-3 个应用之间的调用关系是：`user -> shop -> promotion`，相互访问时可以用默认的80或者业务的真实端口（对应 Demo 中的 sidecarPort），如 shop 监听8090，user 访问 shop 可以用`shop:80/api/v6/shop/items`或者`shop:8090/api/v6/shop/items`。
+3个应用之间的调用关系是：`user -> shop -> promotion`，相互访问时可以用默认的80或者业务的真实端口（对应 Demo 中的 sidecarPort），如 shop 监听8090，user 访问 shop 可以用`shop:80/api/v6/shop/items`或者`shop:8090/api/v6/shop/items`。
 
 >!Mesh 的调用链通过头传递实现。如果用户想要串联整个服务调用关系，需要在访问其他服务时，带上父调用的9个相关调用链头，具体示例如下：
 
+<jump id="header"></jump>
 ```
 // 9个调用链相关的头，具体说明见(https://www.envoyproxy.io/docs/envoy/v1.8.0/configuration/http_conn_man/headers.html?highlight=tracing)
 traceHeaders = ['x-request-id',
@@ -36,7 +45,7 @@ def build_trace_headers(handler):
 // 访问 shop 服务的端口，使用默认的80，或者 shop 的真实端口8090
 sidecarPort = 80
 def do_GET(self):
-    // 调用shop服务时填充父调用的调用链相关头
+    // 调用 shop 服务时填充父调用的调用链相关头
     if self.path == '/api/v6/user/create':
         print "headers are %s" % self.headers.keys()
         logger.info("headers are %s" % self.headers.keys())
@@ -56,6 +65,8 @@ def do_GET(self):
 
 ```
 
+#### Spring Cloud 应用和 Mesh 应用调用打通 tracing
+Spring Cloud 应用和 Mesh 应用相互调用时，如果要打通 tracing，需要在请求中传递调用链相关的 header（参考 [上文](#header)）。
 
 
 
@@ -91,3 +102,5 @@ python ./userService.py 80 1>./logs/user.log 2>&1
 - 第2行：创建`/opt/tsf/app_config/apis`目录，并将`spec.yaml`文件拷贝到`/opt/tsf/app_config/`中。
 - 第3行：将`apis`目录拷贝到`/opt/tsf/app_config/`中。
 - 第5行：启动 user 应用。
+
+

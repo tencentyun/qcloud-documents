@@ -2,7 +2,7 @@ Tencent Cloud VOD console provides two video uploading methods: Web-based upload
 ## Web-based Upload
 The Web-based Upload is to upload videos to the VOD service locally. The detailed operation process is as follows:
 ### 1. Log in to VOD Console
-Log in to Tencent Cloud [VOD Console](https://console.cloud.tencent.com/video), and click "Web-based Upload" in the left menu bar to go to the Web-based upload page.
+Log in to Tencent Cloud [VOD Console](https://console.cloud.tencent.com/vod), and click "Web-based Upload" in the left menu bar to go to the Web-based upload page.
 ![](https://mc.qcloudimg.com/static/img/73c9c8cc59307393826f0332bd03eb62/image.png)
 
 ### 2. Upload Video
@@ -23,7 +23,7 @@ You can click "Video Management" in the left menu bar to view and manage success
 ## Video Pulling
 Video pulling is to directly pull source videos from online websites as shown below:
 ### 1. Log in to VOD Console
-Log in to Tencent Cloud [VOD Console](https://console.cloud.tencent.com/video), and click "Video Pulling" in the left menu bar to go to the video pulling page.
+Log in to Tencent Cloud [VOD Console](https://console.cloud.tencent.com/vod), and click "Video Pulling" in the left menu bar to go to the video pulling page.
 ![](https://mc.qcloudimg.com/static/img/a7dc37df0b257b54edff97c808bbe5b4/image.png)
 
 ### 2. Pull Source Video

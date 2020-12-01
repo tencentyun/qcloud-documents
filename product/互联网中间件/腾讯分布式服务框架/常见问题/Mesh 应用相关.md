@@ -4,13 +4,13 @@
 
 
 ### 服务实例显示离线状态如何解决？
-在 Mesh 环境下，TSF Sidecar 会定期通过调用服务的健康检查接口获取服务健康状态，并将健康状态上报到服务注册中心。由于某些原因，比如用户健康检查接口信息配置错误、端口配置错误、或者服务实例出现访问失败，则会导致服务不健康。
+在 Mesh 环境下，TSF Sidecar 会定期通过调用服务的健康检查接口获取服务健康状态，并将健康状态上报到服务注册中心。由于某些原因，例如用户健康检查接口信息配置错误、端口配置错误、或者服务实例出现访问失败，则会导致服务不健康。
 您可以通过以下步骤进行排查：
 #### 1. 查看服务配置信息
 - 服务配置信息错误
   查看应用的软件包，获取服务配置信息（spec.yaml），检查服务名是否为期望暴露的服务名、端口号是否为服务真实监听的端口号、健康检查接口是否存在、检查健康接口格式是否正确（不含 ip:port，类似`/health`是符合的）。
 - 服务配置文件格式错误
-  将 spec.yaml 内容，拷贝到 [yamllint](http://www.yamllint.com/) 中，校验 yaml 格式是否正确。如果格式正确，则继续检查字段名称，是否与下面示例的格式一致。
+  将 spec.yaml 内容，复制到 [yamllint](http://www.yamllint.com/) 中，校验 yaml 格式是否正确。如果格式正确，则继续检查字段名称，是否与下面示例的格式一致。
 ```
 apiVersion: v1
 kind: Application
@@ -28,7 +28,7 @@ spec:
 ```
 
 -  服务配置没有挂载到正确的位置
-  - 在容器环境下，排查业务是否在容器的启动脚本中，把 spec.yaml 和 apis 目录(可选)，拷贝到挂载路径`/opt/tsf/app_config`下面。
+  - 在容器环境下，排查业务是否在容器的启动脚本中，把 spec.yaml 和 apis 目录（可选），复制到挂载路径`/opt/tsf/app_config`下面。
   - 在虚拟机环境下，排查业务程序包根目录下面，是否存在 spec.yaml 以及 apis 目录（可选），如果没有，则需要修改。
   - 通用排查方法：
     1. 检查 pilot-agent 加载配置文件的绝对目录。
@@ -80,7 +80,7 @@ admin commands are:
 [root@TENCENT64 ~/pilot-agent/op]# curl 127.0.0.1:15020/health
 {"envoy":{"status":"UP"},"mesh-dns":{"status":"UP"},"status":"UP"}
 ```
-如果出现部件不健康的组件（status 不为 UP），或者接口调用失败，则需要通过通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系后台运维人员处理。
+如果出现部件不健康的组件（status 不为 UP），或者接口调用失败，则需要通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系后台运维人员处理。
 
 #### 4. 调用 clusters 接口
 登录应用所在的容器或者虚拟机，调用 envoy 的 clusters 接口，查看本地 cluster（格式为 in#port#serviceName）是否存在或者健康状态是否 healthy。
@@ -115,7 +115,7 @@ in#8080#reporttimeb::9.77.7.132:8080::sub_zone::
 in#8080#reporttimeb::9.77.7.132:8080::canary::false
 in#8080#reporttimeb::9.77.7.132:8080::success_rate::-1
 ```
-- 如果 cluster 不存在，则需要通过通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系后台运维人员处理。
+- 如果 cluster 不存在，则需要通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系后台运维人员处理。
 - 如果状态不为 healthy，则执行后续步骤。
 
 
@@ -126,7 +126,7 @@ in#8080#reporttimeb::9.77.7.132:8080::success_rate::-1
 curl http://127.0.0.1:15000/config_dump -o config.json
 ```
 
-通过 vi 打开 config.json 文件，并查找 in#8080#reporttimeb（本地 cluster，格式为 in#port#serviceName），查看配置中的服务地址(address)、端口(port_value）是否正确。
+通过 vi 打开 config.json 文件，并查找 in#8080#reporttimeb（本地 cluster，格式为 in#port#serviceName），查看配置中的服务地址（address）、端口（port_value）是否正确。
 健康检查信息 health_checks、熔断配置 circuit_breakers 是否正确。如果不正确，且确认服务没有被熔断，则需要通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系后台运维人员处理。
 ```json
 "dynamic_active_clusters": [

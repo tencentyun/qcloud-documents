@@ -1,0 +1,72 @@
+CLB 支持个性化配置功能，允许用户设置单 CLB 实例的配置参数，如 client_max_body_size，ssl_protocols 等，满足您的个性化配置需求。
+>?
+>- 个性化配置的个数限制为每个地域200条。
+>- 当前一个实例仅允许绑定一个个性化配置。
+>- 个性化配置仅针对负载均衡（原“应用型负载均衡”）的七层 HTTP/HTTPS 监听器生效。
+
+## CLB 个性化配置参数说明
+当前 CLB 的个性化配置支持如下字段：
+
+| 配置字段 |   默认值/建议值  |    参数范围  | 说明  |
+| :-------- | :-------- | :------ |:------ |
+|  ssl_protocols  | TLSv1 TLSv1.1 TLSv1.2 |  TLSv1 TLSv1.1 TLSv1.2 | 使用的 TLS 协议版本，后续会增加 TLSv1.3。|
+|  ssl_ciphers  | 见下文 |  见下文 | 加密套件。 |
+|  client_header_timeout  | 60s |  [30-120]s | 获取到 Client 请求头部的超时时间, 超时返回408。|
+|  client_header_buffer_size | 4k |[1-256]k | 存放 Client 请求头部的默认 Buffer 大小。 |
+|  client_body_timeout | 60s |  [30-120]s | 获取 Client 请求 Body 的超时时间，不是获取整个 Body 的持续时间，而是指空闲一段时间没有传输数据的超时时间，超时返回408。 |
+|  client_max_body_size | 60M |[1-2048]M| <ul><li>默认配置范围为1M-256M，直接配置即可。</li><li>最大支持2048M，当 client_max_body_size 的配置范围大于256M时， 必须设置 <a href="#buffer">proxy_request_buffering</a> 的值为 off。</li></ul> |
+|  keepalive_timeout | 75s | [0-3600]s| Client-Server 长连接保持时间，设置为0则禁用长连接。 |
+|  add_header |用户自定义添加|- | 向客户端返回特定的头部字段，格式为 add_header xxx yyy。 |
+|  more_set_headers |用户自定义添加|- | 向客户端返回特定的头部字段，格式为 more_set_headers "A:B"。 |
+|  proxy_connect_timeout | 4s | [4-120]s |upstream 后端连接超时时间。|
+|  proxy_read_timeout |60s |[30-3600]s|读取 upstream 后端响应超时时间。|
+|  proxy_send_timeout |60s |[30-3600]s|向 upstream 后端发送请求的超时时间。|
+|  server_tokens | on | on，off | <ul><li>on 表示显示版本信息。</li><li>off 表示隐藏版本信息。</li></ul>|
+|  keepalive_requests | 100 | [1-10000] |Client-Server 长连接上最多能发送的请求数量。|
+|  proxy_buffer_size | 4k |[1-64]k| Server 响应头的大小，默认为 proxy_buffer 中设置的单个缓冲区大小，使用 proxy_buffer_size 时，必须同时设置 proxy_buffers。|
+|  proxy_buffers | 8 4k |[3-8] [4-8]k|缓冲区数量和缓冲区大小。|
+|  <span id="buffer">proxy_request_buffering</span> | on |on，off|<ul><li>on 表示缓存客户端请求体：CLB 会缓存请求，全部接收完成后再分块转发给后端 CVM。</li><li>off 表示不缓存客户端请求体：CLB 收到请求后，立即转发给后端 CVM，此时会导致后端 CVM 有一定性能压力。</li></ul>|
+|  proxy_set_header   |X-Real-Port $remote_port|<ul><li>X-Real-Port $remote_port</li><li>X-clb-stgw-vip $server_addr</li><li>Stgw-request-id $stgw_request_id</li></ul>|<ul><li>X-Real-Port $remote_port 表示客户端端口。</li><li>X-clb-stgw-vip $server_addr 表示 CLB 的 VIP。</li><li>Stgw-request-id $stgw_request_id 表示请求 ID（CLB 内部使用）。</li></ul> |
+|  send_timeout | 60s |[1-3600]s|服务端向客户端传输数据的超时时间，是连续两次发送数据的间隔时间，非整个请求传输时间。|
+|  ssl_verify_depth |  1 |[1，10]|设置客户端证书链中的验证深度。|
+
+
+## ssl_ciphers 配置说明
+配置 ssl_ciphers 加密套件时，格式需同 OpenSSL 使用的格式保持一致。算法列表是一个或多个`<cipher strings>`，多个算法间使用“:”隔开，ALL 表示全部算法，“!”表示不启用该算法，“+”表示将该算法排到最后一位 。
+默认强制禁用的加密算法为：`!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!DHE`。
+
+**默认值：**
+```
+ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-CHACHA20-POLY1305:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128:AES256:AES:HIGH:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!DHE:3DES;
+```
+
+**参数范围：**
+```
+ECDH-ECDSA-AES128-SHA256:ECDH-RSA-AES256-SHA:ECDH-ECDSA-AES256-SHA:SRP-DSS-AES-256-CBC-SHA:SRP-AES-128-CBC-SHA:ECDH-RSA-AES128-SHA256:DH-RSA-AES128-SHA256:DH-RSA-CAMELLIA128-SHA:DH-DSS-AES256-GCM-SHA384:DH-RSA-AES256-SHA256:AES256-SHA256:SEED-SHA:CAMELLIA256-SHA:ECDH-RSA-AES256-SHA384:ECDH-ECDSA-AES128-GCM-SHA256:DH-RSA-AES128-SHA:DH-RSA-AES128-GCM-SHA256:DH-DSS-AES128-SHA:ECDH-RSA-AES128-SHA:DH-DSS-CAMELLIA256-SHA:SRP-AES-256-CBC-SHA:DH-DSS-AES128-SHA256:SRP-RSA-AES-256-CBC-SHA:ECDH-ECDSA-AES256-GCM-SHA384:ECDH-RSA-AES256-GCM-SHA384:DH-DSS-AES256-SHA256:ECDH-ECDSA-AES256-SHA384:AES128-SHA:DH-DSS-AES128-GCM-SHA256:AES128-SHA256:DH-RSA-SEED-SHA:ECDH-ECDSA-AES128-SHA:IDEA-CBC-SHA:AES128-GCM-SHA256:DH-RSA-CAMELLIA256-SHA:CAMELLIA128-SHA:DH-RSA-AES256-GCM-SHA384:SRP-RSA-AES-128-CBC-SHA:SRP-DSS-AES-128-CBC-SHA:ECDH-RSA-AES128-GCM-SHA256:DH-DSS-CAMELLIA128-SHA:DH-DSS-SEED-SHA:AES256-SHA:DH-RSA-AES256-SHA:kEDH+AESGCM:AES256-GCM-SHA384:DH-DSS-AES256-SHA:HIGH:AES128:AES256:AES:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!MD5:!PSK:!DHE
+```
+
+## CLB 个性化配置示例
+1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/loadbalance/index?rid=8)，在左侧目录中单击【个性化配置】，进入管理页面。
+2. 单击【新建】，填写相应的配置项，并且以`;`结尾。
+![](https://main.qcloudimg.com/raw/9843fe5c4fffbaa8edbd7f5f630f42c2.png)
+3. 单击【完成】，完成个性化配置的创建。
+4. 在管理页面的操作栏下，单击【绑定至实例】。
+5. 在弹框中选择绑定到同地域的 LB 实例，单击【提交】。
+![](https://main.qcloudimg.com/raw/fe7d42bd7a5d18a0d9c25ffd84ae054b.png)
+6. 绑定实例后，可以在实例的列表页中找到对应的个性化配置信息。
+![](https://main.qcloudimg.com/raw/8a3dd9c46211f2e8ff6860980270eec4.png)
+默认配置代码示例：
+```
+ssl_protocols   TLSv1 TLSv1.1 TLSv1.2;
+client_header_timeout   60s;
+client_header_buffer_size   4k;
+client_body_timeout    60s;
+client_max_body_size   60M;
+keepalive_timeout    75s;
+add_header     xxx yyy;
+more_set_headers      "A:B";
+proxy_connect_timeout    4s;
+proxy_read_timeout    60s;
+proxy_send_timeout    60s;
+```
+

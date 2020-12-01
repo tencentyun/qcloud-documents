@@ -1,79 +1,22 @@
-弹性公网 IP 地址( EIP )，简称弹性 IP 地址或弹性 IP 。是专为动态云计算设计的静态 IP 地址。它是某地域下一个固定不变的公网 IP 地址。借助弹性公网 IP 地址，您可以快速将地址重新映射到账户中的另一个实例（或  [NAT 网关实例](/doc/product/215/%E7%BD%91%E5%85%B3#2.-nat.E7.BD.91.E5.85.B3) ），从而屏蔽实例故障。
+## 操作场景
+弹性公网 IP （Elastic IP，简称 EIP），是可以独立购买和持有的、某个地域下固定不变的公网 IP 地址。借助弹性公网 IP，您可以快速将地址重新映射到账户中的另一个实例或  NAT 网关实例，从而屏蔽实例故障。本文档介绍如何使用弹性 IP 地址。
 
 
-## 常见操作指南
-以下部分介绍如何使用弹性 IP 地址。
+## 操作指引
 
-### 申请弹性公网 IP 
+您可以使用如下弹性公网 IP 功能：
 
- 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。
-	
- 2. 在左侧导航窗格中，单击【弹性公网 IP】。
+<table>
+	<tr><th>功能类型</th><th>相关文档</th><th>操作场景</th></tr>
+	<tr><td rowspan="3">获取弹性公网 IP</td><td><a href="https://cloud.tencent.com/document/product/1199/41698">申请 EIP</a></td><td>申请弹性公网 IP。</td></tr>
+	<tr><td><a href="https://cloud.tencent.com/document/product/1199/41706">普通公网 IP 转 EIP</a></td><td>将云服务器的普通公网 IP 转换为弹性公网 IP，转换后，弹性公网 IP 具备随时与云服务器解绑和绑定的能力，更易于实现公网 IP 的灵活管理。</td></tr>
+	<tr><td><a href="https://cloud.tencent.com/document/product/1199/41708">找回公网 IP 地址</a></td><td>若您误操作释放或退还了公网 IP 地址（包含弹性公网 IP 和普通公网 IP），可以在弹性公网 IP 控制台找回，找回后的公网 IP 为弹性公网 IP。</td></tr>
+	<tr><td rowspan="3">绑定弹性公网 IP</td><td><a href="https://cloud.tencent.com/document/product/1199/41702">EIP 绑定云资源</a></td><td>将弹性公网 IP 绑定到云服务器实例、NAT 网关等云资源上，利用弹性公网 IP 灵活地容灾与提供公网通信服务等。</td></tr>
+	<tr><td><a href="https://cloud.tencent.com/document/product/1199/43866">CVM 主网卡绑定多 IP</a></td><td>为单台云服务器实例绑定多个弹性公网 IP，以实现流量转移，提高云服务器的利用率。</td></tr>
+	<tr><td><a href="https://cloud.tencent.com/document/product/1199/44153">CVM 添加辅助网卡并绑定多 IP</a></td><td>若单台云服务器实例可绑定公网 IP 的限额不满足您的需求，您可以通过添加辅助网卡来绑定多个公网 IP，以实现流量转移，提高云服务器的利用率。</td></tr>
+	<tr><td>弹性公网 IP 直通</td><td><a href="https://cloud.tencent.com/document/product/1199/41709">EIP 直通</a></td><td>适用于云服务器内需要查看公网 IP 的场景。例如，将内网流量和外网流量分别转发到不同的 IP 地址。</td></tr>
+	<tr><td>调整弹性公网 IP 带宽</td><td><a href="https://cloud.tencent.com/document/product/1199/41705">调整带宽</a></td><td>您可以根据实际需要，及时调整弹性公网 IP 带宽，实时生效。</td></tr>
+	<tr><td rowspan="2">解绑/释放弹性公网 IP</td><td><a href="https://cloud.tencent.com/document/product/1199/41703">解绑 EIP</a></td><td>您可以随时将弹性公网 IP 与云资源解绑，解绑后您可以将其与其他云资源重新绑定。</td></tr>
+	<tr><td><a href="https://cloud.tencent.com/document/product/1199/41704">释放 EIP</a></td><td>若您不再使用弹性公网 IP，可在控制台将其释放。</td></tr>
+</table>
 
- 3. 单击【申请】按钮，填写地域与数量后单击【确定】。
-
- 4. 申请结束后即可在列表中看到您申请的弹性公网 IP ，此时处于未绑定状态。
-
-<span id = "jump2">  </span>
-### 弹性公网 IP 绑定云产品
-
- 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。
-
- 2. 在左侧导航窗格中，单击【弹性公网 IP】。
-
- 3. 在需要绑定云产品的 EIP 列表项后，单击【绑定】。（若绑定时， EIP 已绑定了实例，此按钮将为不可用状态，请先解绑。）
-	
- 4. 在弹出框中选择您需要绑定的云产品类型，并选择相应的云产品实例 ID，单击【绑定】按钮即可完成与云产品的绑定。
-
-### 弹性公网 IP 解绑云产品
-
- 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。
-
- 2. 在左侧导航窗格中，单击【弹性公网 IP】。
-
- 3. 在已绑定云产品的 EIP 列表项后，单击【解绑】按钮。
-
- 4. 单击【确定】。
- 
->**注意：**
->解绑后云产品实例可能会被分配新的公网 IP ，可能与绑定前公网 IP 不一致。
-
-<span id = "jump">  </span>
-### 释放弹性公网 IP
- 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。
-
- 2. 在左侧导航窗格中，单击【弹性公网 IP】。
-
- 3. 在需要释放的 EIP 列表项后，单击【更多】-【释放】按钮。
-
- 4. 单击【确认】完成释放。
-
-
-### 调整带宽
- 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。
-
- 2. 在左侧导航窗格中，单击【弹性公网 IP】。
-
- 3. 在需要释放的 EIP 列表项后，单击【调整带宽】按钮。
-
- 4. 在调整带宽页面调整目标带宽值。
- 
- 5. 单击【确定】完成调整带宽。
-
-### 公网 IP 转弹性 IP
-随购买 CVM 实例时一起购买的公网 IP 为普通公网 IP，不具备弹性能力，即不能被挂载和卸载。 腾讯云提供将普通公网 IP 转成弹性公网 IP的能力，操作如下：
-
- 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)。
-
- 2. 单击转换图标。
-![](https://main.qcloudimg.com/raw/0098c10f4ff4102ecabcc6939f184a8d.png)
- 3. 单击【确认转换】即可。
-![](https://main.qcloudimg.com/raw/f4504842261b8b72f6952d1dcf95aa26.png)
-
-
-## 异常排查
-弹性 IP 地址可能出现网络不通的异常情况，一般有如下原因： 
-
-- 弹性 IP 地址没有绑定云产品。具体绑定方法见 [弹性公网 IP 绑定云产品](#jump2) 。
-
-- 安全策略无效。查看是否有生效的安全策略（安全组或网络 ACL )。如果绑定的云产品实例有安全策略，例如：禁止 8080 端口访问，那么弹性公网 IP 的 8080 端口也是无法访问的。

@@ -1,7 +1,11 @@
+>? 
+本文档是旧版图像标签文档，图像标签已经升级为使用更先进的深度学习技术、覆盖范围更广的图像分析- [图像标签](https://cloud.tencent.com/document/api/865/35471) 服务，支持8个大类、六十多个二级分类、数千个标签，涵盖各种场景、事件、日常物品、动物、证件文档等。
+建议使用新版，开通方法详见 [图像分析入门](https://cloud.tencent.com/product/tiia/getting-started) 。旧版图像标签在2019年内会继续提供稳定的服务，但不会进行算法升级。
+
 ## 接口描述
 接口请求域名：`https://recognition.image.myqcloud.com/v1/detection/imagetag_detect`
 本接口（imagetag_detect）用于识别图片内容信息，并以标签的形式显示。
->!本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。
+>!本接口支持 HTTPS 协议，如果您现在使用的是 HTTP 协议，为了保障您的数据安全，请切换至 HTTPS。  
 
 ## 请求头 header
 >!如果选择 multipart/form-data，请使用 HTTP 框架/库推荐的方式，设置请求的 contenttype，不推荐直接调用 setheader 等方法进行设置，否则可能导致由于 boundary 缺失引起的请求失败。

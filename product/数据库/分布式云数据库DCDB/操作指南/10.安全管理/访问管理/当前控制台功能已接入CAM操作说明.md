@@ -1,23 +1,67 @@
+
 #### 下列操作可支持资源级权限
 
-| 操作名 | API名 |配置后控制台是否生效|
-| :-------- | :------------------------ |:------------------------ |
-| 查询实例升级价格 | DescribeDCDBUpgradePrice |NO|
-| 续费实例 | RenewDCDBInstance |NO|
-| 查询实例续费价格 | DescribeDCDBRenewalPrice |NO|
-| 实例扩容 | UpgradeDCDBInstance |NO|
-| 查看实例列表 | DescribeDCDBInstances |YES|
-| 获取日志列表 | DescribeDBLogFiles |YES|
-| 初始化实例 | InitDCDBInstances |NO|
-| 创建帐号 | CreateAccount |YES|
-| 查询帐号列表 | DescribeAccounts |YES|
-| 删除帐号 | DeleteAccount |YES|
-| 设置帐号权限 | GrantAccountPrivileges |YES|
-| 查询帐号权限 | DescribeAccountPrivileges |YES|
-| 复制帐号权限 | CopyAccountPrivileges |NO|
-| 修改数据库帐号备注 | ModifyAccountDescription |NO|
-| 重置帐号密码 | ResetAccountPassword |YES|
-| 查看数据库参数 | DescribeDBParameters |NO|
-| 修改数据库参数 | ModifyDBParameters |NO|
-| 克隆帐号 | CloneAccount |YES|
-| 获取SQL日志 | DescribeSqlLogs |NO|
+| 操作名               | API 名                         | 配置后控制台是否生效 |
+| -------------------- | ------------------------------ | -------------------- |
+| 恢复独享实例         | ActiveDedicatedDBInstance      | YES                  |
+| 绑定安全组           | AssociateSecurityGroups        | YES                  |
+| 检查 IP 状态           | CheckIpStatus                  | YES                  |
+| 克隆帐号             | CloneAccount                   | YES                  |
+| 关闭实例外网         | CloseDBExtranetAccess          | YES                  |
+| 复制帐号权限         | CopyAccountPrivileges          | YES                  |
+| 创建帐号             | CreateAccount                  | YES                  |
+| 创建实例             | CreateDCDBInstance             | YES                  |
+| 删除帐号             | DeleteAccount                  | YES                  |
+| 查询帐号权限         | DescribeAccountPrivileges      | YES                  |
+| 查询帐号列表         | DescribeAccounts               | YES                  |
+| 查询审计日志         | DescribeAuditLogs              | YES                  |
+| 查询审计规则详情     | DescribeAuditRuleDetail        | YES                  |
+| 查询审计规则列表     | DescribeAuditRules             | YES                  |
+| 查询审计策略         | DescribeAuditStrategies        | YES                  |
+| 批量实例续费询价 | DescribeBatchDCDBRenewalPrice  | YES                  |
+| 查询实例对象         | DescribeDatabaseObjects        | YES                  |
+| 查询实例 BD 名         | DescribeDatabases              | YES                  |
+| 查询实例表的列信息   | DescribeDatabaseTable          | YES                  |
+| 获取日志列表         | DescribeDBLogFiles             | YES                  |
+| 查询监控信息         | DescribeDBMetrics              | YES                  |
+| 查看数据库参数       | DescribeDBParameters           | YES                  |
+| 查询实例安全组信息   | DescribeDBSecurityGroups       | YES                  |
+| 获取慢查询记录详情   | DescribeDBSlowLogAnalysis      | YES                  |
+| 查询慢查询日志列表   | DescribeDBSlowLogs             | YES                  |
+| 查询实例同步模式     | DescribeDBSyncMode             | YES                  |
+| 获取实例详情     | DescribeDCDBInstanceDetail     | YES                  |
+| 查看实例列表         | DescribeDCDBInstances          | YES                  |
+| 查询价格             | DescribeDCDBPrice              | YES                  |
+| 查询实例续费价格     | DescribeDCDBRenewalPrice       | YES                  |
+| 查询售卖可用区       | DescribeDCDBSaleInfo           | YES                  |
+| 查询实例分片     | DescribeDCDBShards             | YES                  |
+| 查询实例升级价格     | DescribeDCDBUpgradePrice       | YES                  |
+| 查询独享集群规格     | DescribeFenceShardSpec         | YES                  |
+| 查询流程状态         | DescribeFlow                   | YES                  |
+| 查询 DBA 最新检查结果  | DescribeLatestCloudDBAReport   | YES                  |
+| 查看备份日志设置     | DescribeLogFileRetentionPeriod | YES                  |
+| 查询订单信息         | DescribeOrders                 | YES                  |
+| 查询项目             | DescribeProjects               | YES                  |
+| 查询项目安全组信息   | DescribeProjectSecurityGroups  | YES                  |
+| 查询实例规格         | DescribeShardSpec              | YES                  |
+| 获取 SQL 日志          | DescribeSqlLogs                | YES                  |
+| 安全组批量解绑云资源 | DisassociateSecurityGroups     | YES                  |
+| 设置帐号权限         | GrantAccountPrivileges         | YES                  |
+| 初始化实例           | InitDCDBInstances              | YES                  |
+| 隔离独享实例         | IsolateDedicatedDBInstance     | YES                  |
+| 修改数据库帐号备注   | ModifyAccountDescription       | YES                  |
+| 批量设置自动续费     | ModifyAutoRenewFlag            | YES                  |
+| 修改实例名称         | ModifyDBInstanceName           | YES                  |
+| 修改云数据库安全组   | ModifyDBInstanceSecurityGroups | YES                  |
+| 修改实例项目         | ModifyDBInstancesProject       | YES                  |
+| 修改数据库参数       | ModifyDBParameters             | YES                  |
+| 修改实例同步模式     | ModifyDBSyncMode               | YES                  |
+| 修改实例所属网络     | ModifyInstanceNetwork          | YES                  |
+| 修改实例 VIP          | ModifyInstanceVip              | YES                  |
+| 修改备份日志设置     | ModifyLogFileRetentionPeriod   | YES                  |
+| 开启外网             | OpenDBExtranetAccess           | YES                  |
+| 续费实例             | RenewDCDBInstance              | YES                  |
+| 重置帐号密码         | ResetAccountPassword           | YES                  |
+| 启动智能 DBA          | StartSmartDBA                  | YES                  |
+| 实例扩容             | UpgradeDCDBInstance            | YES                  |
+| 升级独享实例     | UpgradeDedicatedDCDBInstance   | YES                  |

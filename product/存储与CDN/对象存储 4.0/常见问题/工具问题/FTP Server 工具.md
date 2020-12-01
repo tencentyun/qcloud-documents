@@ -2,15 +2,15 @@
 
 对象存储是一种支持 Web 方式请求的持久化存储，不提供原生的 FTP 访问方式。使用 FTP 协议必须通过中转，**推荐您根据腾讯云官方提供的 [FTP Server 工具](https://www.qcloud.com/document/product/436/7214 ) ，自行搭建服务使用。**
 由于 FTP 协议老旧，无法校验数据完整性以及保障传输安全性，也无法与CAM权限系统对接，因此强烈不建议继续使用 FTP 协议访问，腾讯云亦不会对 FTP 协议和中转软件提供后续支持。 
-如需数据同步建议直接使用 [COS Migration 工具  ](https://www.qcloud.com/document/product/436/7133)或 [COSCMD 工具](https://www.qcloud.com/document/product/436/10976)。
+如需数据同步建议直接使用 [COS Migration 工具 ](https://cloud.tencent.com/document/product/436/15392)或 [COSCMD 工具](https://www.qcloud.com/document/product/436/10976)。
 
 ### 配置文件中的 masquerade_address 这个选项有何作用？何时需要配置 masquerade_address？
 
-当 FTP Server 运行在一个多网卡的 Server 上，并且 FTP Server 采用了 PASSIVE 模式时（一般地，FTP 客户端位于一个 NAT 网关之后时，都需要启用 PASSIVE 模式），此时需要使用 masquerade_address 选项来唯一绑定一个 passive 模式下用于 reply 的 IP。 
+masquerade_address 是配置提供给客户端的服务器地址。当 FTP server 运行在一个通过 NAT 映射到外网 IP 的主机上时，此时需要配置 masquerade_address 选项为客户端可以访问的 FTP Server 外网 IP，以通知客户端使用该 IP 与服务端完成数据通信。
 
-例如，FTP Server 有多个 IP 地址，如内网 IP 为 10.XXX.XXX.XXX，外网 IP 为 123.XXX.XXX.XXX。 客户端通过外网 IP 连接到 FTP Server，同时客户端使用的是 PASSIVE 模式传输，此时，若 FTP Server 未指定 masquerade_address 具体绑定到外网 IP 地址，则 Server 在 PASSIVE 模式下，reply 时，有可能会走内网地址。这时就会出现客户端能连接上 Ftp server，但是不能从 Server 端获取任何数据回复的问题。
+例如，在 FTP Server 运行的机器上，执行 ifconfig，得到映射到外网的网卡 IP 为10.xxx.xxx.xxx，它映射的外网 IP 假设为119.xxx.xxx.xxx。此时，若 FTP Server 未显式配置 masquerade_address 为客户端访问 server 时的外网 IP（119.xxx.xxx.xxx），则 FTP Server 在 Passive 模式下，给客户端回包可能会使用内网地址（10.xxx.xxx.xxx）。这时就会出现客户端就能够连上 FTP Server，但是却不能正常给客户端返回数据包的情况。
 
-如果需要配置 masquerade_address，建议指定为客户端连接 Server 所使用的那个 IP 地址。
+因此，通常情况下，建议用户将 masquerade_address 都配置为客户端连接 Server 时所使用的那个 IP 地址。
 
 ### 正确配置了 masquerade_address 选项以后，ftp server 可以正常登录，但是执行 FTP 命令：list 或者 get 等数据取回命令时，提示“服务器返回不可路由的地址”或“ftp: connect: No route to host”等错误，该如何处理？
 
@@ -33,3 +33,5 @@ FTP Server 默认支持 200 GB 以内的单文件上传，但是不建议用户�
 当实际上传的单文件大小超过了配置文件中的限制，系统会返回一个 IOError 的异常，并且在日志中标注错误信息。
 
 如遇有其他问题，请 [提交工单](https://console.cloud.tencent.com/workorder/category)，并在工单上附上完整的`cos_v5.log`日志，便于我们进一步排查和解决问题。
+
+

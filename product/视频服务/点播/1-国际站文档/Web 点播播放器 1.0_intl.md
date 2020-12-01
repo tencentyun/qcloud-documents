@@ -38,7 +38,7 @@ It requires excessive effort to create two sets of codes for smartphone browser 
 Sign up for a Tencent Cloud account at [Tencent Cloud official website](https://cloud.tencent.com/), and activate the **VOD** service.
 
 ### Step 2: Upload files
-After the VOD service is activated, go to [VOD Video Management](http://console.cloud.tencent.com/video/videolist) to upload new video files. Since the document is meant to introduce how to use the player, this operation can help you obtain your own online video address. You are unable to enter this page if you haven't activated VOD service.
+After the VOD service is activated, go to [VOD Video Management](http://console.cloud.tencent.com/vod/videolist) to upload new video files. Since the document is meant to introduce how to use the player, this operation can help you obtain your own online video address. You are unable to enter this page if you haven't activated VOD service.
 
 ### Step 3: Obtain an ID
 After the video is uploaded, you can find the file ID (the most basic information for the player to play videos) in the Video Management page. The player also includes Quality Statistics feature. You need to verify your APPID which can be queried in the Video Management page before using the player. In the figure below, the ID on the left is the video file ID, while the other one is your APPID.

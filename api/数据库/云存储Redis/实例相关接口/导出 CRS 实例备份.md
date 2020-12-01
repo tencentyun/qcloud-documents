@@ -7,6 +7,7 @@
 - 只有导出备份后，才能调用GetBackupDownloadUrl接口下载该备份;
 - 只能导出备份状态为2的备份，可以通过[GetRedisBackupList](/document/product/239/8403)接口获取备份状态。
 
+
 ## 2. 输入参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href='https://cloud.tencent.com/document/product/213/6976' title='公共请求参数'>公共请求参数</a>页面。其中，此接口的Action字段为ExportRedisBackup。
 

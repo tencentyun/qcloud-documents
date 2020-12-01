@@ -1,3 +1,4 @@
+
 数据订阅功能帮助客户实时获取云数据库 MariaDB 以及分布式数据库 TDSQL 中的增量数据，客户能够根据自身业务的需求，自由地对实时增量数据进行处理。
 
 ## 功能列表
@@ -5,7 +6,7 @@
 - 支持专有云云数据库 MariaDB 和分布式数据库 TDSQL 实例的数据订阅。
 
 ## 数据源类型
-cdb for mariadb、cdb for dcdb
+TencentDB for MariaDB、分布式数据库 TDSQL
 
 ## 消息格式
 数据订阅功能对实例的 Binlog（row 格式）进行解析，并将 Binlog 事件封装成 json 格式的消息上传至 Kafka 集群。消息类型包括 DML 事件、GTID 事件、XID 事件、QUERY 事件。其中 DML 事件包括 insert、update、delete 事件，表征对数据行的更改；GTID 事件表征事务的开始；XID 事件表征事务的提交；QUERY 事件表征 DDL 语句。
@@ -48,7 +49,7 @@ cdb for mariadb、cdb for dcdb
     "localport":8810,
     "begintime":1511419963,
     "gtid":"35be190b-d019-11e7-ab7a-a0423f32c225:469",
-    "event_index":"1",
+    "event_index":"1"
 }
 ```
 
@@ -74,7 +75,7 @@ cdb for mariadb、cdb for dcdb
 {
     "logtype":"mysqlbinlog",                          
     "eventtype":2,
-    "eventtypestr":"query",         //QUERY 事件对应 DDL语句
+    "eventtypestr":"query",         //QUERY 事件对应 DDL 语句
     "db":"testsummer",
     "table":"statustableforhb",
     "localip":"10.231.23.241",

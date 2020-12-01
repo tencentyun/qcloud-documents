@@ -1,4 +1,4 @@
-CKafka 兼容0.9系列和0.10系列的生产/消费接口，如果接入低版本（如0.8版本）的自建 Kafka，您需要对接口进行相应改造。本文将从生产端和消费端对比0.8版本 Kafka 和高版本 Kafka，并提供改造方式。
+CKafka 兼容0.9以上的生产/消费接口（目前可以直接购买的版本包括0.9、0.10、1.1.1、2.4.2版本），如果接入低版本（如0.8版本）的自建 Kafka，您需要对接口进行相应改造。本文将从生产端和消费端对比0.8版本 Kafka 和高版本 Kafka，并提供改造方式。
 
 ## Kafka Producer 
 ### 概述
@@ -6,7 +6,7 @@ Kafka 0.8.1版本中，Producer API 被重写。该客户端为官方推荐版�
 
 
 ### 新旧版本 Producer API 对比
-- 新版 Producer API  Demo
+- 新版 Producer API Demo
 ```
 Properties props = new Properties();
 props.put("bootstrap.servers", "localhost:4242");
@@ -61,9 +61,9 @@ Kafka 0.9.x 版本引入了 New Consumer，其融合了 Old Consumer（0.8版本
 
 - **Low Level Consumer API**（[参考 Demo](https://cwiki.apache.org/confluence/display/KAFKA/0.8.0+SimpleConsumer+Example)）
 如果使用者关心消息的offset并且希望进行重复消费或者跳读等功能、又或者希望指定某些partition进行消费时和确保更多消费语义时推荐使用Low Level Consumer API。但是使用者需要自己处理Offset以及Broker的异常情况。
-在使用Low Level Consumer时需要注意以下几点：
- - 自行跟踪维护Offset，控制消费进度
- - 查找Topic相应Partition的Leader，以及处理Partition变更情况
+在使用 Low Level Consumer 时需要注意以下几点：
+ - 自行跟踪维护 Offset，控制消费进度
+ - 查找 Topic 相应 Partition 的 Leader，以及处理 Partition 变更情况
 
  
 #### 0.9版本 New Consumer API
@@ -71,7 +71,7 @@ Kafka 0.9.x 版本引入了 New Consumer，其融合了 Old Consumer 两种 Cons
 
 **优势：**
 - Coordinator 引入
-当前版本的 High Level Consumer 存在 Herd Effect 和 Split Brain 的问题。将失败探测和 Rebalance 的逻辑放到一个高可用的中心 Coordinator，那么这两个问题即可解决。同时还可大大减少 ZooKeeper 的负载。
+当前版本的 High Level Consumer 存在 Herd Effect 和 Split Brain 的问题。将失败探测和 Rebalance 的逻辑放到一个高可用的中心 Coordinator，那么这两个问题即可解决。同时还可很大程度的减少 ZooKeeper 的负载。
 - 允许自己分配 Partition
 为了保持本地每个分区的一些状态不变，所以需要将 Partition 的映射也保持不变。另外一些场景是为了让 Consumer 与地域相关的 Broker 关联。
 - 允许自己管理 Offset
@@ -135,7 +135,7 @@ while (iterator.hasNext()) {
             " group " + props.get("group.id") + //
             ", partition " + msg.partition() + ", " + //
              new String(msg.message()));
-}}
+}
 ```
 
 可以看到，改造成 New Consumer 编写更加简单，最主要的变化是将 ZooKeeper 参数的输入替代成了 Kafka 地址输入。同时，New Consumer 也增加了与 Coodinator 交互的参数配置，一般情况下使用默认配置就足够。

@@ -59,7 +59,7 @@ POST
 | bj | 北京 |
 | gz | 广州 |
 | sh | 上海 |
-| hk | 香港 |
+| hk | 中国香港 |
 | ca | 北美 |
 
 一个典型的接口请求如下, Action=DescribeVodPlayUrls，表示获取视频详细信息。

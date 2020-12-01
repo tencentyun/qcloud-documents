@@ -1,3 +1,6 @@
+>!您目前查阅的是历史版本 SDK 文档，已不再更新和维护，我们建议您查阅新版 [SDK 文档](https://cloud.tencent.com/document/product/436/6474)。
+
+
 ## 开发准备
 
 ### 相关资源

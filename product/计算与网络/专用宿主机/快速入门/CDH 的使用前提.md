@@ -4,23 +4,22 @@
 
 若您已有一个腾讯云账号，您可以跳过本注册步骤进行下面的设置。
 
-1. 新用户请单击腾讯云官网顶部的【注册】按钮，进入注册页面：
-   ![](//mccdn.qcloud.com/static/img/b95541efd781757035eef96d73088513/image.png)
+1. 新用户请单击 [腾讯云官网](https://cloud.tencent.com/product) 顶部的【注册】按钮，进入注册页面：
+![](https://main.qcloudimg.com/raw/c25c8f7c56ccc9136bf216e4c27f02b1.png)
 2. 输入 QQ 帐号，并登录验证。验证后转到填写资料页面，填写资料并单击【提交】按钮：
-   ![](//mccdn.qcloud.com/static/img/f5ad4b5f92a32060ed1122114388226b/image.png)
+![](https://main.qcloudimg.com/raw/c4f748487fb3fd2720e98f52dbfd2954.png)
 3. 进入邮箱并单击确认链接即成功注册腾讯云账号。
-   ![](//mccdn.qcloud.com/static/img/0665bd87d4759d39dc9cb0bb048a9485/image.png)
+![](https://main.qcloudimg.com/raw/3c548af13d16827970d75596a6251e5f.png)
 
 请为您的账号设置一个较强的密码，并保管好所有登录信息。
 
 ## 进行资质认证
-
 当您注册成为腾讯云用户后，部分产品需要您通过资质认证方可使用（如按量计费类型云服务器、COS、CDN 等），通过资质认证后默认可以使用腾讯云所有服务（特定需要单独申请开通的除外）。
 
 1. 注册成功后，单击页面右上角进入【用户中心】：
-   ![](//mccdn.qcloud.com/static/img/61e2b15b057ef2508656e1972c422c1c/image.jpg)
+![](https://main.qcloudimg.com/raw/0166cc52e2101cb4577a379b0d47bf98.jpg)
 2. 单击【资质认证】，按照页面指引进行资质认证：
-   ![](//mccdn.qcloud.com/static/img/2e668e7e607ea863f1d2b4540397334d/image.png)
+![](https://main.qcloudimg.com/raw/7f25b62caa3b638632c5c6bcf0514c1a.png)
 
 ## 购买资源
 

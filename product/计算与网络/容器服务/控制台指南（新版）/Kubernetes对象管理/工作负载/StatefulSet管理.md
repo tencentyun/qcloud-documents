@@ -4,54 +4,53 @@ StatefulSet 主要用于管理有状态的应用，创建的 Pod 拥有根据规
 
 ## StatefulSet 控制台操作指引
 
-<span id="createStatefulSet"></span>
-### 创建 StatefulSet
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
-2. 在左侧导航栏中，单击【集群】，进入集群管理页面。
-3. 单击需要创建 StatefulSet 的集群 ID，进入待创建 StatefulSet 的集群管理页面。
-4. 选择 “工作负载” > “StatefulSet”，进入 StatefulSet 信息页面。如下图所示：
-![StatefulSet](https://main.qcloudimg.com/raw/7d6d1ddb1b1580f34519dc62d6bab3d8.png)
-5. 单击【新建】，进入 “新建Workload” 页面。如下图所示：
-![新建Workload](https://main.qcloudimg.com/raw/9c53cf0e24719da48ce4905603c4e4d3.png)
-6. 根据实际需求，设置 Deployment 参数。关键参数信息如下：
- - 工作负载名：自定义。
- - 命名空间：根据实际需求进行选择。
- - 类型：选择 “StatefulSet（有状态集的运行Pod）”。
- - 实例内容器：根据实际需求，为 StatefulSet 的一个 Pod 设置一个或多个不同的容器。
-    - 名称：自定义。
-    - 镜像：根据实际需求进行选择。
-    - 镜像版本：根据实际需求进行填写。
-    - CPU/内存限制：可根据 [Kubernetes 资源限制](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/) 进行设置 CPU 和内存的限制范围，提高业务的健壮性。
-    - 高级设置：可设置 “**工作目录**”，“**运行命令**”，“**运行参数**”，“**容器健康检查**”，“**特权级**”等参数。
- - 实例数量：根据实际需求选择调节方式，设置实例数量。
-7. 单击【创建Workload】，完成创建。
+### 创建 StatefulSet<span id="createStatefulSet"></span>
+1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
+2. 单击需要创建 StatefulSet 的集群 ID，进入待创建 StatefulSet 的集群管理页面。
+3. 选择【工作负载】>【StatefulSet】，进入 StatefulSet 管理页面。如下图所示：
+![](https://main.qcloudimg.com/raw/23db2d7cf222d19252f6a2fa88859e58.png)
+4. 单击【新建】，进入 “新建Workload” 页面。
+根据实际需求，设置 StatefulSet 参数。关键参数信息如下：
+ - **工作负载名**：输入自定义名称。
+ - **命名空间**：根据实际需求进行选择。
+ - **类型**：选择【StatefulSet（有状态集的运行Pod）】。
+ - **实例内容器**：根据实际需求，为 StatefulSet 的一个 Pod 设置一个或多个不同的容器。
+    - **名称**：自定义。
+    - **镜像**：根据实际需求进行选择。
+    - **镜像版本（Tag）**：根据实际需求进行填写。
+    - **镜像拉取策略**：提供以下3种策略，请按需选择。
+       若不设置镜像拉取策略，当镜像版本为空或 `latest` 时，使用 Always 策略，否则使用 IfNotPresent 策略。
+        - **Always**：总是从远程拉取该镜像。
+        - **IfNotPresent**：默认使用本地镜像，若本地无该镜像则远程拉取该镜像。
+        - **Never**：只使用本地镜像，若本地没有该镜像将报异常。
+    - **CPU/内存限制**：可根据 [Kubernetes 资源限制](https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/) 进行设置 CPU 和内存的限制范围，提高业务的健壮性。
+    - **高级设置**：可设置 “**工作目录**”、“**运行命令**”、“**运行参数**”、“**容器健康检查**”和“**特权级**”等参数。
+ - **实例数量**：根据实际需求选择调节方式，设置实例数量。
+5. 单击【创建Workload】，完成创建。
 
 ### 更新 StatefulSet
 
 #### 更新 YAML
+1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
+2. 单击需要更新 YAML 的集群 ID，进入待更新 YAML 的集群管理页面。
+3. 选择【工作负载】>【StatefulSet】，进入 StatefulSet 信息页面。如下图所示：
+![](https://main.qcloudimg.com/raw/f11e0c1f7cf788ec70a866b7b8201357.png)
+4. 在需要更新 YAML 的 StatefulSet 行中，选择【更多】>【编辑YAML】，进入更新 StatefulSet 页面。
+5. 在 “更新StatefulSet” 页面编辑 YAML，并单击【完成】即可更新 YAML。
 
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
-2. 在左侧导航栏中，单击【集群】，进入集群管理页面。
-3. 单击需要更新 YAML 的集群 ID，进入待更新 YAML 的集群管理页面。
-4. 选择 “工作负载” > “StatefulSet”，进入 StatefulSet 信息页面。如下图所示：
-![StatefulSet](https://main.qcloudimg.com/raw/7d6d1ddb1b1580f34519dc62d6bab3d8.png)
-5. 在需要更新 YAML 的 StatefulSet 行中，单击【编辑YAML】，进入更新 StatefulSet 页面。
-6. 在 “更新StatefulSet” 页面，编辑 YAML，单击【完成】，即可更新 YAML。
-
-#### 更新镜像
-
-1. 在集群管理页面，单击需要更新镜像的 StatefulSet 的集群 ID，进入待更新镜像的 StatefulSet 的集群管理页面。
-2. 在需要更新镜像的 StatefulSet 行中，单击【更新镜像】。如下图所示：
-![StatefulSet更新镜像](https://main.qcloudimg.com/raw/208eae0b4970c0f800e16722263d6a00.png)
-3. 在 “滚动更新镜像” 页面，根据实际需求修改更新方式，设置参数。如下图所示：
-![滚动更新镜像](https://main.qcloudimg.com/raw/2d67ba80dcfe3fff0e572b69aea59068.png)
-4. 单击【完成】，即可更新镜像。
+#### 更新 Pod 配置
+1. 在集群管理页面，单击需要更新 Pod 配置的 StatefulSet 的集群 ID，进入待更新 Pod 配置的 StatefulSet 的集群管理页面。
+2. 在需要更新 Pod 配置的 StatefulSet 行中，单击【更新Pod配置】。如下图所示：
+![](https://main.qcloudimg.com/raw/75d24d6a0bcf25c66ba88127d115e5e8.png)
+3. 在 “更新Pod配置” 页面，根据实际需求修改更新方式，设置参数。如下图所示：
+![](https://main.qcloudimg.com/raw/41b3c20d1ab095b3929f66f89631cf2f.png)
+4. 单击【完成】，即可更新 Pod 配置。
 
 ## Kubectl 操作 StatefulSet 指引
 
-<span id="YAMLSample"></span>
-### YAML 示例
+
+### YAML 示例<span id="YAMLSample"></span>
 
 ```Yaml
 apiVersion: v1
@@ -105,11 +104,11 @@ spec:
         requests:
           storage: 10Gi
 ```
-- kind：标识 StatefulSet 资源类型。
-- metadata：StatefulSet 的名称、Label等基本信息。
-- metadata.annotations：对 StatefulSet 的额外说明，可通过该参数设置腾讯云 TKE 的额外增强能力。
-- spec.template：StatefulSet 管理的 Pod 的详细模板配置。
-- spec.volumeClaimTemplates：提供创建 PVC&PV 的模板。
+- **kind**：标识 StatefulSet 资源类型。
+- **metadata**：StatefulSet 的名称、Label等基本信息。
+- **metadata.annotations**：对 StatefulSet 的额外说明，可通过该参数设置腾讯云 TKE 的额外增强能力。
+- **spec.template**：StatefulSet 管理的 Pod 的详细模板配置。
+- **spec.volumeClaimTemplates**：提供创建 PVC&PV 的模板。
 
 更多参数详情可查看 [Kubernetes StatefulSet 官方文档](https://kubernetes.io/docs/concepts/workloads/controllers/statefulset/)。
 
@@ -177,4 +176,5 @@ kubectl delete  StatefulSet [NAME] --cascade=false
 kubectl delete  StatefulSet [NAME]
 ```
 更多 StatefulSet 相关操作可查看 [Kubernetes官方指引](https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#scaling-a-statefulset)。
+
 

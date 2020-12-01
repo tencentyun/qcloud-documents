@@ -1,5 +1,5 @@
-腾讯云人脸核身针对 iOS 端提供 SDK，开发人员可以将相应的 SDK 添加到工程中，直接调用 SDK 中提供的 OCR 识别、活体检测和1：1人脸比对服务。
-![](https://main.qcloudimg.com/raw/5afc0c1af3405bf9aa78a4905b1c0ea5.png)
+腾讯云人脸核身针对 iOS 端提供 SDK，开发人员可以将相应的 SDK 添加到工程中，直接调用 SDK 中提供的 OCR 识别、活体检测和1:1人脸比对服务。
+![](https://main.qcloudimg.com/raw/ba6e243fdce04a0a9aea85f26516a3e6.png)
 
 ## 业务流程
 ![](https://main.qcloudimg.com/raw/61e2fdb830756b993210e13ffabebc50.png)
@@ -23,7 +23,7 @@ f**ace_shape.ref、ULSGPUAssets.bin、authsdk.bundle、 ULSFaceTrackerAssets.bun
 ## 接入流程
 ### 1. 添加 framework 
 1.1 将 AuthSDK.framework 拷贝到项目根目录 Frameworks 中（目录可自定义）
-1.2 在 TARGETS-Build Phases-Link Binary with Libraries，单击“+”，弹出添加列表后，单击“Add Other…“
+1.2 在 TARGETS-Build Phases-Link Binary with Libraries，单击“+”，弹出添加列表后，单击“Add Other…”
 1.3 在 Framework 文件夹中，添加 AuthSDK.framework 到工程中。同理，添加 SDK 中的所有文件添加到工程中。
 ![](https://main.qcloudimg.com/raw/4b84912737da80a6c6cf10e100280704.png)
 ![](https://main.qcloudimg.com/raw/c35ba913d3c4ba1d4d2fdfd808a4c32a/20190604043849.png)

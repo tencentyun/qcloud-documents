@@ -11,34 +11,23 @@ Dubbo 官网 Demo：
 <dubbo:registry address="multicast://224.5.6.7:1234"/>
 ```
 
-TSF Demo（**注册中心地址使用注册中心IP和端口替换**）：
+TSF Demo（**注册中心地址使用注册中心 IP 和端口替换**）：
 ```xml
 <dubbo:registry address="tsfconsul://注册中心地址:端口"/>
 ```
-> ?协议名为 tsfconsul。
+>?协议名为 tsfconsul。"注册中心地址:端口" 可以填写 127.0.0.1:8500。在TSF控制台部署时，SDK 会替换为正确的地址。
 
 #### 3. 添加依赖
-根据业务使用的对应的 TSF Dubbo 版本 SDK 如下： 
-- TSF Alibaba Dubbo 版本的 SDK： 
+根据业务使用的对应的 TSF Dubbo 版本 SDK 如下：  
 ```xml
 <dependency>
   <groupId>com.tencent.tsf</groupId>
-  <artifactId>tsf-dubbo</artifactId>
+  <artifactId>tsf-dubbo-registry</artifactId>
   <!-- 修改为对应的版本号 -->
-  <version>1.1.6-alibaba-RELEASE</version>
+  <version>1.1.7-alibaba-RELEASE</version>
 </dependency>
 ```
-
-- TSF Apache Dubbo 版本的 SDK：
-```xml
-<dependency>
-  <groupId>com.tencent.tsf</groupId>
-  <artifactId>tsf-dubbo</artifactId>
-  <!-- 修改为对应的版本号 -->
-  <version>1.1.6-apache-RELEASE</version>
-</dependency>
-```
-> ?当当网的 Dubbox 的部分功能可能不支持。
+> ?目前只支持 Alibaba Dubbo。 
 
 #### 4. 打包 FATJAR
 和 Spring Boot 结合的时候，您可以通过 **spring-boot-maven-plugin** 构建一个包含所有依赖的 jar 包（FatJar），执行命令`mvn clean package`。
@@ -46,7 +35,7 @@ TSF Demo（**注册中心地址使用注册中心IP和端口替换**）：
 
 ## Dubbo 兼容说明
 - TSF 提供服务注册中心，Dubbo 应用通过依赖 jar 包的方式使用。
-- TSF 支持 Dubbo 应用的 Dubbo 服务注册、Dubbo 服务调用、调用链、监控。
+- TSF 支持 Dubbo 应用的 Dubbo 服务注册、Dubbo 服务调用。
 - Dubbo 应用的其他能力（如 filter 机制），可以继续使用。
 - TSF 平台提供的服务限流、鉴权、路由功能目前只支持基于 Spring Cloud 和 Service Mesh 框架开发的应用。
 
@@ -58,10 +47,4 @@ TSF Demo（**注册中心地址使用注册中心IP和端口替换**）：
   <artifactId>consul-api</artifactId>
   <version>1.4.2</version>
 </dependency>
-  
-<dependency>
-  <groupId>io.zipkin.brave</groupId>
-  <artifactId>brave</artifactId>
-  <version>5.4.3</version>
-</dependency>s
 ```

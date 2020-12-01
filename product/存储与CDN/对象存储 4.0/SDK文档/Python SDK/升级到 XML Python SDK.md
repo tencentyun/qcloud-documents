@@ -1,4 +1,4 @@
-如果您细心对比过 Python SDK V4 和 XML Python SDK 的文档，您会发现并不是一个简单的增量更新。XML Python SDK 在架构、可用性和安全性上有了非常大的提升，而且在易用性、健壮性和传输性能上也做了非常大的改进。如果您想要升级到 XML Python SDK，请参考下面的指引，完成 Python SDK 的升级工作。
+如果您细心对比过 JSON Python SDK 和 XML Python SDK 的文档，您会发现并不是一个简单的增量更新。XML Python SDK 在架构、可用性和安全性上有了非常大的提升，而且在易用性、健壮性和传输性能上也做了非常大的改进。如果您想要升级到 XML Python SDK，请参考下面的指引，完成 Python SDK 的升级工作。
 
 ## 功能对比
 
@@ -19,9 +19,9 @@
 
 通过 pip 命令您可以方便获取到最新的 XML Python SDK：
 ```
- pip uninstall qcloud_cos_v4
+pip uninstall qcloud_cos_v4
 
- pip install -U cos-python-sdk-v5
+pip install -U cos-python-sdk-v5
 ```
 
 此外，您也可以参考 Python SDK [快速入门](https://cloud.tencent.com/document/product/436/12269) 文档选择合适您的安装方式。
@@ -33,7 +33,7 @@ XML Python SDK 新增 CosConfig 对象来管理您访问 COS 的配置，您可�
 
 JSON Python SDK 的初始化方式如下：
 
-```
+```python
 secret_id = u'COS_SECRETID'      # 替换为用户的 secretId
 secret_key = u'COS_SECRETKEY'      # 替换为用户的 secretKey
 region = 'sh'                # 替换为用户的 Region
@@ -43,7 +43,7 @@ cos_client = CosClient(appid, secret_id, secret_key, region=region)
 
 XML Python SDK 的初始化方式如下：
 
-```
+```python
 # appid 已在配置中移除,请在参数 Bucket 中带上 appid。Bucket 由 bucketname-appid 组成
 # 1. 设置用户配置, 包括 secretId，secretKey 以及 Region
 # -*- coding=utf-8
@@ -75,7 +75,7 @@ XML Python SDK 存储桶名称由两部分组成：用户自定义字符串 和 
 >?APPID 是腾讯云账户的账户标识之一，用于关联云资源。在用户成功申请腾讯云账户后，系统自动为用户分配一个 APPID。可登录腾讯云控制台后，在 [账号信息](https://console.cloud.tencent.com/developer) 查看 APPID。
 
 设置 Bucket ，请参考以下示例代码：
-```
+```python
 bucket = "examplebucket-1250000000"
 file_name = "test.txt"
 local_path = 'local.txt'
@@ -99,8 +99,8 @@ XML Python SDK 的存储桶可用区域简称发生了变化，在初始化时�
 | 广州（华南）   | ap-guangzhou | gz |
 | 成都（西南）   | ap-chengdu   | cd |
 | 重庆       | ap-chongqing | 无 |
-| 新加坡      | ap-singapore | sgp |
 | 香港       | ap-hongkong  | hk |
+| 新加坡      | ap-singapore | sgp |
 | 多伦多      | na-toronto   | ca |
 | 法兰克福     | eu-frankfurt | ger |
 | 孟买       | ap-mumbai    | 无 |
@@ -115,7 +115,7 @@ XML Python SDK 的存储桶可用区域简称发生了变化，在初始化时�
 升级到 XML Python SDK 之后，一些操作的 API 发生了变化，请您根据实际需求进行相应的更改。同时我们做了封装让 SDK 更加易用，具体请参考我们的示例和 [快速入门](https://cloud.tencent.com/document/product/436/12269) 文档。
 API 变化有以下四点：
 
-**1）没有单独的目录接口**
+**（1）没有单独的目录接口**
 
 在 XML SDK 中，不再提供单独的目录接口。对象存储中本身是没有文件夹和目录的概念的，对象存储不会因为上传对象`project/a.txt` 而创建一个 project 文件夹。为了满足用户使用习惯，对象存储在控制台、COS browser 等图形化工具中模拟了「文件夹」或「目录」的展示方式，具体实现是通过创建一个键值为 `project/`，内容为空的对象，在展示方式上模拟了传统文件夹。
 
@@ -125,13 +125,13 @@ API 变化有以下四点：
 
 
 
-**2）高级上传接口**
+**（2）高级上传接口**
 
 在 XML SDK 中，我们封装了高级上传接口，该接口支持根据文件大小智能选择简单上传还是分块上传，分块上传具备断点续传功能，同时您还可以设置线程数量来控制您的上传速度。
 
 使用高级上传接口断点续传示例代码如下：
 
-```
+```python
 response = client.upload_file(
     Bucket='examplebucket-1250000000',
     LocalFilePath='local.txt',
@@ -141,11 +141,11 @@ response = client.upload_file(
 )
 ```
 
-**3）签名算法不同**
+**（3）签名算法不同**
 
 通常您不需要手动计算签名，但如果您将 SDK 的签名返回给前端使用，请注意我们的签名算法发生了改变。签名不再区分单次和多次签名，而是通过设置签名的有效期来保证安全性。具体的算法请参考 [XML 请求签名](https://cloud.tencent.com/document/product/436/7778) 文档。
 
-**4）新增 API**
+**（4）新增 API**
 
 XML Python SDK 新增 API，您可根据需求进行调用。包括：
 
@@ -154,3 +154,4 @@ XML Python SDK 新增 API，您可根据需求进行调用。包括：
 * 存储桶生命周期的操作，如 put_bucket_lifecycle、get_bucket_lifecycle 等。
 
 阅读更多请参考我们的 Python SDK [快速入门](https://cloud.tencent.com/document/product/436/12269) 文档。
+

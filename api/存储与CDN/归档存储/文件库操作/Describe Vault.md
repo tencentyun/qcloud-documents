@@ -37,8 +37,8 @@ Authorization: Auth
 
 | 名称                | 描述                                       | 类型     |
 | ----------------- | ---------------------------------------- | ------ |
-| CreationDate      | 创建文件库的 UTC 日期， ISO 8601 日期格式， 例如，`2017-03-20T17:03:43.221Z` 。 | String |
-| LastInventoryDate | 完成上次文件库清单盘点的 UTC 日期，ISO 8601 日期格式， 例如，`2017-03-20T17:03:43.221Z` 。 | String |
+| CreationDate      | 创建文件库的 UTC 日期， ISO 8601 日期格式， 例如`2017-03-20T17:03:43.221Z` 。 | String |
+| LastInventoryDate | 完成上次文件库清单盘点的 UTC 日期，ISO 8601 日期格式， 例如`2017-03-20T17:03:43.221Z` 。 | String |
 | NumberOfArchives  | 上次文件库清单盘点时，文件库中的档案数。尚未运行，返回Null          | Number |
 | SizeInBytes       | 截止到上次编制清单日期，文件库中的档案总大小，单位：B。尚未运行，返回Null  | Number |
 | VaultQCS          | 文件库的资源名称 (QCS)                           | String |
@@ -54,3 +54,4 @@ Authorization: Auth
 	"VaultName": "String"
 }
 ```
+

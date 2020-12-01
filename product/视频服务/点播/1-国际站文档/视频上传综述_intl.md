@@ -6,7 +6,7 @@ Tencent Cloud VOD service provides various uploading methods for different scena
 
 ## Console Upload
 
-Console upload means that App admin logs to the Tencent Cloud VOD console and uploads local videos into Tencent Cloud VOD system through web pages. You can enter the console upload page from [here](https://console.cloud.tencent.com/video/webupload).
+Console upload means that App admin logs to the Tencent Cloud VOD console and uploads local videos into Tencent Cloud VOD system through web pages. You can enter the console upload page from [here](https://console.cloud.tencent.com/vod/webupload).
 
 ### Steps
 

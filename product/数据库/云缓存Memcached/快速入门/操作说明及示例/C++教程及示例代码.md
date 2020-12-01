@@ -1,12 +1,10 @@
-## 1 环境及依赖
 
-下载libmemcached [[libmemcached-1.0.18.tar.gz](https://launchpad.net/libmemcached/1.0/1.0.18/+download/libmemcached-1.0.18.tar.gz)].
+## 环境及依赖
+[下载 libmemcached](https://launchpad.net/libmemcached/1.0/1.0.18/+download/libmemcached-1.0.18.tar.gz)。
 
-安装libmemcached客户端.
+安装 libmemcached 客户端。
 
-将libmemcached.so文件所在目录加入到变量LD_LIBRARY_PATH中, 不同系统路径可能不一样, 请查看自己的安装目录并替换.
-
-#安装
+将 libmemcached.so 文件所在目录加入到变量 LD_LIBRARY_PATH 中，不同系统路径可能不一样，请查看自己的安装目录并替换。
 
 ```
 tar -xvf libmemcached-1.0.18.tar.gz 
@@ -17,12 +15,11 @@ sudo make install
 #配置path
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 ```
-## 2 使用步骤
 
-编写测试代码 memcachedDemo.cpp.
-
+## 使用步骤
+编写测试代码 memcachedDemo.cpp。
 ```
-编写测试代码 memcachedDemo.cpp.
+编写测试代码 memcachedDemo.cpp
 #include<iostream>
 #include <string.h>
 #include <libmemcached/memcached.h>

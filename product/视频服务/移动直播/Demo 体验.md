@@ -1,12 +1,15 @@
 ## 小直播 App
-小直播 App 是一套开源的完整的在线直播解决方案，它基于腾讯云直播服务（LVB）、云通信（IM）和对象存储服务（COS）构建，并使用云服务器（CVM）提供简单的后台服务，可以实现登录、注册、开播、房间列表、连麦互动、文字互动和弹幕消息等功能。
+小直播 App 是一套开源的完整的在线直播解决方案，它基于云直播服务（LVB）、即时通信（IM）和对象存储服务（COS）构建，并使用云服务器（CVM）提供简单的后台服务，可以实现登录、注册、开播、房间列表、连麦互动、文字互动和弹幕消息等功能。
 
 | 平台 | Demo体验 | 源码地址 |
 |:--------:|:--------:|:--------:|
-| iOS | [AppStore](https://itunes.apple.com/cn/app/id1132521667?mt=8) | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/XiaoZhiBo) |
+| iOS | [AppStore](https://itunes.apple.com/cn/app/id1132521667?mt=8) | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/XiaoZhiBoApp) |
 | Android | [apk 安装包](http://dldir1.qq.com/hudongzhibo/xiaozhibo/xiaozhibo.apk) | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/XiaoZhiBo) |
 
-![](https://main.qcloudimg.com/raw/354d61632bd71d6aec7a833b3afb69bc.jpg)
+![](https://main.qcloudimg.com/raw/f5b1be1227296e4f15c13a058dcf994c.png)
+
+>!  下载安装“小直播”App，注册一个小直播账号即可开始体验。
+>注册时需注意用户名可填写小写字母、数字和下划线，账号密码必须由8 - 16个字符组成。
 
 
 ## 精简版 Demo
@@ -17,7 +20,7 @@
 | iOS | [AppStore](https://itunes.apple.com/cn/app/id1152295397?mt=8) | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo) |
 | Android | [apk 安装包](http://dldir1.qq.com/hudongzhibo/xiaozhibo/rtmpdemo.apk) | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo) |
 
-![](https://main.qcloudimg.com/raw/ddf1ce540e29f5a43091d9274672e5f1.jpg)
+![](https://main.qcloudimg.com/raw/08919b6bb1992f6260e4e43c226f7acd.png)
 
 
 ## 小程序 Demo
@@ -25,8 +28,7 @@
 
 | 平台 | Demo 体验 | 源码地址 |
 |:--------:|:--------:|:--------:|
-| 微信小程序 | “腾讯视频云” | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini) |
+| 微信小程序 | 腾讯视频云 | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini) |
 
-![](https://main.qcloudimg.com/raw/913bc2c34495e04dcd3d97eff069df53.jpg)
-
+![](https://main.qcloudimg.com/raw/dd47e686390657e568459ebdefc17014.png)
 

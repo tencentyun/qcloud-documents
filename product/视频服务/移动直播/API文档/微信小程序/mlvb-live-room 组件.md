@@ -1,24 +1,25 @@
 ## 属性定义
 
-**&lt;mlvb-live-room&gt;** 组件包含如下属性：
+[**&lt;mlvb-live-room&gt;**](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini/pages/components/mlvb-live-room) 组件包含如下属性：
 
 | 属性      | 类型    | 值           | 说明       |
 |:---------:|:---------:|:---------:|--------------|
 | template  | String  | 'float'  | 必要，标识组件使用的界面模版。 |
-| roomID    | String  | 您来指定               | 可选，房间号（role = audience 时，roomID 不能为空）。    |
-| roomName  | String  | 您来指定            | 可选，房间名。  |
+| roomID    | String  | 自定义               | 可选，房间号（role = audience 时，roomID 不能为空）。    |
+| roomName  | String  | 自定义            | 可选，房间名。  |
 | role         | String  | ‘anchor’，'audience' | 必要，anchor 代表主播，audience 代表观众。 |
 | pureaudio | Boolean | true，false             | 可选，默认 false，是否开启纯音频推流。               |
 | beauty    | Number  | 0 - 5                     | 可选，默认5，美颜级别0 - 5。  |
 | muted     | Boolean | true，false             | 可选，默认 false，是否静音。    |
 | debug     | Boolean | true，false             | 可选，默认 false，是否打印推流 debug 信息。   |
-| bindonRoomEvent     | function |   -           | 必要，监听 mlvb-live-room 组件返回的事件。   |
+| bindRoomEvent     | function |   -           | 必要，监听 mlvb-live-room 组件返回的事件。   |
 
 
 
 ## 操作接口
 
 **&lt;mlvb-live-room&gt;** 组件包含如下操作接口，您需要先通过 selectComponent 获取 &lt;mlvb-live-room&gt; 标签的引用，之后就可以进行相应的操作。
+>! 后台接口限制并发为每秒100次请求，若您有高并发请求请提前 [联系我们](https://cloud.tencent.com/act/event/connect-service) 处理，避免影响服务调用。
 
 | 函数名                                          | 说明         |
 |--------------------------------------------|--------------|
@@ -62,7 +63,7 @@ liveroom.pause();
 	beauty="{{beauty}}"
 	muted="{{muted}}"
 	debug="{{debug}}"
-	bindonRoomEvent="onRoomEvent">
+	bindRoomEvent="onRoomEvent">
 </mlvb-live-room>
 
 

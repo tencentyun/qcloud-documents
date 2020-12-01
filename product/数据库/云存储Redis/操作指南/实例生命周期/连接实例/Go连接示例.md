@@ -1,5 +1,5 @@
-﻿**运行前必备**：
 
+**运行前必备**：
 下载客户端 [Go-redis](https://github.com/alphazero/Go-Redis)。
 
 **示例代码**：
@@ -22,7 +22,7 @@ func main() {
    const port=6379
    const instanceId="84ffd722-b506-4934-9025-645bb2a0997b"
    const pass="1234567q"
-   // 连接Redis服务器 192.168.0.195:6379 并授权 instanceId 密码
+   // 连接 Redis 服务器 192.168.0.195:6379 并授权 instanceId 密码
    spec := redis.DefaultSpec().Host(host).Port(port).Password(instanceId+":"+pass);
    client, err := redis.NewSynchClientWithSpec(spec)
 
@@ -63,4 +63,4 @@ func main() {
 ```
 
 **运行结果**：
-![](//qzonestyle.gtimg.cn/qzone/vas/opensns/res/img/Go-1.png)
+![](https://main.qcloudimg.com/raw/013f96ad8b05ed5c1eceb4638c24f3b1.png)

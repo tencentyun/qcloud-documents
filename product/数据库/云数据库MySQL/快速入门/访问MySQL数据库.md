@@ -1,92 +1,91 @@
-连接到 MySQL 数据库的方式有两种：
-- **内网访问**：使用在同一个可用区的 CVM 来访问自动分配给数据库的内网地址。这种方式使用内网高速网络，延迟低。（注意：此台 CVM 需要与数据库同一地域下的基础网络中，或者同一个 VPC 中，关于 VPC 的更多信息请查看<a href="https://cloud.tencent.com/document/product/215/20046" target="_blank"> VPC 概述</a>。）
-- **外网访问**：借助外网账号，通过腾讯云控制台中的登录入口，登录到 phpMyAdmin 界面对数据库进行操作。
+连接云数据库 MySQL 的方式如下两种：
 
-> !
-- 外网访问需要开启数据库实例的外网地址，从而使您的数据库服务暴露在公网上，**此操作可能导致数据库被入侵或攻击**。建议您使用内网访问的方式来登录数据库。 
--  TencentDB 外网访问仅用于开发或辅助管理数据库，**强烈不建议**正式业务访问使用，因不可控因素会导致外网访问不可用（诸如但不限于 DDOS 攻击、突发大流量访问等）。
+- **内网连接**：使用云服务器 CVM 直接连接云数据库的内网地址，这种连接方式使用内网高速网络，延迟低。
+ - 云服务器和数据库须是同一账号，且同一个[ VPC](https://cloud.tencent.com/document/product/215/20046) 内（保障同一个地域），或同在基础网络内。
+ - 内网地址系统默认提供，可在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例列表或实例详情页查看。
+>?对于不同的 VPC 下（包括同账号/不同账号，同地域/不同地域）的云服务器和数据库，内网连接方式请参见  [云联网](https://cloud.tencent.com/document/product/877)。
 
-## 内网访问
-1. 登录到与此数据库实例属于同一个可用区的网络可达的 CVM 主机。
-关于登录 CVM 主机请查看 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank"> Windows CVM 入门</a> 或 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">Linux CVM 入门 </a>。网络可达是指此 CVM 主机与 MySQL 数据库实例都处于基础网络之中，或者处于同一个 VPC 中。
-2. 请根据 CVM 的操作系统选择推荐的连接方式。
+- **外网连接**：无法通过内网连接时，可通过外网地址连接云数据库 MySQL。外网地址需 [手动开启](#waiwang)，可在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页查看，不需要时也可关闭。
+ - 仅广州、上海、北京、成都、重庆、中国香港、新加坡、首尔、东京、硅谷的实例支持开启外网连接地址。
+ - 开启外网地址，会使您的数据库服务暴露在公网上，可能导致数据库被入侵或攻击。建议您使用内网连接数据库。 
+ - 云数据库外网连接适用于开发或辅助管理数据库，不建议正式业务连接使用，因为可能存在不可控因素会导致外网连接不可用（例如 DDOS 攻击、突发大流量访问等）。
 
-### 从 Windows 系统登录
-1. 下载一个标准的 SQL 客户端。此步骤中我们推荐您下载 MySQL Workbench，这是 Windows 系统下较常见的 SQL 客户端。在 CVM 中打开 https://dev.mysql.com/downloads/workbench/ ，根据您的系统来下载适配版本的安装程序。
-![](//mc.qcloudimg.com/static/img/4d7e6c56f02aad86f232e5cdd8c0bb17/image.png)
-2. 界面上将提示【Login】、【Sign Up】和【No, thanks, just start my download.】， 请选择【No thanks, just start my download.】来快速下载。
-![](//mc.qcloudimg.com/static/img/7169ce063b1b41c58c48089bc2a61441/image.png)
-3. 在此台 CVM 上安装 MySQL Workbench。**前置条件：**此电脑上需要安装 Microsoft .NET Framework 4.5 和 Visual C++ Redistributable for Visual Studio 2015。 您可以单击 MySQL Workbench 安装向导中的【Download Prerequisites】来安装这两个软件，然后安装 MySQL Workbench。
-    ![](//mc.qcloudimg.com/static/img/bcf08cec72e8ea9c490cb30ae79f0da4/image.png)
-4. 打开 MySQL Workbench，选择【Database】>【Connect to Database】，输入 MySQL 数据库实例的内网地址和用户名，密码，单击【OK】进行登录。
-  - Hostname：输入内网地址。在控制台中的 MySQL 数据库实例详情页可以查看到目标数据库实例的内网地址，此处以 10.66.238.24 为例。
- - Port：3306，保持为默认端口即可。
- - Username：默认为 root。
- - Password：输入您在初始化数据库实例时设置的密码。
-    ![](//mc.qcloudimg.com/static/img/feb4b95b1038532330e876a605016b87/image.png)
-5. 登录成功的界面如图所示，在此页面上您可以看到 MySQL 数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
-    ![](//mc.qcloudimg.com/static/img/abd8efce579343d25f534143c19c132e/image.png)	
 
-### 从 Linux 系统登录 
-1. 以 CentOS 7.2 64 位系统的 CVM 为例，利用 CentOS 自带的包管理软件 Yum 去腾讯云的镜像源下载安装 MySQL 客户端。
-	相关命令为：
+下面示例分别介绍如何从 Windows 云服务器或 Linux 云服务器登录，以内外网两种不同的方式连接云数据库 MySQL。
+## 从 Windows 云服务器访问
+1. 登录到 Windows 云服务器，请参见 <a href="https://cloud.tencent.com/document/product/213/2764" target="_blank">快速配置 Windows 云服务器</a>。
+2. 下载一个标准的 SQL 客户端。
+>?推荐您下载 MySQL Workbench，并根据您的系统来下载适配版本的安装程序，下载地址请参见 https://dev.mysql.com/downloads/workbench/。
+>
+![](https://main.qcloudimg.com/raw/851ab46468c554097a0cf742017157b7.png)
+3. 界面将提示【Login】、【Sign Up】和【No, thanks, just start my download.】， 选择【No thanks, just start my download.】来快速下载。
+![](https://main.qcloudimg.com/raw/47b195fb37ff584f21038ee54342d362.png)
+4. 在此台云服务器上安装 MySQL Workbench。
+>?
+>- 此电脑上需要安装 Microsoft .NET Framework 4.5 和 Visual C++ Redistributable for Visual Studio 2015。
+>- 您可以单击 MySQL Workbench 安装向导中的【Download Prerequisites】，跳转至对应页面下载并安装这两个软件，然后安装 MySQL Workbench。
+>
+![](https://main.qcloudimg.com/raw/1af292f989f03f3e02e1200b77cb70c1.png)
+5. 打开 MySQL Workbench，选择【Database】>【Connect to Database】，输入 MySQL 数据库实例的内网（或外网）地址和用户名、密码，单击【OK】进行登录。
+ - Hostname：输入内网（或外网）地址。在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页可查看内网（或外网）地址和端口号。若为外网地址，请确认是否已开启，请参见 [开启外网地址](#waiwang)。
+ - Port：内网（或外网）对应端口。
+ - Username：默认为 root，外网连接时建议您单独 [创建帐号](https://cloud.tencent.com/document/product/236/35794) 便于连接控制管理。
+ - Password：Username 对应的密码，如忘记密码可参见 [重置密码](https://cloud.tencent.com/document/product/236/10305) 进行修改。
+![](https://main.qcloudimg.com/raw/946b50fb05de11d7c68c2262ac4fe933.png)
+6. 登录成功的页面如图 所示，在此页面上您可以看到 MySQL 数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
+![](https://main.qcloudimg.com/raw/33f081e99c384258bbc5ed3683ed4d7d.png)
+
+## 从 Linux 云服务器访问
+1. 登录到 Linux 云服务器，请参见 <a href="https://cloud.tencent.com/document/product/213/2936" target="_blank">快速配置 Linux 云服务器</a>。
+2. 以 CentOS 7.2 64 位系统的云服务器为例，执行如下命令安装 MySQL 客户端：
 ```
-	yum install mysql
+yum install mysql
 ```
-	图示如下：
-	![](//mc.qcloudimg.com/static/img/eee76fa95379b8a25fc076b66b4ca28c/image.png)
-2. 使用 MySQL 命令行工具登录到 MySQL。相关命令为：
+提示`Complete!`说明 MySQL 客户端安装完成。
+![](https://main.qcloudimg.com/raw/16c77e28c40ae9be9a182b1c61843ecd.png)
+3. 根据不同连接方式，选择相应的操作：
+ - **内网连接时：**
+    1. 执行如下命令登录到 MySQL 数据库实例。
 ```
 mysql -h hostname -u username -p
 ```
->?
->- 请将 hostname 替换为目标 MySQL 数据库实例的内网 IP 地址，将 username 替换为默认的用户名 root，并在提示 Enter password：后输出 root 账户对应的密码。
->- 本例中 hostname 为10.66.238.24。
->
-![](//mc.qcloudimg.com/static/img/d1da9f59f0fff77ad2a8ff18e0b11e7c/image.png)
-3. 在 MySQL > 提示符下可以发送 SQL 语句到要执行的 MySQL 服务器，具体命令行请参考 [此网站](https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html)。
-下图中以`show databases;`为例：
-![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
-
-## 外网访问
-**安全提示：**外网访问需要开启数据库实例的外网地址，从而使您的数据库服务暴露在公网上，此操作可能导致数据库被入侵或攻击。
-请根据外网中主机的操作系统选择对应的登录方式。
-### 从 Windows 系统登录
-1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb)。
-2. 在左侧导航选择【实例列表】页签。
-3. 选择状态为运行中的目标实例，单击【登录】。
-![](https://main.qcloudimg.com/raw/3a642dee2f7402a37f6f123438df50b6.png)
-4. 在数据管理控制台的登录界面，帐号输入 root，密码为之前在初始化选项中配置的 root 帐户的密码，单击【登录】。
-![](//mc.qcloudimg.com/static/img/b5538d93dc27d99af6fed9f0e5c9b798/image.png)
-5. 在数据管理页面可以查看实例的状态和基本信息，单击【前往PMA】访问数据库。
-![](https://main.qcloudimg.com/raw/fa71f75c683647af62bb8f9e2820282e.png)
-6. 您现在已经通过 phpMyAdmin 成功连接到 MySQL 数据库，在此页面上您可以看到 MySQL 数据库的各种模式和对象，您可以开始创建表，进行数据插入和查询等操作。
-![](https://main.qcloudimg.com/raw/2a502f89d6a3e05bc16487802c4da042.png)
-
-### 从 Linux 系统登录
-1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb)。
-2. 在左侧导航选择【实例列表】页签。
-3. 单击实例名或操作列的【管理】，进入实例详情页。
-![](https://main.qcloudimg.com/raw/9073997440e22307d05fb4d9a50da5e3.png)
-4. 在实例详情页签下的【基本信息】中，单击外网地址后的【开启】，单击【确定】。
-![](https://main.qcloudimg.com/raw/755ef55ad549d73230948def2c0ba828.png)
-5. 完成后会显示开通后的外网地址，随后的步骤里会用到此地址。
-6. 以 CentOS 7.2 64 位系统为例，利用 CentOS 自带的包管理软件 Yum 去下载安装 MySQL 客户端。
-	相关命令为：
-```
-	yum install mysql
-```
-7. 使用 MySQL 命令行工具登录到 MySQL。
-相关命令为：
+      - hostname：替换为目标 MySQL 数据库实例的内网地址，在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页可查看内网地址。
+		- username：替换为默认的用户名 root。
+    2. 在提示`Enter password：`后输入 MySQL 实例的 root 帐号对应的密码，如忘记密码可参见 [重置密码](https://cloud.tencent.com/document/product/236/10305) 进行修改。
+    本例中提示`MySQL [(none)]>`说明成功登录到 MySQL。
+![](https://main.qcloudimg.com/raw/83b8a95cf4b99919b5899510691289b4.png)
+   - **外网连接时：**
+    1. 执行如下命令登录到 MySQL 数据库实例。
 ```
 mysql -h hostname -P port -u username -p
 ```
->?
->- 请将 hostname 替换为目标 MySQL 数据库实例的外网 IP 地址；将 port 替换为外网端口号；将 username 替换为外网访问用户名，例如 cdb_outerroot；并在提示 **Enter password：**后输入 cdb_outerroot 帐户对应的密码。
->- 外网访问用户名用于外网访问，建议用户单独创建便于访问控制管理。
->- 本例中 hostname 为 59281c4e4b511.gz.cdb.myqcloud.com，外网端口号为 15311。
->
-![](//mc.qcloudimg.com/static/img/48df6390ccf7669d04403cd84b8b6fad/image.png)
-8. 在 MySQL > 提示符下可以发送 SQL 语句到要执行的 MySQL 服务器，具体命令行请参考 [此网站](https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html)。
+      - hostname：替换为目标 MySQL 数据库实例的外网地址，在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例详情页可查看外网地址和端口号。若外网地址未开启，请参见 [开启外网地址](#waiwang) 开启。
+      - port：替换为外网端口号。
+      - username：替换为外网连接用户名，用于外网连接，建议您单独 [创建帐号](https://cloud.tencent.com/document/product/236/35794) 便于连接控制管理。
+    2. 在提示`Enter password：`后输入外网连接用户名对应的密码，如忘记密码可参见 [重置密码](https://cloud.tencent.com/document/product/236/10305) 进行修改。
+    本例中 hostname 为 59281c4exxx.myqcloud.com，外网端口号为15311。
+![](https://main.qcloudimg.com/raw/16839344da3a588be93d814de224277a.png)
+4. 在`MySQL \[(none)]>`提示符下可以发送 SQL 语句到要执行的 MySQL 服务器，具体命令行请参见 [mysql Client Commands](https://dev.mysql.com/doc/refman/5.7/en/mysql-commands.html)。
 下图中以`show databases;`为例：
 ![](//mc.qcloudimg.com/static/img/76b4346a84f7388ae263dc6c09220fc0/image.png)
+
+
+<span id = "waiwang"></span>
+## 附录1：开启外网连接地址
+1. 登录 [MySQL 控制台](https://console.cloud.tencent.com/cdb/ )，在实例列表中，单击实例名或“操作”列的【管理】，进入实例详情页面。
+2. 在实例详情页下的“外网地址”处，单击【开启】。
+>?若有外网地址和外网端口信息，说明已开启外网地址。
+>
+![](https://main.qcloudimg.com/raw/9253a96d19c982a909e3e73e19f5d20c.png)
+3. 单击【确定】后，外网开通进入处理状态。
+4. 开启成功后，即可在基本信息中查看到外网地址。
+>?通过开关可以关闭外网连接权限，重新开启外网，域名对应的外网地址不变。
+
+## 附录2：网络连通性验证方法
+建议您使用 telnet 命令来快速排查和定位网络连通性问题，请参见 [telnet 命令](https://cloud.tencent.com/document/product/236/34375#.E8.A7.A3.E5.86.B3.E6.96.B9.E6.A1.88)。
+
+若 telnet 验证云数据库网络访问正常后，如在云服务器上通过命令行登录云数据库报错，请参见 [连接实例相关问题](https://cloud.tencent.com/document/product/236/11278#sytyzysjk)。
+
+## 附录3：无法连接实例问题
+若遇到无法连接实例相关问题，建议您使用 [一键连接检查工具](https://cloud.tencent.com/document/product/236/33206) 进行排查，根据检查报告提示，在 [解决无法连接实例问题](https://cloud.tencent.com/document/product/236/44754) 查找相应解决方案。
+

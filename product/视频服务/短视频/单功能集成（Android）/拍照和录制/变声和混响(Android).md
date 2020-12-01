@@ -1,4 +1,4 @@
-录制变声混响：
+**录制变声混响：**
 
 ```
 // 设置混响
@@ -27,4 +27,4 @@ mTXCameraRecord.setReverb(TXRecordCommon.VIDOE_REVERB_TYPE_1);
 mTXCameraRecord.setVoiceChangerType(TXRecordCommon.VIDOE_VOICECHANGER_TYPE_1);
 ```
 
->Tips：变声混响只针对录制人声有效，针对 BGM 无效。
+>?变声混响只针对录制人声有效，针对 BGM 无效。

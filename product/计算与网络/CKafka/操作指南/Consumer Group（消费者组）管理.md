@@ -1,6 +1,6 @@
 ## 查询 Consumer Group
 在 Consumer Group 页面，您可以查看到当前 CKafka 实例的消费组信息。消费组信息包含状态、协议类型、均衡算法及操作。 您可以对消费组订阅 topic 进行 offset 重置，对历史消息进行重新消费。
-![](https://main.qcloudimg.com/raw/1cd6c59ae22fabaa882759c978b4ffac.jpg)
+![](https://main.qcloudimg.com/raw/e91d8d314dfcd7ea6943039f1e6fa658.jpg)
 - 在 Consumer Group 列表页，单击操作列的【查看消费者详情】，可以查看该消费组中的消费者信息，以及具体消费者和订阅 topic 的对应关系。
 - 在 Consumer Group 列表页，单击消费者名称列左侧的小三角，可以展示出该消费者组订阅的主题信息，包含主题名称、分区数目、提交的 offset位置，最大的 offset 位置以及未消费消息条数等。单击操作列的【查看分区详情】可以看到分区级别的 offset 消费情况。
 
@@ -51,4 +51,5 @@
 因此每个 Consumer 只能查看到自己被分配的 partition，Leader 是唯一能够拿到Consumer Group 中的 Consumer 以及其分区情况的节点的 Consumer。
 
 上述过程会在每次 Rebalance 发生时执行一次。
+
 

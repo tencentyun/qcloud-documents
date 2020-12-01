@@ -1,15 +1,17 @@
 ## 新增HTTP/HTTPS 监听器
+
 1. 登录 [全球应用加速控制台](https://console.cloud.tencent.com/gaap)，进入“接入管理”页面，单击指定通道的【ID/通道名】。
-2. 进入到下一级页面，选择【HTTP 监听器管理】/【HTTPS 监听器管理】>【新增】，可选的协议有 HTTP 和 HTTPS，具体配置如下：
+2. 进入到下一级页面，选择【HTTP/HTTPS 监听器管理】>【新增】，可选的协议有 HTTP 和 HTTPS，具体配置如下：
  - 当选中 HTTP 时，仅需要输入端口即可，监听器会默认按照 HTTP 协议进行转发。
- ![](https://main.qcloudimg.com/raw/06d55770bf98cff97442729fa1a3fdba.png)
+ ![](https://main.qcloudimg.com/raw/4663b0f6482c6a630c083be529836490.png)
  - 当选中 HTTPS 时，则需要额外配置证书和其他信息，如下图：
-![](https://main.qcloudimg.com/raw/a1e5c97914c65a026f95d6ac6b83e658.png)
+![](https://main.qcloudimg.com/raw/2862acfd9dfa2a6332664aaf188152f2.png)
  - “监听器与源站之间使用 HTTP 协议”，指客户端到加速通道 VIP 之间使用 HTTPS 协议，而 VIP 到源站之间使用 HTTP 协议，需要源站开通HTTP协议端口；“监听器与源站之间使用 HTTPS 协议”，指客户端到源站之间全程使用 HTTPS 协议，需要源站开通 HTTPS 协议端口。二者的主要区别在于，前者的链路延迟会更低。
- - **SSL 解析方式**：目前只支持单向认证，即客户端认证服务器。
+ - **SSL 解析方式**：支持单项认证、双向认证。
  - **服务器证书**：需要在腾讯云的【SSL证书管理】产品中购买或上传，然后从下拉列表中选择对应的证书。
 
 ## 设置HTTP/HTTPS 监听器
+
 单击【HTTP/HTTPS 监听器管理】标签页，在操作栏单击【设置】，可以进入下一级页面，进行域名和 URL 管理。
 <span id ="添加规则">
 ### 添加规则</span>
@@ -39,7 +41,7 @@
 参考上文 [添加规则](#添加规则)，主要差别在于域名和源站类型无法修改。
 
 ### 绑定源站
-详情请参见 [绑定源站](https://cloud.tencent.com/document/product/608/17849#.E7.AC.AC.E5.9B.9B.E6.AD.A5.EF.BC.9A.E7.BB.91.E5.AE.9A.E6.BA.90.E7.AB.99)，可以对不同源站绑定不同的端口。
+详情请参见 [绑定源站](https://cloud.tencent.com/document/product/608/17849#.E6.AD.A5.E9.AA.A44.EF.BC.9A.E7.BB.91.E5.AE.9A.E6.BA.90.E7.AB.99)，可以对不同源站绑定不同的端口。
 
 ### 删除规则
 如果规则下有绑定的源站，需要先勾选“强制删除绑定有源站的规则”。
@@ -52,6 +54,6 @@
 ## 修改HTTP/HTTPS 监听器
 单击【HTTP/HTTPS 监听器管理】标签页，单击【修改】，可修改监听器信息。
 - HTTP 监听器：支持修改监听器的名称，如下图：
-![](https://main.qcloudimg.com/raw/ea25a7af2f78c1581f137752bcd692fd.png)
+![](https://main.qcloudimg.com/raw/bd7f9d7b118e1fed2549c52d14377189.png)
 - HTTPS 监听器：支持修改名称，监听器与源站之间协议，以及更新证书，如下图：
-![](https://main.qcloudimg.com/raw/ea17d01d9ad0919e344d3e3460f63ee1.png)
+![](https://main.qcloudimg.com/raw/34201882586313364c9ebaca49765abd.png)

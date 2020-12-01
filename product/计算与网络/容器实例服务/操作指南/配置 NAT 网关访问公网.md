@@ -23,7 +23,7 @@ CIS 实例支持配置 [ NAT 网关](https://cloud.tencent.com/document/product/
 路由策略配置规则：
  - 目的端：选择要访问的外网 IP 地址，支持配置 CIDR，例如填写 0.0.0.0/0 会转发所有流量到 NAT 网关。
  - 下一跳类型：选择 【 NAT 网关】类型。
- - 下一跳：选择 <a href="#step1">第 1 步</a> 创建的 NAT 网关。
+ - 下一跳：选择 <a href="#step1">第1步</a> 创建的 NAT 网关。
 ![][4]
 
 4. 完成配置路由后，同 VPC 的 CIS 实例即可通过 NAT 网关的外网 IP 访问 Internet。

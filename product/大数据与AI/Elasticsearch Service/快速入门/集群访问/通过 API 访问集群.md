@@ -1,27 +1,34 @@
-腾讯云 ES 构建在用户 VPC 内，用户可以通过位于同一 VPC 下的 CVM 作为客户端，访问 ES 集群。ES 集群在 VPC 内的内网地址，可以在集群详情页查看。
+Elasticsearch 提供了功能全面的 RESTful API 与集群交互，详情请参见 Elasticsearch 官方的 [API 文档](https://www.elastic.co/guide/en/elasticsearch/reference/5.6/index.html)。
 
-## 查看内网地址
-在集群列表页，单击【集群 ID】进入详情页，在基础配置中可查看内网地址。
-![基本配置](https://main.qcloudimg.com/raw/3fa85f997895ed2e21b1abe9f7c1f9ee.png)  
+腾讯云 ES 构建在用户 VPC 内，用户可以通过位于同一 VPC 下的 CVM 作为客户端访问 ES 集群。可通过**内网访问**和**外网访问**两种方式访问 ES 集群，**外网访问存在安全风险**，需谨慎开启。
 
->!不同高级特性版本（原X-Pack插件）的访问方式不同，开源版和基础版不需要用户名密码鉴权，白金版需要用户名密码鉴权。 
->具体规则为 curl action -u user:password host ...，请注意将 user、password 替换为自己实际的用户名密码。下文以部分操作为例进行说明，其他命令类似。
+> ?
+> - 外网访问仅用于开发调试，因系统会限制调用频次，所以不能用于生产环境。
+> - 当前 ES 公网访问不计费，带宽10M。
+
+## 查看内外网访问地址
+
+在 [集群列表页](https://console.cloud.tencent.com/es)，单击【集群 ID】进入详情页：
+- 对于内网地址，在基础配置中可直接查看。 
+- 对于外网地址，出于安全考虑默认是关闭的。对于已开启 [ES 集群用户登录认证](https://cloud.tencent.com/document/product/845/42868) 的集群，支持开启公网地址。开启公网访问可能会为集群引入安全风险，同时也将允许通过 API 直接访问、操作甚至删除在 ElasticSearch 集群中的数据，请谨慎开启。
+
+![基本配置](https://main.qcloudimg.com/raw/be3596330518dad66734369d62501beb.png)
+
 
 ## 测试访问
-
->! 可以通过 curl 的方式测试访问集群，不支持通过 ping 的方式测试连通性。
+可通过 curl 的方式测试访问集群，不支持通过 ping 的方式测试连通性。
 
 ### 测试服务是否可访问
+>?对于已开启 [ES 集群用户登录认证](https://cloud.tencent.com/document/product/845/42868) 的集群，登录时需要用户名和密码认证，具体规则为`curl action -u user:password host ...`，需要将 user、password 替换为自己实际的用户名和密码。
+>
+下面将以内网地址访问来演示各访问操作。
+
 输入命令：
 ```
 curl -XGET http://10.0.17.2:9200
-
-白金版，开启了账号密码认证，请注意输入用户名密码
-
+若开启了ES集群用户登录认证，请注意输入用户名密码
 curl -XGET -u user:password http://10.0.17.2:9200
-
 ```
-
 返回如下，表示集群访问正常，具体参数的值会根据集群的版本有所不同：
 ```
 {
@@ -44,10 +51,10 @@ curl -XGET -u user:password http://10.0.17.2:9200
 ```
 
 ## 创建文档
+
 ### 创建单个文档
 
-- 高级特性为开源和基础版。
-输入命令行：
+- 若集群未开启用户登录认证， 输入命令行：
 ```
 curl -XPUT http://10.0.0.2:9200/china/city/beijing -H 'Content-Type: application/json' -d'
 {
@@ -64,9 +71,7 @@ curl -XPUT http://10.0.0.2:9200/china/city/beijing -H 'Content-Type: application
 }
 '
 ```
-
-- 白金版，请注意将下文中的 user、password 替换为自己集群实际的用户名和密码。
-输入命令行：
+- 若集群已开启用户登录认证，需要**将下文中的 user、password 替换为自己集群实际的用户名和密码**。 输入命令行：
 ```
 curl -XPUT -u user:password http://10.0.0.2:9200/china/city/beijing -H 'Content-Type: application/json' -d'
 {
@@ -101,6 +106,7 @@ curl -XPUT -u user:password http://10.0.0.2:9200/china/city/beijing -H 'Content-
 ```
 
 ### 创建多个文档
+
 输入命令行：
 ```
 curl -XPOST http://10.0.0.2:9200/_bulk -H 'Content-Type: application/json' -d'
@@ -118,21 +124,20 @@ curl -XPOST http://10.0.0.2:9200/_bulk -H 'Content-Type: application/json' -d'
 {"name":"杭州市","province":"浙江省拱墅区环城北路316号","lat":30.2753694112,"lon":120.1509063337,"x":7530,"level.level":2,"level.range":19,"level.name":"新一线城市","y":4182,"cityNo":6}
 '
 ```
-
 响应如下：
 ```
-"took":9,"errors":false,"items":[{"index":{"_index":"china","_type":"city","_id":"beijing","_version":4,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"created":false,"status":200}},{"index":{"_index":"china","_type":"city","_id":"shanghai","_version":2,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"created":false,"status":200}},{"index":{"_index":"china","_type":"city","_id":"guangzhou","_version":1,"result":"created","_shards":{"total":2,"successful":2,"failed":0},"created":true,"status":201}},{"index":{"_index":"china","_type":"city","_id":"shenzhen","_version":1,"result":"created","_shards":{"total":2,"successful":2,"failed":0},"created":true,"status":201}},{"index":{"_index":"china","_type":"city","_id":"chengdu","_version":2,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"created":false,"status":200}},{"index":{"_index":"china","_type":"city","_id":"hangzhou","_version":2,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"created":false,"status":200}}]}
+"took":9,"errors":false,"items":[{"index":{"_index":"china","_type":"city","_id":"beijing","_version":4,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"created":false,"status":200}},{"index":{"_index":"china","_type":"city","_id":"shanghai","_version":2,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"created":false,"status":200}},{"index":{"_index":"china","_type":"city","_id":"guangzhou","_version":1,"result":"created","_shards":{"total":2,"successful":2,"failed":0},"created":true,"status":201}},{"index":{"_index":"china","_type":"city","_id":"shenzhen","_version":1,"result":"created","_shards":{"total":2,"successful":2,"failed":0},"created":true,"status":201}},{"index":{"_index":"china","_type":"city","_id":"chengdu","_version":2,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"created":false,"status":200}},{"index":{"_index":"china","_type":"city","_id":"hangzhou","_version":2,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"created":false,"status":200}}]
 ```
 
 ## 更新文档
-重复上文创建单个文档的输入，就会更新指定 ID beijing 的文档。
-响应如下：
+
+重复上文创建单个文档的输入代码，即可更新指定 ID `beijing`的文档。 响应如下：
 ```
 {"_index":"china","_type":"city","_id":"beijing","_version":2,"result":"updated","_shards":{"total":2,"successful":2,"failed":0},"created":false}
 ```
 
-
 ## 查询文档
+
 ### 查询指定 ID
 输入命令行：
 ```
@@ -205,12 +210,10 @@ curl -XGET 'http://10.0.0.2:9200/china/city/_search?pretty' -H 'Content-Type: ap
 ```
 
 ### 复杂查询
+
 模拟 SQL：
 ```
 select * from city where level.level=2
-```
-
-```
 curl -XGET http://10.0.0.2:9200/china/city/_search?pretty -H 'Content-Type: application/json' -d'
 {
     "query" : {
@@ -224,7 +227,6 @@ curl -XGET http://10.0.0.2:9200/china/city/_search?pretty -H 'Content-Type: appl
     }
 }'
 ```
-
 响应如下：
 ```
 {
@@ -282,13 +284,10 @@ curl -XGET http://10.0.0.2:9200/china/city/_search?pretty -H 'Content-Type: appl
 ```
 
 ### 聚合查询
+
 模拟 SQL：
 ```
 select level.level, count(1) from city group by level.level
-```
-
-
-```
 curl -XGET http://10.0.0.2:9200/china/city/_search?pretty -H 'Content-Type: application/json' -d'
 {
     "size" : 0,
@@ -301,7 +300,6 @@ curl -XGET http://10.0.0.2:9200/china/city/_search?pretty -H 'Content-Type: appl
     }
 }'
 ```
-
 响应如下：
 ```
 {
@@ -338,12 +336,13 @@ curl -XGET http://10.0.0.2:9200/china/city/_search?pretty -H 'Content-Type: appl
 ```
 
 ## 删除文档
+
 ### 删除单个文档
+
 输入命令行：
 ```
 curl -XDELETE 'http://10.0.0.2:9200/china/city/beijing?pretty' -H 'Content-Type: application/json' 
 ```
-
 响应如下：
 ```
 {
@@ -360,11 +359,15 @@ curl -XDELETE 'http://10.0.0.2:9200/china/city/beijing?pretty' -H 'Content-Type:
   }
 }
 ```
+
 ### 删除类型
+
 ```
 curl -XDELETE 'http://10.0.0.2:9200/china/city?pretty' -H 'Content-Type: application/json' 
 ```
+
 ### 删除索引
+
 ```
 curl -XDELETE 'http://10.0.0.2:9200/china?pretty' -H 'Content-Type: application/json' 
 ```

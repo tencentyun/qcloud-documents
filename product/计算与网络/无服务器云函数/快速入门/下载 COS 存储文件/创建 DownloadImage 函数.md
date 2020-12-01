@@ -4,7 +4,7 @@
  - 名称：命名为 “test-scf”。
  - 地域：选择 “广州（华南）”。
  - 访问权限：选择 “私有读写”。
-4. 切换至 [无服务器云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1)，进入【函数服务】页面。
+4. 切换至 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1)，进入【函数服务】页面。
 5. 选择**广州**地域，单击【新建】，进入新建函数页面。
 6. 填写以下参数信息，单击【下一步】。如下图所示：
 ![](https://main.qcloudimg.com/raw/2fa61bd4c599d0798b48e1faee5e2e9e.png)
@@ -17,7 +17,7 @@
 9. 修改并保存如下图所示的代码片段。
 ![](https://main.qcloudimg.com/raw/b106350bff4feb54e41785458fea6f66.png)
 主要参数信息如下：
- - “执行方法” 的 “Get_COS_Object.main_handler” 参数值表示无服务器云函数控制台会将此段代码自动保存为 `Get_COS_Object.py` 文件，并将该文件压缩和上传至 SCF 平台，用于创建云函数。
+ - “执行方法” 的 “Get_COS_Object.main_handler” 参数值表示云函数控制台会将此段代码自动保存为 `Get_COS_Object.py` 文件，并将该文件压缩和上传至 SCF 平台，用于创建云函数。
  - 将以下参数修改为您的实际数据：
     - appid：可在控制台[【账号信息】](https://console.cloud.tencent.com/developer) 中获得。
     - secret_id 和 secret_key：可在控制台[【云 API 密钥】](https://console.cloud.tencent.com/cam/capi) 中获得。

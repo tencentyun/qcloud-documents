@@ -1,6 +1,6 @@
 ## 功能描述
 
-List Parts请求实现列出已上传的数据段。
+List Parts 请求实现列出已上传的数据段。
 
 ## 请求
 
@@ -64,3 +64,4 @@ Authorization: Auth
 	"VaultQCS": "String"
 }
 ```
+

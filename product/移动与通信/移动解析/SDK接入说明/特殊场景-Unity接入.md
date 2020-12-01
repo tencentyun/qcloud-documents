@@ -1,9 +1,9 @@
-该文档说明Unity如何接入HttpDNS
+该文档说明 Unity 如何接入 HTTPDNS。
 
-### Android部分代码
+## Android 部分代码
 
-先初始化HttpDns和灯塔接口：
-> 注意：若已接入msdk或者单独接入了腾讯灯塔则不用初始化灯塔。
+先初始化 HTTPDNS 和灯塔接口：
+> ?若已接入 msdk 或者单独接入了腾讯灯塔则不用初始化灯塔。
 
 ```
 private static AndroidJavaObject m_dnsJo;
@@ -16,7 +16,7 @@ AndroidJavaObject joactivety = jc.GetStatic("currentActivity");
 if (joactivety == null)
 return;
 AndroidJavaObject context = joactivety.Call("getApplicationContext");
-// 初始化HttpDns
+// 初始化HTTPDNS
 AndroidJavaObject joDnsClass = new AndroidJavaObject("com.tencent.msdk.dns.MSDKDnsResolver");
 Debug.Log(" WGGetHostByName ===========" + joDnsClass);
 if (joDnsClass == null)
@@ -34,7 +34,7 @@ m_dnsJo.Call("initUserAction", context);
 }
 ```
 
-再调用HttpDns接口解析域名：
+再调用 HTTPDNS 接口解析域名：
 ```
 // 该操作建议在子线程中处理
 public static string GetHttpDnsIP( string strUrl ) {
@@ -52,9 +52,9 @@ return strIp;
 }
 ```
 
-### iOS部分代码
+## iOS 部分代码
 
-在cs文件中进行接口声明：
+在 cs 文件中进行接口声明：
 ```
 #if UNITY_IOS
 [DllImport("__Internal")]
@@ -62,7 +62,7 @@ private static extern string WGGetHostByName(string domain);
 #endif
 ```
 
-在需要进行域名解析的部分，调用WGGetHostByName(string domain)方法，并建议进行如下处理：
+在需要进行域名解析的部分，调用 WGGetHostByName(string domain) 方法，并建议进行如下处理：
 ```
 string ips = WGGetHostByName(domainStr);
 string[] sArray=ips.Split(new char[] {';'});
@@ -76,4 +76,5 @@ if (sArray != null && sArray.Length > 1) {
 }
 ```
 
-将unity工程打包为xcode工程，并按如上说明，引入依赖库等操作即可。
+将 unity 工程打包为 xcode 工程，并按如上说明，引入依赖库等操作即可。
+

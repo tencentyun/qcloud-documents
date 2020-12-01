@@ -1,12 +1,12 @@
 ## 功能说明
-大眼、瘦脸、动效贴纸、绿幕等特效功能，是基于优图实验室的人脸识别技术和天天 P 图的美妆技术为基础开发的特权功能，腾讯云小直播团队通过跟优图和天天 P 图团队合作，将这些特效深度整合到 RTMP SDK 的图像处理流程中，以实现更好的视频特效。
+大眼、瘦脸、动效贴纸、绿幕等特效功能，是基于优图实验室的人脸识别技术和天天 P 图的美妆技术为基础开发的特权功能。腾讯云小直播团队通过跟优图和天天 P 图团队合作，将这些特效深度整合到 RTMP SDK 的图像处理流程中，以实现更好的视频特效。
 
 ## 版本下载
-您可以到 [移动直播 SDK 开发包](/doc/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码与 License 可以联系商务获取）， 成功解压后得到一个`txrtmpsdk.jar`和`libtxrtmpsdk.so`等几个 so 文件，替换工程中的非特权版 jar 和 so 文件即可。
+您可以到 [移动直播 SDK 开发包](/doc/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码与 License 可以联系商务获取）， 成功解压后得到一个 `txrtmpsdk.jar` 和 `libtxrtmpsdk.so` 等几个 so 文件，替换工程中的非特权版 jar 和 so 文件即可。
 
->? 区分特权版与非特权版，可以查看 SDK 的 bundler id。
-> - bundler id 为 com.tencent.TXRTMPSDK 表示非特权版。
-> - bundler id 为 com.tencent.TXRTMPSDK.pitu 表示特权版。
+>? 区分特权版与非特权版，可以查看 SDK 的 Bundle ID。
+> - Bundle ID 为 com.tencent.TXRTMPSDK 表示非特权版。
+> - Bundle ID 为 com.tencent.TXRTMPSDK.pitu 表示特权版。
 
 ## <span id="jump">Xcode 工程设置</span>
 
@@ -19,7 +19,7 @@
 
 ### 2. 添加链接参数
 
-在工程【Build Setting】>【Other Link Flags】里，增加`-ObjC`选项。
+在工程【Build Setting】>【Other Link Flags】里，增加 `-ObjC` 选项。
 
 ### 3. 添加资源 bundle
 
@@ -39,16 +39,16 @@
 获得 License 后，将其命名为 **YTFaceSDK.license**，并添加到工程的 assets 目录下。
 
 >?
-> - 每个 License 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
+> - 每个 License 都有绑定具体的 package name，修改 App 的 package name 会导致验证失败。
 > - YTFaceSDK.license 的文件名固定，不可修改、且必须放在 assets 目录下。
 > - iOS 和 Android 不需要重复申请 License，一个 License 可以同时授权一个 iOS 的 Bundle ID 和一个 Android 的 packageName。
 
 ## 功能调用
 
-### 动效贴纸
-
-一个动效模板是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数和文件大小也不尽相同。
-小直播中的示例代码是从后台下载动效资源，再统一解压到 Resource 目录。您可以在小直播代码中找到动效资源和动效缩略图的下载地址，格式如下：
+### 美颜动效（动效贴纸、AI抠图、美妆、手势）
+购买美颜动效素材后，您可以获得对应效果的素材包。每一个素材包就是一个独立的目录，目录里包含了很多资源文件。每个素材包因其复杂度不同，文件数量和大小尺寸也各不相同。
+为了节省安装包体积，我们建议您将素材包上传到您的服务器上，并将下载地址配置在您的 App 中，例如：`http://yourcompany.com/hudongzhibo/AISpecial/**/{动效名}.zip`。
+在 App 启动后，下载并解压素材包到 Resource 目录下。完成解压后，即可通过以下接口开启动效效果：  
 
 ```
 https://st1.xiangji.qq.com/yunmaterials/{动效名}.zip

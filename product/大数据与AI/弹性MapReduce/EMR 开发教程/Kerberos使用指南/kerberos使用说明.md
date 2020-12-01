@@ -1,7 +1,7 @@
-本文使用 mit 的 kerberos 来搭作为 kdc 服务。假设 kdc 服务已经安装好并启动，使用 kerberos，首先要创建域（realm），再添加相关角色的 principal（包括 server 与 client），然后生成 keytab 文件。
+本文使用 mit 的 kerberos 来作为 kdc 服务。假设 kdc 服务已经安装好并启动，使用 kerberos，首先要创建域（realm），再添加相关角色的 principal（包括 server 和 client），然后生成 keytab 文件。
 
 ## 创建数据库
-使用 `kdb5_util` 命令创建数据库，存放 principal 相关的信息。
+使用`kdb5_util`命令创建数据库，存放 principal 相关的信息。
 ```
 kdb5_util -r EXAMPLE.COM create -s
 Initializing database '/var/krb5/principal' for realm 'EXAMPLE.COM'
@@ -34,7 +34,7 @@ Entry for principal test-client/host@EXAMPLE.COM with kvno 2, encryption type de
 kadmin.local:  q
 ```
 
-这里，我们创建了两个新的用户：test-server/host@EXAMPLE.COM 和 test-client/host@EXAMPLE.COM。并且把他们的密钥放到 /etc/krb5.keytab 文件下。
+这里，我们创建了两个新的用户：`test-server/host@EXAMPLE.COM` 和 `test-client/host@EXAMPLE.COM`，并且将这两个用户的密钥放置到`/etc/krb5.keytab`文件中。
 
 ## 启动 kdc
 ```
@@ -46,9 +46,7 @@ kadmin.local:  q
 ```
 kinit -k -t /etc/krb5.keytab test-client/host@EXAMPLE.COM
 ```
-kinit 对应的是向 kdc 获取 TGT 的步骤。它会向 /etc/krb5.conf 中指定的 kdc server 来发送请求。
-如果 TGT 请求成功，就可以用 klist 看到它。
-
+kinit 对应的是向 kdc 获取 TGT 的步骤。它会向`/etc/krb5.conf`中指定的 kdc server 发送请求。如果 TGT 请求成功，使用 klist 即可看到。
 ```
 klist
 Ticket cache: FILE:/tmp/krb5cc_1000
@@ -60,5 +58,5 @@ renew until 2019-01-16T00:00:25
 ```
 
 ## 在项目中使用
-使用 kinit 验证成功后，就可以把 keytab 文件复制到需要使用的 server 与 client 的服务器上，并配置相应的 principal 进行使用。
+使用 kinit 验证成功后，可以把 keytab 文件复制到需要使用的 server 和 client 的服务器上，并配置相应的 principal 进行使用。
 

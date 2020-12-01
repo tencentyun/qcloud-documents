@@ -1,11 +1,11 @@
 ## 操作场景
-该指南指导您如何在数据安全网关系统添加 Linux 资源账号。添加资源账号后，运维用户可通过该资源账号登录资源。
+该指南指导您如何在堡垒机系统添加 Linux 资源账号。添加资源账号后，运维用户可通过该资源账号登录资源。
 
 
 
 
 ## 操作步骤
-1. 登录腾讯云 [数据安全网关控制台](https://console.cloud.tencent.com/cds/dasb)，并使用管理员账号登录数据安全网关。
+1. 登录腾讯云 [堡垒机控制台](https://console.cloud.tencent.com/cds/dasb)，并使用管理员账号登录堡垒机。
 2. 单击【资源管理】>【Linux】，进入管理页面。
 3. 找到您要配置账号的资源，在其所在行中，单击<img src="https://main.qcloudimg.com/raw/6ce56e0ba623b3c88ac789505dd16234.png"  style="margin:0;">，即可进入资源账号配置页面。
 ![1](https://main.qcloudimg.com/raw/b04669730acd62048622192f6211c8d3.png)

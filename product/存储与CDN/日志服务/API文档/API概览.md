@@ -4,7 +4,7 @@
 | 接口名称                                                     | 功能描述                           |
 | ------------------------------------------------------------ | ---------------------------------- |
 | [上传结构化日志](https://cloud.tencent.com/document/product/614/16873) | 上传日志到指定的日志主题           |
-| [获取日志游标](https://cloud.tencent.com/document/product/614/16876) | 获取并下载指定日志主题下的日志游标 |
+| [获取下载日志游标](https://cloud.tencent.com/document/product/614/16876) | 获取并下载指定日志主题下的日志游标 |
 | [搜索日志](https://cloud.tencent.com/document/product/614/16875) | 根据指定的条件搜索日志内容         |
 | [下载日志](https://cloud.tencent.com/document/product/614/16874) | 使用游标下载日志                   |
 
@@ -29,6 +29,12 @@
 | [修改日志主题](https://cloud.tencent.com/document/product/614/16884) | 修改日志主题                    |
 | [设置日志主题绑定的机器组](https://cloud.tencent.com/document/product/614/31573) | 设置日志主题绑定的机器组信息 |
 | [删除日志主题](https://cloud.tencent.com/document/product/614/16886) | 删除日志主题                    |
+| [获取主题分区列表](https://cloud.tencent.com/document/product/614/39256) |     获取主题分区信息列表              |
+| [合并主题分区](https://cloud.tencent.com/document/product/614/39257) |合并一个读写态的主题分区                 |
+| [分裂主题分区](https://cloud.tencent.com/document/product/614/39258) | 分裂一个读写态的主题分区                  |
+
+
+
 
 ## 投递任务管理
 
@@ -52,6 +58,26 @@
 | [获取机器组列表](https://cloud.tencent.com/document/product/614/16903) | 获取机器组信息列表          |
 | [修改机器组](https://cloud.tencent.com/document/product/614/16898) | 修改机器组                  |
 | [删除机器组](https://cloud.tencent.com/document/product/614/16900) | 删除机器组                  |
+
+
+## 消费管理
+
+| 接口名称                                                     | 功能描述                    |
+| ------------------------------------------------------------ | --------------------------- |
+|[创建消费组](https://cloud.tencent.com/document/product/614/39247) | 创建消费组|
+| [获取消费游标](https://cloud.tencent.com/document/product/614/39245) | 获取消费游标|
+| [获取消费组游标](https://cloud.tencent.com/document/product/614/39249) | 获取消费组游标|
+| [消费数据](https://cloud.tencent.com/document/product/614/39246) | 用于消费读取日志|
+| [消费者心跳](https://cloud.tencent.com/document/product/614/39250) | 用于消费者上传心跳|
+| [获取消费组列表](https://cloud.tencent.com/document/product/614/39252) | 获取日志主题的消费组列表|
+| [修改消费组](https://cloud.tencent.com/document/product/614/39253) | 修改消费组|
+| [修改消费组游标](https://cloud.tencent.com/document/product/614/39254) | 修改消费组游标信息|
+| [删除消费组](https://cloud.tencent.com/document/product/614/39248) | 删除消费组|
+
+
+
+
+
 
 ## 索引管理
 

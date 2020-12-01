@@ -1,82 +1,108 @@
 ##  购买须知
-购买之前需注意：
-- 在购买腾讯云 GPU 云服务器前，请确保已经 [了解腾讯云 GPU 云服务器](/doc/product/560/8015l)，且已 [了解配置与价格](/doc/product/560/8025)，并根据实际需求购买。
-- 确保了解所选 GPU 实例所在可用区，可用区信息可以参考 [NVIDIA GPU实例类型介绍](https://cloud.tencent.com/document/product/560/19700)。
+- 在购买腾讯云 GPU 云服务器前，请确保已了解 [腾讯云 GPU 云服务器](https://cloud.tencent.com/document/product/560/8015)，且已了解 [配置与价格](https://cloud.tencent.com/document/product/560/8025)，并根据实际需求购买。
+- 确保了解所选 GPU 实例所在可用区，可用区信息请参考 [NVIDIA GPU 实例类型介绍](https://cloud.tencent.com/document/product/560/19700)。
 
 ##  购买步骤
+本文以**实例类型 GN10** 为例，指导您按照以下步骤快速购买一台 GPU 云服务器：
 
-**以实例类型 GN10 为例**，用户依据以下操作可以快速购买一台 GPU 云服务器：
 
-### 1. 登录购买页面
-[单击进入购买页面 >>](https://buy.cloud.tencent.com/?tab=custom&regionId=1&zoneId=100003&instanceType=GN10.2XLARGE40)
 
-### 2. 选择计费模式，网络，地域与机型
-在这个步骤需要选择：
-1. 计费模式：包年包月计费或者按量计费。
+### 步骤1：登录购买页面
+<div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/?tab=custom&regionId=1&zoneId=100003&instanceType=GN10.2XLARGE40" target="_blank"  style="color: white; font-size:16px;" hotrep="document.guide.2764.btn2">点此进入购买页面</a></div>
 
-2. 网络：选择现有私有网络或创建新私有网络。
 
-3. 地域和可用区：目前 GPU GN10型云服务器仅支持 **广州三区** 。
+### 步骤2：选择计费模式、网络、地域与机型
+进入购买页后，选择计费模式、网络、地域及机型。如下图所示：
+![](https://main.qcloudimg.com/raw/3e76ac796768b62a0aae9efb638008fd.png)
+ - **计费模式**：【包年包月】或【按量计费】。
+ - **地域及可用区**：可选择可用区以实际购买页为准，详情请参见 [NVIDIA 系列实例](https://cloud.tencent.com/document/product/560/19700)。
+ - **网络**：选择现有私有网络或创建新私有网络。
+ - **实例**：本文以选择**【GPU计算型GN10】**为例，请您按需选择。
 
-   ![地狱和可用区](https://main.qcloudimg.com/raw/512c557f7507de2c3f03e6808008a879.png)
 
-4. 机型和配置：机型选择**【GPU计算型GN10】**，提供四种配置任用户选择。
+### 步骤3：选择镜像
 
-   ![机型和配置](https://main.qcloudimg.com/raw/de38f55d04ce5b52edb9adc6d78d6487.png)
+GPU 云服务器支持四种镜像类型：公共镜像、自定义镜像、共享镜像、镜像市场。详情请参见 [镜像概述](https://cloud.tencent.com/document/product/213/4940)。
+刚开始使用腾讯云的用户，可选择【公共镜像】，并根据需要挑选版本。如下图所示：
+![](https://main.qcloudimg.com/raw/7b249eacc1ab6d29bd9bb92bc0efcbfe.png)
+>!**GPU 云服务器必须具备相应的 GPU 驱动才能正常运行。** 您可通过以下4种方式，安装相应驱动：
+> - 若选择【公共镜像】，则勾选【后台自动安装GPU驱动】即可预装相应办版本驱动，建议您选择该方式。该方式仅支持部分 Linux 公共镜像，详情请参见 [GPU 驱动预装信息](#PreloadGPUDrive)。
+> - 若选择【公有镜像】，则在 GPU 实例创建成功后，可参照 [安装 NVIDIA 驱动指引](https://cloud.tencent.com/document/product/560/8048) 手动安装相应驱动。
+> - 若选择【镜像市场】，则可选择预装了 GPU 驱动的镜像，详情请参见 [使用预装 GPU 驱动的镜像](https://cloud.tencent.com/document/product/560/30129)。
+> - 若您购买的是 vGPU 实例，则可选择已预装了 GRID 驱动的公共镜像，无需单独安装驱动。
 
-设置完成后单击**【下一步：选择镜像】**。
 
-### 3. 选择镜像
 
-GPU 云服务器支持四种镜像类型：公共镜像、自定义镜像、共享镜像、镜像市场。具体详情请单击 [了解镜像 >>](/doc/product/213/4940)。
-对于刚开始使用腾讯云的用户，可选择【公共镜像】，并根据需要挑选版本。
+### 步骤4：选择存储和带宽
+1. 选择 GPU 云服务器的存储和带宽。如下图所示：
+![](https://main.qcloudimg.com/raw/6be045d13c8d7d6d3aebb9571ef324e1.png)
+主要参数信息如下：
+	- **存储**：系统盘和数据盘类型和大小均灵活选择。
+		- **系统盘**：普通云盘、SSD 云硬盘（仅限 GN2/GN8 实例）。
+		- **数据盘**：普通云盘、高性能云硬盘、SSD 云硬盘（仅限 GN2/GN8 实例）。
+	- **网络**：公网带宽，按固定带宽计费或按使用流量计费。
+		- **按带宽计费**：选择固定带宽，超过本带宽时将丢包。适合网络波动较小的场景。
+		- **按使用流量计费**：按实际使用流量收费。可限制峰值带宽，当瞬时带宽超过限制值时将丢包（适合网络波动较大的场景）。
+2. 设置完成后单击【下一步：设置主机】。
 
-![公共镜像](https://main.qcloudimg.com/raw/994bb130e221d59cea1a19911f2d5cf3.png)
 
-> **注意：**
-> **GPU 云服务器必须具备相应的 GPU 驱动才能正常运行。**
-> 
-> - 如果您选择公有镜像安装，GPU 实例创建成功后，需要安装 GPU 驱动才可正常使用，相关驱动安装可参照 [安装 NVIDIA 驱动指引](https://cloud.tencent.com/document/product/560/8048)。
-> - 如果您选择镜像市场安装，可以选择预装了 GPU 驱动的镜像，可参考 [使用预装 GPU 驱动的镜像](https://cloud.tencent.com/document/product/560/30129)。
+### 步骤5：设置安全组和主机
+1. 新建或选择已有安全组，控制端口的开放范围。如下图所示：
+![](https://main.qcloudimg.com/raw/008b9429231a35c9954feebf024ca203.png)
+2. 设置 GPU 云服务器登录密码。
+3. 单击【下一步：确认配置信息】。 
 
- 设置完成后单击**【下一步：选择存储和带宽】**。
 
-### 4. 选择存储和带宽
+### 步骤6：确认配置信息
+1. 请在“确认配置信息”步骤中核对以下内容。如下图所示：
+![](https://main.qcloudimg.com/raw/0887252d692c6016a733af7785391f61.png)
+	- 确认实例规格、镜像选择、存储和带宽选择以及安全组等配置项是否符合预期。
+	- 可选择或核对购买数量和购买时长。
+2. 阅读并勾选“同意《腾讯云服务协议》和《退款规则》”，并单击【立即购买】。
 
-在这个步骤需要选择：
-- 存储：系统盘和数据盘类型和大小都可以灵活选择。
-  1. 系统盘：普通云盘／SSD云硬盘／SSD本地盘（仅限 GN2/GN8 实例）。
-  2. 数据盘：普通云盘／高性能云盘／SSD云硬盘／SSD本地盘（仅限 GN2/GN8 实例）。
-- 网络：公网带宽（按固定带宽计费或按使用流量计费）。
-  1. 按带宽计费：选择固定带宽，超过本带宽时将丢包。适合网络波动较小的场景。
-  2. 按使用流量计费：按实际使用流量收费。可限制峰值带宽，当瞬时带宽超过限制值时将丢包（适合网络波动较大的场景）。
-- 设置完成后单击**【下一步：设置安全组和主机】**。
-  ![选择存储和带宽](https://main.qcloudimg.com/raw/7fffb837df23610b891ce722eac80474.png)
 
-### 5. 设置安全组和主机
+### 步骤7：核对订单及付款
+请核对订单信息，选择付款方式付款。
+支付成功后，进入控制台，待实例创建启动完毕，即可进行登录操作。如下图所示：
+![](https://main.qcloudimg.com/raw/f049933874cf300f16eefcd1aae5f017.png)
 
-在这个步骤需要：
-- 选择或配置安全组，控制端口的开放范围。
-- 设置登录密码。
-![设置安全组和主机](https://main.qcloudimg.com/raw/4857685271180e721f9c50aad970cb27.png)
 
-设置完成后单击**【下一步：确认配置信息】**。
+## 附录
+### GPU 驱动预装信息<span id="PreloadGPUDrive"></span>
+GPU 云服务器支持部分 Linux 公共镜像通过后台自动安装 GPU 驱动。实例初次启动时，会根据所选版本自动安装 GPU 驱动、CUDA 及 cuDNN 库，耗时约15 - 20分钟。详细信息如下表：
+<table>
+        <thead>
+        <tr>
+            <th width="15%">GPU 驱动</th>
+            <th width="15%">CUDA 版本</th>
+            <th width="15%">cuDNN 版本</th>
+            <th width="30%">支持的公共镜像版本</th>
+            <th style="width: 26%;">支持的实例类型</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="5">418.126.02</td>
+                <td>10.1.105</td> 
+                <td>7.5.0</td>
+                <td rowspan="2">CentOS 7.x<br>Ubuntu 18.04及以上</td>
+                <td rowspan="4">GN10Xp<br>GN10X<br>GN8<br>GN7<br>GN6S</td>
+            </tr>
+            <tr>
+                <td>10.0.130</td> 
+                <td>7.5.0<br>7.4.2<br>7.3.1</td>
+            </tr>
+            <tr>
+                <td>9.2.148</td> 
+                <td>7.5.0<br>7.4.2<br>7.3.1<br>7.1.4</td>
+                <td rowspan="2">CentOS 7.x<br</td>
+            </tr>
+            <tr>
+                <td>9.0.176</td> 
+                <td>7.5.0<br>7.4.2<br>7.3.1<br>7.1.4<br>7.0.5</td>
+            </tr>
+        </tbody>
+</table>
 
-### 6. 确认配置信息
 
-在这个步骤需要：
-- 确认实例规格，镜像选择，存储和带宽选择以及安全组等配置项是否符合预期。
-- 选择购买数量和购买时长。
 
-![确认配置信息](https://main.qcloudimg.com/raw/78399979f79e35fed7b1b49cccbe1419.png)
-
-设置完成后单击**【立即购买】**。
-
-### 7. 核对订单，付款
-
-在这个步骤需要：
-- 核对订单信息。
-- 选择付款方式付款。
-- 支付成功后，进入控制台，待机器创建启动完毕，即可登录机器。
-
-![支付成功](https://main.qcloudimg.com/raw/7ceaabfd0cd0521140ca9eb5145a8cdd.png)

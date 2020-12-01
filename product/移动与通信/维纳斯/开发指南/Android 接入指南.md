@@ -12,26 +12,26 @@ sdk 发送数据限制长度为 512K 字节
 sdk 接受数据限制长度为 512K 字节
 
 ## 名词解释
-**appid**： wns 为接入 app 分配的标识。
-**appVersion**：  app 版本号。
-**channelId**： app 渠道号，与 appVersion 一起在 wns 监控系统中提供统计信息，
-来区分各种下载渠道，比如应用宝,百度手机助手。
-**uid**：业务用户的唯一标识。
-**wid**：wns 为每个终端分配的唯一标识。
+- **appid**： wns 为接入 App 分配的标识。
+- **appVersion**：  App 版本号。
+- **channelId**： App 渠道号，与 appVersion 一起在 wns 监控系统中提供统计信息，
+来区分各种下载渠道，例如应用宝,百度手机助手。
+- **uid**：业务用户的唯一标识。
+- **wid**：wns 为每个终端分配的唯一标识。
 
 ## Sdk 配置和初始化说明
 ### 引入 Wns Sdk
-将 /libs 下的 assets 和 libs 目录分别复制到工程根目录对应的目录中，如下图
-![](https://mccdn.qcloud.com/static/img/dca5498f8a97efd6050f0ac4e3610ab9/wns_and_lib.png)
->注意：
->需要将 jar 文件和对应的 so 添加 到工程中。
+将 /libs 下的 assets 和 libs 目录分别复制到工程根目录对应的目录中。
+
+
+>!需要将 jar 文件和对应的 so 添加 到工程中。
 
 这里的 armeabi 的 so 文件夹是必须添加，其它 so 文件夹可以按需添加，如果您的工程中有对应的 so 文件夹就必须加入相应文件夹的 so。例如工程 libs 目录下已经有 arm64-v8a 目录，则需要添加到 WNSsdk 中相关的  arm64-v8a 文件夹下的 64 位系统的相关 so，否则 64 位上的机器会崩溃。
 
 ### 配置 AndroidManifest.xml
 wns_SDK  需要使用的系统权限如下图（可参考示例工程）：
->注意：
->加到根目录 manifest 下面。
+
+加到根目录 manifest 下面。
 
 ```
 <!-- demo中使用某些高级API简化编程，使用者需要根据自己情况设置sdk version -->
@@ -77,12 +77,12 @@ wns_SDK  需要使用的系统权限如下图（可参考示例工程）：
 </receiver>
 
 ```
->注意：
-  (1)  进程名“:wns”为 wns 服务使用，请不要占用。
-  (2)  以上部分位于 application 分支下。
+>!
+- 进程名“:wns”为 wns 服务使用，请不要占用。
+- 以上部分位于 application 分支下。
 
 
-### 初始化 APP 信息并启动服务
+### 初始化 App 信息并启动服务
 修改 MyBaseApplication，onCreate（）变为如下内容：
 
 ```
@@ -136,12 +136,12 @@ sdk 已经混淆，建议不要再次混淆。如果需要混淆，请务必在�
 
 HttpClent 实例使用 WnsService.getWnsHttpClient()来获取，然后使用HttpClient.execute(HttpUriRequest httpUriRequest )来发起 http 请求
 
->注意：
->发送和接受数据大小限制为 512KB。
->业务侧最好打印出 response.getFirstHeader  (WnsService.KEY_HTTP_RESULT)中的数据，以便于 bug 定位。
-**此模式下，sdk会自动将url设置为命令字，wns会统计每个命令字的成功率等信息，对应的，需要在控制台配置url域名对应的路由。路由配置请参考：[控制台说明](http://cloud.tencent.com/doc/product/276)。**
+>!
+- 发送和接受数据大小限制为512KB。
+- 业务侧最好打印出 response.getFirstHeader  (WnsService.KEY_HTTP_RESULT)中的数据，以便于 bug 定位。
 
-如下图所示：
+此模式下，sdk会自动将url设置为命令字，wns会统计每个命令字的成功率等信息，对应的，需要在控制台配置url域名对应的路由。
+
 ```
 //[必须] 定义wns的引用，从而使用其内部方法
 private final WnsService wns = WnsClientFactory.getThirdPartyWnsService(); 
@@ -201,10 +201,9 @@ private void sendHttpReq() {
 
 #### 使用 HttpUrlConnection 请求
 使用 wns.getWnsHttpUrl()获取 URL 实例
->注意：
-发送和接受数据大小限制为 512KB。
-**此模式下，sdk 会自动将 url 设置为命令字，wns 会统计每个命令字的成功率等信息，对应的，需要在控制台配置 url 域名对应的路由。路由配置请参考：[控制台说明](http://cloud.tencent.com/doc/product/276)。**
 
+发送和接受数据大小限制为 512KB。
+此模式下，sdk 会自动将 url 设置为命令字，wns 会统计每个命令字的成功率等信息，对应的，需要在控制台配置 url 域名对应的路由。
 ```
  //[必须] 定义 wns 的引用，从而使用其内部方法
 private final WnsService wns = WnsClientFactory.getThirdPartyWnsService(); 
@@ -264,14 +263,14 @@ private void sendHttpUrlConnReq(final String url)
     };
     new Thread(run).start();
 }```
+
 ### 调用接口 sendRequest 来收发二进制数据。
 发送二进制数据的接口和发送 http 的比较类似，开发商终端需要修改原来的代码，将收发接口替换为 Wns 的 Sdk
 1. 发送和接受数据大小限制为 512KB。
 2. 命令字禁止使用“wnscloud”作为前缀。
 
->注意：
->**cmd 必须是细化到接口，wns 会统计每个 cmd 的成功率等信息，对应的，需要在控制台配置模块 wnsdemo 对应的路由。路由配置请参考：[控制台说明](http://cloud.tencent.com/doc/product/276)。**
 
+>!cmd 必须是细化到接口，wns 会统计每个 cmd 的成功率等信息，对应的，需要在控制台配置模块 wnsdemo 对应的路由。
 
 ```
  private final WnsService wns = WnsClientFactory.getThirdPartyWnsService(); //[必须] 定义wns的引用，从而使其内部方法
@@ -304,7 +303,8 @@ private int sendReq()
 
     return seqNo;
 }```
-## PUSH接入
+
+## PUSH 接入
 
 ### 在 AndroidManifest.xml 中注册接收 push 的 service
  <!-- 注册 WNS push 接收器 -->
@@ -323,7 +323,7 @@ private int sendReq()
 
 ### 自定义处理 Push 的Service
 假设类名是 com.example.cloudwns.push.MyPushService（应用可自定义名称），应用只需要实现 onPushReceived 这个方法即可。如下：
-
+```
  package com.example.cloudwns.push;
 
 
@@ -367,7 +367,7 @@ public class MyPushService extends AbstractPushService{
      }
 
 }
-
+```
 
 ## 调试类接口
 
@@ -389,11 +389,10 @@ Wns 提供快速验证模式，开发商可以先集成 Wns 的 Sdk，但是通�
 3. 终端在初始化阶段调用 Sdk 接口 initWithAppID。
 
 ## 常见问题
-
  
-  通过 System.loadLibrary 方法加载 so 都会去 libs 目录找相CPU  架构的 so，根据以 往经验，一些低端机型无法加载到 so 导致 WNS 启动失败。
-因此 WNS 会在 assets 目录 下也放了一份 so，当 loadLibraray 方法加载失败会尝试将 assets 目录下的 so 复制到 app 运行目录中，通过 System.load 
+通过 System.loadLibrary 方法加载 so 都会去 libs 目录找相CPU  架构的 so，一些低端机型无法加载到 so 导致 WNS 启动失败。
+因此 WNS 会在 assets 目录下也放了一份 so，当 loadLibraray 方法加载失败会尝试将 assets 目录下的 so 复制到 App 运行目录中，通过 System.load 
 方法加载 so，提高启动 WNS 的成功率。
 
-我们提供的 sdk  zip 包中包含获取应用签名的 app 工具，安装到手机后，输入您的 app 包名即可获取到签名。
-![](https://mccdn.qcloud.com/static/img/bde9d37a48d969ead313cbbe6f2b1e9a/wns_and_tool.png)
+我们提供的 sdk  zip 包中包含获取应用签名的 App 工具，安装到手机后，输入您的 App 包名即可获取到签名。
+

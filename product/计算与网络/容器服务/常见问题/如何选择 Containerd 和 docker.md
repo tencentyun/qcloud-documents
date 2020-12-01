@@ -1,4 +1,4 @@
-## 运行时组件说明
+### 如何选择运行时组件？
 容器运行时（Container Runtime）是 Kubernetes（k8s） 最重要的组件之一，负责管理镜像和容器的生命周期。Kubelet 通过 `Container Runtime Interface (CRI)` 与容器运行时交互，以管理镜像和容器。
 
 TKE 支持用户选择 containerd 和 docker 作为运行时组件：
@@ -8,17 +8,18 @@ TKE 支持用户选择 containerd 和 docker 作为运行时组件：
  - 如需在 TKE 节点使用 docker build/push/save/load 等命令。
  - 如需调用 docker API。
  - 如需 docker compose 或 docker swarm。
+ 
 
-## Containerd 和 Docker 组件常用命令
+### Containerd 和 Docker 组件常用命令是什么？
 Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 命令实现类似的功能。
 
 | 镜像相关功能   | Docker         | Containerd      |
 |:-------- |:-------------- |:--------------- |
-| 显示本地镜像列表 | docker images  | crictl ps       |
+| 显示本地镜像列表 | docker images  | crictl images       |
 | 下载镜像     | docker pull    | crictl pull     |
 | 上传镜像     | docker push     | 无               |
 | 删除本地镜像   | docker rmi     | crictl rmi      |
-| 查看镜像详情   | docker inspect | crictl inspecti |
+| 查看镜像详情   | docker inspect IMAGE-ID | crictl inspecti IMAGE-ID |
 
 
 
@@ -43,7 +44,7 @@ Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 命
 | 运行 POD   | 无      | crictl runp     |
 | 停止 POD   | 无      | crictl stopp    |
 
-## 调用链说明
+### 调用链区别有哪些？
 - Docker 作为 k8s 容器运行时，调用关系如下：
 `kubelet --> docker shim （在 kubelet 进程中） --> dockerd --> containerd`
 - Containerd 作为 k8s 容器运行时，调用关系如下：
@@ -56,7 +57,7 @@ Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 命
 >?Kubectl exec/logs 等命令需要在 apiserver 跟容器运行时之间建立流转发通道。
 >
 
-### Stream 服务在 Containerd 中的使用及配置
+### 如何在 Containerd 中使用并配置 Stream 服务？
 Docker API 本身提供 stream 服务，kubelet 内部的 docker-shim 会通过 docker API 做流转发。
 Containerd 的 stream 服务需要单独配置：
 ```
@@ -66,7 +67,7 @@ Containerd 的 stream 服务需要单独配置：
   enable_tls_streaming = false
 ```
 
-### k8s 1.11 前后版本配置区别
+### k8s 1.11 前后版本配置区别是什么？
 Containerd 的 stream 服务在 k8s 不同版本运行时场景下配置不同。
 - 在 k8s 1.11 之前：
 Kubelet 不会做 stream proxy，只会做重定向。即 Kubelet 会将 containerd 暴露的 stream server 地址发送给 apiserver，并让 apiserver 直接访问 containerd 的 stream 服务。此时，您需要给 stream 服务转发器认证，用于安全防护。
@@ -122,3 +123,5 @@ Kubelet 不会做 stream proxy，只会做重定向。即 Kubelet 会将 contain
 |:-------- |:---------------------------------------- |:---------------------------------------------------------------------------------------------------------------- |
 | 谁负责调用 CNI | Kubelet 内部的 docker-shim                    | Containerd 内置的 cri-plugin（containerd 1.1 以后）                                                                        |
 | 如何配置 CNI  | Kubelet 参数 <code>--cni-bin-dir</code> 和 <code>--cni-conf-dir</code> | Containerd 配置文件（toml）：<br> <code>[plugins.cri.cni]</code><br>    <code>bin\_dir = "/opt/cni/bin"</code><br>    <code>conf\_dir = "/etc/cni/net.d"</code> |
+
+

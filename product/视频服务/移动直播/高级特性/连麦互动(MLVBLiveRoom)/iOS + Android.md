@@ -1,13 +1,15 @@
 ## 功能介绍
 
-TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现推流和拉流功能，但如果想要实现复杂的直播连麦功能，就需要借助我们提供给您的 MLVBLiveRoom 组件，该组件基于腾讯云直播（LVB）和 云通信（IM）两个 PAAS 服务组合而成，支持：
+TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现推流和拉流功能，但如果想要实现复杂的直播连麦功能，就需要借助我们提供给您的 MLVBLiveRoom 组件，该组件基于云直播（LVB）和即时通信（IM）两个 PAAS 服务组合而成，支持：
 
 - 主播创建新的直播间开播，观众进入直播间观看。
 - 主播和观众进行视频连麦互动。
 - 两个不同房间的主播 PK 互动。
 - 每一个直播间都有一个不限制房间人数的聊天室，支持发送各种文本消息和自定义消息，自定义消息可用于实现弹幕、点赞和礼物。
 
-![](https://main.qcloudimg.com/raw/3e140620deb9058a2e8aba03ab26f280.gif)
+>? 连麦互动功能支持中国内地（大陆）地区使用，暂不支持中国港澳台/境外地区。
+
+<img src="https://main.qcloudimg.com/raw/3e140620deb9058a2e8aba03ab26f280.gif" width="830px">
 
 ## 功能体验
 
@@ -18,9 +20,9 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 - **Android**
   下载 [apk](http://dldir1.qq.com/hudongzhibo/xiaozhibo/xiaozhibo.apk) 安装包，安装“小直播”，注册一个账号即可开始体验。
 - **微信小程序**
-  打开微信，选择【发现】>【小程序】，搜索“腾讯视频云”，单击“手机直播”功能即可体验。
+  打开微信，选择【发现】>【小程序】，搜索“腾讯视频云”，单击“移动直播”功能即可体验。
 
-<img style="border:0; max-width:100%; height:auto; box-sizing:content-box; box-shadow: 0px 0px 0px #ccc; margin: 0px 0px 0px 0px;" src="https://main.qcloudimg.com/raw/aacdf8cdfa825f64f34af9c3c3e4154e.jpg" />
+![](https://main.qcloudimg.com/raw/5b6184f8857bdfb1501632951403f8d0.jpg)
 
 ## 代码对接
 
@@ -35,8 +37,8 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 
 | 所属平台 |   LiteAVSDK   |     TIMSDK     |  MLVBLiveRoom 组件    |   示例代码  |
 | :------: | :---------: | :-----------: | :------------: | :----------: |
-|   iOS    | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/iOS/ImSDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/LiveRoom/LiveRoom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/LiveRoom/LiveRoomUI) |
-| Android  | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/SDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/liveroom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/liveroom/ui) |
+|   iOS    | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/iOS/ImSDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/MLVBLiveRoomDemo/LiveRoom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/MLVBLiveRoomDemo/LiveRoomUI) |
+| Android  | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/SDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/mlvbliveroomdemo/src/main/java/com/tencent/liteav/demo/liveroom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/mlvbliveroomdemo/src/main/java/com/tencent/liteav/demo/liveroom/ui) |
 
 
 ### Step2. 申请 License 
@@ -55,16 +57,24 @@ TXLiveBase.getInstance().setLicence(context, LicenceUrl, Key);
 ```
 
 ### Step3. 购买连麦套餐包
-由于连麦功能会使用到高速专线来降低音视频传输延迟，这部分功能需要额外购买套餐包才能开通，否则移动直播的各端 SDK 只能使用腾讯云直播的普通服务（推流和拉流），并不能开启连麦功能。
+由于连麦功能会使用到高速专线来降低音视频传输延迟，这部分功能需要额外购买套餐包才能开通，否则移动直播的各端 SDK 只能使用云直播的普通服务（推流和拉流），并不能开启连麦功能。
 
-- [购买1元测试包](https://buy.cloud.tencent.com/mini_mlvb_activity)
-- [购买连麦预付费套餐包](https://buy.cloud.tencent.com/miniprog_lvb)
-- [移动直播连麦计费说明](https://cloud.tencent.com/document/product/454/8008#.E7.A7.BB.E5.8A.A8.E7.9B.B4.E6.92.AD.E8.BF.9E.E9.BA.A6.E6.9C.8D.E5.8A.A1.EF.BC.88acc.EF.BC.89)
+- [购买连麦预付费套餐包](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb)
+- [移动直播连麦计费说明](https://cloud.tencent.com/document/product/454/8008)
+
+>? 
+>- 默认开通连麦服务需要先购买正式的连麦套餐包（非体验包），开通后可选择继续购买套餐包进行消费抵扣，也可以按照后付费日结计费进行结算。
+>- 若您购买的套餐包为体验包，用尽后次日会自动停止连麦服务，超出部分仍会按照后付费计费。
+>- 使用连麦的**双方**是**按连麦时长计费**，普通观众观看会先通过直播混流，将连麦画面混合后通过 CDN 播放来降低播放成本。
+	- 观众观看混流后产生的直播费用，按照直播流量/带宽计费。
+	- 直播混流功能会产生标准转码费用，按照输出的分辨率和时长计费。
+
+
 
 ### Step4. 在应用管理中添加一个新的应用
-进入【直播控制台】>【直播SDK】>[【房间管理】](https://console.cloud.tencent.com/live/license/appmanage)，单击【创建应用】。待应用创建完成后，记录其 SDKAPPID 信息。
+进入【云直播控制台】>【直播SDK】>[【应用管理】](https://console.cloud.tencent.com/live/license/appmanage)，单击【创建应用】。待应用创建完成后，记录其 SDKAPPID 信息。
 
->?该操作的目的是创建一个云通信应用，并将当前直播账号和该云通信应用绑定起来。云通信应用能为小直播 App 提供聊天室和连麦互动的能力。
+>?该操作的目的是创建一个即时通信 IM 应用，并将当前直播账号和该即时通信 IM 应用绑定起来。即时通信 IM 应用能为小直播 App 提供聊天室和连麦互动的能力。
 
 ### Step5. 登录房间服务
 
@@ -77,15 +87,17 @@ MLVBLiveRoom 的 login 函数需要指定相关参数：
 | sdkAppID   | 数字   | 当前应用的 AppID，在 Step4 中可以获取到。                      |
 | userID     | 字符串 | 当前用户在您的帐号系统中的 ID。                               |
 | userName   | 字符串 | 用户名（昵称）。                                               |
-| userAvatar | 字符串 | 用户头像的 URL 地址                                          |
+| userAvatar | 字符串 | 用户头像的 URL 地址。                                       |
 | userSig    | 字符串 | 登录签名，计算方法请参见 [计算 UserSig](https://cloud.tencent.com/document/product/454/14548)。 |
 
->?由于 login 是一个需要跟后台服务器通讯的过程，建议等待 login 函数的异步回调后再调用其他函数。
+>?
+>- 由于 login 是一个需要跟后台服务器通讯的过程，建议等待 login 函数的异步回调后再调用其他函数。
+>- 后台接口限制并发为每秒100次请求，若您有高并发请求请提前 [联系我们](https://cloud.tencent.com/act/event/connect-service) 处理，避免影响服务调用。
 
 ### Step6. 获取房间列表（非必需）
 >? 如果您希望使用自己的房间列表，该步骤可跳过，但需要您在 [Step7](#Step7) 中自行指定 roomID。为避免房间号重复，建议使用主播的 userID 作为 roomID。
 
-不管是主播还是观众都需要有一个房间间列表，调用 MLVBLiveRoom 的 **getRoomList** 接口可以获得一个简单的房间列表：
+不管是主播还是观众都需要有一个房间列表，调用 MLVBLiveRoom 的 **getRoomList** 接口可以获得一个简单的房间列表：
 - 当主播通过`createRoom`创建一个新房间时，房间列表中会相应地增加一条新的房间信息。
 - 当主播通过`exitRoom`退出房间时，房间列表中会移除该房间。
 
@@ -108,7 +120,7 @@ MLVBLiveRoom 的 login 函数需要指定相关参数：
 
 ### Step9. 弹幕消息
 
-MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoomTextMsg** 函数发送普通的文本消息（用来弹幕），也可以通过 **sendRoomCustomMsg** 发送自定义消息（用于点赞，送花等等）。
+MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoomTextMsg** 函数发送普通的文本消息（用于弹幕），也可以通过 **sendRoomCustomMsg** 发送自定义消息（用于点赞，送花等等）。
 
 >!腾讯云 IM 的直播聊天室，每秒钟最多可以收取40条的消息。如果您以高于40条/次的速度刷新 UI 上的弹幕界面，很容易导致 CPU 100%，请注意控制刷新频率，避免高频刷新。
 
@@ -118,7 +130,7 @@ MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoom
 | :----: | :--------: | :----------------------------------------------------------- |
 | 第一步 |    观众    | 观众调用`requestJoinAnchor()`向主播发起连麦请求。            |
 | 第二步 |    主播    | 主播会收到`MLVBLiveRoomDelegate#onRequestJoinAnchor(AnchorInfo, String)`通知，之后可以展示一个 UI 提示，询问主播要不要接受连麦。 |
-| 第三步 |    主播    | 主播调用`reponseJoinAnchor()`确定是否接受观众的连麦请求。  |
+| 第三步 |    主播    | 主播调用`responseJoinAnchor()`确定是否接受观众的连麦请求。  |
 | 第四步 |    观众    | 观众会收到`MLVBLiveRoomDelegate.RequestJoinAnchorCallback`回调通知，得知请求是否被同意。 |
 | 第五步 |    观众    | 观众如果请求被同意，则调用 startLocalPreview() 开启本地摄像头，如果 App 还没有取得摄像头和麦克风权限，会触发 UI 提示用户授权摄像头和麦克风的使用权限。 |
 | 第六步 |    观众    | 观众调用`joinAnchor()`正式进入连麦状态。               |
@@ -132,7 +144,7 @@ MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoom
 ### Step11. 主播间跨房间 PK
 
 主播间跨房 PK 常被用于活跃直播平台的氛围，提升打赏频率，对平台的主播人数有一定要求。目前常见的主播 PK 方式是将所有愿意 PK 的主播“圈”在一起，再后台进行随机配对，每次 PK 都有一定时间要求，例如5分钟，超过后即结束 PK 状态。
-由于我们暂时未在 MLVBLiveRoom 的房间服务里加入配对逻辑，因此目前仅提供了基于客户端 API 接口的简单 PK 流程，您可以通过腾讯云通讯 IM 服务的消息下发 [REST API](https://cloud.tencent.com/document/product/269/2282) 接口，由您的配对服务器，将配对开始、配对结束等指令发送给指定的主播，从而实现服务器控制的目的。如果采用此种控制方式，下述步骤中的第三步实现为默认接受即可。
+由于我们暂时未在 MLVBLiveRoom 的房间服务里加入配对逻辑，因此目前仅提供了基于客户端 API 接口的简单 PK 流程，您可以通过即时通信 IM 服务的消息下发 [REST API](https://cloud.tencent.com/document/product/269/2282) 接口，由您的配对服务器，将配对开始、配对结束等指令发送给指定的主播，从而实现服务器控制的目的。如果采用此种控制方式，下述步骤中的第三步实现为默认接受即可。
 
 |  步骤  |   角色    | 详情                                                         |
 | :----: | :-------: | :----------------------------------------------------------- |
@@ -150,7 +162,8 @@ MLVBLiveRoom 包装了 TIMSDK 的消息发送接口，您可以通过 **sendRoom
 - 直播采用标准的 HTTP-FLV 协议，使用标准 CDN 线路，没有并发观看人数的限制，且带宽成本很低，但延迟一般在3s以上。
 - 连麦采用 UDP 协议，使用专用加速线路，延迟一般在500ms以内，但由于线路成本较高，因此采用连麦时长进行计费。
 
-![](https://main.qcloudimg.com/raw/ca3441a2671fda6b336edf9921b4cd8a.png)
+![](https://main.qcloudimg.com/raw/5d906e44288028ee8fc929b719ea3884.png)
+
 
 |     通道     |                           直播通道                           |                           连麦通道                           |
 | :----------: | :----------------------------------------------------------: | :----------------------------------------------------------: |

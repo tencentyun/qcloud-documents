@@ -1,67 +1,75 @@
-## 1 iOS 接入
+>!请先单击 [智营网优申请页](https://cloud.tencent.com/act/apply/ino) 进行申请。
 
-### 1.1 SDK 获取
-登录腾讯云控制台,在智营网优管理后台下载 SDK。  
->!本产品需要申请通过后才能访问管理后台。
+## 接入流程
 
-### 1.2 SDK 配置
-#### 1.2.1 安装包结构
+#### 获取 SDK 
+1. 登录 [智营网优控制台](https://console.cloud.tencent.com/ino)，单击左侧菜单【SDK 下载】。  
+2. 请按系统平台选择对应版本的 SDK，并单击【下载】。
 
-| MNA.framework | 适用于“Build Setting->C++ Language Dialect”配置为 GNU++98，“Build Setting->C++ Standard Library”为“libstdc++(GNU C++ standard library)”的工程。 | 
-|---------|---------|
-| MNA.framework | 适用于以上两项配置分别为“GNU++11”和“libc++(LLVM C++ standard library with C++11 support)”的工程。 | 
+#### 配置 SDK 
+>!iOS SDK 为动态库，仅支持 iOS8 以上。
 
-#### 1.2.2 步骤
-
-1) 引入 SDK
-
-- MNA.framework/MNA_C11.framework
-- GBeaconAPI_Base.framework
-
-2) 添加系统库
-
-- SystemConfiguration.framework
-- libz.dylib 
-- libstdc++.dylib （或 libc++.dylib ）
-- libsqlite3.dylib
-- CoreTelephoney.framework
-- Security.framework
-- AdSupport.framework
-- CoreLocation.framework
-- MobileCoreService.framework
-- UIKit.framework
-
-3) 在 Other linker flag 里加入 -ObjC 标志。
-
-4) 在info.plist中添加如下设置：
+1. 在 Embedded Binaries 中引入 SDK：
+![](https://main.qcloudimg.com/raw/8a63fe600804eaf556b60a4e8f79317d.png)
+2. 在 Linked Frameworks and Libraries 中引入 GBeaconAPI_Base.framework。
+3. 添加系统库：
+ - SystemConfiguration.framework
+ - libz.dylib 
+ - libstdc++.dylib （或 libc++.dylib ）
+ - libsqlite3.dylib
+ - CoreTelephoney.framework
+ - Security.framework
+ - AdSupport.framework
+ - CoreLocation.framework
+ - MobileCoreService.framework
+ - UIKit.framework
+4. 引入文件：
+ - MyMNAObserver.h
+ - MyMNAObserver.mm
+5. 在 info.plist 中添加如下设置：
 ```
 <key>NSAppTransportSecurity</key>
-<dict>
-	<key>NSAllowsArbitraryLoads</key>
-	<true/>
-</dict>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 ```
 
->!在 NSAppTransportSecurity 下，只需设置 NSAllowsArbitraryLoads 为 YES 即可，请勿再添加其他配置，如 NSAllowsArbitraryLoadsForMedia。
+>!在 NSAppTransportSecurity 下，只需设置 NSAllowsArbitraryLoads 为 YES 即可，请勿再添加其他配置，例如 NSAllowsArbitraryLoadsForMedia
 
-5) 完成，按照所需调用相应接口即可。
+6. 在 AppDelegate.mm 文件中，引入头文件：
+```
+#import <MNA/MNAPublic.h>
+#import “MyMNAObserver.h”
+```
+并在 application:didFinishLaunchingWithOptions 函数中设置回调函数，即粘帖如下代码：
+```
+MNAPublic * mna = MNAPublic::GetInstance();
+MyMNAObserver * observer = MyMNAObserver::GetInstance();
+mna->MNASetObserver(observer);
+```
+7. 完成后，按照所需调用相应接口即可。
 
-## 2 API 接口接入步骤
-![](https://mc.qcloudimg.com/static/img/a88e299383eb7d9aae1e848a500e0486/image.png)
-1. 应用启动时，调用初始化`MNAInit`。
-2. 应用登录成功后，需要调用`MNASetUserName`设置`openid`。 
-3. 对局开始前调用`MNAStartDiagnose`；当应用切换到前台时，调用`MNAGoFront`; 当应用切换到后台时，调用`MNAGoBack`。
-4. 对局结束时，先调用`MNAIsQosWork`函数获取 QoS 保障标识，再调用`MNAEndDiagnose`结束当局加速，并上报网络质量数据。
+## 接入步骤
+![](https://main.qcloudimg.com/raw/ab74542d85ccaada74f1e4677f4e49dd.png)
+1. 应用启动时，调用初始化`MNAInit`，并设置回调函数`MNASetObserver`。
+2. 应用登录成功后，需要调用`MNASetUserName`设置`openid`，可通过`MNASetZoneId`设置`zone id`。
+3. 对局开始前调用`MNAStartDiagnose`当游戏服务器 IP 发生变化时可调用`MNASetGameIp`来设置游戏服务器 IP，不发生变化时不需要调用；当应用切换到前台时，调用`MNAGoFront`;当应用切换到后台时，调用`MNAGoBack`。
+4. 对局结束时，先调用`MNAIsQosWork`函数获取 Qos 保障标识，再调用`MNAEndSpeed`结束当局加速，并上报网络质量数据。
 5. 进入游戏大厅后可通过调用`MNARealTimeQuery`函数来对网络进行诊断。
 
-## 3  API 介绍
-调用示例：`[[MNAPublic sharedInstance] XXXXXXXX];`
-
-### 3.1 初始化
-
-####  3.1.1 初始化 SDK
+## API 介绍
+使用单例模式调用，调用示例：
 ```
-- (void)MNAInit:(NSString *)appid Debug:(BOOL)isDebug Zoneid:(int)zoneid IsReleaseEnv:(BOOL)isReleaseEnv IsUseBatteryNotify:(BOOL)isBatteryNotify TCloudKey:(NSString *)tCloudKey;
+MNAPublic* mna = MNAPublic::GetInstance();
+mna->MNAInit("appid_test", true, 0, true, false, "");
+```
+
+### 初始化
+
+####  初始化 SDK
+```
+void MNAInit(const char * appid, bool isDebug, int zoneid, bool isReleaseEnv, bool isBatteryNotify, const char * tCloudKey);
 ```
 
 |参数 | 含义 | 
@@ -69,13 +77,19 @@
 | appid | 惟一标识该应用,即腾讯云控制台加速服务的游戏 ID | 
 | isDebug | 控制 log 的输出方便联调 | 
 | zoneid | 玩家大区 ID | 
-| isReleaseEnv | 云控正式环境，默认直接填 YES 即可 | 
-| isBatteryNotify | 电量统计信息，默认直接填 NO 即可 | 
+| isReleaseEnv | 云控正式环境，默认直接填 true 即可 | 
+| isBatteryNotify | 电量统计信息，默认直接填 false 即可| 
 | tCloudKey | 腾讯云申请的 key 值 | 
 
-####  3.1.2 设置用户信息
+####  设置回调函数
 ```
-- (void)MNASetUserName:(int)platform OpenId:(NSString *)openId;
+void MNASetObserver(MNAObserver * observer);
+//参数：observer，回调函数实例。
+```
+
+####  设置用户信息
+```
+void MNASetUserName(int platform, const char * openId);
 //platform：此参数为 int 型，与 MSDK 中定义账号类型一致
 //openiId：用户的 openid
 ```
@@ -89,46 +103,58 @@
 | ePlatform_QQHall | 4 | 
 | ePlatform_Guest | 5 | 
 
-### 3.2 加速
-####  3.2.1 开启加速器引擎 MNAStartDiagnose
+### 加速
+####  开启加速器引擎 MNAStartSpeed
 ```
- - (void)MNAStartDiagnose:(NSString *)vip Vport:(int)vport Htype:(int)htype Zoneid:(int)zoneid PVPid:(NSString *) pvpid;
+ void MNAStartSpeed(const char * vip, int vport, int htype, const char * module, int zoneid, int stopMNA, const char * pvpid, int timeout);
 ```
 
 |参数 | 含义 | 
 |---------|---------|
 | vip | 游戏服务器地址（IP 或域名，强烈建议使用 IP）| 
 | vport | 游戏服务器端口 | 
-| htype | 填 0 | 
-| zoneid | 玩家大区 ID | 
-| pvpid | 对局唯一 ID | 
+| htype | 本参数决定 HOOK 的函数种类，取值有如下：htype = 1：表示只处理 sendto() 和 recvfrom()，用于核心协议是 UD，且使用这两个函数的游戏。 | 
+| hookModules| 指定要 HOOK 的动态链接库，填""即可 | 
+| stopMNA | 默认值为0；为1表示强制关闭加速功能，保留网络诊断功能。 | 
+| pvpid | 对局唯一 ID，用来定位对局的网络问题 | 
+|  timeout | 默认值为0；设置启动阶段超时时间，单位为毫秒，当 timeout<=0 时，表示不设置启动超时。 | 
 
-功能： 本函数被调用后将开始网络诊断。
+本函数被调用后将开始异步对所有加速节点进行测速，判断是否执行加速。整个过程需要5 - 6秒。完成后会回调 MNAObserver 函数。
 
-#### 3.2.2 通知加速引擎：游戏目前在前台
+#### 设置游戏服务器 IP（选接项）
 ```
-- (void)MNAGoFront;
+void MNASetGameIp(const char *gameip);
+```
+|参数 | 含义 | 
+|---------|---------|
+| gameIp | 游戏服务器地址| 
+
+当游戏在对局中因为网络或者别的原因导致游戏服务器 IP 发生改变时，直接调用该接口设置游戏服务器 IP 即可，当对局中 IP 不会发生变化时不需要接入，目前主要是境外业务需要调用该接口，中国内地（大陆）业务不用接。
+
+#### 通知加速引擎：游戏目前在前台
+```
+(void)MNAGoFront;
 ```
 当游戏切换到前台时,调用此函数。
 
-#### 3.2.3 通知加速引擎：游戏目前切换到后台
+#### 通知加速引擎：游戏目前切换到后台
 ```
-- (void)MNAGoBack;
+(void)MNAGoBack;
 ```
-当游戏切换到后台（比如被其它应用遮挡），必须调用此函数，通知加速引擎。
+当游戏切换到后台（例如被其它应用遮挡），必须调用此函数，通知加速引擎。
 
-#### 3.2.4 强行关闭加速
+#### 正常结束加速器引擎
 ```
-- (void)MNAEndDiagnose:(NSString *)vip Vport:(int)vport;
+void MNAEndSpeed(const char * vip, int vport);
 //参数： vip 游戏服务器地址,跟 startspeed 保持一致
 //参数： vport 游戏服务器端口
 ```
 
-#### 3.2.5 查询 4G QoS 是否保障
+#### 查询 4G QoS 是否保障
 ```
-- (int)MNAIsQOSWork;
+(int)MNAIsQOSWork;
 ```
-返回 QoS 是否有保障成功：需要把此状态信息在游戏体验数据中记录并上报。4G QoS 在移动 4G 网络下才会生效，一般在结束加速 MNAEndDiagnose 时调用，返回值具体含义如下，这个可以用于游戏上线后核对 4G QOS 加速效果。
+返回 QoS 是否有保障成功：需要把此状态信息在游戏体验数据中记录并上报。4G QoS 在移动 4G 网络下才会生效，一般在结束加速 `MNAEndSpeed` 时调用，返回值具体含义如下，这个可以用于游戏上线后核对 4G QOS 加速效果。
 
 | 返回值 | 具体含义 | 
 |---------|---------|
@@ -143,49 +169,47 @@
 | -7 | 运营商返回 errno 非 0 | 
 | -8 | 解析运营商数据失败 | 
 
-### 3.3 网络诊断
+### 网络诊断
 ####  设置实时网络诊断
 ```
--(void)MNARealTimeQuery:(NSString *)tag withGhCompletionHandler:(void (^)(MNAKartinRet *))handler;
+void MNARealTimeQuery(const char * tag);
+//参数`tag`，作为标识每一次查询的 ID。
 ```
-参数`tag`，作为标识每一次查询的 ID。
+结果由 MNAObserver 函数的 OnQueryKartinNotify 返回。
 
-返回参数MNAKartinRet类型说明：
-
+返回结果以分号拼接，含义依次如下：
 ```
-NSString * tag; // 游戏传入的Tag
-int flag; // 查询成功标识，若为0则成功
-NSString * desc; // 查询flag的具体描述
-int jump_network; // 当时网络类型0: 无网络,1: 2G, 2: 3G, 3: 4G, 4: Wi-Fi
-int jump_signal; // 信号强度
-int signal_status = -1; // 0表示绿色，信号强；1表示黄色，信号弱；2表示红色，信号极弱
-NSString * signal_desc = ""; // 3、信号强度描述
-int jump_router; // ping路由时延
-int router_status = -1; // ping状态,0表示绿色，时延低；2表示红色，时延高
-NSString * router_desc = ""; // ping描述
-int jump_export = -1; // 宽带或基站出口时延  
-// export状态,0表示绿色，时延低；2表示红色，时延高  
-int export_status = -1; // 宽带出口和基站出口状态
-NSString * export_desc = ""; //宽带出口和基站出口描述
-int jump_proxy; // ping代理时延
-int jump_edge; // ping边缘时延
-int jump_terminal; // Wi-Fi终端数 
-// terminal状态,0表示绿色终端数少；2表示红色，时延高   
-int terminal_status = -1; //Wi-Fi终端数状态
-NSString * terminal_desc = ""; //Wi-Fi终端数描述
-int jump_terminal; // Wi-Fi终端数
-int jump_direct; // 直连测速时延
-// 直连状态,0表示绿色时延低；2表示红色，时延高
-int direct_status; // 直连测速时延状态
-int direct_desc; // 直连状态的描述
-// 网卡状态, 0表示绿色网卡无问题；2表示红色网卡有问题
-int netinfo_status; // 网卡状态
-int netinfo_desc; // 网卡情况具体描述
+tag; // 游戏传入的Tag
+flag; // 查询成功标识，若为0则成功
+desc; // 查询flag的具体描述
+jump_network; // 当时网络类型0: 无网络,1: 2G, 2: 3G, 3: 4G, 4: wifi
+jump_signal; // 信号强度
+jump_router; // ping路由时延
+router_status; // ping状态,0表示绿色，时延低；2表示红色，时延高
+router_desc; // ping描述
+jump_export; // 宽带或基站出口时延  
+export_status; // export状态,0表示绿色，时延低；2表示红色，时延高
+export_desc; //宽带出口和基站出口描述
+jump_terminal; // wifi终端数 
+terminal_status; // terminal状态,0表示绿色终端数少；2表示红色，时延高
+terminal_desc; //wifi终端数描述
+jump_proxy; // ping代理时延
+jump_edge; // ping边缘时延
+signal_desc; //信号强度描述
+signal_status; //信号强度状态
+jump_direct; // 直连测速时延
+direct_status; // 直连状态,0表示绿色时延低；2表示红色，时延高
+direct_desc; // 直连状态的描述
+netinfo_status; // // 网卡状态, 0表示绿色网卡无问题；2表示红色网卡有问题
 
 ```
 
-### 4.3 附录3  KartinRet 关键参数取值及其说明如下
-#### 字段：flag；关键名称：查询结果标识
+## 附录 
+MNAKartinRet 关键参数取值及其说明如下：
+
+- 字段：flag。
+- 关键名称：查询结果标识。
+
 | 取值 | 含义 | 
 |---------|---------|
 | 0 | 查询成功 | 
@@ -195,7 +219,9 @@ int netinfo_desc; // 网卡情况具体描述
 | -4 | 当前网络类型发生了变化，请稍后再试 | 
 | -5 | 2G 网络不适合游戏，无法检测 | 
 
-#### 字段：jump_network；关键名称：网络类型
+- 字段：jump_network。
+- 关键名称：网络类型。
+
 | 取值 | 含义 | 
 |---------|---------|
 | 0 | 无网络或网络类型无法识别 | 
@@ -204,42 +230,54 @@ int netinfo_desc; // 网卡情况具体描述
 | 3 | 4G | 
 | 4 | Wi-Fi | 
 
-#### 字段：jump_signal；关键名称：信号强度（仅 Wi-Fi）
+- 字段：jump_signal。
+- 关键名称：信号强度（仅 Wi-Fi）。
+
 | 取值 | 含义 | 
 |---------|---------|
 | -1 | 获取强度失败，请稍后再试 | 
 | 0..4 | Wi-Fi 信号强度 | 
 
-#### 字段：jump_router；关键名称：路由器时延（仅 Wi-Fi）
+- 字段：jump_router。
+- 关键名称：路由器时延（仅 Wi-Fi）。
+
 | 取值 | 含义 | 
 |---------|---------|
 | -1 | 不支持路由延迟查询 | 
 | -2 | 获取路由器延迟失败，请稍后再试 | 
 | 0..1000 | 当前路由器的延迟值 | 
 
-#### 字段：jump_terminal；关键名称：共享 Wi-Fi 设备数（仅 Wi-Fi）
+- 字段：jump_terminal。
+- 关键名称：共享 Wi-Fi 设备数（仅 Wi-Fi）。
+
 | 取值 | 含义 | 
 |---------|---------|
 | -1 | 仅在WIFI模式下支持共享 Wi-Fi 设备查询 | 
 | 0..254 | 链接相同 Wi-Fi 的设备数 | 
 
-#### 字段：jump_export；关键名称：宽带出口时延
+- 字段：jump_export。
+- 关键名称：宽带出口时延。
+
 | 取值 | 含义 | 
 |---------|---------|
 | -1 | 获取社区延迟失败，请稍后再试 | 
 | -2 | 抱歉，当前所在区域网络不支持社区宽带延迟查询 | 
 | 0..500 | 带宽出口时延值 | 
 
-#### 字段：jump_direct；关键名称：直连时延
+- 字段：jump_direct。
+- 关键名称：直连时延。
+
 | 取值 | 含义 | 
 |---------|---------|
 | -1 | 获取直连延迟失败，请稍后再试 | 
 | 0..800 | 网络时延值 | 
 
-#### 字段：netinfo_desc；关键名称：直连时延
+- 字段：netinfo_desc。
+- 关键名称：直连时延。
+
 | 取值 | 含义 | 
 |---------|---------|
-|   | 当前网卡有丢包或错包，不适合游戏 |   
+| String| 当前网卡有丢包或错包，不适合游戏。 | 
 
 具体设置请参考王者荣耀的示例：（ 红色字体为备注 ）
 

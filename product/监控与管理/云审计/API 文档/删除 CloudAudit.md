@@ -17,13 +17,13 @@ DeleteAudit 用于删除云审计跟踪集。
 ### 请求
 ```
 {
-   "Name": "String"
+   "Name":"String"
 }
 ```
 
 ### 响应
 ```
 {
-	"OK"
+     "OK"
 }
 ```

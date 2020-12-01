@@ -1,19 +1,15 @@
 ## SDK 功能简介
-目前腾讯云短信为客户提供**国内短信、语音短信**和**国际短信**服务，腾讯云短信 SDK 支持以下操作：
+目前腾讯云短信为客户提供**国内短信和**国际/港澳台短信**服务，腾讯云短信 SDK 支持以下操作：
 
-| 国内短信             | 语音语音               | 国际短信                 |
-| ------------------ | ---------------------- | ---------------- |
-| <li>[单发短信](#单发短信)<li>[指定模板单发短信](#指定模板单发短信)<li>[群发短信](#群发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执和短信回复状态](#拉取短信回执) | <li>[发送语音验证码](#发送语音验证码)<li>[发送语音通知](#发送语音通知)<li>[指定模板发送语音通知](#指定模板发送语音通知) | <li>[单发短信](#单发短信)<li>[指定模板单发短信](#指定模板单发短信)<li>[群发短信](#群发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执](#拉取短信回执) |
+| 国内短信             | 国际/港澳台短信                 |
+| ------------------ | ---------------- |
+| <li>[指定模板单发短信](#指定模板单发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执和短信回复状态](#拉取短信回执) |  <li>[指定模板单发短信](#指定模板单发短信)<li>[指定模板群发短信](#指定模板群发短信)<li>[拉取短信回执](#拉取短信回执) |
 
 >?
 >- 群发短信
 >一次群发请求最多支持200个号码，如对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：[3012203387](https://main.qcloudimg.com/raw/e674a37df984126f53ab9cbf4b9a168a.html)）。
 >- 拉取短信回执
 >该功能默认关闭。您可以根据实际需求联系腾讯云短信技术支持（QQ：[3012203387](https://main.qcloudimg.com/raw/e674a37df984126f53ab9cbf4b9a168a.html)）开通，实现批量拉取短信回执。
->- 发送语音验证码
->只需提供验证码数字，如需自定义内容，可以 [发送语音通知](#发送语音通知)。例如，当 msg=“5678” 时，您收到的语音通知为`您的语音验证码是五六七八。`。
->- 发送语音通知
->数字默认按照个十百千万进行播报，可通过在数字前添加英文逗号（,）改变播报方式。例如，当 msg=`您的语音验证码是5678。` 时，您收到的语音通知为`您的语音验证码是五千六百七十八。`，当 msg=`您的语音验证码是5,6,7,8。`时，您收到的语音通知为`您的语音验证码是五六七八。`。
 
 ## SDK 使用指南
 ### 相关资料
@@ -24,9 +20,9 @@
 - **获取 SDKAppID 和 AppKey**
 云短信应用 **SDKAppID** 和 **AppKey** 可在 [短信控制台](https://console.cloud.tencent.com/sms) 的应用信息里获取。如您尚未添加应用，请登录 [短信控制台](https://console.cloud.tencent.com/sms) 添加应用。
 - **申请签名并确认审核通过**
-一个完整的短信由短信**签名**和**短信正文内容**两部分组成，短信**签名**需申请和审核，**签名**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参见 [创建签名](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E7.AD.BE.E5.90.8D)。发送国际短信时，允许不携带签名。
+一个完整的短信由短信**签名**和**短信正文内容**两部分组成，短信**签名**需申请和审核，**签名**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参见 [创建签名](https://cloud.tencent.com/document/product/382/36136#Sign)。发送国际/港澳台短信时，允许不携带签名。
 - **申请模板并确认审核通过**
-短信或语音正文内容**模板**需申请和审核，**模板**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参见 [创建正文模板](https://cloud.tencent.com/document/product/382/18061#.E5.88.9B.E5.BB.BA.E6.AD.A3.E6.96.87.E6.A8.A1.E6.9D.BF)。
+短信正文内容**模板**需申请和审核，**模板**可在 [短信控制台](https://console.cloud.tencent.com/sms) 的相应服务模块【内容配置】中进行申请，详细申请操作请参见 [创建正文模板](https://cloud.tencent.com/document/product/382/36136#Template)。
 
 ### 配置 SDK
 
@@ -72,39 +68,22 @@ function callback(err, res, resData) {
 }
 ```
 
-<a id="单发短信" ></a>
-- **单发短信**
-```javascript
-var smsType = 0; // Enum{0: 普通短信, 1: 营销短信}
-var ssender = qcloudsms.SmsSingleSender();
-ssender.send(smsType, 86, phoneNumbers[0],
-  "【腾讯云】您的验证码是: 5678", "", "", callback);
-```
-
 <a id="指定模板单发短信" ></a>
 - **指定模板 ID 单发短信**
 ```javascript
 var ssender = qcloudsms.SmsSingleSender();
 var params = ["5678"];
-ssender.sendWithParam(86, phoneNumbers[0], templateId,
-  params, smsSign, "", "", callback);  // 签名参数未提供或者为空时，会使用默认签名发送短信
+ssender.sendWithParam("86", phoneNumbers[0], templateId,
+  params, smsSign, "", "", callback); 
 ```
 
-<a id="群发短信" ></a>
-- **群发短信**
-```
-var smsType = 0;  // Enum{0: 普通短信, 1: 营销短信}
-var msender = qcloudsms.SmsMultiSender();
-msender.send(smsType, "86", phoneNumbers,
-  "【腾讯云】您的验证码是: 5678", "", "", callback);
-```
 <a id="指定模板群发短信" ></a>
 - **指定模板 ID 群发短信**
 ```javascript
 var msender = qcloudsms.SmsMultiSender();
 var params = ["5678"];
 msender.sendWithParam("86", phoneNumbers, templateId,
-  params, smsSign, "", "", callback);  // 签名参数未提供或者为空时，会使用默认签名发送短信
+  params, smsSign, "", "", callback);
 ```
 
 <a id="拉取短信回执" ></a>
@@ -114,7 +93,7 @@ var maxNum = 10;  // 单次拉取最大量
 var spuller = qcloudsms.SmsStatusPuller();
 // 拉取短信回执
 spuller.pullCallback(maxNum, callback);
-// 拉取回复，国际短信不支持回复功能
+// 拉取回复（国际/港澳台短信不支持回复功能）
 spuller.pullReply(maxNum, callback);
 ```
 
@@ -126,38 +105,14 @@ var maxNum = 10;             // 单次拉取最大量
 var mspuller = qcloudsms.SmsMobileStatusPuller();
 // 拉取短信回执
 mspuller.pullCallback("86", phoneNumbers[0], beginTime, endTime, maxNum, callback);
-// 拉取回复，国际短信不支持回复功能
+// 拉取回复，国际/港澳台短信不支持回复功能
 mspuller.pullReply("86", phoneNumbers[0], beginTime, endTime, maxNum, callback);
 ```
 
-<a id="发送语音验证码" ></a>
-- **发送语音验证码**
-```javascript
-var cvsender = qcloudsms.CodeVoiceSender();
-cvsender.send("86", phoneNumbers[0], "1234", 2, "", callback);
-```
 
-
-<a id="发送语音通知" ></a>
-- **发送语音通知**
-```javascript
-var pvsender = qcloudsms.PromptVoiceSender();
-pvsender.send("86", phoneNumbers[0], 2, "5678", 2, "", callback);
-```
-<a id="指定模板发送语音通知" ></a>
-- **指定模板发送语音通知**
-```javascript
-var templateId = 12345;
-var params = ["5678"];
-var tvsender = qcloudsms.TtsVoiceSender();
-tvsender.send("86", phoneNumbers[0], templateId, params, 2, "", callback);
-```
-
-- **发送国际短信**
-发送国际短信与发送国内短信类似，只需替换相应的国家（或地区）码。详细示例请参考：
- - [单发短信](#单发短信)
+- **发送国际/港澳台短信**
+发送国际/港澳台短信与发送国内短信类似，只需替换相应的国家码或地区码。详细示例请参考：
  - [指定模板单发短信](#指定模板单发短信)
- - [群发短信](#群发短信)
  - [指定模板群发短信](#指定模板群发短信)
  - [拉取短信回执](#拉取短信回执)
 

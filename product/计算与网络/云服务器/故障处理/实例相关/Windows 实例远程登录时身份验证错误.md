@@ -22,8 +22,8 @@
 ### 通过 VNC 登录云服务器
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
-2. 在 “实例” 页面中，找到目标 CVM 实例，单击【登录】。如下图所示：
-![云服务器列表页](https://main.qcloudimg.com/raw/837d367b6ea081827c727b2d8cac0ae4.png)
+2. 在实例的管理页面，找到目标云服务器实例，单击【登录】。如下图所示：
+![云服务器列表页](https://main.qcloudimg.com/raw/038fce530c6c6827796e51d896306a93.png)
 3. 在弹出的 “登录Windows实例” 窗口中，选择【其它方式（VNC）】，单击【立即登录】，登录云服务器。
 4. 在弹出的登录窗口中，选择左上角的 “发送远程命令”，单击 **Ctrl-Alt-Delete** 进入系统登录界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/2dec43fa6ddb5e442da59c75f7a34b0f.png)
@@ -32,16 +32,16 @@
 ### 方案一：安装安全更新（推荐）
 
 安装安全更新，可更新未修补的客户端/服务器端。不同系统对应的更新情况可参见 [CVE-2018-0886 | CredSSP 远程执行代码漏洞](https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/CVE-2018-0886)。本方案以 Windows Server 2016 为例。
-其它操作系统可参考以下操作进入【Windows 更新】：
-- Windows Server 2012：<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: 0;width: 22px;"></img> >【控制面板】>【系统与安全】>【Windows 更新】
-- Windows Server 2008：【开始】>【控制面板】>【系统与安全】>【Windows Update】
-- Windows10：<img src="https://main.qcloudimg.com/raw/6e36af2ceb4604b81de13cb42f30e859.png" style="margin: 0;"></img> >【设置】>【更新与安全】
-- Windows 7：<img src="https://main.qcloudimg.com/raw/370daffec54024ee262d1e5dbcd4bde2.png" style="margin: 0;width: 28px;"></img> >【控制面板】>【系统与安全】>【Windows Update】
+其他操作系统可参考以下操作进入【Windows 更新】：
+- Windows Server 2012：<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin: 0;width: 22px;"></img> >【控制面板】>【系统和安全】>【Windows 更新】
+- Windows Server 2008：【开始】>【控制面板】>【系统和安全】>【Windows Update】
+- Windows10：<img src="https://main.qcloudimg.com/raw/6e36af2ceb4604b81de13cb42f30e859.png" style="margin: 0;"></img> >【设置】>【更新和安全】
+- Windows 7：<img src="https://main.qcloudimg.com/raw/370daffec54024ee262d1e5dbcd4bde2.png" style="margin: 0;width: 28px;"></img> >【控制面板】>【系统和安全】>【Windows Update】
 
 
 1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/6e36af2ceb4604b81de13cb42f30e859.png" style="margin: 0;"></img>，选择【设置】。如下图所示：
 ![开始设置](https://main.qcloudimg.com/raw/c5add12cacd642aad479bc356cec04f1.png)
-2. 在打开的 “设置” 窗口中，选择【更新与安全】。如下图所示：
+2. 在打开的 “设置” 窗口中，选择【更新和安全】。如下图所示：
 ![更新与安全](https://main.qcloudimg.com/raw/59c7b0c52eee2c5572b73b062edd3ce9.png)
 3. 在 “更新和安全” 中，选择 【Windows 更新】，单击【检查更新】。如下图所示：
 ![检查更新](https://main.qcloudimg.com/raw/0aefedca7c90bcad7b39de781e9521df.png)
@@ -53,8 +53,8 @@
 在已安装安全更新的机器中，将【加密 Oracle 修正】策略设置为 “易受攻击” 。本方案以 Windows Server 2016 为例，其操作步骤如下：
 >! Windows 10 家庭版操作系统中，若没有组策略编辑器，可通过修改注册表来实现。操作步骤请参见 [方案三：修改注册表](#Plan3)。
 >
-1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/330624bafb194914948c8ebd9e47334d.png" style="margin: 0;"></img>，输入 **gpedit.msc**，按 **Enter**，打开 “本地组策略略编辑器”。
->? 您也可使用 “Win+R” 快捷键打开运行界面。
+1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/330624bafb194914948c8ebd9e47334d.png" style="margin: 0;"></img>，输入 **gpedit.msc**，按 **Enter**，打开 “本地组策略编辑器”。
+>? 您也可使用 “**Win+R**” 快捷键打开运行界面。
 >
 3. 在左侧导航树中，选择【计算机配置】>【管理模板】>【系统】>【凭据分配】，双击【加密 Oracle 修正】。如下图所示：
 ![加密Oracle修正](https://main.qcloudimg.com/raw/ae699fa2e997b10eab3477b6c9baf544.png)
@@ -66,7 +66,7 @@
 ### 方案三：修改注册表
 
 1. 在操作系统界面，单击 <img src="https://main.qcloudimg.com/raw/330624bafb194914948c8ebd9e47334d.png" style="margin: 0;"></img>，输入 **regedit**，按 **Enter**，打开注册表编辑器。
->? 您也可使用 “Win+R” 快捷键打开运行界面。
+>? 您也可使用 “**Win+R**” 快捷键打开运行界面。
 > 
 2. 在左侧导航树中，依次展开【计算机】>【HKEY_LOCAL_MACHINE】>【SOFTWARE】>【Microsoft】>【Windows】>【CurrentVersion】>【Policies】>【System】>【CredSSP】>【Parameters】目录。如下图所示：
 >? 若该目录路径不存在，请手动创建。
@@ -81,3 +81,5 @@
 
 - [CVE-2018-0886 | CredSSP 远程执行代码漏洞](https://portal.msrc.microsoft.com/zh-cn/security-guidance/advisory/CVE-2018-0886)
 - [CVE-2018-0886 的 CredSSP 更新](https://support.microsoft.com/zh-cn/help/4093492/credssp-updates-for-cve-2018-0886-march-13-2018)
+
+

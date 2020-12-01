@@ -9,7 +9,7 @@
 |---------|---------|---------|---------|
 |instanceId | 是| String|（过滤条件）按照实例 ID 过滤|
 |group|是|String  |Kafka 消费分组|
-|topics|否|String Array|group 订阅的主题名称数组，如果没有该数组，则表示指定的 group 下所有 topic 信息|
+|topics|否|String Array|group 订阅的主题名称数组，如果没有该数组，则表示指定的 group 下所有 topic 信息。<br>传参方法请参见 [topic.N（数组参数）](https://cloud.tencent.com/document/product/597/14358#topic)|
 |searchWord|否|String|模糊匹配 topicName|
 |offset|否|Int|本次查询的偏移位置，默认为0|
 |limit|否|Int| 本次返回结果的最大个数，默认为50，最大值为50|
