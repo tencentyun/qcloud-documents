@@ -41,11 +41,11 @@
 
 ## 配置示例
 
-若加速域名`cloud.tencent.com`的回源 Request Header 配置如下：
+若加速域名 `cloud.tencent.com` 的回源 Request Header 配置如下：
 ![](https://main.qcloudimg.com/raw/6c02e4901530e26def6b7c51c8916b36.png)
 若访问资源为：`http://cloud.tencent.com/test/test.mp4`
-1. 命中`*`规则，增加头部`X-Forward-For:$client_ip`头部，回源时将 $client_ip 替换为真实客户端 IP。
-2. 命中`.mp4`文件类型及/test路径，因为同一头部操作类型 - 增加，则底部优先级大于顶部，因此增加`x-cdn:Tencent`头部。
+1. 命中 `*` 规则，增加头部 `X-Forward-For:$client_ip` 头部，回源时将 $client_ip 替换为真实客户端 IP。
+2. 命中 `.mp4` 文件类型及/test路径，因为同一头部操作类型 - 增加，则底部优先级大于顶部，因此增加 `x-cdn:Tencent` 头部。
 
 ## 注意事项
 
