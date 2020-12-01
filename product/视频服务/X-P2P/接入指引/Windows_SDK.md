@@ -35,7 +35,7 @@ XP2PService::init(appId, appKey, secretKey, package);
 	std::string p2pURl = url.replace(0, url.find("://")+std::string("://").length(), XP2PService::host()+"/live.p2p.com/");
 	p2pURl += param;
 
-	// 使用你的播放器播放此url
+	// 使用您的播放器播放此url
 	player.play(p2pUrl);
 
 	// 相关资源随着http请求关闭直接释放，无需再做任何处理
