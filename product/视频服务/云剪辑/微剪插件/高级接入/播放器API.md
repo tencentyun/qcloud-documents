@@ -114,19 +114,19 @@ this.mediaTrack = new global['wj-types'].Track({
 	1. 向 mediaTrack 媒体轨道中添加视频 Clip，设置视频 Clip 的 type 为 video。
 ```javascript
 let videoClip1 = new global['wj-types'].Clip({
-	id: 'video1',
-	type: 'video',
-	info: {
-		tempFilePath: 'wxfile:xxxx',
-		width: '',
-		height: '',
-		duration: 5
-	},
-	section: new global['wj-types'].ClipSection({
-		start: 0,
-		end: 4
-	}),
-	startAt: 0
+			id: 'video1',
+			type: 'video',
+			info: {
+				tempFilePath: 'wxfile:xxxx',
+				width: '',
+				height: '',
+				duration: 5
+			},
+			section: new global['wj-types'].ClipSection({
+				start: 0,
+				end: 4
+			}),
+			startAt: 0
 })
 ```<table>
 <tr><th id="clip_parameter">参数</th><th>说明</th></tr>
@@ -151,15 +151,15 @@ this.mediaTrack.clips = [videoClip1];
   1. 添加图片 Clip，设置图片的 Clip 的 type 为 image。
   ```javascript
 let imageClip1 = new global['wj-types'].Clip({
-	id: 'image1',
-	type: 'image',
-	info: {
-		tempFilePath: 'wxfile:xxxx',
-		width: '',
-		height: '',
-		duration: 3
-	},
-	startAt: 4
+					id: 'image1',
+					type: 'image',
+					info: {
+						tempFilePath: 'wxfile:xxxx',
+						width: '',
+						height: '',
+						duration: 3
+					},
+					startAt: 4
 })
   ```  >? 
   >- 图片类型 Clip 的 duration 默认值为3（与 settings 配置项中的 imgDisplayDuration 属性保持一致即可）。
