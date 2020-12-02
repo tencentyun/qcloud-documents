@@ -131,7 +131,7 @@ Container 类型 TransConfig 的具体数据描述如下：
 | 节点名称（关键字）    | 父节点              | 描述             | 类型   | 必选 | 默认值 | 限制                                                         |
 | --------------------- | ------------------- | ---------------- | ------ | ---- | ------ | ------------------------------------------------------------ |
 | AdjDarMethod          | Request.TransConfig | 分辨率调整方式   | String | 否   | none   | 1. 取值 scale、crop、pad、none。<br/>2. 当输出视频的宽高比与原视频不等时，需要此参数进行执行调整方式。 |
-| IsCheckReso           | Request.TransConfig | 是否检查分辨率   | String | 否   | false  | 1. true、false <br/> 2. 当为false时，按照配置参数转码 |
+| IsCheckReso           | Request.TransConfig | 是否检查分辨率   | String | 否   | false  | 1. true、false <br/> 2. 当为 false 时，按照配置参数转码 |
 | ResoAdjMethod         | Request.TransConfig | 分辨率调整方式   | String | 否   | 0      | 1. 取值0、1；0 表示使用原视频分辨率；1表示返回转码失败<br/>2. 当 IsCheckReso 为 true 时生效 |
 | IsCheckVideoBitrate   | Request.TransConfig | 是否检查视频码率 | String | 否   | false  | 1. true、false <br/>2. 当为 false 时，按照配置参数转码 |
 | VideoBitrateAdjMethod | Request.TransConfig | 视频码率调整方式 | String | 否   | 0      | 1. 取值0、1；0 表示使用原视频码率；1表示返回转码失败<br/>2. 当 IsCheckVideoBitrate 为 true 时生效 |
