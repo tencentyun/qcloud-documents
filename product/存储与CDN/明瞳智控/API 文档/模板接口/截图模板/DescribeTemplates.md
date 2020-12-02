@@ -32,7 +32,7 @@ Content-Type: application/xml
 |节点名称（关键字）|父节点     |描述                    |   类型    |   必选    |
 |:---           |:--       |:--                    |   :--     |   :--    |
 | tag           | 无        | 模板类型固定值为 Snapshot    | String    |是|
-| category      | 无        | Official：系统预设模板；Custom：自定义模板。默认值：Custom | String  |否|
+| category      | 无        | Official：系统预设模板；Custom：自定义模板。默认值为 Custom | String  |否|
 | ids           | 无        | 模板 ID，以`,`符号分割字符串  | String     |否|
 | name          | 无        | 模板名称前缀              | String     |否|
 | pageNumber    | 无        | 第几页                   | Integer     |否|
