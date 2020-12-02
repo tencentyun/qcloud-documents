@@ -229,7 +229,7 @@ Container 节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
-| TemplateId         | Response.TemplateList | 模版ID                                                      | String    |
+| TemplateId         | Response.TemplateList | 模版 ID                                                      | String    |
 | Name               | Response.TemplateList | 模版名字                                                     | String    |
 | Desc               | Response.TemplateList | 模版描述                                                     | String    |
 | BucketId           | Response.TemplateList | 模版所属存储桶                                                | String    |
