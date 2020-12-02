@@ -145,7 +145,7 @@ TransTpl 节点 Container 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
 | ------------------ | ------- | ---------------------------------------------------- | --------- | ---- |
-| Format                | Request.Container | 容器格式: mp4，flv，hls，ts               | String    | 是   |
+| Format                | Request.Container | 容器格式：mp4，flv，hls，ts               | String    | 是   |
 
 TransTpl 节点 Video 的具体数据描述如下：
 
