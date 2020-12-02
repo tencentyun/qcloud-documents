@@ -190,9 +190,8 @@ NSSet *accountsKeys = [[NSSet alloc] initWithObjects:@(accountType), nil];
 XGPushTokenAccountType accountType = XGPushTokenAccountTypeUNKNOWN;
 NSString *account = @"account";
 [[XGPushTokenManager defaultTokenManager] clearAndAppendAccountsByDict:@{ @(accountType):account }];
-
-
 ```
+
 ### 清除账号
 
 #### 接口说明
