@@ -50,3 +50,4 @@ Dubbo Mesh Demo 中每个应用都提供了`build.sh`脚本用于构建部署在
 - TSF Mesh 为 Dubbo 应用提供服务间通信、服务注册发现、负载均衡、服务路由等治理能力。
 - Dubbo 应用可以保留原有的注册方式。
 - Dubbo 应用可以继续使用原有的 filter 机制。
+

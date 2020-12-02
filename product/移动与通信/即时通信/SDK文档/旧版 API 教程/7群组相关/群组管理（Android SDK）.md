@@ -214,7 +214,7 @@ TIMGroupManager.getInstance().inviteGroupMember(
 
 ### 申请加入群组
 
-`TIMGroupManager` 的接口 `applyJoinGroup` 可以主动申请进入群组，此操作只对公开群、聊天室和音视频聊天室。
+`TIMGroupManager` 的接口 `applyJoinGroup` 可以主动申请进入群组，此操作只对公开群、聊天室和音视频聊天室有效。
 
 **权限说明：**
 

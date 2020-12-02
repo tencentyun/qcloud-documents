@@ -1,6 +1,4 @@
 本文介绍如何设置样式（iOS）
-以下视频将帮助您快速了解如何修改头像、配置聊天界面、配置更多菜单。
-<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/3130-56989?source=gw.pro.media&withPoster=1&notip=1"></iframe></div>
 
 ## 修改头像
 

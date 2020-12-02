@@ -28,7 +28,7 @@
     </tr>
     	 <tr>
         <td>智能分层存储限制</td>
-    			<td>计费限制：<br>存储时间、存储单元无限制。<br>智能分层存储具体定价，请参见 <a href="https://buy.cloud.tencent.com/price/cos">产品定价</a>。</td>
+    			<td>计费限制：<br>存储时间不足30天，按30天计算。<br>存储单元不足64KB，按64KB计算。<br>智能分层存储具体定价，请参见 <a href="https://buy.cloud.tencent.com/price/cos">产品定价</a>。</td>
     </tr>
     	 <tr>
         <td>归档存储限制</td>

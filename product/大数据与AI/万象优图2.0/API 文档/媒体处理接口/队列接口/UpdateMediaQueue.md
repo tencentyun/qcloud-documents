@@ -174,6 +174,7 @@ Container 类型 NotifyConfig 的具体数据描述如下：
             <Url>mts-topic-1</Url>
             <Type></Type>
             <Event></Event>
+            <State></State>
         </NotifyConfig>
         <CreateTime></CreateTime>
         <UpdateTime></UpdateTime>
@@ -217,6 +218,7 @@ Content-Type: application/xml
         <Type></Type>
         <Url></Url>
         <Event></Event>
+        <State></State>
     </NotifyConfig>
 </Request>
 ```
@@ -242,6 +244,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
             <Type></Type>
             <Url></Url>
             <Event></Event>
+            <State></State>
         </NotifyConfig>
         <CreateTime></CreateTime>
         <UpdateTime></UpdateTime>

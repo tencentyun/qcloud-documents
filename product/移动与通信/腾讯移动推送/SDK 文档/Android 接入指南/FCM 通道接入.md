@@ -5,8 +5,8 @@ FCM 通道是谷歌推出的系统级推送通道，在国外具备谷歌 Servic
 
 ## 操作步骤
 ### 获取密钥
-进入 FireBase 官网， 注册应用信息。并将获取到的 FCM 应用推送服务器密钥和 SenderID，配置到移动推送 TPNS 的管理台。
-
+进入 FireBase 官网，注册应用信息。在 【Firebase 项目】>【选择具体的项目应用】>【设置】>【云消息传递】获取到的 FCM 应用推送【服务器密钥】，并配置到【[移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)】>【配置管理】>【基础配置】>【FCM 官方推送通道】栏目中。
+![](https://main.qcloudimg.com/raw/d82c9dd04fe986ffc35a57e30eefce4f.png)
 ### 配置内容
 1. 配置 google-services.json 文件。如图所示：
 ![](https://main.qcloudimg.com/raw/568561b72a775058bf06750bfab38ed0.png)
@@ -38,12 +38,8 @@ XGPushConfig.enableOtherPush(this, true);
 注册 FCM 成功的日志如下：
 
 ```xml
- E/XG_fcm: Fcm App has initialize 
- D/XG_fcm: FirebaseAPP初始化完成
- I/XG_fcm: registerPush Token is: eK0LLz43Z_U:APA91bHjyTCuX7fZ6Ye-fAojAo_l2nphA3rRtLZN98grADOZtULysxYd51pCaL5oiqyVs0Mtbfu2mBdjoeGsSq5sjbh5mCETgl2dURRy9-yNR_ZZrn6pWcvwt7CoWTY0_Q9_mreiryuI
-12-02 09:16:31.877 17260-17260/lc.com.xinge.push W/FA: Service connection failed: ConnectionResult{statusCode=SERVICE_VERSION_UPDATE_REQUIRED, resolution=null, message=null}
-12-02 09:16:31.892 17260-17278/lc.com.xinge.push V/FA: Using measurement service
-12-02 09:16:31.893 17260-17278/lc.com.xinge.push V/FA: Connecting to remote service
-12-02 09:16:31.895 17260-17423/lc.com.xinge.push I/XINGE: [XGOtherPush] Reservert info: other push token is : eK0LLz43Z_U:APA91bHjyTCuX7fZ6Ye-fAojAo_l2nphA3rRtLZN98grADOZtULysxYd51pCaL5oiqyVs0Mtbfu2mBdjoeGsSq5sjbh5mCETgl2dURRy9-yNR_ZZrn6pWcvwt7CoWTY0_Q9_mreiryuI  other push type: fcm
+V/TPush: [XGPushConfig] isUsedOtherPush:true
+I/TPush: [OtherPush] checkDevice pushClassNamecom.tencent.android.tpush.otherpush.fcm.impl.OtherPushImpl
+I/TPush: [XGPushManager] other push token is : dSJA5n4fSZ27YeDf2rFg1A:APA91bGiqSPCMZTuyup**********f1fBIahZKYkth2OoDpixDPQmEZkQ11fX06mw_1kEaW5-jFmT4YwlER4qfX66h_BIoUxOyj_tKqZSUg7oHigIKaOrDWmMQfMAqGoT8qSfg  other push type: fcm
 ```
 

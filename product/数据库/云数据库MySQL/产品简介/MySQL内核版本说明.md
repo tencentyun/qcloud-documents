@@ -127,6 +127,23 @@
 
    
 ## MySQL 5.6
+### 20200915
+#### 新特性：
+- 支持 [SQL 限流](https://cloud.tencent.com/document/product/1130/37882#sql-.E9.99.90.E6.B5.81) 功能。
+
+#### 性能优化：   
+- buffer pool 初始化加速优化 。
+
+#### 官方 bug 修复：
+- 修复主备 rename table 都 hang 住的问题。 
+- 修复当设置 event_scheduler 为 disable，cdb_skip_event_scheduler 从 on 改为 off 时，出现 crash 问题。 
+- 修复 tencentroot 最大链接数未计入 srv_max_n_threads，造成 sync_wait_array 相关断言失败的问题。 
+- 修复由于其他云服务的 MySQL 5.6 和 腾讯 MySQL 5.6 的系统库中有些表的结构不同，导致主从开启并行复制时，出现 crash 问题。 
+- 修复 INSERT ON DUPLICATE KEY UPDATE THE WRONG ROW 问题。 
+- 修复 index_mapping 出现错误问题。 
+- 修复 mtr 失败 bug 问题。 
+- 修复 hash scan 在 event 中出现对同一行的更新时，找不到这条记录造成主从中断的问题。 
+
 ### 20190930
 #### 新特性：
 - 用户可通过 show full processlist 查询“用户线程内存使用信息”。  

@@ -1,5 +1,5 @@
 ## 操作场景
-容器有时会在发生异常后挂掉，业务日志中若无足够的信息来定位挂掉的原因，则需要结合 coredump 来进一步分析，本文将介绍如何使容器产生 coredump 并保存。
+容器有时会在发生异常后无法正常工作，业务日志中若无足够的信息来定位问题原因，则需要结合 coredump 来进一步分析，本文将介绍如何使容器产生 coredump 并保存。
 
 >! 本文仅适用于容器服务 TKE 集群。
 
@@ -8,21 +8,23 @@
 
 ## 操作步骤
 ### 开启 coredump
-1. 执行以下命令，为节点设置 core 文件的存放路径格式：
+1. 在节点上执行以下命令，为节点设置 core 文件的存放路径格式：
 ``` bash
 # 在节点上执行
 echo "/tmp/cores/core.%h.%e.%p.%t" > /proc/sys/kernel/core_pattern
 ``` 
-主要参数信息如下：
-**%h**：主机名（在 Pod 内主机名即 Pod 的名称），推荐。
-**%e**：程序文件名，推荐。
-**%p**：进程 ID，可选。
-**%t**：coredump 的时间，可选。
-最终生成的 core 文件完整路径如下所示：
+
+ 主要参数信息如下：
+ - **%h**：主机名（在 Pod 内主机名即 Pod 的名称），推荐。
+ - **%e**：程序文件名，推荐。
+ - **%p**：进程 ID，可选。
+ - **%t**：coredump 的时间，可选。
+
+ 最终生成的 core 文件完整路径如下所示：
 ```
 /tmp/cores/core.nginx-7855fc5b44-p2rzt.bash.36.1602488967
 ```
-2. 节点上执行后，容器无需更改配置，将自动生效（继承），如果需要在多个节点上批量执行，则分为以下两种情况：
+2. 节点完成配置后，无需更改容器原有配置，将以继承的方式自动生效。如需在多个节点上批量执行，则请对应实际情况进行操作：
  - 对于存量节点，请参见 [使用 Ansible 批量操作 TKE 节点](https://cloud.tencent.com/document/product/457/48973)。
  - 对于增量节点，请参见 [设置节点的启动脚本](https://cloud.tencent.com/document/product/457/32206)。
 
@@ -31,11 +33,10 @@ echo "/tmp/cores/core.%h.%e.%p.%t" > /proc/sys/kernel/core_pattern
 
 ### 创建存储桶
 
-登录 [对象存储控制台](https://console.cloud.tencent.com/cos5/bucket)，手动创建 COS 存储桶，用于存储容器 coredump 生成的 core 文件。具体操作步骤请参见 [创建存储桶](https://cloud.tencent.com/document/product/457/44232#.E5.88.9B.E5.BB.BA.E5.AD.98.E5.82.A8.E6.A1.B6.3Cspan-id.3D.22creatbucket.22.3E.3C.2Fspan.3E)。如下图所示：
-![](https://main.qcloudimg.com/raw/a981dcd8f35dcd94f7e20ea8f67a0a6d.png)
-
+登录 [对象存储控制台](https://console.cloud.tencent.com/cos5/bucket)，手动创建 COS 存储桶，用于存储容器 coredump 生成的 core 文件，本文以创建自定义名称为 coredump 的存储桶为例。具体操作步骤请参见 [创建存储桶](https://cloud.tencent.com/document/product/457/44232#.E5.88.9B.E5.BB.BA.E5.AD.98.E5.82.A8.E6.A1.B6.3Cspan-id.3D.22creatbucket.22.3E.3C.2Fspan.3E)。
 
 ### 创建 Secret<span id="secret"></span>
+可通过以下3种方式创建可以访问对象存储的 Secret，请按需选择：
 - 若通过控制台使用对象存储，可参见 [创建可以访问对象存储的 Secret](https://cloud.tencent.com/document/product/457/44232#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E4.BD.BF.E7.94.A8.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8)。
 - 若通过 YAML 文件使用对象存储，可参见 [创建可以访问对象存储的 Secret](https://cloud.tencent.com/document/product/457/44232#.E9.80.9A.E8.BF.87-yaml-.E6.96.87.E4.BB.B6.E4.BD.BF.E7.94.A8.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8)。
 - 若使用 kubectl 命令行工具创建 Secret，可参考以下代码片段：
@@ -53,7 +54,7 @@ kubectl create secret generic cos-secret -n kube-system  --from-literal=SecretId
 ![](https://main.qcloudimg.com/raw/d2301b77ad197f86f9131656d5e5339b.png)
 主要参数信息如下：
  - **来源设置**：选择【静态创建】。
- - **Secret**：选择已在 [创建 Secret](#secret) 中创建的 Secret，本文以 cos-secret 为例（kube-system 命名空间下）。
+ - **Secret**：选择已在 [创建 Secret](#secret) 中创建的 Secret，本文以 coredump 为例（kube-system 命名空间下）。
  - **存储桶列表**：选中已创建的用于存储 coredump 文件的存储桶。
  - **存储桶子目录**：此处指定根目录，如果需要指定子目录，请提前在存储桶中创建。
 3. 单击【创建PersistentVolume】即可。
@@ -70,7 +71,10 @@ kubectl create secret generic cos-secret -n kube-system  --from-literal=SecretId
 
 
 ### 挂载 COS 存储
+
 #### 通过控制台创建 Pod 使用 PVC
+>? 本步骤以创建工作负载 Deployment 为例。
+>
 1. 在目标集群详情页，选择左侧菜单栏中的【工作负载】>【Deployment】，进入 “Deployment” 页面。
 2. 单击【新建】进入“新建Workload” 页面，参考 [创建 Deployment](https://cloud.tencent.com/document/product/457/31705#.E5.88.9B.E5.BB.BA-deployment) 进行创建，并设置数据卷挂载。如下图所示：
 ![](https://main.qcloudimg.com/raw/f63720106568c9eff4a263e4572ae9d9.png)
@@ -81,7 +85,7 @@ kubectl create secret generic cos-secret -n kube-system  --from-literal=SecretId
 
 
 #### 通过 YAML 创建 Pod 使用 PVC
-通过 YAML 创建 Pod，模版如下：
+通过 YAML 创建 Pod，示例如下：
 ``` yaml
   containers:
   - name: pod-cos
@@ -99,4 +103,4 @@ kubectl create secret generic cos-secret -n kube-system  --from-literal=SecretId
 
 ## 相关文档
 
-- [使用对象存储 COS](https://cloud.tencent.com/document/product/457/44232)
+[使用对象存储 COS](https://cloud.tencent.com/document/product/457/44232)
