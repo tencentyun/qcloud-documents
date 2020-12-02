@@ -1,5 +1,5 @@
 ## 功能描述
-CreateProject用于新增项目。
+CreateProject 用于新增项目。
 
 ## 请求
 ### 请求实例
@@ -15,7 +15,7 @@ Content-Type: application/xml
 <body>
 ```
 
->? Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/1344/50456) 文档）。
+>?Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/1344/50456) 文档）。
 
 ### 请求头
 #### 公共头部
@@ -52,15 +52,15 @@ Container 类型 Request 的具体数据描述如下：
 | ------------------ | ------- | ---------------------------------------- | --------- | ---- |
 | Mode               | Request | 接入类型: HTTP                           | String    | 是   |
 | Name               | Request | 项目名称 仅支持中文、英文、数字、_、-和* | String    | 是   |
-| Bucket             | Request | bucket 信息                               | Container | 否   |
+| Bucket             | Request | Bucket 信息                               | Container | 否   |
 
 
 Container 类型 Bucket 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Region                | Request.Bucket | bucket 地区 | String    | 是   | 无 | 无|
-| BucketId            | Request.Bucket | bucket 的 ID | String      | 是   | 无  | 无 |
+| Region                | Request.Bucket | Bucket 地区 | String    | 是   | 无 | 无|
+| BucketId            | Request.Bucket | Bucket 的 ID | String      | 是   | 无  | 无 |
 | Prefix            | Request.Bucket     | 对象 key 前缀 | String    | 否   | 无  | 无 |
 
 
