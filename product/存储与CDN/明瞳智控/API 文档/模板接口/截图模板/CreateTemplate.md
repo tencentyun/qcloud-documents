@@ -53,8 +53,8 @@ Container 类型 Request 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
-| Tag                | Request | 模板类型: Snapshot                                    | String    | 是   |
-| Name               | Request | 模板名称 仅支持中文、英文、数字、_、-和*                   | String    | 是   |
+| Tag                | Request | 模板类型：Snapshot                                    | String    | 是   |
+| Name               | Request | 模板名称仅支持中文、英文、数字、_、-和*                   | String    | 是   |
 | Desc               | Request | 模板描述                                             | String    | 否   |
 | Snapshot           | Request | 截图                                                  | Container | 否   |
 
@@ -115,10 +115,10 @@ Container 节点 Response 的内容：
 | Tag                | Response | 模版类型，Snapshot                                           | String    |
 | Name               | Response | 模版名字                                                     | String    |
 | Desc               | Response | 模版描述                                                     | String    |
-| TemplateId         | Response | 模版ID                                                      | String    |
+| TemplateId         | Response | 模版 ID                                                      | String    |
 | UpdateTime         | Response | 更新时间                                                     | String    |
 | CreateTime         | Response | 创建时间                                                     | String    |
-| Snapshot           | Response | 其详细的模版参数，同上述请求体部分Snapshot说明 | Container |
+| Snapshot           | Response | 其详细的模版参数，同上述请求体部分 Snapshot 说明 | Container |
 
 
 ### 错误码
