@@ -78,8 +78,8 @@ Container 类型 Request 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
-| Tag                | Request | 模板类型: Transcode                                    | String    | 是   |
-| Name               | Request | 模板名称 仅支持中文、英文、数字、_、-和*                    | String    | 是   |
+| Tag                | Request | 模板类型：Transcode                                    | String    | 是   |
+| Name               | Request | 模板名称仅支持中文、英文、数字、_、-和*                    | String    | 是   |
 | Desc               | Request | 模板描述                                                  | String    | 否   |
 | Container          | Request | 容器格式                                               | Container | 是   |
 | Video              | Request | 视频信息                                               | Container | 否   |
@@ -92,9 +92,9 @@ Container 类型 Container 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
 | ------------------ | ------- | ---------------------------------------------------- | --------- | ---- |
-| Format                | Request.Container | 容器格式: mp4，flv，hls，ts               | String    | 是   |
+| Format                | Request.Container | 容器格式：mp4，flv，hls，ts               | String    | 是   |
 
-设定container,音频视频支持的格式如下表：
+设定 container，音频视频支持的格式如下表：
 
 | Container                  | Audio Codecs  | Video Codecs          |
 | -------------------------- | ------------- | --------------------- |
