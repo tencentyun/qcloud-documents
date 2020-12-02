@@ -14,7 +14,7 @@ Content-Type: application/xml
 
 ```
 
->? Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/1344/50456) 文档）。
+>?Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/1344/50456) 文档）。
 
 
 ### 请求头
@@ -31,7 +31,7 @@ Content-Type: application/xml
 
 |节点名称（关键字）|父节点     |描述                    |   类型    |   必选    |
 |:---           |:--       |:--                    |   :--     |   :--    |
-| ids           | 无        | 项目 ID, 以,符号分割字符串  | String     |否|
+| ids           | 无        | 项目 ID, 以`,`符号分割字符串  | String     |否|
 | name          | 无        | 项目名称前缀              | String     |否|
 | pageNumber    | 无        | 第几页                   | Integer     |否|
 | pageSize      | 无        | 每页个数                 | Integer     |否|
