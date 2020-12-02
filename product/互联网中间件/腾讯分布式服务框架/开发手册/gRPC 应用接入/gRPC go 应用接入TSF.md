@@ -1,7 +1,7 @@
 # gRPC go 接入 TSF
 TSF 为用户现存的的 gRPC 应用提供了go语言sdk插件，gRPC 应用可通过依赖go package的方式接入该项服务。本文档介绍 gRPC 应用从接入TSF 到部署应用的操作方法及相关注意事项。
 
-###说明
+### 说明
 暂时只支持go语言；暂时不支持TSF的熔断和限流能力。
 gRPC接入TSF最新文档地址也可以点击此处查看:[TSF gRPC go](https://github.com/tencentyun/tsf-go/blob/master/doc/GRPC.md)
 
