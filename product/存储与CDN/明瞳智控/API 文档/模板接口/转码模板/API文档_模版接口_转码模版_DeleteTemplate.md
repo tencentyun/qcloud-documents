@@ -53,7 +53,7 @@ Container 节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点   | 描述             | 类型   |
 | :----------------- | :------- | :--------------- | :----- |
-| TemplateId         | Response | 被删除的模版的ID | String |
+| TemplateId         | Response | 被删除的模版的 ID | String |
 
 ### 错误码
 
