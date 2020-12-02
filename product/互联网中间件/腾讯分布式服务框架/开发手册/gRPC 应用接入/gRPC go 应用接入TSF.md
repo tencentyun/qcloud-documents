@@ -1,8 +1,13 @@
 # gRPC go 接入 TSF
 TSF 为用户现存的的 gRPC 应用提供了go语言sdk插件，gRPC 应用可通过依赖go package的方式接入该项服务。本文档介绍 gRPC 应用从接入TSF 到部署应用的操作方法及相关注意事项。
 
-### 说明
-暂时只支持go语言；暂时不支持TSF的熔断和限流能力。
+## 特性
+- 自动集成TSF平台治理能力：分布式远程配置、远程日志、分布式调用链追踪、监控、服务鉴权、服务路由、全链路灰度发布、API自动上报（全局限流、熔断暂不支持）
+- Server同时支持gRPC&HTTP双协议,可以被Spring Cloud服务调用
+- 改动小，集成SDK成本低
+
+## 说明
+暂时只支持go语言
 gRPC接入TSF最新文档地址也可以点击此处查看:[TSF gRPC go](https://github.com/tencentyun/tsf-go/blob/master/doc/GRPC.md)
 
 ## Server端接入
@@ -50,8 +55,15 @@ greeter := pb.NewGreeterClient(cc.GrpcConn())
 需将`tsf.provider-demo`需要替换成实际被访问的服务提供者的serviceName
 `local`的含义是访问本地命名空间的服务,如果需要发现全局命名空间服务需要替换成`global`
 
+## 标签Tags传递
+```
+ctx = meta.WithUser(ctx, meta.UserPair{Key: "user", Value: "test2233"})
+s.client.SayHello(ctx, req)
+```
+
 ## TSF日志
-#### 1.`import 	"github.com/tencentyun/tsf-go/pkg/log"`
+#### 1.引入package
+`import 	"github.com/tencentyun/tsf-go/pkg/log"`
 #### 2.打印日志
 ```
 log.L().Infof(ctx, "got resp: %v", resp)
