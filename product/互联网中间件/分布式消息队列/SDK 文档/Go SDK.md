@@ -24,7 +24,7 @@ TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和
 
 3. 打开命令控制台，运行以下命令：
 ```bash
-go get -u "github.com/TencentCloud/tdmq-go-client@v0.3.0-beta.2"
+go get -u "github.com/TencentCloud/tdmq-go-client@v0.2.0-beta.1"
 ```
 
 
