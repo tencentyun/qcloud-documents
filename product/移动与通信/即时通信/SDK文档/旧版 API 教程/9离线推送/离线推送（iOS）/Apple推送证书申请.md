@@ -7,7 +7,7 @@
 填写您的邮箱（这个邮箱是申请 AppID 的付费帐号）和常用名称（一般默认是计算机名，不用更改），并选择保存到硬盘：
  <img src="//main.qcloudimg.com/raw/12c80d3cb45d44e6b9fb8f63bc616347.png" width=640 />
  
-单击继续：
+单击继续： 
  <img src="//main.qcloudimg.com/raw/b393d5662e94646b24aa14979c17b3c3.png" width=640 />
  
  已经在本地生成了一个 TXIMDemoAPS.certSigningRequest 的 CSR 文件。

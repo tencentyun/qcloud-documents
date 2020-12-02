@@ -6,17 +6,119 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 - 在移动端推荐使用 [小程序](https://cloud.tencent.com/document/product/647/32399) 解决方案，微信和手机 QQ 小程序均已支持，都是由各平台的 Native 技术实现，音视频性能更好，且针对主流手机品牌进行了定向适配。
 - 如果您的应用场景主要为教育场景，那么教师端推荐使用稳定性更好的 [Electron](https://cloud.tencent.com/document/product/647/38549) 解决方案，支持大小双路画面，更灵活的屏幕分享方案以及更强大的弱网络恢复能力。
 
-| 操作系统 | 浏览器类型 | 浏览器最低版本要求 | 接收（播放）| 发送（上麦）| 屏幕分享 |
-|:-------:|:-------:|:-------:|:-------:|:-------:| :-------:|
-| Mac OS  | 桌面版 Safari 浏览器 |  11+ | 支持 | 支持 | 不支持 |
-| Mac OS  | 桌面版 Chrome 浏览器 |  56+ | 支持 | 支持 | 支持（需要 Chrome72+ 版本） |
-| Windows  | 桌面版 Chrome 浏览器|  56+ | 支持 | 支持 | 支持（需要 Chrome72+ 版本） |
-| Windows  | 桌面版 QQ 浏览器 |  10.4 | 支持 | 支持 | 不支持 |
-| iOS | 移动版 Safari 浏览器 | 11.1.2 | 支持 | 支持 | 不支持 |
-| iOS | 微信内嵌网页| 12.1.4 | 支持 | 不支持 | 不支持 |
-| Android | 移动版 QQ 浏览器| - | 不支持 | 不支持 | 不支持 |
-| Android | 移动版 UC 浏览器| - | 不支持 | 不支持 | 不支持 |
-| Android | 微信内嵌网页| - | 不支持 | 不支持 | 不支持 |
+
+
+<table>
+<thead>
+<tr>
+<th width="15%">操作系统</th>
+<th width="24%">浏览器类型</th>
+<th>浏览器最低<br>版本要求</th>
+<th>接收（播放）</th>
+<th>发送（上麦）</th>
+<th>屏幕分享</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mac OS</td>
+<td>桌面版 Safari 浏览器</td>
+<td>11+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持（需要 Safari 13+ 版本）</td>
+</tr><tr>
+<td>Mac OS</td>
+<td>桌面版 Chrome 浏览器</td>
+<td>56+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持（需要 Chrome 72+ 版本）</td>
+</tr><tr>
+<td>Mac OS</td>
+<td>桌面版 Firefox 浏览器</td>
+<td>56+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持（需要 Firefox 66+ 版本）</td>
+</tr><tr>
+<td>Mac OS</td>
+<td>桌面版 Edge 浏览器</td>
+<td>80+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr><tr>
+<td>Windows</td>
+<td>桌面版 Chrome 浏览器</td>
+<td>56+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持（需要 Chrome 72+ 版本）</td>
+</tr><tr>
+<td>Windows</td>
+<td>桌面版 QQ 浏览器（极速内核）</td>
+<td>10.4+</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+</tr><tr>
+<td>Windows</td>
+<td>桌面版 Firefox 浏览器</td>
+<td>56+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持（需要 Firefox 66+ 版本）</td>
+</tr><tr>
+<td>Windows</td>
+<td>桌面版 Edge 浏览器</td>
+<td>80+</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr><tr>
+<td>iOS 11.1.2+</td>
+<td>移动版 Safari 浏览器</td>
+<td>11+</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+</tr><tr>
+<td>iOS 12.1.4+</td>
+<td>微信内嵌网页</td>
+<td>-</td>
+<td>支持</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr><tr>
+<td>Android</td>
+<td>移动版 QQ 浏览器</td>
+<td>-</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr><tr>
+<td>Android</td>
+<td>移动版 UC 浏览器</td>
+<td>-</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr><tr>
+<td>Android</td>
+<td>微信内嵌网页（TBS 内核）</td>
+<td>-</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+</tr><tr>
+<td>Android</td>
+<td>微信内嵌网页（XWEB 内核）</td>
+<td>-</td>
+<td>支持</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr>
+</tbody></table>
 
 >! 
 >- 您可以在浏览器中打开 [WebRTC 能力测试](https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/web/demo/env-detect/index.html) 页面进行检测是否完整支持 WebRTC。例如公众号等浏览器环境。
@@ -41,14 +143,14 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 
 <span id="step2"></span>
 ### 步骤2：下载 SDK 和 Demo 源码
-1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/Web)】跳转至 Github（或单击【[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/H5_latest.zip?_ga=1.195966252.185644906.1567570704)】），下载相关 SDK 及配套的 Demo 源码。
+1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/Web/TRTCSimpleDemo)】跳转至 Github（或单击【[ZIP](https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/H5_latest.zip?_ga=1.195966252.185644906.1567570704)】），下载相关 SDK 及配套的 Demo 源码。
  ![](https://main.qcloudimg.com/raw/0f35fe3bafe9fcdbd7cc73f991984d1a.png)
 2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
 
 <span id="step3"></span>
 ### 步骤3：配置 Demo 工程文件
 1. 解压 [步骤2](#step2) 中下载的源码包。
-2. 找到并打开`Web/js/debug/GenerateTestUserSig.js`文件。
+2. 找到并打开`Web/TRTCSimpleDemo/js/debug/GenerateTestUserSig.js`文件。
 3. 设置`GenerateTestUserSig.js`文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 

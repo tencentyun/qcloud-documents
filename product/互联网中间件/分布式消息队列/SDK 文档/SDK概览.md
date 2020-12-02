@@ -8,7 +8,7 @@
 <td><li><a href="https://cloud.tencent.com/document/product/1179/44832">Java SDK</a></li><li><a href="https://cloud.tencent.com/document/product/1179/44831">Go SDK</a></li></td>
 </tr><tr>
 <td>TCP 协议（Pulsar 社区版）</td>
-<td><li><a href="https://cloud.tencent.com/document/product/1179/48552">Java SDK</a></li><li> Go SDK（预计2020年10月支持）</li><li>C++ SDK（预计2020年12月支持）</li><li>Python SDK（预计2020年12月支持）</li><li>Node.js（预计2020年12月支持）</li></td>
+<td><li><a href="https://cloud.tencent.com/document/product/1179/48552">Java SDK</a></li><li> Go SDK（预计2020年12月支持）</li><li>C++ SDK（预计2020年12月支持）</li><li>Python SDK（预计2020年12月支持）</li><li>Node.js（预计2020年12月支持）</li></td>
 </tr>
 </table>
 

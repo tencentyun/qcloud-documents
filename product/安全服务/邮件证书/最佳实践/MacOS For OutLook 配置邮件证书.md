@@ -1,7 +1,7 @@
-本文档将指导您如何在 macOS 系统下为 OutLook 配置邮件（[S/MIME](https://cloud.tencent.com/document/product/1325/49418)）证书。
+本文档将指导您如何在 macOS 系统下为 Outlook 配置邮件（[S/MIME](https://cloud.tencent.com/document/product/1325/49418)）证书，本文以 macOS 10.13.6、Outlook 2013 版本为例进行说明。
 
 ## 前提条件
-- 已在 macOS 系统上安装 OutLook 客户端。（本文以 macOS 10.13.6、Outlook 2013 版本为例）
+- 已在 macOS 系统上安装 Outlook 客户端。
 - 已 [申请购买邮件（S/MIME）证书](https://cloud.tencent.com/apply/p/cn69mmv599k)。
 
 
@@ -17,7 +17,7 @@
 <img src="https://main.qcloudimg.com/raw/fb8d9f2d48881fe626baa6555e19ffe5.png" style="zoom:75%;" />
 
 
-### 步骤2：OutLook 配置 S/MIME 证书
+### 步骤2：Outlook 配置 S/MIME 证书
 
 1. 打开 Outlook ，在上方菜单中选择【工具】>【帐户】。
 ![](https://main.qcloudimg.com/raw/5444887ab05df957cb12ab19ba7d43ab.png)
@@ -30,7 +30,7 @@
 字段说明：
 	- **数字签名**：
 		- **证书**：请选择您导入证书名称。
-		- **签名算法**：可选择 SHA-1 或 SHA-256，建议选择 SHA256 兼容性与安全性更好。
+		- **签名算法**：可选择 SHA-1 或 SHA-256，建议选择 SHA-256 兼容性与安全性更好。
 		- **给代发邮件签名**：如需使用邮件证书完成功能，请勾选此处。
 		- **以明文方式发送带有数字签名的邮件**：如需使用邮件证书完成功能，请勾选此处。
 		- **在签名邮件中包含我的证书**：如需使用邮件证书完成功能，请勾选此处。

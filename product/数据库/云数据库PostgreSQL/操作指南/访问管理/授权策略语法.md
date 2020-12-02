@@ -21,7 +21,7 @@ CAM 策略：
  - **影响 effect**：必填项，描述声明产生的结果是“允许”还是“显式拒绝”。包括 allow（允许）和 deny（显式拒绝）两种情况。
  - **操作 action**：必填项，用来描述允许或拒绝的操作。操作可以是 API 或者功能集（一组特定的 API ，以 permid 前缀描述）。
  - **资源 resource**：必填项，描述授权的具体数据。资源是用六段式描述，每款产品的资源定义详情会有所区别。
- - **生效条件 condition**：必填项，描述策略生效的约束条件。条件包括操作符、操作键和操作值组成。PostgreSQL 目前并不支持特殊的生效条件，所以此项可不进行配置。
+ - **生效条件 condition**：描述策略生效的约束条件。条件包括操作符、操作键和操作值组成。PostgreSQL 目前并不支持特殊的生效条件，所以此项可不进行配置。
 
 <span id = "cz"></span>
 ### PostgreSQL 的操作
@@ -73,7 +73,7 @@ qcs:project_id:service_type:region:account:resource
 "resource": ["*"]
 ```
 
-如果您想要在一条指令中同时指定多个资源，请使用逗号将它们隔开，如下所示为指定两个集群的例子：
+如果您想要在一条指令中同时指定多个资源，请使用逗号将它们隔开，如下所示为指定两个实例的例子：
 ```
 "resource":["qcs::postgres::164xxx472:DBinstanceId/postgres-0xf1f41e","qcs::postgres::164xxx472:DBinstanceId/postgres-0xssvm8e"]
 ```

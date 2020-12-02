@@ -15,16 +15,6 @@ cat /proc/cpuinfo|grep avx
 ```
 若可以查询到内容，则说明机器支持指令集加速。
 
-## SDK 特性
-
--  支持基于 SM4 的多种模式加解密，详情请参见 [算法列表](#test1)。
--  SDK 基于 CPU 指令集进行优化，提供高效的加解密。
--  SDK 采用信封加密方式，密文包含元数据信息，用户无需额处理密钥存储问题。关于信封加密，详情请参见  [**信封加密**](https://cloud.tencent.com/document/product/573/8791) 。
--  支持多地域容灾，对数据加密可指定多个地域主密钥，任意主密钥均可解密数据密钥，从而对数据进行解密。
--  密文数据格式可支持各语言间相互解析。
--  数据密钥具备缓存管理功能，用户通过接口参数指定数据密钥缓存的加密次数和使用时间，使用一次加密一个密钥的方式，可以提高加解密的安全性，使用缓存可以提升程序性能。
--  支持 EncryptionContext 作为辅助参数，以明文的方式存储，方便用户进行日志输出、对密文增加属性描述信息等。
--  支持基于 SM3-HMAC 的方式验证密文完整性，用户可通过加密算法设置。
 
 ## 初始化 SDK 接口 
 
@@ -249,7 +239,7 @@ KMS 密钥保护方式基于 KMS 密钥管理平台实现，由 KMS 提供密钥
     <td>encryptionContext</td>
 	  <td>是</td>
     <td>char *</td>	
-		<td>用于标识 DataKey 的辅助字段，key/value 对的 JSON 字符串格式，最大支持2048字节。例如{"name":"test","date":"20200228"}</td>
+		<td>用于标识 DataKey 的辅助字段，key/value 对的 JSON 字符串格式，最大支持1024字节。例如{"name":"test","date":"20200228"}</td>
   </tr>
   <tr>
     <td>blockSize</td>
@@ -309,7 +299,7 @@ KMS 密钥保护方式基于 KMS 密钥管理平台实现，由 KMS 提供密钥
 | 参数名称          | 类型                      | 说明                                                         |
 | ----------------- | ------------------------- | ------------------------------------------------------------ |
 | algorithm         | enum                      | 算法枚举值，请参见 [加密算法列表](#test1)                           |
-| encryptionContext | char *                    | 用于标识 DataKey 的辅助字段，key/value 对的 JSON 字符串格式，最大支持2048字节。例如{"name":"test","date":"20200228"} |
+| encryptionContext | char *                    | 用于标识 DataKey 的辅助字段，key/value 对的 JSON 字符串格式，最大支持1024字节。例如{"name":"test","date":"20200228"} |
 | dataKeyNum        | int                       | 使用的加密后 DataKey 数量和有效的主密钥 CMK 数量相关，由各个地域的主密钥加密产生 |
 | dataKey           | Array of EncryptedDataKey | DataKey 的信息列表，详情请参见 [EncryptedDataKey 结构体说明](#test3) |
 | blockType         | enum                      | 密文加密分块的枚举值，用于标识该密文是否被分块，详情请参见 [BlockType 结构体说明](#test4) |
@@ -376,7 +366,7 @@ KMS 密钥保护方式基于 KMS 密钥管理平台实现，由 KMS 提供密钥
 - 返回值：解密成功则返回0，否则返回相应的 [错误码](#test2)。
 
 ### KMS 加密方式接口调用示例
-KMS 加密方式接口调用示例代码如下：
+KMS 密钥保护方式接口调用示例如下：
 ```
 #include<stdio.h>
 #include "kms_enc_sdk.h"
@@ -410,7 +400,7 @@ int CBCEnAndDeTest(struct KeyManager *p,unsigned char plaintext[],char masterKey
         memset(ch_cipher,0,sizeof(ch_cipher));
         memset(ch_dedata,0,sizeof(ch_dedata));
 
-        unsigned char encryptionContext[2048];
+        unsigned char encryptionContext[1024];
         memset(encryptionContext,0,sizeof(encryptionContext));
         i_cipherlen = 0;
         i_dedatalen = 0;
@@ -512,13 +502,13 @@ int main()
     <td>pubKey</td>
 	  <td>是</td>
     <td>unsigned char *</td>	
-		<td>未编码的公钥内容，数据长度固定为64字节。\</td>
+		<td>未编码的公钥内容，数据长度固定为64字节。</td>
   </tr>
   <tr>
     <td>priKey</td>
 	  <td>是</td>
     <td>unsigned char *</td>		
-		<td>未编码的私钥内容，数据长度固定为32字节。\</td>
+		<td>未编码的私钥内容，数据长度固定为32字节。</td>
   </tr>  
 		<td>msg</td>
 	  <td>是</td>
@@ -545,7 +535,7 @@ int main()
     <td>签名数据的长度，单位 byte</td>
   </tr>
 </table>
-- 返回值：数据签名成功返回0，否则返回相应的错误码。
+- 返回值：数据签名成功返回0，否则返回相应的 [错误码](#test2)。
 
 >!公钥和私钥的长度为固定长度，用户如果输入长度不一致的数据，可能导致内存访问异常。
 

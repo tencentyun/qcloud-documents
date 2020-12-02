@@ -21,17 +21,11 @@ Web 应用防火墙（WAF）具备 CC 防护能力，针对非 HTTP 请求，Web
 3. 设置完成后，单击【保存】即可。
 
 ### 步骤2：配置 DDoS 高防包
-1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview)，在左侧导航中，选择【DDoS 高防包】>【资产列表】。
- - 若您的 DDoS 高防包实例是独享包，则选择【独享包】页签。
- - 若您的 DDoS 高防包实例是共享包，则选择【共享包】页签。
- ![](https://main.qcloudimg.com/raw/d099f26f05047950267696dca78900d5.png)
-2. 选择目的高防包实例所在地域，并在目的高防包实例所在行的右侧操作栏，单击【绑定设备】。
-![](https://main.qcloudimg.com/raw/17f94d9b5c4b5cd927d52d1a1036560b.png)
-3. 在【绑定设备】页面，选择【关联设备类型】为【Web 应用防火墙】，设置【选择关联机器】为对应 Web 应用防火墙防护的 IP 地址。 
- >?
- >- 共享包实例可绑定多个 Web 应用防火墙防护的 VIP 地址。
- >- 若是负载均衡型 Web 应用防火墙，在绑定设备界面选择“关联设备类型”为负载均衡，设置“选择关联机器”为对应负载均衡的公网 IP 地址即可。
- 
- ![](https://main.qcloudimg.com/raw/6a9cfb91b61adaca6ca19829596b7f6a.png)
- 
+1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/dayu/overview)，在左侧导航中，选择【DDoS 高防包】>【高防包】。
+2. 选择目的高防包实例所在地域，并在目的高防包实例所在行的右侧操作栏，单击【管理防护对象】。
+![](https://main.qcloudimg.com/raw/648442ef2abb4a46860a294313b3ebdc.png)
+3. 在“管理防护对象”页面，选择“关联设备类型”为【Web 应用防火墙】，设置“选择资源实例”为对应 Web 应用防火墙防护的 IP 地址。 
+>?若是负载均衡型 WAF，在绑定界面选择“关联设备类型”为负载均衡，设置“选择关联机器”为对应负载均衡的公网 IP 地址。
+>
+ ![](https://main.qcloudimg.com/raw/c716b8c00ff52183bbd0c2fd4473bfe3.png) 
 4. 设置完成后，单击【确定】即可。

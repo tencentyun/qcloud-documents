@@ -162,7 +162,7 @@ done
 [root@172 spark]# su hadoop
 [hadoop@172 spark]$ spark-sql --master yarn-client --num-executors 5 --driver-memory 4g --executor-memory 2g --executor-cores 1
 ```
-- 使用 spark2.3.0 自带的计算圆周率的 example 作为测试任务，提交任务时将任务的 executor 数设置为4，driver 内存设置为4g，executor 内存设置为4g，exector 核数设置为2。
+- 使用 spark2.3.0 自带的计算圆周率的 example 作为测试任务，提交任务时将任务的 executor 数设置为5，driver 内存设置为4g，executor 内存设置为4g，executor 核数设置为2。
 ```
 [root@172 ~]# cd /usr/local/service/spark/
 [root@172 spark]# su hadoop

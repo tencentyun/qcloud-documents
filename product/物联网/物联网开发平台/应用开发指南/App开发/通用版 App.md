@@ -4,8 +4,8 @@
 
 ## 下载方式
 - **iOS**
-iOS 通用版 App 目前发布 Beat 版本，可以通过 [testflight](https://testflight.apple.com/join/q4UmX0KA) 进行下载体验。
->?您需要使用 iOS 系统手机访问链接进行 [下载](https://testflight.apple.com/join/q4UmX0KA)。
+iOS 通用版 App 目前发布 Beat 版本，可以通过 [testflight](https://testflight.apple.com/join/nKAxtErO) 进行下载体验。
+>?您需要使用 iOS 系统手机访问链接进行 [下载](https://testflight.apple.com/join/nKAxtErO)。
 >
 
 - **Android**

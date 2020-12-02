@@ -74,7 +74,7 @@
 9. 重新启动 Apache 服务器，即可使用 `https://cloud.tencent.com` 进行访问。
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
-若您不了解通过 HTTPS 访问网站的方式，可以通过配置服务器，让其自动将 HTTP 的请求重定向到 HTTPS。您可以通过以下操作设置：
+如果您需要将 HTTP 请求自动重定向到 HTTPS。您可以通过以下操作设置：
 1. 编辑 `/etc/httpd/conf` 目录下的 httpd.conf 配置文件。
 >!
 >- Apache 的版本不同，目录结构也会有所区别。具体请您参阅 [Apache 官方 rewrite 的文档](http://httpd.apache.org/docs/2.4/mod/mod_rewrite.html)。

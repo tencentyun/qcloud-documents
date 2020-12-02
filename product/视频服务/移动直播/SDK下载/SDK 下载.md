@@ -6,7 +6,7 @@
     
 <h2 id="Smart">直播基础版（Smart）</h2>
  
-基础版仅包含直播推流（TXLivePusher）和直播播放（TXLivePlayer）两项功能，对 App 的安装包体积增量最小，适合仅使用移动直播相关功能的客户。
+基础版仅包含直播推流（TXLivePusher）和直播播放（TXLivePlayer）两项功能，对 App 的安装包体积增量最小，适合仅使用移动直播相关功能的客户。 
    
 <table>
    <tr>
@@ -20,7 +20,7 @@
    </tr>
    <tr>
       <td style="text-align:center">iOS</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_ios_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Smart_iOS_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_ios_smart") href="https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Smart_iOS_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/MLVBSDK">Github</a></td>
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/MLVBSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/454/7876">DOC</a></td>
@@ -29,7 +29,7 @@
    </tr>
      <tr>
       <td style="text-align:center">Android</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_android_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Smart_Android_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_android_smart") href="https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Smart_Android_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/MLVBSDK">Github</a></td>
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/MLVBSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/454/7877">DOC</a></td>
@@ -38,7 +38,7 @@
    </tr>
    <tr>
       <td style="text-align:center">微信小程序 </td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_wxmini_smart") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/MLVB_WXMini_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_wxmini_smart") href="https://liteavsdk-1252463788.cosgz.myqcloud.com/MLVB_WXMini_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/MLVBSDK">Github</a></td>
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/MLVBSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/454/12554">DOC</a></td>
@@ -66,7 +66,7 @@
    </tr>
    <tr>
       <td style="text-align:center">iOS</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_ios_professional") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Professional_iOS_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_ios_professional") href="https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Professional_iOS_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/LiteAVProfessional_iOS">Github</a></td>
       <td style="text-align:center">支持</td>
       <td style="text-align:center">4.08M（arm64）</td>
@@ -74,7 +74,7 @@
    </tr>
    <tr>
       <td style="text-align:center">Android</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_android_professional") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Professional_Android_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_android_professional") href="https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Professional_Android_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/LiteAVProfessional_Android">Github</a></td>
       <td style="text-align:center">支持</td>
       <td style="text-align:center">jar：1.5M<br> so(armeabi)：6.5M<br> so(armv7)：6.1M<br>so(arm64)：7.3M</td>
@@ -103,14 +103,14 @@
    </tr>
    <tr>
       <td style="text-align:center">iOS</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_ios_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Enterprise_iOS_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_ios_enterprise") href="https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Enterprise_iOS_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center">支持</td>
       <td style="text-align:center"> 6.15M（arm64）</td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/34400">DOC</a></td>
    </tr>
    <tr>
       <td style="text-align:center">Android</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_android_enterprise") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Enterprise_Android_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("mlvb_sdk_download_android_enterprise") href="https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Enterprise_Android_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center">支持</td>
       <td style="text-align:center"> jar：2.3M；so(armeabi)：20.4M</td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/34400">DOC</a></td>

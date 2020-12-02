@@ -1,6 +1,6 @@
 
 
-本文档将指导您如何在 macOS 系统下使用 Apple Mail 发送 [S/MIME](https://cloud.tencent.com/document/product/1325/49418) 加密邮件。
+本文档将指导您如何在 macOS 系统下使用 Apple Mail 发送 [S/MIME](https://cloud.tencent.com/document/product/1325/49418) 加密邮件，本文以 macOS 10.13.6 版本为例进行说明。
 
 ## 前提条件
 已 [申请购买邮件（S/MIME）证书](https://cloud.tencent.com/apply/p/cn69mmv599k)。

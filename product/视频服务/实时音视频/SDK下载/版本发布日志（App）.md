@@ -1,3 +1,40 @@
+## Version 8.0 @ 2020.11.13
+
+**新增**
+- 全平台新增 C++ 统一 API，请参见 cpp_interface/[ITRTCCloud.h](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html)。
+- 全平台支持字符串房间号，请参见 TRTCParams.strRoomId。
+- 全平台新增 TXDeviceManager 设备管理类。
+- 全平台新增 API TRTCCloud.switchRoom，支持不停止采集，直接切换房间。
+- 全平台新增 API TRTCCloud.startRemoteView 开始渲染远端视频画面。
+- 全平台新增 API TRTCCloud.stopRemoteView 停止渲染远端视频画面。
+- 全平台新增 API TRTCCloud.getDeviceManager 获取设备管理类。
+- 全平台新增 API TRTCCloud.startLocalAudio 开启本地音频的采集和上行。
+- 全平台新增 API TRTCCloud.setRemoteRenderParams 设置远端图像的渲染配置。
+- 全平台新增 API TRTCCloud.setLocalRenderParams 设置本地图像的渲染配置。
+
+**优化**
+- Android 优化软硬解切换逻辑。
+- Windows 优化 System loopback 音频采集音质及回声消除效果。
+- Windows 优化音频设备选择逻辑，降低无声率。
+- Windows 优化双讲剪切效果。
+- 全平台优化手动接收模式切换角色时的秒开效果。
+- 全平台优化音频接收逻辑，提升音频效果。
+- 全平台优化 sendCustomCmdMsg 可靠性。
+
+**修复**
+- iOS 修复 muteLocalVideo 调用导致本地视频渲染暂停的问题。
+- iOS 修复在前后台切换时偶现调用系统组件可能导致卡死的问题。
+- iOS 修复开启音效时，耳返音频断断续续的问题。
+- Android 修复切通话音量播音效的时候电话打断，音效不会停止播放的问题。
+- Android 修复偶现音频采集启动失败的问题。
+- Windows 修复偶现本地视频渲染黑屏的问题。
+- Windows 修复进程退出时可能crash的问题。
+- Windows 优化蓝牙耳机支持，修复蓝牙耳机无声问题。
+- Windows 修复屏幕分享结束时抢焦点的问题。
+- 全平台修复状态回调丢包率统计异常问题。
+
+
+
 ## Version 7.9 @ 2020.10.27
 **新增**
 - Mac：屏幕分享支持过滤选定的窗口，用户可以将自己不希望分享出去的窗口排除掉，从而更好地保护用户的隐私。
@@ -120,7 +157,7 @@
 - Windows：修复多个已知的 crash 问题。
 - Windows：修复摄像头和麦克风拔掉后重新插入不会自动开启设备的问题。
 - iOS：修复在 iOS 10 上背景音乐接口在传入特定规则的文件路径时会崩溃的 BUG。
-- Android：修复频繁快速的 enterRoom 和 exitRoom 后偶先的无声问题。
+- Android：修复频繁快速的 enterRoom 和 exitRoom 后偶现的无声问题。
 - Android：修复偶现的录屏推流黑屏的问题。
 
 

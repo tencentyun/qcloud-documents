@@ -1,5 +1,5 @@
 ## 概述 
-腾讯云数据库 CTSDB 是一款分布式、可扩展、支持近实时数据搜索与分析的时序数据库，且兼容 ELK 生态组件，您可以非常方便的使用 ELK 组件与 CTSDB 对接。
+云数据库 CTSDB 是一款分布式、可扩展、支持近实时数据搜索与分析的时序数据库，且兼容 ELK 生态组件，您可以非常方便的使用 ELK 组件与 CTSDB 对接。
 ELK 组件提供了丰富的数据处理功能，包括数据采集、数据清洗、可视化图形展示等。常用的 ELK 生态组件包括 Filebeat、Logstash、Kibana。同时，CTSDB 也支持 Grafana 作为可视化平台。常见架构图如下： 
 ![](https://main.qcloudimg.com/raw/435dddcdad3a6f0551a2c3d1f100bfaa.png)
 

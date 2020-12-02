@@ -82,10 +82,10 @@ Namespace=QCE/CDB
 
 | 参数名称                       | 维度名称     | 维度解释                                                     | 格式                                     |
 | ------------------------------ | ------------ | ------------------------------------------------------------ | ---------------------------------------- |
-| Instances.N.Dimensions.0.Name  | InstanceId   | 数据库的实例 ID名称                                          | 输入 String 类型维度名称，例如：topicId      |
-| Instances.N.Dimensions.0.Value | InstanceId   | 数据库的具体ID                                               | 输入具体实例ID，例如：topic-i4p4k0u0      |
+| Instances.N.Dimensions.0.Name  | InstanceId   | 数据库的实例 ID 名称                                          | 输入 String 类型维度名称，例如：topicId      |
+| Instances.N.Dimensions.0.Value | InstanceId   | 数据库的具体ID                                               | 输入具体实例 ID，例如：topic-i4p4k0u0      |
 | Instances.N.Dimensions.1.Name  | InstanceType | 数据库实例类型                                               | 输入 String 类型维度名称，例如：InstanceType |
-  | Instances.N.Dimensions.1.Value | InstanceType | 数据库实例类型，默认取值为1：<br><li>取值为1：表示拉取 master 监控数据<br><li>取值为2：表示拉取 slave 的 SlaveIoRunning、SlaveSqlRunning、MasterSlaveSyncDistance、SecondsBehindMaster 监控数据 | 输入实例类型，默认取值为1                |
+  | Instances.N.Dimensions.1.Value | InstanceType | 数据库实例类型，默认取值为1，详细取值如下：<br><li>取值为1：表示拉取实例主机的监控数据<br><li>取值为2：表示拉取实例从机的监控数据<br><li>取值为3：表示拉取只读实例的监控数据<br><li>取值为4：表示拉取实例第二从机（仅金融版实例有第二从机）的监控数据 | 输入实例类型，默认取值为1                |
 	
 	
 	

@@ -7,45 +7,57 @@
 - 支持通过 X-Forward-Port 头部携带真实客户端端口至源站，用于源站侧分析。
 - 支持添加各类自定义头部。
 
+也支持删除和变更自定义回源请求头部。
+
+
 ## 配置指南
 
-### 配置约束
 
-- 自定义请求头部配置规则最多可配置10条。
-- 生效类型支持全部文件、文件类型、文件目录、指定文件路径四种模式，暂不支持正则匹配。
-- 若用户端发起请求中已存在头部信息，配置的 Request Header 在回源时会覆盖原有头部。
-- 多条规则头部设置重复时，优先级为从上到下从低到高，底部优先级高于顶部。
-- 自定义头部的 Key 值长度默认为1 - 100个字符，由数字0 - 9、字符a - z、A - Z，及特殊符 `-` 组成。
-- 自定义头部的 Value 长度为1 - 1000个字符，不支持中文。
-- 部分标准头部不支持自助添加，具体清单请看文档最后部分说明。
 
-### 配置说明
+### 查看配置
 
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可在【回源配置】中看到回源 Request Header 配置，默认情况下为关闭状态，无任何配置：
-![](https://main.qcloudimg.com/raw/253c67e926455bd17f2cda79fa46d2ba.png)
-关闭状态下，可新增回源头部规则：
-![](https://main.qcloudimg.com/raw/895adcd7cebdb0d75bbde1c22244a2a5.png)
+![](https://main.qcloudimg.com/raw/59069be8821b2987df5d0b3eeaae55d0.png)
+
+### 新增规则
+单击【新增回源头部规则】可配置回源 Request Header 规则：
+<img src="https://main.qcloudimg.com/raw/27f604176964cc6e42aa4ac4b540d9bd.png" height="284" width="476" />
 
 > !
 > 1. 用于携带用户端真实 IP 的头部为：X-Forward-For，其值默认为 $client_ip 变量，不允许修改。
 > 2. 用于携带用户端真实端口的头部为：X-Forward-Port，其值默认为 $remote_port 变量，不允许修改。
 
-规则添加完毕后，此时整体配置为关闭状态，不会生效：
-![](https://main.qcloudimg.com/raw/6d66d2ae51509aa787409ad4d0f301e1.png)
-可通过【调整优先级】按钮，调整规则上下顺序，如需发布至全网 CDN 节点，单击上方配置开关即可：
-![](https://main.qcloudimg.com/raw/f984682c540bdd219c85a3dd3e51d7ca.png)
+### 配置约束
+
+- 回源 Request Header 配置规则最多可配置10条。
+- 生效类型支持全部文件、文件类型、文件目录、指定文件路径四种模式，暂不支持正则匹配。
+- 若用户端发起请求中已存在头部信息，生效的已配置的 Request Header 在回源时会覆盖原有头部。
+- 多条规则支持调整优先级。
+>!
+>- 底部优先级大于顶部 - 此相对位置的优先级仅限于同类型头部操作中，例如多条增加头部规则之间、多条删除头部规则之间或多条变更头部规则之间。
+>- 当不同的头部操作类型同时作用于同一个回源请求头参数的时候，按照操作类型的优先级来执行，顺序为：增加 > 删除 > 变更。例如：同时存在增加、删除和变更X-CDN头部的规则时，会先增加，再删除，最后再变更。
+- 自定义头部的 Key 值长度默认为1 - 100个字符，由数字0 - 9、字符a - z、A - Z，及特殊符 `-` 组成。
+- 自定义头部的 Value 长度为1 - 1000个字符，不支持中文。
+- 部分标准头部不支持自助增加/删除/变更，具体清单请参见文档 [注意事项](#noice)。
+
+
+
+
+
 
 ## 配置示例
 
 若加速域名`cloud.tencent.com`的回源 Request Header 配置如下：
-![](https://main.qcloudimg.com/raw/18b181e351aaf4a176ebcb9656921986.png)
+![](https://main.qcloudimg.com/raw/6c02e4901530e26def6b7c51c8916b36.png)
 若访问资源为：`http://cloud.tencent.com/test/test.mp4`
 1. 命中`*`规则，增加头部`X-Forward-For:$client_ip`头部，回源时将 $client_ip 替换为真实客户端 IP。
-2. 命中`.mp4`文件类型及`/test`路径，底部优先级大于顶部优先级，因此增加`x-cdn:Tencent`头部。
+2. 命中`.mp4`文件类型及/test路径，因是同一头部操作类型 - 增加，则底部优先级大于顶部，因此增加`x-cdn:Tencent`头部。
 
+
+<SPAN ID=noice></SPAN>
 ## 注意事项
 
-以下标准头部暂时不支持添加回源 Request Header：
+以下标准头部暂时不支持增加/删除/变更回源 Request Header：
 
 <table>
 <tbody><tr>

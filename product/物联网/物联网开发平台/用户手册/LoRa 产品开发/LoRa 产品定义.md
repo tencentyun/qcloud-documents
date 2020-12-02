@@ -16,6 +16,7 @@ LoRa 产品定义与其他产品定义的操作步骤基本一致，只有创建
  - 通信方式：LoRaWAN 产品的通信方式需要选择“LoRaWAN”。
  - 数据协议：产品默认采用自定义透传协议。
  - 描述：字数不能超过80个，您可以根据需要选填。
- ![](https://main.qcloudimg.com/raw/6422b6f2d29b3d7470c5993a6085af0d.png)
+![](https://main.qcloudimg.com/raw/8e2c68acfb77ae5a7d55a8ff2a52ef15.jpg)
 4. 信息填写完成后，单击【保存】即可。
+
 

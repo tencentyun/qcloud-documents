@@ -164,7 +164,3 @@ chmod +w /home/test
 ls -l /home/test   
 # /home/test 为 FTP 目录，请修改为您实际的 FTP 目录。
 ``` 
-
-
-
-

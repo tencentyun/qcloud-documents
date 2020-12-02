@@ -242,7 +242,7 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 <td>encryptionContext</td>
 <td>是</td>
 <td>string</td>
-<td>用于标识DataKey的辅助字段，key/value对的json字符串格式,最大支持2048字节。如：{"name":"test","date":"20200228"}</td>
+<td>用于标识DataKey的辅助字段，key/value对的json字符串格式,最大支持1024字节。如：{"name":"test","date":"20200228"}</td>
 </tr>
 <tr>
 <td>blockSize</td>
@@ -327,7 +327,7 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 | 参数名称          | 类型                        | 说明                                                         |
 | ----------------- | --------------------------- | ------------------------------------------------------------ |
 | algorithm         | C.enum_Algorithm            | 算法枚举值，详情请参见 [加密算法列表](#test5)                           |
-| encryptionContext | C.char *                    | 用于标识 DataKey 的辅助字段，key/value 对的 JSON 字符串格式，最大支持2048字节。如：{"name":"test","date":"20200228"} |
+| encryptionContext | C.char *                    | 用于标识 DataKey 的辅助字段，key/value 对的 JSON 字符串格式，最大支持1024字节。如：{"name":"test","date":"20200228"} |
 | dataKeyNum        | C.int                       | 使用的加密后 DataKey 数量，和有效的主密钥 CMK 数量相关，由各个地域的主密钥加密产生 |
 | dataKey           | Array of C.EncryptedDataKey | DataKey 的信息列表，详情请参见 [C.EncryptedDataKey 结构体说明](#test6) |
 | blockType         | C.enum_BlockType            | 密文加密分块的枚举值，用于标识该密文是否被分块，详情请参见 [C.enum_BlockType 结构体说明](#test7) |
@@ -342,7 +342,7 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 | C.WITH_BLOCK    | 2    | 密文加密开设分块 |
 
 ### KMS 加密方式接口调用示例
-KMS 加密方式接口调用示例如下：
+KMS 密钥保护方式接口调用示例如下：
 ```
 package main
 
@@ -633,7 +633,7 @@ func main() {
 <td>加密后的数据</td>
 </tr>
 <tr>
-<td>Key</td>
+<td>key</td>
 <td>是</td>
 <td>[]byte</td>
 <td>用户自定义的 SM4 密钥，长度固定为128位(16字节)</td>
@@ -670,7 +670,7 @@ func main() {
 <td>原文数据</td>
 </tr>
 <tr>
-<td>Key</td>
+<td>key</td>
 <td>是</td>
 <td>[]byte</td>
 <td>用户自定义的 SM4 密钥，长度固定为128位(16字节)</td>
@@ -701,7 +701,7 @@ func main() {
 <td>加密后的数据</td>
 </tr>
 <tr>
-<td>Key</td>
+<td>key</td>
 <td>是</td>
 <td>[]byte</td>
 <td>用户自定义的SM4密钥，长度固定为128位(16字节)</td>

@@ -3,7 +3,6 @@
 POST Object 接口请求可以将本地不超过5GB的对象（Object）以网页表单（HTML Form）的形式上传至指定存储桶中。该 API 的请求者需要对存储桶有写入权限。
 
 > !
->
 > - POST Object 接口不使用 COS 对象存储统一的请求签名，而是拥有自己的签名要求，请参见本文档的 [签名保护](#id1) 及相关字段的描述。
 > - 如果试图添加已存在的同名对象且没有启用版本控制，则新上传的对象将覆盖原来的对象，成功时按照指定的返回方式正常返回。
 
@@ -141,7 +140,6 @@ c. 拼接签名有效时间，格式为`StartTimestamp;EndTimestamp`，即为 Ke
 | q-sign-time                                                  | 上文所生成的 KeyTime                                         | 完全                                               | 是       |
 
 > ! 
->
 > - “策略”（Policy）中限定的除 bucket 以外的字段，都必须出现在表单字段中。例如限定了`{ "acl": "default" }`，那么表单中必须出现 acl 且值为 default。
 > - 基于安全考虑，强烈建议您对所有可以限定的表单字段进行限定。
 
@@ -170,7 +168,7 @@ c. 拼接签名有效时间，格式为`StartTimestamp;EndTimestamp`，即为 Ke
 | q-key-time           | 上文所生成的 KeyTime                                         | string | 是                                         |
 | q-signature          | 上文所生成的 Signature                                       | string | 是                                         |
 
->!签名表单字段需要在 file 表单字段之前。
+> !签名表单字段需要在 file 表单字段之前。
 
 **签名保护实际案例**
 
@@ -452,8 +450,6 @@ Location: http://examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleobj
 Server: tencent-cos
 x-cos-request-id: NWQ2NzgxMzdfMTljMDJhMDlfNTg4ZF84Njgx****
 x-cos-server-side-encryption: AES256
-
-
 ```
 
 <span id="step4"></span>
@@ -512,8 +508,6 @@ Content-Type: image/jpeg
 
 [Object Content]
 ------WebKitFormBoundaryYa6H7Gd4xuhlyfJb--
-
-
 ```
 
 #### 响应
@@ -529,8 +523,6 @@ Server: tencent-cos
 x-cos-request-id: NWQ2NzgxMzhfMzdiMDJhMDlfNDA4YV84MzQx****
 x-cos-server-side-encryption-customer-algorithm: AES256
 x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
-
-
 ```
 
 <span id="step5"></span>
@@ -577,8 +569,6 @@ Content-Type: image/jpeg
 
 [Object Content]
 ------WebKitFormBoundaryJspR3QIUhGJLALwf--
-
-
 ```
 
 #### 响应
@@ -593,8 +583,6 @@ Location: http://examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleobj
 Server: tencent-cos
 x-cos-request-id: NWQ2NzgxNTdfNzFiNDBiMDlfMmE3ZmJfODQ1****
 x-cos-version-id: MTg0NDUxNzcwMDkzMDE3NDQ0MDU
-
-
 ```
 
 <span id="step6"></span>
@@ -641,8 +629,6 @@ Content-Type: image/jpeg
 
 [Object Content]
 ------WebKitFormBoundaryX8hd2lxTMzIBk5Li--
-
-
 ```
 
 #### 响应
@@ -656,7 +642,6 @@ ETag: "ee8de918d05640145b18f70f4c3aa602"
 Location: http://examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleobject
 Server: tencent-cos
 x-cos-request-id: NWQ2NzgxNzZfMjFjOTBiMDlfMWY3YTFfNjY2****
-
 ```
 
 <span id="step7"></span>
@@ -703,7 +688,6 @@ Content-Type: image/jpeg
 
 [Object Content]
 ------WebKitFormBoundaryHrAMWZO4BNyT0rca--
-
 ```
 
 #### 响应
@@ -717,7 +701,6 @@ ETag: "ee8de918d05640145b18f70f4c3aa602"
 Location: http://examplebucket-1250000000.cos.ap-beijing.myqcloud.com/folder/subfolder/photo.jpg
 Server: tencent-cos
 x-cos-request-id: NWQ2N2M2N2NfNWZhZjJhMDlfNmUzMV84OTg4****
-
 ```
 
 <span id="step8"></span>

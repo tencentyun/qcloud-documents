@@ -67,16 +67,16 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
 	<tr>
     <td style="background-color:#f2f2f2;">5.0内存版（标准架构）</td>
     <td>x</td>
-    <td>✓</td>
-    <td>✓</td>
-	 <td>✓</td>
+    <td>x</td>
+    <td>x</td>
+  	<td>✓</td>
     <td>✓</td>
     </tr>
     <tr>
     <td style="background-color:#f2f2f2;">5.0内存版（集群架构）</td>
     <td>x</td>
-    <td>✓</td>
-    <td>✓</td>
+    <td>x</td>
+    <td>x</td>
 		<td>✓</td>
     <td>✓</td>
     </tr>

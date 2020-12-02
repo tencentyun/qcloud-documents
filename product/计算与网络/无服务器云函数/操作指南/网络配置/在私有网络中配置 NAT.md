@@ -31,3 +31,6 @@ NAT 网关（NAT Gateway）是一种支持 IP 地址转换的网络云服务。�
 若您想使用 SCF 访问部分外网地址，则需添加可访问外网地址至路由表中，并把路由表关联到新创建好的 NAT 网关和 SCF 的子网，如下图所示：
 ![](https://main.qcloudimg.com/raw/b88ff58541c8f2addb73b72913d2ce80.png)
 选择完成后，单击【创建】即可。
+
+
+

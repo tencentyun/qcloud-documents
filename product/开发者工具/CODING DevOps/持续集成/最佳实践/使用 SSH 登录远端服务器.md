@@ -82,7 +82,7 @@ node {
 
 ## 拓展阅读
 <span id="java"></span>
--   想要查看一个通过 SSH 登录远程 Linux Docker 服务器并将镜像部署上去的配置，您可以查看帮助文档[《持续集成的自动化部署》](/https://help.coding.net/docs/ci/deploy/ssh.html)
+-   想要查看一个通过 SSH 登录远程 Linux Docker 服务器并将镜像部署上去的配置，您可以查看帮助文档 [持续集成的自动化部署](https://cloud.tencent.com/document/product/1115/49472)
 
 -   想要了解更多 Jenkinsfile 中关于 SSH 命令的内容，您可以查看 Jenkins 帮助文档 [SSH Pipeline Steps](https://jenkins.io/doc/pipeline/steps/ssh-steps/)
 

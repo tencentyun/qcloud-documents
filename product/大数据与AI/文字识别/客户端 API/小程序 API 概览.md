@@ -1,4 +1,3 @@
-## SDK 接口说明    
 
 小程序端文字识别 SDK 主要涉及的有 start 方法，下面对该方法做出详细说明。
 
@@ -40,11 +39,16 @@ ocrSdk.start({
       "CropPortrait": true,
     }
   },
-  resultPageConfig: {
-    modifiable: true,
-    themeColor: 'red',
+  cameraConfig: {
+    autoMode: true,
+    maxTry: 3,
+    disableAlbum: false
   },
   resultPage: true,
+  resultPageConfig: {
+    modifiable: true,
+  },
+  theme: 'primary',
   success: (res) => {
     console.log('ocr result is:', res)
     wx.navigateTo({
@@ -61,7 +65,7 @@ ocrSdk.start({
 
 | 参数名称                                | 参数简介       |    参数类型  |  默认值     |  是否必选   |
 | ------------------------------------- | ------------- | ----------- | ------     | -------- |
-| [getAuthorization](#getAuthorization:) | 获取临时密钥的方法 |   function  |  无    |  否（注：生产环境中强烈推荐使用该方法）  |
+| [getAuthorization](#getAuthorization:) | 获取临时密钥的方法 |   function  |  无    |  否（生产环境中推荐使用）  |
 | [secretId](#secretId:)                 | SecretId 密钥  |    string   |  无  |  否（注：仅推荐在本地开发时使用）   |
 | [secretKey](#secretKey:)               | SecretKey 密钥  |   string    |  无    |  否（注：仅推荐在本地开发时使用）   |
 | [ocrType](#ocrType:)                   | OCR 识别类型    |   ocrType  |  无  |  是   |
@@ -69,7 +73,11 @@ ocrSdk.start({
 | [resultPage](#resultPage:)             | 识别完成后是否需要展示结果页  |     boolean     |  false  |  否   |
 | [resultPageConfig](#resultPageConfig:) | 结果页相应配置  |     Object     |  无 |  否   |
 | [resultPageConfig.modifiable](#resultPageConfig.modifiable:)             | 识别结果是否可修改  |     boolean     |  false  |  否   |
-| [resultPageConfig.themeColor](#resultPageConfig.themeColor:)             | 结果页主题色  |     string     |  #006EFF  |  否   |
+| [cameraConfig](#cameraConfig:) | 相机相应配置  |     Object     |  无 |  否   |
+| [cameraConfig.autoMode](#cameraConfig.autoMode:)             | 是否优先使用自动拍摄模式  |     boolean     |  false  |  否   |
+| [cameraConfig.maxTry](#cameraConfig.maxTry:)             | 自动模式下最多尝试次数  |     number     |  3  |  否   |
+| [cameraConfig.disableAlbum](#cameraConfig.disableAlbum:)             | 是否禁用从相册选择照片功能  |     boolean     |  false  |  否   |
+| [theme](#theme:)             | SDK 主题色  |     string     |  primary  |  否   |
 | [success](#success:)             | 单击完成后执行的回调函数            |   function(res)   |   无   |  是   |
 | [fail](#fail:)             | 识别失败时执行的回调函数             |    function(error)   |   无   |  否   |
 
@@ -123,7 +131,7 @@ ocrSdk.start({
 ### secretId:
 SecretId 密钥。将 secretId、secretKey 直接配置到小程序中的方式，会使用固定密钥计算签名，一旦您的密钥泄密，攻击者可以使用您的 secretId、secretKey 信息进行 OCR 识别请求，给您造成损失。因此该方法**仅适用于本地跑通 Demo 和功能调试**
 
-**当同时传入 getAuthorization 与 （secretId，secretKey）时，SDK 会使用 getAuthorization 方法，忽略secretId 和 secretKey**
+**当同时传入 getAuthorization 与 （secretId，secretKey）时，SDK 会使用 getAuthorization 方法，忽略 secretId 和 secretKey**
 
 <br/>
 
@@ -131,7 +139,7 @@ SecretId 密钥。将 secretId、secretKey 直接配置到小程序中的方式�
 ### secretKey:
 SecretKey 密钥。将 secretId、secretKey 直接配置到小程序中的方式，会使用固定密钥计算签名，一旦您的密钥泄密，攻击者可以使用您的 secretId、secretKey 信息进行 OCR 识别请求，给您造成损失。因此该方法**仅适用于本地跑通 Demo 和功能调试**
 
-**当同时传入 getAuthorization 与 （secretId，secretKey）时，SDK 会使用 getAuthorization 方法，忽略secretId 和 secretKey**
+**当同时传入 getAuthorization 与 （secretId，secretKey）时，SDK 会使用 getAuthorization 方法，忽略 secretId 和 secretKey**
 
 <br/>
 
@@ -141,7 +149,9 @@ ocrType 是一个枚举类型，列举了当前文字识别 OCR 的 SDK 所支�
 
 | ocrType 类型             | 代表含义             |
 | ----------------------- | ------------------- |
-| ocrType.ID_Card         | 身份证识别模式        |
+| ocrType.ID_Card         | 身份证识别模式（包含正反面）      |
+| ocrType.ID_Card_FRONT       | 身份证正面识别模式（仅包含正面）    |
+| ocrType.ID_Card_BACK   | 身份证反面识别模式（仅包含反面）     |
 | ocrType.Bank_Card       | 银行卡识别模式     |
 | ocrType.Business_Card   | 名片识别模式     |
 
@@ -180,6 +190,8 @@ ocrSdk.start({
 当该字段配置为 true 时，小程序 SDK 在识别完成之后会进入到结果页，您可以在结果页查看识别结果。
 当该字段配置为 false（默认）时，小程序 SDK 在识别完成之后会直接执行您传入的回调函数。
 
+**特别说明：当选择了身份证双面识别模式（即：orcType 字段配置为 ocrType.ID_Card）时，SDK 默认展示结果页面。如您希望不展示结果页面，请配置为身份证单面模式（即：orcType 字段配置为 ocrType.ID_Card_FRONT 或 ocrType.ID_Card_BACK）。**
+
 <br/>
 
 <span id="resultPageConfig:"></span>
@@ -198,13 +210,62 @@ ocrSdk.start({
 该字段仅在 resultPage 配置为 true 时才生效。
 
 当该字段配置为 true 时，小程序在 OCR 识别的结果页中将允许用户对识别结果进行修改。
-用户点击“完成”按钮时，SDK 会将修改后的结果作为参数注入到您配置的 success 回调函数中，并执行回调函数。
+用户单击“完成”按钮时，SDK 会将修改后的结果作为参数注入到您配置的 success 回调函数中，并执行回调函数。
 
 <br/>
 
-<span id="resultPageConfig.themeColor:"></span>
-### resultPageConfig.themeColor:
-结果页主题配色，默认为 #006EFF。
+<span id="cameraConfig:"></span>
+### cameraConfig:
+相机相应配置，可配置字段: autoMode, maxTry, disableAlbum.
+
+<br/>
+
+<span id="cameraConfig.autoMode:"></span>
+### cameraConfig.autoMode:
+是否优先使用自动拍摄模式。默认值为 false。
+
+该字段配置为 true 时，相机会在用户手机稳定的情况下自动抓拍然后立即识别。如果识别失败的话会重新自动抓拍，识别，直到成功识别或达到最大尝试次数（默认3次，可在 cameraConfig.maxTry 字段中进行配置）为止。
+
+如果达到最大尝试次数仍未识别成功，则弹出对话框，提供切换为手动拍摄模式选项。
+
+**特别说明：该配置仅在用户微信基础库为2.12.2或以上版本才支持，低于该版本会直接使用基础的手动拍摄模式**
+
+<center>
+    <img style="border-radius: 0.3125em;width: 690px" 
+    src="https://main.qcloudimg.com/raw/90e3266b4396d3abd9097f0e4231e454.jpg">
+    <br>
+    <div>自动识别模式生命周期</div>
+</center>
+
+
+<br/>
+
+<span id="cameraConfig.maxTry:"></span>
+### cameraConfig.maxTry:
+自动识别最大尝试数。默认3次。
+
+在自动识别模式下，相机会在用户手机稳定的情况下自动抓拍然后立即识别。如果识别失败的话会重新自动抓拍，识别，直到成功识别或达到最大尝试次数为止。
+
+如果达到最大尝试次数仍未识别成功，则弹出对话框，提供切换为手动拍摄模式选项。
+
+<br/>
+
+<span id="cameraConfig.disableAlbum:"></span>
+### cameraConfig.disableAlbum:
+是否禁止用户从相册选择照片。默认值 false。
+
+该参数配置为 true 时，拍摄页面上将不会出现照片选择按钮，用户将不可以从相册中选择图片。
+
+<br/>
+
+<span id="theme:"></span>
+### theme:
+SDK 主题配色，默认为 'primary'，目前支持如下值：
+
+| 值             | 主题色             |
+| ----------------------- | ------------------- |
+| primary         | #006EFF        |
+| native（微信原生绿色）       | #07C160     |
 
 <br/>
 
@@ -219,7 +280,7 @@ OCR 识别成功后的回调函数。
 
 代码示例：
 ```javascript
-// 用户点击完成后会打印出识别结果，并返回您的小程序页面
+// 用户单击完成后会打印出识别结果，并返回您的小程序页面
 ocrSdk.start({
   ...
   success: (res) => {
@@ -278,7 +339,7 @@ ocrSdk.start({
 ```
 <br/>
 
-### 身份证识别模式：
+### 身份证识别模式（包含双面，仅正面，仅反面）：
 | 配置项名称             | 类型             | 描述       |
 | ----------------------- | ------------------- |   --------      |
 | Config         | Object        |     以下可选字段均为 bool 类型，默认 false：<br/>CropIdCard，身份证照片裁剪（去掉证件外多余的边缘、自动矫正拍摄角度）<br/>CropPortrait，人像照片裁剪（自动抠取身份证头像区域）<br/>CopyWarn，复印件告警<br/>BorderCheckWarn，边框和框内遮挡告警<br/>ReshootWarn，翻拍告警<br/>DetectPsWarn，PS 检测告警<br/>TempIdWarn，临时身份证告警<br/>InvalidDateWarn，身份证有效日期不合法告警<br/>Quality，图片质量分数（评价图片的模糊程度）<br/>MultiCardDetect，是否开启多卡证检测<br/>ReflectWarn，是否开启反光检测<br/>  |
@@ -294,9 +355,9 @@ ocrSdk.start({
 
 ## 识别结果
 
-当用户点击结果页中“完成”按钮时，小程序 OCR SDK 会调用您在 ocrSdk.start() 方法中定义的 success 回调函数，并将识别结果作为参数传入。
+当用户单击结果页中“完成”按钮时，小程序 OCR SDK 会调用您在 ocrSdk.start() 方法中定义的 success 回调函数，并将识别结果作为参数传入。
 
-### 身份证输出结果：
+### 身份证输出结果（双面）：
 
 | 参数名称             | 类型             |    描述    |
 | ----------------------- | ------------------- | --------- |
@@ -315,7 +376,7 @@ ocrSdk.start({
 
 <br/>
 
-### 身份证输出结果示例：
+### 身份证输出结果示例（双面）：
 
 ```json
 {
@@ -325,8 +386,8 @@ ocrSdk.start({
   "Birth": "1987/1/1",
   "Address": "北京市石景山区高新技术园腾讯大楼",
   "IdNum": "440524198701010014",
-  "Authority": "",
-  "ValidDate": "",
+  "Authority": "深圳市公安局南山分局",
+  "ValidDate": "2017.08.12-2037.08.12",
   "AdvancedInfo": {
     "FRONT": "{\"IdCard\":\"/9j/4AAA.........\",\"Portrait\":\"/9j/4AAQSkZJRBA=...........\"}",
     "BACK": "{\"IdCard\":\"/9j/FWSAA.........\",\"Portrait\":\"/9j/FWFWRGKKLAJRBA=...........\"}"
@@ -337,6 +398,64 @@ ocrSdk.start({
   }
 }
 ```
+
+<br/>
+
+### 身份证正面输出结果（仅正面）：
+
+| 参数名称             | 类型             |    描述    |
+| ----------------------- | ------------------- | --------- |
+| Name         | string        | 姓名（人像面）|
+| Sex       | string      | 性别（人像面）|
+| Nation   | string      | 民族（人像面）|
+| Birth         | string        | 出生日期（人像面）|
+| Address      | string      | 地址（人像面）|
+| IdNum  | string      | 身份证号（人像面）|
+| AdvancedInfo  | string      | 身份证人像面扩展信息，不请求则不返回。<br/>IdCard，裁剪后身份证照片的 base64 编码，请求 Config.CropIdCard 时返回；<br/>Portrait，身份证头像照片的 base64 编码，请求 Config.CropPortrait 时返回；<br/>Quality，图片质量分数，请求 Config.Quality 时返回（取值范围：0 ~ 100，分数越低越模糊，建议阈值≥50）;<br/>BorderCodeValue，身份证边框不完整告警阈值分数，请求 Config.BorderCheckWarn时返回（取值范围：0~100，分数越低边框遮挡可能性越低，建议阈值≥50）;<br/>WarnInfos，告警信息，Code 告警码列表和释义：<br/>-9100 身份证有效日期不合法告警，<br/>-9101 身份证边框不完整告警，<br/>-9102 身份证复印件告警，<br/>-9103 身份证翻拍告警，<br/>-9105 身份证框内遮挡告警，<br/>-9104 临时身份证告警，<br/>-9106 身份证 PS 告警，<br/>-9107 身份证反光告警。 |
+| RequestId  | string      | 人像面唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 |
+
+<br/>
+
+### 身份证正面输出结果示例（仅正面）：
+
+```json
+{
+  "Name": "李明",
+  "Sex": "男",
+  "Nation": "汉",
+  "Birth": "1987/1/1",
+  "Address": "北京市石景山区高新技术园腾讯大楼",
+  "IdNum": "440524198701010014",
+  "AdvancedInfo": "{\"IdCard\":\"/9j/4AAA.........\",\"Portrait\":\"/9j/4AAQSkZJRBA=...........\"}",
+  "RequestId": "97c323da-5fd3-4fe6-b0b3-1cf10b04422c",
+}
+```
+
+<br/>
+
+### 身份证反面输出结果（仅反面）：
+
+| 参数名称             | 类型             |    描述    |
+| ----------------------- | ------------------- | --------- |
+| Authority         | string        | 发证机关（国徽面））|
+| ValidDate       | string      | 证件有效期（国徽面））|
+| AdvancedInfo  | string      | 身份证国徽面扩展信息，不请求则不返回。<br/>IdCard，裁剪后身份证照片的 base64 编码，请求 Config.CropIdCard 时返回；<br/>Portrait，身份证头像照片的 base64 编码，请求 Config.CropPortrait 时返回；<br/>Quality，图片质量分数，请求 Config.Quality 时返回（取值范围：0 ~ 100，分数越低越模糊，建议阈值≥50）;<br/>BorderCodeValue，身份证边框不完整告警阈值分数，请求 Config.BorderCheckWarn 时返回（取值范围：0 ~ 100，分数越低边框遮挡可能性越低，建议阈值≥50）;<br/>WarnInfos，告警信息，Code 告警码列表和释义：<br/>-9100 身份证有效日期不合法告警，<br/>-9101 身份证边框不完整告警，<br/>-9102 身份证复印件告警，<br/>-9103 身份证翻拍告警，<br/>-9105 身份证框内遮挡告警，<br/>-9104 临时身份证告警，<br/>-9106 身份证 PS 告警，<br/>-9107 身份证反光告警。 |
+| RequestId  | string      | 国徽面唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。 |
+
+<br/>
+
+### 身份证反面输出结果示例（仅反面）：
+
+```json
+{
+  "Authority": "深圳市公安局南山分局",
+  "ValidDate": "2017.08.12-2037.08.12",
+  "AdvancedInfo": "{\"IdCard\":\"/9j/4AAA.........\",\"Portrait\":\"/9j/4AAQSkZJRBA=...........\"}",
+  "RequestId": "97c323da-5fd3-4fe6-b0b3-1cf10b04422c",
+}
+```
+
+<br/>
 
 ### 银行卡输出结果：
 
@@ -419,9 +538,9 @@ ocrSdk.start({
 
 当 OCR 识别失败时，小程序 OCR SDK 会调用您在 ocrSdk.start() 方法中定义的 fail 回调函数，并将错误码以及错误信息作为参数传入。
 
-以下仅列出了接口业务逻辑相关的错误码，其他错误码详见 [公共错误码](https://cloud.tencent.com/document/api/866/33521#.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) 
+以下仅列出了接口业务逻辑相关的错误码，其他错误码详见 [公共错误码](https://cloud.tencent.com/document/api/866/33521#.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81) 。
 
-### 身份证识别错误码：
+### 身份证识别错误码（包含双面，仅正面，仅反面）：
 
 | 错误码            | 描述             |
 | ----------------------- | ------------------- |
@@ -433,7 +552,7 @@ ocrSdk.start({
 | FailedOperation.ImageNoIdCard   | 图片中未检测到身份证。     |
 | FailedOperation.ImageSizeTooLarge        | 图片尺寸过大，请参考输出参数中关于图片大小限制的说明。      |
 | FailedOperation.MultiCardError       | 照片中存在多张卡。     |
-| FailedOperation.OcrFailed   | OCR识别失败。     |
+| FailedOperation.OcrFailed   | OCR 识别失败。     |
 | FailedOperation.UnKnowError        | 未知错误。      |
 | FailedOperation.UnOpenError       | 服务未开通。     |
 | InvalidParameter.ConfigFormatError   | Config 不是有效的 JSON 格式。     |
@@ -441,19 +560,23 @@ ocrSdk.start({
 | LimitExceeded.TooLargeFileError      | 文件内容太大。     |
 | ResourcesSoldOut.ChargeStatusException  | 计费状态异常。     |
 
+<br/>
+
 ### 银行卡识别错误码：
 
 | 错误码            | 描述             |
 | ----------------------- | ------------------- |
 | FailedOperation.DownLoadError        | 文件下载失败。      |
 | FailedOperation.ImageDecodeFailed       | 图片解码失败。     |
-| FailedOperation.OcrFailed   | OCR识别失败。     |
+| FailedOperation.OcrFailed   | OCR 识别失败。     |
 | FailedOperation.UnKnowError        | 未知错误。      |
 | FailedOperation.UnOpenError      | 服务未开通。     |
 | InvalidParameter.EngineImageDecodeFailed   | 图片解码失败。     |
 | InvalidParameterValue.InvalidParameterValueLimit        | 参数值错误。      |
 | LimitExceeded.TooLargeFileError       | 文件内容太大。     |
 | ResourcesSoldOut.ChargeStatusException   | 计费状态异常。     |
+
+<br/>
 
 ### 名片识别错误码：
 
@@ -462,10 +585,13 @@ ocrSdk.start({
 | FailedOperation.DownLoadError        | 文件下载失败。      |
 | FailedOperation.ImageDecodeFailed       | 图片解码失败。     |
 | FailedOperation.ImageNoBusinessCard       | 照片未检测到名片。     |
-| FailedOperation.OcrFailed   | OCR识别失败。     |
+| FailedOperation.OcrFailed   | OCR 识别失败。     |
 | FailedOperation.UnKnowError        | 未知错误。      |
 | FailedOperation.UnOpenError      | 服务未开通。     |
 | InvalidParameter.ConfigFormatError  | Config 不是有效的 JSON 格式。     |
 | InvalidParameterValue.InvalidParameterValueLimit        | 参数值错误。      |
 | LimitExceeded.TooLargeFileError       | 文件内容太大。     |
 | ResourcesSoldOut.ChargeStatusException   | 计费状态异常。     |
+
+
+

@@ -22,7 +22,7 @@
 - accessKey：通过前台申请的 AccessKey。
 - Delegate：回调对象。 
 
-> !接口所需参数必须要正确填写，反之腾讯移动推送服务将不能正确为应用推送消息。
+>!接口所需参数必须要正确填写，反之腾讯移动推送服务将不能正确为应用推送消息。
 
 #### 示例代码
 
@@ -101,13 +101,14 @@ SDK 1.2.7.2 新增，当注册推送服务失败会走此回调。
 
 清空已有账号，然后批量添加账号。
 
+
 ```Objective-C
 - (void)clearAndAppendAccounts:(nonnull NSArray<NSDictionary *> *)accounts;
 ```
 
 > ?
 > - 此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
-> - 如果您是多账号体系，需要以追加的方式设置账号，请参考 SDK 包内 XGPush.h 文件中的 `appendAccounts:` 接口。
+> - 因“追加账号绑定接口（appendAccounts）”使用率非常低，且容易被开发者误解，因此计划10月26日开始，追加账号接口停止使用。如您此前有使用该接口，该接口功能将变更为“覆盖账号”功能。
 
 #### 参数说明 
 
@@ -246,7 +247,7 @@ SDK 1.2.7.2 新增，当注册推送服务失败会走此回调。
 - attributes：用户属性字符串字典，字符串不允许有空格或者是 tab 字符。
 
 > ? 
-> - 需要先在管理台配置用户属性的键，才能操作成功（此功能即将上线）。
+> - 需要先在管理台配置用户属性的键，才能操作成功。
 > - 需要使用字典且 key 是固定要求。
 > - Objective-C 的写法 : @{@"gender": @"Female", @"age": @"29"}；
 > - Swift 的写法：["gender":"Female", "age": "29"]
@@ -418,26 +419,6 @@ handler：查询结果的返回方法。
 [[XGPush defaultManager] uploadLogCompletionHandler:nil];
 ```
 
-## 注销信鸽平台推送服务
-
-#### 接口说明
-
-背景：如果 App 的推送服务是从信鸽平台（`https://xg.qq.com`）迁移到腾讯移动推送平台，在两个平台同时推送时，可能会出现重复消息。因此需要调用 TPNS SDK(1.2.5.3+) 的接口将设备信息在信鸽平台中进行反注册。
-引入头文件：XGForFreeVersion.h，在 startXGWithAccessID 之前调用：
-
-```
-@property uint32_t freeAccessId;
-```
-
-#### 参数说明
-
-- @freeAccessId 信鸽平台的 accessId（SDK1.2.5.3+）。
-
-#### 示例代码
-
-```
-[XGForFreeVersion defaultForFreeVersion].freeAccessId = 2200262432;
-```
 
 ## TPNS 日志托管
 

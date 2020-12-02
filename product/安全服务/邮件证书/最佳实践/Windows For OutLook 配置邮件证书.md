@@ -1,7 +1,7 @@
-本文档将指导您如何在 Windows10 系统下为 Outlook 配置邮件（[S/MIME](https://cloud.tencent.com/document/product/1325/49416)）证书。
+本文档将指导您如何在 Windows10 系统下为 Outlook 配置邮件（[S/MIME](https://cloud.tencent.com/document/product/1325/49416)）证书，本文以 Outlook 1902 版本为例进行说明。
 
 ## 前提条件
-- 已在 Windows10 系统上安装 Outlook 客户端。（本文以 Outlook 1902版本为例）
+- 已在 Windows10 系统上安装 Outlook 客户端。
 - 已 [申请购买邮件（S/MIME）证书](https://cloud.tencent.com/apply/p/cn69mmv599k)。
 
 

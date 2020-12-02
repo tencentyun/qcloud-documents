@@ -10,7 +10,7 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 | ----------- | ---- | -------- | ------------------ |
 | meetingCode | 是   | String   | 有效的会议 Code。     |
 | userid      | 是   | String   | 调用 API 的用户 ID。    |
-| instanceid  | 是   | Integer  | 用户的终端设备类型。 |
+| instanceid  | 是   | Integer  | 用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序。 |
 
 ## 输出参数
 

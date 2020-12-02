@@ -1,0 +1,281 @@
+## 前提
+成功创建：集群，表格组，PLAYERONLINECNT 表
+
+PLAYERONLINECNT 表描述文件 [table_test.xml](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/table_test.xml) 如下：
+
+```
+<?xml version="1.0" encoding="GBK" standalone="yes" ?>
+<metalib name="tcaplus_tb" tagsetversion="1" version="1">
+<struct name="PLAYERONLINECNT" version="1" primarykey="TimeStamp,GameSvrID" splittablekey="TimeStamp">
+    <entry name="TimeStamp"         type="uint32"     desc="单位为分钟" />
+    <entry name="GameSvrID"         type="string"     size="64" />
+    <entry name="GameAppID"         type="string"     size="64" desc="gameapp id" />
+    <entry name="OnlineCntIOS"      type="uint32"     defaultvalue="0" desc="ios在线人数" />
+    <entry name="OnlineCntAndroid"  type="uint32"     defaultvalue="0" desc="android在线人数" />
+    <entry name="BinaryLen"         type="smalluint" defaultvalue="1" desc="数据来源数据长度；长度为0时，忽略来源检查"/>
+    <entry name="binary"            type="tinyint"     desc="二进制" count= "1000" refer="BinaryLen" />
+    <entry name="binary2"           type="tinyint"     desc="二进制2" count= "1000" refer="BinaryLen" />
+    <entry name="strstr"            type="string"     size="64" desc="字符串"/>
+    <index name="index_id"  column="TimeStamp"/>
+</struct>
+</metalib>
+```
+
+## 步骤1：定义配置参数
+```
+// 目标集群的访问地址
+static const char DIR_URL_ARRAY[][TCAPLUS_MAX_STRING_LENGTH] =
+{
+   "tcp://10.191.***.99:9999",
+   "tcp://10.191.***.88:9999"
+};
+// 目标集群的地址个数
+static const int32_t DIR_URL_COUNT = 2;
+// 目标业务的集群 ID
+static const int32_t APP_ID = 3;
+// 目标业务的表格组 ID
+static const int32_t ZONE_ID = 1;
+// 目标业务的业务密码
+static const char * SIGNATURE = "*******";
+// 目标业务的表名 PLAYERONLINECNT
+static const char * TABLE_NAME = "PLAYERONLINECNT";
+```
+
+## 步骤2：初始化 TcaplusAPI 日志句柄
+日志配置文件：[tlogconf.xml](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/tlogconf.xml)
+```
+//TCaplus service 日志类
+TcaplusService::TLogger* g_pstTlogger;
+LPTLOGCATEGORYINST g_pstLogHandler;
+LPTLOGCTX g_pstLogCtx;
+int32_t InitLog()
+{
+    // 日志配置文件的绝对路径
+    const char* sLogConfFile = "tlogconf.xml";
+    // 日志类名
+    const char* sCategoryName = "mytest";
+    // 从配置文件初始化日志句柄
+    g_pstLogCtx = tlog_init_from_file(sLogConfFile);
+    if (NULL == g_pstLogCtx)
+    {
+        fprintf(stderr, "tlog_init_from_file failed.\n");
+        return -1;
+    }
+    // 获取日志类
+    g_pstLogHandler = tlog_get_category(g_pstLogCtx, sCategoryName);
+    if (NULL == g_pstLogHandler)
+    {
+        fprintf(stderr, "tlog_get_category(mytest) failed.\n");
+        return -2;
+    }
+    // 初始化日志句柄
+    g_pstTlogger = new TcaplusService::TLogger(g_pstLogHandler);
+    if (NULL == g_pstTlogger)
+    {
+        fprintf(stderr, "TcaplusService::TLogger failed.\n");
+        return -3;
+    }
+ 
+    return 0;
+}
+```
+
+## 步骤3：初始化 TcaplusAPI 客户端
+```
+//TCaplus service API 的客户端主类
+TcaplusService::TcaplusServer g_stTcapSvr;
+//表的 meta 信息
+extern unsigned char g_szMetalib_tcaplus_tb[];
+LPTDRMETA g_szTableMeta = NULL;
+int32_t InitServiceAPI()
+{
+    // 初始化
+    int32_t iRet = g_stTcapSvr.Init(g_pstTlogger, /*module_id*/0, /*app id*/APP_ID, /*zone id*/ZONE_ID, /*signature*/SIGNATURE);
+    if (0 != iRet)
+    {
+        tlog_error(g_pstLogHandler, 0, 0, "g_stTcapSvr.Init failed, iRet: %d.", iRet);
+        return iRet;
+    }
+ 
+    // 添加目录服务器
+    for (int32_t i = 0; i< DIR_URL_COUNT; i++)
+    {
+        iRet = g_stTcapSvr.AddDirServerAddress(DIR_URL_ARRAY[i]);
+        if (0 != iRet)
+        {
+            tlog_error(g_pstLogHandler, 0, 0, "g_stTcapSvr.AddDirServerAddress(%s) failed, iRet: %d.", DIR_URL_ARRAY[i], iRet);
+            return iRet;
+        }
+    }  
+ 
+    // 取得表的 meta 描述
+    g_szTableMeta = tdr_get_meta_by_name((LPTDRMETALIB)g_szMetalib_tcaplus_tb, TABLE_NAME);
+    if(NULL == g_szTableMeta)
+    {
+        tlog_error(g_pstLogHandler, 0, 0,"tdr_get_meta_by_name(%s) failed.", TABLE_NAME);
+        return -1;
+    }
+ 
+    // 注册数据表（连接 dir 服务器，认证，获取表路由），10s超时
+    iRet = g_stTcapSvr.RegistTable(TABLE_NAME, g_szTableMeta, /*timeout_ms*/10000);
+    if(0 != iRet)
+    {
+        tlog_error(g_pstLogHandler, 0, 0, "g_stTcapSvr.RegistTable(%s) failed, iRet: %d.", TABLE_NAME, iRet);
+        return iRet;
+    }
+ 
+    // 连接表对应的所有 tcaplus proxy 服务器
+    iRet = g_stTcapSvr.ConnectAll(/*timeout_ms*/10000, 0);
+    if(0 != iRet)
+    {
+        tlog_error(g_pstLogHandler, 0, 0, "g_stTcapSvr.ConnectAll failed, iRet: %d.", iRet);
+        return iRet;
+    }
+ 
+    return 0;
+}
+```
+
+## 步骤4：通过 API 发送 replace 请求
+您也可以发送 TCAPLUS_API_INSERT_REQ 插入数据，数据存在会返回失败。
+TCAPLUS_API_REPLACE_REQ 插入数据，数据存在会替换。
+```
+int32_t SendReplaceRequest()
+{
+    // 请求对象类
+    TcaplusService::TcaplusServiceRequest* pstRequest = g_stTcapSvr.GetRequest(TABLE_NAME);
+    if (NULL == pstRequest)
+    {
+        tlog_error(g_pstLogHandler, 0, 0, "g_stTcapSvr.GetRequest(%s) failed.", TABLE_NAME);
+        return -1;
+    }
+ 
+    //初始化请求对象
+    int iRet = pstRequest->Init(TCAPLUS_API_REPLACE_REQ, NULL, 0, 0, 0, 0);
+    if(0 != iRet)
+    {
+        tlog_error(g_pstLogHandler, 0, 0, "pstRequest->Init(TCAPLUS_API_REPLACE_REQ) failed, iRet: %d.", iRet);
+        return iRet;
+    }
+ 
+    //为请求添加表记录
+    TcaplusService::TcaplusServiceRecord* pstRecord = pstRequest->AddRecord();
+    if (NULL == pstRecord)
+    {
+        tlog_error(g_pstLogHandler, 0, 0, "pstRequest->AddRecord() failed.");
+        return -1;
+    }
+ 
+    PLAYERONLINECNT stPLAYERONLINECNT;
+    memset(&stPLAYERONLINECNT, 0, sizeof(stPLAYERONLINECNT));
+ 
+    // 设置更新的 key 信息
+    stPLAYERONLINECNT.dwTimeStamp = 1;
+    snprintf(stPLAYERONLINECNT.szGameSvrID, sizeof(stPLAYERONLINECNT.szGameSvrID), "%s", "mysvrid");
+ 
+    // 设置更新的 value 信息
+    snprintf(stPLAYERONLINECNT.szGameAppID, sizeof(stPLAYERONLINECNT.szGameAppID), "%s", "myappid");
+    stPLAYERONLINECNT.dwOnlineCntIOS = 1;
+    stPLAYERONLINECNT.dwOnlineCntAndroid = 1;
+         
+    // 设置基于 TDR 描述设置 record 数据
+    iRet = pstRecord->SetData(&stPLAYERONLINECNT, sizeof(stPLAYERONLINECNT));
+    if(0 != iRet)
+    {
+        tlog_error(g_pstLogHandler, 0, 0, "pstRecord->SetData() failed, iRet: %d.", iRet);
+        return iRet;
+    }
+ 
+    // 发送请求消息包
+    iRet= g_stTcapSvr.SendRequest(pstRequest);
+    if(0 != iRet)
+    {
+        tlog_error(g_pstLogHandler, 0, 0, "g_stTcapSvr.SendRequest failed, iRet: %d.", iRet);
+        return iRet;
+    }
+    return 0;
+}
+```
+
+## 步骤5：通过 API 接收响应
+```
+int RecvResp(TcaplusServiceResponse*& response)
+{
+    //此处阻塞收包，每次阻塞1ms，收5000次
+    unsigned int sleep_us = 1000;
+    unsigned int sleep_count = 5000;
+    do
+    {
+        usleep(sleep_us);
+        response = NULL;
+        int ret = g_stTcapSvr.RecvResponse(response);
+        if (ret < 0)
+        {
+            tlog_error(g_pstLogHandler, 0, 0, "tcaplus_server.RecvResponse failed. ret:%d", ret);
+            return ret;
+        }
+ 
+        //收到一个响应包
+        if (1 == ret)
+        {
+             break;
+        }
+    } while ((--sleep_count) > 0);
+ 
+    //5s超时
+    if (0 == sleep_count)
+    {
+        tlog_error(g_pstLogHandler, 0, 0, "tcaplus_server.RecvResponse wait timeout.");
+        return -1;
+    }
+    return 0;
+}
+```
+
+## 示例
+请参考 [main.cpp](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/main_tdr.cpp) 文件
+```
+int main(void) {
+    //初始化日志
+    int ret = InitLog();
+    if ( ret != 0)
+    {
+        printf("init log failed\n");
+        return -1;
+    }
+ 
+    //初始化 API 客户端
+    ret = InitServiceAPI();
+    if ( ret != 0)
+    {
+        printf("init InitServiceAPI failed\n");
+        return -1;
+    }
+ 
+    //发送请求
+    ret = SendReplaceRequest();
+    if (0 != ret)
+    {
+        printf("SendReplaceRequest failed\n");
+        return -1;
+    }
+     
+    //接收响应
+    TcaplusServiceResponse* response = NULL;
+    ret = RecvResp(response);
+    if (0 != ret)
+    {
+        printf("RecvResp failed\n");
+        return -1;
+    }
+     
+    //获取操作的结果，0表示成功
+    int32_t result = response->GetResult();
+    if (0 != result)
+    {
+        printf("the result is %d\n", result);
+        return -1;
+    }
+    return 0;
+}
+```

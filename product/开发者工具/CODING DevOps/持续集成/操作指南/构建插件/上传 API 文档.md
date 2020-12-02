@@ -16,7 +16,7 @@ CODING 持续集成插件「读取代码生成 API 文档」可以提取代码�
 
 ### 在代码中编写注释
 
-在代码中编写注释，参考 [OpenAPI/Swagger 编写与导入指南](/docs/management/api/import/openapi.html#Code-First)。
+在代码中编写注释，参考 [OpenAPI/Swagger 编写与导入指南](https://help.coding.net/docs/management/api/import/openapi.html#Code-First)。
 
 并且在本地调试通过，例如 PHP Laravel Swagger 生成文档的命令是：
 

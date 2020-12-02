@@ -22,7 +22,7 @@ pip install tccli
 
 2. 安装完成之后，执行以下命令，检测是否安装成功。
 ```bash
-tccli version
+tccli --version
 ```
 
 #### 命令补全
