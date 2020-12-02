@@ -62,6 +62,7 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 
 - 标签关系
 `<speak>` 标签可以包含文本和以下标签：
+ - `<break>`
  - `<phoneme>`
  - `<say-as>`
  - `<sub>`
@@ -103,6 +104,33 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 ```
 
 音频效果：[SSML-sub.wav](https://ssml-demo-1300466766.cos.ap-guangzhou.myqcloud.com/SSML-sub.wav)
+
+`<break>`
+
+- 描述
+用于在文本中插入停顿，该标签是可选标签。
+
+- 语法
+
+```
+<break time="string"/>
+```
+
+- 属性
+
+| 属性名称 | 属性类型 | 属性值 | 是否必选 | 描述 |
+|---------|---------|---------|---------|---------|
+| time | String | [number]s/[number]ms | 是 | 以秒/毫秒为单位设置停顿的时长 （如“2s“、“50ms”）。[number]s：以秒为单位，[number]取值范围为[1, 10]的整数。[number]ms：以毫秒为单位，[number]取值范围为[50, 10000]的整数。 |
+
+- 标签关系
+
+`<break>`是空标签，不能包含任何标签。
+
+- 示例
+
+```
+<speak>请闭上眼睛休息一下<break time="500ms"/>好了，请睁开眼睛。</speak>
+```
 
 
 `<phoneme>`
