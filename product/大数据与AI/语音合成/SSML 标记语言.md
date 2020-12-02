@@ -123,7 +123,6 @@ SSML 是一种基于 XML 的语音合成标记语言。 使用 SSML 可以更加
 | time | String | [number]s/[number]ms | 是 | 以秒/毫秒为单位设置停顿的时长 （如“2s“、“50ms”）。[number]s：以秒为单位，[number]取值范围为[1, 10]的整数。[number]ms：以毫秒为单位，[number]取值范围为[50, 10000]的整数。 |
 
 - 标签关系
-
 `<break>`是空标签，不能包含任何标签。
 
 - 示例
