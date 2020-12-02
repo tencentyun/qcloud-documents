@@ -7,7 +7,8 @@ TSF 为用户现存的的 gRPC 应用提供了go语言sdk插件，gRPC 应用可
 - 改动小，集成SDK成本低
 
 ## 说明
-暂时只支持go语言
+暂时只支持go语言 
+
 gRPC接入TSF最新文档地址也可以点击此处查看:[TSF gRPC go](https://github.com/tencentyun/tsf-go/blob/master/doc/GRPC.md)
 
 ## Server端接入
@@ -66,8 +67,8 @@ s.client.SayHello(ctx, req)
 `import 	"github.com/tencentyun/tsf-go/pkg/log"`
 #### 2.打印日志
 ```
-log.L().Infof(ctx, "got resp: %v", resp)
-log.L().Info(context.Background(), "got message", zap.String("resp",resp))
+log.Infof(ctx, "got resp: %v", resp)
+log.Info(context.Background(), "got message", zap.String("resp",resp))
 ```
 > 可以通过注入环境变量tsf_log_path或者启动参数tsf_log_path来指定日志输出路径
 注意如果不传递go的ctx，会导致日志中不打印traceID
