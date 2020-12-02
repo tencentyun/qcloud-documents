@@ -9,7 +9,7 @@
 
 简化版本的 Dockerfile 不包含文件配置和 JVM 监控功能，仅需要用户替换掉 Dockerfile 中 Spring Cloud 应用 jar 包名称，您也可以先试用 TSF 提供的 Spring Cloud 应用 Demo JAR 包（[下载地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/spring%20cloud%20demo/provider-demo-0.0.1-SNAPSHOT.jar)）。
 
-关于JDK版本，推荐使用Tencent KonaJDK，请下载KonaJDK安装文件（[下载地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/java-8-konajdk.rpm))
+关于JDK版本，推荐使用 Tencent KonaJDK，请下载 KonaJDK 安装文件（[下载地址](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/%E5%85%AC%E6%9C%89%E4%BA%91/jvm%E7%9B%91%E6%8E%A7/java-8-konajdk.rpm)）。
 
 >!在 Spring Cloud 应用 JAR 包同级目录下编写 Dockerfile。
 
@@ -126,6 +126,6 @@ Mesh 应用压缩包解压后的文件目录结构及文件规范参考 [Mesh De
 ```bash
 docker build . -t ccr.ccs.tencentyun.com/tsf_<主账号 ID>/<应用名>:[tag]
 ```
-其中`<主账号 ID>`对应用户腾讯云的**主账号 ID**（注意不是当前登录账号 ID，主账号 ID 可以在腾讯云个人信息页面获取。），`<应用名>`表示控制台上的应用名。`tag`为镜像的 tag，用户可自定义。
+其中`<主账号 ID>`对应用户腾讯云的**主账号 ID**（注意不是当前登录账号 ID，主账号 ID 可以在腾讯云个人信息页面获取），`<应用名>`表示控制台上的应用名。`tag`为镜像的 tag，用户可自定义。
 2. 命令执行完成后，通过`docker image ls`查看创建的镜像。
 ![](https://main.qcloudimg.com/raw/7f46b8fc24feb8f397eb9c09f284d843.png)
