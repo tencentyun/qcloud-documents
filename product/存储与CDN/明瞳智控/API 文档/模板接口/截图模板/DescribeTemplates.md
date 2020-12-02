@@ -31,9 +31,9 @@ Content-Type: application/xml
 
 |节点名称（关键字）|父节点     |描述                    |   类型    |   必选    |
 |:---           |:--       |:--                    |   :--     |   :--    |
-| tag           | 无        | 模板Tag：Snapshot       | String    |是|
-| category      | 无        | Official，Custom，默认值: Custom | String  |否|
-| ids           | 无        | 模板ID, 以,符号分割字符串  | String     |否|
+| tag           | 无        | 模板 Tag：Snapshot       | String    |是|
+| category      | 无        | Official，Custom，默认值：Custom | String  |否|
+| ids           | 无        | 模板 ID，以`,`符号分割字符串  | String     |否|
 | name          | 无        | 模板名称前缀              | String     |否|
 | pageNumber    | 无        | 第几页                   | Integer     |否|
 | pageSize      | 无        | 每页个数                 | Integer     |否|
@@ -83,15 +83,15 @@ Container 节点 Response 的内容：
 | 节点名称（关键字） | 父节点   | 描述                           | 类型      |
 | :----------------- | :------- | :----------------------------- | :-------- |
 | TotalCount         | Response | 模版总数                       | Int       |
-| PageNumber         | Response | 当前页数，同请求中的pageNumber | Int       |
-| PageSize           | Response | 每页个数，同请求中的pageSize   | Int       |
+| PageNumber         | Response | 当前页数，同请求中的 pageNumber | Int       |
+| PageSize           | Response | 每页个数，同请求中的 pageSize   | Int       |
 | TemplateList       | Response | 模版数组                       | Container |
 
-Container节点TemplateList的内容：
+Container 节点 TemplateList 的内容：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
-| TemplateId         | Response.TemplateList | 模版ID                                                      | String    |
+| TemplateId         | Response.TemplateList | 模版 ID                                                      | String    |
 | Name               | Response.TemplateList | 模版名字                                                     | String    |
 | Desc               | Response.TemplateList | 模版描述                                                     | String    |
 | BucketId           | Response.TemplateList | 模版所属存储桶                                                | String    |
@@ -105,12 +105,12 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Mode                | TemplateList.Snapshot | 截图模式 | String    | 是   | Interval | 1. 值范围：{Interval}<br/> 2.Interval模式：Start，TimeInterval，Count参数生效。当设置Count，未设置TimeInterval时，表示截取所有帧，共Count张图片<br/>|
-| Start                | TemplateList.Snapshot | 开始时间 | String    | 是   | 0 | 1. [0 视频时长] <br/> 2. 单位为秒 <br/> 3. 支持float格式，执行精度精确到毫秒 |
-| TimeInterval         | TemplateList.Snapshot | 截图频率 | String    | 否   | 无  | 1. (0 3600] <br/> 2. 单位为秒 <br/> 3. 支持float格式，执行精度精确到毫秒 |
+| Mode                | TemplateList.Snapshot | 截图模式 | String    | 是   | Interval | 1. 值范围：{Interval}<br/> 2.Interval 模式：Start，TimeInterval，Count 参数生效。当设置 Count ，未设置 TimeInterval 时，表示截取所有帧，共 Count 张图片<br/>|
+| Start                | TemplateList.Snapshot | 开始时间 | String    | 是   | 0 | 1. [0 视频时长] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
+| TimeInterval         | TemplateList.Snapshot | 截图频率 | String    | 否   | 无  | 1. (0 3600] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
 | Count                | TemplateList.Snapshot | 截图数量 | String    | 是   | 无  | 1. (0 10000] |
-| Width                | TemplateList.Snapshot | 宽 | String    | 否   |  视频原始宽度 | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> 3. 若只设置Width时，按照视频原始比例计算Height<br/> |
-| Height                | TemplateList.Snapshot | 高 | String    | 否  | 视频原始高度  | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> 3. 若只设置Height时，按照视频原始比例计算Width<br/> |
+| Width                | TemplateList.Snapshot | 宽 | String    | 否   |  视频原始宽度 | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> 3. 若只设置 Width 时，按照视频原始比例计算 Height <br/> |
+| Height                | TemplateList.Snapshot | 高 | String    | 否  | 视频原始高度  | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> 3. 若只设置 Height 时，按照视频原始比例计算 Width <br/> |
 
 
 ### 错误码
@@ -119,7 +119,7 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 ## 实际案例
 
-### 按照模板ID维度查询
+### 按照模板 ID 维度查询
 #### 请求
 
 
