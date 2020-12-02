@@ -132,21 +132,26 @@ SDK 1.2.7.2 新增，当注册推送服务失败会走此回调。
 ### 添加账号
 #### 接口说明
 
-若原来没有该类型账号，则添加；若原来有，则覆盖。（TPNS SDK1.2.9.0+ 新增）
+若原来没有该类型账号，则添加；若原来有，则覆盖。（TPNS SDK1.2.9.0+ 新增）。
 ```Objective-C
 - (void)upsertAccountsByDict:(nonnull NSDictionary<NSNumber *, NSString *> *)accountsDict;
 ```
->?
-此接口应该在xgPushDidRegisteredDeviceToken:error:返回正确之后被调用
+
+>?此接口应该在 xgPushDidRegisteredDeviceToken:error: 返回正确之后被调用。
+
+
+
 #### 参数说明 
 
 
 - accountsDict：账号字典。
+
 >?
->- 账号类型和账号名称一起作为联合主键
->- 需要使用字典类型，key为账号类型，value为账号。
->- Objective-C的写法 : @{@(0):@"account0",@(1):@"account1"}；Swift的写法：[NSNumber(0):@"account0",NSNumber(1):@"account1"]
+>- 账号类型和账号名称一起作为联合主键。
+>- 需要使用字典类型，key 为账号类型，value 为账号。
+>- Objective-C的写法 : @{@(0):@"account0",@(1):@"account1"}；Swift的写法：[NSNumber(0):@"account0",NSNumber(1):@"account1"]。
 >- 更多 accountType 请参照 SDK 包内 XGPush.h 文件中的 XGPushTokenAccountType 枚举。
+
 
 #### 示例代码
 
@@ -161,20 +166,24 @@ NSString *account = @"account";
 ### 删除账号
 #### 接口说明
 
-接口说明：删除指定账号类型下的所有账号。（TPNS SDK1.2.9.0+ 新增）
+接口说明：删除指定账号类型下的所有账号。（TPNS SDK1.2.9.0+ 新增）。
 
 ```Objective-C
 - (void)delAccountsByKeys:(nonnull NSSet<NSNumber *> *)accountsKeys;
 ```
->?
-此接口应该在xgPushDidRegisteredDeviceToken:error:返回正确之后被调用
+
+>?此接口应该在 xgPushDidRegisteredDeviceToken:error: 返回正确之后被调用。
+
+
 #### 参数说明 
 
 
 - accountsKeys：账号类型组成的集合。
+
 >?
->- 使用集合且key是固定要求。
+>- 使用集合且 key 是固定要求。
 >- 更多 accountType 请参照 SDK 包内 XGPush.h 文件中的 XGPushTokenAccountType 枚举。
+
 
 #### 示例代码
 
@@ -186,6 +195,8 @@ NSSet *accountsKeys = [[NSSet alloc] initWithObjects:@(accountType), nil];
 
 [[XGPushTokenManager defaultTokenManager] delAccountsByKeys:accountsKeys];
 ```
+
+
 ### 清除账号
 
 #### 接口说明
