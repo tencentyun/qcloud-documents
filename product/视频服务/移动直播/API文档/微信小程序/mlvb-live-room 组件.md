@@ -1,6 +1,6 @@
 ## 属性定义 
 
-[**&lt;mlvb-live-room&gt;**](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini/pages/components/mlvb-live-room) 组件包含如下属性：
+[&lt;mlvb-live-room&gt;](https://github.com/tencentyun/MLVBSDK/tree/master/WXMini/pages/components/mlvb-live-room) 组件包含如下属性：
 
 | 属性      | 类型    | 值           | 说明       |
 |:---------:|:---------:|:---------:|--------------|
