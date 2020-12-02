@@ -95,44 +95,10 @@ SDK 1.2.7.2 新增，当注册推送服务失败会走此回调。
 
 ## 账号功能
 
-### 设置账号
-
-#### 接口说明
-
-清空已有账号，然后批量添加账号。
-
-
-```Objective-C
-- (void)clearAndAppendAccounts:(nonnull NSArray<NSDictionary *> *)accounts;
-```
-
-> ?
-> - 此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
-> - 因“追加账号绑定接口（appendAccounts）”使用率非常低，且容易被开发者误解，因此计划10月26日开始，追加账号接口停止使用。如您此前有使用该接口，该接口功能将变更为“覆盖账号”功能。
-
-#### 参数说明 
-
-- accounts：账号数组。
-
-> ?
-> - 每个账号最多支持绑定100个 token。
-> - 账号操作需要使用字典数组且 key 是固定要求。
-> - Objective-C 的写法 :@[@{@"accountType":@(0),@"account":identifier}]；
-> - Swift 的写法：[["accountType":NSNumber(0),"account":identifier]]
-> - 更多 accountType 请参照 SDK 包内 XGPush.h 文件中的 XGPushTokenAccountType 枚举。
-
-#### 示例代码
-
-```Objective-C
-//设置账号：
-[[XGPushTokenManager defaultTokenManager] clearAndAppendAccounts:@[@{@"accountType":@(0),@"account":identifier}]];
-```
-
-
 ### 添加账号
 #### 接口说明
 
-若原来没有该类型账号，则添加；若原来有，则覆盖。（TPNS SDK1.2.9.0+ 新增）。
+若原来没有该类型账号，则添加；若原来有，则覆盖。（TPNS SDK1.2.9.0+ 新增）
 ```Objective-C
 - (void)upsertAccountsByDict:(nonnull NSDictionary<NSNumber *, NSString *> *)accountsDict;
 ```
@@ -148,7 +114,7 @@ SDK 1.2.7.2 新增，当注册推送服务失败会走此回调。
 
 >?
 >- 账号类型和账号名称一起作为联合主键。
->- 需要使用字典类型，key 为账号类型，value 为账号。
+>- 需要使用字典类型，key 为账号类型，value 为账号，示例：@{@(accountType):@"account"}。
 >- Objective-C的写法 : @{@(0):@"account0",@(1):@"account1"}；Swift的写法：[NSNumber(0):@"account0",NSNumber(1):@"account1"]。
 >- 更多 accountType 请参照 SDK 包内 XGPush.h 文件中的 XGPushTokenAccountType 枚举。
 
@@ -166,7 +132,7 @@ NSString *account = @"account";
 ### 删除账号
 #### 接口说明
 
-接口说明：删除指定账号类型下的所有账号。（TPNS SDK1.2.9.0+ 新增）。
+接口说明：删除指定账号类型下的所有账号。（TPNS SDK1.2.9.0+ 新增）
 
 ```Objective-C
 - (void)delAccountsByKeys:(nonnull NSSet<NSNumber *> *)accountsKeys;
@@ -196,7 +162,37 @@ NSSet *accountsKeys = [[NSSet alloc] initWithObjects:@(accountType), nil];
 [[XGPushTokenManager defaultTokenManager] delAccountsByKeys:accountsKeys];
 ```
 
+### 更新账号
 
+#### 接口说明
+
+清空已有账号，然后批量添加账号。（TPNS SDK1.2.9.0+ 新增）
+
+```Objective-C
+- (void)clearAndAppendAccountsByDict:(nonnull NSDictionary<NSNumber *, NSString *> *)accountsDict;
+```
+
+> ?此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
+
+#### 参数说明 
+
+
+- accountsDict：账号字典。
+
+>?
+>- 需要使用字典类型，key 为账号类型，value 为账号，示例：@{@(accountType):@"account"}；。
+>- Objective-C的写法 : @{@(0):@"account0",@(1):@"account1"}；Swift的写法：[NSNumber(0):@"account0",NSNumber(1):@"account1"]。
+>- 更多 accountType 请参照 SDK 包内 XGPush.h 文件中的 XGPushTokenAccountType 枚举。
+
+#### 示例代码
+
+```Objective-C
+XGPushTokenAccountType accountType = XGPushTokenAccountTypeUNKNOWN;
+NSString *account = @"account";
+[[XGPushTokenManager defaultTokenManager] clearAndAppendAccountsByDict:@{ @(accountType):account }];
+
+
+```
 ### 清除账号
 
 #### 接口说明
