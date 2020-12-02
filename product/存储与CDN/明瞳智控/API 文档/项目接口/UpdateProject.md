@@ -76,10 +76,10 @@ Container 类型 Request 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- | ----- |
-| Mode               | Request | 接入类型                                              | String    | 否   | 1、HTTP |
+| Mode               | Request | 接入类型                                              | String    | 否   | HTTP |
 | Status             | Request | 项目状态                                              | String    | 否   | 1、Active 表示启用 2、Paused 表示停用 |
-| Name               | Request | 项目名称 仅支持中文、英文、数字、_、-和*                    | String    | 否   | 1、长度不超过128 |
-| Desc               | Request | 项目描述 仅支持中文、英文、数字、_、-和*                    | String    | 否   | 1、长度不超过256 |
+| Name               | Request | 项目名称 仅支持中文、英文、数字、_、-和*                    | String    | 否   | 长度不超过128 |
+| Desc               | Request | 项目描述 仅支持中文、英文、数字、_、-和*                    | String    | 否   | 长度不超过256 |
 | Bucket             | Request | bucket 信息                                             | Container | 否   | 无 |
 | ServiceConf        | Request | 服务配置                                                | Container | 否   | 无 |
 | TemplateList       | Request | 模板列表                                                | Container | 否   | 无 |
@@ -89,8 +89,8 @@ Container 类型 Bucket 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Region             | Request.Bucket | bucket 地区 | String    | 是   | 无  | 无|
-| BucketId         | Request.Bucket | bucket 的 ID | String    | 是   | 无  | 无 |
+| Region             | Request.Bucket | Bucket 地区 | String    | 是   | 无  | 无|
+| BucketId         | Request.Bucket | Bucket 的 ID | String    | 是   | 无  | 无 |
 | Prefix             | Request.Bucket | 对象 key 前缀 | String    | 否   | 无  | 无 |
 
 
@@ -98,14 +98,14 @@ Container 类型 ServiceConf 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Notify             | Request.ServiceConf | 服务回调地址 | String    | 否   | 无  | url地址 |
+| Notify             | Request.ServiceConf | 服务回调地址 | String    | 否   | 无  | URL 地址 |
 
 Container 类型 TemplateList 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
 | TemplateId         | Request.TemplateList | 模板 ID | String    | 是   | 无  | 无 |
-| Tag                | Request.TemplateList | 模板 Tag | String    | 是   | 无  | 1、Snapshot 截图类型、Transcode 转码类型 |
+| Tag                | Request.TemplateList | 模板 Tag | String    | 是   | 无  | Snapshot 截图类型、Transcode 转码类型 |
 | Status             | Request.TemplateList | 模板启用状态 | String    | 是   | 无  | 1、On 表示启用 2、Off 表示停用 |
 | Output             | Request.TemplateList | 模板输出信息 | Container    | 是   | 无  | 无 |
 | Notify             | Request.TemplateList | 模板输出通知地址 | String    | 否   | 无  | url 地址 |
@@ -116,7 +116,7 @@ Container 类型 Output 的具体数据描述如下：
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
 | Region             | Request.TemplateList.Output | bucket 的园区 | String    | 是   | 无  | 无 |
 | Bucket             | Request.TemplateList.Output | bucket 的 ID | String    | 是   | 无  | 无 |
-| Object             | Request.TemplateList.Output | 输出对象格式 | Container    | 是   | 无  | 1、当模板类型为 Snapshot 时，必须包含 ${Number} 参数。如 Object 为 snapshot-${Number}.jpg |
+| Object             | Request.TemplateList.Output | 输出对象格式 | Container    | 是   | 无  | 当模板类型为 Snapshot 时，必须包含 ${Number} 参数。如 Object 为 snapshot-${Number}.jpg |
 
 ## 响应
 
@@ -191,7 +191,7 @@ Container节点Response的内容：
 | Status             | Response | 项目状态                                                     | String    |
 | UpdateTime         | Response | 更新时间                                                     | String    |
 | CreateTime         | Response | 创建时间                                                      | String    |
-| Bucket             | Response | 参考请求中的 Bucke t参数                                         | Container |
+| Bucket             | Response | 参考请求中的 Bucket 参数                                         | Container |
 | ServiceConf        | Response | 参考请求中的 ServiceConf 参数                                    | Container |
 | TemplateList       | Response | 参考请求中的 TemplateList 参数                                   | Container |
 
@@ -215,7 +215,7 @@ Content-Type: application/xml
 </Request>
 ```
 
-### 响应
+#### 响应
 
 ```shell
 HTTP/1.1 200 OK
@@ -282,7 +282,7 @@ Content-Type: application/xml
 </Request>
 ```
 
-### 响应
+#### 响应
 
 ```shell
 HTTP/1.1 200 OK
@@ -350,7 +350,7 @@ Content-Type: application/xml
 </Request>
 ```
 
-### 响应
+#### 响应
 
 ```shell
 HTTP/1.1 200 OK
@@ -422,7 +422,7 @@ Content-Type: application/xml
 </Request>
 ```
 
-### 响应
+#### 响应
 
 ```shell
 HTTP/1.1 200 OK
@@ -489,7 +489,7 @@ Content-Type: application/xml
 </Request>
 ```
 
-### 响应
+#### 响应
 
 ```shell
 HTTP/1.1 200 OK
