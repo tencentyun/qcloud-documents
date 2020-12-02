@@ -30,7 +30,7 @@ Nginx 作为关键的流量接入网关，是至关重要的组件，不建议�
  - 其他参数根据业务需要设置即可。
 4. 完成安装。
 
->? 使用这种安装方式，您可以完整享有节点池快速扩缩容的能力，后续您只要调整节点池的数量，即可扩缩容 Nginx 的副本。
+>? 使用以上安装方式，您可以完整享有节点池快速扩缩容的能力，后续您只要调整节点池的数量，即可扩缩容 Nginx 的副本。
 
 ## 通过 Deployment + HPA 形式并指定调度规则部署
 
@@ -48,11 +48,11 @@ Nginx 作为关键的流量接入网关，是至关重要的组件，不建议�
 使用 Deployment + HPA 形式，您也可以根据业务需要配置污点和容忍将 Nginx 和业务 Pod 分散部署。同时搭配 HPA，可设置 Nginx 根据 CPU / 内存等指标进行弹性伸缩。
 
 
-#### Nginx前端接入LB部署方式
+### Nginx 前端接入 LB 部署方式
 
-仅部署Nginx在集群内，是无法接收外部流量， 您还需配置nginx的前端LB. 当前TKE已提供产品化的安装能力，您也可以根据业务需要选择不同的部署模式。
+仅部署 Nginx 在集群内将无法接收外部流量。还需配置 Nginx 的前端 LB。TKE 现已提供产品化的安装能力，您也可以根据业务需要选择不同的部署模式。
 
-##### VPC-CNI模式集群使用CLB直通Nginx的Serivce（推荐）
+#### VPC-CNI 模式集群使用 CLB 直通 Nginx 的 Serivce（推荐）
 
 如果您的集群是VPC-CNI模式的集群，我们推荐您使用CLB直通Nginx的Serivce。我们以节点池部署的负载示例。
 ![](https://main.qcloudimg.com/raw/d74dd402599c1a44e7c18bdb3c1868a1.png)
@@ -75,17 +75,17 @@ Nginx 作为关键的流量接入网关，是至关重要的组件，不建议�
 当前页面暂不支持， 您可以手动修改Nginx工作负载的Yaml配置网络模式为HostNetwork, 手动创建CLB绑定Nginx暴露的节点端口。
 需要注意使用 hostNetwork，nginx ingress 的 pod 就不能被调度到同一节点避免端口监听冲突。
 
-### Nginx-ingress安装参数
+### Nginx-ingress 安装参数
 
-#### TKE安装Nginx-ingress的默认参数
+#### TKE 安装 Nginx-ingress 的默认参数
 
 hongyu帮提供下
 
-#### 您可以设置的Nginx-ingress参数和设置方式
+#### 您可以设置的 Nginx-ingress 参数和设置方式
 
 ##### 参数设置方式
 
-您可以在Nginx-ingress组件详情页，Ningx参数tab中选择的Nginx-ingress实例进行YAML编辑。
+您可以在 Nginx-ingress 组件详情页，Ningx 参数 tab 中选择的 Nginx-ingress 实例进行 YAML 编辑。
 注意，默认情况下配置参数不会重启nginx，生效时间有细微延迟。
 补充截图
 
