@@ -1,5 +1,5 @@
 
-## 多 Pod 共享网卡模式的 Pod IP 分配机制
+## 使用原理
 多 Pod 共享网卡模式的 Pod IP 分配机制如下图所示：
 ![](https://main.qcloudimg.com/raw/96f2d2c978aaa37146a7035a0c3eadd9.png)
 
