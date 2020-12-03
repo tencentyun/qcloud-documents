@@ -25,51 +25,7 @@ VPC-CNI 模式是容器服务 TKE 基于 CNI 和 VPC 弹性网卡实现的容器
 3. 在 VPC-CNI 字段中单击开启，选择子网，并确认使用限制。如下图所示：
 ![](https://main.qcloudimg.com/raw/e5e3212e0a1fac8eebe5ef6e12f5ed42.png)
 
-### yaml 示例
 
-``` yaml
-apiVersion: apps/v1
-kind: StatefulSet
-metadata:
-  labels:
-    k8s-app: busybox
-  name: busybox
-  namespace: default
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      k8s-app: busybox
-      qcloud-app: busybox
-  serviceName: ""
-  template:
-    metadata:
-      annotations:
-        tke.cloud.tencent.com/networks: "tke-route-eni"  
-        tke.cloud.tencent.com/vpc-ip-claim-delete-policy: Never
-      creationTimestamp: null
-      labels:
-        k8s-app: busybox
-        qcloud-app: busybox
-    spec:
-      containers:
-      - args:
-        - "10000000000"
-        command:
-        - sleep
-        image: busybox
-        imagePullPolicy: Always
-        name: busybox
-        resources:
-          limits:
-            tke.cloud.tencent.com/eni-ip: "1"
-          requests:
-            tke.cloud.tencent.com/eni-ip: "1"
-```
-其中：
-- spec.template.annotations：tke.cloud.tencent.com/networks: "tke-route-eni"  表明 Pod 使用 VPC-CNI 模式。 
-- spec.template.annotations：创建 VPC-CNI 模式的 Pod，您需要设置 annotations，即 `tke.cloud.tencent.com/vpc-ip-claim-delete-policy`，默认是 “Immediate”，Pod 销毁后，关联的 IP 同时被销毁，如需固定 IP，则需设置成 “Never”，Pod 销毁后 IP 将会保留，那么下一次同名的 Pod 拉起后，会使用之前的 IP。
-- spec.template.spec.containers.0.resources：创建 VPC-CNI 模式的 Pod，您需要添加 requests 和 limits 限制，即 `tke.cloud.tencent.com/eni-ip`。
 
 ### 关闭 VPC-CNI
 1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)。
