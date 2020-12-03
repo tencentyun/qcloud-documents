@@ -10,13 +10,13 @@
 	- **函数名称**：命名为“MPSAnalysis”。
 	- **运行环境**：选择 Python 2.7。
 	- **创建方式**：选择模板函数。
-		- **模糊搜索**：输入“视频任务回调备份COS”，并进行搜索。
+	- **模糊搜索**：输入“视频任务回调备份COS”，并进行搜索。
 	单击模板中的【查看详情】，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
 ![](https://main.qcloudimg.com/raw/447a2b1d07ba22886e1500ad3aed078b.png)
 3. 单击【下一步】，进入函数配置页。保持默认配置请单击【完成】，即完成函数的创建。
 
 ### 步骤2：配置 MPS 触发器
-1. 在触发器页面，选择【创建触发器】。
+1. 在 [触发器](https://console.cloud.tencent.com/scf/list-detail?rid=8&ns=default&id=MPSAnalysis&menu=trigger&tab=codeTab) 页面，选择【创建触发器】。
 ![](https://main.qcloudimg.com/raw/e30d23b09411b6aa7e99faa398807490.png)
 2. 在弹出的创建触发器窗口中添加 MPS 触发器。如下图所示：
 ![](https://main.qcloudimg.com/raw/8d35feed03acdd3602bc93609a2cad94.png)
