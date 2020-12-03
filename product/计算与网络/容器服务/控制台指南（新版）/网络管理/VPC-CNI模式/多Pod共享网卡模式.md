@@ -21,7 +21,6 @@ sysctl -w net.ipv4.conf.eth0.rp_filter=0
 ```
 `tke-eni-agent` 组件自动设置节点的内核参数。若您自己有维护内核参数且打开 `rpfilter`，则会导致网络不通。
 
->? 如需在创建集群时开启 VPC-CNI 模式，可参考 
 
 
 ### VPC-CNI 模式操作步骤
@@ -31,6 +30,7 @@ sysctl -w net.ipv4.conf.eth0.rp_filter=0
 ![](https://main.qcloudimg.com/raw/d3d84cfc2ede5be4c67d698c03b18c6a.png)
 
 
+>? 如需为集群开启支持固定 Pod IP，请参见 [固定 IP 模式使用说明](https://cloud.tencent.com/document/product/457/50358)。
 
 
 
