@@ -95,7 +95,7 @@ TPNS 推荐使用 Intent 方式进行跳转（注：SDK 点击消息默认支持
 ```
 
 - 若使用移动推送 TPNS 管理台设置 Intent 进行跳转，填写方式如下：
-  ![](https://main.qcloudimg.com/raw/a904c7c7917fb7d69bf741f7b6e52099.png)
+  ![](https://main.qcloudimg.com/raw/021c692b6b767212529430a4b44ae091.png)
 - 若使用服务端 SDK ，设置 Intent 进行跳转，可设置 Intent 为（以 Java SDK 为例）：
 ```
 action.setIntent("xgscheme://com.tpns.push/notify_detail");
