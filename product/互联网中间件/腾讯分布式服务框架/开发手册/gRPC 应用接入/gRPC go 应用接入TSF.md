@@ -28,12 +28,11 @@ if err != nil {
 	panic(err)
 }
 ```
-- 您需将代码中的`provider-demo`替换成实际的 gRPC serviceName。
+- 您需将代码中的 `provider-demo` 替换成实际的 gRPC serviceName。
 - 如果配置文件中不指定端口则默认为8080，也可以通过 tsf_service_port 环境或者启动参数来指定，其他的可指定的配置参考`pkg/sys/env/env.go`中定义的 Key。
 
->?通过 TSF 启动的 gRPC server 除了 gRPC 协议同时还支持 http1.1+json（可以被 Spring Cloud 服务调用），此时 http 的 path 为`/<package_name.service_name>/<method\>`。
-例如：`curl -v -X POST --data '{"name":"grpc world"}' 127.0.0.1:8080/tsf.test.helloworld.Greeter/SayHello`
-想要禁用这个 feature 可以注入环境变量或启动参数：tsf_disable_grpc_http=true。
+>?通过 TSF 启动的 gRPC server 除了 gRPC 协议同时还支持 HTTP1.1+JSON（可以被 Spring Cloud 服务调用），此时 HTTP 的 path 为 `/<package_name.service_name>/<method\>`，例如 `curl -v -X POST --data '{"name":"grpc world"}' 127.0.0.1:8080/tsf.test.helloworld.Greeter/SayHello`。
+如需禁用该功能可以注入环境变量或启动参数：tsf_disable_grpc_http=true。
 
 ### Client 端接入
 
@@ -53,8 +52,8 @@ if err != nil {
 }
 greeter := pb.NewGreeterClient(cc.GrpcConn())
 ```
-- 您需将`tsf.provider-demo`需要替换成实际被访问的服务提供者的 serviceName。
-- `local`是访问本地命名空间的服务，如果需要发现全局命名空间服务则要替换成`global`。
+- 您需将 `tsf.provider-demo` 需要替换成实际被访问的服务提供者的 serviceName。
+- `local` 是访问本地命名空间的服务，如果需要发现全局命名空间服务则要替换成 `global`。
 
 ### 标签 Tags 传递
 ```
@@ -72,7 +71,7 @@ log.Info(context.Background(), "got message", zap.String("resp",resp))
 ```
 您可以通过注入环境变量 tsf_log_path 或者启动参数 tsf_log_path 来指定日志输出路径。
 >!如果不传递 Go 的 ctx，会导致日志中不打印 traceID。
-同时需要在 TSF 日志配置中配置日志类型为自定义 Logback，日志格式为`%d{yyyy-MM-dd HH:mm:ss.SSS} %level %msg%n`。
+同时需要在 TSF 日志配置中配置日志类型为自定义 Logback，日志格式为 `%d{yyyy-MM-dd HH:mm:ss.SSS} %level %msg%n`。
 
 
 
@@ -83,7 +82,7 @@ log.Info(context.Background(), "got message", zap.String("resp",resp))
 `if err := tsf.Init(context.Background());err != nil {
 		panic(err)
 	}`
-#### 3. 非阻塞 get 某一个配置值
+#### 3. 非阻塞获取某一个配置值
 ```
 if temp, ok := tsf.GetApp("prefix");ok {
 	prefix, _ = temp.(string)
@@ -134,7 +133,7 @@ CMD ["sh", "-ec", "exec ${workdir}provider ${JAVA_OPTS}"]
 您需要将上述的 provider 替换为实际的可执行二进制文件名。
 
 #### 2. 打包镜像
-将`GOOS=linux go build`编译出的二进制文件放在 Dockfile 同一目录下：
+将 `GOOS=linux go build` 编译出的二进制文件放在 Dockfile 同一目录下：
 `docker build . -t ccr.ccs.tencentyun.com/tsf_xxx/provider:1.0`
 
 #### 3. 推送镜像
@@ -171,7 +170,7 @@ echo "process ${pid} killed"
 `./provider`
 您需要将上述的 provider 替换为实际的可执行二进制文件名。
 
-#### 4. 将可执行二进制文件拷贝进当前目录
+#### 4. 将可执行二进制文件复制进当前目录
    
 #### 5. 将当前目录打包成 tar.gz: tar –czf provider.tar.gz *
    
