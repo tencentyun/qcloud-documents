@@ -98,6 +98,25 @@ Container 节点 Operation 的内容：
 | DocProcessResult   | Response.JobsDetail.Operation | 在 job 的类型为 DocProcess 且 job 状态为 success 时，返回文档预览任务结果详情 | Container |
 | Output             | Response.JobsDetail.Operation | 结果输出地址，同 [CreateDocProcessJobs](https://cloud.tencent.com/document/product/460/46942#.E8.AF.B7.E6.B1.82) 接口的 Request.Operation.Output 节点 | Container |
 
+Container 节点 DocProcessResult 节点的内容
+| 节点名称（关键字） | 父节点                        | 描述                                                         | 类型      |
+| :----------------- | :---------------------------- | :----------------------------------------------------------- | :-------- |
+| PageInfo           | Response.JobsDetail.Operation.DocProcessResult | 预览任务产物详情 | Container |
+| TgtType           | Response.JobsDetail.Operation.DocProcessResult | 预览产物目标格式 | string |
+| TotalPageCount     | Response.JobsDetail.Operation.DocProcessResult | 预览任务产物的总数 | int |
+| SuccPageCount      | Response.JobsDetail.Operation.DocProcessResult | 预览任务产物的成功数 | int |
+| FailPageCount      | Response.JobsDetail.Operation.DocProcessResult | 预览任务产物的失败数 | int |
+| TotalSheetCount     | Response.JobsDetail.Operation.DocProcessResult | 预览任务的Sheet总数（源文件为Excel特有参数） | int |
+
+Container 节点 PageInfo 节点的内容
+| 节点名称（关键字） | 父节点                        | 描述                                                         | 类型      |
+| :----------------- | :---------------------------- | :----------------------------------------------------------- | :-------- |
+| PageNo           | Response.JobsDetail.Operation.DocProcessResult.PageInfo | 预览产物页码,源文件为Excel格式时表示SheetId | Container |
+| TgtUri     | Response.JobsDetail.Operation.DocProcessResult.PageInfo | 预览产物生成的cos桶路径 | int |
+| X-SheetPics      | Response.JobsDetail.Operation.DocProcessResult.PageInfo | 当前Sheet生成的图片总数（源文件为Excel特有参数） | int |
+| PicIndex      | Response.JobsDetail.Operation.DocProcessResult.PageInfo | 当前预览产物在整个源文件中的序号（源文件为Excel特有参数） | int |
+| PicNum      | Response.JobsDetail.Operation.DocProcessResult.PageInfo | 当前预览产物在Sheet中的序号（源文件为Excel特有参数） | int |
+
 #### 错误码
 
 该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
@@ -114,7 +133,7 @@ Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-
 Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 ```
 
-#### 响应
+#### 1.非Excel文档请求响应
 
 ```shell
 <Response>
@@ -153,6 +172,68 @@ Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
                         </Output>
                 </Operation>
                 <QueueId>p50882922b848464fadd222d771438328</QueueId>
+                <State>Success</State>
+                <Tag>DocProcess</Tag>
+        </JobsDetail>
+</Response>
+```
+
+### 2. Excel格式响应
+```
+<Response>
+        <JobsDetail>
+                <Code>Success</Code>
+                <CreationTime>2020-12-03T19:54:10+0800</CreationTime>
+                <EndTime>2020-12-03T19:54:13+0800</EndTime>
+                <Input>
+                        <Object>1.xlsx</Object>
+                </Input>
+                <JobId>d13cfd584cd9011ea820b597ad1785a2f</JobId>
+                <Message/>
+                <Operation>
+                        <DocProcess>
+                                <Comments>0</Comments>
+                                <DocPassword/>
+                                <EndPage>2</EndPage>
+                                <ImageParams/>
+                                <PaperDirection>0</PaperDirection>
+                                <PaperSize>0</PaperSize>
+                                <Quality>100</Quality>
+                                <SheetId>0</SheetId>
+                                <SrcType/>
+                                <StartPage>1</StartPage>
+                                <TgtType/>
+                                <Zoom>100</Zoom>
+                        </DocProcess>
+                        <DocProcessResult>
+                                <FailPageCount>0</FailPageCount>
+                                <PageInfo>
+                                        <PageNo>1</PageNo>
+                                        <PicIndex>1</PicIndex>
+                                        <PicNum>1</PicNum>
+                                        <TgtUri>mark2/1/test-1.jpg</TgtUri>
+                                        <X-SheetPics>2</X-SheetPics>
+                                </PageInfo>
+                                <PageInfo>
+                                        <PageNo>1</PageNo>
+                                        <PicIndex>2</PicIndex>
+                                        <PicNum>2</PicNum>
+                                        <TgtUri>mark2/1/test-2.jpg</TgtUri>
+                                        <X-SheetPics>2</X-SheetPics>
+                                </PageInfo>
+                                <SuccPageCount>6</SuccPageCount>
+                                <TaskId/>
+                                <TgtType/>
+                                <TotalPageCount>6</TotalPageCount>
+                                <TotalSheetCount>3</TotalSheetCount>
+                        </DocProcessResult>
+                        <Output>
+                                <Bucket>markjrzhang-1251704708</Bucket>
+                                <Object>mark/${SheetID}/pic-${Page}.jpg</Object>
+                                <Region>ap-chongqing</Region>
+                        </Output>
+                </Operation>
+                <QueueId>p5fdbba9a9b83479f84538d5beb*****</QueueId>
                 <State>Success</State>
                 <Tag>DocProcess</Tag>
         </JobsDetail>
