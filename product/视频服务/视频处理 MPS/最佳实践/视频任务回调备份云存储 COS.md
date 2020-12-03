@@ -26,7 +26,7 @@
 
 
 ### 步骤3：测试函数功能
-1. 在 MPS 控制台执行 MPS 的视频处理工作流。
+1. 在 [MPS 控制台](https://console.cloud.tencent.com/mps) 执行 MPS 的视频处理工作流。
 2. 切换至 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。
 在函数详情页面中选择【日志查询】页签，可以看到打印出的日志信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/f5d10848b674f137826689ac1dc28c8a.png)
