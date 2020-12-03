@@ -47,8 +47,8 @@
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>说明</th>
+<th width="15%">参数</th>
+<th width="85%">说明</th>
 </tr>
 </thead>
 <tbody>
@@ -75,8 +75,8 @@
 <table>
 <thead>
 <tr>
-<th>参数</th>
-<th>说明</th>
+<th width="15%">参数</th>
+<th width="85%">说明</th>
 </tr>
 </thead>
 <tbody>
