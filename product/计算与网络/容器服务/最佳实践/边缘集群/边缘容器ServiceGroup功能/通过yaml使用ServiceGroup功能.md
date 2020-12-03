@@ -1,16 +1,18 @@
 
 
-### 操作步骤
+## 操作场景
+边缘容器服务 ECK 提供 ServiceGroup 特性，只需两个 yaml 文件即可轻松实现上百地域的服务部署，且无需进行应用适配或改造。本文以在边缘部署 nginx 为例。若您希望在多个节点组内分别部署 nginx 服务，请参考本文依次执行以下步骤。
 
-本文以在边缘部署 nginx 为例。若您希望在多个节点组内分别部署 nginx 服务，需依次执行以下步骤：
+## 操作步骤
 
-#### 确定 ServiceGroup 唯一标识
+
+### 确定 ServiceGroup 唯一标识
 
 该步骤进行逻辑规划，无需任何实际操作。边缘容器将目前要创建的 ServiceGroup 逻辑标记使用的 UniqKey 设置为 zone。
 
-#### 通过 Label 将边缘节点分组<span id="Step2"></span>
+### 通过 Label 将边缘节点分组<span id="Step2"></span>
 
-该步骤需要通过 TKE Edge 控制台或者 kubectl 对边缘节点打 Label。TKE Edge 控制台操作步骤如下：
+该步骤需要通过 ECK 控制台或者 kubectl 对边缘节点打 Label。ECK 控制台操作步骤如下：
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【边缘集群】。
 2. 选择需要编辑标签的节点所在的集群 ID，进入该集群管理页面。
@@ -19,12 +21,12 @@
 4. 选择需要编辑标签的节点所在行右侧的【更多】>【编辑标签】。
 5. 在弹出的“编辑标签”窗口，参考以下信息新增 Label。如下图所示：
    ![](https://main.qcloudimg.com/raw/28596c7e60903b064df642f3a823427e.png)   
-   - 参考 [整体架构](#OverallStructure) 章节，选择 Node12及 Node14编辑 Label：`zone=nodeunit1`。Node21及 Node23编辑 Label： `zone=nodeunit2`。
+   - 参考 [整体架构](https://cloud.tencent.com/document/product/457/46923#OverallStructure) 章节，选择 Node12及 Node14编辑 Label：`zone=nodeunit1`。Node21及 Node23编辑 Label：`zone=nodeunit2`。
    - Label 的 key 需与 ServiceGroup 的 UniqKey 一致，value 是 NodeUnit 的唯一key。value 相同的节点表示属于同一个 NodeUnit。
    - 如果同一个集群中有多个 ServiceGroup，请为每一个 ServiceGroup 分配不同的 Uniqkey。
 6. 单击【确定】即可。
 
-#### 部署 DeploymentGrid
+### 部署 DeploymentGrid
 
 ```
 apiVersion: tkeedge.io/v1
@@ -51,7 +53,7 @@ spec:
           - containerPort: 80
 ```
 
-#### 部署 ServiceGrid
+### 部署 ServiceGrid
 
 ```
 apiVersion: tkeedge.io/v1

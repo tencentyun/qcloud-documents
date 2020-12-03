@@ -14,7 +14,7 @@
 
 ### 了解更多
 
-- 若您需要了解更多移动直播 SDK 能力，请参见 [移动直播文档](https://cloud.tencent.com/document/product/454)。
+- 若您需要了解更多移动直播 SDK 能力，请参见 [移动直播 SDK 文档](https://cloud.tencent.com/document/product/454)。
 - 若您需要了解移动直播 SDK 相关计费说明，请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008)。
 
 
