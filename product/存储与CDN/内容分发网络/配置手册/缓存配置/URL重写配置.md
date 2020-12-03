@@ -17,7 +17,7 @@
 ### 新增规则
 
 您可按需添加重写规则，单击【新增重写规则】：
-<img src="https://main.qcloudimg.com/raw/189b7ddd0b5767e6d259dce3bfd4db8e.png"  style="height:382px"></img>
+<img src="https://main.qcloudimg.com/raw/189b7ddd0b5767e6d259dce3bfd4db8e.png"  style="height:300px"></img>
 
 **配置约束**
 + 单个域名至多可添加10条重写规则。
