@@ -25,7 +25,7 @@ VPC-CNI 模式是容器服务 TKE 基于 CNI 和 VPC 弹性网卡实现的容器
 3. 在 VPC-CNI 字段中单击开启，选择子网，并确认使用限制。如下图所示：
 ![](https://main.qcloudimg.com/raw/e5e3212e0a1fac8eebe5ef6e12f5ed42.png)
 
-在集群内创建使用 VPC-CNI 模式的工作负载的 yaml 示例如下所示：
+### yaml 示例
 
 ``` yaml
 apiVersion: apps/v1
