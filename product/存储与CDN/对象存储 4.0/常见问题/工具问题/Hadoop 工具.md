@@ -7,6 +7,11 @@ Hadoop-COS 为 Apache Hadoop、Spark 以及 Tez 等大数据计算框架集成�
 
 更改 Hadoop-COS pom 文件保持版本与 Hadoop 版本相同进行编译，然后将 Hadoop-COS jar 包和 COS JAVA SDK jar 包放到 hadoop/share/hadoop/common/lib 目录下。具体配置可参考 [Hadoop 工具](https://cloud.tencent.com/document/product/436/6884) 文档。
 
+### Hadoop 工具中是否存在回收站机制？
+
+HDFS 的回收站功能不适用于 COS，将数据移动到/user/${user.name}/.Trash目录下并不会发生实际删除行为，数据仍然会保留在 COS 上。如需删除此类数据，请 [配置生命周期规则](https://cloud.tencent.com/document/product/436/14605)，或者使用`hadoop dfs rm --skiptrash`命令。
+
+
 ## 找不到类 CosFileSystem 问题
 ### 加载的时候提示没有找到类 CosFileSystem？提示 Error: java.lang.RuntimeException: java.lang.ClassNotFoundException: Class org.apache.hadoop.fs.CosFileSystem not found。
 
