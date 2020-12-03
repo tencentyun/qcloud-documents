@@ -18,34 +18,6 @@ VPC-CNI 模式是容器服务 TKE 基于 CNI 和 VPC 弹性网卡实现的容器
 
 
 
-## 使用方法
-### 开启 VPC-CNI
-1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)。
-2. 在左侧导航栏中，单击【集群】，进入集群管理页面。单击【基本信息】。
-3. 在 VPC-CNI 字段中单击开启，选择子网，并确认使用限制。如下图所示：
-![](https://main.qcloudimg.com/raw/e5e3212e0a1fac8eebe5ef6e12f5ed42.png)
-
-
-
-### 关闭 VPC-CNI
-1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)。
-2. 在左侧导航栏中，单击【集群】，进入集群管理页面。单击【基本信息】。
-3. 在 VPC-CNI 字段中单击关闭。（仅支持在集群内不存在任何 VPC-CNI 模式的 Pod 时关闭）如下图所示：
-![](https://main.qcloudimg.com/raw/6a5d9b920fcec57e1db7bc324f13fbf0.png)
-
-
-
-
-
-## 相关操作
-### 开启支持固定 Pod IP
-- 默认情况下，VPC-CNI 模式**不支持固定 Pod IP 能力**，且该能力仅支持在 [创建集群](https://cloud.tencent.com/document/product/457/32189) 时设置，集群创建完成后无法更改。创建集群时，在配置“集群信息”步骤中，选择“容器网络插件”为【VPC-CNI】，并勾选“开启支持”即可。如下图所示：
-![](https://main.qcloudimg.com/raw/f36911bf904ebd35867e24e3b6bb6bb1.png)
- 如需为集群开启支持固定 Pod IP，请参见 [固定 IP 模式使用说明](https://cloud.tencent.com/document/product/457/50358)。
-- 开启固定 Pod IP 能力后，仅支持选择空子网作为集群网络。
-- 固定 IP 的 Pod 不支持跨子网迁移。
-
-
 
 
 
