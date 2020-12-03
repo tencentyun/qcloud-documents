@@ -71,7 +71,7 @@ spec:
 - spec.template.annotations：创建 VPC-CNI 模式的 Pod，您需要设置 annotations，即 `tke.cloud.tencent.com/vpc-ip-claim-delete-policy`，默认是 “Immediate”，Pod 销毁后，关联的 IP 同时被销毁，如需固定 IP，则需设置成 “Never”，Pod 销毁后 IP 将会保留，那么下一次同名的 Pod 拉起后，会使用之前的 IP。
 - spec.template.spec.containers.0.resources：创建 VPC-CNI 模式的 Pod，您需要添加 requests 和 limits 限制，即 `tke.cloud.tencent.com/eni-ip`。
 
-#### 关闭 VPC-CNI
+### 关闭 VPC-CNI
 1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)。
 2. 在左侧导航栏中，单击【集群】，进入集群管理页面。单击【基本信息】。
 3. 在 VPC-CNI 字段中单击关闭。（仅支持在集群内不存在任何 VPC-CNI 模式的 Pod 时关闭）如下图所示：
