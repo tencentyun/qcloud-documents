@@ -5,9 +5,9 @@
 已创建对应的私有域。
 
 ## 操作步骤
-1. 登录 [Private DNS 控制台](https://console.cloud.tencent.com/privatedns)。
+1. 登录 [Private DNS 控制台](https://console.cloud.tencent.com/privatedns)，并单击左侧导航栏的【私有域解析】，即可进入私有域列表。
 2. 在 “私有域列表” 中，单击您需要添加 AAAA 记录的私有域名称或【解析】。如下图所示：
-![](https://main.qcloudimg.com/raw/6f6017c3a26261516523e71f242ebe54.png)
+![](https://main.qcloudimg.com/raw/965b35507b9de90112d57608a95d6405.png)
 3. 在【解析记录】页签中，单击【添加记录】并填写相关记录值信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/60d905296d366c72d2dbc5913c96b6e5.png)
  - **主机记录**：填写子域名。例如，添加 `www.dnspod.cn` 的解析，您在 “主机记录” 处选择 “www” 即可。如果只是想添加 `dnspod.cn` 的解析，您在 “主机记录” 处选择 “@” 即可。
