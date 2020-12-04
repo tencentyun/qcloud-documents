@@ -94,26 +94,6 @@ Nginx 作为关键的流量接入网关，不建议您将 Nginx 与其他业务�
 
 
 ### 配置参数示例
-配置参数示例：
-
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: nginx-ingress-controller
-# nginx ingress 性能优化: https://www.nginx.com/blog/tuning-nginx/
-data:
-  # nginx 与 client 保持的一个长连接能处理的请求数量，默认 100，高并发场景建议调高。
-  # 参考: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#keep-alive-requests
-  keep-alive-requests: "10000"
-  # nginx 与 upstream 保持长连接的最大空闲连接数 (不是最大连接数)，默认 32，在高并发下场景下调大，避免频繁建联导致 TIME_WAIT 飙升。
-  # 参考: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#upstream-keepalive-connections
-  upstream-keepalive-connections: "200"
-  # 每个 worker 进程可以打开的最大连接数，默认 16384。
-  # 参考: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#max-worker-connections
-  max-worker-connections: "65536"
-```
-
 
 配置参数示例：
 ```yaml
