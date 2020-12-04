@@ -23,7 +23,9 @@ CREATE MATERIALIZED VIEW [IF NOT EXISTS] [db_name.]materialized_view_name
 AS
 <query>;
 ```
->?这里建议不使用 DISABLE REWRITE 选项，否则将不能使用物化视图功能。同时，把 $db_name 设置为 mv_db，如果不设置为 mv_db，需修改参数 `spark.sql.materializedView.databases为$db_name`。
+>?
+>- 这里建议不使用 DISABLE REWRITE 选项，否则将不能使用物化视图功能。同时，把 $db_name 设置为 mv_db，如果不设置为 mv_db，需修改参数 `spark.sql.materializedView.databases为$db_name`。
+>- 建议用户建立独立的 mv_db，只用来存放 mv，可以提升 mv 匹配时获取元数据的效率。
 
 ## 物化视图示例
 1. 准备基础数据
