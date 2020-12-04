@@ -1,3 +1,4 @@
+
 ### 如何关闭 TPNS 的保活功能？
 
 TPNS 默认开启联合保活能力，请在应用初始化的时候，例如 Application 或 LauncherActivity 的 onCreate 中调用如下接口，并传递 false 值:
@@ -59,7 +60,6 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 自 TPNS SDK 1.1.6.3 版本起，为避免**在非本品牌手机上、其他品牌的推送服务在后台自启、传输用户数据**，会在非本品牌手机上禁用其他品牌的推送服务组件。
 华为在账号、游戏、推送等不同功能上有一些公共组件，TPNS 禁用推送组件可能会导致其它服务功能在非华为品牌手机上同样不能启动；若您需要关闭此禁用功能，可配置以下内容：
 在 AndroidManifest.xml 文件 application 标签下添加节点配置，并重装应用（需卸载后重装）。
-
 ```xml
 <meta-data
 		android:name="tpns-disable-component-huawei-v2"
