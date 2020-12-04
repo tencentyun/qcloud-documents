@@ -18,8 +18,9 @@
 
 ## （推荐）通过 DaementSet 形式在指定节点池部署
 
-Nginx 作为关键的流量接入网关，是至关重要的组件，不建议您将 Nginx 与其他业务部署在相同的节点内。推荐您使用指定的节点池来部署 Nginx-ingress。部署架构如下图所示：
+Nginx 作为关键的流量接入网关，不建议您将 Nginx 与其他业务部署在相同的节点内。推荐您使用指定的节点池来部署 Nginx-ingress。部署架构如下图所示：
 ![](https://main.qcloudimg.com/raw/217e17c24988adbd643cec9b7af2a56c.png)
+
 ### 安装步骤
 1. 提前准备用于部署 Nginx-ingress 的节点池，同时设置污点 taint（防止其他 Pod 调度到该节点池）。部署节点池详情可参见 [节点池相关说明](https://cloud.tencent.com/document/product/457/43719)。
 2. 在集群中 [安装 Nginx-ingress 组件](#Nginx-ingress)。
@@ -36,6 +37,7 @@ Nginx 作为关键的流量接入网关，是至关重要的组件，不建议�
 
 通过 Deployment + HPA 的形式部署 Nginx-ingress。部署架构如下图所示：
 ![](https://main.qcloudimg.com/raw/5147b2ffbbf056bb1ef468780a3c4669.png)
+
 
 ### 安装步骤
 1. 在集群中设置即将部署 Nginx 的节点的 Lable。
@@ -54,14 +56,14 @@ Nginx 作为关键的流量接入网关，是至关重要的组件，不建议�
 
 #### VPC-CNI 模式集群使用 CLB 直通 Nginx 的 Serivce（推荐）
 
-如果您的集群是VPC-CNI模式的集群，我们推荐您使用CLB直通Nginx的Serivce。我们以节点池部署的负载示例。
+如果您的集群是 VPC-CNI 模式的集群，我们推荐您使用 CLB 直通 Nginx 的 Serivce。我们以节点池部署的负载示例。
 ![](https://main.qcloudimg.com/raw/d74dd402599c1a44e7c18bdb3c1868a1.png)
-当前方案性能好，而且不需要手动维护 clb，是最理想的方案。需要集群支持 VPC-CNI，如果你的集群本身用的 VPC-CNI 网络插件，或者用的 Global Router 网络插件并开启了 VPC-CNI 的支持(两种模式混用)，那么建议直接使用这种方案。
+当前方案性能好，而且不需要手动维护 CLB，是最理想的方案。需要集群支持 VPC-CNI，如果你的集群本身用的 VPC-CNI 网络插件，或者用的 Global Router 网络插件并开启了 VPC-CNI 的支持（两种模式混用），那么建议直接使用这种方案。
 
-##### Globalrouter模式集群使用普通Loadbalancer模式的Service
+#### Globalrouter 模式集群使用普通 Loadbalancer 模式的 Service
 
-如果您的集群不支持VPC-CNI模式网络， 您也可以通过常规的Loadbalancer模式Service接入流量。 
-当前TKE 上 LoadBalancer 类型的 Service 默认实现是基于 NodePort，CLB 会绑定各节点的 NodePort 作为后端 RS，将流量转发到节点的 NodePort，然后节点上再通过 iptables 或 ipvs 将请求路由到 Service 对应的后端 Pod.这种方案是最简单的方案，流量会经过一层 NodePort，会多一层转发。可能存在以下问题：
+如果您的集群不支持 VPC-CNI 模式网络， 您也可以通过常规的 Loadbalancer 模式 Service 接入流量。 
+当前 TKE 上 LoadBalancer 类型的 Service 默认实现是基于 NodePort，CLB 会绑定各节点的 NodePort 作为后端 RS，将流量转发到节点的 NodePort，然后节点上再通过 iptables 或 ipvs 将请求路由到 Service 对应的后端 Pod。这种方案是最简单的方案，流量会经过一层 NodePort，会多一层转发。可能存在以下问题：
 
 1. 转发路径较长，流量到了 NodePort 还会再经过 k8s 内部负载均衡，通过 iptables 或 ipvs 转发到 nginx，会增加一点网络耗时。
 2. 经过 NodePort 必然发生 SNAT，如果流量过于集中容易导致源端口耗尽或者 conntrack 插入冲突导致丢包，引发部分流量异常。
@@ -72,12 +74,12 @@ Nginx 作为关键的流量接入网关，是至关重要的组件，不建议�
 
 ##### 使用HostNetwork+LB模式
 
-当前页面暂不支持， 您可以手动修改Nginx工作负载的Yaml配置网络模式为HostNetwork, 手动创建CLB绑定Nginx暴露的节点端口。
+当前页面暂不支持， 您可以手动修改 Nginx 工作负载的 Yaml 配置网络模式为 HostNetwork， 手动创建 CLB 绑定 Nginx 暴露的节点端口。
 需要注意使用 hostNetwork，nginx ingress 的 pod 就不能被调度到同一节点避免端口监听冲突。
 
-### Nginx-ingress 安装参数
+## Nginx-ingress 安装参数
 
-#### TKE 安装 Nginx-ingress 的默认参数
+### TKE 安装 Nginx-ingress 的默认参数
 
 hongyu帮提供下
 
@@ -108,6 +110,26 @@ data:
   # 每个 worker 进程可以打开的最大连接数，默认 16384。
   # 参考: https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#max-worker-connections
   max-worker-connections: "65536"
+```
+
+
+配置参数示例：
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: alpha-ingress-nginx-controller
+  namespace: kube-system
+data:
+  access-log-path: /var/log/nginx/nginx_access.log
+  error-log-path: /var/log/nginx/nginx_error.log
+  log-format-upstream: $remote_addr - $remote_user [$time_iso8601] $msec "$request"
+    $status $body_bytes_sent "$http_referer" "$http_user_agent" $request_length $request_time
+    [$proxy_upstream_name] [$proxy_alternative_upstream_name] [$upstream_addr] [$upstream_response_length]
+    [$upstream_response_time] [$upstream_status] $req_id
+  keep-alive-requests: "10000"
+  max-worker-connections: "65536"
+  upstream-keepalive-connections: "200"
 ```
 
 根据业务需要可配置的参数，可查看[官方文档](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/)
