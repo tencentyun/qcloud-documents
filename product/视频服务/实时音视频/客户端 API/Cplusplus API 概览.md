@@ -199,11 +199,11 @@
 | [getCurrentSpeakerDeviceMute](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aa4ec49fc0c07c04031d328db5814793f) | 获取系统当前扬声器设备是否静音。 |
 | [startCameraDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a32c469879fca0afec360690ee36c1b6b) | 开始进行摄像头测试。 |
 | [startCameraDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a32c469879fca0afec360690ee36c1b6b) | 开始进行摄像头测试。 |
-| [stopCameraDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a3cb3fd62d04b5975c9c50210e98f0a2d) | 停止摄像头测试 弃用v8.0 版本弃用，请使用 ITXDeviceManager::stopCameraDeviceTest 接口。 |
+| [stopCameraDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a3cb3fd62d04b5975c9c50210e98f0a2d) | 停止摄像头测试 v8.0 版本弃用，请使用 ITXDeviceManager::stopCameraDeviceTest 接口。 |
 | [startMicDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aca6add13bdd6535bed6d28407b5468af) | 开启麦克风测试。 |
-| [stopMicDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a29c2a5a42f65108074174e0bc58c0aee) | 停止麦克风测试 弃用v8.0 版本弃用，请使用 ITXDeviceManager::stopMicDeviceTest 接口。 |
+| [stopMicDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a29c2a5a42f65108074174e0bc58c0aee) | 停止麦克风测试 v8.0 版本弃用，请使用 ITXDeviceManager::stopMicDeviceTest 接口。 |
 | [startSpeakerDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#af60f0db87d1f7001860f1bf330eeee3c) | 开启扬声器测试。 |
-| [stopSpeakerDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aa4b7a172067664fe50015c758e02a822) | 停止扬声器测试 弃用v8.0 版本弃用，请使用 ITXDeviceManager::stopSpeakerDeviceTest 接口。 |
+| [stopSpeakerDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aa4b7a172067664fe50015c758e02a822) | 停止扬声器测试 v8.0 版本弃用，请使用 ITXDeviceManager::stopSpeakerDeviceTest 接口。 |
 | [setMicVolumeOnMixing](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a4e3fb7ca730f15b6ab201e73e21f1260) | 设置麦克风的音量大小。 |
 | [startScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a984f461eebe77819f40c4129fc5a71bb) | 启动屏幕分享。 |
 | [playBGM](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a815aa5a969dcb0617e02f955a9ee7cd4) | 启动播放背景音乐。 |
