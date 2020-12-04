@@ -164,7 +164,7 @@ Container 类型 DocProcess 的具体数据描述如下：
 | Comments       | Request.Operation.DocProcess | 是否隐藏批注和应用修订，默认为 0。<br><li>0：隐藏批注，应用修订<br><li>1：显示批注和修订  | Int | 否     |
 | PaperDirection       | Request.Operation.DocProcess | 表格文件转换纸张方向，0代表垂直方向，非0代表水平方向，默认为0   | Int | 否     |
 | Quality           | Request.Operation.DocProces|  生成预览图的图片质量，取值范围 [1-100] ，默认值100。 例:值为100，代表生成图片质量为100%   | Int | 否      |
-| Zoom             | Request.Operation.DocProces|预览图片的缩放参数，取值范围[10-300]， 默认值100。 例:值为300，代表图片缩放比例为300% 即放大三倍   | Int | 否      |
+| Zoom             | Request.Operation.DocProces|预览图片的缩放参数，取值范围[10-200]， 默认值100。 例:值为200，代表图片缩放比例为200% 即放大两倍   | Int | 否      |
 
 
 
