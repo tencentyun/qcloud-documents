@@ -1,14 +1,14 @@
 
-容器服务 TKE 通过集成腾讯云日志服务 CLS，提供了全套完整的产品化能力，实现 Nginx-ingress 日志采集、消费能力。
+容器服务 TKE 通过集成日志服务 CLS，提供了全套完整的产品化能力，实现 Nginx-ingress 日志采集、消费能力。
 
 ## Nginx-ingress 日志基础
 
-Nginx Controller 有以下日志需要搜集并提供给用户：
-- **Nginx Controller 日志**：重要。控制面日志，记录了 Nginx Controller 控制面的修改。主要用于控制面排障，例如用户错误配置 Ingress 模板同步未进行等。
+Nginx Controller 需要搜集以下日志并提供给用户：
+- **Nginx Controller 日志**：重要。控制面日志，记录了 Nginx Controller 控制面的修改。主要用于控制面排障，例如用户错误配置 Ingress 模板导致同步未进行等。
 - **AccessLog 日志**：重要。用户数据面日志，记录了用户的七层请求相关信息。主要用于提供给用户进行数据分析、审计、业务排障等。
 - **ErrorLog 日志**：一般。Nginx 的内部错误日志。
 
-默认配置下，AccessLog 和 Nginx Controller 日志会混合到标准输出流，采集将遇到困难。本文介绍对日志路径进行区分分别收集。
+默认配置下，AccessLog 和 Nginx Controller 日志会混合到标准输出流，日志采集将遇到困难。本文向您介绍如何对日志路径进行区分后分别收集日志。
 
 
 ## 前提条件 
@@ -23,8 +23,8 @@ Nginx Controller 有以下日志需要搜集并提供给用户：
 - 日志服务具体计费规则和收费标准请参见 [CLS 计费概述](https://cloud.tencent.com/document/product/614/45802)。
 
 
-### 采集日志的指标
-采集的日志的指标如下所示：
+### 采集日志指标
+采集日志的指标如下所示：
 ```yaml
 apiVersion: cls.cloud.tencent.com/v1
 kind: LogConfig
@@ -75,7 +75,7 @@ spec:
 
 ### Nginx-ingress 日志仪表盘
 
-TKE Nginx-ingress 开启日志采集功能会自动为您创建一个标准的日志仪表盘，如下图所示：
+TKE Nginx-ingress 开启日志采集功能将会自动为您创建一个标准的日志仪表盘，您也可以根据业务需要自行在 CLS 控制台配置图表。如下图所示：
 ![](https://main.qcloudimg.com/raw/899efe09c94d57f49c1e8726ca06819d.png)
-您也可以根据业务需要自行在 CLS 控制台配置图表。
+
 
