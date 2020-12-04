@@ -50,17 +50,17 @@ Authorization: Auth String
 
 具体的节点描述如下：
 
-| 节点名称（关键字）       | 父节点                                    | 描述                                                         | 类型      | 是否必选 |
-| ------------------------ | ----------------------------------------- | ------------------------------------------------------------ | --------- | -------- |
-| ReplicationConfiguration | 无                                        | 说明所有复制配置信息                                      | Container | 是       |
-| Role                     | ReplicationConfiguration                  | 发起者身份标示：<br>`qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>` | String    | 是       |
-| Rule                     | ReplicationConfiguration                  | 具体配置信息，最多支持1000个，所有策略只能指向一个目标存储桶 | Container | 是       |
-| ID                       | ReplicationConfiguration.Rule             | 用来标注具体 Rule 的名称                                     | String    | 否       |
-| Status                   | ReplicationConfiguration.Rule             | 标识 Rule 是否生效，枚举值：Enabled，Disabled                | String    | 是       |
-| Prefix                   | ReplicationConfiguration.Rule             | 前缀匹配策略，不可重叠，重叠返回错误，前缀匹配根目录为空     | String    | 是       |
-| Destination              | ReplicationConfiguration.Rule             | 目标存储桶信息                                               | Container | 是       |
-| Bucket                   | ReplicationConfiguration.Rule.Destination | 资源标识符：<br>`qcs::cos:[region]::[bucketname-Appid]`      | String    | 是       |
-| StorageClass             | ReplicationConfiguration.Rule.Destination | 存储级别，枚举值：Standard，Standard_IA，默认值：原存储桶级别 | String    | 否       |
+| 节点名称（关键字）       | 父节点                                    | 描述                                                         | 类型      | 
+| ------------------------ | ----------------------------------------- | ------------------------------------------------------------ | --------- | 
+| ReplicationConfiguration | 无                                        | 说明所有复制配置信息                                      | Container | 
+| Role                     | ReplicationConfiguration                  | 发起者身份标示：<br>`qcs::cam::uin/&lt;OwnerUin>:uin/&lt;SubUin>` | String    |  
+| Rule                     | ReplicationConfiguration                  | 具体配置信息，最多支持1000个，所有策略只能指向一个目标存储桶 | Container | 
+| ID                       | ReplicationConfiguration.Rule             | 用来标注具体 Rule 的名称                                     | String    | 
+| Status                   | ReplicationConfiguration.Rule             | 标识 Rule 是否生效，枚举值：Enabled，Disabled                | String    | 
+| Prefix                   | ReplicationConfiguration.Rule             | 前缀匹配策略，不可重叠，重叠返回错误，前缀匹配根目录为空     | String    | 
+| Destination              | ReplicationConfiguration.Rule             | 目标存储桶信息                                               | Container | 
+| Bucket                   | ReplicationConfiguration.Rule.Destination | 资源标识符：<br>`qcs::cos:[region]::[BucketName-APPID]`      | String    | 
+| StorageClass             | ReplicationConfiguration.Rule.Destination | 存储类型，枚举值：STANDARD，INTELLIGENT_TIERING，STANDARD_IA，ARCHIVE，DEEP_ARCHIVE，默认值：原存储类型 | String    | 
 
 
 #### 错误码

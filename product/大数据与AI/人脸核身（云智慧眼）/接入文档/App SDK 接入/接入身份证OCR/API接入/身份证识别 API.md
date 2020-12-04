@@ -15,7 +15,7 @@
 |orderNo | 订单号，由合作方上送，每次调用唯一 | String | 32 | 是|
 |userId | 用户的唯一标识（不要带有特殊字符） | String | 32 | 否|
 |cardType | 身份证正反面标识<br>0：人像面<br>1：国徽面 | String | 1 | 是|  
-|idcardStr | 身份证人像面或者国徽面图片的 Base64，大小不超过3MB | String | 3145728 | 是|
+|idcardStr | 身份证人像面或者国徽面图片的 Base64，大小不超过20MB | String | 20971520 | 是|
 
 - **响应参数：**
 

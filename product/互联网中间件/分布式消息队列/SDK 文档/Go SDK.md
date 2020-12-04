@@ -48,10 +48,10 @@ module example/godemo
 
 go 1.12
 
-require github.com/TencentCloud/tdmq-go-client v0.2.0-beta.1
+require github.com/TencentCloud/tdmq-go-client v0.3.0-beta.2 
 ```
 
-上述 v0.1.1是 GO SDK 的版本，云上资源环境中下载的依赖文件压缩包也需要是同样的版本。
+上述 v0.3.0-beta.2 是 Go SDK 的版本，云上资源环境中下载的依赖文件压缩包也需要是同样的版本。
 
 2.创建 producer.go 和 consumer.go 测试 Demo 文件。
 

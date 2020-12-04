@@ -14,12 +14,12 @@ Content-Type: application/xml
 
 ```
 
-> Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>? Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/1344/50456) 文档）。
 
 
 ### 请求头
 #### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/1344/50451) 文档。
 #### 非公共头部
 该请求操作无特殊的请求头部信息。
 
@@ -31,9 +31,9 @@ Content-Type: application/xml
 
 |节点名称（关键字）|父节点     |描述                    |   类型    |   必选    |
 |:---           |:--       |:--                    |   :--     |   :--    |
-| tag           | 无        | 模板Tag：Snapshot       | String    |是|
-| category      | 无        | Official，Custom，默认值: Custom | String  |否|
-| ids           | 无        | 模板ID, 以,符号分割字符串  | String     |否|
+| tag           | 无        | 模板类型固定值为 Snapshot    | String    |是|
+| category      | 无        | Official：系统预设模板；Custom：自定义模板。默认值为 Custom | String  |否|
+| ids           | 无        | 模板 ID，以`,`符号分割字符串  | String     |否|
 | name          | 无        | 模板名称前缀              | String     |否|
 | pageNumber    | 无        | 第几页                   | Integer     |否|
 | pageSize      | 无        | 每页个数                 | Integer     |否|
@@ -42,7 +42,7 @@ Content-Type: application/xml
 ### 响应头
 
 #### 公共响应头
-该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部]( https://cloud.tencent.com/document/product/460/42866) 文档。
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部]( https://cloud.tencent.com/document/product/1344/50452) 文档。
 #### 特有响应头
 该响应无特殊的响应头。
 
@@ -83,15 +83,15 @@ Container 节点 Response 的内容：
 | 节点名称（关键字） | 父节点   | 描述                           | 类型      |
 | :----------------- | :------- | :----------------------------- | :-------- |
 | TotalCount         | Response | 模版总数                       | Int       |
-| PageNumber         | Response | 当前页数，同请求中的pageNumber | Int       |
-| PageSize           | Response | 每页个数，同请求中的pageSize   | Int       |
+| PageNumber         | Response | 当前页数，同请求中的 pageNumber | Int       |
+| PageSize           | Response | 每页个数，同请求中的 pageSize   | Int       |
 | TemplateList       | Response | 模版数组                       | Container |
 
-Container节点TemplateList的内容：
+Container 节点 TemplateList 的内容：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
-| TemplateId         | Response.TemplateList | 模版ID                                                      | String    |
+| TemplateId         | Response.TemplateList | 模版 ID                                                      | String    |
 | Name               | Response.TemplateList | 模版名字                                                     | String    |
 | Desc               | Response.TemplateList | 模版描述                                                     | String    |
 | BucketId           | Response.TemplateList | 模版所属存储桶                                                | String    |
@@ -105,21 +105,21 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Mode                | TemplateList.Snapshot | 截图模式 | String    | 是   | Interval | 1. 值范围：{Interval}<br/> 2.Interval模式：Start，TimeInterval，Count参数生效。当设置Count，未设置TimeInterval时，表示截取所有帧，共Count张图片<br/>|
-| Start                | TemplateList.Snapshot | 开始时间 | String    | 是   | 0 | 1. [0 视频时长] <br/> 2. 单位为秒 <br/> 3. 支持float格式，执行精度精确到毫秒 |
-| TimeInterval         | TemplateList.Snapshot | 截图频率 | String    | 否   | 无  | 1. (0 3600] <br/> 2. 单位为秒 <br/> 3. 支持float格式，执行精度精确到毫秒 |
+| Mode                | TemplateList.Snapshot | 截图模式 | String    | 是   | Interval | 1. 值范围：{Interval}<br/> 2.Interval 模式：Start，TimeInterval，Count 参数生效。当设置 Count ，未设置 TimeInterval 时，表示截取所有帧，共 Count 张图片<br/>|
+| Start                | TemplateList.Snapshot | 开始时间 | String    | 是   | 0 | 1. [0 视频时长] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
+| TimeInterval         | TemplateList.Snapshot | 截图频率 | String    | 否   | 无  | 1. (0 3600] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
 | Count                | TemplateList.Snapshot | 截图数量 | String    | 是   | 无  | 1. (0 10000] |
-| Width                | TemplateList.Snapshot | 宽 | String    | 否   |  视频原始宽度 | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> 3. 若只设置Width时，按照视频原始比例计算Height<br/> |
-| Height                | TemplateList.Snapshot | 高 | String    | 否  | 视频原始高度  | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> 3. 若只设置Height时，按照视频原始比例计算Width<br/> |
+| Width                | TemplateList.Snapshot | 宽 | String    | 否   |  视频原始宽度 | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> 3. 若只设置 Width 时，按照视频原始比例计算 Height <br/> |
+| Height                | TemplateList.Snapshot | 高 | String    | 否  | 视频原始高度  | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> 3. 若只设置 Height 时，按照视频原始比例计算 Width <br/> |
 
 
 ### 错误码
 
-该请求无特有错误信息，常见的错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
+该请求无特有错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/1344/50457) 文档。
 
 ## 实际案例
 
-### 按照模板ID维度查询
+### 按照模板 ID 维度查询
 #### 请求
 
 
