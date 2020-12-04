@@ -8,7 +8,7 @@ TSF 为用户现存的的 gRPC 应用提供了 Go 语言 SDK 插件，gRPC 应�
 - Server 同时支持 gRPC 和 HTTP 双协议，可以被 Spring Cloud 服务调用。
 - 改动小，集成 SDK 成本低。
 
-?目前只支持 Go 语言。您也可以通过 GitHub 查看 [gRPC 接入 TSF](https://github.com/tencentyun/tsf-go/blob/master/doc/GRPC.md) 的最新文档。
+>?目前只支持 Go 语言。您也可以通过 GitHub 查看 [gRPC 接入 TSF](https://github.com/tencentyun/tsf-go/blob/master/doc/GRPC.md) 的最新文档。
 
 ## 快速上手
 ### Server 端
