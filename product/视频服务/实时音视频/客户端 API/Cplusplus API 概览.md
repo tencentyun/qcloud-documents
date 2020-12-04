@@ -175,7 +175,7 @@
 | [setRemoteViewFillMode](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ab5be71379d671f77b99cf6ccd86cdbc7) | 设置远端图像的渲染模式。 |
 | [setRemoteViewRotation](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a385042d69e79468c9ef60dee8ec8cc96) | 设置远端图像的顺时针旋转角度。 |
 | [startRemoteSubStreamView](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a5935a852496c1a033576cc6fbf676746) | 开始显示远端用户的辅路画面（TRTCVideoStreamTypeSub，一般用于屏幕分享）。 |
-| [stopRemoteSubStreamView](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a56a7770d90cad9141aecbd70d93af588) | 停止显示远端用户的辅路画面（TRTCVideoStreamTypeSub，一般用于屏幕分享）。 弃用v8.0 版本弃用，请使用 stopRemoteView(userId,streamType) 接口。 |
+| [stopRemoteSubStreamView](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a56a7770d90cad9141aecbd70d93af588) | 停止显示远端用户的辅路画面（TRTCVideoStreamTypeSub，一般用于屏幕分享）。 v8.0 版本弃用，请使用 stopRemoteView(userId,streamType) 接口。 |
 | [setRemoteSubStreamViewFillMode](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a7832e5870431ccb0e75614b51af51205) | 设置辅路画面（TRTCVideoStreamTypeSub，一般用于屏幕分享）的显示模式。 |
 | [setRemoteSubStreamViewRotation](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ab63344839afca9bd4a890f6f609fd9e7) | 设置辅路画面（TRTCVideoStreamTypeSub，一般用于屏幕分享）的顺时针旋转角度。 |
 | [setAudioQuality](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a742eefe8508e744918f704e2fa0d3405) | 设置音频质量。 |
