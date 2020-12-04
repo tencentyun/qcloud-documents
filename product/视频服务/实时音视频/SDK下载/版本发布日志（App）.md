@@ -1,23 +1,4 @@
-## Version 8.1 @ 2020.12.03
 
-**功能新增**
-- 全平台 onStatistics 回调中增加远端视频卡顿相关信息。
-- 全平台支持通过音量调节接口实现声音的增益效果（使用前请联系技术支持）。
-- iOS/Android 新增 setLocalVideoProcessListener 接口，能更好地支持第三方美颜集成。
-
-**质量优化**
-- 全平台优化戴耳机时的声音流畅度，提高声音音质。
-- Android 优化双讲剪切效果。
-
-**问题修复**
-- iOS 修复强杀时 crash 问题。
-- Android 修复自定义美颜高 fps 偶现视频帧异常的问题。
-- Windows 修复高 DPI 下屏幕分享 crash 问题。
-- Mac 修复 M1 偶现的渲染 crash 问题。
-- 修复其他已知的偶现 crash 问题。
-
-**其他**
-Windows C# 同步升级至最新版 API。
 
 
 ## Version 8.0 @ 2020.11.13
