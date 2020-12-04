@@ -95,11 +95,17 @@ Project [id#40 AS id#26, name#41 AS name#27, tags#42 AS tags#29]
 ```
 
 ## 物化视图 MATCH 策略
-TianQiong-Spark 物化视图
+TianQiong-Spark 物化视图默认命中一次，可使用以下参数来调整物化视图的 match 策略：
 ```
-set spark.sql.materializedView.matchPolicy=multiple;
-set spark.sql.materializedView.multiplePolicy.limit=5;
+spark.sql.materializedView.matchPolicy
+spark.sql.materializedView.multiplePolicy.limit
 ```
+例如想使用多次命中，最多命中5次，使用 spark-sql 的 session 参数设置如下：
+```
+spark-sql>set spark.sql.materializedView.matchPolicy=multiple;
+spark-sql>set spark.sql.materializedView.multiplePolicy.limit=5;
+```
+
 
 ## 物化视图重建
 当实例化视图使用的源表中的数据发生更改时，例如，插入新数据或修改现有数据时，我们将需要刷新实例化视图的内容，以使其与这些更改保持最新。当前，物化视图的重建操作需要由用户触发。用户应执行以下语句：
