@@ -5,8 +5,9 @@
 
 - 集群网络是用户的 VPC，节点和容器子网属于该 VPC。
 - 容器子网可以选择多个 VPC 内的子网。
-- 非固定 IP 模式下（默认模式），集群每新增一个节点，申请一张弹性网卡，同时为该网卡一次性申请该网卡能绑定 IP 数量上限的 IP 资源，用于该节点上 Pod IP 地址。
-- 固定 IP 模式下，集群每新增一个节点，申请一张弹性网卡，不会提前绑定任何辅助 IP。集群中每次新建一个使用 VPC-CNI 模式的 Pod，才会即时申请绑定辅助 IP 到相应节点的网卡上。
+- 可设置是否开启固定 IP。您可参考 [固定 IP 模式使用说明](https://cloud.tencent.com/document/product/457/50358)。
+  - 非固定 IP 模式（默认模式）：集群每新增一个节点，将申请一张弹性网卡。TKE 会为该网卡一次性申请该网卡能绑定 IP 数量上限的 IP 资源，用于该节点上 Pod IP 地址。
+  - 固定 IP 模式：集群每新增一个节点，将申请一张弹性网卡。不会提前绑定任何辅助 IP，集群每次新建一个使用 VPC-CNI 模式的 Pod，才会即时申请绑定辅助 IP 到相应节点的网卡上。
 - 节点删除时，将释放网卡占用的 IP 资源。
 
 
@@ -19,7 +20,7 @@ sysctl -w net.ipv4.conf.all.rp_filter=0
 # 假设 eth0 为主网卡
 sysctl -w net.ipv4.conf.eth0.rp_filter=0
 ```
-`tke-eni-agent` 组件自动设置节点的内核参数。若您自己有维护内核参数且打开 `rpfilter`，则会导致网络不通。
+>! `tke-eni-agent` 组件自动设置节点的内核参数。若您自己有维护内核参数且打开 `rpfilter`，则会导致网络不通。
 
 
 ### 开启 VPC-CNI
@@ -37,9 +38,8 @@ sysctl -w net.ipv4.conf.eth0.rp_filter=0
 #### 为已有集群开启 VPC-CNI
 1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)。
 2. 在左侧导航栏中，单击【集群】，进入集群管理页面。单击【基本信息】。
-3. 在 VPC-CNI 字段中单击开启，选择子网，并确认使用限制。如下图所示：
-![](https://main.qcloudimg.com/raw/e5e3212e0a1fac8eebe5ef6e12f5ed42.png)
-
+3. 在 VPC-CNI 字段中单击开启，选择子网，并确认 IP 回收策略。如下图所示：
+![](https://main.qcloudimg.com/raw/cda22252025915b5bb264570c924958a.png)
 
 
 ### 关闭 VPC-CNI
