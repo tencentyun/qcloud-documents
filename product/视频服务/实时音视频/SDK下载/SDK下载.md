@@ -95,8 +95,8 @@
 >   ![](https://main.qcloudimg.com/raw/d8a8c8c130ef7799feff6efbc0260ea2.jpg)
 > 
 
-<span id="Professional"></span>
-## 专业版（Professional）
+
+## <span id="Professional">专业版（Professional）</span>
 
 专业版集合了包含 TRTC 在内的多个音视频相关的核心功能，包括 [超级播放器（Player+）](https://cloud.tencent.com/product/player)、[移动直播（MLVB）](https://cloud.tencent.com/product/mlvb) 和 [短视频（UGSV）](https://cloud.tencent.com/product/ugsv) 等，由于底层模块的高度复用，集成专业版的体积增量要小于同时集成两个独立的 SDK，并且可以避免符号冲突（symbol duplicate）的困恼。
 
