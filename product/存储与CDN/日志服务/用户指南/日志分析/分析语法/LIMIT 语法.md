@@ -17,5 +17,5 @@ LIMIT count
 对请求状态码日志数降序排序，只获取前10行：
 
 ```plaintext
-*|SELECT status, COUNT(status) as ct ORDER BY status DESC LIMIT 10
+* | SELECT status, COUNT(status) as ct ORDER BY status DESC LIMIT 10
 ```
