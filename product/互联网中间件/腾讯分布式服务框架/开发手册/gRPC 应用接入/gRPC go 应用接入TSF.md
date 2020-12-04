@@ -32,7 +32,7 @@ if err != nil {
 - 您需将代码中的 `provider-demo` 替换成实际的 gRPC serviceName。
 - 如果配置文件中不指定端口则默认为8080，也可以通过 tsf_service_port 环境或者启动参数来指定，其他的可指定的配置参考`pkg/sys/env/env.go`中定义的 Key。
 
->?通过 TSF 启动的 gRPC server 除了 gRPC 协议同时还支持 HTTP1.1+JSON（可以被 Spring Cloud 服务调用），此时 HTTP 的 path 为`/<package_name.service_name>/<method>`，例如 `curl -v -X POST --data '{"name":"grpc world"}' 127.0.0.1:8080/tsf.test.helloworld.Greeter/SayHello`。
+>?通过 TSF 启动的 gRPC server 除了 gRPC 协议同时还支持 HTTP1.1+JSON（可以被 Spring Cloud 服务调用），此时 HTTP 的 path 为 /&lt;package_name.service_name&gt;/&lt;method&gt;，例如 `curl -v -X POST --data '{"name":"grpc world"}' 127.0.0.1:8080/tsf.test.helloworld.Greeter/SayHello`。
 如需禁用该功能可以注入环境变量或启动参数：tsf_disable_grpc_http=true。
 
 ### Client 端
