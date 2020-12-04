@@ -107,7 +107,7 @@ Container 节点 DocProcessResult 节点的内容
 | TotalPageCount     | Response.JobsDetail.Operation.DocProcessResult | 预览任务产物的总数 | Int |
 | SuccPageCount      | Response.JobsDetail.Operation.DocProcessResult | 预览任务产物的成功数 | Int |
 | FailPageCount      | Response.JobsDetail.Operation.DocProcessResult | 预览任务产物的失败数 | Int |
-| TotalSheetCount     | Response.JobsDetail.Operation.DocProcessResult | 预览任务的 Shee t总数（源文件为 Excel 特有参数） | Int |
+| TotalSheetCount     | Response.JobsDetail.Operation.DocProcessResult | 预览任务的 Sheet 总数（源文件为 Excel 特有参数） | Int |
 
 Container 节点 PageInfo 节点的内容
 
