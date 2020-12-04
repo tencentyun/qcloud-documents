@@ -9,13 +9,23 @@
 - 支持 Pod 销毁 IP 保留，Pod 迁移 IP 不变，从而实现固定 IP。
 - 支持多子网，但不支持跨子网调度固定 IP 的 Pod， 因此固定 IP 模式的 Pod 不支持跨可用区调度。
 - 支持 Pod IP 自动关联弹性公网 IP，从而可支持 Pod 外访。
-- 共享网卡的固定 IP 模式，固定 IP 的 Pod 销毁后，其 IP 只在集群范围内保留。若有其他集群或者业务（如 CVM、CDB、CLB 等）使用了同一子网，可能会导致保留的固定 IP 被占用，Pod 再启动的时候会拿不到 IP。**因此请保证该模式的容器子网是独占使用。**
+- 共享网卡的固定 IP 模式，固定 IP 的 Pod 销毁后，其 IP 只在集群范围内保留。若有其他集群或者业务（如 CVM、CDB、CLB 等）使用了同一子网，可能会导致保留的固定 IP 被占用，Pod 再启动时将无法获取 IP。**因此请保证该模式的容器子网是独占使用。**
 
 ## 使用方法
 
 您可以通过以下两种方式使用固定 IP：
 - 创建集群选择固定 IP 模式的 VPC-CNI。
 - 为 GlobalRouter 模式附加固定 IP VPC-CNI 模式。
+
+
+### 创建集群选择固定 IP 模式的 VPC-CNI
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，单击左侧导航栏中【集群】。
+2. 在“集群管理”页面，单击集群列表上方的【新建】。
+3. 在“创建集群”页面，在容器网络插件中选择 “VPC-CNI”。
+4. 选择“容器网络插件”为【VPC-CNI】，并勾选“开启支持”固定 Pod IP 即可。如下图所示：
+![](https://main.qcloudimg.com/raw/f36911bf904ebd35867e24e3b6bb6bb1.png)
+
+
 
 ### 创建固定 Pod IP 类型 StatefulSet<span id=""></span>
 
@@ -84,7 +94,7 @@ spec:
 >? spec.template.annotations：`tke.cloud.tencent.com/networks: "tke-route-eni"` 表明 Pod 使用共享网卡的 VPC-CNI 模式，如果使用的是独立网卡的 VPC-CNI 模式，请将值修改成 `"tke-direct-eni"`。
 >
 - **spec.template.annotations**：创建 VPC-CNI 模式的 Pod，您需要设置 annotations，即 `tke.cloud.tencent.com/vpc-ip-claim-delete-policy`，默认是 “Immediate”，Pod 销毁后，关联的 IP 同时被销毁，如需固定 IP，则需设置成 “Never”，Pod 销毁后 IP 也将会保留，那么下一次同名的 Pod 拉起后，会使用之前的 IP。
-- **spec.template.spec.containers.0.resources**：创建共享网卡的 VPC-CNI 模式的 Pod，您需要添加 requests 和 limits 限制，即`tke.cloud.tencent.com/eni-ip`。如果是独立网卡的 VPC-CNI 模式，则添加 `tke.cloud.tencent.com/direct-eni`。
+- **spec.template.spec.containers.0.resources**：创建共享网卡的 VPC-CNI 模式的 Pod，您需要添加 requests 和 limits 限制，即 `tke.cloud.tencent.com/eni-ip`。如果是独立网卡的 VPC-CNI 模式，则添加 `tke.cloud.tencent.com/direct-eni`。
 
 ## 固定 IP 的保留和回收
 
