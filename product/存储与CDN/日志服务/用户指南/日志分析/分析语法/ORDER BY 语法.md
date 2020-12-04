@@ -15,5 +15,5 @@ ORDER BY  列名（KEY） [ DESC | ASC ]
 统计不同访问状态并降序排列：
 
 ```plaintext
-*|SELECT status, COUNT(status) AS c GROUP BY status ORDER BY c DESC
+* | SELECT status, COUNT(status) AS c GROUP BY status ORDER BY c DESC
 ```
