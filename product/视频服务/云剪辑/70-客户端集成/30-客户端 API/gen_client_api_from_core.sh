@@ -18,7 +18,7 @@ function doRender() {
 		cat $srcFile
 		echo
 		awk '/^#REMOVE-CONTENT-BEFORE-HERE/{p=1}p' tool/render.py
-	) | python3 - | grep -v '^## TO-BE-DEL: '
+	) | python3 - | grep -v '^## TO-BE-DEL:'
 }
 
 ## 获取 core 目录下的所有文件，并进行渲染
