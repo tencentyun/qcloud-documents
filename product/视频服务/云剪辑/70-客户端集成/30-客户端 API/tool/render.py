@@ -1,6 +1,10 @@
 #!/usr/local/bin/python3
 #coding=utf-8
 
+########################################################
+#此行以下，至 #REMOVE-CONTENT-BEFORE-HERE 这一行，均为示例代码
+
+
 ## 接口名称
 Action = '/FirstName/SecondName'
 
@@ -32,19 +36,15 @@ e = {}
 
 e['Name'] = '这是示例说明这是示例说明'
 
-e['Input'] = '''
-{
-	"key1" : "value1",
-	"key2" : "value2"
+e['Input'] = {
+	'key1' : 'value1',
+	'key2' : 'value2'
 }
-'''
 
-e['Output'] = '''
-{
-	"key1" : "value1",
-	"key2" : "value2"
+e['Output'] = {
+	'key1' : 'value1',
+	'key2' : 'value2'
 }
-'''
 
 Examples.append(e)
 
@@ -54,25 +54,24 @@ e = {}
 
 e['Name'] = '这是示例说明这是示例说明'
 
-e['Input'] = '''
-{
-	"key1" : "value1",
-	"key2" : "value2"
+e['Input'] = {
+	'key1' : 'value1',
+	'key2' : 'value2'
 }
-'''
 
-e['Output'] = '''
-{
-	"key1" : "value1",
-	"key2" : "value2"
+e['Output'] = {
+	'key1' : 'value1',
+	'key2' : 'value2'
 }
-'''
 
 Examples.append(e)
 
+########################################################
+#此行以上的代码，均为示例代码
 #REMOVE-CONTENT-BEFORE-HERE
 import os
 import string
+import json
 
 ## 读取模板
 docTemplate = ''
@@ -93,8 +92,8 @@ for e in Examples:
 		Action = Action,
 		Index = exampleIndex,
 		Name = e['Name'],
-		Input = e['Input'],
-		Output = e['Output'],
+		Input = json.dumps(e['Input'], indent=4),
+		Output = json.dumps(e['Output'], indent=4),
 	))
 	exampleIndex += 1
 

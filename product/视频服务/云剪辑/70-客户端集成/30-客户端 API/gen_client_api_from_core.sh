@@ -2,7 +2,7 @@
 
 ####################################################################################
 ## 本脚本的作用
-# 根据 core 目录下的 markdown 文件核心，生成最终的 md 文件。
+# 根据 core 目录下的 markdown 文档核心，生成最终的客户端 API 文档。
 
 
 
@@ -17,8 +17,8 @@ function doRender() {
 		echo 
 		cat $srcFile
 		echo
-		awk '/#REMOVE-CONTENT-BEFORE-HERE/{p=1}p' tool/render.py
-	) | python3 -
+		awk '/^#REMOVE-CONTENT-BEFORE-HERE/{p=1}p' tool/render.py
+	) | python3 - | grep -v '^## TO-BE-DEL: '
 }
 
 ## 获取 core 目录下的所有文件，并进行渲染
