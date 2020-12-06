@@ -79,7 +79,7 @@ Nginx 作为关键的流量接入网关，不建议您将 Nginx 与其他业务�
 
 
 
-### 使用 HostNetwork + LB 模式
+#### 使用 HostNetwork + LB 模式
 
 控制台暂不支持，您可以手动修改 Nginx 工作负载的 Yaml 配置网络模式为 HostNetwork，手动创建 CLB 绑定 Nginx 暴露的节点端口。
 需要注意使用 hostNetwork 时，为避免端口监听冲突，Nginx-ingress 的 Pod 不能被调度到同一节点。
