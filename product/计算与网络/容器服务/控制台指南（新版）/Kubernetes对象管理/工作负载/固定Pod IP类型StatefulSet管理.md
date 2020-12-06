@@ -64,9 +64,9 @@
    ![](https://main.qcloudimg.com/raw/2dbd219d6bd76b8fe90971390daacc3c.png)
  5. 单击【显示高级设置】，根据您实际需求，设置【StatefulSet】参数。关键参数信息如下：
    ![创建StatefulSet](https://main.qcloudimg.com/raw/2a5bf4e7b3e5c85c62fef2b7b09e02f3.png)
- - 网络模式：勾选【使用 VPC-CNI 模式】。
-    - IP 地址范围：目前仅支持随机。
-    - 固定 Pod IP：选择【开启】。
+   - 网络模式：勾选【使用 VPC-CNI 模式】。
+      - IP 地址范围：目前仅支持随机。
+      - 固定 Pod IP：选择【开启】。
 
 - 通过 Yaml 创建
 ```yaml
