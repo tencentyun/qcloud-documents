@@ -1,4 +1,4 @@
-## 概述
+## 操作场景
 
 
 开源工具 [Velero](https://velero.io/)（旧版本名称为 Heptio Ark）可以安全地备份和还原、执行灾难恢复以及迁移 Kubernetes 群集资源和持久卷。在容器服务 TKE 集群或自建 Kubenetes 集群中部署 Velero 可以实现以下功能：
@@ -9,7 +9,7 @@
 Velero 工作原理图如下图所示（来源于 [Velero](https://velero.io/) 官网），当用户执行备份命令时，备份过程说明如下：
 1. 调用自定义资源 API 创建备份对象（1）。
 2. BackupController 控制器检测到生成的备份对象时（2）执行备份操作（3）。
-3. 备份完成后将备份的集群资源和存储卷快照上传到 Velero 的后端存储（4和5）。
+3. 备份完成后将备份的集群资源和存储卷快照上传到 Velero 的后端存储（4）和（5）。
 ![backup-process](https://main.qcloudimg.com/raw/1aea8598f3c0345101e91b586544896d.png)
 
 另外当执行还原操作时，Velero 会将指定备份对象的数据从后端存储同步到 Kubernetes 集群完成还原工作。
@@ -24,12 +24,12 @@ Velero 工作原理图如下图所示（来源于 [Velero](https://velero.io/) �
 - 已创建 v1.10 或以上版本的 Kubernetes 集群，集群可正常使用 DNS 和 互联网服务，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。
 
 
+## 操作步骤
+### 配置对象存储
 
-## 配置对象存储
+#### 创建存储桶
 
-### 创建存储桶
-
-1. 在 [COS 控制台](https://console.cloud.tencent.com/cos5) 为 Velero 创建一个对象存储桶用于存储备份，详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
+1. 在 [对象存储控制台](https://console.cloud.tencent.com/cos5) 为 Velero 创建一个对象存储桶用于存储备份，详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309)。
 2. 为存储桶 [设置访问权限](https://cloud.tencent.com/document/product/436/13315)。对象存储 COS 支持设置两种权限类型：
 	- **公共权限**：为了安全起见，推荐存储桶权限类别为私有读写，关于公共权限的说明，请参见存储桶概述中的 [权限类别](https://cloud.tencent.com/document/product/436/13312#.E6.9D.83.E9.99.90.E7.B1.BB.E5.88.AB)。
 	- **用户权限**：主账号默认拥有存储桶所有权限（即完全控制）。另外 COS 支持添加子账号有数据读取、数据写入、权限读取、权限写入，甚至**完全控制**的最高权限。
@@ -38,7 +38,7 @@ Velero 工作原理图如下图所示（来源于 [Velero](https://velero.io/) �
 
 
 
-### 获取存储桶访问凭证
+#### 获取存储桶访问凭证
 
 Velero 使用与 AWS S3 兼容的 API 访问 COS ， 需要使用一对访问密钥 ID 和密钥创建的签名进行身份验证，在 S3 API 参数中：
 - `access_key_id` ：访问密钥 ID 
@@ -57,7 +57,7 @@ aws_secret_access_key=<SecretKey>
 
 
 
-## 安装 Velero 
+### 安装 Velero 
 
 1. 下载 [Velero](https://github.com/vmware-tanzu/velero/releases) 最新版本安装包到集群环境中，本文以 v1.5.2 版本为例。示例如下：
 ```bash
@@ -90,19 +90,19 @@ region=ap-guangzhou,s3ForcePathStyle="true",s3Url=https://cos.ap-guangzhou.myqcl
 </thead>
 <tbody><tr>
 <td>--provider</td>
-<td>声明使用 <code>aws</code> 提供的插件类型</td>
+<td>声明使用 <code>aws</code> 提供的插件类型。</td>
 </tr>
 <tr>
 <td>--plugins</td>
-<td>使用 AWS S3 兼容 API 插件  “velero-plugin-for-aws”</td>
+<td>使用 AWS S3 兼容 API 插件  “velero-plugin-for-aws”。</td>
 </tr>
 <tr>
 <td>--bucket</td>
-<td>在对象存储 COS 创建的存储桶名</td>
+<td>在对象存储 COS 创建的存储桶名。</td>
 </tr>
 <tr>
 <td>--secret-file</td>
-<td>访问对象存储 COS 的访问凭证文件，详情参见上述创建的 “<a href="#credentials">credentials-velero</a>” 凭证文件</td>
+<td>访问对象存储 COS 的访问凭证文件，详情参见上述创建的 “<a href="#credentials">credentials-velero</a>” 凭证文件。</td>
 </tr>
 <tr>
 <td>--use-restic</td>
@@ -110,11 +110,11 @@ region=ap-guangzhou,s3ForcePathStyle="true",s3Url=https://cos.ap-guangzhou.myqcl
 </tr>
 <tr>
 <td  nowrap="nowrap">--default-volumes-to-restic</td>
-<td>启用使用 Restic 来备份所有 Pod 卷，前提是需要开启 <code>--use-restic</code> 参数</td>
+<td>启用使用 Restic 来备份所有 Pod 卷，前提是需要开启 <code>--use-restic</code> 参数。</td>
 </tr>
 <tr>
 <td  nowrap="nowrap">--backup-location-config</td>
-<td>备份存储桶访问相关配置，包括 region、s3ForcePathStyle、s3Url 等，详细介绍如下：</td>
+<td>备份存储桶访问相关配置，包括 region、s3ForcePathStyle、s3Url 等。</td>
 </tr>
 <tr>
 <td>region</td>
@@ -122,11 +122,11 @@ region=ap-guangzhou,s3ForcePathStyle="true",s3Url=https://cos.ap-guangzhou.myqcl
 </tr>
 <tr>
 <td>s3ForcePathStyle</td>
-<td>使用 S3 文件路径格式</td>
+<td>使用 S3 文件路径格式。</td>
 </tr>
 <tr>
 <td>s3Url</td>
-<td>对象存储 COS 兼容的 S3 API 访问地址。请注意该访问地址中的域名不是上述创建 COS 存储桶的公网访问域名，须使用格式为 <code>https://cos.region.myqcloud.com</code> 的 URL，例如地域为广州，则参数值为 <code>https://cos.ap-guangzhou.myqcloud.com</code></td>
+<td>对象存储 COS 兼容的 S3 API 访问地址。请注意该访问地址中的域名不是上述创建 COS 存储桶的公网访问域名，须使用格式为 <code>https://cos.region.myqcloud.com</code> 的 URL，例如地域为广州，则参数值为 <code>https://cos.ap-guangzhou.myqcloud.com。</code></td>
 </tr>
 </tbody></table>
 
@@ -140,7 +140,7 @@ region=ap-guangzhou,s3ForcePathStyle="true",s3Url=https://cos.ap-guangzhou.myqcl
 
 
 
-## Velero 备份还原测试
+### Velero 备份还原测试
 
 1. 在集群中使用 Helm 工具，创建一个具有持久卷的 MinIO 测试服务，MinIO 安装方式请参见 [MinIO 安装]( https://github.com/minio/charts)。在此示例中，已经为 MinIO 服务绑定了负载均衡器，可以在浏览器中使用公网地址访问管理页面。
 ![](https://main.qcloudimg.com/raw/9352391a728698fe72ca414fb55d03d1.png)
@@ -187,7 +187,7 @@ kubectl patch backupstoragelocation default --namespace velero \
 
 
 
-## Velero 卸载
+### Velero 卸载
 
 执行以下命令，可以在集群中卸载 Velero。示例如下：
 ```bash
