@@ -150,7 +150,7 @@ region=ap-guangzhou,s3ForcePathStyle="true",s3Url=https://cos.ap-guangzhou.myqcl
 ```bash
 velero backup create default-backup --include-namespaces default
 ```
-4. 执行以下命令查看备份任务是否完成，当备份任务状态是 “Completed“ 且 ”ERRORS“ 为0时，说明备份任务完成且未发生任何错误。
+4. 执行以下命令查看备份任务是否完成，当备份任务状态是 “Completed” 且 “ERRORS” 为0时，说明备份任务完成且未发生任何错误。
 ```bash
 velero backup get
 ```
@@ -166,11 +166,11 @@ kubectl patch backupstoragelocation default --namespace velero \
 ```
 	执行过程如下图所示：
 	![](https://main.qcloudimg.com/raw/8abb88e5ce2586dc6f3c0d268883e4cd.png)
-7. 执行以下命令，使用上述 [步骤3](#velerostep3) Velero 创建的备份 ”default-backup“ 来创建还原任务。示例如下：
+7. 执行以下命令，使用上述 [步骤3](#velerostep3) Velero 创建的备份 “default-backup” 来创建还原任务。示例如下：
 ```bash
 velero restore create --from-backup default-backup
 ```
-	通过命令 `velero restore get` 查看还原任务的状态，若还原状态是 “Completed“ 且 ”ERRORS“ 为0时，则说明还原任务完成，如下图所示：
+	通过命令 `velero restore get` 查看还原任务的状态，若还原状态是 “Completed” 且 “ERRORS” 为0时，则说明还原任务完成，如下图所示：
 	![](https://main.qcloudimg.com/raw/ed52f0465d7bc59ce871678448961bd7.png)
 8. 还原完成后，执行以下命令，可以查看到之前被删除的 MinIO 相关资源已经还原成功。如下图所示：
 ![](https://main.qcloudimg.com/raw/fc58c6f4325913d01cd7bb131a920d78.png)
