@@ -58,7 +58,8 @@ pod install //安装 SDK
 ![](https://main.qcloudimg.com/raw/b0b74cec883f69fb0287fedc7bad4140.png)
 如 checkTargetOtherLinkFlagForObjc 报错，是因为 build setting 中，Other link flags 未添加 -ObjC。
 
->! 如果您的应用服务接入点为广州，SDK 默认实现该配置。
+>! 如果您的应用服务接入点为广州，SDK 默认实现该配置，广州域名为`tpns.tencent.com`。
+
 如果您的应用服务接入点为上海、新加坡或者中国香港，请按照下文步骤完成其他服务接入点域名配置。
 1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
 2. 在`startXGWithAccessID:accessKey:delegate:`方法之前调用头文件中的配置`域名`接口：
