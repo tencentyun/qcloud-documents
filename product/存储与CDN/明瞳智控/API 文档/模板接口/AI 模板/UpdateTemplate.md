@@ -15,7 +15,7 @@ Content-Type: application/xml
 <body>
 ```
 
->? Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>? Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/1344/50456) 文档）。
 
 
 ### 请求头
@@ -74,7 +74,7 @@ Container 类型 MovingObjectDetect 的具体数据描述如下：
 ### 响应头
 
 #### 公共响应头
-该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/1344/50452) 文档。
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/1344/50452) 文档。
 #### 特有响应头
 该响应无特殊的响应头。
 
