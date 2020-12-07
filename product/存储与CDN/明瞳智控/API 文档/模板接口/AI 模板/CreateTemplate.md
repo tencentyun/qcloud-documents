@@ -1,5 +1,5 @@
 ## 功能描述
-CreateTemplate用于新增AI模板。
+CreateTemplate用于新增 AI 模板。
 
 ## 请求
 ### 请求实例
@@ -15,7 +15,7 @@ Content-Type: application/xml
 <body>
 ```
 
-> Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+> ?Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 ### 请求头
 #### 公共头部
@@ -51,29 +51,29 @@ Container 类型 Request 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
-| Tag                | Request | 模板类型: AI                                              | String    | 是   |
-| Name               | Request | 模板名称 仅支持中文、英文、数字、_、-和*                       | String    | 是   |
-| Desc               | Request | 模板描述 仅支持中文、英文、数字、_、-和*                       | String    | 否   |
+| Tag                | Request | 模板类型：AI                                              | String    | 是   |
+| Name               | Request | 模板名称仅支持中文、英文、数字、_、-和*                       | String    | 是   |
+| Desc               | Request | 模板描述仅支持中文、英文、数字、_、-和*                       | String    | 否   |
 | AI                 | Request | 模板详情                                                  | Container | 否   |
 
 Container 类型 AI 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
-| Mode                 | Request.AI | AI类型                                            | String    | 是   |
+| Mode                 | Request.AI | AI 类型                                            | String    | 是   |
 | MovingObjectDetect   | Request.AI | 移动物体检测参数                                       | Container    | 是   |
 
 Container 类型 MovingObjectDetect 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Type              | Request.AI.MovingObjectDetect | 检测物体 | String    | 是   | 无 | 1. 值范围：{Baby}<br/>|
+| Type              | Request.AI.MovingObjectDetect | 检测物体 | String    | 是   | 无 | 值范围：{Baby}<br/>|
 
 ## 响应
 ### 响应头
 
 #### 公共响应头
-该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部]( https://cloud.tencent.com/document/product/460/42866) 文档。
+该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部](https://cloud.tencent.com/document/product/1344/50452) 文档。
 #### 特有响应头
 该响应无特殊的响应头。
 
@@ -105,17 +105,17 @@ Container 类型 MovingObjectDetect 的具体数据描述如下：
 | :----------------- | :----- | :----------------------------------------------------- | :-------- |
 | Response           | 无     | 保存结果的容器 | Container |
 
-Container节点Response的内容：
+Container节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
 | Tag                | Response | 模版类型，AI                                           | String    |
 | Name               | Response | 模版名字                                                     | String    |
 | Desc               | Response | 模版描述                                                     | String    |
-| TemplateId         | Response | 模版ID                                                      | String    |
+| TemplateId         | Response | 模版 ID                                                      | String    |
 | UpdateTime         | Response | 更新时间                                                     | String    |
 | CreateTime         | Response | 创建时间                                                     | String    |
-| AI                 | Response | 其详细的模版参数，同上述请求体部分AI说明 | Container |
+| AI                 | Response | 其详细的模版参数，同上述请求体部分 AI 说明 | Container |
 
 
 ### 错误码
