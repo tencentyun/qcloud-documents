@@ -4,7 +4,7 @@
 
 Nginx Controller 现已提供组件运行状态相关的监控数据，您可以通过配置 Nginx-ingress 监控，开启 Nginx-ingress 监控能力。
 
-## 前置依赖
+## 前提条件
 
 - 集群已关联云原生监控 Prometheus，操作详情可参见 [关联集群](https://cloud.tencent.com/document/product/457/49890)。
 - 云原生监控 Prometheus 需要与 Nginx 在同一个网络平面。
@@ -33,8 +33,6 @@ TKE Nginx-ingress 自动配置以下采集指标：
  - nginx_ingress_controller_ingress_upstream_latency_seconds
   
 您也可以根据业务需要自行配置监控采集指标，指标详情可参见 [官方文档](https://kubernetes.github.io/ingress-nginx/user-guide/monitoring/)。
-
-
 
 
 
