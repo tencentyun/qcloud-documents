@@ -1,10 +1,10 @@
 
 通用版 App，用户无需开发 App 即可构建跨产品应用。腾讯连连是腾讯云面向物联网行业提供的一整套 C2B2C 开放平台服务，其中腾讯连连通用版 App 是腾讯云 IoT 团队为用户打造的应用开发服务，基于 Android 和 iOS 系统，实现智能设备端、云端、移动端的相互打通。具备设备管理、设备控制、群组管理、消息通知、场景联动、产品评测、实时音视频等多功能模块，能够满足用户远程操控智能设备等多种场景，消费者只需要通过一次设备配网，即可轻松构建智能生活。
-<img src="https://main.qcloudimg.com/raw/fe6b3ff90c7b730de8cf4fdddfeddd0a.jpg" style="zoom: 50%;" />
+<img src="https://main.qcloudimg.com/raw/42be4d4c6ec671e15e28eeaa89eda490.png" style="zoom: 50%;" />
 
 ## 下载方式
 - **iOS**
-iOS 通用版 App 目前发布 Beat 版本，可以通过 [testflight](https://testflight.apple.com/join/uazS368A) 进行下载体验。
+iOS 通用版 App 目前发布 Beta 版本，可以通过 [testflight](https://testflight.apple.com/join/uazS368A) 进行下载体验。
 >?您需要使用 iOS 系统手机访问上述链接。
 >
 
