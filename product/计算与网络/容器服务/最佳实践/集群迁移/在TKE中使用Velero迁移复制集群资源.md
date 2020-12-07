@@ -1,8 +1,8 @@
 ## 操作场景
 
-开源工具 [Velero](https://velero.io/)（旧版本名称为 Heptio Ark）可以安全地备份和还原、执行灾难恢复以及迁移 Kubernetes 群集资源和持久卷。在容器服务 TKE 集群或自建 Kubenetes 集群中部署 Velero 可以实现以下功能：
-- 备份群集资源并在丢失的情况下进行还原。
-- 将集群资源迁移到其他群集。
+开源工具 [Velero](https://velero.io/)（旧版本名称为 Heptio Ark）可以安全地备份和还原、执行灾难恢复以及迁移 Kubernetes 集群资源和持久卷。在容器服务 TKE 集群或自建 Kubenetes 集群中部署 Velero 可以实现以下功能：
+- 备份集群资源并在丢失的情况下进行还原。
+- 将集群资源迁移到其他集群。
 - 将生产集群资源复制到开发和测试集群。
 
 更多关于 Velero 介绍，请参见 [Velero](https://velero.io/) 官网文档。本文将介绍如何使用 Velero 实现 TKE 集群间的无缝迁移复制集群资源。
