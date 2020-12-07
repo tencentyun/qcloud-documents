@@ -40,6 +40,4 @@ TKE Nginx-ingress 自动配置以下采集指标：
 ## Nginx-ingress 监控 Grafana 面板
 
 TKE Nginx-ingress 开启监控功能后将关联云原生监控 Prometheus，云原生监控 Prometheus 自带一个 Grafana，您可以在 Nginx-ingress 组件页面直接跳转到对应的 Grafana 面板，如下图所示：
-![](https://main.qcloudimg.com/raw/66ce3486814a46fa639a38807f51d607.png)
-
-
+![](https://main.qcloudimg.com/raw/fea3e7005e93a63b98e37243638ab2af.png)
