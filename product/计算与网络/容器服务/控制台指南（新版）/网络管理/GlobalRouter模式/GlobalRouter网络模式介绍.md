@@ -25,7 +25,7 @@ GlobalRouter 网络模式适用于常规场景，可与标准 Kuberentes 功能�
 
 ### Pod IP 分配
 工作原理如下图所示：
-![](https://main.qcloudimg.com/raw/9d9fe92dd9d9d11ada9b24c66ce640fb.png)
+![](https://main.qcloudimg.com/raw/6f6ff049669ab29994957836d95f3057.png)
 - 集群的每一个节点会使用容器 CIDR 中的指定大小的网段用于该节点下 Pod 的 IP 地址分配。
 - 集群的 Service 网段会选用容器 CIDR 中最后一段指定大小的网段用于 Service 的 IP 地址分配。
 - 节点释放后，使用的容器网段也会释放回 IP 段池。

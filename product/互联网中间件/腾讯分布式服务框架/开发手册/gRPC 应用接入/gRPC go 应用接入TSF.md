@@ -8,14 +8,14 @@ TSF 为用户现存的的 gRPC 应用提供了 Go 语言 SDK 插件，gRPC 应�
 - Server 同时支持 gRPC 和 HTTP 双协议，可以被 Spring Cloud 服务调用。
 - 改动小，集成 SDK 成本低。
 
->目前只支持 Go 语言。您也可以通过 GitHub 查看 [gRPC 接入 TSF](https://github.com/tencentyun/tsf-go/blob/master/doc/GRPC.md) 的最新文档。
+>?目前只支持 Go 语言。您也可以通过 GitHub 查看 [gRPC 接入 TSF](https://github.com/tencentyun/tsf-go/blob/master/doc/GRPC.md) 的最新文档。
 
 ## 快速上手
 ### Server 端
 
 #### 1. 生成 *.pb.go 文件
 `protoc --go_out=plugins=grpc:. *.proto`
-> 更详细可以参看 [gRPC Go 教程](https://cloud.tencent.com/document/product/1165/46154) 
+>?详细说明请参考 [gRPC Go 教程](https://cloud.tencent.com/document/product/1165/46154)。 
 
 #### 2. 引入 TSF 的 package
 `import "github.com/tencentyun/tsf-go/pkg/grpc/server"`	
@@ -32,7 +32,7 @@ if err != nil {
 - 您需将代码中的 `provider-demo` 替换成实际的 gRPC serviceName。
 - 如果配置文件中不指定端口则默认为8080，也可以通过 tsf_service_port 环境或者启动参数来指定，其他的可指定的配置参考`pkg/sys/env/env.go`中定义的 Key。
 
->通过 TSF 启动的 gRPC server 除了 gRPC 协议同时还支持 HTTP1.1+JSON（可以被 Spring Cloud 服务调用），此时 HTTP 的 path 为 `/<package_name.service_name>/<method\>`，例如 `curl -v -X POST --data '{"name":"grpc world"}' 127.0.0.1:8080/tsf.test.helloworld.Greeter/SayHello`。
+>?通过 TSF 启动的 gRPC server 除了 gRPC 协议同时还支持 HTTP1.1+JSON（可以被 Spring Cloud 服务调用），此时 HTTP 的 path 为 /&lt;package_name.service_name&gt;/&lt;method&gt;，例如 `curl -v -X POST --data '{"name":"grpc world"}' 127.0.0.1:8080/tsf.test.helloworld.Greeter/SayHello`。
 如需禁用该功能可以注入环境变量或启动参数：tsf_disable_grpc_http=true。
 
 ### Client 端
@@ -56,9 +56,9 @@ greeter := pb.NewGreeterClient(cc.GrpcConn())
 - 您需将 `tsf.provider-demo` 需要替换成实际被访问的服务提供者的 serviceName。
 - `local` 是访问本地命名空间的服务，如果需要发现全局命名空间服务则要替换成 `global`。
 
-## 集成TSF中其他能力
+## 集成 TSF 中其他能力
 
-### TSF标签 Tags 传递
+### TSF 标签 Tags 传递
 ```
 ctx = meta.WithUser(ctx, meta.UserPair{Key: "user", Value: "test2233"})
 s.client.SayHello(ctx, req)
@@ -75,7 +75,8 @@ log.Info(context.Background(), "got message", zap.String("resp",resp))
 - 您可以通过注入环境变量 tsf_log_path 或者启动参数 tsf_log_path 来指定日志输出路径。
 - 如果不传递 Go 的 context，会导致日志中不打印 traceID。
 - 需要在 TSF 日志配置中配置日志类型为自定义 Logback，日志格式为 `%d{yyyy-MM-dd HH:mm:ss.SSS} %level %msg%n`。
-> 更多TSF日志配置可参考[日志服务说明](https://cloud.tencent.com/document/product/649/18196) 
+
+>?更多 TSF 日志配置可参考 [日志服务说明](https://cloud.tencent.com/document/product/649/18196)。 
 
 ### 分布式配置
 #### 1. 引入配置模块
@@ -109,9 +110,9 @@ tsf.AppConfig(func(cfg *tsf.Config) {
 		service.prefix.Store(appCfg.Prefix)
 })
 ```
-> 更多TSF分布式配置的使用可参考[配置管理概述](https://cloud.tencent.com/document/product/649/17956) 
+>?更多 TSF 分布式配置的说明请参考 [配置管理概述](https://cloud.tencent.com/document/product/649/17956)。 
 
-## 部署
+## 部署应用
 ### 容器部署
 #### 1. 编写 Dockerfile
 ```
