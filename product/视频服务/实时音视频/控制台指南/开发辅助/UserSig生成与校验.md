@@ -17,7 +17,7 @@
 >! 使用时，请确保请求检验时输入的 SDKAppID、UserID 与 UserSig 的 SDKAppID、UserID 保持一致。
 
 1. 进入实时音视频控制台，选择左侧栏的【开发辅导工具】>【[UserSig生成&校验](https://console.cloud.tencent.com/trtc/usersigtool)】，查看【签名(UserSig)校验工具】模块。
-2. 选择需校验的应用（SDKAppID），完成后会自动生成对应的密钥 (Key)。
+2. 选择需校验的应用（SDKAppID），完成后会自动生成对应的密钥（Key）。
 3. 输入用户名（UserID）。
 4. 将需校验的签名（UserSig）复制粘贴到【签名(UserSig)】中，单击【开始校验】。
 >? 若您是在【签名(UserSig)生成工具】模块中生成的 UserSig，建议单击【复制签名UserSig】进行复制。
