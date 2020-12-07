@@ -3,7 +3,7 @@
 
 开源工具 [Velero](https://velero.io/)（旧版本名称为 Heptio Ark）可以安全地备份和还原、执行灾难恢复以及迁移 Kubernetes 集群资源和持久卷。在容器服务 TKE 集群或自建 Kubenetes 集群中部署 Velero 可以实现以下功能：
 - 备份集群资源并在丢失的情况下进行还原。
-- 将集群资源迁移到其他群集。
+- 将集群资源迁移到其他集群。
 - 将生产集群资源复制到开发和测试集群。
 
 Velero 工作原理图如下图所示（来源于 [Velero](https://velero.io/) 官网），当用户执行备份命令时，备份过程说明如下：
@@ -40,7 +40,7 @@ Velero 工作原理图如下图所示（来源于 [Velero](https://velero.io/) �
 
 #### 获取存储桶访问凭证
 
-Velero 使用与 AWS S3 兼容的 API 访问 COS ， 需要使用一对访问密钥 ID 和密钥创建的签名进行身份验证，在 S3 API 参数中：
+Velero 使用与 AWS S3 兼容的 API 访问 COS ，需要使用一对访问密钥 ID 和密钥创建的签名进行身份验证，在 S3 API 参数中：
 - `access_key_id` ：访问密钥 ID 
 - `secret_access_key`：密钥
 
@@ -150,7 +150,7 @@ region=ap-guangzhou,s3ForcePathStyle="true",s3Url=https://cos.ap-guangzhou.myqcl
 ```bash
 velero backup create default-backup --include-namespaces default
 ```
-4. 执行以下命令查看备份任务是否完成，当备份任务状态是 “添加 ERRORS 为 0” 时，说明备份任务完成且未发生任何错误。
+4. 执行以下命令查看备份任务是否完成，当备份任务状态是 “Completed“ 且 ”ERRORS“ 为0时，说明备份任务完成且未发生任何错误。
 ```bash
 velero backup get
 ```
@@ -170,7 +170,7 @@ kubectl patch backupstoragelocation default --namespace velero \
 ```bash
 velero restore create --from-backup default-backup
 ```
-	通过命令 `velero restore get` 查看还原任务的状态，若还原状态是 “Completed” 且“添加 ERRORS 为 0”时，则说明还原任务完成，如下图所示：
+	通过命令 `velero restore get` 查看还原任务的状态，若还原状态是 “Completed“ 且 ”ERRORS“ 为0时，则说明还原任务完成，如下图所示：
 	![](https://main.qcloudimg.com/raw/ed52f0465d7bc59ce871678448961bd7.png)
 8. 还原完成后，执行以下命令，可以查看到之前被删除的 MinIO 相关资源已经还原成功。如下图所示：
 ![](https://main.qcloudimg.com/raw/fc58c6f4325913d01cd7bb131a920d78.png)
