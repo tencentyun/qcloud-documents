@@ -1,5 +1,5 @@
 ## 功能描述
-UpdateTemplate 用于更新截图模板。
+UpdateTemplate 用于更新 AI 模板。
 
 ## 请求
 ### 请求实例
@@ -111,7 +111,7 @@ Container 节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
-| Tag                | Response | 模版类型，Snapshot                                           | String    |
+| Tag                | Response | 模版类型，AI                                            | String    |
 | Name               | Response | 模版名字                                                     | String    |
 | Desc               | Response | 模版描述                                                     | String    |
 | TemplateId         | Response | 模版ID                                                      | String    |
