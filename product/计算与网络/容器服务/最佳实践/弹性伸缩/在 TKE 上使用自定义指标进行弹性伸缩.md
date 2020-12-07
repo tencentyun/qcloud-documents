@@ -1,13 +1,13 @@
 ## 操作场景
 
-TKE 基于 [Custom Metrics API](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/instrumentation/custom-metrics-api.md) 支持许多用于弹性伸缩的指标，涵盖 CPU、内存、硬盘、网络以及 GPU 相关的指标，覆盖绝大多数的 HPA 弹性伸缩场景，详细列表请参见 [自动伸缩指标说明](https://cloud.tencent.com/document/product/457/38929)。
-针对更复杂的场景，例如基于业务单副本 QPS 大小来进行自动扩缩容，可以通过安装 [prometheus-adapter](https://github.com/DirectXMan12/k8s-prometheus-adapter) 来实现。
+容器服务 TKE 基于 [Custom Metrics API](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/instrumentation/custom-metrics-api.md) 支持许多用于弹性伸缩的指标，涵盖 CPU、内存、硬盘、网络以及 GPU 相关的指标，覆盖绝大多数的 HPA 弹性伸缩场景，详细列表请参见 [自动伸缩指标说明](https://cloud.tencent.com/document/product/457/38929)。
+针对复杂场景，例如基于业务单副本 QPS 大小来进行自动扩缩容，可以通过安装 [prometheus-adapter](https://github.com/DirectXMan12/k8s-prometheus-adapter) 来实现。
 
 
 ## 实现原理
 
 Kubernetes 提供 [Custom Metrics API](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/instrumentation/custom-metrics-api.md) 与 [External Metrics API](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/instrumentation/external-metrics-api.md) 来对 HPA 指标进行扩展，让用户能够根据实际需求进行自定义。
-另外 prometheus-adapter 也同时支持 Custom Metrics API 和 External Metrics API，在实际环境中，使用 Custom Metrics API 即可满足大部分场景。本文将介绍如何通过 Custom Metrics API 实现使用自定义指标进行弹性伸缩。
+prometheus-adapter 支持以上两种API，在实际环境中，使用 Custom Metrics API 即可满足大部分场景。本文将介绍如何通过 Custom Metrics API 实现使用自定义指标进行弹性伸缩。
 
 
 
@@ -25,7 +25,7 @@ Kubernetes 提供 [Custom Metrics API](https://github.com/kubernetes/community/b
 
 ### 暴露监控指标
 
-如下以 Golang 业务程序为例，该示例程序暴露了 `httpserver_requests_total` 指标，并记录 HTTP 的请求，通过该指标可以计算出业务程序的 QPS 值。示例如下：
+本文以 Golang 业务程序为例，该示例程序暴露了 `httpserver_requests_total` 指标，并记录 HTTP 的请求，通过该指标可以计算出业务程序的 QPS 值。示例如下：
 ```go
 package main
 
@@ -203,7 +203,7 @@ helm install prometheus-adapter prometheus-community/prometheus-adapter -f value
 # helm install --name prometheus-adapter prometheus-community/prometheus-adapter -f values.yaml
 ```
 
-### 测试是否安装正确
+### 测试验证
 
 若安装正确，执行以下命令，可以查看到 Custom Metrics API 返回配置的 QPS 相关指标。示例如下：
 ```bash
@@ -275,7 +275,7 @@ $ kubectl get --raw /apis/custom.metrics.k8s.io/v1beta1/namespaces/httpserver/po
 
 ### 测试 HPA
 
-假如设置每个业务 Pod 的平均 QPS 达到50时，就触发扩容，最小副本为1个，最大副本为1000个，则配置示例如下：
+假如设置每个业务 Pod 的平均 QPS 达到50时将触发扩容，最小副本为1个，最大副本为1000个，则配置示例如下：
 ``` yaml
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
