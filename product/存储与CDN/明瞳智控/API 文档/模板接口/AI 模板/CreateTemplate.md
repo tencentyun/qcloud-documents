@@ -1,5 +1,5 @@
 ## 功能描述
-CreateTemplate用于新增 AI 模板。
+CreateTemplate 用于新增 AI 模板。
 
 ## 请求
 ### 请求实例
