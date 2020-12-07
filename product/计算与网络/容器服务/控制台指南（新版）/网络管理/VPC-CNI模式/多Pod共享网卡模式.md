@@ -1,7 +1,8 @@
 
 ## 使用原理
-多 Pod 共享网卡模式的 Pod IP 分配机制如下图所示：
-![](https://main.qcloudimg.com/raw/96f2d2c978aaa37146a7035a0c3eadd9.png)
+
+VPC-CNI 多 Pod 共享网卡模式使用原理图如下所示：
+![](https://main.qcloudimg.com/raw/76fce8d2541f9a91a1a2ecdc89403390.jpg)
 
 - 集群网络是用户的 VPC，节点和容器子网属于该 VPC。
 - 容器子网可以选择多个 VPC 内的子网。
