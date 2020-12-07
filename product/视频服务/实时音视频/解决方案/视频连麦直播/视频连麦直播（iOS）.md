@@ -98,7 +98,7 @@ pod 'TXLiteAVSDK_TRTC'
 
 <span id="model.step4"> </span>
 ### 步骤4：创建并登录组件
-1. 调用 TRTCLiveRoomImpl 的`init`接口可以创建一个 TRTCLiveRoom 组件的实例对象。
+1. 调用 TRTCLiveRoom 的`init`接口可以创建一个 TRTCLiveRoom 组件的实例对象。
 2. 创建一个`TRTCLiveRoomConfig`对象，该对象可以设置  useCDNFirst 和 CDNPlayDomain 属性：
  - useCDNFirst 属性：用于设置观众观看方式。true 表示普通观众通过 CDN 观看，计费便宜但延时较高。false 表示普通观众通过低延时观看，计费价格介于 CDN 和连麦之间，但延迟可控制在1s以内。
  - CDNPlayDomain 属性：在 useCDNFirst 设置为 true 时才会生效，用于指定 CDN 观看的播放域名，您可以登录直播控制台 >【[域名管理](https://console.cloud.tencent.com/live/domainmanage)】页面中进行设置。
@@ -117,7 +117,7 @@ pod 'TXLiteAVSDK_TRTC'
 <td>当前用户的 ID，字符串类型，只允许包含英文字母（a-z、A-Z）、数字（0-9）、连词符（-）和下划线（_）。</td>
 </tr>
 <tr>
-<td>userSig</td>
+<td>userSig</td>m
 <td>腾讯云设计的一种安全保护签名，获取方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算 UserSig</a>。</td>
 </tr>
 <tr>
@@ -134,7 +134,7 @@ pod 'TXLiteAVSDK_TRTC'
 </table>
 <pre>
 class LiveRoomController: UIViewController {
-	let mLiveRoom = TRTCLiveRoomImpl()
+	let mLiveRoom = TRTCLiveRoom()
 }
 //useCDNFirst：true 表示普通观众通过 CDN 观看，false 表示普通观众通过低延时观看
 //CDNPlayDomain：表示 CDN 观看时配置的播放域名
@@ -210,7 +210,7 @@ if code == 0 {
 mliveRoom.enterRoom(roomID: roomID, callback: callback)
 
 // 4.观众收到主播进房通知，开始播放
-public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoomImpl, onAnchorEnter userID: String) {
+public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoom, onAnchorEnter userID: String) {
 	// 5.观众播放主播画面
 	mliveRoom.startPlay(userID: userID, view: renderView, callback: nil) 
 }
@@ -242,13 +242,13 @@ mliveRoom.requestJoinAnchor(reason: mSelfUserId + "请求和您连麦", response
 
 // 主播端：
 // 2.主播端收到连麦请求
-public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoomImpl, onRequestJoinAnchor user: TRTCLiveUserInfo, reason: String?, timeout: Double) {
+public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoom, onRequestJoinAnchor user: TRTCLiveUserInfo, reason: String?, timeout: Double) {
 	// 3.同意对方的连麦请求
 	mliveRoom.responseJoinAnchor(userID: userID, agree: true, reason: "同意连麦")
 }
 
 // 6.主播收到连麦观众的上麦通知
-public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoomImpl, onAnchorEnter userID: String) {
+public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoom, onAnchorEnter userID: String) {
 	// 7.主播播放观众画面
 	mliveRoom.startPlay(userID: userID, view: view, callback: nil)
 }
@@ -278,7 +278,7 @@ mLiveRoom.requestRoomPK(roomID: 54321, userID: "B", responseCallback: { (agree, 
 }, callback: callback)
 
 // 主播 A 收到主播 B 进入回调
-public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoomImpl, onAnchorEnter userID: String) {
+public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoom, onAnchorEnter userID: String) {
 	// 6.收到 B 进房的通知，播放 B 的画面
 	mLiveRoom.startPlay(userID: userID, view: view, callback: callback)
 }
@@ -288,12 +288,12 @@ public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoomImpl, onAnchorEnter userID:
 mLiveRoom.createRoom(roomID: 54321, roomParam: param, callback: nil)
 
 // 2.主播 B 收到主播 A 的消息
-public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoomImpl, onRequestRoomPK user: TRTCLiveUserInfo, timeout: Double) {
+public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoom, onRequestRoomPK user: TRTCLiveUserInfo, timeout: Double) {
 	// 3.主播 B 回复主播 A 接受请求
 	mLiveRoom.responseRoomPK(userID: userID, agree: true, reason: reason)
 }
 
-public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoomImpl, onAnchorEnter userID: String) {
+public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoom, onAnchorEnter userID: String) {
 	// 4.主播 B 收到主播 A 进房的通知，播放主播 A 的画面
 	mLiveRoom.startPlay(userID: userID, view: view, callback: callback)
 }
@@ -308,7 +308,7 @@ public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoomImpl, onAnchorEnter userID:
 mLiveRoom.sendRoomTextMsg(message: "Hello Word!", callback: callback)
 // 接收端：监听文本消息
 mLiveRoom.delegate = self
-public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoomImpl, onRecvRoomTextMsg message: String, fromUser user: TRTCLiveUserInfo) {
+public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoom, onRecvRoomTextMsg message: String, fromUser user: TRTCLiveUserInfo) {
 	debugPrint("收到来自\(user.userName)的文本消息:\(message)")
 }
 ```
@@ -321,7 +321,7 @@ mLiveRoom.sendRoomCustomMsg(command: "CMD_DANMU", message: "Hello world", callba
 mLiveRoom.sendRoomCustomMsg(command: "CMD_LIKE", message: "", callback: nil)
 // 接收端：监听自定义消息
 mLiveRoom.delegate = self
-public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoomImpl, onRecvRoomCustomMsg command: String, message: String, fromUser user: TRTCLiveUserInfo) {
+public func trtcLiveRoom(_ trtcLiveRoom: TRTCLiveRoom, onRecvRoomCustomMsg command: String, message: String, fromUser user: TRTCLiveUserInfo) {
 	if "CMD_DANMU" == command {
 		// 收到弹幕消息
 		debugPrint("收到来自\(user.userName)的弹幕消息:\(message)")
