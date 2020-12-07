@@ -11,7 +11,12 @@
 - spring-cloud-tsf-swagger 
   - 支持添加注解@IgnoreGatewayApi来忽略某个网关API不被发现（忽略该网关的API，但服务治理API不受影响）
 
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
 ## 1.25.0-Finchley-RELEASE（2020-12-04）
+
 ### 新特性
 - spring-cloud-tsf-msgw-zuul 支持服务熔断能力
 
