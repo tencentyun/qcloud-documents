@@ -91,6 +91,4 @@ spec:
 ### Nginx-ingress 日志仪表盘
 
 TKE Nginx-ingress 开启日志采集功能将会自动为您创建一个标准的日志仪表盘，您也可以根据业务需要自行在 CLS 控制台配置图表。如下图所示：
-![](https://main.qcloudimg.com/raw/899efe09c94d57f49c1e8726ca06819d.png)
-
-
+![](https://main.qcloudimg.com/raw/28674bb949ed77839b707cf80841e879.png)
