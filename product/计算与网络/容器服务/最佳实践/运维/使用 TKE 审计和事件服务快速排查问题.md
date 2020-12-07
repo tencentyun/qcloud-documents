@@ -4,7 +4,7 @@
 
 ## 前提条件
 
-登录容器服务控制台，开启 [集群审计](https://cloud.tencent.com/document/product/457/48346) 和 [事件存储](https://cloud.tencent.com/document/product/457/32091)。
+已登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)，并已开启 [集群审计](https://cloud.tencent.com/document/product/457/48346) 和 [事件存储](https://cloud.tencent.com/document/product/457/32091)。
 
 
 ## 使用示例
@@ -13,7 +13,7 @@
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中选择【集群运维】>【审计检索】，进入“审计检索”页面。
-3. 单击【K8S 对象操作概览】，在过滤项中指定需要排查的操作类型和资源对象，如下图所示：
+3. 选择【K8S 对象操作概览】页签，在过滤项中指定需要排查的操作类型和资源对象，如下图所示：
 ![](https://main.qcloudimg.com/raw/4c4ba2c916cca86f0c4879670e48cd34.png)
 4. 单击【过滤】开始查询，查询结果如下图所示：
 ![](https://main.qcloudimg.com/raw/d35cf30fe20f04d8cc52d0494eb415ea.png)
@@ -25,7 +25,7 @@
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中选择【集群运维】>【审计检索】，进入“审计检索”页面。
-3. 单击【节点操作概览】，在过滤项中指定被封锁的节点名称，如下图所示：
+3. 选择【节点操作概览】页签，在过滤项中指定被封锁的节点名称，如下图所示：
 ![](https://main.qcloudimg.com/raw/7864ec7140664ced4a3c0189b862e64d.png)
 4. 单击【过滤】开始查询，查询结果如下图所示：
 ![](https://main.qcloudimg.com/raw/c99956c06678d382b940b08408522f93.png)
@@ -35,7 +35,7 @@
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中选择【集群运维】>【审计检索】，进入“审计检索”页面。
-3. 单击【聚合检索】，进入“聚合检索”页面。该页面提供了 [用户](#user)、[操作类型](#type)、[返回状态码](#statuscode) 等多个维度对于 apiserver 访问的趋势图。 如下图所示：
+3. 选择【聚合检索】页签，进入“聚合检索”页面。该页面提供了 [用户](#user)、[操作类型](#type)、[返回状态码](#statuscode) 等多个维度对于 apiserver 访问的趋势图。 如下图所示：
  - <span id="user"></span>**操作用户分布趋势**：
 ![](https://main.qcloudimg.com/raw/1dd7b23886fbac9da2cd0a8b1f9ee65e.png)
  - <span id="type"></span>**操作类型分布趋势**：
@@ -52,7 +52,7 @@ E1130 06:19:37.368981       1 reflector.go:156] pkg/mod/k8s.io/client-go@v0.0.0-
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，选择【集群运维】>【事件检索】，进入“事件检索”页面。
-3. 单击【事件总览】，在资源对象过滤项中输入异常节点 IP，如下图所示：
+3. 选择【事件总览】页签，在资源对象过滤项中输入异常节点 IP，如下图所示：
 ![](https://main.qcloudimg.com/raw/e37744f3ff3f237289bc34f4e40d0287.png)
 4. 单击【过滤】开始查询。查询结果显示，有一条“节点磁盘空间不足”的事件记录查询结果，如下图所示：
 ![](https://main.qcloudimg.com/raw/3b1518605191a867f511529b8b3621c0.png)
@@ -69,7 +69,7 @@ E1130 06:19:37.368981       1 reflector.go:156] pkg/mod/k8s.io/client-go@v0.0.0-
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中，选择【集群运维】>【事件检索】，进入“事件检索”页面。
-3. 单击【全局检索】，在检索分析栏中输入以下检索命令：
+3. 选择【全局检索】页签，在检索分析栏中输入以下检索命令：
 ```
 event.source.component : "cluster-autoscaler"
 ```
