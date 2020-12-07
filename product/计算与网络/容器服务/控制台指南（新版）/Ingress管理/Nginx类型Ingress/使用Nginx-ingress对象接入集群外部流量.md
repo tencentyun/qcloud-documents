@@ -1,9 +1,9 @@
 
 
 
-## 前置条件
+## 前提条件
 
-- 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)。
+- 已登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)。
 - 集群内已 [部署 NginxIngress 组件](https://cloud.tencent.com/document/product/457/50503#Nginx-ingress)。
 - 已安装并创建业务需要的 Nginx-ingress 实例。
 
@@ -44,10 +44,9 @@ metadata:
 ```
 
 
-## 为 Nginx 类型 Ingress 对象配置注解<span id="annotation"></span>
+## 相关操作<span id="annotation"></span>
 
-
-更多 Nginx 类型 Ingress 对象注解详情可参见 [官方文档](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/)。
+为 Nginx 类型 Ingress 对象可配置注解，详情可参见 [官方文档](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/)。
 
 ### Nginx-ingress 对象使用模型
 
