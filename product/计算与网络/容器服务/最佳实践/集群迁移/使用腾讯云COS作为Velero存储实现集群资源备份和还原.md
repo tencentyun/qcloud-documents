@@ -1,12 +1,12 @@
 ## 概述
 
 
-[Velero](https://velero.io/)（旧版本名称为 Heptio Ark）是一款开源工具，可以安全地备份和还原、执行灾难恢复以及迁移 Kubernetes 群集资源和持久卷。在 TKE 集群或自建 Kubenetes 集群中部署 Velero 可以实现以下功能：
+开源工具 [Velero](https://velero.io/)（旧版本名称为 Heptio Ark）可以安全地备份和还原、执行灾难恢复以及迁移 Kubernetes 群集资源和持久卷。在容器服务 TKE 集群或自建 Kubenetes 集群中部署 Velero 可以实现以下功能：
 - 备份群集资源并在丢失的情况下进行还原。
 - 将集群资源迁移到其他群集。
 - 将生产集群资源复制到开发和测试集群。
 
-Velero 工作原理图如下图所示（**来源于 [Velero](https://velero.io/) 官网**），当用户执行备份命令时，备份过程说明如下：
+Velero 工作原理图如下图所示（来源于 [Velero](https://velero.io/) 官网），当用户执行备份命令时，备份过程说明如下：
 1. 调用自定义资源 API 创建备份对象（1）。
 2. BackupController 控制器检测到生成的备份对象时（2）执行备份操作（3）。
 3. 备份完成后将备份的集群资源和存储卷快照上传到 Velero 的后端存储（4和5）。
@@ -203,7 +203,7 @@ kubectl delete crds -l component=velero
 
 
 
-## 参考
+## 参考文档
 
 - [Velero 官网](https://velero.io/)
 - [Restic 工具介绍](https://github.com/restic/restic)
