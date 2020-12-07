@@ -1,15 +1,15 @@
 ## 操作场景
 
 
-开源工具 [Velero](https://velero.io/)（旧版本名称为 Heptio Ark）可以安全地备份和还原、执行灾难恢复以及迁移 Kubernetes 群集资源和持久卷。在容器服务 TKE 集群或自建 Kubenetes 集群中部署 Velero 可以实现以下功能：
-- 备份群集资源并在丢失的情况下进行还原。
+开源工具 [Velero](https://velero.io/)（旧版本名称为 Heptio Ark）可以安全地备份和还原、执行灾难恢复以及迁移 Kubernetes 集群资源和持久卷。在容器服务 TKE 集群或自建 Kubenetes 集群中部署 Velero 可以实现以下功能：
+- 备份集群资源并在丢失的情况下进行还原。
 - 将集群资源迁移到其他群集。
 - 将生产集群资源复制到开发和测试集群。
 
 Velero 工作原理图如下图所示（来源于 [Velero](https://velero.io/) 官网），当用户执行备份命令时，备份过程说明如下：
 1. 调用自定义资源 API 创建备份对象（1）。
 2. BackupController 控制器检测到生成的备份对象时（2）执行备份操作（3）。
-3. 备份完成后将备份的集群资源和存储卷快照上传到 Velero 的后端存储（4）和（5）。
+3. 将备份的集群资源和存储卷快照上传到 Velero 的后端存储（4）和（5）。
 ![backup-process](https://main.qcloudimg.com/raw/1aea8598f3c0345101e91b586544896d.png)
 
 另外当执行还原操作时，Velero 会将指定备份对象的数据从后端存储同步到 Kubernetes 集群完成还原工作。
@@ -126,11 +126,11 @@ region=ap-guangzhou,s3ForcePathStyle="true",s3Url=https://cos.ap-guangzhou.myqcl
 </tr>
 <tr>
 <td>s3Url</td>
-<td>对象存储 COS 兼容的 S3 API 访问地址。请注意该访问地址中的域名不是上述创建 COS 存储桶的公网访问域名，须使用格式为 <code>https://cos.region.myqcloud.com</code> 的 URL，例如地域为广州，则参数值为 <code>https://cos.ap-guangzhou.myqcloud.com。</code></td>
+<td>对象存储 COS 兼容的 S3 API 访问地址。请注意该访问地址中的域名不是上述创建 COS 存储桶的公网访问域名，须使用格式为 https://cos.&lt;region&gt;.myqcloud.com 的 URL，例如地域为广州，则参数值为 <code>https://cos.ap-guangzhou.myqcloud.com。</code></td>
 </tr>
 </tbody></table>
 
-其他安装参数可以使用命令 `velero install --help` 查看。例如，不备份存储卷数据，可以设置 `--use-volume-snapshots=false` 来关闭存储卷数据快照备份。
+其他安装参数可以使用命令 `velero install --help` 查看。例如，不备份存储卷数据，可以设置 `--use-volume-snapshots=false` 来关闭存储卷快照备份。
 执行安装命令之后查看安装过程，如下图所示：
 ![](https://main.qcloudimg.com/raw/817541d26a0d167de0a20a0f8127c8d1.png)
 
@@ -150,7 +150,7 @@ region=ap-guangzhou,s3ForcePathStyle="true",s3Url=https://cos.ap-guangzhou.myqcl
 ```bash
 velero backup create default-backup --include-namespaces default
 ```
-4. 执行以下命令查看备份任务是否完成，当备份任务状态是 “Completed” 时，说明备份任务完成且未发生任何错误。
+4. 执行以下命令查看备份任务是否完成，当备份任务状态是 “添加 ERRORS 为 0” 时，说明备份任务完成且未发生任何错误。
 ```bash
 velero backup get
 ```
@@ -170,7 +170,7 @@ kubectl patch backupstoragelocation default --namespace velero \
 ```bash
 velero restore create --from-backup default-backup
 ```
-	通过命令 `velero restore get` 查看还原任务的状态，若还原状态是 “Completed”，则说明还原任务完成，如下图所示：
+	通过命令 `velero restore get` 查看还原任务的状态，若还原状态是 “Completed” 且“添加 ERRORS 为 0”时，则说明还原任务完成，如下图所示：
 	![](https://main.qcloudimg.com/raw/ed52f0465d7bc59ce871678448961bd7.png)
 8. 还原完成后，执行以下命令，可以查看到之前被删除的 MinIO 相关资源已经还原成功。如下图所示：
 ![](https://main.qcloudimg.com/raw/fc58c6f4325913d01cd7bb131a920d78.png)
