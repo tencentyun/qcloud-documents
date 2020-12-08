@@ -3,13 +3,12 @@
 ## 1.26.0-Greenwich-RELEASE（2020-12-07）
 
 ### 新特性
-- spring-cloud-tsf-msgw-scg 
-  - 补齐Spring Cloud Gateway网关的服务治理能力，支持用户按照需求灵活选择Zuul或Spring Cloud Gateway
-  - 支持托管外部API
-- spring-cloud-tsf-msgw-zuul
-  - 支持托管外部API
-- spring-cloud-tsf-swagger 
-  - 支持添加注解@IgnoreGatewayApi来忽略某个网关API不被发现（忽略该网关的API，但服务治理API不受影响）
+- spring-cloud-tsf-msgw-scg：
+  - 补齐 Spring Cloud Gateway 网关的服务治理能力，支持用户按照需求灵活选择 Zuul 或 Spring Cloud Gateway。
+  - 支持托管外部 API。
+- spring-cloud-tsf-msgw-zuul：支持托管外部 API。
+- spring-cloud-tsf-swagger：
+支持添加注解 @IgnoreGatewayApi 来忽略某个网关 API 不被发现（忽略该网关的 API，但服务治理API不受影响）。
 
 ### 版本建议
 
@@ -18,16 +17,13 @@
 ## 1.25.0-Greenwich-RELEASE（2020-12-04）
 
 ### 新特性
-- spring-cloud-tsf-msgw-zuul 支持服务熔断能力
+spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
 
 ### Bug 修复
 
-- spring-cloud-tsf-ratelimit:
-  - 修复当只有一个限流规则时，限流规则关闭不生效的问题
-- spring-cloud-tsf-route:
-  - 修复当只有一个路由规则时，路由规则关闭不生效的问题
-- spring-cloud-tsf-lane:
-  - 优化泳道规则生效逻辑
+- spring-cloud-tsf-ratelimit：修复当只有一个限流规则时，限流规则关闭不生效的问题。
+- spring-cloud-tsf-route：修复当只有一个路由规则时，路由规则关闭不生效的问题。
+- spring-cloud-tsf-lane：优化泳道规则生效逻辑。
 
 ### 版本建议
 
