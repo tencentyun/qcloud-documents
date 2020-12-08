@@ -215,3 +215,13 @@ android.useAndroidX=trueandroid.enableJetifier=true
 > - android.useAndroidX=true，表示当前项目启用 AndroidX。
 > - android.enableJetifier=true，表示将依赖包迁移到 AndroidX。 
 
+### 厂商通道推送服务 SDK “存在通过 http 明文传输信息的行为”，如何处理？
+
+开发者在集成各厂商通道推送服务后，部分安全检测工具可能会提示 “App 存在通过 http 明文传输信息的行为” ，具体 http 地址涉及：
+
+1. 小米推送 SDK：http://new.api.ad.xiaomi.com/logNotificationAdActions，http://resolver.msg.xiaomi.net/psc/?t=a
+
+2. 魅族推送 SDK：http://norma-external-collect.meizu.com/android/exchange/getpublickey.do，http://norma-external-collect.meizu.com/push/android/external/add.do
+
+以上 http url 均来自各厂商推送 SDK，TPNS 项目组无法明确其目的或控制其行为，但正在积极与厂商服务提供者联系并推动 https 改造；开发者当前可以自行评估选择是否继续使用以上厂商提供的推送服务。
+
