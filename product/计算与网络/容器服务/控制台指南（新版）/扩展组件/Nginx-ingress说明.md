@@ -11,16 +11,18 @@ Nginx可以用作反向代理、负载平衡器和HTTP缓存。Nginx-ingress是�
 在集群内部署 Nginx-ingress Add-on，将在集群内部署以下 Kubernetes 对象：
 
 | Kubernetes 对象名称        | 类型         | 默认占用资源 | 所属 Namespaces |
-| --------------------- | ---------- | ------ | ------------ |自定义设置  |
+| --------------------- | ---------- | ------ | ------------ |
 | nginx-ingress  | Service | /      | 自定义设置 |
 | nginx-ingress  | Configmap | /      | 自定义设置 |
+| tke-ingress-nginx-controller-operator | Deployment | 0.13C   128M | kube-system |
+| ingress-nginx-controller | Deployment/DaementSe t | 0.1C | kube-system |
+| ingress-nginx-controller-hpa | HPA |  | kube-system |
 
 
 
 ### 相关参考文档
-1. [Nginx-ingress概述]()
-2. [Nginx-ingress安装]()
-3. [使用Nginx-ingress对象接入集群外部流量 ]()
-4. [Nginx-ingress监控配置]()
-5. [Nginx-ingress日志配置]()
-6. [Nginx-ingress证书配置]()
+1. [Nginx-ingress概述](https://cloud.tencent.com/document/product/457/50502)
+2. [Nginx-ingress安装](https://cloud.tencent.com/document/product/457/50503)
+3. [使用Nginx-ingress对象接入集群外部流量 ](https://cloud.tencent.com/document/product/457/50504)
+4. [Nginx-ingress监控配置](https://cloud.tencent.com/document/product/457/50506)
+5. [Nginx-ingress日志配置](https://cloud.tencent.com/document/product/457/50505)
