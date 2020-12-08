@@ -96,6 +96,7 @@
 <td>long</td>
 </tr>
 </tbody></table>
+
 如需使用更多功能，例如日志实时检索，日志投递和消费等，请参考 [日志服务文档](https://cloud.tencent.com/document/product/614) 并前往 [CLS 控制台](https://console.cloud.tencent.com/cls) 开始使用。
 
 
