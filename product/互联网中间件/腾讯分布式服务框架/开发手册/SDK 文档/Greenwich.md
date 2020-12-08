@@ -7,8 +7,7 @@
   - 补齐 Spring Cloud Gateway 网关的服务治理能力，支持用户按照需求灵活选择 Zuul 或 Spring Cloud Gateway。
   - 支持托管外部 API。
 - spring-cloud-tsf-msgw-zuul：支持托管外部 API。
-- spring-cloud-tsf-swagger：
-支持添加注解 @IgnoreGatewayApi 来忽略某个网关 API 不被发现（忽略该网关的 API，但服务治理API不受影响）。
+- spring-cloud-tsf-swagger：支持添加注解 @IgnoreGatewayApi 来忽略某个网关 API 不被发现（忽略该网关的 API，但服务治理 API 不受影响）。
 
 ### 版本建议
 
