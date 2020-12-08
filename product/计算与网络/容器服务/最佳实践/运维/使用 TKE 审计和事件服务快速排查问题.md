@@ -73,7 +73,7 @@ E1130 06:19:37.368981       1 reflector.go:156] pkg/mod/k8s.io/client-go@v0.0.0-
 ```
 event.source.component : "cluster-autoscaler"
 ```
-4. 在左侧“隐藏字段”中选择 “`event.reason`”、“`event.message`”、“`event.involvedObject.name`”、"`event.involvedObject.name`” 进行显示，单击【检索分析】开始检索分析日志并将返回检索结果。
-5. 将检索结果按照”日志时间“倒序排列，如下图所示：
+4. 在左侧“隐藏字段”中选择 “`event.reason`”、“`event.message`”、“`event.involvedObject.name`”、“`event.involvedObject.name`” 进行显示，单击【检索分析】开始检索分析日志并将返回检索结果。
+5. 将检索结果按照“日志时间”倒序排列，如下图所示：
 ![](https://main.qcloudimg.com/raw/a7d4649a541b40db5d3190b0dc049124.png)
 由图可见，通过事件可以看到节点扩容操作在 `2020-11-25 20:35:45` 左右，分别由三个 `nginx pod(nginx-5dbf784b68-tq8rd、nginx-5dbf784b68-fpvbx、nginx-5dbf784b68-v9jv5)` 进行触发，最终扩增三个节点，后续的扩容由于达到节点池的最大节点数未再次触发。
