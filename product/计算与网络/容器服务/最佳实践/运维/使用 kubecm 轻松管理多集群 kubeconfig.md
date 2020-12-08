@@ -1,47 +1,71 @@
-## 背景
+## 操作场景
 
-Kubernetes 提供了 kubectl 命令行工具来操作集群，使用 kubeconfig 作为配置文件，默认路径是 `~/.kube/config`，如果想使用 kubectl 对多个集群进行管理和操作，就在 kubeconfig 中配置多个集群的信息即可。
+Kubernetes 提供 kubectl 命令行工具用于操作集群，kubectl 使用 kubeconfig 作为配置文件，默认路径为 `~/.kube/config`。通过 kubeconfig 配置多个集群的信息，还可实现使用 kubectl 管理和操作多个集群。
 
-如果使用 TKE 或 EKS 集群，并且希望使用 kubectl 来管理和操作集群，只需要在集群基本信息页开启 APIServer 的外网访问或内网访问即可得到 kubeconfig (集群访问凭证)，但如果要用 kubectl 管理多个集群，通常做法是提取 kubeconfig 中各个字段的内容，然后将其人肉合并到 kubectl 所在机器的 kubeconfig 文件中，比较麻烦而且容易出错。
 
-如何更简单高效的将集群的访问凭证合并添加到 kubeconfig 中呢 ？我们可以借助 `kubecm` 这个工具，本文将介绍如何利用 `kubecm` 来实现多集群的 kubeconfig 高效管理。
+通过 kubectl 管理和操作容器服务 TKE 或 EKS 集群，需要在集群基本信息页面开启 APIServer 的外网访问或内网访问，获取 kubeconfig （集群访问凭证）。如果需要使用 kubectl 管理多个集群，通常做法是提取 kubeconfig 中各个字段的内容，将其合并到 kubectl 所在设备的 kubeconfig 文件中，但该方式操作繁琐且容易出错。
+
+借助 kubecm 工具，可以更简单高效的将多个集群访问凭证合并添加到 kubeconfig 中。本文将介绍如何利用 kubecm 实现多集群的 kubeconfig 高效管理。
+
+
 
 ## 前提条件
 
-使用前请先确认是否满足以下条件:
 
-* 已创建有 TKE 或 EKS 集群。
-* 在需要管理多集群的机器上已安装 kubectl 命令
+- 已创建 [TKE](https://cloud.tencent.com/document/product/457/32189) 或 [EKS](https://cloud.tencent.com/document/product/457/39813) 集群。
+- 在需要管理多集群的设备上已安装 [kubectl](https://kubernetes.io/zh/docs/tasks/tools/install-kubectl/) 命令行工具。
+
 
 ## 操作步骤
 
 ### 安装 kubecm
 
-首先需要在管理多集群的机器上安装 `kubecm`，安装方法参考官方文档: https://kubecm.cloud/#/en-us/install
+在管理多集群的设备上安装 [kubecm](https://kubecm.cloud/#/en-us/install)。
+
 
 ### 获取集群访问凭证
 
-当新建了 TKE 集群后，开启外网或内网访问后即可下载或复制 kubeconfig 文件内容:
+创建 TKE 或 EKS 集群后，请按照以下 [TKE](#tke) 或 [EKS](#eks) 获取集群访问凭证步骤获取访问凭证：
 
-![](https://main.qcloudimg.com/raw/e969bd3bcabe41957caedc5054745924.png)
 
-对于 EKS 集群，同样也是这样:
+<span id="tke"></span>
 
-![](https://main.qcloudimg.com/raw/8bf28b8eabadee6bda988a259b5082a5.png)
+#### TKE 集群获取集群访问凭证
+
+1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
+2. 单击需要获取集群访问凭证的集群 ID/名称，进入该集群的管理页面。
+3. 在左侧菜单栏中选择【基本信息】，进入“基本信息”页面。
+4. 在“基本信息”页面找到【集群APIServer信息】配置项，开启【外网访问】和【内网访问】。
+![](https://main.qcloudimg.com/raw/eaefe0e780bf0ef303619a6f054f583a.jpg)
+5. 单击右侧的【下载】，下载 kubeconfig。
+
+
+<span id="eks"></span>
+
+#### EKS 集群获取集群访问凭证
+
+1. 登录容器服务控制台，选择左侧导航栏中的【[弹性集群](https://console.cloud.tencent.com/tke2/ecluster)】。
+2. 单击需要获取集群访问凭证的集群 ID/名称，进入该集群的管理页面。
+3. 在左侧菜单栏中选择【基本信息】，进入“基本信息”页面。
+4. 在“基本信息”页面找到【集群APIServer信息】配置项，开启【外网访问】和【内网访问】。
+![](https://main.qcloudimg.com/raw/f8884ee3527e3eaf63ad3e114d8a431b.jpg)
+5. 单击【下载】，下载 kubeconfig。
+
+
+
 
 ### 使用 kubecm 添加访问凭证到 kubeconfig
 
-获取到集群访问凭证后，假设文件名为 `cls-l6whmzi3-config`，使用 `kubecm` 将其添加到 kubeconfig 中 (`-n` 可指定 context 名称):
-
-``` bash
+本文以集群访问凭证文件名 `cls-l6whmzi3-config` 为例，执行以下命令，使用 kubecm 将访问凭证添加到 kubeconfig 中（`-n` 可指定 context 名称）。示例如下：
+```plaintext
 kubecm add -f cls-l6whmzi3-config -n cd -c
 ```
 
 ### 查看集群列表
 
-通过 `kubecm` 添加了要管理和操作的集群后，通过 `kubecm ls` 可查看 kubeconfig 中的集群列表 (星号标识的是当前操作的集群):
+执行以下 `kubecm ls` 命令查看 kubeconfig 中的集群列表（星号标识的是当前操作的集群）。示例如下：
 
-``` bash
+```plaintext
 $ kubecm ls
 +------------+------------+-----------------------+--------------------+-----------------------------------+-------------------+
 |   CURRENT  |    NAME    |        CLUSTER        |        USER        |               SERVER              |     Namespace     |
@@ -56,15 +80,16 @@ $ kubecm ls
 
 ### 切换集群
 
-当想要切换到其它集群操作时，可使用 `kubecm switch` 进行交互式切换:
+
+执行以下 `kubecm switch` 命令可以交互式切换到其他集群。如下图所示：
 
 ![](https://main.qcloudimg.com/raw/3eea3d35d3a19f93906eabf60a423a0b.png)
 
 ### 移除集群
 
-如果想要移除某个集群，可以用 `kubecm delete`:
+执行以下 `kubecm delete` 命令可以移除某个集群。示例如下：
 
-``` bash
+```plaintext
 $ kubecm delete bj
 Context Delete:「bj」
 「/Users/roc/.kube/config」 write successful!
@@ -76,7 +101,7 @@ Context Delete:「bj」
 +------------+---------+-----------------------+--------------------+-----------------------------------+--------------+
 ```
 
-## 参考资料
+## 参考文档
 
-* kubecm 开源地址: https://github.com/sunny0826/kubecm
-* kubecm 官方文档: https://kubecm.cloud
+- [kubecm 开源地址](https://github.com/sunny0826/kubecm)
+- [kubecm 官方文档](https://kubecm.cloud)
