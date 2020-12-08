@@ -59,7 +59,7 @@ sdk 提供了 QCloudCredentailFenceQueue 来实现密钥的缓存和复用，具
 sdk 目前只支持设置以下三种类型的 body：
 1. NSURL：文件的本地路径，通过[NSURL fileURLWithPath:@"文件在本地的路径"]初始化一个 URL。
 2. NSData：二进制数据。
-3. QCloudFileOffsetBody:分块的 body，开发者一般不需要关心该类型，属于 SDK 高级接口内部使用的 body 类型。
+3. QCloudFileOffsetBody：分块的 body，开发者一般不需要关心该类型，属于 SDK 高级接口内部使用的 body 类型。
 
 
 ### 通过 SDK 的高级接口 `QCloudCOSXMLUploadObjectRequest` 上传系统图库中的视频或者文件，断点续传失败，报错`The specified Content-Length is zero`，该如何处理？
@@ -68,15 +68,15 @@ SDK 只支持续传沙盒中的文件，如需使用断点续传的功能，请�
 
 ### 集成 SDK 后，调用上传接口上传的文件大小和本地的文件不一致，该如何处理？
 
-请确保您设置好 body 之后，本地文件不会发生改变，比如文件在压缩过程中或者还没有完成写入之前调用了上传接口触发了上传，SDK就会以当时的文件大小为准进行分块进行上传，从而导致上传到cos上的文件和本地文件大小不一致。
+请确保您设置好 body 之后，本地文件不会发生改变，比如文件在压缩过程中或者还没有完成写入之前调用了上传接口触发了上传，SDK 就会以当时的文件大小为准进行分块进行上传，从而导致上传到 cos 上的文件和本地文件大小不一致。
 
 ### 集成 SDK 之后，调用上传接口，上传成功之后的文件大小为0，该如何处理？
 
 解决办法：
 1. 如果上传路径是文件在系统图库的路径，请检查是否有读取该文件的权限。例如：`file:///var/mobile/Media/DCIM/101APPLE/`这个路径无法直接访问，需要通过 Photos 框架里的 request 方法获取照片。
-2. 如果 app 要兼容iOS11，在上传图库视频时再调用`[[PHImageManager defaultManager] requestPlayerItemForVideo:asset options:option resultHandler:^(AVPlayerItem *playerItem, NSDictionary *info) {
-    //及时将文件移到沙盒中或者保存playerItem
-    }];`方法获取 playerItem 之后将其保存起来，或者在该回调中将要上传的文件移到 app 的沙盒中。因为iOS11中 playerItem 被销毁之后，文件的读权限就会失效，从而导致上传的文件大小为0。
+2. 如果 app 要兼容 iOS11，在上传图库视频时再调用`[[PHImageManager defaultManager] requestPlayerItemForVideo:asset options:option resultHandler:^(AVPlayerItem *playerItem, NSDictionary *info) {
+    //及时将文件移到沙盒中或者保存 playerItem
+    }];`方法获取 playerItem 之后将其保存起来，或者在该回调中将要上传的文件移到 app 的沙盒中。因为 iOS11中 playerItem 被销毁之后，文件的读权限就会失效，从而导致上传的文件大小为0。
 3. 如果上传的是 app 的沙盒中的文件，请检查上传的文件是否在沙盒的 tmp 文件夹下，比如` /var/mobile/Containers/Data/Application/0BFBB3FE-0FD0-46CB-ADDE-DDE08F6D62C3/tmp/`，该目录下的文件会被系统随时清理，请将要上传的文件移到安全的目录，保证文件在上传的过程中不会被清理，更多关于沙盒的描述请参考 [File System Basics](https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html)。
 
 ### 集成 SDK 后使用高级接口上传报错`上传过程中MD5校验与本地不一致，请检查本地文件在上传过程中是否发生了变化：分块上传过程中，每上传完一个分块就会校验这个分块的 md5和本地片的 md5是否一致，不一致就报错`，该如何处理？
