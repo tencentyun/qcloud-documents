@@ -14,7 +14,7 @@ sdk 依赖于 bolts 和 okHttp 两个常见的类，如果是这两个类中的�
 如果需要在外部存储中上传或者下载文件，那么必须获取网络和外部存储读写权限，其他权限比如定位权限，设备信息权限均不是必须权限，如果对权限问题很敏感，可以不导入 MtaUtils 这个包，或者升级到 5.5.8 及其以上版本。
 
 6. 使用 https 报错 `java.security.cert.CertPathValidatorException: Trust anchor for certification path not found`，该如何处理？
-如果您是通过代理的方式访问 cos，那么首先检查下代理是否支持 https，否则请向我们提交工单处理。
+如果您是通过代理的方式访问 cos，那么首先检查下代理是否支持 https，否则请向我们 [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
 
 7. 上传进度到了 100%，最终还是回调了 onFailed 接口，该如何处理？
 上传进度这里只是代表 sdk 写入到网络中的进度，100% 并不表示上传完成，只有回调 onSuccess 接口才真正上传成功，如果在最后发送 Complete Multipart Upload 请求时产生了异常，那么会回调 onFailed 接口。
@@ -41,4 +41,4 @@ sdk 回调线程不一定是主线程，请不要直接操作 ui。
 可能是您通过代理访问 cos，但是代理没有做好转发，直接返回了不正确的回包，导致 sdk 解析错误，可以抓包查看客户端接收的回包是否正常。
 
 15. 调用接口报错 403 权限错误，该如何处理？
-权限问题一般不是 sdk 的问题，检查自己授权信息，或者提交工单处理。
+权限问题一般不是 sdk 的问题，检查自己授权信息，或者 [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
