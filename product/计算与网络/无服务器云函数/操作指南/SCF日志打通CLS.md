@@ -33,26 +33,70 @@
 4. 在日志主题“基本信息”页面，单击【索引配置】。如下图所示：
 ![](https://main.qcloudimg.com/raw/dfb2ab52611a37e82873d3b97f33a0a6.png)
 4. 单击右上角的【编辑】，开启“键值索引”后按照下表添加“字段名称”、“字段类型”。
+<table>
+<thead>
+<tr>
+<th>字段名称</th>
+<th>字段类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SCF_FunctionName</td>
+<td>text</td>
+</tr>
+<tr>
+<td>SCF_Namespace</td>
+<td>text</td>
+</tr>
+<tr>
+<td>SCF_StartTime</td>
+<td>long</td>
+</tr>
+<tr>
+<td>SCF_LogTime</td>
+<td>long</td>
+</tr>
+<tr>
+<td>SCF_RequestId</td>
+<td>text</td>
+</tr>
+<tr>
+<td>SCF_Duration</td>
+<td>long</td>
+</tr>
+<tr>
+<td>SCF_Alias</td>
+<td>text</td>
+</tr>
+<tr>
+<td>SCF_Qualifier</td>
+<td>text</td>
+</tr>
+<tr>
+<td>SCF_MemUsage</td>
+<td>double</td>
+</tr>
+<tr>
+<td>SCF_Level</td>
+<td>text</td>
+</tr>
+<tr>
+<td>SCF_Message</td>
+<td>text</td>
+</tr>
+<tr>
+<td>SCF_Type</td>
+<td>text</td>
+</tr>
+<tr>
+<td>SCF_StatusCode</td>
+<td>long</td>
+</tr>
+</tbody></table>
 
-|  字段名称   | 字段类型  |
-|  ----  | ----  |
-| SCF_FunctionName  | text |
-| SCF_Namespace  | text |
-| SCF_StartTime | long |
-| SCF_LogTime | long |
-| SCF_RequestId | text |
-| SCF_Duration | long |
-| SCF_Alias | text |
-| SCF_Qualifier | text |
-| SCF_MemUsage | double |
-| SCF_Level | text |
-| SCF_Message | text |
-| SCF_Type | text |
-| SCF_StatusCode | long |
-
->? 对于配置了 CLS 的函数，为保证云函数控制台日志展示效果，请在键值索引配置中为字段“开启统计”能力。
+ >? 对于配置了 CLS 的函数，为保证云函数控制台日志展示效果，请在键值索引配置中为字段“开启统计”能力。
 ![](https://main.qcloudimg.com/raw/f852620614fe76d648af252ca20621ca.png)
-
+>
 如需使用更多功能，例如日志实时检索，日志投递和消费等，请参考 [日志服务文档](https://cloud.tencent.com/document/product/614) 并前往 [CLS 控制台](https://console.cloud.tencent.com/cls) 开始使用。
 
 
