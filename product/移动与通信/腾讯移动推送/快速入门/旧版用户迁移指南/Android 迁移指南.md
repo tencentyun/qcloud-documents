@@ -9,8 +9,8 @@
 - 在 AndroidManifest 上添加的 application 节点内添加以下配置，填写信鸽平台的 ACCESS ID：
 ```xml
 <meta-data
-    android:name="XG_OLD_ACCESS_ID"
-    android:value="信鸽平台应用的 ACCESS ID" />
+	android:name="XG_OLD_ACCESS_ID"
+	android:value="信鸽平台应用的 ACCESS ID + L" />
 ```
 
 - 在应用首次覆盖安装时，如您在logcat中看到如下日志打印，即说明 SDK 已成功获取信鸽版本的推送信息，将在推送注册时一并向服务器上报：
@@ -261,7 +261,10 @@ implementation  'com.google.firebase:firebase-messaging:17.6.0'
 -keep public class * extends android.app.Service
 -keep public class * extends android.content.BroadcastReceiver
 -keep class com.tencent.android.tpush.** {*;}
--keep class com.tencent.bigdata.baseapi.** {*;}
--keep class com.tencent.bigdata.mqttchannel.** {*;}
+-keep class com.tencent.tpns.baseapi.** {*;} 
+-keep class com.tencent.tpns.mqttchannel.** {*;}
 -keep class com.tencent.tpns.dataacquisition.** {*;}
+
+-keep class com.tencent.bigdata.baseapi.** {*;}   // 1.2.0.1 及以上版本不需要此条配置
+-keep class com.tencent.bigdata.mqttchannel.** {*;}  // 1.2.0.1 及以上版本不需要此条配置
 ```

@@ -1,6 +1,6 @@
 ## 功能描述
 
-CreateMediaJobs 接口用来提交一个截图任务。
+CreateMediaJobs 用于提交一个截图任务。
 
 ## 请求
 
@@ -105,7 +105,7 @@ Container 类型 Output 的具体数据描述如下：
     <CreationTime></CreationTime>
     <EndTime></EndTime>
     <QueueId></QueueId>
-    <Tag>Snapshot<Tag>
+    <Tag>Snapshot</Tag>
     <Input>
       <Object></Object>
     </Input>
@@ -180,13 +180,13 @@ Container 节点 MediaInfo 的内容：
 
 ```shell
 POST /jobs HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
 Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
 
 <Request>
-  <Tag>Snapshot<Tag>
+  <Tag>Snapshot</Tag>
   <Input>
     <Object>test.mp4</Object>
   </Input>
@@ -211,7 +211,7 @@ Content-Length: 230
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
 
 <Response>
   <JobsDetail>
@@ -222,7 +222,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
     <CreationTime>2019-07-07T12:12:12+0800</CreationTime>
     <EndTime></EndTime>
     <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
-    <Tag>Snapshot<Tag>
+    <Tag>Snapshot</Tag>
     <Input>
       <Object>test.mp4</Object>
     </Input>
@@ -246,13 +246,13 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
 
 ```shell
 POST /jobs HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
 Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
 
 <Request>
-  <Tag>Snapshot<Tag>
+  <Tag>Snapshot</Tag>
   <Input>
     <Object>test.mp4</Object>
   </Input>
@@ -284,7 +284,7 @@ Content-Length: 230
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
 
 <Response>
   <JobsDetail>
@@ -295,7 +295,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
     <CreationTime>2019-07-07T12:12:12+0800</CreationTime>
     <EndTime></EndTime>
     <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
-    <Tag>Snapshot<Tag>
+    <Tag>Snapshot</Tag>
     <Input>
       <Object>test.mp4</Object>
     </Input>

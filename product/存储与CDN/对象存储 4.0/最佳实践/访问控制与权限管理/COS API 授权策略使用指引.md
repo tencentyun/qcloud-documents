@@ -127,7 +127,7 @@ API 接口为 PUT Bucket，若授予其操作权限，则策略的 action 为 na
 }
 ```
 
->?存储桶名称需符合命名规范，详情请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
+>?存储桶名称需符合命名规范，详情请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
 
 ### 检索存储桶及其权限  
 

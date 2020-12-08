@@ -16,8 +16,7 @@ bin/alluxio fs mount --option fs.cos.access.key=<COS_SECRET_ID> \
     --option fs.cos.app.id=<COS_APP_ID> \
     /cos cos://<COS_BUCKET>/
 ```
->!不需要加 AppID。
->
+
 其中，--options 中配置 COS 的配置。
 
 | 配置名称          | 解释                                   |
@@ -26,7 +25,7 @@ bin/alluxio fs mount --option fs.cos.access.key=<COS_SECRET_ID> \
 | fs.cos.secret.key | cos secret key                         |
 | fs.cos.region     | cos region 名称，例如`ap-beijing` |
 | fs.cos.app.id     | 用户 AppID                              |
-| COS_BUCKET        | COS BUCKET 名称                         |
+| COS_BUCKET        | COS BUCKET 名称。**只要名称，不要带 AppID 后缀**                         |
 
 该命令，将 COS 的目录（通过`cos://bucket/xxx`指定）挂载到 alluxio 的`/cos`目录下。 
 
@@ -38,3 +37,11 @@ bin/alluxio fs mount /hdfs hdfs://data
 
 挂载成功后，通过`alluxio fs ls`命令，查看挂载内容。
 
+ **示例3：将 CHDFS 通过 mount 挂载到 Alluxio**
+ >?只有 EMR2.5.0 + alluxio2.3.0+ 以上才支持。
+ >
+```
+alluxio fs mount   \ 
+ --option alluxio.underfs.hdfs.configuration=/usr/local/service/hadoop/etc/hadoop/core-site.xml  \
+/chdfs ofs://f4modr7kmvw-wMqw.chdfs.ap-chongqing.myqcloud.com
+```

@@ -51,8 +51,8 @@ Namespace=QCE/CDB
 | InnodbBufferPoolPagesTotal   | InnoDB 总页数                             | Innodb 引擎占用内存总页数                                    | 个      | InstanceId、InstanceType |
 | InnodbBufferPoolReadRequests | InnoDB 逻辑读                             | Innodb 引擎每秒已经完成的逻辑读请求次数                      | 次/秒   | InstanceId、InstanceType |
 | InnodbBufferPoolReads        | InnoDB 物理读                             | Innodb 引擎每秒已经完成的物理读请求次数                      | 次/秒   | InstanceId、InstanceType |
-| InnodbDataReads              | InnoDB 总读取量                           | Innodb 引擎每秒已经完成读取数据的字节数                      | 次/秒   | InstanceId、InstanceType |
-| InnodbDataRead               | InnoDB 读取量                             | Innodb 引擎每秒已经完成读取数据的次数                        | Byte/秒 | InstanceId、InstanceType |
+| InnodbDataReads              | InnoDB 总读取量                           |     Innodb 引擎每秒已经完成读取数据的次数                    | 次/秒   | InstanceId、InstanceType |
+| InnodbDataRead               | InnoDB 读取量                             | Innodb 引擎每秒已经完成读取数据的字节数                      | Byte/秒 | InstanceId、InstanceType |
 | InnodbDataWrites             | InnoDB 总写入量                           | Innodb 引擎每秒已经完成写数据的次数                          | 次/秒   | InstanceId、InstanceType |
 | InnodbDataWritten            | InnoDB 写入量                             | Innodb 引擎每秒已经完成写数据的字节数                        | Byte/秒 | InstanceId、InstanceType |
 | InnodbRowsDeleted            | InnoDB 行删除量                           | Innodb 引擎每秒删除的行数                                    | 次/秒   | InstanceId、InstanceType |
@@ -71,8 +71,8 @@ Namespace=QCE/CDB
 | TableLocksImmediate          | 立即释放的表锁数                         | 立即释放的表锁个数                                           | 个      | InstanceId、InstanceType |
 | OpenFiles                    | 打开文件总数                             | 当前数据库打开文件总数                                       | 个      | InstanceId、InstanceType |
 | LogCapacity                  | 日志使用量                               | 当前数据库日志使用量                                         | MB      | InstanceId、InstanceType |
-| SlaveIoRunning               | IO 线程状态                               | Slave下 IO 线程状态                                          | —       | InstanceId、InstanceType |
-| SlaveSqlRunning              | SQL 线程状态                              | Slave下 ISQL 线程状态                                         | —       | InstanceId、InstanceType |
+| SlaveIoRunning               | IO 线程状态                               | Slave 下 IO 线程状态                                          | —       | InstanceId、InstanceType |
+| SlaveSqlRunning              | SQL 线程状态                              | Slave 下 SQL 线程状态                                         | —       | InstanceId、InstanceType |
 | MasterSlaveSyncDistance      | 主从延迟距离                             | 主从 binlog 差距                                             | MB      | InstanceId、InstanceType |
 | SecondsBehindMaster          | 主从延迟时间                             | 主从延迟时间                                                 | MB      | InstanceId、InstanceType |
 
@@ -82,10 +82,10 @@ Namespace=QCE/CDB
 
 | 参数名称                       | 维度名称     | 维度解释                                                     | 格式                                     |
 | ------------------------------ | ------------ | ------------------------------------------------------------ | ---------------------------------------- |
-| Instances.N.Dimensions.0.Name  | InstanceId   | 数据库的实例 ID名称                                          | 输入 String 类型维度名称，例如：topicId      |
-| Instances.N.Dimensions.0.Value | InstanceId   | 数据库的具体ID                                               | 输入具体实例ID，例如：topic-i4p4k0u0      |
+| Instances.N.Dimensions.0.Name  | InstanceId   | 数据库的实例 ID 名称                                          | 输入 String 类型维度名称，例如：topicId      |
+| Instances.N.Dimensions.0.Value | InstanceId   | 数据库的具体ID                                               | 输入具体实例 ID，例如：topic-i4p4k0u0      |
 | Instances.N.Dimensions.1.Name  | InstanceType | 数据库实例类型                                               | 输入 String 类型维度名称，例如：InstanceType |
-  | Instances.N.Dimensions.1.Value | InstanceType | 数据库实例类型，默认取值为1：<br><li>取值为1：表示拉取 master 监控数据<br><li>取值为2：表示拉取 slave 的 SlaveIoRunning、SlaveSqlRunning、MasterSlaveSyncDistance、SecondsBehindMaster 监控数据 | 输入实例类型，默认取值为1                |
+  | Instances.N.Dimensions.1.Value | InstanceType | 数据库实例类型，默认取值为1，详细取值如下：<br><li>取值为1：表示拉取实例主机的监控数据<br><li>取值为2：表示拉取实例从机的监控数据<br><li>取值为3：表示拉取只读实例的监控数据<br><li>取值为4：表示拉取实例第二从机（仅金融版实例有第二从机）的监控数据 | 输入实例类型，默认取值为1                |
 	
 	
 	

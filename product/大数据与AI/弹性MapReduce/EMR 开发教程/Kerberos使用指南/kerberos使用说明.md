@@ -34,7 +34,7 @@ Entry for principal test-client/host@EXAMPLE.COM with kvno 2, encryption type de
 kadmin.local:  q
 ```
 
-这里，我们创建了两个新的用户：test-server/host@EXAMPLE.COM 和 test-client/host@EXAMPLE.COM，并且将这两个用户的密钥放置到`/etc/krb5.keytab`文件中。
+这里，我们创建了两个新的用户：`test-server/host@EXAMPLE.COM` 和 `test-client/host@EXAMPLE.COM`，并且将这两个用户的密钥放置到`/etc/krb5.keytab`文件中。
 
 ## 启动 kdc
 ```
@@ -46,9 +46,7 @@ kadmin.local:  q
 ```
 kinit -k -t /etc/krb5.keytab test-client/host@EXAMPLE.COM
 ```
-kinit 对应的是向 kdc 获取 TGT 的步骤。它会向`/etc/krb5.conf`中指定的 kdc server 发送请求。
-
-如果 TGT 请求成功，使用 klist 即可看到。
+kinit 对应的是向 kdc 获取 TGT 的步骤。它会向`/etc/krb5.conf`中指定的 kdc server 发送请求。如果 TGT 请求成功，使用 klist 即可看到。
 ```
 klist
 Ticket cache: FILE:/tmp/krb5cc_1000

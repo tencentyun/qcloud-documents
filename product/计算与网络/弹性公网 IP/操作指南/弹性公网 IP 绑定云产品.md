@@ -11,12 +11,12 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>非带宽上移账户</td>
+<td>传统账户类型</td>
 <td align="center">-</td>
 <td>EIP 本身不收取任何费用，仅在 CVM 上收取 <a href="https://cloud.tencent.com/document/product/213/10578" target="_blank">公网网络费用</a>。</td>
 </tr>
 <tr>
-<td rowspan="4">带宽上移账户</td>
+<td rowspan="4">标准账户类型</td>
 <td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#1" target="_blank">按流量</a></td>
 <td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a>。</td>
 </tr>
@@ -26,6 +26,10 @@
 </tr> 
 <tr>
 <td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#2" target="_blank">按小时带宽</a></td>
+<td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a>。</td>
+</tr>
+<tr>
+<td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#4" target="_blank">共享带宽包</a></td>
 <td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a>。</td>
 </tr>
 
@@ -46,8 +50,8 @@
 <thead>
 <tr>
 <th width="17%">绑定的云资源</th>
-<th width="43%">非带宽上移账户</th>
-<th width="40%">带宽上移账户</th>
+<th width="43%">传统账户类型</th>
+<th width="40%">标准账户类型</th>
 </tr>
 </thead>
 <tbody>
@@ -60,7 +64,7 @@
 <tr><td colspan="2"><ul><li>EIP 与 CVM 实例需处于<strong>相同地域</strong>才可进行绑定。</li><li>EIP 绑定 CVM 实例的数量限制，根据 CVM 实例 CPU 配置的差异有所不同，请参见 <a href="https://cloud.tencent.com/document/product/1199/41648">使用限制</a>。</li></ul></td></tr>
 <tr>
 <td rowspan="2">NAT 网关</td>
-<td>—</td>
+<td>-</td>
 <td>仅按流量和共享带宽包计费模式的 EIP 可与 NAT 网关进行绑定。</td>
 </tr>
 <tr><td colspan="2"><ul><li>EIP 与 NAT 网关需处于<strong>相同地域</strong>才可进行绑定。</li><li>一个 NAT 网关最多可绑定10个 EIP。</li><li>当 NAT 网关绑定多个 EIP 时，系统会自动做负载均衡。</li></ul></td>

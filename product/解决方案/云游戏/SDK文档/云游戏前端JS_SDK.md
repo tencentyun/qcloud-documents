@@ -74,12 +74,12 @@ params对象有效字段描述：
 | ----------------------- | -------- | -------- | ------------------------------------------------------------ |
 | mount                   | string   | 必填     | 页面挂载点的 HTML 元素 ID                                    |
 | appid                   | number   | 必填     | 用户的腾讯云 [APPID](https://console.cloud.tencent.com/developer) |
-| debug                   | boolean  | 可选     | 默认值：false<br>true 为自动显示 webrtc 状态信息，否则需要按 `CTRL+~` 快捷键显示 |
+| debug                   | boolean  | 可选     | true 为自动显示 webrtc 状态信息，否则需要按 `CTRL+~` 快捷键显示。默认值：false |
 | showLogo                | boolean  | 可选     | 隐藏腾讯云 Logo，true 为隐藏，false 为不隐藏。默认值为 true  |
-| mask                    | boolean  | 可选     | 默认值为 true，false 则隐藏 `click to start` 蒙层            |
+| mask                    | boolean  | 可选     | false 为隐藏 `click to start` 蒙层，默认值为 true            |
 | mic                     | boolean  | 可选     | 开启本地麦克风，true 为开启，false 为关闭。默认值为 false     |
 | nativeCursor            | boolean  | 可选     | 是否显示本地鼠标，true 为显示，false 为隐藏。默认值为 true   |
-| tabletMode              | boolean  | 可选     | 默认值：false<br />true 为使用平板滑动鼠标模式，false 为绝对映射模式。该参数只针对移动端，PC 端忽略该参数 |
+| tabletMode              | boolean  | 可选     | true 为使用平板滑动鼠标模式，false 为绝对映射模式。该参数只针对移动端，PC 端忽略该参数。默认值：false |
 | clickToFullscreen       | boolean  | 可选     | 是否启动点击全屏操作，true 为启用，false为禁用。默认值为 true |
 | idleThreshold           | number   | 可选     | 用户操作空闲时间阈值，单位为秒，默认值：300s<br />空闲超过这个时间将触发 `onNetworkChange` 事件，消息为 `{status: 'idle', times: 1}` |
 | keepLastFrame           | boolean  | 可选     | 断开的时候是否保留最后一帧画面，如果需要保留最后一帧画面并重连，不能再次调用 init 函数，而是先调用 `destroy()` 接口，再调用 `start()` 接口。默认值：false |

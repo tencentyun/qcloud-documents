@@ -8,16 +8,9 @@
 
 
 ## 各架构对比
-
 <table>
 <thead>
-<tr>
-<th width="15%">架构</th>
-<th width="20%">高可用版</th>
-<th width="20%">金融版</th>
-<th width="20%">单节点高 IO 版</th>
-<th width="25%">基础版</th>
-</tr>
+<tr><th width="15%">架构</th><th width="20%">高可用版</th><th width="20%">金融版</th><th width="20%">单节点高 IO 版</th><th width="25%">基础版</th></tr>
 </thead>
 <tbody><tr>
 <td>支持版本</td>
@@ -36,7 +29,7 @@
 <tr>
 <td>主备复制方式</td>
 <td>异步（默认）、半同步</td>
-<td>强同步</td>
+<td>异步（默认）、强同步、半同步</td>
 <td>-</td>
 <td>-</td>
 </tr>

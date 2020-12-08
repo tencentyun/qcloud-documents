@@ -1,6 +1,4 @@
-> ?
-> - 新版 Dashboard 已上线，我们衷心欢迎您试用并告诉我们需要改进之处。[单击链接](https://cloud.tencent.com/apply/p/omia0k6sli) 可申请体验！
-> - 欢迎添加云监控小M微信号（hitherecm），备注 Dashboard，我们将拉您进入专属交流群，竭诚为您服务！
+
 
 
 

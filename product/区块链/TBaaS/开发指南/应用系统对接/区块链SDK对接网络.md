@@ -1,6 +1,24 @@
+>! 区块链 SDK 对接网络调用方式仅支持 Fabric 网络。
+
 若应用系统调用频率较高，则需要直接使用区块链 SDK 与区块链网络对接。这种情况下**应用系统应部署在与区块链网络同一地域内的云服务器 CVM 上**。在云 API 调用方式中，需要应用系统提供账户的 SecretID 和 SecretKey，用于认证授权访问权限。而在区块链 SDK 中，则需要应用系统在 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview) 上申请用于访问的证书（节点证书和 nginx 证书）。如下图所示：
 ![img](https://main.qcloudimg.com/raw/81e1898de06b79a0b848345a72e4df4c.png)            
 如果应用在开发测试中希望在本地访问区块链网络，则可以开启并使用网络的外网域名，使用该域名访问区块链网络的代理组件。这种访问方式仅适用于开发调试，在生产环境中推荐使用访问管理打通 VPC 的方式。
+
+
+两种访问方式都需要在“访问管理”标签页中获取访问端地址，分别为“外网域名”和“访问端地址”。其区别可参考以下表格：
+
+| VPC访问                                | 外网访问                   |
+| ------------------------------------- | -------------------------- |
+| 使用内网地址，无法在本地访问。                                | 使用公网域名，可在本地访问。 |
+| 性能高。                                                       | 性能低。                     |
+| 可用于生产环境。                                               | 一般只用于调试。             |
+| 应用系统需要部署在与区块链节点同地域的VPC内，并在访问管理页面进行内网打通。 | 应用系统可部署在本地。       |
+
+
+
+
+
+
 除了支持社区版区块链 SDK（Java、NodeJS、Golang），TBaaS 对 Java 版的社区区块链 SDK 进行了定制（tbaas-fabric-sdk-java），简化了应用系统与区块链网络连接的流程。
 
 ## 获取访问地址及证书
@@ -12,7 +30,7 @@
 ![](https://main.qcloudimg.com/raw/aa9b66415677d8e0cc49a9fd6ab66015.png)
   - 名称：即链接标识。
   - 选择访问端：即选择应用系统所在的 VPC 和子网。
-5. 创建成功后即可获取 VPC 访问地址（记为 PROXY_URL），即访问端地址。如下图所示：
+5. 创建成功后即可获取 VPC 访问地址（记为 PROXY_URL），即访问端地址（内网地址）。如下图所示：
 ![](https://main.qcloudimg.com/raw/86c7e8f4e7e4c51d83f1ab5c8aaef922.png)
   在本端链接选项中单击【查看】，并下载 nginx 证书（记为TLS_CERT），保存在文件中。如下图所示：
 ![](https://main.qcloudimg.com/raw/33ecdd5e5e06c82834716821db248a76.png)
@@ -20,9 +38,11 @@
 ### 外网访问（仅用于开发测试）<span id="stepwaiwang"></span>
 1. 登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview)。
 2. 选择左侧导航栏中的【Fabric】>【区块链网络】，进入“区块链网络”页面。
-3.  在“区块链网络”页面中，选择需查看的网络，进入“网络概览”页面。
-4.  在“网络概览”页面中，单击【Nginx证书下载】。如下图所示：
-![](https://main.qcloudimg.com/raw/bdfb6f5c30731a909794bc56788f29b1.png)
+3.  在“区块链网络”页面中，选择需查看的网络，进入“访问管理”页面。
+4.  在“访问管理”页面中，单击外网域名右侧的【开启】。如下图所示：
+![](https://main.qcloudimg.com/raw/423f571003ad6d7e549a68e78bb8253a.png)
+ 获取外网域名后并单击【nginx 证书下载】。
+![](https://main.qcloudimg.com/raw/105eabc138754834a377017c6fbaa805.png)
 5. 前往 [OpenSSL](https://www.openssl.org/source/) 官网，下载 openssl 并配置安装。
 6. 下载 [ecccsr](https://tbaasdoc-1259695942.cos.ap-guangzhou.myqcloud.com/ecccsr.zip?_ga=1.59257006.2054822156.1595822583) 工具，解压后执行 `sh ecccsr.sh`，得到以下三个文件：
   - out.key

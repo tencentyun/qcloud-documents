@@ -1,3 +1,126 @@
+## Version 8.1 @ 2020.12.03
+
+**功能新增**
+- 全平台：统计信息（onStatistics）中新增远端视频卡顿的相关统计指标。
+- 全平台：支持通过音量调节接口 setAudioPlayoutVolume（100-150） 实现声音的增益效果。
+- iOS&Android：新增 setLocalVideoProcessListener 接口，能更好地支持第三方美颜 SDK 的集成。
+- C# ：同步升级至最新版本的 API 接口。
+
+**质量优化**
+- 全平台：优化戴耳机时的声音处理算法，提高声音音质。
+- Android：优化音频前处理算法，降低 3A 算法对音质的影响。
+
+**问题修复**
+- iOS：修复部分偶现的强杀 App 导致的崩溃问题。
+- Android：修复当采集帧率比较高时出现的美颜效果异常问题。
+- Windows：修复高 DPI 下屏幕分享偶现的崩溃问题。
+
+
+## Version 8.0 @ 2020.11.13
+
+**新增**
+- 全平台新增 C++ 统一 API，请参见 cpp_interface/[ITRTCCloud.h](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html)。
+- 全平台支持字符串房间号，请参见 TRTCParams.strRoomId。
+- 全平台新增 TXDeviceManager 设备管理类。
+- 全平台新增 API TRTCCloud.switchRoom，支持不停止采集，直接切换房间。
+- 全平台新增 API TRTCCloud.startRemoteView 开始渲染远端视频画面。
+- 全平台新增 API TRTCCloud.stopRemoteView 停止渲染远端视频画面。
+- 全平台新增 API TRTCCloud.getDeviceManager 获取设备管理类。
+- 全平台新增 API TRTCCloud.startLocalAudio 开启本地音频的采集和上行。
+- 全平台新增 API TRTCCloud.setRemoteRenderParams 设置远端图像的渲染配置。
+- 全平台新增 API TRTCCloud.setLocalRenderParams 设置本地图像的渲染配置。
+
+**优化**
+- Android 优化软硬解切换逻辑。
+- Windows 优化 System loopback 音频采集音质及回声消除效果。
+- Windows 优化音频设备选择逻辑，降低无声率。
+- Windows 优化双讲剪切效果。
+- 全平台优化手动接收模式切换角色时的秒开效果。
+- 全平台优化音频接收逻辑，提升音频效果。
+- 全平台优化 sendCustomCmdMsg 可靠性。
+
+**修复**
+- iOS 修复 muteLocalVideo 调用导致本地视频渲染暂停的问题。
+- iOS 修复在前后台切换时偶现调用系统组件可能导致卡死的问题。
+- iOS 修复开启音效时，耳返音频断断续续的问题。
+- Android 修复切通话音量播音效的时候电话打断，音效不会停止播放的问题。
+- Android 修复偶现音频采集启动失败的问题。
+- Windows 修复偶现本地视频渲染黑屏的问题。
+- Windows 修复进程退出时可能crash的问题。
+- Windows 优化蓝牙耳机支持，修复蓝牙耳机无声问题。
+- Windows 修复屏幕分享结束时抢焦点的问题。
+- 全平台修复状态回调丢包率统计异常问题。
+
+
+
+## Version 7.9 @ 2020.10.27
+**新增**
+- Mac：屏幕分享支持过滤选定的窗口，用户可以将自己不希望分享出去的窗口排除掉，从而更好地保护用户的隐私。
+- Windows：屏幕分享支持设置“正在分享”提示边框的描边颜色以及边框宽度。
+- Windows：屏幕分享在分享整个桌面时支持开启高性能模式。
+- 全平台：支持自定义加密，用户可以对编码后的音视频数据通过暴露的 C 接口进行二次处理。
+- 全平台：在 TRTCRemoteStatistics 中新增音频卡顿信息回调 `audioTotalBlockTime` 和 `audioBlockRate`。
+
+**优化**
+- iOS：优化了音频模块的启动速度，让首个音频帧可以更快地采集并发送出去。
+- Windows：优化系统回采的回声消除算法，让开启系统回采（SystemLoopback）时有更好的回声消除能力。
+- Windows：优化屏幕分享功能中的窗口采集抗遮挡能力，支持设置过滤窗口。
+- Android：针对大部分 Android 机型进行了耳返效果的优化，使耳返延迟降低到一个更舒适的水平。
+- Android：针对 Music 模式（在 startLocalAudio 时指定）下的点对点延迟进行了进一步的优化。
+- 全平台：在手动订阅模式下，优化了观众和主播角色互切时的声音流畅度。
+- 全平台：优化了音视频通话中的弱网抗性，在较差的网络下也能有更优质的音频流畅度。
+
+**修复**
+- iOS：修复部分场景下偶现的视频画面不渲染问题。
+- iOS：修复用户在戴耳机并且是 Default 音质下偶现的杂音问题。
+- iOS：修复部分已知的内存泄露问题。
+- iOS：修复偶现的 replaykit 扩展录屏结束后的 crash 问题。
+- iOS：解决模拟器环境下的编译问题。
+- Android：修复部分手机在 App 长时间切到后台，之后又再次切回前台时偶现的音画不同步问题。
+- Android：修复切后台后没有释放麦克风的问题。
+- Android：修复 SDK 内部部分 OpenGL 资源未及时释放的问题。
+- Windows：修复个别场景下偶现的杂音问题。
+- 全平台：修复部分偶现的崩溃问题，提升 SDK 的稳定性。
+
+## Version 7.8 @ 2020.09.29
+**新增**
+- Mac：新增系统音量变化回调，详见 [TRTCCloudDelegate.onAudioDevicePlayoutVolumeChanged](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#af24c0f0258e83ab644e242ee0d01277f)。
+- Windows：新增支持跨屏指定区域进行屏幕分享。
+- Windows：新增窗口分享支持过滤指定窗口进行抗遮挡，详见 [TRTCCloud.addExcludedShareWindow](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ae5141a9331c3675f17fbdc922f376b06) 和 [TRTCCloud.removeExcludedShareWindow](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a08504ce347b593c0191904611da5cfd2)。
+- Windows：新增系统音量变化回调，详见 [ITRTCCloudCallback.onAudioDevicePlayoutVolumeChanged](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#a39cf2644243dceaccd82933f11f4db12)。
+
+**优化**
+- iOS：支持 VODPlayer 和 trtc 一起使用，并且支持回声消除。
+- iOS&Mac：支持垫片推流，使用方法见 [TRTCCloud.setVideoMuteImage](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ad730c168c066599b6c4c987fd7b7c3a2)。
+- Android：支持垫片推流，使用方法见 [TRTCCloud.setVideoMuteImage](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a78195189ea5f3db9a05338f585bb925d)。
+- Android：优化声音路由策略，支持戴耳机时，声音只从耳机播放。
+- Android：支持部分系统下采用低延迟采集播放，降低 Android 系统通话延迟。
+- Android：支持 VODPlayer 和 trtc 一起使用，并且支持回声消除。
+- Windows：兼容虚拟摄像头 e2eSoft Vacm。
+- Windows：支持同时调用 startLocalPreview 和 startCameraDeviceTest。
+- Windows：支持屏幕分享走主路的同时，调用 startLocalPreview 开启本地预览。
+- Windows：降低因 SDK 内部播放缓冲引发音频延迟较大的问题。
+- Windows：优化音频启动逻辑，在仅播放的情况下不占用麦克风。
+
+
+
+**修复**
+- iOS：修复 iPhone SE 播放声音小的问题。
+- iOS：修复子房间 (TRTCCloud.createSubCloud) 调用 muteRemoteAudio 触发 crash 的问题。
+- iOS：修复偶现渲染 crash 问题。
+- iOS：修复前后台切换时在部分 iPad 视频渲染偶现卡死主线程的问题。
+- iOS：修复已知内存泄露。
+- iOS：修复 iOS14 提示“查找并连接本地网络上的设备”的问题。
+- Mac：修复 getCurrentCameraDevice 始终返回 nil 的问题。
+- Mac：修复部分 USB 摄像头无法打开的问题。
+- Mac：修复屏幕分享指定区域面积为0时的 crash 问题。
+- Android：修复未配置 READ_PHONE_STATE 权限时，Android5.0 设备 crash 的问题。
+- Android：修复蓝牙耳机断开再连上之后音频采集和播放异常的问题。
+- Android：修复已知 crash 问题。
+- Windows：修复64位 SDK 多次开关屏幕分享会 crash 的问题。
+- Windows：修复部分系统使用 OpenGL 会 crash 的问题。
+
+
 ## Version 7.7 @ 2020.09.08
 
 **优化**
@@ -52,7 +175,7 @@
 - Windows：修复多个已知的 crash 问题。
 - Windows：修复摄像头和麦克风拔掉后重新插入不会自动开启设备的问题。
 - iOS：修复在 iOS 10 上背景音乐接口在传入特定规则的文件路径时会崩溃的 BUG。
-- Android：修复频繁快速的 enterRoom 和 exitRoom 后偶先的无声问题。
+- Android：修复频繁快速的 enterRoom 和 exitRoom 后偶现的无声问题。
 - Android：修复偶现的录屏推流黑屏的问题。
 
 

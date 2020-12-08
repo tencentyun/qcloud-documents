@@ -27,7 +27,7 @@ Glide.with(activity).load(request.getUrl().toString()).into(imageview);
 
 安装 TPG SDK 和 cloud-infinite-glide SDK 以及 glide:compiler。
 ```
-implementation 'com.tencent.qcloud:tpg:1.2.0'	
+implementation 'com.tencent.qcloud:tpg:1.3.1'	
 implementation 'com.tencent.qcloud:cloud-infinite-glide:1.2.0'	
 annotationProcessor 'com.github.bumptech.glide:compiler:version' 
 ```

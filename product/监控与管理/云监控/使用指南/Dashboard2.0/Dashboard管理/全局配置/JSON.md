@@ -1,7 +1,3 @@
-> ?
-> - 新版 Dashboard 已上线，我们衷心欢迎您试用并告诉我们需要改进之处。[单击链接 ](https://cloud.tencent.com/apply/p/omia0k6sli) 可申请体验！
-> - 欢迎添加云监控小M微信号（hitherecm），备注 Dashboard，我们将拉您进入专属交流群，竭诚为您服务！
-
 
 
 本文将为您介绍 JSON 的操作步骤和相关说明。
@@ -59,7 +55,7 @@ JSON 模板包含 Dashboard 的属性、模板变量、面板查询等字段，�
 			"Selected": [], // 模板变量的值
 			"Type": "monitor", // 模板变量的类型
 			"TemplatingType": "basics", // 标签的类型：基础监控、自定义监控
-      "TemplatingType": '123', // 变量id
+      "TemplatingType": '123', // 变量 id
 		}
 	]
 ```
@@ -93,8 +89,8 @@ JSON 模板包含 Dashboard 的属性、模板变量、面板查询等字段，�
 				"X": 0,
 				"Y": 0
 			},
-			"ID": 1595472129140, // 图表ID
-			"Panels": [], // panel为图表组的字段，里面存放子Panel
+			"ID": 1595472129140, // 图表 ID
+			"Panels": [], // Panel 为图表组的字段，里面存放子 Panel
 			"Title": "默认图表组", // 标题
 			"Type": "row" // 图表类型
 		},
@@ -131,7 +127,7 @@ JSON 模板包含 Dashboard 的属性、模板变量、面板查询等字段，�
 					"y": 0
 				},
 				"hiddenSeries": false,
-				"id": "1595471392817",// 图表panel的id
+				"id": "1595471392817",// 图表 panel 的 id
 				"legend": {// 图例设置
 					"alignAsTable": [// 图例是否以表格形式展示
 						"1"
@@ -164,7 +160,7 @@ JSON 模板包含 Dashboard 的属性、模板变量、面板查询等字段，�
 				],
 				"linesType": true,// 是否展示平滑曲线.【‘1’】为true；【‘0’】为false
 				"linewidth": "2",// 曲线宽度
-				"markline": {// mark设置
+				"markline": {// mark 设置
 					"marklineMax": {
 						"max": [// 是否显示峰值.【‘1’】为true；【‘0’】为false
 							"1"
@@ -173,7 +169,7 @@ JSON 模板包含 Dashboard 的属性、模板变量、面板查询等字段，�
 				},
 				"nullPointMode": "1",// 数据中空值展示方式：0-连接空数据；1-不填充；2-自动填充为0
 				"options": {
-					"dataLinks": []// datalinks数组
+					"dataLinks": []// datalinks 数组
 				},
 				"percentage": false,
 				"pointradius": 2,
@@ -211,13 +207,13 @@ JSON 模板包含 Dashboard 的属性、模板变量、面板查询等字段，�
 				},
 				"yaxes": [
 					{
-						"decimals": 2,// 左侧y轴精度
-						"format": "%",// 左侧y轴lebal单位
+						"decimals": 2,// 左侧 y 轴精度
+						"format": "%",// 左侧 y 轴 label 单位
 						"label": null,
 						"logBase": 1,
-						"max": 2,// 左侧y轴坐标最大值
-						"min": 0,// 左侧y轴坐标最小值
-						"show": [// 是否展示左侧y轴.【‘1’】为true；【‘0’】为false
+						"max": 2,// 左侧 y 轴坐标最大值
+						"min": 0,// 左侧 y 轴坐标最小值
+						"show": [// 是否展示左侧 y 轴.【‘1’】为true；【‘0’】为false
 							"1"
 						]
 					},

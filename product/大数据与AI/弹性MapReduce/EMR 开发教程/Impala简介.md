@@ -5,12 +5,11 @@ Impala 不同于 hive，hive 底层执行使用的是 MapReduce 引擎，仍然�
 Impala 与 Apache Hive 数据库集成，在两个组件之间共享数据库和表。通过与 Hive 的高度集成，以及与 HiveQL 语法的兼容性，您可以使用 Impala 或 Hive 创建表、发起查询、加载数据等。
 
 ## 前提条件
-- 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择 Impala 组件。
+- 确认已开通腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群时，需要在软件配置界面选择 Impala 组件。
 - Impala 安装在路径 EMR 云服务器的`/data/`路径下（`/data/Impala`）。
 
 ## 准备数据
-
-首先需要登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入命令行界面。
+首先需要登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)，可选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入命令行界面。
 
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入 Impala 文件夹。
 ```
@@ -43,9 +42,7 @@ done
 
 
 ## Impala 基础操作
-
 ### 连接 Impala
-
 登录 EMR 集群的 Master 节点，切换到 Hadoop 用户并且进入 Impala 目录，并连接 Impala：
 ```
 [root@10 Impala]# cd /data/Impala/; bin/impala-shell.sh -i $core_ip:27001
@@ -68,12 +65,9 @@ Impala.
 ```
 cd /data/Impala/; bin/impala-shell.sh -i localhost:27001
 ```
-
  
 ### 创建 Impala 库
-
 在 Impala 下执行以下语句，查看数据库：
-
 ```
 [10.1.0.215:27001] > show databases;
 Query: show databases
@@ -139,9 +133,7 @@ Fetched 2 row(s) in 0.01s
 ```
 LOAD DATA INPATH '$hdfspath/impala_test.data' INTO TABLE t1;
 ```
-其中 $hdfspath 为 HDFS 中您存放文件的路径。导入完成后，HDFS 上导入路径上的源数据文件将会被删除。存放到 Impala 内部表的存放路径`/usr/hive/warehouse/experiments.db/t1`下。
-
-也可以建立外部表，语句如下：
+其中 $hdfspath 为 HDFS 中您存放文件的路径。导入完成后，HDFS 上导入路径上的源数据文件将会被删除。存放到 Impala 内部表的存放路径`/usr/hive/warehouse/experiments.db/t1`下。也可以建立外部表，语句如下：
 >!这里只有一条指令，如果不输入分号“;”，可以把一条指令放在多行输入。
 >
 ```
@@ -189,8 +181,5 @@ Impala 也可以通过 Java 代码来连接，步骤类似于 [通过 Java 连�
 ```
 
 ## 如何映射 Hbase 表
-
-Impala 会使用 hive 的元数据信息，所有在 Hive 中的表，都可以在 Impala 中读到。
-
-可通过 [在 hive 中映射 Hbase 表](https://cloud.tencent.com/document/product/589/12320) 达到在 Impala 中映射 Hbase 表。
+Impala 会使用 hive 的元数据信息，所有在 Hive 中的表，都可以在 Impala 中读到。可通过 [在 hive 中映射 Hbase 表](https://cloud.tencent.com/document/product/589/12320) 达到在 Impala 中映射 Hbase 表。
 

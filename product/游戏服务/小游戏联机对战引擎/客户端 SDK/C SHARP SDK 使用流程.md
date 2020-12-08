@@ -38,9 +38,9 @@ static void Listener () {
 调用 Listener.Init 时，需要传入游戏信息 gameInfo 和游戏配置 config 两个参数。
 - gameInfo.GameId、gameInfo.SecretKey 和 config.Url 都需要根据控制台上的信息传入。
 - gameInfo.OpenId 为玩家唯一 ID，例如，微信小游戏平台上的 OpenID。
-- 其它字段由开发者自定义。
+- 其它字段由您自定义。
 
-每个字段的具体含义可以参考 [Listener 对象](https://cloud.tencent.com/document/product/1038/33323)。
+每个字段的具体含义您可参考 [Listener 对象](https://cloud.tencent.com/document/product/1038/33323)。
 
 初始化成功后才能继续调用其他接口。因此，下文的 API 调用代码都应该在初始化回调函数内调用。
 
@@ -113,7 +113,7 @@ room.OnDismissRoom = eve => {
 // ...
 ```
 
-其他广播接口可以参考 [Room 对象](https://cloud.tencent.com/document/product/1038/33325)。
+其他广播接口您可参考 [Room 对象](https://cloud.tencent.com/document/product/1038/33325)。
 
 #### 移除监听
 如果不想再接收该 Room 实例的广播，可以从 Listener 中移除：
@@ -125,7 +125,7 @@ room.OnDismissRoom = eve => {
 
 ### 创建房间
 可以通过创建房间、加入房间、匹配等方式进入房间，进入房间后可以继续通过房间消息、帧同步、实时服务器相关接口进行游戏。
-创建房间示例如下：
+创建房间示例代码如下：
 ```
 PlayerInfoPara playerInfoPara = new PlayerInfoPara
 {
@@ -168,7 +168,7 @@ room.CreateRoom(createRoomPara, eve =>
 ```   
 
 ### 游戏对战
-如果玩家已经加入房间，可以通过帧同步功能进行游戏对战。游戏过程中用到的接口有发送帧消息、帧广播，开发者可以利用这两个接口进行帧同步。帧广播的开始、结束需要使用房间的 startFrameSync、stopFrameSync 接口。
+如果玩家已经加入房间，可以通过帧同步功能进行游戏对战。游戏过程中用到的接口有发送帧消息、帧广播，您可以利用这两个接口进行帧同步。帧广播的开始、结束需要使用房间的 startFrameSync、stopFrameSync 接口。
 
 #### 开始帧同步
 使用 room.startFrameSync 接口可以开启帧广播。房间内任意一个玩家成功调用该接口将导致全部玩家开始接收帧广播。
@@ -221,7 +221,7 @@ static void sendFrame () {
 ```
 
 #### 接收帧广播
-开发者可设置 room.OnRecvFrame 广播回调函数获得帧广播数据。
+您可设置 room.OnRecvFrame 广播回调函数获得帧广播数据。
 
 ```c#
 // 广播：收到帧消息

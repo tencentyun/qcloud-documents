@@ -1,6 +1,6 @@
 ## 概述
 
-COS Select 接口可以使用结构化查询语句（Structured Query Language，SQL）从指定对象（CSV 格式或者 JSON 格式）中检索内容。在检索过程中，您需要指定对象内容的分隔符，并使用合适的 SQL 函数进行检索，COS Select 将返回相匹配的检索结果，您可以指定检索结果的保存格式。
+COS Select 接口可以使用结构化查询语句（Structured Query Language，SQL）从指定对象（CSV、JSON 或者 Parquet 格式）中检索内容。在检索过程中，您需要指定对象内容的分隔符，并使用合适的 SQL 函数进行检索，COS Select 将返回相匹配的检索结果，您可以指定检索结果的保存格式。
 
 如您需要了解 COS Select 的更多介绍，请参见 COS [Select 概述](https://cloud.tencent.com/document/product/436/37635)。有关 COS Select 的 SQL 表达式的介绍，您可以在开发者指南中参见 [Select 命令](https://cloud.tencent.com/document/product/436/37636) 进一步了解。
 
@@ -19,11 +19,12 @@ COS Select 支持检索以下格式的对象数据：
 
 - CSV 格式：对象以 CSV 格式存储，并以固定的分隔符划分。
 - JSON 格式：对象以 JSON 格式存储，可以是 JSON 文件或者 JSON 列表。
+- Parquet 格式：对象以 Parquet 格式存储，可以包含嵌套结构。
 
 > !
-> - CSV、JSON 对象需要以 UTF-8 格式编码。
-> - COS Select 支持检索 GZIP 或者 BZIP2 压缩的 CSV、JSON 对象。
-> - COS Select 支持检索 SSE-COS 加密的 CSV、JSON 对象。
+>- COS Select 的对象必须以 UTF-8 格式编码。
+>- COS Select 支持检索 GZIP 或者 BZIP2 压缩的 CSV、JSON 对象；支持检索经过 GZIP 或 Snappy 列压缩的 Parquet 对象。
+>- COS Select 支持检索 SSE-COS 加密的对象。
 
 ## 请求
 
@@ -106,10 +107,37 @@ Request body
 </SelectRequest> 
 ```
 
-> ?
-> - InputSerialization 元素描述了待检索的对象格式，为必填参数，该参数可以指定为 CSV 或者 JSON 格式。
-> - OutputSerialization 元素描述了检索结果的保存格式，该参数可以指定为 CSV 或者 JSON 格式。
-> - 待检索的对象格式无需和检索结果的保存格式互相匹配，您可以检索一个 JSON 格式的对象，并将检索结果保存为 CSV 格式，反之亦然。
+以下请求展示了用户发起一个 COS Select 请求，检索 Parquet 格式对象的所有内容，并将结果保存为 JSON 格式对象。
+
+```shell
+<?xml version="1.0" encoding="UTF-8"?>
+<SelectRequest>
+    <Expression>Select * from COSObject</Expression>
+    <ExpressionType>SQL</ExpressionType>
+    <InputSerialization>
+        <CompressionType>GZIP</CompressionType>
+        <Parquet>
+        </Parquet>
+    </InputSerialization>
+    <OutputSerialization>
+        <JSON>
+            <RecordDelimiter>\n</RecordDelimiter>
+        </JSON>                                  
+    </OutputSerialization>
+    <RequestProgress>
+        <Enabled>FALSE</Enabled>
+    </RequestProgress>                                  
+</SelectRequest> 
+```
+
+
+
+
+
+>?
+>- InputSerialization 元素描述了待检索的对象格式，为必填参数，该参数可以指定为 CSV 、JSON 或 Parquet 格式。
+>- OutputSerialization 元素描述了检索结果的保存格式，该参数可以仅可指定为 CSV 或者 JSON 格式。
+>- 待检索的对象格式无需和检索结果的保存格式互相匹配，您可以检索一个 JSON 格式的对象，并将检索结果保存为 CSV 格式。
 
 下表展示了请求体中的各项元素组成：
 
@@ -121,12 +149,13 @@ Request body
 | OutputSerialization | SelectRequest | 描述检索结果的输出格式                                       | Container | 是       |
 | RequestProgress     | SelectRequest | 是否需要返回查询进度 QueryProgress 信息，如果选中 COS Select 将周期性返回查询进度 | Container | 否       |
 
+
 **InputSerialization container element**
 
-| 名称            | 父节点             | 描述                                                         | 类型      | 是否必选                     |
-| --------------- | ------------------ | ------------------------------------------------------------ | --------- | ---------------------------- |
-| CompressionType | InputSerialization | 描述待检索对象的压缩格式：<br><li>如果对象未被压缩过，则该项为 NONE<br><li>如果对象被压缩过，COS Select 目前支持的两种压缩格式为 GZIP 和 BZIP2，可选项为 NONE、GZIP、BZIP2，默认值为 NONE | String    | 否                           |
-| CSV/JSON        | InputSerialization | 描述在相应的对象格式下所需的文件参数。例如 CSV 格式需要指定分隔符 | Container | 是<br>CSV 和 JSON 中的任意一个 |
+| 名称             | 父节点             | 描述                                                         | 类型      | 是否必选 |
+| :--------------- | :----------------- | :----------------------------------------------------------- | :-------- | :------- |
+| CompressionType  | InputSerialization | 描述待检索对象的压缩格式： 如果对象未被压缩过，则该项为 NONE。如果对象被压缩过，COS Select 目前支持的两种压缩格式为 GZIP 和 BZIP2，可选项为 NONE、GZIP、BZIP2，默认值为 NONE | String    | 否       |
+| CSV/JSON/PARQUET | InputSerialization | 描述在相应的对象格式下所需的文件参数。例如 CSV 格式需要指定分隔符 | Container | 是       |
 
 **CSV container element (InputSerialization 子元素)**
 
@@ -213,12 +242,12 @@ COS 将检索结果切成多个分块，每个分块即一个 Message。每一�
 ![Message construction](https://main.qcloudimg.com/raw/aeb1263d0c9af56842997327514f13aa.png)
 
 如上图所示，每一个分块 Message 均由预响应 prelude，预响应校验码 prelude CRC（由两个记录字节数的信息组成），报头信息 header ，响应正文 Payload 和正文校验码 Message CRC 构成。从上图可以看到，整个响应体的长度计算方式如下：
-```
+```shell
 响应体总长度 =  预响应长度 + 预响应校验码长度 + 响应正文长度 + 响应报头长度  + 响应正文校验码长度
 ```
 
 由于校验码（prelude CRC 和 Message CRC）和预响应 prelude 总长度固定为16字节，因此响应体总长还可以通过如下方式快速计算：
-```
+```shell
 响应体总长度 =  响应正文长度 + 响应报头长度 + 16
 ```
 
@@ -511,4 +540,4 @@ SELECT count(*) FROM COSObject s
 与 [GET Object](https://cloud.tencent.com/document/product/436/7753) 接口不同， SELECT Object Content 不支持以下功能：
 
 - 返回对象的某一片段：您不能通过 Range 这类参数指定返回对象的某一部分。
-- 操作归档存储（ARCHIVE）类型的对象，COS Select 无法直接操作归档存储类型的对象，您需要取回数据后再进行操作。
+- 对于归档存储（ARCHIVE）和深度归档存储（DEEP_ARCHIVE）类型的对象，COS Select 无法直接进行检索，您需要取回数据后再进行操作。

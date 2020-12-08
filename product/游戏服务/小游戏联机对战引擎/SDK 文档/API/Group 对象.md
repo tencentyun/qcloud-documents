@@ -13,8 +13,8 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 >?
 - 实例化 Group 对象时可以传入一个 [MGOBE.types.GroupInfo](https://cloud.tencent.com/document/product/1038/35534#groupinfo) 对象 groupInfo，后续接口调用都将基于该 groupInfo，例如修改该队组的属性、接收该队组的广播。
-- 如果不传 groupInfo 参数，开发者可以通过直接调用 initGroup、createGroup、joinGroup 等方法获取 groupInfo。
-- Group 对象会自动维护内部的 groupInfo 属性保持最新，开发者可以直接通过访问该属性获得最新的队组信息。
+- 如果不传 groupInfo 参数，您可以通过直接调用 initGroup、createGroup、joinGroup 等方法获取 groupInfo。
+- Group 对象会自动维护内部的 groupInfo 属性保持最新，您可以直接通过访问该属性获得最新的队组信息。
 
 #### 返回值说明
 无
@@ -71,7 +71,7 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 >?
 - initGroup 会更新 Group 实例的 groupInfo，接受 [MGOBE.types.GroupInfo](https://cloud.tencent.com/document/product/1038/35534#groupinfo) 或 { id: string; } 类型的参数。
 - 如果不传参数，该方法将清空 Group 实例的 groupInfo 属性。
-- 当玩家需要加入指定 ID 队组时，需要使用该接口初始化 Group 实例的 groupInfo 属性，然后才能通过调用 joinGroup 方法加入该 Group 实例所代表的队组。
+- 当玩家要加入指定 ID 队组时，需要使用该接口初始化 Group 实例的 groupInfo 属性，然后才能通过调用 joinGroup 方法，加入该 Group 实例所代表的队组。
 
 
 #### 返回值说明
@@ -404,8 +404,8 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 |callback|[MGOBE.types.ReqCallback](https://cloud.tencent.com/document/product/1038/33331#.E5.93.8D.E5.BA.94.E5.9B.9E.E8.B0.83.E5.87.BD.E6.95.B0-mgobe.types.reqcallback)[&lt;MGOBE.types.ChangeCustomGroupPlayerStatusRsp&gt;](https://cloud.tencent.com/document/product/1038/35534#changecustomgroupplayerstatusrsp)|响应回调函数|
 
 >?
-- 修改玩家状态是修改 GroupPlayerInfo 中的 customGroupPlayerStatus 字段，玩家的状态由开发者自定义。
-- 修改成功后，队组内全部成员都会收到一条修改玩家状态广播 onChangeCustomGroupPlayerStatus，groupInfo 属性将更新。
+- 修改玩家状态是修改 GroupPlayerInfo 中的 customGroupPlayerStatus 字段，玩家的状态由您自定义。
+- 修改成功后，队组内全部成员都会收到一条修改队组玩家状态广播 onChangeCustomGroupPlayerStatus，groupInfo 属性将更新。
 - 每个玩家只能修改自己的状态，调用结果将在 callback 中异步返回。
 
 #### 返回值说明
@@ -435,10 +435,10 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 |callback|[MGOBE.types.ReqCallback](https://cloud.tencent.com/document/product/1038/33331#.E5.93.8D.E5.BA.94.E5.9B.9E.E8.B0.83.E5.87.BD.E6.95.B0-mgobe.types.reqcallback)[&lt;MGOBE.types.SendToGroupClientRsp&gt;](https://cloud.tencent.com/document/product/1038/35534#sendtogroupclientrsp)|响应回调函数|
 
 >?
-- 调用结果将在 callback 中异步返回。调用成功后所指定的接收消息的玩家将收到 onRecvFromGroupClient 广播。
+- 调用结果将在 callback 中异步返回。调用成功后所指定接收消息的玩家将收到 onRecvFromGroupClient 广播。
 - 当 recvType 值为 1（即 GROUP_ALL ） 时，队组内全部玩家将收到消息。
 - 当 recvType 值为 2（即 GROUP_OTHERS ） 时，队组内除消息发送者外的其他玩家将收到消息。
-- 当 recvType 值为 3（即 GROUP_SOME ） 时，接收消息玩家才由 recvPlayerList 决定。
+- 当 recvType 值为 3（即 GROUP_SOME ） 时，接收消息玩家由 recvPlayerList 决定。
 
 #### 返回值说明
 
@@ -518,7 +518,7 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 |:---|---|---|
 |event|[MGOBE.types.BroadcastEvent](https://cloud.tencent.com/document/product/1038/33331#.E5.B9.BF.E6.92.AD.E6.B6.88.E6.81.AF-mgobe.types.broadcastevent)[&lt;MGOBE.types.ChangeCustomGroupPlayerStatusBst&gt;](https://cloud.tencent.com/document/product/1038/35534#changecustomgroupplayerstatusbst)|回调参数|
 
->?onChangeCustomGroupPlayerStatus 广播表示队组内 ID 为 changePlayerId 的玩家状态发生变化。玩家状态由开发者自定义。
+>?onChangeCustomGroupPlayerStatus 广播表示队组内 ID 为 changePlayerId 的玩家状态发生变化。玩家状态由您自定义。
 
 
 #### 返回值说明
@@ -546,7 +546,7 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 >?
 - onChangeGroupPlayerNetworkState 广播表示 ID 为 changePlayerId 的玩家网络状态发生变化。
-- 玩家在队组中的网络变化都会触发该广播，因此 networkState 将有两种情况，分别表示队组中上下线。
+- 玩家在队组中的网络变化都会触发该广播，因此 networkState 将有两种情况，分别表示队组中上线、队组中下线。
 
 
 #### 返回值说明
@@ -572,7 +572,7 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 |:---|---|---|
 |event|[MGOBE.types.BroadcastEvent](https://cloud.tencent.com/document/product/1038/33331#.E5.B9.BF.E6.92.AD.E6.B6.88.E6.81.AF-mgobe.types.broadcastevent)[&lt;MGOBE.types.RemoveGroupPlayerBst&gt;](https://cloud.tencent.com/document/product/1038/35534#removegroupplayerbst)|回调参数|
 
->?onRemoveGroupPlayer 广播表示有玩家被队长移除。队组内全部成员都会收到该广播。
+>?onRemoveGroupPlayer 广播表示有玩家被队长移除，队组内全部成员都会收到该广播。
 
 
 #### 返回值说明
@@ -596,7 +596,7 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 |:---|---|---|
 |event|[MGOBE.types.BroadcastEvent](https://cloud.tencent.com/document/product/1038/33331#.E5.B9.BF.E6.92.AD.E6.B6.88.E6.81.AF-mgobe.types.broadcastevent)[&lt;MGOBE.types.ChangeGroupBst&gt;](https://cloud.tencent.com/document/product/1038/35534#changegroupbst)|回调参数|
 
->?onChangeGroup 广播表示修改了该队组属性。队组内全部成员都会收到该广播。
+>?onChangeGroup 广播表示修改了该队组属性，队组内全部成员都会收到该广播。
 
 
 #### 返回值说明
@@ -620,7 +620,7 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 |:---|---|---|
 |event|[MGOBE.types.BroadcastEvent](https://cloud.tencent.com/document/product/1038/33331#.E5.B9.BF.E6.92.AD.E6.B6.88.E6.81.AF-mgobe.types.broadcastevent)[&lt;MGOBE.types.DismissGroupBst&gt;](https://cloud.tencent.com/document/product/1038/35534#dismissgroupbst)|回调参数|
 
->? onDismissGroup 广播表示队长解散了该队组。队组内全部成员都会收到该广播。
+>? onDismissGroup 广播表示队长解散了该队组，队组内全部成员都会收到该广播。
 
 
 #### 返回值说明
@@ -645,7 +645,7 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 |event|[MGOBE.types.BroadcastEvent](https://cloud.tencent.com/document/product/1038/33331#.E5.B9.BF.E6.92.AD.E6.B6.88.E6.81.AF-mgobe.types.broadcastevent)[&lt;MGOBE.types.LeaveGroupBst&gt;](https://cloud.tencent.com/document/product/1038/35534#leavegroupbst)|回调参数|
 
 
->?onLeaveGroup 广播表示该队组有玩家退出。队组内全部成员都会收到该广播。
+>?onLeaveGroup 广播表示该队组有玩家退出，队组内全部成员都会收到该广播。
 
 
 #### 返回值说明
@@ -669,7 +669,7 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 |:---|---|---|
 |event|[MGOBE.types.BroadcastEvent](https://cloud.tencent.com/document/product/1038/33331#.E5.B9.BF.E6.92.AD.E6.B6.88.E6.81.AF-mgobe.types.broadcastevent)[&lt;MGOBE.types.JoinGroupBst&gt;](https://cloud.tencent.com/document/product/1038/35534#joingroupbst)|回调参数|
 
->?onJoinGroup 广播表示该队组有新玩家加入。队组内全部成员都会收到该广播。
+>?onJoinGroup 广播表示该队组有新玩家加入，队组内全部成员都会收到该广播。
 
 
 #### 返回值说明
@@ -680,4 +680,5 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 ```
     group.onJoinGroup = event => console.log("新玩家加入", event.data.joinPlayerId);
 ```
+
 

@@ -6,7 +6,7 @@ GameServer.IGameServer 对象即实时服务器接口。提供了接收客户端
 **描述**
 mode 是实时服务器处理客户端消息的模式。可以取值为 "sync" 或 "async"。
 
-- 当 mode 为 "sync" 时，实时服务器将使用同步模式处理客户端消息。开发者在 onRecvFromClient 回调中必须显式调用 SDK.exitAction 方法，实时服务器才能处理下一条 onRecvFromClient 广播。
+- 当 mode 为 "sync" 时，实时服务器将使用同步模式处理客户端消息。您在 onRecvFromClient 回调中必须显式调用 SDK.exitAction 方法，实时服务器才能处理下一条 onRecvFromClient 广播。
 - 当 mode 为 "async" 时，实时服务器将使用异步模式处理客户端消息。每次监听到 onRecvFromClient 广播时都将执行回调函数。
 
 **使用示例**
@@ -73,7 +73,7 @@ IPlayerInfo 定义如下：
 
 在该接口需要返回一个 GameData 类型数据，该数据会作为游戏初始化数据，在整个房间被销毁之前都能使用。
 
-GameData 默认为 object 类型，开发者可以根据需要进行自定义。
+GameData 默认为 object 类型，您可以根据需要进行自定义。
 
 
 >?onInitGameData 方法是在收到任意广播时检查 gameData，如果 gameData 为空，先执行 onInitGameData 再执行广播回调函数。
@@ -101,7 +101,7 @@ gameServer.onInitGameData = args => {
 
 ActionArgs 定义请参考 [ActionArgs 对象](https://cloud.tencent.com/document/product/1038/34992)。
 
-UserDefinedData 即玩家的消息类型，类型为 object。开发者可以根据需要进行自定义。
+UserDefinedData 即玩家的消息类型，类型为 object。您可以根据需要进行自定义。
 
 **返回值说明**
 
@@ -545,3 +545,5 @@ gameServer.onStopFrameSync = args => {
     args.SDK.logger.debug("onStopFrameSync", bst.roomInfo);
 };
 ```
+
+

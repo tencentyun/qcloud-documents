@@ -1,5 +1,11 @@
+### TPNS 支持 p8 证书吗？
+
+p8 证书存在安全隐患。虽然 p8 比 p12 有更长的有效期，但是同时也有更大的推送权限和范围。若泄露，可能会造成更加严重的影响。TPNS 推荐您使用 p12 来分别管理您的应用的推送服务。
+
 ### TPNS SDK 1.2.5.4及以下的版本模拟器提示找不到 XGForFreeVersion 符号？
-1.2.5.4及以下版本不支持模拟器请使用真机调试，如需使用模拟器调试请升级到最新版本。
+
+1.2.5.4及以下版本仅支持真机调试，如需使用模拟器调试请升级到最新版本。
+
 
 ### 推送消息无法收到？
 消息推送是一个涉及到很多关联模块协作的任务，每一个环节出现异常都可能会导致消息收不到，以下是最为常见的问题：
@@ -37,40 +43,6 @@ SDK 接入问题，在接入 SDK 之后，请确保能够获取到接收消息�
 ### 终端出现未找到应用程序的 “aps-environment” 的授权字符串错误？
 请检查 Xcode 工程中配置的 bundle id 是否和设置的 Provision Profile 文件匹配，且对应 App 的 Provision Profile 文件是否已配置了消息推送能力。
 
-
-
-### 客户端如何根据消息内容进行跳转或者其他响应？
-
-iOS 设备收到一条推送消息，用户点击推送消息打开应用时，应用程序根据状态不同进行处理：
-
-- 若 App 状态为未运行，此函数将被调用。
- - 若 launchOptions 包含 UIApplicationLaunchOptionsRemoteNotificationKey ，表示用户点击推送消息导致 App 被启动运行。
- - 若不含有对应键值，则表示 App 不是因点击消息而被启动，可能为直接点击 icon 启动或其他。
-	```objective-c
-	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
-	{
-			// 消息内容获取
-			NSDictionary *remoteNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-			// 然后根据消息内容进行逻辑处理
-	}
-	```
-- 若 App 状态为正在前台或者是在后台但仍处于 Active 状态
- - 基于 iOS 7.0+ 系统版本，如果是使用 Remote Notification 特性，那么处理函数需要使用如下代码：
-	```objective-c
-	- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
-	```
- - 基于 iOS 10.0+ 的系统版本，如果是使用 Remote Notification 特性，那么处理函数建议使用新增 UserNotifications Framework 来进行处理，请使用 XGPushDelegate 协议中的以下两个方法，示例代码如下：
-	```objective-c
-	- (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
-		NSLog(@"[XGDemo] click notification");
-		completionHandler();
-	}
-
-	// App 在前台弹推送消息需要调用这个接口
-	- (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
-		completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert);
-	}
-	```
 
 
 

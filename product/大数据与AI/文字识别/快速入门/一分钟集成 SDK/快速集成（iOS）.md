@@ -1,9 +1,7 @@
 ## 开发准备
 
 1. 注册腾讯云账号，单击进入 [文字识别控制台](https://console.cloud.tencent.com/ocr/general)，即可开通相应服务。
-
 2. 在 [账号中心](https://console.cloud.tencent.com/cam/capi) 获取 API 密钥。
-
 3. 从 OCR SDK 下载链接中下载 SDK 到本地准备集成。
 
     
@@ -12,9 +10,10 @@
 
 ### iOS 端 OCR SDK 介绍
 
-SDK中包含了四个 framework：
+​	SDK 中包含了四个 framework：
 
 - **OcrSDKKit.framework** - OCR 对外接口、页面设置及网络请求库
+- **TXYComm.framework**- 公共库
 - **YtSDKKit.framework** - 边缘检测逻辑
 - **YTImageRefiner.framework** - 图片解析
 - **opencv2.framework** - opencv 库
@@ -22,18 +21,21 @@ SDK中包含了四个 framework：
 
 ### 环境依赖
 
-- 当前 iOS OCR 识别 SDK 版本适用于 iOS 9.0 及以上的版本
+- 当前 iOS OCR 识别 SDK 版本适用于 iOS 9.0及以上的版本
 - 开发工具使用 xcode11 或以上版本集成开发
 
 ### 接入步骤
 
-1. 将**OcrSDKKit.framework**、**YtSDKKit.framework**、**YTImageRefiner.framework**、**opencv2.framework**、**OcrSDK.bundle** 添加至项目中            
+1. 将 **OcrSDKKit.framework**、**TXYComm.framework**、**YtSDKKit.framework**、**YTImageRefiner.framework**、**opencv2.framework**、**OcrSDK.bundle** 添加至项目中。            
 
 2. 添加编译选项
-- 将**调用 SDK 的 ViewController** 设置为 **Objective-C++Source** 或者更改后缀为**.mm**(sdk 内部使用了 Objective-C++ 语法)
+
+
+- 将**调用 SDK 的 ViewController** 设置为 **Objective-C++Source** 或者更改后缀为 **.mm** (sdk 内部使用了 Objective-C++ 语法)
 - 将 **Other Linker Flags** 设置为 **ObjC**
 
-4. 权限设置
+
+3. 权限设置
 
    OCR SDK 需要手机网络、 摄像头、访问相册的使用权限，请添加对应的权限声明。
 
@@ -119,12 +121,13 @@ OCR SDK 支持使用临时密钥接口，使用临时密钥的好处主要有以
 
 
 
- 目前 OCR SDK 支持四种类型的识别模式如下表所示。
+ 目前 ocr SDK 支持四种类型的识别模式如下表所示。
 
-| OcrType 类型             | 代表含义             |
-| ----------------------- | -------------------- |
-| OcrType.IDCardOCR_FRONT | 身份证人像面识别模式 |
-| OcrType.IDCardOCR_BACK  | 身份证国徽面识别模式 |
-| OcrType.BankCardOCR     | 银行卡正面识别模式   |
-| OcrType.BusinessCardOCR | 名片卡正面识别模式   |
+| OcrType 类型             | 代表含义               |
+| ----------------------- | ---------------------- |
+| OcrType.IDCardOCR_FRONT | 身份证人像面识别模式   |
+| OcrType.IDCardOCR_BACK  | 身份证国徽面识别模式   |
+| OcrType.BankCardOCR     | 银行卡正面识别模式     |
+| OcrType.BusinessCardOCR | 名片卡正面识别模式     |
+| OcrType.MLIdCardOCR     | 马来西亚身份证识别模式 |
 

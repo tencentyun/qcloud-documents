@@ -54,8 +54,8 @@ MQTT.fx 是目前主流的 MQTT 桌面客户端，它支持 Windows、 Mac、Lin
 </tbody></table>
 
 5. 单击【User Credentials】，填写 User Name 和 Password。
- - **User Name**	：MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名 + SDKAppID + connid+expiry。创建完产品即可在产品列表页和产品详情页查看 ProductID，如："TO****DS8Gdev001;12010126;E4F3Q;1591948593"，仅替换示例中的产品 ID + 设备名即可，后面的三个参数本身由物联网通信接入 SDK 自动生成，也可由腾讯云物联网平台提供的 [生成小工具](https://iot-public-resource-1256872341.cos.ap-guangzhou.myqcloud.com/password%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7TencentIoT.zip) 自动生成。
- - **Password**	：Password 必须填写，用户可以使用物联网平台提供的 [生成小工具](https://iot-public-resource-1256872341.cos.ap-guangzhou.myqcloud.com/password%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7TencentIoT.zip) 自动生成Password，也可以按照文档 [手动生成Password](https://cloud.tencent.com/document/product/634/32546)。
+ - **User Name**	：MQTT 协议字段，按照物联网通信约束填入：产品 ID + 设备名 + SDKAppID + connid+expiry。创建完产品即可在产品列表页和产品详情页查看 ProductID，如："TO****DS8Gdev001;12010126;E4F3Q;1591948593"，仅替换示例中的产品 ID + 设备名即可，后面的三个参数本身由物联网通信接入 SDK 自动生成，也可由腾讯云物联网平台提供的 [生成小工具](https://iot-exp-individual-1258344699.cos.ap-guangzhou.myqcloud.com/password%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7.zip) 自动生成。
+ - **Password**	：Password 必须填写，用户可以使用物联网平台提供的 [生成小工具](https://iot-exp-individual-1258344699.cos.ap-guangzhou.myqcloud.com/password%E7%94%9F%E6%88%90%E5%B7%A5%E5%85%B7.zip) 自动生成Password，也可以按照文档 [手动生成Password](https://cloud.tencent.com/document/product/634/32546)。
  ![](https://main.qcloudimg.com/raw/555608dcb2b2adb66db3a598f8459cf6.png)
 6. 完成以上步骤设置后，单击【Apply】和【OK】进行保存，并在配置文件框中选择刚才创建的文件名，单击【Connect】。
 7. 当右上角圆形图标为绿色时，说明已连接 IoT Cloud 成功，即可进行发布和订阅等操作。

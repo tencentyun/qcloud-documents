@@ -65,7 +65,7 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 #### loadSDKConfig()
 
 ```objective-c
-/// SDKKIt 加载 OCR 配置信息 这里使用的密钥为固定密钥，当使用临时密钥时，secretId secretKey 填入nil 空值
+/// SDKKIt 加载 OCR 配置信息 这里使用的密钥为固定密钥，当使用临时密钥时，secretId secretKey 填入 nil 空值
 /// @param secretId  Secret id
 /// @param secretKey Secret key
 /// @param ocrConfig ocr 配置类
@@ -137,7 +137,6 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 | OcrSDKKitProcessFailedBlock       | onProcessFailed  | 识别失败的回调    |
 
 
-
 <span id="OcrSDKConfig"></span>
 ### OcrSDKConfig
 
@@ -154,11 +153,12 @@ OcrSDKConfig 是在 OCR 初始化时需要传入的 SDK 的配置信息实体类
 | BOOL                        | CopyWarn        | 开启复印件告警                                               | NO                                           |
 | BOOL                        | BorderCheckWarn | 开启边框和框内遮挡告警                                       | NO                                           |
 | BOOL                        | ReshootWarn     | 开启翻拍告警                                                 | NO                                           |
-| BOOL                        | DetectPsWarn    | 开启PS检测告警                                               | NO                                           |
+| BOOL                        | DetectPsWarn    | 开启 PS 检测告警                                               | NO                                           |
 | BOOL                        | TempIdWarn      | 开启临时身份证告警                                           | NO                                           |
 | BOOL                        | InvalidDateWarn | 开启身份证有效日期不合法告警                                 | NO                                           |
 | BOOL                        | Quality         | 开启图片质量分数（评价图片的模糊程度）                       | NO                                           |
 | NSString                    | RetImageType    | 图像预处理，检测图片倾斜的角度，将原本倾斜的图片围绕中心点转正，最终输出一张正的名片抠图。 | 空                                           |
+| BOOL                        | RetImage        | 马来西亚身份证接口是否返回图片                               | NO                                           |
 
 
 
@@ -177,8 +177,9 @@ CustomConfigUI 是在启动 SDK 模块时需要传入的 SDK 的 UI 配置信息
 | UIColor  | cardFrameColor     | 卡片框选中颜色               | RGBA：5 106 1 1                       |
 | UIImage  | takePictureImage   | 拍照按钮图标 80x80           | 默认图标                              |
 | UIImage  | lightONImage       | 打开手电筒按钮图标 40x40     | 默认图标                              |
-| UIImage  | lightOFFImage      | 关闭手电筒按钮图标40x40      | 默认图标                              |
-| UIImage  | albumImage         | 相册按钮图标40x40            | 默认图标                              |
+| UIImage  | lightOFFImage      | 关闭手电筒按钮图标 40x40      | 默认图标                              |
+| UIImage  | albumImage         | 相册按钮图标 40x40            | 默认图标                              |
+| BOOL     | isShowAlbumBtn     | 是否显示相册按钮             | YES                                   |
 
 
 
@@ -187,12 +188,13 @@ CustomConfigUI 是在启动 SDK 模块时需要传入的 SDK 的 UI 配置信息
 
 OcrType 是一个枚举类型，列举了当前文字识别 OCR 的 SDK 所支持业务类型的种类，大致如下：
 
-| OcrType类型             | 代表含义             |
-| ----------------------- | -------------------- |
-| OcrType.IDCardOCR_FRONT | 身份证人像面识别模式 |
-| OcrType.IDCardOCR_BACK  | 身份证国徽面识别模式 |
-| OcrType.BankCardOCR     | 银行卡正面识别模式   |
-| OcrType.BusinessCardOCR | 名片卡正面识别模式   |
+| OcrType 类型             | 代表含义               |
+| ----------------------- | ---------------------- |
+| OcrType.IDCardOCR_FRONT | 身份证人像面识别模式   |
+| OcrType.IDCardOCR_BACK  | 身份证国徽面识别模式   |
+| OcrType.BankCardOCR     | 银行卡正面识别模式     |
+| OcrType.BusinessCardOCR | 名片卡正面识别模式     |
+| OcrType.MLIdCardOCR     | 马来西亚身份证识别模式 |
 
 
 
@@ -201,7 +203,7 @@ OcrType 是一个枚举类型，列举了当前文字识别 OCR 的 SDK 所支�
 
 OcrModeType 是一个枚举类型，列举了卡片识别模式
 
-| OcrModeType类型        | 代表含义                                           |
+| OcrModeType 类型        | 代表含义                                           |
 | ---------------------- | -------------------------------------------------- |
 | OCR_DETECT_MANUAL      | 手动拍摄模式                                       |
 | OCR_DETECT_AUTO_MANUAL | 自动识别模式（tips：20s后提示 是否切换到手动拍摄） |
@@ -213,16 +215,23 @@ OcrModeType 是一个枚举类型，列举了卡片识别模式
 文字识别 OCR 识别结果的回调类，用于接收识别结果以及错误异常。
 
 ```java
-///SDKKit处理成功回调接口
+///SDKKit 处理成功回调接口
 ///@param resultInfo 会根据不同的工作模式返回对应下的成功信息（一般都是网络回包 json 字段）
 ///@param reserved 预留位
 typedef void (^OcrSDKKitProcessSucceedBlock)(id _Nonnull resultInfo, UIImage *resultImage,id _Nonnull reserved);
 
-/// SDKKIt处理失败回调接口
+/// SDKKIt 处理失败回调接口
 /// @param error 处理过程中触发的异常错误
 /// @param reserved 预留位
 typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullable reserved);
 ```
+
+> **Tips：**用户取消文字识别退出会在 OcrSDKKitProcessFailedBlock 回调
+>
+> domain: "OcrSdk.UserCancelOcr" - code: 200101
+>
+> NSLocalizedDescription : "用户主动停止文字识别"
+
 
 身份证正面请求返回 resultInfo 结果示例：
 

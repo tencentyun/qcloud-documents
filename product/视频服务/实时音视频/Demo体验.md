@@ -4,11 +4,11 @@
   </tr>
   <tr>
       <td><img style="width:124px" src="https://main.qcloudimg.com/raw/b637949cbfc255ecefb060fafbfc70be.png" data-nonescope="true"></td>
-      <td><a onclick="window.open('http://dldir1.qq.com/hudongzhibo/TRTC/Demo/TRTCDemo.apk')"><div style="width:124px;height: 124px;background-image:url(https://main.qcloudimg.com/raw/cb4c811e2f4dc4a7c9cc4f759e9ca86b.png);background-size: cover;">
+      <td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/TRTC/Demo/TRTCDemo.apk')"><div style="width:124px;height: 124px;background-image:url(https://main.qcloudimg.com/raw/cb4c811e2f4dc4a7c9cc4f759e9ca86b.png);background-size: cover;">
    </div></a></td>
-      <td><a onclick="window.open('http://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Mac_Demo.tar.bz2')"><div style="width:124px;height: 124px;background-image:url(https://main.qcloudimg.com/raw/2a6a6e396cd818a3dd7f61072a59b9f5.png);background-size: cover;">
+      <td><a onclick="window.open('https://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Mac_Demo.tar.bz2')"><div style="width:124px;height: 124px;background-image:url(https://main.qcloudimg.com/raw/2a6a6e396cd818a3dd7f61072a59b9f5.png);background-size: cover;">
    </div></a></td>
-      <td><a onclick="window.open('http://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Win_Demo.exe')"><div style="width:124px;height: 124px;background-image:url(https://main.qcloudimg.com/raw/2a6a6e396cd818a3dd7f61072a59b9f5.png);background-size: cover;">
+      <td><a onclick="window.open('https://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Win_Demo.exe')"><div style="width:124px;height: 124px;background-image:url(https://main.qcloudimg.com/raw/2a6a6e396cd818a3dd7f61072a59b9f5.png);background-size: cover;">
    </div></a></td>
       <td><a onclick="window.open('https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html')"><div style="width:124px;height: 124px;background-image:url(https://main.qcloudimg.com/raw/2a6a6e396cd818a3dd7f61072a59b9f5.png);background-size: cover;">
    </div></a></td>

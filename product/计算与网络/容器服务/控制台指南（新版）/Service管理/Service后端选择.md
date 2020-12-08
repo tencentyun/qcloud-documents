@@ -24,7 +24,7 @@
 
 ### 使用场景
 #### 大规模集群下的测试应用
-在一个大规模集群下，部署一个仅包含一两个 Pod 的测试应用。通过 Service 进行服务暴露时，负载均衡将对所有的后端 NodePort 进行健康检查，此健康检查的请求量对测试应用有很大影响。此时可以在集群中通过 Label 指定一小部分节点作为后端，缓解健康检查带来的压力。详情请参见 [关于健康检查探测频率过高的说明](https://cloud.tencent.com/document/product/214/6097#.E5.85.B3.E4.BA.8E.E5.81.A5.E5.BA.B7.E6.A3.80.E6.9F.A5.E6.8E.A2.E6.B5.8B.E9.A2.91.E7.8E.87.E8.BF.87.E9.AB.98.E7.9A.84.E8.AF.B4.E6.98.8E)。
+在一个大规模集群下，部署一个仅包含一两个 Pod 的测试应用。通过 Service 进行服务暴露时，负载均衡将对所有的后端 NodePort 进行健康检查，此健康检查的请求量对测试应用有很大影响。此时可以在集群中通过 Label 指定一小部分节点作为后端，缓解健康检查带来的压力。详情请参见 [关于健康检查探测频率过高的说明](https://cloud.tencent.com/document/product/214/3394#.E5.81.A5.E5.BA.B7.E6.A3.80.E6.9F.A5.E6.8E.A2.E6.B5.8B.E9.A2.91.E7.8E.87.E8.BF.87.E9.AB.98)。
 
 ### 示例
 ```
@@ -106,8 +106,6 @@ spec:
 ```
 
 由于 Local 模式下，进入节点的请求流量不会在节点间转发。所以当节点上的工作负载数量不一致的时候，同样的后端权重可能会使得每一个节点上的负载不平均。此时用户可以通过 `service.cloud.tencent.com/local-svc-weighted-balance: "true"` 进行加权平衡。使用此注解时，NodePort 后端的权重将由节点上工作负载的数量决定，从而避免不同节点上工作负载数量不同带来的负载不均的问题。其中，**Local 加权平衡必须和 Local 绑定同时使用**。示例如下：
->?如需使用 Local 加权平衡功能，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&step=1) 进行申请。
->
 
 #### 示例：Service 开启 Local 转发，并开启 Local 绑定与 Local 加权平衡
 ```

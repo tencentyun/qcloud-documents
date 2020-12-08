@@ -9,8 +9,7 @@ LAMP（Linux+Apache+MySQL+PHP）是目前国际流行的 Web 应用框架，包�
 ## 操作步骤
 
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)。
-2. 单击【新建】，进入轻量应用服务器购买页面。
-![](https://main.qcloudimg.com/raw/6591e97745bdece1b1f2244ea6615cd9.png)
+![](https://main.qcloudimg.com/raw/b7f0f2d6423cce18e14e309a3d52c2e3.png)
  - **地域**：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，地域选择 “广州”。
  - **镜像**：选择 “LAMP 7.3.15” 应用镜像。
  - **实例套餐**：按照所需的服务器配置（CPU、内存、系统盘、峰值带宽、每月流量），选择一种实例套餐。

@@ -135,7 +135,7 @@ nginx: configuration file /usr/local/lighthouse/softwares/nginx/conf/nginx.conf 
 您可以通过配置服务器，让其自动将 HTTP 的请求重定向到 HTTPS。可以参考以下步骤进行设置：
 
 1. Nginx 支持 rewrite 功能。若您在编译时没有删除 pcre，则可在 HTTP 的 server 中增加 `return 301 https://$host$request_uri;`，即可将默认80端口的请求重定向为 HTTPS。
-您需要对 `nginx.conf` 文件进行修改，在“证书安装”中的 [步骤5](#Step4) 的配置之后继续添加如下配置：
+您需要对 `nginx.conf` 文件进行修改，在“证书安装”中的 [步骤4](#Step4) 的配置之后继续添加如下配置：
 ```
 server {
     listen 80;

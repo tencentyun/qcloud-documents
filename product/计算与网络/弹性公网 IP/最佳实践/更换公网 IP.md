@@ -1,6 +1,6 @@
 本文列出了更换公网 IP 地址的两种方式。
 - [直接更换公网 IP](#ReplacementPublicIP)：适用于 CVM 已有普通公网 IP 的场景。
-- [先更换为弹性公网 IP，再解绑弹性公网 IP](#ReplacementEIP)：适用于非带宽上移用户更换公网 IP 地址的场景。
+- [先更换为弹性公网 IP，再解绑弹性公网 IP](#ReplacementEIP)：适用于传统账户类型用户更换公网 IP 地址的场景。
 
 ## 注意事项
 如果您选择**直接更换公网 IP**，请注意以下事项：
@@ -23,7 +23,7 @@
 
 <span id="ReplacementEIP"></span>
 ### 方式二：先更换为弹性公网 IP，再解绑弹性公网 IP
->?此方式仅非带宽上移账户适用。
+>?此方式仅传统账户类型适用。
 
 #### 步骤一：更换弹性公网 IP
 1. 登录  [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。

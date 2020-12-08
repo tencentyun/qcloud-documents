@@ -1,0 +1,33 @@
+## 概述
+Private DNS 支持子域名递归解析功能。开启该功能后，当客户端发起 DNS 请求时，若私有域内未配置对应子域名解析记录，Private DNS 则根据是否开启子域名递归解析返回对应记录。
+- 未开启子域名递归解析将返回 SOA 记录。
+- 已开启子域名递归解析将返回公共 DNS 记录。
+
+例如，私有域名称为 `dnspod.cn`，在 `dnspod.cn` 内配置了三条私有记录。如下所示：
+
+| 主机记录 | 记录类型 | 记录值 |TTL|
+|---------|---------|---------|---------|
+| 01 | A |1.1.1.1 | 600 |
+| 02 | A |1.1.1.2 | 600 |
+| 03 | A |1.1.1.3 | 600 |
+
+- 当发起 DNS 请求 `01.dnspod.cn`，`02.dnspod.cn` 或 `03.dnspod.cn` 时，分别返回私有记录 `1.1.1.1`，`1.1.1.2`，`1.1.1.3`。
+- 当发起 DNS 请求 `www.dnspod.cn`，`bbs.dnspod.cn`，`rss.dnspod.cn` 等公共域名时，进行递归查询，以互联网实际域名公共 DNS 解析结果为最终 DNS 响应结果。
+
+
+## 操作步骤
+### 开启子域名递归解析
+#### 方式一
+您可以在首次添加私有域时，选择开启子域名递归解析。具体操作可参考 [创建私有域](https://cloud.tencent.com/document/product/1338/50532)。如下图所示：
+![](https://main.qcloudimg.com/raw/74cf53137149f2e07e5f1c4eaaada9b8.png)
+#### 方式二
+1. 登录 [Private DNS 管理控制台](https://console.cloud.tencent.com/privatedns)，并单击左侧导航栏的【私有域解析】，即可进入私有域列表。
+2. 在 “私有域列表” 中，选择您需要开启子域名递归解析的私有域，单击【解析】，即可进入【解析记录】管理页面。
+3. 选择【私有域设置】页签，单击<span ><img src="https://main.qcloudimg.com/raw/3e46d1b5a3578be94c9b5803006ffb7a.png" style="margin-bottom:-5px;"/></span>，即可开启此功能。如下图所示：
+![](https://main.qcloudimg.com/raw/b9b4de97b1b6e9ddd9663209fd58b28a.png)
+
+### 关闭子域名递归解析
+1. 登录 [Private DNS 管理控制台](https://console.cloud.tencent.com/privatedns)，并单击左侧导航栏的【私有域解析】，即可进入私有域列表。
+2. 在 “私有域列表” 中，选择您需要开启子域名递归解析的私有域，单击【解析】，即可进入【解析记录】管理页面。
+3. 选择【私有域设置】页签，单击<span ><img src="https://main.qcloudimg.com/raw/1daf42f43153a8e60e5b741ac6422844.png" style="margin-bottom:-5px;"/></span>，即可关闭此功能。如下图所示：
+![](https://main.qcloudimg.com/raw/3a8e665d3da2876647f291c5aea44899.png)

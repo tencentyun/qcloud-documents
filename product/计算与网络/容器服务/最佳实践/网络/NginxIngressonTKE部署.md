@@ -110,13 +110,13 @@ metadata:
 
 ### Nginx Ingress 公网带宽有多大？
 
-腾讯云账号有带宽上移和非带宽上移两种类型：
+腾讯云账号有标准账户和传统账户两种类型：
 >! 您可参考文档 [区分腾讯云账户类型](https://cloud.tencent.com/document/product/684/39903) 来区分自己账号的类型。
 >
-- **带宽上移：**指带宽上移到 CLB 或 IP 上管理。
-  当您的账号是带宽上移类型时，Nginx Ingress 的带宽等于已购 CLB 的带宽，默认是 10Mbps（按量计费），可按需调整。
-- **非带宽上移：**指带宽在云服务器（CVM）上管理。
-    当您的账号是非带宽上移类型时，Nginx Ingress 使用公网 CLB，Nginx Ingress 的公网带宽是 CLB 所绑定的 TKE 节点的带宽之和。如果使用 [方案3：Deployment + LB 直通 Pod](#step3)，CLB 直通 Pod，即 CLB 直接绑定弹性网卡，那么此时 Nginx Ingress 的公网带宽是所有 Nginx Ingress Controller Pod 被调度到的节点上的带宽之和。
+- **标准账户类型：**指带宽上移到 CLB 或 IP 上管理。
+  当您的账号是标准账户类型时，Nginx Ingress 的带宽等于已购 CLB 的带宽，默认是 10Mbps（按量计费），可按需调整。
+- **传统账户类型：**指带宽在云服务器（CVM）上管理。
+    当您的账号是传统账户类型时，Nginx Ingress 使用公网 CLB，Nginx Ingress 的公网带宽是 CLB 所绑定的 TKE 节点的带宽之和。如果使用 [方案3：Deployment + LB 直通 Pod](#step3)，CLB 直通 Pod，即 CLB 直接绑定弹性网卡，那么此时 Nginx Ingress 的公网带宽是所有 Nginx Ingress Controller Pod 被调度到的节点上的带宽之和。
 
 
 

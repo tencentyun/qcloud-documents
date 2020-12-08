@@ -180,3 +180,5 @@ kubectl rollout undo daemonset /[name] --to-revision=[REVISION]
 ```
 kubectl delete  DaemonSet [NAME]
 ```
+
+

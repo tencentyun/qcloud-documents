@@ -8,7 +8,7 @@ Harbor 是 VMware 公司开源的企业级 Docker Registry 项目，在开源 Do
 - 已搭建 Harbor 服务，且仅支持 Harbor v1.8.0 及以上版本。
 - 确认自建 Harbor 可通过专线、公网或私有网络访问容器镜像服务。
 - 已在云上容器集群所在地域或邻近地域成功 [创建企业版实例](https://cloud.tencent.com/document/product/1141/40716)。
-- 如果使用子账号进行操作，请参考 [企业版授权方案示例](https://cloud.tencent.com/document/product/1141/41417) 提前为子账号授予对应实例的容器镜像，Helm Chart 推送权限，建议授予配置同步的子账号以容器镜像服务全读写权限。
+- 如果使用子账号进行操作，请参考 [企业版授权方案示例](https://cloud.tencent.com/document/product/1141/41417) 提前为子账号授予对应实例的容器镜像，Helm Chart 推送权限，建议将容器镜像服务全读写权限授予配置同步的子账号。
 
 ## 操作步骤
 ### 配置自建 Harbor 服务可访问容器镜像服务企业版实例<span id="Configuration"></span>
@@ -48,7 +48,7 @@ echo x.x.x.x harbor-sync.tencentcloudcr.com >> /etc/hosts
 
 
 ### 创建企业版实例访问凭证<span id="getCertificate"></span>
-容器镜像服务企业版支持创建，管理多个访问凭证，建议您为数据同步操作创建独立的访问凭证，完成数据同步后及时删除，避免实例访问权限泄露。
+容器镜像服务企业版支持创建、管理多个访问凭证，建议您为数据同步操作创建独立的访问凭证，完成数据同步后及时删除，避免实例访问权限泄露。
 1. 登录 [容器镜像服务](https://console.cloud.tencent.com/tcr) 控制台，选择左侧导航栏中的【实例列表】。
 2. 在“实例列表”页面中选择需要进行数据同步的实例，进入实例详情页。
 3. 选择【访问凭证】页签，并单击实例列表上方的【新建】。如下图所示：

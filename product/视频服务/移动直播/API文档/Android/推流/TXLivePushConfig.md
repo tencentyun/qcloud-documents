@@ -653,7 +653,7 @@ __介绍__
 - 默认值：TXLiveConstants#AUDIO_VOLUME_TYPE_AUTO。
 - 
 - 默认值：TXLiveConstants#AUDIO_VOLUME_TYPE_AUTO。
-- TXLiveConstants#AUDIO_VOLUME_TYPE_AUTO 表示通话音量类型。
+- TXLiveConstants#AUDIO_VOLUME_TYPE_VOIP 表示通话音量类型。
 - TXLiveConstants#AUDIO_VOLUME_TYPE_MEDIA 表示媒体音量类型。
 
 

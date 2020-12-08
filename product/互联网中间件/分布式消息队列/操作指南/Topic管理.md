@@ -6,8 +6,7 @@ Topic 是 TDMQ 中的核心概念。Topic 通常用来对系统生产的各类�
 
 ## 前提条件
 
-- 已 [申请内测](https://cloud.tencent.com/apply/p/0f6psgxhltch)，并已通过审批。
-- 已创建好对应的环境，如未创建新的环境则默认是在 default 环境中操作。
+已创建好对应的环境，如未创建新的环境则默认是在 default 环境中操作。
 
 ## 操作步骤
 

@@ -55,7 +55,7 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 <tr>
 <td colspan="2" >IP 资源费用</td>
 <td>普通公网 IP 可免费使用。</td>
-<td>IP 资源费用是弹性公网 IP 费用组成的一部分，根据非带宽上移和带宽上移不同类型的账户收费情况不同，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/41692#.E8.B4.B9.E7.94.A8.E7.BB.84.E6.88.90">费用组成</a>。</td>
+<td>IP 资源费用是弹性公网 IP 费用组成的一部分，针对传统账户类型和标准账户类型，不同类型的账户收费情况不同，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/41692#.E8.B4.B9.E7.94.A8.E7.BB.84.E6.88.90">费用组成</a>。</td>
 </tr>
 <tr>
 <td colspan="2" rowspan="2">配额</td>
@@ -94,7 +94,7 @@ IP 地址分为两类：IPv4 地址和 IPv6 地址，IPv4 应用广泛，但网�
 腾讯云对使用公网 IPv4 地址访问 IPv4 公网产生的公网网络流量，将收取公网网络费用，详情请参见 [公网网络计费](https://buy.cloud.tencent.com/price/idc)。
 
 ## IPv6 地址
-腾讯云的 IPv6 地址，可同时作为内网 IPv6 地址和公网 IPv6 地址，默认情况下是内网 IPv6 地址，当需要开通公网能力时，可以将该地址变成一个公网 IPv6 地址。如果您不主动做释放、重新分配操作，该 IPv6 地址不会改变。
+腾讯云的 IPv6 地址，可同时作为内网 IPv6 地址和公网 IPv6 地址，默认情况下是内网 IPv6 地址，当需要开通公网能力时，可参考[ 管理 IPv6 公网](https://cloud.tencent.com/document/product/1142/38141)，将该内网IPv6地址变更为公网 IPv6 地址。如果您不主动做释放、重新分配操作，该 IPv6 地址不会改变。
 
 ### 内网 IPv6 地址
 内网 IPv6 地址是腾讯云 IPv6 内网服务的实现形式，无法通过 IPv6 Internet 访问。在创建云服务器实例时，可选择免费分配 IPv6 地址，系统将自动分配，亦可在创建后再进行获取，在私有网络环境下，内网 IPv6 地址也可由用户自定义。
@@ -115,5 +115,6 @@ IPv6 地址开通 IPv6 公网后，即作为公网 IPv6 地址具有了访问 IP
 
 ## 相关信息
 - 如需快速搭建一个具有 IPv4 CIDR 的私有网络（VPC），请参见 [快速搭建 IPv4 私有网络](https://cloud.tencent.com/document/product/215/30716)。
+- 如需快速搭建一个具有 IPv6 CIDR 的私有网络（VPC），请参见[ 快速搭建 IPv6 私有网络](https://cloud.tencent.com/document/product/215/47557)。
 - 如需了解弹性公网 IP 相关内容，请参见 [弹性公网 IP](https://cloud.tencent.com/document/product/215/37567)。
 

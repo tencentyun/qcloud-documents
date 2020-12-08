@@ -19,3 +19,4 @@ SDK 内部日志打印工具，记录接口关键调用步骤。
 MGOBE.DebuggerLog.enable = true;
 MGOBE.DebuggerLog.callback = (log) => console.log(...log); // 默认值;
 ```
+

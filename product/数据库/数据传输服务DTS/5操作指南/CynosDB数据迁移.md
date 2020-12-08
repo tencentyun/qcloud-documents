@@ -11,6 +11,7 @@
 create user 'username'@'%' identified by 'password';
 grant RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,LOCK TABLES,PROCESS on *.* to 'username'@'%';
 grant SELECT,CREATE,DELETE,INSERT,UPDATE,DROP  on `__tencentdb__`.* to 'dts'@'%';
+grant ALL PRIVILEGES on `__tencentdb__`.* to 'username'@'%';
 grant SELECT on *.* to 'username'@'%';            
 FLUSH PRIVILEGES;
 ```

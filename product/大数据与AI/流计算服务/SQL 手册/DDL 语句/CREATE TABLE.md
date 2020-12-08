@@ -83,7 +83,7 @@ WATERMARK FOR my_time AS my_time
 
 ##### 有限容忍乱序的 Watermark 策略
 与上述的策略不同，本策略允许数据中存在一定范围的乱序。这个乱序范围由用户自行控制，如果设置的较大，则会带来较长的延迟（数据积压、等待）；如果设置的较小，则超过阈值的数据则可能被丢弃（造成结果不准确）。
-````sql
+```sql
 WATERMARK FOR 某个Rowtime类型的列名 AS 某个Rowtime类型的列名 - INTERVAL '时间长度' 时间单位
 ```
 下面语句的含义是每个输入数据中最大的时间戳减去3秒的容差作为 Watermark 的取值。因此如果存在乱序，但是后来的数据比之前最大值相差不到3秒，也会被允许加入计算。
@@ -114,7 +114,7 @@ WITH 参数通常用于指定数据源和数据目的的 Connector 所需参数�
 
 例如要写入 Kafka（腾讯云 CKafka 或自建 Kafka）时，需要指定服务器地址、消费的 Topic、消费的起始时间点等信息。
 
-对于常见的上下游 Connector 的具体的使用方法，可参考 [上下游开发指南]()。
+对于常见的上下游 Connector 的具体的使用方法，可参考 [上下游开发指南](https://cloud.tencent.com/document/product/849/48263)。
 
 ### LIKE 子句
 LIKE 子句允许用于创建表（下文称为 B 表）时，引用其他表（下文称为 A 表）的结构，这样可以大幅节省 CREATE TABLE 语句的代码量，做到代码复用。例如，把同样的数据一份写入 Kafka Sink，另一份写入 Elasticsearch Sink，还有一部分写入 MySQL，那么就可以通过 LIKE 语句来实现定义三张表，同时复用列定义的效果。

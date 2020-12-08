@@ -84,7 +84,8 @@ object ProducerExample extends App {
 更多有关 ProducerRecord 的用法请参考 [ProducerRecord](https://kafka.apache.org/0100/javadoc/org/apache/kafka/clients/producer/ProducerRecord.html) 文档。
 
 ### 从 Ckafka 消费
-#### DirectStream<span id="build.sbt"></span>
+<span id="build.sbt"></span>
+#### DirectStream
 1. 在`build.sbt`添加依赖：
 ```scala
 name := "Consumer Example"

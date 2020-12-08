@@ -2,7 +2,7 @@
 本文档指导您如何在 Nginx 服务器中安装 SSL 证书。
 >?
 >- 本文档以证书名称 `cloud.tencent.com` 为例。
->- Nginx 版本以 `nginx/1.16.0` 为例。
+>- Nginx 版本以 `nginx/1.18.0` 为例。
 >- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
 >- 安装 SSL 证书前，请您在 Nginx 服务器上开启 “443” 端口，避免证书安装后无法启用 HTTPS。具体可参考 [服务器如何开启443端口？](https://cloud.tencent.com/document/product/400/45144)
 >- SSL 证书文件上传至服务器方法可参考 [如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
@@ -14,8 +14,8 @@
 - 安装 SSL 证书前需准备的数据如下：
 <table>
 <tr>
-<td>名称</td>
-<td>说明</td>
+<th>名称</th>
+<th>说明</th>
 </tr>
 <tr>
 <td>服务器的 IP 地址</td>
@@ -71,7 +71,7 @@ server {
         ssl_prefer_server_ciphers on;
         location / {
 		   #网站主页路径。此路径仅供参考，具体请您按照实际目录操作。
-            root /var/www/cloud.tencent.com; 
+            root html; 
             index  index.html index.htm;
         }
     }
@@ -86,8 +86,7 @@ server {
 7. 重启 Nginx，即可使用 `https://cloud.tencent.com` 进行访问。
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
-
-若您不了解通过 HTTPS 访问网站的方式，可以通过配置服务器，让其自动将 HTTP 的请求重定向到 HTTPS。您可以通过以下操作设置：
+如果您需要将 HTTP 请求自动重定向到 HTTPS。您可以通过以下操作设置：
 1. 根据实际需求，选择以下配置方式：
  - 在页面中添加 JS 脚本。
  - 在后端程序中添加重定向。
@@ -102,9 +101,6 @@ server {
    listen 443 ssl;
 	#填写绑定证书的域名
     server_name cloud.tencent.com; 
-	#网站主页路径。此路径仅供参考，具体请您按照实际目录操作。
-    root /var/www/cloud.tencent.com; 
-    index index.html index.htm;   
 	#证书文件名称
 	ssl_certificate  1_cloud.tencent.com_bundle.crt; 
 	#私钥文件名称
@@ -114,6 +110,8 @@ server {
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
     ssl_prefer_server_ciphers on;
     location / {
+			#网站主页路径。此路径仅供参考，具体请您按照实际目录操作。  
+		    root html;
         index index.html index.htm;
     }
 }

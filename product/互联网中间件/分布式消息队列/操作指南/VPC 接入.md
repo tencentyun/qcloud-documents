@@ -4,8 +4,7 @@
 
 
 ## 前提条件
-- 已 [申请 TDMQ 内测](https://cloud.tencent.com/apply/p/0f6psgxhltch)，并已通过审批。
-- 已在腾讯云上有购买云服务器 CVM，并配置了私有网络 VPC。
+已在腾讯云上有购买云服务器 CVM，并配置了私有网络 VPC。
 
 
 ## 操作步骤

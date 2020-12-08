@@ -2,6 +2,7 @@ iOS、Android 以及 Windows 三种客户端的 SDK 均由 C 语言实现，下�
 
 ## 解码器
 ### API 列表
+
 <table>
 <thead>
 <tr>

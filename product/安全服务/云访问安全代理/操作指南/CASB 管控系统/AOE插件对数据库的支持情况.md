@@ -1,13 +1,18 @@
-本文档将为您介绍 AOE 插件对数据库的支持情况。
+本文档将为您介绍云访问安全代理（CASB）对数据库的支持情况。
+
+## 支持的数据库类型及版本
+目前云访问安全代理仅支持 Mysql 5.6及5.7版本，暂不支持其他类型及其他版本数据库。
+
+
 ## 对数据库字段类型的支持
 
 目前支持的数据库类型为 Mysql，支持的字段类型如下：
 
 | 字段类型    | 支持情况 | 可选算法 |
 | ----------- | -------- | -------- |
-| char        | 不支持   |     -     |
+| char        | <li>支持51个及以内汉字</li><li>支持155个及以内字母</li>   |   AES/SM4    |
 | varchar     | 支持     | AES/SM4  |
-| tinytext    | 支持     | AES/SM4  |
+| tinytext    | <li>支持51个及以内汉字</li><li>支持155个及以内字母</li>    | AES/SM4  |
 | text        | 支持     | AES/SM4  |
 | longtext    | 支持     | AES/SM4  |
 | tinyblob    | 支持     | AES/SM4  |
@@ -28,12 +33,13 @@
 | timestamp   | 不支持   |     -     |
 
 ## 对 SQL 语句的支持
+对数据库查询语句的支持情况如下：
 
 - **插入语句**：
 
 | 类型         | 支持情况 | SQL 样例                                                      |
 | ------------ | -------- | ------------------------------------------------------------ |
-| 不指定列插入 | 支持     | insert into table_a  values ('a',1,'bbb','ccc','ddd',3.74, sysdate,); |
+| 不指定列插入 | 支持     | insert into table_a  values ('a',1,'bbb','ccc','ddd',3.74, sysdate); |
 | 指定列插入   | 支持     | insert into  table_a(col1, col3, col4) values('a','bbb','ccc'); |
 
 - **删除语句**：
@@ -58,7 +64,7 @@
 | --------------------------------------------------- | ------------------------------------ | ------------------------------------------------------------ |
 | 对 select * 语法的支持                                | 支持                                 | select * from  table_a;                                      |
 | 条件字段等值匹配                                    | 支持                                 | select col1 from  table_a where col2=1;                      |
-| 条件字段模糊匹配                                    | 只支持完全匹配及从左边完全匹配的情况 | select col1 from  table_a where col3 like '%bbb%';           |
+| 条件字段模糊匹配                                    | 只支持完全匹配及从左边完全匹配的情况 | select col1 from  table_a where col3 like 'bbb%';           |
 | 条件字段范围查询                                    | 不支持                               | select col1 from  table_a where col1 > 'aaa' and col2 < 3;   |
 | 条件字段带函数                                      | 不支持                               | select col1 from  table_a where substr(col1,0,2) = 'aa';     |
 | 条件字段带 in                                        | 支持                                 | select col1 from  table_a where col1 in ('a',b','c');        |
@@ -75,14 +81,17 @@
 | 对 group by 语法的支持                                | 支持                                 | select col1, col2  from table_a group by col1,col2 where col3 = 'bbb' |
 | 对 union 的支持                                       | 不支持                               | select a.col1,a.col2  from table_a union (select c.col3,c.col5 from table_c) |
 | 对数字类型的分组函数                                | 不支持                               | select  sum(col2),avg(col2),min(col2),max(col2) from table_a where col1='aaa' |
+|对 order by 的支持|只支持非加密字段的排序|select * from table_a order by id desc|
+|临时表|不支持|select * from (select table1.col1,table1.col2,table1.col3,table2.id,table2.col4 from table1,table2 where table1.col1 = table2.col1 ) tmp|
 
 ## 对 JDBC 接口的支持
+对 Java 数据库访问接口的支持情况如下：
 
 | 类                | 方法                | 支持情况     |
 | ----------------- | ------------------- | ------------ |
-| DataSource        |                     | 不支持       |
-| Driver            |                     | 支持         |
-| Connection        |                     | 支持         |
+| DataSource        |        -             | 不支持       |
+| Driver            |        -             | 支持         |
+| Connection        |       -              | 支持         |
 | PreparedStatement | setArray            | 不支持       |
 | PreparedStatement | setAsciiStream      | 不支持       |
 | PreparedStatement | setBigDecimal       | 支持         |
@@ -112,7 +121,7 @@
 | PreparedStatement | setTimestamp        | 支持，不处理 |
 | PreparedStatement | setUnicodeStream    | 支持，不处理 |
 | PreparedStatement | setURL              | 支持，不处理 |
-| Statement         |                     | 支持         |
+| Statement         |               -      | 支持         |
 | ResultSet         | getArray            | 支持，不处理 |
 | ResultSet         | getAsciiStream      | 支持，不处理 |
 | ResultSet         | getBigDecimal       | 支持         |

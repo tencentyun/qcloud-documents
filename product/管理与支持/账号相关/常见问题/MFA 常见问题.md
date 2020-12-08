@@ -13,7 +13,7 @@ MFA，Multi-FactorAuthentication，即多因子认证，是一种简单有效的
 请您登录其他账号 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请解绑：账号中心 > 账号安全设置（MFA）问题。
  
 - **方法2：没有其他腾讯云账号**
-您可以致电官方客服 95716 咨询解绑。
+您可以致电官方客服 4009100100 咨询解绑。
 
 **工单申请模板：**
 - **a. 个人 MFA 解绑：**

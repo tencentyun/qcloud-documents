@@ -102,12 +102,12 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Mode                | TemplateList.Snapshot | 截图模式 | String    | 是   | Interval | 1. 值范围：{Interval, Average}<br/> 2. Interval 表示间隔模式 Average 表示平均模式<br/> 3. Interval模式：Start，TimeInterval，<br/>Count 参数生效。当设置 Count，<br/>未设置 TimeInterval 时，表示截取所有帧，共 Count 张图片<br/> 4. Average 模式：Start，Count 参数生效。表示从 <br/>Start 开始到视频结束，按平均间隔截取共 Count 张图片|
-| Start                | TemplateList.Snapshot | 开始时间 | String    | 是   | 0 | 1. [0 视频时长] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
-| TimeInterval         | TemplateList.Snapshot | 截图频率 | String    | 否   | 无  | 1. (0 3600] <br/> 2. 单位为秒 <br/> 3. 支持 float 格式，执行精度精确到毫秒 |
-| Count                | TemplateList.Snapshot | 截图数量 | String    | 是   | 无  | 1. (0 10000] |
-| Width                | TemplateList.Snapshot | 宽 | String    | 否   |  视频原<br/>始宽度 | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> 3. 若只设置 Width 时，按照视频原始比例计算 Height<br/> |
-| Height                | TemplateList.Snapshot | 高 | String    | 否  | 视频原<br/>始高度  | 1. 值范围：[128，4096]<br/> 2. 单位：px<br/> 3. 若只设置 Height 时，按照视频原始比例计算 Width<br/> |
+| Mode                | TemplateList.Snapshot | 截图模式 | String    | 是   | Interval | <li>值范围：{Interval, Average}<br/><li>Interval 表示间隔模式 Average 表示平均模式<br/><li> Interval模式：Start，TimeInterval，<br/>Count 参数生效。当设置 Count，<br/>未设置 TimeInterval 时，表示截取所有帧，共 Count 张图片<br/><li>Average 模式：Start，Count 参数生效。表示从 <br/>Start 开始到视频结束，按平均间隔截取共 Count 张图片|
+| Start                | TemplateList.Snapshot | 开始时间 | String    | 是   | 0 | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
+| TimeInterval         | TemplateList.Snapshot | 截图频率 | String    | 否   | 无  | <li>(0 3600] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
+| Count                | TemplateList.Snapshot | 截图数量 | String    | 是   | 无  | (0 10000] |
+| Width                | TemplateList.Snapshot | 宽 | String    | 否   |  视频原<br/>始宽度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Width 时，按照视频原始比例计算 Height<br/> |
+| Height                | TemplateList.Snapshot | 高 | String    | 否  | 视频原<br/>始高度  | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Height 时，按照视频原始比例计算 Width<br/> |
 
 
 #### 错误码
@@ -122,7 +122,7 @@ Container 类型 Snapshot 的具体数据描述如下：
 
 ```shell
 GET /template?ids=A,B,C HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
 Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 0
 Content-Type: application/xml
@@ -138,10 +138,10 @@ Content-Length: 100
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
 
 <Response>
-    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=</RequestId>
+    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzh****=</RequestId>
     <TemplateList>
         <TemplateId>A</TemplateId>
         <Name>TemplateName</Name>
@@ -169,7 +169,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
 
 ```shell
 GET /template?page_size=10&page_number=1 HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
 Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 0
 Content-Type: application/xml
@@ -185,10 +185,10 @@ Content-Length: 100
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
 
 <Response>
-    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhfMjc=</RequestId>
+    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzh****=</RequestId>
     <TotalCount>1</TotalCount>
     <PageNumber>1</PageNumber>
     <PageSize>10</PageSize>

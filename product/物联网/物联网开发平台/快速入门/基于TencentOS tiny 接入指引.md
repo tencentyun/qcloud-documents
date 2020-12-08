@@ -5,10 +5,10 @@
 ## 前提条件
 
 为了通过下面的步骤快速理解该业务场景，需要做好以下准备工作：
-- 申请物联网开发平台服务。
+- 申请 [物联网开发平台服务](https://console.cloud.tencent.com/iotexplorer)，详情请参见 [购买指南](https://cloud.tencent.com/document/product/1081/34731)。
 - 准备 TencentOS-tiny 官方 EVB_MX_Plus 开发板以及一个 ESP8266 Wi-Fi 模组。
 
-## 控制台操作步骤
+## 控制台操作
 
 ### 创建项目
 
@@ -59,15 +59,15 @@
 3. 将开发板配套的 ESP8266 模组插入到开发板右侧的通信模组接口。
 
 ### 串口准备
-1. 硬件连接成功后，打开 PC 端上的设备管理器，即可查看开发板所对应的串口（请确保已安装 CH340 驱动）。
+1. 硬件连接成功后，打开 PC 端上的设备管理器，即可查看开发板所对应的串口（请确保已安装[ CH340 驱动](https://sparks.gogo.co.nz/ch340.html)）。
 ![](https://main.qcloudimg.com/raw/5c44a520e8d0bc22d0e9849d8bcf3868.png)
 
 2. 打开串口工具，做好相应配置后，打开串口。
   - 端口号：本例中为 COM20。
   - 波特率：本例中为 115200。
-![](https://main.qcloudimg.com/raw/320e72b7721bf000829bc1e65cc75236.png)
+![](https://main.qcloudimg.com/raw/7c81c38f438aaef596d8afbab537c3f6.png)
 
-### 属性上报和控制命令下发操作步骤
+### 属性上报和控制命令下发
 
 #### 步骤1：下载官方例程
 
@@ -83,12 +83,13 @@ git clone https://github.com/Tencent/TencentOS-tiny.git
 
 1. 双击 `TencentOS_tiny.uvprojx` 打开工程（请确保已经安装好 Keil-MDK 开发环境）。
 2. 在 `TencentOS-tiny\components\connectivity\qcloud-iot-explorer-sdk\port\TencentOS_tiny` 目录：
- 1. 修改 `HAL_Device_tencentos_tiny.c` 文件。进入【物联网开发控制台】>【项目】>【产品开发】>【设备调试】，单击【调试】进入设备详情页，将下图红色线框中的数据分别替换为“设备详情页”中的参数并保存。
+ 1. 修改 `HAL_Device_tencentos_tiny.c` 文件。
+ 2. 登录 [物联网开发控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fiotexplorer)，单击【项目】>【产品开发】>【设备调试】，单击【调试】进入设备详情页，将下图红色线框中的数据分别替换为“设备详情页”中的参数并保存。
     -  产品 ID： 将控制台的产品 ID ，复制到下图 sg_product_id。
     -  设备名称： 将控制台的设备名称，复制到下图 sg_device_name。
     -  设备密钥：将控制台的设备密钥，复制到下图 sg_device_secret。
   ![](https://main.qcloudimg.com/raw/cadab6199c68fc70debc7e02a6580731.png)
- 2. 修改 entry.c 中的 Wi-Fi 网络接入配置信息。
+ 3. 修改 entry.c 中的 Wi-Fi 网络接入配置信息。
 ![](https://main.qcloudimg.com/raw/d1dc0309a19ff454112f64fbc3111da2.png)
 
 #### 步骤3：编译
@@ -107,22 +108,15 @@ git clone https://github.com/Tencent/TencentOS-tiny.git
 ### 物联网平台查看上报数据
 
 1. 保持系统处于运行状态。
-2. 进入【物联网开发控制台】>【项目】>【产品开发】>【设备调试】，可查看到设备 "dev001" 。
+2.  登录 [物联网开发控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fiotexplorer)，单击【项目】>【产品开发】>【设备调试】，可查看到设备 "dev001" 。
 3. 单击【调试】，可进入设备详情页。
-
-
-![](
-https://main.qcloudimg.com/raw/b873b65c618480ede6485073090bc1f2.png)
-
+![](https://main.qcloudimg.com/raw/b873b65c618480ede6485073090bc1f2.png)
 4. 单击【设备属性】，可查询设备上报到开发平台的最新数据及历史数据。
-
   - 最新值：显示设备上报的最新数据。
   - 更新时间：显示数据的更新时间。
   - 历史数据：单击【查看】，可查看某个属性的历史上报数据。
 
 ![](https://main.qcloudimg.com/raw/c08da8cf2b2748d93368059740cbe6fa.png)
-
-
 
 ### 物联网平台在线调试
 
@@ -130,13 +124,13 @@ https://main.qcloudimg.com/raw/b873b65c618480ede6485073090bc1f2.png)
 2. 设置电灯开关为 on，颜色为 Green，亮度为3，单击【发送】。
 ![](https://main.qcloudimg.com/raw/0251c905751df941afde8063c07006dd.png)
 3. 在串口上查看系统打印的串口日志，判断出系统成功收到并响应了下发的控制指令。
-![](https://main.qcloudimg.com/raw/2691916612ade54ff47636534e160cd7.png)
+![](https://main.qcloudimg.com/raw/2f490b4a236c230c3aaed973c59ccc75.png)
 4. 同时，在开发板的OLED显示屏幕上，可以看到系统模拟出的智能灯状态。
 ![](https://main.qcloudimg.com/raw/7f2d51718313d34a050e1ba2a9992d18.png)
 
-### 设备行为调用操作步骤
+### 设备行为调用
 
-1. 在【物联网开发控制台】>【项目】>【产品开发】>【数据模板】>【新建功能】，手动新建一个设备行为功能。
+1. 在【物联网开发控制台】>【项目】>【产品开发】>【数据模板】>【新建功能】，手动新建一个 [设备行为功能](https://cloud.tencent.com/document/product/1081/47958)。
 ![](https://main.qcloudimg.com/raw/7736a6f45b43acf218fd5e49cbb44f27.jpg)
 2. 修改工程文件，在 `data_template_sample.c` 文件中使能 Action。
 ![](https://main.qcloudimg.com/raw/8f605b70838ae7c12133617977d95c0b.png)
@@ -144,9 +138,9 @@ https://main.qcloudimg.com/raw/b873b65c618480ede6485073090bc1f2.png)
 4. 在物联网开发控制台上下发设备行为调用。
 ![](https://main.qcloudimg.com/raw/4320c5a421a5c8d54ac7ee9120e5912c.png)
 5. 在串口助手中可查看到设备行为被调用。
- ![](https://main.qcloudimg.com/raw/8361ab21c5c2ff6dd1c33f82892ba918.png)
+![](https://main.qcloudimg.com/raw/5b185b7aa8cf7243956a53e536a668b6.png)
 
-### 设备事件上报操作步骤
+### 设备事件上报
 
 1. 修改工程文件中的 `config.h` 文件，将设备行为调用支持屏蔽，开启设备事件上报支持。
 ![](https://main.qcloudimg.com/raw/602e0f0d6d6049f74b30c9b46dd7aa46.png)
@@ -154,7 +148,7 @@ https://main.qcloudimg.com/raw/b873b65c618480ede6485073090bc1f2.png)
 ![](https://main.qcloudimg.com/raw/9dfd57b19dd6ce96b4e24704905b48a4.png)
 3. 编译程序，下载到开发板中，在开发板上按【复位】使系统运行。
 4. 在串口助手中可查看到设备上报事件的日志。
-![](https://main.qcloudimg.com/raw/5825feb3252c51391cee08670117bf65.png)
+![](https://main.qcloudimg.com/raw/9b50a4d07439b0162d790672850aed8d.png)
 5. 在物联网开发控制台上可查看到设备上报事件的日志。
 ![](https://main.qcloudimg.com/raw/86b8032eccfd6a1901f70ad828ec3cdb.png)
 

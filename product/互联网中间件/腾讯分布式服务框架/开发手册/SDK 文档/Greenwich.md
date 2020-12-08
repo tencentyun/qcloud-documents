@@ -1,5 +1,92 @@
 基于 Spring Cloud Greenwich 版本 SDK，支持 spring boot 2.1.6。
 
+## 1.26.0-Greenwich-RELEASE（2020-12-07）
+
+### 新特性
+- spring-cloud-tsf-msgw-scg：
+  - 补齐 Spring Cloud Gateway 网关的服务治理能力，支持用户按照需求灵活选择 Zuul 或 Spring Cloud Gateway。
+  - 支持托管外部 API。
+- spring-cloud-tsf-msgw-zuul：支持托管外部 API。
+- spring-cloud-tsf-swagger：支持添加注解 @IgnoreGatewayApi 来忽略某个网关 API 不被发现（忽略该网关的 API，但服务治理 API 不受影响）。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.25.0-Greenwich-RELEASE（2020-12-04）
+
+### 新特性
+spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
+
+### Bug 修复
+
+- spring-cloud-tsf-ratelimit：修复当只有一个限流规则时，限流规则关闭不生效的问题。
+- spring-cloud-tsf-route：修复当只有一个路由规则时，路由规则关闭不生效的问题。
+- spring-cloud-tsf-lane：优化泳道规则生效逻辑。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.24.0-Greenwich-RELEASE（2020-09-25）
+
+### 新特性
+- 支持云上 Spring Cloud 应用平滑迁移 TSF。
+- 支持 PostgreSQL 组件调用链。
+
+### Bug 修复
+
+- spring-cloud-tsf-consul-config：
+  - 修复本地加密配置不能正确解密的问题。
+  - 修复 MySQL 调用链对多数据源支持。
+- spring-cloud-tsf-core：
+  增加线程上下文接口，在父亲线程中塞入线程局部变量后，子线程不论是线程池反复使用还是一次性使用都能正确继承父线程局部变量。
+  
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.6-Greenwich-RELEASE（2020-11-11）
+### 优化
+- spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
+- spring-cloud-tsf-sleuth 修改调用 SQL 存储的最长长度到64000字符。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.5-Greenwich-RELEASE（2020-09-21）
+
+### 优化
+调整泳道入口行为。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.4-Greenwich-RELEASE（2020-09-16）
+
+### Bug 修复
+
+- 修复 MySQL 调用链中对多数据源支持。
+- 修复 feign 请求调用链中只展示 HTTP 方法。
+- 修复定时任务的线程数问题。
+- 修复网关使用就近命名空间的问题。
+    
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.3-Greenwich-RELEASE（2020-09-14）
+
+### Bug 修复
+
+- spring-cloud-tsf-msgw：
+修复网关 MSGW SDK 和服务发现 SDK 不兼容，造成拉取服务列表过快的问题，从而导致注册中心负载压力过大的问题。
+- spring-cloud-tsf-consul-discovery：
+修复服务发现线程数不准确（少于需要请求的服务数），导致服务发现线程调度不及时，节点状态更新可能会延迟30s的问题。
+  
 ## 1.23.2-Greenwich-RELEASE（2020-08-19）
 
 ### Bug 修复

@@ -1,225 +1,126 @@
-流式语音合成 Java SDK [下载地址](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/tts/java_stream_tts_sdk.zip)。
+本文介绍如何使用腾讯云语音合成服务提供的 Java SDK，包括 SDK 的安装方法及 SDK 代码示例。
 
-接口请求域名：tts.cloud.tencent.com/stream。
+## 依赖环境
+1. 依赖环境：JDK 1.8版本及以上。
+2. 从 [腾讯云控制台](https://console.cloud.tencent.com/tts) 开通相应产品。
+3. 获取 SecretID、SecretKey 。
 
-腾讯云语音合成技术（TTS）可以将任意文本转化为语音，实现让机器和应用张口说话。 腾讯 TTS 技术可以应用到很多场景，例如，移动 App 语音播报新闻；智能设备语音提醒；支持车载导航语音合成的个性化语音播报。本接口内测期间免费使用。  
 
-## 开发环境
-#### 基础编译环境
-jdk1.8及以上
+## 获取安装
+安装 Java SDK 前，先获取安全凭证。在第一次使用 SDK 之前，用户首先需要在腾讯云控制台上申请安全凭证，安全凭证包括 SecretID 和 SecretKey，SecretID 是用于标识 API 调用者的身份，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥，SecretKey 必须严格保管，避免泄露。
 
-本文件夹包含了 Jar 包和源码。源码可通过 Eclipse 直接打开，或将 src 拷至 IDEA 等软件中。
 
-JAR 包使用步骤举例如下：  
-1. 找到：out 和 lib 文件夹中的 jar 文件，包括 tts-sdk-\*.\*.jar 和依赖的 jar 包。  
-2. 将 jar 复制到您的工程文件夹中。如果 jar 包和您已使用的 jar 有重复，可选择其一。  
-3. 右键单击 Eclipse ，选择【您的项目】>【Properties】>【Java Build Path】>【Add JARs】。  
-4. 其他 IDE 参考对应的导入 jar 包流程添加即可，目前暂不支持 maven 仓库管理。
-
-添加完成后，用户就可以在工程中使用 TTS 语音合成 SDK 了。
-
-##  <span id="result">获取用户信息</span>
-**获取 AppID，SecretId 与 SecretKey**
-- 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretId 与 SecretKey。
-- 具体路径为：单击 [腾讯云控制台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F) 右上角您的账号，选择【访问管理】>【访问密钥】>【API 密钥管理】界面查看 AppID 和 key。
-
-**更改用户信息配置文件**
-将查询到的用户信息更改到 SDK 中。
-
+### 通过 Maven 安装
+从 maven 服务器下载最新版本 SDK
+```xml
+<dependency>
+    <groupId>com.tencentcloudapi</groupId>
+    <artifactId>tencentcloud-speech-sdk-java</artifactId>
+    <version>1.0.7</version>
+</dependency>
 ```
+
+## TTS SDK 说明
+###  关键类说明
+
+- SpeechClient 通过 SpeechClient.newInstance 创建该实例，newInstance 为单例实现。
+- SpeechSynthesizer 语音合成器，通过客户端 speechClient.newSpeechSynthesizer 创建实例。
+- SpeechSynthesizerRequest 用于配置请求参数，可通过 SpeechSynthesizerRequest.initialize() 方法进行初始化。
+- SpeechSynthesizerResponse 请求响应。
+- SpeechSynthesizerListener 请求回调。包含 onMessage onComplete  onFail 回调方法。
+
+
+
+
+### SDK 使用说明
+1.创建 SpeechClient 实例。
+2.创建 SpeechSynthesisRequest，这里配置请求相关参数，具体参考官网 [请求参数](https://cloud.tencent.com/document/product/1073/34093) 。
+3.创建 SpeechSynthesizer 实例，该实例是语音识别的处理者。
+4.调用 SpeechSynthesizer 的 synthesis 方法开始发送语音数据。
+
+## 示例
+#### [参考案例](https://github.com/TencentCloud/tencentcloud-speech-sdk-java-example)
+
+```java
+package com.tencentcloud.tts;
+
+import com.tencent.SpeechClient;
+import com.tencent.core.model.GlobalConfig;
+import com.tencent.tts.model.*;
+import com.tencent.tts.service.SpeechSynthesizer;
+import com.tencent.tts.service.SpeechSynthesisListener;
+import com.tencent.tts.utils.Ttsutils;
+
+import java.io.*;
+import java.util.Properties;
+import java.util.concurrent.atomic.AtomicInteger;
+
 /**
-* 获取方法如上
-* 请用户务必将自己的各项参数值赋值到本类对应变量中。
-*/
-public class AsrBaseConfig {
-	public static String secretId = "AKID31NbfXbpBLJ4kGJrytc9UfgVAlG*****";
-	public static String secretKey = "kKm26uXCgLtGRWVJvKtGU0LYdWC*****";
-	public static String appId = "1255628450";
+ * 语音合成 example
+ */
+public class SpeechTtsExample {
+
+    public static void main(String[] args) throws IOException {
+        GlobalConfig.ifLog=true;
+        //从配置文件读取密钥
+        Properties props = new Properties();
+        props.load(new FileInputStream("../config.properties"));
+        String appId = props.getProperty("appId");
+        String secretId = props.getProperty("secretId");
+        String secretKey = props.getProperty("secretKey");
+
+
+        //创建 SpeechSynthesizerClient 实例，目前是单例
+        SpeechClient client = SpeechClient.newInstance(appId, secretId, secretKey);
+        //初始化 SpeechSynthesizerRequest，SpeechSynthesizerRequest 包含请求参数
+        SpeechSynthesisRequest request = SpeechSynthesisRequest.initialize();
+
+
+        //使用客户端 client 创建语音合成实例
+        SpeechSynthesizer speechSynthesizer = client.newSpeechSynthesizer(request, new SpeechTtsExample.MySpeechSynthesizerListener());
+        //执行语音合成
+        String ttsTextLong = "暖国的雨，向来没有变过冰冷的坚硬的灿烂的雪花。博识的人们觉得他单调，他自己也以为不幸否耶？江南的雪，可是滋润美艳之至了；" +
+                "那是还在隐约着的青春的消息，是极壮健的处子的皮肤。雪野中有血红的宝珠山茶，白中隐青的单瓣梅花，深黄的磬口的蜡梅花；雪下面还有冷绿的杂草。" +
+                "蝴蝶确乎没有；蜜蜂是否来采山茶花和梅花的蜜，我可记不真切了。但我的眼前仿佛看见冬花开在雪野中，有许多蜜蜂们忙碌地飞着，也听得他们嗡嗡地闹着。" +
+                "孩子们呵着冻得通红，像紫芽姜一般的小手，七八个一齐来塑雪罗汉。因为不成功，谁的父亲也来帮忙了。罗汉就塑得比孩子们高得多，虽然不过是上小下大的一堆，" +
+                "终于分不清是壶卢还是罗汉；然而很洁白，很明艳，以自身的滋润相粘结，整个地闪闪地生光。孩子们用龙眼核给他做眼珠，又从谁的母亲的脂粉奁中偷得胭脂来涂在嘴唇上。" +
+                "这回确是一个大阿罗汉了。他也就目光灼灼地嘴唇通红地坐在雪地里。";
+        speechSynthesizer.synthesis(ttsTextLong);
+    }
+
+
+    public static class MySpeechSynthesizerListener extends SpeechSynthesisListener {
+
+        private AtomicInteger sessionId = new AtomicInteger(0);
+
+        @Override
+        public void onComplete(SpeechSynthesisResponse response) {
+            System.out.println("onComplete");
+            if (response.getSuccess()) {
+                Ttsutils.printAndSaveResponse(16000, response.getAudio(), response.getSessionId());
+            }
+            System.out.println("结束：" + response.getSuccess() + " " + response.getCode() + " " + response.getMessage() + " " + response.getEnd());
+        }
+
+        //语音合成的语音二进制数据
+        @Override
+        public void onMessage(byte[] data) {
+            System.out.println("onMessage:" + data.length);
+            // Your own logic.
+            String filePath = "logs/handler_" + "result_" + sessionId + ".pcm";
+            //Ttsutils.saveResponseToFile(data, filePath);
+            sessionId.incrementAndGet();
+        }
+
+        @Override
+        public void onFail(SpeechSynthesisResponse response) {
+            System.out.println("onFail");
+        }
+    }
 }
-```
 
-## 开发相关
-#### 请求参数
-
-| 参数名称 | 必选 | 类型 | 描述 |  
-| --- | --- | --- | --- |
-| Action |  是 | String | 本接口取值：TextToStreamAudio，不可更改。 |
-| AppId  |  是 | Int | 用户在腾讯云注册账号的 AppId，具体可以参考 [获取用户信息](#result)。 |
-| SecretId | 是 | String | 用户在腾讯云注册账号 AppId 对应的 SecretId，获取方法同上。 |
-| Timestamp | 是 | Int | 当前 UNIX 时间戳，可记录发起 API 请求的时间。如果与当前时间相差过大，会引起签名过期错误。SDK 会自动赋值当前时间戳。|
-| Expired | 是 | Int | 签名的有效期，是一个符合 UNIX Epoch 时间戳规范的数值，单位为秒；Expired 必须大于 Timestamp 且 Expired-Timestamp 小于90天。SDK 默认设置 1 h。
-| Text | 是 | String | 合成语音的源文本。中文最大支持600个汉字（全角标点符号算一个汉字），英文最大支持1800个字母（半角标点符号算一个字母）。包含空格等字符时需要 URL encode 再传输。|
-| SessionId | 是 | String | 一次请求对应一个 SessionId，会原样返回，建议传入类似于 uuid 的字符串防止重复。|
-| ModelType | 否 | Int | 模型类型，1：默认模型，此字段只需设置为1即可。|
-| Volume | 否 | Float | 音量大小，范围：[0，10]，分别对应11个等级的音量，默认值为0，代表正常音量。没有静音选项。<br>输入除以上整数之外的其他参数不生效，按默认值处理。|
-| Speed | 否 | Int | 语速，范围：[-2，2]分别对应不同语速：<br>-2代表0.6倍 <br>-1代表0.8倍<br>0代表1.0倍（默认）<br>1代表1.2倍<br>2代表1.5倍<br>输入除以上整数之外的其他参数不生效，按默认值处理。|
-| ProjectId | 否 | Int | 项目 ID，可以根据控制台-账号中心-项目管理中的配置填写，如无配置请填写默认项目ID:0 。|
-| VoiceType | 否 | Int | 详见：[语音合成 API 文档中的 VoiceType 参数](https://cloud.tencent.com/document/product/1073/37995)。|
-| PrimaryLanguage | 否 | Int | 主语言类型：<br>1：中文（默认）<br>2：英文 |
-| SampleRate | 否 | Int | 音频采样率：<br>16000:16k（默认）<br>8000:8k |
-| Codec | 否 | String | 返回音频格式：<br>opus：返回多段含 opus 压缩分片音频，数据量小，建议使用（默认）。<br>pcm：返回二进制 pcm 音频，使用简单，但数据量大。|
-
-#### 请求接口
-**initBaseParameters**
-```
-/*
-** 初始化基础参数, 请将下面的参数值配置成您自己的值。配置可中途修改，正常情况下立即生效。
-*/
-private static void initBaseParameters() {
-	// Required
-	// AsrBaseConfig.appId = "YOUR_APP_ID_SET_HERE";
-	// AsrBaseConfig.secretId = "YOUR_SECRET_ID";
-	// AsrBaseConfig.secretKey = "YOUR_SECRET_KEY";
-
-	// optional，根据自身需求设置配置值， 不配则使用默认值。
-	TtsConfig.VOLUME = 5; // 音量大小, 范围[0，10]，默认为0，表示正常音量。
-	// TtsConfig.REQUEST_ENCODE = RequestEncode.UTF_8; // 传入的文字所采用的编码，默认为utf-8
-	// TtsConfig.SPEED = 0; // 语速，范围[-2，2]. -2: 0.6倍; -1: 0.8倍; 0:1.0倍（默认）; 1: 1.2倍; 2: 1.5倍 。其他值：1.0 倍。
-	// TtsConfig.VOICE_TYPE = 0; // 音色： 0：亲和女声（默认） 1：亲和男声 2：成熟男声 4：温暖女声 5：情感女声 6：情感男声
-	// TtsConfig.SAMPLE_RATE = 16000;// 音频采样率： 16000：16k（默认）; 8000：8k
-	// TtsConfig.PRIMARY_LANGUAGE = 1;// 主语言类型： 1-中文（默认） 2-英文
-	// TtsConfig.CODEC = CodeC.PCM; // 无需修改。暂未支持Opus方式。
-}
-```
-**sendStringRequest**
-```
-/*
-** 从字节数组读取语音数据，发送请求。
-*/
-private void sendStringRequest() {
-	// 方法1：
-	TtsSynSender ttsSynSender = new TtsSynSender(); // 创建之后可重复使用
-	String text = "早上好，今天天气真不错。";
-	TtsResponse response = ttsSynSender.request(text, "session-id-123");
-	// TtsResponse response2 = ttsSynSender.sendRequest(text);
-	printAndSaveReponse(response);
-
-	// 方法2：
-	String filePath = "testTtsFiles/test_article.txt";
-	List<TtsResponse> list = ttsSynSender.requestFromFile(filePath, StandardCharsets.UTF_8, "Session-Id-xxx");
-	for (TtsResponse ttsResponse : list) {
-		printAndSaveReponse(ttsResponse);
-	}
-}
-```
-
-#### 简单开发流程介绍
 
 ```
-先初始化一次基本参数：
-AsrBaseConfig.appId = "YOUR_APP_ID_SET_HERE";
-AsrBaseConfig.secretId = "YOUR_SECRET_ID";
-AsrBaseConfig.secretKey = "YOUR_SECRET_KEY";
-TtsConfig.VOLUME = 5; // 音量大小
-.....
-然后开始调用：
-方法一. 同步调用：
-TtsSynSender ttsSynSender = new TtsSynSender(); 
-TtsResponse response = ttsSynSender.request(text, "session-id-123");
-byte[] pcmBytes = response.getResponseBytes();
-String sessionId = response.getSessionId(); // 即： "session-id-123"
-或者：
-List<TtsResponse> list = ttsSynSender.requestFromFile(filePath, "session-id-xxx");
-详见实例类：
-/TtsSdkJava/src/com/tencent/cloud/asr/tts/sdk/TtsRequestSample.java
-方法二. 异步多线程调用：
-线程A不断add文本，线程B收取合成的语音结果字节数组。详见实例类：
-/TtsSdkJava/src/com/tencent/cloud/asr/tts/sdk/TtsAsynRequestSample.java
-```
-
-
-## Java 快速入门示例
-
-```
-public class TtsRequestSample {
-
-	static {
-		initBaseParameters();
-	}
-
-	public static void main(String[] args) {
-		TtsRequestSample ttsRequestSample = new TtsRequestSample();
-		ttsRequestSample.start();
-	}
-
-	private void start() {
-		this.sendStringRequest();
-		System.exit(0);
-	}
-
-	/**
-	 * 从字节数组读取语音数据，发送请求。
-	 */
-	private void sendStringRequest() {
-		// 方法1：
-		TtsSynSender ttsSynSender = new TtsSynSender(); // 创建之后可重复使用
-		String text = "早上好，今天天气真不错。";
-		TtsResponse response = ttsSynSender.request(text, "session-id-123");
-		// TtsResponse response2 = ttsSynSender.sendRequest(text);
-		printAndSaveReponse(response);
-
-		// 方法2：
-		String filePath = "testTtsFiles/test_article.txt";
-		List<TtsResponse> list = ttsSynSender.requestFromFile(filePath, StandardCharsets.UTF_8, "Session-Id-xxx");
-		for (TtsResponse ttsResponse : list) {
-			printAndSaveReponse(ttsResponse);
-		}
-	}
-
-	private void printAndSaveReponse(TtsResponse response) {
-		if (response != null) {
-			new File("logs").mkdirs();
-			File pcmFile = new File("logs/" + response.getSessionId() + ".pcm");
-			this.savePcmFile(response.getResponseBytes(), pcmFile);
-			File wavFile = new File("logs/" + response.getSessionId() + "_Convert.wav");
-			this.saveToWavFile(response.getResponseBytes(), pcmFile, wavFile);
-			System.out.println("Response: " + response.getSessionId() + ", length: "
-					+ response.getResponseBytes().length + ", result saved at: " + pcmFile.getAbsolutePath());
-		} else
-			System.out.println("Result is null.");
-	}
-
-	/**
-	 * 初始化基础参数, 请将下面的参数值配置成您自己的值。配置可中途修改，正常情况下立即生效。
-	 */
-	private static void initBaseParameters() {
-		// Required
-		// AsrBaseConfig.appId = "YOUR_APP_ID_SET_HERE";
-		// AsrBaseConfig.secretId = "YOUR_SECRET_ID";
-		// AsrBaseConfig.secretKey = "YOUR_SECRET_KEY";
-
-		// optional，根据自身需求设置配置值， 不配则使用默认值。
-		TtsConfig.VOLUME = 5; // 音量大小, 范围[0，10]，默认为0，表示正常音量。
-		// TtsConfig.REQUEST_ENCODE = RequestEncode.UTF_8; // 传入的文字所采用的编码，默认为utf-8
-		// TtsConfig.SPEED = 0; // 语速，范围[-2，2]. -2: 0.6倍; -1: 0.8倍; 0:1.0倍（默认）; 1: 1.2倍; 2: 1.5倍 。其他值：1.0 倍。
-		// TtsConfig.VOICE_TYPE = 0; // 音色： 0：亲和女声（默认） 1：亲和男声 2：成熟男声 4：温暖女声 5：情感女声 6：情感男声
-		// TtsConfig.SAMPLE_RATE = 16000;// 音频采样率： 16000：16k（默认）; 8000：8k
-		// TtsConfig.PRIMARY_LANGUAGE = 1;// 主语言类型： 1-中文（默认） 2-英文
-		// TtsConfig.CODEC = CodeC.PCM; // 无需修改。暂未支持Opus方式。
-	}
-
-	private void savePcmFile(byte[] response, File file) {
-		try {
-			FileOutputStream out = new FileOutputStream(file, false);
-			out.write(response);
-			out.close();
-		} catch (IOException e) {
-			System.err.println("Failed save data to: " + file + ", error: " + e.getMessage());
-		}
-
-	}
-
-	/**
-	 * 将Pcm文件转换成wav文件保存起来。请将方法中的参数改成自己的语音文件对应的值，本方法仅供参考。
-	 * 
-	 * 如需改成追加形式输出，请自行修改convert2Wav()方法中new FileOutputStream的参数。
-	 */
-	private void saveToWavFile(byte[] responseBytes, File pcmFile, File wavFile) {
-		int bitNum = TtsConfig.SAMPLE_RATE == 16000 ? 16 : 8;
-		PcmUtils.convert2Wav(pcmFile, wavFile, TtsConfig.SAMPLE_RATE, 1, bitNum);
-	}
-}```
-
 
 
 

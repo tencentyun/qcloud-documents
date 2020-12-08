@@ -76,7 +76,7 @@ Docker 镜像用于部署容器服务，每个镜像有特定的唯一标识（�
 </tr>
 <tr>
 <td>Job</td>
-<td>Job 控制器会创建 1 - N 个 Pod，这些 Pod 按照运行规则运行，直至运行结束。</td>
+<td>Job 控制器会创建一个或者多个 Pod，这些 Pod 按照运行规则运行，直至运行结束。</td>
 </tr>
 <tr>
 <td>CronJob</td>

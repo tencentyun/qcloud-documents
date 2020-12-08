@@ -8,7 +8,7 @@
 | 名称             | 类型   | 必选 | 描述                                                         |
 | ---------------- | ------ | ---- | ------------------------------------------------------------ |
 | AccessToken      | String | 是   | 公共参数，AccessToken 用于对一个已经登录的用户鉴权。         |
-| RequestId        | String | 是   | 公共参数，唯一请求 ID，可自行生成，推荐使用 uuId。定位问题时，需提供该次请求的 RequestId。 |
+| RequestId        | String | 是   | 公共参数，唯一请求 ID，可自行生成，推荐使用 uuid。定位问题时，需提供该次请求的 RequestId。 |
 | Action           | String | 是   | 公共参数，本接口取值：AppDescribeShareDeviceToken。            |
 | ShareDeviceToken | String | 是   | 设备分享 Token。                                                |
 
@@ -16,8 +16,10 @@
 
 | 名称                 | 类型                                                         | 描述                                                         |
 | -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| RequestId            | String                                                       | 公共参数，唯一请求ID，与入参相同，定位问题时，需提供该次请求的 RequestId。 |
+| RequestId            | String                                                       | 公共参数，唯一请求 ID，与入参相同，定位问题时，需提供该次请求的 RequestId。 |
 | ShareDeviceTokenInfo | Object of [ShareDeviceTokenInfo](https://cloud.tencent.com/document/product/1081/40780#sharedevicetokeninfo) | 响应的结果。                    |
+| AliasName    | String | 设备别名                   |
+| IconUrl      | String | 图标 URL                    |
 
 ## 4. 示例
 **输入示例**

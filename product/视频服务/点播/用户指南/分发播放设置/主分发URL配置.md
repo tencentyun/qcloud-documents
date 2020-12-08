@@ -7,3 +7,4 @@
  - 默认分发域名：默认使用系统分配的`xxx.vod2.myqcloud.com`，也可以选择自定义 [添加](https://cloud.tencent.com/document/product/266/33371#.E6.B7.BB.E5.8A.A0.E5.9F.9F.E5.90.8D) 并完成 [解析](https://cloud.tencent.com/document/product/266/33371#.E8.A7.A3.E6.9E.90.E5.9F.9F.E5.90.8D) 的域名作为默认分发域名。
  
 ![](https://main.qcloudimg.com/raw/b2a19daef9763d9cc88e0cf3caa00d91.png)
+

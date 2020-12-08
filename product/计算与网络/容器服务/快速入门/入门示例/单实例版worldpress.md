@@ -24,7 +24,7 @@ WordPress 是使用 PHP 语言开发的博客平台。用户可以在支持 PHP 
  - **标签**：key = value 键值对，本例中标签默认值为 k8s-app = **wordpress**。
  - **命名空间**：根据实际需求进行选择。
  - **类型**：根据实际需求进行选择。
- - **数据卷**：根据实需求设置工作负载的挂载卷，详情请参见 [Volumne 管理](https://cloud.tencent.com/document/product/457/31713)。
+ - **数据卷**：根据实需求设置工作负载的挂载卷，详情请参见 [Volume 管理](https://cloud.tencent.com/document/product/457/31713)。
 4. 根据以下提示，设置**实例内容器**。如下图所示：
 ![](https://main.qcloudimg.com/raw/ca7ec78c92dd1ed6648c27f7f6dbbae6.png)
 主要参数信息如下，其余选项保持默认值：
