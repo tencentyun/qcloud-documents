@@ -25,14 +25,34 @@
 5. 单击【保存】即可成功接入 CLS 平台。
 
 ### 开启索引
->?如果您需要使用日志检索功能，则需手动开启索引，请参考此步骤开启索引。
+>?日志检索依赖日志主题的索引配置，请参考此步骤开启索引。
 >
 1. 登录 CLS 控制台，选择左侧导航栏中的【[日志集管理](https://console.cloud.tencent.com/cls/logset)】。
 2. 单击已创建的日志集 ID，进入“基本信息”页面。
 3. 选择日志主题所在行右侧的【管理】，进入日志主题“基本信息”页面。
 4. 在日志主题“基本信息”页面，单击【索引配置】。如下图所示：
 ![](https://main.qcloudimg.com/raw/dfb2ab52611a37e82873d3b97f33a0a6.png)
-4. 单击右上角的【编辑】，开启索引后保存设置。
+4. 单击右上角的【编辑】，开启“键值索引”后按照下表添加“字段名称”、“字段类型”。
+
+|  字段名称   | 字段类型  |
+|  ----  | ----  |
+| SCF_FunctionName  | text |
+| SCF_Namespace  | text |
+| SCF_StartTime | long |
+| SCF_LogTime | long |
+| SCF_RequestId | text |
+| SCF_Duration | long |
+| SCF_Alias | text |
+| SCF_Qualifier | text |
+| SCF_MemUsage | double |
+| SCF_Level | text |
+| SCF_Message | text |
+| SCF_Type | text |
+| SCF_StatusCode | long |
+
+>? 对于配置了 CLS 的函数，为保证云函数控制台日志展示效果，请在键值索引配置中为字段“开启统计”能力。
+![](https://main.qcloudimg.com/raw/f852620614fe76d648af252ca20621ca.png)
+
 如需使用更多功能，例如日志实时检索，日志投递和消费等，请参考 [日志服务文档](https://cloud.tencent.com/document/product/614) 并前往 [CLS 控制台](https://console.cloud.tencent.com/cls) 开始使用。
 
 
