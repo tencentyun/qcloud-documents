@@ -44,7 +44,7 @@
    <tr> 
      <td nowrap="nowrap">vivo 推送</td> 
      <td nowrap="nowrap">FuntouchOS</td> 
-     <td>并非所有 OPPO 机型和版本都支持使用 OPPO 推送。使用 vivo 推送，添加依赖：implementation 'com.tencent.tpns:vivo:1.2.1.2-release'
+     <td>并非所有 vivo 机型和版本都支持使用 vivo 推送。使用 vivo 推送，添加依赖：implementation 'com.tencent.tpns:vivo:1.2.1.2-release'
 </td> 
    </tr> 
 </table>
