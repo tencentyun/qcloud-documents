@@ -473,6 +473,115 @@ var COS = require('cos-nodejs-sdk-v5');
 </tbody></table>
 
 
+- Node.js 12.16 运行时内已支持的库如下表：
+
+| 库名称                      | 版本    |
+| :-------------------------- | :------ |
+| cos-nodejs-sdk-v5           | 2.5.20  |
+| base64-js                   | 1.3.1   |
+| buffer                      | 5.5.0   |
+| crypto-browserify           | 3.12.0  |
+| ieee754                     | 1.1.13  |
+| imagemagick                 | 0.1.3   |
+| isarray                     | 2.0.5   |
+| jmespath                    | 0.15.0  |
+| lodash                      | 4.17.15 |
+| microtime                   | 3.0.0   |
+| npm                         | 6.13.4  |
+| punycode                    | 2.1.1   |
+| puppeteer                   | 2.1.1   |
+| qcloudapi-sdk               | 0.2.1   |
+| querystring                 | 0.2.0   |
+| request                     | 2.88.2  |
+| sax                         | 1.2.4   |
+| scf-nodejs-serverlessdb-sdk | 1.1.0   |
+| tencentcloud-sdk-nodejs     | 3.0.147 |
+| url                         | 0.11.0  |
+| uuid                        | 7.0.3   |
+| xml2js                      | 0.4.23  |
+| xmlbuilder                  | 15.1.0  |
+
+- Node.js 10.15 运行时内已支持的库如下表：
+
+| 库名称                      | 版本    |
+| :-------------------------- | :------ |
+| cos-nodejs-sdk-v5           | 2.5.14  |
+| base64-js                   | 1.3.1   |
+| buffer                      | 5.4.3   |
+| crypto-browserify           | 3.12.0  |
+| ieee754                     | 1.1.13  |
+| imagemagick                 | 0.1.3   |
+| isarray                     | 2.0.5   |
+| jmespath                    | 0.15.0  |
+| lodash                      | 4.17.15 |
+| microtime                   | 3.0.0   |
+| npm                         | 6.4.1   |
+| punycode                    | 2.1.1   |
+| puppeteer                   | 2.0.0   |
+| qcloudapi-sdk               | 0.2.1   |
+| querystring                 | 0.2.0   |
+| request                     | 2.88.0  |
+| sax                         | 1.2.4   |
+| scf-nodejs-serverlessdb-sdk | 1.0.1   |
+| tencentcloud-sdk-nodejs     | 3.0.104 |
+| url                         | 0.11.0  |
+| uuid                        | 3.3.3   |
+| xml2js                      | 0.4.22  |
+| xmlbuilder                  | 13.0.2  |
+
+- Node.js 8.9 运行时内已支持的库如下表：
+
+| 库名称                  | 版本   |
+| :---------------------- | :----- |
+| cos-nodejs-sdk-v5       | 2.5.8  |
+| base64-js               | 1.2.1  |
+| buffer                  | 5.0.7  |
+| crypto-browserify       | 3.11.1 |
+| ieee754                 | 1.1.8  |
+| imagemagick             | 0.1.3  |
+| isarray                 | 2.0.2  |
+| jmespath                | 0.15.0 |
+| lodash                  | 4.17.4 |
+| npm                     | 5.6.0  |
+| punycode                | 2.1.0  |
+| puppeteer               | 1.14.0 |
+| qcloudapi-sdk           | 0.1.5  |
+| querystring             | 0.2.0  |
+| request                 | 2.87.0 |
+| sax                     | 1.2.4  |
+| tencentcloud-sdk-nodejs | 3.0.56 |
+| url                     | 0.11.0 |
+| uuid                    | 3.1.0  |
+| xml2js                  | 0.4.17 |
+| xmlbuilder              | 9.0.1  |
+
+- Node.js 6.10 运行时内已支持的库如下表：
+
+| 库名称                  | 版本    |
+| :---------------------- | :------ |
+| base64-js               | 1.2.1   |
+| buffer                  | 5.0.7   |
+| cos-nodejs-sdk-v5       | 2.0.7   |
+| crypto-browserify       | 3.11.1  |
+| ieee754                 | 1.1.8   |
+| imagemagick             | 0.1.3   |
+| isarray                 | 2.0.2   |
+| jmespath                | 0.15.0  |
+| lodash                  | 4.17.4  |
+| npm                     | 3.10.10 |
+| punycode                | 2.1.0   |
+| qcloudapi-sdk           | 0.1.5   |
+| querystring             | 0.2.0   |
+| request                 | 2.87.0  |
+| sax                     | 1.2.4   |
+| tencentcloud-sdk-nodejs | 3.0.10  |
+| url                     | 0.11.0  |
+| uuid                    | 3.1.0   |
+| xml2js                  | 0.4.17  |
+| xmlbuilder              | 9.0.1   |
+
+
+
 ## 相关操作
 您可参考以下文档，使用相关功能：
 - [使用 SCF 连接数据库](<https://cloud.tencent.com/document/product/583/38012>)
