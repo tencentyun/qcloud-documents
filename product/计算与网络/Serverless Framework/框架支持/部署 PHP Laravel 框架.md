@@ -9,27 +9,6 @@ composer create-project --prefer-dist laravel/laravel serverless-laravel
 ```
 >!Laravel 使用 Composer 管理依赖，所以您需要先自行安装 Composer，请参考 [官方安装文档](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)。
 
-### 修改 Laravel 项目
-由于云函数在执行时，只有 `/tmp` 可读写的，所以我们需要将 `laravel` 框架运行时的 `storage` 目录写到该目录下，为此需要修改 `bootstrap/app.php` 文件，在 `$app = new Illuminate\Foundation\Application` 后添加：
-```php
-$app->useStoragePath($_ENV['APP_STORAGE'] ?? $app->storagePath());
-```
-
-然后在根目录下的 `.env` 文件中新增如下配置：
-```dotenv
-# 视图文件编译路径
-VIEW_COMPILED_PATH=/tmp/storage/framework/views
-
-# 由于是无服务函数，所以没法存储 session 在硬盘上，如果不需要 sessions，可以使用 array
-# 如果需要您可以将 session 存储到 cookie 或者数据库中
-SESSION_DRIVER=array
-
-# 建议将错误日志输出到控制台，方便云端去查看
-LOG_CHANNEL=stderr
-
-# 应用的 storage 目录必须为 /tmp
-APP_STORAGE=/tmp
-```
 
 ## 操作步骤
 ### 安装
@@ -39,7 +18,8 @@ npm install -g serverless
 ```
 
 ### 配置
-在项目根目录下创建 `serverless.yml` 文件：
+在项目根目录下创建 `serverless.yml` 文件，[查看详细配置文档]( https://github.com/serverless-components/tencent-laravel/blob/master/docs/configure.md )
+：
 ```shell
 touch serverless.yml
 ```
@@ -65,7 +45,6 @@ inputs:
     environment: release
 ```
 
-[查看详细配置文档 >>]( https://github.com/serverless-components/tencent-laravel/blob/master/docs/configure.md )
 
 ### 部署
 
