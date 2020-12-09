@@ -184,10 +184,10 @@ coscmd config [OPTION]...<FILE>...
 
 通常情况下，若您只需要进行简单的操作，可参照以下操作示例进行快速配置。
 
->?配置前，您需要先在 COS 控制台创建一个用于配置参数的存储桶（例如 configure_bucket-1250000000），并创建密钥信息。
+>?配置前，您需要先在 COS 控制台创建一个用于配置参数的存储桶（例如 configure-bucket-1250000000），并创建密钥信息。
 
 ```shell
-coscmd config -a AChT4ThiXAbpBDEFGhT4ThiXAbp**** -s WE54wreefvds3462refgwewe**** -b configure_bucket-1250000000 -r ap-chengdu
+coscmd config -a AChT4ThiXAbpBDEFGhT4ThiXAbp**** -s WE54wreefvds3462refgwewe**** -b configure-bucket-1250000000 -r ap-chengdu
 ```
 
 
@@ -200,7 +200,7 @@ coscmd config -a AChT4ThiXAbpBDEFGhT4ThiXAbp**** -s WE54wreefvds3462refgwewe****
 [common]
 secret_id = AKIDA6wUmImTMzvXZNbGLCgtusZ2E8mG****
 secret_key = TghWBCyf5LIyTcXCoBdw1oRpytWk****
-bucket = configure_bucket-1250000000
+bucket = configure-bucket-1250000000
 region = ap-chengdu
 max_thread = 5
 part_size = 1
@@ -237,7 +237,7 @@ coscmd -b examplebucket-1250000000 -r ap-beijing upload D:/picture.jpg /
 
 ### 创建存储桶
 
->?`coscmd createbucket`的用法仅对配置参数时所填的存储桶有效。建议配合`-b <BucketName-APPID>`指定 Bucket 和`-r <region>`指定 Region 使用。
+>?执行创建存储桶命令时，请携带参数-b <BucketName-APPID>指定存储桶名称和-r <Region>指定所属地域。若直接执行 coscmd createbucket，则会报错，原因是不指定存储桶名称和所属地域，则相当于对已存在的存储桶（即配置参数时所填的存储桶）进行创建。
 
 ```plaintext
 #命令格式
