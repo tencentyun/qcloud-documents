@@ -1,0 +1,156 @@
+在使用数据库 Redis 过程中都需要对 Redis 运行状态进行监控，以便了解 Redis 服务是否运行正常，排查 Redis 故障等。云监控 Prometheus 服务提供了基于 Exporter 的方式来监控 Redis 运行状态，并提供了开箱即用的 Grafana 监控大盘。
+
+>?为了方便安装管理 Exporter，推荐使用腾讯云 [容器服务](https://cloud.tencent.com/document/product/457) 进行统一管理。
+
+## 前提条件
+
+
+- 在 Proemtheus 实例对应地域及私有网络（VPC）下，创建 [腾讯云容器服务—托管版集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)：在腾讯云容器服务中创建 Kubernetes 集群。
+- 在【云监控控制台 [Prometheus](https://console.cloud.tencent.com/monitor/prometheus)】 >【选择“对应的 Prometheus 实例”】 >【集成容器服务】中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/248/48859) 文档。
+
+下列所有的操作都是在对应的容器服务集群下，并且基于 YAML 的方式创建资源。如图：
+![](https://main.qcloudimg.com/raw/17aa7535a56c1e1e099bbed5bc2c375a.png)
+
+>?在操作前请确保该集群相应的命名空间已提前创建。如需创建命名空间请参见容器镜像服务 [管理命名空间](https://cloud.tencent.com/document/product/1141/41803) 文档。
+
+## 操作步骤
+
+### Exporter 部署
+
+#### 使用 Secret 管理 Redis 密码
+
+1. 登录 [容器服务](https://console.cloud.tencent.com/tke2/cluster) 控制台。
+2. 单击需要获取集群访问凭证的集群 ID/名称，进入该集群的管理页面。
+3. 在【工作负载】>【Deployment】页面右上角单击【YAML创建资源】，创建 YAML 配置，配置说明如下：
+使用 Kubernetes 的 Secret 来管理密码，并对密码进行加密处理，在启动 Redis Exporter 的时候直接使用 Secret Key，需要调整对应的 `password`，YAML 配置示例如下：
+```
+apiVersion: v1
+kind: Secret
+metadata:
+			name: redis-secret-test
+			namespace: redis-test
+type: Opaque
+stringData:
+			password: you-guess  #对应 Redis 密码
+```
+
+#### 部署 Redis Exporter
+
+
+
+通过【集群管理页】>【工作负载】>【Deployment】进入 `Deployment` 管理页面，选择对应的 `命名空间` 来进行部署服务，可以通过控制台的方式创建，下面以 YAML 的方式部署 Exporter，YAML 配置示例如下：
+
+```
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  labels:
+    k8s-app: redis-exporter # 根据业务需要调整成对应的名称，建议加上 Redis 实例的信息
+  name: redis-exporter # 根据业务需要调整成对应的名称，建议加上 Redis 实例的信息
+  namespace: redis-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: redis-exporter # 根据业务需要调整成对应的名称，建议加上 Redis 实例的信息
+  template:
+    metadata:
+      labels:
+        k8s-app: redis-exporter # 根据业务需要调整成对应的名称，建议加上 Redis 实例的信息
+    spec:
+      containers:
+      - env:
+        - name: REDIS_ADDR
+          value: ip:port # 对应 Redis 的 ip:port
+        - name: REDIS_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: redis-secret-test
+              key: password
+        image: ccr.ccs.tencentyun.com/redis-operator/redis-exporter:1.12.0
+        imagePullPolicy: IfNotPresent
+        name: redis-exporter
+        ports:
+        - containerPort: 9121
+          name: metric-port  # 这个名称在配置抓取任务的时候需要
+        securityContext:
+          privileged: false
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+      - name: qcloudregistrykey
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+```
+
+更多 Exporter 详细的参数请参见 [redis_exporter](https://github.com/oliver006/redis_exporter)。
+
+#### 验证
+
+1. 通过【工作负载】>【Deployment】进入上面创建的 `Deployment` 详情下的【日志】页面可以看到 Exporter 成功启动，并暴露对应的访问地址，如图：
+   ![](https://main.qcloudimg.com/raw/5f4f11e85eba42295e234e082493913b.png)
+2. 【远程登录】到上面创建的 `POD` 中，在命令行中 curl 对应 Exporter 暴露的地址，可以正常得到对应的 Redis 指标，如发现未能得到对应的数据，请检查一下 `REDIS_ADDR` 和 `REDIS_PASSWORD` 是否正确，具体如下：
+   ![](https://main.qcloudimg.com/raw/03d656b4b37667b2b731e129b851d651.png)
+```
+curl localhost:9121/metrics
+```
+
+![](https://main.qcloudimg.com/raw/bbac65ba711420fdb81d11cf6c4a3cdb.png)
+
+### 添加采取任务
+
+1. 登录 [云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
+2. 通过集成容器服务列表点击【集群 ID】进入到容器服务集成管理页面。
+3. 通过服务发现添加 `Pod Monitor` 来定义 Prometheus 抓取任务，YAML 配置示例如下：
+
+```
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  # 填写一个唯一名称
+  name: redis-exporter
+  # namespace固定，不要修改
+  namespace: cm-prometheus
+spec:
+  podMetricsEndpoints:
+  - interval: 30s
+    # 填写pod yaml中Prometheus Exporter对应的Port的Name
+    port: metric-port
+    # 填写Prometheus Exporter对应的Path的值，不填默认/metrics
+    path: /metrics
+    relabelings:
+    - action: replace
+      sourceLabels: 
+      - instance
+      regex: (.*)
+      targetLabel: instance
+      replacement: 'crs-xxxxxx' # 调整成对应的 Redis 实例 ID
+    - action: replace
+      sourceLabels: 
+      - instance
+      regex: (.*)
+      targetLabel: ip
+      replacement: '1.x.x.x' # 调整成对应的 Redis 实例 IP
+  # 选择要监控pod所在的namespace
+  namespaceSelector:
+    matchNames:
+    - redis-test 
+  # 填写要监控pod的Label值，以定位目标pod
+  selector:
+    matchLabels:
+      k8s-app: redis-exporter
+```
+
+>?由于 `Exporter` 和 `Redis` 不是部署在同一个服务器上，所以建议通过 Prometheus Relabel 机制把 Redis 实例的信息放到监控指标中，以方便定位问题。
+
+### 查看监控
+
+在对应 Prometheus 实例 >【集成中心】中找到 `Redis` 监控，安装对应的 Grafana Dashboard 即可开启 Redis 监控大盘，查看实例相关的监控数据，如图：
+![](https://main.qcloudimg.com/raw/ce0215baf6137d35341d56419bfb6d36.png)
+
+### 告警以及接入
+
+在 [Prometheus 实例](https://console.cloud.tencent.com/monitor/prometheus) 列表，找到对应的  Prometheus 实例，点击实例进入实例详情，点击告警策略，可以添加相应的告警策略。
