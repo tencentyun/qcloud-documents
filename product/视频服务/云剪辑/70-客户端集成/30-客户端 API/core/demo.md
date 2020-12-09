@@ -1,5 +1,5 @@
-# 客户端 API 文档骨架。将根据该文档生成最终的文档
-# 注意：整个文件遵从 python3 语法规范，井号（#）开头的都是注释，而不是 markdown 的标题
+# 客户端 API 文档骨架，将根据该文档生成最终的文档。
+# 注意：整个文件遵从 python3 语法规范，井号（#）开头的都是注释，而不是 markdown 的标题。
 ## 接口名称
 Action = '/FirstName/SecondName'
 
@@ -20,7 +20,9 @@ AAAA | BBBB | CCCC | DDDD
 Output = '''
 字段 | 类型 | 描述
 ------- | ------- | -------
-AAAA | BBBB | CCCC
+Code | String | 返回码。Success 表示失败，其余表示失败。
+Message | String | 中文错误信息。 
+EnglishMessage | String | 英文错误信息。 
 '''
 
 ## 接口示例
@@ -32,15 +34,15 @@ e = {}
 e['Name'] = '这是示例说明，不能为空，结尾无句号'
 e['Description'] = '这是接口描述，可以为空'
 
-# 注意这里是 python dict，不是裸 JSON
-# 	https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
+#### 注意这里是 python dict，不是裸 JSON
+#### 	https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
 e['Input'] = {
 	'key1' : 'value1',
 	'key2' : 'value2'
 }
 
-# 注意这里是 python dict，不是裸 JSON
-# 	https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
+#### 注意这里是 python dict，不是裸 JSON
+#### 	https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
 e['Output'] = {
 	'key1' : 'value1',
 	'key2' : 'value2'
@@ -55,15 +57,15 @@ e = {}
 e['Name'] = '这是示例说明，不能为空，结尾无句号'
 e['Description'] = '这是接口描述，可以为空'
 
-# 注意这里是 python dict，不是裸 JSON
-# 	https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
+#### 注意这里是 python dict，不是裸 JSON
+#### 	https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
 e['Input'] = {
 	'key1' : 'value1',
 	'key2' : 'value2'
 }
 
-# 注意这里是 python dict，不是裸 JSON
-# 	https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
+#### 注意这里是 python dict，不是裸 JSON
+#### 	https://docs.python.org/3/library/stdtypes.html#mapping-types-dict
 e['Output'] = {
 	'key1' : 'value1',
 	'key2' : 'value2'
