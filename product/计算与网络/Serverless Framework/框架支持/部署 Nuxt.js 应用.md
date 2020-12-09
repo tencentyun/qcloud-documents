@@ -15,7 +15,7 @@
 
 ## 迁移前提
 
-- 已经 [安装 Serverless Framework 1.67.2](../quickstart/installation) 以上版本。
+- 已经 [安装 Serverless Framework 1.67.2](https://cloud.tencent.com/document/product/1154/42990) 以上版本。
 - 已经[注册腾讯云账号](https://cloud.tencent.com/document/product/378/17985)并完成[实名认证](https://cloud.tencent.com/document/product/378/10495)。
 
   > 如果您的账户为**腾讯云子账号**，请首先联系主账号，参考 [账号和权限配置](../quickstart/credential) 进行授权。
