@@ -1,9 +1,9 @@
 ## 操作场景
 
-Kubernetes 提供 kubectl 命令行工具用于操作集群，kubectl 使用 kubeconfig 作为配置文件，默认路径为 `~/.kube/config`。通过 kubeconfig 配置多个集群的信息，还可实现使用 kubectl 管理和操作多个集群。
+Kubernetes 提供 Kubectl 命令行工具用于操作集群，Kubectl 使用 Kubeconfig 作为配置文件，默认路径为 `~/.kube/config`。通过 Kubeconfig 配置多个集群的信息，还可实现使用 Kubectl 管理和操作多个集群。
 
 
-通过 kubectl 管理和操作容器服务 TKE 或 EKS 集群，需要在集群基本信息页面开启 APIServer 的外网访问或内网访问，获取 kubeconfig （集群访问凭证）。如果需要使用 kubectl 管理多个集群，通常做法是提取 kubeconfig 中各个字段的内容，将其合并到 kubectl 所在设备的 kubeconfig 文件中，但该方式操作繁琐且容易出错。
+通过 Kubectl 管理和操作容器服务 TKE 或 EKS 集群，需要在集群基本信息页面开启 APIServer 的外网访问或内网访问，获取 Kubeconfig （集群访问凭证）。如果需要使用 Kubectl 管理多个集群，通常做法是提取 Kubeconfig 中各个字段的内容，将其合并到 Kubectl 所在设备的 Kubeconfig 文件中，但该方式操作繁琐且容易出错。
 
 借助 kubecm 工具，可以更简单高效的将多个集群访问凭证合并添加到 kubeconfig 中。本文将介绍如何利用 kubecm 实现多集群的 kubeconfig 高效管理。
 
@@ -20,7 +20,7 @@ Kubernetes 提供 kubectl 命令行工具用于操作集群，kubectl 使用 kub
 
 ### 安装 kubecm
 
-在管理多集群的设备上安装 [kubecm](https://kubecm.cloud/#/en-us/install)。
+在管理多集群的设备上安装 [Kubecm](https://kubecm.cloud/#/en-us/install)。
 
 
 ### 获取集群访问凭证
@@ -37,7 +37,7 @@ Kubernetes 提供 kubectl 命令行工具用于操作集群，kubectl 使用 kub
 3. 在左侧菜单栏中选择【基本信息】，进入“基本信息”页面。
 4. 在“基本信息”页面找到【集群APIServer信息】配置项，开启【外网访问】和【内网访问】。
 ![](https://main.qcloudimg.com/raw/eaefe0e780bf0ef303619a6f054f583a.jpg)
-5. 单击右侧的【下载】，下载 kubeconfig。
+5. 单击右侧的【下载】，下载 Kubeconfig。
 
 
 <span id="eks"></span>
@@ -49,14 +49,14 @@ Kubernetes 提供 kubectl 命令行工具用于操作集群，kubectl 使用 kub
 3. 在左侧菜单栏中选择【基本信息】，进入“基本信息”页面。
 4. 在“基本信息”页面找到【集群APIServer信息】配置项，开启【外网访问】和【内网访问】。
 ![](https://main.qcloudimg.com/raw/f8884ee3527e3eaf63ad3e114d8a431b.jpg)
-5. 单击【下载】，下载 kubeconfig。
+5. 单击【下载】，下载 Kubeconfig。
 
 
 
 
-### 使用 kubecm 添加访问凭证到 kubeconfig
+### 使用 Kubecm 添加访问凭证到 Kubeconfig
 
-本文以集群访问凭证文件名 `cls-l6whmzi3-config` 为例，执行以下命令，使用 kubecm 将访问凭证添加到 kubeconfig 中（`-n` 可指定 context 名称）。示例如下：
+本文以集群访问凭证文件名 `cls-l6whmzi3-config` 为例，执行以下命令，使用 Kubecm 将访问凭证添加到 Kubeconfig 中（`-n` 可指定 context 名称）。示例如下：
 ```plaintext
 kubecm add -f cls-l6whmzi3-config -n cd -c
 ```
