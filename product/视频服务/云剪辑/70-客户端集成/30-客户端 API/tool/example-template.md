@@ -2,11 +2,10 @@
 ## TO-BE-DEL: 	https://docs.python.org/3/library/string.html#template-strings
 ## TO-BE-DEL: 	
 ### 示例$Index $Name
+$Description
+
 #### 输入示例
 ```javascript
-POST $Action HTTP/1.1
-Host: XXXX
-
 $Input
 ```
 

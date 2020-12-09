@@ -92,8 +92,9 @@ for e in Examples:
 		Action = Action,
 		Index = exampleIndex,
 		Name = e['Name'],
-		Input = json.dumps(e['Input'], indent=4),
-		Output = json.dumps(e['Output'], indent=4),
+		Description = e['Description'],
+		Input = json.dumps(e['Input'], indent=4, ensure_ascii=False),
+		Output = json.dumps(e['Output'], indent=4, ensure_ascii=False),
 	))
 	exampleIndex += 1
 
