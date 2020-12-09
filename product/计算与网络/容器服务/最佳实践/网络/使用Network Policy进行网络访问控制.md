@@ -2,7 +2,7 @@
 
 在腾讯云容器服务 TKE 中，Pod Networking 的功能是由基于 IaaS 层私有网络 VPC 的高性能容器网络实现，而 service proxy 功能是由 kube-proxy 所支持的 ipvs/iptables 两种模式提供。TKE 通过 Network Policy 扩展组件提供网络隔离能力。
 
->! 在 TKE 环境中，kube-router 仅作为 kube-proxy 功能的补充，不能完全把 kube-proxy 替换为 kube-router。
+
 
 
 ## 相关概念
@@ -11,14 +11,6 @@
 
 [Network Policy ](https://kubernetes.io/docs/concepts/services-networking/network-policies/) 是 Kubernetes 提供的一种资源，用于定义基于 Pod 的网络隔离策略。描述了一组 Pod 是否可以与其他组 Pod，以及其他 network endpoints 进行通信。
 
-### Kube-router
-
-Kube-router 是专为简化操作和提升性能而打造的一个交钥匙型 Kubernetes 网络解决方案。目前最新版本为0.2.0，主要具备以下三大功能点：
-- Pod Networking
-- IPVS/LVS based service proxy  
-- Network Policy Controller 
-
-更多详细信息请前往[ Kube-router 官网 ](https://www.kube-router.io)或[ Kube-router 项目地址 ](https://github.com/cloudnativelabs/kube-router)进行查看。
 
 ## 操作步骤
 
