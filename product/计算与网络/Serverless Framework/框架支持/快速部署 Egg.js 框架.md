@@ -4,27 +4,12 @@
 
 ## 前提条件
 
->!2020年9月1日起，Serverless 组件不再支持 Node.js10.0 以下版本，请注意升级。
-
 #### 初始化 Egg 项目
 ```shell
 $ mkdir serverless-egg && cd serverless-egg
 $ npm init egg src --type=simple
 $ cd src && npm install
 ```
-
-#### 修改 Egg 配置
-
-由于云函数在执行时，只有 /tmp 可读写的，所以我们需要将 egg.js 框架运行尝试的日志写到该目录下，为此需要修改 config/config.default.js 中的配置如下：
-```js
-const config = (exports = {
-  rundir: '/tmp',
-  logger: {
-    dir: '/tmp'
-  }
-})
-```
-
 
 
 ## 操作步骤
@@ -39,20 +24,16 @@ $ npm install -g serverless
 ```shell
 $ touch serverless.yml
 ```
-在`serverless.yml` 文件中进行如下配置：
+在`serverless.yml` 文件中进行如下配置（yml 文件的配置信息请参考[全量配置文档](https://github.com/serverless-components/tencent-egg/blob/master/docs/configure.md)
+）：
 ```yml
-# serverless.yml
-
-org: orgDemo
-app: appDemo
-stage: dev
-component: egg@0.0.0-dev
+component: egg
 name: eggDemo
+app: appDemo
 
 inputs:
-  src: ./src
+  src: ./
   region: ap-guangzhou
-  functionName: eggDemo
   runtime: Nodejs10.15
   apigatewayConf:
     protocols:
@@ -60,8 +41,6 @@ inputs:
       - https
     environment: release
 ```
-
-[查看详细配置文档 >>](https://github.com/serverless-components/tencent-egg/blob/master/docs/configure.md)
 
 ### 3. 部署
 
