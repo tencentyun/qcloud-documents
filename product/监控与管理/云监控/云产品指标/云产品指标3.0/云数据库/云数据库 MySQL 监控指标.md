@@ -176,3 +176,5 @@ Namespace=QCE/CDB
 &Namespace=QCE/CDB
 &Instances.N.Dimensions.0.Name=InstanceId
 &Instances.N.Dimensions.0.Value=数据库的具体 ID 
+&Instances.N.Dimensions.1.Name=InstanceType
+&Instances.N.Dimensions.1.Value=数据库实例类型
