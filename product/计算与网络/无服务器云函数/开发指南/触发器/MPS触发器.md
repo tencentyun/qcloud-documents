@@ -306,11 +306,42 @@ EditMediaTask 事件消息体详细字段如下：
 
 EditMediaTask 数据结构及字段内容详细说明：
 
-| 名称 | 类型 | 描述 |
-|:----|:----|:----|
-| TaskId | String | 任务 ID。 |
-| Status | String | 任务状态，取值如下：<br><li>PROCESSING：处理中。<br><li>FINISH：已完成。 |
-| ErrCode | Integer | 错误码0：成功；其他值：失败。 |
-| Message | String | 错误信息。 |
-| Input | [EditMediaTaskInput](https://cloud.tencent.com/document/api/862/37615#EditMediaTaskInput) | 视频编辑任务的输入。 |
-| Output | [EditMediaTaskOutput](https://cloud.tencent.com/document/api/862/37615#EditMediaTaskOutput) | 视频编辑任务的输出。注意：此字段可能返回 null，表示取不到有效值。 |
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>TaskId</td>
+<td>String</td>
+<td>任务 ID。</td>
+</tr>
+<tr>
+<td>Status</td>
+<td>String</td>
+<td>任务状态，取值如下：<br><li>PROCESSING：处理中。<br></li><li>FINISH：已完成。</li></td>
+</tr>
+<tr>
+<td>ErrCode</td>
+<td>Integer</td>
+<td>错误码0：成功；其他值：失败。</td>
+</tr>
+<tr>
+<td>Message</td>
+<td>String</td>
+<td>错误信息。</td>
+</tr>
+<tr>
+<td>Input</td>
+<td><a href="https://cloud.tencent.com/document/api/862/37615#EditMediaTaskInput">EditMediaTaskInput</a></td>
+<td>视频编辑任务的输入。</td>
+</tr>
+<tr>
+<td>Output</td>
+<td><a href="https://cloud.tencent.com/document/api/862/37615#EditMediaTaskOutput">EditMediaTaskOutput</a></td>
+<td>视频编辑任务的输出。注意：此字段可能返回 null，表示取不到有效值。</td>
+</tr>
+</tbody></table>
