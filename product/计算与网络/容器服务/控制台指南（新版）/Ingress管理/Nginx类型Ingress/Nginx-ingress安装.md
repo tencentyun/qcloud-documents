@@ -110,15 +110,15 @@ Nginx 作为关键的流量接入网关，不建议您将 Nginx 与其他业务�
 apiVersion: v1
 kind: ConfigMap
 metadata:
-              name: alpha-ingress-nginx-controller
-              namespace: kube-system
+           name: alpha-ingress-nginx-controller
+           namespace: kube-system
 data:
-              access-log-path: /var/log/nginx/nginx_access.log
-              error-log-path: /var/log/nginx/nginx_error.log
-              log-format-upstream: $remote_addr - $remote_user [$time_iso8601] $msec "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent" $request_length $request_time [$proxy_upstream_name] [$proxy_alternative_upstream_name] [$upstream_addr] [$upstream_response_length] [$upstream_response_time] [$upstream_status] $req_id
-              keep-alive-requests: "10000"
-              max-worker-connections: "65536"
-              upstream-keepalive-connections: "200"
+           access-log-path: /var/log/nginx/nginx_access.log
+           error-log-path: /var/log/nginx/nginx_error.log
+           log-format-upstream: $remote_addr - $remote_user [$time_iso8601] $msec "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent" $request_length $request_time [$proxy_upstream_name] [$proxy_alternative_upstream_name] [$upstream_addr] [$upstream_response_length] [$upstream_response_time] [$upstream_status] $req_id
+           keep-alive-requests: "10000"
+           max-worker-connections: "65536"
+           upstream-keepalive-connections: "200"
 ```
 
 >!
