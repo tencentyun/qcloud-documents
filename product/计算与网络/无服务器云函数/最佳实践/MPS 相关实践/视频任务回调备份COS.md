@@ -1,7 +1,9 @@
 ## 操作场景
 
 
-本文为您介绍如何使用云函数 SCF 将 [视频处理 MPS](https://cloud.tencent.com/document/product/862) 任务消息转储至 [对象存储 COS](https://cloud.tencent.com/document/product/436) 。其中，SCF 主要提供回调消息处理，MPS 主要用于视频处理任务，COS 主要提供终端永久性存储能力。
+本文为您介绍如何将 [视频处理 MPS](https://cloud.tencent.com/document/product/862) 产生的回调任务通过云函数 SCF 及时备份至 [对象存储 COS](https://cloud.tencent.com/document/product/436)。其中，SCF 主要提供回调消息处理，MPS 主要用于视频处理任务，COS 主要提供终端永久性存储能力。
+
+
 
 
 ## 操作步骤
