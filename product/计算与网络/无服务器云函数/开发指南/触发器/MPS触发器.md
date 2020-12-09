@@ -1,17 +1,17 @@
-视频处理（Media Processing Service，MPS）是针对海量多媒体数据，提供的云端转码和音视频处理服务。可以编写云函数函数来处理MPS视频处理中的回调信息，通过接收相关回调帮助转储，投递，处理视频任务中的相关事件与后续内容。
+[视频处理](https://cloud.tencent.com/document/product/862)（Media Processing Service，MPS）是针对海量多媒体数据，提供的云端转码和音视频处理服务。您可以编写云函数来处理 MPS 中的回调信息，通过接收相关回调帮助转储、投递和处理视频任务中的相关事件与后续内容。
 
 MPS 触发器具有以下特点：
-- **Push 模型**：MPS触发器会监听视频处理的回调信息并通过单次触发的方式将事件数据推送给 SCF 函数。
-- **异步调用**：MSP触发器 始终使用异步调用类型来调用函数，结果不会返回给调用方。有关调用类型的更多信息，请参阅 [调用类型](https://cloud.tencent.com/document/product/583/9694#.E8.B0.83.E7.94.A8.E7.B1.BB.E5.9E.8B)。
+- **Push 模型**：MPS 触发器会监听视频处理的回调信息，并通过单次触发的方式将事件数据推送至 SCF 函数。
+- **异步调用**：MSP 触发器始终使用异步调用类型来调用函数，结果不会返回给调用方。有关调用类型的更多信息，请参见 [调用类型](https://cloud.tencent.com/document/product/583/9694#.E8.B0.83.E7.94.A8.E7.B1.BB.E5.9E.8B)。
 
 ## MPS 触发器属性
 
 - **事件类型**：MPS 触发器以账号维度的事件类型推送 Event 事件，目前支持工作流任务（WorkflowTask）和视频编辑任务（EditMediaTask）两种事件类型触发。
-- **事件处理**：MPS 触发器以服务维度产生的事件作为事件源，不区分地域，资源等属性。每个账号只允许两类事件分别绑定单个函数。如需多个函数并行处理任务，请参考[函数间调用 SDK](https://cloud.tencent.com/document/product/583/37316)
+- **事件处理**：MPS 触发器以服务维度产生的事件作为事件源，不区分地域、资源等属性。每个账号只允许两类事件分别绑定单个函数。如需多个函数并行处理任务，请参见 [函数间调用 SDK](https://cloud.tencent.com/document/product/583/37316)。
 
 ## MPS 触发器的事件消息结构
 
-在指定的 MPS 触发器接收到消息时，事件结构与字段以 WorkflowTask 为例，展示如下
+在指定的 MPS 触发器接收到消息时，事件结构与字段以 WorkflowTask 为例，示例如下：
 
 ```
 {
@@ -264,6 +264,8 @@ MPS 触发器具有以下特点：
 }
 ```
 
+### WorkflowTask 事件
+
 WorkflowTask 事件消息体详细字段如下：
 ```
 {
@@ -272,14 +274,14 @@ WorkflowTask 事件消息体详细字段如下：
         // WorkflowTaskEvent 字段
      }
 }
-
 ```
+
 WorkflowTask 数据结构及字段内容详细说明：
 
 | 名称 | 类型 | 描述 |
 |:----|:----|:----|
 | TaskId | String | 视频处理任务 ID。 |
-| Status | String | 任务流状态，取值：PROCESSING：处理中；FINISH：已完成。 |
+| Status | String | 任务流状态，取值如下：<br><li>PROCESSING：处理中。<br><li>FINISH：已完成。 |
 | ErrCode | Integer | 已弃用，请使用各个具体任务的 ErrCode。 |
 | Message | String | 已弃用，请使用各个具体任务的 Message。 |
 | InputInfo | [MediaInputInfo](https://cloud.tencent.com/document/api/862/37615#MediaInputInfo) | 视频处理的目标文件信息。注意：此字段可能返回 null，表示取不到有效值。 |
@@ -288,6 +290,9 @@ WorkflowTask 数据结构及字段内容详细说明：
 | AiContentReviewResultSet | Array of [AiContentReviewResult](https://cloud.tencent.com/document/api/862/37615#AiContentReviewResult) | 视频内容审核任务的执行状态与结果。 |
 | AiAnalysisResultSet | Array of [AiAnalysisResult](https://cloud.tencent.com/document/api/862/37615#AiAnalysisResult) | 视频内容分析任务的执行状态与结果。 |
 | AiRecognitionResultSet | Array of [AiRecognitionResult](https://cloud.tencent.com/document/api/862/37615#AiRecognitionResult) | 视频内容识别任务的执行状态与结果。 |
+
+
+### EditMediaTask 事件
 
 EditMediaTask 事件消息体详细字段如下：
 ```
@@ -298,12 +303,13 @@ EditMediaTask 事件消息体详细字段如下：
      }
 }
 ```
+
 EditMediaTask 数据结构及字段内容详细说明：
 
 | 名称 | 类型 | 描述 |
 |:----|:----|:----|
 | TaskId | String | 任务 ID。 |
-| Status | String | 任务状态，取值：PROCESSING：处理中；FINISH：已完成。 |
+| Status | String | 任务状态，取值如下：<br><li>PROCESSING：处理中。<br><li>FINISH：已完成。 |
 | ErrCode | Integer | 错误码0：成功；其他值：失败。 |
 | Message | String | 错误信息。 |
 | Input | [EditMediaTaskInput](https://cloud.tencent.com/document/api/862/37615#EditMediaTaskInput) | 视频编辑任务的输入。 |
