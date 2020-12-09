@@ -1,0 +1,79 @@
+---
+title: '控制台部署指南'
+menuText: '控制台部署指南'
+layout: Doc
+---
+
+## 操作场景
+
+针对常用框架组件，Serverless Framework 提供了[应用控制台](https://console.cloud.tencent.com/ssr)开发部署方案，帮助用户通过控制台实现完整的应用开发部署流程。
+
+## 部署前提
+### 当前支持框架
+- Express
+- Koa
+- Egg.js
+- Next.js
+- Nuxt.js
+- Flask
+- Laravel
+### 权限配置
+#### 主账号授权
+1. 登录 [Serverless SSR 控制台](https://console.cloud.tencent.com/ssr)，单击【前往授权】进入访问管理控制台。
+2. 在访问管理控制台的【角色】列表页，查看 **SLS_QcsRole** 和 **CODING_QCSRole** 服务角色是否创建成功。
+
+   >!如果您已经创建过 CODING_QCSRole，请检查角色拥有权限是否完整，该角色需要基本策略列表如下：QcloudSLSFullAccess、QcloudSSLFullAccess、QcloudAccessForCODINGRole，如有缺少，请手动添加。
+3. 确定角色与权限都符合要求后，即可开始使用服务。
+
+#### 子账号授权
+如果未开通 **Serverless Framework** 和 **Coding DevOps** 的服务，请先与主账号联系，完成服务开通与角色创建（步骤 [同上](#1)）。
+
+
+## 操作步骤
+### 步骤1：创建应用
+1. 登录 [Serverless 应用控制台](https://console.cloud.tencent.com/ssr)。
+2. 单击【新建应用】 ，进入项目创建页面。
+3. 根据页面提示，填写应用基本信息。
+ - 应用名：2 - 63个字符，只能包含小写字母、数字及分隔符“-”、且必须以小写字母开头，数字或小写字母结尾。创建后不可更改。
+ - 环境：选择 dev、test、prod 任一种方式，也支持自定义环境。
+ - 地域：与云函数支持地域相同，详情请参考 [地域列表](https://cloud.tencent.com/document/api/583/17238#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
+ - 创建方式：支持 **[应用模版](#1)** 创建和 **[导入已有项目](#2)** 两种方式，您可以根据自己的实际情况，选择相应的创建方案。
+
+   > 导入已有项目时，部分框架需要做一定简单的改造，请参考相关框架迁移文档，完成项目改造。
+4. 单击【创建】，将为您自动部署应用，您可以查看项目的部署日志。
+
+<span id="1"></span>
+#### 应用模版创建
+
+如果选择模版创建，您可以通过选择 Serverless Framework 提供的项目模版，快速创建一个 web 应用，模版部署时，将为默认您完成以下配置：
+1. 【仅限 Node.js 框架】新建层，并将项目依赖包 node_modules 存放在层中，层的使用请参考 [层管理](https://cloud.tencent.com/document/product/583/40159)。
+2. 【仅限 Next.js、Nuxt.js 框架】新建 COS 存储桶，拆分静态资源，将静态资源托管到 COS 桶中。
+![](https://main.qcloudimg.com/raw/33a09a5fcf29dce6cb97f512c1113744.png)
+
+您还可以在【高级配置】部分，为您的项目进行自定义域名、函数详细配置等更多能力的配置。
+
+>配置自定义域名时，请确定您的域名已在腾讯云备案并配置了 CNAME 解析，详细步骤参考 [自定义域名配置](https://cloud.tencent.com/document/product/628/11791)。
+ 
+ <span id="2"></span>
+ #### 导入已有项目
+ Serverless 控制台支持您通过**代码托管导入**和**文件夹上传**两种方式实现已有项目迁移。
+ 
+ - 代码托管
+ 目前支持 **GitHub、GitLab、Gitee** 的代码仓库地址，也支持公开的自定义代码库，您可以通过选择应用的触发方式，完成应用的自动更新，详情请参考 [项目触发方式管理](https://cloud.tencent.com/document/product/1242/49637)。
+ ![](https://main.qcloudimg.com/raw/120257e5c810fb9050965806f37fae0b.png)
+ 
+ - 文件夹上传
+ 您可以通过上传文件夹的方式直接导入本地项目，对于 Node.js 框架，Serverless Framework 将自动为您创建层，并将依赖包 node_modules 传入层中完成部署。
+ ![](https://main.qcloudimg.com/raw/3ad3998d05ec22d309b3fe60505f069c.png)
+
+
+   
+### 步骤2：资源管理
+在 [Serverless 应用](https://console.cloud.tencent.com/ssr) 页面，单击目标应用进入应用详情页，查看项目部署后输出的基本信息、项目请求次数、项目报错统计等多项监控指标，方便您轻松实现项目的管理运维。
+<img src="https://main.qcloudimg.com/raw/b55916d9b944ce1281e5530c1db54115.png" width="770px">
+
+
+
+### 步骤3：开发部署
+在应用详情页顶部，单击【开发部署】，您可以轻松地实现应用的配置修改与二次部署上传，支持**本地上传、代码托管、CLI 开发**三种方式。
+<img src="https://main.qcloudimg.com/raw/5b727ac0d6715f339574e37d3580ac89.png" width="770px">
