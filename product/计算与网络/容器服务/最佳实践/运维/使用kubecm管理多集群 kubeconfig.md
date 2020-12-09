@@ -1,6 +1,6 @@
 ## 操作场景
 
-Kubernetes 提供 Kubectl 命令行工具用于操作集群，Kubectl 使用 Kubeconfig 作为配置文件，默认路径为 `~/.kube/config`。通过 Kubeconfig 配置多个集群的信息，还可实现使用 Kubectl 管理和操作多个集群。
+Kubernetes 提供 Kubectl 命令行工具用于操作集群，Kubectl 使用 Kubeconfig 作为配置文件（默认路径为 `~/.kube/config`），通过其配置多个集群的信息，并管理和操作多个集群。
 
 
 通过 Kubectl 管理和操作容器服务 TKE 或 EKS 集群，需要在集群基本信息页面开启 APIServer 的外网访问或内网访问，获取 Kubeconfig （集群访问凭证）。如果需要使用 Kubectl 管理多个集群，通常做法是提取 Kubeconfig 中各个字段的内容，将其合并到 Kubectl 所在设备的 Kubeconfig 文件中，但该方式操作繁琐且容易出错。
@@ -13,7 +13,7 @@ Kubernetes 提供 Kubectl 命令行工具用于操作集群，Kubectl 使用 Kub
 
 
 - 已创建 [TKE](https://cloud.tencent.com/document/product/457/32189) 或 [EKS](https://cloud.tencent.com/document/product/457/39813) 集群。
-- 在需要管理多集群的设备上已安装 [kubectl](https://kubernetes.io/zh/docs/tasks/tools/install-kubectl/) 命令行工具。
+- 已在需要管理多集群的设备上安装 [kubectl](https://kubernetes.io/zh/docs/tasks/tools/install-kubectl/) 命令行工具。
 
 
 ## 操作步骤
