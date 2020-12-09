@@ -1,6 +1,6 @@
 ## 操作场景
 
-在腾讯云容器服务 TKE 中，Pod Networking 的功能是由基于 IaaS 层私有网络 VPC 的高性能容器网络实现，而 service proxy 功能是由 kube-proxy 所支持的 ipvs/iptables 两种模式提供。因此建议在集群上，只使用 kube-router 的 Network Policy 功能进行网络访问控制。
+在腾讯云容器服务 TKE 中，Pod Networking 的功能是由基于 IaaS 层私有网络 VPC 的高性能容器网络实现，而 service proxy 功能是由 kube-proxy 所支持的 ipvs/iptables 两种模式提供。TKE 通过 Network Policy 扩展组件提供网络隔离能力。
 
 >! 在 TKE 环境中，kube-router 仅作为 kube-proxy 功能的补充，不能完全把 kube-proxy 替换为 kube-router。
 
@@ -22,167 +22,8 @@ Kube-router 是专为简化操作和提升性能而打造的一个交钥匙型 K
 
 ## 操作步骤
 
-### 在 TKE 上部署 kube-router
-
-#### 腾讯云提供的 kube-router 版本
-
-腾讯云 PaaS 团队基于官方镜像最新版本`v0.2.1`，提供了镜像 `ccr.ccs.tencentyun.com/library/kube-router:v1`。在该项目的开发过程中，腾讯云 PaaS 团队积极建设社区，持续贡献了一些 feature support 及 bug fix，提交 PR 均已被社区合并，列表如下：
-
-- [processing k8s version for NPC #488](https://github.com/cloudnativelabs/kube-router/pull/488)
-- [Improve health check for cache synchronization #498](https://github.com/cloudnativelabs/kube-router/pull/498)
-- [Make the comments of the iptables rules in NWPLCY chains more accurate and reasonable #527](https://github.com/cloudnativelabs/kube-router/pull/527)
-- [Use ipset to manage multiple CIDRs in a network policy rule #529](https://github.com/cloudnativelabs/kube-router/pull/529)
-- [Add support for 'except' feature of network policy rule#543](https://github.com/cloudnativelabs/kube-router/pull/543)
-- [Avoid duplicate peer pods in npc rules variables #634](https://github.com/cloudnativelabs/kube-router/pull/634)
-- [Support named port of network policy #679](https://github.com/cloudnativelabs/kube-router/pull/679)
-
-接下来我们会继续为社区贡献，并提供腾讯云镜像的版本升级。
-
-#### 部署 kube-router
-在能够访问公网、能够访问容器服务集群 apiserver 的机器上，依次执行以下命令，完成 kube-router 部署：
-> ? 
-> - 如果集群节点开通了公网 IP，则可直接在集群节点上执行以下命令。
-> - 如果集群节点没有开通公网 IP，则可以手动下载和粘贴 [yaml 文件](https://ask.qcloudimg.com/draft/4495365/4srd9nlfla.zip) 内容到节点, 保存为 `kube-router-firewall-daemonset.yaml`，再执行最后的 `kubectl create` 命令。
-> 
-```
-wget https://ask.qcloudimg.com/draft/4495365/4srd9nlfla.zip
-```
-```
-unzip 4srd9nlfla.zip
-```
-```
-kubectl create -f kube-router-firewall-daemonset.yaml
-```
-
-
-
-
-#### yaml 文件内容和参数说明
-
-`kube-router-firewall-daemonset.yaml` 文件内容如下：
-```yaml
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: kube-router-cfg
-  namespace: kube-system
-  labels:
-    tier: node
-    k8s-app: kube-router
-data:
-  cni-conf.json: |
-    {
-      "name":"kubernetes",
-      "type":"bridge",
-      "bridge":"kube-bridge",
-      "isDefaultGateway":true,
-      "ipam": {
-        "type":"host-local"
-      }
-    }
----
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: kube-router
-  namespace: kube-system
----
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRoleBinding
-metadata:
-  name: kube-router
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: ClusterRole
-  name: cluster-admin
-subjects:
-- kind: ServiceAccount
-  name: kube-router
-  namespace: kube-system
----
-apiVersion: extensions/v1beta1
-kind: DaemonSet
-metadata:
-  name: kube-router
-  namespace: kube-system
-  labels:
-    k8s-app: kube-router
-spec:
-  template:
-    metadata:
-      labels:
-        k8s-app: kube-router
-      annotations:
-        scheduler.alpha.kubernetes.io/critical-pod: ''
-    spec:
-      serviceAccountName: kube-router
-      containers:
-      - name: kube-router
-        image: ccr.ccs.tencentyun.com/library/kube-router:v1
-        args: ["--run-router=false", "--run-firewall=true", "--run-service-proxy=false", "--iptables-sync-period=5m", "--cache-sync-timeout=3m"]
-        securityContext:
-          privileged: true
-        imagePullPolicy: Always
-        env:
-        - name: NODE_NAME
-          valueFrom:
-            fieldRef:
-              fieldPath: spec.nodeName
-        livenessProbe:
-          httpGet:
-            path: /healthz
-            port: 20244
-          initialDelaySeconds: 10
-          periodSeconds: 3
-        volumeMounts:
-        - name: lib-modules
-          mountPath: /lib/modules
-          readOnly: true
-        - name: cni-conf-dir
-          mountPath: /etc/cni/net.d
-      initContainers:
-      - name: install-cni
-        image: busybox
-        imagePullPolicy: Always
-        command:
-        - /bin/sh
-        - -c
-        - set -e -x;
-          if [ ! -f /etc/cni/net.d/10-kuberouter.conf ]; then
-            TMP=/etc/cni/net.d/.tmp-kuberouter-cfg;
-            cp /etc/kube-router/cni-conf.json ${TMP};
-            mv ${TMP} /etc/cni/net.d/10-kuberouter.conf;
-          fi
-        volumeMounts:
-        - name: cni-conf-dir
-          mountPath: /etc/cni/net.d
-        - name: kube-router-cfg
-          mountPath: /etc/kube-router
-      hostNetwork: true
-      tolerations:
-      - key: CriticalAddonsOnly
-        operator: Exists
-      - effect: NoSchedule
-        key: node-role.kubernetes.io/master
-        operator: Exists
-      volumes:
-      - name: lib-modules
-        hostPath:
-          path: /lib/modules
-      - name: cni-conf-dir
-        hostPath:
-          path: /etc/cni/net.d
-      - name: kube-router-cfg
-        configMap:
-          name: kube-router-cfg
-```
-
-args 说明：
-- "--run-router=false"，"--run-firewall=true"，"--run-service-proxy=false"：只加载 firewall 模块。
-- --iptables-sync-period=5m：指定定期同步 iptables 规则的间隔时间，根据准确性的要求设置，默认5m。
-- --cache-sync-timeout=3m：指定启动时将 k8s 资源做缓存的超时时间，默认1m。鉴于一些资源对象较多的集群缓存同步时间可能较长，该值推荐设置为3m。
-
-
+### 在 TKE 上启用 NetworkPolicy 扩展组件
+具体操作步骤可参见 [NetworkPolicy 说明](https://cloud.tencent.com/document/product/457/50841)。
 
 ### NetworkPolicy 配置示例
 - nsa namespace 下的 Pod 可互相访问，而不能被其它任何 Pod 访问。
@@ -271,20 +112,42 @@ args 说明：
       - Ingress
 ```
 
-#### 附: 测试情况
 
-| 用例名称 | 测试结果 |
-| -------- | -------- |
-| 不同 namespace 的 Pod 互相隔离，同一 namespace 的 Pod 互通 | 通过 |
-| 不同 namespace 的 Pod 互相隔离，同一 namespace 的 Pod 隔离 | 通过 |
-| 不同 namespace 的 Pod 互相隔离，白名单指定 namespace B 可以访问 namespace A | 通过 |
-| 允许某个 namespace 访问集群外某个 CIDR，其他外部 IP 全部隔离 | 通过 |
-| 不同 namespace 的 Pod 互相隔离，白名单指定 namespace B 可以访问 namespace A 中对应的 Pod 以及端口 | 通过 |
-| 以上用例，当 source Pod 和 destination Pod 在一个 Node 上时，隔离生效 | 通过 |
+### NetworkPolicy 扩展组件功能测试
+运行 K8s 社区针对 `NetworkPolicy` 的 [e2e 测试](https://github.com/kubernetes/kubernetes/blob/release-1.18/test/e2e/network/network_policy.go)，结果如下：
 
-功能测试用例请参见 [#kube-router 测试用例.xlsx.zip#](https://ask.qcloudimg.com/draft/982360/dgs7x4hcly.zip)。
+| NetworkPolicy Feature| 是否支持 |
+|---------|---------|
+| should support a 'default-deny' policy | 支持 |
+| should enforce policy to allow traffic from pods within server namespace based on PodSelector | 支持 |
+| should enforce policy to allow traffic only from a different namespace, based on NamespaceSelector | 支持 |
+| should enforce policy based on PodSelector with MatchExpressions | 支持 |
+| should enforce policy based on NamespaceSelector with MatchExpressions | 支持 |
+| should enforce policy based on PodSelector or NamespaceSelector | 支持 |
+| should enforce policy based on PodSelector and NamespaceSelector | 支持 |
+| should enforce policy to allow traffic only from a pod in a different namespace based on PodSelector and NamespaceSelector | 支持 |
+| should enforce policy based on Ports | 支持 |
+| should enforce multiple, stacked policies with overlapping podSelectors | 支持 |
+| should support allow-all policy | 支持 |
+| should allow ingress access on one named port | 支持 |
+| should allow ingress access from namespace on one named port | 支持 |
+| should allow egress access on one named port | 不支持 |
+| should enforce updated policy | 支持 |
+| should allow ingress access from updated namespace | 支持 |
+| should allow ingress access from updated pod | 支持 |
+| should deny ingress access to updated pod | 支持 |
+| should enforce egress policy allowing traffic to a server in a different namespace based on PodSelector and NamespaceSelector | 支持 |
+| should enforce multiple ingress policies with ingress allow-all policy taking precedence | 支持 |
+| should enforce multiple egress policies with egress allow-all policy taking precedence | 支持 |
+| should stop enforcing policies after they are deleted | 支持 |
+| should allow egress access to server in CIDR block | 支持 |
+| should enforce except clause while egress access to server in CIDR block  | 支持 |
+|should enforce policies to check ingress and egress policies can be controlled independently based on PodSelector | 支持 |
 
-## 性能测试方案
+
+
+
+### NetworkPolicy 扩展组件功能测试（旧版）
 
 在 k8s 集群中部署大量的 Nginx 服务，通过 ApacheBench 工具压测固定的一个服务，对比开启和不开启 kube-router 场景下的 QPS，衡量 kube-router 带来的性能损耗。
 
@@ -339,3 +202,19 @@ spec:
 ### 测试结论
 
 Pod 数量从2000增长到8000，开启 kube-router 时的性能比不开启时要下降10% - 20%。
+
+
+## 相关说明
+
+#### 腾讯云提供的 kube-router 版本
+
+NetworkPolicy 扩展组件基于社区的[ Kube-Router ](https://github.com/cloudnativelabs/kube-router)项目，在该组件的开发过程中，腾讯云 PaaS 团队积极建设社区，持续贡献了一些 feature support 及 bug fix，提交 PR 均已被社区合并，列表如下：
+
+- [processing k8s version for NPC #488](https://github.com/cloudnativelabs/kube-router/pull/488)
+- [Improve health check for cache synchronization #498](https://github.com/cloudnativelabs/kube-router/pull/498)
+- [Make the comments of the iptables rules in NWPLCY chains more accurate and reasonable #527](https://github.com/cloudnativelabs/kube-router/pull/527)
+- [Use ipset to manage multiple CIDRs in a network policy rule #529](https://github.com/cloudnativelabs/kube-router/pull/529)
+- [Add support for 'except' feature of network policy rule#543](https://github.com/cloudnativelabs/kube-router/pull/543)
+- [Avoid duplicate peer pods in npc rules variables #634](https://github.com/cloudnativelabs/kube-router/pull/634)
+- [Support named port of network policy #679](https://github.com/cloudnativelabs/kube-router/pull/679)
+
