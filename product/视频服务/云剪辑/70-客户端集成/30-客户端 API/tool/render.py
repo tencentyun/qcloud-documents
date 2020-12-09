@@ -35,6 +35,7 @@ Examples = []
 e = {}
 
 e['Name'] = '这是示例说明这是示例说明'
+e['Description'] = '这是接口描述'
 
 e['Input'] = {
 	'key1' : 'value1',
@@ -53,6 +54,7 @@ Examples.append(e)
 e = {}
 
 e['Name'] = '这是示例说明这是示例说明'
+e['Description'] = '这是接口描述'
 
 e['Input'] = {
 	'key1' : 'value1',
