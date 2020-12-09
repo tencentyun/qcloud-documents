@@ -15,7 +15,8 @@ exports.main = async (event, context) => {
 };
 ```
 
->? CloudBase 服务端 SDK 已经与云函数进行集成，无需手工填入密钥即可使用。
+>? 
+> CloudBase 服务端 SDK 已经与云函数进行集成，无需手工填入密钥即可使用。
 
 ## 初始化 SDK
 
