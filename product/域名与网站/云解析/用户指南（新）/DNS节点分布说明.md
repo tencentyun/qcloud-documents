@@ -6,7 +6,7 @@
 
 |解析套餐版本 | DNS 地址 | 备注 |
 |---|---|---|
-| 免费 DNS 地址 | f1g1ns1.dnspod.net/f1g1ns2.dnspod.net | 对应10个节点|
+| 免费 DNS 地址 | DNS 解析 DNSPod 为每个用户随机分配了2个组合 DNS 地址，若需要查询您专属的 DNS 地址，请您 [查看 DNS 服务器](https://cloud.tencent.com/document/product/302/5518?!editLang=zh&!preview#.E6.9F.A5.E7.9C.8B-dns-.E6.9C.8D.E5.8A.A1.E5.99.A8)。 | 对应10个节点|
 | 个人专业版套餐| ns3.dnsv2.com/ns4.dnsv2.com | 对应12个节点 |
 | 企业基础版套餐| ns3.dnsv3.com/ns4.dnsv3.com | 对应14个节点 |
 | 企业标准版套餐| ns3.dnsv4.com/ns4.dnsv4.com | 对应18个节点 |
