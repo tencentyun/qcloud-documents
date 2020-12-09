@@ -28,7 +28,7 @@
 - 已 [注册腾讯云账号](https://cloud.tencent.com/register)。
 - 已开通腾讯云 [对象存储 COS](https://console.cloud.tencent.com/cos5) 服务。
 - 已有需要被迁移的 TKE 集群（以下称作集群 A），已创建迁移目标的 TKE 集群（以下称作集群 B），创建 TKE 集群请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。
-- 集群 A 和 集群 B 都需要安装 Velero 实例（1.5版本以上），并且共用同一个对象存储 COS 存储桶作为 Velero 后端存储，安装步骤请参见 [配置存储和安装 Velero](https://cloud.tencent.com/document/product/457/50122#.E9.85.8D.E7.BD.AE.E5.AD.98.E5.82.A8)。
+- 集群 A 和 集群 B 都需要安装 Velero 实例（1.5版本以上），并且共用同一个对象存储 COS 存储桶作为 Velero 后端存储，安装步骤请参见 [配置存储和安装 Velero](https://cloud.tencent.com/document/product/457/50122#.E9.85.8D.E7.BD.AE.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8)。
 
 
 
