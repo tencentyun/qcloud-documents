@@ -1,7 +1,8 @@
 
 通过函数处理服务，可以快速完成对 [视频处理 MPS](https://cloud.tencent.com/document/product/862) 产生的回调事件进行处理及操作。
 
-通过 [MPS 触发器](https://cloud.tencent.com/document/product/583/50833) 将事件推送到 SCF ，再通过 Serverless 无服务架构的函数计算提供回调事件的处理及响应。整体数据处理流程如下图所示：
+通过 [MPS 触发器](https://cloud.tencent.com/document/product/583/50833) 将事件推送到 SCF ，再通过 Serverless 无服务架构的函数计算提供回调事件的处理及响应。
+整体数据处理流程如下图所示：
 
 ![](https://main.qcloudimg.com/raw/c89e426cd57b753993f0f5411899ec30.svg)
 
