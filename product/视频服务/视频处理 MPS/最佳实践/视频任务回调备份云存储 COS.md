@@ -4,22 +4,22 @@
 ## 操作步骤
 ### 步骤1：创建云函数 SCF
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list)，选择左侧导航栏中的【[函数服务](https://console.cloud.tencent.com/scf/list)】。
-![](https://main.qcloudimg.com/raw/d638a7441c3f636bdca73e10c6444b8c.png)
+![](https://main.qcloudimg.com/raw/29cd2fc9d699ac2af763749c2e67a472.png)
 2. 在函数服务页面上方选择北京地域，并单击【新建】进入新建函数页面。
 3. 设置以下参数信息，如下图所示：
 	- **函数名称**：您可自定义名称，现以“MPSAnalysis”为例。
-	- **运行环境**：目前仅支持 Python 2.7。
+	- **运行环境**：对应模板目前仅支持 Python 2.7。
 	- **创建方式**：选择模板函数。
 	- **模糊搜索**：输入“CLS 消息转储至 COS”，并进行搜索。
 	单击模板中的【查看详情】，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
 ![](https://main.qcloudimg.com/raw/c9accdd429f7f1616020caa38d4f6c5e.png)
 3. 单击【下一步】，进入函数配置页。
-![](https://main.qcloudimg.com/raw/1c8722be89889d7d6843ebbc7903181a.png)
+![](https://main.qcloudimg.com/raw/2342b403d79e55bca50c39b28fdcd634.png)
 4. 保持默认配置请单击【完成】，即完成函数的创建。
 
 ### 步骤2：配置 MPS 触发器
 1. 在 [触发器](https://console.cloud.tencent.com/scf) 页面，选择【创建触发器】。
-![](https://main.qcloudimg.com/raw/e30d23b09411b6aa7e99faa398807490.png)
+![](https://main.qcloudimg.com/raw/49d63be73d8c3301fce28797026a9858.png)
 2. 在弹出的创建触发器窗口中添加 MPS 触发器。如下图所示：
 ![](https://main.qcloudimg.com/raw/ddd374be2000e3e7f3ee9242b0d8ee8b.png)
 主要参数信息如下，其余配置项请保持默认：
