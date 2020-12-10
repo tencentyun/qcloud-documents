@@ -21,7 +21,7 @@ CCU（CynosDB Compute Unit）为 CynosDB Serverless 的计算计费单位，一�
 ### 暂停服务
 - 您可根据业务需要自行开启或关闭自动暂停设置，该设置可在 [控制台](https://console.cloud.tencent.com/cynosdb) 进行修改。
  - 开启状态下，需要设定自动暂停时间，默认为1小时。数据库在该时间内没有连接和 CPU 使用时进行自动暂停，暂停后不计算计算费用，存储仍然按实际使用量计费。
- - 关闭状态下，数据库会保持持续运行，在没有连接和 CPU 使用时按用户配置的最小 CCU 算力进行计费，使用于业务有心跳连接的应用场景。
+ - 关闭状态下，数据库会保持持续运行，在没有连接和 CPU 使用时按用户配置的最小 CCU 算力进行计费，试用于业务有心跳连接的应用场景。
 ![](https://main.qcloudimg.com/raw/68beac7929b10a1085e61b64956ea465.png)
 - 您也可以在控制台对指定数据库进行手动暂停操作。
 ![](https://main.qcloudimg.com/raw/fa880723650d7cc8f86f888eb62e5521.png)
