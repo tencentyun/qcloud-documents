@@ -10,7 +10,7 @@
 </tr>
         <tr>
         <td>SDK 1.2.2.1 版本发布</td>
-				<td><li> 修复：解决 Intent 跳转组件权限漏洞，TpnsActivity 修改为非导出</td>
+				<td>修复：解决 Intent 跳转组件权限漏洞，TpnsActivity 修改为非导出</td>
         <td>2020-12-10</td>
         <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载 SDK</a></td>
     </tr>
@@ -30,7 +30,7 @@
         <td>SDK 1.2.2.0 版本发布</td>
        <td><li> 优化：统一账号、标签操作接口命名<li> 优化：优化 SDK 内部错误码上报<li> 优化：FCM 通道协议升级，FCM 通道通知弹出支持 FCM 系统接管<li> 新增：支持 TPNS 通道通知小图标染色<li> 新增：网络通信支持 GZIP 压缩<li>修复：多线程环境下可能出现的 Service 解绑异常</td>
         <td>2020-11-26</td>
-        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载 SDK</a></td>
+        <td>-</td>
     </tr>
         <tr>
         <td>SDK 1.2.1.3 版本发布</td>
