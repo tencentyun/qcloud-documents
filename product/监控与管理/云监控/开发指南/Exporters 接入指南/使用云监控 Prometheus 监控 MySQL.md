@@ -8,15 +8,15 @@ MySQL Exporter 是社区专门为采集 MySQL/MariaDB 数据库监控指标而�
 
 ## 前提条件
 
-- 在 Proemtheus 实例对应地域及私有网络（VPC）下，创建腾讯云容器服务 [Kubernetes 集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)。并为集群创建 [命名空间](https://cloud.tencent.com/document/product/1141/41803)。
-- 在【云监控控制台】 >【[Prometheus](https://console.cloud.tencent.com/monitor/prometheus)】 >【选择“对应的 Prometheus 实例”】 >【集成容器服务】中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
+- 在 Proemtheus 实例对应地域及私有网络（VPC）下，创建腾讯云容器服务 [Kubernetes 集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)，并为集群创建 [命名空间](https://cloud.tencent.com/document/product/1141/41803)。
+- 在【[云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)】  >【选择“对应的 Prometheus 实例”】 >【集成容器服务】中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
 
 
 ## 操作步骤
 
 ### 数据库授权
 
-因为 MySQL Exporter 是通过查询数据库中状态数据来对其进行监控，所以需要为对应的数据库实例进行授权。账号和密码需根据实际情况而定，授权步骤如下：
+因为 MySQL Exporter 是通过查询数据库中状态数据来对其进行监控，所以需要为对应的数据库实例进行授权。帐号和密码需根据实际情况而定，授权步骤如下：
 1. 登录 [云数据库 MySQL](https://console.cloud.tencent.com/cdb) 控制台。
 2. 在实例列表页面单击需要授权的数据库名称，进入数据库详情页。
 3. 选择【数据库管理】>【帐号管理】，进入帐号管理页面。
@@ -27,7 +27,7 @@ MySQL Exporter 是社区专门为采集 MySQL/MariaDB 数据库监控指标而�
 CREATE USER 'exporter'@'ip' IDENTIFIED BY 'XXXXXXXX' WITH MAX_USER_CONNECTIONS 3;
 GRANT PROCESS, REPLICATION CLIENT, SELECT ON *.* TO 'exporter'@'ip';
 ```
->?建议为该用户设置最大连接数限制，以避免因监控数据抓取对数据库带来影响。但并非所有的数据库版本中都可以生效，如MariaDB 10.1 版本不支持最大连接数设置，则无法生效。详情请参见 [MariaDB 说明](https://mariadb.com/kb/en/create-user/#resource-limit-options)。
+>?建议为该用户设置最大连接数限制，以避免因监控数据抓取对数据库带来影响。但并非所有的数据库版本中都可以生效，例如 MariaDB 10.1 版本不支持最大连接数设置，则无法生效。详情请参见 [MariaDB 说明](https://mariadb.com/kb/en/create-user/#resource-limit-options)。
 
 
 ### Exporter 部署
@@ -35,7 +35,7 @@ GRANT PROCESS, REPLICATION CLIENT, SELECT ON *.* TO 'exporter'@'ip';
 
 1. 登录 [容器服务](https://console.cloud.tencent.com/tke2/cluster) 控制台。
 2. 单击需要获取集群访问凭证的集群 ID/名称，进入该集群的管理页面。
-3. 执行以下 [使用 Secret 管理 MySQL 连接串](#step1) > [部署 MySQL Exporter](#step2) > [验证](#step3) 步骤完成Exporter 部署。
+3. 执行以下 [使用 Secret 管理 MySQL 连接串](#step1) > [部署 MySQL Exporter](#step2) > [验证](#step3) 步骤完成 Exporter 部署。
 
 
 <span id="step1"></span>
@@ -60,7 +60,7 @@ stringData:
 
 #### 部署 MySQL Exporter
 
-在 Deployment 管理页面，选择对应的命名空间来进行部署服务，可以通过控制台的方式创建。下面以 YAML 的方式部署 Exporter， 配置示例如下：
+在 Deployment 管理页面，选择对应的命名空间来进行部署服务，可以通过控制台的方式创建。如下以 YAML 的方式部署 Exporter， 配置示例如下：
 ```
 apiVersion: apps/v1beta2
 kind: Deployment
@@ -175,7 +175,7 @@ spec:
 
 
 
-## MySQL Exporter 采集参数详解
+## MySQL Exporter 采集参数说明
 
 MySQL Exporter 使用各种 `Collector` 来控制采集数据的启停，具体参数如下：
 
@@ -227,8 +227,8 @@ MySQL Exporter 使用各种 `Collector` 来控制采集数据的启停，具体�
 | 名称                       | 描述                                                         |
 | -------------------------- | ------------------------------------------------------------ |
 | config.my-cnf              | 用来读取数据库认证信息的配置文件 `.my.cnf` 位置。 (默认: `~/.my.cnf`) |
-| log.level                  | 日志级别。 (默认: info)                                      |
-| exporter.lock_wait_timeout | 为链接设置 lock_wait_timeout (单位：秒) 以避免对元数据的锁时间太长。(默认: 2) |
+| log.level                  | 日志级别。（默认：info）                                    |
+| exporter.lock_wait_timeout | 为链接设置 lock_wait_timeout（单位：秒）以避免对元数据的锁时间太长。（默认：2） |
 | exporter.log_slow_filter   | 添加 log_slow_filter 以避免抓取的慢查询被记录。  提示: 不支持 Oracle MySQL。 |
 | web.listen-address         | web 端口监听地址。                                           |
 | web.telemetry-path         | metrics 接口路径。                                           |
