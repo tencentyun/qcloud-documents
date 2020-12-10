@@ -1,6 +1,9 @@
-在使用云数据库 Redis 过程中需要对 Redis 运行状态进行监控，以便了解 Redis 服务是否运行正常，排查 Redis 故障等。云监控 Prometheus 服务提供了基于 Exporter 的方式来监控 Redis 运行状态，并提供了开箱即用的 Grafana 监控大盘。
+在使用数据库 Redis 过程中都需要对 Redis 运行状态进行监控，以便了解 Redis 服务是否运行正常，排查 Redis 故障等。云监控 Prometheus 服务提供基于 Exporter 的方式来监控 Redis 运行状态，并提供了开箱即用的 Grafana 监控大盘。本文为您介绍如何使用云监控 Prometheus 监控 Redis。
 
 >?为了方便安装管理 Exporter，推荐使用腾讯云 [容器服务](https://cloud.tencent.com/document/product/457) 进行统一管理。
+
+
+
 
 ## 前提条件
 
@@ -20,7 +23,7 @@
 3. 执行以下 [使用 Secret 管理 Redis 密码](#step1) > [部署 Redis Exporter](#step2) > [验证](#step3) 步骤完成 Exporter 部署。
 
 
-<span id="#step1"></span>
+<span id="step1"></span>
 
 #### 使用 Secret 管理 Redis 密码
 
@@ -38,7 +41,7 @@ stringData:
 			password: you-guess  #对应 Redis 密码
 ```
 
-<span id="#step2"></span>
+<span id="step2"></span>
 
 #### 部署 Redis Exporter
 
@@ -92,7 +95,7 @@ spec:
 
 
 
-<span id="#step3"></span>
+<span id="step3"></span>
 
 #### 验证
 
