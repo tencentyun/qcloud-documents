@@ -10,7 +10,7 @@
 
 ## 操作须知
 - 在开始使用腾讯云产品前，您需要先 [注册腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2F)。
-- 目前支持 IPv6 的地域为北京、上海、广州、上海金融、深圳金融、成都、南京、新加坡，弗吉尼亚。请在这些地域部署 IPv6 服务。
+- 目前支持 IPv6 的地域为北京、上海、广州、上海金融、北京金融、深圳金融、成都、南京、香港、新加坡，弗吉尼亚。请在这些地域部署 IPv6 服务。
 - IPv6 地址为 GUA 地址，每个 VPC 分配1个`/56`的 IPv6 CIDR，每个子网分配1个`/64`的 IPv6 CIDR，每个弹性网卡分配1个 IPv6 地址。
 - 主网卡、辅助网卡均支持申请 IPv6 地址。想要了解更多云服务器和弹性网卡的关系，请参见 [弹性网卡](https://cloud.tencent.com/document/product/576) 产品文档。
 
