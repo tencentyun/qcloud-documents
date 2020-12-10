@@ -1,4 +1,4 @@
-本文介绍如何快速跑通腾讯云剪 Demo。
+本文介绍如何快速以 Iframe 集成 Web 在线视频剪辑能力。学习完本教程之后，您将部署一个完整的 DEMO，包含服务端以及可访问的前端页面，您可以在前端上传视频，并进行在线剪辑、合成导出。
 
 ## 准备工作<span id="step0"></span>
 1. 注册 [腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fproduct%2Flvb) ，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629) 。
@@ -31,12 +31,12 @@
 ### 源码下载
 Demo 的代码托管在 Github 上，开发者可以登录上去直接进行下载，具体参考：[Demo Github 地址](https://github.com/tencentyun/cme-node-demo)。
 开发者也可以直接在本地通过 git 命令下载代码：
-```
+```bash
 git clone https://github.com/tencentyun/cme-node-demo.git
 ```
 ### 安装运行
 Demo 依赖一些其它的包，首先需通过 npm 安装依赖，开发者通过命令行跳到项目的根目录下，并执行安装命令：
-```
+```bash
 cd cme-node-demo/
 npm install
 ```
@@ -51,7 +51,7 @@ const config = {
 ```
 
 依赖安装完成后，运行启动命令：
-```
+```bash
 npm start
 ```
 Demo 运行成功后，我们在浏览器输入`http://localhost:9090`即可进入 Demo 的显示页面。
