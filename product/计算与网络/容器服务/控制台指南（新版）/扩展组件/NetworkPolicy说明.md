@@ -5,7 +5,7 @@ Network Policy 是 Kubernetes 提供的一种资源，用于定义基于 Pod 的
 
 ### 部署在集群内的 Kubernetes 对象
 
-| Kubernets 对象名称 | 类型               |             请求资源             | 所属 Namespace |
+| Kubernetes 对象名称 | 类型               |             请求资源             | 所属 Namespace |
 | :---------------- | :----------------- | :------------------------------: | ------------- |
 | networkpolicy     | DaemonSet          | 每个实例CPU:250m，Memory:250Mi | kube-system   |
 | networkpolicy     | ClusterRole        |               \                  | kube-system   |
