@@ -1,4 +1,4 @@
-MySQL Exporter 是社区专门为采集 MySQL/MariaDB 数据库监控指标而设计开发，通过 Exporter 上报核心的数据库指标，用于异常报警和监控大盘展示，云监控 Prometheus 提供了与 MySQL Exporter 集成及提供开箱即用的 Grafana 监控大盘。
+MySQL Exporter 是社区专门为采集 MySQL/MariaDB 数据库监控指标而设计开发，通过 Exporter 上报核心的数据库指标，用于异常报警和监控大盘展示，云监控 Prometheus 提供了与 MySQL Exporter 集成及开箱即用的 Grafana 监控大盘。
 
 目前，Exporter 支持高于5.6版本的 MySQL 和高于10.1版本的 MariaDB。在 MySQL/MariaDB 低于5.6版本时，部分监控指标可能无法被采集。
 
@@ -108,9 +108,10 @@ spec:
 #### 验证
 
 1. 在 Deployment 页面单击上述步骤创建的 Deployment，进入 Deployment 管理页面。
-2. 单击【日志】页签，可以查看到 Exporter 成功启动，并暴露对应的访问地址，如下图所示：
+2. 单击【日志】页签，可以查看到 Exporter 成功启动并暴露对应的访问地址，如下图所示：
 ![](https://main.qcloudimg.com/raw/353be171da1dbdff76735a4b67a2055d.png)
-3. 单击【Pod管理】页签，在命令行中使用 curl 命令对应 Exporter 暴露的地址，可以正常得到对应的 MySQL 指标，如发现未能得到对应的数据，请检查**连接串**是否正确，具体如下：
+3. 单击【Pod管理】页签进入 Pod 页面。
+4. 在右侧的操作项下单击【远程登录】登录 Pod，在命令行窗口中执行以下 curl 命令对应 Exporter 暴露的地址，可以正常得到对应的 MySQL 指标。如发现未能得到对应的数据，请检查**连接串**是否正确，具体如下：
 ```
 curl localhost:9104/metrics
 ```
@@ -170,7 +171,7 @@ spec:
 
 ### 告警以及接入
 
-腾讯云 Prometheus 托管服务内置了一些 MySQL 数据库的报警策略模板，可根据业务实际的情况调整对应的阈值来添加告警策略。详情请参见 [新建告警策略](https://cloud.tencent.com/document/product/248/48952)。
+腾讯云 Prometheus 托管服务内置了部分 MySQL 数据库的报警策略模板，可根据业务实际的情况调整对应的阈值来添加告警策略。详情请参见 [新建告警策略](https://cloud.tencent.com/document/product/248/48952)。
 ![MySQL Exporter alert](https://main.qcloudimg.com/raw/abb8680e123473f78c350201acac1abd.jpg)
 
 
@@ -226,10 +227,10 @@ MySQL Exporter 使用各种 `Collector` 来控制采集数据的启停，具体�
 
 | 名称                       | 描述                                                         |
 | -------------------------- | ------------------------------------------------------------ |
-| config.my-cnf              | 用来读取数据库认证信息的配置文件 `.my.cnf` 位置。 (默认: `~/.my.cnf`) |
+| config.my-cnf              | 用来读取数据库认证信息的配置文件 `.my.cnf` 位置。 (默认：`~/.my.cnf`) |
 | log.level                  | 日志级别。（默认：info）                                    |
 | exporter.lock_wait_timeout | 为链接设置 lock_wait_timeout（单位：秒）以避免对元数据的锁时间太长。（默认：2） |
-| exporter.log_slow_filter   | 添加 log_slow_filter 以避免抓取的慢查询被记录。  提示: 不支持 Oracle MySQL。 |
+| exporter.log_slow_filter   | 添加 log_slow_filter 以避免抓取的慢查询被记录。  提示：不支持 Oracle MySQL。 |
 | web.listen-address         | web 端口监听地址。                                           |
 | web.telemetry-path         | metrics 接口路径。                                           |
 | version                    | 打印版本信息。                                               |
