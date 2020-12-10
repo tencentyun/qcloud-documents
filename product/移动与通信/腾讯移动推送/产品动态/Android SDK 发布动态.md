@@ -1,4 +1,20 @@
 
+## 2020年12月
+
+<table>
+<tr>
+    <th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+</tr>
+        <tr>
+        <td>SDK 1.2.2.1 版本发布</td>
+				<td><li> 修复：解决 Intent 跳转组件权限漏洞，TpnsActivity 修改为非导出</td>
+        <td>2020-12-10</td>
+        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载 SDK</a></td>
+    </tr>
+</table>
 
 
 ## 2020年11月
