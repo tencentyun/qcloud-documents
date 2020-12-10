@@ -99,7 +99,7 @@ spec:
           servicePort: 80
 ```
 
-> **注意**: 由于 TKE 暂时没有将 Traefik 产品化，所以创建 Ingress 不能直接在界面控制台可视化创建，需要使用 yaml 来创建。
+>! 由于 TKE 暂时没有将 Traefik 产品化，所以创建 Ingress 不能直接在界面控制台可视化创建，需要使用 yaml 来创建。
 
 ## 使用 IngressRoute
 
