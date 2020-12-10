@@ -34,7 +34,7 @@ Entry for principal test-client/host@EXAMPLE.COM with kvno 2, encryption type de
 kadmin.local:  q
 ```
 
-这里，我们创建了两个新的用户：`test-server/host@EXAMPLE.COM` 和 `test-client/host@EXAMPLE.COM`，并且将这两个用户的密钥放置到`/etc/krb5.keytab`文件中。
+这里，我们创建了两个新的用户：test-server/host@EXAMPLE.COM 和 test-client/host@EXAMPLE.COM，并且将这两个用户的密钥放置到 /etc/krb5.keytab 文件中。
 
 ## 启动 kdc
 ```
