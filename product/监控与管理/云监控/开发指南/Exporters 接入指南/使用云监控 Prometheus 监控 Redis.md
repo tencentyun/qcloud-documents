@@ -1,4 +1,4 @@
-在使用数据库 Redis 过程中都需要对 Redis 运行状态进行监控，以便了解 Redis 服务是否运行正常，排查 Redis 故障等。云监控 Prometheus 服务提供基于 Exporter 的方式来监控 Redis 运行状态，并提供了开箱即用的 Grafana 监控大盘。本文为您介绍如何使用云监控 Prometheus 监控 Redis。
+在使用数据库 Redis 过程中需要对 Redis 运行状态进行监控，以便了解 Redis 服务是否运行正常，排查 Redis 故障等。云监控 Prometheus 服务提供基于 Exporter 的方式来监控 Redis 运行状态，并提供了开箱即用的 Grafana 监控大盘。本文为您介绍如何使用云监控 Prometheus 监控 Redis。
 
 >?为了方便安装管理 Exporter，推荐使用腾讯云 [容器服务](https://cloud.tencent.com/document/product/457) 进行统一管理。
 
@@ -29,7 +29,7 @@
 
 1. 在左侧菜单中选择【工作负载】>【Deployment】，进入 Deployment 页面。
 2. 在页面右上角单击【YAML创建资源】，创建 YAML 配置，配置说明如下：
-使用 Kubernetes 的 Secret 来管理密码，并对密码进行加密处理，在启动 Redis Exporter 的时候直接使用 Secret Key，需要调整对应的 `password`，YAML 配置示例如下：
+使用 Kubernetes 的 Secret 来管理密码并对密码进行加密处理，在启动 Redis Exporter 的时候直接使用 Secret Key，需要调整对应的 `password`，YAML 配置示例如下：
 ```
 apiVersion: v1
 kind: Secret
@@ -100,7 +100,7 @@ spec:
 #### 验证
 
 1. 在 Deployment 页面单击上述步骤创建的 Deployment，进入 Deployment 管理页面。
-2. 单击【日志】页签，可以查看到 Exporter 成功启动，并暴露对应的访问地址，如下图所示：
+2. 单击【日志】页签，可以查看到 Exporter 成功启动并暴露对应的访问地址，如下图所示：
 	 ![](https://main.qcloudimg.com/raw/4f38e24d2363579014719e303f5667d1.png)
 3. 单击【Pod管理】页签，进入 Pod 页面。
 4. 在右侧的操作项下单击【远程登录】登录 Pod，在命令行窗口中执行以下 curl 命令对应 Exporter 暴露的地址，可以正常得到对应的 Redis 指标。如发现未能得到对应的数据，请检查一下 `REDIS_ADDR` 和 `REDIS_PASSWORD` 是否正确。示例如下：
@@ -165,7 +165,7 @@ spec:
 
 
 1. 登录 [云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
-2. 单击【集成中心】，进入集成中心页面。找到 `Redis` 监控，安装对应的 Grafana Dashboard 即可开启 Redis 监控大盘，查看实例相关的监控数据，如下图所示：
+2. 单击【集成中心】，进入集成中心页面。找到 Redis 监控，安装对应的 Grafana Dashboard 即可开启 Redis 监控大盘，查看实例相关的监控数据，如下图所示：
 ![](https://main.qcloudimg.com/raw/ce0215baf6137d35341d56419bfb6d36.png)
 
 ### 告警以及接入
