@@ -1,16 +1,12 @@
 
-通过函数处理服务，可以快速完成对 [视频处理 MPS](https://cloud.tencent.com/document/product/862) 产生的回调事件进行处理及操作。
-
-通过 [MPS 触发器](https://cloud.tencent.com/document/product/583/50833) 将事件推送到 SCF ，再通过 Serverless 无服务架构的函数计算提供回调事件的处理及响应。
+通过函数处理服务，可以快速完成对 [视频处理 MPS](https://cloud.tencent.com/document/product/862) 产生的回调事件进行处理及操作。通过 [MPS 触发器](https://cloud.tencent.com/document/product/583/50833) 将事件推送到 SCF ，再通过 Serverless 无服务架构的函数计算提供回调事件的处理及响应。
 整体数据处理流程如下图所示：
-
-![](https://main.qcloudimg.com/raw/c89e426cd57b753993f0f5411899ec30.svg)
-
+![](https://main.qcloudimg.com/raw/94d36f4b716b2a1ea6fbc499f93b3cfb.png)
 
 
 ## 函数处理场景实践
 
-日志服务可以将日志主题中的数据通过 [MPS 日志触发器](https://cloud.tencent.com/document/product/583/50833) 投递至云函数进行处理，以满足对视频进行事件通知，状态监控，告警处理等应用场景需求，场景及具体说明如下表所示：
+日志服务可以将日志主题中的数据通过 [MPS 日志触发器](https://cloud.tencent.com/document/product/583/50833) 投递至云函数进行处理，以满足对视频进行事件通知、状态监控、告警处理等应用场景需求，场景及具体说明如下表所示：
 
 
 | 函数处理场景                                               | 描述说明                                |
