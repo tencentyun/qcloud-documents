@@ -61,44 +61,44 @@ require github.com/TencentCloud/tdmq-go-client v0.3.0-beta.2
 package main
 
 import (
-	"context"
-	"github.com/TencentCloud/tdmq-go-client/pulsar"
-	"log"
-	"strconv"
+    "context"
+    "github.com/TencentCloud/tdmq-go-client/pulsar"
+    "log"
+    "strconv"
 )
 
 func main() {
 
-	client, err := pulsar.NewClient(pulsar.ClientOptions{
-		URL:            "pulsar://*.*.*.*:6000",
-		ListenerName:   "custom:1300*****0/vpc-******/subnet-********",
-		Authentication: pulsar.NewAuthenticationToken(),
-    	})
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer client.Close()
+    client, err := pulsar.NewClient(pulsar.ClientOptions{
+        URL:            "pulsar://*.*.*.*:6000",
+        ListenerName:   "custom:1300*****0/vpc-******/subnet-********",
+        Authentication: pulsar.NewAuthenticationToken(),
+        })
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer client.Close()
 
-	producer, err := client.CreateProducer(pulsar.ProducerOptions{
-		DisableBatching: true,
-		Topic:           "persistent://appid/namespace/topic-1",
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer producer.Close()
+    producer, err := client.CreateProducer(pulsar.ProducerOptions{
+        DisableBatching: true,
+        Topic:           "persistent://appid/namespace/topic-1",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer producer.Close()
 
-	ctx := context.Background()
+    ctx := context.Background()
 
-	for j := 0; j < 10; j++ {
-		if msgId, err := producer.Send(ctx, &pulsar.ProducerMessage{
-			Payload: []byte("Hello " + strconv.Itoa(j)),
-		}); err != nil {
-			log.Fatal(err)
-		} else {
-			log.Println("Published message: ", msgId)
-		}
-	}
+    for j := 0; j < 10; j++ {
+        if msgId, err := producer.Send(ctx, &pulsar.ProducerMessage{
+            Payload: []byte("Hello " + strconv.Itoa(j)),
+        }); err != nil {
+            log.Fatal(err)
+        } else {
+            log.Println("Published message: ", msgId)
+        }
+    }
 }
 ```
 
@@ -112,44 +112,44 @@ func main() {
 package main
 
 import (
-	"context"
-	"fmt"
-	"github.com/TencentCloud/tdmq-go-client/pulsar"
-	"log"
+    "context"
+    "fmt"
+    "github.com/TencentCloud/tdmq-go-client/pulsar"
+    "log"
 )
 
 func main() {
 
-	client, err := pulsar.NewClient(pulsar.ClientOptions{
-		URL:       	"pulsar://10.*.*.*:6000",//更换为接入点地址
-		ListenerName:	"custom:1300*****0/vpc-******/subnet-********",
-		Authentication: NewAuthenticationToken("eyJh****"),
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer client.Close()
+    client, err := pulsar.NewClient(pulsar.ClientOptions{
+        URL:           "pulsar://10.*.*.*:6000",//更换为接入点地址
+        ListenerName:    "custom:1300*****0/vpc-******/subnet-********",
+        Authentication: NewAuthenticationToken("eyJh****"),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer client.Close()
 
-	consumer, err := client.Subscribe(pulsar.ConsumerOptions{
-		Topics:           []string{"persistent://appid/namespace/topic-1"},
-		SubscriptionName: "my-sub",
-		Type:             pulsar.Shared,
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer consumer.Close()
+    consumer, err := client.Subscribe(pulsar.ConsumerOptions{
+        Topics:           []string{"persistent://appid/namespace/topic-1"},
+        SubscriptionName: "my-sub",
+        Type:             pulsar.Shared,
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer consumer.Close()
 
-	for ; ; {
-		msg, err := consumer.Receive(context.Background())
-		if err != nil {
-			log.Fatal(err)
-		}
-		fmt.Printf("Received message msgId: %#v -- content: '%s' -- topic : '%v'\n",
-			msg.ID(), string(msg.Payload()), msg.Topic())
-		
-		consumer.Ack(msg)
-	}
+    for ; ; {
+        msg, err := consumer.Receive(context.Background())
+        if err != nil {
+            log.Fatal(err)
+        }
+        fmt.Printf("Received message msgId: %#v -- content: '%s' -- topic : '%v'\n",
+            msg.ID(), string(msg.Payload()), msg.Topic())
+        
+        consumer.Ack(msg)
+    }
 }
 ```
 
@@ -203,13 +203,13 @@ Received message msgId: &pulsar.messageID{ledgerID:581, entryID:3, batchIdx:0, p
 
 ```go
 consumer, err := client.Subscribe(pulsar.ConsumerOptions{
-	Topics:           []string{"persistent://appid/namespace/topic-1"},
-	SubscriptionName: "my-sub",
-	Type:             pulsar.Shared,
+    Topics:           []string{"persistent://appid/namespace/topic-1"},
+    SubscriptionName: "my-sub",
+    Type:             pulsar.Shared,
     TagMapTopicNames: map[string]string{"persistent://appid/namespace/topic-1":"a||b"},
 })
 if err != nil {
-	log.Fatal(err)
+    log.Fatal(err)
 }
 defer consumer.Close()
 ```
@@ -219,22 +219,22 @@ defer consumer.Close()
 ```go
 // 创建 Producer 对象
 producer, err := client.CreateProducer(pulsar.ProducerOptions{
-	Topic:           "persistent://appid/namespace/topic-1",
+    Topic:           "persistent://appid/namespace/topic-1",
 })
 if err != nil {
-	log.Fatal(err)
+    log.Fatal(err)
 }
 defer producer.Close()
 // 发送消息
 for j := 0; j < 10; j++ {
-	if msgId, err := producer.Send(ctx, &pulsar.ProducerMessage{
-		Payload: []byte("Hello " + strconv.Itoa(j)),
-		Tags:    []string{"a","b"},
-	}); err != nil {
-		log.Fatal(err)
-	} else {
-		log.Println("Published message: ", msgId)
-	}
+    if msgId, err := producer.Send(ctx, &pulsar.ProducerMessage{
+        Payload: []byte("Hello " + strconv.Itoa(j)),
+        Tags:    []string{"a","b"},
+    }); err != nil {
+        log.Fatal(err)
+    } else {
+        log.Println("Published message: ", msgId)
+    }
 }
 ```
 
@@ -246,16 +246,16 @@ for j := 0; j < 10; j++ {
 
 ```go
 consumer, err := client.Subscribe(pulsar.ConsumerOptions{
-	Topics:           []string{"persistent://appid/namespace/topic-1"},
-	SubscriptionName: "my-sub",
-	Type:             pulsar.Shared,
+    Topics:           []string{"persistent://appid/namespace/topic-1"},
+    SubscriptionName: "my-sub",
+    Type:             pulsar.Shared,
     //EnableRetry 设为 true 是必须的，否则默认关闭 Retry 功能
-	EnableRetry:      true,
+    EnableRetry:      true,
     //DelayLevelUtil 不是必须配置的，系统会有缺省值
-	DelayLevelUtil:   pulsar.NewDelayLevelUtil("1s 5s 10s 30s 1m 2m 3m 4m 5m 6m 7m 8m"),
+    DelayLevelUtil:   pulsar.NewDelayLevelUtil("1s 5s 10s 30s 1m 2m 3m 4m 5m 6m 7m 8m"),
 })
 if err != nil {
-	log.Fatal(err)
+    log.Fatal(err)
 }
 defer consumer.Close()
 ```
@@ -270,11 +270,10 @@ if err != nil{
 }
 //异步的方式，提供了一个回调方法，会在 Retry 消息发送出去后进行调用
 consumer.ReconsumeLaterAsync(msg, pulsar.NewReconsumeOptionsWithLevel(2), func(id pulsar.MessageID, message *pulsar.ProducerMessage, err error) {
-	if err != nil {
-		fmt.Printf("Error %v when send retry msg", err)
-	} else {
-		fmt.Printf("Retry message send success with id : %v", id)
-	}
+    if err != nil {
+        fmt.Printf("Error %v when send retry msg", err)
+    } else {
+        fmt.Printf("Retry message send success with id : %v", id)
+    }
 })
 ```
-
