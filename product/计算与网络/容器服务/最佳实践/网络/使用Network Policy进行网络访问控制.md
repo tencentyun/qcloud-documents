@@ -18,7 +18,7 @@
 具体操作步骤可参见 [NetworkPolicy 说明](https://cloud.tencent.com/document/product/457/50841)。
 
 ### NetworkPolicy 配置示例
-- nsa namespace 下的 Pod 可互相访问，而不能被其它任何 Pod 访问。
+- nsa namespace 下的 Pod 可互相访问，而不能被其他任何 Pod 访问。
 ```yaml
     apiVersion: extensions/v1beta1
     kind: NetworkPolicy
@@ -45,7 +45,7 @@
       policyTypes:
       - Ingress
 ```
-- nsa namespace 下的 Pod 只在 6379/TCP 端口可以被带有标签 app: nsb 的 namespace 下的 Pod 访问，而不能被其它任何 Pod 访问。
+- nsa namespace 下的 Pod 只在 6379/TCP 端口可以被带有标签 app: nsb 的 namespace 下的 Pod 访问，而不能被其他任何 Pod 访问。
 ```yaml
     apiVersion: extensions/v1beta1
     kind: NetworkPolicy
@@ -65,7 +65,7 @@
       policyTypes:
       - Ingress
 ```
-- nsa namespace 下的 pod 可以访问 CIDR 为14.215.0.0/16的 network endpoint 的5978/TCP 端口，而不能访问其它任何 network endpoints（此方式可以用来为集群内的服务开访问外部 network endpoints 的白名单）。
+- nsa namespace 下的 pod 可以访问 CIDR 为14.215.0.0/16的 network endpoint 的5978/TCP 端口，而不能访问其他任何 network endpoints（此方式可以用来为集群内的服务开访问外部 network endpoints 的白名单）。
 ```yaml
     apiVersion: extensions/v1beta1
     kind: NetworkPolicy
@@ -84,7 +84,7 @@
       policyTypes:
       - Egress
 ```
-- default namespace 下的 Pod 只在80/TCP 端口可以被 CIDR 为14.215.0.0/16的 network endpoint 访问，而不能被其它任何 network endpoints 访问。
+- default namespace 下的 Pod 只在80/TCP 端口可以被 CIDR 为14.215.0.0/16的 network endpoint 访问，而不能被其他任何 network endpoints 访问。
 ```yaml
     apiVersion: extensions/v1beta1
     kind: NetworkPolicy
