@@ -40,7 +40,7 @@ $headers = array(
 	'Date: '.$dateTime,
 	'Authorization: '.$Authen,
 	'X-Requested-With: XMLHttpRequest',
-	'Accept-Encoding: gzip, deflate, sdch',
+	// 'Accept-Encoding: gzip, deflate, sdch',
 	
 	// 如果是微服务 API，Header 中需要添加'X-NameSpace-Code'、'X-MicroService-Name'两个字段，通用 API 不需要添加。
 	'X-NameSpace-Code: testmic',
