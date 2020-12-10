@@ -38,7 +38,7 @@
    - 挂载默认 `Service Account Secret` 的卷
    - 挂载 `hostPath` 的类型卷
    - 挂载 Kubernetes `secrets` 和 `configmaps` 的卷
-本示例需要 Velero 1.5以上版本且启用 [Restic](https://velero.io/docs/v1.5/restic/) 来备份持久卷数据，请确保在安装 Velero 阶段开启 `--use-restic` 和 `--default-volumes-to-restic` 参数，安装步骤请参见 [配置存储和安装 Velero](https://cloud.tencent.com/document/product/457/50122#.E9.85.8D.E7.BD.AE.E5.AD.98.E5.82.A8)。
+本示例需要 Velero 1.5以上版本且启用 [Restic](https://velero.io/docs/v1.5/restic/) 来备份持久卷数据，请确保在安装 Velero 阶段开启 `--use-restic` 和 `--default-volumes-to-restic` 参数，安装步骤请参见 [配置存储和安装 Velero](https://cloud.tencent.com/document/product/457/50122#.E9.85.8D.E7.BD.AE.E5.AF.B9.E8.B1.A1.E5.AD.98.E5.82.A8)。
 - 在执行迁移过程中，禁止对两边集群资源进行任何 CRUD 操作，以免在迁移过程中造成数据差异，导致最终迁移后的数据不一致。 
 - 尽量保证集群 A 和集群 B 的CPU、内存等规格配置相同或不要相差太大，以免出现迁移后的 Pods 因资源原因无法调度导致 Pending 的情况。
 
