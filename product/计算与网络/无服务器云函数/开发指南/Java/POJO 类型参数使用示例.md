@@ -38,8 +38,9 @@
 
 #### 代码准备
 在 `example` 文件夹内创建 `Pojo.java`，`RequestClass.java`，`PersonClass.java`，`CityClass.java`，`ResponseClass.java` 文件，文件内容分别如下：
-* **Pojo.java**
 
+<dx-tabs>
+::: Pojo.java
 ```
 package example;
 
@@ -50,9 +51,8 @@ public class Pojo{
     }
 }
 ```
-
-* **RequestClass.java**
-
+:::
+::: RequestClass.java
 ```
 package example;
 
@@ -85,9 +85,8 @@ public class RequestClass {
     }
 }
 ```
-
-* **PersonClass.java**
-
+:::
+::: PersonClass.java
 ```
 package example;
 
@@ -120,9 +119,8 @@ public class PersonClass {
     }
 }
 ```
-
-* **CityClass.java**
-
+:::
+::: CityClass.java
 ```
 package example;
 
@@ -145,9 +143,8 @@ public class CityClass {
     }
 }
 ```
-
-* **ResponseClass.java**
-
+:::
+::: ResponseClass.java
 ```
 package example;
 
@@ -170,6 +167,10 @@ public class ResponseClass {
     }
 }
 ```
+:::
+</dx-tabs>
+
+
 
 ### 代码编译
 >?本示例使用 Maven 进行编译打包，您可以根据自身情况，选择使用打包方法。
