@@ -1,13 +1,13 @@
 ## 简介
 ### 组件介绍
 
-Network Policy 是 Kubernetes 提供的一种资源，用于定义基于 Pod 的网络隔离策略。它描述了一组 Pod 是否可以与其它组Pod，以及其它 Network Entities 进行通信。本组件提供了针对该资源的 Controller 实现。如果您希望在 IP 地址或端口层面（OSI 第3层或第4层）控制特定应用的网络流量，则可考虑使用本组件。
+Network Policy 是 Kubernetes 提供的一种资源，用于定义基于 Pod 的网络隔离策略。它描述了一组 Pod 是否可以与其他组 Pod，以及其他 Network Entities 进行通信。本组件提供了针对该资源的 Controller 实现。如果您希望在 IP 地址或端口层面（OSI 第3层或第4层）控制特定应用的网络流量，则可考虑使用本组件。
 
-### 部署在集群内的Kubernetes对象
+### 部署在集群内的 Kubernetes 对象
 
-| Kubernets对象名称 | 类型               |             请求资源             | 所属Namespace |
+| Kubernets 对象名称 | 类型               |             请求资源             | 所属 Namespace |
 | :---------------- | :----------------- | :------------------------------: | ------------- |
-| networkpolicy     | DaemonSet          | 每个实例CPU: 250m，Memory: 250Mi | kube-system   |
+| networkpolicy     | DaemonSet          | 每个实例CPU:250m，Memory:250Mi | kube-system   |
 | networkpolicy     | ClusterRole        |               \                  | kube-system   |
 | networkpolicy     | ClusterRoleBinding |              \                  | kube-system   |
 | networkpolicy     | ServiceAccount     |              \                  | kube-system   |
