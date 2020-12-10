@@ -1,13 +1,13 @@
 本文介绍如何快速以 Iframe 集成 Web 在线视频剪辑能力。学习完本教程之后，您将部署一个完整的 DEMO，包含服务端以及可访问的前端页面，您可以在前端上传视频，并进行在线剪辑、合成导出。
 
-## 准备工作<span id="step0"></span>
+
+## 准备工作[](id:step0)
 1. 注册 [腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fproduct%2Flvb) ，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629) 。
 2. 进入 [腾讯云点播服务开通页](https://console.cloud.tencent.com/vod/overview) ，勾选同意《腾讯云服务协议》和《腾讯云点播计费说明》，单击【申请开通】即可开通云点播服务。
-
 >? 若已开通云点播服务，请直接进入下一步骤。
 
 
-## 步骤1：开通服务并创建平台<span id="step1"></span>
+## 步骤1：开通服务并创建平台[](id:step1)
 1. 登录 [腾讯云剪控制台](https://console.cloud.tencent.com/cme)。
 2. 单击【前往一键授权】，进入授权页面，单击【同意授权】授权成功，并返回腾讯云剪控制台。
 3. 单击左侧导航栏的【平台配置】，进入平台配置页面。
@@ -17,14 +17,14 @@
 
 完成创建平台后，可以获取到平台的名称`Platform`，用于 Demo 的配置使用。
 
-## 步骤2：获取云 API 密钥<span id="step2"></span>
+## 步骤2：获取云 API 密钥[](id:step2)
 获取腾讯云用户身份密钥，即`SecretId`和`SecretKey`，具体步骤如下：
 1.  登录控制台，选择【云产品】>【访问管理】>[【API密钥管理】](https://console.cloud.tencent.com/cam/capi)，进入 API 密钥管理页面。
 2.  获取云 API 密钥。如果您尚未创建密钥，则单击【新建密钥】即可创建一对 SecretId 和 SecretKey。
 
 获取得到的`SecretId`和`SecretKey`也是用于 Demo 的配置使用。
 
-## 步骤3：下载并部署 Demo<span id="step3"></span>
+## 步骤3：下载并部署 Demo[](id:step3)
 ### 环境准备
 云剪提供的 Demo 是基于 Node.js 开发的，在运行 Demo 之前需要检查本地是否安装了 Node.js，若没有安装 Node.js 的可以登录官网进行包进行快速安装，具体请参见：[Node.js 安装包下载](https://nodejs.org)。
 
@@ -56,7 +56,7 @@ npm start
 ```
 Demo 运行成功后，我们在浏览器输入`http://localhost:9090`即可进入 Demo 的显示页面。
 
-## 步骤4：验证功能<span id="step4"></span>
+## 步骤4：验证功能[](id:step4)
 ### 创建项目
 在 Demo 上可以直接创建一个视频编辑项目，创建完成后可以进入项目进行编辑。
 ![](https://main.qcloudimg.com/raw/37dba2fcfda1d3334d5491435b5957d6.png)
