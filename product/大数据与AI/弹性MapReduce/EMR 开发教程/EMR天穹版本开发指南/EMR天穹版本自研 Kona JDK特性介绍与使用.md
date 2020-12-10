@@ -26,10 +26,7 @@ java -Xshare:off
 
 ## 支持国密算法
 ### 使用方式
-- 国密算法在 KonaJDK 中的 API 是符合 JCE CipherAPI 的标准的。用户只要使用 KonaJDK 即可无缝使用国密算法。
-- [算法 SM2 示例](https://git.code.oa.com/JDK/tencentJDK/blob/dev/jdk/test/com/tencent/crypto/provider/Cipher/SM2/TestSM2.java)
-- [算法 SM3 示例](https://git.code.oa.com/JDK/tencentJDK/blob/dev/jdk/test/com/tencent/crypto/provider/Cipher/SM3/DigestKAT.java)
-- [算法 SM4 示例](https://git.code.oa.com/JDK/tencentJDK/blob/dev/jdk/test/com/tencent/crypto/provider/Cipher/SM4/TestCipher.java)
+国密算法在 KonaJDK 中的 API 是符合 JCE CipherAPI 的标准的。用户只要使用 KonaJDK 即可无缝使用国密算法。
 
 ### 原理
 - 国密算法是国家密码局制定标准的一系列算法。其中包括了对称加密算法、椭圆曲线非对称加密算法和杂凑算法。具体包括 SM1、SM2、SM3 等。
