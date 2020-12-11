@@ -1,6 +1,4 @@
-
-
-鹊桥企业集成服务平台内置多种应用模版，帮助用户快速适配各种场景，应用模版针对各种常见业务场景抽象出通用的流配置，方便用户快速配置业务流。
+企业集成服务平台内置多种应用模版，帮助用户快速适配各种场景，应用模版针对各种常见业务场景抽象出通用的流配置，方便用户快速配置业务流。
 
 
 
@@ -9,18 +7,20 @@ HelloWorld 应用是一个新手指引导向的基础应用模版，通过五个
 
 ## 操作步骤
 
-#### 1.创建应用
+#### 1. 创建应用
 
 1. 登录 [企业集成服务]() 控制台。
 2. 单击【添加应用】，在弹出的添加应用窗口中，配置如下选项：
+	- 应用名称：输入应用名称。支持25位以内的中文、字母、数字、\_或-。
+	- 添加方式：选择【HelloWord 模板】。企业集成服务提供 HelloWorld 模板和空白应用。
 ![](https://main.qcloudimg.com/raw/45151dbce9c84131605e6b189c85167f.png)
-添加方式选择HelloWorld应用模版创建应用。
+3. 单击【确定】即可创建 HelloWord 模板的应用。
 
-![选择helloworld应用模版](https://main.qcloudimg.com/raw/40b1fceb4c3f28e43726b0063aa58a70/%E9%80%89%E6%8B%A9helloworld%E5%BA%94%E7%94%A8%E6%A8%A1%E7%89%88.png)
 
-#### 2.流配置介绍
 
-应用中已配置好流HelloWorld_Flow，该流中包括五个组件：HTTP Listener、Set Payload、两个Transform和Logger。
+#### 2. 流配置介绍
+
+应用中已配置好流 HelloWorld_Flow，该流中包括五个组件：HTTP Listener、Set Payload、两个 Transform 和 Logger。
 
 ![流配置](https://main.qcloudimg.com/raw/ac294ab5271243fab27994463070c79c/%E6%B5%81%E9%85%8D%E7%BD%AE.png)
 
