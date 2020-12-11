@@ -17,15 +17,15 @@ HelloWorld 应用是一个新手指引导向的基础应用模版，通过五个
 1. 登录 [企业集成服务](https://console.cloud.tencent.com/eis) 控制台。
 2. 单击【添加应用】，在弹出的添加应用窗口中，配置如下选项：
 	- 应用名称：输入应用名称。支持25位以内的中文、字母、数字、\_或-。
-	- 添加方式：选择【HelloWord 模板】。企业集成服务提供 HelloWorld 模板和空白应用。
+	- 添加方式：选择【HelloWorld模版】创建应用。
 ![](https://main.qcloudimg.com/raw/45151dbce9c84131605e6b189c85167f.png)
-3. 单击【确定】即可创建 HelloWord 模板的应用。
+3. 单击【确定】即可创建 HelloWord 模板应用。
 
 
 
 #### 2. 流配置介绍
 
-1. 单击上述创建的 HelloWord 模板名称，进入模板详情页面。
+1. 单击上述创建的 HelloWord 应用名称，进入应用详情页面。
 2. HelloWord 模板应用已配置好流 HelloWorld_Flow，该流中包括五个组件：[HTTP Listener](#httplistener)、[Set Payload](#setpayload)、两个 [Transform](#transform) 和 [Logger](#logger)。
 ![](https://main.qcloudimg.com/raw/8f95869b0f6d609d6d10ba17902cad58.jpg)
 
@@ -34,7 +34,7 @@ HelloWorld 应用是一个新手指引导向的基础应用模版，通过五个
 #### HTTP Listener 组件
 HTTP Listener 组件绑定了连接器配置 HelloWorld_Config，设置了监听路径为 `/`，域名前缀为80的监听域名。
 
-![监听路径]
+
 ![](https://main.qcloudimg.com/raw/325ee8228e4408f82b1389126b7c5860.jpg)
 
 
@@ -44,7 +44,7 @@ HTTP Listener 组件绑定了连接器配置 HelloWorld_Config，设置了监听
 <span id="setpayload"></span>
 
 #### Set Payload 组件
-Set Payload 组件给 payload 属性设置了 “Hello” 的返回值。
+Set Payload 组件给 payload 属性设置了返回值“Hello” 。
 
 ![](https://main.qcloudimg.com/raw/fb582f19bd8d87f2ca38275449fae64f.jpg)
 
