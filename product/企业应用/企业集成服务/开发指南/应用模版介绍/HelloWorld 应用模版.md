@@ -7,7 +7,7 @@ HelloWorld 应用是一个新手指引导向的基础应用模版，通过五个
 
 ## 前提条件
 
-企业集成服务控制台需要填写申请信息申请使用。
+企业集成服务控制台需要填写 [申请信息](https://cloud.tencent.com/apply/p/5tgx7ibxzl) 申请使用。
 
 
 ## 操作步骤
@@ -26,7 +26,7 @@ HelloWorld 应用是一个新手指引导向的基础应用模版，通过五个
 #### 2. 流配置介绍
 
 1. 单击上述创建的 HelloWord 模板名称，进入模板详情页面。
-2. HelloWord 模板应用已配置好流 HelloWorld_Flow，该流中包括五个组件：[HTTP Listener](#httplistener)、[Set Payload](#"setpayload)、两个 [Transform](#transform) 和 [Logger](#logger)。
+2. HelloWord 模板应用已配置好流 HelloWorld_Flow，该流中包括五个组件：[HTTP Listener](#httplistener)、[Set Payload](#setpayload)、两个 [Transform](#transform) 和 [Logger](#logger)。
 ![](https://main.qcloudimg.com/raw/8f95869b0f6d609d6d10ba17902cad58.jpg)
 
 <span id="httplistener"></span>
