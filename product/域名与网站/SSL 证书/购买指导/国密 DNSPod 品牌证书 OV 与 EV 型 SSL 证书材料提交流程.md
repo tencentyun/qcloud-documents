@@ -3,7 +3,7 @@ DNSPod 品牌国密标准（SM2）的企业型（OV）与增强型（EV）SSL �
 CA 机构认证审核通过后，将会正式颁发证书，您可下载该证书进行安装。
 
 ## 前提条件
-1. 登录 [SSL 证书管理控制台](https://console.cloud.tencent.com/certoverview)，选择并进入【待提交】管理页面。
+1. 登录 [证书管理控制台](https://console.cloud.tencent.com/certoverview)，选择并进入【待提交】管理页面。
 2. 选择已购买到的国密证书行，单击【提交资料】。
 
 ## 操作步骤
