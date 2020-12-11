@@ -28,7 +28,9 @@ Maven 是 JAVA 的依赖管理工具，支持您项目所需的依赖项，并�
     <!-- 请到 https://search.maven.org/search?q=tencentcloud-sdk-java 查询最新版本 -->
     <version>3.1.87</version>
 </dependency>
-``````xml
+```
+2. 设置镜像源以加快下载速度。
+```xml
 <repositories>
 	<repository>
       <id>nexus-tencentyun</id>
