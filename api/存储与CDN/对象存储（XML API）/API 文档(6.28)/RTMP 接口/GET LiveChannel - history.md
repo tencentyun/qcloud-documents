@@ -7,8 +7,6 @@ GET LiveChannel - history 接口用于获取指定通道（Live Channel）历史
 
 ## 请求
 
-## 请求
-
 #### 请求示例
 
 ```plaintext
@@ -48,8 +46,8 @@ Authorization: Auth String
 | ------------------ | ------------------ | --------------------------------------- | --------- |
 | LiveChannelHistory | 无                 | 保存 GetLiveChannelHistory 返回结果的容器 | Container |
 | LiveRecord         | LiveChannelHistory | 保存一次推流记录信息的容器              | Container |
-| StartTime          | LiveRecord         | 推流请求开始时间，使用ISO8601格式       | String    |
-| EndTime            | LiveRecord         | 推流请求结束时间，使用ISO8601格式       | String    |
+| StartTime          | LiveRecord         | 推流请求开始时间，使用 ISO8601格式       | String    |
+| EndTime            | LiveRecord         | 推流请求结束时间，使用 ISO8601格式       | String    |
 | RemoteAddr         | LiveRecord         | 推流客户端的 IP 地址                      | String    |
 | RequestId          | LiveRecord         | 推流请求的 RequestId                     | String    |
 
