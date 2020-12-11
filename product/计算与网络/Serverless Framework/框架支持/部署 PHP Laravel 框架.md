@@ -9,42 +9,31 @@ composer create-project --prefer-dist laravel/laravel serverless-laravel
 ```
 >!Laravel 使用 Composer 管理依赖，所以您需要先自行安装 Composer，请参考 [官方安装文档](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)。
 
-### 修改 Laravel 项目
-由于云函数在执行时，只有 `/tmp` 可读写的，所以我们需要将 `laravel` 框架运行时的 `storage` 目录写到该目录下，为此需要修改 `bootstrap/app.php` 文件，在 `$app = new Illuminate\Foundation\Application` 后添加：
-```php
-$app->useStoragePath($_ENV['APP_STORAGE'] ?? $app->storagePath());
-```
-
-然后在根目录下的 `.env` 文件中新增如下配置：
-```dotenv
-# 视图文件编译路径
-VIEW_COMPILED_PATH=/tmp/storage/framework/views
-
-# 由于是无服务函数，所以没法存储 session 在硬盘上，如果不需要 sessions，可以使用 array
-# 如果需要您可以将 session 存储到 cookie 或者数据库中
-SESSION_DRIVER=array
-
-# 建议将错误日志输出到控制台，方便云端去查看
-LOG_CHANNEL=stderr
-
-# 应用的 storage 目录必须为 /tmp
-APP_STORAGE=/tmp
-```
 
 ## 操作步骤
-### 安装
+### 0. 安装
 通过 npm 全局安装 [serverless cli](https://github.com/serverless/serverless)：
 ```shell
 npm install -g serverless
 ```
 
-### 配置
-在项目根目录下创建 `serverless.yml` 文件：
-```shell
+> 以下步骤主要针对命令行部署操作，控制台部署请参考[控制台部署指南](./console)。
+
+### 1. （可选）初始化 Laravel 模版项目
+如果您本地并没有 Laravel 项目，可通过以下指令完成 Laravel 项目初始化（本地已有项目可跳过该步骤）
+```
+serverless init laravel-starter --name example
+cd example
+```
+
+### 2. 配置 yml 文件
+在项目根目录下，新建 `serverless.yml` 文件，并将下列配置模版粘贴到文件中，实现基本的项目配置。
+>基于您实际部署需要，您可以在 `serverless.yml` 中完成更多配置，yml 文件的配置信息请参考[ Laravel 组件全量配置](https://github.com/serverless-components/tencent-laravel/blob/master/docs/configure.md)
+
+```sh
 touch serverless.yml
 ```
 
-在 `serverless.yml` 中进行如下配置：
 ```yml
 # serverless.yml
 
@@ -65,27 +54,18 @@ inputs:
     environment: release
 ```
 
-[查看详细配置文档 >>]( https://github.com/serverless-components/tencent-laravel/blob/master/docs/configure.md )
+### 3. 应用部署
+通过 `sls deploy` 命令进行部署，并可以添加 --debug 参数查看部署过程中的信息。
 
-### 部署
-
-执行以下命令进行扫码授权部署：
-
-```console
-sls deploy
 ```
-
->?
->-  **在部署前，您需要先清理本地运行的配置缓存，执行 `php artisan config:clear` 即可。** 
->- 微信扫码授权部署有过期时间，如果想要持久授权，请参考 [账号配置](#account)。
-
-### 移除
-
-执行以下命令移除部署的服务：
-
-```console
-sls remove
+sls deploy --debug
 ```
+部署完成后，通过访问输出的 API 网关链接，完成对应用的访问。
+
+### 4. 监控运维
+部署完成后，您可以通过访问 [Serverless 应用控制台](https://console.cloud.tencent.com/ssr)，查看应用的基本信息，监控日志。
+
+
 
 <span id="account"></span>
 ### 账号配置（可选）

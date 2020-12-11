@@ -10,83 +10,64 @@ Django 特性介绍：
 
 
 ## 操作步骤
-### 1. 安装
+### 0. 安装
 
 通过 npm 安装最新版本的 Serverless Framework：
 ```
 $ npm install -g serverless
 ```
 
-### 2. 创建
-
-创建并进入一个全新目录：
+### 1. （可选）初始化 Django 模版项目
+如果您本地并没有 Django 项目，可通过以下指令完成 Django 项目初始化（本地已有项目可跳过该步骤）
 ```
-$ mkdir myDjangoDemo && cd myDjangoDemo
-```
-
-通过如下命令和模板链接，快速创建一个静态网站托管应用：
-```
-$ serverless create --template-url https://github.com/serverless-tencent/tencent-django/tree/master/example
-$ cd example
+serverless init django-starter --name example
+cd example
 ```
 
-### 3. 配置
-在本地创建`serverless.yml`文件：
-```shell
-$ touch serverless.yml
-```
-
-在`serverless.yml`中进行如下配置：
-```yml
-component: django # (required) name of the component. In that case, it's express.
-name: mydjangoDemo # (required) name of your express component instance.
-org: mydjangoDemo # (optional) serverless dashboard org. default is the first org you created during signup.
-app: mydjangoDemo # (optional) serverless dashboard app. default is the same as the name property.
-stage: dev # (optional) serverless dashboard stage. default is dev.
-
-inputs:
-  region: ap-guangzhou
-  functionName: DjangoFunction 
-  djangoProjectName: mydjangocomponent #您的项目文件夹名称
-  src:
-    bucket: 输入您上传项目的存储桶名称
-    src: ./src
-  functionConf:
-    timeout: 10
-    memorySize: 256
-    environment:
-      variables:
-        TEST: vale
-    vpcConfig:
-      subnetId: ''
-      vpcId: ''
-  apigatewayConf:
-    protocols:
-      - https
-    environment: release
-
-```
->!
-如果您自己创建项目，请将 Python 所需要的依赖安装到项目目录，例如本实例需要`Django`，所以可以通过`pip`进行安装：
+### 2. 安装项目依赖
+如果您自己创建项目，请将 Python 所需要的依赖安装到项目目录，例如本实例需要Django，所以可以通过pip进行安装：
 ```
 pip install Django -t ./
 ```
 
-### 4. 部署
+### 3. 配置 yml 文件
+在项目根目录下，新建 `serverless.yml` 文件，并将下列配置模版粘贴到文件中，实现基本的项目配置。
+>基于您实际部署需要，您可以在 `serverless.yml` 中完成更多配置，yml 文件的配置信息请参考[ Django 组件全量配置](https://github.com/serverless-components/tencent-django/blob/master/docs/configure.md)
 
-如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
-
-通过`sls`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息
-
-```shell
-$ sls deploy --debug
+```sh
+touch serverless.yml
 ```
 
-### 5. 移除
-通过以下命令移除部署的服务：
-```shell
-$ sls remove --debug
+```yml
+#serverless.yml
+component: django
+name: djangoDemo
+org: orgDemo
+app: appDemo
+stage: dev
+
+inputs:
+  region: ap-guangzhou
+  djangoProjectName: mydjangocomponent
+  src: ./src
+  functionConf:
+    timeout: 10
+    memorySize: 256
+  apigatewayConf:
+    protocols:
+      - https
+    environment: release
 ```
+
+
+### 4. 应用部署
+通过 `sls deploy` 命令进行部署，并可以添加 --debug 参数查看部署过程中的信息。
+
+```
+sls deploy --debug
+```
+部署完成后，通过访问输出的 API 网关链接，完成对应用的访问。
+
 
 ### 账号配置（可选）
 当前默认支持 CLI 扫描二维码登录，如您希望配置持久的环境变量/密钥信息，也可以本地创建`.env`文件：
