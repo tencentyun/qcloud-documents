@@ -1,6 +1,6 @@
 ## 功能描述
 
-PUT LiveChannel - Switch接口可以使指定通道（Live Channel）在启用（Enabled）和禁用（Disabled）两种状态之间切换。
+PUT LiveChannel - Switch 接口可以使指定通道（Live Channel）在启用（Enabled）和禁用（Disabled）两种状态之间切换。
 
 >!
 > - 只有存储桶的拥有者才能进行该请求操作。
