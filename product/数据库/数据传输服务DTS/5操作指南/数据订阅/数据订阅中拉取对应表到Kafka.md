@@ -27,6 +27,7 @@ Created topic "testtop".
 1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dtsnew/migrate/page)，选择左侧的【数据订阅】，进入数据订阅页面。
 2. 在订阅列表，单击订阅名，进入订阅详情页，查看对应的通道 ID、服务 IP 和服务端口。
 3. 结合之前的密钥填写到对应 KafkaDemo.java 里。
+
 ```
 import com.qcloud.dts.context.SubscribeContext;
 import com.qcloud.dts.message.ClusterMessage;
