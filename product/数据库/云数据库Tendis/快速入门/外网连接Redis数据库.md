@@ -1,8 +1,8 @@
 ## 操作场景
-云数据库 Tendis 暂时不支持外网访问，您可以通过具备外网 IP 的云服务器 CVM 进行端口转发，来实现外网访问 Tendis 实例。
+云数据库 Tendis 暂时不支持直接通过外网地址访问，您可以通过具备外网 IP 的云服务器 CVM 进行端口转发，来实现外网地址访问 Tendis 实例。
 >?iptable 转发的方式存在稳定性风险，不建议在生产环境使用外网接入。
 >
-![](https://main.qcloudimg.com/raw/7bad7f6f7ca82c8655f807d2036d983b.png)
+![](https://main.qcloudimg.com/raw/5b1666aca7e74e5a6e681a6a41c75a8a.png)
 
 ## 操作步骤
 1. 登录 [云服务器](https://cloud.tencent.com/document/product/213/5436)，开通云服务器 IP 转发功能。
@@ -11,12 +11,12 @@
 ```
 echo 1 > /proc/sys/net/ipv4/ip_forward
 ```
-2. 配置转发规则，如下示例是将26.xx.x.2:10001（云服务器外网地址，端口可自行选择）的访问转发至内网为10.0.0.5:6379的 Redis 实例。
+2. 配置转发规则，如下示例是将26.xx.x.2:10001（云服务器外网地址，端口可自行选择）的访问转发至内网为10.0.0.5:6379的 Tendis 实例。
 ```
 iptables -t nat -A PREROUTING -p tcp --dport 10001 -j DNAT --to-destination 10.0.0.5:6379
 iptables -t nat -A POSTROUTING -d 10.0.0.5 -p tcp --dport 6379 -j MASQUERADE
 ```
 3. 配置 [云服务器安全组](https://cloud.tencent.com/document/product/213/39740)，放开云服务器外网端口的访问权限，安全组规则建议仅放开需要访问的源地址。
-4. 在访问端通过外网地址（本示例即26.xx.xx.2:10001）连接内网 Redis 实例，连接命令与内网连接命令一致，命令请参见 [连接实例](https://cloud.tencent.com/document/product/239/30877#.E8.BF.9E.E6.8E.A5.E5.AE.9E.E4.BE.8B)。
-5. 连接 Redis 后，执行`info`命令返回数据库相关信息即表示连接成功。
+4. 在访问端通过外网地址（本示例即26.xx.xx.2:10001）连接内网 Tendis 实例，连接命令与内网连接命令一致，命令请参见 [连接实例](https://cloud.tencent.com/document/product/1363/50907#tgnwdzlj)。
+5. 连接 Tendis 后，执行`info`命令返回数据库相关信息即表示连接成功。
 
