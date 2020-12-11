@@ -139,6 +139,9 @@ Theia IDE 是一套构建基于 Web 的云端 IDE 的开源框架，是一个可
 </ol>
 </ul>
 
+### 安装 SSL 证书
+可参考 [安装 SSL 证书](https://cloud.tencent.com/document/product/1207/47027) 文档为您的 Theia IDE 实例安装 SSL 证书并开启 HTTPS 访问。
+
 
 <style>
 	.roman{
