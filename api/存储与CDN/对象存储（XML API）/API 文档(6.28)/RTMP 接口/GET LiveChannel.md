@@ -43,16 +43,16 @@ Authorization: Auth String
 | ------------------------ | ------------------------ | ------------------------------------------------------------ | ---------- |
 | LiveChannelConfiguration | 无                       | 保存 GetLiveChannel 返回结果的容器                             | Container  |
 | Description              | LiveChannelConfiguration | 自定义的通道简述                                             | String     |
-| Switch                   | LiveChannelConfiguration | 指定 LiveChannel 的开关状态，具体说明请参见 [PUT LiveChannel]() 中参数说明 | EnumString |
+| Switch                   | LiveChannelConfiguration | 指定 LiveChannel 的开关状态，具体说明请参见 [PUT LiveChannel](https://cloud.tencent.com/document/product/436/50887) 中参数说明 | EnumString |
 | Target                   | LiveChannelConfiguration | 保存转储配置的容器                                           | Container  |
-| Type                     | Target                   | 指定转储的类型，具体说明请参见 [PUT LiveChannel]() 中参数说明        | EnumString |
-| FragDuration             | Target                   | 指定每个 ts 文件的时长，具体说明请参见 [PUT LiveChannel]() 中参数说明  | String     |
-| FragCount                | Target                   | 指定 m3u8 文件中包含 ts 文件的个数<br/>具体说明请参见 [PUT LiveChannel]() 中参数说明 | String     |
-| PlaylistName             | Target                   | 指定生成的m3u8文件的名称，具体说明请参见 [PUT LiveChannel]() 中参数说明 | String     |
-| PublishUrls              | Target                   | 保存推流地址的容器，具体说明请参见 [PUT LiveChannel]() 中参数说明    | String     |
-| Url                      | PublishUrls              | 推流地址，具体说明请参见 [PUT LiveChannel]() 中参数说明              | String     |
-| PlayUrls                 | Target                   | 保存播放地址的容器，具体说明请参见 [PUT LiveChannel]() 中参数说明    | String     |
-| Url                      | PlayUrls                 | 播放地址，具体说明请参见 [PUT LiveChannel]() 中参数说明              | String     |
+| Type                     | Target                   | 指定转储的类型，具体说明请参见 [PUT LiveChannel](https://cloud.tencent.com/document/product/436/50887) 中参数说明        | EnumString |
+| FragDuration             | Target                   | 指定每个 ts 文件的时长，具体说明请参见 [PUT LiveChannel](https://cloud.tencent.com/document/product/436/50887) 中参数说明  | String     |
+| FragCount                | Target                   | 指定 m3u8文件中包含 ts 文件的个数<br/>具体说明请参见 [PUT LiveChannel](https://cloud.tencent.com/document/product/436/50887) 中参数说明 | String     |
+| PlaylistName             | Target                   | 指定生成的 m3u8文件的名称，具体说明请参见 [PUT LiveChannel](https://cloud.tencent.com/document/product/436/50887) 中参数说明 | String     |
+| PublishUrls              | Target                   | 保存推流地址的容器，具体说明请参见 [PUT LiveChannel](https://cloud.tencent.com/document/product/436/50887) 中参数说明    | String     |
+| Url                      | PublishUrls              | 推流地址，具体说明请参见 [PUT LiveChannel](https://cloud.tencent.com/document/product/436/50887) 中参数说明              | String     |
+| PlayUrls                 | Target                   | 保存播放地址的容器，具体说明请参见 [PUT LiveChannel](https://cloud.tencent.com/document/product/436/50887) 中参数说明    | String     |
+| Url                      | PlayUrls                 | 播放地址，具体说明请参见 [PUT LiveChannel](https://cloud.tencent.com/document/product/436/50887) 中参数说明              | String     |
 
 
 
