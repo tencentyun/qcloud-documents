@@ -3,65 +3,53 @@ Koa 组件通过使用 serverless-tencent 的基础组件（如 API 网关组件
 
 >!建议您使用 Node.js10.0 及以上版本，否则 Component V2 部署有可能报错。
 
+## 迁移前提
+
+- 已经 [安装 Serverless Framework 1.67.2](https://cloud.tencent.com/document/product/1154/41775) 以上版本。
+- 已经[注册腾讯云账号](https://cloud.tencent.com/document/product/378/17985)并完成[实名认证](https://cloud.tencent.com/document/product/378/10495)。
+
+  > 如果您的账户为**腾讯云子账号**，请首先联系主账号，参考 [账号和权限配置](https://cloud.tencent.com/document/product/1154/43006) 进行授权。
+  
 ## 操作步骤
-通过 Koa 组件，对一个 Koa 应用进行完整的创建、配置、部署和删除等操作。支持命令如下：
+> 以下步骤主要针对命令行部署操作，控制台部署请参考[控制台部署指南]()。
 
-### 1. 安装
-
-通过 npm 安装 Serverless：
-```console
-npm install -g serverless
+### 1. （可选）初始化 Koa 模版项目
+如果您本地并没有 Koa 项目，可通过以下指令快速新建一个 Koa 项目模版（本地已有项目可跳过该步骤）
+```
+serverless init koa-starter --name example
+cd example
 ```
 
-### 2. 创建
+### 2. 修改项目代码
+打开 Koa 项目的入口文件 sls.js（或 app.js），注释掉本地的监听端口，并导出默认的 Koa app:
 
-1.本地创建一个新文件夹，并在文件夹下创建 `serverless.yml`：
-```console
-mkdir test && cd test
-touch serverless.yml 
-```
-2.初始化一个新的 npm 包，并安装 Koa：
-```
-npm init              # 创建后持续回车
-npm i --save koa  # 安装 koa
-```
-3.本地创建一个 `sls.js` 文件：
-```console
-touch sls.js
-```
-4.在 `sls.js` 文件中创建您的 Koa App：
-```js
-const koa = require('koa')
-const app = new koa()
+```javascript
+// sls.js
 
-app.use(async (ctx, next) => {
-  if (ctx.path !== '/') return next()
-  ctx.body = 'Hello from Koa'
-})
+const koa = require('koa');
+const app = koa();
 
-// set binary types
-// app.binaryTypes = [*/*];
+// *****
 
-// don't forget to export!
-module.exports = app
+// 注释掉本地监听端口
+// app.listen(3000);
+
+// 导出 Express app
+module.exports = app;
 ```
 
-### 3. 配置
+### 3. 快速生成 yml 文件并进行部署
+完成代码修改后，通过执行 `sls deploy` 指令，Serverless Framework 会自动帮您生成基本的 `serverless.yml` 文件，并完成部署，实现 Koa 框架应用的快速迁移。
 
-在 serverless.yml 中进行如下配置：
+生成的默认配置文件如下：
 ```yml
-# serverless.yml
-
-app: appDemo # (optional) serverless dashboard app. default is the same as the name property.
-stage: dev # (optional) serverless dashboard stage. default is dev.
-component: koa # (required) name of the component. In that case, it's koa.
-name: koaDemo # (required) name of your koa component instance.
+component: koa
+name: koaDemo
+app: appDemo
 
 inputs:
-  src:
-    src: ./ # (optional) path to the source folder. default is a hello world app.
-    exclude:
-      - .env
+  entryFile: sls.js #以您实际入口文件名为准
+  src: ./
   region: ap-guangzhou
   runtime: Nodejs10.15
   apigatewayConf:
@@ -70,43 +58,17 @@ inputs:
       - https
     environment: release
 ```
-[查看详细配置文档 >>](https://github.com/serverless-components/tencent-koa/blob/master/docs/configure.md)
 
-### 4. 部署
+部署完成后，通过访问输出的 API 网关链接，完成对应用的访问。
 
-如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
+### 4. 修改 yml 文件
 
-通过`sls deploy`命令进行部署，并可以添加`--debug`参数查看部署过程中的信息。
->?`sls`命令是`serverless`命令的缩写
+基于您实际部署需要，您可以在 `serverless.yml` 中完成更多配置，并执行 `sls deploy`重新部署。
 
-```
-$ sls deploy
+yml 文件的配置信息请参考[ Koa 组件全量配置](https://github.com/serverless-components/tencent-koa/blob/master/docs/configure.md)
 
-  koa:
-    region:              ap-shanghai
-    functionName:        KoaComponent_7xRrrd
-    apiGatewayServiceId: service-n0vs2ohb
-    url:                 http://service-n0vs2ohb-1300415943.ap-shanghai.apigateway.myqcloud.com/release/
-
-  36s › koa › done
-
-```
-
-部署完毕后，可以在浏览器中访问返回的链接，看到对应的 Koa 返回值。
-
-### 5. 移除
-
-通过以下命令移除部署的存储桶：
-```
-$ sls remove --debug
-
-  DEBUG ─ Flushing template state and removing all components.
-  DEBUG ─ Removed function KoaComponent_MHrAzr successful
-  DEBUG ─ Removing any previously deployed API. api-kf2hxrhc
-  DEBUG ─ Removing any previously deployed service.  service-n0vs2ohb
-
-  13s › koa › done
-```
+### 5. 监控运维
+部署完成后，您可以通过访问 [Serverless 应用控制台](https://console.cloud.tencent.com/ssr)，查看应用的基本信息，监控日志。
 
 ### 账号配置（可选）
 

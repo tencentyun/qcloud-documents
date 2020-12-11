@@ -23,13 +23,13 @@
 pod 'TPNS-iOS', '~> 版本'  // 如果不指定版本则默认为本地 pod TPNS-iOS 最新版本
 ```
 >?
- - 首次下载需要登录 [仓库地址](https://git.code.tencent.com/users/sign_in)，并在【账户】菜单栏中 [设置用户名和密码](https://code.tencent.com/help/productionDoc/profile#password)。设置成功后，在 Terminal 输入对应的用户名和密码，后续即可正常使用，当前 PC 不需要再次登录。
- - 由于仓库地址变更，如果 pod 提示 `Unable to find a specification for 'TPNS-iOS'`，那么需要执行以下命令，并更新仓库确认版本：
-``` 
-pod repo update
-pod search TPNS-iOS
-pod install //安装 SDK 
-```  
+> - 首次下载需要登录 [仓库地址](https://git.code.tencent.com/users/sign_in)，并在【账户】菜单栏中 [设置用户名和密码](https://code.tencent.com/help/productionDoc/profile#password)。设置成功后，在 Terminal 输入对应的用户名和密码，后续即可正常使用，当前 PC 不需要再次登录。
+> - 由于仓库地址变更，如果 pod 提示 `Unable to find a specification for 'TPNS-iOS'`，那么需要执行以下命令，并更新仓库确认版本：
+>	``` 
+	pod repo update
+	pod search TPNS-iOS
+	pod install //安装 SDK 
+	```  
 
 #### 方式二：手动导入
 1. 进入腾讯移动推送 [控制台](https://console.cloud.tencent.com/tpns)，单击左侧菜单栏【[SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload)】，进入下载页面，选择需要下载的 SDK 版本，单击操作栏中【下载】即可。
@@ -58,24 +58,25 @@ pod install //安装 SDK
 ![](https://main.qcloudimg.com/raw/b0b74cec883f69fb0287fedc7bad4140.png)
 如 checkTargetOtherLinkFlagForObjc 报错，是因为 build setting 中，Other link flags 未添加 -ObjC。
 
->! 如果您的应用服务接入点为广州，SDK 默认实现该配置。
+>! 如果您的应用服务接入点为广州，SDK 默认实现该配置，广州域名为 `tpns.tencent.com`。
+
 如果您的应用服务接入点为上海、新加坡或者中国香港，请按照下文步骤完成其他服务接入点域名配置。
 1. 解压 SDK 文件包，将 SDK 目录下的 XGPushPrivate.h 文件添加到工程中。
 2. 在`startXGWithAccessID:accessKey:delegate:`方法之前调用头文件中的配置`域名`接口：
 
-如需接入上海服务接入点，则将域名设置为```tpns.sh.tencent.com```。
+如需接入上海服务接入点，则将域名设置为 `tpns.sh.tencent.com`。
 **示例**
 ``` object-c
 /// @note TPNS SDK1.2.7.1+
 [[XGPush defaultManager] configureClusterDomainName:@"tpns.sh.tencent.com"];
 ```
-如需接入新加坡服务接入点，则将域名设置为```tpns.sgp.tencent.com```。
+如需接入新加坡服务接入点，则将域名设置为`tpns.sgp.tencent.com`。
 **示例**
 ``` object-c
 /// @note TPNS SDK1.2.7.1+
 [[XGPush defaultManager] configureClusterDomainName:@"tpns.sgp.tencent.com"];
 ```
-如需接入中国香港服务接入点，则将域名设置为```tpns.hk.tencent.com```。
+如需接入中国香港服务接入点，则将域名设置为`tpns.hk.tencent.com`。
 **示例**
 ``` object-c
 /// @note TPNS SDK1.2.7.1+

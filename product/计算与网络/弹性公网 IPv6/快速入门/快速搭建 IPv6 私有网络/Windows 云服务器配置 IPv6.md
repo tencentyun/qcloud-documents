@@ -6,7 +6,7 @@
 2. 在“以太网状态”弹窗中，单击左下角【属性】。
 3. 在“以太网属性”弹窗中，选中【Internet 协议版本 6（TCP/IPv6）】并单击【属性】。
 ![](https://main.qcloudimg.com/raw/1f10d494b792d975a387ec6e38555021.png)
-4. 在“Internet 协议版本 6（TCP/IPv6）属性”弹窗中，手工输入云服务器获取到的 IPv6 地址 ( 请参见 [搭建 IPv6 私有网络：步骤三](https://cloud.tencent.com/document/product/215/47557#.3Cspan-id.3D.22step3.22-.2F.3E.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E8.B4.AD.E4.B9.B0.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E5.B9.B6.E9.85.8D.E7.BD.AE.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.9A.84-ipv6)) 并设置 DNS（推荐使用`240c::6666`），单击【确定】。
+4. 在“Internet 协议版本 6（TCP/IPv6）属性”弹窗中，手工输入云服务器获取到的 IPv6 地址 ( 请参见 [搭建 IPv6 私有网络：步骤三](https://cloud.tencent.com/document/product/215/47557#.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E8.B4.AD.E4.B9.B0.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E5.B9.B6.E9.85.8D.E7.BD.AE.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8.E7.9A.84-ipv6.3Ca-id.3D.22step3.22.3E.3C.2Fa.3E)) 并设置 DNS（推荐使用`240c::6666`），单击【确定】。
 ![](https://main.qcloudimg.com/raw/fac63249f22197686d68e3afffb3eb14.png)
 5. 在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width:25px">，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -3px 0px;">，打开 “Windows PowerShell” 窗口，依次执行如下命令配置默认路由以及查看 IPv6 地址。
 ```

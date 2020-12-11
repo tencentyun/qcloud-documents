@@ -1,5 +1,5 @@
 ## 操作场景
-TSF 为用户现存的的 gRPC 应用提供了 Go 语言 SDK 插件，gRPC 应用可通过依赖 Go package 的方式接入该项服务。
+TSF 为用户现存的 gRPC 应用提供了 Go 语言 SDK 插件，gRPC 应用可通过依赖 Go package 的方式接入该项服务。
 本文档介绍 gRPC 应用从接入TSF 到部署应用的操作方法及相关注意事项。
 
 
