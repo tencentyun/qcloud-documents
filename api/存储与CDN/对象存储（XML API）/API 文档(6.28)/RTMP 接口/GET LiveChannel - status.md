@@ -39,7 +39,7 @@ Authorization: Auth String
 
 响应体示例如下：
 
-```
+``` plaintext
 <LiveChannelStatus>
   <Status>Live</Status>
   <ConnectedTime>2016-08-25T06:25:15.000Z</ConnectedTime>
@@ -66,7 +66,7 @@ Authorization: Auth String
 | ------------------ | ----------------- | ------------------------------------------------------------ | ---------- |
 | LiveChannelStatus  | 无                | 保存 GetLiveChannelStatus 返回结果的容器                       | Container  |
 | Status             | LiveChannelStatus | 通道当前的推流状态，有效值：Live，Idle                    | EnumString |
-| ConnnectedTime     | LiveChannelStatus | 当 Status 为 Live 时，表示当前客户端开始推流的时间。使用ISO8601格式 | EnumString |
+| ConnnectedTime     | LiveChannelStatus | 当 Status 为 Live 时，表示当前客户端开始推流的时间。使用 ISO8601格式 | EnumString |
 | RemoteAddr         | LiveChannelStatus | 当 Status 为 Live 时，表示当前推流客户端的 IP 地址                 | Container  |
 | RequestId          | LiveChannelStatus | 当 Status 为 Live 时，表示当前推流请求的 RequestId                | String     |
 | Video              | LiveChannelStatus | 当 Status 为 Live 时，保存视频流信息的容器。<br/>说明：Video、Audio 容器只有在 Status 为 Live 时才会返回，但 Status 为 Live 时不一定返回这两个容器。例如，客户端已经连接到 LiveChannel，但尚未发送音视频数据，这种情况不会返回这两个容器 | Container  |
