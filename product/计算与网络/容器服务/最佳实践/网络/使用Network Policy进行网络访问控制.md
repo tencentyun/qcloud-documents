@@ -20,88 +20,88 @@
 ### NetworkPolicy 配置示例
 - nsa namespace 下的 Pod 可互相访问，而不能被其他任何 Pod 访问。
 ```yaml
-    apiVersion: extensions/v1beta1
-    kind: NetworkPolicy
-    metadata:
-      name: npa
-      namespace: nsa
-    spec:
-      ingress: 
-      - from:
-        - podSelector: {} 
-      podSelector: {} 
-      policyTypes:
-      - Ingress
+apiVersion: extensions/v1beta1
+kind: NetworkPolicy
+metadata:
+     name: npa
+     namespace: nsa
+spec:
+     ingress: 
+     - from:
+       - podSelector: {} 
+     podSelector: {} 
+     policyTypes:
+     - Ingress
 ```
 - nsa namespace 下的 Pod 不能被任何 Pod 访问。
  ```yaml
-    apiVersion: extensions/v1beta1
-    kind: NetworkPolicy
-    metadata:
+apiVersion: extensions/v1beta1
+kind: NetworkPolicy
+metadata:
       name: npa
       namespace: nsa
-    spec:
+spec:
       podSelector: {}
       policyTypes:
       - Ingress
 ```
 - nsa namespace 下的 Pod 只在 6379/TCP 端口可以被带有标签 app: nsb 的 namespace 下的 Pod 访问，而不能被其他任何 Pod 访问。
 ```yaml
-    apiVersion: extensions/v1beta1
-    kind: NetworkPolicy
-    metadata:
-      name: npa
-      namespace: nsa
-    spec:
-      ingress:
-      - from:
-        - namespaceSelector:
-            matchLabels:
-              app: nsb
-        ports:
-        - protocol: TCP
-          port: 6379
-      podSelector: {}
-      policyTypes:
-      - Ingress
+apiVersion: extensions/v1beta1
+   kind: NetworkPolicy
+   metadata:
+     name: npa
+     namespace: nsa
+   spec:
+     ingress:
+     - from:
+       - namespaceSelector:
+           matchLabels:
+             app: nsb
+       ports:
+       - protocol: TCP
+         port: 6379
+     podSelector: {}
+     policyTypes:
+     - Ingress
 ```
 - nsa namespace 下的 pod 可以访问 CIDR 为14.215.0.0/16的 network endpoint 的5978/TCP 端口，而不能访问其他任何 network endpoints（此方式可以用来为集群内的服务开访问外部 network endpoints 的白名单）。
 ```yaml
-    apiVersion: extensions/v1beta1
-    kind: NetworkPolicy
-    metadata:
-      name: npa
-      namespace: nsa
-    spec:
-      egress:
-      - to:
-        - ipBlock:
-            cidr: 14.215.0.0/16
-        ports:
-        - protocol: TCP
-          port: 5978
-      podSelector: {}
-      policyTypes:
-      - Egress
+apiVersion: extensions/v1beta1
+   kind: NetworkPolicy
+   metadata:
+     name: npa
+     namespace: nsa
+   spec:
+     egress:
+     - to:
+       - ipBlock:
+           cidr: 14.215.0.0/16
+       ports:
+       - protocol: TCP
+         port: 5978
+     podSelector: {}
+     policyTypes:
+     - Egress
 ```
 - default namespace 下的 Pod 只在80/TCP 端口可以被 CIDR 为14.215.0.0/16的 network endpoint 访问，而不能被其他任何 network endpoints 访问。
 ```yaml
-    apiVersion: extensions/v1beta1
-    kind: NetworkPolicy
-    metadata:
-      name: npd
-      namespace: default
-    spec:
-      ingress:
-      - from:
-        - ipBlock:
-            cidr: 14.215.0.0/16
-        ports:
-        - protocol: TCP
-          port: 80
-      podSelector: {}
-      policyTypes:
-      - Ingress
+apiVersion: extensions/v1beta1
+kind: NetworkPolicy
+metadata:
+     name: npd
+     namespace: default
+spec:
+     ingress:
+     - from:
+       - ipBlock:
+           cidr: 14.215.0.0/16
+       ports:
+       - protocol: TCP
+         port: 80
+     podSelector: {}
+     policyTypes:
+     - Ingress
 ```
 
 ## 性能测试方案
@@ -159,31 +159,31 @@
 apiVersion: extensions/v1beta1
 kind: NetworkPolicy
 metadata:
-  name: npd
-  namespace: default
+      name: npd
+      namespace: default
 spec:
-  ingress:
-  - from:
-    - ipBlock:
-        cidr: 14.215.0.0/16
-    ports:
-    - protocol: TCP
-      port: 9090
-  - from:
-    - ipBlock:
-        cidr: 14.215.0.0/16
-    ports:
-    - protocol: TCP
-      port: 8080
-  - from:
-    - ipBlock:
-        cidr: 14.215.0.0/16
-    ports:
-    - protocol: TCP
-      port: 80
-  podSelector: {}
-  policyTypes:
-  - Ingress
+      ingress:
+      - from:
+        - ipBlock:
+            cidr: 14.215.0.0/16
+        ports:
+        - protocol: TCP
+         port: 9090
+      - from:
+        - ipBlock:
+            cidr: 14.215.0.0/16
+       ports:
+        - protocol: TCP
+          port: 8080
+      - from:
+        - ipBlock:
+            cidr: 14.215.0.0/16
+        ports:
+        - protocol: TCP
+          port: 80
+      podSelector: {}
+      policyTypes:
+      - Ingress
 ```
 4. 使用 ab 压测测试组的服务，记录 QPS。
 得出性能曲线如下：
