@@ -28,7 +28,16 @@ Maven 是 JAVA 的依赖管理工具，支持您项目所需的依赖项，并�
     <!-- 请到 https://search.maven.org/search?q=tencentcloud-sdk-java 查询最新版本 -->
     <version>3.1.87</version>
 </dependency>
+``````xml
+<repositories>
+	<repository>
+      <id>nexus-tencentyun</id>
+      <name>Nexus tencentyun</name>
+      <url>https://mirrors.tencent.com/nexus/repository/maven-public/</url>
+	</repository>
+</repositories>
 ```
+
 示例如下图所示：
 ![](https://main.qcloudimg.com/raw/cc7027bc9fc9c7863121c2dfdeda3185.png)  
 
