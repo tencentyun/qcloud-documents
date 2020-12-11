@@ -27,7 +27,7 @@ XML Body
 
 | 名称        | 描述                                                         | 类型   | 是否必选 |
 | ----------- | ------------------------------------------------------------ | ------ | :------- |
-| ChannelName | 需符合对象键的命名规范。另外，ChannelName不能包含斜杠（/），且不超过128个长度字符。 | string | 是       |
+| ChannelName | 需符合对象键的命名规范。另外，ChannelName 不能包含斜杠（/），且不超过128个长度字符。 | string | 是       |
 
 
 
@@ -59,10 +59,10 @@ XML Body
 | Description | LiveChannelConfiguration | 自定义的通道简述，上限为128字节      | String | 否 |
 | Switch | LiveChannelConfiguration |  指定 LiveChannel 的开关状态，有效值：Enabled，Disabled。默认值：Enabled  | EnumString | 否 |
 | Target | LiveChannelConfiguration |   保存转存配置的容器            | Container | 是 |
-| Type | Target                |  指定转存的类型，有效值：HLS。<br/>说明：转储类型为 HLS 时，COS 在生成每个 ts 文件后更新 m3u8 文件。m3u8 文件中最多包含最近的 FragCount 个 ts 文件  | EnumString | 是 |
+| Type | Target                |  指定转存的类型，有效值：HLS。<br/>说明：转储类型为 HLS 时，COS 在生成每个 ts 文件后更新 m3u8文件。m3u8文件中最多包含最近的 FragCount 个 ts 文件  | EnumString | 是 |
 | FragDuration | Target                | 指定每个 ts 文件的时长，有效值范围为[1,100]，默认值：5。<br/>说明：FragDuration 和 FragCount 的默认值只有在两者都未指定时才会生效；指定了其中一个，则另一个的值也必须指定 | String | 否 |
 | FragCount | Target | 指定 m3u8 文件中包含 ts 文件的个数，有效值范围为[1,100]。默认值：3。<br/>说明：FragDuration 和 FragCount 的默认值只有在两者都未指定时才会生效；指定了其中一个，则另一个的值也必须指定 | String | 否 |
-| PlaylistName | Target | 指定生成的 m3u8 文件的名称。必须以`.m3u8`结尾，长度范围为[6, 128]，默认值：playlist.m3u8。<br/>说明：生成的播放列表作为对象的对象名为`ChannelName/PlaylistName` | String | 否 |
+| PlaylistName | Target | 指定生成的 m3u8文件的名称。必须以`.m3u8`结尾，长度范围为[6, 128]，默认值：playlist.m3u8。<br/>说明：生成的播放列表作为对象的对象名为`ChannelName/PlaylistName` | String | 否 |
 
 ## 响应
 
