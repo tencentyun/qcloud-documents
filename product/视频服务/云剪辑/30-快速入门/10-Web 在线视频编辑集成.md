@@ -1,8 +1,8 @@
-本文介绍如何快速以 Iframe 集成 Web 在线视频剪辑能力。学习完本教程之后，您将部署一个完整的 DEMO，包含服务端以及可访问的前端页面，您可以在前端上传视频，并进行在线剪辑、合成导出。
+本文介绍如何快速以 Iframe 集成 Web 在线视频剪辑能力。学习完本教程之后，您将部署一个完整的 Demo，包含服务端以及可访问的前端页面，您可以在前端上传视频，并进行在线剪辑、合成导出。
 
 
 ## 准备工作[](id:step0)
-1. 注册 [腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fproduct%2Flvb) ，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629) 。
+1. 注册 [腾讯云账号](https://cloud.tencent.com/register?s_url=https%3A%2F%2Fcloud.tencent.com%2Fproduct%2Flvb)，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 2. 进入 [腾讯云点播服务开通页](https://console.cloud.tencent.com/vod/overview) ，勾选同意《腾讯云服务协议》和《腾讯云点播计费说明》，单击【申请开通】即可开通云点播服务。
 >? 若已开通云点播服务，请直接进入下一步骤。
 
