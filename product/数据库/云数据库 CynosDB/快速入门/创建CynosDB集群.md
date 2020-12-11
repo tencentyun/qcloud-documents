@@ -6,7 +6,7 @@
 
 ## 操作步骤
 1. 登录 [CynosDB 购买页](https://buy.cloud.tencent.com/cynosdb?regionId=8)，选择所要部署的地域，可用区以及数据库规格等信息等，单击【立即购买】。
- - **计费模式**：支持包年包月和按量计费模式。
+ - **计费模式**：支持包年包月、按量计费、Serverless 模式。
  - **网络**：出于性能安全考虑，目前仅支持私有网络（VPC），云服务器需要与 CynosDB 在同一 VPC 下方可通信。
  - **兼容数据库**：支持 MySQL 5.7 和 PostgreSQL 10。
  - **实例规格**：数据库规格和价格请参见 [计费概述](https://cloud.tencent.com/document/product/1003/30493)。
