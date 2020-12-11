@@ -188,8 +188,11 @@ spec:
 4. 使用 ab 压测测试组的服务，记录 QPS。
 得出性能曲线如下：
 ![](https://main.qcloudimg.com/raw/29f9a28f68844e497cf08c8bd72cbffe.png)
-	- X轴：ab 并发数
-	- Y轴：QPS
+ - 图例中：
+    - 1000service2000pod、1000service6000pod、1000service8000pod 为 pod 未开启 kube-route
+    - 1000service2000pod-kube-route、1000service6000pod-kube-route、1000service8000pod-kube-route 为 pod 已开启 kube-route
+ - X轴：ab 并发数
+ - Y轴：QPS
 
 ### 测试结论
 
