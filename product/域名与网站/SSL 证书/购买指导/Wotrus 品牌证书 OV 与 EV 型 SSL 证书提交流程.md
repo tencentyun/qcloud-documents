@@ -2,7 +2,7 @@
 Wotrus 品牌证书企业型（OV）与增强型（EV）SSL 证书在购买成功后，需要进行相关材料提交。证书购买流程请参考 [购买流程](https://cloud.tencent.com/document/product/400/7995)。
 
 ## 前提条件
-1. 登录 [SSL 证书管理控制台](https://console.cloud.tencent.com/certoverview)，选择并进入【待提交】管理页面。
+1. 登录 [证书管理控制台](https://console.cloud.tencent.com/certoverview)，选择并进入【待提交】管理页面。
 2. 选择已购买的证书行，单击【提交资料】。
 
 ## 操作步骤
