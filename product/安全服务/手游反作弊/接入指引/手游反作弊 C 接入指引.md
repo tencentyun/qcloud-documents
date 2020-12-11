@@ -139,11 +139,11 @@ TP2_GAME_STATUS_BACKEND = 2 // 后台
 void Start ()
 {
 // 游戏启动的第一时间调用
-tp2_sdk_init_ex (8888, “a5ab8dc7ef67ca92e41d730982c5c602”);
+tp2_sdk_init_ex (8888, “a5ab8dc7ef67ca92e41d730982******”);
 // 用户登录时调用
 int account_type = ENTRY_ID_QZONE; /* 帐号类型 */
 int world_id = 101; /* 大区 id*/
-string open_id = "B73B36366565F9E02C752"; /* 与平台相关的用户标识 */
+string open_id = "B73B36366565F9E******"; /* 与平台相关的用户标识 */
 string role_id = "paladin"; /* 角色 id*/
 tp2_setuserinfo(account_type, world_id, open_id, role_id);
 }
