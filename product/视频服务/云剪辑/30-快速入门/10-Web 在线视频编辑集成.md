@@ -21,15 +21,14 @@
 获取腾讯云用户身份密钥，即`SecretId`和`SecretKey`，具体步骤如下：
 1.  登录控制台，选择【云产品】>【访问管理】>[【API密钥管理】](https://console.cloud.tencent.com/cam/capi)，进入 API 密钥管理页面。
 2.  获取云 API 密钥。如果您尚未创建密钥，则单击【新建密钥】即可创建一对 SecretId 和 SecretKey。
-
-获取得到的`SecretId`和`SecretKey`也是用于 Demo 的配置使用。
+>?获取得到的`SecretId`和`SecretKey`也是用于 Demo 的配置使用。
 
 ## 步骤3：下载并部署 Demo[](id:step3)
 ### 环境准备
-云剪提供的 Demo 是基于 Node.js 开发的，在运行 Demo 之前需要检查本地是否安装了 Node.js，若没有安装 Node.js 的可以登录官网进行包进行快速安装，具体请参见：[Node.js 安装包下载](https://nodejs.org)。
+云剪提供的 Demo 是基于 Node.js 开发的，在运行 Demo 之前需要检查本地是否安装了 Node.js，若没有安装 Node.js 的可以登录官网进行包进行快速安装，详情请参见：[Node.js 安装包下载](https://nodejs.org)。
 
 ### 源码下载
-Demo 的代码托管在 Github 上，开发者可以登录上去直接进行下载，具体参考：[Demo Github 地址](https://github.com/tencentyun/cme-node-demo)。
+Demo 的代码托管在 Github 上，开发者可以登录上去直接进行下载，详情请参见：[Demo Github 地址](https://github.com/tencentyun/cme-node-demo)。
 开发者也可以直接在本地通过 git 命令下载代码：
 ```bash
 git clone https://github.com/tencentyun/cme-node-demo.git
