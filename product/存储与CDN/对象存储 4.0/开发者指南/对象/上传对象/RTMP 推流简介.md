@@ -18,9 +18,9 @@
 
 您可以直接使用 REST API 使用 LiveChannel 接口，具体可参考以下 API 文档：
 
-- [PUT LiveChannel](#)
-- [List LiveChannels](#)
-- [DELETE LiveChannel](#)
+- [PUT LiveChannel](https://cloud.tencent.com/document/product/436/50887)
+- [List LiveChannels](https://cloud.tencent.com/document/product/436/50886)
+- [DELETE LiveChannel](https://cloud.tencent.com/document/product/436/50889)
 
 
 
