@@ -5,7 +5,7 @@
 已创建对应的私有域。
 
 ## 操作步骤
-1. 登录 [ Private DNS 管理控制台](https://console.cloud.tencent.com/privatedns)，并单击左侧导航栏的【私有域解析】，即可进入私有域列表。
+1. 登录 [Private DNS 管理控制台](https://console.cloud.tencent.com/privatedns)，并单击左侧导航栏的【私有域解析】，即可进入私有域列表。
 2. 在 “私有域列表” 中，单击您需要添加 TXT 记录的私有域名称或【解析】。如下图所示：
 ![](https://main.qcloudimg.com/raw/965b35507b9de90112d57608a95d6405.png)
 3. 在解析记录页签中，单击【添加记录】并填写相关记录值信息。如下图所示：
