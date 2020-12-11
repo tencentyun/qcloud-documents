@@ -56,120 +56,106 @@ require github.com/TencentCloud/tdmq-go-client v0.3.0-beta.2
 2.创建 producer.go 和 consumer.go 测试 Demo 文件。
 
 - producer.go 代码内容如下，其中`listenerName`即`custom:`拼接路由 ID（NetModel），路由 ID 可以在控制台【[环境管理](https://console.cloud.tencent.com/tdmq/env)】接入点查看并复制，`NewAuthenticationToken`即角色密钥，可以在【[角色管理](https://console.cloud.tencent.com/tdmq/role)】页面复制。
-
-```go
+<dx-codeblock>
+:::  go
 package main
 
-
-
 import (
-				"context"
-				"github.com/TencentCloud/tdmq-go-client/pulsar"
-				"log"
-				"strconv"
+    "context"
+    "github.com/TencentCloud/tdmq-go-client/pulsar"
+    "log"
+    "strconv"
 )
-
-
 
 func main() {
 
-			client, err := pulsar.NewClient(pulsar.ClientOptions{
-						URL:            "pulsar://*.*.*.*:6000",
-						ListenerName:   "custom:1300*****0/vpc-******/subnet-********",
-						Authentication: pulsar.NewAuthenticationToken(),
-				})
-				if err != nil {
-						log.Fatal(err)
-				}
-				defer client.Close()
+    client, err := pulsar.NewClient(pulsar.ClientOptions{
+        URL:            "pulsar://*.*.*.*:6000",
+        ListenerName:   "custom:1300*****0/vpc-******/subnet-********",
+        Authentication: pulsar.NewAuthenticationToken(),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer client.Close()
 
+    producer, err := client.CreateProducer(pulsar.ProducerOptions{
+        DisableBatching: true,
+        Topic:           "persistent://appid/namespace/topic-1",
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer producer.Close()
 
+    ctx := context.Background()
 
-				producer, err := client.CreateProducer(pulsar.ProducerOptions{
-						DisableBatching: true,
-						Topic:           "persistent://appid/namespace/topic-1",
-				})
-				if err != nil {
-						log.Fatal(err)
-				}
-				defer producer.Close()
-
-
-
-				ctx := context.Background()
-
-
-
-				for j := 0; j < 10; j++ {
-						if msgId, err := producer.Send(ctx, &pulsar.ProducerMessage{
-								Payload: []byte("Hello " + strconv.Itoa(j)),
-						}); err != nil {
-								log.Fatal(err)
-						} else {
-								log.Println("Published message: ", msgId)
-						}
-				}
+    for j := 0; j < 10; j++ {
+        if msgId, err := producer.Send(ctx, &pulsar.ProducerMessage{
+            Payload: []byte("Hello " + strconv.Itoa(j)),
+        }); err != nil {
+            log.Fatal(err)
+        } else {
+            log.Println("Published message: ", msgId)
+        }
+    }
 }
-```
+:::
+</dx-codeblock>
+
 
 其中 Topic 名称需要填入完整路径，即`persistent://appid/environment/Topic`的组合，其中`appid/environment/topic`的部分可以从控制台【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。
 ![](https://main.qcloudimg.com/raw/a2e32b311b825df9798b8c98df7c3416.png)
 
 
 - consumer.go 的代码内容如下：
-
-```go
+<dx-codeblock>
+:::  go
 package main
 
-
-
 import (
-				"context"
-				"fmt"
-				"github.com/TencentCloud/tdmq-go-client/pulsar"
-				"log"
+    "context"
+    "fmt"
+    "github.com/TencentCloud/tdmq-go-client/pulsar"
+    "log"
 )
-
-
 
 func main() {
 
-			client, err := pulsar.NewClient(pulsar.ClientOptions{
-						URL:           "pulsar://10.*.*.*:6000",//更换为接入点地址
-						ListenerName:    "custom:1300*****0/vpc-******/subnet-********",
-						Authentication: NewAuthenticationToken("eyJh****"),
-				})
-				if err != nil {
-						log.Fatal(err)
-				}
-				defer client.Close()
+    client, err := pulsar.NewClient(pulsar.ClientOptions{
+        URL:       	"pulsar://10.*.*.*:6000",//更换为接入点地址
+        ListenerName:	"custom:1300*****0/vpc-******/subnet-********",
+        Authentication: NewAuthenticationToken("eyJh****"),
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer client.Close()
 
+    consumer, err := client.Subscribe(pulsar.ConsumerOptions{
+        Topics:           []string{"persistent://appid/namespace/topic-1"},
+        SubscriptionName: "my-sub",
+        Type:             pulsar.Shared,
+    })
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer consumer.Close()
 
-
-				consumer, err := client.Subscribe(pulsar.ConsumerOptions{
-						Topics:           []string{"persistent://appid/namespace/topic-1"},
-						SubscriptionName: "my-sub",
-						Type:             pulsar.Shared,
-				})
-				if err != nil {
-						log.Fatal(err)
-				}
-				defer consumer.Close()
-
-
-
-				for ; ; {
-						msg, err := consumer.Receive(context.Background())
-						if err != nil {
-								log.Fatal(err)
-						}
-						fmt.Printf("Received message msgId: %#v -- content: '%s' -- topic : '%v'\n",
-								msg.ID(), string(msg.Payload()), msg.Topic())
-        
-						consumer.Ack(msg)
-				}
+    for ; ; {
+        msg, err := consumer.Receive(context.Background())
+        if err != nil {
+            log.Fatal(err)
+        }
+        fmt.Printf("Received message msgId: %#v -- content: '%s' -- topic : '%v'\n",
+            msg.ID(), string(msg.Payload()), msg.Topic())
+		
+        consumer.Ack(msg)
+    }
 }
-```
+:::
+</dx-codeblock>
+
 
 ### 测试验证
 
@@ -218,80 +204,88 @@ Received message msgId: &pulsar.messageID{ledgerID:581, entryID:3, batchIdx:0, p
 ### Tag 功能
 
 为了配置 Go SDK 的 Tag 支持，需要在消费者订阅的时候配置相应的 Tag 参数，如下：
-
-```go
+<dx-codeblock>
+:::  go
 consumer, err := client.Subscribe(pulsar.ConsumerOptions{
-				Topics:           []string{"persistent://appid/namespace/topic-1"},
-				SubscriptionName: "my-sub",
-				Type:             pulsar.Shared,
-			TagMapTopicNames: map[string]string{"persistent://appid/namespace/topic-1":"a||b"},
+        Topics:           []string{"persistent://appid/namespace/topic-1"},
+        SubscriptionName: "my-sub",
+        Type:             pulsar.Shared,
+    TagMapTopicNames: map[string]string{"persistent://appid/namespace/topic-1":"a||b"},
 })
 if err != nil {
-				log.Fatal(err)
+        log.Fatal(err)
 }
 defer consumer.Close()
-```
+:::
+</dx-codeblock>
+
 
 不同的 Tag 之间用“||”符号分隔，此时创建的 consumer 就会只消费 Tag 中包含 a 或 b 的消息，如下创建 producer 并发送消息：
-
-```go
+<dx-codeblock>
+:::  go
 // 创建 Producer 对象
 producer, err := client.CreateProducer(pulsar.ProducerOptions{
-				Topic:           "persistent://appid/namespace/topic-1",
+    Topic:           "persistent://appid/namespace/topic-1",
 })
 if err != nil {
-				log.Fatal(err)
+    log.Fatal(err)
 }
 defer producer.Close()
 // 发送消息
 for j := 0; j < 10; j++ {
-				if msgId, err := producer.Send(ctx, &pulsar.ProducerMessage{
-						Payload: []byte("Hello " + strconv.Itoa(j)),
-						Tags:    []string{"a","b"},
-				}); err != nil {
-						log.Fatal(err)
-				} else {
-						log.Println("Published message: ", msgId)
-				}
+    if msgId, err := producer.Send(ctx, &pulsar.ProducerMessage{
+        Payload: []byte("Hello " + strconv.Itoa(j)),
+        Tags:    []string{"a","b"},
+    }); err != nil {
+        log.Fatal(err)
+    } else {
+        log.Println("Published message: ", msgId)
+    }
 }
-```
+:::
+</dx-codeblock>
+
 
 可以用 consumer 来接收消息，完成消费。
 
 ### 消息延迟重试
 
 有时我们接收到一条消息时希望能在可控的延迟时间之后再次消费这个消息，这个功能现在也集成在 SDK 中，首先我们需要在创建 consumer 时配置相应的参数：
-
-```go
+<dx-codeblock>
+:::  go
 consumer, err := client.Subscribe(pulsar.ConsumerOptions{
-				Topics:           []string{"persistent://appid/namespace/topic-1"},
-				SubscriptionName: "my-sub",
-				Type:             pulsar.Shared,
-			//EnableRetry 设为 true 是必须的，否则默认关闭 Retry 功能
-				EnableRetry:      true,
-			//DelayLevelUtil 不是必须配置的，系统会有缺省值
-				DelayLevelUtil:   pulsar.NewDelayLevelUtil("1s 5s 10s 30s 1m 2m 3m 4m 5m 6m 7m 8m"),
+    Topics:           []string{"persistent://appid/namespace/topic-1"},
+    SubscriptionName: "my-sub",
+    Type:             pulsar.Shared,
+  //EnableRetry 设为 true 是必须的，否则默认关闭 Retry 功能
+    EnableRetry:      true,
+  //DelayLevelUtil 不是必须配置的，系统会有缺省值
+    DelayLevelUtil:   pulsar.NewDelayLevelUtil("1s 5s 10s 30s 1m 2m 3m 4m 5m 6m 7m 8m"),
 })
 if err != nil {
-				log.Fatal(err)
+    log.Fatal(err)
 }
 defer consumer.Close()
-```
+:::
+</dx-codeblock>
+
 
 在消息重试的时候，我们提供了两个接口，分别是异步和同步的方式来重试，示例如下：
-
-```go
+<dx-codeblock>
+:::  go
 //同步的方式
 err = consumer.ReconsumeLater(msg,pulsar.NewReconsumeOptionsWithLevel(2))
 if err != nil{
-			log.Fatal(err)
+    log.Fatal(err)
 }
 //异步的方式，提供了一个回调方法，会在 Retry 消息发送出去后进行调用
 consumer.ReconsumeLaterAsync(msg, pulsar.NewReconsumeOptionsWithLevel(2), func(id pulsar.MessageID, message *pulsar.ProducerMessage, err error) {
-				if err != nil {
-						fmt.Printf("Error %v when send retry msg", err)
-				} else {
-						fmt.Printf("Retry message send success with id : %v", id)
-				}
+    if err != nil {
+        fmt.Printf("Error %v when send retry msg", err)
+    } else {
+        fmt.Printf("Retry message send success with id : %v", id)
+    }
 })
-```
+:::
+</dx-codeblock>
+
