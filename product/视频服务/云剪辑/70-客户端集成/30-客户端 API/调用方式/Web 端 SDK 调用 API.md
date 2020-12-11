@@ -3,12 +3,10 @@
 ```html
 <script src="https://imgcache.qq.com/qcloud/cme/sdk_v1.js"></script>
 ```引入完成后，全局将挂载一个`CME`实例。
-
 ## 步骤2：获取客户端访问签名
 开发者前端向自身服务端请求客户端访问签名（其`action`字段值为`Login`），详情请参见 [签名算法](https://cloud.tencent.com/document/product/1156/43777) 及 [签名示例](https://cloud.tencent.com/document/product/1156/43778)。
-
 ## 步骤3：创建 Net 实例
-```js
+```JavaScript 
 /*   @create  创建实例方法。没调用该方法之前。调用 fetch 方法通信无效。
  *    @param sign {{ string }}，客户端访问签名（其`action`字段值为`Login`）。参见签名算法。
  *    @return 返回一个 Net 组件实例。
@@ -17,9 +15,8 @@ let myCmeNet = CME.Net.create({
   sign: "your_signature",
 });
 ```
-
 ## 步骤4：发起访问调用
-```js
+```JavaScript 
   /**
    *
    *    @send 发送命令字方法,
