@@ -9,7 +9,7 @@
 2. 在 “私有域列表” 中，单击您需要添加 MX 记录的私有域名称或【解析】。如下图所示：
 ![](https://main.qcloudimg.com/raw/965b35507b9de90112d57608a95d6405.png)
 3. 在【解析记录】页签中，单击【添加记录】并填写相关记录值信息。如下图所示：
-![](https://main.qcloudimg.com/raw/038630eb2e83568e9492fd0597c98b43.png)
+![](https://main.qcloudimg.com/raw/330ee2fb71aaaa0b6cfef3be9a65c990.png)
  - **主机记录**：填写子域名，通常选择 “@” 或 “mail”。例如，若 “主机记录” 选择 “@”，则邮箱地址是 xxx@dnspod.cn。若 “主机记录” 选择 “mail”，则邮箱地址变为 xxx@mail.dnspod.cn。
  - **记录类型**：选择 “MX”。
  - **记录值**：可以是域名，也可以是一个 IP 地址。
