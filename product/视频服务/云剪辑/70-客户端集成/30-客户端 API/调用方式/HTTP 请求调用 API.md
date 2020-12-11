@@ -6,7 +6,7 @@
 4. 调用 [客户端 API](https://cloud.tencent.com/document/product/1156/50861)。
 
 具体流程如下。
->! 如非必要，建议您使用 [客户端 SDK](#SDK) 访问客户端 API，而非通过 HTTP 请求直接裸调接口。
+>! 如非必要，建议您使用 [客户端 SDK](https://cloud.tencent.com/document/product/1156/50899) 访问客户端 API，而非通过 HTTP 请求直接裸调接口。
 
 ## 步骤1：申请访问签名[](id:step1)
 客户端携带用户身份标识（UserId）向自身后台申请访问签名。
