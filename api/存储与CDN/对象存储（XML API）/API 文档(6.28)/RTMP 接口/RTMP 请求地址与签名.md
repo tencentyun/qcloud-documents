@@ -18,7 +18,7 @@ rtmp://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/live/test-channel?
 
 - **rtmp**：RTMP 协议名称，固定值。
 - **examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com**：带有存储桶与 APPID 的域名，与 COS 其他 HTTP 请求类似。
-- **live**：RTMP 协议中 app 名称，COS 使用固定值live。
+- **live**：RTMP 协议中 app 名称，COS 使用固定值 live。
 - **test-channel**：通道名，可以在创建通道时定义。
 - **params**：推流参数，在“?”之后以“q-sign-algorithm=sha1&q-ak=ak... ...”形式排列，当前主要用于传递签名信息，下面会详细介绍签名参数的生成方法。
 
@@ -31,7 +31,7 @@ rtmp://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/live/test-channel?
 | q-sign-algorithm | 签名算法，当前固定为“sha1”                                   |
 | q-ak             | SecretId，可登录 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面获取 |
 | q-sign-time      | 签名有效时间对应的 Uninx 起始、结束时间戳，例如1557902800;1557910000 |
-| q-key-time       | 同q-sign-time                                                |
+| q-key-time       | 同 q-sign-time                                                |
 | 其他参数         | 其他参数待后续扩展，当前建议保持为空                         |
 | q-signature      | 根据各签名要素计算出的签名值                                 |
 
@@ -72,7 +72,7 @@ Signaure=hmac-sha1(SecretKey , "sha1\n" + KeyTime + "\n" + sha1Hex(RtmpString) +
 
 ### 步骤4：生成 Signature
 
-使用 [HMAC-SHA1](#.E5.87.86.E5.A4.87.E5.B7.A5.E4.BD.9C) 以 SecretKey 密钥，以 [StringToSign](#.E6.AD.A5.E9.AA.A46.EF.BC.9A.E7.94.9F.E6.88.90-stringtosign) 为消息，计算消息摘要，即为 Signature，例如：`01681b8c9d798a678e43b685a9f1bba0f6c0e012`。
+使用 [HMAC-SHA1](#.E5.87.86.E5.A4.87.E5.B7.A5.E4.BD.9C) 以 SecretKey 密钥，以 [StringToSign](#stringtosign) 为消息，计算消息摘要，即为 Signature，例如：`01681b8c9d798a678e43b685a9f1bba0f6c0e012`。
 
 ### 步骤5：生成完整的签名参数
 
@@ -128,7 +128,7 @@ Signature = HMAC-SHA1(SignKey, StringToSign)
 - **KeyTime** = `1606550430;1606554030`
 - **CanonicalizedResource**=`/examplebucket-1250000000/test-channel`
 - **RtmpString** = `/examplebucket-1250000000/test-channel\n\n`
-- **StringToSign** = `sha1\n1606550430;1606554030\n44bb35a2713324b40406f7b4b457e33df378a346\n`
+- **StringToSign** = `sha1\n1606550430;1606554030\n44bb35a2713324b40406f7b4b457e33df378a346\n`<span id="stringtosign"></span>
 - **Signature** = `d3b294bdf047228fca13291dea70a28e563ce4e2`
 
   
