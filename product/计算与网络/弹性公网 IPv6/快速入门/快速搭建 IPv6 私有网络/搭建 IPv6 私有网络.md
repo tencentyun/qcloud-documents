@@ -15,6 +15,8 @@
 - 主网卡、辅助网卡均支持申请 IPv6 地址。想要了解更多云服务器和弹性网卡的关系，请参见 [弹性网卡](https://cloud.tencent.com/document/product/576) 产品文档。
 
 ## 操作步骤
+
+
 ### 步骤一：VPC 分配 IPv6 CIDR[](id:step1)
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 选择支持 IPv6 的地域，在 VPC 所在行的右侧操作栏下，选择【更多】>【编辑 IPv6 CIDR】。
@@ -23,14 +25,14 @@
 ![](https://main.qcloudimg.com/raw/8b8774b80c053c4a879f1f1b055945a5.png)
 
 
-### <span id="step2" />步骤二：为子网分配 IPv6 CIDR
+### 步骤二：为子网分配 IPv6 CIDR[](id:step2)
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 在左侧目录下选择【子网】，进入管理页面。
 3. 在 [步骤一](#step1) 中的 VPC 所属子网所在行的操作栏下，单击【获取 IPv6 CIDR】并确认操作。
 系统将从 VPC 的`/56` IPv6 CIDR 分配一个`/64`的 IPv6 CIDR。
 ![](https://main.qcloudimg.com/raw/9b32564f2bc5df09ec198716b46f7cc2.png)
 
-### <span id="step3" />步骤三：购买云服务器并配置云服务器的 IPv6
+### 步骤三：购买云服务器并配置云服务器的 IPv6[](id:step3)
 为 VPC 和子网分配 IPv6 CIDR 后，您可在该子网下创建一个具有 IPv6 地址的云服务器，也可以为该子网下运行中的云服务器获取 IPv6 地址。
 >?
 >由于 IPv6 地址目前还不支持自动下发到网卡，因此从在控制台获取 IPv6 地址后，您还需要登录云服务器进行 IPv6 的配置。
