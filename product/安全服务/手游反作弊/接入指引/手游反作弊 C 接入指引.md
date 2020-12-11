@@ -37,7 +37,7 @@ libtersafe2.so
  ![](https://mc.qcloudimg.com/static/img/5c0861221c69ff2a296717b48223b614/image.png)
 
 ### 工程属性设置
-1. 在 Eclipse 中左边的项目导航栏 [Project Explorer] 中选择游戏项目，单击鼠标右键，在弹出的菜单中选择 [Properties]，选中 Properties 窗口左边导航栏中的[Java Build Path] 选项，然后在 [Library] 中单击 [add JARs] 添加 tp2.jar。
+1. 在 Eclipse 中左侧的项目导航栏 [Project Explorer] 中选择游戏项目，单击鼠标右键，在弹出的菜单中选择 [Properties]，选中 Properties 窗口左边导航栏中的[Java Build Path] 选项，然后在 [Library] 中单击 [add JARs] 添加 tp2.jar。
 ![](https://mc.qcloudimg.com/static/img/2b038746f019e439ef5bbdb473ab16b2/image.png)
 2. 选择已拷贝到工程目录的 tp2.jar。
 ![](https://mc.qcloudimg.com/static/img/b48aeb6b30b9c689ca5e56357a0c72b3/image.png)
