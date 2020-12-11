@@ -30,27 +30,27 @@ K8S 1.18在 HPA Spec 下新增了 `behavior` 字段，该字段提供 `scaleUp` 
 apiVersion: autoscaling/v2beta2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: web
-spec:
-  minReplicas: 1
-  maxReplicas: 1000
-  metrics:
-  - pods:
-      metric:
-        name: k8s_pod_rate_cpu_core_used_limit
-      target:
-        averageValue: "80"
-        type: AverageValue
-    type: Pods
-  scaleTargetRef:
-    apiVersion: apps/v1
-    kind: Deployment
     name: web
-  behavior: # 重要
-    scaleUp:
-      policies:
-      - type: percent
-        value: 900%
+spec:
+    minReplicas: 1
+    maxReplicas: 1000
+    metrics:
+    - pods:
+        metric:
+          name: k8s_pod_rate_cpu_core_used_limit
+        target:
+          averageValue: "80"
+          type: AverageValue
+      type: Pods
+    scaleTargetRef:
+      apiVersion: apps/v1
+      kind: Deployment
+      name: web
+    behavior: # 重要
+      scaleUp:
+        policies:
+        - type: percent
+          value: 900%
 ```
 
 示例表示扩容时立即新增当前9倍数量的副本数，即立即扩容到当前10倍的 Pod 数量，最大不超过 `maxReplicas` 的限制。
@@ -72,15 +72,15 @@ spec:
 
 ```yaml
 behavior:
-  scaleUp:
-    policies:
-    - type: percent
-      value: 900%
-  scaleDown:
-    policies:
-    - type: pods
-      value: 1
-      periodSeconds: 600 # 每10分钟缩掉1个 Pod
+    scaleUp:
+      policies:
+      - type: percent
+        value: 900%
+    scaleDown:
+      policies:
+      - type: pods
+        value: 1
+        periodSeconds: 600 # 每10分钟缩掉1个 Pod
 ```
 
 示例中增加了 `scaleDown` 配置，指定缩容时每10分钟减少1个 Pod，大大降低缩容速度，缩容时的 Pod 数量变化趋势如下：
@@ -101,10 +101,10 @@ behavior:
 
 ```yaml
 behavior:
-  scaleUp:
-    policies:
-    - type: pods
-      value: 1 # 每次扩容只新增1个 Pod
+    scaleUp:
+      policies:
+      - type: pods
+        value: 1 # 每次扩容只新增1个 Pod
 ```
 
 例如，业务默认为1个 Pod，扩容时它的 Pod 数量变化趋势如下：
@@ -118,10 +118,10 @@ behavior:
 
 ```yaml
 behavior:
-  scaleDown:
-    policies:
-    - type: pods
-      value: 0
+    scaleDown:
+      policies:
+      - type: pods
+        value: 0
 ```
 
 ### 示例5：延长缩容时间窗口
@@ -130,11 +130,11 @@ behavior:
 
 ```yaml
 behavior:
-  scaleDown:
-    stabilizationWindowSeconds: 600 # 等待600s（10分钟）再开始缩容
-    policies:
-    - type: pods
-      value: 5 # 每次只缩掉5个 Pod
+    scaleDown:
+      stabilizationWindowSeconds: 600 # 等待600s（10分钟）再开始缩容
+      policies:
+      - type: pods
+        value: 5 # 每次只缩掉5个 Pod
 ```
 
 示例表示当负载降下来时，将等待600s（10分钟）再开始缩容，每次只缩容5个 Pod。
@@ -152,11 +152,11 @@ behavior:
 
 ``` yaml
 behavior:
-  scaleUp:
-    stabilizationWindowSeconds: 300 # 扩容前等待5分钟的时间窗口
-    policies:
-    - type: pods
-      value: 20 # 每次扩容新增20个 Pod
+    scaleUp:
+      stabilizationWindowSeconds: 300 # 扩容前等待5分钟的时间窗口
+      policies:
+      - type: pods
+        value: 20 # 每次扩容新增20个 Pod
 ```
 
 示例表示扩容时，需要先等待5分钟的时间窗口，如果在这段时间内负载降下，则不进行扩容。在负载持续超过扩容阈值后才进行扩容，每次扩容新增20个 Pod。
