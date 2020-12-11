@@ -74,7 +74,7 @@ Authorization: Auth String
 | NextMarker | ListLiveChannelResult | 指定通道数量的最大值                     | String |
 | LiveChannel | ListLiveChannelResult | 列举出的通道信息                   | Container |
 | Name | LiveChannel           | 通道名称                       | String |
-| LastModified | SignalingChannelConfiguration                      |  LiveChannel 配置的最后修改时间。使用ISO8601格式  | String |
+| LastModified | SignalingChannelConfiguration                      |  LiveChannel 配置的最后修改时间。使用 ISO8601格式  | String |
 
 #### 错误码
 
