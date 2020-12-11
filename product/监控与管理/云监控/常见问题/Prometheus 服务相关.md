@@ -6,7 +6,7 @@
 
 ### kube-proxy 采集目标状态全部为 DOWN，该如何解决？
 
-TKE 中 kube-proxy 未指定启动参数 `--metrics-bind-address`，而 metrics 服务默认监听地址为127.0.0.1，这样 Agent 无法根据 POD IP 拉取到 metrics，可通过如下步骤指引进行解决：
+TKE 中 kube-proxy 未指定启动参数 `--metrics-bind-address`，而 metrics 服务默认监听地址为127.0.0.1，因此 Agent 无法根据 POD IP 拉取到 metrics，可通过如下步骤指引进行解决：
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)，选择对应地域下的容器集群。
 2. 在【基本信息】>【集群APIServer信息】>【通过Kubectl连接Kubernetes集群操作说明】根据指引设置 kubectl。
 3. 执行命令 `kubectl edit ds kube-proxy -n kube-system`，在 `spec.template.spec.containers.args` 中添加启动参数` --metrics-bind-address=0.0.0.0`。
@@ -15,11 +15,11 @@ TKE 中 kube-proxy 未指定启动参数 `--metrics-bind-address`，而 metrics 
 
 独立 TKE 集群 Master 节点的默认安全组入站规则不允许访问部分组件的 metrics 端口，可通过如下步骤指引进行解决：
 1. 登录 [安全组控制台](https://console.cloud.tencent.com/vpc/securitygroup?rid=1)，选择对应区域。
-2. 在安全组搜索框中输入tke-master-security-for-<tke cluster id>，比如集群 ID 是 cls-xxx 那么搜索内容为tke-master-security-for-cls-xxx
+2. 在安全组搜索框中输入tke-master-security-for-<tke cluster id>，例如集群 ID 是 cls-xxx 那么搜索内容为 tke-master-security-for-cls-xxx。
 3. 单击搜索出的安全组 ID 进入编辑入站规则对话框。
 4. 要编辑的规则的协议端口列应包含 TCP:60001,60002，逐条选择规则，添加端口10249,10252,10251,9100,9153。各个端口用途如下：
-  * 10249 kube-proxy metrics 的端口
-  * 10252 kube-controller-manager metrics 的端口
-  * 10251 kube-scheduler metrics 的端口 
-  * 9100  node-exporter metrics 的端口
-  * 9153  core-dns metrics 的端口
+  - 10249 kube-proxy metrics 的端口
+  - 10252 kube-controller-manager metrics 的端口
+  - 10251 kube-scheduler metrics 的端口 
+  - 9100  node-exporter metrics 的端口
+  - 9153  core-dns metrics 的端口
