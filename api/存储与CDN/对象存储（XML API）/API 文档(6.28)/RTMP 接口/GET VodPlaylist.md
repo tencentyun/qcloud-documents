@@ -1,6 +1,6 @@
 ## 功能描述
 
-GET VodPlaylist 接口用于查询指定通道（Live Channel）在指定时间段推流生成的播放列表。COS 会查询请求参数中时间范围内由该 LiveChannel 推流生成的 ts 文件，拼接出一个临时的 m3u8 播放列表，并将其内容直接返回给客户端。
+GET VodPlaylist 接口用于查询指定通道（Live Channel）在指定时间段推流生成的播放列表。COS 会查询请求参数中时间范围内由该 LiveChannel 推流生成的 ts 文件，拼接出一个临时的 m3u8播放列表，并将其内容直接返回给客户端。
 
 ## 请求
 
