@@ -81,7 +81,7 @@ Elasticsearch 从 6.x 开始，不再支持一个索引多个 type。从5.x版�
 		"level.name":"一线城市",
 		"y":6381,
 		"cityNo":1
-	}
+	}'
 ```
 3. 配置项兼容   
  Elasticsearch 不同版本之间会存在一些不兼容的配置，如果您有设置，升级后可能会影响集群的使用。ES 升级功能提供了配置项的检查流程，也提供了调整说明，见下文 <a href="#update_check">升级检查</a>。
