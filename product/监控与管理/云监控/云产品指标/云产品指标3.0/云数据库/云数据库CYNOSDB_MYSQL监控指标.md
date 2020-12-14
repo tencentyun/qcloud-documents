@@ -40,7 +40,7 @@ Namespace=QCE/CYNOSDB_MYSQL
 
 ## 入参说明
 
-查询云数据库（CynosDB for MySQL）产品监控数据，入参取值如下：
+**查询云数据库（CynosDB for MySQL）产品监控数据，入参取值如下：**
 &Namespace=QCE/CYNOSDB_MYSQL
 &Instances.N.Dimensions.0.Name=InstanceId
 &Instances.N.Dimensions.0.Value=CynosDB 数据库中具体实例的 ID 
