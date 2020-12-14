@@ -154,7 +154,7 @@
 </tr>
 <tr>
 <td>APNs（开发者可选）</td>
-<td>参考 <a href="">iOS 的隐私政策</a></td>
+<td>参考 <a href="https://www.apple.com/legal/privacy/szh/">iOS 的隐私政策</a></td>
 <td>APNs 通道是苹果手机的系统级通道，TPNS 在对 iOS 设备做消息推送时，会优先走 APNs 通道，例如 APNs 通道推送失败，才会走 TPNS 自建通道进行补推。</td>
 </tr>
 </tbody></table>
