@@ -75,8 +75,8 @@ Authorization: Auth String
 					<ID>string</ID>
 					<DisplayName>string</DisplayName>
 				</Owner>
-					<StorageClass>Enum</StorageClass>
-					<StorageTier>Enum</StorageTier>
+				<StorageClass>Enum</StorageClass>
+				<StorageTier>Enum</StorageTier>
 			</Contents>
 			<Contents>
 				<Key>string</Key>
@@ -87,8 +87,8 @@ Authorization: Auth String
 					<ID>string</ID>
 					<DisplayName>string</DisplayName>
 				</Owner>
-					<StorageClass>Enum</StorageClass>
-					<StorageTier>Enum</StorageTier>
+				<StorageClass>Enum</StorageClass>
+				<StorageTier>Enum</StorageTier>
 			</Contents>
 </ListBucketResult>
 ```
@@ -196,21 +196,21 @@ x-cos-request-id: NWZkMTk4MDVfNjViODJhMDlfNDZkYl8xNzU0****
 					<ID>1250000000</ID>
 					<DisplayName>1250000000</DisplayName>
           </Owner>
-					<StorageClass>INTELLIGENT_TIERING</StorageClass>
-					<StorageTier>FREQUENT</StorageTier>
-				</Contents>
+				<StorageClass>INTELLIGENT_TIERING</StorageClass>
+				<StorageTier>FREQUENT</StorageTier>
+      </Contents>
 				...
-				<Contents>
-					<Key>example-object-2.jpg</Key>
-					<LastModified>2020-12-10T03:37:30.000Z</LastModified>
-					<ETag>&quot;51370fc64b79d0d3c7c609635be1c41f&quot;</ETag>
-					<Size>20</Size>
-					<Owner>
-						<ID>1250000000</ID>
-						<DisplayName>1250000000</DisplayName>
-					</Owner>
-					<StorageClass>STANDARD_IA</StorageClass>
-				</Contents>
+      <Contents>
+          <Key>example-object-2.jpg</Key>
+          <LastModified>2020-12-10T03:37:30.000Z</LastModified>
+          <ETag>&quot;51370fc64b79d0d3c7c609635be1c41f&quot;</ETag>
+          <Size>20</Size>
+          <Owner>
+					<ID>1250000000</ID>
+					<DisplayName>1250000000</DisplayName>
+          </Owner>
+          <StorageClass>STANDARD_IA</StorageClass>
+			</Contents>
 </ListBucketResult>
 ```
 
@@ -267,18 +267,18 @@ x-cos-request-id: NWZkMGVkMWRfZjdjNzJhMDlfMjJhYTlfYmJk****
 					<DisplayName>1250000000</DisplayName>
 				</Owner>
 				<StorageClass>STANDARD</StorageClass>
-				</Contents>
-				<Contents>
-					<Key>%E8%85%BE%E8%AE%AF%E4%BA%91.jpg</Key>
-					<LastModified>2020-12-09T15:28:19.000Z</LastModified>
-					<ETag>&quot;ee8de918d05640145b18f70f4c3aa602&quot;</ETag>
-					<Size>16</Size>
-					<Owner>
-						<ID>1250000000</ID>
-						<DisplayName>1250000000</DisplayName>
-					</Owner>
-					<StorageClass>STANDARD</StorageClass>
-				</Contents>
+      </Contents>
+      <Contents>
+				<Key>%E8%85%BE%E8%AE%AF%E4%BA%91.jpg</Key>
+				<LastModified>2020-12-09T15:28:19.000Z</LastModified>
+				<ETag>&quot;ee8de918d05640145b18f70f4c3aa602&quot;</ETag>
+				<Size>16</Size>
+				<Owner>
+					<ID>1250000000</ID>
+					<DisplayName>1250000000</DisplayName>
+				</Owner>
+				<StorageClass>STANDARD</StorageClass>
+			</Contents>
 </ListBucketResult>
 ```
 
@@ -330,18 +330,18 @@ x-cos-request-id: NWZkMTk4MDVfNjRiMDJhMDlfOTZjZV8xOTgw****
 					<DisplayName>1250000000</DisplayName>
 				</Owner>
 				<StorageClass>STANDARD</StorageClass>
-				</Contents>
-				<Contents>
-					<Key>example-object-2.jpg</Key>
-					<LastModified>2020-12-10T03:37:30.000Z</LastModified>
-					<ETag>&quot;51370fc64b79d0d3c7c609635be1c41f&quot;</ETag>
-					<Size>20</Size>
-					<Owner>
-						<ID>1250000000</ID>
-						<DisplayName>1250000000</DisplayName>
-					</Owner>
-	 			<StorageClass>STANDARD_IA</StorageClass>
-				</Contents>
+			</Contents>
+			<Contents>
+				<Key>example-object-2.jpg</Key>
+				<LastModified>2020-12-10T03:37:30.000Z</LastModified>
+				<ETag>&quot;51370fc64b79d0d3c7c609635be1c41f&quot;</ETag>
+				<Size>20</Size>
+				<Owner>
+					<ID>1250000000</ID>
+					<DisplayName>1250000000</DisplayName>
+				</Owner>
+				<StorageClass>STANDARD_IA</StorageClass>
+			</Contents>
 </ListBucketResult>
 ```
 
@@ -393,19 +393,19 @@ x-cos-request-id: NWZkMTk4MDVfZGZjNzJhMDlfMzJiMjRfMTY0****
 					<DisplayName>1250000000</DisplayName>
 				</Owner>
 				<StorageClass>STANDARD</StorageClass>
-				</Contents>
-				<Contents>
-					<Key>example-folder-1/example-object-2.jpg</Key>
-					<LastModified>2020-12-10T03:37:30.000Z</LastModified>
-					<ETag>&quot;c9d28698978bb6fef6c1ed1c439a17d3&quot;</ETag>
-					<Size>37</Size>
-					<Owner>
-						<ID>1250000000</ID>
-						<DisplayName>1250000000</DisplayName>
-					</Owner>
-					<StorageClass>INTELLIGENT_TIERING</StorageClass>
-					<StorageTier>FREQUENT</StorageTier>
-				</Contents>
+			</Contents>
+			<Contents>
+				<Key>example-folder-1/example-object-2.jpg</Key>
+				<LastModified>2020-12-10T03:37:30.000Z</LastModified>
+				<ETag>&quot;c9d28698978bb6fef6c1ed1c439a17d3&quot;</ETag>
+				<Size>37</Size>
+				<Owner>
+					<ID>1250000000</ID>
+					<DisplayName>1250000000</DisplayName>
+				</Owner>
+				<StorageClass>INTELLIGENT_TIERING</StorageClass>
+				<StorageTier>FREQUENT</StorageTier>
+			</Contents>
 </ListBucketResult>
 ```
 
@@ -451,29 +451,29 @@ x-cos-request-id: NWZjZjZiZjZfZGRjODJhMDlfMWFjZDVfMTlmZTY5****
 					<DisplayName>1250000000</DisplayName>
 				</Owner>
 				<StorageClass>STANDARD</StorageClass>
-				</Contents>
-				<Contents>
-					<Key>example-object-2.jpg</Key>
-					<LastModified>2020-12-08T12:05:00.000Z</LastModified>
-					<ETag>&quot;51370fc64b79d0d3c7c609635be1c41f&quot;</ETag>
-					<Size>20</Size>
-					<Owner>
-						<ID>1250000000</ID>
-						<DisplayName>1250000000</DisplayName>
-					</Owner>
-					<StorageClass>STANDARD</StorageClass>
-				</Contents>
-				<Contents>
-					<Key>example-object-3.jpg</Key>
-					<LastModified>2020-12-08T12:05:00.000Z</LastModified>
-					<ETag>&quot;b2f1d893c5fde000ee8ea6eca18ed81f&quot;</ETag>
-					<Size>20</Size>
-					<Owner>
-						<ID>1250000000</ID>
-						<DisplayName>1250000000</DisplayName>
-					</Owner>
-					<StorageClass>STANDARD</StorageClass>
-				</Contents>
+			</Contents>
+			<Contents>
+				<Key>example-object-2.jpg</Key>
+				<LastModified>2020-12-08T12:05:00.000Z</LastModified>
+				<ETag>&quot;51370fc64b79d0d3c7c609635be1c41f&quot;</ETag>
+				<Size>20</Size>
+				<Owner>
+					<ID>1250000000</ID>
+					<DisplayName>1250000000</DisplayName>
+				</Owner>
+				<StorageClass>STANDARD</StorageClass>
+			</Contents>
+			<Contents>
+				<Key>example-object-3.jpg</Key>
+				<LastModified>2020-12-08T12:05:00.000Z</LastModified>
+				<ETag>&quot;b2f1d893c5fde000ee8ea6eca18ed81f&quot;</ETag>
+				<Size>20</Size>
+				<Owner>
+					<ID>1250000000</ID>
+					<DisplayName>1250000000</DisplayName>
+				</Owner>
+				<StorageClass>STANDARD</StorageClass>
+			</Contents>
 </ListBucketResult>
 ```
 
@@ -518,18 +518,18 @@ x-cos-request-id: NWZjZjZiZjdfMjRhZjJhMDlfMjc2NV8xYmE2****
 					<DisplayName>1250000000</DisplayName>
 				</Owner>
 				<StorageClass>STANDARD</StorageClass>
-				</Contents>
-				<Contents>
-					<Key>example-object-5.jpg</Key>
-					<LastModified>2020-12-08T12:05:00.000Z</LastModified>
-					<ETag>&quot;201669a14bdf051d8a9d6f9828d3f4c4&quot;</ETag>
-					<Size>20</Size>
-					<Owner>
-						<ID>1250000000</ID>
-						<DisplayName>1250000000</DisplayName>
-					</Owner>
-					<StorageClass>STANDARD</StorageClass>
-				</Contents>
+			</Contents>
+			<Contents>
+				<Key>example-object-5.jpg</Key>
+				<LastModified>2020-12-08T12:05:00.000Z</LastModified>
+				<ETag>&quot;201669a14bdf051d8a9d6f9828d3f4c4&quot;</ETag>
+				<Size>20</Size>
+				<Owner>
+					<ID>1250000000</ID>
+					<DisplayName>1250000000</DisplayName>
+				</Owner>
+				<StorageClass>STANDARD</StorageClass>
+			</Contents>
 </ListBucketResult>
 ```
 
@@ -623,17 +623,17 @@ x-cos-request-id: NWZkMDQyZmZfZmNhODBiMDlfZmM4N19jYmQz****
 					<DisplayName>1250000000</DisplayName>
 				</Owner>
 				<StorageClass>STANDARD</StorageClass>
-				</Contents>
-				<Contents>
-					<Key>example-object-2.jpg</Key>
-					<LastModified>2020-12-09T03:22:28.000Z</LastModified>
-					<ETag>&quot;51370fc64b79d0d3c7c609635be1c41f&quot;</ETag>
-					<Size>20</Size>
-					<Owner>
-						<ID>1250000000</ID>
-						<DisplayName>1250000000</DisplayName>
-					</Owner>
-					<StorageClass>STANDARD</StorageClass>
-				</Contents>
+			</Contents>
+			<Contents>
+				<Key>example-object-2.jpg</Key>
+				<LastModified>2020-12-09T03:22:28.000Z</LastModified>
+				<ETag>&quot;51370fc64b79d0d3c7c609635be1c41f&quot;</ETag>
+				<Size>20</Size>
+				<Owner>
+					<ID>1250000000</ID>
+					<DisplayName>1250000000</DisplayName>
+				</Owner>
+				<StorageClass>STANDARD</StorageClass>
+			</Contents>
 </ListBucketResult>
 ```
