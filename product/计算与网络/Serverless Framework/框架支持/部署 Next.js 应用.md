@@ -78,10 +78,9 @@ inputs:
 $ serverless info
 ```
 
-## 更多操作
 
 <span id="1"></span>
-### 项目迁移改造模版
+## 项目迁移改造模版
 - Express 模版
 
 ```js
