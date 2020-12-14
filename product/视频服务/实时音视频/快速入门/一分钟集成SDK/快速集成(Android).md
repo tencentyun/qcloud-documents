@@ -89,7 +89,43 @@ defaultConfig {
 ```
 >?目前 TRTC SDK 支持 armeabi， armeabi-v7a 和 arm64-v8a。
 >
-7. 单击【Sync Now】，完成 TRTC SDK 的集成工作。
+7. 如果需要使用 C++ 接口，需要将 SDK 中的头文件拷贝到项目中（路径为：`SDK/LiteAVSDK_TRTC_xxx/libs/include`），并在 CMakeLists.txt 中配置 include 文件夹路径及 so 库的动态链接。
+```
+cmake_minimum_required(VERSION 3.6)
+
+# 配置 C++ 接口头文件路径
+include_directories(
+        ${CMAKE_CURRENT_SOURCE_DIR}/include  # 拷贝自 SDK/LiteAVSDK_TRTC_xxx/libs/include
+)
+
+add_library(
+        native-lib
+        SHARED
+        native-lib.cpp)
+
+# 配置 libliteavsdk.so 动态库路径
+add_library(libliteavsdk SHARED IMPORTED)
+set_target_properties(libliteavsdk  PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/../../../libs/${ANDROID_ABI}/libliteavsdk.so)
+
+find_library(
+        log-lib
+        log)
+
+# 配置 libliteavsdk.so 动态链接
+target_link_libraries(
+        native-lib
+        libliteavsdk
+        ${log-lib})
+```
+>?配置 Android Studio C/C++ 开发环境具体可以参考 Android Studio 官方文档：[向 Android 项目添加 C 和 C++ 代码](https://developer.android.com/studio/projects/add-native-code)
+>
+
+>?目前只有 TRTC 版本的 SDK 支持 C++ 接口。
+>
+
+对于 C++ 接口的使用方式，请参阅[全平台（C++）API概览](https://cloud.tencent.com/document/product/647/32689#TRTC)
+
+8. 单击【Sync Now】，完成 TRTC SDK 的集成工作。
 
 
 ## 配置 App 权限
