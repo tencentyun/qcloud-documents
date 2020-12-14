@@ -1,7 +1,7 @@
-
 ## 命名空间
 
 Namespace=QCE/SQLSERVER
+
 
 ## 监控指标
 
