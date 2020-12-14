@@ -120,7 +120,7 @@ iOS 系统上的跨应用屏幕分享，需要增加 Extension 录屏进程以�
 }
 
 #pragma mark - TXReplayKitExtDelegate
-- (void)boradcastFinished:(TXReplayKitExt *)broadcast reason:(TXReplayKitExtReason)reason
+- (void)broadcastFinished:(TXReplayKitExt *)broadcast reason:(TXReplayKitExtReason)reason
 {
     NSString *tip = @"";
     switch (reason) {
