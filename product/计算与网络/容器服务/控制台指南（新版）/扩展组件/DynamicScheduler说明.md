@@ -1,9 +1,9 @@
 
+## 简介
+### 组件介绍
 
-## 组件介绍
-
-Dynamic Scheduler 是 TKE 基于 Kubernetes 原生的 Kube-scheduler Extender 机制实现的基于 Node 真实负载进行预选和优选的动态调度器插件。
-在 TKE 集群中安装该插件后，该插件会和 Kube-scheduler 协同生效，有效避免原生调度器基于 request 和 limit 的调度机制可能会带来的节点负载不均的问题。
+Dynamic Scheduler 是容器服务 TKE 基于 Kubernetes 原生 Kube-scheduler Extender 机制实现的基于 Node 真实负载进行预选和优选的动态调度器插件。
+在 TKE 集群中安装该插件后，该插件将与 Kube-scheduler 协同生效，有效避免原生调度器基于 request 和 limit 的调度机制带来的节点负载不均的问题。
 该组件依赖 Prometheus 监控组件以及相关规则配置，您可参考 [依赖部署](#Dynamic) 进行操作，避免遇到插件无法正常工作的问题。
 
 ## 应用场景
@@ -28,7 +28,7 @@ Kubernetes 原生的调度器多是基于 Pod Request 的资源来进行调度�
 1. TKE 建议在 >= v1.10.x
 2. 如果要升级kubernetes master版本，对于托管集群无需再次设置本插件，对于独立集群，因为master版本升级会重置master上所有组件的配置，从而影响到本插件作为Scheduler Extender的配置，所以本插件需要卸载后再重新安装。
 
-## 依赖部署<span id="Dynamic"></span>
+## 依赖部署[](id:Dynamic)
 
 动态调度器依赖于Node当前和过去一段时间的真实负载情况来进行调度决策，这依赖于Prometheus等监控组件获取系统Node真实负载信息。在使用动态调度器之前，需要部署Prometheus等监控组件。在TKE，用户可以采用自建的Prometheus监控服务，也可以采用TKE推出的云原生监控，下面对这两种方式依次介绍。
 
@@ -75,7 +75,7 @@ groups:
         expr: avg_over_time(mem_usage_active[5m])
 ```
 
-#### pometheus文件配置
+#### pometheus 文件配置
 
 前面定义了动态调度器所需要的指标计算的rule，然后我们需要把这个rule配置到prometheus中，参考一般的prometheus配置文件
 
@@ -92,7 +92,7 @@ rule_files:
 
 通常情况下，上述prometheus配置文件和rules配置文件都是通过configmap存储，然后挂载到prometheus server的容器里面，所以修改相应的configmap即可。
 
-### 云原生监控Prometheus
+### 云原生监控 Prometheus
 
 1. 创建与Cluster处于同一VPC下的云原生监控Prometheus实例，并与用户集群关联。
    ![](https://main.qcloudimg.com/raw/b17e7ea4642e6aaea70c885956f30b0b.png)
