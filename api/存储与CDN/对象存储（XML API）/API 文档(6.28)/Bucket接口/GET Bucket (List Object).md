@@ -52,44 +52,44 @@ Authorization: Auth String
 ```xml
 <?xml version='1.0' encoding='utf-8' ?>
 <ListBucketResult>
-				<Name>string</Name>
-				<EncodingType>string</EncodingType>
+			<Name>string</Name>
+			<EncodingType>string</EncodingType>
+			<Prefix>string</Prefix>
+			<Marker>string</Marker>
+			<MaxKeys>integer</MaxKeys>
+			<Delimiter>string</Delimiter>
+			<IsTruncated>boolean</IsTruncated>
+			<NextMarker>string</NextMarker>
+			<CommonPrefixes>
 				<Prefix>string</Prefix>
-				<Marker>string</Marker>
-				<MaxKeys>integer</MaxKeys>
-				<Delimiter>string</Delimiter>
-				<IsTruncated>boolean</IsTruncated>
-				<NextMarker>string</NextMarker>
-				<CommonPrefixes>
-						<Prefix>string</Prefix>
-				</CommonPrefixes>
-				<CommonPrefixes>
-						<Prefix>string</Prefix>
-				</CommonPrefixes>
-				<Contents>
-						<Key>string</Key>
-						<LastModified>date</LastModified>
-						<ETag>string</ETag>
-						<Size>integer</Size>
-						<Owner>
-								<ID>string</ID>
-								<DisplayName>string</DisplayName>
-						</Owner>
-						<StorageClass>Enum</StorageClass>
-						<StorageTier>Enum</StorageTier>
-				</Contents>
-				<Contents>
-						<Key>string</Key>
-						<LastModified>date</LastModified>
-						<ETag>string</ETag>
-						<Size>integer</Size>
-						<Owner>
-								<ID>string</ID>
-								<DisplayName>string</DisplayName>
-						</Owner>
-						<StorageClass>Enum</StorageClass>
-						<StorageTier>Enum</StorageTier>
-				</Contents>
+			</CommonPrefixes>
+			<CommonPrefixes>
+				<Prefix>string</Prefix>
+			</CommonPrefixes>
+			<Contents>
+				<Key>string</Key>
+				<LastModified>date</LastModified>
+				<ETag>string</ETag>
+				<Size>integer</Size>
+				<Owner>
+					<ID>string</ID>
+					<DisplayName>string</DisplayName>
+				</Owner>
+					<StorageClass>Enum</StorageClass>
+					<StorageTier>Enum</StorageTier>
+			</Contents>
+			<Contents>
+				<Key>string</Key>
+				<LastModified>date</LastModified>
+				<ETag>string</ETag>
+				<Size>integer</Size>
+				<Owner>
+					<ID>string</ID>
+					<DisplayName>string</DisplayName>
+				</Owner>
+					<StorageClass>Enum</StorageClass>
+					<StorageTier>Enum</StorageTier>
+			</Contents>
 </ListBucketResult>
 ```
 
