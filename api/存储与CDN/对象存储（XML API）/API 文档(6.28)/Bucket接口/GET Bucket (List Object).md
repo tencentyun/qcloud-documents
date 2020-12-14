@@ -52,44 +52,44 @@ Authorization: Auth String
 ```xml
 <?xml version='1.0' encoding='utf-8' ?>
 <ListBucketResult>
-				<Name>string</Name>
-				<EncodingType>string</EncodingType>
+			<Name>string</Name>
+			<EncodingType>string</EncodingType>
+			<Prefix>string</Prefix>
+			<Marker>string</Marker>
+			<MaxKeys>integer</MaxKeys>
+			<Delimiter>string</Delimiter>
+			<IsTruncated>boolean</IsTruncated>
+			<NextMarker>string</NextMarker>
+			<CommonPrefixes>
 				<Prefix>string</Prefix>
-				<Marker>string</Marker>
-				<MaxKeys>integer</MaxKeys>
-				<Delimiter>string</Delimiter>
-				<IsTruncated>boolean</IsTruncated>
-				<NextMarker>string</NextMarker>
-				<CommonPrefixes>
-						<Prefix>string</Prefix>
-				</CommonPrefixes>
-				<CommonPrefixes>
-						<Prefix>string</Prefix>
-				</CommonPrefixes>
-				<Contents>
-						<Key>string</Key>
-						<LastModified>date</LastModified>
-						<ETag>string</ETag>
-						<Size>integer</Size>
-						<Owner>
-								<ID>string</ID>
-								<DisplayName>string</DisplayName>
-						</Owner>
-						<StorageClass>Enum</StorageClass>
-						<StorageTier>Enum</StorageTier>
-				</Contents>
-				<Contents>
-						<Key>string</Key>
-						<LastModified>date</LastModified>
-						<ETag>string</ETag>
-						<Size>integer</Size>
-						<Owner>
-								<ID>string</ID>
-								<DisplayName>string</DisplayName>
-						</Owner>
-						<StorageClass>Enum</StorageClass>
-						<StorageTier>Enum</StorageTier>
-				</Contents>
+			</CommonPrefixes>
+			<CommonPrefixes>
+				<Prefix>string</Prefix>
+			</CommonPrefixes>
+			<Contents>
+				<Key>string</Key>
+				<LastModified>date</LastModified>
+				<ETag>string</ETag>
+				<Size>integer</Size>
+				<Owner>
+					<ID>string</ID>
+					<DisplayName>string</DisplayName>
+				</Owner>
+					<StorageClass>Enum</StorageClass>
+					<StorageTier>Enum</StorageTier>
+			</Contents>
+			<Contents>
+				<Key>string</Key>
+				<LastModified>date</LastModified>
+				<ETag>string</ETag>
+				<Size>integer</Size>
+				<Owner>
+					<ID>string</ID>
+					<DisplayName>string</DisplayName>
+				</Owner>
+					<StorageClass>Enum</StorageClass>
+					<StorageTier>Enum</StorageTier>
+			</Contents>
 </ListBucketResult>
 ```
 
@@ -171,31 +171,31 @@ x-cos-request-id: NWZkMTk4MDVfNjViODJhMDlfNDZkYl8xNzU0****
 		
 <?xml version='1.0' encoding='utf-8' ?>
 <ListBucketResult>
-				<Name>examplebucket-1250000000</Name>
-				<Prefix/>
-				<Marker/>
-				<MaxKeys>1000</MaxKeys>
-				<IsTruncated>false</IsTruncated>
-				<Contents>
-					<Key>example-folder-1/example-object-1.jpg</Key>
-					<LastModified>2020-12-10T03:37:30.000Z</LastModified>
-					<ETag>&quot;f173c1199e3d3b53dd91223cae16fb42&quot;</ETag>
-					<Size>37</Size>
-					<Owner>
-						<ID>1250000000</ID>
-						<DisplayName>1250000000</DisplayName>
-					</Owner>
-					<StorageClass>STANDARD</StorageClass>
-				</Contents>
-				<Contents>
-					<Key>example-folder-1/example-object-2.jpg</Key>
-					<LastModified>2020-12-10T03:37:30.000Z</LastModified>
-					<ETag>&quot;c9d28698978bb6fef6c1ed1c439a17d3&quot;</ETag>
-					<Size>37</Size>
-					<Owner>
-						<ID>1250000000</ID>
-						<DisplayName>1250000000</DisplayName>
-					</Owner>
+      <Name>examplebucket-1250000000</Name>
+      <Prefix/>
+      <Marker/>
+      <MaxKeys>1000</MaxKeys>
+      <IsTruncated>false</IsTruncated>
+      <Contents>
+          <Key>example-folder-1/example-object-1.jpg</Key>
+          <LastModified>2020-12-10T03:37:30.000Z</LastModified>
+          <ETag>&quot;f173c1199e3d3b53dd91223cae16fb42&quot;</ETag>
+          <Size>37</Size>
+          <Owner>
+					<ID>1250000000</ID>
+					<DisplayName>1250000000</DisplayName>
+          </Owner>
+          <StorageClass>STANDARD</StorageClass>
+      </Contents>
+      <Contents>
+          <Key>example-folder-1/example-object-2.jpg</Key>
+          <LastModified>2020-12-10T03:37:30.000Z</LastModified>
+          <ETag>&quot;c9d28698978bb6fef6c1ed1c439a17d3&quot;</ETag>
+          <Size>37</Size>
+          <Owner>
+					<ID>1250000000</ID>
+					<DisplayName>1250000000</DisplayName>
+          </Owner>
 					<StorageClass>INTELLIGENT_TIERING</StorageClass>
 					<StorageTier>FREQUENT</StorageTier>
 				</Contents>
@@ -229,7 +229,6 @@ Connection: close
 #### 响应
 
 ```shell
-
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 1220
@@ -241,44 +240,44 @@ x-cos-request-id: NWZkMGVkMWRfZjdjNzJhMDlfMjJhYTlfYmJk****
 		
 <?xml version='1.0' encoding='utf-8' ?>
 <ListBucketResult>
-				<Name>examplebucket-1250000000</Name>
-				<EncodingType>url</EncodingType>
-				<Prefix/>
-				<Marker/>
-				<MaxKeys>1000</MaxKeys>
-				<IsTruncated>false</IsTruncated>
-				<Contents>
-						<Key>Tencent%20Cloud.jpg</Key>
-						<LastModified>2020-12-09T15:28:19.000Z</LastModified>
-						<ETag>&quot;ee8de918d05640145b18f70f4c3aa602&quot;</ETag>
-						<Size>16</Size>
-						<Owner>
-								<ID>1250000000</ID>
-								<DisplayName>1250000000</DisplayName>
-						</Owner>
-						<StorageClass>STANDARD</StorageClass>
+      <Name>examplebucket-1250000000</Name>
+      <EncodingType>url</EncodingType>
+      <Prefix/>
+      <Marker/>
+      <MaxKeys>1000</MaxKeys>
+      <IsTruncated>false</IsTruncated>
+      <Contents>
+				<Key>Tencent%20Cloud.jpg</Key>
+				<LastModified>2020-12-09T15:28:19.000Z</LastModified>
+				<ETag>&quot;ee8de918d05640145b18f70f4c3aa602&quot;</ETag>
+				<Size>16</Size>
+				<Owner>
+					<ID>1250000000</ID>
+					<DisplayName>1250000000</DisplayName>
+				</Owner>
+				<StorageClass>STANDARD</StorageClass>
+      </Contents>
+      <Contents>
+				<Key>%E7%85%A7%E7%89%87/2020%E5%B9%B4/IMG0001.jpg</Key>
+				<LastModified>2020-12-09T15:28:19.000Z</LastModified>
+				<ETag>&quot;ee8de918d05640145b18f70f4c3aa602&quot;</ETag>
+				<Size>16</Size>
+				<Owner>
+					<ID>1250000000</ID>
+					<DisplayName>1250000000</DisplayName>
+				</Owner>
+				<StorageClass>STANDARD</StorageClass>
 				</Contents>
 				<Contents>
-						<Key>%E7%85%A7%E7%89%87/2020%E5%B9%B4/IMG0001.jpg</Key>
-						<LastModified>2020-12-09T15:28:19.000Z</LastModified>
-						<ETag>&quot;ee8de918d05640145b18f70f4c3aa602&quot;</ETag>
-						<Size>16</Size>
-						<Owner>
-								<ID>1250000000</ID>
-								<DisplayName>1250000000</DisplayName>
-						</Owner>
-						<StorageClass>STANDARD</StorageClass>
-				</Contents>
-				<Contents>
-						<Key>%E8%85%BE%E8%AE%AF%E4%BA%91.jpg</Key>
-						<LastModified>2020-12-09T15:28:19.000Z</LastModified>
-						<ETag>&quot;ee8de918d05640145b18f70f4c3aa602&quot;</ETag>
-						<Size>16</Size>
-						<Owner>
-								<ID>1250000000</ID>
-								<DisplayName>1250000000</DisplayName>
-						</Owner>
-						<StorageClass>STANDARD</StorageClass>
+					<Key>%E8%85%BE%E8%AE%AF%E4%BA%91.jpg</Key>
+					<LastModified>2020-12-09T15:28:19.000Z</LastModified>
+					<ETag>&quot;ee8de918d05640145b18f70f4c3aa602&quot;</ETag>
+					<Size>16</Size>
+					<Owner>
+						<ID>1250000000</ID>
+						<DisplayName>1250000000</DisplayName>
+					</Owner>
+					<StorageClass>STANDARD</StorageClass>
 				</Contents>
 </ListBucketResult>
 ```
@@ -309,39 +308,39 @@ x-cos-request-id: NWZkMTk4MDVfNjRiMDJhMDlfOTZjZV8xOTgw****
 		
 <?xml version='1.0' encoding='utf-8' ?>
 <ListBucketResult>
-				<Name>examplebucket-1250000000</Name>
-				<Prefix/>
-				<Marker/>
-				<MaxKeys>1000</MaxKeys>
-				<Delimiter>/</Delimiter>
-				<IsTruncated>false</IsTruncated>
-				<CommonPrefixes>
-						<Prefix>example-folder-1/</Prefix>
-				</CommonPrefixes>
-				<CommonPrefixes>
-						<Prefix>example-folder-2/</Prefix>
-				</CommonPrefixes>
-				<Contents>
-						<Key>example-object-1.jpg</Key>
-						<LastModified>2020-12-10T03:37:30.000Z</LastModified>
-						<ETag>&quot;0f0cd12c48979d1bf3f95255a36cb861&quot;</ETag>
-						<Size>20</Size>
-						<Owner>
-								<ID>1250000000</ID>
-								<DisplayName>1250000000</DisplayName>
-						</Owner>
-						<StorageClass>STANDARD</StorageClass>
+			<Name>examplebucket-1250000000</Name>
+			<Prefix/>
+			<Marker/>
+			<MaxKeys>1000</MaxKeys>
+			<Delimiter>/</Delimiter>
+			<IsTruncated>false</IsTruncated>
+			<CommonPrefixes>
+				<Prefix>example-folder-1/</Prefix>
+			</CommonPrefixes>
+			<CommonPrefixes>
+				<Prefix>example-folder-2/</Prefix>
+			</CommonPrefixes>
+			<Contents>
+				<Key>example-object-1.jpg</Key>
+				<LastModified>2020-12-10T03:37:30.000Z</LastModified>
+				<ETag>&quot;0f0cd12c48979d1bf3f95255a36cb861&quot;</ETag>
+				<Size>20</Size>
+				<Owner>
+					<ID>1250000000</ID>
+					<DisplayName>1250000000</DisplayName>
+				</Owner>
+				<StorageClass>STANDARD</StorageClass>
 				</Contents>
 				<Contents>
-						<Key>example-object-2.jpg</Key>
-						<LastModified>2020-12-10T03:37:30.000Z</LastModified>
-						<ETag>&quot;51370fc64b79d0d3c7c609635be1c41f&quot;</ETag>
-						<Size>20</Size>
-						<Owner>
-								<ID>1250000000</ID>
-								<DisplayName>1250000000</DisplayName>
-						</Owner>
-					<StorageClass>STANDARD_IA</StorageClass>
+					<Key>example-object-2.jpg</Key>
+					<LastModified>2020-12-10T03:37:30.000Z</LastModified>
+					<ETag>&quot;51370fc64b79d0d3c7c609635be1c41f&quot;</ETag>
+					<Size>20</Size>
+					<Owner>
+						<ID>1250000000</ID>
+						<DisplayName>1250000000</DisplayName>
+					</Owner>
+	 			<StorageClass>STANDARD_IA</StorageClass>
 				</Contents>
 </ListBucketResult>
 ```
@@ -372,40 +371,40 @@ x-cos-request-id: NWZkMTk4MDVfZGZjNzJhMDlfMzJiMjRfMTY0****
 		
 <?xml version='1.0' encoding='utf-8' ?>
 <ListBucketResult>
-				<Name>examplebucket-1250000000</Name>
-				<Prefix>example-folder-1/</Prefix>
-				<Marker/>
-				<MaxKeys>1000</MaxKeys>
-				<Delimiter>/</Delimiter>
-				<IsTruncated>false</IsTruncated>
-				<CommonPrefixes>
-						<Prefix>example-folder-1/sub-folder-1/</Prefix>
-				</CommonPrefixes>
-				<CommonPrefixes>
-						<Prefix>example-folder-1/sub-folder-2/</Prefix>
-				</CommonPrefixes>
-				<Contents>
-						<Key>example-folder-1/example-object-1.jpg</Key>
-						<LastModified>2020-12-10T03:37:30.000Z</LastModified>
-						<ETag>&quot;f173c1199e3d3b53dd91223cae16fb42&quot;</ETag>
-						<Size>37</Size>
-						<Owner>
-								<ID>1250000000</ID>
-								<DisplayName>1250000000</DisplayName>
-						</Owner>
-						<StorageClass>STANDARD</StorageClass>
+			<Name>examplebucket-1250000000</Name>
+			<Prefix>example-folder-1/</Prefix>
+			<Marker/>
+			<MaxKeys>1000</MaxKeys>
+			<Delimiter>/</Delimiter>
+			<IsTruncated>false</IsTruncated>
+			<CommonPrefixes>
+				<Prefix>example-folder-1/sub-folder-1/</Prefix>
+			</CommonPrefixes>
+			<CommonPrefixes>
+				<Prefix>example-folder-1/sub-folder-2/</Prefix>
+			</CommonPrefixes>
+			<Contents>
+				<Key>example-folder-1/example-object-1.jpg</Key>
+				<LastModified>2020-12-10T03:37:30.000Z</LastModified>
+				<ETag>&quot;f173c1199e3d3b53dd91223cae16fb42&quot;</ETag>
+				<Size>37</Size>
+				<Owner>
+					<ID>1250000000</ID>
+					<DisplayName>1250000000</DisplayName>
+				</Owner>
+				<StorageClass>STANDARD</StorageClass>
 				</Contents>
 				<Contents>
-						<Key>example-folder-1/example-object-2.jpg</Key>
-						<LastModified>2020-12-10T03:37:30.000Z</LastModified>
-						<ETag>&quot;c9d28698978bb6fef6c1ed1c439a17d3&quot;</ETag>
-						<Size>37</Size>
-						<Owner>
-								<ID>1250000000</ID>
-								<DisplayName>1250000000</DisplayName>
-						</Owner>
-						<StorageClass>INTELLIGENT_TIERING</StorageClass>
-						<StorageTier>FREQUENT</StorageTier>
+					<Key>example-folder-1/example-object-2.jpg</Key>
+					<LastModified>2020-12-10T03:37:30.000Z</LastModified>
+					<ETag>&quot;c9d28698978bb6fef6c1ed1c439a17d3&quot;</ETag>
+					<Size>37</Size>
+					<Owner>
+						<ID>1250000000</ID>
+						<DisplayName>1250000000</DisplayName>
+					</Owner>
+					<StorageClass>INTELLIGENT_TIERING</StorageClass>
+					<StorageTier>FREQUENT</StorageTier>
 				</Contents>
 </ListBucketResult>
 ```
@@ -436,44 +435,44 @@ x-cos-request-id: NWZjZjZiZjZfZGRjODJhMDlfMWFjZDVfMTlmZTY5****
 		
 <?xml version='1.0' encoding='utf-8' ?>
 <ListBucketResult>
-				<Name>examplebucket-1250000000</Name>
-				<Prefix/>
-				<Marker/>
-				<MaxKeys>3</MaxKeys>
-				<IsTruncated>true</IsTruncated>
-				<NextMarker>example-object-3.jpg</NextMarker>
-				<Contents>
-						<Key>example-object-1.jpg</Key>
-						<LastModified>2020-12-08T12:05:00.000Z</LastModified>
-						<ETag>&quot;0f0cd12c48979d1bf3f95255a36cb861&quot;</ETag>
-						<Size>20</Size>
-						<Owner>
-							<ID>1250000000</ID>
-							<DisplayName>1250000000</DisplayName>
-						</Owner>
-						<StorageClass>STANDARD</StorageClass>
+			<Name>examplebucket-1250000000</Name>
+			<Prefix/>
+			<Marker/>
+			<MaxKeys>3</MaxKeys>
+			<IsTruncated>true</IsTruncated>
+			<NextMarker>example-object-3.jpg</NextMarker>
+			<Contents>
+				<Key>example-object-1.jpg</Key>
+				<LastModified>2020-12-08T12:05:00.000Z</LastModified>
+				<ETag>&quot;0f0cd12c48979d1bf3f95255a36cb861&quot;</ETag>
+				<Size>20</Size>
+				<Owner>
+					<ID>1250000000</ID>
+					<DisplayName>1250000000</DisplayName>
+				</Owner>
+				<StorageClass>STANDARD</StorageClass>
 				</Contents>
 				<Contents>
-						<Key>example-object-2.jpg</Key>
-						<LastModified>2020-12-08T12:05:00.000Z</LastModified>
-						<ETag>&quot;51370fc64b79d0d3c7c609635be1c41f&quot;</ETag>
-						<Size>20</Size>
-						<Owner>
-							<ID>1250000000</ID>
-							<DisplayName>1250000000</DisplayName>
-						</Owner>
-						<StorageClass>STANDARD</StorageClass>
+					<Key>example-object-2.jpg</Key>
+					<LastModified>2020-12-08T12:05:00.000Z</LastModified>
+					<ETag>&quot;51370fc64b79d0d3c7c609635be1c41f&quot;</ETag>
+					<Size>20</Size>
+					<Owner>
+						<ID>1250000000</ID>
+						<DisplayName>1250000000</DisplayName>
+					</Owner>
+					<StorageClass>STANDARD</StorageClass>
 				</Contents>
 				<Contents>
-						<Key>example-object-3.jpg</Key>
-						<LastModified>2020-12-08T12:05:00.000Z</LastModified>
-						<ETag>&quot;b2f1d893c5fde000ee8ea6eca18ed81f&quot;</ETag>
-						<Size>20</Size>
-						<Owner>
-							<ID>1250000000</ID>
-							<DisplayName>1250000000</DisplayName>
-						</Owner>
-						<StorageClass>STANDARD</StorageClass>
+					<Key>example-object-3.jpg</Key>
+					<LastModified>2020-12-08T12:05:00.000Z</LastModified>
+					<ETag>&quot;b2f1d893c5fde000ee8ea6eca18ed81f&quot;</ETag>
+					<Size>20</Size>
+					<Owner>
+						<ID>1250000000</ID>
+						<DisplayName>1250000000</DisplayName>
+					</Owner>
+					<StorageClass>STANDARD</StorageClass>
 				</Contents>
 </ListBucketResult>
 ```
@@ -504,32 +503,32 @@ x-cos-request-id: NWZjZjZiZjdfMjRhZjJhMDlfMjc2NV8xYmE2****
 			
 <?xml version='1.0' encoding='utf-8' ?>
 <ListBucketResult>
-				<Name>examplebucket-1250000000</Name>
-				<Prefix/>
-				<Marker>example-object-3.jpg</Marker>
-				<MaxKeys>3</MaxKeys>
-				<IsTruncated>false</IsTruncated>
-				<Contents>
-						<Key>example-object-4.jpg</Key>
-						<LastModified>2020-12-08T12:05:00.000Z</LastModified>
-						<ETag>&quot;e9ec8bcb980d2e4d8526c346eb3b2585&quot;</ETag>
-						<Size>20</Size>
-						<Owner>
-								<ID>1250000000</ID>
-								<DisplayName>1250000000</DisplayName>
-						</Owner>
-						<StorageClass>STANDARD</StorageClass>
+			<Name>examplebucket-1250000000</Name>
+			<Prefix/>
+			<Marker>example-object-3.jpg</Marker>
+			<MaxKeys>3</MaxKeys>
+			<IsTruncated>false</IsTruncated>
+			<Contents>
+				<Key>example-object-4.jpg</Key>
+				<LastModified>2020-12-08T12:05:00.000Z</LastModified>
+				<ETag>&quot;e9ec8bcb980d2e4d8526c346eb3b2585&quot;</ETag>
+				<Size>20</Size>
+				<Owner>
+					<ID>1250000000</ID>
+					<DisplayName>1250000000</DisplayName>
+				</Owner>
+				<StorageClass>STANDARD</StorageClass>
 				</Contents>
 				<Contents>
-						<Key>example-object-5.jpg</Key>
-						<LastModified>2020-12-08T12:05:00.000Z</LastModified>
-						<ETag>&quot;201669a14bdf051d8a9d6f9828d3f4c4&quot;</ETag>
-						<Size>20</Size>
-						<Owner>
-								<ID>1250000000</ID>
-								<DisplayName>1250000000</DisplayName>
-						</Owner>
-						<StorageClass>STANDARD</StorageClass>
+					<Key>example-object-5.jpg</Key>
+					<LastModified>2020-12-08T12:05:00.000Z</LastModified>
+					<ETag>&quot;201669a14bdf051d8a9d6f9828d3f4c4&quot;</ETag>
+					<Size>20</Size>
+					<Owner>
+						<ID>1250000000</ID>
+						<DisplayName>1250000000</DisplayName>
+					</Owner>
+					<StorageClass>STANDARD</StorageClass>
 				</Contents>
 </ListBucketResult>
 ```
@@ -560,22 +559,22 @@ x-cos-request-id: NWZkMDQyZmVfYTJjMjJhMDlfYmQwOF8xYjkw****
 		
 <?xml version='1.0' encoding='utf-8' ?>
 <ListBucketResult>
-				<Name>examplebucket-1250000000</Name>
-				<Prefix/>
-				<Marker/>
-				<MaxKeys>3</MaxKeys>
-				<Delimiter>/</Delimiter>
-				<IsTruncated>true</IsTruncated>
-				<NextMarker>example-folder-3/</NextMarker>
-				<CommonPrefixes>
-						<Prefix>example-folder-1/</Prefix>
-				</CommonPrefixes>
-				<CommonPrefixes>
-						<Prefix>example-folder-2/</Prefix>
-				</CommonPrefixes>
-				<CommonPrefixes>
-						<Prefix>example-folder-3/</Prefix>
-				</CommonPrefixes>
+			<Name>examplebucket-1250000000</Name>
+			<Prefix/>
+			<Marker/>
+			<MaxKeys>3</MaxKeys>
+			<Delimiter>/</Delimiter>
+			<IsTruncated>true</IsTruncated>
+			<NextMarker>example-folder-3/</NextMarker>
+			<CommonPrefixes>
+				<Prefix>example-folder-1/</Prefix>
+			</CommonPrefixes>
+			<CommonPrefixes>
+				<Prefix>example-folder-2/</Prefix>
+			</CommonPrefixes>
+			<CommonPrefixes>
+				<Prefix>example-folder-3/</Prefix>
+			</CommonPrefixes>
 </ListBucketResult>
 ```
 
@@ -605,36 +604,36 @@ x-cos-request-id: NWZkMDQyZmZfZmNhODBiMDlfZmM4N19jYmQz****
 		
 <?xml version='1.0' encoding='utf-8' ?>
 <ListBucketResult>
-				<Name>examplebucket-1250000000</Name>
-				<Prefix/>
-				<Marker>example-folder-3/</Marker>
-				<MaxKeys>3</MaxKeys>
-				<Delimiter>/</Delimiter>
-				<IsTruncated>false</IsTruncated>
-				<CommonPrefixes>
-						<Prefix>example-folder-4/</Prefix>
-				</CommonPrefixes>
-				<Contents>
-						<Key>example-object-1.jpg</Key>
-						<LastModified>2020-12-09T03:22:28.000Z</LastModified>
-						<ETag>&quot;0f0cd12c48979d1bf3f95255a36cb861&quot;</ETag>
-						<Size>20</Size>
-						<Owner>
-								<ID>1250000000</ID>
-								<DisplayName>1250000000</DisplayName>
-						</Owner>
-						<StorageClass>STANDARD</StorageClass>
+			<Name>examplebucket-1250000000</Name>
+			<Prefix/>
+			<Marker>example-folder-3/</Marker>
+			<MaxKeys>3</MaxKeys>
+			<Delimiter>/</Delimiter>
+			<IsTruncated>false</IsTruncated>
+			<CommonPrefixes>
+				<Prefix>example-folder-4/</Prefix>
+			</CommonPrefixes>
+			<Contents>
+				<Key>example-object-1.jpg</Key>
+				<LastModified>2020-12-09T03:22:28.000Z</LastModified>
+				<ETag>&quot;0f0cd12c48979d1bf3f95255a36cb861&quot;</ETag>
+				<Size>20</Size>
+				<Owner>
+					<ID>1250000000</ID>
+					<DisplayName>1250000000</DisplayName>
+				</Owner>
+				<StorageClass>STANDARD</StorageClass>
 				</Contents>
 				<Contents>
-						<Key>example-object-2.jpg</Key>
-						<LastModified>2020-12-09T03:22:28.000Z</LastModified>
-						<ETag>&quot;51370fc64b79d0d3c7c609635be1c41f&quot;</ETag>
-						<Size>20</Size>
-						<Owner>
-								<ID>1250000000</ID>
-								<DisplayName>1250000000</DisplayName>
-						</Owner>
-						<StorageClass>STANDARD</StorageClass>
+					<Key>example-object-2.jpg</Key>
+					<LastModified>2020-12-09T03:22:28.000Z</LastModified>
+					<ETag>&quot;51370fc64b79d0d3c7c609635be1c41f&quot;</ETag>
+					<Size>20</Size>
+					<Owner>
+						<ID>1250000000</ID>
+						<DisplayName>1250000000</DisplayName>
+					</Owner>
+					<StorageClass>STANDARD</StorageClass>
 				</Contents>
 </ListBucketResult>
 ```
