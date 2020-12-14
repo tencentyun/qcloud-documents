@@ -1,75 +1,77 @@
-## 组件介绍
+## 简介
+### 组件介绍
 
-`DeScheduler` 是腾讯云TKE基于Kubernetes原生的 社区 [descheduler](https://github.com/kubernetes-sigs/descheduler)  实现的一个基于Node真实负载进行重调度的插件。 在 TKE 集群中安装该插件后，该插件会和Kube-scheduler协同生效，实时监控集群中高负载节点并驱逐低优先级pod。 
-该组件依赖Prometheus监控组件以及相关规则配置，强烈建议您安装组件之前仔细阅读【依赖部署】，以免插件无法正常工作。
-强烈建议您与TKE的 `Dynamic Scheduler`(动态调度器扩展组件) 一起使用，多维度保障集群负载均衡。
+DeScheduler 组件是容器服务 TKE 基于 Kubernetes 原生社区 [DeScheduler](https://github.com/kubernetes-sigs/descheduler)  实现的一个基于 Node 真实负载进行重调度的插件。在 TKE 集群中安装该插件后，该插件会和 Kube-scheduler 协同生效，实时监控集群中高负载节点并驱逐低优先级 Pod。 
+该组件依赖 Prometheus 监控组件以及相关规则配置，建议您安装组件之前仔细阅读 [依赖部署](#DeScheduler)，以免插件无法正常工作。
+建议您搭配 TKE [Dynamic Scheduler（动态调度器扩展组件）](https://cloud.tencent.com/document/product/457/50843) 一起使用，多维度保障集群负载均衡。
 
+### 在集群内部署的 Kubernetes 对象
 
-## 应用场景
-
-`DeScheduler`  的重调度思想就是通过重调度来解决集群现有节点上一些不合理的运行方式，社区版本的`DeScheduler` 已经给出一些策略，只是这些策略是基于APIServer中的数据，并没有基于节点真实负载。所以，可以增加对于节点的监控，基于真实负载进行重调度调整。
-
-腾讯云TKE自研的 `ReduceHighLoadNode` 策略就是基于这样的目的，依赖prometheus+node_exporter监控数据，基于节点cpu利用率/内存利用率/网络IO/system loadavg等指标进行pod驱逐重调度。防止出现节点极端负载的情况。`DeScheduler` 中的驱逐策略对应于调度器时都有相应的调度策略，所以`DeScheduler` 的`ReduceHighLoadNode` 与 腾讯云TKE自研的 `Dynamic Scheduler`基于节点真实负载进行调度的策略是很适合配合起来使用。
-
-## 限制条件
-
-1. k8s版本 建议 >= v1.10.x
-
-## 在集群内部署的kubernetes对象
-
-| Kubernets对象名称  | 类型               |                   请求资源                   | 所属Namespace |
+| Kubernets 对象名称  | 类型               |                   请求资源                   | 所属 Namespace |
 | :----------------- | :----------------- | :------------------------------------------: | ------------- |
-| descheduler        | Deployment         | 每个实例CPU: 200m, Memory: 200Mi ，共1个实例 | kube-system   |
+| descheduler        | Deployment         | 每个实例 CPU:200m，Memory:200Mi，共1个实例 | kube-system   |
 | descheduler        | ClusterRole        |                      -                       | kube-system   |
 | descheduler        | ClusterRoleBinding |                      -                       | kube-system   |
 | descheduler        | ServiceAccount     |                      -                       | kube-system   |
 | descheduler-policy | ConfigMap          |                      -                       | kube-system   |
 | probe-prometheus   | ConfigMap          |                      -                       | kube-system   |
 
-## 依赖部署
+## 使用场景
 
-`DeScheduler`依赖于Node当前和过去一段时间的真实负载情况来进行调度决策，这依赖于Prometheus等监控组件获取系统Node真实负载信息。在使用`DeScheduler`之前，需要部署Prometheus等监控组件。在TKE，用户可以采用自建的Prometheus监控服务，也可以采用TKE推出的云原生监控，下面对这两种方式依次介绍。
+DeScheduler 通过重调度来解决集群现有节点上不合理的运行方式。社区版本 DeScheduler 中提出的策略基于 APIServer 中的数据，并没有基于节点真实负载。因此可以增加对于节点的监控，基于真实负载进行重调度调整。
 
-### 用户自建Prometheus等监控服务
+容器服务 TKE 自研的 ReduceHighLoadNode 策略依赖 prometheus + node_exporter 监控数据，根据节点 CPU 利用率、内存利用率、网络 IO、system loadavg 等指标进行 Pod 驱逐重调度，防止出现节点极端负载的情况。DeScheduler 的 ReduceHighLoadNode 与 TKE 自研的 Dynamic Scheduler 基于节点真实负载进行调度的策略需配合使用。
 
-##### 部署node-exporter 和 prometheus
+## 限制条件
 
-我们通过node-exporter实现对于Node指标的监控，用户可以根据自己的需要部署node-exporter和prometheus。
+Kubernetes 版本 ≥ v1.10.x
+
+
+
+## 依赖部署[](id:DeScheduler)
+
+DeScheduler 组件依赖于 Node 当前和过去一段时间的真实负载情况来进行调度决策，需要通过 Prometheus 等监控组件获取系统 Node 真实负载信息。在使用 DeScheduler 组件之前，您可以采用自建 Prometheus 监控或采用 TKE 云原生监控，下面对这两种方式依次介绍。
+
+### 自建 Prometheus 监控服务
+
+#### 部署 node-exporter 和 Prometheus
+
+通过 node-exporter 实现对于 Node 指标的监控，您可按需部署 node-exporter 和 Prometheus。
 
 #### 聚合规则配置
 
-在 node-exporter获取节点监控数据后，需要通过Prometheus对原始的node-exporter中采集数据进行聚合计算。为了获取`DeScheduler`中需要 `cpu_usage_avg_5m`，`mem_usage_avg_5m`, 等指标，需要在Prometheus的 rules 规则配置如下：
+在 node-exporter 获取节点监控数据后，需要通过 Prometheus 对原始的 node-exporter 中采集数据进行聚合计算。为了获取 DeScheduler 所需要的 `cpu_usage_avg_5m`、`mem_usage_avg_5m` 等指标，需要在 Prometheus 的 rules 规则中进行配置。示例如下：
 
 ```
 groups:
-    - name: cpu_mem_usage_active
-      interval: 30s
-      rules:
-      - record: mem_usage_active
-        expr: 100*(1-node_memory_MemAvailable_bytes/node_memory_MemTotal_bytes)
-    - name: cpu-usage-1m
-      interval: 1m
-      rules:
-      - record: cpu_usage_avg_5m
-        expr: 100 - (avg by (instance) (irate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)
-    - name: mem-usage-1m
-      interval: 1m
-      rules:
-      - record: mem_usage_avg_5m
-        expr: avg_over_time(mem_usage_active[5m])
+      - name: cpu_mem_usage_active
+        interval: 30s
+        rules:
+        - record: mem_usage_active
+          expr: 100*(1-node_memory_MemAvailable_bytes/node_memory_MemTotal_bytes)
+      - name: cpu-usage-1m
+        interval: 1m
+        rules:
+        - record: cpu_usage_avg_5m
+          expr: 100 - (avg by (instance) (irate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)
+      - name: mem-usage-1m
+        interval: 1m
+        rules:
+        - record: mem_usage_avg_5m
+          expr: avg_over_time(mem_usage_active[5m])
 ```
 
-#### pometheus文件配置
+#### Prometheus 文件配置
 
-前面定义了`DeScheduler`所需要的指标计算的rule，然后我们需要把这个rule配置到prometheus中，参考一般的prometheus配置文件
+前面定义了`DeScheduler`所需要的指标计算的rule，然后我们需要把这个rule配置到 Prometheus 中，参考一般的Prometheus 配置文件
 
 ```
 global:
-  evaluation_interval: 30s
-  scrape_interval: 30s
-  external_labels:
+    evaluation_interval: 30s
+    scrape_interval: 30s
+    external_labels:
 rule_files:
-- /etc/prometheus/rules/*.yml # /etc/prometheus/rules/*.yml就是定义的rules文件
+- /etc/prometheus/rules/*.yml # /etc/prometheus/rules/*.yml 是定义的 rules 文件
 ```
 
 我们把上面的rules配置，复制到一个文件如de-scheduler.yaml，文件放到上述prometheus 容器的/etc/prometheus/rules/下，然后reload prometheus server就可以从prometheus中获取到动态调度器需要的指标。
@@ -78,9 +80,9 @@ rule_files:
 
 ### 云原生监控Prometheus
 
-1. 创建与Cluster处于同一VPC下的云原生监控Prometheus实例，并与用户集群关联。 
+1. 创建与 Cluster 处于同一 VPC 下的云原生监控 Prometheus 实例，并与用户集群关联。 
    ![](https://main.qcloudimg.com/raw/b17e7ea4642e6aaea70c885956f30b0b.png)
-2. 与原生托管集群关联后，可以在用户集群看到每个节点都已经安装了node-exporter。 
+2. 与原生托管集群关联后，可以在用户集群看到每个节点都已经安装了 node-exporter。 
    ![](https://main.qcloudimg.com/raw/e35d4af7eeba15f6d9da62ce79176904.png)
 
 3. 接下来设置Prometheus的聚合规则，如下图所示，具体规则内容与上一小节介绍的规则相同，此处不再赘述。 规则保存后立即生效，无需reload server。
