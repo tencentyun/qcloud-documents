@@ -7,7 +7,7 @@ DeScheduler 组件是容器服务 TKE 基于 Kubernetes 原生社区 [DeSchedule
 
 ### 在集群内部署的 Kubernetes 对象
 
-| Kubernets 对象名称  | 类型               |                   请求资源                   | 所属 Namespace |
+| Kubernetes 对象名称  | 类型               |                   请求资源                   | 所属 Namespace |
 | :----------------- | :----------------- | :------------------------------------------: | ------------- |
 | descheduler        | Deployment         | 每个实例 CPU:200m，Memory:200Mi，共1个实例 | kube-system   |
 | descheduler        | ClusterRole        |                      -                       | kube-system   |
@@ -89,7 +89,7 @@ rule_files:
 
 ## 组件原理
 
-`DeScheduler`  基于社区 [descheduler](https://github.com/kubernetes-sigs/descheduler) 的重调度思想，定期扫描各个节点上的运行pod，发现不符合策略条件的进行驱逐以进行重调度。社区版本的descheduler已经给出一些策略，只是这些策略是基于APIServer中的数据，比如 `LowNodeUtilization` 策略依赖的是pod的request/limit数据，这些数据对均衡集群资源分配，防止出现资源碎片有帮助。但是社区策略缺少节点真实资源占用的支持，例如节点A和B分配出去的资源一致，但是由于pod实际运行情况，cpu消耗型和内存消耗型不同，峰谷期不同造成两个节点的负载差别巨大。
+`DeScheduler`  基于社区 [descheduler](https://github.com/kubernetes-sigs/descheduler) 的重调度思想，定期扫描各个节点上的运行pod，发现不符合策略条件的进行驱逐以进行重调度。社区版本的descheduler已经给出一些策略，只是这些策略是基于APIServer中的数据，例如 `LowNodeUtilization` 策略依赖的是pod的request/limit数据，这些数据对均衡集群资源分配，防止出现资源碎片有帮助。但是社区策略缺少节点真实资源占用的支持，例如节点A和B分配出去的资源一致，但是由于pod实际运行情况，cpu消耗型和内存消耗型不同，峰谷期不同造成两个节点的负载差别巨大。
 
 因此，腾讯云TKE推出 `DeScheduler`，底层依赖对节点真实负载的监控进行重调度。具体实现上，通过 Prometheus 拿到集群Node的负载统计信息，根据用户设置的负载阈值，定期执行策略里面的检查规则，驱逐高负载节点上的 Pod 。
 
@@ -108,7 +108,7 @@ rule_files:
 
 ### 3. 根据pod驱逐顺序进行驱逐
 
-当节点CPU或者内存超过阈值时，对节点进行Pod驱逐的顺序基于以下规则排序，比如有两个Pod ： A与B。
+当节点CPU或者内存超过阈值时，对节点进行Pod驱逐的顺序基于以下规则排序，例如有两个Pod ： A与B。
 
 >? 当节点CPU和内存都超过了阈值时，先按照降低内存到目标水位的策略去驱逐pod，因为内存是不可压缩资源，且会同步将驱逐的pod对 节点CPU的降低值 更新到节点负载中。然后再按照降低CPU到目标水位的策略去驱逐pod。
 
@@ -128,7 +128,7 @@ rule_files:
 
 ### 利用率阈值&目标利用率
 
-> ! 负载阈值参数我们已经为您设置了默认值，如您无额外需求，可直接采用。
+>! 负载阈值参数我们已经为您设置了默认值，如您无额外需求，可直接采用。
 >
 > 过去五分钟内，节点的cpu平均利用率或者内存平均使用率超过设定阈值，Descheduler会判断节点为高负载节点，执行pod驱逐逻辑（不可驱逐pod筛选以及驱逐顺序请参考组件说明），并尽量通过pod重调度使节点负载降到目标利用率以下。
 
@@ -137,7 +137,7 @@ rule_files:
 
 1. 该组件已对接TKE的监控告警体系。
 2. 推荐您为集群开启事件持久化，以免更好的监控组件异常以及故障定位。
-3. 为了避免 `DeScheduler` 驱逐了关键的Pod，设计的算法是默认不驱逐Pod，对于可以驱逐的Pod，用户需要显示给判断pod所属workload比如statefulset/deployment等对象设置可驱逐annotation。
+3. 为了避免 `DeScheduler` 驱逐了关键的Pod，设计的算法是默认不驱逐Pod，对于可以驱逐的Pod，用户需要显示给判断pod所属workload例如statefulset/deployment等对象设置可驱逐annotation。
 4. pod驱逐太多导致服务不可用
    k8s原生有PDB对象来防止驱逐接口造成workload不可用pod过多，但是需要用户创建这样的pdb配置，腾讯云TKE自研的 `DeScheduler`里面加入了自己的兜底措施，即调用驱逐接口前，判断workload ready的pod数是否大于副本数一半，否则则不调用驱逐接口。
 
@@ -150,6 +150,6 @@ rule_files:
 5. 在组件列表勾选【Decheduler(重调度器)】，点击【参数配置】。
 6. 按照【参数说明】填写组件所需参数。
 7. 单击【完成】，组件安装成功后DeScheduler即可正常运行，无需进行额外配置。
-8. 对于用户认为可以驱逐的workload（比如statefulset/deployment等对象），可以设置 `Annotation` 如下
+8. 对于用户认为可以驱逐的workload（例如statefulset/deployment等对象），可以设置 `Annotation` 如下
    `descheduler.alpha.kubernetes.io/evictable: 'true'`
 
