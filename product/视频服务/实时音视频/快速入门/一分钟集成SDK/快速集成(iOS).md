@@ -83,7 +83,7 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 
 
 ## 引用 TRTC SDK
-项目代码中使用 SDK 有种方式：
+项目代码中使用 SDK 有两种方式：
 - 方式一： 在项目需要使用 SDK API 的文件里，添加模块引用。
 ```
 @import TXLiteAVSDK_TRTC;
