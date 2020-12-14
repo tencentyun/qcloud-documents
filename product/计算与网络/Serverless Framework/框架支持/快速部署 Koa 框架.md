@@ -13,7 +13,7 @@ Koa 组件通过使用 serverless-tencent 的基础组件（如 API 网关组件
 ## 操作步骤
 >?以下步骤主要针对命令行部署操作，控制台部署请参考 [控制台部署指南](https://cloud.tencent.com/document/product/1154/50957)。
 
-### 1. （可选）初始化 Koa 模版项目
+### 1. 初始化 Koa 模版项目（可选）
 如果您本地并没有 Koa 项目，可通过以下指令快速新建一个 Koa 项目模版（本地已有项目可跳过该步骤）：
 ```
 serverless init koa-starter --name example
