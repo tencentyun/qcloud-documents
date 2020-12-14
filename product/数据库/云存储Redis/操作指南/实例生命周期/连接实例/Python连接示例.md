@@ -10,7 +10,7 @@
 import redis 
 
 #这里替换为连接的实例 host 和 port 
-host = '192.168.0.195' 
+host = '192.xx.xx.195' 
 port = 6379 
 
 #这里替换为实例 ID 和实例 password 
