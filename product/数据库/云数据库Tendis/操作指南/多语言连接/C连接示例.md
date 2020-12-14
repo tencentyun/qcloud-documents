@@ -16,7 +16,7 @@ int main(int argc, char **argv) {
     redisReply *reply;
 	
 if (argc < 4) {
-      printf("Usage: 192.168.0.195 6379 instance_id password\n");
+      printf("Usage: 192.xx.xx.195 6379 instance_id password\n");
       exit(0);
     }
     const char *hostname = argv[1];
@@ -65,4 +65,4 @@ if (argc < 4) {
 ```
 
 **运行结果**：
-![](https://main.qcloudimg.com/raw/f6d6d6058d20fd156d8c50f6ec50bf44.png)
+![](https://main.qcloudimg.com/raw/e0bc88a688e1f69b454681ac90b5329c.png)
