@@ -12,7 +12,7 @@ Dynamic Scheduler 是容器服务 TKE 基于 Kubernetes 原生 Kube-scheduler Ex
 Kubernetes 原生的调度器多是基于 Pod Request 的资源来进行调度的，没有根据 Node 当前和过去一段时间的真实负载情况进行相关调度的决策。
 这样可能会导致一个问题：集群内有些节点的剩余可调度资源比较多（根据节点上运行的 Pod 的request和limit计算出的值）但是真实负载却比较高，而另一些节点的剩余可调度资源比较少但是真实负载却比较低, 但是这时候Kube-scheduler会优先将Pod调度到剩余资源比较多的节点上（根据LeastRequestedPriority策略）。
 如下图，Kube-Scheduler会把pod调度到Node2上，但很显然调度到Node1（真实负载水位更低）是一个更优的选择。
-![](https://main.qcloudimg.com/raw/5a69e9892b5e7de8b259c6edd439e518.png)
+![](https://main.qcloudimg.com/raw/2b186b7558659915e33ce2ce20608640.png)
 
 - 防止调度热点
 
