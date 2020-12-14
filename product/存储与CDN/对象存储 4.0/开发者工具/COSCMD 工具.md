@@ -212,8 +212,8 @@ anonymous = False
 ```
 
 >?
->- 配置文件中`schema` 项，可选值为`http/https`，默认为`https`。
->- 配置文件中`anonymous` 项，可选值为`True/False`，表示是否使用匿名模式，即签名保持为空。
+>- 配置文件中`schema` 项，可选值为 http、https，默认为 https。
+>- 配置文件中`anonymous` 项，可选值为 True、False，表示是否使用匿名模式，即签名保持为空。
 >- 更多配置参数说明，请使用命令`coscmd config -h`查看。
 
 ## 常用存储桶命令
@@ -258,7 +258,7 @@ coscmd -b examplebucket-1250000000 -r ap-beijing deletebucket
 coscmd -b examplebucket-1250000000 -r ap-beijing deletebucket -f
 ```
 
->!使用`-f`参数则会强制删除该存储桶，包括所有文件、开启版本控制之后历史文件夹、上传产生的碎片。
+>!使用`-f`参数则会强制删除该存储桶，包括所有文件、开启版本控制之后历史文件夹、上传产生的碎片，请谨慎操作。
 
 
 ## 常用对象命令
@@ -535,7 +535,7 @@ coscmd -b examplebucket1-1250000000 -r ap-guangzhou move -r examplebucket2-12500
 > ?
 > - 请将"<>"中的参数替换为您需要移动的 COS 上文件的路径（sourcepath），和您需要移动到 COS 上文件的路径（cospath）。
 > - sourcepath 的格式为：`<BucketName-APPID>.cos.<region>.myqcloud.com/<cospath>`。
-> - 使用 -d 参数可以设置 `x-cos-metadata-directive` 参数，可选值为 copy 和 Replaced，默认为 copy。
+> - 使用 -d 参数可以设置 `x-cos-metadata-directive` 参数，可选值为 Copy 和 Replaced，默认为 Copy。
 > - 使用 -H 参数设置 HTTP header 时，请务必保证格式为 JSON，示例：`coscmd move -H -d Replaced "{'x-cos-storage-class':'Archive','Content-Language':'zh-CN'}" <localpath> <cospath>`。更多头部请参见 [PUT Object - copy](https://cloud.tencent.com/document/product/436/10881) 文档。
 
 ### 设置对象访问权限
@@ -565,8 +565,6 @@ coscmd putbucketversioning Suspended
 coscmd getbucketversioning
 ```
 
-请将 "<>" 中的参数替换为您需要版本控制状态（status）。
-
 > !
 >- 请将 "<>" 中的参数替换为您需要版本控制状态（status）。
 >- 一旦您对存储桶启用了版本控制，它将无法返回到未启用版本控制状态（初始状态）。但是，您可以对该存储桶暂停版本控制，这样后续上传的对象将不会产生多个版本。
@@ -593,8 +591,8 @@ coscmd restore -r -d 3 -t Expedited examplefolder/
 
 >?
 >- 请将 "<>" 中的参数替换为您需要查询文件列表的 COS 上文件的路径（cospath）。
->- 使用`-d day`设置临时副本的过期时间，默认值：7。
->- 使用`-t tier`具体复原过程类型，枚举值： Expedited （极速模式） ，Standard （标准模式），Bulk（批量模式），默认值：Standard。
+>- 使用`-d <day>`设置临时副本的过期时间，默认值：7。
+>- 使用`-t <tier>`指定恢复模式，枚举值：Expedited （极速模式），Standard （标准模式），Bulk（批量模式），默认值：Standard。
 
 ### Debug 模式执行命令
 
