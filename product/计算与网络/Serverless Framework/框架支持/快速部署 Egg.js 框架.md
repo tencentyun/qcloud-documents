@@ -24,8 +24,7 @@ $ npm install -g serverless
 ```shell
 $ touch serverless.yml
 ```
-在`serverless.yml` 文件中进行如下配置（yml 文件的配置信息请参考[全量配置文档](https://github.com/serverless-components/tencent-egg/blob/master/docs/configure.md)
-）：
+在`serverless.yml` 文件中进行如下配置（yml 文件的配置信息请参考 [全量配置文档](https://github.com/serverless-components/tencent-egg/blob/master/docs/configure.md)）：
 ```yml
 component: egg
 name: eggDemo
