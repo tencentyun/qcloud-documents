@@ -45,8 +45,8 @@ android {
 dependencies {
     ......
     //添加以下依赖
-    implementation 'com.tencent.jg:jg:1.1'
-    implementation 'com.tencent.tpns:tpns:[VERSION]-release' //  TPNS 推送 [VERSION] 为当前 SDK 版本号，版本号可在 Android 发布动态页查看
+    implementation 'com.tencent.jg:jg:1.1'                   //  TPNS 推送 [VERSION] 为当前 SDK 版本号，版本号可在 https://cloud.tencent.com/document/product/548/44520 查看
+    implementation 'com.tencent.tpns:tpns:[VERSION]-release' //  TPNS 推送 [VERSION] 为当前 SDK 版本号，版本号可在移动推送文档 【产品动态】>【Android SDK 发布动态】 查看
 
 }
 ```
