@@ -15,9 +15,9 @@ Express.js 特性介绍：
 ## 迁移前提
 
 - 已经 [安装 Serverless Framework 1.67.2](https://cloud.tencent.com/document/product/1154/42990) 以上版本。
-- 已经[注册腾讯云账号](https://cloud.tencent.com/document/product/378/17985)并完成[实名认证](https://cloud.tencent.com/document/product/378/10495)。
+- 已经 [注册腾讯云账号](https://cloud.tencent.com/document/product/378/17985) 并完成 [实名认证](https://cloud.tencent.com/document/product/378/10495)。
 
-  > 如果您的账户为**腾讯云子账号**，请首先联系主账号，参考 [账号和权限配置](https://cloud.tencent.com/document/product/1154/43006) 进行授权。
+>?如果您的账号为**腾讯云子账号**，请先联系主账号，参考 [账号和权限配置](https://cloud.tencent.com/document/product/1154/43006) 进行授权。
 
 ## 架构说明
 
@@ -26,20 +26,20 @@ Express 组件将在腾讯云账号中使用到如下 Serverless 服务：
 - **API 网关**：API 网关将会接收外部请求并且转发到 SCF 云函数中。
 - **SCF 云函数**：云函数将承载 Express 应用。
 - **CAM 访问控制**：该组件会创建默认 CAM 角色用于授权访问关联资源。
-- **COS 对象存储**：为确保上传速度和质量，云函数压缩并上传代码时，会默认将代码包存储在特定命名的 COS 桶中
+- **COS 对象存储**：为确保上传速度和质量，云函数压缩并上传代码时，会默认将代码包存储在特定命名的 COS 桶中。
   
 ## 操作步骤
 
-> 以下步骤主要针对命令行部署操作，控制台部署请参考[控制台部署指南]()。
-### 1. （可选）初始化 Express 模版项目
-如果您本地并没有 Express 项目，可通过以下指令快速新建一个 Express 项目模版（本地已有项目可跳过该步骤）
+>?以下步骤主要针对命令行部署操作，控制台部署请参考 [控制台部署指南](https://cloud.tencent.com/document/product/1154/50957)。
+### 1. 初始化 Express 模版项目（可选）
+如果您本地并没有 Express 项目，可通过以下指令快速新建一个 Express 项目模版（本地已有项目可跳过该步骤）：
 ```
 serverless init express-starter --name example
 cd example
 ```
 
 ### 2. 修改项目代码
-打开 Express 项目的入口文件 sls.js（或 app.js），注释掉本地的监听端口，并导出默认的 Express app:
+打开 Express 项目的入口文件 sls.js（或 app.js），注释掉本地的监听端口，并导出默认的 Express app：
 
 ```javascript
 // sls.js
