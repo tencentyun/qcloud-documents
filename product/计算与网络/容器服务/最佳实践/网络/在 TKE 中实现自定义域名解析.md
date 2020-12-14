@@ -1,18 +1,21 @@
 ## 操作场景
 
-在使用容器服务 TKE 或 EKS（弹性容器集群）时，可能会有解析自定义内部域名的需求，例如：
+在使用容器服务 TKE 或弹性容器集群 EKS 时，可能会有解析自定义内部域名的需求，例如：
 
 - 在集群外自建了集中存储服务，需要将集群中的监控或日志数据采集并统一通过固定内部域名发送到存储服务。
 - 传统业务在进行容器化改造过程中，部分服务的代码配置了用固定域名调用内部其它服务，且无法修改配置，即无法使用 Kubernetes 的 Service 名称进行调用。
 
 本文将介绍以下3种在集群中使用自定义域名解析的方案示例。
+- [方案1：使用 CoreDNS Hosts 插件配置任意域名解析](#scheme1) 
+- [方案2：使用 CoreDNS Rewrite 插件指向域名到集群内服务](#scheme2)
+- [方案3：使用 CoreDNS Forward 插件将自建 DNS 设为上游 DNS](#scheme3)
+
 
 ## 方案示例
 
 
-<span id="scheme1"></span>
 
-### 方案1：使用 CoreDNS Hosts 插件配置任意域名解析
+### 方案1：使用 CoreDNS Hosts 插件配置任意域名解析[](id:scheme1)
 
 1. 执行以下命令，修改 CoreDNS 的 configmap。示例如下：
 ``` bash
@@ -60,9 +63,9 @@ metadata:
       namespace: kube-system
 ```
 
-<span id="scheme2"></span>
 
-### 方案2：使用 CoreDNS Rewrite 插件指向域名到集群内服务
+
+### 方案2：使用 CoreDNS Rewrite 插件指向域名到集群内服务[](id:scheme2)
 
 
 
@@ -106,9 +109,9 @@ metadata:
       namespace: kube-system
 ```
 
-<span id="scheme3"></span>
 
-### 方案3：使用 CoreDNS Forward 插件将自建 DNS 设为上游 DNS
+
+### 方案3：使用 CoreDNS Forward 插件将自建 DNS 设为上游 DNS[](id:scheme3)
 
 1. 查看 forward 配置。forward 默认配置如下所示，指非集群内域名通过 CoreDNS 所在节点 `/etc/resolv.conf` 文件中配置的 nameserver 解析。
 ```yaml
@@ -164,7 +167,7 @@ options {
 | [方案2](#scheme2) | 无需提前知道解析记录的 IP 地址，但要求解析记录指向的地址必须部署在集群中。 | 
 | [方案3](#scheme3) | 可以管理大量的解析记录，记录的管理都在自建 DNS 中，增删记录无需修改 CoreDNS 配置。 | 
 
->?具体采用哪种方案，请根据自身需求评估。其中方案1和方案2，每次添加解析记录都需要修改 CoreDNS 配置文件（无需重启）。
+>? 方案1和方案2，每次添加解析记录都需要修改 CoreDNS 配置文件（无需重启）。请根据自身需求评估并选择具体方案。
 
 
 ## 参考文档
