@@ -10,7 +10,7 @@ composer create-project --prefer-dist laravel/laravel serverless-laravel
 
 
 ## 操作步骤
-### 1. 安装 Serverless CLI：
+### 1. 安装 Serverless CLI
 通过 npm 全局安装 [Serverless CLI](https://github.com/serverless/serverless)：
 ```shell
 npm install -g serverless
