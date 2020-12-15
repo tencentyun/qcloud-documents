@@ -6,7 +6,7 @@
 
 ## 前提条件
 
-- 在 Prometheus 实例对应地域及私有网络（VPC）下，创建 [腾讯云容器服务—托管版集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)，并为集群创建 [命名空间](https://cloud.tencent.com/document/product/1141/41803)。
+- 在 Prometheus 实例对应地域及私有网络（VPC）下，创建腾讯云容器服务 [托管版集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)，并为集群创建 [命名空间](https://cloud.tencent.com/document/product/1141/41803)。
 - 在【[云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)】 >【选择“对应的 Prometheus 实例”】 >【集成容器服务】中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
 
 
