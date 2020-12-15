@@ -27,7 +27,7 @@
 [](id:add)
 ###  添加 API
 1. 在 [API 安全](https://console.cloud.tencent.com/guanjia/waf/api) 页面，单击【添加】，即可进入 API 安全策略添加页面。
-2. 在API 安全策略添加页面，您可根据网站的 API 策略，添加对应的 API 安全规则，添加完成后，单击【添加】。
+2. 在 API 安全策略添加页面，您可根据网站的 API 策略，添加对应的 API 安全规则，添加完成后，单击【添加】。
 ![](https://main.qcloudimg.com/raw/41bfe2e180226930ad02e28a9220c82e.png)
  **字段说明**：
 	- **接口名称**：添加 API 路径，以‘/’开头，注意接口名称+请求方式不能重复，如：`/guanjia/waf/config`。
