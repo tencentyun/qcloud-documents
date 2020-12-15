@@ -5,11 +5,26 @@
 
 ## 操作指南
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/api)，在左侧导航栏中，选择【Web 应用防火墙】>【API 安全】，进入 API 安全页面。
-2. 在 API 安全页面，左上角选择需要防护的域名，并添加 API 防护规则，目前支持通过添加 API 和导入 API 两种方式进行增加 API 规则。
+2. 在 API 安全页面，左上角选择需要防护的域名，并添加 API 防护规则，目前支持通过 [导入 API](#import) 和 [ 添加 API](#add) 两种方式进行增加 API 规则。 
 >?
->- 添加 API：用户根据网站的路径接口，手动添加需要防护的 API 路径。
 >- API 导入（推荐）：根据获取的 API 文档，直接导入文件进行解析。
+>- 添加 API：用户根据网站的路径接口，手动添加需要防护的 API 路径。
 
+[](id:import)
+### 导入 API
+1. 在 [API 安全](https://console.cloud.tencent.com/guanjia/waf/api) 页面，单击【导入 API】，将弹出导入 API 弹窗。
+2. 在导入 API 弹窗中，选择上传文件类型，单击【点击上传】，传入 API 文件即可。
+>?目前 WAF 支持两种 swagger2.0 文件的解析，分别是： yml 文件和 json 文件。导入规则说明：
+>- 格式：导入 API 描述文件，文件后缀名必须为 .yml 或 .json，单次上传的 API 描述文件不超过100KB。
+>- 数量：每次最多可上传创建20条 API，导入已经存在的 API 会默认跳过。
+>- 导入创建成功的 API ，可进行编辑，请根据实际情况进行接口确认。
+>
+![](https://main.qcloudimg.com/raw/fff6f34dcf840a41dd4266f0c61d7867.png)
+3. 您上传文件后， API 安全模块会自动解析 swagger2.0 文件中的 API 策略，解析完成后，单击【确认导入】，即可添加成功。
+![](https://main.qcloudimg.com/raw/7373592089531aed81ffd9ca88999356.png)
+4. 添加成功后，您可在 API 安全页面，查看新导入的 API 规则。
+
+[](id:add)
 ###  添加 API
 1. 在 [API 安全](https://console.cloud.tencent.com/guanjia/waf/api) 页面，单击【添加】，即可进入 API 安全策略添加页面。
 2. 在API 安全策略添加页面，您可根据网站的 API 策略，添加对应的 API 安全规则，添加完成后，单击【添加】。
@@ -34,16 +49,3 @@
 	- **开关**：API 规则的启用状态，若关闭开关，则表示不启用。如需同时开启或关闭多个开关，可选择多个 API 规则，在列表上方，单击【启用】或【禁用】，进行批量操作。
 	- **修改时间**：API 防护规则最新更新的时间。
 	- **操作**：对指定的防护 API 操作说明，包括编辑及删除规则两种操作。如需批量删除规则，可选择多个 API 规则，在列表上方，单击【批量删除】，即可进行批量操作。
-
-### 导入 API
-1. 在 [API 安全](https://console.cloud.tencent.com/guanjia/waf/api) 页面，单击【导入 API】，将弹出导入 API 弹窗。
-2. 在导入 API 弹窗中，选择上传文件类型，单击【点击上传】，传入 API 文件即可。
->?目前 WAF 支持两种 swagger2.0 文件的解析，分别是： yml 文件和 json 文件。导入规则说明：
->- 格式：导入 API 描述文件，文件后缀名必须为 .yml 或 .json，单次上传的 API 描述文件不超过100KB。
->- 数量：每次最多可上传创建20条 API，导入已经存在的 API 会默认跳过。
->- 导入创建成功的 API ，可进行编辑，请根据实际情况进行接口确认。
->
-![](https://main.qcloudimg.com/raw/fff6f34dcf840a41dd4266f0c61d7867.png)
-3. 您上传文件后， API 安全模块会自动解析 swagger2.0 文件中的 API 策略，解析完成后，单击【确认导入】，即可添加成功。
-![](https://main.qcloudimg.com/raw/7373592089531aed81ffd9ca88999356.png)
-4. 添加成功后，您可在 API 安全页面，查看新导入的 API 规则。
