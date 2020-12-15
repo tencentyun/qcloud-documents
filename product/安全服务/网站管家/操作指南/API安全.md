@@ -7,7 +7,7 @@
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/api)，在左侧导航栏中，选择【Web 应用防火墙】>【API 安全】，进入 API 安全页面。
 2. 在 API 安全页面，左上角选择需要防护的域名，并添加 API 防护规则，目前支持通过 [导入 API](#import) 和 [ 添加 API](#add) 两种方式进行增加 API 规则。 
 >?
->- API 导入（推荐）：根据获取的 API 文档，直接导入文件进行解析。
+>- 导入 API（推荐）：根据获取的 API 文档，直接导入文件进行解析。
 >- 添加 API：用户根据网站的路径接口，手动添加需要防护的 API 路径。
 
 [](id:import)
