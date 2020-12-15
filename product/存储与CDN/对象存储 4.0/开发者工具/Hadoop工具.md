@@ -86,11 +86,6 @@ done
 ```xml
 <configuration>
     <property>
-        <name>fs.defaultFS</name>
-        <value>cosn://examplebucket-1250000000</value>
-    </property>
-  
-    <property>
         <name>fs.cosn.credentials.provider</name>
         <value>org.apache.hadoop.fs.auth.SimpleCredentialProvider</value>
         <description>
@@ -209,6 +204,17 @@ done
 </configuration>
 ```
 
+其中fs.defaultFS不建议在生产环境进行配置，仅适用于部分测试场景（如hive-testbench etc）
+```
+<property>
+        <name>fs.defaultFS</name>
+        <value>cosn://examplebucket-1250000000</value>
+	<description>
+	    This option is not advice to config, this only used for some special test cases.
+	</description>
+</property>
+```
+  
 ### 服务端加密
 
 Hadoop-COS 支持服务端加密，目前提供两种加密方式：COS 托管密钥方式（SSE-COS）和用户自定义密钥方式（SSE-C），Hadoop-COS 的加密功能默认为关闭状态，用户可以选择开启，通过以下方式进行配置。
