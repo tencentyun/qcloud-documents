@@ -1,12 +1,6 @@
 ## 操作场景
  腾讯云 [Laravel](https://github.com/laravel/laravel) Serverless Component，支持 Laravel 6.0及以上版本。 
 
-## 前提条件
-在使用此组件之前，您需要先初始化一个 laravel 项目：
-```shell
-composer create-project --prefer-dist laravel/laravel serverless-laravel
-```
->!Laravel 使用 Composer 管理依赖，所以您需要先自行安装 Composer，请参考 [官方安装文档](https://getcomposer.org/doc/00-intro.md#installation-linux-unix-macos)。
 
 
 ## 操作步骤
