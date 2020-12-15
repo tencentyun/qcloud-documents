@@ -11,14 +11,14 @@
 	- **运行环境**：消息转储模板目前仅支持 Python 2.7。
 	- **创建方式**：选择模板函数。
 	- **模糊搜索**：输入“CLS 消息转储至 COS”，并进行搜索。
-	单击模板中的【查看详情】，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
 ![](https://main.qcloudimg.com/raw/c9accdd429f7f1616020caa38d4f6c5e.png)
+>?单击模板中的【查看详情】，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
 3. 单击【下一步】，进入函数配置页。
 ![](https://main.qcloudimg.com/raw/2342b403d79e55bca50c39b28fdcd634.png)
 4. 保持默认配置请单击【完成】，即完成函数的创建。
 
 ### 步骤2：配置 MPS 触发器
-1. 在 [云函数控制台](https://console.cloud.tencent.com/scf) 页面，选择左侧导航栏中的【[函数服务](https://console.cloud.tencent.com/scf/list)】，单击对应的函数名后，将跳转至此函数的详情页。
+1. 在【[云函数控制台](https://console.cloud.tencent.com/scf)】页面，选择左侧导航栏中的【[函数服务](https://console.cloud.tencent.com/scf/list)】，单击对应的函数名后，将跳转至此函数的详情页。
 ![](https://main.qcloudimg.com/raw/ac998f631557ea2214d66c2be9faaf5a.png)
 2. 单击【触发管理】>【创建触发器】将弹出的创建触发器窗口，触发方式请选择 “MPS 触发器”。
 ![](https://main.qcloudimg.com/raw/e067ef8e3e09c07b723d041193b66c62.png)
