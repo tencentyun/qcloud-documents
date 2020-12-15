@@ -208,11 +208,11 @@ done
 
 ```
 <property>
-				<name>fs.defaultFS</name>
-				<value>cosn://examplebucket-1250000000</value>
-			<description>
-					 This option is not advice to config, this only used for some special test cases.
-			</description>
+          <name>fs.defaultFS</name>
+          <value>cosn://examplebucket-1250000000</value>
+        <description>
+             This option is not advice to config, this only used for some special test cases.
+        </description>
 </property>
 ```
   
