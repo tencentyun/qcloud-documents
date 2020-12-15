@@ -22,7 +22,7 @@
 #### 修改 Flink 配置
 
 1. 进入【[弹性 MapReduce](https://console.cloud.tencent.com/emr)】>【选择对应的“实例”】>【集群服务】页面。
-2. 找到【Flink】配置项，单击其右侧的【操作】，在弹出的子菜单中选择【配置管理】，进入配置管理页面。
+2. 找到【Flink】配置项，在右侧选择【操作】>【配置管理】，进入配置管理页面。
 3. 在页面右侧单击【新增配置项】，依次添加以下配置。
 <table>
 <thead>
@@ -54,21 +54,21 @@
 <td align="center">true</td>
 <td align="center">布尔</td>
 <td>是否在任务名后添加随机字符串</td>
-<td>要设置为 true，如果不添加 Flink 任务间 metrics 会相互覆盖</td>
+<td>需设置为 true，如果不添加， Flink 任务间 metrics 会相互覆盖</td>
 </tr>
 <tr>
 <td>metrics.reporter.promgateway.<br>groupingKey</td>
 <td align="center">无</td>
 <td align="center">字符串</td>
 <td>添加到每个 metrics 的全局 label，格式为 k1=v1;k2=v2</td>
-<td>添加 EMR 实例 ID 方便区分不同实例的数据，instance_id=emr-xxx</td>
+<td>添加 EMR 实例 ID 方便区分不同实例的数据，例如 instance_id=emr-xxx</td>
 </tr>
 <tr>
 <td>metrics.reporter.promgateway.<br>interval</td>
 <td align="center">无</td>
 <td align="center">时间</td>
-<td>推送 metrics 的时间间隔，比如 30 SECONDS</td>
-<td>建议设置在1分钟左右，对于监控来说足够</td>
+<td>推送 metrics 的时间间隔，例如30秒</td>
+<td>建议设置在1分钟左右</td>
 </tr>
 <tr>
 <td>metrics.reporter.promgateway.host</td>
@@ -96,7 +96,7 @@
 <td align="center">无</td>
 <td align="center">字符串</td>
 <td>认证的用户名</td>
-<td>用户的 APPID</td>
+<td>用户的 <a href="https://console.cloud.tencent.com/developer">APPID</a></td>
 </tr>
 <tr>
 <td>metrics.reporter.promgateway.<br>password</td>
