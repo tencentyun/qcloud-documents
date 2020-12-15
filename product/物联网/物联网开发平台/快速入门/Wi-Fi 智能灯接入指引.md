@@ -38,7 +38,7 @@
   - 认证方式：选择“密钥认证”。
   - 通信方式：选择“Wi-Fi”。
   - 其他都为默认选项。
-  ![](https://main.qcloudimg.com/raw/70011f6b66a765ea99bd6da38dd37a47.png)
+![](https://main.qcloudimg.com/raw/18bb805e5b040c956e446a8f5bf4c0e1.jpg)
 3. 产品新建成功后，您可在产品列表页查看到“智能灯”。
 
 
