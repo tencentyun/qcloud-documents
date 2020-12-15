@@ -170,7 +170,7 @@
 	![](https://main.qcloudimg.com/raw/6525cfdf41baaee2040f1b231ca5042a.jpg)
 	3. 单击【确定】，即可创建云函数。
 2. 上传云函数代码包。
- 1. [单击下载](https://github.com/TCloudBase/WEB-TodoList/raw/master/functions/todo_getNumber.zip) 云函数代码 ZIP 包。
+ 1. [单击下载](https://gitee.com/TencentCloudBase/Cloudbase-Examples/raw/master/web/todo_getNumber.zip) 云函数代码 ZIP 包。
  2. 进入创建好的`todo_getNumber`函数，单击【函数代码】页签，进入函数代码页面。
  3. 在【提交方法】选项中，选择【本地上传ZIP包】，并单击【上传】，将下载的云函数代码包 ZIP上传至云开发中。
  4. 单击【保存】，即可完成上传云函数代码包。
