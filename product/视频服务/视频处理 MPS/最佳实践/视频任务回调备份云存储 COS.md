@@ -2,7 +2,7 @@
 通过视频处理 MPS，将 MPS 产生的回调任务通过 SCF 及时备份至 COS 是一个标准的方案，视频处理 MPS 在云函数 SCF 中配置了模板供用户使用。我们用到了视频处理（MPS）和云函数（SCF）。其中 MPS 主要用于视频处理任务，SCF 主要提供回调消息处理。
 
 ## 操作步骤
-### 步骤1：创建云函数 SCF
+### 步骤1：创建 SCF 云函数
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/list)，选择左侧导航栏中的【[函数服务](https://console.cloud.tencent.com/scf/list)】。
 ![](https://main.qcloudimg.com/raw/29cd2fc9d699ac2af763749c2e67a472.png)
 2. 在函数服务页面上方选择北京地域，并单击【新建】进入新建函数页面。
