@@ -1,10 +1,10 @@
-## 应用场景
+## 操作场景
 
 在使用 Java 作为开发语言的时候，需要监控 JVM 的性能。腾讯云 Prometheus 服务通过采集应用暴露出来的 JVM 监控数据，并提供了开箱即用的 Grafana 监控大盘。
 
 本文以如何在容器服务上部署普通 Java 应用为例，介绍如何通过托管 Prometheus 监控其状态。
 
-如果已经使用了 Spring Boot 作为开发框架，请参见 [Spring Boot 接入](https://cloud.tencent.com/document/product/248/49086)。
+>?若已使用 Spring Boot 作为开发框架，请参见 [Spring Boot 接入](https://cloud.tencent.com/document/product/248/49086)。
 
 ## 前提条件
 
@@ -36,7 +36,7 @@
 
 #### 步骤2：修改代码
 
-在项目启动时，添加相应的监控配置，同时在 micrometer 也提供了一些常用的监控数据采集，具体在 `io.micrometer.core.instrument.binder` 包下，可以按实际情况来添加，示例如下：
+在项目启动时，添加相应的监控配置，同时 micrometer 也提供了部分常用的监控数据采集，具体在 `io.micrometer.core.instrument.binder` 包下，可以按实际情况添加。示例如下：
 ````java
 public class Application {
     // 作为全局变量，可以在自定义监控中使用
@@ -73,9 +73,9 @@ public class Application {
         }
     }
 }
-````
+```
 
->?由于 JVM GC Pause 监控是通过 GarbageCollector Notification 机制，因此只有发生 GC 之后才有监控数据，上例为了测试主动调用了 `System.gc()`。
+>?由于 JVM GC Pause 监控是通过 GarbageCollector Notification 机制实现，因此只有发生 GC 之后才有监控数据。上述示例为了测试更直观，主动调用了 `System.gc()`。
 
 #### 步骤3：本地验证
 
@@ -86,7 +86,7 @@ public class Application {
 
 #### 步骤1：本地配置 Docker 镜像环境
 
-如果本地之前没有配置过 Docker 镜像环境，可以参考【[使用私有镜像仓库管理应用镜像](https://cloud.tencent.com/document/product/457/9117)】，如果已经配置可以直接到下一步。
+如果本地之前未配置过 Docker 镜像环境，可以参见容器镜像服务 [快速入门](https://cloud.tencent.com/document/product/1141/50332) 文档进行配置。若已配置请执行下文步骤2。
 
 
 #### 步骤2：打包及上传镜像
@@ -114,7 +114,8 @@ public class Application {
 #### 步骤3：应用部署
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster?rid=1)，选择需要部署的容器集群。
-2. 通过【工作负载】>【Deployment】进入 `Deployment` 管理页面，选择对应的 `命名空间` 来进行部署服务，通过 YAML 来创建对应的 `Deployment`，YAML 配置如下，也可以通过控制台创建可以参考 [Spring Boot 接入](https://cloud.tencent.com/document/product/248/49086)。
+2. 通过【工作负载】>【Deployment】进入 `Deployment` 管理页面，选择对应的 `命名空间` 来进行部署服务，通过 YAML 来创建对应的 `Deployment`，YAML 配置如下。
+>?如需通过控制台创建，请参见 [Spring Boot 接入](https://cloud.tencent.com/document/product/248/49086)。
 ``` yaml
 apiVersion: apps/v1beta2
 kind: Deployment
@@ -159,26 +160,26 @@ spec:
 apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
-  name: java-demo
-  namespace: cm-prometheus
+      name: java-demo
+      namespace: cm-prometheus
 spec:
-  namespaceSelector:
-    matchNames:
-    - spring-demo
-  podMetricsEndpoints:
-  - interval: 30s
-    path: /metrics
-    port: metric-port
-  selector:
-    matchLabels:
-      k8s-app: java-demo
+      namespaceSelector:
+        matchNames:
+        - spring-demo
+      podMetricsEndpoints:
+      - interval: 30s
+       path: /metrics
+       port: metric-port
+     selector:
+       matchLabels:
+         k8s-app: java-demo
 ```
 
 #### 步骤5：查看监控
 
 1. 在对应 Prometheus 实例 >【集成中心】中找到 `JVM` 监控，安装对应的 Grafana Dashboard 即可开启 JVM 监控大盘。
 2. 打开 Prometheus 实例对应的 Grafana 地址，在 `Dashboards/Manage/Application` 下查看应用相关的监控大屏。
-	- 应用 JVM：从应用角度出发，查看该应用下所有实例是否有问题，当发现某个实例有问题时可以下钻到对应的实例监控；
-	- 实例 JVM：单实例 JVM 详细的监控数据；
+	- **应用 JVM**：从应用角度出发，查看该应用下所有实例是否有问题，当发现某个实例有问题时可以下钻到对应的实例监控。
+	- **实例 JVM**：单实例 JVM 详细的监控数据。
 	![](https://main.qcloudimg.com/raw/e440a4b784bb31d02aafb60cbca929f2.png)
 	![](https://main.qcloudimg.com/raw/6472032f91fb7f8081eb61a7a935c9d3.png)
