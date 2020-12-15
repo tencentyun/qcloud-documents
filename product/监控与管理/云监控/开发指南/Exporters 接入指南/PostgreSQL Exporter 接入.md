@@ -205,7 +205,7 @@ spec:
 
 <span id="way"></span>
 
-### 获取指标[](id:step3)
+#### 获取指标[](id:step3)
 
 通过 `curl http://exporter:9187/metrics` 无法获取 `Postgres` 实例运行时间。我们可以通过自定义一个 `queries.yaml` 来获取该指标：
 
