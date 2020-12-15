@@ -68,7 +68,7 @@ RAK LoRa 环境监测套件接入到物联网开发平台，通过物联网开�
  -  设备类型：选择“设备”。
  -  认证方式：选择“密钥认证”。
  -  通信方式：选择“LoRaWAN”。
-![](https://main.qcloudimg.com/raw/237a60c3da3d587ab9e8283673f8e602.png)
+![](https://main.qcloudimg.com/raw/08fc89c6999c6a3482df2b0a5393010a.jpg)
 
 产品新建成功后，您可在产品列表页查看“RAK5205”。
 
