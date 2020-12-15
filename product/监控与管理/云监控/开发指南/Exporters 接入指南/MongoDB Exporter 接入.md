@@ -1,12 +1,13 @@
+## 操作场景
+
+在使用 MongoDB 过程中需要对 MongoDB 运行状态进行监控，以便了解 MongoDB 服务是否运行正常，排查 MongoDB 故障问题原因，云监控 Prometheus 服务提供了基于 Exporter 的方式来监控 MongoDB 运行状态，并提供了开箱即用的 Grafana 监控大盘。本文介绍如何部署 Exporter 以及实现 MongoDB Exporter 告警接入等操作。
 
 
-在使用 MongoDB 过程中都需要对 MongoDB 运行状态进行监控，以便了解 MongoDB 服务是否运行正常，为什么导致 MongoDB 出问题等，云监控 Prometheus 服务提供了基于 Exporter 的方式来监控 MongoDB 运行状态，并提供了开箱即用的 Grafana 监控大盘。
-
->?为了方便安装管理 Exporter，这里推荐使用腾讯云容器服务来统一管理。
+>?为了方便安装管理 Exporter，推荐使用腾讯云 [容器服务](https://cloud.tencent.com/document/product/457) 进行统一管理。
 
 ## 前提条件
 
-- 在 Proemtheus 实例对应地域及私有网络（VPC）下，创建腾讯云容器服务 [Kubernetes 集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)。
+- 在 Proemtheus 实例对应地域及私有网络 VPC 下，创建腾讯云容器服务 [Kubernetes 集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)。
 - 在【[云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)】 >【选择“对应的 Prometheus 实例”】 >【集成容器服务】中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
 
 
@@ -25,7 +26,7 @@
 
 1. 在左侧菜单中选择【工作负载】>【Deployment】，进入 Deployment 页面。
 2. 在页面右上角单击【YAML创建资源】，创建 YAML 配置，配置说明如下：
-   使用 Kubernetes 的 Secret 来管理密码并对密码进行加密处理，在启动 MongoDB   Exporter 的时候直接使用 Secret Key，需要调整对应的 `URI`，YAML 配置示例如下：
+   使用 Kubernetes 的 Secret 来管理密码并对密码进行加密处理，在启动 MongoDB   Exporter 的时候直接使用 Secret Key，需要调整对应的 URI，YAML 配置示例如下：
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -93,17 +94,17 @@ spec:
       terminationGracePeriodSeconds: 30
 ```
 
->?Exporter 更多详细的参数请参见 [mongodb_exporter](https://github.com/percona/mongodb_exporter)。
+>?Exporter 详细参数请参见 [mongodb_exporter](https://github.com/percona/mongodb_exporter)。
 
 <span id="step3"></span>
 
 #### 验证
 
 1. 在 Deployment 页面单击上述步骤创建的 Deployment，进入 Deployment 管理页面。
-2. 单击【日志】页签，可以查看到 Exporter 成功启动并暴露对应的访问地址，如下图所示：![](https://main.qcloudimg.com/raw/8e02dd72301a6dbcf91e2c121dba3084.png)
+2. 单击【日志】页签，可以查看到 Exporter 成功启动并暴露对应的访问地址，如下图所示：
+![](https://main.qcloudimg.com/raw/8e02dd72301a6dbcf91e2c121dba3084.png)
 3. 单击【Pod管理】页签，进入 Pod 页面。
-4. 在右侧的操作项下单击【远程登录】登录 Pod，在命令行中 wget 对应 Exporter 暴露的地址，可以正常得到对应的 MongoDB 指标，如发现未能得到对应的数据，请检查一下连接 `URI` 是否正确，具体如下：
-   ![](https://main.qcloudimg.com/raw/faddf28b31e843b7bb1676b8f1746232.png)
+4. 在右侧的操作项下单击【远程登录】登录 Pod，在命令行中执行以下 wget 命令对应 Exporter 暴露的地址，可以正常得到对应的 MongoDB 指标，若发现未能得到对应的数据，请检查一下连接 URI 是否正确，具体如下：
 ```
 wget 127.0.0.1:9216/metrics 
 cat metrics
@@ -173,11 +174,11 @@ spec:
 
 #### 客户端报错：client checkout connect timeout，该如何处理？
 
-一般情况是连接池使用率达到100%, 导致创建连接失败, 可通过 Grafana 大盘【MongoDB 详情/核心指标/连接使用率】指标排查。
+可能是连接池使用率达到100%，导致创建连接失败。可以通过 Grafana 大盘【MongoDB 详情/核心指标/连接使用率】指标排查。
 ![](https://main.qcloudimg.com/raw/ed65b8c0a8b9013e2532e392a55a1058.png)
 
 #### 写入不断超时，该如何处理？
 
-需检查 Cache 使用率是否过高、Transactions 可用个数是否为0，可通过 Grafana 大盘【MongoDB详情/核心指标/ WiredTiger Transactions 可用个数| WiredTiger Cache 使用率| GetLastError 写耗时| GetLastError 写超时】指标排查。
+需检查 Cache 使用率是否过高、Transactions 可用个数是否为0，可以通过 Grafana 大盘【MongoDB详情/核心指标/ WiredTiger Transactions 可用个数| WiredTiger Cache 使用率| GetLastError 写耗时| GetLastError 写超时】指标排查。
 ![](https://main.qcloudimg.com/raw/282ab600c5d8a65e0735d61b538e3db8.png)
 
