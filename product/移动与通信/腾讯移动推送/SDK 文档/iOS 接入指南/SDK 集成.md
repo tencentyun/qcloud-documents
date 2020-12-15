@@ -245,3 +245,11 @@ if (msgType.integerValue == 1) {
 [[XGPushTokenManager defaultTokenManager] xgTokenString];
 ```
 ![](https://main.qcloudimg.com/raw/f6ff84d3a50630bb4e8a0ab6fd090798.png)
+
+### 隐私协议声明建议
+
+您可在申请APP权限使用时，使用以下内容声明授权的用途：
+
+```
+我们使用了腾讯云-移动推送推送TPNS(https://cloud.tencent.com/product/tpns)用于实现我们产品信息的推送,在您授权我们“访问网络连接”和“访问网络状态”权限后,表示您同意
+腾讯 SDK 隐私协议(https://cloud.tencent.com/document/product/548/50955)。您可以通过关闭终端设备中的通知选项来拒绝接受此SDK推送服务。
