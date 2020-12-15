@@ -86,7 +86,7 @@ public class Application {
 
 #### 步骤1：本地配置 Docker 镜像环境
 
-如果本地之前未配置过 Docker 镜像环境，可以参见容器镜像服务 [快速入门](https://cloud.tencent.com/document/product/1141/50332) 文档进行配置。若已配置请执行下文步骤2。
+如果本地之前未配置过 Docker 镜像环境，可以参见容器镜像服务 [快速入门](https://cloud.tencent.com/document/product/1141/50332) 文档进行配置。若已配置请执行下一步。
 
 
 #### 步骤2：打包及上传镜像
