@@ -1,11 +1,13 @@
+
+
 在使用 ElasticSearch 过程中需要对 ElasticSearch 运行状态进行监控，例如集群及索引状态等，云监控 Prometheus 服务提供了基于 Exporter 的方式来监控 ElasticSearch 运行状态，并提供了开箱即用的 Grafana 监控大盘。
 
->?为了方便安装管理 Exporter，这里推荐使用腾讯云 [容器服务](https://cloud.tencent.com/document/product/457) 来统一管理。
+>?为了方便安装管理 Exporter，推荐使用腾讯云 [容器服务](https://cloud.tencent.com/document/product/457) 进行统一管理。
 
 ## 前提条件
 
 - 在 Prometheus 实例对应地域及私有网络（VPC）下，创建 [腾讯云容器服务—托管版集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)，并为集群创建 [命名空间](https://cloud.tencent.com/document/product/1141/41803)。
-- 【[云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)】 >【选择“对应的 Prometheus 实例”】 >【集成容器服务】中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
+- 在【[云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)】 >【选择“对应的 Prometheus 实例”】 >【集成容器服务】中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
 
 
 ## 操作步骤
@@ -16,7 +18,7 @@
 
 1. 登录 [容器服务](https://console.cloud.tencent.com/tke2/cluster) 控制台。
 2. 单击需要获取集群访问凭证的集群 ID/名称，进入该集群的管理页面。
-3. 执行以下 [使用 Secret 管理 ElasticSearch 连接串](#step1) > [部署Kafka Exporter](#step2) > [验证](#step3) 步骤完成 Exporter 部署。
+3. 执行以下 [使用 Secret 管理 ElasticSearch 连接串](#step1) > [部署 Kafka Exporter](#step2) > [验证](#step3) 步骤完成 Exporter 部署。
 
 <span id="step1"></span>
 
@@ -24,7 +26,7 @@
 
 1. 在左侧菜单中选择【工作负载】>【Deployment】，进入 Deployment 页面。
 2. 在页面右上角单击【YAML创建资源】，创建 YAML 配置，配置说明如下：
-   使用 Kubernetes 的 Secret 来管理密码并对密码进行加密处理，在启动 ElasticSearch Exporter 的时候直接使用 Secret Key，需要调整对应的 `URI`，YAML 配置示例如下：
+   使用 Kubernetes 的 Secret 来管理密码并对密码进行加密处理，在启动 ElasticSearch Exporter 的时候直接使用 Secret Key，需要调整对应的 URI，YAML 配置示例如下：
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -36,7 +38,7 @@ stringData:
       esURI: you-guess  #对应 ElasticSearch 的 URI
 ```
 
-ElasticSearch 连接串的格式为 `<proto>://<user>:<password>@<host>:<port>`，例如 `http://admin:pass@localhost:9200`。
+>?ElasticSearch 连接串的格式为 `<proto>://<user>:<password>@<host>:<port>`，例如 `http://admin:pass@localhost:9200`。
 
 <span id="step2"></span>
 
@@ -90,7 +92,7 @@ spec:
       terminationGracePeriodSeconds: 30
 ```
 
-上述示例通过 `ES_ALL` 采集了所有 ElasticSearch 的监控项，可以通过对应的参数进行调整，Exporter 更多详细的参数请参见 [elasticsearch_exporter](https://github.com/justwatchcom/elasticsearch_exporter)。
+>?上述示例通过 `ES_ALL` 采集了所有 ElasticSearch 的监控项，可以通过对应的参数进行调整，Exporter 更多详细的参数请参见 [elasticsearch_exporter](https://github.com/justwatchcom/elasticsearch_exporter)。
 
 <span id="step3"></span>
 
