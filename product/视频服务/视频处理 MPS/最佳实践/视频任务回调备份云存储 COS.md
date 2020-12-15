@@ -24,10 +24,11 @@
 ![](https://main.qcloudimg.com/raw/e067ef8e3e09c07b723d041193b66c62.png)
 主要参数信息如下，其余配置项请保持默认：
 	- **事件类型**：MPS 触发器以账号维度的事件类型推送 Event 事件，目前支持工作流任务（WorkflowTask）和视频编辑任务（EditMediaTask）两种事件类型触发。
-	- **事件处理**：MPS 触发器以服务维度产生的事件作为事件源，不区分地域、资源等属性。每个账号只允许两类事件分别绑定单个函数。如需多个函数并行处理任务，请参考 [函数间调用 SDK](https://cloud.tencent.com/document/product/583/37316)。
-	>?初次创建 MPS 触发器将提示相关服务角色状态异常，请按提示单击对应服务【SCF_QcsRole】、【MPS_QcsRole】进行授权。
+	>?
+	>- 初次创建 MPS 触发器将提示相关服务角色状态异常，请按提示单击对应服务【SCF_QcsRole】、【MPS_QcsRole】进行授权。
 	>![](https://main.qcloudimg.com/raw/e6a5802db5fe9e054c2c50020f0403b1.png)
-3. 单击【提交】完成创建。
+	>- MPS 触发器以服务维度产生的事件作为事件源，不区分地域、资源等属性。每个账号只允许两类事件分别绑定单个函数。如需多个函数并行处理任务，请参见 [函数间调用 SDK](https://cloud.tencent.com/document/product/583/37316)。
+3. 单击【提交】后，即完成 MPS 触发器配置。
 ![](https://main.qcloudimg.com/raw/6a7d7009e36538491683173553b809fd.png)
 
 
