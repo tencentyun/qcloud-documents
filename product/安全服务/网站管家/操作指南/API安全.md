@@ -11,7 +11,7 @@
 >- 添加 API：用户根据网站的路径接口，手动添加需要防护的 API 路径。
 
 [](id:import)
-### 导入 API
+### 导入 API（推荐）
 1. 在 [API 安全](https://console.cloud.tencent.com/guanjia/waf/api) 页面，单击【导入 API】，将弹出导入 API 弹窗。
 2. 在导入 API 弹窗中，选择上传文件类型，单击【点击上传】，传入 API 文件即可。
 >?目前 WAF 支持两种 swagger2.0 文件的解析，分别是： yml 文件和 json 文件。导入规则说明：
