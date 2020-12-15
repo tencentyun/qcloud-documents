@@ -7,8 +7,7 @@
 2. 单击下拉框选择您已创建的应用（SDKAppID），完成后会自动生成对应的密钥（Key）。
 3. 填写用户名（UserID）。
 3. 单击【生成签名UserSig】，即可立即生成对应的签名 UserSig。
-
-![](https://main.qcloudimg.com/raw/e38ca76e34459c1db12a93b3d1bdb1cf.png)
+![](https://main.qcloudimg.com/raw/1beace0cb76655168f4b0b9f06eb65e4.png)
 
 
 ## 签名（UserSig）校验工具
