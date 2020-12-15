@@ -24,7 +24,7 @@ PHP：脚本语言，本文以 PHP 7.4.11 为例。
 
 ### 步骤2：安装及配置 Nginx
 1. 执行以下命令，安装 Nginx。
->?本文以安装 Nginx 1.18.0 为例，您可通过 [Ngingx 官方安装包](http://nginx.org/packages/centos/8/x86_64/RPMS/?spm=a2c4g.11186623.2.31.557423bfYPMd6u) 获取适用于 CentOS 8的更多版本。
+>?本文以安装 Nginx 1.18.0 为例，您可通过 [Nginx 官方安装包](http://nginx.org/packages/centos/8/x86_64/RPMS/?spm=a2c4g.11186623.2.31.557423bfYPMd6u) 获取适用于 CentOS 8的更多版本。
 >
 ```
 dnf -y install http://nginx.org/packages/centos/8/x86_64/RPMS/nginx-1.18.0-1.el8.ngx.x86_64.rpm
