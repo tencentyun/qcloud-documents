@@ -26,12 +26,12 @@
     - 设备类型：选择“设备”。
     - 认证方式：选择“密钥认证”。
     - 通信方式：选择“LoRaWAN”。
-![](https://main.qcloudimg.com/raw/f4bf52254ad7caeca25e8a496b21a9d1.png)
+![](https://main.qcloudimg.com/raw/e1d8add09289d020a3ea3b9a8e93c501.jpg)
 3. 产品新建成功后，您可在产品列表页查看“LoRa 温湿度传感器”。
 
 #### 创建数据模板
-单击产品名称，进入产品配置页，在【自定义功能】配置项下，单击【新建功能】，自定义产品功能。
-![](https://main.qcloudimg.com/raw/ab908e72c372289da329aac252da51ed.png)
+单击产品名称，进入产品配置页，在【数据模板】的“自定义功能”配置项下，单击【新建功能】，自定义产品功能。
+![](https://main.qcloudimg.com/raw/df88f053e5316049df4ee3f1c68edb71.jpg)
 
 #### 配置 LoRaWAN 参数
 在设备开发页面中，按需调整 LoRaWAN 参数配置。本示例中使用默认的 OTAA 配置。
