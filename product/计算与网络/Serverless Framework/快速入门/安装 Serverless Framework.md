@@ -75,8 +75,8 @@ serverless -v
 ```
 
 ## 相关操作
-**下一步：快速开始**
-   - [部署第一个函数应用]()
-   - [部署第一个 Express 框架应用]()
+下一步：快速开始
+ - [快速部署函数模版](https://cloud.tencent.com/document/product/1154/50938)
+ - [快速创建应用模版](https://cloud.tencent.com/document/product/1154/50933)
 
 
