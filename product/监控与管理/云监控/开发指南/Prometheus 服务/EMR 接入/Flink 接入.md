@@ -38,33 +38,33 @@
 <tr>
 <td>metrics.reporter.promgateway.class</td>
 <td align="center">无</td>
-<td align="center">字符串</td>
+<td align="center" nowrap="nowrap">字符串</td>
 <td>实现 metrics 导出到 push gateway 的 java 类名</td>
 <td>-</td>
 </tr>
 <tr>
-<td>metrics.reporter.promgateway.jobName</td>
+<td>metrics.reporter.promgateway.<br>jobName</td>
 <td align="center">无</td>
 <td align="center">字符串</td>
 <td>push 任务名</td>
 <td>指定方便理解的字符串</td>
 </tr>
 <tr>
-<td>metrics.reporter.promgateway.randomJobNameSuffix</td>
+<td>metrics.reporter.promgateway.<br>randomJobNameSuffix</td>
 <td align="center">true</td>
 <td align="center">布尔</td>
 <td>是否在任务名后添加随机字符串</td>
 <td>要设置为 true，如果不添加 Flink 任务间 metrics 会相互覆盖</td>
 </tr>
 <tr>
-<td>metrics.reporter.promgateway.groupingKey</td>
+<td>metrics.reporter.promgateway.<br>groupingKey</td>
 <td align="center">无</td>
 <td align="center">字符串</td>
 <td>添加到每个 metrics 的全局 label，格式为 k1=v1;k2=v2</td>
 <td>添加 EMR 实例 ID 方便区分不同实例的数据，instance_id=emr-xxx</td>
 </tr>
 <tr>
-<td>metrics.reporter.promgateway.interval</td>
+<td>metrics.reporter.promgateway.<br>interval</td>
 <td align="center">无</td>
 <td align="center">时间</td>
 <td>推送 metrics 的时间间隔，比如 30 SECONDS</td>
@@ -85,7 +85,7 @@
 <td>控制台上 prometheus 实例的服务端口</td>
 </tr>
 <tr>
-<td>metrics.reporter.promgateway.needBasicAuth</td>
+<td>metrics.reporter.promgateway.<br>needBasicAuth</td>
 <td align="center">false</td>
 <td align="center">布尔</td>
 <td>push gateway 服务是否需要认证</td>
@@ -99,14 +99,14 @@
 <td>用户的 APPID</td>
 </tr>
 <tr>
-<td>metrics.reporter.promgateway.password</td>
+<td>metrics.reporter.promgateway.<br>password</td>
 <td align="center">无</td>
 <td align="center">字符串</td>
 <td>认证的密码</td>
 <td>控制台上 prometheus 实例的访问 Token</td>
 </tr>
 <tr>
-<td>metrics.reporter.promgateway.deleteOnShutdown</td>
+<td>metrics.reporter.promgateway.<br>deleteOnShutdown</td>
 <td align="center">true</td>
 <td align="center">布尔</td>
 <td>Flink 任务执行完后是否删除 push gateway 上对应的 metrics</td>
