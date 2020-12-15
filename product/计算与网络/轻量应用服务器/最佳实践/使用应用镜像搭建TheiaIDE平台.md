@@ -140,7 +140,10 @@ Theia IDE 是一套构建基于 Web 的云端 IDE 的开源框架，是一个可
 </ul>
 
 ### 安装 SSL 证书
-可参考 [安装 SSL 证书](https://cloud.tencent.com/document/product/1207/47027) 文档为您的 Theia IDE 实例安装 SSL 证书并开启 HTTPS 访问。其中，Theia IDE 实例无需修改 `/usr/local/lighthouse/softwares/nginx/conf/nginx.conf` 配置文件，仅需修改 `/usr/local/lighthouse/softwares/nginx/conf/include/theia.conf` 配置文件即可。请参考以下配置对文件进行修改：
+可参考 [安装 SSL 证书](https://cloud.tencent.com/document/product/1207/47027) 文档为您的 Theia IDE 实例安装 SSL 证书并开启 HTTPS 访问。
+>!Theia IDE 实例无需修改 `/usr/local/lighthouse/softwares/nginx/conf/nginx.conf` 配置文件，仅需修改 `/usr/local/lighthouse/softwares/nginx/conf/include/theia.conf` 配置文件即可。
+>
+请参考以下配置对文件进行修改：
 ```
 server {
     listen 443 ssl;
