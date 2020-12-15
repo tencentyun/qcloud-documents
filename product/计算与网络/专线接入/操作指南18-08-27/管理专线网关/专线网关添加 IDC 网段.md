@@ -18,18 +18,15 @@
 4. 按需选择以下方式配置 IDC 网段。
  - 手动填写（静态）
     1. 在 “IDC 网段” 页签中单击【添加】。
-     ![](https://main.qcloudimg.com/raw/e6894da99e8ac4bc4fb8aba3f01706b5.png)
+    ![](https://main.qcloudimg.com/raw/6c576ea2f7c6a7c0caa3cd8ebc8aa45d.png)
     2. 在编辑区域填写 IDC 网段，例如本示例中 IDC 网段填写为192.168.0.0/24，单击【保存】。若需添加多个网段，则单击【添加】并重复此步骤。
-    ![](https://main.qcloudimg.com/raw/7a6622da9c9d69708a6e5ae3e11305e1.png)
-    3. （可选）若需传递连通的腾讯云 VPC 信息，则在页面右上角开启【 Community 属性】开关。
-    ![](https://main.qcloudimg.com/raw/1d5ea75799d08694bf3a2c47fe69ad72.png)
+    ![](https://main.qcloudimg.com/raw/2ae4f104d1d50da85739773c4f459894.png)
  - 动态学习（BGP）
   >?BGP 路由目前内测中，若需使用，请提交[ 工单申请](https://console.cloud.tencent.com/workorder/category)。
   >
     1. 单击【BGP 路由】页签。BGP 路由模式下，专线网关将自动学习到 IDC 网段信息，并发送至云联网。更新时间存在一分钟延时，若当前 IDC 网段有更新，请手动刷新页面。
-    ![](https://main.qcloudimg.com/raw/e13374389b8213ba6941a0ac8acb83a7.png)
+    ![](https://main.qcloudimg.com/raw/6a2375196761d04e4345e4a035a72f8e.png)
     2. 在页面上方单击“静态路由”右侧的铅笔图标，并在“编辑云联网学习 IDC 网段路由方式”对话框中选择模式为 【BGP 路由】，单击【确定】。
-    ![](https://main.qcloudimg.com/raw/afdd8e1e4925e18058ec07dfe096c7d6.png)
-    3. （可选）若需传递连通的腾讯云 VPC 信息，则在页面右上角开启【 Community 属性】开关。
-    ![](https://main.qcloudimg.com/raw/85ef415b4e20ad439d4c96871bc896c0.png)
+    ![](https://main.qcloudimg.com/raw/a37b792bf1639eb373ff16741a6ea571.png)
+
 
