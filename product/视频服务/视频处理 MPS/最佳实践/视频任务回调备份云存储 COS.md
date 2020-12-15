@@ -8,7 +8,7 @@
 2. 在函数服务页面上方选择北京地域，并单击【新建】进入新建函数页面。
 3. 设置以下参数信息，如下图所示：
 	- **函数名称**：您可自定义名称，现以“MPSAnalysis”为例。
-	- **运行环境**：本次模板目前仅支持 Python 2.7。
+	- **运行环境**：消息转储模板目前仅支持 Python 2.7。
 	- **创建方式**：选择模板函数。
 	- **模糊搜索**：输入“CLS 消息转储至 COS”，并进行搜索。
 	单击模板中的【查看详情】，即可在弹出的“模板详情”窗口中查看相关信息，支持下载操作。
@@ -18,13 +18,17 @@
 4. 保持默认配置请单击【完成】，即完成函数的创建。
 
 ### 步骤2：配置 MPS 触发器
-1. 在 [触发器](https://console.cloud.tencent.com/scf) 页面，选择【创建触发器】。
-![](https://main.qcloudimg.com/raw/49d63be73d8c3301fce28797026a9858.png)
-2. 在弹出的创建触发器窗口中添加 MPS 触发器。如下图所示：
-![](https://main.qcloudimg.com/raw/ddd374be2000e3e7f3ee9242b0d8ee8b.png)
+1. 在 [云函数控制台](https://console.cloud.tencent.com/scf) 页面，选择左侧导航栏中的【[函数服务](https://console.cloud.tencent.com/scf/list)】，单击对应的函数名后，将跳转至此函数的详情页。
+![](https://main.qcloudimg.com/raw/ac998f631557ea2214d66c2be9faaf5a.png)
+2. 单击【触发管理】>【创建触发器】将弹出的创建触发器窗口，触发方式请选择 “MPS 触发器”。
+![](https://main.qcloudimg.com/raw/e067ef8e3e09c07b723d041193b66c62.png)
 主要参数信息如下，其余配置项请保持默认：
 	- **事件类型**：MPS 触发器以账号维度的事件类型推送 Event 事件，目前支持工作流任务（WorkflowTask）和视频编辑任务（EditMediaTask）两种事件类型触发。
 	- **事件处理**：MPS 触发器以服务维度产生的事件作为事件源，不区分地域、资源等属性。每个账号只允许两类事件分别绑定单个函数。如需多个函数并行处理任务，请参考 [函数间调用 SDK](https://cloud.tencent.com/document/product/583/37316)。
+	>?初次创建 MPS 触发器将提示相关服务角色状态异常，请按提示单击对应服务【SCF_QcsRole】、【MPS_QcsRole】进行授权。
+	>![](https://main.qcloudimg.com/raw/e6a5802db5fe9e054c2c50020f0403b1.png)
+3. 单击【提交】完成创建。
+![](https://main.qcloudimg.com/raw/6a7d7009e36538491683173553b809fd.png)
 
 
 ### 步骤3：测试函数功能
