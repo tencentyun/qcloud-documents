@@ -1,11 +1,13 @@
-在使用 PostgreSQL 过程中都需要对 PostgreSQL 运行状态进行监控，以便了解 PostgreSQL 服务是否运行正常，为什么导致 PostgreSQL 出问题等，云监控 Prometheus 服务提供了基于 Exporter 的方式来监控 PostgreSQL 运行状态，并提供了开箱即用的 Grafana 监控大盘。
+## 操作场景
+
+在使用 PostgreSQL 过程中都需要对 PostgreSQL 运行状态进行监控，以便了解 PostgreSQL 服务是否运行正常，为什么导致 PostgreSQL 出问题等，云监控 Prometheus 服务提供了基于 Exporter 的方式来监控 PostgreSQL 运行状态，并提供了开箱即用的 Grafana 监控大盘。本文介绍如何部署 Exporter 以及实现 PostgreSQL Exporter 告警接入等操作。
 
 
->?为了方便安装管理 Exporter，这里推荐使用腾讯云容器服务来统一管理。
+>?为了方便安装管理 Exporter，推荐使用腾讯云 [容器服务](https://cloud.tencent.com/document/product/457) 进行统一管理。
 
 ## 前提条件
 
-- 在 Proemtheus 实例对应地域及私有网络（VPC）下，创建腾讯云容器服务 [Kubernetes 集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)。
+- 在 Proemtheus 实例对应地域及私有网络 VPC 下，创建腾讯云容器服务 [Kubernetes 集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)。
 - 在【[云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)】 >【选择“对应的 Prometheus 实例”】 >【集成容器服务】中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
 
 
@@ -15,11 +17,12 @@
 
 1. 登录 [容器服务](https://console.cloud.tencent.com/tke2/cluster) 控制台。
 2. 单击需要获取集群访问凭证的集群 ID/名称，进入该集群的管理页面。
-3. 执行以下 [使用 Secret 管理 PostgreSQL 密码](#step1) > [部署 PostgreSQL Exporter](#step2) > [验证](#step3) 步骤完成 Exporter 部署。
+3. 执行以下 [使用 Secret 管理 PostgreSQL 密码](#step1) > [部署 PostgreSQL Exporter](#step2) > [最终运行](#step3) 步骤完成 Exporter 部署。
 
 
 
-#### 使用 Secret 管理 PostgreSQL 密码 
+
+#### 使用 Secret 管理 PostgreSQL 密码[](id:secret) 
 
 1. 在左侧菜单中选择【工作负载】>【Deployment】，进入 Deployment 页面。
 2. 在页面右上角单击【YAML创建资源】，创建 YAML 配置，配置说明如下：
@@ -35,7 +38,7 @@ stringData:
       password: you-guess #对应 PostgreSQL 密码
 ```
 
-#### 部署 PostgreSQL Exporter
+#### 部署 PostgreSQL Exporter[](id:postgresqlexporter) 
 
 在 Deployment 管理页面，单击【新建】，选择对应的**命名空间**来进行部署服务。可以通过控制台的方式创建，如下以 YAML 的方式部署 Exporter，YAML 配置示例如下（`请直接复制下面的内容，根据实际业务调整相应的参数`）:
 
@@ -88,7 +91,7 @@ spec:
 
 #### 参数说明
 
-`DATA_SOURCE_URI`/`DATA_SOURCE_NAME` 连接串 query 部分(`?`之后)支持的参数如下（最新的以 [GoDoc](https://pkg.go.dev/github.com/lib/pq#hdr-Connection_String_Parameters) 为准）：
+`DATA_SOURCE_URI`/`DATA_SOURCE_NAME` 连接串 query 部分（`?`之后）支持的参数如下（最新的以 [GoDoc](https://pkg.go.dev/github.com/lib/pq#hdr-Connection_String_Parameters) 为准）：
 <table>
 <thead>
 <tr>
@@ -138,7 +141,7 @@ spec:
 </tr>
 </tbody></table>
 
-另外 Exporter 也支持其他参数，如下（详见 [README](https://github.com/wrouesnel/postgres_exporter)）：
+另外 Exporter 支持其他参数，如下说明（详情请参见 [README](https://github.com/wrouesnel/postgres_exporter)）：
 
 <table>
 <thead>
@@ -202,9 +205,13 @@ spec:
 
 <span id="way"></span>
 
-### 最终用法
+### 获取指标
 
-通过 `curl http://exporter:9187/metrics` 我们是没法拿到 `Postgres` 实例的运行时间的，那么我们通过自定义一个 `queries.yaml` 来获取该指标，我们创建一个包含 `queries.yaml` 的 [ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) 然后作为一个 Volume 挂载到 Exporter 某个目录下面，然后通过 `--extend.query-path` 来使用这个文件，将之前的 Secret 以及 Deployment 汇总后的一个 `YAML` 如下：
+通过 `curl http://exporter:9187/metrics` 无法获取 `Postgres` 实例运行时间。我们可以通过自定义一个 `queries.yaml` 来获取该指标：
+
+1. 创建一个包含 `queries.yaml` 的 [ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)。
+2. 将 ConfigMap 作为 Volume 挂载到 Exporter 某个目录下面。
+3. 通过 `--extend.query-path` 来使用 ConfigMap，将上述的 [Secret](secret) 以及 [Deployment](#postgresqlexporter) 进行汇总，汇总后的 YAML 如下所示：
 
 ```yaml
 # 注意: 以下 document 创建一个名为 postgres-test 的 Namespace，仅作参考
@@ -296,8 +303,7 @@ spec:
             name: postgres-test-configmap
 ```
 
-通过 `curl http://exporter:9187/metrics` 我们就可以看到通过这个自定义的 `queries.yaml` 查询到Postgres 实例启动时间的指标：
-
+4. 执行 `curl http://exporter:9187/metrics`，即可通过自定义的 `queries.yaml` 查询到 Postgres 实例启动时间指标。示例如下：
 ```
 # HELP pg_postmaster_start_time_seconds Time at which postmaster started
 # TYPE pg_postmaster_start_time_seconds gauge
@@ -308,7 +314,7 @@ pg_postmaster_start_time_seconds{server="x.x.x.x:5432"} 1.605061592e+09
 
 ### 添加采取任务
 
-当我们的 Exporter 运行起来之后，我们需要如下的操作让腾讯云 Prometheus 托管服务发现并采集监控指标：
+当 Exporter 运行起来之后，需要进行以下操作配置腾讯云 Prometheus 托管服务发现并采集监控指标：
 
 1. 登录 [云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
 2. 通过集成容器服务列表点击【集群 ID】进入到容器服务集成管理页面。
@@ -347,7 +353,7 @@ spec:
 
 ### Grafana 大屏可视化
 
-> ?需要使用上述 [最终用法](#way) 配置来获取 Postgres 实例的启动时间。
+> ?需要使用上述 [获取指标](#way) 配置来获取 Postgres 实例的启动时间。
 
 1. 在 [Prometheus 实例](https://console.cloud.tencent.com/monitor/prometheus) 列表，找到对应的  Prometheus 实例，单击 实例ID 右侧【<img src="https://main.qcloudimg.com/raw/978c842f0c093a31df8d5240dd01016d.png" width="2%">】 图标，打开您的专属 Grafana，输入您的账号密码，即可进行 Grafana 可视化大屏操作区。
 2. 进入 Grafana，单击【<img src="https://main.qcloudimg.com/raw/7e3fff6131aa085987552a9725e9ae54.png" width="2%">】图表，展开监控面板，单击对应的监控图表名称即可查看监控数据。
