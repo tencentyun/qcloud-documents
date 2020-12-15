@@ -1,6 +1,6 @@
 ## 操作场景
 
-在使用 PostgreSQL 过程中都需要对 PostgreSQL 运行状态进行监控，以便了解 PostgreSQL 服务是否运行正常，为什么导致 PostgreSQL 出问题等，云监控 Prometheus 服务提供了基于 Exporter 的方式来监控 PostgreSQL 运行状态，并提供了开箱即用的 Grafana 监控大盘。本文介绍如何部署 Exporter 以及实现 PostgreSQL Exporter 告警接入等操作。
+在使用 PostgreSQL 过程中都需要对 PostgreSQL 运行状态进行监控，以便了解 PostgreSQL 服务是否运行正常，排查 PostgreSQL 故障问题原因，云监控 Prometheus 服务提供了基于 Exporter 的方式来监控 PostgreSQL 运行状态，并提供了开箱即用的 Grafana 监控大盘。本文介绍如何部署 Exporter 以及实现 PostgreSQL Exporter 告警接入等操作。
 
 
 >?为了方便安装管理 Exporter，推荐使用腾讯云 [容器服务](https://cloud.tencent.com/document/product/457) 进行统一管理。
@@ -17,12 +17,12 @@
 
 1. 登录 [容器服务](https://console.cloud.tencent.com/tke2/cluster) 控制台。
 2. 单击需要获取集群访问凭证的集群 ID/名称，进入该集群的管理页面。
-3. 执行以下 [使用 Secret 管理 PostgreSQL 密码](#step1) > [部署 PostgreSQL Exporter](#step2) > [最终运行](#step3) 步骤完成 Exporter 部署。
+3. 执行以下 [使用 Secret 管理 PostgreSQL 密码](#step1) > [部署 PostgreSQL Exporter](#step2) > [获取指标](#step3) 步骤完成 Exporter 部署。
 
 
 
 
-#### 使用 Secret 管理 PostgreSQL 密码[](id:secret) 
+#### 使用 Secret 管理 PostgreSQL 密码[](id:step1) 
 
 1. 在左侧菜单中选择【工作负载】>【Deployment】，进入 Deployment 页面。
 2. 在页面右上角单击【YAML创建资源】，创建 YAML 配置，配置说明如下：
@@ -38,7 +38,7 @@ stringData:
       password: you-guess #对应 PostgreSQL 密码
 ```
 
-#### 部署 PostgreSQL Exporter[](id:postgresqlexporter) 
+#### 部署 PostgreSQL Exporter[](id:step2) 
 
 在 Deployment 管理页面，单击【新建】，选择对应的**命名空间**来进行部署服务。可以通过控制台的方式创建，如下以 YAML 的方式部署 Exporter，YAML 配置示例如下（`请直接复制下面的内容，根据实际业务调整相应的参数`）:
 
@@ -205,13 +205,13 @@ spec:
 
 <span id="way"></span>
 
-### 获取指标
+### 获取指标[](id:step3)
 
 通过 `curl http://exporter:9187/metrics` 无法获取 `Postgres` 实例运行时间。我们可以通过自定义一个 `queries.yaml` 来获取该指标：
 
 1. 创建一个包含 `queries.yaml` 的 [ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)。
 2. 将 ConfigMap 作为 Volume 挂载到 Exporter 某个目录下面。
-3. 通过 `--extend.query-path` 来使用 ConfigMap，将上述的 [Secret](secret) 以及 [Deployment](#postgresqlexporter) 进行汇总，汇总后的 YAML 如下所示：
+3. 通过 `--extend.query-path` 来使用 ConfigMap，将上述的 [Secret](#step1) 以及 [Deployment](#step2) 进行汇总，汇总后的 YAML 如下所示：
 
 ```yaml
 # 注意: 以下 document 创建一个名为 postgres-test 的 Namespace，仅作参考
@@ -304,6 +304,7 @@ spec:
 ```
 
 4. 执行 `curl http://exporter:9187/metrics`，即可通过自定义的 `queries.yaml` 查询到 Postgres 实例启动时间指标。示例如下：
+
 ```
 # HELP pg_postmaster_start_time_seconds Time at which postmaster started
 # TYPE pg_postmaster_start_time_seconds gauge
@@ -349,11 +350,11 @@ spec:
       app: postgres
 ```
 
->?更多高阶用法请参见 [ServiceMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#servicemonitor)/[PodMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#podmonitor)。
+>?更多高阶用法请参见 [ServiceMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#servicemonitor) 和 [PodMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#podmonitor)。
 
 ### Grafana 大屏可视化
 
-> ?需要使用上述 [获取指标](#way) 配置来获取 Postgres 实例的启动时间。
+> ?需要使用上述 [获取指标](#step3) 配置来获取 Postgres 实例的启动时间。
 
 1. 在 [Prometheus 实例](https://console.cloud.tencent.com/monitor/prometheus) 列表，找到对应的  Prometheus 实例，单击 实例ID 右侧【<img src="https://main.qcloudimg.com/raw/978c842f0c093a31df8d5240dd01016d.png" width="2%">】 图标，打开您的专属 Grafana，输入您的账号密码，即可进行 Grafana 可视化大屏操作区。
 2. 进入 Grafana，单击【<img src="https://main.qcloudimg.com/raw/7e3fff6131aa085987552a9725e9ae54.png" width="2%">】图表，展开监控面板，单击对应的监控图表名称即可查看监控数据。
@@ -363,4 +364,4 @@ spec:
 
 1. 登录 [云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
 2. 单击告警策略，可以添加相应的告警策略，详情请参见 [新建告警策略](https://cloud.tencent.com/document/product/248/48952)。
-> ?后续我们会提供更多 PostgreSQL 相关的告警模板。
+> ?后续云监控将提供更多 PostgreSQL 相关的告警模板。
