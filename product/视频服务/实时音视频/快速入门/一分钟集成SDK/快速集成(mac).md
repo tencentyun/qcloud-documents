@@ -82,25 +82,24 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 ![](https://main.qcloudimg.com/raw/2b569e1c95bb4c97b7045112d6e3ce9c.png)
 
 ## 引用 TRTC SDK
-项目代码中使用 SDK 有两种方式：
-- 方式一： 在项目需要使用 SDK API 的文件里，添加模块引用。
+TRTC SDK支持两种调用方式，您可以任选一种
+### 一、通过Objective-C或Swift接口引用 TRTC SDK
+Objective-C或Swift代码中使用 SDK 有两种方式：
+- 模块引用： 在项目需要使用 SDK API 的文件里，添加模块引用。
 ```
 @import TXLiteAVSDK_TRTC_Mac;
 ```
-- 方式二：在项目需要使用 SDK API 的文件里，引入具体的头文件。
+- 头文件引用：在项目需要使用 SDK API 的文件里，引入具体的头文件。
 ```
 #import TXLiteAVSDK_TRTC_Mac/TRTCCloud.h
 ```
-
-
-
-## 引用 TRTC SDK（C++接口）
-- 引用头文件：
+### 二、通过C++接口引用 TRTC SDK
+1、引用头文件：
 如果您要使用C++接口来开发iOS应用，请引用TXLiteAVSDK_TRTC.framework/Headers/cpp_interface目录下的头文件
 ```
-#include TXLiteAVSDK_TRTC/cpp_interface/ITRTCCloud.h
+#include TXLiteAVSDK_TRTC_Mac/cpp_interface/ITRTCCloud.h
 ```
-- 使用命名空间：
+2、使用命名空间：
 C++全平台接口（除Windows平台）的接口、类型等均定义在trtc命名空间中，为了让代码更加简洁，建议您直接使用trtc命名空间
 ```
 using namespace trtc;
