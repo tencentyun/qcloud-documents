@@ -43,4 +43,4 @@
 ![](https://main.qcloudimg.com/raw/2821a37a7b766da09c1b6b3f995b32b4.png)
 3. 单击对应的监控图表名称即可查看监控数据。
 ![](https://main.qcloudimg.com/raw/8d9c88d74a9fc1732145040f6df3954f.png)
->?如需了解 Grafana 更多操作说明请参见 [Grafana 官网使用手册](https://grafana.com/docs/grafana/latest/getting-started/what-is-grafana)。
+>?如需了解 Grafana 更多操作说明，请参见 [Grafana 官网使用手册](https://grafana.com/docs/grafana/latest/getting-started/what-is-grafana)。
