@@ -1,3 +1,5 @@
+## 操作场景
+
 在使用 Flink 过程中需要对 Flink 任务运行状态进行监控，以便了解 Flink 任务是否正常运行，排查 Flink 故障等。云监控的 Prometheus 服务对 push gateway 做了集成，支持 Flink 写入 metrics，并提供了开箱即用的 Grafana 监控大盘。
 
 
@@ -7,18 +9,17 @@
 2. 在 Prometheus 实例对应地域及私有网络 VPC 下，创建腾讯云容器服务 [托管版集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)。
 
 
+## 操作步骤
+### 产品接入
 
-## 产品接入
+#### 获取 PushGateway 访问配置
 
-### 获取 PushGateway 访问配置
-
-
-1. 从实例基本信息页获取 Pushgateway 地址和 Token，从 [账号信息](https://console.cloud.tencent.com/developer) 页面获取 APPID。
-
-![](https://main.qcloudimg.com/raw/18db1ecae32baa8afb99a07394ca7483.png)
+1. 前往【[弹性 MapReduce](https://console.cloud.tencent.com/emr)】>【实例基本信息】页面，获取 Pushgateway 地址和 Token，
+![](https://main.qcloudimg.com/raw/1853a917832e275511cfc7c537815941.png)
+2. 在 [账号信息](https://console.cloud.tencent.com/developer) 页面获取 APPID。
 
 
-### 修改 Flink 配置
+#### 修改 Flink 配置
 
 1. 选择要监控的 EMR 实例，依次选择集群服务-> Flink 操作->配置管理进入配置管理页
 ![](https://main.qcloudimg.com/raw/fe0aa3f27746ec8ebb791dccb2110b19.png)
@@ -127,7 +128,7 @@ metrics.reporter.promgateway.user: appid
 metrics.reporter.promgateway.password: token
 ```
 
-### 安装 Flink PushGateway 插件
+#### 安装 Flink PushGateway 插件
 
 官方包中的 push gateway 插件目前还不支持配置认证信息，但是托管服务需要认证才允许写入，建议使用我们提供的 jar 包。我们也向 flink 官方提交了支持认证的 PR。
 为防止类冲突，如果已经使用 Flink 官方插件，需要先删除。
@@ -144,7 +145,7 @@ cd /usr/local/service/flink/lib
 wget https://rig-1258344699.cos.ap-guangzhou.myqcloud.com/flink/flink-metrics-prometheus_2.11-auth.jar -O flink-metrics-prometheus_2.11-auth.jar
 ```
 
-### 验证
+#### 验证
 
 在 Master 节点上执行`flink run`命令提交新任务，查看任务日志。
 ```plaintext
@@ -156,29 +157,21 @@ grep metrics /usr/local/service/flink/log/flink-hadoop-client-*.log
 注意集群中已经提交的任务，由于使用的是老配置文件，不会上报 metrics。
 
 
-## 查看监控
+### 查看监控
 1. 在对应 Prometheus 实例 >【集成中心】中找到 `Flink` 监控，安装对应的 Grafana Dashboard 即可开启 Flink 监控大盘。
 2. 进入 Grafana，单击【<img src="https://main.qcloudimg.com/raw/84bd9a98b230d2ebc32bfac82a108a87.png" height=16/>】展开 Flink 监控面板, 点击 Flink Job List 查看监控。
-
 ![](https://main.qcloudimg.com/raw/61741ec36dbbd56a6bb3c9072aa6f23f.png)
-
 ![](https://main.qcloudimg.com/raw/c37df281f6dbf8fea48df0de309e8be4.png)
-
 3. 点击表格中的 Job 名或 Job ID 列值查看 Job 监控详情。
-
 ![](https://main.qcloudimg.com/raw/698fcea0aa974550aaaed11b96cab0d8.png)
-
 4. 点击右上角的`Flink 集群`，查看 Flink 集群监控。
-
 ![](https://main.qcloudimg.com/raw/490df5dd2b54ab5abfc05abc9295bcb4.png)
-
 5. 点击表格中的 Task 名列值查看 Task 监控详情。
-
 ![](https://main.qcloudimg.com/raw/8548259642643ca56bae8847b54d7ef3.png)
 
 
 
 
-## 告警接入
+### 告警接入
 
 在 [Prometheus 实例](https://console.cloud.tencent.com/monitor/prometheus) 列表，找到对应的  Prometheus 实例，点击实例进入实例详情，点击告警策略，可以添加相应的告警策略。
