@@ -1,5 +1,6 @@
 ## 操作场景
-EKS 日志采集功能可以将集群内服务的日志发送至 Kafka 或者 [腾讯云日志服务（CLS）](https://cloud.tencent.com/product/cls)，适用于需要对 EKS 集群内服务日志进行存储和分析的用户。本文介绍如何使用弹性容器服务（EKS）提供的集群内日志采集功能。
+EKS 日志采集功能可以将集群内服务的日志发送至 [腾讯云日志服务 CLS](https://cloud.tencent.com/product/cls)、[CKafka](https://cloud.tencent.com/product/ckafka) 或用户自建 Kafka，适用于需要对 EKS 集群内服务日志进行存储和分析的用户。本文介绍如何使用弹性容器服务 EKS 提供的集群内日志采集功能。
+
 
 EKS 日志采集功能需要在创建工作负载时为每个弹性集群手动开启。您可根据以下操作开启日志采集功能：
   - [配置日志采集](#output)
@@ -63,9 +64,18 @@ EKS 日志采集功能采集到的日志信息将会以 JSON 格式输出到您�
 <span id="output2"></span>
 ### 配置日志消费端 
 EKS 日志采集功能支持指定用户自建的 Kafka 实例、日志服务 CLS 指定的日志主题作为日志内容的消费端。日志采集 Agent 会将采集到的日志发送到指定 Kafka 的指定 Topic 或指定的 CLS 日志主题。
+
+
+
 #### 配置 Kafka 作为日志消费端 <span id="step2"></span> 
-选择 Kafka 作为日志采集的消费端，填写 Kafka 的 Broker 地址及 Topic，需要保证集群内所有资源都能够访问用户指定的 Kafka Topic。如下图所示：
+选择 Kafka 作为日志采集的消费端，推荐使用 CKafka，消费、生产方式与原生版体验一致，并支持配置告警。
+在容器配置中填写 Kafka 的 Broker 地址及 Topic，需要保证集群内所有资源都能够访问用户指定的 Kafka Topic。如下图所示：
 ![](https://main.qcloudimg.com/raw/2a226f61d5db3a048f804e83d3f0debb.png)
+>! Kafka 的 Topic 配置中 `cleanup.policy` 参数需选择 delete，选择 compact 会导致 CLS 无法上报到 Kafka 而造成数据丢失。如下图所示：
+![](https://main.qcloudimg.com/raw/c3f3a6f892b9c07cb24f7e210db5f80e.png)
+
+
+
 #### 配置 CLS 作为日志消费端<span id="step1"></span> 
 - 日志服务 CLS 目前只能支持同地域的容器集群进行日志采集上报。详情请参见 [创建日志集和日志主题](https://cloud.tencent.com/document/product/614/34340)。
 - 打开日志主题的【日志索引】。如下图所示：
@@ -150,134 +160,137 @@ labels:
 
   **方式2：通过密钥采集日志到 cls**<span id="b"></span>  
 #### 创建 secret<span id="z"></span>
-通过 kubectl 执行以下命令，获取进行 base64编码的 secretid 和 secretkey，详情请参考 [secret 管理](https://cloud.tencent.com/document/product/457/31718)。  
-其中，secretid 及 secretkey 请替换为您实际使用的 secretid 和 secretkey。
+>! 以下示例为通过 yaml 手动创建 secret。如通过控制台创建 secret，则不需要进行64编码，详情请参考 [secret 管理](https://cloud.tencent.com/document/product/457/31718)。
+>
+通过 kubectl 执行以下命令，获取进行 base64编码的 secretid 和 secretkey。其中，secretid 及 secretkey 请替换为您实际使用的 secretid 和 secretkey。
 ```shell
 $ echo -n 'secretid' | base64
 c2VjcmV0aWQ=
 $ echo -n 'secretkey' | base64
 c2VjcmV0a2V5
 ```
-通过 yaml 创建 secret。secretid 及 secretkey 请使用在 [创建 secret](#z) 步骤中获取的值进行填写。
+通过 yaml 手动创建 secret。secretid 及 secretkey 请使用在 [创建 secret](#z) 步骤中获取的值进行填写。
 ```shell
 apiVersion: v1
 kind: Secret
 metadata:
-  name: secretidkey
+   name: secretidkey
 data:
-  secretid: c2VjcmV0aWQ=
-  secretkey: c2VjcmV0a2V5
+   secretid: 
+   secretkey: 
 ```
+
 #### 创建deployment
 通过增加环境变量开启日志采集。
 ```shell
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "1"
-  labels:
-    k8s-app: cls
-    qcloud-app: cls
-  name: cls
-  namespace: default
+   annotations:
+     deployment.kubernetes.io/revision: "1"
+   labels:
+     k8s-app: cls
+     qcloud-app: cls
+   name: cls
+   namespace: default
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      k8s-app: cls
-      qcloud-app: cls
-  template:
-    metadata:
-      annotations:
-        eks.tke.cloud.tencent.com/cpu: "0.25"
-        eks.tke.cloud.tencent.com/mem: "0.5Gi"
-      labels:
-        k8s-app: cls
-        qcloud-app: cls
-    spec:
-      containers:
-      - env:
-        - name: EKS_LOGS_OUTPUT_TYPE
-          value: cls
-        - name: EKS_LOGS_LOGSET_NAME
-          value: eks
-        - name: EKS_LOGS_TOPIC_ID
-          value: 617c8270-e8c8-46e2-a90b-d94c4bebe519
-        - name: EKS_LOGS_SECRET_ID
-          valueFrom:
-            secretKeyRef:
-              name: secretidkey
-              key: secretid
-        - name: EKS_LOGS_SECRET_KEY
-          valueFrom:
-            secretKeyRef:
-              name: secretidkey
-              key: secretkey
-        - name: EKS_LOGS_LOG_PATHS
-          value: stdout,/tmp/busy*.log
-        - name: EKS_LOGS_METADATA_ON
-          value: "true"
-        image: busybox:latest
-        command: ["/bin/sh"]
-        args: ["-c", "while true; do echo hello world; date; echo hello >> /tmp/busy.log; sleep 1; done"]
-        imagePullPolicy: Always
-        name: hello
-      - env:
-        - name: EKS_LOGS_OUTPUT_TYPE
-          value: cls
-        - name: EKS_LOGS_LOGSET_NAME
-          value: eks
-        - name: EKS_LOGS_TOPIC_ID
-          value: 617c8270-e8c8-46e2-a90b-d94c4bebe519
-        - name: EKS_LOGS_SECRET_ID
-          valueFrom:
-            secretKeyRef:
-              name: secretidkey
-              key: secretid
-        - name: EKS_LOGS_SECRET_KEY
-          valueFrom:
-            secretKeyRef:
-              name: secretidkey
-              key: secretkey
-        - name: EKS_LOGS_LOG_PATHS
-          value: stdout,/tmp/busy*.log
-        - name: EKS_LOGS_METADATA_ON
-          value: "true"
-        image: busybox:latest
-        command: ["/bin/sh"]
-        args: ["-c", "while true; do echo hello world; date; echo hello >> /tmp/busy.log; sleep 1; done"]
-        imagePullPolicy: Always
-        name:world
+   replicas: 1
+   selector:
+     matchLabels:
+       k8s-app: cls
+       qcloud-app: cls
+   template:
+     metadata:
+       annotations:
+         eks.tke.cloud.tencent.com/cpu: "0.25"
+         eks.tke.cloud.tencent.com/mem: "0.5Gi"
+       labels:
+         k8s-app: cls
+         qcloud-app: cls
+     spec:
+       containers:
+       - env:
+         - name: EKS_LOGS_OUTPUT_TYPE
+           value: cls
+         - name: EKS_LOGS_LOGSET_NAME
+           value: eks
+         - name: EKS_LOGS_TOPIC_ID
+           value: 617c8270-e8c8-46e2-a90b-d94c4bebe519
+         - name: EKS_LOGS_SECRET_ID
+           valueFrom:
+             secretKeyRef:
+               name: secretidkey
+               key: secretid
+         - name: EKS_LOGS_SECRET_KEY
+           valueFrom:
+             secretKeyRef:
+               name: secretidkey
+               key: secretkey
+         - name: EKS_LOGS_LOG_PATHS
+           value: stdout,/tmp/busy*.log
+         - name: EKS_LOGS_METADATA_ON
+           value: "true"
+         image: busybox:latest
+         command: ["/bin/sh"]
+         args: ["-c", "while true; do echo hello world; date; echo hello >> /tmp/busy.log; sleep 1; done"]
+         imagePullPolicy: Always
+         name: hello
+       - env:
+         - name: EKS_LOGS_OUTPUT_TYPE
+           value: cls
+         - name: EKS_LOGS_LOGSET_NAME
+           value: eks
+         - name: EKS_LOGS_TOPIC_ID
+           value: 617c8270-e8c8-46e2-a90b-d94c4bebe519
+         - name: EKS_LOGS_SECRET_ID
+           valueFrom:
+             secretKeyRef:
+               name: secretidkey
+               key: secretid
+         - name: EKS_LOGS_SECRET_KEY
+           valueFrom:
+             secretKeyRef:
+               name: secretidkey
+               key: secretkey
+         - name: EKS_LOGS_LOG_PATHS
+           value: stdout,/tmp/busy*.log
+         - name: EKS_LOGS_METADATA_ON
+           value: "true"
+         image: busybox:latest
+         command: ["/bin/sh"]
+         args: ["-c", "while true; do echo hello world; date; echo hello >> /tmp/busy.log; sleep 1; done"]
+         imagePullPolicy: Always
+         name:world
 ```
+
 **字段说明：**
 <table>
-	<tr>
-		<th>字段名</th> <th>含义</th>
-	</tr>
-	<tr>
-		<td>EKS_LOGS_OUTPUT_TYPE</td> <td>消费端支持 kafka 和 cls，根据该 key 判断是否启用日志收集。</td>
-	</tr>
-	<tr>
-		<td>EKS_LOGS_LOG_PATHS</td> <td>日志路径，支持 stdout（表示采集标准输出）和绝对路径，支持 * 通配，多个路径用“,”分隔。</td>
-	</tr>
-	<tr>
-		<td>EKS_LOGS_METADATA_ON</td> <td>支持 true 或 false。不填写则默认为 true。</td>
-	</tr>
-	<tr>
-		<td>EKS_LOGS_LOGSET_NAME</td> <td>CLS 日志集名称。</td>
-	</tr>
-	<tr>
-		<td>EKS_LOGS_TOPIC_ID</td> <td>CLS 日志集的主题 ID。</td>
-	</tr>
-	</tr>
-	<td>EKS_LOGS_SECRET_ID</td> <td>SecretId。</td>
-	</tr>
-	<tr>
-		<td>EKS_LOGS_SECRET_KEY</td> <td>SecretKey。</td>
-	</tr>
-	</tr>
+<tr>
+<th>字段名</th> <th>含义</th>
+</tr>
+<tr>
+<td>EKS_LOGS_OUTPUT_TYPE</td> <td>消费端支持 kafka 和 cls，根据该 key 判断是否启用日志收集。</td>
+</tr>
+<tr>
+<td>EKS_LOGS_LOG_PATHS</td> <td>日志路径，支持 stdout（表示采集标准输出）和绝对路径，支持 * 通配，多个路径用“,”分隔。</td></tr>
+<tr>
+<td>EKS_LOGS_METADATA_ON</td> <td>支持 true 或 false。不填写则默认为 true。</td>
+</tr>
+<tr>
+<td>EKS_LOGS_LOGSET_NAME</td> <td>CLS 日志集名称。</td>
+</tr>
+<tr>
+	<td>EKS_LOGS_TOPIC_ID</td> <td>CLS 日志集的主题 ID。</td>
+</tr>
+</tr>
+<td>EKS_LOGS_SECRET_ID</td> <td>SecretId。</td>
+</tr>
+<tr>
+<td>EKS_LOGS_SECRET_KEY</td> <td>SecretKey。</td>
+</tr>
+</tr>
 </table>
+
 
   **方式3：通过角色采集日志到 cls**<span id="c"></span>
 #### 创建角色  
@@ -294,62 +307,62 @@ template:
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "1"
-  labels:
-    k8s-app: cls
-    qcloud-app: cls
-  name: cls
-  namespace: default
+   annotations:
+     deployment.kubernetes.io/revision: "1"
+   labels:
+     k8s-app: cls
+     qcloud-app: cls
+   name: cls
+   namespace: default
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      k8s-app: cls
-      qcloud-app: cls
-  template:
-    metadata:
-      annotations:
-        eks.tke.cloud.tencent.com/cpu: "0.25"
-        eks.tke.cloud.tencent.com/mem: "0.5Gi"
-        eks.tke.cloud.tencent.com/role-name: "eks-pushlog"
-      labels:
-        k8s-app: cls
-        qcloud-app: cls
-    spec:
-      containers:
-      - env:
-        - name: EKS_LOGS_OUTPUT_TYPE
-          value: cls
-        - name: EKS_LOGS_LOGSET_NAME
-          value: eks
-        - name: EKS_LOGS_TOPIC_ID
-          value: 617c8270-e8c8-46e2-a90b-d94c4bebe519
-        - name: EKS_LOGS_LOG_PATHS
-          value: stdout,/tmp/busy*.log
-        - name: EKS_LOGS_METADATA_ON
-          value: "true"
-        image: busybox:latest
-        command: ["/bin/sh"]
-        args: ["-c", "while true; do echo hello world; date; echo hello >> /tmp/busy.log; sleep 1; done"]
-        imagePullPolicy: Always
-        name: hello
-      - env:
-        - name: EKS_LOGS_OUTPUT_TYPE
-          value: cls
-        - name: EKS_LOGS_LOGSET_NAME
-          value: eks
-        - name: EKS_LOGS_TOPIC_ID
-          value: 617c8270-e8c8-46e2-a90b-d94c4bebe519
-        - name: EKS_LOGS_LOG_PATHS
-          value: stdout,/tmp/busy*.log
-        - name: EKS_LOGS_METADATA_ON
-          value: "true"
-        image: busybox:latest
-        command: ["/bin/sh"]
-        args: ["-c", "while true; do echo hello world; date; echo hello >> /tmp/busy.log; sleep 1; done"]
-        imagePullPolicy: Always
-        name: world
+   replicas: 1
+   selector:
+     matchLabels:
+       k8s-app: cls
+       qcloud-app: cls
+   template:
+     metadata:
+       annotations:
+         eks.tke.cloud.tencent.com/cpu: "0.25"
+         eks.tke.cloud.tencent.com/mem: "0.5Gi"
+         eks.tke.cloud.tencent.com/role-name: "eks-pushlog"
+       labels:
+         k8s-app: cls
+         qcloud-app: cls
+     spec:
+       containers:
+       - env:
+         - name: EKS_LOGS_OUTPUT_TYPE
+           value: cls
+         - name: EKS_LOGS_LOGSET_NAME
+           value: eks
+         - name: EKS_LOGS_TOPIC_ID
+           value: 617c8270-e8c8-46e2-a90b-d94c4bebe519
+         - name: EKS_LOGS_LOG_PATHS
+           value: stdout,/tmp/busy*.log
+         - name: EKS_LOGS_METADATA_ON
+           value: "true"
+         image: busybox:latest
+         command: ["/bin/sh"]
+         args: ["-c", "while true; do echo hello world; date; echo hello >> /tmp/busy.log; sleep 1; done"]
+         imagePullPolicy: Always
+         name: hello
+       - env:
+         - name: EKS_LOGS_OUTPUT_TYPE
+           value: cls
+         - name: EKS_LOGS_LOGSET_NAME
+           value: eks
+         - name: EKS_LOGS_TOPIC_ID
+           value: 617c8270-e8c8-46e2-a90b-d94c4bebe519
+         - name: EKS_LOGS_LOG_PATHS
+           value: stdout,/tmp/busy*.log
+         - name: EKS_LOGS_METADATA_ON
+           value: "true"
+         image: busybox:latest
+         command: ["/bin/sh"]
+         args: ["-c", "while true; do echo hello world; date; echo hello >> /tmp/busy.log; sleep 1; done"]
+         imagePullPolicy: Always
+         name: world
 ```
 **字段说明：**
 <table>
