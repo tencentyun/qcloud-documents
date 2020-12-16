@@ -28,7 +28,7 @@ Dynamic Scheduler 是容器服务 TKE 基于 Kubernetes 原生 Kube-scheduler Ex
 
 ### 集群负载不均
 
-Kubernetes 原生调度器大部分基于 Pod Request 资源进行调度，并无根据 Node 当前和过去一段时间的真实负载情况进行相关调度的决策，因此可能会导致如下问题：
+Kubernetes 原生调度器大部分基于 Pod Request 资源进行调度，并不具备根据 Node 当前和过去一段时间的真实负载情况进行相关调度的决策，因此可能会导致如下问题：
 集群内部分节点的剩余可调度资源较多（根据节点上运行的 Pod 的 request 和 limit 计算出的值）但真实负载却比较高，而另外节点的剩余可调度资源比较少但真实负载却比较低，此时 Kube-scheduler 会优先将 Pod 调度到剩余资源比较多的节点上（根据 LeastRequestedPriority 策略）。
 
 如下图所示，Kube-Scheduler 会将 Pod 调度到 Node2 上，但明显调度到 Node1（真实负载水位更低）是更优的选择。
@@ -41,6 +41,13 @@ Kubernetes 原生调度器大部分基于 Pod Request 资源进行调度，并�
 - 如果节点在过去1分钟调度了超过2个 Pod，则优选评分减去1分。
 - 如果节点在过去5分钟调度了超过5个 Pod，则优选评分减去1分。
 
+
+## 风险控制
+
+- 该组件已对接 TKE 的监控告警体系。
+- 推荐您为集群开启事件持久化，以便更好的监控组件异常以及故障定位。
+
+
 ## 限制条件
 
 - TKE 版本建议 ≥ v1.10.x
@@ -49,7 +56,76 @@ Kubernetes 原生调度器大部分基于 Pod Request 资源进行调度，并�
 	- 对于独立集群，master 版本升级会重置 master 上所有组件的配置，从而影响到 Dynamic Scheduler 插件作为 Scheduler Extender 的配置，因此 Dynamic Scheduler 插件需要卸载后再重新安装。
 
 
-## 依赖部署[](id:Dynamic)
+
+
+## 组件原理
+
+动态调度器基于 scheduler extender 扩展机制，从 Prometheus 监控数据中获取节点负载数据，开发基于节点实际负载的调度策略，在调度预选和优选阶段进行干预，优先将 Pod 调度到低负载节点上。该组件由 node-annotator 和 Dynamic-scheduler 构成。
+
+### node-annotator
+
+node-annotator 组件负责定期从监控中拉取节点负载 metric，同步到节点的 annotation。如下图所示：
+![](https://main.qcloudimg.com/raw/7becb88fec8434b56c06eafc95c50801.png)
+
+### Dynamic-scheduler
+
+Dynamic-scheduler 是一个 scheduler-extender，根据 node annotation 负载数据，在节点预选和优选中进行过滤和评分计算。
+
+#### 预选策略
+
+为了避免 Pod 调度到高负载的 Node 上，需要先通过预选过滤部分高负载的 Node（其中过滤策略和比例可以动态配置，具体请参见本文 [组件参数说明](#parameter)）。
+如下图所示，Node2 过去5分钟的负载，Node3 过去1小时的负载均超过对应的域值，因此不会参与接下来的优选阶段。如下图所示：
+![](https://main.qcloudimg.com/raw/e985adff60f7183d0762e9be4fc36223.png)
+
+#### 优选策略
+
+同时为了使集群各节点的负载尽量均衡，Dynamic-scheduler 会根据 Node 负载数据进行打分，负载越低打分越高。
+如下图所示，Node1 的打分最高将会被优先调度（其中打分策略和权重可以动态配置，具体请参见本文 [组件参数说明](#parameter)）。如下图所示：
+![](https://main.qcloudimg.com/raw/eb0bb844e6cd74827037354b0a98fe4e.png)
+
+## 组件参数说明[](id:parameter)
+
+### Prometheus 数据查询地址
+
+
+>!
+>- 为确保组件可以拉取到所需的监控数据、调度策略生效，请按照【[依赖部署](#Dynamic)】>【[Prometheus 规则配置](#Prometheus1)】步骤配置监控数据采集规则。
+>- 预选和优选参数已设置默认值，如您无额外需求，可直接采用。
+
+
+- 如果使用自建 Prometheus，直接填入数据查询 URL（HTTP/HTTPS）即可。
+- 如果使用托管 Prometheus，选择托管实例 ID 即可，系统会自动解析实例对应的数据查询 URL。
+
+
+
+### 预选参数
+
+| 预选参数默认值                        | 说明                                                         |
+| ----------------------------- | ------------------------------------------------------------ |
+| 5分钟平均 **CPU** 利用率阈值  | 节点过去5分钟**平均** CPU 利用率超过设定阈值，不会调度 Pod 到该节点上。 |
+| 1小时最大 **CPU** 利用率阈值  | 节点过去1小时**最大** CPU 利用率超过设定阈值，不会调度 Pod 到该节点上。 |
+| 5分钟平均**内存**利用率阈值   | 节点过去5分钟**平均**内存利用率超过设定阈值，不会调度 Pod 到该节点上。 |
+| 1小时最大**内存**利用率阈值 | 节点过去1小时**最大**内存利用率超过设定阈值，不会调度 Pod 到该节点上。 |
+
+
+### 优选参数
+
+| 优选参数默认值              | 说明                                                         |
+| --------------------------- | ------------------------------------------------------------ |
+| 5分钟平均 **CPU** 利用率权重  | 该权重越大，过去5分钟节点**平均** CPU 利用率对节点的评分影响越大。 |
+| 1小时最大 **CPU** 利用率权重  | 该权重越大，过去1小时节点**最大** CPU 利用率对节点的评分影响越大。 |
+| 1天最大 **CPU** 利用率权重    | 该权重越大，过去1天内节点**最大** CPU 利用率对节点的评分影响越大。 |
+| 5分钟平均**内存**利用率权重 | 该权重越大，过去5分钟节点**平均**内存利用率对节点的评分影响越大。 |
+| 1小时最大**内存**利用率权重 | 该权重越大，过去1小时节点**最大**内存利用率对节点的评分影响越大。 |
+| 1天最大**内存**利用率权重   | 该权重越大，过去1天内节点**最大**内存利用率对节点的评分影响越大。 |
+
+
+
+
+
+
+## 操作步骤
+### 依赖部署[](id:Dynamic)
 
 Dynamic Scheduler 动态调度器依赖于 Node 当前和过去一段时间的真实负载情况来进行调度决策，需通过 Prometheus 等监控组件获取系统 Node 真实负载信息。在使用动态调度器之前，需要部署 Prometheus 等监控组件。在容器服务 TKE 中，您可按需选择采用自建的 Prometheus 监控服务或采用 TKE 推出的云原生监控。
 
@@ -115,11 +191,11 @@ rule_files:
 >?通常情况下，上述 Prometheus 配置文件和 rules 配置文件都是通过 configmap 存储，再挂载到 Prometheus server 容器，因此修改相应的 configmap 即可。
 
 :::
-::: 云原生监控Prometheus
+::: 云原生监控 Prometheus
 1. 登录容器服务控制台，在左侧菜单栏中选择【[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)】，进入“云原生监控”页面。
-2. 创建与 Cluster 处于同一 VPC 下的 [云原生监控 Prometheus 实例](https://cloud.tencent.com/document/product/457/49889#.E5.88.9B.E5.BB.BA.E7.9B.91.E6.8E.A7.E5.AE.9E.E4.BE.8B)，并 [关联用户集群](https://cloud.tencent.com/document/product/457/49890)。
+2. 创建与 Cluster 处于同一 VPC 下的 [云原生监控 Prometheus 实例](https://cloud.tencent.com/document/product/457/49889#.E5.88.9B.E5.BB.BA.E7.9B.91.E6.8E.A7.E5.AE.9E.E4.BE.8B)，并 [关联用户集群](https://cloud.tencent.com/document/product/457/49890)。如下图所示：
 	 ![](https://main.qcloudimg.com/raw/bafb027663fbb3f2a5063531743c2e97.jpg)
-2. 与原生托管集群关联后，可以在用户集群查看到每个节点都已安装 node-exporter。
+2. 与原生托管集群关联后，可以在用户集群查看到每个节点都已安装 node-exporter。如下图所示：
    ![](https://main.qcloudimg.com/raw/e35d4af7eeba15f6d9da62ce79176904.png)
 3. 设置 Prometheus 聚合规则，具体规则内容与上述 [自建Prometheus监控服务](#Dynamic) 中的“聚合规则配置”相同。如下图所示：
 	 ![](https://main.qcloudimg.com/raw/6791fb38c0de47a5d232fe3d8eaa3908.png)
@@ -130,77 +206,9 @@ rule_files:
 
 
 
+### 安装组件
 
 
-## 组件原理
-
-动态调度器基于 scheduler extender 扩展机制，从 Prometheus 监控数据中获取节点负载数据，开发基于节点实际负载的调度策略，在调度预选和优选阶段进行干预，优先将 Pod 调度到低负载节点上。该组件由 node-annotator 和 Dynamic-scheduler 构成。
-
-### node-annotator
-
-node-annotator 组件负责定期从监控中拉取节点负载 metric，同步到节点的 annotation。
-![](https://main.qcloudimg.com/raw/7becb88fec8434b56c06eafc95c50801.png)
-
-### Dynamic-scheduler
-
-Dynamic-scheduler 是一个 scheduler-extender，根据 node annotation 负载数据，在节点预选和优选中进行过滤和评分计算。
-
-#### 预选策略
-
-为了避免 Pod 调度到高负载的 Node 上，需要先通过预选过滤部分高负载的 Node（其中过滤策略和比例可以动态配置，具体请参见本文 [组件参数说明](#parameter)）。
-如下图所示，Node2 过去5分钟的负载，Node3 过去1小时的负载均超过对应的域值，因此不会参与接下来的优选阶段。
-![](https://main.qcloudimg.com/raw/e985adff60f7183d0762e9be4fc36223.png)
-
-#### 优选策略
-
-同时为了使集群各节点的负载尽量均衡，Dynamic-scheduler 会根据 Node 负载数据进行打分，负载越低打分越高。
-如下图所示，Node1 的打分最高将会被优先调度（其中打分策略和权重可以动态配置，具体请参见本文 [组件参数说明](#parameter)）。
-![](https://main.qcloudimg.com/raw/eb0bb844e6cd74827037354b0a98fe4e.png)
-
-## 组件参数说明[](id:parameter)
-
-### Prometheus 数据查询地址
-
-
->!为确保组件可以拉取到所需的监控数据、调度策略生效，请按照【[依赖部署](#Dynamic)】>【[Prometheus 规则配置](#Prometheus1)】步骤配置监控数据采集规则。
-
-
-- 如果使用自建 Prometheus，直接填入数据查询 URL（HTTP/HTTPS）即可。
-- 如果使用托管 Prometheus，选择托管实例 ID 即可，系统会自动解析实例对应的数据查询 URL。
-
-
->?预选和优选参数已设置默认值，如您无额外需求，可直接采用。
-
-### 预选参数
-
-| 预选参数默认值                        | 说明                                                         |
-| ----------------------------- | ------------------------------------------------------------ |
-| 5分钟平均 **CPU** 利用率阈值  | 节点过去5分钟**平均** CPU 利用率超过设定阈值，不会调度 Pod 到该节点上。 |
-| 1小时最大 **CPU** 利用率阈值  | 节点过去1小时**最大** CPU 利用率超过设定阈值，不会调度 Pod 到该节点上。 |
-| 5分钟平均**内存**利用率阈值   | 节点过去5分钟**平均**内存利用率超过设定阈值，不会调度 Pod 到该节点上。 |
-| 1小时最大**内存**利用率阈值 | 节点过去1小时**最大**内存利用率超过设定阈值，不会调度 Pod 到该节点上。 |
-
-
-### 优选参数
-
-| 优选参数默认值              | 说明                                                         |
-| --------------------------- | ------------------------------------------------------------ |
-| 5分钟平均 **CPU** 利用率权重  | 该权重越大，过去5分钟节点**平均** CPU 利用率对节点的评分影响越大。 |
-| 1小时最大 **CPU** 利用率权重  | 该权重越大，过去1小时节点**最大** CPU 利用率对节点的评分影响越大。 |
-| 1天最大 **CPU** 利用率权重    | 该权重越大，过去1天内节点**最大** CPU 利用率对节点的评分影响越大。 |
-| 5分钟平均**内存**利用率权重 | 该权重越大，过去5分钟节点**平均**内存利用率对节点的评分影响越大。 |
-| 1小时最大**内存**利用率权重 | 该权重越大，过去1小时节点**最大**内存利用率对节点的评分影响越大。 |
-| 1天最大**内存**利用率权重   | 该权重越大，过去1天内节点**最大**内存利用率对节点的评分影响越大。 |
-
-
-
-
-## 风险控制
-
-- 该组件已对接 TKE 的监控告警体系。
-- 推荐您为集群开启事件持久化，以便更好的监控组件异常以及故障定位。
-
-## 操作步骤
 1. 按照 [依赖部署](#Dynamic) 部署 Prometheus、Node-Exporter，并配置好 Prometheus Rule。
 2. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster)，选择左侧导航栏中的【集群】。
 3. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
