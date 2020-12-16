@@ -60,7 +60,7 @@ Dynamic Scheduler 动态调度器依赖于 Node 当前和过去一段时间的�
 通过 node-exporter 实现对 Node 指标的监控，用户可以根据业务需求部署 node-exporter 和 prometheus。
 
 
-#### 聚合规则配置[](id:rules)
+#### 聚合规则配置[](id:Prometheus1)
 
 在 node-exporter 获取节点监控数据后，需要通过 Prometheus 对原始的 node-exporter 采集数据进行聚合计算。为了获取动态调度器中需要的 `cpu_usage_avg_5m`、`cpu_usage_max_avg_1h`、`cpu_usage_max_avg_1d`、`mem_usage_avg_5m`、`mem_usage_max _avg_1h`、`mem_usage_max_avg_1d` 等指标，需要在 Prometheus 的 rules 规则进行如下配置：
 
@@ -106,7 +106,7 @@ global:
       scrape_interval: 30s
       external_labels:
 rule_files:
-- /etc/prometheus/rules/*.yml # /etc/prometheus/rules/*.yml就是定义的rules文件
+- /etc/prometheus/rules/*.yml # /etc/prometheus/rules/*.yml 是定义的rules文件
 ```
 2. 将 rules 配置复制到一个文件（例如 dynamic-scheduler.yaml），文件放到上述 prometheus 容器的 `/etc/prometheus/rules/` 目录下。
 3. 加载 Prometheus server，即可从 Prometheus 获取到动态调度器需要的指标。
@@ -121,7 +121,7 @@ rule_files:
 	 ![](https://main.qcloudimg.com/raw/bafb027663fbb3f2a5063531743c2e97.jpg)
 2. 与原生托管集群关联后，可以在用户集群查看到每个节点都已安装 node-exporter。
    ![](https://main.qcloudimg.com/raw/e35d4af7eeba15f6d9da62ce79176904.png)
-3. 设置 Prometheus 聚合规则，具体规则内容与上述 [规则](#rules) 相同。如下图所示：
+3. 设置 Prometheus 聚合规则，具体规则内容与上述 [自建Prometheus监控服务](#Dynamic) 中的“聚合规则配置”相同。如下图所示：
 	 ![](https://main.qcloudimg.com/raw/6791fb38c0de47a5d232fe3d8eaa3908.png)
 
 :::
