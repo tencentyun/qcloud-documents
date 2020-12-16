@@ -209,11 +209,11 @@ rule_files:
 ### 安装组件
 
 
-1. 按照 [依赖部署](#Dynamic) 部署 Prometheus、Node-Exporter，并配置好 Prometheus Rule。
-2. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster)，选择左侧导航栏中的【集群】。
-3. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
-4. 选择左侧菜单栏中的【组件管理】，进入 “组件列表” 页面。
-5. 在“组件列表”页面中选择【新建】，并在“新建组件”页面中勾选 DynamicScheduler（动态调度器插件）。
-6. 单击【参数配置】，按照 [参数说明](#parameter) 填写组件所需参数。
-7. 单击【完成】即可创建组件。安装成功后，Dynamic Scheduler 即可正常运行，无需进行额外配置。
+
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/cluster)，选择左侧导航栏中的【集群】。
+2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
+3. 选择左侧菜单栏中的【组件管理】，进入 “组件列表” 页面。
+4. 在“组件列表”页面中选择【新建】，并在“新建组件”页面中勾选 DynamicScheduler（动态调度器插件）。
+5. 单击【参数配置】，按照 [参数说明](#parameter) 填写组件所需参数。
+6. 单击【完成】即可创建组件。安装成功后，Dynamic Scheduler 即可正常运行，无需进行额外配置。
 
