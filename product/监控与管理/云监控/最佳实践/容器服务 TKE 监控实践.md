@@ -1,4 +1,6 @@
->?云监控对容器服务 TKE 监控进行全面升级，如需使用情进入 [申请页面](https://cloud.tencent.com/apply/p/hkhd8gfv0c) 申请体验。
+云监控对容器服务 TKE 监控进行全面升级，如需使用情进入 [申请页面](https://cloud.tencent.com/apply/p/hkhd8gfv0c) 申请体验。
+
+
 
 ## 新版 TKE 监控特性
 
@@ -9,7 +11,8 @@
 
 
 ## 操作步骤
->?下列以“容器监控-pod”维度为例，介绍如何实现 [自动更新 Dashboard 监控对象](#step1)、[自动更新告警监控对象](#step2) 和 [屏蔽频繁告警监控对象](#step3)。
+
+下列以“容器监控-pod”维度为例，介绍如何实现 [自动更新 Dashboard 监控对象](#step1)、[自动更新告警监控对象](#step2) 和 [屏蔽频繁告警监控对象](#step3)。
 
 
 
