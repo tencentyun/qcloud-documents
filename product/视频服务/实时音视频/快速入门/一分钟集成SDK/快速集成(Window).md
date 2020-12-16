@@ -6,7 +6,7 @@
 - 开发环境：Visual Studio 2010及以上版本，推荐使用 Visual Studio 2015。
 - 开发框架：.Net Framework 4.0及以上版本。
 
-## 集成 TRTC SDK （C# 接口）
+## 集成 TRTC C# SDK
 
 本节以创建一个简单的 Winform 项目为例，介绍如何在 Visual Studio 工程中集成 C# SDK。
 
@@ -107,9 +107,9 @@ ENDLOCAL
  ![](https://main.qcloudimg.com/raw/9bfebaac4fa339af6b7c74b0413cde1d.png)
 
 <span id="using_cpp"></span>
-## 集成 TRTC SDK （C++ 接口）
+## 集成 TRTC C++ SDK
 
-本节通过创建一个简单的 MFC 项目，介绍如何在 Visual Studio 工程中集成 SDK （C++ 版本）。
+本节通过创建一个简单的 MFC 项目，介绍如何在 Visual Studio 工程中集成 C++ SDK。
 
 ### 1. 下载  SDK
 [下载 SDK](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip)，解压并打开，包含以下几个部分：
