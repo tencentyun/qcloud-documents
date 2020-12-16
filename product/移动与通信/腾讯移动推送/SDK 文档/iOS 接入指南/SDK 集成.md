@@ -254,6 +254,7 @@ if (msgType.integerValue == 1) {
 >我们使用腾讯云移动推送 TPNS(`https://cloud.tencent.com/product/tpns`) 用于实现产品信息的推送，在您授权我们“访问网络连接”和“访问网络状态”权限后，表示您同意 [腾讯 SDK 隐私协议](https://cloud.tencent.com/document/product/548/50955)(`https://cloud.tencent.com/document/product/548/50955`)。您可以通过关闭终端设备中的通知选项来拒绝接受此 SDK 推送服务。
 
 
-
-
+其中上述声明授权的两个链接如下：
+- 腾讯移动推送 TPNS ：`https://cloud.tencent.com/product/tpns`
+- 腾讯 SDK 隐私协议：`https://cloud.tencent.com/document/product/548/50955`
 
