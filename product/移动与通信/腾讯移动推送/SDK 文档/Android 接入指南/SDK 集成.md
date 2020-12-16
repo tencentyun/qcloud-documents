@@ -92,6 +92,7 @@ dependencies {
 
 ###  Android Studio 手动集成
 
+前往 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面获取最新版SDK，参考以下步骤将 SDK 导入到您的 Android 工程中。
 #### 工程配置
 
 将 SDK 导入到工程的步骤为：
