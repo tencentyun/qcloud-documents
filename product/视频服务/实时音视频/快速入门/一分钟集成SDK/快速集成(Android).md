@@ -62,7 +62,6 @@ defaultConfig {
 
 
 ## 集成 SDK（jar）
-### 步骤一：导入jar和so库
 如果您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 TRTC SDK：
 
 1. [下载](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.zip) 最新版本的 jar 压缩包，文件路径为`SDK/LiteAVSDK_TRTC_xxx.zip` （其中 xxx 为 TRTC SDK 的版本号）。
@@ -89,50 +88,8 @@ defaultConfig {
 }
 ```
 >?目前 TRTC SDK 支持 armeabi， armeabi-v7a 和 arm64-v8a。
-
-### 步骤二：引用C++接口（可选）
-如果您更倾向于使用C++接口，而不是Java进行开发，可以执行此步骤；如果您仅使用Java语言来调用TRTC SDK，请忽略此步。
-1. 拷贝头文件：将 SDK 中的C++头文件拷贝到项目中（路径为：`SDK/LiteAVSDK_TRTC_xxx/libs/include`），并在 CMakeLists.txt 中配置 include 文件夹路径及 so 库的动态链接。
-```
-cmake_minimum_required(VERSION 3.6)
-
-# 配置 C++ 接口头文件路径
-include_directories(
-        ${CMAKE_CURRENT_SOURCE_DIR}/include  # 拷贝自 SDK/LiteAVSDK_TRTC_xxx/libs/include
-)
-
-add_library(
-        native-lib
-        SHARED
-        native-lib.cpp)
-
-# 配置 libliteavsdk.so 动态库路径
-add_library(libliteavsdk SHARED IMPORTED)
-set_target_properties(libliteavsdk  PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/../../../libs/${ANDROID_ABI}/libliteavsdk.so)
-
-find_library(
-        log-lib
-        log)
-
-# 配置 libliteavsdk.so 动态链接
-target_link_libraries(
-        native-lib
-        libliteavsdk
-        ${log-lib})
-```
-2. 使用命名空间：C++全平台接口（除Windows平台）的接口、类型等均定义在trtc命名空间中，为了让代码更加简洁，建议您直接使用trtc命名空间
-```
-using namespace trtc;
-```
->?配置 Android Studio C/C++ 开发环境具体可以参考 Android Studio 官方文档：[向 Android 项目添加 C 和 C++ 代码](https://developer.android.com/studio/projects/add-native-code)
 >
-
->?目前只有 TRTC 版本的 SDK 支持 C++ 接口。
->
-
-对于 C++ 接口的使用方式，请参阅[全平台（C++）API概览](https://cloud.tencent.com/document/product/647/32689#TRTC)
-### 步骤三：Gradle Sync
-   单击【Sync Now】，完成 TRTC SDK 的集成工作。
+7. 单击【Sync Now】，完成 TRTC SDK 的集成工作。
 
 
 ## 配置 App 权限
@@ -175,4 +132,44 @@ packagingOptions {
 ```
 ![](https://main.qcloudimg.com/raw/b847d95fc05d2b97f85ffdb0b89438cc.png)
 
+## 通过 C++ 接口使用SDK（可选）
+如果您更倾向于使用 C++ 接口，而不是 Java 进行开发，可以执行此步骤；如果您仅使用 Java 语言来调用 TRTC SDK，请忽略此步。
+1. 拷贝头文件：将 SDK 中的 C++ 头文件拷贝到项目中（路径为：`SDK/LiteAVSDK_TRTC_xxx/libs/include`），并在 CMakeLists.txt 中配置 include 文件夹路径及 so 库的动态链接。
+```
+cmake_minimum_required(VERSION 3.6)
 
+# 配置 C++ 接口头文件路径
+include_directories(
+        ${CMAKE_CURRENT_SOURCE_DIR}/include  # 拷贝自 SDK/LiteAVSDK_TRTC_xxx/libs/include
+)
+
+add_library(
+        native-lib
+        SHARED
+        native-lib.cpp)
+
+# 配置 libliteavsdk.so 动态库路径
+add_library(libliteavsdk SHARED IMPORTED)
+set_target_properties(libliteavsdk  PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_SOURCE_DIR}/../../../libs/${ANDROID_ABI}/libliteavsdk.so)
+
+find_library(
+        log-lib
+        log)
+
+# 配置 libliteavsdk.so 动态链接
+target_link_libraries(
+        native-lib
+        libliteavsdk
+        ${log-lib})
+```
+2. 使用命名空间：C++ 全平台接口（除 Windows 平台）的接口、类型等均定义在 trtc 命名空间中，为了让代码更加简洁，建议您直接使用 trtc 命名空间
+```
+using namespace trtc;
+```
+>?配置 Android Studio C/C++ 开发环境具体可以参考 Android Studio 官方文档：[向 Android 项目添加 C 和 C++ 代码](https://developer.android.com/studio/projects/add-native-code)
+>
+
+>?目前只有 TRTC 版本的 SDK 支持 C++ 接口。
+>
+
+对于 C++ 接口的使用方式，请参阅[全平台（C++）API 概览](https://cloud.tencent.com/document/product/647/32689#TRTC)
