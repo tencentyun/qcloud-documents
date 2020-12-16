@@ -19,7 +19,7 @@
 | ----------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | [云托管](https://cloud.tencent.com/document/product/1243)                                 | 默认配置 0.25 核 0.5G 内存的容器，伸缩范围 0 - 4 个实例，遇到 CPU 负载大于 60 将会进行扩容。无流量则会缩容到 0，不产生费用 |
 | [静态网站托管](https://cloud.tencent.com/document/product/1210)                           | 按照实际容量与流量付费                                                                                                     |
-| [共享文件存储（Cloud File Storage，CFS）](https://cloud.tencent.com/document/product/582) | 按照实际容量付费，DAU 1000 的站点预估消耗量在 5GB 以下                                                                     |
+| [文件存储（Cloud File Storage，CFS）](https://cloud.tencent.com/document/product/582) | 按照实际容量付费，DAU 1000 的站点预估消耗量在 5GB 以下                                                                     |
 | [云数据库 CynosDB for MySQL](https://cloud.tencent.com/document/product/1003)             | 数据库 1C1G，存储按照容量计费                                                                                              |
 
 安装 Discuz! Q 资源配置架构图如下：
@@ -85,10 +85,18 @@ CynosDB for MySQL 与服务器类似，是按照使用时间计费，即使没�
 
 此能力使用云开发与其他腾讯云服务，可能会产生相关费用。云开发与云上其他资源分开计费，您可以在 [费用中心](https://console.cloud.tencent.com/expense/overview) 查看具体信息。
 
-1. 云托管（[产品定价](https://cloud.tencent.com/document/product/1003/30493) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
-   ![云托管与静态网站托管用量查询](https://main.qcloudimg.com/raw/3135c5ef7c19be7a86156f10dc0a8749.png)
-1. 静态网站托管（[产品定价](https://cloud.tencent.com/document/product/876/39095) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
-1. 文件存储（Cloud File Storage，CFS）（[产品定价](https://cloud.tencent.com/document/product/582/47378) 及 [使用明细](https://console.cloud.tencent.com/cfs/overview)）。
-   ![CFS用量](https://main.qcloudimg.com/raw/4022e36a8b69a450e5c36c78353c1b82.png)
-1. 云数据库 CynosDB for MySQL（[产品定价](https://cloud.tencent.com/document/product/1003/30493) 及 [使用明细](https://console.cloud.tencent.com/cynosdb)）。
-   ![数据库存储用量](https://main.qcloudimg.com/raw/d486a7bb304ea1bff2738e213ce4c9e2.png)
+#### 云托管
+[产品定价](https://cloud.tencent.com/document/product/1003/30493) 及 [使用明细](https://console.cloud.tencent.com/tcb)。
+![云托管与静态网站托管用量查询](https://main.qcloudimg.com/raw/3135c5ef7c19be7a86156f10dc0a8749.png)
+
+#### 静态网站托管
+[产品定价](https://cloud.tencent.com/document/product/876/39095) 及 [使用明细](https://console.cloud.tencent.com/tcb)。
+
+
+#### 文件存储（Cloud File Storage，CFS）
+[产品定价](https://cloud.tencent.com/document/product/582/47378) 及 [使用明细](https://console.cloud.tencent.com/cfs/overview)。
+ ![CFS用量](https://main.qcloudimg.com/raw/4022e36a8b69a450e5c36c78353c1b82.png)
+
+#### 云数据库 CynosDB for MySQL
+[产品定价](https://cloud.tencent.com/document/product/1003/30493) 及 [使用明细](https://console.cloud.tencent.com/cynosdb)。
+ ![数据库存储用量](https://main.qcloudimg.com/raw/d486a7bb304ea1bff2738e213ce4c9e2.png)
