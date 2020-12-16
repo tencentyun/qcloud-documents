@@ -92,7 +92,9 @@ dependencies {
 
 ###  Android Studio 手动集成
 
-前往 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面获取最新版SDK，参考以下步骤将 SDK 导入到您的 Android 工程中。
+前往 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面获取最新版 SDK，并参考以下步骤将 SDK 导入到您的 Android 工程中。
+
+
 #### 工程配置
 
 将 SDK 导入到工程的步骤为：
@@ -392,11 +394,9 @@ XGPushConfig.getToken(getApplicationContext());
 
 ### 隐私协议声明建议
 
-您可在申请APP权限使用时，使用以下内容声明授权的用途：
+您可在申请 App 权限使用时，使用以下内容声明授权的用途：
 
-```
-我们使用了腾讯云-移动推送推送TPNS(https://cloud.tencent.com/product/tpns)用于实现我们产品信息的推送,在您授权我们“访问网络连接”和“访问网络状态”权限后,表示您同意
-腾讯 SDK 隐私协议(https://cloud.tencent.com/document/product/548/50955)。您可以通过关闭终端设备中的通知选项来拒绝接受此SDK推送服务。
 
-```
+我们使用腾讯云 [移动推送 TPNS](https://cloud.tencent.com/product/tpns) 用于实现产品信息的推送，在您授权我们“访问网络连接”和“访问网络状态”权限后，表示您同意 [腾讯 SDK 隐私协议](https://cloud.tencent.com/document/product/548/50955)。您可以通过关闭终端设备中的通知选项来拒绝接受此 SDK 推送服务。
+
 
