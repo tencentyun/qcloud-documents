@@ -47,8 +47,8 @@ Kubernetes 版本 ≥ v1.10.x
 DeScheduler  基于 [社区版本 Descheduler](https://github.com/kubernetes-sigs/descheduler) 的重调度思想，定期扫描各个节点上的运行 Pod，发现不符合策略条件的进行驱逐以进行重调度。社区版本 DeScheduler  已提供部分策略，策略基于 APIServer 中的数据，例如 `LowNodeUtilization` 策略依赖的是 Pod 的 request 和 limit 数据，这类数据能够有效均衡集群资源分配、防止出现资源碎片。但社区策略缺少节点真实资源占用的支持，例如节点 A 和 B 分配出去的资源一致，由于 Pod 实际运行情况，CPU 消耗型和内存消耗型不同，峰谷期不同造成两个节点的负载差别巨大。
 
 因此，腾讯云 TKE 推出 DeScheduler，底层依赖对节点真实负载的监控进行重调度。通过 Prometheus 拿到集群 Node 的负载统计信息，根据用户设置的负载阈值，定期执行策略里面的检查规则，驱逐高负载节点上的 Pod。
+![](https://main.qcloudimg.com/raw/9e37814fd4f4831217b33b35ce72f03b.png)
 
-![](https://main.qcloudimg.com/raw/9a31a5d0995c40f3540a83da3b037323.png)
 
 
 ### 查找高负载节点
