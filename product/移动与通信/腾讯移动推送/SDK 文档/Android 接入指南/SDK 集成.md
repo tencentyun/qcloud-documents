@@ -397,6 +397,13 @@ XGPushConfig.getToken(getApplicationContext());
 您可在申请 App 权限使用时，使用以下内容声明授权的用途：
 
 
-我们使用腾讯云 [移动推送 TPNS](https://cloud.tencent.com/product/tpns) 用于实现产品信息的推送，在您授权我们“访问网络连接”和“访问网络状态”权限后，表示您同意 [腾讯 SDK 隐私协议](https://cloud.tencent.com/document/product/548/50955)。您可以通过关闭终端设备中的通知选项来拒绝接受此 SDK 推送服务。
+<pre>
+我们使用 <a href="https://cloud.tencent.com/product/tpns">腾讯云移动推送 TPNS</a> 用于实现产品信息的推送，在您授权我们“访问网络连接”和“访问网络状态”权限后，表示您同意 <a href="https://cloud.tencent.com/document/product/548/50955">腾讯 SDK 隐私协议</a>。您可以通过关闭终端设备中的通知选项来拒绝接受此 SDK 推送服务。
+</pre>
 
+
+
+其中上述声明授权的两个链接如下：
+- 腾讯移动推送 TPNS ：`https://cloud.tencent.com/product/tpns`
+- 腾讯 SDK 隐私协议：`https://cloud.tencent.com/document/product/548/50955`
 
