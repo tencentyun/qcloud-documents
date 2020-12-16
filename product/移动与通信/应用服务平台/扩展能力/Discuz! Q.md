@@ -7,6 +7,7 @@
 | 更快     | 用户发帖上传的图片与附件，享受 CDN 节点就近加速分发                                          |
 | 更便捷   | 自带三级域名可以快速访问，无需通过 IP 访问                                                   |
 
+
 ## 适用场景
 
 - 不具备专业的运维开发人员的个人站长，无需预估业务规模，可自动扩缩容。
@@ -96,8 +97,10 @@ CynosDB for MySQL 与服务器类似，是按照使用时间计费，即使没�
 
 ### 如何升级到 Discuz! Q 的最新版本？
 
-前往云托管菜单，点击 discuzq 服务，进入到版本列表页，点击流量 100% 对应的版本进行编辑并重新部署。
-每次[部署更新](https://docs.cloudbase.net/run/update-service.html#fang-shi-er-yuan-ban-ben-bian-ji-pei-zhi-bing-chong-xin-bu-shu)都会拉取最新的 Discuz! Q 版本镜像进行安装。
+前往云托管菜单，单击 discuzq 服务，进入到版本列表页，单击流量 100% 对应的版本进行编辑并重新部署。
+每次 [部署更新](https://docs.cloudbase.net/run/update-service.html#fang-shi-er-yuan-ban-ben-bian-ji-pei-zhi-bing-chong-xin-bu-shu) 都会拉取最新的 Discuz! Q 版本镜像进行安装。
+
+
 
 ### 复用已有的 CynosDB 集群
 
@@ -113,7 +116,7 @@ CynosDB for MySQL 与服务器类似，是按照使用时间计费，即使没�
 
 ### 配置到其他已有 MySQL 数据库
 
-注：该操作会发起重新安装，数据库里 dabatase 为 discuzq 的库将会**删除重建**，请安装后，再将之前的数据导入。
+>!该操作会发起重新安装，数据库里 dabatase 为 discuzq 的库将会**删除重建**，请安装后，再将之前的数据导入。
 
 1. 安装 Discuz!Q 后，跳到[云托管的 webshell](https://docs.cloudbase.net/run/webshell.html#cao-zuo-bei-jing)
 2. 删除 lock 锁定文件 `rm /var/lib/discuz/.clusterlock /var/lib/discuz/storage/install.lock`,以发起重装。
@@ -121,9 +124,11 @@ CynosDB for MySQL 与服务器类似，是按照使用时间计费，即使没�
    ![更新环境变量](https://main.qcloudimg.com/raw/b5f9eeeee8cf2488781b4e6bc1e5abb2.png)
 4. 如果需要导入原先的数据，请将 `/var/lib/discuz/config/config.php` 中的密钥字段。`'key' => 'base64:q94WREK6/c8WTTb+DeOQjmzyzQgOA5CmVpNfLQWK8kU='`，该密钥用于注册账号的密码数据加密。可使用 [nano 编辑器](https://cloud.tencent.com/developer/article/1187038)进行编辑。
 
+
+
 ## 迁移已有的 Discuz! Q 服务
 
-注：原先如果是连接本地的 MySQL，建议将数据导出，再登录 [CynosDB for MySQL 的数据管理后台](https://dms.cloud.tencent.com/#/login?dbType=cynosdbmysql&region=ap-shanghai) 进行数据导入。在原先服务器内，更新 `config/config.php` 配置文件中的数据库连接信息，确认迁移无误后，再进行以下操作。
+>!原先如果是连接本地的 MySQL，建议将数据导出，再登录 [CynosDB for MySQL 的数据管理后台](https://dms.cloud.tencent.com/#/login?dbType=cynosdbmysql&region=ap-shanghai) 进行数据导入。在原先服务器内，更新 `config/config.php` 配置文件中的数据库连接信息，确认迁移无误后，再进行以下操作。
 
 1. 登录到已有的服务器后，进入 Discuz! Q 应用部署的根目录，例如 `cd /www/wwwroot/discuz`
 2. 打包 Discuz! Q 持久化的目录， `tar -cf public/discuz.tar.gz config storage`。如果提示没有权限，请切换为 root 角色。输入 `su` 后，填写密码后，便切换到 root 角色，再执行该命令
@@ -135,7 +140,10 @@ CynosDB for MySQL 与服务器类似，是按照使用时间计费，即使没�
 
 云开发支持二开，[Discuz! Q](https://github.com/TencentCloudBase-Marketplace/Discuz-Q)。可通过该仓库的一键部署链接进行部署。
 
-## 迁移到 Serverless MySQL 指引
+
+
+
+## 迁移到 Serverless MySQL 指引[](id:serverlessmysql)
 
 ### Serverless 形态的优点
 
@@ -159,7 +167,8 @@ MySQL 数据迁移指南
 Discuz! Q 当前部署采用的是按量付费的 CynosDB for MySQL 实例。是按小时收费，即使没有流量也不会自动缩容到 0，会持续收费。
 当前推出新的 Serverless 形态，没有连接自动会暂停，不再计费。因此，推荐迁移到该方案。
 
-#### 1、迁移数据到 Serverless 类型的 CynosDB
+
+#### 步骤1：迁移数据到 Serverless 类型的 CynosDB
 
 1、前往 [CynosDB](https://console.cloud.tencent.com/cynosdb) 控制台，点击 Discuz! Q 创建的 DB 实例管理操作，即集群名为 DiscuzCynosDB 的实例。
 ![管理](https://main.qcloudimg.com/raw/7468b97f3a16294c90feaf9e9f66e456.jpg)
@@ -176,7 +185,7 @@ Discuz! Q 当前部署采用的是按量付费的 CynosDB for MySQL 实例。是
   4、到列表页得到最新的内网地址
   ![新实例](https://main.qcloudimg.com/raw/0887318901e638a7c81cafd250e74e9c.jpg)
 
-#### 2、修改云托管的数据库配置，指向新的数据库
+#### 步骤2：修改云托管的数据库配置，指向新的数据库
 
 1. 点击云托管的菜单，点击 discuzq 服务
    ![discuzq](https://main.qcloudimg.com/raw/60ec5608e757a3436f529f028fa75b30.jpg)
@@ -187,7 +196,7 @@ Discuz! Q 当前部署采用的是按量付费的 CynosDB for MySQL 实例。是
 4. 修改 `database` 的 `host` 配置，保存文件。
    ![修改host配置](https://main.qcloudimg.com/raw/9a8ce9974ea66aa745a6b3ca81a5579f.png)
 
-#### 3、校验是否迁移成功
+#### 步骤3：校验是否迁移成功
 
 1. 将 serverless 数据库设置为暂停
    ![数据库暂停](https://main.qcloudimg.com/raw/21422b519faa82a8d27ba119cc3efa0f.jpg)
@@ -217,10 +226,22 @@ Discuz! Q 当前部署采用的是按量付费的 CynosDB for MySQL 实例。是
 
 此能力使用云开发与其他腾讯云服务，可能会产生相关费用。云开发与云上其他资源分开计费，您可以在 [费用中心](https://console.cloud.tencent.com/expense/overview) 查看具体信息。
 
-1. 云托管（[产品定价](https://cloud.tencent.com/document/product/1003/30493) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
+#### 云托管
+
+[产品定价](https://cloud.tencent.com/document/product/1003/30493) 及 [使用明细](https://console.cloud.tencent.com/tcb)。
    ![云托管与静态网站托管用量查询](https://main.qcloudimg.com/raw/3135c5ef7c19be7a86156f10dc0a8749.png)
-1. 静态网站托管（[产品定价](https://cloud.tencent.com/document/product/876/39095) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
-1. 文件存储（Cloud File Storage，CFS）（[产品定价](https://cloud.tencent.com/document/product/582/47378) 及 [使用明细](https://console.cloud.tencent.com/cfs/overview)）。
-   ![CFS用量](https://main.qcloudimg.com/raw/4022e36a8b69a450e5c36c78353c1b82.png)
-1. 云数据库 CynosDB for MySQL（[产品定价](https://cloud.tencent.com/document/product/1003/30493) 及 [使用明细](https://console.cloud.tencent.com/cynosdb)）。
-   ![数据库存储用量](https://main.qcloudimg.com/raw/d486a7bb304ea1bff2738e213ce4c9e2.png)
+
+#### 静态网站托管
+[产品定价](https://cloud.tencent.com/document/product/876/39095) 及 [使用明细](https://console.cloud.tencent.com/tcb)。
+
+#### 文件存储（Cloud File Storage，CFS）
+
+[产品定价](https://cloud.tencent.com/document/product/582/47378) 及 [使用明细](https://console.cloud.tencent.com/cfs/overview)。
+
+![CFS用量](https://main.qcloudimg.com/raw/4022e36a8b69a450e5c36c78353c1b82.png)
+	 
+#### 云数据库 CynosDB for MySQL
+	 
+	 
+[产品定价](https://cloud.tencent.com/document/product/1003/30493) 及 [使用明细](https://console.cloud.tencent.com/cynosdb)。
+![数据库存储用量](https://main.qcloudimg.com/raw/d486a7bb304ea1bff2738e213ce4c9e2.png)
