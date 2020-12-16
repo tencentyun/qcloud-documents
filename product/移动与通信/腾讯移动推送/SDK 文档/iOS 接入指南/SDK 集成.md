@@ -70,18 +70,26 @@ pod 'TPNS-iOS', '~> 版本'  // 如果不指定版本则默认为本地 pod TPNS
 /// @note TPNS SDK1.2.7.1+
 [[XGPush defaultManager] configureClusterDomainName:@"tpns.sh.tencent.com"];
 ```
-如需接入新加坡服务接入点，则将域名设置为`tpns.sgp.tencent.com`。
+如需接入新加坡服务接入点，则将域名设置为 `tpns.sgp.tencent.com`。
 **示例**
 ``` object-c
 /// @note TPNS SDK1.2.7.1+
 [[XGPush defaultManager] configureClusterDomainName:@"tpns.sgp.tencent.com"];
 ```
-如需接入中国香港服务接入点，则将域名设置为`tpns.hk.tencent.com`。
+如需接入中国香港服务接入点，则将域名设置为 `tpns.hk.tencent.com`。
 **示例**
 ``` object-c
 /// @note TPNS SDK1.2.7.1+
 [[XGPush defaultManager] configureClusterDomainName:@"tpns.hk.tencent.com"];
 ```
+如需接入中国广州服务接入点，则将域名设置为 `tpns.tencent.com`。
+**示例**
+```
+/// @note TPNS SDK1.2.7.1+
+[[XGPush defaultManager] configureClusterDomainName:@"tpns.tencent.com"];
+```
+
+
 
 ### 接入样例
 调用启动腾讯移动推送的 API，并根据需要实现 `XGPushDelegate` 协议中的方法，开启推送服务。
