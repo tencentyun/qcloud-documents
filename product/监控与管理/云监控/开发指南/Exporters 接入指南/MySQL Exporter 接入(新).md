@@ -238,7 +238,7 @@ MySQL Exporter 使用各种 `Collector` 来控制采集数据的启停，具体�
 | version                    | 打印版本信息。                                               |
 
 
-<span id="#heartbeat"></span>
+<span id="heartbeat"></span>
 
 ### heartbeat 心跳检测
 
