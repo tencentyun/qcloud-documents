@@ -37,11 +37,11 @@ Content-Type: application/xml
    <ConcatTemplate>
         <ConcatFragment>
             <Mode>Start</Mode>
-            <Url>http://bucket-1250000000.ci.ap-beijing.myqcloud.com/start.mp4</Url>
+            <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/start.mp4</Url>
         </ConcatFragment>
         <ConcatFragment>
             <Mode>End</Mode>
-            <Url>http://bucket-1250000000.ci.ap-beijing.myqcloud.com/end.mp4</Url>
+            <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/end.mp4</Url>
         </ConcatFragment>
         <Audio>
             <Codec>mp3</Codec>
@@ -84,8 +84,8 @@ Container 类型 ConcatTemplate 的具体数据描述如下：
 | 节点名称（关键字）     | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
 | ConcatFragment      | Request.ConcatTemplate | 拼接节点    | Container    | 是   | 无  | 无 |
-| Audio               | Request.ConcatTemplate | 音频参数    | Container    | 是   | 无  | 无 |
-| Video               | Request.ConcatTemplate | 视频参数    | Container    | 是   | 无  | 无 |
+| Audio               | Request.ConcatTemplate | 音频参数    | Container    | 否   | 无  | 目标文件不需要 Audio 信息，</br>需要设置 Audio.Remove 为 true |
+| Video               | Request.ConcatTemplate | 视频参数    | Container    | 否   | 无  | 目标文件不需要 Video 信息，</br>需要设置 Video.Remove 为 true |
 | Container           | Request.ConcatTemplate | 封装格式    | Container    | 是   | 无  | 无 |
 
 
@@ -150,11 +150,11 @@ Container 类型 Video 的具体数据描述如下：
         <ConcatTemplate>
             <ConcatFragment>
                 <Mode>Start</Mode>
-                <Url>http://bucket-1250000000.ci.ap-beijing.myqcloud.com/start.mp4</Url>
+                <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/start.mp4</Url>
             </ConcatFragment>
             <ConcatFragment>
                 <Mode>End</Mode>
-                <Url>http://bucket-1250000000.ci.ap-beijing.myqcloud.com/end.mp4</Url>
+                <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/end.mp4</Url>
             </ConcatFragment>
             <Audio>
                 <Codec>mp3</Codec>
@@ -216,11 +216,11 @@ Content-Type: application/xml
    <ConcatTemplate>
         <ConcatFragment>
             <Mode>Start</Mode>
-            <Url>http://bucket-1250000000.ci.ap-beijing.myqcloud.com/start.mp4</Url>
+            <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/start.mp4</Url>
         </ConcatFragment>
         <ConcatFragment>
             <Mode>End</Mode>
-            <Url>http://bucket-1250000000.ci.ap-beijing.myqcloud.com/end.mp4</Url>
+            <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/end.mp4</Url>
         </ConcatFragment>
         <Audio>
             <Codec>mp3</Codec>
@@ -261,11 +261,11 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
         <ConcatTemplate>
             <ConcatFragment>
                 <Mode>Start</Mode>
-                <Url>http://bucket-1250000000.ci.ap-beijing.myqcloud.com/start.mp4</Url>
+                <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/start.mp4</Url>
             </ConcatFragment>
             <ConcatFragment>
                 <Mode>End</Mode>
-                <Url>http://bucket-1250000000.ci.ap-beijing.myqcloud.com/end.mp4</Url>
+                <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/end.mp4</Url>
             </ConcatFragment>
             <Audio>
                 <Codec>mp3</Codec>

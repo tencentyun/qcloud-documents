@@ -41,7 +41,7 @@
 
 | 字段名 | 类型 | 描述 |
 |---------|---------|---------|
-| slice_type | Integer | 该识别结果类型，0表示一句话开始，1表示一句话进行中，2表示一句话结束。<br>根据一句话时间长度以及后台处理情况，一句话识别过程中后台可能返回的 message 序列为：<br>0-1*-2：1*表示一个或者多个结果类型为1的 message。<br>0-2:后台仅返回一句话开始与结束两个 message。<br>2:后台仅返回一句话完整结果的 message。 |
+| slice_type | Integer | 该识别结果类型，0表示一句话开始，1表示一句话进行中，2表示一句话结束。<br>根据一句话时间长度以及后台处理情况，一句话识别过程中后台可能返回的 message 序列为：<br>0-1-2：1表示一个或者多个结果类型为1的 message。<br>0-2:后台仅返回一句话开始与结束两个 message。<br>2:后台仅返回一句话完整结果的 message。 |
 | index | Integer | 当前一句话结果在整个音频流中的序号，从0开始逐句递增。 |
 | start_time | Integer | 当前一句话结果在整个音频流中的起始时间。 |
 | end_time | Integer | 当前一句话结果在整个音频流中的结束时间。 |
@@ -85,8 +85,10 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 | filter_modal | 否 | Integer | 是否过语气词（目前支持中文普通话引擎）。默认为0。0：不过滤语气词；1：部分过滤；2：严格过滤 。 |
 | filter_punc | 否 | Integer | 是否过滤句末的句号（目前支持中文普通话引擎）。默认为0。0：不过滤句末的句号；1：过滤句末的句号。 |
 | convert_num_mode | 否 | Integer | 是否进行阿拉伯数字智能转换。0：全部转为中文数字；1：根据场景智能转换为阿拉伯数字。 |
-| word_info | 否 | Integer | 是否显示词级别时间戳。0：不显示；1：显示。支持引擎：8k_zh, 8k_zh_finance, 16k_zh, 16k_en, 16k_ca，默认为0。 |
-| signature | 是 | String | 接口签名参数 |
+| vad_silence_time | 否 | Integer | 语音断句检测阈值，静音时长超过该阈值会被认为断句（多用在智能客服场景，需配合 needvad = 1 使用），取值范围：240-2000，单位 ms，目前仅支持 8k_zh、8k_zh_finance、16k_zh 引擎模型。 |
+| signature | 是 | String | 接口签名参数。 |
+
+
 
 <span id="sign"></span>
 **signature 签名生成**
@@ -172,7 +174,14 @@ wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1
 {"code":4008,"message":"后台识别服务器音频分片等待超时","voice_id":"CzhjnqBkv8lk5pRUxhpX","message_id":"CzhjnqBkv8lk5pRUxhpX_241"}
 ```
 
-## 4. 错误码
+## 4. 开发者资源
+### SDK
+- [Tencent Cloud Speech SDK for Go](https://github.com/TencentCloud/tencentcloud-speech-sdk-go)
+- [Tencent Cloud Speech SDK for Java](https://github.com/TencentCloud/tencentcloud-speech-sdk-java)
+- [Tencent Cloud Speech SDK for C++](https://github.com/TencentCloud/tencentcloud-speech-sdk-cpp)
+- [Tencent Cloud Speech SDK for Python](https://github.com/TencentCloud/tencentcloud-speech-sdk-python)
+
+## 5. 错误码
 
 
 | 数值 | 说明 |

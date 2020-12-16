@@ -38,9 +38,9 @@
 
 #### 代码准备
 在 `example` 文件夹内创建 `Pojo.java`，`RequestClass.java`，`PersonClass.java`，`CityClass.java`，`ResponseClass.java` 文件，文件内容分别如下：
-* **Pojo.java**
 
-```
+<dx-codeblock>
+::: Pojo.java java
 package example;
 
 public class Pojo{  
@@ -49,11 +49,8 @@ public class Pojo{
         return new ResponseClass(greetingString);
     }
 }
-```
-
-* **RequestClass.java**
-
-```
+:::
+::: RequestClass.java java
 package example;
 
 public class RequestClass {
@@ -84,11 +81,8 @@ public class RequestClass {
     public RequestClass() {
     }
 }
-```
-
-* **PersonClass.java**
-
-```
+:::
+::: PersonClass.java java
 package example;
 
 public class PersonClass {
@@ -119,11 +113,8 @@ public class PersonClass {
     public PersonClass() {
     }
 }
-```
-
-* **CityClass.java**
-
-```
+:::
+::: CityClass.java java
 package example;
 
 public class CityClass {
@@ -144,11 +135,8 @@ public class CityClass {
     public CityClass() {
     }
 }
-```
-
-* **ResponseClass.java**
-
-```
+:::
+::: ResponseClass.java java
 package example;
 
 public class ResponseClass {
@@ -169,7 +157,76 @@ public class ResponseClass {
     public ResponseClass() {
     }
 }
-```
+:::
+::: pomTest.xml xml 
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<modelVersion>4.0.0</modelVersion>
+<groupId>examples</groupId>
+<artifactId>java-example</artifactId>
+<packaging>jar</packaging>
+<version>1.0-SNAPSHOT</version>
+<name>java-example</name>
+<build>
+<plugins>
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-shade-plugin</artifactId>
+    <version>2.3</version>
+    <configuration>
+      <createDependencyReducedPom>false</createDependencyReducedPom>
+    </configuration>
+    <executions>
+      <execution>
+        <phase>package</phase>
+        <goals>
+          <goal>shade</goal>
+        </goals>
+      </execution>
+    </executions>
+  </plugin>
+</plugins>
+</build>
+</project>
+:::
+::: python.py Python
+# -*- coding: utf8 -*-
+import json
+from tencentcloud.common import credential
+from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
+# 导入对应产品模块的client models
+from tencentcloud.scf.v20180416 import scf_client,models
+
+
+
+# 对应接口的接口名
+action = 'Invoke'
+
+# 接口参数,输入需要调用的函数名，RequestResponse(同步) 和 Event(异步)
+action_params = {
+    'FunctionName': "test",
+    'InvocationType': "Event"
+}
+
+print('Start Hello World function')
+
+def main_handler(event, context):
+    try:
+        # 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
+        cred = credential.Credential("用户的secretId", "用户的secretKey")
+
+        # 实例化要请求产品的client对象，以及函数所在的地域
+        client = scf_client.ScfClient(cred, "ap-guangzhou")
+
+        # 调用接口，发起请求，并打印返回结果
+        ret = client.call(action, action_params)
+
+        print(json.loads(ret)["Response"]["Result"]["RetMsg"])
+
+    except TencentCloudSDKException as err:
+        print(err)
+:::
+</dx-codeblock>
 
 ### 代码编译
 >?本示例使用 Maven 进行编译打包，您可以根据自身情况，选择使用打包方法。

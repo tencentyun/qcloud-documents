@@ -37,7 +37,7 @@
 Go 客户端 Pulsar 官方目前还未更新最新适配的客户端，在官方适配之前需要下载腾讯云提供的 SDK。
 1. 下载 SDK。
    ```sh
-   $ go get -u "github.com/TencentCloud/tdmq-go-client@v0.2.0-beta.1"
+   $ go get -u "github.com/TencentCloud/tdmq-go-client@v0.3.0-beta.2"
    ```
 2. 在代码中重新导入。
    ```go
@@ -46,10 +46,10 @@ Go 客户端 Pulsar 官方目前还未更新最新适配的客户端，在官方
 3. 前往 TDMQ 控制台【[角色管理](https://console.cloud.tencent.com/tdmq/role)】，找到刚刚创建的角色，单击复制密钥。
 4. 在创建 Client 的代码中加入刚刚复制的密钥，并添加 ListenerName 参数
  ```go
-   client, err := NewClient(ClientOptions{
+   client, err := pulsar.NewClient(pulsar.ClientOptions{
 			URL:            "pulsar://*.*.*.*:6000",
-			ListenerName:	"custom:1300*****0/vpc-******/subnet-********",
-			Authentication: NewAuthenticationToken("eyJh****"),
+			ListenerName:   "custom:1300*****0/vpc-******/subnet-********",
+			Authentication:  pulsar.NewAuthenticationToken(),
        })
 ```
  >?`listenerName`即“custom:”拼接原先的路由 ID（NetModel），路由 ID 可以在控制台【环境管理】接入点查看并复制。

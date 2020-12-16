@@ -51,7 +51,7 @@
 >
 4. <span id="Step4"></span>对于 WordPress 镜像创建的实例则执行以下命令，编辑 Nginx 默认配置文件目录中的 `nginx.conf` 文件。
 ```
-vim /usr/local/lighthouse/softwares/nginx/conf/nginx.conf
+sudo vim /usr/local/lighthouse/softwares/nginx/conf/nginx.conf
 ```
 找到以下配置信息：
 ```
@@ -116,7 +116,7 @@ server {
 5. 保存修改后的 `nginx.conf` 文件后退出。
 6. <span id="Step6"></span>执行以下命令，验证配置文件是否存在问题。
 ```
-/usr/local/lighthouse/softwares/nginx/sbin/nginx -t
+sudo /usr/local/lighthouse/softwares/nginx/sbin/nginx -t
 ```
  - 若输出如下成功提示，请继续执行 [步骤7](#Step7)。
 ```
@@ -126,7 +126,7 @@ nginx: configuration file /usr/local/lighthouse/softwares/nginx/conf/nginx.conf 
  - 若存在错误提示，请您重新配置或者根据提示修改存在问题。
 7. <span id="Step7"></span>执行以下命令，重启 Nginx。
 ```
-/usr/local/lighthouse/softwares/nginx/sbin/nginx -s reload
+sudo /usr/local/lighthouse/softwares/nginx/sbin/nginx -s reload
 ```
 至此已安装成功。您可使用 `https://cloud.tencent.com`（示例）正常进行访问。
 
@@ -135,7 +135,7 @@ nginx: configuration file /usr/local/lighthouse/softwares/nginx/conf/nginx.conf 
 您可以通过配置服务器，让其自动将 HTTP 的请求重定向到 HTTPS。可以参考以下步骤进行设置：
 
 1. Nginx 支持 rewrite 功能。若您在编译时没有删除 pcre，则可在 HTTP 的 server 中增加 `return 301 https://$host$request_uri;`，即可将默认80端口的请求重定向为 HTTPS。
-您需要对 `nginx.conf` 文件进行修改，在“证书安装”中的 [步骤5](#Step4) 的配置之后继续添加如下配置：
+您需要对 `nginx.conf` 文件进行修改，在“证书安装”中的 [步骤4](#Step4) 的配置之后继续添加如下配置：
 ```
 server {
     listen 80;

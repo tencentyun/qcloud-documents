@@ -28,6 +28,10 @@
 <td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#2" target="_blank">按小时带宽</a></td>
 <td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a>。</td>
 </tr>
+<tr>
+<td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#4" target="_blank">共享带宽包</a></td>
+<td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/41692#net" target="_blank">公网网络费用</a>。</td>
+</tr>
 
 </tbody></table>
 
@@ -60,7 +64,7 @@
 <tr><td colspan="2"><ul><li>EIP 与 CVM 实例需处于<strong>相同地域</strong>才可进行绑定。</li><li>EIP 绑定 CVM 实例的数量限制，根据 CVM 实例 CPU 配置的差异有所不同，请参见 <a href="https://cloud.tencent.com/document/product/1199/41648">使用限制</a>。</li></ul></td></tr>
 <tr>
 <td rowspan="2">NAT 网关</td>
-<td>—</td>
+<td>-</td>
 <td>仅按流量和共享带宽包计费模式的 EIP 可与 NAT 网关进行绑定。</td>
 </tr>
 <tr><td colspan="2"><ul><li>EIP 与 NAT 网关需处于<strong>相同地域</strong>才可进行绑定。</li><li>一个 NAT 网关最多可绑定10个 EIP。</li><li>当 NAT 网关绑定多个 EIP 时，系统会自动做负载均衡。</li></ul></td>

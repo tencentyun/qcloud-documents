@@ -12,7 +12,7 @@
 </table>
 
 
-如需快速实现视频/语音的通话功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCCalling 组件并实现自定义 UI 界面。
+如需快速实现视频的通话功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCCalling 组件并实现自定义 UI 界面。
 
 >! 我们之前提供了 TRTCVideoCall 组件，旧版本组件已经移动到 [组件仓库](https://github.com/tencentyun/LiteAVClassic) 中。TRTCCalling 组件使用了 IM 信令的接口，将不再与旧组件兼容。
 
@@ -27,14 +27,14 @@
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
 2. 单击【立即开始】，输入应用名称，例如 `TestVideoCall` ，单击【创建应用】。
 
->! 本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PAAS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
+>! 本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
 
 <span id="ui.step2"></span>
 
 ### 步骤2：下载 SDK 和 Demo 源码
 
-1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS)】跳转至 Github（或单击【[ZIP](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
+1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS)】跳转至 Github（或单击【[ZIP](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
    ![](https://main.qcloudimg.com/raw/716b5af9207ad2b11835dec4e2d15da0.png)
 2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
 
@@ -166,7 +166,7 @@ iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model
 ### 步骤5：实现 1v1 通话
 
 1. 发起方：调用 `TRTCCalling` 的 `call(userId, callType)` ，`userId` 参数为用户 ID， `callType` 参数为通话类型，参数传入`CallType_Video`，就能够发起视频通话的请求。
-2. 接收方：当接收方处于已登录状态时，会收到名为 `onInvited()` 的回调，回调中 `callType` 的参数是发起方填写的通话类型，您可以通过此参数启动相应的界面。如果希望接收方在不处于登录状态时也能收到通话请求，请参考 [离线接听](#model.offline)。
+2. 接收方：当接收方处于已登录状态时，会收到名为 `onInvited()` 的回调，回调中 `callType` 的参数是发起方填写的通话类型，您可以通过此参数启动相应的界面。如果希望接收方在不处于登录状态时也能收到通话请求，请参考 [离线接听](#offline)。
 3. 接收方：如果希望接听电话，接收方可以调用 `accept()` 函数，如果此时是视频通话，可以同时调用 `openCamera()` 函数打开自己本地的摄像头。接收方也可以调用 `reject()` 拒绝此次通话。
 4. 当双方的音视频通道建立完成后，通话的双方还会接收到名为 `onUserVideoAvailable()` 的回调，表示对方的视频画面已经拿到。此时双方用户均可以调用 `startRemoteView()` 展示远端的视频画面。远端的声音默认是自动播放的。
 

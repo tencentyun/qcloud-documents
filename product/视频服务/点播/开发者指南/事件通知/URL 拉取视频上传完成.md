@@ -15,10 +15,10 @@ PullComplete
 
 ```json
 {
-    "version": "4.0", 
-    "eventType": "PullComplete", 
-    "data": {
-        "TaskId": "Pull-f5ac8127b3b6b85cdc13f237c6005d8", 
+    "EventType": "PullComplete", 
+    "PullCompleteEvent": {
+        "TaskId": "125676836723-Pull-f5ac8127b3b6b85cdc13f237c6005d8", 
+        "Status": "FINISH",
         "ErrCode": 0, 
         "Message": "SUCCESS", 
         "FileId": "14508071098244959037", 
@@ -46,7 +46,9 @@ PullComplete
             }
         }, 
         "FileUrl": "http://125676836723.vod2.myqcloud.com/xxx/xxx/xxx.mp4", 
-        "ProcedureTaskId": ""
+        "ProcedureTaskId": "",
+        "SessionContext": "",
+        "SessionId": ""
     }
 }
 ```
@@ -62,7 +64,8 @@ PullComplete
                 "EventHandle": "EventHandleX", 
                 "EventType": "PullComplete", 
                 "PullCompleteEvent": {
-                    "TaskId": "Pull-f5ac8127b3b6b85cdc13f237c6005d8", 
+                    "TaskId": "125676836723-Pull-f5ac8127b3b6b85cdc13f237c6005d8", 
+                    "Status": "FINISH",
                     "ErrCode": 0, 
                     "Message": "SUCCESS", 
                     "FileId": "14508071098244959037", 
@@ -90,7 +93,9 @@ PullComplete
                         }
                     }, 
                     "FileUrl": "http://125676836723.vod2.myqcloud.com/xxx/xxx/xxx.mp4", 
-                    "ProcedureTaskId": ""
+                    "ProcedureTaskId": "",
+                    "SessionContext": "",
+                    "SessionId": ""
                 }
             }
         ]

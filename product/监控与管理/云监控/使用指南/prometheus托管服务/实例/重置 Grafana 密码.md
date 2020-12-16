@@ -3,9 +3,6 @@
 如果您遗忘了 Grafana Admin 密码，您可以在控制台上重新设置实例对应 Grafana Admin 的登录密码。
 
 
-## 准备工作
-
-申请开通云监控 [Prometheus 托管服务](https://cloud.tencent.com/apply/p/cb3dj6vzk8s)。
 
 
 

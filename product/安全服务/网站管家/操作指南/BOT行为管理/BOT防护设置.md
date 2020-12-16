@@ -8,7 +8,7 @@ WAF 自定义会话策略提供协议特征、IP 情报特征和自定义会话�
 
 ## 使用说明
 ### BOT 功能开关
-登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot/strategy)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 防护设置】，进入 BOT 策略设置页面。
+登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot2/config)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 防护设置】，进入 BOT 策略设置页面。
 ![](https://main.qcloudimg.com/raw/078750ac49ea99153f3f81461f8611b4.png)
 **字段说明：**
 - **域名：**同步【Web 应用防火墙】>【[防护配置](https://console.cloud.tencent.com/guanjia/waf/config)】添加到 WAF 的防护域名，且支持排序。
@@ -18,7 +18,7 @@ WAF 自定义会话策略提供协议特征、IP 情报特征和自定义会话�
 - **操作：**单击【防护设置】，设置 BOT 防护策略。
 
 ### 公开类型设置
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot/strategy)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 防护设置】，找到需要操作的域名，在右侧操作栏，单击【防护设置】。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot2/config)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 防护设置】，找到需要操作的域名，在右侧操作栏，单击【防护设置】。
 2. 进入防护设置页面，单击【公开类型】，进入相应列表页。
 ![](https://main.qcloudimg.com/raw/6edeebf8857429080854621877506d76.png)
 **参数说明：**
@@ -31,7 +31,7 @@ WAF 自定义会话策略提供协议特征、IP 情报特征和自定义会话�
 
 ### 自定义会话策略
 #### 协议特征
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot/strategy)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 防护设置】，找到需要操作的域名，在右侧操作栏，单击【防护设置】。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot2/config)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 防护设置】，找到需要操作的域名，在右侧操作栏，单击【防护设置】。
 2. 进入防护设置页面，选择【自定义会话策略】>【协议特征】，进入相应列表页。
 ![](https://main.qcloudimg.com/raw/d9779127d93f5c8b1640d68a436c72ad.png)
 	- **字段说明：**
@@ -63,7 +63,7 @@ WAF 自定义会话策略提供协议特征、IP 情报特征和自定义会话�
 </table>
 
 #### IP 情报特征
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot/strategy)，在左侧导航栏中，选择【BOT行为管理】>【BOT防护设置】，找到需要操作的域名，在右侧操作栏，单击【防护设置】。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot2/config)，在左侧导航栏中，选择【BOT行为管理】>【BOT防护设置】，找到需要操作的域名，在右侧操作栏，单击【防护设置】。
 2. 进入防护设置页面，选择【自定义会话策略】>【IP 情报特征】，进入相应列表页。
 ![](https://main.qcloudimg.com/raw/aca75a58890ae8efc4a7c79bf5a10dd4.png)
 	- **字段说明：**
@@ -91,7 +91,7 @@ WAF 自定义会话策略提供协议特征、IP 情报特征和自定义会话�
 </table>
 
 #### 自定义会话特征
-1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot/strategy)，在左侧导航栏中，选择【BOT行为管理】>【BOT防护设置】，找到需要操作的域名，在右侧操作栏，单击【防护设置】。
+1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot2/config)，在左侧导航栏中，选择【BOT行为管理】>【BOT防护设置】，找到需要操作的域名，在右侧操作栏，单击【防护设置】。
 2. 进入防护设置页面，选择【自定义会话策略】>【自定义会话特征】，进入相应列表页。
 ![](https://main.qcloudimg.com/raw/1453fca7d60c9922a5eea34b4f93264a.png)
 	- **字段说明：**

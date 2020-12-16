@@ -24,11 +24,12 @@
 
 GPU 云服务器支持四种镜像类型：公共镜像、自定义镜像、共享镜像、镜像市场。详情请参见 [镜像概述](https://cloud.tencent.com/document/product/213/4940)。
 刚开始使用腾讯云的用户，可选择【公共镜像】，并根据需要挑选版本。如下图所示：
-![](https://main.qcloudimg.com/raw/28960b2d4e9b6fb43a5aa7e75b84a4ec.png)
->!**GPU 云服务器必须具备相应的 GPU 驱动才能正常运行。** 您可通过以下3种方式，安装相应驱动：
-> - 若选择【公共镜像】，则勾选【后台自动安装GPU驱动】即可预装相应办版本驱动，建议您选择该方式。
+![](https://main.qcloudimg.com/raw/7b249eacc1ab6d29bd9bb92bc0efcbfe.png)
+>!**GPU 云服务器必须具备相应的 GPU 驱动才能正常运行。** 您可通过以下4种方式，安装相应驱动：
+> - 若选择【公共镜像】，则勾选【后台自动安装GPU驱动】即可预装相应办版本驱动，建议您选择该方式。该方式仅支持部分 Linux 公共镜像，详情请参见 [GPU 驱动预装信息](#PreloadGPUDrive)。
 > - 若选择【公有镜像】，则在 GPU 实例创建成功后，可参照 [安装 NVIDIA 驱动指引](https://cloud.tencent.com/document/product/560/8048) 手动安装相应驱动。
 > - 若选择【镜像市场】，则可选择预装了 GPU 驱动的镜像，详情请参见 [使用预装 GPU 驱动的镜像](https://cloud.tencent.com/document/product/560/30129)。
+> - 若您购买的是 vGPU 实例，则可选择已预装了 GRID 驱动的公共镜像，无需单独安装驱动。
 
 
 
@@ -64,5 +65,44 @@ GPU 云服务器支持四种镜像类型：公共镜像、自定义镜像、共�
 请核对订单信息，选择付款方式付款。
 支付成功后，进入控制台，待实例创建启动完毕，即可进行登录操作。如下图所示：
 ![](https://main.qcloudimg.com/raw/f049933874cf300f16eefcd1aae5f017.png)
+
+
+## 附录
+### GPU 驱动预装信息<span id="PreloadGPUDrive"></span>
+GPU 云服务器支持部分 Linux 公共镜像通过后台自动安装 GPU 驱动。实例初次启动时，会根据所选版本自动安装 GPU 驱动、CUDA 及 cuDNN 库，耗时约15 - 20分钟。详细信息如下表：
+<table>
+        <thead>
+        <tr>
+            <th width="15%">GPU 驱动</th>
+            <th width="15%">CUDA 版本</th>
+            <th width="15%">cuDNN 版本</th>
+            <th width="30%">支持的公共镜像版本</th>
+            <th style="width: 26%;">支持的实例类型</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="5">418.126.02</td>
+                <td>10.1.105</td> 
+                <td>7.5.0</td>
+                <td rowspan="2">CentOS 7.x<br>Ubuntu 18.04及以上</td>
+                <td rowspan="4">GN10Xp<br>GN10X<br>GN8<br>GN7<br>GN6S</td>
+            </tr>
+            <tr>
+                <td>10.0.130</td> 
+                <td>7.5.0<br>7.4.2<br>7.3.1</td>
+            </tr>
+            <tr>
+                <td>9.2.148</td> 
+                <td>7.5.0<br>7.4.2<br>7.3.1<br>7.1.4</td>
+                <td rowspan="2">CentOS 7.x<br</td>
+            </tr>
+            <tr>
+                <td>9.0.176</td> 
+                <td>7.5.0<br>7.4.2<br>7.3.1<br>7.1.4<br>7.0.5</td>
+            </tr>
+        </tbody>
+</table>
+
 
 

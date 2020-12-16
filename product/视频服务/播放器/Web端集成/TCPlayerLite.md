@@ -26,18 +26,28 @@ RTMP|只适用直播|`rtmp://xxx.liveplay.myqcloud.com/live/xxx`|支持|不支�
 MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 
 >! 播放 RTMP 格式的视频必须启用 Flash，目前浏览器默认禁用 Flash，需用户手动开启。
+
+**功能支持**
+
+|功能\浏览器|Chrome|Firefox|Edge|QQ 浏览器|Mac Safari|iOS Safari|iOS 微信 QQ|Android Chrome|Android 微信、QQ|手机 QQ 浏览器|IE 8,9,10,11|
+|---|---|---|---|---|---|---|---|---|---|---|---|
+|设置封面|✔|✔|✔|✔|✔|✔|✔|✔|✔|✔|✔|
+|多清晰度支持|✔|✔|✔|✔|✔|✖|✖|✖|✖|✖|✔|
+|定制错误提示语|✔|✔|✔|✔|✔|✖|✖|✖|✖|✖|✔|
+
+
 ## 对接攻略
 
 ### Step1. 页面准备工作
 在需要播放视频的页面（PC 或 H5）中引入初始化脚本。
 ```
-<script src="https://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.2.js" charset="utf-8"></script>;
+<script src="https://imgcache.qq.com/open/qcloud/video/vcplayer/TcPlayer-2.3.3.js" charset="utf-8"></script>;
 ```
 
 如果在域名限制区域，可以引入以下链接：
 
 ```
-<script src="https://cloudcache.tencent-cloud.com/open/qcloud/video/vcplayer/TcPlayer-2.3.2.js" charset="utf-8"></script>;
+<script src="https://cloudcache.tencent-cloud.com/open/qcloud/video/vcplayer/TcPlayer-2.3.3.js" charset="utf-8"></script>;
 ```
 
 >! 直接用本地网页无法调试，Web 播放器无法处理该情况下的跨域问题。

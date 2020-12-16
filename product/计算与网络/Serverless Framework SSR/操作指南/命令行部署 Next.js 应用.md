@@ -1,8 +1,5 @@
 ## 操作场景
-Serverless SSR 为您提供了完整的命令行开发流程，该任务指导您通过命令行（CLI）部署 Next.js 应用。
-
->?目前 Serverless SSR 只支持 Next.js 与 Nuxt.js 两个框架组件的部署。
-
+Serverless SSR 为您提供了完整的命令行开发流程，该任务指导您通过 [Serverless Framework](https://cloud.tencent.com/document/product/1154) 命令行工具完成 Next.js 应用的部署与开发。
 
 ## 架构说明
 
@@ -12,8 +9,6 @@ Next.js 组件将在腾讯云账号中使用到如下 Serverless 服务：
 - **SCF 云函数**：云函数将承载 Next.js 应用。
 - **CAM 访问控制**：该组件会创建默认 CAM 角色用于授权访问关联资源。
 - **COS 对象存储**：为确保上传速度和质量，云函数压缩并上传代码时，会默认将代码包存储在特定命名的 COS 桶中
-- **SSL 证书服务**：如果您在 yaml 文件中配置了 `apigatewayConf.customDomains` 字段，需要做自定义域名绑定并开启 HTTPS 时，也会用到证书管理服务和域名服务。Serverless Framework 会根据已经备案的域名自动申请并配置 SSL 证书。
-
 
 ## 操作步骤
 ### 1. 安装
@@ -25,11 +20,17 @@ $ npm install -g serverless
 
 ### 2. 配置
 
-在项目根目录创建 `serverless.yml` 文件：
+本地初始化 next.js 的模版项目（可跳过，您也可以使用您已有的 next.js 项目）
+```
+sls init nextjs-demo
+```
+
+在项目的实际业务代码目录下，创建 `serverless.yml` 文件：
 ```bash
 $ touch serverless.yml
 ```
-在 `serverless.yml` 中进行如下配置：
+
+进行如下配置：
 ```yml
 # serverless.yml
 component: nextjs # (必填) 组件名称，此处为 nextjs
@@ -76,15 +77,7 @@ $ sls deploy
 >?如果希望查看更多部署过程的信息，可以通过`sls deploy --debug` 命令查看部署过程中的实时日志信息（`sls`是 `serverless` 命令的缩写）。
 
 
-### 4. 开发调试
-
-部署了应用后，您可以通过开发调试功能对该项目进行二次开发，从而开发一个生产应用。在本地修改和更新代码后，不需要每次都运行 `serverless deploy` 命令来反复部署。您可以直接通过 `serverless dev` 命令对本地代码的改动进行检测和自动上传。
-
-可以通过在 `serverless.yml`文件所在的目录下运行 `serverless dev` 命令开启开发调试能力。
-
-`serverless dev` 同时支持实时输出云端日志，每次部署完毕后，对项目进行访问，即可在命令行中实时输出调用日志，便于查看业务情况和排障。
-
-### 5. 查看部署状态
+### 4. 查看部署状态
 
 在`serverless.yml`文件所在的目录下，通过如下命令查看部署状态：
 
@@ -92,7 +85,7 @@ $ sls deploy
 $ serverless info
 ```
 
-### 6. 移除
+### 5. 移除
 
 在`serverless.yml`文件所在的目录下，通过以下命令移除部署通过以下命令移除部署的 API 网关，移除后该组件会对应删除云上部署时所创建的所有相关资源。
 

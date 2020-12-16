@@ -72,3 +72,5 @@ Windows 实例的操作界面上方出现 <img src="https://main.qcloudimg.com/r
 Windows RDP 协议可以为常用的 USB 设备提供更优化的连接性能，即不需要开启 RemoteFx 功能便可直接映射设备，例如驱动器和摄像头等。不常用的 USB 设备则只能通过 RemoteFX USB Redirection 来实现。不常用的 USB 设备可参考如下内容，选择相应的重定向方式：
 ![](https://main.qcloudimg.com/raw/715de06c08753eefe6e4ff5cc3bca270.png)
 
+
+

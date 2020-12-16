@@ -11,6 +11,7 @@
 
 登录前，要通过相关用户接口换取 `accesstoken` 完成登录，调用url 为 `..../appapi`，`accesstoken` 用于标识一个用户。当用户登录完毕后，使用 url 为 `.../tokenapi` 的相关 API 完成其他操作。
 
+
 ## 签名算法
 
 #### 获取应用 AppKey 和 AppSecret
@@ -19,7 +20,7 @@
 
 具体获取步骤如下：
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，进入开发中心。
-2. 选择左侧菜单【应用开发】>【小程序开发】，新建小程序，具体新建步骤参见 [应用开发](https://cloud.tencent.com/document/product/1081/40291#.E6.96.B0.E5.BB.BA.E5.B0.8F.E7.A8.8B.E5.BA.8F)。
+2. 选择左侧菜单【应用开发】>【小程序开发】，新建小程序，具体新建步骤参见 [应用开发](https://cloud.tencent.com/document/product/1081/40291#.E6.96.B0.E5.BB.BA.E5.BA.94.E7.94.A8)。
 3. 创建小程序成功后，即可获取系统自动生成的 AppKey 与 AppSecret。
 
 #### 生成签名串
@@ -27,10 +28,10 @@
 有了安全凭证 AppKey 和 AppSecret 后，就可以生成签名串了。下面给出了一个生成签名串的详细过程。
 
 假设用户的 AppKey 和 AppSecret 分别是：
-- AppKey： `ahPxdK*****TGrejd`
-- AppSecret： `NcbHqk******TCGbKnQH`
+- AppKey： `ahPxdK****TGrejd`
+- AppSecret： `NcbHqk****TCGbKnQH`
 
-> 本文仅为示例，请您根据自己实际的 `AppKey` 和 `AppSecret` 进行后续操作。
+>?本文仅为示例，请您根据自己实际的 `AppKey` 和 `AppSecret` 进行后续操作。
 
 以通过手机号注册账号 `AppCreateCellphoneUser` 请求为例，当用户调用这一接口时，其请求参数**可能**如下：
 
@@ -38,8 +39,8 @@
 | ---------------- | --------- | --------- | ------------------------ |
 | RequestId        | String    | 公共参数，唯一请求 ID，可自行生成，推荐使用 uuid。定位问题时，需要提供该次请求的 RequestId  | 8b8d499bbba1ac28b6da21b4 |
 | Action           | String    | 公共参数，调用的接口方法名称     | AppCreateCellphoneUser   |
-| AppKey           | String    |公共参数，应用 AppKey ，用于标识对应的 App  | ahPxdk****TGrejd   |
-| Signature        | String    | 公共参数，请求的签名   | CKu55Y###imbs |
+| AppKey           | String    |公共参数，应用 AppKey ，用于标识对应的 App  | ahPxdK****TGrejd  |
+| Signature        | String    | 公共参数，请求的签名   | Szxai9Qs7****OXahbFbseZ+uE= |
 | Timestamp        | Int64     | 公共参数，当前的  UNIX 时间戳（秒级） | 1546315200               |
 | Nonce            | Int       | 公共参数，随机正整数，与时间戳一起，用于 API 防重放 | 71087795                 |
 | CountryCode      | String    | 国家区码     | 86                       |
@@ -57,7 +58,7 @@
 ```
 {
     Action=AppCreateCellphoneUser,
-    AppKey=ahPxdK*****NT*****,
+    AppKey=ahPxdK****TGrejd,
     CountryCode=86,
     Nonce=71087795,
     Password=My!P@ssword,
@@ -77,20 +78,23 @@
 
 将格式化后的各个参数用"&"拼接在一起，最终生成的请求字符串为：
 ```
-Action=AppCreateCellphoneUser&AppKey=*****CountryCode=86&Nonce=71087795&Password=My!P@ssword &PhoneNumber=13900000000&RequestId=8b8d499bbba1ac28b6da21b4&Timestamp=1546315200&VerificationCode=123456
+Action=AppCreateCellphoneUser&AppKey=ahPxdK****TGrejd&CountryCode=86&Nonce=71087795&Password=My!P@ssword &PhoneNumber=13900000000&RequestId=8b8d499bbba1ac28b6da21b4&Timestamp=1546315200&VerificationCode=123456
 ```
 
 3. 生成签名串
 使用 HMAC-SHA1 算法对上一步中获得的签名原文字符串进行签名，然后将生成的签名串使用 Base64 进行编码，即可获得最终的签名串。
 具体代码如下，以 PHP 语言为例：
 ```
-$secretKey = 'NcbHq*****CGbKnQH';
-$srcStr = 'Action=AppCreateCellphoneUser&AppKey=*****CountryCode=86&Nonce=71087795&Password=My!P@ssword&PhoneNumber=13900000000&RequestId=8b8d499bbba1ac28b6da21b4&Timestamp=1546315200&VerificationCode=123456';
+$secretKey = 'NcbHqk****TCGbKnQH';
+$srcStr = 'Action=AppCreateCellphoneUser&AppKey=ahPxdK****TGrejd&CountryCode=86&Nonce=71087795&Password=My!P@ssword&PhoneNumber=13900000000&RequestId=8b8d499bbba1ac28b6da21b4&Timestamp=1546315200&VerificationCode=123456';
 $signStr = base64_encode(hash_hmac('sha1', $srcStr, $secretKey, true));
 echo $signStr
 ```
 最终得到的签名串为：
 ```
-CKu55Y3ZD6RuxpjPySM6U99imbs=
+Szxai9Qs7O3lBoOXahbFbseZ+uE=
 ```
 使用其它程序设计语言开发时，可用上面示例中的原文进行签名验证，得到的签名串与例子中的一致即可。
+
+## 调试工具
+使用应用端 API [调试工具](https://iot.cloud.tencent.com/apidebug)，快速调试应用端 API。

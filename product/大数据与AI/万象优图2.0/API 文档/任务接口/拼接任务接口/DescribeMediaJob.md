@@ -5,7 +5,7 @@ DescribeMediaJob 用于查询指定的任务。
 
 #### 请求示例
 
-```
+```plaintext
 GET /jobs/<jobId> HTTP/1.1
 Host: <BucketName-APPID>.ci.<Region>.myqcloud.com
 Date: <GMT Date>
@@ -106,11 +106,11 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
         <ConcatTemplate>
             <ConcatFragment>
                 <Mode>Start</Mode>
-                <Url>http://bucket-1250000000.ci.ap-beijing.myqcloud.com/start.mp4</Url>
+                <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/start.mp4</Url>
             </ConcatFragment>
             <ConcatFragment>
                 <Mode>End</Mode>
-                <Url>http://bucket-1250000000.ci.ap-beijing.myqcloud.com/end.mp4</Url>
+                <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/end.mp4</Url>
             </ConcatFragment>
             <Audio>
                 <Codec>mp3</Codec>

@@ -31,7 +31,7 @@ APISERVER=`cat  ./kubelet-kubeconfig |grep server | awk -F ' ' '{print $2}'`
 ![](https://main.qcloudimg.com/raw/8d0741a5db89999eb23a757c6a3dda46.png)
 
 
-### 使用 cURL 命令操作 Kubernetes API
+### 使用 CURL 命令操作 Kubernetes API
 1. 执行以下命令，查看当前集群中所有 namespaces。
 ```
 curl --cert client-cert.pem --key client-key.pem -k $APISERVER/api/v1/namespaces

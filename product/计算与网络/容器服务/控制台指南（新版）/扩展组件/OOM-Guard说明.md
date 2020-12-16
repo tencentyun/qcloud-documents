@@ -1,7 +1,7 @@
 ## 简介
 
 ### 组件介绍
-OOM-Guard 是容器服务 TKE 提供用于在用户态处理容器 cgroup OOM 的组件。由于 Linux 内核对 cgroup OOM 的处理存在很多问题，经常发生由于频繁 cgroup OOM 导致节点故障（卡死、重启或进程异常但无法杀死）的情况。OOM-Guard 组件在发生 cgroup OOM，内核杀死容器进程之前，在用户空间杀掉超限的容器，减少走到内核 cgroup 内存回收失败后的代码分支而触发各种内核故障的机会。
+OOM-Guard 是容器服务 TKE 提供用于在用户态处理容器 cgroup OOM 的组件。由于 Linux 内核对 cgroup OOM 的处理存在很多问题，经常发生由于频繁 cgroup OOM 导致节点故障（卡死、重启或进程异常但无法杀死）的情况。在发生 cgroup OOM，内核杀死容器进程之前，OOM-Guard 组件在用户空间杀掉超限的容器，减少走到内核 cgroup 内存回收失败后的代码分支而触发各种内核故障的机会。
 
 在触发阈值进行 OOM 之前，OOM-Guard 会先通过写入 `memory.force_empty` 触发相关 cgroup 的内存回收，如果 `memory.stat` 显示还有较多 cache，则不会触发后续处理策略。在 cgroup OOM 杀掉容器后，会向 Kubernetes 上报 `OomGuardKillContainer` 事件，可以通过 `kubectl get event` 命令进行查看。
 
@@ -9,8 +9,8 @@ OOM-Guard 是容器服务 TKE 提供用于在用户态处理容器 cgroup OOM �
 
 | Kubernetes 对象名称 | 类型               | 默认占用资源            | 所属 Namespaces |
 | ------------------- | ------------------ | ----------------------- | --------------- |
-| oomguard            | ServiceAccount     | /                | kube-system     |
-| system:oomguard     | ClusterRoleBinding |/                   | /            |
+| oomguard            | ServiceAccount     | -                | kube-system     |
+| system:oomguard     | ClusterRoleBinding |-                   | -            |
 | oom-guard           | DaemonSet          | 0.02核 CPU，120MB内存 | kube-system     |
 
 ## 使用场景

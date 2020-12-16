@@ -67,11 +67,11 @@ Content-Type: application/xml
         <ConcatTemplate>
             <ConcatFragment>
                 <Mode>Start</Mode>
-                <Url>http://bucket-1250000000.ci.ap-beijing.myqcloud.com/start.mp4</Url>
+                <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/start.mp4</Url>
             </ConcatFragment>
             <ConcatFragment>
                 <Mode>End</Mode>
-                <Url>http://bucket-1250000000.ci.ap-beijing.myqcloud.com/end.mp4</Url>
+                <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/end.mp4</Url>
             </ConcatFragment>
             <Audio>
                 <Codec>mp3</Codec>
@@ -217,11 +217,11 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
         <ConcatTemplate>
             <ConcatFragment>
                 <Mode>Start</Mode>
-                <Url>http://bucket-1250000000.ci.ap-beijing.myqcloud.com/start.mp4</Url>
+                <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/start.mp4</Url>
             </ConcatFragment>
             <ConcatFragment>
                 <Mode>End</Mode>
-                <Url>http://bucket-1250000000.ci.ap-beijing.myqcloud.com/end.mp4</Url>
+                <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/end.mp4</Url>
             </ConcatFragment>
             <Audio>
                 <Codec>mp3</Codec>
@@ -285,11 +285,11 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
         <ConcatTemplate>
             <ConcatFragment>
                 <Mode>Start</Mode>
-                <Url>http://bucket-1250000000.ci.ap-beijing.myqcloud.com/start.mp4</Url>
+                <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/start.mp4</Url>
             </ConcatFragment>
             <ConcatFragment>
                 <Mode>End</Mode>
-                <Url>http://bucket-1250000000.ci.ap-beijing.myqcloud.com/end.mp4</Url>
+                <Url>http://bucket-1250000000.cos.ap-beijing.myqcloud.com/end.mp4</Url>
             </ConcatFragment>
             <Audio>
                 <Codec>mp3</Codec>

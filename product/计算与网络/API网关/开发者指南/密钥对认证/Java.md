@@ -12,6 +12,7 @@
 
 ## 注意事项
 - 最终发送的 HTTP 请求内至少包含两个 Header：Date 和 X-Date 二选一以及 Authorization，可以包含更多 header。如果使用 Date Header，服务端将不会校验时间；如果使用 X-Date Header，服务端将校验时间。
+- Source Header 是签名水印值，可以填写任意值，也可不填写，Demo 中默认使用“xxxxxx”。
 - Date Header 的值为格林威治时间（GMT）格式的 HTTP 请求构造时间，例如 Fri, 09 Oct 2015 00:00:00 GMT。
 - X-Date Header 的值为格林威治时间（GMT）格式的 HTTP 请求构造时间，例如 Mon, 19 Mar 2018 12:08:40 GMT。X-Date Header 里的时间和当前时间的差值不能超过15分钟。
 - 如果是微服务 API，Header 中需要添加 “X-NameSpace-Code” 和 “X-MicroService-Name” 两个字段，通用 API 不需要添加，Demo 中默认添加了这两个字段。
@@ -149,8 +150,8 @@ public class SignAndSend {
     public static String sign(String secret, String timeStr)
             throws NoSuchAlgorithmException, UnsupportedEncodingException, InvalidKeyException
     {
-        //获取签名字符串
-        String signStr = "date: "+timeStr+"\n"+"source: "+"source";
+        //获取签名字符串，Source是签名水印值，可填写任意值，Demo中使用“xxxxxx”
+        String signStr = "date: "+timeStr+"\n"+"source: "+"xxxxxx";
         //获取接口签名
         String sig = null;
         Mac mac1 = Mac.getInstance(HMAC_ALGORITHM);
@@ -176,10 +177,10 @@ public class SignAndSend {
             // 打开和 URL 之间的连接
             URLConnection connection = realUrl.openConnection();
             httpUrlCon = (HttpURLConnection)connection;
-            // 设置通用的请求属性
+            // 设置通用的请求属性，Source 是签名水印值，可填写任意值，Demo 中使用“xxxxxx”
             httpUrlCon.setRequestProperty("Host", url);
             httpUrlCon.setRequestProperty("Accept", "text/html, */*; q=0.01");
-            httpUrlCon.setRequestProperty("Source","source");
+            httpUrlCon.setRequestProperty("Source","xxxxxx");
             httpUrlCon.setRequestProperty("Date",timeStr);
             String sig = sign(secretKey,timeStr);
             String authen = "hmac id=\""+secretId+"\", algorithm=\"hmac-sha1\", headers=\"date source\", signature=\""+sig+"\"";

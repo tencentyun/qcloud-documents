@@ -103,7 +103,7 @@ mysql> exit;
 ```
 使用 sqoop-export 把上一步导入 HDFS 中的数据再一次导入到 MySQL 中：
 ```
-[hadoop@172 sqoop]$ bin/sqoop-export --connect jdbc:mysql://172.16.16.42/test --username 
+[hadoop@172 sqoop]$ bin/sqoop-export --connect jdbc:mysql://$mysqlIP/test --username 
 root -P --table sqoop_test_back --export-dir /sqoop
 ```
 参数和 sqoop-import 类似，只不过变成了 --export-dir，该参数为 HDFS 中的存放数据的路径。回车后也需要输入密码。

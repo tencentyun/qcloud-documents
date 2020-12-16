@@ -7,16 +7,16 @@
 - md5hash：MD5（自定义密钥 + 文件路径 + timestamp）。
 
 **请求示例**
-`http://cloud.tencent.com/8fe9b5597c809d7ace147468c7c7eadb/5e577978/test/test.jpg`
+`http://cloud.tencent.com/8fe9b5597c809d7ace147468c7c7eadb/5e577978/test.jpg`
 
 > !计算 MD5 时，若请求路径为`http://cloud.tencent.com/test.jpg`，则计算 MD5 时路径为`/test.jpg`。
 
 ## 配置指南
 ### 参数说明
 TypeC 所需配置如下：
-![](https://main.qcloudimg.com/raw/b1fc7e25fa6503cdcd49786e2eda04d3.png)
-**自定义鉴权密钥：**由6 - 32位大小写字母、数字构成，密钥需要严格保密，仅用户端与服务端知晓。
-**自定义有效时间：**通过请求路径中 timestamp 值，加上配置的有效时间，与当前时间进行对比，判定请求是否过期，若过期则直接返回403。
+![](https://main.qcloudimg.com/raw/04d3080ed7494a6459a94efa2cfcecd8.png)
+**自定义鉴权密钥：**由6 - 40位大小写字母、数字构成，密钥需要严格保密，仅用户端与服务端知晓。
+**自定义有效时间：**通过请求路径中 timestamp 值，加上配置的有效时间，与当前时间进行对比，判定请求是否过期，若过期则直接返回403，有效时间单位为秒。
 
 ### 生效对象
 配置好密钥、参数名及过期时间后，可按需指定鉴权对象，支持以下三种模式：

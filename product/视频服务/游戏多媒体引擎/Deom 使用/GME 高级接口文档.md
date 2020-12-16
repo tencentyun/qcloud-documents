@@ -29,7 +29,7 @@
 
 使用 SetRecvMixStreamCount 接口可以设置最高混音路数，在进房前调用。 各平台均有此接口，下面以 pc 端为例。
 ```
-public abstract int SetRecvMixStreamCount(int nCount);
+virtual int SetRecvMixStreamCount(int nCount) = 0;
 ```
 **参数说明** 
 

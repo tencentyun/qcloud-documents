@@ -11,44 +11,55 @@
 - **便捷协作**：通过云端控制台的状态信息和部署日志，方便进行多人协作开发。
 
 
-## 前提条件
+通过 [Serverless Framework Nuxt.js 组件](https://github.com/serverless-components/tencent-nuxtjs)，可以快速实现 Next.js 传统应用从本地到 Serverless 函数平台的迁移。
 
-#### 初始化 Nuxt.js 项目
+## 迁移前提
 
-在本地创建根目录，并初始化一个 Nuxt.js 项目：
-```bash
-$ mkdir serverless-nuxtjs && cd serverless-nuxtjs
-$ npx create-nuxt-app src
-```
->!
->- 本教程中的 Nuxt 项目使用 JavaScript 与 Npm 安装包进行构建，初始化项目的时候请选择相应的选项。
->- 2020年9月1日起，Serverless 组件不再支持 Node.js10.0 以下版本，请注意升级。
+- 已经 [安装 Serverless Framework 1.67.2](https://cloud.tencent.com/document/product/1154/42990) 以上版本。
+- 已经[注册腾讯云账号](https://cloud.tencent.com/document/product/378/17985)并完成[实名认证](https://cloud.tencent.com/document/product/378/10495)。
+
+>?如果您的账号为**腾讯云子账号**，请首先联系主账号，参考 [账号和权限配置](../quickstart/credential) 进行授权。
+
+## 架构说明
+
+Nuxt.js 组件将在腾讯云账号中使用到如下 Serverless 服务：
+
+- **API 网关**：API 网关将会接收外部请求并且转发到 SCF 云函数中。
+- **SCF 云函数**：云函数将承载 Nuxt.js 应用。
+- **CAM 访问控制**：该组件会创建默认 CAM 角色用于授权访问关联资源。
+- **COS 对象存储**：为确保上传速度和质量，云函数压缩并上传代码时，会默认将代码包存储在特定命名的 COS 桶中。
 
 ## 操作步骤
-### 1. 安装
-通过 npm 全局安装 [Serverless CLI](https://github.com/serverless/serverless)：
-```bash
-$ npm install -g serverless
+>?以下步骤主要针对命令行部署操作，控制台部署请参考 [控制台部署指南](https://cloud.tencent.com/document/product/1154/50957)。
+
+### 1. 初始化 Nuxt.js 模版项目（可选）
+如果您本地并没有 Next.js 项目，可通过以下指令快速新建一个 Next.js 项目模版（本地已有项目可跳过该步骤）：
+```
+serverless init nuxtjs-starter --name example
+cd example
 ```
 
-### 2. 配置
-在项目根目录创建 `serverless.yml` 文件：
-```bash
-$ touch serverless.yml
+### 2. 修改入口函数代码（可选）
+如果项目使用了自定义 Node.js 服务，例如 express 或者 koa 框架，您需要对入口文件 sls.js（或 app.js）做出改造，导出对应框架 app（未使用可跳过该步骤）, 点此查看 [改造模版](#1)。
+
+### 3. 项目构建
 ```
-在 `serverless.yml` 中进行如下配置：
+npm run build
+```
+
+### 4. 快速生成 yml 文件并进行部署
+
+完成代码修改后，通过执行 `sls deploy` 指令，Serverless Framework 会自动帮您生成基本的 `serverless.yml` 文件，并完成部署，实现 Nuxt.js 框架应用的快速迁移。
+
+生成的默认配置文件如下：
 ```yml
-# serverless.yml
-component: nuxtjs # (必填) 组件名称，此处为 nuxtjs
-name: nuxtjsDemo # (必填) 实例名称
-org: orgDemo # (可选) 用于记录组织信息，默认值为您的腾讯云账户 APPID
-app: appDemo # (可选) 该 nuxt.js 项目名称
-stage: dev # (可选) 用于区分环境信息，默认值是 dev
+component: nuxtjs
+name: nuxtjsDemo
+app: appDemo
 
 inputs:
-  src:
-    src: ./src
-    exclude:
+  src: ./
+  exclude:
       - .env
   region: ap-guangzhou
   runtime: Nodejs10.15
@@ -59,66 +70,99 @@ inputs:
     environment: release
 ```
 
-查看 [更多配置及说明 >>](https://github.com/serverless-components/tencent-nextjs/tree/master/docs/configure.md)
-
-### 3. 部署
-#### 3.1 构建静态资源
-
-进入到 nuxt 项目目录下，构建静态资源：
-```bash
-$ cd src && npm run build
-```
-
-#### 3.2 部署到云端
-
-回到在 serverless.yml 文件所在的项目根目录，运行以下指令进行部署：
-```bash
-# 进入项目根目录 serverless-nuxtjs
-$ sls deploy
-
-serverless ⚡ framework
-Action: "deploy" - Stage: "dev" - App: "appDemo" - Instance: "nuxtjsDemo"
-
-region: ap-guangzhou
-apigw:
-  serviceId:   service-4v2jx72g
-  subDomain:   service-4v2jx72g-1258834142.gz.apigw.tencentcs.com
-  environment: release
-  url:         https://xxxxxx.gz.apigw.tencentcs.com/release/
-scf:
-  functionName: nuxtjs_component_mm518kl
-  runtime:      Nodejs10.15
-  namespace:    default
-
-139s › nuxtjsDemo › Success
-```
-
-部署时需要进行身份验证，如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
->?如果希望查看更多部署过程的信息，可以通过 `sls deploy --debug` 命令查看部署过程中的实时日志信息（`sls`是 `serverless` 命令的缩写）。
-
-
-### 4. 开发调试
-
-部署了 Nuxt.js 应用后，可以通过开发调试能力对该项目进行二次开发，从而开发一个生产应用。在本地修改和更新代码后，不需要每次都运行 `serverless deploy` 命令来反复部署。您可以直接通过 `serverless dev` 命令对本地代码的改动进行检测和自动上传。
-可以通过在 `serverless.yml` 文件所在的目录下运行 `serverless dev` 命令开启开发调试能力。
-`serverless dev` 同时支持实时输出云端日志，每次部署完毕后，对项目进行访问，即可在命令行中实时输出调用日志，便于查看业务情况和排障。
+部署完成后，通过访问输出的 API 网关链接，完成对应用的访问。
 
 ### 5. 查看部署状态
 
-在 `serverless.yml` 文件所在的目录下，通过如下命令查看部署状态：
+在`serverless.yml`文件所在的目录下，通过如下命令查看部署状态：
 
 ```
 $ serverless info
 ```
 
-### 6. 移除
 
-在 `serverless.yml` 文件所在的目录下，通过以下命令移除部署的 API 网关，移除后该组件会对应删除云上部署时所创建的所有相关资源。
+<span id="1"></span>
+## 项目迁移改造模版
 
-```bash
-$ sls remove
+- Express 模版
+
+```js
+const express = require('express')
+const { loadNuxt } = require('nuxt')
+
+async function createServer() {
+  // not report route for custom monitor
+  const noReportRoutes = ['/_nuxt', '/static', '/favicon.ico']
+
+  const server = express()
+  const nuxt = await loadNuxt('start')
+
+  server.all('*', (req, res, next) => {
+    noReportRoutes.forEach((route) => {
+      if (req.path.indexOf(route) === 0) {
+        req.__SLS_NO_REPORT__ = true
+      }
+    })
+    return nuxt.render(req, res, next)
+  })
+
+  // define binary type for response
+  // if includes, will return base64 encoded, very useful for images
+  server.binaryTypes = ['*/*']
+
+  return server
+}
+
+module.exports = createServer
 ```
-和部署类似，支持通过 `sls remove --debug` 命令查看移除过程中的实时日志信息（`sls`是 `serverless` 命令的缩写）。
+
+- Koa 模版
+```js
+const express = require('express')
+const { loadNuxt } = require('nuxt')
+
+async function createServer() {
+  // not report route for custom monitor
+  const noReportRoutes = ['/_nuxt', '/static', '/favicon.ico']
+
+  const server = express()
+  const nuxt = await loadNuxt('start')
+
+  server.all('*', (req, res, next) => {
+    noReportRoutes.forEach((route) => {
+      if (req.path.indexOf(route) === 0) {
+        req.__SLS_NO_REPORT__ = true
+      }
+    })
+    return nuxt.render(req, res, next)
+  })
+
+  // define binary type for response
+  // if includes, will return base64 encoded, very useful for images
+  server.binaryTypes = ['*/*']
+
+  return server
+}
+
+module.exports = createServer
+```
+
+### 自定义监控
+
+>?目前仅支持自定义 Express 服务的项目。
+
+当在部署 Nuxt.js 应用时，如果 `serverless.yml` 中未指定 `role`，默认会尝试绑定 `QCS_SCFExcuteRole`，并且开启自定义监控，帮助用户收集应用监控指标。对于为自定义入口文件的项目，会默认上报除含有 `/_nuxt`、`/static` 和 `/favicon.ico` 的路由。
+
+如果您想自定义上报自己的路由性能，那么可以自定义 `sls.js` 入口文件，对于无需上报的路由，在 express 服务的 `req` 对象上添加 `__SLS_NO_REPORT__` 属性值为 `true` 即可。例如：
+
+```js
+server.get('/no-report', (req, res, next) => {
+  req.__SLS_NO_REPORT__ = true
+  return nuxt.render(req, res, next)
+})
+```
+
+那么用户在访问 `GET /no-report` 路由时，就不会上报自定义监控指标。
 
 ## 更多资源
 ### 账号配置

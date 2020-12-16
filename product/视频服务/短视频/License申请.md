@@ -17,7 +17,7 @@ SDK 版本 License 与您需要购买的点播套餐包对应关系如下：
 | [企业版 SDK（UGC_Enterprise）](https://cloud.tencent.com/document/product/584/9366#sdk) | 参见 [申请企业版本 License](#enterpriseli) | 
 | [企业版 Pro SDK（EnterprisePro）](https://cloud.tencent.com/document/product/584/9366#sdk) | 参见 [申请企业版本 License](#enterpriseli) | 
 
->!**购买点播套餐包并绑定 License 后，请确认 Bundle ID 和 Package Name 无误，一旦提交，License 信息不能再做修改。**
+>!**购买点播套餐包并绑定 License 后，请确认 [Bundle ID 和 Package Name](https://cloud.tencent.com/document/product/266/50296#que5) 无误，一旦提交，License 信息不能再做修改。**
 
 
 ## 新增短视频 License
@@ -41,7 +41,7 @@ SDK 版本 License 与您需要购买的点播套餐包对应关系如下：
 用户于2019年02月02日购买流量资源包50TB（有效期：2019.02.02 - 2020.02.01），赠送基础版 License，则 License 的有效期为2019.02.02 - 2020.02.01，若用户需要进行续期，续期流量资源包-200TB（2019.07.02 - 2020.07.01），则License 的有效期为2019.07.02 - 2020.07.01。
 
 ## 升级短视频 License
-目前及支持短视频 License 由精简版升级至基础版,升级的 License 为对应的资源包赠送的 License 规格。
+目前仅支持短视频 License 由精简版升级至基础版，升级的 License 为对应的资源包赠送的 License 规格。
 
 #### 示例
 用户购买流量资源包10TB（赠送精简版 License），如需升级至基础版 License，则控制台需要存在50TB或200TB资源包。

@@ -15,52 +15,57 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 <table>
         <thead>
         <tr>
-            <th width="10%">类型</th>
-            <th width="15%">实例<br>（NVIDIA）</th>
-            <th width="15%">GPU 类型</th>
-            <th width="34%">GPU 性能</th>
-            <th style="
-    width: 26%;
-">可用区域</th>
+            <th width="11%">类型</th>
+            <th width="3%">实例</th>
+            <th width="17%">GPU 类型</th>
+            <th width="34%">可用镜像</th>
+            <th style="width: 38%;">可用区域</th>
         </tr>
         </thead>
         <tbody>
             <tr>
-                <td rowspan="6">计算型</td>
-                <td>GN10X/GN10Xp</td> 
+                <td rowspan="8">计算型</td>
+                <td rowspan="2">GN10X<br>GN10Xp</td> 
                 <td>Tesla V100 NVLink 32G</td>
-                                <td><ul class="params"><li>15.7TFLOPS 单精度浮点计算</li><li>7.8TFLOPS 双精度浮点计算</li><li>125TFLOPS Tensor Core 深度学习加速</li><li>300GB/s NVLink</li></ul></td>
-                <td><ul class="params"><li>GN10X：广州、上海、南京、北京、成都、重庆、新加坡、硅谷</li><li>GN10Xp：广州、上海、南京、北京、成都、重庆</li></ul></td>
+                <td><ul class="params"><li>CentOS 7.2 及以上</li><li>Ubuntu 14.04 及以上</li><li>Windows Server 2012 及以上</li></td>
+                <td><ul class="params"><li>GN10X：广州、上海、南京、北京、成都、重庆、新加坡、硅谷、法兰克福、孟买</li><li>GN10Xp：广州、上海、南京、北京、成都、重庆、香港、法兰克福</li></ul></td>
             </tr>
+            <tr>
+				<td>vGPU - Tesla V100 NVLink 32G</td> 
+                <td><ul class="params"><li>CentOS 7.6 64位 GRID91</li><li>Ubuntu Server 18.04.1 64位 GRID91</li></ul></td>
+                <td><ul class="params"><li>GN10X：广州、上海、南京、北京、成都、重庆</li><li>GN10Xp：广州、上海、南京、北京、成都、重庆、香港</li></ul></td>
+			</tr>
             <tr>
                 <td>GN8</td> 
                 <td>Tesla P40</td>
-                <td><ul class="params"><li>12TFLOPS 单精度浮点计算</li><li>47INT8 TOPS</li></ul></td>
-                <td>香港、广州、上海、北京、成都、重庆、硅谷</td>
+                <td  rowspan=2><ul class="params"><li>CentOS 7.2 及以上</li><li>Ubuntu 14.04 及以上</li><li>Windows Server 2012 及以上</li></td>
+                <td>广州、上海、北京、成都、重庆、香港、硅谷</td>
             </tr>
             <tr>
-                <td>GN7</td> 
+                <td rowspan="2">GN7</td> 
                 <td>Tesla T4</td>
-                                <td><ul class="params"><li>8.1TFLOPS 单精度浮点计算</li><li>130INT8 TOPS</li><li>260INT4 TOPS</li></ul></td>
-                <td>广州、上海、南京、北京、成都、重庆、新加坡、硅谷</td>
+                <td>广州、上海、南京、北京、成都、重庆、香港、新加坡、硅谷、孟买、弗吉尼亚、法兰克福</td>
             </tr><tr>
+				<td>vGPU - Tesla T4</td> 
+                <td><ul class="params"><li>CentOS 7.6 64位 GRID91</li><li>Ubuntu Server 18.04.1 64位 GRID91</li></td>
+                <td>广州、上海、南京、北京、成都、重庆、香港、硅谷</td>
+			</tr><tr>
             </tr><tr>
-                <td>GN6/GN6S</td> 
+                <td>GN6<br>GN6S</td> 
                 <td>Tesla P4</td>
-                <td><ul class="params"><li>5.5TFLOPS 单精度浮点计算</li><li>22INT8 TOPS</li></ul></td>
+            	<td  rowspan=2><ul class="params"><li>CentOS 7.2 及以上</li><li>Ubuntu 14.04 及以上</li><li>Windows Server 2012 及以上</li></td>
                 <td><ul class="params"><li>GN6：成都</li><li>GN6S：广州、上海、北京</li></ul></td>
             </tr>
                 <tr><td>GN2</td> 
                 <td>Tesla M40</td>
-                <td><ul class="params"><li>7TFLOPS 单精度浮点计算（GPU Boost 加速）</li><li>0.2TFLOPS 双精度浮点计算</li></ul></td>
                 <td>广州、北京、上海</td>
             </tr>
             <tr>
                 <td>渲染型</td>
                 <td>GN7vw</td> 
                 <td>Tesla T4</td>
-                <td><ul class="params"><li>8.1TFLOPS 单精度浮点计算</li><li>130INT8 TOPS</li><li>260INT4 TOPS</li></ul></td>
-                <td>-</td>
+                <td><ul class="params"><li>CentOS 7.6 64位 GRID91</li><li>Ubuntu Server 18.04.1 64位 GRID91</li><li>Windows Server 2016数据中心版 64位中文版 GRID93</li></td>
+                <td>北京、上海、广州、南京、成都、重庆、香港、新加坡、孟买、硅谷、弗吉尼亚、法兰克福</td>
             </tr>
         </tbody>
 </table>
@@ -140,7 +145,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
 >?GN2 视频编解码支持 H.264，不支持 H.265。详情请参见 [视频编码和解码 GPU 支持列表](https://developer.nvidia.com/video-encode-decode-gpu-support-matrix)。
 
 ### 图形图像处理
-推荐使用 GN7vw，免除了 vDWS License 申请及搭建服务器步骤，是图形图像处理应用场景的首选。目前 GN7vw 处于内测阶段，如需使用，请前往 [申请](https://cloud.tencent.com/apply/p/l133eutcwd9) 页面。
+推荐使用 GN7vw，免除了 vDWS License 申请及搭建服务器步骤，是图形图像处理应用场景的首选。目前 GN7vw 处于限量购买阶段，如需使用，请前往 [申请](https://cloud.tencent.com/apply/p/l133eutcwd9) 页面。
 
 NVIDIA GN* 系列其他实例（GN2 除外）可以通过安装 GRID Driver 的方式来支持图形图像处理，但是需要额外购买 License，详情请参见 [安装 NVIDIA GRID 驱动](https://cloud.tencent.com/document/product/560/30060)。
 
@@ -228,7 +233,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
                 <td>4Gbps</td>
 				<td>80万PPS</td>
                 <td>2</td>
-                <td rowspan="3">广州三、四区，上海二、三区，南京一区，北京四、五区，成都一区，重庆一区，新加坡一区，硅谷二区。</td>
+                <td rowspan="3">广州三、四区，上海二、三区，南京一区，北京四、五区，成都一区，重庆一区，新加坡一区，硅谷二区，法兰克福一区，孟买二区</td>
 			</tr>
             <tr>
 				<td>GN10X.9XLARGE160</td>
@@ -291,7 +296,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
             <td>4Gbps</td>
 			<td>80万PPS</td>
             <td>10</td>
-            <td rowspan="4">广州三、四区，上海二区，南京一区，北京五区，成都一区，重庆一区</td>
+            <td rowspan="4">广州三、四区，上海二区，南京一区，北京五区，成都一区，重庆一区，香港二区，法兰克福一区</td>
 		</tr>
 		<tr>
 			<td>GN10Xp.5XLARGE80</td>
@@ -326,7 +331,8 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 		</tbody>
 </table>
 
->?**vGPU**：GN10X 实例簇提供支持 vGPU 的实例类型。目前 vGPU 类型处于内测阶段，如需使用，请前往 [申请页面](https://cloud.tencent.com/apply/p/itgrxpby8al)。vGPU 的类型为 vComputeServer，仅支持 CUDA 计算 API。
+
+>?**vGPU**：GN10X 实例簇提供支持 vGPU 的实例类型。目前 vGPU 类型处于限量购买阶段，如需使用，请前往 [申请页面](https://cloud.tencent.com/apply/p/itgrxpby8al)。vGPU 的类型为 vComputeServer，仅支持 CUDA 计算 API。
 
 
 
@@ -489,7 +495,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
                 <td>7Gbps</td>
 				<td>60万PPS</td>
                 <td>8</td>
-                <td rowspan="5">广州三、四区，上海二、四区，南京一、二区，北京三、五区，成都一区，重庆一区，新加坡一区，硅谷二区</td>
+                <td rowspan="5">广州三、四区，上海二、四区，南京一、二区，北京三、五区，成都一区，重庆一区，新加坡一区，硅谷二区，香港二区，孟买二区，弗吉尼亚二区，法兰克福一区</td>
 			</tr>
 			<tr>
 				<td>GN7.5XLARGE80</td>
@@ -533,6 +539,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 			</tr>
 		</tbody>
 </table>
+
 
 >?**vGPU**：GN7 实例簇支持 vGPU 的实例类型。vGPU 的类型为 vComputeServer，只支持 CUDA 计算 API。
 
@@ -677,7 +684,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
         <td>5Gbps</td>
 				<td>40万PPS</td>
         <td>8</td>
-        <td rowspan="2">广州三区，北京二区，上海二区</td>
+        <td rowspan="2">-</td>
 			</tr>
             <tr>
                 <td>GN2.14XLARGE96</td>
@@ -689,37 +696,16 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 				<td>70万PPS</td>
         <td>8</td>
 			</tr>
-			<tr>
-				<td>GN2.7XLARGE56</td>
-				<td>1颗</td> 
-        <td>24GB</td>
-				<td>28核</td>
-				<td>56GB</td>
-        <td>5Gbps</td>
-				<td>40万PPS</td>
-        <td>8</td>
-        <td rowspan="2">广州三区，北京二区，上海二区</td>
-			</tr>
-            <tr>
-				<td>GN2.14XLARGE112</td>
-				<td>2颗</td> 
-        <td>48GB</td>
-				<td>56核</td>
-				<td>112GB</td>
-        <td>10Gbps</td>
-				<td>70万PPS</td>
-        <td>8</td>
-			</tr>
 		</tbody>
 </table>
+
 
 
 ## 渲染型 GN7vw
 
 **NVIDIA 实例 GN7vw** 是在 GN7 基础上配置 vDWS License 服务器并安装 GRID driver 的渲染型实例，适用于图形图像处理（3D 渲染，视频编解码）场景。使用该实例，您可免除手动配置 GPU 图形图像处理基础环境。
->!
->- GPU 渲染型 GN7vw 现处于内测阶段，目前仅提供试用版 vDWS License。如需使用，请前往 [申请](https://cloud.tencent.com/apply/p/l133eutcwd9) 页面。
->- 切换正式版本前，会进行通知（邮件、短信、站内信等方式），请您关注。切换到正式版本后，需要您使用适配的镜像重装实例的操作系统，以适应新版本中 GRID 驱动。
+>!GPU 渲染型 GN7vw 现处于限量购买阶段，如需使用，请前往 [申请](https://cloud.tencent.com/apply/p/l133eutcwd9) 页面。
+>
 
 
 
@@ -764,7 +750,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
         <td>2Gbps</td>
 				<td>50万PPS</td>
         <td>4</td>
-        <td rowspan="4">-</td>
+        <td rowspan="4">广州三、四区，上海二、四、五区，南京一、二区，北京五区，成都一区，重庆一区，香港二区，新加坡一区，孟买二区，硅谷二区，弗吉尼亚二区，法兰克福一区</td>
 			</tr>
             <tr>
 				<td>GN7vw.2XLARGE32</td>
@@ -788,6 +774,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 			</tr>
 		</tbody>
 </table>
+
 
 >?**vGPU**：GN7、GN7vw 实例簇提供支持 vGPU 的实例类型。其中 GN7vw vGPU 的类型为 vDWS，仅支持 DirectX 和 OpenGL 等图形 API。
 

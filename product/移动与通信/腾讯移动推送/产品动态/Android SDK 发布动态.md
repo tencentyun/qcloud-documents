@@ -1,3 +1,51 @@
+
+## 2020年12月
+
+<table>
+<tr>
+    <th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+</tr>
+        <tr>
+        <td>SDK 1.2.2.1 版本发布</td>
+				<td>修复：解决 Intent 跳转组件权限漏洞，TpnsActivity 修改为非导出</td>
+        <td>2020-12-10</td>
+        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载 SDK</a></td>
+    </tr>
+</table>
+
+
+## 2020年11月
+
+<table>
+<tr>
+    <th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+</tr>
+<tr>
+        <td>SDK 1.2.2.0 版本发布</td>
+       <td><li> 优化：统一账号、标签操作接口命名<li> 优化：优化 SDK 内部错误码上报<li> 优化：FCM 通道协议升级，FCM 通道通知弹出支持 FCM 系统接管<li> 新增：支持 TPNS 通道通知小图标染色<li> 新增：网络通信支持 GZIP 压缩<li>修复：多线程环境下可能出现的 Service 解绑异常</td>
+        <td>2020-11-26</td>
+        <td>-</td>
+    </tr>
+        <tr>
+        <td>SDK 1.2.1.3 版本发布</td>
+       <td><li>内部逻辑优化<li>此版本起正式支持华为推送 V5 版本 SDK，请参考 <a href="https://cloud.tencent.com/document/product/548/45909">华为通道 V5 接入 SDK</a> 更新集成配置</td>
+        <td>2020-11-11</td>
+        <td>-</td>
+    </tr>
+</table>
+
+
+
+
+
+
+
 ## 2020年10月
 
 <table>
@@ -9,16 +57,16 @@
 </tr>
         <tr>
         <td>SDK 1.2.1.1 版本发布</td>
-       <td><li>新增「用户属性」相关接口，用于个性化推送</li> <li>新增「应用内消息」功能，以及若干应用内消息模板</li><li>SO 文件优化更新</li><li>SDK 内部优化</li></td>
+				<td><li>新增「<b>用户属性</b>」相关接口，用于个性化推送</li> <li>新增「<b>应用内消息</b>」功能，以及若干应用内消息模板</li><li>SO 文件优化更新</li><li>SDK 内部优化</li></td>
         <td>2020-10-12</td>
-        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载 SDK</a></td>
+        <td>-</td>
     </tr>
 </table>
 
 
 
 
-## 2020年7月
+## 2020年07月
 
 <table>
 <tr>
@@ -41,7 +89,7 @@
     </tr>
 </table>
 
-## 2020年6月
+## 2020年06月
 
 <table>
 <tr>
@@ -66,7 +114,7 @@
     </tr>
 </table>
 
-## 2020年4月
+## 2020年04月
 
 <table>
 <tr>
@@ -95,7 +143,7 @@
     </tr>
 </table>
 
-## 2020年3月
+## 2020年03月
 <table>
 <tr>
     <th width=20%>动态名称</th>
@@ -105,13 +153,13 @@
 </tr>
     <tr>
         <td>SDK 1.1.5.4 版本发布</td>
-        <td><li> 网络连接优化</li> <li> 增加账号类型</li> <li> 优化保活方案</li> <li> 安全告警修复</li> <li> 兼容信鸽平台版本升级</li><li>获取QIMEI信息的功能</li> </td>
+        <td><li> 网络连接优化</li> <li> 增加账号类型</li> <li> 安全告警修复</li> <li> 兼容信鸽平台版本升级</li><li>获取QIMEI信息的功能</li> </td>
         <td>2020-03-06</td>
         <td><a href="https://cloud.tencent.com/document/product/548/41609#.E6.B3.A8.E9.94.80.E4.BF.A1.E9.B8.BD.E5.B9.B3.E5.8F.B0.E6.8E.A8.E9.80.81.E6.9C.8D.E5.8A.A1">注销信鸽平台推送服务</a></td>
     </tr>
 </table>
 
-## 2020年1月
+## 2020年01月
 
 <table>
 <tr>
@@ -203,7 +251,7 @@
     </tr>
 </table>
 
-## 2019年9月
+## 2019年09月
 
 <table>
 <tr>

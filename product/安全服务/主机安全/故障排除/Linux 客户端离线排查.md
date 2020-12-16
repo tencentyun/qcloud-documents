@@ -12,7 +12,7 @@
 
 ## 网络故障排查
 如果进程存在，但主机安全不在线，大部分原因是网络不通，请按照以下操作进行排查：    
-1. 检查 DNS 是否被修改，可以通过执行如下命令行进行排查： 
+1. 如果无法访问主机安全域名，可以尝试修改 DNS。可以通过执行如下命令行，排查主机安全域名是否可以访问： 
 	- VPC 网络和黑石服务器环境：`telnet s.yd.tencentyun.com 5574`。
 	**正常情况下**：返回如下图所示结果。
 ![](https://main.qcloudimg.com/raw/50e39ceadcb275a72738b235e9637b4c.png)
@@ -28,6 +28,7 @@
 	![](https://main.qcloudimg.com/raw/93a2f6f05867b88aa41e753e4c4e83c0.png)
 		**如果无法访问**：
 		1. 可以尝试修改`dns nameserver`字段：`vim /etc/resolv.conf`，先把原有的`nameserver`字段注释，再新增`nameserver`字段，具体的 nameserver ip 相关内容，请参见 [内网服务](https://cloud.tencent.com/document/product/213/5225)。
-		2. 修改完成后，重新执行`telnet s.yd.qcloud.com 5574`检测能否可以连通。
+		2. 修改完成后，重新执行`telnet s.yd.qcloud.com 5574`检测能否连通。
+		3. 如果可以连通，等待几分钟后（时间长短根据网络情况而定），控制台将能看到对应服务器重新上线。
 2. 防火墙策略限制，需要在 Linux 客户端开放 TCP 端口：5574、8080、80、9080。
 3. 如果主机安全进程存在，且不是由于网络原因导致的客户端离线，请打包客户端日志（日志路径：`/usr/local/qcloud/YunJing/log`）并 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=141&level2_id=635&source=0&data_title=T-Sec-%E4%B8%BB%E6%9C%BA%E5%AE%89%E5%85%A8&level3_id=640&radio_title=%E4%B8%BB%E5%8A%A8%E6%9C%8D%E5%8A%A1&queue=3233&scene_code=30899&step=2) 进行反馈。

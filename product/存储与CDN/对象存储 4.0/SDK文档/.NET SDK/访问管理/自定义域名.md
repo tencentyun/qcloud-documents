@@ -9,7 +9,7 @@
 
 ## SDK API 参考
 
-SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](https://cos-dotnet-sdk-doc-1253960454.file.myqcloud.com/)。
+SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos-dotnet-sdk-doc-1253960454.file.myqcloud.com/)。
 
 ## 设置自定义域名
 
@@ -33,7 +33,7 @@ try
   
   PutBucketDomainRequest request = new PutBucketDomainRequest(bucket, domain);   
   //执行请求
-  PutBucketDomainResult result = cosXml.putBucketDomain(request);
+  PutBucketDomainResult result = cosXml.PutBucketDomain(request);
   
   //请求成功
   Console.WriteLine(result.GetResultInfo());
@@ -76,7 +76,7 @@ try
   string bucket = "examplebucket-1250000000"; //格式：BucketName-APPID
   GetBucketDomainRequest request = new GetBucketDomainRequest(bucket);   
   //执行请求
-  GetBucketDomainResult result = cosXml.getBucketDomain(request);
+  GetBucketDomainResult result = cosXml.GetBucketDomain(request);
   
   //请求成功
   Console.WriteLine(result.domainConfiguration);

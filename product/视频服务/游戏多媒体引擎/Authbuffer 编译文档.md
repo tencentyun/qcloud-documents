@@ -29,3 +29,4 @@
 #### 6. 运行可执行文件
 可执行文件路径在：`[个人文件夹]/authbuffer/bin/linux/libAuthbuffer.so`
 ![image](https://main.qcloudimg.com/raw/2f1d265631137955d1ab890790ab8d14.png)
+

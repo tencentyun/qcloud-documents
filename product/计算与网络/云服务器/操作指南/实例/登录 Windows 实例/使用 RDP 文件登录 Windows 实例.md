@@ -21,6 +21,8 @@ Windows，Linux 和 Mac OS 都可以使用 RDP 方式登录云服务器。
 2. 在实例的管理页面，选择需要登录的 Windows 云服务器，单击【登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/038fce530c6c6827796e51d896306a93.png)
 3. 在弹出的【登录Windows实例】窗口中，选择【使用 RDP 文件登录】，单击【下载RDP文件】，将 RDP 文件下载到本地。
+>?若您已修改远程登录端口，则需修改 RDP 文件，在 IP 地址后增加`:端口`。
+>
 ![](https://main.qcloudimg.com/raw/9bcfe6774b483261d61f648968efe5ee.png)
 4. 双击打开已下载到本地的 RDP 文件，输入密码，单击【确定】，即可远程连接到 Windows 云服务器。
  - 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
@@ -63,7 +65,7 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
 ###  MacOS 系统使用 RDP 登录
 
 >?
->- 以下操作以 Microsoft Remote Desktop for Mac 为例。微软官方已于2017年停止提供 Remote Desktop 客户端的下载链接，转由其子公司 HockeyApp 进行 Beta 版本的发布。
+>- 以下操作以 Microsoft Remote Desktop for Mac 为例。微软官方已于2017年停止提供 Remote Desktop 客户端的下载链接，转由其子公司 HockeyApp 进行 Beta 版本的发布。您可前往 [Microsoft Remote Desktop Beta](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac) 下载 Beta 版本。
 >- 以下操作以连接 Windows Server 2012 R2 操作系统的云服务器为例。
 >
 1. 下载 Microsoft Remote Desktop for Mac 并在本地进行安装。

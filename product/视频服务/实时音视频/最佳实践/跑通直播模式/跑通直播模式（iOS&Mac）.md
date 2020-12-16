@@ -1,7 +1,7 @@
 ## 适用场景
 TRTC 支持四种不同的进房模式，其中视频通话（VideoCall）和语音通话（VoiceCall）统称为 [通话模式](https://cloud.tencent.com/document/product/647/32221)，视频互动直播（Live）和语音互动直播（VoiceChatRoom）统称为直播模式。
 直播模式下的 TRTC，支持单个房间最多10万人同时在线，具备小于300ms的连麦延迟和小于1000ms的观看延迟，以及平滑上下麦切换技术。适用低延时互动直播、十万人互动课堂、视频相亲、在线教育、远程培训、超大型会议等应用场景。
-
+ 
 ## 原理解析
 TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口机”和“代理机”：
 - **接口机**
@@ -18,7 +18,7 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 您可以登录 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCSimpleDemo) 获取本文档相关的示例代码。
 ![](https://main.qcloudimg.com/raw/36d48ade96419f5233c43359e93675b7.png)
 
->?如果访问 Github 较慢，您也可以直接下载 [TXLiteAVSDK_TRTC_iOS_latest.zip](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip)。
+>?如果访问 Github 较慢，您也可以直接下载 [TXLiteAVSDK_TRTC_iOS_latest.zip](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip)。
 
 
 ## 操作步骤
@@ -26,7 +26,7 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 ### 步骤1：集成 SDK
 您可以选择以下方式将 **TRTC SDK** 集成到项目中。
 #### 方式一：使用 CocoaPods 集成
-1. 安装 **CocoaPods** ，具体操作请参考 [CocoaPods 官网安装说明](https://guides.cocoapods.org/using/getting-started.html)。
+1. 安装 **CocoaPods** ，具体操作请参见 [CocoaPods 官网安装说明](https://guides.cocoapods.org/using/getting-started.html)。
 2. 打开您当前项目根目录下的`Podfile`文件，添加以下内容：
 >?如果该目录下没有`Podfile`文件，请先执行`pod init`命令新建文件再添加以下内容。
 >

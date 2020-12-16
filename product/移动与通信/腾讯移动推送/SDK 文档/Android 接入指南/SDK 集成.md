@@ -2,7 +2,7 @@
 
 Android SDK 是移动推送 TPNS 服务为客户端实现消息推送而提供给开发者的接口，本文将提供 AndroidStudio Gradle 自动集成和 Android Studio 手动集成两种方式。
 
->!如果您是从 [信鸽平台](https://xg.qq.com) 迁移至移动推送 TPNS 推送平台，请务必使用 [Android 迁移指南](https://cloud.tencent.com/document/product/548/41609) 调整集成配置。
+
 
 ## SDK 集成（二选一）
 
@@ -45,9 +45,9 @@ android {
 dependencies {
     ......
     //添加以下依赖
-    implementation 'com.tencent.jg:jg:1.1'
-    implementation 'com.tencent.tpns:tpns:[VERSION]-release' //  TPNS 推送 [VERSION] 为当前SDK版本号，版本号可在 SDK 下载页查看
-
+    implementation 'com.tencent.jg:jg:1.1'                  
+    implementation 'com.tencent.tpns:tpns:[VERSION]-release' 
+		  // TPNS 推送 [VERSION] 为最新 SDK 版本号，即为上述步骤2获取的版本号
 }
 ```
 
@@ -91,6 +91,9 @@ dependencies {
 
 
 ###  Android Studio 手动集成
+
+前往 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面获取最新版 SDK，并参考以下步骤将 SDK 导入到您的 Android 工程中。
+
 
 #### 工程配置
 
@@ -388,3 +391,19 @@ XGPushConfig.getToken(getApplicationContext());
 ```
 
 ![](https://main.qcloudimg.com/raw/854020af14428df9972629e7dbbee55f.png)
+
+### 隐私协议声明建议
+
+您可在申请 App 权限使用时，使用以下内容声明授权的用途：
+
+
+<pre>
+我们使用 <a href="https://cloud.tencent.com/product/tpns">腾讯云移动推送 TPNS</a> 用于实现产品信息的推送，在您授权我们“访问网络连接”和“访问网络状态”权限后，表示您同意 <a href="https://cloud.tencent.com/document/product/548/50955">腾讯 SDK 隐私协议</a>。您可以通过关闭终端设备中的通知选项来拒绝接受此 SDK 推送服务。
+</pre>
+
+
+
+其中上述声明授权的两个链接如下：
+- 腾讯云移动推送 TPNS ：`https://cloud.tencent.com/product/tpns`
+- 腾讯 SDK 隐私协议：`https://cloud.tencent.com/document/product/548/50955`
+
