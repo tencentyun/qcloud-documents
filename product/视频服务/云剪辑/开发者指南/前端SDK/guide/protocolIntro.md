@@ -1,0 +1,305 @@
+# 概述
+
+用于描述导出合成视频原始资源的组织形式，**如果输入协议异常，会引起导出失败等预期外行为**。
+
+如图所示，协议可视化编辑形式在页面上的体现为红框所示部分，进一步体验点[这里](https://yunjian.qq.com):
+
+<img src='../img/track_demo.png'>
+
+协议上主要有以下概念:
+- 舞台：
+  * 合成视频的可视区域，可视区域包含两个要素，宽高比以及分辨率，目前支持两种比例，`16:9`与`9:16`，`sdk`默认舞台分辨率为960 * 540。
+  * ***注:导出时会使用原素材重新合成，所以导出分辨率和预览分辨率无关，可导出分辨率有三种，具体参考[文档](https://cloud.tencent.com/document/product/1156/40353)。***
+- 剪辑时间线：
+  * 所有在舞台上的资源以及相关内容，都在同一时间线上播放。此时间线与资源本身无关。同一轨道上的时间线不可重叠。
+- 轨道(Track)：
+  * 决定舞台展示层级的容器，顺序字段用数字表示，从小到大，表示从顶层到底层，顶层值为0，详情请参考[文档](./protocol/track.md)。
+- 轨道元素(TrackItem)：
+  * 决定展示内容的容器，只能承载云媒资，关于轨道元素具体请参考[文档](./protocol/trackItem.md)
+- 云媒资：
+  * 整合到制作云系统的基本媒体资源，如何导入云媒资，具体请参考[文档](https://cloud.tencent.com/document/product/1156/43243)。
+  * 如何便捷的获取云媒资，请参考[文档](./yj-player-helper/yj-player-helper-tool.md)
+
+
+<!-- ## 完整剪辑协议示例
+
+```js
+
+/***
+ * 
+ * 完整剪辑协议是一个数组，数组内基本元素是轨道对象。
+ * 注: 数组下标与轨道展示顺序无关，轨道展示顺序由order字段来决定
+ * */
+let data =  [
+    {
+      //文字类型素材
+      "id": "beb45741-c9f0-45b7-a06c-d33b579208b8",
+      "type": "title",
+      "order": 0,
+      "items": [
+        {
+          "id": "2a563723-2d9a-47fe-a3f7-2522300496d2",
+          "start_time": 0,
+          "duration": 3000,
+          "type": "title",
+          "content": {
+            "template_id": "yj_templ_title_normal",
+            "params": {
+              "name": "yj_templ_title_11",
+              "text": "文字标题",
+              "text_x": 39,
+              "text_y": 39,
+              "text_width": 240,
+              "font": "SimHei",
+              "font_color": "#ffffff",
+              "font_size": 60,
+              "bold": 0,
+              "italic": 0,
+              "text_move": 0,
+              "layer_edit": [
+                {
+                  "ind": 2,
+                  "sw": 317,
+                  "sc": "#ffffff"
+                }
+              ],
+              "shadow_color": "",
+              "font_uline": 0,
+              "width": 317,
+              "height": 147,
+              "use_external_dimension": 1
+            }
+          },
+          "sizeRatio": 100,
+          "width": 317,
+          "height": 147,
+          "position": {
+            "type": "ct",
+            "x": 270,
+            "y": 480
+          },
+          "asset_id": "281921553743709649@Public@CME"
+        }
+      ]
+    },
+    {
+      /**
+       * 特效类素材
+       **/
+      "id": "a8eaf923-0e1b-4067-9cc5-e6165bfb379b",
+      "type": "frame",
+      "order": 1,
+      "items": [
+        {
+          "id": "116c9698-9dea-4a34-ad5b-6f026467fa1a",
+          "width": 540,
+          "height": 960,
+          "asset_id": "5f0aba91cb093b30566c5da9@Public@CME",
+          "start_time": 0,
+          "duration": 8480,
+          "type": "frame",
+          "operations": [
+            {
+              "type": "image_glshader",
+              "params": {
+                "name": "LightCircle"
+              }
+            }
+          ],
+          "shaderName": "LightCircle",
+          "controlVisible": true
+        }
+      ],
+      "subType": "shader"
+    },
+    {
+      /**
+       * 字幕类素材
+       * */
+      "id": "473c2fb3-2e87-4e7f-bc84-64414c61083f",
+      "type": "subtitle",
+      "order": 2,
+      "items": [
+        {
+          "id": "ee8443a5-fb65-4383-be57-ede681a8ca22",
+          "start_time": 0,
+          "duration": 3000,
+          "type": "subtitle",
+          "style_id": "381921553743708206@Public@CME",
+          "text": "这是个字幕",
+          "asset_id": "381921553743708206@Public@CME"
+        }
+      ],
+      "styles": [
+        {
+          "id": "381921553743708206@Public@CME",
+          "content": {
+            "template_id": "yj_templ_subtitle_common",
+            "params": {
+              "font_size": 90,
+              "font_color": "#ffffff",
+              "background_color": "#000000",
+              "background_alpha": 70,
+              "align": "center",
+              "height": 165,
+              "bold": 0,
+              "italic": 0,
+              "font": "SimHei",
+              "margin_bottom": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      /**
+       *  音频类素材,图片类与视频类基本一致，只是没有section
+       * */
+      "id": "9a73ef97-0753-430a-9f8f-6e300dcac606",
+      "type": "audio",
+      "order": 3,
+      "items": [
+        {
+          "id": "710744cc-352e-4527-b3a6-a48f8c97a3fc",
+          "start_time": 0,
+          "duration": 9760,
+          "type": "audio",
+          "asset_id": "281921553743719901@Public@CME",
+          "section": {
+            "from": 0,
+            "to": 9760
+          },
+          "operations": []
+        }
+      ]
+    },
+    {
+      /**
+       * 视频类素材
+       * */
+      "id": "164a1d74-30cd-4000-9f17-71443bbf9b4d",
+      "type": "video",
+      "order": 4,
+      "items": [
+        {
+          "id": "47415ec9-2ec3-431d-9495-6021ac8a6198",
+          "start_time": 0,
+          "duration": 8040,
+          "type": "image",
+          "asset_id": "5f364b68b439500001b2d7a4",
+          "filter_asset_id": "",
+          "operations": [
+            {
+              "type": "image_rotate",
+              "params": {
+                "angle": 0
+              }
+            }
+          ],
+          "width": 540,
+          "height": 356,
+          "position": {
+            "x": 270,
+            "y": 480
+          },
+          "section": {
+            "from": 0,
+            "to": 8040
+          }
+        }
+      ]
+    },
+    {
+      /**
+       * 视频类素材
+       * */
+      "id": "943e6656-7c6c-4fc0-b121-38f1f8bf1a6b",
+      "type": "video",
+      "order": 5,
+      "items": [
+        {
+          "id": "d0854703-3cfb-4809-b605-ffa0aeff469c",
+          "start_time": 80,
+          "duration": 10680,
+          "type": "video",
+          "section": {
+            "from": 0,
+            "to": 10680
+          },
+          "asset_id": "5f6464c6ccbc8d0001fc308b",
+          "filter_asset_id": "",
+          "width": 540,
+          "height": 304,
+          "position": {
+            "x": 270,
+            "y": 480
+          },
+          "operations": [
+            {
+              "type": "image_rotate",
+              "params": {
+                "angle": 0
+              }
+            }
+          ]
+        },
+        {
+          "id": "4b8b567e-9504-4b39-9a52-fe8695b78b9f",
+          "asset_id": "381921553743709255@Public@CME",
+          "start_time": 8760,
+          "duration": 2000,
+          "type": "transition",
+          "prev_item_id": "d0854703-3cfb-4809-b605-ffa0aeff469c",
+          "next_item_id": "4ce6b739-e5fc-4fdd-99e9-1c295a9ecf7c",
+          "operations": [
+      /**
+       * 视频类素材,转场
+       * */
+            {
+              "type": "trans_image_glt",
+              "params": {
+                "name": "DreamyZoom"
+              }
+            },
+            {
+              "type": "trans_audio_fade_inout",
+              "params": {}
+            }
+          ],
+          "record": {
+            "prev_item_init": 9680,
+            "next_item_init": 9680,
+            "next_item_start_time": 9760
+          }
+        },
+        {
+          "id": "4ce6b739-e5fc-4fdd-99e9-1c295a9ecf7c",
+          "start_time": 8760,
+          "duration": 54880,
+          "type": "video",
+          "section": {
+            "from": 8680,
+            "to": 63560
+          },
+          "asset_id": "5f6464c6ccbc8d0001fc308b",
+          "filter_asset_id": "",
+          "width": 540,
+          "height": 304,
+          "position": {
+            "x": 270,
+            "y": 480
+          },
+          "operations": [
+            {
+              "type": "image_rotate",
+              "params": {
+                "angle": 0
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+
+``` -->
