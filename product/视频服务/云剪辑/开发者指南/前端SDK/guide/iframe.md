@@ -1,0 +1,77 @@
+# iframe集成
+
+## 快速开始
+
+> 使用我们的 CDN 引入 sdk，`<script src="https://vs-cdn.tencent-cloud.com/sdk/cme_v2.js"></script>`，在页面初始化完成以后填入如下代码。
+
+
+```js
+/* @create  创建实例方法,没调用该方法之前,调用 send 方法通信无效。
+ *    @param el {{HTMLELement}}  html元素,做为父容器承载 CME 组件。
+ *    @param options {{ object|hash }} 参数。
+ *         @param sign {{ string }} ，该项目签名.具体参考 签名算法。
+ *    @return 返回一个 cme 组件实例。
+ **/
+let myCmeInstance = CME.Iframe.create(document.getElementById("Container"), {
+  sign: "your_signature",
+});
+
+/**
+ * 页面初始化异常时，会抛出Error事件。
+ **/
+myCmeInstance.on("Error", (data) => {
+  console.log("Error", data);
+});
+
+/**
+ * 页面组件完全准备好以后，会抛出：Editor:Ready 事件，
+ * 该事件触发以后，所有命令字会正常响应，触发之前，部分命令字无法响应。
+ **/
+myCmeInstance.on("Editor:Ready", () => {
+  console.log("desc", "iframe Ready");
+  /**
+   *
+   * @send 发送命令字方法,
+   *    @param cmd {{string}} 字符串,参考 cme 命令字列表。
+   *    @param param {{object}} 命令入参。
+   *    @param callback {{function}} 完成命令的回调函数。
+   *
+   **/
+  myCmeInstance.send("syncFusionData", {}, (data) => {
+    console.log("sync done", data);
+  });
+});
+
+let clickHandler = () => {
+  console.log("Click");
+};
+/**
+ *
+ * @on 监听方法,监听来自 CME 的用户事件。
+ *    @param eventName {{string}} 字符串,参考 cme 自定义用户事件。
+ *    @param callback {{function}} 回调函数。
+ *
+ */
+myCmeInstance.on("Editor:MoreResourceBtn:click", clickHandler);
+
+/**
+ * @off 取消监听方法,监听来自 CME 的事件,如果什么都不传则会清理所有监听事件。
+ *    @param eventName {{string}} 字符串,参考 cme 自定义用户事件。
+ *    @param callback {{function}} 对应回调函数。
+ *
+ */
+myCmeInstance.off("Editor:MoreResourceBtn:click", clickHandler);
+
+
+```
+如果执行成功则可以看到开启一个[编辑页](#页面定制)。
+
+## 页面定制
+
+假如已经成功初始化，则可以看到下图这样的页面,页面可以做*基础定制*，具体请参考控制台[即将上线]。
+
+<img src='https://main.qcloudimg.com/raw/4dd1c59303257a11bdb64eefce6ada8f.png'>
+
+
+1. 关于Iframe集成[了解更多](./cme-sdk/mod/cme-Iframe)。
+2. Iframe页面命令与交互事件[了解更多](./../../app/yunjian/cme_cmd.md)。
