@@ -74,9 +74,9 @@ groups:
 1. 上述定义了 DeScheduler 所需要的指标计算的 rules，需要将 rules 配置到 Prometheus 中，参考一般的 Prometheus 配置文件。示例如下：
 ```
 global:
-    evaluation_interval: 30s
-    scrape_interval: 30s
-    external_labels:
+      evaluation_interval: 30s
+      scrape_interval: 30s
+      external_labels:
 rule_files:
 - /etc/prometheus/rules/*.yml # /etc/prometheus/rules/*.yml 是定义的 rules 文件
 ```
