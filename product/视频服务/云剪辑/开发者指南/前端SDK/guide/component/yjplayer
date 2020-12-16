@@ -1,453 +1,72 @@
-# yj-player-helper
+# yj-player
 
-`yj-player-helper` 仅用于协助组装轨道数据，会帮助填写必要的协议字段，并做一些基础校验。本章节假定用户已经阅读并了解[视频合成协议][protocol]。
+> `yj-player` 在视图表现上体现为 `<canvas>`，而在类封装的设计上将其属性以及方法，与原生播放器`<video>`贴近。
 
+## 构造函数
 
-## 云媒资助手
+### YJPlayer(options)
 
-`CMEUtils`(如果后面没有特殊说明`CMEUtils`均指，云媒资助手)，协助用户处理云媒资素材。
-
-- [auth](#auth) 在远端登录,以便获取资源，再次调用可以新增登录角色，*注：没有登录则以下部分接口无法使用，建议登录后再调用以下方法*。
-<!-- - [logout](#logout) 退出登录。s -->
-- [createTrackItem](#createtrackitem) 创建轨道元素，返回`TrackItem`数据，可以直接添加到轨道中使用。
-
----
-
-### auth
-
-**入参：**
-
-| 参数 | 描述                                  | 类型   | 必填 |
-| ---- | ------------------------------------- | ------ | ---- |
-| sign | 身份验证签名,具体请参考[文档][sign]。 | string | 是   |
-
-**返回值:**
-
-```ts
-type result = Promise<{
-  code:string
-}>
-
-```
-
-<!-- ---
-
-### logout
-
-**入参：**
-
-空
-
-**返回值:**
-
-```ts
-type result = void
-``` -->
-
-### createTrackItem
-
-**入参：**
-
-| 参数        | 描述                 | 类型     | 必填 |
-| ----------- | -------------------- | -------- | ---- |
-| materialIds | [云媒资ID][material] | string[] | 是   |
-
-**返回值：**
-
-> 返回一个基础的视频合成协议元素，[了解更多][trackItem]
-```ts
-type result = Promise<{
-  id: string
-  type: materialType
-  start_time: number
-  duration: number
-  asset_id: string
-}>
-```
-
-**示例：**
+options参数:
+| 参数        | 描述                               | 类型                                                                 | 是否必填 |
+| ----------- | ---------------------------------- | -------------------------------------------------------------------- | -------- |
+| mode        | 播放器模式。                       | `edit` \| `preview`                                                  | 是       |
+| aspectRatio | 播放器画布纵横比。                 | 默认值,`16:9` \| `9:16`，对应的分辨率为 `960 * 540` 以及 `540 * 960` | 是       |
+| container   | `yj-player`实例所挂载的`dom`容器。 | `HTMLElement`                                                        | 是       |
+| data        | 云剪辑协议数据。                   | { tracks: [] }                                                       | 否       |
 
 ```js
-import { CMEUtils } from 'yj-player-helper'
-
-/**
- * @auth 登录方法，保证可以调用CME，WebAPI。
- *    @param sign {{string}} 签名串。
- **/
-CMEUtils.auth({
-    sign:"your_sign"
-  }).then(()=>{
-    console.log('登录成功')
-  }).catch(err=>{
-    console.error('登录异常')
-  })
-
-/**
- * @createTrackItem 创建轨道元素协议数据。
- *  @param asset_ids {{string[]}} 云媒资ID数组
- *  @param options {{object}} 可选参数
- * */
-CMEUtils.createTrackItem(['materialId1','materialId2'],{}).then((data)=>{
-  console.log('创建成功',data)
-}).catch(err=>{
-  console.log('创建失败',err)
+import YJPlayer from 'yj-player'
+const player = new YJPlayer({
+  mode: 'preiew',
+  container: document.getElementById('container'),
+  aspectRatio: '16:9',
+  data: { tracks: [] },
 })
 ```
 
+## 属性
 
-## 通用助手
+> 所有的都是只读属性
 
-通用助手有两种操作场景，包含方法如下：
+| 参数        | 描述                                 | 类型                 |
+| ----------- | ------------------------------------ | -------------------- |
+| width       | 播放器画布区域宽度。                 | number               |
+| height      | 播放器画布区域高度。                 | number               |
+| ended       | 播放器播放结束态标志。               | boolean              |
+| aspectRatio | 播放器画布纵横比。                   | `'16:9'` \| `'9:16'` |
+| currentTime | 当前播放画面帧的时间戳，单位为毫秒。 | number               |
+| totalTime   | 可播放画面帧的总时长，单位为毫秒。   | number               |
 
-- Track：轨道操作场景的命名空间。
-  * [create](#create)：创建一个包含基础协议格式的轨道数据。
-  * [append](#append)：添加轨道元素方法。
-  * [sort](#sort)：按照我们预设层级逻辑为轨道重新排列。
-  * [addMosaic](#addmosaic)： 添加马赛克。
-  * [addSubtitle](#addsubtitle)：添加字幕。 
-- TrackItem：轨道元素操作场景的命名空间。
-  * [create](#create-2): 创建非素材类型的轨道元素。
-  * [crop](#crop)：对素材进行裁剪。
---------
+## 方法
 
-### create
+| 方法名   | 参数                | 说明                           |
+| -------- | ------------------- | ------------------------------ |
+| play     |                     | 播放器启动。                   |
+| pause    |                     | 播放器暂停。                   |
+| seek     | `(frame: number)`   | 播放器跳到指定帧。             |
+| stop     |                     | 播放器结束，并seek到最后一帧。 |
+| toStart  |                     | 播放器跳到片头。               |
+| toEnd    |                     | 播放器跳到片尾。               |
+| forward  | `(seconds: number)` | 视频快进指定秒数。             |
+| backward | `(seconds: number)` | 视频后退指定秒数。             |
+| clear    |                     | 重置播放器数据。               |
 
-**入参:**
+## 事件
 
-| 参数    | 描述     | 类型                                                          | 必填                                                                |
-| ------- | -------- | ------------------------------------------------------------- | ------------------------------------------------------------------- |
-| options | 轨道设置 | {type:'video'/'audio'/....},具体类型可以参考[轨道描述][track] | 是                                                                  |
-| index   | 轨道层级 | number                                                        | 否，默认从0开始自增，**注:轨道有层级顺序，参考[sort](#sort)说明。** |
-
-**返回值：**
-
-> 合成协议的基础[轨道数据][track]。
-```ts
-interface Track {
-  id: string
-  type: string
-  order: number
-  items: any[]
-}
-
-type result = Promise<Track>
-```
-
-**示例：**
+所有事件可直接通过应用实例本身进行监听，如:
 
 ```js
-import { Track } from 'yj-player-helper'
-
-const imageTrack = Track.create({
-  type: 'image'
-})
-console.log(imageTrack)
-```
-
---------
-
-### append
-
-**入参:**
-
-| 参数        | 描述                 | 类型   | 必填             |
-| ----------- | -------------------- | ------ | ---------------- |
-| materialId  | [云媒资ID][material] | string | 是               |
-| trackItem   | [轨道元素][track]    | object | 是               |
-| insertIndex | 插入位置             | number | 否，默认插入队尾 |
-
-**返回值：**
-
-> 已填充元素的轨道数据。 
-```ts
-type result = Track
-```
-
-**示例：**
-
-```js
-import { Track , CMEUtils } from 'yj-player-helper'
-
-const imageTrack = Track.create({
-  type: 'image'
-})
-const item = {}
-CMEUtils.createTrackItem('materialId',{}).then((trackItem)=>{
-  Track.append(imageTrack,trackItem)
-  console.log(imageTrack)
+// 播放状态切换
+player.on('stateChange', (res) => {
+  // do something...
 })
 ```
---------
-### sort
 
-轨道排序方法，会将传入轨道设置到正确的层级上，由于展示问题，部分轨道应该被摆到合适到的位置才会有效果，例如字幕应该是处于靠前位置的轨道。以下是轨道权重,并列放置表示可以随意调整层级:
-
-1. title
-2. frame
-3. subtitle
-4. image/audio/video
-
-**入参：**
-
-| 参数   | 描述                        | 类型   | 必填 |
-| ------ | --------------------------- | ------ | ---- |
-| tracks | 包含[轨道][track]数据的数组 | object | 是   |
-
-**返回值：**
-> 已排序的轨道数组。
-```ts
-type result = Track[]
-```
-
-**示例：**
-
-```js
-import { Track  } from 'yj-player-helper'
-
-const imageTrack = Track.create({
-  type: 'image'
-})
-const videoTrack = Track.create({
-  type: 'video'
-})
-const subtitleTrack = Track.create({
-  type: 'subtitle'
-})
-
-let sortedData = Track.sort([imageTrack,videoTrack,subtitleTrack])
-
-/**
- * subtitle会被排到最前面
- * */
-console.log(sortedData)
-```
---------
-
-
-### addMosaic
-
-给合成协议添加马赛克。
-
-**入参:**
-
-| 参数       | 描述                                                                      | 类型   | 必填 |
-| ---------- | ------------------------------------------------------------------------- | ------ | ---- |
-| params     | 左上角开始坐标位置(x,y)，裁剪矩行区域(width,height)，{x,y,width,height}。 | object | 是   |
-| fusionData | 包含[轨道][track]的数组。                                                 | object | 是   |
-
-**返回值：**
-
-> 已经添加过马赛克轨道的数据协议。 
-
-```ts
-type result = Track[]
-```
-**示例：**
-
-```js
-import { Track  } from 'yj-player-helper'
-
-/**
-   * 先获取一段已有的合成数据。
-   */
-  let fusiontData = [
-    /*
-    * 一段轨道数据
-    **/
-  ];
-  /**
-   * 从视频的左上角位置开始，位于(10,10)，
-   * 宽高为(50,50)的部分打上马赛克。
-   */
-  let result = Track.addMosaic(
-    {
-      x: 10,
-      y: 10,
-      width: 50,
-      height: 50,
-    },
-    fusiontData
-  );
-  console.log(result);
-```
-
---------
-
-### addSubtitle
-
-添加字幕轨道功能。
-
-**入参:**
-
-| 参数       | 描述                                                                                                 | 类型   | 必填 |
-| ---------- | ---------------------------------------------------------------------------------------------------- | ------ | ---- |
-| fusionData | 包含[轨道][track]的数组。                                                                            | object | 是   |
-| param      | 起始时间，持续时间，文字内容 {start_time，duration，text}                                            | object | 是   |
-| styles     | 文字样式 {font_size,font_color,align,italic,background_color,background_alpha,height},详细参考示例。 | object | 否   |
-
-**返回值：**
-
-> 已经添加过字幕轨道的数据协议。
-
-```ts
-type result = Track[]
-```
-**示例：**
-
-```js
-import { Track  } from 'yj-player-helper'
-
-/**
-   * 先获取一段已有的合成数据。
-   */
-  let fusiontData = [
-    /*
-    * 一段轨道数据
-    **/
-  ];
- /***
-   *
-   * 视频第一秒开始，字幕持续1秒，字幕内容是“这是字幕1”，
-   * 依次类推
-   */
-  let subtitles = [
-    {
-      duration: 1000, //持续时间 ，单位ms
-      text: "这是字幕1",
-      start_time: 1000, //开始时间点.单位ms
-    },
-    {
-      duration: 1000,
-      text: "这是字幕2",
-      start_time: 3000,
-    },
-  ];
-  let result = Track.addSubtitle(fusiontData, subtitles, {
-    font_size: 12, //文字大小 ，单位px
-    font_color: "#cb0000", // 文字颜色
-    align: "center", //"center" | "left" | "right"s
-    italic: false, // 文字斜体
-    background_color: "#000", //字幕背景
-    background_alpha: 50, //背景透明度0-100
-    height: 100, //高度 单位像素
-  });
-  console.log(result);
-```
-
---------
-### create
-
-创建非素材类型的轨道元素，需要传入相关参数。
-
-**入参：**
-| 参数      | 描述                         | 类型                                                         | 必填 
-| --------- | ---------------------------- | ------------------------------------------------------------ | ---- |
-| type | 元素类型 | string | 是 |
-| material_type | 元素的子类型（同一个元素类型有不同的子类型，参考） | 是 |
-| start_time | 剪辑时间线上的开始时间 | number | 是 |
-| duration | 剪辑时间线上的持续时间 | number | 是 |
-| width | 元素在舞台中展示的宽度 | number | 是 |
-| height | 元素在舞台中展示的高度 | number | 是 |
-| position | 元素在舞台中的位置，[参考](../protocol/trackItem#position-位置信息) | object { x: number; y: number;} | 是 |
-| section | 元素片段时间线，用于调整倍速播放，[参考](../protocol/trackItem#section-截取信息) | object { from: number; to: number;} | 音频、视频、特效等元素必填 |
-| text | 元素文本内容 | string | 字幕和文本元素必填 |
-| content | 元素辅助性元数据内容 | object | 文本和自由文字元素必填 |
-| style_id | 字幕样式id | string | 仅字幕元素必填 |
-| asset_url | 元素媒资url | string | 非文本和自由文字元素必填 |
-| thumbnail_url | 元素媒资url，提供裁剪尺寸时可用于内部优化 | string | 否 |
-| asset_id | 元素媒资id | string | 否 |
-
-**返回值：**
-
-> 携带裁剪操作数据的轨道元素对象，完整数据结构请参考[这里][trackItem]。
-
-
-
-```js
-import { TrackItem } from 'yj-player-helper'
-/**
- * @create 创建轨道元素协议数据。
- *  @param options {{object}} 可选参数
- * */
-const trackItem = TrackItem.create({
-  type: 'video',
-  material_type: 'video',
-  start_time: 0,
-  duration: 10000,
-  width: 960,
-  height: 540,
-  position: {
-    x: 480,
-    y: 270,
-  },
-  section: {
-    from: 0,
-    to: 10000,
-  },
-  asset_url: 'https://xxx.xxx.mp4'
-});
-
-```
-
---------
-### crop
-
-裁剪视频元素,需要传入舞台相关参数。
-
-**入参：**
-
-| 参数      | 描述                         | 类型                                                         | 必填 |
-| --------- | ---------------------------- | ------------------------------------------------------------ | ---- |
-| trackItem | [轨道元素][trackItem]        | object                                                       | 是   |
-| options   | 裁剪区域中心点位置，裁剪大小 | object: { x:number , y:number, width:number, height:number } | 是   |
-
-**返回值：**
-
-> 携带裁剪操作数据的轨道元素对象，完整数据结构请参考[这里][trackItem]。
-
-```ts
-
-type result = {
-  id: string
-  asset_id: string
-  ....
-  operation:any[]
-}
-
-```
-
-**示例：**
-
-```js
-import { TrackItem, CMEUtils } from 'yj-player-helper'
-/**
- * 裁剪的必须是视频元素
- * @createTrackItem 创建轨道元素协议数据。
- *  @param asset_id {{string}} 云媒资ID
- *  @param options {{object}} 可选参数
- * */
-CMEUtils.createTrackItem("materialId", {})
-  .then((data) => {
-    TrackItem.crop(data, {
-      crop: {
-        x: 20,
-        y: 20,
-        width: 100,
-        height: 100,
-      },
-      stage,
-    });
-    console.log("裁剪完成", data);
-  })
-  .catch((err) => {
-    console.log("数据拉取失败", err);
-  });
-
-```
-
-[material]: https://cloud.tencent.com/document/product/1156/43789
-[sign]: https://cloud.tencent.com/document/product/1156/43784
-[track]: ./../protocol/track.md
-[trackItem]: ../protocol/trackItem.md
-[protocol]: ../protocolIntro.md
-[cme_net]: ../cme-sdk/mod/cme-net.md
+| 事件名         | 参数                          | 说明                         |
+| -------------- | ----------------------------- | ---------------------------- |
+| stateChange    | (state: `playing` \| `pause`) | 播放器状态改变的事件回调。   |
+| timeUpdate     | (frame: number)               | 播放器时间更新的事件回调。   |
+| player:playing |                               | 播放器开始播放时的事件回调。 |
+| player:pause   |                               | 播放器暂停播放时的事件回调。 |
+| player:ended   |                               | 播放器播放结束时的事件回调。 |
+| player:error   |                               | 播放器加载失败时的事件回调。 |
