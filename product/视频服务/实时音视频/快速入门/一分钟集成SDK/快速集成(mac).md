@@ -93,6 +93,7 @@ TRTC SDK 支持两种调用方式，您可以任选一种
 ```
 #import TXLiteAVSDK_TRTC_Mac/TRTCCloud.h
 ```
+<span id="using_cpp"></span>
 ### 方案二：通过 C++ 接口引用 TRTC SDK
 1、引用头文件：
 如果您要使用 C++ 接口来开发Mac应用，请引用 TXLiteAVSDK_TRTC_Mac.framework/Headers/cpp_interface 目录下的头文件
@@ -100,7 +101,7 @@ TRTC SDK 支持两种调用方式，您可以任选一种
 #include TXLiteAVSDK_TRTC_Mac/cpp_interface/ITRTCCloud.h
 ```
 2、使用命名空间：
-C++ 全平台接口（除 Windows 平台）的接口、类型等均定义在 trtc 命名空间中，为了让代码更加简洁，建议您直接使用 trtc 命名空间
+C++ 全平台接口的接口、类型等均定义在 trtc 命名空间中，为了让代码更加简洁，建议您直接使用 trtc 命名空间
 ```
 using namespace trtc;
 ```

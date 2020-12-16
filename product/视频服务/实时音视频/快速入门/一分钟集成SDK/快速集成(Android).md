@@ -132,6 +132,7 @@ packagingOptions {
 ```
 ![](https://main.qcloudimg.com/raw/b847d95fc05d2b97f85ffdb0b89438cc.png)
 
+<span id="using_cpp"></span>
 ## 通过 C++ 接口使用SDK（可选）
 如果您更倾向于使用 C++ 接口，而不是 Java 进行开发，可以执行此步骤；如果您仅使用 Java 语言来调用 TRTC SDK，请忽略此步。
 1. 首先需要根据上文的指引，通过导入 jar 和 so 库的方式集成 TRTC SDK。
@@ -163,14 +164,11 @@ target_link_libraries(
         libliteavsdk
         ${log-lib})
 ```
-3. 使用命名空间：C++ 全平台接口（除 Windows 平台）的接口、类型等均定义在 trtc 命名空间中，为了让代码更加简洁，建议您直接使用 trtc 命名空间
+3. 使用命名空间：C++ 全平台接口的方法、类型等均定义在 trtc 命名空间中，为了让代码更加简洁，建议您直接使用 trtc 命名空间
 ```
 using namespace trtc;
 ```
->?配置 Android Studio C/C++ 开发环境具体可以参考 Android Studio 官方文档：[向 Android 项目添加 C 和 C++ 代码](https://developer.android.com/studio/projects/add-native-code)
->
-
->?目前只有 TRTC 版本的 SDK 支持 C++ 接口。
->
+>?配置 Android Studio C/C++ 开发环境具体可以参考 Android Studio 官方文档：[向 Android 项目添加 C 和 C++ 代码](https://developer.android.com/studio/projects/add-native-code)  
+>目前只有 TRTC 版本的 SDK 支持 C++ 接口。
 
 对于 C++ 接口的使用方式，请参阅[全平台（C++）API 概览](https://cloud.tencent.com/document/product/647/32689#TRTC)
