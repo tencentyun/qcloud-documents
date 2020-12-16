@@ -87,7 +87,7 @@ spec:
           containerPort: 9187
 ```
 
-> ?上述示例将 Secret 中的用户名密码传给了环境变量 `DATA_SOURCE_USER` 和 `DATA_SOURCE_PASS`，使用户无法查看到明文的用户名密码。您还可以用 `DATA_SOURCE_USER_FILE`/`DATA_SOURCE_PASS_FILE` 从文件读取用户名密码。或使用 `DATA_SOURCE_NAME` 将用户名密码也放在 [连接串](http://en.wikipedia.org/wiki/Data_source_name) 里，例如 `postgresql://login:password@hostname:port/dbname`。
+> ?上述示例将 Secret 中的用户名密码传给了环境变量 `DATA_SOURCE_USER` 和 `DATA_SOURCE_PASS`，使用户无法查看到明文的用户名密码。您还可以用 `DATA_SOURCE_USER_FILE`/`DATA_SOURCE_PASS_FILE` 从文件读取用户名密码。或使用 `DATA_SOURCE_NAME` 将用户名密码也放在连接串里，例如 `postgresql://login:password@hostname:port/dbname`。
 
 #### 参数说明
 
