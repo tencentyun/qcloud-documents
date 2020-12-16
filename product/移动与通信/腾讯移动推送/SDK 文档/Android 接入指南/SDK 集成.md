@@ -404,6 +404,6 @@ XGPushConfig.getToken(getApplicationContext());
 
 
 其中上述声明授权的两个链接如下：
-- 腾讯移动推送 TPNS ：`https://cloud.tencent.com/product/tpns`
+- 腾讯云移动推送 TPNS ：`https://cloud.tencent.com/product/tpns`
 - 腾讯 SDK 隐私协议：`https://cloud.tencent.com/document/product/548/50955`
 
