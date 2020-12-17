@@ -20,16 +20,19 @@
 ### 密钥绑定/解绑云服务器
  1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/)。
  2. 在左侧导航栏中，单击【[SSH 密钥](https://console.cloud.tencent.com/cvm/sshkey)】。
- 3. 在 SSH 密钥管理页面，勾选需要绑定/解绑云服务器的 SSH 密钥，单击【绑定/解绑实例】。
- ![](https://main.qcloudimg.com/raw/d24f842ee3ef04bdf5903e2c5b4bd4a2.png)
+ 3. 在 SSH 密钥管理页面，勾选需要绑定/解绑云服务器的 SSH 密钥，并单击【绑定/解绑实例】。如下图所示：
+![](https://main.qcloudimg.com/raw/454857fb36fc098e3de5d7987a8b9c46.png)
  4. 在弹出的绑定/解绑实例窗口中，选择地域，勾选需绑定/解绑的云服务器，单击【确定】。
+>!云服务器需关机后才可绑定/解绑密钥，请参考 [关机实例](https://cloud.tencent.com/document/product/213/4929) 对云服务器进行关机操作。
+>
+
 
 
 ### 修改 SSH 密钥名称/描述
  1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/)。
  2. 在左侧导航栏中，单击【[SSH 密钥](https://console.cloud.tencent.com/cvm/sshkey)】。
- 3. 在 SSH 密钥管理页面，勾选需要修改的密钥，单击上方的【修改】。
- ![](https://main.qcloudimg.com/raw/ad9be047567c1b7a820f177e31f78346.png)
+ 3. 在 SSH 密钥管理页面，选择密钥名称右侧的<img  style="margin:-3px 0px" src="https://main.qcloudimg.com/raw/9db81482f9242417d94a04f314b42b19.png"/>。如下图所示：
+![](https://main.qcloudimg.com/raw/d6392148e08a8a6c527dd5aae0088eaf.png)
  4. 在弹出的修改密钥窗口中，输入新的密钥名称和密钥描述，单击【确定】。
 
 ### 删除 SSH 密钥
@@ -37,8 +40,8 @@
 >
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/)。
 2. 在左侧导航栏中，单击【[SSH 密钥](https://console.cloud.tencent.com/cvm/sshkey)】。
-3. 在 SSH 密钥管理页面，勾选所有需要删除的 SSH 密钥，单击【删除】。
-![](https://main.qcloudimg.com/raw/5459959b9bedaa6d0da7d74a0379203d.png)
+3. 在 SSH 密钥管理页面，选择需要删除的 SSH 密钥所在行右侧的【删除】。如下图所示：
+![](https://main.qcloudimg.com/raw/e9094886151039cd1843e0ebc2a8dfb7.png)
 4. 在弹出的删除密钥窗口中，单击【确定】。
 
 ### 使用 SSH 密钥登录 Linux 云服务器
