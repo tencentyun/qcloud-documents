@@ -6,13 +6,13 @@
 
 - Windows 7 及以上版本 Windows 操作系统
 - Microsoft Visual Studio 2015 及以上版本，推荐使用 Microsoft Visual Studio 2015
-- Windows SDK 8.0 及以上版本，推荐使用 Windows SDK 8.1
+- Windows SDK 8.0 及以上版本，推荐使用 Windows SDK 8.1  
 
 ## 集成 互动白板 SDK
 
 #### 步骤1：下载  Windows SDK
 
-[下载 SDK](https://tic-res-1259648581.file.myqcloud.com/demo/Windows.zip)，解压并打开文件，包含以下部分：
+[下载 SDK](https://demo.qcloudtiw.com/win/exe/tic_demo.zip)，解压并打开文件，包含以下部分：
 
 |              目录/文件名              |           说明          |
 |---------------------------------------|-------------------------|
@@ -123,36 +123,5 @@ DestroyTEduBoardController(&boardCtrl);
 
 #### 步骤4：白板数据同步
 
-白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK支持两种不同的数据同步模式。
+白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 默认使用 IMSDK 作为信令通道，您需要自行实现 IMSDK 的初始化、登录、加入群组操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
 
-#### 使用腾讯云 IMSDK 同步数据
-
-如果您在使用白板的同时使用了腾讯云 IMSDK，则只需要在初始化白板控制器时进行指定 initParam 参数的 timSync 字段为 true 即可实现数据同步。
-```cpp
-// 初始化白板控制器（initParam 参数不填，默认 timSync 为 true）
-boardCtrl->Init(authParam, ROOM_ID); // ROOM_ID 为 IMSDK 所使用的群组号
-```
-
->! 您需要自行实现 IMSDK 的登录、加入群组等操作，确保白板初始化时，IMSDK 已处于 ROOM_ID 所指定的群组内。
-
-#### 使用自定义的数据通道同步数据
-
-如果您需要使用自已的数据通道进行数据同步，则需要按下面步骤进行：
-```cpp
-// 1. 构造初始化参数
-TEduBoardInitParam initParam;
-initParam.timSync = false; // 设置 timSync 字段为 false
-
-// 2. 初始化白板控制器
-boardCtrl->Init(authParam, ROOM_ID, initParam); // 使用上面构造的初始化参数
-
-// 3. 在 onTEBSyncData 回调里，将数据发送给其他白板用户
-virtual void onTEBSyncData(const char * data) override {
-    //使用自定义的通道，发送 data 数据给其他白板用户。
-}
-
-// 4. 在收到其他用户的 data 数据时，调用白板控制器的 AddSyncData 接口将数据塞给白板
-boardCtrl->AddSyncData(data);
-```
-
->! 实时录制功能在自定义数据通道模式下不可用

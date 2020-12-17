@@ -34,7 +34,7 @@ Magento 是使用 PHP 语言开发的开源电子商务平台，是国际电子�
 http://云服务器实例的公网 IP/phpmyadmin
 ```
 3. 输入数据库账户名及密码，并单击【执行】。如下图所示： 
-帐户名为 `root`，默认密码为 `123456`。
+帐户名为 `root`，密码随机生成，请前往 [云市场](https://market.cloud.tencent.com/) 提供的 Magento 开源电子商务系统镜像详情页获取。
 ![](https://main.qcloudimg.com/raw/30bc260727a56b8779236e8fdb502478.png)
 4. 进入 phpMyAdmin 管理页面，单击【修改密码】。如下图所示：
 ![](https://main.qcloudimg.com/raw/c7ea866691b61167dcac1cf467a35896.png)

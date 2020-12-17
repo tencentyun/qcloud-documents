@@ -4,7 +4,7 @@
 
 ##  购买步骤
 本文以渲染型 **GA2 实例**为例，指导您按照以下步骤快速购买一台 GPU 云服务器。
->?GPU 渲染型 GA2 现处于内测阶段，如需使用，请前往 [内测申请](https://cloud.tencent.com/act/apply/ga2)。
+>?GPU 渲染型 GA2 现处于内测阶段，如需使用，请前往 [内测申请](https://cloud.tencent.com/apply/p/0pz3p9aubg29)。
 
 ### 步骤1：登录购买页面
 <div style="background-color:#00A4FF; width: 190px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/cvm?regionId=8&zoneId=800002&generation=v2&deviceType=ga&tabIndex=1" target="_blank"  style="color: white; font-size:16px;" hotrep="document.guide.2764.btn2">点此进入购买页面</a></div>
@@ -30,7 +30,9 @@ GPU 渲染型 GA2 支持四种镜像类型：公共镜像、自定义镜像、�
 ![设备管理器](//mc.qcloudimg.com/static/img/831923fe6942f4cb03640cffdb5883fd/image.png)
 
 ### 步骤4：选择存储与网络
-1. 选择 GPU 云服务器的存储和带宽。主要参数信息如下：
+1. 选择 GPU 云服务器的存储和带宽。如下图所示：
+![](https://main.qcloudimg.com/raw/6be045d13c8d7d6d3aebb9571ef324e1.png)
+主要参数信息如下：
 	- **存储**：根据 [步骤3](#Step3) 选择的配置，GPU 云服务器的系统盘和数据盘大小已确定。
 		- **系统盘**：SSD 云硬盘
 		2. **数据盘**：SSD 云硬盘。也可在成功购买 GPU 实例后，[创建云硬盘 ](/doc/product/362/5744#.E5.88.9B.E5.BB.BA.E5.BC.B9.E6.80.A7.E4.BA.91.E7.9B.98)并挂载。
@@ -45,12 +47,14 @@ GPU 渲染型 GA2 支持四种镜像类型：公共镜像、自定义镜像、�
 3. 设置完成后单击【下一步：设置主机】。
 
 ### 步骤5：设置主机
-1. 新建或选择已有安全组，控制端口的开放范围。
+1. 新建或选择已有安全组，控制端口的开放范围。如下图所示：
+![](https://main.qcloudimg.com/raw/008b9429231a35c9954feebf024ca203.png)
 2. 设置 GPU 云服务器登录密码。
 3. 单击【下一步：确认配置信息】。
 
 ### 步骤6：确认配置信息
-1. 请在“确认配置信息”步骤中核对以下内容。
+1. 请在“确认配置信息”步骤中核对以下内容。如下图所示：
+![](https://main.qcloudimg.com/raw/0f38e04d1daca2bd4c87832980df204d.png)
 	- 确认实例规格、镜像选择、存储和带宽选择以及安全组等配置项是否符合预期。
 	- 可选择或核对购买数量和购买时长。
 2. 阅读并勾选“同意《腾讯云服务协议》和《退款规则》”，并单击【立即购买】。

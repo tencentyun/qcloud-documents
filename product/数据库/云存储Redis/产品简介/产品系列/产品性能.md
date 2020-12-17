@@ -42,7 +42,7 @@
 <td align="center">流量限制</td>
 <td align="center">10MB/S - 64MB/S</td>
 <td align="center">10MB/S - 64MB/S</td>
-<td align="center">72MB/S - 5GB/S</td>
+<td align="center">144MB/s - 6GB/s</td>
 </tr>
 <tr>
 <td align="center">多 DB</td>

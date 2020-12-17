@@ -10,11 +10,11 @@
 
 ## 版本下载
 
-在 [SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载商用版本 SDK 压缩包，压缩包有加密（解压密码和 licence 文件 可以跟我们的商务同学获取）, 成功解压后在 SDK 目录下得到一个`aar`和`zip`，分别对应两种集成方式。
+在 [SDK 开发包](https://cloud.tencent.com/document/product/454/7873) 页面下方下载商用版本 SDK 压缩包，压缩包有加密（解压密码和 Licence 文件 可以跟我们的商务同学获取）, 成功解压后在 SDK 目录下得到一个`aar`和`zip`，分别对应两种集成方式。
 
 ## 工程设置
 
-参考 [工程配置](https://cloud.tencent.com/document/product/584/11631)。 
+参见 [工程配置](https://cloud.tencent.com/document/product/584/11631)。 
 
 ### 添加 SDK
 

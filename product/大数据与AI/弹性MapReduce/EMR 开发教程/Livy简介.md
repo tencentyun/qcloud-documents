@@ -10,28 +10,28 @@ Apache Livy 是一个可以通过 REST 接口与 Spark 集群进行交互的服�
 ![](https://main.qcloudimg.com/raw/4dc71e49b36d1790760e97cdd54543b6.png)
 
 ## 使用 Livy
-1.	访问`http://IP:8998/ui` 可以进入 Livy 的 UI 页面（**IP 为外网 IP，请自行为安装有 Livy 的机器申请外网 IP 并开通对应的安全组策略来进行访问**）。
-2.	创建一个交互式会话。
+1. 访问`http://IP:8998/ui` 可以进入 Livy 的 UI 页面（**IP 为外网 IP，请自行为安装有 Livy 的机器申请外网 IP，并编辑设置安全组策略来开通对应的端口以进行访问**）。
+2. 创建一个交互式会话。
 ```
 curl -X POST --data '{"kind":"spark"}' -H "Content-Type:application/json" IP:8998/sessions
 ```
-3.	查看 Livy 上存活的 sessions。
+3. 查看 Livy 上存活的 sessions。
 ```
 curl IP:8998/sessions
 ```
-4.	执行代码片段，简单的加法操作（这里相当于指定的 session 0，如果有多个 session，也可以指定其他 session）。
+4. 执行代码片段，简单的加法操作（这里相当于指定的 session 0，如果有多个 session，也可以指定其他 session）。
 ```
 curl -X POST IP:8998/sessions/0/statements -H "Content-Type:application/json" -d '{"code":"1+1"}'
 ```
-5.	计算圆周率（执行 jar 包）。
+5. 计算圆周率（执行 jar 包）。
 ```
 curl -H "Content-Type: application/json" -X POST -d '{ "file":"/usr/local/service/spark/examples/jars/spark-examples_2.11-2.4.3.jar", "className":"org.apache.spark.examples.SparkPi" }' IP:8998/batches
 ```
-6.	查询代码片段执行是否成功，也可以直接在 UI 页面`http://IP:8998/ui/session/0`查看。
+6. 查询代码片段执行是否成功，也可以直接在 UI 页面`http://IP:8998/ui/session/0`查看。
 ```
 curl IP:8998/sessions/0/statements/0
 ```
-7.	删除 session。
+7. 删除 session。
 ```
 curl -X DELETE IP:8998/sessions/0
 ```

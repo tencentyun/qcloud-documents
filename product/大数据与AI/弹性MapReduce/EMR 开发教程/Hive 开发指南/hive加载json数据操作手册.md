@@ -1,6 +1,5 @@
 ### 1. 连接 Hive
 登录 EMR 集群的 Master 节点，切换到 hadoop 用户并且进入 hive 目录：
-
 ```
 [root@10 ~]# su hadoop
 [hadoop@10 root]$ cd /usr/local/service/hive
@@ -13,7 +12,6 @@ vim test.data
 {"name":"Mary","age":12,"course":[{"name":"math","location":"b208"},{"name":"english","location":"b702"}],"grade":[99,98,95]}
 {"name":"Bob","age":20,"course":[{"name":"music","location":"b108"},{"name":"history","location":"b711"}],"grade":[91,92,93]}
 ```
-
 将数据文件存储在 hdfs 上：
 ```
 hadoop fs -put ./test.data /
@@ -24,7 +22,6 @@ hadoop fs -put ./test.data /
 ```
 [hadoop@10 hive]$ hive
 ```
-    
 根据映射关系创建表格：
 ```
 hive> CREATE TABLE test ( name string, age int, course array<map<string,string>>, grade array<int>) ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe' STORED AS TEXTFILE;
@@ -33,6 +30,7 @@ hive> CREATE TABLE test ( name string, age int, course array<map<string,string>>
 ```
 hive>LOAD DATA INPATH '/test.data' into table test;
 ```
+
 ### 5. 检查数据是否导入成功
 查询所有数据：
 ```

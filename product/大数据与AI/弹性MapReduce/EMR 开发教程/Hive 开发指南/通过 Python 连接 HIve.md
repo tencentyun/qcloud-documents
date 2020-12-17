@@ -2,11 +2,11 @@ Hive 中集成了 Thrift 服务。Thrift 是 Facebook 开发的一个软件框�
 
 本节将演示如何使用 Python 代码来连接 HiveServer2。
 
-## 1.	开发准备 
+## 1. 开发准备 
 - 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择 Hive 组件。 
 - Hive 等相关软件安装在路径 EMR 云服务器的`/usr/local/service/`路径下。
 
-## 2.	查看参数
+## 2. 查看参数
 首先需要登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)，这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入命令行界面。
 
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入 Hive 安装文件夹：

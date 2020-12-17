@@ -15,10 +15,10 @@
 ```
 $ serverless
 Serverless: 当前未检测到 Serverless 项目，是否希望新建一个项目？ (Y/n) y
-Serverless: 请选择您希望创建的 Serverless 应用 (Use arrow keys)
-❯ Express.js app 
-  SCF Function 
-  Website app 
+Serverless: 请选择您希望创建的 Serverless 应用 (Use arrow keys or type to search)
+❯ Express.js 项目模板
+  SCF 函数项目模板
+  Website 项目模板
 Serverless: 请输入项目名称 express-app
 
 express-app 项目已成功创建！
@@ -87,6 +87,17 @@ Action: "remove" - Stage: "dev" - App: "scfApp" - Instance: "scfdemo"
 当前默认支持部署时扫描微信二维码登录，如您希望配置持久的环境变量/密钥信息，也可以参考 [配置账号](https://cloud.tencent.com/document/product/1154/43006) 文档。
 
 ## 常见问题
-如您的环境配置了代理，可能会导致输入`serverless`时没有默认弹出中文引导， 此时可以进行如下配置：
+如您的环境配置了代理，可能会出现以下问题：
 
-在`.env`文件中增加配置 SERVERLESS_PLATFORM_VENDOR=tencent 即可。
+- 问题1：输入 `serverless` 时没有默认弹出中文引导。
+解决方案： 在 .env 文件中增加配置 SERVERLESS_PLATFORM_VENDOR=tencent 即可。
+
+- 问题2：输入 `sls deploy` 后部署报网络错误。
+解决方案：在 .env 文件中增加以下代理配置。
+```
+HTTP_PROXY=http://127.0.0.1:12345 #您的代理
+HTTPS_PROXY=http://127.0.0.1:12345 #您的代理
+```
+
+  
+

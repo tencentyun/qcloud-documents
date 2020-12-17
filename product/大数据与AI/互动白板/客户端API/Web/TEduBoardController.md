@@ -237,6 +237,19 @@ void setToolType(TEduBoardToolType type)
 | type | TEduBoardToolType | 【必填】要设置的白板工具  |
 
 
+### setNextTextInput
+预设文本工具内容 
+``` Javascript
+void setNextTextInput(String textContent, bool keepFocus)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| textContent | String | 【非必填】预设文本内容  |
+| keepFocus | bool | 【非必填】是否继续保持焦点  |
+
+
 ### getToolType
 获取正在使用的白板工具 
 ``` Javascript
@@ -257,6 +270,19 @@ void setCursorIcon(TEduBoardToolType toolType, TEduBoardCursorIcon cursorIcon)
 | --- | --- | --- |
 | toolType | TEduBoardToolType | 【必填】要设置鼠标样式的白板工具类型  |
 | cursorIcon | TEduBoardCursorIcon | 【必填】要设置的鼠标样式  |
+
+
+### setZoomCursorIcon
+自定义缩放工具的图标 
+``` Javascript
+void setZoomCursorIcon(TEduBoardCursorIcon zoomInCursorIcon, TEduBoardCursorIcon zoomOutCursorIcon)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| zoomInCursorIcon | TEduBoardCursorIcon | 放大工具图标  |
+| zoomOutCursorIcon | TEduBoardCursorIcon | 缩小工具图标  |
 
 
 ### setBrushColor
@@ -748,7 +774,7 @@ String addTranscodeFile(TEduBoardTranscodeFileResult result, bool needSwitch)
 文件 ID 
 
 #### 警告
-当传入文件的 URL 重复时，文件 ID 返回为空字符串 
+当传入文件的 URL 重复时，返回该 URL 对应的文件 ID 
 在收到对应的 TEB_TRANSCODEPROGRESS 回调前，无法用返回的文件 ID 查询到文件信息
 
 #### 介绍
@@ -760,17 +786,20 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 ### addImagesFile
 批量导入图片到白板 
 ``` Javascript
-String addImagesFile(String urls, bool needSwitch)
+String addImagesFile(Array urls, bool needSwitch)
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| urls | String | 要使用的背景图片URL列表，编码格式为 UTF8  |
+| urls | Array | 要使用的背景图片URL列表，编码格式为 UTF8  |
 | needSwitch | bool | Boolean 添加转码文件，是否需要立刻跳转到该文件，默认为 true  |
 
 #### 返回
 新增加文件 Id 
+
+#### 警告
+当传入文件的 URL 重复时，返回该 URL 对应的文件 ID 
 
 
 ### deleteFile
@@ -919,14 +948,15 @@ String addVideoFile(String url)
 文件 ID 
 
 #### 警告
+当传入文件的 URL 重复时，返回该 URL 对应的文件 ID 
 需要引入以下 js 文件 
 ``` 
-<script src="https://resources-tiw.qcloudtrtc.com/board/third/videojs/video.min.js"></script>
-<link href="https://resources-tiw.qcloudtrtc.com/board/third/videojs/video-js.min.css" rel="stylesheet">
+<script src="https://resources-tiw.qcloudtrtc.com/board/third/videojs/1.0.0/video.min.js"></script>
+<link href="https://resources-tiw.qcloudtrtc.com/board/third/videojs/1.0.0/video-js.min.css" rel="stylesheet">
 ```
  
 
->? 支持 mp4/m3u8/hls；触发状态改变回调 TEB_VIDEO_STATUS_CHANGED。 
+>? 支持 mp4/m3u8/hls；触发状态改变回调 TEB_VIDEO_STATUS_CHANGED 
 
 
 ### addVODFile
@@ -1109,7 +1139,7 @@ void addImageElement(String url)
 | url | String | 【必填】要设置的图片元素 URL，编码格式为 UTF8 |
 
 #### 介绍
-除了设置一个在线图片为图片元素外，您也可以选择上传一个本地图片作为图片元素，此时 url参数可以传一个 Object 类型，格式如下： 
+除了设置一个在线图片为图片元素外，您也可以选择上传一个本地图片作为图片元素，此时 url 参数可以传一个 Object 类型，格式如下： 
 ``` 
 {
    data: document.getElementById('uploadFile').files[0], //取自 input 标签的 fileObject 对象
@@ -1143,6 +1173,22 @@ Boolean isHandwritingEnable()
 是否开启笔锋 
 
 
+### addElement
+添加白板元素 
+``` Javascript
+String addElement(TEduBoardElementType type, String url)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| type | TEduBoardElementType | 元素类型，当设置 TEduBoard.TEduBoardElementType.TEDU_BOARD_ELEMENT_IMAGE 时，等价于 addImageElement 方法  |
+| url | String |   |
+
+#### 返回
+元素ID 1.支持设置在线图片，url 只支持 https 协议图片的url。 2.也支持从本地上传一个图片，此时 url 为 object 对象： （1）url.data 【必填】文件对象，一般为 document.getElementById('uploadFile').files[0]。 （2）url.userData 【必填】透传数据，会在文件上传进度回调中带回 
+
+
 ### refresh
 刷新当前页白板，触发 TEB_REFRESH 回调 
 ``` Javascript
@@ -1150,4 +1196,51 @@ void refresh()
 ```
 #### 警告
 如果当前白板包含 PPT/H5/图片/视频时，刷新白板将会触发对应的回调 
+
+
+### addAckData
+确认数据是否发送成功 
+``` Javascript
+void addAckData(Object data)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| data | Object | TEB_SYNCDATA 回调的数据  |
+
+
+### syncAndReload
+同步本地发送失败的数据到远端并刷新本地数据 
+``` Javascript
+Boolean syncAndReload()
+```
+#### 警告
+reload 等同于重新加载历史数据，会触发白板初始化时除 onTEBInit 之外的所有回调。 
+
+#### 介绍
+接口用途：此接口主要用于网络恢复后，同步本地数据到远端，拉取远端数据到本地 调用时机：在网络恢复后调用 使用限制： （1）仅支持2.4.9及以上版本 （2）如果历史数据还没有加载完成，则不允许重复调用，否则回调告警 TEDU_BOARD_WARNING_ILLEGAL_OPERATION （3）此接口需要配合 addAckData 一起使用，在白板数据发送成功后，请调用 addAckData 接口完成确认 
+
+
+### snapshot
+白板快照 
+``` Javascript
+void snapshot(TEduBoardSnapshotInfo param)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| param | TEduBoardSnapshotInfo | 快照参数 
+``` 
+{
+   //接口调用--userData透传数据，会在 TEB_SNAPSHOT 事件回调中带回
+   teduBoard.snapshot({userData: '/snapshot/snapshot.png'});
+   //监听事件--image 为 base64格式图片，userdata 为透传字段
+   teduBoard.on(TEduBoard.EVENT.TEB_SNAPSHOT, ({image, userData}) => {});
+}
+```
+  |
+
+
 

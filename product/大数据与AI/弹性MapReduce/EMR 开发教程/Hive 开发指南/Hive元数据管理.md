@@ -16,7 +16,8 @@
 >4. 需保持关联的 EMR-MetaDB 网络与当前新建集群在同一网络环境下。
 >
 ![](https://main.qcloudimg.com/raw/5c58a791c3a4fe0d6f854b44c92c2b13.png)
-![](https://main.qcloudimg.com/raw/56837d31dfe5ebf11ef2cf7737bd1bcf.png)
+![](https://main.qcloudimg.com/raw/06d98bce7c41092d1cfd6f9618290ee4.png)
+
 ## 关联自建 MySQL 共享 Hive 元数据
 关联自己本地自建 MySQL 数据库作为 Hive 元数据存储，也无需单独购买 MetaDB 存储 Hive 元数据节约成本，需准确填写输入以“jdbc:mysql://开头”的本地址、数据库名字、数据库登录密码，并确保网络与当前集群网络打通。
 > !
@@ -25,5 +26,5 @@
 >3. 当选择 Sqoop、Hue、Ranger、Oozie、Presto 一个或多个组件时系统会自动购买一个 MetaDB 用于除 Hive 外的元数据存储。
 >4. 需保证自定义数据库中的 Hive 元数据版本大于等于新集群中的 Hive 版本。
 >
-![](https://main.qcloudimg.com/raw/1cd32465eb0c50eef2811d047d98245f.png)
+![](https://main.qcloudimg.com/raw/2fab5fcaf594325de8c03c524318c201.png)
 ![](https://main.qcloudimg.com/raw/9482f426e38b9471cc17f89d301cfbfb.png)

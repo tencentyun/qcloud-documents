@@ -92,9 +92,10 @@ HTTPDNS 提供两种集成方式供 iOS 开发者选择：
 - 解析失败，返回[0, 0]，业务重新调用 WGGetHostByName 接口即可。
 
 >!
->- 使用 ipv6 地址进行 URL 请求时，需添加方框号[ ]进行处理，例如：`http://[64:ff9b::b6fe:7475]/`
->- ipv6 为0，直接使用 ipv4 地址连接。
->- ipv6 地址不为0，优先使用 ipv6 连接，如果 ipv6 连接失败，再使用 ipv4 地址进行连接。
+>- 使用 ipv6 地址进行 URL 请求时，需添加方框号[ ]进行处理，例如：`http://[64:ff9b::b6fe:7475]/`。
+>- 如 IPv6 地址为0，则直接使用 IPv4 地址连接。
+>- 如 IPv4 地址为0，则直接使用 IPv6 地址连接。
+>- 如 IPv4 和 IPv6 地址都不为0，则由客户端决定优先使用哪个地址进行连接，但优先地址连接失败时应切换为另一个地址。 
 
 #### 同步解析接口: WGGetHostByName
 
@@ -116,7 +117,6 @@ if (ipsArray && ipsArray.count > 1) {
 	NSString *ipv4 = ipsArray[0];
 	NSString *ipv6 = ipsArray[1];
 	if (![ipv6 isEqualToString:@"0"]) {
-		//使用建议：当ipv6地址存在时，优先使用ipv6地址
 		//TODO 使用ipv6地址进行URL连接时，注意格式，ipv6需加方框号[]进行处理，例如：http://[64:ff9b::b6fe:7475]/
 	} else if (![ipv4 isEqualToString:@"0"]){
 		//使用ipv4地址进行连接
@@ -500,3 +500,4 @@ self.task = [session dataTaskWithRequest:request];
 - 如设置了不需要拦截的域名列表，则不会拦截处理该域名列表中的 HTTPS 请求。
 
 >!建议使用 WGSetHijackDomainArray 仅拦截 SNI 场景下的域名，避免拦截其它场景下的域名。
+

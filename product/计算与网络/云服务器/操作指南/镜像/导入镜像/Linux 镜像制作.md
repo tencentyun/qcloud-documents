@@ -16,19 +16,19 @@
 sudo parted -l /dev/sda | grep 'Partition Table'
 ```
  - 若返回结果为 msdos，即表示为 MBR 分区，请执行下一步。
- - 若返回结果为 gpt，即表示为 GPT 分区。目前服务迁移不支持 GPT 分区，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&step=1) 反馈。
+ - 若返回结果为 gpt，即表示为 GPT 分区。目前服务迁移不支持 GPT 分区，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 反馈。
 2. 执行以下命令，检查操作系统是否以 EFI 方式启动。
 ```
 sudo ls /sys/firmware/efi
 ```
- - 若存在文件，则表示当前操作系统以 EFI 方式启动，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&step=1) 反馈。
+ - 若存在文件，则表示当前操作系统以 EFI 方式启动，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 反馈。
  - 若不存在文件，请执行下一步。
 
 #### 检查系统关键文件
 需检查的系统关键文件包括且不限于以下文件：
 >? 请遵循相关发行版的标准，确保系统关键文件位置和权限正确无误，可以正常读写。
 >
- - /etc/grub/grub.cfg： kernel 参数里推荐使用 uuid 挂载 root，其它方式（如 root=/dev/sda）可能导致系统无法启动。
+ - /etc/grub2.cfg： kernel 参数里推荐使用 uuid 挂载 root，其它方式（如 root=/dev/sda）可能导致系统无法启动。
  - /etc/fstab：请勿挂载其它硬盘，迁移后可能会由于磁盘缺失导致系统无法启动。
  - /etc/shadow：权限正常，可以读写。
 
@@ -108,9 +108,13 @@ gvfsd-fuse on /run/user/1000/gvfs type fuse.gvfsd-fuse (rw,nosuid,nodev,relatime
 >! 由于使用命令手工导出镜像的风险比较大（如在 IO 繁忙时可能造成文件系统的 metadata 错乱等）。建议您在导出镜像后，[检查镜像](#CheckMirror) 完整无误。
 >
 
-您可通过执行以下命令导出镜像：
-- **使用 `qemu-img` 命令**
-例如，执行以下命令，将`/dev/sda`导出至`/mnt/sdb/test.qcow2`。
+您可选择 [使用 qemu-img 命令](#qemuimg) 或 [使用 dd 命令](#dd) 其中一种方式导出镜像：
+- **使用 `qemu-img` 命令**<span id="qemuimg"></span>
+ 1. 执行以下命令，安装所需包。本文以 Debian 为例，不同发行版的包可能不同，请对应实际情况进行调整。例如，CentOS 中包名为 `qemu-img`。
+```
+apt-get install qemu-utils
+```
+ 2. 执行以下命令，将 `/dev/sda` 导出至 `/mnt/sdb/test.qcow2`。
 ```
 sudo qemu-img convert -f raw -O qcow2 /dev/sda /mnt/sdb/test.qcow2
 ```
@@ -124,13 +128,13 @@ sudo qemu-img convert -f raw -O qcow2 /dev/sda /mnt/sdb/test.qcow2
 	<tr><td>vmdk</td><td>vmdk 格式</td></tr>
 	<tr><td>raw</td><td>无格式</td></tr>
 </table>
-- **使用 `dd` 命令**
+- **使用 `dd` 命令**<span id="dd"></span>
 例如，执行以下命令，导出 raw 格式的镜像。
 ```
 sudo dd if=/dev/sda of=/mnt/sdb/test.imag bs=1K count=$count
 ```
 其中，`count` 参数即为需要复制分区的数量，您可以通过 `fdisk` 命令查出该数量值。如果您需要全盘复制，`count` 参数则可以忽略。
-例如，执行以下命令，查看 `/dev/sda`的分区数量。
+例如，执行以下命令，查看 `/dev/sda` 的分区数量。
 ```
 fdisk -lu /dev/sda
 ```
@@ -169,12 +173,24 @@ sudo qemu-img convert -f raw -O qcow2 test.img test.qcow2
 ### 检查镜像
 >? 当您未停止服务直接制作镜像或者其它原因，可能导致制作出的镜像文件系统有误，因此建议您在制作镜像后检查是否无误。
 >
-当镜像格式和当前平台支持的格式一致时，您可以直接打开镜像检查文件系统。例如，Windows 平台可以直接附加 vhd 格式镜像，Linux 平台可以使用 qemu-nbd 打开 qcow2 格式镜像，Xen 平台可以直接启用 vhd 文件。
-以 Linux 平台为例：
+当镜像格式和当前平台支持的格式一致时，您可以直接打开镜像检查文件系统。例如，Windows 平台可以直接附加 vhd 格式镜像，Linux 平台可以使用 qemu-nbd 打开 qcow2 格式镜像，Xen 平台可以直接启用 vhd 文件。本文以 Linux 平台为例，检查步骤如下：
+1. 依次执行以下命令，检查是否已有 nbd 模块。
 ```
 modprobe nbd
+```
+```
+lsmod | grep nbd
+```
+返回结果如下，则说明已有 nbd 模块。如返回结果为空，则请检查内核编译选项 `CONFIG_BLK_DEV_NBD` 是否打开。如未开启，则需更换系统或打开 `CONFIG_BLK_DEV_NBD` 编译选项后重编内核。
+![](https://main.qcloudimg.com/raw/190bd78d60c7340fb95210f60e126105.png)
+2. 依次执行以下命令，检查镜像。
+```
 qemu-nbd -c /dev/nbd0 xxxx.qcow2
+```
+```
 mount /dev/nbd0p1 /mnt
 ```
-如果 qcow2 镜像的第一个分区导出时文件系统被破坏，mount 时将会报错。
+执行 `qemu-nbd` 命令后，`/dev/nbd0` 就映射了 `xxx.qcow2` 中的内容。而 `/dev/nbd0p1` 代表该虚拟磁盘的第一个分区，若 nbd0p1 不存在或 mount 不成功，则很可能是镜像错误。
 此外，您还可以在上传镜像前，先启动云服务器测试镜像文件是否可以使用。
+
+

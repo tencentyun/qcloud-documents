@@ -1,7 +1,7 @@
 对于在 iOS 平台上传视频的场景，云点播提供了 iOS 上传 SDK 。上传流程请参见 [客户端上传指引](/document/product/266/9219)。
 
 ## 源码下载
-1. [单击下载](http://ugcupload-1252463788.file.myqcloud.com/TXUGCUploadDemo_iOS.zip) iOS 上传 Demo 及源码。
+1. [单击下载](https://ugcupload-1252463788.file.myqcloud.com/TXUGCUploadDemo_iOS.zip) iOS 上传 Demo 及源码。
 2. 将下载好的压缩包解压，可以看到 TXUGCUploadDemo 目录，上传源码在`TXUGCUploadDemo/upload`目录下。
 
 ## 集成上传库和源码
@@ -277,4 +277,7 @@ SDK 通过`TXMediaPublishListener`接口来监听图片/媒体上传相关的状
 | 1003 | MEDIA_PUBLISH_RESULT_UPLOAD_VIDEO_FAILED   | 上传图片/媒体失败。          |
 | 1005 | MEDIA_PUBLISH_RESULT_PUBLISH_REQUEST_FAILED | 结束上传请求失败。        |
 | 1006 | MEDIA_PUBLISH_RESULT_PUBLISH_RESPONSE_ERROR | 结束上传响应错误。        |
+
+
+
 

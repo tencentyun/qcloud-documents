@@ -7,13 +7,13 @@
 [单击此处](https://cloud.tencent.com/product/x-magic) 申请企业版本 License。
 
 ## 版本下载
-在 [SDK 下载](https://cloud.tencent.com/document/product/584/9366) 页面下方下载企业版 SDK 压缩包，压缩包有加密（解压密码和 licence 在接入流程步骤获取），成功解压后得到一个`Demo`和`SDK`文件，特效资源存放在 SDK/Resource 下。
+在 [SDK 下载](https://cloud.tencent.com/document/product/584/9366) 页面下方下载企业版 SDK 压缩包，压缩包有加密（解压密码和 Licence 在接入流程步骤获取），成功解压后得到一个 `Demo` 和 `SDK` 文件，特效资源存放在 SDK/Resource 下。
 
 ## Xcode 工程设置
 
-参考 [工程配置](https://cloud.tencent.com/document/product/584/11638)。 
+参见 [工程配置](https://cloud.tencent.com/document/product/584/11638)。 
 
-### 1. 添加 Framework
+### 步骤1：添加 Framework
 
 企业版需要额外链接以下 Framework：
 > - AssetsLibrary.framwork
@@ -21,12 +21,12 @@
 > - Accelerate.framework
 > - Metal.framework 
 
-### 2. 添加链接参数
+### 步骤2：添加链接参数
 
-> 1. 在工程  Build Setting > Other Link Flags 里，增加`-ObjC`选项。
-> 2. 如果使用了 AI 抠背功能，需要把 Product > Edit Scheme > Run > Options > Metal API Validation 设置为 Disabled。
+1. 在工程【Build Setting】>【Other Link Flags】里，增加 `-ObjC` 选项。
+2. 如果使用了 AI 抠背功能，需要把【Product】>【Edit Scheme】>【Run】>【Options】>【Metal API Validation】设置为 Disabled。
 
-### 3. 添加动效资源
+### 步骤3：添加动效资源
 
 请检查是否添加动效资源：将 SDK/Resource 下的文件以 groups 的形式添加到工程中，文件列表如下：
 
@@ -42,20 +42,20 @@
 > - ufa.bundle
 > - v1
 
-### 4. 导入 licence 文件
-企业版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费30天的调试用 licence。
-得到 licence 后，您需要将其命名为 **YTFaceSDK.licence**，然后如上图所示添加到工程。
+### 步骤4：导入 Licence 文件
+企业版需要 Licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费30天的调试用 licence。
+得到 Licence 后，您需要将其命名为 **YTFaceSDK.licence**，然后如上图所示添加到工程。
 >?
->- 每个 licence 都有绑定具体的 Bundle Identifier，修改 app 的 Bundle Identifier 会导致验证失败。
+>- 每个 Licence 都有绑定具体的 Bundle Identifier，修改 app 的 Bundle Identifier 会导致验证失败。
 >- YTFaceSDK.licence 的文件名固定，不可修改。
->- iOS 和 Android 不需要重复申请 licence，一个 licence 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
+>- iOS 和 Android 不需要重复申请 licence，一个 Licence 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
 
 
-**从4.9版本开始，SDK 支持二合一的 licence, 这种方式不再需要 YTFaceSDK.licence, 在从商务同学处获取到 licence 对应的 key 和 url 后，设置方式和标准版 licence 设置方式相同。**
+**从4.9版本开始，SDK 支持二合一的 licence, 这种方式不再需要 YTFaceSDK.licence, 在从商务同学处获取到 Licence 对应的 key 和 url 后，设置方式和标准版 Licence 设置方式相同。**
 
 ## 功能调用
 
-### 1. 动效贴纸
+### 动效贴纸
 
 #### 示例
 
@@ -64,14 +64,12 @@
 一个动效模板是一个目录，里面包含很多资源文件。每个动效因为复杂度不同，目录个数和文件大小也不尽相同。
 
 短视频中的示例代码是从后台下载动效资源，再统一解压到 Resource 目录。您可以在短视频代码中找到动效资源和动效缩略图的下载地址，格式如下：
-
-> `https://st1.xiangji.qq.com/yunmaterials/{动效名}.zip`
-> `https://st1.xiangji.qq.com/yunmaterials/{动效名}.png`
+- `https://st1.xiangji.qq.com/yunmaterials/{动效名}.zip`
+- `https://st1.xiangji.qq.com/yunmaterials/{动效名}.png`
 
 >?建议客户将动效资源放在自己的服务器上，以防短视频变动造成不必要的影响。
 
 当解压完成后，即可通过以下接口开启动效效果：
-
 ```objective-c
 /**
  * 选择动效
@@ -81,14 +79,14 @@
  */
 - (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir;
 ```
-### 2. AI 抠背
+
+### AI 抠背
 
 #### 示例
 
 <img src="https://mc.qcloudimg.com/static/img/0f79b78687753f88af7685530745a8d4/98B403B8-1DEC-4130-B691-D9EB5E321162.png" width="450">
 
-需要下载 AI 抠背的资源，接口跟动效接口相同
-
+需要下载 AI 抠背的资源，接口跟动效接口相同：
 ```objective-c
 /**
  * 选择抠背动效
@@ -99,7 +97,7 @@
 - (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir;
 ```
 
-### 3. 高级美颜接口（大眼、瘦脸等）
+### 高级美颜接口（大眼、瘦脸等）
 
 您可以通过 TXUGCRecord 的 getBeautyManager 方法获取 TXBeautyManager 对象来进行设置各项美颜参数，其方法如下。
 
@@ -264,7 +262,7 @@
 - (void)setFaceBeautyLevel:(float)level;
 ```
 
-### 4. 绿幕功能
+### 绿幕功能
 
 使用绿幕需要先准备一个用于播放的 MP4 文件，通过调用以下接口即可开启绿幕效果。
 
@@ -278,15 +276,15 @@
 ```
 ## 问题排查
 ### 1. 工程编译不过？
- 1. 检查 AssetsLibrary.framwork、CoreMedia.framework、Accelerate.framework、Metal.framework 依赖库是否已经添加。
+检查 AssetsLibrary.framwork、CoreMedia.framework、Accelerate.framework、Metal.framework 依赖库是否已经添加。
                  
 ### 2. 工程运行过程中 crash？  
- > 1. 检查工程是否配置了 -ObjC。  
- > 2. 检查 Metal API Validation 是否设置成了 Disabled。
+1. 检查工程是否配置了 -ObjC。  
+2. 检查 Metal API Validation 是否设置成了 Disabled。
      
 ### 3. 工程特效不生效？  
- > 1. 检查是否调用了`+[TXUGCBase setLicenceURL:key:]`方法，以及参数是否正确。
- > 2. 调用 TXUGCBase的getLicenseInfo 方法，带有动效的 licence 会包含`pituLicense`字段。
- > 3. 检查 pitu 资源是否添加正确，尤其要注意 handdetect、handtrack、res18_3M 三个文件要以 folder refrence 形式添加，最简单的方法就是比对自己工程添加的动效文件是否和我们 demo 添加的完全一致。  
- > 4. SDK 会把 licence 下载到沙盒的 Documents 目录当中, 可以在开发过程中使用 Xcode 菜单中 Window > Devices and Simulators 工具导出并使用 [查询工具（单击下载）](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip)查看有效期。
+1. 检查是否调用了`+[TXUGCBase setLicenceURL:key:]`方法，以及参数是否正确。
+2. 调用 TXUGCBase的getLicenseInfo 方法，带有动效的 licence 会包含`pituLicense`字段。
+3. 检查 pitu 资源是否添加正确，尤其要注意 handdetect、handtrack、res18_3M 三个文件要以 folder refrence 形式添加，最简单的方法就是比对自己工程添加的动效文件是否和我们 demo 添加的完全一致。  
+4. SDK 会把 Licence 下载到沙盒的 Documents 目录当中, 可以在开发过程中使用 Xcode 菜单中 Window > Devices and Simulators 工具导出并使用 [查询工具（单击下载）](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip)查看有效期。
  [查询工具](https://mc.qcloudimg.com/static/archive/9c0f8c02466d08e5ac14c396fad21005/PituDateSearch.zip) 是一个 xcode 工程，目前仅支持在 mac 上使用， 后续会开放其他查询方式。

@@ -15,7 +15,7 @@
 
 登录 CVM 的方法可参见 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。
 ![](https://main.qcloudimg.com/raw/74d4353cd141737df48529b0e6736837.png)
-输入正确后，即可进入 EMR 集群的命令行界面。所有的 Hadoop 操作都在 Hadoop 用户下，登录 EMR 主机后默认在 root 用户，需要切换到 Hadoop 用户。使用如下命令切换用户，并且进入 Hadoop 文件夹下：
+输入正确后，即可进入 EMR 集群的命令行界面。所有的 Hadoop 操作都在 Hadoop 用户下，登录 EMR 节点后默认在 root 用户，需要切换到 Hadoop 用户。使用如下命令切换用户，并且进入 Hadoop 文件夹下：
 ```
 [root@172 ~]# su hadoop
 [hadoop@172 root]$ cd /usr/local/service/hadoop
@@ -49,7 +49,7 @@ scp $localfile root@公网IP地址:$remotefolder
 ```
 如果 Hadoop下面没有 `/user/hadoop` 文件夹，用户可以自己创建，指令如下：
 ```
-[hadoop@172 hadoop]$ hadoop fs –mkdir /user
+[hadoop@172 hadoop]$ hadoop fs –mkdir /user/hadoop
 ```
 更多 Hadoop 指令见 [HDFS 常见操作](https://cloud.tencent.com/document/product/589/12289)。
 

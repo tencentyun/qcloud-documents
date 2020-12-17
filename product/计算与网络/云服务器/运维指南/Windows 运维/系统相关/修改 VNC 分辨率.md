@@ -1,6 +1,9 @@
 ## 操作场景
 
-部分 Linux 系统镜像的 VNC 默认显示分辨率较小，如 CentOS 6 的 VNC 默认分辨率只有 720 \* 400。您可以通过修改  grub 参数，将 Linux 系统镜像的 VNC 分辨率设置为1024 \* 768。而对 Window 系统镜像，VNC 分辨率过低时，可能会影响某些项目的正常显示或者导致某些应用无法打开。您可以通过进行修改分辨率，避免这些问题。本文档将引导您调整云服务器的 VNC 显示分辨率。
+部分 Linux 系统镜像的 VNC 默认显示分辨率较小，如 CentOS 6 的 VNC 默认分辨率只有 720 \* 400。您可以通过修改  grub 参数，将 Linux 系统镜像的 VNC 分辨率设置为1024 \* 768。
+对于 Window 系统镜像，当 VNC 分辨率过低时，可能会影响某些项目的正常显示或者导致某些应用无法打开。您可以通过进行修改分辨率，避免这些问题。
+
+本文档将引导您调整云服务器的 VNC 显示分辨率。
 
 ## 操作步骤
 
@@ -32,9 +35,9 @@ Linux 系统镜像有许多类型，其中如 CentOS 7、CentOS 8、Ubuntu、Deb
 ```
 vim /etc/grub.conf
 ```
-3. 按 “**i**” 切换至编辑模式，并在 `grub` 参数值中添加 `vga=792`。如下图所示：
+3. 按 **i** 切换至编辑模式，并在 `grub` 参数值中添加 `vga=792`。如下图所示：
 ![](https://main.qcloudimg.com/raw/3c2193fa370c48a7af149c63720da077.png)
-4. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+4. 按 **Esc**，输入 **:wq**，保存文件并返回。
 5. 执行以下命令，重启云服务器。
 ```
 reboot
@@ -51,9 +54,9 @@ Debian 7.8 和 Debian 8.2 系统镜像的 VNC 默认分辨率为 720 \* 400。�
 ```
 vim /etc/default/grub
 ```
-3. 按 “**i**” 切换至编辑模式，并在 `GRUB_CMDLINE_LINUX_DEFAULT` 参数值后面添加 `vga=792`。如下图所示：
+3. 按 **i** 切换至编辑模式，并在 `GRUB_CMDLINE_LINUX_DEFAULT` 参数值后面添加 `vga=792`。如下图所示：
 ![](https://main.qcloudimg.com/raw/f8e275c35b65b7b2d26cfbd7a8ae4dd6.png)
-4. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+4. 按 **Esc**，输入 **:wq**，保存文件并返回。
 5. 执行以下命令，更新 `grub.cfg` 文件。
 ```
 grub-mkconfig -o /boot/grub/grub.cfg
@@ -66,7 +69,7 @@ reboot
 
 ## 附录
 
-分辨率与 VGA 的参数对照表如下：
+Linux 实例分辨率与 VGA 的参数对照表如下：
 <table>
 	<tr><th>分辨率</th><td>640 * 480</td><td>800 * 600</td><td>1024 * 768</td></tr>
 	<tr><th>VGA</th><td>786</td><td>789</td><td>792</td></tr>

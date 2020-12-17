@@ -6,6 +6,7 @@
 - 您已有 Weekdone 管理员，并有权限管理 Weekdone。
 
 ## 操作步骤
+
 ### 创建 Weekdone 应用
 1. 管理员登录 [IDaaS 控制台](https://console.cloud.tencent.com/idaas)。
 2. 在左侧导航栏中，单击【应用管理】，进入应用管理页面。

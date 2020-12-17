@@ -20,7 +20,7 @@ FISCO BCOS 平台基于价值联盟、安全可信、业务可行、自主可控
 
 ## 技术架构
 FISCO BCOS 分层架构设计如下图所示：
-![](https://main.qcloudimg.com/raw/4d45ad11798dee695810fc218741fc21.png)
+![](https://main.qcloudimg.com/raw/422d42ef308f78261af6fce4d891290c.jpg)
 - 基础层提供基础工具和算法库。
 - 核心层实现区块链内核逻辑以及网络共识算法等关键模块，包括链核心层与互联核心层。
  - 链核心层实现区块链的链式数据结构、交易执行引擎和存储驱动。
@@ -35,4 +35,3 @@ FISCO BCOS 分层架构设计如下图所示：
 ## 常见问题
 
 FISCO BCOS FAQ 文档：`https://fisco-bcos-documentation.readthedocs.io/zh_CN/release-2.0/docs/faq.html`
-

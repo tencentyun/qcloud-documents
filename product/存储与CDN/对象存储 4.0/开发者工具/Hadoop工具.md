@@ -4,6 +4,7 @@ Hadoop-COS 基于腾讯云对象存储 COS 实现了标准的 Hadoop 文件系�
 
 Hadoop-COS 使用 cosn 作为 URI 的 scheme，因此也称为 Hadoop-COS 为 CosN 文件系统。
 
+
 ## 使用环境
 
 #### 系统环境
@@ -14,20 +15,26 @@ Hadoop-COS 使用 cosn 作为 URI 的 scheme，因此也称为 Hadoop-COS 为 Co
 
 Hadoop-2.6.0及以上版本。
 
+>?
+>1. 目前 Hadoop-COS 已经正式被 Apache Hadoop-3.3.0 [官方集成](https://hadoop.apache.org/docs/r3.3.0/hadoop-cos/cloud-storage/index.html)。
+>2. 在 Apache Hadoop-3.3.0 之前版本或 CDH 集成 Hadoop-cos jar 包后，需要重启 NodeManager 才能加载到 jar 包。
+>3. 需要编译具体 Hadoop 版本的 jar 包时，可更改 pom 文件中 hadoop.version 进行编译。
+
+
+
 ## 下载与安装
 
-#### 获取 Hadoop-COS 插件
+#### 获取 Hadoop-COS 分发包及其依赖
 
-下载地址：[Hadoop-COS 插件](https://github.com/tencentyun/hadoop-cos)。
+下载地址：[Hadoop-COS release](https://github.com/tencentyun/hadoop-cos/releases)。
 
 #### 安装 Hadoop-COS 插件
 
-1. 将 dep 目录下的`hadoop-cos-X.X.X-shaded.jar*`， 拷贝到`$HADOOP_HOME/share/hadoop/tools/lib`下。
+1. 将 `hadoop-cos-{hadoop.version}-{version}.jar` 和 `cos_api-bundle-{version}.jar` 拷贝到 `$HADOOP_HOME/share/hadoop/tools/lib`下。
 
-> ?根据 Hadoop 的具体版本选择对应的 jar 包，若 dep 目录中没有提供匹配版本的 jar 包，可自行通过修改 pom 文件中 Hadoop 版本号，重新编译生成。 
+> ?根据 Hadoop 的具体版本选择对应的 jar 包，若 release 中没有提供匹配版本的 jar 包，可自行通过修改 pom 文件中 Hadoop 版本号，重新编译生成。 
 
-2. 修改 hadoop_env.sh 文件。
-   进入`$HADOOP_HOME/etc/hadoop`目录，编辑 hadoop_env.sh 文件，增加以下内容，将 cosn 相关 jar 包加入 Hadoop 环境变量：
+2. 修改 hadoop_env.sh 文件。进入`$HADOOP_HOME/etc/hadoop`目录，编辑 hadoop_env.sh 文件，增加以下内容，将 cosn 相关 jar 包加入 Hadoop 环境变量：
 
 ```shell
 for f in $HADOOP_HOME/share/hadoop/tools/lib/*.jar; do
@@ -47,22 +54,30 @@ done
 
 |                  属性键                  | 说明                                                         |                            默认值                            | 必填项 |
 | :--------------------------------------: | :----------------------------------------------------------- | :----------------------------------------------------------: | :----: |
-|   fs.cosn.userinfo.secretId/secretKey    | 填写您账户的 API 密钥信息。可登录 [访问管理控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥。 |                              无                              |   是   |
-|       fs.cosn.credentials.provider       | 配置 SecretId 和 SecretKey 的获取方式。当前支持三种获取方式：<br>1.org.apache.hadoop.fs.auth.SessionCredentialProvider：从请求 URI 中获取 secret id 和 secret key。<br>其格式为：`cosn://{secretId}:{secretKey}@examplebucket-1250000000/`。<br>2.org.apache.hadoop.fs.auth.SimpleCredentialProvider：<br>从 core-site.xml 配置文件中读取 fs.cosn.userinfo.secretId 和 fs.cosn.userinfo.secretKey 来获取 SecretId 和 SecretKey。<br>3.org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider：从系统环境变量 COS_SECRET_ID 和 COS_SECRET_KEY 中获取。 | 如果不指定改配置项，默认会按照以下顺序读取：<br>1.org.apache.hadoop.fs.auth.SessionCredentialProvider<br>2.org.apache.hadoop.fs.auth.SimpleCredentialProvider <br>3.org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider |   否   |
+|   fs.cosn.userinfo.<br>secretId/secretKey    | 填写您账户的 API 密钥信息。可登录 [访问管理控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥。 |                              无                              |   是   |
+|       fs.cosn.<br>credentials.provider       | 配置 SecretId 和 SecretKey<br> 的获取方式。当前支持三种获取方式：1.org.apache.hadoop.fs.auth.SessionCredential<br>Provider：从请求 URI 中获取 secret id 和 secret key。<br>其格式为：`cosn://{secretId}:{secretKey}@examplebucket-1250000000/`；<br>2.org.apache.hadoop.fs.auth.SimpleCredentialProvider：<br>从 core-site.xml 配置文件中读取 fs.cosn.userinfo.secretId <br>和 fs.cosn.userinfo.secretKey 来获取 SecretId 和 SecretKey；<br>3.org.apache.hadoop.fs.auth.EnvironmentVariableCredential<br>Provider：从系统环境变量 COS_SECRET_ID 和 COS_SECRET_KEY 中获取；<br>4.org.apache.hadoop.fs.auth.CVMInstanceCredentials<br>Provider：利用腾讯云云服务器（CVM）绑定的角色，获取访问 <br>COS 的临时密钥；<br>5. org.apache.hadoop.fs.auth.CPMInstanceCredentialsProvider：利用腾讯云黑石物理机（CPM）绑定的角色，获取访问 <br>COS 的临时密钥。 | 如果不指定该配置项，默认会按照<br>以下顺序读取：<br>1.org.apache.hadoop.fs.auth.<br>SessionCredentialProvider<br>2.org.apache.hadoop.fs.auth.<br>SimpleCredentialProvider <br>3.org.apache.hadoop.fs.auth.<br>EnvironmentVariableCredentialProvider<br>4.org.apache.hadoop.fs.auth.<br>CVMInstanceCredentialsProvider<br>5.org.apache.hadoop.fs.auth.<br>CPMInstanceCredentialsProvider |   否   |
+| fs.cosn.useHttps | 配置是否使用 https 作为与 COS 后端的传输协议。 | false | 否 |
 |               fs.cosn.impl               | cosn 对 FileSystem 的实现类，固定为 org.apache.hadoop.fs.CosFileSystem。 |                              无                              |   是   |
-|     fs.AbstractFileSystem.cosn.impl      | cosn 对 AbstractFileSystem 的实现类，固定为 org.apache.hadoop.fs.CosN。 |                              无                              |   是   |
-|          fs.cosn.bucket.region           | 请填写待访问 bucket 的地域信息，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 中的地域简称，例如	ap-beijing、ap-guangzhou 等。兼容原有配置：fs.cosn.userinfo.region。 |                              无                              |   是   |
-|      fs.cosn.bucket.endpoint_suffix      | 指定要连接的 COS endpoint，该项为非必填项目。对于公有云 COS 用户而言，只需要正确填写上述的 region 配置即可。兼容原有配置：fs.cosn.userinfo.endpoint_suffix。 |                              无                              |   否   |
-|             fs.cosn.tmp.dir              | 请设置一个实际存在的本地目录，运行过程中产生的临时文件会暂时放于此处。 |                       /tmp/hadoop_cos                        |   否   |
-|            fs.cosn.block.size            | CosN 文件系统每个 block 的大小，也是分块上传的每个 part size 的大小。由于 COS 的分块上传最多只能支持10000块，因此需要预估最大可能使用到的单文件大小。例如，block size 为8MB时，最大能够支持78GB的单文件上传。 block size 最大可以支持到2GB，即单文件最大可支持19TB。 |                        8388608（8MB）                        |   否   |
-|        fs.cosn.upload_thread_pool        | 文件流式上传到 COS 时，并发上传的线程数目。                  |                        CPU核心数 X 5                         |   否   |
-|         fs.cosn.copy_thread_pool         | 目录拷贝操作时，可用于并发拷贝文件的线程数目。               |                       CPU核心数目 X 3                        |   否   |
-|      fs.cosn.read.ahead.block.size       | 预读块的大小。                                               |                        1048576（1MB）                        |   否   |
-|      fs.cosn.read.ahead.queue.size       | 预读队列的长度。                                             |                              8                               |   否   |
+|     fs.AbstractFileSystem.<br>cosn.impl      | cosn 对 AbstractFileSystem 的实现类，固定为 org.apache.hadoop.fs.CosN。 |                              无                              |   是   |
+|          fs.cosn.bucket.region           | 请填写待访问存储桶的地域信息，枚举值请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224) 中的地域简称，<br>例如：ap-beijing、ap-guangzhou 等。兼容原有配置：fs.cosn.userinfo.region。 |                              无                              |   是   |
+|      fs.cosn.bucket.<br>endpoint_suffix      | 指定要连接的 COS endpoint，该项为非必填项目。对于公有云 COS 用户而言，<br>只需要正确填写上述的 region 配置即可。兼容原有配置：fs.cosn.userinfo.endpoint_suffix。 | 无 | 否 |
+|             fs.cosn.tmp.dir              | 请设置一个实际存在的本地目录，运行过程中产生的临时文件会暂时放于此处。 | /tmp/hadoop_cos | 否 |
+|          fs.cosn.upload.<br>part.size           | CosN 文件系统每个 block 的大小，也是分块上传的每个 part size 的大小。由于 COS 的分块上传最多只能支持10000块，因此需要预估最大可能使用到的单文件大小。<br>例如，part size 为8MB时，最大能够支持78GB的单文件上传。 part size 最大可以支持到2GB，即单文件最大可支持19TB。 | 8388608（8MB） |   否   |
+| fs.cosn.<br>upload.buffer | CosN 文件系统上传时依赖的缓冲区类型。当前支持三种类型的缓冲区：非直接内存缓冲区（non_direct_memory），<br>直接内存缓冲区（direct_memory），磁盘映射缓冲区（mapped_disk）。非直接内存缓冲<br>区使用的是 JVM 堆内存，直接内存缓冲区使用的是堆外内存，而磁盘映射缓冲区则是基于内存文件映射得到的缓冲区。| mapped_disk | 否 |
+| fs.cosn.<br>upload.buffer.size | CosN 文件系统上传时依赖的缓冲区大小，如果指定为-1，则表示不限制缓冲区。若不<br>限制缓冲区大小，则缓冲区的类型必须为 mapped_disk。如果指定大小大于0，则要求该值至少大于等于一个 block 的大小。兼容原有配置 fs.cosn.buffer.size。 | -1 | 否 |
+|  fs.cosn.block.size | CosN 文件系统 block size。 | 134217728（128MB）| 否 | 
+|        fs.cosn.<br>upload_thread_pool        | 文件流式上传到 COS 时，并发上传的线程数目。                  |                        8                        |   否   |
+|         fs.cosn.<br>copy_thread_pool         | 目录拷贝操作时，可用于并发拷贝和删除文件的线程数目。               |                   3                       |   否   |
+|      fs.cosn.<br>read.ahead.block.size       | 预读块的大小。                                               |                        1048576（1MB）                        |   否   |
+|      fs.cosn.<br>read.ahead.queue.size       | 预读队列的长度。                                             |                              8                               |   否   |
 |            fs.cosn.maxRetries            | 访问 COS 出现错误时，最多重试的次数。                        |                             200                              |   否   |
-|      fs.cosn.retry.interval.seconds      | 每次重试的时间间隔。                                         |                              3                               |   否   |
-| fs.cosn.server-side-encryption.algorithm | 配置 COS 服务端加密算法，支持 SSE-C 和 SSE-COS，默认为空，不加密 |                              无                              |   否   |
-|    fs.cosn.server-side-encryption.key    | 当开启 COS 的 SSE-C 服务端加密算法时，必须配置 SSE-C 的密钥，密钥格式为 base64 编码的 AES-256 密钥，默认为空，不加密 |                              无                              |   否   |
+|      fs.cosn.retry.<br>interval.seconds      | 每次重试的时间间隔。                                         |                              3                               |   否   |
+| fs.cosn.<br>server-side-encryption.algorithm | 配置 COS 服务端加密算法，支持 SSE-C 和 SSE-COS，默认为空，不加密。 |                              无                              |   否   |
+|    fs.cosn.<br>server-side-encryption.key    | 当开启 COS 的 SSE-C 服务端加密算法时，必须配置 SSE-C 的密钥，<br>密钥格式为 base64 编码的 AES-256 密钥，默认为空，不加密。 |                              无                              |   否   |
+| fs.cosn.<br>crc64.checksum.enabled | 是否开启 CRC64 校验。默认不开启，此时无法使用 hadoop fs -checksum 命令获取文件的 CRC64 校验值。 | false | 否 |
+|fs.cosn.<br>crc32c.checksum.enabled    | 是否开启 CRC32C 校验。默认不开启，此时无法使用 hadoop fs -checksum 命令获取文件的 CRC32C 校验值，只能开启一种校验方式：crc32c 或 crc64。| false | 否 |
+| fs.cosn.traffic.limit | 上传带宽的控制选项，819200 - 838860800 bits/s，默认值为-1，默认表示不限制。 | 无 | 否 | 
+
 
 ### Hadoop 配置
 
@@ -70,11 +85,6 @@ done
 
 ```xml
 <configuration>
-    <property>
-        <name>fs.defaultFS</name>
-        <value>cosn://examplebucket-1250000000</value>
-    </property>
-  
     <property>
         <name>fs.cosn.credentials.provider</name>
         <value>org.apache.hadoop.fs.auth.SimpleCredentialProvider</value>
@@ -94,7 +104,8 @@ done
             1. org.apache.hadoop.fs.auth.SessionCredentialProvider
             2. org.apache.hadoop.fs.auth.SimpleCredentialProvider
             3. org.apache.hadoop.fs.auth.EnvironmentVariableCredentialProvider
-
+            4. org.apache.hadoop.fs.auth.CVMInstanceCredentialsProvider
+            5. org.apache.hadoop.fs.auth.CPMInstanceCredentialsProvider
         </description>
     </property>
   
@@ -142,9 +153,21 @@ done
         <value>/tmp/hadoop_cos</value>
         <description>Temporary files will be placed here.</description>
     </property>
-    
+
     <property>
-    	<name>fs.cosn.block.size</name>
+        <name>fs.cosn.upload.buffer</name>
+        <value>mapped_disk</value>
+        <description>The type of upload buffer. Available values: non_direct_memory, direct_memory, mapped_disk</description>
+    </property>
+
+    <property>
+        <name>fs.cosn.upload.buffer.size</name>
+        <value>134217728</value>
+        <description>The total size of the upload buffer pool. -1 means unlimited.</description>
+    </property>
+	
+    <property>
+    	<name>fs.cosn.upload.part.size</name>
         <value>8388608</value>
         <description>Block size to use cosn filesysten, which is the part size for MultipartUpload.
         Considering the COS supports up to 10000 blocks, user should estimate the maximum size of a single file.
@@ -181,6 +204,18 @@ done
 </configuration>
 ```
 
+其中 fs.defaultFS 不建议在生产环境进行配置，若您需要用于部分测试场景（例如 hive-testbench 等），可添加如下配置信息：
+
+```
+<property>
+          <name>fs.defaultFS</name>
+          <value>cosn://examplebucket-1250000000</value>
+        <description>
+             This option is not advice to config, this only used for some special test cases.
+        </description>
+</property>
+```
+  
 ### 服务端加密
 
 Hadoop-COS 支持服务端加密，目前提供两种加密方式：COS 托管密钥方式（SSE-COS）和用户自定义密钥方式（SSE-C），Hadoop-COS 的加密功能默认为关闭状态，用户可以选择开启，通过以下方式进行配置。
@@ -292,3 +327,6 @@ Bytes Read=36
 File Output Format Counters
 Bytes Written=40
 ```
+
+## 常见问题
+如果您在使用 Hadoop 工具过程中，有相关的疑问，请参见 [Hadoop 工具类常见问题](https://cloud.tencent.com/document/product/436/36897)。

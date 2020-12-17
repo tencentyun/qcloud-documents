@@ -58,7 +58,7 @@ void init(TEduBoardAuthParam authParam, int roomId, final TEduBoardInitParam ini
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | authParam | TEduBoardAuthParam | 授权参数  |
-| roomId | int | 课堂 ID  |
+| roomId | int | 课堂 ID，32位整型，取值范围[1, 4294967294]  |
 | initParam | final TEduBoardInitParam | 可选参数，指定用于初始化白板的一系列属性值  |
 
 #### 警告
@@ -93,15 +93,6 @@ View getBoardRenderView()
 
 #### 介绍
 在调用此接口获取 View 后，加入到视图树中后，在结束时需要 removeView 
-
-
-### refresh
-刷新当前页白板，触发 onTEBRefresh 回调 
-``` Java
-void refresh()
-```
-#### 警告
-如果当前白板包含PPT/H5/图片/视频时，刷新白板将会触发对应的回调 
 
 
 ### addSyncData
@@ -298,6 +289,19 @@ int getToolType()
 正在使用的白板工具 
 
 
+### setZoomCursorIcon
+自定义缩放工具图标 
+``` Java
+void setZoomCursorIcon(TEduBoardController.TEduBoardCursorIcon zoomInIconUrl, TEduBoardController.TEduBoardCursorIcon zoomOutIconUrl)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| zoomInIconUrl | TEduBoardController.TEduBoardCursorIcon | 放大工具图标  |
+| zoomOutIconUrl | TEduBoardController.TEduBoardCursorIcon | 缩小工具图标  |
+
+
 ### setCursorIcon
 自定义白板工具鼠标样式 
 ``` Java
@@ -477,6 +481,19 @@ TEduBoardLineStyle getLineStyle()
 直线样式 
 
 
+### setNextTextInput
+预设文本工具内容 
+``` Java
+void setNextTextInput(String textContent, boolean keepFocus)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| textContent | String | 预设文本内容  |
+| keepFocus | boolean | 是否继续保持焦点  |
+
+
 ### setOvalDrawMode
 设置椭圆绘制模式 
 ``` Java
@@ -511,7 +528,7 @@ void setBackgroundImage(String url, int mode)
 | mode | int | 要使用的图片填充对齐模式 |
 
 #### 介绍
-当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。 当 URL 是一个网络地址时，默认支持 HTTPS 协议的链接。 在 Android5.0 以下，默认是采用的 MIXED_CONTENT_ALWAYS_ALLOW 模式，即总是允许 WebView 同时加载 HTTPS 和 HTTP； 而从 Android5.0 开始，默认用 MIXED_CONTENT_NEVER_ALLOW 模式，即总是不允许 WebView 同时加载 HTTPS 和 HTTP。 您可以在 getBoardRenderView 获得白板渲染视图控件时， 通过 WebSettings 自行进行设置，如下： WebSettings settings = (WebView) mWebView.getSettings(); if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) { settings.setMixedContentMode(0); } 对于 Android P 以上系统，限制了明文流量的网络请求,非加密的流量请求都会被系统禁止掉，可以参考以下方法解决：
+当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。 当 URL 是一个网络地址时，默认支持 HTTPS 协议的链接。 在 Android 5.0 以下，默认是采用的 MIXED_CONTENT_ALWAYS_ALLOW 模式，即总是允许 WebView 同时加载 HTTPS 和 HTTP； 而从 Android 5.0 开始，默认用 MIXED_CONTENT_NEVER_ALLOW 模式，即总是不允许 WebView 同时加载 HTTPS 和 HTTP。 您可以在 getBoardRenderView 获得白板渲染视图控件时， 通过 WebSettings 自行进行设置，如下： WebSettings settings = (WebView) mWebView.getSettings(); if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP) { settings.setMixedContentMode(0); } 对于 Android P 以上系统，限制了明文流量的网络请求，非加密的流量请求都会被系统禁止掉，可以参考以下方法解决：
 
 
 ### setBackgroundH5
@@ -749,7 +766,7 @@ void setBoardScale(int scale)
 | scale | int | 要设置的白板缩放比例 |
 
 #### 介绍
-支持范围: [100，300]，实际缩放比为: scale/100 
+支持范围: [100，1600]，实际缩放比为: scale/100 
 
 
 ### getBoardScale
@@ -785,6 +802,27 @@ int getBoardContentFitMode()
 白板内容自适应模式 
 
 
+### refresh
+刷新当前页白板，触发 onTEBRefresh 回调 
+``` Java
+void refresh()
+```
+#### 警告
+如果当前白板包含PPT/H5/图片/视频时，刷新白板将会触发对应的回调 
+
+
+### syncAndReload
+同步本地发送失败的数据到远端并刷新本地数据 
+``` Java
+void syncAndReload()
+```
+#### 警告
+Reload 等同于重新加载历史数据，会触发白板初始化时除 onTEBInit 之外的所有回调。 
+
+#### 介绍
+接口用途：此接口主要用于网络恢复后，同步本地数据到远端，拉取远端数据到本地 调用时机：在网络恢复后调用 使用限制： （1）仅支持2.4.9及以上版本 （2）如果历史数据还没有加载完成，则不允许重复调用，否则回调告警 TEDU_BOARD_WARNING_ILLEGAL_OPERATION 
+
+
 
 ## 文件操作接口
 
@@ -801,6 +839,9 @@ String addImagesFile(List< String > urls)
 
 #### 返回
 新增加文件 Id 
+
+#### 警告
+当传入文件的 URL 重复时，返回 URL 对应的 文件 ID 
 
 
 ### applyFileTranscode
@@ -843,25 +884,45 @@ void getFileTranscodeProgress(final String taskId)
 ### addTranscodeFile
 添加转码文件 
 ``` Java
-String addTranscodeFile(final TEduBoardTranscodeFileResult result)
+String addTranscodeFile(final TEduBoardTranscodeFileResult result, boolean needSwitch)
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | result | final TEduBoardTranscodeFileResult | 文件转码结果  |
+| needSwitch | boolean | 是否切换到该文件  |
 
 #### 返回
 文件 ID 
 
 #### 警告
-当传入文件的 URL 重复时，文件 ID 返回为空字符串 
+当传入文件的 URL 重复时，返回 URL 对应的 文件 ID 
 在收到对应的 onTEBAddTranscodeFile 回调前，无法用返回的文件 ID 查询到文件信息 
 
 #### 介绍
 TEduBoardTranscodeFileResult 的字段信息主要来自：
 1. 使用客户端 applyFileTranscode 转码，直接将转码结果用于调用此接口
 2. （推荐）使用服务端 REST API 转码，只需传入转码回调结果的四个字段（title，resolution，url，pages），其服务端->客户端字段的对应关系为 Title->title、Resolution->resolution、ResultUrl->url、Pages->pages 字段 [转码文档](https://cloud.tencent.com/document/product/1137/40260)
+
+
+### addElement
+添加白板元素 
+``` Java
+String addElement(int type, String url)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| type | int | 元素类型，当设置 TEDU_BOARD_ELEMENT_IMAGE 时，等价于 addImageElement 方法  |
+| url | String | 网页或者图片的 url，只支持 https 协议的网址或者图片 url  |
+
+#### 返回
+元素ID 
+
+#### 警告
+（1）当 type = TEDU_BOARD_ELEMENT_IMAGE，支持 png、jpg、gif、svg 格式的本地和网络图片，当 url 是一个有效的本地文件地址时，该文件会被自动上传到 COS，上传进度回调 onTEBFileUploadStatus （2）当 type = TEDU_BOARD_ELEMENT_CUSTOM_GRAPH，仅支持网络 url，请与自定义图形工具 TEDU_BOARD_TOOL_TYPE_BOARD_CUSTOM_GRAPH 配合使用 
 
 
 ### addImageElement
@@ -873,7 +934,10 @@ void addImageElement(String url)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | String | 【必填】图片地址 支持 png/jpg/gif/svg 格式的本地和网络图片，当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。上传进度回调 onTEBFileUploadProgress，上传结果回调 onTEBFileUploadStatus  |
+| url | String | 【必填】图片地址  |
+
+#### 警告
+该接口已废弃，请使用 addElement 接口代替 支持 png/jpg/gif/svg 格式的本地和网络图片，当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。上传进度回调 onTEBFileUploadProgress，上传结果回调 onTEBFileUploadStatus 
 
 
 ### deleteFile
@@ -1016,6 +1080,7 @@ String addVideoFile(String url)
 文件 ID 
 
 #### 警告
+当传入文件的 URL 重复时，返回 URL 对应的 文件 ID 
 在 TBS 环境下，受限于 X5 内核和视频资源I帧间隔，在 Android 平台下无法精准同步。例如：10秒的视频，I帧间隔5秒，seek 到4秒位置，在 TBS 上从0秒开始播放。 移动端支持 mp4/m3u8，桌面端支持 mp4/m3u8/flv/rtmp；触发状态改变回调 onTEBVideoStatusChange 
 
 
@@ -1139,6 +1204,15 @@ String addH5File(String url)
 只支持展示，不支持互动 
 
 
+### snapshot
+白板快照 
+``` Java
+void snapshot(TEduBoardSnapshotInfo info)
+```
+#### 参数
 
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| info | TEduBoardSnapshotInfo | 快照信息  |
 
 

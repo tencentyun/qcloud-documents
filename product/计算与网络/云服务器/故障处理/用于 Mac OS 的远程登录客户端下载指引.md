@@ -13,4 +13,3 @@ Microsoft 为 Mac 提供了测试版客户端，您可访问 [Microsoft Remote D
 - 通过搜索引擎，自行搜索下载。如下图：
 ![搜索引擎](//mc.qcloudimg.com/static/img/8a149e8858af5a29894436f4138c3fbb/image.png)
 
-

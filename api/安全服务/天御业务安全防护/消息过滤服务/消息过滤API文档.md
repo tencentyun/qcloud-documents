@@ -306,7 +306,7 @@
 请求示例 ：
 https://csec.api.qcloud.com/v2/index.php?Action=UgcAntiSpam
 &<公共请求参数>
-&secretId=AKIDmQtAxYTAB2iBS8s2DCzazCD2g7OUq4Zw
+&secretId=AKID*******AB2iBS8s2DCzazCD2g7OUq4Zw
 &accountType=1
 &uid=D692D87319F2098C3877C3904B304706
 &messageId=dgsfjajdahqywjqn

@@ -1,3 +1,6 @@
+以下视频将为您介绍如何使用控制台创建函数：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2939-54952?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 操作场景
 本文介绍如何通过腾讯云云函数（Serverless Cloud Function，SCF）控制台开发简单的 Hello World Web 服务。
 
@@ -9,16 +12,16 @@
 ### 编写函数
 1. 单击左侧导航栏【函数服务】，进入“函数服务”页面。
 2. 在页面上方选择**广州**地域，单击【新建】。如下图所示：
-![](https://main.qcloudimg.com/raw/3336661866d7dd0fce459b0d49fb9ee3.png)
+![](https://main.qcloudimg.com/raw/c928ecb63d2a5b073287a75653831d76.png)
 3. 在“新建函数”页面填写函数基础信息，单击【下一步】。如下图所示： 
 ![](https://main.qcloudimg.com/raw/d953a84b5987bb26799afda56cc08206.png)
- - 函数名称：命名为 “helloworld”。
- - 运行环境：选择 “Python 2.7”。
- - 创建方式：选择 “模版函数”。
- - 模板搜索：输入 helloworld 后按 “Enter” 进行搜索，选择 “helloworld” 模版。
+ - **函数名称**：命名为 “helloworld”。
+ - **运行环境**：选择 “Python 2.7”。
+ - **创建方式**：选择 “模版函数”。
+ - **模板搜索**：输入 helloworld 后按 “Enter” 进行搜索，选择 “helloworld” 模版。
 4. 函数配置保持默认，并单击【完成】。如下图所示：
 函数创建完成后，自动进入创建成功函数的“函数配置”页面，可查看该云函数的函数配置信息。
-![](https://main.qcloudimg.com/raw/51904d21bab798a3cd57991e32b8ccb7.png)
+![](https://main.qcloudimg.com/raw/cdeb91ab9a35d863b2b051360bd24001.png)
  - “执行方法” 的 “index.main_handler” 参数值表示 SCF 控制台会将此段代码自动保存为 `index.py` 文件，并将该文件压缩和上传至 SCF 平台，用于创建云函数。
  - 示例代码中的 `main_handler` 为入口函数，主要参数为：
     - `event` 参数：可以获取触发源的消息。
@@ -51,7 +54,7 @@
 ```
 
 #### 触发器配置测试
-1. 触发器创建成功后，会在该函数的“触发方式”页面生成访问路径。如下图所示：
+1. 触发器创建成功后，会在该函数的“触发管理”页面生成访问路径。如下图所示：
 ![](https://main.qcloudimg.com/raw/ed71d3e93d86249f1c800c78ae4f7dd1.png)
 2. 在浏览器里打开该访问路径，显示 “hello from scf”，则说明函数部署成功。
 

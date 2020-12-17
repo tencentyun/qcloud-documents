@@ -6,6 +6,7 @@
 
 ## 前提条件
 >!扩容文件系统操作不慎可能影响已有数据，因此强烈建议您在操作前手动 [创建快照](https://cloud.tencent.com/document/product/362/5755) 备份数据。
+为确保您的已有数据不受影响，文档中的部分步骤增加了 umount 已有分区和 fsck 检查文件系统等操作。您可根据自身业务需求选择是否执行。
 >
 - 已 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747)  空间。
 - 该云硬盘已 [挂载](https://cloud.tencent.com/document/product/362/5745) 到 Linux 云服务器并已创建文件系统。
@@ -64,8 +65,7 @@ fdisk -l
 1. 根据文件系统的类型，执行不同的命令进行扩容。
  - 对于 EXT 文件系统，请执行 `resize2fs` 命令扩容文件系统。
  - 对于 XFS 文件系统，请执行`xfs_growfs`命令扩容文件系统。
-
- 以 `/dev/vdb` 为例， EXT 文件系统执行以下命令：
+以 `/dev/vdb` 为例， EXT 文件系统执行以下命令：
 ```
 resize2fs /dev/vdb
 ```
@@ -179,7 +179,9 @@ e2fsck -f /dev/vdb1
 ```
 返回如下图所示结果。
 ![](//mccdn.qcloud.com/static/img/307f7a0c98eea05ca1d4560fe4e96f57/image.png)
-12. 执行以下命令，对新分区上 EXT 文件系统进行扩容操作。
+请对应您实际使用的文件系统，进行扩容操作：
+	- **EXT 文件系统**：
+		1. 执行以下命令，对新分区上 EXT 文件系统进行扩容操作。
 ```
 resize2fs <分区路径>
 ```
@@ -189,15 +191,7 @@ resize2fs /dev/vdb1
 ```
 扩容成功则如下图所示：
 ![](//mccdn.qcloud.com/static/img/57d66da9b5020324703498dbef0b12f9/image.png)
-13. 执行以下命令，对新分区上 XFS 文件系统进行扩容操作。
-```
-xfs_growfs <分区路径>
-```
-本文以分区路径是`/dev/vdb1`为例，则执行：
-```
-xfs_growfs /dev/vdb1
-```
-14. 执行以下命令，手动挂载新分区。
+		2. 执行以下命令，手动挂载新分区。
 ```
 mount <分区路径> <挂载点>
 ```
@@ -205,7 +199,24 @@ mount <分区路径> <挂载点>
 ```
 mount /dev/vdb1 /data
 ```
-15. 执行以下命令，查看新分区。
+ - **XFS 文件系统**：
+	  1.  执行以下命令，手动挂载分区。
+```
+mount <分区路径> <挂载点>
+```
+本文以分区路径是`/dev/vdb1`，挂载点是`/data`为例，则执行：
+```
+mount /dev/vdb1 /data
+```
+	  2. 执行以下命令，对新分区上 XFS 文件系统进行扩容操作。
+```
+xfs_growfs <分区路径>
+```
+本文以分区路径是`/dev/vdb1`为例，则执行：
+```
+xfs_growfs /dev/vdb1
+```
+12. 执行以下命令，查看新分区。
 ```
 df -h
 ```
@@ -311,6 +322,11 @@ umount /data
 ```
 ![](//mccdn.qcloud.com/static/img/c0acc05057941681627a5fd34979d194/image.jpg)
 2. 执行以下命令，下载工具。
+  中国大陆地区推荐使用：
+```
+wget -O /tmp/devresize.py https://tencentcloud.coding.net/p/tencentcloud/d/tencentcloud-cbs-tools/git/raw/master/devresize/devresize.py?download=true
+```
+ 境外地区推荐使用：
 ```
 wget -O /tmp/devresize.py https://raw.githubusercontent.com/tencentyun/tencentcloud-cbs-tools/master/devresize/devresize.py
 ```

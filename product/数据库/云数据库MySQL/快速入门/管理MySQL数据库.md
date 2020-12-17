@@ -1,3 +1,5 @@
+本文介绍云数据库 MySQL 控制台的实例列表页和管理页相关操作，指导您轻松管理 MySQL数据库。
+
 ## 实例列表页
 在 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例列表页可查看实例相关信息，以及管理实例。
 ![](https://main.qcloudimg.com/raw/6b5ce84ac2728e387d79703267efdbb8.png)
@@ -18,7 +20,7 @@
 |实例监控 | 在实例监控页面，您可以查看当前数据库运行的众多核心指标的监控，分为访问、负载、查询缓存、表、InnoDB、MyISAM 等维度的监控，详细介绍请参见 [监控功能](https://cloud.tencent.com/document/product/236/8455) 和 [告警功能](https://cloud.tencent.com/document/product/236/8457)。|
 |数据库管理 | <li>**数据库列表**<br>在数据库列表页面，您可以将 SQL 文件导入到指定的数据库，详细介绍请参见 [导入 SQL 文件](https://cloud.tencent.com/document/product/236/8466)。<li>**参数设置**<br>在参数设置页面，您可以对数据库的众多可修改参数进行设置和查看修改历史，单击【参数运行值】旁边的<img src="https://main.qcloudimg.com/raw/071659c8118f8c9b94d4ab90cebbd955.png"  style="margin:0;">可以对该参数值进行修改，详细介绍请参见 [参数模板](https://cloud.tencent.com/document/product/236/30304)。<li>**帐号管理**<br>在帐号管理页面，您可以对系统默认的 root 帐号进行管理，如修改权限，重置密码等，也可以创建帐号，删除帐号，详细介绍请参见 [帐号管理](https://cloud.tencent.com/document/product/236/35794)。|
 |安全组|在安全组页面，您可以对您的数据库进行安全组的配置操作，详细介绍请参见 [云数据库安全组](https://cloud.tencent.com/document/product/236/9537)。|
-|备份恢复|在备份恢复页面，您可以进行下载 binlog 和冷备操作，详细介绍请参见 [备份方式](https://cloud.tencent.com/document/product/236/35172)。|
+|备份恢复|在备份恢复页面，您可以进行下载 binlog 和冷备操作，详细介绍请参见 [备份数据库](https://cloud.tencent.com/document/product/236/35172)。|
 |操作日志|在操作日志页面，您可以查看和下载慢查询日志、错误日志、回档日志，详细介绍请参见 [操作日志](https://cloud.tencent.com/document/product/236/39348)。|
 |只读实例|在只读实例页面，您可以创建一个或多个只读实例，以支持用户的读写分离和一主多从应用场景，可显著提高用户数据库的读负载能力，详细介绍请参见 [只读实例](https://cloud.tencent.com/document/product/236/7270)。|
 |连接检查|在连接检查页面，您可以检测云数据库可能存在的连接访问问题，并根据提供的解决方法处理访问问题，以确保您的云数据库能够正常访问，详细介绍请参见 [一键连接检查工具](https://cloud.tencent.com/document/product/236/33206)。|

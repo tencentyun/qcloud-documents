@@ -5,7 +5,7 @@
 
 ### TEduBoard
 白板构造函数 
-``` Javascript
+``` Javascript  
 TEduBoard(TEduBoardInitParam initParams)
 ```
 #### 参数

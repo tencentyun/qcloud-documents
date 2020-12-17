@@ -1,4 +1,4 @@
->?TSF Serverless 目前处于内测阶段，欢迎填写 [使用申请](https://cloud.tencent.com/apply/p/om62iz2gqx)。
+
 
 ## 监听端口
 - 如果您的业务是微服务（Spring、Mesh），则无需考虑端口监听问题。
@@ -43,7 +43,7 @@
 ![](https://main.qcloudimg.com/raw/ff452959fb414689c1f615d87dba5bd8.png)
 2. 单击【部署组】，创建 Serverless 应用部署组。
 具体操作可参考 [Serverless 应用部署组](https://cloud.tencent.com/document/product/649/41099) 文档。**历史部署组不可直接创建 Serverless 集群**。
-![](https://main.qcloudimg.com/raw/d5d8df48016e925646a9a2d137421bcb.png)
+![](https://main.qcloudimg.com/raw/ad71fa4a932703ee598aa0f7419eba8a.png)
 3. 部署 Serverless 应用。具体操作可参考 [Serverless 应用部署组](https://cloud.tencent.com/document/product/649/41099) 文档。
 ![](https://main.qcloudimg.com/raw/92c0af5aa842287b6152cb89c802b2ea.png)
 4. 上传程序包。

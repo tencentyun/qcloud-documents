@@ -1,28 +1,36 @@
 ## Ckafka Schema Registry 简介
+
 无论是使用传统的 Avro API 自定义序列化类与反序列化类，还是使用 Twitter 的 Bijection 类库实现 Avro 的序列化与反序列化，两种方法有相同的缺点：在每条 Kafka 记录里都嵌入了 Schema，从而导致记录的大小成倍增加。但是不管怎样，在读取记录时仍然需要用到整个 Schema，所以要先找到 Schema。
 CKafka 提供了数据共用一个 Schema 的方法：将 Schema 中的内容注册到 Confluent Schema Registry，Kafka Producer 和 Kafka Consumer 通过识别 Confluent Schema Registry 中的 schema 内容进行序列化和反序列化。
+
 ![](https://main.qcloudimg.com/raw/28d3fc8adb8c684f21643c98da1417ca.png)
 
-
 ## Schema Registry 接入 CKafka
+
 ### 环境依赖
 - Java1.8 
 - CKafka1.1.1
 - Confluent oss 4.1.1 
 
 ### 环境配置
-1. 下载 Confluent 
-`wget http://packages.confluent.io/archive/4.1/confluent-oss-4.1.1-2.11.tar.gz`
-2. oss 配置文件
->!启动 oss 会创建 _schemas 主题，所以实例中开启了自动创建主题。
+1. 下载 Confluent： 
+   `wget http://packages.confluent.io/archive/4.1/confluent-oss-4.1.1-2.11.tar.gz`
 
-![](https://main.qcloudimg.com/raw/5482de42c702cf4d43a3498e4592f420.png)
-控制台显示如下：
-![](https://main.qcloudimg.com/raw/010043c4d40b163bb89057ef8120afaa.png)
-3. 启动 Schema Registry
-`bin/schema-registry-start etc/schema-registry/schema-registry.properties`
-![](https://main.qcloudimg.com/raw/289772a734dcf0657e9f540555641598.png)
-	
+2. 根据 CKafka控 制台上的信息，修改 oss 配置文件中的 server 地址等信息：
+   控制台信息如下：
+   ![](https://main.qcloudimg.com/raw/010043c4d40b163bb89057ef8120afaa.png)
+   >!启动 oss 会创建 _schemas 主题，所以实例中需要开启自动创建主题。
+   
+	 配置信息如下：
+   ```
+   kafkastore.bootstrap.servers=PLAINTEXT://172.26.0.8:9092
+   kafkastore.topic=_schemas
+   debug=true
+   ```
+3. 启动 Schema Registry：
+   `bin/schema-registry-start etc/schema-registry/schema-registry.properties`
+   ![](https://main.qcloudimg.com/raw/289772a734dcf0657e9f540555641598.png)
+
 ### 案例说明
 现有 schema 文件，其中内容如下： 
 ```
@@ -38,14 +46,13 @@ CKafka 提供了数据共用一个 Schema 的方法：将 Schema 中的内容注
 ```
 
 1. 注册 schema 到对应 topic（注册 topic 为 test）
+下面的脚本是直接在 Schema Registry 部署的环境中使用 curl 命令调用对应 API 实现注册的一个示例：
 ```
 curl -X POST -H "Content-Type: application/vnd.schemaregistry.v1+json" \
 --data '{"schema": "{\"type\": \"record\", \"name\": \"User\", \"fields\": [{\"name\": \"id\", \"type\": \"int\"}, {\"name\": \"name\",  \"type\": \"string\"}, {\"name\": \"age\", \"type\": \"int\"}]}"}' \
 http://127.0.0.1:8081/subjects/test/versions
 ```
-![](https://main.qcloudimg.com/raw/e3dc1f1fefd9fb98a5a41694dd75c476.png)
-
-2.  Kafka Producer 发送数据
+2. Kafka Producer 发送数据：
 ```
 package schemaTest;
 import java.util.Properties;
@@ -89,11 +96,10 @@ public class SchemaProduce {
 	    }
 }
 ```
+运行一段时间后，可以观察 [控制台](https://console.cloud.tencent.com/ckafka) 上的监控，如下图，示例代码中的100条消息全部发送成功。
+![](https://main.qcloudimg.com/raw/ffd96295563f7817db9a98587cc199d1.png)
 
-如下图监控看 生产是成功
-![](https://main.qcloudimg.com/raw/7625063d06fa2bd79278659e3508b698.png)
-
-3. Kafka Consumer 消费数据
+3. Kafka Consumer 消费数据：
 ```
 package schemaTest;
 import java.util.Collections;
@@ -131,9 +137,11 @@ public class SchemaProduce {
 }
 ```
 4. 测试结果
-查看 schema 这个消费分组。
-![](https://main.qcloudimg.com/raw/aff0af7032f82e8e547931c405f5f9ca.png)
-启动消费者，消费截图。
-![](https://main.qcloudimg.com/raw/ff59e6fab31b490b705ca46d378e6df7.png)
-![](https://main.qcloudimg.com/raw/a55147f38ef884f79a06c009cdbb7ef6.png)
-控制台消费完毕。
+ 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 上，进入相应的实例，查看 schema 这个消费分组。
+ ![](https://main.qcloudimg.com/raw/813972b531ee9efed81ab0c32d52371b.png)
+
+ 启动消费者进行消费，下图为消费日志截图：
+ ![](https://main.qcloudimg.com/raw/ff59e6fab31b490b705ca46d378e6df7.png)
+
+回到 [控制台](https://console.cloud.tencent.com/ckafka) 上，查看该 Topic 的消费情况，消费完毕。
+![](https://main.qcloudimg.com/raw/05061cdcdd4bcaf414f144bb1cf8665a.png)

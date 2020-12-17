@@ -80,7 +80,7 @@ to start sandbox container for pod ... Error response from daemon: OCI runtime c
 #### 解决思路
 当 limit 设置过小以至于不足以成功运行 Sandbox 时，也会导致 Pod 一直处于 ContainerCreating 或 Waiting 状态，通常是由于 memory limit 单位设置错误引起的。
 
-例如，误将 memory limit 单位设置为小写字母 `m`，则该单位将会被 K8S 识别成 Byte。**您需要将 memory limit 单位设置应为 `Mi` 或 `M`**。以 memory limit 设置为1024m，则表示其大小将会被限制在1.024Byte以下。较小的内存环境下，pause 容器一启动就会被 cgroup-oom kill 掉，导致 Pod 状态一直处于 ContainerCreating。
+例如，误将 memory limit 单位设置为小写字母 `m`，则该单位将会被 K8S 识别成 Byte。**您需要将 memory limit 单位设置应为 `Mi` 或 `M`**。若 memory limit 设置为1024m，则表示其大小将会被限制在1.024Byte以下。较小的内存环境下，pause 容器一启动就会被 cgroup-oom kill 掉，导致 Pod 状态一直处于 ContainerCreating。
 
 
 

@@ -10,7 +10,7 @@
 <dependency>
     <groupId>com.qcloud</groupId>
     <artifactId>vod_api</artifactId>
-    <version>2.1.2</version>
+    <version>2.1.4</version>
 </dependency>
 ```
 
@@ -19,8 +19,8 @@
 如果项目没有采用 Maven 的方式进行依赖管理，可采用如下方式，下载各个所需的 jar 包，导入项目即可：
 
 | jar 文件         | 说明    |
-| ------------ | ------------ | 
-| vod_api-2.1.2.jar | 云点播 SDK。 |
+| ------------ | ------------ |
+| vod_api-2.1.4.jar | 云点播 SDK。 |
 | jackson-annotations-2.9.0.jar,jackson-core-2.9.7.jar,jackson-databind-2.9.7.jar,gson-2.2.4.jar       | 开源的 JSON 相关库。 |
 | cos_api-5.4.10.jar            | 腾讯云对象存储服务 COS SDK。                          |
 | tencentcloud-sdk-java-3.1.2.jar             | 腾讯云 API SDK。                        |
@@ -133,6 +133,58 @@ VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
 VodUploadRequest request = new VodUploadRequest();
 request.setMediaFilePath("/data/videos/Wildlife.wmv");
 request.setConcurrentUploadNumber(5);
+try {
+    VodUploadResponse response = client.upload("ap-guangzhou", request);
+    logger.info("Upload FileId = {}", response.getFileId());
+} catch (Exception e) {
+    // 业务方进行异常处理
+    logger.error("Upload Err", e);
+}
+```
+
+### 使用临时证书上传
+传入临时证书的相关密钥信息，使用临时证书验证身份并进行上传。
+```
+VodUploadClient client = new VodUploadClient("Credentials TmpSecretId", "Credentials TmpSecretKey", "Credentials Token");
+VodUploadRequest request = new VodUploadRequest();
+request.setMediaFilePath("/data/videos/Wildlife.wmv");
+try {
+    VodUploadResponse response = client.upload("ap-guangzhou", request);
+    logger.info("Upload FileId = {}", response.getFileId());
+} catch (Exception e) {
+    // 业务方进行异常处理
+    logger.error("Upload Err", e);
+}
+```
+
+
+### 设置代理上传
+设置上传代理，涉及协议及数据都会经过代理进行处理，开发者可以借助代理在自己公司内网上传文件到腾讯云。
+```
+VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
+VodUploadRequest request = new VodUploadRequest();
+request.setMediaFilePath("/data/videos/Wildlife.wmv");
+HttpProfile httpProfile = new HttpProfile();
+httpProfile.setProxyHost("your proxy ip");
+httpProfile.setProxyPort(8080); //your proxy port
+client.setHttpProfile(httpProfile);
+try {
+    VodUploadResponse response = client.upload("ap-guangzhou", request);
+    logger.info("Upload FileId = {}", response.getFileId());
+} catch (Exception e) {
+    // 业务方进行异常处理
+    logger.error("Upload Err", e);
+}
+```
+
+### 自适应码流文件上传
+
+本 SDK 支持上传的自适应码流格式包括 HLS 和 DASH，同时要求 manifest（M3U8 或 MPD）所引用的媒体文件必须为相对路径（即不可以是 URL 和绝对路径），且位于 manifest 的同级目录或者下级目录（即不可以使用`../`）。在调用 SDK 上传接口时，`MediaFilePath`参数填写 manifest 路径，SDK 会解析出相关的媒体文件列表一并上传。
+
+```
+VodUploadClient client = new VodUploadClient("your secretId", "your secretKey");
+VodUploadRequest request = new VodUploadRequest();
+request.setMediaFilePath("/data/videos/prog_index.m3u8");
 try {
     VodUploadResponse response = client.upload("ap-guangzhou", request);
     logger.info("Upload FileId = {}", response.getFileId());

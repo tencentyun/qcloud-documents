@@ -20,10 +20,27 @@ Window，Linux 或者 Mac OS
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
 2. 在服务器列表中找到对应的实例，并根据实际的操作习惯选择不同的方式进行登录。
  - 在服务器列表中的实例卡片上，单击【登录】。
- ![](https://main.qcloudimg.com/raw/e602c0a49c11017ca20dd3f1d4cf0508.png)
+![](https://main.qcloudimg.com/raw/51f610ea0f9994f39c2f461986c8137d.png)
  - 进入服务器详情页，选择【概要】，单击“应用信息”栏的【登录】。
- ![](https://main.qcloudimg.com/raw/eed7a9841c84ecb38094e5ceefc83afc.png)
+![](https://main.qcloudimg.com/raw/b8a98fcf5976602ff933fd17961102ae.png)
  - 进入服务器详情页，选择【应用管理】，单击“应用信息”栏的【登录】。
- ![](https://main.qcloudimg.com/raw/325f55b5085138fe2b238ae002e55a36.png)
+![](https://main.qcloudimg.com/raw/a3e9e7419654e4916f66af5fab5bd76d.png)
+ - 进入服务器详情页，选择【远程登录】，单击“一键登录”栏的【登录】。
+![](https://main.qcloudimg.com/raw/ebfc34cf527c916a867620b4c04a71ef.png)
 
-
+## 相关操作
+### 关闭或开启 WebShell 一键登录
+>?服务器创建成功后，默认开启 WebShell 一键登录功能，您可参考以下步骤进行关闭或再次开启 WebShell 一键登录功能。
+>
+1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
+2. 在服务器列表中找到对应的实例，进入服务器详情页。
+3. 选择【远程登录】，在“一键登录”栏中按需选择【开启】或【关闭】 WebShell 一键登录：
+ - **关闭**：当无需使用一键登录时，可选择关闭此功能。
+ >!
+ >- 关闭一键登录后，并不会影响您使用本地 SSH 客户端远程登录实例，您也可以选择再次开启一键登录功能。
+ >- 关闭一键登录操作并不会在实例操作系统中同步删除系统默认密钥的公钥（默认保存在操作系统的 lighthouse 用户下）。您可以自行删除公钥，但删除将会导致再次开启一键登录功能无效。
+ >
+ - **开启**：开启一键登录后，您可以基于系统默认密钥实现浏览器 WebShell 一键登录实例。
+ >!请确认系统默认私钥的公钥（默认保存在操作系统的 lighthouse 用户下）未被删除，否则开启后仍无法正常一键登录。
+ >
+ 

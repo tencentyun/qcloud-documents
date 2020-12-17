@@ -50,7 +50,7 @@ appkey = "9ff91d87c2cd7cd0ea762f141975d1df37481d48700d70ac37470aefc60f9bad"
 # 需要发送短信的手机号码
 phone_numbers = ["21212313123", "12345678902", "12345678903"]
 # 短信模板ID，需要在短信控制台中申请
-template_id = 7839  # NOTE: 这里的模板 ID`7839`只是示例，真实的模板 ID 需要在短信控制台中申请
+template_id = 7839  # NOTE: 这里的模板 ID`7839` 只是示例，真实的模板 ID 需要在短信控制台中申请
 # 签名
 sms_sign = "腾讯云"  # NOTE: 签名参数使用的是`签名内容`，而不是`签名ID`。这里的签名"腾讯云"只是示例，真实的签名需要在短信控制台中申请
 ```
@@ -102,7 +102,7 @@ spuller = SmsStatusPuller(appid, appkey)
 try:
     # 拉取短信回执
     callback_result = spuller.pull_callback(max_num)
-    # 拉取回复，国际/港澳台短信不支持回复功能
+    # 拉取回复（国际/港澳台短信不支持回复功能）
     reply_result = spuller.pull_reply(max_num)
 except HTTPError as e:
     print(e)

@@ -1,4 +1,5 @@
 ## SDK 功能列表
+
 <table width="850px">
   <tr align="center">
      <th style="text-align:center">功能</th>
@@ -7,8 +8,8 @@
   </tr>
   <tr align="center">
      <td>版本</td>
-        <td style="text-align:center">SDK（7.2.8932） @ 2020-04-26</td>
-        <td style="text-align:center">SDK（7.2.8927） @ 2020-04-26</td>
+        <td style="text-align:center">SDK（8.1.9719）@ 2020.12.03</td>
+        <td style="text-align:center">SDK（8.1.9717）@ 2020.12.03</td>
   </tr>
   <tr align="center">
     <td>小窗播放</td>
@@ -88,8 +89,8 @@
  
   <tr align="center">
      <th>SDK 下载</th>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_play") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Player_iOS_latest.zip">iOS 下载</a></td>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_play") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Player_Android_latest.zip">Android 下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_play") href="https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Player_iOS_latest.zip">iOS 下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_play") href="https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Player_Android_latest.zip">Android 下载</a></td>
   </tr>
   <tr align="center">
      <th>超级播放器</th>
@@ -117,3 +118,6 @@
     s.parentNode.insertBefore(mta, s);
   })();
 </script>
+
+
+

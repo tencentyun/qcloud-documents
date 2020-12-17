@@ -5,7 +5,7 @@
 
 ## 配置指南
 ### 查看配置
-登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面最后一栏【高级配置】中，可看到【OCSP 装订配置】，默认情况下为关闭状态：
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面【Https 配置】中，可看到【OCSP 装订配置】，默认情况下为关闭状态：
 ![](https://main.qcloudimg.com/raw/063f1f4f85850f9faafdea14a2507711.png)
 
 ###  修改配置

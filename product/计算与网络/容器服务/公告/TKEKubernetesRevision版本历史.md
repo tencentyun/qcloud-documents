@@ -1,3 +1,52 @@
+## TKE kubernetes 1.18.4 revisions
+
+<table><thead>
+<tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
+</thead>
+<tbody>
+<tr>
+    <td>2020-10-13</td>	
+    <td>v1.18.4-tke.3</td>	
+    <td><ul class="params">
+		<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89629">pr89629</a>，解决 configmap 变更后挂载 subpath 的容器重启永远失败的问题（kubelet）。</li>
+	        <li>QcloudCbs 支持 BulkVolumeVerification（kube-controller-manager）。</li>
+	        <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/94430">pr94430</a>，修复 client-go reflector 无法检测到 "Too large resource version" 错误的问题（kubelet）。</li></ul></td>
+</tr>
+<tr>
+    <td>2020-08-12</td>	
+    <td>v1.18.4-tke.2</td>	
+    <td><ul class="params">
+		<li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/93403">pr93403</a>，移去 kubelet 的更新不属于 kubelet 的 Pod Condition 的错误打印信息（kubelet）。</li></ul></td>
+</tr>
+<tr>
+    <td>2020-08-04</td>	
+    <td>v1.18.4-tke.1</td>	
+    <td><ul class="params"><li>revert <a href="https://github.com/kubernetes/kubernetes/pull/63066">pr63066 </a>修复 LB 健康检查与 IPVS 的问题（kube-proxy）。</li>
+    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/93403">pr72914</a>，修复删除 Pod 后立即创建并调度到同一个节点可能导致无法挂载成功的问题（kube-controller-manager）。</li>
+    <li>解决在 CentOS 下创建容器会导致 cgroup 泄露的问题（kubelet）。</li>
+    <li>Ubuntu16 下 lxcfs 升级造成 Pod 退出问题修复（kubelet）。</li>
+    <li>metadata 增加缓存和超时。cloud-provider 增加将节点名称作为 hostname 的支持（kubelet）。</li>
+    <li>metadata 增加本地缓存（kubelet）。</li>
+    <li>合入 CBS 及相关修复代码（kubelet）。</li>
+    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/90260">pr90260</a>，修复 containerd 集群网络监控缺失问题（kubelet）。</li>
+    <li>TKE 支持感知单个 node 可挂载 qcloudcbs 的最大数量。1.12版本及以上为 maxAttachCount-2，1.10版本现在默认为18（kube-scheduler）。</li>
+    <li>CBS intree 解决磁盘不存在时继续卸载磁盘，导致大量无效请求的问题（kubelet）。</li>
+    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/2359">pr2359</a>，解决获取不到 docker root 造成的监控缺失问题（kubelet）。</li>
+    <li>kube-scheduler 支持动态设置日志级别（kube-scheduler）。</li>
+    <li>绕过 CBS 出现的 device path（/dev/disk/by-id/virtio-xxx/...）缺失的问题，让用户能正常使用 CBS（kubelet）。</li>
+    <li>TKE 感知单个 node 可挂载 qcloudcbs 的最大数量，kubelet 侧不去 patch node（kubelet）。</li>
+    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89296">pr89296</a>，不在日志中记录是否启用了 iptables random-fully参数（kube-proxy）。</li>
+    <li>修复 aws 问题， <a href="https://github.com/kubernetes/kubernetes/pull/92162">pr92162</a>（kubelet）。</li>
+    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91277">pr91277</a>，避免 CLB 健康检查导致 kube-apiserver 产生大量 TLS 握手错误日志的问题（kube-apiserver）。</li>
+    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91500">pr91500</a>，修复 KUBERNETES_SERVICE_HOST 环境变量缺失的问题（kubelet）。</li>
+    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/92537">92537</a>，修复 client-go reflector 无法从 "Too large resource version" 错误恢复的问题（kube-apiserver、kube-controller-manager、kube-scheduler、kubelet 及 kube-proxy）。</li>
+    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/92969">pr92969</a>，修复 CVE-2020-8559从被侵入节点提升权限从而侵入其他节点的问题（kube-apiserver）。</li>
+    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/92921">pr92921</a>，修复 CVE-2020-8557通过写入 “/etc/hosts” 耗尽磁盘空间的 DOS 攻击问题（kubelet）。</li></ul></td>
+</tr>
+</tbody></table>
+
+
+
 
 ## TKE kubernetes 1.16.3 revisions
 <table><thead>
@@ -5,14 +54,50 @@
 </thead>
 <tbody>
 <tr>
-    <td>2020.04.20</td>	
+    <td>2020-10-13</td>	
+    <td>v1.16.3-tke.11</td>	
+    <td><ul class="params">
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/92971">pr92971</a>，修复 CVE-2020-8559从被侵入节点提升权限从而侵入其他节点的问题（kube-apiserver）。</li>
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/92924">pr92924</a>，修复 CVE-2020-8557通过写入 /etc/hosts 耗尽磁盘空间的 DOS 攻击问题（kubelet）。</li>
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/93403">pr93403</a>，移去 kubelet 的更新不属于kubelet 的 Pod Condition 的错误打印信息（kubelet）。</li>
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89629">pr89629</a>，解决 configmap 变更后挂载 subpath 的容器重启永远失败的问题（kubelet）。</li>
+	    <li>QcloudCbs支持BulkVolumeVerification（kube-controller-manager）。</li>
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/84998">pr84998</a>，解决 node 删除后对应的 node lease 对象可能会被重建造成垃圾数据的问题（kubelet）。</li></ul></td>
+</tr>
+<tr>
+    <td>2020-07-28</td>	
+    <td>v1.16.3-tke.10</td>	
+    <td><ul class="params"><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91277">pr91277</a>，避免 CLB 健康检查导致 kube-apiserver 产生大量 TLS 握手错误日志的问题（kube-apiserver）。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91500">pr91500</a>，修复 KUBERNETES_SERVICE_HOST 环境变量缺失的问题（kubelet）。</li></ul></td>
+</tr>
+<tr>
+    <td>2020-06-17</td>	
+    <td>v1.16.3-tke.9</td>	
+    <td>临时修复 AWS 问题 <a href="https://github.com/kubernetes/kubernetes/issues/92162">pr92162</a>。不再注册 AWS Credential Provider，避免由它引起的节点启动变慢问题。</td>
+</tr>
+<tr>
+    <td>2020-06-11</td>	
+    <td>v1.16.3-tke.8</td>	
+    <td>合并 <a href="https://github.com/kubernetes/kubernetes/pull/85993">pr85993</a>，支持使用 CNI 结果设置 kubenet 的网关地址。</td>
+</tr>
+<tr>
+    <td>2020-06-10</td>	
+    <td>v1.16.3-tke.7</td>	
+    <td><ul class="params"><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/90260">pr90260</a>，修复 containerd 集群网络监控缺失问题。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89515">pr89515</a>，修复滚动更新时 HPA 错误计算实例个数的问题。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91252">pr91252</a>，忽略其他组件产生的 Pod Condition 更新，以免进行不必要的调度。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89794">pr89794</a>，清理 kube-controller-manager 的错误日志，避免 CVE-2020-8555 的 Half-Blind SSRF 攻击。</li></ul></td>
+</tr>
+<tr>
+    <td>2020-05-18</td>	
+    <td>v1.16.3-tke.6</td>	
+    <td>tke 可感知单个 node 可挂载 qcloudcbs 的最大数量，不支持动态获取最大值。</td>
+</tr>
+<tr>
+    <td>2020-04-20</td>	
     <td>v1.16.3-tke.5</td>	
     <td>合入<a href="https://github.com/kubernetes/kubernetes/pull/69047"> pr69047</a>，解决向后兼容 <code>node.Spec.Unschedulable</code> 的问题（此修复在合入 in-tree cbs 代码时被覆盖了）。</td>
 </tr>
 <tr>
-    <td>2020.04.14</td>
+    <td>2020-04-14</td>
     <td>v1.16.3-tke.4</td>
-    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87913"> pr87913</a>，修复 CVE-2020-8551：Kubelet DoS 攻击问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87669"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li>容器服务支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87467"> pr87467</a>，修复授权用户发送恶意 YAML 导致 kubectl 在解析 YAML 时消耗过多 CPU 问题。</li></ul></td>
+    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87913"> pr87913</a>，修复 CVE-2020-8551：Kubelet DoS 攻击问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87669"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li>tke 支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87467"> pr87467</a>，修复授权用户发送恶意 YAML 导致 kubectl 在解析 YAML 时消耗过多 CPU 问题。</li></ul></td>
 </tr>
 <tr>
 	<td>2020-03-11</td>
@@ -38,12 +123,47 @@
 </thead>
 <tbody>
 <tr>
-    <td>2020.04.14</td>
-    <td>v1.14.3-tke.11</td>
-    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/75442"> pr75442</a>，将 bandwidth 单位从 Kb 修正为 b。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/86583"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li> <li>容器服务支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
+    <td>2020-10-13</td>
+    <td>v1.14.3-tke.17</td>
+    <td><ul class="params">
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/74781">pr74781</a>，将 ConfigMap 及 Secret 默认更新策略由 Cache 改为 Watch（kubelet）。</li>
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/93403">pr93403</a>，移去 kubelet 的更新中不属于 kubelet 的 Pod Condition 的错误打印信息（kubelet）。</li>
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89629">pr89629</a>，解决 configmap 变更后挂载 subpath 的容器重启永远失败的问题（kubelet）。</li>
+	    <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/8094">pr80942</a>，修复 ipvs 模式下，删除 service 后，规则未删除的问题（kube-proxy）。</li>
+            <li>QcloudCbs 支持 BulkVolumeVerification（kube-controller-manager）。</li></ul></td>
 </tr>
 <tr>
-    <td>2020.04.14</td>
+    <td>2020-08-04</td>
+    <td>v1.14.3-tke.16</td>
+    <td>合并 <a href="https://github.com/kubernetes/kubernetes/pull/78883">pr78883</a>，修复默认会给 pod.spec.container.SecurityContext.ProcMount 增加默认值的 bug。</td>
+</tr>
+<tr>
+    <td>2020-07-28</td>	
+    <td>v1.14.3-tke.15</td>	
+    <td><ul class="params"><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/76518">pr76518</a> 及 <a href="https://github.com/kubernetes/kubernetes/pull/82514">pr82514</a>，限制 http 及 exec probe 的返回大小，避免占用大量节点内存（kubelet）。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91277">pr91277</a>，避免 CLB 健康检查导致 kube-apiserver 产生大量 TLS 握手错误日志的问题（kube-apiserver）。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91500">pr91500</a>，修复 KUBERNETES_SERVICE_HOST 环境变量缺失的问题（kubelet）。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/77475">pr77475</a>，修复 Job 数量超过500时，Cronjob 无法调度的问题（kube-controller-manager）。</li></ul></td>
+</tr>
+<tr>
+    <td>2020-06-10</td>	
+    <td>v1.14.3-tke.14</td>	
+    <td><ul class="params"><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/85027">pr85027</a>，修复滚动更新时 HPA 错误计算实例个数的问题。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/79708">pr79708</a>，使用 spec.replicas 来计算 HPA 当前副本数量。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91252">pr91252</a>，忽略其他组件产生的 Pod Condition 更新，以免进行不必要的调度。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89794">pr89794</a>，清理 kube-controller-manager 的错误日志，避免 CVE-2020-8555 的 Half-Blind SSRF 攻击。</li></ul></td>
+</tr>
+<tr>
+    <td>2020-06-04</td>	
+    <td>v1.14.3-tke.13</td>	
+    <td><ul class="params"><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/90260">pr90260</a>，修复 containerd 集群网络监控缺失问题。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/79451">pr79451</a>，修复 restartPolicy 为 Never 时 kubelet 创建 SandBox 失败后不重新创建的问题。</li></ul></td>
+</tr>
+<tr>
+    <td>2020-05-18</td>	
+    <td>v1.14.3-tke.12</td>	
+    <td>tke 可感知单个 node 可挂载 qcloudcbs 的最大数量，不支持动态获取最大值。</td>
+</tr>
+<tr>
+    <td>2020-04-14</td>
+    <td>v1.14.3-tke.11</td>
+    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/75442"> pr75442</a>，将 bandwidth 单位从 Kb 修正为 b。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/86583"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li> <li>tke 支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
+</tr>
+<tr>
+    <td>2020-04-14</td>
     <td>v1.14.3-tke.10</td>
     <td>cbs intree 解决磁盘不存在时继续卸载磁盘导致大量无效请求的问题。</td>
 </tr>
@@ -97,12 +217,40 @@
 </thead>
 <tbody>
 <tr>
-    <td>2020.04.14</td>	
+    <td>2020-10-13</td>
+    <td>v1.12.4-tke.24</td>
+    <td> <a href="https://github.com/kubernetes/kubernetes/pull/93403">合并93403</a>，移去 kubelet 的更新不属于 kubelet 的 Pod Condition 的错误打印信息（kubelet）。</td>
+<tr>
+    <td>2020-08-04</td>
+    <td>v1.12.4-tke.23</td>
+    <td>合并 <a href="https://github.com/kubernetes/kubernetes/pull/78881">pr78881</a>，修复默认会给 pod.spec.container.SecurityContext.ProcMount 增加默认值的 bug。</td>
+</tr>
+<tr>
+    <td>2020-07-28</td>	
+    <td>v1.12.4-tke.22</td>	
+    <td><ul class="params"><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91277">pr91277</a>，避免 CLB 健康检查导致 kube-apiserver 产生大量 TLS 握手错误日志的问题（kube-apiserver）。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91500">pr91500</a>，修复 KUBERNETES_SERVICE_HOST 环境变量缺失的问题（kubelet）。</li></ul></td>
+</tr>
+<tr>
+    <td>2020-06-10</td>	
+    <td>v1.12.4-tke.21</td>	
+    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/73915"> pr73915</a>，避免 watcher 收到开始 watch 之前的事件。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91252">pr91252</a>，忽略其他组件产生的 Pod Condition 更新，以免进行不必要的调度。</li><li> 合并 <a href="https://github.com/kubernetes/kubernetes/pull/89794">pr73915</a>，清理 kube-controller-manager 的错误日志，避免 CVE-2020-8555 的 Half-Blind SSRF 攻击。</li></ul></td>
+</tr>
+<tr>
+    <td>2020-06-04</td>
+    <td>v1.12.4-tke.20</td>
+    <td><ul class="params"><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/90260"> pr90260</a>，修复 containerd 集群网络监控缺失问题。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/79451">pr79451</a>，修复 restartPolicy 为 Never 时 kubelet 创建 SandBox 失败后不重新创建的问题。</li></td>
+<tr>
+    <td>2020-05-18</td>	
+    <td>v1.12.4-tke.19</td>	
+    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/77802"> pr77802</a>，Disable graceful termination for UDP traffic。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/68741"> pr68741</a>，解决软链 /var/lib/kubelet 及使用 subpath 时，删除 pod 后主机无法解挂导致挂载点泄露以及 pod 一直 terminating 的问题。</li><li>tke 可感知单个 node 可挂载 qcloudcbs 的最大数量，不支持动态获取最大值。</li></ul></td>
+</tr>
+<tr>
+    <td>2020-04-14</td>	
     <td>v1.12.4-tke.18</td>
-    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/73401"> pr73401</a>、<a href="https://github.com/kubernetes/kubernetes/pull/73606">pr73606</a>、<a href="https://github.com/kubernetes/kubernetes/pull/76060">pr76060</a>，删除分配到不存在的节点上的 DaemonSet Pod。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/68619"> pr68619</a>，解决 cpumanager 脏数据问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87669"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li> 容器服务支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
+    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/73401"> pr73401</a>、<a href="https://github.com/kubernetes/kubernetes/pull/73606">pr73606</a>、<a href="https://github.com/kubernetes/kubernetes/pull/76060">pr76060</a>，删除分配到不存在的节点上的 DaemonSet Pod。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/68619"> pr68619</a>，解决 cpumanager 脏数据问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87669"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li> tke 支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
     </tr>
 <tr>
-    <td>2020.02.14</td>	
+    <td>2020-02-14</td>	
     <td>v1.12.4-tke.17</td>	
     <td><ul class="params"><li> cbs V2 接口升级到 V3。</li><li>cbs intree 解决磁盘不存在时继续卸载磁盘导致大量无效请求的问题。</li></ul></td>
     </tr>
@@ -191,17 +339,25 @@
 </thead>
 <tbody>
 <tr>
-    <td>2020.04.29</td>
+    <td>2020-06-10</td>	
+    <td>v1.10.5-tke.19</td>	 
+    <td><ul class="params"><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/90260">pr90260</a>，修复 containerd 集群网络监控缺失问题。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91252">pr91252</a>，忽略其他组件产生的 Pod Condition 更新，以免进行不必要的调度。</li><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89794">pr89794</a>，清理 kube-controller-manager 的错误日志，避免 CVE-2020-8555 的 Half-Blind SSRF 攻击。</li></td>
+<tr>
+    <td>2020-05-18</td>	
+    <td>v1.12.4-tke.19</td>	 
+    <td>合并<a href="https://github.com/kubernetes/kubernetes/pull/61549"> pr61549</a>，为 mountedPods 缓存增加 volumeSpec 数据，解决多个 pod 使用同一 volume 时无法正常删除的问题。</td>
+<tr>
+    <td>2020-04-29</td>
 	<td>v1.10.5-tke.17</td>
     <td>合并<a href="https://github.com/kubernetes/kubernetes/pull/75622"> pr75622</a>，解决在集群存在大量 sts（>2000）工作负载的情况下，sts 同步到 Pod 延迟大（~20s）的问题。 </td>
     </tr>
 <tr>
-    <td>2020.04.14</td>
+    <td>2020-04-14</td>
     <td>v1.10.5-tke.16</td>
-    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/68619"> pr68619</a>，解决 cpumanager 脏数据问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87669"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li>容器服务支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
+    <td><ul class="params"><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/68619"> pr68619</a>，解决 cpumanager 脏数据问题。</li><li>合并<a href="https://github.com/kubernetes/kubernetes/pull/87669"> pr87669</a>，修复 CVE-2020-8552：apiserver DoS 攻击问题。</li><li>tke 支持感知单个 node 可挂载 qcloudcbs 的最大数量（1.12 版本及以上为 maxAttachCount-2，1.10 版本目前默认为18）。</li></ul></td>
     </tr>
 <tr>
-    <td>2020.02.14</td>	
+    <td>2020-02-14</td>	
     <td>v1.10.5-tke.15</td>
     <td><ul class="params"><li> cbs V2 接口升级到 V3。</li><li>cbs intree 解决磁盘不存在时继续卸载磁盘，导致大量无效请求的问题。</li></ul></td>
     </tr>
@@ -289,8 +445,7 @@
 <thead>
 <tr><th width="13%">时间</th><th width="13%">版本</th><th width="74%">更新内容</th></tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 	<td>2020-01-13</td>
 	<td>v1.8.13-tke.7</td>
 	<td><ul class="params"><li>合并<a href="https://github.com/google/cadvisor/pull/2359" target="_blank"> pr2359 </a>解决获取不到 docker root 造成的监控缺失问题。</li><li>绕过 cbs 出现的 device path（/dev/disk/by-id/virtio-xxx/...）缺失的问题，让用户能正常使用 cbs。</li></ul></td>
@@ -321,6 +476,7 @@
 	<td>当 kubelet 更新状态超时，controller-manager 对 kubelet 端口做下探测。</td>
 </tr>
 </tbody></table>
+
 
 ## TKE kubernetes 1.7.8 revisions
 

@@ -205,8 +205,27 @@ virtual void onTEBAddImageElement(const char *url)
 | --- | --- | --- |
 | url | const char * | 调用 AddImageElement 时传入的 URL |
 
+#### 警告
+该回调已废弃，请使用 AddElement 接口及 onTEBAddElement 回调代替
+
 #### 介绍
 只有本地调用 AddImageElement 时会收到该回调 收到该回调表示图片已经上传或下载成功，并且显示出来 
+
+
+### onTEBAddElement
+添加白板元素回调 
+``` C++
+virtual void onTEBAddElement(const char *elementId, const char *url)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | const char * | 调用 AddElement 时返回的元素 ID  |
+| url | const char * | 调用 AddElement 时传入的 URL |
+
+#### 介绍
+只有本地调用 AddElement 时会收到该回调 收到该回调表示元素已经显示出来 
 
 
 ### onTEBBackgroundH5StatusChanged
@@ -276,6 +295,18 @@ virtual void onTEBGotoStep(uint32_t currentStep, uint32_t totalStep)
 | --- | --- | --- |
 | currentStep | uint32_t | 当前白板页动画步数，取值范围 [0, totalStep)  |
 | totalStep | uint32_t | 当前白板页动画总步数  |
+
+
+### onTEBSnapshot
+白板快照 
+``` C++
+virtual void onTEBSnapshot(const char *path)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| path | const char * | 快照本地路径，编码格式为 UTF8  |
 
 
 
@@ -352,6 +383,20 @@ virtual void onTEBH5FileStatusChanged(const char *fileId, TEduBoardH5FileStatus 
 | --- | --- | --- |
 | fileId | const char * | 文件 ID  |
 | status | TEduBoardH5FileStatus | 文件状态  |
+
+
+### onTEBH5PPTStatusChanged
+H5PPT 文件状态改变回调 
+``` C++
+virtual void onTEBH5PPTStatusChanged(const char *fileId, TEduBoardH5PPTStatus status, const char *message)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fileId | const char * | 文件 ID  |
+| status | TEduBoardH5PPTStatus | 文件状态  |
+| message | const char * | 状态消息  |
 
 
 ### onTEBDeleteFile

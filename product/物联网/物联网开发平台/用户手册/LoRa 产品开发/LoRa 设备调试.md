@@ -13,8 +13,14 @@ LoRa 设备调试与其他产品的设备调试的操作步骤基本一致，只
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，设备开发完成后，单击【设备调试】。
 2. 进入设备调试环节，单击【新建设备】，填写设备基本信息，单击【保存】，即可完成创建设备。
   - 设备名称：支持英文、数字、下划线的组合，最多不超过48个字符。
-  - DevEUI：仅支持英文、数字，长度16位。
-  - AppKey；仅支持英文、数字，长度32位。
- ![](https://main.qcloudimg.com/raw/7e977303f3bf6132cffc4272edd0460f.png)
+  - DevEUI：仅支持16进制字符，长度16位。
+  - AppKey（仅限 OTAA 加网方式）：仅支持16进制字符，长度32位。
+  - DevAddr（仅限 ABP 加网方式）：仅支持16进制字符，长度8位。
+  - NwkSKey（仅限 ABP 加网方式）：仅支持16进制字符，长度32位。
+  - AppSKey（仅限 ABP 加网方式）：仅支持16进制字符，长度32位。
+ 
+DevEUI、AppKey、DevAddr、NwkSKey、AppSKey 一般为 LoRaWAN 节点设备厂商提供。如果是自行开发协议栈，可以按需配置，只要平台和节点实际配置的内容一致即可。
+  下图示例中为 OTAA 加网方式，如果需要切换到 ABP 加网方式，可以在【设备开发】界面中调整 “LoRaWAN 参数配置” 中的加网方式。
+![](https://main.qcloudimg.com/raw/29ae6692c8716846fab6bb4d79391408.png)
 3. 创建成功后，您将会在“设备调试”列表页中，查看到新建成功的设备。
 

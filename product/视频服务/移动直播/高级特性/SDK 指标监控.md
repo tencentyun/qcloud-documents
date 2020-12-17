@@ -5,7 +5,7 @@ SDK 的各项监控指标可以从 TXLivePushListener 和 TXLivePlayListener 的
 ## TXLivePushListener
 
 ### 1. 如何获取推流的状态数据？
-TXLivePushListener 的 onNetStatus 回调，会每隔1秒 - 2秒会将 SDK 内部的状态指标同步出来，其中如下指标比较有意义：
+TXLivePushListener 的 [onNetStatus](https://cloud.tencent.com/document/product/454/34757#onnetstatus) 回调，会每隔1秒 - 2秒会将 SDK 内部的状态指标同步出来，其中如下指标比较有意义：
 ![](https://main.qcloudimg.com/raw/fcd384fc96c9f1144df513cf7231641e.png)
 
 |  推流状态                 |  含义说明                  |
@@ -43,11 +43,12 @@ BITRATE( = VIDEO_BITRATE + AUDIO_BITRATE ) 指的是编码器每秒产生了多�
  - 如果**系统 CPU 使用率**超过80%，音视频编码的稳定性会受到影响，可能导致画面和声音的随机卡顿。
  - 如果**系统 CPU 使用率**经常100%，会导致视频编码帧率不足，音频编码跟不上，必然导致画面和声音的严重卡顿。
 
-> 很多客户会遇到的一个问题： App 在线下测试时性能表现极佳，但在 App 外发上线后，前排房间里的互动消息的滚屏和刷新会产生极大的 CPU 消耗导致直播画面卡顿严重。
+>?很多客户会遇到的一个问题： App 在线下测试时性能表现极佳，但在 App 外发上线后，前排房间里的互动消息的滚屏和刷新会产生极大的 CPU 消耗导致直播画面卡顿严重。
+
 - **SERVER_IP**
 如果主播到 SERVER_IP 给出的 IP 地址的 ping 值很高（如超过500ms），那么推流质量一定无法保障。**就近接入**是我们腾讯云应该做好的事情，如您发现有这样的案例，请反馈给我们，我们的运维团队会持续调整和优化。
 
-### 3. 如何看懂腾讯云推流图表？
+### 3. 如何看懂腾讯云推流图表？ 
 在 [直播控制台 - 质量监控](https://console.cloud.tencent.com/live/livesdk) 您可以看到您所属账户里的直播间情况，以及每个直播间的推流质量数据：
 
 - **主播端-应发速率-实发速率曲线图**
@@ -70,7 +71,7 @@ BITRATE( = VIDEO_BITRATE + AUDIO_BITRATE ) 指的是编码器每秒产生了多�
 ## TXLivePlayListener
 
 ### 1. 如何获取播放的状态数据？
-TXLivePlayListener 的 onNetStatus 回调，会每隔1秒 - 2秒会将 SDK 内部的状态指标同步出来，其中如下指标比较有意义：
+TXLivePlayListener 的 [onNetStatus](https://cloud.tencent.com/document/product/454/34773#onnetstatus) 回调，会每隔1秒 - 2秒会将 SDK 内部的状态指标同步出来，其中如下指标比较有意义：
 ![](https://main.qcloudimg.com/raw/7fca407dc1d3a6839fc69a850684caf0.png)
 
 |  播放状态                 |  含义说明                  |

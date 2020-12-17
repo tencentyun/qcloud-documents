@@ -1,6 +1,5 @@
 Serverless 微服务平台（Tencent Service Framework Serverless，TSF Serverless）是可承载核心生产应用的一站式 Serverless 开发平台，为用户提供按需使用、按量计费、免运维的使用体验。
 
->?TSF Serverless 目前处于内测阶段，欢迎填写 [使用申请](https://cloud.tencent.com/apply/p/om62iz2gqx)。
 
 
 ## 产品优势
@@ -29,3 +28,4 @@ Serverless 微服务平台（Tencent Service Framework Serverless，TSF Serverle
   ![](https://mc.qcloudimg.com/static/img/a538773e2fdc97105b2fb1841c22e74b/image.png)
   
   
+

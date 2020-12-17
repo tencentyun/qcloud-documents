@@ -293,3 +293,4 @@ if md5_str == response['x-cos-meta-md5']:
 else:
     print 'MD5 check FAIL'
 ```
+

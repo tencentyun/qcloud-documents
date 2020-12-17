@@ -4,7 +4,7 @@
 
 ## 配置指南
 ### 查看配置
-登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面最后一栏【高级配置】中，可看到【HTTP2.0 配置】，默认情况下为开启状态：
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面【Https 配置】中，可看到【HTTP2.0 配置】，默认情况下为开启状态：
 ![](https://main.qcloudimg.com/raw/6baf0831d42acad8b8ab1a0c705805bf.png)
 
 ###  修改配置

@@ -1,4 +1,4 @@
-腾讯云人脸核身针对 Android 端提供 SDK，开发人员可以将相应的 SDK 添加到项目工程中，直接调用 SDK 中提供的 OCR 识别、活体检测和1：1人脸比对服务。
+腾讯云人脸核身针对 Android 端提供 SDK，开发人员可以将相应的 SDK 添加到项目工程中，直接调用 SDK 中提供的 OCR 识别、活体检测和1:1人脸比对服务。
 ![](https://main.qcloudimg.com/raw/ba6e243fdce04a0a9aea85f26516a3e6.png)
 
 ## 业务流程

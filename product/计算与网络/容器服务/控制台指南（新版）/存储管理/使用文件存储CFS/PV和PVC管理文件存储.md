@@ -6,17 +6,16 @@
 
 ## 准备工作
 ### 安装文件存储扩展组件
->?
->- 使用扩展组件功能前需 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
->- 若您的集群已安装 CFS-CSI 的扩展组件，则请跳过此步骤。
+>? 若您的集群已安装 CFS-CSI 的扩展组件，则请跳过此步骤。
 >
-1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
-2. 在“扩展组件”管理页面上方选择需使用文件存储扩展组件的集群及其所在地域，并单击【新建】。
-3. 在“新建扩展组件”页面，选择【CFS 腾讯云文件存储】并单击【完成】即可。
-
+1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
+2. 单击左侧导航栏中的【集群】，进入【集群管理】页面。
+3. 选择需新建组件的集群 ID，进入【集群详情】页面。
+4. 在“集群详情页”，选择【组件管理】>【新建】，进入【新建组件】页面。
+5. 在“新建组件”页面，勾选【CFS（腾讯云文件存储）】并单击【完成】即可。
 
 ### 通过控制台创建 StorageClass<span id="createStorageClass"></span>
-由于静态创建文件存储类型的 PV 时，需要绑定同类型可用 StorageClass，请参考 [通过控制台创建 StorageClass](https://cloud.tencent.com/document/product/457/44235#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.88.9B.E5.BB.BA-storageclass) 完成创建。
+由于静态创建文件存储类型的 PV 时，需要绑定同类型可用 StorageClass，请参考 [通过控制台创建 StorageClass](https://cloud.tencent.com/document/product/457/44235#.E6.8E.A7.E5.88.B6.E5.8F.B0.E6.93.8D.E4.BD.9C.E6.8C.87.E5.BC.95) 完成创建。
 
 ### 创建文件存储<span id="createCFS"></span>
 1. 登录[ 文件存储控制台](https://console.cloud.tencent.com/cfs/fs?rid=1)，进入“文件系统”页面。
@@ -28,7 +27,7 @@
 	- **存储类型**：提供【标准存储】和【性能存储】两种类型，不同可用区支持类型有一定差异，详情请参见[ 可用地域](https://cloud.tencent.com/document/product/582/43623)。
 	- **文件服务协议**：选择文件系统的协议类型，【NFS】或【CIFS/SMB】。
 		- NFS 协议：更适合于 Linux/Unix 客户端。
-		- CIFS/SMB 协议：更适合于 Windows 客户端。该协议近期公测已结束，详情请参见 [CIFS/SMB 公测说明](https://cloud.tencent.com/document/product/582/9553#cifs.2Fsmb-.E5.85.AC.E6.B5.8B.E8.AF.B4.E6.98.8E)。
+		- CIFS/SMB 协议：更适合于 Windows 客户端。该协议已于 2020 年 9 月 1日正式商用，详情请参见 [CIFS/SMB 商用说明](https://cloud.tencent.com/document/product/582/9553#cifs.2Fsmb-.E5.95.86.E7.94.A8.E8.AF.B4.E6.98.8E)。
 	- **客户端类型**：选择需要访问文件系统的客户端类型，云服务器（含容器、批量计算）或黑石服务器。 由于云服务器和黑石主机分别属于不同的网络，系统会根据您的客户端类型分配该文件系统到指定网络中。
 	- **网络类型**：选择【私有网络】，以实现私有网络下云服务器对文件系统的共享。
 	- **选择网络**：需确保与使用该文件系统的集群处于同一私有网络下。
@@ -52,7 +51,7 @@
 ## 操作步骤
 
 
-### 静态创建 PV
+### 静态创建 PV<span id="pv"></span>
 >? 静态创建 PV 适用于已有存量的文件存储，并在集群内使用的场景。
 >
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
@@ -60,12 +59,15 @@
 3. 选择左侧菜单栏中的【存储】>【PersistentVolume】，进入 “PersistentVolume” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/d3d74b0bb94b8621904c3d8403937b3d.png)
 4. 单击【新建】进入“新建PersistentVolume” 页面，参考以下信息设置 PV 参数。如下图所示：
-![](https://main.qcloudimg.com/raw/202d6f6ecb722ec19ca0b3e3a2e027c1.png)
+![](https://main.qcloudimg.com/raw/3577b53114dc37ad63a4a2911a42e406.png)
 	- **来源设置**：选择【静态创建】。
 	- **名称**：自定义，本文以 `cfs-pv` 为例。
 	- **Provisioner**：选择【文件存储CFS】。
 	- **读写权限**：文件存储仅支持多机读写。
 	- **StorageClass**：按需选择合适的 StorageClass。本文以选择在 [通过控制台创建 StorageClass](#createStorageClass) 步骤中创建的 `cfs-storageclass` 为例。
+>? 
+>- PVC 和 PV 会绑定在同一个 StorageClass 下。
+>- 不指定 StorageClass 意味着该 PV 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
 	- **选择CFS**：需确保文件存储与当前集群处于同一私有网络下，本文以选择在 [创建文件存储](#createCFS) 步骤中创建的 `cfs-test` 为例。
 	- **CFS子目录**：填写已在步骤 [获取文件系统子目录](#getPath) 中获取的文件系统子路径，本文以 `/subfolder` 为例。
 5. 单击【创建PersistentVolume】，即可完成创建。
@@ -75,15 +77,23 @@
 ### 创建 PVC<span id="createPVC2"></span>
 1.  在目标集群详情页，选择左侧菜单栏中的【存储】>【PersistentVolumeClaim】，进入 “PersistentVolumeClaim” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/1e33ff549656ade2836b91bb5d718201.png)
-2. 单击【新建】进入“新建PersistentVolumeClaim” 页面，参考以下信息设置 PVC 关键参数。如下图所示：
-![](https://main.qcloudimg.com/raw/f475aba14c92e48961131d81c0368274.png)
+2. 选择【新建】进入“新建PersistentVolumeClaim” 页面，参考以下信息设置 PVC 关键参数。如下图所示：
+![](https://main.qcloudimg.com/raw/a4dd41cd00d155fde6c1f7c9e6f5745a.png)
    - **名称**：自定义，本文以 `cfs-pvc` 为例。
    - **命名空间**：选择 “default”。
    - **Provisioner**：选择【文件存储CFS】。
    - **读写权限**：文件存储仅支持多机读写。
    - **StorageClass**：按需选择合适的 StorageClass。本文以选择在 [通过控制台创建 StorageClass](#createStorageClass) 步骤中创建的 `cfs-storageclass` 为例。
-3. 单击【创建PersistentVolumeClaim】，即可完成创建。
-> ? 系统在创建 PVC 时，若发现已有 PV 不足，则将自动创建新的 PV。
+   >?
+   >- PVC 和 PV 会绑定在同一个 StorageClass 下。
+>- 不指定意味着该 PVC 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
+> 
+   - **PersistVolume**：按需指定PersistentVolume，本文选择以在[ 静态创建 PV ](#pv) 步骤中创建的 `cfs-pv` 为例。
+>? 
+>- 只有与指定的 StorageClass 相同并且状态为 Available 和 Released 的 PV 为可选状态，如果当前集群内没有满足条件的 PV 可选，请选择“不指定”PersistVolume。
+>- 如果选择的 PV 状态为 Released，还需手动删除该 PV 对应 YAML 配置文件中的 `claimRef` 字段，该 PV 才能顺利与 PVC 绑定。详情请参见 [查看 PV 和 PVC 的绑定规则](https://cloud.tencent.com/document/product/457/47014)。
+3. 选择【创建PersistentVolumeClaim】，即可完成创建。
+
 
 ### 创建 Workload 使用 PVC 数据卷
 >?该步骤以创建工作负载 Deployment 为例。

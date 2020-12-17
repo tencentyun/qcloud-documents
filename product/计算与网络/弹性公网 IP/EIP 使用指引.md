@@ -1,4 +1,4 @@
-本文依据不同的弹性公网 IP（EIP）使用需求，提供相应的文档指引，帮助您快速认识与使用 EIP。
+（测试）本文依据不同的弹性公网 IP（EIP）使用需求，提供相应的文档指引，帮助您快速认识与使用 EIP。
 
 <div class="qcloudware-toc-container">           
     <ul>

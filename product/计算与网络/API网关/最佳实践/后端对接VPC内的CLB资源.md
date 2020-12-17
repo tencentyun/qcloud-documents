@@ -36,3 +36,4 @@
 ![](https://main.qcloudimg.com/raw/9d93461e84d75241501a228359059f2b.png)
 2. 登录 CVM1，通过 API 网关服务子域名即可访问刚才创建的 API，并且可以通过 wrk 做性能压测。
 ![](https://main.qcloudimg.com/raw/c8ee97d1700b5f20725435c215f905f7.png)
+

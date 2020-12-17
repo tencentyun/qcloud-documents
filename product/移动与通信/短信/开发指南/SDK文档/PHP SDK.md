@@ -110,7 +110,7 @@ try {
     $callbackRsp = json_decode($callbackResult);
     echo $callbackResult;
 
-    // 拉取回复，国际/港澳台短信不支持回复功能
+    // 拉取回复（国际/港澳台短信不支持回复功能）
     $replyResult = $spuller->pullReply(10);
     $replyRsp = json_decode($replyResult);
     echo $replyResult;

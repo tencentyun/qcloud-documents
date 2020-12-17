@@ -6,7 +6,7 @@ Nginx 作为常见的反向代理服务，在实际业务中承载着大量的�
 
 Nginx 访问日志（access.log）的格式可以通过 log_format 命令来定义，以默认格式说明各字段含义及如何配置索引。
 
-```shell
+```plaintext
 log_format  main  '$remote_addr - $remote_user [$time_local] "$request"'
                       '$status $body_bytes_sent "$http_referer"'
                       '"$http_user_agent" "$http_x_forwarded_for"';

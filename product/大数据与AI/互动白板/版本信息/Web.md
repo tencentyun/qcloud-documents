@@ -1,5 +1,96 @@
+### 2.5.5 @ 2020.11.05
+* 链接地址：https://res.qcloudtiw.com/board/2.5.5/TEduBoard.min.js
+
+- 新增特性：
+    1. 新增文字工具预设文本内容 setNextTextInput
+    2. 优化白板缩放移动工具，支持鼠标滚轮缩放，焦点缩放，按 shift 键缩小等
+    3. 新增白板缩放工具图标 setZoomCursorIcon
+    4. TEduBoardToolType 新增自定义图形工具
+    5. TEduBoardElementType 新增自定义图形的元素类型
+    6. 新增白板放大后显示滚动条
+- Bug 修复
+    1. Mac 端鼠标缓慢移除白板左边缘和上边缘，鼠标指针不隐藏的 bug
+    2. 修复偶现画笔不消失的 bug
+    
+
+### 2.5.4 @ 2020.10.15
+* 链接地址：https://res.qcloudtiw.com/board/2.5.4/TEduBoard.min.js
+
+- 新增工具类型
+    - 1. 新增正圆，正方形工具类，同时支持椭圆工具和矩形工具按 shift 键画正圆和正方形
+- 优化
+    - 优化橡皮擦擦除箭头工具不精确的问题
+- Bug 修复
+    - 修复多端同时移动图片元素不同步的问题。
+    - 修复已知问题。
+
+
+### 2.5.3 @ 2020.08.31
+* 链接地址：https://res.qcloudtiw.com/board/2.5.3/TEduBoard.min.js
+
+- 新增回调
+    - 新增视频状态回调 TEDU_BOARD_VIDEO_STATUS_WAITING 和 TEDU_BOARD_VIDEO_STATUS_PLAYING
+- Bug 修复
+    - 修复激光笔各端显示比例不一致问题
+    - 修复白板操作在移动端偶现延迟问题
+    - 修复涂鸦到白板外笔迹微变问题
+- 优化
+    - 桌面端画笔使用时持续展示
+    - 视频多次播放失败后回调 ERROR 状态
+    
+### 2.5.2 @ 2020.08.07
+* 链接地址：https://res.qcloudtiw.com/board/2.5.2/TEduBoard.min.js
+
+- 新增回调
+    - 新增 H5PPT 状态回调 TEB_H5PPT_STATUS_CHANGED
+    
+### 2.5.1 @ 2020.07.23
+* 链接地址：https://res.qcloudtiw.com/board/2.5.1/TEduBoard.min.js
+
+- 功能支持
+    - 图片元素支持任意角度旋转和八个方向的缩放
+- 接口优化
+    - 如果 getFileBoardList，getFileInfo 接口 fid 参数缺省，则默认返回当前文件文件的信息
+    - 调用 deleteFile 接口删除非当前文件，则不跳转至默认文件#DEFAULT
+- bug fix
+    - 修复文字工具在某些输入法下输入过程中，看不见已输入的文字问题
+    - 修复移动端文字工具在白板边界位置点击，键盘会闪一下的问题
+
+
+### 2.5.0 @ 2020.07.2
+* 链接地址：https://res.qcloudtiw.com/board/2.5.0/TEduBoard.min.js
+
+- 功能变更
+    - addVideoFile/addTranscodeFile/addImagesFile 添加已存在文件，返回该文件 ID
+    - 统一各个平台视频播放控制栏的界面
+- 功能支持
+    - 支持 PPT 超链接点击同步功能
+- bug fix
+    - 修复涂鸦过程中擦除涂鸦导致涂鸦不同步问题
+    - 修复视频文件在特定场景下新增多余白板问题
+- 性能优化
+
+
+### 2.4.9 @ 2020.06.10
+* 链接地址：https://res.qcloudtiw.com/board/2.4.9/TEduBoard.min.js
+
+- 新增接口
+    - 新增白板同步和刷新接口 syncAndReload
+    - 新增白板快照接口 snapshot
+- 新增回调
+    - 新增截图回调
+    ```
+    teduBoard.on(TEduBoard.EVENT.TEB_SNAPSHOT, ({image, userData}) => {
+        //image 为 base64格式图片， userdata 为透传字段
+    });
+    ```
+- BUG 修复
+    - 修复视频频繁操作导致权限错乱问题
+    - 解决文字工具在底部点击输入无效问题
+    - 修复清空偶现残留问题
+
 ### 2.4.8 @ 2020.05.21
-* 链接地址：https://resources-tiw.qcloudtrtc.com/board/2.4.8/TEduBoard.min.js
+* 链接地址：https://res.qcloudtiw.com/board/2.4.8/TEduBoard.min.js
 
 - 新增接口
     - 新增 refresh 接口刷新当前白板
@@ -15,7 +106,7 @@
     - 修复激光笔跳变问题
 
 ### 2.4.7 @2020.04.30
-* 链接地址：https://resources-tiw.qcloudtrtc.com/board/2.4.7/TEduBoard.min.js
+* 链接地址：https://res.qcloudtiw.com/board/2.4.7/TEduBoard.min.js
 
 - BUG 修复
     - 修复 IM 信令每次都重复发送一条问题
@@ -23,7 +114,7 @@
     - 优化房间内其他人涂鸦渲染的流程性
 
 ### 2.4.6 @ 2020.04.02
-* 链接地址：https://resources-tiw.qcloudtrtc.com/board/2.4.6/TEduBoard.min.js
+* 链接地址：https://res.qcloudtiw.com/board/2.4.6/TEduBoard.min.js
 
 - 新增回调
     - TEduBoardImageStatus 新增两个状态回调
@@ -37,7 +128,7 @@
     - 修复加载相同图片没有回调问题
 
 ### 2.4.4 @ 2020.03.14
-* 链接地址：https://resources-tiw.qcloudtrtc.com/board/2.4.4/TEduBoard.min.js
+* 链接地址：https://res.qcloudtiw.com/board/2.4.4/TEduBoard.min.js
 
 - 批量导入图片组时，对 URL 字符串长度进行限制(总长7K)，超长时同步返回空串，同时回调错误 TEDU_BOARD_ERROR_DATA_TOO_LARGE
 - 替换内部 mp4 播放器为 videojs
@@ -55,7 +146,7 @@
     - TEDU_BOARD_VIDEO_STATUS_PLAYING 变更为 TEDU_BOARD_VIDEO_STATUS_TIMEUPDATE
     
 ### 2.4.1 @ 2020.01.08
-* 链接地址：https://resources-tiw.qcloudtrtc.com/board/2.4.1/TEduBoard.min.js
+* 链接地址：https://res.qcloudtiw.com/board/2.4.1/TEduBoard.min.js
 
 - 接口变更
     - addImageElement 支持添加本地图片
@@ -63,7 +154,7 @@
     - 增加添加图片元素回调 onTEBAddImageElement
 
 ### 2.4.0 @ 2019.12.06
-* 链接地址：https://resources-tiw.qcloudtrtc.com/board/2.4.0/TEduBoard.min.js
+* 链接地址：https://res.qcloudtiw.com/board/2.4.0/TEduBoard.min.js
 
 - 增加接口
     - 添加视频文件 addVideoFile
@@ -93,7 +184,7 @@
 
 
 ### 2.3.5 @ 2019.10.30
-* 链接地址：https://resources-tiw.qcloudtrtc.com/board/2.3.5/TEduBoard.min.js
+* 链接地址：https://res.qcloudtiw.com/board/2.3.5/TEduBoard.min.js
 
 - 新增接口 getThumbnailImages 获取文件缩略图
 - 新增步数回调 TEB_GOTOSTEP
@@ -219,4 +310,7 @@
         - 点选、框选、移动涂鸦、撤销、重做
         - 白板缩放、移动
         - 文件展示（静态：支持PPT、PDF、WORD、EXCEL）、多文件支持
-        - PPT动画展示
+        - PPT 动画展示
+
+
+

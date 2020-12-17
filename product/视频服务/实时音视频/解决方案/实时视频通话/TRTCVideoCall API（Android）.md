@@ -428,7 +428,7 @@ void onUserEnter(String userId);
 
 ### onUserLeave
 
-用户进入通话回调。
+用户离开通话回调。
 ```java
 void onUserLeave(String userId);
 ```

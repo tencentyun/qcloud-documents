@@ -4,7 +4,7 @@
 ## 配置指南
 ### 查看配置
 
-登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面最后一栏【高级配置】中，查看指定域名的 HTTPS 配置情况：
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面【Https 配置】中，查看指定域名的 HTTPS 配置情况：
 ![](https://main.qcloudimg.com/raw/26221c274317ff782a5408b9a9a2322a.png)
 也可前往左侧菜单栏【证书管理】页面，查看账号下所有配置了 HTTPS 加速的域名列表：
 ![](https://main.qcloudimg.com/raw/ee27b41bc508d85ce92b6642b167cb11.png)
@@ -73,7 +73,7 @@
 证书过期前30天、前15天、前7天及过期当天，腾讯云都会以短信、邮件、站内信形式向用户账号发送到期提醒。现已支持 SSL 证书自定义告警接收人，您可进入 [消息订阅](https://console.cloud.tencent.com/message/subscription) 配置。
 
 ### 区域特殊配置
-若加速域名服务区域为全球，则所配置的 HTTPS 证书会境内、境外一起生效，暂时不支持境内境外配置不同本证书。
+若加速域名服务区域为全球，则所配置的 HTTPS 证书会境内、境外一起生效，暂时不支持境内境外配置不同证书。
 
 若域名存在境内、境外证书配置不一致的特殊场景，可在【证书管理】页面看到中国境内、中国境外等标识，表明该域名存在遗留的区域特殊配置：
 ![](https://main.qcloudimg.com/raw/23192c43c0611c34d07490f19ea7dfb0.png)

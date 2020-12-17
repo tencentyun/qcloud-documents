@@ -1,3 +1,4 @@
+
 本文将以一个简单案例来说明数据订阅中拉取对应表到 Redis 的功能，并且提供简易 [RedisDemo 下载](https://main.qcloudimg.com/raw/0a3b560fad57a27440f9445039552d2b/RedisDemo.zip) 。以下操作将在 CentOS 操作系统中完成。
 
 ## 配置环境

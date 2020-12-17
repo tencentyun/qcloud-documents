@@ -8,7 +8,7 @@ Delete Vault Access Policy 请求删除 Vault 的权限。
 
 #### 请求语法
 
-```HTTP
+```plaintext
 DELETE /<UID>/vaults/<VaultName>/access-policy HTTP 1.1
 Host:cas.<Region>.myqcloud.com
 Date:date

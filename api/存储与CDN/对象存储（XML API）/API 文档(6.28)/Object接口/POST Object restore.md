@@ -1,6 +1,6 @@
 ## 功能描述
 
-POST Object restore 接口请求可以对一个归档存储（ARCHIVE）类型的对象进行恢复（解冻）以便读取该对象内容，恢复出的可读取对象是临时的，您可以设置需要保持可读以及随后删除该临时副本的时间。您可以用 Days 参数来指定临时对象的过期时间，若超出该时间且期间您没有发起任何复制、延长等操作，该临时对象将被系统自动删除。临时对象仅为归档存储类型对象的副本，原始归档存储对象在此期间将始终存在。有关归档存储的进一步说明，请参见 [存储类型 - 归档存储](https://cloud.tencent.com/document/product/436/33417#.E5.BD.92.E6.A1.A3.E5.AD.98.E5.82.A8) 文档。
+POST Object restore 接口请求可以对一个归档存储或深度归档存储类型的对象进行恢复（解冻）以便读取该对象内容，恢复出的可读取对象是临时的，您可以设置需要保持可读以及随后删除该临时副本的时间。您可以用 Days 参数来指定临时对象的过期时间，若超出该时间且期间您没有发起任何复制、延长等操作，该临时对象将被系统自动删除。临时对象仅为归档存储类型对象的副本，原始归档存储对象在此期间将始终存在。有关归档存储的进一步说明，请参见 [存储类型 - 归档存储](https://cloud.tencent.com/document/product/436/33417#.E5.BD.92.E6.A1.A3.E5.AD.98.E5.82.A8) 文档。
 
 #### 版本控制
 
@@ -10,7 +10,7 @@ POST Object restore 接口请求可以对一个归档存储（ARCHIVE）类型�
 
 #### 请求示例
 
-```shell
+```plaintext
 POST /<ObjectKey>?restore HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -26,21 +26,19 @@ Authorization: Auth String
 
 #### 请求参数
 
-此接口无请求参数。
+| 名称                         | 描述                                                         | 类型   | 是否必选 |
+| ---------------------------- | ------------------------------------------------------------ | ------ | -------- |
+| versionId                    | 当启用版本控制时，指定要恢复的版本 ID，如不指定则恢复对象的最新版本 | string | 否       |
 
 #### 请求头
 
-此接口除使用公共请求头部外，还支持以下请求头部，了解公共请求头部详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
-
-| 名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述 | 类型 | 是否必选 |
-| --- | --- | --- | --- |
-| Content-MD5 | RFC 1864 中定义的经过 Base64 编码的请求体内容 MD5 哈希值，用于完整性检查，验证请求体在传输过程中是否发生变化 | string | 是 |
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 ####  请求体
 
 提交 **application/xml** 请求数据，包含恢复操作的具体参数。
 
-```shell
+```plaintext
 <RestoreRequest>
    <Days>number</Days>
    <CASJobParameters>
@@ -66,7 +64,7 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
-| Tier | RestoreRequest.CASJobParameters | 恢复时，Tier 可以指定为支持的三种恢复模式，分别为：<br> <li>Standard：标准模式，恢复任务在3 - 5小时内完成<br> <li>Expedited：极速模式，恢复任务在1 - 5分钟内可完成，仅支持不超过 256MB 的对象<br><li>Bulk：批量模式，恢复任务在5 - 12小时内完成 | Enum | 是 |
+| Tier | RestoreRequest.CASJobParameters | 恢复时，Tier 可以指定为支持的恢复模式。<br>对于恢复归档存储类型数据，有三种恢复模式，分别为：<br><li>Expedited：极速模式，恢复任务在1 - 5分钟内可完成，仅支持不超过 256MB 的对象。<br> <li>Standard：标准模式，恢复任务在3 - 5小时内完成 <br><li>Bulk：批量模式，恢复任务在5 - 12小时内完成。<br>对于恢复深度归档存储类型数据，有两种恢复模式，分别为：<br><li>Standard：标准模式，恢复时间为12 - 24小时。<br><li>Bulk：批量模式，恢复时间为24 - 48小时。 | Enum | 是 |
 
 ## 响应
 
@@ -80,11 +78,7 @@ Authorization: Auth String
 
 #### 错误码
 
-此接口的特殊错误信息如下所述，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
-
-| 错误码                   | 描述                               | HTTP 状态码  |
-| ------------------------ | ---------------------------------- | ------------ |
-| RestoreAlreadyInProgress | 指定的对象已经在恢复中             | 409 Conflict |
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -92,7 +86,7 @@ Authorization: Auth String
 
 #### 请求
 
-```shell
+```plaintext
 POST /exampleobject?restore HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 27 Dec 2019 08:19:29 GMT
@@ -112,7 +106,7 @@ Connection: close
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 202 Accepted
 Content-Length: 0
 Connection: close
@@ -125,7 +119,7 @@ x-cos-request-id: NWUwNWJlOTFfMjljOTBiMDlfMTQ2MmNfNzAw****
 
 #### 请求
 
-```shell
+```plaintext
 POST /exampleobject?restore&versionId=MTg0NDUxNjQ1NjM4OTkzNzY3NDk HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Mon, 20 Jan 2020 08:43:40 GMT
@@ -145,7 +139,7 @@ Connection: close
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 202 Accepted
 Content-Length: 0
 Connection: close

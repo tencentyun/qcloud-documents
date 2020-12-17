@@ -20,7 +20,7 @@ import SASRsdk
 
 # 用户需修改为自己官网的secretid与sectretkey
 secretKey = 'kKm26uXCgLtGRWVJvKtGU0LYdWCgOvGP'
-SecretId = 'AKID31NbfXbpBLJ4kGJrytc9UfgVAlGltJJ8'
+SecretId = 'AKID31NbfXbpBLJ4kGJrytc9UfgVAlG*****'
 
 # 识别引擎 8k or 16k
 EngSerViceType = '16k'

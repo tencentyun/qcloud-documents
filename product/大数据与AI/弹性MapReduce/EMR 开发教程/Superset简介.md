@@ -20,7 +20,7 @@ EMR 上的 Superset，原装了对 Mysql、Hive、Presto、Impala、Kylin、Drui
 
 ## 添加 DataBase
 
-进入【Sources】>【Database】界面，单击【Filter List】。
+进入【Sources】>【Databases】界面，单击【Filter List】。
 ![](https://main.qcloudimg.com/raw/c98760953f38fc23d27abcbf5208bd83.png)
 进入如下页面，在 SQLAlchemy URI 中加入您需要添加的组件的 URI。
 ![](https://main.qcloudimg.com/raw/57b69ecbd6f5c2ac0ca4adde380325ae.png)
@@ -35,13 +35,11 @@ EMR 上的 Superset，原装了对 Mysql、Hive、Presto、Impala、Kylin、Drui
 | presto   | `presto://hive@<master_ip>:9000/hive/<hive_db_name>`           | <li>Master_ip：EMR 集群的 master_ip<li>hive_db_name：hive 中的数据库名称，不填默认为 default |
 | impala   | `impala://<core_ip>:27000`                                     | core_ip：EMR 集群中的 core ip     |
 | kylin    | `kylin://<kylin_user>:<password>@<master_ip>:16500/<kylin_project>` | <li>kylin_user：kylin 的用户名<li>password：kylin 的密码<li>master_ip：EMR 集群的 master_ip<li>kylin_project：kylin 的项目 |
+|Clickhouse  |`clickhouse://<user_name>:<password>@<clickhouse-server-endpoint>:8123/<database_name>`| `clickhouse://default:password@localhost:8123/default`<li>user_name：用户名<li>password：密码<li>clickhouse-server-endpoint：ch 服务的服务 endpoint<li>database_name：需要访问的 DB 名字
 
 
-<h2> 自行添加新 Database</h2>
-
-Superset 支持的 [Database](https://superset.incubator.apache.org/installation.html#database-dependencies)。
-
-如果您需要安装其他的数据库，可通过如下操作进行：
+## 自行添加新 Database
+Superset 支持 Database。如果您需要安装其他的数据库，可通过如下操作进行：
 1. 登录 EMR 集群 master 所在机器。
 2. 执行命令`source /usr/local/service/superset/bin/activate`。
 3. pip3 install 对应的 Python 库。

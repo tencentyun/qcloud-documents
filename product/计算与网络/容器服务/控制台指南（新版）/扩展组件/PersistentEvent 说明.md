@@ -5,9 +5,8 @@
 Kubernetes Events 包括了 Kubernetes 集群的运行和各类资源的调度情况，对维护人员日常观察资源的变更以及定位问题均有帮助。TKE 支持为您的所有集群配置事件持久化功能，开启本功能后，会将您的集群事件实时导出到配置的存储端。TKE 还支持使用腾讯云提供的 PAAS 服务或开源软件对事件流水进行检索。
 
 
-### 部署在集群内的 Kubernetes 对象
+### 部署在集群内 Kubernetes 对象
 
-在集群内部署 PersistentEvent Add-on , 将在集群内部署以下 Kubernetes 对象：
 
 | Kubernetes 对象名称       | 类型         | 默认占用资源          | 所属 Namespaces|
 | -------------------- | ---------- | --------------- | ------------ |
@@ -26,20 +25,17 @@ Kubernetes 默认仅提供保留一个小时的 Kubernetes 事件。而 Persiste
 ## 使用方法
 
 ### 安装并设置存储端
-1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，选择左侧导航栏中的【扩展组件】。
-2. 在“扩展组件”管理页面上方，选择需安装 PersistentEvent 地域下的集群，并单击【新建】。如下图所示：
-![](https://main.qcloudimg.com/raw/d087e46c782e0fe391bb0abd7d2af71d.png)
-3. 在“新建扩展组件”页面，选择【PersistentEvent 组件】并配置事件持久化存储端，单击【完成】即可安装成功。
-PersistentEvent 支持 [Elasticsearch](https://cloud.tencent.com/document/product/845/16478) 及 [日志服务 CLS](https://cloud.tencent.com/document/product/614/11254) 两种存储端选择，推荐使用日志服务 CLS。您可根据实际情况进行选择，本文以日志服务 CLS 为例。
+1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，选择左侧导航栏中的【集群】。
+2. 在“集群管理”页面上方选择目标集群所在地域下的集群 ID，进入集群详情页。
+3. 选择左侧菜单栏中的【组件管理】，进入“组件列表”页面。
+4. 在“组件列表”页面中选择【新建】，并在“新建组件”页面中勾选 PersistentEvent，并配置事件持久化存储端，单击【完成】即可安装成功。
+主要参数信息如下：
+ - **存储端选择**：您可以选择将事件存储到【[Elasticsearch](https://cloud.tencent.com/document/product/845/16478)】或【[日志服务 CLS](https://cloud.tencent.com/document/product/614/11254)】。
+ - **参数详情**：
+	 - 事件存储至【Elasticsearch】需要提供 Elasticsearch 地址和索引。
+	 - 事件存储至【日志服务CLS】需要提供日志服务实例，若当前无合适的实例，您可以 [新建日志集](https://console.cloud.tencent.com/cls/logset)。
 
 
-
-
-### 更新存储端
-1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，选择左侧导航栏中的【扩展组件】。
-2. 在“扩展组件”页面上方选择需更新地域下 PersistentEvent 的集群，并单击组件所在行右侧的【更新配置】。如下图所示：
-![](https://main.qcloudimg.com/raw/d8bd0a3193ae8b30be7222f4cec42b7a.png)
-3. 在“更新事件持久化组件”页面，调整事件持久化存储端后单击【完成】即可完成更新。
 
 ### 在 CLS 控制台检索事件
 1. 登录日志服务控制台，选择左侧导航栏中的【[日志集管理](https://console.cloud.tencent.com/cls/logset)】。

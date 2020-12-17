@@ -18,4 +18,5 @@
 >? 管理员帐号：ubuntu/CentOS/Debian：root
 >
 再输入初始密码，回车完成登录。
-2. 从本地 Linux 或 Mac OS 登录 Linux 合作云服务器，直接使用SSH命令进行连接，如：ssh root@Linux云服务器公网 IP，然后输入 root 用户的初始密码，即可完成登录。
+2. 从本地 Linux 或 Mac OS 登录 Linux 合作云服务器，直接使用 SSH 命令进行连接，如：ssh root@Linux云服务器公网 IP，然后输入 root 用户的初始密码，即可完成登录。
+

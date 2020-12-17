@@ -168,3 +168,4 @@ XML  JavaScript SDK 新增 API，您可根据需求进行调用。包括：
 - 对象上传队列：pauseTask、restartTask、cancelTask、getTaskList 方法以及 list-update 事件。
 
 了解更多请参见 JavaScript SDK [快速入门](https://cloud.tencent.com/document/product/436/11459) 文档。
+

@@ -5,7 +5,7 @@ __功能__
 
 __介绍__
 
-主要负责 TXLivePusher 对应的参数设置，**其中绝大多数设置项在推流开始之后再设置是无效的**。
+主要负责 TXLivePusher 对应的参数设置，**其中绝大多数设置项在推流开始之后再设置是无效的**。 
 
 
 
@@ -23,7 +23,7 @@ __属性列表__
 | localVideoMirrorType | int | 本地预览画面的镜像类型，默认值：LocalVideoMirrorType_Auto 即前置摄像头镜像，后置摄像头不镜像。 | - | - |
 | pauseTime | int | 垫片推流的最大持续时间，单位秒，默认值：300s。 | - | 调用 TXLivePusher 的 pausePush  接口，会暂停摄像头采集并进入垫片推流状态，如果该状态一直保持， 可能会消耗主播过多的手机流量，本字段用于指定垫片推流的最大持续时间，超过后即断开与云服务器的连接。 |
 | pauseFps | int | 垫片推流时的视频帧率，取值范围3 - 8，默认值：5FPS。 | - | - |
-| pauseImg | TXImage * | 垫片推流时使用的图片素材，最大尺寸不能超过1920 x 1920。 | - | - |
+| pauseImg | TXImage * | 垫片推流时使用的图片素材，最大尺寸不能超过1920 × 1920。 | - | - |
 | videoResolution | int | 视频分辨率，默认值：VIDEO_RESOLUTION_TYPE_360_640。 | - | 推荐直接使用 TXLivePusher 的 setVideoQuality 接口调整画面质量。 |
 | videoFPS | int | 视频帧率，默认值：15FPS。 | - | 推荐直接使用 TXLivePusher 的 setVideoQuality 接口调整画面质量。 |
 | videoEncodeGop | int | 视频编码 GOP，也就是常说的关键帧间隔，单位秒；默认值：3s。 | - | 推荐直接使用 TXLivePusher 的 setVideoQuality 接口调整画面质量。 |
@@ -55,3 +55,4 @@ __属性列表__
 
 
 
+ 

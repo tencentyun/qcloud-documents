@@ -1,9 +1,11 @@
 ## 操作场景
 本文档指导您如何在 Apache 服务器中安装 SSL 证书。
 >?
->- 本文档以证书名称 `www.domain.com` 为例。
+>- 本文档以证书名称 `cloud.tencent.com` 为例。
 >- Apache 版本以 `Apache/2.4.6` 为例。默认端口为 `80`。
 >- 当前服务器的操作系统为 CentOS 7，由于操作系统的版本不同，详细操作步骤略有区别。
+>- 安装 SSL 证书前，请您在 Apache 服务器上开启 “443” 端口，避免证书安装后无法启用 HTTPS。具体可参考 [服务器如何开启443端口？](https://cloud.tencent.com/document/product/400/45144)
+>- SSL 证书文件上传至服务器方法可参考 [如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
 
 ## 前提条件
 - 已准备远程文件拷贝软件，例如 WinSCP（建议从官方网站获取最新版本）。
@@ -34,17 +36,17 @@
 ## 操作步骤
 
 ### 证书安装
-1. 已在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载并解压缩 `www.domain.com` 证书文件包到本地目录。
+1. 已在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
 解压缩后，可获得相关类型的证书文件。 其中包含 Apache 文件夹和 CSR 文件：
  - **文件夹名称**：Apache
  - **文件夹内容**：
     - `1_root_bundle.crt` 证书文件
-    - `2_www.domain.com.crt` 证书文件
-    - `3_www.domain.com.key` 私钥文件
-  - **CSR 文件内容**：	`www.domain.com.csr` 文件
+    - `2_cloud.tencent.com.crt` 证书文件
+    - `3_cloud.tencent.com.key` 私钥文件
+  - **CSR 文件内容**：	`cloud.tencent.com.csr` 文件
   >?CSR 文件是申请证书时由您上传或系统在线生成的，提供给 CA 机构。安装时可忽略该文件。
 2. 使用 “WinSCP”（即本地与远程计算机间的复制文件工具）登录 Apache 服务器。
-3. 将已获取到的 `1_root_bundle.crt` 证书文件、`2_www.domain.com.crt` 证书文件以及 `3_www.domain.com.key` 私钥文件从本地目录拷贝到 Apache 服务器的 `/etc/httpd/ssl` 目录下。
+3. 将已获取到的 `1_root_bundle.crt` 证书文件、`2_cloud.tencent.com.crt` 证书文件以及 `3_cloud.tencent.com.key` 私钥文件从本地目录拷贝到 Apache 服务器的 `/etc/httpd/ssl` 目录下。
 >? 
 >- 若无 `/etc/httpd/ssl` 目录，可通过 `mkdir /etc/httpd/ssl` 命令行创建。
 5. 远程登录 Apache 服务器。例如，使用 [“PuTTY” 工具](https://cloud.tencent.com/document/product/213/35699#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 登录。
@@ -58,21 +60,21 @@
 <VirtualHost 0.0.0.0:443>
 		DocumentRoot "/var/www/html" 
 		#填写证书名称
-		ServerName www.domain.com 
+		ServerName cloud.tencent.com 
 		#启用 SSL 功能
 		SSLEngine on 
 		#证书文件的路径
-		SSLCertificateFile /etc/httpd/ssl/2_www.domain.com.crt 
+		SSLCertificateFile /etc/httpd/ssl/2_cloud.tencent.com.crt 
 		#私钥文件的路径
-		SSLCertificateKeyFile /etc/httpd/ssl/3_www.domain.com.key 
+		SSLCertificateKeyFile /etc/httpd/ssl/3_cloud.tencent.com.key 
 		#证书链文件的路径
 		SSLCertificateChainFile /etc/httpd/ssl/1_root_bundle.crt 
 </VirtualHost>
 ```
-9. 重新启动 Apache 服务器，即可使用 `https://www.domain.com` 进行访问。
+9. 重新启动 Apache 服务器，即可使用 `https://cloud.tencent.com` 进行访问。
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
-若您不了解通过 HTTPS 访问网站的方式，可以通过配置服务器，让其自动将 HTTP 的请求重定向到 HTTPS。您可以通过以下操作设置：
+如果您需要将 HTTP 请求自动重定向到 HTTPS。您可以通过以下操作设置：
 1. 编辑 `/etc/httpd/conf` 目录下的 httpd.conf 配置文件。
 >!
 >- Apache 的版本不同，目录结构也会有所区别。具体请您参阅 [Apache 官方 rewrite 的文档](http://httpd.apache.org/docs/2.4/mod/mod_rewrite.html)。
@@ -95,7 +97,7 @@ RewriteCond %{SERVER_PORT} !^443$
 RewriteRule ^(.*)?$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
 </Directory>
 ```
-4. 重新启动 Apache 服务器，即可使用 `http://www.domain.com` 进行访问。
+4. 重新启动 Apache 服务器，即可使用 `http://cloud.tencent.com` 进行访问。
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
 

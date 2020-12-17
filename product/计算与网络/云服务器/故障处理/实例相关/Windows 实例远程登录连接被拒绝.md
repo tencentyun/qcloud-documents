@@ -56,3 +56,6 @@ Windows 使用远程桌面连接 Windows 实例时，提示 “要远程登录�
 3. 在打开的 “拒绝通过远程桌面服务登录 属性” 窗口中，检查拒绝通过远程桌面服务登录的用户列表是否存在需要登录的帐户。
  - 如果该用户在拒绝通过远程桌面服务登录的列表中，请将需要登录的帐户从列表中删除，并重启实例。
  - 如果该用户不在拒绝通过远程桌面服务登录的列表中，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&level3_id=142&radio_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%99%BB%E5%BD%95%E4%B8%8D%E4%B8%8A&queue=15&scene_code=12686&step=2) 反馈。
+ 
+ 
+ 

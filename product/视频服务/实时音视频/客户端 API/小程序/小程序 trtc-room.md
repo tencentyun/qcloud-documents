@@ -3,9 +3,9 @@
 **&lt;trtc-room&gt;** 标签是基于 &lt;live-pusher&gt; 和 &lt;live-player&gt; 实现的用于 TRTC 互通的自定义组件，支持多种应用场景：
 
 **视频通话&语音通话（scene = "rtc"）**
-- 视频通话场景，支持720P、1080P高清画质。
+- 视频通话场景，支持 [720P、1080P](#quality) 高清画质。
 - 视频通话场景，支持48kHz全频带，支持双声道。
-- 单个房间最多支持300人同时在线，最高支持50人同时发言。
+- 单个房间最多支持300人同时在线，最高支持30人同时发言。
 - 适用场景：1对1视频通话、300人视频会议、在线问诊、远程面试、视频客服、在线狼人杀等。
 - 使用方法：需要您将 &lt;trtc-room&gt; 的 [scene](#Config) 属性设置为 **rtc**。
 
@@ -108,7 +108,7 @@
 | enableEarMonitor     | Boolean | false     | 是否开启耳返（目前仅在 iOS 平台有效）。    |
 | enableAutoFocus      | Boolean | true      | 是否开启摄像头自动对焦，如果关闭则需要用户手动点击摄像头中的预览画面进行对焦。 |
 | enableZoom           | Boolean | false     | 是否支持双手滑动调整摄像头焦距。    |
-| minBitrate           | String  | 200       | 最小码率，不建议设置太低。  |
+| minBitrate<span id="quality"></span>          | String  | 200       | 最小码率，不建议设置太低。  |
 | maxBitrate           | String  | 1000      | 最大码率，需要跟分辨率相匹配，建议参考 [分辨率码率参照表](https://cloud.tencent.com/document/product/647/32236#.E5.88.86.E8.BE.A8.E7.8E.87.E7.A0.81.E7.8E.87.E5.8F.82.E7.85.A7.E8.A1.A8)。 |
 | videoWidth           | String  | 360       | 视频宽，若设置视频宽高，会忽略 aspect。  |
 | videoHeight          | String  | 640       | 视频高，若设置视频宽高，会忽略 aspect。  |
@@ -363,7 +363,7 @@ function onRemoteVideoAdd(event) {
 trtcRoomContext.on(trtcRoomContext.EVENT.REMOTE_VIDEO_ADD, onRemoteVideoAdd)
 ```
 
-#### unsubscribeRemoteVideo(params)
+### unsubscribeRemoteVideo(params)
 **说明：**
 
 取消订阅远端用户的视频并停止播放。
@@ -426,7 +426,7 @@ trtcRoomContext.on(trtcRoomContext.EVENT.REMOTE_AUDIO_ADD, onRemoteAudioAdd)
 ### unsubscribeRemoteAudio(params)
 **说明：**
 
-取消订阅远端用户的音频并且进行播放。
+取消订阅远端用户的音频并停止播放 。
 
 **参数：**
 
@@ -652,10 +652,10 @@ trtcRoomContext.setViewVisible({
 |:-----------|:-------|:-------|:------------------------------------------------------------------|
 | userID     | String | -      | 必填，用户 ID。                                                        |
 | streamType | String | -      | 设置远端用户时必填，远端用户的流类型，可选值：<li>main：主流。</li><li>aux：辅流（屏幕分享）。</li>   |
-| xAxis      | Number | -      | 可选，视图的横坐标。                                                   |
-| yAxis      | Number | -      | 可选，视图的纵坐标。                                                   |
-| width      | Number | -      | 可选，设置视图的宽度。                                                 |
-| height     | Number | -      | 可选，设置视图的高度。                                                 |
+| xAxis      | String | -      | 可选，视图的横坐标。                                                   |
+| yAxis      | String | -      | 可选，视图的纵坐标。                                                   |
+| width      | String | -      | 可选，设置视图的宽度。                                                 |
+| height     | String | -      | 可选，设置视图的高度。                                                 |
 
 **返回值：**
 
@@ -666,9 +666,9 @@ Promise
 trtcRoomContext.setViewRect({
   userID: 'xxx',
   streamType: 'main',
-  xAxis: '480rpx',
-  yAxis: '160rpx',
-  width: '240rpx',
+  xAxis: '480rpx', 
+  yAxis: '160rpx', 
+  width: '240rpx', 
   height: '320rpx',
 }).then((event)=>{
   // 设置成功
@@ -920,9 +920,10 @@ Promise
 trtcRoomContext.sendC2CCustomMessage({
   userID: 'xxx',
   payload: {
-    data: '自定义消息的数据字段'，
-    description: '自定义消息的说明字段'，
-    extension: '自定义消息的扩展字段' 
+    data: '自定义消息的数据字段',
+    description: '自定义消息的说明字段',
+    extension: '自定义消息的扩展字段'
+  } 
 })
 ```
 
@@ -983,6 +984,7 @@ trtcRoomContext.sendGroupCustomMessage({
     data: '自定义消息的数据字段'，
     description: '自定义消息的说明字段'，
     extension: '自定义消息的扩展字段'
+  }
 })
 ```
 

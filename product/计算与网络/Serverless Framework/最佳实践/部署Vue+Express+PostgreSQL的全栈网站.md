@@ -1,7 +1,6 @@
 ## 操作场景
 
-该模板可以快速部署一个基于 Vue + Express + PostgreSQL 的全栈 Serverless 应用。主
-要包含以下组件：
+该模板可以快速部署一个基于 Vue + Express + PostgreSQL 的全栈 Serverless 应用。主要包含以下组件：
 
 - Serverless RESTful API：通过**云函数**和 **API 网关**构建的 Express 框架实现
   RESTful API。
@@ -11,7 +10,8 @@
 
 ## 前提条件
 
-- 已安装 [Node.js](https://nodejs.org/en/)（Node.js 版本需不低于 8.6，建议使用Node.js10.0 及以上版本）
+- 已安装 [Node.js](https://nodejs.org/en/)（**2020年9月1日起，Serverless 组件不再支持 Node.js10.0 以下版本，请注意升级**）
+- 账号已经配置 **QcloudPostgreSQLFullAccess** 策略，配置方法详见 [账号和权限配置](https://cloud.tencent.com/document/product/1154/43006)
 
 ## 操作步骤
 
@@ -33,18 +33,18 @@ npm update -g serverless
 
 ```shell
 $ serverless –v
-Framework Core: 1.67.3
-Plugin: 3.6.6
-SDK: 2.3.0
-Components: 2.30.1
+Framework Core: 1.74.1 (standalone)
+Plugin: 3.6.14
+SDK: 2.3.1
+Components: 2.31.6
 ```
 
 ### 配置
 
-1.新建一个本地文件夹，使用`create --template-url`命令，下载相关 template。
+1.新建一个本地文件夹，使用`serverless init`命令，下载相关 template。
 
 ```console
-serverless create --template-url https://github.com/serverless-components/tencent-fullstack
+serverless init fullstack
 ```
 
 2.在项目模板中找到.env.example 文件，修改名称为.env，并在其中配置对应的腾讯云 SecretId、SecretKey、地域和可用区信息。

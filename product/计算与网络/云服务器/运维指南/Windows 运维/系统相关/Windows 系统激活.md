@@ -5,17 +5,17 @@
 
 
 ## 激活前须知
-1. Windows 中 SPP Notification Service 用来执行激活相关的服务，需要保证正常运行。如下图所示：
+1. **Windows Server 2008** 中 SPP Notification Service 用来执行激活相关的服务，需要保证正常运行。如下图所示：
 ![](https://main.qcloudimg.com/raw/f8a8aab467f82898d61d7b67fab86c0b.png)
-2. 某些优化软件可能会禁用修改服务相关执行程序的执行权限，例如 sppsvc.exe 进程的执行权限若被修改，会导致服务运行不正常。
+2. 某些优化软件可能会禁用修改服务相关执行程序的执行权限，例如 sppsvc.exe 进程的执行权限若被修改，会导致服务运行不正常。如下图所示：
 ![](https://mc.qcloudimg.com/static/img/685fe41ef992f11ba305dfb570cb916c/21.png)
 在尝试激活 Windows 云服务器之前，请确保 Windows 上这个服务和其他基本功能正常。
  
 ## 自动激活
-腾讯云为 Windows 服务器的激活封装了一个脚本，简化了手工激活的步骤。
+腾讯云为 Windows 服务器的激活封装了一个脚本，简化了手工激活的步骤。请按照以下步骤使用脚本激活：
 1. 登录 Windows 云服务器。
-2. 通过浏览器访问 `http://mirrors.tencentyun.com/install/windows/activate-win.bat` 地址，下载脚本。
-3. 运行脚本，即可完成自动激活。
+2. 下载并运行 [脚本](https://iso-1251783334.cos.ap-guangzhou.myqcloud.com/scripts/activate-win.bat )，即可完成自动激活。
+
 
 ## 手工运行激活
 

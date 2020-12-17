@@ -1,70 +1,66 @@
 ## 功能描述
-DELETE Bucket cors 接口请求实现删除跨域访问配置信息。
+
+DELETE Bucket cors 请求用于删除存储桶的跨域资源共享（CORS）访问控制。
 
 ## 请求
+
 #### 请求示例
 
-```shell
+```plaintext
 DELETE /?cors HTTP/1.1
-Host: <Bucketname-APPID>.cos.<Region>.myqcloud.com
+Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
 
->?Authorization: Auth String，详细信息参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档。
+>? Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+
+#### 请求参数
+
+此接口无请求参数。
 
 #### 请求头
 
-#### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详细请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
-
-#### 非公共头部
-该请求操作无特殊的请求头部信息。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 请求体
-该请求的请求体为空。
+
+此接口无请求体。
 
 ## 响应
+
 #### 响应头
 
-#### 公共响应头
-
-该响应使用公共响应头，了解公共响应头详细请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729 "公共响应头部") 文档。
-
-#### 特有响应头
-该响应无特殊的响应头。
+此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 响应体
-该响应体为空。
+
+此接口响应体为空。
 
 #### 错误码
-该请求操作返回如下错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
-错误码|描述|HTTP 状态码
----|---|---
-None|删除成功，响应体返回为空|204 [No Content](https://tools.ietf.org/html/rfc7231#section-6.3.5)
-NoSuchBucket|当访问的 Bucket 不存在，返回该错误码|404 [Not Found](https://tools.ietf.org/html/rfc7231#section-6.5.4)
-
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
 #### 请求
 
-```shell
+```plaintext
 DELETE /?cors HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
-Date: Wed, 16 Aug 2017 12:59:09 GMT
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98JM&q-sign-time=1502859472;1502939472&q-key-time=1502859472;1502939472&q-header-list=host&q-url-param-list=lifecycle&q-signature=49c1414c700643f11139219384332a3ec4e9485b
+Date: Thu, 09 Jul 2020 11:52:50 GMT
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1594295570;1594302770&q-key-time=1594295570;1594302770&q-header-list=date;host&q-url-param-list=cors&q-signature=1994d46c0ec515f5433016e17f0e49c72e4c****
+Connection: close
 ```
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 204 No Content
-Content-Type: application/xml
-Date: Wed, 16 Aug 2017 12:59:09 GMT
+Connection: close
+Date: Thu, 09 Jul 2020 11:52:50 GMT
 Server: tencent-cos
-x-cos-request-id: NTk5NDQxOWNfMjQ4OGY3Xzc3NGRfMjE=
+x-cos-request-id: NWYwNzA1MTJfNjRiODJhMDlfMWMyMzlfMWMyNzhl****
+x-cos-trace-id: OGVmYzZiMmQzYjA2OWNhODk0NTRkMTBiOWVmMDAxODczNTBmNjMwZmQ0MTZkMjg0NjlkNTYyNmY4ZTRkZTk0NzJmZTI0ZmJhYTZmZjYyNmU5ZGNlZDI5YjkyODkwYjNhYjJkOWQzYWJlOGRjYzY5N2ZlMGJhZjdlNDA4YjkzODc=
+Content-Length: 0
 ```
-
-

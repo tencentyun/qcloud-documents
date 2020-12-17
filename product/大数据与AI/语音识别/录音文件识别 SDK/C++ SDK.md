@@ -89,7 +89,7 @@ SecretKey=Your SecretKey
 ```
 #用户请求参数配置文件：request_parameter.ini
 #引擎类型。
-EngineModelType = 16k_0
+EngineModelType = 16k_zh
 #语音声道数。1：单声道；2：双声道（仅在电话 8k 通用模型下支持）。
 ChannelNum = 1
 #识别结果文本编码方式。0：UTF-8。

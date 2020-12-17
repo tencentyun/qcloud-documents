@@ -20,4 +20,3 @@ telnet 内网/外网IP地址 内/外网端口
 >?若使用 telnet 命令也无法连接，您可以通过 [连接检查工具](https://cloud.tencent.com/document/product/236/33206) 来协助您轻松排查内、外网的连接问题。
 
 
-

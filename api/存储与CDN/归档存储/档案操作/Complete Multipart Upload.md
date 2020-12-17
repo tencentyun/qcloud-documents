@@ -6,7 +6,7 @@ Complete Multipart Upload请求实现结束分段上传，形成文件。发起�
 
 #### 请求语法
 
-```HTTP
+```plaintext
 POST /<UID>/vaults/<VaultName>/multipart-uploads/<uploadID> HTTP/1.1
 Host: cas.<Region>.myqcloud.com
 Date: date

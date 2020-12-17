@@ -1,5 +1,133 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+## 1.26.0-Finchley-RELEASE（2020-12-07）
+
+### 新特性
+- spring-cloud-tsf-msgw-scg：
+  - 补齐 Spring Cloud Gateway 网关的服务治理能力，支持用户按照需求灵活选择 Zuul 或 Spring Cloud Gateway。
+  - 支持托管外部 API。
+- spring-cloud-tsf-msgw-zuul：支持托管外部 API。
+- spring-cloud-tsf-swagger：支持添加注解 @IgnoreGatewayApi 来忽略某个网关 API 不被发现（忽略该网关的 API，但服务治理 API 不受影响）。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.25.0-Finchley-RELEASE（2020-12-04）
+
+### 新特性
+spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
+
+### Bug 修复
+
+- spring-cloud-tsf-ratelimit：修复当只有一个限流规则时，限流规则关闭不生效的问题。
+- spring-cloud-tsf-route：修复当只有一个路由规则时，路由规则关闭不生效的问题。
+- spring-cloud-tsf-lane：优化泳道规则生效逻辑。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.24.0-Finchley-RELEASE（2020-09-25）
+
+### 新特性
+- 支持云上 Spring Cloud 应用平滑迁移 TSF。
+- 支持 PostgreSQL 组件调用链。
+
+### Bug 修复
+- spring-cloud-tsf-consul-config：
+  - 修复本地加密配置不能正确解密的问题。
+  - 修复 MySQL 调用链对多数据源支持。
+- spring-cloud-tsf-core：
+  增加线程上下文接口，在父亲线程中塞入线程局部变量后，子线程不论是线程池反复使用还是一次性使用都能正确继承父线程局部变量。
+  
+ 
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.5-Finchley-RELEASE（2020-11-11）
+### 优化
+- spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
+- spring-cloud-tsf-sleuth 修改调用 SQL 存储的最长长度到64000字符。
+- 调整泳道入口行为。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.4-Finchley-RELEASE（2020-09-16）
+
+### Bug 修复
+
+- 修复 MySQL 调用链中对多数据源支持。
+- 修复 feign 请求调用链中只展示 HTTP 方法。
+- 修复定时任务的线程数问题。
+- 修复网关使用就近命名空间的问题。
+    
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.3-Finchley-RELEASE（2020-09-14）
+
+### Bug 修复
+
+- spring-cloud-tsf-msgw：
+修复网关 MSGW SDK 和服务发现 SDK 不兼容，造成拉取服务列表过快的问题，从而导致注册中心负载压力过大的问题。
+- spring-cloud-tsf-consul-discovery：
+修复服务发现线程数不准确（少于需要请求的服务数），导致服务发现线程调度不及时，节点状态更新可能会延迟30s的问题。
+    
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.2-Finchley-RELEASE（2020-08-19）
+
+### Bug 修复
+
+spring-cloud-tsf-msgw：
+修复 application/x-www-form-urlencoded 类型请求，当绑定插件通过 zuul 网关代理访问时出错的问题。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.1-Finchley-RELEASE（2020-08-12）
+
+### Bug 修复
+
+spring-cloud-tsf-msgw：
+ 修复 scg 版本网关不支持 HTTP 请求中文编码的问题。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.23.0-Finchley-RELEASE（2020-07-06）
+
+### 新特性
+- spring-cloud-tsf-msgw：
+  - 新增网关路径重写配置功能。
+  - 新增网关微信小程序登录插件功能。
+- spring-cloud-tsf-sleuth：
+  - 新增调用链支持 RocketMQ。
+  - 修复 Kafka 中的类型转发错误。
+- spring-cloud-tsf-core：
+  - 监控数据结构中增加 HTTP 请求方法、以及请求模版路径。
+  - 调用链数据结构中增加 HTTP 请求方法。
+
+### Bug 修复
+
+- spring-cloud-tsf-msgw：
+  - 修复数据同步时，可能会短暂获取到错误数据的问题。
+  - 修复 SCG Tag 中数据未正确清除的问题。
+- 处理 tomcat 组件开源漏洞风险：
+  - 升级 org.apache.tomcat.embed.tomcat-embed-core 到8.5.56版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-el 到8.5.56版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到8.5.56版本。
+
 ## 1.22.1-Finchley-RELEASE（2020-05-06）
 
 ### 优化
@@ -26,6 +154,57 @@
 
 - 优化默认日志配置支持容器部署场景。
 - 优化 TSF MSGW zuul 依赖。
+
+## 1.21.6-Finchley-RELEASE（2020-10-19）
+### Bug 修复
+- 处理 Spring 组件开源漏洞风险，升级 Spring Framework 到 5.0.19 版本。
+- spring-cloud-tsf-core 修复与 spring-boot-devtools 的冲突。
+
+### 优化
+- spring-cloud-tsf-gateway 支持服务熔断能力。
+- spring-cloud-tsf-sleuth 修改调用 SQL 存储的最长长度到64000字符。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.21.5-Finchley-RELEASE（2020-09-09）
+### 优化
+spring-cloud-tsf-gateway 优化因配置被误删除可能导致的问题。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.21.4-Finchley-RELEASE（2020-08-20）
+### Bug 修复
+- 修复 MySQL 调用链支持多数据源问题。
+- 修复 feign 请求调用链只展示 HTTP 方法。
+- spring-cloud-tsf-msgw：
+ 修复 application/x-www-form-urlencoded 类型请求，当绑定插件通过 zuul 网关代理访问时出错的问题。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.21.3-Finchley-RELEASE（2020-07-16）
+### Bug 修复
+- 修复网关 MSGW SDK 和服务发现 SDK 不兼容，造成拉取服务列表过快的问题。
+- 修复 MySQL 调用链中 SQL 截断问题。
+
+### 优化
+spring-cloud-tsf-gateway 网关兼容新插件类型。
+
+## 1.21.2-Finchley-RELEASE（2020-07-06）
+
+### Bug 修复
+
+处理 tomcat 组件开源漏洞风险：
+  - 升级 org.apache.tomcat.embed.tomcat-embed-core到 8.5.56版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-el 到8.5.56版本。
+  - 升级 org.apache.tomcat.embed.tomcat-embed-websocket 到8.5.56版本。
+
+### 优化
+
+- 调整泳道标签的传递属性
+- 调整泳道入口行为
 
 ## 1.21.1-Finchley-RELEASE（2020-04-29）
 
@@ -88,6 +267,49 @@ spring-cloud-tsf-gateway  新增 tag plugin 中 path 类型取值。
 
 支持向后兼容，建议全量升级。
 
+## 1.18.5-Finchley-RELEASE（2020-10-27）
+### Bug 修复
+- 修复 druid 连接池事务兼容问题。
+- 修复同时依赖多个数据库连接池问题。
+- 修复调用链生成文件名称问题。
+- 修复服务发现线程数不准确问题。
+- 修复 Feign 无法使用绝对 URL 请求的问题。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.18.4-Finchley-RELEASE（2020-10-20）
+### 优化
+spring-cloud-tsf-sleuth 修改调用 SQL 存储的最长长度到64000字符。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.18.3-Finchley-RELEASE（2020-10-13）
+
+### Bug 修复
+
+- 处理 Spring 组件开源漏洞风险，升级 Spring Framework 到5.0.19版本。
+- spring-cloud-tsf-core 修复与 spring-boot-devtools 的冲突。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
+## 1.18.2-Finchley-RELEASE（2020-08-21）
+
+### Bug 修复
+
+- spring-cloud-tsf-route 修复网关使用就近命名空间的问题。
+- spring-cloud-tsf-consul-discovery 修复服务发现线程池上限的问题。
+- spring-cloud-tsf-sleuth 修复 MySQL 调用链支持多数据源问题。
+- spring-cloud-tsf-gateway 修复网关 MSGW SDK 和服务发现 SDK 不兼容，造成拉取服务列表过快的问题。
+- spring-cloud-tsf-gateway 兼容低版本 MSGW SDK。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
 ## 1.18.1-Finchley-RELEASE（2020-01-14）
 
 ### Bug 修复
@@ -139,7 +361,7 @@ spring-cloud-tsf-sleuth bug fixed：
   - 调用链输出用户自定义 Tag和Metadata。
   - 修复 druid 连接池事务兼容问题。
   - 修复同时依赖多个数据库连接池问题。
- 
+
 ## 1.16.1-Finchley-RELEASE（2019-12-3）
 
 ### Bug 修复
@@ -181,7 +403,7 @@ spring-cloud-tsf-sleuth bug fixed：
 
 支持向后兼容，建议全量升级。
 
-### 1.14.2-Finchley-RELEASE（2019-08-14）
+## 1.14.2-Finchley-RELEASE（2019-08-14）
 
 ### Bug 修复
 
@@ -215,6 +437,19 @@ spring-cloud-tsf-sleuth bug fixed：
 
 支持向后兼容，建议全量升级。
 
+## 1.12.5-Finchley-RELEASE（2020-07-17）
+
+### Bug 修复
+
+修复 spring-cloud-tsf-route 包路由不准确问题。
+
+### 优化
+
+调整心跳请求的超时时间，当出现丢包时能够快速重试。
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
 ## 1.12.4-Finchley-RELEASE（2019-08-15）
 
 ### Bug 修复
@@ -227,7 +462,7 @@ spring-cloud-tsf-sleuth bug fixed：
 
 支持向后兼容，建议全量升级。
 
-### 1.12.3-Finchley-RELEASE（2019-05-17）
+## 1.12.3-Finchley-RELEASE（2019-05-17）
 
 ### Bug 修复
 

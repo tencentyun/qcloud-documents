@@ -6,7 +6,7 @@ UpdateMediaQueue 接口用于更新队列。
 
 #### 请求示例
 
-```shell
+```plaintext
 PUT /queue/p8eb46b8cc1a94bc09512d16c5c4f4d3a HTTP/1.1
 Host: <BucketName-APPID>.ci.<Region>.myqcloud.com
 Date: <GMT Date>
@@ -27,7 +27,7 @@ Content-Type: application/xml
 
 该请求操作的实现需要有以下请求体。
 
-```shell
+```plaintext
 <Request>
     <Name>Queue Name</Name>
     <QueueID></QueueID>
@@ -35,7 +35,7 @@ Content-Type: application/xml
     <NotifyConfig>
         <Type></Type>
         <Url></Url>
-        <Event><Event>
+        <Event></Event>
     </NotifyConfig>
 </Request>
 ```
@@ -163,7 +163,7 @@ Container 类型 NotifyConfig 的具体数据描述如下：
 
 该响应体返回为 **application/xml** 数据，包含完整节点数据的内容展示如下：
 
-```shell
+```plaintext
 <Response>
     <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhf****</RequestId>
     <Queue>
@@ -173,7 +173,8 @@ Container 类型 NotifyConfig 的具体数据描述如下：
         <NotifyConfig>
             <Url>mts-topic-1</Url>
             <Type></Type>
-            <Event><Event>
+            <Event></Event>
+            <State></State>
         </NotifyConfig>
         <CreateTime></CreateTime>
         <UpdateTime></UpdateTime>
@@ -202,7 +203,7 @@ Container 节点 Response 的内容：
 
 #### 请求
 
-```shell
+```plaintext
 PUT /queue/p8eb46b8cc1a94bc09512d16c5c4f4d3a HTTP/1.1
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
 Host:examplebucket-1250000000.ci.ap-beijing.myqcloud.com
@@ -216,14 +217,15 @@ Content-Type: application/xml
     <NotifyConfig>
         <Type></Type>
         <Url></Url>
-        <Event><Event>
+        <Event></Event>
+        <State></State>
     </NotifyConfig>
 </Request>
 ```
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 100
@@ -241,7 +243,8 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
         <NotifyConfig>
             <Type></Type>
             <Url></Url>
-            <Event><Event>
+            <Event></Event>
+            <State></State>
         </NotifyConfig>
         <CreateTime></CreateTime>
         <UpdateTime></UpdateTime>

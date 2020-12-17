@@ -312,7 +312,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| audioRoute | int | 声音播放模式，可设置值：TXLiveConstants#AUDIO_ROUTE_SPEAKER、TXLiveConstants#AUDIO_ROUTE_SPEAKER。 |
+| audioRoute | int | 声音播放模式，可设置值：TXLiveConstants#AUDIO_ROUTE_RECEIVER、TXLiveConstants#AUDIO_ROUTE_SPEAKER。 |
 
 __介绍__
 
@@ -498,6 +498,7 @@ void setVideoRawDataListener(final ITXVideoRawDataListener listener)
 
 >?
 >- 此功能会有一定的性能开销，特别是在高分辨率的情况下。
+>- 调用前需先调用 addVideoRawData 设置数据载体。
 >- 除非您有特殊的需求，否则不建议您开启。
 
 ***

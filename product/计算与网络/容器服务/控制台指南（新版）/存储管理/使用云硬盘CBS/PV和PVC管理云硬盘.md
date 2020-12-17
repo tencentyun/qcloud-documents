@@ -18,21 +18,26 @@
 由于静态创建云硬盘类型的 PV 时，需要绑定同类型可用 StorageClass，请参考 [创建 StorageClass](https://cloud.tencent.com/document/product/457/44239#create) 完成创建。
 
 
-#### 静态创建 PV
+#### 静态创建 PV<span id="pv"></span>
 >? 静态创建 PV 适用于已有存量云盘，并在集群内使用的场景。
 >
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
 2. 选择需创建 PV 的集群 ID，进入该集群详情页面。
 3. 选择左侧菜单栏中的【存储】>【PersistentVolume】，进入 “PersistentVolume” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/f643eb293a3cbb42073218e478ebc6cf.png)
-4. 单击【新建】进入“新建PersistentVolume” 页面，参考以下信息进行创建。如下图所示：
-![](https://main.qcloudimg.com/raw/1a08788dced76ea52cb08d6e559545f1.png)
+4. 选择【新建】进入“新建PersistentVolume” 页面，参考以下信息进行创建。如下图所示：
+![](https://main.qcloudimg.com/raw/82016b390657386de0b204aecac0703f.png)
 主要参数信息如下：
    - **来源设置**：选择【静态创建】。
    - **名称**：自定义，本文以 `cbs-pv` 为例。
    - **Provisioner**：选择【云硬盘CBS】。
    - **读写权限**：云硬盘仅支持单机读写。
    - **StorageClass**：按需选择合适的 StorageClass。本文以选择在 [通过控制台创建 StorageClass](#create) 步骤中创建的 `cbs-test` 为例。
+>?
+>- PVC 和 PV 会绑定在同一个 StorageClass 下。
+>- 不指定意味着该 PV 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
+   - **云盘**：选择已经创建好的云硬盘。
+   - **文件系统**：默认为 ext4。
 5. 单击【创建PersistentVolume】即可完成创建。
 
 
@@ -40,17 +45,24 @@
 #### 创建 PVC<span id="createPVC2"></span>
 1. 在集群详情页，选择左侧菜单栏中的【存储】>【PersistentVolumeClaim】，进入 “PersistentVolumeClaim” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/df6c4f1d31510fdcfa6cf9d914e8f382.png)
-4. 单击【新建】进入 “新建PersistentVolumeClaim” 页面，参考以下信息进行创建。如下图所示：
-![](https://main.qcloudimg.com/raw/296aa5fce1ce2e341990419cc26c66e5.png)
+2. 选择【新建】进入 “新建PersistentVolumeClaim” 页面，参考以下信息进行创建。如下图所示：
+![](https://main.qcloudimg.com/raw/8073733fd2606a48d2af18a863b30ca1.png)
 主要参数信息如下：
    - **名称**：自定义，本文以 `cbs-pvc` 为例。
    - **命名空间**：选择 “default”。
    - **Provisioner**：选择【云硬盘CBS】。
    - **读写权限**：云硬盘只支持单机读写。
    - **StorageClass**：按需选择合适的 StorageClass。本文以选择在 [通过控制台创建 StorageClass](#create) 步骤中创建的 `cbs-test` 为例。
-   - **容量**：根据实际需求进行设置。云硬盘容量最小值由云硬盘产品规格决定，详情请参见 [云硬盘类型](https://cloud.tencent.com/product/cbs/types)。
-6. 单击【创建PersistentVolumeClaim】，即可完成创建。
-> ? 系统在创建 PVC 时，若发现已有 PV 不足，则将自动创建新的 PV。
+>? 
+>- PVC 和 PV 会绑定在同一个 StorageClass 下。
+>- 不指定意味着该 PVC 对应的 StorageClass 取值为空，对应 YAML 文件中的 `storageClassName` 字段取值为空字符串。
+> 
+   - **PersistVolume**：按需指定 PersistentVolume，本文选择以在 [静态创建PV](#pv) 步骤中创建的 `cbs-pv` 为例。
+>? 
+>- 只有与指定的 StorageClass 相同并且状态为 Available 和 Released 的 PV 为可选状态，如果当前集群内没有满足条件的 PV 可选，请选择“不指定”PersistVolume。
+>- 如果选择的 PV 状态为 Released，还需手动删除该 PV 对应 YAML 配置文件中的 `claimRef` 字段，该 PV 才能顺利与 PVC 绑定。详情请参见 [查看 PV 和 PVC 的绑定规则](https://cloud.tencent.com/document/product/457/47014)。
+3. 单击【创建PersistentVolumeClaim】，即可完成创建。
+
 
 #### 创建 Workload 使用 PVC 数据卷
 >?该步骤以创建工作负载 Deployment 为例。

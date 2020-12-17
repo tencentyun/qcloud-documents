@@ -12,7 +12,7 @@ GET Object tagging 接口用于查询指定对象下已有的对象标签。
 
 #### 请求示例
 
-```http
+```plaintext
 GET /<ObjectKey>?tagging&VersionId=VersionId HTTP 1.1
 Host:<BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -55,13 +55,7 @@ Authorization: Auth String
 
 #### 错误码
 
-以下描述此请求可能会发生的一些特殊的且常见的错误情况，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
-
-| 错误码                | 描述                                                     | HTTP 状态码   |
-| --------------------- | -------------------------------------------------------- | ------------- |
-| SignatureDoesNotMatch | 提供的签名不符合规则，返回该错误码                       | 403 Forbidden |
-| NoSuchObject          | 如果对象不存在，则无法读取该对象的对象标签，返回该错误码 | 404 Not Found |
-| NoSuchTagSetError     | 请求的对象未设置对象标签                                 | 404 Not Found |
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -69,7 +63,7 @@ Authorization: Auth String
 
 如下请求申请查询存储桶`examplebucket-1250000000`中的对象`exampleobject.txt`下的标签信息，COS 解析该请求后并返回该存储桶下已有的`{age:18}`和`{name:xiaoming}`两个标签。
 
-```shell
+```plaintext
 GET /exampleobject.txt?tagging HTTP/1.1
 User-Agent: curl/7.29.0
 Accept: */*
@@ -82,7 +76,7 @@ Content-Type: application/xml
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Connection: close

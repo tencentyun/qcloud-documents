@@ -14,7 +14,7 @@ COS 支持为已存在的对象设置标签。PUT Object tagging 接口通过为
 
 #### 请求示例
 
-```http
+```plaintext
 PUT /<ObjectKey>?tagging&VersionId=VersionId HTTP 1.1
 Host:<BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -71,15 +71,7 @@ Authorization: Auth String
 
 #### 错误码
 
-以下描述此请求可能会发生的一些特殊的且常见的错误情况，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
-
-| 错误码                | 描述                                                         | HTTP 状态码     |
-| --------------------- | ------------------------------------------------------------ | --------------- |
-| SignatureDoesNotMatch | 提供的签名不符合规则，返回该错误码                           | 403 Forbidden   |
-| NoSuchObject          | 如果对象不存在，则无法添加对象标签，将返回该错误码           | 404 Not Found   |
-| MalformedXML          | XML 格式不合法，请跟 Restful API 文档仔细比对                | 400 Bad Request |
-| BadRequest            | 超过了一个对象设置标签数量允许的最大值，目前最多支持10个标签 | 400 Bad Request |
-| InvalidTag            | Tag 的 key 和 value 中包含了保留字符串`cos:`或者`Project` | 400 Bad Request |
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -87,7 +79,7 @@ Authorization: Auth String
 
 如下请求向存储桶`examplebucket-1250000000`中的对象`exampleobject.txt`写入了`{age:18}`和`{name:xiaoming}`两个标签。COS 配置标签成功并返回204成功请求。
 
-```shell
+```plaintext
 PUT /exampleobject.txt?tagging HTTP/1.1
 User-Agent: curl/7.29.0
 Accept: */*
@@ -113,7 +105,7 @@ Content-Type: application/xml
 
 #### 响应
 
-```shell
+```plaintext
 HTTP/1.1 204 No Content
 Content-Type: application/xml
 Content-Length: 0

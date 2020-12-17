@@ -621,7 +621,7 @@ __介绍__
 ***
 ### audioProcessDelegate
 
-自定义视频处理回调。
+自定义音频处理回调。
 ```
 @property (nonatomic, weak) id< TXAudioCustomProcessDelegate > audioProcessDelegate
 ```

@@ -42,16 +42,24 @@
  - **网关：**如果您未更改其他设置，则网关为子网网段的首个 IP，如下图中的所属子网网段的首个 IP 即为 `10.0.0.1`。
 ![](https://main.qcloudimg.com/raw/130af7fd24d0c052661bec7679545112.png)
 4. 登录云服务器，具体操作请参见 [使用标准登录方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
-5. 执行如下命令，备份网卡信息。
-```
+5. <span id="step5">执行如下命令，查看网卡信息，如下图所示，本例中主网卡名称为 eth0，具体查询结果以您实际为准。
+   ```plaintext
+   ip address 
+   ```
+![](https://main.qcloudimg.com/raw/a6bbd49ef85aa8f95ccdfcc839ec4383.png)
+6. 执行如下命令，备份网卡信息。
+> 注意：
+> 网卡名称 **ethx** 请替换为[ 第5步 ](#step5)查询到的实际网卡名称。
+> 
+```plaintext
 cp /etc/sysconfig/network-scripts/ifcfg-eth0{,.bak}
 ```
-6. 执行如下命令，打开网卡配置文件。
-```
+7. 执行如下命令，打开网卡配置文件。
+```plaintext
 vim /etc/sysconfig/network-scripts/ifcfg-eth0
 ```
-7. 按 **i** 切换至编辑模式，把配置文件内容修改为：
-```
+8. 按 **i** 切换至编辑模式，把配置文件内容修改为：
+```plaintext
 # Created by cloud-init on instance boot automatically, do not edit.
 #
 # 此处修改为static
@@ -86,13 +94,13 @@ USERCTL=no
 ```
 修改后，示例如下：
 ![](https://main.qcloudimg.com/raw/bbc5a78eab53c430eb3e0edcc04287aa.png)
-8. 完成修改后，按 **Esc**，输入 **:wq!** 并回车，保存配置并返回。
-9. 执行如下命令，重启网络服务。
-```
+9. 完成修改后，按 **Esc**，输入 **:wq!** 并回车，保存配置并返回。
+10. 执行如下命令，重启网络服务。
+```plaintext
 systemctl restart network.service
 ```
-10. 执行如下命令，查看 IP。
-```
+11. 执行如下命令，查看 IP。
+```plaintext
 ip address 
 ```
 ![](https://main.qcloudimg.com/raw/40664f8d1eeae7d3ce3ae94a8e602310.png)
@@ -152,8 +160,8 @@ ipconfig /all
 ![](https://main.qcloudimg.com/raw/f6d04372be9fc71d59725e1d173cc1f3.png)
 
 ### 步骤四：结果验证
-登录其他云服务器，执行 `ping <辅助 IP 外网地址>`命令，若显示以下信息证明绑定成功。
->?若执行命令未得到以下结果，请检查 CVM 安全组配置是否开放 ICMP 协议。
+登录其他云服务器，执行 `ping <辅助 IP 外网地址>`命令，若显示如下信息则证明绑定成功。
+>?若执行命令未得到如下结果，请检查 CVM 安全组配置是否开放 ICMP 协议。
 >
 ![](https://main.qcloudimg.com/raw/b95843022195567bba1ce835c3f41bbf.png)
 

@@ -12,19 +12,19 @@
 
 ### 反面案例一：资源（resource）超范围限定
 
-应用 A 在注册用户上传头像中使用到了 COS，每个注册用户的头像拥有固定的对象键`app/avatar/<Username>.jpg`，同时还会包含头像的不同尺寸，对应的对象键分别为`app/avatar/<Username>_m.jpg`和`app/avatar/<Username>_s.jpg`，后端为了方便使用，在生成临时密钥时直接将 resource 指定为`<BucketName-APPID>/app/avatar/*`，此时恶意用户通过网络抓包等手段获取到生成的临时密钥后，可以覆盖上传任何用户的头像，产生越权访问，用户的合法头像数据被覆盖导致丢失。
+应用 A 在注册用户上传头像中使用到了 COS，每个注册用户的头像拥有固定的对象键`app/avatar/<Username>.jpg`，同时还会包含头像的不同尺寸，对应的对象键分别为`app/avatar/<Username>_m.jpg`和`app/avatar/<Username>_s.jpg`，后端为了方便使用，在生成临时密钥时直接将 resource 指定为`qcs::cos:<Region>:uid/<APPID>:<BucketName-APPID>/app/avatar/*`，此时恶意用户通过网络抓包等手段获取到生成的临时密钥后，可以覆盖上传任何用户的头像，产生越权访问，用户的合法头像数据被覆盖导致丢失。
 
 #### 安全规范
 
-resource 代表临时密钥所允许访问的资源路径，此时需要充分考虑该路径所覆盖的最终用户，原则上 resource 所指定的资源要求仅能被单一用户所使用。此案例中指定的`<BucketName-APPID>/app/avatar/*`显然会覆盖所有用户，因此存在安全漏洞。
+resource 代表临时密钥所允许访问的资源路径，此时需要充分考虑该路径所覆盖的最终用户，原则上 resource 所指定的资源要求仅能被单一用户所使用。此案例中指定的`qcs::cos:<Region>:uid/<APPID>:<BucketName-APPID>/app/avatar/*`显然会覆盖所有用户，因此存在安全漏洞。
 
-在该案例中，可以考虑将用户的头像路径修改为`app/avatar/<Username>/<size>.jpg`，此时可以将 resource 指定为 `<BucketName-APPID>/app/avatar/<Username>/*`来满足规范要求；此外，resource 字段支持以数组的形式传入多个值。因此，您也可以显式指定多个 resource 值来完全限定用户有权限访问的最终资源路径，例如：
+在该案例中，可以考虑将用户的头像路径修改为`app/avatar/<Username>/<size>.jpg`，此时可以将 resource 指定为 `qcs::cos:<Region>:uid/<APPID>:<BucketName-APPID>/app/avatar/<Username>/*`来满足规范要求；此外，resource 字段支持以数组的形式传入多个值。因此，您也可以显式指定多个 resource 值来完全限定用户有权限访问的最终资源路径，例如：
 
 ```json
 "resource": [
-	"<BucketName-APPID>/app/avatar/<Username>.jpg",
-	"<BucketName-APPID>/app/avatar/<Username>_m.jpg",
-	"<BucketName-APPID>/app/avatar/<Username>_s.jpg"
+	"qcs::cos:<Region>:uid/<APPID>:<BucketName-APPID>/app/avatar/<Username>.jpg",
+	"qcs::cos:<Region>:uid/<APPID>:<BucketName-APPID>/app/avatar/<Username>_m.jpg",
+	"qcs::cos:<Region>:uid/<APPID>:<BucketName-APPID>/app/avatar/<Username>_s.jpg"
 ]
 ```
 
@@ -34,9 +34,9 @@ resource 代表临时密钥所允许访问的资源路径，此时需要充分�
 
 #### 安全规范
 
-action 代表临时密钥所允许请求的操作，原则上不允许使用`name/cos:*`等允许所有操作的临时密钥下发至前端，必须明确列出所有需要用到的操作，同时如果各操作所需的资源路径不通，则需要**操作**与**资源**路径单独匹配，而不应合并处理。
+action 代表临时密钥所允许请求的操作，原则上不允许使用`name/cos:*`等允许所有操作的临时密钥下发至前端，必须明确列出所有需要用到的操作，同时如果各操作所需的资源路径不同，则需要**操作**与**资源**路径单独匹配，而不应合并处理。
 
-在该案例中，应当使用`"action": [ "name/cos:GetBucket", "name/cos:GetObject" ]`指明具体的操作。
+在该案例中，应当使用`"action": [ "name/cos:GetBucket", "name/cos:GetObject" ]`指明具体的操作。授权操作指引请参见 [COS API 授权策略使用指引](https://cloud.tencent.com/document/product/436/31923)。
 
 ### 反面案例三：资源与操作超范围限定
 
@@ -56,7 +56,7 @@ action 代表临时密钥所允许请求的操作，原则上不允许使用`nam
 			"name/cos:GetBucket", 
 			"name/cos:GetObject"
 		], 
-		"resource": "<BucketName-APPID>/app/files/*"
+		"resource": "qcs::cos:<Region>:uid/<APPID>:<BucketName-APPID>/app/files/*"
 	},
 	{
 		"effect": "allow", 
@@ -64,7 +64,7 @@ action 代表临时密钥所允许请求的操作，原则上不允许使用`nam
 			"name/cos:PutObject",
 			"name/cos:DeleteObject"
 		],
-		"resource": "<BucketName-APPID>/app/files/<Username>/*"
+		"resource": "qcs::cos:<Region>:uid/<APPID>:<BucketName-APPID>/app/files/<Username>/*"
 	}
 ]
 ```

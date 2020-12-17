@@ -239,7 +239,7 @@ func (r *rpcClient) ProcessReady(logPath []string, clientPort int32, grpcPort in
 
 #### 接口说明
 
-游戏进程通过 [OnStartGameServerSession 接口](OnStartGameServerSession) 收到 GSE 的回调后，需要调用该接口告诉 GSE 来激活对应的 GameServerSession。
+游戏进程通过 [OnStartGameServerSession 接口](#OnStartGameServerSession) 收到 GSE 的回调后，需要调用该接口告诉 GSE 来激活对应的 GameServerSession。
 
 #### 请求消息体：
 
@@ -649,3 +649,4 @@ message GseResponse {
    string errorMessage = 3;
 }
 ```
+

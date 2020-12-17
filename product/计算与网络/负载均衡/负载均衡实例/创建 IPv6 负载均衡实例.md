@@ -1,8 +1,9 @@
 >?
 >- IPv6 负载均衡内测中，如需使用，请提 [工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=163&source=0&data_title=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20LB&step=1)。
->- 支持创建 IPv6 负载均衡的地域包括：北京、上海、广州、南京、上海金融云、深圳金融云、新加坡。
-- IPv6 负载均衡不支持传统型负载均衡
+>- 支持创建 IPv6 负载均衡的地域请参见 [购买指南](https://cloud.tencent.com/document/product/1142/38129)。
+- IPv6 负载均衡不支持传统型负载均衡。
 - IPv6 负载均衡支持获取客户端 IPv6 源地址。四层 IPv6 负载均衡支持直接获取客户端 IPv6 源地址，七层 IPv6 负载均衡支持通过 HTTP 的 X-Forwarded-For 头域获取客户端 IPv6 源地址。
+- 当前 IPv6 负载均衡是纯公网负载均衡，相同 VPC 的客户端无法通过内网访问该 IPv6 负载均衡。
 - 互联网 IPv6 网络大环境还处于建设初期，如出现线路访问不通的情况，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=163&source=0&data_title=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20LB&step=1) 反馈，另外在内测期间，不提供 SLA 保障。
 
 ## 概述
@@ -27,7 +28,7 @@ IPv6 负载均衡的架构如下图所示：
 1. 登录腾讯云官网，进入 [负载均衡购买页](https://buy.cloud.tencent.com/lb)。
 2. 请正确选择如下参数：
  - 计费模式：仅支持按量计费。
- - 地域：北京、上海、广州、上海金融、深圳金融、新加坡。
+ - 地域：选择目标地域。
  - IP 版本：IPv6。
  - 运营商类型：BGP。
  - 网络：请务必选择已获取 IPv6 CIDR 的私有网络和子网。

@@ -1,5 +1,98 @@
+### 2.5.5.70 @ 2020.11.09
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.5.70.zip)
+
+- 新增特性：
+    - 新增文字工具预设文本内容 setNextTextInput
+    - 优化白板缩放工具，支持鼠标滚轮缩放，焦点缩放，按 shift 键缩小交互方式
+    - TEduBoardToolType 新增自定义图形工具
+    - 新增 addElement 接口，支持添加自定义图形的元素
+    - 新增 onTEBAddElement 回调
+    - 新增白板放大后显示滚动条
+- Bug 修复
+    - 修复偶现画笔不消失的 bug
+    
+### 2.5.4.67 @ 2020.10.15
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.4.67.zip)
+
+- 新增工具类型
+    - 新增正圆，正方形工具类，同时支持椭圆工具和矩形工具按 shift 键画正圆和正方形
+- 优化
+    - 优化橡皮擦擦除箭头工具不精确的问题
+- Bug 修复
+    - 修复多端同时移动图片元素不同步的问题
+    - 修复其他已知问题
+
+### 2.5.3.61 @ 2020.08.31
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.3.61.zip)
+
+- 新增回调
+    - 新增视频状态回调 TEDU_BOARD_VIDEO_STATUS_WAITING 和 TEDU_BOARD_VIDEO_STATUS_PLAYING
+- Bug 修复
+    - 修复激光笔各端显示比例不一致问题
+    - 修复白板操作在移动端偶现延迟问题
+    - 修复涂鸦到白板外笔迹微变问题
+- 优化
+    - 桌面端画笔使用时持续展示
+    - 视频多次播放失败后回调 ERROR 状态
+    - 日志上报相关优化
+    
+### 2.5.2.49 @ 2020.08.18
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.2.49.zip)
+- WebView 版本更新
+    -Android 10及以上版本强制使用系统 WebView
+
+### 2.5.2.48 @ 2020.08.07
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.2.48.zip)
+
+- 新增回调
+    - 新增 H5PPT 状态回调 onTEBH5PPTStatusChanged
+    
+### 2.5.1.47 @ 2020.07.23
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.1.47.zip)
+
+- 功能支持
+    - 图片元素支持任意角度旋转和八个方向的缩放
+- 接口优化
+    - 调用 deleteFile 接口删除非当前文件，则不跳转至默认文件 #DEFAULT
+- bug fix
+    - 修复文字工具在某些输入法下输入过程中，看不见已输入的文字问题
+    - 修复移动端文字工具在白板边界位置点击，键盘会闪一下的问题
+- 接口变更
+    - addTranscodeFile 增加参数 needSwitch，表示添加文件后是否切换到该文件
+    
+### 2.5.0.46 @ 2020.07.2
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.0.46.zip)
+
+- 功能变更
+    - addVideoFile/addTranscodeFile/addImagesFile 添加已存在文件，返回该文件 ID
+    - 统一各个平台视频播放控制栏的界面
+- 功能支持
+    - 支持 PPT 超链接点击同步功能
+- bug fix
+    - 修复在部分 Android 手机点击点播视频无法显示视频控制栏问题
+    - 修复涂鸦过程中擦除涂鸦导致涂鸦不同步问题
+    - 修复视频文件在特定场景下新增多余白板问题
+- 性能优化
+
+### 2.4.9.32 @ 2020.06.10
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.4.9.32.zip)
+
+- 新增接口
+    - 新增白板同步和刷新接口 syncAndReload
+    - 新增白板快照接口 snapshot
+- 新增回调
+    - 新增 onTEBSnapshot 回调
+- 新增错误码
+    - TEDU_BOARD_ERROR_PATH_INVALID  路径非法
+    - TEDU_BOARD_ERROR_WRITE_ERROR 文件写入错误
+- BUG 修复
+    - 修复视频频繁操作导致权限错乱问题
+    - 解决文字工具在底部点击输入无效问题
+    - 修复清空偶现残留问题
+
+
 ### 2.4.8.31 @ 2020.05.21
-* [点击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.4.8.31.zip)
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.4.8.31.zip)
 
 - 新增接口
     - 新增 refresh 接口刷新当前白板

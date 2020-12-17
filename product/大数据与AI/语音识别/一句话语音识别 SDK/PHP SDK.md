@@ -13,7 +13,7 @@
 
 ```
 <?php
-require_once './tencentcloud-sdk-php/TCloudAutoLoader.php';
+require_once './tencentcloud-sdk-php/TCloudAutoLoader.php';  
 use TencentCloud\Common\Credential;
 use TencentCloud\Common\Profile\ClientProfile;
 use TencentCloud\Common\Profile\HttpProfile;
@@ -35,7 +35,7 @@ try {
 
     $req = new SentenceRecognitionRequest();
     
-    $params = '{"ProjectId":0,"SubServiceType":2,"EngSerViceType":"16k","SourceType":0,"Url":"https://ruskin-1256085166.cos.ap-guangzhou.myqcloud.com/test.wav","VoiceFormat":"wav","UsrAudioKey":"session-123"}';
+    $params = '{"ProjectId":0,"SubServiceType":2,"EngSerViceType":"16k_zh","SourceType":0,"Url":"https://asr-audio-1300466766.cos.ap-nanjing.myqcloud.com/test16k.wav","VoiceFormat":"wav","UsrAudioKey":"session-123"}';
     $req->fromJsonString($params);
 
 
@@ -75,7 +75,7 @@ try {
 
     $req = new SentenceRecognitionRequest();
     
-    $params = '{"ProjectId":0,"SubServiceType":2,"EngSerViceType":"16k","SourceType":1,"Url":"","VoiceFormat":"wav","UsrAudioKey":"session-123"}';
+    $params = '{"ProjectId":0,"SubServiceType":2,"EngSerViceType":"16k_zh","SourceType":1,"Url":"","VoiceFormat":"wav","UsrAudioKey":"session-123"}';
     $req->fromJsonString($params);
     $data = file_get_contents('./test.wav');
     $encodeData = base64_encode($data);

@@ -385,3 +385,4 @@ UPPER ( string )
 ```shell
 UPPER('tenCENT') -- 'TENCENT'
 ```
+

@@ -63,3 +63,4 @@
 5. 进入 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=8&ns=default)，查看执行结果。选择【函数服务】>【函数】>【运行日志】，即可看到打印出的日志信息。
 <img src="https://main.qcloudimg.com/raw/182ece876081d5c77ec6615e061faee6.png" width="93%">
 
+

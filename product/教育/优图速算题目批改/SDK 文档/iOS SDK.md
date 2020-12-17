@@ -1,6 +1,6 @@
 ## 概述
 数学作业批改（Homework Correction-Math，HCM）是腾讯云推出的速算题目智能批改产品。在过去，速算作业的批改需要教师做基础性、重复性的工作，消耗大量的时间；腾讯云针对此场景推出数学作业批改服务，支持各种数学公式和符号识别，能识别竖式、分式、脱式以及四则运算多种题型。
-TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，用户可以快速接入相关产品功能，如数学作业批改、智聆口语评测等。
+TAISDK 是一款封装了腾讯云教育 AI 能力的 SDK，通过集成 SDK，用户可以快速接入相关产品功能，如数学作业批改、智聆口语评测等。  
 
 ## 前提条件
 **获取密钥**：SecretId 和 SecretKey 是使用 SDK 的安全凭证，您可以在【[访问管理](https://console.cloud.tencent.com/cam/overview)】>【云 API 密钥】>【[API 密钥管理](https://console.cloud.tencent.com/cam/capi)】中获取该凭证。

@@ -6,7 +6,7 @@
 
 ## ORDER BY 语法格式
 
-```sql
+```plaintext
 ORDER BY  列名（KEY） [ DESC | ASC ]
 ```
 
@@ -14,6 +14,6 @@ ORDER BY  列名（KEY） [ DESC | ASC ]
 
 统计不同访问状态并降序排列：
 
-```sql
-SELECT status, COUNT(status) AS c GROUP BY status ORDER BY c DESC
+```plaintext
+* | SELECT status, COUNT(status) AS c GROUP BY status ORDER BY c DESC
 ```

@@ -169,6 +169,8 @@ _txLivePlayer.recordDelegate = recordListener;
                               5815_62fe94d692ab11e791eae435c87f075e_900.flv"];
 ```
 
+>? 清晰度无缝切换功能需要在后台配置 PTS 对齐，如您需要可 [提交工单](https://console.cloud.tencent.com/workorder) 申请使用。
+
 
 ### step 11： 直播回看
 时移功能是腾讯云推出的特色能力，可以在直播过程中，随时回退到任意直播历史时间点观看，并能在此时间点一直观看直播。非常适合游戏、球赛等互动性不高，但观看连续性较强的场景。
@@ -189,7 +191,7 @@ _txLivePlayer.recordDelegate = recordListener;
 1. 录制：配置时移时长、时移储存时长。
 2. 播放：时移获取元数据。
 
-时移功能处于公测申请阶段，如您需要可 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请使用。
+>? 时移功能处于公测申请阶段，如您需要可 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请使用。
 
 <h2 id="Delay">延时调节</h2>
 腾讯云 SDK 的直播播放（LVB）功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场，游戏以及混合场景。
@@ -239,7 +241,7 @@ bizid 的获取需要进入 [域名管理](https://console.cloud.tencent.com/liv
 则加速流地址为：
 `rtmp://domain/live/test?txTime=5c2acacc&txSecret=b77e812107e1d8b8f247885a46e1bd34&bizid=2157`。
 
->? 防盗链计算默认使用推流防盗链 Key，如果有自定义播放防盗链 Key 则需要使用播放防盗链 Key。
+>? 防盗链计算默认使用推流防盗链 Key。
 
 - **播放类型需要指定 ACC**
 在调用 startPlay 函数时，需要指定 type 为 **PLAY_TYPE_LIVE_RTMP_ACC**，SDK 会使用 RTMP-UDP 协议拉取直播流。

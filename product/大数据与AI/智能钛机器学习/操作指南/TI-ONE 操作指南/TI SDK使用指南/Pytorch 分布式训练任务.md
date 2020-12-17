@@ -4,7 +4,7 @@
 ## 使用 Horovod 训练
 Horovod 是一个基于 MPI 的分布式训练框架，容器内设置 MPI 环境并执行 mpirun 命令，可以运行任何 Horovod 训练脚本。
 
-在 Estimator 中使用`distributions`表示这是一个分布式训练任务，支持的 mpi 参数有：
+在 Estimator 中使用`distributions`表示这是一个分布式训练任务，支持的 mpi 参数有：  
 - `enabled (bool)`：如果设置为 True，则设置 MPI 并执行 mpirun 命令。
 - `processes_per_host (int)`：MPI 应在每台实例上启动的进程数。请注意，这个值需不大于实例上的 GPU 卡数。
 - `custom_mpi_options (str)`：可以在此字段中传递任何 mpirun 支持的参数选项，TI 执行的 mpirun 时会附带此参数，以启动分布式 horovod 训练。

@@ -7,16 +7,10 @@
 
 ## 操作步骤
 ### 通过官方基础镜像创建云服务器
-1. 进入 [云服务器购买页](https://buy.cloud.tencent.com/cvm)。
-2. 选择【镜像市场】>【从镜像市场选择】。如下图所示：
-弹出“选择镜像”窗口。
-![](https://main.qcloudimg.com/raw/bd6bbe11ae49f5a398612d495422086f.png)
-3. 在“选择镜像”窗口的左侧搜索框中，输入批量计算并单击<image src="https://main.qcloudimg.com/raw/124eb3377f07070061fa6cd419f49abf.png" stylee="margin:-3px 0;"/>。如下图所示：
->?单击镜像名可查看镜像详情，您也可以前往 [云市场](https://market.cloud.tencent.com/products/5310) 查看。
->
-![](https://main.qcloudimg.com/raw/bc50a4cdb9d4598c3bef56add3f0dfea.png)
-4. 单击【免费使用】。
-5. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成云服务器的购买。
+1. 前往云市场，进入 [批量计算 Windows Server 2012 R2（64位中文）基础镜像](https://market.cloud.tencent.com/products/5310) 页面。
+2. 单击【免费使用】，进入云服务器购买页面。
+3. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成云服务器的购买。
+
 
 
 ### 在云服务器上安装业务需要的软件

@@ -1,3 +1,4 @@
+
 ## jsonb_each() 将 json 对象转变键和值
 ```
 postgres=# select  f_jsonb  from t_jsonb where id=1;

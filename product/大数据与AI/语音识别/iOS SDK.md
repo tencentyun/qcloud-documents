@@ -80,7 +80,7 @@ iOS SDK 接入请观看视频：
 ```objective-c
 - (void)recognizeWithUrl {
 //语音数据url
-NSString *url = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
+NSString *url = @"https://asr-audio-1256237915.cos.ap-shanghai.myqcloud.com/30s.wav";
   //指定语音数据url 语音数据格式 采样率
   [_recognizer recoginizeWithUrl:url voiceFormat:kQCloudVoiceFormatWAV frequence:kQCloudEngSerViceType16k];
 }
@@ -102,10 +102,10 @@ NSString *url = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
 
 ```objective-c
 - (void)recognizeWithParams {
-   NSString *url = @"http://liqiansunvoice-1255628450.cosgz.myqcloud.com/30s.wav";
+   NSString *url = @"https://asr-audio-1256237915.cos.ap-shanghai.myqcloud.com/30s.wav";
    //获取一个已设置默认参数params
    QCloudOneSentenceRecognitionParams *params = [_recognizer defaultRecognitionParams];    
-   //通过语音url请求, 此4个参数必须设置
+   //通过语音 url 请求, 此4个参数必须设置
    params.url = url;                           
    //设置语音频数据格式，见kQCloudVoiceFormat定义
    params.voiceFormat = kQCloudVoiceFormatWAV;
@@ -140,9 +140,9 @@ QCloudSentenceRecognizer 是一句话识别入口类，提供两种初始化方�
 - (instancetype)initWithConfig:(QCloudConfig *)config;
 /**
  * 通过 appId secretId secretKey 初始化
- * @param appid     腾讯云appId        
- * @param secretId  腾讯云secretId     
- * @param secretKey 腾讯云secretKey    
+ * @param appid     腾讯云 appId        
+ * @param secretId  腾讯云 secretId     
+ * @param secretKey 腾讯云 secretKey    
  */
 - (instancetype)initWithAppId:(NSString *)appid secretId:(NSString *)secretId secretKey:(NSString *)secretKey;
 ```
@@ -154,10 +154,10 @@ QCloudSentenceRecognizer 是一句话识别入口类，提供两种初始化方�
 ```objective-c
 /**
  * 初始化方法
- * @param appid     腾讯云appId 
- * @param secretId  腾讯云secretId
- * @param secretKey 腾讯云secretKey
- * @param projectId 腾讯云projectId
+ * @param appid     腾讯云 appId 
+ * @param secretId  腾讯云 secretId
+ * @param secretKey 腾讯云 secretKey
+ * @param projectId 腾讯云 projectId
  */
 - (instancetype)initWithAppId:(NSString *)appid
                      secretId:(NSString *)secretId

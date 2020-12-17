@@ -59,7 +59,7 @@ bootmenupolicy          Standard
 ![image](https://main.qcloudimg.com/raw/de738e8549cb0f090f53038104ae3428.jpg
 )
  - 若没有安装 Virtio 驱动，则需要手动安装。
-    - Microsoft Windows Server 2012 R2（标准版），请下载：[腾讯云定制版 Virtio](http://windowsvirtio-10016717.file.myqcloud.com/InstallQCloud.exe?_ga=1.44298212.1367540472.1504757536)。
+    - Microsoft Windows Server 2008 R2（标准版、数据中心版、企业版)，Microsoft Windows Server 2012 R2（标准版），请下载：[腾讯云定制版 Virtio](http://windowsvirtio-10016717.file.myqcloud.com/InstallQCloud.exe?_ga=1.44298212.1367540472.1504757536)。
     - 其它系统版本，请下载 [社区版本 virtio](https://www.linux-kvm.org/page/WindowsGuestDrivers/Download_Drivers)。
 
 #### 检查其它硬件相关的配置
@@ -90,7 +90,7 @@ bootmenupolicy          Standard
 [点此下载 disk2vhd 工具 >>](https://download.sysinternals.com/files/Disk2vhd.zip)
 3. 选择需要导出的镜像存放路径，勾选需要复制的卷，单击【Create】。如下图所示：
 >! 
-> - disk2vhd 需要 Windows 预装 VSS（卷影拷贝服务）功能后才能运行。
+> - disk2vhd 需要 Windows 预装 VSS（卷影拷贝服务）功能后才能运行。关于 VSS 功能的更多信息请参见 [Volume Shadow Copy Service](https://docs.microsoft.com/zh-cn/windows/win32/vss/volume-shadow-copy-service-portal?redirectedfrom=MSDN)。
 > - 请勿勾选 “Use Vhdx”，目前系统不支持 vhdx 格式的镜像。
 > - 建议勾选 “Use volume Shadow Copy”，使用卷影复制功能，将能更好地保证数据完整性。
 > 

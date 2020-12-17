@@ -1,5 +1,5 @@
 ## 概述
-Hugo 是一个用 Go 编写的静态站点生成器，由于具有丰富的主题资源和有比较丰富的主题资源和较好的生成速度。
+Hugo 是一款用 Go 编写的静态站点生成器，具有丰富的主题资源。
 云开发（CloudBase）是一款云端一体化的产品方案，采用 serverless 架构，免环境搭建等运维事务，支持一云多端，助力快速构建小程序、Web应用、移动应用。
 云开发静态网站托管支持通过云开发SDK调用服务端资源如：云函数、云存储、云数据库等，从而将静态网站扩展为全栈网站
 无论是腾讯云·云开发用户，还是小程序·云开发用户，只要开通按量付费，即可享有云开发静态网站托管服务。
@@ -7,13 +7,13 @@ Hugo 是一个用 Go 编写的静态站点生成器，由于具有丰富的主�
 
 ## 操作步骤 
 ### 步骤1：安装 Hugo
-1. 我们需要先安装 hugo：
+1. 我们需要先安装 Hugo：
 ```
 brew install hugo
 ```
 >? Windows 的用户可以去 Hugo 的 githubc 仓库上下载安装 hugo 的可执行程序进行安装，具体安装流程请参阅 [Hugo官方操作文档](https://www.gohugo.org/doc/tutorials/installing-on-windows/)。
 
-2. 用 hugo 创建一个 blog 项目：
+2. 用 Hugo 创建一个 blog 项目：
 ```
 hugo new site hugo-demo && cd hugo-demo
 ```
@@ -62,7 +62,7 @@ hugo -D
 └── index.xml
 ```
 
-7. 如果您不喜欢 hugo 站点的默认主题样式的话，可以自行在 github 上找到开源的 hugo 主题，并放置到您的 hugo 项目中，例如：
+7. 如果您不喜欢 Hugo 站点的默认主题样式的话，可以自行在 github 上找到开源的 Hugo 主题，并放置到您的 Hugo 项目中，例如：
 ```
 git clone https://github.com/olOwOlo/hugo-theme-even themes/even
 ```
@@ -94,5 +94,5 @@ cloudbase hosting:deploy ./public  -e EnvID
 这里的 EnvID 替换为刚创建好的环境 ID。
 ![](https://main.qcloudimg.com/raw/e81c2cfea537c6a20730495c1a2c5d57.png)
 
-7. 打开腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击左侧菜单栏中的【静态网站托管】>【设置】，进入设置页面，可以找到默认的域名，单击域名，就可以看到您刚部署的 Hexo。
+7. 打开腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击左侧菜单栏中的【静态网站托管】>【设置】，进入设置页面，可以找到默认的域名，单击域名，就可以看到您刚部署的 Hugo。
 ![](https://main.qcloudimg.com/raw/439da24bfa3827fb41b8305c2ac1a5ae.png)

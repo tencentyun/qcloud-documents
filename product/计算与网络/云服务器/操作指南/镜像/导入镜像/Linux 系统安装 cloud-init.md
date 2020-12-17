@@ -46,6 +46,7 @@ yum install python-pip -y
 ```
 apt-get install python-pip -y
 ```
+若在安装时，出现无法安装或找不到安装包的错误，可参考 [解决无法安装 Python-pip 问题](#updateSoftware) 进行处理。
 4. 执行以下命令，安装依赖包。
 >!  Cloud-init 依赖组件 requests 2.20.0版本后，已弃用 Python2.6。如果镜像环境的 Python 解释器为 Python2.6及以下，在安装 cloud-init 依赖包之前，请执行 `pip install 'requests<2.20.0'` 命令，安装 requests 2.20.0 版本以下的版本。
 >
@@ -225,8 +226,25 @@ cd greeninit
 sh install.sh 
 ```
 
-
-
-
+### 解决无法安装 Python-pip 问题<span id="updateSoftware"></span>
+若在安装 Python-pip 出现无此安装包或无法安装的错误，可对应实际使用的操作系统，参考以下步骤进行解决：
+- CentOS 6/7系列：
+  1. 执行以下命令，设置 EPEL 存储库。
+```
+yum install epel-release -y
+```
+  2. 执行以下命令，安装 Python-pip。
+```
+yum install python-pip -y
+```
+- Ubuntu 系列：
+  1. 执行以下命令，更新软件包列表。
+```
+apt-get update -y
+```
+  2. 执行以下命令，安装 Python-pip。
+```
+apt-get install python-pip -y
+```
 
 

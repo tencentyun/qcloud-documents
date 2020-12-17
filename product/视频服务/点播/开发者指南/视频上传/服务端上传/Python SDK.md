@@ -147,6 +147,44 @@ except Exception as err:
     print(err)
 ```
 
+### 使用临时证书上传
+传入临时证书的相关密钥信息，使用临时证书验证身份并进行上传。
+```
+from qcloud_vod.vod_upload_client import VodUploadClient
+from qcloud_vod.model import VodUploadRequest
+
+client = VodUploadClient("Credentials TmpSecretId", "Credentials TmpSecretKey", "Credentials Token")
+request = VodUploadRequest()
+request.MediaFilePath = "/data/file/Wildlife.mp4"
+try:
+    response = client.upload("ap-guangzhou", request)
+    print(response.FileId)
+    print(response.MediaUrl)
+except Exception as err:
+    // 处理业务异常
+    print(err)
+```
+
+### 自适应码流文件上传
+
+本 SDK 支持上传的自适应码流格式包括 HLS 和 DASH，同时要求 manifest（M3U8 或 MPD）所引用的媒体文件必须为相对路径（即不可以是 URL 和绝对路径），且位于 manifest 的同级目录或者下级目录（即不可以使用`../`）。在调用 SDK 上传接口时，`MediaFilePath`参数填写 manifest 路径，SDK 会解析出相关的媒体文件列表一并上传。
+
+```
+from qcloud_vod.vod_upload_client import VodUploadClient
+from qcloud_vod.model import VodUploadRequest
+
+client = VodUploadClient("your secretId", "your secretKey")
+request = VodUploadRequest()
+request.MediaFilePath = "/data/file/prog_index.mp4"
+try:
+    response = client.upload("ap-guangzhou", request)
+    print(response.FileId)
+    print(response.MediaUrl)
+except Exception as err:
+    // 处理业务异常
+    print(err)
+```
+
 ## 接口描述
 上传客户端类`VodUploadClient`：
 

@@ -25,7 +25,7 @@
 ![](https://main.qcloudimg.com/raw/4b5735b3ef4ecbe9a0d131927112d4ba.png)
 3. 在“网络信息”栏，查看实例是否配置了公网 IP。
  - 是，请 [检查安全组设置](#CheckSecurityGroupSetting)。
- - 否，请 [绑定弹性公网 IP](https://cloud.tencent.com/document/product/213/16586#.E5.BC.B9.E6.80.A7.E5.85.AC.E7.BD.91-ip-.E7.BB.91.E5.AE.9A.E4.BA.91.E4.BA.A7.E5.93.81)。
+ - 否，请 [EIP 绑定云资源](https://cloud.tencent.com/document/product/1199/41702)。
 
 <span id="CheckSecurityGroupSetting"></span>
 ### 检查安全组设置

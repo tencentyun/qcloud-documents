@@ -1,4 +1,4 @@
-## 录制添加 BGM
+## 录制添加 BGM 
 ```objc
 //获取 recorder 对象
 TXUGCRecord *recorder =  [TXUGCRecord shareInstance]；

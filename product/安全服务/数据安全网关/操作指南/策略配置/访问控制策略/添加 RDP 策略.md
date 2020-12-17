@@ -14,6 +14,6 @@
  - **下行剪切板**：对下行进行文件剪切控制。
  - **上行拷贝**：对上行进行文件拷贝控制。
  - **下行拷贝**：对下行进行文件拷贝控制。
-![](https://main.qcloudimg.com/raw/9663f64a2ccce47fa6be76ca88bd9743.png)
+![](https://main.qcloudimg.com/raw/df34604924a9632ebb713dbdb98fc6b2.png)
 4. 确认配置信息无误后，单击【保存】，即可添加图形访问控制台策略。
 

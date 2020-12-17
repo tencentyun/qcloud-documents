@@ -15,14 +15,15 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 - 已在访问管理控制台 >【[API密钥管理](https://console.cloud.tencent.com/cam/capi)】页面获取 SecretID 和 SecretKey。
  - SecretID 用于标识 API 调用者的身份。
  - SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥，**SecretKey 需妥善保管，避免泄露**。
-- 已获取调用地址（endpoint），短信的调用地址为`sms.tencentcloudapi.com`。
+- 短信的调用地址为`sms.tencentcloudapi.com`。
 
 ## 相关资料
 - 各个接口及其参数的详细介绍请参见 [API 文档](https://cloud.tencent.com/document/product/382/38764)。
 - 下载 SDK 源码请访问 [PHP SDK 源码](https://github.com/TencentCloud/tencentcloud-sdk-php)。
 
 ## 安装 SDK
-### 通过 Composer 安装（推荐）
+
+
 [Composer](https://www.phpcomposer.com) 是 PHP 的依赖管理工具，支持您项目所需的依赖项，并将其安装到项目中。
 1. 安装 Composer。
  - Windows 环境：请访问 [Composer 官网](https://getcomposer.org/download/) 下载安装包并进行安装。
@@ -30,29 +31,15 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 ```
 curl -sS https://getcomposer.org/installer | php
 ```
-2. 在 composer.json 的 require 结构体中加入依赖。
->!**以下版本号仅为示例，请替换成 Composer 仓库上查看到最新的版本号。**
+2. 添加依赖。
+```
+composer require tencentcloud/tencentcloud-sdk-php
+```
+3. 在代码中添加以下引用代码。
+>!本文仅为示例，composer 会在项目根目录下生成 vendor 目录，`/path/to/`为项目根目录的实际绝对路径，如果是在项目根目录执行，可以省略绝对路径。
 >
 ```
-"tencentcloud/tencentcloud-sdk-php": "3.0.*"
-```
-3. 运行 composer install 下载安装 PHP SDK。
-4. 添加以下引用代码，引用方法可参考 [示例代码](#example)。
-```
-require 'vendor/autoload.php';
-```
-
-### 通过源码包安装
-1. 下载源码压缩包：
- - 方法一：通过 git clone 下载源码。
- ```
-git clone https://github.com/tencentcloud/tencentcloud-sdk-php
-```
- - 方法二：访问 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-php/tencentcloud-sdk-php.zip) 下载源码压缩包。
-2. 解压源码包到您项目合适的位置。
-3. 添加以下引用代码，引用方法可参考 [示例代码](#example)。
-```
-require_once '../TCloudAutoLoader.php';
+require '/path/to/vendor/autoload.php';
 ```
 
 <span id="example"></span>
@@ -82,7 +69,8 @@ try {
 	 * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
 	 * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
 	 * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
-	 * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi */
+	 * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi
+	 */
     
 		$cred = new Credential("xxx", "xxx");
     //$cred = new Credential(getenv("TENCENTCLOUD_SECRET_ID"), getenv("TENCENTCLOUD_SECRET_KEY"));
@@ -109,7 +97,8 @@ try {
      * 基本类型的设置:
 	   * 帮助链接：
 	   * 短信控制台：https://console.cloud.tencent.com/smsv2
-  	   * sms helper：https://cloud.tencent.com/document/product/382/3773 */
+  	 * sms helper：https://cloud.tencent.com/document/product/382/3773
+  	*/
 	
 	/* 模板名称 */
 	$req->TemplateName = "腾讯云";
@@ -158,7 +147,8 @@ try {
      * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
      * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
      * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
-     * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi */
+     * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi
+     */
 
     $cred = new Credential("xxx", "xxx");
     //$cred = new Credential(getenv("TENCENTCLOUD_SECRET_ID"), getenv("TENCENTCLOUD_SECRET_KEY"));
@@ -241,7 +231,8 @@ try {
      * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
      * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
      * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
-     * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi */
+     * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi
+     */
 
     $cred = new Credential("xxx", "xxx");
     //$cred = new Credential(getenv("TENCENTCLOUD_SECRET_ID"), getenv("TENCENTCLOUD_SECRET_KEY"));
@@ -311,7 +302,8 @@ try {
      * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
      * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
      * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
-     * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi */
+     * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi
+     */
 
     $cred = new Credential("xxx", "xxx");
     //$cred = new Credential(getenv("TENCENTCLOUD_SECRET_ID"), getenv("TENCENTCLOUD_SECRET_KEY"));
@@ -365,3 +357,33 @@ catch(TencentCloudSDKException $e) {
     echo $e;
 }
 ```
+
+## <span id="point">常见问题</span>
+### 代理
+在有代理的环境下，需要设置系统环境变量`https_proxy`，否则可能无法正常调用，抛出连接超时的异常。
+或使用 GuzzleHttp 代理配置：
+```php
+$cred = new Credential("secretId", "secretKey");
+
+$httpProfile = new HttpProfile();
+$httpProfile->setProxy('https://ip:port');
+
+$clientProfile = new ClientProfile();
+$clientProfile->setHttpProfile($httpProfile);
+
+$client = new OcrClient($cred, 'ap-beijing', $this->clientProfile);
+```
+
+### 证书问题
+如果 PHP 环境证书有问题，遇到类似`cURL error 60: See http://curl.haxx.se/libcurl/c/libcurl-errors.html`报错，请尝试参照以下步骤解决：
+1. 下载证书文件 [cacert.pem](https://curl.haxx.se/ca/cacert.pem)，将其保存到 PHP 安装路径下。
+2. 编辑`php.ini`文件，删除`curl.cainfo`配置项前的分号注释符（;），值设置为保存的证书文件`cacert.pem`的绝对路径。
+3. 重启依赖 PHP 的服务。
+
+### php_curl 扩展
+SDK 依赖的 GuzzleHttp 需要开启 php_curl 扩展，查看环境上的`php.ini`环境确认是否已启用。
+例如，在 Linux 环境下，PHP 7.1 版本，托管在 apache 下的服务，可以打开`/etc/php/7.1/apache2/php.ini`中查看`extension=php_curl.dll`配置项是否被注释，请删除该项配置前的注释符并重启 apache。
+
+### Web 访问异常
+命令行下执行正常，但是放在 Web 服务器执行则报错：cURL error 0: The cURL request was retried 3 times and did not succeed. The most likely reason for the failure is that cURL was unable to rewind the body of the request and subsequent retries resulted in the same error. Turn on the debug option to see what went wrong. See https://bugs.php.net/bug.php?id=47204 for more information. (see http://curl.haxx.se/libcurl/c/libcurl-errors.html)。
+此问题出现情况不一，可以运行 `php -r "echo sys_get_temp_dir();"` 打印系统默认临时目录绝对路径，然后在`php.ini`配置`sys_temp_dir`为打印出的路径，尝试是否能解决。

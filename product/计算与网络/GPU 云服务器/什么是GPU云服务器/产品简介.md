@@ -14,10 +14,10 @@ GPU 云服务器 与自建 GPU 服务器对比：
 			<div>优势</div>
 			</th>
 			<th class="stress-item">
-			<div class="gradient ">GPU云服务器</div>
+			<div class="gradient ">GPU 云服务器</div>
 			</th>
 			<th>
-			<div>自建GPU服务器</div>
+			<div>自建 GPU 服务器</div>
 			</th>
 		</tr>
 	</thead>

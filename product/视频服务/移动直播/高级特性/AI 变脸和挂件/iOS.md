@@ -1,7 +1,8 @@
 ## 功能说明
 
 腾讯云直播团队与优图实验室、天天 P 图团队进行深度合作，结合**人脸识别技术与美妆技术**，开发了**大眼、瘦脸、瘦鼻、动效贴纸、AI 抠背以及绿幕**等特效功能，并整合到 LiteAVSDK 的图像处理流程中，以实现更好的视频效果。
-![](https://main.qcloudimg.com/raw/6fa6d2c76e389ddaaf2540f547061b90.jpg)
+![](https://main.qcloudimg.com/raw/1613dd785de77cd782d3f3353d280a7e.jpg)
+
 
 ## 接入准备
 
@@ -262,7 +263,7 @@ Metal.framework
 ### 绿幕功能
 
 如果要使用绿幕功能，需要先让主播站在一个绿色背景前。开启绿幕功能以后，SDK 会识别出图像中的绿色区域，并将其替换成视频内容。
-![](https://main.qcloudimg.com/raw/f1b345135deb4c01ed2a691958ce34f2.jpg)
+![](https://main.qcloudimg.com/raw/8a5038bcd30151d6a7224a8450d1525a.png)
 您需要先准备一个用于播放的 mp4 文件，然后通过调用如下接口即可开启绿幕效果：
 
 ```objective-c

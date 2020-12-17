@@ -22,3 +22,4 @@ public long setPictureTransition(int type)
 - setPictureTransition 接口用于设置转场的效果，目前提供了6种转场效果供用户设置，每种转场效果持续的时长可能不一样，这里可以通过返回值获取转场的时长。
 - 需要注意接口调用顺序，先调用 setPictureList，再调用 setPictureTransition。
 - 图片编辑暂不支持的功能：重复、倒放、快速/慢速。其他视频相关的编辑功能，图片编辑均支持，调用方法和视频编辑完全一样。
+ 

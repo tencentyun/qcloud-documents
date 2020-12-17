@@ -77,3 +77,4 @@ log_format
 | 19   | err_msg    | 错误信息                                                     |
 | 20   | tcp_rtt    | 客户端 TCP 连接信息，RTT（Round Trip Time）由三部分组成：链路的传播时间（propagation delay）、末端系统的处理时间、路由器缓存中的排队和处理时间（queuing delay） |
 
+

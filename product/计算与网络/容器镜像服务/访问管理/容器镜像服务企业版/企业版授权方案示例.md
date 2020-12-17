@@ -75,7 +75,7 @@
 				"tcr:*"
 			],
 			"resource": [
-				"qcs::tcr:*:*:instance/ins-xxxxxxxx/*"
+				"qcs::tcr:::instance/ins-xxxxxxxx/*"
 			],
 			"effect": "allow"
 		}]
@@ -90,7 +90,7 @@
 					"tcr:*"
 				],
 				"resource": [
-					"qcs::tcr:*:*:repository/ins-xxxxxxxx/team-01/*"
+					"qcs::tcr:::repository/ins-xxxxxxxx/team-01/*"
 				],
 				"effect": "allow"
 			},
@@ -100,7 +100,7 @@
 					"tcr:DescribeInstanceStatus"
 				],
 				"resource": [
-					"qcs::tcr:*:*:repository/ins-xxxxxxxx/*"
+					"qcs::tcr:::repository/ins-xxxxxxxx/*"
 				],
 				"effect": "allow"
 			}
@@ -117,7 +117,7 @@
 					"tcr:PullRepository"
 				],
 				"resource": [
-					"qcs::tcr:*:*:repository/ins-xxxxxxxx/team-01/repo-demo/*"
+					"qcs::tcr:::repository/ins-xxxxxxxx/team-01/repo-demo/*"
 				],
 				"effect": "allow"
 			},
@@ -128,7 +128,7 @@
 					"tcr:DescribeNamespace"
 				],
 				"resource": [
-					"qcs::tcr:*:*:repository/ins-xxxxxxxx/*"
+					"qcs::tcr:::repository/ins-xxxxxxxx/*"
 				],
 				"effect": "allow"
 			}

@@ -10,18 +10,18 @@ Load Balancer Controlling Framework（LBCF）是一款部署在 Kubernetes 内�
 
 | Kubernetes 对象名称                                 | 类型                             | 默认占用资源 | 所属 Namespaces |
 | ---------------------------------------------- | ------------------------------ | ------ | ------------ |
-| lbcf-controller                                | Deployment                     | /      | kube-system  |
-| lbcf-controller                                | ServiceAccount                 | /      | kube-system  |
-| lbcf-controller                                | ClusterRole                    | /      | /            |
-| lbcf-controller                                | ClusterRoleBinding             | /      | /            |
-| lbcf-controller                                | Secret                         | /      | kube-system  |
-| lbcf-controller                                | Service                        | /      | kube-system  |
-| backendrecords.lbcf.tke.cloud.tencent.com      | CustomResourceDefinition       | /      | /            |
-| backendgroups.lbcf.tke.cloud.tencent.com       | CustomResourceDefinition       | /      | /            |
-| loadbalancers.lbcf.tke.cloud.tencent.com       | CustomResourceDefinition       | /      | /            |
-| loadbalancerdrivers.lbcf.tke.cloud.tencent.com | CustomResourceDefinition       | /      | /            |
-| lbcf-mutate                                    | MutatingWebhookConfiguration   | /      | /            |
-| lbcf-validate                                  | ValidatingWebhookConfiguration | /      | /            |
+| lbcf-controller                                | Deployment                     | -      | kube-system  |
+| lbcf-controller                                | ServiceAccount                 | -      | kube-system  |
+| lbcf-controller                                | ClusterRole                    | -      | -            |
+| lbcf-controller                                | ClusterRoleBinding             | -      | -            |
+| lbcf-controller                                | Secret                         | -      | kube-system  |
+| lbcf-controller                                | Service                        | -      | kube-system  |
+| backendrecords.lbcf.tke.cloud.tencent.com      | CustomResourceDefinition       | -      | -            |
+| backendgroups.lbcf.tke.cloud.tencent.com       | CustomResourceDefinition       | -      | -            |
+| loadbalancers.lbcf.tke.cloud.tencent.com       | CustomResourceDefinition       | -      | -            |
+| loadbalancerdrivers.lbcf.tke.cloud.tencent.com | CustomResourceDefinition       | -      | -            |
+| lbcf-mutate                                    | MutatingWebhookConfiguration   | -      | -            |
+| lbcf-validate                                  | ValidatingWebhookConfiguration | -      | -            |
 
 ## 使用场景
 
@@ -272,3 +272,5 @@ spec:
   sessionAffinity: None
   type: ClusterIP
 ```
+
+

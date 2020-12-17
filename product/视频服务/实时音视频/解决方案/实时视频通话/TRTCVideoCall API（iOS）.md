@@ -415,7 +415,7 @@ IM 群组邀请通话，被邀请方会收到 `onInvited()` 回调。如果当�
 
 ### onUserLeave
 
-用户进入通话回调。
+用户离开通话回调。
 ```swift
 @objc optional func onUserLeave(uid: String)
 ```

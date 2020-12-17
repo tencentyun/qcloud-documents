@@ -15,7 +15,7 @@
 | delegate | id< TEduBoardDelegate > | 事件回调监听  |
 
 #### 警告
-建议在 Init 之前调用该方法以支持错误处理 
+建议在调用 initWithAuthParam 之后马上调用该方法以支持错误处理 
 
 
 ### removeDelegate:
@@ -147,10 +147,7 @@
 + (NSString *)getVersion
 ```
 #### 返回
-SDK 版本号
-
-#### 介绍
-获取 SDK 版本号 返回值内存由 SDK 内部管理，用户不需要自己释放 
+NSString 版本号字符串 
 
 
 
@@ -698,7 +695,7 @@ SDK 版本号
 | scale | UInt32 | 要设置的白板缩放比例 |
 
 #### 介绍
-支持范围: [100，300]，实际缩放比为: scale / 100 
+支持范围: [100，1600]，实际缩放比为: scale / 100 
 
 
 ### getBoardScale
@@ -743,7 +740,58 @@ SDK 版本号
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | NSString * | 【必填】图片地址 支持 png/jpg/gif/svg 格式的本地和网络图片，当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。上传进度回调 onTEBFileUploadProgress，上传结果回调 onTEBFileUploadStatus  |
+| url | NSString * | 【必填】图片地址  |
+
+#### 警告
+此接口将被废弃，请使用 addElement 添加元素 支持 png/jpg/gif/svg 格式的本地和网络图片，当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。上传进度回调 onTEBFileUploadProgress，上传结果回调 onTEBFileUploadStatus 
+
+
+### addElement:type:
+添加白板元素 
+``` Objective-C
+- (NSString *)addElement:(NSString *)url type:(TEduBoardElementType)type 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| url | NSString * | 网页或者图片的 url，只支持 https 协议的网址或者图片 url  |
+| type | TEduBoardElementType | 元素类型，当设置 TEDU_BOARD_ELEMENT_IMAGE 时，等价于 addImageElement 方法  |
+
+#### 返回
+元素 ID 
+
+#### 警告
+（1）当 type = TEDU_BOARD_ELEMENT_IMAGE，支持 png、jpg、gif、svg 格式的本地和网络图片，当 url 是一个有效的本地文件地址时，该文件会被自动上传到 COS，上传进度回调 onTEBFileUploadStatus （2）当 type = TEDU_BOARD_ELEMENT_CUSTOM_GRAPH，仅支持网络 url，请与自定义图形工具 TEDU_BOARD_TOOL_TYPE_BOARD_CUSTOM_GRAPH 配合使用 
+
+
+### setNextTextInput:focus:
+预设文本工具内容 
+``` Objective-C
+- (void)setNextTextInput:(NSString *)input focus:(BOOL)focus 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| input | NSString * | 预设文本内容，取消预设则设置为空  |
+| focus | BOOL | 是否继续保持焦点  |
+
+
+### setZoomCursorIcon:zoomOutCursorIcon:
+预设文本工具内容 
+``` Objective-C
+- (void)setZoomCursorIcon:(TEduBoardCursorIcon *)zoomIn zoomOutCursorIcon:(TEduBoardCursorIcon *)zoomOut 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| zoomIn | TEduBoardCursorIcon * | 放大工具图标  |
+| zoomOut | TEduBoardCursorIcon * | 缩小工具图标  |
+
+#### 警告
+该接口只在桌面端支持 
 
 
 ### setHandwritingEnable:
@@ -771,12 +819,36 @@ SDK 版本号
 
 
 ### refresh
-刷新当前页白板，触发 onRefresh 回调 
+刷新当前页白板，触发 onTEBRefresh 回调 
 ``` Objective-C
 - (void)refresh
 ```
 #### 警告
 如果当前白板包含 PPT/H5/图片/视频时，刷新白板将会触发对应的回调 
+
+
+### syncAndReload
+同步本地发送失败的数据到远端并刷新本地数据 
+``` Objective-C
+- (void)syncAndReload
+```
+#### 警告
+Reload 等同于重新加载历史数据，会触发白板初始化时除 onTEBInit 之外的所有回调。 
+
+#### 介绍
+接口用途：此接口主要用于网络恢复后，同步本地数据到远端，拉取远端数据到本地 调用时机：在网络恢复后调用 使用限制： （1）仅支持2.4.9及以上版本 （2）如果历史数据还没有加载完成，则不允许重复调用，否则回调告警 TEDU_BOARD_WARNING_ILLEGAL_OPERATION 
+
+
+### snapshot:
+白板快照 
+``` Objective-C
+- (void)snapshot:(TEduBoardSnapshotInfo *)info 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| info | TEduBoardSnapshotInfo * | 快照信息  |
 
 
 
@@ -819,22 +891,23 @@ SDK 版本号
 转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
 
 
-### addTranscodeFile:
+### addTranscodeFile:needSwitch:
 添加转码文件 
 ``` Objective-C
-- (NSString *)addTranscodeFile:(TEduBoardTranscodeFileResult *)result 
+- (NSString *)addTranscodeFile:(TEduBoardTranscodeFileResult *)result needSwitch:(BOOL)needSwitch 
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | result | TEduBoardTranscodeFileResult * | 文件转码结果  |
+| needSwitch | BOOL | 是否跳转到该文件  |
 
 #### 返回
 文件ID 
 
 #### 警告
-当传入文件的 URL 重复时，文件 ID 返回为空字符串 
+当传入文件的 URL 重复时，返回 URL 对应的 文件 ID 
 在收到对应的 onTEBAddTranscodeFile 回调前，无法用返回的文件 ID 查询到文件信息 
 
 #### 介绍
@@ -995,7 +1068,10 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 | url | NSString * | 文件播放地址  |
 
 #### 返回
-文件 ID
+文件 ID 
+
+#### 警告
+当传入文件的 URL 重复时，返回 URL 对应的 文件 ID
 
 #### 介绍
 支持 mp4/m3u8/hls，触发状态改变回调 onTEBVideoStatusChanged 
@@ -1134,4 +1210,11 @@ play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认�
 
 #### 返回
 新增加文件Id 
+
+#### 警告
+当传入文件的 URL 重复时，返回 URL 对应的 文件 ID 
+
+
+
+
 

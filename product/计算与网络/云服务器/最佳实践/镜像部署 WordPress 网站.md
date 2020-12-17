@@ -19,6 +19,7 @@
 ![](https://main.qcloudimg.com/raw/f65014010e9d40e71b945a189ed574f2.png)
 3. 在弹出的【镜像市场】对话框中，选择【建站系统】> 【WordPress博客平台】，单击【免费使用】。如下图所示：
 <img src="https://main.qcloudimg.com/raw/6a3645a1e4c5d3a51e6d917eca2a28ec.png" style="width: 88%;"></img>
+更多关于此镜像信息，请参见 [WordPress博客平台（CentOS 6.8 64位）](https://market.cloud.tencent.com/products/63)。
 4. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成 WordPress 建站系统的购买。
 
 ### 步骤2：访问获取权限的引导页面
@@ -34,7 +35,7 @@
 1. 在引导页面中，单击【获取权限】，下载该镜像的相关信息文档到本地。
 >! 该文档包含 WordPress 网站的相关重要信息，请注意保存。
 2. 打开文档，获取 WordPress 网站的管理员登录账号和密码。如下图所示：
-<img src="https://main.qcloudimg.com/raw/e86d9b20551a6b2e1e4399e5269f50ad.png" style="width: 60%;">
+![](https://main.qcloudimg.com/raw/d342c51de533967d41624431c9445033.png)
 3. 刷新引导页面，出现 WordPress 的欢迎页面，即表示 WordPress 网站启动成功。
 4. 登录管理页面，自定义网站。
  1. 在欢迎页面右下角的【功能】下，单击【登录】。如下图所示：

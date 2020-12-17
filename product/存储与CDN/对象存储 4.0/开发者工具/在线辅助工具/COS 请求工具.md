@@ -57,7 +57,7 @@ API 密钥信息是在调用 API 接口这一环节中必填的参数。当您�
 ```http
 GET https://bucketname-appid.cos.ap-region.myqcloud.com/0001.txt
 Host: bucketname-appid.cos.ap-region.myqcloud.com
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDwqaGoCIWIG4hDWdJUTL5e3hn04xiD5kI&q-sign-time=1543398166;1543405366&q-key-time=1543398166;1543405366&q-header-list=host&q-url-param-list=&q-signature=f50ddd3e0b54a92df9d4efe2d0c3734a8c9007ec
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDwqaGoCIWIG4hDWdJUTL5e3hn04xi****&q-sign-time=1543398166;1543405366&q-key-time=1543398166;1543405366&q-header-list=host&q-url-param-list=&q-signature=f50ddd3e0b54a92df9d4efe2d0c3734a8c90****
 ```
 
 首行展示的是您的 HTTP Verb 及访问的链接，次行展示的是访问的域名，最后一行展示的是本次请求的签名信息。对于 PUT 类的请求，其请求头部信息较为复杂，但同样存在一些公共请求头部。有关公共请求头部的信息，请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728)。
@@ -76,8 +76,8 @@ date: Wed, 28 Nov 2018 09:42:49 GMT
 etag: "5a8dd3ad0756a93ded72b823b19dd877"
 last-modified: Tue, 27 Nov 2018 20:05:26 GMT
 server: tencent-cos
-x-cos-request-id: NWJmZTYzMTlfOWUxYzBiMDlfOTA4NF8yMWI2YjE=
-x-cos-version-id: MTg0NDY3NDI1MzAzODkyMjUzNjM
+x-cos-request-id: NWJmZTYzMTlfOWUxYzBiMDlfOTA4NF8yMWI2****
+x-cos-version-id: MTg0NDY3NDI1MzAzODkyMjU****
 hello!
 ```
 

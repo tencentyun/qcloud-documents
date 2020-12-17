@@ -57,7 +57,8 @@ Authorization: Auth String
 | Content-Encoding                                             | RFC 2616 中定义的编码格式，仅当对象元数据包含此项时才会返回该头部 | string |
 | Expires                                                      | RFC 2616 中定义的缓存失效时间，仅当对象元数据包含此项时才会返回该头部 | string |
 | x-cos-meta-\*                                                | 包括用户自定义元数据头部后缀和用户自定义元数据信息           | string |
-| x-cos-storage-class                                          | 对象存储类型，枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD，STANDARD_IA，ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | Enum   |
+| x-cos-storage-class                                          | 对象存储类型，枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 MAZ_STANDARD，MAZ_STANDARD_IA，INTELLIGENT_TIERING，MAZ_INTELLIGENT_TIERING，STANDARD_IA，ARCHIVE，DEEP_ARCHIVE。仅当对象不是标准存储（STANDARD）时才会返回该头部 | enum   |
+|  x-cos-storage-tier  |  当对象的存储类型为智能分层存储时，该头部表示对象所处的存储层，有效值：FREQUENT、INFREQUENT。  |  enum  |
 
 #### 归档类型对象相关头部
 
@@ -86,7 +87,7 @@ Authorization: Auth String
 
 #### 错误码
 
-此接口无特殊错误信息，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -117,7 +118,59 @@ x-cos-hash-crc64ecma: 16749565679157681890
 x-cos-request-id: NWU5MGI4NDBfNjFjODJhMDlfMzY2NjVfMjNi****
 ```
 
-#### 案例二：使用服务端加密 SSE-COS
+#### 案例二：通过请求头指定查询条件并返回 HTTP 状态码为304（Not Modified）
+
+#### 请求
+
+```shell
+HEAD /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Wed, 29 Jul 2020 06:51:49 GMT
+If-None-Match: "ee8de918d05640145b18f70f4c3aa602"
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1596005509;1596012709&q-key-time=1596005509;1596012709&q-header-list=date;host;if-none-match&q-url-param-list=&q-signature=9d087f05c259ca271efe91fc780cdced75c6****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 304 Not Modified
+Content-Type: application/xml
+Content-Length: 0
+Connection: close
+Date: Wed, 29 Jul 2020 06:51:49 GMT
+Server: tencent-cos
+x-cos-request-id: NWYyMTFjODVfZDNjODJhMDlfMWU1MWVfOTUy****
+x-cos-trace-id: OGVmYzZiMmQzYjA2OWNhODk0NTRkMTBiOWVmMDAxODczNTBmNjMwZmQ0MTZkMjg0NjlkNTYyNmY4ZTRkZTk0NzJmZTI0ZmJhYTZmZjYyNmU5ZGNlZDI5YjkyODkwYjNhZjhlNGQ0MDY1ZGIxNDEwMWYwOTg1NDc4Mzg4MTE3****
+```
+
+#### 案例三：通过请求头指定查询条件并返回 HTTP 状态码为412（Precondition Failed）
+
+#### 请求
+
+```shell
+HEAD /exampleobject HTTP/1.1
+Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
+Date: Wed, 29 Jul 2020 06:51:50 GMT
+If-Match: "aa488bb80185a6be87f4a7b936a80752"
+Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1596005510;1596012710&q-key-time=1596005510;1596012710&q-header-list=date;host;if-match&q-url-param-list=&q-signature=38afe94fc61ca0b3aa763e00b23fd90ac23e****
+Connection: close
+```
+
+#### 响应
+
+```shell
+HTTP/1.1 412 Precondition Failed
+Content-Type: application/xml
+Content-Length: 0
+Connection: close
+Date: Wed, 29 Jul 2020 06:51:50 GMT
+Server: tencent-cos
+x-cos-request-id: NWYyMTFjODZfMzBjMDJhMDlfMmU3ZF9kYTE4****
+x-cos-trace-id: OGVmYzZiMmQzYjA2OWNhODk0NTRkMTBiOWVmMDAxODczNTBmNjMwZmQ0MTZkMjg0NjlkNTYyNmY4ZTRkZTk0NzJmZTI0ZmJhYTZmZjYyNmU5ZGNlZDI5YjkyODkwYjNhZDRkOWFlZjczOWExNjZmY2RiNjhjNGIwZWQ3YjYw****
+```
+
+#### 案例四：使用服务端加密 SSE-COS
 
 #### 请求
 
@@ -145,7 +198,7 @@ x-cos-request-id: NWU5MGI4NmJfNmRjMDJhMDlfZGQwNl8xZmE4****
 x-cos-server-side-encryption: AES256
 ```
 
-#### 案例三：使用服务端加密 SSE-KMS
+#### 案例五：使用服务端加密 SSE-KMS
 
 #### 请求
 
@@ -172,9 +225,10 @@ x-cos-hash-crc64ecma: 16749565679157681890
 x-cos-request-id: NWU5MGI4NzZfN2FjODJhMDlfMjU3N18xYTEz****
 x-cos-server-side-encryption: cos/kms
 x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
+
 ```
 
-#### 案例四：使用服务端加密 SSE-C
+#### 案例六：使用服务端加密 SSE-C
 
 #### 请求
 
@@ -183,8 +237,8 @@ HEAD /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Apr 2020 18:18:41 GMT
 x-cos-server-side-encryption-customer-algorithm: AES256
-x-cos-server-side-encryption-customer-key: MDEyMzQ1Njc4OUFCQ0RFRjAxMjM0NTY3ODlBQkNERUY=
-x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
+x-cos-server-side-encryption-customer-key: MDEyMzQ1Njc4OUFCQ0RFRjAxMjM0NTY3ODlBQkNE****
+x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG****
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586542721;1586549921&q-key-time=1586542721;1586549921&q-header-list=date;host;x-cos-server-side-encryption-customer-algorithm;x-cos-server-side-encryption-customer-key;x-cos-server-side-encryption-customer-key-md5&q-url-param-list=&q-signature=99ad258fc295f43feb0546bb2346c8269dc5****
 Connection: close
 ```
@@ -203,10 +257,10 @@ Server: tencent-cos
 x-cos-hash-crc64ecma: 16749565679157681890
 x-cos-request-id: NWU5MGI4ODFfN2NiODJhMDlfMmFmYTVfMWRh****
 x-cos-server-side-encryption-customer-algorithm: AES256
-x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
+x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG****
 ```
 
-#### 案例五：请求对象最新版本（启用版本控制）
+#### 案例七：请求对象最新版本（启用版本控制）
 
 #### 请求
 
@@ -234,7 +288,7 @@ x-cos-request-id: NWU5MGI4YTNfZDZjODJhMDlfYmU0MV8xM2Y5****
 x-cos-version-id: MTg0NDUxNTc1MzA5NjQ2ODI5MTg
 ```
 
-#### 案例六：请求对象指定版本（启用版本控制）
+#### 案例八：请求对象指定版本（启用版本控制）
 
 #### 请求
 
@@ -262,7 +316,7 @@ x-cos-request-id: NWU5MGI4OThfN2RiNDBiMDlfMTk1MTBfMWZj****
 x-cos-version-id: MTg0NDUxNTc1MzA5NzU4ODg1Mjg
 ```
 
-#### 案例七：归档存储正在恢复中
+#### 案例九：归档存储正在恢复中
 
 #### 请求
 
@@ -291,7 +345,7 @@ x-cos-restore-status: tier="expedited"; request-date="Fri, 27 Dec 2019 08:19:29 
 x-cos-storage-class: ARCHIVE
 ```
 
-#### 案例八：归档存储已恢复
+#### 案例十：归档存储已恢复
 
 #### 请求
 

@@ -1,4 +1,6 @@
 ## 操作场景
+以下视频介绍了如何登录 Linux 实例：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2445-39783?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
 WebShell 为腾讯云推荐的登录方式。无论您的本地系统为 Windows，Linux 或者 Mac OS，只要实例购买了公网 IP，都可以通过 WebShell 登录。本文介绍如何使用标准登录方式（WebShell）登录 Linux 实例。
 WebShell 优点如下：

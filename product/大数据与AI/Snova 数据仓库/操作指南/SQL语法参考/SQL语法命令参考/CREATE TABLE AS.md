@@ -11,9 +11,7 @@ CREATE [ [GLOBAL | LOCAL] {TEMPORARY | TEMP} ] TABLE table_name
    AS query
    [DISTRIBUTED BY (column, [ ... ] ) | DISTRIBUTED RANDOMLY]
 ```
-
 该 storage_parameter 如下：
-
 ```sql
    APPENDONLY={TRUE|FALSE}
    BLOCKSIZE={8192-2097152}
@@ -63,11 +61,12 @@ TABLESPACE tablespace
 创建的新表所在的表空间的名字。如果没有指定，则使用数据库默认的表空间。
 
 AS query
-该 SELECT或 VALUES命令，或者运行准备好的 SELECT 或 VALUES 查询的 EXECUTE命令。
+该 SELECT 或 VALUES 命令，或者运行准备好的 SELECT 或 VALUES 查询的 EXECUTE 命令。
 
 DISTRIBUTED BY (column, [ ... ] )
 DISTRIBUTED RANDOMLY
 用来声明数据库表的分布策略。DISTIBUTED BY 使用在分布键中声明一列或者多列进行哈希分布。对于大多数的均匀数据分布，该分布键应当是表的主键或是唯一列或列的集合。如果不可能，则用户可以选择 DISTRIBUTED RANDOMLY，这会将数据随机循环发送到 Segment 实例。
+
 该数据库服务器配置参数 gp_create_table_random_default_distribution 控制默认的表分布策略，如果当用户创建表的时候没有指定 DISTRIBUTED BY 子句。如果没有指定分布策略，则遵循以下规则来创建表：
 - 如果查询优化器创建表，并且该参数的值是 off，则该表的分布策略由命令所决定。
 - 如果遗传查询优化器创建表，并且该参数的值为 on，则该表的分布策略是随机的。
@@ -76,20 +75,17 @@ DISTRIBUTED RANDOMLY
 在数据库管理员指南中，更多关于该参数的信息，参阅“服务器配置参数”。更多关于遗传查询优化器和 GPORCA 的信息，参阅“查询数据” 。
 
 ## 注意
-该命令功能上和 SELECT INTO 相似，但是该命令更常用因为它相比使用 SELECT INTO 的语法不太可能产生混淆。此外， CREATE TABLE AS 提供了包含 SELECT INTO 功能在内超集。
+该命令功能上和 SELECT INTO 相似，但是该命令更常用因为它相比使用 SELECT INTO 的语法不太可能产生混淆。此外，CREATE TABLE AS 提供了包含 SELECT INTO 功能在内超集。
 
 CREATE TABLE AS 可以用于从外部表数据源中快速加载数据。参阅 CREATE EXTERNAL TABLE。
 
 ## 实例
 创建一个新表 films_recent 仅由表 films 最近的条目组成：
-
 ```sql
 CREATE TABLE films_recent AS SELECT * FROM films WHERE 
 date_prod >= '2007-01-01';
 ```
-
 创建一个临时表 films_recent，仅由 films 表的最近的条目组成，使用预编译（prepared）语句。新表拥有 OIDs 并在提交时删除：
-
 ```sql
 PREPARE recentfilms(date) AS SELECT * FROM films WHERE 
 date_prod > $1;
@@ -98,14 +94,12 @@ EXECUTE recentfilms('2007-01-01');
 ```
 
 ## 兼容性
-
 CREATE TABLE AS 服从 SQL 标准，但以下例外：
 - 该标准要求将子查询用括号括起来；在数据库中，这些括号是可选的。
 - 该标准定义了 WITH [NO] DATA 子句；这目前并没有由数据库实现。数据库提供的行为和标准的 WITH DATA 情况是一样的。WITH NO DATA 可以通过给查询追加 LIMIT 0 来模拟。
 - 数据库处理临时表不同于标准，更多细节参阅 CREATE TABLE。
-- 该 WITH 子句是数据库扩展； 存储参数和 OIDs 都不在标准中。
-- 该数据库表空间的概念不是标准的一部分。 该 TABLESPACE 子句是一个扩展。
+- 该 WITH 子句是数据库扩展；存储参数和 OIDs 都不在标准中。
+- 该数据库表空间的概念不是标准的一部分。该 TABLESPACE 子句是一个扩展。
 
 ## 另见
-
 CREATE EXTERNAL TABLE、CREATE EXTERNAL TABLE、EXECUTE、SELECT、SELECT INTO、VALUES

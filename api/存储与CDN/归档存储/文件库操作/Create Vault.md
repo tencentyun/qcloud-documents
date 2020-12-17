@@ -3,11 +3,12 @@
 Create Vault 请求实现创建一个 Vault，每个用户支持创建1000个 Vault。成功后返回201 Created。
 
 支持跨账户创建。当创建本账户下 valut 时，UID值为"-"。
+
 ## 请求
 
 #### 请求语法
 
-```HTTP
+```plaintext
 PUT /<UID>/vaults/<VaultName> HTTP 1.1
 Host:cas.<Region>.myqcloud.com
 Date:date

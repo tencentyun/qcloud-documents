@@ -35,7 +35,7 @@
 | ---------------------------- | -----------------------------------|
 | connect                      |  网关 连接                          |
 | reconnect                    |  网关 重连                          |
-| disConnect                   |  断开 网关MQTT连接                       |
+| disConnect                   |  断开 网关 MQTT 连接                       |
 | publish                      |  发布 MQTT 消息                      |
 | subscribe                    |  订阅 MQTT 主题                      |
 | unSubscribe                  |  取消订阅 MQTT 主题                   |

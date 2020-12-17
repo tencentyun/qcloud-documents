@@ -88,7 +88,7 @@ Demo 示例：
 
 ## 重复视频片段
 您可以设置重复播放一段视频画面，声音不会重复播放。  
-设置重复片段方法：
+设置重复片段方法： 
 
 ```
 - (void) setRepeatPlay:(NSArray *)repeatList;
