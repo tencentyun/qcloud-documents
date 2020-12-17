@@ -323,11 +323,11 @@ umount /data
 ![](//mccdn.qcloud.com/static/img/c0acc05057941681627a5fd34979d194/image.jpg)
 2. 执行以下命令，下载工具。
   中国大陆地区推荐使用：
-```
-wget -O /tmp/devresize.py https://tencentcloud.coding.net/p/tencentcloud/d/tencentcloud-cbs-tools/git/raw/master/devresize/devresize.py?download=true
+```plaintext
+wget -O /tmp/devresize.py https://tencentcloud.coding.net/p/tencentcloud/d/tencentcloud-cbs-tools/git/raw/master/devresize/devresize.py
 ```
  境外地区推荐使用：
-```
+```plaintext
 wget -O /tmp/devresize.py https://raw.githubusercontent.com/tencentyun/tencentcloud-cbs-tools/master/devresize/devresize.py
 ```
 3. 执行以下命令，使用扩容工具进行扩容。
