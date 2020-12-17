@@ -55,7 +55,7 @@ DeScheduler  基于 [社区版本 Descheduler](https://github.com/kubernetes-sig
 ### Prometheus 数据查询地址
 
 
->!为确保组件可以拉取到所需的监控数据、调度策略生效，请按照【[依赖部署](#DeScheduler)】>【[Prometheus 文件配置](#rules)】步骤配置监控数据采集规则。
+>!为确保组件可以拉取到所需的监控数据、调度策略生效，请按照【[依赖部署](#DeScheduler)】>【Prometheus 文件配置】步骤配置监控数据采集规则。
 
 - 如果使用自建 Prometheus，直接填入数据查询 URL（HTTPS/HTTPS）即可。
 - 如果使用托管 Prometheus，选择托管实例 ID 即可，系统会自动解析实例对应的数据查询 URL。
