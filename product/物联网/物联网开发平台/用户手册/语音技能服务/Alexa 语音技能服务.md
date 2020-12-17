@@ -30,13 +30,13 @@
 1. 登录 [物联网开发控制台](https://console.cloud.tencent.com/iotexplorer) ，地区选择美国东部，创建项目及产品，详情请参考 [产品定义](https://cloud.tencent.com/document/product/1081/34739)。
 ![](https://main.qcloudimg.com/raw/beca495cb2aec4218f6aa3e6eab9b723.jpg)
 2. 单击项目进入项目详情界面，单击【语音技能】>【Amazon Alexa】> 【申请开通】，进入申请界面。
-![](https://main.qcloudimg.com/raw/b2d38f51f0c8945b4c1f96e107cf00eb.png)
+![](https://main.qcloudimg.com/raw/a0ae4021c39481a32343b093d399596f.png)
 3. 选择需要开通的产品，填写申请信息后，还需勾选“我了解并同意《开发者须知与授权》”，单击【提交申请】，我们将安排相关工作人员与您进行对接。
  - **选择产品**：该项目下创建的产品。
  - **其他需求描述**：最多不超过250个字符。
 ![](https://main.qcloudimg.com/raw/7e24d064dda314a144546fcdd5bef5e9.jpg)
 4. 申请通过后，您也可以在【选择产品】处新增您该项目下的产品。
-![](https://main.qcloudimg.com/raw/7bed6a5cb78aa9c04169aff482cfa083.png)
+![](https://main.qcloudimg.com/raw/40a6f521191f0c8826d7be7e83688f0e.png)
 5. 选择需要添加的产品，单击【确定】。
 ![](https://main.qcloudimg.com/raw/44bd971e38b9612ee991a510eb533119.jpg)
 6. 添加产品审核通过后，即可生效语音技能。

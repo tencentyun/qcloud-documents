@@ -26,7 +26,7 @@ Namespace=QCE/TCAPLUS
 
 ## 入参说明
 
-查询游戏数据库 TcaplusDB 监控数据，入参取值如下：
+**查询游戏数据库 TcaplusDB 监控数据，入参取值如下：**
 &Namespace=QCE/TCAPLUS
 &Instances.N.Dimensions.0.Name=TableInstanceId
 &Instances.N.Dimensions.0.Value=数据库的具体 ID

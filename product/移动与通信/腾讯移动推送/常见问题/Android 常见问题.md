@@ -1,21 +1,21 @@
+
 ### 如何关闭 TPNS 的保活功能？
 
-TPNS 默认开启联合保活能力，请在应用初始化的时候，例如 Application 或 LauncherActivity 的 onCreate 中调用如下接口，并传递 false 值:
+TPNS 默认开启联合保活能力，请在应用初始化的时候，例如 Application 或 LauncherActivity 的 onCreate 中调用如下接口，并传递 false 值：
 
 ```java
 XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 ```
 
-若您使用 gradle 自动集成方式，请在自身应用的 AndroidManifest.xml 文件 <application> 标签下配置如下结点，其中 ```xxx``` 为任意自定义名称；如果使用手动集成方式，请修改如下节点属性：
-
+若您使用 gradle 自动集成方式，请在自身应用的 AndroidManifest.xml 文件 <application> 标签下配置如下结点，其中 `xxx` 为任意自定义名称；如果使用手动集成方式，请修改如下节点属性：
 ```xml
 <!-- 在自身应用的AndroidManifest.xml文件中添加如下结点，其中 xxx 为任意自定义名称: -->     
 <!-- 关闭与 TPNS 应用的联合保活功能，请配置 -->
 <provider
-	 android:name="com.tencent.android.tpush.XGPushProvider"
-	 tools:replace="android:authorities"
-	 android:authorities="应用包名.xxx.XGVIP_PUSH_AUTH"
-	 android:exported="false" />    
+		 android:name="com.tencent.android.tpush.XGPushProvider"
+		 tools:replace="android:authorities"
+		 android:authorities="应用包名.xxx.XGVIP_PUSH_AUTH"
+		 android:exported="false" />    
 ```
 
 若控制台有以下日志打印，则表明联合保活功能已经关闭：`I/TPush: [ServiceUtil] disable pull up other app`。
@@ -59,7 +59,6 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 自 TPNS SDK 1.1.6.3 版本起，为避免**在非本品牌手机上、其他品牌的推送服务在后台自启、传输用户数据**，会在非本品牌手机上禁用其他品牌的推送服务组件。
 华为在账号、游戏、推送等不同功能上有一些公共组件，TPNS 禁用推送组件可能会导致其它服务功能在非华为品牌手机上同样不能启动；若您需要关闭此禁用功能，可配置以下内容：
 在 AndroidManifest.xml 文件 application 标签下添加节点配置，并重装应用（需卸载后重装）。
-
 ```xml
 <meta-data
 		android:name="tpns-disable-component-huawei-v2"
@@ -95,7 +94,7 @@ TPNS 推荐使用 Intent 方式进行跳转（注：SDK 点击消息默认支持
 ```
 
 - 若使用移动推送 TPNS 管理台设置 Intent 进行跳转，填写方式如下：
-  ![](https://main.qcloudimg.com/raw/a904c7c7917fb7d69bf741f7b6e52099.png)
+  ![](https://main.qcloudimg.com/raw/021c692b6b767212529430a4b44ae091.png)
 - 若使用服务端 SDK ，设置 Intent 进行跳转，可设置 Intent 为（以 Java SDK 为例）：
 ```
 action.setIntent("xgscheme://com.tpns.push/notify_detail");
@@ -134,15 +133,18 @@ Uri uri = getIntent().getData();
 }
 ```
 
-### 厂商通道的回调支持哪些？
+### 终端内厂商通道支持哪些通知事件回调？
 
-- 小米通道支持抵达回调，不支持点击回调，支持透传。
-- 华为通道不支持抵达回调，支持点击回调（需要自定义参数），支持透传（但忽略自定义参数）。
-- 魅族通道支持抵达回调，支持点击回调，不支持透传。
-- vivo 通道不支持抵达回调，支持点击回调，不支持透传
-- OPPO 通道不支持点击和抵达回调，不支持透传
+| 回调 | 抵达回调 | 点击回调 |
+|---------|---------|---------|
+| 小米 | 支持 | 支持 |
+| 魅族 | 支持 | 支持 |
+| FCM | 支持 | 支持 |
+| 华为 | 不支持 | 支持 |
+| OPPO | 不支持 | 支持 |
+| vivo | 不支持 | 支持 |
 
-> ?如果需要通过点击回调获取参数或者跳转自定义页面，可以通过使用 Intent 来实现。
+>! 厂商通道的点击回调需 SDK 版本1.2.0.1及以上版本支持；旧版本仅支持华为、小米、魅族、vivo。
 
 
 
@@ -170,7 +172,7 @@ Uri uri = getIntent().getData();
 | Google FCM 推送|  Android 4.1及以上|手机端需安装 Google Play Services 且在中国大陆地区以外使用。添加依赖：`implementation 'com.google.firebase:firebase-messaging:20.2.3'`|
 | 魅族推送 | Flyme|  使用魅族推送，添加依赖：`implementation 'com.tencent.tpns:meizu:1.2.1.2-release'` |
 | OPPO 推送|  ColorOS |并非所有 OPPO 机型和版本都支持使用 OPPO 推送，使用 OPPO 推送，添加依赖：`implementation 'com.tencent.tpns:oppo:1.2.1.2-release'`|
-| vivo 推送|  FuntouchOS|并非所有 OPPO 机型和版本都支持使用 OPPO 推送，使用 vivo 推送，添加依赖：`implementation 'com.tencent.tpns:vivo:1.2.1.2-release'`|
+| vivo 推送|  FuntouchOS|并非所有 vivo 机型和版本都支持使用 vivo 推送，使用 vivo 推送，添加依赖：`implementation 'com.tencent.tpns:vivo:1.2.1.2-release'`|
 
 
 
@@ -212,4 +214,12 @@ android.useAndroidX=trueandroid.enableJetifier=true
 > ? 
 > - android.useAndroidX=true，表示当前项目启用 AndroidX。
 > - android.enableJetifier=true，表示将依赖包迁移到 AndroidX。 
+
+### 厂商通道推送服务 SDK “存在通过 HTTP 明文传输信息的行为”，如何处理？
+
+开发者在集成各厂商通道推送服务后，部分安全检测工具可能会提示 “App 存在通过 HTTP 明文传输信息的行为” ，具体 HTTP 地址涉及：
+1. 小米推送 SDK：`http://new.api.ad.xiaomi.com/logNotificationAdActions，http://resolver.msg.xiaomi.net/psc/?t=a`
+2. 魅族推送 SDK：`http://norma-external-collect.meizu.com/android/exchange/getpublickey.do，http://norma-external-collect.meizu.com/push/android/external/add.do`
+
+以上 HTTP URL 均来自各厂商推送 SDK，TPNS 项目组无法明确其目的或控制其行为，但正在积极与厂商服务提供者联系并推动 HTTPS 改造；开发者当前可以自行评估选择是否继续使用以上厂商提供的推送服务。
 

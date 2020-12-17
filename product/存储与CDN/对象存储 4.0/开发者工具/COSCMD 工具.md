@@ -172,7 +172,7 @@ coscmd config [OPTION]...<FILE>...
 | -a               | 密钥 ID 请前往 [API 密钥控制台](https://console.cloud.tencent.com/cam/capi) 获取 | 字符串 | 是       |
 | -s               | 密钥 Key 请前往 [API 密钥控制台](https://console.cloud.tencent.com/cam/capi) 获取 | 字符串 | 是       |
 | -t               | 临时密钥  token，当使用临时密钥时需要配置，设置 x-cos-security-token 头部 | 字符串 | 否       |
-| -b               | 指定的存储桶名称，存储桶的命名格式为 BucketName-APPID，请参见 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。初次配置使用时，您需要在 COS 控制台创建一个存储桶，用于配置工具 | 字符串 | 是       |
+| -b               | 指定的存储桶名称，存储桶的命名格式为 BucketName-APPID，请参见 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。初次配置使用时，您需要在 COS 控制台创建一个存储桶，用于配置工具 | 字符串 | 是       |
 | -r               | 存储桶所在地域，请参见 [地域和访问域名](https://cloud.tencent.com/doc/product/436/6224) | 字符串 | 是       |
 | -e               | 设置请求的  ENDPOINT，设置 ENDPOINT 参数后，REGION 参数会失效。当您使用的是默认域名，则此处配置格式为`cos.<region>.myqcloud.com`；当您使用全球加速域名，则配置为`cos.accelerate.myqcloud.com` | 字符串 | 否       |
 | -m               | 多线程操作的最大线程数（默认为5，范围为1  - 30）             | 数字   | 否       |
@@ -184,10 +184,10 @@ coscmd config [OPTION]...<FILE>...
 
 通常情况下，若您只需要进行简单的操作，可参照以下操作示例进行快速配置。
 
->?配置前，您需要先在 COS 控制台创建一个用于配置参数的存储桶（例如 configure_bucket-1250000000），并创建密钥信息。
+>?配置前，您需要先在 COS 控制台创建一个用于配置参数的存储桶（例如 configure-bucket-1250000000），并创建密钥信息。
 
 ```shell
-coscmd config -a AChT4ThiXAbpBDEFGhT4ThiXAbp**** -s WE54wreefvds3462refgwewe**** -b configure_bucket-1250000000 -r ap-chengdu
+coscmd config -a AChT4ThiXAbpBDEFGhT4ThiXAbp**** -s WE54wreefvds3462refgwewe**** -b configure-bucket-1250000000 -r ap-chengdu
 ```
 
 
@@ -200,7 +200,7 @@ coscmd config -a AChT4ThiXAbpBDEFGhT4ThiXAbp**** -s WE54wreefvds3462refgwewe****
 [common]
 secret_id = AKIDA6wUmImTMzvXZNbGLCgtusZ2E8mG****
 secret_key = TghWBCyf5LIyTcXCoBdw1oRpytWk****
-bucket = configure_bucket-1250000000
+bucket = configure-bucket-1250000000
 region = ap-chengdu
 max_thread = 5
 part_size = 1
@@ -212,8 +212,8 @@ anonymous = False
 ```
 
 >?
->- 配置文件中`schema` 项，可选值为`http/https`，默认为`https`。
->- 配置文件中`anonymous` 项，可选值为`True/False`，表示是否使用匿名模式，即签名保持为空。
+>- 配置文件中`schema` 项，可选值为 http、https，默认为 https。
+>- 配置文件中`anonymous` 项，可选值为 True、False，表示是否使用匿名模式，即签名保持为空。
 >- 更多配置参数说明，请使用命令`coscmd config -h`查看。
 
 ## 常用存储桶命令
@@ -237,7 +237,7 @@ coscmd -b examplebucket-1250000000 -r ap-beijing upload D:/picture.jpg /
 
 ### 创建存储桶
 
->?`coscmd createbucket`的用法仅对配置参数时所填的存储桶有效。建议配合`-b <BucketName-APPID>`指定 Bucket 和`-r <region>`指定 Region 使用。
+>?执行创建存储桶命令时，请携带参数-b <BucketName-APPID>指定存储桶名称和-r <Region>指定所属地域。若直接执行 coscmd createbucket，则会报错，原因是不指定存储桶名称和所属地域，则相当于对已存在的存储桶（即配置参数时所填的存储桶）进行创建。
 
 ```plaintext
 #命令格式
@@ -258,7 +258,7 @@ coscmd -b examplebucket-1250000000 -r ap-beijing deletebucket
 coscmd -b examplebucket-1250000000 -r ap-beijing deletebucket -f
 ```
 
->!使用`-f`参数则会强制删除该存储桶，包括所有文件、开启版本控制之后历史文件夹、上传产生的碎片。
+>!使用`-f`参数则会强制删除该存储桶，包括所有文件、开启版本控制之后历史文件夹、上传产生的碎片，请谨慎操作。
 
 
 ## 常用对象命令
@@ -303,7 +303,6 @@ coscmd upload -rs D:/doc / --ignore *.txt,*.doc
 
 > !
 > - 请将 "<>" 中的参数替换为您需要上传的本地文件路径（localpath），以及 COS 上存储的路径（cospath）。
-> - 上传文件时需要将 COS 上的路径包括文件（文件夹）的名称补全（可参考上面示例）。
 > - COSCMD 支持大文件断点上传功能；当分块上传大文件失败时，重新上传该文件只会上传失败的分块，而不会从头开始（请保证重新上传的文件的目录以及内容和上传的目录保持一致）。
 > - COSCMD 分块上传时会对每一块进行 MD5 校验。
 > - COSCMD 上传默认会携带 `x-cos-meta-md5` 的头部，值为该文件的 md5 值。
@@ -535,7 +534,7 @@ coscmd -b examplebucket1-1250000000 -r ap-guangzhou move -r examplebucket2-12500
 > ?
 > - 请将"<>"中的参数替换为您需要移动的 COS 上文件的路径（sourcepath），和您需要移动到 COS 上文件的路径（cospath）。
 > - sourcepath 的格式为：`<BucketName-APPID>.cos.<region>.myqcloud.com/<cospath>`。
-> - 使用 -d 参数可以设置 `x-cos-metadata-directive` 参数，可选值为 copy 和 Replaced，默认为 copy。
+> - 使用 -d 参数可以设置 `x-cos-metadata-directive` 参数，可选值为 Copy 和 Replaced，默认为 Copy。
 > - 使用 -H 参数设置 HTTP header 时，请务必保证格式为 JSON，示例：`coscmd move -H -d Replaced "{'x-cos-storage-class':'Archive','Content-Language':'zh-CN'}" <localpath> <cospath>`。更多头部请参见 [PUT Object - copy](https://cloud.tencent.com/document/product/436/10881) 文档。
 
 ### 设置对象访问权限
@@ -565,8 +564,6 @@ coscmd putbucketversioning Suspended
 coscmd getbucketversioning
 ```
 
-请将 "<>" 中的参数替换为您需要版本控制状态（status）。
-
 > !
 >- 请将 "<>" 中的参数替换为您需要版本控制状态（status）。
 >- 一旦您对存储桶启用了版本控制，它将无法返回到未启用版本控制状态（初始状态）。但是，您可以对该存储桶暂停版本控制，这样后续上传的对象将不会产生多个版本。
@@ -593,8 +590,8 @@ coscmd restore -r -d 3 -t Expedited examplefolder/
 
 >?
 >- 请将 "<>" 中的参数替换为您需要查询文件列表的 COS 上文件的路径（cospath）。
->- 使用`-d day`设置临时副本的过期时间，默认值：7。
->- 使用`-t tier`具体复原过程类型，枚举值： Expedited （极速模式） ，Standard （标准模式），Bulk（批量模式），默认值：Standard。
+>- 使用`-d <day>`设置临时副本的过期时间，默认值：7。
+>- 使用`-t <tier>`指定恢复模式，枚举值：Expedited （极速模式），Standard （标准模式），Bulk（批量模式），默认值：Standard。
 
 ### Debug 模式执行命令
 

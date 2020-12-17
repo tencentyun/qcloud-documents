@@ -10,6 +10,7 @@ CreateDocProcessJobs 接口用于提交一个文档预览任务。
     - 表格文件，一张表可能分割为多页转换，生成多张图片。
 >  - 其他格式文件： pdf、 lrc、 c、 cpp、 h、 asm、 s、 java、 asp、 bat、 bas、 prg、 cmd、 rtf、 txt、 log、 xml、 htm、 html。
 >- 输入文件大小限制在100MB之内。
+>- 输入文件页数限制在5000页之内。
 
 
 ## 请求
@@ -163,8 +164,8 @@ Container 类型 DocProcess 的具体数据描述如下：
 | DocPassword       | Request.Operation.DocProcess | Office 文档的打开密码，如果需要转换有密码的文档，请设置该字段  | String | 否     |
 | Comments       | Request.Operation.DocProcess | 是否隐藏批注和应用修订，默认为 0。<br><li>0：隐藏批注，应用修订<br><li>1：显示批注和修订  | Int | 否     |
 | PaperDirection       | Request.Operation.DocProcess | 表格文件转换纸张方向，0代表垂直方向，非0代表水平方向，默认为0   | Int | 否     |
-| Quality           | Request.Operation.DocProces|  生成预览图的图片质量，取值范围 [1-100] ，默认值100。 例:值为100，代表生成图片质量为100%   | Int | 否      |
-| Zoom             | Request.Operation.DocProces|预览图片的缩放参数，取值范围[10-300]， 默认值100。 例:值为300，代表图片缩放比例为300% 即放大三倍   | Int | 否      |
+| Quality           | Request.Operation.DocProces|  生成预览图的图片质量，取值范围 [1-100]，默认值100。 例：值为100，代表生成图片质量为100%   | Int | 否      |
+| Zoom             | Request.Operation.DocProces|预览图片的缩放参数，取值范围[10-200]， 默认值100。 例：值为200，代表图片缩放比例为200% 即放大两倍   | Int | 否      |
 
 
 

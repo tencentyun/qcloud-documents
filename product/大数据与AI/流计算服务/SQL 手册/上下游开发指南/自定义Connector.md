@@ -18,7 +18,7 @@
 
 ### 自行编程实现
 #### 使用新版 Connector API
-Flink 1.11 引入了 Source 和 Sink 接口的 [新版 API](https://ci.apache.org/projects/flink/flink-docs-release-1.11/zh/dev/table/sourceSinks.html)，简化了接口定义逻辑（合并 Upsert、Retract、Append Sink 接），数据源也支持 Upsert 流了，同时也解耦了对 DataStream 和 Planner 等包的依赖关系。
+Flink 1.11 引入了 Source 和 Sink 接口的 [新版 API](https://ci.apache.org/projects/flink/flink-docs-release-1.11/zh/dev/table/sourceSinks.html)，简化了接口定义逻辑（合并 Upsert、Retract、Append Sink 接口），数据源也支持 Upsert 流了，同时也解耦了对 DataStream 和 Planner 等包的依赖关系。
 
 #### 使用旧版 Connector API
 新版 API 仍然有一些无法支持的特性，例如过滤条件或者分区下推等。如果发现新版 API 无法实现功能，请参考 [旧版 API](https://ci.apache.org/projects/flink/flink-docs-release-1.11/zh/dev/table/legacySourceSinks.html)。

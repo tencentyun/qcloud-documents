@@ -1,5 +1,5 @@
 ## 功能描述
-CreateProject用于新增项目。
+CreateProject 用于新增项目。
 
 ## 请求
 ### 请求实例
@@ -15,11 +15,11 @@ Content-Type: application/xml
 <body>
 ```
 
-> Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>?Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/1344/50456) 文档）。
 
 ### 请求头
 #### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/1344/50451) 文档。
 #### 非公共头部
 该请求操作无特殊的请求头部信息。
 
@@ -52,15 +52,15 @@ Container 类型 Request 的具体数据描述如下：
 | ------------------ | ------- | ---------------------------------------- | --------- | ---- |
 | Mode               | Request | 接入类型: HTTP                           | String    | 是   |
 | Name               | Request | 项目名称 仅支持中文、英文、数字、_、-和* | String    | 是   |
-| Bucket             | Request | bucket 信息                               | Container | 否   |
+| Bucket             | Request | Bucket 信息                               | Container | 否   |
 
 
 Container 类型 Bucket 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Region                | Request.Bucket | bucket 地区 | String    | 是   | 无 | 无|
-| BucketId            | Request.Bucket | bucket 的 ID | String      | 是   | 无  | 无 |
+| Region                | Request.Bucket | Bucket 地区 | String    | 是   | 无 | 无|
+| BucketId            | Request.Bucket | Bucket 的 ID | String      | 是   | 无  | 无 |
 | Prefix            | Request.Bucket     | 对象 key 前缀 | String    | 否   | 无  | 无 |
 
 
@@ -69,7 +69,7 @@ Container 类型 Bucket 的具体数据描述如下：
 ### 响应头
 
 #### 公共响应头
-该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部]( https://cloud.tencent.com/document/product/460/42866) 文档。
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部]( https://cloud.tencent.com/document/product/1344/50452) 文档。
 #### 特有响应头
 该响应无特殊的响应头。
 
@@ -114,7 +114,7 @@ Container节点Response的内容：
 
 ### 错误码
 
-该请求无特有错误信息，常见的错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
+该请求无特有错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/1344/50457) 文档。
 
 ## 实际案例
 

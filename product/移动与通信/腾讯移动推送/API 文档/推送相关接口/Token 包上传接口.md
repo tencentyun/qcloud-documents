@@ -15,15 +15,15 @@
 
 | 参数名 | 类型      | 是否必须 | 参数说明                                                     |
 | ------ | --------- | -------- | ------------------------------------------------------------ |
-| file   | form-data | 是       | <li>`Token` 包格式及大小：` .zip` 压缩文件； 大小保持在100M<li>压缩包中可含有： 单个 `.txt` 或 `.csv` 文件， (不能嵌套文件夹)<li>`.txt` 文件要求：（1）编码为 UTF-8；（2）每行一个 `Token`，有效 `Token` 长度为36位<li>`.csv` 文件要求：（1）只能有一列；（2）每行一个 `Token`，有效 `Token` 长度为36位 |
+| file   | form-data | 是       | <li>Token 包格式及大小： 支持 `zip\txt\csv` 文件；大小保持在100MB以内<li>压缩包中可含有： 单个 `.txt` 或 `.csv` 文件 (不能嵌套文件夹)<li>`.txt` 文件要求：（1）编码为 UTF-8；（2）每行一个 Token，有效 Token 长度为36位<li>`.csv` 文件要求：（1）只能有一列；（2）每行一个 Token，有效 Token 长度为36位 |
 
 ## 响应参数
 
 | 参数名   | 类型    | 是否必须 | 参数说明                                                     |
 | -------- | ------- | -------- | ------------------------------------------------------------ |
 | retCode  | Integer | 是       | 错误码                                                       |
-| errMsg   | String  | 是       | 请求出错时的错误信息                                         |
-| uploadId | Integer | 是       | 当上传文件成功时，将返回一个正整数 `uploadId` ，代表上传文件 ID，提供给推送接口进行 `Token `包推送 |
+| errMsg   | String  | 是       | 请求出错时的错误信息                                        |
+| uploadId | Integer | 是       | 当上传文件成功时，将返回一个正整数 uploadId ，代表上传文件 ID，提供给推送接口进行 Token 包推送 |
 
 
 ## 请求示例
@@ -58,5 +58,5 @@ response = requests.request("POST", url, data=upload_data, headers=headers, file
 print(response.text.encode('utf-8'))
 ```
 
-> !应用的认证信息，请参见 [Basic Auth 认证](https://cloud.tencent.com/document/product/548/39062) 文档。
+>!应用的认证信息，请参见 [Basic Auth 认证](https://cloud.tencent.com/document/product/548/39062) 文档。
 

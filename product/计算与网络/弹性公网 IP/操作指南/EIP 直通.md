@@ -1,6 +1,6 @@
 EIP 直通功能适用于云服务器内需要查看公网 IP 的场景，例如，将内网流量和外网流量分别转发到不同的 IP 地址。本文介绍如何在 Linux 云服务器和 Windows 云服务器中配置 EIP 直通。
 
->? EIP 直通为内测功能，如有需要请提 [工单申请](https://console.cloud.tencent.com/workorder/category)。
+>? EIP 直通为内测功能，目前仅支持私有网络，如有需要请提 [工单申请](https://console.cloud.tencent.com/workorder/category)。
 
 ## 操作场景
 用户通过 EIP 访问外网时，可选 NAT 模式或 EIP 直通模式，当前默认 NAT 模式。
@@ -8,7 +8,6 @@ EIP 直通功能适用于云服务器内需要查看公网 IP 的场景，例如
 - EIP 直通后，EIP 在本地可见，配置时无须每次手动加入 EIP 地址，可降低开发成本。
 
 ## 使用限制
-- 目前 EIP 直通仅支持 VPC 内的设备，如需使用，请提 [工单申请](https://console.cloud.tencent.com/workorder/category)。
 - 云服务器的 EIP 直通不能与 NAT 网关同时使用。如果您的云服务器所在子网的路由表配置了通过 NAT 网关访问公网的路由策略，则云服务器上的 EIP 将无法实现直通功能；您可以通过 [调整 NAT 网关和 EIP 的优先级](https://cloud.tencent.com/document/product/552/30012)，使云服务器先通过本身的 EIP，而不是 NAT 网关来访问公网，此时可以实现 EIP 直通功能。
 - EIP 直通过程会导致网络中断，您需先下载 EIP 直通脚本到云服务器中，并确认您的业务允许短暂的中断。
 

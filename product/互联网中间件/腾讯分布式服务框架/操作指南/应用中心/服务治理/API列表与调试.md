@@ -42,3 +42,4 @@ TSF 当前支持手动录入API。手动录入 API 的场景主要有：当微�
 	![](https://main.qcloudimg.com/raw/4982370916dd143bdb57e7ea2d984abe.png)
 4. 右侧会展示调用 API 的返回结果。
 	![](https://main.qcloudimg.com/raw/b8746e14de991b756e275af9be771b80.png)
+
