@@ -9,7 +9,7 @@
 <dx-alert infotype="notice" title="注意：">
 - 仍在使用 TKE-Optimized 镜像的集群不受影响，可继续使用。建议您切换至到 Tencent Linux 2.4，新增节点使用 Tencent Linux 2.4，存量节点不受影响可继续使用。
 - Centos7.6 TKE Optimized 镜像与使用 Tencent Linux 2.4镜像完全兼容。
-- Ubuntu 18.04 TKE Optimized 镜像基于 Centos 7，您对节点做配置变更的脚本需自行适配新版本。
+- Ubuntu 18.04 TKE Optimized 镜像用户空间工具 与 Tencent Linux 并不完全兼容，您对节点做配置变更的脚本需自行适配新版本。
 </dx-alert>
 
 
