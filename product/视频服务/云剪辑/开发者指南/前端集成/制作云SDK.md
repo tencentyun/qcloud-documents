@@ -2,7 +2,7 @@
 
 > 辅助用户完成制作云平台基础业务WEB接口复用。
 
-使用我们的 CDN 引入 sdk，<script src="https://vs-cdn.tencent-cloud.com/sdk/cme_v2.1.js"></script>，在页面初始化完成以后填入如下代码。
+使用我们的 CDN 引入 sdk，`<script src="https://vs-cdn.tencent-cloud.com/sdk/cme_v2.1.js"></script>`，在页面初始化完成以后填入如下代码。
 
 ## create
 
