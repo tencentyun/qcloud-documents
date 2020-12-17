@@ -4,7 +4,7 @@
 
 ## create
 
-创建一个 `CME.Net` 实例。[如何计算签名?](https://cloud.tencent.com/document/product/1156/40342)
+创建一个 `CME.Net` 实例。[如何计算签名?](../签名/授权签名综述.md)
 
 ```js
 /* @create  创建实例方法。
