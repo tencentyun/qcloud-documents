@@ -64,11 +64,11 @@ fdisk -l
 
 1. 根据文件系统的类型，执行不同的命令进行扩容。
  - 对于 EXT 文件系统，请执行 `resize2fs` 命令扩容文件系统。
- - 对于 XFS 文件系统，请执行`xfs_growfs`命令扩容文件系统。
- 以 `/dev/vdb` 为例， EXT 文件系统执行以下命令：
+  以 `/dev/vdb` 为例， EXT 文件系统执行以下命令：
 ```plaintext
 resize2fs /dev/vdb
 ```
+ - 对于 XFS 文件系统，请执行 `xfs_growfs` 命令扩容文件系统。
 	以 `/dev/vdb` 为例， XFS 文件系统执行以下命令：
 	```plaintext
 	xfs_growfs /dev/vdb
