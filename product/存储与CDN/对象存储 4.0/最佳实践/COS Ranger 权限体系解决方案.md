@@ -81,8 +81,8 @@ i. include：表示设置的权限是只 path 本身，还是除过 path 外的�
 ii. recursive：表示权限不仅只对 path，还针对 path 路径下的子成员即递归子成员。通常用于 path 设置的是目录的情况。
  - **user/group**：用户名和用户组。这里是或的关系，即用户名或者用户组满足其中一个，即可有对应的操作权限。
  - **Permissions**：
-i. Read：读操作，对应于对象存储里面的 GET、HEAD 类操作，包括下载对象、查询对象元数据等。
-ii. Write：写操作, 对应于对对象存储里面的 PUT 类等修改操作，例如上传对象。
+i. Read：读操作。对应于对象存储里面的 GET、HEAD 类操作，包括下载对象、查询对象元数据等。
+ii. Write：写操作,。对应于对对象存储里面的 PUT 类等修改操作，例如上传对象。
 iii. Delete：删除操作。 对应于对象存储里删除 Object。对于 Hadoop 的 Rename 操作，需要有对原路径的删除操作权限，对新路径的写入操作权限。
 iv. ist：遍历权限。对应于对象存储里面的 List Object。
 ![](https://main.qcloudimg.com/raw/00a619b4b963a9acf766411fad722fe4.png)
@@ -205,13 +205,10 @@ hadoop fs -rmcosn://examplebucket-1250000000/doc/exampleobject.txt
 
 1. kerberos 是否必须安装？
 Kerberos 满足认证的需求，如果所在的集群，用户都是可信的，例如仅内部使用的集群，用户仅进行鉴权操作，避免无权限的客户误操作。那么可以不安装 kerberos，只使用 ranger 进行鉴权。同时 kerberos 会引入一些性能损耗。请客户综合自己的安全需求与性能需求进行考量。如果需要认证，开启 Kerberos 后，需要设置 COS Ranger Service 和 COS Ranger Client 相关的配置项。
-
 2. 如果开启了 Ranger，没有配置任何 Policy，或者未匹配到任何 Policy，会如何操作？
 如果未匹配上任何 policy，会默认拒绝该操作。
-
 3. 配置在 COS Ranger Service 侧的密钥可以是子账号吗？
 可以是子账号的，但是必须拥有被操作 bucket 的相应权限，才能生成临时密钥给到 COSN 插件，进行相应的操作。通常建议这里设置的密钥拥有对该 bucket 的所有权限。
-
 4. 临时密钥是如何更新的，是每次访问 COS 前都需要从 COS Ranger Service 侧获取一次吗?
 临时密钥是 cache 在 COSN 插件侧，并周期性的进行异步更新。
 
