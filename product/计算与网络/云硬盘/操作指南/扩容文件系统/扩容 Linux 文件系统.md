@@ -326,7 +326,7 @@ umount /data
 ```
 wget -O /tmp/devresize.py https://tencentcloud.coding.net/p/tencentcloud/d/tencentcloud-cbs-tools/git/raw/master/devresize/devresize.py?download=true
 ```
-港澳台地区及海外推荐使用：
+ 境外推荐使用：
 ```
 wget -O /tmp/devresize.py https://raw.githubusercontent.com/tencentyun/tencentcloud-cbs-tools/master/devresize/devresize.py
 ```
