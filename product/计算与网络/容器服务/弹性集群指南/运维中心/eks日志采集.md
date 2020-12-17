@@ -81,7 +81,7 @@ EKS 日志采集功能支持指定用户自建的 Kafka 实例、日志服务 CL
 </dx-tabs>
 
 <span id="yaml"></span>
-### 通过 yaml 配置日志采集 [](id=yaml)
+### 通过 yaml 配置日志采集 [](id:yaml)
 本文提供采集日志到 Kafka、通过 secret 采集日志到 CLS 和通过 role 采集日志到 CLS 三种方式，请按需选择：
 >! 若 yaml 中同时配置了密钥和角色授权，pod 实际上采用的是角色授权。
 
