@@ -1,12 +1,15 @@
 ## C++ 全平台接口简介
-自8.0版本起，我们在原有的 Windows（C++）接口的基础上，提供了全新的 C++ 接口，适用于 Windows、iOS、Mac、Android 平台。
+自 8.0 版本起，我们在原有的 Windows（C++）接口的基础上，提供了全新的 C++ 接口，适用于 Windows、iOS、Mac、Android 平台。
 如果您暂不清楚如何集成 C++ 接口，请参阅各平台的集成指引。  
 - [iOS C++ 接口集成指引](https://cloud.tencent.com/document/product/647/32173#using_cpp)  
 - [Android C++ 接口集成指引](https://cloud.tencent.com/document/product/647/32175#using_cpp)  
 - [Mac C++ 接口集成指引](https://cloud.tencent.com/document/product/647/32176#using_cpp)  
 - [Windows 集成指引](https://cloud.tencent.com/document/product/647/32178#using_cpp)  
->?目前C++接口仅提供在精简版（TRTC）中。  
->Windows平台中，TRTC头文件已自动使用“trtc”命名空间，无需重复指定。
+
+>?
+>- 目前 C++ 接口仅提供在精简版（TRTC）中。  
+>- Windows 平台中，TRTC头文件已自动使用“trtc”命名空间，无需重复指定。
+
 ## ITRTCCloud @ TXLiteAVSDK
 ### 设置 ITRTCCloudCallback 回调
 
