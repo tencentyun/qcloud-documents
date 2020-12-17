@@ -29,7 +29,7 @@ DeScheduler 通过重调度来解决集群现有节点上不合理的运行方�
 - 该组件已对接容器服务 TKE 的监控告警体系。
 - 建议您为集群开启事件持久化，以便更好的监控组件异常以及故障定位。
 - 为避免 DeScheduler 驱逐关键的 Pod，设计的算法默认不驱逐 Pod。对于可以驱逐的 Pod，用户需要显示给判断 Pod 所属 workload。例如，statefulset、deployment 等对象设置可驱逐 annotation。
-- 驱逐太多 Pod，导致服务不可用。
+- 驱逐大量 Pod，导致服务不可用。
    Kubernetes 原生提供 PDB 对象用于防止驱逐接口造成的 workload 不可用 Pod 过多，但需要用户创建该 PDB 配置。容器服务 TKE 自研的 DeScheduler 组件加入了兜底措施，即调用驱逐接口前，判断 workload 准备的 Pod 数是否大于副本数一半，否则不调用驱逐接口。
 
 
@@ -48,30 +48,6 @@ DeScheduler  基于 [社区版本 Descheduler](https://github.com/kubernetes-sig
 
 因此，腾讯云 TKE 推出 DeScheduler，底层依赖对节点真实负载的监控进行重调度。通过 Prometheus 拿到集群 Node 的负载统计信息，根据用户设置的负载阈值，定期执行策略里面的检查规则，驱逐高负载节点上的 Pod。
 ![](https://main.qcloudimg.com/raw/9e37814fd4f4831217b33b35ce72f03b.png)
-
-
-
-### 查找高负载节点
-
-![](https://main.qcloudimg.com/raw/ac5285d3fc10fad645239507570a3e39.png)
-
-### 筛选可驱逐 Pod
->? 可迁移标记是 TKE 指定的 annotation，设置为 `"descheduler.alpha.kubernetes.io/evictable": true`，注入到 workload 中。
->
-![](https://main.qcloudimg.com/raw/00c60959cb1956e1a1cfa9d683f1f542.png)
-
-
-
-
-### 根据 Pod 驱逐顺序进行驱逐
-
-当节点 CPU 或者内存超过阈值时，对节点进行 Pod 驱逐的顺序基于以下规则排序。例如，有 A 与 B 两个 Pod。
-
->? 当节点 CPU 和内存均超过阈值时，DeScheduler 将先按照降低内存到目标水位的策略去驱逐 Pod，内存是不可压缩资源，且会同步将驱逐的 Pod 对节点 CPU 的降低值更新到节点负载中，最后再按照降低 CPU 到目标水位的策略去驱逐 Pod。
-
-1. priority 值低的 Pod 优先驱逐。
-2. QosClass 低则（besteffort < burstable < guaruanteed）优先驱逐。
-3. 如果 A 与 B 的 priority 与 QosClass 都相同，则比较二者的 CPU 和内存利用率，利用率高的优先驱逐（为了快速降低负载）。
 
 
 ## 组件参数说明[](id:parameter)
@@ -148,9 +124,9 @@ rule_files:
 1. 登录容器服务控制台，在左侧菜单栏中选择【[云原生监控](https://console.cloud.tencent.com/tke2/prometheus)】，进入“云原生监控”页面。
 2. 创建与 Cluster 处于同一 VPC 下的 [云原生监控 Prometheus 实例](https://cloud.tencent.com/document/product/457/49889#.E5.88.9B.E5.BB.BA.E7.9B.91.E6.8E.A7.E5.AE.9E.E4.BE.8B)，并 [关联用户集群](https://cloud.tencent.com/document/product/457/49890)。如下图所示：
    ![](https://main.qcloudimg.com/raw/bafb027663fbb3f2a5063531743c2e97.jpg)
-2. 与原生托管集群关联后，可以在用户集群查看到每个节点都已安装 node-exporter。如下图所示：
+3. 与原生托管集群关联后，可以在用户集群查看到每个节点都已安装 node-exporter。如下图所示：
    ![](https://main.qcloudimg.com/raw/e35d4af7eeba15f6d9da62ce79176904.png)
-3. 设置 Prometheus 聚合规则，具体规则内容与上述 [自建Prometheus监控服务](#rules) 中的“聚合规则配置”相同。规则保存后立即生效，无需重新加载 server。
+4. 设置 Prometheus 聚合规则，具体规则内容与上述 [自建Prometheus监控服务](#rules) 中的“聚合规则配置”相同。规则保存后立即生效，无需重新加载 server。
 :::
 </dx-tabs>
 
