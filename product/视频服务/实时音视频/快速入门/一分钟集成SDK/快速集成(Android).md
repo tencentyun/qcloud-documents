@@ -169,6 +169,7 @@ target_link_libraries(
 ```
 using namespace trtc;
 ```
+
 >?
 >- 配置 Android Studio C/C++ 开发环境具体可以参考 Android Studio 官方文档：[向 Android 项目添加 C 和 C++ 代码](https://developer.android.com/studio/projects/add-native-code) 。 
 >- 目前只有 TRTC 版本的 SDK 支持 C++ 接口；对于 C++ 接口的使用方式，请参见 [全平台（C++）API 概览](https://cloud.tencent.com/document/product/647/32689#TRTC)。
