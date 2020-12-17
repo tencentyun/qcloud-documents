@@ -32,7 +32,7 @@ myCmeNet.then(res=>{
 
 WEB请求包装实例。具体的请求地址和响应，请参考[WEB接口文档]。
 
-> 可以到这里在线调试相关[接口](https://video-caster-sdk-1258344699.cos-website.ap-guangzhou.myqcloud.com/demo/debug.html)
+> 相关接口可以到这里在线[调试](https://video-caster-sdk-1258344699.cos-website.ap-guangzhou.myqcloud.com/demo/debug.html)
 
 ### post
 
