@@ -2,6 +2,8 @@
 
 > 辅助用户完成制作云平台基础业务WEB接口复用。
 
+使用我们的 CDN 引入 sdk，<script src="https://vs-cdn.tencent-cloud.com/sdk/cme_v2.1.js"></script>，在页面初始化完成以后填入如下代码。
+
 ## create
 
 创建一个 `CME.Net` 实例。[如何计算签名?](../客户端访问签名/授权签名综述.md)
