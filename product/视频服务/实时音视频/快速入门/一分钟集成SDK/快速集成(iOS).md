@@ -107,7 +107,7 @@ TRTC SDK 支持两种调用方式，您可以任选一种
 using namespace trtc;
 ```
 
->? 对于 C++ 接口的使用方式，请参见 [全平台（C++）API 概览](https://cloud.tencent.com/document/product/647/32689#TRTC)。
+>? 对于 C++ 接口的使用方式，请参见 [全平台（C++）API 概览](https://cloud.tencent.com/document/product/647/32268)。
 
 ## 常见问题
 ### 1. TRTC SDK 是否支持后台运行？
