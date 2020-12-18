@@ -34,15 +34,19 @@
 ![](https://main.qcloudimg.com/raw/096c1fb010826afb6f03e1402890d97e.png)
 主要参数信息如下，其余配置项请保持默认：
 	- **事件类型**：MPS 触发器以账号维度的事件类型推送 Event 事件，目前支持工作流任务（WorkflowTask）和视频编辑任务（EditMediaTask）两种事件类型触发。
-	- **事件处理**：MPS 触发器以服务维度产生的事件作为事件源，不区分地域、资源等属性。每个账号只允许两类事件分别绑定单个函数。如需多个函数并行处理任务，请参见 [函数间调用 SDK](https://cloud.tencent.com/document/product/583/37316)。
->?初次创建 MPS 触发器，需单击【SCF_QcsRole】、【MPS_QcsRole】对相关服务角色进行授权。
+>?
+>- 初次创建 MPS 触发器，需单击【SCF_QcsRole】、【MPS_QcsRole】对相关服务角色进行授权。
+>- MPS 触发器以服务维度产生的事件作为事件源，不区分地域、资源等属性。每个账号只允许两类事件分别绑定单个函数。如需多个函数并行处理任务，请参见 [函数间调用 SDK](https://cloud.tencent.com/document/product/583/37316)。
+>
+4. 单击【提交】即可完成创建触发器。
+
  
  
 <span id="step05"></span>
 
 ### 测试函数功能
 1. 登录 [视频处理控制台](https://console.cloud.tencent.com/mps)，执行视频处理工作流。
-2. 在云函数控制台【[函数服务]((https://console.cloud.tencent.com/scf/list))】页面中，单击上述 [创建云函数](#step01) 步骤中创建的云函数名称，进入函数详情页面。
+2. 在云函数控制台【[函数服务](https://console.cloud.tencent.com/scf/list)】页面中，单击上述 [创建云函数](#step01) 步骤中创建的云函数名称，进入函数详情页面。
 3. 在函数详情页面中选择【日志查询】页签，可以查看到打印出的日志信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/b4d8dd0a4a236ab4cb35f2e7d3160649.png)
 4. 切换至 [对象存储控制台](https://console.cloud.tencent.com/cos5)，查看数据转储及加工结果。

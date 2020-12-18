@@ -37,3 +37,4 @@ TSF Mesh 主要有三种使用场景：
 - 服务提供者作为 Mesh 应用部署，由 Sidecar 注册到服务注册中心；
 - 服务消费者作为 Mesh 应用部署，由 Sidecar 注册到服务注册中心。
 ![](https://main.qcloudimg.com/raw/995af667b109bd730b40462df4d47d70.png)
+

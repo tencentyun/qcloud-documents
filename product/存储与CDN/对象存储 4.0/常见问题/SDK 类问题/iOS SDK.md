@@ -70,6 +70,14 @@ SDK 只支持续传沙盒中的文件，如需使用断点续传的功能，请�
 
 请确保您设置好 body 之后，本地文件不会发生改变，比如文件在压缩过程中或者还没有完成写入之前调用了上传接口触发了上传，SDK 就会以当时的文件大小为准进行分块进行上传，从而导致上传到 cos 上的文件和本地文件大小不一致。
 
+### 集成 SDK 后，调用上传接口,报错 "您输入的body的URL不是本地URL，请检查后使用！！"该如何处理？
+
+解决办法：
+请确保 URL 是以 file:// 开头，可以通过以下两种方式初始化 ：
+1. [NSURL URLWithString:@"file:////var/mobile/Containers/Data/Application/DBPF7490-D5U8-4ABF-A0AF-CC49D6A60AEB/Documents/exampleobject"]
+2. [NSURL fileURLWithPath:@"/var/mobile/Containers/Data/Application/DBPF7490-D5U8-4ABF-A0AF-CC49D6A60AEB/Documents/exampleobject"]
+
+
 ### 集成 SDK 之后，调用上传接口，上传成功之后的文件大小为0，该如何处理？
 
 解决办法：
@@ -89,3 +97,10 @@ SDK 只支持续传沙盒中的文件，如需使用断点续传的功能，请�
 ### SDK 能否使用 CDN 加速域名进行访问？
 
 支持，请根据您所使用的编程语言，并参见对应的 [SDK 文档](https://cloud.tencent.com/document/sdk) 进行操作。
+
+### SDK 如何设置请求的超时时间?
+
+解决：SDK 5.7.0 之后支持自定义请求的超时时间，可以通过以下方式设置
+1. 初始化 `QCloudServiceConfiguration *config = [QCloudServiceConfiguration new]`
+2. 设置config的 `timeoutInterval`属性即可  `设置config的.timeoutInterval = 30;`
+

@@ -3,7 +3,7 @@
 COS 支持用户以生命周期配置的方式来管理 Bucket 中 Object 的生命周期。生命周期配置包含一个或多个将应用于一组对象规则的规则集 (其中每个规则为 COS 定义一个操作)。
 这些操作分为以下两种：
 
-- **转换操作：**定义对象转换为另一个存储类的时间。例如，您可以选择在对象创建30天后将其转换为低频存储（STANDARD_IA，适用于不常访问）存储类别。同时也支持将数据沉降到归档存储（Archive，成本更低，目前支持国内地域）。具体参数查看请求示例说明中 Transition 项。
+- **转换操作：**定义对象转换为另一个存储类的时间。例如，您可以选择在对象创建30天后将其转换为低频存储（STANDARD_IA，适用于不常访问）存储类别。同时也支持将数据沉降到智能分层存储（INTELLIGENT_TIERING，访问模式不固定）和归档存储（ARCHIVE，成本更低）。具体参数查看请求示例说明中 Transition 项。
 - **过期操作：**指定 Object 的过期时间。COS 将会自动为用户删除过期的 Object。
 
 #### 细节分析
@@ -115,7 +115,7 @@ Content-MD5: MD5
 | NoncurrentVersionExpiration    | LifecycleConfiguration.Rule                                  | 指明非当前版本对象何时过期                                   | Container | 否       |
 | NoncurrentVersionTransition    | LifecycleConfiguration.Rule                                  | 指明非当前版本对象何时转换为 STANDARD_IA 或 ARCHIVE          | Container | 否       |
 | NoncurrentDays                 | LifecycleConfiguration.Rule<br>.NoncurrentVersionExpiration <br>或 NoncurrentVersionTransition | 指明规则对应的动作在对象变成非当前版本多少天后执行<br><li>如果是 Transition，该字段有效值是非负整数<br><li>如果是 Expiration，该字段有效值为正整数，最大支持3650天 | Integer   | 否       |
-| StorageClass                   | LifecycleConfiguration.Rule<br>.Transition 或 <br>NoncurrentVersionTransition | 指定 Object 转储到的目标存储类型，枚举值： STANDARD_IA，<br>ARCHIVE | String    | 是       |
+| StorageClass                   | LifecycleConfiguration.Rule<br>.Transition 或 <br>NoncurrentVersionTransition | 指定 Object 沉降后的存储类型，枚举值： STANDARD_IA，MAZ_STANDARD_IA，INTELLIGENT_TIERING，MAZ_INTELLIGENT_TIERING，ARCHIVE，DEEP_ARCHIVE | String    | 是       |
 
 ## 响应
 

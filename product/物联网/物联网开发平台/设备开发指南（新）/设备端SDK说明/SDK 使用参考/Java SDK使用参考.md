@@ -2,7 +2,7 @@
 Java SDK 面向使用 Java 语言的平台实现接入腾讯云物联网开发平台。
 ## SDK 获取
 
-SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [explorer-device-java](https://github.com/tencentyun/iot-device-java/tree/master/explorer-device-java)。
+SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [explorer-device-java](https://github.com/tencentyun/iot-device-java/tree/master/explorer/explorer-device-java)。
 
 如果您想通过 jar 引用方式进行项目开发，可在 module 目录下的 build.gradle 中添加依赖，如下依赖：
 ```

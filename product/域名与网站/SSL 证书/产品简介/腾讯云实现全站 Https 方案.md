@@ -4,15 +4,15 @@
 您可以在腾讯云上一站式实现全站 HTTPS，下面详细说明如何操作。
 
 ## 前提条件
-成功申请获取证书（参考 [如何免费申请域名型证书](https://cloud.tencent.com/document/product/400/6814)）。
+已登录 [证书管理控制台](https://console.cloud.tencent.com/certoverview)，成功申请获取证书（参考 [如何免费申请域名型证书](https://cloud.tencent.com/document/product/400/6814)）。
 
 ## 操作步骤
 ### 部署证书到负载均衡
 >!操作之前，请确认您的 [负载均衡控制台](https://console.cloud.tencent.com/clb/index?rid=1&type=2%2C3) 是否有实例，若没有实例，请您先创建实例。
 >
-1. 选择您需要部署的证书，单击【部署】。如下图所示：
-![](https://main.qcloudimg.com/raw/fe9df64283baa8440e5a3f1c20bf93b0.png)
-2. 根据项目和地区筛选 CLB 实例，且只能选择一个实例。如下图所示：
+1. 单击【已签发】页签，选择您需要部署的证书，并单击【证书详情】。如下图所示：
+![](https://main.qcloudimg.com/raw/2dce1ac04efd170c9b7f2b55b6a07ffd.png)
+2. 进入 “证书详情” 管理页面，单击【一键部署】，根据项目和地区筛选 CLB 实例，且只能选择一个实例。如下图所示：
 >!目前不支持华南地区-深圳金融。
 >
 ![](https://main.qcloudimg.com/raw/3c53330b67120756393be70356189753.png)
@@ -29,15 +29,16 @@
  - COS 或 数据万象开启 CDN 加速后，默认的 .file.myqcloud.com 或 .image.myqcloud.com 域名无法配置证书。
  - SVN 托管源暂时无法配置证书。
  
-1. 选择您需要部署的证书，单击【部署】。如下图所示：
-![](https://main.qcloudimg.com/raw/fe9df64283baa8440e5a3f1c20bf93b0.png)
-2. 在弹出的【选择部署类型】窗口中，选择【CDN】，并单击【确定】。
-3. 跳转到 [CDN 控制台](https://console.cloud.tencent.com/cdn)，进入【配置证书】详情页，已显示对应的域名、证书来源以及证书 ID。
-4. 选择回源协议方式，您可以选择 CDN 节点回源站获取资源时的回源方式。如下图所示：
+1. 单击【已签发】页签，选择您需要部署的证书，并单击【证书详情】。如下图所示：
+![](https://main.qcloudimg.com/raw/2dce1ac04efd170c9b7f2b55b6a07ffd.png)
+2. 进入 “证书详情” 管理页面，单击【一键部署】。
+3. 在弹出的【选择部署类型】窗口中，选择【CDN】，并单击【确定】。
+4. 跳转到 [CDN 控制台](https://console.cloud.tencent.com/cdn)，进入【配置证书】详情页，已显示对应的域名、证书来源以及证书 ID。
+5. 选择回源协议方式，您可以选择 CDN 节点回源站获取资源时的回源方式。如下图所示：
 ![](https://main.qcloudimg.com/raw/890219d7c165edf23c7fe64d14fa9c65.png)
  - 选择 **HTTP** 回源配置成功后，用户至 CDN 节点请求支持 HTTPS/HTTP，CDN 节点回源站请求均为 HTTP。
  - 选择 **协议跟随** 回源配置，您的源站需要部署有效证书，否则将导致回源失败。配置成功后，用户至 CDN 节点请求为 HTTP 时，CDN 节点回源请求也为 HTTP。用户至 CDN 节点请求为 HTTPS 时，CDN 节点回源请求也为 HTTPS。
  - 若域名源站修改 HTTPS 端口为非 443 端口，会导致配置失败。
  - COS 源或 FTP 源域名仅支持 HTTP 回源。
-5. 配置成功后，您可以在【证书管理】页面看到已经配置成功的域名以及证书情况。如下图所示：
+6. 配置成功后，您可以在【证书管理】页面看到已经配置成功的域名以及证书情况。如下图所示：
 ![](https://main.qcloudimg.com/raw/c30cb345a0cca5d567f3b00d1425e59e.png)

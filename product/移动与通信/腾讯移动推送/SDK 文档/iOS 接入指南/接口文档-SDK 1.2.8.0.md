@@ -162,36 +162,6 @@ NSSet *accountsKeys = [[NSSet alloc] initWithObjects:@(accountType), nil];
 [[XGPushTokenManager defaultTokenManager] delAccountsByKeys:accountsKeys];
 ```
 
-### 更新账号
-
-#### 接口说明
-
-清空已有账号，然后批量添加账号。（TPNS SDK1.2.9.0+ 新增）
-
-```Objective-C
-- (void)clearAndAppendAccountsByDict:(nonnull NSDictionary<NSNumber *, NSString *> *)accountsDict;
-```
-
-> ?此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
-
-#### 参数说明 
-
-
-- accountsDict：账号字典。
-
->?
->- 需要使用字典类型，key 为账号类型，value 为账号，示例：@{@(accountType):@"account"}；。
->- Objective-C的写法 : @{@(0):@"account0",@(1):@"account1"}；Swift的写法：[NSNumber(0):@"account0",NSNumber(1):@"account1"]。
->- 更多 accountType 请参照 SDK 包内 XGPush.h 文件中的 XGPushTokenAccountType 枚举。
-
-#### 示例代码
-
-```Objective-C
-XGPushTokenAccountType accountType = XGPushTokenAccountTypeUNKNOWN;
-NSString *account = @"account";
-[[XGPushTokenManager defaultTokenManager] clearAndAppendAccountsByDict:@{ @(accountType):account }];
-```
-
 ### 清除账号
 
 #### 接口说明

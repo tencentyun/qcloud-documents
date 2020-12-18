@@ -28,7 +28,9 @@ Maven 是 JAVA 的依赖管理工具，支持您项目所需的依赖项，并�
     <!-- 请到 https://search.maven.org/search?q=tencentcloud-sdk-java 查询最新版本 -->
     <version>3.1.87</version>
 </dependency>
-``````xml
+```
+2. 设置镜像源以加快下载速度。
+```xml
 <repositories>
 	<repository>
       <id>nexus-tencentyun</id>
@@ -41,7 +43,7 @@ Maven 是 JAVA 的依赖管理工具，支持您项目所需的依赖项，并�
 示例如下图所示：
 ![](https://main.qcloudimg.com/raw/cc7027bc9fc9c7863121c2dfdeda3185.png)  
 
-2. 在命令端进入到 “G:\maven-demo”（示例项目根路径）：
+3. 在命令端进入到 “G:\maven-demo”（示例项目根路径）：
 ```bash
 #  创建JAR/WAR包如在 pom.xml 中定义提及的包。
 G:\maven-demo>mvn package

@@ -13,7 +13,7 @@ dependencies {
 }
 ```
 >?用户可根据 [版本说明](https://cloud.tencent.com/document/product/634/48713) 设置版本号，以实现不同版本的功能。
-- 如果您需要通过代码集成方式进行项目开发，可访问 [Github](https://github.com/tencentyun/iot-device-java/tree/master/hub-device-java) 下载 Java-SDK 源码。
+- 如果您需要通过代码集成方式进行项目开发，可访问 [Github](https://github.com/tencentyun/iot-device-java/tree/master/hub/hub-device-java) 下载 Java-SDK 源码。
 
 ## 认证连接 ##
 

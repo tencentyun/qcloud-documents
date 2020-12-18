@@ -1,10 +1,11 @@
-
 SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [短信 API](https://cloud.tencent.com/document/product/382/38764)。新版 SDK 实现了统一化，具有各个语言版本的 SDK 使用方法相同，接口调用方式相同，错误码相同以及返回包格式相同等优点。
+
 >!
+>
 >- 发送短信相关接口
->一次群发请求最多支持200个号码，如对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：[3012203387](https://main.qcloudimg.com/raw/e674a37df984126f53ab9cbf4b9a168a.html)）。
+>  一次群发请求最多支持200个号码，如对号码数量有特殊需求请联系腾讯云短信技术支持（QQ：[3012203387](https://main.qcloudimg.com/raw/e674a37df984126f53ab9cbf4b9a168a.html)）。
 >- 签名、正文模板相关接口
->个人认证用户不支持使用签名、正文模板相关接口，只能通过短信控制台 [管理短信签名](https://cloud.tencent.com/document/product/382/37794) 和 [管理短信正文模板](https://cloud.tencent.com/document/product/382/37795)。如需使用该类接口，请将 “个人认证” 变更为 “企业认证”，具体操作请参见 [实名认证变更指引](https://cloud.tencent.com/document/product/378/34075)。
+>  个人认证用户不支持使用签名、正文模板相关接口，只能通过短信控制台 [管理短信签名](https://cloud.tencent.com/document/product/382/37794) 和 [管理短信正文模板](https://cloud.tencent.com/document/product/382/37795)。如需使用该类接口，请将 “个人认证” 变更为 “企业认证”，具体操作请参见 [实名认证变更指引](https://cloud.tencent.com/document/product/378/34075)。
 
 
 
@@ -19,6 +20,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 - 短信的调用地址为`sms.tencentcloudapi.com`。
 
 ## 相关资料
+
 - 各个接口及其参数的详细介绍请参见 [API 文档](https://cloud.tencent.com/document/product/382/38764)。
 - 下载 SDK 源码请访问 [Java SDK 源码](https://github.com/TencentCloud/tencentcloud-sdk-java)。
 
@@ -26,31 +28,39 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 ## 安装 SDK
 
 ### 通过 Maven 安装（推荐）
+
 [Maven](https://maven.apache.org) 是 Java 的依赖管理工具，支持您项目所需的依赖项，并将其安装到项目中。
+
 1. 访问 [Maven 官网](https://maven.apache.org/) 下载对应系统 Maven 安装包进行安装。
 2. 添加 Maven 依赖项，只需在 Maven pom.xml 添加以下依赖项即可：
+
  >!版本号仅为示例，请在 [Maven 仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 获取最新的版本号并替换。
- >
+
 <pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.tencentcloudapi<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>tencentcloud-sdk-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.1.62<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><span class="hljs-comment">&lt;!-- 注：这里只是示例版本号，请获取并替换为 <a href="https://mvnrepository.com/artifact/com.tencentcloudapi/tencentcloud-sdk-java">最新的版本号</a> --&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+
 3. 引用方法可参考 [示例代码](#example)。
 
 ### 通过源码包安装
+
 1. [下载](https://github.com/tencentcloud/tencentcloud-sdk-java) 源码压缩包。
 2. 解压源码包到您项目中合适的位置。
 3. 将 vendor 目录下的 jar 包放在 Java 可找到的路径中。
 4. 引用方法可参考 [示例代码](#example)。
 
-<span id="example"></span>
+<span id="example"></span>
+
 ## 示例代码
+
 >?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况进行修改，您也可以根据实际需求使用 [API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=sms&Version=2019-07-11&Action=SendSms) 自动化生成 Demo 代码。
 
 每个接口都有一个对应的 Request 结构和一个 Response 结构。本文仅列举几个常用功能的示例代码，更多示例请参见 [Java SDK 示例](https://github.com/TencentCloud/tencentcloud-sdk-java/tree/master/examples/sms)。
 
-<span id="签名和模板接口"></span>
+<span id="签名和模板接口"></span>
+
 ### 申请短信模板
 
 ```
@@ -126,23 +136,23 @@ public class AddSmsTemplate
 
             /* 模板名称*/
             String templatename = "腾讯云";
-            req.templateName(templatename);
+            req.setTemplateName(templatename);
 
             /* 模板内容 */
-            String templatecontent	 = "{1}为您的登录验证码，请于{2}分钟内填写，如非本人操作，请忽略本短信。";
-            req.templateContent	(templatecontent);
+            String templatecontent = "{1}为您的登录验证码，请于{2}分钟内填写，如非本人操作，请忽略本短信。";
+            req.setTemplateContent(templatecontent);
 
             /* 短信类型：0表示普通短信, 1表示营销短信 */
-            Long smstype = 0;
-            req.smsType(smstype);
+            long smstype = 0;
+            req.setSmsType(smstype);
 
             /* 是否国际/港澳台短信：0：表示国内短信，1：表示国际/港澳台短信。 */
-            Long international = 0;
-            req.international(session);
+            long international = 0;
+            req.setInternational(international);
 
             /* 模板备注：例如申请原因，使用场景等 */
             String remark = "xxx";
-            req.remark(remark);
+            req.setRemark(remark);
 
             /* 通过 client 对象调用 AddSmsTemplate 方法发起请求。注意请求方法名与请求对象是对应的
              * 返回的 res 是一个 AddSmsTemplateResponse 类的实例，与请求对象对应 */
@@ -161,8 +171,8 @@ public class AddSmsTemplate
 }
 ```
 
+<span id="发送短信"></span>
 
-<span id="发送短信"></span>
 ### 发送短信
 
 ```
@@ -288,7 +298,8 @@ public class SendSms
 
 
 
-<span id="拉取短信回执和短信回复状态"></span>
+<span id="拉取短信回执和短信回复状态"></span>
+
 ### 拉取回执状态
 
 ```
@@ -383,10 +394,12 @@ public class PullSmsSendStatus {
     }
 }
 ```
-<span id="统计短信发送数据"></span>
+
+<span id="统计短信发送数据"></span>
+
 ### 统计短信发送数据
 
-```
+```java
 import com.tencentcloudapi.common.Credential;
 import com.tencentcloudapi.common.exception.TencentCloudSDKException;
 
@@ -468,19 +481,19 @@ public class SendStatusStatistics {
             Long offset = 0L;
             req.setOffset(offset);
             /* 开始时间，yyyymmddhh 需要拉取的起始时间，精确到小时 */
-            String startdatetime = "2019071100";
+            long startdatetime = 2019071100;
             req.setStartDateTime(startdatetime);
             /* 结束时间，yyyymmddhh 需要拉取的截止时间，精确到小时
              * 注：EndDataTime 必须大于 StartDateTime */
-            String enddatatime = "2019071123"
+            long enddatatime = 2019071123;
             req.setEndDataTime(enddatatime);
 
             /* 通过 client 对象调用 SendStatusStatistics 方法发起请求。注意请求方法名与请求对象是对应的
              * 返回的 res 是一个 SendStatusStatisticsResponse 类的实例，与请求对象对应 */
-            SendStatusStatisticsResponse res = client.SendStatusStatisticsStatus(req);
+            SendStatusStatisticsResponse res = client.SendStatusStatistics(req);
 
             // 输出 JSON 格式的字符串回包
-            System.out.println(SendStatusStatisticsStatusResponse.toJsonString(res));
+            System.out.println(SendStatusStatisticsResponse.toJsonString(res));
 
         } catch (TencentCloudSDKException e) {
             e.printStackTrace();

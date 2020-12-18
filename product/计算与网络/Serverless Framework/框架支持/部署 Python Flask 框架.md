@@ -4,13 +4,13 @@
 >!任何支持 WSGI（Web Server Gateway Interface，即 Web 服务器网关接口）的 Python 服务端框架都可以通过该组件进行部署，例如 Falcon 框架等。
 
 ## 前提条件
-1.在使用此组件之前，请确认您本地已安装好 Python 环境。
-2.先初始化一个 Flask 项目，然后将 `Flask` 和 `werkzeug` 添加到依赖文件 `requirements.txt` 中，如下： 
+1. 在使用此组件之前，请确认您本地已安装好 Python 环境。
+2. 先初始化一个 Flask 项目，然后将 `Flask` 和 `werkzeug` 添加到依赖文件 `requirements.txt` 中，如下： 
 ```txt
 Flask==1.0.2
 werkzeug==0.16.0
 ```
- 同时新增 API 服务 `app.py`，下面代码仅供参考：
+同时新增 API 服务 `app.py`，下面代码仅供参考：
 ```python
 from flask import Flask, jsonify
 app = Flask(__name__)
@@ -31,25 +31,25 @@ def user(id):
 
 ## 操作步骤
 
-> 以下步骤主要针对命令行部署操作，控制台部署请参考[控制台部署指南](./console)。
+>?以下步骤主要针对命令行部署操作，控制台部署请参考 [控制台部署指南](https://cloud.tencent.com/document/product/1154/50957)。
 
-### 0. 安装
+### 1. 安装 Serverless CLI
 通过 npm 全局安装 [Serverless CLI](https://github.com/serverless/serverless)：
 
 ```shell
 npm install -g serverless
 ```
 
-### 1. （可选）初始化 Flask 模版项目
-如果您本地并没有 Flask 项目，可通过以下指令完成 Flask 项目初始化（本地已有项目可跳过该步骤）
+### 2. 初始化 Flask 模版项目（可选）
+如果您本地并没有 Flask 项目，可通过以下指令完成 Flask 项目初始化（本地已有项目可跳过该步骤）：
 ```
 serverless init flask-starter --name example
 cd example
 ```
 
-### 2. 配置 yml 文件
+### 3. 配置 yml 文件
 在项目根目录下，新建 `serverless.yml` 文件，并将下列配置模版粘贴到文件中，实现基本的项目配置。
->基于您实际部署需要，您可以在 `serverless.yml` 中完成更多配置，yml 文件的配置信息请参考[ Flask 组件全量配置](https://github.com/serverless-components/tencent-flask/blob/master/docs/configure.md)
+>?基于您实际部署需要，您可以在 `serverless.yml` 中完成更多配置，yml 文件的配置信息请参考 [Flask 组件全量配置](https://github.com/serverless-components/tencent-flask/blob/master/docs/configure.md)。
 
 ```sh
 touch serverless.yml
@@ -76,7 +76,7 @@ inputs:
     environment: release
 ```
 
-### 3. 应用部署
+### 4. 应用部署
 通过 `sls deploy` 命令进行部署，并可以添加 --debug 参数查看部署过程中的信息。
 
 ```
@@ -84,7 +84,7 @@ sls deploy --debug
 ```
 部署完成后，通过访问输出的 API 网关链接，完成对应用的访问。
 
-### 4. 监控运维
+### 5. 监控运维
 部署完成后，您可以通过访问 [Serverless 应用控制台](https://console.cloud.tencent.com/ssr)，查看应用的基本信息，监控日志。
 
 

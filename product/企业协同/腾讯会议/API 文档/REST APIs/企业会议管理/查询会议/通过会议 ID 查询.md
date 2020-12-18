@@ -48,6 +48,7 @@
 | current_sub_meeting_id | String         | 当前子会议 ID（进行中 / 即将开始）。     |
 | enable_live | Boolean      | 是否开启直播（会议创建人才有权限查询）。   |
 | live_config | 直播信息对象 | 会议的直播配置（会议创建人才有权限查询）。 |
+| location | String | 会议地点。 |
 
 <span id="settings"></span>
 

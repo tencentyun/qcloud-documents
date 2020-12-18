@@ -1,0 +1,51 @@
+# 轨道
+
+> 决定舞台展示层级的容器，最顶层为0。
+
+## 示例
+
+```js
+let track =  {
+      //文字类型素材
+      "id": "beb45741-c9f0-45b7-a06c-d33b579208b8",
+      "type": "title",
+      "order": 0,
+      "items": [{
+        // 素材元素
+      }],
+      /***
+       * 只有字幕轨道才有字幕样式
+       */
+     "styles": [{
+       //字幕样式
+     }]
+    }
+
+```
+  
+## 数据结构
+
+| 属性   | 类型     | 功能                                                        |
+| ------ | -------- | ----------------------------------------------------------- |
+| id     | string   | 唯一轨道标识。                                              |
+| type   | string   | 只能是固定值。                                              |
+| order  | number   | 轨道层级顺序标识。                                          |
+| items  | object[] | 轨道元素组成的数组。                                        |
+| styles | object   | ***仅存在于字幕轨道***[字幕样式](./trackItem.md#字幕样式)。 |
+
+## 类型
+
+轨道一共有六种类型：`title`、`frame`、`subtitle`、`image`、`audio`、`video`，每种轨道仅能容纳的对应素材，限制如下：
+
+| 轨道     | 容纳素材               | 中文描述       |
+| -------- | ---------------------- | -------------- |
+| title    | title                  | 文本           |
+| subtitle | subtitle               | 字幕           |
+| image    | image                  | 贴片           |
+| frame    | frame,shader           | 特效           |
+| audio    | audio                  | 音频           |
+| video    | video/image/transition | 视频/图片/转场 |
+
+
+素材类型对应的素材示例可以如图位置找到，协议描述请参考[轨道元素](./trackItem.md)：
+<img src='../../img/itemType.png'>

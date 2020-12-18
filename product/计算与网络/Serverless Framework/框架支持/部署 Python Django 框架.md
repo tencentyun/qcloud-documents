@@ -10,34 +10,33 @@ Django 特性介绍：
 
 
 ## 操作步骤
-### 0. 安装
+### 1. 安装 Serverless CLI
 
-通过 npm 安装最新版本的 Serverless Framework：
+通过 npm 安装最新版本的 Serverless CLI：
 ```
 $ npm install -g serverless
 ```
 
-### 1. （可选）初始化 Django 模版项目
-如果您本地并没有 Django 项目，可通过以下指令完成 Django 项目初始化（本地已有项目可跳过该步骤）
+### 2. 初始化 Django 模版项目（可选）
+如果您本地并没有 Django 项目，可通过以下指令完成 Django 项目初始化（本地已有项目可跳过该步骤）：
 ```
 serverless init django-starter --name example
 cd example
 ```
 
-### 2. 安装项目依赖
-如果您自己创建项目，请将 Python 所需要的依赖安装到项目目录，例如本实例需要Django，所以可以通过pip进行安装：
+### 3. 安装项目依赖
+如果您自己创建项目，请将 Python 所需要的依赖安装到项目目录，例如本实例需要 Django，所以可以通过 pip 进行安装：
 ```
 pip install Django -t ./
 ```
 
-### 3. 配置 yml 文件
-在项目根目录下，新建 `serverless.yml` 文件，并将下列配置模版粘贴到文件中，实现基本的项目配置。
->基于您实际部署需要，您可以在 `serverless.yml` 中完成更多配置，yml 文件的配置信息请参考[ Django 组件全量配置](https://github.com/serverless-components/tencent-django/blob/master/docs/configure.md)
-
+### 4. 配置 yml 文件
+在项目根目录下，新建 `serverless.yml` 文件。
 ```sh
 touch serverless.yml
 ```
-
+将下列配置模版粘贴到文件中，实现基本的项目配置。
+>?基于您实际部署需要，您可以在 `serverless.yml` 中完成更多配置，yml 文件的配置信息请参考 [ Django 组件全量配置](https://github.com/serverless-components/tencent-django/blob/master/docs/configure.md)。
 ```yml
 #serverless.yml
 component: django
@@ -60,7 +59,7 @@ inputs:
 ```
 
 
-### 4. 应用部署
+### 5. 应用部署
 通过 `sls deploy` 命令进行部署，并可以添加 --debug 参数查看部署过程中的信息。
 
 ```

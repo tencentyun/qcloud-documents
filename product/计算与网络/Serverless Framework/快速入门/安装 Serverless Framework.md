@@ -1,3 +1,4 @@
+## 操作场景
 您可以通过 [NPM 安装](#npm) 或 [二进制安装](#binary) 的方式，快速安装 Serverless Framework。
 
 
@@ -6,7 +7,7 @@
 <span id="npm"></span>
 ### 方式一：NPM 安装
 #### 安装前提
-使用 npm 安装前，需要确定您的环境中已安装好了 Node(版本需要 > 10) 以及 npm，查看 [Node.js 安装指南](https://nodejs.org/zh-cn/download/) 。
+使用 npm 安装前，需要确保您的环境中已安装好了 Node（版本需要 > 10）以及 npm（查看 [Node.js 安装指南](https://nodejs.org/zh-cn/download/)）。
 ```sh
 $ node -v
 v12.18.0
@@ -15,7 +16,7 @@ $ npm -v
 7.0.10
 ```
 
-> 注：为保证安装速度和稳定性，建议您使用 cnpm 来完成安装，先下载安装 cnpm，然后将下面所有使用的 npm 命令替换为 cnpm 即可
+>!为保证安装速度和稳定性，建议您使用 cnpm 来完成安装：先下载安装 cnpm，然后将下面所有使用的 npm 命令替换为 cnpm 即可。
 
 #### 安装步骤
 
@@ -73,8 +74,9 @@ choco upgrade serverless
 serverless -v
 ```
 
-**下一步：快速开始**
-   - [部署第一个函数应用]()
-   - [部署第一个 Express 框架应用]()
+## 相关操作
+下一步：快速开始
+ - [快速部署函数模版](https://cloud.tencent.com/document/product/1154/50938)
+ - [快速创建应用模版](https://cloud.tencent.com/document/product/1154/50933)
 
 
