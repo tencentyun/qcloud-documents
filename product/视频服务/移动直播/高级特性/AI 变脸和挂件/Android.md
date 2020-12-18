@@ -1,5 +1,5 @@
 ## 功能说明
-腾讯云直播团队与优图实验室、天天 P 图团队进行深度合作，结合**人脸识别技术与美妆技术**，开发了**大眼、瘦脸、瘦鼻、动效贴纸、AI 抠背以及绿幕**等特效功能，并整合到 LiteAVSDK 的图像处理流程中，以实现更好的视频效果。
+腾讯云直播团队与优图实验室、天天 P 图团队进行深度合作，结合**AI 技术与美妆技术**，开发了**大眼、瘦脸、瘦鼻、动效贴纸、AI 抠背以及绿幕**等特效功能，并整合到 LiteAVSDK 的图像处理流程中，以实现更好的视频效果。
 ![](https://main.qcloudimg.com/raw/82924e0c29ee2caee9749dca9fb62e9e.jpg)
 
 ## 接入准备
@@ -134,8 +134,8 @@ packagingOptions {
 ### 高级美颜接口（大眼、瘦脸）
 
 美妆接口使用 [TXBeautyManager](https://cloud.tencent.com/document/product/454/39382)，只需要对指定的接口调用0 - 9之间的一个数值即可，0表示关闭，数值越大，效果越明显。
-
-```java
+<dx-codeblock>
+::: java java
 // 大眼
 public void setEyeScaleLevel(int eyeScaleLevel);
 
@@ -192,7 +192,8 @@ public void setLipsThicknessLevel(int lipsThicknessLevel);
 
 // 调整脸型
 public void setFaceBeautyLevel(int faceBeautyLevel);
-```
+:::
+</dx-codeblock>
 
 <span id="beauty_dynamic"></span>
 ### 美颜动效（动效贴纸、AI抠图、美妆、手势）
