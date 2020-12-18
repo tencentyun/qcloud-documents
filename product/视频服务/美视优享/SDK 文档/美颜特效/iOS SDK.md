@@ -85,8 +85,8 @@ https://st1.xiangji.qq.com/yunmaterials/{动效名}.png
 ### 大眼瘦脸
 
 大眼和瘦脸通过以下方法设置：
-
-```objective-c
+<dx-codeblock>
+::: objective-c objective-c
 /**
  * 设置大眼级别
  * 
@@ -100,4 +100,6 @@ https://st1.xiangji.qq.com/yunmaterials/{动效名}.png
  *  @param faceScaleLevel: 瘦脸级别取值范围 0 ~ 9； 0 表示关闭 1 ~ 9值越大 效果越明显。
  */
 -(void)setFaceScaleLevel:(float)faceScaleLevel;
-```
+:::
+</dx-codeblock>
+
