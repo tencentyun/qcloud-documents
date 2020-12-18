@@ -39,15 +39,15 @@
 
 ### 导入 Licence 文件
 
-商用版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费30天的调试用 licence。
+商用版需要 licence 验证通过后，相应功能才能生效。您可以向我们的商务同学申请一个免费30天的调试用 Licence。
 得到 licence 后，您需要将其命名为 **YTFaceSDK.licence**，放到工程的 assets 目录下。
 >!
->- 每个 licence 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
+>- 每个 Licence 都有绑定具体的 package name，修改 app 的 package name 会导致验证失败。
 >- YTFaceSDK.licence 的文件名固定，不可修改、且必须放在 assets 目录下。
->- iOS 和 Android 不需要重复申请 licence，一个 licence 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
+>- iOS 和 Android 不需要重复申请 licence，一个 Licence 可以同时授权一个 iOS 的 bundleid 和一个 Android 的 packageName。
 
 
-**从4.9版本开始，SDK 支持二合一的 licence, 这种方式不再需要 YTFaceSDK.licence, 在从商务同学处获取到 licence 对应的 key 和 url 后，设置方式和标准版 licence 设置方式相同。**
+**从4.9版本开始，SDK 支持二合一的 Licence，这种方式不再需要 YTFaceSDK.licence，在从商务同学处获取到 licence 对应的 key 和 url 后，设置方式和标准版 licence 设置方式相同。**
 
 ## 功能调用
 
