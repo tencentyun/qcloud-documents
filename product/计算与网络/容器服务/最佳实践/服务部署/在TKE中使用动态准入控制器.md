@@ -16,10 +16,10 @@ kube-apiserver -h | grep enable-admission-plugins
 ![image-20201117102438615](https://main.qcloudimg.com/raw/534694e9a6976d0ec18d2e1074932126.png)
 
 ### 签发证书
-为确保动态准入控制器调用可信任的 Webhook 服务端，须通过 HTTPS 调用 Webhook 服务（TLS 认证），则需为 Webhook 服务端颁发证书，并且在注册动态准入控制 Webhook 时为 `caBundle`  字段（ `ValidatingWebhookConfiguration` 和 `MutatingAdmissionWebhook` 资源清单中的 `caBundle` 字段）绑定受信任的颁发机构证书（CA）来核验 Webhook 服务端的证书是否可信任。本文介绍两种推荐的颁发证书方法：
+为确保动态准入控制器调用可信任的 Webhook 服务端，须通过 HTTPS 调用 Webhook 服务（TLS 认证），则需为 Webhook 服务端颁发证书，并且在注册动态准入控制 Webhook 时为 `caBundle`  字段（ `ValidatingWebhookConfiguration` 和 `MutatingAdmissionWebhook` 资源清单中的 `caBundle` 字段）绑定受信任的颁发机构证书（CA）来核验 Webhook 服务端的证书是否可信任。本文介绍了 [制作自签证书](#MakeSignedCertificate) 及 [使用 K8S CSR API 签发证书](#K8SCertificate) 两种推荐的颁发证书方法。
 >!当 `ValidatingWebhookConfiguration` 和 `MutatingAdmissionWebhook` 使用 `clientConfig.service` 配置时（Webhook 服务在集群内），为服务器端颁发的证书域名必须为 `<svc_name>.<svc_namespace>.svc`。
 
-#### 方法1：制作自签证书
+#### [方法1：制作自签证书](id:MakeSignedCertificate)
 制作自签证书的方法不依赖于 K8S 集群，比较独立，类似于为网站制作自签证书。目前有很多工具可制作自签证书，本文以使用 Openssl 为例。具体步骤如下：
 1. 执行以下命令，生成密钥位数为2048的 `ca.key`。
 ```bash
@@ -76,7 +76,7 @@ openssl x509  -noout -text -in ./server.crt
 - `server.crt`：为颁发的服务端证书。
 - `server.key`：为颁发的服务端证书密钥。
 
-#### 方法2：使用 K8S CSR API 签发证书
+#### [方法2：使用 K8S CSR API 签发证书](id:K8SCertificate)
 可使用 K8S 的证书颁发机构系统来下发证书，执行以下脚本可使用 K8S 集群根证书和根密钥签发一个可信任的证书用户。
 >!用户名需为 Webhook  服务在集群中的域名。
 >
@@ -131,7 +131,7 @@ docker build -t webserver .
 ```
 5. 部署一个域名为 “weserver.default.svc” 的 Webhook 后端服务，修改适配后的 controller.yaml 如下所示：
 ![image-20201117131843384](https://main.qcloudimg.com/raw/4d06816731be0b1ea3478a5fc3938f8b.png)
-6. 注册创建类型为 `ValidatingWebhookConfiguration` 的资源，修改适配项目中的 `admission.yaml` 文件如下图所示：
+6. 注册创建类型为 `ValidatingWebhookConfiguration` 的资源，修改适配项目中的 `admission.yaml` 文件。如下图所示：
 本示例配置的 Webhook 触发规则为：当创建 `pods`类型、API 版本 “v1” 时触发调用，`clientConfig` 配置对应上述在集群中创建的 Webhook 后端服务，`caBundle`  字段内容为证书颁发方法一获取的 ca.crt 内容。
 ![](https://main.qcloudimg.com/raw/239814926510536dc17619bd77d8acad.png)
 7. 注册好后创建一个 Pod 类型且 API 版本为 “v1” 的测试资源。如下图所示：
@@ -139,7 +139,7 @@ docker build -t webserver .
 8. 测试代码已打印请求日志，查看 Webhook 服务端日志即可查看动态准入控制器触发了 webhook 调用。如下图所示：
 ![image-20201117132840262](https://main.qcloudimg.com/raw/877c7eb459fff8f3e8e4a56c6893d0f5.png)
 9. 此时查看创建的测试 pod 已成功创建，由于测试 Webhook 服务端代码已具备 `allowed: true` 配置项，即可创建成功该测试 pod。如下图所示：
-![image-20201117133024888](https://main.qcloudimg.com/raw/092657ff9ebdb4be6f16abab131a0c09.png) 
+![](https://main.qcloudimg.com/raw/1d46955ef82a072194a80b9c434cbd89.png)
 如需进一步验证，将 “allowed” 改为 “false” 后重复上述步骤重新构建 Webserver 服务端镜像，并重新部署 `controller.yaml` 和 `admission.yaml` 资源。当再次尝试创建 pods 资源时请求被动态准入拦截，则说明配置的动态准入策略是生效的。如下图所示：
    ![image-20201117133504920](https://main.qcloudimg.com/raw/3df15331208bf316fc06e432598658ae.png)
 
