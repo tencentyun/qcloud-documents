@@ -1,15 +1,16 @@
-# Net模块
+## Net 模块
+>? 辅助用户完成云平台基础业务 Web 接口复用。
 
-> 辅助用户完成制作云平台基础业务WEB接口复用。
-
-使用我们的 CDN 引入 sdk，`<script src="https://vs-cdn.tencent-cloud.com/sdk/cme_v2.1.js"></script>`，在页面初始化完成以后填入如下代码。
-
-## create
-
-创建一个 `CME.Net` 实例。[如何计算签名?](../客户端访问签名/授权签名综述.md)
-
+使用以下 CDN 引入 sdk。
 ```js
-/* @create  创建实例方法。
+<script src="https://vs-cdn.tencent-cloud.com/sdk/cme_v2.1.js"></script>
+```
+在页面初始化完成以后填入如下代码，创建 `CME.Net` 实例。
+
+### 创建实例
+创建一个 `CME.Net` 实例，并传入登录签名，详情请参阅 [签名综述](https://cloud.tencent.com/document/product/1156/51127)。 <!--- ../客户端访问签名/授权签名综述.md --->
+```js
+/*   @create  创建实例方法。
  *    @param sign {{string}} 传入登录签名。
  *    @return 返回一个 cme 组件实例。
  **/
@@ -30,19 +31,15 @@ myCmeNet.then(res=>{
 })
 ```
 
-## 实例方法
+### 实例方法
 
-WEB请求包装实例。具体的请求地址和响应，请参考[WEB接口文档]。
+Web 请求包装实例如下代码所示。具体的请求地址和响应，详情请参阅 [Web 接口文档]。相关接口可调试可单击 [【在线调试】](https://video-caster-sdk-1258344699.cos-website.ap-guangzhou.myqcloud.com/demo/debug.html)。
 
-> 相关接口可以到这里在线[调试](https://video-caster-sdk-1258344699.cos-website.ap-guangzhou.myqcloud.com/demo/debug.html)
-
-### post
-
+#### post
 ```js
-
   /**
    *
-   * @send 发送命令字方法,
+   *    @send 发送命令字方法,
    *    @param path {{string}} 字符串WEB路径。
    *    @param param {{object}} 查询入参。
    *    @return Promise {{function}} 响应返回值。
