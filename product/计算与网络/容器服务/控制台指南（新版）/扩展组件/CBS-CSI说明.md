@@ -1,7 +1,7 @@
 ## 操作场景
 
 
-[CBS CSI 组件](https://github.com/TencentCloud/kubernetes-csi-tencentcloud/blob/master/docs/README_CBS.md) 支持集群通过控制台快捷选择存储类型并创建对应块存储云硬盘类型的 PV 和 PVC。本文提供 CBS CSI 组件功能特性等说明并介绍几种常见示例用法。
+[CBS CSI 组件](https://github.com/TencentCloud/kubernetes-csi-tencentcloud/blob/master/docs/README_CBS.md) 支持 TKE 集群通过控制台快捷选择存储类型并创建对应块存储云硬盘类型的 PV 和 PVC。本文提供 CBS CSI 组件功能特性等说明并介绍几种常见示例用法。
 
 
 ## 功能特性
@@ -12,13 +12,15 @@
 |静态数据卷 | 支持手动创建 Volume、PV 对象、PVC 对象 | 
 | 动态数据卷| 支持通过 StorageClass 配置，创建和删除 Volume、PV 对象 | 
 | 存储拓扑感知| CBS 不支持跨可用区挂载，在多可用区集群中，CBS CSI 组件将先调度 Pod，之后调度 Node 的 zone 创建 Volume | 
-| 调度器感知节点 maxAttachLimi | **这里少了？？？** | 
+| 调度器感知节点 maxAttachLimi | -| 
 | 卷在线扩容| 支持通过修改 PVC 容量字段，实现在线扩容（仅支持云硬盘类型） | 
 | 卷快照和恢复| 支持通过快照创建数据卷 | 
 
 
 ## 组件说明
 
+
+CBS CSI 组件在集群内部署后，包含以下组件：
 
 - DaemonSet：每个 Node 提供一个 DaemonSet，简称为 NodePlugin。由 CBS CSI Driver 和 node-driver-registrar 两个容器组成，负责向节点注册 Driver，并提供挂载能力。
 - StatefulSet 和 Deployment：简称为 Controller。由 Driver 和多个 Sidecar（external-provisioner、external-attacher、external-resizer、external-snapshotter、snapshot-controller）一起构成，提供创删卷、attach、detach、扩容、快照等能力。
@@ -59,7 +61,7 @@ CBS 云硬盘不支持跨可用区挂载到节点，在跨可用区的集群环�
 #### 前提条件
 
 - 已安装1.14或以上版本的 [TKE 集群](https://cloud.tencent.com/document/product/457/32189)。
-- 已将  [CBS CSI](https://github.com/TencentCloud/kubernetes-csi-tencentcloud/blob/master/docs/README_CBS.md) 或 In-Tree 更新为最新版本。
+- 已将  [CBS CSI](https://github.com/TencentCloud/kubernetes-csi-tencentcloud/blob/master/docs/README_CBS.md) 或 In-Tree 组件更新为最新版本。
 
 
 #### 操作步骤
@@ -77,31 +79,25 @@ reclaimPolicy: Delete
 volumeBindingMode: WaitForFirstConsumer
 ```
 
->?intree 和 CBS CSI 插件均支持上述操作。
+>?CBS CSI 和 In-Tree 组件均支持该操作。
 
 
-### 示例2：在线扩容云盘
+### 示例2：在线扩容云硬盘
 
-TKE 支持在线扩容 PV、对应的云硬盘及文件系统，即不需要重启 Pod 即可完成扩容。为确保文件系统的稳定性，建议在云硬盘文件系统处于未挂载状态时进行操作。提供以下两种扩容方式：
-
-
-
-| 扩容方式 | 说明| 
-|---------|---------|
-|[方式1：重启 Pod 的情况下在线扩容](#way1)| 待扩容的云硬盘文件系统未被挂载，能够避免扩容出错以及方式2存在的问题。**推荐使用该方式进行扩容**。 | 
-| [方式2：不重启 Pod 的情况下在线扩容](#way2) | 在节点上挂载着待扩容的云硬盘的文件系统，如果存在 I/O 进程，将可能出现文件系统扩容错误。| 
-
+TKE 支持在线扩容 PV、对应的云硬盘及文件系统，即不需要重启 Pod 即可完成扩容。为确保文件系统的稳定性，建议在云硬盘文件系统处于未挂载状态时进行操作。
 
 
 #### 前提条件
 
 - 已创建1.16或以上版本的 [TKE 集群](https://cloud.tencent.com/document/product/457/32189)。
 - 已将  [CBS CSI](https://github.com/TencentCloud/kubernetes-csi-tencentcloud/blob/master/docs/README_CBS.md) 更新为最新版本。
-- 已在扩容前 [使用快照备份数据](#backup)，避免扩容失败导致数据丢失。
+- 为避免扩容失败导致数据丢失，可以在扩容前 [使用快照备份数据](#backup)。（可选）
 
 
 
 #### 操作步骤
+
+#### 步骤1：创建允许扩容的 StorageClass
 
 使用以下 YAML 创建允许扩容的 StorageClass，在 Storageclass 中设置 `allowVolumeExpansion` 为 `true`。示例如下：
 ```yaml
@@ -116,6 +112,17 @@ provisioner: com.tencent.cloud.csi.cbs
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
 ```
+
+
+#### 步骤2：在线扩容
+
+提供以下两种扩容方式：
+
+| 扩容方式 | 说明| 
+|---------|---------|
+|[方式1：重启 Pod 的情况下在线扩容](#way1)| 待扩容的云硬盘文件系统未被挂载，能够避免扩容出错以及方式2存在的问题。**推荐使用该方式进行扩容**。 | 
+| [方式2：不重启 Pod 的情况下在线扩容](#way2) | 在节点上挂载着待扩容的云硬盘文件系统，如果存在 I/O 进程，将可能出现文件系统扩容错误。| 
+
 
 
 #### 方式1：重启 Pod 情况下在线扩容（推荐）[](id:way1)
@@ -206,6 +213,7 @@ pvc-e193201e-6f6d-48cf-b96d-ccc09225cf9c   30Gi       RWO            Delete     
 
 
 #### 前提条件
+
 
 - 已创建1.18或以上版本的 [TKE 集群](https://cloud.tencent.com/document/product/457/32189)。
 - 已安装最新版的 [CBS CSI](https://github.com/TencentCloud/kubernetes-csi-tencentcloud/blob/master/docs/README_CBS.md "cbs csi文档") 组件。
@@ -303,7 +311,7 @@ spec:
         requests:
           storage: 10Gi
 ```
-2. 执行以下命令，查看 restore 的 PVC 已成功创建，从 PV 中可以查看到对应的 diskid（如下为 disk-gahz1kw1）。示例如下：
+2. 执行以下命令，查看恢复的 PVC 已成功创建，从 PV 中可以查看到对应的 diskid（如下为 disk-gahz1kw1）。示例如下：
 ```plaintext
 $ kubectl get pvc restore-test
 NAME           STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
