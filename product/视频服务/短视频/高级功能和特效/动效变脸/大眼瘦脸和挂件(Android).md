@@ -212,7 +212,7 @@ packagingOptions {
 - 检查动态下发的 so 包个数是否存在下发不全的情况，通过`TXLiveBase.setLibraryPath(soPath);`设置 so 包地址。
 >!不可以一部分放在本地，一部分动态下发，只能全部动态下发或全部本地集成。
 - jar + so 方式解压后的资源分为`assets-static`和`assets-dynamic`两类，其中`assets-static`只能放在本地，不可以动态下发，`asset-dynamic`需要保证动态下发，跟 so 同一个目录下。
-- SDK6.8 以后，请不要人为通过系统的方法加载 so 包，SDK 内部会保证 so 包的加载顺序。
+- SDK 6.8 以后，请不要人为通过系统的方法加载 so 包，SDK 内部会保证 so 包的加载顺序。
 
 如果您出现以下问题，请按上述几点进行检查。
 
