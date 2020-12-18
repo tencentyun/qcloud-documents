@@ -55,7 +55,7 @@ b. 自建的 hadoop 环境，可以通过在 ranger 目录下查找 hdfs 等已�
 4. 在 Ranger 上注册 COS Service。可参考如下命令：
 ```
 ##生成服务，需传入 Ranger 管理员账号密码，以及 Ranger 服务的地址。
-## 对于腾讯云 EMR 集群，管理员用户是 root，密码是构建 emr 集群时设置的 root 密码，ranger 服务的 IP 换成 EMR 的 master 节点 IP。
+##对于腾讯云 EMR 集群，管理员用户是 root，密码是构建 emr 集群时设置的 root 密码，ranger 服务的 IP 换成 EMR 的 master 节点 IP。
 
 adminUser=root
 adminPasswd=xxxxxx
