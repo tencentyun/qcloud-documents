@@ -1,7 +1,7 @@
 ## 操作场景
 
 
-[CBS CSI 组件](https://github.com/TencentCloud/kubernetes-csi-tencentcloud/blob/master/docs/README_CBS.md) 支持 TKE 集群通过控制台快捷选择存储类型并创建对应块存储云硬盘类型的 PV 和 PVC。本文提供 CBS CSI 组件功能特性等说明并介绍几种常见示例用法。
+[CBS CSI 组件](https://github.com/TencentCloud/kubernetes-csi-tencentcloud/blob/master/docs/README_CBS.md) 支持 TKE 集群通过控制台快捷选择存储类型，并创建对应块存储云硬盘类型的 PV 和 PVC。本文提供 CBS CSI 组件功能特性等说明并介绍几种常见示例用法。
 
 
 ## 功能特性
@@ -32,7 +32,7 @@ CBS CSI 组件在集群内部署后，包含以下组件：
 ## 限制条件
 
 - TKE 集群版本 ≥ 1.14
-- 使用 CBS CSI 组件，才可在 TKE 集群中对 CBS 在线扩容和创建快照。
+- 使用 CBS CSI 组件，才可在 TKE 集群中为 CBS 在线扩容和创建快照。
 - 已经使用 QcloudCbs（In-Tree 插件）的 TKE 集群，可以继续正常使用。（后续将通过 Volume Migration 统一到 CBS CSI）
 
 
