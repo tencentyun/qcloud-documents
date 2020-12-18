@@ -1,7 +1,7 @@
 ## 操作场景
 
 
-[CBS CSI 组件](https://github.com/TencentCloud/kubernetes-csi-tencentcloud/blob/master/docs/README_CBS.md) 支持 TKE 集群通过控制台快捷选择存储类型，并创建对应块存储云硬盘类型的 PV 和 PVC。本文提供 CBS CSI 组件功能特性等说明并介绍几种常见示例用法。
+[CBS CSI 组件](https://github.com/TencentCloud/kubernetes-csi-tencentcloud/blob/master/docs/README_CBS.md) 支持 TKE 集群通过控制台快捷选择存储类型并创建对应块存储云硬盘类型的 PV 和 PVC。本文提供 CBS CSI 组件功能特性等说明并介绍几种常见示例用法。
 
 
 ## 功能特性
@@ -32,7 +32,7 @@ CBS CSI 组件在集群内部署后，包含以下组件：
 ## 限制条件
 
 - TKE 集群版本 ≥ 1.14
-- 使用 CBS CSI 组件，才可在 TKE 集群中为 CBS 在线扩容和创建快照。
+- 使用 CBS CSI 组件，才可在 TKE 集群中对 CBS 在线扩容和创建快照。
 - 已经使用 QcloudCbs（In-Tree 插件）的 TKE 集群，可以继续正常使用。（后续将通过 Volume Migration 统一到 CBS CSI）
 
 
@@ -226,10 +226,6 @@ pvc-e193201e-6f6d-48cf-b96d-ccc09225cf9c   30Gi       RWO            Delete     
 
 
 
-
-
-
-
 ### 示例3：创建快照和使用快照来恢复卷[](id:backup)
 
 
@@ -245,14 +241,16 @@ pvc-e193201e-6f6d-48cf-b96d-ccc09225cf9c   30Gi       RWO            Delete     
 #### 步骤1：使用快照备份云硬盘
 
 1. 使用以下 YAML，创建 VolumeSnapshotClass 对象。示例如下：
-```yaml
+<dx-codeblock>
+::: yaml
 apiVersion: snapshot.storage.k8s.io/v1beta1
 kind: VolumeSnapshotClass
-metadata:
-      name: cbs-snapclass
+metadata: 
+  name: cbs-snapclass
 driver: com.tencent.cloud.csi.cbs
 deletionPolicy: Delete
-```
+:::
+</dx-codeblock>
 2. 创建后，执行以下命令查看 VolumeSnapshotClass 对象信息。示例如下：
 ```plaintext
 $ kubectl get volumesnapshotclass
@@ -260,16 +258,18 @@ NAME            DRIVER                      DELETIONPOLICY   AGE
 cbs-snapclass   com.tencent.cloud.csi.cbs   Delete           17m
 ```
 3. [](id:volumeSnapshot)本文以 `new-snapshot-demo` 快照名为例使用以下 YAML，创建 VolumeSnapshot。示例如下：
-```yaml
+<dx-codeblock>
+::: yaml
 apiVersion: snapshot.storage.k8s.io/v1beta1
 kind: VolumeSnapshot
-metadata:
-      name: new-snapshot-demo
-spec:
-      volumeSnapshotClassName: cbs-snapclass
-      source:
-        persistentVolumeClaimName: csi-pvc
-```
+metadata: 
+  name: new-snapshot-demo
+spec: 
+  volumeSnapshotClassName: cbs-snapclass
+  source: 
+    persistentVolumeClaimName: csi-pvc
+:::
+</dx-codeblock>
 4. 执行以下命令，查看 Volumesnapshot 和 Volumesnapshotcontent 对象是否创建成功，若 `READYTOUSE` 为 true，则创建成功。示例如下：
 ```plaintext
 $ kubectl get volumesnapshot
@@ -280,60 +280,65 @@ NAME                                               READYTOUSE   RESTORESIZE   DE
 snapcontent-ea11a797-d438-4410-ae21-41d9147fe610   true         10737418240   Delete           com.tencent.cloud.csi.cbs   cbs-snapclass         new-snapshot-demo   22m
 ```
 5. 执行以下命令，可以获取 Volumesnapshotcontent 对象的快照 ID，字段是 `status.snapshotHandle`（如下为 snap-e406fc9m），可以根据快照 ID 在 [容器服务控制台](https://console.cloud.tencent.com/tke2) 确认快照是否存在。示例如下：
-```plaintext
+<dx-codeblock>
+:::  plaintext
 $ kubectl get volumesnapshotcontent snapcontent-ea11a797-d438-4410-ae21-41d9147fe610 -oyaml
 apiVersion: snapshot.storage.k8s.io/v1beta1
 kind: VolumeSnapshotContent
 metadata:
-      creationTimestamp: "2020-11-04T08:58:39Z"
-      finalizers:
-      - snapshot.storage.kubernetes.io/volumesnapshotcontent-bound-protection
-      name: snapcontent-ea11a797-d438-4410-ae21-41d9147fe610
-      resourceVersion: "471437790"
-      selfLink: /apis/snapshot.storage.k8s.io/v1beta1/volumesnapshotcontents/snapcontent-ea11a797-d438-4410-ae21-41d9147fe610
-      uid: 70d0390b-79b8-4276-aa79-a32e3bdef3d6
+  creationTimestamp: "2020-11-04T08:58:39Z"
+  finalizers:
+  - snapshot.storage.kubernetes.io/volumesnapshotcontent-bound-protection
+  name: snapcontent-ea11a797-d438-4410-ae21-41d9147fe610
+  resourceVersion: "471437790"
+  selfLink: /apis/snapshot.storage.k8s.io/v1beta1/volumesnapshotcontents/snapcontent-ea11a797-d438-4410-ae21-41d9147fe610
+  uid: 70d0390b-79b8-4276-aa79-a32e3bdef3d6
 spec:
-      deletionPolicy: Delete
-      driver: com.tencent.cloud.csi.cbs
-      source:
-        volumeHandle: disk-7z32tin5
-      volumeSnapshotClassName: cbs-snapclass
-      volumeSnapshotRef:
-        apiVersion: snapshot.storage.k8s.io/v1beta1
-        kind: VolumeSnapshot
-        name: new-snapshot-demo
-        namespace: default
-        resourceVersion: "471418661"
-        uid: ea11a797-d438-4410-ae21-41d9147fe610
+  deletionPolicy: Delete
+  driver: com.tencent.cloud.csi.cbs
+  source:
+    volumeHandle: disk-7z32tin5
+  volumeSnapshotClassName: cbs-snapclass
+  volumeSnapshotRef:
+    apiVersion: snapshot.storage.k8s.io/v1beta1
+    kind: VolumeSnapshot
+    name: new-snapshot-demo
+    namespace: default
+    resourceVersion: "471418661"
+    uid: ea11a797-d438-4410-ae21-41d9147fe610
 status:
-      creationTime: 1604480319000000000
-      readyToUse: true
-      restoreSize: 10737418240
-      snapshotHandle: snap-e406fc9m
-```
+  creationTime: 1604480319000000000
+  readyToUse: true
+  restoreSize: 10737418240
+  snapshotHandle: snap-e406fc9m
+:::
+</dx-codeblock>
 
 #### 步骤2：从快照恢复卷（云硬盘）
 
 1. 本文以上述 [步骤](#volumeSnapshot) 中创建的 VolumeSnapshot 的对象名为 `new-snapshot-demo` 为例，使用以下 YAML 从快照恢复卷。示例如下：
-```yaml
+<dx-codeblock>
+::: yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
-metadata:
-      name: restore-test
-spec:
-      storageClassName: cbs-csi
-      dataSource:
-        name: new-snapshot-demo
-        kind: VolumeSnapshot
-        apiGroup: snapshot.storage.k8s.io
-      accessModes:
-        - ReadWriteOnce
-      resources:
-        requests:
-          storage: 10Gi
-```
+metadata: 
+  name: restore-test
+spec: 
+  storageClassName: cbs-csi
+  dataSource: 
+    name: new-snapshot-demo
+    kind: VolumeSnapshot
+    apiGroup: snapshot.storage.k8s.io
+  accessModes: 
+    - ReadWriteOnce 
+  resources: 
+    requests: 
+      storage: 10Gi
+:::
+</dx-codeblock>
 2. 执行以下命令，查看恢复的 PVC 已成功创建，从 PV 中可以查看到对应的 diskid（如下为 disk-gahz1kw1）。示例如下：
-```plaintext
+<dx-codeblock>
+:::  plaintext
 $ kubectl get pvc restore-test
 NAME           STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 restore-test   Bound    pvc-80b98084-29a3-4a38-a96c-2f284042cf4f   10Gi       RWO            cbs-csi        97s
@@ -341,45 +346,47 @@ $ kubectl get pv pvc-80b98084-29a3-4a38-a96c-2f284042cf4f -oyaml
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-      annotations:
-        pv.kubernetes.io/provisioned-by: com.tencent.cloud.csi.cbs
-      creationTimestamp: "2020-11-04T12:08:25Z"
-      finalizers:
-      - kubernetes.io/pv-protection
-      name: pvc-80b98084-29a3-4a38-a96c-2f284042cf4f
-      resourceVersion: "474676883"
-      selfLink: /api/v1/persistentvolumes/pvc-80b98084-29a3-4a38-a96c-2f284042cf4f
-      uid: 5321df93-5f21-4895-bafc-71538d50293a
+  annotations:
+    pv.kubernetes.io/provisioned-by: com.tencent.cloud.csi.cbs
+  creationTimestamp: "2020-11-04T12:08:25Z"
+  finalizers:
+  - kubernetes.io/pv-protection
+  name: pvc-80b98084-29a3-4a38-a96c-2f284042cf4f
+  resourceVersion: "474676883"
+  selfLink: /api/v1/persistentvolumes/pvc-80b98084-29a3-4a38-a96c-2f284042cf4f
+  uid: 5321df93-5f21-4895-bafc-71538d50293a
 spec:
-      accessModes:
-      - ReadWriteOnce
-      capacity:
-        storage: 10Gi
-      claimRef:
-        apiVersion: v1
-        kind: PersistentVolumeClaim
-        name: restore-test
-        namespace: default
-        resourceVersion: "474675088"
-        uid: 80b98084-29a3-4a38-a96c-2f284042cf4f
-      csi:
-        driver: com.tencent.cloud.csi.cbs
-        fsType: ext4
-        volumeAttributes:
-          diskType: CLOUD_PREMIUM
-          storage.kubernetes.io/csiProvisionerIdentity: 1604478835151-8081-com.tencent.cloud.csi.cbs
-        volumeHandle: disk-gahz1kw1
-      nodeAffinity:
-        required:
-          nodeSelectorTerms:
-          - matchExpressions:
-            - key: topology.com.tencent.cloud.csi.cbs/zone
-              operator: In
-              values:
-              - ap-beijing-2
-      persistentVolumeReclaimPolicy: Delete
-      storageClassName: cbs-csi
-      volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  capacity:
+    storage: 10Gi
+  claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: restore-test
+    namespace: default
+    resourceVersion: "474675088"
+    uid: 80b98084-29a3-4a38-a96c-2f284042cf4f
+  csi:
+    driver: com.tencent.cloud.csi.cbs
+    fsType: ext4
+    volumeAttributes:
+      diskType: CLOUD_PREMIUM
+      storage.kubernetes.io/csiProvisionerIdentity: 1604478835151-8081-com.tencent.cloud.csi.cbs
+    volumeHandle: disk-gahz1kw1
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: topology.com.tencent.cloud.csi.cbs/zone
+          operator: In
+          values:
+          - ap-beijing-2
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: cbs-csi
+  volumeMode: Filesystem
 status:
-      phase: Bound
-```
+  phase: Bound
+:::
+</dx-codeblock>
+
