@@ -2,28 +2,29 @@
 本文档介绍通过腾讯云静态网站托管服务搭建一个 VuePress 网站，并使用云开发 CLI 工具管理部署 VuePress 网站。
 
 ## 前提条件
-在进行后续的内容前，请先确保您的电脑中安装了 Node.js 运行环境。如果没有安装，可以访问 https://nodejs.org/ 下载安装。
+在进行后续的内容前，请先确保您的电脑中安装了 Node.js 运行环境。如果没有安装，可以访问 [Node.js 官网](https://nodejs.org/) 下载安装。
+
 
 ## 操作步骤
 ### 步骤1：安装云开发 CLI 工具 和 VuePresss
 执行如下命令，安装云开发 CLI 工具以及 VuePress。
-```
+```plaintext
 npm i -g @cloudbase/cli vuepress
 ```
 
 ### 步骤2：在本地初始化一个 VuePress 项目
 首先，在本地创建一个目录，这里以 tcb 为例：
-```
+```plaintext
 mkdir tcb && cd tcb
 ```
 进入到 tcb 目录后，创建一个默认的 hello world 文件。
-```
+```plaintext
 echo "# Hello TCB & Vuepress" > README.md
 ```
 ![](https://main.qcloudimg.com/raw/db6cfcc664b38c32e8ce08055f6ffc7d.png)
 
 然后，执行命令，启动，并查看效果。
-```
+```plaintext
 vuepress dev
 ```
 等待其编译完成，完成后如下如所示。
@@ -56,7 +57,7 @@ vuepress dev
 #### 初始化云开发 CLI
 完成了云开发环境的配置后，我们需要初始化一下云开发 CLI ，从而实现借助 CLI 工具来上传页面（您也可以通过网页端直接上传，但如果您博客的文章比较多，建议使用 CLI 工具上传更加方便）
 在命令行输入如下代码：
-```
+```plaintext
 tcb login
 ```
 会提醒您需要在网页中进行授权：
@@ -67,7 +68,7 @@ tcb login
 
 #### 部署 VuePress
 回到我们刚刚创建的 VuePress 的目录，执行命令构建静态页面：
-```
+```plaintext
 vuepress build
 ```
 构建完成后，会提醒您，生成的静态文件在 .vuepress/dist。
@@ -75,11 +76,11 @@ vuepress build
 
 接下来我们只需要把 .vuepress/dist 中的文件夹中的内容上传到云开发静态网站托管中就可以了。
 执行如下命令进入到 dist 文件夹
-```
+```plaintext
 cd .vuepress/dist
 ```
 然后执行命令上传文件，记得将这里的 EnvID 替换为您自己的环境的环境 ID。
-```
+```plaintext
 tcb hosting:deploy ./ -e EnvID
 ```
 稍等片刻，文件就上传好了
