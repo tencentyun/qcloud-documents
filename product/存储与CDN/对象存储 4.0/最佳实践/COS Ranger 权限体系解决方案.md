@@ -51,13 +51,10 @@ b. 自建的 hadoop 环境，可以通过在 ranger 目录下查找 hdfs 等已�
 ```
 ##生成服务，需传入 Ranger 管理员账号密码，以及 Ranger 服务的地址。
 ##对于腾讯云 EMR 集群，管理员用户是 root，密码是构建 emr 集群时设置的 root 密码，ranger 服务的 IP 换成 EMR 的 master 节点 IP。
-
 adminUser=root
 adminPasswd=xxxxxx
 rangerServerAddr=10.0.0.1:6080
-
 curl -v -u${adminUser}:${adminPasswd} -X POST -H "Accept:application/json" -H "Content-Type:application/json" -d @./cos-ranger.json http://${rangerServerAddr}/service/plugins/definitions
-
 ##如果要删除刚定义的服务，则传入刚刚创建服务时，返回的服务 ID
 serviceId=102
 curl -v -u${adminUser}:${adminPasswd} -X DELETE -H "Accept:application/json" -H "Content-Type:application/json" http://${rangerServerAddr}/service/plugins/definitions/${serviceId}
