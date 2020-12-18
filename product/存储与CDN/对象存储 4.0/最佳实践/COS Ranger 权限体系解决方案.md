@@ -93,7 +93,7 @@ COS-Ranger-Service 是整个权限体系的核心，负责集成 ranger 的客�
 
 COS-Ranger-Service 支持一主多备的 HA 部署，DelegationToken 状态持久化到 HDFS。通过 ZK 抢锁决定 Leader 身份。获取 Leader 身份的服务会把地址写入 ZK，以便 COS Ranger Client 进行路由寻址。
 
-## 代码地址
+### 代码地址
 
 可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 cos-ranger-server 目录下获取。
 
