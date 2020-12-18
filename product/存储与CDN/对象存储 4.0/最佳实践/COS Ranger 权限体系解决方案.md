@@ -14,7 +14,6 @@ Hadoop Ranger 权限体系是大数据场景下的权限解决方案。用户使
 
 ![](https://main.qcloudimg.com/raw/221e3a3e8fd6d31590fc8ca2562d7489.png)
 
-
 Hadoop 权限体系中, 认证由 Kerberos 提供，授权鉴权由 Ranger 负责。在此基础上，我们提供以下组件，来支持 COS 的 Ranger 权限方案。
 
  
@@ -22,15 +21,11 @@ Hadoop 权限体系中, 认证由 Kerberos 提供，授权鉴权由 Ranger 负�
 2. COSRangerService：该服务集成了 Ranger 的客户端，周期性从 Ranger 服务端同步权限策略，在收到客户的鉴权请求后，在本地进行权限校验。 同时它提供了 Hadoop 中 DelegationToken 相关的生成，续租等接口，所有的接口都是通过 Hadoop IPC 定义。
 3. CosRangerClient：COSN 插件对其进行动态加载，把权限校验的请求转发给 CosRangerService。
 
-
-
 ## 部署环境
 
 - Hadoop 环境。
 - ZooKeeper、Ranger、Kerberos 服务（如果有认证需求，则部署）。
 >?以上服务由于是成熟的开源组件，因此客户可自行安装。
-
- 
 
 ## 部署 COS-Ranger-Plugin
 
@@ -77,9 +72,9 @@ curl -v -u${adminUser}:${adminPasswd} -X DELETE -H "Accept:application/json" -H 
 8. 在跳转界面中，配置以下参数，说明如下：
  - **bucket**：存储桶名称，例如 examplebucket-1250000000，可登录 [COS 控制台](https://console.cloud.tencent.com/cos5/bucket) 查看。
  - **path**：COS 对象路径。注意 COS 的对象路径不以/开始。
-i. include：表示设置的权限是只 path 本身，还是除过 path 外的其他路径。
-ii. recursive：表示权限不仅只对 path，还针对 path 路径下的子成员即递归子成员。通常用于 path 设置的是目录的情况。
- - **user/group**：用户名和用户组。这里是或的关系，即用户名或者用户组满足其中一个，即可有对应的操作权限。
+i. include：表示设置的权限适用于 path 本身，还是除了 path 以外的其他路径。
+ii. recursive：表示权限不仅适用于 path，还适用于 path 路径下的子成员（即递归子成员）。通常用于 path 设置为目录的情况。
+ - **user/group**：用户名和用户组。这里是或的关系，即用户名或者用户组满足其中一个，即可拥有对应的操作权限。
  - **Permissions**：
 i. Read：读操作。对应于对象存储里面的 GET、HEAD 类操作，包括下载对象、查询对象元数据等。
 ii. Write：写操作,。对应于对对象存储里面的 PUT 类等修改操作，例如上传对象。
@@ -123,7 +118,6 @@ nohup ./start_rpc_server.sh &> nohup.txt &
 ```
 6. 如果启动失败，查看 log 下 error 日志是否有错误信息。
 
- 
 
 ## 部署 COS-Ranger-Client
 
@@ -167,8 +161,6 @@ V1.0版本及以上。
 </configuration>
 ```
 
-
-
 ## 部署 COSN 插件
 
 ### 版本
@@ -204,7 +196,7 @@ hadoop fs -rmcosn://examplebucket-1250000000/doc/exampleobject.txt
 ## 常见问题
 
 1. kerberos 是否必须安装？
-Kerberos 满足认证的需求，如果所在的集群，用户都是可信的，例如仅内部使用的集群，用户仅进行鉴权操作，避免无权限的客户误操作。那么可以不安装 kerberos，只使用 ranger 进行鉴权。同时 kerberos 会引入一些性能损耗。请客户综合自己的安全需求与性能需求进行考量。如果需要认证，开启 Kerberos 后，需要设置 COS Ranger Service 和 COS Ranger Client 相关的配置项。
+Kerberos 满足认证的需求，如果所在的集群，用户都是可信的，例如仅内部使用的集群。若用户仅进行鉴权操作，为了避免无权限的客户误操作，那么可以不安装 kerberos，只使用 ranger 进行鉴权。同时 kerberos 会引入一些性能损耗。请客户综合自己的安全需求与性能需求进行考量。如果需要认证，开启 Kerberos 后，需要设置 COS Ranger Service 和 COS Ranger Client 相关的配置项。
 2. 如果开启了 Ranger，没有配置任何 Policy，或者未匹配到任何 Policy，会如何操作？
 如果未匹配上任何 policy，会默认拒绝该操作。
 3. 配置在 COS Ranger Service 侧的密钥可以是子账号吗？
