@@ -51,20 +51,7 @@ metadata:
     - 注意：除非有特殊原因，否则不推荐使用传统型负载均衡，传统型负载均衡已经停止迭代准备下线，并且缺失大量特性。
 12. service.cloud.tencent.com/specify-protocol
     - 支持通过注解为指定的监听端口配置TCP、UDP、TCP SSL、HTTP、HTTPS
-    - TCP示例
-      - 无需配置注解
-      - {"80":{"protocol":["TCP"]}}
-    - UDP示例
-      - {"80":{"protocol":["UDP"]}}
-    - TCP SSL示例
-      - {"80":{"protocol":["TCP_SSL"],"tls":"cert-secret"}}
-    - HTTP示例
-      - {"80":{"protocol":["HTTP"],"hosts":{"[a.tencent.com](http://a.tencent.com/)":{},"[b.tencent.com](http://b.tencent.com/)":{}}}}
-    - HTTPS示例
-      - {"80":{"protocol":["HTTPS"],"hosts":{"[a.tencent.com](http://a.tencent.com/)":{"tls":"cert-secret-a"},"[b.tencent.com](http://b.tencent.com/)":{"tls":"cert-secret-b"}}}}
-    - 混合示例
-      - {"80":{"protocol":["TCP","UDP"]}}
-      - {"80":{"protocol":["TCP_SSL","UDP"],"tls":"cert-secret"}}
+    - 使用方式详情见：[Service扩展协议]()
 13. service.kubernetes.io/service.extensiveParameters
     - 为创建负载均衡追加自定义参数，可以参考文档：https://cloud.tencent.com/document/product/214/30692
     -  示例 
