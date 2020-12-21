@@ -80,3 +80,9 @@ tcb hosting:deploy ./ -e EnvID
 ![](https://main.qcloudimg.com/raw/439da24bfa3827fb41b8305c2ac1a5ae.png)
 
 
+## 相关命令
+
+#### 卸载 Hexo
+```bash
+npm uninstall -g @cloudbase/cli hexo-cli
+```
