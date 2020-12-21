@@ -69,14 +69,14 @@ curl -v -u${adminUser}:${adminPasswd} -X DELETE -H "Accept:application/json" -H 
 8. 在跳转界面中，配置以下参数，说明如下：
  - **bucket**：存储桶名称，例如 examplebucket-1250000000，可登录 [COS 控制台](https://console.cloud.tencent.com/cos5/bucket) 查看。
  - **path**：COS 对象路径。注意 COS 的对象路径不以/开始。
-i. include：表示设置的权限适用于 path 本身，还是除了 path 以外的其他路径。
-ii. recursive：表示权限不仅适用于 path，还适用于 path 路径下的子成员（即递归子成员）。通常用于 path 设置为目录的情况。
+    - include：表示设置的权限适用于 path 本身，还是除了 path 以外的其他路径。
+    - recursive：表示权限不仅适用于 path，还适用于 path 路径下的子成员（即递归子成员）。通常用于 path 设置为目录的情况。
  - **user/group**：用户名和用户组。这里是或的关系，即用户名或者用户组满足其中一个，即可拥有对应的操作权限。
  - **Permissions**：
-i. Read：读操作。对应于对象存储里面的 GET、HEAD 类操作，包括下载对象、查询对象元数据等。
-ii. Write：写操作,。对应于对对象存储里面的 PUT 类等修改操作，例如上传对象。
-iii. Delete：删除操作。 对应于对象存储里删除 Object。对于 Hadoop 的 Rename 操作，需要有对原路径的删除操作权限，对新路径的写入操作权限。
-iv. ist：遍历权限。对应于对象存储里面的 List Object。
+    -  Read：读操作。对应于对象存储里面的 GET、HEAD 类操作，包括下载对象、查询对象元数据等。
+    -  Write：写操作,。对应于对对象存储里面的 PUT 类等修改操作，例如上传对象。
+    -  Delete：删除操作。 对应于对象存储里删除 Object。对于 Hadoop 的 Rename 操作，需要有对原路径的删除操作权限，对新路径的写入操作权限。
+    -  ist：遍历权限。对应于对象存储里面的 List Object。
 ![](https://main.qcloudimg.com/raw/00a619b4b963a9acf766411fad722fe4.png)
 :::
 ::: 部署COS-Ranger-Service
@@ -93,17 +93,15 @@ V1.0版本及以上。
 #### 部署步骤
 1. 将 COS Ranger Service 服务代码拷贝到集群的几台机器上，生产环境建议至少两台机器（一主一备）。因为涉及到敏感信息，建议是堡垒机或者权限严格管控的机器。
 2. 修改 cos-ranger.xml 文件中的相关配置，其中必须修改的配置项如下所示。配置项说明请参见文件中的注释说明。
-a. qcloud.object.storage.rpc.address
-b. qcloud.object.storage.enable.cos.ranger
-c. qcloud.object.storage.zk.address
-d. qcloud.object.storage.cos.secret.id
-e. qcloud.object.storage.cos.secret.key
+ - qcloud.object.storage.rpc.address
+ - qcloud.object.storage.enable.cos.ranger
+ - qcloud.object.storage.zk.address
+ -  qcloud.object.storage.cos.secret.id
+ -  qcloud.object.storage.cos.secret.key
 3. 修改 ranger-cos-security.xml 文件中的相关配置。其中必须修改的配置项有如下所示。配置项说明请参见文件中的注释说明。
-a. ranger.plugin.cos.policy.cache.dir
-b. ranger.plugin.cos.policy.rest.url
-
+ -  ranger.plugin.cos.policy.cache.dir
+ -  ranger.plugin.cos.policy.rest.url
 4. 修改 start_rpc_server.sh 中 hadoop_conf_path 和 java.library.path 的配置。这两个配置分别指向 hadoop 配置文件所在的目录（例如 core-site.xml、hdfs-site.xml）以及 hadoop native lib 路径。
-
 5. 执行如下命令启动服务。
 ```
 chmod +x start_rpc_server.sh
@@ -124,7 +122,9 @@ V1.0版本及以上。
 1. 将 cos-ranger-client jar 包拷贝到与 COSN 同一目录下（请选择拷贝与自身 hadoop 大版本一致的  jar 包）。
 2. 在 core-site.xml 添加如下配置项：
 <dx-codeblock>
-::: xml xml
+::: xml
+
+```
 <configuration>
            <!--*****必须配置********-->
            <!-- zk 的地址，客户端从 zk 上查询得知 ranger-service 的服务地址 -->
@@ -147,6 +147,7 @@ V1.0版本及以上。
 					<value>/ranger_qcloud_object_storage_leader_ip</value>
           </property>
 </configuration>
+```
 :::
 </dx-codeblock>
 :::
