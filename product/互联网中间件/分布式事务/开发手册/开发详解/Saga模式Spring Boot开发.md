@@ -146,7 +146,7 @@ boolean compensateDebit(Long txId, Long branchId, Account account, int amount);
 
 
 
-### 8. 远程请求
+### 8. 远程请求（自行处理）
 
 - **上游处理**：
 需要从上下文中提取 `txId`、`groupId`、`lastBranchId` 三个内容传递到下游。
