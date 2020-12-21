@@ -18,17 +18,17 @@ yum install -y pptpd
 ```
 vim /etc/pptpd.conf
 ```
-3. 按 “**i**” 切换至编辑模式，并在文件尾部添加以下内容。
+3. 按 **i** 切换至编辑模式，并在文件尾部添加以下内容。
 ```
 localip 192.168.0.1
 remoteip 192.168.0.234-238,192.168.0.245
 ```
-4. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+4. 按 **Esc**，输入 **:wq**，保存文件并返回。
 5. 执行以下命令，打开 `/etc/ppp/chap-secrets` 配置文件。
 ```
 vim /etc/ppp/chap-secrets
 ```
-6. <span id="step7">按 “**i**” 切换至编辑模式，并按以下格式，在文件尾部添加连接 PPTP 的用户名和密码。</span>
+6. <span id="step7">按 **i** 切换至编辑模式，并按以下格式，在文件尾部添加连接 PPTP 的用户名和密码。</span>
 ```
 用户名    pptpd    密码    *
 ```
@@ -36,7 +36,7 @@ vim /etc/ppp/chap-secrets
 ```
 root    pptpd    123456    *
 ```
-7. 按 “**Esc**” ，输入 “**:wq**”，保存文件并返回。
+7. 按 **Esc** ，输入 **:wq**，保存文件并返回。
 8. 执行以下命令，启动 PPTP 服务。
 ```
 systemctl start pptpd
