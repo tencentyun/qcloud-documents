@@ -29,7 +29,7 @@
 ![](//mc.qcloudimg.com/static/img/7169ce063b1b41c58c48089bc2a61441/image.png)
 4. 在此台 CVM 上安装 MySQL Workbench。**前置条件：**此电脑上需要安装 Microsoft .NET Framework 4.5 和 Visual C++ Redistributable for Visual Studio 2015。您可以单击 MySQL Workbench 安装向导中的【Download Prerequisites】来安装这两个软件，然后安装 MySQL Workbench。
 ![](//mc.qcloudimg.com/static/img/bcf08cec72e8ea9c490cb30ae79f0da4/image.png)
-5. 打开 MySQL Workbench，选择【Database】>【Connect to Database】，输入 CynosDB 集群的内网（或外网）地址和用户名、密码，单击【OK】进行登录。
+5. 打开 MySQL Workbench，选择【Database】>【Connect to Database】，输入 TDSQL-C 集群的内网（或外网）地址和用户名、密码，单击【OK】进行登录。
  - Hostname：输入内网（或外网）地址。在 TDSQL-C 控制台中的集群详情页可查看到目标数据库的内网（或外网）地址。
  - Port：内网（或外网）对应端口。
  - Username：默认为 root。
@@ -48,7 +48,7 @@ yum install mysql
 提示 Complete! 说明 MySQL 客户端安装完成。
 ![](https://main.qcloudimg.com/raw/907e047fed90f6cf68752fb386382927.png)
 2. 根据访问方式选择执行以下操作：
- - 内网访问时，执行以下命令登录到 CynosDB 集群。
+ - 内网访问时，执行以下命令登录到 TDSQL-C 集群。
 ```
 mysql -h hostname -u username -p
 ```
