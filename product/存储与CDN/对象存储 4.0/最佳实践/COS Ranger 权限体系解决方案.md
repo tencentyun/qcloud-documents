@@ -76,7 +76,7 @@ curl -v -u${adminUser}:${adminPasswd} -X DELETE -H "Accept:application/json" -H 
     -  Read：读操作。对应于对象存储里面的 GET、HEAD 类操作，包括下载对象、查询对象元数据等。
     -  Write：写操作,。对应于对对象存储里面的 PUT 类等修改操作，例如上传对象。
     -  Delete：删除操作。 对应于对象存储里删除 Object。对于 Hadoop 的 Rename 操作，需要有对原路径的删除操作权限，对新路径的写入操作权限。
-    -  ist：遍历权限。对应于对象存储里面的 List Object。
+    -  List：遍历权限。对应于对象存储里面的 List Object。
 ![](https://main.qcloudimg.com/raw/00a619b4b963a9acf766411fad722fe4.png)
 :::
 ::: 部署COS-Ranger-Service
