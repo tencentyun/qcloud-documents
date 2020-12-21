@@ -1,6 +1,6 @@
 ## 操作场景
 动态准入控制器 Webhook 在访问鉴权的过程中可以更改请求对象或完全拒绝该请求，其调用 Webhook 服务的方式使其独立于集群组件。
-动态准入控制器具有非常大的灵活性，可便捷地进行众多自定义准入控制。下图为动态准入控制在 API 请求调用链的位置，如需了解更多信息，请前往 [Kubernetes 官网](https://kubernetes.io/blog/2019/03/21/a-guide-to-kubernetes-admission-controllers/)。
+动态准入控制器具有很大的灵活性，可便捷地进行众多自定义准入控制。下图为动态准入控制在 API 请求调用链的位置，如需了解更多信息，请前往 [Kubernetes 官网](https://kubernetes.io/blog/2019/03/21/a-guide-to-kubernetes-admission-controllers/)。
 ![admission-controller-phases](https://main.qcloudimg.com/raw/85a757f42598097d24f3eae3736261b9.png)
 由图可知，动态准入控制分为执行及验证两个阶段。首先执行 Mutating 阶段，该阶段可对到达请求进行修改，然后执行 Validating 阶段来验证到达的请求是否被允许，两个阶段可单独或组合使用。
 
@@ -129,10 +129,10 @@ cat ca.crt | base64 --wrap=0
 ```
 docker build -t webserver .
 ```
-5. 部署一个域名为 “weserver.default.svc” 的 Webhook 后端服务，修改适配后的 controller.yaml 如下所示：
+5. 部署一个域名为 “weserver.default.svc” 的 Webhook 后端服务，修改适配后的 `controller.yaml` 如下所示：
 ![image-20201117131843384](https://main.qcloudimg.com/raw/4d06816731be0b1ea3478a5fc3938f8b.png)
 6. 注册创建类型为 `ValidatingWebhookConfiguration` 的资源，修改适配项目中的 `admission.yaml` 文件。如下图所示：
-本示例配置的 Webhook 触发规则为：当创建 `pods`类型、API 版本 “v1” 时触发调用，`clientConfig` 配置对应上述在集群中创建的 Webhook 后端服务，`caBundle`  字段内容为证书颁发方法一获取的 ca.crt 内容。
+本示例配置的 Webhook 触发规则为：当创建 `pods`类型、API 版本 “v1” 时触发调用，`clientConfig` 配置对应上述在集群中创建的 Webhook 后端服务，`caBundle`  字段内容为证书颁发方法一获取的 `ca.crt` 内容。
 ![](https://main.qcloudimg.com/raw/239814926510536dc17619bd77d8acad.png)
 7. 注册好后创建一个 Pod 类型且 API 版本为 “v1” 的测试资源。如下图所示：
 ![image-20201117132642385](https://main.qcloudimg.com/raw/cc2b9a842085f319a42b54ec7366936a.png)  
@@ -140,7 +140,7 @@ docker build -t webserver .
 ![image-20201117132840262](https://main.qcloudimg.com/raw/877c7eb459fff8f3e8e4a56c6893d0f5.png)
 9. 此时查看创建的测试 pod 已成功创建，由于测试 Webhook 服务端代码已具备 `allowed: true` 配置项，即可创建成功该测试 pod。如下图所示：
 ![](https://main.qcloudimg.com/raw/1d46955ef82a072194a80b9c434cbd89.png)
-如需进一步验证，将 “allowed” 改为 “false” 后重复上述步骤重新构建 Webserver 服务端镜像，并重新部署 `controller.yaml` 和 `admission.yaml` 资源。当再次尝试创建 pods 资源时请求被动态准入拦截，则说明配置的动态准入策略是生效的。如下图所示：
+如需进一步验证，将 “allowed” 改为 “false” 后重复上述步骤重新构建 Webserver 服务端镜像，并重新部署 `controller.yaml` 和 `admission.yaml` 资源。当再次尝试创建 pods 资源时请求被动态准入拦截，则说明配置的动态准入策略已生效。如下图所示：
    ![image-20201117133504920](https://main.qcloudimg.com/raw/3df15331208bf316fc06e432598658ae.png)
 
 ## 总结
