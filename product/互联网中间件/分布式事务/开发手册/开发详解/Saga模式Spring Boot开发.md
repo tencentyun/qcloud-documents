@@ -2,7 +2,7 @@
 该任务指导您在 Saga 模式下进行 Spring Boot 开发。
 手动启动 Saga 事务，需要用户自行编写 Execute，Compensate 接口的实现，并保证这两个方法的**幂等性**。
 
-## 前提条件
+## 准备工作
 
 - 需要在 [分布式事务控制台](https://console.cloud.tencent.com/dtf) 中创建一个事务分组（参考 [新建事务分组](https://cloud.tencent.com/document/product/1224/45930#.E6.96.B0.E5.BB.BA.E4.BA.8B.E5.8A.A1.E5.88.86.E7.BB.84)）。
 - 需要在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中，获取账号的 SecretID 和 SecretKey（该账号能够在控制台中查询到事务分组即可）。
@@ -10,7 +10,7 @@
 
 
 
-## 操作步骤
+## 接入步骤
 ### 1. 引入 DTF SDK
 
 通过以下方式引入 Spring Free 版本的 DTF SDK。
