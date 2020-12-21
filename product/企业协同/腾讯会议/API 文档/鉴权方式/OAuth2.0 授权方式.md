@@ -234,5 +234,5 @@ Content-Type: text/plain; charset=utf-8
 }
 ```
 
-### 鉴权错误返回参数
+## 鉴权错误返回参数
 鉴权错误返回统一为400。
