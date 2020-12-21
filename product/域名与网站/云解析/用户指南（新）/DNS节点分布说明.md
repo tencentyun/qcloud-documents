@@ -13,7 +13,7 @@
 </thead>
 <tbody><tr>
 <td>免费 DNS 地址</td>
-<td>DNS 解析 DNSPod 为每个用户随机分配了2个组合 DNS 地址，若需要查询您专属的 DNS 地址，请您 <a href="https://cloud.tencent.com/document/product/302/5518?!editLang=zh&amp;!preview#.E6.9F.A5.E7.9C.8B-dns-.E6.9C.8D.E5.8A.A1.E5.99.A8">查看 DNS 服务器</a>。</td>
+<td>DNS 解析 DNSPod 为每个用户随机分配了2个组合 DNS 地址，若需要查询您专属的 DNS 地址，请您 <a href="https://cloud.tencent.com/document/product/302/5518#.E6.9F.A5.E7.9C.8B-dns-.E6.9C.8D.E5.8A.A1.E5.99.A8">查看 DNS 服务器</a>。</td>
 <td>对应10个节点</td>
 </tr>
 <tr>
