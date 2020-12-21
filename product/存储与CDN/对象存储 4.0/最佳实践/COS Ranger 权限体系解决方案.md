@@ -46,7 +46,8 @@ b. 自建的 hadoop 环境，可以通过在 ranger 目录下查找 hdfs 等已�
 2. 在 COS 目录下，放入 cos-chdfs-ranger-plugin-xxx.jar。（注意 jar 包至少有 r 权限）。
 3. 重启 Ranger 服务。
 4. 在 Ranger 上注册 COS Service。可参考如下命令：
-```
+<dx-codeblock>
+::: plaintext
 ##生成服务，需传入 Ranger 管理员账号密码，以及 Ranger 服务的地址。
 ##对于腾讯云 EMR 集群，管理员用户是 root，密码是构建 emr 集群时设置的 root 密码，ranger 服务的 IP 换成 EMR 的 master 节点 IP。
 adminUser=root
@@ -56,7 +57,8 @@ curl -v -u${adminUser}:${adminPasswd} -X POST -H "Accept:application/json" -H "C
 ##如果要删除刚定义的服务，则传入刚刚创建服务时，返回的服务 ID
 serviceId=102
 curl -v -u${adminUser}:${adminPasswd} -X DELETE -H "Accept:application/json" -H "Content-Type:application/json" http://${rangerServerAddr}/service/plugins/definitions/${serviceId}
-```
+:::
+</dx-codeblock>
 5. 创建服务成功后，可在 Ranger 控制台看到 COS 服务。如下所示：
 ![](https://main.qcloudimg.com/raw/d1a6e2722d11f7177636a5e2c54226e3.png)
 6. 在 COS 服务侧单击【+】，定义新服务实例，服务实例名同为`cos.`服务的配置如下所示。
@@ -132,7 +134,8 @@ V1.0版本及以上。
 ::: 部署方式
 1. 将 cos-ranger-client jar 包拷贝到与 COSN 同一目录下（请选择拷贝与自身 hadoop 大版本一致的  jar 包）。
 2. 在 core-site.xml 添加如下配置项：
-```xml
+<dx-codeblock>
+::: xml xml
 <configuration>
            <!--*****必须配置********-->
            <!-- zk 的地址，客户端从 zk 上查询得知 ranger-service 的服务地址 -->
@@ -148,14 +151,15 @@ V1.0版本及以上。
 					 <value>hadoop/_HOST@EMR-XXXX</value>
            </property>
 
-        <!--***可选配置****-->  
+         <!--***可选配置****-->  
          <!-- zk 上记录的 ranger server 的 ip 地址路径, 这里使用了默认值, 配置必须与 cos-ranger-service 的配置一致 -->
           <property>              
 					<name>qcloud.object.storage.zk.leader.ip.path</name> 
 					<value>/ranger_qcloud_object_storage_leader_ip</value>
           </property>
 </configuration>
-```
+:::
+</dx-codeblock>
 :::
 </dx-tabs>
 
