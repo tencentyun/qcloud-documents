@@ -1,7 +1,7 @@
 
 ## 背景
 
-Hadoop Ranger 权限体系是大数据场景下的权限解决方案。用户使用存算分离后，将数据托管在 COS 上。COS 使用的是腾讯云 CAM 权限体系，无论是用户身份，权限策略等，都与本地 Hadoop Ranger 体系不同。为了维持客户的使用习惯，我们提供了 COS 的 Ranger 接入解决方案。
+Hadoop Ranger 权限体系是大数据场景下的权限解决方案。用户使用存算分离后，将数据托管在 COS 上。COS 使用的是腾讯云 CAM 权限体系，无论是用户身份，权限策略等，都与本地 Hadoop Ranger 体系不同。为维持客户的使用习惯，我们提供 COS 的 Ranger 接入解决方案。
 
 
 ## 优势
@@ -31,16 +31,14 @@ Hadoop 权限体系中, 认证由 Kerberos 提供，授权鉴权由 Ranger 负�
 
 COS-Ranger-Plugin 拓展了 Ranger Admin 控制台上的服务种类，用户可在 Ranger 控制台上，设置和 COS 相关的操作权限。
 
-### 代码地址
-
+<dx-tabs>
+::: 代码地址
 可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 ranger-plugin 目录下获取。
-
-### 版本
-
+:::
+::: 版本
 V1.0版本及以上。
-
-### 部署步骤
-
+:::
+::: 部署步骤
 1. 在 Ranger 的服务定义目录下新建 COS 目录（注意，目录权限需要保证至少有 x 与 r 权限）。
 a. 腾讯云的 EMR 环境，路径是 ranger/ews/webapp/WEB-INF/classes/ranger-plugins。
 b. 自建的 hadoop 环境，可以通过在 ranger 目录下查找 hdfs 等已经接入到 ranger 服务的组件，查找目录位置。
@@ -78,6 +76,10 @@ ii. Write：写操作,。对应于对对象存储里面的 PUT 类等修改操�
 iii. Delete：删除操作。 对应于对象存储里删除 Object。对于 Hadoop 的 Rename 操作，需要有对原路径的删除操作权限，对新路径的写入操作权限。
 iv. ist：遍历权限。对应于对象存储里面的 List Object。
 ![](https://main.qcloudimg.com/raw/00a619b4b963a9acf766411fad722fe4.png)
+:::
+</dx-tabs>
+
+
 
 ## 部署 COS-Ranger-Service
 
@@ -85,16 +87,14 @@ COS-Ranger-Service 是整个权限体系的核心，负责集成 ranger 的客�
 
 COS-Ranger-Service 支持一主多备的 HA 部署，DelegationToken 状态持久化到 HDFS。通过 ZK 抢锁决定 Leader 身份。获取 Leader 身份的服务会把地址写入 ZK，以便 COS Ranger Client 进行路由寻址。
 
-### 代码地址
-
+<dx-tabs>
+::: 代码地址
 可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 cos-ranger-server 目录下获取。
-
-### 版本
-
+:::
+::: 版本
 V1.0版本及以上。
-
-### 部署步骤
-
+:::
+::: 部署步骤
 1. 将 COS Ranger Service 服务代码拷贝到集群的几台机器上，生产环境建议至少两台机器（一主一备）。因为涉及到敏感信息，建议是堡垒机或者权限严格管控的机器。
 2. 修改 cos-ranger.xml 文件中的相关配置，其中必须修改的配置项如下所示。配置项说明请参见文件中的注释说明。
 a. qcloud.object.storage.rpc.address
@@ -114,23 +114,22 @@ chmod +x start_rpc_server.sh
 nohup ./start_rpc_server.sh &> nohup.txt &
 ```
 6. 如果启动失败，查看 log 下 error 日志是否有错误信息。
+:::
+</dx-tabs>
 
 
 ## 部署 COS-Ranger-Client
 
 COS-Ranger-Client 由 hadoop cosn 插件动态加载，并代理访问 COS-Ranger-Service 的相关请求。例如获取临时密钥、获取 token、鉴权操作等。
 
-
-### 代码地址
-
+<dx-tabs>
+::: 代码地址
 可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 cos-ranger-client 目录下获取。
-
-### 版本
-
+:::
+::: 版本
 V1.0版本及以上。
-
-### 部署方式
-
+:::
+::: 部署方式
 1. 将 cos-ranger-client jar 包拷贝到与 COSN 同一目录下（请选择拷贝与自身 hadoop 大版本一致的  jar 包）。
 2. 在 core-site.xml 添加如下配置项：
 ```xml
@@ -157,15 +156,18 @@ V1.0版本及以上。
           </property>
 </configuration>
 ```
+:::
+</dx-tabs>
+
+
 
 ## 部署 COSN 插件
 
-### 版本
-
+<dx-tabs>
+::: 版本
 V5.9.0版本及以上。
-
-### 部署方式
-
+:::
+::: 部署方式
 部署 COSN 插件方法请参考 [Hadoop 工具](https://cloud.tencent.com/document/product/436/6884) 文档，但需注意以下几点：
 
 1. 使用 ranger 后，fs.cosn.userinfo.secretId 和 fs.cosn.userinfo.secretKey 密钥信息不需要配置。COSN 插件后续通过 COSRangerService 获取临时密钥。
@@ -176,6 +178,8 @@ V5.9.0版本及以上。
          <value>org.apache.hadoop.fs.auth.RangerCredentialsProvider</value>
 </property>
 ```
+:::
+</dx-tabs>
 
 ## 验证
 
@@ -192,12 +196,12 @@ hadoop fs -rmcosn://examplebucket-1250000000/doc/exampleobject.txt
 
 ## 常见问题
 
-1. kerberos 是否必须安装？
-Kerberos 满足认证的需求，如果所在的集群，用户都是可信的，例如仅内部使用的集群。若用户仅进行鉴权操作，为了避免无权限的客户误操作，那么可以不安装 kerberos，只使用 ranger 进行鉴权。同时 kerberos 会引入一些性能损耗。请客户综合自己的安全需求与性能需求进行考量。如果需要认证，开启 Kerberos 后，需要设置 COS Ranger Service 和 COS Ranger Client 相关的配置项。
-2. 如果开启了 Ranger，没有配置任何 Policy，或者未匹配到任何 Policy，会如何操作？
+#### kerberos 是否必须安装？
+Kerberos 满足认证的需求，如果所在的集群，用户都是可信的，例如仅内部使用的集群。若用户仅进行鉴权操作，为了避免无权限的客户误操作，那么可以不安装 Kerberos，只使用 ranger 进行鉴权。同时 Kerberos 会引入一些性能损耗。请客户综合自己的安全需求与性能需求进行考量。如果需要认证，开启 Kerberos 后，需要设置 COS Ranger Service 和 COS Ranger Client 相关的配置项。
+#### 如果开启了 Ranger，但未配置任何 Policy，或者未匹配到任何 Policy，会如何操作？
 如果未匹配上任何 policy，会默认拒绝该操作。
-3. 配置在 COS Ranger Service 侧的密钥可以是子账号吗？
-可以是子账号的，但是必须拥有被操作 bucket 的相应权限，才能生成临时密钥给到 COSN 插件，进行相应的操作。通常建议这里设置的密钥拥有对该 bucket 的所有权限。
-4. 临时密钥是如何更新的，是每次访问 COS 前都需要从 COS Ranger Service 侧获取一次吗?
-临时密钥是 cache 在 COSN 插件侧，并周期性的进行异步更新。
+#### 配置 COS Ranger Service 侧的密钥可以是子账号？
+可以是子账号，但是必须拥有被操作 bucket 的相应权限，才能生成临时密钥给到 COSN 插件，进行相应的操作。通常建议这里设置的密钥拥有对该 bucket 的所有权限。
+#### 临时密钥需如何更新，每次访问 COS 前都需要从 COS Ranger Service 侧获取?
+临时密钥是 cache 在 COSN 插件侧，并周期性进行异步更新。
 
