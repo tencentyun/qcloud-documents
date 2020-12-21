@@ -450,7 +450,7 @@ $install_path eth0
                       match:
                            macaddress: 52:54:00:75:ce:c2  //MAC地址
                       set-name: eth0                      //网卡名
-                            addresses:
+                      addresses:
                           - 2a00:7b80:454:2000::xxx/64    //设置IPv6地址和掩码
                       gateway6: 2a00:7b80:454::1          //设置IPv6网关地址
       ```
