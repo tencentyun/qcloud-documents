@@ -8,7 +8,7 @@
 在页面初始化完成以后填入如下代码，创建 `CME.Net` 实例。
 
 ### 创建实例
-创建一个 `CME.Net` 实例，并传入登录签名，详情请参阅 [签名综述](https://cloud.tencent.com/document/product/1156/51127)。 <!--- ../客户端访问签名/授权签名综述.md --->
+创建一个 `CME.Net` 实例，并传入登录签名，详情请参阅 [签名综述](https://cloud.tencent.com/document/product/1156/51127)。
 ```js
 /*   @create  创建实例方法。
  *    @param sign {{string}} 传入登录签名。
