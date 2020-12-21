@@ -123,7 +123,6 @@ V1.0版本及以上。
 2. 在 core-site.xml 添加如下配置项：
 <dx-codeblock>
 ::: xml
-
 ```
 <configuration>
            <!--*****必须配置********-->
@@ -151,7 +150,7 @@ V1.0版本及以上。
 :::
 </dx-codeblock>
 :::
-::: 部署COSN 插件
+::: 部署COSN插件
 #### 版本
 V5.9.0版本及以上。
 
@@ -160,12 +159,16 @@ V5.9.0版本及以上。
 
 1. 使用 ranger 后，fs.cosn.userinfo.secretId 和 fs.cosn.userinfo.secretKey 密钥信息不需要配置。COSN 插件后续通过 COSRangerService 获取临时密钥。
 2. fs.cosn.credentials.provider 需设置为 org.apache.hadoop.fs.auth.RangerCredentialsProvider 才可通过 Ranger 进行认证鉴权。如下所示：
+<dx-codeblock>
+::: plaintext 
 ```
 <property>
          <name>fs.cosn.credentials.provider</name>
          <value>org.apache.hadoop.fs.auth.RangerCredentialsProvider</value>
 </property>
 ```
+:::
+</dx-codeblock>
 :::
 </dx-tabs>
 
