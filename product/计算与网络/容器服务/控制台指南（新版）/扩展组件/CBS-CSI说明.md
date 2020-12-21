@@ -12,7 +12,7 @@
 |静态数据卷 | 支持手动创建 Volume、PV 对象、PVC 对象 | 
 | 动态数据卷| 支持通过 StorageClass 配置，创建和删除 Volume、PV 对象 | 
 | 存储拓扑感知| CBS 不支持跨可用区挂载，在多可用区集群中，CBS CSI 组件将先调度 Pod，之后调度 Node 的 zone 创建 Volume | 
-| 调度器感知节点 maxAttachLimi | -| 
+| 调度器感知节点 maxAttachLimit | 腾讯云单个 CVM 上默认最多挂载20块 CBS，调度器调度 Pod 时将过滤超过最大可挂载 CBS 数量的节点| 
 | 卷在线扩容| 支持通过修改 PVC 容量字段，实现在线扩容（仅支持云硬盘类型） | 
 | 卷快照和恢复| 支持通过快照创建数据卷 | 
 
