@@ -87,7 +87,7 @@
       vrrp_garp_interval 0
       vrrp_gna_interval 0
    }
-   # vrrp_script checkhaproxy
+   vrrp_script checkhaproxy
    {
        script "/etc/keepalived/do_sth.sh"
         interval 5
