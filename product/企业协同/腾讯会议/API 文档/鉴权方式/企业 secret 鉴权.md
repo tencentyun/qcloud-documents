@@ -22,7 +22,8 @@ API 采用 TC3-HMAC-SHA256 签名方法，公共参数需要统一放到 HTTP He
 |X-TC-Token | String|否 |临时证书所用的 Token ，需要结合临时密钥一起使用。临时密钥和 Token 需要到访问管理服务调用接口获取。长期密钥不需要 Token。 |
 |AppId | String|是 |腾讯会议分配给三方开发应用的 App ID。企业管理员可以登录 [腾讯会议官网](https://meeting.tencent.com/)，在【企业管理】>【高级】>【restApi】中进行查看。 |
 |SdkId | String|否 |用户子账号或开发的应用 ID，未分配可不填。企业管理员可以登录 [腾讯会议官网](https://meeting.tencent.com/)，在【企业管理】>【高级】>【restApi】中进行查看。 |
-|X-TC-Registered|Integer|否|非必填字段，表示是否启用了腾讯会议的企业用户管理功能。<br>请求头不带该字段或者该字段值为0，表示未启用企业用户管理功能。用户使用未注册的 userid 创建的会议，在会议客户端中无法看到会议列表，可以正常使用会议短链接或会议号加入会议。<br>以下两种场景，请求头必须带该字段且值为1<li>企业用户通过 SSO 接入了腾讯会议账号体系<li>企业用户通过腾讯会议企业用户管理创建用户|
+|X-TC-Registered|Integer|否|非必填字段，表示是否启用了腾讯会议的企业用户管理功能。<br>请求头不带该字段或者该字段值为0，表示未启用企业用户管理功能。用户使用未注册的 userid 创建的会议，在会议客户端中无法看到会议列表，可以正常使用会议短链接或会议号加入会议。<br>以下两种场景，请求头必须带该字段且值为1：<li>企业用户通过 SSO 接入了腾讯会议账号体系；<li>企业用户通过腾讯会议企业用户管理创建用户。|
+>!构造请求头的时候，需注意自定义字段名的大小写。签名验证以及服务器端读取字段值的时候是对大小写敏感的。
 
 
 ## 生成签名串
@@ -30,12 +31,13 @@ API 采用 TC3-HMAC-SHA256 签名方法，公共参数需要统一放到 HTTP He
 
 >!此处为伪代码，拷贝粘贴不保证可编译运行。
 
-```plaintext
+```
 String stringToSign=
 HTTPMethod + "\n" +    //POST, GET
-Headers + "\n" +       //指定的Header参数
+Headers + "\n" +       //指定的Header参数, X-TC-Nonce, X-TC-Timestamp, X-TC-Key
 URI + "\n" +           //eg: https://api.meeting.qq.com/v1/meetings, URI=/v1/meetings
-Params                 // Http请求的Body, 如果Body为空(如HTTP GET方法), 请使用用空串("").
+Params                 //Body中JSON序列化后的参数，GET方法没有请求体，Body需要带空串" "参与计算
+
 ```
 Header 中参与签名的字段包含：X-TC-Nonce，X-TC-Timestamp，X-TC-Key。 组成 Header 签名串时，参与签名的参数按参数名做字典序升序排列。X-TC-Signaure 为计算后的签名字段，不参与签名计算。标准的 HTTP Header 非空参数本手册约定不参与签名计算。
 
@@ -45,7 +47,7 @@ Header 中参与签名的字段包含：X-TC-Nonce，X-TC-Timestamp，X-TC-Key�
 ```plaintext
 GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&instanceid=1
 
-URI为“/v1/meetings/7567173273889276131?userid=tester1&instanceid=1“
+URI为"/v1/meetings/7567173273889276131?userid=tester1&instanceid=1"
 ```
 
 
