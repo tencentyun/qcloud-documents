@@ -110,6 +110,8 @@ rule_files:
 ### node-annotator
 
 node-annotator组件负责定期从监控中拉取节点负载metric，同步到节点的annotation。
+>!请注意：组件删除后，node-annotator生成的annotation并不会被自动清除。您可根据需要手动清除。
+>
 ![](https://main.qcloudimg.com/raw/750af0d5443cd670f856ba9b6bfbe63d.png)
 
 ### dynamic-scheduler
@@ -185,6 +187,7 @@ dynamic-scheduler是一个scheduler-extender，根据node annotation负载数据
 
 1. 该组件已对接TKE的监控告警体系。
 2. 推荐您为集群开启事件持久化，以免更好的监控组件异常以及故障定位。
+3. 该组件卸载后，只会删除动态调度器有关调度逻辑，不会对原生Kube-Scheduler的调度功能有任何影响。
 
 ## 使用方法
 
