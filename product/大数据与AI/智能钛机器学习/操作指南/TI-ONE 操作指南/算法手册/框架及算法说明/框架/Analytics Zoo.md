@@ -109,5 +109,5 @@ anomalies = AnomalyDetector.detect_anomalies(y_predict, y_truth, 50)
 同时，“Python 版本”选择 Python3.5， “版本号”选择 analytics_zoo。
 
 #### 运行工作流
-单击【保存】并运行工作流。
+单击【保存】并运行工作流。 
 
