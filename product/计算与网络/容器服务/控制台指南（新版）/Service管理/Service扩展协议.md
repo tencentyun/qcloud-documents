@@ -40,7 +40,6 @@ metadata:
 
 - **注解名称**：`service.cloud.tencent.com/specify-protocol`
 - 扩展的协议注解示例：
-
 <table>
 <tbody>
 <tr>
