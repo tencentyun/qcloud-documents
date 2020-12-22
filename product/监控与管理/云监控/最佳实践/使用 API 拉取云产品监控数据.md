@@ -7,9 +7,13 @@
 
 #### 云监控提供以下3类接口用于指标类监控数据的查询
 
-- 查询产品列表接口：查询云监控支持哪些产品的监控项，详情请参见 [DescribeProductList](https://cloud.tencent.com/document/product/248/44374)。
-- 查询监控基础指标详情接口：查询对应的名字空间下面的监控指标类型，详情请参见 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351)。
-- 拉取指标监控数据：根据传入的命名空间，对象维度描述和监控指标获取相应的监控数据，详情请参见 [GetMonitorData](https://cloud.tencent.com/document/product/248/31014)。
+
+| API | 操作名 | 操作描述 |
+|---------|---------|---------|
+| [DescribeProductList](https://cloud.tencent.com/document/product/248/44374)| 查询产品列表接口|查询云监控支持哪些产品的监控项 |
+| [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) | 查询监控基础指标详情接口 | 查询对应的名字空间下面的监控指标类型 |
+| [GetMonitorData](https://cloud.tencent.com/document/product/248/31014) | 拉取指标监控数据 | 对象维度描述和监控指标获取相应的监控数据 |
+
 
 
 #### 接口相关限制
@@ -17,17 +21,35 @@
 - GetMonitorData 接口支持批量获取用户下所有实例的某个指标的数据。
 - GetMonitorData 接口默认支持请求频率限制：20次/秒，1200次/分钟。单请求最多可支持批量拉取10个实例的监控数据，单请求的数据点数限制为1440个。
 - 监控数据存储时长，不同的监控粒度存储时长不同。详情请参考下列图表：
-
-
-
-| 监控粒度 |存储时长 |
-|---------|---------|
-| 秒级 |1天 |
-|1分钟|15天|
-|5分钟|31天|
-|1小时|93天|
-|1天|186天|
-
+	<table>
+<thead>
+<tr>
+<th>监控粒度</th>
+<th>存储时长</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>秒级</td>
+<td>1天</td>
+</tr>
+<tr>
+<td>1分钟</td>
+<td>15天</td>
+</tr>
+<tr>
+<td>5分钟</td>
+<td>31天</td>
+</tr>
+<tr>
+<td>1小时</td>
+<td>93天</td>
+</tr>
+<tr>
+<td>1天</td>
+<td>186天</td>
+</tr>
+</tbody></table>
+ 
 >?云服务器包含 CPU、内存、网络相关指标1分钟监控粒度的存储时长为31天。
 
 
@@ -48,7 +70,7 @@
 ### 准备云产品指标信息
 
 
- >?本文以云服务器 CPU 利用率指标为例。
+本文以云服务器 CPU 利用率指标为例。
 
 1.	查看 [云服务器监控指标文档](https://cloud.tencent.com/document/product/248/6843),
 2.	找到 CPU 利用率指标，即可查看 CPU 利用率指标名、维度，统计周期等相关信息。
