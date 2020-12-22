@@ -1,4 +1,4 @@
-REST API 对每个访问请求进行身份验证。没有安全凭证和签名无法调用 API 接口。用户可以参考腾讯云 API 的鉴权规则。
+REST API 对每个访问请求进行身份验证，如未提供安全凭证和签名则无法调用 API 接口。则用户可以参考腾讯云 API 的鉴权规则计算签名。
 
 API 调用方需申请或持有安全凭证。安全凭证包括 SecretId 和 SecretKey。
 - SecretId：用于表示 API 调用者身份。
@@ -14,7 +14,7 @@ API 采用 TC3-HMAC-SHA256 签名方法，公共参数需要统一放到 HTTP He
 |---------|---------|---------|---------|
 | X-TC-Action | String| 否 |操作的接口名称。取值参考接口文档中输入参数公共参数 Action 的说明。例如云服务器的查询实例列表接口，取值为 DescribeInstances。 |
 | X-TC-Region | String| 否 |地域参数，用来标识希望操作哪个地域的数据。接口接受的地域取值参考接口文档中输入参数公共参数 Region 的说明。注意：某些接口不需要传递该参数，接口文档中会对此特别说明，此时即使传递该参数也不会生效。 |
-| X-TC-Key | String| 是 |此参数参与签名计算。腾讯云 API 接入，申请的安全凭证密钥对中的 SecretId，其 secretkey 用于签名。企业管理员可以登录 [腾讯会议官网](https://meeting.tencent.com/)，在【企业管理】>【高级】>【restApi】中进行查看。 |
+| X-TC-Key | String| 是 |此参数参与签名计算。腾讯云 API 接入，申请的安全凭证密钥对中的 SecretId，其 Secretkey 用于签名。企业管理员可以登录 [腾讯会议官网](https://meeting.tencent.com/)，在【企业管理】>【高级】>【restApi】中进行查看。 |
 | X-TC-Timestamp | Integer| 是 |此参数参与签名计算。当前 UNIX 时间戳，可记录发起 API 请求的时间。例如1529223702，单位为秒。注意：如果与服务器时间相差超过5分钟，会引起签名过期错误。 |
 | X-TC-Nonce | Integer| 是 |此参数参与签名计算。随机正整数。 |
 | X-TC-Version | String|否 |应用 App 的版本号，建议设置，以便灰度和查找问题。 |
