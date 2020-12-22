@@ -43,8 +43,8 @@ Authorization: Auth String
 #### 响应体
 
 查询成功，返回 **application/xml** 数据，包含存储桶中的对象版本信息。不同场景下的响应体请参见下方的实际案例。
-
-```xml
+<dx-codeblock>
+::: xml 
 <ListVersionsResult>
 	<EncodingType>string</EncodingType>
 	<Name>string</Name>
@@ -76,32 +76,9 @@ Authorization: Auth String
 			<DisplayName>string</DisplayName>
 		</Owner>
 	</Version>
-	<DeleteMarker>
-		<Key>string</Key>
-		<VersionId>string</VersionId>
-		<IsLatest>boolean</IsLatest>
-		<LastModified>date</LastModified>
-		<Owner>
-			<ID>string</ID>
-			<DisplayName>string</DisplayName>
-		</Owner>
-	</DeleteMarker>
-	<Version>
-		<Key>string</Key>
-		<VersionId>string</VersionId>
-		<IsLatest>boolean</IsLatest>
-		<LastModified>date</LastModified>
-		<ETag>string</ETag>
-		<Size>integer</Size>
-		<StorageClass>Enum</StorageClass>
-		<StorageTier>Enum</StorageTier>
-		<Owner>
-			<ID>string</ID>
-			<DisplayName>string</DisplayName>
-		</Owner>
-	</Version>
-</ListVersionsResult>
-```
+:::
+</dx-codeblock>
+
 
 具体的节点描述如下：
 
