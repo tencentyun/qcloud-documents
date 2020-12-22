@@ -18,14 +18,17 @@
 | OpenId          | String   | 是       | OAuth2.0 鉴权成功后的用户信息。                                 |
 | X-TC-Registered | Integer  | 否       | 非必填字段，表示是否启用了腾讯会议的企业用户管理功能。请求头不带该字段或者该字段值为0，表示未启用企业用户管理功能。用户使用未注册的 userid 创建的会议，在会议客户端中无法看到会议列表，但可以正常使用会议短链接或会议号加入会议。<br>以下两种场景，请求头必须带该字段且值为1:<br><li>企业用户通过 SSO 接入腾讯会议账号体系；<br><li>企业用户通过腾讯会议企业用户管理创建用户。 |
 
->!构造请求头的时候，需注意自定义字段名的大小写。签名验证以及服务器端读取字段值的时候是对大小写敏感的。
+>!构造请求头的时候，需注意自定义字段名的大小写。签名验证以及服务器端读取字段值时对大小写敏感。
 
 ## 授权方式
 下面将为您介绍 OAuth2.0 的授权步骤，具体如下：
 ### 步骤一：用户同意授权，获取 auth_code
-接口描述：用户同意授权。 <li>
-接口请求方法：GET
-接口请求域名：`https://meeting.tencent.com/authorize.html?corp_id={corpId}&sdk_id={sdkId}&redirect_uri={redirect_uri}&state={state}`
+**接口描述**：用户同意授权。
+**接口请求方法**：GET
+**接口请求域名**：
+```Plaintext
+https://meeting.tencent.com/authorize.html?corp_id={corpId}&sdk_id={sdkId}&redirect_uri={redirect_uri}&state={state}
+```
 
 #### 输入参数 
 
@@ -46,7 +49,7 @@
 
 #### 示例
 **输入示例**
-```
+```Plaintext
 // 接入方302重定向到授权URL，如：
 
 https://meeting.tencent.com/authorize.html?corp_id=200000999&sdk_id=10066660661&redirect_uri=https%3a%2f%2fqq.com%2fcallback%3fa%3d1%26b%3d2&state=123456789
@@ -55,7 +58,7 @@ https://meeting.tencent.com/authorize.html?corp_id=200000999&sdk_id=10066660661&
 
 **输出示例**
 
-```
+```Plaintext
 HTTP/1.1 302 Found
 Location: https://qq.com/callback?a=1&b=2&auth_code=98187ecd****4846ac555a658dcc1122&state=123456789
 Date: Wed, 02 Dec 2020 13:36:38 GMT
@@ -65,9 +68,12 @@ Content-Type: text/plain; charset=utf-8
 
 
 ### 步骤二：通过 auth_code 换取授权 access_token
-接口描述：通过 auth_code 换取授权 access_token。
-接口请求方法：POST 
-接口请求域名：`https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/access_token`
+**接口描述**：通过 auth_code 换取授权 access_token。
+**接口请求方法**：POST 
+**接口请求域名**：
+```Plaintext
+https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/access_token
+```
 
 >!由于授权的 secret 和获取到的 access_token 安全级别都非常高，必须只保存在服务器，不允许传给客户端。后续刷新 access_token、通过 access_token 获取用户信息等步骤时，也必须从服务器发起。
 
@@ -93,7 +99,7 @@ Content-Type: text/plain; charset=utf-8
 
 #### 示例
 **输入示例**
-```
+```Plaintext
 {
   "sdk_id":"10066660661",    
   "secret":"fde85be844****13d2747d06313123fa", 
@@ -103,7 +109,7 @@ Content-Type: text/plain; charset=utf-8
 
 
 **输出示例**
-```
+```Plaintext
 {
     "nonce" : "98187ecdebca4846",
     "data" : {
@@ -125,9 +131,12 @@ Content-Type: text/plain; charset=utf-8
 
 
 ### 步骤三：刷新 access_token（如有需要）
-接口描述：通过 refresh_token，令牌续约。 
-接口请求方法：POST
-接口请求域名：`https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/refresh_token`
+**接口描述**：通过 refresh_token，令牌续约。 
+**接口请求方法**：POST
+**接口请求域名**：
+```Plaintext
+https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/refresh_token
+```
 
 #### 输入参数
 
@@ -152,7 +161,7 @@ Content-Type: text/plain; charset=utf-8
 #### 示例
 **输入示例**
 
-```
+```Plaintext
 {
    "sdk_id":"10066660661",
 "refresh_token":"RZ6+d8Y+JX2hwBtsmF9LpZwBi2gR/bBu3Wq8TmrGtYoV0FqvbnD985smoqkZ6SoV/IgP5iO7r+pQoxu", "open_id":"xqGn7bYSD601jnq8xq0lCAlx5h12"
@@ -163,7 +172,7 @@ Content-Type: text/plain; charset=utf-8
 
 **输出示例**
 
-```
+```Plaintext
 {
     "nonce" : "98187ecdebca4846",
     "data" : {
@@ -185,9 +194,13 @@ Content-Type: text/plain; charset=utf-8
 
 
 ### 步骤四：拉取用户信息（检验凭证是否有效）
-接口描述：拉取用户信息（检验凭证是否有效）。
-接口请求方法：POST
-接口请求域名：`https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/user_info`
+**接口描述**：拉取用户信息（检验凭证是否有效）。
+**接口请求方法**：POST
+**接口请求域名**：
+```Plaintext
+https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/user_info
+```
+
 
 #### 输入参数
 
@@ -209,7 +222,7 @@ Content-Type: text/plain; charset=utf-8
 **输入示例**
 
 
-```
+```Plaintext
 {
 "access_token":"RZ6+d8Y+JX2hwBtsmF9LpZwBi2gR/bBu3Wq8TmrGtYoV0FqvbnD985smoqkZ6SoV/IgP5iO7r+pQoxu", 
 "open_id":"xqGn7bYSD601jnq8xq0lCAlx5h12"
@@ -217,7 +230,7 @@ Content-Type: text/plain; charset=utf-8
 ```
 
 **输出示例**
-```
+```Plaintext
 {
     "nonce" : "98187ecdebca4846",
     "data" : {
