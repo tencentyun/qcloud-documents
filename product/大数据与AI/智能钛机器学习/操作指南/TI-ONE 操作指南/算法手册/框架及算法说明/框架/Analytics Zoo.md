@@ -10,7 +10,7 @@ Analytics Zoo 作为一个数据分析 + AI 平台，能够帮助用户利用 Sp
  - 算法参数：
    指定运行执行脚本的参数。
  - Python 版本：指定 Python 版本，Analytics Zoo 目前支持 Python3.5。
- - 版本号：目前支持Analytics Zoo。
+ - 版本号：目前支持 Analytics Zoo。
 3. **配置资源**
 在【资源参数】列表框配置任务的资源参数。
  - num-executors：指定分配的计算节点数目。
