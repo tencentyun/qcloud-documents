@@ -42,27 +42,38 @@ metadata:
 - 扩展的协议注解示例：
 <dx-tabs>
 ::: TCP SSL 示例
-```
+<dx-codeblock>
+::: xml 
 {"80":{"protocol":["TCP_SSL"],"tls":"cert-secret"}}
-```
+:::
+</dx-codeblock>
 :::
 ::: HTTP 示例
-```
+<dx-codeblock>
+::: xml 
 {"80":{"protocol":["HTTP"],"hosts":{"[a.tencent.com](http://a.tencent.com/)":{},"[b.tencent.com](http://b.tencent.com/)":{}}}}
-```
+:::
+</dx-codeblock>
 :::
 ::: HTTPS 示例
-```
-{"80":{"protocol":["HTTPS"],"hosts":{"[a.tencent.com](http://a.tencent.com/)":{"tls":"cert-secret-a"},"[b.tencent.com](http://b.tencent.com/)":{"tls":"cert-secret-b"}}}}
-```
+<dx-codeblock>
+::: xml 
+ {"80":{"protocol":["HTTPS"],"hosts":{"[a.tencent.com](http://a.tencent.com/)":{"tls":"cert-secret-a"},"[b.tencent.com](http://b.tencent.com/)":{"tls":"cert-secret-b"}}}}
+:::
+</dx-codeblock>
 :::
 ::: 混合示例
-```
+<dx-codeblock>
+::: xml 
 {"80":{"protocol":["TCP","UDP"]}}
-```
-```
-{"80":{"protocol":["TCP_SSL","UDP"],"tls":"cert-secret"}}
-```
+:::
+</dx-codeblock>
+<dx-codeblock>
+::: xml 
+ {"80":{"protocol":["TCP_SSL","UDP"],"tls":"cert-secret"}}
+:::
+</dx-codeblock>
 :::
 </dx-tabs>
+
 
