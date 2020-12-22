@@ -13,17 +13,17 @@ Nginx 可以用作反向代理、负载平衡器和 HTTP 缓存。Nginx-ingress 
 | ingress-nginx-controller | Deployment/DaementSe t | 0.1C | kube-system |
 | ingress-nginx-controller-hpa | HPA |  | kube-system |
 
-## 前置依赖
-1. Kubernetes 版本建议在1.12版本及以上。
-2. 建议您使用 TKE [节点池功能](https://cloud.tencent.com/document/product/457/43719)。
-3. 建议您使用 TKE 云原生监控功能。
-4. 建议您使用 [腾讯云日志服务 CLS](https://cloud.tencent.com/document/product/614)。
+## 前提条件
+- Kubernetes 版本建议在1.12版本及以上。
+- 建议您使用 TKE [节点池功能](https://cloud.tencent.com/document/product/457/43719)。
+- 建议您使用 TKE 云原生监控功能。
+- 建议您使用 [腾讯云日志服务 CLS](https://cloud.tencent.com/document/product/614)。
 
 
 
 
 
-## 相关文档
+## 使用方法
 - [Nginx-ingress 概述](https://cloud.tencent.com/document/product/457/50502)
 - [Nginx-ingress 安装](https://cloud.tencent.com/document/product/457/50503)
 - [使用 Nginx-ingress 对象接入集群外部流量 ](https://cloud.tencent.com/document/product/457/50504)
