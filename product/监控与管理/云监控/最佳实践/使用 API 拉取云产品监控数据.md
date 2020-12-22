@@ -1,7 +1,9 @@
+
+## 简介
+
+
 本文为您介绍如何使用 API 拉取腾讯云各产品监控数据。
 
-
-## 准备工作
 
 ### 拉取监控数据查相关接口
 
@@ -55,13 +57,16 @@
 
 
 
+
+
+## 准备工作
+
+
 ### 准备个人密钥[](id:step1)
 
 1. 登录 [API 密钥管理](https://console.cloud.tencent.com/cam/capi)。
 2. 若还未创建密钥，则需单击【新建密钥】以创建密钥；若已创建密钥，可单击 SecretKey 的【显示】获取密钥。
 ![](https://main.qcloudimg.com/raw/dfc5cf24f6d04bcf87a64ec325b6e915.png)
-
-
 
 
 ### 准备云产品指标信息[](id:step2)
@@ -79,7 +84,7 @@
 通过 Demo 演示，为您介绍如何使用 [GetMonitorData](https://cloud.tencent.com/document/product/248/31014) 接口查询 CVM 的 CPU 利用率。
 
 1. 登录 [API Explorer](https://console.cloud.tencent.com/api/explorer?Product=monitor&Version=2018-07-24&Action=GetMonitorData&SignVersion=) 在线调试页面。
-2. 将 [准备好的个人密钥](#miyao) 对应复制到对应的 SecretId、SecretKey 文本框。
+2. 将 [准备好的个人密钥](#step1) 对应复制到对应的 SecretId、SecretKey 文本框。
 3. 在【输入参数】配置项找到 Region，选择相关地域。
 4. 将 [准备好的云产品信息](#step2)，填入对应的【输入参数】配置项文本框。
  - **Namespace**：填入 QCE/CVM。
