@@ -94,3 +94,4 @@ ContactLayout contactLayout = findViewById(R.id.contact_layout);
 contactLayout.initDefault();
 ```
 </li></ol>
+
