@@ -42,6 +42,7 @@ metadata:
 - 扩展的协议注解示例：
 
 <table>
+<tbody>
 <tr>
 <td>TCP SSL 示例</td>
 <td>{"80":{"protocol":["TCP_SSL"],"tls":"cert-secret"}}</td>
@@ -61,4 +62,5 @@ metadata:
 <tr>
 <td>{"80":{"protocol":["TCP_SSL","UDP"],"tls":"cert-secret"}}</td>
 </tr>
+</tbody>
 </table>
