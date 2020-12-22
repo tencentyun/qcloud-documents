@@ -65,7 +65,7 @@ public void createNotificationChannel(Context context) {
 5. 待推送证书信息生成后，记录证书的**`ID`**。
  ![](https://main.qcloudimg.com/raw/23dc3500472be773bf5499299e511444.png)
 
-<span id="Step4"></span>
+[](id:Step4)
 ### 步骤4：集成推送 SDK
 
 1. 请参考  [OPPO PUSH SDK 接口文档](https://open.oppomobile.com/wiki/doc#id=10196) 集成 SDK，并在 OPPO 控制台测试通知消息，确保已成功集成。
@@ -73,7 +73,7 @@ public void createNotificationChannel(Context context) {
  注册成功后，您可以在 `PushCallback` 的 `onRegister` 回调方法中得到`regId`。
 3. 记录`regId`信息。
 
-<span id="Step5"></span>
+[](id:Step5)
 ### 步骤5：上报推送信息至即时通信 IM 服务端
 
 若您需要通过 OPPO 推送进行即时通信 IM 消息的推送通知，必须在**用户登录成功后**通过`TIMManager`中的`setOfflinePushToken`方法将您托管到即时通信 IM 控制台生成的**证书 ID** 及 OPPO 推送服务返回的 **regId** 上报到即时通信 IM 服务端。
