@@ -1,3 +1,4 @@
+本文介绍如何设置样式（Android）
 
 ## 设置会话列表
 会话列表 Layout 由标题区 TitleBarLayout 与列表区 ConversationListLayout 组成，每部分都提供了 UI 样式以及事件注册的接口可供修改。

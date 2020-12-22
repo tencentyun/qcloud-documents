@@ -37,7 +37,7 @@ Namespace=QCE/DCDB
 | InnodbRowsRead               | innodb 执行 READ 行数 | 次/秒 | uuid、shardId |
 | InnodbRowsUpdated            | innodb 执行 UPDATE 行数 | 次/秒 | uuid、shardId |
 
->? 分布式数据库所有指标的统计粒度可取值 60s 、300s 。 每个指标的统计粒度（Period）可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度。
+>? 分布式数据库所有指标的统计粒度可取值60s 、300s 。 每个指标的统计粒度（Period）可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度。
 
 ##  各维度对应参数总览
 
@@ -50,7 +50,7 @@ Namespace=QCE/DCDB
 
 ## 入参说明
 
-查询分布式数据库 DCDB V3 监控数据，入参取值如下：
+**查询分布式数据库 DCDB V3 监控数据，入参取值如下：**
 &Namespace=QCE/DCDB
 &Instances.N.Dimensions.0.Name=uuid
 &Instances.N.Dimensions.0.Value=实例具体的 uuid

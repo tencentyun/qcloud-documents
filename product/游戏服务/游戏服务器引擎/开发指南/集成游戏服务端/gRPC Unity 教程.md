@@ -41,7 +41,7 @@ Unity 接入 GSE SDK 包括以下几个步骤：
 获取 GSE SDK Protobuf 文件 `GameServerGrpcSdkService.proto` 和 `GseGrpcSdkService.proto`，详情可参见 [proto 文件](https://cloud.tencent.com/document/product/1165/46111)。
 <span id="test2"></span>
 ### 步骤2： 根据 Protobuf 生成 C# 代码
-1. 下载 gRPC protoc Plugin，再次访问下载 [grpc_unity_package.VERSION.zip](#test) 页面，下载对应操作系统的 protoc 压缩包
+1. 下载 gRPC protoc Plugin，再次访问下载 [grpc_unity_package.VERSION.zip](#test) 页面，下载对应操作系统的 protoc 压缩包。
 ![](https://main.qcloudimg.com/raw/0ae70c8558f0a07a04d72554004faa76.png)
 2. 将压缩包解压得到 `protoc` 和 `grpc_csharp_plugin` 可执行程序。
 ![](https://main.qcloudimg.com/raw/026e83a43d6d3d078d7d2acc12771827.png)
@@ -54,12 +54,12 @@ Unity 接入 GSE SDK 包括以下几个步骤：
     - ` ./protoc -I ./ --csharp_out=. GseGrpcSdkService.proto --grpc_out=. --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe `
     - ` ./protoc -I ./ --csharp_out=. GameServerGrpcSdkService.proto --grpc_out=. --plugin=protoc-gen-grpc=grpc_csharp_plugin.exe`
  
- 如下图所示生成四个 .cs 代码文件。
+ 如下图所示生成四个 `.cs` 代码文件。
   ![](https://main.qcloudimg.com/raw/dad39ec6bfabea5ee2025b83596fc711.png)
 
 ### 步骤3： Unity 服务端开发使用 GSE SDK
 
-将 [步骤2](#test2) 中生成的四个 `.cs` 文件拷贝到 Unity 项目中（可以拷贝到 Assets 或 Scripts 或目录下单独的文件夹中），便可使用 GSE SDK 进行开发，可参考unity-demo（demo中未导入解压后的gRPC文件，仅包含示例代码）。
+将 [步骤2](#test2) 中生成的四个 `.cs` 文件拷贝到 Unity 项目中（可以拷贝到 Assets/Scripts/目录下单独的文件夹中），便可使用 GSE SDK 进行开发，详情可参见 [Unity DEMO](#test5)。
 1. 实现 `gameserver_grpcsdk_service.proto` 定义的三个接口 `OnHealthCheck`、`OnStartGameServerSession` 和 ` OnProcessTerminate` 。
 ```
  public class GrpcServer : GameServerGrpcSdkService.GameServerGrpcSdkServiceBase
@@ -157,6 +157,7 @@ public class StartServers : MonoBehaviour
 }
 ```
 
+<span id="test5"></span>
 ##	Unity DEMO
 1.	[单击这里]( https://gsegrpcdemo-1301007756.cos.ap-guangzhou.myqcloud.com/unity-demo.zip)，您可以下载 Unity DEMO代码。
 2.	导入 grpc unity package。

@@ -1,5 +1,4 @@
 本文介绍如何快速跑通腾讯云 Web 直播互动组件的体验 Demo。
-<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/3130-56990?source=gw.pro.media&withPoster=1&notip=1"></iframe></div>
 
 ## 效果展示
 

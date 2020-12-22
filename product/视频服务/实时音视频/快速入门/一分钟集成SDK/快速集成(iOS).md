@@ -25,7 +25,7 @@ pod init
 编辑 Podfile 文件，并根据需要选择合适的 SDK 版本：
 - [精简版](https://cloud.tencent.com/document/product/647/32689#TRTC)：安装包体积增量最小，但仅支持 TRTC 和 CDN 播放（TXLivePlayer）功能。
 ```
-  platform :ios, '8.0'
+ platform :ios, '8.0'
   
   target 'App' do
   pod 'TXLiteAVSDK_TRTC', :podspec => 'http://pod-1252463788.cosgz.myqcloud.com/liteavsdkspec/TXLiteAVSDK_TRTC.podspec'
@@ -34,7 +34,7 @@ pod init
 
 - [专业版](https://cloud.tencent.com/document/product/647/32689#Professional)：除了 TRTC，还包含 RTMP 推流（TXLivePusher）、CDN 播放（TXLivePlayer）、点播播放（TXVodPlayer）以及短视频（UGSV）等多种功能。
 ```
-  platform :ios, '8.0'
+ platform :ios, '8.0'
   
   target 'App' do
   pod 'TXLiteAVSDK_Professional', :podspec => 'http://pod-1252463788.cosgz.myqcloud.com/liteavsdkspec/TXLiteAVSDK_Professional.podspec'
@@ -83,16 +83,31 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 
 
 ## 引用 TRTC SDK
-项目代码中使用 SDK 有两种方式：
-- 方式一： 在项目需要使用 SDK API 的文件里，添加模块引用。
+TRTC SDK 支持两种调用方式，您可以任选一种
+### 方案一：通过 Objective-C 或 Swift 接口引用 TRTC SDK
+在 Objective-C 或 Swift 代码中使用 SDK 有两种方式：
+- **模块引用**：在项目需要使用 SDK API 的文件里，添加模块引用。
 ```
 @import TXLiteAVSDK_TRTC;
 ```
-
-- 方式二：在项目需要使用 SDK API 的文件里，引入具体的头文件。
+- **头文件引用**：在项目需要使用 SDK API 的文件里，引入具体的头文件。
 ```
 #import TXLiteAVSDK_TRTC/TRTCCloud.h
 ```
+
+
+[](id:using_cpp)
+### 方案二：通过 C++ 接口引用 TRTC SDK
+1. **引用头文件**：如果您要使用 C++ 接口来开发 iOS 应用，请引用 `TXLiteAVSDK_TRTC.framework/Headers/cpp_interface` 目录下的头文件
+```
+#include TXLiteAVSDK_TRTC/cpp_interface/ITRTCCloud.h
+```
+2. **使用命名空间**：C++ 全平台接口的方法、类型等均定义在 trtc 命名空间中，为了让代码更加简洁，建议您直接使用 trtc 命名空间
+```
+using namespace trtc;
+```
+
+>? 对于 C++ 接口的使用方式，请参见 [全平台（C++）API 概览](https://cloud.tencent.com/document/product/647/32268)。
 
 ## 常见问题
 ### 1. TRTC SDK 是否支持后台运行？

@@ -16,7 +16,6 @@ MySQL Exporter 是社区专门为采集 MySQL/MariaDB 数据库监控指标而�
 ## 数据库授权
 
 因为 MySQL Exporter 的运行需要再数据库中查询状态数据，所以要在监控的数据库实例中进行如下授权：
-
 ```
 CREATE USER 'exporter'@'localhost' IDENTIFIED BY 'XXXXXXXX' WITH MAX_USER_CONNECTIONS 3;
 GRANT PROCESS, REPLICATION CLIENT, SELECT ON *.* TO 'exporter'@'localhost';
@@ -50,24 +49,24 @@ MySQL Exporter 使用各种 `Collector` 来控制采集数据的启停，具体�
 | collect.engine_tokudb_status                             | 5.6        | 从 SHOW ENGINE TOKUDB STATUS 中采集状态数据。                |
 | collect.global_status                                    | 5.1        | 从 SHOW GLOBAL STATUS (默认开启) 中采集状态数据。            |
 | collect.global_variables                                 | 5.1        | 从 SHOW GLOBAL VARIABLES (默认开启) 中采集状态数据。         |
-| collect.info_schema.clientstats                          | 5.5        | 如果设置了 userstat=1, 设置成 true 来开启用户端数据采集。    |
+| collect.info_schema.clientstats                          | 5.5        | 如果设置了 userstat=1，设置成 true 来开启用户端数据采集。    |
 | collect.info_schema.innodb_metrics                       | 5.6        | 从 information_schema.innodb_metrics 中采集监控数据。        |
 | collect.info_schema.innodb_tablespaces                   | 5.7        | 从 information_schema.innodb_sys_tablespaces 中采集监控数据。 |
 | collect.info_schema.innodb_cmp                           | 5.5        | 从 information_schema.innodb_cmp 中采集 InnoDB 压缩表的监控数据。 |
 | collect.info_schema.innodb_cmpmem                        | 5.5        | 从 information_schema.innodb_cmpmem 中采集 InnoDB buffer pool compression 的监控数据。 |
 | collect.info_schema.processlist                          | 5.1        | 从 information_schema.processlist 中采集线程状态计数的监控数据。 |
-| collect.info_schema.processlist.min_time                 | 5.1        | 线程可以被统计所维持的状态的最小时间。 (默认: 0)             |
+| collect.info_schema.processlist.min_time                 | 5.1        | 线程可以被统计所维持的状态的最小时间。 (默认：0)             |
 | collect.info_schema.query_response_time                  | 5.5        | 如果 query_response_time_stats 被设置成 ON，采集查询相应时间的分布。 |
 | collect.info_schema.replica_host                         | 5.6        | 从 information_schema.replica_host_status 中采集状态数据。   |
 | collect.info_schema.tables                               | 5.1        | 从 information_schema.tables 中采集状态数据。                |
-| collect.info_schema.tables.databases                     | 5.1        | 设置需要采集表状态的数据库, 或者设置成 '`*`' 来采集所有的。  |
-| collect.info_schema.tablestats                           | 5.1        | 如果设置了 userstat=1, 设置成 true 来采集表统计数据。        |
-| collect.info_schema.schemastats                          | 5.1        | 如果设置了 userstat=1, 设置成 true 来采集 schema 统计数据。  |
-| collect.info_schema.userstats                            | 5.1        | 如果设置了 userstat=1, 设置成 true 来采集用户统计数据。      |
+| collect.info_schema.tables.databases                     | 5.1        | 设置需要采集表状态的数据库，或者设置成 `*` 来采集所有的数据库。  |
+| collect.info_schema.tablestats                           | 5.1        | 如果设置了 userstat=1，设置成 true 来采集表统计数据。        |
+| collect.info_schema.schemastats                          | 5.1        | 如果设置了 userstat=1，设置成 true 来采集 schema 统计数据。  |
+| collect.info_schema.userstats                            | 5.1        | 如果设置了 userstat=1，设置成 true 来采集用户统计数据。      |
 | collect.perf_schema.eventsstatements                     | 5.6        | 从 performance_schema.events_statements_summary_by_digest 中采集监控数据。 |
-| collect.perf_schema.eventsstatements.digest_text_limit   | 5.6        | 设置正常文本语句的最大长度。 (默认: 120)                     |
-| collect.perf_schema.eventsstatements.limit               | 5.6        | 事件语句的限制数量. (默认: 250)                              |
-| collect.perf_schema.eventsstatements.timelimit           | 5.6        | 限制事件语句 'last_seen' 可以保持多久， 单位为秒。 (默认: 86400) |
+| collect.perf_schema.eventsstatements.digest_text_limit   | 5.6        | 设置正常文本语句的最大长度。 (默认：120)                     |
+| collect.perf_schema.eventsstatements.limit               | 5.6        | 事件语句的限制数量。 (默认：250)                              |
+| collect.perf_schema.eventsstatements.timelimit           | 5.6        | 限制事件语句“last_seen”可以保持多久， 单位为秒。 (默认：86400) |
 | collect.perf_schema.eventsstatementssum                  | 5.7        | 从 performance_schema.events_statements_summary_by_digest summed 中采集监控数据。 |
 | collect.perf_schema.eventswaits                          | 5.5        | 从 performance_schema.events_waits_summary_global_by_event_name 中采集监控数据。 |
 | collect.perf_schema.file_events                          | 5.6        | 从 performance_schema.file_summary_by_event_name 中采集监控数据。 |
@@ -80,10 +79,10 @@ MySQL Exporter 使用各种 `Collector` 来控制采集数据的启停，具体�
 | collect.perf_schema.replication_applier_status_by_worker | 5.7        | 从 performance_schema.replication_applier_status_by_worker 中采集监控数据。 |
 | collect.slave_status                                     | 5.1        | 从 SHOW SLAVE STATUS (默认开启) 中采集监控数据。             |
 | collect.slave_hosts                                      | 5.1        | 从 SHOW SLAVE HOSTS 中采集监控数据。                         |
-| collect.heartbeat                                        | 5.1        | 从 [heartbeat](#heartbeat) 中采集监控数据。                  |
-| collect.heartbeat.database                               | 5.1        | 数据库心跳检测的数据源。(默认: heartbeat)                    |
-| collect.heartbeat.table                                  | 5.1        | 表心跳检测的数据源。 (默认: heartbeat)                       |
-| collect.heartbeat.utc                                    | 5.1        | 对当前的数据库服务器使用 UTC 时间戳 (`pt-heartbeat` is called with `--utc`)。(默认: false) |
+| collect.heartbeat                                        | 5.1        | 从 [heartbeat](#heartbeat-.E5.BF.83.E8.B7.B3.E6.A3.80.E6.B5.8B) 中采集监控数据。                  |
+| collect.heartbeat.database                               | 5.1        | 数据库心跳检测的数据源。(默认：heartbeat)                    |
+| collect.heartbeat.table                                  | 5.1        | 表心跳检测的数据源。 (默认：heartbeat)                       |
+| collect.heartbeat.utc                                    | 5.1        | 对当前的数据库服务器使用 UTC 时间戳（`pt-heartbeat` is called with `--utc`）。（默认：false） |
 
 ## 全局配置参数
 
@@ -92,29 +91,29 @@ MySQL Exporter 使用各种 `Collector` 来控制采集数据的启停，具体�
 | config.my-cnf              | 用来读取数据库认证信息的配置文件 `.my.cnf` 位置。 (默认：`~/.my.cnf`) |
 | log.level                  | 日志级别。 (默认：info)                                      |
 | exporter.lock_wait_timeout | 为链接设置 lock_wait_timeout (单位：秒) 以避免对元数据的锁时间太长。(默认：2) |
-| exporter.log_slow_filter   | 添加 log_slow_filter 以避免抓取的慢查询被记录。  提示：不支持 Oracle MySQL。 |
+| exporter.log_slow_filter   | 添加 log_slow_filter 以避免抓取的慢查询被记录（不支持 Oracle MySQL）。 |
 | web.listen-address         | web 端口监听地址。                                           |
 | web.telemetry-path         | metrics 接口路径。                                           |
 | version                    | 打印版本信息。                                               |
 
 ## heartbeat 心跳检测
 
-如果开启了 `collect.heartbeat`， mysqld_exporter 会通过心跳检测机制抓取复制延迟数据。
+如果开启了 `collect.heartbeat`， mysqld_exporter 将通过心跳检测机制抓取复制延迟数据。
 
 ## 配置 Prometheus 的抓取 Job
 
-当 MySQL Exporter 正常运行后，我们就可以正常的将这个 Job 添加到 Prometheus 的抓取任务当中了。
+当 MySQL Exporter 正常运行后，即可正常的将 Job 添加到 Prometheus 的抓取任务当中。示例如下：
 
-```
+```plaintext
 ...
   - job_name: 'mysqld_exporter'
     static_configs:
     - targets: ['your_exporter:port']                    
 ```
 
-通常情况下我们的 exporter 和数据库并不是运行在一起，所以数据上报上来的 `instance` 并不能真实描述是哪个实例，为了方便数据的检索和观察，我们可以将 `instance` 这个标签进行修改，用我们的数据库实例名 `cdb-xxx` 来替换将更加直观，如下：
+通常情况下 exporter 和数据库并不是运行同一台设备，所以数据上报的 `instance` 并不能真实描述是哪个实例，为了方便数据的检索和观察，我们可以将 `instance` 这个标签进行修改，用我们的数据库实例名 `cdb-xxx` 来替换将更加直观，示例如下：
 
-```
+```plaintext
 ...
   - job_name: 'mysqld_exporter'
     static_configs:

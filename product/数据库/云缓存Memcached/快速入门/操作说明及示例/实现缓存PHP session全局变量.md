@@ -19,7 +19,6 @@ ini_set("session.save_path","tcp://***.***.***.***:****");
 ini_set("session.gc_maxlifetime",1500);
 ```
 
-
 ## 使用 PHP-Memcached 扩展的实现方法
 可以使用修改配置文件或者在程序中实现两种方式，与 memcache 不同在于其 IP 前没有 tcp://。
 

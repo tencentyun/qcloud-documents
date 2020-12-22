@@ -177,8 +177,9 @@ CustomConfigUI 是在启动 SDK 模块时需要传入的 SDK 的 UI 配置信息
 | UIColor  | cardFrameColor     | 卡片框选中颜色               | RGBA：5 106 1 1                       |
 | UIImage  | takePictureImage   | 拍照按钮图标 80x80           | 默认图标                              |
 | UIImage  | lightONImage       | 打开手电筒按钮图标 40x40     | 默认图标                              |
-| UIImage  | lightOFFImage      | 关闭手电筒按钮图标40x40      | 默认图标                              |
-| UIImage  | albumImage         | 相册按钮图标40x40            | 默认图标                              |
+| UIImage  | lightOFFImage      | 关闭手电筒按钮图标 40x40      | 默认图标                              |
+| UIImage  | albumImage         | 相册按钮图标 40x40            | 默认图标                              |
+| BOOL     | isShowAlbumBtn     | 是否显示相册按钮             | YES                                   |
 
 
 
@@ -224,6 +225,13 @@ typedef void (^OcrSDKKitProcessSucceedBlock)(id _Nonnull resultInfo, UIImage *re
 /// @param reserved 预留位
 typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullable reserved);
 ```
+
+> **Tips：**用户取消文字识别退出会在 OcrSDKKitProcessFailedBlock 回调
+>
+> domain: "OcrSdk.UserCancelOcr" - code: 200101
+>
+> NSLocalizedDescription : "用户主动停止文字识别"
+
 
 身份证正面请求返回 resultInfo 结果示例：
 

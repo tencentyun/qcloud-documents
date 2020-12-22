@@ -441,18 +441,18 @@ $install_path eth0
  2. 添加 IPv6 地址和网关配置。
  > !只添加 addresses 和 gateway6。
  > 
- ```plaintext
+```plaintext
           network:
-          version: 2
-              ethernets:
-                  eth0:
-                      dhcp4: true
+                version: 2
+                ethernets:
+                   eth0:
+                      dhcp4: true                         //开启dhcp4
                       match:
-                      macaddress: 52:54:00:75:ce:c2
-                      set-name: eth0
-                  addresses:
-                          - 2a00:7b80:454:2000::xxx/64
-                      gateway6: 2a00:7b80:454::1   
+                           macaddress: 52:54:00:75:ce:c2  //MAC地址
+                      set-name: eth0                      //网卡名
+                      addresses:
+                          - 2a00:7b80:454:2000::xxx/64    //设置IPv6地址和掩码
+                      gateway6: 2a00:7b80:454::1          //设置IPv6网关地址
       ```
  3. 执行如下命令，使配置生效。
 ```plaintext
