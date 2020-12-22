@@ -48,11 +48,11 @@ metadata:
 </tr>
 <tr>
 <td>HTTP 示例</td>
-<td>{"80":{"protocol":["HTTP"],"hosts":{"<a href="http://a.tencent.com/" target="_blank">a.tencent.com</a>":{},"<a href="http://b.tencent.com/" target="_blank">b.tencent.com</a>":{}}}}</td>
+<td>{"80":{"protocol":["HTTP"],"hosts":{"[a.tencent.com](http://a.tencent.com/)":{},"[b.tencent.com](http://b.tencent.com/)":{}}}}</td>
 </tr>
 <tr>
 <td>HTTPS 示例</td>
-<td>{"80":{"protocol":["HTTPS"],"hosts":{"<a href="http://a.tencent.com/" target="_blank">a.tencent.com</a>":{"tls":"cert-secret-a"},"<a href="http://b.tencent.com/" target="_blank">b.tencent.com</a>":{"tls":"cert-secret-b"}}}}</td>
+<td>{"80":{"protocol":["HTTPS"],"hosts":{"[a.tencent.com](http://a.tencent.com/)":{"tls":"cert-secret-a"},"[b.tencent.com](http://b.tencent.com/)":{"tls":"cert-secret-b"}}}}</td>
 </tr>
 <tr>
 <td rowspan="2">混合示例</td>
