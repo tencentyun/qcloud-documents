@@ -5,8 +5,8 @@
 基于 HTTP 协议支持的 Referer 机制，Referer 防盗链通过 HTTP request 中携带的 Referer 字段识别请求的来源，验证访问的合法性，进而允许或拒绝对直播内容的请求。
 
 ## 注意事项
-
-开启、关闭或修改 Referer 防盗链配置后，约15分钟-20分钟即可生效，无需重新推流。
+- Referer 信息包含在 HTTP 中，开启配置后 RTMP 无法播放，快直播流不校验 Referer 配置，如需配置 Referer 建议使用 FLV 或 HLS 播放。
+- 开启、关闭或修改 Referer 防盗链配置后，约15分钟-20分钟即可生效，无需重新推流。
 
 ## 前提条件
 
