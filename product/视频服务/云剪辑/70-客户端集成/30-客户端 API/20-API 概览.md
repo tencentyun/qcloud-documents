@@ -23,4 +23,14 @@
  [/Material/DescribeMaterialSubtitle](./媒体物料相关接口/查询字幕识别结果.md#)| 查询字幕识别结果
  [/Material/DescribeTextInMaterial](./媒体物料相关接口/查询文本识别结果.md#)| 查询媒体文本识别结果
  [/Material/DescribeObjectInMaterial](./媒体物料相关接口/查询物体识别结果.md#)| 查询媒体物体识别结果
+ 
+ [/Project/ModifyProject](./媒体物料相关接口/修改项目.md#)| 修改项目
+ [/Project/DeleteProject](./媒体物料相关接口/删除项目.md#)| 删除项目
+ [/Project/DescribeProjects](./媒体物料相关接口/查询项目.md#)| 查询项目
+ [/Project/SearchProject](./媒体物料相关接口/检索项目.md#)| 检索项目
+ [/Project/DeleteMaterialFromProject](./媒体物料相关接口/删除项目媒体.md#)| 删除项目媒体
+ [/Project/DescribeProjectMaterials](./媒体物料相关接口/查询项目媒体.md#)| 查询项目媒体
+ [/Project/AddMaterialToProject](./媒体物料相关接口/添加项目媒体.md#)| 添加项目媒体
 
+ [/Task/DescribeTasks](./37-任务管理相关接口/查询任务信息.md#)| 查询任务信息
+ [/Task/DescribeTasks](./37-任务管理相关接口/查询任务信息.md#)| 查询任务信息
