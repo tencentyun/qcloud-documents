@@ -134,6 +134,7 @@ volumeBindingMode: Immediate
 $ kubectl exec ivantestweb-0 df /usr/share/nginx/html
 Filesystem     1K-blocks  Used Available Use% Mounted on
 /dev/vdd        30832548 44992  30771172   1% /usr/share/nginx/html
+
 $ kubectl get pv pvc-e193201e-6f6d-48cf-b96d-ccc09225cf9c 
 NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                        STORAGECLASS   REASON   AGE
 pvc-e193201e-6f6d-48cf-b96d-ccc09225cf9c   30Gi       RWO            Delete           Bound    default/www1-ivantestweb-0   cbs-csi                 20h
@@ -149,9 +150,11 @@ $ kubectl label pv pvc-e193201e-6f6d-48cf-b96d-ccc09225cf9c failure-domain.beta.
 <dx-codeblock>
 ::: plaintext
 $ kubectl delete pod ivantestweb-0
+
 $ kubectl get pod ivantestweb-0
 NAME            READY   STATUS    RESTARTS   AGE
 ivantestweb-0   0/1     Pending   0          25s
+
 $ kubectl describe pod ivantestweb-0
 Events:
   Type     Reason            Age                 From               Message
@@ -178,12 +181,15 @@ persistentvolume/pvc-e193201e-6f6d-48cf-b96d-ccc09225cf9c labeled
 $ kubectl get pod ivantestweb-0
 NAME            READY   STATUS    RESTARTS   AGE
 ivantestweb-0   1/1     Running   0          17m
+
 $ kubectl get pv pvc-e193201e-6f6d-48cf-b96d-ccc09225cf9c
 NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                        STORAGECLASS   REASON   AGE
 pvc-e193201e-6f6d-48cf-b96d-ccc09225cf9c   40Gi       RWO            Delete           Bound    default/www1-ivantestweb-0   cbs-csi                 20h
+
 $ kubectl get pvc www1-ivantestweb-0
 NAME                 STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 www1-ivantestweb-0   Bound    pvc-e193201e-6f6d-48cf-b96d-ccc09225cf9c   40Gi       RWO            cbs-csi        20h
+
 $ kubectl exec ivantestweb-0 df /usr/share/nginx/html
 Filesystem     1K-blocks  Used Available Use% Mounted on
 /dev/vdd        41153760 49032  41088344   1% /usr/share/nginx/html
@@ -197,6 +203,7 @@ Filesystem     1K-blocks  Used Available Use% Mounted on
 $ kubectl exec ivantestweb-0 df /usr/share/nginx/html
 Filesystem     1K-blocks  Used Available Use% Mounted on
 /dev/vdd        20511312 45036  20449892   1% /usr/share/nginx/html
+
 $ kubectl get pv pvc-e193201e-6f6d-48cf-b96d-ccc09225cf9c
 NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                        STORAGECLASS   REASON   AGE
 pvc-e193201e-6f6d-48cf-b96d-ccc09225cf9c   20Gi       RWO            Delete           Bound    default/www1-ivantestweb-0   cbs-csi                 20h
@@ -275,6 +282,7 @@ spec:
 $ kubectl get volumesnapshot
 NAME                READYTOUSE   SOURCEPVC            SOURCESNAPSHOTCONTENT   RESTORESIZE   SNAPSHOTCLASS   SNAPSHOTCONTENT                                    CREATIONTIME   AGE
 new-snapshot-demo   true         www1-ivantestweb-0                           10Gi          cbs-snapclass   snapcontent-ea11a797-d438-4410-ae21-41d9147fe610   22m            22m
+
 $ kubectl get volumesnapshotcontent
 NAME                                               READYTOUSE   RESTORESIZE   DELETIONPOLICY   DRIVER                      VOLUMESNAPSHOTCLASS   VOLUMESNAPSHOT      AGE
 snapcontent-ea11a797-d438-4410-ae21-41d9147fe610   true         10737418240   Delete           com.tencent.cloud.csi.cbs   cbs-snapclass         new-snapshot-demo   22m
@@ -342,6 +350,7 @@ spec:
 $ kubectl get pvc restore-test
 NAME           STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 restore-test   Bound    pvc-80b98084-29a3-4a38-a96c-2f284042cf4f   10Gi       RWO            cbs-csi        97s
+
 $ kubectl get pv pvc-80b98084-29a3-4a38-a96c-2f284042cf4f -oyaml
 apiVersion: v1
 kind: PersistentVolume
