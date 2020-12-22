@@ -53,21 +53,18 @@
 >?云服务器包含 CPU、内存、网络相关指标1分钟监控粒度的存储时长为31天。
 
 
-<span id="step1"></span>
 
 
-### 准备个人密钥
+### 准备个人密钥[](id:step1)
 
 1. 登录 [API 密钥管理](https://console.cloud.tencent.com/cam/capi)。
-2. 若没有密钥需单击【新建密钥】，若有密钥可单击 SecretKey 后的显示按钮，并进行验证。
+2. 若还未创建密钥，则需单击【新建密钥】以创建密钥；若已创建密钥，可单击 SecretKey 的【显示】获取密钥。
 ![](https://main.qcloudimg.com/raw/dfc5cf24f6d04bcf87a64ec325b6e915.png)
 
 
-<span id="step2"></span>
 
 
-
-### 准备云产品指标信息
+### 准备云产品指标信息[](id:step2)
 
 
 本文以云服务器 CPU 利用率指标为例。
@@ -78,6 +75,7 @@
 
 
 ## 实践步骤
+
 通过 Demo 演示，为您介绍如何使用 [GetMonitorData](https://cloud.tencent.com/document/product/248/31014) 接口查询 CVM 的 CPU 利用率。
 
 1. 登录 [API Explorer](https://console.cloud.tencent.com/api/explorer?Product=monitor&Version=2018-07-24&Action=GetMonitorData&SignVersion=) 在线调试页面。
