@@ -166,7 +166,7 @@ mount -t cifs -o guest,vers=1.0,uid=1000,gid=100,noperm,actimeo=1,nocase //<挂�
 
 示例：
 ```plaintext
-mount -t cifs -o guest//10.66.168.75/vj3i1135  /local/test
+mount -t cifs -o guest //10.66.168.75/vj3i1135  /local/test
 ```
 
 #### 4. 查看挂载点信息
