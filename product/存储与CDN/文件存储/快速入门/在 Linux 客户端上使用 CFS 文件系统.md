@@ -147,7 +147,7 @@ mkdir /local/test
 #### 3. 挂载文件系统
 使用下列命令实现 CIFS 挂载。
 ```shell
-mount -t cifs -o guest //<挂载点IP>/<FSID> /<待挂载目标目录>
+mount -t cifs -o guest,vers=1.0,uid=1000,gid=100,noperm,actimeo=1,nocase //<挂载点IP>/<FSID> /<待挂载目标目录>
 ```
 - 挂载点IP：指创建文件系统时，自动的生成的挂载点 IP。
 - 目前默认挂载使用文件系统的 FSID。 
@@ -157,7 +157,7 @@ mount -t cifs -o guest //<挂载点IP>/<FSID> /<待挂载目标目录>
 
 示例：
 ```plaintext
-mount -t cifs -o guest //10.66.168.75/vj3i1135  /local/test
+mount -t cifs -o guest,vers=1.0,uid=1000,gid=100,noperm,actimeo=1,nocase //10.66.168.75/vj3i1135  /local/test
 ```
 
 #### 4. 查看挂载点信息
