@@ -31,7 +31,7 @@ API 采用 TC3-HMAC-SHA256 签名方法，公共参数需要统一放到 HTTP He
 
 >!此处为伪代码，拷贝粘贴不保证可编译运行。
 
-```
+```Plaintext
 String stringToSign=
 HTTPMethod + "\n" +    //POST, GET
 Headers + "\n" +       //指定的Header参数, X-TC-Nonce, X-TC-Timestamp, X-TC-Key
@@ -100,7 +100,7 @@ stringToSign = POST + "\n" +
 ## 代码示例
 #### Java(Java8) 代码示例
 请根据使用的开发语言按此示例代码中的方法签名。
-```
+```Plaintext
 import java.nio.charset.StandardCharsets;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -158,7 +158,7 @@ public interface SignatureUtil {
 ```
 #### PHP 代码示例
 
-```
+```Plaintext
 class SignatureUtil
 {
     private static $secret_id = '';  // SecretId
