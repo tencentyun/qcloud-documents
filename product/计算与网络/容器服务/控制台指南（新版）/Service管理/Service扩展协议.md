@@ -62,12 +62,14 @@ metadata:
 :::
 </dx-codeblock>
 :::
-::: 混合示例
+::: TCP/UDP混合示例
 <dx-codeblock>
 ::: xml 
 {"80":{"protocol":["TCP","UDP"]}}
 :::
 </dx-codeblock>
+:::
+::: 混合示例
 <dx-codeblock>
 ::: xml 
  {"80":{"protocol":["TCP_SSL","UDP"],"tls":"cert-secret"}}
