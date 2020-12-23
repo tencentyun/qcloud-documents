@@ -104,7 +104,7 @@ kubectl certificate approve ${USERNAME}
 # 获取自签证书 CRT
 kubectl get csr ${USERNAME} -o jsonpath={.status.certificate} > ${USERNAME}.crt
 ```
- - `${USERNAME}`.crt：为服务端证书。
+ - `${USERNAME}`.crt：为 Webhook 服务端证书。
  -  `${USERNAME}`.key：为 Webhook 服务端证书密钥。
 
 
@@ -116,7 +116,7 @@ kubectl get csr ${USERNAME} -o jsonpath={.status.certificate} > ${USERNAME}.crt
 ```bash
 cat ca.crt | base64 --wrap=0 
 ```
- - 若颁发证书使用方案2，集群的根证书即为 `caBundle` 字段内容。获取步骤如下：
+ - 若颁发证书使用方法2，集群的根证书即为 `caBundle` 字段内容。获取步骤如下：
     1. 登录容器服务控制台，祖安则左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster?rid=1)】。
     2. 在“集群管理”页面，选择集群 ID。
     3. 在集群详情页面，选择左侧的【基本信息】。
