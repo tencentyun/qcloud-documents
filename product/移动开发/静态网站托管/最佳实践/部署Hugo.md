@@ -104,13 +104,14 @@ npm install -g @cloudbase/cli
 ```plaintext
 tcb login
 ```
- ![](https://main.qcloudimg.com/raw/eb4492e95cac7a0c9c8eeaa7dcf08c62.png)
-5. 在弹出的页面中单击【确认授权】进行授权：
-![](https://main.qcloudimg.com/raw/d24d089ce30054b1978122082bb26ca0.png)
-6. 执行以下命令，在 hugo-site 中部署 public 目录中的文件：
-```plaintext
-cloudbase hosting:deploy ./public  -e EnvID
+
+![](https://main.qcloudimg.com/raw/eb121b85b0d531343a44431c29678a05.png)
+5. 在弹出的页面确认授权：
+![](https://main.qcloudimg.com/raw/1daf46247dee75d63d86e017b6e3b3a1.png)
+6. 在 hugo-site 中将 public 目录中的文件给部署上去：
 ```
+cloudbase hosting deploy ./public  -e EnvID
+
 
 这里的 EnvID 替换为刚创建好的环境 ID。
 ![](https://main.qcloudimg.com/raw/e81c2cfea537c6a20730495c1a2c5d57.png)
