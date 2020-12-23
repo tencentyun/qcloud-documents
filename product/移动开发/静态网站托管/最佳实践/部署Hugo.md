@@ -9,25 +9,25 @@ Hugo 是一款用 Go 编写的静态站点生成器，具有丰富的主题资�
 
 ### 步骤1：安装 Hugo
 
-1. 我们需要先安装 Hugo：
+1. 执行以下命令安装 Hugo：
 ```plaintext
 brew install hugo
 ```
- >? Windows 的用户可以去 Hugo 的 githubc 仓库上下载安装 hugo 的可执行程序进行安装，具体安装流程请参阅 [Hugo官方操作文档](https://www.gohugo.org/doc/tutorials/installing-on-windows/)。
+ >? Windows 用户可以前往 Hugo 的 githubc 仓库上下载安装 Hugo 的可执行程序进行安装，具体安装流程请参见 [Hugo官方操作文档](https://www.gohugo.org/doc/tutorials/installing-on-windows/)。
 2. 用 Hugo 创建一个 blog 项目：
 ```plaintext
 hugo new site hugo-demo && cd hugo-demo
 ```
-3. 为 Hugo 添加一个主题。
+3. 使用 Hugo 添加一个主题。
  1. 执行以下命令，将主题添加进项目中：
 ```plaintext
 git init
 git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
 ```
-	 >?对于无法使用 git 的用户，可以使用如下方法来添加主题。
-	 1. 下载最新版的主题压缩包，[点击下载](https://github.com/budparr/gohugo-theme-ananke/archive/master.zip)
-	 2. 解压`.zip`安装包，得到 “gohugo-theme-ananke-master” 文件夹
-	 3. 重命名文件夹为 “ananke”，并将其移动到`hugo-demo`项目中的 “themes/” 文件夹。
+	 >?对于无法使用 Git 的用户，可以使用如下方法来添加主题。
+	 1. 下载最新版的 [主题安装包](https://github.com/budparr/gohugo-theme-ananke/archive/master.zip)。
+	 2. 解压主题安装包，找到 “gohugo-theme-ananke-master” 文件夹。
+	 3. 重命名文件夹为 “ananke”，并将其移动到 `hugo-demo` 项目中的 “themes/” 文件夹下。
  2. 执行以下命令，添加主题至配置文件中：
 ```plaintext
 echo 'theme = "ananke"' >> config.toml
@@ -55,11 +55,11 @@ hugo server
 	3. 设置域名 “baseURL” 为默认或者自定义域名。
 	>?此处默认/自定义域名可以使用云开发提供的域名，请完成后续的 [步骤2：静态托管部署](#step2)。
 	4. 如需了解主题 “ananke”，请参见 [gohugo-theme-ananke](https://github.com/budparr/gohugo-theme-ananke)。如需配置更多主题，请参见 [自定义主题](https://gohugo.io/themes/customizing/)。
-8. 使用下面的代码部署编译完成的静态页面文件：
+8. 使用如下代码部署编译完成的静态页面文件：
 ```plaintext
 hugo -D
 ```
- 生成好的静态页面文件会放在项目的 public 目录中，目录结构如下：
+ 生成好的静态页面文件将放在项目的 public 目录中，目录结构如下：
 ```plaintext
 ├── 404.html
 ├── categories
@@ -108,7 +108,7 @@ tcb login
  ![](https://main.qcloudimg.com/raw/eb4492e95cac7a0c9c8eeaa7dcf08c62.png)
 5. 在弹出的页面中单击【确认授权】进行授权：
 ![](https://main.qcloudimg.com/raw/d24d089ce30054b1978122082bb26ca0.png)
-6. 在 hugo-site 中将 public 目录中的文件给部署上去：
+6. 执行以下命令，在 hugo-site 中部署 public 目录中的文件：
 ```plaintext
 cloudbase hosting:deploy ./public  -e EnvID
 ```
