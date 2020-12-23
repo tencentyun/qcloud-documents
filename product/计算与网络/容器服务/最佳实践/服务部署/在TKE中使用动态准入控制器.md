@@ -112,7 +112,7 @@ kubectl get csr ${USERNAME} -o jsonpath={.status.certificate} > ${USERNAME}.crt
 本文将使用 `ValidatingWebhookConfiguration` 资源在 TKE 中实现一个动态准入 Webhook 调用示例。
 为了确保可访问性，示例代码 Fork 自 [原代码库](https://github.com/larkintuckerllc/hello-dynamic-admission-control.git)，示例代码实现了一个简单的动态准入 Webhook 请求和响应的接口，具体接口格式请参见 [Webhook 请求和响应](https://kubernetes.io/zh/docs/reference/access-authn-authz/extensible-admission-controllers/#request) 。示例代码可在 [示例代码](https://github.com/imjokey/hello-dynamic-admission-control) 中获取，本文将使用其作为 Webhook 服务端代码。
 1. 对应实际使用颁发证书方法，准备 `caBundle` 内容。
- - 若颁发证书使用方案1，则执行以下命令，使用 `base64`  编码 `ca.crt` 生成 `caBundle` 字段内容。
+ - 若颁发证书使用方法1，则执行以下命令，使用 `base64`  编码 `ca.crt` 生成 `caBundle` 字段内容。
 ```bash
 cat ca.crt | base64 --wrap=0 
 ```
