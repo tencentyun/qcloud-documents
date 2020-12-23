@@ -46,7 +46,7 @@ spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
 
 支持向后兼容，建议全量升级。
 
-## 1.23.6-Finchley-RELEASE
+## 1.23.6-Finchley-RELEASE（2020-12-21）
 ### Bug 修复
 - 处理 Spring 组件开源漏洞风险，升级 Spring Framework 到 5.0.19 版本。
 - spring-cloud-tsf-core 修复与 spring-boot-devtools 的冲突。
@@ -172,7 +172,7 @@ spring-cloud-tsf-msgw：
 - 优化默认日志配置支持容器部署场景。
 - 优化 TSF MSGW zuul 依赖。
 
-## 1.21.7-Finchley-RELEASE
+## 1.21.7-Finchley-RELEASE（2020-12-21）
 ### Bug 修复
 - spring-cloud-tsf-ratelimit：修复当只有一个限流规则时，限流规则关闭不生效的问题。
 - spring-cloud-tsf-route：修复当只有一个路由规则时，路由规则关闭不生效的问题。
