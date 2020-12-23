@@ -68,14 +68,11 @@ git clone https://github.com/olOwOlo/hugo-theme-even themes/even
 ```
 
 ### 步骤2：静态托管部署
-1. 打开腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击【新建环境】，填写环境名称并选择按量计费，开通环境。
-![](https://main.qcloudimg.com/raw/225f9ed84be7739cfe27327fcab8c424.png)
- 在开通环境以后，请记住您的环境 ID，这个 ID 后续部署需要用到。
-2. 云开发环境创建完成后，单击左侧菜单栏中的【静态网站托管】，单击【选择已有按量计费环境】
-![](https://main.qcloudimg.com/raw/0066b2dd6c36857cd0f52d3916c3c8d1.png)
-当您看到这样的界面时，就说明已经开通好了。
-![](https://main.qcloudimg.com/raw/64f31f5655bfcce0506262c3f7f9163c.png)
-3. 安装 cloudbase cli：
+1. 打开腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击【新建环境】，选择空模板，单击下一步，填写环境名称并开通"按量计费"环境。
+![](https://main.qcloudimg.com/raw/7b66272b50c4ffce1a8912e687000e30.png)
+ 在开通环境以后，进入[环境概览](https://console.cloud.tencent.com/tcb/env/overview)页面请记住您的`环境Id`，这个 ID 后续部署需要用到。
+2. 在本地安装 Node.js：如果未安装请前往 [Node.js 官网](https://nodejs.org) 下载安装，并确保 Node.js 安装成功。
+3. 打开命令提示符，执行如下命令，安装 cloudbase cli：
 ```
 npm install -g @cloudbase/cli
 ```
@@ -94,5 +91,4 @@ cloudbase hosting:deploy ./public  -e EnvID
 这里的 EnvID 替换为刚创建好的环境 ID。
 ![](https://main.qcloudimg.com/raw/e81c2cfea537c6a20730495c1a2c5d57.png)
 
-7. 打开腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击左侧菜单栏中的【静态网站托管】>【设置】，进入设置页面，可以找到默认的域名，单击域名，就可以看到您刚部署的 Hugo。
-![](https://main.qcloudimg.com/raw/439da24bfa3827fb41b8305c2ac1a5ae.png)
+7. 打开腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，进入[静态网站托管](https://console.cloud.tencent.com/tcb/hosting/index)页面，可以找到默认的域名，单击域名，就可以看到您刚部署的 Hugo。
