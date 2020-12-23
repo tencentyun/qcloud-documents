@@ -40,9 +40,7 @@ hugo new posts/my-first-post.md
 ```plaintext
 hugo server
 ```
-6. 在浏览器输入 `http://localhost:1313` 即可查看效果：
-![](https://main.qcloudimg.com/raw/629324c3cb698a93e2fe733b4c3cbe44.png)
-7. 自定义主题（可选）
+6. 自定义主题（可选）
 截止上一步骤，我们建立的博客已经可以访问，如果您需要按照自己的需求继续美化博客，可以按照下列步骤进行：
 	1. 打开配置文件 `config.toml`，文件示例如下：
 	```
@@ -55,6 +53,8 @@ hugo server
 	3. 设置域名 “baseURL” 为默认或者自定义域名。
 	>?此处默认/自定义域名可以使用云开发提供的域名，请完成后续的 [步骤2：静态托管部署](#step2)。
 	4. 如需了解主题 “ananke”，请参见 [gohugo-theme-ananke](https://github.com/budparr/gohugo-theme-ananke)。如需配置更多主题，请参见 [自定义主题](https://gohugo.io/themes/customizing/)。
+7. 在浏览器输入 `http://localhost:1313` 即可查看效果：
+![](https://main.qcloudimg.com/raw/629324c3cb698a93e2fe733b4c3cbe44.png)
 8. 使用如下代码部署编译完成的静态页面文件：
 ```plaintext
 hugo -D
@@ -88,7 +88,7 @@ hugo -D
 └── index.xml
 ```
 
-### 步骤2：静态托管部署[步骤2](id:step2)
+### 步骤2：静态托管部署[](id:step2)
 
 1. 登录 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击【新建环境】，填写环境名称并选择按量计费，开通环境。
 ![](https://main.qcloudimg.com/raw/225f9ed84be7739cfe27327fcab8c424.png)
