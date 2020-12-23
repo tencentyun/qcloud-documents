@@ -60,8 +60,13 @@ hashcode= hmac-sha256(待签名字符串， secretKey)
 Sign="Y2QyMDc3NDY4MmJmNzhiZmRiNDNlMTdkMWQ1ZDU2YjNlNWI3ODlhMTY3MGZjMTUyN2VmNTRjNjVkMmQ3Yjc2ZA=="
 ```
 
-### Python 签名示例
-```python
+
+
+
+##  各语言签名代码示例
+
+<dx-codeblock>
+::: Python2 python
 #!/usr/bin/env python
 import hmac
 import base64
@@ -71,10 +76,19 @@ s = '15653147891500001048{"audience_type": "account","platform": "android","mess
 key = '1452fcebae9f3115ba794fb0fff2fd73'
 hashcode = hmac.new(key, s, digestmod=sha256).hexdigest()
 print base64.b64encode(hashcode)
-```
+:::
+::: Python3 python
+import hmac
+import base64
+from hashlib import sha256
 
-### Java 签名示例
-```java
+s = '15653147891500001048{"audience_type": "account","platform": "android","message": {"title": "test title","content": "test content","android": { "action": {"action_type": 3,"intent": "xgscheme://com.xg.push/notify_detail?param1=xg"}}},"message_type": "notify","account_list": ["5822f0eee44c3625ef0000bb"] }'
+key = '1452fcebae9f3115ba794fb0fff2fd73'
+hashcode = hmac.new(bytes(key, "utf-8"), bytes(s, "utf-8"),
+                        digestmod=sha256).hexdigest()
+print(base64.b64encode(bytes(hashcode, "utf-8")))
+:::
+::: Java java
 package com.tencent.xg;
 
 import java.io.UnsupportedEncodingException;
@@ -105,10 +119,8 @@ public class SignTest {
         }
     }
 }
-```
-
-### Golang 签名示例
-``` go
+:::
+::: Golang go
 import (
    "crypto/hmac"
    "crypto/sha256"
@@ -127,10 +139,8 @@ func TestSign(t *testing.T) {
    sign := base64.StdEncoding.EncodeToString([]byte(sha))
    println(sign)
 }
-```
-
-### C# 签名示例
-```c#
+:::
+::: C# c#
 using System;
 using System.Security.Cryptography;
 using System.Text;
@@ -185,4 +195,6 @@ namespace tpns_server_sdk_cs
         }
     }
 }
-```
+:::
+</dx-codeblock>
+

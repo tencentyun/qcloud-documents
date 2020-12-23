@@ -1,7 +1,10 @@
 ## 接口描述
-描述：用于会议 Code 查询会议详情。
-调用方式：GET
-接口请求域名：`https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid}&instanceid={instanceid}`
+**描述**：用于会议 Code 查询会议详情。企业 secert 鉴权用户可查询到任何该用户创建的企业下的会议，OAuth2.0 鉴权用户只能查询到通过 OAuth2.0 鉴权创建的会议。
+**调用方式**：GET
+**接口请求域名**：
+```plaintext
+https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid}&instanceid={instanceid}
+```
 
 ## 输入参数
 
@@ -10,8 +13,8 @@
 | 参数名称 | 必选 | 参数类型 |参数描述 |
 |---------|---------|---------|---------|
 |meeting_code | 是 | String |有效的9位数字会议号码。|
-|userid | 是 | String |调用方用于标示用户的唯一 ID（例如企业用户可以为企业账户英文名、个人用户可以为手机号等）。|
-|instanceid | 是 | Integer |用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序。|
+|userid | 是 | String |调用方用于标示用户的唯一 ID（例如企业用户可以为企业账户英文名、个人用户可以为手机号等，OAuth2.0 鉴权用户为 OpenId）。|
+|instanceid | 是 | Integer |用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序|
 
 ## 输出参数
 
@@ -45,6 +48,7 @@
 | current_sub_meeting_id | String         | 当前子会议 ID（进行中 / 即将开始）。         |
 | enable_live | Boolean      | 是否开启直播（会议创建人才有权限查询）。   |
 | live_config | 直播信息对象 | 会议的直播配置（会议创建人才有权限查询）。 |
+| location | String | 会议地点。 |
 
 <span id="settings"></span>
 
@@ -99,12 +103,12 @@
 ## 示例
 #### 输入示例
 
-```http
+```plaintext
 GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1&instanceid=1
 ```
 
 #### 输出示例（普通会议）
-```
+```plaintext
 {  
   "meeting_number": 1,  
   "meeting_info_list": [    
@@ -147,7 +151,7 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
 }
 ```
 #### 输出示例（周期性会议）
-```
+```plaintext
 {
   "next_pos": 0,
   "remaining": 0,

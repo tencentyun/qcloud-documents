@@ -405,3 +405,4 @@ public static class CustomInputFragment extends BaseInputFragment {
 ```
 效果如下图所示：
 ![替换面板](https://main.qcloudimg.com/raw/d347f9e12358fb00d0c517e6a7aa44a6.gif)
+

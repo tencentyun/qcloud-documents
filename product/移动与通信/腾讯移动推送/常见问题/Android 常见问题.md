@@ -144,7 +144,7 @@ Uri uri = getIntent().getData();
 | OPPO | 不支持 | 支持 |
 | vivo | 不支持 | 支持 |
 
->! 厂商通道的点击回调需 SDK 版本1.2.0.1及以上版本支持；旧版本仅支持华为、魅族、魅族、vivo。
+>! 厂商通道的点击回调需 SDK 版本1.2.0.1及以上版本支持；旧版本仅支持华为、小米、魅族、vivo。
 
 
 
@@ -172,7 +172,7 @@ Uri uri = getIntent().getData();
 | Google FCM 推送|  Android 4.1及以上|手机端需安装 Google Play Services 且在中国大陆地区以外使用。添加依赖：`implementation 'com.google.firebase:firebase-messaging:20.2.3'`|
 | 魅族推送 | Flyme|  使用魅族推送，添加依赖：`implementation 'com.tencent.tpns:meizu:1.2.1.2-release'` |
 | OPPO 推送|  ColorOS |并非所有 OPPO 机型和版本都支持使用 OPPO 推送，使用 OPPO 推送，添加依赖：`implementation 'com.tencent.tpns:oppo:1.2.1.2-release'`|
-| vivo 推送|  FuntouchOS|并非所有 OPPO 机型和版本都支持使用 OPPO 推送，使用 vivo 推送，添加依赖：`implementation 'com.tencent.tpns:vivo:1.2.1.2-release'`|
+| vivo 推送|  FuntouchOS|并非所有 vivo 机型和版本都支持使用 vivo 推送，使用 vivo 推送，添加依赖：`implementation 'com.tencent.tpns:vivo:1.2.1.2-release'`|
 
 
 

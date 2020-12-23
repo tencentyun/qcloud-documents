@@ -1,6 +1,6 @@
 ## 功能说明
 
-腾讯云直播团队与优图实验室、天天 P 图团队进行深度合作，结合**人脸识别技术与美妆技术**，开发了**大眼、瘦脸、瘦鼻、动效贴纸、AI 抠背以及绿幕**等特效功能，并整合到 LiteAVSDK 的图像处理流程中，以实现更好的视频效果。
+腾讯云直播团队与优图实验室、天天 P 图团队进行深度合作，结合 **AI 技术与美妆技术**，开发了**大眼**、**瘦脸**、**瘦鼻**、**动效贴纸**、**AI 抠背**以及**绿幕**等特效功能，并整合到 LiteAVSDK 的图像处理流程中，以实现更好的视频效果。
 ![](https://main.qcloudimg.com/raw/1613dd785de77cd782d3f3353d280a7e.jpg)
 
 
@@ -80,8 +80,8 @@ Metal.framework
 ### 高级美颜接口（大眼、瘦脸等）
 美妆接口的设置对象可以通过 TXLivePusher 的 [getBeautyManager](https://cloud.tencent.com/document/product/454/34772#getbeautymanager) 方法获取。
 美妆接口的调用比较简单，只需要对指定的接口调用0 - 9之间的一个数值即可，0表示关闭，数值越大，效果越明显。
-
-```objective-c
+<dx-codeblock>
+::: bjective-c bjective-c
 /**
  * 设置美颜（磨皮）算法
  *
@@ -240,7 +240,8 @@ Metal.framework
  * @param   level 美型级别，取值范围0 - 9；0表示关闭，1 - 9值越大，效果越明显。
  */
 - (void)setFaceBeautyLevel:(float)level;
-```
+:::
+</dx-codeblock>
 
 <span id="beauty_dynamic"></span>
 ### 美颜动效（动效贴纸、AI抠图、美妆、手势）

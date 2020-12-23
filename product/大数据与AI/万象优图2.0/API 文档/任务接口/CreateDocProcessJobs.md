@@ -10,6 +10,7 @@ CreateDocProcessJobs 接口用于提交一个文档预览任务。
     - 表格文件，一张表可能分割为多页转换，生成多张图片。
 >  - 其他格式文件： pdf、 lrc、 c、 cpp、 h、 asm、 s、 java、 asp、 bat、 bas、 prg、 cmd、 rtf、 txt、 log、 xml、 htm、 html。
 >- 输入文件大小限制在100MB之内。
+>- 输入文件页数限制在5000页之内。
 
 
 ## 请求
