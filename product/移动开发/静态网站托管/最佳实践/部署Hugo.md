@@ -17,19 +17,48 @@ brew install hugo
 ```
 hugo new site hugo-demo && cd hugo-demo
 ```
+3. 给 Hugo 添加一个主题
+3.1 将主题添加进项目中：
+```
+git init
+git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke
+```
+> ？对于无法使用 git 的用户，可以使用如下方法来添加主题。
+1. 下载最新版的主题压缩包，[点击下载](https://github.com/budparr/gohugo-theme-ananke/archive/master.zip)
+2. 解压`.zip`安装包，得到 “gohugo-theme-ananke-master” 文件夹
+3. 重命名文件夹为 “ananke”，并将其移动到`hugo-demo`项目中的 “themes/” 文件夹。
 
-3. 创建一个测试的文章：
+3.2 添加主题至配置文件中：
+```
+echo 'theme = "ananke"' >> config.toml
+```
+
+4. 创建一个测试的文章：
 ```
 hugo new posts/my-first-post.md
 ```
-4. 在目录中运行：
+5. 在目录中运行：
 ```
 hugo server
 ```
-5. 在浏览器打开 [http://localhost:1313/](http://localhost:1313/) 即可查看效果：
+6. 在浏览器打开 [http://localhost:1313/](http://localhost:1313/) 即可查看效果：
 ![](https://main.qcloudimg.com/raw/cacf94928922dc655ae5374cf6eb58c6.png)
 
-6. 使用下面的代码部署编译完成的静态页面文件：
+7. 自定义主题（可选）
+截止上一步骤，我们建立的博客已经可以访问，如果您想要按照自己的需求继续美化博客，可以按照下列步骤进行：
+7.1 打开配置文件`config.toml`
+```
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "My New Hugo Site"
+theme = "ananke"
+```
+7.2 修改 "title" 的值为网站名称
+7.3 设置域名 "baseURL" 为默认或者自定义域名
+> 此处默认/自定义域名可以使用云开发提供的域名，请完成后续的[步骤2：静态托管部署](#步骤2)。
+7.4 如果您想了解主题 "ananke"，[点击查看](https://github.com/budparr/gohugo-theme-ananke)。如需配置更多主题，可以参考[自定义主题](https://gohugo.io/themes/customizing/)。
+
+8. 使用下面的代码部署编译完成的静态页面文件：
 ```
 hugo -D
 ```
@@ -60,11 +89,6 @@ hugo -D
 └── tags
     ├── index.html
 └── index.xml
-```
-
-7. 如果您不喜欢 Hugo 站点的默认主题样式的话，可以自行在 github 上找到开源的 Hugo 主题，并放置到您的 Hugo 项目中，例如：
-```
-git clone https://github.com/olOwOlo/hugo-theme-even themes/even
 ```
 
 ### 步骤2：静态托管部署
