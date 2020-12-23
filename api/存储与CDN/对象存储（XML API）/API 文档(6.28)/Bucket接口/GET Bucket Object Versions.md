@@ -200,39 +200,41 @@ Date: Thu, 10 Dec 2020 03:35:34 GMT
 Server: tencent-cos
 x-cos-request-id: NWZkMTk3ODZfZDUyNzVkNjRfNDgxYl8xNjU5****
 
+
+
 <ListVersionsResult>
-	<Name>examplebucket-1250000000</Name>
-	<Prefix/>
-	<KeyMarker/>
-	<VersionIdMarker/>
-	<MaxKeys>1000</MaxKeys>
-	<IsTruncated>false</IsTruncated>
-	<Version>
-		<Key>example-object-1.jpg</Key>
-		<VersionId/>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-10T03:35:24.000Z</LastModified>
-		<ETag>&quot;0f0cd12c48979d1bf3f95255a36cb861&quot;</ETag>
-		<Size>20</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
-	<Version>
-		<Key>example-object-2.jpg</Key>
-		<VersionId/>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-10T03:35:24.000Z</LastModified>
-		<ETag>&quot;dcffaafe67632b2bd2dd0b9456eafca7&quot;</ETag>
-		<Size>23</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
+				<Name>examplebucket-1250000000</Name>
+				<Prefix/>
+				<KeyMarker/>
+				<VersionIdMarker/>
+				<MaxKeys>1000</MaxKeys>
+				<IsTruncated>false</IsTruncated>
+				<Version>
+						<Key>example-object-1.jpg</Key>
+						<VersionId/>
+						<IsLatest>true</IsLatest>
+						<LastModified>2020-12-10T03:35:24.000Z</LastModified>
+						<ETag>&quot;0f0cd12c48979d1bf3f95255a36cb861&quot;</ETag>
+						<Size>20</Size>
+						<StorageClass>STANDARD</StorageClass>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</Version>
+				<Version>
+						<Key>example-object-2.jpg</Key>
+						<VersionId/>
+						<IsLatest>true</IsLatest>
+						<LastModified>2020-12-10T03:35:24.000Z</LastModified>
+						<ETag>&quot;dcffaafe67632b2bd2dd0b9456eafca7&quot;</ETag>
+						<Size>23</Size>
+						<StorageClass>STANDARD</StorageClass>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</Version>
 </ListVersionsResult>
 ```
 
@@ -259,75 +261,77 @@ Date: Thu, 10 Dec 2020 03:36:05 GMT
 Server: tencent-cos
 x-cos-request-id: NWZkMTk3YTVfYjFiODJhMDlfNTg0MDZfMTdj****
 
+
+
 <ListVersionsResult>
-	<Name>examplebucket-1250000000</Name>
-	<Prefix/>
-	<KeyMarker/>
-	<VersionIdMarker/>
-	<MaxKeys>1000</MaxKeys>
-	<IsTruncated>false</IsTruncated>
-	<Version>
-		<Key>example-object-1.jpg</Key>
-		<VersionId>null</VersionId>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-10T03:35:24.000Z</LastModified>
-		<ETag>&quot;0f0cd12c48979d1bf3f95255a36cb861&quot;</ETag>
-		<Size>20</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
-	<Version>
-		<Key>example-object-2.jpg</Key>
-		<VersionId>MTg0NDUxMzY1MDIzNjQ3NTcwMDk</VersionId>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-10T03:35:44.000Z</LastModified>
-		<ETag>&quot;51ffadb19b3bf062ecd0c6f044a4d4ce&quot;</ETag>
-		<Size>23</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
-	<Version>
-		<Key>example-object-2.jpg</Key>
-		<VersionId>null</VersionId>
-		<IsLatest>false</IsLatest>
-		<LastModified>2020-12-10T03:35:24.000Z</LastModified>
-		<ETag>&quot;dcffaafe67632b2bd2dd0b9456eafca7&quot;</ETag>
-		<Size>23</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
-	<DeleteMarker>
-		<Key>example-object-3.jpg</Key>
-		<VersionId>MTg0NDUxMzY1MDIzNTQ1ODM2NjE</VersionId>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-10T03:35:54.000Z</LastModified>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</DeleteMarker>
-	<Version>
-		<Key>example-object-3.jpg</Key>
-		<VersionId>MTg0NDUxMzY1MDIzNjQ3NjM2MDY</VersionId>
-		<IsLatest>false</IsLatest>
-		<LastModified>2020-12-10T03:35:44.000Z</LastModified>
-		<ETag>&quot;b2f1d893c5fde000ee8ea6eca18ed81f&quot;</ETag>
-		<Size>20</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
+				<Name>examplebucket-1250000000</Name>
+				<Prefix/>
+				<KeyMarker/>
+				<VersionIdMarker/>
+				<MaxKeys>1000</MaxKeys>
+				<IsTruncated>false</IsTruncated>
+				<Version>
+						<Key>example-object-1.jpg</Key>
+						<VersionId>null</VersionId>
+						<IsLatest>true</IsLatest>
+						<LastModified>2020-12-10T03:35:24.000Z</LastModified>
+						<ETag>&quot;0f0cd12c48979d1bf3f95255a36cb861&quot;</ETag>
+						<Size>20</Size>
+						<StorageClass>STANDARD</StorageClass>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</Version>
+				<Version>
+						<Key>example-object-2.jpg</Key>
+						<VersionId>MTg0NDUxMzY1MDIzNjQ3NTcwMDk</VersionId>
+						<IsLatest>true</IsLatest>
+						<LastModified>2020-12-10T03:35:44.000Z</LastModified>
+						<ETag>&quot;51ffadb19b3bf062ecd0c6f044a4d4ce&quot;</ETag>
+						<Size>23</Size>
+						<StorageClass>STANDARD</StorageClass>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</Version>
+				<Version>
+						<Key>example-object-2.jpg</Key>
+						<VersionId>null</VersionId>
+						<IsLatest>false</IsLatest>
+						<LastModified>2020-12-10T03:35:24.000Z</LastModified>
+						<ETag>&quot;dcffaafe67632b2bd2dd0b9456eafca7&quot;</ETag>
+						<Size>23</Size>
+						<StorageClass>STANDARD</StorageClass>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</Version>
+				<DeleteMarker>
+						<Key>example-object-3.jpg</Key>
+						<VersionId>MTg0NDUxMzY1MDIzNTQ1ODM2NjE</VersionId>
+						<IsLatest>true</IsLatest>
+						<LastModified>2020-12-10T03:35:54.000Z</LastModified>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</DeleteMarker>
+				<Version>
+						<Key>example-object-3.jpg</Key>
+						<VersionId>MTg0NDUxMzY1MDIzNjQ3NjM2MDY</VersionId>
+						<IsLatest>false</IsLatest>
+						<LastModified>2020-12-10T03:35:44.000Z</LastModified>
+						<ETag>&quot;b2f1d893c5fde000ee8ea6eca18ed81f&quot;</ETag>
+						<Size>20</Size>
+						<StorageClass>STANDARD</StorageClass>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</Version>
 </ListVersionsResult>
 ```
 
@@ -335,7 +339,7 @@ x-cos-request-id: NWZkMTk3YTVfYjFiODJhMDlfNTg0MDZfMTdj****
 
 #### 请求
 
-```
+```shell
 GET /?versions HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Thu, 10 Dec 2020 03:36:25 GMT
@@ -345,7 +349,7 @@ Connection: close
 
 #### 响应
 
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 2393
@@ -354,88 +358,90 @@ Date: Thu, 10 Dec 2020 03:36:25 GMT
 Server: tencent-cos
 x-cos-request-id: NWZkMTk3YjlfNDhhOTBiMDlfMTYzNTZfMTIw****
 
+
+
 <ListVersionsResult>
-	<Name>examplebucket-1250000000</Name>
-	<Prefix/>
-	<KeyMarker/>
-	<VersionIdMarker/>
-	<MaxKeys>1000</MaxKeys>
-	<IsTruncated>false</IsTruncated>
-	<Version>
-		<Key>example-object-1.jpg</Key>
-		<VersionId>null</VersionId>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-10T03:35:24.000Z</LastModified>
-		<ETag>&quot;0f0cd12c48979d1bf3f95255a36cb861&quot;</ETag>
-		<Size>20</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
-	<Version>
-		<Key>example-object-2.jpg</Key>
-		<VersionId>null</VersionId>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-10T03:36:15.000Z</LastModified>
-		<ETag>&quot;51ffadb19b3bf062ecd0c6f044a4d4ce&quot;</ETag>
-		<Size>23</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
-	<Version>
-		<Key>example-object-2.jpg</Key>
-		<VersionId>MTg0NDUxMzY1MDIzNjQ3NTcwMDk</VersionId>
-		<IsLatest>false</IsLatest>
-		<LastModified>2020-12-10T03:35:44.000Z</LastModified>
-		<ETag>&quot;51ffadb19b3bf062ecd0c6f044a4d4ce&quot;</ETag>
-		<Size>23</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
-	<Version>
-		<Key>example-object-3.jpg</Key>
-		<VersionId>null</VersionId>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-10T03:36:15.000Z</LastModified>
-		<ETag>&quot;b2f1d893c5fde000ee8ea6eca18ed81f&quot;</ETag>
-		<Size>20</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
-	<DeleteMarker>
-		<Key>example-object-3.jpg</Key>
-		<VersionId>MTg0NDUxMzY1MDIzNTQ1ODM2NjE</VersionId>
-		<IsLatest>false</IsLatest>
-		<LastModified>2020-12-10T03:35:54.000Z</LastModified>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</DeleteMarker>
-	<Version>
-		<Key>example-object-3.jpg</Key>
-		<VersionId>MTg0NDUxMzY1MDIzNjQ3NjM2MDY</VersionId>
-		<IsLatest>false</IsLatest>
-		<LastModified>2020-12-10T03:35:44.000Z</LastModified>
-		<ETag>&quot;b2f1d893c5fde000ee8ea6eca18ed81f&quot;</ETag>
-		<Size>20</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
+				<Name>examplebucket-1250000000</Name>
+				<Prefix/>
+				<KeyMarker/>
+				<VersionIdMarker/>
+				<MaxKeys>1000</MaxKeys>
+				<IsTruncated>false</IsTruncated>
+				<Version>
+						<Key>example-object-1.jpg</Key>
+						<VersionId>null</VersionId>
+						<IsLatest>true</IsLatest>
+						<LastModified>2020-12-10T03:35:24.000Z</LastModified>
+						<ETag>&quot;0f0cd12c48979d1bf3f95255a36cb861&quot;</ETag>
+						<Size>20</Size>
+						<StorageClass>STANDARD</StorageClass>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</Version>
+				<Version>
+						<Key>example-object-2.jpg</Key>
+						<VersionId>null</VersionId>
+						<IsLatest>true</IsLatest>
+						<LastModified>2020-12-10T03:36:15.000Z</LastModified>
+						<ETag>&quot;51ffadb19b3bf062ecd0c6f044a4d4ce&quot;</ETag>
+						<Size>23</Size>
+						<StorageClass>STANDARD</StorageClass>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</Version>
+				<Version>
+						<Key>example-object-2.jpg</Key>
+						<VersionId>MTg0NDUxMzY1MDIzNjQ3NTcwMDk</VersionId>
+						<IsLatest>false</IsLatest>
+						<LastModified>2020-12-10T03:35:44.000Z</LastModified>
+						<ETag>&quot;51ffadb19b3bf062ecd0c6f044a4d4ce&quot;</ETag>
+						<Size>23</Size>
+						<StorageClass>STANDARD</StorageClass>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</Version>
+				<Version>
+						<Key>example-object-3.jpg</Key>
+						<VersionId>null</VersionId>
+						<IsLatest>true</IsLatest>
+						<LastModified>2020-12-10T03:36:15.000Z</LastModified>
+						<ETag>&quot;b2f1d893c5fde000ee8ea6eca18ed81f&quot;</ETag>
+						<Size>20</Size>
+						<StorageClass>STANDARD</StorageClass>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</Version>
+				<DeleteMarker>
+						<Key>example-object-3.jpg</Key>
+						<VersionId>MTg0NDUxMzY1MDIzNTQ1ODM2NjE</VersionId>
+						<IsLatest>false</IsLatest>
+						<LastModified>2020-12-10T03:35:54.000Z</LastModified>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</DeleteMarker>
+				<Version>
+						<Key>example-object-3.jpg</Key>
+						<VersionId>MTg0NDUxMzY1MDIzNjQ3NjM2MDY</VersionId>
+						<IsLatest>false</IsLatest>
+						<LastModified>2020-12-10T03:35:44.000Z</LastModified>
+						<ETag>&quot;b2f1d893c5fde000ee8ea6eca18ed81f&quot;</ETag>
+						<Size>20</Size>
+						<StorageClass>STANDARD</StorageClass>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</Version>
 </ListVersionsResult>
 ```
 
@@ -443,7 +449,7 @@ x-cos-request-id: NWZkMTk3YjlfNDhhOTBiMDlfMTYzNTZfMTIw****
 
 #### 请求
 
-```
+```shell
 GET /?versions&encoding-type=url HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Thu, 10 Dec 2020 04:54:22 GMT
@@ -453,7 +459,7 @@ Connection: close
 
 #### 响应
 
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 2167
@@ -462,76 +468,78 @@ Date: Thu, 10 Dec 2020 04:54:22 GMT
 Server: tencent-cos
 x-cos-request-id: NWZkMWE5ZmVfZTdjODJhMDlfMzgxZl8xMzQ1****
 
+
+
 <ListVersionsResult>
-	<EncodingType>url</EncodingType>
-	<Name>examplebucket-1250000000</Name>
-	<Prefix/>
-	<KeyMarker/>
-	<VersionIdMarker/>
-	<MaxKeys>1000</MaxKeys>
-	<IsTruncated>false</IsTruncated>
-	<Version>
-		<Key>Tencent%20Cloud.jpg</Key>
-		<VersionId>MTg0NDUxMzY0OTc2NjcxNzE4NjA</VersionId>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-10T04:54:02.000Z</LastModified>
-		<ETag>&quot;ee8de918d05640145b18f70f4c3aa602&quot;</ETag>
-		<Size>16</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
-	<DeleteMarker>
-		<Key>%E7%85%A7%E7%89%87/2020%E5%B9%B4/IMG0001.jpg</Key>
-		<VersionId>MTg0NDUxMzY0OTc2NTY5MDU3OTc</VersionId>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-10T04:54:12.000Z</LastModified>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</DeleteMarker>
-	<Version>
-		<Key>%E7%85%A7%E7%89%87/2020%E5%B9%B4/IMG0001.jpg</Key>
-		<VersionId>MTg0NDUxMzY0OTc2NjcwNjMwMDQ</VersionId>
-		<IsLatest>false</IsLatest>
-		<LastModified>2020-12-10T04:54:02.000Z</LastModified>
-		<ETag>&quot;ee8de918d05640145b18f70f4c3aa602&quot;</ETag>
-		<Size>16</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
-	<Version>
-		<Key>%E8%85%BE%E8%AE%AF%E4%BA%91.jpg</Key>
-		<VersionId>MTg0NDUxMzY0OTc2NTY5MDA4NzU</VersionId>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-10T04:54:12.000Z</LastModified>
-		<ETag>&quot;8bb76a43f75d3b96442c470f8ec23b89&quot;</ETag>
-		<Size>16</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
-	<Version>
-		<Key>%E8%85%BE%E8%AE%AF%E4%BA%91.jpg</Key>
-		<VersionId>MTg0NDUxMzY0OTc2NjcxNzA2ODg</VersionId>
-		<IsLatest>false</IsLatest>
-		<LastModified>2020-12-10T04:54:02.000Z</LastModified>
-		<ETag>&quot;dcc880c5eba9e002bc4567c733b0e63e&quot;</ETag>
-		<Size>13</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
+				<EncodingType>url</EncodingType>
+				<Name>examplebucket-1250000000</Name>
+				<Prefix/>
+				<KeyMarker/>
+				<VersionIdMarker/>
+				<MaxKeys>1000</MaxKeys>
+				<IsTruncated>false</IsTruncated>
+				<Version>
+						<Key>Tencent%20Cloud.jpg</Key>
+						<VersionId>MTg0NDUxMzY0OTc2NjcxNzE4NjA</VersionId>
+						<IsLatest>true</IsLatest>
+						<LastModified>2020-12-10T04:54:02.000Z</LastModified>
+						<ETag>&quot;ee8de918d05640145b18f70f4c3aa602&quot;</ETag>
+						<Size>16</Size>
+						<StorageClass>STANDARD</StorageClass>
+						<Owner>
+							<ID>1250000000</ID>
+							<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</Version>
+				<DeleteMarker>
+						<Key>%E7%85%A7%E7%89%87/2020%E5%B9%B4/IMG0001.jpg</Key>
+						<VersionId>MTg0NDUxMzY0OTc2NTY5MDU3OTc</VersionId>
+						<IsLatest>true</IsLatest>
+						<LastModified>2020-12-10T04:54:12.000Z</LastModified>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</DeleteMarker>
+				<Version>
+						<Key>%E7%85%A7%E7%89%87/2020%E5%B9%B4/IMG0001.jpg</Key>
+						<VersionId>MTg0NDUxMzY0OTc2NjcwNjMwMDQ</VersionId>
+						<IsLatest>false</IsLatest>
+						<LastModified>2020-12-10T04:54:02.000Z</LastModified>
+						<ETag>&quot;ee8de918d05640145b18f70f4c3aa602&quot;</ETag>
+						<Size>16</Size>
+						<StorageClass>STANDARD</StorageClass>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</Version>
+				<Version>
+						<Key>%E8%85%BE%E8%AE%AF%E4%BA%91.jpg</Key>
+						<VersionId>MTg0NDUxMzY0OTc2NTY5MDA4NzU</VersionId>
+						<IsLatest>true</IsLatest>
+						<LastModified>2020-12-10T04:54:12.000Z</LastModified>
+						<ETag>&quot;8bb76a43f75d3b96442c470f8ec23b89&quot;</ETag>
+						<Size>16</Size>
+						<StorageClass>STANDARD</StorageClass>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</Version>
+				<Version>
+						<Key>%E8%85%BE%E8%AE%AF%E4%BA%91.jpg</Key>
+						<VersionId>MTg0NDUxMzY0OTc2NjcxNzA2ODg</VersionId>
+						<IsLatest>false</IsLatest>
+						<LastModified>2020-12-10T04:54:02.000Z</LastModified>
+						<ETag>&quot;dcc880c5eba9e002bc4567c733b0e63e&quot;</ETag>
+						<Size>13</Size>
+						<StorageClass>STANDARD</StorageClass>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</Version>
 </ListVersionsResult>
 ```
 
@@ -558,70 +566,72 @@ Date: Thu, 10 Dec 2020 07:04:03 GMT
 Server: tencent-cos
 x-cos-request-id: NWZkMWM4NjNfNzFjODJhMDlfMjlhZTRfMTg5****
 
+
+
 <ListVersionsResult>
-	<Name>examplebucket-1250000000</Name>
-	<Prefix/>
-	<KeyMarker/>
-	<VersionIdMarker/>
-	<MaxKeys>1000</MaxKeys>
-	<IsTruncated>false</IsTruncated>
-	<Delimiter>/</Delimiter>
-	<CommonPrefixes>
-		<Prefix>example-folder-1/</Prefix>
-	</CommonPrefixes>
-	<CommonPrefixes>
-		<Prefix>example-folder-2/</Prefix>
-	</CommonPrefixes>
-	<DeleteMarker>
-		<Key>example-object-1.jpg</Key>
-		<VersionId>MTg0NDUxMzY0ODk4NzYzNTE4Nzk</VersionId>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-10T07:03:53.000Z</LastModified>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</DeleteMarker>
-	<Version>
-		<Key>example-object-1.jpg</Key>
-		<VersionId>MTg0NDUxMzY0ODk4ODY2NTcxMzY</VersionId>
-		<IsLatest>false</IsLatest>
-		<LastModified>2020-12-10T07:03:42.000Z</LastModified>
-		<ETag>&quot;0f0cd12c48979d1bf3f95255a36cb861&quot;</ETag>
-		<Size>20</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
-	<Version>
-		<Key>example-object-2.jpg</Key>
-		<VersionId>MTg0NDUxMzY0ODk4NzYzODYyODA</VersionId>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-10T07:03:53.000Z</LastModified>
-		<ETag>&quot;51ffadb19b3bf062ecd0c6f044a4d4ce&quot;</ETag>
-		<Size>23</Size>
-		<StorageClass>INTELLIGENT_TIERING</StorageClass>
-		<StorageTier>FREQUENT</StorageTier>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
-	<Version>
-		<Key>example-object-2.jpg</Key>
-		<VersionId>MTg0NDUxMzY0ODk4ODY2NTA0Mjk</VersionId>
-		<IsLatest>false</IsLatest>
-		<LastModified>2020-12-10T07:03:42.000Z</LastModified>
-		<ETag>&quot;dcffaafe67632b2bd2dd0b9456eafca7&quot;</ETag>
-		<Size>23</Size>
-		<StorageClass>STANDARD_IA</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
+				<Name>examplebucket-1250000000</Name>
+				<Prefix/>
+				<KeyMarker/>
+				<VersionIdMarker/>
+				<MaxKeys>1000</MaxKeys>
+				<IsTruncated>false</IsTruncated>
+				<Delimiter>/</Delimiter>
+				<CommonPrefixes>
+						<Prefix>example-folder-1/</Prefix>
+				</CommonPrefixes>
+				<CommonPrefixes>
+						<Prefix>example-folder-2/</Prefix>
+				</CommonPrefixes>
+				<DeleteMarker>
+						<Key>example-object-1.jpg</Key>
+						<VersionId>MTg0NDUxMzY0ODk4NzYzNTE4Nzk</VersionId>
+						<IsLatest>true</IsLatest>
+						<LastModified>2020-12-10T07:03:53.000Z</LastModified>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</DeleteMarker>
+				<Version>
+						<Key>example-object-1.jpg</Key>
+						<VersionId>MTg0NDUxMzY0ODk4ODY2NTcxMzY</VersionId>
+						<IsLatest>false</IsLatest>
+						<LastModified>2020-12-10T07:03:42.000Z</LastModified>
+						<ETag>&quot;0f0cd12c48979d1bf3f95255a36cb861&quot;</ETag>
+						<Size>20</Size>
+						<StorageClass>STANDARD</StorageClass>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</Version>
+				<Version>
+						<Key>example-object-2.jpg</Key>
+						<VersionId>MTg0NDUxMzY0ODk4NzYzODYyODA</VersionId>
+						<IsLatest>true</IsLatest>
+						<LastModified>2020-12-10T07:03:53.000Z</LastModified>
+						<ETag>&quot;51ffadb19b3bf062ecd0c6f044a4d4ce&quot;</ETag>
+						<Size>23</Size>
+						<StorageClass>INTELLIGENT_TIERING</StorageClass>
+						<StorageTier>FREQUENT</StorageTier>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</Version>
+				<Version>
+						<Key>example-object-2.jpg</Key>
+						<VersionId>MTg0NDUxMzY0ODk4ODY2NTA0Mjk</VersionId>
+						<IsLatest>false</IsLatest>
+						<LastModified>2020-12-10T07:03:42.000Z</LastModified>
+						<ETag>&quot;dcffaafe67632b2bd2dd0b9456eafca7&quot;</ETag>
+						<Size>23</Size>
+						<StorageClass>STANDARD_IA</StorageClass>
+						<Owner>
+								<ID>1250000000</ID>
+								<DisplayName>1250000000</DisplayName>
+						</Owner>
+				</Version>
 </ListVersionsResult>
 ```
 
@@ -648,69 +658,71 @@ Date: Thu, 10 Dec 2020 07:04:03 GMT
 Server: tencent-cos
 x-cos-request-id: NWZkMWM4NjNfZWVjODJhMDlfNTNmN18xNWNj****
 
+
+
 <ListVersionsResult>
-	<Name>examplebucket-1250000000</Name>
-	<Prefix>example-folder-1/</Prefix>
-	<KeyMarker/>
-	<VersionIdMarker/>
-	<MaxKeys>1000</MaxKeys>
-	<IsTruncated>false</IsTruncated>
-	<Delimiter>/</Delimiter>
-	<CommonPrefixes>
-		<Prefix>example-folder-1/sub-folder-1/</Prefix>
-	</CommonPrefixes>
-	<CommonPrefixes>
-		<Prefix>example-folder-1/sub-folder-2/</Prefix>
-	</CommonPrefixes>
-	<DeleteMarker>
-		<Key>example-folder-1/example-object-1.jpg</Key>
-		<VersionId>MTg0NDUxMzY0ODk4NzYzNjE4NzA</VersionId>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-10T07:03:53.000Z</LastModified>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</DeleteMarker>
-	<Version>
-		<Key>example-folder-1/example-object-1.jpg</Key>
-		<VersionId>MTg0NDUxMzY0ODk4ODY2NTAzOTY</VersionId>
-		<IsLatest>false</IsLatest>
-		<LastModified>2020-12-10T07:03:42.000Z</LastModified>
-		<ETag>&quot;f173c1199e3d3b53dd91223cae16fb42&quot;</ETag>
-		<Size>37</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
-	<Version>
-		<Key>example-folder-1/example-object-2.jpg</Key>
-		<VersionId>MTg0NDUxMzY0ODk4NzYzNzc2ODY</VersionId>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-10T07:03:53.000Z</LastModified>
-		<ETag>&quot;f52cc0bc2042d201b852385927bcab95&quot;</ETag>
-		<Size>40</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
-	<Version>
-		<Key>example-folder-1/example-object-2.jpg</Key>
-		<VersionId>MTg0NDUxMzY0ODk4ODY2NjQ2NDc</VersionId>
-		<IsLatest>false</IsLatest>
-		<LastModified>2020-12-10T07:03:42.000Z</LastModified>
-		<ETag>&quot;7b3be6c39746a970d628e6ab9f250342&quot;</ETag>
-		<Size>40</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
+				<Name>examplebucket-1250000000</Name>
+				<Prefix>example-folder-1/</Prefix>
+				<KeyMarker/>
+				<VersionIdMarker/>
+				<MaxKeys>1000</MaxKeys>
+				<IsTruncated>false</IsTruncated>
+				<Delimiter>/</Delimiter>
+				<CommonPrefixes>
+					<Prefix>example-folder-1/sub-folder-1/</Prefix>
+				</CommonPrefixes>
+				<CommonPrefixes>
+					<Prefix>example-folder-1/sub-folder-2/</Prefix>
+				</CommonPrefixes>
+				<DeleteMarker>
+					<Key>example-folder-1/example-object-1.jpg</Key>
+					<VersionId>MTg0NDUxMzY0ODk4NzYzNjE4NzA</VersionId>
+					<IsLatest>true</IsLatest>
+					<LastModified>2020-12-10T07:03:53.000Z</LastModified>
+					<Owner>
+						<ID>1250000000</ID>
+						<DisplayName>1250000000</DisplayName>
+					</Owner>
+				</DeleteMarker>
+				<Version>
+					<Key>example-folder-1/example-object-1.jpg</Key>
+					<VersionId>MTg0NDUxMzY0ODk4ODY2NTAzOTY</VersionId>
+					<IsLatest>false</IsLatest>
+					<LastModified>2020-12-10T07:03:42.000Z</LastModified>
+					<ETag>&quot;f173c1199e3d3b53dd91223cae16fb42&quot;</ETag>
+					<Size>37</Size>
+					<StorageClass>STANDARD</StorageClass>
+					<Owner>
+						<ID>1250000000</ID>
+						<DisplayName>1250000000</DisplayName>
+					</Owner>
+				</Version>
+				<Version>
+					<Key>example-folder-1/example-object-2.jpg</Key>
+					<VersionId>MTg0NDUxMzY0ODk4NzYzNzc2ODY</VersionId>
+					<IsLatest>true</IsLatest>
+					<LastModified>2020-12-10T07:03:53.000Z</LastModified>
+					<ETag>&quot;f52cc0bc2042d201b852385927bcab95&quot;</ETag>
+					<Size>40</Size>
+					<StorageClass>STANDARD</StorageClass>
+					<Owner>
+						<ID>1250000000</ID>
+						<DisplayName>1250000000</DisplayName>
+					</Owner>
+				</Version>
+				<Version>
+					<Key>example-folder-1/example-object-2.jpg</Key>
+					<VersionId>MTg0NDUxMzY0ODk4ODY2NjQ2NDc</VersionId>
+					<IsLatest>false</IsLatest>
+					<LastModified>2020-12-10T07:03:42.000Z</LastModified>
+					<ETag>&quot;7b3be6c39746a970d628e6ab9f250342&quot;</ETag>
+					<Size>40</Size>
+					<StorageClass>STANDARD</StorageClass>
+					<Owner>
+						<ID>1250000000</ID>
+						<DisplayName>1250000000</DisplayName>
+					</Owner>
+				</Version>
 </ListVersionsResult>
 ```
 
@@ -737,51 +749,53 @@ Date: Tue, 08 Dec 2020 12:46:40 GMT
 Server: tencent-cos
 x-cos-request-id: NWZjZjc1YjBfYjBhODBiMDlfZDU5Yl9jYjBl****
 
+
+
 <ListVersionsResult>
-	<Name>examplebucket-1250000000</Name>
-	<Prefix/>
-	<KeyMarker/>
-	<VersionIdMarker/>
-	<MaxKeys>3</MaxKeys>
-	<IsTruncated>true</IsTruncated>
-	<NextKeyMarker>example-object-2.jpg</NextKeyMarker>
-	<NextVersionIdMarker>MTg0NDUxMzY2NDIxMjk3MzMwOTM</NextVersionIdMarker>
-	<Version>
-		<Key>example-object-1.jpg</Key>
-		<VersionId>MTg0NDUxMzY2NDIxNTAwOTk4NzA</VersionId>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-08T12:45:59.000Z</LastModified>
-		<ETag>&quot;15f0f671f04af108023b5603bea2bfda&quot;</ETag>
-		<Size>23</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
-	<Version>
-		<Key>example-object-1.jpg</Key>
-		<VersionId>MTg0NDUxMzY2NDIxNjAyODcyNzk</VersionId>
-		<IsLatest>false</IsLatest>
-		<LastModified>2020-12-08T12:45:49.000Z</LastModified>
-		<ETag>&quot;601389434817e2781d8efb35c0e44717&quot;</ETag>
-		<Size>23</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
-	<DeleteMarker>
-		<Key>example-object-2.jpg</Key>
-		<VersionId>MTg0NDUxMzY2NDIxMjk3MzMwOTM</VersionId>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-08T12:46:19.000Z</LastModified>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</DeleteMarker>
+				<Name>examplebucket-1250000000</Name>
+				<Prefix/>
+				<KeyMarker/>
+				<VersionIdMarker/>
+				<MaxKeys>3</MaxKeys>
+				<IsTruncated>true</IsTruncated>
+				<NextKeyMarker>example-object-2.jpg</NextKeyMarker>
+				<NextVersionIdMarker>MTg0NDUxMzY2NDIxMjk3MzMwOTM</NextVersionIdMarker>
+				<Version>
+					<Key>example-object-1.jpg</Key>
+					<VersionId>MTg0NDUxMzY2NDIxNTAwOTk4NzA</VersionId>
+					<IsLatest>true</IsLatest>
+					<LastModified>2020-12-08T12:45:59.000Z</LastModified>
+					<ETag>&quot;15f0f671f04af108023b5603bea2bfda&quot;</ETag>
+					<Size>23</Size>
+					<StorageClass>STANDARD</StorageClass>
+					<Owner>
+						<ID>1250000000</ID>
+						<DisplayName>1250000000</DisplayName>
+					</Owner>
+				</Version>
+				<Version>
+					<Key>example-object-1.jpg</Key>
+					<VersionId>MTg0NDUxMzY2NDIxNjAyODcyNzk</VersionId>
+					<IsLatest>false</IsLatest>
+					<LastModified>2020-12-08T12:45:49.000Z</LastModified>
+					<ETag>&quot;601389434817e2781d8efb35c0e44717&quot;</ETag>
+					<Size>23</Size>
+					<StorageClass>STANDARD</StorageClass>
+					<Owner>
+						<ID>1250000000</ID>
+						<DisplayName>1250000000</DisplayName>
+					</Owner>
+				</Version>
+				<DeleteMarker>
+					<Key>example-object-2.jpg</Key>
+					<VersionId>MTg0NDUxMzY2NDIxMjk3MzMwOTM</VersionId>
+					<IsLatest>true</IsLatest>
+					<LastModified>2020-12-08T12:46:19.000Z</LastModified>
+					<Owner>
+						<ID>1250000000</ID>
+						<DisplayName>1250000000</DisplayName>
+					</Owner>
+				</DeleteMarker>
 </ListVersionsResult>
 ```
 
@@ -808,39 +822,41 @@ Date: Tue, 08 Dec 2020 12:46:41 GMT
 Server: tencent-cos
 x-cos-request-id: NWZjZjc1YjFfNjljMDBiMDlfNjQwOV8xYjM2****
 
+
+
 <ListVersionsResult>
-	<Name>examplebucket-1250000000</Name>
-	<Prefix/>
-	<KeyMarker>example-object-2.jpg</KeyMarker>
-	<VersionIdMarker>MTg0NDUxMzY2NDIxMjk3MzMwOTM</VersionIdMarker>
-	<MaxKeys>3</MaxKeys>
-	<IsTruncated>false</IsTruncated>
-	<Version>
-		<Key>example-object-2.jpg</Key>
-		<VersionId>MTg0NDUxMzY2NDIxMzk5MDk1NzU</VersionId>
-		<IsLatest>false</IsLatest>
-		<LastModified>2020-12-08T12:46:09.000Z</LastModified>
-		<ETag>&quot;51370fc64b79d0d3c7c609635be1c41f&quot;</ETag>
-		<Size>20</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
-	<Version>
-		<Key>example-object-3.jpg</Key>
-		<VersionId>MTg0NDUxMzY2NDIxMTk1NTEyNDI</VersionId>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-08T12:46:30.000Z</LastModified>
-		<ETag>&quot;b2f1d893c5fde000ee8ea6eca18ed81f&quot;</ETag>
-		<Size>20</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
+				<Name>examplebucket-1250000000</Name>
+				<Prefix/>
+				<KeyMarker>example-object-2.jpg</KeyMarker>
+				<VersionIdMarker>MTg0NDUxMzY2NDIxMjk3MzMwOTM</VersionIdMarker>
+				<MaxKeys>3</MaxKeys>
+				<IsTruncated>false</IsTruncated>
+				<Version>
+					<Key>example-object-2.jpg</Key>
+					<VersionId>MTg0NDUxMzY2NDIxMzk5MDk1NzU</VersionId>
+					<IsLatest>false</IsLatest>
+					<LastModified>2020-12-08T12:46:09.000Z</LastModified>
+					<ETag>&quot;51370fc64b79d0d3c7c609635be1c41f&quot;</ETag>
+					<Size>20</Size>
+					<StorageClass>STANDARD</StorageClass>
+					<Owner>
+						<ID>1250000000</ID>
+						<DisplayName>1250000000</DisplayName>
+					</Owner>
+				</Version>
+				<Version>
+					<Key>example-object-3.jpg</Key>
+					<VersionId>MTg0NDUxMzY2NDIxMTk1NTEyNDI</VersionId>
+					<IsLatest>true</IsLatest>
+					<LastModified>2020-12-08T12:46:30.000Z</LastModified>
+					<ETag>&quot;b2f1d893c5fde000ee8ea6eca18ed81f&quot;</ETag>
+					<Size>20</Size>
+					<StorageClass>STANDARD</StorageClass>
+					<Owner>
+						<ID>1250000000</ID>
+						<DisplayName>1250000000</DisplayName>
+					</Owner>
+				</Version>
 </ListVersionsResult>
 ```
 
@@ -867,26 +883,28 @@ Date: Tue, 08 Dec 2020 12:46:42 GMT
 Server: tencent-cos
 x-cos-request-id: NWZjZjc1YjJfZGZjMTBiMDlfNzAyYl8xMzkx****
 
+
+
 <ListVersionsResult>
-	<Name>examplebucket-1250000000</Name>
-	<Prefix/>
-	<KeyMarker>example-object-2.jpg</KeyMarker>
-	<VersionIdMarker/>
-	<MaxKeys>3</MaxKeys>
-	<IsTruncated>false</IsTruncated>
-	<Version>
-		<Key>example-object-3.jpg</Key>
-		<VersionId>MTg0NDUxMzY2NDIxMTk1NTEyNDI</VersionId>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-08T12:46:30.000Z</LastModified>
-		<ETag>&quot;b2f1d893c5fde000ee8ea6eca18ed81f&quot;</ETag>
-		<Size>20</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
+			<Name>examplebucket-1250000000</Name>
+			<Prefix/>
+			<KeyMarker>example-object-2.jpg</KeyMarker>
+			<VersionIdMarker/>
+			<MaxKeys>3</MaxKeys>
+			<IsTruncated>false</IsTruncated>
+			<Version>
+				<Key>example-object-3.jpg</Key>
+				<VersionId>MTg0NDUxMzY2NDIxMTk1NTEyNDI</VersionId>
+				<IsLatest>true</IsLatest>
+				<LastModified>2020-12-08T12:46:30.000Z</LastModified>
+				<ETag>&quot;b2f1d893c5fde000ee8ea6eca18ed81f&quot;</ETag>
+				<Size>20</Size>
+				<StorageClass>STANDARD</StorageClass>
+				<Owner>
+					<ID>1250000000</ID>
+					<DisplayName>1250000000</DisplayName>
+				</Owner>
+			</Version>
 </ListVersionsResult>
 ```
 
@@ -894,7 +912,7 @@ x-cos-request-id: NWZjZjc1YjJfZGZjMTBiMDlfNzAyYl8xMzkx****
 
 #### 请求
 
-```
+```shell
 GET /?versions&delimiter=%2F&max-keys=3 HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed, 09 Dec 2020 13:40:24 GMT
@@ -905,7 +923,7 @@ Connection: close
 
 #### 响应
 
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 503
@@ -915,24 +933,24 @@ Server: tencent-cos
 x-cos-request-id: NWZkMGQzYzhfYmIwMmEwOV83OGU4XzZj****
 
 <ListVersionsResult>
-	<Name>examplebucket-1250000000</Name>
-	<Prefix/>
-	<KeyMarker/>
-	<VersionIdMarker/>
-	<MaxKeys>3</MaxKeys>
-	<IsTruncated>true</IsTruncated>
-	<NextKeyMarker>example-folder-3/</NextKeyMarker>
-	<NextVersionIdMarker/>
-	<Delimiter>/</Delimiter>
-	<CommonPrefixes>
-		<Prefix>example-folder-1/</Prefix>
-	</CommonPrefixes>
-	<CommonPrefixes>
-		<Prefix>example-folder-2/</Prefix>
-	</CommonPrefixes>
-	<CommonPrefixes>
-		<Prefix>example-folder-3/</Prefix>
-	</CommonPrefixes>
+				<Name>examplebucket-1250000000</Name>
+				<Prefix/>
+				<KeyMarker/>
+				<VersionIdMarker/>
+				<MaxKeys>3</MaxKeys>
+				<IsTruncated>true</IsTruncated>
+				<NextKeyMarker>example-folder-3/</NextKeyMarker>
+				<NextVersionIdMarker/>
+				<Delimiter>/</Delimiter>
+				<CommonPrefixes>
+					<Prefix>example-folder-1/</Prefix>
+				</CommonPrefixes>
+				<CommonPrefixes>
+					<Prefix>example-folder-2/</Prefix>
+				</CommonPrefixes>
+				<CommonPrefixes>
+					<Prefix>example-folder-3/</Prefix>
+				</CommonPrefixes>
 </ListVersionsResult>
 ```
 
@@ -940,7 +958,7 @@ x-cos-request-id: NWZkMGQzYzhfYmIwMmEwOV83OGU4XzZj****
 
 #### 请求
 
-```
+```shell
 GET /?versions&delimiter=%2F&max-keys=3&key-marker=example-folder-3%2F&version-id-marker= HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Wed, 09 Dec 2020 14:02:32 GMT
@@ -950,7 +968,7 @@ Connection: close
 
 #### 响应
 
-```
+```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 1115
@@ -959,42 +977,44 @@ Date: Wed, 09 Dec 2020 14:02:32 GMT
 Server: tencent-cos
 x-cos-request-id: NWZkMGQ4ZjhfZmVhODBiMDlfMTI3NzVfMTBj****
 
+
+
 <ListVersionsResult>
-	<Name>examplebucket-1250000000</Name>
-	<Prefix/>
-	<KeyMarker>example-folder-3/</KeyMarker>
-	<VersionIdMarker/>
-	<MaxKeys>3</MaxKeys>
-	<IsTruncated>true</IsTruncated>
-	<NextKeyMarker>example-object.jpg</NextKeyMarker>
-	<NextVersionIdMarker>MTg0NDUxMzY1NTExNzc4NTYzMTk</NextVersionIdMarker>
-	<Delimiter>/</Delimiter>
-	<CommonPrefixes>
-		<Prefix>example-folder-4/</Prefix>
-	</CommonPrefixes>
-	<Version>
-		<Key>example-object.jpg</Key>
-		<VersionId>MTg0NDUxMzY1NTExNjc2OTk4MjE</VersionId>
-		<IsLatest>true</IsLatest>
-		<LastModified>2020-12-09T14:02:21.000Z</LastModified>
-		<ETag>&quot;3979f6bb23f827d258be64cc0d8df5fb&quot;</ETag>
-		<Size>21</Size>
-		<StorageClass>STANDARD</StorageClass>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</Version>
-	<DeleteMarker>
-		<Key>example-object.jpg</Key>
-		<VersionId>MTg0NDUxMzY1NTExNzc4NTYzMTk</VersionId>
-		<IsLatest>false</IsLatest>
-		<LastModified>2020-12-09T14:02:11.000Z</LastModified>
-		<Owner>
-			<ID>1250000000</ID>
-			<DisplayName>1250000000</DisplayName>
-		</Owner>
-	</DeleteMarker>
+				<Name>examplebucket-1250000000</Name>
+				<Prefix/>
+				<KeyMarker>example-folder-3/</KeyMarker>
+				<VersionIdMarker/>
+				<MaxKeys>3</MaxKeys>
+				<IsTruncated>true</IsTruncated>
+				<NextKeyMarker>example-object.jpg</NextKeyMarker>
+				<NextVersionIdMarker>MTg0NDUxMzY1NTExNzc4NTYzMTk</NextVersionIdMarker>
+				<Delimiter>/</Delimiter>
+				<CommonPrefixes>
+					<Prefix>example-folder-4/</Prefix>
+				</CommonPrefixes>
+				<Version>
+					<Key>example-object.jpg</Key>
+					<VersionId>MTg0NDUxMzY1NTExNjc2OTk4MjE</VersionId>
+					<IsLatest>true</IsLatest>
+					<LastModified>2020-12-09T14:02:21.000Z</LastModified>
+					<ETag>&quot;3979f6bb23f827d258be64cc0d8df5fb&quot;</ETag>
+					<Size>21</Size>
+					<StorageClass>STANDARD</StorageClass>
+					<Owner>
+						<ID>1250000000</ID>
+						<DisplayName>1250000000</DisplayName>
+					</Owner>
+				</Version>
+				<DeleteMarker>
+					<Key>example-object.jpg</Key>
+					<VersionId>MTg0NDUxMzY1NTExNzc4NTYzMTk</VersionId>
+					<IsLatest>false</IsLatest>
+					<LastModified>2020-12-09T14:02:11.000Z</LastModified>
+					<Owner>
+						<ID>1250000000</ID>
+						<DisplayName>1250000000</DisplayName>
+					</Owner>
+				</DeleteMarker>
 </ListVersionsResult>
 ```
 

@@ -80,7 +80,7 @@ Serice Local 模式下仅绑定有 Pod 存在的节点。
 - 控制自动创建的负载均衡类型，传统型负载均衡、应用型负载均衡。
 - 可选值：yunapi_clb（传统型）、classic（传统型）、yunapiv3_forward_clb（应用型）
 - 默认值：yunapiv3_forward_clb（应用型）
-- 注意：除非有特殊原因，否则不推荐使用传统型负载均衡，传统型负载均衡已经停止迭代准备下线，并且缺失大量特性。
+>! 除非有特殊原因，否则不推荐使用传统型负载均衡，传统型负载均衡已经停止迭代准备下线，并且缺失大量特性。
 :::
 ::: service.cloud.tencent.com/specify-protocol
 **说明：**
@@ -90,7 +90,7 @@ Serice Local 模式下仅绑定有 Pod 存在的节点。
 :::
 ::: service.kubernetes.io/service.extensiveParameters
 **说明：**
-参考 [文档](https://cloud.tencent.com/document/product/214/30692) 为创建负载均衡追加自定义参数。
+参考 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/30692) 为创建负载均衡追加自定义参数。
 **使用示例：**
 - 创建 NAT64 IPv6 实例：service.kubernetes.io/service.extensiveParameters: '{"AddressIPVersion":"IPV6"}' 
 - 购买电信负载均衡：service.kubernetes.io/service.extensiveParameters: '{"VipIsp":"CTCC"}'

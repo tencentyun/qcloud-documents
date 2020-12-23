@@ -6,7 +6,7 @@ LogListener 仅支持64位 Linux 操作系统环境（暂不支持 Windows），
 
 | 操作系统类别&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 确定可安装环境                                               |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| CentOS（64位）                                               | CentOS_6.8_64位、CentOS_6.9_64位、CentOS_7.2_64位、CentOS_7.3_64位、CentOS_7.4_64位、CentOS_7.5_64位、CentOS_7.6_64位 |
+| CentOS（64位）                                               | CentOS_6.8_64位、CentOS_6.9_64位、CentOS_7.2_64位、CentOS_7.3_64位、CentOS_7.4_64位、CentOS_7.5_64位、CentOS_7.6_64位、CentOS_8.0_64位 |
 | Ubuntu（64位）                                               | Ubuntu Server_14.04.1_LTS_64位、Ubuntu Server_16.04.1_LTS_64位、Ubuntu Server_18.04.1_LTS_64位 |
 | Debian（64位）                                               | Debian_8.2_64位、Debian_9.0_64位                             |
 | openSUSE（64位）                                             | openSUSE_42.3_64位                                           |

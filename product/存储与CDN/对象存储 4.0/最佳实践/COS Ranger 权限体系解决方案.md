@@ -176,7 +176,7 @@ V5.9.0版本及以上。
 ## 验证
 
 1. 使用 hadoop cmd 执行访问 COSN 的相关操作。示例如下所示：
-```
+```plaintext
 #将bucket，路径等换成自己的实际信息。
 hadoop fs -lscosn://examplebucket-1250000000/doc
 hadoop fs -put ./xxx.txt cosn://examplebucket-1250000000/doc/
