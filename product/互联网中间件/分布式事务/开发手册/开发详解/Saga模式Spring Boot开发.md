@@ -1,6 +1,6 @@
 ## 操作场景
 
-该任务指导您在 Saga 模式下进行 Spring Free 开发。
+该任务指导您在 Saga 模式下进行 Spring Boot 开发。
 手动启动 Saga 事务，需要用户自行编写 Execute和 Compensate 接口的实现，并保证这两个方法的**幂等性**。
 
 ## 准备工作
