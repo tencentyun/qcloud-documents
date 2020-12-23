@@ -318,7 +318,7 @@ x-cos-request-id: NWZkMTk3YTVfYjFiODJhMDlfNTg0MDZfMTdj****
 								<ID>1250000000</ID>
 								<DisplayName>1250000000</DisplayName>
 						</Owner>
-						</DeleteMarker>
+				</DeleteMarker>
 				<Version>
 						<Key>example-object-3.jpg</Key>
 						<VersionId>MTg0NDUxMzY1MDIzNjQ3NjM2MDY</VersionId>
