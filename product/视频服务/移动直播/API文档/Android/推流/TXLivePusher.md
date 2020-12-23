@@ -946,7 +946,7 @@ __返回__
 
 ### onDetectFacePoints
 
-增值版回调人脸坐标。
+企业版回调人脸坐标。
 ```
 void onDetectFacePoints(float [] points)
 ```
