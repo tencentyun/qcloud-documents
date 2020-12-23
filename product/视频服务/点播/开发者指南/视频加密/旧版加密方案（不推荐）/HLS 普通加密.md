@@ -236,3 +236,4 @@ PHP
 ```php
 $dkBin = base64_decode($dkData);
 ```
+

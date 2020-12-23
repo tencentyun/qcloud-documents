@@ -31,7 +31,9 @@ try
     new COSXML.Model.Tag.CORSConfiguration.CORSRule();
   corsRule.id = "corsconfigureId";
   corsRule.maxAgeSeconds = 6000;
-  corsRule.allowedOrigin = "http://cloud.tencent.com";
+  
+  corsRule.allowedOrigins = new List<string>();
+  corsRule.allowedOrigins.Add("http://cloud.tencent.com");
 
   corsRule.allowedMethods = new List<string>();
   corsRule.allowedMethods.Add("PUT");

@@ -201,13 +201,7 @@ SDK 内部对视频有补帧逻辑，没有视频时会重发最后一帧数据�
 
 #### 事件监听
 
-SDK 事件监听需要设置`TXLivePush`的 delegate 属性，该 delegate 遵循`TXLivePushListener`协议。底层的事件会通过
-
-`
--(void) onPushEvent:(int)EvtID withParam:(NSDictionary*)param
-`
-
-接口回调过来。录屏推流过程中，一般会收到以下事件：
+SDK 事件监听需要设置`TXLivePush`的 delegate 属性，该 delegate 遵循`TXLivePushListener`协议。底层的事件会通过 `-(void) onPushEvent:(int)EvtID withParam:(NSDictionary*)param` 接口回调过来。录屏推流过程中，一般会收到以下事件：
 
 #### 常规事件
 

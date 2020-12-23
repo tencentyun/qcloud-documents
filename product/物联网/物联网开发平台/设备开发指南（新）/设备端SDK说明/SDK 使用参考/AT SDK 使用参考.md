@@ -44,7 +44,7 @@ SDK 分四层设计，从上至下分别为应用层、核心协议层、AT 传�
 |开发平台|参考文档|
 |---|---|
 |MCU+ 定制 AT 模组（蜂窝类）|[MCU+定制MQTT AT模组（蜂窝类）接入指引](https://cloud.tencent.com/document/product/1081/48395)|
-|MCU+ 定制 AT 模组（wi-Fi类）|[MCU+定制MQTT AT模组（wifi 类）接入指引](https://cloud.tencent.com/document/product/1081/48394)|
+|MCU+ 定制 AT 模组（Wi-Fi类）|[MCU+定制MQTT AT模组（Wi-Fi 类）接入指引](https://cloud.tencent.com/document/product/1081/48394)|
 
 ## SDK 接口说明
 

@@ -295,11 +295,11 @@
 
 视频 AI 类的预置参数模板包含了以下几种类型：
 
-* 预置视频内容审核模板
+* 预置视频内容智能识别模板
 * 预置视频内容分析模板
 * 预置视频内容识别模板
 
-### 预置视频内容审核模板
+### 预置视频内容智能识别模板
 
 <span id="verify"></span>
 <table>
@@ -319,25 +319,25 @@
     </tr>
  <tr>
         <th>
-            鉴黄（Porn）
+            令人反感的信息（Porn）
         </th>
         <th>
-            鉴暴（Terrorism）
+            令人不安全的信息（Terrorism）
         </th>
         <th>
-            鉴政（Political）
+            令人不适宜的信息（Political）
         </th>
         <th>
-            鉴黄（Asr.Porn）
+            令人反感的信息（Asr.Porn）
         </th>
         <th>
-            鉴政（Asr.Political）
+            令人不适宜的信息（Asr.Political）
         </th>
         <th>
-            鉴黄（Ocr.Porn）
+            令人反感的信息（Ocr.Porn）
         </th>
         <th>
-            鉴政（Ocr.Political）
+            令人不适宜的信息（Ocr.Political）
         </th>
     </tr>
     <tr>
@@ -1379,4 +1379,3 @@
         </td>
     </tr>
 </table>
-

@@ -32,6 +32,7 @@
 | AggregateContainersReleased  | 个       | 容器分配释放总数 |
 | ActiveUsers                  | 个       | 用户数           |
 
+
 ### YARN-ResourceManager
 
 | 指标名称                   | 指标单位 | 指标含义           |

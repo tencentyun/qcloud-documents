@@ -15,6 +15,10 @@
 - 修复全文索引中，词组查找（phrase search）在多字节字符集下存在的崩溃问题。
 
 ## MySQL 5.7
+### 20200701
+#### 官方 bug 修复：
+- 修复 INNOBASE_SHARE index mapping 错误问题。
+
 ### 20200630
 #### 新特性：
 - 支持 SELECT FOR UPDATE/SHARE 语句使用 NOWAIT 和 SKIP LOCKED 选项。

@@ -4,6 +4,7 @@
 1. 完成腾讯云账号注册、实名认证。
 2. 开启 CDN 服务，详情请参见 [CDN 快速入门](https://cloud.tencent.com/document/product/228/3149)。
 
+
 ## 操作指南
 
 ### 创建存储桶

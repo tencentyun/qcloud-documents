@@ -9,7 +9,7 @@ WordPress 是全球最流行的开源的博客和内容管理网站的建站平�
 
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)。
 2. 单击【新建】，进入轻量应用服务器购买页面。
-![](https://main.qcloudimg.com/raw/691f4eaa4679ae8dcd5f8ace46718463.png)
+![](https://main.qcloudimg.com/raw/0794c486c1e9c775cb8b648b34c210cb.png)
  - **地域**：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，地域选择 “广州”。
  - **镜像**：选择 “WordPress 5.4.2” 应用镜像。
  - **实例套餐**：按照所需的服务器配置（CPU、内存、系统盘、峰值带宽、每月流量），选择一种实例套餐。
