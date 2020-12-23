@@ -93,7 +93,7 @@ hugo -D
 
 1. 登录 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击【新建】，选择空模板，单击【下一步】，填写环境名称并开通“按量计费”环境。
 ![](https://main.qcloudimg.com/raw/9ba130b28f526df18c7f0497beaf3b8a.jpg)
- 在开通环境以后，进入 [环境概览](https://console.cloud.tencent.com/tcb/env/overview) 页面请记住您的 `环境Id`，这个 ID 后续部署需要用到。[](id:envid)
+ 开通环境以后，进入 [环境概览](https://console.cloud.tencent.com/tcb/env/overview) 页面请记住您的 `环境Id`，这个 ID 后续部署需要用到。[](id:envid)
 2. 在本地安装 Node.js：如果未安装请前往 [Node.js 官网](https://nodejs.org) 下载安装，并确保 Node.js 安装成功。
 3. 打开命令提示符，执行以下命令安装 cloudbase cli：
 ```plaintext
@@ -112,6 +112,6 @@ tcb login
 cloudbase hosting deploy ./public  -e EnvID
 ```
  此处的 EnvID 替换为上述 [步骤](#envid) 创建好的环境 ID。
-![](https://main.qcloudimg.com/raw/e81c2cfea537c6a20730495c1a2c5d57.png)
-7. 登录 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，进入[静态网站托管](https://console.cloud.tencent.com/tcb/hosting/index)页面，可以找到默认的域名，单击域名，就可以看到您刚部署的 Hugo。
+![](https://main.qcloudimg.com/raw/ad682ccff5b02b232062d89dea40fb7c.png)
+7. 登录 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，进入 [静态网站托管](https://console.cloud.tencent.com/tcb/hosting/index) 页面，可以找到默认的域名，单击域名，即可看到您刚部署的 Hugo。
 
