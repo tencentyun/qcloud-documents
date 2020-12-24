@@ -40,7 +40,7 @@
 例如，您需要将联通用户指向 `2.com`，移动用户都指向 `1.com`。您可以通过添加线路类型为移动、记录值为`1.com` 和线路类型为联通、记录值为 `2.com` 的两条       CNAME 记录来实现。更多配置说明请查看[解析线路说明](https://docs.dnspod.cn/dns/5f4775898ae73e11c5b01afc/)。
 ![](https://main.qcloudimg.com/raw/a10e6be051e2b90a323cb8e07081fb63.png)
 
-<span ID ="m4"></span>
+<span ID ="m2"></span>
 ### 阿里云设置方法
 
 若您的 DNS 服务商为阿里云，您可通过如下步骤添加 CNAME 记录。
@@ -54,6 +54,7 @@
 
 
 
+<span ID ="m3"></span>
 ### 新网设置方法
 
 若您的 DNS 服务商为新网，您可通过如下步骤添加 CNAME 记录。
