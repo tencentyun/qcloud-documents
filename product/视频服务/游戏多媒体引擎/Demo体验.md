@@ -89,7 +89,7 @@
 >- 请务必注意保存 AppID 以及权限密钥不被泄露。
 >- 请注意此时的 userId 数字，请确保打开的另一个演示程序中的 userId 与此 userId 不同。
 >
-<img src="https://main.qcloudimg.com/raw/33540519cd5c2bdde6139f8a4af537a6.png"  width="30%"><br>
+<img src="https://main.qcloudimg.com/raw/33540519cd5c2bdde6139f8a4af537a6.png"  width="80%"><br>
 填写完成后单击【初始化】>【实时语音】，进入实时语音房间填写界面。
 
 ### 4. 进入语音房间
@@ -112,7 +112,7 @@
 ### 6. 本地连接
 
 **此演示程序需要本地局域网连接基础**。
-<img src="https://main.qcloudimg.com/raw/670b24a1133dc07bdc9892ffa12b159f.png" width="40%" /></img>
+<img src="https://main.qcloudimg.com/raw/670b24a1133dc07bdc9892ffa12b159f.png" width="80%" /></img>
 - 第一个进房间的人
 第一个进房间的人是需要作为网络连接的 Host，所以需要单击【LAN Host(H)】。单击之后会将人物生成在金币旁边。
 <img src="https://gme-public-1256590279.cos.ap-nanjing.myqcloud.com/GMEResource/master.gif"  width="80%"/></img>
