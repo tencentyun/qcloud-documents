@@ -30,5 +30,5 @@
  [/Project/DeleteMaterialFromProject](./媒体物料相关接口/删除项目媒体.md#)| 删除项目媒体
  [/Project/DescribeProjectMaterials](./媒体物料相关接口/查询项目媒体.md#)| 查询项目媒体
  [/Project/AddMaterialToProject](./媒体物料相关接口/添加项目媒体.md#)| 添加项目媒体
- [/Task/DescribeTasks](./37-任务管理相关接口/查询任务信息.md#)| 查询任务信息
+ [/Task/DeleteTask](./37-任务管理相关接口/删除任务.md#)| 删除任务
  [/Task/DescribeTasks](./37-任务管理相关接口/查询任务信息.md#)| 查询任务信息
