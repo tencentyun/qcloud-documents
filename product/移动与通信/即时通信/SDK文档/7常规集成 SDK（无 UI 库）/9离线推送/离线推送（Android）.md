@@ -2,7 +2,10 @@
 
 即时通信 IM 的终端用户需要随时都能够得知最新的消息，而由于移动端设备的性能与电量有限，当 App 处于后台时，为了避免维持长连接而导致的过多资源消耗，即时通信 IM 推荐您使用各厂商提供的系统级推送通道来进行消息通知，系统级的推送通道相比第三方推送拥有更稳定的系统级长连接，可以做到随时接受推送消息，且资源消耗大幅降低。
 
-即时通信 IM 目前支持小米推送、华为推送、魅族推送、vivo 推送、OPPO 推送以及 Google FCM 推送，即时通信 IM 使用的厂商通道依赖由 [移动推送 TPNS](https://cloud.tencent.com/product/tpns) 统一提供和维护，无需再额外集成厂商通道。当您添加 [移动推送 TPNS](https://cloud.tencent.com/product/tpns) 的厂商通道依赖后，即可使用即时通信 IM 的离线推送功能，若您只使用 IM 的离线推送功能将不会产生额外费用。目前支持的厂商通道如下：
+即时通信 IM 支持小米推送、华为推送、魅族推送、vivo 推送、OPPO 推送以及 Google FCM 推送，即时通信 IM Demo 中使用的厂商通道由 [移动推送 TPNS](https://cloud.tencent.com/product/tpns) 统一提供和维护。当您需要集成离线推送功能时，您可通过集成 [移动推送 TPNS](https://cloud.tencent.com/product/tpns) 服务或集成所需厂商的离线推送服务实现。
+目前支持的厂商通道如下：
+
+
 
 >?如您需提升推送的抵达率，或进行多样化推送，推荐安装 [移动推送 TPNS](https://cloud.tencent.com/product/tpns) 的 [SDK](https://cloud.tencent.com/document/product/548/36649) 体验完整的推送服务。若您同时使用即时通信 IM 和 [移动推送 TPNS](https://cloud.tencent.com/product/tpns)，则无需重复集成厂商通道。
 <table> 
