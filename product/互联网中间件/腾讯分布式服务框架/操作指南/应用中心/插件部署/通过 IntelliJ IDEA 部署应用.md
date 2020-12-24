@@ -72,7 +72,7 @@
 4. 先单击 Apply，然后单击 Run。
 5. 在 TSF 平台即可查看部署结果。
 
-## 容器部署
+### 容器部署
 
 1. 在IDEA中打开consumer-demo工程。
 2. 在IntelliJ IDEA顶部菜单栏中选择Tools > Tencent Toolkit Cloud > Deploy to TSF for Kubernetes Application...。
