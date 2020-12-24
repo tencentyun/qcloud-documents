@@ -70,7 +70,7 @@ Authorization: Auth String
 | RemoteAddr         | LiveChannelStatus | 当 Status 为 Live 时，表示当前推流客户端的 IP 地址                 | Container  |
 | RequestId          | LiveChannelStatus | 当 Status 为 Live 时，表示当前推流请求的 RequestId                | String     |
 | Video              | LiveChannelStatus | 当 Status 为 Live 时，保存视频流信息的容器。<br/>说明：Video、Audio 容器只有在 Status 为 Live 时才会返回，但 Status 为 Live 时不一定返回这两个容器。例如，客户端已经连接到 LiveChannel，但尚未发送音视频数据，这种情况不会返回这两个容器 | Container  |
-| Widtht              | Video             | 当前视频流的画面宽度，单位：像素                             | String     |
+| Width              | Video             | 当前视频流的画面宽度，单位：像素                             | String     |
 | Heigth             | Video             | 当前视频流的画面高度，单位：像素                             | String     |
 | FrameRate          | Video             | 当前视频流的帧率                                             | String     |
 | Bandwidth          | Video             | 当前视频流的码率，单位：B/s                               | String     |
