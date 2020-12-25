@@ -227,7 +227,7 @@ static void sendFrame () {
 // 广播：收到帧消息
 room.OnRecvFrame = eve => {
     RecvFrameBst bst = (RecvFrameBst) eve.Data;
-    Debug.Log ("帧广播", eve.Data);
+    Debug.LogFormat ("帧广播: {0}", eve.Data);
 };
 ```
 
