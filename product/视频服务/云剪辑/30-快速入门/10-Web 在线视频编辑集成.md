@@ -67,3 +67,4 @@ Demo 运行成功后，我们在浏览器输入`http://localhost:9090`即可进�
 ### 导出项目
 完成视频编辑后，单击【导出视频】，后台会发起导出任务，最后的导出结果可在页面中获取到。
 ![](https://main.qcloudimg.com/raw/0aa27764722cdfde81a3d65a4ee29ae0.png)
+

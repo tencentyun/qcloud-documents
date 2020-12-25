@@ -89,5 +89,3 @@ real_ip_header X-Forwarded-For;
 ```
 service nginx restart
 ```
-
-

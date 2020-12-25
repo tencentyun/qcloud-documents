@@ -39,6 +39,12 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
       <td>iOS 11以上</td>
       <td><a href="https://apps.apple.com/cn/app/id1469323992">iOS</a></td>
    </tr>
+   <tr>
+      <td>网页版</td>
+      <td>Web</td>
+      <td>Chrome/FireFox/Safari/IE10+等浏览器</td>
+      <td><a href="https://cosbrowser.cloud.tencent.com/web">Web</a></td>
+   </tr>
 </table>
 
 ## 桌面端功能列表

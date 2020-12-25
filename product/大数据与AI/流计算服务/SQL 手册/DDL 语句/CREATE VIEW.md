@@ -6,7 +6,7 @@ CREATE VIEW 视图名 AS
 SELECT 子句
 ```
 
-### 示例 1
+### 示例一
 创建一个名为 MyView 的视图：
 ```
 CREATE VIEW MyView AS
@@ -15,7 +15,7 @@ FROM KafkaSource1 AS s1, KafkaSource2 AS s2
 WHERE s1.time_ = s2.time_ AND s1.client_ip = s2.client_ip;
 ```
 
-### 示例 2
+### 示例二
 在计算中由于数据量较大、函数方法类型匹配要求等原因，必须使用 TINYINT、SMALLINT 等类型。当 Kafka 等输入类型不符合需求时，可通过 CREATE VIEW 语句配合 CAST() 类型转换函数（参见 [类型转换函数](/document/product/849/18079)），实现定义虚拟视图作为新的数据源。
 
 通过定义一个名为 KafkaSource2 的视图，实现将 KafkaSource1 数据源中的 BIGINT 类型的 status_code 列转为 VARCHAR 类型的列，命令如下：

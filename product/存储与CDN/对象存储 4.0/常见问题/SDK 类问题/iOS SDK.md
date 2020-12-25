@@ -100,7 +100,7 @@ SDK 只支持续传沙盒中的文件，如需使用断点续传的功能，请�
 
 ### SDK 如何设置请求的超时时间?
 
-解决：SDK 5.7.0 之后支持自定义请求的超时时间，可以通过以下方式设置
-1. 初始化 `QCloudServiceConfiguration *config = [QCloudServiceConfiguration new]`
-2. 设置config的 `timeoutInterval`属性即可  `设置config的.timeoutInterval = 30;`
+解决：SDK 5.7.0 之后支持自定义请求的超时时间，可以通过以下方式设置：
+1. 初始化`QCloudServiceConfiguration *config = [QCloudServiceConfiguration new]`
+2. 设置 config 的`timeoutInterval`属性即可，例如`设置 config 的.timeoutInterval = 30;`
 
