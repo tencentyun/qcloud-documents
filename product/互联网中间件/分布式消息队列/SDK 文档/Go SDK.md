@@ -38,7 +38,7 @@ go env | grep GOPATH
 # Windows
 go env | findstr GOPATH
 ```
->?目前 Pulsar 官方尚未更新最新适配的客户端（目前官方的go语言客户端在client构造中，没有用于声明路由方式的`listenerName`字段），腾讯云已将适配后的 Go 客户端提交至社区，即将在下个版本发布，在官方适配之前您需要先使用腾讯云提供的 SDK。
+>?目前 Pulsar 官方尚未更新最新适配的客户端（目前官方的 Go 语言客户端在 client 构造中，没有用于声明路由方式的 `listenerName` 字段），腾讯云已将适配后的 Go 客户端提交至社区，即将在下个版本发布，在官方适配之前您需要先使用腾讯云提供的 SDK。
 
 ### 创建 Demo工程
 
