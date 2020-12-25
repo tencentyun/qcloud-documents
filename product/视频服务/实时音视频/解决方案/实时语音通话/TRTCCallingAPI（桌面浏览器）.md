@@ -50,12 +50,14 @@
 首先，您需要在实时音视频 [控制台](https://console.cloud.tencent.com/trtc/app) 中创建一个应用，并取得 SDKAppID。
 之后，就可以通过 `new TRTCCalling()` 方法获取 TRTCCalling 组件的一个实例。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 let options = {
   SDKAppID: 0 // 接入时需要将0替换为您的即时通信 IM 应用的 SDKAppID
 };
 let trtcCalling = new TRTCCalling(options);
-```
+:::
+</dx-codeblock>
 
 ### 事件订阅/取消订阅相关接口函数 
 
@@ -64,24 +66,28 @@ let trtcCalling = new TRTCCalling(options);
 #### on(eventName, callback, context)
 用于监听组件派发的事件，详细事件请参见 [事件表](#event)。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 let handleInvite = function ({inviteID, sponsor, inviteData}) {
     console.log(`inviteID: ${inviteID}, sponsor: ${sponsor}, inviteData: ${JSON.stringify(inviteData)}`);
 };
 trtcCalling.on('onInvited', handleInvite, this);
-```
+:::
+</dx-codeblock>
 
 
 
 #### off(eventName, callback, context)
 用于取消事件监听。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 let handleInvite = function ({inviteID, sponsor, inviteData}) {
     console.log(`inviteID: ${inviteID}, sponsor: ${sponsor}, inviteData: ${JSON.stringify(inviteData)}`);
 };
 trtcCalling.off('onInvited', handleInvite, this);
-```
+:::
+</dx-codeblock>
 
 ### SDK 基础函数
 
@@ -90,9 +96,11 @@ trtcCalling.off('onInvited', handleInvite, this);
 #### login({userID, userSig})
 登录接口。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 trtcCalling.login({userID, userSig})
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 
@@ -105,9 +113,11 @@ trtcCalling.login({userID, userSig})
 
 #### logout()
  登出接口。
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 trtcCalling.logout()
-```
+:::
+</dx-codeblock>
 
 ### 通话操作相关接口函数
 
@@ -117,9 +127,11 @@ trtcCalling.logout()
 
 1对1通话邀请，其中 type 为通话类型，1-语音通话，2-视频通话。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 trtcCalling.call({userID, type, timeout})
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 
@@ -134,9 +146,11 @@ trtcCalling.call({userID, type, timeout})
 #### groupCall({userIDList, type, groupID})
 groupID 参数是 IM SDK 中的群组 ID，如果填写该参数，那么通话请求消息是通过群消息系统广播出去的，这种消息广播方式比较简单可靠。如果不填写，那么 TRTCCalling 组件会采用单发消息逐一通知。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 trtcCalling.groupCall({userIDList, type, groupID})
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 
@@ -151,13 +165,15 @@ trtcCalling.groupCall({userIDList, type, groupID})
 当收到邀请后，调用该接口将接受当前的邀请。
 >? 当上一个 invitation 未处理完成时，组件会默认占线，之后的邀请都会回复忙线。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 import TrtcCalling from 'trtc-calling-js';
 trtcCalling.on(TrtcCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
   // ...
   trtcCalling.accept({inviteID, roomID, callType})
 })
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 
@@ -171,13 +187,15 @@ trtcCalling.on(TrtcCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
 #### reject({inviteID, isBusy, callType})
 当收到邀请后，调用该接口将拒绝当前的邀请。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 import TrtcCalling from 'trtc-calling-js';
 trtcCalling.on(TrtcCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
   // ...
   trtcCalling.reject({inviteID, isBusy, callType})
 })
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 
@@ -193,9 +211,11 @@ trtcCalling.on(TrtcCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
 1. 当您处于通话中，可以调用该函数结束通话。
 2. 当未拨通时, 可用来取消通话。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 trtcCalling.hangup()
-```
+:::
+</dx-codeblock>
 
 
 ### 视频控制相关接口函数
@@ -203,9 +223,11 @@ trtcCalling.hangup()
 
 #### startRemoteView({userID, videoViewDomID})
 将远端用户的摄像头数据渲染到指定的 DOM ID 节点里。
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 trtcCalling.startRemoteView({userID, videoViewDomID})
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 
@@ -217,9 +239,11 @@ trtcCalling.startRemoteView({userID, videoViewDomID})
 
 #### stopRemoteView({userID, videoViewDomID})
 将远端用户的摄像头数据渲染的 DOM 节点删除。
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 trtcCalling.stopRemoteView({userID, videoViewDomID})
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 
@@ -231,9 +255,11 @@ trtcCalling.stopRemoteView({userID, videoViewDomID})
 
 #### startLocalView({userID, videoViewDomID})
 将本地用户的摄像头数据渲染到指定的 DOM ID 节点里。
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 trtcCalling.startLocalView({userID, videoViewDomID})
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 
@@ -245,9 +271,11 @@ trtcCalling.startLocalView({userID, videoViewDomID})
 
 #### stopLocalView({userID, videoViewDomID})
 将本地用户的摄像头数据渲染的 DOM 节点删除。
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 trtcCalling.stopLocalView({userID, videoViewDomID})
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 
@@ -259,23 +287,29 @@ trtcCalling.stopLocalView({userID, videoViewDomID})
 
 #### openCamera()
 开启本地摄像头。
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 trtcCalling.openCamera()
-```
+:::
+</dx-codeblock>
 
 
 ####  closeCamera()
 关闭摄像头。
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 trtcCalling.closeCamera()
-```
+:::
+</dx-codeblock>
 
 
 ####  setMicMute(isMute) 
 开启/关闭麦克风。
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 trtcCalling.setMicMute(true) // 开启麦克风
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 
@@ -287,14 +321,16 @@ trtcCalling.setMicMute(true) // 开启麦克风
 ## TRTCCalling 事件表
 您可以参考如下代码捕获来自 TRTCCalling 组件的各种事件：
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 import TrtcCalling from 'trtc-calling-js';
 // etc
 function handleInviteeReject({userID}) {
 
 }
 trtcCalling.on(TrtcCalling.EVENT.REJECT, handleInviteeReject)
-```
+:::
+</dx-codeblock>
 
 ### 邀请方事件
 |                     CODE                      |   事件接收方   |           说明            |
@@ -317,11 +353,13 @@ trtcCalling.on(TrtcCalling.EVENT.REJECT, handleInviteeReject)
 #### USER_ENTER
 用户进房。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 function handleUserEnter({userID}) {
 
 }
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 
@@ -332,11 +370,13 @@ function handleUserEnter({userID}) {
 #### USER_LEAVE
 用户退出房间。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 function handleUserLeave({userID}) {
 
 }
-```
+:::
+</dx-codeblock>
 参数如下表所示：
 
 | 参数   | 类型   | 含义    |
@@ -346,29 +386,35 @@ function handleUserLeave({userID}) {
 #### CALL_END
 本次通话结束。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 function handleCallEnd() {
 
 }
-```
+:::
+</dx-codeblock>
 
 #### KICKED_OUT
 重复登录，被踢出房间。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 function handleKickedOut() {
 
 }
-```
+:::
+</dx-codeblock>
 
 #### USER_VIDEO_AVAILABLE
 远端用户打开关闭摄像头。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 function handleUserVideoChange({userID, isVideoAvailable}) {
 
 }
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 
@@ -380,11 +426,13 @@ function handleUserVideoChange({userID, isVideoAvailable}) {
 #### USER_AUDIO_AVAILABLE
 远端用户开启/关闭了麦克风。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 function handleUserAudioChange({userID, isAudioAvailable}) {
 
 }
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 
@@ -398,11 +446,13 @@ function handleUserAudioChange({userID, isAudioAvailable}) {
 #### REJECT
 用户拒绝通话。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 function handleInviteeReject({userID}) {
 
 }
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 
@@ -413,11 +463,13 @@ function handleInviteeReject({userID}) {
 #### NO_RESP
 邀请用户无应答。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 function handleNoResponse({userID}) {
 
 }
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 
@@ -428,11 +480,13 @@ function handleNoResponse({userID}) {
 #### LINE_BUSY
 被邀请方正在通话中，忙线。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 function handleInviteeLineBusy({userID}) {
 
 }
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 
@@ -445,13 +499,15 @@ function handleInviteeLineBusy({userID}) {
 #### INVITED
 收到邀请通知。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 function handleNewInvitationReceived({
     sponsor, userIDList, isFromGroup, inviteData, inviteID
 }) {
 
 }
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 
@@ -466,32 +522,38 @@ function handleNewInvitationReceived({
 #### CALLING_CANCEL
 本次通话被取消了。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 function handleInviterCancel() {
 
 }
-```
+:::
+</dx-codeblock>
 
 #### CALLING_TIMEOUT
 本次通话超时未应答。
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 function handleCallTimeout() {
 
 }
-```
+:::
+</dx-codeblock>
 
 ## TRTCCalling 错误码表
 
 您可以通过监听 EVENT 里的 ERROR 字段，对组件抛出的错误进行处理，示例代码如下：
 
-```javascript
+<dx-codeblock>
+:::  javascript javascript
 import TrtcCalling from 'trtc-calling-js';
 let onError = function(error) {
   console.log(error)
 };
 trtcCalling.on(TRTCCalling.EVENT.ERROR, onError);
-```
+:::
+</dx-codeblock>
 
 ## 常见问题
 #### 为什么拨打不通，或者被踢下线？
