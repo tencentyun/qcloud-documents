@@ -24,19 +24,17 @@ DeScheduler 通过重调度来解决集群现有节点上不合理的运行方�
 
 容器服务 TKE 自研的 ReduceHighLoadNode 策略依赖 Prometheus 和 node_exporter 监控数据，根据节点 CPU 利用率、内存利用率、网络 IO、system loadavg 等指标进行 Pod 驱逐重调度，防止出现节点极端负载的情况。DeScheduler 的 ReduceHighLoadNode 与 TKE 自研的 Dynamic Scheduler 基于节点真实负载进行调度的策略需配合使用。
 
-## 风险控制
-
-- 该组件已对接容器服务 TKE 的监控告警体系。
-- 建议您为集群开启事件持久化，以便更好的监控组件异常以及故障定位。
-- 为避免 DeScheduler 驱逐关键的 Pod，设计的算法默认不驱逐 Pod。对于可以驱逐的 Pod，用户需要显示给判断 Pod 所属 workload。例如，statefulset、deployment 等对象设置可驱逐 annotation。
-- 驱逐大量 Pod，导致服务不可用。
-   Kubernetes 原生提供 PDB 对象用于防止驱逐接口造成的 workload 不可用 Pod 过多，但需要用户创建该 PDB 配置。容器服务 TKE 自研的 DeScheduler 组件加入了兜底措施，即调用驱逐接口前，判断 workload 准备的 Pod 数是否大于副本数一半，否则不调用驱逐接口。
-
 
 
 ## 限制条件
 
-Kubernetes 版本 ≥ v1.10.x
+- Kubernetes 版本 ≥ v1.10.x
+- 在特定场景下，某些 Pod 会被重复调度到需要重调度的节点上，从而引发 Pod 被重复驱逐。此时可以根据实际场景改变 Pod 可调度的节点，或者将 Pod 标记为不可驱逐。 
+- 该组件已对接容器服务 TKE 的监控告警体系。
+- 建议您为集群开启事件持久化，以便更好的监控组件异常以及故障定位。Descheduler 驱逐 Pod 时会产生对应事件，可根据 reason 为 “Descheduled” 类型的事件观察 Pod 是否被重复驱逐。
+- 为避免 DeScheduler 驱逐关键的 Pod，设计的算法默认不驱逐 Pod。对于可以驱逐的 Pod，用户需要显示给判断 Pod 所属 workload。例如，statefulset、deployment 等对象设置可驱逐 annotation。
+- 驱逐大量 Pod，导致服务不可用。
+   Kubernetes 原生提供 PDB 对象用于防止驱逐接口造成的 workload 不可用 Pod 过多，但需要用户创建该 PDB 配置。容器服务 TKE 自研的 DeScheduler 组件加入了兜底措施，即调用驱逐接口前，判断 workload 准备的 Pod 数是否大于副本数一半，否则不调用驱逐接口。
 
 
 
@@ -85,22 +83,59 @@ DeScheduler 组件依赖于 Node 当前和过去一段时间的真实负载情�
 
 ```
 groups:
-      - name: cpu_mem_usage_active
-        interval: 30s
-        rules:
-        - record: mem_usage_active
-          expr: 100*(1-node_memory_MemAvailable_bytes/node_memory_MemTotal_bytes)
-      - name: cpu-usage-1m
-        interval: 1m
-        rules:
-        - record: cpu_usage_avg_5m
-          expr: 100 - (avg by (instance) (irate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)
-      - name: mem-usage-1m
-        interval: 1m
-        rules:
-        - record: mem_usage_avg_5m
-          expr: avg_over_time(mem_usage_active[5m])
+    - name: cpu_mem_usage_active
+      interval: 30s
+      rules:
+      - record: mem_usage_active
+        expr: 100*(1-node_memory_MemAvailable_bytes/node_memory_MemTotal_bytes)
+    - name: cpu-usage-1m
+      interval: 1m
+      rules:
+      - record: cpu_usage_avg_5m
+        expr: 100 - (avg by (instance) (irate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)
+    - name: mem-usage-1m
+      interval: 1m
+      rules:
+      - record: mem_usage_avg_5m
+        expr: avg_over_time(mem_usage_active[5m])
 ```
+
+>!
+当您使用 TKE 提供的 DynamicScheduler 时，需在 Prometheus 配置获取 Node 监控数据的聚合规则。DynamicScheduler 聚合规则与 DeScheduler 聚合规则有部分重合，但并不完全一样，请您在配置规则时不要互相覆盖。同时使用 DynamicScheduler 和 DeScheduler 时应该配置如下规则：
+```
+groups:
+   - name: cpu_mem_usage_active
+     interval: 30s
+     rules:
+     - record: mem_usage_active
+       expr: 100*(1-node_memory_MemAvailable_bytes/node_memory_MemTotal_bytes)
+   - name: mem-usage-1m
+     interval: 1m
+     rules:
+     - record: mem_usage_avg_5m
+       expr: avg_over_time(mem_usage_active[5m])
+   - name: mem-usage-5m
+     interval: 5m
+     rules:
+     - record: mem_usage_max_avg_1h
+       expr: max_over_time(mem_usage_avg_5m[1h])
+     - record: mem_usage_max_avg_1d
+       expr: max_over_time(mem_usage_avg_5m[1d])
+   - name: cpu-usage-1m
+     interval: 1m
+     rules:
+     - record: cpu_usage_avg_5m
+       expr: 100 - (avg by (instance) (irate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)
+   - name: cpu-usage-5m
+     interval: 5m
+     rules:
+     - record: cpu_usage_max_avg_1h
+       expr: max_over_time(cpu_usage_avg_5m[1h])
+     - record: cpu_usage_max_avg_1d
+       expr: max_over_time(cpu_usage_avg_5m[1d])
+```
+
+
 
 #### Prometheus 文件配置
 
@@ -108,9 +143,9 @@ groups:
 1. 上述定义了 DeScheduler 所需要的指标计算的 rules，需要将 rules 配置到 Prometheus 中，参考一般的 Prometheus 配置文件。示例如下：
 ```
 global:
-      evaluation_interval: 30s
-      scrape_interval: 30s
-      external_labels:
+   evaluation_interval: 30s
+   scrape_interval: 30s
+   external_labels:
 rule_files:
 - /etc/prometheus/rules/*.yml # /etc/prometheus/rules/*.yml 是定义的 rules 文件
 ```
