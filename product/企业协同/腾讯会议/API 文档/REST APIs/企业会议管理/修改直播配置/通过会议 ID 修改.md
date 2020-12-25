@@ -4,7 +4,7 @@
 **调用方式**：PUT
 **接口请求域名**：
 ```plaintext
-https://api.meeting.qq.com/v1/meetings/${meeting_id}/live_play/config
+https://api.meeting.qq.com/v1/meetings/{meeting_id}/live_play/config
 ```
 
 
