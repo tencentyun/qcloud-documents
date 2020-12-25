@@ -40,6 +40,11 @@
  [/Material/CreateUploadMaterial](https://cloud.tencent.com/document/product/1156/51360)| 申请媒体上传
  [/Material/FinishUploadMaterial](https://cloud.tencent.com/document/product/1156/51359)| 完成媒体上传
 
+## 团队管理相关接口
+ 接口名称 | 接口功能
+---------|----------
+ [/Team/DescribeTeams](https://cloud.tencent.com/document/product/1156/51507)| 查询团队信息
+ [/Team/DescribeJoinTeams](https://cloud.tencent.com/document/product/1156/51508)| 查询加入团队列表
 
 ## 项目管理相关接口
  接口名称 | 接口功能
