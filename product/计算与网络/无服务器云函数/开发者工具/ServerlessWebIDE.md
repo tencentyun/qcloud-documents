@@ -68,7 +68,8 @@ Serverless Web IDE 提供手动部署和自动部署两种函数部署方式，�
 ### 查看日志
 
 您可以在输出中查看函数测试结果，包括返回数据 Response、日志 Output 和函数执行摘要 Summary。
-![](https://main.qcloudimg.com/raw/9a3362cfeec3398e9e63da8092b3e7d7.png)
+![](https://main.qcloudimg.com/raw/cd3fc07e7dc904b45f2e9f1a66222bf9.png)
+
 
 ### 更多操作
 
