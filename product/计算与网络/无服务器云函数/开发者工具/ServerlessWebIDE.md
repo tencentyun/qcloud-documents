@@ -18,6 +18,8 @@ Serverless Web IDE 支持：
 
 
 ## 使用方式
+>? 云函数旧版编辑器 Cloud Studio Lite 升级为新版编辑器 Cloud Studio，正在灰度发布中。您可 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请使用。
+
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=1)，在左侧选择【函数服务】。
 2. 在函数列表中，单击函数名，进入该函数的详情页面。
 3. 在“函数管理”页面中，选择【函数代码】>【代码编辑】，即可查看并编辑函数。
