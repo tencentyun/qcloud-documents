@@ -150,3 +150,4 @@ tim.registerPlugin({'cos-js-sdk': COS});
 | 域名 | 说明 |  是否必须 |
 |:-------:|---------|----|
 |`https://cos.ap-shanghai.myqcloud.com` | 文件下载域名 | 必须|
+

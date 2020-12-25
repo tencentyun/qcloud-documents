@@ -74,7 +74,7 @@ curl -v -u${adminUser}:${adminPasswd} -X DELETE -H "Accept:application/json" -H 
  - **user/group**：用户名和用户组。这里是或的关系，即用户名或者用户组满足其中一个，即可拥有对应的操作权限。
  - **Permissions**：
     -  Read：读操作。对应于对象存储里面的 GET、HEAD 类操作，包括下载对象、查询对象元数据等。
-    -  Write：写操作,。对应于对对象存储里面的 PUT 类等修改操作，例如上传对象。
+    -  Write：写操作,。对应于对象存储里面的 PUT 类等修改操作，例如上传对象。
     -  Delete：删除操作。 对应于对象存储里删除 Object。对于 Hadoop 的 Rename 操作，需要有对原路径的删除操作权限，对新路径的写入操作权限。
     -  List：遍历权限。对应于对象存储里面的 List Object。
 ![](https://main.qcloudimg.com/raw/00a619b4b963a9acf766411fad722fe4.png)
@@ -176,7 +176,7 @@ V5.9.0版本及以上。
 ## 验证
 
 1. 使用 hadoop cmd 执行访问 COSN 的相关操作。示例如下所示：
-```
+```plaintext
 #将bucket，路径等换成自己的实际信息。
 hadoop fs -lscosn://examplebucket-1250000000/doc
 hadoop fs -put ./xxx.txt cosn://examplebucket-1250000000/doc/
