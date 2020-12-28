@@ -39,6 +39,10 @@ vim /etc/docker/daemon.json
   ]
 }
 ```
+ 3. 重启Docker
+ ```
+ systemctl restart docker
+ ```
 - 适用于已安装 Boot2Docker 的 Windows 操作系统实例：
  1. 进入 Boot2Docker Start Shell，并执行以下命令：
 ```
