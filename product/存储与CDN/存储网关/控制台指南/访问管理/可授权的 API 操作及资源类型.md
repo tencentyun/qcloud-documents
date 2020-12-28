@@ -83,5 +83,5 @@ CSG 预设策略中不包含腾讯云其他产品的相关权限，通常情况�
 | tag:ModifyResourceTags   | 修改标签 |
 
 
->? 由于 VPC 在 CAM 配置的策略接口和实际调用的接口存在差异，即若您未授予 DescribeVpcEx 购买页会提示无 DescribeVpcs 权限，同理，若您未授予 DescribeSubnetEx 购买页会提示无 DescribeSubnets 权限；如需相关产品更为详细的访问管理说明，请参照 COS 的 [访问控制基本概念](https://cloud.tencent.com/document/product/436/30749) 以及 VPC 的 [访问管理概述](https://cloud.tencent.com/document/product/215/39265)。
+>? 由于 VPC 在 CAM 配置的策略接口和实际调用的接口存在差异，即若您未授予 DescribeVpcEx 购买页权限会提示无 DescribeVpcs 权限，同理，若您未授予 DescribeSubnetEx 购买页权限会提示无 DescribeSubnets 权限；如需相关产品更为详细的访问管理说明，请参照 COS 的 [访问控制基本概念](https://cloud.tencent.com/document/product/436/30749) 以及 VPC 的 [访问管理概述](https://cloud.tencent.com/document/product/215/39265)。
 
