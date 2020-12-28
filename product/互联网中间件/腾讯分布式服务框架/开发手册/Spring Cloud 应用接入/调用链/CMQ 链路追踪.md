@@ -1,7 +1,7 @@
 CMQ 调用链组件目前支持使用cmq-http-client的方式，目前仅支持单条消息收发的调用链。
 
 
-```
+
 配置参考：
 ```plaintext
 cmq:
