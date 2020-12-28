@@ -1,5 +1,7 @@
 实时音视频控制台支持在线生成签名 UserSig，但此 UserSig 仅用于开发阶段快速测试，正式上线前请将 UserSig 计算逻辑 [迁移到后台服务器](https://cloud.tencent.com/document/product/647/17275#.E6.9C.8D.E5.8A.A1.E7.AB.AF.E5.A6.82.E4.BD.95.E8.AE.A1.E7.AE.97-usersig.EF.BC.9F) 上，以避免加密密钥泄露导致的流量盗用。
 
+
+[](id:generate)
 ## 签名（UserSig）生成工具
 开发者和腾讯云的服务通过签名（UserSig) 验证建立信任关系。
 
@@ -10,6 +12,7 @@
 ![](https://main.qcloudimg.com/raw/1beace0cb76655168f4b0b9f06eb65e4.png)
 
 
+[](id:check)
 ## 签名（UserSig）校验工具
 此工具用于校验您使用的签名（UserSig）的有效性。
 
