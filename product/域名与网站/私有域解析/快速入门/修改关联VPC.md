@@ -2,7 +2,7 @@
 本文档将指导您如何修改私有域关联的 VPC。
 
 ##  操作步骤
-1. 登录私有域解析 [Private DNS 管理控制台](https://console.cloud.tencent.com/privatedns)，并单击左侧导航栏的【私有域解析】，即可进入私有域列表。
+1. 登录私有域解析 [Private DNS 管理控制台](https://console.cloud.tencent.com/privatedns)，并单击左侧导航栏的【私有域列表】，即可进入私有域列表。
 2. 在 “私有域列表” 中，选择您需要修改关联 VPC 的私有域，单击【关联 VPC】。如下图所示：
 ![](https://main.qcloudimg.com/raw/34bdeb8379edc0208d065977cc625a27.png)
 3. 在弹出的【修改关联 VPC】窗口中，请根据您的实际需求修改关联的 VPC。如下图所示：
