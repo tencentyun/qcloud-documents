@@ -84,21 +84,21 @@ DeScheduler 组件依赖于 Node 当前和过去一段时间的真实负载情�
 :::  yaml
 ```
 groups:
-    - name: cpu_mem_usage_active
-      interval: 30s
-      rules:
-      - record: mem_usage_active
-        expr: 100*(1-node_memory_MemAvailable_bytes/node_memory_MemTotal_bytes)
-    - name: cpu-usage-1m
-      interval: 1m
-      rules:
-      - record: cpu_usage_avg_5m
-        expr: 100 - (avg by (instance) (irate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)
-    - name: mem-usage-1m
-      interval: 1m
-      rules:
-      - record: mem_usage_avg_5m
-        expr: avg_over_time(mem_usage_active[5m])
+   - name: cpu_mem_usage_active
+     interval: 30s
+     rules:
+     - record: mem_usage_active
+       expr: 100*(1-node_memory_MemAvailable_bytes/node_memory_MemTotal_bytes)
+   - name: cpu-usage-1m
+     interval: 1m
+     rules:
+     - record: cpu_usage_avg_5m
+       expr: 100 - (avg by (instance) (irate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)
+   - name: mem-usage-1m
+     interval: 1m
+     rules:
+     - record: mem_usage_avg_5m
+       expr: avg_over_time(mem_usage_active[5m])
 ```
 :::
 </dx-codeblock>
