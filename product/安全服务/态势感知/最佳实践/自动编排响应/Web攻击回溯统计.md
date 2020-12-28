@@ -47,7 +47,7 @@
 ![](https://main.qcloudimg.com/raw/23b423152f6ee875da235ee60b37b928.png)
 	4. 当前后续操作建议为封禁 TOP5 恶意 IP，拦截方式支持“云防火墙”和 “WEB 应用防火墙”，如需封禁您可根据实际业务需求，选择拦截方式和拦截截止时间。
 	![](https://main.qcloudimg.com/raw/051338d0185beec8aada874b7abcf998.png)
-5. 查看报表，WAF 巡检报表统计每天的 Web 攻击事件概况、攻击者概况及受害者概况。
+5. 查看报表，WAF 巡检报表可统计每天的 Web 攻击事件概况、攻击者概况及受害者概况。
 	- **方式1**：您可在报表中心的 [报表列表](https://console.cloud.tencent.com/ssav2/report) 中，查看该剧本已生成的全部报表。
 	![](https://main.qcloudimg.com/raw/b8556d68636e1d35f04437a9c5d0b5f0.png)
 	- **方式2**：您可在报表响应详情的最新巡检报表中，查看该剧本已生成的最新报表。
