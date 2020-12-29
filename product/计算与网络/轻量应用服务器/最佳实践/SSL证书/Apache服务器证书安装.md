@@ -41,8 +41,9 @@
     - `2_cloud.tencent.com.crt` 证书文件
     - `3_cloud.tencent.com.key` 私钥文件
  - **CSR 文件内容**：`cloud.tencent.com.csr` 文件
->?CSR 文件是申请证书时由您上传或系统在线生成的，用于提供给 CA 机构。安装时可忽略该文件。
->
+ <dx-alert infotype="explain" title="">
+CSR 文件是申请证书时由您上传或系统在线生成的，用于提供给 CA 机构。安装时可忽略该文件。
+</dx-alert>
 2. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录轻量应用服务器。 
 3. 依次执行以下命令，进入 Apache 安装目录并创建 ssl 文件夹。
 ```
@@ -103,21 +104,20 @@ sudo /usr/local/lighthouse/softwares/apache/bin/httpd -k restart
 ```
 sudo vim /usr/local/lighthouse/softwares/apache/conf/httpd.conf
 ```
-2. 按 **i** 进入编辑模式，删除 `#LoadModule rewrite_module modules/mod_rewrite.so` 行首的 `#`。
+2. 按 **i** 进入编辑模式，进行如下修改：
+   1. 删除 `#LoadModule rewrite_module modules/mod_rewrite.so` 行首的 `#`。
+   2. 找到 `<Directory "/home/www/htdocs/">`，增加如下内容： 
+```
+RewriteEngine on
+RewriteCond %{SERVER_PORT} !^443$
+RewriteRule ^(.*)?$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
+```
+修改完成后如下图所示：
+![](https://main.qcloudimg.com/raw/bf7abb0339ef8093b2e6756a64b3b29e.png)
 3. 按 **Esc** 并输入 **:wq**，保存修改。
-4. 执行以下命令，修改配置文件 httpd-ssl.conf。
+4. 执行以下命令，重启 apache 服务。
 ```
-sudo vim /usr/local/lighthouse/softwares/apache/conf/extra/httpd-ssl.conf
+sudo /usr/local/lighthouse/softwares/apache/bin/httpd -k restart
 ```
-5. 将 [步骤9](id:Step9) 中增加的 `<Directory>...</Directory>` 配置，替换为如下内容： 
-```
-<Directory "/usr/local/lighthouse/softwares/apache/htdocs">
-        Options Indexes FollowSymLinks 
-        AllowOverride all
-        Require all granted
-        RewriteEngine on
-        RewriteCond %{SERVER_PORT} !^443$
-        RewriteRule ^(.*)?$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
-</Directory>
-```
+至此已成功设置 HTTPS 的自动跳转，您可使用 `http://cloud.tencent.com` 自动跳转至 HTTPS 页面。
  
