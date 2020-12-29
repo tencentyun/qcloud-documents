@@ -9,6 +9,7 @@
 | [registerListener](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud/registerListener.html) | 设置事件监听。        |
 | [unRegisterListener](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud/unRegisterListener.html) | 移除事件监听。        |
 
+
 ### 房间相关接口函数
 
 | API                                                          | 描述                                                         |
@@ -83,14 +84,14 @@
 
 | API                                                          | 描述                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [getDeviceManager](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud/getDeviceManager.html) | 获取设备管理模块。接口详情请参见 [设备管理](https://pub.dev/documentation/tencent_trtc_cloud/latest/tx_device_manager/TXDeviceManager-class.html) 文档。 |
+| [getDeviceManager](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud/getDeviceManager.html) | 获取设备管理模块，接口详情请参见 [设备管理](https://pub.dev/documentation/tencent_trtc_cloud/latest/tx_device_manager/TXDeviceManager-class.html) 文档。 |
 
 
 ### 美颜滤镜相关接口函数
 
 | API                                                          | 描述                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [getBeautyManager](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud/getBeautyManager.html) | 获取美颜管理对象。接口详情请参见 [美颜管理](https://pub.dev/documentation/tencent_trtc_cloud/latest/tx_beauty_manager/TXBeautyManager-class.html) 文档。 |
+| [getBeautyManager](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud/getBeautyManager.html) | 获取美颜管理对象，接口详情请参见 [美颜管理](https://pub.dev/documentation/tencent_trtc_cloud/latest/tx_beauty_manager/TXBeautyManager-class.html) 文档。 |
 | [setWatermark](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud/setWatermark.html) | 添加水印。                                                   |
 
 
@@ -98,7 +99,7 @@
 
 | API                                                          | 描述                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [getAudioEffectManager](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud/getAudioEffectManager.html) | 获取音效管理类 TXAudioEffectManager，用于管理BGM，短音效和人声特效。接口详情请参见 [音效管理](https://pub.dev/documentation/tencent_trtc_cloud/latest/tx_audio_effect_manager/TXAudioEffectManager-class.html) 文档。 |
+| [getAudioEffectManager](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud/getAudioEffectManager.html) | 获取音效管理类 TXAudioEffectManager，用于管理 BGM、短音效和人声特效，接口详情请参见 [音效管理](https://pub.dev/documentation/tencent_trtc_cloud/latest/tx_audio_effect_manager/TXAudioEffectManager-class.html) 文档。 |
 
 ### 自定义消息发送
 
@@ -127,7 +128,7 @@
 | [setConsoleEnabled](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud/setConsoleEnabled.html) | 启用或禁用控制台日志打印。  |
 
 
-## TRTCCloudListenerEnum
+## TRTCCloudListener
 
 腾讯云视频通话功能的事件回调接口。
 
@@ -135,34 +136,34 @@
 
 | API                                                          | 描述                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [onError](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onError) | 错误回调，表示 SDK 不可恢复的错误，一定要监听并分情况给用户适当的界面提示。 |
-| [onWarning](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onWarning) | 警告回调，用于告知您一些非严重性问题，例如出现卡顿或者可恢复的解码失败。 |
+| [onError](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onError) | 错误回调，表示 SDK 不可恢复的错误，一定要监听并分情况给用户适当的界面提示。 |
+| [onWarning](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onWarning) | 警告回调，用于告知您一些非严重性问题，例如出现卡顿或者可恢复的解码失败。 |
 
 
 ### 房间事件回调
 
 | API                                                          | 描述                                |
 | ------------------------------------------------------------ | ----------------------------------- |
-| [onEnterRoom](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onEnterRoom) | 已加入房间的回调。                  |
-| [onExitRoom](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onExitRoom) | 离开房间的事件回调。                |
-| [onSwitchRole](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onSwitchRole) | 切换角色的事件回调。                |
-| [onConnectOtherRoom](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onConnectOtherRoom) | 请求跨房通话（主播 PK）的结果回调。 |
-| [onDisConnectOtherRoom](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onDisConnectOtherRoom) | 结束跨房通话（主播 PK）的结果回调。 |
-| [onSwitchRoom](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onSwitchRoom) | 切换房间 (switchRoom) 的结果回调。  |
+| [onEnterRoom](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onEnterRoom) | 已加入房间的回调。                  |
+| [onExitRoom](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onExitRoom) | 离开房间的事件回调。                |
+| [onSwitchRole](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onSwitchRole) | 切换角色的事件回调。                |
+| [onConnectOtherRoom](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onConnectOtherRoom) | 请求跨房通话（主播 PK）的结果回调。 |
+| [onDisConnectOtherRoom](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onDisConnectOtherRoom) | 结束跨房通话（主播 PK）的结果回调。 |
+| [onSwitchRoom](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onSwitchRoom) | 切换房间（switchRoom）的结果回调。  |
 
 ### 成员事件回调
 
 | API                                                          | 描述                                                   |
 | ------------------------------------------------------------ | ------------------------------------------------------ |
-| [onRemoteUserEnterRoom](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onRemoteUserEnterRoom) | 有用户加入当前房间。                                   |
-| [onRemoteUserLeaveRoom](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onRemoteUserLeaveRoom) | 有用户离开当前房间。                                   |
-| [onUserVideoAvailable](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onUserVideoAvailable) | 远端用户是否存在可播放的主路画面（一般用于摄像头）。   |
-| [onUserSubStreamAvailable](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onUserSubStreamAvailable) | 远端用户是否存在可播放的辅路画面（一般用于屏幕分享）。 |
-| [onUserAudioAvailable](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onUserAudioAvailable) | 远端用户是否存在可播放的音频数据。                     |
-| [onFirstVideoFrame](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onFirstVideoFrame) | 开始渲染本地或远程用户的首帧画面。                     |
-| [onFirstAudioFrame](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onFirstAudioFrame) | 开始播放远程用户的首帧音频（本地声音暂不通知）。       |
-| [onSendFirstLocalVideoFrame](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onSendFirstLocalVideoFrame) | 首帧本地视频数据已经被送出。                           |
-| [onSendFirstLocalAudioFrame](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onSendFirstLocalAudioFrame) | 首帧本地音频数据已经被送出。                           |
+| [onRemoteUserEnterRoom](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onRemoteUserEnterRoom) | 有用户加入当前房间。                                   |
+| [onRemoteUserLeaveRoom](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onRemoteUserLeaveRoom) | 有用户离开当前房间。                                   |
+| [onUserVideoAvailable](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onUserVideoAvailable) | 远端用户是否存在可播放的主路画面（一般用于摄像头）。   |
+| [onUserSubStreamAvailable](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onUserSubStreamAvailable) | 远端用户是否存在可播放的辅路画面（一般用于屏幕分享）。 |
+| [onUserAudioAvailable](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onUserAudioAvailable) | 远端用户是否存在可播放的音频数据。                     |
+| [onFirstVideoFrame](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onFirstVideoFrame) | 开始渲染本地或远程用户的首帧画面。                     |
+| [onFirstAudioFrame](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onFirstAudioFrame) | 开始播放远程用户的首帧音频（本地声音暂不通知）。       |
+| [onSendFirstLocalVideoFrame](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onSendFirstLocalVideoFrame) | 首帧本地视频数据已经被送出。                           |
+| [onSendFirstLocalAudioFrame](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onSendFirstLocalAudioFrame) | 首帧本地音频数据已经被送出。                           |
 
 ### 播放背景音乐的回调接口
 
@@ -170,63 +171,62 @@
 
 | API                                                          | 描述                     |
 | ------------------------------------------------------------ | ------------------------ |
-| [onMusicObserverStart](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onMusicObserverStart) | 音乐播放开始的回调通知。 |
-| [onMusicObserverPlayProgress](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onMusicObserverPlayProgress) | 音乐播放进度的回调通知。 |
-| [onMusicObserverComplete](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onMusicObserverComplete) | 音乐播放结束的回调通知。 |
+| [onMusicObserverStart](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onMusicObserverStart) | 音乐播放开始的回调通知。 |
+| [onMusicObserverPlayProgress](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onMusicObserverPlayProgress) | 音乐播放进度的回调通知。 |
+| [onMusicObserverComplete](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onMusicObserverComplete) | 音乐播放结束的回调通知。 |
 
 ### 统计和质量回调
 
 | API                                                          | 描述                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [onNetworkQuality](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onNetworkQuality) | 网络质量，该回调每2秒触发一次，统计当前网络的上行和下行质量。 |
-| [onStatistics](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onStatistics) | 技术指标统计回调。                                           |
+| [onNetworkQuality](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onNetworkQuality) | 网络质量，该回调每2秒触发一次，统计当前网络的上行和下行质量。 |
+| [onStatistics](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onStatistics) | 技术指标统计回调。                                           |
 
 
 ### 服务器事件回调
 
 | API                                                          | 描述                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [onConnectionLost](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onConnectionLost) | SDK 跟服务器的连接断开。                                     |
-| [onTryToReconnect](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onTryToReconnect) | SDK 尝试重新连接到服务器。                                   |
-| [onConnectionRecovery](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onConnectionRecovery) | SDK 跟服务器的连接恢复。                                     |
-| [onSpeedTest](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onSpeedTest) | 服务器测速的回调，SDK 对多个服务器 IP 做测速，每个 IP 的测速结果通过这个回调通知。 |
+| [onConnectionLost](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onConnectionLost) | SDK 跟服务器的连接断开。                                     |
+| [onTryToReconnect](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onTryToReconnect) | SDK 尝试重新连接到服务器。                                   |
+| [onConnectionRecovery](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onConnectionRecovery) | SDK 跟服务器的连接恢复。                                     |
+| [onSpeedTest](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onSpeedTest) | 服务器测速的回调，SDK 对多个服务器 IP 做测速，每个 IP 的测速结果通过这个回调通知。 |
 
 
 ### 硬件设备事件回调
 
 | API                                                          | 描述                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [onCameraDidReady](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onCameraDidReady) | 摄像头准备就绪。                                             |
-| [onMicDidReady](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onMicDidReady) | 麦克风准备就绪。                                             |
-| [onUserVoiceVolume](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onUserVoiceVolume) | 用于提示音量大小的回调，包括每个 userId 的音量和远端总音量。 |
+| [onCameraDidReady](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onCameraDidReady) | 摄像头准备就绪。                                             |
+| [onMicDidReady](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onMicDidReady) | 麦克风准备就绪。                                             |
+| [onUserVoiceVolume](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onUserVoiceVolume) | 用于提示音量大小的回调，包括每个 userId 的音量和远端总音量。 |
 
 
 ### 自定义消息的接收回调
 
 | API                                                          | 描述                  |
 | ------------------------------------------------------------ | --------------------- |
-| [onRecvCustomCmdMsg](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onRecvCustomCmdMsg) | 收到自定义消息回调。  |
-| [onMissCustomCmdMsg](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onMissCustomCmdMsg) | 自定义消息丢失回调。  |
-| [onRecvSEIMsg](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onRecvSEIMsg) | 收到 SEI 消息的回调。 |
+| [onRecvCustomCmdMsg](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onRecvCustomCmdMsg) | 收到自定义消息回调。  |
+| [onMissCustomCmdMsg](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onMissCustomCmdMsg) | 自定义消息丢失回调。  |
+| [onRecvSEIMsg](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onRecvSEIMsg) | 收到 SEI 消息的回调。 |
 
 
 ### CDN 旁路转推回调
 
 | API                                                          | 描述                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| [onStartPublishing](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onStartPublishing) | 开始向腾讯云的直播 CDN 推流的回调，对应于 [TRTCCloud](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud-class.html#startPublishing) 中的 startPublishing() 接口。 |
-| [onStopPublishing](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onStopPublishing) | 停止向腾讯云的直播 CDN 推流的回调，对应于 [TRTCCloud](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud-class.html#stopPublishing) 中的 stopPublishing() 接口。 |
-| [onStartPublishCDNStream](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onStartPublishCDNStream) | 启动旁路推流到 CDN 完成的回调。                              |
-| [onStopPublishCDNStream](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onStopPublishCDNStream) | 停止旁路推流到 CDN 完成的回调。                              |
-| [onSetMixTranscodingConfig](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onSetMixTranscodingConfig) | 设置云端的混流转码参数的回调，对应于 [TRTCCloud](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud-class.html#setMixTranscodingConfig) 中的 setMixTranscodingConfig() 接口。 |
-
+| [onStartPublishing](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onStartPublishing) | 开始向腾讯云的直播 CDN 推流的回调，对应于 [TRTCCloud](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud-class.html#startPublishing) 中的 startPublishing() 接口。 |
+| [onStopPublishing](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onStopPublishing) | 停止向腾讯云的直播 CDN 推流的回调，对应于 [TRTCCloud](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud-class.html#stopPublishing) 中的 stopPublishing() 接口。 |
+| [onStartPublishCDNStream](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onStartPublishCDNStream) | 启动旁路推流到 CDN 完成的回调。                              |
+| [onStopPublishCDNStream](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onStopPublishCDNStream) | 停止旁路推流到 CDN 完成的回调。                              |
+| [onSetMixTranscodingConfig](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onSetMixTranscodingConfig) | 设置云端的混流转码参数的回调，对应于 [TRTCCloud](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud-class.html#setMixTranscodingConfig) 中的 setMixTranscodingConfig() 接口。 |
 
 
 ### 截图回调
 
 | API                                                          | 描述             |
 | ------------------------------------------------------------ | ---------------- |
-| [onSnapshotComplete](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListenerEnum-class.html#onSnapshotComplete) | 截图完成时回调。 |
+| [onSnapshotComplete](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_listener/TRTCCloudListener-class.html#onSnapshotComplete) | 截图完成时回调。 |
 
 
 ## 关键类型定义
@@ -241,7 +241,7 @@
 | [TRTCRenderParams](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_def/TRTCRenderParams-class.html) | 远端图像参数。                                      |
 | [TRTCMixUser](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_def/TRTCMixUser-class.html) | 云端混流中每一路子画面的位置信息。                  |
 | [TRTCTranscodingConfig](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_def/TRTCTranscodingConfig-class.html) | 云端混流（转码）配置。                              |
-| [TXVoiceChangerType](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_def/TXVoiceChangerType-class.html) | 变声类型定义（萝莉、大叔、重金属、外国人）。        |
+| [TXVoiceChangerType](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_def/TXVoiceChangerType-class.html) | 变声类型定义（萝莉、大叔、重金属、外国人等）。      |
 | [TXVoiceReverbType](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_def/TXVoiceReverbType-class.html) | 变声类型定义（KTV、小房间、大会堂、低沉、洪亮等）。 |
 | [AudioMusicParam](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_def/AudioMusicParam-class.html) | 音乐和人声设置接口参数。                            |
 | [TRTCAudioRecordingParams](https://pub.dev/documentation/tencent_trtc_cloud/latest/trtc_cloud_def/TRTCAudioRecordingParams-class.html) | 录音参数。                                          |
