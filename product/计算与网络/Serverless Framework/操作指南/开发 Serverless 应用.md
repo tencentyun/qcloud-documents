@@ -12,40 +12,37 @@ SDK: 2.3.2
 Components: 3.4.3
 ```
 
-<span id="doc"></span>
-## 组件全量配置文档
+
+## 组件全量配置文档[](id:doc)
 
 - [基础组件列表](https://cloud.tencent.com/document/product/1154/51106)
 - [框架组件列表](https://cloud.tencent.com/document/product/1154/51124)
 
 
 ## 操作步骤
-此处以部署一个使用 **Layer + Egg 框架项目**为例，教您如何在项目中引入多个组件，并快速完成部署，步骤如下：
+此处以部署一个使用 **Layer + Egg 框架项目**为例，指导您如何在项目中引入多个组件，并快速完成部署，步骤如下：
 
-### 1. 创建项目
-新建项目 `app-demo` 并进入该目录下
+### 步骤1：创建项目
+新建项目 `app-demo` 并进入该目录下：
 
    ```bash
    $ mkdir app-demo && cd app-demo
    ```
 
-### 2. 构建 Egg 项目
+### 步骤2：构建 Egg 项目
 
-2.1 在 `app-demo` 目录下，新建 `src` 文件夹，并在里面新建 Egg 项目
-
+1. 在 `app-demo` 目录下，新建 `src` 文件夹，并在文件夹中新建 Egg 项目：
 ```bash
 $ mkdir src && cd src
 $ npm init egg --type=simple
 $ npm i
 ```
 
-2.2 在 `src` 目录下，编写配置文件 `serverless.yml`
-
+2. 在 `src` 目录下，编写配置文件 `serverless.yml`：
 ```bash
 $ touch serverless.yml
 ```
-egg 组件的 yml 文件示例如下，全量配置文件可参考 [Eggjs 组件全量配置](https://github.com/serverless-components/tencent-egg/blob/master/docs/configure.md)
-
+ egg 组件的 yml 文件示例如下（全量配置文件可参考 [Eggjs 组件全量配置](https://github.com/serverless-components/tencent-egg/blob/master/docs/configure.md)）：
 ```yml
 # serverless.yml
 app: app-demo #应用名称，同一个应用下每个组件的 app,stage,org 参数必须保持一一致
@@ -69,20 +66,19 @@ inputs:
       - https
     environment: release
 ```
+	>!
+>- 同一个应用下，每一个组件创建的资源的 **app,stage,org** 参数必须保持一致，**name** 参数必须唯一。
+>- Egg 组件实际上创建的是一个 API 网关触发器 + 云函数资源，此处可根据您的实际开发场景，选择不同组件，配置方法相似，详情请参考 [组件全量配置](#doc)。
 
-> **注意：**
-> 1. 同一个应用下，每一个组件创建的资源的 **app,stage,org** 参数必须保持一致，**name** 参数必须唯一
-> 2. egg 组件实际上创建的是一个 API 网关触发器 + 云函数资源，此处可根据您的实际开发场景，选择不同组件，配置方法相似，详情请参考[组件全量配置](#doc)
 
-
-### 3. 创建层
-回到 `app-demo` 根目录下，新建 `layer` 文件夹，并在里面新建 layer 配置文件 `serverless.yml`
-   ```
-   $ cd ..
-   $ mkdir layer && cd layer
-   $ touch serverless.yml
-   ```
-`serverless.yml` 可以按照如下模版配置，更多配置请参考 [Layer组件全量配置](https://github.com/serverless-components/tencent-layer/blob/master/docs/configure.md)
+### 步骤3：创建层
+回到 `app-demo` 根目录下，新建 `layer` 文件夹，并在里面新建 layer 配置文件 `serverless.yml`：
+```
+$ cd ..
+$ mkdir layer && cd layer
+$ touch serverless.yml
+```
+`serverless.yml` 可以按照如下模版配置（更多配置请参考 [Layer 组件全量配置](https://github.com/serverless-components/tencent-layer/blob/master/docs/configure.md)）：
 
 ```yml
 # serverless.yml
@@ -102,13 +98,13 @@ inputs:
     - Nodejs10.15
 ```
 
-> **注意：**
-> 1. 同一个应用下，每一个组件创建的资源的 **app,stage,org** 参数必须保持一致，**name** 参数必须唯一
-> 2. layer 组件也支持从 COS 桶导入项目，详情参考[Layer组件全量配置](https://github.com/serverless-components/tencent-layer/blob/master/docs/configure.md)，填写 `bucket` 参数时注意不要带 `-${appid}`，组件会自动为您添加
+>!
+>- 同一个应用下，每一个组件创建的资源的 **app,stage,org** 参数必须保持一致，**name** 参数必须唯一。
+>- layer 组件也支持从 COS 桶导入项目，详情参考[Layer组件全量配置](https://github.com/serverless-components/tencent-layer/blob/master/docs/configure.md)，填写 `bucket` 参数时注意不要带 `-${appid}`，组件会自动为您添加。
 
-### 4. 组织资源关系
+### 步骤4：组织资源关系
 
-同一个应用内，用户可以根据各个资源的依赖关系组织资源的创建顺序，以该项目为例，用户需要先创建好 layer，再在 Egg 项目里使用该 layer，因此需要保证资源的创建顺序为 **layer --》 eggjs 应用**，具体操作如下：
+同一个应用内，用户可以根据各个资源的依赖关系组织资源的创建顺序，以该项目为例，用户需要先创建好 layer，再在 Egg 项目里使用该 layer，因此需要保证资源的创建顺序为 **layer -> eggjs 应用**，具体操作如下：
 
 修改 Egg 项目的 yml 配置文件，在层配置部分按以下语法进行配置，引用 Layer 组件的部署输出作为 Egg 项目的部署输入，即可保证 Layer 组件一定在 Egg 项目之前完成创建：
 
@@ -136,7 +132,7 @@ inputs:
     environment: release
 ```
 
-变量引用格式请参考[变量引用说明](#quote)
+变量引用格式请参考 [变量引用说明](#quote)。
 
 此时已完成 Serverless 应用的构建，项目目录结构如下：
 
@@ -152,7 +148,7 @@ inputs:
    └── .env # 环境变量文件
    ```
   
-### 5. 部署应用
+### 步骤5：部署应用
 在项目根目录下，执行 `sls deploy`，即可完成 Layer 创建，并将 Layer 组件的输出作为 Egg 组件的输入，完成 Egg 框架上云。
 ```bash
 $ sls deploy
@@ -190,10 +186,10 @@ app-demo-egg:
 
 点击 `apigw` 输出的 URL，即可访问您已经创建好的应用，执行 `sls info`，可以查看部署的实例状态，执行 `sls remove`，可以快速移除应用。
 
-### 6. 发布应用模版
+### 步骤6：发布应用模版
 完成模版构建后，Serverless Framework 支持您将自己的 Serverless 项目模版发布在 Serverless Registry 应用中心中，提供给团队和他人使用。
 
-#### 6.1 创建配置文件
+#### 1. 创建配置文件
 根目录下，新建 `serverless.template.yml` 文件，此时项目目录结构如下：
    
    ```
@@ -208,7 +204,8 @@ app-demo-egg:
    ├── .env # 环境变量文件
    └── serverless.template.yml # 模版项目描述文件
    ```
-#### 6.2 配置项目模版文件并发布
+
+#### 2. 配置项目模版文件并发布
 
 ```yml
 # serverless.template.yml
@@ -246,31 +243,30 @@ Publishing "app-demo@0.0.0"...
 Serverless › Successfully published app-demo
 ```
 
-#### 6.3 复用模版
+#### 3. 复用模版
 
-完成发布后，其他人可通过 `sls init` 指令，快速下载您的模版并进行项目复用
+完成发布后，其他人可通过 `sls init` 指令，快速下载您的模版并进行项目复用。
 ```
 $ sls init app-demo --name example
 $ cd example
 $ npm install
 ```
 
-<span id="quote"></span>
-### 变量引用说明
-`serverless.yml` 支持多种方式引用变量
 
-- 顶级参数引用
-   
+### 变量引用说明[](id:quote)
+`serverless.yml` 支持多种方式引用变量：
+
+- **顶级参数引用**
    在 `inputs` 字段里，支持直接引用顶级配置信息，引用语法如下：`${org}`、`${app}`
-- 环境变量引用
-   
-   在 `serverless.yml` 中，可以直接通过 `${env}` 的方式，直接引用环境变量配置（包含 .env 文件中的环境变量配置，以及手动配置在环境中的变量参数）
-   
-   例如，通过`${env:REGION}`，引用环境变量 REGION
 
-- 引用其它组件输出结果
+- **环境变量引用**  
+   在 `serverless.yml` 中，可以直接通过 `${env}` 的方式，直接引用环境变量配置（包含 .env 文件中的环境变量配置，以及手动配置在环境中的变量参数）。
+   
+   例如，通过`${env:REGION}`，引用环境变量 REGION。
 
-   如果希望在当前组件配置文件中引用其他组件实例的输出信息，可以通过如下语法进行配置：`${output:[app]:[stage]:[instance name].[output]}`
+- **引用其它组件输出结果**
+   如果希望在当前组件配置文件中引用其他组件实例的输出信息，可以通过如下语法进行配置：
+	 `${output:[app]:[stage]:[instance name].[output]}`
 
 示例 yml：
 ```yml
