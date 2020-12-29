@@ -41,7 +41,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |type   |Integer  | 会议类型：<br>0：预约会议类型<br>1：快速会议类型   |
 |hosts   |用户对象数组  | 会议主持人列表（企业用户为企业自定义账号；个人用户为用户名、手机号等；oauth2.0 鉴权用户为 openId）。|
 |current_hosts  |用户对象数组  | 会议当前主持人列表（企业用户为企业自定义账号；个人用户为用户名、手机号等；oauth2.0 鉴权用户为 openId）。|
-|current_co_hosts  |用户对象数组  | 联席主持人列表（企业用户为企业自定义账号；个人用户为用户名、手机号等；oauth2.0 鉴权用户为 openId）。|
+|current_co_hosts  |用户对象数组  | 会议联席主持人列表（企业用户为企业自定义账号；个人用户为用户名、手机号等；oauth2.0 鉴权用户为 openId）。|
 |participants  |用户对象数组 |邀请的参会者（企业用户为企业自定义账号；个人用户为用户名、手机号等；oauth2.0 鉴权用户为 openId）。 |
 |start_time  |String | 会议开始时间戳（单位秒）。 |
 |end_time  |String | 会议结束时间戳（单位秒）。  |
