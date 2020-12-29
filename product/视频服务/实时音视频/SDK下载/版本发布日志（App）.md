@@ -1,3 +1,41 @@
+### Version 8.2 @ 2020.12.23
+
+**功能新增**
+- iOS&Android：新增回调混合本地采集与所有播放的音频数据，本地音频录制更方便啦。
+- Android：视频渲染组件 TXCloudVideoView 支持通过 `addVideoView(new TextureView(getApplicationContext()))` 接口将 TextureView 用于本地渲染。
+- Android：自定义渲染回调支持 RGBA 格式的视频数据。
+- Windows：支持本地摄像头采集和播放远端视频流截图，请参见 [ITRTCCloud.snapshotVideo](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a3769ecbff6c0c4ee7cc5e4b40aaafe96)。
+- Windows：屏幕分享支持通过 addExcludedShareWindow 和 addIncludedShareWindow 接口排除或强制包含您所指定的窗口，从而实现更灵活的屏幕分享能力。
+- Mac&iOS：自定义渲染的模式下也可以调用 TRTCCloud.snapshotVideo 截取视频流图片。
+
+**质量优化**
+- Android：在线直播编码质量优化，视频画面更清晰。
+- Windows：优化回声消除算法，进一步提升回声消除的效果。
+
+**问题修复**
+- iOS：修复 VODPlayer 和 TRTC 同时使用时偶现的音频播放异常的问题。
+- Android：修复自定义美颜引起的本地渲染黑屏问题。
+- Windows：修复偶现的当前进程无法退出的问题。
+
+
+## Version 8.1 @ 2020.12.03
+
+**功能新增**
+- 全平台：统计信息（onStatistics）中新增远端视频卡顿的相关统计指标。
+- 全平台：支持通过音量调节接口 setAudioPlayoutVolume（100-150） 实现声音的增益效果。
+- iOS&Android：新增 setLocalVideoProcessListener 接口，能更好地支持第三方美颜 SDK 的集成。
+- C# ：同步升级至最新版本的 API 接口。
+
+**质量优化**
+- 全平台：优化戴耳机时的声音处理算法，提高声音音质。
+- Android：优化音频前处理算法，降低 3A 算法对音质的影响。
+
+**问题修复**
+- iOS：修复部分偶现的强杀 App 导致的崩溃问题。
+- Android：修复当采集帧率比较高时出现的美颜效果异常问题。
+- Windows：修复高 DPI 下屏幕分享偶现的崩溃问题。
+
+
 ## Version 8.0 @ 2020.11.13
 
 **新增**

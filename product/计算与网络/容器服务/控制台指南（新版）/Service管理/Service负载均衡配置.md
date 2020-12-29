@@ -155,7 +155,7 @@ spec:
         enable: true
         sessionExpireTime: 3600
       healthCheck:
-        enabled: true
+        enable: true
         intervalTime: 10
         healthNum: 2
         unHealthNum: 2

@@ -8,7 +8,7 @@
 | [ServiceGetDeviceList](https://cloud.tencent.com/document/product/1081/50251) | 获取设备列表             |
 | [ServiceCallDeviceActionSync](https://cloud.tencent.com/document/product/1081/50252) | 同步调用设备行为         |
 | [ServiceCallDeviceActionAsync](https://cloud.tencent.com/document/product/1081/50253) | 异步调用设备行为         |
-| [ServiceControlDeviceData](https://cloud.tencent.com/document/product/1081/50254) | 对绑定的设备发起控制操作 |
+| [ServiceControlDeviceData](https://cloud.tencent.com/document/product/1081/50254) | 设置控制设备的属性数据 |
 
 ## 数据查询
 
