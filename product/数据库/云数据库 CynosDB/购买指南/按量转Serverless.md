@@ -1,9 +1,9 @@
 
-云原生数据库 TDSQL-C 支持按量计费转 Serverless 计费的模式转换，按量计费转 Serverless 会通过后台转换集群类型进行计费模式的转换，转换后 [账单和明细](https://console.cloud.tencent.com/expense/bill/summary) 会发生变化，计费模式仍然为后付费。
+云原生数据库 TDSQL-C 计费方式支持按量计费转 Serverless。TDSQL-C 通过后台转换集群类型来实现进行按量计费转 Serverless，转换后 [账单和明细](https://console.cloud.tencent.com/expense/bill/summary) 会发生变化，计费模式仍然为后付费。
 
 >!
->- 按量计费转 Serverless 过程中，不会对您的业务访问造成任何影响，请放心使用。
->- 按量计费转 Serverless 后，Serverless 实例无法转换回按量计费实例。
+>- 按量计费转换 Serverless 过程中，不会对您的业务访问造成任何影响，请放心使用。
+>- 按量计费转换 Serverless 后，Serverless 实例无法转换回按量计费实例。
 
 ## 操作步骤
 1. 登录 [TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb)，在实例列表选择所需实例，在“操作”列选择【更多】>【按量转Serverless】。
