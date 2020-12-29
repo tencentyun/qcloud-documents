@@ -3,11 +3,11 @@ CMQ 调用链组件目前支持使用 cmq-http-client 的方式，目前仅支�
 您需要引入 CMQ 的依赖1.0.7.4以上版本（低版本不支持）。
 
 ```plaintext
-        <dependency>
-            <groupId>com.qcloud</groupId>
-            <artifactId>cmq-http-client</artifactId>
-            <version>1.0.7.4</version>
-        </dependency>
+<dependency>
+			<groupId>com.qcloud</groupId>
+			<artifactId>cmq-http-client</artifactId>
+			<version>1.0.7.4</version>
+</dependency>
 ```
 
 
