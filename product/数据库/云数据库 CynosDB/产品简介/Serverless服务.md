@@ -10,7 +10,7 @@ Serverless 是腾讯自研云原生数据库 TDSQL-C 的无服务器架构版，
 - 小程序云开发、中小企业建站等 SaaS 应用场景。
 
 ## 计费模式
-计算和存储独立计费：计算按 CCU 个数计费，存储按使用量 GB 计费，计费系统按秒计费，按小时结算。
+计算和存储独立计费：计算按 CCU 个数计费，存储按使用量 GB 计费，计费系统按秒计费，按小时结算，详细价格请参见 [计费概述](https://cloud.tencent.com/document/product/1003/30493)。
 
 CCU（CynosDB Compute Unit）为 Serverless 的计算计费单位，一个 CCU 近似等于1个 CPU 和 2GB 内存的计算资源，每个计费周期的 CCU 使用数量为：`数据库所使用的 CPU 核数` 与 `内存大小的1/2` 二者中取最大值。
 
