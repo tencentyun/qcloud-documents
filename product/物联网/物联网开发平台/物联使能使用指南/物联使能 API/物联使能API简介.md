@@ -79,23 +79,30 @@
   - 若输入参数中包含下划线，则需要将其转换为 `“.”`。
   
 将格式化后的各个参数用 `"&"` 拼接在一起，最终生成的请求字符串为：
-```
+<dx-codeblock>
+::: Java Java
 Action=ServiceDescribeDeviceData&AppKey=ServiceAppKey&DeviceName=Device001&Nonce=71087795&ProductId=ProductA&RequestId=476c990a-f5b7-1575-987c-4ef70e474932&Timestamp=1546315200
-```
+:::
+</dx-codeblock>
+
 
 3. 生成签名串
-   使用 HMAC-SHA1 算法对上一步中获得的签名原文字符串进行签名，然后将生成的签名串使用 Base64 进行编码，即可获得最终的签名串。
-   具体代码如下，以 PHP 语言为例：
-```
+使用 HMAC-SHA1 算法对上一步中获得的签名原文字符串进行签名，然后将生成的签名串使用 Base64 进行编码，即可获得最终的签名串。
+具体代码如下，以 PHP 语言为例：
+<dx-codeblock>
+::: Java PHP
 $secretKey = 'ServiceAppSecret';
 $srcStr = 'Action=ServiceDescribeDeviceData&AppKey=ServiceAppKey&DeviceName=Device001&Nonce=71087795&ProductId=ProductA&RequestId=476c990a-f5b7-1575-987c-4ef70e474932&Timestamp=1546315200';
 $signStr = base64_encode(hash_hmac('sha1', $srcStr, $secretKey, true));
 echo $signStr
-```
+:::
+</dx-codeblock>
+
 最终得到的签名串为：
 ```
 P206d+JzP37FLKBDkD689wqnl4k=
 ```
 
 使用其它程序设计语言开发时，可用上面示例中的原文进行签名验证，得到的签名串与例子中的一致即可。
+
 
