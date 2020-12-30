@@ -79,7 +79,7 @@ ExcludeRule=*.png
 <dx-alert infotype="notice" title="">
 - `SourceDirPath` 和 `TargetDirPath` 为必填项，且需要提供文件夹的绝对路径。
 - `StartDate`、`EndDate`、`BandwidthLimitInKbps`、`IncludeRule`、`ExcludeRule`为选填项，可以不在配置文件中列出。
-- `StartDate` 和 `EndData` 的格式必须为`yyyy mmm dd HH:MM:SS`。比如2020年8月8号20点20分8秒，不能写成`2020 Aug 8 20:20:8`，而要遵循格式，写成`2020 Aug 08 20:20:08`。
+- `StartDate` 和 `EndData` 的格式必须为`yyyy mmm dd HH:MM:SS`。例如2020年8月8号20点20分8秒，不能写成`2020 Aug 8 20:20:8`，而要遵循格式，写成`2020 Aug 08 20:20:08`。
 - `BandwidthLimitInKbps`的合法值范围是[0, 2147483647]，0代表不限速。说明：工具运行过程中，迁移/备份速度与所在主机的 CPU/内存配置/网络带宽配置，源及目的地址的网络位置，以及所需要迁移/备份的文件大小直接相关；通常主机配置越高、网络出口带宽越大同时文件越大迁移/备份速度会越快。例如，主机配置为 8 核 16 G 网络带宽 1.5 Gbps， 从本地文件系统迁移 4KB  小文件到 CFS 性能型文件系统，速度大约为 40KB/s；从本地文件系统迁移 1TB 大文件到 CFS 性能型文件系统，速度大约为140MB/s。
 - `IncludeRule/ExcludeRule` 的匹配规则如下：
   - 迁移工具目前只支持用户提供 `IncludeRule` 和 `ExcludeRule` 各一条。
