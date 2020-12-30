@@ -9,9 +9,7 @@
   - Xcode 11.0及以上版本。
   - 请确保您的项目已设置有效的开发者签名。
 
-
-
-## 集成SDK
+## 集成 SDK
 
 Flutter SDK 已经发布到 [pub 库](https://pub.dev/packages/tencent_trtc_cloud)，您可以通过配置 `pubspec.yaml` 自动下载更新。
 1. 在项目的 `pubspec.yaml` 中写如下依赖：
