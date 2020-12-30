@@ -1,9 +1,8 @@
 ## 操作场景
 本文以使用 LAMP 应用镜像的轻量应用服务器为例，介绍如何在服务器中安装 SSL 证书并开启 HTTPS 访问。该服务器中默认已安装 Apache 软件，您可参考本文并结合实际情况进行操作。
 
->?
->- 本文档以通过腾讯云 SSL 证书服务申请的付费、免费证书为例。腾讯云 SSL 证书服务相关信息可参考 [SSL 证书产品介绍](https://cloud.tencent.com/document/product/400/7572)、[SSL 证书购买指南](https://cloud.tencent.com/document/product/400/7994) 和 [申请免费 SSL 证书](https://cloud.tencent.com/document/product/400/6814)。
->- 如您的轻量应用服务器使用 Discuz! Q 应用镜像，则可通过内置的宝塔 Linux 面板进行 SSL 证书安装，详情请参考宝塔 Linux 面板官方用户文档。
+>?本文档以通过腾讯云 SSL 证书服务申请的付费、免费证书为例。腾讯云 SSL 证书服务相关信息可参考 [SSL 证书产品介绍](https://cloud.tencent.com/document/product/400/7572)、[SSL 证书购买指南](https://cloud.tencent.com/document/product/400/7994) 和 [申请免费 SSL 证书](https://cloud.tencent.com/document/product/400/6814)。
+>
 
 ## 前提条件
 - 已准备文件远程拷贝软件，例如 WinSCP（建议从官方网站获取最新版本）。
@@ -44,7 +43,7 @@
  <dx-alert infotype="explain" title="">
 CSR 文件是申请证书时由您上传或系统在线生成的，用于提供给 CA 机构。安装时可忽略该文件。
 </dx-alert>
-2. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录轻量应用服务器。 
+2. 参考 [使用 WebShell 方式登录 Linux 实例](https://cloud.tencent.com/document/product/1207/44642)，登录轻量应用服务器。
 3. 依次执行以下命令，进入 Apache 安装目录并创建 ssl 文件夹。
 ```
 cd /usr/local/lighthouse/softwares/apache
@@ -53,6 +52,7 @@ cd /usr/local/lighthouse/softwares/apache
 sudo mkdir ssl
 ```
 4. 将已获取到的 `1_root_bundle.crt` 证书文件、`2_cloud.tencent.com.crt` 证书文件以及 `3_cloud.tencent.com.key` 私钥文件从本地目录拷贝到已创建的 `/usr/local/lighthouse/softwares/apache/ssl` 目录下。  
+
 5. 执行以下命令，编辑配置文件 httpd.conf。
 ```
 sudo vim /usr/local/lighthouse/softwares/apache/conf/httpd.conf
