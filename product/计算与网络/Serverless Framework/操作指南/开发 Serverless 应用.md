@@ -45,7 +45,7 @@ $ touch serverless.yml
  egg 组件的 yml 文件示例如下（全量配置文件可参考 [Eggjs 组件全量配置](https://github.com/serverless-components/tencent-egg/blob/master/docs/configure.md)）：
 ```yml
 # serverless.yml
-app: app-demo #应用名称，同一个应用下每个组件的 app,stage,org 参数必须保持一一致
+app: app-demo #应用名称，同一个应用下每个组件的 app、stage、org 参数必须保持一一致
 org: app-demo
 stage: dev
 component: egg 
@@ -67,7 +67,7 @@ inputs:
     environment: release
 ```
 	>!
->- 同一个应用下，每一个组件创建的资源的 **app,stage,org** 参数必须保持一致，**name** 参数必须唯一。
+>- 同一个应用下，每一个组件创建的资源的 **app、stage、org** 参数必须保持一致，**name** 参数必须唯一。
 >- Egg 组件实际上创建的是一个 API 网关触发器 + 云函数资源，此处可根据您的实际开发场景，选择不同组件，配置方法相似，详情请参考 [组件全量配置](#doc)。
 
 
@@ -82,7 +82,7 @@ $ touch serverless.yml
 
 ```yml
 # serverless.yml
-app: app-demo #应用名称，同一个应用下每个组件的 app,stage,org 参数必须保持一致
+app: app-demo #应用名称，同一个应用下每个组件的 app、stage、org 参数必须保持一致
 org: app-demo
 stage: dev
 component: layer 
@@ -99,7 +99,7 @@ inputs:
 ```
 
 >!
->- 同一个应用下，每一个组件创建的资源的 **app,stage,org** 参数必须保持一致，**name** 参数必须唯一。
+>- 同一个应用下，每一个组件创建的资源的 **app、stage、org** 参数必须保持一致，**name** 参数必须唯一。
 >- layer 组件也支持从 COS 桶导入项目，详情参考[Layer组件全量配置](https://github.com/serverless-components/tencent-layer/blob/master/docs/configure.md)，填写 `bucket` 参数时注意不要带 `-${appid}`，组件会自动为您添加。
 
 ### 步骤4：组织资源关系
@@ -253,7 +253,7 @@ $ npm install
 ```
 
 
-### 变量引用说明[](id:quote)
+## 变量引用说明[](id:quote)
 `serverless.yml` 支持多种方式引用变量：
 
 - **顶级参数引用**
