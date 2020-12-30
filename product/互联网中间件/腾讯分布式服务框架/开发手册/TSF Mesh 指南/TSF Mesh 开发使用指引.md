@@ -56,13 +56,13 @@ spec:
   - name: user # 服务名
     ports:     	
     - targetPort: 8091 # 服务监听端口 
-      protocol: http # 目前支持 HTTP 和 HTTP2，您可使用 HTTP2 部署 gRPC 服务
+      protocol: http # 目前支持HTTP、HTTP2和gRPC
     healthCheck:
       path: /health # 健康检查 URL
 ```
 
 >!
-- healthCheck 是健康检查的接口，请确认本地调用`curl -i -H 'Host: local-service' {ip}:{Port}/health`能返回200。
+- healthCheck 是健康检查的接口，请确认本地调用`curl -i -H 'Host: local-service' {ip}:{Port}/health`能返回200，否则，健康检查失败会导致此服务实例变为离线状态，其它服务将无法调用该服务实例；如果不提供此健康检查接口，sidecar会通过TCP的方式探测targetPort是否连通来判断此服务实例是否健康。
 - `Host: local-service`是代理加的 header，业务如果对 Host 有检查（如 Nginx 配置的 server_name），则需将 local-service 加到白名单。
 
 
