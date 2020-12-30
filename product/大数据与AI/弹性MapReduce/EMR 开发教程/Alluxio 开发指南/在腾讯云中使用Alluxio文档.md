@@ -1,7 +1,7 @@
 ## 概述
 在腾讯云 EMR 上提供了开箱可用的 Alluxio 服务，以帮助腾讯云客户可以快速实现分布式内存级缓存加速、简化数据管理等。同时还可以通过腾讯云 EMR 控制台或 API 接口，使用配置下发功能，快速配置多层级缓存和元数据管理等，获取一站式监控告警等功能。
 
-## 准备工作
+## 准备
 - 腾讯云 EMR 的 Hadoop 标准版本2.1.0版本及以上
 - 腾讯云 EMR 的 Hadoop 天穹版本1.0版本及以上
 
@@ -31,7 +31,7 @@
 在腾讯云 EMR 集群上默认已部署使用 COS 作为 UFS 的依赖 jar 包，只需授予访问 COS 的权限，并把 COS mount 到 Alluxio 上即可使用。
 
 ### 授权
-若当前集群未开启对象存储，可在【[访问管理控制台-角色管理](https://console.cloud.tencent.com/cam/role/grant?roleName=EMR_QCSRole&policyName=QcloudAccessForEMRRoleInApplicationDataAccess&principal=eyJzZXJ2aWNlIjoiZW1yLmNsb3VkLnRlbmNlbnQuY29tIn0=&serviceType=EMR&s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Femr%2Fstatic%2Fframework%2Femr-g9qk9p0g%3Ftype%3DinstanceDetail%26regionId%3D8)】中进行授权，授权后 EMR 中节点可以通过临时秘钥访问 COS 中数据。
+若当前集群未开启对象存储，可在【[访问管理控制台-角色管理](https://console.cloud.tencent.com/cam/role/grant?roleName=EMR_QCSRole&policyName=QcloudAccessForEMRRoleInApplicationDataAccess&principal=eyJzZXJ2aWNlIjoiZW1yLmNsb3VkLnRlbmNlbnQuY29tIn0=&serviceType=EMR&s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Femr%2Fstatic%2Fframework%2Femr-g9qk9p0g%3Ftype%3DinstanceDetail%26regionId%3D8)】中进行授权，授权后 EMR 中节点可以通过临时密钥访问 COS 中数据。
 ![](https://main.qcloudimg.com/raw/8bf785e44192b8efca1425eefaaad16d.png)
 
 ### Mount
