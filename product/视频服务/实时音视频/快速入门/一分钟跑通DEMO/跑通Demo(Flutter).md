@@ -61,17 +61,17 @@
 
 ## 常见问题
 
-- [两台手机同时运行 Demo，为什么看不到彼此的画面？](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que1)
-- [防火墙有什么限制？](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que2)
-- [iOS 打包运行 Crash？](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que3)
-- [iOS 无法显示视频（Android 正常）？](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que4)
-- [更新 SDK 版本后，iOS CocoaPods 运行报错？](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que5)
-- [Android Manifest merge failed 编译失败？](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que6)
-- [因为没有签名，真机调试报错?](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que7)
-- [对插件内的 swift 文件做了增删后，build 时查找不到对应文件？](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que8)
-- [Run 报错“Info.plit, error: No value at that key path or invalid key path: NSBonjourServices”？](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que9)
-- [Pod install 报错？](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que10)
-- [Run 的时候 iOS 版本依赖报错？](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que11)
+- [两台手机同时运行 Demo，为什么看不到彼此的画面？](https://cloud.tencent.com/document/product/647/51623#que1)
+- [防火墙有什么限制？](https://cloud.tencent.com/document/product/647/51623#que2)
+- [iOS 打包运行 Crash？](https://cloud.tencent.com/document/product/647/51623#que3)
+- [iOS 无法显示视频（Android 正常）？](https://cloud.tencent.com/document/product/647/51623#que4)
+- [更新 SDK 版本后，iOS CocoaPods 运行报错？](https://cloud.tencent.com/document/product/647/51623#que5)
+- [Android Manifest merge failed 编译失败？](https://cloud.tencent.com/document/product/647/51623#que6)
+- [因为没有签名，真机调试报错?](https://cloud.tencent.com/document/product/647/51623#que7)
+- [对插件内的 swift 文件做了增删后，build 时查找不到对应文件？](https://cloud.tencent.com/document/product/647/51623#que8)
+- [Run 报错“Info.plit, error: No value at that key path or invalid key path: NSBonjourServices”？](https://cloud.tencent.com/document/product/647/51623#que9)
+- [Pod install 报错？](https://cloud.tencent.com/document/product/647/51623#que10)
+- [Run 的时候 iOS 版本依赖报错？](https://cloud.tencent.com/document/product/647/51623#que11)
 
 
 
