@@ -61,17 +61,17 @@
 
 ## 常见问题
 
-- [两台手机同时运行 Demo，为什么看不到彼此的画面？](https://cloud.tencent.com/document/product/647/43019#que16_flutter)
-- [防火墙有什么限制？](https://cloud.tencent.com/document/product/647/43019#que17_flutter)
-- [iOS 打包运行 Crash？](https://cloud.tencent.com/document/product/647/43019#que18_flutter)
-- [iOS 无法显示视频（Android 正常）？](https://cloud.tencent.com/document/product/647/43019#que19_flutter)
-- [更新 SDK 版本后，iOS CocoaPods 运行报错？](https://cloud.tencent.com/document/product/647/43019#que20_flutter)
-- [Android Manifest merge failed 编译失败？](https://cloud.tencent.com/document/product/647/43019#que21_flutter)
-- [因为没有签名，真机调试报错?](https://cloud.tencent.com/document/product/647/43019#que22_flutter)
-- [对插件内的 swift 文件做了增删后，build 时查找不到对应文件？](https://cloud.tencent.com/document/product/647/43019#que23_flutter)
-- [Run 报错“Info.plit, error: No value at that key path or invalid key path: NSBonjourServices”？](https://cloud.tencent.com/document/product/647/43019#que24_flutter)
-- [Pod install 报错？](https://cloud.tencent.com/document/product/647/43019#que25_flutter)
-- [Run 的时候 iOS 版本依赖报错？](https://cloud.tencent.com/document/product/647/43019#que26_flutter)
+- [两台手机同时运行 Demo，为什么看不到彼此的画面？](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que16_flutter)
+- [防火墙有什么限制？](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que17_flutter)
+- [iOS 打包运行 Crash？](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que18_flutter)
+- [iOS 无法显示视频（Android 正常）？](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que19_flutter)
+- [更新 SDK 版本后，iOS CocoaPods 运行报错？](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que20_flutter)
+- [Android Manifest merge failed 编译失败？](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que21_flutter)
+- [因为没有签名，真机调试报错?](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que22_flutter)
+- [对插件内的 swift 文件做了增删后，build 时查找不到对应文件？](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que23_flutter)
+- [Run 报错“Info.plit, error: No value at that key path or invalid key path: NSBonjourServices”？](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que24_flutter)
+- [Pod install 报错？](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que25_flutter)
+- [Run 的时候 iOS 版本依赖报错？](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que26_flutter)
 
 
 
