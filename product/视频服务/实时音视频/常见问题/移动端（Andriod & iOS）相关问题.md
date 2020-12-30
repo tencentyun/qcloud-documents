@@ -92,7 +92,7 @@ TRTC 6.3 版本开始已提供 arm64-v8a 架构 ABI 支持。
 4. 重新运行。
 
 [](id:que21_flutter)
-### Android 端 Manifest merge failed 编译失败？
+### Android Manifest merge failed 编译失败？
 1. 请打开 `/example/android/app/src/main/AndroidManifest.xml` 文件。
 2. 将 `xmlns:tools="http://schemas.android.com/tools"` 加入到 manifest 中。
 3. 将 `tools:replace="android:label"` 加入到 application 中。
