@@ -62,13 +62,13 @@
    对所有请求参数按参数名做字典序升序排列，所谓字典序升序排列，直观上就如同在字典中排列单词一样排序，按照字母表或数字表里递增顺序的排列次序，即先考虑第一个 “字母”，在相同的情况下考虑第二个 “字母”，依此类推。您可以借助编程语言中的相关排序函数来实现这一功能，例如 PHP 中的 ksort 函数。上述示例参数的排序结果如下：
 ```
 {
-    Action=ServiceDescribeDeviceData,
-    AppKey=ServiceAppKey,
-    DeviceName=Device001,
-    Nonce=71087795,
-    ProductId=ProductA,
-    RequestId=476c990a-f5b7-1575-987c-4ef70e474932,
-    Timestamp=1546315200
+		Action=ServiceDescribeDeviceData,
+		AppKey=ServiceAppKey,
+		DeviceName=Device001,
+		Nonce=71087795,
+		ProductId=ProductA,
+		RequestId=476c990a-f5b7-1575-987c-4ef70e474932,
+		Timestamp=1546315200
 }
 ```
 
@@ -94,7 +94,7 @@ echo $signStr
 ```
 最终得到的签名串为：
 ```
-jKBH6bA3jMHQnorGK00A4SMtCaQ=
+P206d+JzP37FLKBDkD689wqnl4k=
 ```
 
 使用其它程序设计语言开发时，可用上面示例中的原文进行签名验证，得到的签名串与例子中的一致即可。
