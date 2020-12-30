@@ -75,11 +75,13 @@ sudo vim /usr/local/lighthouse/softwares/apache/conf/extra/httpd-ssl.conf
 ServerName cloud.tencent.com
 ```
    2. 修改证书文件路径：
-```plaintext
+<dx-codeblock>
+::: plaintext 
 SSLCertificateFile "/usr/local/lighthouse/softwares/apache/ssl/2_cloud.tencent.com.crt"
 SSLCertificateKeyFile "/usr/local/lighthouse/softwares/apache/ssl/3_cloud.tencent.com.key"
 SSLCertificateChainFile "/usr/local/lighthouse/softwares/apache/ssl/1_root_bundle.crt"
-```
+:::
+</dx-codeblock>
   3. 增加以下内容：
 ```
 <Directory "/usr/local/lighthouse/softwares/apache/htdocs">
