@@ -52,7 +52,6 @@ cd /usr/local/lighthouse/softwares/apache
 sudo mkdir ssl
 ```
 4. 将已获取到的 `1_root_bundle.crt` 证书文件、`2_cloud.tencent.com.crt` 证书文件以及 `3_cloud.tencent.com.key` 私钥文件从本地目录拷贝到已创建的 `/usr/local/lighthouse/softwares/apache/ssl` 目录下。  
-
 5. 执行以下命令，编辑配置文件 httpd.conf。
 ```
 sudo vim /usr/local/lighthouse/softwares/apache/conf/httpd.conf
