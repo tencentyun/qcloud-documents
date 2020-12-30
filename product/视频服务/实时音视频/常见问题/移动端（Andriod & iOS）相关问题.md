@@ -64,7 +64,7 @@ TRTC 6.3 版本开始已提供 arm64-v8a 架构 ABI 支持。
 可以。需保证 [SDKAppID](https://console.cloud.tencent.com/trtc/app) 和房间号一致，且用户 ID 不一致。
 
 [](id:que15)
-### 同一个页面中，是否可以创建 N 个 TRTC 对象，通过 N 个 UserID，分别登录到N个房间？
+### 同一个页面中，是否可以创建 N 个 TRTC 对象，通过 N 个 UserID，分别登录到 N 个房间？
 可以。[Version 7.6 版本](https://cloud.tencent.com/document/product/647/32689) 开始支持一个用户进入多个房间了。
 
 [](id:que16_flutter)
