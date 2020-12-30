@@ -55,7 +55,7 @@ virtual int SetRecvMixStreamCount(int nCount) = 0;
 
 ## 获取房间内成员说话音量
 
-调用 TrackingVolume 接口之后，监听 TIMGContext.ITMG_MAIN_EVENT_TYPE.ITMG_MAIN_EVENT_TYPE_USER_VOLUMES 事件，里面的键值对为 uin-volume，通过此接口可以根据房间内某 uin 说话的音量强度画出相应的能量柱状图。
+调用 TrackingVolume 接口之后，监听 `TIMGContext.ITMG_MAIN_EVENT_TYPE.ITMG_MAIN_EVENT_TYPE_USER_VOLUMES` 事件，里面的键值对为 uin-volume，通过此接口可以根据房间内某 uin 说话的音量强度画出相应的能量柱状图。
 
 如果不再获取，请调用 StopTrackingVolume 接口。
 
