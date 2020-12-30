@@ -92,8 +92,8 @@
       <td style="text-align:center">N/A</td>
       <td style="text-align:center"><a href="https://github.com/c1avie/trtc_demo">Github</a></td>
       <td style="text-align:center">N/A</td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/51601?!editLang=zh&!preview">DOC</a></td>
-      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/51602?!editLang=zh&!preview">DOC</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/51601">DOC</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/51602">DOC</a></td>
       <td style="text-align:center">13M</td>
    </tr>
 </table>
