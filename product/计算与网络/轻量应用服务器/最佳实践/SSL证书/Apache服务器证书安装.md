@@ -106,7 +106,7 @@ sudo vim /usr/local/lighthouse/softwares/apache/conf/httpd.conf
 ```
 2. 按 **i** 进入编辑模式，进行如下修改：
    1. 删除 `#LoadModule rewrite_module modules/mod_rewrite.so` 行首的 `#`。
-   2. 找到 `<Directory "/home/www/htdocs/">`，增加如下内容： 
+   2. 找到 &lt;Directory &quot;/home/www/htdocs/&quot;&gt;，增加如下内容： 
 ```
 RewriteEngine on
 RewriteCond %{SERVER_PORT} !^443$
