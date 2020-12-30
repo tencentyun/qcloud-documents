@@ -46,12 +46,12 @@
 1. 执行 `flutter pub get`。
 2. 编译运行调试：
 <dx-tabs>
-:::  Android端调试
+:::  Android端
 1. 执行 `flutter run`。
 2. 使用 Android Studio（3.5及以上的版本）打开源码工程。
 3. 单击【运行】即可。
 :::
-::: iOS端调试
+::: iOS端
 1. 使用 XCode（11.0及以上的版本）打开源码目录下的 `/ios工程`。
 2. 编译并运行 Demo 工程即可。
 :::
