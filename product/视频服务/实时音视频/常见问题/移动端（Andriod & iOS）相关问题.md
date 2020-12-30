@@ -67,68 +67,6 @@ TRTC 6.3 版本开始已提供 arm64-v8a 架构 ABI 支持。
 ### 同一个页面中，是否可以创建 N 个 TRTC 对象，通过 N 个 UserID，分别登录到 N 个房间？
 可以。[Version 7.6 版本](https://cloud.tencent.com/document/product/647/32689) 开始支持一个用户进入多个房间了。
 
-[](id:que16_flutter)
-### 两台手机同时运行 Demo，为什么看不到彼此的画面？
-请确保两台手机在运行 Demo 时使用的是不同的 UserID，TRTC 不支持同一个 UserID （除非 SDKAppID 不同）在两个终端同时使用。
-![](https://main.qcloudimg.com/raw/c7b1589e1a637cf502c6728f3c3c4f99.png)
-
-[](id:que17_flutter)
-### 防火墙有什么限制？
-由于 SDK 使用 UDP 协议进行音视频传输，所以在对 UDP 有拦截的办公网络下无法使用。如遇到类似问题，请参见 [应对公司防火墙限制](https://cloud.tencent.com/document/product/647/34399) 排查并解决。
-
-[](id:que18_flutter)
-### iOS 打包运行 Crash？
-请排查是否 iOS14 以上的 debug 模式问题，具体请参见 [官方说明](https://flutter.cn/docs/development/ios-14#launching-debug-flutter-without-a-host-computer)。
-
-[](id:que19_flutter)
-### iOS 无法显示视频（Android 正常）？
-请确认在您项目的 `info.plist` 中 `io.flutter.embedded_views_preview` 值为 YES。
-
-[](id:que20_flutter)
-### 更新 SDK 版本后，iOS CocoaPods 运行报错？
-1. 删除 iOS 目录下 `Podfile.lock` 文件。
-2. 执行 `pod repo update`。
-3. 执行 `pod install`。
-4. 重新运行。
-
-[](id:que21_flutter)
-### Android Manifest merge failed 编译失败？
-1. 请打开 `/example/android/app/src/main/AndroidManifest.xml` 文件。
-2. 将 `xmlns:tools="http://schemas.android.com/tools"` 加入到 manifest 中。
-3. 将 `tools:replace="android:label"` 加入到 application 中。
-
-![img](https://main.qcloudimg.com/raw/7a37917112831488423c1744f370c883.png)
-
-[](id:que22_flutter)
-### 因为没有签名，真机调试报错?
-若报错信息如下图所示：
-![](https://main.qcloudimg.com/raw/809ae94061575b4e670f3a80ac9f3781.png)
-1. 您需购买苹果证书，并进行配置、签名操作后，即可在真机上调试。
-2. 证书购买成功后，在 `target > signing & capabilities` 中进行配置。
-
-[](id:que23_flutter)
-### 对插件内的 swift 文件做了增删后，build 时查找不到对应文件？
-在主工程目录的 `/ios` 文件路径下 `pod install` 即可。
-
-[](id:que24_flutter)
-### Run 报错“Info.plit, error: No value at that key path or invalid key path: NSBonjourServices”？
-执行 `flutter clean` 后，重新运行即可。
-
-[](id:que25_flutter)
-### Pod install 报错？
-若报错信息如下图所示：
-![](https://main.qcloudimg.com/raw/73db67cfc9e6b934fed947b63c6d2120.png)
-报错信息里面提示 pod install 的时候没有 `generated.xconfig` 文件，因此运行报错，您根据提示**需要执行 flutter pub get** 解决。
->? 该问题是 flutter 编译后的问题，新项目或者执行了 `flutter clean` 后，都不存在这个问题。
-
-[](id:que26_flutter)
-### Run 的时候 iOS 版本依赖报错？
-若报错信息如下图所示：
-![](https://main.qcloudimg.com/raw/9102b3394560ca9df2f70549baabe3ff.png)
-可能是 pods 的 target 版本无法满足所依赖的插件，因此造成报错。因此您需修改报错 pods 中的 target 到对应的版本。
-
-
-
 
 
 
