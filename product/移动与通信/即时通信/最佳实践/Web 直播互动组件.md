@@ -150,6 +150,7 @@ im.enterRoom('your roomID').then((imResponse) => {
 ![](https://main.qcloudimg.com/raw/7d8ec3ea5031a38ae22fcd7fc7107f0e.png)
 2. 在该应用的基础配置页，开通腾讯云实时音视频服务。
 ![](https://main.qcloudimg.com/raw/640e0635b1b9179fb067a9f2d18d459c.png)
+![](https://main.qcloudimg.com/raw/26a0c275aafeab38fcbd7d963cc0d9ba.png)
   >!请妥善保管密钥信息，谨防泄露。
   
 	通过 npm 下载 TWebLive：
