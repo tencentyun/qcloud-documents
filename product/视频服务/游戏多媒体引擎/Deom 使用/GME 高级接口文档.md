@@ -67,3 +67,6 @@ public int StopTrackingVolume();
 |参数|类型|含义|
 |----|---|----|
 |fTrackingTimeS|float|监听的秒数，建议设置为 0.5f|
+
+
+
