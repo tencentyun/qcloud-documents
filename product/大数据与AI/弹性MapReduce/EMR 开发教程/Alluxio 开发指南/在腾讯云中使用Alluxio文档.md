@@ -32,7 +32,7 @@
 
 ### 授权
 若当前集群未开启对象存储，可在【[访问管理控制台-角色管理](https://console.cloud.tencent.com/cam/role/grant?roleName=EMR_QCSRole&policyName=QcloudAccessForEMRRoleInApplicationDataAccess&principal=eyJzZXJ2aWNlIjoiZW1yLmNsb3VkLnRlbmNlbnQuY29tIn0=&serviceType=EMR&s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Femr%2Fstatic%2Fframework%2Femr-g9qk9p0g%3Ftype%3DinstanceDetail%26regionId%3D8)】中进行授权，授权后 EMR 中节点可以通过临时密钥访问 COS 中数据。
-![](https://main.qcloudimg.com/raw/8bf785e44192b8efca1425eefaaad16d.png)
+![](https://main.qcloudimg.com/raw/12fa4b6008bdfaa3643517cc7de0eac1.png)
 
 ### Mount
 登录到 EMR 任意一台机器，挂载 COS 到 Alluxio。
