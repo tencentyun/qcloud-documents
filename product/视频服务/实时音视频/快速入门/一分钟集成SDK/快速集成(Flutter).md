@@ -45,13 +45,14 @@ dependencies:
 
 
 ## 常见问题
-- [iOS 打包运行 Crash？](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que18_flutter)
-- [iOS 无法显示视频（Android 正常）？](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que19_flutter)
-- [更新 SDK 版本后，iOS CocoaPods 运行报错？](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que20_flutter)
-- [Android Manifest merge failed 编译失败？](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que21_flutter)
-- [因为没有签名，真机调试报错?](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que22_flutter)
-- [对插件内的 swift 文件做了增删后，build 时查找不到对应文件？](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que23_flutter)
-- [Run 报错“Info.plit, error: No value at that key path or invalid key path: NSBonjourServices”？](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que24_flutter)
-- [Pod install 报错？](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que25_flutter)
-- [Run 的时候 iOS 版本依赖报错？](https://cloud.tencent.com/document/product/647/43019?!editLang=zh&!preview#que26_flutter)
+- [iOS 打包运行 Crash？](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que3)
+- [iOS 无法显示视频（Android 正常）？](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que4)
+- [更新 SDK 版本后，iOS CocoaPods 运行报错？](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que5)
+- [Android Manifest merge failed 编译失败？](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que6)
+- [因为没有签名，真机调试报错?](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que7)
+- [对插件内的 swift 文件做了增删后，build 时查找不到对应文件？](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que8)
+- [Run 报错“Info.plit, error: No value at that key path or invalid key path: NSBonjourServices”？](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que9)
+- [Pod install 报错？](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que10)
+- [Run 的时候 iOS 版本依赖报错？](https://cloud.tencent.com/document/product/647/51623?!editLang=zh&!preview#que11)
+
 
