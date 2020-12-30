@@ -115,7 +115,7 @@ im.enterRoom('your roomID').then((imResponse) => {
 
 为了进一步降低开发者的开发和人力成本，我们在 TWebLive SDK 的基础上，提供了同时适配 PC 和移动端浏览器的 [Demo](https://github.com/tencentyun/TWebLive)，并开源到了 Github。开发者 fork&clone 项目到本地，稍作修改即可把 Demo 运行起来，也可集成到自己的项目部署上线。
 
-## 三、接入使用
+## 接入使用
 
 <dx-tabs>
 ::: 方式一、基于实时音视频\sTRTC
