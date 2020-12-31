@@ -135,30 +135,8 @@ im.enterRoom('your roomID').then((imResponse) => {
 ![](https://main.qcloudimg.com/raw/886100fe6e42631a516c8bafa498ed0b.png)
 4. 在 [腾讯云直播控制台](https://console.cloud.tencent.com/live/) 配置播放域名并完成 CNAME 配置，详细操作指引请参见 [实现 CDN 直播观看](https://cloud.tencent.com/document/product/647/16826) 文档。
 >?如果不需要 CDN 直播观看，可略过配置播放域名步骤。
-:::
-::: 方式二、基于即时通信\sIM
-#### 步骤1：创建即时通信 IM 应用
-1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击【创建新应用】。
-![](https://main.qcloudimg.com/raw/ed447c7adef857bf3364b8bf33fe1b97.png)
-2. 弹出对话框，输入您的应用名称，单击【确认】即可完成创建。
-![](https://main.qcloudimg.com/raw/0a9bbf5f4f0584e31da09eecf8a9b410.png)
-3. 您可在 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 总览页面查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。请记录 SDKAppID 信息。
-[](id:Way2)
-#### 步骤2：获取 IM 密钥并开通实时音视频服务
-1. 在 [即时通讯 IM 控制台](https://console.cloud.tencent.com/im) 总览页单击您创建完成的即时通信 IM 应用，随即跳转至该应用的基础配置页。在【基本信息】区域，单击【显示密钥】，复制并保存密钥信息。
-![](https://main.qcloudimg.com/raw/7d8ec3ea5031a38ae22fcd7fc7107f0e.png)
-2. 在该应用的基础配置页，开通腾讯云实时音视频服务。
-![](https://main.qcloudimg.com/raw/640e0635b1b9179fb067a9f2d18d459c.png)
-  >!请妥善保管密钥信息，谨防泄露。
-  
-	通过 npm 下载 TWebLive：
-```javascript
-npm i tweblive --save
-```
-:::
-</dx-tabs>
 
-### 步骤3：下载并配置 Demo
+#### 步骤3：下载并配置 Demo
 1. 请下载 [腾讯云 TWebLive 直播互动组件 Demo 工程](https://github.com/tencentyun/TWebLive)。
 2. 打开 `TWebLive/dist/debug/GenerateTestUserSig.js` 文件，并设置相关参数：
  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际应用 SDKAppID。
@@ -187,16 +165,76 @@ Vue.prototype.TWebLive = TWebLive
 >- 本地计算 UserSig 的方式仅用于本地开发调试，请勿直接发布到线上，一旦您的 `SECRETKEY` 泄露，攻击者就可以盗用您的腾讯云流量。
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
-### 步骤4：运行 Demo<span id="step4"></span>
-
-使用 Chrome 浏览器打开 `dist` 目录下的 `index.html` 文件即可运行 Demo。
-**Demo 运行界面如图所示：**
+#### 步骤4：运行 Demo
+使用 Chrome 浏览器打开 `dist` 目录下的 `index.html` 文件即可运行 Demo。运行界面如图所示：
 ![](https://main.qcloudimg.com/raw/04d338ddc5340bed7257360c0c6a13d3.png)
 >!
 >- 一般情况下体验 Demo 需要部署至服务器，通过 `https://域名/xxx` 访问，或者直接在本地搭建服务器，通过 `localhost:端口`访问。
 - 目前桌面端 Chrome 浏览器支持 TRTC 桌面浏览器 SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 >- TWebLive 需要使用摄像头和麦克风采集音视频，在体验过程中您可能会收到来自 Chrome 浏览器的相关提示，单击【允许】即可。
 ![](https://main.qcloudimg.com/raw/8fe33ad0685384cb9792a317e7b26e8d.png)
+
+:::
+::: 方式二、基于即时通信\sIM
+#### 步骤1：创建即时通信 IM 应用
+1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击【创建新应用】。
+![](https://main.qcloudimg.com/raw/ed447c7adef857bf3364b8bf33fe1b97.png)
+2. 弹出对话框，输入您的应用名称，单击【确认】即可完成创建。
+![](https://main.qcloudimg.com/raw/0a9bbf5f4f0584e31da09eecf8a9b410.png)
+3. 您可在 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 总览页面查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。请记录 SDKAppID 信息。
+
+#### 步骤2：获取 IM 密钥并开通实时音视频服务
+1. 在 [即时通讯 IM 控制台](https://console.cloud.tencent.com/im) 总览页单击您创建完成的即时通信 IM 应用，随即跳转至该应用的基础配置页。在【基本信息】区域，单击【显示密钥】，复制并保存密钥信息。
+![](https://main.qcloudimg.com/raw/7d8ec3ea5031a38ae22fcd7fc7107f0e.png)
+2. 在该应用的基础配置页，开通腾讯云实时音视频服务。
+![](https://main.qcloudimg.com/raw/640e0635b1b9179fb067a9f2d18d459c.png)
+  >!请妥善保管密钥信息，谨防泄露。
+  
+	通过 npm 下载 TWebLive：
+```javascript
+npm i tweblive --save
+```
+
+#### 步骤3：下载并配置 Demo
+1. 请下载 [腾讯云 TWebLive 直播互动组件 Demo 工程](https://github.com/tencentyun/TWebLive)。
+2. 打开 `TWebLive/dist/debug/GenerateTestUserSig.js` 文件，并设置相关参数：
+ - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际应用 SDKAppID。
+ - SECRETKEY：请设置为 [步骤2](#step2) 中获取的实际密钥信息。
+ - PUSHDOMAIN：CDN观看，配置推流域名。（如果不需要 CDN 直播观看，可略过此配置）
+![](https://main.qcloudimg.com/raw/d6701dcdeae52d1db060eda165e93381.png)
+
+3. 在项目中通过 npm 安装最新版本的 tim-js-sdk、trtc-js-sdk、tweblive。如果项目已经集成有  tim-js-sdk 或 trtc-js-sdk，直接将其升级到最新版本即可。
+```javascript
+npm install tim-js-sdk --save
+npm install trtc-js-sdk --save
+npm install tweblive --save
+```
+4. 在项目中引入 tweblive。
+```javascript
+import TWebLive from 'tweblive'
+Vue.prototype.TWebLive = TWebLive
+```
+5. 如果需要通过 script 标签外链的方式引入，需要将 tim-js.js、trtc.js、tweblive.js 拷贝至项目中，按顺序引入。
+```javascript
+<script src="./trtc.js"></script>
+<script src="./tim-js.js"></script>
+<script src="./tweblive.js"></script>
+```
+>!
+>- 本地计算 UserSig 的方式仅用于本地开发调试，请勿直接发布到线上，一旦您的 `SECRETKEY` 泄露，攻击者就可以盗用您的腾讯云流量。
+>- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
+
+#### 步骤4：运行 Demo
+使用 Chrome 浏览器打开 `dist` 目录下的 `index.html` 文件即可运行 Demo。运行界面如图所示：
+![](https://main.qcloudimg.com/raw/04d338ddc5340bed7257360c0c6a13d3.png)
+>!
+>- 一般情况下体验 Demo 需要部署至服务器，通过 `https://域名/xxx` 访问，或者直接在本地搭建服务器，通过 `localhost:端口`访问。
+- 目前桌面端 Chrome 浏览器支持 TRTC 桌面浏览器 SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
+>- TWebLive 需要使用摄像头和麦克风采集音视频，在体验过程中您可能会收到来自 Chrome 浏览器的相关提示，单击【允许】即可。
+![](https://main.qcloudimg.com/raw/8fe33ad0685384cb9792a317e7b26e8d.png)
+
+:::
+</dx-tabs>
 
 ## 架构与平台支持
 
