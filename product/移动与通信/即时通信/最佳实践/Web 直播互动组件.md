@@ -4,6 +4,7 @@
 ![](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblivedemo/doc-assets/demo-official-website.gif)
 
 
+
 ## TWebLive 优势
 开发者接入此 [TWebLive SDK](https://www.npmjs.com/package/tweblive)，可彻底替代 Flash 推流方案，极大地降低 Web 推流、Web 低延时观看、CDN 观看以及实时聊天互动（或弹幕）的实现复杂度和时间成本，下面我们通过举例来进行说明。
 
@@ -118,7 +119,7 @@ im.enterRoom('your roomID').then((imResponse) => {
 ## TWebLive 使用
 
 <dx-tabs>
-::: 方式一、应用基于实时音视频\sTRTC
+::: 方式1、基于实时音视频
 #### 步骤1：创建实时音视频 TRTC 应用[](id:step1)
 在 [实时音视频 TRTC 控制台](https://console.cloud.tencent.com/trtc/app)，单击左侧导航栏【应用管理】>【创建应用】，输入您的应用名称，单击【确定】即可创建一个实时音视频应用。创建完毕后，请保存 SDKAPPID。
 ![](https://main.qcloudimg.com/raw/34f87b8c0a817d8d3e49baac5b82a1fa.png)
@@ -141,7 +142,7 @@ im.enterRoom('your roomID').then((imResponse) => {
  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际应用 SDKAppID。
  - SECRETKEY：请设置为 [步骤2](#step2) 中获取的实际密钥信息。
  - PUSHDOMAIN：CDN观看，配置推流域名。（如果不需要 CDN 直播观看，可略过此配置）
-![](https://main.qcloudimg.com/raw/d11e9a34a7280ac8336b865be0759a77.png)
+![](https://main.qcloudimg.com/raw/1f5dc0239e9c26d04ca905656e8bb854.png)
 
 3. 在项目中通过 npm 安装最新版本的 tim-js-sdk、trtc-js-sdk、tweblive。如果项目已经集成有  tim-js-sdk 或 trtc-js-sdk，直接将其升级到最新版本即可。
 ```javascript
@@ -174,7 +175,7 @@ Vue.prototype.TWebLive = TWebLive
 ![](https://main.qcloudimg.com/raw/7eb28d195649d6c0027026eaa02fdedd.png)
 
 :::
-::: 方式二、应用基于即时通信\sIM
+::: 方式2.\s基于即时通信\sIM
 #### 步骤1：创建即时通信 IM 应用
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击【创建新应用】将弹出对话框。
 ![](https://main.qcloudimg.com/raw/c8d1dc415801404e30e49ddd4e0c0c13.png)
@@ -195,7 +196,7 @@ Vue.prototype.TWebLive = TWebLive
  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际应用 SDKAppID。
  - SECRETKEY：请设置为 [步骤2](#step2) 中获取的实际密钥信息。
  - PUSHDOMAIN：CDN观看，配置推流域名。（如果不需要 CDN 直播观看，可略过此配置）
-![](https://main.qcloudimg.com/raw/d11e9a34a7280ac8336b865be0759a77.png)
+![](https://main.qcloudimg.com/raw/1f5dc0239e9c26d04ca905656e8bb854.png)
 
 3. 在项目中通过 npm 安装最新版本的 tim-js-sdk、trtc-js-sdk、tweblive。如果项目已经集成有  tim-js-sdk 或 trtc-js-sdk，直接将其升级到最新版本即可。
 ```javascript
