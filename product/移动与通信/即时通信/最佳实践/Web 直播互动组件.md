@@ -120,13 +120,12 @@ im.enterRoom('your roomID').then((imResponse) => {
 <dx-tabs>
 ::: 方式一、基于实时音视频\sTRTC
 [](id:step1)
-### 步骤1：创建实时音视频 TRTC 应用
-1. 在 [实时音视频 TRTC 控制台](https://console.cloud.tencent.com/trtc/app)，单击左侧导航栏【应用管理】>【创建应用】，输入您的应用名称，单击【确定】即可创建一个实时音视频应用。创建完毕后，请保存 SDKAPPID。
+#### 步骤1：创建实时音视频 TRTC 应用
+在 [实时音视频 TRTC 控制台](https://console.cloud.tencent.com/trtc/app)，单击左侧导航栏【应用管理】>【创建应用】，输入您的应用名称，单击【确定】即可创建一个实时音视频应用。创建完毕后，请保存 SDKAPPID。
 ![](https://main.qcloudimg.com/raw/e107800d9f3a876b4ada4a0ed8eba859.png)
 >?与此同时会自动创建一个 `SDKAppID` 相同的即时通信 IM 应用。
-
 [](id:step2)
-### 步骤2：开启自动旁路推流
+#### 步骤2：开启自动旁路推流
 1. 在 [实时音视频 TRTC 控制台](https://console.cloud.tencent.com/trtc/app)，单击左侧导航栏【应用管理】，在您创建的实时音视频应用上，单击【功能配置】进入应用详情。
 ![](https://main.qcloudimg.com/raw/773b7207d8e4d92672cdd4ae566bad96.png)
 2. 单击【启用旁路推流】，将旁路推流方式选择：全局自动旁路。旁路推流开启后，实时音视频 TRTC 房间里的每一路画面都配备一路对应的播放地址。
@@ -138,14 +137,14 @@ im.enterRoom('your roomID').then((imResponse) => {
 >?如果不需要 CDN 直播观看，可略过配置播放域名步骤。
 :::
 ::: 方式二、基于即时通信\sIM
-### 步骤1：创建即时通信 IM 应用
+#### 步骤1：创建即时通信 IM 应用
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击【创建新应用】。
 ![](https://main.qcloudimg.com/raw/ed447c7adef857bf3364b8bf33fe1b97.png)
 2. 弹出对话框，输入您的应用名称，单击【确认】即可完成创建。
 ![](https://main.qcloudimg.com/raw/0a9bbf5f4f0584e31da09eecf8a9b410.png)
- 您可在 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 总览页面查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。请记录 SDKAppID 信息。
- 
-### 步骤2：获取 IM 密钥并开通实时音视频服务
+3. 您可在 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 总览页面查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。请记录 SDKAppID 信息。
+[](id:Way2)
+#### 步骤2：获取 IM 密钥并开通实时音视频服务
 1. 在 [即时通讯 IM 控制台](https://console.cloud.tencent.com/im) 总览页单击您创建完成的即时通信 IM 应用，随即跳转至该应用的基础配置页。在【基本信息】区域，单击【显示密钥】，复制并保存密钥信息。
 ![](https://main.qcloudimg.com/raw/7d8ec3ea5031a38ae22fcd7fc7107f0e.png)
 2. 在该应用的基础配置页，开通腾讯云实时音视频服务。
@@ -160,7 +159,6 @@ npm i tweblive --save
 </dx-tabs>
 
 ### 步骤3：下载并配置 Demo
-
 1. 请下载 [腾讯云 TWebLive 直播互动组件 Demo 工程](https://github.com/tencentyun/TWebLive)。
 2. 打开 `TWebLive/dist/debug/GenerateTestUserSig.js` 文件，并设置相关参数：
  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际应用 SDKAppID。
