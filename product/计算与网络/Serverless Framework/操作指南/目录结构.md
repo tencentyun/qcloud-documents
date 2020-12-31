@@ -1,0 +1,43 @@
+Serverless Framework 基于 [Serverless 组件](https://github.com/serverless/components/blob/master/README.cn.md) 完成应用的部署，对于本地项目结构没有强制的规定，但为了便于管理与部署，我们推荐您采用以下几种目录结构组织您的应用：
+
+## 单函数应用
+对于单函数的应用，您可以将您的业务代码放置在 src 目录中，并在 `serverless.yml` 配置文件里引用这个目录，实现项目与配置文件的分开管理，示例如下：
+
+```
+.
+├── serverless.yml  # 配置文件
+├── src
+│   ├── package.json # 依赖项文件
+│   └── index.js # 入口函数
+└── .env # 环境变量文件
+```
+
+## 多函数/多资源应用
+Serverless Framework 不仅支持单函数的部署，对于多函数的项目也可以实现应用层级的统一部署，对于每一个函数，需要配置对应的配置文件，因此建议目录结构如下：
+
+```
+.
+├── package.json # 依赖项文件
+├── function1
+│   ├── serverless.yml # 函数1配置文件
+│   └── index1.js # 入口函数1
+├── function2
+│   ├── serverless.yml # 函数2配置文件
+│   └── index2.js # 入口函数1
+└── .env # 环境变量文件
+```
+在这种结构下，您只需要在根目录下执行 `sls deploy` ，Serverless Framework 会自动帮您遍历目录下所有的 yml 配置文件，完成资源的部署。
+
+同时，如果您在函数项目中引入了其它云端资源的创建，也可以采用相同的目录组织方式：
+```
+.
+├── package.json # 依赖项文件
+├── src
+│   ├── serverless.yml # 函数配置文件
+│   └── index1.js # 入口函数
+├── cos
+│   └── serverless.yml # 对象存储COS桶配置文件
+├── db
+│   └── serverless.yml # 数据库配置文件
+└── .env # 环境变量文件
+```

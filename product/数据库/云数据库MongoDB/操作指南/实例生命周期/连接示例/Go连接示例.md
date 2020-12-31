@@ -3,7 +3,7 @@
 
 [mGo 驱动下载](https://gopkg.in/mgo.v2)、[MongoDB Go 驱动下载](https://github.com/mongodb/mongo-go-driver/)
 
-## Go - mGo 驱动示例代码 
+## mGo 驱动示例代码 
 ```
 func GetMgoURL(ip, user, password string, port int) string {
 	urlString := ""
@@ -20,3 +20,6 @@ func GetMgoURL(ip, user, password string, port int) string {
 url := service.GetMgoURL(reqPara.Ip, reqPara.User, reqPara.Password, reqPara.Port)
 	session, err := mgo.Dial(url)
 ```
+
+## MongoDB Go 驱动示例代码
+示例代码请参见 [官方文档](https://www.mongodb.com/blog/search/golang%20quickstart)。

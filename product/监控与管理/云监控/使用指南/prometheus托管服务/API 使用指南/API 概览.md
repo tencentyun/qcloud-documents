@@ -1,6 +1,6 @@
 ## HTTP API
 
-Prometheus 所有稳定的 HTTP API 都在 `/api/v1` 路径下。当我们有数据查询需求时，可以通过查询 API 请求监控数据。提交数据可以使用 [remote write](https://prometheus.io/docs/practices/remote_write/) 协议或者 [Pushgateway](https://prometheus.io/docs/practices/pushing/) 的方式。
+Prometheus 所有稳定的 HTTP API 都在 `/api/v1` 路径下。当我们有数据查询需求时，可以通过查询 API 请求监控数据，提交数据可以使用 [remote write](https://prometheus.io/docs/practices/remote_write/) 协议或者 [Pushgateway](https://prometheus.io/docs/practices/pushing/) 的方式。
 
 ## 支持的 API
 
@@ -29,9 +29,9 @@ Basic Auth 兼容原生 Prometheus Query 的认证方式，用户名为用户的
 
 ## 数据返回格式
 
-所有 API 的响应数据格式都为 JSON。每一次成功的请求会返回 `2xx` 的状态码。
+所有 API 的响应数据格式都为 JSON。每一次成功的请求会返回 `2xx` 状态码。
 
-无效的请求会返回一个包含错误对象的 JSON 格式数据，同时也会包含一个下面状态码:
+无效的请求会返回一个包含错误对象的 JSON 格式数据，同时也将包含一个如下表格的状态码：
 
 | 状态码 | 含义                                         |
 | ------ | -------------------------------------------- |
@@ -40,7 +40,7 @@ Basic Auth 兼容原生 Prometheus Query 的认证方式，用户名为用户的
 | 422    | 当一个无效的表达式无法被指定时 (RFC4918)     |
 | 503    | 当查询不可用或者被取消时返回服务不可用状态码 |
 
-无效请求响应返回模板：
+无效请求响应返回模板如下：
 
 ```
 {

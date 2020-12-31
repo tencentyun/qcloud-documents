@@ -5,7 +5,7 @@ HTTPS，是指超文本传输安全协议（Hypertext Transfer Protocol Secure�
 腾讯云 CDN 目前已经全面支持 HTTPS 配置。您可以上传自有证书进行部署，或前往 [证书管理控制台](https://console.cloud.tencent.com/ssl ) 申请由亚洲诚信免费提供的第三方证书。
 
 ### 如何配置 HTTPS 证书？
-您可以在 CDN 控制台中配置 HTTPS 证书，详情请参见 [HTTPS 配置](https://cloud.tencent.com/document/product/228/41687)。
+您可以在 [CDN 控制台](https://console.cloud.tencent.com/cdn) 中配置 HTTPS 证书，详情请参见 [HTTPS 配置](https://cloud.tencent.com/document/product/228/41687)。
 
 ### 源站的 HTTPS 证书更新了，CDN 上需要同步更新吗？
 由您的回源方式决定：
@@ -13,7 +13,7 @@ HTTP 回源：不需要。
 HTTPS 回源：源站更新证书，CDN 节点也需要同步更新。客户端到节点，节点到源站证书是需要一致的，否则会导致回源失败。
 
 ### CDN 有没有方法让用户控制只允许 HTTPS 访问，禁止 HTTP 访问？
-使用强制扭转功能。HTTPS 证书配置成功后，可以开启 Http->Https 功能，开启后，即使用户发起 HTTP 请求，也会强制跳转为 HTTPS 进行访问。
+使用 [强制扭转功能](https://cloud.tencent.com/document/product/228/41688)。HTTPS 证书配置成功后，可以开启 Http->Https 功能，开启后，即使用户发起 HTTP 请求，也会强制跳转为 HTTPS 进行访问。
 ![](https://main.qcloudimg.com/raw/7161b36b260f3af2d75931b2e567295d.png)
 
 

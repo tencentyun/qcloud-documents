@@ -1,3 +1,16 @@
+### 2.9.1 @2020.12.23
+**修复**
+
+微信开发者工具基础版本库2.14.1引入 [tim-wx-sdk.js](https://www.npmjs.com/package/tim-wx-sdk) 编译报错。
+
+
+### 2.9.0 @2020.12.15
+**新增**
+
+- [createTextAtMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createTextMessage) 接口，支持群聊时 @ 某人或者 @ 所有人。
+- [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html) 增加 `namecard` 属性，用于展示群成员的群名片（简称群昵称）。
+
+
 ### 2.8.5 @2020.11.23
 **变更**
 

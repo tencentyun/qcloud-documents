@@ -43,22 +43,22 @@ TPNS 目前提供了两大类标签功能，包括用户自定义标签和 TPNS 
             <td>App 版本</td>
 						 <td>xg_auto_version</td>
             <td rowspan="9">tpns 系统预设，无限制</td>
-						<td>1.0.1,1.0.2等</td>
+						<td>1.0.1，1.0.2等</td>
         </tr>
         <tr><!--<td>2.1</td>-->
             <td>省份</td>
 						<td>xg_auto_province</td>
-            <td>guangdong, hunan, shanghai等</td>
+            <td>guangdong，hunan，shanghai等</td>
         </tr>
         <tr><!--<td>3.1</td>-->
             <td>活跃信息</td>
 						<td>xg_auto_active</td>
-						 <td>20200521, 20200522等</td>
+						 <td>20200521，20200522等</td>
         </tr>
 				   <tr><!--<td>3.1</td>-->
             <td>tpns sdk版本</td>
 						<td>xg_auto_sdkversion</td>
-						 <td>1.1.5.4, 1.1.5.4, 1.1.6.1等</td>
+						 <td>1.1.5.4，1.1.5.4，1.1.6.1等</td>
         </tr>
 				<tr><!--<td>4.1/td>-->
 				  <td>系统版本</td>
@@ -67,17 +67,17 @@ TPNS 目前提供了两大类标签功能，包括用户自定义标签和 TPNS 
 				</tr><!--<td>4.1/td>-->
 				  <td>系统语言</td>
 					<td>xg_auto_systemlanguage</td>
-				<td>zh, en, ja 等</td>
+				<td>zh，en，ja 等</td>
 				</tr>
 				<tr> <!--<td>5.1td>-->
 				  <td>国家</td>
 					  <td>xg_auto_country</td>
-					<td>CN, US 等</td>
+					<td>CN，US 等（大写字母）</td>
 				</tr>
 				<tr><!--<td>5.1td>-->
 				  <td>手机品牌</td>
 					<td>xg_auto_devicebrand</td>
-					 <td>xiaomi, huawei 等</td>
+					 <td>xiaomi，huawei 等</td>
 				</tr>
 				<tr><!--<td>61td>-->
 				  <td>机型</td>
@@ -232,7 +232,7 @@ TPNS 提供了单标签绑定/解绑单设备，单标签绑定/解绑多设备�
 **推荐场景**
 此时只能调用 Rest API 接口，如 App 运营人员希望给喜欢足球的用户打上足球的标签，喜欢篮球的用户打上篮球的标签，则可以利用此接口进行批量绑定，反之进行批量解绑。
 
-** 标签绑定用法**
+**标签绑定用法**
 ```json
 {
     "operator_type": 9,

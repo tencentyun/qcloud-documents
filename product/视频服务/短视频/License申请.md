@@ -17,7 +17,7 @@ SDK 版本 License 与您需要购买的点播套餐包对应关系如下：
 | [企业版 SDK（UGC_Enterprise）](https://cloud.tencent.com/document/product/584/9366#sdk) | 参见 [申请企业版本 License](#enterpriseli) | 
 | [企业版 Pro SDK（EnterprisePro）](https://cloud.tencent.com/document/product/584/9366#sdk) | 参见 [申请企业版本 License](#enterpriseli) | 
 
->!**购买点播套餐包并绑定 License 后，请确认 [Bundle ID 和 Package Name](https://cloud.tencent.com/document/product/266/49972#que5) 无误，一旦提交，License 信息不能再做修改。**
+>!**购买点播套餐包并绑定 License 后，请确认 [Bundle ID 和 Package Name](https://cloud.tencent.com/document/product/266/50296#que5) 无误，一旦提交，License 信息不能再做修改。**
 
 
 ## 新增短视频 License

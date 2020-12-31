@@ -17,10 +17,9 @@
 - 方式一：按照 [快速部署](https://cloud.tencent.com/document/product/1154/41775) 操作，选择 SCF 项目模板进行创建。
 - 方式二：直接使用 `sls init` 命令创建。快速创建一个 nodejs 的 SCF 示例：
 ```
-sls init scf-demo
+sls init scf-nodejs
 ```
->?命令中的 `scf-demo` 可以更换成其他语言模板。目前 SCF 组件支持的模板有：go1-helloworld 、nodejs1015-helloworld、php72-helloworld、python36-helloworld。
-
+>?目前 SCF 组件支持的 helloworld 模板有：scf-golang、scf-php、scf-python，只需要将命令中的 `scf-nodejs` 更换为前面列出的模版名称，即可快速初始化相应语言模版。
 
 #### 部署
 执行以下命令，将会弹出二维码，直接扫码授权进行部署：

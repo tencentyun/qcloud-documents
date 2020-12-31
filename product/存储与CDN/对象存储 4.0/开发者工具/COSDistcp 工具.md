@@ -16,7 +16,7 @@ Hadoop-2.6.0及以上版本、Hadoop-COS 插件 5.8.7 及以上版本。
 
 #### 获取 COSDistcp jar 包
 
-[cos-distcp-1.0.jar](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.0.jar) 包下载
+下载 [cos-distcp-1.0.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.0.jar) 。
 
 #### 安装说明
 
@@ -25,7 +25,7 @@ Hadoop-2.6.0及以上版本、Hadoop-COS 插件 5.8.7 及以上版本。
 
 ## 原理说明
 
-COSDistcp 基于 MapReduce 框架实现，在 Mapper 中对文件进行分组，在 Reducer 进程中使用多线程对文件进行拷贝、压缩和数据校验等工作。当文件迁移或校验失败的时候，任务会执行失败。当迁移失败时，您可使用 diff 模式，通过对比文件的 CRC 校验值，实现文件的增量迁移。
+COSDistcp 基于 MapReduce 框架实现，在 Mapper 中对文件进行分组，在 Reducer 进程中使用多线程对文件进行拷贝、压缩和数据校验等工作。当文件迁移或校验失败的时候，任务可能会执行失败。当迁移失败时，您可使用 diff 模式，通过对比文件的 CRC 校验值，实现文件的增量迁移。
 
 
 ## 参数说明
@@ -38,34 +38,34 @@ COSDistcp 基于 MapReduce 框架实现，在 Mapper 中对文件进行分组，
 |          --help          | 输出 COSDistcp 支持的参数选项<br> 示例：--help |                              无                              |   否   |
 |          --src=LOCATION          | 指定拷贝的源目录，可以是 HDFS 或者 COS 路径<br> 示例：--src=hdfs://user/logs/ |                              无                              |   是   |
 |         --dest=LOCATION          | 指定拷贝的目标目录，可以是 HDFS 或者 COS 路径<br> 示例：--dest=cosn://examplebucket-1250000000/user/logs |       无       |   是   |
-|       --srcPattern=PATTERN       | 指定正则表达式对源目录中的文件进行过滤<br>示例：--srcPattern='.log'<br>**注意：您需要将参数使用单引号包围，以避免符号`*`被 shell 解释**。 | 无 | 否 |
+|       --srcPattern=PATTERN       | 指定正则表达式对源目录中的文件进行过滤<br>示例：`--srcPattern='.*.log'`<br>**注意：您需要将参数使用单引号包围，以避免符号`*`被 shell 解释**。 | 无 | 否 |
 |       --reducerNumber=VALUE       | 指定 reducer 进程数目<br>示例：--reducerNumber=10 |                             10                             |   否   |
 |       --workerNumber=VALUE       | 指定每个 reducer 中的拷贝线程数，COSDistcp 在每个 reducer 中创建该参数大小的拷贝线程池<br>示例：--workerNumber=10 |                             10                             |   否   |
-|      --filesPerMapper=VALUE      | 指定每个 MapReduce 输入文件中的文件信息行数<br>示例：--filesPerMapper=10000 |                              500000                              |   否   |
+|      --filesPerMapper=VALUE      | 指定每个 Mapper 输入文件的行数<br>示例：--filesPerMapper=10000 |                              500000                              |   否   |
 |         --groupBy=PATTERN   | 指定正则表达式对文件进行聚合<br>示例：--groupBy='.\*group-input/(\d+)-(\d+).*'                              |                              无                              |   否   |
 |        --targetSize=VALUE        | 指定目标文件的大小，单位:MB，与--groupBy一起使用<br>示例：--targetSize=10              |                              无                              |   否   |
 |       --outputCodec=VALUE        | 指定输出文件的压缩方式，可选 gzip、lzo、snappy、none 和 keep, 其中：<br> 1. keep 保持原有文件的压缩方式<br>2. none 则根据文件后缀对文件进行解压<br>示例：--outputCodec=gzip | keep | 否 |
 |        --deleteOnSuccess         | 指定源文件拷贝到目标目录成功时，立即删除源文件<br>示例：--deleteOnSuccess | false | 否 |
 | --multipartUploadChunkSize=VALUE | 指定 Hadoop-COS 插件传输文件到 COS 时分块的大小，COS 支持的最大分块数为 10000，您可根据文件大小，调整分块大小，单位：MB，默认为8MB<br>示例：--multipartUploadChunkSize=20 | 8MB |   否   |
-|    --cosServerSideEncryption     | 指定上传文件到 COS 时使用加解密算法 SSE-COS<br />示例：--cosServerSideEncryption | false | 否 |
+|    --cosServerSideEncryption     | 指定文件上传到 COS 时，使用 SSE-COS 作为加解密算法<br />示例：--cosServerSideEncryption | false | 否 |
 |      --outputManifest=VALUE      | 指定拷贝完成的时候，在目标目录下生成本次拷贝到目标文件信息列表（GZIP 压缩）<br>示例：--outputManifest=manifest.gz | 无 | 否 |
 |    --requirePreviousManifest     | 要求指定 --previousManifest=VALUE 参数，以进行增量拷贝<br>示例：--requirePreviousManifest |     false      | 否 |
 |     --previousManifest=LOCATION     | 前一次拷贝生成的目标文件信息<br>示例：--previousManifest=cosn://examplebucket-1250000000/big-data/manifest.gz |                        无                        |   否   |
-|        --copyFromManifest        | 和 --previousManifest=VALUE 一起使用，可将 --previousManifest 中的文件，拷贝到目标文件系统<br>示例：--copyFromManifest |                   false                   |   否   |
+|        --copyFromManifest        | 和 --previousManifest=LOCATION 一起使用，可将 --previousManifest 中的文件，拷贝到目标文件系统<br>示例：--copyFromManifest |                   false                   |   否   |
 | --storageClass=VALUE | 指定对象存储类型，可选值为 STANDARD、STANDARD_IA、ARCHIVE、DEEP_ARCHIVE、INTELLIGENT_TIERING，关于更多支持的存储类型和介绍，请参见 [存储类型概述](https://cloud.tencent.com/document/product/436/33417)  |                        无                        |   否   |
 |        --srcPrefixesFile=LOCATION        | 指定本地文件，该文件中每行包含一个需要拷贝的源目录<br/>示例：--srcPrefixesFile=file:///data/migrate-folders.txt |                              无                              |   否   |
-|         --enableCrcCheck         | 当文件拷贝完成的时候，校验源文件和目的文件的 CRC 是否相同，注意：除拷贝到 COS 外，源文件系统和目标文件系统支持相同 CRC 算法，该参数才生效<br/>示例：--enableCrcCheck |       false   |	否   |    
-|      --skipCopySameCrcFile       | 指定跳过源和目的均有相同 CRC 值和相同大小的文件，以进行增量拷贝<br>注意：源和目的支持相同 CRC 算法时，该参数才生效<br>示例：--skipCopySameCrcFile |                              无                              |   否   |
-|         --diffMode=MODE         | 指定获取差异文件列表的准则，可选 length （长度）和 length-checksum（长度 + CRC 值） |                              无                              |   否   |
-|      --diffOutput=LOCATION       | 指定差异文件列表的输出目录，该输出目录必须为空            |     无     |   否   |
-|     --cosChecksumType=TYPE     | 指定 Hadoop-COS 插件使用的 CRC 算法，可选值为 CRC32C 和 CRC64 | CRC32C | 否 |
+|         --enableCrcCheck         | 当文件拷贝完成的时候，校验源文件和目的文件的 CRC 是否相同，注意：除拷贝到 COS 外，源文件系统和目标文件系统支持相同 CRC 算法，该参数才生效<br/>示例：--enableCrcCheck |       false   |    否   |    
+|      --skipCopySameCrcFile       | 指定跳过源和目的具有相同 CRC 值和相同大小的文件，以进行增量拷贝<br>注意：源和目的支持相同 CRC 算法时，该参数才生效<br>示例：--skipCopySameCrcFile |                              无                              |   否   |
+|         --diffMode=MODE         | 指定获取差异文件列表的准则，可选 length （长度）和 length-checksum（长度 + CRC 值）<br/>示例：--diffMode=length-checksum |                              无                              |   否   |
+|      --diffOutput=LOCATION       | 指定差异文件列表的输出目录，该输出目录必须为空<br/>示例：--diffOutput=/diff-output            |     无     |   否   |
+|     --cosChecksumType=TYPE     | 指定 Hadoop-COS 插件使用的 CRC 算法，可选值为 CRC32C 和 CRC64<br/>示例：--cosChecksumType=CRC32C | CRC32C | 否 |
 
 
 ## 使用示例
 
 ### 查看 help 选项
 
-执行命令`--help`，查看 COSDistcp 支持的参数：
+以参数`--help`执行命令，查看 COSDistcp 支持的参数，示例如下：
 
 ```plaintext
 hadoop jar cos-distcp-1.0.jar --help
@@ -73,7 +73,7 @@ hadoop jar cos-distcp-1.0.jar --help
 
 ### 指定待迁移文件的源目录和目标目录
 
-执行命令`--src` 和 `--dest`，示例如下：
+以参数`--src` 和 `--dest`执行命令，示例如下：
 
 ```plaintext
 hadoop jar cos-distcp-1.0.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse
@@ -81,7 +81,7 @@ hadoop jar cos-distcp-1.0.jar --src /data/warehouse --dest cosn://examplebucket-
 
 ### 对输入文件进行正则表达式过滤
 
-执行命令`--srcPattern`，只同步 `/data/warehouse/logs` 目录下，以 .log 结尾的日志文件：
+以参数`--srcPattern`执行命令，只同步 `/data/warehouse/logs` 目录下，以 .log 结尾的日志文件，示例如下：
 
 ```plaintext
 hadoop jar cos-distcp-1.0.jar  --src /data/warehouse/logs --dest cosn://examplebucket-1250000000/data/warehouse --srcPattern='.*/logs/.*\.log'
@@ -89,17 +89,17 @@ hadoop jar cos-distcp-1.0.jar  --src /data/warehouse/logs --dest cosn://exampleb
 
 ### 指定 reducer 数目以及每个 reducer 进程内拷贝线程数
 
-执行命令`--reducerNumber`和`--workersNumber`，COSDistcp 采用多进程+多线程的拷贝架构，您可以：
+以参数`--reducerNumber`和`--workersNumber`执行命令，COSDistcp 采用多进程+多线程的拷贝架构，您可以：
 - 通过 `--reducerNumber` 指定 reducer 进程数目
 - 通过 `--workerNumber` 指定每个 reducer 内的拷贝线程数
 
 ```plaintext
-hadoop jar cos-distcp-1.0.jar --src /data/warehouse/ --dest cosn://examplebucket-1250000000/data/warehouse --reducerNumber=10 --workerNumber=32
+hadoop jar cos-distcp-1.0.jar --src /data/warehouse/ --dest cosn://examplebucket-1250000000/data/warehouse --reducerNumber=10 --workerNumber=10
 ```
 
 ### 删除源文件
 
-执行命令`--deleteOnSuccess`，将 `/data/warehouse` 目录下文件从 HDFS 同步到 COS 后，立即删除源目录中的对应文件：
+以参数`--deleteOnSuccess`执行命令，将 `/data/warehouse`目录下文件从 HDFS 同步到 COS 后，立即删除源目录中的对应文件：
 
 ```plaintext
 hadoop jar cos-distcp-1.0.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --deleteOnSuccess
@@ -109,7 +109,7 @@ hadoop jar cos-distcp-1.0.jar --src /data/warehouse --dest cosn://examplebucket-
 
 ### 限制单文件读取带宽
 
-执行命令`--bandWidth`，数值单位为MB。限制每个迁移文件的读取带宽为 10MB/s，示例如下：
+以参数`--bandWidth`执行命令，数值单位为MB。限制每个迁移文件的读取带宽为 10MB/s，示例如下：
 
 ```plaintext
 hadoop jar cos-distcp-1.0.jar  --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --bandWidth=10
@@ -117,7 +117,7 @@ hadoop jar cos-distcp-1.0.jar  --src /data/warehouse --dest cosn://examplebucket
 
 ### 指定 Hadoop-COS 的文件检验和类型
 
-执行命令`--cosChecksumType`，默认 CRC32C，可选 CRC32C 和 CRC64。
+以参数`--cosChecksumType`执行命令，默认 CRC32C，可选 CRC32C 和 CRC64。
 
 ```plaintext
 hadoop jar cos-distcp-1.0.jar  --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse --cosChecksumType=CRC32C
@@ -125,7 +125,7 @@ hadoop jar cos-distcp-1.0.jar  --src /data/warehouse --dest cosn://examplebucket
 
 ### 跳过具有相同 CRC 的文件
 
-执行命令`--skipCopySameCrcFile`。该选项仅在源和目标文件系统具有相同 CRC 算法实现时生效，否则仍然会拷贝文件。如果您的源是 HDFS，您可以通过如下方式，确定 HDFS 源是否支持 COMPOSITE-CRC32C 校验算法：
+以参数`--skipCopySameCrcFile`执行命令。该选项仅在源和目标文件系统具有相同 CRC 算法实现时生效，否则仍然会拷贝文件。如果您的源是 HDFS，您可以通过如下方式，确定 HDFS 源是否支持 COMPOSITE-CRC32C 校验算法：
 
 ```plaintext
 hadoop fs  -Ddfs.checksum.combine.mode=COMPOSITE_CRC -checksum /data/test.txt
@@ -140,7 +140,7 @@ hadoop jar cos-distcp-1.0.jar  --src /data/warehouse --dest cosn://examplebucket
 
 ### 校验源文件和目标文件是否具有相同 CRC
 
-执行命令`--enableCrcCheck`，文件拷贝完成时，校验源文件和目标文件是否具有相同 CRC。
+以参数`--enableCrcCheck`执行命令，文件拷贝完成时，校验源文件和目标文件是否具有相同 CRC。
 
 从非 COS 文件系统同步到 COS 时，如果源的 CRC  算法和 Hadoop-COS 的 CRC 算法不一致，则拷贝的同时，将实时计算 CRC，并在拷贝完成后，获取目的 COS 文件的 CRC，和计算得到的 CRC 对比校验。拷贝目标为非 COS 的文件系统，仅在源文件系统和目标文件系统，具有相同 CRC 算法实现时，该选项会生效，否则校验失败。示例如下：
 
@@ -150,7 +150,7 @@ hadoop jar cos-distcp-1.0.jar   --src /data/warehouse --dest cosn://examplebucke
 
 ### 指定目标文件的压缩类型
 
-执行命令`--outputCodec`，您可通过该参数，将 HDFS 中的数据实时压缩备份到 COS，节省存储成本。参数可选值为：keep、none、gzip、lzop、snappy，none 选项保存的目标文件为未压缩状态，keep 保持原来文件的压缩状态。示例如下：
+以参数`--outputCodec`执行命令，您可通过该参数，将 HDFS 中的数据实时压缩备份到 COS，节省存储成本。参数可选值为：keep、none、gzip、lzop、snappy，none 选项保存的目标文件为未压缩状态，keep 保持原来文件的压缩状态。示例如下：
 
 ```plaintext
 hadoop jar cos-distcp-1.0.jar --src /data/warehouse/logs --dest cosn://examplebucket-1250000000/data/warehouse/logs-gzip --outputCodec=gzip
@@ -176,7 +176,7 @@ hadoop jar  cos-distcp-1.0.jar --src /data/warehouse  --srcPrefixesFile file:///
 
 ### 生成目的清单文件和指定上一次清单输出文件
 
-执行命令`--outputManifest` 和`--previousManifest`。
+以参数`--outputManifest` 和`--previousManifest`执行命令。
 
 - `--outputManifest` 该选项首先会在本地生成一个 gzip 压缩的 manifest.gz，并在迁移成功时，移动到 `--dest` 所指定的目录下。
 - `--previousManifest` 指定上一次 `--outputManifest` 输出文件，COSDistcp 会跳过相同长度大小的文件：
@@ -189,13 +189,13 @@ hadoop jar cos-distcp-1.0.jar --src /data/warehouse --dest  cosn://examplebucket
 
 ### 根据 CRC 获取差异文件列表和增量迁移
 
-执行命令`--diffMode`、`--diffOutput`：
+以参数`--diffMode`和`--diffOutput`执行命令：
 - `--diffMode` 可选值为 length 和 length-checksum。
  - `--diffMode=length`表示根据文件大小是否相同，获取差异文件列表。
  - `--diffMode=length-checksum`，根据文件大小和 CRC 检验和是否相同，获取差异文件列表。
 - `--diffOutput` 指定 diff 操作的输出目录。
 
-以下示例中，指定 mapred.max.split.size 为 100KB，生成更多的校验 mapper 任务用于 diff：
+以下示例中，根据文件大小和 CRC 值校验源和目的文件是否相同， 指定 mapred.max.split.size 为 100KB：
 
 ```plaintext
 hadoop jar cos-distcp-1.0.jar -Dmapred.max.split.size=102400  --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --diffMode=length-checksum --diffOutput=/tmp/diff-output
@@ -224,9 +224,8 @@ hadoop  jar cos-distcp-1.0.jar --reducerNumber=20 --src /data/warehouse --dest c
 
 ### 指定 COS 文件的存储类型
 
-执行命令`--storageClass`，示例如下：
+以参数`--storageClass`执行命令，示例如下：
 
 ```plaintext
 hadoop jar cos-distcp-1.0.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --outputManifest=manifest-2020-01-10.gz --storageClass=STANDARD_IA
 ```
-
