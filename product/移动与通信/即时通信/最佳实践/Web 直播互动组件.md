@@ -115,7 +115,7 @@ im.enterRoom('your roomID').then((imResponse) => {
 
 为了进一步降低开发者的开发和人力成本，我们在 TWebLive SDK 的基础上，提供了同时适配 PC 和移动端浏览器的 [Demo](https://github.com/tencentyun/TWebLive)，并开源到了 Github。开发者 fork&clone 项目到本地，稍作修改即可把 Demo 运行起来，也可集成到自己的项目部署上线。
 
-## 接入使用
+## TWebLive 接入使用
 
 <dx-tabs>
 ::: 方式一、基于实时音视频\sTRTC
@@ -139,9 +139,9 @@ im.enterRoom('your roomID').then((imResponse) => {
 :::
 ::: 方式二、基于即时通信\sIM
 ### 步骤1：创建即时通信 IM 应用
- 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击【创建新应用】。
+1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击【创建新应用】。
 ![](https://main.qcloudimg.com/raw/ed447c7adef857bf3364b8bf33fe1b97.png)
- 2. 弹出对话框，输入您的应用名称，单击【确认】即可完成创建。
+2. 弹出对话框，输入您的应用名称，单击【确认】即可完成创建。
 ![](https://main.qcloudimg.com/raw/0a9bbf5f4f0584e31da09eecf8a9b410.png)
  您可在 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 总览页面查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。请记录 SDKAppID 信息。
  
@@ -150,7 +150,6 @@ im.enterRoom('your roomID').then((imResponse) => {
 ![](https://main.qcloudimg.com/raw/7d8ec3ea5031a38ae22fcd7fc7107f0e.png)
 2. 在该应用的基础配置页，开通腾讯云实时音视频服务。
 ![](https://main.qcloudimg.com/raw/640e0635b1b9179fb067a9f2d18d459c.png)
-![](https://main.qcloudimg.com/raw/26a0c275aafeab38fcbd7d963cc0d9ba.png)
   >!请妥善保管密钥信息，谨防泄露。
   
 	通过 npm 下载 TWebLive：
