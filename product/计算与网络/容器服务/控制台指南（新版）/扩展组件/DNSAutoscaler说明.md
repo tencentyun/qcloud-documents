@@ -55,10 +55,10 @@ data:
 | kubernets 对象名称 | 类型               | 请求资源                 | 所属 Namespace |
 | :----------------- | ------------------ | ------------------------ | -------------- |
 | tke-dns-autoscaler | Deployment         | 每节点20mCPU，10Mi内存 | kube-system    |
-| dns-autoscaler     | ConfigMap          | \                        | kube-system    |
-| tke-dns-autoscale  | ServiceAccount     | \                        | kube-system    |
-| tke-dns-autoscaler | ClusterRole        | \                        | kube-system    |
-| tke-dns-autoscaler | ClusterRoleBinding | \                        | kube-system    |
+| dns-autoscaler     | ConfigMap          | -                        | kube-system    |
+| tke-dns-autoscale  | ServiceAccount     | -                        | kube-system    |
+| tke-dns-autoscaler | ClusterRole        | -                        | kube-system    |
+| tke-dns-autoscaler | ClusterRoleBinding | -                        | kube-system    |
 
 ## 限制条件
 

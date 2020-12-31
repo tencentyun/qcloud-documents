@@ -1,3 +1,4 @@
+本文为您介绍如何配置 OTA 功能、上传固件以及在小程序进行验证等操作。
 
 ## 配置 OTA 功能
 
@@ -24,15 +25,15 @@
    ```
    #define BLE_QIOT_PACKAGE_LENGTH 0x10
    ```
-6. 两个数据包之间超时间隔，单位：秒，用户可根据实际情况进行修改。
+6. 两个数据包之间超时间隔，单位为秒，用户可根据实际情况进行修改。
    ```
    #define BLE_QIOT_RETRY_TIMEOUT  2
    ```
-7. OTA 升级重启等待时间，单位：秒，在此时间内小程序将持续尝试连接设备，超时后小程序认为升级失败，如果固件较大或设备升级流程较长可适当加长重启等待时间。
+7. OTA 升级重启等待时间，单位为秒，在此时间内小程序将持续尝试连接设备，超时后小程序认为升级失败，如果固件较大或设备升级流程较长可适当加长重启等待时间。
    ```
    #define BLE_QIOT_REBOOT_TIME    20
    ```
-8. 小程序下发两个数据包之间的时间间隔，单位：毫秒，可适当修改以提升 OTA 升级速度。
+8. 小程序下发两个数据包之间的时间间隔，单位为毫秒，可适当修改以提升 OTA 升级速度。
    ```
    #define BLE_QIOT_PACKAGE_INTERVAL 0x05
    ```
@@ -42,38 +43,38 @@
    ```
 	 
 ## OTA 相关接口适配
-- 查看 `qcloud_iot_explorer_ble\inc\ble_qiot_import.h` 文件，用户需要实现以下几个接口。
-	1. SDK 调用该接口将版本号传给用户，用户可以按照自己的规则检查版本号是否合法、是否高于上一个版本等，通过返回值通知 SDK 是否允许 OTA 升级。
-		 ```
-		 uint8_t ble_ota_is_enable(const char *version);
-		 ```
-	2. SDK 通过此接口获取 OTA 数据在 flash 中的保存地址，用户只需提供基址，在 OTA 升级过程中 SDK 会自动在基址的基础上计算偏移。
-		 ```
-		 uint32_t ble_ota_get_download_addr(void);
-		 ```
-	3. 用户提供写入 OTA 数据的接口，存储介质不限，可以是片内 ROM 或片外 flash 等。SDK 只负责写入数据，需用户自己在适当的时间进行擦除、磨损平衡等处理。
-		 ```
-		 int ble_ota_write_flash(uint32_t flash_addr, const char *write_buf, uint16_t write_len);
-		 ```
+查看 `qcloud_iot_explorer_ble\inc\ble_qiot_import.h` 文件，用户需要实现以下几个接口。
+1. SDK 调用该接口将版本号传给用户，用户可以按照自己的规则检查版本号是否合法、是否高于上一个版本等，通过返回值通知 SDK 是否允许 OTA 升级。
+	 ```
+	 uint8_t ble_ota_is_enable(const char *version);
+	 ```
+2. SDK 通过此接口获取 OTA 数据在 flash 中的保存地址，用户只需提供基址，在 OTA 升级过程中 SDK 会自动在基址的基础上计算偏移。
+	 ```
+	 uint32_t ble_ota_get_download_addr(void);
+	 ```
+3. 用户提供写入 OTA 数据的接口，存储介质不限，可以是片内 ROM 或片外 flash 等。SDK 只负责写入数据，需用户自己在适当的时间进行擦除、磨损平衡等处理。
+	 ```
+	 int ble_ota_write_flash(uint32_t flash_addr, const char *write_buf, uint16_t write_len);
+	 ```
 	 
-- 查看 `qcloud_iot_explorer_ble\inc\ble_qiot_export.h` 文件，用户需要实现以下几个回调函数。
+查看 `qcloud_iot_explorer_ble\inc\ble_qiot_export.h` 文件，用户需要实现以下几个回调函数。
 
-	1. 用于通知用户 OTA 升级开始。
-		 ```
-		 typedef void (*ble_ota_start_callback)(void);
-		 ```
-	2. 用于通知用户 OTA 升级结束并返回结果，例如成功、CRC 校验错误、文件错误等。用户可以根据返回结果做进一步处理，例如返回成功则重启设备，通过 boot 程序将保存在外部 flash 的 OTA  固件写入片内进行升级；返回错误则擦除已经下载的 OTA 固件等。
-		 ```
-		 typedef void (*ble_ota_stop_callback)(uint8_t result);
-		 ```
-	3. SDK 在接收完 OTA 数据并通过 CRC 校验后会调用该函数，用户可以在该函数内对固件做进一步校验，例如固件是否正确、是否为定制固件等，最终 OTA 升级的结果会通过 `ble_ota_stop_callback()` 告知用户。
-		 ```
-		 typedef ble_qiot_ret_status_t (*ble_ota_valid_file_callback)(uint32_t file_size, char *file_version);
-		 ```
-	4. 用户在自己工程代码合适的位置调用该接口，将以上回调函数注册至 SDK。
-		 ```
-		 void ble_ota_callback_reg(ble_ota_start_callback start_cb, ble_ota_stop_callback stop_cb,ble_ota_valid_file_callback valid_file_cb);
-		 ```
+1. 用于通知用户 OTA 升级开始。
+	 ```
+	 typedef void (*ble_ota_start_callback)(void);
+	 ```
+2. 用于通知用户 OTA 升级结束并返回结果，例如成功、CRC 校验错误、文件错误等。用户可以根据返回结果做进一步处理，例如返回成功则重启设备，通过 boot 程序将保存在外部 flash 的 OTA  固件写入片内进行升级；返回错误则擦除已经下载的 OTA 固件等。
+	 ```
+	 typedef void (*ble_ota_stop_callback)(uint8_t result);
+	 ```
+3. SDK 在接收完 OTA 数据并通过 CRC 校验后会调用该函数，用户可以在该函数内对固件做进一步校验，例如固件是否正确、是否为定制固件等，最终 OTA 升级的结果会通过 `ble_ota_stop_callback()` 告知用户。
+	 ```
+	 typedef ble_qiot_ret_status_t (*ble_ota_valid_file_callback)(uint32_t file_size, char *file_version);
+	 ```
+4. 用户在自己工程代码合适的位置调用该接口，将以上回调函数注册至 SDK。
+	 ```
+	 void ble_ota_callback_reg(ble_ota_start_callback start_cb, ble_ota_stop_callback stop_cb,ble_ota_valid_file_callback valid_file_cb);
+	 ```
 
 ## 上传固件
 

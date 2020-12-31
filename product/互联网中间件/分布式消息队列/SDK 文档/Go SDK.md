@@ -24,7 +24,7 @@ TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和
 
 3. 打开命令控制台，运行以下命令：
 ```bash
-go get -u "github.com/TencentCloud/tdmq-go-client@v0.2.0-beta.1"
+go get -u "github.com/TencentCloud/tdmq-go-client@v0.3.0-beta.1"
 ```
 
 
@@ -38,7 +38,7 @@ go env | grep GOPATH
 # Windows
 go env | findstr GOPATH
 ```
->?目前 Pulsar 官方尚未更新最新适配的客户端，腾讯云已将适配后的 Go 客户端提交至社区，即将在下个版本发布，在官方适配之前您需要先使用腾讯云提供的 SDK。
+>?目前 Pulsar 官方尚未更新最新适配的客户端（目前官方的 Go 语言客户端在 client 构造中，没有用于声明路由方式的 `ListenerName` 字段），腾讯云已将适配后的 Go 客户端提交至社区，即将在下个版本发布，在官方适配之前您需要先使用腾讯云提供的 SDK。
 
 ### 创建 Demo工程
 
@@ -55,7 +55,7 @@ require github.com/TencentCloud/tdmq-go-client v0.3.0-beta.2
 
 2.创建 producer.go 和 consumer.go 测试 Demo 文件。
 
-- producer.go 代码内容如下，其中`listenerName`即`custom:`拼接路由 ID（NetModel），路由 ID 可以在控制台【[环境管理](https://console.cloud.tencent.com/tdmq/env)】接入点查看并复制，`NewAuthenticationToken`即角色密钥，可以在【[角色管理](https://console.cloud.tencent.com/tdmq/role)】页面复制。
+- producer.go 代码内容如下，其中 `ListenerName` 即 `custom:` 拼接路由 ID（NetModel），路由 ID 可以在控制台【[环境管理](https://console.cloud.tencent.com/tdmq/env)】接入点查看并复制，`NewAuthenticationToken`即角色密钥，可以在【[角色管理](https://console.cloud.tencent.com/tdmq/role)】页面复制。
 <dx-codeblock>
 :::  go
 package main

@@ -31,7 +31,7 @@
 <tr>
 <td>iOS</td>
 <td  nowrap="nowrap">不支持</td>
-<td>支持    <br> <strong>注意</strong>：当 App 进程被手动杀死，则无法撤回消息</td>
+<td>支持    <br> <strong>注意</strong>：当 App 进程被手动结束，则无法撤回消息</td>
 <td>支持</td>
 </tr>
 </tbody></table>
