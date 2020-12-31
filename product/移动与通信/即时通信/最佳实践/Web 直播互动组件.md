@@ -175,14 +175,14 @@ Vue.prototype.TWebLive = TWebLive
 
 :::
 ::: 方式二、基于即时通信\sIM
-#### 步骤1：创建即时通信 IM 应用(id:step1-1)
+#### 步骤1：创建即时通信 IM 应用
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击【创建新应用】将弹出对话框。
 ![](https://main.qcloudimg.com/raw/c8d1dc415801404e30e49ddd4e0c0c13.png)
 2. 输入您的应用名称，单击【确认】即可完成创建。
 ![](https://main.qcloudimg.com/raw/496cdc614f7a9d904cb462bd4d1e7120.png)
 3. 您可在 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 总览页面查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。请记录 SDKAppID 信息。
 
-#### 步骤2：获取 IM 密钥并开通实时音视频服务(id:step2-2)
+#### 步骤2：获取 IM 密钥并开通实时音视频服务
 1. 在 [即时通讯 IM 控制台](https://console.cloud.tencent.com/im) 总览页单击您创建完成的即时通信 IM 应用，随即跳转至该应用的基础配置页。在【基本信息】区域，单击【显示密钥】，复制并保存密钥信息。
 ![](https://main.qcloudimg.com/raw/030440f94a14cd031476ce815ed8e2bc.png)
 2. 在该应用的基础配置页，开通腾讯云实时音视频服务。
@@ -197,8 +197,8 @@ npm i tweblive --save
 #### 步骤3：下载并配置 Demo
 1. 请下载 [腾讯云 TWebLive 直播互动组件 Demo 工程](https://github.com/tencentyun/TWebLive)。
 2. 打开 `TWebLive/dist/debug/GenerateTestUserSig.js` 文件，并设置相关参数：
- - SDKAPPID：请设置为 [步骤1](#step1-1) 中获取的实际应用 SDKAppID。
- - SECRETKEY：请设置为 [步骤2](#step2-2) 中获取的实际密钥信息。
+ - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际应用 SDKAppID。
+ - SECRETKEY：请设置为 [步骤2](#step2) 中获取的实际密钥信息。
  - PUSHDOMAIN：CDN观看，配置推流域名。（如果不需要 CDN 直播观看，可略过此配置）
 ![](https://main.qcloudimg.com/raw/d11e9a34a7280ac8336b865be0759a77.png)
 
