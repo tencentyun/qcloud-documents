@@ -6,7 +6,7 @@
 - Android：自定义渲染回调支持 RGBA 格式的视频数据。
 - Windows：支持本地摄像头采集和播放远端视频流截图，请参见 [ITRTCCloud.snapshotVideo](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a3769ecbff6c0c4ee7cc5e4b40aaafe96)。
 - Windows：屏幕分享支持通过 addExcludedShareWindow 和 addIncludedShareWindow 接口排除或强制包含您所指定的窗口，从而实现更灵活的屏幕分享能力。
-- Mac&iOS 自定义渲染的模式下也可以调用 TRTCCloud.snapshotVideo 截取视频流图片。
+- Mac&iOS：自定义渲染的模式下也可以调用 TRTCCloud.snapshotVideo 截取视频流图片。
 
 **质量优化**
 - Android：在线直播编码质量优化，视频画面更清晰。

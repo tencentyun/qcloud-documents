@@ -87,13 +87,21 @@
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32183">DOC</a></td>
       <td style="text-align:center">N/A</td>
    </tr>
+	    <tr>
+      <td style="text-align:center">Flutter</td>
+      <td style="text-align:center">N/A</td>
+      <td style="text-align:center"><a href="https://github.com/c1avie/trtc_demo">Github</a></td>
+      <td style="text-align:center">N/A</td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/51601">DOC</a></td>
+      <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/51602">DOC</a></td>
+      <td style="text-align:center">13M</td>
+   </tr>
 </table>
 
 >? 
 > - 如需减少 SDK 带来的安装包体积增量请参考 [如何缩减安装包体积](https://cloud.tencent.com/document/product/647/34400)。
 > - 扫码关注公众号，了解 SDK 的版本更新以及最新的技术动态。
->   ![](https://main.qcloudimg.com/raw/d8a8c8c130ef7799feff6efbc0260ea2.jpg)
-> 
+> ![](https://main.qcloudimg.com/raw/d8a8c8c130ef7799feff6efbc0260ea2.jpg)
 
 
 <h2 id="Professional">专业版（Professional）</h2>

@@ -51,7 +51,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/modify_group_base_info?sdkappi
 ```
 
 - **设置群自定义信息**
-设置群组自定义字段信息，自定义信息默认没有，需要开通，详见请求包字段说明表。
+设置群组自定义字段信息，自定义信息默认没有，可以通过 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 进行配置，详见请求包字段说明表。
 ```
 {
     "GroupId": "@TGS#1NVTZEAE4", // 要修改哪个群的基础资料（必填）

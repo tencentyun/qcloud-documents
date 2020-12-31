@@ -10,7 +10,6 @@ Linux x86_64 平台的 TcaplusServiceAPI 发布包包含64位 Linux 版本的 tc
 | 版本          | 发布时间   | 操作系统     | 下载包名                                                     |
 | ------------- | ---------- | ------------ | ------------------------------------------------------------ |
 | 3.36.0.192960 | 2020/04/21 | Linux x86_64 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/3.36.0.192960/TcaplusPbApi3.36.0.192960.x86_64_release_20200115.tar.gz) |
-| 3.50.1.200112 | 2020/09/07 | Linux x86_64 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/3.50.0.200907/TcaplusServiceApi3.50.1.200112.x86_64_release_20200907%20(1).tar.gz) |
 
 
 >?相关操作需要在用户腾讯云账号下申请的同 VPC 网络，同子网的云服务器 CVM 中进行。

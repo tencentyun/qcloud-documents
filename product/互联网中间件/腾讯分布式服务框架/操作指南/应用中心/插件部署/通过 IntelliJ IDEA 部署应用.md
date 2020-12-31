@@ -3,7 +3,7 @@
 
 ## 前提条件
 
-您需要先在 TSF 中创建好相关的集群（Cluster)、应用（Application)、部署组（Group），具体操作部署如下（如已有相关资源请跳过这一步骤）：
+您需要先在 TSF 中创建好相关的集群（Cluster）、应用（Application）、部署组（Group），具体操作部署如下（如已有相关资源请跳过这一步骤）：
   - [创建集群](https://cloud.tencent.com/document/product/649/13684)
   - [创建应用](https://cloud.tencent.com/document/product/649/13686)
   - [创建虚拟机部署组](https://cloud.tencent.com/document/product/649/15524)
@@ -32,18 +32,18 @@
 <th>描述</th>
 </tr>
 <tbody><tr>
-<td></td>
+<td>地域</td>
 <td>Region</td>
 <td>服务所在地区。</td>
 </tr>
 <tr>
-<td rowspan="2">应用信息</td>
+<td rowspan="2"><nobr>应用信息</nobr></td>
 <td>Application</td>
 <td>服务所在应用。</td>
 </tr>
 <tr>
 <td>Group</td>
-<td>服务所在部署组</td>
+<td>服务所在部署组。</td>
 </tr>
 <tr>
 <td rowspan="2">部署方式</td>
@@ -57,7 +57,7 @@
 <tr>
 <td rowspan="3">其他</td>
 <td>Version</td>
-<td>部署版本，缺省使用时间戳作为版本号</td>
+<td>部署版本，缺省使用时间戳作为版本号。</td>
 </tr>
 <tr>
 <td>Description</td>
@@ -74,9 +74,9 @@
 
 ### 容器部署
 
-1. 在IDEA中打开consumer-demo工程。
-2. 在IntelliJ IDEA顶部菜单栏中选择Tools > Tencent Toolkit Cloud > Deploy to TSF for Kubernetes Application...。
-3. 在Tsf Deploy Cotainer中部署配置，跟虚拟机部署一样，根据镜像来源以及是否部署，插件提供三种选项:
+1. 在 IDEA 中打开 consumer-demo 工程。
+2. 在 IntelliJ IDEA 顶部菜单栏中选择【Tools】>【Tencent Toolkit Cloud】>【Deploy to TSF for Kubernetes Application...】。
+3. 在 Tsf Deploy Cotainer 中部署配置，跟虚拟机部署一样，根据镜像来源以及是否部署，插件提供三种选项:
    - Build image：制作镜像、上传镜像至TSF镜像仓库、部署。
    - Select image：选择镜像仓库中的镜像部署。
    - Deploy to group：是否执行部署，默认执行。如果取消勾选，则仅上传镜像至 TSF 镜像仓库。
@@ -85,7 +85,7 @@
 
 	- ServicePort：服务端口（该端口为服务启动时占用端口）。
 	- ContainerPort：服务映射端口。
-	- InstancePort：K8S 中使用 NodePort 方式部署时指定 NodePort 端口（端口范围：30000-32767)。这部分逻辑同 TSF。
+	- InstancePort：K8S 中使用 NodePort 方式部署时指定 NodePort 端口（端口范围：30000-32767）。这部分逻辑同 TSF。
 
 Settings 页签部署参数配置说明如下：
 <table>
@@ -97,18 +97,18 @@ Settings 页签部署参数配置说明如下：
 </tr>
 </thead>
 <tbody><tr>
-<td></td>
+<td>地域</td>
 <td>Region</td>
-<td>服务所在地区</td>
+<td>服务所在地区。</td>
 </tr>
 <tr>
-<td rowspan="2">应用信息</td>
+<td rowspan="2"><nobr>应用信息</nobr></td>
 <td>Application</td>
-<td>服务所在应用</td>
+<td>服务所在应用。</td>
 </tr>
 <tr>
 <td>Group</td>
-<td>服务所在部署组</td>
+<td>服务所在部署组。</td>
 </tr>
 <tr>
 <td rowspan="2">部署方式</td>
@@ -122,16 +122,16 @@ Settings 页签部署参数配置说明如下：
 <tr>
 <td rowspan="2">请求配置</td>
 <td>Network AccessMode</td>
-<td>部署方式</td>
+<td>部署方式。</td>
 </tr>
 <tr>
 <td>Port</td>
-<td>ContainerPort：服务映射端口；ServicePort（应用服务启动端口）；<br>IntancePort：K8S 中使用 NodePort 方式部署时指定 NodePort 端口（端口范围: 30000-32767）</td>
+<td>ContainerPort：服务映射端口；ServicePort（应用服务启动端口）；<br>IntancePort：K8S 中使用 NodePort 方式部署时指定 NodePort 端口（端口范围: 30000-32767）。</td>
 </tr>
 <tr>
 <td rowspan="3">其他</td>
 <td>Version</td>
-<td>部署版本，缺省使用时间戳作为版本号</td>
+<td>部署版本，缺省使用时间戳作为版本号。</td>
 </tr>
 <tr>
 <td>Context Directory</td>
@@ -143,7 +143,7 @@ Settings 页签部署参数配置说明如下：
 </tr>
 </tbody></table>
 
-4. Advanced 提供容器部署的相关高级参数设置，包括pod更新、调度规则、健康检查相关的配置。
+4. Advanced 提供容器部署的相关高级参数设置，包括 pod 更新、调度规则、健康检查相关的配置。
 <table>
 <thead>
 <tr>
@@ -168,7 +168,7 @@ Settings 页签部署参数配置说明如下：
 </tr>
 <tr>
 <td>HealthCheck</td>
-<td>就绪检查（Readiness), 存活检查（Liveness)。</td>
+<td>就绪检查（Readiness），存活检查（Liveness）。</td>
 </tr>
 <tr>
 <td rowspan="2">其他</td>

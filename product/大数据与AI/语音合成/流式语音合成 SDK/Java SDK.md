@@ -16,7 +16,7 @@
 <dependency>
     <groupId>com.tencentcloudapi</groupId>
     <artifactId>tencentcloud-speech-sdk-java</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.11</version>
 </dependency>
 ```
 

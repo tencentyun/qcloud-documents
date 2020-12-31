@@ -223,7 +223,7 @@
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
 | [弹性 MapReduce](https://cloud.tencent.com/document/product/589) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/589/14625) |
 | [云数据仓库 PostgreSQL](https://cloud.tencent.com/document/product/878) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/878/20072) |
-| [流计算服务](https://cloud.tencent.com/document/product/849) | 服务级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/849/38621) |
+| [流计算服务](https://cloud.tencent.com/document/product/849) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/849/38621) |
 | [Elasticsearch Service](https://cloud.tencent.com/document/product/845) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/845/19550) |
 | [云数据仓库 ClickHouse](https://cloud.tencent.com/document/product/1299) | 操作级   | &#10003; | -                | -        | -                                                            |
 
@@ -396,7 +396,6 @@
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
 | [访问管理](https://cloud.tencent.com/document/product/598)   | 操作级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/598/10590) |
 | [身份管理服务 IDaaS](https://cloud.tencent.com/document/product/1106) | 服务级   | &#10003; | -                | &#10003; | -                                                            |
-| [云审计](https://cloud.tencent.com/document/product/629)     | 操作级   | &#10003; | -                | &#10003; | -                                                            |
 | [云审计](https://cloud.tencent.com/document/product/629)     | 操作级   | &#10003; | -                | &#10003; | -                                                            |
 | [企业组织](https://cloud.tencent.com/document/product/850)   | 操作级   | &#10003; | -                | -        | -                                                            |
 | [商业流程服务](https://cloud.tencent.com/document/product/1083) | 操作级   | &#10003; | -                | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1083/34888) |
