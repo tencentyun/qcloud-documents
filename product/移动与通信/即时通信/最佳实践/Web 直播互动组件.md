@@ -187,7 +187,7 @@ Vue.prototype.TWebLive = TWebLive
 1. 在 [即时通讯 IM 控制台](https://console.cloud.tencent.com/im) 总览页单击您创建完成的即时通信 IM 应用，随即跳转至该应用的基础配置页。在【基本信息】区域，单击【显示密钥】，复制并保存密钥信息。
 ![](https://main.qcloudimg.com/raw/7d8ec3ea5031a38ae22fcd7fc7107f0e.png)
 2. 在该应用的基础配置页，开通腾讯云实时音视频服务。
-![](https://main.qcloudimg.com/raw/640e0635b1b9179fb067a9f2d18d459c.png)
+![](https://main.qcloudimg.com/raw/f4b48128ab8d54d7b8b4fb811b16a1cd.png)
   >!请妥善保管密钥信息，谨防泄露。
   
 	通过 npm 下载 TWebLive：
