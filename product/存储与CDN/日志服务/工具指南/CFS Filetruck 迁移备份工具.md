@@ -1,31 +1,29 @@
 当用户需要进行文件备份或迁移时，传统`rsync`类工具无法指定迁移任务启动/终止时间，极有可能导致迁移任务在用户业务高负载时挤占用户计算、网络、存储等资源。为减轻用户管理数据迁移任务的负担，CFS 提供了可控制数据迁移任务起止时间的迁移工具 `Filetruck`。
 
- 1. Filetruck 的主要功能如下：
-  - 创建数据迁移任务
+- Filetruck 的主要功能如下：
+  - 数据迁移任务
   - 根据任务 ID 查询任务执行情况
   - 列出所有历史任务
+- Filetruck 支持的源和目的地址如下：
 
-2. Filetruck 支持的源和目的地址如下：
-
-|          | 源                                                           | 目的                                                         |
+| 支持项   | 源                                                           | 目的                                                         |
 | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| 迁移地址 | - CFS 文件系统 - 本地文件系统（CBS 云硬盘格式化后安装的文件系统） - COSFS 本地路径  -打通网络后挂载到该主机上的所有本地路径 | - CFS 文件系统 - 本地文件系统（CBS 云硬盘格式化后安装的文件系统） - COSFS 本地路径  -打通网络后挂载到该主机上的所有本地路径 |
-
-
+| 迁移地址 | <li>CFS 文件系统 <br/><li> 本地文件系统（CBS 云硬盘格式化后安装的文件系统） <br/><li> COSFS 本地路径 <br/><li>打通网络后挂载到该主机上的所有本地路径 | <li>CFS 文件系统 <br/><li> 本地文件系统（CBS 云硬盘格式化后安装的文件系统）<br/><li> COSFS 本地路径  -打通网络后挂载到该主机上的所有本地路径 |
 
 下面介绍如何使用迁移工具进行数据迁移或者数据备份。
 
-## 1. 迁移前准备
+## 准备工作
 
 在迁移工作开始前，用户可以到腾讯云镜像市场找到 [CFS 迁移工具 Filetruck](https://market.cloud.tencent.com/products/24827) 的镜像。
 
-第一步：使用 CFS Filetruck 镜像创建一个 CVM 云主机（推荐最低配置 ：2核4G1.5Gbps）。主机成功创建后，迁移工具及相关环境配置已经就绪；
-第二步：将需要迁移/备份的文件所在的源地址及目的地址挂载到该主机上，点击查看 [ CFS 文件系统挂载指引](https://cloud.tencent.com/document/product/582/11523)；
-第三步：创建一个迁移任务并执行。
+1. 使用 CFS Filetruck 镜像创建一个 CVM 云主机（推荐最低配置 ：2核4G1.5Gbps）。主机成功创建后，迁移工具及相关环境配置已经就绪；
+2. 将需要迁移/备份的文件所在的源地址及目的地址挂载到该主机上，详情请参见 [ CFS 文件系统挂载指引](https://cloud.tencent.com/document/product/582/11523)；
+3. 创建一个迁移任务并执行。
 
-## 2. 创建数据迁移任务
+## 操作步骤
+### 创建数据迁移任务
 
-#### 2.1. 通过简单配置启动新任务
+####  通过简单配置启动新任务
 
 迁移工具根据`ini`格式配置文件启动迁移任务。新任务配置文件**需要用户手动创建**且**需要用户使用系统管理员权限运行**。最简单的新任务配置文件内容如下：
 
@@ -52,7 +50,7 @@ TaskId=1
 Error: Directory does not exist: /path/to/sourceDir
 ```
 
-#### 2.2. 通过高级配置启动新任务
+####  通过高级配置启动新任务
 
 大部分情况下，用户只需指定文件迁移任务的源文件夹地址（SourceDirPath）和目的文件夹地址（TargetDirPath）即可创建一个新的迁移任务。如果用户需要指定迁移任务起止时间（StartDate、EndDate）、数据传输带宽限制（BandwidthLimitInKbps）以及目的文件匹配规则（IncludeRule、ExcludeRule），可以通过给迁移工具提供高级任务配置文件满足需求。
 
@@ -75,12 +73,12 @@ IncludeRule=*.jpg
 ExcludeRule=*.png
 ```
 
+#### 参数说明
 
-<dx-alert infotype="notice" title="">
 - `SourceDirPath` 和 `TargetDirPath` 为必填项，且需要提供文件夹的绝对路径。
 - `StartDate`、`EndDate`、`BandwidthLimitInKbps`、`IncludeRule`、`ExcludeRule`为选填项，可以不在配置文件中列出。
 - `StartDate` 和 `EndData` 的格式必须为`yyyy mmm dd HH:MM:SS`。例如2020年8月8号20点20分8秒，不能写成`2020 Aug 8 20:20:8`，而要遵循格式，写成`2020 Aug 08 20:20:08`。
-- `BandwidthLimitInKbps`的合法值范围是[0, 2147483647]，0代表不限速。说明：工具运行过程中，迁移/备份速度与所在主机的 CPU/内存配置/网络带宽配置，源及目的地址的网络位置，以及所需要迁移/备份的文件大小直接相关；通常主机配置越高、网络出口带宽越大同时文件越大迁移/备份速度会越快。例如，主机配置为 8 核 16 G 网络带宽 1.5 Gbps， 从本地文件系统迁移 4KB  小文件到 CFS 性能型文件系统，速度大约为 40KB/s；从本地文件系统迁移 1TB 大文件到 CFS 性能型文件系统，速度大约为140MB/s。
+- `BandwidthLimitInKbps`的合法值范围是[0, 2147483647]，0代表不限速。说明：工具运行过程中，迁移/备份速度与所在主机的 CPU/内存配置/网络带宽配置，源及目的地址的网络位置，以及所需要迁移/备份的文件大小直接相关；通常主机配置越高、网络出口带宽越大同时文件越大迁移/备份速度会越快。例如，主机配置为8核16G 网络带宽1.5Gbps， 从本地文件系统迁移4KB  小文件到 CFS 性能型文件系统，速度大约为40KB/s；从本地文件系统迁移1TB 大文件到 CFS 性能型文件系统，速度大约为140MB/s。
 - `IncludeRule/ExcludeRule` 的匹配规则如下：
   - 迁移工具目前只支持用户提供 `IncludeRule` 和 `ExcludeRule` 各一条。
   - 迁移工具默认迁移源文件夹下全部文件（包含硬链接）。
@@ -93,11 +91,11 @@ ExcludeRule=*.png
     - 不迁移 png 文件：`ExcludeRule=*.png`
     - 只迁移 jpg 文件，不迁移 png 文件：`IncludeRule=*.jpg`配合`ExcludeRule=*.png`
     - 只迁移 jpg 文件，不迁移剩余文件：`IncludeRule=*.jpg`配合`ExcludeRule=sourceDir/*`
-</dx-alert>
 
-## 3. 查询任务执行情况
 
-#### 3.1. 查询全部任务执行情况
+###  查询任务执行情况
+
+####  查询全部任务执行情况
 
 用户可以通过执行命令`filetruck_client -l`查看迁移工具全部历史任务（含运行中和已完成的任务）：
 
@@ -117,7 +115,7 @@ TaskId  State           FileCount       SentBytes       Speed           Progress
 ```
 
 
-<dx-alert infotype="notice" title="">
+#### 参数说明
 - 迁移工具创建的迁移任务共有5种状态，分别是：
   - `Waiting`：等待
   - `Running`：运行中
@@ -127,11 +125,11 @@ TaskId  State           FileCount       SentBytes       Speed           Progress
   - `另， FileCount/SentBytes/Speed/Progress`的值未计算出来时，将显示`-`。
 - 迁移任务完成后，文件 inode 值将变化。
 - 迁移工具将默认迁移源文件夹下存在的硬链接。
-</dx-alert>
 
 
 
-####  3.2. 查询指定任务执行情况
+
+####  查询指定任务执行情况
 
 用户也可以通过命令`filetruck_client -t TASK_ID`根据有效任务 ID 查询某任务详细信息：
 
@@ -156,7 +154,7 @@ TaskProgress:           100%
 Error: Task with ID=999 is not founded.
 ```
 
-## 4. 取消执行中的任务
+### 取消执行中的任务
 
 用户可以通过命令`filetruck_client -k TASK_ID`根据 TASK_ID 取消某个执行中的任务。
 
@@ -171,7 +169,7 @@ Success
 </dx-alert>
 
 
-## 5. 获取帮助信息
+### 获取帮助信息
 
 用户可以通过命令`filetruck_client -h`获取迁移工具帮助信息。
 
