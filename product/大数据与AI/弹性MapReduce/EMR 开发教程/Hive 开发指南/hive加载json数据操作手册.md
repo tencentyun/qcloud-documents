@@ -6,7 +6,6 @@
 ```
 
 ### 2. 准备数据
-
 创建数据文件（JSON 格式），编译以下内容并保存：
 ```
 vim test.data
@@ -25,7 +24,7 @@ hadoop fs -put ./test.data /
 ```
 根据映射关系创建表格：
 ```
-hive> CREATE TABLE test (name string, age int, course array<map<string,string>>, grade array<int>) ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe' STORED AS TEXTFILE;
+hive> CREATE TABLE test ( name string, age int, course array<map<string,string>>, grade array<int>) ROW FORMAT SERDE 'org.apache.hive.hcatalog.data.JsonSerDe' STORED AS TEXTFILE;
 ```
 ### 4. 导入数据
 ```

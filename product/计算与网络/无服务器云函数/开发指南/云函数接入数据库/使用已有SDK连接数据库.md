@@ -1,5 +1,5 @@
 ## 操作场景
-本文介绍如何使用已有 SDK 在云函数代码中连接 [MySQL](https://cloud.tencent.com/document/product/236/5147) 数据库，并实现对数据库的插入、查询等操作。同时还支持连接 [TDSQL-C](https://cloud.tencent.com/document/product/1003/30488) 或 [TDSQL MySQL版](https://cloud.tencent.com/document/product/557/7700) 数据库，您可按需进行相应操作。
+本文介绍如何使用已有 SDK 在云函数代码中连接 [MySQL](https://cloud.tencent.com/document/product/236/5147) 数据库，并实现对数据库的插入、查询等操作。同时还支持连接 [CynosDB](https://cloud.tencent.com/document/product/1003/30488) 或 [TDSQL](https://cloud.tencent.com/document/product/557/7700) 数据库，您可按需进行相应操作。
 
 
 

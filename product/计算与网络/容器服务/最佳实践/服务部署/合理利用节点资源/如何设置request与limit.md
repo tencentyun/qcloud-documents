@@ -70,5 +70,3 @@ spec:
     limits.cpu: "2"
     limits.memory: 2Gi
 ```
-
-

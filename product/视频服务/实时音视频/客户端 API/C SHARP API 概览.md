@@ -1,6 +1,6 @@
 ## ITRTCCloud @ TXLiteAVSDK
 
-### 创建与销毁 ITRTCCloud 单例 
+### 创建与销毁 ITRTCCloud 单例
 
 | API | 描述 |
 |-----|-----|

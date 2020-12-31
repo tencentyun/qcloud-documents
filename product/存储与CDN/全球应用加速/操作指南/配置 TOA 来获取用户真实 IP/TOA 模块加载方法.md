@@ -42,7 +42,7 @@ yum install kernel-devel
 ```
 3. 加载 toa.ko 文件
 ```
-unzip linux_toa.zip
+tar -zxvf linux_toa.tar.gz
 cd toa
 make
 mv toa.ko /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko

@@ -197,5 +197,3 @@ QCloudSentenceRecognizer 是一句话识别入口类，提供两种初始化方�
 @end
 ```
 
-
-

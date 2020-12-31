@@ -1,10 +1,7 @@
 ## 接口描述
-**描述**：用于会议 Code 查询会议详情。企业 secert 鉴权用户可查询到任何该用户创建的企业下的会议，OAuth2.0 鉴权用户只能查询到通过 OAuth2.0 鉴权创建的会议。
-**调用方式**：GET
-**接口请求域名**：
-```plaintext
-https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid}&instanceid={instanceid}
-```
+描述：用于会议 Code 查询会议详情。
+调用方式：GET
+接口请求域名：`https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid}&instanceid={instanceid}`
 
 ## 输入参数
 
@@ -13,8 +10,8 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 | 参数名称 | 必选 | 参数类型 |参数描述 |
 |---------|---------|---------|---------|
 |meeting_code | 是 | String |有效的9位数字会议号码。|
-|userid | 是 | String |调用方用于标示用户的唯一 ID（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。|
-|instanceid | 是 | Integer |用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序|
+|userid | 是 | String |调用方用于标示用户的唯一 ID（例如企业用户可以为企业账户英文名、个人用户可以为手机号等）。|
+|instanceid | 是 | Integer |用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序。|
 
 ## 输出参数
 
@@ -33,12 +30,10 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 |meeting_id   |String| 会议的唯一标示 。  |
 |meeting_code    |String| 会议 App 的呼入号码。  |
 |password   |String | 会议密码。  |
-|need_password   |Boolean | 非会议创建者是否需要密码入会。<br>非会议创建者查询会议，且存在会议密码，则字段为 true；其他情况，字段不返回。  |
+|need password   |Boolean | 非会议创建者是否需要密码入会。<br>非会议创建者查询会议，且存在会议密码，则字段为 true；其他情况，字段不返回。  |
 |status|String|当前会议状态：<br>1. MEETING_STATE_INVALID：<br> 非法或未知的会议状态，错误状态。<br>  2. MEETING_STATE_INIT：<br> 会议待开始。会议预定到预定结束时间前，会议尚无人进会。<br>  3. MEETING_STATE_CANCELLED：<br> 会议已取消。主持人主动取消会议，待开始的会议才能取消，且取消的会议无法再进入。<br> 4. MEETING_STATE_STARTED：<br> 会议已开始。会议中有人则表示会议进行中。<br>5. MEETING_STATE_ENDED：<br> 会议已删除。会议已过预定结束时间且尚无人进会时，主持人删除会议，已删除的会议无法再进入。<br>6. MEETING_STATE_NULL：<br> 会议无状态。会议已过预定结束时间，会议尚无人进会。<br>7. MEETING_STATE_RECYCLED：<br> 会议已回收。会议已过预定开始时间30天，则会议号将被后台回收，无法再进入。  |
-|hosts   |用户对象数组  | 会议主持人列表（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。|
-|participants  |用户对象数组 |邀请的参会者（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。 |
-|current_hosts  |用户对象数组  | 会议当前主持人列表（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。|
-|current_co_hosts  |用户对象数组  | 会议联席主持人列表（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。|
+|hosts   |用户对象数组 | 会议主持人列表 。  |
+|participants  |用户对象数组|邀请的参会者 。|
 |start_time  |String | 会议开始时间戳（单位秒）。 |
 |end_time  |String | 会议结束时间戳（单位秒）。 |
 |settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置。|
@@ -57,7 +52,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 
 | 参数名称 | 参数类型 | 参数描述  |
 | -------- | -------- | --------- |
-| userid   | String   | 用户 ID（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。 |
+| userid   | String   | 用户 ID。 |
 
 **会议媒体参数对象**
 
@@ -104,12 +99,12 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 ## 示例
 #### 输入示例
 
-```plaintext
+```http
 GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1&instanceid=1
 ```
 
 #### 输出示例（普通会议）
-```plaintext
+```
 {  
   "meeting_number": 1,  
   "meeting_info_list": [    
@@ -121,16 +116,12 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
       "status": "MEETING_STATE_ENDED",      
       "start_time": "1572085800",      
       "end_time": "1572089400",      
-      "hosts": [        
-          {
-          "userid": "tester"
-        }    
+     "hosts": [        
+        "tester"      
       ],      
       "participants": [        
-          {
-          "userid": "tester"
-        }     
-      ],      
+        "test1"      
+      ],
       "join_url": "https://wemeet.qq.com/w/5NmV29k",
       "meeting_type":0,      
       "settings": {        
@@ -156,7 +147,7 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
 }
 ```
 #### 输出示例（周期性会议）
-```plaintext
+```
 {
   "next_pos": 0,
   "remaining": 0,

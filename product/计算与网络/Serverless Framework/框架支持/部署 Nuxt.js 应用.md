@@ -18,7 +18,7 @@
 - 已经 [安装 Serverless Framework 1.67.2](https://cloud.tencent.com/document/product/1154/42990) 以上版本。
 - 已经[注册腾讯云账号](https://cloud.tencent.com/document/product/378/17985)并完成[实名认证](https://cloud.tencent.com/document/product/378/10495)。
 
->?如果您的账号为**腾讯云子账号**，请首先联系主账号，参考 [账号和权限配置](https://cloud.tencent.com/document/product/1154/43006) 进行授权。
+>?如果您的账号为**腾讯云子账号**，请首先联系主账号，参考 [账号和权限配置](../quickstart/credential) 进行授权。
 
 ## 架构说明
 
@@ -118,19 +118,23 @@ module.exports = createServer
 
 - Koa 模版
 ```js
-const Koa = require('koa')
+const express = require('express')
 const { loadNuxt } = require('nuxt')
 
 async function createServer() {
-  const server = new Koa()
+  // not report route for custom monitor
+  const noReportRoutes = ['/_nuxt', '/static', '/favicon.ico']
+
+  const server = express()
   const nuxt = await loadNuxt('start')
 
-  server.use((ctx) => {
-    ctx.status = 200
-    ctx.respond = false
-    ctx.req.ctx = ctx
-
-    nuxt.render(ctx.req, ctx.res)
+  server.all('*', (req, res, next) => {
+    noReportRoutes.forEach((route) => {
+      if (req.path.indexOf(route) === 0) {
+        req.__SLS_NO_REPORT__ = true
+      }
+    })
+    return nuxt.render(req, res, next)
   })
 
   // define binary type for response

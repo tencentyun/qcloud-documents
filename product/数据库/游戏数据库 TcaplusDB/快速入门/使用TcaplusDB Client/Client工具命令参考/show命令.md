@@ -13,7 +13,7 @@ show [status/tables];
 | table  | 表名 |
 
 ## 示例
-查询当前表格组下的表格信息：
+获取某条记录已经设置的生存时间：
 ```
 tcaplus> show tables;
  

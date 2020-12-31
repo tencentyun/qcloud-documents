@@ -89,7 +89,7 @@ spec:
   ports:
     - name: 80-80-udp
       port: 80
-      protocol: UDP
+      protocol: UCP
       targetPort: 80
   selector:
     app: game

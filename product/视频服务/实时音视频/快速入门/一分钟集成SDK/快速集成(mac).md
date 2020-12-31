@@ -25,26 +25,25 @@ pod init
 #### 3. 编辑 Podfile 文件
 编辑 Podfile 文件，有如下有两种设置方式：
 - 方式一：使用腾讯云 LiteAV SDK 的 pod 路径。
-<dx-codeblock>
-::: pod路径
+
+```
 	platform :osx, '10.10'
-	
+
 	target 'Your Target' do
 	pod 'TXLiteAVSDK_TRTC_Mac', :podspec => 'http://pod-1252463788.cosgz.myqcloud.com/liteavsdkspec/TXLiteAVSDK_TRTC_Mac.podspec'
 	end
-:::
-</dx-codeblock>
+```
+
 - 方式二：使用 CocoaPod 官方源，支持选择版本号。
-<dx-codeblock>
-::: pod路径
+
+```
 	platform :osx, '10.10'
 	source 'https://github.com/CocoaPods/Specs.git'
-	
+
 	target 'Your Target' do
 	pod 'TXLiteAVSDK_TRTC_Mac'
 	end
-:::
-</dx-codeblock>
+```
 
 #### 4. 安装与更新 SDK
 在终端窗口中输入如下命令执行安装 TRTC SDK：
@@ -56,7 +55,7 @@ pod install
 pod update
 ```
 
-pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工程文件，双击打开即可。
+pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程文件，双击打开即可。
 
 ### 手动集成
 1. 下载 [TRTC-SDK ](https://github.com/tencentyun/TRTCSDK/tree/master/Mac) 的 Mac 版本。
@@ -83,27 +82,14 @@ pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工�
 ![](https://main.qcloudimg.com/raw/2b569e1c95bb4c97b7045112d6e3ce9c.png)
 
 ## 引用 TRTC SDK
-TRTC SDK 支持两种调用方式，您可以任选一种
-### 方案一：通过 Objective-C 或 Swift 接口引用 TRTC SDK
-在 Objective-C 或 Swift 代码中使用 SDK 有两种方式：
-- **模块引用**：在项目需要使用 SDK API 的文件里，添加模块引用。
+项目代码中使用 SDK 有两种方式：
+- 方式一： 在项目需要使用 SDK API 的文件里，添加模块引用。
 ```
 @import TXLiteAVSDK_TRTC_Mac;
 ```
-- **头文件引用**：在项目需要使用 SDK API 的文件里，引入具体的头文件。
+- 方式二：在项目需要使用 SDK API 的文件里，引入具体的头文件。
 ```
 #import TXLiteAVSDK_TRTC_Mac/TRTCCloud.h
 ```
 
-[](id:using_cpp)
-### 方案二：通过 C++ 接口引用 TRTC SDK
-1. **引用头文件**：如果您要使用 C++ 接口来开发Mac应用，请引用 `TXLiteAVSDK_TRTC_Mac.framework/Headers/cpp_interface` 目录下的头文件。
-```
-#include TXLiteAVSDK_TRTC_Mac/cpp_interface/ITRTCCloud.h
-```
-2. **使用命名空间**：C++ 全平台接口的接口、类型等均定义在 trtc 命名空间中，为了让代码更加简洁，建议您直接使用 trtc 命名空间。
-```
-using namespace trtc;
-```
 
->? 对于 C++ 接口的使用方式，请参见 [全平台（C++）API 概览](https://cloud.tencent.com/document/product/647/32268)。
