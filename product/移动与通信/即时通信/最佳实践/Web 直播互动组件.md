@@ -131,7 +131,7 @@ im.enterRoom('your roomID').then((imResponse) => {
 2. 单击【启用旁路推流】，将旁路推流方式选择：全局自动旁路。旁路推流开启后，实时音视频 TRTC 房间里的每一路画面都配备一路对应的播放地址。
 ![](https://main.qcloudimg.com/raw/5af34ef530c7242d1dd098054931fea0.png)
 >?如果不需要 CDN 直播观看，可略过开启旁路推流的步骤。
-3. 单击【快速上手】，可查看密钥，请保存密钥信息。
+3. 单击【快速上手】，可查看密钥信息，请保存密钥。
 ![](https://main.qcloudimg.com/raw/beb13f22556f2872e903527311b12070.png)
 4. 在 [腾讯云直播控制台](https://console.cloud.tencent.com/live/) 配置播放域名并完成 CNAME 配置，详细操作指引请参见 [实现 CDN 直播观看](https://cloud.tencent.com/document/product/647/16826) 文档。
 >?如果不需要 CDN 直播观看，可略过配置播放域名步骤。
@@ -177,9 +177,9 @@ Vue.prototype.TWebLive = TWebLive
 :::
 ::: 方式二、基于即时通信\sIM
 #### 步骤1：创建即时通信 IM 应用
-1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击【创建新应用】。
+1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击【创建新应用】将弹出对话框。
 ![](https://main.qcloudimg.com/raw/c8d1dc415801404e30e49ddd4e0c0c13.png)
-2. 弹出对话框，输入您的应用名称，单击【确认】即可完成创建。
+2. 输入您的应用名称，单击【确认】即可完成创建。
 ![](https://main.qcloudimg.com/raw/649a70bf385fabf9f9984959561835c5.png)
 3. 您可在 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 总览页面查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。请记录 SDKAppID 信息。
 
