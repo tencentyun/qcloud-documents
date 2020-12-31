@@ -132,7 +132,7 @@ im.enterRoom('your roomID').then((imResponse) => {
 ![](https://main.qcloudimg.com/raw/5af34ef530c7242d1dd098054931fea0.png)
 >?如果不需要 CDN 直播观看，可略过开启旁路推流的步骤。
 3. 单击【快速上手】，可查看密钥信息，请保存密钥。
-![](https://main.qcloudimg.com/raw/beb13f22556f2872e903527311b12070.png)
+![](https://main.qcloudimg.com/raw/fb699d54006563b8e63a13d54804b19d.png)
 4. 在 [腾讯云直播控制台](https://console.cloud.tencent.com/live/) 配置播放域名并完成 CNAME 配置，详细操作指引请参见 [实现 CDN 直播观看](https://cloud.tencent.com/document/product/647/16826) 文档。
 >?如果不需要 CDN 直播观看，可略过配置播放域名步骤。
 
@@ -180,7 +180,7 @@ Vue.prototype.TWebLive = TWebLive
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击【创建新应用】将弹出对话框。
 ![](https://main.qcloudimg.com/raw/c8d1dc415801404e30e49ddd4e0c0c13.png)
 2. 输入您的应用名称，单击【确认】即可完成创建。
-![](https://main.qcloudimg.com/raw/649a70bf385fabf9f9984959561835c5.png)
+![](https://main.qcloudimg.com/raw/496cdc614f7a9d904cb462bd4d1e7120.png)
 3. 您可在 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 总览页面查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。请记录 SDKAppID 信息。
 
 #### 步骤2：获取 IM 密钥并开通实时音视频服务
