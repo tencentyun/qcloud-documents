@@ -1,5 +1,12 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+## 1.26.1-Finchley-RELEASE（2020-12-31）
+### 优化
+- spring-cloud-tsf-sleuth 新增 cmq 调用支持
+
+### 版本建议
+- 支持向后兼容，建议全量升级。
+
 ## 1.26.0-Finchley-RELEASE（2020-12-07）
 
 ### 新特性
@@ -171,6 +178,13 @@ spring-cloud-tsf-msgw：
 
 - 优化默认日志配置支持容器部署场景。
 - 优化 TSF MSGW zuul 依赖。
+
+## 1.21.8-Finchley-RELEASE（2020-12-31）
+### Bug 修复
+- spring-cloud-tsf-sleuth：修复特殊场景调用链IP获取失败问题。
+
+### 版本建议
+- 支持向后兼容，建议全量升级。
 
 ## 1.21.7-Finchley-RELEASE（2020-12-21）
 ### Bug 修复
