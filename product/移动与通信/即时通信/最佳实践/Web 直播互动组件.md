@@ -115,7 +115,7 @@ im.enterRoom('your roomID').then((imResponse) => {
 
 为了进一步降低开发者的开发和人力成本，我们在 TWebLive SDK 的基础上，提供了同时适配 PC 和移动端浏览器的 [Demo](https://github.com/tencentyun/TWebLive)，并开源到了 Github。开发者 fork&clone 项目到本地，稍作修改即可把 Demo 运行起来，也可集成到自己的项目部署上线。
 
-## TWebLive 接入使用
+## TWebLive 使用
 
 <dx-tabs>
 ::: 方式一、基于实时音视频\sTRTC
@@ -172,20 +172,20 @@ Vue.prototype.TWebLive = TWebLive
 >- 一般情况下体验 Demo 需要部署至服务器，通过 `https://域名/xxx` 访问，或者直接在本地搭建服务器，通过 `localhost:端口`访问。
 - 目前桌面端 Chrome 浏览器支持 TRTC 桌面浏览器 SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 >- TWebLive 需要使用摄像头和麦克风采集音视频，在体验过程中您可能会收到来自 Chrome 浏览器的相关提示，单击【允许】即可。
-![](https://main.qcloudimg.com/raw/8fe33ad0685384cb9792a317e7b26e8d.png)
+![](https://main.qcloudimg.com/raw/7eb28d195649d6c0027026eaa02fdedd.png)
 
 :::
 ::: 方式二、基于即时通信\sIM
 #### 步骤1：创建即时通信 IM 应用
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击【创建新应用】。
-![](https://main.qcloudimg.com/raw/ed447c7adef857bf3364b8bf33fe1b97.png)
+![](https://main.qcloudimg.com/raw/c8d1dc415801404e30e49ddd4e0c0c13.png)
 2. 弹出对话框，输入您的应用名称，单击【确认】即可完成创建。
-![](https://main.qcloudimg.com/raw/0a9bbf5f4f0584e31da09eecf8a9b410.png)
+![](https://main.qcloudimg.com/raw/649a70bf385fabf9f9984959561835c5.png)
 3. 您可在 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) 总览页面查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。请记录 SDKAppID 信息。
 
 #### 步骤2：获取 IM 密钥并开通实时音视频服务
 1. 在 [即时通讯 IM 控制台](https://console.cloud.tencent.com/im) 总览页单击您创建完成的即时通信 IM 应用，随即跳转至该应用的基础配置页。在【基本信息】区域，单击【显示密钥】，复制并保存密钥信息。
-![](https://main.qcloudimg.com/raw/7d8ec3ea5031a38ae22fcd7fc7107f0e.png)
+![](https://main.qcloudimg.com/raw/030440f94a14cd031476ce815ed8e2bc.png)
 2. 在该应用的基础配置页，开通腾讯云实时音视频服务。
 ![](https://main.qcloudimg.com/raw/f4b48128ab8d54d7b8b4fb811b16a1cd.png)
   >!请妥善保管密钥信息，谨防泄露。
@@ -231,7 +231,7 @@ Vue.prototype.TWebLive = TWebLive
 >- 一般情况下体验 Demo 需要部署至服务器，通过 `https://域名/xxx` 访问，或者直接在本地搭建服务器，通过 `localhost:端口`访问。
 - 目前桌面端 Chrome 浏览器支持 TRTC 桌面浏览器 SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
 >- TWebLive 需要使用摄像头和麦克风采集音视频，在体验过程中您可能会收到来自 Chrome 浏览器的相关提示，单击【允许】即可。
-![](https://main.qcloudimg.com/raw/8fe33ad0685384cb9792a317e7b26e8d.png)
+![](https://main.qcloudimg.com/raw/7eb28d195649d6c0027026eaa02fdedd.png)
 
 :::
 </dx-tabs>
