@@ -143,7 +143,6 @@ im.enterRoom('your roomID').then((imResponse) => {
  - SECRETKEY：请设置为 [步骤2](#step2) 中获取的实际密钥信息。
  - PUSHDOMAIN：CDN观看，配置推流域名。（如果不需要 CDN 直播观看，可略过此配置）
 ![](https://main.qcloudimg.com/raw/1f5dc0239e9c26d04ca905656e8bb854.png)
-
 3. 在项目中通过 npm 安装最新版本的 tim-js-sdk、trtc-js-sdk、tweblive。如果项目已经集成有  tim-js-sdk 或 trtc-js-sdk，直接将其升级到最新版本即可。
 ```javascript
 npm install tim-js-sdk --save
