@@ -6,7 +6,7 @@
 <tbody>
 <tr>
     <td>2020-12-28</td>	
-    <td>v1.18.4-tke.5</td>	
+    <td>v1.18.4-tke.6</td>	
     <td><ul class="params">
 		<li>为 QcloudCbs 添加 metrics(kube-controller-manager)</li>
 	        <li>修复 mount cbs 盘时查看 serial 值的多余空格问题(kubelet)</li>
@@ -14,7 +14,7 @@
 </tr>
 <tr>
     <td>2020-12-21</td>	
-    <td>v1.18.4-tke.6</td>	
+    <td>v1.18.4-tke.5</td>	
     <td><ul class="params">
 		<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/94712">pr94712</a>，修复 CVE-2020-8564 - 当文件格式不正确，logLevel >= 4 时，Docker 配置泄露(kubelet)</li>
 		<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/95316">pr95316</a>，修复 CVE-2020-8565 - 对 CVE-2019-11250 的不完整修复导致的日志 token 泄露（logLevel >= 9）(kube-apiserver,kubectl)</li>
