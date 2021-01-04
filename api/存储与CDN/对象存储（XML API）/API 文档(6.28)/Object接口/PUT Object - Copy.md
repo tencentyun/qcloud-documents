@@ -121,10 +121,10 @@ Authorization: Auth String
 ```plaintext
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>string</ETag>
-	<CRC64>number</CRC64>
-	<LastModified>date</LastModified>
-	<VersionId>string</VersionId>
+			<ETag>string</ETag>
+			<CRC64>number</CRC64>
+			<LastModified>date</LastModified>
+			<VersionId>string</VersionId>
 </CopyObjectResult>
 ```
 
@@ -176,11 +176,13 @@ Date: Fri, 10 Apr 2020 18:20:30 GMT
 Server: tencent-cos
 x-cos-request-id: NWU5MGI4ZWVfNzljMDBiMDlfMWM3MjlfMWQ1****
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
-	<CRC64>16749565679157681890</CRC64>
-	<LastModified>2020-04-10T18:20:30Z</LastModified>
+			<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
+			<CRC64>16749565679157681890</CRC64>
+			<LastModified>2020-04-10T18:20:30Z</LastModified>
 </CopyObjectResult>
 ```
 
@@ -212,11 +214,13 @@ Date: Fri, 10 Apr 2020 18:20:41 GMT
 Server: tencent-cos
 x-cos-request-id: NWU5MGI4ZjlfYTZjMDBiMDlfN2Y1YV8xYjI4****
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
-	<CRC64>16749565679157681890</CRC64>
-	<LastModified>2020-04-10T18:20:41Z</LastModified>
+			<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
+			<CRC64>16749565679157681890</CRC64>
+			<LastModified>2020-04-10T18:20:41Z</LastModified>
 </CopyObjectResult>
 ```
 
@@ -248,11 +252,13 @@ Date: Fri, 10 Apr 2020 18:20:52 GMT
 Server: tencent-cos
 x-cos-request-id: NWU5MGI5MDRfNmRjMDJhMDlfZGNmYl8yMDVh****
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
-	<CRC64>16749565679157681890</CRC64>
-	<LastModified>2020-04-10T18:20:52Z</LastModified>
+			<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
+			<CRC64>16749565679157681890</CRC64>
+			<LastModified>2020-04-10T18:20:52Z</LastModified>
 </CopyObjectResult>
 ```
 
@@ -285,11 +291,13 @@ Date: Fri, 10 Apr 2020 18:21:02 GMT
 Server: tencent-cos
 x-cos-request-id: NWU5MGI5MGVfN2RiNDBiMDlfMTk1MjhfMWZm****
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
-	<CRC64>16749565679157681890</CRC64>
-	<LastModified>2020-04-10T18:21:55Z</LastModified>
+			<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
+			<CRC64>16749565679157681890</CRC64>
+			<LastModified>2020-04-10T18:21:55Z</LastModified>
 </CopyObjectResult>
 ```
 
@@ -320,11 +328,13 @@ Server: tencent-cos
 x-cos-request-id: NWU5MGI5MTlfYmIwMmEwOV9hMmUxXzFkMDQ2****
 x-cos-server-side-encryption: AES256
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
-	<CRC64>16749565679157681890</CRC64>
-	<LastModified>2020-04-10T18:21:13Z</LastModified>
+			<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
+			<CRC64>16749565679157681890</CRC64>
+			<LastModified>2020-04-10T18:21:13Z</LastModified>
 </CopyObjectResult>
 ```
 
@@ -358,11 +368,13 @@ x-cos-request-id: NWU5MGI5MjNfMTliOTJhMDlfMjRiYThfMTdk****
 x-cos-server-side-encryption: cos/kms
 x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"f69901ec9755a5defc29057e9ec69126"</ETag>
-	<CRC64>16749565679157681890</CRC64>
-	<LastModified>2020-04-10T18:22:16Z</LastModified>
+			<ETag>"f69901ec9755a5defc29057e9ec69126"</ETag>
+			<CRC64>16749565679157681890</CRC64>
+			<LastModified>2020-04-10T18:22:16Z</LastModified>
 </CopyObjectResult>
 ```
 
@@ -399,11 +411,13 @@ x-cos-request-id: NWU5MGI5MzhfZmFjODJhMDlfMTdlYzZfYmU1****
 x-cos-server-side-encryption-customer-algorithm: AES256
 x-cos-server-side-encryption-customer-key-MD5: hRasmdxgYDKV3nvbahU1MA==
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"bf314b89d34119395d5610982d6581b1"</ETag>
-	<CRC64>16749565679157681890</CRC64>
-	<LastModified>2020-04-10T18:22:31Z</LastModified>
+			<ETag>"bf314b89d34119395d5610982d6581b1"</ETag>
+			<CRC64>16749565679157681890</CRC64>
+			<LastModified>2020-04-10T18:22:31Z</LastModified>
 </CopyObjectResult>
 ```
 
@@ -436,11 +450,13 @@ Date: Fri, 10 Apr 2020 18:22:05 GMT
 Server: tencent-cos
 x-cos-request-id: NWU5MGI5NGRfOWFjOTJhMDlfMjg2NDdfMTA0****
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
-	<CRC64>16749565679157681890</CRC64>
-	<LastModified>2020-04-10T18:22:58Z</LastModified>
+			<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
+			<CRC64>16749565679157681890</CRC64>
+			<LastModified>2020-04-10T18:22:58Z</LastModified>
 </CopyObjectResult>
 ```
 
@@ -470,11 +486,13 @@ Server: tencent-cos
 x-cos-copy-source-version-id: MTg0NDUxNTc0NDYyMjQ2MzUzMjQ
 x-cos-request-id: NWU5MjAzYTdfMWZjMDJhMDlfNTE4N18zNGU2****
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
-	<CRC64>16749565679157681890</CRC64>
-	<LastModified>2020-04-11T17:51:35Z</LastModified>
+			<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
+			<CRC64>16749565679157681890</CRC64>
+			<LastModified>2020-04-11T17:51:35Z</LastModified>
 </CopyObjectResult>
 ```
 
@@ -503,12 +521,14 @@ Date: Sat, 11 Apr 2020 17:51:56 GMT
 Server: tencent-cos
 x-cos-request-id: NWU5MjAzYmNfNjRiMDJhMDlfOTE3N18yYWI4****
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"22e024392de860289f0baa7d6cf8a549"</ETag>
-	<CRC64>11596229263574363878</CRC64>
-	<LastModified>2020-04-11T17:51:56Z</LastModified>
-	<VersionId>MTg0NDUxNTc0NDYxOTI4MzU0MDI</VersionId>
+			<ETag>"22e024392de860289f0baa7d6cf8a549"</ETag>
+			<CRC64>11596229263574363878</CRC64>
+			<LastModified>2020-04-11T17:51:56Z</LastModified>
+			<VersionId>MTg0NDUxNTc0NDYxOTI4MzU0MDI</VersionId>
 </CopyObjectResult>
 ```
 
