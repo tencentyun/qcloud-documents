@@ -186,7 +186,7 @@
 </tr>	
 <tr>
     <td>2020-12-21</td>	
-    <td>v1.16.3-tke.13</td>	
+    <td>v1.14.3-tke18</td>	
     <td><ul class="params">
 		<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/94712">pr94712</a>，修复 CVE-2020-8564 - 当文件格式不正确，logLevel >= 4 时，Docker 配置泄露(kubelet)</li>
 		<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/95316">pr95316</a>，修复 CVE-2020-8565 - 对 CVE-2019-11250 的不完整修复导致的日志 token 泄露（logLevel >= 9）(kube-apiserver,kubectl)</li>
@@ -304,12 +304,12 @@
 <tr>
     <td>2020-12-15</td>	
     <td>v1.12.4-tke.26</td>	
-    <td><li>QcloudCbs 支持 BulkVolumeVerification(kube-controller-manager)</li></td>
+    <td>QcloudCbs 支持 BulkVolumeVerification(kube-controller-manager)</td>
 </tr>
 <tr>
     <td>2020-11-17</td>	
     <td>v1.12.4-tke.25</td>	
-    <td><li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/79495">pr79495</a>，修复 CRD 有多个版本时导致 webhook 调用失败的问题(kube-apiserver)</li></td>
+    <td>合并 <a href="https://github.com/kubernetes/kubernetes/pull/79495">pr79495</a>，修复 CRD 有多个版本时导致 webhook 调用失败的问题(kube-apiserver)</td>
 </tr>
 <tr>
     <td>2020-10-13</td>
