@@ -18,11 +18,11 @@ ESP8266 SDK 使用独立的 [Github](https://github.com/tencentyun/qcloud-iot-ex
 
 ## Android SDK 代码托管
 
-自 V3.1.0 版本开始，Android SDK 使用独立的 [Github](https://github.com/tencentyun/iot-device-java/tree/master/explorer-device-android) 托管代码。
+自 V3.1.0 版本开始，Android SDK 使用独立的 [Github](https://github.com/tencentyun/iot-device-java/tree/master/explorer/explorer-device-android) 托管代码。
 
 ## Java SDK 代码托管
 
-Java SDK 使用独立的 [Github](https://github.com/tencentyun/iot-device-java/tree/master/explorer-device-java) 托管代码。
+Java SDK 使用独立的 [Github](https://github.com/tencentyun/iot-device-java/tree/master/explorer/explorer-device-java) 托管代码。
 
 ## C SDK 5G 代码托管
 

@@ -15,12 +15,12 @@ Content-Type: application/xml
 <body>
 ```
 
-> Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>? Authorization: Auth String （详情请查阅 [请求签名](https://cloud.tencent.com/document/product/1344/50456) 文档）。
 
 
 ### 请求头
 #### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情请参阅 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
+该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/1344/50451) 文档。
 #### 非公共头部
 该请求操作无特殊的请求头部信息。
 
@@ -77,8 +77,8 @@ Container 类型 Request 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
-| Tag                | Request | 模板类型: Transcode                                    | String    | 是   |
-| Name               | Request | 模板名称 仅支持中文、英文、数字、_、-和*                    | String    | 是   |
+| Tag                | Request | 模板类型：Transcode                                    | String    | 是   |
+| Name               | Request | 模板名称仅支持中文、英文、数字、_、-和*                    | String    | 是   |
 | Desc               | Request | 模板描述                                                  | String    | 否   |
 | Container          | Request | 容器格式                                               | Container | 是   |
 | Video              | Request | 视频信息                                               | Container | 否   |
@@ -90,7 +90,7 @@ Container 类型 Container 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
 | ------------------ | ------- | ---------------------------------------------------- | --------- | ---- |
-| Format                | Request.Container | 容器格式: mp4，flv，hls，ts               | String    | 是   |
+| Format                | Request.Container | 容器格式：mp4，flv，hls，ts               | String    | 是   |
 
 Container 类型 Video 的具体数据描述如下：
 
@@ -131,7 +131,7 @@ Container 类型 TransConfig 的具体数据描述如下：
 | 节点名称（关键字）    | 父节点              | 描述             | 类型   | 必选 | 默认值 | 限制                                                         |
 | --------------------- | ------------------- | ---------------- | ------ | ---- | ------ | ------------------------------------------------------------ |
 | AdjDarMethod          | Request.TransConfig | 分辨率调整方式   | String | 否   | none   | 1. 取值 scale、crop、pad、none。<br/>2. 当输出视频的宽高比与原视频不等时，需要此参数进行执行调整方式。 |
-| IsCheckReso           | Request.TransConfig | 是否检查分辨率   | String | 否   | false  | 1. true、false <br/> 2. 当为false时，按照配置参数转码 |
+| IsCheckReso           | Request.TransConfig | 是否检查分辨率   | String | 否   | false  | 1. true、false <br/> 2. 当为 false 时，按照配置参数转码 |
 | ResoAdjMethod         | Request.TransConfig | 分辨率调整方式   | String | 否   | 0      | 1. 取值0、1；0 表示使用原视频分辨率；1表示返回转码失败<br/>2. 当 IsCheckReso 为 true 时生效 |
 | IsCheckVideoBitrate   | Request.TransConfig | 是否检查视频码率 | String | 否   | false  | 1. true、false <br/>2. 当为 false 时，按照配置参数转码 |
 | VideoBitrateAdjMethod | Request.TransConfig | 视频码率调整方式 | String | 否   | 0      | 1. 取值0、1；0 表示使用原视频码率；1表示返回转码失败<br/>2. 当 IsCheckVideoBitrate 为 true 时生效 |
@@ -143,7 +143,7 @@ Container 类型 TransConfig 的具体数据描述如下：
 ### 响应头
 
 #### 公共响应头
-该响应包含公共响应头，了解公共响应头详情请参阅 [公共响应头部]( https://cloud.tencent.com/document/product/460/42866) 文档。
+该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部]( https://cloud.tencent.com/document/product/1344/50452) 文档。
 #### 特有响应头
 该响应无特殊的响应头。
 
@@ -218,7 +218,7 @@ Container 节点 Response 的内容：
 
 ### 错误码
 
-该请求无特有错误信息，常见的错误信息请参阅 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
+该请求无特有错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/1344/50457) 文档。
 
 ## 实际案例
 

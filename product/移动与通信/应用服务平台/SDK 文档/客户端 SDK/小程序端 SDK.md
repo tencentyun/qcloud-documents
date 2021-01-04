@@ -6,6 +6,7 @@
 
 
 ### 开发文档
+
 * [云存储](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-client-api/storage/)
 * [数据库](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-client-api/database/)
 * [云函数](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-client-api/functions/)
@@ -18,6 +19,7 @@ QQ 小程序的 SDK，已经直接内置到 QQ 小程序运行框架内，无需
 在开发过程中，请在 QQ 开发者工具中，单击右上角的【详情】菜单，在【项目设置】>【调试基础库】中选择1.9.1或以上版本。
 
 ### 开发文档
+
 * [云存储](https://q.qq.com/wiki/cloud/guide/storage/)
 * [数据库](https://q.qq.com/wiki/cloud/guide/database/)
 * [云函数](https://q.qq.com/wiki/cloud/guide/functions/)

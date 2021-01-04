@@ -38,7 +38,7 @@
   - 认证方式：选择“密钥认证”。
   - 通信方式：选择“Wi-Fi”。
   - 其他都为默认选项。
-  ![](https://main.qcloudimg.com/raw/70011f6b66a765ea99bd6da38dd37a47.png)
+![](https://main.qcloudimg.com/raw/18bb805e5b040c956e446a8f5bf4c0e1.jpg)
 3. 产品新建成功后，您可在产品列表页查看到“智能灯”。
 
 
@@ -98,7 +98,7 @@ python.exe .\QCloud_IoT_AT_Test_Tool.py -p COM7 -a ESP8266 -m wifi
 ### 腾讯连连添加设备
 
 1. 使用“腾讯连连”扫描【交互开发】 > 【配网引导】中的二维码。
-2. 选择目标 Wi-Fi，并输入密码，单击【下一步】
+2. 选择目标 Wi-Fi，并输入密码，单击【下一步】。
 3. 单击【在小程序内连接】，在小程序内连接设备热点。
 4. 选择设备热点，并输入密码，开始配网。
 5. 配网成功后，命令行窗口能看到模组打印如下内容：
@@ -111,11 +111,11 @@ softAp boarding and connection success
 ### 查看设备状态
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，选择【产品开发】>【设备调试】，可查看到设备 "dev001" 的状态为“上线”状态，表示模组已成功连接上开发平台。
 2. 单击【调试】，可进入设备详情页。
-![](https://main.qcloudimg.com/raw/b873b65c618480ede6485073090bc1f2.png)
-3. 单击【设备属性】，可查询设备上报到开发平台的最新数据及历史数据。
+![](https://main.qcloudimg.com/raw/229018e428ac4c578af1782c18f96084.jpg)
+3. 单击【设备名称】>【设备属性】，可查询设备上报到开发平台的最新数据及历史数据。
   - 当前上报数据的最新值：会显示设备上报的最新数据。
   - 当前上报数据的更新时间：显示数据的更新时间。
-  ![](https://main.qcloudimg.com/raw/1feec8668680ca8008f9608b79514549.png)
+
 
 
 

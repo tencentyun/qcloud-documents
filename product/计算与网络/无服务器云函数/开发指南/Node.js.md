@@ -196,101 +196,200 @@ var COS = require('cos-nodejs-sdk-v5');
 
 ### 环境内的内置库
 
-- Node.js 10.15 及 12.16 运行时内已支持的库如下表：
+- Node.js 12.16 运行时内已支持的库如下表：
 <table><thead>
 <tr><th width="60%">库名称</th><th width="40%">版本</th></tr>
 </thead>
 <tbody><tr>
-<td>cos-nodejs-sdk-v5</td>
-<td>2.5.14</td>
+<td align="left">cos-nodejs-sdk-v5</td>
+<td align="left">2.5.20</td>
 </tr>
 <tr>
-<td>base64-js</td>
-<td>1.3.1</td>
+<td align="left">base64-js</td>
+<td align="left">1.3.1</td>
 </tr>
 <tr>
-<td>buffer</td>
-<td>5.4.3</td>
+<td align="left">buffer</td>
+<td align="left">5.5.0</td>
 </tr>
 <tr>
-<td>crypto-browserify</td>
-<td>3.12.0</td>
+<td align="left">crypto-browserify</td>
+<td align="left">3.12.0</td>
 </tr>
 <tr>
-<td>ieee754</td>
-<td>1.1.13</td>
+<td align="left">ieee754</td>
+<td align="left">1.1.13</td>
 </tr>
 <tr>
-<td>imagemagick</td>
-<td>0.1.3</td>
+<td align="left">imagemagick</td>
+<td align="left">0.1.3</td>
 </tr>
 <tr>
-<td>isarray</td>
-<td>2.0.5</td>
+<td align="left">isarray</td>
+<td align="left">2.0.5</td>
 </tr>
 <tr>
-<td>jmespath</td>
-<td>0.15.0</td>
+<td align="left">jmespath</td>
+<td align="left">0.15.0</td>
 </tr>
 <tr>
-<td>lodash</td>
-<td>4.17.15</td>
+<td align="left">lodash</td>
+<td align="left">4.17.15</td>
 </tr>
 <tr>
-<td>microtime</td>
-<td>3.0.0</td>
+<td align="left">microtime</td>
+<td align="left">3.0.0</td>
 </tr>
 <tr>
-<td>npm</td>
-<td>6.4.1</td>
+<td align="left">npm</td>
+<td align="left">6.13.4</td>
 </tr>
 <tr>
-<td>punycode</td>
-<td>2.1.1</td>
+<td align="left">punycode</td>
+<td align="left">2.1.1</td>
 </tr>
 <tr>
-<td>puppeteer</td>
-<td>2.0.0</td>
+<td align="left">puppeteer</td>
+<td align="left">2.1.1</td>
 </tr>
 <tr>
-<td>qcloudapi-sdk</td>
-<td>0.2.1</td>
+<td align="left">qcloudapi-sdk</td>
+<td align="left">0.2.1</td>
 </tr>
 <tr>
-<td>querystring</td>
-<td>0.2.0</td>
+<td align="left">querystring</td>
+<td align="left">0.2.0</td>
 </tr>
 <tr>
-<td>request</td>
-<td>2.88.0</td>
+<td align="left">request</td>
+<td align="left">2.88.2</td>
 </tr>
 <tr>
-<td>sax</td>
-<td>1.2.4</td>
+<td align="left">sax</td>
+<td align="left">1.2.4</td>
 </tr>
 <tr>
-<td>scf-nodejs-serverlessdb-sdk</td>
-<td>1.0.1</td>
+<td align="left">scf-nodejs-serverlessdb-sdk</td>
+<td align="left">1.1.0</td>
 </tr>
 <tr>
-<td>tencentcloud-sdk-nodejs</td>
-<td>3.0.104</td>
+<td align="left">tencentcloud-sdk-nodejs</td>
+<td align="left">3.0.147</td>
 </tr>
 <tr>
-<td>url</td>
-<td>0.11.0</td>
+<td align="left">url</td>
+<td align="left">0.11.0</td>
 </tr>
 <tr>
-<td>uuid</td>
-<td>3.3.3</td>
+<td align="left">uuid</td>
+<td align="left">7.0.3</td>
 </tr>
 <tr>
-<td>xml2js</td>
-<td>0.4.22</td>
+<td align="left">xml2js</td>
+<td align="left">0.4.23</td>
 </tr>
 <tr>
-<td>xmlbuilder</td>
-<td>13.0.2</td>
+<td align="left">xmlbuilder</td>
+<td align="left">15.1.0</td>
+</tr>
+</tbody></table>
+
+- Node.js 10.15 运行时内已支持的库如下表：
+<table>
+<thead>
+<tr><th width="60%">库名称</th><th width="40%">版本</th></tr>
+</thead>
+<tbody><tr>
+<td align="left">cos-nodejs-sdk-v5</td>
+<td align="left">2.5.14</td>
+</tr>
+<tr>
+<td align="left">base64-js</td>
+<td align="left">1.3.1</td>
+</tr>
+<tr>
+<td align="left">buffer</td>
+<td align="left">5.4.3</td>
+</tr>
+<tr>
+<td align="left">crypto-browserify</td>
+<td align="left">3.12.0</td>
+</tr>
+<tr>
+<td align="left">ieee754</td>
+<td align="left">1.1.13</td>
+</tr>
+<tr>
+<td align="left">imagemagick</td>
+<td align="left">0.1.3</td>
+</tr>
+<tr>
+<td align="left">isarray</td>
+<td align="left">2.0.5</td>
+</tr>
+<tr>
+<td align="left">jmespath</td>
+<td align="left">0.15.0</td>
+</tr>
+<tr>
+<td align="left">lodash</td>
+<td align="left">4.17.15</td>
+</tr>
+<tr>
+<td align="left">microtime</td>
+<td align="left">3.0.0</td>
+</tr>
+<tr>
+<td align="left">npm</td>
+<td align="left">6.4.1</td>
+</tr>
+<tr>
+<td align="left">punycode</td>
+<td align="left">2.1.1</td>
+</tr>
+<tr>
+<td align="left">puppeteer</td>
+<td align="left">2.0.0</td>
+</tr>
+<tr>
+<td align="left">qcloudapi-sdk</td>
+<td align="left">0.2.1</td>
+</tr>
+<tr>
+<td align="left">querystring</td>
+<td align="left">0.2.0</td>
+</tr>
+<tr>
+<td align="left">request</td>
+<td align="left">2.88.0</td>
+</tr>
+<tr>
+<td align="left">sax</td>
+<td align="left">1.2.4</td>
+</tr>
+<tr>
+<td align="left">scf-nodejs-serverlessdb-sdk</td>
+<td align="left">1.0.1</td>
+</tr>
+<tr>
+<td align="left">tencentcloud-sdk-nodejs</td>
+<td align="left">3.0.104</td>
+</tr>
+<tr>
+<td align="left">url</td>
+<td align="left">0.11.0</td>
+</tr>
+<tr>
+<td align="left">uuid</td>
+<td align="left">3.3.3</td>
+</tr>
+<tr>
+<td align="left">xml2js</td>
+<td align="left">0.4.22</td>
+</tr>
+<tr>
+<td align="left">xmlbuilder</td>
+<td align="left">13.0.2</td>
 </tr>
 </tbody></table>
 
@@ -300,90 +399,93 @@ var COS = require('cos-nodejs-sdk-v5');
 <tr><th width="60%">库名称</th><th width="40%">版本</th></tr>
 </thead>
 <tbody><tr>
-<td>cos-nodejs-sdk-v5</td>
-<td>2.5.7</td>
+<td align="left">cos-nodejs-sdk-v5</td>
+<td align="left">2.5.8</td>
 </tr>
 <tr>
-<td>base64-js</td>
-<td>1.2.1</td>
+<td align="left">base64-js</td>
+<td align="left">1.2.1</td>
 </tr>
 <tr>
-<td>buffer</td>
-<td>5.0.7</td>
+<td align="left">buffer</td>
+<td align="left">5.0.7</td>
 </tr>
 <tr>
-<td>crypto-browserify</td>
-<td>3.11.1</td>
+<td align="left">crypto-browserify</td>
+<td align="left">3.11.1</td>
 </tr>
 <tr>
-<td>ieee754</td>
-<td>1.1.8</td>
+<td align="left">ieee754</td>
+<td align="left">1.1.8</td>
 </tr>
 <tr>
-<td>imagemagick</td>
-<td>0.1.3</td>
+<td align="left">imagemagick</td>
+<td align="left">0.1.3</td>
 </tr>
 <tr>
-<td>isarray</td>
-<td>2.0.2</td>
+<td align="left">isarray</td>
+<td align="left">2.0.2</td>
 </tr>
 <tr>
-<td>jmespath</td>
-<td>0.15.0</td>
+<td align="left">jmespath</td>
+<td align="left">0.15.0</td>
 </tr>
 <tr>
-<td>lodash</td>
-<td>4.17.4</td>
+<td align="left">lodash</td>
+<td align="left">4.17.4</td>
 </tr>
 <tr>
-<td>npm</td>
-<td>5.6.0</td>
+<td align="left">npm</td>
+<td align="left">5.6.0</td>
 </tr>
 <tr>
-<td>punycode</td>
-<td>2.1.0</td>
+<td align="left">punycode</td>
+<td align="left">2.1.0</td>
 </tr>
 <tr>
-<td>puppeteer</td>
-<td>1.14.0</td>
+<td align="left">puppeteer</td>
+<td align="left">1.14.0</td>
 </tr>
 <tr>
-<td>qcloudapi-sdk</td>
-<td>0.1.5</td>
+<td align="left">qcloudapi-sdk</td>
+<td align="left">0.1.5</td>
 </tr>
 <tr>
-<td>querystring</td>
-<td>0.2.0</td>
+<td align="left">querystring</td>
+<td align="left">0.2.0</td>
 </tr>
 <tr>
-<td>request</td>
-<td>2.87.0</td>
+<td align="left">request</td>
+<td align="left">2.87.0</td>
 </tr>
 <tr>
-<td>sax</td>
-<td>1.2.4</td>
+<td align="left">sax</td>
+<td align="left">1.2.4</td>
 </tr>
 <tr>
-<td>tencentcloud-sdk-nodejs</td>
-<td>3.0.52</td>
+<td align="left">tencentcloud-sdk-nodejs</td>
+<td align="left">3.0.56</td>
 </tr>
 <tr>
-<td>url</td>
-<td>0.11.0</td>
+<td align="left">url</td>
+<td align="left">0.11.0</td>
 </tr>
 <tr>
-<td>uuid</td>
-<td>3.1.0</td>
+<td align="left">uuid</td>
+<td align="left">3.1.0</td>
 </tr>
 <tr>
-<td>xml2js</td>
-<td>0.4.17</td>
+<td align="left">xml2js</td>
+<td align="left">0.4.17</td>
 </tr>
 <tr>
-<td>xmlbuilder</td>
-<td>9.0.1</td>
+<td align="left">xmlbuilder</td>
+<td align="left">9.0.1</td>
 </tr>
 </tbody></table>
+
+
+
 
 - Node.js 6.10 运行时内已支持的库如下表：
 <table>
@@ -391,90 +493,92 @@ var COS = require('cos-nodejs-sdk-v5');
 <tr><th width="60%">库名称</th><th width="40%">版本</th></tr>
 </thead>
 <tbody><tr>
-<td>base64-js</td>
-<td>1.2.1</td>
+<td align="left">base64-js</td>
+<td align="left">1.2.1</td>
 </tr>
 <tr>
-<td>buffer</td>
-<td>5.0.7</td>
+<td align="left">buffer</td>
+<td align="left">5.0.7</td>
 </tr>
 <tr>
-<td>cos-nodejs-sdk-v5</td>
-<td>2.0.7</td>
+<td align="left">cos-nodejs-sdk-v5</td>
+<td align="left">2.0.7</td>
 </tr>
 <tr>
-<td>crypto-browserify</td>
-<td>3.11.1</td>
+<td align="left">crypto-browserify</td>
+<td align="left">3.11.1</td>
 </tr>
 <tr>
-<td>ieee754</td>
-<td>1.1.8</td>
+<td align="left">ieee754</td>
+<td align="left">1.1.8</td>
 </tr>
 <tr>
-<td>imagemagick</td>
-<td>0.1.3</td>
+<td align="left">imagemagick</td>
+<td align="left">0.1.3</td>
 </tr>
 <tr>
-<td>isarray</td>
-<td>2.0.2</td>
+<td align="left">isarray</td>
+<td align="left">2.0.2</td>
 </tr>
 <tr>
-<td>jmespath</td>
-<td>0.15.0</td>
+<td align="left">jmespath</td>
+<td align="left">0.15.0</td>
 </tr>
 <tr>
-<td>lodash</td>
-<td>4.17.4</td>
+<td align="left">lodash</td>
+<td align="left">4.17.4</td>
 </tr>
 <tr>
-<td>npm</td>
-<td>3.10.10</td>
+<td align="left">npm</td>
+<td align="left">3.10.10</td>
 </tr>
 <tr>
-<td>punycode</td>
-<td>2.1.0</td>
+<td align="left">punycode</td>
+<td align="left">2.1.0</td>
 </tr>
 <tr>
-<td>qcloudapi-sdk</td>
-<td>0.1.5</td>
+<td align="left">qcloudapi-sdk</td>
+<td align="left">0.1.5</td>
 </tr>
 <tr>
-<td>querystring</td>
-<td>0.2.0</td>
+<td align="left">querystring</td>
+<td align="left">0.2.0</td>
 </tr>
 <tr>
-<td>request</td>
-<td>2.87.0</td>
+<td align="left">request</td>
+<td align="left">2.87.0</td>
 </tr>
 <tr>
-<td>sax</td>
-<td>1.2.4</td>
+<td align="left">sax</td>
+<td align="left">1.2.4</td>
 </tr>
 <tr>
-<td>tencentcloud-sdk-nodejs</td>
-<td>3.0.10</td>
+<td align="left">tencentcloud-sdk-nodejs</td>
+<td align="left">3.0.10</td>
 </tr>
 <tr>
-<td>url</td>
-<td>0.11.0</td>
+<td align="left">url</td>
+<td align="left">0.11.0</td>
 </tr>
 <tr>
-<td>uuid</td>
-<td>3.1.0</td>
+<td align="left">uuid</td>
+<td align="left">3.1.0</td>
 </tr>
 <tr>
-<td>xml2js</td>
-<td>0.4.17</td>
+<td align="left">xml2js</td>
+<td align="left">0.4.17</td>
 </tr>
 <tr>
-<td>xmlbuilder</td>
-<td>9.0.1</td>
+<td align="left">xmlbuilder</td>
+<td align="left">9.0.1</td>
 </tr>
 </tbody></table>
 
 
+
+
 ## 相关操作
 您可参考以下文档，使用相关功能：
-- [使用 SCF 连接数据库](<https://cloud.tencent.com/document/product/583/38012>)
-- [网络配置管理](<https://cloud.tencent.com/document/product/583/38202>)
-- [角色与授权](<https://cloud.tencent.com/document/product/583/32389>)
+- [使用 SCF 连接数据库](https://cloud.tencent.com/document/product/583/38012)
+- [网络配置管理](https://cloud.tencent.com/document/product/583/38202)
+- [角色与授权](https://cloud.tencent.com/document/product/583/32389)

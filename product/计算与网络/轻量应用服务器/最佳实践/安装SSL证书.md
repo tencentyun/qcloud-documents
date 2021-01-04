@@ -51,7 +51,7 @@
 >
 4. <span id="Step4"></span>对于 WordPress 镜像创建的实例则执行以下命令，编辑 Nginx 默认配置文件目录中的 `nginx.conf` 文件。
 ```
-vim /usr/local/lighthouse/softwares/nginx/conf/nginx.conf
+sudo vim /usr/local/lighthouse/softwares/nginx/conf/nginx.conf
 ```
 找到以下配置信息：
 ```
@@ -116,7 +116,7 @@ server {
 5. 保存修改后的 `nginx.conf` 文件后退出。
 6. <span id="Step6"></span>执行以下命令，验证配置文件是否存在问题。
 ```
-/usr/local/lighthouse/softwares/nginx/sbin/nginx -t
+sudo /usr/local/lighthouse/softwares/nginx/sbin/nginx -t
 ```
  - 若输出如下成功提示，请继续执行 [步骤7](#Step7)。
 ```
@@ -126,7 +126,7 @@ nginx: configuration file /usr/local/lighthouse/softwares/nginx/conf/nginx.conf 
  - 若存在错误提示，请您重新配置或者根据提示修改存在问题。
 7. <span id="Step7"></span>执行以下命令，重启 Nginx。
 ```
-/usr/local/lighthouse/softwares/nginx/sbin/nginx -s reload
+sudo /usr/local/lighthouse/softwares/nginx/sbin/nginx -s reload
 ```
 至此已安装成功。您可使用 `https://cloud.tencent.com`（示例）正常进行访问。
 

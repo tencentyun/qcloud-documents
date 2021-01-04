@@ -1,8 +1,6 @@
 ## 功能说明
 HDFS TO COS 工具用于将 HDFS 上的数据拷贝到腾讯云对象存储 COS 上。
 
->!HDFS 的回收站功能不适用于 COS，回收站数据在 COS 中不会自动删除，如需删除此类数据，请 [配置生命周期规则](https://cloud.tencent.com/document/product/436/14605)。
-
 ## 使用环境
 #### 系统环境
 Linux 或 Windows 系统。
