@@ -16,7 +16,7 @@
 
 在迁移工作开始前，用户可以到腾讯云镜像市场找到 [CFS 迁移工具 Filetruck](https://market.cloud.tencent.com/products/24827) 的镜像。
 
-1. 使用 CFS Filetruck 镜像创建一个 CVM 云主机（推荐最低配置 ：2核4G1.5Gbps）。主机成功创建后，迁移工具及相关环境配置已经就绪；
+1. 使用 CFS Filetruck 镜像创建一个 CVM 云服务器（推荐最低配置 ：2核4G1.5Gbps）。主机成功创建后，迁移工具及相关环境配置已经就绪；
 2. 将需要迁移/备份的文件所在的源地址及目的地址挂载到该主机上，详情请参见 [ CFS 文件系统挂载指引](https://cloud.tencent.com/document/product/582/11523)；
 3. 创建一个迁移任务并执行。
 
