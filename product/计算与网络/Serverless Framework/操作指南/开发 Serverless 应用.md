@@ -82,8 +82,8 @@ $ mkdir layer && cd layer
 $ touch serverless.yml
 ```
 `serverless.yml` 可以按照如下模版配置（更多配置请参考 [Layer 组件全量配置](https://github.com/serverless-components/tencent-layer/blob/master/docs/configure.md)）：
-<dx-codeblock>
-:::  yml
+
+```yml
 # serverless.yml
 app: app-demo #应用名称，同一个应用下每个组件的 app、stage、org 参数必须保持一致
 org: app-demo
@@ -98,8 +98,7 @@ inputs:
     targetDir: /node_modules # 上传后的文件打包目录
   runtimes:
     - Nodejs10.15
-:::
-</dx-codeblock>
+```
 
 >!
 >- 同一个应用下，每一个组件创建的资源的 **app、stage、org** 参数必须保持一致，**name** 参数必须唯一。
@@ -115,8 +114,7 @@ inputs:
 $ cd ../src
 ```
 在 `serverless.yml` 里，`inputs` 部分增加 layer 配置：
-<dx-codeblock>
-:::  yml
+```yml
 inputs:
   src:   
     src: ./    
@@ -134,8 +132,7 @@ inputs:
       - http
       - https
     environment: release
-:::
-</dx-codeblock>
+```
 
 变量引用格式请参考 [变量引用说明](#quote)。
 
@@ -155,8 +152,8 @@ inputs:
   
 ### 步骤5：部署应用
 在项目根目录下，执行 `sls deploy`，即可完成 Layer 创建，并将 Layer 组件的输出作为 Egg 组件的输入，完成 Egg 框架上云。
-<dx-codeblock>
-:::  bash
+
+```bash
 $ sls deploy
 
 serverless ⚡framework
@@ -188,8 +185,7 @@ app-demo-egg:
   vendorMessage: null
 
 76s › app-demo › "deploy" ran for 2 apps successfully.
-:::
-</dx-codeblock>
+```
 
 
 点击 `apigw` 输出的 URL，即可访问您已经创建好的应用，执行 `sls info`，可以查看部署的实例状态，执行 `sls remove`，可以快速移除应用。
@@ -214,8 +210,7 @@ app-demo-egg:
    ```
 
 #### 2. 配置项目模版文件并发布
-<dx-codeblock>
-:::  yml
+```yml
 # serverless.template.yml
 name: app-demo # 项目模板的名字，模版唯一标识，不可重复
 displayName: 基于 layer 创建的 eggjs 项目模版 #项目模板展示在控制台的名称（中文）
@@ -239,8 +234,7 @@ src: # 描述项目中的哪些文件需要作为模板发布
     - .env
     - '**/node_modules'
     - '**/package-lock.json'
-:::
-</dx-codeblock>
+```
 
 `serverless.template.yml` 文件配置完成后，便可以使用发布命令 `sls publish` 将此项目作为模板发布到应用中心。
 ```
@@ -278,8 +272,7 @@ $ npm install
 	 `${output:[app]:[stage]:[instance name].[output]}`
 
 示例 yml：
-<dx-codeblock>
-:::  yml
+```yml
 org: xxx
 app: demo
 component: scf
@@ -291,8 +284,7 @@ inputs:
   region: ${env:REGION} # 环境变量中指定的 REGION= 信息
   vpcName: ${output:prod:my-app:vpc.name} # 获取其他组件中的输出信息
   vpcName: ${output:${stage}:${app}:vpc.name} # 上述方式也可以组合使用
-:::
-</dx-codeblock>
+```
 
 
  
