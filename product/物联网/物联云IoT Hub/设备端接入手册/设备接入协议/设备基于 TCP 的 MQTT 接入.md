@@ -45,12 +45,11 @@ MQTT 协议支持通过设备证书和密钥签名两种方式接入物联网通
 物联网平台支持 HMAC-SHA256，HMAC-SHA1 等方式基于设备密钥生成摘要签名。通过签名方式接入物联云平台的流程如下：
 1. 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)。您可在控制台创建产品、添加设备、并获取设备密钥。
 2. 按照物联网通信约束生成 username 字段，username 字段格式如下：
-```plaintext
+``` plaintext
 username 字段的格式为：
 ${productid}${devicename};${sdkappid};${connid};${expiry}
 注意：${} 表示变量，并非特定的拼接符号。
-```
-其中各字段含义如下：
+```其中各字段含义如下：
 	- productid：产品 ID。
 	- devicename： 设备名称。
 	- sdkappid：固定填12010126。
