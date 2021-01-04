@@ -2,10 +2,10 @@
 
 ## 1.26.1-Greenwich-RELEASE（2020-12-31）
 ### 优化
-- spring-cloud-tsf-sleuth 新增 cmq 调用支持
+spring-cloud-tsf-sleuth 新增 CMQ 调用支持。
 
 ### 版本建议
-- 支持向后兼容，建议全量升级。
+支持向后兼容，建议全量升级。
 
 
 ## 1.26.0-Greenwich-RELEASE（2020-12-07）
