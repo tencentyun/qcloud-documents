@@ -41,7 +41,7 @@ metadata:
 - **注解名称**：`service.cloud.tencent.com/specify-protocol`
 - 扩展的协议注解示例：
 <dx-tabs>
-::: TCP SSL 示例
+::: TCP_SSL 示例
 <dx-codeblock>
 ::: xml 
 {"80":{"protocol":["TCP_SSL"],"tls":"cert-secret"}}
