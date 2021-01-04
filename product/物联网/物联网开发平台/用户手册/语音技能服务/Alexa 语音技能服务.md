@@ -26,7 +26,7 @@
 | 智慧生活—家用电器—扫地机器人 | 开关                               |
 | 智慧生活—家用电器—空气净化器 | 开关、风速（调大调小）、模式       |
 
->?腾讯云物联网开发平台关于 Amazon Alexa 支持的品类或功能，后续将会支持更多，若您有接入需求，您可以在腾讯云官网通过 [在线客服](https://cloud.tencent.com/act/event/connect-service) ，描述您的产品需求并提交开通申请，我们将安排相关工作人员与您进行对接。
+>?腾讯云物联网开发平台关于 Amazon Alexa 支持的品类或功能，后续将会支持更多，若您有接入需求，您可以在腾讯云官网通过 [在线客服](https://cloud.tencent.com/act/event/connect-service)，描述您的产品需求并提交开通申请，我们将安排相关工作人员与您进行对接。
 
 ### 步骤2：申请开通 Amazon Alexa 服务
 1. 登录 [物联网开发控制台](https://console.cloud.tencent.com/iotexplorer) ，地区选择美国东部，创建项目及产品，详情请参考 [产品定义](https://cloud.tencent.com/document/product/1081/34739)。
