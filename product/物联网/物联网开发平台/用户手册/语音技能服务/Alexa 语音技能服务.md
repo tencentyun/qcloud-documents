@@ -1,5 +1,5 @@
 
-本实例中使用第三方平台 Amazon Alexa 实现语音智能服务，关于 Alexa 详细的官方文档，请参见 [Amazon Alexa 文档](https://developer.amazon.com/en-US/docs/alexa/smarthome/understand-the-smart-home-skill-api.html)。
+本实例中使用第三方平台 Amazon Alexa 实现语音智能服务，关于 Alexa 详细的官方文档，详情请参见 [Amazon Alexa 文档](https://developer.amazon.com/en-US/docs/alexa/smarthome/understand-the-smart-home-skill-api.html)。
 ## 限制条件  
 
 #### 激活设备对接 Amazon Alexa 仅支持以下地区
@@ -12,19 +12,21 @@
 
 ### 步骤1：确认产品范围和功能
 
+新建产品时，产品品类需选择平台指定支持的品类，若选择其他品类或自定义将无法使用语音技能服务。
+<img src="https://main.qcloudimg.com/raw/620d3f0bb3ade3a15b0e8ae2a748d85d.png" style="width: 85%;"></img>
 您可以通过下表，查看支持的品类和功能是否满足您的产品开发。  
 
-| 支持的品类 | 支持的功能       |
-| ---------- | ---------------------------------- |
-| 灯         | 开关、亮度调节、颜色调节、色温调节 |
-| 开关面板   | 开关                               |
-| 插座       | 开关                               |
-| 窗帘       | 开关、百分比调节                   |
-| 香薰机     | 开关                               |
-| 扫地机器人 | 开关                               |
-| 空气净化器 | 开关、风速（调大调小）、模式       |
+| 支持的品类                   | 支持的功能                         |
+| ---------------------------- | ---------------------------------- |
+| 智慧生活—电工照明—灯         | 开关、亮度调节、颜色调节、色温调节 |
+| 智慧生活—电工照明—开关面板   | 开关                               |
+| 智慧生活—电工照明—插座       | 开关                               |
+| 智慧生活—电工照明—窗帘       | 开关、百分比调节                   |
+| 智慧生活—家用电器—香薰机     | 开关                               |
+| 智慧生活—家用电器—扫地机器人 | 开关                               |
+| 智慧生活—家用电器—空气净化器 | 开关、风速（调大调小）、模式       |
 
->?腾讯云物联网开发平台关于 Amazon Alexa 支持的品类或者功能，后续将会支持更多，若您有接入需求，您可以在腾讯云官网通过 [在线客服](https://cloud.tencent.com/act/event/connect-service) ，描述您的产品需求并提交开通申请，我们将安排相关工作人员与您进行对接。
+>?腾讯云物联网开发平台关于 Amazon Alexa 支持的品类或功能，后续将会支持更多，若您有接入需求，您可以在腾讯云官网通过 [在线客服](https://cloud.tencent.com/act/event/connect-service)，描述您的产品需求并提交开通申请，我们将安排相关工作人员与您对接。
 
 ### 步骤2：申请开通 Amazon Alexa 服务
 1. 登录 [物联网开发控制台](https://console.cloud.tencent.com/iotexplorer) ，地区选择美国东部，创建项目及产品，详情请参考 [产品定义](https://cloud.tencent.com/document/product/1081/34739)。

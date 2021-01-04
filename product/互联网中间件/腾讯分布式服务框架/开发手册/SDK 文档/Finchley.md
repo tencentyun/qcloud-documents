@@ -1,5 +1,12 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+## 1.26.1-Finchley-RELEASE（2020-12-31）
+### 优化
+spring-cloud-tsf-sleuth 新增 CMQ 调用支持。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
 ## 1.26.0-Finchley-RELEASE（2020-12-07）
 
 ### 新特性
@@ -44,6 +51,23 @@ spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
  
 ### 版本建议
 
+支持向后兼容，建议全量升级。
+
+## 1.23.6-Finchley-RELEASE（2020-12-21）
+### Bug 修复
+- 处理 Spring 组件开源漏洞风险，升级 Spring Framework 到5.0.19版本。
+- spring-cloud-tsf-core 修复与 spring-boot-devtools 的冲突。
+- spring-cloud-tsf-ratelimit：修复当只有一个限流规则时，限流规则关闭不生效的问题。
+- spring-cloud-tsf-route：修复当只有一个路由规则时，路由规则关闭不生效的问题。
+- spring-cloud-tsf-swagger 修复通过分布式配置下发 spring.application.name 时，API 上报失败的问题。
+- 修复网关多个命名空间时 consul index 混用问题。
+
+### 优化
+- spring-cloud-tsf-consul-discovery 心跳请求增加重试。
+- spring-cloud-tsf-consul-config 支持本地加密配置解析。
+- spring-cloud-tsf-lane：优化泳道规则生效逻辑。
+
+### 版本建议
 支持向后兼容，建议全量升级。
 
 ## 1.23.5-Finchley-RELEASE（2020-11-11）
@@ -154,6 +178,29 @@ spring-cloud-tsf-msgw：
 
 - 优化默认日志配置支持容器部署场景。
 - 优化 TSF MSGW zuul 依赖。
+
+## 1.21.8-Finchley-RELEASE（2020-12-31）
+### Bug 修复
+spring-cloud-tsf-sleuth：修复特殊场景调用链 IP 获取失败问题。
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
+## 1.21.7-Finchley-RELEASE（2020-12-21）
+### Bug 修复
+- spring-cloud-tsf-ratelimit：修复当只有一个限流规则时，限流规则关闭不生效的问题。
+- spring-cloud-tsf-route：修复当只有一个路由规则时，路由规则关闭不生效的问题。
+- spring-cloud-tsf-swagger 修复通过分布式配置下发 spring.application.name 时，API 上报失败的问题。
+- 修复网关多个命名空间时 consul index 混用问题。
+
+### 优化
+- spring-cloud-tsf-sleuth 新增 CMQ 调用支持。
+- spring-cloud-tsf-consul-discovery 心跳请求增加重试。
+- spring-cloud-tsf-consul-config 支持本地加密配置解析。
+- spring-cloud-tsf-lane：优化泳道规则生效逻辑。
+
+### 版本建议
+支持向后兼容，建议全量升级。
 
 ## 1.21.6-Finchley-RELEASE（2020-10-19）
 ### Bug 修复
