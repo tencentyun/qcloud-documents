@@ -123,7 +123,7 @@ im.enterRoom('your roomID').then((imResponse) => {
 #### 步骤1：创建实时音视频 TRTC 应用[](id:step1)
 在 [实时音视频 TRTC 控制台](https://console.cloud.tencent.com/trtc/app)，单击左侧导航栏【应用管理】>【创建应用】，输入您的应用名称，单击【确定】即可创建一个实时音视频应用。创建完毕后，请保存 SDKAPPID。
 ![](https://main.qcloudimg.com/raw/34f87b8c0a817d8d3e49baac5b82a1fa.png)
->?与此同时会自动创建一个 `SDKAppID` 相同的即时通信 IM 应用。
+>?与此同时会自动创建一个 SDKAppID 相同的即时通信 IM 应用。
 
 #### 步骤2：开启自动旁路推流
 1. 在 [实时音视频 TRTC 控制台](https://console.cloud.tencent.com/trtc/app)，单击左侧导航栏【应用管理】，在您创建的实时音视频应用上，单击【功能配置】进入应用详情。
@@ -296,5 +296,6 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 
 - [TWebLive 接口手册](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblive/TWebLive.html)
 - [在线 Demo](https://trtc.qcloud.com/tweblive/index.html#/)
+
 ## 相关文档
 [折扣活动](https://cloud.tencent.com/document/product/269/46181)
