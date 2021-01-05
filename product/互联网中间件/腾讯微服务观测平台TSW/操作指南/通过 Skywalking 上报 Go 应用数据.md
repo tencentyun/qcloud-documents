@@ -23,7 +23,9 @@ Go 语言应用在使用 Skywalking 上报数据时有一定改造成本，您�
 以下是基于 Go2Sky 的 Demo 改造示例，您可根据实际情况进行修改。
 1. 在 NewGRPCReporter 的时设置上报地址和 Authentication（上报地址与 Token 的获取方式参考 [步骤1](#step1)）。
 ```
-report, err = reporter.NewGRPCReporter("169.254.0.143:11800",reporter.WithAuthentication("tsw_site@xxxxxxxxxx"))
+report, err = reporter.NewGRPCReporter(
+"169.254.0.143:11800",
+reporter.WithAuthentication("tsw_site@xxxxxxxxxx"))
 ```
 
 2. 进行 Server 端配置，Demo 如下：
@@ -95,8 +97,9 @@ flag.Parse()
 var report go2sky.Reporter
    var err error
 
-   report, err = reporter.NewGRPCReporter(oapServer,reporter.WithAuthentication("tsw_site@xxxxxxxxxxxxxxxxxxxxxxxx"))
-//需替换成您的 Token
+   report, err = reporter.NewGRPCReporter(
+						oapServer,
+						reporter.WithAuthentication("tsw_site@xxxxxxxxxxxxxxxxxxxxxxxx")) //需替换成您的 Token
 //report, err = reporter.NewLogReporter()
 
    if err != nil {
