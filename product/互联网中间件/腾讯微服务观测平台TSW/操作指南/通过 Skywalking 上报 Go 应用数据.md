@@ -58,7 +58,7 @@ var (
 func init() {
 flag.BoolVar(&grpc, "grpc", false, "use grpc reporter")
 flag.StringVar(&oapServer, "oap-server", "169.254.0.143:11800", "oap server address")  
-//需替换成 TSW 的私网接入点
+//169.254.0.143:11800 需替换为 TSW 的私网接入点
 flag.StringVar(&upstreamURL, "upstream-url", "upstream-service", "upstream service url")
 flag.StringVar(&listenAddr, "listen-addr", ":8081", "listen address")
 flag.StringVar(&serviceName, "service-name", "go2sky-server", "service name")
@@ -99,7 +99,8 @@ var report go2sky.Reporter
 
    report, err = reporter.NewGRPCReporter(
 						oapServer,
-						reporter.WithAuthentication("tsw_site@xxxxxxxxxxxxxxxxxxxxxxxx")) //需替换成您的 Token
+						reporter.WithAuthentication("tsw_site@xxxxxxxxxxxxxxxxxxxxxxxx")) 
+						//tsw_site@xxxxxxxxxxxxxxxxxxxxxxxx 需替换成您的 Token
 //report, err = reporter.NewLogReporter()
 
    if err != nil {
