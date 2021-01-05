@@ -69,7 +69,8 @@ npm run bootstrap
 ### 部署
 
 1. 执行 `sls deploy --all` 命令进行部署。返回信息如下所示：
-```console
+<dx-codeblock>
+:::  console
 $ sls deploy --all
 
 serverless ⚡ framework
@@ -114,13 +115,15 @@ fullstack-frontend:
   website: https://fullstack-serverless-db-123456789.cos-website.ap-guangzhou.myqcloud.com
 
 50s › tencent-fullstack › Success 
-```
+:::
+</dx-codeblock>
+
  部署成功后，您可以使用浏览器访问项目产生的 website 链接，即可看到生成的网站。
 >?本项目云函数因 VPC，导致无法直接访问外网，如需访问外网请参考 [云函数网络配置]( https://cloud.tencent.com/document/product/583/38202 )。
 
 2. 执行 npm run info 查看部署信息，该项目部署的信息：vpc、db、api、frontend（前端网站）。返回信息如下所示：
-
- ```bash
+<dx-codeblock>
+:::  bash
 $ npm run info
 > tencent-fullstack@1.1.0 info /root/tencent-fullstack
 > npm run info:vpc && npm run info:db && npm run info:api && npm run info:frontend
@@ -210,8 +213,8 @@ Deployments:  9
 website: https://fullstack-serverless-db-123456789.cos-website.ap-guangzhou.myqcloud.com
 
 fullstack-frontend › Info successfully loaded
-
-```
+:::
+</dx-codeblock>
 
 
 3. 执行 `sls remove --all`，可移除项目。返回信息如下所示：
