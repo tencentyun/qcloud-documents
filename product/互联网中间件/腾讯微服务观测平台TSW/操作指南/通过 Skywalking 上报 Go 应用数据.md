@@ -1,5 +1,5 @@
 ## 操作场景
-TSW 本身不提供 Go 语言客户端采集，但可兼容通过 Skywalking 的 Go2Sky 接入应用，向TSW后端上报数据。TSW 目前已支持将 Skywalking 上报的数据转换成自身兼容的 Opentracing 格式，在服务调用监控、调用链、依赖拓扑等功能上，功能可与使用 TSW 自有 Agent 保持一致。
+TSW 本身不提供 Go 语言客户端采集，但可兼容通过 Skywalking 的 Go2Sky 接入应用，向 TSW 后端上报数据。TSW 目前已支持将 Skywalking 上报的数据转换成自身兼容的 Opentracing 格式，在服务调用监控、调用链、依赖拓扑等功能上，功能可与使用 TSW 自有 Agent 保持一致。
 
 ## 操作流程
 [](id:step1)
@@ -28,7 +28,7 @@ report, err = reporter.NewGRPCReporter("169.254.0.143:11800",reporter.WithAuthen
 
 2. 进行 Server 端配置，Demo 如下：
 <dx-codeblock>
-:::hash
+:::go
 package main
 
 import (
