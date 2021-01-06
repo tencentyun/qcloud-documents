@@ -60,8 +60,8 @@ bootmenupolicy          Standard
 )
  - 若没有安装 Virtio 驱动，则需要手动安装。
     - Microsoft Windows Server 2008 R2（标准版、数据中心版、企业版)，Microsoft Windows Server 2012 R2（标准版），请对应实际网络环境下载：
-      - 公网下载地址：[腾讯云定制版 Virtio](http://mirrors.tencent.com/install/windows/virtio_64_10003.msi)
-      - 内网下载地址：[腾讯云定制版 Virtio](http://mirrors.tencentyun.com/install/windows/virtio_64_10003.msi)
+      - 腾讯云定制版 Virtio 公网下载地址：`http://mirrors.tencent.com/install/windows/virtio_64_10003.msi`
+      - 腾讯云定制版 Virtio 内网下载地址：`http://mirrors.tencentyun.com/install/windows/virtio_64_10003.msi`
     - 其它系统版本，请下载 [社区版本 virtio](https://www.linux-kvm.org/page/WindowsGuestDrivers/Download_Drivers)。
 
 #### 检查其它硬件相关的配置
