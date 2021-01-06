@@ -18,7 +18,9 @@
 Maven 是 JAVA 的依赖管理工具，支持您项目所需的依赖项，并将其安装到项目中。关于 Maven 详细可参考 [Maven 官网](https://maven.apache.org/)。
 
 1. 为您的项目添加 Maven 依赖项，只需在 pom.xml 中找到`<dependencies>`标签，在里面添加以下依赖项即可。
->!这里的版本号只是举例，您可以在 [Maven 仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 上找到最新的版本。
+>!
+>- 这里的版本号只是举例，您可以在 [Maven 仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 上找到最新的版本。
+>- [Maven 仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 中显示的4.0.11是废弃版本，由于 Maven 索引更新问题尚未完全删除。
 
 	```xml
 <dependency>
