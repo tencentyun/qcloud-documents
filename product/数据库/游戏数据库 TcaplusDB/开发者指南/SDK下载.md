@@ -9,7 +9,7 @@
 | 表类型      | 版本          | 更新时间    | 操作系统     | SDK 下载                                                     |
 | ----------- | ------------- | ----------- | ------------ | ------------------------------------------------------------ |
 | Protobuf 表 | 3.36.0.192960 | 2020/04/21  | Linux x86_64 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/3.36.0.192960/TcaplusPbApi3.36.0.192960.x86_64_release_20200115.tar.gz) |
-| Protobuf 表 | 3.46.0.199033 | 2020/012/29 | Linux x86_64 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/release/3-46/TcaplusPbApi3.46.0.199033.x86_64_release_20201210.tar.gz) |
+| Protobuf 表 | 3.46.0.199033 | 2020/12/29 | Linux x86_64 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/release/3-46/TcaplusPbApi3.46.0.199033.x86_64_release_20201210.tar.gz) |
 | TDR 表      | 3.46.0.199033 | 2020/12/29  | Linux x86_64 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/release/3-46/TcaplusServiceApi3.46.0.199033.x86_64_release_20201210.tar.gz) |
 
 ## Windows C++ SDK 下载
