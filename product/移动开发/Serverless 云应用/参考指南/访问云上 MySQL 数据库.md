@@ -1,7 +1,6 @@
 云托管应用可以通过其所在的 [VPC（私有网络）](https://cloud.tencent.com/document/product/215)访问您在云上的 MySQL 数据库。
 
->? 
-> - 目前暂不支持开通后更改云托管所在环境绑定的 VPC，如果您的云托管应用和数据库不在同一个 VPC 内，可选择 [打通多个 VPC](https://cloud.tencent.com/document/product/215/36698)，或 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请销毁当前环境的云托管后，重新开通并选择正确的网络配置。
+>? - 目前暂不支持开通后更改云托管所在环境绑定的 VPC，如果您的云托管应用和数据库不在同一个 VPC 内，可选择 [打通多个 VPC](https://cloud.tencent.com/document/product/215/36698)，或 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请销毁当前环境的云托管后，重新开通并选择正确的网络配置。
 > - 关于使用 VPC 连接 MySQL，可以参考 [连接 MySQL 实例](https://cloud.tencent.com/document/product/236/3130)。
 
 ## 示例
