@@ -17,9 +17,9 @@
 
 #### 3. 打开 config/agent.config，配置接入点和 Token。并配置好服务名称。
 ```plaintext
-collector.backend_service=&lt;endpoint&gt;
-agent.authentication=&lt;auth-token&gt; 
-agent.service_name=&lt;ServiceName&gt;
+collector.backend_service=<endpoint> 
+agent.authentication=<auth-token> 
+agent.service_name=<ServiceName> 
 ```
 
 #### 4. 重启
