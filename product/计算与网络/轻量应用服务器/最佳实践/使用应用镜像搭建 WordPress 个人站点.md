@@ -54,8 +54,8 @@ WordPress 是全球最流行的开源的博客和内容管理网站的建站平�
 ![](https://main.qcloudimg.com/raw/a70ee3695d07501b9ac0bc53abb3c50e.png)
 
 
-### 域名设置
-您可以给自己的 WordPress 网站设定一个单独的域名。用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。有些用户搭建网站仅用于学习，那么可使用 IP 直接安装临时使用，但不推荐这样操作。
+### 域名与 DNS 解析设置
+您可以给自己的 WordPress 网站设定一个单独的域名。用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。有些用户搭建网站仅用于学习，那么可使用 IP 直接访问网站，但不推荐这样操作。
 
 如果您已有域名或者想要通过域名来访问您的网站，请参考以下步骤：
 1. 通过腾讯云 [购买域名](https://dnspod.cloud.tencent.com/?from=qcloud)，具体操作请参考 [域名注册](https://cloud.tencent.com/document/product/242/9595)。
