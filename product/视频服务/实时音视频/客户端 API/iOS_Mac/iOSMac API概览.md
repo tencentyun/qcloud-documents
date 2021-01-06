@@ -366,6 +366,8 @@
 | [onRemoteUserAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#aa392c17c27bae1505f148bf541b7746a) | 混音前的每一路远程用户的音频数据，即混音前的各路原始数据。例如，对某一路音频进行文字转换时，您必须使用该路音频的原始数据。 |
 | [onMixedPlayAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a5a8a0bf6f8d02c33b2fe01c6175dfd4e) | 各路音频数据混合后的音频数据。 |
 | [onMixedAllAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a905748efe966e94ec1212fda14161aee) | SDK 所有音频数据混合后的数据回调（包括采集音频数据和所有播放音频数据）。 |
+
+
 ### 日志相关回调
 
 建议在比较早初始化的类中设置回调委托对象，例如 AppDelegate。
