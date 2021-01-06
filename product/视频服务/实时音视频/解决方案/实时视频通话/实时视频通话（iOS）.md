@@ -166,7 +166,7 @@ iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model
 ### 步骤5：实现 1v1 通话
 
 1. 发起方：调用 `TRTCCalling` 的 `call(userId, callType)` ，`userId` 参数为用户 ID， `callType` 参数为通话类型，参数传入`CallType_Video`，就能够发起视频通话的请求。
-2. 接收方：当接收方处于已登录状态时，会收到名为 `onInvited()` 的回调，回调中 `callType` 的参数是发起方填写的通话类型，您可以通过此参数启动相应的界面。如果希望接收方在不处于登录状态时也能收到通话请求，请参考 [离线接听](#model.offline)。
+2. 接收方：当接收方处于已登录状态时，会收到名为 `onInvited()` 的回调，回调中 `callType` 的参数是发起方填写的通话类型，您可以通过此参数启动相应的界面。如果希望接收方在不处于登录状态时也能收到通话请求，请参考 [离线接听](#offline)。
 3. 接收方：如果希望接听电话，接收方可以调用 `accept()` 函数，如果此时是视频通话，可以同时调用 `openCamera()` 函数打开自己本地的摄像头。接收方也可以调用 `reject()` 拒绝此次通话。
 4. 当双方的音视频通道建立完成后，通话的双方还会接收到名为 `onUserVideoAvailable()` 的回调，表示对方的视频画面已经拿到。此时双方用户均可以调用 `startRemoteView()` 展示远端的视频画面。远端的声音默认是自动播放的。
 

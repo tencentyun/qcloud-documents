@@ -5,7 +5,7 @@
 
 ## 引用方式
 ####  集成 SDK 方式
-若不需要将 IoT SDK 运行在 service 组件中，则只需要依赖 [iot_core](https://github.com/tencentyun/iot-device-java/tree/master/hub-device-android/iot_core)。
+若不需要将 IoT SDK 运行在 service 组件中，则只需要依赖 [iot_core](https://github.com/tencentyun/iot-device-java/tree/master/hub/hub-device-android/iot_core)。
  - 依赖 maven 远程构建，示例如下：
  ``` gr
 dependencies {
@@ -16,7 +16,7 @@ dependencies {
 >?用户可根据 [版本说明](https://cloud.tencent.com/document/product/634/48712) 设置版本号，以实现不同版本的功能。
 >
  - 依赖本地 SDK 源码构建：
-   修改应用模块的 [build.gradle](https://github.com/tencentyun/iot-device-java/blob/master/hub-device-android/hub-demo/build.gradle)，使应用模块依赖 [iot_core](https://github.com/tencentyun/iot-device-java/tree/master/hub-device-android/iot_core) 和 [iot_service](https://github.com/tencentyun/iot-device-java/tree/master/hub-device-android/iot_service) 源码，示例如下：
+   修改应用模块的 [build.gradle](https://github.com/tencentyun/iot-device-java/blob/master/hub/hub-android-demo/build.gradle)，使应用模块依赖 [iot_core](https://github.com/tencentyun/iot-device-java/tree/master/hub/hub-device-android/iot_service) 和 [iot_service](https://github.com/tencentyun/iot-device-java/tree/master/hub/hub-device-android/iot_service) 源码，示例如下：
    ```gr
    dependencies {
        implementation project(':hub-device-android:iot_core')
@@ -26,7 +26,7 @@ dependencies {
 
 ## 认证连接
 
-编辑 [app-config.json](https://github.com/tencentyun/iot-device-java/blob/master/hub-device-android/app-config.json) 文件中的配置信息，可在 [IoTMqttFragment.java](https://github.com/tencentyun/iot-device-java/blob/master/hub-device-android/hub-demo/src/main/java/com/tencent/iot/hub/device/android/app/IoTMqttFragment.java) 读取对应以下数据：
+编辑 [app-config.json](https://github.com/tencentyun/iot-device-java/blob/master/hub/hub-android-demo/app-config.json) 文件中的配置信息，可在 [IoTMqttFragment.java](https://github.com/tencentyun/iot-device-java/blob/master/hub/hub-android-demo/src/main/java/com/tencent/iot/hub/device/android/app/IoTMqttFragment.java) 读取对应以下数据：
 
 ``` gr
 {

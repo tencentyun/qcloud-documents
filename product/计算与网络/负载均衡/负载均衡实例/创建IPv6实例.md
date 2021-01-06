@@ -36,3 +36,5 @@ IPv6 NAT64 负载均衡的架构如下图所示。
 ### 使用 IPv6 NAT64 负载均衡
 登录 [负载均衡控制台](https://console.cloud.tencent.com/loadbalance/index?rid=1&forward=1)，单击实例 ID，进入详情页，在“监听器管理”页面配置监听器、转发规则、绑定云服务器，详情请参见 [负载均衡快速入门](https://cloud.tencent.com/document/product/214/8975)。
 ![](https://main.qcloudimg.com/raw/37295edc8457d19babd3b6b9f2785de5.png)
+
+

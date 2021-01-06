@@ -56,7 +56,7 @@ ssh -i <下载的与云服务器关联的私钥的绝对路径> <username>@<host
  - `username` 即为前提条件中获得的默认帐号。
  - `hostname or IP address` 为您的 Linux 实例公网 IP 或自定义域名。
 
- 例如，执行 `ssh -i "Mac/Downloads/shawn_qcloud_stable" ubuntu@192.168.11.123` 命令，远程登录 Linux 云服务器。
+ 例如，执行 `ssh -i "Mac/Downloads/shawn_qcloud_stable.pem" ubuntu@192.168.11.123` 命令，远程登录 Linux 云服务器。
 
 ## 后续操作
 
