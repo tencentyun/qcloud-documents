@@ -10,8 +10,7 @@
 >1. 只有企业管理员才有设置权限。
 >2. 设置【消息通知】的前提是已添加应用且该应用处于“启用中”状态。
 
-![](https://main.qcloudimg.com/raw/5ba447d41a5d00359b5418a0d1191998.png)
-
+![](https://main.qcloudimg.com/raw/c7b07aacd5d8573de2dea671eb915791.png)
 
 
 ## 配置回调服务
