@@ -1,15 +1,27 @@
-### TPNS管理台上传push证书失败如何解决？
+### TPNS 控制台上传 push 证书失败如何解决？
 
-将推送证书p12文件转换成pem文件，步骤如下：
+需将推送证书 p12 文件转换成 pem 文件，步骤如下：
 
-1. 打开终端，进入到p12文件目录
-2. 输入如下命令（apns-dev-cert为推送证书名）
+1. 打开终端，进入到 p12 文件目录。
+2. 执行以下命令生成证书（apns-dev-cert 为示例推送证书名称，需要根据实际环境进行更改）。
+<dx-codeblock>
+:::  plaintext
 openssl pkcs12 -clcerts -nokeys -out apns-dev-cert.pem -in apns-dev-cert.p12
-3. 输入p12文件密码
-4. 输入如下命令，将pem格式证书转成文本:
+:::
+</dx-codeblock>
+3. 输入 p12 文件密码。
+4. 执行以下命令，将 pem 格式证书转成文本：
+<dx-codeblock>
+:::  plaintext
 openssl x509 -in apns-dev-cert.pem -inform pem -noout -text
-5. 查看证书环境及对应Bundle id看是否与应用匹配，如下图:
+:::
+</dx-codeblock>
+5. 查看证书环境及对应 Bundle id 看是否与应用匹配，如下图所示：
 ![](https://main.qcloudimg.com/raw/ba0e35a8bbd0e77022f26ad1dcca83ca.png)
+
+
+
+
 
 
 
