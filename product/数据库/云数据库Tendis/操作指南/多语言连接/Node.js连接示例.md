@@ -13,9 +13,9 @@ var host = "192.xx.xx.2",
 port = "6379",
 instanceid = "c53xx52f-55dc-4c22-a941-630xxx88",
 pwd = "12as6zb";
-//连接 Redis
+//连接 Tendis
 var client  = redis.createClient(port, host, {detect_buffers: true});
-// Redis 连接错误
+// Tendis 连接错误
 client.on("error", function(error) {
     console.log(error);
 });
