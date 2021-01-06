@@ -21,10 +21,6 @@ openssl x509 -in apns-dev-cert.pem -inform pem -noout -text
 
 
 
-
-
-
-
 ### 推送内容为空时，在 iOS 10系统版本及以下的设备无法弹出通知？
 
 在调用 Rest API 推送时 `content` 字段不能设置空，否则将导致在 **iOS 10系统及以下**的设备上无法弹出通知。
@@ -121,12 +117,13 @@ TestFlight 发布预览版，先将 ipa 包上传到 [App Store Connect](https:/
 ### iOS 如何只更改角标而不弹出信息？
 可使用 API 在创建推送时使用通知栏消息类型，且标题内容设为空，同时只设置 badge_type 即可，详情可参考 [API 文档说明](https://cloud.tencent.com/document/product/548/39064#.E5.8F.AF.E9.80.89.E5.8F.82.E6.95.B0)。
 示例如下：
-```
+<dx-codeblock>
+:::  json
 {
     "platform": "ios",
     "audience_type": "token",
     "environment":"dev",
-        "token_list": [
+    "token_list": [
     "05a8ea6924590dd3a94480fa1c9fc8448b4e"],
     "message_type":"notify",
     "message":{
@@ -137,7 +134,10 @@ TestFlight 发布预览版，先将 ipa 包上传到 [App Store Connect](https:/
     }
  }
 }
-```
+:::
+</dx-codeblock>
+
+
 
 
 ### App 出现 Crash: you can't call -sendResponse: twice nor after encoding it 报错，该如何处理？
