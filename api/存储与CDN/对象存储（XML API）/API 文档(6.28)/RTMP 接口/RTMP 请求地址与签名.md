@@ -30,7 +30,7 @@ rtmp://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/live/test-channel?
 | ---------------- | :----------------------------------------------------------- |
 | q-sign-algorithm | 签名算法，当前固定为“sha1”                                   |
 | q-ak             | SecretId，可登录 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面获取 |
-| q-sign-time      | 签名有效时间对应的 Uninx 起始、结束时间戳，例如1557902800;1557910000 |
+| q-sign-time      | 签名有效时间对应的 Unix 起始、结束时间戳，例如1557902800;1557910000 |
 | q-key-time       | 同 q-sign-time                                                |
 | 其他参数         | 其他参数待后续扩展，当前建议保持为空                         |
 | q-signature      | 根据各签名要素计算出的签名值                                 |
