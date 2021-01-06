@@ -1,47 +1,11 @@
 TDSQL PostgreSQL版 是基于分布式架构，支持自动水平拆分的高性能数据库，为您有效解决业务快速发展时的数据库性能瓶颈，随着业务量的变化，您可以随时调整 TDSQL PostgreSQL版 实例的规格。 
 
-## 工具说明
+## 测试工具
 Sysbench 是一款基于 LuaJITde 开源的、模块化的、跨平台的模块化多线程性能测试工具，可以执行数据库、CPU、内存、线程、IO 等方面的性能测试。
 工具内置数据库测试模型，采用多线程并发操作来评估数据库的性能，目前支持的数据库：MySQL、Oracle 和 PostgreSQL。
 本次采用 Sysbench 作为 TDSQL PostgreSQL版 在 OLTP 和 SELECT 场景中的性能测试工具。
 
-## 测试背景
-1. 在腾讯云购买不同规格的实例，进行 OLTP 和 SELECT 场景性能测试。
-2. 测试环境实例规格配置，用户在购买指定规格后，集群通过 CGroup 实现规格限制。
- - **节点配置**：
-<table>
-<thead><tr><th>节点配置</th><th>GTM</th><th>CN</th><th>DN</th></tr></thead>
-<tbody><tr>
-<td>入门型</td><td>1核4GB</td><td>1核4GB</td><td>1核6GB</td></tr>
-<tr>
-<td>基础Ⅰ型</td><td>1核4GB</td><td>2核8GB</td><td>2核12GB</td></tr>
-<tr>
-<td>基础Ⅱ型</td><td>4核4GB</td><td>4核16GB</td><td>4核24GB</td></tr>
-<tr>
-<td>中等Ⅰ型</td><td>4核4GB</td><td>8核32GB</td><td>8核48GB</td></tr>
-<tr>
-<td>中等Ⅱ型</td><td>8核8GB</td><td>16核64GB</td><td>16核96GB</td></tr>
-<tr>
-<td>高配Ⅰ型</td><td>16核16GB</td><td>32核128GB</td><td>32核192GB</td></tr>
-<tr>
-<td>高配Ⅱ型</td><td>16核16GB</td><td>64核256GB</td><td>64核384GB</td></tr>
-</tbody></table>
- - **地域可用区**：广州四区。
- - **实例资源**：指定配置按照上述资源配置进行 CGroup 隔离。
- - **压测机器**：由于压测机器需要安装额外的编译工具，同时在压测过程中需要消耗额外的系统资源，需要单独购买云服务器进行压力测试，建议使用计算型云服务器进行压力测试。
-3. 测试环境集群配置。
-<table>
-<thead><tr><th>节点类型</th><th>配置模式</th><th>数量</th></tr></thead>
-<tbody><tr>
-<td>GTM</td><td>1主1备</td><td>1</td></tr>
-<tr>
-<td>CN</td><td>1主1备</td><td>2</td></tr>
-<tr>
-<td>DN</td><td>1主1备</td><td>2</td></tr>
-</tbody></table>
-
-## 编译工具
-本次测试使用的的 Sysbench 版本为1.0.12，详细源码及其他说明信息请参考 [sysbench](https://github.com/akopytov/sysbench)。
+本次测试使用的 Sysbench 版本为1.0.12，详细源码及其他说明信息请参考 [sysbench](https://github.com/akopytov/sysbench)。
 
 #### 安装和编译命令
 ```shell
@@ -78,6 +42,49 @@ ls /usr/local/bin/sysbench
 --report-interval: 压测报告输出周期，单位为秒
 --force-shutdown: 压力完成后是否强制终止测试
 ```
+
+## 测试指标
+- **TPS**：Transaction Per Second，数据库每秒执行的事务数，每个事务中包含18条 SQL 语句。
+- **QPS**：Query Per Second，数据库每秒执行的 SQL 数。
+
+## 测试环境
+在腾讯云购买不同规格的实例，进行 OLTP 和 SELECT 场景性能测试。
+
+- 测试环境实例规格配置，用户在购买指定规格后，集群通过 CGroup 实现规格限制。
+ - **节点配置**：
+<table>
+<thead><tr><th>节点配置</th><th>GTM</th><th>CN</th><th>DN</th></tr></thead>
+<tbody><tr>
+<td>入门型</td><td>1核4GB</td><td>1核4GB</td><td>1核6GB</td></tr>
+<tr>
+<td>基础Ⅰ型</td><td>1核4GB</td><td>2核8GB</td><td>2核12GB</td></tr>
+<tr>
+<td>基础Ⅱ型</td><td>4核4GB</td><td>4核16GB</td><td>4核24GB</td></tr>
+<tr>
+<td>中等Ⅰ型</td><td>4核4GB</td><td>8核32GB</td><td>8核48GB</td></tr>
+<tr>
+<td>中等Ⅱ型</td><td>8核8GB</td><td>16核64GB</td><td>16核96GB</td></tr>
+<tr>
+<td>高配Ⅰ型</td><td>16核16GB</td><td>32核128GB</td><td>32核192GB</td></tr>
+<tr>
+<td>高配Ⅱ型</td><td>16核16GB</td><td>64核256GB</td><td>64核384GB</td></tr>
+</tbody></table>
+ - **地域可用区**：广州四区。
+ - **实例资源**：指定配置按照上述资源配置进行 CGroup 隔离。
+ - **压测机器**：由于压测机器需要安装额外的编译工具，同时在压测过程中需要消耗额外的系统资源，需要单独购买云服务器进行压力测试，建议使用计算型云服务器进行压力测试。
+- 试环境集群配置。
+<table>
+<thead><tr><th>节点类型</th><th>配置模式</th><th>数量</th></tr></thead>
+<tbody><tr>
+<td>GTM</td><td>1主1备</td><td>1</td></tr>
+<tr>
+<td>CN</td><td>1主1备</td><td>2</td></tr>
+<tr>
+<td>DN</td><td>1主1备</td><td>2</td></tr>
+</tbody></table>
+
+
+
 
 ## 测试步骤
 测试过程中，请根据实例的配置修改 CN IP [host]、CN Port  [port]、用户名 [user] 和 密码 [password]。
@@ -144,7 +151,5 @@ INSERT INTO ${rand_table_name} (id, k, c, pad) VALUES (${rand_id},${rand_k},${ra
 SELECT c FROM ${rand_table_name} where id=${rand_id};
 ```
 
-## 测试指标
-- **TPS**：Transaction Per Second，数据库每秒执行的事务数，每个事务中包含18条 SQL 语句。
-- **QPS**：Query Per Second，数据库每秒执行的 SQL 数。
+
 
