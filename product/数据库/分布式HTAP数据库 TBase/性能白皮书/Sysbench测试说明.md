@@ -49,9 +49,10 @@ ls /usr/local/bin/sysbench
 
 ## 测试环境
 在腾讯云购买不同规格的实例，进行 OLTP 和 SELECT 场景性能测试。
-
-- 测试环境实例规格配置，用户在购买指定规格后，集群通过 CGroup 实现规格限制。
- - **节点配置**：
+- 地域可用区：广州四区。
+- 实例资源：指定配置按照上述资源配置进行 CGroup 隔离。
+- 压测机器：由于压测机器需要安装额外的编译工具，同时在压测过程中需要消耗额外的系统资源，需要单独购买云服务器进行压力测试，建议使用计算型云服务器进行压力测试。
+- 测试环境实例规格配置：用户在购买指定规格后，集群通过 CGroup 实现规格限制。
 <table>
 <thead><tr><th>节点配置</th><th>GTM</th><th>CN</th><th>DN</th></tr></thead>
 <tbody><tr>
@@ -69,10 +70,7 @@ ls /usr/local/bin/sysbench
 <tr>
 <td>高配Ⅱ型</td><td>16核16GB</td><td>64核256GB</td><td>64核384GB</td></tr>
 </tbody></table>
- - **地域可用区**：广州四区。
- - **实例资源**：指定配置按照上述资源配置进行 CGroup 隔离。
- - **压测机器**：由于压测机器需要安装额外的编译工具，同时在压测过程中需要消耗额外的系统资源，需要单独购买云服务器进行压力测试，建议使用计算型云服务器进行压力测试。
-- 试环境集群配置。
+- 测试环境集群配置。
 <table>
 <thead><tr><th>节点类型</th><th>配置模式</th><th>数量</th></tr></thead>
 <tbody><tr>
@@ -82,9 +80,6 @@ ls /usr/local/bin/sysbench
 <tr>
 <td>DN</td><td>1主1备</td><td>2</td></tr>
 </tbody></table>
-
-
-
 
 ## 测试步骤
 测试过程中，请根据实例的配置修改 CN IP [host]、CN Port  [port]、用户名 [user] 和 密码 [password]。
@@ -150,6 +145,3 @@ INSERT INTO ${rand_table_name} (id, k, c, pad) VALUES (${rand_id},${rand_k},${ra
 ```sql
 SELECT c FROM ${rand_table_name} where id=${rand_id};
 ```
-
-
-
