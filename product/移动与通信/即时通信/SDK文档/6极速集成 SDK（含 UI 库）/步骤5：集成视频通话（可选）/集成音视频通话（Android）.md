@@ -14,14 +14,14 @@ TUIKit 组件在 4.8.50 版本之后基于 [TRTC](https://cloud.tencent.com/docu
 >- TUIKit 4.8.50 之后的版本音视频通话直接集成在 TUIKit 组件中，并且基于新的信令方案设计。
 >- TUIKit 4.8.50 之前的版本音视频通话集成在 iOS 端的 TUIKitDemo 示例中，**新老版本不互通，如果您已经使用之前版本的音视频通话，这里不建议升级，以免出现兼容性问题**。
 
-<span id="Step1"></span>
+[](id:Step1)
 ## 步骤1：开通音视频服务
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) ，单击目标应用卡片，进入应用的基础配置页面。
 2. 单击【开通腾讯实时音视频服务】区域的【立即开通】。
 3. 在弹出的开通实时音视频 TRTC 服务对话框中，单击【确认】。
  系统将为您在 [实时音视频控制台](https://console.cloud.tencent.com/trtc) 创建一个与当前 IM 应用相同 SDKAppID 的实时音视频应用，二者帐号与鉴权可复用。
 
-<span id="Step2"></span>
+[](id:Step2)
 ## 步骤2：配置工程文件
 建议使用源码集成 TUIKit，以便于您修改源码满足自身的业务需求。
 
@@ -29,7 +29,7 @@ TUIKit 组件在 4.8.50 版本之后基于 [TRTC](https://cloud.tencent.com/docu
 implementation project(':tuikit')
 ```
 
-<span id="Step3"></span>
+[](id:Step3)
 ## 步骤3：初始化 TUIKit 
 初始化 TUIKit 需要传入 [步骤1](#Step1) 生成的 SDKAppID。
 ```
@@ -37,7 +37,7 @@ TUIKitConfigs configs = TUIKit.getConfigs();
 TUIKit.init(this, SDKAPPID, configs);
 ```
 
-<span id="Step4"></span>
+[](id:Step4)
 ## 步骤4：登录 TUIKit
 登录 IM 需要通过 TUIKit 提供的 `login` 接口，其中 UserSig 生成的具体操作请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。
 ```
@@ -54,7 +54,7 @@ TUIKit.login(userID, userSig, new IUIKitCallBack() {
 });
 ```
 
-<span id="Step5"></span>
+[](id:Step5)
 ## 步骤5：发起视频或语音通话
 <img style="width:180px" src="https://main.qcloudimg.com/raw/17698afaedf9ba86045c03ef85159bec.png"  /> 
 
@@ -76,7 +76,7 @@ TUIKit.login(userID, userSig, new IUIKitCallBack() {
 - 当用户**在线**收到通话邀请时，TUIKit 会自动展示通话接收 UI，用户可以选择同意或则拒绝通话。
 - 当用户**离线**收到通话邀请时，如需唤起 App 通话，就要使用到离线推送能力，离线推送的实现请参考 [步骤7](#Step7)。
 
-## 步骤7：离线推送<span id="Step7"></span>
+## 步骤7：离线推送[](id:Step7)
 实现音视频通话的离线推送能力，请参考以下几个步骤：
 1. 配置 App 的 [离线推送](https://cloud.tencent.com/document/product/269/44516)。
 2. 升级 TUIKit 到4.9.1以上版本。
