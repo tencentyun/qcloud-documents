@@ -7,8 +7,8 @@
 
 开发者接入此 SDK，可彻底替代 flash 推流方案，极大地降低 Web 推流、Web 低延时观看、CDN 观看以及实时聊天互动（或弹幕）的实现复杂度和时间成本，下面我们通过举例来进行说明。
 
-### 推流
-
+<dx-tabs>
+::: 推流
 当需要推流时，创建 Pusher（推流）对象，最简单的推流仅需3步：
 <dx-codeblock>
 ::: html html
@@ -35,9 +35,8 @@ pusher.setRenderView({
 </script>
 :::
 </dx-codeblock>
-
-
-### 拉流
+:::
+::: 拉流
 当需要拉流播放时，创建 Player（播放器）对象，最简单的拉流仅需3步：
 
 <dx-codeblock>
@@ -65,9 +64,8 @@ player.startPlay(url).then(() => {
 </script>
 :::
 </dx-codeblock>
-
-### 直播互动
-
+:::
+::: 直播互动
 当主播和观众需要聊天互动时，创建 IM（即时通信）对象，最简单的消息收发仅需3步：
 
 <dx-codeblock>
@@ -116,6 +114,8 @@ im.enterRoom('your roomID').then((imResponse) => {
 });
 :::
 </dx-codeblock>
+:::
+</dx-tabs>
 
 >? 为了进一步降低开发者的开发和人力成本，我们在 TWebLive SDK 的基础上，提供了同时适配 PC 和移动端浏览器的 [Demo](https://github.com/tencentyun/TWebLive)，并开源到了 Github。开发者 fork&clone 项目到本地，稍作修改即可把 Demo 跑起来，或者集成到自己的项目部署上线。
 
