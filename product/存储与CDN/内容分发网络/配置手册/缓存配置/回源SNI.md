@@ -11,12 +11,14 @@
 ### 查看配置
 
 默认情况下，回源 SNI 为关闭状态，您可按照实际需要自主开启。
-![](https://main.qcloudimg.com/raw/0443fa82c7f1603565eccedad500e28b.png)
+![](https://main.qcloudimg.com/raw/606e947a8f4aa71ef788ad3f9814ed4d.png)
+
+
 
 ### 编辑配置
 
 开启后，需要设置回源 SNI，配置具体的访问域名。也可以再关闭配置开关，开关为关闭状态时，即使下方存在具体的配置，仍不会现网生效，仅当开启开关时，才会发布至现网。
-![](https://main.qcloudimg.com/raw/c710d005f46ef36a291a1aee6b3ba718.png)
+![](https://main.qcloudimg.com/raw/49f807a8f731c026aaf52a53186fe1e3.png)
 
 
 
