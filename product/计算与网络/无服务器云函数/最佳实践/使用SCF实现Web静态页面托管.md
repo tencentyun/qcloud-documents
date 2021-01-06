@@ -13,7 +13,7 @@
 ![](https://main.qcloudimg.com/raw/1e8a51f478f6016058e930b258d66f1f.png)
 4. 函数及触发器创建完成后，可在“部署日志”中点击快速访问链接，如下图所示：
 ![](https://main.qcloudimg.com/raw/ae2606d4c8ebad54a514f6cdc52e999e.png)
-或在【触发管理】页中获取 API 网关触发器访问路径，如下图所示：
+或在“触发管理”页中获取 API 网关触发器访问路径，如下图所示：
 ![](https://main.qcloudimg.com/raw/79db3e509fe3710d0da4ef7bd59b1418.png)
 查看 Web 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/4f0b9e29419f69aef24e922a9c016faf.png) 
