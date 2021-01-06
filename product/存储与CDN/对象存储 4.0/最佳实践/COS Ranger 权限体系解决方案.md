@@ -61,7 +61,7 @@ curl -v -u${adminUser}:${adminPasswd} -X DELETE -H "Accept:application/json" -H 
 </dx-codeblock>
 5. 创建服务成功后，可在 Ranger 控制台看到 COS 服务。如下所示：
 ![](https://main.qcloudimg.com/raw/d1a6e2722d11f7177636a5e2c54226e3.png)
-6. 在 COS 服务侧单击【+】，定义新服务实例，服务实例名可自定义，如`cos`或者`cos_test`, 服务的配置如下所示。
+6. 在 COS 服务侧单击【+】，定义新服务实例，服务实例名可自定义，例如`cos`或者`cos_test`，服务的配置如下所示。
 ![](https://main.qcloudimg.com/raw/2be86fb2b8232b16679b29e908f82d3a.png)
 其中 policy.grantrevoke.auth.users 需设置后续启动 COSRangerService 服务的用户名（即允许拉取权限策略的用户）。通常建议设置成 hadoop，后续 COSRangerService 可使用此用户名进行启动。
 7. 单击新生成的 COS 服务实例，添加 policy。如下所示：
@@ -110,12 +110,13 @@ chmod +x start_rpc_server.sh
 nohup ./start_rpc_server.sh &> nohup.txt &
 ```
 6. 如果启动失败，查看 log 下 error 日志是否有错误信息。
-7. cos-ranger-service暴露了状态的http端口(qcloud.object.storage.status.port, 默认9998）。可以通过以下命令获取状态信息(包括是否是leader, 鉴权数量统计等)
+7. cos-ranger-service 支持展示 HTTP 端口状态（端口名为 qcloud.object.storage.status.port，默认值为9998）。用户可通过以下命令获取状态信息（例如是否包含 leader、鉴权数量统计等)
 ```
-# 这里的1.2.3.4换成部署ranger service的机器IP, 
-# port 9998 设置成qcloud.object.storage.status.port配置内容
-curl -v http://1.2.3.4:9998/status
+# 请将下面的10.xx.xx.xxx替换为部署 ranger service 的机器 IP
+# port 9998 设置为 qcloud.object.storage.status.port 配置值
+curl -v http://10.xx.xx.xxx:9998/status
 ```
+
 :::
 ::: 部署COS-Ranger-Client
 COS-Ranger-Client 由 hadoop cosn 插件动态加载，并代理访问 COS-Ranger-Service 的相关请求。例如获取临时密钥、获取 token、鉴权操作等。
@@ -183,9 +184,9 @@ V5.9.0版本及以上。
 
 ## 验证
 
-1. 使用 hadoop cmd 执行访问 COSN 的相关操作。看当前用户执行的操作，是否符合自己的权限设置预期，示例如下所示：
+1. 使用 hadoop cmd 执行访问 COSN 的相关操作。查看当前用户执行的操作是否符合主账号的权限设置预期，示例如下所示：
 ```plaintext
-#将bucket，路径等换成自己的实际信息。
+#将bucket，路径等替换为主账号的实际信息。
 hadoop fs -ls cosn://examplebucket-1250000000/doc
 hadoop fs -put ./xxx.txt cosn://examplebucket-1250000000/doc/
 hadoop fs -get cosn://examplebucket-1250000000/doc/exampleobject.txt
@@ -204,4 +205,3 @@ Kerberos 满足认证的需求，如果所在的集群，用户都是可信的�
 可以是子账号，但是必须拥有被操作 bucket 的相应权限，才能生成临时密钥给到 COSN 插件，进行相应的操作。通常建议这里设置的密钥拥有对该 bucket 的所有权限。
 #### 临时密钥需如何更新，每次访问 COS 前都需要从 COS Ranger Service 侧获取?
 临时密钥是 cache 在 COSN 插件侧，并周期性进行异步更新。
-
