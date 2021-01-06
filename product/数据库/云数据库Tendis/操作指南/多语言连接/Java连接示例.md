@@ -16,7 +16,7 @@ public class HelloRedis {
             int port = 6379;
             String instanceid = "crs-09xxxqv";
             String password = "123ad6aq";
-            //连接Redis
+            //连接 Tendis
             Jedis jedis = new Jedis(host, port);
             //鉴权
             jedis.auth(instanceid + ":" + password);
