@@ -165,8 +165,7 @@ Vue.prototype.TWebLive = TWebLive
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
 #### 步骤4：运行 Demo
-使用 Chrome 浏览器打开 `dist` 目录下的 `index.html` 文件即可运行 Demo。运行界面如图所示：
-![](https://main.qcloudimg.com/raw/04d338ddc5340bed7257360c0c6a13d3.png)
+使用 Chrome 浏览器打开 `dist` 目录下的 `index.html` 文件即可运行 Demo。
 >!
 >- 一般情况下体验 Demo 需要部署至服务器，通过 `https://域名/xxx` 访问，或者直接在本地搭建服务器，通过 `localhost:端口`访问。
 - 目前桌面端 Chrome 浏览器支持 TRTC 桌面浏览器 SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
@@ -196,7 +195,6 @@ Vue.prototype.TWebLive = TWebLive
  - SECRETKEY：请设置为 [步骤2](#step2) 中获取的实际密钥信息。
  - PUSHDOMAIN：CDN观看，配置推流域名。（如果不需要 CDN 直播观看，可略过此配置）。
 ![](https://main.qcloudimg.com/raw/1f5dc0239e9c26d04ca905656e8bb854.png)
-
 3. 在项目中通过 npm 安装最新版本的 tim-js-sdk、trtc-js-sdk、tweblive。如果项目已经集成有  tim-js-sdk 或 trtc-js-sdk，直接将其升级到最新版本即可。
 ```javascript
 npm install tim-js-sdk --save
@@ -219,8 +217,7 @@ Vue.prototype.TWebLive = TWebLive
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
 #### 步骤4：运行 Demo
-使用 Chrome 浏览器打开 `dist` 目录下的 `index.html` 文件即可运行 Demo。运行界面如图所示：
-![](https://main.qcloudimg.com/raw/04d338ddc5340bed7257360c0c6a13d3.png)
+使用 Chrome 浏览器打开 `dist` 目录下的 `index.html` 文件即可运行 Demo。
 >!
 >- 一般情况下体验 Demo 需要部署至服务器，通过 `https://域名/xxx` 访问，或者直接在本地搭建服务器，通过 `localhost:端口`访问。
 - 目前桌面端 Chrome 浏览器支持 TRTC 桌面浏览器 SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
