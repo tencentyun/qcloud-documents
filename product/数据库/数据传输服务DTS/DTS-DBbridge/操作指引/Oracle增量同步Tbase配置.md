@@ -47,7 +47,7 @@ Automatic archival             Enabled
 
 ### 步骤4：创建用户并授权
 1. 创建 XStream 管理员用户并配置权限。
-  - **非 CDB 环境**
+  - 非 CDB 环境
 ```
  #创建表空间，指定大小
 CREATE TABLESPACE xstream_tbs DATAFILE '/usr/oracle/dbs/xstream_tbs.dbf'   SIZE 25M REUSE AUTOEXTEND ON MAXSIZE UNLIMITED;
@@ -74,7 +74,7 @@ GRANT SELECT ANY TABLE to xstrmadmin;
 GRANT LOCK ANY TABLE TO xstrmadmin;
 Grant select_catalog_role to xstrmadmin;
 ```
-  - **CDB 环境**
+  - CDB 环境
 ```
 #登录数据库
 sqlplus / as sysdba
@@ -125,5 +125,5 @@ alter schema dbbridge owner to dbbridge
 grant all privileges on all tables  in schema dbbridge to dbbridge;
 ```
   
-## 增量同步
-Oracle 源端和 TBase 目标端配置完成后，可参考 [DTS-DBbridge 使用流程](https://cloud.tencent.com/document/product/571/45866#.E4.BD.BF.E7.94.A8.E6.B5.81.E7.A8.8B) 进行后续增量同步操作。
+## Oracle 数据同步至 TBase
+Oracle 源端和 TBase 目标端配置完成后，可参考 [DTS-DBbridge 使用流程](https://cloud.tencent.com/document/product/571/45866#.E4.BD.BF.E7.94.A8.E6.B5.81.E7.A8.8B) 进行后续数据同步操作。
