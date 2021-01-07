@@ -1,7 +1,7 @@
 Oracle 增量同步到 TBase 的过程中，支持从 Tbase 到 Oracle 的反向数据同步。本文为您介绍从 Tbase 到 Oracle 反向数据同步的配置操作。
 
 ## 前提条件
-需确保 Oracle 和 TBase 两端数据一致。
+需确保同步的表在 Oracle 和 TBase 端数据一致。
 
 ## 使用限制
 TBase 到 Oracle 的增量同步仅支持 INSERT、UPDATE 和 DELETE操作。
