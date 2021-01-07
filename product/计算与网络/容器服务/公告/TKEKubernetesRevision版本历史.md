@@ -180,24 +180,24 @@
     <td>2020-12-28</td>	
     <td>v1.14.3-tke.19</td>	
     <td><ul class="params">
-		<li>为 QcloudCbs 添加 metrics(kube-controller-manager)</li>
-	        <li>修复 mount cbs 盘时查看 serial 值的多余空格问题(kubelet)</li>
+		<li>为 QcloudCbs 添加 metrics（kube-controller-manager）。</li>
+	        <li>修复 mount cbs 盘时查看 serial 值的多余空格问题（kubelet）。</li>
 	        </ul></td>
 </tr>	
 <tr>
     <td>2020-12-21</td>	
-    <td>v1.14.3-tke18</td>	
+    <td>v1.14.3-tke.18</td>	
     <td><ul class="params">
-		<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/94712">pr94712</a>，修复 CVE-2020-8564 - 当文件格式不正确，logLevel >= 4 时，Docker 配置泄露(kubelet)</li>
-		<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/95316">pr95316</a>，修复 CVE-2020-8565 - 对 CVE-2019-11250 的不完整修复导致的日志 token 泄露（logLevel >= 9）(kube-apiserver,kubectl)</li>
-		<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/95245">pr95245</a>，修复 CVE-2020-8566 - 当 loglevel >= 4 时，Ceph RBD adminSecrets 暴露在日志中(kube-controller-manager)</li>
-	        <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/86140">pr86140</a>，修复 controller manager 没有正确处理超时错误导致扩容的pod无法创建的问题(kube-controller-manager)</li>
-	        <li>调度器支持虚拟节点(kube-scheduler)</li>
-	        <li>kube-controller-manager 支持虚拟节点(kube-controller-manager)</li>
-		<li>根据节点真实机型设置 instance-type 标签，不再固定为 QCLOUD(kubelet)</li>
-	        <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/79338">pr79338</a>，在 SupportPodPidsLimit 及 SupportNodePidsLimit 都未开启时，不启用 pids cgroup 子系统(kubelet)</li>
-	        <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89224">pr89224</a>, 修复 NodeInfo 没有检查导致 kube-scheduler 异常重启的问题(kube-scheduler)</li>
-                <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89465">pr89465</a>，修复滚动更新时基于 pod 指标的 HPA 错误计算实例个数的问题(kube-controller-manager)</li></ul></td>
+		<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/94712">pr94712</a>，修复 CVE-2020-8564 - 当文件格式不正确，logLevel >= 4 时，Docker 配置泄露（kubelet）。</li>
+		<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/95316">pr95316</a>，修复 CVE-2020-8565 - 对 CVE-2019-11250 的不完整修复导致的日志 token 泄露（logLevel >= 9）（kube-apiserver，kubectl）。</li>
+		<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/95245">pr95245</a>，修复 CVE-2020-8566 - 当 loglevel >= 4 时，Ceph RBD adminSecrets 暴露在日志中（kube-controller-manager）。</li>
+	        <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/86140">pr86140</a>，修复 controller manager 没有正确处理超时错误导致扩容的pod无法创建的问题（kube-controller-manager）。</li>
+	        <li>调度器支持虚拟节点（kube-scheduler）。</li>
+	        <li>kube-controller-manager 支持虚拟节点（kube-controller-manager）。</li>
+		<li>根据节点真实机型设置 instance-type 标签，不再固定为 QCLOUD（kubelet）。</li>
+	        <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/79338">pr79338</a>，在 SupportPodPidsLimit 及 SupportNodePidsLimit 都未开启时，不启用 pids cgroup 子系统（kubelet）。</li>
+	        <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89224">pr89224</a>, 修复 NodeInfo 没有检查导致 kube-scheduler 异常重启的问题（kube-scheduler）。</li>
+                <li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/89465">pr89465</a>，修复滚动更新时基于 pod 指标的 HPA 错误计算实例个数的问题（kube-controller-manager）。</li></ul></td>
 </tr>	    
 <tr>
     <td>2020-10-13</td>
@@ -297,19 +297,19 @@
     <td>2020-12-28</td>	
     <td>v1.12.4-tke.27</td>	
     <td><ul class="params">
-		<li>为 QcloudCbs 添加 metrics(kube-controller-manager)</li>
-	        <li>修复 mount cbs 盘时查看 serial 值的多余空格问题(kubelet)</li>
+		<li>为 QcloudCbs 添加 metrics（kube-controller-manager）。</li>
+	        <li>修复 mount cbs 盘时查看 serial 值的多余空格问题（kubelet）。</li>
 	        </ul></td>
 </tr>	
 <tr>
     <td>2020-12-15</td>	
     <td>v1.12.4-tke.26</td>	
-    <td>QcloudCbs 支持 BulkVolumeVerification(kube-controller-manager)</td>
+    <td>QcloudCbs 支持 BulkVolumeVerification（kube-controller-manager）。</td>
 </tr>
 <tr>
     <td>2020-11-17</td>	
     <td>v1.12.4-tke.25</td>	
-    <td>合并 <a href="https://github.com/kubernetes/kubernetes/pull/79495">pr79495</a>，修复 CRD 有多个版本时导致 webhook 调用失败的问题(kube-apiserver)</td>
+    <td>合并 <a href="https://github.com/kubernetes/kubernetes/pull/79495">pr79495</a>，修复 CRD 有多个版本时导致 webhook 调用失败的问题（kube-apiserver）。</td>
 </tr>
 <tr>
     <td>2020-10-13</td>
