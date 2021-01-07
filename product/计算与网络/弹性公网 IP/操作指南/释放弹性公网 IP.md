@@ -20,15 +20,15 @@
 </tr>
 <tr>
 <td rowspan="4">标准账户类型</td>
-<td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#1" target="_blank">按流量</a></td>
+<td align="center">按流量</a></td>
 <td>EIP 不收取任何费用。</td>
 </tr>
 <tr>
-<td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#3" target="_blank">包月带宽</a></td>
+<td align="center">包月带宽</a></td>
 <td>将 EIP 退还后，将按资源包使用比例退还您的费用，具体步骤请参见 <a href="https://cloud.tencent.com/document/product/1199/43137#33" target="_blank">退还包月带宽 EIP</a>。退还后 EIP 将进入回收状态并保留7天，若期间未进行续费，7天后将自动释放该 EIP。</td>
 </tr>
 <tr>
-<td align="center"><a href="https://cloud.tencent.com/document/product/1199/41692#2" target="_blank">按小时带宽</a></td>
+<td align="center">按小时带宽</a></td>
 <td>EIP 不收取 IP 资源费用，且停止收取公网网络费用。</td>
 </tr>
 </tbody></table>
