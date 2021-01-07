@@ -27,7 +27,7 @@ SCF DB SDK for MySQL 具备以下特点：
 </dx-alert>
 2. 参考 [初始化 MySQL 数据库](https://cloud.tencent.com/document/product/236/3128) 完成初始化操作，并获取数据库帐户名称及密码。
 <dx-alert infotype="explain" title="">
-腾讯云原生数据库 TDSQL-C（原 CynosDB）目前已支持 Serverless 版本 MySQL，实现按需付费。详情请参见 [产品文档](https://cloud.tencent.com/document/product/1003/50853)。
+腾讯云原生数据库 TDSQL-C（原 CynosDB）目前已支持 Serverless 版本 MySQL，实现按需付费。详情请参见 [Serverless 服务](https://cloud.tencent.com/document/product/1003/50853)。
 </dx-alert>
 3. 在 “[MySQL - 实例列表](https://console.cloud.tencent.com/cdb)” 页面，选择实例 ID 进入数据库详情页面，获取该数据库的**内网地址**、**所属网络**、**内网端口**信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/6fd6650feb37f558bfc100c7c01936c6.png)
