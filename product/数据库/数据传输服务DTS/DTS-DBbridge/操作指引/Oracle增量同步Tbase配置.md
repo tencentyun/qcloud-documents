@@ -1,4 +1,5 @@
 ## Oracle 源端配置
+
 ### 数据库版本
 Oracle 数据库须为11.2.0.4、12.1.0.2或以上版本。
 Oracle 数据库需启用 XStream 功能，通过 v$option 查询 parameter 为 XStream 的 value 值是 true 即为已启用。
@@ -113,6 +114,7 @@ ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY, UNIQUE, FOREIGN KEY) COLU
 
 
 ## Tbase 目标端配置
+
 创建同步的用户名和模式。   
 ```
 #创建用户
