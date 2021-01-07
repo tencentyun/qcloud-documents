@@ -16,5 +16,4 @@
 3. 单击【确认】，即可绑定 WAF 资源。
 4. 在弹出的 “部署成功” 窗口中，单击【立即前往】，即可前往 Web 应用防火墙管理控制台进行设置。如下图所示：
 ![](https://main.qcloudimg.com/raw/4b41f7886badcfed77e399b7feb31e7b.png)
-
 >?Web 应用防火墙相关设置与说明，您可以参考 [Web 应用防火墙相关文档](https://cloud.tencent.com/document/product/627)。 
