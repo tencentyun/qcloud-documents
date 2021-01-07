@@ -13,7 +13,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 | 参数名称 | 必选 | 参数类型 |参数描述 |
 |---------|---------|---------|---------|
 |meeting_code | 是 | String |有效的9位数字会议号码。|
-|userid | 是 | String |调用方用于标示用户的唯一 ID（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。|
+|userid | 是 | String |调用方用于标示用户的唯一 ID（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。<br>企业唯一用户标识说明：<br>1. 企业对接 SSO 时使用的员工唯一标识 ID；<br>2. 企业调用创建用户接口时传递的 userid 参数。 |
 |instanceid | 是 | Integer |用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序|
 
 ## 输出参数
@@ -57,7 +57,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 
 | 参数名称 | 参数类型 | 参数描述  |
 | -------- | -------- | --------- |
-| userid   | String   | 用户 ID（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。 |
+| userid   | String   | 用户 ID（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。<br>企业唯一用户标识说明：<br>1. 企业对接 SSO 时使用的员工唯一标识 ID；<br>2. 企业调用创建用户接口时传递的 userid 参数。  |
 
 **会议媒体参数对象**
 
