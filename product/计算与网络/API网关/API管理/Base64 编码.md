@@ -27,7 +27,7 @@
 1. 登录 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=1) ，在左侧导航栏单击【服务】。
 2. 在服务列表中，单击目标服务的服务名，查看该服务。在服务信息中，单击【管理 API】标签页，选择【通用 API】。
 3. 在 API 列表中，单击目标 API 的 API ID（目标 API 必须是后端对接 SCF 的 API），即可查看 API 详情页。 在 API 详情页中，单击【基础配置】标签页，找到【Base64编码】配置项。
-4. 单击操作列的【编辑】，将触发方式改为“Header 触发”。单击【添加触发规则】按钮，选择参数并填写参数值。
+4. 单击"Base64"后的【编辑】，选择触发方式为【Header触发】。单击【添加触发规则】，选择参数并填写参数值。
 5. 确认配置信息无误后，最后单击【保存】即可。
 	<img src="https://main.qcloudimg.com/raw/b01d7ccd434385f368598b40648176b0.png" width="90%"> 
 
