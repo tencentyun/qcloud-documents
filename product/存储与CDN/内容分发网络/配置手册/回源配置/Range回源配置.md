@@ -11,7 +11,9 @@
 
 ## 配置指南
 
-登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在左侧菜单栏选择【域名管理】，单击域名操作列的【管理】，进入域名配置页面，切换 Tab 至【回源配置】，即可找到【Range 回源配置】。默认情况下为关闭状态，若为 COS 源站类型的域名，则默认为开启状态，您可按需自主开启/关闭配置。
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在左侧菜单栏选择【域名管理】，单击域名操作列的【管理】，进入域名配置页面，切换 Tab 至【回源配置】，即可找到【Range 回源配置】。
+
+默认情况下为关闭状态，若为 COS 源站类型的域名，则默认为开启状态，您可按需自主开启/关闭配置。
 ![](https://main.qcloudimg.com/raw/4b70cbb960c9eae8a89903ffb8ec5ec8.png)
 
 >!开启 Range 回源配置时，需要确认源站已经支持 Range 请求，否则可能会导致回源失败。
