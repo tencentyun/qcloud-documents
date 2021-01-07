@@ -13,20 +13,19 @@
 <tbody><tr>
 <td>传统账户类型</td>
 <td align="center">-</td>
-<td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/51694" target="_blank">IP 资源费用</a>。</td>
+<td rowspan="2">EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/51694" target="_blank">IP 资源费用</a>。</td>
 </tr>
 <tr>
 <td rowspan="4">标准账户类型</td>
 <td align="center">按流量</td>
-<td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/51694" target="_blank"> IP 资源费用</a>。</td>
+
 </tr>
  <tr>
 <td align="center">包月带宽</td>
-<td>EIP 不收取 IP 资源费用，仅收取 <a href="https://cloud.tencent.com/document/product/1199/51693" target="_blank">公网网络费用</a>。</td>
+<td rowspan="2">EIP 不收取 IP 资源费用，仅收取 <a href="https://cloud.tencent.com/document/product/1199/51693" target="_blank">公网网络费用</a>。</td>
 </tr> 
 <tr>
 <td align="center">按小时带宽</td>
-<td>EIP 不收取 IP 资源费用，仅收取 <a href="https://cloud.tencent.com/document/product/1199/51693" target="_blank">公网网络费用</a> 。</td>
 </tr>
 </tbody></table>
 
