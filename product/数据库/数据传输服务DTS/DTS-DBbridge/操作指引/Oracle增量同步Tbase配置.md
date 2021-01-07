@@ -3,7 +3,7 @@
 Oracle 数据库须为11.2.0.4、12.1.0.2或以上版本。
 Oracle 数据库需启用 XStream 功能，通过 v$option 查询 parameter 为 XStream 的 value 值是 true 即为已启用。
 
-### 步骤1：启用 XStream 功能
+### 启用 XStream 功能
 1. 在命令行工具中执行以下命令，以数据库管理员连接到数据库。
 ```
 #登录数据库系统用户,设置 SID
@@ -16,13 +16,13 @@ sqlplus / as sysdba
 alter  system set  enable_goldengate_replication=true;
 ```   
  
-### 步骤2：配置 Oracle Stream Pool
+### 配置 Oracle Stream Pool
 Oracle Streams Pool 是 Oracle Streams 使用的 System Global Area（SGA）的一部分内存。此部分内存用于 capture，apply，XStream outbound server，也用于缓存缓冲队列的信息。如果使用自动内存管理机制，系统将根据负载自动调整 stream_pool_size 大小，建议手动指定大小，参考如下:
 - SGA 小于32GB：stream_pool_size = 4G
 - SGA 为32GB - 64GB：stream_pool_size = 8G
 - SGA 大于64GB：stream_pool_size = 5%SGA - 20%SGA
 
-### 步骤3：开启数据库归档
+### 开启数据库归档
 1. 设置数据归档路径（如已开启，可忽略此操作）。
 ```
 alter system set db_recovery_file_dest_size=100G; #设置归档区域大小（假设归档存放在闪回区）
@@ -43,7 +43,7 @@ Automatic archival             Enabled
 ```
 当回显打印“Database log  mode:ArchiveMode”，即说明日志归档已开启。
 
-### 步骤4：创建用户并授权
+### 创建用户并授权
 1. 创建 XStream 管理员用户并配置权限。
   - **非 CDB 环境**
 ```
@@ -110,7 +110,8 @@ Grant select_catalog_role to c##xstrmadmin;
 ```
 ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY, UNIQUE, FOREIGN KEY) COLUMNS;
 ```
-    
+
+
 ## Tbase 目标端配置
 创建同步的用户名和模式。   
 ```
