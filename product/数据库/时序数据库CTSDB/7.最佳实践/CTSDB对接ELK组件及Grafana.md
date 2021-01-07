@@ -162,11 +162,9 @@ grok filter 插件在 Logstash 默认可用的，其能够将非结构化的数�
 	# 清空Filebeat的data目录，启动Filebeat
 	rm data/registry
 	nohup ./filebeat &
-	
 	# 启动Logstash
 	nohup bin/logstash -f first-pipeline.conf --config.reload.automatic &
-	# 通过kibana或curl查看CTSDB中是否有数据写入到metric1
-	
+	# 通过kibana或curl查看CTSDB中是否有数据写入到metric1	
 	# 命令：
 	GET logstash_metric/_search
 	{
