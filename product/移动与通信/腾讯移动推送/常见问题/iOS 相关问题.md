@@ -3,7 +3,7 @@
 将推送证书 p12 文件转换成 pem 文件，并按以下步骤排查：
 
 1. 打开终端，进入到 p12 文件目录。
-2. 执行以下命令生成证书（apns-dev-cert 为示例推送证书名称，需要根据实际环境进行更改）。
+2. 执行以下命令生成证书（apns-dev-cert 为示例推送证书名称，需改成您证书的名称）。
 <dx-codeblock>
 :::  plaintext
 openssl pkcs12 -clcerts -nokeys -out apns-dev-cert.pem -in apns-dev-cert.p12
