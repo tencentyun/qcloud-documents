@@ -107,9 +107,9 @@ GRANT FLASHBACK ANY TABLE TO c##xstrmadmin;
 GRANT SELECT ANY TABLE to c##xstrmadmin;
 GRANT LOCKANYTABLE TO c##xstrmadmin;
 Grant select_catalog_role to c##xstrmadmin;
-```
- 2. 修改日志记录参数。
-```
+    ```
+  2. 修改日志记录参数。
+    ```
 ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY, UNIQUE, FOREIGN KEY) COLUMNS;
 ```
 
