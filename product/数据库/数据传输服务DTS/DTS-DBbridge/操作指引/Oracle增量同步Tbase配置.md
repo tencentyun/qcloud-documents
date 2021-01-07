@@ -3,12 +3,12 @@
 ## 配置 Oracle 源端
 ### 数据库版本
 Oracle 数据库须为11.2.0.4、12.1.0.2或以上版本。
-Oracle 数据库需启用 XStream 功能，通过 v$option 查询 parameter 为 XStream 的 value 值是 true 即为已启用。
+Oracle 数据库需启用 XStream 功能，通过 v$option 命令查询，若 parameter 下 XStream 的 value 值是 true，即为已启用。
 
 ### 步骤1：启用 XStream 功能
 1. 在命令行工具中执行以下命令，以数据库管理员连接到数据库。
 ```
-#登录数据库系统用户,设置 SID
+#登录数据库系统用户，设置 SID
 export  ORACLE_SID=orcl
 #登录数据库
 sqlplus / as sysdba 
