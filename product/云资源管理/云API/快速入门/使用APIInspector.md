@@ -69,7 +69,7 @@ API Inspector 与 API Explorer 共同成为腾讯云 API 用户学习和调试 A
 </tr>
 <tr>
 <td>大数据</td>
-<td>腾讯云搜、数据湖计算</td>
+<td>腾讯云搜</td>
 </tr>
 <tr>
 <td>人工智能</td>
