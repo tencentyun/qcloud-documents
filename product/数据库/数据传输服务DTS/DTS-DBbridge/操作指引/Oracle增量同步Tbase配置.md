@@ -47,7 +47,7 @@ Automatic archival             Enabled
 
 ### 步骤4：创建用户并授权
  1. 创建 XStream 管理员用户并配置权限。
-  - 非 CDB 环境
+   - 非 CDB 环境
 ```
  #创建表空间，指定大小
 CREATE TABLESPACE xstream_tbs DATAFILE '/usr/oracle/dbs/xstream_tbs.dbf'   SIZE 25M REUSE AUTOEXTEND ON MAXSIZE UNLIMITED;
@@ -74,7 +74,7 @@ GRANT SELECT ANY TABLE to xstrmadmin;
 GRANT LOCK ANY TABLE TO xstrmadmin;
 Grant select_catalog_role to xstrmadmin;
 ```
-  - CDB 环境
+   - CDB 环境
 ```
 #登录数据库
 sqlplus / as sysdba
