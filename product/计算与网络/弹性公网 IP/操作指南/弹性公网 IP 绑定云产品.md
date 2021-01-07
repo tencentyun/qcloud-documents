@@ -18,21 +18,17 @@
 <tr>
 <td rowspan="4">标准账户类型</td>
 <td align="center">按流量</td>
-<td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/51693" target="_blank">公网网络费用</a>。</td>
+<td rowspan="4">EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/51693" target="_blank">公网网络费用</a>。</td>
 </tr>
 <tr>
 <td align="center">包月带宽</td>
-<td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/51693" target="_blank">公网网络费用</a>。</td>
 </tr> 
 <tr>
 <td align="center">按小时带宽</a></td>
-<td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/51693" target="_blank">公网网络费用</a>。</td>
 </tr>
 <tr>
 <td align="center">共享带宽包</a></td>
-<td>EIP 仅收取 <a href="https://cloud.tencent.com/document/product/1199/51693" target="_blank">公网网络费用</a>。</td>
 </tr>
-
 </tbody></table>
 
 ## 操作场景
