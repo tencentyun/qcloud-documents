@@ -24,7 +24,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 | 参数名称 |参数类型 | 参数描述 |
 |---------|---------|---------|
 | meeting_number | integer | 会议数量。  |
-|meeting_info_list  | [Array](#Array) | 会议列表。 |
+|meeting_info_list  |Array| 会议列表。 |
 
 
 <span id="Array"></span>
