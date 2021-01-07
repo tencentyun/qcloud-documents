@@ -1,4 +1,4 @@
-Oracle 增量同步到 TBase 的过程中，支持从 Tbase 到 Oracle 的反向数据同步。
+Oracle 增量同步到 TBase 的过程中，支持从 Tbase 到 Oracle 的反向数据同步。本文为您介绍从 Tbase 到 Oracle 反向数据同步的配置操作。
 
 ## 前提条件
 需确保 Oracle 和 TBase 两端数据一致。
@@ -74,3 +74,5 @@ connect-distributed.sh -daemon /data/dbbridge/kafka/config/connect-distributed.p
 7. 创建同步通道。
 ![](https://main.qcloudimg.com/raw/e855e2999ae2e85e63a5e2e963b04d71.png)
 
+## Tbase 反向数据同步至 Oracle 
+配置完成后，可参考 [DTS-DBbridge 使用流程](https://cloud.tencent.com/document/product/571/45866#.E4.BD.BF.E7.94.A8.E6.B5.81.E7.A8.8B) 进行后续数据同步操作。
