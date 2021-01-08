@@ -112,8 +112,8 @@ TencentCaptcha 的实例提供一些操作验证码的常用方法：
 |getTicket|获取验证码验证成功后的 ticket。|无|`Object:{"appid":"","ticket":""}`|
 
 >?show 与 destroy 可以反复调用。
-<span id="pzcs"></span>
-### 配置参数
+
+### [配置参数](id:pzcs)
 options 提供以下配置参数：
 >! 
 - 验证码弹窗内部不支持调整样式大小，如果需要调整，可在弹窗最外层`id=tcaptcha_transform`的元素设置 `transform:scale();`。
