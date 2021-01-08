@@ -94,9 +94,9 @@
 <td>计费模式</td>
 <td>
 <ul>
-<li>常规 IP 支持 <a href="https://cloud.tencent.com/document/product/1199/41692#1">按流量</a>、<a href="https://cloud.tencent.com/document/product/1199/41692#3">包月带宽</a>、<a href="https://cloud.tencent.com/document/product/1199/41692#2">按小时带宽</a> 和 <a href="https://cloud.tencent.com/document/product/1199/41692#4">共享带宽包</a> 计费模式，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/41692#net">公网网络费用</a>。
+<li>常规 IP 支持按流量、包月带宽、按小时带宽和共享带宽包计费模式，详情请参见 <a href="https://cloud.tencent.com/document/product/1199/51693">公网网络费用</a>。
 </li>
-<li>加速 IP 和静态单线 IP 只支持 <a href="https://cloud.tencent.com/document/product/1199/41692#4">共享带宽包</a> 计费模式，不支持其它计费模式。加速 IP 和静态单线 IP 创建后会自动新增并添加到共享带宽包中。
+<li>加速 IP 和静态单线 IP 只支持共享带宽包</a> 计费模式，不支持其它计费模式。加速 IP 和静态单线 IP 创建后会自动新增并添加到共享带宽包中。
 </li>
 </ul>
 </td>
