@@ -41,8 +41,9 @@
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)。
 2. 在 EIP 管理页面，选择需要绑定云资源的 EIP 的地域，并在对应 EIP 的操作栏下，单击【更多】>【绑定】。
 > ? 若绑定时，EIP 已绑定云资源，请先解绑，例如，需更换故障 CVM 实例的 EIP 到健康的 CVM 实例上。
+> 
 3. 在弹出的“绑定资源”窗口中，选择 EIP 要绑定的云资源，单击【确定】。
- <table>
+<table>
 <thead>
 <tr>
 <th width="17%">绑定的云资源</th>
@@ -77,8 +78,7 @@
 </tr>
 </tbody></table>
 <img src="https://main.qcloudimg.com/raw/a68a2aa1e681dd3bed4c054942aba27a.png" />
-
-4. 在弹出的“确认绑定”提示框中，单击【确定】，即可完成与云资源的绑定。
+<li>在弹出的“确认绑定”提示框中，单击【确定】，即可完成与云资源的绑定。<li>
 
 ## 后续步骤
 - 若需要为 EIP 解绑云资源，请参见 [EIP 解绑云资源](https://cloud.tencent.com/document/product/1199/41703)。
