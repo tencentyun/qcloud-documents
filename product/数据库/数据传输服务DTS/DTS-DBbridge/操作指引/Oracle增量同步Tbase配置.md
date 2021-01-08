@@ -123,7 +123,7 @@ create user dbbridge password  ‘dbbridge';
 create schema dbbridge;
 #将模式归属于新建用户
 alter schema dbbridge owner to dbbridge;
-#授权限
+#授权用户在这个模式里的所有表的所有操作权限
 grant all privileges on all tables  in schema dbbridge to dbbridge;
 ```
   
