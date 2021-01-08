@@ -13,11 +13,11 @@ Content-Type：application/xml
 ```xml
 <?xml version='1.0' encoding='utf-8' ?>
 <Error>
-	<Code>string</Code>
-	<Message>string</Message>
-	<Resource>string</Resource>
-	<RequestId>string</RequestId>
-	<TraceId>string</TraceId>
+			<Code>string</Code>
+			<Message>string</Message>
+			<Resource>string</Resource>
+			<RequestId>string</RequestId>
+			<TraceId>string</TraceId>
 </Error>
 ```
 
@@ -143,7 +143,6 @@ Content-Type：application/xml
 | 404 Not Found                       | OriginConfigurationNotFoundError      | 回源配置未找到                                               |
 | 404 Not Found                       | ReplicationConfigurationNotFoundError | 跨地域复制配置未找到                                         |
 | 405 Method Not Allowed              | MethodNotAllowed                      | 此资源不支持该 HTTP 方法                                   |
-| 405 Method Not Allowed              | RestoreFileSizeExceed                 | 超过 256MB 的对象不能使用极速模式（Expedited）恢复           |
 | 405 Method Not Allowed              | RestoreNonArchiveObject               | 不允许对非归档对象进行回热（恢复）                                   |
 | 405 Method Not Allowed              | UploadIdNotSupported                  | 指定的 UploadId 由 JSON API 生成，不能使用 XML API 操作  |
 | 409 Conflict                        | AppendPositionErr                     | Append 操作时，对象长度和 Position 不一致                  |

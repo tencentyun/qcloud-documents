@@ -19,7 +19,7 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 >?如果访问 Github 较慢，您也可以直接下载 [TXLiteAVSDK_TRTC_Android_latest.zip](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.zip)。
 
 ## 操作步骤
-<span id="step1"> </span>
+[](id:step1)
 ### 步骤1：集成 SDK
 您可以选择以下方式将 **TRTC SDK** 集成到项目中。
 #### 方式一：自动加载（aar）
@@ -49,7 +49,7 @@ dependencies {
 您可以直接下载 [ZIP 压缩包](https://cloud.tencent.com/document/product/647/32689)，并参考 [快速集成(Android)](https://cloud.tencent.com/document/product/647/32175#.E6.96.B9.E6.B3.95.E4.BA.8C.EF.BC.9A.E6.89.8B.E5.8A.A8.E4.B8.8B.E8.BD.BD.EF.BC.88aar.EF.BC.89) 将 SDK 集成到您的工程中。
 
 
-<span id="step2"> </span>
+[](id:step2)
 ### 步骤2：配置 App 权限
 在`AndroidManifest.xml`文件中添加摄像头、麦克风以及网络的申请权限。
 ```
@@ -70,7 +70,7 @@ dependencies {
 ```
 
 
-<span id="step3"> </span>
+[](id:step3)
 ### 步骤3：初始化 SDK 实例并监听事件回调
 
 1. 使用 [sharedInstance()](https://cloud.tencent.com/document/product/647/32267) 接口创建`TRTCCloud`实例。
@@ -97,7 +97,7 @@ public void onError(int errCode, String errMsg, Bundle extraInfo) {
 }
 ```
 
-<span id="step4"> </span>
+[](id:step4)
 ### 步骤4：组装进房参数 TRTCParams
 在调用 [enterRoom()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#abfc1841af52e8f6a5f239a846a1e5d5c) 接口时需要填写一个关键参数 [TRTCParams](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#a674b3c744a0522802d68dfd208763b59)，该参数包含的必填字段如下表所示。
 
@@ -110,7 +110,7 @@ public void onError(int errCode, String errMsg, Bundle extraInfo) {
 
 >!TRTC 同一时间不支持两个相同的 userId 进入房间，否则会相互干扰。
 
-<span id="step5"> </span>
+[](id:step5)
 ### 步骤5：创建并进入房间
 1. 调用 [enterRoom()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#abfc1841af52e8f6a5f239a846a1e5d5c) 即可加入 TRTCParams 参数中`roomId`代指的音视频房间。如果该房间不存在，SDK 会自动创建一个以字段`roomId`的值为房间号的新房间。
 2. 请根据应用场景设置合适的**`appScene`**参数，使用错误可能会导致卡顿率或画面清晰度不达预期。
@@ -123,8 +123,8 @@ public void enterRoom() {
     TRTCCloudDef.TRTCParams trtcParams = new TRTCCloudDef.TRTCParams();
     trtcParams.sdkAppId = sdkappid;
     trtcParams.userId = userid;
-    trtcParams.roomId = usersig;
-    trtcParams.userSig = 908;
+    trtcParams.roomId = 908;
+    trtcParams.userSig = usersig;
     mTRTCCloud.enterRoom(trtcParams, TRTC_APP_SCENE_VIDEOCALL);
 }
 
@@ -141,7 +141,7 @@ public void onEnterRoom(long result) {
 >- 如果进房失败，SDK 同时还会回调`onError`事件，并返回参数`errCode`（[错误码](https://cloud.tencent.com/document/product/647/38307)）、`errMsg`（错误原因）以及`extraInfo`（保留参数）。
 >- 如果已在某一个房间中，则必须先调用`exitRoom()`退出当前房间，才能进入下一个房间。
 
-<span id="step6"> </span>
+[](id:step6)
 ### 步骤6：订阅远端的音视频流
 SDK 支持自动订阅和手动订阅。
 
@@ -178,7 +178,7 @@ public void onUserVideoAvailable(String userId, boolean available) {
 3. 当房间中有其他用户在上行视频数据时，您会收到 [onUserVideoAvailable()](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#ac1a0222f5b3e56176151eefe851deb05) 事件通知。此时，您需要通过调用 [startRemoteView(userId, remoteView)](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a57541db91ce032ada911ea6ea2be3b2c) 方法手动订阅该用户的视频数据，SDK 会在接收到该用户的视频数据后解码并播放。
 
 
-<span id="step7"> </span>
+[](id:step7)
 ### 步骤7：发布本地的音视频流
 1. 调用 [startLocalAudio()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a9428ef48d67e19ba91272c9cf967e35e) 可以开启本地的麦克风采集，并将采集到的声音编码并发送出去。
 2. 调用 [startLocalPreview()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a84098740a2e69e3d1f02735861614116) 可以开启本地的摄像头，并将采集到的画面编码并发送出去。
@@ -193,7 +193,7 @@ mTRTCCloud.startLocalPreview(mIsFrontCamera, mLocalView);
 mTRTCCloud.startLocalAudio();
 ```
 
-<span id="step8"> </span>
+[](id:step8)
 ### 步骤8：退出当前房间
 
 调用 [exitRoom()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a41d16a97a9cb8f16ef92f5ef5bfebee1) 方法退出房间，SDK 在退房时需要关闭和释放摄像头、麦克风等硬件设备，因此退房动作并非瞬间完成的，需收到 [onExitRoom()](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#ad5ac26478033ea9c0339462c69f9c89e) 回调后才算真正完成退房操作。

@@ -54,8 +54,8 @@
 2. 命中`.mp4`文件类型及/test路径，因是同一头部操作类型 - 增加，则底部优先级大于顶部，因此增加`x-cdn:Tencent`头部。
 
 
-<SPAN ID=noice></SPAN>
-## 注意事项
+
+## 注意事项[](id:noice)
 
 以下标准头部暂时不支持增加/删除/变更回源 Request Header：
 

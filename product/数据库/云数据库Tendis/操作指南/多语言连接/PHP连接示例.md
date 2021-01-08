@@ -4,13 +4,13 @@
 **示例代码**：
 ```
 <?php
-  /**以下参数分别填写您的 Redis 实例内网 IP、端口号、实例 ID 和密码*/
+  /**以下参数分别填写您的 Tendis 实例内网 IP、端口号、实例 ID 和密码*/
   $host = "192.xx.xx.2";
   $port = 6379;
   $pwd = "123tj6na";
 
   $redis = new Redis();
-  //连接 Redis
+  //连接 Tendis
   if ($redis->connect($host, $port) == false) {
     die($redis->getLastError());
   }
@@ -19,7 +19,7 @@
     die($redis->getLastError());
   }
 
-  /**接下来可以开始操作 Redis 实例，可以参考 https://github.com/phpredis/phpredis */
+  /**接下来可以开始操作 Tendis 实例，可以参考 https://github.com/phpredis/phpredis */
 
   //设置 Key
   if ($redis->set("redis", "tencent") == false) {

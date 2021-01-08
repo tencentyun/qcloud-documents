@@ -69,7 +69,7 @@ tcb login
 文件生成完成后，可以执行如下命令来进行部署（需要将 EnvID 替换为前面您的环境 ID）
 ```
 cd public
-tcb hosting:deploy ./ -e EnvID
+tcb hosting deploy ./ -e EnvID
 ```
 稍等片刻，部署完成，接下来就可以预览了。
 ![](https://main.qcloudimg.com/raw/11710d7039ea7d3c1cef4bdcb33dbd13.png)

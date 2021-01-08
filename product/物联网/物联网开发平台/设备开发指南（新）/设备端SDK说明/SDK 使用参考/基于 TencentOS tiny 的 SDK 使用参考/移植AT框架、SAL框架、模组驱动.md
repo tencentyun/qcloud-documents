@@ -114,7 +114,7 @@ TencentOS-tiny 官方已提供大量的通信模组驱动实现 SAL 框架，覆
 
 ESP8266 的驱动在 `devices\esp8266` 目录中，将此文件夹从 TencentOS-tiny 官方仓库复制到工程中，保持目录架构不变。
 ![](https://main.qcloudimg.com/raw/653b2f25919a1a41b055feae8be264b0.png)
-1. 子啊 Keil 工程中新建 devices 目录分组。
+1. 在 Keil 工程中新建 devices 目录分组。
 2. 将 `esp8266.c` 文件添加至 devices 目录下。
 ![](https://main.qcloudimg.com/raw/1393d6d5b281df84d774682d06f699f9.png)
 2. 将 `esp8266.h` 头文件所在路径添加到 Keil MDK 工程中，即可移植完成。
