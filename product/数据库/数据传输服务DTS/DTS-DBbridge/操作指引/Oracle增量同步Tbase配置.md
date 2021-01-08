@@ -119,8 +119,10 @@ ALTER DATABASE ADD SUPPLEMENTAL LOG DATA (PRIMARY KEY, UNIQUE, FOREIGN KEY) COLU
 ```
 #创建用户
 create user dbbridge password  ‘dbbridge';
+#创建模式
 create schema dbbridge;
-alter schema dbbridge owner to dbbridge
+#将模式归属于新建用户
+alter schema dbbridge owner to dbbridge;
 #授权限
 grant all privileges on all tables  in schema dbbridge to dbbridge;
 ```
