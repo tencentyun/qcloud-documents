@@ -11,3 +11,5 @@ CloudBase CLI 是云开发（Tencent CloudBase，TCB）开源的命令行界面�
 - [云存储](https://docs.cloudbase.net/cli-v1/storage.html)
 - [静态网站托管](https://docs.cloudbase.net/cli-v1/hosting.html#quan-liang-bu-shu)
 - [HTTP 访问服务](https://docs.cloudbase.net/cli-v1/service.html)
+
+>?若使用 CloudBase CLI 过程中遇到问题，可参见 [工具类](https://cloud.tencent.com/document/product/876/41544) 常见问题文档进行处理。
