@@ -5,9 +5,9 @@
 ```
 <?php
   /**以下参数分别填写您的 Redis 实例内网 IP、端口号、实例 ID 和密码*/
-  $host = "192.168.0.2";
+  $host = "192.xx.xx.2";
   $port = 6379;
-  $pwd = "1234567q";
+  $pwd = "123tj6na";
 
   $redis = new Redis();
   //连接 Redis

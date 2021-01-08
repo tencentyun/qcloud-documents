@@ -83,7 +83,7 @@ sysbench --mysql-host=xxxx --mysql-port=xxx --mysql-user=xxx --mysql-password=xx
 - `--oltp-point-selects=4`，表示 oltp 脚本中 sql 测试命令，select 操作次数为4，默认值为1。
 
 ### 5. 场景模型
-本文用例均使用场景脚本 our_oltp.lua，修改为4个 select 点查询，1个 update （索引列），读写比为4:1。
+本文用例均使用 sysbench 的 lua 脚本，修改为4个 select 点查询，1个 update （索引列），读写比为4:1。
 针对最大配置类型，对数据场景增加了参数调优模型，测试结果见下文 [测试结果](#document_test_result)。
 
 <span id="cscs"></span>

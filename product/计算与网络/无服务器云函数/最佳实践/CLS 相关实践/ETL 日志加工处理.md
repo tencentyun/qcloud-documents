@@ -50,7 +50,7 @@
 
 <span id="step04"></span>
 
-#### 配置 CLS 触发器
+### 配置 CLS 触发器
 
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=1)，选择左侧导航栏中的【函数服务】。
 2. 在“函数服务”列表页面上方，选择期望配置 CLS 触发器的函数所在的地域及命名空间。

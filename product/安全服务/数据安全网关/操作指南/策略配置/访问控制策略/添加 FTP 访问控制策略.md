@@ -21,3 +21,4 @@
 ![](https://main.qcloudimg.com/raw/dea115fcf612c399d9a11cc29d037426.png)
 5. 确认配置信息无误后，单击【保存】，即可添加 FTP 访问控制策略。
 
+

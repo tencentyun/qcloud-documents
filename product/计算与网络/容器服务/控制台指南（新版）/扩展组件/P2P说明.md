@@ -15,11 +15,11 @@ P2P Addon 是容器镜像服务 TCR 推出的基于 P2P 技术的容器镜像加
 | p2p-agent          | DaemonSet  | 每个节点0.2核 CPU，0.2G内存 | kube-system    |
 | p2p-proxy          | Deployment | 每个节点0.5核 CPU，0.5G内存   | kube-system    |
 | p2p-tracker        | Deployment | 每个节点0.5核 CPU，0.5G内存   | kube-system    |
-| p2p-proxy          | Service    | \                            | kube-system    |
-| p2p-tracker        | Service    | \                            | kube-system    |
-| agent              | Configmap  | \                            | kube-system    |
-| proxy              | Configmap  | \                            | kube-system    |
-| tracker            | Configmap  | \                            | kube-system    |
+| p2p-proxy          | Service    | -                            | kube-system    |
+| p2p-tracker        | Service    | -                            | kube-system    |
+| agent              | Configmap  | -                            | kube-system    |
+| proxy              | Configmap  | -                            | kube-system    |
+| tracker            | Configmap  | -                            | kube-system    |
 
 ## 使用场景
 

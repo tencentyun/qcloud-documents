@@ -5,7 +5,7 @@
 
 
 ## 启动腾讯移动推送服务
-
+以下为设备注册相关接口方法，若需了解调用时机及调用原理，可查看 [设备注册流程](https://cloud.tencent.com/document/product/548/36662#.E8.AE.BE.E5.A4.87.E6.B3.A8.E5.86.8C.E6.B5.81.E7.A8.8B)。
 #### 接口说明
 
 通过使用在腾讯移动推送官网注册的应用信息，启动腾讯移动推送服务。
@@ -31,7 +31,7 @@
 ```
 
 ## 终止腾讯移动推送服务
-
+以下为设备注册相关接口方法，若需了解调用时机及调用原理，可查看 [设备反注册流程](https://cloud.tencent.com/document/product/548/36662#.E8.AE.BE.E5.A4.87.E5.8F.8D.E6.B3.A8.E5.86.8C.E6.B5.81.E7.A8.8B)。
 #### 接口说明
 
 终止腾讯移动推送服务后，将无法通过腾讯移动推送服务向设备推送消息，如再次需要接收腾讯移动推送服务的消息推送，则必须再次调用 `startXGWithAccessID:accessKey:delegate:` 方法重启腾讯移动推送服务。
@@ -94,7 +94,7 @@ SDK 1.2.7.2 新增，当注册推送服务失败会走此回调。
 ```
 
 ## 账号功能
-
+以下为账号相关接口方法，若需了解调用时机及调用原理，可查看 [账号相关流程](https://cloud.tencent.com/document/product/548/36662#.E8.B4.A6.E5.8F.B7.E7.9B.B8.E5.85.B3.E6.B5.81.E7.A8.8B)。
 ### 添加账号
 #### 接口说明
 
@@ -162,36 +162,6 @@ NSSet *accountsKeys = [[NSSet alloc] initWithObjects:@(accountType), nil];
 [[XGPushTokenManager defaultTokenManager] delAccountsByKeys:accountsKeys];
 ```
 
-### 更新账号
-
-#### 接口说明
-
-清空已有账号，然后批量添加账号。（TPNS SDK1.2.9.0+ 新增）
-
-```Objective-C
-- (void)clearAndAppendAccountsByDict:(nonnull NSDictionary<NSNumber *, NSString *> *)accountsDict;
-```
-
-> ?此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
-
-#### 参数说明 
-
-
-- accountsDict：账号字典。
-
->?
->- 需要使用字典类型，key 为账号类型，value 为账号，示例：@{@(accountType):@"account"}；。
->- Objective-C的写法 : @{@(0):@"account0",@(1):@"account1"}；Swift的写法：[NSNumber(0):@"account0",NSNumber(1):@"account1"]。
->- 更多 accountType 请参照 SDK 包内 XGPush.h 文件中的 XGPushTokenAccountType 枚举。
-
-#### 示例代码
-
-```Objective-C
-XGPushTokenAccountType accountType = XGPushTokenAccountTypeUNKNOWN;
-NSString *account = @"account";
-[[XGPushTokenManager defaultTokenManager] clearAndAppendAccountsByDict:@{ @(accountType):account }];
-```
-
 ### 清除账号
 
 #### 接口说明
@@ -210,7 +180,7 @@ NSString *account = @"account";
 [[XGPushTokenManager defaultTokenManager] clearAccounts];
 ```
 ## 标签功能
-
+以下为标签相关接口方法，若需了解调用时机及调用原理，可查看 [标签相关流程](https://cloud.tencent.com/document/product/548/36662#.E6.A0.87.E7.AD.BE.E7.9B.B8.E5.85.B3.E6.B5.81.E7.A8.8B)。
 ### 绑定/解绑标签
 
 #### 接口说明
@@ -292,7 +262,7 @@ NSString *account = @"account";
 ```
 
 ## 用户属性功能
-
+以下为用户属性相关接口方法，若需了解调用时机及调用原理，可查看 [用户属性相关流程](https://cloud.tencent.com/document/product/548/36662#.E7.94.A8.E6.88.B7.E5.B1.9E.E6.80.A7.E7.9B.B8.E5.85.B3.E6.B5.81.E7.A8.8B)。
 ### 新增用户属性
 
 #### 接口说明
@@ -402,7 +372,6 @@ badgeNumber：应用的角标数。
 > ! 当本地应用角标设置后需调用此接口同步角标值到 TPNS 服务器，并在下次推送时生效，此接口必须在 TPNS 注册成功后调用（xgPushDidRegisteredDeviceToken）。
 
 #### 示例代码
-
 ```Objective-C
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     /// 每次启动 App 应用角标清零（本地应用角标设置需要在主线程执行）

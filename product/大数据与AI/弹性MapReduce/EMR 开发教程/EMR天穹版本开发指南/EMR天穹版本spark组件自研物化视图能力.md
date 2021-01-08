@@ -23,7 +23,9 @@ CREATE MATERIALIZED VIEW [IF NOT EXISTS] [db_name.]materialized_view_name
 AS
 <query>;
 ```
->?这里建议不使用 DISABLE REWRITE 选项，否则将不能使用物化视图功能。同时，把 $db_name 设置为 mv_db，如果不设置为 mv_db，需修改参数 `spark.sql.materializedView.databases为$db_name`。
+>?
+>- 这里建议不使用 DISABLE REWRITE 选项，否则将不能使用物化视图功能。同时，把 $db_name 设置为 mv_db，如果不设置为 mv_db，需修改参数 `spark.sql.materializedView.databases为$db_name`。
+>- 建议用户建立独立的 mv_db，只用来存放 mv，可以提升 mv 匹配时获取元数据的效率。
 
 ## 物化视图示例
 1. 准备基础数据
@@ -93,11 +95,17 @@ Project [id#40 AS id#26, name#41 AS name#27, tags#42 AS tags#29]
 ```
 
 ## 物化视图 MATCH 策略
-TianQiong-Spark 物化视图
+TianQiong-Spark 物化视图默认命中一次，可使用以下参数来调整物化视图的 match 策略：
 ```
-set spark.sql.materializedView.matchPolicy=multiple;
-set spark.sql.materializedView.multiplePolicy.limit=5;
+spark.sql.materializedView.matchPolicy
+spark.sql.materializedView.multiplePolicy.limit
 ```
+例如想使用多次命中，最多命中5次，使用 spark-sql 的 session 参数设置如下：
+```
+spark-sql>set spark.sql.materializedView.matchPolicy=multiple;
+spark-sql>set spark.sql.materializedView.multiplePolicy.limit=5;
+```
+
 
 ## 物化视图重建
 当实例化视图使用的源表中的数据发生更改时，例如，插入新数据或修改现有数据时，我们将需要刷新实例化视图的内容，以使其与这些更改保持最新。当前，物化视图的重建操作需要由用户触发。用户应执行以下语句：

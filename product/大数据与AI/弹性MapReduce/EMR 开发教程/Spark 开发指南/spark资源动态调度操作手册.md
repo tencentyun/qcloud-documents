@@ -70,7 +70,7 @@ done
 ```
 
 ## 修改 Yarn 配置
-1. 在【集群服务】>【YARN】组件中，选择【操作】>【配置管理】。选中配置文件`yarn-site.xml`，【维度范围】选择“集群维度”（集群维度的配置项修改将应用到所有节点）。
+1. 在【集群服务】>【YARN】组件中，选择【操作】>【配置管理】。选中配置文件`yarn-site.xml`，【维度范围】选择“集群维度”（集群维度的配置项修改将应用到所有节点），然后单击【修改配置】。
 ![](https://main.qcloudimg.com/raw/3368002c167223724cfa46acfb46e53b.png)
 2. 修改配置项`yarn.nodemanager.aux-services`，添加 spark_shuffle。
 ![](https://main.qcloudimg.com/raw/596df73363cdc6a05258412f6e794669.png)

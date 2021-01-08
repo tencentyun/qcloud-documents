@@ -100,3 +100,7 @@ resize2fs /dev/lvm_demo0/lv_0
 ```
 df -h
 ```
+
+
+
+

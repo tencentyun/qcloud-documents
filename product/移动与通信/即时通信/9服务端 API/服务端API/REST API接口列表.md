@@ -21,6 +21,7 @@
 | 导入单聊消息 | [v4/openim/importmsg](https://cloud.tencent.com/document/product/269/2568) |
 | 查询单聊消息 | [v4/openim/admin_getroammsg](https://cloud.tencent.com/document/product/269/42794) |
 | 撤回单聊消息 | [v4/openim/admin_msgwithdraw](https://cloud.tencent.com/document/product/269/38980) |
+|设置单聊消息已读|[v4/openim/admin_set_msg_read](https://cloud.tencent.com/document/product/269/50349)|
 
 ## 全员推送
 

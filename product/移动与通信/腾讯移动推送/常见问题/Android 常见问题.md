@@ -144,7 +144,7 @@ Uri uri = getIntent().getData();
 | OPPO | 不支持 | 支持 |
 | vivo | 不支持 | 支持 |
 
->! 厂商通道的点击回调需 SDK 版本1.2.0.1及以上版本支持；旧版本仅支持华为、魅族、魅族、vivo。
+>! 厂商通道的点击回调需 SDK 版本1.2.0.1及以上版本支持；旧版本仅支持华为、小米、魅族、vivo。
 
 
 
@@ -172,7 +172,7 @@ Uri uri = getIntent().getData();
 | Google FCM 推送|  Android 4.1及以上|手机端需安装 Google Play Services 且在中国大陆地区以外使用。添加依赖：`implementation 'com.google.firebase:firebase-messaging:20.2.3'`|
 | 魅族推送 | Flyme|  使用魅族推送，添加依赖：`implementation 'com.tencent.tpns:meizu:1.2.1.2-release'` |
 | OPPO 推送|  ColorOS |并非所有 OPPO 机型和版本都支持使用 OPPO 推送，使用 OPPO 推送，添加依赖：`implementation 'com.tencent.tpns:oppo:1.2.1.2-release'`|
-| vivo 推送|  FuntouchOS|并非所有 OPPO 机型和版本都支持使用 OPPO 推送，使用 vivo 推送，添加依赖：`implementation 'com.tencent.tpns:vivo:1.2.1.2-release'`|
+| vivo 推送|  FuntouchOS|并非所有 vivo 机型和版本都支持使用 vivo 推送，使用 vivo 推送，添加依赖：`implementation 'com.tencent.tpns:vivo:1.2.1.2-release'`|
 
 
 
@@ -214,4 +214,12 @@ android.useAndroidX=trueandroid.enableJetifier=true
 > ? 
 > - android.useAndroidX=true，表示当前项目启用 AndroidX。
 > - android.enableJetifier=true，表示将依赖包迁移到 AndroidX。 
+
+### 厂商通道推送服务 SDK “存在通过 HTTP 明文传输信息的行为”，如何处理？
+
+开发者在集成各厂商通道推送服务后，部分安全检测工具可能会提示 “App 存在通过 HTTP 明文传输信息的行为” ，具体 HTTP 地址涉及：
+1. 小米推送 SDK：`http://new.api.ad.xiaomi.com/logNotificationAdActions，http://resolver.msg.xiaomi.net/psc/?t=a`
+2. 魅族推送 SDK：`http://norma-external-collect.meizu.com/android/exchange/getpublickey.do，http://norma-external-collect.meizu.com/push/android/external/add.do`
+
+以上 HTTP URL 均来自各厂商推送 SDK，TPNS 项目组无法明确其目的或控制其行为，但正在积极与厂商服务提供者联系并推动 HTTPS 改造；开发者当前可以自行评估选择是否继续使用以上厂商提供的推送服务。
 

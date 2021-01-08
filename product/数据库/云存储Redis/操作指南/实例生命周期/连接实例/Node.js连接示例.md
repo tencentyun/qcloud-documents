@@ -9,10 +9,10 @@
 var redis = require("redis");
 
 /**以下参数分别填写您的 Redis 实例内网 IP、端口号、实例 ID 和密码*/
-var host = "192.168.0.2",
+var host = "192.xx.xx.2",
 port = "6379",
-instanceid = "c532952f-55dc-4c22-a941-63057e560788",
-pwd = "1234567q";
+instanceid = "c53xx52f-55dc-4c22-a941-630xxx88",
+pwd = "12as6zb";
 //连接 Redis
 var client  = redis.createClient(port, host, {detect_buffers: true});
 // Redis 连接错误

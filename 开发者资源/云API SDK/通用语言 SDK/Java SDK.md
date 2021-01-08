@@ -11,14 +11,16 @@
 >!**您的安全凭证代表您的账号身份和所拥有的权限，等同于您的登录密码，切勿泄露他人。**
 * 获取调用地址。调用地址（endpoint）一般形式为`*.tencentcloudapi.com`，产品的调用地址有一定区别，例如，云服务器的调用地址为`cvm.tencentcloudapi.com`。具体调用地址可参考对应产品的 [API 文档](https://cloud.tencent.com/document/api)。
 
-## 安装 SDK<span id="p1"></span>
+## 安装 SDK[](id:p1)
 
 ### 通过 Maven 安装（推荐）
 
 Maven 是 JAVA 的依赖管理工具，支持您项目所需的依赖项，并将其安装到项目中。关于 Maven 详细可参考 [Maven 官网](https://maven.apache.org/)。
 
 1. 为您的项目添加 Maven 依赖项，只需在 pom.xml 中找到`<dependencies>`标签，在里面添加以下依赖项即可。
->!这里的版本号只是举例，您可以在 [Maven 仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 上找到最新的版本，当前最新版本为![](https://main.qcloudimg.com/raw/a329c19ace6949a074d30ec7eade2651.svg)。
+>!
+>- 这里的版本号只是举例，您可以在 [Maven 仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 上找到最新的版本。
+>- [Maven 仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 中显示的4.0.11是废弃版本，由于 Maven 索引更新问题尚未完全删除。
 
 	```xml
 <dependency>
@@ -29,10 +31,21 @@ Maven 是 JAVA 的依赖管理工具，支持您项目所需的依赖项，并�
     <version>3.1.87</version>
 </dependency>
 ```
+2. 设置镜像源以加快下载速度。
+```xml
+<repositories>
+	<repository>
+      <id>nexus-tencentyun</id>
+      <name>Nexus tencentyun</name>
+      <url>https://mirrors.tencent.com/nexus/repository/maven-public/</url>
+	</repository>
+</repositories>
+```
+
 示例如下图所示：
 ![](https://main.qcloudimg.com/raw/cc7027bc9fc9c7863121c2dfdeda3185.png)  
 
-2. 在命令端进入到 “G:\maven-demo”（示例项目根路径）：
+3. 在命令端进入到 “G:\maven-demo”（示例项目根路径）：
 ```bash
 #  创建JAR/WAR包如在 pom.xml 中定义提及的包。
 G:\maven-demo>mvn package
@@ -174,7 +187,7 @@ public class DescribeInstances {
 
 ## 相关配置
 
-### 代理配置<span id="p3"></span>
+### 代理配置[](id:p3)
 
 从3.0.96版本开始，可以单独设置 HTTP 代理： 
 

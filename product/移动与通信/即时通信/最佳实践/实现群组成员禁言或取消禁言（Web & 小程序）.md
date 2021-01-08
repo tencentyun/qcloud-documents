@@ -165,3 +165,4 @@ promise.then(function(imResponse) {
 });
 ```
 - 2.6.2以下版本 SDK， 调用 [getGroupMemberProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberProfile) 接口可以查询群成员禁言截止时间戳（muteUntil）等详细资料。
+

@@ -123,3 +123,7 @@
 ![](https://main.qcloudimg.com/raw/a0e8ee05fcc2fc4b6f717bb0e03287af.png)
 9. 待 Sharepoint 完成配置后，单击【完成】。
 
+
+
+
+
