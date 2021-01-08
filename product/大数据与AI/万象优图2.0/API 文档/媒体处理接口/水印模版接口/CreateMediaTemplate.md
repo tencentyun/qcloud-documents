@@ -118,9 +118,9 @@ Container 类型 Image 的具体数据描述如下：
 | Background           | Request.Watermark.Image | 是否背景图   | String    | 否   | false   | true、false |
 
 图片水印置于视频上方位置说明（前景图）：
-![image.png](/uploads/CACE625B9A1C43A5A1F487739DD8E2B7/image.png)
+![](https://main.qcloudimg.com/raw/b357bb031acf4f9860eb22bd491c0562.png)
 图片水印置于视频下方位置说明（背景图）：
-![image.png](/uploads/6700611703F24188A7B725D9F20CA3EB/image.png)
+![](https://main.qcloudimg.com/raw/57b119dbbaf20b077c738b29450c2dfa.png)
 
 Container 类型 Text 的具体数据描述如下：
 
