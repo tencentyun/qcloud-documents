@@ -86,9 +86,8 @@
 >- 建议您选择就近测试点 ping 测，例如国内用户可通过 ping6 www.qq.com 等国内网站测试、境外地域可通过 ping ipv6.google.com 等境外网站测试。
 >
 
-<span id="gjpz"></span>
 
-#### Linux 云服务器
+#### Linux 云服务器[](id:gjpz)
 - Linux 云服务器可通过 Ping 或 SSH 等操作来测试 IPv6 的连通性。
 
  - **方式1：**通过 Ping 进行测试，操作如下：
@@ -105,9 +104,8 @@
   成功结果如下图所示：
   ![](https://main.qcloudimg.com/raw/c951d48a32b010d00b481ed26082a1bb.png)
 
- <span id="Windows云服务器"></span>
 
-#### Windows 云服务器
+#### Windows 云服务器[](id:Windows云服务器)
 Windows 云服务器可通过 Ping 或远程桌面测试 IPv6 连通性。
  - **方式1**：通过 Ping 进行测试，操作如下：
 在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width:25px">，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -3px 0px;">，打开 “Windows PowerShell” 窗口，执行`ping -6 IPv6 地址`进行测试，例如，`ping -6 240c::6666`或`ping -6 同一私有网络下的 IPv6 地址`，成功如下图所示。
