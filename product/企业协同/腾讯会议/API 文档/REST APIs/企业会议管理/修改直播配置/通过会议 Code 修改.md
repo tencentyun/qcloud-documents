@@ -28,7 +28,7 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 | enable_live_replay   | Boolean  | 是否开启直播回放。 |
 
 ## 输出参数
-成功则返回空消息体，失败则返回 [错误码](https://tcloud-doc.isd.com/document/product/1095/43704) 和错误信息。
+成功则返回空消息体，失败则返回 [错误码](https://cloud.tencent.com/document/product/1095/43704) 和错误信息。
 
 | 参数名称   | 必选 | 参数类型 | 参数描述                 |
 | ---------- | ---- | -------- | ------------------------ |
