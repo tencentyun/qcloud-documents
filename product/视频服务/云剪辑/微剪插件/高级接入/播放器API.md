@@ -168,12 +168,12 @@ let imageClip1 = new global['wj-types'].Clip({
 ```javascript
 this.mediaTrack.clips = [videoClip1, imageClip1];
 ```>? 可以看到此时媒体轨道中已经添加一个视频和一张图片。以此类推，您可以按照这种方式添加更多的视频或者图片。
-4. 更新播放器。<span id="updata_play"></span>
+4. 更新播放器。[](id:updata_play)
 播放器均通过`updateData`方法实现更新`updateData`接受的参数为包含轨道的数组。以创建的媒体轨道后更新播放器为例，只需`updateData([媒体轨道])`即可 ：
 ```javascript
 this.player.updateData([this.mediaTrack]);
 ```>? 以此类推，若您的播放器中包含视频，音乐，特效等，则`updateData([媒体轨道，音乐轨道， 特效轨道])`。
-5. 修改视频时长。<span id="change_video"></span>
+5. 修改视频时长。[](id:change_video)
 以修改视频片段 videoClip1 时长为例，直接修改 videoClip1 的 section 属性。
 ```javascript
 videoClip1.section = new global['wj-types'].ClipSection({
@@ -189,7 +189,7 @@ videoClip1.startAt = 1;
 ```javascript
   this.player.updateData([this.mediaTrack]);
 ```
-6. 删除某个视频。<span id="delect_video"></span>
+6. 删除某个视频。[](id:delect_video)
 在 media 轨道中删除对应的 Clip 即可，以删除 videoClip1 为例：
 	1. 获取视频对应的 id（`video1`）进行删除。
 ```javascript 
@@ -267,11 +267,11 @@ this.filterTrack = new global['wj-types'].Track({
 			clips: []
 });
 ```
-2. 添加滤镜片段。<span id="filter_step2"></span>
+2. 添加滤镜片段。[](id:filter_step2)
   1. 获取播放器内部提供的默认滤镜：
   ```javascript
     const filterList = this.player.getFilters();
-  ```	<span id="filterList"></span>**filterList** 的数据结构如下所示：
+  ```	[](id:filterList)**filterList** 的数据结构如下所示：
   ```
 [
 					{
@@ -342,7 +342,7 @@ this.effectTrack = new global['wj-types'].Track({
 			clips: []
 });
 ```
-2. 添加滤镜片段。<span id="effect_step2"></span>
+2. 添加滤镜片段。[](id:effect_step2)
   1. 获取播放器内部提供的默认特效：
 ```javascript
   const effectList = this.player.getEffects();
@@ -421,8 +421,7 @@ this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrackm, thi
 this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack]);
 ```
 
-<span id = "sss"></span>
-### 文字轨道使用说明
+### 文字轨道使用说明[](id:sss)
 1. 添加文字轨道。
 ```javascript
 this.textTrack1 = new global['wj-types'].Track({
@@ -458,7 +457,7 @@ this.textTrack1 = new global['wj-types'].Track({
   2. 将新创建的 textClip 添加到轨道中：
 ```javascript
 this.textTrack.clips = [textClip1]
-```<span id = "more_clip"></span>当然，您也可以在一个轨道添加多个文字，文字 Clip 的 section 没有重叠。
+```[](id:more_clip)当然，您也可以在一个轨道添加多个文字，文字 Clip 的 section 没有重叠。
 ```javascript
 this.textTrack.clips = [textClip1, textClips2, ...]
 ```

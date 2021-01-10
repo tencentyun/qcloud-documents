@@ -51,15 +51,11 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 3. 将 vendor 目录下的 jar 包放在 Java 可找到的路径中。
 4. 引用方法可参考 [示例代码](#example)。
 
-<span id="example"></span>
-
-## 示例代码
+## 示例代码[](id:example)
 
 >?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况进行修改，您也可以根据实际需求使用 [API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=sms&Version=2019-07-11&Action=SendSms) 自动化生成 Demo 代码。
 
 每个接口都有一个对应的 Request 结构和一个 Response 结构。本文仅列举几个常用功能的示例代码，更多示例请参见 [Java SDK 示例](https://github.com/TencentCloud/tencentcloud-sdk-java/tree/master/examples/sms)。
-
-<span id="签名和模板接口"></span>
 
 ### 申请短信模板
 
@@ -171,7 +167,6 @@ public class AddSmsTemplate
 }
 ```
 
-<span id="发送短信"></span>
 
 ### 发送短信
 
@@ -298,8 +293,6 @@ public class SendSms
 
 
 
-<span id="拉取短信回执和短信回复状态"></span>
-
 ### 拉取回执状态
 
 ```
@@ -395,7 +388,6 @@ public class PullSmsSendStatus {
 }
 ```
 
-<span id="统计短信发送数据"></span>
 
 ### 统计短信发送数据
 

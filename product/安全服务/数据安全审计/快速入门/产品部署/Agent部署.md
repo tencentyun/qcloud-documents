@@ -10,7 +10,7 @@ Agent 部署流程如下图所示，其中前五步为参数配置操作：
 
 1. 已完成 [控制台登录](https://cloud.tencent.com/document/product/856/17381) 操作后，通过 sysadmin 账号登录数据安全审计管理页面（默认密码在购买时将通过站内信发送），在左侧导航中，选择【Agent 管理】>【Agent 配置】，在 Agent 配置页面单击【配置 Agent】，进入编辑 Agent 配置页面。
 ![](https://main.qcloudimg.com/raw/3268da84fb9a7b4b14b04f45624ca699.png)
-<span id="ip"></span>
+[](id:ip)
 2. 在编辑 Agent 配置页面，编辑审计服务 IP及审计端口，审计服务 IP 指定了 Agent 数据安全审计实例的 IP 地址。
  - 若您仅有一个数据安全审计且与被审计数据库在同一个地域，则只填写数据安全审计实例内网 IP 地址即可。
  - 若您有多个数据安全审计实例，请设置与被审计数据库同一地域的数据安全审计实例内网 IP。
