@@ -12,7 +12,7 @@
 
 ### 为集群暴露多个 Nginx Ingress 流量入口
 
-Nginx-ingress 扩展组件安装后，在 `kube-system` 下会有个 Nginx-ingress 的 operator 组件，通过该组件可以创建多个 Nginx Ingress 实例，每个 Nginx Ingress 实例都使用不同的 IngressClass，且使用不同的 CLB 作为流量入口，从而实现不同的 Ingress 绑定到不同流量入口。可以根据实际需求，为集群创建多个 Nginx Ingress 实例。
+Nginx-ingress 扩展组件安装后，在 `kube-system` 下会有 Nginx-ingress 的 operator 组件，通过该组件可以创建多个 Nginx Ingress 实例，每个 Nginx Ingress 实例都使用不同的 IngressClass，且使用不同的 CLB 作为流量入口，从而实现不同的 Ingress 绑定到不同流量入口。可以根据实际需求，为集群创建多个 Nginx Ingress 实例。
 
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【集群】。
