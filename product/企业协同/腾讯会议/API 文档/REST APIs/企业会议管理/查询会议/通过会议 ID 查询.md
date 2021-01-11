@@ -61,7 +61,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 
 | 参数名称 | 参数类型 | 参数描述 |
 | -------- | -------- | -------- |
-| userid   | String   | 用户 ID（企业用户为企业自定义账号；个人用户为用户名、手机号等；oauth2.0 鉴权用户为 openId）。<br>企业唯一用户标识说明：<br>1. 企业对接 SSO 时使用的员工唯一标识 ID；<br>2. 企业调用创建用户接口时传递的 userid 参数。   |
+| userid   | String   | 调用方用于标示用户的唯一 ID（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。<br>企业唯一用户标识说明：<br>1. 企业对接 SSO 时使用的员工唯一标识 ID；<br>2. 企业调用创建用户接口时传递的 userid 参数。   |
 
 
 
