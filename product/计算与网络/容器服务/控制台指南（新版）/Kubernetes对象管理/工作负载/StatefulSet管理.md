@@ -177,3 +177,4 @@ kubectl delete  StatefulSet [NAME]
 ```
 更多 StatefulSet 相关操作可查看 [Kubernetes官方指引](https://kubernetes.io/docs/tutorials/stateful-application/basic-stateful-set/#scaling-a-statefulset)。
 
+

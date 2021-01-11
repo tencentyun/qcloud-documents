@@ -21,7 +21,6 @@ Listener 对象为 MGOBE 的子属性，该对象方法全为静态方法，不�
 
 无
 
-
 #### 使用示例
 ```
     const gameInfo = {

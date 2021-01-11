@@ -125,6 +125,6 @@ Access-Control-Allow-Methods: POST
 
 （1）即时通信 IM 后台 REST 接口设置的超时时间是 3s，调用方设置的超时时间应该长于 3s。
 （2）telnet console.tim.qq.com 443 确认能否连接服务端口。
-（3）使用 curl -G https://console.tim.qq.com 简单测试确认能够收到响应。
+（3）使用 curl -I https://console.tim.qq.com 简单测试看状态码是否为200。
 （4）确认机器的 dns server 配置是内网 dns server，还是公共 dns server。如果是内网 dns server，请确保 dns server 网络出口和本机器网络出口 IP 所在地域运营商一致。
 （5）建议业务调用方使用“长连接+连接池”模式。

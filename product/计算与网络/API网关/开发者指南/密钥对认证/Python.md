@@ -11,7 +11,7 @@
 6. 参考 [示例代码](#example)，使用 Python 语言生成签名内容。
 
 ## 环境依赖
-Python 2.7版本。
+API 网关提供 Python 2.7 和 Python 3 两个版本的示例代码，请您根据自己的 Python 版本合理选择。
 
 ## 注意事项
 - 最终发送的 HTTP 请求内至少包含两个 Header：Date 和 X-Date 二选一以及 Authorization，可以包含更多 header。如果使用 Date Header，服务端将不会校验时间；如果使用 X-Date Header，服务端将校验时间。
@@ -21,6 +21,7 @@ Python 2.7版本。
 
 <span id="example"></span>
 ## 示例代码
+### Python 2.7 示例代码
 ```python
 # -*- coding: utf-8 -*-
 import requests
@@ -70,4 +71,49 @@ print header
 r = requests.get(url, headers=header)
 print r
 print r.text
+```
+
+### Python 3 示例代码
+```
+# -*- coding: utf-8 -*-
+import base64
+import datetime
+import hashlib
+import hmac
+
+import requests
+
+GMT_FORMAT = '%a, %d %b %Y %H:%M:%S GMT'
+
+
+def getSimpleSign(source, SecretId, SecretKey):
+    dateTime = datetime.datetime.utcnow().strftime(GMT_FORMAT)
+    auth = "hmac id=\"" + SecretId + "\", algorithm=\"hmac-sha1\", headers=\"date source\", signature=\""
+    signStr = "date: " + dateTime + "\n" + "source: " + source
+    sign = hmac.new(SecretKey.encode(), signStr.encode(), hashlib.sha1).digest()
+    sign = base64.b64encode(sign).decode()
+    sign = auth + sign + "\""
+    return sign, dateTime
+
+
+SecretId = 'your SecretId'  # 密钥对的 SecretId
+SecretKey = 'your SecretKey'  # 密钥对的 SecretKey
+url = 'http://service-xxxxxx-1234567890.ap-guangzhou.apigateway.myqcloud.com/release/xxx'  # 用户 API 的访问路径
+
+header = {'Host': 'service-xxxxxx-1234567890.ap-guangzhou.apigateway.myqcloud.com',  # 用户 API 所在服务的域名
+          'Accept': 'text/html, */*; q=0.01',
+          'X-Requested-With': 'XMLHttpRequest',
+          'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.89 Safari/537.36',
+          'Accept-Encoding': 'gzip, deflate, sdch',
+          'Accept-Language': 'zh-CN,zh;q=0.8,ja;q=0.6'
+          }
+Source = 'xxxxxx'  # 签名水印值，可填写任意值
+sign, dateTime = getSimpleSign(Source, SecretId, SecretKey)
+header['Authorization'] = sign
+header['Date'] = dateTime
+header['Source'] = Source
+
+
+r = requests.get(url, headers=header)
+print(r.text)
 ```

@@ -15,7 +15,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 - 已在访问管理控制台 >【[API密钥管理](https://console.cloud.tencent.com/cam/capi)】页面获取 SecretID 和 SecretKey。
  - SecretID 用于标识 API 调用者的身份。
  - SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥，**SecretKey 需妥善保管，避免泄露**。
-- 已获取调用地址（endpoint），短信的调用地址为`sms.tencentcloudapi.com`。
+- 短信的调用地址为`sms.tencentcloudapi.com`。
 
 ## 相关资料
 - 各个接口及其参数的详细介绍请参见 [API 文档](https://cloud.tencent.com/document/product/382/38764)。
@@ -38,8 +38,7 @@ pip install tencentcloud-sdk-python
     $ python setup.py install
 ```
 
-<span id="example"></span>
-## 示例代码
+## 示例代码[](id:example)
 >?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况进行修改，您也可以根据实际需求使用 [API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=sms&Version=2019-07-11&Action=SendSms) 自动化生成 Demo 代码。
 
 每个接口都有一个对应的 Request 结构和一个 Response 结构。本文仅列举几个常用功能的示例代码，更多示例请参见 [Python SDK 示例](https://github.com/TencentCloud/tencentcloud-sdk-python/tree/master/examples/sms)。
@@ -100,17 +99,17 @@ try:
     # sms helper：https://cloud.tencent.com/document/product/382/3773
 
     # 模板名称 
-	$req.TemplateName = "腾讯云"
+	req.TemplateName = "腾讯云"
 	# 模板内容 
-	$req.TemplateContent = "{1}为您的登录验证码，请于{2}分钟内填写，如非本人操作，请忽略本短信。"
+	req.TemplateContent = "{1}为您的登录验证码，请于{2}分钟内填写，如非本人操作，请忽略本短信。"
 	# 短信类型：0表示普通短信, 1表示营销短信 
-	$req.SmsType = 0;
+	req.SmsType = 0;
 	# 是否国际/港澳台短信：
 	# 0：表示国内短信
 	# 1：表示国际/港澳台短信 
-	$req.International = 0
+	req.International = 0
 	# 模板备注：例如申请原因，使用场景等 
-	$req.Remark = "xxx"
+	req.Remark = "xxx"
 
     # 通过 client 对象调用 AddSmsTemplate 方法发起请求。注意请求方法名与请求对象是对应的
     resp = client.AddSmsTemplate(req)

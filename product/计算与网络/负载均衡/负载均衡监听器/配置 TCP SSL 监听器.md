@@ -2,7 +2,7 @@
 您可以在负载均衡实例上添加一个 TCP SSL 监听器转发来自客户端加密的 TCP 协议请求。TCP SSL 协议适用于需要超高性能、大规模 TLS 卸载的场景。TCP SSL 协议的监听器，后端服务器可直接获取客户端的真实 IP。
 >?
 >- TCP SSL 监听器正在内测中，如需使用，请提交  [工单申请](https://console.cloud.tencent.com/workorder/category/create?level1_id=6&level2_id=163&level1_name=%E8%AE%A1%E7%AE%97%E4%B8%8E%E7%BD%91%E7%BB%9C&level2_name=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%20LB)。
->- TCP SSL 监听器目前仅支持公网负载均衡（不支持内网），不支持传统型负载均衡。
+>- TCP SSL 监听器目前仅支持负载均衡，不支持传统型负载均衡。
 
 ## 前提条件
 您需要 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/6149)。

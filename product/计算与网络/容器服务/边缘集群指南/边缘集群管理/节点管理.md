@@ -5,7 +5,7 @@
 ## 前提条件
 按照以下条件准备好边缘节点：
 - 节点来源：可使用 [云服务器控制台](https://console.cloud.tencent.com/cvm) 或 [边缘计算机器控制台](https://console.cloud.tencent.com/ecm/instance) 中已有的服务器、其他平台或自建机房的服务器。
-- 节点处理器：支持 x86_64 处理器。 
+- 节点处理器：支持 x86_64、ARM、ARM64。 
 - 支持的节点操作系统如下：
  - Ubuntu 18.04/16.04
  - CentOS 7.6/7.5/7.4

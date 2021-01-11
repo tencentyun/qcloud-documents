@@ -1,6 +1,5 @@
 ## 微信云支付 SDK
-SDK 支持 C/C++/C#/Java。
-SDK 说明请参见 [SDK](https://cloud.tencent.com/document/product/569/9806)。
+SDK 支持 C/C++/C#/Java。SDK 说明请参见 [SDK](https://cloud.tencent.com/document/product/569/9806)。
 
 ## 接入场景
 本文为您介绍收银机+扫码枪场景的接入流程，在收银机上实现腾讯云支付功能，当用扫码枪扫码顾客微信支付或支付宝付款码，收银机调用云支付的 API 发起刷卡支付。
@@ -25,11 +24,9 @@ SDK 说明请参见 [SDK](https://cloud.tencent.com/document/product/569/9806)�
 5. **获取认证密钥和签名私钥**
 配置子商户时，保存到本地的“认证密码”和“签名私钥”。
 
-
 ### SDK API 接入流程
 #### 刷卡支付接入流程（顾客被扫）
 ![](https://main.qcloudimg.com/raw/9acbd65f38d1036275c5667768bb47d8.png)
->?
 - 初始化 SDK 时，commonconf 配置的 micro_pay_query_order_count 和 micro_pay_query_order_interval 两个参数，分别为刷卡支付后查询结果次数和间隔，默认次数是25次、时间间隔是6s，即一共会持续查询150s看是否有支付结果。
 用户如果需要调整次数和间隔时间太，可在初始化时设置这两个参数的值。
 2. 提交刷卡支付时，out_trade_no 为云支付分配的子商户订单前缀+商户自己定义的部分。子商户订单前缀可在云支付控制台的子商户页面获取。
@@ -40,9 +37,7 @@ SDK 说明请参见 [SDK](https://cloud.tencent.com/document/product/569/9806)�
 
 #### 退款接入流程
 ![](https://main.qcloudimg.com/raw/183cd1b43b7910b49d9ec5cc5934c5f4.png)
-
->?
->- 申请退款成功，并不代表退款成功。
+- 申请退款成功，并不代表退款成功。
 退款是一个异步过程，申请退款成功后，只是代表第三方支付平台受理这笔退款，是否到账需要看这笔钱退到哪里。
  - 如果是退款至微信零钱账户或支付宝账户，会很快到账。
  - 如果是退款至顾客的银行卡，到账时间与银行处理进度相关，可能要花几个小时。
@@ -86,51 +81,55 @@ request_content 的内容是一个字符串，如下图，所以第2行和第7�
 
 **请求包完整示例**
 
-        Json::Value pay_mch_key;      // 构造 pay_mch_key
-        pay_mch_key["pay_platform"]   = 1;
-        pay_mch_key["out_mch_id"]     = "sz013NzuonO6CMJd0rCB";
-        pay_mch_key["out_sub_mch_id"] = "sz01ELTR281OFpmdAp6J";
-        pay_mch_key["out_shop_id"]    = "sz01qyoPJmd3j1hWmul4";
+```
+Json::Value pay_mch_key;      // 构造 pay_mch_key
+pay_mch_key["pay_platform"]   = 1;
+pay_mch_key["out_mch_id"]     = "sz013NzuonO6CMJd0rCB";
+pay_mch_key["out_sub_mch_id"] = "sz01ELTR281OFpmdAp6J";
+pay_mch_key["out_shop_id"]    = "sz01qyoPJmd3j1hWmul4";
 
-        Json::Value pay_content;      // 构造 pay_content
-        pay_content["out_trade_no"]   = "sz0100lmnx20171228151031";
-        pay_content["author_code"]    = "134680423163089456";
-        pay_content["total_fee"]      = 1;
-        pay_content["fee_type"]       = "CNY";
-        pay_content["attach"]         = "attach";
+Json::Value pay_content;      // 构造 pay_content
+pay_content["out_trade_no"]   = "sz0100lmnx20171228151031";
+pay_content["author_code"]    = "134680423163089456";
+pay_content["total_fee"]      = 1;
+pay_content["fee_type"]       = "CNY";
+pay_content["attach"]         = "attach";
 
-        Json::Value order_client;        // 构造 order_client
-        order_client["machine_no"]       = "32-62-A8-14-B3-C0";
-        order_client["sdk_version"]      = "1.0";
-        order_client["device_id"]        = 1;
-        order_client["spbill_create_ip"] = "10.15.244.75";
-        order_client["staff_id"]         = "1003";
-        order_client["terminal_type"]    = 2;  // 平台 Windows Linux Android pos
-        order_client["sub_terminal_type"]    = 1111; //设备型号，如商家的 pos 的 AXX01 型号，这个字段接入方自定义，保证自己设备型号的唯一性，可用于统计某一款设备的订单信息。
+Json::Value order_client;        // 构造 order_client
+order_client["machine_no"]       = "32-62-A8-14-B3-C0";
+order_client["sdk_version"]      = "1.0";
+order_client["device_id"]        = 1;
+order_client["spbill_create_ip"] = "10.15.244.75";
+order_client["staff_id"]         = "1003";
+order_client["terminal_type"]    = 2;  // 平台 Windows Linux Android pos
+order_client["sub_terminal_type"]    = 1111; //设备型号，如商家的 pos 的 AXX01 型号，这个字段接入方自定义，保证自己设备型号的唯一性，可用于统计某一款设备的订单信息。
 
-        Json::Value request_content;     // 构造 request_content
-        request_content["pay_mch_key"]   = pay_mch_key;
-        request_content["pay_content"]   = pay_content;
-        request_content["order_client"]  = order_client;
-        request_content["nonce_str"]     = "416492026bc84091bcaf7e74ea90ceba";
+Json::Value request_content;     // 构造 request_content
+request_content["pay_mch_key"]   = pay_mch_key;
+request_content["pay_content"]   = pay_content;
+request_content["order_client"]  = order_client;
+request_content["nonce_str"]     = "416492026bc84091bcaf7e74ea90ceba";
 
-        Json::FastWriter w;
-        std::string request_content_str = w.write(request_content);
+Json::FastWriter w;
+std::string request_content_str = w.write(request_content);
 
-        Json::Value authen;
-        authen["authen_code"] = hmac_sha256(authen_key, request_content_str); //计算认证码
-        authen["authen_type"] = 1; //hmac_sha256 为1
+Json::Value authen;
+authen["authen_code"] = hmac_sha256(authen_key, request_content_str); //计算认证码
+authen["authen_type"] = 1; //hmac_sha256 为1
 
-        Json::Value authen_info;
-        authen_info["a"] = authen;  //认证码，签名是 s
+Json::Value authen_info;
+authen_info["a"] = authen;  //认证码，签名是 s
 
-        Json::Value request;       //构造最终发给服务器的请求
-        request["request_content"] = request_content_str;
-        request["authen_info"]     = authen_info;
+Json::Value request;       //构造最终发给服务器的请求
+request["request_content"] = request_content_str;
+request["authen_info"]     = authen_info;
 
-        std::string request_str = w.write(request);
+std::string request_str = w.write(request);
 
-        return request_str;
+return request_str;
+```
+
+        
 ### 订单号
 
 **不同设备的唯一性**

@@ -30,3 +30,7 @@
 - Pod 数量上限/Node：决定分配给每个 Node 的 CIDR 的大小。
 >? 腾讯云容器服务 TKE 集群默认创建2个 kube-dns 的 Pod 和1个 l7-lb-controller 的 Pod。
 对于一个 Node 上的 Pod，有三个地址不能分配分别是：网络号，广播地址和网关地址，因此 Node 最大的 Pod 数目 = podMax - 3。
+
+
+
+

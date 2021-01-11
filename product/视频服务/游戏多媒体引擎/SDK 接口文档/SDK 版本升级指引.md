@@ -7,7 +7,7 @@
 ### SDK 更新动态
 **新增功能**
 - 支持实时语音过程中使用离线语音。
-- 支持实时语音过滤，可识别暴恐、涉黄、涉政等信息。
+- 支持实时语音过滤，可识别可能令人反感、不安全或不适宜内容。
 - 支持 H5 实时语音，实现全平台实时语音互通。
 - 新增 Android v8a 架构支持。
 - Android 低延时采集播放适配。
@@ -115,4 +115,12 @@ DownloadRecordedFile
 PlayRecordedFile
 SpeechToText
 ```
+
+## GME 2.5 升级 GME 2.7 
+### 增加接口
+#### PlayRecordedFile(const char* filePath, ITMG_VOICE_TYPE voiceType)
+此接口用于播放带有变声效果的语音消息。
+
+#### SetAccompanyKey(int nKey)
+此接口用于设置实时语音伴奏升降调。
 

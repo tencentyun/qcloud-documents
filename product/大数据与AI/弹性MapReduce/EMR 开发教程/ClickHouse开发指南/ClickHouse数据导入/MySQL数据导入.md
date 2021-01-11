@@ -46,7 +46,6 @@ FLUSH PRIVILEGES;
 ```
 
 ## 数据导入
-
 准备工作完成后，即可使用该工具完成数据从 MySQL 导入到 ClickHouse 集群中。具体步骤如下：
 1. 使用 clickhouse-mysql-data-reader 生成建表 SQL。
 ![](https://main.qcloudimg.com/raw/aca912daf06add4f2bbcfc713c9762dc.jpg)
@@ -56,14 +55,53 @@ FLUSH PRIVILEGES;
 3. 导入增量数据
 ![](https://main.qcloudimg.com/raw/f617557e73c30d7695848af7bf52074a.jpg)
 其中，参数含义如下：
- - **src-host**：MySQL 数据库 IP。
- - **src-user**：MySQL 数据库用户名。
- - **src-password**：MySQL 数据库密码。
- - **create-table-sql-template**：生产 ClickHouse 的建表脚本。
- - **with-create-database**：建表脚本中增加创建数据库语句。
- - **src-tables**：源表（MySQL 表）。
- - **mempool-max-flush-interval**：mempool flush 的时间周期。
- - **src-server-id**：源 MySQL 是否为 master 节点。
- - **src-resume**：断点续传。
- - **src-wait**：等待数据。
- - **nice-pause**：如果没有数据，睡眠的时间间隔。
+<table>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+<tr>
+<td>src-host</td>
+<td>MySQL 数据库 IP</td>
+</tr>
+<tr>
+<td>src-user</td>
+<td>MySQL 数据库用户名</td>
+</tr>
+<tr>
+<td>src-password</td>
+<td>MySQL 数据库密码</td>
+</tr>
+<tr>
+<td>create-table-sql-template</td>
+<td>生产 ClickHouse 的建表脚本</td>
+</tr>
+<tr>
+<td>with-create-database</td>
+<td>建表脚本中增加创建数据库语句</td>
+</tr>
+<tr>
+<td>src-tables</td>
+<td>源表（MySQL 表）</td>
+</tr>
+<tr>
+<td>mempool-max-flush-interval</td>
+<td>mempool flush 的时间周期</td>
+</tr>
+<tr>
+<td>src-server-id</td>
+<td>源 MySQL 是否为 master 节点</td>
+</tr>
+<tr>
+<td>src-resume</td>
+<td>断点续传</td>
+</tr>
+<tr>
+<td>src-wait</td>
+<td>等待数据</td>
+</tr>
+<tr>
+<td>nice-pause</td>
+<td>如果没有数据，睡眠的时间间隔</td>
+</tr>
+</table>

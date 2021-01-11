@@ -1,18 +1,18 @@
 
-本文为您介绍通过数据传输服务 DTS，迁移 MySQL 5.7 数据库至云数据库 CynosDB（CynosDB for MySQL）的过程。
+本文为您介绍通过数据传输服务 DTS，迁移 MySQL 5.7 数据库至云原生数据库 TDSQL-C（原 CynosDB）的过程。
 
 ## 准备事项
 <span id = "zhqxyjc"></span>
-#### 账号权限预检查
-出于对用户源数据库的数据安全考虑，DTS 在迁移过程中会遵循最小权限原则，仅需要必要的权限。若用户迁移中使用的账号超出 DTS 迁移所需的权限，DTS 会给出警告，且迁移无法开始。
-因此建议用户在源 MySQL 数据库上创建迁移专用账号，并进行如下授权：
+#### 帐号权限预检查
+出于对用户源数据库的数据安全考虑，DTS 在迁移过程中会遵循最小权限原则，仅需要必要的权限。若用户迁移中使用的帐号超出 DTS 迁移所需的权限，DTS 会给出警告，且迁移无法开始。
+因此建议用户在源 MySQL 数据库上创建迁移专用帐号，并进行如下授权：
 ```  	
-# 在源数据库上创建迁移账号（如 username），并进行相应授权：
+# 在源数据库上创建迁移帐号（如 username），并进行相应授权：
 create user 'username'@'%' identified by 'password';
 grant RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,LOCK TABLES,PROCESS on *.* to 'username'@'%';
 grant ALL PRIVILEGES on `__tencentdb__`.* to 'username'@'%';
-grant SELECT on *.* to 'username'@'%';			
-FLUSH PRIVILEGES;	
+grant SELECT on *.* to 'username'@'%';            
+FLUSH PRIVILEGES;
 ```
 
 ## 操作步骤
@@ -33,11 +33,11 @@ FLUSH PRIVILEGES;
 - 源库类型：选择 MySQL。
 - 接入类型：支持有公网 IP、云服务器自建、专线接入、VPN 接入等多种 MySQL  源库类型，本文以云数据库 MySQL 为例。
 - 数据库实例：选择 MySQL 5.7 数据库实例。
-- 账号：在源库上预先创建的迁移专用账号。
+- 帐号：在源库上预先创建的迁移专用帐号。
 
 #### c. 目标库设置
 - 目标库类型：选择 CynosDB for MySQL。
-- 数据库实例：选择目标数据库实例，并输入目标库上的账号及密码。
+- 数据库实例：选择目标数据库实例，并输入目标库上的帐号及密码。
 ![](https://main.qcloudimg.com/raw/024ac636a6c311938c026a3fb0e8e0a8.png)
 
 ### 3. 选择迁移选项和迁移对象
@@ -46,7 +46,7 @@ FLUSH PRIVILEGES;
 - **迁移对象**：支持整个实例迁移和指定对象迁移。
 >!
 >1. 目前仅支持 Table（及其 Index）和 View 两类数据对象的迁移；即使选择整个实例迁移，也仅支持前述两类数据对象。
->2. 源实例的参数设置、账号、系统库表等不在迁移范围内。
+>2. 源实例的参数设置、帐号、系统库表等不在迁移范围内。
 >3. DTS 不做 View 的依赖合法性检查和依赖的自动选择。请用户迁移 View 时，注意同时选择 View 所依赖的对象，否则迁移可能失败。
 >4. 在增量迁移的过程中：
 >  - 如果源库上选定的迁移对象之中执行了支持的 DDL 操作（包括 CREATE TABLE、ALTER TABLE、RENAME TABLE、TRUNCATE TABLE、DROP TABLE、CREATE VIEW、DROP VIEW、CREATE INDEX、DROP INDEX），则对应的结构变化及其中的数据变化也同样会在目标库中执行。
@@ -61,7 +61,7 @@ FLUSH PRIVILEGES;
 - 如果校验通过，单击【启动任务】。
 ![](https://main.qcloudimg.com/raw/d5f491b52a3daa6dabec548d33ed877c.png)
 - 如果校验失败，请根据出错的校验项，单击【查看详情】，并根据提示采取对应调整，然后重试校验。
->?在查询校验结果部分，可能出现“源实例权限检查”不通过的情况（如下图），失败原因及解决办法请参考上文 [账号权限预检查](#zhqxyjc)。
+>?在查询校验结果部分，可能出现“源实例权限检查”不通过的情况（如下图），失败原因及解决办法请参考上文 [帐号权限预检查](#zhqxyjc)。
 >
 ![](https://main.qcloudimg.com/raw/f5efed3e8a80bcb157a2046a033e27ce.png)
 

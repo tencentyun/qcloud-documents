@@ -37,12 +37,17 @@ ssh <username>@<hostname or IP address>
 ### 使用密钥登录
 
 1. 执行以下命令，赋予私钥文件仅本人可读权限。
->? 如果您的本地电脑为 Mac OS 系统，需先打开系统自带的终端（Terminal），再执行以下命令。
-> 如果您的本地电脑为 Linux 系统，可直接执行以下命令。
-> 如果您的本地电脑为 Windows 10 或 Windows Server 2019 系统，需先打开命令提示符（CMD），再执行以下命令。
->
+ - 如果您的本地电脑为 Mac OS 系统，需先打开系统自带的终端（Terminal），再执行以下命令。
+ - 如果您的本地电脑为 Linux 系统，可直接执行以下命令。
 ```
 chmod 400 <下载的与云服务器关联的私钥的绝对路径>
+```
+ - 如果您的本地电脑为 Windows 10 系统，需先打开命令提示符（CMD），再依次执行以下命令。
+```
+icacls <下载的与云服务器关联的私钥的绝对路径> /grant <Windows 系统用户帐户>:F
+```
+```
+icacls <下载的与云服务器关联的私钥的绝对路径> /inheritancelevel:r
 ```
 2. 执行以下命令，进行远程登录。
 ```
@@ -51,7 +56,7 @@ ssh -i <下载的与云服务器关联的私钥的绝对路径> <username>@<host
  - `username` 即为前提条件中获得的默认帐号。
  - `hostname or IP address` 为您的 Linux 实例公网 IP 或自定义域名。
 
- 例如，执行 `ssh -i "Mac/Downloads/shawn_qcloud_stable" ubuntu@192.168.11.123` 命令，远程登录 Linux 云服务器。
+ 例如，执行 `ssh -i "Mac/Downloads/shawn_qcloud_stable.pem" ubuntu@192.168.11.123` 命令，远程登录 Linux 云服务器。
 
 ## 后续操作
 

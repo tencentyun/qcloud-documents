@@ -2,6 +2,10 @@
 - [CentOS 7.2 64](http://toamodule-1253438722.file.myqcloud.com/CentOS%207.2%2064.zip)
 - [CentOS 7.3 64](http://toamodule-1253438722.file.myqcloud.com/CentOS%207.3%2064.zip)
 - [CentOS 7.4 64](http://toamodule-1253438722.file.myqcloud.com/CentOS%207.4%2064.zip)
+- [CentOS 7.5 64](http://toamodule-1253438722.file.myqcloud.com/CentOS-7.5-64.zip)
+- [CentOS 7.6 64](http://toamodule-1253438722.file.myqcloud.com/CentOS-7.6-64.zip)
+- [CentOS 7.7 64](http://toamodule-1253438722.file.myqcloud.com/CentOS-7.7-64.zip)
+- [CentOS 7.8 64](http://toamodule-1253438722.file.myqcloud.com/CentOS-7.8-64.zip)
 - [Debian 8.2 64](http://toamodule-1253438722.file.myqcloud.com/Debian%208.2%2064.zip)
 - [Debian 9.0 64](http://toamodule-1253438722.file.myqcloud.com/Debian%209.0%2064.zip) 
 - [SUSE Linux Enterprise Server 11 SP3 64](http://toamodule-1253438722.file.myqcloud.com/SUSE%20Linux%20Enterprise%20Server%2011%20SP3%2064.zip)
@@ -38,7 +42,7 @@ yum install kernel-devel
 ```
 3. 加载 toa.ko 文件
 ```
-tar -zxvf linux_toa.tar.gz
+unzip linux_toa.zip
 cd toa
 make
 mv toa.ko /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko

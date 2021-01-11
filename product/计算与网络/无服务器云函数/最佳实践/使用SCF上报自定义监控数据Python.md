@@ -135,3 +135,6 @@ zip project.zip * -r
 
 ### 步骤8：配置告警
 您可参考 [配置告警策略](https://cloud.tencent.com/document/product/397/40223) 为函数配置告警。
+
+
+

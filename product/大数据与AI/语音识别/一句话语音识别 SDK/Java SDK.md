@@ -42,7 +42,7 @@ public class SentenceRecognition
             
             AsrClient client = new AsrClient(cred, "ap-shanghai", clientProfile);
             
-            String params = "{\"ProjectId\":0,\"SubServiceType\":2,\"EngSerViceType\":\"16k\",\"SourceType\":0,\"Url\":\"https://ruskin-1256085166.cos.ap-guangzhou.myqcloud.com/test.wav\",\"VoiceFormat\":\"wav\",\"UsrAudioKey\":\"session-123\"}";
+            String params = "{\"ProjectId\":0,\"SubServiceType\":2,\"EngSerViceType\":\"16k_zh\",\"SourceType\":0,\"Url\":\"https://asr-audio-1300466766.cos.ap-nanjing.myqcloud.com/test16k.wav\",\"VoiceFormat\":\"wav\",\"UsrAudioKey\":\"session-123\"}";
             SentenceRecognitionRequest req = SentenceRecognitionRequest.fromJsonString(params, SentenceRecognitionRequest.class);
             
             SentenceRecognitionResponse resp = client.SentenceRecognition(req);
@@ -95,7 +95,7 @@ public class SentenceRecognition
             clientProfile.setSignMethod("TC3-HMAC-SHA256");  
             AsrClient client = new AsrClient(cred, "ap-shanghai", clientProfile);
             
-            String params = "{\"ProjectId\":0,\"SubServiceType\":2,\"EngSerViceType\":\"16k\",\"SourceType\":1,\"Url\":\"\",\"VoiceFormat\":\"wav\",\"UsrAudioKey\":\"session-123\"}";
+            String params = "{\"ProjectId\":0,\"SubServiceType\":2,\"EngSerViceType\":\"16k_zh\",\"SourceType\":1,\"Url\":\"\",\"VoiceFormat\":\"wav\",\"UsrAudioKey\":\"session-123\"}";
             SentenceRecognitionRequest req = SentenceRecognitionRequest.fromJsonString(params, SentenceRecognitionRequest.class);
        
             File file = new File("/Users/ruskinli/eclipse-workspace/TencentSentence/src/test.wav");
@@ -118,4 +118,3 @@ public class SentenceRecognition
     
 }
 ```
-

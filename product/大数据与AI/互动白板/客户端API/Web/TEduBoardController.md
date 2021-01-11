@@ -237,6 +237,19 @@ void setToolType(TEduBoardToolType type)
 | type | TEduBoardToolType | 【必填】要设置的白板工具  |
 
 
+### setNextTextInput
+预设文本工具内容 
+``` Javascript
+void setNextTextInput(String textContent, bool keepFocus)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| textContent | String | 【非必填】预设文本内容  |
+| keepFocus | bool | 【非必填】是否继续保持焦点  |
+
+
 ### getToolType
 获取正在使用的白板工具 
 ``` Javascript
@@ -257,6 +270,19 @@ void setCursorIcon(TEduBoardToolType toolType, TEduBoardCursorIcon cursorIcon)
 | --- | --- | --- |
 | toolType | TEduBoardToolType | 【必填】要设置鼠标样式的白板工具类型  |
 | cursorIcon | TEduBoardCursorIcon | 【必填】要设置的鼠标样式  |
+
+
+### setZoomCursorIcon
+自定义缩放工具的图标 
+``` Javascript
+void setZoomCursorIcon(TEduBoardCursorIcon zoomInCursorIcon, TEduBoardCursorIcon zoomOutCursorIcon)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| zoomInCursorIcon | TEduBoardCursorIcon | 放大工具图标  |
+| zoomOutCursorIcon | TEduBoardCursorIcon | 缩小工具图标  |
 
 
 ### setBrushColor
@@ -1145,6 +1171,22 @@ Boolean isHandwritingEnable()
 ```
 #### 返回
 是否开启笔锋 
+
+
+### addElement
+添加白板元素 
+``` Javascript
+String addElement(TEduBoardElementType type, String url)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| type | TEduBoardElementType | 元素类型，当设置 TEduBoard.TEduBoardElementType.TEDU_BOARD_ELEMENT_IMAGE 时，等价于 addImageElement 方法  |
+| url | String |   |
+
+#### 返回
+元素ID 1.支持设置在线图片，url 只支持 https 协议图片的url。 2.也支持从本地上传一个图片，此时 url 为 object 对象： （1）url.data 【必填】文件对象，一般为 document.getElementById('uploadFile').files[0]。 （2）url.userData 【必填】透传数据，会在文件上传进度回调中带回 
 
 
 ### refresh

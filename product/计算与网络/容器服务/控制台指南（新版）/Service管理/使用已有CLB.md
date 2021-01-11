@@ -12,13 +12,13 @@
 ## 使用已有负载均衡同步腾讯云标签行为
 - 默认情况下，Service 创建的 CLB 均会配置 `tke-createdBy-flag = yes` 标签，Service 会在销毁时删除对应资源。若使用已有 CLB，则不会配置该标签，Service 销毁时也不会删除对应资源。
 - 所有 Service 均会配置 `tke-clusterId = ` 标签，若 ClusterId 正确，则 Service 会在销毁时删除对应标签。
-- 于2020年7月27日起创建的集群，将默认关闭多个 Service 复用相同 CLB 的功能。该日期前后集群内 Service 创建的 CLB 标签配置规则变更情况及详细信息，请参见  [多 Service 复用 CLB](https://cloud.tencent.com/document/product/457/46370)。
+- 于2020年8月17日起创建的集群，将默认关闭多个 Service 复用相同 CLB 的功能。该日期前后集群内 Service 创建的 CLB 标签配置规则变更情况及详细信息，请参见  [多 Service 复用 CLB](https://cloud.tencent.com/document/product/457/46370)。
 
 
 
 
 ## 注意事项
-- 指定使用的负载均衡需和集群处于同一地域。
+- 指定使用的负载均衡需和集群处于同一 VPC。
 - 请确保您的容器业务不和云服务器 CVM 业务共用一个负载均衡。
 - 不支持您在负载均衡控制台操作 TKE 所管理负载均衡的监听器和后端绑定的服务器，您的更改会被 TKE 的自动同步所覆盖。
 - 使用已有的负载均衡时：
@@ -89,7 +89,7 @@ spec:
   ports:
     - name: 80-80-udp
       port: 80
-      protocol: UCP
+      protocol: UDP
       targetPort: 80
   selector:
     app: game

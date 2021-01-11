@@ -6,7 +6,7 @@
 <dependency>
     <groupId>com.tencent.tsf</groupId>
     <artifactId>spring-cloud-tsf-auth</artifactId>
-    <version><!-- 调整为 SDK 最新版本号 --></version>
+    <version><!-- 调整为历史版本 SDK 版本号 --></version>
 </dependency>
 ```
 
@@ -31,7 +31,7 @@ public class ProviderApplication {
 <dependency>
     <groupId>com.tencent.tsf</groupId>
     <artifactId>spring-cloud-tsf-ratelimit</artifactId>
-    <version><!-- 调整为 SDK 最新版本号 --></version>
+    <version><!-- 调整为历史版本 SDK 版本号 --></version>
 </dependency>
 ```
 
@@ -55,7 +55,7 @@ public class ProviderApplication {
 <dependency>
     <groupId>com.tencent.tsf</groupId>
     <artifactId>spring-cloud-tsf-route</artifactId>
-    <version><!-- 调整为 SDK 最新版本号 --></version> 
+    <version><!-- 调整为历史版本 SDK 版本号 --></version> 
 </dependency>
 ```
 2. 向 Application 类中添加注解 `@EnableTsfRoute`：
@@ -78,7 +78,7 @@ public class ProviderApplication {
 <dependency>
   <groupId>com.tencent.tsf</groupId>
   <artifactId>spring-cloud-tsf-consul-config</artifactId>
-  <version><!-- 调整为 SDK 最新版本号 --></version>
+  <version><!-- 调整为历史版本 SDK 版本号 --></version>
 </dependency>
  <!-- 1.12.0之前（不包含1.12.0）版本 SDK，使用分布式配置自动刷新功能时，要添加 actuator 的依赖包
 <dependency>
@@ -95,7 +95,7 @@ public class ProviderApplication {
 <dependency>
 	<groupId>com.tencent.tsf</groupId>
 	<artifactId>spring-cloud-tsf-sleuth</artifactId>
-	<version><!-- 调整为 SDK 最新版本号 --></version>
+	<version><!-- 调整为历史版本 SDK 版本号 --></version>
 </dependency>
 ```
 
@@ -107,7 +107,7 @@ public class ProviderApplication {
 <dependency>
     <groupId>com.tencent.tsf</groupId>
     <artifactId>spring-cloud-tsf-monitor</artifactId>
-    <version><!-- 调整为 SDK 最新版本号 --></version>
+    <version><!-- 调整为历史版本 SDK 版本号 --></version>
 </dependency>
 ```
 
@@ -117,7 +117,7 @@ public class ProviderApplication {
    <dependency>
        <groupId>com.tencent.tsf</groupId>
        <artifactId>spring-cloud-tsf-sleuth</artifactId>
-       <version><!-- 调整为 SDK 最新版本号 --></version>
+       <version><!-- 调整为历史版本 SDK 版本号 --></version>
    </dependency>
    ```
 
@@ -141,7 +141,7 @@ public class ProviderApplication {
 <dependency>
     <groupId>com.tencent.tsf</groupId>
     <artifactId>spring-cloud-tsf-swagger</artifactId> 
-    <version><!-- 调整为 SDK 最新版本号 --></version>
+    <version><!-- 调整为历史版本 SDK 版本号 --></version>
     <scope>compile</scope>
 </dependency>
 ```

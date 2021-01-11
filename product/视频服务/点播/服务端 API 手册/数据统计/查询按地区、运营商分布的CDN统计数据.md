@@ -54,7 +54,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=DescribeCdnRegionIspDetailStat
 | data.statType | String  | CDN 统计数据类型，和请求的 statType 参数一致。      |
 | data.hostData | Array   | 每个域名的统计数据，请参见 [HostRegionIspStatData](#p1)。 |
 
-#### <span id = "p1"></span>HostRegionIspData 数据说明
+#### [](id:p1)HostRegionIspData 数据说明
 | 参数名称                    | 类型   | 说明                                               |
 | --------------------------- | ------ | -------------------------------------------------- |
 | host                        | String | 域名。                                               |
@@ -65,14 +65,14 @@ https://vod.api.qcloud.com/v2/index.php?Action=DescribeCdnRegionIspDetailStat
 | regionIspData.ispZhName     | String | 运营商中文名称。                                     |
 | regionIspData.statData      | Array  | 统计数据列表，每5分钟汇总一个统计数据，请参见 [StatData](#p2)。 |
 
-#### <span id = "p2"></span>StatData 数据说明
+#### [](id:p2)StatData 数据说明
 | 参数名称  | 类型    | 说明                          |
 | --------- | ------- | ----------------------------- |
 | timeStamp | Integer | 统计数据所属时间，Unix 时间戳。 |
 | value     | Integer | 统计项数值。                    |
 
 
-#### <span id="regionNameList">地区名称映射</span>
+#### [](id:regionNameList)地区名称映射
 | 英文名称              | 中文名称 |
 | --------------------- | -------- |
 | Anhui                 | 安徽     |
@@ -110,8 +110,8 @@ https://vod.api.qcloud.com/v2/index.php?Action=DescribeCdnRegionIspDetailStat
 | Oversea               | 海外     |
 | Other                 | 其它     |
 
- 
-#### <span id="ispNameList">运营商名称映射</span>
+
+#### 运营商名称映射[](id:ispNameList)
 | 英文名称                     | 中文名称   |
 | ---------------------------- | ---------- |
 | China Unicom                 | 中国联通   |

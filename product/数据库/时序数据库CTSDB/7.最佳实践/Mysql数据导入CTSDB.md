@@ -1,3 +1,4 @@
+
 ## 前言 
 CTSDB 是一款分布式、可扩展、支持近实时数据搜索与分析的时序数据库，且兼容 Elasticsearch 常用的 API 接口。对于很多用户，想要将 MySQL 中的数据导入到 CTSDB 中，而又找不到一种较好的方法，这里给出一种简单快捷的方式，轻松将 MySQL 中的数据同步到 CTSDB。
 
@@ -19,7 +20,7 @@ go-mysql-elasticsearch 是一款开源的高性能的 MySQL 数据同步 Elastic
 	| region    | varchar(20) | YES  |     | NULL    |                |
 	+-----------+-------------+------+-----+---------+----------------+
 ```
-以上创建了一个名为 test_table 的表，然后向该表灌入 2000 条样例数据，部分数据如下所示： 
+以上创建了一个名为 test_table 的表，然后向该表灌入2000条样例数据，部分数据如下所示： 
 ```
     mysql> select * from test_table;
     +------+------------+-----------+-------------+-----------+
@@ -189,9 +190,9 @@ go-mysql-elasticsearch 是一款开源的高性能的 MySQL 数据同步 Elastic
 ```
 
 ## 小结 
-可以看到，使用 go-mysql-elasticsearch，仅需要在配置文件里面写规则，就能非常方便的将数据从 MySQL 同步给 ES。上面仅仅举了一些简单的例子，如果有更多的需求可以参考 go-mysql-elasticsearch的官方文档。
+可以看到，使用 go-mysql-elasticsearch，仅需要在配置文件里面写规则，就能非常方便的将数据从 MySQL 同步给 ES。上面仅举了一些简单的例子，如果有更多的需求可以参考 go-mysql-elasticsearch的官方文档。
 
 除了本文所介绍的工具外，这里再推荐两种工具，
 - 一个是 py-mysql-elasticsearch-sync，该工具是使用 Python语言编写，与go-mysql-elasticsearch的原理类似，都是利用 binlog 来实现数据的同步，安装及使用见 [官方文档 ](https://github.com/zhongbiaodev/py-mysql-elasticsearch-sync)。
 - 另一个工具是 logstash，使用 logstash 同步数据时需要安装 logstash-input-jdbc、logstash-output-elasticsearch 两个插件，具体使用参考 [官方文档](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-jdbc.html)  、[elastic 官方文档](https://www.elastic.co/guide/en/logstash/current/plugins-outputs-elasticsearch.html) 。
-如果您在使用上述工具中遇到问题，欢迎提工单联系我们。
+如果您在使用上述工具中遇到问题，可 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。

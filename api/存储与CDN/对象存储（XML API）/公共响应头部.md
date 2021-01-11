@@ -23,7 +23,7 @@
    <tr>
       <td>Connection</td>
       <td>RFC 2616 中定义，表明响应完成后是否会关闭网络连接。枚举值：keep-alive，close。</td>
-      <td>Enum</td>
+      <td>enum</td>
    </tr>
    <tr>
       <td>Date</td>

@@ -150,6 +150,39 @@ https://console.tim.qq.com/v4/group_open_http_svc/send_group_msg?sdkappid=888888
     ]
 }
 ```
+- **发送群@消息**
+  GroupAtInfo字段里面设置@的用户，跟消息体里面@的用户按顺序逐一对应。
+
+  ```
+      {
+          "GroupId": "@TGS#2C5SZEAEF",
+          "Random": 8912345, // 随机数字，五分钟数字相同认为是重复消息
+          "MsgBody": [ // 消息体，由一个 element 数组组成，详见字段说明
+              {
+                  "MsgType": "TIMTextElem", // 文本
+                  "MsgContent": {
+                      "Text": "red @all @tommy @brennanli packet"
+                  }
+              }
+          ],
+          //对应文本信息里的@all @tommy @brennanli
+          "GroupAtInfo":[
+          {
+              "GroupAtAllFlag":1 //为1表示@all,为0表示@某个群成员
+          },
+          {
+              "GroupAtAllFlag":0,
+              "GroupAt_Account":"tommy" //@的具体的群成员
+          },
+          {
+              "GroupAtAllFlag":0,
+              "GroupAt_Account":"brennanli"
+          }
+  	 ]    
+      }
+  ```
+
+
 - **指定消息不存离线及漫游**
 如果消息体中指定 OnlineOnlyFlag，只要值大于0，则消息表示只在线下发，不存离线和漫游（AVChatRoom 和 BChatRoom 不允许使用）。
 ```

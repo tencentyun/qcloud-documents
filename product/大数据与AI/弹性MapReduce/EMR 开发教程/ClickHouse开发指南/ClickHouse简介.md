@@ -1,4 +1,4 @@
-腾讯云弹性 MapReduce（EMR）-ClickHouse 提供开源列式数据库 ClickHouse 的云上托管服务，提供了便捷的 ClickHouse 集群部署、配置修改、监控告警等功能，为企业及用户提供安全稳定的 OLAP 解决方案。ClickHouse 具备极佳的查询性能，非常适合数据在线查询分析场景。
+腾讯云弹性 MapReduce（EMR）- ClickHouse 提供开源列式数据库 ClickHouse 的云上托管服务，提供了便捷的 ClickHouse 集群部署、配置修改、监控告警等功能，为企业及用户提供安全稳定的 OLAP 解决方案。ClickHouse 具备极佳的查询性能，非常适合数据在线查询分析场景。
 
 ## ClickHouse 功能特征
 
@@ -12,7 +12,7 @@
 
 ### 数据
 
-弹性 MapReduce（EMR）-ClickHouse 提供了完整的数据导入导出支持，可方便地将数据从 COS、HDFS、KAFKA、MySQL 等其他数据源导入或导出到 ClickHouse 集群。
+弹性 MapReduce（EMR）- ClickHouse 提供了完整的数据导入导出支持，可方便地将数据从 COS、HDFS、KAFKA、MySQL 等其他数据源导入或导出到 ClickHouse 集群。
 
 ## ClickHouse 优势
 

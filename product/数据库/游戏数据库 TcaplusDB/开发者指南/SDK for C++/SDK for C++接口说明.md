@@ -2,10 +2,10 @@
 TcaplusDB 服务化 API 是应用访问游戏数据库 TcaplusDB 的数据访问入口，是应用存取游戏数据库 TcaplusDB 中业务数据的编程接口。当前 TcaplusDB 主要使用基于 Google Protocol Buffer（Protobuf） 做通讯和数据元定义协议。
 
 ## 流程
-您在 [控制台](https://console.cloud.tencent.com/tcaplusdb/table) 开通业务创建完表后，详情页会提供接入ID，访问密码，内网 IP 地址，以及 Protobuf 表管理页会提供已经创建的表名称和表格组 ID 等信息。使用 TcaplusDB C++ API，应用可以操作属于此集群下的多个表。
+您在 [控制台](https://console.cloud.tencent.com/tcaplusdb/table) 开通业务创建完表后，详情页会提供接入ID，访问密码，内网 IPV4 地址，以及 Protobuf 表管理页会提供已经创建的表名称和表格组 ID 等信息。使用 TcaplusDB C++ API，应用可以操作属于此集群下的多个表。
 
 ## 模块
-您可以使用 Protobuf 协议来定义符合 TcaplusDB 规范的表，将表定义的元文件传到 TcaplusDB 控制台中进行创建新表或修改已经存在的表，成功后即可通过 TcaplusDB Protobuf API 进行表数据记录的读写操作，当前 TcaplusDB Protobuf API 支持的操作如下表：
+您可以 Protobuf 协议来定义符合 TcaplusDB 规范的表，将表定义的元文件传到 TcaplusDB 控制台中进行创建新表或修改已经存在的表，成功后即可通过 TcaplusDB Protobuf API 进行表数据记录的读写操作，当前 TcaplusDB Protobuf API 支持的操作如下表：
 
 | 操作 | 功能描述 |
 |---------|---------|
@@ -144,6 +144,7 @@ extend google.protobuf.FieldOptions
 - 如果待查询的字段原记录中不存在，则会返回字段默认值。
 
 ### BatchGet 操作约束
+- 批量查询操作必须经由 tcaproxy 进行消息路由处理，tcapsvr 进程不支持批量查询操作。
 - 一个批量查询请求返回一个批量查询结果，批量查询的超时时间为10秒。
 - 批量查询结果记录数同请求中记录数，查询不存在或者查询失败的记录也会在结果集中存在一条空的记录，因此需要通过 FetchRecord 进行记录获取。
 - 批量查询结果集总大小不能超过256K，否则超过大小记录内容会无法返回，会返回空记录内容。

@@ -47,7 +47,8 @@ COS API 授权策略（policy）是一种 JSON 字符串。例如，授予 APPID
 ```
 
 <a id="policy"></a>
-#### 授权策略（policy）元素说明
+
+## 授权策略（policy）元素说明
 
 | 名称     | 描述                                                         |
 | -------- | ------------------------------------------------------------ |
@@ -59,7 +60,7 @@ COS API 授权策略（policy）是一种 JSON 字符串。例如，授予 APPID
 
 下面列出了各 COS API 设置授权策略的示例。
 
-## Service API 
+## Service API
 
 ### 查询存储桶列表
 
@@ -90,11 +91,16 @@ API 接口为 GET Service，若授予其操作权限，则策略的 action 为 n
 
 Bucket API 策略的 resource 可以归纳为以下几种情况：
 
-- 可操作任意地域的存储桶，策略的 resource 为`*`。
-- 只可操作指定地域的存储桶，如只可操作 APPID 为1250000000 ，地域为 ap-beijing 的存储桶 examplebucket-1250000000，则策略的 resource 为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*`。
-- 只可操作指定地域且指定名称的存储桶，如只可操作 APPID 为1250000000 ，地域为 ap-beijing 且名称为 examplebucket-1250000000 的存储桶， 则策略的 resource 为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/`。
+- 操作全部地域的存储桶
+则策略的 resource 为`*`，**该策略限定的资源范围，存在由于权限范围过大导致数据安全风险，请谨慎配置**。
 
-Bucket API 策略的 action 则因操作不同而取值不同，以下列举所有 Bucket API 授权策略。
+- 仅允许操作指定地域的存储桶
+例如只允许操作 APPID 为1250000000，地域归属于北京（ap-beijing）的存储桶 examplebucket-1250000000，则策略的 resource 为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/*`。
+
+- 仅允许操作指定地域且指定名称的存储桶
+例如只可操作 APPID 为1250000000，地域为 ap-beijing 且名称为 examplebucket-1250000000 的存储桶，则策略的 resource 为`qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/`。
+
+Bucket API 策略的 action 则因操作不同而取值不同，以下列举部分 Bucket API 授权策略，其他 Bucket API 授权策略可作参照。
 
 ### 创建存储桶 
 
@@ -102,7 +108,7 @@ API 接口为 PUT Bucket，若授予其操作权限，则策略的 action 为 na
 
 #### 示例 
 
-授予可在 APPID 为1250000000 ，地域为 ap-beijing 中创建任意名称的存储桶的操作权限， 其策略详细内容如下：
+授予用户 APPID 为1250000000，创建存储桶的权限。例如创建一个地域为北京地域，存储桶名称为 examplebucket-1250000000 的存储桶，则策略详细内容如下：
 
 ```shell
 {
@@ -120,6 +126,8 @@ API 接口为 PUT Bucket，若授予其操作权限，则策略的 action 为 na
   ]
 }
 ```
+
+>?存储桶名称需符合命名规范，详情请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
 
 ### 检索存储桶及其权限  
 
@@ -397,32 +405,6 @@ API 接口为 DELETE Bucket lifecycle，若授予其操作权限，则策略的 
 }
 ```
 
-### 查询分块上传
-
-查询存储桶中正在分块上传信息，若授予其操作权限，则策略的 action 为 name/cos:ListMultipartUploads。
-
-#### 示例 
-
-授予只能查询 APPID 为1250000000 ，地域为 ap-beijing  ，存储桶为 examplebucket-1250000000 中的正在分块上传信息的操作权限，其策略详细内容如下：
-
-```shell
-{
-  "version": "2.0",
-  "statement": [
-    {
-      "action": [
-        "name/cos:ListMultipartUploads"
-      ],
-      "effect": "allow",
-      "resource": [
-        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
-      ]
-    }
-  ]
-}
-```
-
-
 
 ## Object API
 
@@ -490,6 +472,32 @@ API 接口为 PUT Object，若授予其操作权限，则策略的 action为 nam
   ]
 }
 ```
+
+### 查询分块上传
+
+查询存储桶中正在分块上传信息，若授予其操作权限，则策略的 action 为 name/cos:ListMultipartUploads。
+
+#### 示例 
+
+授予只能查询 APPID 为1250000000 ，地域为 ap-beijing  ，存储桶为 examplebucket-1250000000 中的正在分块上传信息的操作权限，其策略详细内容如下：
+
+```shell
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "action": [
+        "name/cos:ListMultipartUploads"
+      ],
+      "effect": "allow",
+      "resource": [
+        "qcs::cos:ap-beijing:uid/1250000000:examplebucket-1250000000/"
+      ]
+    }
+  ]
+}
+```
+
 
 ### 表单上传对象
 
@@ -720,7 +728,7 @@ API 接口为 OPTIONS Object，若授予其操作权限，则策略的 action �
 
 ### 恢复归档对象
 
-API 接口为 Post Object Restore，若其作权限，则策略的 action 为 name/cos:PostObjectRestore。
+API 接口为 Post Object Restore，若授予其操作权限，则策略的 action 为 name/cos:PostObjectRestore。
 
 #### 示例 
 

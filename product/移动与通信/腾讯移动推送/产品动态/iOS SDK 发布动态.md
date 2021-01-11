@@ -1,4 +1,71 @@
-## 2020年7月
+## 2020年11月
+
+<table>
+ <tr>
+ <th width=20%>动态名称 </th>
+ <th width=44%>动态描述 </th>
+ <th width=16%>发布时间 </th>
+ <th width=20%>相关文档 </th>
+ </tr>
+ <tr>
+ <td>SDK 1.2.9.0 版本发布 </td>
+ <td> <li>修复：富媒体通知可能下载图片失败的问题
+ <li>修复：App 在后台时，TPNS 通道可能在线的问题
+ <li>修复：1.2.5.2以前版本，可能出现 TPNS token 重复的问题
+ <li>修复：可能建立长连接失败的问题
+ <li>修复：“应用内消息”和个别 SDK 命名冲突的问题
+ <li>优化：本地缓存的性能
+ <li>优化：App 通知开关状态的上报时机
+ <li>优化：弱网下的长连接处理机制
+ <li>优化：账号相关接口
+ <li>优化：TPNS Demo 的代码示例
+ <li> 增加：本地通知功能
+ <li>增加：对 IPv6 的支持
+ <li>删除：对免费版的兼容代码 </td>
+ <td>2020-11-25 </td>
+ <td> <a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载 </a> </li> </td>
+ </tr>
+ </table>
+
+
+## 2020年10月
+
+<table>
+ <tr>
+ <th width=20%>动态名称 </th>
+ <th width=44%>动态描述 </th>
+ <th width=16%>发布时间 </th>
+ <th width=20%>相关文档 </th>
+ </tr>
+ <tr>
+ <td>SDK 1.2.8.1 版本发布 </td>
+ <td>修复已知问题 </td>
+ <td>2020-10-29 </td>
+ <td>- </td>
+ </tr>
+ </table>
+
+
+
+## 2020年09月
+
+<table>
+<tr>
+    <th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+</tr>
+    <tr>
+        <td>SDK 1.2.8.0 版本发布</td>
+				<td><li> 新增「<b>用户属性</b>」相关接口，用于个性化推送</li><li> 新增「<b>应用内消息</b>」功能，以及若干应用内消息模板</li><li>修复已知问题</li></td>
+        <td>2020-09-27</td>
+        <td>-</li></td>
+    </tr>        
+</table>
+
+
+## 2020年07月
 
 <table>
 <tr>
@@ -11,13 +78,13 @@
         <td>SDK 1.2.7.2 版本发布</td>
         <td><li> 增加自定义事件上报功能</li><li> 提升“抵达数”上报的成功率</li><li>修复已知问题</li></td>
         <td>2020-07-23</td>
-        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></li></td>
+        <td>-</a></li></td>
     </tr>        
 </table>
 
 
 
-## 2020年5月
+## 2020年05月
 
 <table>
 <tr>
@@ -35,7 +102,7 @@
 </table>
 
 
-## 2020年4月
+## 2020年04月
 
 <table>
 <tr>
@@ -53,7 +120,7 @@
 </table>
 
 
-## 2020年3月
+## 2020年03月
 
 <table>
 <tr>
@@ -77,7 +144,7 @@
 </table>
 
 
-## 2020年2月
+## 2020年02月
 
 <table>
 <tr>
@@ -95,7 +162,7 @@
 </table>
 
 
-## 2020年1月
+## 2020年01月
 
 <table>
 <tr>
@@ -209,7 +276,7 @@
 </table>
 
 
-## 2019年9月
+## 2019年09月
 
 <table>
 <tr>
@@ -250,14 +317,14 @@
     </tr>
     <tr>
         <td>SDK 1.2.1.0 版本发布</td>
-        <td><li> 新增查询信鸽服务生成的 Token 接口</li><li> 修复单账号绑定失败的问题</li></td>
+        <td><li> 新增查询 TPNS 服务生成的 Token 接口</li><li> 修复单账号绑定失败的问题</li></td>
         <td>2019-08-08</td>
         <td>-</td>
     </tr>
 </table>
 
 
-## 2019年7月
+## 2019年07月
 
 <table>
 <tr>

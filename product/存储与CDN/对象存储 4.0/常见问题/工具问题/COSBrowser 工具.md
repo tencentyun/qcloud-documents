@@ -7,6 +7,10 @@ COSBrowser 是腾讯云对象存储 COS 推出的可视化界面工具，让您�
 
 下载地址和使用说明请参见 [COSBrowser 简介](https://cloud.tencent.com/document/product/436/11366)。
 
+### CentOS 图形界面双击无法启动 COSBrowser 客户端？
+
+可以通过在终端运行 `./cosbrowser.AppImage --no-sandbox` 命令启动客户端。
+
 
 ### 子账号登录 COSBrowser，为什么不显示存储路径？
 

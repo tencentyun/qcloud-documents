@@ -1,7 +1,7 @@
 ## 1. 获取迁移工具  
  [点此获取](https://go2tencentcloud-1251783334.cos.ap-guangzhou.myqcloud.com/latest/go2tencentcloud.zip) 迁移工具压缩包。
 
-## 2. 根据网络环境确定迁移模式
+## 2. 根据网络环境确定迁移场景
 请根据您的源端主机和目标云服务器的网络环境，确定适合的迁移模式。
 目前迁移工具支持默认模式和内网迁移模式。其中，内网迁移模式细分为3种场景。不同迁移模式/场景，对源端主机和目标云服务器的网络要求不一致。如果源端主机和目标云服务器均可以访问公网，则可以直接进行默认模式迁移。如果源端主机和目标云服务器任何一方不能直接访问公网，则可以选择先通过 [VPC 对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[云联网](https://cloud.tencent.com/document/product/877) 或者 [专线接入](https://cloud.tencent.com/document/product/216) 等方式建立连接通道，再进行内网模式迁移。
 
@@ -23,17 +23,17 @@
 
 ## 5. 开始迁移
  
-1. 建立源端主机和目标云服务器的连接通道。（可选）  
+1. 建立源端主机和目标云服务器的内网连接通道。
  - 如果您选择内网迁移模式，则需要通过使用 [VPC 对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[云联网](https://cloud.tencent.com/document/product/877) 或者 [专线接入](https://cloud.tencent.com/document/product/216) 等方式建立源端主机与目标云服务器的连接通道。
  - 如果您选择默认模式，则请跳过此步骤。
 2. 配置 user.json 文件。
 user.json 是配置源端主机和目标云服务器的文件。该文件的配置项如下：
  - 您的账户 API 访问密钥 SecretId 和 SecretKey，详细信息请参考 [访问密钥](https://cloud.tencent.com/document/product/598/37140)。
- - 目标云服务器所在地域。
- - 目标云服务器的实例 ID。
+ - 目标云服务器所在地域，云服务器支持地域请参见 [地域和可用区](https://cloud.tencent.com/document/product/213/6091)。
+ - 目标云服务器的实例 ID，可前往 [实例列表](https://console.cloud.tencent.com/cvm/instance/index?rid=1) 页面查看。
  - 源端主机的数据盘配置。（可选）  
 3. 配置 client.json 文件。
-client.json 是配置迁移模式和其他迁移配置项的文件。无论选择哪种迁移模式/场景，均需在 client.json 里的`Client.Net.Mode`项中设置相应的参数值。
+client.json 是配置迁移模式和其他迁移配置项的文件。无论选择哪种迁移场景，均需在 client.json 里的`Client.Net.Mode`项中设置相应的参数值。
 4. 排除源端主机上不需迁移的文件和目录。（可选）  
  在 Linux 源端主机编辑 rsync\_excludes\_linux.txt 文件，排除不需要迁移的文件和目录。
 5. 运行工具。

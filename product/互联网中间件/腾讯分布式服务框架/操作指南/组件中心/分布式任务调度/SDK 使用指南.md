@@ -5,19 +5,19 @@
 
 ## 添加依赖
 在 pom.xml 文件中添加如下 dependency。
->?使用任务调度 SDK 前，请确保 SDK 版本高于包含1.20.0。
-
- ```xml
-<dependency>
-    <groupId>com.tencent.tsf</groupId>
-    <artifactId>spring-cloud-tsf-schedule</artifactId>
-    <version><!-- 调整为 SDK 最新版本号 --></version>
-</dependency>
+```xml
+ <dependency>
+	 <groupId>com.tencent.cloud </groupId>
+	 <artifactId>tct-spring-boot-starter </artifactId>
+	 <version>1.2.0 </version>
+ </dependency>
 ```
 
-## 添加配置
-在 application.yml 文件中添加如下配置，启用任务调度 SDK。
+>!使用原有 spring-cloud-tsf-schedule 组件依赖的用户仅需将项目中 pom 依赖的 spring-cloud-tsf-schedule 组件移除，重新引入 tct-spring-boot-starter 组件依赖，并将对应的 Java 类文件重新 reload 即可完成 SDK 升级操作。
 
+## 添加配置
+
+在 application.yml 文件中添加如下配置，启用任务调度 SDK。
 ```xml
 tct
   // 默认是false 不启用。
@@ -26,31 +26,76 @@ tct
 
 ## 编写任务
 #### 1. 编写简单任务
-实现 `com.tencent.cloud.task.worker.spi.ExecutableTask` 接口，覆写 execute 方法，在方法中实现任务执行逻辑。
+实现 `com.tencent.cloud.task.sdk.client.spi.ExecutableTask` 接口，覆写 execute 方法，在方法中实现任务执行逻辑。
 SDK  内部通过反射机制，生成任务对象实例，并执行 execute 方法。任务示例如下：
 
 默认的任务生成器情况下，编写的任务对象需要确保具有`无参数构造函数`。 
 ```java
-import com.tencent.cloud.task.core.utils.ThreadUtils;
-import com.tencent.cloud.task.worker.LogReporter;
-import com.tencent.cloud.task.worker.model.ExecutableTaskData;
-import com.tencent.cloud.task.worker.model.ProcessResult;
-import com.tencent.cloud.task.worker.model.ProcessResultCode;
-import com.tencent.cloud.task.worker.remoting.TaskExecuteFuture;
-import com.tencent.cloud.task.worker.spi.TerminableTask;
-import com.tencent.cloud.task.worker.spi.ExecutableTask;
+import com.tencent.cloud.task.sdk.client.model.ExecutableTaskData;
+import com.tencent.cloud.task.sdk.client.model.ProcessResult;
+import com.tencent.cloud.task.sdk.client.spi.ExecutableTask;
 import org.apache.commons.lang3.RandomUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
-import java.lang.invoke.MethodHandles
-
-// 实现ExecutableTask接口
-public class SimpleLogExecutableTask implements ExecutableTask {
+import java.lang.invoke.MethodHandles;
+/**
+ * 实现ExecutableTask接口
+ */
+@Component
+public class SimpleTimeoutExecutableTask implements ExecutableTask {
 
     private static final Logger LOG = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
     // Override execute方法，在方法中编写任务逻辑。
+    @Override
+    public ProcessResult execute(ExecutableTaskData taskData) {
+        try {
+            // 模拟任务执行逻辑
+            // 模拟任务耗时
+            long startTime = System.currentTimeMillis();
+            long timeOut = RandomUtils.nextLong(30000L, 35000L);
+            // 上报日志到控制台
+            LOG.info("timeout task start, timeout: {}", timeOut);
+            Thread.sleep(timeOut);
+            LOG.info("timeout task end, span: {}", System.currentTimeMillis() - startTime);
+            // 设置任务执行状态： 执行成功
+            return ProcessResult.newSuccessResult();
+        } catch (InterruptedException e) {
+            return ProcessResult.newCancelledResult(e);
+        }
+    }
+
+}
+```
+
+#### 2. 编写可停止的任务
+
+分布式任务调度框架支持任务的停止操作，通过实现`com.tencent.cloud.task.sdk.client.spi.TerminableTask`接口，覆写 cancel 方法，实现停止逻辑，并返回停止结果。任务示例如下：
+```java
+import com.tencent.cloud.task.sdk.client.LogReporter;
+import com.tencent.cloud.task.sdk.client.model.ExecutableTaskData;
+import com.tencent.cloud.task.sdk.client.model.ProcessResult;
+import com.tencent.cloud.task.sdk.client.model.ProcessResultCode;
+import com.tencent.cloud.task.sdk.client.model.TerminateResult;
+import com.tencent.cloud.task.sdk.client.remoting.TaskExecuteFuture;
+import com.tencent.cloud.task.sdk.client.spi.ExecutableTask;
+import com.tencent.cloud.task.sdk.client.spi.TerminableTask;
+import com.tencent.cloud.task.sdk.core.utils.ThreadUtils;
+import org.apache.commons.lang3.RandomUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.lang.invoke.MethodHandles;
+
+/**
+ * 实现ExecutableTask,TerminableTask接口
+ */
+public class SimpleLogExecutableTask implements ExecutableTask,TerminableTask {
+
+    private static final Logger LOG = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+    // Override execute 方法，在方法中编写任务逻辑。
     @Override
     public ProcessResult execute(ExecutableTaskData taskData) {
         ProcessResult result = new ProcessResult();
@@ -61,78 +106,31 @@ public class SimpleLogExecutableTask implements ExecutableTask {
             // 模拟任务执行逻辑
             // 模拟任务耗时
             long sleepTime = RandomUtils.nextLong(10000, 15000);
-            ThreadUtils.waitMs(sleepTime);
-
+            Thread.sleep(sleepTime);
             // 设置任务执行状态： 执行成功
             result.setResultCode(ProcessResultCode.SUCCESS);
             LogReporter.log(taskData,"success to execute SimpleLogExecutableTask... ");
+        } catch (InterruptedException e) {
+            result.setResultCode(ProcessResultCode.TERMINATED);
+            LogReporter.log(taskData,"task is terminated... ");
         } catch (Throwable t) {
             LOG.error(t.getMessage(), t);
-             // 设置任务执行状态： 执行失败
+            // 设置任务执行状态： 执行失败
             result.setResultCode(ProcessResultCode.FAIL);
         }
         // 返回执行结果
         return  result;
     }
-}
-```
-
-#### 2. 编写可停止的任务
-
-分布式任务调度框架支持任务的停止操作，通过实现`com.tencent.cloud.task.worker.spi.TerminableTask`接口，覆写 cancel 方法，实现停止逻辑，并返回停止结果。任务示例如下：
-```java
-
-import com.tencent.cloud.task.core.utils.ThreadUtils;
-import com.tencent.cloud.task.worker.LogReporter;
-import com.tencent.cloud.task.worker.model.TerminateResult;
-import com.tencent.cloud.task.worker.model.ExecutableTaskData;
-import com.tencent.cloud.task.worker.model.ProcessResult;
-import com.tencent.cloud.task.worker.model.ProcessResultCode;
-import com.tencent.cloud.task.worker.remoting.TaskExecuteFuture;
-import com.tencent.cloud.task.worker.spi.TerminableTask;
-import com.tencent.cloud.task.worker.spi.ExecutableTask;
-import org.apache.commons.lang3.RandomUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
-import java.lang.invoke.MethodHandles;
-import java.util.concurrent.atomic.AtomicBoolean;
-public class SimpleLogExecutableTask implements ExecutableTask,CancellableTask {
-
-    @Override
-    public ProcessResult execute(ExecutableTaskData taskData) {
-        ProcessResult result = new ProcessResult();
-        LOG.info("start to execute task: " + this.getClass().getName());
-        LogReporter.log(taskData,"start to execute task...");
-        long sleepTime = RandomUtils.nextLong(10000, 15000);
-        try {
-            // 模拟一个可以被中断的任务
-            Thread.sleep(sleepTime);
-        }catch (InterruptedException e) {
-            // 任务执行线程被中断, 设置为任务执行被终止
-            result.setResultCode(ProcessResultCode.TERMINATED);
-            LogReporter.log(taskData,"task is terminated... ");
-        } catch(Exception ex) {
-            // 执行出现异常, 设置为执行失败
-            result.setResultCode(ProcessResultCode.FAIL);
-            LOG.error(t.getMessage(), t);
-        }
-        // 任务执行成功
-        LogReporter.log(taskData,"task execute success. taskName: " + this.getClass().getName());
-        result.setResultCode(ProcessResultCode.SUCCESS);
-        return result;
-    }
 
     @Override
     public TerminateResult cancel(TaskExecuteFuture future, ExecutableTaskData taskData) {
         LogReporter.log(taskData,"task start to cancel");
-        // 编写任务停止执行逻辑， 例如这里通过调用Future的cancel方法。
+        // 编写任务停止执行逻辑， 例如这里通过调用 Future 的 cancel 方法。
         future.cancel(true);
-        LogReporter.log(taskData,"task cancel success");
         // 返回终止结果。
+        LogReporter.log(taskData,"task cancel success");
         return TerminateResult.newTerminateSuccessResult();
     }
-
 }
 ```
 通过 Future 的 cancel 方法，**不一定**能停止正在运行中的任务, 通常需要配合业务逻辑标识符的方式进行终止（参考 [任务停止原理及实践](https://cloud.tencent.com/document/product/649/41640)）。
@@ -140,14 +138,14 @@ public class SimpleLogExecutableTask implements ExecutableTask,CancellableTask {
 
 ## 自定义任务生成器
 
-SDK 内部默认的任务生成器 `com.tencent.cloud.task.worker.DefaultTaskFactory` 是通过 Java 的反射机制来生成任务对象的实例。我们也支持用户自定义任务生成器。
+SDK 内部默认的任务生成器 `com.tencent.cloud.task.sdk.client.DefaultTaskFactory` 是通过 Java 的反射机制来生成任务对象的实例。我们也支持用户自定义任务生成器。
 
 #### 1. 编写任务生成器
 ```java
-import com.tencent.cloud.task.worker.DefaultTaskFactory;
-import com.tencent.cloud.task.worker.exception.InstancingException;
-import com.tencent.cloud.task.worker.model.ExecutableTaskData;
-import com.tencent.cloud.task.worker.spi.ExecutableTask;
+import com.tencent.cloud.task.sdk.client.DefaultTaskFactory;
+import com.tencent.cloud.task.sdk.client.exception.InstancingException;
+import com.tencent.cloud.task.sdk.client.model.ExecutableTaskData;
+import com.tencent.cloud.task.sdk.client.spi.ExecutableTask;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -177,7 +175,7 @@ public class SimpleExecuteTaskFactory extends DefaultTaskFactory {
 tct:
   client:
     properties:
-      "task.factory.name": "com.tencent.cloud.task.factory.SimpleExecuteTaskFactory"  
+      "task.factory.name": "com.tencent.cloud.task.sdk.client.DefaultTaskFactory"  
 ```
 
 #### 3. 补充说明
@@ -190,15 +188,15 @@ tct:
 SDK 中存在一些参数可以允许通过配置方式进行调配，如下所示：
 ```xml
 tct:
-  // 是否开启任务调度功能，默认false关闭，true则开启。
+  // 是否开启任务调度功能，默认 false 为关闭，true 则开启。
   enabled: true
   client:
     properties:
       // 任务执行的线程总数，默认200
       task.max.threads: 200
-      // 线程池核心线程数量，默认CPU核数+1
+      // 线程池核心线程数量，默认 CPU 核数 + 1
       task.core.threads: <CPU核数+1>
-      // 线程类型: FIXED，CACHED,LIMITED, EAGER
+      // 线程类型: FIXED、CACHED、LIMITED、EAGER
       thread.pool.type: FIXED
 ```
 

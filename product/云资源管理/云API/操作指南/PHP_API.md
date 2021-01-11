@@ -48,7 +48,7 @@ GET 请求的请求包大小不得超过32KB。POST 请求使用签名方法 v1�
 | X-TC-Region    | String  | -      | 地域参数，用来标识希望操作哪个地域的数据。接口接受的地域取值参考接口文档中输入参数公共参数 Region 的说明。**注意：某些接口不需要传递该参数，接口文档中会对此特别说明，此时即使传递该参数也不会生效。** |
 | X-TC-Timestamp | Integer | **是** | 当前 UNIX 时间戳，可记录发起 API 请求的时间。例如1529223702。**注意：如果与服务器时间相差超过5分钟，会引起签名过期错误。** |
 | X-TC-Version   | String  | **是** | 操作的 API 的版本。取值参考接口文档中入参公共参数 Version 的说明。例如云服务器的版本 2017-03-12。 |
-| Authorization  | String  | **是** | HTTP 标准身份认证头部字段，例如： TC3-HMAC-SHA256 Credential=AKIDEXAMPLE/Date/service/tc3_request, SignedHeaders=content-type;host, Signature=72e494ea8******************************************a96525168 <br>其中，<br> - TC3-HMAC-SHA256：签名方法，目前固定取该值；<br> - Credential：签名凭证，AKIDEXAMPLE 是 SecretId；Date 是 UTC 标准时间的日期，取值需要和公共参数 X-TC-Timestamp 换算的 UTC 标准时间日期一致；<br>service 为产品名，通常为域名前缀，例如域名 cvm.tencentcloudapi.com 意味着产品名是 cvm。本产品取值为 cvm；<br> - SignedHeaders：参与签名计算的头部信息，content-type 和 host 为必选头部；<br> - Signature：签名摘要，计算过程详见下文。 |
+| Authorization  | String  | **是** | HTTP 标准身份认证头部字段，例如： TC3-HMAC-SHA256 Credential=AKIDEXAMPLE/Date/service/tc3_request, SignedHeaders=content-type;host, Signature=72e494ea8******************************************a96525168 <br>其中：<li>TC3-HMAC-SHA256：签名方法，目前固定取该值。</li><li>Credential：签名凭证，AKIDEXAMPLE 是 SecretId。</li><li>Date 是 UTC 标准时间的日期，取值需要和公共参数 X-TC-Timestamp 换算的 UTC 标准时间日期一致。</li><li>service 为产品名，通常为域名前缀，例如域名 cvm.tencentcloudapi.com 意味着产品名是 cvm。本产品取值为 cvm。</li><li>SignedHeaders：参与签名计算的头部信息，content-type 和 host 为必选头部。</li><li> Signature：签名摘要，计算过程详见下文。</li> |
 | X-TC-Token     | String  | 否     | 临时证书所用的 Token ，需要结合临时密钥一起使用。临时密钥和 Token 需要到访问管理服务调用接口获取。长期密钥不需要 Token。 |
 
 
@@ -62,8 +62,8 @@ GET 请求的请求包大小不得超过32KB。POST 请求使用签名方法 v1�
 | Region          | String  | -    | 地域参数，用来标识希望操作哪个地域的数据。接口接受的地域取值参考接口文档中输入参数公共参数 Region 的说明。**注意：某些接口不需要传递该参数，接口文档中会对此特别说明，此时即使传递该参数也不会生效。** |
 | Timestamp       | Integer | 是   | 当前 UNIX 时间戳，可记录发起 API 请求的时间。例如1529223702，如果与当前时间相差过大，会引起签名过期错误。 |
 | Nonce           | Integer | 是   | 随机正整数，与 Timestamp 联合起来，用于防止重放攻击。        |
-| SecretId        | String  | 是   | 在 [云API密钥](https://console.cloud.tencent.com/capi) 上申请的标识身份的 SecretId，一个 SecretId 对应唯一的 SecretKey ，而 SecretKey 会用来生成请求签名 Signature。 |
-| Signature       | String  | 是   | 请求签名，用来验证此次请求的合法性，需要用户根据实际的输入参数计算得出。具体计算方法参见下文 “签名方法介绍” 。 |
+| SecretId        | String  | 是   | 在 [云API密钥](https://console.cloud.tencent.com/capi) 上申请的标识身份的 SecretId，一个 SecretId 对应唯一的 SecretKey，而 SecretKey 会用来生成请求签名 Signature。 |
+| Signature       | String  | 是   | 请求签名，用来验证此次请求的合法性，需要用户根据实际的输入参数计算得出。具体计算方法参见下文“签名方法介绍” 。 |
 | Version         | String  | 是   | 操作的 API 的版本。取值参考接口文档中入参公共参数 Version 的说明。例如云服务器的版本 2017-03-12。 |
 | SignatureMethod | String  | 否   | 签名方式，目前支持 HmacSHA256 和 HmacSHA1。只有指定此参数为 HmacSHA256 时，才使用 HmacSHA256 算法验证签名，其他情况均使用 HmacSHA1 验证签名。 |
 | Token           | String  | 否   | 临时证书所用的 Token ，需要结合临时密钥一起使用。临时密钥和 Token 需要到访问管理服务调用接口获取。长期密钥不需要 Token 。 |
@@ -71,15 +71,15 @@ GET 请求的请求包大小不得超过32KB。POST 请求使用签名方法 v1�
 ### 地域列表
 
 由于各个产品支持地域不同，具体详情请参考各产品文档中的地域列表。
-例如，您可以参考云服务器的 [地域列表](https://cloud.tencent.com/document/product/213/15692#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8) 。
+例如，您可以参考云服务器的 [地域列表](https://cloud.tencent.com/document/product/213/15692#.E5.9C.B0.E5.9F.9F.E5.88.97.E8.A1.A8)。
 
 
 
-## PHP API调用方式
+## PHP API 调用方式
 
 腾讯云 API 会对每个请求进行身份验证，用户需要使用安全凭证，经过特定的步骤对请求进行签名（Signature），每个请求都需要在公共请求参数中指定该签名结果并以指定的方式和格式发送请求。
 
-### 步骤一：申请安全凭证
+### 步骤1：申请安全凭证
 
 本文使用的安全凭证为密钥，密钥包括 SecretId 和 SecretKey。每个用户最多可以拥有两对密钥。
 
@@ -93,8 +93,8 @@ GET 请求的请求包大小不得超过32KB。POST 请求使用签名方法 v1�
 前往 [API密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取。如下图所示：
 ![](https://main.qcloudimg.com/raw/665e5334b0d5db156ef48a19072ba8bd.png)
 
-### 步骤二
-### 1. 获取API 3.0  V3 版本签名
+### 步骤2
+### 1. 获取 API 3.0  V3 版本签名
 
 签名方法 v3（TC3-HMAC-SHA256）功能上覆盖了以前的签名方法 v1，而且更安全，支持更大的请求，支持 json 格式，性能有一定提升，推荐使用该签名方法计算签名。
 ![](https://main.qcloudimg.com/raw/f35b61c6b76765f4aae33e9b99673984.png)
@@ -105,7 +105,7 @@ GET 请求的请求包大小不得超过32KB。POST 请求使用签名方法 v1�
 
 
 
-云 API 支持 GET 和 POST 请求。对于 GET 方法，只支持 Content-Type: application/x-www-form-urlencoded 协议格式。对于POST方法，目前支持 Content-Type: application/json 以及 Content-Type: multipart/form-data 两种协议格式，json 格式绝大多数接口均支持，multipart 格式只有特定接口支持，此时该接口不能使用 json 格式调用，参考具体业务接口文档说明。推荐使用 POST 请求，因为两者的结果并无差异，但 GET 请求只支持 32 KB 以内的请求包。
+云 API 支持 GET 和 POST 请求。对于 GET 方法，只支持 Content-Type: application/x-www-form-urlencoded 协议格式。对于POST方法，目前支持 Content-Type: application/json 以及 Content-Type: multipart/form-data 两种协议格式，json 格式绝大多数接口均支持，multipart 格式只有特定接口支持，此时该接口不能使用 json 格式调用，参考具体业务接口文档说明。推荐使用 POST 请求，因为两者的结果并无差异，但 GET 请求只支持32KB以内的请求包。
 
 下面以 [查看实例列表](https://cloud.tencent.com/document/product/213/15728) 接口为例，分步骤介绍签名的计算过程。我们选择该接口是因为：
 
@@ -309,8 +309,8 @@ echo $curl.PHP_EOL;
 
 
 
-###  
-### 2. 获取API 3.0  V1 版本签名
+ 
+### 2. 获取 API 3.0  V1 版本签名
 
 签名方法 v1 简单易用，但是功能和安全性都不如签名方法 v3，推荐使用签名方法 v3。
 
@@ -420,7 +420,7 @@ https://cvm.tencentcloudapi.com/?Action=DescribeInstances&InstanceIds.0=ins-09dx
 
 >! 由于示例中的密钥是虚构的，时间戳也不是系统当前时间，因此如果将此 url 在浏览器中打开或者用 curl 等命令调用时会返回鉴权错误：签名过期。为了得到一个可以正常返回的 url ，需要修改示例中的 SecretId 和 SecretKey 为真实的密钥，并使用系统当前时间戳作为 Timestamp 。 
 
-为了更清楚的解释签名过程，下面以Python语言为例，将上述的签名过程具体实现。请求的域名、调用的接口和参数的取值都以上述签名过程为准，代码只为解释签名过程，并不具备通用性，实际开发请尽量使用 SDK 。
+为了更清楚的解释签名过程，下面以 PHP 语言为例，将上述的签名过程具体实现。请求的域名、调用的接口和参数的取值都以上述签名过程为准，代码只为解释签名过程，并不具备通用性，实际开发请尽量使用 SDK 。
 
 #### 6. 签名串编码
 

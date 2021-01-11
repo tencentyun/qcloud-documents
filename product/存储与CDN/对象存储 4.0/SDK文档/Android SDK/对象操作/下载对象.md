@@ -16,7 +16,7 @@ SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](http
 
 高级接口支持暂停、恢复以及取消下载请求，同时支持断点下载功能。
 
-#### 示例代码
+#### 示例代码一: 下载对象
 
 [//]: # (.cssg-snippet-transfer-download-object)
 ```java
@@ -40,7 +40,7 @@ Context applicationContext = context.getApplicationContext(); // application
 // context
 COSXMLDownloadTask cosxmlDownloadTask =
         transferManager.download(applicationContext,
-        bucket, cosPath, savePathDir, savedFileName);
+                bucket, cosPath, savePathDir, savedFileName);
 
 //设置下载进度回调
 cosxmlDownloadTask.setCosXmlProgressListener(new CosXmlProgressListener() {
@@ -53,7 +53,7 @@ cosxmlDownloadTask.setCosXmlProgressListener(new CosXmlProgressListener() {
 cosxmlDownloadTask.setCosXmlResultListener(new CosXmlResultListener() {
     @Override
     public void onSuccess(CosXmlRequest request, CosXmlResult result) {
-        COSXMLDownloadTask.COSXMLDownloadTaskResult cOSXMLDownloadTaskResult =
+        COSXMLDownloadTask.COSXMLDownloadTaskResult downloadTaskResult =
                 (COSXMLDownloadTask.COSXMLDownloadTaskResult) result;
     }
 
@@ -77,7 +77,72 @@ cosxmlDownloadTask.setTransferStateListener(new TransferStateListener() {
 });
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/qcloud-sdk-android/tree/master/Demo/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/TransferObject.java) 查看。
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/TransferDownloadObject.java) 查看。
+
+#### 示例代码二: 下载暂停、继续与取消
+
+对于下载任务，可以通过以下方式暂停：
+
+[//]: # (.cssg-snippet-transfer-download-object-pause)
+```java
+cosxmlDownloadTask.pause();;
+```
+
+暂停之后，可以通过以下方式续传：
+
+[//]: # (.cssg-snippet-transfer-download-object-resume)
+```java
+cosxmlDownloadTask.resume();
+```
+
+也通过以下方式取消下载：
+
+[//]: # (.cssg-snippet-transfer-download-object-cancel)
+```java
+cosxmlDownloadTask.cancel();
+```
+
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/TransferDownloadObject.java) 查看。
+
+#### 示例代码三: 批量下载
+
+[//]: # (.cssg-snippet-transfer-batch-download-objects)
+```java
+// 对象在存储桶中的位置标识符，即称对象键
+String[] cosPaths = new String[] {
+        "exampleobject1",
+        "exampleobject2",
+        "exampleobject3",
+};
+
+for (String cosPath : cosPaths) {
+
+    COSXMLDownloadTask cosxmlDownloadTask =
+            transferManager.download(applicationContext,
+                    bucket, cosPath, savePathDir, savedFileName);
+    // 设置返回结果回调
+    cosxmlDownloadTask.setCosXmlResultListener(new CosXmlResultListener() {
+        @Override
+        public void onSuccess(CosXmlRequest request, CosXmlResult result) {
+            COSXMLDownloadTask.COSXMLDownloadTaskResult cOSXMLDownloadTaskResult =
+                    (COSXMLDownloadTask.COSXMLDownloadTaskResult) result;
+        }
+
+        @Override
+        public void onFail(CosXmlRequest request,
+                           CosXmlClientException clientException,
+                           CosXmlServiceException serviceException) {
+            if (clientException != null) {
+                clientException.printStackTrace();
+            } else {
+                serviceException.printStackTrace();
+            }
+        }
+    });
+}
+```
+
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/TransferDownloadObject.java) 查看。
 
 ## 简单操作
 
@@ -124,5 +189,5 @@ cosXmlService.getObjectAsync(getObjectRequest, new CosXmlResultListener() {
 });
 ```
 
->?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/qcloud-sdk-android/tree/master/Demo/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/GetObject.java) 查看。
+>?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/Android/app/src/androidTest/java/com/tencent/qcloud/cosxml/cssg/GetObject.java) 查看。
 

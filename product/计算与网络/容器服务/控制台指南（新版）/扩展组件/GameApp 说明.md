@@ -12,16 +12,16 @@
 - 给重启的容器注入一次性元数据，可实现容器重启时控制是否清空共享内存的功能。
 
 
-### 部署在集群内的 Kubernetes 对象
+### 部署在集群内 Kubernetes 对象
 
-在集群内部署 GameApp Add-on，将在集群内部署以下 Kubernetes 对象：
+
 
 | Kubernetes 对象名称             | 类型                       | 默认占用资源 | 所属 Namespaces |
 | -------------------------- | ------------------------ | ------ | ------------ |
-| gameapps.game.scr.ied.com  | CustomResourceDefinition | \      | \            |
-| gameapp-operator           | ClusterRoleBinding       | \      | \            |
-| gameapp-operator           | ClusterRole              | \      | \            |
-| gameapp-operator           | ServiceAccount           | \      | default      |
+| gameapps.game.scr.ied.com  | CustomResourceDefinition | -      | -            |
+| gameapp-operator           | ClusterRoleBinding       | -      | -            |
+| gameapp-operator           | ClusterRole              | -      | -            |
+| gameapp-operator           | ServiceAccount           | -      | default      |
 | gameapp-controller-manager | StatefulSet              | 1C2G   | default      |
 
 
@@ -29,15 +29,19 @@
 - 支持 Kubernetes 1.10 以上版本的集群。
 - 需设置 kube-apiserver 的启动参数为：` --feature-gates=CustomResourceSubresources=true`。
 
->?推荐您在 [腾讯云容器服务](https://cloud.tencent.com/product/tke2) 中购买 1.12.4 版本集群，无需修改任何参数，开箱可用。
+>?推荐您在 [腾讯云容器服务](https://console.qcloud.com/tke2) 中购买 1.12.4 版本集群，无需修改任何参数，开箱可用。
 
 ## 使用方法
 
 ### 组件安装
-1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【扩展组件】。
-2. 在“扩展组件”管理页面上方，选择地域及需安装 GameApp 的集群，并单击【新建】。如下图所示：
-![](https://main.qcloudimg.com/raw/887d95fb6d298edbb4e9a329440c22c1.png)
-3. 在“新建扩展组件”页面，选择【GameApp 组件】后，单击【完成】即可安装成功。
+
+
+
+1. 登录 [容器服务控制台](https://console.qcloud.com/tke2)，在左侧导航栏中选择【集群】。
+2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
+3. 选择左侧菜单栏中的【组件管理】，进入 “组件列表” 页面。
+4. 在“组件列表”页面中选择【新建】，并在“新建组件”页面中勾选 GameApp。
+5. 单击【完成】即可创建组件。
 
 
 
@@ -108,7 +112,7 @@ kubectl exec test-gameapp-1 printenv clearSHM
 true
 ```
 执行结果返回 [步骤1](#step1) 中所设置的参数，则说明 env 注入成功。
-4. 执行以下命令，仅设置升级镜像。
+3. 执行以下命令，仅设置升级镜像。
 ```
 kubectl patch gameapp test-gameapp --type=json -p'[{"op":"replace","path":"/spec/template/spec/containers/0/image","value":"nginx:1.14"}]'
 ```

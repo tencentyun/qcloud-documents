@@ -6,7 +6,7 @@
 
 ## 1. 开发准备
 - 因为任务中需要访问腾讯云消息队列 CKafka，所以需要先创建一个 CKafka 实例，具体见 [消息队列 CKafka](https://cloud.tencent.com/product/CKafka)。
-- 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群时需要在软件配置界面选择 Spark 组件。
+- 确认您已开通腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群时需要在软件配置界面选择 Spark 组件。
 
 ## 2. 在 EMR 集群使用 Kafka 工具包
 首先需要查看 CKafka 的内网 IP 与端口号。登录消息队列 CKafka 的控制台，选择您要使用的 CKafka 实例，在基本消息中查看其内网 IP 为 $kafkaIP，而端口号一般默认为9092。在 topic 管理界面新建一个 topic 为 spark_streaming_test。
@@ -16,10 +16,10 @@
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入目录`/usr/local/service/spark`：
 ```
 [root@172 ~]# su hadoop
-[root@172 root]$ cd / usr/local/service/spark
+[root@172 root]$ cd /usr/local/service/spark
 ```
 
-从 [Kafka 官网](http://kafka.apache.org/downloads) 下载安装包，注意选择合适的版本，kafka 客户端版和腾讯云 ckafka 兼容性强，安装对应的 kafka 客户端版本即可。解压压缩包并将解压出来的文件夹移动到`/opt`目录下：
+从 [Kafka 官网](http://kafka.apache.org/downloads) 下载安装包，注意选择合适的版本，具体可参考 [EMR 各版本 Kafka 与 Spark 版本说明](https://cloud.tencent.com/document/product/589/39697)。kafka 客户端版和腾讯云 ckafka 兼容性强，安装对应的 kafka 客户端版本即可。解压压缩包并将解压出来的文件夹移动到`/opt`目录下：
 ```
 [hadoop@172 data]$ tar -xzvf kafka_2.10-0.10.2.0.tgz
 [hadoop@172 data]$ mv kafka_2.10-0.10.2.0 /opt/
@@ -192,9 +192,9 @@ public class KafkaTest {
 }
 ```
 代码中要注意以下几点设置：
-- brokers 变量要设置为在第二步中查找到的 CKafka 实例的内网 IP；
-- topics 变量要设置为自己创建的 topic 的名字，这里为 spark_streaming_test1；
-- durationSeconds 为程序去 CKafka 中消费数据的时间间隔，这里为60秒；
+- brokers 变量要设置为在第二步中查找到的 CKafka 实例的内网 IP。
+- topics 变量要设置为自己创建的 topic 的名字，这里为 spark_streaming_test1。
+- durationSeconds 为程序去 CKafka 中消费数据的时间间隔，这里为60秒。
 - $hdfsPath 为 HDFS 中的路径，结果将会输出到该路径下。
 
 使用本地命令行进入工程目录，执行以下指令对工程进行编译打包：
@@ -318,8 +318,8 @@ public class SendData {
 ```
 mvn package
 ```
-
 显示 build success 表示操作成功，在工程目录下的 target 文件夹中能够看到打包好的文件。
+
 使用 scp 或者 sftp 工具来把打包好的文件上传到 EMR 集群，注意一定要上传依赖一起打包的 jar 包：
 ```
 scp $localfile root@公网IP地址:$remotefolder
@@ -337,7 +337,7 @@ scp $localfile root@公网IP地址:$remotefolder
 - --master 为集群主要的 URL。
 - $ consumerpackage 是您的消费者打包后的包名。
 
-程序开始执行之后，将会在 yarn 集群上一直运行，使用以下指令可以查看到程序运行的状态：
+程序开始执行后，将会在 yarn 集群上一直运行，使用以下指令可以查看到程序运行的状态：
 ```
 [hadoop@172 ~]$ yarn application –list
 ```

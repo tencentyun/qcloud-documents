@@ -4,9 +4,10 @@
 | 平台 | Demo体验 | 源码地址 |
 |:--------:|:--------:|:--------:|
 | iOS | [AppStore](https://itunes.apple.com/cn/app/id1132521667?mt=8) | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/XiaoZhiBoApp) |
-| Android | [apk 安装包](http://dldir1.qq.com/hudongzhibo/xiaozhibo/xiaozhibo.apk) | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/XiaoZhiBo) |
+| Android | [apk 安装包](https://dldir1.qq.com/hudongzhibo/xiaozhibo/xiaozhibo.apk) | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/XiaoZhiBo) |
 
-![](https://main.qcloudimg.com/raw/354d61632bd71d6aec7a833b3afb69bc.jpg)
+
+![](https://main.qcloudimg.com/raw/f5b1be1227296e4f15c13a058dcf994c.png)
 
 >!  下载安装“小直播”App，注册一个小直播账号即可开始体验。
 >注册时需注意用户名可填写小写字母、数字和下划线，账号密码必须由8 - 16个字符组成。
@@ -18,7 +19,7 @@
 | 平台 | Demo体验 | 源码地址 |
 |:--------:|:--------:|:--------:|
 | iOS | [AppStore](https://itunes.apple.com/cn/app/id1152295397?mt=8) | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo) |
-| Android | [apk 安装包](http://dldir1.qq.com/hudongzhibo/xiaozhibo/rtmpdemo.apk) | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo) |
+| Android | [apk 安装包](https://dldir1.qq.com/hudongzhibo/xiaozhibo/rtmpdemo.apk) | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo) |
 
 ![](https://main.qcloudimg.com/raw/08919b6bb1992f6260e4e43c226f7acd.png)
 

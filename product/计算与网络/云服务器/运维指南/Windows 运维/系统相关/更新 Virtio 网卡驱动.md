@@ -11,7 +11,9 @@
 ### 查看系统版本信息
 
 您的系统版本信息可通过以下方法进行查看：
-1. 登录云服务器，并在桌面右键单击【计算机】>【属性】，打开“系统”窗口。
+1. 登录云服务器，并对应实际使用的操作系统进行以下操作，打开“系统”窗口：
+ - **Window Server 2008 R2 企业版 SP1**：在桌面右键单击【计算机】>【属性】。
+ - **Windows Server 2012 R2**：打开“控制面板”窗口，并选择【系统】。
 2. 在“系统”的【查看有关计算机的基本信息】中，即可查看到系统版本信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/a812e310eff3567b5111f7ed91c711c4.png)   
 
@@ -19,7 +21,9 @@
 >! 更新过程中网络会闪断，更新前请检查是否会影响业务，更新后需要重启计算机。
 >
 1. 通过云服务器中的浏览器下载适用于 Window Server 2008 R2 和 Windows Server 2012 R2 的 VirtIO 网卡驱动安装文件。 
-VirtIO 网卡驱动下载地址：http://mirrors.tencentyun.com/install/windows/virtio_64_10003.msi
+VirtIO 网卡驱动下载地址如下，请对应实际网络环境进行下载：
+ - 公网下载地址：`http://mirrors.tencent.com/install/windows/virtio_64_10003.msi`
+ - 内网下载地址：`http://mirrors.tencentyun.com/install/windows/virtio_64_10003.msi`
 2. 下载完成后，双击启动安装程序，选择【典型】安装模式，单击【下一步】。如下图所示：
 ![](https://main.qcloudimg.com/raw/3d028407c09973f62fbf93b67c8b6be8.png)
 3. 在弹出的安全提示中，勾选【始终信任来自 “Tencent Technology（Shenzhen）Company Limited” 的软件】，单击【安装】。如下图所示：

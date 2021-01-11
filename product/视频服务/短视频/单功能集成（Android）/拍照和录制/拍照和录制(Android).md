@@ -64,7 +64,7 @@ TXRecordCommon.TXUGCSimpleConfig param = new TXRecordCommon.TXUGCSimpleConfig();
 //param.videoQuality = TXRecordCommon.VIDEO_QUALITY_MEDIUM;		// 540p
 param.videoQuality = TXRecordCommon.VIDEO_QUALITY_HIGH;		// 720p
 param.isFront = true;           // 是否使用前置摄像头
-param.minDuratioin = 5000;	// 视频录制的最小时长 ms
+param.minDuration = 5000;	// 视频录制的最小时长 ms
 param.maxDuration = 60000;	// 视频录制的最大时长 ms
 param.touchFocus = false; // false 为自动聚焦；true 为手动聚焦
 mTXCameraRecord.startCameraSimplePreview(param,mVideoView);

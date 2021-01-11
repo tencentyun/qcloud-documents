@@ -1,3 +1,4 @@
+
 ## 创建 jsonb 类型字段表
 ```
 postgres=# create table t_jsonb(id int,f_jsonb jsonb);

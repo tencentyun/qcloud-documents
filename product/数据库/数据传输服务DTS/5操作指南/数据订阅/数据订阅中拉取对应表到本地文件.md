@@ -1,3 +1,4 @@
+
 本文将以一个简单案例来说明数据订阅中拉取对应表到本地文件的功能，并且提供简易 [LocalDemo 下载](https://main.qcloudimg.com/raw/f145138da95d16063a3219f030f24625/LocalDemo.zip) 。以下操作将在 CentOS 操作系统中完成。
 
 ## 配置环境
@@ -40,7 +41,7 @@
 ## 编译操作和检验
 1. 
 ```
-[root@VM_71_10_centos ~]# javac -classpath binlogsdk-2.6.0-release.jar -encoding UTF-8 LocalDemo.java
+javac -classpath binlogsdk-2.6.0-release.jar -encoding UTF-8 LocalDemo.java
 ```
 2. 然后执行启动，如果没有异常报错就是正常在服务了，然后查看对应之前设置的落地文件。
 ```
@@ -70,6 +71,4 @@ Field type: 253
 Field length: 4
 Field value: alan
 ```
-
-
 

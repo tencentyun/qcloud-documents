@@ -35,7 +35,7 @@ OAuth2 登录相关的授权页面地址、ClientID、授权模式等都是标�
 ![](https://mc.qcloudimg.com/static/img/3b17697c6027e04652b878bb7ea802e3/image.png)
 
 ### 发布 Skill
-在您自测完成之后就可以在 Skill 平台提交上线审核，在提交前建议您参考 [Skill上线认证要求](#)，先进行自我检查。
+在您自测完成之后就可以在 Skill 平台提交上线审核，在提交前建议您参考 [Skill上线认证要求](#)，先进行自我检查。   
 提交审核发布需先填写以下内容：
 ![](https://mc.qcloudimg.com/static/img/98ef4cfc1c2aa60035e97f84cfdb103e/image.png)
 - **技能全称：** 用户在 Skill 市场里看到的您的 Skill 的名字，必须唯一。

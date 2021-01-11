@@ -36,7 +36,7 @@ netstat -antup | grep ftp
 
 
 ### 步骤3：配置 vsftpd<span id="user"></span>
-1. 执行以下命令，为 FTP 服务创建用户，本文以 ftpuser 为例。
+1. 执行以下命令，为 FTP 服务创建一个 Linux 用户，本文以 ftpuser 为例。
 ```
 useradd ftpuser
 ```
@@ -164,7 +164,3 @@ chmod +w /home/test
 ls -l /home/test   
 # /home/test 为 FTP 目录，请修改为您实际的 FTP 目录。
 ``` 
-
-
-
-

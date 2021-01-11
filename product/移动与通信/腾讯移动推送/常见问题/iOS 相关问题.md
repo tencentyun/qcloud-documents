@@ -1,5 +1,39 @@
+### TPNS 控制台上传 push 证书失败如何解决？
+
+将推送证书 p12 文件转换成 pem 文件，并按以下步骤排查：
+
+1. 打开终端，进入到 p12 文件目录。
+2. 执行以下命令生成证书（apns-dev-cert 为示例推送证书名称，需改成您证书的名称）。
+<dx-codeblock>
+:::  plaintext
+openssl pkcs12 -clcerts -nokeys -out apns-dev-cert.pem -in apns-dev-cert.p12
+:::
+</dx-codeblock>
+3. 输入 p12 文件密码。
+4. 执行以下命令，将 pem 格式证书转成文本：
+<dx-codeblock>
+:::  plaintext
+openssl x509 -in apns-dev-cert.pem -inform pem -noout -text
+:::
+</dx-codeblock>
+5. 查看证书环境及对应 Bundle id 看是否与应用匹配，如下图所示：
+![](https://main.qcloudimg.com/raw/ba0e35a8bbd0e77022f26ad1dcca83ca.png)
+
+
+
+### 推送内容为空时，在 iOS 10系统版本及以下的设备无法弹出通知？
+
+在调用 Rest API 推送时 `content` 字段不能设置空，否则将导致在 **iOS 10系统及以下**的设备上无法弹出通知。
+
+
+### TPNS 支持 p8 证书吗？
+
+p8 证书存在安全隐患。虽然 p8 比 p12 有更长的有效期，但是同时也有更大的推送权限和范围。若泄露，可能会造成更加严重的影响。TPNS 推荐您使用 p12 来分别管理您的应用的推送服务。
+
 ### TPNS SDK 1.2.5.4及以下的版本模拟器提示找不到 XGForFreeVersion 符号？
-1.2.5.4及以下版本不支持模拟器请使用真机调试，如需使用模拟器调试请升级到最新版本。
+
+1.2.5.4及以下版本仅支持真机调试，如需使用模拟器调试请升级到最新版本。
+
 
 ### 推送消息无法收到？
 消息推送是一个涉及到很多关联模块协作的任务，每一个环节出现异常都可能会导致消息收不到，以下是最为常见的问题：
@@ -39,40 +73,6 @@ SDK 接入问题，在接入 SDK 之后，请确保能够获取到接收消息�
 
 
 
-### 客户端如何根据消息内容进行跳转或者其他响应？
-
-iOS 设备收到一条推送消息，用户点击推送消息打开应用时，应用程序根据状态不同进行处理：
-
-- 若 App 状态为未运行，此函数将被调用。
- - 若 launchOptions 包含 UIApplicationLaunchOptionsRemoteNotificationKey ，表示用户点击推送消息导致 App 被启动运行。
- - 若不含有对应键值，则表示 App 不是因点击消息而被启动，可能为直接点击 icon 启动或其他。
-	```objective-c
-	- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions 
-	{
-			// 消息内容获取
-			NSDictionary *remoteNotification = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-			// 然后根据消息内容进行逻辑处理
-	}
-	```
-- 若 App 状态为正在前台或者是在后台但仍处于 Active 状态
- - 基于 iOS 7.0+ 系统版本，如果是使用 Remote Notification 特性，那么处理函数需要使用如下代码：
-	```objective-c
-	- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
-	```
- - 基于 iOS 10.0+ 的系统版本，如果是使用 Remote Notification 特性，那么处理函数建议使用新增 UserNotifications Framework 来进行处理，请使用 XGPushDelegate 协议中的以下两个方法，示例代码如下：
-	```objective-c
-	- (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void (^)(void))completionHandler {
-		NSLog(@"[XGDemo] click notification");
-		completionHandler();
-	}
-
-	// App 在前台弹推送消息需要调用这个接口
-	- (void)xgPushUserNotificationCenter:(UNUserNotificationCenter *)center willPresentNotification:(UNNotification *)notification withCompletionHandler:(void (^)(UNNotificationPresentationOptions))completionHandler {
-		completionHandler(UNNotificationPresentationOptionBadge | UNNotificationPresentationOptionSound | UNNotificationPresentationOptionAlert);
-	}
-	```
-
-
 
 ### 客户端如何播放自定义推送消息音频？
 
@@ -97,12 +97,12 @@ iOS 设备收到一条推送消息，用户点击推送消息打开应用时，�
 
 
 
-### iOS13 开发环境下，注册偶现不返回 DeviceToken？
+### iOS 开发环境下，注册偶现不返回 DeviceToken 或提示 APNs 请求 token 失败？
 此问题现象是由于 APNs 服务不稳定导致的，可尝试通过以下方式解决：
 1. 给手机插入 SIM 卡后使用4G网络测试。
 2. 卸载重装、重启 App、关机重启后测试。
 3. 打生产环境的包测试。
-4. 换别的 iOS 13 系统的手机测试  。
+4. 更换其它 iOS 系统的手机测试。
 
 
 ### iOS 如何在测试设备有限的情况下扩大测试规模？
@@ -117,12 +117,13 @@ TestFlight 发布预览版，先将 ipa 包上传到 [App Store Connect](https:/
 ### iOS 如何只更改角标而不弹出信息？
 可使用 API 在创建推送时使用通知栏消息类型，且标题内容设为空，同时只设置 badge_type 即可，详情可参考 [API 文档说明](https://cloud.tencent.com/document/product/548/39064#.E5.8F.AF.E9.80.89.E5.8F.82.E6.95.B0)。
 示例如下：
-```
+<dx-codeblock>
+:::  json
 {
     "platform": "ios",
     "audience_type": "token",
     "environment":"dev",
-        "token_list": [
+    "token_list": [
     "05a8ea6924590dd3a94480fa1c9fc8448b4e"],
     "message_type":"notify",
     "message":{
@@ -133,6 +134,15 @@ TestFlight 发布预览版，先将 ipa 包上传到 [App Store Connect](https:/
     }
  }
 }
+:::
+</dx-codeblock>
+
+
+
+
+### App 出现 Crash: you can't call -sendResponse: twice nor after encoding it 报错，该如何处理？
+如果您的 App 集成了 TPNS iOS SDK（1.2.7.2 - 1.2.5.4），且使用到 TPNS 的【撤回】功能，同时 App 侧实现了如下系统回调：
 ```
-
-
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo  fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+```
+则可能会遇到此问题。您可以使用【覆盖】功能来实现已发送消息的处理。
