@@ -47,7 +47,7 @@
    ```plaintext
    ip address 
    ```
-![](https://main.qcloudimg.com/raw/a6bbd49ef85aa8f95ccdfcc839ec4383.png)
+ ![](https://main.qcloudimg.com/raw/a6bbd49ef85aa8f95ccdfcc839ec4383.png)
 6. 执行如下命令，备份网卡信息。
 >!网卡名称 **ethx** 请替换为[ 第5步 ](#step5)查询到的实际网卡名称。
 > 
