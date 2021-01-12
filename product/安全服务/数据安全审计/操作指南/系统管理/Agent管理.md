@@ -1,9 +1,10 @@
 ## Agent 配置
-1. 以 sysadmin 账号登录数据安全审计管理页面，在左侧导航栏中，选择【Agent 管理】>【Agent 配置】，即可进入 Agent 配置页面。
-2. Agent 部署。在 Agent 配置页面，单击【配置 Agent】，可配置审计 Agent 的各类参数并提供下载链接，配置步骤以及配置注意事项请参见 [Agent 部署](https://cloud.tencent.com/document/product/856/17385)。
-3. 配置 Agent。配置 Agent 用于展示所有已正确安装且能实现 DSA 实例网络互通的 Agent 信息。
-![](https://main.qcloudimg.com/raw/e17f952035acbe7c8a81cece98da2505.png)
+1. 以 useradmin 账号登录数据安全审计管理页面，在左侧导航栏中，选择【数据资产与Agent】>【审计用Agent】，即可进入审计用 Agent 页面。
+2. Agent 部署。在审计用 Agent 页面，选择【Agent 配置】>【添加 Agent】，可配置审计 Agent 的各类参数并提供下载链接，配置步骤以及配置注意事项，请参见 [Agent 部署](https://cloud.tencent.com/document/product/856/17385)。
+3. 添加完成 Agent 后，在 Agent 配置页面，可查看所有已正确安装且能实现 DSA 实例网络互通的 Agent 信息。
+![](https://main.qcloudimg.com/raw/9a16918f26f9d8ea3ddeb53981c929c8.png)
 列表各字段含义如下：
+	- Agent 名称：用于配置该 Agent 的名称。
 	- 审计服务 IP： Agent 回传数据的源 IP。
 	- 审计服务端口：该 Agent 配置的审计端口。
 	- 数据库 IP：单击 【详情】 可查看该 Agent 审计的数据库的所有 IP 地址。
@@ -19,10 +20,10 @@
 ![](https://main.qcloudimg.com/raw/3e822fe28ace8d60fe55f610c27169c0.png)
 		- 单击【删除】，可删除该条 Agent 信息。
  	
-## Agent 列表
-1. 以 sysadmin 账号登录数据安全审计管理页面，在左侧导航栏中，选择【Agent 管理】>【Agent 列表】，即可进入 Agent 列表中。
-2. 在 Agent 列表中，可以查看所有已配置的 Agent。Agent 列表默认展示内容包括：deployMac、部署服务器 IP、审计服务、部署状态、Agent 状态、系统类型、部门及业务。
-	- **搜索**：您可以按照部署状态、Agent 状态、审计服务 IP、Port（端口）对 Agent 进行搜索。
+## 审计列表
+1. 以 useradmin 账号登录数据安全审计管理页面，在左侧导航栏中，选择【审计用 Agent】>【审计列表】，即可进入审计列表中。
+2. 在审计列表中，可以查看所有已配置的 Agent。审计列表默认展示内容包括：deployMac、部署服务器 IP、审计服务、部署状态、Agent 状态、系统类型、部署时间运行时长及相关操作。
+	- **搜索**：您可以按照部署状态、Agent 状态、审计服务 IP、Port（端口）对 Agent 进行搜索。。
 	- **查看 Agent 配置详情**：在“审计服务”栏中，单击【Agent 配置详情】，可以查看 Agent 配置相关信息。
 	- **相关操作**：在右侧操作栏，可以对 Agent 进行启动、停止、卸载、删除的相关操作。
-![](https://main.qcloudimg.com/raw/638c0ca6c52365882b656aabe8bbf434.png)
+![](https://main.qcloudimg.com/raw/31018efa7d99d3d9210154d485e04350.png)
