@@ -12,7 +12,7 @@
 
 ## 操作步骤
 
-### 步骤1：安装 Serverless Framework
+### 1. 安装 Serverless Framework
 通过 npm 全局安装 Serverless Framework：
 
 ```
@@ -27,7 +27,7 @@ npm update -g serverless
 
 安装完毕后，通过运行 `serverless -v` 命令，查看 Serverless Framework 的版本信息，如果有版本信息返回，则已经安装成功。
 
-### 步骤2：初始化模版
+### 2. 初始化模版
 
 通过如下命令直接下载该模版：
 
@@ -36,7 +36,7 @@ serverless init fullstack-mysql --name example
 cd example
 ```
 
-### 步骤3：项目配置
+### 3. 项目配置
 
 由于目前 TDSQL-C Serverless 只支持 `ap-beijing-3`、`ap-guangzhou-4`、`ap-shanghai-2` 和 `ap-nanjing-1` 四个区域，所以此处需要进行地域配置，只需要在项目根目录下创建 `.env` 文件，然后配置 `REGION` 和 `ZONE` 两个环境变量：
 
@@ -72,7 +72,7 @@ ZONE=ap-shanghai-2
 查看 `./api/controller/db.js` 目录，可以具体了解云函数如何连接 MySQL 数据库。
 
 
-### 步骤4：部署应用
+### 4. 部署应用
 
 在 `serverless.yml` 文件所在的项目根目录，运行以下指令，将会弹出二维码，直接扫码授权进行部署：
 
