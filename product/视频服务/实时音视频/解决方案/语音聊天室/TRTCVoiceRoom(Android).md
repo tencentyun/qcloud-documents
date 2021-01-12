@@ -11,8 +11,8 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时语音聊天组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 AVChatroom 实现聊天室的功能，同时，通过 IM 的属性接口来存储麦位表等房间信息，邀请信令可以用于上麦申请/抱麦申请。
 
-
-<h2 id="TRTCVoiceRoom">TRTCVoiceRoom API 概览</h2>
+[](id:TRTCVoiceRoom)
+## TRTCVoiceRoom API 概览
 
 ### SDK 基础函数
 
