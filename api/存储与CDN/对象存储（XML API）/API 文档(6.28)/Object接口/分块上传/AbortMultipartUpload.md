@@ -21,7 +21,7 @@ Authorization: Auth String
 
 |参数名称|描述|类型|是否必选|
 |---|---|---|---|
-|uploadId|标识本次分块上传的 ID。<br>使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置 |String|是|
+|uploadId|   标识本次分块上传的 ID，使用 Initiate Multipart Upload 接口初始化分块上传时得到的 UploadId |String|是|
 
 #### 请求头
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
