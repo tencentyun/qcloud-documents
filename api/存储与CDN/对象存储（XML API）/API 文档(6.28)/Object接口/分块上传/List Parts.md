@@ -145,40 +145,42 @@ Date: Wed, 25 Mar 2020 10:07:25 GMT
 Server: tencent-cos
 x-cos-request-id: NWU3YjJkNWRfMjNhZjJhMDlfNWY5Ml8zMmUy****
 
+
+
 <ListPartsResult>
-	<Bucket>examplebucket-1250000000</Bucket>
-	<EncodingType/>
-	<Key>exampleobject</Key>
-	<UploadId>1585130821cbb7df1d11846c073ad648e8f33b087cec2381df437acdc833cf654b9ecc6361</UploadId>
-	<Owner>
-		<ID>1250000000</ID>
-		<DisplayName>1250000000</DisplayName>
-	</Owner>
-	<PartNumberMarker>0</PartNumberMarker>
-	<Initiator>
-		<ID>qcs::cam::uin/100000000001:uin/100000000011</ID>
-		<DisplayName>100000000011</DisplayName>
-	</Initiator>
-	<Part>
-		<PartNumber>1</PartNumber>
-		<LastModified>2020-03-25T10:07:14.000Z</LastModified>
-		<ETag>&quot;39270a968a357d24207e9911162507eb&quot;</ETag>
-		<Size>1048576</Size>
-	</Part>
-	<Part>
-		<PartNumber>2</PartNumber>
-		<LastModified>2020-03-25T10:07:13.000Z</LastModified>
-		<ETag>&quot;d899fbd1e06109ea2e4550f5751c88d6&quot;</ETag>
-		<Size>1048576</Size>
-	</Part>
-	<Part>
-		<PartNumber>3</PartNumber>
-		<LastModified>2020-03-25T10:07:13.000Z</LastModified>
-		<ETag>&quot;762890d6c9a871b7bd136037cb2260cd&quot;</ETag>
-		<Size>1048576</Size>
-	</Part>
-	<StorageClass>Standard</StorageClass>
-	<MaxParts>1000</MaxParts>
-	<IsTruncated>false</IsTruncated>
+			<Bucket>examplebucket-1250000000</Bucket>
+			<EncodingType/>
+			<Key>exampleobject</Key>
+			<UploadId>1585130821cbb7df1d11846c073ad648e8f33b087cec2381df437acdc833cf654b9ecc6361</UploadId>
+			<Owner>
+				<ID>1250000000</ID>
+				<DisplayName>1250000000</DisplayName>
+			</Owner>
+			<PartNumberMarker>0</PartNumberMarker>
+			<Initiator>
+				<ID>qcs::cam::uin/100000000001:uin/100000000011</ID>
+				<DisplayName>100000000011</DisplayName>
+			</Initiator>
+			<Part>
+				<PartNumber>1</PartNumber>
+				<LastModified>2020-03-25T10:07:14.000Z</LastModified>
+				<ETag>&quot;39270a968a357d24207e9911162507eb&quot;</ETag>
+				<Size>1048576</Size>
+			</Part>
+			<Part>
+				<PartNumber>2</PartNumber>
+				<LastModified>2020-03-25T10:07:13.000Z</LastModified>
+				<ETag>&quot;d899fbd1e06109ea2e4550f5751c88d6&quot;</ETag>
+				<Size>1048576</Size>
+			</Part>
+			<Part>
+				<PartNumber>3</PartNumber>
+				<LastModified>2020-03-25T10:07:13.000Z</LastModified>
+				<ETag>&quot;762890d6c9a871b7bd136037cb2260cd&quot;</ETag>
+				<Size>1048576</Size>
+			</Part>
+			<StorageClass>Standard</StorageClass>
+			<MaxParts>1000</MaxParts>
+			<IsTruncated>false</IsTruncated>
 </ListPartsResult>
 ```
