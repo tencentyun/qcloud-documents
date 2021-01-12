@@ -1,7 +1,6 @@
 本文为您介绍共享带宽包的计费价格。
 
 ## 带宽类型
-
 共享带宽包按照带宽类型，可分为如下类型的带宽包：
 <table>
 <tr><th width="30%">带宽类型</th><th>说明</th></tr>
@@ -9,7 +8,6 @@
 <tr><td><a href="#singleip">移动/联通/电信带宽包</a></td><td>通过单个网络运营商访问公网，静态单线 IP 线路类型的带宽包。</td></tr>
 <tr><td><a href="#cn2">精品网带宽包</a></td><td>精品 BGP 线路类型的带宽包。</td></tr>
 </table>
-
 
 ## [BGP 带宽包](id:bgp)
 <table>
@@ -86,4 +84,4 @@
 
 
 ## 相关文档
-[计费模式]()
+[计费模式](https://cloud.tencent.com/document/product/684/51876)
