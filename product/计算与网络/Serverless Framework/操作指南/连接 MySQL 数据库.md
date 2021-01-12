@@ -7,7 +7,7 @@
 
 | 操作步骤 | 操作说明 | 
 |---------|---------|
-| [步骤1： 配置环境变量](#step1)|  - |
+| [步骤1：配置环境变量](#step1)|  - |
 | [步骤2：配置私有网络](#step2) | 通过 Serverless Framework VPC 组件 创建 VPC 和 子网，支持云函数和数据库的网络打通和使用。|
 | <nobr>[步骤3：配置 Serverless DB](#step3)</nobr> | 通过 Serverless Framework Cynosdb 组件创建 MySQL 实例，为云函数项目提供数据库服务。|
 | [步骤4：编写业务代码](#step4) | 通过 Serverless DB SDK 调用数据库，云函数支持直接调用 Serverless DB SDK，连接 PostgreSQL 数据库进行管理操作。|
