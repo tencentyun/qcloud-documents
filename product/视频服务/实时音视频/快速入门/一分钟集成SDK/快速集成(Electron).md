@@ -32,11 +32,11 @@ $ brew update
 </dx-tabs>
 
 #### 步骤2：安装 Electron
-1. 在命令行窗口中执行如下命令，安装 Electron，建议版本号 >= 4.0.0。
+在命令行窗口中执行如下命令，安装 Electron，建议版本号 >= 4.0.0。
 ```shell
 $ npm install electron@latest --save-dev
 ```
-2. 在国内网络安装 Electron 可能会遇到一系列下载过程的障碍。如果您安装 Electron 没有成功，可以参考 [Electron 常见问题收录](https://cloud.tencent.com/developer/article/1616668) 进行处理。
+>?在国内网络安装 Electron 可能会遇到一系列下载过程的障碍。如果您安装 Electron 没有成功，可以参考 [Electron 常见问题收录](https://cloud.tencent.com/developer/article/1616668) 进行处理。
 
 #### 步骤3：安装 Electron 版的 TRTC SDK
 1. 在您的 Electron 项目中使用 npm 命令安装 SDK 包：
