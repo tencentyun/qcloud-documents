@@ -3,7 +3,8 @@
 
 ## 创建和发布屏幕分享流
 
-```
+<dx-codeblock>
+::: 屏幕分享流 
 // 创建屏幕分享流
 const localStream = TRTC.createStream({ audio: false, screen: true });
 // 监听屏幕分享停止事件
@@ -19,7 +20,8 @@ localStream.initialize().then(() => {
     console.log('screen casting');
   });
 });
-```
+:::
+</dx-codeblock>
 
 ## 屏幕分享属性
 
@@ -30,16 +32,15 @@ localStream.initialize().then(() => {
 const localStream = TRTC.createStream({ audio: false, screen: true });
 localStream.setScreenProfile('1080p');
 localStream.initialize().then(() => {
-  // screencast stream init success
+		// screencast stream init success
 });
 ```
-
 - 使用自定义分辨率、帧率和码率：
 ```
 const localStream = TRTC.createStream({ audio: false, screen: true });
 localStream.setScreenProfile({ width: 1920, height: 1080, frameRate: 5, bitrate: 1600 /* kbps */});
 localStream.initialize().then(() => {
-  // screencast stream init success
+		// screencast stream init success
 });
 ```
 
@@ -60,7 +61,9 @@ localStream.initialize().then(() => {
 
 一个 {@link Client Client} 至多只能同时推送一路音频和一路视频，若想同时推送摄像头视频和屏幕分享，建议创建另外一个独立的 Client 专门负责推送屏幕分享。
 
-```
+
+<dx-codeblock>
+::: client 
 // 使用一个独立的用户 ID 进行推送屏幕分享
 const shareId = 'share-userId';
 const shareClient = TRTC.createClient({ mode: 'rtc', sdkAppId, userId, shareId, userSig });
@@ -91,4 +94,5 @@ client.on('stream-added', event => {
     client.subscribe(remoteStream);
   }
 });
-```
+:::
+</dx-codeblock>
