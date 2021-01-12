@@ -8,7 +8,7 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 - 已 [开通云直播服务](https://console.cloud.tencent.com/live)，并准备已备案的域名，[添加为播放域名](https://cloud.tencent.com/document/product/267/20381)（系统提供默认的推流域名可以使用，也可以添加自定义域名推流）
 >? 新用户立享 [9.9元 100GB 直播流量包](https://cloud.tencent.com/act/pro/xinyonghu)，更多规格资源包 [立即前往选购](https://buy.cloud.tencent.com/live )。
 
-## 获取推流地址<span id="step0"></span>
+## 获取推流地址[](id:step0)
 1. 登录云直播控制台，进入[【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)，进行如下配置：
    1. 选择生成类型为**推流域名**或**播放域名**。
    2. 选择您已添加到域名管理里对应的域名。
@@ -19,18 +19,18 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 
 ![](https://main.qcloudimg.com/raw/64c3815306c68daebb5fc7d53bb43164.png)
 
-## OBS 在线推流<span id="normal"></span>
-### 步骤一：设置推流地址<span id="step1"></span>
+## OBS 在线推流[](id:normal)
+### 步骤一：设置推流地址[](id:step1)
 1. 打开 OBS，您可通过底部工具栏的【控件】>【设置】按钮进入设置界面。
 ![](https://main.qcloudimg.com/raw/56e4c19f24d08df7b8f8815f1ffb6857.png)
 2. 单击【推流】进入流设置页签，选择服务类型为自定义流媒体服务器。
 3. 将获取所得的 [推流地址](#step0) 填写到服务器和串流密码中。
-	- 服务器：对应"OBS 推流地址"，即`rtmp://domain/AppName/`。
-	- 串流密码：对应“OBS 推流名称”，即`StreamName?txSecret=xxxxx&txTime=5C1E5F7F`。
+    - 服务器：对应"OBS 推流地址"，即`rtmp://domain/AppName/`。
+    - 串流密码：对应“OBS 推流名称”，即`StreamName?txSecret=xxxxx&txTime=5C1E5F7F`。
 ![](https://main.qcloudimg.com/raw/c6cd899e29c9256102444bf20d1889d3.png)
 4. 单击【确定】保存设置信息。
 
-### 步骤二：推流引导设置<span id="step2"></span>
+### 步骤二：推流引导设置[](id:step2)
 >? 若您需进行码率、录像等配置，可单击顶部工具栏，选择【工具】>【自动配置向导】，按 OBS 的引导进行推流设置。
 
 1. 查看底部工具栏的【来源】标签。
@@ -68,13 +68,13 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 </tr>
 </tbody></table>
 
-### 步骤三：开启工作室模式<span id="step3"></span>
+### 步骤三：开启工作室模式[](id:step3)
 工作室模式下可以对当前直播的内容进行实时编辑，并在编辑过程中进行过度动画的场景切换，从而实现在对用户体验影响最低的程度下进行直播内容的编辑。
 1. 查看底部工具栏的【控件】标签，单击【工作室模式】。
 2. 单击【转场特效】即可将预览窗的直播画面过度到输出窗口。
 ![](https://main.qcloudimg.com/raw/1fe0d66ff608a438fc8e2e49436a5ff9.png)
 
-### 步骤四：直播推流<span id="step4"></span>
+### 步骤四：直播推流[](id:step4)
 1. 查看底部工具栏的【控件】。
 2. 单击【开始推流】，即可将视频流推送到设置的推流地址。
 ![](https://main.qcloudimg.com/raw/ce27c9985d6531c07b2b166ad54ea3b9.png)
@@ -126,18 +126,18 @@ Open Broadcaster Software（简称 OBS）是一款好用的第三方开源程序
 
 ### 视频轮播
 - **单个文件循环播放设置方法**
-	1. 在底部工具栏的【来源】标签中，单击【+】添加【媒体源】，在弹出框中的【本地文件】选择要轮播的视频文件，勾选【循环】，然后单击【确定】即可。
-	![](https://main.qcloudimg.com/raw/08f3d93083fe55c31e510d6069cf33d7.png)
-	2. 按照 [OBS 推流设置](#step1) 步骤，设置【推流】页面中的【服务器】和【串流密钥】项，开始推流即可实现单个文件轮播。
+    1. 在底部工具栏的【来源】标签中，单击【+】添加【媒体源】，在弹出框中的【本地文件】选择要轮播的视频文件，勾选【循环】，然后单击【确定】即可。
+    ![](https://main.qcloudimg.com/raw/08f3d93083fe55c31e510d6069cf33d7.png)
+    2. 按照 [OBS 推流设置](#step1) 步骤，设置【推流】页面中的【服务器】和【串流密钥】项，开始推流即可实现单个文件轮播。
 
 - **多个文件循环轮播方法**
-	OBS本身不支持多个文件循环播放，但借助窗口捕获可以实现多个文件轮播。
-	1. 下载 [QQ 影音](https://player.qq.com/) 并安装。
-	2. 在 QQ 影音中添加需要轮播的视频文件，并设置为列表循环播放。
-	3. 开始播放第一个视频文件，然后隐藏右侧播放列表。
-	![](https://main.qcloudimg.com/raw/c1401db40457036f4a0c06e6266f03cb.png)
-	4. 打开 OBS，在【来源】中单击【+】添加【窗口捕获】，在【窗口】选项找到 QQPlayer.exe，捕获到对应播放内容，单击【确定】。
-	![](https://main.qcloudimg.com/raw/16aa802a5598db48e3e86f37f1b6c374.png)
-	5. 按照 [OBS 推流设置](#step1) 步骤，在【推流】页面中设置【服务器】和【串流密钥】完成后，开始推流。
-	6. 在 OBS 窗口上，调整窗口大小，上下拖动，隐藏播放器边框和按钮，即可实现多文件轮播。
-	![](https://main.qcloudimg.com/raw/d0b59b014734921a58b771ff9ce66391.png)
+    OBS本身不支持多个文件循环播放，但借助窗口捕获可以实现多个文件轮播。
+    1. 下载 [QQ 影音](https://player.qq.com/) 并安装。
+    2. 在 QQ 影音中添加需要轮播的视频文件，并设置为列表循环播放。
+    3. 开始播放第一个视频文件，然后隐藏右侧播放列表。
+    ![](https://main.qcloudimg.com/raw/c1401db40457036f4a0c06e6266f03cb.png)
+    4. 打开 OBS，在【来源】中单击【+】添加【窗口捕获】，在【窗口】选项找到 QQPlayer.exe，捕获到对应播放内容，单击【确定】。
+    ![](https://main.qcloudimg.com/raw/16aa802a5598db48e3e86f37f1b6c374.png)
+    5. 按照 [OBS 推流设置](#step1) 步骤，在【推流】页面中设置【服务器】和【串流密钥】完成后，开始推流。
+    6. 在 OBS 窗口上，调整窗口大小，上下拖动，隐藏播放器边框和按钮，即可实现多文件轮播。
+    ![](https://main.qcloudimg.com/raw/d0b59b014734921a58b771ff9ce66391.png)
