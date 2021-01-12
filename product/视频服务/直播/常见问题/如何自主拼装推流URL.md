@@ -68,5 +68,4 @@ http://domain/AppName/StreamName.m3u8?txSecret=Md5(key+StreamName+hex(time))&txT
 
 
 
-[](id:acc)
-### 拼接 ACC 地址
+
