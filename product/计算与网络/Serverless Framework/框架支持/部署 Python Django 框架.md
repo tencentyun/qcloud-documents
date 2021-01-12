@@ -1,3 +1,4 @@
+
 ## 操作场景
 **腾讯云 Django 组件**通过使用 [Tencent Serverless Framework](https://github.com/serverless/components/tree/cloud)，基于云上 Serverless 服务（如对象存储等），实现“0”配置，便捷开发，极速部署您的 Django 网页应用。
 
@@ -30,7 +31,9 @@ touch serverless.yml
 ```
 将下列配置模版粘贴到文件中，实现基本的项目配置。
 >?基于您实际部署需要，您可以在 `serverless.yml` 中完成更多配置，yml 文件的配置信息请参考 [ Django 组件全量配置](https://github.com/serverless-components/tencent-django/blob/master/docs/configure.md)。
-```yml
+
+<dx-codeblock>
+:::  yml
 #serverless.yml
 component: django
 name: djangoDemo
@@ -49,7 +52,10 @@ inputs:
     protocols:
       - https
     environment: release
-```
+:::
+</dx-codeblock>
+
+
 
 
 ### 4. 应用部署
