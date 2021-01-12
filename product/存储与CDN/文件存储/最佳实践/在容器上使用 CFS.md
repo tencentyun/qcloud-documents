@@ -12,7 +12,7 @@
 ## 申请 CFS 文件存储资源并获取挂载点 IP
 
 - 若您还未拥有文件系统，则请按照 [创建 CFS 文件系统](https://cloud.tencent.com/document/product/582/9132) 指引创建一个文件系统，创建时请注意 VPC 网络的选择需要与您的容器母机在相同的 VPC 下，以保障网络的互通。 
-- 若您已经拥有与容器服务同在一个 VPC 下的文件系统，您可以前往 “[文件系统详情](https://console.cloud.tencent.com/cfs)” 页面获取挂载点 IP 。
+- 若您已经拥有与容器服务同在一个 VPC 下的文件系统，您可以前往 “[文件系统详情](https://console.cloud.tencent.com/cfs/fs)” 页面获取挂载点 IP 。
 
 ## 配置挂载 CFS 文件系统
 
