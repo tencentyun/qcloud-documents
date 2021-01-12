@@ -15,9 +15,11 @@
 :::
 ::: MacOS平台安装指引
 1. 打开终端（Terminal）窗口，执行以下命令安装 Homebrew，如果已经安装请跳过此步骤。
-```shell
+<dx-codeblock>
+::: shell shell
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
+:::
+</dx-codeblock>
 2. 执行以下命令，安装 Node.js，必须大于 10.0 版本。
 ```shell
 $ brew install node
