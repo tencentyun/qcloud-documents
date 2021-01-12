@@ -34,5 +34,5 @@ Prometheus 具有如下特性：
 
 ### 节省开发运维成本
 - 云监控提供了原生的 Prometheus 一站式服务，在您购买 Prometheus 实例之后，可以快速与腾讯云容器服务 TKE 集成，Prometheus 为运行在 Kubernetes 之上的服务提供监控服务，免去用户搭建运维及开发成本。
-- 配合 Prometheus，云监控提供了开通即可使用的 Grafana 服务，同时也集成了丰富的 Kubernetes 基础监控的 Dashboard，以及常用服务监控的 Dashboard，用户开通后即可快速使用，免去自己维护 Dashboard 到成本。
+- 配合 Prometheus，云监控提供了开通即可使用的 Grafana 服务，同时也集成了丰富的 Kubernetes 基础监控的 Dashboard，以及常用服务监控的 Dashboard，用户开通后即可快速使用，免去自己维护 Dashboard 的成本。
 - 基于云监控告警通道的能力，打通 Prometheus Alertmanager，同时提供丰富的报警规则模板，免去用户学习告警配置的成本。
