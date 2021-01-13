@@ -72,7 +72,7 @@
 <thead>
 <tr>
 <th align="left">地域</th>
-<th align="left" width="35%">单价（元/Mbps/小时）</th>
+<th align="left" width="35%">单价（元/Mbps/月）</th>
 </tr>
 </thead>
 <tbody><tr>
