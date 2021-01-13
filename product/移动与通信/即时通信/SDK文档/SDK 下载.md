@@ -88,7 +88,7 @@
 		<tr>      
 		<td align="center">Flutter</td>
 		<td align="center"><a onclick="MtaH5.clickStat('sdkgithub',{'platform':'flutter_zip'})" href="https://pub.dev/documentation/tencent_im_sdk_plugin/latest/">Zip</a></td>
-		<td align="center"><a onclick="MtaH5.clickStat('sdkgithub',{'platform':'flutter_github'})" href="https://github.com/tencentyun/TencentIMFlutterDemo/blob/master/lib/utils/GenerateTestUserSig.dart">Github</a></td>
+		<td align="center"><a onclick="MtaH5.clickStat('sdkgithub',{'platform':'flutter_github'})" href="https://github.com/tencentyun/TencentIMFlutterDemo/tree/master">Github</a></td>
 		<td align="center">-</td>
 		<td align="center">-</td>
 	</tr> 
