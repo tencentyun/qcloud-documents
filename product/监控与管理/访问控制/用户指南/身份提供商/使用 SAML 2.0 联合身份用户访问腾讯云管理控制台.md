@@ -49,14 +49,14 @@ SAML 示例如下：
 ```
 <samlp:Response>
     <saml:Issuer>...</saml:Issuer>
+    <ds:Signature>
+            ...
+    </ds:Signature>
     <samlp:Status>
         ...
     </samlp:Status>
     <saml:Assertion>
         <saml:Issuer>...</saml:Issuer>
-        <ds:Signature>
-            ...
-        </ds:Signature>
         <saml:Subject>
             <saml:NameID>${NameID}</saml:NameID>
             <saml:SubjectConfirmation>
@@ -101,7 +101,7 @@ SAML 示例如下：
 </Attribute>                            
   ```
 > ? 在 Role 源属性中 {AccountID}，{RoleName} ，{ProviderName} 分别替换内容下：
- - {AccountID} 替换为您的腾讯云帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
+ - {AccountID} 替换为您的腾讯云主帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
  - {RoleName}替换您在腾讯云为身份提供商所创建的角色名称（单击查看如何在腾讯云 [为身份提供商创建的角色](https://cloud.tencent.com/document/product/598/19381#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.88.9B.E5.BB.BA)），角色名称可前往 [角色 - 控制台](https://console.cloud.tencent.com/cam/role) 查看。
  - {ProviderName} 替换您在腾讯云创建的 SAML 身份提供商名称，可前往 [身份提供商 - 控制台](https://console.cloud.tencent.com/cam/idp) 查看。 
 

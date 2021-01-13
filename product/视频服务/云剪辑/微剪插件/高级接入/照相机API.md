@@ -31,7 +31,7 @@
 | bindswipetoleft       | Function      | -                       | 左划事件（仅 advanced 模式有效）                      | 否       |
 | bindmediachanged | Function      | -                       | 选择 Clip 的回调<pre style="margin:0" />`e.detail = {track: Array<Track>`}</pre> | 否       |
 
-### settings 默认值<span id="camera_settings"></span>
+### settings 默认值[](id:camera_settings)
 ```
   {
       videoMaxDuration: 30, // 拍摄时长限制（秒）
@@ -49,7 +49,7 @@
   }
 ```
 
-###  clip 结构<span id="camera_clip"></span>
+###  clip 结构[](id:camera_clip)
 ```
   {
     type: "image" // Clip类型：image 、video

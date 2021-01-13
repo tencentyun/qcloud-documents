@@ -181,6 +181,7 @@ wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1
 - [Tencent Cloud Speech SDK for Java](https://github.com/TencentCloud/tencentcloud-speech-sdk-java)
 - [Tencent Cloud Speech SDK for C++](https://github.com/TencentCloud/tencentcloud-speech-sdk-cpp)
 - [Tencent Cloud Speech SDK for Python](https://github.com/TencentCloud/tencentcloud-speech-sdk-python)
+- [Tencent Cloud Speech SDK for JS](https://github.com/TencentCloud/tencentcloud-speech-sdk-js)
 
 ## 5. 错误码
 

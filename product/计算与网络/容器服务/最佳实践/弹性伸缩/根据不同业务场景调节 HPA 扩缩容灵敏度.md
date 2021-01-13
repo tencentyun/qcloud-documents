@@ -167,4 +167,4 @@ behavior:
 ## 参考文档
 
 - [HPA 介绍](https://kubernetes.io/zh/docs/tasks/run-application/horizontal-pod-autoscale/)
-- [HPA 扩容速度控制提案](https://github.com/kubernetes/enhancements/blob/master/keps/sig-autoscaling/20190307-configurable-scale-velocity-for-hpa.md)
+- [HPA 扩容速度控制提案](https://github.com/kubernetes/enhancements/tree/master/keps/sig-autoscaling/853-configurable-hpa-scale-velocity)

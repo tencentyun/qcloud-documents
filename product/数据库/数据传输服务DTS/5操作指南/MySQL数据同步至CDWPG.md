@@ -1,15 +1,16 @@
 本文为您介绍从腾讯云数据库 MySQL 同步数据至腾讯云数据仓库 PostgreSQL（CDWPG）的过程。
 
-CDWPG 是腾讯云大数据数据仓库产品，通过 DTS 实现云数据库 MySQL 到 CDWPG 的数据实时同步，可以帮助您完成 TP 数据库到 AP 数据库的数据闭环。
+CDWPG 是腾讯云大数据数据仓库产品，通过 DTS 实现云数据库 MySQL 到 CDWPG 的数据实时同步，可以帮助您完成 TP（在线事务）数据库到 AP（在线分析）数据库的数据闭环。
 
 ## 前提条件
-- [已创建腾讯云数据库 MySQL](https://cloud.tencent.com/document/product/236/46433)，支持的 MySQL 版本：MySQL 5.6、MySQL 5.7。
+- 已 [创建云数据库 MySQL](https://cloud.tencent.com/document/product/236/46433)，支持的 MySQL 版本：MySQL 5.6、MySQL 5.7。
 - 需要您在源端 MySQL 实例中创建迁移账号，需要的账号权限如下：
 ```
 GRANT Reload, LockTable, ReplClient, ReplSlave, Select, REPLICATION CLIENT  ON *.* TO "迁移帐号"@"%" IDENTIFIED BY "迁移密码";
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO "迁移账号"@"%";
 FLUSH PRIVILEGES;
 ```
-- [已创建 CDWPG](https://cloud.tencent.com/document/product/878/31447)，支持的 CDWPG 版本：1.0.0。
+- 已 [创建 CDWPG](https://cloud.tencent.com/document/product/878/31447)，支持的 CDWPG 版本：1.0.0。
 - 需要您在目标端 CDWPG 实例中创建迁移账号，需要的账号权限如下：
 ```
 Delete
@@ -20,6 +21,23 @@ Select
 Update
 TRIGGER
 ```
+- 配置云数据库 MySQL 到 CDWPG 数据同步任务，在任务启动前，需要进行前置检查，主要检查内容和检查点如下：
+
+| 检查内容                            | 检查点                                             |
+| ------------------------------ | ------------------------------------------- |
+| 校验目标数据库 schema 和 table是否存在 | schema 和 table 必须提前创建好，如果没有创建好，则会报错 |
+| 校验当前用户是否拥有目标数据表权限 | 针对要同步的表，首先判断当前用户是否是该表的 owner（owner 拥有所有权限），如果不是，则查看 information_schema.table_privilege 表中的授权信息，必须保证拥有：Delete、Truncate、Insert、References、Select、Update、TRIGGER 的授权权限，否则会报错 |
+| 校验目标端磁盘空间是否充足 | 目标库的可用空间和源端需要的空间进行对比 |
+| 校验源端数据库权限 | 对源实例检查是否有权限：Reload、LockTable、ReplClient、ReplSlave、Select、REPLICATION CLIENT |
+| 校验源端 MySQL connect_timeout 参数 | 校验 MySQL 侧的 connect_timeout 参数是否小于10，如果小于则会报错 | 
+| 校验源端和目标端数据库连接 | 校验 MySQL 和 CDWPG 是否能正确连接 |
+| 校验源端数据库版本	| MySQL 版本须是 MySQL 5.6或 MySQL 5.7 |
+| 校验源端优化参数 | innodb_stats_on_metadata 指标需要关闭 |
+| 校验源端 binlog 参数 |	binlog_format 须为 ROW；binlog_row_image 须为 FULL；log_bin 须为 ON；gtid_mode 须为ON |
+| 校验主键约束 |	源端需要同步的表必须有主键 |
+| 校验源数据库编码	| 源端必须是 utf8 或 utf8mb4 |
+| 校验 MySQL 表名大小写配置是否配置正确	| 校验 lower_case_table_names 参数是否为0，如果为0则配置不正确 |
+| 校验 MySQL 数据库表名和列名是否含有`"`	| CDWPG 不支持`"`作为列名 |
 
 ## 注意事项
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行。
@@ -32,25 +50,6 @@ TRIGGER
 - 支持1对1单向同步。
 - 支持1对多单向同步。
 - 支持多对1单向同步。
-
-## 前置检查 
-配置云数据库 MySQL 到 CDWPG 数据同步任务，在任务启动前，需要进行前置检查，主要检查内容和检查点如下：
-
-| 检查内容                            | 检查点                                             |
-| ------------------------------ | ------------------------------------------- |
-| 校验目标数据库 schema 和 table是 否存在 | schema 和 table 必须提前创建好，如果没有传建好，则会报错 |
-| 校验当前用户是否拥有目标数据表权限 | 针对要同步的表，首先判断当前用户是否是该表的 owner（owner 拥有所有权限），如果不是，则查看 information_schema.table_privilege 表中的授权信息，必须保证拥有：Delete、Truncate、Insert、References、Select、Update、TRIGGER 的授权权限，否则会报错 |
-| 校验目标端磁盘空间是否充足 | 目标库的可用空间和源端需要的空间进行对比 |
-| 校验源端数据库权限 | 对源实例检查是否有权限：Reload、LockTable、ReplClient、ReplSlave、Select、REPLICATION CLIENT |
-| 源端mysql connect_timeout参数不能小于10 | 校验 MySQL 侧的 connect_timeout 参数是否小于10，如果小于则会报错 | 
-| 校验源端和目标端数据库连接 | 校验 MySQL 和 CDWPG 的连接是否能正确连接 |
-| 校验源端数据库版本	| MySQL 版本须是5.6或5.7 |
-| 校验源端优化参数 | innodb_stats_on_metadata 指标需要关闭 |
-| 校验源端 binlog 参数 |	binlog_format 须为 ROW；binlog_row_image 须为 FULL；log_bin 须为 ON；gtid_mode 须为ON |
-| 校验主键约束 |	源端需要同步的表必须有主键 |
-| 校验源数据库编码	| 源端必须是 utf8 或 utf8mb4 |
-| 校验 MySQL 表名大小写配置是否配置正确	| 校验 lower_case_table_names 参数是否为0 |
-| 校验 MySQL 数据库表名和列名是否含有`"`	| CDWPG 不支持`"`作为列名 |
 
 ## 操作步骤
 1. 登录 [数据同步购买页](https://buy.cloud.tencent.com/dts)，选择相应配置，单击【立即购买】。
@@ -71,13 +70,13 @@ TRIGGER
  - 源实例地域：选择的云数据库实例所在地域，不可修改。
  - 接入类型：目前支持云数据库。
  - 实例 ID：选择源实例 ID。
- - 源实例数据库账号和密码：填入实际数据库账号和密码，并测试连通性。
+ - 源实例数据库账号和密码：填入实际 [数据库账号和密码](https://cloud.tencent.com/document/product/236/10305)，并单击【测试连通性】。
  - 目标实例类型：选择的目标实例类型，不可修改。
  - 目标实例地域：选择的目标实例所在地域，不可修改。
  - 接入类型：目前支持 CDWPG。
  - 实例 ID：选择目标实例 ID。
  - 数据库名称：同步到 CDWPG 所在的数据名称。
- - 目标实例数据库账号和密码：填入实际数据库账号和密码，并测试连通性。
+ - 目标实例数据库账号和密码：填入实际 [数据库账号和密码](https://console.cloud.tencent.com/cdwpg)，并单击【测试连通性】。
 ![](https://main.qcloudimg.com/raw/5fb32bc78048e1df3c309953b29f5781.png)
 5. 在设置同步选项和同步对象页面，选择相应配置，单击【保存并下一步】。
  - 同步初始化：目前只支持全量数据初始化。

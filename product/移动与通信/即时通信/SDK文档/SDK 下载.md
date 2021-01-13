@@ -85,6 +85,13 @@
 		<td align="center"><a onclick="MtaH5.clickStat('sdkgitee',{'platform':'smart_ios'})" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/iOS">Gitee</a></td>
 		<td align="center"><a href="https://cloud.tencent.com/document/product/269/32675">DOC</a></td>
 	</tr> 
+		<tr>      
+		<td align="center">Flutter</td>
+		<td align="center">-</td>
+		<td align="center"><a onclick="MtaH5.clickStat('sdkgithub',{'platform':'flutter_github'})" href="https://github.com/tencentyun/TencentIMFlutterDemo">Github</a></td>
+		<td align="center">-</td>
+		<td align="center"><a href="https://pub.dev/documentation/tencent_im_sdk_plugin/latest/">DOC</a></td>
+	</tr> 
 </table>
 
 <script>
@@ -158,7 +165,7 @@
   </tr>
 </table>
 
-<span id="TLS"></span>
+[](id:TLS)
 ## 解决方案
 
 | 类别 | 所属平台   | Github 下载地址                        | ZIP 下载地址| 集成指引       |

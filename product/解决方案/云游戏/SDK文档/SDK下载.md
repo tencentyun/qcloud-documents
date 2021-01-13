@@ -5,7 +5,7 @@
 | SDK         | 所属平台   | ZIP 包                                                       | SDK 说明                                                     |
 | ----------- | ---------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | JS SDK      | 桌面浏览器 | [DOWNLOAD](https://tcgsdk-1258344699.cos.ap-guangzhou.myqcloud.com/download/tcgsdk-latest.tar.gz) | [DOC](https://cloud.tencent.com/document/product/1162/46134) |
-| Android SDK | Android    | [DOWNLOAD](https://tcgsdk-1258344699.cos.ap-guangzhou.myqcloud.com/download/tcgsdk-android-latest.zip) | [DOC](https://cloud.tencent.com/document/product/1162/47434) |
+| Android SDK | Android    | [DOWNLOAD](https://recorder-10018504.cos.ap-shanghai.myqcloud.com/1.1.2/tcgsdk_v1.1.2.107_202012291751.zip) | [DOC](https://cloud.tencent.com/document/product/1162/47434) |
 
 
 ### 云游戏 SDK 时序图
