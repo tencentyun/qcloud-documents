@@ -51,17 +51,17 @@
 
 ### 创建集群 A 示例资源
 
-在集群 A 中部署 Velero 示例中含有 PVC 的 Nginx 工作负载，为了方便起见直接使用动态存储类来创建 PVC 和 PV ，首先查看当前集群支持的动态存储类信息：
+在某云平台集群 A 中部署 Velero 示例中含有 PVC 的 Nginx 工作负载，为了方便起见直接使用动态存储类来创建 PVC 和 PV ，首先查看当前集群支持的动态存储类信息：
 
 ```bash
-# 获取当前集群支持的存储类信息
+# 获取当前集群支持的存储类信息，其中 xxx-StorageClass 为存储类代名，xxx-Provider 为提供商代名，下同。
 [root@iZj6c3vzs170hmeiu98h5aZ ~]# kubectl  get sc
-NAME                       PROVISIONER                       RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
-alicloud-disk-available    diskplugin.csi.alibabacloud.com   Delete          Immediate              true                   3d3h
+NAME                PROVISIONER    RECLAIMPOLICY   VOLUMEBINDINGMODE      ALLOWVOLUMEEXPANSION   AGE
+xxx-StorageClass    xxx-Provider   Delete          Immediate              true                   3d3h
 ...
 ```
 
-这里使用集群中存储类名为 "alicloud-disk-available" 的存储类来动态创建 ，修改  [with-pv.yaml](https://github.com/vmware-tanzu/velero/blob/v1.5.1/examples/nginx-app/with-pv.yaml) 的 PVC 资源清单如下图：
+使用集群中存储类名为 "xxx-StorageClass"  的存储类来动态创建 ，修改  [with-pv.yaml](https://github.com/vmware-tanzu/velero/blob/v1.5.1/examples/nginx-app/with-pv.yaml) 的 PVC 资源清单如下图：
 
 ```yaml
 ...
@@ -74,17 +74,17 @@ metadata:
   labels:
     app: nginx
 spec:
-  # Optional: 修改PVC 的存储类的值为 alicloud-disk-available 
-  storageClassName: alicloud-disk-available 
+  # Optional: 修改 PVC 的存储类的值为某云平台 
+  storageClassName: xxx-StorageClass 
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 20Gi # 由于该云平台限制存储最小为20G，需要同步修改此值为20Gi
+      storage: 20Gi # 由于该云平台限制存储最小为20Gi，本示例需要同步修改此值为20Gi
 ... 
 ```
 
-修改完成后应用示例中的 YAML 创建下面的集群资源（nginx-example命名空间）：
+修改完成后应用示例中的 YAML 创建如下的集群资源（nginx-example命名空间）：
 
 ```bash
 [root@iZj6c3vzs170hmeiu98h5aZ nginx-app]# kubectl apply -f with-pv.yaml 
@@ -94,7 +94,7 @@ deployment.apps/nginx-deployment created
 service/my-nginx created
 ```
 
-创建出来的 PVC "nginx-logs"  已挂载给 nginx 容器的 `/var/log/nginx` 目录作为服务的日志存储，本示例在浏览器测试访问 Nginx 服务，给挂载的 PVC 生产一些日志数据。
+创建出来的 PVC "nginx-logs"  已挂载给 nginx 容器的 `/var/log/nginx` 目录作为服务的日志存储，本示例在浏览器测试访问 Nginx 服务，给挂载的 PVC 生产一些日志数据（以便后续还原后做数据比对）。
 
 ```bash
 # 查看测试产生的 Nginx 日志大小，当前为 84 K 
@@ -104,7 +104,7 @@ Defaulting container name to nginx.
 Use 'kubectl describe pod/nginx-deployment-5ccc99bffb-6nm5w -n nginx-example' to see all of the containers in this pod 
 root@nginx-deployment-5ccc99bffb-6nm5w:/# du -sh /var/log/nginx/
 84K /var/log/nginx/
-# 查看 accss.log 和 error.log 前两条日志（以便后续还原时做数据比对）
+# 查看 accss.log 和 error.log 前两条日志
 root@nginx-deployment-5ccc99bffb-6nm5w:/# head -n 2 /var/log/nginx/access.log 
 192.168.0.73 - - [29/Dec/2020:03:02:31 +0000] "GET /?spm=5176.2020520152.0.0.22d016ddHXZumX HTTP/1.1" 200 612 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-"
 192.168.0.73 - - [29/Dec/2020:03:02:32 +0000] "GET /favicon.ico HTTP/1.1" 404 555 "http://47.242.233.22/?spm=5176.2020520152.0.0.22d016ddHXZumX" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-"
@@ -117,7 +117,7 @@ root@nginx-deployment-5ccc99bffb-6nm5w:/# head -n 2 /var/log/nginx/error.log
 
 使用下面命令输出当前集群中所有的资源清单列表：
 
-```yaml
+```bash
 kubectl api-resources --verbs=list -o name  | xargs -n 1 kubectl get --show-kind --ignore-not-found --all-namespaces
 ```
 
@@ -125,18 +125,18 @@ kubectl api-resources --verbs=list -o name  | xargs -n 1 kubectl get --show-kind
 
 -   查看不区分命名空间的资源清单列表：
 
-   ```yaml
+   ```bash
    kubectl api-resources --namespaced=false --verbs=list -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found
    ```
 
 - 查看区分命名空间的资源清单列表：
 
-   ```yaml
+   ```bash
    kubectl api-resources --namespaced=true --verbs=list -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found --all-namespaces
    ```
 
 
-可以根据实际情况筛选出需要被迁移的资源清单，本示例将直接从某云平台迁移 "nginx-example" 命名空间下 Nginx 工作负载相关的资源到 TKE 平台，如下所示：
+可以根据实际情况筛选出需要被迁移的资源清单，本示例将直接从该云平台迁移 "nginx-example" 命名空间下 Nginx 工作负载相关的资源到 TKE 平台，涉及资源如下所示：
 
 ```bash
 [root@iZj6c3vzs170hmeiu98h5aZ ~]# kubectl  get all -n nginx-example
@@ -153,20 +153,20 @@ NAME                                          DESIRED   CURRENT   READY   AGE
 replicaset.apps/nginx-deployment-5ccc99bffb   1         1         1       2d19h
 [root@iZj6c3vzs170hmeiu98h5aZ ~]# kubectl  get pvc -n nginx-example
 NAME         STATUS   VOLUME                   CAPACITY   ACCESS MODES   STORAGECLASS              AGE
-nginx-logs   Bound    d-j6ccrq4k1moziu1l6l5r   20Gi       RWO            alicloud-disk-available   2d19h
+nginx-logs   Bound    d-j6ccrq4k1moziu1l6l5r   20Gi       RWO            xxx-StorageClass   2d19h
 [root@iZj6c3vzs170hmeiu98h5aZ ~]# kubectl  get pv
 NAME                     CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                      STORAGECLASS              REASON   AGE
-d-j6ccrq4k1moziu1l6l5r   20Gi       RWO            Delete           Bound    nginx-example/nginx-logs   alicloud-disk-available            2d19h
+d-j6ccrq4k1moziu1l6l5r   20Gi       RWO            Delete           Bound    nginx-example/nginx-logs   xxx-StorageClass            2d19h
 ```
 
 ### 确认Hook 策略
 
-本示例在 [with-pv.yaml](https://github.com/vmware-tanzu/velero/blob/v1.5.1/examples/nginx-app/with-pv.yaml) 中已经配置了在备份 Nginx 工作负载前将文件系统设置为只读，在备份后恢复读写的 Hook 策略，如下 YAML 所示：
+本示例在 [with-pv.yaml](https://github.com/vmware-tanzu/velero/blob/v1.5.1/examples/nginx-app/with-pv.yaml) 中已经配置了备份 Nginx 工作负载前将文件系统设置为只读，在备份后恢复读写的 Hook 策略，如下 YAML 所示：
 
 ```yaml
 ...
       annotations:
-        # 备份 Hook 策略的注解表示：在开始备份之前将nginx日志目录设置为只读模式，备份完成后恢复读写模式
+        # 备份 Hook 策略的注解表示：在开始备份之前将 nginx 日志目录设置为只读模式，备份完成后恢复读写模式
         pre.hook.backup.velero.io/container: fsfreeze
         pre.hook.backup.velero.io/command: '["/sbin/fsfreeze", "--freeze", "/var/log/nginx"]'
         post.hook.backup.velero.io/container: fsfreeze
@@ -199,7 +199,7 @@ d-j6ccrq4k1moziu1l6l5r   20Gi       RWO            Delete           Bound    ngi
 
 ### 开始迁移操作
 
-接下来根据实际情况编写备份和还原策略，开始对某云平台的 Nginx 工作负载资源进行迁移。
+接下来根据实际情况编写备份和还原策略，开始对该云平台的 Nginx 工作负载相关资源进行迁移。
 
 #### 在集群 A 执行备份
 
@@ -216,7 +216,7 @@ spec:
   # 仅包含 nginx-example 命名空间的资源
   includedNamespaces:
    - nginx-example
-  # 表示是否包含不区分命名空间的资源
+  # 包含不区分命名空间的资源
   includeClusterResources: true
   # 备份数据存储位置指定
   storageLocation: default
@@ -253,7 +253,7 @@ kubectl patch backupstoragelocation default --namespace velero \
 
 #### 处理跨云平台资源的差异性
 
-1. 由于使用的动态存储类有差异，这里应用如下所示的 ConfigMap  YAML 为持久卷 "nginx-logs"  创建动态存储类名映射：
+1. 由于使用的动态存储类有差异，这里需要如下所示的 ConfigMap 为持久卷 "nginx-logs"  创建动态存储类名映射：
 
 ```yaml
 apiVersion: v1
@@ -265,16 +265,16 @@ metadata:
     velero.io/plugin-config: ""
     velero.io/change-storage-class: RestoreItemAction
 data:
-  # 添加 PVC 存储类新名映射到腾讯云动态存储类 cbs
-  alicloud-disk-available: cbs
+  # 存储类名映射到腾讯云动态存储类 cbs
+  xxx-StorageClass: cbs
 ```
-
+应用上述的 `ConfigMap` 配置：
 ```bash
-[root@VM-20-5-tlinux ~]# kubectl  apply -f backup.yaml 
+[root@VM-20-5-tlinux ~]# kubectl  apply -f cm-storage-class.yaml 
 configmap/change-storage-class-config created
 ```
 
-2. Velero 备份的资源清单 以 `json` 格式存放在对象存储中，如果有更加个性化的迁移需求，可以直接下载备份文件并自定义修改，本示例为 Nginx  的 Deployment 资源清单自定义添加一个注解 "jokey-test:jokey-test"。
+2. Velero 备份的资源清单 以 `json` 格式存放在对象存储中，如果有更加个性化的迁移需求，可以直接下载备份文件并自定义修改，本示例将为 Nginx  的 Deployment 资源自定义添加一个 "jokey-test:jokey-test" 注解，修改过程如下：
 
 ```bash
 jokey@JOKEYLI-MB0 Downloads % mkdir migrate-backup
@@ -312,11 +312,11 @@ spec:
   
   includeClusterResources: null
   
-  # 还原时不包含的资源，由于 includeClusterResources 已配置 false，这里不需要再额外排除 storageclasses 资源类型。
+  # 还原时不包含的资源，这里额外排除 StorageClasses 资源类型。
   excludedResources:
     - storageclasses.storage.k8s.io
  
-  # 使用 labelSelector 选择需要还原的资源，由于此示例中 Deployment 资源清单没有此label， 但需要还原，这里先注释。
+  # 使用 labelSelector 选择器选择具有特定 label 的资源，由于此示例中无须再使用 label 选择器筛选，这里先注释。
   # labelSelector:
   #   matchLabels:
   #     app: nginx
@@ -326,7 +326,7 @@ spec:
     nginx-example: default
   restorePVs: true
 ```
-执行还原过程如下所示， 当还原状态为 "Completed" 且 errors 数为 0 时表示还原过程完整无误：
+执行还原过程如下所示， 当还原状态显示为 "Completed" 且 "errors" 数为 0 时表示还原过程完整无误：
 ```bash
 [root@VM-20-5-tlinux ~]# kubectl  apply -f restore.yaml 
 restore.velero.io/migrate-restore created
@@ -338,10 +338,10 @@ migrate-restore   migrate-backup   Completed   2021-01-12 20:39:14 +0800 CST   2
 
 ### 迁移资源核查
 
-1. 首先查看被迁移的资源的运行状态：
+1. 首先查看被迁移的资源的运行状态是否正常。
 
    ```bash
-   # 在还原时指定了 "nginx-example" 命名空间映射到 "default" 命名空间，所以还原的资源将运行在 "default" 命名空间下 
+   # 由于在还原时指定了 "nginx-example" 命名空间映射到 "default" 命名空间，所以还原的资源将运行在 "default" 命名空间下 
    [root@VM-20-5-tlinux ~]# kubectl  get all -n default 
    NAME                                    READY   STATUS    RESTARTS   AGE
    pod/nginx-deployment-5ccc99bffb-6nm5w   2/2     Running   0          49s
@@ -358,12 +358,12 @@ migrate-restore   migrate-backup   Completed   2021-01-12 20:39:14 +0800 CST   2
    replicaset.apps/nginx-deployment-5ccc99bffb   1         1         1       49s
    ```
 
-2. 从上面可以看出被迁移的资源的运行状态都是正常的，下来核查设置的还原策略是否生效：
+2. 从上面可以看出被迁移的资源的运行状态都是正常的，接下来核查设置的还原策略是否成功。
 
    - 核查动态存储类名映射是否正确：
 
      ```bash
-     # 可以看到 PVC/PV 的存储类已经是 "cbs" 了，说明映射成功
+     # 可以看到 PVC/PV 的存储类已经是 "cbs" 了，说明存储类映射成功。
      [root@VM-20-5-tlinux ~]# kubectl  get pvc -n default 
      NAME         STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
      nginx-logs   Bound    pvc-bcc17ccd-ec3e-4d27-bec6-b0c8f1c2fa9c   20Gi       RWO            cbs            55s
@@ -372,7 +372,7 @@ migrate-restore   migrate-backup   Completed   2021-01-12 20:39:14 +0800 CST   2
      pvc-bcc17ccd-ec3e-4d27-bec6-b0c8f1c2fa9c   20Gi       RWO            Delete           Bound    default/nginx-logs   cbs                     57s
      ```
 
-   - 在还原前自定义为 "deployment.apps/nginx-deployment" 添加的注解：
+   - 查看还原前为 "deployment.apps/nginx-deployment" 自定义添加的 "jokey-test" 注解是否成功：
 
      ```bash
      # 获取注解"jokey-test"成功,说明自定义修改资源成功。
@@ -381,18 +381,18 @@ migrate-restore   migrate-backup   Completed   2021-01-12 20:39:14 +0800 CST   2
      jokey-test
      ```
 
-   - 从上述资源运行状态可以看出命名空间映射配置也是成功的。
+   - 从上述查看资源运行状态可以看出命名空间映射配置也是成功的。
 
 3. 检查工作负载挂载的 PVC 数据是否成功迁移：
 
    ```bash
-   # 查看挂载的 PVC 数据目录中的数据大小，显示为 88K 是因为 CLB 请求服务增加了健康检查日志。   
+   # 查看挂载的 PVC 数据目录中的数据大小，显示为 88K 比迁移前多，原因是腾讯云 CLB 主动发起健康检查产生了一些日志。   
    [root@VM-20-5-tlinux ~]# kubectl  exec -it nginx-deployment-5ccc99bffb-6nm5w -n default -- bash
    Defaulting container name to nginx.
    Use 'kubectl describe pod/nginx-deployment-5ccc99bffb-6nm5w -n default' to see all of the containers in this pod.
    root@nginx-deployment-5ccc99bffb-6nm5w:/# du -sh /var/log/nginx 
    88K     /var/log/nginx
-   # 查看前两条日志信息，和迁移前一致，说明 PVC 数据没丢失
+   # 查看前两条日志信息，和迁移前一致，大致说明 PVC 数据没丢失
    root@nginx-deployment-5ccc99bffb-6nm5w:/# head -n 2 /var/log/nginx/access.log 
    192.168.0.73 - - [29/Dec/2020:03:02:31 +0000] "GET /?spm=5176.2020520152.0.0.22d016ddHXZumX HTTP/1.1" 200 612 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-"
    192.168.0.73 - - [29/Dec/2020:03:02:32 +0000] "GET /favicon.ico HTTP/1.1" 404 555 "http://47.242.233.22/?spm=5176.2020520152.0.0.22d016ddHXZumX" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36" "-"
@@ -401,7 +401,7 @@ migrate-restore   migrate-backup   Completed   2021-01-12 20:39:14 +0800 CST   2
    2020/12/29 03:07:21 [error] 6#6: *1172 open() "/usr/share/nginx/html/0bef" failed (2: No such file or directory), client: 192.168.0.73, server: localhost, request: "GET /0bef HTTP/1.0"
    ```
 
-综上所述，此示例中成功迁移了 "nginx-example" 命名空间下 Nginx 工作负载相关资源和数据到 "default" 命名空间。
+综上所述，此示例成功迁移某云平台集群 A 的 Nginx （ nginx-example 命名空间）工作负载相关资源和数据到 TKE 集群 B （default 命名空间）中。
 
 ## 总结
 
@@ -431,7 +431,7 @@ velero 提供了许多非常实用的备份和还原策略，以下作简要梳�
 
   - `--exclude-resources`：指定要排除的资源对象列表。
 
-  - `velero.io/exclude-from-backup=true`：此配置项为资源对象配置lable 属性，添加了此 label 配置项的资源对象将会排除在外。
+  - `velero.io/exclude-from-backup=true`：此配置项为资源对象配置 label 属性，添加了此 label 配置项的资源对象将会排除在外。
 
   详情请参阅 [资源过滤]( https://velero.io/docs/v1.5/resource-filtering/)。
 
