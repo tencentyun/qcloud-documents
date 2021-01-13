@@ -23,7 +23,8 @@ Authorization: Auth String
 
 **示例二**
 
-```shell
+<dx-codeblock>
+:::  shell
 PUT /<ObjectKey>?acl HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -33,7 +34,8 @@ Content-MD5: MD5
 Authorization: Auth String
 
 [Request Body]
-```
+:::
+</dx-codeblock>
 
 >? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
@@ -164,7 +166,8 @@ x-cos-request-id: NWQ3NjRmNmRfZjZjMjBiMDlfMmE5MWJfMTI3OWZh****
 
 #### 请求
 
-```shell
+<dx-codeblock>
+:::  shell
 PUT /exampleobject?acl HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Tue, 10 Sep 2019 06:32:02 GMT
@@ -193,7 +196,8 @@ Connection: close
 		</Grant>
 	</AccessControlList>
 </AccessControlPolicy>
-```
+:::
+</dx-codeblock>
 
 #### 响应
 
