@@ -1,4 +1,4 @@
-开发一个连接器（**connector**）最简单的方式就是通过 XML 来编写，一个连接器就是一个 XML 文件，以下是一个 XML 描述的 hello-world 连接器，提供了一个**hello-world**操作，通过使用 **[Logger](https://cloud.tencent.com/document/product/1270/46959)** 组件来打印日志 `Hello World!`。
+开发一个连接器（**connector**）最简单的方式就是通过 XML 来编写，一个连接器就是一个 XML 文件，以下是一个 XML 描述的 hello-world 连接器，提供了一个 **hello-world** 操作，通过使用 **[Logger](https://cloud.tencent.com/document/product/1270/46959)** 组件来打印日志 `Hello World!`。
 
 ```xml
 <module apiVersion="1.0.0" apiType="XML" expressionType="dataway" expressionVersion="1.0.0" >
