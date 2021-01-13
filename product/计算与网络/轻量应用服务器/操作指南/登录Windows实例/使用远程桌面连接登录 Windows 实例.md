@@ -18,7 +18,7 @@ Windows
 >
 1. 在本地 Windows 计算机上，单击  <img src="https://main.qcloudimg.com/raw/370daffec54024ee262d1e5dbcd4bde2.png" style="margin: 0;width: 35px;">，在【搜索程序和文件】中，输入 **mstsc**，按 **Enter**，打开远程桌面连接对话框。如下图所示：
 ![](https://main.qcloudimg.com/raw/38e9d9ac0485bf8ad3a209092a1284ba.png)
-2. 在【计算机】后面，输入 Windows 服务器的公网 IP，单击【连接】。
+2. 在【计算机】后面，输入 Windows 实例的公网 IP，单击【连接】。
 3. 在弹出的 “Windows 安全” 窗口中，输入实例的管理员帐号和密码，如下图所示：
 >? 若弹出 “是否信任此远程连接？” 对话框，可勾选 “不再询问我是否连接到此计算机”，单击【连接】。
 >
@@ -63,7 +63,7 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
 
 >?
 >- 以下操作以 Microsoft Remote Desktop for Mac 为例。微软官方已于2017年停止提供 Remote Desktop 客户端的下载链接，转由其子公司 HockeyApp 进行 Beta 版本的发布。您可前往 [Microsoft Remote Desktop Beta](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac) 下载 Beta 版本。
->- 以下操作以连接 Windows Server 2012 R2 操作系统的云服务器为例。
+>- 以下操作以连接 Windows Server 2012 R2 操作系统的轻量应用服务器为例。
 >
 1. 下载 Microsoft Remote Desktop for Mac 并在本地进行安装。
 2. 启动 MRD，并单击【Add Desktop】。如下图所示：
