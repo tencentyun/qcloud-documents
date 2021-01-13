@@ -1,7 +1,7 @@
 
 本文将介绍如何在腾讯云 VPC 内通过 keepalived 软件 + [高可用虚拟 IP (HAVIP)](https://cloud.tencent.com/document/product/215/36691) 搭建高可用主备集群。
 >?
->- 目前 HAVIP 产品处于灰度优化中，非上海和非广州地域新用户如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/azh0w1qoavk)。
+>- 目前 HAVIP 产品处于灰度优化中，切换的时延在10s左右，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/azh0w1qoavk)。
 >- 上海和广州地域切换延时可能达1 - 2分钟，目前新用户已暂停使用，建议您使用腾讯云 [CLB](https://cloud.tencent.com/document/product/214)、[TDaTa](https://cloud.tencent.com/document/product/643/12573) 等产品以满足需要。
 
 
