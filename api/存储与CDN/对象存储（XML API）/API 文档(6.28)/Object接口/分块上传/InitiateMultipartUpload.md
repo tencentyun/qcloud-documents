@@ -118,8 +118,7 @@ Connection: close
 
 #### 响应
 
-<dx-codeblock>
-:::  plaintext
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 230
@@ -128,13 +127,14 @@ Date: Wed, 25 Mar 2020 10:07:01 GMT
 Server: tencent-cos
 x-cos-request-id: NWU3YjJkNDVfNDliNTJhMDlfYzZhMl8yOTVj****
 
+
+
 <InitiateMultipartUploadResult>
-	<Bucket>examplebucket-1250000000</Bucket>
-	<Key>exampleobject</Key>
-	<UploadId>1585130821cbb7df1d11846c073ad648e8f33b087cec2381df437acdc833cf654b9ecc6361</UploadId>
+			<Bucket>examplebucket-1250000000</Bucket>
+			<Key>exampleobject</Key>
+			<UploadId>1585130821cbb7df1d11846c073ad648e8f33b087cec2381df437acdc833cf654b9ecc6361</UploadId>
 </InitiateMultipartUploadResult>
-:::
-</dx-codeblock>
+```
 
 #### 案例二：使用请求头部指定元数据和 ACL
 
@@ -156,8 +156,7 @@ Connection: close
 
 #### 响应
 
-<dx-codeblock>
-:::  plaintext
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 230
@@ -166,13 +165,14 @@ Date: Thu, 28 May 2020 08:35:34 GMT
 Server: tencent-cos
 x-cos-request-id: NWVjZjc3ZDZfOThjMjJhMDlfMjg5N18zNWYy****
 
+
+
 <InitiateMultipartUploadResult>
-	<Bucket>examplebucket-1250000000</Bucket>
-	<Key>exampleobject</Key>
-	<UploadId>1590654934dfb1343b4323b711afc22569c18af51596d4f2e40faf392fe1bb469c5b77115f</UploadId>
+			<Bucket>examplebucket-1250000000</Bucket>
+			<Key>exampleobject</Key>
+			<UploadId>1590654934dfb1343b4323b711afc22569c18af51596d4f2e40faf392fe1bb469c5b77115f</UploadId>
 </InitiateMultipartUploadResult>
-:::
-</dx-codeblock>
+```
 
 #### 案例三：使用服务端加密 SSE-COS
 
@@ -191,8 +191,7 @@ Connection: close
 
 #### 响应
 
-<dx-codeblock>
-:::  plaintext
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 230
@@ -202,13 +201,14 @@ Server: tencent-cos
 x-cos-request-id: NWVjZjc5Y2VfZjhjODBiMDlfMjIyOGFfMzYxYWVm****
 x-cos-server-side-encryption: AES256
 
+
+
 <InitiateMultipartUploadResult>
-	<Bucket>examplebucket-1250000000</Bucket>
-	<Key>exampleobject</Key>
-	<UploadId>15906554384f160dd0a272ebb6fbcdb0ffbb61adb2b46fa6b9f2ffabcfb2940b8f72277952</UploadId>
+			<Bucket>examplebucket-1250000000</Bucket>
+			<Key>exampleobject</Key>
+			<UploadId>15906554384f160dd0a272ebb6fbcdb0ffbb61adb2b46fa6b9f2ffabcfb2940b8f72277952</UploadId>
 </InitiateMultipartUploadResult>
-:::
-</dx-codeblock>
+```
 
 #### 案例四：使用服务端加密 SSE-KMS
 
@@ -229,8 +229,7 @@ Connection: close
 
 #### 响应
 
-<dx-codeblock>
-:::  plaintext
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 230
@@ -241,13 +240,15 @@ x-cos-request-id: NWVjZjc5ZTNfMmZiOTJhMDlfMzJlNDJfMjkzNGJi****
 x-cos-server-side-encryption: cos/kms
 x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
 
+
+
 <InitiateMultipartUploadResult>
-	<Bucket>examplebucket-1250000000</Bucket>
-	<Key>exampleobject</Key>
-	<UploadId>15906554607990121702e8e4b706eb0f12b8568a3f3b0b76b884e4df676ed50291f0b17131</UploadId>
+			<Bucket>examplebucket-1250000000</Bucket>
+			<Key>exampleobject</Key>
+			<UploadId>15906554607990121702e8e4b706eb0f12b8568a3f3b0b76b884e4df676ed50291f0b17131</UploadId>
 </InitiateMultipartUploadResult>
-:::
-</dx-codeblock>
+```
+
 
 #### 案例五：使用服务端加密 SSE-C
 
@@ -268,8 +269,7 @@ Connection: close
 
 #### 响应
 
-<dx-codeblock>
-:::  plaintext
+```plaintext
 HTTP/1.1 200 OK
 Content-Type: application/xml
 Content-Length: 230
@@ -280,10 +280,11 @@ x-cos-request-id: NWVjZjc5ZjlfOGJjOTJhMDlfNzJmYV8xOTcy****
 x-cos-server-side-encryption-customer-algorithm: AES256
 x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
 
+
+
 <InitiateMultipartUploadResult>
-	<Bucket>examplebucket-1250000000</Bucket>
-	<Key>exampleobject</Key>
-	<UploadId>15906554815fb0c8bda2edae20d895ad7452e949bf51541b31ca14a029fb6f1617f10ca186</UploadId>
+			<Bucket>examplebucket-1250000000</Bucket>
+			<Key>exampleobject</Key>
+			<UploadId>15906554815fb0c8bda2edae20d895ad7452e949bf51541b31ca14a029fb6f1617f10ca186</UploadId>
 </InitiateMultipartUploadResult>
-:::
-</dx-codeblock>
+```
