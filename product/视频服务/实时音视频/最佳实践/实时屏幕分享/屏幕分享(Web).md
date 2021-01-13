@@ -28,21 +28,25 @@ localStream.initialize().then(() => {
 屏幕分享属性包括分辨率、帧率和码率，可以通过 {@link LocalStream#setScreenProfile setScreenProfile()} 接口指定一个属性 Profile，每个 Profile 对应着一组分辨率、帧率和码率，也可以使用自定义分辨率、帧率和码率。屏幕分享默认使用 '1080p' Profile。
 
 - 指定属性 Profile：
-```
+<dx-codeblock>
+::: Profile 
 const localStream = TRTC.createStream({ audio: false, screen: true });
 localStream.setScreenProfile('1080p');
 localStream.initialize().then(() => {
 		// screencast stream init success
 });
-```
+:::
+</dx-codeblock>
 - 使用自定义分辨率、帧率和码率：
-```
+<dx-codeblock>
+::: 自定义分辨率 
 const localStream = TRTC.createStream({ audio: false, screen: true });
 localStream.setScreenProfile({ width: 1920, height: 1080, frameRate: 5, bitrate: 1600 /* kbps */});
 localStream.initialize().then(() => {
 		// screencast stream init success
 });
-```
+:::
+</dx-codeblock>
 
 屏幕分享属性推荐列表：
 
@@ -68,8 +72,11 @@ localStream.initialize().then(() => {
 const shareId = 'share-userId';
 const shareClient = TRTC.createClient({ mode: 'rtc', sdkAppId, userId, shareId, userSig });
 
-// 指明该 shareClient 默认不接收任何远端流 （它只负责发送屏幕分享流）
-shareClient.setDefaultMuteRemoteStreams(true);
+// 指明该 shareClient 不接收任何远端流 （它只负责发送屏幕分享流）
+shareClient.on('stream-added', event => {
+  const remoteStream = event.stream;
+  shareClient.unsubscribe(remoteStream);
+});
 shareClient.join({ roomId }).then(() => {
   console.log('shareClient join success');
   // 创建屏幕分享流

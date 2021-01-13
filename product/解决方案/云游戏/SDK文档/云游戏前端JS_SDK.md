@@ -122,12 +122,14 @@ params对象有效字段描述：
 | 物理网络已断开      | {"status": "offline"}                                        |
 | 帧率低或卡顿        | {"status": "lag"}                                            |
 | 空闲或无操作        | {"status": "idle"}                                           |
-| 外网IP变化          | {"status": "ipchanged"}                                      |
-| 连接loading时间过长 | {"status": "noflow"}                                         |
+| 外网 IP 变化          | {"status": "ipchanged"}                                      |
+| 连接 loading 时间过长 | {"status": "noflow"}                                         |
 | 已连接但帧率掉0     | {"status": "noflowcenter"}                                   |
 | 实时状态数据        | {"status": "stats", "stats": {...}}，stats字段的结构请参见  [stats 字段描述](#stats_cpde) |
 
-####  <span id="stats_cpde">stats 字段描述</span>
+
+[](id:stats_cpde)
+####  stats 字段描述
 
 | 字段            | 类型   | 描述                                       |
 | --------------- | ------ | ------------------------------------------ |
@@ -142,8 +144,8 @@ params对象有效字段描述：
 | rtt             | number | 客户端到云端，网络端数据包往返耗时         |
 | timestamp       | number | 此数据回调的时间戳，单位：ms               |
 
-
-#### <span id="onWebrtcStat_wrong">onWebrtcStat 错误码汇总</span>
+[](id:onWebrtcStat_wrong)
+#### onWebrtcStat 错误码汇总
 
 | 错误码 | 说明                       |
 | ------ | -------------------------- |

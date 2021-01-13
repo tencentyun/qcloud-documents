@@ -301,7 +301,7 @@ function main_handler($event, $context) {
 ?>
 ```
 
-### JAVA
+### Java
 1. 请参考 [依赖安装](https://cloud.tencent.com/document/product/583/39780#java-.E8.BF.90.E8.A1.8C.E6.97.B6)，安装以下依赖。
 <dx-codeblock>
 :::  xml

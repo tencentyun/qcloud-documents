@@ -85,6 +85,13 @@
 		<td align="center"><a onclick="MtaH5.clickStat('sdkgitee',{'platform':'smart_ios'})" href="https://gitee.com/cloudtencent/TIMSDK/tree/master/iOS">Gitee</a></td>
 		<td align="center"><a href="https://cloud.tencent.com/document/product/269/32675">DOC</a></td>
 	</tr> 
+		<tr>      
+		<td align="center">Flutter</td>
+		<td align="center">-</td>
+		<td align="center"><a onclick="MtaH5.clickStat('sdkgithub',{'platform':'flutter_github'})" href="https://github.com/tencentyun/TencentIMFlutterDemo">Github</a></td>
+		<td align="center">-</td>
+		<td align="center"><a href="https://pub.dev/documentation/tencent_im_sdk_plugin/latest/">DOC</a></td>
+	</tr> 
 </table>
 
 <script>
