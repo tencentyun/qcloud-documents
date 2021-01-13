@@ -29,7 +29,7 @@ ENV etlip 169.254.0.143
 ENV etlport 9550
 
 # 需要替换成自己的token
-ENV token tsw_site@j1fPVEr00uTrh_BqpeV8ERtrj-gshijb8kdkrLv9k7M=
+ENV token tsw_site@xxxxxxxx
 COPY ${jar} ${workdir}
 WORKDIR ${workdir}
 

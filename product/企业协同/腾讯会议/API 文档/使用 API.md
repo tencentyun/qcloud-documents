@@ -12,7 +12,7 @@
 ### 第三方应用开发（OAuth2.0 授权）
 **授权说明**
 1. OAuth2.0 允许应用程序访问腾讯会议 API 接口。
->!回调域名只需要填写主域名，而不是 URL，因此请勿加 `http:/`/ 等协议头，请严格按照 `meeting.tencent.com` 该格式填写。
+>!目前 OAuth 授权接入属于内测阶段，您可以单击 [第三方应用接入申请](https://cloud.tencent.com/apply/p/37q5wubrrg9) 填写接入意向。
 
 2. 在用户授权后，开发者可以获取到一个网页授权特有的接口调用凭证（网页授权 access_token），通过网页授权 access_token 可以进行授权后接口调用，如获取用户基本信息等。
 ![](https://main.qcloudimg.com/raw/343b7c3122df48926ffae2004b8e53e4.png)

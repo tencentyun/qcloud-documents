@@ -23,7 +23,7 @@
 
 ## 步骤3：下载并配置 Demo 源码
 
-1. 下载即时通信 IM Demo 工程，具体下载地址请参见 [SDK 下载](https://cloud.tencent.com/document/product/269/36887)。
+1. 下载即时通信 IM Demo 工程，具体下载地址请参见 [SDK 下载](https://cloud.tencent.com/document/product/269/36887)；Flutter Demo 工程请参见 [Flutter SDK 下载](https://github.com/tencentyun/TencentIMFlutterDemo/tree/master)。
 >?为尊重表情设计版权，下载的 Demo 工程中不包含大表情元素切图，您可以使用自己本地表情包来配置代码。未授权使用 IM Demo 中的表情包可能会构成设计侵权。
 2. 打开所属终端目录的工程，找到对应的`GenerateTestUserSig`文件。
  <table>
