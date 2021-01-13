@@ -66,8 +66,8 @@ public void getThumbnail(int count, int width, int height, boolean fast, TXThumb
 ```
 
 参数 @param fast 可以使用两种模式：
->- 快速出图：输出的缩略图速度比较快，但是与视频对应不精准，传入参数 true。
->- 精准出图：输出的缩略图与视频时间点精准对应，但是在高分辨率上速度慢一些，传入参数 false。
+- 快速出图：输出的缩略图速度比较快，但是与视频对应不精准，传入参数 true。
+- 精准出图：输出的缩略图与视频时间点精准对应，但是在高分辨率上速度慢一些，传入参数 false。
 
 完整示例如下：
 ```
