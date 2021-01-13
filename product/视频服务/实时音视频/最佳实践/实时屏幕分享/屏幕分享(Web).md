@@ -68,8 +68,11 @@ localStream.initialize().then(() => {
 const shareId = 'share-userId';
 const shareClient = TRTC.createClient({ mode: 'rtc', sdkAppId, userId, shareId, userSig });
 
-// 指明该 shareClient 默认不接收任何远端流 （它只负责发送屏幕分享流）
-shareClient.setDefaultMuteRemoteStreams(true);
+// 指明该 shareClient 不接收任何远端流 （它只负责发送屏幕分享流）
+shareClient.on('stream-added', event => {
+  const remoteStream = event.stream;
+  shareClient.unsubscribe(remoteStream);
+});
 shareClient.join({ roomId }).then(() => {
   console.log('shareClient join success');
   // 创建屏幕分享流
