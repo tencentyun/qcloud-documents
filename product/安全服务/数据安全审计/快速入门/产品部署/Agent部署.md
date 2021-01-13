@@ -12,8 +12,8 @@ Agent 部署流程如下图所示，其中前五步为参数配置操作：
 [](id:ip)
 2. 在审计的数据资产页面，单击【添加数据资产】，进入添加数据资产框，输入数据资产名称，选择数据资产类型和数据资产 IP 和 Port。
  - 数据资产名称：关联审计组时用的，必填140个字符。
- - 数据资产类型：根据对应的ip选择类型。
- - 数据资产 IP：数据库服务器IP地址。
+ - 数据资产类型：数据库的类型。
+ - 数据资产 IP：数据库服务器 IP 地址。
  - Port：数据资产对应的端口。
  ![](https://main.qcloudimg.com/raw/0db8d751133a83016bc0f10fbb487ded.png)
 3. 单击【确定】，提示添加成功。
@@ -26,7 +26,7 @@ Agent 部署流程如下图所示，其中前五步为参数配置操作：
 	>
 	![](https://main.qcloudimg.com/raw/d294a8b836a375a14f820dbe406a4438.png)
 	3. 单击【确定】，提示配置成功。
-	4. 配置成功后，可以单击【下载Linux Agent】、【下载Windows Agent】或【linux批量部署】进行配置 Agent。
+	4. 配置成功后，可以单击【下载 Linux Agent】、【下载 Windows Agent】或【linux 批量部署】进行配置 Agent。
 
 ## Agent 安装
 下载 Agent 完成后，需要将 Agent 安装在相应服务器上才能实现审计效果。
