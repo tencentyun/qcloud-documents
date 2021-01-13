@@ -1,6 +1,8 @@
 ## 操作场景
 本文介绍如何在 Windows 、Linux 及 Mac OS 系统的本地计算机中通过远程桌面登录 Windows 实例。
 
+## 适用本地操作系统
+Windows、Linux 和 Mac OS 都可以使用远程桌面登录轻量应用服务器。
 
 ## 前提条件
 
