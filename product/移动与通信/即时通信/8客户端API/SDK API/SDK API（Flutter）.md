@@ -10,7 +10,8 @@
 | [getLoginStatus](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/getLoginStatus.html) | 获取登录状态 |
 | [getLoginUser](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_manager/V2TIMManager/getLoginUser.html) | 获取当前登录用户的 UserID |
 
-## 简单消息收发接口
+
+## 简单消息收发接口[](id:simple)
 如果您只需要使用文本和信令（即一段自定义buffer）消息，只需要使用这套简单消息收发接口即可。
 
 | API | 描述 |
@@ -35,8 +36,8 @@
 | [getSignalingInfo](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_signaling_manager/V2TIMSignalingManager/getSignalingInfo.html) | 获取信令信息 |
 | [addInvitedSignaling](https://pub.dev/documentation/tencent_im_sdk_plugin/latest/manager_v2_tim_signaling_manager/V2TIMSignalingManager/addInvitedSignaling.html) | 添加邀请信令（可以用于群离线推送消息触发的邀请信令） |
 
-## 高级消息收发接口
-如果您需要收发图片、视频、文件等富媒体消息，并需要撤回消息、标记已读、查询历史消息等高级功能，推荐使用下面这套高级消息接口（简单消息接口和高级消息接口请不要混用）
+## 高级消息收发接口[](id:advanced)
+如果您需要收发图片、视频、文件等富媒体消息，并需要撤回消息、标记已读、查询历史消息等高级功能，推荐使用下面这套高级消息接口（[简单消息接口](#simple) 和 [高级消息接口](#advanced) 请不要混用）
 
 | API | 描述 |
 |---------|---------|
