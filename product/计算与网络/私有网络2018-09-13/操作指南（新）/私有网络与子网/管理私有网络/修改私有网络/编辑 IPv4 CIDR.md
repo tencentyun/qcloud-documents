@@ -1,4 +1,4 @@
-﻿## 创建辅助 CIDR[](id:21)
+## 创建辅助 CIDR[](id:21)
 >?
 >- 目前辅助 CIDR 处于内测中，如有需要，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=168&source=0&data_title=%E7%A7%81%E6%9C%89%E7%BD%91%E7%BB%9CVPC&step=1)。
 >- 辅助 CIDR 可以和自定义路由的目的网段重叠；但需要谨慎操作，因为辅助 CIDR 的路由属于 Local 路由，Local 路由比自定义子网路由优先级更高。
