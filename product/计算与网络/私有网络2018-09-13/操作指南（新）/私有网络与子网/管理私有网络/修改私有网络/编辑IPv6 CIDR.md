@@ -1,4 +1,4 @@
-﻿## 分配 IPv6 CIDR[](id:31)
+## 分配 IPv6 CIDR[](id:31)
 >?目前弹性公网 IPv6 处于内测中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/c28sebss8v)。
 >
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
