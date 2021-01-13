@@ -1,8 +1,6 @@
 ## 操作场景
-本文介绍如何在 Windows 系统的本地计算机中通过远程桌面登录 Windows 实例。
+本文介绍如何在 Windows 、Linux 及 Mac OS 系统的本地计算机中通过远程桌面登录 Windows 实例。
 
-## 适用本地操作系统
-Windows
 
 ## 前提条件
 
@@ -25,7 +23,7 @@ Windows
 ![](https://main.qcloudimg.com/raw/3a9aa79200ace4a6ebd68a6e511a341d.png)
 4. 单击【确定】，即可登录到 Windows 实例。
 
-### Linux 系统使用 RDP 登录
+### Linux 系统使用远程桌面登录
 
 >?您需要安装相应的远程桌面连接程序，推荐使用 rdesktop 进行连接。更多详情请参考 [rdesktop 官方说明](http://www.rdesktop.org/)。
 >
@@ -59,7 +57,7 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
   如果您忘记密码，请 [重置密码](https://cloud.tencent.com/document/product/1207/44575)。
  - `<hostname or IP address>` 即为您的 Windows 实例公网 IP 或自定义域名。
  
-###  MacOS 系统使用 RDP 登录
+###  MacOS 系统使用远程桌面登录
 
 >?
 >- 以下操作以 Microsoft Remote Desktop for Mac 为例。微软官方已于2017年停止提供 Remote Desktop 客户端的下载链接，转由其子公司 HockeyApp 进行 Beta 版本的发布。您可前往 [Microsoft Remote Desktop Beta](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac) 下载 Beta 版本。
