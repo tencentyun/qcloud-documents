@@ -28,21 +28,25 @@ localStream.initialize().then(() => {
 屏幕分享属性包括分辨率、帧率和码率，可以通过 {@link LocalStream#setScreenProfile setScreenProfile()} 接口指定一个属性 Profile，每个 Profile 对应着一组分辨率、帧率和码率，也可以使用自定义分辨率、帧率和码率。屏幕分享默认使用 '1080p' Profile。
 
 - 指定属性 Profile：
-```
+<dx-codeblock>
+::: Profile 
 const localStream = TRTC.createStream({ audio: false, screen: true });
 localStream.setScreenProfile('1080p');
 localStream.initialize().then(() => {
 		// screencast stream init success
 });
-```
+:::
+</dx-codeblock>
 - 使用自定义分辨率、帧率和码率：
-```
+<dx-codeblock>
+::: 自定义分辨率 
 const localStream = TRTC.createStream({ audio: false, screen: true });
 localStream.setScreenProfile({ width: 1920, height: 1080, frameRate: 5, bitrate: 1600 /* kbps */});
 localStream.initialize().then(() => {
 		// screencast stream init success
 });
-```
+:::
+</dx-codeblock>
 
 屏幕分享属性推荐列表：
 
