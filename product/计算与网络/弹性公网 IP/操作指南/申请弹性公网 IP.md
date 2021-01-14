@@ -41,7 +41,7 @@
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)。
 2. 在 EIP 管理页面，选择【地域】，单击【申请】。
 3. 在弹出的“申请EIP”窗口中，请按照您的账户类型，分别进行如下操作：
-> ? 若您无法确定账户类型，请参见 [区分账户类型](https://cloud.tencent.com/document/product/1199/49090#.E5.8C.BA.E5.88.86.E8.B4.A6.E6.88.B7.E7.B1.BB.E5.9E.8B)。
+> ? 若您无法确定账户类型，请参见 [判断账户类型](https://cloud.tencent.com/document/product/1199/49090#judge)。
 >
  - **传统账户类型**
 <table>

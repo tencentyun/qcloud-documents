@@ -268,3 +268,20 @@
 | YGCT     | s        | Young GC 消耗时间                     |
 | FGCT     | s        | Full GC 消耗时间                      |
 | GCT      | s        | 垃圾回收时间消耗                      |
+
+
+### HDFS-NameNode
+
+| 指标                     | 单位 | 指标含义             |
+| ------------------------ | ---- | -------------------- |
+| RpcQueueTimeAvgTime      | ms   | RPC 平均延迟时间     |
+| RpcProcessingTimeAvgTime | ms   | RPC 请求平均处理时间 |
+
+### HDFS-DataNode
+
+| 指标                     | 单位 | 指标含义             |
+| ------------------------ | ---- | -------------------- |
+| RpcQueueTimeAvgTime      | ms   | RPC 平均延迟时间     |
+| RpcProcessingTimeAvgTime | ms   | RPC 请求平均处理时间 |
+
+

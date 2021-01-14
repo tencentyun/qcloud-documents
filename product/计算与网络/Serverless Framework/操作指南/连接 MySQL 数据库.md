@@ -1,40 +1,42 @@
-目前，[腾讯云原生数据库 TDSQL-C](https://cloud.tencent.com/document/product/1003/30505) 已支持 Serverless MySQL 版本， 做到按实际使用的计算和存储量计费，按秒计量，按小时结算。Serverless Framework 的 CynosDB 组件也已经支持该类型数据库的创建。
+## 操作场景
+目前，[腾讯云原生数据库 TDSQL-C](https://cloud.tencent.com/document/product/1003/30505) 已支持 Serverless MySQL 版本，做到按实际使用的计算和存储量计费，按秒计量，按小时结算。Serverless Framework 的 CynosDB 组件也已经支持该类型数据库的创建。
 
-下面的教程将以 Node.js 开发语言的函数，指导您如何快速创建 TDSQL-C Serverless MySQL 实例，并在云函数中进行调用：
+本文以 Node.js 开发语言的函数，指导您快速创建 TDSQL-C Serverless MySQL 实例，并在云函数中进行调用。
 
-###  操作步骤
-1. **配置环境变量** 
-2. **配置私有网络：** 通过 Serverless Framework VPC 组件 创建 VPC 和 子网，支持云函数和数据库的网络打通和使用。
-3. **配置 Serverless DB：** 通过 Serverless Framework Cynosdb 组件 创建 MySQL 实例，为云函数项目提供数据库服务。
-4. **编写业务代码：** 通过 Serverless DB SDK 调用数据库，云函数支持直接调用 Serverless DB SDK，连接 PostgreSQL 数据库进行管理操作。
-5. **部署应用：** 通过 Serverless Framework 部署项目至云端，并通过云函数控制台进行测试。
-6. **移除项目：** 可通过 Serverless Framework 移除项目。
+##  操作步骤
 
-### 1. 配置环境变量
-1.1 在本地建立目录，用于存放代码及依赖模块。本文以  `test-MySQL` 文件夹为例。
+| 操作步骤 | 操作说明 | 
+|---------|---------|
+| [步骤1：配置环境变量](#step1)|  - |
+| [步骤2：配置私有网络](#step2) | 通过 Serverless Framework VPC 组件 创建 VPC 和 子网，支持云函数和数据库的网络打通和使用。|
+| <nobr>[步骤3：配置 Serverless DB](#step3)</nobr> | 通过 Serverless Framework Cynosdb 组件创建 MySQL 实例，为云函数项目提供数据库服务。|
+| [步骤4：编写业务代码](#step4) | 通过 Serverless DB SDK 调用数据库，云函数支持直接调用 Serverless DB SDK，连接 PostgreSQL 数据库进行管理操作。|
+| [步骤5：部署应用](#step5) |  通过 Serverless Framework 部署项目至云端，并通过云函数控制台进行测试。|
+| [步骤6：移除项目（可选）](#remove) | 可通过 Serverless Framework 移除项目。|
+
+### 步骤1：配置环境变量[](id:step1)
+1. 在本地建立目录，用于存放代码及依赖模块。本文以  `test-MySQL` 文件夹为例。
 ```
 mkdir test-MySQL && cd test-MySQL
 ```
 
-1.2 由于目前 TDSQL-C Serverless 只支持 `ap-beijing-3`，`ap-guangzhou-4`，`ap-shanghai-2` 和 `ap-nanjing-1` 四个区域，所以这里还需要配置下，只需要在项目根目录下创建 `.env` 文件，然后配置 `REGION` 和 `ZONE` 两个环境变量：
+2. 由于目前 TDSQL-C Serverless 只支持 `ap-beijing-3`，`ap-guangzhou-4`，`ap-shanghai-2` 和 `ap-nanjing-1` 四个区域，所以这里还需要配置下，只需要在项目根目录下创建 `.env` 文件，然后配置 `REGION` 和 `ZONE` 两个环境变量：
 ```text
 # .env
 REGION=xxx  
 ZONE=xxx 
 ```
 
-### 2. 配置私有网络
-
-2.1 在 `test-MySQL` 目录下创建文件夹 `VPC`。
+### 步骤2：配置私有网络[](id:step2)
+1. 在 `test-MySQL` 目录下创建文件夹 `VPC`。
 ```
 mkdir VPC && cd VPC
 ```
 
-2.2 在 `VPC` 中新建 serverless.yml 文件，使用[ VPC 组件](https://github.com/serverless-components/tencent-vpc)完成私有网络和子网的创建。
-
-`serverless.yml` 示例内容如下，全量配置参考[产品文档](https://github.com/serverless-components/tencent-vpc/blob/master/docs/configure.md)
-
-```yml
+2. 在 `VPC` 中新建 serverless.yml 文件，使用[ VPC 组件](https://github.com/serverless-components/tencent-vpc)完成私有网络和子网的创建。
+`serverless.yml` 示例内容如下（全量配置参考 [产品文档](https://github.com/serverless-components/tencent-vpc/blob/master/docs/configure.md)）：
+<dx-codeblock>
+:::  yml
 #serverless.yml
 org: mysql-app
 app: mysql-app
@@ -46,15 +48,16 @@ inputs:
   zone: ${env:ZONE}
   vpcName: serverless-mysql
   subnetName: serverless-mysql
-```
+:::
+</dx-codeblock>
 
-### 3. 配置 Serverless DB：
-3.1 在 `test-MySQL` 下创建文件夹 `DB`。
+### 步骤3：配置 Serverless DB[](id:step3)
+1. 在 `test-MySQL` 下创建文件夹 `DB`。
 
-3.2 在 `DB` 文件夹下新建 `serverless.yml` 文件，并输入以下内容，通过 Serverless Framework 组件完成云开发环境配置。
-
-`serverless.yml` 示例内容如下，全量配置参考[产品文档](https://github.com/serverless-components/tencent-cynosdb/blob/master/docs/configure.md)
-```yml
+2. 在 `DB` 文件夹下新建 `serverless.yml` 文件，并输入以下内容，通过 Serverless Framework 组件完成云开发环境配置。
+`serverless.yml` 示例内容如下（全量配置参考 [产品文档](https://github.com/serverless-components/tencent-cynosdb/blob/master/docs/configure.md)）：
+<dx-codeblock>
+:::  yml
 # serverless.yml 
 org: mysql-app
 app: mysql-app
@@ -67,14 +70,16 @@ inputs:
   vpcConfig:
     vpcId: ${output:${stage}:${app}:mysql-app-vpc.vpcId}
     subnetId: ${output:${stage}:${app}:mysql-app-vpc.subnetId}
-```
+:::
+</dx-codeblock>
 
-### 4. 编写业务代码与配置文件
-4.1 在 `test-MySQL` 下创建文件夹 `src`，用于存放业务逻辑代码和相关依赖项。
 
-4.2 在 `src` 文件夹下创建文件 `index.js`，并输入如下示例代码。在函数中通过  SDK 连接数据库，并在其中完成 MySQL 数据库的调用。
+### 步骤4：编写业务代码与配置文件[](id:step4)
+1. 在 `test-MySQL` 下创建文件夹 `src`，用于存放业务逻辑代码和相关依赖项。
 
-```js
+2. 在 `src` 文件夹下创建文件 `index.js`，并输入如下示例代码。在函数中通过  SDK 连接数据库，并在其中完成 MySQL 数据库的调用。
+<dx-codeblock>
+:::  js
 exports.main_handler = async (event, context, callback) => {
   var mysql      = require('mysql2');
   var connection = mysql.createConnection({
@@ -89,15 +94,17 @@ exports.main_handler = async (event, context, callback) => {
   });
   connection.end();
  }
-```
-4.3 安装所需依赖模块
+:::
+</dx-codeblock>
+
+3. 安装所需依赖模块。
 ```
 npm install mysql2
 ```
 
-4.4 完成业务代码编写和依赖安装后，创建 `serverless.yml` 文件，示例文件如下：
-
-```yml
+4. 完成业务代码编写和依赖安装后，创建 `serverless.yml` 文件，示例文件如下：
+<dx-codeblock>
+:::  yml
 org: mysql-app
 app: mysql-app
 stage: dev
@@ -117,11 +124,10 @@ inputs:
     variables:
       HOST: ${output:${stage}:${app}:mysql-app-db.connection.ip}
       PASSWORD: ${output:${stage}:${app}:mysql-app-db.adminPassword}
-```
+:::
+</dx-codeblock>
 
-
-
-### 5. 快速部署
+### 步骤5：快速部署[](id:step5)
 完成创建后，项目目录结构如下：
 ```
    ./test-MySQL
@@ -135,15 +141,17 @@ inputs:
    │   └── index.js # 入口函数
    └── .env # 环境变量文件
 ```
-5.1 使用命令行在 `test-MySQL` 下，执行以下命令进行部署。
+1. 使用命令行在 `test-MySQL` 下，执行以下命令进行部署。
 ```bash
 sls deploy
 ```
-> - 部署时需要扫码授权，如果没有腾讯云账号，请 [注册新账号](https://cloud.tencent.com/register)。
-> - 如果是子账号，请参考[子账号权限配置](https://cloud.tencent.com/document/product/1154/43006#.E5.AD.90.E8.B4.A6.E5.8F.B7.E6.9D.83.E9.99.90.E9.85.8D.E7.BD.AE)完成授权
+ >?
+>- 部署时需要扫码授权，如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
+>- 如果是子账号，请参考 [子账号权限配置](https://cloud.tencent.com/document/product/1154/43006#.E5.AD.90.E8.B4.A6.E5.8F.B7.E6.9D.83.E9.99.90.E9.85.8D.E7.BD.AE) 完成授权。
 
-返回结果如下所示，即为部署成功。
-```
+ 返回结果如下所示，即为部署成功。
+<dx-codeblock>
+::: mysql
 mysql-app-vpc: 
   region:        xxx
   zone:          xxx
@@ -162,14 +170,14 @@ mysql-app-scf:
   ...
 
 59s › test-MySQL › "deploy" ran for 3 apps successfully.
-
-```
+:::
+</dx-codeblock>
 
 2. 部署成功后，您可通过 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=1)，查看并进行函数调试，测试成功如下图所示：
 ![](https://main.qcloudimg.com/raw/f55346a48e68f78771fb746b58b3c1a0.png)
 
 
-### 移除项目
+### 步骤6：移除项目（可选）[](id:step6)
 在 `test-MySQL` 目录下，执行以下命令可移除项目。
 ```
 sls remove
@@ -180,10 +188,11 @@ serverless ⚡ framework
 4s › test-MySQL › Success
 ```
 
-### 示例代码
-#### Python
+## 示例代码
+### Python
 Python 可使用云函数环境已经内置的 **pymysql** 依赖包进行数据库连接。示例代码如下：
-```python
+<dx-codeblock>
+:::  python
 # -*- coding: utf8 -*-
 from os import getenv
 
@@ -218,13 +227,16 @@ def main_handler(event, context):
         print(myresult)
         for x in myresult:
             print(x)
-```
+:::
+</dx-codeblock>
 
-#### Node.js
+
+### Node.js
 Node.js 支持使用连接池进行连接，连接池具备自动重连功能，可有效避免因云函数底层或者数据库释放连接造成的连接不可用情况。示例代码如下：
 >?使用连接池前需先安装 **mysql2** 依赖包，详情请参见 [依赖安装](https://cloud.tencent.com/document/product/583/39780)。
->
-```nodejs
+
+<dx-codeblock>
+:::  nodejs
 'use strict';
 
 const DB_HOST       = process.env[`DB_HOST`]
@@ -246,10 +258,13 @@ exports.main_handler = async (event, context, callback) => {
   let result = await promisePool.query('select * from employee');
   console.log(result);
 }
-```
+:::
+</dx-codeblock>
 
-#### PHP
+
+### PHP
 PHP 可使用 **pdo_mysql** 或 **mysqli** 依赖包进行数据连接。示例代码如下：
+- **pdo_mysql**
 ```php
 <?php
 function handler($event, $context) {
@@ -262,6 +277,8 @@ try{
 }
 }
 ```
+
+- **mysqli** 
 ``` php
 <?php
 function main_handler($event, $context) {
@@ -284,10 +301,10 @@ function main_handler($event, $context) {
 ?>
 ```
 
-#### JAVA
+### Java
 1. 请参考 [依赖安装](https://cloud.tencent.com/document/product/583/39780#java-.E8.BF.90.E8.A1.8C.E6.97.B6)，安装以下依赖。
-
-```xml
+<dx-codeblock>
+:::  xml
 <dependencies>
     <dependency>
         <groupId>com.tencentcloudapi</groupId>
@@ -305,10 +322,12 @@ function main_handler($event, $context) {
         <version>8.0.11</version>
     </dependency>
 </dependencies>
-```
-2. 使用 Hikari 连接池进行连接，示例代码如下：
+:::
+</dx-codeblock>
 
-```java
+2. 使用 Hikari 连接池进行连接，示例代码如下：
+<dx-codeblock>
+:::  java
 package example;
 
 import com.qcloud.scf.runtime.Context;
@@ -369,9 +388,11 @@ public class Http {
         return apiGatewayProxyResponseEvent.toString();
     }
 }
-```
+:::
+</dx-codeblock>
 
-#### SCF DB SDK for MySQL
+
+### SCF DB SDK for MySQL
 
 为了方便使用，云函数团队将 Node.js 和 Python 连接池相关代码封装为 SCF DB SDK for MySQL，请参考 [依赖安装](https://cloud.tencent.com/document/product/583/39780) 进行安装使用。通过该 SDK，您可以在云函数代码中连接 [MySQL](https://cloud.tencent.com/document/product/236/5147)、[TDSQL-C](https://cloud.tencent.com/document/product/1003/30488) 或 [TDSQL MySQL版](https://cloud.tencent.com/document/product/557/7700) 数据库，并实现对数据库的插入、查询等操作。
 
@@ -381,7 +402,8 @@ SCF DB SDK for MySQL 具备以下特点：
 - 云函数团队会持续关注 issue，确保获得连接即可用，不需要关注数据库连接。
 
 **1. Node.js SDK**
-```JavaScript
+<dx-codeblock>
+:::  JavaScript
 'use strict';
 const database = require('scf-nodejs-serverlessdb-sdk').database;
 
@@ -394,12 +416,15 @@ exports.main_handler = async (event, context, callback) => {
  
   console.log('db2 query result:',result)
 }
-```
+:::
+</dx-codeblock>
+
 >?Node.js SDK 具体使用方法请参考 [SCF DB SDK for MySQL](https://www.npmjs.com/package/scf-nodejs-serverlessdb-sdk)。
 
 
 **2. Python SDK**
-```Python
+<dx-codeblock>
+:::  Python
 from serverless_db_sdk import database
 
 def main_handler(event, context):
@@ -413,4 +438,5 @@ def main_handler(event, context):
 
     for x in myresult:
         print(x)
-```
+:::
+</dx-codeblock>

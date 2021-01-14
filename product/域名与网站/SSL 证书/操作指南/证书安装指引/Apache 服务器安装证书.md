@@ -82,12 +82,12 @@
 2. 请确认该配置文件是否存在`LoadModule rewrite_module modules/mod_rewrite.so`。
  - 若存在，请去掉`LoadModule rewrite_module modules/mod_rewrite.so`前面的注释符号（`#`）号。并执行 [步骤4](#step4)。
  - 若不存在，请执行 [步骤3](#step3)。
- <span id="step3"></span>
+[](id:step3)
 3. 请您在`/etc/httpd/conf.modules.d`中新建一个 \*.conf 文件，例如 00-rewrite.conf。在新建文件中添加以下内容：
  ```
  LoadModule rewrite_module modules/mod_rewrite.so
 ```
-<span id="step4"></span>
+[](id:step4)
 4. 在 httpd.conf 配置文件中添加如下内容：
 ```
 <Directory "/var/www/html"> 
