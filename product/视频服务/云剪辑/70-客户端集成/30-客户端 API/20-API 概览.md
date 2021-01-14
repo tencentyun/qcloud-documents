@@ -17,12 +17,12 @@
 ---------|----------
 [/Material/AddMaterialFrameTag](https://cloud.tencent.com/document/product/1156/51367)| 添加媒体帧标签
 [/Material/ModifyMaterialFrameTag](https://cloud.tencent.com/document/product/1156/51369)| 修改媒体帧标签
- [/Material/DeleteMaterialFrameTag](https://cloud.tencent.com/document/product/1156/51370)| 删除媒体帧标签
- [/Material/DescribeMaterialFrameTag](https://cloud.tencent.com/document/product/1156/51371)| 查询媒体帧标签
- [/Material/DescribeFaceInMaterial](https://cloud.tencent.com/document/product/1156/51373)| 查询人脸识别结果
- [/Material/DescribeMaterialSubtitle](https://cloud.tencent.com/document/product/1156/51374)| 查询字幕识别结果
- [/Material/DescribeTextInMaterial](https://cloud.tencent.com/document/product/1156/51375)| 查询媒体文本识别结果
- [/Material/DescribeObjectInMaterial](https://cloud.tencent.com/document/product/1156/51376)| 查询媒体物体识别结果
+[/Material/DeleteMaterialFrameTag](https://cloud.tencent.com/document/product/1156/51370)| 删除媒体帧标签
+[/Material/DescribeMaterialFrameTag](https://cloud.tencent.com/document/product/1156/51371)| 查询媒体帧标签
+[/Material/DescribeFaceInMaterial](https://cloud.tencent.com/document/product/1156/51373)| 查询人脸识别结果
+[/Material/DescribeMaterialSubtitle](https://cloud.tencent.com/document/product/1156/51374)| 查询字幕识别结果
+[/Material/DescribeTextInMaterial](https://cloud.tencent.com/document/product/1156/51375)| 查询媒体文本识别结果
+[/Material/DescribeObjectInMaterial](https://cloud.tencent.com/document/product/1156/51376)| 查询媒体物体识别结果
 
 ## 分类管理相关接口
  接口名称 | 接口功能
@@ -37,8 +37,8 @@
 ## 上传相关接口
  接口名称 | 接口功能
 ---------|----------
- [/Material/CreateUploadMaterial](https://cloud.tencent.com/document/product/1156/51360)| 申请媒体上传
- [/Material/FinishUploadMaterial](https://cloud.tencent.com/document/product/1156/51359)| 完成媒体上传
+[/Material/CreateUploadMaterial](https://cloud.tencent.com/document/product/1156/51360)| 申请媒体上传
+[/Material/FinishUploadMaterial](https://cloud.tencent.com/document/product/1156/51359)| 完成媒体上传
 
 
 ## 项目管理相关接口
@@ -56,5 +56,5 @@
 ## 任务管理相关接口
  接口名称 | 接口功能
 ---------|----------
- [/Task/DescribeTasks](https://cloud.tencent.com/document/product/1156/51419)| 查询任务信息
- [/Task/DeleteTask](https://cloud.tencent.com/document/product/1156/51420)| 删除任务
+[/Task/DescribeTasks](https://cloud.tencent.com/document/product/1156/51419)| 查询任务信息
+[/Task/DeleteTask](https://cloud.tencent.com/document/product/1156/51420)| 删除任务
