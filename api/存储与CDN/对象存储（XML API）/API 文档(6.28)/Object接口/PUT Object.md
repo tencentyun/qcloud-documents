@@ -16,8 +16,7 @@ PUT Object 接口请求可以将本地的对象（Object）上传至指定存储
 
 #### 请求示例
 
-<dx-codeblock>
-:::  plaintext
+```plaintext
 PUT /<ObjectKey> HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -26,9 +25,10 @@ Content-Length: Content Length
 Content-MD5: MD5
 Authorization: Auth String
 
+
+
 [Object Content]
-:::
-</dx-codeblock>
+```
 
 > ? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
@@ -359,6 +359,8 @@ Content-Type: text/plain
 Transfer-Encoding: chunked
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1565255729;1565262929&q-key-time=1565255729;1565262929&q-header-list=content-type;date;host;transfer-encoding&q-url-param-list=&q-signature=0b05b6bda75afbc159caa0da4e4051ec6939****
 Connection: close
+
+
 
 11
 [Chunked Content]
