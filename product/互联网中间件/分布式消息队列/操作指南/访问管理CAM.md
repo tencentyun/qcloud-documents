@@ -12,7 +12,7 @@
 
 #### 资源与权限
 
-- **资源**：资源是云服务中被操作的对象，在 TDMQ 中，资源有环境、Topic、订阅等。
+- **资源**：资源是云服务中被操作的对象，在 TDMQ 中，资源有集群、命名空间、Topic、订阅等。
 - **权限**：权限是指允许或拒绝某些用户执行某些操作。默认情况下，**主账号拥有其名下所有资源的访问权限**，而**子账号没有主账号下任何资源的访问权限**。
 - **策略**：策略是定义和描述一条或多条权限的语法规范。**主账号**通过将**策略关联**到用户/用户组完成授权。
 
@@ -36,15 +36,15 @@ TDMQ 支持资源级授权，您可以指定子账号拥有特定资源的接口
 | ----------------------------- | ---------------- | -------- | ------------------------------------------------------------ |
 | CreateSubscription            | 创建订阅关系     | 订阅相关 | qcs::tdmq:$region:$account:topicName/$environmentId/$topicName |
 | CreateTopic                   | 新增主题         | 主题相关 | qcs::tdmq:$region:$account:environmentId/$environmentId      |
-| DeleteEnvironments            | 删除环境         | 环境相关 | qcs::tdmq:$region:$account:environmentId/$environmentIds     |
+| DeleteEnvironments            | 删除命名空间         | 命名空间相关 | qcs::tdmq:$region:$account:environmentId/$environmentIds     |
 | DeleteSubscriptions           | 删除订阅关系     | 订阅相关 | qcs::tdmq:$region:$account:topicName/$topicSets.environmentId/$topicSets.topicName/$topicSets.subscriptionName |
 | DeleteTopics                  | 删除主题         | 主题相关 | qcs::tdmq:$region:$account:topicName/$topicSets.environmentId/$topicSets.topicName |
-| DescribeEnvironmentAttributes | 获取环境属性     | 环境相关 | qcs::tdmq:$region:$account:environmentId/$environmentId      |
-| DescribeEnvironments          | 获取环境列表     | 环境相关 | qcs::tdmq:$region:$account:environmentId/$environmentId      |
+| DescribeEnvironmentAttributes | 获取命名空间属性     | 命名空间相关 | qcs::tdmq:$region:$account:environmentId/$environmentId      |
+| DescribeEnvironments          | 获取命名空间列表     | 命名空间相关 | qcs::tdmq:$region:$account:environmentId/$environmentId      |
 | DescribeProducers             | 生产者列表       | 主题相关 | qcs::tdmq:$region:$account:topicName/$environmentId/$topicName |
 | DescribeSubscriptions         | 查询消费订阅列表 | 订阅相关 | qcs::tdmq:$region:$account:topicName/$environmentId/$topicName |
 | DescribeTopics                | 查询主题列表     | 主题相关 | qcs::tdmq:$region:$account:topicName/$environmentId/$topicName |
-| ModifyEnvironmentAttributes   | 修改环境属性     | 环境相关 | qcs::tdmq:$region:$account:environmentId/$environmentId      |
+| ModifyEnvironmentAttributes   | 修改命名空间属性     | 命名空间相关 | qcs::tdmq:$region:$account:environmentId/$environmentId      |
 | ModifyTopic                   | 修改主题         | 主题相关 | qcs::tdmq:$region:$account:topicName/$environmentId/$topicName |
 | ResetMsgSubOffsetByTimestamp  | 消息回溯         | 订阅相关 | qcs::tdmq:$region:$account:topicName/$environmentId/$topicName |
 | SendMsg                       | 发送消息         | 主题相关 | qcs::tdmq:$region:$account:topicName/$environmentId/$topicName |
@@ -53,7 +53,7 @@ TDMQ 支持资源级授权，您可以指定子账号拥有特定资源的接口
 
 | API 名            | API 描述 | 资源六段式 |
 | ----------------- | -------- |-------- |
-| CreateEnvironment | 创建环境 |*|
+| CreateEnvironment | 创建命名空间 |*|
 
 ## 授权方案示例
 
