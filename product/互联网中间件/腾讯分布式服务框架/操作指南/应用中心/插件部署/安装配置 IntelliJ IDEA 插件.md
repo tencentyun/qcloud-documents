@@ -14,7 +14,7 @@
 3. 在 Settings 对话框的左侧导航栏中，单击【Plugins】进入 Plugins 页面。
 4. 在 Plugins 页面上方，单击【Marketplace】。
 5. 在搜索栏中输入“Tencent Cloud Toolkit”，并单击【install】。
-![](https://main.qcloudimg.com/raw/c0fc9557c51b3550b68d0106a652b0a6.png)
+![](https://main.qcloudimg.com/raw/d83ef7132a03043e2c73bc3c2c058b5d.png)
 
 
 ## 验证结果
@@ -33,7 +33,7 @@ IntelliJ IDEA 重启后，在菜单栏中单击【File】>【Settings】，在 S
  1. 输入 ProfileName 、SecretId、 SecretKey。(设置后为默认配置)
  2. 单击 Advanced 可以为不同环境配置不同的域名。(默认为 tencentcloudapi.com)
  3. 单击 apply 应用配置。
-![](https://main.qcloudimg.com/raw/d1b6d33f3ca60ee6d1012ac95ded0068.png)
+![](https://main.qcloudimg.com/raw/0c58deaf2dd902f9cabe513d14244d61.png)
 
 
 ## 后续操作
