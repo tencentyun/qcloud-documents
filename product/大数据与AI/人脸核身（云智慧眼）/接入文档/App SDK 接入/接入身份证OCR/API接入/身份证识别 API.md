@@ -8,7 +8,7 @@
 
 |参数 | 说明 | 类型 | 长度（字节） | 是否必填|
 |----- | ----- | ------ | ---------------- | -----------|
-|webankAppId | WebankAppId，由腾讯指定 | String | 腾讯云线下对接决定 | 是|
+|webankAppId | 业务流程唯一标识，即 wbappid，可参考 [获取 WBappid](https://cloud.tencent.com/document/product/1007/49634) 指引在人脸核身控制台内申请 | String | 8 | 是|
 |version | 接口版本号<br>默认值：1.0.0 | String | 20 | 是|
 |nonce | 随机数<br>32 位随机串（字母 + 数字组成的随机数） | String | 32 | 是|
 |sign | 签名：使用 [生成的签名](https://cloud.tencent.com/document/product/1007/35920) | String | 40 | 是|

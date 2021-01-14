@@ -52,7 +52,7 @@
 
 >!
 > - 对于已经退出登录（主动登出或者被踢下线）的用户，不会收到任何消息通知。
-> - 目前，离线推送只提供 [普通聊天消息](/doc/product/269/%E6%B6%88%E6%81%AF%E6%94%B6%E5%8F%91%EF%BC%88Android%20SDK%EF%BC%89#1-.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81) 进行消息提醒，暂不提供对 [系统消息](/doc/product/269/消息收发（Android%20SDK）#.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF) 的消息提醒。
+> - 目前，离线推送只提供 [普通聊天消息](https://cloud.tencent.com/document/product/269/9232#1-.E6.B6.88.E6.81.AF.E5.8F.91.E9.80.81) 进行消息提醒，暂不提供对 [系统消息](https://cloud.tencent.com/document/product/269/9232#.E7.B3.BB.E7.BB.9F.E6.B6.88.E6.81.AF) 的消息提醒。
 
 ## IM SDK 离线推送基本配置
 ### 设置全局离线推送配置
