@@ -62,25 +62,26 @@ Authorization: Auth String
 
 ```shell
 <AccessControlPolicy>
-	<Owner>
-		<ID>string</ID>
-	</Owner>
-	<AccessControlList>
-		<Grant>
-			<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
-				<URI>string</URI>
-			</Grantee>
-			<Permission>Enum</Permission>
-		</Grant>
-		<Grant>
-			<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+			<Owner>
 				<ID>string</ID>
-			</Grantee>
-			<Permission>Enum</Permission>
-		</Grant>
-	</AccessControlList>
+			</Owner>
+			<AccessControlList>
+				<Grant>
+					<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
+						<URI>string</URI>
+					</Grantee>
+					<Permission>Enum</Permission>
+				</Grant>
+				<Grant>
+					<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+						<ID>string</ID>
+					</Grantee>
+					<Permission>Enum</Permission>
+				</Grant>
+			</AccessControlList>
 </AccessControlPolicy>
 ```
+
 
 具体的节点描述如下：
 
