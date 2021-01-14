@@ -35,17 +35,17 @@
 kind: Service
 apiVersion: v1
 metadata:
-  annotations:
-	service.cloud.tencent.com/direct-access: true ##开启直连 Pod 模式
-  name: my-service
+   annotations:
+ 	service.cloud.tencent.com/direct-access: "true" ##开启直连 Pod 模式
+   name: my-service
 spec:
-  selector:
-    app: MyApp
-  ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 9376
-  type: LoadBalancer
+   selector:
+     app: MyApp
+   ports:
+   - protocol: TCP
+     port: 80
+     targetPort: 9376
+   type: LoadBalancer
 ```
 
 

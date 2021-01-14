@@ -40,14 +40,14 @@ XML Body
 
 ```plaintext
 <LiveChannelConfiguration>
-  <Description>ChannelDescription</Description>
-  <Switch>ChannelSwitch</Switch>
-  <Target>
-     <Type>HLS</Type>
-     <FragDuration>FragDuration</FragDuration>
-     <FragCount>FragCount</FragCount>
-     <PlaylistName>PlaylistName</PlaylistName>
-  </Target>
+			<Description>ChannelDescription</Description>
+			<Switch>ChannelSwitch</Switch>
+			<Target>
+				 <Type>HLS</Type>
+				 <FragDuration>FragDuration</FragDuration>
+				 <FragCount>FragCount</FragCount>
+				 <PlaylistName>PlaylistName</PlaylistName>
+			</Target>
 </LiveChannelConfiguration>
 ```
 
@@ -78,7 +78,7 @@ XML Body
 | :---------------------- | :---------------------- | :------------------------------------------- | :-------- |
 | CreateLiveChannelResult | 无                      | 保存 CreateLiveChannel 请求结果的容器 | Container |
 | PublishUrls | CreateLiveChannelResult | 保存推流地址的容器              | Container |
-| Url | PublishUrls | 推流地址<br> 说明：这里返回的推流地址未加签名信息，可通过调用 SDK 或者参见 [RTMP 请求地址与签名](#跳转到 RTMP 请求地址与签名) 获取签名 | String |
+| Url | PublishUrls | 推流地址<br> 说明：这里返回的推流地址未加签名信息，可通过调用 SDK 或者参见 [RTMP 请求地址与签名](https://cloud.tencent.com/document/product/436/50892) 获取签名 | String |
 | PlayUrls | CreateLiveChannelResult | 保存播放地址的容器 | Container |
 | Url | PlayUrls | 播放地址 | String |
 
@@ -98,15 +98,17 @@ Content-Length:Content Size
 Content-Md5:Content MD5
 Authorization: Auth String
 
+
+
 <?xml version="1.0" encoding="utf-8"?>
 <LiveChannelConfiguration>
-    <Description/>
-    <Switch>Enabled</Status>
-    <Target>
-        <Type>HLS</Type>
-        <FragDuration>2</FragDuration>
-        <FragCount>3</FragCount>
-    </Target>
+				<Description/>
+				<Switch>Enabled</Status>
+				<Target>
+						<Type>HLS</Type>
+						<FragDuration>2</FragDuration>
+						<FragCount>3</FragCount>
+				</Target>
 </LiveChannelConfiguration>
 ```
 
@@ -121,13 +123,15 @@ Date: Wed, 23 Aug 2020 08:14:53 GMT
 Server: tencent-cos
 x-cos-request-id: NTk5ZDM5N2RfMjNiMjM1MGFfMmRiX2Y0****
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CreateLiveChannelResult>
-  <PublishUrls>
-    <Url>rtmp://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/live/test-channel</Url>
-  </PublishUrls>
-  <PlayUrls>
-    <Url>http://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/test-channel/playlist.m3u8</Url>
-  </PlayUrls>
+			<PublishUrls>
+				<Url>rtmp://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/live/test-channel</Url>
+			</PublishUrls>
+			<PlayUrls>
+				<Url>http://examplebucket-1250000000.cos.ap-guangzhou.myqcloud.com/test-channel/playlist.m3u8</Url>
+			</PlayUrls>
 </CreateLiveChannelResult>
 ```

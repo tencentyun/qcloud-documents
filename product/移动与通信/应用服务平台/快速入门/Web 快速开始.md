@@ -3,17 +3,16 @@
 1. [注册腾讯云账号](https://cloud.tencent.com/document/product/378/17985)；
 2. **务必** [创建云开发环境](https://cloud.tencent.com/document/product/876/41391)，获得 **环境 ID**；
 3. 安装 [Node.js](https://nodejs.org/en/)；
-4. 安装 [Cloudbase CLI](https://cloud.tencent.com/document/product/876/41539#.E5.AE.89.E8.A3.85-cloudbase-cli)。
+4. 安装 [Cloudbase CLI](https://docs.cloudbase.net/cli-v1/install.html)。
 ```sh
 npm install -g @cloudbase/cli
 ```
 
 >? 如果 `npm install -g @cloudbase/cli` 失败，您可能需要 [修改 npm 权限](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)，或者以系统管理员身份运行：
-> 
 > ```sh
 > sudo npm install -g @cloudbase/cli
-> ```
-> 
+ ```
+
 
 ## 第 1 步：创建初始项目
 
@@ -107,9 +106,8 @@ npx serve
 ```plaintext
 cloudbase hosting:deploy index.html
 ```
->? 在运行 `cloudbase hosting:deploy` 之前，请先登录命令行工具：
-> 
-> ```sh
-> cloudbase login
-> ```
+ >? 在运行 `cloudbase hosting:deploy` 之前，请先登录命令行工具：
+>```sh
+cloudbase login
+```
 3. 使用 `_envId_.tcloudbaseapp.com` 访问您的网站。详情请参见 [静态网站托管](https://cloud.tencent.com/document/product/876/40270) 相关文档。

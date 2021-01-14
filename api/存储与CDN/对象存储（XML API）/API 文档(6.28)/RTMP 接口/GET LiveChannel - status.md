@@ -41,22 +41,22 @@ Authorization: Auth String
 
 ``` plaintext
 <LiveChannelStatus>
-  <Status>Live</Status>
-  <ConnectedTime>2016-08-25T06:25:15.000Z</ConnectedTime>
-  <RemoteAddr>127.0.0.1:47745</RemoteAddr>
-  <RequestId>NWZjMzUyM2NfNWNhM2IwYV8xOTYyX2Mz****</RequestId>
-  <Video>
-    <Width>1280</Width>
-    <Height>720</Height>
-    <FrameRate>24</FrameRate>
-    <Bandwidth>71510</Bandwidth>
-    <Codec>H264</Codec>
-  </Video>
-  <Audio>
-    <Bandwidth>13308</Bandwidth>
-    <SampleRate>48000</SampleRate>
-    <Codec>AAC</Codec>
-  </Audio>
+				<Status>Live</Status>
+				<ConnectedTime>2016-08-25T06:25:15.000Z</ConnectedTime>
+				<RemoteAddr>127.0.0.1:47745</RemoteAddr>
+				<RequestId>NWZjMzUyM2NfNWNhM2IwYV8xOTYyX2Mz****</RequestId>
+				<Video>
+					<Width>1280</Width>
+					<Height>720</Height>
+					<FrameRate>24</FrameRate>
+					<Bandwidth>71510</Bandwidth>
+					<Codec>H264</Codec>
+				</Video>
+				<Audio>
+					<Bandwidth>13308</Bandwidth>
+					<SampleRate>48000</SampleRate>
+					<Codec>AAC</Codec>
+				</Audio>
 </LiveChannelStatus>
 ```
 
@@ -113,9 +113,10 @@ Date: Wed, 23 Aug 2020 08:14:53 GMT
 Server: tencent-cos
 x-cos-request-id: NTk5ZDM5N2RfMjNiMjM1MGFfMmRiX2Y0****
  
+ 
 <?xml version="1.0" encoding="UTF-8"?>
 <LiveChannelStat>
-  <Status>Idle</Status>
+			<Status>Idle</Status>
 </LiveChannelStat>
 ```
 
@@ -144,24 +145,25 @@ Date: Wed, 23 Aug 2020 08:14:53 GMT
 Server: tencent-cos
 x-cos-request-id: NTk5ZDM5N2RfMjNiMjM1MGFfMmRiX2Y0****
  
+ 
 <?xml version="1.0" encoding="UTF-8"?>
 <LiveChannelStatus>
-  <Status>Live</Status>
-  <ConnectedTime>2016-08-25T06:25:15.000Z</ConnectedTime>
-  <RemoteAddr>127.0.0.1:47745</RemoteAddr>
-  <RequestId>NWZjMzUyM2NfNWNhM2IwYV8xOTYyX2Mz****</RequestId>
-  <Video>
-    <Width>1280</Width>
-    <Height>720</Height>
-    <FrameRate>24</FrameRate>
-    <Bandwidth>71510</Bandwidth>
-    <Codec>H264</Codec>
-  </Video>
-  <Audio>
-    <Bandwidth>13308</Bandwidth>
-    <SampleRate>48000</SampleRate>
-    <Codec>AAC</Codec>
-  </Audio>
+			<Status>Live</Status>
+			<ConnectedTime>2016-08-25T06:25:15.000Z</ConnectedTime>
+			<RemoteAddr>127.0.0.1:47745</RemoteAddr>
+			<RequestId>NWZjMzUyM2NfNWNhM2IwYV8xOTYyX2Mz****</RequestId>
+			<Video>
+				<Width>1280</Width>
+				<Height>720</Height>
+				<FrameRate>24</FrameRate>
+				<Bandwidth>71510</Bandwidth>
+				<Codec>H264</Codec>
+			</Video>
+			<Audio>
+				<Bandwidth>13308</Bandwidth>
+				<SampleRate>48000</SampleRate>
+				<Codec>AAC</Codec>
+			</Audio>
 </LiveChannelStatus>
 ```
 

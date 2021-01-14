@@ -9,7 +9,7 @@
 ```bash
 npm init
 ```
->?命令执行后所有选项均保持默认即可。
+ >?命令执行后所有选项均保持默认即可。
 3. 执行以下命令，安装 Koa 包。
 ```bash
 npm install koa --save
@@ -25,7 +25,7 @@ const port = 8080
 console.log('listening port',port)
 app.listen(port, () => console.log('Example app listening on',port))
 ```
->?服务需要监听8080端口。
+ >?服务需要监听8080端口。
 5.  在项目目录下创建 start.sh 启动脚本文件，并输入以下内容：
 ```bash
 #! /bin/bash
@@ -35,12 +35,12 @@ node index.js
 ```bash
 /bin/bash start.sh
 ```
-显示结果如下，则说明服务已启动。
+ 显示结果如下，则说明服务已启动。
 ```bash
 listening port 8080
 Example app listening on 8080
 ```
-在浏览器地址栏输入 `localhost:8080` 后访问，窗口显示 `Hello World!`，本地创建项目成功。
+ 在浏览器地址栏输入 `localhost:8080` 后访问，窗口显示 `Hello World!`，本地创建项目成功。
 7.  打包本地项目，准备上传。您需要在项目的根路径（start.sh所在路径）下执行打包。
 ```bash
 zip code.zip * -r

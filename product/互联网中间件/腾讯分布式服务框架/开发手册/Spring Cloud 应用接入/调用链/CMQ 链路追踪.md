@@ -1,32 +1,25 @@
-CMQ 组件目前通过 Spring Cloud Stream Binder 方式接入Spring Cloud 体系，对于 CMQ 组件的全链路追踪目前基于`spring-cloud-stream-binder-cmq`扩展实现，使用时需在上下游服务中添加`spring-cloud-stream-binder-cmq`依赖并按照规范进行 CMQ 配置。
-```
-<!-- 使用 CMQ -->
+CMQ 调用链组件目前支持使用 cmq-http-client 的方式，目前仅支持单条消息收发的调用链。
+
+您需要引入 CMQ 的依赖1.0.7.4以上版本（低版本不支持）。
+
+```plaintext
 <dependency>
-    <groupId>com.qcloud</groupId>
-    <artifactId>spring-cloud-stream-binder-cmq</artifactId>
-    <version>VERSION</version>
+			<groupId>com.qcloud</groupId>
+			<artifactId>cmq-http-client</artifactId>
+			<version>1.0.7.4</version>
 </dependency>
 ```
+
+
 配置参考：
 ```plaintext
-spring:
-  application:
-    name: cmq-demo
-  cloud:
-    stream:
-      bindings:
-        input:
-          destination: test-topic
-          group: queue  # 必填，与 input.destination 共同组成消费队列
-        output:
-          destination: test-topic
-      cmq:
-        bindings:
-          input:
-            consumer:
-              pollingWaitSeconds: 3
-        binder:
-          secretId: ***
-          secretKey: ***
-          endpoint: https://cmq-queue-***.api.qcloud.com
+cmq:
+  server:
+    endpoint: http://ocloud-cmq-queue-nameserver # CMQ 的端点地址
+    secret-id: ******* # 获取账号 SecretId
+    secret-key: ****** # 获取账号 SecretKey
 ```
+
+>?
+>- TSF SDK 1.21.7-Finchley 以及 1.21.x后续版本支持。
+>- TSF SDK 1.26.1-Finchley，1.26.1-Greenwich 以及上版本提供支持。

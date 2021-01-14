@@ -119,7 +119,7 @@
 </tr>
 <tr>
 <td>Bugly SDK<br>（开发者可选）</td>
-<td>cras h时包含本身 SDK 的堆栈（当第三方集成 Bugly   SDK 时，方可获取 crash 信息）</td>
+<td>crash 时包含本身 SDK 的堆栈（当第三方集成 Bugly   SDK 时，方可获取 crash 信息）</td>
 <td>监控 TPNS 自身 SDK 质量。</td>
 </tr>
 <tr>
