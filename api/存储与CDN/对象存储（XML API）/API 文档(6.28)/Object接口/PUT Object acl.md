@@ -166,8 +166,7 @@ x-cos-request-id: NWQ3NjRmNmRfZjZjMjBiMDlfMmE5MWJfMTI3OWZh****
 
 #### 请求
 
-<dx-codeblock>
-:::  shell
+``` shell
 PUT /exampleobject?acl HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Tue, 10 Sep 2019 06:32:02 GMT
@@ -177,27 +176,29 @@ Content-MD5: zUPEBc1TeGrqTqEfPV7rxg==
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1568097122;1568104322&q-key-time=1568097122;1568104322&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=acl&q-signature=edab1b68ce0f747604906354afbe5702b24c****
 Connection: close
 
+
+
 <AccessControlPolicy>
-	<Owner>
-		<ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
-	</Owner>
-	<AccessControlList>
-		<Grant>
-			<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
-				<URI>http://cam.qcloud.com/groups/global/AllUsers</URI>
-			</Grantee>
-			<Permission>READ</Permission>
-		</Grant>
-		<Grant>
-			<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
-				<ID>qcs::cam::uin/100000000002:uin/100000000002</ID>
-			</Grantee>
-			<Permission>READ_ACP</Permission>
-		</Grant>
-	</AccessControlList>
+			<Owner>
+				<ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
+			</Owner>
+			<AccessControlList>
+				<Grant>
+					<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
+						<URI>http://cam.qcloud.com/groups/global/AllUsers</URI>
+					</Grantee>
+					<Permission>READ</Permission>
+				</Grant>
+				<Grant>
+					<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+						<ID>qcs::cam::uin/100000000002:uin/100000000002</ID>
+					</Grantee>
+					<Permission>READ_ACP</Permission>
+				</Grant>
+			</AccessControlList>
 </AccessControlPolicy>
-:::
-</dx-codeblock>
+```
+
 
 #### 响应
 
