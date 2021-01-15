@@ -30,6 +30,33 @@
 ### 3. 将 SDK 导入您的工程
 
 <dx-tabs>
+::: 方式二：jar集成方式
+ 若您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 LiteAVSDK：
+1. 解压 `LiteAVSDK_Enterprise_xxx.zip` 文件。
+  解压后得到 libs 目录，里面主要包含 jar 文件、 so 文件夹以及资源文件，文件清单如下：
+   ![](https://main.qcloudimg.com/raw/f460962b610f2fd80f38ced46c26e5a5.png)
+2. 将解压得到的 jar 文件和 armeabi 文件夹拷贝到 `app/libs` 目录下。
+   ![](https://main.qcloudimg.com/raw/d9b6339cb52fb85afda42de6001be337.png)
+3. 将解压得到的特效资源文件拷贝到 `app/src/main/assets` 目录下。
+		- 6.6 之后的版本，assets 资源包被分包了，所以集成时不能简单的把 `assets-static`、`assets-dynamic` 里面的资源文件复制到工程的默认 assets 文件下，动效会无法识别资源。
+		- 正确的做法是把 aar 包改成 zip 后缀，然后解压，里面有一个完整的 assets 资源包，把里面文件全复制到工程 assets 文件夹下，就可以正常集成了。
+	![](https://main.qcloudimg.com/raw/65fc75c0001bbe4a5004f74e4d09e5d8.png)
+4. 在工程根目录下的 `build.gradle` 中，添加 flatDir，指定本地仓库路径。
+![](https://main.qcloudimg.com/raw/726771558714a2b4fae8dc1a59c33ffc.png)  
+5. 在 `app/build.gradle` 中，添加引用 jar 库的代码。
+  ![](https://main.qcloudimg.com/raw/5ec9d68dc37b40f3dc1bf5a9fcc36927.png)      
+6. 在 `app/build.gradle` 中，添加引用 so 库的代码。
+  ![](https://main.qcloudimg.com/raw/7aa1e2872408ea2acd633c6323fae95e.png)
+7. 在 `app/build.gradle` 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 企业版支持 armeabi，armeabi-v7a，arm64-v8a 架构，x64 架构还在开发中）。
+```
+   defaultConfig {
+        ndk {
+            abiFilters "armeabi" , "armeabi-v7a" , "arm64-v8a"
+        }
+    }
+``` 
+ 7. 单击【Sync Now】，完成 LiteAVSDK 的集成工作。
+:::
 ::: 方式一：aar集成方式
 1. 将下载到的 arr 文件拷贝到工程的 app/libs 目录下。
 ![](https://main.qcloudimg.com/raw/d826e6842b947b113f26795270fafc30.png)
@@ -48,33 +75,7 @@
 ```
 5. 单击【Sync Now】，完成 LiteAVSDK 的集成工作。
 :::
-::: 方式二：jar集成方式
- 若您不想集成 aar 库，也可以通过导入 jar 和 so 库的方式集成 LiteAVSDK：
-1. 解压 `LiteAVSDK_Enterprise_xxx.zip` 文件。
-  解压后得到 libs 目录，里面主要包含 jar 文件、 so 文件夹以及资源文件，文件清单如下：
-   ![](https://main.qcloudimg.com/raw/f460962b610f2fd80f38ced46c26e5a5.png)
-2. 将解压得到的 jar 文件和 armeabi 文件夹拷贝到 `app/libs` 目录下。
-   ![](https://main.qcloudimg.com/raw/d9b6339cb52fb85afda42de6001be337.png)
-3. 将解压得到的特效资源文件拷贝到 `app/src/main/assets` 目录下。
-		- 6.6 之后的版本，assets 资源包被分包了，所以集成时不能简单的把 `assets-static`、`assets-dynamic` 里面的资源文件复制到工程的默认 assets 文件下，动效会无法识别资源。
-		- 正确的做法是把 aar 包改成 zip 后缀，然后解压，里面有一个完整的 assets 资源包，把里面文件全复制到工程 assets 文件夹下，就可以正常集成了。
-	![](https://main.qcloudimg.com/raw/5ec9d68dc37b40f3dc1bf5a9fcc36927.png)
-4. 在工程根目录下的 `build.gradle` 中，添加 flatDir，指定本地仓库路径。
-![](https://main.qcloudimg.com/raw/726771558714a2b4fae8dc1a59c33ffc.png)  
-5. 在 `app/build.gradle` 中，添加引用 jar 库的代码。
-  ![](https://main.qcloudimg.com/raw/7aa1e2872408ea2acd633c6323fae95e.png)      
-6. 在 `app/build.gradle` 中，添加引用 so 库的代码。
-  ![](https://main.qcloudimg.com/raw/65fc75c0001bbe4a5004f74e4d09e5d8.png)
-7. 在 `app/build.gradle` 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 企业版支持 armeabi，armeabi-v7a，arm64-v8a 架构，x64 架构还在开发中）。
-```
-   defaultConfig {
-        ndk {
-            abiFilters "armeabi" , "armeabi-v7a" , "arm64-v8a"
-        }
-    }
-``` 
- 7. 单击【Sync Now】，完成 LiteAVSDK 的集成工作。
-:::
+
 </dx-tabs>
 
 ### 4. 给 SDK 配置 License 授权
