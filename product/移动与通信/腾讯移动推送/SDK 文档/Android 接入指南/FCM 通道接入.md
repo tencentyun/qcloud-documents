@@ -4,9 +4,15 @@
 FCM 通道是谷歌推出的系统级推送通道，在国外具备谷歌 Service 框架的手机上，鉴于其较宽松的后台进程管理方式，在应用进程未被强制停止的情况下，可以收到推送消息。
 
 ## 操作步骤
-### 获取密钥
-进入 FireBase 官网，注册应用信息。在 【Firebase 项目】>【选择具体的项目应用】>【设置】>【云消息传递】获取到的 FCM 应用推送【服务器密钥】，并配置到【[移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)】>【配置管理】>【基础配置】>【FCM 官方推送通道】栏目中。
+### 获取旧服务密钥
+进入 [FireBase 控制台](https://console.firebase.google.com/) 官网，注册应用信息。在 【Firebase 项目】>【选择具体的项目应用】>【设置】>【云消息传递】获取到的 FCM 应用推送【服务器密钥】，并配置到【[移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)】>【配置管理】>【基础配置】>【FCM 官方推送通道】栏目中。
 ![](https://main.qcloudimg.com/raw/d82c9dd04fe986ffc35a57e30eefce4f.png)
+### 配置新版密钥
+1.进入 [FireBase 控制台](https://console.firebase.google.com/) ，在 【Firebase 项目设置】>【服务账号】>单击【生成新的密钥】。
+![](https://main.qcloudimg.com/raw/61c95c8a54b3c77305104b3788bd16c0.png)
+
+2.登录[移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，前往【配置管理】>【基础配置】>【FCM 官方推送通道】栏目中上传新版私钥。
+![](https://main.qcloudimg.com/raw/55099904b29cc3db369abf7a8df62761.png)
 ### 配置内容
 1. 配置 google-services.json 文件。如图所示：
 ![](https://main.qcloudimg.com/raw/568561b72a775058bf06750bfab38ed0.png)
