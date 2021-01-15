@@ -4,16 +4,18 @@
 
 
 ## 前提条件
-已在腾讯云上有购买云服务器 CVM，并配置了私有网络 VPC。
+已在腾讯云上有购买云服务器 CVM 或者 容器资源，并配置了私有网络 VPC。
 
 
 ## 操作步骤
-1. 登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，进入【环境管理】页面，选择目标地域。
-2. 单击【接入点】，进入接入点配置页面。
+1. 登录 [TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，进入【集群管理】页面，选择目标集群。
+2. 单击【配置接入点】，进入集群的接入点配置页面。
+![](https://main.qcloudimg.com/raw/d17a908591b9cbdb3aa8b225e1879b9d.png)
 3. 单击【新建】，在新建 VPC 接入点对话框中，选择 VPC、子网，填写备注。
  - VPC：选择您部署生产者或消费者所在的 VPC 网络
  - 子网：根据您的 IP 分配方式选择对应的子网
  - 备注（选填）：填写备注信息，不超过128个字符
 4. 单击【提交】，即可完成 VPC 网络的接入。
-![](https://main.qcloudimg.com/raw/d209bb08bc7737e073bb5fd4a27662ce.png)
+![](https://main.qcloudimg.com/raw/df2925610a9d697b4e756e9b82cdd29a.png)
+
 您可以在接入点列表中看到已创建的接入点记录，其中有您需要在客户端配置的参数（路由 ID 和地址），详细介绍请参考 [SDK 文档](https://cloud.tencent.com/document/product/1179/44831)。

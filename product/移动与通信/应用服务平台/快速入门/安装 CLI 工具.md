@@ -1,4 +1,4 @@
-云开发官方提供[命令行工具（CLI）](https://github.com/TencentCloudBase/cloudbase-cli)：。可以使用 CLI 进行云开发资源管控、函数部署等。下面是安装过程：
+云开发官方提供 [命令行工具（CLI）](https://github.com/TencentCloudBase/cloudbase-cli)：。可以使用 CLI 进行云开发资源管控、函数部署等。下面是安装过程：
 
 ## 第 1 步：确保安装了 Node.js 和 npm
 

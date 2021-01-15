@@ -196,5 +196,22 @@ namespace tpns_server_sdk_cs
     }
 }
 :::
+::: PHP php
+```
+<?php
+$accessId = "1500001048";
+$secretKey = "1452fcebae9f3115ba794fb0fff2fd73";
+$timeStamp = "1565314789";
+$requestBody = "{\"audience_type\": \"account\",\"platform\": \"android\",\"message\": {\"title\": \"test title\",\"content\": \"test content\",\"android\": { \"action\": {\"action_type\": 3,\"intent\": \"xgscheme://com.xg.push/notify_detail?param1=xg\"}}},\"message_type\": \"notify\",\"account_list\": [\"5822f0eee44c3625ef0000bb\"] }";
+$hashData = "{$timeStamp}{$accessId}{$requestBody}";
+echo "reqBody: " . $hashData . "\n";
+//获取 sha256 and hex 结果
+$hashRes = hash_hmac("sha256", $hashData, $secretKey, false);
+//进行 base64
+$sign = base64_encode($hashRes);
+echo $sign . "\n";
+?>
+```
+:::
 </dx-codeblock>
 

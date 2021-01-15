@@ -16,8 +16,7 @@
 ![](https://main.qcloudimg.com/raw/956b89a61a29dbee1acfdef00e1b61bc.png)
 
 
-<span id = "clyf"></span>
-## 策略语法
+## [策略语法](id:clyf)
 MySQL 数据库审计的 CAM 策略描述如下：
 ```
 {     
@@ -107,8 +106,7 @@ qcs::service_type::account:resource
 }
 ```
 
-<span id = "zdymsjksjcl"></span>
-## 自定义 MySQL 数据库审计策略
+## [自定义 MySQL 数据库审计策略](id:zdymsjksjcl)
 1. 以主账号身份登录 [访问管理控制台](https://console.cloud.tencent.com/cam/policy)，在策略列表，单击【新建自定义策略】。
 ![](https://main.qcloudimg.com/raw/495d428685ad6a166a19fa6f87478509.png)
 2. 在弹出的对话框，选择【按策略生成器创建】。

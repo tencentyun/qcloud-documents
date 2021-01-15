@@ -41,22 +41,22 @@ Authorization: Auth String
 
 ``` plaintext
 <LiveChannelStatus>
-  <Status>Live</Status>
-  <ConnectedTime>2016-08-25T06:25:15.000Z</ConnectedTime>
-  <RemoteAddr>127.0.0.1:47745</RemoteAddr>
-  <RequestId>NWZjMzUyM2NfNWNhM2IwYV8xOTYyX2Mz****</RequestId>
-  <Video>
-    <Width>1280</Width>
-    <Height>720</Height>
-    <FrameRate>24</FrameRate>
-    <Bandwidth>71510</Bandwidth>
-    <Codec>H264</Codec>
-  </Video>
-  <Audio>
-    <Bandwidth>13308</Bandwidth>
-    <SampleRate>48000</SampleRate>
-    <Codec>AAC</Codec>
-  </Audio>
+				<Status>Live</Status>
+				<ConnectedTime>2016-08-25T06:25:15.000Z</ConnectedTime>
+				<RemoteAddr>127.0.0.1:47745</RemoteAddr>
+				<RequestId>NWZjMzUyM2NfNWNhM2IwYV8xOTYyX2Mz****</RequestId>
+				<Video>
+					<Width>1280</Width>
+					<Height>720</Height>
+					<FrameRate>24</FrameRate>
+					<Bandwidth>71510</Bandwidth>
+					<Codec>H264</Codec>
+				</Video>
+				<Audio>
+					<Bandwidth>13308</Bandwidth>
+					<SampleRate>48000</SampleRate>
+					<Codec>AAC</Codec>
+				</Audio>
 </LiveChannelStatus>
 ```
 
@@ -71,7 +71,7 @@ Authorization: Auth String
 | RequestId          | LiveChannelStatus | 当 Status 为 Live 时，表示当前推流请求的 RequestId                | String     |
 | Video              | LiveChannelStatus | 当 Status 为 Live 时，保存视频流信息的容器。<br/>说明：Video、Audio 容器只有在 Status 为 Live 时才会返回，但 Status 为 Live 时不一定返回这两个容器。例如，客户端已经连接到 LiveChannel，但尚未发送音视频数据，这种情况不会返回这两个容器 | Container  |
 | Width              | Video             | 当前视频流的画面宽度，单位：像素                             | String     |
-| Heigth             | Video             | 当前视频流的画面高度，单位：像素                             | String     |
+| Height             | Video             | 当前视频流的画面高度，单位：像素                             | String     |
 | FrameRate          | Video             | 当前视频流的帧率                                             | String     |
 | Bandwidth          | Video             | 当前视频流的码率，单位：B/s                               | String     |
 | Codec              | Video             | 当前视频流的编码格式                                         | EnumString |
@@ -113,9 +113,10 @@ Date: Wed, 23 Aug 2020 08:14:53 GMT
 Server: tencent-cos
 x-cos-request-id: NTk5ZDM5N2RfMjNiMjM1MGFfMmRiX2Y0****
  
+ 
 <?xml version="1.0" encoding="UTF-8"?>
 <LiveChannelStat>
-  <Status>Idle</Status>
+			<Status>Idle</Status>
 </LiveChannelStat>
 ```
 
@@ -144,24 +145,25 @@ Date: Wed, 23 Aug 2020 08:14:53 GMT
 Server: tencent-cos
 x-cos-request-id: NTk5ZDM5N2RfMjNiMjM1MGFfMmRiX2Y0****
  
+ 
 <?xml version="1.0" encoding="UTF-8"?>
 <LiveChannelStatus>
-  <Status>Live</Status>
-  <ConnectedTime>2016-08-25T06:25:15.000Z</ConnectedTime>
-  <RemoteAddr>127.0.0.1:47745</RemoteAddr>
-  <RequestId>NWZjMzUyM2NfNWNhM2IwYV8xOTYyX2Mz****</RequestId>
-  <Video>
-    <Width>1280</Width>
-    <Height>720</Height>
-    <FrameRate>24</FrameRate>
-    <Bandwidth>71510</Bandwidth>
-    <Codec>H264</Codec>
-  </Video>
-  <Audio>
-    <Bandwidth>13308</Bandwidth>
-    <SampleRate>48000</SampleRate>
-    <Codec>AAC</Codec>
-  </Audio>
+			<Status>Live</Status>
+			<ConnectedTime>2016-08-25T06:25:15.000Z</ConnectedTime>
+			<RemoteAddr>127.0.0.1:47745</RemoteAddr>
+			<RequestId>NWZjMzUyM2NfNWNhM2IwYV8xOTYyX2Mz****</RequestId>
+			<Video>
+				<Width>1280</Width>
+				<Height>720</Height>
+				<FrameRate>24</FrameRate>
+				<Bandwidth>71510</Bandwidth>
+				<Codec>H264</Codec>
+			</Video>
+			<Audio>
+				<Bandwidth>13308</Bandwidth>
+				<SampleRate>48000</SampleRate>
+				<Codec>AAC</Codec>
+			</Audio>
 </LiveChannelStatus>
 ```
 

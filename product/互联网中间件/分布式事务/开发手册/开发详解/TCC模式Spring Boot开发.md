@@ -111,12 +111,13 @@ public Boolean order(@RequestBody Order order) {
 
 #### 主事务注解支持的能力包括
 
-| 参数    | 数据类型 | 必填 | 默认值    | 描述                                                          |
-| ------- | -------- | ---- | --------- | ------------------------------------------------------------- |
-| timeout | Integer  | 否   | 60 × 1000 | 事务超时时间（主事务**开启**到**提交**/**回滚**的时长），单位：毫秒 |
-| groupId | String   | 否   |     -      | 在此事务分组下开启主事务                                      |
+| 参数 | 数据类型 | 必填 | 默认值 | 描述 | 
+| ------- | -------- | ---- | ---------------------------------------------- | --------------------------------------- |
+| timeout | Integer | 否 | 60 * 1000 | 事务超时时间（所有 Try 阶段），单位：毫秒 | 
+| groupId | String | 否 | dtf.env.groups<br>仅配置了一个事务分组时，使用该值 | 主事务的事务分组 ID| 
+| autoCommit | Boolean | 否 | true | 为 false 时需要手动提交事务，即在能获取到事务上下文的地方显示调用 `DtfTransaction.commit()`|
 
-DTF 目前支持通过 @DtfTransactional 传染主事务。当您的主事务有多个入口时，使用多个@DtfTransactional 不会报错。全局事务的开始与结束，将由第一个开始执行的标有 @DtfTransactional 的主事务纳管。
+DTF 目前支持通过 @DtfTransactional 传染主事务。当您的主事务有多个入口时，使用多个 @DtfTransactional 不会报错。全局事务的开始与结束，将由第一个开始执行的标有 @DtfTransactional 的主事务纳管。
 
 >?如果`dtf.env.groups`下只配置了**1个**事务分组 ID，则 @DtfTransactional 注解中**不需要**填写 groupId，DTF 框架会自动从配置中获取。
 

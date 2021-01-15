@@ -46,7 +46,7 @@ Kubernetes 原生调度器大部分基于 Pod Request 资源进行调度，并�
 
 - 该组件已对接 TKE 的监控告警体系。
 - 推荐您为集群开启事件持久化，以便更好的监控组件异常以及故障定位。
-
+- 该组件卸载后，只会删除动态调度器有关调度逻辑，不会对原生 Kube-Scheduler 的调度功能有任何影响。
 
 ## 限制条件
 
@@ -65,6 +65,8 @@ Kubernetes 原生调度器大部分基于 Pod Request 资源进行调度，并�
 ### node-annotator
 
 node-annotator 组件负责定期从监控中拉取节点负载 metric，同步到节点的 annotation。如下图所示：
+>! 组件删除后，node-annotator 生成的 annotation 并不会被自动清除。您可根据需要手动清除。
+>
 ![](https://main.qcloudimg.com/raw/7becb88fec8434b56c06eafc95c50801.png)
 
 ### Dynamic-scheduler
@@ -74,13 +76,13 @@ Dynamic-scheduler 是一个 scheduler-extender，根据 node annotation 负载�
 #### 预选策略
 
 为了避免 Pod 调度到高负载的 Node 上，需要先通过预选过滤部分高负载的 Node（其中过滤策略和比例可以动态配置，具体请参见本文 [组件参数说明](#parameter)）。
-如下图所示，Node2 过去5分钟的负载，Node3 过去1小时的负载均超过对应的域值，因此不会参与接下来的优选阶段。如下图所示：
+如下图所示，Node2 过去5分钟的负载，Node3 过去1小时的负载均超过对应的域值，因此不会参与接下来的优选阶段。
 ![](https://main.qcloudimg.com/raw/e985adff60f7183d0762e9be4fc36223.png)
 
 #### 优选策略
 
 同时为了使集群各节点的负载尽量均衡，Dynamic-scheduler 会根据 Node 负载数据进行打分，负载越低打分越高。
-如下图所示，Node1 的打分最高将会被优先调度（其中打分策略和权重可以动态配置，具体请参见本文 [组件参数说明](#parameter)）。如下图所示：
+如下图所示，Node1 的打分最高将会被优先调度（其中打分策略和权重可以动态配置，具体请参见本文 [组件参数说明](#parameter)）。
 ![](https://main.qcloudimg.com/raw/eb0bb844e6cd74827037354b0a98fe4e.png)
 
 ## 组件参数说明[](id:parameter)

@@ -578,7 +578,7 @@ x-cos-request-id: NWZkMDQyZmVfYTJjMjJhMDlfYmQwOF8xYjkw****
 </ListBucketResult>
 ```
 
-#### 案例八：需分页时获取后续页（续接案例六）
+#### 案例八：需分页时获取后续页（带 delimiter 参数，续接案例七）
 
 #### 请求
 

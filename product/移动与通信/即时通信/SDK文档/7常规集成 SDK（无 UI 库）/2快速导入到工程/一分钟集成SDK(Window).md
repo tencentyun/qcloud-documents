@@ -116,3 +116,4 @@ error LNK2019: 无法解析的外部符号 __imp__TIMGetSDKVersion，该符号�
 
 - 出现以下错误，请按照前面的工程配置，检查 IM SDK 的 DLL 是否拷贝到执行目录：
 ![](https://main.qcloudimg.com/raw/5d829626978836db0ac9cc1937f7fc27.png)
+

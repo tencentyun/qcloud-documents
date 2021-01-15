@@ -1,4 +1,4 @@
-## 短视频 SDK 各版本下载              
+## 短视频 SDK 各版本下载               
 <table>     
    <tr>
       <th width="85px" style="text-align:center">功能模块</td>
@@ -333,7 +333,7 @@
    </tr>
 </table>
 
-**如果您对 SDK 支持的功能还有疑问，请参见 [功能答疑](https://cloud.tencent.com/document/product/584/17535)**。
+>? **如果您对 SDK 支持的功能还有疑问，请参见 [功能答疑](https://cloud.tencent.com/document/product/584/17535)。**
 
 ## 全功能小视频 App（Demo）源代码
 

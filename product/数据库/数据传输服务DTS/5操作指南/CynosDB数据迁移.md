@@ -1,5 +1,5 @@
 
-本文为您介绍通过数据传输服务 DTS，迁移 MySQL 5.7 数据库至云数据库 CynosDB（CynosDB for MySQL）的过程。
+本文为您介绍通过数据传输服务 DTS，迁移 MySQL 5.7 数据库至云原生数据库 TDSQL-C（原 CynosDB）的过程。
 
 ## 准备事项
 <span id = "zhqxyjc"></span>

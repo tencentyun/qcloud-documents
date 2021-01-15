@@ -3,6 +3,7 @@
 ## 效果展示
 
 ![](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblivedemo/doc-assets/demo-official-website.gif)
+>?更多实操教学视频请参见：[一分钟跑通 Web 直播互动组件](https://cloud.tencent.com/edu/learning/course-3130-56990)。
 
 ## 前提条件
 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。

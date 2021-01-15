@@ -21,7 +21,7 @@
 ### 登录
 
 输入 UserId，单击【Login】，系统则会使用设置的 UserId 进行登录。登录后，界面将会新增【Voice Chat】和【Voice Message】两个按钮。
-<img src="https://main.qcloudimg.com/raw/dbacd4455622253ddb07d53e1bc785b8.png"  width="80%" /><br>
+<img src="https://main.qcloudimg.com/raw/dbacd4455622253ddb07d53e1bc785b8.png"  width="80%" /></img><br>
 - 单击【Voice Chat】，将会进入 [语音聊天](#test1) 功能。
 - 单击【Voice Message】，将会进入 [语音消息](#test2) 功能。
 
@@ -31,7 +31,7 @@
 
 
 1. [登录](#test) 之后，单击【Voice Chat】进入语音聊天界面：
-<img src="https://picture-1256313114.cos.ap-beijing.myqcloud.com/IMB_KuI8ov.GIF"    width="80%"/><br>
+<img src="https://gme-public-1256590279.cos.ap-nanjing.myqcloud.com/GMEResource/IMB_KuI8ov.gif"    width="80%"/></img><br>
  - RoomId：房间号 ID，房间号相同的成员会进入同一个房间。
  - RoomType：用于控制语音质量。
     - Fluency：流畅音质。流畅优先、超低延迟实时语音，应用在游戏内开黑场景，适用于 FPS、MOBA 等类型的游戏。
@@ -40,7 +40,7 @@
 
 
 2. 在语音聊天界面，单击【JoinRoom】进入房间：
-<img src="https://picture-1256313114.cos.ap-beijing.myqcloud.com/IMB_8zP4w2.GIF"  width="80%"/><br>
+<img src="https://gme-public-1256590279.cos.ap-nanjing.myqcloud.com/GMEResource/IMB_8zP4w2.gif"  width="80%"/><br>
  - Talking Members：房间内正在说话的成员，界面将会显示正在说话的成员 ID。
  - Mic：麦克风，勾选表示打开。 
  - Speaker：扬声器，勾选表示打开。
@@ -60,7 +60,7 @@
 ### 使用语音消息转文本
 
 [登录](#test) 之后，单击【Voice Message】进入语言消息界面：
-<img src="https://picture-1256313114.cos.ap-beijing.myqcloud.com/IMB_DsvaLv.GIF"  width="80%"/></img>
+<img src="https://gme-public-1256590279.cos.ap-nanjing.myqcloud.com/GMEResource/IMB_DsvaLv.gif"  width="80%"/></img><br>
 - Language：使用的语言。
 - Audio：录制的语音消息和语音时长。单击<img src="https://main.qcloudimg.com/raw/7d268c4b1bb7e1998792b19a23e7bb63.png" width="3%"></img>播放录音，播放过程中再次单击，结束播放。
 - Audio-to-Text：语音转换成的文字，鼠标单击长按【Push To Talk】，开始录制；鼠标松开【Push To Talk】，结束录制。
@@ -89,7 +89,7 @@
 >- 请务必注意保存 AppID 以及权限密钥不被泄露。
 >- 请注意此时的 userId 数字，请确保打开的另一个演示程序中的 userId 与此 userId 不同。
 >
-<img src="https://main.qcloudimg.com/raw/3d4fb34620b114b7ec66506d67d5eff4.jpg"  width="80%"><br>
+<img src="https://main.qcloudimg.com/raw/33540519cd5c2bdde6139f8a4af537a6.png"  width="80%"><br>
 填写完成后单击【初始化】>【实时语音】，进入实时语音房间填写界面。
 
 ### 4. 进入语音房间
@@ -112,15 +112,14 @@
 ### 6. 本地连接
 
 **此演示程序需要本地局域网连接基础**。
-<img src="https://main.qcloudimg.com/raw/c8c678b0b3debdb892928d0193d44308.png" width="40%" /></img>
-
+<img src="https://main.qcloudimg.com/raw/670b24a1133dc07bdc9892ffa12b159f.png" width="80%" /></img>
 - 第一个进房间的人
 第一个进房间的人是需要作为网络连接的 Host，所以需要单击【LAN Host(H)】。单击之后会将人物生成在金币旁边。
-<img src="https://picture-1256313114.cos.ap-beijing.myqcloud.com/master.gif"  width="80%"/></img>
+<img src="https://gme-public-1256590279.cos.ap-nanjing.myqcloud.com/GMEResource/master.gif"  width="80%"/></img>
 
 - 非首位进房间的人
 非首位进房间的人需要与 Host 连通，所以需要单击【LAN Client(C)】。单击之后会将人物生成在金币旁边，此时可以见到第一个进入房间的人。
-<img src="https://picture-1256313114.cos.ap-beijing.myqcloud.com/client.gif"  width="80%"/></img>
+<img src="https://gme-public-1256590279.cos.ap-nanjing.myqcloud.com/GMEResource/client.gif"  width="80%"/></img>
 
 ### 7. 打开麦克风
 
@@ -129,11 +128,11 @@
 ### 8. 操作方式
 
 键盘上的"W"、"S"、"A"、"D"分别对应“前进”、“后退”、“左转”、“右转”，鼠标转动可以调整视角。连接后的客户端上可以看到另一个客户端上所操作的角色。
-<img src="https://picture-1256313114.cos.ap-beijing.myqcloud.com/linaji.gif"  width="80%"/></img>
+<img src="https://gme-public-1256590279.cos.ap-nanjing.myqcloud.com/GMEResource/linaji.gif"  width="80%"/></img>
 
 ### 9. 如何体验
 
 如果是本地双开演示程序，可以先把其中一个演示程序的视角移动到金币旁边，打开麦克风，另一个演示程序的小人尽可能的跑远，期间不停说话，便可以体验3D的语音效果，跑到地图边界，此时的声音会衰减到几乎听不到。
-<img src="https://picture-1256313114.cos.ap-beijing.myqcloud.com/yuan.gif"  width="80%"/></img>
+<img src="https://gme-public-1256590279.cos.ap-nanjing.myqcloud.com/GMEResource/yuan.gif"  width="80%"/></img>
 
 

@@ -1,5 +1,4 @@
 ## SDK 功能列表
-
 <table width="850px">
   <tr align="center">
      <th style="text-align:center">功能</th>
@@ -8,8 +7,8 @@
   </tr>
   <tr align="center">
      <td>版本</td>
-        <td style="text-align:center">SDK（8.1.9719）@ 2020.12.03</td>
-        <td style="text-align:center">SDK（8.1.9717）@ 2020.12.03</td>
+        <td style="text-align:center">（8.3.9877）@2021.01.15</td>
+        <td style="text-align:center">SDK（8.3.9875）@ 2021.01.15</td>
   </tr>
   <tr align="center">
     <td>小窗播放</td>
@@ -99,7 +98,7 @@
   </tr>
 </table>
 
-详细介绍请参见 [此文档](https://github.com/tencentyun/SuperPlayer)。
+>? 详细介绍请参见 [此文档](https://github.com/tencentyun/SuperPlayer)。
 
 
 ## 技术交流

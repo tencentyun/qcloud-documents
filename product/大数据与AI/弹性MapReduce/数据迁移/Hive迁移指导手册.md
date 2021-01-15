@@ -11,21 +11,21 @@ mysqldump -hX.X.X.X -uroot -pXXXX --single-transaction --set-gtid-purged=OFF hiv
 # hivemetastor 是 Hive 元数据库名 
 ```
 2. 确认目标 Hive 表数据在 HDFS 中的缺省路径。
-Hive 表数据在 HDFS 中的缺省路径由`hive-site.xml`中的`hive.metastore.warehouse.dir`指定。如果 Hive 表在 HDFS 的存储位置依然保持与源 Hive 一致，那么需要修改为与源 Hive 数据库中的值一致。例如，源`hive-site.xml`中`hive.metastore.warehouse.dir`为下面的值。
+Hive 表数据在 HDFS 中的缺省路径由 `hive-site.xml` 中的 `hive.metastore.warehouse.dir` 指定。如果 Hive 表在 HDFS 的存储位置依然保持与源 Hive 一致，那么需要修改为与源 Hive 数据库中的值一致。例如，源 `hive-site.xml` 中 `hive.metastore.warehouse.dir` 为下面的值。
 ```
 <property>  
     <name>hive.metastore.warehouse.dir</name>  
     <value>/apps/hive/warehouse</value>  
 </property>  
 ```
-目标`hive-site.xml`中`hive.metastore.warehouse.dir`为下面的值。
+目标 `hive-site.xml` 中 `hive.metastore.warehouse.dir` 为下面的值。
 ```
 <property>  
     <name>hive.metastore.warehouse.dir</name>  
     <value>/usr/hive/warehouse</value>  
 </property>  
 ```
-如果 Hive 表在 HDFS 的存储位置依然保持与源 Hive 一致，那么修改目标`hive-site.xml`中的`hive.metastore.warehouse.dir`，即为：
+如果 Hive 表在 HDFS 的存储位置依然保持与源 Hive 一致，那么修改目标 `hive-site.xml` 中的 `hive.metastore.warehouse.dir`，即为：
 ```
 <property>  
     <name>hive.metastore.warehouse.dir</name>  
@@ -55,14 +55,14 @@ mysql> SELECT DB_LOCATION_URI from DBS;
 | hdfs://HDFS2648/usr/hive/warehouse/hitest.db |  
 +-----------------------------------------------+ 
 ```
-其中`hdfs://HDFS2648`是 HDFS 默认文件系统名，由`core-site.xml`中的`fs.defaultFS`指定。
+其中 `hdfs://HDFS2648` 是 HDFS 默认文件系统名，由 `core-site.xml` 中的 `fs.defaultFS` 指定。
 ```
 <property>  
     <name>fs.defaultFS</name>  
     <value>hdfs://HDFS2648</value>  
 </property> 
 ```
-`/usr/hive/warehouse`为 Hive 表在 HDFS 中的默认存储路径，也是`hive-site.xml`中`hive.metastore.warehouse.dir`指定的值。所以我们需要修改源 hive 元数据 sql 文件中的 SDS.LOCATION 和 DBS.DB_LOCATION_URI 两个字段。确保被导入的 Hive 元数据库中的这两个字段使用的是正确的路径。可使用如下 sed 命令批量修改 sql 文件。
+`/usr/hive/warehouse` 为 Hive 表在 HDFS 中的默认存储路径，也是 `hive-site.xml` 中`hive.metastore.warehouse.dir` 指定的值。所以我们需要修改源 hive 元数据 sql 文件中的 SDS.LOCATION 和 DBS.DB_LOCATION_URI 两个字段。确保被导入的 Hive 元数据库中的这两个字段使用的是正确的路径。可使用如下 sed 命令批量修改 sql 文件。
 ```
 替换ip：sed -i 's/oldcluster-ip:4007/newcluster-ip:4007/g' hivemetastore-src.sql  
 替换defaultFS：sed -i 's/old-defaultFS/new-defaultFS/g' hivemetastore-src.sql  
@@ -106,7 +106,7 @@ mysql> source upgrade-2.3.0-to-3.0.0.mysql.sql;
 mysql> source upgrade-3.0.0-to-3.1.0.mysql.sql;  
 ```
 9. 修改目标 Hive 元数据中 phoneix 表的 zookeeper 地址。
-如果源 Hive 中有 phoneix 表，通过下面的查询获取 phoenix 表的`phoenix.zookeeper.quorum`配置。
+如果源 Hive 中有 phoneix 表，通过下面的查询获取 phoenix 表的 `phoenix.zookeeper.quorum` 配置。
 ```
 mysql> SELECT PARAM_VALUE from TABLE_PARAMS where PARAM_KEY = 'phoenix.zookeeper.quorum';  
 +--------------------------------------------------+    
@@ -115,7 +115,7 @@ mysql> SELECT PARAM_VALUE from TABLE_PARAMS where PARAM_KEY = 'phoenix.zookeeper
 | 172.17.64.57,172.17.64.78,172.17.64.54 |     
 +--------------------------------------------------+  
 ```
-查看目标集群的 zookeeper 地址，即`hive-site.xml`配置文件中`hbase.zookeeper.quorum`指定的值。
+查看目标集群的 zookeeper 地址，即 `hive-site.xml` 配置文件中 `hbase.zookeeper.quorum` 指定的值。
 ```
 <property>  
     <name>hbase.zookeeper.quorum</name>  
