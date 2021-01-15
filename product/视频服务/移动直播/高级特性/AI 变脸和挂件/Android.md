@@ -195,7 +195,7 @@ public void setFaceBeautyLevel(int faceBeautyLevel);
 :::
 </dx-codeblock>
 
-<span id="beauty_dynamic"></span>
+[](id:beauty_dynamic)
 ### 美颜动效（动效贴纸、AI抠图、美妆、手势）
 购买美颜动效素材后，您可以获得对应效果的素材包。每一个素材包就是一个独立的目录，目录里包含了很多资源文件。每个素材包因其复杂度不同，文件数量和大小尺寸也各不相同。
 
