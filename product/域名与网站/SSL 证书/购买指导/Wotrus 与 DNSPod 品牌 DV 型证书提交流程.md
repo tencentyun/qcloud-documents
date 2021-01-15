@@ -51,8 +51,8 @@ CA 机构认证审核通过后，将会正式颁发证书，您可下载证书�
 ### 步骤3：验证域名
 1. 在 “验证域名” 页面，请根据页面提供的信息进行域名验证操作。例如，您选择的是手动 DNS 验证方式，将会展示以下信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/a0813887f6425e05e4677a036403f639.png)
- - **手动 DNS 验证**：域名验证操作请参考 [手动 DNS 验证](https://cloud.tencent.com/document/product/400/4142#.E6.89.8B.E5.8A.A8-dns-.E9.AA.8C.E8.AF.81)。
- - **文件验证**：域名验证操作请参考 [文件验证](https://cloud.tencent.com/document/product/400/4142#.E6.96.87.E4.BB.B6.E9.AA.8C.E8.AF.81)。
+ - **手动 DNS 验证**：域名验证操作请参考 [手动 DNS 验证](https://cloud.tencent.com/document/product/400/4142#ManualVerification)。
+ - **文件验证**：域名验证操作请参考 [文件验证](https://cloud.tencent.com/document/product/400/4142#FileVerification)。
 2. 域名验证操作完成后，可单击【查看域名验证状态】，查看域名验证操作是否成功。
 
 >? DNSPod 品牌国密标准（SM2） DV 型证书，首次域名验证通过后，该域名验证将保留13个月。13个月内该域名以相同公司名称申请 DNSPod 品牌国密标准（SM2） DV 型证书，将无需执行域名验证。
