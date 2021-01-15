@@ -94,14 +94,16 @@ dependencies{
 		implementation fileTree(dir:'libs',include:['*.jar'])
 }
 ```
+- **第四步：指定本地仓库路径**
+  在工程根目录下的 build.gradle 中，添加 **flatDir**，指定本地仓库路径。
+  ![](https://main.qcloudimg.com/raw/726771558714a2b4fae8dc1a59c33ffc.png)
 
-
-- **第四步：引用 so 库**
+- **第五步：引用 so 库**
   在 app/build.gradle 中，添加引用 so 库的代码。
   ![](https://main.qcloudimg.com/raw/e0f2f39c5f53a9fd5ca084febdd4e637.png)
 
 
-- **第五步：指定 App 使用架构**
+- **第六步：指定 App 使用架构**
   在 app/build.gradle 的 defaultConfig 中，指定 App 使用的 CPU 架构(目前 LiteAVSDK 支持 armeabi 、 armeabi-v7a  和 arm64-v8a)  。
 ```
    defaultConfig {
@@ -111,7 +113,7 @@ dependencies{
     }
 ```
 
-- **第六步：同步 SDK**
+- **第七步：同步 SDK**
   单击 Sync Now 按钮，完成 LiteAVSDK 的集成工作。
 
 ## 配置 App 打包参数
