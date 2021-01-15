@@ -16,8 +16,8 @@ ocrSdk.start({
         success(res) {
           let credentials = res.Credentials;
           resolve({
-            secretId: credentials.TmpSecretId,
-            secretKey: credentials.TmpSecretKey,
+            tmpSecretId: credentials.TmpSecretId,
+            tmpSecretKey: credentials.TmpSecretKey,
             token: credentials.Token,
           })
         },
@@ -107,8 +107,8 @@ ocrSdk.start({
         success(res) {
           let credentials = res.Credentials;
           resolve({
-            secretId: credentials.TmpSecretId,
-            secretKey: credentials.TmpSecretKey,
+            tmpSecretId: credentials.TmpSecretId,
+            tmpSecretKey: credentials.TmpSecretKey,
             token: credentials.Token,
           })
         },
