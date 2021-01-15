@@ -6,14 +6,24 @@ FCM 通道是谷歌推出的系统级推送通道，在国外具备谷歌 Servic
 ## 操作步骤
 ### 配置密钥（二选一）
 
-#### 配置新版私钥（推荐）
-1.进入 [FireBase 控制台](https://console.firebase.google.com/) ，在 【Firebase 项目设置】>【服务账号】>单击【生成新的密钥】。
+
+<dx-tabs>
+::: 配置新版私钥（推荐）
+1. 进入 FireBase 控制台，在 【Firebase 项目设置】>【服务账号】>【生成新的密钥】。
 ![](https://main.qcloudimg.com/raw/61c95c8a54b3c77305104b3788bd16c0.png)
-2.登录[移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，前往【配置管理】>【基础配置】>【FCM 官方推送通道】栏目中上传新版私钥。
+2. 登录 [移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)，前往【配置管理】>【基础配置】>【FCM 官方推送通道】栏目中上传新版私钥。
 ![](https://main.qcloudimg.com/raw/55099904b29cc3db369abf7a8df62761.png)
-### 获取旧服务密钥
-进入 [FireBase 控制台](https://console.firebase.google.com/) 官网，注册应用信息。在 【Firebase 项目】>【选择具体的项目应用】>【设置】>【云消息传递】获取到的 FCM 应用推送【服务器密钥】，并配置到【[移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)】>【配置管理】>【基础配置】>【FCM 官方推送通道】栏目中。
+:::
+::: 获取旧服务密钥
+1. 进入 FireBase 控制台官网，注册应用信息。
+2. 在 【Firebase 项目】>【选择具体的项目应用】>【设置】>【云消息传递】获取到的 FCM 应用推送【服务器密钥】，并配置到【[移动推送 TPNS 控制台](https://console.cloud.tencent.com/tpns)】>【配置管理】>【基础配置】>【FCM 官方推送通道】栏目中。
 ![](https://main.qcloudimg.com/raw/d82c9dd04fe986ffc35a57e30eefce4f.png)
+:::
+</dx-tabs>
+
+
+
+
 
 
 ### 配置内容
@@ -21,22 +31,32 @@ FCM 通道是谷歌推出的系统级推送通道，在国外具备谷歌 Servic
 ![](https://main.qcloudimg.com/raw/568561b72a775058bf06750bfab38ed0.png)
 2. 配置 gradle，集成谷歌 service。
   1. 在项目级的 build.gradle 文件中的 dependencies 节点中添加下面代码：
-```xml
+  <dx-codeblock>
+:::  xml
 classpath 'com.google.gms:google-services:4.2.0'
-```
->!如果使用低于4.2.0版本出现 `FCM Register error! java.lang.IllegalStateException: Default FirebaseApp is not initialized in this process com.qq.xg4all. Make sure to call FirebaseApp.initializeApp(Context) first.`，建议在 res/values 文件夹下的 string.xml， 加上 YOUR_GOOGLE_APP_ID。
-
-  2. 在应用级的 build.gradle 文件中，添加依赖：
-	```xml
+:::
+</dx-codeblock>
+  <dx-alert infotype="notice" title="">
+如果使用低于4.2.0版本出现 `FCM Register error! java.lang.IllegalStateException: Default FirebaseApp is not initialized in this process com.qq.xg4all. Make sure to call FirebaseApp.initializeApp(Context) first.`，建议在 res/values 文件夹下的 string.xml， 加上 YOUR_GOOGLE_APP_ID。
+</dx-alert>
+ 2. 在应用级的 build.gradle 文件中，添加依赖：
+<dx-codeblock>
+:::  xml
 	  implementation 'com.tencent.tpns:fcm:[VERSION]-release' // FCM 推送 [VERSION] 为当前 SDK 版本号，版本号可在 Android SDK 发布动态查看
       implementation  'com.google.firebase:firebase-messaging:17.6.0'
 
 	 //在应用级的 gradle 文件的最后一行代码中新增并将 google-services.json 放进您应用 model 的根路径下
 	apply plugin: 'com.google.gms.google-services'
-	```
->!
->- FCM 推送 [VERSION] 为当前 SDK 版本号，版本号可在 [Android SDK 发布动态](https://cloud.tencent.com/document/product/548/44520) 查看。
->- Google 配置 google-play-services（建议版本 17.0.0+，较低版本有可能出现无法注册 FCM 风险）。
+:::
+</dx-codeblock>
+<dx-alert infotype="notice" title="">
+- FCM 推送 [VERSION] 为当前 SDK 版本号，版本号可在 [Android SDK 发布动态](https://cloud.tencent.com/document/product/548/44520) 查看。
+- Google 配置 google-play-services（建议版本 17.0.0+，较低版本有可能出现无法注册 FCM 风险）。
+</dx-alert>
+
+
+
+
 
 ### 启用 FCM 推送
 在调用移动推送 TPNS 注册代码 XGPushManager.registerPush 前，添加以下代码设置：
