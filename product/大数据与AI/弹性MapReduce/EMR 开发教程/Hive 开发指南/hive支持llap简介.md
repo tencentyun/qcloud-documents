@@ -76,7 +76,6 @@ cat /usr/local/service/hadoop/etc/hadoop/core-site.xml |grep 2181
 >!这里的`hive.zookeeper.quorum`配置项需要填写实际的 zookeeper 地址和端口。
 >
  - 重启 hive 所有服务
- - 启动 llap
  - 生成 llap 启动文件和命令
 ```
 hive --service llap --name llap_service --instances 2 --size 2g --loglevel INFO --cache 1g --executors 2 --iothreads 5 --slider-am-container-mb 1024 --args " -XX:+UseG1GC -XX:+ResizeTLAB -XX:+UseNUMA -XX:-ResizePLAB" 
