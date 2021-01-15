@@ -129,9 +129,9 @@
 | [sendCustomAudioData](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a30a542b7d540c8699595a22ca3401f29) | 投送自己采集的音频数据。 |
 | [setAudioFrameListener](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a034b6fce9a517267acd874c243efc575) | 设置音频数据回调。 |
 | [generateCustomPTS](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a0b36383129314d70f150c08de182e2b8) | 生成自定义采集时间戳。 |
-| [setCapturedRawAudioFrameCallbackFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a9047b34857b12d85688b3b3f1ca1c3f0) | 设置本地麦克风采集回调出来的AudioFrame格式。 |
-| [setLocalProcessedAudioFrameCallbackFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ac0f65e13815edc05ebd765826a94e3dc) | 设置本地采集并经过音频模块前处理后的音频数据回调出来的AudioFrame格式。 |
-| [setMixedPlayAudioFrameCallbackFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a98a2e38d75366fbc2c4da92fec5c0a30) | 设置送入扬声器播放的音频数据回调的AudioFrame格式。 |
+| [setCapturedRawAudioFrameCallbackFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a9047b34857b12d85688b3b3f1ca1c3f0) | 设置本地麦克风采集回调出来的 AudioFrame 格式。 |
+| [setLocalProcessedAudioFrameCallbackFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ac0f65e13815edc05ebd765826a94e3dc) | 设置本地采集并经过音频模块前处理后的音频数据回调出来的 AudioFrame 格式。 |
+| [setMixedPlayAudioFrameCallbackFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a98a2e38d75366fbc2c4da92fec5c0a30) | 设置送入扬声器播放的音频数据回调的 AudioFrame 格式。 |
 
 
 ### 自定义消息发送
