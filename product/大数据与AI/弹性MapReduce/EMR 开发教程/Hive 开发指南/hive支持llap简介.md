@@ -28,7 +28,7 @@ LLAP 节点执行“查询片段”，例如过滤器、投影、数据变换、
 ```
 这里的 value，如果是非高可用集群 IP 是 master 节点，如果是高可用集群，执行如下命令查看 zookeeper 组件（即 zk）。
 ```
-cat /usr/local/service/hadoop/etc/hadoop/core-site.xml |grep 2181
+cat /usr/local/service/hadoop/etc/hadoop/hdfs-site.xml |grep 2181
 ```
 - 修改 hive-site.xml（通过控制台下发）
 ```
