@@ -24,7 +24,10 @@ clip 为插件的入口，因此插件内部除导出功能外所用到的参数
 ```javascript
 module.exports = {
   downloadFile: wx.downloadFile,
-  loadFontFace: wx.loadFontFace
+  loadFontFace: wx.loadFontFace,
+  // 1.6.0版本新增模板功能，需要暴露文件系统接口实现本地包缓存
+  getFileSystemManager: wx.getFileSystemManager,
+  USER_DATA_PATH: wx.env.USER_DATA_PATH
 }
 ```
 在`app.json`中将 loadFontFace 方法导出到插件。
