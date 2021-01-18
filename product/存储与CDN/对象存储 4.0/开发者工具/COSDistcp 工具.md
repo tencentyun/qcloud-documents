@@ -16,8 +16,8 @@ Hadoop-2.6.0及以上版本、Hadoop-COS 插件 5.8.7 及以上版本。
 
 #### 获取 COSDistcp jar 包
 
-下载 [cos-distcp-1.1.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.0.jar) 
-jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.0-md5.txt)
+下载 [cos-distcp-1.1.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.1.jar) 
+jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.1-md5.txt)
 
 #### 安装说明
 
