@@ -5,7 +5,7 @@
 * 下载并安装 [JDK1.8或者更高的版本](https://www.oracle.com/java/technologies/javase-downloads.html)。
 * 下载并安装 [IntelliJ IDEA（2019.2或更高版本）](https://www.jetbrains.com/idea/download)。
 
-## 安装Tencent Cloud Toolkit
+## 安装 Tencent Cloud Toolkit
 您可以在 JetBrains 插件市场搜索 Tencent Cloud Toolkit 并下载安装。
 1. 在插件市场中下载安装。
 2. 在 IntelliJ IDEA 顶部菜单栏中选择【IntelliJ IDEA】>【Preferences】。
