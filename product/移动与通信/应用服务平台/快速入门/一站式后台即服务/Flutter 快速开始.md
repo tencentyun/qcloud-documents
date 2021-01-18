@@ -6,7 +6,7 @@
 
 ## 第 1 步：创建 Flutter 项目
 
-```shell
+```sh
 flutter create cloudbase_demo
 cd cloudbase_demo
 ```
@@ -23,17 +23,17 @@ dependencies:
 
 从 `pub` 安装依赖。
 
-```shell
+```sh
 flutter pub get
 ```
 
 ## 第 3 步：创建移动应用安全来源的凭证
 
-打开[安全设置页面](https://console.cloud.tencent.com/tcb/env/safety)中，在移动应用安全来源里**添加应用**. 
+打开[安全设置页面](https://console.cloud.tencent.com/tcb/env/safety)中，在移动应用安全来源里**添加应用**.
 
 <img src="https://main.qcloudimg.com/raw/1c088bc3ddb41faad995d2a8c43186e4.png">
 
->? 因为 Flutter 是跨端开发框架, 所以需要为 Android 和 iOS 各申请一个应用凭证。 应用标识应该是 Android包名 和 iOS Bundle ID。
+>? 因为 Flutter 是跨端开发框架, 所以需要为 Android 和 iOS 各申请一个应用凭证。 应用标识应该是 Android 包名 和 iOS Bundle ID。
 
 ## 第 4 步：开启匿名登录
 
@@ -81,10 +81,14 @@ void main() async {
 }
 ```
 
+>? 初始化 CloudBase 时用到的 `appAccess` 参数可以从控制台的安全来源凭证模块中获取。
+> 
+> <img src="https://main.qcloudimg.com/raw/434baba046148be1d2a0effc444ec0f8.png">
+
 登录成功后，便可以访问和使用云开发的各类资源，详情请参看 Flutter SDK 文档
 
-* [初始化](https://docs.cloudbase.net/api-reference/flutter/initialization.html)
-* [登录认证](https://docs.cloudbase.net/api-reference/flutter/authentication.html)
-* [云函数](https://docs.cloudbase.net/api-reference/flutter/functions.html)
-* [数据库](https://docs.cloudbase.net/api-reference/flutter/database.html)
-* [文件存储](https://docs.cloudbase.net/api-reference/flutter/storage.html)
+- [初始化](https://docs.cloudbase.net/api-reference/flutter/initialization.html)
+- [登录认证](https://docs.cloudbase.net/api-reference/flutter/authentication.html)
+- [云函数](https://docs.cloudbase.net/api-reference/flutter/functions.html)
+- [数据库](https://docs.cloudbase.net/api-reference/flutter/database.html)
+- [文件存储](https://docs.cloudbase.net/api-reference/flutter/storage.html)
