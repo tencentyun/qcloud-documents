@@ -1,8 +1,7 @@
 ## 简介
 
-通过编写 XML 是开发连接器（Connector）最简单的方式，一个 Connector 即为 XML 文件。
-本文介绍如何通过一个 XML 描述的 hello-world 连接器，介绍如何创建 hello-world 操作，并通过使用 **[Logger](https://cloud.tencent.com/document/product/1270/46959#logger)** 组件来打印日志 Hello World!。
-
+通过编写 XML 是开发连接器（Connector）最简单的方式，一个 Connector 即为一个 XML 文件。
+本文将通过一个 XML 描述的 hello-world 连接器，介绍如何创建 hello-world 操作，并通过使用 [Logger](https://cloud.tencent.com/document/product/1270/46959#logger) 组件来打印日志 Hello World!。
 
 
 ## 操作步骤
