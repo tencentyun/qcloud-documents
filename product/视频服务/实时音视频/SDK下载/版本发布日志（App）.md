@@ -2,11 +2,11 @@
 
 **功能新增**
 
-这个版本我们重点优化了自定义采集相关的业务逻辑:
-- 我们优化了音频模块，以确保在您使用 [enableCustomAudioCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ab8f8aaa19d70c6a2c9d62ecceb6e974d) 采集音频数据送给 SDK 处理时 SDK 依然能够保持很好的回声抑制和降噪效果（该特性适用于 iOS Android 和 Mac 平台）。
-- 如果您希望在 TRTC SDK 的基础上，继续增加自己的声音特效和声音处理逻辑，在 8.3 版本上会更加简单，因为你可以通过 [setCapturedRawAudioFrameDelegateFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a4b58b1ee04d0c692f383084d87111f86) 等接口，设置音频数据的回调格式，包括音频采样率、音频声道数和采样点数等，以便您能够以自己喜欢的音频格式处理这些音频数据（该特性支持 iOS 和 Android 平台）。
-- 如果您希望自己采集视频数据，并同时使用 TRTC SDK 自带的音频模块，可能会遇到音画不对齐的问题，这是因为 SDK 内部的时间线有自己的控制逻辑，因此我们提供了一个叫做 [generateCustomPTS](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ae5f2a974fa23954c5efd682dc464cdee) 的接口，你可以在采集到的一帧视频画面时，调用此接口并记录一下当前的 PTS(时间戳)，之后调用 [sendCustomVideoData](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a76e8101153afc009f374bc2b242c6831) 时带上这个时间戳，就可以很好地保证音画同步（该特性适用于全部平台）。
-- Windows 版本的 SDK 增加了对域名格式的 Socks5 代理地址的支持。
+这个版本我们重点优化了自定义采集相关的业务逻辑：
+- iOS & Android & Mac：优化音频模块，以确保在您使用 [enableCustomAudioCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ab8f8aaa19d70c6a2c9d62ecceb6e974d) 采集音频数据送给 SDK 处理时 SDK 依然能够保持很好的回声抑制和降噪效果。
+- iOS & Android：若需在 TRTC SDK 的基础上，继续增加自己的声音特效和声音处理逻辑，使用 8.3 版本会更加简单，因为您可以通过 [setCapturedRawAudioFrameDelegateFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a4b58b1ee04d0c692f383084d87111f86) 等接口，设置音频数据的回调格式，包括音频采样率、音频声道数和采样点数等，以便您能够以自己喜欢的音频格式处理这些音频数据。
+- 全平台：若需自己采集视频数据，并同时使用 TRTC SDK 自带的音频模块，可能会遇到音画不对齐的问题。这是因为 SDK 内部的时间线有自己的控制逻辑，因此我们提供了 [generateCustomPTS](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ae5f2a974fa23954c5efd682dc464cdee) 接口。您可以在采集到的一帧视频画面时，调用此接口并记录一下当前的 PTS（时间戳），随后调用 [sendCustomVideoData](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a76e8101153afc009f374bc2b242c6831) 时带上这个时间戳，即可很好地保证音画同步。
+- Windows：版本 SDK 增加了对域名格式的 Socks5 代理地址的支持。
 
 **问题修复**
 - 全平台：修复偶现音频数据时间戳异常导致录制内容音画不同步的问题。
@@ -91,7 +91,7 @@
 - Android 修复切通话音量播音效的时候电话打断，音效不会停止播放的问题。
 - Android 修复偶现音频采集启动失败的问题。
 - Windows 修复偶现本地视频渲染黑屏的问题。
-- Windows 修复进程退出时可能crash的问题。
+- Windows 修复进程退出时可能 crash 的问题。
 - Windows 优化蓝牙耳机支持，修复蓝牙耳机无声问题。
 - Windows 修复屏幕分享结束时抢焦点的问题。
 - 全平台修复状态回调丢包率统计异常问题。
