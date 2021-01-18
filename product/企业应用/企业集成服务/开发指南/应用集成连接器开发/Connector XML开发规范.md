@@ -195,7 +195,7 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 
 **flow** 只有一个属性：**name** 表示集成流名，在 **connector** 内唯一，在 **declaration** 中的 **operation** 或 **trigger** 的 **flowRef** 中使用。
 
-**flow** 的子节点是组件列表，描述了这个的流的结构。根据组件所属模块，每个子节点的标签分为两种：
+**flow** 的子节点是组件列表，描述了这个流的结构。根据组件所属模块，每个子节点的标签分为两种：
 
 <dx-tabs>
 ::: 对于核心模块（core）的组件
@@ -228,12 +228,10 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 :::
 </dx-codeblock>
 标签名为"模块名:公共配置集名"，例如"<http:request-config .../>"，**name** 属性指定了配置集实例的名称，用于在 **component** 的 **configRef** 中引用，其它属性为该公共配置集中的各配置项。如果该配置项支持表达式类型，则可以使用 dataway 表达式来构造该配置项。
-
-在组件参数或配置项中使用表达式时，通过 `msg.vars['properties']['propertyName']` 使用 **property** 中定义的公共配置项，通过 `msg.vars['parameterName']`使用**operation**或 **trigger** 中定义的参数，详细参考 dataway 表达式语法。
 :::
 </dx-tabs>
 
-
+在组件参数或配置项中使用表达式时，通过 `msg.vars['properties']['propertyName']` 使用 **property** 中定义的公共配置项，通过 `msg.vars['parameterName']`使用**operation**或 **trigger** 中定义的参数，详细参考 dataway 表达式语法。
 
 
 
