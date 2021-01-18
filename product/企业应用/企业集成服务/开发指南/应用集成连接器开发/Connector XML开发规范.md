@@ -1,9 +1,9 @@
 通过编写 XML 是开发连接器最简单的方式，一个 Connector 即为 XML 文件。通过 XML 编写的 **Connector** 和普通的 **module** 模块以同样的方式被使用。
 
 Connector XML 的根节点为 **module**，需要在根节点引入必要的 namespace，同时指明 **Connector** 使用的 API 类型（**apiType**）、API 版本（**apiVersion**）、表达式语言类型（**expressionType**）和表达式版本（**expressionVersion**），其中：
-- **apiType**：固定为 "**XML**"
-- **apiVersion**：在当前版本为"1.0.0"
-- **expressionType**：在 iPaaS 规范中默认定义了 **dataway**，其基于 Python 3，并针对部分功能做了裁剪，入口函数名为 "**dw_process**"，**selector** 函数以下标操作符"[...]"重载的方式提供，详细的定义可参考 iPaaS 中相关标准的定义。
+- **apiType**：固定为 **XML**。
+- **apiVersion**：在当前版本为1.0.0。
+- **expressionType**：在 iPaaS 规范中默认定义了 **Dataway**，其基于 Python 3，并针对部分功能做了裁剪，入口函数名为 **dw_process**，**selector** 函数以下标操作符“[...]”重载的方式提供，详细的定义可参考 iPaaS 中相关标准的定义。
 
 在 **module** 节点下，需要通过 **name**、**version**、**display-name** 和 **description** 标签来描述模块的英文名、版本、展示名和描述，通过 **declaration** 标签来描述 **connector** 对外提供的接口，包括 **property**、**trigger**、**operation** 和 **test-connection** 的定义。通过 **body** 标签来描述 **trigger**、**operation** 和 **test-connection** 在 **connector** 内部的实现逻辑。示例如下：
 
@@ -87,7 +87,7 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 
 **trigger** 节点的子节点有：
 - **parameters**：指定参数表，每个参数的定义节点为 **parameter**，属性同 **property** 一致。
-- **output**：指定输出格式，可选。如果未指定，则输出空消息，有两个子节点：
+- **output**：指定输出格式，可选。如果未指定，则输出空消息，有以下两个子节点：
   - **payload** 节点：用于指定输出的 **payload**，如果未指定，则 **payload** 为空。
   - **attributes** 节点：用于指定输出的 **attributes**，如果未指定，则 **attributes** 为空。
 
@@ -110,7 +110,7 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 "**operation**" 节点的属性如下：
 - **name**：指定操作名，必填。
 - **flowRef**：指定实现的 **flow** 名，必填，在下面的实现章节中详细介绍。
-- **scope**：指定操作的使用范围，可选，默认为 **PUBLIC**，表示公开。可以设置为**PRIVATE**，此时该 **operation** 只能在当前 **connector** 的内部实现中被引用。
+- **scope**：指定操作的使用范围，可选，默认为 **PUBLIC**，表示公开。可以设置为 **PRIVATE**，此时该 **operation** 只能在当前 **connector** 的内部实现中被引用。
 
 除此之外，还可以在 **operation** 的定义中指定操作在界面上如何渲染，相关属性如下：
 
@@ -120,7 +120,7 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 
 **operation** 节点的子节点有：
 - **parameters**：指定参数表，每个参数的定义节点为 **parameter**，属性同 **property** 一致。
-- **output**：指定输出格式，可选。如果未指定，则输出空消息，有两个子节点：
+- **output**：指定输出格式，可选。如果未指定，则输出空消息，有以下两个子节点：
   - **payload** 节点：用于指定输出的 **payload**，如果未指定，则 **payload** 为空。
   - **attributes** 节点：用于指定输出的 **attributes**，如果未指定，则 **attributes** 为空。
 
@@ -241,7 +241,7 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 
 ###  Message 传递
 
-**operation** 实例在收到事件后，将创建一个新的 message，并将该 operation 实例的参数和配置项存放在 **variables** 中，作为关联 **flow** 的输入 message，因而主流中的 message 不会传递到 **operation** 关联的 **flow** 中。如果要将主流的 message 传递到 **operation** 关联的 **flow** 中，只能通过参数或配置项传递。
+**operation** 实例在收到事件后，将创建一个新的 message，并将该 operation 实例的参数和配置项存放在 **variables** 中，作为关联 **flow** 的输入 message，因而主流中的 message 不会传递到 **operation** 关联的 **flow** 中。如需将主流的 message 传递到 **operation** 关联的 **flow** 中，只能通过参数或配置项传递。
 
 
 #### 通过参数传递
@@ -258,7 +258,7 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 :::
 </dx-codeblock>
 
-在 **operation** 关联的 **flow** 中就可以通过 `msg.vars['payload']` 访问主流的 `paylaod`，`attributes` 和 `variables` 类似。
+在 **operation** 关联的 **flow** 中即可通过 `msg.vars['payload']` 访问主流的 `paylaod`，`attributes` 和 `variables` 类似。
 
 
 #### 通过配置项传递
