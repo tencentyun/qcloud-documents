@@ -40,13 +40,13 @@
 3. 将解压得到的特效资源文件拷贝到 `app/src/main/assets` 目录下。
 		- 6.6 之后的版本，assets 资源包被分包了，所以集成时不能简单的把 `assets-static`、`assets-dynamic` 里面的资源文件复制到工程的默认 assets 文件下，动效会无法识别资源。
 		- 正确的做法是把 aar 包改成 zip 后缀，然后解压，里面有一个完整的 assets 资源包，把里面文件全复制到工程 assets 文件夹下，就可以正常集成了。
-	![](https://main.qcloudimg.com/raw/65fc75c0001bbe4a5004f74e4d09e5d8.png)
+![](https://main.qcloudimg.com/raw/65fc75c0001bbe4a5004f74e4d09e5d8.png)
 4. 在工程根目录下的 `build.gradle` 中，添加 flatDir，指定本地仓库路径。
 ![](https://main.qcloudimg.com/raw/726771558714a2b4fae8dc1a59c33ffc.png)  
 5. 在 `app/build.gradle` 中，添加引用 jar 库的代码。
-  ![](https://main.qcloudimg.com/raw/5ec9d68dc37b40f3dc1bf5a9fcc36927.png)      
+ ![](https://main.qcloudimg.com/raw/5ec9d68dc37b40f3dc1bf5a9fcc36927.png)
 6. 在 `app/build.gradle` 中，添加引用 so 库的代码。
-  ![](https://main.qcloudimg.com/raw/7aa1e2872408ea2acd633c6323fae95e.png)
+![](https://main.qcloudimg.com/raw/7aa1e2872408ea2acd633c6323fae95e.png)
 7. 在 `app/build.gradle` 的 defaultConfig 中，指定 App 使用的 CPU 架构（目前 LiteAVSDK 企业版支持 armeabi，armeabi-v7a，arm64-v8a 架构，x64 架构还在开发中）。
 ```
    defaultConfig {
