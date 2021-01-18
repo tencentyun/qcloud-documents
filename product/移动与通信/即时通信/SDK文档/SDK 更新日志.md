@@ -4,7 +4,7 @@
 
 **Android 平台**
 
-- 修复Android平台带 extension 扩展字段的自定义消息发送失败的问题。
+- 修复 Android 平台带 extension 扩展字段的自定义消息发送失败的问题。
 
 ### TUIKit & Demo
 **iOS/Android**
