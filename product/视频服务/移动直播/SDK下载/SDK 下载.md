@@ -120,7 +120,7 @@
 >! 动效贴纸、AI抠图、美妆特效和手势动作特效需通过额外的素材来使用功能。
 
 ## 各版本差异对照表
-
+ 
 ![](https://main.qcloudimg.com/raw/744b80d1c15efaddb50ff11ffeea0f6e.png)
 
 <table>
@@ -355,3 +355,5 @@
     s.parentNode.insertBefore(mta, s);
   })();
 </script>
+
+

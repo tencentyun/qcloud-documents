@@ -258,9 +258,9 @@ mLivePusher.resumePusher();
 >   
 >隐私模式可以通过在 App 界面上加一个切换按钮来让主播自主进入，也可以编写代码，让 App 在切后台时自动进入，目前 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo) 就采用了 App 切后台时自动进入隐私模式的交互方案，注释掉源码中对`pausePusher()`和`resumePusher()`的调用就可以关闭这个特性。 
 >
->### 14. 背景混音和混响    
->
->![](https://main.qcloudimg.com/raw/e5c1b903cf5176f996a0b30dbb804032.jpg)   
+### 14. 背景混音和混响    
+
+![](https://main.qcloudimg.com/raw/e5c1b903cf5176f996a0b30dbb804032.jpg)   
 
 调用 TXLivePush 中的 BGM 相关接口可以实现背景混音功能。背景混音是指主播在直播时可以选取一首歌曲伴唱，歌曲会在主播的手机端播放出来，同时也会被混合到音视频流中被观众端听到，所以被称为“混音”。    
 

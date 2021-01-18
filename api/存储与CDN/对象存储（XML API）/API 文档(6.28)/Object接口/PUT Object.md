@@ -25,6 +25,8 @@ Content-Length: Content Length
 Content-MD5: MD5
 Authorization: Auth String
 
+
+
 [Object Content]
 ```
 
@@ -105,7 +107,8 @@ Authorization: Auth String
 
 #### 请求
 
-```plaintext
+<dx-codeblock>
+:::  plaintext
 PUT /exampleobject HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Fri, 10 Apr 2020 09:35:05 GMT
@@ -116,7 +119,8 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q
 Connection: close
 
 [Object Content]
-```
+:::
+</dx-codeblock>
 
 #### 响应
 
@@ -149,6 +153,8 @@ Content-MD5: 7o3pGNBWQBRbGPcPTDqmAg==
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586511328;1586518528&q-key-time=1586511328;1586518528&q-header-list=cache-control;content-disposition;content-length;content-md5;content-type;date;host;x-cos-acl;x-cos-meta-example-field&q-url-param-list=&q-signature=20d0cd79060cec8c560ebd239738626726f4****
 Connection: close
 
+
+
 [Object Content]
 ```
 
@@ -179,6 +185,8 @@ Content-Length: 16
 Content-MD5: 7o3pGNBWQBRbGPcPTDqmAg==
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586511349;1586518549&q-key-time=1586511349;1586518549&q-header-list=content-length;content-md5;content-type;date;host;x-cos-server-side-encryption&q-url-param-list=&q-signature=35145bc61ae490c4959b58bc6d27b3258bf7****
 Connection: close
+
+
 
 [Object Content]
 ```
@@ -214,6 +222,8 @@ Content-MD5: 7o3pGNBWQBRbGPcPTDqmAg==
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586511360;1586518560&q-key-time=1586511360;1586518560&q-header-list=content-length;content-md5;content-type;date;host;x-cos-server-side-encryption;x-cos-server-side-encryption-context;x-cos-server-side-encryption-cos-kms-key-id&q-url-param-list=&q-signature=6cb5d6f0137bb1d87f5afe98c5289b0de375****
 Connection: close
 
+
+
 [Object Content]
 ```
 
@@ -230,7 +240,6 @@ x-cos-hash-crc64ecma: 16749565679157681890
 x-cos-request-id: NWU5MDNlMDFfOThjMjJhMDlfMjhhMl8xNTlm****
 x-cos-server-side-encryption: cos/kms
 x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
-
 ```
 
 #### 案例五：使用服务端加密 SSE-C
@@ -249,6 +258,8 @@ Content-Length: 16
 Content-MD5: 7o3pGNBWQBRbGPcPTDqmAg==
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586511372;1586518572&q-key-time=1586511372;1586518572&q-header-list=content-length;content-md5;content-type;date;host;x-cos-server-side-encryption-customer-algorithm;x-cos-server-side-encryption-customer-key;x-cos-server-side-encryption-customer-key-md5&q-url-param-list=&q-signature=4f6f9f0a6700930f70bff31e3a2b2e622711****
 Connection: close
+
+
 
 [Object Content]
 
@@ -283,6 +294,8 @@ Content-MD5: 7o3pGNBWQBRbGPcPTDqmAg==
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586511394;1586518594&q-key-time=1586511394;1586518594&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=&q-signature=371f555ec81751e1dbf38927e568af4cc67a****
 Connection: close
 
+
+
 [Object Content]
 ```
 
@@ -314,6 +327,8 @@ Content-MD5: 7o3pGNBWQBRbGPcPTDqmAg==
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586511427;1586518627&q-key-time=1586511427;1586518627&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=&q-signature=0747f6508fca37dfb5c91bbe3fa01f91b326****
 Connection: close
 
+
+
 [Object Content]
 ```
 
@@ -344,6 +359,8 @@ Content-Type: text/plain
 Transfer-Encoding: chunked
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1565255729;1565262929&q-key-time=1565255729;1565262929&q-header-list=content-type;date;host;transfer-encoding&q-url-param-list=&q-signature=0b05b6bda75afbc159caa0da4e4051ec6939****
 Connection: close
+
+
 
 11
 [Chunked Content]

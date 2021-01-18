@@ -1,4 +1,3 @@
-
 ## 相关说明
 云数据库 MongoDB 默认提供 rwuser 和 mongouser 两个用户名，分别支持 MONGODB-CR 和 SCRAM-SHA-1 两种认证方式，对于这两种认证方式，连接 URI 需要做不同的处理，具体参见 [连接实例](https://cloud.tencent.com/document/product/240/7092)。
 
@@ -53,7 +52,6 @@ public class MongodbDemo {
 ```
 
 输出：
-
 ```
 INFO: Opened connection [connectionId{localValue:2, serverValue:67621}] to 10.66.122.28:27017
 insert document: Document{{key=value, username=jack, age=31, _id=56a6ebb565b33b771f9826dd}}
@@ -63,7 +61,7 @@ INFO: Closed connection [connectionId{localValue:2, serverValue:67621}] to 10.66
 ```
 
 ### Spring Data MongoDB 配置示例
-本示例主要为了体现出 [认证库 admin](https://cloud.tencent.com/document/product/240/7092#.E8.AE.A4.E8.AF.81.E6.95.B0.E6.8D.AE.E5.BA.93) 的配置方法，具体还请参考您使用的 Spring 和 Spring Data MongoDB 的版本而定。
+本示例主要为了体现出 [认证库 admin](https://cloud.tencent.com/document/product/240/7092#uri-.E6.96.B9.E5.BC.8F) 的配置方法，具体还请参考您使用的 Spring 和 Spring Data MongoDB 的版本而定。
 ```
 <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
     <constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
