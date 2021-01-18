@@ -1,3 +1,28 @@
+### Version 8.3 @ 2021.01.15
+
+**功能新增**
+
+这个版本我们重点优化了自定义采集相关的业务逻辑:
+- 我们优化了音频模块，以确保在您使用 [enableCustomAudioCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ab8f8aaa19d70c6a2c9d62ecceb6e974d) 采集音频数据送给 SDK 处理时 SDK 依然能够保持很好的回声抑制和降噪效果（该特性适用于 iOS Android 和 Mac 平台）。
+- 如果您希望在 TRTC SDK 的基础上，继续增加自己的声音特效和声音处理逻辑，在 8.3 版本上会更加简单，因为你可以通过 [setCapturedRawAudioFrameDelegateFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a4b58b1ee04d0c692f383084d87111f86) 等接口，设置音频数据的回调格式，包括音频采样率、音频声道数和采样点数等，以便您能够以自己喜欢的音频格式处理这些音频数据（该特性支持 iOS 和 Android 平台）。
+- 如果您希望自己采集视频数据，并同时使用 TRTC SDK 自带的音频模块，可能会遇到音画不对齐的问题，这是因为 SDK 内部的时间线有自己的控制逻辑，因此我们提供了一个叫做 [generateCustomPTS](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ae5f2a974fa23954c5efd682dc464cdee) 的接口，你可以在采集到的一帧视频画面时，调用此接口并记录一下当前的 PTS(时间戳)，之后调用 [sendCustomVideoData](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a76e8101153afc009f374bc2b242c6831) 时带上这个时间戳，就可以很好地保证音画同步（该特性适用于全部平台）。
+- Windows 版本的 SDK 增加了对域名格式的 Socks5 代理地址的支持。
+
+**问题修复**
+- 全平台：修复偶现音频数据时间戳异常导致录制内容音画不同步的问题。
+- Windows：优化窗口分享在高 DPI 环境下的兼容性。
+- Windows：获取可分享的窗口列表时增加最小化的窗口，最小化窗口的缩略图是其进程的图标。
+- Windows：修复 SDK 启动后非必要的 DXGI 占用问题。
+- iOS：修复手动设置焦点会导致 ANR 的问题。
+- iOS：修复偶现切换前后摄像头无效的问题。
+- iOS：修复 VODPlayer 减速播放 crash。
+- iOS：修复偶现进房后默认从听筒播放的问题。
+- iOS & Android：优化回声消除和噪声抑制的效果，并且耳返也能听到混响的效果。
+- Android：修复偶现硬解绿屏花屏的问题。
+- Mac：修复窗口分享并开启高亮时，窗口贴边会造成高亮边框闪烁的问题。
+- Mac：修复渲染视图移动时会黑屏的问题。
+
+
 ### Version 8.2 @ 2020.12.23
 
 **功能新增**
