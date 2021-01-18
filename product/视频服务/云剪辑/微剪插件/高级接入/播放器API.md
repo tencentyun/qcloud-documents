@@ -5,6 +5,8 @@
 >
 >v1.5.0 后新增功能：
 >转场和动效，详情请参见 [转场和动效](https://cloud.tencent.com/document/product/1156/50070)。
+>
+>v1.6.0 版本新增3种特效，详情请参见 [新特效](#NewSpecialEffects)。
 
 ## 使用方式
 1. 配置 JSON 文件：
@@ -421,21 +423,14 @@ this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrackm, thi
 this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack]);
 ```
 
-#### 1.6.0 版本新增3种特效
-
+#### 1.6.0 版本新增3种特效[](id:NewSpecialEffects)
 插件在1.6.0版本新增了3种金粉系列特效，原理和其他特效有些区别，所以这里接入方法会有一些差异。
-
 1. 先从播放器中获取所有的特效类型
-
 ``` javascript
   const effetcs = this.player.getEffects();
-```
-`effetcs` 为如下结构：
-
+````effetcs`为如下结构：
 ``` javascript
 {
-  '....': '...1.6.0之前的忽略'
-}, {
   key: 'jinfen1',
   name: '闪粉',
   is_alpha: true,
@@ -450,31 +445,17 @@ this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack]);
   name: '金粉',
   is_alpha: true,
   previewImage: 'https://imgcache.qq.com/qcloud/vod/dist/mp-video-edit/effect/ScNine.gif'
-}]
-```
-
-可以看到新增了3种特效，分别为`闪粉`, `星火`, `金粉`。
-
-字段相比`1.6.0`之前的版本新增了`is_alpha`字段，意味着需要做如下处理才能使用。
-
+}
+```可以看到新增了3种特效，分别为`闪粉`, `星火`, `金粉`。字段相比`1.6.0`之前的版本新增了`is_alpha`字段，意味着需要做如下处理才能使用。
 2. 下载特效素材
-
-`1.6.0`版本素材都为内置shader的模式，但是新增的金粉系列特效底层使用mp4进行渲染，因此需要先下载一些mp4素材。
-
-下载素材只需要使用播放器内置方法即可:
-
-假设你要加载`jinfen1`, 在`downLoadEffect`方法中传入key即可。`downLoadEffect`方法包装为Promise，下载完成之后就可以进行播放器的渲染了。
-
+假设您要加载`jinfen1`, 在`downLoadEffect`方法中传入 key 即可。`downLoadEffect`方法包装为 Promise，下载完成之后就可以进行播放器的渲染了。下载素材只需要使用播放器内置方法即可:
 ``` javascript
 this.player.downLoadEffect('jinfen1').then(() => {
   ...
 })
-```
-
+```>?`1.6.0`版本素材都为内置 shader 的模式，但是新增的金粉系列特效底层使用 mp4 进行渲染，因此需要先下载一些 mp4 素材。
 3. 特效渲染
-
 特效渲染和`1.6.0`版本方法基本一致, 唯一区别就是需要在Clip中加一个字段`isAlpha`为`true`。
-
 ``` javascript
 let effectClip2 = new global['wj-types'].Clip({
   id: 'jinfen1',
@@ -517,8 +498,7 @@ this.textTrack1 = new global['wj-types'].Track({
 					}
 			},
 	})
-```
-<table>
+```<table>
 <tr><th>参数</th><th>说明</th></tr><tr>
 <td>content</td>
 <td>content 为文字的内容，可通过 style 自定义文字的颜色和背景颜色。</td>
@@ -568,8 +548,7 @@ this.textTrack1.clips = [textClip2];
   创建完文字轨道后，更新播放器即可。
 ```javascript
 this.player.updateData([this.mediaTrack, this.musicTrack,this.filterTrack, this.textTrack1, this.textTrack2]);
-```
->! **由于小程序限制，最多只能存在5个文字。 可以添加5个文字轨道，一个轨道中一段文字；或者一个轨道中，5段文字，即文字 Clip 总共不能超过5个。**
+```>! **由于小程序限制，最多只能存在5个文字。 可以添加5个文字轨道，一个轨道中一段文字；或者一个轨道中，5段文字，即文字 Clip 总共不能超过5个。**
 >
 6. 给文字添加字体。
 由于小程序插件无法调用 wx.loadFontFace 方法，因此需要小程序手动暴露该接口给插件，或者在小程序内提前加载字体后再传入插件渲染。详情可参考 [自定义贴纸和字体](https://cloud.tencent.com/document/product/1156/49440)。
@@ -616,8 +595,7 @@ let mytext = new global['wj-types'].Clip({
 		duration: 10
 	},
 })
-```
->? 内置字体列表获取请参考 [内置资源](https://cloud.tencent.com/document/product/1156/49439)。
+```>? 内置字体列表获取请参考 [内置资源](https://cloud.tencent.com/document/product/1156/49439)。
 
 
 ### 贴纸轨道使用说明
