@@ -6,7 +6,7 @@ Topic 是 TDMQ 中的核心概念。Topic 通常用来对系统生产的各类�
 
 ## 前提条件
 
-已创建好对应的环境，如未创建新的环境则默认是在 default 环境中操作。
+已创建好对应的命名空间，如未创建新的命名空间则默认是在 default 命名空间中操作。
 
 ## 操作步骤
 
@@ -18,7 +18,7 @@ Topic 是 TDMQ 中的核心概念。Topic 通常用来对系统生产的各类�
  - 类型：选择消息类型，包括：普通、全局顺序、局部顺序、事务（关于消息类型的说明，请参考 [消息类型](https://cloud.tencent.com/document/product/1179/44833)）
  - 分区数：全局顺序只有1个分区，其他为1-128个分区
  - 说明：填写 Topic 的说明信息，不超过128字符
-4. 单击【提交】，在 Topic 列表中即可看见创建好的 Topic。
+4. 单击【保存】，在 Topic 列表中即可看见创建好的 Topic。
 ![](https://main.qcloudimg.com/raw/3a53fe8fa4ae2e0e1307b8fccf2afc8f.png)
 
 ### 查询 Topic

@@ -4,7 +4,7 @@
  
 <h2 id="TRTC">精简版（TRTC）</h2> 
 精简版仅包含 TRTC 和直播播放（TXLivePlayer）两项功能，对 App 的安装包体积增量最小，适合仅使用 TRTC 相关功能的客户。
-
+ 
 <table>
    <tr>
       <th width="0px" style="text-align:center">所属平台</td>

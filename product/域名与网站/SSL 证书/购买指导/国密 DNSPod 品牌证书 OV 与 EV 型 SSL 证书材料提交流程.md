@@ -54,8 +54,8 @@ CA 机构认证审核通过后，将会正式颁发证书，您可下载该证�
 ### 步骤4：验证域名
 1. 请根据 “验证域名” 页面的提示信息，进行域名所有权验证。例如，您选择的是手动 DNS 验证方式，将会展示以下信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/04f3a43e1565b541a8b7b96f719d4a03.png)
- - **手动 DNS 验证**：域名验证操作请参考 [手动 DNS 验证](https://cloud.tencent.com/document/product/400/4142#.E6.89.8B.E5.8A.A8-dns-.E9.AA.8C.E8.AF.81)。
- - **文件验证**：域名验证操作请参考 [文件验证](https://cloud.tencent.com/document/product/400/4142#.E6.96.87.E4.BB.B6.E9.AA.8C.E8.AF.81)。
+ - **手动 DNS 验证**：域名验证操作请参考 [手动 DNS 验证](https://cloud.tencent.com/document/product/400/4142#ManualVerification)。
+ - **文件验证**：域名验证操作请参考 [文件验证](https://cloud.tencent.com/document/product/400/4142#FileVerification)。
 2. 完成域名验证操作后，可单击【查看域名验证状态】查看验证操作是否成功。
 
 ### 步骤5：通过人工审核
