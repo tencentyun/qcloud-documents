@@ -1,5 +1,6 @@
 ## 操作场景
-基于容器镜像服务 TCR 的 [容器化持续部署](https://cloud.tencent.com/document/product/1141/39280#.E5.AE.B9.E5.99.A8.E5.8C.96.E6.8C.81.E7.BB.AD.E9.83.A8.E7.BD.B2)，本文介绍如何通过交付流水线功能，实现代码变更自动触发镜像构建，并更新容器服务 TKE 集群内应用。
+在云原生时代，DevOps 理念已被广泛接受，而容器技术的兴起和普及加速了 DevOps 的落地。基于容器DevOps实现持续集成和持续部署，可显著提升企业的业务应用创建和交付速度，提升企业的竞争力。本文将介绍如何通过使用 TCR 交付流水线功能，与 容器服务 TKE，CODING DevOps 服务联合为客户提供简单易上手的容器DevOps 能力，可实现推送代码自动触发镜像构建和应用部署，或自动部署最新推送的容器镜像。
+![](https://main.qcloudimg.com/raw/543866ebfc5173c7cc51211131b84051.svg)
 
 ## 前提条件
 - 已开通 [CODING DevOps](https://cloud.tencent.com/document/product/1115/37268) 服务。
@@ -18,7 +19,7 @@
 >?如在 TKE 集群所在地域内已有 TCR 实例，可跳过此步骤，否则请在同一地域内新建企业版实例。
 >
 前往实例列表页面，新建企业版实例，详情请参见 [创建企业版实例](https://cloud.tencent.com/document/product/1141/40716)。创建成功即如下图所示：
-![](https://main.qcloudimg.com/raw/fea3ea042359338b98cbe701797f08b4.png)
+![](https://main.qcloudimg.com/raw/acb71acf772a76e5218341466cafa9cd.png)
 ### 部署容器应用
 当前容器服务 TKE 已支持在控制台内选择容器镜像服务 TCR 企业版镜像创建工作负载。同时，TKE 标准集群可安装 TCR 专属插件，实现内网及免密拉取 TCR 企业版内镜像，详情请参见 [使用 TCR 企业版实例内容器镜像创建工作负载](https://cloud.tencent.com/document/product/457/45624)。创建成功即如下图所示：
 ![](https://main.qcloudimg.com/raw/8c0234e04912fed506a8baf85f30bcc5.png)
