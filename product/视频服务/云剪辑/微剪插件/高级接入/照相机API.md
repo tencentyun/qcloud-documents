@@ -68,15 +68,50 @@
 - 视频 Clip 数量最大值为5，Clip（图片+视频）数量最大值为9。
 - Clip 展示页展示已选择或已拍摄 Clip，单击 Clip 右上角的【删除】可删除单个 Clip；单击空白处可删除全部 Clip。
 - 小程序平台限制，无法在插件中直接调用`wx.navigateTo`实现页面跳转，只能使用 [navigator 组件](https://developers.weixin.qq.com/miniprogram/dev/component/navigator.html) ，故我们预留了一个`slot 插槽`供用户实现个性化跳转需求，使用方式如下：
+##### 1.6.0版本以前：
 ```
-  <wj-camera bindmediachanged="onMediaChanged" clips="{{clips}}">
-      <view 
-        class="next-btn" 
+<wj-camera bindmediachanged="onMediaChanged" clips="{{clips}}">
+    <view 
+      class="next-btn" 
+      hover-class="hover-btn" 
+      catchtap="onClickNext">
+        <navigator data-source="jump" url="页面路由" hover-class="none">
+          <text>下一步</text>
+        </navigator>
+    </view>
+</wj-camera>
+```
+##### 1.6.0版本以后：
+
+1.6.0版本支持扩展底部操作入口，如下所示，需配合 tabSlots 属性一起使用：
+
+![](https://mmbiz.qpic.cn/mmbiz_png/9Cy9sGzibPnaPUszZ5JIfK2BicQWkibkrqIyIq5Be05G1YlpOZJkOJhoQsvpxibkPJnElN3kATSaW2oPvROzMo0Spg/0?wx_fmt=png)
+
+
+```
+data: {
+  tabSlots: [{name:'template',nickName:'模板'}],
+  ……
+}
+```
+```
+<wj-camera 
+    tabSlots="{{tabSlots}}"
+    bindmediachanged="onMediaChanged" >
+    <view 
+        slot="default" <-默认插槽->
+        class="next-btn-wrapper" 
         hover-class="hover-btn" 
         catchtap="onClickNext">
-          <navigator data-source="jump" url="页面路由" hover-class="none">
-            <text>下一步</text>
-          </navigator>
-      </view>
-  </wj-camera>
+        <navigator open-type='redirect' data-source="jump" url="页面路由" hover-class="none">
+          <view class="next-btn">
+              <text>下一步</text>
+          </view>
+        </navigator>
+    </view>
+    <view slot="template"> <-自定义扩展插槽->
+        <navigator open-type='redirect' data-source="jump" url="页面路由" hover-class="none">模板</navigator>
+    </view>
+</wj-camera>
 ```
+默认 slot 名称为 **default**，不可缺省；自定义 tabSlot 名称可以自定义，与wxml中的slot对应即可。
