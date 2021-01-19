@@ -2,7 +2,7 @@ DDoS 高防 IP 提供针对 CC 攻击的防护功能，策略包括防护等级�
 ## 配置步骤
 ### 步骤1：CC 防护清洗阈值设置
 
-1. 登录 [DDoS 高防 IP 管理控制台](https://console.cloud.tencent.com/ddos/antiddos-advanced/config/port)，在左侧导航中，单击【防护配置】。
+1. 登录 [DDoS 高防 IP（新版）控制台](https://console.cloud.tencent.com/ddos/antiddos-advanced/config/port)，在左侧导航中，单击【防护配置】。
 2. 在左边的列表选中高防 IP 的 ID 下面的域名，如"212.64.xx.xx bgpip-000002je" > "http:80" > "www.xxx.com"。
 ![](https://main.qcloudimg.com/raw/9bb178a604dd74230ec2575e3ae4ccb6.png)
 3. 右侧卡片中选择“CC防护等级”卡片，设置 CC 防护清洗阈值。
