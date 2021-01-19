@@ -90,6 +90,7 @@ hugo -D
 
 ### 步骤2：静态托管部署[](id:step2)
 
+方式一：手动部署
 
 1. 登录 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击【新建】，选择空模板，单击【下一步】，填写环境名称并开通“按量计费”环境。
 ![](https://main.qcloudimg.com/raw/9ba130b28f526df18c7f0497beaf3b8a.jpg)
@@ -115,3 +116,4 @@ cloudbase hosting deploy ./public  -e EnvID
 ![](https://main.qcloudimg.com/raw/ad682ccff5b02b232062d89dea40fb7c.png)
 7. 登录 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，进入 [静态网站托管](https://console.cloud.tencent.com/tcb/hosting/index) 页面，可以找到默认的域名，单击域名，即可看到您刚部署的 Hugo。
 
+方式二：结合 Github 自动部署

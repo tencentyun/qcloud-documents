@@ -1,18 +1,24 @@
 ## 操作场景
 本文档介绍通过腾讯云静态网站托管服务搭建一个 VuePress 网站，并使用云开发 CLI 工具管理部署 VuePress 网站。
+- 方式一：一键部署项目至云端；
+- 方式二：使用 CLI 工具，手动将本地文件部署至云端。
 
-## 前提条件
+## 一键部署 VuePress
+<div style="background-color:#00A4FF; width: 125px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/tcb/env/index?action=CreateAndDeployCloudBaseProject&appUrl=https://github.com/TencentCloudBase/cloudbase-templates&workDir=vuepress" target="_blank"  style="color: white; font-size:13px;">部署到云开发</a></div>
+
+## CLI 工具部署
+### 前提条件
 在进行后续的内容前，请先确保您的电脑中安装了 Node.js 运行环境。如果没有安装，可以访问 [Node.js 官网](https://nodejs.org/) 下载安装。
 
 
-## 操作步骤
-### 步骤1：安装云开发 CLI 工具 和 VuePresss
+### 操作步骤
+#### 步骤1：安装云开发 CLI 工具 和 VuePresss
 执行如下命令，安装云开发 CLI 工具以及 VuePress。
 ```plaintext
 npm i -g @cloudbase/cli vuepress
 ```
 
-### 步骤2：在本地初始化一个 VuePress 项目
+#### 步骤2：在本地初始化一个 VuePress 项目
 首先，在本地创建一个目录，这里以 tcb 为例：
 ```plaintext
 mkdir tcb && cd tcb
@@ -34,7 +40,7 @@ vuepress dev
 ![](https://main.qcloudimg.com/raw/ecf3a06a5fef49864fe1e7983f9e091d.png)
 
 
-### 步骤3：创建一个云开发环境
+#### 步骤3：创建一个云开发环境
 
 完成了本地的 Vuepress 建设，接下来我们来创建一个云开发环境，用来部署 VuePresss。打开腾讯云控制台，在产品中找到云开发
 
@@ -53,8 +59,8 @@ vuepress dev
 
  您现在可以通过上传文件手动上传一个文件测试，稍后，我们将会用云开发 CLI 来完成上传。
 
-### 步骤4：使用 CLI 部署 VuePress
-#### 初始化云开发 CLI
+#### 步骤4：使用 CLI 部署 VuePress
+1. 初始化云开发 CLI
 完成了云开发环境的配置后，我们需要初始化一下云开发 CLI ，从而实现借助 CLI 工具来上传页面（您也可以通过网页端直接上传，但如果您博客的文章比较多，建议使用 CLI 工具上传更加方便）
 在命令行输入如下代码：
 ```plaintext
@@ -66,7 +72,7 @@ tcb login
 ![](https://main.qcloudimg.com/raw/40d3367db60f02f9312237d2657ad33f.png)
 确认授权后，您会看到控制台输出相应的命令部署，到这里，您的云开发 CLI 就初始化好了。
 
-#### 部署 VuePress
+2. 部署 VuePress
 回到我们刚刚创建的 VuePress 的目录，执行命令构建静态页面：
 ```plaintext
 vuepress build
@@ -89,7 +95,7 @@ tcb hosting:deploy ./ -e EnvID
 此时，您在云开发管理控制台也可以看到这些文件，说明成功上传。
 ![](https://main.qcloudimg.com/raw/d21f08ea7b0aea3be8d6e5ca1bf1421c.png)
 
-### 步骤5：浏览 VuePress
+#### 步骤5：浏览 VuePress
 打开腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击左侧菜单栏中的【静态网站托管】>【设置】，进入设置页面，可以找到默认的域名，单击域名，就可以看到您刚部署的 VuePress。
 ![](https://main.qcloudimg.com/raw/439da24bfa3827fb41b8305c2ac1a5ae.png)
 
