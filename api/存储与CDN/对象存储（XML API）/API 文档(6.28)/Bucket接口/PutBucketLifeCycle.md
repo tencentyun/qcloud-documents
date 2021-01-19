@@ -41,54 +41,54 @@ Content-MD5: MD5
 
 ```shell
 <LifecycleConfiguration>
-  <Rule>
-    <ID></ID>
-    <Filter>
-	   <And>
-          <Prefix></Prefix>
-		  <Tag>
-			 <Key></Key>
-			 <Value></Value>
-		  </Tag>
-	   </And>
-    </Filter>
-    <Status></Status>
-    <Transition>
-      <Days></Days>
-      <StorageClass></StorageClass>
-    </Transition>
-    <NoncurrentVersionExpiration>
-      <NoncurrentDays></NoncurrentDays>
-    </NoncurrentVersionExpiration>
-  </Rule>
-  <Rule>
-    <ID></ID>
-    <Filter>
-      <Prefix></Prefix>
-    </Filter>
-    <Status></Status>
-    <Transition>
-      <Days></Days>
-      <StorageClass></StorageClass>
-    </Transition>
-    <NoncurrentVersionTransition>
-      <NoncurrentDays></NoncurrentDays>
-      <StorageClass></StorageClass>
-    </NoncurrentVersionTransition>
-  </Rule>
-  <Rule>
-    <ID></ID>
-    <Filter>
-      <Prefix></Prefix>
-    </Filter>
-    <Status></Status>
-    <Expiration>
-      <ExpiredObjectDeleteMarker></ExpiredObjectDeleteMarker>
-    </Expiration>
-    <NoncurrentVersionExpiration>
-      <NoncurrentDays></NoncurrentDays>
-    </NoncurrentVersionExpiration>
-  </Rule>
+      <Rule>
+            <ID></ID>
+            <Filter>
+                  <And>
+                        <Prefix></Prefix>
+                        <Tag>
+                              <Key></Key>
+                              <Value></Value>
+                        </Tag>
+                  </And>
+            </Filter>
+            <Status></Status>
+            <Transition>
+                  <Days></Days>
+                  <StorageClass></StorageClass>
+            </Transition>
+            <NoncurrentVersionExpiration>
+                  <NoncurrentDays></NoncurrentDays>
+            </NoncurrentVersionExpiration>
+      </Rule>
+      <Rule>
+            <ID></ID>
+            <Filter>
+                  <Prefix></Prefix>
+            </Filter>
+            <Status></Status>
+            <Transition>
+                  <Days></Days>
+                  <StorageClass></StorageClass>
+            </Transition>
+            <NoncurrentVersionTransition>
+                  <NoncurrentDays></NoncurrentDays>
+                  <StorageClass></StorageClass>
+            </NoncurrentVersionTransition>
+      </Rule>
+      <Rule>
+            <ID></ID>
+            <Filter>
+                  <Prefix></Prefix>
+            </Filter>
+            <Status></Status>
+            <Expiration>
+                  <ExpiredObjectDeleteMarker></ExpiredObjectDeleteMarker>
+            </Expiration>
+            <NoncurrentVersionExpiration>
+                  <NoncurrentDays></NoncurrentDays>
+            </NoncurrentVersionExpiration>
+      </Rule>
 </LifecycleConfiguration>
 ```
 
@@ -107,14 +107,14 @@ Content-MD5: MD5
 |  Value  |    LifecycleConfiguration.Rule<br>.Filter.And.Tag  |   标签的 Value，长度不超过256字节, 支持英文字母、数字、空格、加号、<br>减号、下划线、等号、点号、冒号、斜线	    |   String	 |  否
 | Status                         | LifecycleConfiguration.Rule                                  | 指明规则是否启用，枚举值：Enabled，Disabled                  | String    | 是       |
 | Expiration                     | LifecycleConfiguration.Rule                                  | 规则过期属性                                                 | Container | 否       |
-| Transition                     | LifecycleConfiguration.Rule                                  | 规则转换属性，对象何时转换为 Standard_IA 或 Archive          | Container | 否       |
+| Transition                     | LifecycleConfiguration.Rule                                  | 规则转换属性，用于描述对象何时进行存储类型的转换和转换的存储类型        | Container | 否       |
 | Days                           | LifecycleConfiguration.Rule<br>.Transition 或 Expiration      | 指明规则对应的动作在对象最后的修改日期过后多少天操作：<br><li>如果是 Transition，该字段有效值是非负整数<br><li>如果是 Expiration，该字段有效值为正整数，最大支持3650天 | Integer   | 否       |
 | Date                           | LifecycleConfiguration.Rule<br>.Transition 或 Expiration      | 指明规则对应的动作在何时操作，支持`2007-12-01T12:00:00.000Z`<br>和`2007-12-01T00:00:00+08:00`这两种格式 | String    | 否       |
 | ExpiredObjectDeleteMarker      | LifecycleConfiguration.Rule<br>.Expiration                       | 删除过期对象删除标记，枚举值 true，false                     | String    | 否       |
 | AbortIncompleteMultipartUpload | LifecycleConfiguration.Rule                                  | 设置允许分片上传保持运行的最长时间                           | Container | 否       |
 | DaysAfterInitiation            | LifecycleConfiguration.Rule<br>.AbortIncompleteMultipartUpload | 指明分片上传开始后多少天内必须完成上传                       | Integer   | 是       |
 | NoncurrentVersionExpiration    | LifecycleConfiguration.Rule                                  | 指明非当前版本对象何时过期                                   | Container | 否       |
-| NoncurrentVersionTransition    | LifecycleConfiguration.Rule                                  | 指明非当前版本对象何时转换为 STANDARD_IA 或 ARCHIVE          | Container | 否       |
+| NoncurrentVersionTransition    | LifecycleConfiguration.Rule                                  | 指明非当前版本对象何时进行存储类型的转换和转换的存储类型        | Container | 否       |
 | NoncurrentDays                 | LifecycleConfiguration.Rule<br>.NoncurrentVersionExpiration <br>或 NoncurrentVersionTransition | 指明规则对应的动作在对象变成非当前版本多少天后执行<br><li>如果是 Transition，该字段有效值是非负整数<br><li>如果是 Expiration，该字段有效值为正整数，最大支持3650天 | Integer   | 否       |
 | StorageClass                   | LifecycleConfiguration.Rule<br>.Transition 或 <br>NoncurrentVersionTransition | 指定 Object 沉降后的存储类型，枚举值： STANDARD_IA，MAZ_STANDARD_IA，INTELLIGENT_TIERING，MAZ_INTELLIGENT_TIERING，ARCHIVE，DEEP_ARCHIVE | String    | 是       |
 
@@ -145,28 +145,31 @@ Content-MD5: LcNUuow8OSZMrEDnvndw1Q==
 Content-Length: 348
 Content-Type: application/x-www-form-urlencoded
 
+
+
 <LifecycleConfiguration>
-  <Rule>
-    <ID>id1</ID>
-    <Filter>
-       <Prefix>documents/</Prefix>
-    </Filter>
-    <Status>Enabled</Status>
-    <Transition>
-      <Days>100</Days>
-      <StorageClass>ARCHIVE</StorageClass>
-    </Transition>
-  </Rule>
-  <Rule>
-    <ID>id2</ID>
-    <Filter>
-       <Prefix>logs/</Prefix>
-    </Filter>
-    <Status>Enabled</Status>
-    <Expiration>
-      <Days>10</Days>
-    </Expiration>
-  </Rule>
+      <Rule>
+            <ID>id1</ID>
+            <Filter>
+                  <Prefix>documents/</Prefix>
+            </Filter>
+            <Status>Enabled</Status>
+            <Transition>
+                  <Days>100</Days>
+                  <StorageClass>ARCHIVE</StorageClass>
+            </Transition>
+      </Rule>
+      <Rule>
+            <ID>id2</ID>
+            <Filter>
+                  <Prefix>logs/</Prefix>
+            </Filter>
+            <Status>Enabled</Status>
+            <Transition>
+                  <Days>10</Days>
+                  <StorageClass>STANDARD_IA</StorageClass>
+            </Transition>
+      </Rule>
 </LifecycleConfiguration>
 ```
 
