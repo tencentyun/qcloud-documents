@@ -6,3 +6,8 @@ TSW Agent 是一款基于字节码增强技术研发的 Java 应用探针，支�
 | Agent版本	| 更新时间	| 更新说明 |
 | ----- | ----- | ----- |
 | 0.2.0	 | 2020-12-30 | 	<li>支持主流 HTTP/RPC 框架；</li><li>支持采集主流 JDBC、NoSQL 调用；</li><li>支持无侵入采集。</li>|
+
+### 常见问题
+[何时应该选择 TSW Agent，何时应该选择使用开源接入？](https://cloud.tencent.com/document/product/1311/50759#.E4.BD.95.E6.97.B6.E5.BA.94.E8.AF.A5.E9.80.89.E6.8B.A9-tsw-agent-.E6.8E.A5.E5.85.A5.EF.BC.9F)
+
+
