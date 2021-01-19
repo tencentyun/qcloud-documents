@@ -1,13 +1,13 @@
 ## 开发准备
 
-1. 注册腾讯云账号，提交智能扫码服务的申请，等待审核通过后，获得专属秘钥。（申请地址：[智能扫码申请](https://console.cloud.tencent.com/ocr/is)）
+1. 注册腾讯云账号，提交智能扫码服务的申请，等待审核通过后，获得专属密钥。（申请地址：[智能扫码申请](https://console.cloud.tencent.com/ocr/is)）
 2. 从 SDK 下载链接中下载智能扫码 SDK 到本地准备集成。
 
 
 
-## Android端智能扫码 SDK 接入流程
+## Android 端智能扫码 SDK 接入流程
 
-### Android端智能扫码 SDK 介绍
+### Android 端智能扫码 SDK 介绍
 
 SDK文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接口、so 文件、检测与超分模型的资源文件。
 
@@ -68,7 +68,7 @@ SDK文件为 **QBarCode-v0.1.2.aar**，该文件里面封装了智能扫码接�
 
 #### SDK 初始化：
 
-用户初始化智能扫码 SDK，SECRET_ID与SECRET_KEY 传入云服务后台申请的密钥信息（申请地址：[智能扫码申请](https://console.cloud.tencent.com/ocr/is)）
+用户初始化智能扫码 SDK，SECRET_ID 与 SECRET_KEY 传入云服务后台申请的密钥信息（申请地址：[智能扫码申请](https://console.cloud.tencent.com/ocr/is)）
 
 ```java
    private QBarCodeKit qBarCodeKit;
@@ -142,7 +142,7 @@ qBarCodeKit.startDefaultQBarScan(MainActivity.this, new QBarSdkCallback() {
 
 ```java
 /*
- * bitmap 图片大小建议小于 1M，避免OOM
+ * bitmap 图片大小建议小于 1M，避免 OOM
  */
 List<ScanResult> results = qBarCodeKit.decodeImageWithQBar(bitmap, MainActivity.this);
 ```
