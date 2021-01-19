@@ -46,13 +46,15 @@ TDMQ 控制台支持手动创建订阅，在控制台进行相应的操作后即
 1. 在【[Topic 管理](https://console.cloud.tencent.com/tdmq/topic)】中，找到需要创建订阅的 Topic ，单击操作列中的【新增订阅】。
 2. 在弹出的对话框中输入订阅的名称和说明。
  - 订阅名称：只能包含字母、数字、“-”及“_”
+ - 自动创建重试&死信队列：可以选择是否创建重试和死信 Topic
  - 说明：不超过128字符
-![](https://main.qcloudimg.com/raw/a5a62665e1384fdc6d5625338bef3d84.png)
+![](https://main.qcloudimg.com/raw/bc07c3f60f26b9e5521ec127cb171bea.png)
 3. 单击【提交】完成创建。
 创建后可通过单击操作列的【查看订阅】，查看订阅了该 Topic 的订阅，即可在列表中看到刚刚创建的订阅。
 
->?创建了一个订阅者之后，TDMQ 会自动帮用户创建好一个重试队列和死信队列，以两个新的 Topic 呈现于 Topic 列表，分别以 “订阅名”+“retry” 和 “订阅名”+“dlq” 命名。
->关于重试队列和死信队列的概念和用法请参考 [重试队列和死信队列](https://cloud.tencent.com/document/product/1179/44834) 文档。
+>?
+>- 如果没有选择自动创建重试和死信 Topic，TDMQ 会自动帮用户创建好一个重试队列和死信队列，以两个新的 Topic 呈现于 Topic 列表，分别以 “订阅名”+“retry” 和 “订阅名”+“dlq” 命名。
+>- 关于重试队列和死信队列的概念和用法请参考 [重试队列和死信队列](https://cloud.tencent.com/document/product/1179/44834) 文档。
 
 ### 删除 Topic
 >!删除了 Topic 之后也会清除该 Topic 下积累的未消费消息，请谨慎执行。
