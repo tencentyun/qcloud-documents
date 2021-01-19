@@ -1,7 +1,7 @@
 
 用户购买新的 DDoS 高防 IP 实例后，当实例数较多或配置三网高防 IP 实例时，如需以便捷的方式快速实现转发规则的同步，可参照本文档进行配置。
 ## 操作步骤
-1. 登录 [DDoS 高防 IP 管理控制台](https://console.cloud.tencent.com/ddos/antiddos-advanced/access/l4) ，在左侧导航中，单击【业务接入 】，进入端口接入页签。
+1. 登录 [DDoS 高防 IP（新版）控制台](https://console.cloud.tencent.com/ddos/antiddos-advanced/access/l4) ，在左侧导航中，单击【业务接入 】，进入端口接入页签。
 2. 在“端口接入”页签，单击【批量导出】。
 ![](https://main.qcloudimg.com/raw/886adaf1eaf150250ebffc1cbd729367.png)
 3. 在 IP 输入栏中，选择想要导出的高防 IP 转发规则后，会展示关于此高防 IP 已配置的转发规则，单击【复制】。
