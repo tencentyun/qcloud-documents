@@ -25,6 +25,7 @@ IntelliJ IDEA 重启后，在菜单栏中选择【IntelliJ IDEA】>【Preference
   1. 登录 [访问管理控制台](https://console.cloud.tencent.com/cam/overview)。
   2. 在左侧导航栏中，单击【访问密钥】>【API密钥管理】。
   3. 在密钥列表中，可以查看并复制 SecretId 和 SecretKey。您也可以新建密钥信息，详情请参考 [访问密钥](https://cloud.tencent.com/document/product/598/40488) 文档。
+
 <img src="https://main.qcloudimg.com/raw/27836a0af91c0e6d47ecd01fe6daddca.png" width="80%" height="80%">
 
 2. 在 IntelliJ IDEA 菜单栏中选择 Preferences，在 Preferences 对话框左侧的导航栏中选择 Tencent Cloud Toolkit。
