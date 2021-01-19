@@ -8,7 +8,7 @@
 在调用创建 <dx-tag-link link="https://cloud.tencent.com/document/api/248/51287" tag="API">创建告警策略接口</dx-tag-link> 前需要准备以下入参资料。
 
 
-[](id:secretid)
+[](id:preparationsteps)
 <dx-tabs>
 ::: 准备个人密钥
  1. 登录访问管理控制台 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面。
@@ -63,7 +63,7 @@
 	</tr>
 	<tr>
 		<td>SecretId、SecretKey</td>
-		<td>填写准备好的 SecretId、SecretKe</td>
+		<td>填写准备好的 SecretId、SecretKey</td>
 	</tr>
 	<tr>
 		<td>Region</td>
@@ -130,9 +130,9 @@
 5. 在 Namespace 中填写上述【准备告警策略类型】步骤中获取的告警策略类型，例如 云服务器-基础监控告警策略类型为：cvm_device。
 6. 在云服务器-基础监控场景下 Remark、Enable 为选填，ProjectId 为必填。
 	- **Remark**：备注，可不填。
-	- **Enable**：是否启用告警策略 0=停用 1=启用，可不传，默认为1。
+	- **Enable**：是否启用告警策略。0=停用，1=启用。可不传，默认为1。
 	- **ProjectId**：项目 Id。云服务器-基础监控需填写**0** 。
-> ? ProjectId 项目 Id，-1=无项目，0=默认项目，根据策略类型而定可不传，默认为-1。例如部分告警策略类型下无项目概念（例如私有网络），可使用默认传参-1 。若该告警策略类型有项目概念（如云服务器-基础监控），默认传参-1会报错，入参需要修改为0。
+> ? ProjectId 项目 Id，-1=无项目，0=默认项目，根据策略类型而定可不传，默认为-1。例如部分告警策略类型下无项目概念（例如私有网络），可使用默认传参-1 。若该告警策略类型有项目概念（例如云服务器-基础监控），默认传参-1会报错，入参需要修改为0。
 7. Condition 配置说明如下：
 <table>
 <thead>
@@ -145,15 +145,15 @@
 <tbody><tr>
 <td>IsUnionRule</td>
 <td>是</td>
-<td>指标触发与或条件，0=或，1=与，或表示触发任一条件时发送告警，与为触发所有条件后发送告警。</td>
+<td>指标触发与或条件，0=或，1=与，或表示触发任一条件时发送告警，与为触发所有条件后发送告警</td>
 </tr>
 <tr>
 <td>Rules.N</td>
 <td>是</td>
-<td>告警触发条件列表。可参考在线调用 AlarmPolicyRule 参数说明进行配置<ul><li> <strong>MetricName</strong>：填写【准备指标列表】步骤返回中的MetricName（Metrics.N.MetricName）</li><li><strong>Period</strong>：填写【准备指标列表】步骤返回中的 Period（Metrics.N.MetricConfig.Period）</li><li><strong>Operator</strong>：填写【准备指标列表】步骤返回中的 Operator（Metrics.N.MetricConfig.Operator）</li><li><strong>Value</strong>：填写阈值，不需要填写单位，例如80</li><li><strong>ContinuePeriod</strong>：填写【准备指标列表】步骤返回中的 ContinuePeriod（Metrics.N.MetricConfig.ContinuePeriod）</li><li><strong>NoticeFrequency</strong>：告警频率（按秒计算）。参数说明：告警间隔，0=不重复 ；300=每5分钟告警一次； 600=每10分钟告警一次 ；900=每15分钟告警一次 1800=每30分钟告警一次；3600=每1小时告警一次； 7200=每2小时告警一次 ；10800=每3小时告警一次； 21600=每6小时告警一次； 43200=每12小时告警一次 ；86400=每1天告警一次</li><li><strong>IsPowerNotice</strong>：告警频率是否指数增长 0=否 1=是</li><li>其他参数无需填写</li></ul></td>
+<td>告警触发条件列表。可参考在线调用 AlarmPolicyRule 参数说明进行配置<ul><li> <strong>MetricName</strong>：填写 <a href="#preparationsteps">准备指标列表</a> 步骤返回中的 MetricName（Metrics.N.MetricName）</li><li><strong>Period</strong>：填写 <a href="#preparationsteps">准备指标列表</a> 步骤返回中的 Period（Metrics.N.MetricConfig.Period）</li><li><strong>Operator</strong>：填写 <a href="#preparationsteps">准备指标列表</a> 步骤返回中的 Operator（Metrics.N.MetricConfig.Operator）</li><li><strong>Value</strong>：填写阈值，不需要填写单位，例如80</li><li><strong>ContinuePeriod</strong>：填写 <a href="#preparationsteps">准备指标列表</a> 步骤返回中的 ContinuePeriod（Metrics.N.MetricConfig.ContinuePeriod）</li><li><strong>NoticeFrequency</strong>：告警频率（按秒计算）。参数说明：告警间隔，0=不重复 ；300=每5分钟告警一次； 600=每10分钟告警一次 ；900=每15分钟告警一次 1800=每30分钟告警一次；3600=每1小时告警一次； 7200=每2小时告警一次 ；10800=每3小时告警一次； 21600=每6小时告警一次； 43200=每12小时告警一次 ；86400=每1天告警一次</li><li><strong>IsPowerNotice</strong>：告警频率是否指数增长，0=否，1=是</li><li>其他参数无需填写</li></ul></td>
 </tr>
 </tbody></table>
-8. 如需触发事件告警，需要填 EventCondition 参数。在 EventCondition 下，**仅需要**在 Rules.N.MetricName 中填写【准备事件列表】步骤获得的 **EventName**，其他参数不填。
+8. 如需触发事件告警，需要填 EventCondition 参数。在 EventCondition 下，**仅需要**在 Rules.N.MetricName 中填写 <a href="#preparationsteps">准备事件列表</a> 步骤获得的 **EventName**，其他参数可不填。
 9. 在 NoticeIds.N 填写告警通知模板 Id ，例如 notice-qvq836vc。可通过 <dx-tag-link link="https://cloud.tencent.com/document/api/248/51280" tag="API">查询通知模板列表</dx-tag-link> 获得。
 10. 填写完以上参数后，单击【在线调用】>【发送请求】，如下图为成功创建云服务器—基础监控告警策略。
 ![](https://main.qcloudimg.com/raw/c671b947114a3058b57918b7b1a44d01.png)
