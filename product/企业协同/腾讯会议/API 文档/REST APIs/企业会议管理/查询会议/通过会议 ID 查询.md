@@ -76,7 +76,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 | auto_in_waiting_room            | Bool     | 开启等候室。                                                   |
 | allow_screen_shared_watermark   | Bool     | 开启屏幕共享水印。                                             |
 | only_allow_enterprise_user_join | Bool     | 是否仅企业内部成员可入会。 <br>true：仅企业内部用户可入会 <br>false：所有人可入会 |
-| auto_record_type | String     | 自动录制类型： <br>none：禁用 <br>local：本地录制 <br>cloud：云录制<br> |
+| auto_record_type | String     | 自动录制类型，仅客户端2.7及以上版本生效。<br>none：禁用 <br>local：本地录制 <br>cloud：云录制<br> |
 
 **子会议对象**
 
