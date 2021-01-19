@@ -1,9 +1,9 @@
 通过编写 XML 是开发连接器最简单的方式，一个 Connector 即为 XML 文件。通过 XML 编写的 **Connector** 和普通的 **module** 模块以同样的方式被使用。
 
 Connector XML 的根节点为 **module**，需要在根节点引入必要的 namespace，同时指明 **Connector** 使用的 API 类型（**apiType**）、API 版本（**apiVersion**）、表达式语言类型（**expressionType**）和表达式版本（**expressionVersion**），其中：
-- **apiType**：固定为 "**XML**"
-- **apiVersion**：在当前版本为"1.0.0"
-- **expressionType**：在 iPaaS 规范中默认定义了 **dataway**，其基于 Python 3，并针对部分功能做了裁剪，入口函数名为 "**dw_process**"，**selector** 函数以下标操作符"[...]"重载的方式提供，详细的定义可参考 iPaaS 中相关标准的定义。
+- **apiType**：固定为 **XML**。
+- **apiVersion**：在当前版本为1.0.0。
+- **expressionType**：在 iPaaS 规范中默认定义了 **Dataway**，其基于 Python 3，并针对部分功能做了裁剪，入口函数名为 **dw_process**，**selector** 函数以下标操作符“[...]”重载的方式提供，详细的定义可参考 iPaaS 中相关标准的定义。
 
 在 **module** 节点下，需要通过 **name**、**version**、**display-name** 和 **description** 标签来描述模块的英文名、版本、展示名和描述，通过 **declaration** 标签来描述 **connector** 对外提供的接口，包括 **property**、**trigger**、**operation** 和 **test-connection** 的定义。通过 **body** 标签来描述 **trigger**、**operation** 和 **test-connection** 在 **connector** 内部的实现逻辑。示例如下：
 
@@ -78,18 +78,18 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 
 **trigger** 节点的属性如下：
 - **name**：指定触发器名，必填。
-- **flowRef**：指定实现的 **flow** 名，必填，在下面的实现章节中详细介绍。
+- **flowRef**：指定实现的 **flow** 名，必填，详情请参见本文以下 [connector 实现](#connector) 章节。
 
 除此之外，还可以在 **trigger** 的定义中指定触发器在界面上如何渲染，相关属性如下：
-- **displayName**：指定触发器的展示名，如果未设置则默认为触发器名。
+- **displayName**：指定触发器的展示名，如未设置则默认为触发器名。
 - **displayGroup**：指定在下拉列表中所在的分组，默认是“默认”。
 - **description**：指定触发器的介绍，会通过气泡提示。
 
 **trigger** 节点的子节点有：
 - **parameters**：指定参数表，每个参数的定义节点为 **parameter**，属性同 **property** 一致。
-- **output**：指定输出格式，可选。如果未指定，则输出空消息，有两个子节点：
-  - **payload** 节点：用于指定输出的 **payload**，如果未指定，则 **payload** 为空。
-  - **attributes** 节点：用于指定输出的 **attributes**，如果未指定，则 **attributes** 为空。
+- **output**：指定输出格式，可选。如未指定，则输出空消息，有以下两个子节点：
+  - **payload** 节点：用于指定输出的 **payload**，如未指定，则 **payload** 为空。
+  - **attributes** 节点：用于指定输出的 **attributes**，如未指定，则 **attributes** 为空。
 
 ## operation 定义
 
@@ -109,8 +109,8 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 
 "**operation**" 节点的属性如下：
 - **name**：指定操作名，必填。
-- **flowRef**：指定实现的 **flow** 名，必填，在下面的实现章节中详细介绍。
-- **scope**：指定操作的使用范围，可选，默认为 **PUBLIC**，表示公开。可以设置为**PRIVATE**，此时该 **operation** 只能在当前 **connector** 的内部实现中被引用。
+- **flowRef**：指定实现的 **flow** 名，必填，详情请参见本文以下 [connector 实现](#connector) 章节。
+- **scope**：指定操作的使用范围，可选，默认为 **PUBLIC**，表示公开。可以设置为 **PRIVATE**，此时该 **operation** 只能在当前 **connector** 的内部实现中被引用。
 
 除此之外，还可以在 **operation** 的定义中指定操作在界面上如何渲染，相关属性如下：
 
@@ -120,7 +120,7 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 
 **operation** 节点的子节点有：
 - **parameters**：指定参数表，每个参数的定义节点为 **parameter**，属性同 **property** 一致。
-- **output**：指定输出格式，可选。如果未指定，则输出空消息，有两个子节点：
+- **output**：指定输出格式，可选。如果未指定，则输出空消息，有以下两个子节点：
   - **payload** 节点：用于指定输出的 **payload**，如果未指定，则 **payload** 为空。
   - **attributes** 节点：用于指定输出的 **attributes**，如果未指定，则 **attributes** 为空。
 
@@ -136,20 +136,20 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 
 **test-connection** 节点的属性有：
 - **name**：指定操作名，必填。连接测试功能统一显示为**测试连接**按钮。
-- **flowRef**：指定实现的 **flow** 名，必填，在下面的实现章节中详细介绍。
+- **flowRef**：指定实现的 **flow** 名，必填，详情请参见本文以下 [connector 实现](#connector) 章节。
 
-##  connector 的实现
+##  connector 的实现[](id:connector)
 
-在 **xml connector 的**实现中，**trigger**、**operation** 和 **test-connection** 都是通过设计 **flow**，基于已有的 **component** 来编排实现，已有组件请参见 [组件功能介绍](https://cloud.tencent.com/document/product/1270/46959)。每个在 **declaration** 中声明的**trigger**、**operation** 或 **test-connection** 都对应一个实现它的 **flow**，通过**flowRef** 属性可以将声明与实现 **flow** 进行关联。
+在 **xml connector 的**实现中，**trigger**、**operation** 和 **test-connection** 都是通过设计 **flow**，基于已有的 **component** 来编排实现，已有组件请参见 [组件功能介绍](https://cloud.tencent.com/document/product/1270/46959)。每个在 **declaration** 中声明的 **trigger**、**operation** 或 **test-connection** 都对应一个实现它的 **flow**，通过 **flowRef**  属性可以将声明与实现 **flow** 进行关联。
 
 ### operation 的实现
 
 **operation** 在集成流中的角色是 **processor**，它在收到事件时，进行一定的逻辑处理，并在完成时产生一个新的事件返回给下一个 **processor**。在 **xml connector** 的实现中，当 **operation** 实例在收到事件时：
 
-- 构造一个空的 **message**
-- 将该 **operation** 实例的参数经过表达式求值后设置到变量表中，变量名为参数
-- 将该 **operation** 实例引用的配置集实例中的配置项经过表达式求值后，构造为一个字典，放入变量表中的 **properties** 变量
-- 将构造好的 **message** 传递给 **connector 的 xml** 实现中对应的 **flow** 的第一个 **processor** 进行流转
+- 构造一个空的 **message**。
+- 将该 **operation** 实例的参数经过表达式求值后设置到变量表中，变量名为参数。
+- 将该 **operation** 实例引用的配置集实例中的配置项经过表达式求值后，构造为一个字典，放入变量表中的 **properties** 变量。
+- 将构造好的 **message** 传递给 **connector 的 xml** 实现中对应的 **flow** 的第一个 **processor** 进行流转。
 - 流转完成时，构造一个新的 **message**，根据 **operation** 声明中的 **output** 定义的输出项，将最后的 **payload** 和 **attributes** 复制到新的 **message** 中，作为 **operation** 的输出传递给下一个 **processor**。
 - 流转失败时，**operation** 抛出错误，错误内容为 **xml flow** 中执行出错的 **processor** 所抛出的错误。
 
@@ -157,7 +157,7 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 
 **trigger** 在集成流中的角色是 **source**，其在一定条件下主动产生事件并传递给第一个 **processor**。通过设计 **flow** 来实现 **trigger** 有两个要求：
 
-- **flow** 的第一个组件需要为一个其它模块的 **source**，用于在一定条件下触发 **flow** 的运行。对于轮询的场景，通常使用 **scheduler** 作为 **source**。对于回调的场景，通常使用**http:listener**作为**source**。
+- **flow** 的第一个组件需要为一个其它模块的 **source**，用于在一定条件下触发 **flow** 的运行。对于轮询的场景，通常使用 **scheduler** 作为 **source**。对于回调的场景，通常使用 **http:listener** 作为 **source**。
 - **flow** 中通过 **emit** 组件来对外产生事件，单次流的执行可以对外触发0次或若干次事件。**emit** 组件不接受参数，会按照 **trigger** 声明中定义的 **output** 规则来构造 **message**，构造规则同 **operation**。
 
 **trigger** 实例被构造后，实现该 **trigger** 的 **flow** 中的 **source** 会同时被构造，该**source** 在一定条件下产生事件并在该 **flow** 中流转，当遇到 **emit** 组件时，会将新构造的 **message** 传递给外面引用该 **trigger** 实例的 **flow** 中的第一个 **processor**，实现触发逻辑，并在流转完成后得到的 **message** 传递给 **emit** 的下一个 **processor**。
@@ -195,7 +195,7 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 
 **flow** 只有一个属性：**name** 表示集成流名，在 **connector** 内唯一，在 **declaration** 中的 **operation** 或 **trigger** 的 **flowRef** 中使用。
 
-**flow** 的子节点是组件列表，描述了这个的流的结构。根据组件所属模块，每个子节点的标签分为两种：
+**flow** 的子节点是组件列表，描述了这个流的结构。根据组件所属模块，每个子节点的标签分为两种：
 
 <dx-tabs>
 ::: 对于核心模块（core）的组件
@@ -228,12 +228,10 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 :::
 </dx-codeblock>
 标签名为"模块名:公共配置集名"，例如"<http:request-config .../>"，**name** 属性指定了配置集实例的名称，用于在 **component** 的 **configRef** 中引用，其它属性为该公共配置集中的各配置项。如果该配置项支持表达式类型，则可以使用 dataway 表达式来构造该配置项。
-
-在组件参数或配置项中使用表达式时，通过 `msg.vars['properties']['propertyName']` 使用 **property** 中定义的公共配置项，通过 `msg.vars['parameterName']`使用**operation**或 **trigger** 中定义的参数，详细参考 dataway 表达式语法。
 :::
 </dx-tabs>
 
-
+在组件参数或配置项中使用表达式时，通过 `msg.vars['properties']['propertyName']` 使用 **property** 中定义的公共配置项，通过 `msg.vars['parameterName']`使用**operation**或 **trigger** 中定义的参数，详细参考 dataway 表达式语法。
 
 
 
@@ -241,7 +239,7 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 
 ###  Message 传递
 
-**operation** 实例在收到事件后，将创建一个新的 message，并将该 operation 实例的参数和配置项存放在 **variables** 中，作为关联 **flow** 的输入 message，因而主流中的 message 不会传递到 **operation** 关联的 **flow** 中。如果要将主流的 message 传递到 **operation** 关联的 **flow** 中，只能通过参数或配置项传递。
+**operation** 实例在收到事件后，将创建一个新的 message，并将该 operation 实例的参数和配置项存放在 **variables** 中，作为关联 **flow** 的输入 message，因而主流中的 message 不会传递到 **operation** 关联的 **flow** 中。如需将主流的 message 传递到 **operation** 关联的 **flow** 中，只能通过参数或配置项传递。
 
 
 #### 通过参数传递
@@ -258,7 +256,7 @@ http://ipaas.cloud.tencent.com/schema/http http://ipaas.cloud.tencent.com/schema
 :::
 </dx-codeblock>
 
-在 **operation** 关联的 **flow** 中就可以通过 `msg.vars['payload']` 访问主流的 `paylaod`，`attributes` 和 `variables` 类似。
+在 **operation** 关联的 **flow** 中即可通过 `msg.vars['payload']` 访问主流的 `paylaod`，`attributes` 和 `variables` 类似。
 
 
 #### 通过配置项传递

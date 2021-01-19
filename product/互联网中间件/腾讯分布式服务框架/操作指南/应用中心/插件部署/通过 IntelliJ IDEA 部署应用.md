@@ -14,7 +14,7 @@
 
 ### 虚拟机部署
 1. 在 IntelliJ IDEA 中打开 consumer-demo 工程。
-2. 在 IntelliJ IDEA 顶部菜单栏中选择【Tools】>【Tencent Toolkit Cloud】>【Deploy to TSF for CVM Application...】。
+2. 在 IntelliJ IDEA 顶部菜单栏中选择【Tools】>【Tencent Cloud Toolkit】>【Deploy to TSF for CVM Application...】。
 3. 在 Deploy to CVM 对话框中部署配置。根据部署的程序包来源以及是否部署，插件提供三种选项：
    - Maven build：使用 maven 编译项目并打包、上传程序包至 TSF、部署。
    - Local file：选择本地文件上传至 TSF、部署。
