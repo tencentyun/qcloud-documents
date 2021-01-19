@@ -125,8 +125,7 @@ tcaplus > exit
 -------------------------------------------
 ```
 
-<span id = "tdrgj"></span>
-#### TDR 工具
+#### [TDR 工具](id:tdrgj)
 TDR 文件需要使用 TDR 工具生成，其主要是由数据定义文件（TDR 结构 xml 格式）生成，[工具下载地址](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/tdr)。
 
 使用示例：
