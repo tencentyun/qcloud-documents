@@ -42,7 +42,7 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 |hosts   |用户对象数组  | 会议指定主持人列表（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。<br>注意：仅腾讯会议商业版和企业版可指定主持人。|
 |current_hosts  |用户对象数组  | 会议当前主持人列表（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。|
 |current_co_hosts  |用户对象数组  | 会议联席主持人列表（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。|
-|participants  |用户对象数组 |邀请的参会者（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。<br>注意：仅腾讯会议商业版和企业版可指定主持人。 |
+|participants  |用户对象数组 |邀请的参会者（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。<br>注意：仅腾讯会议商业版和企业版可邀请参会用户。 |
 |start_time  |String | 会议开始时间戳（单位秒）。 |
 |end_time  |String | 会议结束时间戳（单位秒）。  |
 |settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置。|
