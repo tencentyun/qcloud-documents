@@ -1,10 +1,8 @@
-代码示例：
+代码示例：[Java](https://github.com/TencentCloudBase/cloudbase-examples/tree/master/cloudbaserun/java)
 
-[https://github.com/TencentCloudBase/cloudbase-examples/tree/master/cloudbaserun/java](https://github.com/TencentCloudBase/cloudbase-examples/tree/master/cloudbaserun/java)
+单击下方按钮一键部署：
 
-点击下方按钮一键部署：
-
-[![](https://main.qcloudimg.com/raw/67f5a389f1ac6f3b4d04c7256438e44f.svg)](https://console.cloud.tencent.com/tcb/env/index?action=CreateAndDeployCloudBaseProject&appUrl=https%3A%2F%2Fgithub.com%2FTencentCloudBase%2Fcloudbase-examples&workDir=cloudbaserun%2Fjava&appName=java-hello-world)
+<div style="background-color:#00A4FF; width: 125px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/tcb/env/index?action=CreateAndDeployCloudBaseProject&appUrl=https%3A%2F%2Fgithub.com%2FTencentCloudBase%2Fcloudbase-examples&workDir=cloudbaserun%2Fjava&appName=java-hello-world" target="_blank"  style="color: white; font-size:13px;">部署到云开发</a></div><br>
 
 ## 第 1 步：编写基础应用
 
@@ -28,12 +26,11 @@ cd helloworld
 上述命令将创建一个 Spring Boot 项目。
 
 >? 如需在 Windows 系统上使用上述 curl 命令，您需要以下命令行之一：
-> 
 > - [WSL（推荐）](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 > - [cygwin](https://cygwin.com/install.html)
-> 
-> 或者选择性地使用 [Spring Initializr（预加载配置）](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=helloworld&name=helloworld&description=&packageName=com.example.helloworld&dependencies=web) 生成项目：
-> 
+>  
+> 或者选择性地使用 [Spring Initializr（预加载配置）](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=helloworld&name=helloworld&description=&packageName=com.example.helloworld&dependencies=web) 生成项目。
+
 
 将 `src/main/java/com/example/helloworld/HelloworldApplication.java` 内容更新如下：
 
