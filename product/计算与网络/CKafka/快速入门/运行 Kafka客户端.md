@@ -6,27 +6,25 @@
 - 已 [购买云服务器](https://buy.cloud.tencent.com/cvm)
 
 ## 操作步骤
-### 1. 安装 JDK 环境
+### 步骤一：安装 JDK 环境
 您需要先登录云服务器购买页 [选购云服务器](https://buy.cloud.tencent.com/cvm)，本次测试机器配置如下：
 - 操作系统：CentOS 6.8 64 位 
 - CPU：1核 
 - 内存：2GB 
 - 公网带宽：1Mbps 
 
-完成选购后，给云服务器安装 JDK。具体操作步骤如下：
-
-**1.1 下载 JDK**
+1. 下载 JDK
 可以通过`wget`命令获取，如果需要其他不同版本也可以在官网进行下载。
 建议使用1.7以上版本的 JDK，本教程的版本为 jdk1.7.0_79。
 
-**1.2 移动到固定文件夹并解压缩**
+2. 移动到固定文件夹并解压缩
 ```
 mkdir /usr/local/jdk
 mv jdk-7u79-linux-x64.tar.gz /usr/local/jdk/
 cd /usr/local/jdk/
 tar -xzvf jdk-7u79-linux-x64.tar.gz
 ```
-**1.3 配置环境变量**
+3. 配置环境变量
 ```
 vim /etc/profile
 ```
@@ -39,7 +37,7 @@ export CLASSPATH=.:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/lib/dt.jar:$JRE_HOME/lib
 ```
 `wq`保存退出后，使用`source /etc/profile`命令使文件立即生效。
 
-**1.4 验证**
+4. 验证
 通过以下命令验证环境是否安装完成（javac 命令也可以），查看版本号是否一致：
 ```
 cd  $JAVA_HOME/bin
@@ -50,7 +48,7 @@ cd  $JAVA_HOME/bin
 出现下图则证明 JDK 安装完成。
 ![](https://mc.qcloudimg.com/static/img/859143ff8986b24e80b3a9c3b31bd511/4.png)
 
-### 2. 下载 Kafka 工具包
+### 步骤二：下载 Kafka 工具包
 >!
 > - 以下操作过程中提到的 $ip $port 变量，均指 CKafka 的接入 IP 和 port。
 > - CKafka 实例可提供多个接入点（接入点指 $ip $port，最多支持6个接入点），满足多种网络环境下客户端的访问请求。在进行测试时，客户选择对应网络环境的接入点即可，例如客户端云服务器是私有网络环境，则选择私有网络下的 CKafka 接入点 $ip $port 进行测试即可。 接入点信息可以在实例详情页查看。
@@ -69,7 +67,7 @@ telnet $ip $port
 ```
 ![](https://mc.qcloudimg.com/static/img/c30a8d0e2fe57c109d3f7f1fa55b107f/5.png)
 
-### 3. Kafka API 测试
+### 步骤三：Kafka API 测试
 
 **发送消息：**
 ```
