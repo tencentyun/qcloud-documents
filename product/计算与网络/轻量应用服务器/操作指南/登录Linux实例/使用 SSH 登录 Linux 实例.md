@@ -8,9 +8,8 @@ Linux、Mac OS 或 Windows（Windows 10 和 Windows Server 2019 版本）
 **密码**或**密钥**
 
 ## 前提条件
-
-- 您已获取登录实例的用户名及密码（或密钥）。
->! 首次通过本地 SSH 客户端登录 Linux 实例之前，您需要重置用户名（root）的密码，或者绑定密钥。具体操作请参考 [重置密码](https://cloud.tencent.com/document/product/1207/44575) 或 [管理密钥](https://cloud.tencent.com/document/product/1207/44573) 文档。
+您已获取登录实例的用户名（自定义用户名或默认用户名 root）及密码（或密钥）。
+>! 首次通过本地 SSH 客户端登录 Linux 实例之前，您需要重置默认用户名（root）的密码，或者绑定密钥。具体操作请参考 [重置密码](https://cloud.tencent.com/document/product/1207/44575) 或 [管理密钥](https://cloud.tencent.com/document/product/1207/44573) 文档。
 >
 - 请确认本地计算机与实例之间的网络连通正常，以及实例的防火墙已放行22端口（创建实例时默认已开通22端口）。
 
