@@ -1,10 +1,10 @@
-代码示例：
+代码示例：[PHP](https://github.com/TencentCloudBase/cloudbase-examples/tree/master/cloudbaserun/php)
 
-[https://github.com/TencentCloudBase/cloudbase-examples/tree/master/cloudbaserun/php](https://github.com/TencentCloudBase/cloudbase-examples/tree/master/cloudbaserun/php)
+单击下方按钮一键部署：
 
-点击下方按钮一键部署：
+<div style="background-color:#00A4FF; width: 125px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/tcb/env/index?action=CreateAndDeployCloudBaseProject&appUrl=https%3A%2F%2Fgithub.com%2FTencentCloudBase%2Fcloudbase-examples&workDir=cloudbaserun%2Fphp&appName=php-hello-world" target="_blank"  style="color: white; font-size:13px;">部署到云开发</a></div><br>
 
-[![](https://main.qcloudimg.com/raw/67f5a389f1ac6f3b4d04c7256438e44f.svg)](https://console.cloud.tencent.com/tcb/env/index?action=CreateAndDeployCloudBaseProject&appUrl=https%3A%2F%2Fgithub.com%2FTencentCloudBase%2Fcloudbase-examples&workDir=cloudbaserun%2Fphp&appName=php-hello-world)
+
 
 ## 第 1 步：编写基础应用
 
