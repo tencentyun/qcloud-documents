@@ -10,8 +10,12 @@
 ## 操作步骤
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
+
 2. 在 实例列表页的操作栏，选择【更多】>【升配】进入升配页。
+
 3. 在实例升配页 ，选择目标升配规格。
+
+   ![](https://main.qcloudimg.com/raw/c8f269ffc7f284dd19c95825151d77a8.png)
 
 - 产品规格：根据峰值带宽和磁盘容量选择对应的型号。
 - 实例价格：升配按天补足差价，具体请参考 [包年包月与产品配置升级说明](https://cloud.tencent.com/document/product/555/13001)。
