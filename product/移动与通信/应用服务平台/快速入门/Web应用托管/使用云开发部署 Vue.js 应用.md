@@ -1,6 +1,6 @@
 [Vue](https://cn.vuejs.org/) 是一款流行的 Web 开源框架。
 
-代码示例：[Vue](https://github.com/TencentCloudBase/cloudbase-templates/tree/master/vue-hello-world)
+代码示例：[Vue.js](https://github.com/TencentCloudBase/cloudbase-templates/tree/master/vue-hello-world)
 
 ## 第 1 步：初始化项目
 
