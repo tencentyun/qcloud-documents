@@ -12,7 +12,7 @@ npm init gatsby
 
 ## 第 2 步：发布项目
 
-安装并登陆 CloudBase Framework，在项目根目录下运行：
+安装并登录 CloudBase Framework，在项目根目录下运行：
 
 ```sh
 cloudbase framework deploy -e <your-env-id>
