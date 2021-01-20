@@ -6,19 +6,19 @@
 
 
 
-## 准备工作
+## 准备工作[](id:preparationsteps)
 
 在调用创建 <dx-tag-link link="https://cloud.tencent.com/document/product/248/51287" tag="API">创建告警策略接口</dx-tag-link> 前需要准备以下入参资料。
 
 
-[](id:preparationsteps)
+
 <dx-tabs>
 ::: 准备个人密钥
  1. 登录访问管理控制台 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面。
  2. 单击【显示】即可获取 SecretKey。
  ![](https://main.qcloudimg.com/raw/6ba975475ddd17f82bca8100eb2efb19.png)
 
-> ?如未创建密钥，请单击【新建密钥】即可创建密钥。
+> ?如未创建密钥，请单击【新建密钥】创建密钥。
  :::
  ::: 准备告警策略类型
  通过 <dx-tag-link link="https://cloud.tencent.com/document/product/248/48683" tag="API">查询所有名字空间</dx-tag-link> 可以查询到所有策略类型。步骤如下：
@@ -130,7 +130,7 @@
 2. 将 [准备好的个人密钥](#preparationsteps) 对应复制到对应的 SecretId、SecretKey 文本框。
 3. 在【输入参数】配置项找到 Region，选择相关地域。
 4. 在 Module 中填写“monitor”，PolicyName 中填写策略名称（策略名称由您自定义），MonitorType 中填写“MT_QCE”。
-5. 在 Namespace 中填写上述【准备告警策略类型】步骤中获取的告警策略类型，例如 云服务器-基础监控告警策略类型为：cvm_device。
+5. 在 Namespace 中填写上述 [准备告警策略类型](#preparationsteps) 步骤中获取的告警策略类型。例如，云服务器-基础监控告警策略类型为 cvm_device。
 6. 在云服务器-基础监控场景下 Remark、Enable 为选填，ProjectId 为必填。
 	- **Remark**：备注，可不填。
 	- **Enable**：是否启用告警策略。0=停用，1=启用。可不传，默认为1。
