@@ -1,0 +1,35 @@
+本章节列举了消息队列CKafka中对一些指标和性能的限制，请您在使用中注意不要超出对应的限制值，避免出现异常。
+
+- Topic总数量：根据产品规格不同固定上限。
+
+- Partition数量：
+
+  - 标准版单 Topic 支持的 partition 数量限制为24个。
+  - 专业版单 Topic 支持的 partition 数量限制为500个。
+  - 实例级别partition数量限制包含了副本数量，副本数量一般为2或者3。
+  - 不支持缩减partition数量。
+
+- Consumer group数量：
+
+  - 标准版实例级别Consumer group默认限制为50个。
+  - 专业版实例级别Consumer group限制初始为50个，可以 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=876&level2_id=951&source=0&data_title=消息服务%20CKafKa&level3_id=955&radio_title=配额提升申请&queue=81&scene_code=18356&step=2) 申请升级到最高500个。
+
+- 实例：
+
+  - 不支持变更实例地域属性。
+  - 客户端实例最大连接数量为500。
+
+- 版本：
+
+  - 标准版：兼容开源0.9、0.10、1.1版本，默认安装1.1.1版本，不支持定制版本。
+  - 专业版：兼容开源0.9、0.10、1.1.1、2.4.2版本，可以在购买时自由选择。
+
+- 暴露Zookeeper：不支持。
+
+- 暴露底层资源：不支持，避免用户自行操作所带来的风险。
+
+- 消息大小：不超过8MB，若超过8MB消息会发送失败。
+
+- 标签：每个云资源允许的最大标签数量为50。
+
+  
