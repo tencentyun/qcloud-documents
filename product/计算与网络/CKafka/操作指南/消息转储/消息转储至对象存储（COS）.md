@@ -1,5 +1,5 @@
 ## 操作场景
-消息队列 CKafka 支持用户转储消息的能力，您可以将 Ckafka 消息转储至 COS 以便于对数据进行分析与下载等操作。
+消息队列 CKafka 支持用户转储消息的能力，您可以将 CKafka 消息转储至 COS 以便于对数据进行分析与下载等操作。
 处理流程及架构如下：
 ![](https://main.qcloudimg.com/raw/8fdf8c6f74a3d4597688fddd4a3bffd4.svg)
 
@@ -38,8 +38,8 @@
 转储方案价格与 Ckafka Partition 数有关，当前 Partition 个数与函数并发个数保持一致。若需修改函数并发个数请检查 schedule 函数逻辑。
 
 ## 相关问题
-- 转储速度与 Ckafka 实例峰值带宽上限有关，如出现消费速度过慢，请检查 Ckafka 实例的峰值带宽或增加 Ckafka partition 数。
-- 转储速度与 Ckafka 单个文件最大500M，如超过该数值，会自动分包上传。
+- 转储速度与 CKafka 实例峰值带宽上限有关，如出现消费速度过慢，请检查 CKafka 实例的峰值带宽或增加 CKafka partition 数。
+- 转储速度与 CKafka 单个文件最大500M，如超过该数值，会自动分包上传。
 - 当前仅支持和 CKafka 实例同个地域的 COS 进行消息存储，为保证延时，不支持跨地域存储。
 - 使用COS消息转储，文件内容是 CKafka 消息里的 value 用 utf-8 String 序列化拼接而成，暂不支持二进制的数据格式。
 - 开启转 COS 的操作账号必须对目标 COS Bucket 具备写权限。
