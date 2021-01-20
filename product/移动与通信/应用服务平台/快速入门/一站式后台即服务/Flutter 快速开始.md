@@ -1,6 +1,6 @@
 ## 准备工作
 
-1. 拥有腾讯云账号；
+1. 拥有 [腾讯云账号](https://cloud.tencent.com/document/product/378/17985)；
 2. [创建云开发环境](https://cloud.tencent.com/document/product/876/41391)，获得 **环境 ID**；
 3. 安装 [Flutter](https://flutter.cn/docs/get-started/install)。
 
@@ -29,7 +29,7 @@ flutter pub get
 
 ## 第 3 步：创建移动应用安全来源的凭证
 
-打开[安全设置页面](https://console.cloud.tencent.com/tcb/env/safety)中，在移动应用安全来源里**添加应用**.
+打开 [安全设置页面](https://console.cloud.tencent.com/tcb/env/safety) 中，在移动应用安全来源里**添加应用**：
 
 <img src="https://main.qcloudimg.com/raw/1c088bc3ddb41faad995d2a8c43186e4.png">
 
@@ -37,7 +37,7 @@ flutter pub get
 
 ## 第 4 步：开启匿名登录
 
-在[环境设置页面](https://console.cloud.tencent.com/tcb/env/setting)中，点击“登录方式”，然后**启用匿名登录**：
+在 [环境设置页面](https://console.cloud.tencent.com/tcb/env/login) 中，单击“登录方式”，然后**启用匿名登录**：
 
 <img src="https://main.qcloudimg.com/raw/0b6a93991575776761137e9558aed3fc.png">
 
@@ -82,7 +82,6 @@ void main() async {
 ```
 
 >? 初始化 CloudBase 时用到的 `appAccess` 参数可以从控制台的安全来源凭证模块中获取。
-> 
 > <img src="https://main.qcloudimg.com/raw/434baba046148be1d2a0effc444ec0f8.png">
 
 登录成功后，便可以访问和使用云开发的各类资源，详情请参看 Flutter SDK 文档
