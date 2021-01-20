@@ -82,12 +82,8 @@
 </wj-camera>
 ```
 ##### 1.6.0版本以后：
-
 1.6.0版本支持扩展底部操作入口，如下所示，需配合 tabSlots 属性一起使用：
-
 ![](https://mmbiz.qpic.cn/mmbiz_png/9Cy9sGzibPnaPUszZ5JIfK2BicQWkibkrqIyIq5Be05G1YlpOZJkOJhoQsvpxibkPJnElN3kATSaW2oPvROzMo0Spg/0?wx_fmt=png)
-
-
 ```
 data: {
   tabSlots: [{name:'template',nickName:'模板'}],
@@ -114,4 +110,4 @@ data: {
     </view>
 </wj-camera>
 ```
-默认 slot 名称为 **default**，不可缺省；自定义 tabSlot 名称可以自定义，与wxml中的slot对应即可。
+默认`slot`名称为 **default**，不可缺省；自定义`tabSlot`名称可以自定义，与`wxml`中的`slot`对应即可。
