@@ -40,8 +40,12 @@ agent.sinks.hive_sink.serializer.fieldnames =id,msg
 agent.channels.mem_channel.type = memory
 agent.channels.mem_channel.capacity = 100000
 agent.channels.mem_channel.transactionCapacity = 10000
-其中hive.metastore可以通过以下方式确认
+```
+其中 hive.metastore 可以通过以下方式确认：
+```
 grep "hive.metastore.uris" -C 2 /usr/local/service/hive/conf/hive-site.xml
+```
+```
 <property>
 <name>hive.metastore.uris</name>
 <value>thrift://172.16.32.51:7004</value>

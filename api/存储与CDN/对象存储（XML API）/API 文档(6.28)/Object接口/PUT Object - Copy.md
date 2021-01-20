@@ -9,7 +9,6 @@ PUT Object - Copy 接口请求创建一个已存在 COS 的对象的副本，即
 该 API 的请求者需要对被复制对象有读取权限，或者被复制对象向所有人开放了读取权限（公有读），且需要对目标存储桶有写入权限。
 
 > ! 
->
 > - 当 COS 收到复制请求或 COS 正在复制对象时可能会返回错误。如果在复制操作开始之前发生错误，则会收到标准的错误返回。如果在复制操作执行期间发生错误，则依然会返回 HTTP 200 OK，并将错误作为响应体返回。这意味着 HTTP 200 OK 响应既可以包含成功也可以包含错误，在使用此接口时应当进一步根据响应体的内容来判断复制请求的成功与失败并正确的处理结果。
 > - 标准存储（多 AZ）类型目前仅支持复制为标准存储（多 AZ）类型，不支持复制为标准存储、低频和归档存储类型。
 > - 低频存储（多 AZ）类型目前仅支持复制为低频存储（多 AZ）类型，不支持复制为标准存储、低频和归档存储类型。
@@ -45,14 +44,14 @@ Authorization: Auth String
 | 名称                                  | 描述                                                         | 类型   | 是否必选 |
 | ------------------------------------- | ------------------------------------------------------------ | ------ | -------- |
 | x-cos-copy-source                     | 源对象的 URL，其中对象键需经过 URLEncode，可以通过 versionId 参数指定源对象的版本，例如：<br>`sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg`<br>或`sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-%E8%85%BE%E8%AE%AF%E4%BA%91.jpg?versionId=MTg0NDUxNzYzMDc0NDMzNDExOTc` | string | 是       |
-| x-cos-metadata-directive              | 是否复制源对象的元数据信息，枚举值：Copy，Replaced，默认为 Copy：<br><li>如果标记为 Copy，则复制源对象的元数据信息<li>如果标记为 Replaced，则按本次请求的请求头中的元数据信息作为目标对象的元数据信息<br>当目标对象和源对象为同一对象时，即用户试图修改元数据时，则标记必须为 Replaced | Enum   | 否       |
+| x-cos-metadata-directive              | 是否复制源对象的元数据信息，枚举值：Copy，Replaced，默认为 Copy。<br><li>如果标记为 Copy，则复制源对象的元数据信息<li>如果标记为 Replaced，则按本次请求的请求头中的元数据信息作为目标对象的元数据信息<br>当目标对象和源对象为同一对象时，即用户试图修改元数据时，则标记必须为 Replaced | Enum   | 否       |
 | x-cos-copy-source-If-Modified-Since   | 当对象在指定时间后被修改，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
 | x-cos-copy-source-If-Unmodified-Since | 当对象在指定时间后未被修改，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
 | x-cos-copy-source-If-Match            | 当对象的 ETag 与指定的值一致，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
 | x-cos-copy-source-If-None-Match       | 当对象的 ETag 与指定的值不一致，则执行复制操作，否则返回 HTTP 状态码为412（Precondition Failed） | string | 否       |
 | x-cos-storage-class                   | 目标对象的存储类型。枚举值请参见 [存储类型](https://cloud.tencent.com/document/product/436/33417) 文档，例如 INTELLIGENT_TIERING，MAZ_INTELLIGENT_TIERING，STANDARD_IA，ARCHIVE，DEEP_ARCHIVE。默认值：STANDARD | Enum   | 否       |
-|  x-cos-tagging   |  对象的标签集合，最多可设置10个标签（例如，Key1=Value1&Key2=Value2）。 标签集合中的 Key 和 Value 必须先进行 URL 编码。| string| 否  |
-
+| x-cos-tagging                         | 对象的标签集合，最多可设置10个标签（例如，Key1=Value1&Key2=Value2）。 标签集合中的 Key 和 Value 必须先进行 URL 编码 | string | 否       |
+|  x-cos-tagging-directive  |  是否复制源对象的标签信息，枚举值：Copy，Replaced，默认为 Copy。<br><li>如果标记为 Copy，则复制源对象的标签信息。<br><li>如果标记为 Replaced，则按本次请求的请求头中的标签信息作为目标对象的标签信息<br>当目标对象和源对象为同一对象时，即用户试图修改对象标签时，则标记必须为 Replaced  |  Enum   | 否     |
 
 **目标对象元数据相关头部**
 
@@ -73,7 +72,7 @@ Authorization: Auth String
 
 | 名称                     | 描述                                                         | 类型   | 是否必选 |
 | ------------------------ | ------------------------------------------------------------ | ------ | -------- |
-| x-cos-acl                | 定义目标对象的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中对象的预设 ACL 部分，例如 default，private，public-read 等，默认为 default<br>**注意：**当前访问策略条目限制为1000条，如果您不需要进行对象 ACL 控制，请设置为 default 或者此项不进行设置，默认继承存储桶权限 | Enum   | 否       |
+| x-cos-acl                | 定义目标对象的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中对象的预设 ACL 部分，例如 default，private，public-read 等，默认为 default<br>**注意：**如果您不需要进行对象 ACL 控制，请设置为 default 或者此项不进行设置，默认继承存储桶权限 | Enum   | 否       |
 | x-cos-grant-read         | 赋予被授权者读取目标对象的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
 | x-cos-grant-read-acp     | 赋予被授权者读取目标对象的访问控制列表（ACL）的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
 | x-cos-grant-write-acp    | 赋予被授权者写入目标对象的访问控制列表（ACL）的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
@@ -122,10 +121,10 @@ Authorization: Auth String
 ```plaintext
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>string</ETag>
-	<CRC64>number</CRC64>
-	<LastModified>date</LastModified>
-	<VersionId>string</VersionId>
+			<ETag>string</ETag>
+			<CRC64>number</CRC64>
+			<LastModified>date</LastModified>
+			<VersionId>string</VersionId>
 </CopyObjectResult>
 ```
 
@@ -139,8 +138,8 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点           | 描述                                                         | 类型   |
 | ------------------ | ---------------- | ------------------------------------------------------------ | ------ |
-| ETag               | CopyObjectResult | 对象的实体标签（Entity Tag），是对象被创建时标识对象内容的信息标签，可用于检查对象的内容是否发生变化。<br>例如`8e0b617ca298a564c3331da28dcb50df`，此头部并不一定返回对象的 MD5 值，而是根据对象上传和加密方式而有所不同。 | string |
-| CRC64              | CopyObjectResult | 对象的 CRC64 值，详情请参见 [CRC64 校验](https://cloud.tencent.com/document/product/436/40334) 文档。 | number |
+| ETag               | CopyObjectResult | 对象的实体标签（Entity Tag），是对象被创建时标识对象内容的信息标签，可用于检查对象的内容是否发生变化。<br>例如`8e0b617ca298a564c3331da28dcb50df`，此头部并不一定返回对象的 MD5 值，而是根据对象上传和加密方式而有所不同 | string |
+| CRC64              | CopyObjectResult | 对象的 CRC64 值，详情请参见 [CRC64 校验](https://cloud.tencent.com/document/product/436/40334) 文档 | number |
 | LastModified       | CopyObjectResult | 对象最后修改时间，为 ISO8601 格式，例如`2019-05-24T10:56:40Z` | date   |
 | VersionId          | CopyObjectResult | 对象的版本 ID，仅当目标存储桶启用了版本控制时才返回该元素    | string |
 
@@ -177,11 +176,13 @@ Date: Fri, 10 Apr 2020 18:20:30 GMT
 Server: tencent-cos
 x-cos-request-id: NWU5MGI4ZWVfNzljMDBiMDlfMWM3MjlfMWQ1****
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
-	<CRC64>16749565679157681890</CRC64>
-	<LastModified>2020-04-10T18:20:30Z</LastModified>
+			<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
+			<CRC64>16749565679157681890</CRC64>
+			<LastModified>2020-04-10T18:20:30Z</LastModified>
 </CopyObjectResult>
 ```
 
@@ -213,11 +214,13 @@ Date: Fri, 10 Apr 2020 18:20:41 GMT
 Server: tencent-cos
 x-cos-request-id: NWU5MGI4ZjlfYTZjMDBiMDlfN2Y1YV8xYjI4****
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
-	<CRC64>16749565679157681890</CRC64>
-	<LastModified>2020-04-10T18:20:41Z</LastModified>
+			<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
+			<CRC64>16749565679157681890</CRC64>
+			<LastModified>2020-04-10T18:20:41Z</LastModified>
 </CopyObjectResult>
 ```
 
@@ -249,11 +252,13 @@ Date: Fri, 10 Apr 2020 18:20:52 GMT
 Server: tencent-cos
 x-cos-request-id: NWU5MGI5MDRfNmRjMDJhMDlfZGNmYl8yMDVh****
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
-	<CRC64>16749565679157681890</CRC64>
-	<LastModified>2020-04-10T18:20:52Z</LastModified>
+			<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
+			<CRC64>16749565679157681890</CRC64>
+			<LastModified>2020-04-10T18:20:52Z</LastModified>
 </CopyObjectResult>
 ```
 
@@ -273,7 +278,6 @@ x-cos-copy-source: examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleo
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586542862;1586550062&q-key-time=1586542862;1586550062&q-header-list=content-length;date;host;x-cos-copy-source;x-cos-metadata-directive;x-cos-storage-class&q-url-param-list=&q-signature=8726a359b342cb1cace6945812ee8379c3ad****
 Connection: close
-
 ```
 
 #### 响应
@@ -287,13 +291,14 @@ Date: Fri, 10 Apr 2020 18:21:02 GMT
 Server: tencent-cos
 x-cos-request-id: NWU5MGI5MGVfN2RiNDBiMDlfMTk1MjhfMWZm****
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
-	<CRC64>16749565679157681890</CRC64>
-	<LastModified>2020-04-10T18:21:55Z</LastModified>
+			<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
+			<CRC64>16749565679157681890</CRC64>
+			<LastModified>2020-04-10T18:21:55Z</LastModified>
 </CopyObjectResult>
-
 ```
 
 #### 案例五：将未加密的对象复制为使用 SSE-COS 加密的目标对象
@@ -309,7 +314,6 @@ x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586542872;1586550072&q-key-time=1586542872;1586550072&q-header-list=content-length;date;host;x-cos-copy-source;x-cos-server-side-encryption&q-url-param-list=&q-signature=ee94ef60dfb512882b368be12c6d47526433****
 Connection: close
-
 ```
 
 #### 响应
@@ -324,13 +328,14 @@ Server: tencent-cos
 x-cos-request-id: NWU5MGI5MTlfYmIwMmEwOV9hMmUxXzFkMDQ2****
 x-cos-server-side-encryption: AES256
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
-	<CRC64>16749565679157681890</CRC64>
-	<LastModified>2020-04-10T18:21:13Z</LastModified>
+			<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
+			<CRC64>16749565679157681890</CRC64>
+			<LastModified>2020-04-10T18:21:13Z</LastModified>
 </CopyObjectResult>
-
 ```
 
 #### 案例六：将未加密的对象复制为使用 SSE-KMS 加密的目标对象
@@ -348,7 +353,6 @@ x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586542883;1586550083&q-key-time=1586542883;1586550083&q-header-list=content-length;date;host;x-cos-copy-source;x-cos-server-side-encryption;x-cos-server-side-encryption-context;x-cos-server-side-encryption-cos-kms-key-id&q-url-param-list=&q-signature=28055a7cf07d7dde858fd924d6c0963b0c68****
 Connection: close
-
 ```
 
 #### 响应
@@ -364,13 +368,14 @@ x-cos-request-id: NWU5MGI5MjNfMTliOTJhMDlfMjRiYThfMTdk****
 x-cos-server-side-encryption: cos/kms
 x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"f69901ec9755a5defc29057e9ec69126"</ETag>
-	<CRC64>16749565679157681890</CRC64>
-	<LastModified>2020-04-10T18:22:16Z</LastModified>
+			<ETag>"f69901ec9755a5defc29057e9ec69126"</ETag>
+			<CRC64>16749565679157681890</CRC64>
+			<LastModified>2020-04-10T18:22:16Z</LastModified>
 </CopyObjectResult>
-
 ```
 
 #### 案例七：复制 SSE-C 加密的对象并更换密钥
@@ -391,7 +396,6 @@ x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example-
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586542904;1586550104&q-key-time=1586542904;1586550104&q-header-list=content-length;date;host;x-cos-copy-source;x-cos-copy-source-server-side-encryption-customer-algorithm;x-cos-copy-source-server-side-encryption-customer-key;x-cos-copy-source-server-side-encryption-customer-key-md5;x-cos-server-side-encryption-customer-algorithm;x-cos-server-side-encryption-customer-key;x-cos-server-side-encryption-customer-key-md5&q-url-param-list=&q-signature=dece274320f748bb0c736b13e5409cd1c35f****
 Connection: close
-
 ```
 
 #### 响应
@@ -407,13 +411,14 @@ x-cos-request-id: NWU5MGI5MzhfZmFjODJhMDlfMTdlYzZfYmU1****
 x-cos-server-side-encryption-customer-algorithm: AES256
 x-cos-server-side-encryption-customer-key-MD5: hRasmdxgYDKV3nvbahU1MA==
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"bf314b89d34119395d5610982d6581b1"</ETag>
-	<CRC64>16749565679157681890</CRC64>
-	<LastModified>2020-04-10T18:22:31Z</LastModified>
+			<ETag>"bf314b89d34119395d5610982d6581b1"</ETag>
+			<CRC64>16749565679157681890</CRC64>
+			<LastModified>2020-04-10T18:22:31Z</LastModified>
 </CopyObjectResult>
-
 ```
 
 #### 案例八：将 SSE-C 加密的对象修改为不加密
@@ -432,7 +437,6 @@ x-cos-copy-source: examplebucket-1250000000.cos.ap-beijing.myqcloud.com/exampleo
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586542925;1586550125&q-key-time=1586542925;1586550125&q-header-list=content-length;date;host;x-cos-copy-source;x-cos-copy-source-server-side-encryption-customer-algorithm;x-cos-copy-source-server-side-encryption-customer-key;x-cos-copy-source-server-side-encryption-customer-key-md5;x-cos-metadata-directive&q-url-param-list=&q-signature=b57bc8f6d666e9d722d30ad7d3ab442d9c43****
 Connection: close
-
 ```
 
 #### 响应
@@ -446,13 +450,14 @@ Date: Fri, 10 Apr 2020 18:22:05 GMT
 Server: tencent-cos
 x-cos-request-id: NWU5MGI5NGRfOWFjOTJhMDlfMjg2NDdfMTA0****
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
-	<CRC64>16749565679157681890</CRC64>
-	<LastModified>2020-04-10T18:22:58Z</LastModified>
+			<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
+			<CRC64>16749565679157681890</CRC64>
+			<LastModified>2020-04-10T18:22:58Z</LastModified>
 </CopyObjectResult>
-
 ```
 
 #### 案例九：指定源对象的版本
@@ -467,7 +472,6 @@ x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example.
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586627495;1586634695&q-key-time=1586627495;1586634695&q-header-list=content-length;date;host;x-cos-copy-source&q-url-param-list=&q-signature=da80bd079b2c1fdb0dd961dea8568ee8d998****
 Connection: close
-
 ```
 
 #### 响应
@@ -482,13 +486,14 @@ Server: tencent-cos
 x-cos-copy-source-version-id: MTg0NDUxNTc0NDYyMjQ2MzUzMjQ
 x-cos-request-id: NWU5MjAzYTdfMWZjMDJhMDlfNTE4N18zNGU2****
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
-	<CRC64>16749565679157681890</CRC64>
-	<LastModified>2020-04-11T17:51:35Z</LastModified>
+			<ETag>"ee8de918d05640145b18f70f4c3aa602"</ETag>
+			<CRC64>16749565679157681890</CRC64>
+			<LastModified>2020-04-11T17:51:35Z</LastModified>
 </CopyObjectResult>
-
 ```
 
 #### 案例十：复制对象到启用版本控制的存储桶
@@ -503,7 +508,6 @@ x-cos-copy-source: sourcebucket-1250000001.cos.ap-shanghai.myqcloud.com/example.
 Content-Length: 0
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1586627516;1586634716&q-key-time=1586627516;1586634716&q-header-list=content-length;date;host;x-cos-copy-source&q-url-param-list=&q-signature=2c79d63b6078ace6fc9430fb6533b9a9ade1****
 Connection: close
-
 ```
 
 #### 响应
@@ -517,13 +521,14 @@ Date: Sat, 11 Apr 2020 17:51:56 GMT
 Server: tencent-cos
 x-cos-request-id: NWU5MjAzYmNfNjRiMDJhMDlfOTE3N18yYWI4****
 
+
+
 <?xml version="1.0" encoding="UTF-8"?>
 <CopyObjectResult>
-	<ETag>"22e024392de860289f0baa7d6cf8a549"</ETag>
-	<CRC64>11596229263574363878</CRC64>
-	<LastModified>2020-04-11T17:51:56Z</LastModified>
-	<VersionId>MTg0NDUxNTc0NDYxOTI4MzU0MDI</VersionId>
+			<ETag>"22e024392de860289f0baa7d6cf8a549"</ETag>
+			<CRC64>11596229263574363878</CRC64>
+			<LastModified>2020-04-11T17:51:56Z</LastModified>
+			<VersionId>MTg0NDUxNTc0NDYxOTI4MzU0MDI</VersionId>
 </CopyObjectResult>
-
 ```
 

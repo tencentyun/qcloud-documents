@@ -210,6 +210,8 @@ mLivePlayer.switchStream("http://5815.liveplay.myqcloud.com/live/5815_62fe94d692
 ```
 当 switchStream() 方法没有回调时，则需要检查返回值，如果 URL 相同或上一个切换没完成，则切换时会返回错误。错误码解析请参见 [错误码表](https://cloud.tencent.com/document/product/454/17246)。
 
+>? 清晰度无缝切换功能需要在后台配置 PTS 对齐，如您需要可 [提交工单](https://console.cloud.tencent.com/workorder) 申请使用。
+
 ### step 11: 直播回看
 时移功能是腾讯云推出的特色能力，可以在直播过程中，随时观看回退到任意直播历史时间点，并能在此时间点一直观看直播。非常适合游戏、球赛等互动性不高，但观看连续性较强的场景。
 
@@ -233,7 +235,7 @@ mLivePlayer.seek(600); // 从第10分钟开始播放
 1. 录制：配置时移时长、时移储存时长。
 2. 播放：时移获取元数据。
 
-时移功能处于公测申请阶段，如您需要可 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请使用。
+>? 时移功能处于公测申请阶段，如您需要可 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请使用。
 
 <h2 id="Delay">延时调节</h2>
 腾讯云 SDK 的直播播放（LVB）功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场、游戏以及混合场景。

@@ -24,7 +24,7 @@
 
 #### 国密算法支持
 
-国密 Encryption SDK 具备商用密码产品认证证书，支持基于 SM4 的多种模式加解密，满足密码算法合规要求，详情请参见 [算法列表](https://tcloud-doc.isd.com/document/product/573/49506?!preview&!editLang=zh#test1)。
+国密 Encryption SDK 具备商用密码产品认证证书，支持基于 SM4 的多种模式加解密，满足密码算法合规要求，详情请参见 [算法列表](https://cloud.tencent.com/document/product/573/49506#test1)。
 
 ## 如何使用
 

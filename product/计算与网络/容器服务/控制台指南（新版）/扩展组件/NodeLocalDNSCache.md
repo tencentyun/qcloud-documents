@@ -9,9 +9,9 @@ NodeLocal DNSCache 通过在集群节点上作为 DaemonSet 运行 DNS 缓存代
 | kubernets 对象名称 | 类型           | 请求资源                | 所属 Namespace |
 | :----------------- | -------------- | ----------------------- | -------------- |
 | node-local-dns     | DaemonSet      | 每节点50mCPU，5Mi内存 | kube-system    |
-| kube-dns-upstream  | Service        | \                       | kube-system    |
-| node-local-dns     | ServiceAccount | \                       | kube-system    |
-| node-local-dns     | Configmap      | \                       | kube-system    |
+| kube-dns-upstream  | Service        | -                       | kube-system    |
+| node-local-dns     | ServiceAccount | -                       | kube-system    |
+| node-local-dns     | Configmap      | -                       | kube-system    |
 
 ## 限制条件
 

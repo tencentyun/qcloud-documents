@@ -11,7 +11,9 @@
 | -1303   | 视频编码失败                                 |
 | -1304   | 音频编码失败                                 |
 | -1307   | 推流出现网络断开，且经过多次重试无法恢复      |
+| -3301 | 进入房间失败     | 
 | -100006 | 权限位校验失败，请检查 privateMapKey 是否正确 |
 | -100015 | SDKAppID 异常，请检查 SDKAppID 是否正确       |
 | -100018 | userSig 校验失败，请检查 userSig 是否正确     |
- 
+
+>? 小程序和 native 端的错误码是保持一致的，更多其他错误码查询请参见 [iOS 错误码](https://cloud.tencent.com/document/product/647/32257) 和 [Android 错误码](https://cloud.tencent.com/document/product/647/38307)。

@@ -486,10 +486,10 @@ systemctl start nginx
 ### 获取 COS 相关信息
 
 1. 登录到腾讯云 [对象存储控制台](https://console.cloud.tencent.com/cos5)。
-2. 找到此前创建的存储桶，并单击右侧【配置管理】。
-   ![](https://main.qcloudimg.com/raw/3af907cf7791d30af7fd9bff6df3df45.png)
-3. 在跳转界面中，记录【基本信息】中的**空间名称**和**所属地域**中的英文部分。
-   ![](https://main.qcloudimg.com/raw/4b4ca9a2cd911991ce4b41863bccec2c.png)
+2. 找到此前创建的存储桶，并单击存储桶名称。
+   ![](https://main.qcloudimg.com/raw/7eb9f887e61fadd3d0cb8d099fc9f074.png)
+3. 在跳转界面中，记录【基本信息】中的**存储桶名称**和**所属地域**中的英文部分。
+   ![](https://main.qcloudimg.com/raw/ba0b3e8183e408c12669001ec6c3fd3d.png)
 
 ### 获取 API 密钥
 
@@ -577,7 +577,7 @@ yum install php-posix
 ```bash
 crontab -u nginx -e
 ```
-4.   接下来的编辑界面为 vi/vim，按 `i` 键进入编辑模式，插入一行，内容如下：
+4. 接下来的编辑界面为 vi/vim，按 `i` 键进入编辑模式，插入一行，内容如下：
 ```plaintext
 */5 * * * * php -f /var/www/nextcloud/cron.php
 ```

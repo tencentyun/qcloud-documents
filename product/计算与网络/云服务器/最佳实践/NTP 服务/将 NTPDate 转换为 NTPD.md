@@ -78,3 +78,6 @@ ntpq -p
  - **delay**：从本地机发送同步要求到 NTP 服务器的 round trip time。
  - **offset**：主机通过 NTP 时钟同步与所同步时间源的时间偏移量，单位为毫秒（ms）。offset 越接近于0，主机和 NTP 服务器的时间越接近。
  - **jitter**：用来做统计的值。统计在特定连续的连接数里 offset 的分布情况。即 jitter 数值的绝对值越小，主机的时间就越精确。
+
+
+

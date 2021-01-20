@@ -34,6 +34,7 @@ platform :ios, '8.0'
 target 'TICDemo' do
   pod 'TEduBoard_iOS'
   pod 'TXIMSDK_iOS'
+  pod 'TIWLogger_iOS'
 end
 
 ```

@@ -37,25 +37,15 @@ downloadTask.progressCallback = delegate (long completed, long total)
 {
     Console.WriteLine(String.Format("progress = {0:##.##}%", completed * 100.0 / total));
 };
-downloadTask.successCallback = delegate (CosResult cosResult) 
-{
-    COSXML.Transfer.COSXMLDownloadTask.DownloadTaskResult result = cosResult 
-      as COSXML.Transfer.COSXMLDownloadTask.DownloadTaskResult;
-    Console.WriteLine(result.GetResultInfo());
-    string eTag = result.eTag;
-};
-downloadTask.failCallback = delegate (CosClientException clientEx, CosServerException serverEx) 
-{
-    if (clientEx != null)
-    {
-        Console.WriteLine("CosClientException: " + clientEx);
-    }
-    if (serverEx != null)
-    {
-        Console.WriteLine("CosServerException: " + serverEx.GetInfo());
-    }
-};
-transferManager.Download(downloadTask);
+
+try {
+  COSXML.Transfer.COSXMLDownloadTask.DownloadTaskResult result = await 
+    transferManager.DownloadAsync(downloadTask);
+  Console.WriteLine(result.GetResultInfo());
+  string eTag = result.eTag;
+} catch (Exception e) {
+    Console.WriteLine("CosException: " + e);
+}
 ```
 
 >?更多完整示例，请前往 [GitHub](https://github.com/tencentyun/cos-snippets/tree/master/dotnet/dist/TransferDownloadObject.cs) 查看。
@@ -78,7 +68,7 @@ for (int i = 0; i < 5; i++) {
   string localFileName = "my-local-temp-file"; //指定本地保存的文件名
   COSXMLDownloadTask downloadTask = new COSXMLDownloadTask(bucket, cosPath, 
     localDir, localFileName);
-  transferManager.Download(downloadTask);
+  await transferManager.DownloadAsync(downloadTask);
 }
 ```
 

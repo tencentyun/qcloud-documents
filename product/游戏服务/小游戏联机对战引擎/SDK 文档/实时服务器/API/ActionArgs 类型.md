@@ -43,7 +43,7 @@ export interface ActionArgs<T> {
 ### gameData 属性
 
 **描述**
-该属性类型为 GameData，表示游戏数据，开发者可以用来实现游戏状态同步等功能。在第一次执行 gameServer.onCreateRoom 时会被初始化，在执行 gameServer.onDestroyRoom 时会被销毁。
+该属性类型为 GameData，表示游戏数据，您可以用来实现游戏状态同步等功能。在第一次执行 gameServer.onCreateRoom 时会被初始化，在执行 gameServer.onDestroyRoom 时会被销毁。
 
 ### room 属性
 
@@ -55,7 +55,7 @@ export interface ActionArgs<T> {
 **描述**
 该属性类型为 object，包含了一个类型为 GameData 的子属性 data，用于更新游戏数据 gameData。
 
-如果开发者需要重新给 gameData 赋值，可以参考以下代码：
+如果您需要重新给 gameData 赋值，可以参考以下代码：
 
 ```
 const newData = {};

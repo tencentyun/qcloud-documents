@@ -147,6 +147,28 @@ function TEB_ADDIMAGEELEMENT(String fileName, String fileUrl, String userData)
 只有本地调用 addImageElement 时会收到该回调 收到该回调表示背景图片已经上传或下载成功，并且显示出来 
 
 
+### TEB_ADDELEMENT
+添加元素回调 
+``` C++
+function TEB_ADDELEMENT(Object data)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| data | Object | 回调数据 |
+
+#### 介绍
+data参数格式如下： 
+``` 
+{
+     id: "xxx",          //元素 ID
+     userData: "http://xxxx",          //透传添加接口的 userData
+}
+```
+ 只有本地调用 addImageElement 时会收到该回调 收到该回调表示背景图片已经上传或下载成功，并且显示出来 
+
+
 ### TEB_H5BACKGROUND_STATUS_CHANGED
 设置白板背景 H5 状态改变回调 
 ``` C++
@@ -430,6 +452,29 @@ function TEB_VIDEO_STATUS_CHANGED(Object data)
   
 function TEB_H5FILE_STATUS_CHANGED(Object data);
 
+```
+  |
+
+
+### TEB_H5PPT_STATUS_CHANGED
+H5PPT状态回调 
+``` C++
+function TEB_H5PPT_STATUS_CHANGED(TEduBoardH5PPTStatus status, Object data)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| status | TEduBoardH5PPTStatus | 状态  |
+| data | Object | 回调数据 |
+
+#### 介绍
+data 参数格式如下： 
+``` 
+{
+     fileId: "",      //文件 ID
+     message: "",     //描述信息
+}
 ```
  
 

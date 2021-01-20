@@ -111,7 +111,7 @@ tar -zvxf wotrus_ssl.tar.gz
 tar -zvxf apache-2.4.39_gm.tar.gz 
 #进入解压后的pcre-8.43文件夹并指定编译目录路径。
 cd httpd-2.4.39_gm/
-./configure --prefix=/usr/local/httpd --enable-so --enable-ssl --enable-cgi --enable-rewrite --enable-modules=most --enable-mpms-shared=all --with-mpm=prefork --with-zlib --with-apr=/usr/local/apr --with-apr-util=/usr/local/apr-util --with-ssl=/usr/local/wotrus_ssl 
+./configure --prefix=/usr/local/httpd --enable-so --enable-ssl --enable-cgi --enable-rewrite --enable-modules=most --enable-mpms-shared=all --with-mpm=prefork --with-zlib --with-apr=/usr/local/apr --with-apr-util=/usr/local/apr-util --with-ssl=/usr/local/wotrus_ssl2.0 
 #编译安装 Apache
 make && make install
 ```
@@ -209,5 +209,20 @@ SSLCertificateChainFile /usr/local/httpd/conf/cert/1_root_bundle.crt
 5. 重新启动 Apache 服务器，即可解决浏览器兼容问题。
 
 >!操作过程如果出现问题，请您 [联系我们](https://cloud.tencent.com/document/product/400/35259)。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

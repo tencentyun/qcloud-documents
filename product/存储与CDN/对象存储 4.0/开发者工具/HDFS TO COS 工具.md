@@ -3,7 +3,7 @@ HDFS TO COS 工具用于将 HDFS 上的数据拷贝到腾讯云对象存储 COS 
 
 ## 使用环境
 #### 系统环境
-Linux 或 Windows 系统
+Linux 或 Windows 系统。
 
 #### 软件依赖
 JDK 1.7或1.8。 
@@ -11,28 +11,29 @@ JDK 1.7或1.8。
 #### 安装与配置
 具体环境安装与配置请参见 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
 
-## 配置及使用方法
-#### 配置方法
+## 配置方法
 1. 安装 Hadoop-2.7.2 及以上版本，具体安装步骤请参见 [Hadoop 安装与测试](https://cloud.tencent.com/document/product/436/10867)。
 2. 在 [GitHub](https://github.com/tencentyun/hdfs_to_cos_tools) 下载 HDFS TO COS 工具并解压缩。
 3. 将要同步的 HDFS 集群的 core-site.xml 拷贝到 conf 文件夹中，其中 core-site.xml 中包含 NameNode 的配置信息。
-4. 编辑配置文件 cos_info.conf ， 存储桶（Bucket）、地域（Region）以及 API 密钥信息，其中存储桶的名字，由用户自定义字符串和系统生成 APPID 数字串由中划线连接而成，例如 examplebucket-1250000000。
+4. 编辑配置文件 cos_info.conf ， 存储桶（Bucket）、地域（Region）以及 API 密钥信息，其中存储桶名称，由用户自定义字符串和系统生成 APPID 数字串以及中划线连接而成，例如 examplebucket-1250000000。
 5. 在命令行参数中指定配置文件位置， 默认位置 conf/cos_info.conf。
 >!当命令行参数中的参数与配置文件重合时，以命令行为准。
 
-#### 使用方法
+## 使用方法
 
-使用方法以 Linux 为例，如下。
+>?下面以 Linux 为例介绍如何使用。
 
-#### 查看帮助
+### 查看帮助
+
 ```
 ./hdfs_to_cos_cmd -h
 ```
 执行结果如下图所示：
 ![](https://main.qcloudimg.com/raw/9f83bc3b2446e27254936e7fe6d7d281.png)
 
-#### 文件拷贝
-- 从 HDFS 拷贝到 COS，若 COS 上已存在同名文件， 则会覆盖原文件。
+### 文件拷贝
+
+- 从 HDFS 拷贝到 COS，若 COS 上已存在同名文件，则会覆盖原文件。
 ```
 ./hdfs_to_cos_cmd --hdfs_path=/tmp/hive --cos_path=/hdfs/20170224/
 ```
@@ -40,15 +41,15 @@ JDK 1.7或1.8。
 ```
 ./hdfs_to_cos_cmd --hdfs_path=/tmp/hive --cos_path=/hdfs/20170224/ -skip_if_len_match
 ```
-这里只做长度的判断，因为如果将 Hadoop 上的文件摘要算出，开销较大。
+这里只对长度进行判断，因为如果将 Hadoop 上的文件摘要进行计算，开销较大。
 
-- 从 HDFS 拷贝到 COS，若 HDFS 中存在Har目录（Hadoop Archive 归档文件），通过指定 --decompress_har 参数可以自动解压har文件：
+- 从 HDFS 拷贝到 COS，若 HDFS 中存在 Har 目录（Hadoop Archive 归档文件），通过指定 --decompress_har 参数可以自动解压 har 文件：
 ```
 ./hdfs_to_cos_cmd --decompress_har --hdfs_path=/tmp/hive --cos_path=/hdfs/20170224/
 ```
 若未指定 --decompress_har 参数，默认按照普通的 HDFS 目录进行拷贝，即 .har 目录下的 index 和 masterindex 等文件原样拷贝。
 
-#### 目录信息
+### 目录信息
 ```shell
 conf : 配置文件, 用于存放 core-site.xml 和 cos_info.conf
 log  : 日志目录

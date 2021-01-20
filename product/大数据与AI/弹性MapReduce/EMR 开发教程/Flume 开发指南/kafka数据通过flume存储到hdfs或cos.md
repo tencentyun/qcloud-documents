@@ -41,9 +41,9 @@ agent.channels.mem_channel.transactionCapacity = 10000
 ```
 ./bin/flume-ng agent --conf ./conf/ -f kafka.properties -n agent -Dflume.root.logger=INFO,console
 ```
-3. 运行 kafka 
+3. 运行 kafka producer
 ```
-producer./bin/kafka-console-producer.sh --broker-list $kafkaIP:9092 --topic kafka_test
+[hadoop@172 kafka]$ ./bin/kafka-console-producer.sh --broker-list $kafkaIP:9092 --topic kafka_test
 test
 hello
 ```

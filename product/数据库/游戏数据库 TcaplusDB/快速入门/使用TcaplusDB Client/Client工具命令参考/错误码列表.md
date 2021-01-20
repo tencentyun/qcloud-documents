@@ -1,0 +1,8 @@
+| 错误返回                                                     | 说明                              |
+| ------------------------------------------------------------ | --------------------------------- |
+| tcapsvr\_fail\_record\_exist                                 | 当前记录已存在                    |
+| table\("table\_name"\)registration failed                    | 找到不到表格名为 table\_name 的表格 |
+| proxy\_err\_query\_for\_convert\_tcaplus\_req\_to\_index\_server\_req\_failed | 没有设置索引服务                  |
+| cannot find value field                                      | 无法识别字段名                    |
+| cannot find key field                                        | 缺少主键或者无法识别主键字段名    |
+

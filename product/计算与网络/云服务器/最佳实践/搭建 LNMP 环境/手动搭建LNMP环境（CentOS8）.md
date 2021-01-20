@@ -24,7 +24,7 @@ PHP：脚本语言，本文以 PHP 7.4.11 为例。
 
 ### 步骤2：安装及配置 Nginx
 1. 执行以下命令，安装 Nginx。
->?本文以安装 Nginx 1.18.0 为例，您可通过 [Ngingx 官方安装包](http://nginx.org/packages/centos/8/x86_64/RPMS/?spm=a2c4g.11186623.2.31.557423bfYPMd6u) 获取适用于 CentOS 8的更多版本。
+>?本文以安装 Nginx 1.18.0 为例，您可通过 [Nginx 官方安装包](http://nginx.org/packages/centos/8/x86_64/RPMS/?spm=a2c4g.11186623.2.31.557423bfYPMd6u) 获取适用于 CentOS 8的更多版本。
 >
 ```
 dnf -y install http://nginx.org/packages/centos/8/x86_64/RPMS/nginx-1.18.0-1.el8.ngx.x86_64.rpm
@@ -56,10 +56,10 @@ vim default.conf
 6. 按 **i** 切换至编辑模式，编辑 default.conf 文件。
   1. 在 location 的 index 项中添加 index.php。如下图所示：
 ![](https://main.qcloudimg.com/raw/32df0b8ba82278cd96cf86152738677e.png)
-  2. 删除 location ~ \.php$ 前的 `#`，并修改以下配置项：
+  2. 删除 location ~  \\.php$ 大括号前的 `#`，并修改以下配置项：
     - 修改 root 项为您的网站根目录，即 location 中的 root 项，本文以 `/usr/share/nginx/html;` 为例。
     - 修改 fastcgi_pass 项为 `unix:/run/php-fpm/www.sock;`，Nginx 通过 UNIX 套接字与 PHP-FPM 建立联系，该配置与 `/etc/php-fpm.d/www.conf` 文件内的 listen 配置一致。
-    - 将 fastcgi_param  SCRIPT_FILENAME 后的 `$document_root$fastcgi_script_name;` 替换为 `$document_root$fastcgi_script_name;`。
+    - 将 fastcgi_param  SCRIPT_FILENAME 后的 `/scripts$fastcgi_script_name;` 替换为 `$document_root$fastcgi_script_name;`。
     修改完成后如下图所示：
 ![](https://main.qcloudimg.com/raw/2e4bff09d70399881bfbf995390a58d3.png) 
 7. 按 **Esc**，输入 **:wq**，保存文件并返回。
@@ -101,8 +101,8 @@ mysql_secure_installation
     - 0：表示低。
     - 1：表示中。
     - 2：表示高。
-  3. 设置 MySQL 密码并进行确认，输入密码默认不显示。
-  4. 输入 `y` 并按 **Enter**，再次输入密码。
+  3. 设置 MySQL 密码并按 **Enter** ，输入密码默认不显示。
+  4. 再次输入密码并按 **Enter**，输入 `y` 确认设置该密码。
   5. 输入 `y` 并按 **Enter**，移除匿名用户。
   6. 设置是否禁止远程连接 MySQL：
     - 禁止远程连接：输入 `y` 并按 **Enter**。

@@ -29,10 +29,10 @@
 | S1                      | %        | Survivor 1区内存使用占比                |
 | O                       | %        | Old 区内存使用占比                      |
 | M                       | %        | Metaspace 区内存使用占比                |
-| MemNonHeapUsedM         | MB       | JVM 当前已经使用的 NonHeapMemory 的数量 |
-| MemNonHeapCommittedM    | MB       | JVM 当前已经提交的 NonHeapMemory 的数量 |
-| MemHeapUsedM            | MB       | JVM 当前已经使用的 HeapMemory 的数量    |
-| MemHeapCommittedM       | MB       | JVM 当前已经提交的 HeapMemory 的数量    |
+| MemNonHeapUsedM         | MB       | JVM 当前已使用的 NonHeapMemory 的数量 |
+| MemNonHeapCommittedM    | MB       | JVM 当前已提交的 NonHeapMemory 的数量 |
+| MemHeapUsedM            | MB       | JVM 当前已使用的 HeapMemory 的数量    |
+| MemHeapCommittedM       | MB       | JVM 当前已提交的 HeapMemory 的数量    |
 | MemHeapMaxM             | MB       | JVM 配置的 HeapMemory 的数量            |
 | MemHeapInitM            | MB       | JVM 初始 HeapMem 的数量                 |
 | MemNonHeapInitM         | MB       | JVM 初始 NonHeapMem 的数量              |
@@ -43,6 +43,10 @@
 | Uptime                  | s        | 进程运行时长                            |
 | DaemonThreadCount       | 个       | Daemon 线程数                           |
 | ThreadCount             | 个       | 总线程数                                |
+| Open   | ms   | 会话打开的平均时间 |
+| Active | ms   | 会话活跃的平均时间 |
+| Open   | 个   | 打开的会话个数     |
+| Active | 个   | 活跃的会话个数     |
 
 ### HIVE-HiveWebHcat
 

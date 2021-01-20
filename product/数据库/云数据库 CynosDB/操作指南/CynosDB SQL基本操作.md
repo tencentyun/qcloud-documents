@@ -1,5 +1,5 @@
 
-## CynosDB（兼容 MySQL 版）SQL 基本操作
+## TDSQL-C（兼容 MySQL 版）SQL 基本操作
 ### 查询版本
 方法一：
 ```
@@ -32,7 +32,7 @@ MySQL [(none)]> SHOW VARIABLES LIKE 'CYNOS_VERSION';
 1 row in set (0.01 sec)
 ```
 
-## CynosDB（兼容 PostgreSQL 版）SQL 基本操作
+## TDSQL-C（兼容 PostgreSQL 版）SQL 基本操作
 
 ### 查询版本
 ```
@@ -80,13 +80,13 @@ postgres=# select * from x;
 ```
 
 ### 系统表
-CynosDB 完全支持 PG10 系统表，例如 pg_class, pg_proc 等。
+TDSQL-C 完全支持 PG10 系统表，例如 pg_class, pg_proc 等。
 
 ### GUC 参数
-CynosDB 兼容 PG10 的 GUC 参数，使用 SHOW 或者 SET 命令可以显示和设置 GUC 参数。
+TDSQL-C 兼容 PG10 的 GUC 参数，使用 SHOW 或者 SET 命令可以显示和设置 GUC 参数。
 
 ### index
-CynosDB 支持多种索引：B-tree、Hash、GiST、SP-GiST、GIN 以及 BRIN，默认的 CREATE INDEX 创建的是 B-tree 索引。
+TDSQL-C 支持多种索引：B-tree、Hash、GiST、SP-GiST、GIN 以及 BRIN，默认的 CREATE INDEX 创建的是 B-tree 索引。
 
 ### 多列和单列索引
 ```
@@ -110,7 +110,7 @@ CREATE INDEX
 ```
 
 ### 表达式索引
-与 PG10 兼容，CynosDB 支持表达式索引。
+与 PG10 兼容，TDSQL-C 支持表达式索引。
 ```
 postgres=# CREATE INDEX test2_expr ON test2 ((major + minor));
 CREATE INDEX

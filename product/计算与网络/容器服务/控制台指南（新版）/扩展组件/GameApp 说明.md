@@ -18,10 +18,10 @@
 
 | Kubernetes 对象名称             | 类型                       | 默认占用资源 | 所属 Namespaces |
 | -------------------------- | ------------------------ | ------ | ------------ |
-| gameapps.game.scr.ied.com  | CustomResourceDefinition | \      | \            |
-| gameapp-operator           | ClusterRoleBinding       | \      | \            |
-| gameapp-operator           | ClusterRole              | \      | \            |
-| gameapp-operator           | ServiceAccount           | \      | default      |
+| gameapps.game.scr.ied.com  | CustomResourceDefinition | -      | -            |
+| gameapp-operator           | ClusterRoleBinding       | -      | -            |
+| gameapp-operator           | ClusterRole              | -      | -            |
+| gameapp-operator           | ServiceAccount           | -      | default      |
 | gameapp-controller-manager | StatefulSet              | 1C2G   | default      |
 
 

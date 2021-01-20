@@ -62,6 +62,8 @@ dependencies {
 dependencies {
     implementation (name: "TEduBoardSdk-release", ext: "aar")
     implementation (name: "imsdk-4.6.1", ext: "aar")
+    implementation 'com.tencent.tiw.logger:TIWLogger:1.0.1.26'
+    implementation 'com.tencent.tbs.tbssdk:sdk:43939'
 }
 ```
 
@@ -103,6 +105,7 @@ dependencies {
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'com.tencent.teduboard:TEduBoardSdkNoTbs:2.4.8.31'
+    implementation 'com.tencent.tiw.logger:TIWLogger:1.0.1.26'
     ...
 }
 ```

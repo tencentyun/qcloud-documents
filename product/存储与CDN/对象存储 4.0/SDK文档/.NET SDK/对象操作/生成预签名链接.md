@@ -4,7 +4,7 @@
 
 ## SDK API 参考
 
-SDK 所有接口的具体参数与方法说明，请参考 [SDK API 参考](https://cos-dotnet-sdk-doc-1253960454.file.myqcloud.com/)。
+SDK 所有接口的具体参数与方法说明，请参考 [SDK API](https://cos-dotnet-sdk-doc-1253960454.file.myqcloud.com/)。
 
 ## 生成对象预签名链接
 
@@ -28,7 +28,7 @@ try
   //上传预签名 URL (使用永久密钥方式计算的签名 URL)
   string requestSignURL = cosXml.GenerateSignURL(preSignatureStruct);
 
-  string srcPath = @"temp-source-file";//本地文件绝地路径
+  string srcPath = @"temp-source-file";//本地文件绝对路径
   PutObjectRequest request = new PutObjectRequest(null, null, srcPath);
   //设置上传请求预签名 URL
   request.RequestURLWithSign = requestSignURL;

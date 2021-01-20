@@ -36,7 +36,6 @@
 
 ## 实例监控
 在 Memcached 实例列表，单击如下监控图标，或单击实例名进入【实例监控】页面可查看实例监控信息。
-指标说明请参见 [Memcached 监控指标说明](/doc/product/248/云缓存Memcached监控指标说明)。
 ![](https://main.qcloudimg.com/raw/eabba956635c2d95482e3e90bfcf325c.png)
 
 ## 数据回档

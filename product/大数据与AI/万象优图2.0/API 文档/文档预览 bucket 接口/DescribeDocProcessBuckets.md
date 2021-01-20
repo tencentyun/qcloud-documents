@@ -1,6 +1,6 @@
 ## 功能描述
 
-DescribeDocProcessBuckets 接口用于查询存储桶是否已开通文档预览功能。
+DescribeDocProcessBuckets 接口用于查询已经开通文档预览功能的 Bucket。
 
 ## 请求
 

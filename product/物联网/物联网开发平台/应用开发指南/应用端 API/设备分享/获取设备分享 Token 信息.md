@@ -16,8 +16,10 @@
 
 | 名称                 | 类型                                                         | 描述                                                         |
 | -------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| RequestId            | String                                                       | 公共参数，唯一请求ID，与入参相同，定位问题时，需提供该次请求的 RequestId。 |
+| RequestId            | String                                                       | 公共参数，唯一请求 ID，与入参相同，定位问题时，需提供该次请求的 RequestId。 |
 | ShareDeviceTokenInfo | Object of [ShareDeviceTokenInfo](https://cloud.tencent.com/document/product/1081/40780#sharedevicetokeninfo) | 响应的结果。                    |
+| AliasName    | String | 设备别名                   |
+| IconUrl      | String | 图标 URL                    |
 
 ## 4. 示例
 **输入示例**

@@ -6,24 +6,21 @@ LogListener 仅支持64位 Linux 操作系统环境（暂不支持 Windows），
 
 | 操作系统类别&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 确定可安装环境                                               |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| CentOS（64位）                                               | CentOS_6.8_64位、CentOS_6.9_64位、CentOS_7.2_64位、CentOS_7.3_64位、CentOS_7.4_64位、CentOS_7.5_64位、CentOS_7.6_64位 |
+| CentOS（64位）                                               | CentOS_6.8_64位、CentOS_6.9_64位、CentOS_7.2_64位、CentOS_7.3_64位、CentOS_7.4_64位、CentOS_7.5_64位、CentOS_7.6_64位、CentOS_8.0_64位 |
 | Ubuntu（64位）                                               | Ubuntu Server_14.04.1_LTS_64位、Ubuntu Server_16.04.1_LTS_64位、Ubuntu Server_18.04.1_LTS_64位 |
 | Debian（64位）                                               | Debian_8.2_64位、Debian_9.0_64位                             |
 | openSUSE（64位）                                             | openSUSE_42.3_64位                                           |
-
-
-
 
 
 ## 安装启动
 
 ### 1. 下载安装 LogListener
 
-LogListener 最新版本下载地址： [下载 LogListener](https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener-linux-x64-2.3.6.tar.gz)
+LogListener 最新版本下载地址： [下载 LogListener](https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener-linux-x64-2.4.5.tar.gz)
 
 以安装路径`/usr/local/`为例： 下载 LogListener 安装包并解压，解压路径为`/usr/local/` ，解压完成后进入 LogListener 目录`loglistener/tools`，执行安装命令 。该操作命令如下：
 ```shell
-wget https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener-linux-x64-2.3.6.tar.gz && tar -zxvf loglistener-linux-x64-2.3.6.tar.gz -C /usr/local && cd /usr/local/loglistener-2.3.6/tools && ./loglistener.sh install
+wget https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener-linux-x64-2.4.5.tar.gz && tar -zxvf loglistener-linux-x64-2.4.5.tar.gz -C /usr/local && cd /usr/local/loglistener-2.4.5/tools && ./loglistener.sh install
 ```
 
 ### 2. 初始化 LogListener
@@ -44,6 +41,8 @@ wget https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener-lin
 | secretkey | [云 API 密钥](https://console.cloud.tencent.com/cam/capi) 的一部分，SecretKey 是用于加密签名字符串和服务器端验证签名字符串的密钥 |
 | region    | region 表示日志服务所在的 [地域](https://cloud.tencent.com/document/product/614/18940)，此处填写域名简称，例如 ap-beijing、ap-guangzhou 等 |
 | network   | 表示 loglistener 通过哪种方式访问服务域名，取值：intra 内网访问（默认），internet 外网访问 |
+| ip        | 机器的 ip 标识。若不填写，loglistener 会自动获取本机的 ip 地址 |
+| label     | 机器组标示，标示机器组需要填写标示信息，多个标示按逗号分隔 |
 
 默认使用内网域名：
 

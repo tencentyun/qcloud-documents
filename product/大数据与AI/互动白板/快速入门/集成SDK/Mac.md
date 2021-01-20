@@ -33,6 +33,7 @@ platform :macos, '10.10'
 
 target 'TICDemo' do
   pod 'TEduBoard_Mac'
+  pod 'TIWLogger_Mac'
   pod 'TXIMSDK_Mac'
 end
 

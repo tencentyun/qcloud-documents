@@ -21,15 +21,12 @@
  -  **Authentication**：选择 SQL Server Authentication。
  -  **Login 和 Password**：在实例【帐号管理】页创建帐号时，填写的帐号名和密码。
 ![](https://main.qcloudimg.com/raw/14d90aa2eda6c841680f0fdc74db8219.png)
-5. 连接到数据库后，可以查看到 SQL Server 的标准内置系统数据库（master、model、msdb 和 tempdb）。
+9. 连接到数据库后，可以查看到 SQL Server 的标准内置系统数据库（master、model、msdb 和 tempdb）。
 ![](https://main.qcloudimg.com/raw/c65c02197b506bd5b326128f1a3983a0.png)
-6. 现在您可以开始创建自己的数据库并对数据库运行查询。选择【File】>【New】>【Query with Current Connection】，键入以下 SQL 查询：
+10. 现在您可以开始创建自己的数据库并对数据库运行查询。选择【File】>【New】>【Query with Current Connection】，键入以下 SQL 查询：
 ```
 select @@VERSION
 ```
 运行查询，SQL Server Management Studio 会返回 SQL Server 版的腾讯云云数据库实例。
 ![](//mc.qcloudimg.com/static/img/fbf64c03c7addda9c80fdd3dac7bbebb/image.png)
-
-
-
 

@@ -1,8 +1,32 @@
-### 2.8.2 @2020.11.4
+### 2.9.1 @2020.12.23
+**修复**
 
+微信开发者工具基础版本库2.14.1引入 [tim-wx-sdk.js](https://www.npmjs.com/package/tim-wx-sdk) 编译报错。
+
+
+### 2.9.0 @2020.12.15
 **新增**
 
-支持微信、QQ、百度、头条、支付宝小程序平台，（在百度、头条、支付宝小程序平台上，暂时不支持发送图片、视频、文件等需要上传到 COS 的消息）。
+- [createTextAtMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createTextMessage) 接口，支持群聊时 @ 某人或者 @ 所有人。
+- [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html) 增加 `namecard` 属性，用于展示群成员的群名片（简称群昵称）。
+
+
+### 2.8.5 @2020.11.23
+**变更**
+
+[logout](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#logout) 接口在 SDK 未 ready 时可以调用。
+
+**修复**
+
+- 已读回执和已读通知同时存在时 SDK 运行时错误。
+- 登出后再次匿名加入直播群失败。
+- 群组列表被异常清空。
+
+### 2.8.4 @2020.11.4
+**新增**
+
+- 支持微信、QQ、百度、头条、支付宝小程序平台（在百度、头条、支付宝小程序平台上，暂时不支持发送图片、视频、文件等需要上传到 COS 的消息）。
+- 支持 MPX、uni-app 第三方框架。
 
 ### 2.8.1 @2020.10.29
 

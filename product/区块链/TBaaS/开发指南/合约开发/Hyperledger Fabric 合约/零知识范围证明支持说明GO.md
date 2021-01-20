@@ -1,7 +1,7 @@
 ## 简介
-在 Fabric 区块链网络中，用户可以把业务数据按照特定的业务逻辑上链。链上的数据，多个参与方之间均透明可见证。不能对链上其他组织直接开放的隐私数据，用户可以直接把相关数据的 hash 值存储在链上作为见证。但用户数据不能直接向其他组织直接开放，而其他组织又需要根据链上的数据进行特定的运算背书，同时其他组织需要确定当前运算数据是否在特定的范围内。
+在 Fabric 区块链网络中，用户可以把业务数据按照特定的业务逻辑上链。链上存储 hash 数据具备了隐私性强的特点，但存在参与方难以对链上的 hash 数据直接操作的问题。存在如下场景，用户数据不能直接向其他组织直接开放，但其他组织又需要根据链上数据进行特定的运算背书，同时其他组织需要确定链上的数据在特定的数值范围内。例如，在用户转账场景中，对于加密的用户账户，参与方需要判断用户的余额大于等于转账金额，同时可以直接利用链上的加密数据进行加减操作。
 
-针对以上场景，TBaaS 引入 Bulletproofs 零知识范围证明的能力，很好的保证了数据隐私性、链上透明性和数据可操作性。Bulletproofs 零知识范围证明可以利用 Pedersen 承诺算法将明文数值隐藏，实现数据加密。同时 Pedersen 承诺是一个支持同态加法、减法、部分乘法运算的算法，因此在对已经制成承诺的数据进行运算时，不使用“解密-运算-加密”流程，而是直接对承诺进行计算。
+针对以上问题，TBaaS 引入 Bulletproofs 零知识范围证明的能力，保证了数据隐私性、链上透明性和数据可操作性。Bulletproofs 零知识范围证明可以利用 Pedersen 承诺算法将明文数值隐藏，实现数据加密。同时 Pedersen 承诺是一个支持同态加法、减法、部分乘法运算的算法，因此在对已经制成承诺的数据进行运算时，不使用“解密-运算-加密”流程，而是直接对承诺进行计算。
 
 ## TBaaS 的零知识范围证明能力特点
 TBaaS 的零知识范围证明能力，主要体现在以下两个方面：
@@ -11,7 +11,7 @@ TBaaS 的零知识范围证明能力，主要体现在以下两个方面：
 下面将分别对零知识范围证明工具 Bulletproofs 和 Pedersen 进行说明。
 
 ## 零知识范围证明工具 Bulletproofs
-Bulletproofs 工具是零知识范围证明 Bulletproofs 算法的用户端工具。零知识范围证明算法在提供验证一个数值属于 [0，2<sup>64</sup>] 的同时，不向验证者泄露此数值。该工具提供生成范围证明、验证范围证明与承诺的有效性、范围证明的同态运算（加、减、乘）等功能。您可访问 [Bulletproofs](https://tbaasdoc-1259695942.cos.ap-guangzhou.myqcloud.com/bulletproofs) 进行下载。
+Bulletproofs 工具是零知识范围证明 Bulletproofs 算法的用户端工具。零知识范围证明算法在提供验证一个数值属于 [0，2<sup>64</sup>) 的同时，不向验证者泄露此数值。该工具提供生成范围证明、验证范围证明与承诺的有效性、范围证明的同态运算（加、减、乘）等功能。您可访问 [Bulletproofs](https://tbaasdoc-1259695942.cos.ap-guangzhou.myqcloud.com/bulletproofs) 进行下载。
 
 ### 使用说明
 <table>
@@ -66,7 +66,7 @@ Bulletproofs 工具是零知识范围证明 Bulletproofs 算法的用户端工�
 	</tr>
 	<tr>
 		<td>sub</td>
-		<td>证明的同态减法计算。支持“承诺 + 承诺”、“承诺 + 数值”两种模式。</td>
+		<td>证明的同态减法计算。支持“承诺 - 承诺”、“承诺 - 数值”两种模式。</td>
 		<td>
 			<ul class="indentation">
 				<li>value1、value2：数字，分别在commitment1、commitment2两个承诺中。</li>
@@ -118,7 +118,7 @@ Pedersen 工具是 Pedersen 承诺的用户端工具。Pedersen 承诺是一个�
 		<td>
 				<ul class="indentation">
 				<li>value：在承诺中绑定及隐藏的目标值。</li>
-				<li>opening：用于在 Pedersen 承诺和 Bulletproofs 证明中隐藏整数 value 的随机数，也用来验证某个 Pedersen 承诺中隐藏的整数是否是某个给定值时用到的致盲因子。（可选，若不给出则使用一个密码学随机数）</li>
+				<li>opening：用于隐藏 value 的随机数。若不给出则随机生成一个致盲因子。</li>
 				</ul>
 				</td>
 				<td>
@@ -143,7 +143,7 @@ Pedersen 工具是 Pedersen 承诺的用户端工具。Pedersen 承诺是一个�
 		<td>genOpening</td>
 		<td>生成随机致盲因子。</td>
 		<td> - </td>
-		<td>opening：一个随机生成的44-byte 的 base64字符串或32-byte 二进制串。该随机字符串可用于在生成承诺 <code>./pedersen commit</code> 或生成证明 <code>./bulletproofs prove</code> 命令中作为指定的随机数入参。</td>
+		<td>opening：一个随机生成的44-byte 的 base64字符串（32-byte 二进制串）。该随机字符串可用于在生成承诺 <code>./pedersen commit</code> 或生成证明 <code>./bulletproofs prove</code> 命令中作为指定的随机数入参。</td>
 	</tr>
 	<tr>
 		<td>openingAdd</td>
@@ -200,7 +200,7 @@ Pedersen 工具是 Pedersen 承诺的用户端工具。Pedersen 承诺是一个�
 		</td>
 		<td>
 			<ul class="bottom">
-				<li>证明有效性：若证明与承诺通过验证，即 x 在[0, 264)范围内，则返回 true，否则为 false。</li>
+				<li>证明有效性：若证明与承诺通过验证，即 x 在[0, 2<sup>64</sup>) 范围内，则返回 true，否则为 false。</li>
 				<li>错误信息</li>
 			</ul>
 		</td>
@@ -232,7 +232,7 @@ Pedersen 工具是 Pedersen 承诺的用户端工具。Pedersen 承诺是一个�
 		</td>
 		<td>
 			<ul class="bottom">
-				<li>新承诺：32 - byte 二进制串，诺绑定值为 x + y、致盲因子为 r + s 的承诺。 </li>
+				<li>新承诺：32 - byte 二进制串，绑定值为 x + y、致盲因子为 r + s 的承诺。 </li>
 				<li>错误信息</li>
 			</ul>
 		</td>
@@ -264,7 +264,7 @@ Pedersen 工具是 Pedersen 承诺的用户端工具。Pedersen 承诺是一个�
 		</td>
 		<td>
 			<ul class="bottom">
-				<li>新承诺：32 - byte 二进制串，诺绑定值为 x - y、致盲因子为 r - s 的承诺。 </li>
+				<li>新承诺：32 - byte 二进制串，绑定值为 x - y、致盲因子为 r - s 的承诺。 </li>
 				<li>错误信息</li>
 			</ul>
 		</td>

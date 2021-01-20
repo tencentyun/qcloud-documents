@@ -39,6 +39,11 @@ ocrSdk.start({
       "CropPortrait": true,
     }
   },
+  cameraConfig: {
+    autoMode: true,
+    maxTry: 3,
+    disableAlbum: false
+  },
   resultPage: true,
   resultPageConfig: {
     modifiable: true,
@@ -68,7 +73,11 @@ ocrSdk.start({
 | [resultPage](#resultPage:)             | 识别完成后是否需要展示结果页  |     boolean     |  false  |  否   |
 | [resultPageConfig](#resultPageConfig:) | 结果页相应配置  |     Object     |  无 |  否   |
 | [resultPageConfig.modifiable](#resultPageConfig.modifiable:)             | 识别结果是否可修改  |     boolean     |  false  |  否   |
-| [theme](#theme:)             | SDK主题色  |     string     |  primary  |  否   |
+| [cameraConfig](#cameraConfig:) | 相机相应配置  |     Object     |  无 |  否   |
+| [cameraConfig.autoMode](#cameraConfig.autoMode:)             | 是否优先使用自动拍摄模式  |     boolean     |  false  |  否   |
+| [cameraConfig.maxTry](#cameraConfig.maxTry:)             | 自动模式下最多尝试次数  |     number     |  3  |  否   |
+| [cameraConfig.disableAlbum](#cameraConfig.disableAlbum:)             | 是否禁用从相册选择照片功能  |     boolean     |  false  |  否   |
+| [theme](#theme:)             | SDK 主题色  |     string     |  primary  |  否   |
 | [success](#success:)             | 单击完成后执行的回调函数            |   function(res)   |   无   |  是   |
 | [fail](#fail:)             | 识别失败时执行的回调函数             |    function(error)   |   无   |  否   |
 
@@ -205,6 +214,50 @@ ocrSdk.start({
 
 <br/>
 
+<span id="cameraConfig:"></span>
+### cameraConfig:
+相机相应配置，可配置字段: autoMode, maxTry, disableAlbum.
+
+<br/>
+
+<span id="cameraConfig.autoMode:"></span>
+### cameraConfig.autoMode:
+是否优先使用自动拍摄模式。默认值为 false。
+
+该字段配置为 true 时，相机会在用户手机稳定的情况下自动抓拍然后立即识别。如果识别失败的话会重新自动抓拍，识别，直到成功识别或达到最大尝试次数（默认3次，可在 cameraConfig.maxTry 字段中进行配置）为止。
+
+如果达到最大尝试次数仍未识别成功，则弹出对话框，提供切换为手动拍摄模式选项。
+
+**特别说明：该配置仅在用户微信基础库为2.12.2或以上版本才支持，低于该版本会直接使用基础的手动拍摄模式**
+
+<center>
+    <img style="border-radius: 0.3125em;width: 690px" 
+    src="https://main.qcloudimg.com/raw/90e3266b4396d3abd9097f0e4231e454.jpg">
+    <br>
+    <div>自动识别模式生命周期</div>
+</center>
+
+
+<br/>
+
+<span id="cameraConfig.maxTry:"></span>
+### cameraConfig.maxTry:
+自动识别最大尝试数。默认3次。
+
+在自动识别模式下，相机会在用户手机稳定的情况下自动抓拍然后立即识别。如果识别失败的话会重新自动抓拍，识别，直到成功识别或达到最大尝试次数为止。
+
+如果达到最大尝试次数仍未识别成功，则弹出对话框，提供切换为手动拍摄模式选项。
+
+<br/>
+
+<span id="cameraConfig.disableAlbum:"></span>
+### cameraConfig.disableAlbum:
+是否禁止用户从相册选择照片。默认值 false。
+
+该参数配置为 true 时，拍摄页面上将不会出现照片选择按钮，用户将不可以从相册中选择图片。
+
+<br/>
+
 <span id="theme:"></span>
 ### theme:
 SDK 主题配色，默认为 'primary'，目前支持如下值：
@@ -227,7 +280,7 @@ OCR 识别成功后的回调函数。
 
 代码示例：
 ```javascript
-// 用户点击完成后会打印出识别结果，并返回您的小程序页面
+// 用户单击完成后会打印出识别结果，并返回您的小程序页面
 ocrSdk.start({
   ...
   success: (res) => {
@@ -286,7 +339,7 @@ ocrSdk.start({
 ```
 <br/>
 
-### 身份证识别模式：
+### 身份证识别模式（包含双面，仅正面，仅反面）：
 | 配置项名称             | 类型             | 描述       |
 | ----------------------- | ------------------- |   --------      |
 | Config         | Object        |     以下可选字段均为 bool 类型，默认 false：<br/>CropIdCard，身份证照片裁剪（去掉证件外多余的边缘、自动矫正拍摄角度）<br/>CropPortrait，人像照片裁剪（自动抠取身份证头像区域）<br/>CopyWarn，复印件告警<br/>BorderCheckWarn，边框和框内遮挡告警<br/>ReshootWarn，翻拍告警<br/>DetectPsWarn，PS 检测告警<br/>TempIdWarn，临时身份证告警<br/>InvalidDateWarn，身份证有效日期不合法告警<br/>Quality，图片质量分数（评价图片的模糊程度）<br/>MultiCardDetect，是否开启多卡证检测<br/>ReflectWarn，是否开启反光检测<br/>  |
@@ -539,3 +592,6 @@ ocrSdk.start({
 | InvalidParameterValue.InvalidParameterValueLimit        | 参数值错误。      |
 | LimitExceeded.TooLargeFileError       | 文件内容太大。     |
 | ResourcesSoldOut.ChargeStatusException   | 计费状态异常。     |
+
+
+
