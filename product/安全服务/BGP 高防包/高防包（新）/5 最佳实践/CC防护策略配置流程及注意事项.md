@@ -1,6 +1,6 @@
 DDoS 高防包提供针对 CC 攻击的防护功能，策略包括防护等级、清洗阈值、精准防护、CC 频率限制等。业务完成接入后，您可以参考本文介绍的 CC 攻击防护策略配置流程，进行相关的配置，更好地保护您的业务。
 ## 配置步骤
-1. 登录 [DDoS 高防包控制台](https://console.cloud.tencent.com/ddos/antiddos-native/config/web)，在左侧导航中，单击【防护配置】。
+1. 登录 [DDoS 高防包管理控制台](https://console.cloud.tencent.com/ddos/antiddos-native/config/web)，在左侧导航中，单击【防护配置】。
 2. 在左侧的列表选中高防包 ID，如“bgp-000000co”，在右侧的顶部单击【域名防护】。
 3. **CC 防护清洗阈值设置**。在“CC 防护等级”卡片中，设置清洗阈值。
 >?
@@ -69,7 +69,7 @@ DDoS 高防为已接入防护的网站业务提供频率控制防护策略，支
 >- 每个域名在配置“/”目录的频率限制策略后，其他目录的的检测时间必须保持一致。
 >- 当请求 URI 中存在不固定字符串时，可通过匹配模式包含配置来解决，即对 URI 中相同的前缀进行匹配。
  >
-![](https://main.qcloudimg.com/raw/ffb3d729b934ae680827641fe1b1d16f.png)
+![](https://main.qcloudimg.com/raw/cebb1aba5a363f6ba31a88478dff64b7.png)
 **字段说明：**
 <table>
 <thead>
@@ -103,5 +103,4 @@ DDoS 高防为已接入防护的网站业务提供频率控制防护策略，支
 <tr>
 <td>惩罚时间</td>
 <td>最长为一天。</td>
-
 </tbody></table>
