@@ -1,6 +1,6 @@
 [Gatsby](https://www.gatsbyjs.com/) 是一款流行的开源静态网站生成器。
 
-代码示例：[https://github.com/TencentCloudBase/cloudbase-templates/tree/master/gatsby-app](https://github.com/TencentCloudBase/cloudbase-templates/tree/master/gatsby-app)
+代码示例：[Gatsby.js](https://github.com/TencentCloudBase/cloudbase-templates/tree/master/gatsby-app)
 
 ## 第 1 步：初始化项目
 
@@ -18,8 +18,8 @@ npm init gatsby
 cloudbase framework deploy -e <your-env-id>
 ```
 
-或点击下方按钮一键部署：
+或单击下方按钮一键部署：
 
-[![](https://main.qcloudimg.com/raw/67f5a389f1ac6f3b4d04c7256438e44f.svg)](https://console.cloud.tencent.com/tcb/env/index?action=CreateAndDeployCloudBaseProject&appUrl=https%3A%2F%2Fgithub.com%2FTencentCloudBase%2Fcloudbase-templates&workDir=gatsby-app&branch=master)
+<div style="background-color:#00A4FF; width: 125px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/tcb/env/index?action=CreateAndDeployCloudBaseProject&appUrl=https%3A%2F%2Fgithub.com%2FTencentCloudBase%2Fcloudbase-templates&workDir=gatsby-app&branch=master" target="_blank"  style="color: white; font-size:13px;">部署到云开发</a></div><br>
 
 更多内容请参见 [CloudBase Framework 文档](https://docs.cloudbase.net/framework/index.html)。
