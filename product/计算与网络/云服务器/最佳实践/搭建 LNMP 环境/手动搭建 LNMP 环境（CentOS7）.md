@@ -113,7 +113,9 @@ yum -y remove 包名
 vi /etc/yum.repos.d/MariaDB.repo
 ```
 3. 按 “**i**” 切换至编辑模式，写入以下内容，添加 MariaDB 软件库。
->? 不同操作系统的 MariaDB 软件库不同，您可前往 [MariaDB 官网](https://downloads.mariadb.org) 获取其他版本操作系统的 MariaDB 软件库安装信息。若您的云服务器使用 [默认的内网 DNS](https://cloud.tencent.com/document/product/213/5225#.E5.86.85.E7.BD.91-dns)，可以将 mirrors.cloud.tencent.com 改为 mirrors.tencentyun.com 内网地址，内网的流量不占用公网流量并且速度更快。
+>? 
+>- 不同操作系统的 MariaDB 软件库不同，您可前往 [MariaDB 官网](https://downloads.mariadb.org) 获取其他版本操作系统的 MariaDB 软件库安装信息。
+>- 若您的云服务器使用了 [内网服务](https://cloud.tencent.com/document/product/213/5225)，则可以将 `mirrors.cloud.tencent.com` 替换为 `mirrors.tencentyun.com` 内网地址，内网流量不占用公网流量且速度更快。
 >
 ```
 # MariaDB 10.4 CentOS repository list - created 2019-11-05 11:56 UTC
