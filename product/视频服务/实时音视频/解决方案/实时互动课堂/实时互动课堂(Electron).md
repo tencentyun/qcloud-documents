@@ -147,7 +147,7 @@ rtcClient.openCamera(domEle)
 ```typescript
 const screenList = rtcClient.getScreenShareList()
 ```
-b. 调用组件的 [startScreenCapture](https://cloud.tencent.com/document/product/647/45466#startScreenCapture) 开始推屏幕分享的流。
+ b. 调用组件的 [startScreenCapture](https://cloud.tencent.com/document/product/647/45466#startScreenCapture) 开始推屏幕分享的流。
 ```typescript
 rtcClient.startScreenCapture({
       type,// 采集源类型
