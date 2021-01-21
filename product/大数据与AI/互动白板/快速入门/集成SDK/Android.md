@@ -45,13 +45,11 @@ dependencies {
 #### 2. 导入 SDK
 
 将下载到的 aar 文件拷贝到工程的 app/libs 目录下。
-
 ![](https://main.qcloudimg.com/raw/904930451506c7a4339db9da55207908.jpg)
 
 #### 3. 指定本地仓库路径
 
 在工程根目录下的 build.gradle 中，添加 flatDir，指定本地仓库路径。
-
 ![](https://main.qcloudimg.com/raw/9d365fabfe1c752e46d6d57f74bb5a03.jpg)
 
 #### 4.  添加 SDK 依赖
@@ -71,7 +69,7 @@ dependencies {
 
 #### 5. 同步 SDK
 
-单击 Sync Now 按钮，完成 TEduBoard SDK 集成。
+单击 Sync Now，完成 TEduBoard SDK 集成。
 
 
 ### Google Play 境外版本集成方式
@@ -80,7 +78,7 @@ dependencies {
 集成方法如下：
 
 #### 1.下载并导入精简版 TBS SDK
-下载([下载地址](https://sdk-1259648581.cos.ap-nanjing.myqcloud.com/android/tbs/tbs_sdk_noimpl_43799.jar)) TBS SDK 的 jar 文件并拷贝到工程的 app/libs 目录下。
+[下载地址](https://sdk-1259648581.cos.ap-nanjing.myqcloud.com/android/tbs/tbs_sdk_noimpl_43799.jar) TBS SDK 的 jar 文件并拷贝到工程的 app/libs 目录下。
 
 ![](https://main.qcloudimg.com/raw/a3a00d36964e50f3ec4605900d9c8ab1.png)
 
@@ -179,7 +177,7 @@ SDK 所有回调都在主线程内执行，因此可以在回调里直接执行 
 
 白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 默认使用 IMSDK 作为信令通道，您需要自行实现 IMSDK 的初始化、登录、加入群组操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
 
-步骤一、初始化 IMSDK
+- 步骤一：初始化 IMSDK
 
 ```java
 TIMSdkConfig timSdkConfig = new TIMSdkConfig(appId)
@@ -190,8 +188,7 @@ TIMManager.getInstance().init(context, timSdkConfig);
 ```
 
 如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，请在 Application 的 onCreate 方法中初始化 IMSDK，否则请在登录前初始化 IMSDK，在登出后反初始化 IMSDK 。
-
-步骤二、登录 IMSDK
+- 步骤二：登录 IMSDK
 
 ```java
 TIMGroupManager.getInstance().login(userId, userSig, new TIMCallBack() {
@@ -205,10 +202,8 @@ TIMGroupManager.getInstance().login(userId, userSig, new TIMCallBack() {
         // 创建 IM 群组失败        
 });
 ```
-```
 
-步骤三、加入群组
-
+- 步骤三：加入群组
 登录 IMSDK 成功后加入白板所在的群组。
 
 ```java
@@ -287,7 +282,7 @@ TIMManager.getInstance().logout(new TIMCallBack() {
 });
 ```
 
-步骤三、反初始化 IMSDK
+步骤四、反初始化 IMSDK
 
 ```java
 TIMManager.getInstance().unInit();
