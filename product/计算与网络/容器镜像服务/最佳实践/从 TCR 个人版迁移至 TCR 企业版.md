@@ -36,7 +36,7 @@ ccr.ccs.tencentyun.com:
 ```
    - **企业版**：支持临时访问凭证及长期访问凭证，请登录【容器镜像服务控制台】>【[实例列表](https://console.cloud.tencent.com/tcr/instance?rid=1)】，并选择已经提前创建好的企业版实例。在实例详情页，新建一个镜像迁移专用的访问凭证。详情可参见 [获取实例访问凭证](https://cloud.tencent.com/document/product/1141/41829)。  
    - **个人版**：仅支持固定密码，在您初始化该服务时设置了此密码。如忘记密码，可在【容器服务控制台】>【镜像仓库】>【[个人版](https://console.cloud.tencent.com/tke2/registry/user?rid=1)】中选择【重置密码】，并在弹出的“重置密码”窗口中确认用户名后重新设置密码。
-2. 配置腾讯云鉴权配置文件 secret.yaml。参考以下代码，配置腾讯云的 SecretId、SecretKey，允许迁移工具调用 TCR 相关云API，获取镜像列表及基础信息。
+2. 配置腾讯云鉴权配置文件 secret.yaml。参考以下代码，配置腾讯云的 SecretId、SecretKey，允许迁移工具调用 TCR 相关云 API，获取镜像列表及基础信息。
 ```
 tcr:
         secretId: xxx
