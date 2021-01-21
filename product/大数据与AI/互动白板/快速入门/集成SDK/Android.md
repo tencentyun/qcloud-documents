@@ -157,7 +157,7 @@ SDK 所有回调都在主线程内执行，因此可以在回调里直接执行 
 #### 3. 白板数据同步
 
 白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 默认使用 IMSDK 作为信令通道，您需要自行实现 IMSDK 的初始化、登录、加入群组操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
-步骤一：初始化 IMSDK
+步骤1：初始化 IMSDK
 ```java
 TIMSdkConfig timSdkConfig = new TIMSdkConfig(appId)
     .enableLogPrint(true)
@@ -166,7 +166,7 @@ TIMSdkConfig timSdkConfig = new TIMSdkConfig(appId)
 TIMManager.getInstance().init(context, timSdkConfig);
 ```
 如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，请在 Application 的 onCreate 方法中初始化 IMSDK，否则请在登录前初始化 IMSDK，在登出后反初始化 IMSDK 。
-步骤二：登录 IMSDK
+步骤2：登录 IMSDK
 ```java
 TIMGroupManager.getInstance().login(userId, userSig, new TIMCallBack() {
       @Override
@@ -179,7 +179,7 @@ TIMGroupManager.getInstance().login(userId, userSig, new TIMCallBack() {
         // 创建 IM 群组失败        
 });
 ```
-步骤三：加入群组
+步骤3：加入群组
 登录 IMSDK 成功后加入白板所在的群组。
 ```java
 TIMGroupManager.getInstance().applyJoinGroup(groupId, desc + groupId, new TIMCallBack() {
@@ -219,7 +219,7 @@ mBoard.uninit();
 
 如果您使用 IMSDK 作为信令通道，请根据业务的需要决定是否退出群组、退出登录并反初始化。
 
-步骤一：退出群组
+步骤1：退出群组
 ```java
 TIMGroupManager.getInstance().quitGroup(groupId, new TIMCallBack() {//NOTE:在被挤下线时，不会回调
     @Override
@@ -233,7 +233,7 @@ TIMGroupManager.getInstance().quitGroup(groupId, new TIMCallBack() {//NOTE:在�
 
 });
 ```
-步骤二：登出 IMSDK
+步骤2：登出 IMSDK
 ```java
 TIMManager.getInstance().logout(new TIMCallBack() {
     @Override
@@ -246,7 +246,7 @@ TIMManager.getInstance().logout(new TIMCallBack() {
     }
 });
 ```
-步骤三：反初始化 IMSDK
+步骤3：反初始化 IMSDK
 ```java
 TIMManager.getInstance().unInit();
 ```
