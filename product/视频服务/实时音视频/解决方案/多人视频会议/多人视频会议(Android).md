@@ -13,9 +13,9 @@
 
 如需快速接入多人视频会议功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCMeeting 组件并实现自定义 UI 界面。
 
-<span id="DemoUI"> </span>
+[](id:DemoUI)
 ## 复用 Demo 的 UI 界面
-<span id="ui.step1"></span>
+[](id:ui.step1)
 ### 步骤1：创建新的应用
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
 2. 单击【立即开始】，输入应用名称，例如 `TestMeetingRoom` ，单击【创建应用】。
@@ -24,13 +24,13 @@
 
 
 
-<span id="ui.step2"></span>
+[](id:ui.step2)
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android)】跳转至 Github（或单击【[ZIP](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
  ![](https://main.qcloudimg.com/raw/c3067ef0d7244bfdd3bc31eef191c5fc.png)
 2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
 
-<span id="ui.step3"></span>
+[](id:ui.step3)
 ### 步骤3：配置 Demo 工程文件
 1. 解压 [步骤2](#ui.step2) 中下载的源码包。
 2. 找到并打开 `Android/TRTCScenesDemo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java` 文件。
@@ -44,11 +44,11 @@
 >!本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
 >正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
-<span id="ui.step4"></span>
+[](id:ui.step4)
 ### 步骤4：运行 Demo
 使用 Android Studio（3.5以上的版本）打开源码工程 `TRTCScenesDemo`，单击【运行】即可开始调试本 Demo。
 
-<span id="ui.step5"></span>
+[](id:ui.step5)
 ### 步骤5：修改 Demo 源代码
 源码文件夹 `trtcmeetingdemo` 中包含两个子文件夹 ui 和 model，ui 文件夹中均为界面代码，如下表格列出了各个文件或文件夹及其所对应的 UI 界面，以便于您进行二次调整：
 
@@ -62,13 +62,13 @@
 | MemberEntity.java | UI 层的用户数据 |
 | MemberListAdapter.java | 视频会议主界面的 Adapter |
 
-<span id="model"> </span>
+[](id:model)
 ## 实现自定义 UI 界面
 
 [源码](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCScenesDemo/trtcmeetingdemo/src/main/java/com/tencent/liteav/meeting) 中的 trtcmeetingdemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCMeeting，您可以在`TRTCMeeting.java` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/bee48f1b790fd81a60f73d07fdb5ecc5.png)
 
-<span id="model.step1"> </span>
+[](id:model.step1)
 ### 步骤1：集成 SDK
 多人视频会议组件 TRTCMeeting 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
@@ -112,7 +112,7 @@ defaultConfig {
 </tr>
 </table>
 
-<span id="model.step2"> </span>
+[](id:model.step2)
 ### 步骤2：配置权限及混淆规则
 在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请相机、读取存储权限）：
 ```
@@ -135,14 +135,14 @@ defaultConfig {
 -keep class com.tencent.** { *; }
 ```
 
-<span id="model.step3"> </span>
+[](id:model.step3)
 ### 步骤3：导入 TRTCMeeting 组件
 拷贝以下目录中的所有文件到您的项目中：
 ```
 src/main/java/com/tencent/liteav/meeting/model
 ```
 
-<span id="model.step4"> </span>
+[](id:model.step4)
 ### 步骤4：创建并登录组件
 1. 调用`sharedInstance`接口可以创建一个 TRTCMeeting 组件的实例对象。
 2. 调用`setDelegate`函数注册组件的事件通知。
@@ -181,7 +181,7 @@ trtcMeeting.login(SDKAPPID, userId, userSig, new TRTCMeetingCallback.ActionCallb
 });
 </pre>
 
-<span id="model.step5"> </span>
+[](id:model.step5)
 ### 步骤5：创建多人会议
 1. 主持人执行 [步骤4](#model.step4) 登录后，可以调用`setSelfProfile`设置自己的昵称和头像。
 2. 主持人调用`setDelegate`可以进行事件调用`createMeeting`创建新的会议房间。
@@ -213,7 +213,7 @@ trtcMeeting.createMeeting(roomId, new TRTCMeetingCallback.ActionCallback() {
 });
 ```
 
-<span id="model.step6"> </span>
+[](id:model.step6)
 ### 步骤6：参会成员进入多人会议
 1. 参会成员执行 [步骤4](#model.step4) 登录后，可以调用`setSelfProfile`设置自己的昵称和头像。
 2. 参会成员调用`enterMeeting`并传入会议房间号即可进入会议房间。
@@ -257,7 +257,7 @@ trtcMeeting.setDelegate(new TRTCMeetingDelegate() {
 });
 ```
 
-<span id="model.step7"> </span>
+[](id:model.step7)
 ### 步骤7：屏幕分享
 
 1. 屏幕分享功能需向系统需要申请悬浮窗权限，需要您在 UI 中实现具体的逻辑。
@@ -312,7 +312,7 @@ private void startScreenCapture() {
 }
 ```
 
-<span id="model.step8"> </span>
+[](id:model.step8)
 ### 步骤8：实现文字聊天和禁言消息
 - 通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到`onRecvRoomTextMsg`回调。
  即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
