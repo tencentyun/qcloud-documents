@@ -148,7 +148,7 @@ TRTCMeeting 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具�
 
 ## SDK 基础函数
 
-<span id="sharedInstance"></span>
+[](id:sharedInstance)
 ### sharedInstance
 
 获取 [TRTCMeeting](https://cloud.tencent.com/document/product/647/45667) 单例对象。
