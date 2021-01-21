@@ -20,6 +20,18 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 
 若控制台有以下日志打印，则表明联合保活功能已经关闭：`I/TPush: [ServiceUtil] disable pull up other app`。
 
+
+### 厂商推送服务需要上架应用市场才可以开通吗？
+
+| 厂商 | 是否需要上架应用市场 |
+|---------|---------|
+| 小米 | 否，个人开发者账号即可[开通小米平台推送服务](https://dev.mi.com/console/doc/detail?pId=68) | 
+| 魅族 | 否，个人开发者账号即可[开通魅族平台推送服务](http://open.res.flyme.cn/fileserver/upload/file/201709/a271468fe23b47408fc2ec1e282f851f.pdf)| 
+| FCM | 否，个人开发者账号即可开通FCM推送服务|
+| 华为 | 否，个人开发者账号即可[开通华为平台推送服务](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-enable_service#enable-service) | 
+| OPPO | 是，且需要企业开发者账号可[开通OPPO平台推送服务](https://open.oppomobile.com/wiki/doc/#id=10195)| 
+| vivo | 是 ，且需要企业开发者账号可[开通vivo平台推送服务](https://dev.vivo.com.cn/documentCenter/doc/2)|
+
 ### 设备注册失败的原因？
 
 - 新创建的 App 会有一分钟左右的数据同步过程，在此期间，注册可能返回20错误码，稍后重试即可。
