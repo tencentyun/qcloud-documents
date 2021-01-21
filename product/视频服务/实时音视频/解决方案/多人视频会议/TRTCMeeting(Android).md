@@ -818,12 +818,10 @@ void onRoomDestroy(String roomId);
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
 | localQuality | TRTCCloudDef.TRTCQuality | 上行网络质量。 |
-| remoteQuality | List<TRTCCloudDef.TRTCQuality> | 下行网络质量。 |
+| remoteQuality | List&lt;TRTCCloudDef.TRTCQuality&gt; | 下行网络质量。 |
 
 >? 详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#aba07d4191391dadef900422521f34e5b)
 
-
-   
 
 ### onUserVolumeUpdate
 
@@ -975,3 +973,8 @@ void onScreenCaptureStopped(int reason);
 | 参数   | 类型 | 含义                                               |
 | ------ | ---- | -------------------------------------------------- |
 | reason | int  | 停止原因，0：用户主动停止；1：被其他应用抢占导致停止 |
+
+
+
+
+
