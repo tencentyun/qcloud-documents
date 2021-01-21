@@ -42,7 +42,7 @@ go env | findstr GOPATH
 
 ### 创建 Demo工程
 
-1.使用 IDE 创建一个新工程，在文件夹中创建 go.mod 文件并编辑如下：
+1. 使用 IDE 创建一个新工程，在文件夹中创建 go.mod 文件并编辑如下：
 ```go
 module example/godemo
 
@@ -50,12 +50,10 @@ go 1.12
 
 require github.com/TencentCloud/tdmq-go-client v0.3.0-beta.2 
 ```
+ 上述 v0.3.0-beta.2 是 Go SDK 的版本，云上资源环境中下载的依赖文件压缩包也需要是同样的版本。
 
-上述 v0.3.0-beta.2 是 Go SDK 的版本，云上资源环境中下载的依赖文件压缩包也需要是同样的版本。
-
-2.创建 producer.go 和 consumer.go 测试 Demo 文件。
-
-- producer.go 代码内容如下，其中 `ListenerName` 即 `custom:` 拼接路由 ID（NetModel），路由 ID 可以在控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】的接入点列表查看并复制，`NewAuthenticationToken`即角色密钥，可以在【[角色管理](https://console.cloud.tencent.com/tdmq/role)】页面复制。
+2. 创建 producer.go 和 consumer.go 测试 Demo 文件。
+	- producer.go 代码内容如下，其中 `ListenerName` 即 `custom:` 拼接路由 ID（NetModel），路由 ID 可以在控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】的接入点列表查看并复制，`NewAuthenticationToken` 即角色密钥，可以在【[角色管理](https://console.cloud.tencent.com/tdmq/role)】页面复制。
 <dx-codeblock>
 :::  go
 package main
@@ -103,12 +101,9 @@ func main() {
 :::
 </dx-codeblock>
 
-
-其中 Topic 名称需要填入完整路径，即`persistent://pulsar-****/namespace/Topic`的组合，其中`pulsar-****/namespace/topic`的部分可以从控制台【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。
+	其中 Topic 名称需要填入完整路径，即`persistent://pulsar-****/namespace/Topic`的组合，其中`pulsar-****/namespace/topic`的部分可以从控制台【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。
 ![](https://main.qcloudimg.com/raw/a2e32b311b825df9798b8c98df7c3416.png)
-
-
-- consumer.go 的代码内容如下：
+	- consumer.go 的代码内容如下：
 <dx-codeblock>
 :::  go
 package main
