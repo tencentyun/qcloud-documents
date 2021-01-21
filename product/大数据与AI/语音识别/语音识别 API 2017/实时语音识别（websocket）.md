@@ -12,7 +12,7 @@
 |---------|---------|
 | 语言种类 | 中文普通话、英文、粤语、韩语、日语、上海话方言，可通过接口参数 engine_model_type 设置对应引擎类型 |
 | 音频属性 | 采样率：16000Hz或8000Hz<br>采样精度：16bits<br>声道：单声道（mono） |
-| 音频格式 | pcm、wav、opus、speex、silk、mp3 |
+| 音频格式 | pcm、wav、opus、speex、silk、mp3、m4a、aac |
 | 请求协议 | wss 协议 |
 | 请求地址 | wss://asr.cloud.tencent.com/asr/v2/<appid>?{请求参数} |
 | 接口鉴权 | 签名鉴权机制，详见 [签名生成](#sign) |
@@ -78,9 +78,10 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 | nonce | 是 | Integer | 随机正整数。用户需自行生成，最长 10 位。 |
 | engine_model_type | 是 | String | 引擎模型类型。<br>• 8k_zh：电话 8k 中文普通话通用；<br>• 8k_zh_finance：电话 8k 金融领域模型；<br>• 16k_zh：16k 中文普通话通用；<br>• 16k_en：16k 英语；<br>• 16k_ca：16k 粤语；<br>• 16k_ko：16k 韩语；<br>• 16k_zh-TW：16k 中文普通话繁体。 |
 | voice_id | 是 | String | 16 位 String 串作为每个音频的唯一标识，用户自己生成。 |
-| voice_format | 否 | Integer | 语音编码方式，可选，默认值为 4。1：wav(pcm)；4：speex(sp)；6：silk；8：mp3。 |
+| voice_format | 否 | Integer | 语音编码方式，可选，默认值为 4。1：pcm；4：speex(sp)；6：silk；8：mp3；12：wav；14：m4a（每个分片须是一个完整的m4a音频）；16：aac。 |
 | needvad | 否 | Integer | 0：关闭 vad，1：开启 vad。<br>如果语音分片长度超过60秒，用户需开启 vad。 |
 | hotword_id | 否 | String | 热词 id。用于调用对应的热词表，如果在调用语音识别服务时，不进行单独的热词 id 设置，自动生效默认热词；如果进行了单独的热词 id 设置，那么将生效单独设置的热词 id。 |
+| customization_id | 否 | String | 自学习模型 id。用于调用对应的自学习模型，如果在调用语音识别服务时，不进行单独的自学习模型 id 设置，自动生效默认自学习模型；如果进行了单独的自学习模型 id 设置，那么将生效单独设置的自学习模型 id。|
 | filter_dirty | 否 | Integer | 是否过滤脏词（目前支持中文普通话引擎）。默认为0。0：不过滤脏词；1：过滤脏词；2：将脏词替换为 * 。 |
 | filter_modal | 否 | Integer | 是否过语气词（目前支持中文普通话引擎）。默认为0。0：不过滤语气词；1：部分过滤；2：严格过滤 。 |
 | filter_punc | 否 | Integer | 是否过滤句末的句号（目前支持中文普通话引擎）。默认为0。0：不过滤句末的句号；1：过滤句末的句号。 |
