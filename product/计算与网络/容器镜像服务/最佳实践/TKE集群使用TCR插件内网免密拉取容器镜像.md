@@ -39,10 +39,12 @@ docker push demo-tcr.tencentcloudcr.com/docker/getting-started:latest
 ### 配置 TKE 集群访问 TCR 实例[](id:deployTKE)
 TCR 企业版实例支持网络访问控制，默认拒绝全部来源的外部访问。您可根据 TKE 集群的网络配置，选择通过公网或内网访问指定实例，拉取容器镜像。若 TKE 集群与 TCR 实例部署在同一地域，建议通过内网访问方式拉取容器镜像，该方式可提升拉取速度，并节约公网流量成本。
 #### 步骤1：在 TCR 实例中关联集群 VPC
-为保障用户数据安全，新建的 TCR 实例默认拒绝全部来源的访问。为允许指定 TKE 集群可访问 TCR 实例拉取镜像，需将集群所在的 VPC 关联至 TCR 实例，并配置相应的内网域名解析。详情可参见 [内网访问控制](https://cloud.tencent.com/document/product/1141/41838)。
-1. 新建内网访问链路。选择 TKE 集群所在的地域及私有网络VPC。新建内网链路成功后，将生成内网解析IP，集群节点访问该地址即为内网访问 TCR 实例。
-2. 配置域名内网解析。选择已新建的内网链路，点击【管理自动解析】配置 TCR 实例域名在集群内的内网解析，可将实例的默认域名在 VPC 私有域内解析至内网解析 IP。
-![](https://main.qcloudimg.com/raw/08baf471adceba038607fc1d18741d2a.png)
+为保障用户数据安全，新建的 TCR 实例默认拒绝全部来源的访问。为允许指定 TKE 集群可访问 TCR 实例拉取镜像，需将集群所在的 VPC 关联至 TCR 实例，并配置相应的内网域名解析。
+1. [新建内网访问链路](https://cloud.tencent.com/document/product/1141/41838#.E6.96.B0.E5.BB.BA.E8.AE.BF.E9.97.AE.E9.93.BE.E8.B7.AF)。
+2. [配置域名内网解析](https://cloud.tencent.com/document/product/1141/41838#.E7.AE.A1.E7.90.86.E5.86.85.E7.BD.91.E8.A7.A3.E6.9E.90)。
+
+
+
 
 #### 步骤2：在 TKE 集群中安装 TCR 插件
 如果当前您正在使用容器服务 TKE，请参考 [TCR 说明](https://cloud.tencent.com/document/product/457/49225#.E6.93.8D.E4.BD.9C.E6.AD.A5.E9.AA.A4) 在 TKE 集群中安装 TCR 插件，并在 “TCR组件参数设置”窗口中勾选"启用内网解析功能"。该插件可自动为集群内节点配置关联 TCR 实例的内网解析，可实现内网免密拉取实例内镜像。
@@ -60,14 +62,13 @@ TCR 企业版实例支持网络访问控制，默认拒绝全部来源的外部�
 2. 选择需要创建工作负载的集群 ID，进入集群详情页。
 3. 在集群详情页面，选择左侧【工作负载】>【Deployment】。
 4. 进入“Deployment” 页面，并单击【新建】。
-5. 进入“新建Workload” 页面，参考以下信息创建工作负载。
-主要参数信息如下，其他参数请按需设置：
+5. 进入“新建Workload” 页面，根据以下主要参数信息，创建工作负载。
  - **命名空间**：根据需要选择。请确认安装 TCR 插件时，配置支持免密拉取的命名空间已包含此时需要的命名空间。
  - **实例内容器**：
     - **镜像**：单击【选择镜像】，并在弹出的“选择镜像”窗口中，选择 TCR 实例内容器镜像。如下图所示：
-![](https://main.qcloudimg.com/raw/5991becae785a723876b679aaadea3da.png)
+![](https://main.qcloudimg.com/raw/b7843d479ae178835ef166ff89416724.png)
  - **镜像访问凭证**：如集群已安装 TCR 扩展组件，无需显式配置。**请避免选择其他访问凭证，选择其他访问凭证将导致此工作负载无法加载 TCR 插件的免密拉取配置。**
 6. 完成其他参数设置后，单击【创建workload】，查看该工作负载的部署进度。
 部署成功后，可在 “Deployment” 页面查看该工作负载的“运行/期望Pod数量”为“1/1”。如下图所示：
-![](https://main.qcloudimg.com/raw/cc69105f8d20f2d6ed33e3a90c5d0c9f.png)
+![](https://main.qcloudimg.com/raw/c7d68c851cecc3f3618040a80a3a8155.png)
 
