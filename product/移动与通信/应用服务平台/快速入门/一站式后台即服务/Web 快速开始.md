@@ -9,7 +9,7 @@
 npm install -g @cloudbase/cli
 ```
 
->? 如果 `npm install -g @cloudbase/cli` 失败，您可能需要[ 修改 npm 权限](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)，或者以系统管理员身份运行：
+>? 如果 `npm install -g @cloudbase/cli` 失败，您可能需要 [修改 npm 权限](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally)，或者以系统管理员身份运行：
  ```sh
  sudo npm install -g @cloudbase/cli
  ```
@@ -78,7 +78,7 @@ mkdir my-cloudbase-app && cd my-cloudbase-app && touch index.html && touch cloud
 
 ## 第 3 步：开启匿名登录
 
-请参考：[开启匿名登录授权](https://cloud.tencent.com/document/product/876/41729#.E5.BC.80.E5.90.AF.E5.8C.BF.E5.90.8D.E7.99.BB.E5.BD.95.E6.8E.88.E6.9D.83)。
+请参考：[开启匿名登录授权](https://cloud.tencent.com/document/product/876/41729#.E5.BC.80.E5.90.AF.E5.8C.BF.E5.90.8D.E7.99.BB.E5.BD.95)。
 
 ## 第 4 步：开启本地开发环境
 
