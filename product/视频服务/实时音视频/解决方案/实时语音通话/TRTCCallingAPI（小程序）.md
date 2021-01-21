@@ -78,7 +78,7 @@ let TRTCCallingContext = this.selectComponent('#TRTCCalling-room')
 TRTCCallingContext.login()
 ```
 
-<span id="login"></span>
+[](id:login)
 #### login()
 登入接口，会建议在页面 onLoad 阶段调用。
 
@@ -86,14 +86,14 @@ TRTCCallingContext.login()
 TRTCCallingContext.login()
 ```
 
-<span id="logout"></span>
+[](id:logout)
 #### logout()
 登出信令 SDK，执行后不再能收发信令。
 ```javascript
 TRTCCallingContext.logout()
 ```
 
-<span id="on"></span>
+[](id:on)
 #### on(eventCode, handler, context)
 用于监听组件派发的事件，详细事件请参见 [事件表](#EVENT)。
 ```javascript
@@ -102,14 +102,14 @@ TRTCCallingContext.on(EVENT.INVITED, () => {
 })
 ```
 
-<span id="off"></span>
+[](id:off)
 #### off(eventCode, handler)
 用于取消事件监听。
 ```javascript
 TRTCCallingContext.off(EVENT.INVITED)
 ```
 
-<span id="call"></span>
+[](id:call)
 #### call({userID, type})
 进行某个 user 进行呼叫。
 
@@ -122,7 +122,7 @@ let userID = 'test'
 let type = 2
 TRTCCallingContext.call({userID, type})
 ```
-<span id="groupCall"></span>
+[](id:groupCall)
 
 #### groupCall({userIDList, type, groupID})
 在调用该接口前需要使用 IM [创建群组](https://cloud.tencent.com/document/product/269/37459)，并将 groupID 作为参数传入。
@@ -137,7 +137,7 @@ TRTCCallingContext.call({userID, type})
 TRTCCallingContext.groupCall({userIDList, type, groupID})
 ```
 
-<span id="accept"></span>
+[](id:accept)
 #### accept()
 当收到邀请后，调用该接口将接受当前的邀请。
 >? 当上一个 invitation 未处理完成时，组件会默认占线，之后的邀请都会回复忙线。
@@ -148,7 +148,7 @@ TRTCCallingContext.on(EVENT.INVITED, () => {
 })
 ```
 
-<span id="reject"></span>
+[](id:reject)
 #### reject()
 当收到邀请后，调用该接口将拒绝当前收到的邀请。
 
@@ -158,14 +158,14 @@ TRTCCallingContext.on(EVENT.INVITED, () => {
 })
 ```
 
-<span id="hangup"></span>
+[](id:hangup)
 #### hangup()  
 结束当前通话。
 ```javascript
 TRTCCallingContext.hangup()
 ```
 
-<span id="setMicMute"></span>
+[](id:setMicMute)
 ####  setMicMute(isMute) 
 设置麦克风状态。
 
@@ -177,7 +177,7 @@ TRTCCallingContext.hangup()
 TRTCCallingContext.setMicMute(true) // 开启麦克风
 ```
 
-<span id="setHandsFree"></span>
+[](id:setHandsFree)
 ####  setHandsFree(isHandsFree) 
 设置声音播放状态。
 
@@ -189,7 +189,7 @@ TRTCCallingContext.setMicMute(true) // 开启麦克风
 TRTCCallingContext.setHandsFree(true) // 开启外放模式
 ```
 
-<span id="EVENT"></span>
+[](id:EVENT)
 ## 事件表
 获取 EVENT 事件。
 ```javascript
