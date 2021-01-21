@@ -115,7 +115,7 @@ wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1
 #### 3.2.2 接收消息
 客户端上传数据的过程中，需要同步接收后台返回的实时识别结果，结果示例：
 ```
- {"code":0,"message":"success","voice_id":"RnKu9FODFHK5FPpsrN","message_id":"RnKu9FODFHK5FPpsrN_11_0","result":{"slice_type":0,"index":0,"start_time":0,"end_time":1240,"voice_text_str":"实时","word_size":0,"word_list":[}
+ {"code":0,"message":"success","voice_id":"RnKu9FODFHK5FPpsrN","message_id":"RnKu9FODFHK5FPpsrN_11_0","result":{"slice_type":0,"index":0,"start_time":0,"end_time":1240,"voice_text_str":"实时","word_size":0,"word_list":[]}}
 ```
 
 ```
