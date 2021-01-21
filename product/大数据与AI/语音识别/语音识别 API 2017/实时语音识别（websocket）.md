@@ -1,10 +1,10 @@
 >?此接口为 API 2.0 版本，在参数风格、错误码等方面有区别于 API 3.0 版本，请知悉。
 
-## 1. 接口描述
+## 接口描述
 本接口服务采用 websocket 协议，对实时音频流进行识别，同步返回识别结果，达到“边说边出文字”的效果。
 在使用该接口前，需要在语音识别控制台开通服务，并进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 新建密钥，生成 AppID、SecretID 和 SecretKey，用于 API 调用时生成签名，签名将用来进行接口鉴权。
 
-## 2. 接口要求
+## 接口要求
 集成实时语音识别 API 时，需按照以下要求。
 
 | 内容 | 说明 |
@@ -19,7 +19,7 @@
 | 数据发送 | 建议每40ms发送40ms时长（即1:1实时率）的数据包，对应8k采样率为640字节，16k采样率为1280字节。<br>音频发送速率过快超过1:1实时率或者音频数据包之间发送间隔超过6秒，可能导致引擎出错，后台将返回错误并主动断开连接。 |
 | 并发限制 | 默认单账号限制并发连接数为20路，如您有提高并发限制的需求，[请提工单](https://console.cloud.tencent.com/workorder/category) 进行咨询。 |
 
-## 3. 接口调用流程
+## 接口调用流程
 接口调用流程分为两个阶段：握手阶段和识别阶段。两阶段后台均返回 text message，内容为 json 序列化字符串，以下是格式说明：
 
 | 字段名 | 类型 | 描述 |
@@ -43,8 +43,8 @@
 | word_size | Integer | 当前一句话的词结果个数。 |
 | word_list | Word Array | 当前一句话的词列表，Word 结构体格式为：<br>word：String 类型，该词的内容；<br>start_time：Integer 类型，该词在整个音频流中的起始时间；<br>end_time：Integer 类型，该词在整个音频中的结束时间；<br>stable_flag：Integer 类型，该词的稳态结果，0表示该词在后续识别中可能发生变化，1表示该词在后续识别过程中不会变化。 |
 
-### 3.1 握手阶段
-#### 3.1.1 请求格式
+### 握手阶段
+#### 请求格式
 握手阶段，客户端主动发起 websocket 连接请求，请求 URL 格式为：
 ```
 wss://asr.cloud.tencent.com/asr/v2/<appid>?{请求参数}
@@ -95,24 +95,24 @@ HepdTRX6u155qIPKNKC+3U0j1N0=
 wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1592380492&filter_dirty=1&filter_modal=1&filter_punc=1&needvad=1&nonce=1592294092123&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&timestamp=1592294092&voice_format=1&voice_id=RnKu9FODFHK5FPpsrN&signature=HepdTRX6u155qIPKNKC%2B3U0j1N0%3D
 ```
 
-#### 3.1.2 请求响应
+#### 请求响应
 客户端发起连接请求之后，后台建立连接进并进行签名校验，校验成功则返回 code 值为0的确认消息表示握手成功；如果校验失败，后台返回 code 为非0值的消息并断开连接。
 ```
  {"code": 0, "message": "sucess"}
 ```
 
 
-### 3.2 识别阶段
+### 识别阶段
 握手成功之后，进入识别阶段，客户端上传语音数据并接收识别结果消息。
 
-#### 3.2.1 上传数据
+#### 上传数据
 在识别过程中，客户端持续上传 binary message 到后台，内容为音频流二进制数据。建议每40ms发送40ms时长（即1:1实时率）的数据包，对应8k采样率为640字节，16k采样率为1280字节。音频发送速率过快超过1:1实时率或者音频数据包之间发送间隔超过6秒，可能导致引擎出错，后台将返回错误并主动断开连接。
 音频流上传完成之后，客户端需发送以下内容的 text message，通知后台结束识别。
 ```
 {"type": "end"}
 ```
 
-#### 3.2.2 接收消息
+#### 接收消息
 客户端上传数据的过程中，需要同步接收后台返回的实时识别结果，结果示例：
 ```
  {"code":0,"message":"success","voice_id":"RnKu9FODFHK5FPpsrN","message_id":"RnKu9FODFHK5FPpsrN_11_0","result":{"slice_type":0,"index":0,"start_time":0,"end_time":1240,"voice_text_str":"实时","word_size":0,"word_list":[]}}
@@ -130,7 +130,7 @@ wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1
 {"code":4008,"message":"后台识别服务器音频分片等待超时","voice_id":"CzhjnqBkv8lk5pRUxhpX","message_id":"CzhjnqBkv8lk5pRUxhpX_241"}
 ```
 
-## 4. 开发者资源
+## 开发者资源
 ### SDK
 - [Tencent Cloud Speech SDK for Go](https://github.com/TencentCloud/tencentcloud-speech-sdk-go)
 - [Tencent Cloud Speech SDK for Java](https://github.com/TencentCloud/tencentcloud-speech-sdk-java)
@@ -138,7 +138,7 @@ wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1
 - [Tencent Cloud Speech SDK for Python](https://github.com/TencentCloud/tencentcloud-speech-sdk-python)
 - [Tencent Cloud Speech SDK for JS](https://github.com/TencentCloud/tencentcloud-speech-sdk-js)
 
-## 5. 错误码
+## 错误码
 
 | 数值 | 说明 |
 |---------|---------|
