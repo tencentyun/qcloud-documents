@@ -20,6 +20,32 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 
 若控制台有以下日志打印，则表明联合保活功能已经关闭：`I/TPush: [ServiceUtil] disable pull up other app`。
 
+
+### 厂商推送服务需要上架应用市场才可以开通吗？
+
+| 厂商 | 是否需要上架应用市场 |
+|---------|---------|
+| 小米 | 否，个人开发者账号即可 [开通小米平台推送服务](https://dev.mi.com/console/doc/detail?pId=68) | 
+| 魅族 | 否，个人开发者账号即可 [开通魅族平台推送服务](http://open.res.flyme.cn/fileserver/upload/file/201709/a271468fe23b47408fc2ec1e282f851f.pdf)| 
+| FCM | 否，个人开发者账号即可开通 FCM 推送服务 |
+| 华为 | 否，个人开发者账号即可 [开通华为平台推送服务](https://developer.huawei.com/consumer/cn/doc/distribution/app/agc-enable_service#enable-service) | 
+| OPPO | 是，且需要企业开发者账号可 [开通 OPPO 平台推送服务](https://open.oppomobile.com/wiki/doc/#id=10195)| 
+| vivo | 是 ，且需要企业开发者账号可 [开通 vivo 平台推送服务](https://dev.vivo.com.cn/documentCenter/doc/2)|
+
+
+### 集成 vivo 厂商通道后 “APP 包含未使用的权限字符串”，如何处理？
+
+开发者在集成 vivo 厂商通道推送服务后，部分安全检测工具可能会提示 “APP 包含未使用的权限字符串”，详情如下： 
+问题来源：vivo 厂商通道推送 SDK 版本名 2.3.4。
+涉及类文件：com.vivo.push.util.z 涉及敏感权限字符串：android.permission.GET_ACCOUNTS。
+>! 经检查发现最新的 vivo 厂商通道推送 SDK 版本名 3.0.0.0 中同样包含此问题。
+
+问题代码来源为 vivo 厂商通道推送 SDK，TPNS 项目组无法变更其内容；此问题已向 vivo 推送服务相关人员反馈，表示相关静态字段为 SDK 遗留代码，并无实际使用，会尽快排期修复。 当前可参考的快速解决办法如下：
+- 方式一（推荐）： 在《APP隐私声明》里增加 [移动推送 TPNS 的隐私说明](https://cloud.tencent.com/document/product/548/36652#.E9.9A.90.E7.A7.81.E5.8D.8F.E8.AE.AE.E5.A3.B0.E6.98.8E.E5.BB.BA.E8.AE.AE)。 
+- 方式二（不推荐）： 剔除掉 vivo 相关 jar 包，但是也会丧失掉 vivo 厂商通道的能力。
+ 
+
+
 ### 设备注册失败的原因？
 
 - 新创建的 App 会有一分钟左右的数据同步过程，在此期间，注册可能返回20错误码，稍后重试即可。

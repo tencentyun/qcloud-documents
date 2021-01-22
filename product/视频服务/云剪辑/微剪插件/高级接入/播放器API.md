@@ -80,6 +80,7 @@
 | getPlayStatus | -      | String       | 获取当前播放状态                         |
 | hideClipControl| -      | -           | 强制隐藏所有的编辑控件                         |
 | preloadSticker| String（spritesheet 地址或 key 值）| -       | 异步方法，预加载贴纸       |
+| preloadTemplate| String（模板 key 值）| -       | 异步方法，预加载模板       |
 
 播放器围绕 Tracks 和 Clips 进行视频渲染， 前文数据结构详细介绍了 Tracks 和 Clips 直接的关系。接下来，我们一起来看一下如何对播放器进行渲染。
 >?

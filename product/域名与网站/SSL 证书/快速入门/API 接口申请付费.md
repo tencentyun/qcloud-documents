@@ -18,7 +18,7 @@
 
 
 ### GeoTrust、SecureSite、TrustAsia、GlobalSign 品牌 OV/EV 型证书 API 接口申请流程
-请您按照流程图调用相关 SSL 证书接口，CA 机构会审核相关确认函材料并联系您完成域名验证操作。具体验证操作请参考 [DNS 解析验证](https://cloud.tencent.com/document/product/400/4142#.E6.89.8B.E5.8A.A8-dns-.E9.AA.8C.E8.AF.81) 或 [文件验证](https://cloud.tencent.com/document/product/400/4142#.E6.96.87.E4.BB.B6.E9.AA.8C.E8.AF.81)。
+请您按照流程图调用相关 SSL 证书接口，CA 机构会审核相关确认函材料并联系您完成域名验证操作。具体验证操作请参考 [DNS 解析验证](https://cloud.tencent.com/document/product/400/4142#ManualVerification) 或 [文件验证](https://cloud.tencent.com/document/product/400/4142#FileVerification)。
 证书签发后可通过下载证书（DownloadCertificate）接口进行证书下载操作。如下图所示：
 ![](https://main.qcloudimg.com/raw/61d621dcdc7f5430a6809f29c6383aec.png)
 
@@ -28,7 +28,7 @@
 ![](https://main.qcloudimg.com/raw/c484b304196d476495c3c62856011bcf.png)
 
 ### DNSPod（国密标准） 品牌付费 OV/EV 型证书 API 接口申请流程
-请您按照流程图调用相关 SSL 证书接口，CA 机构会审核相关确认函材料并联系您完成域名验证操作。具体验证操作请参考 [DNS 解析验证](https://cloud.tencent.com/document/product/400/4142#.E6.89.8B.E5.8A.A8-dns-.E9.AA.8C.E8.AF.81) 或 [文件验证](https://cloud.tencent.com/document/product/400/4142#.E6.96.87.E4.BB.B6.E9.AA.8C.E8.AF.81)。
+请您按照流程图调用相关 SSL 证书接口，CA 机构会审核相关确认函材料并联系您完成域名验证操作。具体验证操作请参考 [DNS 解析验证](https://cloud.tencent.com/document/product/400/4142#ManualVerification) 或 [文件验证](https://cloud.tencent.com/document/product/400/4142#FileVerification)。
 证书签发后可通过下载证书（DownloadCertificate）接口进行证书下载操作。如下图所示：
 >?DNSPod（国密标准）证书采用了国密 SM2 算法，现阶段仅支持特定 Web 服务器部署安装证书，特定浏览器访问相应域名。具体详情请参考 [DNSPod 品牌证书国密标准（SM2）介绍](https://cloud.tencent.com/document/product/400/47404)。
 >
