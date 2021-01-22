@@ -58,15 +58,17 @@ TRTCCalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯�
 <TRTCCalling id="TRTCCalling-room" config="{{config}}"></TRTCCalling>
 ```
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 // videocall.js
 trtcConfig = {
-  sdkAppID: '1401000123', // 开通实时音视频服务创建应用后分配的 SDKAppID
-  userID: 'test_user_001', // 用户 ID，可以由您的帐号系统指定
-  userSig: 'xxxxxxxxxxxx', // 身份签名，相当于登录密码的作用
-  type: 1, // 通话模式
+	sdkAppID: '1401000123', // 开通实时音视频服务创建应用后分配的 SDKAppID
+	userID: 'test_user_001', // 用户 ID，可以由您的帐号系统指定
+	userSig: 'xxxxxxxxxxxx', // 身份签名，相当于登录密码的作用
+	type: 1, // 通话模式
 }
-```
+:::
+</dx-codeblock>
 
 ### 组件方法
 
@@ -142,21 +144,25 @@ TRTCCallingContext.groupCall({userIDList, type, groupID})
 当收到邀请后，调用该接口将接受当前的邀请。
 >? 当上一个 invitation 未处理完成时，组件会默认占线，之后的邀请都会回复忙线。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 TRTCCallingContext.on(EVENT.INVITED, () => {
   TRTCCallingContext.accept()
 })
-```
+:::
+</dx-codeblock>
 
 [](id:reject)
 #### reject()
 当收到邀请后，调用该接口将拒绝当前收到的邀请。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 TRTCCallingContext.on(EVENT.INVITED, () => {
   TRTCCallingContext.reject()
 })
-```
+:::
+</dx-codeblock>
 
 [](id:hangup)
 #### hangup()  
@@ -289,12 +295,15 @@ const EVENT = trtcRoomContext.EVENT // 以下事件均在此EVENT对象下
 
 通过监听 EVENT 里的 ERROR 字段，对组件抛出的错误进行处理。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 let EVENT = trtcRoomContext.EVENT
 trtcRoomContext.on(EVENT.ERROR,(event)=>{
   console.log(event.data)
 })
-```
+::: 
+</dx-codeblock>
+
 ## 常见问题
 #### 为什么拨打不通，或者被踢下线？
 组件暂不支持多实例登入，不支持**离线推送信令**功能，请您确认账号登入的唯一性。
