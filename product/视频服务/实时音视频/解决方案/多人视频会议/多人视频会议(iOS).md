@@ -233,10 +233,8 @@ if #available(iOS 12.0, *) {
 
 [](id:model.step8)
 ### 步骤8：实现文字聊天和禁言消息
-通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到`onRecvRoomTextMsg`回调。
+- 通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到`onRecvRoomTextMsg`回调。
 即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
-
-
 <dx-codeblock>
 ::: swift swift
 // 发送端：发送文本消息
@@ -248,12 +246,12 @@ TRTCMeeting.sharedInstance().sendRoomTextMsg("Hello Word!") { (code, message) in
 func onRecvRoomTextMsg(_ message: String?, userInfo: TRTCMeetingUserInfo) {
   debugPrint("收到来自:\(String(describing: userInfo.userId))的消息\(String(describing: message))")
 }
-```
-
+:::
+</dx-codeblock>
 - 通过`sendRoomCustomMsg`可以发送自定义（信令）的消息，所有在该房间内的主持人和与会观众均可以收到`onRecvRoomCustomMsg`回调。
 自定义消息常用于传输自定义信令，例如用于禁言之类的会场控制等。
-
-```swift
+<dx-codeblock>
+::: swift swift
 // 发送端：您可以通过自定义 Cmd 来区分禁言通知
 // eg:"CMD_MUTE_AUDIO"表示禁言通知
 TRTCMeeting.sharedInstance().sendRoomCustomMsg("CMD_MUTE_AUDIO", message: "1") { (code, message) in
