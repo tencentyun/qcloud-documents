@@ -28,10 +28,10 @@
 :::
 ::: 方法2：使用\sHelm\s命令部署
 
-1. 安装 [Helm 命令](https://helm.sh/docs/intro/install/)。
-2. 通过 Helm 命令安装 Jenkins ，详情请参见 [Jenkins 安装官方文档](https://www.jenkins.io/doc/book/installing/kubernetes/#install-jenkins-with-helm-v3)（执行 helm install 命令时，需加上 `-f values-gitlab-ce.yaml` 替换部署配置）。
+1. 安装 [Helm](https://helm.sh/docs/intro/install/)。
+2. 通过 Helm 命令安装 Jenkins ，详情请参见 [Jenkins 安装官方文档](https://www.jenkins.io/doc/book/installing/kubernetes/#install-jenkins-with-helm-v3)（执行 helm install 命令时，需添加 `-f values-gitlab-ce.yaml` 替换部署配置）。
 
->?方法2适合用在 CI/CD 流程，不通过控制台部署。
+>?此方法不通过控制台部署，适合用于 CI/CD 流程。
 :::
 </dx-tabs>
 
