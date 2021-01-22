@@ -113,7 +113,8 @@ API 网关发往 SCF 的结构体格式为：
     "foo" : "bar",
     "bob" : "alice"
   },
-  "httpMethod": "POST"
+  "httpMethod": "POST",
+  "isBase64Encoded": "true"
 }
 ```
 
