@@ -13,7 +13,7 @@
 ::: shayuyan
 FROM centos:7
 RUN yum update -y &amp;&amp; yum install -y java-1.8.0-openjdk
- # 设置时区
+# 设置时区
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "Asia/Shanghai" > /etc/timezone
 ENV workdir /app/
