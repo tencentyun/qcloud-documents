@@ -198,8 +198,8 @@ public abstract void setDelegateHandler(Handler handler);
 登录。
 ```java
 public abstract void login(int sdkAppId,
- String userId, String userSig,
- TRTCMeetingCallback.ActionCallback callback);
+	 String userId, String userSig,
+	 TRTCMeetingCallback.ActionCallback callback);
 ```
 
 参数如下表所示：
