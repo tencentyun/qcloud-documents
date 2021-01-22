@@ -139,7 +139,8 @@ TRTCMeeting.sharedInstance().login(SDKAPPID, userId: userID, userSig: userSig, c
 
 ![](https://main.qcloudimg.com/raw/6e0cf097f46a8953cbebcf9995ba28c1.png)
 
-```swift
+<dx-codeblock>
+::: swift swift
 // 1.主播设置昵称和头像
 trtcMeeting.setSelfProfile(name: "A", avatarURL: "faceUrl", callback: nil)
 
@@ -156,7 +157,8 @@ trtcMeeting.createMeeting(roomId) { (code, msg) in
   return;
  }
 }
-```
+:::
+</dx-codeblock>
 
 [](id:model.step6)
 ### 步骤6：参会成员进入多人会议
@@ -167,7 +169,8 @@ trtcMeeting.createMeeting(roomId) { (code, msg) in
 
 ![](https://main.qcloudimg.com/raw/d8b796bbe41c9da1af40740916e84d70.png)
 
-```swift
+<dx-codeblock>
+::: swift swift
 // 1.参会成员设置昵称和头像
 trtcMeeting.setSelfProfile(name: "A", avatarURL: "faceUrl", callback: nil)
 
@@ -180,9 +183,11 @@ trtcMeeting.enterMeeting(roomId) { (code, msg) in
       self.view.makeToast("会议进入失败：" + msg!)
    }
 }
-```
+:::
+</dx-codeblock>
 
-```swift
+<dx-codeblock>
+::: swift swift
 let renderView = getRenderView(userId: userId)
 if available && renderView != nil {
   //收到回调，并调用 startRemoteView，传入 userId 开始播放
@@ -196,7 +201,8 @@ if available && renderView != nil {
 }
 //刷新当前界面
 renderView?.refreshVideo(isVideoAvailable: available)
-```
+:::
+</dx-codeblock>
 
 [](id:model.step7)
 ### 步骤7：屏幕分享
@@ -205,7 +211,8 @@ renderView?.refreshVideo(isVideoAvailable: available)
 
 >!屏幕分享和摄像头采集是两个互斥的操作，如果需要打开屏幕分享功能，请先调用`stopCameraPreview`关闭摄像头采集。
 
-```swift
+<dx-codeblock>
+::: swift swift
 // 1.按钮点击实现屏幕分享
 if #available(iOS 12.0, *) {
   // 录屏前必须先关闭摄像头采集
@@ -221,14 +228,17 @@ if #available(iOS 12.0, *) {
 } else {
   self.view.makeToast("系统版本低于12.0，请升级系统")
 }     
-```
+:::
+</dx-codeblock>
 
 [](id:model.step8)
 ### 步骤8：实现文字聊天和禁言消息
-- 通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到`onRecvRoomTextMsg`回调。
+通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到`onRecvRoomTextMsg`回调。
 即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
 
-```swift
+
+<dx-codeblock>
+::: swift swift
 // 发送端：发送文本消息
 TRTCMeeting.sharedInstance().sendRoomTextMsg("Hello Word!") { (code, message) in
   debugPrint("send result: ", code)
@@ -257,5 +267,6 @@ func onRecvRoomCustomMsg(_ cmd: String?, message: String?, userInfo: TRTCMeeting
     TRTCMeeting.sharedInstance().muteLocalAudio(message == "1")
   }
 }
-```
+:::
+</dx-codeblock>
 
