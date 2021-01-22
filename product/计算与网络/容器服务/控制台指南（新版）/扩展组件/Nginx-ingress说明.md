@@ -11,7 +11,7 @@ Nginx 可以用作反向代理、负载平衡器和 HTTP 缓存。Nginx-ingress 
 | nginx-ingress  | Configmap | -      | 自定义设置 |
 | tke-ingress-nginx-controller-operator | Deployment | 0.13核 CPU，128MB内存 | kube-system |
 | ingress-nginx-controller | Deployment/DaementSet | 0.1核 CPU | kube-system |
-| ingress-nginx-controller-hpa | HPA |  | kube-system |
+| ingress-nginx-controller-hpa | HPA |  -| kube-system |
 
 ## 前提条件
 - Kubernetes 版本建议在1.12版本及以上。

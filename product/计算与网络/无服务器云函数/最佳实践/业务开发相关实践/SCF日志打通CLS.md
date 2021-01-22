@@ -1,12 +1,20 @@
 ## 操作场景
-在使用云函数（SCF）进行函数计算时，会产生大量的函数运行日志，您可通过 [SCF 控制台](https://console.cloud.tencent.com/scf/index?rid=1) 查看并检索近15天的日志。
+在使用云函数 SCF 进行函数计算时，会产生大量的函数运行日志，您可通过 [云函数控制台](https://console.cloud.tencent.com/scf/index?rid=1) 查看并检索近15天的日志。
 如果您需要将日志进行持久化存储、投递或消费，对日志内容进行监控告警，您可将日志投递到腾讯云日志服务（CLS）平台。如下图所示：
 ![](https://main.qcloudimg.com/raw/b567f1c3df01998110d6ead314590f5d.jpg)
 
 
 ## 前提条件
 在使用 SCF 实时日志服务功能之前，需开通 [日志服务](https://cloud.tencent.com/product/cls)。
->! 了解日志服务相关限制可参见 [规格说明](https://cloud.tencent.com/document/product/614/17413)，超出限制可能会导致日志丢失。如遇日志服务故障无法正常写入日志，SCF 会为您保留最近2小时的调用日志，超出2小时服务未恢复可能会导致日志丢失。
+
+
+
+<dx-alert infotype="notice" title="">
+了解日志服务相关限制可参见 [规格说明](https://cloud.tencent.com/document/product/614/17413)，超出限制可能会导致日志丢失。
+</dx-alert>
+
+
+
 
 ## 操作步骤
 ### 创建日志集和日志主题
@@ -32,7 +40,7 @@
 3. 选择日志主题所在行右侧的【管理】，进入日志主题“基本信息”页面。
 4. 在日志主题“基本信息”页面，单击【索引配置】。如下图所示：
 ![](https://main.qcloudimg.com/raw/dfb2ab52611a37e82873d3b97f33a0a6.png)
-4. 单击右上角的【编辑】，开启“键值索引”后按照下表添加“字段名称”、“字段类型”。
+5. 单击右上角的【编辑】，开启“键值索引”后按照下表添加“字段名称”、“字段类型”。
  >? 对于配置了 CLS 的函数，为保证云函数控制台日志展示效果，请在键值索引配置中为字段打开“开启统计”能力。如下图所示：
 ![](https://main.qcloudimg.com/raw/f852620614fe76d648af252ca20621ca.png)
 >
@@ -41,63 +49,82 @@
 <tr>
 <th>字段名称</th>
 <th>字段类型</th>
+<th>字段含义</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>SCF_FunctionName</td>
 <td>text</td>
+<td>函数名称。</td>
 </tr>
 <tr>
 <td>SCF_Namespace</td>
 <td>text</td>
+<td>函数所在命名空间。</td>
 </tr>
 <tr>
 <td>SCF_StartTime</td>
 <td>long</td>
+<td>调用开始时间。</td>
 </tr>
 <tr>
 <td>SCF_LogTime</td>
 <td>long</td>
+<td>日志产生时间。</td>
 </tr>
 <tr>
 <td>SCF_RequestId</td>
 <td>text</td>
+<td>请求 ID。</td>
 </tr>
 <tr>
 <td>SCF_Duration</td>
 <td>long</td>
+<td>函数运行时间。</td>
 </tr>
 <tr>
 <td>SCF_Alias</td>
 <td>text</td>
+<td>别名。</td>
 </tr>
 <tr>
 <td>SCF_Qualifier</td>
 <td>text</td>
+<td>版本。</td>
 </tr>
 <tr>
 <td>SCF_MemUsage</td>
 <td>double</td>
+<td>函数运行内存。</td>
 </tr>
 <tr>
 <td>SCF_Level</td>
 <td>text</td>
+<td>Log4J 日志级别，默认为 INFO。</td>
 </tr>
 <tr>
 <td>SCF_Message</td>
 <td>text</td>
+<td>日志内容。</td>
 </tr>
 <tr>
 <td>SCF_Type</td>
 <td>text</td>
+<td>日志类型，Platform 指平台日志，Custom 指用户日志。</td>
 </tr>
 <tr>
 <td>SCF_StatusCode</td>
 <td>long</td>
+<td>函数运行 <a href="https://cloud.tencent.com/document/product/583/42611">状态码</a>。</td>
+</tr>
+<tr>
+<td>SCF_RetryNum</td>
+<td>long</td>
+<td>重试次数。</td>
 </tr>
 </tbody></table>
 
-如需使用更多功能，例如日志实时检索，日志投递和消费等，请参考 [日志服务文档](https://cloud.tencent.com/document/product/614) 并前往 [CLS 控制台](https://console.cloud.tencent.com/cls) 开始使用。
+如需使用更多功能，例如日志实时检索、日志投递和消费等，请参考 [日志服务文档](https://cloud.tencent.com/document/product/614) 并前往 [日志服务控制台](https://console.cloud.tencent.com/cls) 开始使用。
 
 
 ### 实时检索示例
@@ -108,3 +135,6 @@
 检索语法支持关键词检索、模糊检索、范围检索等方式，详情请参考 [语法与规则](https://cloud.tencent.com/document/product/614/16982)。
 3. 单击【检索分析】即可查看实时日志信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/34a93bc5fbdfdc9038811c222014fea0.png)
+
+
+

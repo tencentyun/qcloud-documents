@@ -60,14 +60,14 @@
 | TRTCMeetingMoreViewController | 设置界面相关 UI 实现代码。 |
 
 
-<span id="model"> </span>
+[](id:model)
 ## 实现自定义 UI 界面
 
 [源码](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCMeetingDemo) 中的 trtcmeetingdemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCMeeting，您可以在`TRTCMeeting.h`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/bee48f1b790fd81a60f73d07fdb5ecc5.png)
 
 
-<span id="model.step1"> </span>
+[](id:model.step1)
 ### 步骤1：集成 SDK
 多人视频会议组件 TRTCMeeting 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
@@ -86,15 +86,15 @@ pod 'TXLiteAVSDK_TRTC'
 | TRTC SDK | [DOWNLOAD](https://cloud.tencent.com/document/product/647/32689) | [集成文档](https://cloud.tencent.com/document/product/647/32175) |
 | IM SDK | [DOWNLOAD](https://cloud.tencent.com/document/product/269/36887) | [集成文档](https://cloud.tencent.com/document/product/269/32679) |
 
-<span id="model.step2"> </span>
+[](id:model.step2)
 ### 步骤2：配置权限
 在 info.plist 文件中需要添加 Privacy > Camera Usage Description， Privacy > Microphone Usage Description 申请摄像头和麦克风权限。
 
-<span id="model.step3"> </span>
+[](id:model.step3)
 ### 步骤3：导入 TRTCMeeting 组件
 拷贝`iOS/LiteAVDemo/TXLiteAVDemo/TRTCMeetingDemo/model`目录中的所有文件到您的项目中。
 
-<span id="model.step4"> </span>
+[](id:model.step4)
 ### 步骤4：创建并登录组件
 1. 调用`sharedInstance`接口可以创建一个 TRTCMeeting 组件的实例对象。
 2. 调用`setDelegate`函数注册组件的事件通知。
@@ -129,7 +129,7 @@ TRTCMeeting.sharedInstance().login(SDKAPPID, userId: userID, userSig: userSig, c
 })
 ```
 
-<span id="model.step5"> </span>
+[](id:model.step5)
 ### 步骤5：创建多人会议
 1. 主持人执行 [步骤4](#model.step4) 登录后，可以调用`setSelfProfile`设置自己的昵称和头像。
 2. 主持人调用`setDelegate`可以进行事件调用`createMeeting`创建新的会议房间。
@@ -158,7 +158,7 @@ trtcMeeting.createMeeting(roomId) { (code, msg) in
 }
 ```
 
-<span id="model.step6"> </span>
+[](id:model.step6)
 ### 步骤6：参会成员进入多人会议
 1. 参会成员执行 [步骤4](#model.step4) 登录后，可以调用`setSelfProfile`设置自己的昵称和头像。
 2. 参会成员调用`enterMeeting`并传入会议房间号即可进入会议房间。
@@ -198,7 +198,7 @@ if available && renderView != nil {
 renderView?.refreshVideo(isVideoAvailable: available)
 ```
 
-<span id="model.step7"> </span>
+[](id:model.step7)
 ### 步骤7：屏幕分享
 1. 调用 `startScreenCapture`，传入编码参数和录屏过程中的悬浮窗即可实现屏幕分享功能，具体信息请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a59b16baa51d86cc0465dc6edd3cbfc97)。
 2. 会议中其他成员会收到 `onUserVideoAvailable` 的事件通知。
@@ -223,7 +223,7 @@ if #available(iOS 12.0, *) {
 }     
 ```
 
-<span id="model.step8"> </span>
+[](id:model.step8)
 ### 步骤8：实现文字聊天和禁言消息
 - 通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到`onRecvRoomTextMsg`回调。
 即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。

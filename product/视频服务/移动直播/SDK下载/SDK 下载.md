@@ -1,7 +1,7 @@
 移动直播 SDK 提供了3种版本的 SDK，了解3个版本 SDK 的关系和对应的 License 使用可参见 [功能说明](https://cloud.tencent.com/document/product/454/19075)。
 以下视频将为您介绍3个 SDK 之间的区别和各自的特点：
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2343-35187?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
-
+  
     
     
 <h2 id="Smart">直播基础版（Smart）</h2>
@@ -120,7 +120,7 @@
 >! 动效贴纸、AI抠图、美妆特效和手势动作特效需通过额外的素材来使用功能。
 
 ## 各版本差异对照表
-
+ 
 ![](https://main.qcloudimg.com/raw/744b80d1c15efaddb50ff11ffeea0f6e.png)
 
 <table>
@@ -355,3 +355,5 @@
     s.parentNode.insertBefore(mta, s);
   })();
 </script>
+
+

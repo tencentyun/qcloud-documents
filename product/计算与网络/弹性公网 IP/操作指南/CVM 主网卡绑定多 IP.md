@@ -6,6 +6,7 @@
 - 请确保您单网卡绑定内网 IP 数在限额数内，具体限额请参见 [弹性网卡-使用限制](https://cloud.tencent.com/document/product/576/18527)。
 
 ## 操作步骤
+
 ### 步骤一：分配内网 IP
 1. 登录 [CVM 控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=4)。
 2. 在实例列表中单击您的 CVM ID，在详细信息页面，选择【弹性网卡】。
@@ -17,7 +18,7 @@
 >
 ![](https://main.qcloudimg.com/raw/230608e14e90b0b4848661eb337e4d0c.png)
 
-### <span id="bindEIP" />步骤二：绑定 EIP
+### 步骤二：绑定 EIP[](id:bindEIP)
 1. 在“弹性网卡”页面，单击 <img src="https://main.qcloudimg.com/raw/57a0c76b72cd97bd80bf857cd30c867a.png" style="margin: 0;">，以展开主网卡信息。
 ![](https://main.qcloudimg.com/raw/ffa35df2be28027b390413f0d54176e4.png)
 2. 在分配的类型为辅助 IP 的内网 IP 所在行，单击“已绑定公网 IP”栏下的【绑定】。
@@ -33,7 +34,7 @@
 - [Linux 云服务器](#Linux)
 - [Windows 云服务器](#Win)
 
-#### <span id="Linux" />Linux 云服务器
+#### Linux 云服务器[](id:Linux)
 如下操作以 CentOS 7 云服务器为例：
 1. 登录 [CVM 控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=4)。
 2. 在实例列表中单击您的 CVM ID，在详细信息页面，选择【弹性网卡】。
@@ -46,10 +47,9 @@
    ```plaintext
    ip address 
    ```
-![](https://main.qcloudimg.com/raw/a6bbd49ef85aa8f95ccdfcc839ec4383.png)
+ ![](https://main.qcloudimg.com/raw/a6bbd49ef85aa8f95ccdfcc839ec4383.png)
 6. 执行如下命令，备份网卡信息。
-> 注意：
-> 网卡名称 **ethx** 请替换为[ 第5步 ](#step5)查询到的实际网卡名称。
+>!网卡名称 **ethx** 请替换为[ 第5步 ](#step5)查询到的实际网卡名称。
 > 
 ```plaintext
 cp /etc/sysconfig/network-scripts/ifcfg-eth0{,.bak}
@@ -92,7 +92,7 @@ PERSISTENT_DHCLIENT=yes
 TYPE=Ethernet
 USERCTL=no
 ```
-修改后，示例如下：
+ 修改后，示例如下：
 ![](https://main.qcloudimg.com/raw/bbc5a78eab53c430eb3e0edcc04287aa.png)
 9. 完成修改后，按 **Esc**，输入 **:wq!** 并回车，保存配置并返回。
 10. 执行如下命令，重启网络服务。
@@ -103,9 +103,10 @@ systemctl restart network.service
 ```plaintext
 ip address 
 ```
-![](https://main.qcloudimg.com/raw/40664f8d1eeae7d3ce3ae94a8e602310.png)
+ ![](https://main.qcloudimg.com/raw/40664f8d1eeae7d3ce3ae94a8e602310.png)
 
-#### <span id="Win" />Windows 云服务器
+<span id="Win"></span>
+####  Windows 云服务器
 如下操作以 Windows 2012 云服务器为例：
 1. 登录云服务器，具体操作请参见 [使用 RDP 文件登录 Windows 实例](https://cloud.tencent.com/document/product/213/5435)。
 2. <span id="step2" />执行如下步骤，查看云服务器的 IP 地址、子网掩码和默认网关和 DNS 服务器：

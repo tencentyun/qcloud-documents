@@ -43,9 +43,11 @@
 
 #### TPNS 控制台分配标签
 
-1. 进入 [TPNS 控制台](https://console.cloud.tencent.com/tpns) 后，从左侧菜单进入【配置管理-基础配置】页面，即可查看某个应用的基础配置项。（可在页面顶部应用选择器选择需要分配标签的应用）
-2. 单击【应用信息】卡片中【标签】属性右侧编辑图标，单击后页面右侧会弹出标签管理模块，即可为应用分配标签。
-![](https://main.qcloudimg.com/raw/22a5373545de5f797ff2692a2dbc3ae9.png)
+1. 进入 [TPNS 控制台](https://console.cloud.tencent.com/tpns) 后，从左侧菜单进入【配置管理】>【基础配置】页面，即可查看某个应用的基础配置项。（可在页面顶部应用选择器选择需要分配标签的应用）
+2. 单击【应用信息】卡片中【标签】属性右侧编辑图标。
+![](https://main.qcloudimg.com/raw/8ef8b098afeb3d4799ed186f901ee2eb.png)
+3. 单击后页面将弹出标签管理模块，即可为应用分配标签。
+![](https://main.qcloudimg.com/raw/17a3b067576e22cf58a68b2a0f6b690c.jpg)
 
 ## 按标签分账
 

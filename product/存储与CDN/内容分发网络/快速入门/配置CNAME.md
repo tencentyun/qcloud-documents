@@ -5,13 +5,8 @@
 
 本文提供腾讯云、阿里云以及新网的 CNAME 配置步骤说明：
 
-- [腾讯云设置方法](https://cloud.tencent.com/document/product/228/3121#m1)
-- [阿里云设置方法](https://cloud.tencent.com/document/product/228/3121#m2)
-- [新网设置方法](https://cloud.tencent.com/document/product/228/3121#m3)
 
-
-
-### 腾讯云设置方法
+### 腾讯云设置方法[](id:m1)
 
 > ! 域名解析各种记录类型之间是有优先级差异的，在主机记录相同的情况下，同一条线路有几种不同的记录类型不能共存，否则将会提示冲突。CNAME 记录与除 CNAME 记录以外的任何记录类型都冲突，需要先删除掉其他记录，再进行配置。详情请参见 [为什么添加解析记录的时候提示 "记录有冲突" ](https://cloud.tencent.com/document/product/302/3468#.E4.B8.BA.E4.BB.80.E4.B9.88.E6.B7.BB.E5.8A.A0.E8.A7.A3.E6.9E.90.E8.AE.B0.E5.BD.95.E7.9A.84.E6.97.B6.E5.80.99.E6.8F.90.E7.A4.BA-.26quot.3B.E8.AE.B0.E5.BD.95.E6.9C.89.E5.86.B2.E7.AA.81.26quot.3B-.EF.BC.9F)。
 
@@ -27,21 +22,25 @@
 	- **记录类型**：选择 “CNAME”。
 	- **线路类型**：选择 “默认” 类型。DNSPod 支持按多种方式划分线路，让指定用户访问该记录。详细说明请查看[解析线路说明](https://docs.dnspod.cn/dns/5f4775898ae73e11c5b01afc/)
 	- **记录值**：CNAME 指向的域名，只可以填写域名，记录生成后会自动在域名后面补一个“.”，这是正常现象。
-	- **权重**：同一条主机记录相同的线路,可以针对不同的记录值设置权重,解析时将根据设置的权重比例进行返回。输入范围为0~100的整数。
+	- **权重**：同一条主机记录相同的线路,可以针对不同的记录值设置权重,解析时将根据设置的权重比例进行返回。输入范围为0 - 100的整数。
 	- **MX 优先级**：不需要填写。
 	- **TTL**：为缓存时间，数值越小，修改记录各地生效时间越快，默认为600秒。
 
-### 腾讯云分线路开启加速
-
-- 您可以将单个主机记录的线路设置为 “默认” 类型，则是为整站开启加速服务。
-	 例如，您需要将所有用户都指向1.com，您可以通过添加线路类型为默认、记录值为`1.com`的这一条CANME记录来实现。
-![img](https://main.qcloudimg.com/raw/be770e0f8b91c33ae7c41f1e50e633af.png)
-- 您也可以分线路开启加速服务。
-例如，您需要将联通用户指向 `2.com`，移动用户都指向 `1.com`。您可以通过添加线路类型为移动、记录值为`1.com` 和线路类型为联通、记录值为 `2.com` 的两条       CNAME 记录来实现。更多配置说明请查看[解析线路说明](https://docs.dnspod.cn/dns/5f4775898ae73e11c5b01afc/)。
-![](https://main.qcloudimg.com/raw/a10e6be051e2b90a323cb8e07081fb63.png)
 
 
-### 阿里云设置方法
+<blockquote class="d-mod-explain">
+<div class="d-mod-title d-explain-title">
+<i class="d-icon-explain"></i><strong>腾讯云分线路开启加速</strong>
+</div>
+<p></p>	
+<ul>	
+<li>您可以将单个主机记录的线路设置为 “默认” 类型，则是为整站开启加速服务。<br>例如，您需要将所有用户都指向 <code>1.com</code>，您可以通过添加线路类型为默认、记录值为 <code>1.com</code> 的这一条 CNAME 记录来实现。<br><img src="https://main.qcloudimg.com/raw/be770e0f8b91c33ae7c41f1e50e633af.png"/></li>
+<li>您也可以分线路开启加速服务。<br>例如，您需要将联通用户指向 <code>2.com</code>，移动用户都指向 <code>1.com</code>。您可以通过添加线路类型为移动、记录值为 <code>1.com</code> 和线路类型为联通、记录值为 <code>2.com</code> 的两条       CNAME 记录来实现。更多配置说明请查看 <a href="https://docs.dnspod.cn/dns/5f4775898ae73e11c5b01afc">解析线路说明</a>。<br><img src="https://main.qcloudimg.com/raw/a10e6be051e2b90a323cb8e07081fb63.png"/></li>
+</ul>	
+</blockquote>
+
+
+### 阿里云设置方法[](id:m2)
 
 若您的 DNS 服务商为阿里云，您可通过如下步骤添加 CNAME 记录。
 
@@ -54,7 +53,7 @@
 
 
 
-### 新网设置方法
+### 新网设置方法[](id:m3)
 
 若您的 DNS 服务商为新网，您可通过如下步骤添加 CNAME 记录。
 **设置别名（CNAME 记录）**

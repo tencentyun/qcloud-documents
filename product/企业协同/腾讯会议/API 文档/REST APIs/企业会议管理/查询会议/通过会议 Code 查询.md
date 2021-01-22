@@ -13,7 +13,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 | 参数名称 | 必选 | 参数类型 |参数描述 |
 |---------|---------|---------|---------|
 |meeting_code | 是 | String |有效的9位数字会议号码。|
-|userid | 是 | String |调用方用于标示用户的唯一 ID（例如企业用户可以为企业账户英文名、个人用户可以为手机号等，OAuth2.0 鉴权用户为 OpenId）。|
+|userid | 是 | String |调用方用于标示用户的唯一 ID（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。<br>企业唯一用户标识说明：<br>1. 企业对接 SSO 时使用的员工唯一标识 ID；<br>2. 企业调用创建用户接口时传递的 userid 参数。 |
 |instanceid | 是 | Integer |用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序|
 
 ## 输出参数
@@ -21,7 +21,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 | 参数名称 |参数类型 | 参数描述 |
 |---------|---------|---------|
 | meeting_number | integer | 会议数量。  |
-|meeting_info_list  | [Array](#Array) | 会议列表。  |
+|meeting_info_list  |Array| 会议列表。  |
 
 
 <span id="Array"></span>
@@ -33,10 +33,14 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 |meeting_id   |String| 会议的唯一标示 。  |
 |meeting_code    |String| 会议 App 的呼入号码。  |
 |password   |String | 会议密码。  |
-|need password   |Boolean | 非会议创建者是否需要密码入会。<br>非会议创建者查询会议，且存在会议密码，则字段为 true；其他情况，字段不返回。  |
+|need_password   |Boolean | 非会议创建者是否需要密码入会。<br>非会议创建者查询会议，且存在会议密码，则字段为 true；其他情况，字段不返回。  |
 |status|String|当前会议状态：<br>1. MEETING_STATE_INVALID：<br> 非法或未知的会议状态，错误状态。<br>  2. MEETING_STATE_INIT：<br> 会议待开始。会议预定到预定结束时间前，会议尚无人进会。<br>  3. MEETING_STATE_CANCELLED：<br> 会议已取消。主持人主动取消会议，待开始的会议才能取消，且取消的会议无法再进入。<br> 4. MEETING_STATE_STARTED：<br> 会议已开始。会议中有人则表示会议进行中。<br>5. MEETING_STATE_ENDED：<br> 会议已删除。会议已过预定结束时间且尚无人进会时，主持人删除会议，已删除的会议无法再进入。<br>6. MEETING_STATE_NULL：<br> 会议无状态。会议已过预定结束时间，会议尚无人进会。<br>7. MEETING_STATE_RECYCLED：<br> 会议已回收。会议已过预定开始时间30天，则会议号将被后台回收，无法再进入。  |
-|hosts   |用户对象数组 | 会议主持人列表 。  |
-|participants  |用户对象数组|邀请的参会者 。|
+|type   |Integer  | 会议类型：<br>0：预约会议类型<br>1：快速会议类型   |
+|join_url   |String  | 加入会议 URL。  |
+|hosts   |用户对象数组  | 指定会议主持人列表（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。<br>注意：仅腾讯会议商业版和企业版可指定主持人。|
+|participants  |用户对象数组 |邀请的参会者（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。<br>注意：仅腾讯会议商业版和企业版可邀请参会用户。 |
+|current_hosts  |用户对象数组  | 会议当前主持人列表（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。|
+|current_co_hosts  |用户对象数组  | 会议联席主持人列表（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。|
 |start_time  |String | 会议开始时间戳（单位秒）。 |
 |end_time  |String | 会议结束时间戳（单位秒）。 |
 |settings   |[会议媒体参数对象](#settings) |会议的配置，可为缺省配置。|
@@ -48,7 +52,6 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 | current_sub_meeting_id | String         | 当前子会议 ID（进行中 / 即将开始）。         |
 | enable_live | Boolean      | 是否开启直播（会议创建人才有权限查询）。   |
 | live_config | 直播信息对象 | 会议的直播配置（会议创建人才有权限查询）。 |
-| location | String | 会议地点。 |
 
 <span id="settings"></span>
 
@@ -56,7 +59,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 
 | 参数名称 | 参数类型 | 参数描述  |
 | -------- | -------- | --------- |
-| userid   | String   | 用户 ID。 |
+| userid   | String   | 用户 ID（企业内部请使用企业唯一用户标识；OAuth2.0 鉴权用户请使用 openId）。<br>企业唯一用户标识说明：<br>1. 企业对接 SSO 时使用的员工唯一标识 ID；<br>2. 企业调用创建用户接口时传递的 userid 参数。  |
 
 **会议媒体参数对象**
 
@@ -68,6 +71,8 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 | auto_in_waiting_room            | Bool     | 开启等候室。                                                   |
 | allow_screen_shared_watermark   | Bool     | 开启屏幕共享水印。                                             |
 | only_allow_enterprise_user_join | Bool     | 是否仅企业内部成员可入会。<br>true：仅企业内部用户可入会。<br>false：所有人可入会。 |
+| auto_record_type | String     | 自动录制类型，仅客户端2.7及以上版本生效。<br>none：禁用 <br>local：本地录制 <br>cloud：云录制<br> |
+
 
 **子会议对象**
 
@@ -120,12 +125,16 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
       "status": "MEETING_STATE_ENDED",      
       "start_time": "1572085800",      
       "end_time": "1572089400",      
-     "hosts": [        
-        "tester"      
+      "hosts": [        
+          {
+          "userid": "tester"
+        }    
       ],      
       "participants": [        
-        "test1"      
-      ],
+          {
+          "userid": "tester"
+        }     
+      ],      
       "join_url": "https://wemeet.qq.com/w/5NmV29k",
       "meeting_type":0,      
       "settings": {        

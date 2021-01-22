@@ -37,7 +37,7 @@ COS-Ranger-Plugin 拓展了 Ranger Admin 控制台上的服务种类，用户可
 #### 代码地址
 可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 ranger-plugin 目录下获取。
 #### 版本
-V1.0版本及以上。
+V1.1版本及以上。
 #### 部署步骤
 1. 在 Ranger 的服务定义目录下新建 COS 目录（注意，目录权限需要保证至少有 x 与 r 权限）。
 a. 腾讯云的 EMR 环境，路径是 ranger/ews/webapp/WEB-INF/classes/ranger-plugins。
@@ -61,7 +61,7 @@ curl -v -u${adminUser}:${adminPasswd} -X DELETE -H "Accept:application/json" -H 
 </dx-codeblock>
 5. 创建服务成功后，可在 Ranger 控制台看到 COS 服务。如下所示：
 ![](https://main.qcloudimg.com/raw/d1a6e2722d11f7177636a5e2c54226e3.png)
-6. 在 COS 服务侧单击【+】，定义新服务实例，服务实例名同为`cos.`服务的配置如下所示。
+6. 在 COS 服务侧单击【+】，定义新服务实例，服务实例名可自定义，例如`cos`或者`cos_test`，服务的配置如下所示。
 ![](https://main.qcloudimg.com/raw/2be86fb2b8232b16679b29e908f82d3a.png)
 其中 policy.grantrevoke.auth.users 需设置后续启动 COSRangerService 服务的用户名（即允许拉取权限策略的用户）。通常建议设置成 hadoop，后续 COSRangerService 可使用此用户名进行启动。
 7. 单击新生成的 COS 服务实例，添加 policy。如下所示：
@@ -74,7 +74,7 @@ curl -v -u${adminUser}:${adminPasswd} -X DELETE -H "Accept:application/json" -H 
  - **user/group**：用户名和用户组。这里是或的关系，即用户名或者用户组满足其中一个，即可拥有对应的操作权限。
  - **Permissions**：
     -  Read：读操作。对应于对象存储里面的 GET、HEAD 类操作，包括下载对象、查询对象元数据等。
-    -  Write：写操作,。对应于对对象存储里面的 PUT 类等修改操作，例如上传对象。
+    -  Write：写操作,。对应于对象存储里面的 PUT 类等修改操作，例如上传对象。
     -  Delete：删除操作。 对应于对象存储里删除 Object。对于 Hadoop 的 Rename 操作，需要有对原路径的删除操作权限，对新路径的写入操作权限。
     -  List：遍历权限。对应于对象存储里面的 List Object。
 ![](https://main.qcloudimg.com/raw/00a619b4b963a9acf766411fad722fe4.png)
@@ -88,19 +88,21 @@ COS-Ranger-Service 支持一主多备的 HA 部署，DelegationToken 状态持�
 可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 cos-ranger-server 目录下获取。
 
 #### 版本
-V1.0版本及以上。
+V1.1版本及以上。
 
 #### 部署步骤
 1. 将 COS Ranger Service 服务代码拷贝到集群的几台机器上，生产环境建议至少两台机器（一主一备）。因为涉及到敏感信息，建议是堡垒机或者权限严格管控的机器。
 2. 修改 cos-ranger.xml 文件中的相关配置，其中必须修改的配置项如下所示。配置项说明请参见文件中的注释说明。
- - qcloud.object.storage.rpc.address
- - qcloud.object.storage.enable.cos.ranger
- - qcloud.object.storage.zk.address
+ -  qcloud.object.storage.rpc.address
+ -  qcloud.object.storage.status.port
+ -  qcloud.object.storage.enable.cos.ranger
+ -  qcloud.object.storage.zk.address
  -  qcloud.object.storage.cos.secret.id
  -  qcloud.object.storage.cos.secret.key
 3. 修改 ranger-cos-security.xml 文件中的相关配置。其中必须修改的配置项有如下所示。配置项说明请参见文件中的注释说明。
  -  ranger.plugin.cos.policy.cache.dir
  -  ranger.plugin.cos.policy.rest.url
+ -  ranger.plugin.cos.service.name
 4. 修改 start_rpc_server.sh 中 hadoop_conf_path 和 java.library.path 的配置。这两个配置分别指向 hadoop 配置文件所在的目录（例如 core-site.xml、hdfs-site.xml）以及 hadoop native lib 路径。
 5. 执行如下命令启动服务。
 ```
@@ -108,6 +110,13 @@ chmod +x start_rpc_server.sh
 nohup ./start_rpc_server.sh &> nohup.txt &
 ```
 6. 如果启动失败，查看 log 下 error 日志是否有错误信息。
+7. cos-ranger-service 支持展示 HTTP 端口状态（端口名为 qcloud.object.storage.status.port，默认值为9998）。用户可通过以下命令获取状态信息（例如是否包含 leader、鉴权数量统计等)
+```
+# 请将下面的10.xx.xx.xxx替换为部署 ranger service 的机器 IP
+# port 9998 设置为 qcloud.object.storage.status.port 配置值
+curl -v http://10.xx.xx.xxx:9998/status
+```
+
 :::
 ::: 部署COS-Ranger-Client
 COS-Ranger-Client 由 hadoop cosn 插件动态加载，并代理访问 COS-Ranger-Service 的相关请求。例如获取临时密钥、获取 token、鉴权操作等。
@@ -116,7 +125,7 @@ COS-Ranger-Client 由 hadoop cosn 插件动态加载，并代理访问 COS-Range
 可前往 [Github](https://github.com/tencentyun/cos-ranger-service) 的 cos-ranger-client 目录下获取。
 
 #### 版本
-V1.0版本及以上。
+V1.1版本及以上。
 
 #### 部署方式
 1. 将 cos-ranger-client jar 包拷贝到与 COSN 同一目录下（请选择拷贝与自身 hadoop 大版本一致的  jar 包）。
@@ -175,13 +184,13 @@ V5.9.0版本及以上。
 
 ## 验证
 
-1. 使用 hadoop cmd 执行访问 COSN 的相关操作。示例如下所示：
-```
-#将bucket，路径等换成自己的实际信息。
-hadoop fs -lscosn://examplebucket-1250000000/doc
+1. 使用 hadoop cmd 执行访问 COSN 的相关操作。查看当前用户执行的操作是否符合主账号的权限设置预期，示例如下所示：
+```plaintext
+#将bucket，路径等替换为主账号的实际信息。
+hadoop fs -ls cosn://examplebucket-1250000000/doc
 hadoop fs -put ./xxx.txt cosn://examplebucket-1250000000/doc/
 hadoop fs -get cosn://examplebucket-1250000000/doc/exampleobject.txt
-hadoop fs -rmcosn://examplebucket-1250000000/doc/exampleobject.txt
+hadoop fs -rm cosn://examplebucket-1250000000/doc/exampleobject.txt
 ```
 2. 使用 MR Job 进行验证，验证前需重启相关的服务，例如 Yarn、Hive 等。
 
@@ -196,4 +205,3 @@ Kerberos 满足认证的需求，如果所在的集群，用户都是可信的�
 可以是子账号，但是必须拥有被操作 bucket 的相应权限，才能生成临时密钥给到 COSN 插件，进行相应的操作。通常建议这里设置的密钥拥有对该 bucket 的所有权限。
 #### 临时密钥需如何更新，每次访问 COS 前都需要从 COS Ranger Service 侧获取?
 临时密钥是 cache 在 COSN 插件侧，并周期性进行异步更新。
-

@@ -15,8 +15,7 @@
  - **购买数量**：在每个可用区，每个用户可购买的 TDSQL-C 集群（按量计费模式）总数量不超过10个。
 >?当集群存储数据量超过最大存储空间时，集群仅能读取数据不能写入，用户可以选择删除冗余数据或者升级规格。
 >
-![](https://main.qcloudimg.com/raw/ab9b8c8a29686003ecd238f046c4ff64.png)
 2. 购买成功后，返回集群列表，待集群状态显示为“运行中”，即可正常使用。
 
 ## 后续操作
-购买 TDSQL-C 集群后，可通过集群内外网地址或数据管理平台访问 TDSQL-C 集群，请参见 [访问 TDSQL-C 集群](https://cloud.tencent.com/document/product/1003/37907)。
+购买 TDSQL-C 集群后，可通过集群内外网地址或数据管理平台连接 TDSQL-C 集群，请参见 [连接 TDSQL-C 集群](https://cloud.tencent.com/document/product/1003/37907)。

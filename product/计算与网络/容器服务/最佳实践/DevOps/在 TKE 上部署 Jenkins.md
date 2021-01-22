@@ -1,0 +1,61 @@
+## 操作背景
+
+有许多 DevOps 的需求可能需要借助 Jenkins 来实现，本文将介绍如何在 TKE 上部署 Jenkins。
+
+## 前提条件
+
+* 已创建 TKE 集群，创建过程可参见 [部署容器服务 TKE](https://cloud.tencent.com/document/product/457/11741)。
+
+## 操作步骤
+
+### 从应用市场安装
+
+在 【容器服务】控制台找到 [应用市场](https://console.cloud.tencent.com/tke2/market/)，搜索 Jenkins，点击进入 Jenkins 应用详情，点 【创建应用】:
+
+![](https://main.qcloudimg.com/raw/124a144ed71eb2a013588e6fa60eced1.png)
+
+弹出右侧 values.yaml 的安装配置，可以根据自身需求进行微调。
+
+### 暴露 Jenkins UI
+
+默认情况下，Jenkins 的 UI 在集群外不可访问，要访问 Jenkins 的页面，我们通常用 Ingress 来暴露访问。TKE 有 [CLB 类型 Ingress](https://cloud.tencent.com/document/product/457/45685) 与 [Nginx 类型 Ingress](https://cloud.tencent.com/document/product/457/50502) 两种 Ingress，可参考文档自行选择。
+
+### 登录 Jenkins
+
+进入 Jenkins UI 界面，输入初始用户名密码即可登录 Jenkins 后台，用户名为 admin，初始密码通过以下命令获取:
+
+``` bash
+kubectl -n devops get secret jenkins -o jsonpath='{.data.jenkins-admin-password}' | base64 -d
+```
+
+> 注意替换自己所安装的命名空间
+
+### 创建用户
+
+我们不用 admin，用自定义用户来登录，先配置下认证与授权的策略:
+
+【Dashboard】 > 【Manage Jenkins】 > 【Security>Configure Global Security】
+
+![](https://main.qcloudimg.com/raw/98801d650feb5e2a9623dff3057a1c1a.png)
+
+然后通过以下入口来创建用户:
+
+【Dashboard】 > 【Manage Jenkins】 > 【Security】 > 【Manage Users】
+
+![](https://main.qcloudimg.com/raw/b0e04f93312ee575d42d074979f4797f.png)
+
+### 安装插件
+
+通过以下入口安装插件:
+
+【Dashboard】> 【Manage Jenkins】 > 【System Configuration】 > 【Manage Plugins】
+
+![](https://main.qcloudimg.com/raw/cb85fd7d5325218a4647a3d53a581267.png)
+
+常用的有:
+
+* kubernetes
+* pipeline
+* git
+* gitlab
+* github

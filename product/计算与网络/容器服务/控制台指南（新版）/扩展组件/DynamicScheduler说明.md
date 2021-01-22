@@ -76,13 +76,13 @@ Dynamic-scheduler 是一个 scheduler-extender，根据 node annotation 负载�
 #### 预选策略
 
 为了避免 Pod 调度到高负载的 Node 上，需要先通过预选过滤部分高负载的 Node（其中过滤策略和比例可以动态配置，具体请参见本文 [组件参数说明](#parameter)）。
-如下图所示，Node2 过去5分钟的负载，Node3 过去1小时的负载均超过对应的域值，因此不会参与接下来的优选阶段。如下图所示：
+如下图所示，Node2 过去5分钟的负载，Node3 过去1小时的负载均超过对应的域值，因此不会参与接下来的优选阶段。
 ![](https://main.qcloudimg.com/raw/e985adff60f7183d0762e9be4fc36223.png)
 
 #### 优选策略
 
 同时为了使集群各节点的负载尽量均衡，Dynamic-scheduler 会根据 Node 负载数据进行打分，负载越低打分越高。
-如下图所示，Node1 的打分最高将会被优先调度（其中打分策略和权重可以动态配置，具体请参见本文 [组件参数说明](#parameter)）。如下图所示：
+如下图所示，Node1 的打分最高将会被优先调度（其中打分策略和权重可以动态配置，具体请参见本文 [组件参数说明](#parameter)）。
 ![](https://main.qcloudimg.com/raw/eb0bb844e6cd74827037354b0a98fe4e.png)
 
 ## 组件参数说明[](id:parameter)
