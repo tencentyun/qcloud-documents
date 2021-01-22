@@ -1,6 +1,6 @@
 ## 操作场景
 
-许多 DevOps 的需求可能需要借助 Jenkins 来实现，本文将介绍如何在容器服务 TKE 上部署 Jenkins。
+许多 DevOps 的需求需要借助 Jenkins 来实现，本文将介绍如何在容器服务 TKE 上部署 Jenkins。
 
 ## 前提条件
 
