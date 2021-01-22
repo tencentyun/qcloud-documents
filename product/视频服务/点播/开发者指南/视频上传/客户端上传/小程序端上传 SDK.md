@@ -93,7 +93,7 @@ getSignature: function(callback) {
 | [finish](#y2) | 是 | Function | 上传结束回调，返回 fileId 等信息
 | [error](#y3) | 是 | Function | 错误处理回调
 
-### `progress`回调<span id="y1"></span>
+### `progress`回调[](id:y1)
 
 | 字段名 | 类型 | 字段描述 |
 | ------- | ------- | ------- |
@@ -102,7 +102,7 @@ getSignature: function(callback) {
 | speed | number | 上传速度 |
 | total | number | 总大小 |
 
-### `finish`回调<span id="y2"></span>
+### `finish`回调[](id:y2)
 
 | 字段名 | 类型 | 字段描述 |
 | ------- | ------- | ------- |
@@ -111,7 +111,7 @@ getSignature: function(callback) {
 | videoName | string | 视频名称 |
 | videoUrl | string | 视频链接 |
 
-### `error`回调<span id="y3"></span>
+### `error`回调[](id:y3)
 
 | 字段名 | 类型 | 字段描述 |
 | ------- | ------- | ------- |
