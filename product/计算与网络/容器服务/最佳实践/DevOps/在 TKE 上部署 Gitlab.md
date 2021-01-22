@@ -14,7 +14,7 @@
 ### 安装 Gitlab
 
 
-使用 Helm 安装 Gitlab，并传入本文推荐的 [values.yaml](https://raw.githubusercontent.com/TencentCloudContainerTeam/manifest/master/gitlab/values-gitlab-ce.yaml) 配置（镜像同步 + TKE 适配）。在 TKE 上提供两种方法部署 Helm 应用，详细步骤如下：
+使用 Helm 安装 Gitlab，并传入本文推荐的 [values.yaml](https://raw.githubusercontent.com/TencentCloudContainerTeam/manifest/master/gitlab/values-gitlab-ce.yaml) 配置（镜像同步 + TKE 适配）。在 TKE 上提供以下两种方法部署 Helm 应用：
 
 
 <dx-tabs>
