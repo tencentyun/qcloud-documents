@@ -12,13 +12,13 @@
 const VodUploader = require('../../lib/vod-wx-sdk-v2.js');
 ```
 - npm 安装
-````bash
+```bash
 npm i vod-wx-sdk-v2
-````
+```
 
 **2. 定义获取上传签名的函数**
 
-````js
+```js
 getSignature: function(callback) {
     wx.request({
         /**
@@ -30,7 +30,7 @@ getSignature: function(callback) {
         }
     });
 }
-````
+```
 
 >?
 >- `url` 是您派发签名服务的 URL，参见 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219)。
