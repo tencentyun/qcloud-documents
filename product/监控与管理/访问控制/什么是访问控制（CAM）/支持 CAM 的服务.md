@@ -77,7 +77,7 @@
 | [云数据库 MariaDB](https://cloud.tencent.com/document/product/237) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/237/30940) |
 | [云数据库 SQL Server](https://cloud.tencent.com/document/product/238) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/238/38874) |
 | [云数据库 PostgreSQL](https://cloud.tencent.com/document/product/409) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/409/45388) |
-| [分布式数据库 TDSQL](https://cloud.tencent.com/document/product/557) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/557/30965) |
+| [TDSQL MySQL版](https://cloud.tencent.com/document/product/557) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/557/30965) |
 | [云数据库 Redis](https://cloud.tencent.com/document/product/239) | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/239/38687) |
 | [云数据库 MongoDB](https://cloud.tencent.com/document/product/240) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/240/38703) |
 | [云数据库 Memcached](https://cloud.tencent.com/document/product/241) | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/241/38708) |
