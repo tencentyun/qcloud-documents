@@ -169,7 +169,8 @@ src/main/java/com/tencent/liteav/meeting/model
 <td>登录回调，成功时 code 为0。</td>
 </tr>
 </table>
-<pre>
+<dx-codeblock>
+::: java java
 TRTCMeeting trtcMeeting = TRTCMeeting.sharedInstance(this);
 trtcMeeting.login(SDKAPPID, userId, userSig, new TRTCMeetingCallback.ActionCallback() {
     @Override
@@ -179,7 +180,8 @@ trtcMeeting.login(SDKAPPID, userId, userSig, new TRTCMeetingCallback.ActionCallb
         }
     }
 });
-</pre>
+:::
+</dx-codeblock>
 
 [](id:model.step5)
 ### 步骤5：创建多人会议
@@ -191,7 +193,9 @@ trtcMeeting.login(SDKAPPID, userId, userSig, new TRTCMeetingCallback.ActionCallb
 >
 ![](https://main.qcloudimg.com/raw/6e0cf097f46a8953cbebcf9995ba28c1.png)
 
-```java
+
+<dx-codeblock>
+::: java java
 // 1.主持人设置昵称和头像
 trtcMeeting.setSelfProfile("my_name", "my_avatar", null);
 
@@ -211,7 +215,8 @@ trtcMeeting.createMeeting(roomId, new TRTCMeetingCallback.ActionCallback() {
         }
     }
 });
-```
+:::
+</dx-codeblock>
 
 [](id:model.step6)
 ### 步骤6：参会成员进入多人会议
@@ -222,7 +227,8 @@ trtcMeeting.createMeeting(roomId, new TRTCMeetingCallback.ActionCallback() {
 
 ![](https://main.qcloudimg.com/raw/d8b796bbe41c9da1af40740916e84d70.png)
 
-```java
+<dx-codeblock>
+::: java java
 // 1.参会成员设置昵称和头像
 trtcMeeting.setSelfProfile("my_name", "my_avatar", null);
 
@@ -242,7 +248,7 @@ trtcMeeting.enterMeeting(roomId, new TRTCMeetingCallback.ActionCallback() {
     }
 });
 
-// 4.参会成员收到其他成员摄像头打开的通知，开始播放
+// 3.参会成员收到其他成员摄像头打开的通知，开始播放
 trtcMeeting.setDelegate(new TRTCMeetingDelegate() {
     @Override
     public void onUserVideoAvailable(String userId, boolean available) {
@@ -255,7 +261,8 @@ trtcMeeting.setDelegate(new TRTCMeetingDelegate() {
         }
     }
 });
-```
+:::
+</dx-codeblock>
 
 [](id:model.step7)
 ### 步骤7：屏幕分享
@@ -263,9 +270,10 @@ trtcMeeting.setDelegate(new TRTCMeetingDelegate() {
 1. 屏幕分享功能需向系统需要申请悬浮窗权限，需要您在 UI 中实现具体的逻辑。
 2. 调用 `startScreenCapture`，传入编码参数和录屏过程中的悬浮窗即可实现屏幕分享功能，具体信息请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa6671fc587513dad7df580556e43be58)。
 3. 会议中其他成员会收到 `onUserVideoAvailable` 的事件通知。
->!屏幕分享和摄像头采集是两个互斥的操作，如果需要打开屏幕分享功能，请先调用`stopCameraPreview`关闭摄像头采集。
+>! 幕分享和摄像头采集是两个互斥的操作，如果需要打开屏幕分享功能，请先调用`stopCameraPreview`关闭摄像头采集。
 
-```java
+<dx-codeblock>
+::: java java
 // 1.在 AndroidManifest.xml 文件中添加 SDK 录屏功能的 activity 和权限
 <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 <application>
@@ -273,6 +281,7 @@ trtcMeeting.setDelegate(new TRTCMeetingDelegate() {
         android:name="com.tencent.rtmp.video.TXScreenCapture$TXScreenCaptureAssistantActivity"
         android:theme="@android:style/Theme.Translucent" />
 </application>
+
 // 2.在您的界面中申请悬浮窗的权限
 if (Build.VERSION.SDK_INT >= 23) {
     if (!Settings.canDrawOverlays(getApplicationContext())) {
@@ -310,13 +319,15 @@ private void startScreenCapture() {
         mTRTCMeeting.stopCameraPreview();
         mTRTCMeeting.startScreenCapture(encParams, params);
 }
-```
+:::
+</dx-codeblock>
 
 [](id:model.step8)
 ### 步骤8：实现文字聊天和禁言消息
 - 通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到`onRecvRoomTextMsg`回调。
  即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
-```java
+<dx-codeblock>
+::: java java
 // 发送端：发送文本消息
 trtcMeeting.sendRoomTextMsg("Hello Word!", null);
 // 接收端：监听文本消息
@@ -327,10 +338,12 @@ trtcMeeting.setDelegate(new TRTCMeetingDelegate() {
         Log.d(TAG, "收到来自" + userInfo.userName + "的消息:" + message);
     }
 });
-```
+:::
+</dx-codeblock>
 - 通过`sendRoomCustomMsg`可以发送自定义（信令）的消息，所有在该房间内的主持人和与会观众均可以收到`onRecvRoomCustomMsg`回调。
 自定义消息常用于传输自定义信令，例如用于禁言之类的会场控制等。
-```java
+<dx-codeblock>
+::: java java
 // 发送端：您可以通过自定义 Cmd 来区分禁言通知
 // eg:"CMD_MUTE_AUDIO"表示禁言通知
 trtcMeeting.sendRoomCustomMsg("CMD_MUTE_AUDIO", "1", null);
@@ -346,4 +359,5 @@ trtcMeeting.setDelegate(new TRTCMeetingDelegate() {
         }
     }
 });
-```
+:::
+</dx-codeblock>
