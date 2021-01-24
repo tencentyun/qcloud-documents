@@ -84,7 +84,7 @@ cat /proc/sys/net/ipv4/icmp_echo_ignore_all
 ```
 - 若返回结果为0，表示系统允许所有的 ICMP Echo 请求，请 [检查 iptables 设置](#CheckLinuxIptables)。
 - 若返回结果为1，表示系统限制所有的 ICMP Echo 请求，则说明 Linux 内核参数限制，导致的 “ping 不可达” 告警，请执行下文步骤3关闭限制。
-3. <span id="Linux_step03">使用拥有 root 权限的账户执行以下命令，修改内核参数 icmp_echo_ignore_all 的设置。</span>
+3. [](id:Linux_step03)使用拥有 root 权限的账户执行以下命令，修改内核参数 icmp_echo_ignore_all 的设置。
 ```plaintext
 echo "0" >/proc/sys/net/ipv4/icmp_echo_ignore_all
 ```
