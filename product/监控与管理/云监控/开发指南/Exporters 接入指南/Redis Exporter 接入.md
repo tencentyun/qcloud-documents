@@ -25,7 +25,7 @@
 3. 执行以下 [使用 Secret 管理 Redis 密码](#step1) > [部署 Redis Exporter](#step2) > [验证](#step3) 步骤完成 Exporter 部署。
 
 
-<span id="step1"></span>
+[](id:step1)
 
 #### 使用 Secret 管理 Redis 密码
 
@@ -43,7 +43,7 @@ stringData:
 			password: you-guess  #对应 Redis 密码
 ```
 
-<span id="step2"></span>
+[](id:step2)
 
 #### 部署 Redis Exporter
 
@@ -97,7 +97,7 @@ spec:
 
 
 
-<span id="step3"></span>
+[](id:step3)
 
 #### 验证
 

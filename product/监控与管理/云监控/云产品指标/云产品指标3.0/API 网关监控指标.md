@@ -32,7 +32,7 @@ Namespace=QCE/APIGATEWAY
 | Instances.N.Dimensions.2.Name  | apiid/key       | APIid 或者 SecretKey 的维度名称 | 输入 String 类型维度名称：apiid/key        |
 | Instances.N.Dimensions.2.Value | apiid/secretid  | 具体的 APIid 或者 SecretId      | 输入具体的 APIid 或者 SecretId          |
 
-<span id="weidu">
+[](id:weidu)
 
 ## 维度说明
 
