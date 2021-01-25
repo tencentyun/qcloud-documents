@@ -1,3 +1,4 @@
+[](id:web)
 ## Web 端搭建示例（H5）
 1.  引入云游戏的 js 文件。
 <dx-codeblock>
@@ -15,10 +16,8 @@
 4.  修改 `demo.html` 的 `get_signature` 请求 url，指向自行部署好的 [业务后台服务](https://cloud.tencent.com/document/product/1162/47523)。
 5.  刷新页面并等待浏览器连接成功。
 
-
+[](id:android)
 ## Android 端搭建示例
-
-
 ### 接入步骤
 1. 将 `tcgsdk-1.1.0.1009506_202011262251_release.aar` 拷贝到 libs 目录下。
 2. 在应用模块的 `build.gradle` 中加入：
