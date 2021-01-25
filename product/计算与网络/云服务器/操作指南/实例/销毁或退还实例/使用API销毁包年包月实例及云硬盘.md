@@ -32,7 +32,8 @@ go get github.com/tencentcloud/tencentcloud-sdk-go@latest
 ### 运行示例代码
 示例代码如下，您可根据实际情况进行使用：
 
-####  Go 示例
+<dx-tabs>
+::: Go
 main 程序示例代码：
 <dx-codeblock>
 :::  Golang
@@ -68,13 +69,13 @@ import (
 )
 
 type TerminateInstancesAndCbs struct {
-	Credential *common.Credential
+	Credential \*common.Credential
 	Region string
-	CbsClient *cbs.Client
-	CvmClient *cvm.Client
+	CbsClient \*cbs.Client
+	CvmClient \*cvm.Client
 }
 
-func NewTerminateInstancesAndCbs(secretId string, secretKey string, region string) *TerminateInstancesAndCbs {
+func NewTerminateInstancesAndCbs(secretId string, secretKey string, region string) \*TerminateInstancesAndCbs {
 	credential := common.NewCredential(secretId, secretKey)
 
 	cpfCbs := profile.NewClientProfile()
@@ -88,15 +89,15 @@ func NewTerminateInstancesAndCbs(secretId string, secretKey string, region strin
 	return &TerminateInstancesAndCbs{Credential: credential, Region: region, CbsClient: cbsClient, CvmClient: cvmClient}
 }
 
-func (c *TerminateInstancesAndCbs) TerminateInstance(instanceId string) (cvmApiErrors []string){
+func (c \*TerminateInstancesAndCbs) TerminateInstance(instanceId string) (cvmApiErrors []string){
 	request := cvm.NewTerminateInstancesRequest()
 	request.InstanceIds = common.StringPtrs([]string{instanceId})
 
 	for i := 0; i < 5; i ++ {
 		response, err := c.CvmClient.TerminateInstances(request)
-		if _, ok := err.(*errors.TencentCloudSDKError); ok {
+		if \_, ok := err.(\*errors.TencentCloudSDKError); ok {
 			cvmApiErrors = append(cvmApiErrors, fmt.Sprintf("Got API error when terminating %s: %s", instanceId, err))
-			time.Sleep(3 * time.Second)
+			time.Sleep(3 \* time.Second)
 			continue
 		}
 		if err != nil { // 非SDK错误
@@ -108,16 +109,16 @@ func (c *TerminateInstancesAndCbs) TerminateInstance(instanceId string) (cvmApiE
 	return cvmApiErrors
 }
 
-func (c *TerminateInstancesAndCbs) DescribeDisksForInstances(instanceId string) ([]string, error) {
+func (c \*TerminateInstancesAndCbs) DescribeDisksForInstances(instanceId string) ([]string, error) {
 	request := cbs.NewDescribeDisksRequest()
-	request.Filters = []*cbs.Filter {
+	request.Filters = []\*cbs.Filter {
 		{
 			Values: common.StringPtrs([]string{instanceId}),
 			Name:   common.StringPtr("instance-id"),
 		},
 	}
 	response, err := c.CbsClient.DescribeDisks(request)
-	if _, ok := err.(*errors.TencentCloudSDKError); ok {
+	if \_, ok := err.(\*errors.TencentCloudSDKError); ok {
 		fmt.Printf("An API error has returned: %s", err)
 		return []string{}, err
 	}
@@ -125,15 +126,15 @@ func (c *TerminateInstancesAndCbs) DescribeDisksForInstances(instanceId string) 
 		panic(err)
 	}
 	var cbsIds []string
-	for _, disk := range response.Response.DiskSet {
-		if *disk.DiskUsage == "DATA_DISK" {
-				cbsIds = append(cbsIds, *disk.DiskId)
+	for \_, disk := range response.Response.DiskSet {
+		if \*disk.DiskUsage == "DATA_DISK" {
+				cbsIds = append(cbsIds, \*disk.DiskId)
 		}
 	}
 	return cbsIds, nil
 }
 
-func (c *TerminateInstancesAndCbs) CheckTerminateInstanceSuccess(instanceId string) (result bool, cvmApiErrors []string){
+func (c \*TerminateInstancesAndCbs) CheckTerminateInstanceSuccess(instanceId string) (result bool, cvmApiErrors []string){
 	request := cvm.NewDescribeInstancesRequest()
 	request.InstanceIds = common.StringPtrs([]string{instanceId})
 
@@ -143,31 +144,31 @@ func (c *TerminateInstancesAndCbs) CheckTerminateInstanceSuccess(instanceId stri
 		if err != nil { // 非SDK错误
 			panic(err)
 		}
-		if _, ok := err.(*errors.TencentCloudSDKError); ! ok {
+		if \_, ok := err.(\*errors.TencentCloudSDKError); ! ok {
 			fmt.Printf("Describe instance %s: resp: %s", instanceId, response.ToJsonString())
 			// 后付费实例
-			if *response.Response.TotalCount == 0 {
+			if \*response.Response.TotalCount == 0 {
 				return true, []string{}
 			}
 			// 预付费实例
-			if *response.Response.TotalCount == 1 && *response.Response.InstanceSet[0].InstanceState == "SHUTDOWN" {
+			if *response.Response.TotalCount == 1 && \*response.Response.InstanceSet[0].InstanceState == "SHUTDOWN" {
 				return true, []string{}
 			}
 		} else {
 			cvmApiErrors = append(cvmApiErrors, fmt.Sprintf("Got API error when describing %s: %s", instanceId, err))
 		}
-		time.Sleep(6 * time.Second)
+		time.Sleep(6 \* time.Second)
 	}
 	return false, cvmApiErrors
 }
 
-func (c *TerminateInstancesAndCbs) DetachDisks(diskIds []string) (result bool, cbsApiErrors []string){
+func (c \*TerminateInstancesAndCbs) DetachDisks(diskIds []string) (result bool, cbsApiErrors []string){
 	request := cbs.NewDetachDisksRequest()
 	request.DiskIds = common.StringPtrs(diskIds)
 
 	for i := 0; i < 5; i ++ {
 		response, err := c.CbsClient.DetachDisks(request)
-		if _, ok := err.(*errors.TencentCloudSDKError); ! ok {
+		if \_, ok := err.(\*errors.TencentCloudSDKError); ! ok {
 			return true, []string{}
 		}
 		if err != nil {	// 非SDK错误
@@ -175,12 +176,12 @@ func (c *TerminateInstancesAndCbs) DetachDisks(diskIds []string) (result bool, c
 		}
 		fmt.Printf("Detach Disks: %s, resp: %s", strings.Join(diskIds, ","), response.ToJsonString())
 		cbsApiErrors =  append(cbsApiErrors, fmt.Sprintf("Got API error when detaching disks: %s", err))
-		time.Sleep(3 * time.Second)
+		time.Sleep(3 \* time.Second)
 	}
 	return false, cbsApiErrors
 }
 
-func (c *TerminateInstancesAndCbs) CheckDisksDetached(diskIds []string) (result bool, cbsApiErrors []string) {
+func (c \*TerminateInstancesAndCbs) CheckDisksDetached(diskIds []string) (result bool, cbsApiErrors []string) {
 	second := 60 * 3
 	count := len(diskIds)
 
@@ -189,11 +190,11 @@ func (c *TerminateInstancesAndCbs) CheckDisksDetached(diskIds []string) (result 
 
 	for ; second > 0; second -= 3 {
 		response, err := c.CbsClient.DescribeDisks(request)
-		if _, ok := err.(*errors.TencentCloudSDKError); ! ok {
+		if \_, ok := err.(\*errors.TencentCloudSDKError); ! ok {
 			// 检查是否所有磁盘都已经解挂
 			cnt := count
-			for _, disk := range response.Response.DiskSet {
-				if *disk.Attached == false {
+			for \_, disk := range response.Response.DiskSet {
+				if \*disk.Attached == false {
 					cnt -= 1
 				}
 			}
@@ -205,19 +206,19 @@ func (c *TerminateInstancesAndCbs) CheckDisksDetached(diskIds []string) (result 
 			panic(err)
 		}
 		cbsApiErrors = append(cbsApiErrors, fmt.Sprintf("Got API error when terminating disks: %s", err))
-		time.Sleep(3 * time.Second)
+		time.Sleep(3 \* time.Second)
 	}
 	return false, []string{}
 }
 
-func (c *TerminateInstancesAndCbs) TerminateDisks(diskIds []string) (result bool, cbsApiErrors []string){
+func (c \*TerminateInstancesAndCbs) TerminateDisks(diskIds []string) (result bool, cbsApiErrors []string){
 
 	request := cbs.NewTerminateDisksRequest()
 	request.DiskIds = common.StringPtrs(diskIds)
 
 	for i := 0; i < 10; i ++ {
 		response, err := c.CbsClient.TerminateDisks(request)
-		if _, ok := err.(*errors.TencentCloudSDKError); ! ok {
+		if \_, ok := err.(\*errors.TencentCloudSDKError); ! ok {
 			return true, []string{}
 		}
 		if err != nil {	// 非SDK错误
@@ -225,12 +226,12 @@ func (c *TerminateInstancesAndCbs) TerminateDisks(diskIds []string) (result bool
 		}
 		fmt.Printf("TerminateDisks: %s, resp: %s", strings.Join(diskIds, ","), response.ToJsonString())
 		cbsApiErrors = append(cbsApiErrors, fmt.Sprintf("Got API error when terminating disks: %s", err))
-		time.Sleep(6 * time.Second)
+		time.Sleep(6 \* time.Second)
 	}
 	return false, cbsApiErrors
 }
 
-func (c *TerminateInstancesAndCbs) Process(instanceId string) {
+func (c \*TerminateInstancesAndCbs) Process(instanceId string) {
 	// 从cvm实例中获取磁盘实例id
 	cbsIds, desDiskError := c.DescribeDisksForInstances(instanceId)
 	if desDiskError != nil {
@@ -272,8 +273,8 @@ func (c *TerminateInstancesAndCbs) Process(instanceId string) {
 }
 :::
 </dx-codeblock>
-
-#### Python 示例
+:::
+::: Python
 main 程序示例代码：
 <dx-codeblock>
 :::  python
@@ -463,6 +464,10 @@ class TerminateTotalInstance(object):
         return cvm_client.CvmClient(self.get_cred(), region, client_profile)
 :::
 </dx-codeblock>
+
+:::
+</dx-tabs>
+
 
 
 
