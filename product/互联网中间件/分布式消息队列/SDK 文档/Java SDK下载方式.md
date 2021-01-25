@@ -150,7 +150,7 @@ mvn help:effective-settings 。
     <dependency>
     		<groupId>com.tencent.tdmq</groupId>
     		<artifactId>tdmq-client</artifactId>
-    		<version>2.6.0</version>
+    		<version>2.5.0</version>
     </dependency>
 ``` 
 2. 在 pom.xml 所在目录执行 `mvn clean package` 即可下载 TDMQ SDK。
