@@ -4,7 +4,7 @@
 
 ## 迁移原理
 
-使用 Velero 迁移自建或其他云平台集群架构原理与 [使用 Velero 迁移复制集群资源 ](https://cloud.tencent.com/document/product/457/50550#.E8.BF.81.E7.A7.BB.E5.8E.9F.E7.90.86) 过程的原理类似，迁移集群和被迁移集群需要都安装 Velero 实例，且指定同一个腾讯云 [对象存储 COS](https://cloud.tencent.com/document/product/436) 存储桶，被迁移集群按需执行备份，目标集群按需还原集群资源实现资源迁移。
+使用 Velero 迁移自建或其他云平台集群架构的原理与 [使用 Velero 迁移复制集群资源 ](https://cloud.tencent.com/document/product/457/50550#.E8.BF.81.E7.A7.BB.E5.8E.9F.E7.90.86) 过程的原理类似，迁移集群和被迁移集群需要都安装 Velero 实例，且指定同一个腾讯云 [对象存储 COS](https://cloud.tencent.com/document/product/436) 存储桶，被迁移集群按需执行备份，目标集群按需还原集群资源实现资源迁移。
 不同的是，自建或其他云平台的集群资源迁移到 TKE 时，需要考虑和解决因跨平台导致集群环境差异问题，为此需要通过 Velero 提供的众多实用备份和还原策略帮助解决问题。
 
 
@@ -23,7 +23,7 @@
 
 
 <dx-accordion>
-::: 筛选分析需要迁移哪些集群资源，不需要迁移哪些集群资源
+::: 分析筛选哪些集群资源需要进行迁移
 根据实际情况筛选分类出需要迁移资源清单和不需要迁移的资源清单。
 :::
 ::: 根据业务场景考虑是否需要自定义\sHook\s操作
@@ -31,10 +31,10 @@
 <li>在还原（迁移）集群资源时，考虑是否需要在还原期间执行 <a href="https://velero.io/docs/v1.5/backup-hooks/">还原 Hooks</a>。例如，需要在还原前准备一些初始化工作。</li>
 :::
 ::: 按需编写备份和还原的命令或资源清单
-根据筛选归类的资源清单编写备份和还原策略，推荐在复杂场景下使用创建资源清单的方式来执行备份和还原， YAML 资源清单比较直观且方便维护，参数指定的方式可以在简单迁移场景或测试时使用。
+根据筛选归类的资源清单编写备份和还原策略，推荐在复杂场景下使用创建资源清单的方式来执行备份和还原，YAML 资源清单比较直观且方便维护，参数指定的方式可以在简单迁移场景或测试时使用。
 :::
 ::: 处理跨云平台资源的差异性
-由于是跨云平台迁移，动态创建 PVC 的存储类等关系可能不同，需要提前规划动态 PVC/PV 存储类关系是否需要重新映射，需在还原操作前，创建相关映射的 ConfigMap 配置。如需解决更加个性化的差异，可以手动修改备份后的资源清单进行解决。
+由于是跨云平台迁移，动态创建 PVC 的存储类等关系可能不同，需要提前规划动态 PVC/PV 存储类关系是否需要重新映射。需在还原操作前，创建相关映射的 ConfigMap 配置。如需解决更加个性化的差异，可以手动修改备份后的资源清单。
 :::
 ::: 操作完成后核查迁移资源
  检查迁移的集群资源是否符合预期且数据完整可用。
@@ -92,7 +92,7 @@ persistentvolumeclaim/nginx-logs created
 deployment.apps/nginx-deployment created
 service/my-nginx created
 ```
-4. 创建的 PVC “nginx-logs” 已挂载至 Nginx 容器的 `/var/log/nginx` 目录，作为服务的日志存储。本文示例通过在浏览器测试访问 Nginx 服务，为挂载的 PVC 生产日志数据（以便后续还原后进行数据比对）。示例如下：
+4. 创建的 PVC “nginx-logs” 已挂载至 Nginx 容器的 `/var/log/nginx` 目录，作为服务的日志存储。本文示例通过在浏览器测试访问 Nginx 服务，为挂载的 PVC 生产日志数据，以便后续还原后进行数据比对。示例如下：
 <dx-codeblock>
 :::  bash
 $ kubectl exec -it nginx-deployment-5ccc99bffb-6nm5w bash -n nginx-example
@@ -123,7 +123,7 @@ $ head -n 2 /var/log/nginx/error.log
 ```bash
 kubectl api-resources --verbs=list -o name  | xargs -n 1 kubectl get --show-kind --ignore-not-found --all-namespaces
 ```
- 您也可以执行以下命令，根据资源是否需要区分命名空间，缩小输出的资源范围：
+ 您也可以执行以下命令，根据资源区分命名空间，缩小输出的资源范围：
 	- 查看不区分命名空间的资源清单列表：
 		 ```bash
 		 kubectl api-resources --namespaced=false --verbs=list -o name | xargs -n 1 kubectl get --show-kind --ignore-not-found
@@ -245,7 +245,10 @@ $ velero backup get
 NAME             STATUS      ERRORS   WARNINGS   CREATED                EXPIRES   STORAGE LOCATION   SELECTOR
 migrate-backup   Completed   0        0          2020-12-29 19:24:28 +0800 CST   29d    default     <none>
 ```
-3. 备份完成后执行以下命令，将备份存储位置临时更新为只读模式（非必须，可以防止在还原过程时， Velero 在备份存储位置中创建或删除备份对象）。示例如下：
+3. 备份完成后执行以下命令，将备份存储位置临时更新为只读模式。示例如下：
+<dx-alert infotype="explain" title="">
+非必须，可以防止在还原过程时， Velero 在备份存储位置中创建或删除备份对象。
+</dx-alert>
 ```bash
 kubectl patch backupstoragelocation default --namespace velero \
     --type merge \
@@ -294,7 +297,7 @@ $ migrate-backup % tar -zcvf migrate-backup.tar.gz *
 
 #### 在集群 B 执行还原
 
-1. 本文示例应用如下所示的资源清单执行还原操作（迁移）：
+1. 本文示例使用如下所示的资源清单执行还原操作（迁移）：
 <dx-codeblock>
 :::  yaml
 apiVersion: velero.io/v1
@@ -379,7 +382,7 @@ annotations
 jokey-test
 ```
      若可以正常获取注解，则说明成功修改自定义资源。从上述命令执行结果可以查看出命名空间映射配置成功。
-3. 检查工作负载挂载的 PVC 数据是否成功迁移。示例如下：
+3. 执行以下命令，检查工作负载挂载的 PVC 数据是否成功迁移。
 <dx-codeblock>
 :::  bash
 # 查看挂载的 PVC 数据目录中的数据大小，显示为88K，比迁移前多，原因是腾讯云 CLB 主动发起健康检查产生了一些日志   
@@ -411,7 +414,7 @@ $ head -n 2 /var/log/nginx/error.log
  
 
 
-## Velero 备份/还原实用知识[](id:veleroknow)
+## 附录：Velero 备份/还原实用知识[](id:veleroknow)
 
 Velero 提供众多非常实用的备份和还原策略，详细介绍如下：
 
