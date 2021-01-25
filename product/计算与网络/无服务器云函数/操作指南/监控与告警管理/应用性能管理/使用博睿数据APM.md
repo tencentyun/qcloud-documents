@@ -116,7 +116,9 @@ stage: dev
 inputs:
   name: bonree_agent
   region: ap-beijing
-  src: ./bonree
+  src: 
+  	src: ./bonree
+    targetDir: ./bonree
   runtimes:
     - Nodejs10.15
     - Python3.6
