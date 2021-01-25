@@ -1,5 +1,5 @@
 ## 操作场景
-本文档介绍如何使用腾讯云开发者工具套件（SDK）3.0并通过 [TerminateInstances](https://cloud.tencent.com/document/product/213/15723) 接口，在销毁包年包月云服务器实例时，同时销毁已挂载至实例的包年包月云硬盘。本文提供 Python 及 Go 两种语言的示例代码，请您结合实际情况进行使用。
+本文档介绍使用腾讯云开发者工具套件（SDK）3.0及 [TerminateInstances](https://cloud.tencent.com/document/product/213/15723) 接口，在销毁包年包月云服务器实例时，同时销毁已挂载至实例的包年包月云硬盘。本文提供 Python 及 Go 两种语言的示例代码，请您结合实际情况进行使用。
 
 <dx-alert infotype="notice" title="">
 销毁/退还云服务器实例及云硬盘所造成的影响请参见 [相关影响](https://cloud.tencent.com/document/product/213/4930#.E7.9B.B8.E5.85.B3.E5.BD.B1.E5.93.8D)。
@@ -463,3 +463,11 @@ class TerminateTotalInstance(object):
         return cvm_client.CvmClient(self.get_cred(), region, client_profile)
 :::
 </dx-codeblock>
+
+
+
+
+
+
+
+
