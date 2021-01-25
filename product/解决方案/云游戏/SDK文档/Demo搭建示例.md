@@ -55,30 +55,33 @@ android:required="true" />
 <dx-codeblock>
 ::: java java
 private void init() {
-// 1.创建sdk实例并初始化
-TcgSdk2.Builder builder = new TcgSdk2.Builder(this, APP_ID, this,
-mGameView.getSurfaceRenderer());
-mSDK = builder.timeout(10000)
-.lowFpsThreshold(25, 5)
-.autoReconnect(true)
-.build(); // 初始化
+	// 1.创建sdk实例并初始化
+	TcgSdk2.Builder builder = new TcgSdk2.Builder(this, APP_ID, this, mGameView.getSurfaceRenderer());
+	mSDK = builder.timeout(10000)
+			.lowFpsThreshold(25, 5)
+			.autoReconnect(true)
+			.build(); // 初始化
 }
+
 // 3.通过客户端clientSession获取serverSession启动游戏
 private void start(String clientSession) {
-final RequestQueue queue = Volley.newRequestQueue(this);
-final String param = new Gson().toJson(new GameInfo(clientSession));
-// TODO
-// 客户端业务后台通过param请求云API: 锁定机器 & 创建会话, 获取serverSession
-// API详见: https://cloud.tencent.com/document/product/1162/40738
-// 业务后台返回Base64.decode后的serverSession
-String serverSessionDecoded;
-mSDK.start(serverSessionDecoded);
+	final RequestQueue queue = Volley.newRequestQueue(this);
+	final String param = new Gson().toJson(new GameInfo(clientSession));
+
+	// TODO
+	// 客户端业务后台通过param请求云API: 锁定机器 & 创建会话, 获取serverSession
+	// API详见: https://cloud.tencent.com/document/product/1162/40738
+	// 业务后台返回Base64.decode后的serverSession
+	
+	String serverSessionDecoded;
+	mSDK.start(serverSessionDecoded);
 }
+
 // 2.初始化完成后回调得到客户端clientSession
 @Override
 public void onInitSuccess(String clientSession) {
-// 初始化成功
-start(clientSession);
+	// 初始化成功
+	start(clientSession);
 }
 :::
 </dx-codeblock>
