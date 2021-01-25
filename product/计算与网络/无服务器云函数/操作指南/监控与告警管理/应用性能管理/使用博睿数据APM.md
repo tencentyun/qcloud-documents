@@ -3,10 +3,10 @@
 
 ## 前提条件
 
-- 已注册 [博睿 Server](https://server.bonree.com/) 账号。
+- 已注册 [博睿 Server](https://passport.bonree.com/cas/login?service=https%3A%2F%2Fserver.bonree.com%2F) 账号。
 - 已 [创建云函数](https://cloud.tencent.com/document/product/583/19806#.E5.88.9B.E5.BB.BA.E5.87.BD.E6.95.B0) 并开启公网访问。
 
->?博睿探针目前支持多数主流框架，详情请参见 [博睿探针支持列表](#list)。只有使用这部分支持的框架，博睿 smartAgent 才能自动捕获。
+>?博睿探针目前支持多数主流框架，且仅在使用支持的框架时，博睿 smartAgent 才可自动捕获。详情请参见 [博睿探针支持列表](#list)。
 
 
 
@@ -24,8 +24,8 @@
 
 1. 下载 [博睿 Serverless 版探针](https://apm-1253665819.cos.ap-guangzhou.myqcloud.com/bonree-python-nodejs-agent.zip)。
 2. 登录云函数控制台，选择左侧菜单栏中的【[层](https://console.cloud.tencent.com/scf/layer)】。
-3. 在层管理页面，单击【新建】。
-4. 在新建层页面，根据提示信息进行配置。如下图所示：
+3. 在“层”管理页面，单击【新建】。
+4. 在“新建层”页面，根据提示信息进行配置。如下图所示：
  ![](https://main.qcloudimg.com/raw/19b29b36a09d6adaf8ce55f7dfc9a599.jpg)
  - **层名称**：输入层名称。只能包含字母、数字、下划线、连字符，以字母开头，以数字或字母结尾，2 - 60个字符。
  - **提交方法**：选择【本地上传zip包】。
@@ -384,35 +384,35 @@ Node.js 支持的框架及库如下：
 </thead>
 <tbody><tr>
 <td>Express</td>
-<td>3.4.8+</td>
+<td>3.4.8及以上</td>
 </tr>
 <tr>
 <td>Koa</td>
-<td>2.2.0+</td>
+<td>2.2.0及以上</td>
 </tr>
 <tr>
 <td>Hapi</td>
-<td>17.0.0+</td>
+<td>17.0.0及以上</td>
 </tr>
 <tr>
 <td>Promise</td>
-<td>8.0.1+</td>
+<td>8.0.1及以上</td>
 </tr>
 <tr>
 <td>Bluebird</td>
-<td>3.5.1+</td>
+<td>3.5.1及以上</td>
 </tr>
 <tr>
 <td>when</td>
-<td>3.7.8+</td>
+<td>3.7.8及以上</td>
 </tr>
 <tr>
 <td>Async</td>
-<td>2.6.0+</td>
+<td>2.6.0及以上</td>
 </tr>
 <tr>
 <td>q</td>
-<td>1.5.1+</td>
+<td>1.5.1及以上</td>
 </tr>
 <tr>
 <td>request</td>
@@ -420,43 +420,43 @@ Node.js 支持的框架及库如下：
 </tr>
 <tr>
 <td>superagent</td>
-<td>3.6.0+</td>
+<td>3.6.0及以上</td>
 </tr>
 <tr>
 <td>mysql</td>
-<td>2.13.0+</td>
+<td>2.13.0及以上</td>
 </tr>
 <tr>
 <td>pg</td>
-<td>6.2.4+</td>
+<td>6.2.4及以上</td>
 </tr>
 <tr>
 <td>ioredis</td>
-<td>2.5.0+</td>
+<td>2.5.0及以上</td>
 </tr>
 <tr>
 <td>redis</td>
-<td>2.8.0+</td>
+<td>2.8.0及以上</td>
 </tr>
 <tr>
 <td>hiredis</td>
-<td>0.5.0+</td>
+<td>0.5.0及以上</td>
 </tr>
 <tr>
 <td>mongodb</td>
-<td>2.2.31+</td>
+<td>2.2.31及以上</td>
 </tr>
 <tr>
 <td>mongoose</td>
-<td>5.0.10+</td>
+<td>5.0.10及以上</td>
 </tr>
 <tr>
 <td>rabbit.js</td>
-<td>0.4.4+</td>
+<td>0.4.4及以上</td>
 </tr>
 <tr>
 <td>amqplib</td>
-<td>0.5.2+</td>
+<td>0.5.2及以上</td>
 </tr>
 </tbody></table>
 :::
