@@ -1,10 +1,10 @@
-使用博睿APM
+
 
 ## 准备工作
 
-在接入[博睿 Server](https://server.bonree.com/) 之前，需要先注册博睿 Server 的账号。
+在接入 [博睿 Server](https://server.bonree.com/) 之前，需要先注册博睿 Server 的账号。
 
->? 1. 博睿探针目前支持了多数主流框架，具体请参参照 博睿探针支持列表。只有使用这些支持的框架，博睿 smartAgent 才能自动捕获。
+>? 1. 博睿探针目前支持了多数主流框架，详情可参见 [博睿探针支持列表](#List)。只有使用这些支持的框架，博睿 smartAgent 才能自动捕获。
 >
 >2. 云函数需开启公网访问才可以上报至博睿。
 
@@ -172,7 +172,7 @@ inputs:
 
 ![image-20210120212212888](https://main.qcloudimg.com/raw/af72b23295b1a9baed10e41f4f90fad1/image-20210120212212888.png)
 
-## 博睿探针支持列表
+## 博睿探针支持列表[](id:List)
 
 Python 支持的框架及库如下：
 
