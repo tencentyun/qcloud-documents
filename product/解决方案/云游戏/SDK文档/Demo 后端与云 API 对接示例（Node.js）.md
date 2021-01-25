@@ -132,7 +132,7 @@ module.exports = router;
 [](id:step3)
 ### 步骤3：安装依赖库
 ```
-    npm install --save express tencentcloud tencentcloud-sdk-nodejs
+		npm install --save express tencentcloud tencentcloud-sdk-nodejs uuid
 ```
 
 [](id:step4)
