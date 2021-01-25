@@ -54,6 +54,28 @@ spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
 
 支持向后兼容，建议全量升级。
 
+## 1.23.7-Greenwich-RELEASE（2021-01-25）
+
+### Bug 修复
+- 修复服务治理时API PATH 标签匹配 PATH 参数失败问题。
+- 修复当存在多个限流规则的时候，全局限流规则开启后，无法删除的问题。
+- 修复泳道规则内存可见性bug。
+- 修复多个路由规则时，全局路由无法关闭的问题。
+- 修复分布式配置下发spring.application.name时，无法上报swagger问题。
+- 修复本地加密配置不能被正确解密的问题。
+- 修复网关多个命名空间时consul index混用导致第一次跨命名空间调用加载慢的问题。
+- 修复Spring Framework反射型文件下载漏洞。
+- 解决和spring-boot-devtools 的冲突。
+
+### 优化
+- actuator 依赖改为 optional。
+- TTL单独超时时间，并增加重试。
+- 优化spring-cloud-tsf-sleuth的getProperties性能
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
 ## 1.23.6-Greenwich-RELEASE（2020-11-11）
 ### 优化
 - spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
