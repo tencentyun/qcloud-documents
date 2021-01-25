@@ -14,19 +14,23 @@
 
 ## 操作步骤
 ### 安装依赖环境及 SDK
-#### Python
-1. 安装 Python 3.6-3.9 版本，详情请参见 [Python 官网](https://www.python.org/)。
-2. 执行以下命令，安装 Python SDK。更多信息请参见 [Tencent Cloud SDK 3.0 for Python](https://github.com/TencentCloud/tencentcloud-sdk-python)。
-```
-pip install --upgrade tencentcloud-sdk-python
-```
-
-#### Golang
+请根据您实际使用的开发语言，安装对应依赖环境及 SDK：
+<dx-tabs>
+::: Go
 1. 安装 Go 1.9 或其以上版本，并设置 GOPATH 等所需环境变量。详情请参见 [Golang 官网](https://golang.org/)。
 2. 执行以下命令，安装 GO SDK。更多信息请参见 [Tencent Cloud SDK 3.0 for Go](https://github.com/TencentCloud/tencentcloud-sdk-go)。
 ```
 go get github.com/tencentcloud/tencentcloud-sdk-go@latest
 ```
+:::
+::: Python
+1. 安装 Python 3.6 - 3.9 版本，详情请参见 [Python 官网](https://www.python.org/)。
+2. 执行以下命令，安装 Python SDK。更多信息请参见 [Tencent Cloud SDK 3.0 for Python](https://github.com/TencentCloud/tencentcloud-sdk-python)。
+```
+pip install --upgrade tencentcloud-sdk-python
+```
+:::
+</dx-tabs>
 
 
 ### 运行示例代码
@@ -467,12 +471,3 @@ class TerminateTotalInstance(object):
 
 :::
 </dx-tabs>
-
-
-
-
-
-
-
-
-
