@@ -41,7 +41,7 @@ begin
    cre = Credential.new('SecretId', 'SecretKey')
    req = DescribeInstancesRequest.new(nil, nil, 0, 1)
   
-   cli = Client.new(cre, 'ap-guangzhou', clipro)
+   cli = Client.new(cre, 'ap-guangzhou')
    cli.DescribeInstances(req)
 rescue TencentCloudSDKException => e
    puts e.message  
@@ -67,7 +67,6 @@ begin
    # 如果需要指定proxy访问接口，可以按照如下方式初始化hp
    # httpProfile = HttpProfile.new(proxy='http://用户名:密码@代理IP:代理端口')
    httpProfile.scheme = "https"  # 在外网互通的网络环境下支持http协议(默认是https协议),建议使用https协议
-   httpProfile.keep_alive = true  # 状态保持，默认是False
    httpProfile.req_method = "GET"  # get请求(默认为post请求)
    httpProfile.req_timeout = 30    # 请求超时时间，单位为秒(默认60秒)
    httpProfile.endpoint = "cvm.tencentcloudapi.com"  # 指定接入地域域名(默认就近接入)
