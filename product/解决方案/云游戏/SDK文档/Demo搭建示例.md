@@ -24,11 +24,11 @@
 <dx-codeblock>
 ::: java java
 repositories {
-flatDir {dirs 'libs'}
+  flatDir {dirs 'libs'}
 }
 dependencies {
-implementation fileTree(include: ['*.jar'], dir: 'libs')
-implementation(name: "tcgsdk-1.1.0.1009506_202011262251_release", ext: 'aar')
+  implementation fileTree(include: ['*.jar'], dir: 'libs')
+  implementation(name: "tcgsdk-1.1.0.1009506_202011262251_release", ext: 'aar')
 }
 :::
 </dx-codeblock>
