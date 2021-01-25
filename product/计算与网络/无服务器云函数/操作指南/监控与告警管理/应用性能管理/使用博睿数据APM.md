@@ -66,7 +66,7 @@ except ImportError:
     pass
 :::
 </dx-codeblock>如下图所示：
-![image-20210120175012815](https://main.qcloudimg.com/raw/2fc0a90a6f1c2b600e7d5669f13d3c90/image-20210120175012815.png)
+![](https://main.qcloudimg.com/raw/a6f009c53774b780e5389b57dbec2c1b.png)
 :::
 </dx-tabs>
 
@@ -82,7 +82,7 @@ except ImportError:
 | BONREE_APM_ACCOUNT_GUID    | 博睿账户 GUID                                               |
 
 >?您可以在博睿 Server 产品的右上角找到 GUID 信息。如下图所示：
-![image-20210120171353393](https://main.qcloudimg.com/raw/9baf607b889311465b239dc1abd5b818/image-20210120171353393.png)
+![](https://main.qcloudimg.com/raw/f54e2fcd2c4fec46c27f4814c11bb0f3.png)
 
 
 
@@ -171,8 +171,7 @@ sls deploy
 
 1. 登录云函数控制台，选择左侧菜单栏中的【[函数服务](https://console.cloud.tencent.com/scf/)】。
 2. 在函数服务页面，单击对应的函数名称，进入函数管理页面。
-3. 单击【函数代码】页签，在 `sl_handler.py` 文件中加入 `import` 探针的代码，详细内容可参考上文 [引入探针](#inputagent)。如下图所示：
-![image-20210120175012815](https://main.qcloudimg.com/raw/2fc0a90a6f1c2b600e7d5669f13d3c90/image-20210120175012815.png)
+3. 单击【函数代码】页签，在 `sl_handler.py` 文件中加入 `import` 探针的代码，详细内容可参考上文 [引入探针](#inputagent)。
 
 
 
@@ -180,9 +179,9 @@ sls deploy
 
 1. 登录 [博睿 Server 控制台](https://server.bonree.com/)，待数据上报至博睿。
 2. 在博睿 Server 控制台右上角中选择【<img src="https://main.qcloudimg.com/raw/3475d18df76f95b36d1cc5f3708494ac.jpg" width="2.5%">】>【部署状态】，进入部署状态页面查看已进行数据上报的函数。如下图所示：
-![image-20210120210504905](https://main.qcloudimg.com/raw/3eb34d55e17d050066a17b0d69145519/image-20210120210504905.png)
-3. 将该函数关联一个应用，即可在查看应用运行的情况，详情请参见 [博睿 Server 文档](#缺链接)。如下图所示：
-![image-20210120210813786](https://main.qcloudimg.com/raw/016e28ad12eaa979ec8d0776ad005fe5/image-20210120210813786.png)
+![](https://main.qcloudimg.com/raw/8ab20877d29235519da69df08861a95a.png)
+3. 将该函数关联一个应用，即可查看应用运行的情况。如下图所示：
+![](https://main.qcloudimg.com/raw/d4e13fba93cd83a752270817adfe18dc.png)
 4. 您可以将多个函数上报后关联至同一个应用，便可查看调用链路情况。如下图所示：
 ![image-20210120212212888](https://main.qcloudimg.com/raw/af72b23295b1a9baed10e41f4f90fad1/image-20210120212212888.png)
 
