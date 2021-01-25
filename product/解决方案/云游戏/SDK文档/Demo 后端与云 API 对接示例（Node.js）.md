@@ -150,5 +150,5 @@ module.exports = router;
 
 [](id:step6)
 ### 步骤6：启动云游戏
-网页端发送 `try_lock` 请求，锁定机器成功后，再调用 `get_signature`，返回值获得 ServerSession 字段，然后调用[TCGSDK.start(ServerSession)](https://cloud.tencent.com/document/product/1162/46134#tcgsdk.start(serversession)) 接口启动云游戏。
+网页端发送 `try_lock` 请求，锁定机器成功后，再调用 `get_signature`，返回值获得 ServerSession 字段，然后调用 [TCGSDK.start(ServerSession)](https://cloud.tencent.com/document/product/1162/46134#tcgsdk.start(serversession)) 接口启动云游戏。
 
