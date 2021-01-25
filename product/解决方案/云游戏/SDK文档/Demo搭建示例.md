@@ -32,15 +32,15 @@ implementation(name: "tcgsdk-1.1.0.1009506_202011262251_release", ext: 'aar')
 }
 :::
 </dx-codeblock>
-3. 进行混淆配置：
-	- 由于 native 层代码需要反射调回 java，需要确保 SDK 内的代码都不被混淆，请在 proguard 中添加以下配置：
+3. 进行混淆配置。
+由于 native 层代码需要反射调回 java，需要确保 SDK 内的代码都不被混淆，请在 proguard 中添加以下配置：
 <dx-codeblock>
 ::: java java
 -keep class org.twebrtc.** {*;}
 -keep class com.tencent.tcgsdk.** {*;}
 :::
 </dx-codeblock>
-	- AndroidManifest 配置：
+4. AndroidManifest 配置：
 <dx-codeblock>
 ::: java java
 <uses-feature android:name="android.hardware.camera" />
