@@ -9,6 +9,15 @@
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，选择已创建的产品，单击【设备开发】。
 2. 选择设备开发方式，并单击右上角【编辑】，按照您的需求调整 LoRaWAN 参数配置。
 3. 在弹出的页面中，调整完参数后，单击【保存】，完成 LoRaWAN 参数配置。
-![](https://main.qcloudimg.com/raw/e4ac768eacdf46336cb1a2965c2395bc.png)
+![](https://main.qcloudimg.com/raw/18f03c7d88b8bba26293731582eb2b46.png)
 
+## 参数配置可选功能
 
+| 功能           | 说明                                               |
+| -------------- | -------------------------------------------------- |
+| 协议版本       | 支持 LoRaWAN V1.0.0、V1.0.1、V1.0.2、V1.0.3、V1.0.4 |
+| 加网方式       | 支持 OTAA、ABP 两种方式                              |
+| 设备类型       | 支持 ClassA、ClassC 两种模式                                |
+| RX1 Delay      | 仅支持整数，1-15之间                               |
+| RX2 DR         | 仅支持整数，0-5之间                                |
+| 用户自定义频点 | 用户自定义频点，设置适合用户应用场景的 Region 参数   |
