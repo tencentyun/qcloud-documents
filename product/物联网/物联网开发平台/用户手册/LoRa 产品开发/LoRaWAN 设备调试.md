@@ -24,31 +24,39 @@ DevEUI、AppKey、DevAddr、NwkSKey、AppSKey 一般为 LoRaWAN 节点设备厂�
 3. 创建成功后，您将会在“设备调试”列表页中，查看到新建成功的设备。
 
 
-## 查看设备信息
-1. 创建成功后，您将会在“设备调试”列表页中，查看到新建成功的设备。
+## 查看设备
+1. 创建设备成功后，您将会在“设备调试”列表页中，查看到新建成功的设备。
 2. 单击设备名称，可以查看设备相关信息、设备信息、设备日记、透传日记等。
- - 设备信息：可查看设备基础的信息、名称、密钥、激活时间、最后上线时间等。
- - ABP 模式下，可在设备信息中选择“禁用帧序列号校验” 以及“重置帧序号”功能。此功能建议仅用于设备临时调试，以解决设备上传序列号归零导致 MIC 校验错误的问题；不建议用户用于商业应用，存在设备“重放”攻击的安全隐患。
-  ![ABP设备信息](./ABP设备信息.png)
+
+### 设备信息
+单击【设备信息】，即可查看设备基础的信息、名称、密钥、激活时间、最后上线时间等。
+此外，在 ABP 模式下，可在设备信息中选择【禁用帧序号校验（临时调试使用）】以及【重置帧序号】功能。
+>?此功能建议仅用于设备临时调试，以解决设备上传序列号归零导致 MIC 校验错误的问题；不建议用户用于商业应用，存在设备“重放”攻击的安全隐患。
+
+![ABP设备信息](https://main.qcloudimg.com/raw/9dba8ae4bf9b0b915c0815128f3dfef1.png)
 
 ### 设备日志
 单击【设备日志】，即可查看该设备上行到云端，并从云端接收的信息，可查看7天以内的设备日记内容。
  - 上行：上行表示设备端向云端上报的数据。
  - 下行：下行表示云端向设备端发送的数据。
-     ![设备日记](./设备日记.png)  
+![设备日记](https://main.qcloudimg.com/raw/838c36862d32de65d91d096d134c62d8.png)
 
-### 设备透传日记
-单击【数据日记（透传数据）】，即可查看数据透传到用户侧的数据内容，以及 LoRaWAN 网络侧内容数据。
-   ![数据日记（透传数据）](./数据日记(透传数据).png) 
-
-例如：数据内容“eyJtZXRob2QiOiJyZXBvcnQiLCJjbGllbnRUb2tlbiI6IjIwMjEtMDEtMThUMDU6NTE6MDIuMDM4WiIsInBhcmFtcyI6eyJyYXdkYXRhIjoiMDAwMTAyMDMifSwibWV0YUxvUmEiOiJ7XCJmcmFtZVR5cGVcIjoyLFwiZlBvcnRcIjoyLFwiZkNudFwiOjQ2NCxcImZyZXF1ZW5jeVwiOjQ3MDMwMDAwMCxcImRyXCI6NSxcInJzc2lcIjotNTAsXCJzbnJcIjoyNixcInBheWxvYWRTaXplXCI6NH0ifQ==”
+### 设备透传日志
+单击【设备日志（透传数据）】，即可查看数据透传到用户侧的数据内容，以及 LoRaWAN 网络侧内容数据。
+![](https://main.qcloudimg.com/raw/ed1e2d35b21f2d28ea3e63cf0c27f063.png)
+**示例**
+数据内容如下：
+```
+“eyJtZXRob2QiOiJyZXBvcnQiLCJjbGllbnRUb2tlbiI6IjIwMjEtMDEtMThUMDU6NTE6MDIuMDM4WiIsInBhcmFtcyI6eyJyYXdkYXRhIjoiMDAwMTAyMDMifSwibWV0YUxvUmEiOiJ7XCJmcmFtZVR5cGVcIjoyLFwiZlBvcnRcIjoyLFwiZkNudFwiOjQ2NCxcImZyZXF1ZW5jeVwiOjQ3MDMwMDAwMCxcImRyXCI6NSxcInJzc2lcIjotNTAsXCJzbnJcIjoyNixcInBheWxvYWRTaXplXCI6NH0ifQ==”
+```
 通过 BASE64 解析成文本的格式如下：
- {"method":"report","clientToken":"2021-01-18T05:51:02.038Z","params":{"rawdata":"00010203"},"metaLoRa":"{\"frameType\":2,\"fPort\":2,\"fCnt\":464,\"frequency\":470300000,\"dr\":5,\"rssi\":-50,\"snr\":26,\"payloadSize\":4}"}
-
+```plaintext
+{"method":"report","clientToken":"2021-01-18T05:51:02.038Z","params":{"rawdata":"00010203"},"metaLoRa":"{\"frameType\":2,\"fPort\":2,\"fCnt\":464,\"frequency\":470300000,\"dr\":5,\"rssi\":-50,\"snr\":26,\"payloadSize\":4}"}
+```
 
 ### 在线调试
 当您的真实设备已成功对接到开发平台后，则可使用在线调试对真实设备进行数据收发的测试，具体步骤如下：
-1. 单击【在线调试】，即可进入在线调试功能。前提是真实设备已开启并成功连接到开发平台。
+1. 单击【在线调试】，即可进入在线调试功能。
 2. 在线调试左侧的操控面板是根据设备所属产品的数据模板自动生成，设置需要下发的数据后，单击【发送】，系统会自动触发控制指令到设备端。
 3. 设备端接收到指令后，会立刻返回数据到云端并显示在右侧的文本框中。
-   ![在线调试](./在线调试.png)
+![](https://main.qcloudimg.com/raw/c2f4fc081b15314d89db2379e203d87a.png)
