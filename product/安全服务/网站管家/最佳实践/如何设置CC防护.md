@@ -1,4 +1,4 @@
-本文讲为您介绍如何在 Web 应用防火墙控制台设置 CC 防护。
+本文将为您介绍如何在 Web 应用防火墙控制台设置 CC 防护。
 ## 背景信息
 CC 防护可以对网站特定的 URL 进行访问保护，CC 防护支持紧急模式 CC 防护和自定义 CC 防护策略。
 >!
@@ -11,7 +11,7 @@ CC 防护可以对网站特定的 URL 进行访问保护，CC 防护支持紧急
 ### 示例一：紧急模式 CC 防护配置
 >!紧急模式 CC 防护默认关闭，开启前请确认自定义 CC 防护规则处于未启用状态。
 >
-1.  登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 应用防火墙】>【防护设置】，进入防护设置页面，进入防护设置页面，单击【CC防护设置2.0】进入配置页面。
+1.  登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 应用防火墙】>【防护设置】，进入防护设置页面。
 2.  在域名列表中，找到需要防护的域名，单击【防护配置】，进入配置页面。
 ![](https://main.qcloudimg.com/raw/9be71efc16d6a472dfd7590b6ae11763.png)
 2. 单击【CC 防护设置2.0】，进行紧急模式 CC 防护配置。
@@ -28,7 +28,7 @@ CC 防护可以对网站特定的 URL 进行访问保护，CC 防护支持紧急
 3. 单击【CC 防护设置2.0】进行 CC 规则配置，单击【添加规则】填写相应信息。
 ![](https://main.qcloudimg.com/raw/587d2e546abf2809d12023fe54639495.png)
 4. 进入添加 CC 防护规则页面，填写相应信息。
->!IP 为识别方式时，规则被触发拦截时会全站封锁（该 IP 访问其他 URL 也拦截），session 则不会全站拦截。
+>!IP 为识别方式时，规则被触发拦截时会全站封锁（该 IP 访问其他 URL 也拦截），SESSION 则不会全站拦截。
 >
 ![](https://main.qcloudimg.com/raw/ea825e417e783acbfb0f20acd1e25052.png)
  **配置项说明：**
