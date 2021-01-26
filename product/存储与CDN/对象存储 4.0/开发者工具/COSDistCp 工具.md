@@ -314,8 +314,7 @@ hadoop jar cos-distcp-1.3-2.8.5.jar \
 -Dfs.AbstractFileSystem.cosn.impl=org.apache.hadoop.fs.CosN \
 --src /data/warehouse \
 --dest cosn://examplebucket-1250000000/warehouse \
---outputManifest=manifest.gz \
---checkMode=checksum
+--outputManifest=manifest.gz
 ```
 
 ### 拷贝结果显示部分文件拷贝失败，如何处理？
