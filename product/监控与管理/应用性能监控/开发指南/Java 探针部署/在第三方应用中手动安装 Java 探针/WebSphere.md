@@ -1,5 +1,20 @@
 本文将为您介绍如何在 WebSphere 上安装 Java探针。
 
+
+
+
+
+## 前提条件
+
+
+- 在安装探针前，请先安装 Agent Collector。
+- 在安装探针前，需要先确保本地浏览器时间与服务器时区、时间一致。若有多个服务器，则要保证本地浏览器、多个服务器的时区、时间都一致。否则，可能会影响数据的准确性，例如拓扑不正确等。
+- 前往 TAPM 控制台 [探针下载](https://console.cloud.tencent.com/monitor/tapm/addagent) 页面下载 tapm-java-Agent。
+
+
+
+
+
 ## 操作步骤
 
 TAPM Java探针支持 WebSphere 7.0 到 8.5.5 的所有版本，除了有部分 8.5.0 的版本与该探针不兼容。
