@@ -1,4 +1,4 @@
-本文将为您介绍如何在 ColdFusion 上安装 Java 探针
+本文将为您介绍如何在 ColdFusion 上安装 Java 探针。
 
 ## 操作步骤
 
