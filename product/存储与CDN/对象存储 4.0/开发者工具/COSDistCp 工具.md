@@ -106,7 +106,7 @@ grep -v '"comment":"SRC_MISS"' failed-manifest |gzip > failed-manifest.gz
 hadoop  jar cos-distcp-${version}.jar --reducerNumber=20 --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --previousManifest=file:///usr/local/service/hadoop/failed-manifest.gz --copyFromManifest
 ```
 
-通过如下的命令，获取 MapReduce 任务的日志，确定文件拷贝失败的原因，其中 application_1610615435237_0021 为应用 id：
+通过如下的命令，获取 MapReduce 任务的日志，确定文件拷贝失败的原因，其中 application_1610615435237_0021 为应用 ID：
 ```
 yarn logs -applicationId application_1610615435237_0021 > application_1610615435237_0021.log
 ```
@@ -313,7 +313,7 @@ hadoop jar cos-distcp-1.3-2.8.5.jar \
 
 ### 拷贝结果显示部分文件拷贝失败，如何处理？
 
-COSDistCp 会对文件拷贝过程中出现的 IOException 重试五次，五次拷贝仍然失败，会将失败的文件信息写入 /tmp/${randomUUID}/output/failed/ 目录下，其中，${randomUUID} 为随机字符串。常见的拷贝失败原因包括：
+COSDistCp 会对文件拷贝过程中出现的 IOException 重试五次，五次拷贝仍然失败，会将失败的文件信息写入 `/tmp/${randomUUID}/output/failed/` 目录下，其中，${randomUUID} 为随机字符串。常见的拷贝失败原因包括：
 1. 源文件存在拷贝清单中，但是拷贝时源文件不存在，记录为 SRC_MISS
 2. 任务发起的用户，不具备读取源文件或写入目标文件的权限，以及其他原因，记录为 COPY_FAILED
 
@@ -322,8 +322,8 @@ COSDistCp 会对文件拷贝过程中出现的 IOException 重试五次，五次
 hadoop fs -getmerge /tmp/${randomUUID}/output/failed/ failed-manifest
 grep -v '"comment":"SRC_MISS"' failed-manifest |gzip > failed-manifest.gz
 ```
-如果存在除 SRC_MISS 以外的失败文件，你可以根据汇总在  /tmp/${randomUUID}/output/logs/ 目录下的异常日志信息和拉取应用日志诊断原因，例如拉取 yarn 应用的日志，可使用如下命令：
+如果存在除 SRC_MISS 以外的失败文件，您可以根据汇总在  `/tmp/${randomUUID}/output/logs/` 目录下的异常日志信息和拉取应用日志诊断原因，例如拉取 yarn 应用的日志，可使用如下命令：
 ```
 yarn logs -applicationId application_1610615435237_0021 > application_1610615435237_0021.log
 ```
-其中 application_1610615435237_0021 为应用 id。
+其中 application_1610615435237_0021 为应用 ID。
