@@ -28,6 +28,7 @@
 :::  针对集群所有\sserver\s增加探针：
 <dx-codeblock>
 :::  xml
+```
 <cluster id="cluster_id">
       ...
     <server-default>
@@ -37,12 +38,14 @@
    </server-default>
       ...
 </cluster>
+```
 :::
 </dx-codeblock>
 :::
 ::: 针对集群某台\sserver\s增加探针：
 <dx-codeblock>
 :::  xml
+```
 <cluster id="cluster_id">
       ...
     <server id="" address="x.x.xxx.x.x.xxx" port="xxxx">
@@ -52,6 +55,7 @@
    </server>
       ...
 </cluster>
+```
 :::
 </dx-codeblock>
 :::
@@ -92,6 +96,7 @@ jvm_args: -javaagent:/${路径}/tapm-agent-java.jar
 ::: 针对集群所有\sserver\s增加探针：
 <dx-codeblock>
 :::  xml
+```
 <cluster id="cluster_id">
       ...
     <server-default>
@@ -101,12 +106,14 @@ jvm_args: -javaagent:/${路径}/tapm-agent-java.jar
    </server-default>
       ...
 </cluster>
+```
 :::
 </dx-codeblock>
 :::
 ::: 针对集群某台\sserver\s增加探针：
 <dx-codeblock>
 :::  xml
+```
 <cluster id="cluster_id">
       ...
     <server id="" address="x.x.xxx.x.x.xxx" port="xxxx">
@@ -116,6 +123,7 @@ jvm_args: -javaagent:/${路径}/tapm-agent-java.jar
    </server>
       ... 
 </cluster>
+```
 :::
 </dx-codeblock>
 :::
