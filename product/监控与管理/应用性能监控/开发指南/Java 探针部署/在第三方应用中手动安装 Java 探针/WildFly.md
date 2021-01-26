@@ -36,5 +36,7 @@
 
 | 操作系统          | 描述                                                         |
 | ----------------- | ------------------------------------------------------------ |
-| **Unix / Mac OS** | 在 **bin/standalone.conf** 文件的底部, 添加: `JAVA_OPTS="$JAVA_OPTS -javaagent:/${路径}/tapm-agent-java.jar"` |
+| **Unix/Mac** | 在 **bin/standalone.conf** 文件的底部, 添加: `JAVA_OPTS="$JAVA_OPTS -javaagent:/${路径}/tapm-agent-java.jar"` |
 | **Windows**       | 查找 **bin/standalone.bat** 文件中的如下内容：`rem Setup JBoss specific properties`在该行之后添加`set "JAVA_OPTS=-javaagent:C:/tapm/tapm-agent-java.jar %JAVA_OPTS%"` |
+
+
