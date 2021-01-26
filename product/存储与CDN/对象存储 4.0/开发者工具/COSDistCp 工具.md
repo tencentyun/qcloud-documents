@@ -22,8 +22,9 @@ Hadoop-2.6.0及以上版本、Hadoop-COS 插件 5.8.7 及以上版本
 
 #### 获取 COSDistCp jar 包
 
-下载 [cos-distcp-1.3.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.3.jar)。
->?用户可根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.3-md5.txt) 确认下载的 jar 包是否完整。
+Hadoop 2.x 用户可下载 [cos-distcp-1.3-2.8.5.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.3-2.8.5.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.3-2.8.5-md5.txt) 确认下载的 jar 包是否完整。
+
+Hadoop 3.x 用户可下载 [cos-distcp-1.3-3.1.0.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.3-3.1.0.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.3-3.1.0-md5.txt) 确认下载的 jar 包是否完整。
 
 #### 安装说明
 
@@ -292,3 +293,37 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://example
 ```plaintext
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --preserveStatus=ugpt
 ```
+
+## 常见问题
+
+### 环境中未配置 Hadoop-COS, 如何运行 COSDistCp?
+
+对于环境中未配置 Hadoop-COS 插件的用户，根据 Hadoop 版本，下载对应版本的 COSDistCp jar 包后，指定 Hadoop-COS 相关参数执行拷贝任务：
+```
+hadoop jar cos-distcp-1.3-2.8.5.jar \
+-Dfs.cosn.credentials.provider=org.apache.hadoop.fs.auth.SimpleCredentialProvider \
+-Dfs.cosn.userinfo.secretId=COS_SECRETID \
+-Dfs.cosn.userinfo.secretKey=COS_SECRETKEY \
+-Dfs.cosn.bucket.region=ap-guangzhou \
+-Dfs.cosn.impl=org.apache.hadoop.fs.CosFileSystem \
+-Dfs.AbstractFileSystem.cosn.impl=org.apache.hadoop.fs.CosN \
+--src /data/warehouse \
+--dest cosn://examplebucket-1250000000/warehouse
+```
+
+### 拷贝结果显示部分文件拷贝失败，如何处理？
+
+COSDistCp 会对文件拷贝过程中出现的 IOException 重试五次，五次拷贝仍然失败，会将失败的文件信息写入 /tmp/${randomUUID}/output/failed/ 目录下，其中，${randomUUID} 为随机字符串。常见的拷贝失败原因包括：
+1. 源文件存在拷贝清单中，但是拷贝时源文件不存在，记录为 SRC_MISS
+2. 任务发起的用户，不具备读取源文件或写入目标文件的权限，以及其他原因，记录为 COPY_FAILED
+
+如果日志信息记录源文件不存在，且源文件确实可以忽略，您可以通过如下命令，获取除 SRC_MISS 以外的差异文件列表：
+```
+hadoop fs -getmerge /tmp/${randomUUID}/output/failed/ failed-manifest
+grep -v '"comment":"SRC_MISS"' failed-manifest |gzip > failed-manifest.gz
+```
+如果存在除 SRC_MISS 以外的失败文件，你可以根据汇总在  /tmp/${randomUUID}/output/logs/ 目录下的异常日志信息和拉取应用日志诊断原因，例如拉取 yarn 应用的日志，可使用如下命令：
+```
+yarn logs -applicationId application_1610615435237_0021 > application_1610615435237_0021.log
+```
+其中 application_1610615435237_0021 为应用 id。
