@@ -12,9 +12,8 @@
 
 | 参数       | 说明                        |
 | ---------- | --------------------------- |
-| brokerList | 数据订阅 Kafka 的内网访问地址 |
+| brokerlist | 数据订阅 Kafka 的内网访问地址 |
 | topic      | 数据订阅通道的订阅 topic     |
 | group      | 消费组名称                  |
-| User        | 消费组账号名                |
+| user        | 消费组账号名                |
 | password   | 消费组密码                  |
-
