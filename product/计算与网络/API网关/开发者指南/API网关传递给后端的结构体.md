@@ -96,3 +96,5 @@ X-Api-Scheme: http
 | queryStringParameters | 记录在 API 网关中配置过的 Query 参数以及实际取值。           |
 | headerParameters      | 记录在 API 网关中配置过的 Header 参数以及实际取值。          |
 | isBase64Encoded       | 记录在请求体是否被进行了 Base64 编码，取值为 true 或 false。  | 
+
+
