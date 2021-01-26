@@ -14,7 +14,7 @@ Topic（主题）是某一种分类的名字，消息在 Topic 中可以被存�
 3. 在实例详情页，点击【topic管理】标签页，查看 Topic 信息。
 ![](https://main.qcloudimg.com/raw/51252cbe37e61b6d8f647fb48754a0ad.png)
 
-### 删除Topic
+### 删除 Topic
  > !
  > - 删除 Topic 的同时，存储在此 Topic 中的消息也将被删除，请谨慎操作。
  > - Topic 删除是异步操作，配置删除成功后，ZooKeeper 配置将会在1分钟后生效。若此期间创建同名 Topic，系统会提示错误码 [4000]10011，届时请您稍后重试。
