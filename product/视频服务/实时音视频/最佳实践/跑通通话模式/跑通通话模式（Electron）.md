@@ -244,6 +244,7 @@ let onExitRoom = function (reason) {
 };
 trtcCloud.exitRoom();
 trtcCloud.on('onExitRoom', onExitRoom);
-```
+:::
+</dx-codeblock>
 
 >! 如果您的 Electron 程序中同时集成了多个音视频 SDK，请在收到 `onExitRoom` 回调后再启动其它音视频 SDK，否则可能会遇到硬件占用问题。
