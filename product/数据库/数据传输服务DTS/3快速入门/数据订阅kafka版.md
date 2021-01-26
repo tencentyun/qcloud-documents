@@ -10,9 +10,9 @@
 ## 支持订阅的 SQL 操作
 |  类型      | 数据变更                    | 结构变更                                                    | 数据+结构变更 |
 | ------ | --------------------------- | ----------------------------------------------------------- | ------------- |
-| 全实例 | DML：Insert、update、delete | DDL：Create database、Create table、alter table、drop table | DML+DDL       |
-| 数据库 | DML：Insert、update、delete | DDL：Create table、alter table、drop table                  | DML+DDL       |
-| 数据表 | DML：Insert、update、delete | DDL：alter table、drop table                                | DML+DDL       |
+| 全实例 | DML：INSERT、UPDATE、DELETE | DDL：CREATE DATABASE、CREATE TABLE、ALTER TABLE、DROP TABLE | DML+DDL       |
+| 数据库 | DML：INSERT、UPDATE、DELETE | DDL：CREATE TABLE、ALTER TABLE、DROP TABLE    | DML+DDL       |
+| 数据表 | DML：INSERT、UPDATE、DELETE | DDL：ALTER TABLE、DROP TABLE                            | DML+DDL       |
 
 ## 操作步骤
 1. 登录 [DTS 控制台](https://console.cloud.tencent.com/dts/dss)，在左侧导航选择【数据订阅】，单击【新建数据订阅】。
@@ -26,12 +26,12 @@
 ![](https://main.qcloudimg.com/raw/d45bbff5e702281fdc57984720999e6c.png)
 4. 在配置数据库订阅页面，选择相应配置，单击【下一步】。
  - 实例：选择对应数据库实例，云数据库 MySQL 目前支持 MySQL 5.6、MySQL 5.7 高可用版的主实例，只读实例和灾备实例不支持数据订阅。
- - 数据库帐号：添加订阅实例的帐号和密码，帐号具有订阅任务需要的权限，包括 REPLICATION CLIENT、REPLICATION SLAVE、PROCESS 和全部对象的 SELECT 权限。注意权限不能多，也不能少否则校验不通过，如果权限过多会存在对待订阅实例操作风险。
+ - 数据库帐号：添加订阅实例的帐号和密码，帐号具有订阅任务需要的权限，包括 REPLICATION CLIENT、REPLICATION SLAVE、PROCESS 和全部对象的 SELECT 权限。注意根据权限最小化原则，授予的权限不能多也不能少，否则校验不通过。
 ![](https://main.qcloudimg.com/raw/5d4cb75fcadd6e33233781d09da10433.png)
 5. 在订阅类型和对象选择页面，选择订阅类型，单击【保存配置】。
 订阅类型，包括数据更新、结构更新和全实例。选择订阅类型后，选择待订阅的数据对象，包括数据库和数据表。
   - 数据更新：订阅选择对象的数据更新，包括数据 INSERT、UPDATE、DELETE 操作。
-  - 结构更新：订阅选择对象的结构创建、修改和删除。
+  - 结构更新：订阅实例中全部对象的结构创建、修改和删除。
   - 全实例：包括该订阅实例的全部对象的数据更新和结构更新。
 ![](https://main.qcloudimg.com/raw/edf52681e7fc00588697d1d7ccf7328f.png)
 6. 在预校验页面，预校验任务预计会运行2分钟 - 3分钟，预校验通过后，单击【启动】完成数据订阅任务配置。
