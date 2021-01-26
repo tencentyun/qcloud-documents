@@ -7,7 +7,6 @@ CC 防护可以对网站特定的 URL 进行访问保护，CC 防护支持紧急
 
 
 ## 操作场景
-[](id:one)
 ### 示例一：紧急模式 CC 防护配置
 >!紧急模式 CC 防护默认关闭，开启前请确认自定义 CC 防护规则处于未启用状态。
 >
@@ -20,6 +19,8 @@ CC 防护可以对网站特定的 URL 进行访问保护，CC 防护支持紧急
 **状态开关：** 当开启紧急模式 CC 防护时，若网站遭大流量 CC 攻击会自动触发防护（网站 QPS 不低于1000QPS），无需人工参与。若无明确的防护路径，建议启用紧急模式 CC 防护，可能会存在一定误报。可以在控制台进入 [IP管理-IP封堵状态](https://console.cloud.tencent.com/guanjia/ip/record)，查看拦截 IP 信息，并及时处理。
 >? 如果知晓明确的防护路径，建议使用自定义 CC 规则进行防护。
 
+
+[](id:two)
 ### 示例二： 基于访问源 IP 的 CC 防护设置
 基于 IP 的 CC 防护策略，不需要对 SESSION 维度进行设置，直接配置即可。
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 应用防火墙】>【防护设置】，进入防护设置页面。
@@ -72,7 +73,7 @@ CC 防护可以对网站特定的 URL 进行访问保护，CC 防护支持紧急
 ![](https://main.qcloudimg.com/raw/1eddcdb937b9e529167d24c98ca904d4.png)
 5. 进入 SESSION 设置页面，设置内容为 security = 0123456789……，后继 Web 应用防火墙将把 security 后面10位字符串作为 SESSION 标识，SESSION 信息也可以删除重新配置。
 ![](https://main.qcloudimg.com/raw/bf87f5f7037e7758d8c281151852ad70.png)
-6. 设置基于 SESSION 的 CC 防护策略，配置过程和 [示例一](#one) 保持一致，识别模式选择 SESSION 即可。
+6. 设置基于 SESSION 的 CC 防护策略，配置过程和 [示例二](#two) 保持一致，识别模式选择 SESSION 即可。
  >?以 GET 位置为 SESSION 标识设置 CC 规则，当 CC 规则启用后，会把相同的 SESSION 标识作为维度拦截，而不是将 IP 作为维度。
  >
 ![](https://main.qcloudimg.com/raw/9e8ec2f34900d53081cf881f8a902327.png)
