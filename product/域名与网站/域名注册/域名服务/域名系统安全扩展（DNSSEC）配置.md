@@ -17,7 +17,7 @@
   - **添加 DNSSEC**：单击【添加 DNSSEC】，在弹出的 “添加 DNSSEC 记录” 窗口中填写以下参数信息。如下图所示：
     >? 
     >- 如该域名未添加过 DNSSEC 记录，添加记录时，参数信息请您至**域名解析商**处获取。
-    >- 如您的域名在腾讯云注册，您可以参考 [域名系统安全扩展（DNSSEC）配置指南（DNSPod）](https://docs.dnspod.cn/p/7c0da849-3160-493c-bd52-b31da391aebc/) 进行操作。
+    >- 如您的域名在腾讯云注册，参数信息您可以通过 [域名系统安全扩展（DNSSEC）配置指南（DNSPod）](https://docs.dnspod.cn/p/7c0da849-3160-493c-bd52-b31da391aebc/) 获取。
     >
     ![](https://main.qcloudimg.com/raw/835a0e9bbc97601287f6613c75d56c45.png)
 		- **关键标签**：用于标识域名的 DNSSEC 记录，请填写小于 65536 的整数值。
