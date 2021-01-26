@@ -155,7 +155,7 @@ Namespace=QCE/CDB
 | 指标英文名              | 指标中文名   | 指标说明         | 单位                                | 维度                     | 统计周期                     |
 | ----------------------- | ------------ | ---------------- | ----------------------------------- | ------------------------ | ---------------------------- |
 | MasterSlaveSyncDistance | 主从延迟距离 | 主从 binlog 差距 | MB                                  | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
-| SecondsBehindMaster     | 主从延迟时间 | 主从延迟时间     | MB                                  | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
+| SecondsBehindMaster     | 主从延迟时间 | 主从延迟时间     | 秒                                 | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
 | SlaveIoRunning          | IO 线程状态  | IO 线程运行状态  | 状态值（0-Yes，1-No，2-Connecting） | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
 | SlaveSqlRunning         | SQL 线程状态 | SQL 线程运行状态 | slave_sql_running                   | InstanceId、InstanceTyp  | 5s、60s、300s、3600s、86400s |
 

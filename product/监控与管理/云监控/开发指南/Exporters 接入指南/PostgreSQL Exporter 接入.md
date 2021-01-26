@@ -203,7 +203,7 @@ spec:
 </tr>
 </tbody></table>
 
-<span id="way"></span>
+[](id:way)
 
 #### 获取指标[](id:step3)
 

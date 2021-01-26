@@ -123,7 +123,7 @@ https://getkey.example.com?fileId=123456&keySource=VodBuildInKMS&edk=abcdef
 1. 将用户身份信息通过参数的方式追加到 URL 中，带给 App 的鉴权服务。该方案适用于所有的 HLS 播放器。具体方案请参见 [视频播放方案1](#p1)：通过 QueryString 传递身份认证信息。
 2. 将用户身份信息通过 Cookie 带给 App 的鉴权服务。该方案安全性更高，但仅适用于在访问`EXT-X-KEY`标签所标识的 URL 时会携带 Cookie 的播放器。具体方案请参见 [视频播放方案2](#p2)：通过 Cookie 传递身份认证信息。
 
-### <span id="p1"></span>视频播放方案1
+### [](id:p1)视频播放方案1
 
 视频播放方案1：通过 QueryString 传递身份认证信息，该方案适用于任意支持 HLS 的播放器。
 
@@ -176,7 +176,7 @@ https://getkey.example.com?fileId=123456&keySource=VodBuildInKMS&edk=abcdef&toke
 当播放器获取到视频索引文件（M3U8 文件）后，会在播放视频文件之前自动发起第4步。App 后台在收到客户端的请求后，首先对 QueryString 中的 Token 进行校验。如果用户身份非法，则直接拒绝请求。如果用户身份合法，则根据 URL 中携带的 fileId、keySource、edk 等参数，到 KMS 系统中获取 DK，并返回给客户端。
 以上步骤均完成后，客户端便拿到了视频解密密钥，从而可以进行正常的视频解密与播放。
 
-### <span id="p2"></span>视频播放方案2
+### [](id:p2)视频播放方案2
 视频播放方案2：通过 Cookie 传递身份认证信息。该方案仅适用于 iOS/PC 平台的 H5/Flash 播放器。在该平台下，播放器在访问`EXT-X-KEY`标签所标识的 URL 时会带上 Cookie。
 
 >!实际测试发现，Android 平台的 H5 播放器在访问`EXT-X-KEY`标签所标识的 URL 时不会携带 Cookie，所以 Android 平台目前只能使用**方案1**。
