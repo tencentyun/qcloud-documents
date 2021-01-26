@@ -313,18 +313,17 @@ hadoop jar cos-distcp-1.3-2.8.5.jar \
 -Dfs.cosn.impl=org.apache.hadoop.fs.CosFileSystem \
 -Dfs.AbstractFileSystem.cosn.impl=org.apache.hadoop.fs.CosN \
 --src /data/warehouse \
---dest cosn://examplebucket-1250000000/warehouse \
---outputManifest=manifest.gz
+--dest cosn://examplebucket-1250000000/warehouse
 ```
 
 ### 拷贝结果显示部分文件拷贝失败，如何处理？
 
-COSDistCp 会对文件拷贝过程中出现的 IOException 重试五次，五次拷贝仍然失败，会将失败的文件写入 /tmp/${randomUUID}/output/failed/ 目录下，其中，${randomUUID} 为随机字符串。常见的拷贝失败原因包括：
+COSDistCp 会对文件拷贝过程中出现的 IOException 重试五次，五次拷贝仍然失败，会将失败的文件信息写入 /tmp/${randomUUID}/output/failed/ 目录下，其中，${randomUUID} 为随机字符串。常见的拷贝失败原因包括：
 1. 源文件存在拷贝清单中，但是拷贝时源文件不存在，记录为 SRC_MISS
-2. 任务发起的用户，不具备读取源文件或写入目标文件的权限及其他原因，记录为 COPY_FAILED
+2. 任务发起的用户，不具备读取源文件或写入目标文件的权限，以及其他原因，记录为 COPY_FAILED
 
 如果日志信息记录源文件不存在，且源文件确实可以忽略，您可以通过如下命令，获取除 SRC_MISS 以外的差异文件列表：
-```plaintext
+```
 hadoop fs -getmerge /tmp/${randomUUID}/output/failed/ failed-manifest
 grep -v '"comment":"SRC_MISS"' failed-manifest |gzip > failed-manifest.gz
 ```
