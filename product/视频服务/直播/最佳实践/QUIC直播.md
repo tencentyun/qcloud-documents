@@ -69,4 +69,4 @@ QUIC（Quick UDP Internet Connection）是谷歌公司研发的基于 UDP 协议
 > ? 
 > - 浏览器版本不同，QIUC的版本号可能稍有不同。
 > - 如果 Protocol 字段默认不显示，可以在显示处单击右键勾选 Protocal 即可显示。
-![img](https://qqadapt.qpic.cn/txdocpic/0/3c25d776f347008e1902003fb84f8cbf/0?_type=png&w=272&h=221)
+![](https://main.qcloudimg.com/raw/ee21e41e7f61e87dccb2f2509ff7678d.png)
