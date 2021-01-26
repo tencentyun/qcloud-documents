@@ -1,12 +1,12 @@
 ## 操作场景
-消息队列 CKafka 支持用户转储消息的能力，您可以将 Ckafka 消息转储至 Elasticsearch 便于海量数据存储搜索、实时日志分析等操作。
+消息队列 CKafka 支持用户转储消息的能力，您可以将 CKafka 消息转储至 Elasticsearch 便于海量数据存储搜索、实时日志分析等操作。
 
 ## 前提条件
-该功能目前依赖 SCF，Elasticsearch 服务。使用时需提前开通云函数 SCF ，Elasticsearch Service 等相关服务及功能。
+该功能目前依赖 SCF、Elasticsearch 服务。使用时需提前开通云函数 SCF ，Elasticsearch Service 等相关服务及功能。
 
-<span id="1"></span>
-## 操作步骤
-转储 Elasticsearch 的方案将使用 SCF 的 Ckafka 触发器进行，通过 Ckafka 触发器将消息转储到 Elasticsearch。
+
+## 操作步骤[](id:1)
+转储 Elasticsearch 的方案将使用 SCF 的 CKafka 触发器进行，通过 CKafka 触发器将消息转储到 Elasticsearch。
 1. 登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)。
 2. 在实例列表页，单击目标实例 ID，进入**topic 管理**标签页。
 3. 在 topic 管理标签页，单击操作列的【消息转储】。
@@ -17,13 +17,12 @@
  - 云函数授权：知晓并同意开通创建云函数，该函数创建后需用户前往云函数设置更多高级配置及查看监控信息。
  - 自建集群：如 ES 集群为自建集群，请将自建集群开关保持开启状态，并填写示例 IP。如 Elasticsearch 集群为腾讯云集群，则直接选取相关集群信息即可。
  - 实例集群：选取腾讯云 Elasticsearch Service 实例集群信息。
- - 实例IP：输入自建 Elasticsearch 实例公网 IP，如：1.1.1.1:9200。该项输入的 IP 应为公网 IP 或可被云函数直接访问的内网 IP，VPC 设置相关参考云函数 [网络配置管理](https://cloud.tencent.com/document/product/583/38202)
+ - 实例 IP：输入自建 Elasticsearch 实例公网 IP，如：1.1.1.1:9200。该项输入的 IP 应为公网 IP 或可被云函数直接访问的内网 IP，VPC 设置相关参考云函数 [网络配置管理](https://cloud.tencent.com/document/product/583/38202)。
  - 实例用户名：输入 Elasticsearch 实例用户名，腾讯云 Elasticsearch 默认用户名为 elastic，且不可更改。
  - 实例密码：输入  Elasticsearch 实例密码。
 5. 创建完成后，单击【提交】，即可完成转储创建。创建完成后不会立即开启转储，需在控制台手动开启。
 
-<span id="2"></span>
-## 数据清洗设置
+## 数据清洗设置[](id:2)
 在创建流程中，无法直接跨进行数据清洗或字段定义等操作，需对函数代码进行自定义改造。数据清洗操作流程如下：
 1. [新建 Elasticsearch 转储](#1)，并跳转到云函数控制台。
 ![](https://main.qcloudimg.com/raw/dcf1b93b0f91e90171977a63af50dead.png)
@@ -63,7 +62,7 @@ Ckafka 转储能力基于 SCF 实现，可在 [SCF 控制台](https://console.cl
 ![](https://main.qcloudimg.com/raw/70f36ef4d426b6aae1ca30301514bf56.png)
 
 ## 产品限制和费用计算
-- 转储速度与 Ckafka 实例峰值带宽上限有关，如出现消费速度过慢，请检查 Ckafka 实例的峰值带宽。
+- 转储速度与 CKafka 实例峰值带宽上限有关，如出现消费速度过慢，请检查 CKafka 实例的峰值带宽。
 - CkafkaToES 方案采用 Ckafka 触发器，重试策略与最大消息数等设置参考 [CKafka 触发器](https://cloud.tencent.com/document/product/583/17530)。
 - 使用消息转储 ES 能力，默认转储的信息为 CKafka 触发器的 msgBody 数据，如需自行处理参考 [CKafka 触发器的事件消息结构](https://cloud.tencent.com/document/product/583/17530#ckafka-.E8.A7.A6.E5.8F.91.E5.99.A8.E7.9A.84.E4.BA.8B.E4.BB.B6.E6.B6.88.E6.81.AF.E7.BB.93.E6.9E.84)。 
 - 该功能基于云函数 SCF 服务提供。SCF 为用户提供了一定 [免费额度](https://cloud.tencent.com/document/product/583/12282) ，超额部分产生的收费，请以 SCF 服务的 [计费规则](https://cloud.tencent.com/document/product/583/17299) 为准。
