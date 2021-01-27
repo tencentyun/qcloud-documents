@@ -304,7 +304,7 @@ DTF-Last-Branch-ID: ${LastBranchId}
 可以参考 [Spring Free 开发指导](https://cloud.tencent.com/document/product/1224/45970) 中的**远程请求时传递分布式事务上下文**章节。
 
 ## 与 TSF 结合使用
-引入依赖后（注意SDK版本），直接正常使用 TSF 即可。
+引入依赖后（注意 SDK 版本），直接正常使用 TSF 即可。
 
 
 ### 使用方式
