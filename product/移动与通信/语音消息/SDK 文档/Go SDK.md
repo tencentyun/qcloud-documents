@@ -198,7 +198,7 @@ func main() {
 	 * vms helper：https://cloud.tencent.com/document/product/1128/37720
 	 */
 
-	// 模板 ID，必须填写在控制台审核通过的模板 ID，可登陆 [语音消息控制台] 查看模板 ID
+	// 模板 ID，必须填写在控制台审核通过的模板 ID，可登录 [语音消息控制台] 查看模板 ID
 	request.TemplateId = common.StringPtr("4356")
 	// 模板参数，若模板没有参数，请提供为空数组
 	request.TemplateParamSet = common.StringPtrs([]string{"7652"})
