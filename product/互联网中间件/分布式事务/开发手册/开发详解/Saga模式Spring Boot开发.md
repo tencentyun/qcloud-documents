@@ -210,7 +210,7 @@ DtfContextHolder.set(new DtfContext(txId, lastBranchId, groupId));
 
 
 ### 使用方式
-目前支持 Greenwich（G）和 Finchley（F）版本的 TSF SDK。您可以单击以下页签，查看对应的接入方式。
+目前支持 Greenwich（G）和 Finchley（F）版本的 TSF SDK。您可以单击以下页签，查看对应的使用方式。
 <dx-tabs>
 ::: G&nbsp;版本&nbsp;TSF&nbsp;SDK&nbsp;使用方式
 ``` xml
