@@ -364,8 +364,8 @@ DTF-Last-Branch-ID: ${LastBranchId}
 
 
 ### 启用 TSF
-
-``` java
+<dx-codeblock>
+:::  java
 @SpringBootApplication
 @EnableDtf
 @EnableTsf
@@ -375,4 +375,6 @@ public class OrderApplication {
         SpringApplication.run(OrderApplication.class, args);
     }
 }
-```
+:::
+</dx-codeblock>
+
