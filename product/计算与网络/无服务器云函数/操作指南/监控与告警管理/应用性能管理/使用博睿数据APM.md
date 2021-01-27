@@ -3,7 +3,7 @@
 
 ## 前提条件
 
-- 已注册 [博睿 Server](https://passport.bonree.com/cas/login?service=https%3A%2F%2Fserver.bonree.com%2F) 账号。
+- 已注册 [博睿 Server](https://server.bonree.com/) 账号。
 - 已 [创建云函数](https://cloud.tencent.com/document/product/583/19806#.E5.88.9B.E5.BB.BA.E5.87.BD.E6.95.B0) 并开启公网访问。
 
 >?博睿探针目前支持多数主流框架，且仅在使用支持的框架时，博睿 smartAgent 才可自动捕获。详情请参见 [博睿探针支持列表](#list)。
@@ -177,7 +177,7 @@ sls deploy
 
 ### 使用博睿 Server 
 
-1. 登录 [博睿 Server 控制台](https://passport.bonree.com/cas/login?service=https%3A%2F%2Fserver.bonree.com%2F)，待数据上报至博睿。
+1. 登录 [博睿 Server 控制台](https://server.bonree.com/)，待数据上报至博睿。
 2. 在博睿 Server 控制台右上角中选择【<img src="https://main.qcloudimg.com/raw/3475d18df76f95b36d1cc5f3708494ac.jpg" width="2.5%">】>【部署状态】，进入部署状态页面查看已进行数据上报的函数。如下图所示：
 ![](https://main.qcloudimg.com/raw/8ab20877d29235519da69df08861a95a.png)
 3. 将该函数关联一个应用，即可查看应用运行的情况。如下图所示：
