@@ -48,7 +48,7 @@ http://127.0.0.1:16080/live.p2p.com/stat?xresid=${yourURL}
 
 ## 设置上下行
 ### 接口说明
-- 描述：请求设置 P2P 上行与下行，0为开启，1为关闭
+- 描述：请求设置 P2P 上行与下行，0为关闭，1为开启
 - 方法：GET
 - 路径：`/feature?download=${0or1}&upload=${0or1}`
 
