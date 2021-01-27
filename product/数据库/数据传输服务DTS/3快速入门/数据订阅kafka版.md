@@ -42,4 +42,4 @@
 7. 单击启动后，订阅任务会进行初始化，预计会运行3分钟 - 4分钟，初始化成功后进入”运行中“状态。
 
 ## 后续操作
-数据订阅 Kafka 版支持用户创建多个消费组，进行多点消费，请参见 [新增消费组](https://cloud.tencent.com/document/product/571/52412)。
+数据订阅 Kafka 版支持用户创建多个消费组，进行多点消费，请参见 [新增消费组](https://cloud.tencent.com/document/product/571/52377)。
