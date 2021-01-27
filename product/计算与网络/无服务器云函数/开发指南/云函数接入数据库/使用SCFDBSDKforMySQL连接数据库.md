@@ -17,7 +17,7 @@ SCF DB SDK for MySQL 具备以下特点：
 
 ## 操作步骤
 
-### 创建私有网络 VPC<span id="createVPC"></span>
+### 创建私有网络 VPC[](id:createVPC)
 参考 [快速搭建私有网络](https://cloud.tencent.com/document/product/215/30716) 创建 VPC 和子网。
 
 ### 创建数据库实例

@@ -9,7 +9,7 @@
 ### 安装 Docker
 在本地安装 Docker，详情请参见 [Docker](https://docs.docker.com/install/)。
 
-<span id="node"></span>
+[](id:node)
 ### Node.js 8.9 安装 nodejieba
 
 本节以下述代码为例：
@@ -35,7 +35,7 @@ $ docker run -it --network=host -v /path/to/your-project:/tmp/your-project node:
 依赖安装完成后，将代码重新部署到 SCF 上即可正常运行函数。
 
 
-<span id="python"></span>
+[](id:python)
 ### Python 3.6 安装 pandas
 本节以下述代码为例：
 ```plaintext
@@ -82,7 +82,7 @@ echo <<EOF >> index.py
 > EOF
 $ python -v index.py > run.log 2>&1
 ```
-5. 执行以下命令，查看日志。示例如下：<span id="step5"></span>
+5. 执行以下命令，查看日志。示例如下：[](id:step5)
 ```js
 $ grep lzma run.log
 # /usr/local/lib/python3.6/__pycache__/lzma.cpython-36.pyc matches /usr/local/lib/python3.6/lzma.py
@@ -101,7 +101,7 @@ import 'lzma' # <_frozen_importlib_external.SourceFileLoader object at 0x7f446c4
 分析日志信息可知函数运行时需要加载 lzma，需具备以下文件：
 	- `/usr/local/lib/python3.6/lzma.py`
 	- `/usr/local/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so`
-6. 执行以下命令，查看 so 文件已具备的依赖：<span id="step6"></span>
+6. 执行以下命令，查看 so 文件已具备的依赖：[](id:step6)
 ```plaintext
 $ ldd /usr/local/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so
 	linux-vdso.so.1 (0x00007fff75bb1000)

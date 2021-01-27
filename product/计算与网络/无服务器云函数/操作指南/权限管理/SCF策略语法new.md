@@ -8,7 +8,7 @@ qcs: :scf:region:uin/uin—id:function/function-name
 
 >! 在配置策略语法时，还需要配合使用 monitor 相关的接口以获得账号下的监控信息，使用方法请参考 [策略示例](#policygen)。
 
-## 策略示例<span id="policygen"></span>
+## 策略示例[](id:policygen)
 ```
 {	 
         "version":"2.0", 

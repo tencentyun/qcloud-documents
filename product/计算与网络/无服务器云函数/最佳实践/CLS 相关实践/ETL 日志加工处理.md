@@ -6,7 +6,7 @@
 
 ## 操作步骤
 
-<span id="step01"></span>
+[](id:step01)
 
 ### 创建日志集
 
@@ -16,7 +16,7 @@
    ![](https://main.qcloudimg.com/raw/52704e1f3bdf6efe4c7e9b266e2ca451.jpg)
 4. 单击【确定】，即可创建日志集。
 
-<span id="step02"></span>
+[](id:step02)
 
 ### 创建日志主题
 
@@ -31,7 +31,7 @@
    ![](https://main.qcloudimg.com/raw/08e9dc61f1cc8bfcb1923345c86bef45.jpg)
 >? ETL 数据处理的源端和终端均为 CLS，故至少需创建两个 Topic。
 
-<span id="step03"></span>
+[](id:step03)
 
 ### 创建云函数 SCF
 
@@ -48,7 +48,7 @@
 > ! 函数需要在【函数配置】页面中，选择和 CLS 相同的 VPC 和子网。如下图所示：
 >   ![](https://main.qcloudimg.com/raw/a329381190dcf6ad0883f5f8a51a9567.png)
 
-<span id="step04"></span>
+[](id:step04)
 
 ### 配置 CLS 触发器
 
@@ -60,7 +60,7 @@
 ![](https://main.qcloudimg.com/raw/f14b4d014c955731b0ee5eef8323e9a1.png)
 6. 完成触发器配置后，单击【提交】，完成触发器创建。
 
-<span id="step05"></span>
+[](id:step05)
 
 ### 测试函数功能
 

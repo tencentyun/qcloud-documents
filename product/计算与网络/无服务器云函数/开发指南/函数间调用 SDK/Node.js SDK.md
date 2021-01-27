@@ -55,7 +55,7 @@ npm install tencentcloud-serverless-nodejs
 > - 如果没有手动传入 secretId 和 secretKey 等参数，函数需绑定有 SCF Invoke 权限（或者包含 SCF Invoke，例如 SCF FullAccess）的角色，可参考 [创建函数运行角色](https://cloud.tencent.com/document/product/583/41755)。
 
 
-1. <span id="Step1"></span>创建一个地域为【北京】，名称为 “FuncInvoked”，并用于**被调用**的 Node.js 云函数。该云函数内容如下：
+1. [](id:Step1)创建一个地域为【北京】，名称为 “FuncInvoked”，并用于**被调用**的 Node.js 云函数。该云函数内容如下：
 ```js
 'use strict';
 exports.main_handler = async (event, context, callback) => {
@@ -166,7 +166,7 @@ Already invoked a function!
 - [Init](#Init)
 - [Invoke](#Invoke)
 
-<span id="Init"></span>
+[](id:Init)
 #### Init
 在使用 SDK 前，建议执行 `npm init` 命令进行初始化 SDK。
 >?
@@ -184,7 +184,7 @@ Already invoked a function!
 | token |    否    | `String` | 默认会取 process.env.TENCENTCLOUD_SESSIONTOKEN |
 
 
-<span id="Invoke"></span>
+[](id:Invoke)
 #### Invoke
 调用函数，目前支持同步调用。
 
