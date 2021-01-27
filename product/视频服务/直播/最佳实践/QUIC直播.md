@@ -1,4 +1,4 @@
-QUIC（Quick UDP Internet Connection）是谷歌公司研发的基于 UDP 协议的下一代高质量传输协议，自2018年开始，IETF 将 QUIC 协议确定为 HTTP/3.0 网络协议规范进行推广，QUIC 协议相对于 TCP 协议，更适合在弱网络和高丢包场景下的传输。
+QUIC（Quick UDP Internet Connection）是谷歌公司研发的基于 UDP 协议的下一代高质量传输协议，自2018年开始，IETF 将 QUIC 协议确定为 HTTP/3.0 网络协议规范进行推广，QUIC 协议相对于 TCP 协议，更适合弱网络和高丢包场景下的数据传输。
 
 当前腾讯视频云支持使用 QUIC 协议来进行 [直播推流](#push) 和 [直播拉流](#play)。
 
@@ -11,7 +11,6 @@ QUIC（Quick UDP Internet Connection）是谷歌公司研发的基于 UDP 协议
 ## 注意事项
 
 若需使用 QUIC 拉流功能，请 [提工单](https://console.cloud.tencent.com/workorder/category) 给腾讯云开通对应拉流域名的 QUIC 协议拉流能力。
-
 
 
 ## 直播推流
@@ -49,8 +48,7 @@ QUIC（Quick UDP Internet Connection）是谷歌公司研发的基于 UDP 协议
 ### 拉流接入
 
 直播拉流支持 HTTP over QUIC 协议，需使用 UDP 443 端口进行拉流。拉流地址同 HTTP FLV 协议地址一样，也可以使用云直播控制台的【[地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator)】中 [生成拉流地址](https://cloud.tencent.com/document/product/267/35257#play)。
-
-![](https://main.qcloudimg.com/raw/c3c7dc4fdacb3320b033e803b3fb0041.png)
+![](https://main.qcloudimg.com/raw/e4727db59f2e195abdd9382456212d14.png)
 
 [](id:playtest)
 
@@ -58,7 +56,7 @@ QUIC（Quick UDP Internet Connection）是谷歌公司研发的基于 UDP 协议
 
 您可以使用腾讯云 [TCPlayerDemo](https://imgcache.qq.com/open/qcloud/video/player/demo/player.html) 工具进行检验，具体步骤如下所述：
 
-> ? chrome 浏览器支持 QUIC 协议请求，用 chrome 浏览器结合腾讯云 TCPlayerDemo 可以验证播放是否已使用 QUIC 播放。
+> ? chrome 浏览器支持 QUIC 协议请求，用 chrome 浏览器结合腾讯云 TCPlayerDemo 可以验证播放是否已使用 QUIC 协议播放。
 
 1. 打开 chrome 的 QUIC 开关。
    在 chrome 浏览器地址栏输入 `chrome://flags/#enable-quic `，将开关设置成 Enabled，重启 chrome 浏览器即可。
