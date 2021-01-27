@@ -62,7 +62,7 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 | timestamp | 是 | Integer | 当前 UNIX 时间戳，单位为秒。如果与当前时间相差过大，会引起签名过期错误。 |
 | expired | 是 | Integer | 签名的有效期截止时间 UNIX 时间戳，单位为秒。expired 必须大于 timestamp 且 expired - timestamp 小于90天。 |
 | nonce | 是 | Integer | 随机正整数。用户需自行生成，最长 10 位。 |
-| engine_model_type | 是 | String | 引擎模型类型。<br>• 8k_zh：电话 8k 中文普通话通用；<br>• 8k_zh_finance：电话 8k 金融领域模型；<br>• 16k_zh：16k 中文普通话通用；<br>• 16k_en：16k 英语；<br>• 16k_ca：16k 粤语；<br>• 16k_ko：16k 韩语；<br>• 16k_zh-TW：16k 中文普通话繁体。 |
+| engine_model_type | 是 | String | 引擎模型类型。<br>• 8k_en：电话 8k 英语；<br>• 8k_zh：电话 8k 中文普通话通用；<br>• 8k_zh_finance：电话 8k 金融领域模型；<br>• 16k_zh：16k 中文普通话通用；<br>• 16k_en：16k 英语；<br>• 16k_ca：16k 粤语；<br>• 16k_ko：16k 韩语；<br>• 16k_zh-TW：16k 中文普通话繁体 <br>• 16k_ja：16k 日语；<br>• 16k_wuu-SH：16k上海话方言； |
 | voice_id | 是 | String | 16 位 String 串作为每个音频的唯一标识，用户自己生成。 |
 | voice_format | 否 | Integer | 语音编码方式，可选，默认值为 4。1：pcm；4：speex(sp)；6：silk；8：mp3；12：wav；14：m4a（每个分片须是一个完整的 m4a 音频）；16：aac。 |
 | needvad | 否 | Integer | 0：关闭 vad，1：开启 vad。<br>如果语音分片长度超过60秒，用户需开启 vad。 |
@@ -72,7 +72,7 @@ key1=value2&key2=value2...(key 和 value 都需要进行 urlencode)
 | filter_modal | 否 | Integer | 是否过语气词（目前支持中文普通话引擎）。默认为0。0：不过滤语气词；1：部分过滤；2：严格过滤 。 |
 | filter_punc | 否 | Integer | 是否过滤句末的句号（目前支持中文普通话引擎）。默认为0。0：不过滤句末的句号；1：过滤句末的句号。 |
 | convert_num_mode | 否 | Integer | 是否进行阿拉伯数字智能转换。0：全部转为中文数字；1：根据场景智能转换为阿拉伯数字。 |
-| word_info | 否 | Int | 是否显示词级别时间戳。0：不显示；1：显示，不包含标点时间戳，2：显示，包含标点时间戳。支持引擎8k_en，8k_zh，8k_zh_finance，16k_zh，16k_en，16k_ca，16k_zh-TW，16k_ja，16k_wuu-SH，默认为0。|
+| word_info | 否 | Int | 是否显示词级别时间戳。0：不显示；1：显示，不包含标点时间戳，2：显示，包含标点时间戳。支持引擎 8k_en，8k_zh，8k_zh_finance，16k_zh，16k_en，16k_ca，16k_zh-TW，16k_ja，16k_wuu-SH，默认为0。|
 | vad_silence_time | 否 | Integer | 语音断句检测阈值，静音时长超过该阈值会被认为断句（多用在智能客服场景，需配合 needvad = 1 使用），取值范围：240-2000，单位 ms，此参数建议不要随意调整，可能会影响识别效果，目前仅支持 8k_zh、8k_zh_finance、16k_zh 引擎模型。 |
 | signature | 是 | String | 接口签名参数。 |
 
@@ -90,7 +90,7 @@ Base64Encode(HmacSha1("asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type
 ```
 HepdTRX6u155qIPKNKC+3U0j1N0=
 ```
-3. 将 signature 值进行 urlencode 之后拼接得到最终请求 URL 为：
+3. 将 signature 值进行 **urlencode**（注意：必须进行URL编码，否则将导致鉴权失败偶现 ）之后拼接得到最终请求 URL 为：
 ```
 wss://asr.cloud.tencent.com/asr/v2/1259228442?engine_model_type=16k_zh&expired=1592380492&filter_dirty=1&filter_modal=1&filter_punc=1&needvad=1&nonce=1592294092123&secretid=AKIDoQq1zhZMN8dv0psmvud6OUKuGPO7pu0r&timestamp=1592294092&voice_format=1&voice_id=RnKu9FODFHK5FPpsrN&signature=HepdTRX6u155qIPKNKC%2B3U0j1N0%3D
 ```
