@@ -11,9 +11,9 @@ TCR Addon 是容器镜像服务 TCR 推出的容器镜像内网免密拉取的�
 
 | 名称                                           | 类型                           | 资源量                 | Namespace            |
 | ---------------------------------------------- | ------------------------------ | ---------------------- | -------------------- |
-| tcr-assistant-system                           | Namespace                      | 1                      |/                    |
-| tcr-assistant-manager-role                     | ClusterRole                    | 1                      | /                    |
-| tcr-assistant-manager-rolebinding              | ClusterRoleBinding             | 1                      | /                    |
+| tcr-assistant-system                           | Namespace                      | 1                      |-                    |
+| tcr-assistant-manager-role                     | ClusterRole                    | 1                      | -                    |
+| tcr-assistant-manager-rolebinding              | ClusterRoleBinding             | 1                      | -                    |
 | tcr-assistant-leader-election-role             | Role                           | 1                      | tcr-assistant-system |
 | tcr-assistant-leader-election-rolebinding      | RoleBinding                    | 1                      | tcr-assistant-system |
 | tcr-assistant-webhook-server-cert              | Secret                         | 1                      | tcr-assistant-system |

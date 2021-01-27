@@ -24,7 +24,7 @@ Serverless SSR 为您提供了完整的控制台开发应用流程，该任务�
 2. 新建 COS 存储桶，拆分静态资源，将静态资源托管到 COS 桶中。
 ![](https://main.qcloudimg.com/raw/33a09a5fcf29dce6cb97f512c1113744.png)
 
-您还可以在【高级配置】部分，为您的项目进行静态资源存储、自定义域名、CDN 加速等高级能力的配置。
+您还可以在【高级设置】部分，为您的项目进行静态资源存储、自定义域名、CDN 加速等高级能力的配置。
 ![](https://main.qcloudimg.com/raw/6cd8a9b7b7bfd48aa3d3549cdc2104be.png)
 >?配置自定义域名时，请确定您的域名已在腾讯云备案并配置了 CNAME 解析，详细步骤参考 [自定义域名配置](https://cloud.tencent.com/document/product/628/11791)。
  

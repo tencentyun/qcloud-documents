@@ -6,13 +6,10 @@ GET Bucket IntelligentTiering 接口用于查询存储桶的智能分层配置�
 > - 只有主账号或者被授权 GET Bucket IntelligentTiering 接口权限的子账号可以调用该接口。
 > - 该配置有未启用和启用两种状态：
 > - 如果您从未在存储桶上启用智能分层存储配置，则响应为：
-
 ```shell
 	<IntelligentTieringConfiguration/>
 ```
-
 > - 如果您启用了存储桶的智能分层配置，则响应为：
-
 ```shell
 <IntelligentTieringConfiguration xmlns="cos xmlns/"> 
        <Status>Enabled</Status>

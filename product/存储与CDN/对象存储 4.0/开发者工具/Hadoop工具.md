@@ -17,7 +17,7 @@ Hadoop-2.6.0及以上版本。
 
 >?
 >1. 目前 Hadoop-COS 已经正式被 Apache Hadoop-3.3.0 [官方集成](https://hadoop.apache.org/docs/r3.3.0/hadoop-cos/cloud-storage/index.html)。
->2. 在 Apache Hadoop-3.3.0 之前版本或 CDH 集成 Hadoop-cos jar 包后，需要重启 NameNode 才能加载到 jar 包。
+>2. 在 Apache Hadoop-3.3.0 之前版本或 CDH 集成 Hadoop-cos jar 包后，需要重启 NodeManager 才能加载到 jar 包。
 >3. 需要编译具体 Hadoop 版本的 jar 包时，可更改 pom 文件中 hadoop.version 进行编译。
 
 
@@ -55,7 +55,7 @@ done
 |                  属性键                  | 说明                                                         |                            默认值                            | 必填项 |
 | :--------------------------------------: | :----------------------------------------------------------- | :----------------------------------------------------------: | :----: |
 |   fs.cosn.userinfo.<br>secretId/secretKey    | 填写您账户的 API 密钥信息。可登录 [访问管理控制台](https://console.cloud.tencent.com/capi) 查看云 API 密钥。 |                              无                              |   是   |
-|       fs.cosn.<br>credentials.provider       | 配置 SecretId 和 SecretKey<br> 的获取方式。当前支持三种获取方式：1.org.apache.hadoop.fs.auth.SessionCredential<br>Provider：从请求 URI 中获取 secret id 和 secret key。<br>其格式为：`cosn://{secretId}:{secretKey}@examplebucket-1250000000/`；<br>2.org.apache.hadoop.fs.auth.SimpleCredentialProvider：<br>从 core-site.xml 配置文件中读取 fs.cosn.userinfo.secretId <br>和 fs.cosn.userinfo.secretKey 来获取 SecretId 和 SecretKey；<br>3.org.apache.hadoop.fs.auth.EnvironmentVariableCredential<br>Provider：从系统环境变量 COS_SECRET_ID 和 COS_SECRET_KEY 中获取；<br>4.org.apache.hadoop.fs.auth.CVMInstanceCredentials<br>Provider：利用腾讯云云服务器（CVM）绑定的角色，获取访问 <br>COS 的临时密钥；<br>5. org.apache.hadoop.fs.auth.CPMInstanceCredentialsProvider：利用腾讯云黑石物理机（CPM）绑定的角色，获取访问 <br>COS 的临时密钥。 | 如果不指定该配置项，默认会按照<br>以下顺序读取：<br>1.org.apache.hadoop.fs.auth.<br>SessionCredentialProvider<br>2.org.apache.hadoop.fs.auth.<br>SimpleCredentialProvider <br>3.org.apache.hadoop.fs.auth.<br>EnvironmentVariableCredentialProvider<br>4.org.apache.hadoop.fs.auth.<br>CVMInstanceCredentialsProvider<br>5.org.apache.hadoop.fs.auth.<br>CPMInstanceCredentialsProvider |   否   |
+|       fs.cosn.<br>credentials.provider       | 配置 SecretId 和 SecretKey 的获取方式。当前支持五种获取方式：<br> 1.org.apache.hadoop.fs.auth.SessionCredential<br>Provider：从请求 URI 中获取 secret id 和 secret key。<br>其格式为：`cosn://{secretId}:{secretKey}@examplebucket-1250000000/`；<br>2.org.apache.hadoop.fs.auth.SimpleCredentialProvider：<br>从 core-site.xml 配置文件中读取 fs.cosn.userinfo.secretId 和 fs.cosn.userinfo.secretKey 来获取 SecretId 和 SecretKey；<br>3.org.apache.hadoop.fs.auth.EnvironmentVariableCredential<br>Provider：从系统环境变量 COS_SECRET_ID 和 COS_SECRET_KEY 中获取；<br>4.org.apache.hadoop.fs.auth.CVMInstanceCredentials<br>Provider：利用腾讯云云服务器（CVM）绑定的角色，获取访问 COS 的临时密钥；<br> 5.org.apache.hadoop.fs.auth.CPMInstanceCredentialsProvider：<br>利用腾讯云黑石物理机（CPM）绑定的角色，获取访问 COS 的临时密钥。 | 如果不指定该配置项，默认会按照<br>以下顺序读取：<br>1.org.apache.hadoop.fs.auth.<br>SessionCredentialProvider<br>2.org.apache.hadoop.fs.auth.<br>SimpleCredentialProvider <br>3.org.apache.hadoop.fs.auth.<br>EnvironmentVariableCredentialProvider<br>4.org.apache.hadoop.fs.auth.<br>CVMInstanceCredentialsProvider<br>5.org.apache.hadoop.fs.auth.<br>CPMInstanceCredentialsProvider |   否   |
 | fs.cosn.useHttps | 配置是否使用 https 作为与 COS 后端的传输协议。 | false | 否 |
 |               fs.cosn.impl               | cosn 对 FileSystem 的实现类，固定为 org.apache.hadoop.fs.CosFileSystem。 |                              无                              |   是   |
 |     fs.AbstractFileSystem.<br>cosn.impl      | cosn 对 AbstractFileSystem 的实现类，固定为 org.apache.hadoop.fs.CosN。 |                              无                              |   是   |
@@ -85,11 +85,6 @@ done
 
 ```xml
 <configuration>
-    <property>
-        <name>fs.defaultFS</name>
-        <value>cosn://examplebucket-1250000000</value>
-    </property>
-  
     <property>
         <name>fs.cosn.credentials.provider</name>
         <value>org.apache.hadoop.fs.auth.SimpleCredentialProvider</value>
@@ -209,6 +204,18 @@ done
 </configuration>
 ```
 
+其中 fs.defaultFS 不建议在生产环境进行配置，若您需要用于部分测试场景（例如 hive-testbench 等），可添加如下配置信息：
+
+```
+<property>
+          <name>fs.defaultFS</name>
+          <value>cosn://examplebucket-1250000000</value>
+        <description>
+             This option is not advice to config, this only used for some special test cases.
+        </description>
+</property>
+```
+  
 ### 服务端加密
 
 Hadoop-COS 支持服务端加密，目前提供两种加密方式：COS 托管密钥方式（SSE-COS）和用户自定义密钥方式（SSE-C），Hadoop-COS 的加密功能默认为关闭状态，用户可以选择开启，通过以下方式进行配置。

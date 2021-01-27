@@ -68,7 +68,7 @@ tar -zvxf wotrus_ssl.tar.gz
 #进入解压后的 nginx-1.18.0 文件夹
 cd nginx-1.18.0/
 #指定编译目录路径与编译模块。如需其他模块可自行增加
-./configure --prefix=/usr/local/nginx --with-http_stub_status_module --with-stream --with-http_ssl_module --with-stream_ssl_module --with-openssl=/usr/local/wotrus_ssl
+./configure --prefix=/usr/local/nginx --with-http_stub_status_module --with-stream --with-http_ssl_module --with-stream_ssl_module --with-openssl=/usr/local/wotrus_ssl2.0
 #编译安装 Nginx
 make && make install 
 ```

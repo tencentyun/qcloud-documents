@@ -5,7 +5,7 @@
 
 | 返回码 | 含义                         | 是否收费 |
 | ------ | ---------------------------- | -------- |
-| Succcess | 检测通过 | 是 |
+| Success | 检测通过 | 是 |
 | FailedOperation.IdNameMisMatch|	姓名和身份证号不一致，请核实后重试。  | 是       |
 |FailedOperation.IdPhotoPoorQuality	|证件图片分辨率太低，请重新上传。|是|
 | FailedOperation.LifePhotoDetectFaces	|检测到多张人脸。|是    |

@@ -17,12 +17,11 @@
 ![](https://main.qcloudimg.com/raw/7c4cf6eddf838d55a4dfa858ac3d6e3f.png)
 3. 若出现以下提示，则表示 SDK 接入成功 。
 ![](https://main.qcloudimg.com/raw/393d62182039f2164517d18b86cdb52a.png)
-	- 若出现以下提示，请确认该应用是否开通试用或购买了推送服务。
-![](https://main.qcloudimg.com/raw/0be6c16b6421faf7855c13f2bd670a19.png)
-	可在 [产品管理](https://console.cloud.tencent.com/tpns) 页面查看当前应用服务状态，在您申请试用或购买后30分钟内可开通服务。
-	![](https://main.qcloudimg.com/raw/058b0ef8a861acb3986aee92adc63e8e.png)
-	- 若出现以下提示，请确认 App 是否成功注册推送服务，可参见 [接入结果验证](#jierujieguo)。
+	若出现以下提示，请确认 App 是否成功注册推送服务，可参见 [接入结果验证](#jierujieguo)。
 	![](https://main.qcloudimg.com/raw/b234996ccd14cd5681bda3c5afcb5f30.png)
+>!为提升离线抵达率，TPNS SDK 默认开启联合保活能力，开发者可手动关闭，详情请参见 [关闭 TPNS 保活功能](https://cloud.tencent.com/document/product/548/36674#.E5.A6.82.E4.BD.95.E5.85.B3.E9.97.AD-tpns-.E7.9A.84.E4.BF.9D.E6.B4.BB.E5.8A.9F.E8.83.BD.EF.BC.9F)。
+
+
 
 <span id="jierujieguo"></span>
 
@@ -60,3 +59,5 @@ XG register push success with token:6ed8af8d7b18049d9fed116a9db9c71ab4aabb65
  ![](https://main.qcloudimg.com/raw/1de82d05f351939883e1870ae7300c44.png)
 4. 如果日志显示 `Execution failed for task ':Paracraft:checkTPNS'`，说明检查到有新版本的 TPNS Android SDK 可以升级。如果不希望检查更新，可以在 tpns-configs.json 文件中添加 `"upgrade": false`，效果如下图：
 <img src="https://main.qcloudimg.com/raw/9eb6a2e108a7a4d1abdd10ef5c1cffdd.png" width="70%"></img>
+5. 使用插件过程中，遇到 Android Gradle 插件版本跟 Gradle 版本不匹配的问题，可以参考 [Android Gradle 插件版本说明](https://developer.android.google.cn/studio/releases/gradle-plugin) 进行版本升级，下图列出了当前各个 Android Gradle 插件版本所需的 Gradle 版本：
+![](https://main.qcloudimg.com/raw/3b5fa0267d2a051bf55c9f4521cff844.png)

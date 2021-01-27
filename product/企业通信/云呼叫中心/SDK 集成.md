@@ -34,6 +34,8 @@ scriptDom.dataset.userid = SeatUserId
 scriptDom.src = SdkURL
 document.body.appendChild(scriptDom)
 ```
+效果如下图所示：
+![](https://main.qcloudimg.com/raw/409fdbf91e4eec0580e12a7f8ef77fc1.png)
 
 <span id = "practice"></span>
 ## 最佳实践 

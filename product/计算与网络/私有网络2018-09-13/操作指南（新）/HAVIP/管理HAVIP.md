@@ -22,27 +22,27 @@ HAVIP 用于配合第三方 HA 软件使用，与 CVM 的绑定与解绑不在�
 >?常见的 HA 软件有：Linux 下的 HeartBeat、keepalived、pacemaker，Windows下的 MSCS 等。
 
 ### 操作示例
-HA 软件中指定 VIP 时（配置文件或操作界面均可），填入您创建的 HAVIP 即可，示例如下：
+HA软件指定VIP时（配置文件），填入您创建的HAVIP即可，示例如下：
 ```plaintext
 vrrp_instanceVI_1 {
 #注意主备参数选择
     state MASTER               #设置初始状态为"备"。
-    interface eth0             #设置绑定 VIP 的网卡 例如 eth0
+    interface eth0             #设置绑定 VIP 的网卡，例如 eth0
     virtual_router_id 51       #配置集群 virtual_router_id 值
-		nopreempt                  # 设置非抢占模式
-		preempt_delay 10           # 抢占延时10分钟
-    priority 100               # 设置优先级，值越大优先级越高
+		nopreempt                  #设置非抢占模式
+		preempt_delay 10           #抢占延时10分钟
+    priority 100               #设置优先级，值越大优先级越高
     advert_int 1               #检查间隔，默认1秒
     authentication {           #设置认证
         auth_type PASS          #认证方式
-        auth_pass 1111          //认证密码
+        auth_pass 1111          #认证密码
     }
 		unicast_src_ip 172.16.16.5 #设置本机内网IP地址
 		unicast_peer{
 		172.16.16.6                #对端设备的 IP 地址
 		}
     virtual_ipaddress {     
-		172.16.16.12               //设置高可用虚拟 VIP
+		172.16.16.12               #设置高可用虚拟 VIP
     }
 	}
 ```

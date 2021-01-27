@@ -37,7 +37,7 @@
 Go 客户端 Pulsar 官方目前还未更新最新适配的客户端，在官方适配之前需要下载腾讯云提供的 SDK。
 1. 下载 SDK。
    ```sh
-   $ go get -u "github.com/TencentCloud/tdmq-go-client@v0.2.0-beta.1"
+   $ go get -u "github.com/TencentCloud/tdmq-go-client@v0.3.0-beta.2"
    ```
 2. 在代码中重新导入。
    ```go

@@ -79,3 +79,8 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 	>- 解除绑定某个弹性 IP 时，页面上与其相应的 DNAT 规则也会消失。
 	>
 ![](https://main.qcloudimg.com/raw/48461beaa0162204aa2db464d949458a.png)
+
+
+## 相关信息
+- 如需对所持有的公网 IP 以及关联的云上资产，配置对应的防火墙开关，可参见 [互联网边界防火墙开关](https://cloud.tencent.com/document/product/1132/46928) 进行操作。
+- 如需自动探测 VPC 信息与互通关系，并在每一对互通的 VPC 间，建立云防火墙开关，可参见 [VPC 间防火墙开关](https://cloud.tencent.com/document/product/1132/46930) 进行操作。

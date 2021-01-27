@@ -19,7 +19,7 @@ Jupyter Notebook 中所有交互计算、编写说明文档、数学公式、图
 ## 安装 jupyter
 进入 EMR [购买页](https://cloud.tencent.com/product/emr)。
 - 选择产品版本：EMR-V2.3.0。
-- 在【可选组件】列表中，选择【tensorflowonspark 1.4.4】后就会默认安装 hive-llap，安装目录位于`/usr/local/server/jupyter`；jupyter 不会启动任何服务，如果您没有安装 tensorflowonspark，那默认的安装路径位于`/usr/local/server/apps/jupyter`。
+- 在【可选组件】列表中，选择【tensorflowonspark 1.4.4】后就会默认安装 Jupyter，安装目录位于`/usr/local/server/jupyter`；jupyter 不会启动任何服务，如果您没有安装 tensorflowonspark，那默认的安装路径位于`/usr/local/server/apps/jupyter`。
 
 ## 使用 jupyter
 ### 初始化 jupyter 配置
