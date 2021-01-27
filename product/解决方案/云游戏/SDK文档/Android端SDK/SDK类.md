@@ -20,7 +20,7 @@
 | [getMoveSensitivity](#getmovesensitivity)                 | float                                                        | 返回已经设置的鼠标灵敏度   |
 | [setTouchClickKey](#settouchclickkey)                     | void                                                         | 设置鼠标类型使用的按键     |
 | [setCursorType](#setcursortype)                           | void                                                         | 设置鼠标模式               |
-| [getCurrentCursorType](#getcurrentcursortype)             | [CursorType](https://cloud.tencent.com/document/product/1162/52242?!preview&!editLang=zh) | 当前设置的鼠标模式         |
+| [getCurrentCursorType](#getcurrentcursortype)             | [CursorType](https://cloud.tencent.com/document/product/1162/52242) | 当前设置的鼠标模式         |
 | [setScaleType](#setscaletype)                             | void                                                         | 设置画面显示模式           |
 
 ### setSDK
@@ -129,7 +129,7 @@ public void setTouchClickKey(com.tencent.tcgsdk.api.CursorType.TouchClickKey key
 | ---- | ----------------------------------------------- | --------------------------------------------------- |
 | key  | com.tencent.tcgsdk.api.CursorType.TouchClickKey | TOUCH / RELATIVE_TOUCH 单击时的按键，默认是鼠标左键 |
 
-> ? 更多详情请参见 [CursorType.TOUCH](https://cloud.tencent.com/document/product/1162/52242?!preview&!editLang=zh#touch)、[CursorType.RELATIVE_TOUCH](https://cloud.tencent.com/document/product/1162/52242?!preview&!editLang=zh#relative_touch)。
+> ? 更多详情请参见 [CursorType.TOUCH](https://cloud.tencent.com/document/product/1162/52242#touch)、[CursorType.RELATIVE_TOUCH](https://cloud.tencent.com/document/product/1162/52242#relative_touch)。
 
 ### setCursorType
 
@@ -143,7 +143,7 @@ public void setCursorType(CursorType mode)
 
 | 参数 | 类型                                                         | 说明                                                         |
 | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| mode | [CursorType](https://cloud.tencent.com/document/product/1162/52242?!preview&!editLang=zh#cursortype) | 鼠标类型，对于TOUCH / RELATIVE_TOUCH 两种类型可以指定单击时的按键 |
+| mode | [CursorType](https://cloud.tencent.com/document/product/1162/52242#cursortype) | 鼠标类型，对于TOUCH / RELATIVE_TOUCH 两种类型可以指定单击时的按键 |
 
 > ? 更多详情请参见 [setTouchClickKey(CursorType.TouchClickKey)](#settouchclickkey)。
 
@@ -224,7 +224,7 @@ public ITcgSdk build()
 
 **返回：**返回 SDK 接口。
 
-> ? 更多详情请参见 [ITcgListener.onInitSuccess(String)](https://cloud.tencent.com/document/product/1162/52326?!preview&!editLang=zh#oninitsuccess)。
+> ? 更多详情请参见 [ITcgListener.onInitSuccess(String)](https://cloud.tencent.com/document/product/1162/52326#oninitsuccess)。
 
 ### autoReconnect
 
@@ -304,7 +304,7 @@ public TcgSdk2.Builder timeout(long timeoutMs)
 
 **返回：**被调用的 Builder 本身。
 
-> ? 更多详情请参见 [ITcgListener.onConnectionTimeout()](https://cloud.tencent.com/document/product/1162/52326?!preview&!editLang=zh#onconnectiontimeout)。
+> ? 更多详情请参见 [ITcgListener.onConnectionTimeout()](https://cloud.tencent.com/document/product/1162/52326#onconnectiontimeout)。
 
 ### logLevel
 
@@ -338,7 +338,7 @@ public TcgSdk2.Builder enableHwCodec(boolean enableHwCodec)
 
 ### lowFpsThreshold
 
-低帧率阈值，连续 lowFpsCountThreshold 秒码率低于 lowFpsThreshold 会触发 [ILowFPSListener](https://cloud.tencent.com/document/product/1162/52326?!preview&!editLang=zh#ilowfpslistener) 回调。
+低帧率阈值，连续 lowFpsCountThreshold 秒码率低于 lowFpsThreshold 会触发 [ILowFPSListener](https://cloud.tencent.com/document/product/1162/52326#ilowfpslistener) 回调。
 
 ```java
 public TcgSdk2.Builder lowFpsThreshold(int lowFpsThreshold,
