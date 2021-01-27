@@ -17,7 +17,7 @@
 基于上述要求，使用 LoRaWAN 时应注意以下几点：
 1. 单终端及网关设备，不能同时使用两个及以上信道发送数据，但接收数据可以。
 2. 发送功率加上天线的增益不能超过 17dBm，即 50mw。
-3. 单次发送数据的空中时长 ToA 应不超过1s，根据 semtech 官方提供的计算公式计算 [ToA]([SX1261Calculator_setup](SX1261Calculator_setup.zip))。
+3. 单次发送数据的空中时长 ToA 应不超过1s，根据 semtech 官方提供的 [计算公式](https://semtech.my.salesforce.com/sfc/p/#E0000000JelG/a/2R000000Q2OJ/Ez25zbF836YSS7KLnl80hd2HKMhA6l1QVPUIR.baDW8) 计算 ToA。
 
 ## 应用特征
 LoRaWAN 并不适用每一种通信应用场景，使用者应根据 LoRaWAN 的特点来适配应用场景。
@@ -27,7 +27,7 @@ LoRaWAN 并不适用每一种通信应用场景，使用者应根据 LoRaWAN 的
 - 低成本：通信模组成本可控制在 40RMB 以下，随着时间增长，成本会逐步降低。
 - 低带宽：通信速率 250bits 到 5Kbits 不同的调制方式下（SF7 到 SF12）。
 - 按需部署：不需要依赖运营商的基站，可根据应用需求灵活部署网关。
-- 安全：端到端128位 AES 加密。
+- 安全：端到端 128位 AES 加密。
 
 ### 不适用场景
 - 实时数据：按秒为单位实时的上传应用数据的场景。
