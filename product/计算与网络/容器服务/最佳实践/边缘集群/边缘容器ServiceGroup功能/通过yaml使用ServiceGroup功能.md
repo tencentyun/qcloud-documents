@@ -10,7 +10,7 @@
 
 该步骤进行逻辑规划，无需任何实际操作。边缘容器将目前要创建的 ServiceGroup 逻辑标记使用的 UniqKey 设置为 zone。
 
-### 通过 Label 将边缘节点分组<span id="Step2"></span>
+### 通过 Label 将边缘节点分组[](id:Step2)
 
 该步骤需要通过 ECK 控制台或者 kubectl 对边缘节点打 Label。ECK 控制台操作步骤如下：
 

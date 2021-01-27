@@ -81,7 +81,7 @@ spec:
 
 
 ## 操作步骤
-### 通过控制台新建服务器证书<span id="create"></span>
+### 通过控制台新建服务器证书[](id:create)
 >?若您已具备需配置的证书，则请跳过此步骤。
 >
 1. 登录负载均衡控制台，选择左侧导航栏中的【[证书管理](https://console.cloud.tencent.com/clb/cert)】。

@@ -67,7 +67,7 @@ TKE 自带的 Ingress 中，每个 Ingress 资源都会对应一个负载均衡 
 
 
 
-#### 示例<span id="eg1"></span>
+#### 示例[](id:eg1)
 如果服务使用 TKE 自带的 Ingress 暴露服务，则不适合用 cert-manager 签发管理免费证书，证书从 [证书管理](https://console.cloud.tencent.com/ssl) 中被引用，不在 Kubernetes 中管理。
 假设是 [在 TKE 上部署 Nginx Ingress](https://cloud.tencent.com/document/product/457/47293)，且后端服务的 Ingress 是 `prod/web`，可参考以下代码示例创建 Issuer：
 ``` yaml
@@ -171,7 +171,7 @@ namecheap 可以设置 custom nameserver，如下图所示：
                key: api-token
                name: cloudflare-api-token-secret # 引用保存 cloudflare 认证信息的 Secret
 ```
-4. <span id="Certificate"></span>创建 Certificate。yaml 示例如下：
+4. [](id:Certificate)创建 Certificate。yaml 示例如下：
 ``` yaml
    apiVersion: cert-manager.io/v1
    kind: Certificate

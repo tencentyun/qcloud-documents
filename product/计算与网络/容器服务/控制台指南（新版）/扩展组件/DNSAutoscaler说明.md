@@ -3,7 +3,7 @@
 
 DNSAutoscaler 是 DNS 自动水平伸缩组件，可通过一个 deployment 获取集群的节点数和核数，根据预设的伸缩策略，自动水平伸缩 DNS 的副本数。目前的伸缩模式分为两种，分别是 [Linear 线性模式](#Linear) 和 [Ladder 阶梯模式](#Ladder)。
 
-#### Linear Mode<span id="Linear"></span>
+#### Linear Mode[](id:Linear)
 
 ConfigMap 配置示例如下：
 ```
@@ -23,7 +23,7 @@ replicas = max( ceil( cores _ 1/coresPerReplica ) , ceil( nodes _ 1/nodesPerRepl
 replicas = min(replicas, max)
 replicas = max(replicas, min)
 
-#### Ladder Mode<span id="Ladder"></span>
+#### Ladder Mode[](id:Ladder)
 
 ConfigMap 配置示例如下：
 ```
