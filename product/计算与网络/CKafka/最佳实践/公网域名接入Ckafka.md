@@ -1,11 +1,9 @@
 ## 操作场景
 如果您需要通过公网访问消息队列 CKafka 服务，可以通过控制台增加公网路由，并通过配置 SASL 鉴权和 ACL 规则实现公网访问 CKafka Topic 的生产和消费消息。
 
->?公网路由目前处于灰度测试阶段，如需试用请通过 [提交内测申请](https://cloud.tencent.com/apply/p/kg3u9clifnk) 的方式开通白名单，申请提交后我们将在5个工作日内进行审核并与您取得联系。
 
 ## 前提条件
-- 已 [创建实例](https://cloud.tencent.com/document/product/597/30931)。
-- 已通过 [内测申请](https://cloud.tencent.com/apply/p/kg3u9clifnk)。
+已 [创建实例](https://cloud.tencent.com/document/product/597/30931)。
 
 ## 操作步骤
 

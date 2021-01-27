@@ -12,13 +12,13 @@
 const VodUploader = require('../../lib/vod-wx-sdk-v2.js');
 ```
 - npm 安装
-````bash
+```bash
 npm i vod-wx-sdk-v2
-````
+```
 
 **2. 定义获取上传签名的函数**
 
-````js
+```js
 getSignature: function(callback) {
     wx.request({
         /**
@@ -30,7 +30,7 @@ getSignature: function(callback) {
         }
     });
 }
-````
+```
 
 >?
 >- `url` 是您派发签名服务的 URL，参见 [客户端上传指引](https://cloud.tencent.com/document/product/266/9219)。
@@ -93,7 +93,7 @@ getSignature: function(callback) {
 | [finish](#y2) | 是 | Function | 上传结束回调，返回 fileId 等信息
 | [error](#y3) | 是 | Function | 错误处理回调
 
-### `progress`回调<span id="y1"></span>
+### `progress`回调[](id:y1)
 
 | 字段名 | 类型 | 字段描述 |
 | ------- | ------- | ------- |
@@ -102,7 +102,7 @@ getSignature: function(callback) {
 | speed | number | 上传速度 |
 | total | number | 总大小 |
 
-### `finish`回调<span id="y2"></span>
+### `finish`回调[](id:y2)
 
 | 字段名 | 类型 | 字段描述 |
 | ------- | ------- | ------- |
@@ -111,7 +111,7 @@ getSignature: function(callback) {
 | videoName | string | 视频名称 |
 | videoUrl | string | 视频链接 |
 
-### `error`回调<span id="y3"></span>
+### `error`回调[](id:y3)
 
 | 字段名 | 类型 | 字段描述 |
 | ------- | ------- | ------- |

@@ -1,6 +1,6 @@
-TDSQL 只用 HASH 方式进行数据拆分，不利于删除特定条件的数据，如流水类型，删除旧的数据，为解决这个问题，可以使用两级分区。
+TDSQL MySQL版 只用 HASH 方式进行数据拆分，不利于删除特定条件的数据，如流水类型，删除旧的数据，为解决这个问题，可以使用两级分区。
 
-TDSQL 支持 range 和 list 格式的两级分区，具体建表语法和 MySQL 分区语法类似。
+TDSQL MySQL版 支持 range 和 list 格式的两级分区，具体建表语法和 MySQL 分区语法类似。
 
 ## range 支持类型
 - DATE、DATETIME、TIMESTAMP：支持 year、month、day 函数，函数为空和 day 函数一样。

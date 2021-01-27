@@ -17,8 +17,7 @@ db.collection("todos")
   });
 ```
 
->? 
-> CloudBase 服务端 SDK 已经与云托管进行集成，无需手工填入密钥即可使用。
+>? CloudBase 服务端 SDK 已经与云托管进行集成，无需手工填入密钥即可使用。
 
 ## 步骤 1：初始化 SDK
 

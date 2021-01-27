@@ -1,10 +1,14 @@
-SDK 接口除初始化接口, 其余接口均由 HTTP 实现，请求格式为 `http:://${host}/${func}?${param}`，其中 `${host}` 为本地代理服务器，通过 `XNet.HTTP_PROXY` 获取。
+SDK 接口除初始化接口，其余接口均由 HTTP 实现，请求格式为：
+```
+http:://${host}/${func}?${param}
+```
+其中 `${host}` 为本地代理服务器，通过 `XNet.HTTP_PROXY` 获取。
 
 ## 统计
 ### 接口说明
 - 描述：请求对应频道的统计数据
 - 方法：GET
-- 路径：`/stat?channel=${resource}`
+- 路径：`/stat?xresid=${resource}`
 
 ### 请求参数
 
@@ -33,7 +37,7 @@ SDK 接口除初始化接口, 其余接口均由 HTTP 实现，请求格式为 `
 ### 示例
 - **请求示例：**
 ```
-http://127.0.0.1:16080/live.p2p.com/stat?xresid=xxx
+http://127.0.0.1:16080/live.p2p.com/stat?xresid=${yourURL}
 ```
 >! xresid 即 `http://127.0.0.1:16080/live.p2p.com/resoruce.ext` 中的 resource。
 - **返回示例：**

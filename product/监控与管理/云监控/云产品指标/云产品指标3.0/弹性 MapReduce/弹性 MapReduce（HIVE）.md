@@ -54,7 +54,7 @@ Namespace=QCE/TXMR_HIVE
 
 | 指标英文名             | 指标名称 | 指标中文名       | 指标单位 | 指标含义                              | 维度                                          |
 | ---------------------- | -------- | ---------------- | -------- | ------------------------------------- | --------------------------------------------- |
-| HiveHcGcUtilGcCountYgc | YGC      | GC 次数_YGC       | 次       | Young GC 次数                         | host4hivehivewebhcat、<br>id4hivehivewebhcat  |
+| HiveHcGcUtilGcCountYgc | YGC      | GC 次数\_YGC       | 次       | Young GC 次数                         | host4hivehivewebhcat、<br>id4hivehivewebhcat  |
 | HiveHcGcUtilGcCountFgc | FGC      | GC 次数_FGC       | 次       | Full GC 次数                          | host4hivehivewebhcat、<br>id4hivehivewebhcat  |
 | HiveHcGcUtilGcTimeFgct | FGCT     | GC 时间_FGCT      | s        | Full GC 消耗时间                      | host4hivehivewebhcat、<br>id4hivehivewebhcat  |
 | HiveHcGcUtilGcTimeGct  | GCT      | GC 时间_FGCT      | s        | 垃圾回收时间消耗                      | host4hivehivewebhcat、<br/>id4hivehivewebhca  |
@@ -85,7 +85,7 @@ Namespace=QCE/TXMR_HIVE
 
 ## 入参说明
 
- 弹性 MapReduce（HIVE）支持以下三种维度组合的查询方式，三种入参取值如下： 
+弹性 MapReduce（HIVE）支持以下三种维度组合的查询方式，三种入参取值如下： 
 
 **1. 查询  HIVE-HiveMetaStore  的指标监控数据，入参取值如下：**
 &Namespace=QCE/TXMR_HIVE

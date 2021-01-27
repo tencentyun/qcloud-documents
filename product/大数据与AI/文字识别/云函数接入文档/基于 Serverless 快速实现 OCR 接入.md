@@ -1,7 +1,7 @@
 ## 概述
 基于腾讯云 Serverless 服务，用户可以通过云函数 SCF 与 API 网关产品快速完成 OCR 接入工作，帮助用户实现“0”配置，便捷开发，方便运维的项目部署方案。Serverless Framework 的详细介绍，请阅读 [云函数产品文档](https://cloud.tencent.com/document/product/583) 。
 
-本文档将为您介绍，如何通过 Serverless Framework 组件，快速部署一个接入 OCR 的应用。
+本文档将为您介绍，如何通过 Serverless Framework 组件，快速部署一个接入 OCR 的应用。   
 
 使用组件：
 

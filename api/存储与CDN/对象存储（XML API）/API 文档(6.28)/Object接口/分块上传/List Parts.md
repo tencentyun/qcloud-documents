@@ -13,7 +13,7 @@ Date: GMT Date
 Authorization: Auth String
 ```
 
->?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）
+>?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求头
 
@@ -21,12 +21,12 @@ Authorization: Auth String
 
 #### 请求参数
 
-| 名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               | 类型   | 必选 | 描述                                                         |
-| ------------------ | ------ | ---- | ------------------------------------------------------------ |
-| UploadId           | string | 是   | 标识本次分块上传的 ID。使用 Initiate Multipart Upload 接口初始化分片上传时会得到一个 uploadId，该 ID 不但唯一标识这一分块数据，也标识了这分块数据在整个文件内的相对位置 |
-| encoding-type      | string | 否   | 规定返回值的编码方式                                         |
-| max-parts          | string | 否   | 单次返回最大的条目数量，默认1000                             |
-| part-number-marker | string | 否   | 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始  |
+| 名称               | 描述                                                         | 类型   | 是否必选 |
+| ------------------ | ------------------------------------------------------------ | ------ | -------- |
+| UploadId           | 标识本次分块上传的 ID，使用 Initiate Multipart Upload 接口初始化分块上传时得到的 UploadId | string | 是       |
+| encoding-type      | 规定返回值的编码方式                                         | string | 否       |
+| max-parts          | 单次返回最大的条目数量，默认1000                             | string | 否       |
+| part-number-marker | 默认以  UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始 | string | 否       |
 
 #### 请求体
 
@@ -83,11 +83,11 @@ Container 节点 ListPartsResult 的内容：
 | -------------------- | --------------- | ------------------------------------------------------------ | --------- |
 | Bucket               | ListPartsResult | 分块上传的目标 Bucket，存储桶的名字，由用户自定义字符串和系统生成 APPID 数字串由中划线连接而成，如：examplebucket-1250000000 | string    |
 | Encoding-Type        | ListPartsResult | 编码格式                                                     | string    |
-| Key                  | ListPartsResult | Object 的名字                                                | string    |
+| Key                  | ListPartsResult | Object 的名称                                                | string    |
 | UploadId             | ListPartsResult | 标识本次分块上传的 ID                                        | string    |
 | Initiator            | ListPartsResult | 用来表示这些分块所有者的信息                                 | Container |
 | Owner                | ListPartsResult | 用来表示这些分块所有者的信息                                 | Container |
-| StorageClass         | ListPartsResult | 用来表示这些分块的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE | string    |
+| StorageClass         | ListPartsResult | 用来表示这些分块的存储类型，枚举值：STANDARD，STANDARD_IA，ARCHIVE，DEEP_ARCHIVE 等，更多存储类型请参见 [存储类型概述](https://cloud.tencent.com/document/product/436/33417) | string    |
 | PartNumberMarker     | ListPartsResult | 默认以 UTF-8 二进制顺序列出条目，所有列出条目从 marker 开始  | string    |
 | NextPartNumberMarker | ListPartsResult | 假如返回条目被截断，则返回 NextMarker 就是下一个条目的起点   | string    |
 | MaxParts             | ListPartsResult | 单次返回最大的条目数量                                       | string    |
@@ -145,40 +145,42 @@ Date: Wed, 25 Mar 2020 10:07:25 GMT
 Server: tencent-cos
 x-cos-request-id: NWU3YjJkNWRfMjNhZjJhMDlfNWY5Ml8zMmUy****
 
+
+
 <ListPartsResult>
-	<Bucket>examplebucket-1250000000</Bucket>
-	<EncodingType/>
-	<Key>exampleobject</Key>
-	<UploadId>1585130821cbb7df1d11846c073ad648e8f33b087cec2381df437acdc833cf654b9ecc6361</UploadId>
-	<Owner>
-		<ID>1250000000</ID>
-		<DisplayName>1250000000</DisplayName>
-	</Owner>
-	<PartNumberMarker>0</PartNumberMarker>
-	<Initiator>
-		<ID>qcs::cam::uin/100000000001:uin/100000000011</ID>
-		<DisplayName>100000000011</DisplayName>
-	</Initiator>
-	<Part>
-		<PartNumber>1</PartNumber>
-		<LastModified>2020-03-25T10:07:14.000Z</LastModified>
-		<ETag>&quot;39270a968a357d24207e9911162507eb&quot;</ETag>
-		<Size>1048576</Size>
-	</Part>
-	<Part>
-		<PartNumber>2</PartNumber>
-		<LastModified>2020-03-25T10:07:13.000Z</LastModified>
-		<ETag>&quot;d899fbd1e06109ea2e4550f5751c88d6&quot;</ETag>
-		<Size>1048576</Size>
-	</Part>
-	<Part>
-		<PartNumber>3</PartNumber>
-		<LastModified>2020-03-25T10:07:13.000Z</LastModified>
-		<ETag>&quot;762890d6c9a871b7bd136037cb2260cd&quot;</ETag>
-		<Size>1048576</Size>
-	</Part>
-	<StorageClass>Standard</StorageClass>
-	<MaxParts>1000</MaxParts>
-	<IsTruncated>false</IsTruncated>
+			<Bucket>examplebucket-1250000000</Bucket>
+			<EncodingType/>
+			<Key>exampleobject</Key>
+			<UploadId>1585130821cbb7df1d11846c073ad648e8f33b087cec2381df437acdc833cf654b9ecc6361</UploadId>
+			<Owner>
+				<ID>1250000000</ID>
+				<DisplayName>1250000000</DisplayName>
+			</Owner>
+			<PartNumberMarker>0</PartNumberMarker>
+			<Initiator>
+				<ID>qcs::cam::uin/100000000001:uin/100000000011</ID>
+				<DisplayName>100000000011</DisplayName>
+			</Initiator>
+			<Part>
+				<PartNumber>1</PartNumber>
+				<LastModified>2020-03-25T10:07:14.000Z</LastModified>
+				<ETag>&quot;39270a968a357d24207e9911162507eb&quot;</ETag>
+				<Size>1048576</Size>
+			</Part>
+			<Part>
+				<PartNumber>2</PartNumber>
+				<LastModified>2020-03-25T10:07:13.000Z</LastModified>
+				<ETag>&quot;d899fbd1e06109ea2e4550f5751c88d6&quot;</ETag>
+				<Size>1048576</Size>
+			</Part>
+			<Part>
+				<PartNumber>3</PartNumber>
+				<LastModified>2020-03-25T10:07:13.000Z</LastModified>
+				<ETag>&quot;762890d6c9a871b7bd136037cb2260cd&quot;</ETag>
+				<Size>1048576</Size>
+			</Part>
+			<StorageClass>Standard</StorageClass>
+			<MaxParts>1000</MaxParts>
+			<IsTruncated>false</IsTruncated>
 </ListPartsResult>
 ```

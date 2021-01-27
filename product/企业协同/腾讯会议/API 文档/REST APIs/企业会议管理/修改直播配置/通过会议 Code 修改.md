@@ -1,7 +1,11 @@
 ## 接口描述
-描述：用会议 Code 修改直播信息。
-调用方式：PUT
-接口请求域名：`https://api.meeting.qq.com/v1/meetings/live_play/config`
+**描述**：用会议 Code 修改直播信息，目前暂不支持 OAuth2.0 鉴权访问。
+**调用方式**：PUT
+**接口请求域名**：
+```plaintext
+https://api.meeting.qq.com/v1/meetings/live_play/config
+```
+
 
 ## 输入参数
 HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](https://cloud.tencent.com/document/product/1095/42413#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)。
@@ -10,7 +14,7 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 | ------------ | ---- | -------- | ------------------ |
 | meeting_code | 是   | String   | 会议号码。           |
 | userid       | 是   | String   | 调用API的用户 ID。    |
-| instanceid   | 是   | Integer  | 用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序。 |
+| instanceid   | 是   | Integer  | 用户的终端设备类型： <br>1：PC <br>2：Mac<br>3：Android <br>4：iOS <br>5：Web <br>6：iPad <br>7：Android Pad <br>8：小程序 |
 | live_config  | 是   | Object   | 直播配置。           |
 
 #### 直播配置对象
@@ -24,7 +28,7 @@ HTTP 请求头公共参数参考签名验证章节里的 [公共参数说明](ht
 | enable_live_replay   | Boolean  | 是否开启直播回放。 |
 
 ## 输出参数
-成功则返回空消息体，失败则返回 [错误码](https://tcloud-doc.isd.com/document/product/1095/43704) 和错误信息。
+成功则返回空消息体，失败则返回 [错误码](https://cloud.tencent.com/document/product/1095/43704) 和错误信息。
 
 | 参数名称   | 必选 | 参数类型 | 参数描述                 |
 | ---------- | ---- | -------- | ------------------------ |
@@ -58,6 +62,6 @@ PUT https://api.meeting.qq.com/v1/meetings/live_play/config
 ```
 
 #### 输出示例（失败时返回）
-```
+```plaintext
 {"error_info":{"error_code":200005,"message":"Json Schema validation failed!"}}
 ```

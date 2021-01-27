@@ -9,14 +9,15 @@
 
 **接口功能**：可根据 GroupID 或 planId 来查询**最近7天内相同 GroupID 或 planId** 的所有已推送任务的分推送渠道的聚合统计数据。
 
+>?`GroupID` 将逐渐废弃，推荐使用 `planId` 查询聚合统计数据。
 
 ## 参数说明
 #### 请求参数
 
 | 参数名称  | 必选 | 类型         | 描述                                                         |
 | --------- | ---- | ------------ | ------------------------------------------------------------ |
-| planId   | 是   | String       | 多条任务聚合统计的字段，对应推送参数中的 “plan_id”          |
-| groupId   | 是   | String       | 多条任务聚合统计的字段，对应推送参数中的 “group_Id”，该参数将逐渐废弃           |
+| planId   | 是   | String       | 多条任务聚合统计的字段，对应推送参数中的 “plan_id”        |
+| groupId   | 是   | String       | 多条任务聚合统计的字段，对应推送参数中的 “group_Id”。<br>**注意：**该参数将逐渐废弃，推荐使用 `planId` 查询聚合统计数据           |
 | startDate | 是   | String       | 查询开始日期<li>格式：YYYYMMDD</li><li>限制：只能聚合统计最近7天的推送任务</li> |
 | endDate   | 是   | String | 查询截止日期，格式：YYYYMMDD                               |
 >?若请求参数中同时存在 planId 和 groupId，则默认按 planId 查询。

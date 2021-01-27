@@ -1,4 +1,7 @@
-SDK 接口除初始化接口，其余接口均由 HTTP 实现，请求格式为：`http:://${XNet.proxyOf}${func}?${param}`。
+SDK 接口除初始化接口，其余接口均由 HTTP 实现，请求格式为：
+```
+http:://${XNet.proxyOf}${func}?${param}
+```
 
 >! 在初始化返回值为 false 或 `XNet.proxyOf` 时，意味着没有成功使用 P2P 播放视频，不应再向其发起 HTTP 请求，否则会遇到502等错误，也可认为没有成功使用 P2P 播放器的标志。
 
@@ -6,7 +9,7 @@ SDK 接口除初始化接口，其余接口均由 HTTP 实现，请求格式为�
 ### 接口描述
 - 描述：请求对应频道的统计数据
 - 方法：GET
-- 路径：`/stat?channel=${resource}`
+- 路径：`/stat?xresid=${resource}`
 
 ### 请求参数
 <table>
@@ -39,7 +42,7 @@ SDK 接口除初始化接口，其余接口均由 HTTP 实现，请求格式为�
 ### 示例
 - **请求示例**
 ```
-	http://127.0.0.1:16080/live.p2p.com/stat?xresid=xxx
+	http://127.0.0.1:16080/live.p2p.com/stat?xresid=${yourURL}
 ```
 >? xresid 默认为` http://127.0.0.1:16080/live.p2p.com/streamId.flv` 中的 `streamId`，或用户在播放时主动指定直播流资源唯一的 ID。
 - **返回示例**

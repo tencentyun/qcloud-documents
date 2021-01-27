@@ -16,7 +16,7 @@ Re-enter KDC database master key to verify: <Type it again>
 使用 kadmin.local 添加 principal。
 ```
 kadmin.local
-kadmin.local:  ktadd -k /etc/krb5.keytab test-server/host@EXAMPLE.COM
+kadmin.local:  add_principlal -k /etc/krb5.keytab test-server/host@EXAMPLE.COM
 Entry for principal test-server/host@EXAMPLE.COM with kvno 2, encryption type aes256-cts-hmac-sha1-96 added to keytab WRFILE:/etc/krb5.keytab.
 Entry for principal test-server/host@EXAMPLE.COM with kvno 2, encryption type arcfour-hmac added to keytab WRFILE:/etc/krb5.keytab.
 Entry for principal test-server/host@EXAMPLE.COM with kvno 2, encryption type des3-cbc-sha1 added to keytab WRFILE:/etc/krb5.keytab.
@@ -26,7 +26,7 @@ Entry for principal test-server/host@EXAMPLE.COM with kvno 2, encryption type de
 ## 创建密钥表文件
 ```
 kadmin.local
-kadmin.local:  ktadd -k /etc/krb5.keytab test-client/host@EXAMPLE.COM
+kadmin.local:  add_principlal -k /etc/krb5.keytab test-client/host@EXAMPLE.COM
 Entry for principal test-client/host@EXAMPLE.COM with kvno 2, encryption type aes256-cts-hmac-sha1-96 added to keytab WRFILE:/etc/krb5.keytab.
 Entry for principal test-client/host@EXAMPLE.COM with kvno 2, encryption type arcfour-hmac added to keytab WRFILE:/etc/krb5.keytab.
 Entry for principal test-client/host@EXAMPLE.COM with kvno 2, encryption type des3-cbc-sha1 added to keytab WRFILE:/etc/krb5.keytab.
@@ -34,7 +34,7 @@ Entry for principal test-client/host@EXAMPLE.COM with kvno 2, encryption type de
 kadmin.local:  q
 ```
 
-这里，我们创建了两个新的用户：`test-server/host@EXAMPLE.COM` 和 `test-client/host@EXAMPLE.COM`，并且将这两个用户的密钥放置到`/etc/krb5.keytab`文件中。
+这里，我们创建了两个新的用户：test-server/host@EXAMPLE.COM 和 test-client/host@EXAMPLE.COM，并且将这两个用户的密钥放置到 /etc/krb5.keytab 文件中。
 
 ## 启动 kdc
 ```

@@ -40,3 +40,5 @@
 4. 将 SSH2，SSH1 和 Telnet 选项，设置为 “设置SecureCRT为你的默认xxx工具”。
 ![](https://main.qcloudimg.com/raw/e20d05f9b29b0d9b9fea61ebfdf6498b.png)
 5. SecureCRT 设置完毕后，在运维界面登录 Linux 资源时，选择连接工具 SecureCRT 即可。
+
+

@@ -22,3 +22,4 @@
  - 超时时间：连接 Linux 资源的超时时间，默认为5秒。
 ![](https://main.qcloudimg.com/raw/28628651934b7e638d7f0581e7c9981b.png)
 6. 单击【登录】，系统将调用 WinSCP 通过 SFTP 协议登录到 Linux 资源。
+

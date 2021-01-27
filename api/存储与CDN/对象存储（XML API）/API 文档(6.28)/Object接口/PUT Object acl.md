@@ -23,7 +23,7 @@ Authorization: Auth String
 
 **示例二**
 
-```shell
+```plaintext
 PUT /<ObjectKey>?acl HTTP/1.1
 Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
@@ -32,8 +32,11 @@ Content-Length: Content Length
 Content-MD5: MD5
 Authorization: Auth String
 
+
+
 [Request Body]
 ```
+
 
 >? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
@@ -47,7 +50,7 @@ Authorization: Auth String
 
 | 名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- |
-| x-cos-acl | 定义对象的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中对象的预设 ACL 部分，例如 default，private，public-read 等，默认为 default<br>**注意：**当前访问策略条目限制为1000条，如果您不需要进行对象 ACL 控制，请设置为 default 或者此项不进行设置，默认继承存储桶权限 | Enum | 否 |
+| x-cos-acl | 定义对象的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中对象的预设 ACL 部分，例如 default，private，public-read 等，默认为 default<br>**注意：**如果您不需要进行对象 ACL 控制，请设置为 default 或者此项不进行设置，默认继承存储桶权限 | Enum | 否 |
 | x-cos-grant-read | 赋予被授权者读取对象的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否 |
 | x-cos-grant-read-acp | 赋予被授权者读取对象的访问控制列表（ACL）的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否 |
 | x-cos-grant-write-acp | 赋予被授权者写入对象的访问控制列表（ACL）的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否 |
@@ -59,25 +62,26 @@ Authorization: Auth String
 
 ```shell
 <AccessControlPolicy>
-	<Owner>
-		<ID>string</ID>
-	</Owner>
-	<AccessControlList>
-		<Grant>
-			<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
-				<URI>string</URI>
-			</Grantee>
-			<Permission>Enum</Permission>
-		</Grant>
-		<Grant>
-			<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+			<Owner>
 				<ID>string</ID>
-			</Grantee>
-			<Permission>Enum</Permission>
-		</Grant>
-	</AccessControlList>
+			</Owner>
+			<AccessControlList>
+				<Grant>
+					<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
+						<URI>string</URI>
+					</Grantee>
+					<Permission>Enum</Permission>
+				</Grant>
+				<Grant>
+					<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+						<ID>string</ID>
+					</Grantee>
+					<Permission>Enum</Permission>
+				</Grant>
+			</AccessControlList>
 </AccessControlPolicy>
 ```
+
 
 具体的节点描述如下：
 
@@ -102,21 +106,21 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
-| Grant | AccessControlPolicy.AccessControlList | 单个授权信息，一个 AccessControlList 最多只能拥有100条 Grant | Container | 是 |
+| Grant | AccessControlPolicy.<br>AccessControlList | 单个授权信息，一个 AccessControlList 最多只能拥有100条 Grant | Container | 是 |
 
 **Container 节点 AccessControlPolicy.AccessControlList.Grant 的内容：**
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
-| Grantee | AccessControlPolicy.AccessControlList.Grant | 被授权者信息，`xsi:type`可指定为 Group 或 CanonicalUser，当指定为 Group 时子节点包括且仅允许包括 URI，当指定为 CanonicalUser 时子节点包括且仅允许包括 ID | Container | 是 |
-| Permission | AccessControlPolicy.AccessControlList.Grant | 授予的权限信息，枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E6.93.8D.E4.BD.9C-permission) 文档中对象的操作部分，例如 READ，FULL_CONTROL 等 | Enum | 是 |
+| Grantee | AccessControlPolicy.<br>AccessControlList.Grant | 被授权者信息，`xsi:type`可指定为 Group 或 CanonicalUser，当指定为 Group 时子节点包括且仅允许包括 URI，当指定为 CanonicalUser 时子节点包括且仅允许包括 ID | Container | 是 |
+| Permission | AccessControlPolicy.<br>AccessControlList.Grant | 授予的权限信息，枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E6.93.8D.E4.BD.9C-permission) 文档中对象的操作部分，例如 READ，FULL_CONTROL 等 | Enum | 是 |
 
 **Container 节点 AccessControlPolicy.AccessControlList.Grant.Grantee 的内容：**
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
-| URI | AccessControlPolicy.AccessControlList.Grant.Grantee | 预设用户组，请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E8.BA.AB.E4.BB.BD-grantee) 文档中预设用户组部分<br>例如`http://cam.qcloud.com/groups/global/AllUsers`或`http://cam.qcloud.com/groups/global/AuthenticatedUsers` | string | 当 Grantee 的`xsi:type`指定为 Group 时，必选 |
-| ID | AccessControlPolicy.AccessControlList.Grant.Grantee | 被授权者的完整 ID，格式为`qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`<br>例如`qcs::cam::uin/100000000001:uin/100000000001` | string | 当 Grantee 的`xsi:type`指定为 CanonicalUser 时，必选 |
+| URI | AccessControlPolicy.<br>AccessControlList.Grant.Grantee | 预设用户组，请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E8.BA.AB.E4.BB.BD-grantee) 文档中预设用户组部分<br>例如`http://cam.qcloud.com/groups/global/AllUsers`或`http://cam.qcloud.com/groups/global/AuthenticatedUsers` | string | 当 Grantee 的`xsi:type`指定为 Group 时，必选 |
+| ID | AccessControlPolicy.<br>AccessControlList.Grant.Grantee | 被授权者的完整 ID，格式为`qcs::cam::uin/[OwnerUin]:uin/[OwnerUin]`<br>例如`qcs::cam::uin/100000000001:uin/100000000001` | string | 当 Grantee 的`xsi:type`指定为 CanonicalUser 时，必选 |
 
 ## 响应
 
@@ -164,7 +168,7 @@ x-cos-request-id: NWQ3NjRmNmRfZjZjMjBiMDlfMmE5MWJfMTI3OWZh****
 
 #### 请求
 
-```shell
+``` shell
 PUT /exampleobject?acl HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Tue, 10 Sep 2019 06:32:02 GMT
@@ -174,26 +178,29 @@ Content-MD5: zUPEBc1TeGrqTqEfPV7rxg==
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1568097122;1568104322&q-key-time=1568097122;1568104322&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=acl&q-signature=edab1b68ce0f747604906354afbe5702b24c****
 Connection: close
 
+
+
 <AccessControlPolicy>
-	<Owner>
-		<ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
-	</Owner>
-	<AccessControlList>
-		<Grant>
-			<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
-				<URI>http://cam.qcloud.com/groups/global/AllUsers</URI>
-			</Grantee>
-			<Permission>READ</Permission>
-		</Grant>
-		<Grant>
-			<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
-				<ID>qcs::cam::uin/100000000002:uin/100000000002</ID>
-			</Grantee>
-			<Permission>READ_ACP</Permission>
-		</Grant>
-	</AccessControlList>
+			<Owner>
+				<ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
+			</Owner>
+			<AccessControlList>
+				<Grant>
+					<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="Group">
+						<URI>http://cam.qcloud.com/groups/global/AllUsers</URI>
+					</Grantee>
+					<Permission>READ</Permission>
+				</Grant>
+				<Grant>
+					<Grantee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="CanonicalUser">
+						<ID>qcs::cam::uin/100000000002:uin/100000000002</ID>
+					</Grantee>
+					<Permission>READ_ACP</Permission>
+				</Grant>
+			</AccessControlList>
 </AccessControlPolicy>
 ```
+
 
 #### 响应
 

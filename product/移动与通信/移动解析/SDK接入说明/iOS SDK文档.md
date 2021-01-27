@@ -500,3 +500,4 @@ self.task = [session dataTaskWithRequest:request];
 - 如设置了不需要拦截的域名列表，则不会拦截处理该域名列表中的 HTTPS 请求。
 
 >!建议使用 WGSetHijackDomainArray 仅拦截 SNI 场景下的域名，避免拦截其它场景下的域名。
+
