@@ -31,6 +31,12 @@
 <td></td>
 </tr>
 <tr>
+<td>小程序</td>
+<td>小程序</td>
+<td>实时语音识别、一句话识别</td>
+<td><a href="https://mp.weixin.qq.com/wxopen/plugindevdoc?appid=wx3e17776051baf153&token=&lang=zh_CN">一分钟跑通集成 SDK</a></td>
+</tr>
+<tr>
 <td>前端</td>
 <td>JS</td>
 <td>实时语音识别</td>
