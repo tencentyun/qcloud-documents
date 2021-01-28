@@ -98,9 +98,9 @@ import 'lzma' # <_frozen_importlib_external.SourceFileLoader object at 0x7f446c4
 # destroy _lzma
 # destroy lzma
 ```
-分析日志信息可知函数运行时需要加载 lzma，需具备以下文件：
-	- `/usr/local/lib/python3.6/lzma.py`
-	- `/usr/local/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so`
+ 分析日志信息可知函数运行时需要加载 lzma，需具备以下文件：
+ - `/usr/local/lib/python3.6/lzma.py`
+ - `/usr/local/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so`
 6. 执行以下命令，查看 so 文件已具备的依赖：[](id:step6)
 ```plaintext
 $ ldd /usr/local/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so
@@ -114,9 +114,9 @@ $ ldd /usr/local/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so
 	libm.so.6 => /lib/x86_64-linux-gnu/libm.so.6 (0x00007fc742166000)
 	/lib64/ld-linux-x86-64.so.2 (0x00007fc74379c000)
 ```
-分析命令执行结果可知除部分系统库外，还需以下文件：
-	- `/lib/x86_64-linux-gnu/liblzma.so.5`
-	- `/usr/local/lib/libpython3.6m.so.1.0`
+ 分析命令执行结果可知除部分系统库外，还需以下文件：
+ - `/lib/x86_64-linux-gnu/liblzma.so.5`
+ - `/usr/local/lib/libpython3.6m.so.1.0`
 7. 将上述 [步骤5](#step5)、[步骤6](#step6) 得到的4个文件，拷贝至项目路径下，并参考以下示例修改代码：
 	```js
 	import os
@@ -131,5 +131,4 @@ $ ldd /usr/local/lib/python3.6/lib-dynload/_lzma.cpython-36m-x86_64-linux-gnu.so
 			print(s)
 			return len(s)
 	```
-	
 8. 将代码重新部署至 SCF，函数即可正常运行并且无告警提示。
