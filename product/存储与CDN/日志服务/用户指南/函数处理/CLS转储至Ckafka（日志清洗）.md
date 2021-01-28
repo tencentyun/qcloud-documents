@@ -6,7 +6,7 @@
 
 ## 操作步骤
 
-<span id="step01"></span>
+[](id:step01)
 
 ### 创建日志集
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏中单击【日志集管理】。
@@ -15,7 +15,7 @@
 ![](https://main.qcloudimg.com/raw/70197d5d9bb75fdf9d973487ecc672d4.jpg)
 4. 单击【确定】，即可创建日志集。
 
-<span id="step02"></span>
+[](id:step02)
 
 ### 创建日志主题
 
@@ -31,7 +31,7 @@
 
 
 
-<span id="step03"></span>
+[](id:step03)
 
 ### 创建云函数 SCF
 
@@ -49,7 +49,7 @@
 ![](https://main.qcloudimg.com/raw/a329381190dcf6ad0883f5f8a51a9567.png)
 
 
-<span id="step04"></span>
+[](id:step04)
 
 ### 配置 CLS 触发器
 1. 登录 [日志服务控制台](https://console.cloud.tencent.com/cls)，在左侧导航栏中单击【日志集管理】。
@@ -62,7 +62,7 @@
  - **别名**：选择函数别名。
  - **最长等待时间**：单次事件拉取的最长等待事件，默认60s。
  
-<span id="step05"></span>
+[](id:step05)
 
 ### 测试函数功能
 1. 下载 [测试样例](https://main.qcloudimg.com/raw/6e0d4837eefd0ce77dac8a3973acdf39.zip) 中的日志文件，并解压出 demo-scf1.txt，导入至源端 CLS 服务。
