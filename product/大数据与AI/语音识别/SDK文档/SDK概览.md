@@ -57,7 +57,7 @@
 </tr>
 <tr>
 <td>录音文件识别、语音流异步识别、一句话识别</td>
-<td><a href="https://github.com/tencentyun/qcloud-documents/blob/master/product/大数据与AI/语音识别/录音文件识别 SDK/Java SDK.md">Github</a></td>
+<td><a href="https://github.com/TencentCloud/tencentcloud-sdk-java">Github</a></td>
 </tr>
 <tr>
 <td rowspan="2">C++</td>
@@ -80,7 +80,7 @@
 <tr>
 <td>PHP</td>
 <td>录音文件识别、语音流异步识别、一句话识别  </td>
-<td><a href="https://github.com/tencentyun/qcloud-documents/blob/master/product/大数据与AI/语音识别/录音文件识别 SDK/PHP SDK.md">Github</a></td>
+<td><a href="https://github.com/TencentCloud/tencentcloud-sdk-php">Github</a></td>
 </tr>
 <tr>
 <td>Node.js</td>
