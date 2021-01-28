@@ -305,7 +305,6 @@ DTF-Last-Branch-ID: ${LastBranchId}
 
 ## 与 TSF 结合使用
 
-## 与 TSF 结合使用
 引入依赖后（注意 SDK 版本），直接正常使用 TSF 即可。
 
 
