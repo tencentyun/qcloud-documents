@@ -6,8 +6,8 @@
 
 Golang 函数形态一般如下所示：
 
-```golang
-
+<dx-codeblock>
+:::  golang
 package main
 
 import (
@@ -32,9 +32,8 @@ func main() {
 	// Make the handler available for Remote Procedure Call by Cloud Function
 	cloudfunction.Start(hello)
 }
-
-    
-```
+:::
+</dx-codeblock>
 
 代码开发时，请注意以下几点：
 
@@ -142,6 +141,6 @@ Golang 开发语言仅支持通过使用 本地 zip 文件上传、COS 上传等
 
 ## 更多指引
 您可参考以下文档，使用相关功能：
-- [使用 SCF 连接数据库](<https://cloud.tencent.com/document/product/583/38012>)
-- [网络配置管理](<https://cloud.tencent.com/document/product/583/38202>)
-- [角色与授权](<https://cloud.tencent.com/document/product/583/32389>)
+- [使用 SCF 连接数据库](https://cloud.tencent.com/document/product/583/38012)
+- [网络配置管理](https://cloud.tencent.com/document/product/583/38202)
+- [角色与授权](https://cloud.tencent.com/document/product/583/32389)
