@@ -21,7 +21,7 @@ const MgobeClient = tencentcloud.mgobe.v20201014.Client;
 ### 步骤2：使用云 API
 
 1. 登录访问管理控制台，在【[API密钥管理](https://console.cloud.tencent.com/cam/capi)】中，获取腾讯云 API 密钥。
->?关于密钥的创建和管理请参考 [访问密钥](https://cloud.tencent.com/document/product/598/40488) 文档。
+>?关于腾讯云 API 密钥的创建和管理请参考 [访问密钥](https://cloud.tencent.com/document/product/598/40488) 文档。
 
 2. 实例化 Client 对象。
 <dx-codeblock>
