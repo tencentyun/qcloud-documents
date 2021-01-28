@@ -1,10 +1,10 @@
 ## 操作场景
-该任务指导您通过实时服务器直接调用云 API。[下载示例代码 >>](https://mgobe-1258556906.cos.ap-shanghai.myqcloud.com/demo/mgobexs_capi_demo.zip) 
+该文档指导您通过实时服务器直接调用云 API。[下载示例代码 >>](https://mgobe-1258556906.cos.ap-shanghai.myqcloud.com/demo/mgobexs_capi_demo.zip) 
 
 ## 操作步骤
 ### 步骤1：安装云 API Node.js SDK
 
-1. 您可以直接使用 [云 API Node.js SDK](https://cloud.tencent.com/document/sdk/Node.js)。安装命令如下：
+1. 在实时服务器上使用云 API，您可以直接使用 [云 API Node.js SDK](https://cloud.tencent.com/document/sdk/Node.js)。安装命令如下：
 ```
 npm install tencentcloud-sdk-nodejs --save
 ```
