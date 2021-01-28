@@ -7,6 +7,27 @@
     <th width=20%>相关文档</th>
 </tr>
 <tr>
+        <td>SDK 1.2.3.0 版本发布</td>
+<td><li>优化：网络通讯协议支持消息二次加密处理
+<li>优化：终端账号、标签、属性设置接口简化
+<li>新增：通知回调携带 traceId、templateId 字段
+<li>新增：支持新荣耀手机角标逻辑
+<li>修复：检查网络连接状态时偶发的 ANR 问题</td>
+        <td>2021-01-27</td>
+        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载 SDK</a></td>
+    </tr>
+</table>
+
+
+## 2021年01月
+   <table>
+<tr>
+    <th width=20%>动态名称</th>
+    <th width=44%>动态描述</th>
+    <th width=16%>发布时间</th>
+    <th width=20%>相关文档</th>
+</tr>
+<tr>
         <td>SDK 1.2.2.4 版本发布</td>
 <td><li>修复：FCM 通知 intent 字符串内特殊字符处理问题<li>修复：其他已知问题</td>
         <td>2021-01-18</td>
@@ -29,7 +50,7 @@
         <td>SDK 1.2.2.0 版本发布</td>
        <td><li> 优化：统一账号、标签操作接口命名<li> 优化：优化 SDK 内部错误码上报<li> 优化：FCM 通道协议升级，FCM 通道通知弹出支持 FCM 系统接管<li> 新增：支持 TPNS 通道通知小图标染色<li> 新增：网络通信支持 GZIP 压缩<li>修复：多线程环境下可能出现的 Service 解绑异常</td>
         <td>2020-11-26</td>
-        <td>-</td>
+        <td>[小图标染色](https://cloud.tencent.com/document/product/548/36675#.E5.A6.82.E4.BD.95.E9.80.82.E9.85.8D-small-icon-.E5.B0.8F.E5.9B.BE.E6.A0.87.EF.BC.9F)</td>
     </tr>
         <tr>
         <td>SDK 1.2.1.3 版本发布</td>
