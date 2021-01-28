@@ -1,6 +1,6 @@
 ## 操作方法
 
-### 方法一：使用 Open API 访问 CloudBase
+### 方法 1：使用 Open API 访问 CloudBase
 
 Cloudbase Open API 让开发者可以通过 HTTP 的方式，以管理员身份调用 CloudBase 的各项服务。
 
@@ -41,7 +41,7 @@ app.listen(3000);
 
 详情请参阅：[Open API 文档](https://docs.cloudbase.net/api-reference/openapi/introduction.html)
 
-### 方法二：使用 CloudBase 服务端 SDK
+### 方法 2：使用 CloudBase 服务端 SDK
 
 例如，您可以在 Node.js 中，使用 [CloudBase Node.js SDK](https://docs.cloudbase.net/api-reference/server/node-sdk/introduction.html) 调用 CloudBase 服务。
 
@@ -65,7 +65,7 @@ db.collection("todos")
 
 ## 操作步骤
 
-### 步骤 1：初始化 SDK
+### 第 1 步：初始化 SDK
 
 ```js
 const cloudbase = require("@cloudbase/node-sdk");
@@ -74,7 +74,7 @@ const app = cloudbase.init({
 });
 ```
 
-### 步骤 2：调用云数据库
+### 第 2 步：调用云数据库
 
 ```js
 const db = app.database();
