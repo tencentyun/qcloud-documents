@@ -89,7 +89,7 @@
 </tr>
 </table>
 
->?录音文件识别、语音流异步识别、一句话识别可直接使用 [开发者工具 ](https://console.cloud.tencent.com/api/explorer?Product=asr&Version=2019-06-14&Action=DescribeTaskStatus&SignVersion=) 自动生成多种语言（Python、 Java、PHP、Go、NodeJS、.NET、C++）SDK demo。
+>?录音文件识别、语音流异步识别、一句话识别可直接使用 [开发者工具 ](https://console.cloud.tencent.com/api/explorer?Product=asr&Version=2019-06-14&Action=CreateRecTask&SignVersion=) 自动生成多种语言（Python、 Java、PHP、Go、NodeJS、.NET、C++）SDK demo。
 
 
 ## 快速体验
