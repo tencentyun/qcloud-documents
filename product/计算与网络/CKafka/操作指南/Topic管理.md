@@ -5,7 +5,7 @@ Topic（主题）是某一种分类的名字，消息在 Topic 中可以被存�
 
 
 ## 前提条件
-已创建实例和 Topic（参考 [资源创建与准备](https://cloud.tencent.com/document/product/597/52493)）。
+已创建实例和 Topic（参考 [资源创建与准备](https://cloud.tencent.com/document/product/597/30931)）。
 
 ## 操作步骤
 ###  查看 Topic
