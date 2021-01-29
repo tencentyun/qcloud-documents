@@ -119,11 +119,11 @@ im.enterRoom('your roomID').then((imResponse) => {
 ## TWebLive 使用
 
 <dx-tabs>
-::: 方式1、基于实时音视频
+::: 方式1：基于实时音视频
 #### 步骤1：创建实时音视频 TRTC 应用[](id:step1)
 在 [实时音视频 TRTC 控制台](https://console.cloud.tencent.com/trtc/app)，单击左侧导航栏【应用管理】>【创建应用】，输入您的应用名称，单击【确定】即可创建一个实时音视频应用。创建完毕后，请保存 SDKAPPID。
 ![](https://main.qcloudimg.com/raw/34f87b8c0a817d8d3e49baac5b82a1fa.png)
->?与此同时会自动创建一个 `SDKAppID` 相同的即时通信 IM 应用。
+>?与此同时会自动创建一个 SDKAppID 相同的即时通信 IM 应用。
 
 #### 步骤2：开启自动旁路推流
 1. 在 [实时音视频 TRTC 控制台](https://console.cloud.tencent.com/trtc/app)，单击左侧导航栏【应用管理】，在您创建的实时音视频应用上，单击【功能配置】进入应用详情。
@@ -141,9 +141,8 @@ im.enterRoom('your roomID').then((imResponse) => {
 2. 打开 `TWebLive/dist/debug/GenerateTestUserSig.js` 文件，并设置相关参数：
  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际应用 SDKAppID。
  - SECRETKEY：请设置为 [步骤2](#step2) 中获取的实际密钥信息。
- - PUSHDOMAIN：CDN观看，配置推流域名。（如果不需要 CDN 直播观看，可略过此配置）
+ - PUSHDOMAIN：CDN观看，配置推流域名。（如果不需要 CDN 直播观看，可略过此配置）。
 ![](https://main.qcloudimg.com/raw/1f5dc0239e9c26d04ca905656e8bb854.png)
-
 3. 在项目中通过 npm 安装最新版本的 tim-js-sdk、trtc-js-sdk、tweblive。如果项目已经集成有  tim-js-sdk 或 trtc-js-sdk，直接将其升级到最新版本即可。
 ```javascript
 npm install tim-js-sdk --save
@@ -166,8 +165,7 @@ Vue.prototype.TWebLive = TWebLive
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
 #### 步骤4：运行 Demo
-使用 Chrome 浏览器打开 `dist` 目录下的 `index.html` 文件即可运行 Demo。运行界面如图所示：
-![](https://main.qcloudimg.com/raw/04d338ddc5340bed7257360c0c6a13d3.png)
+使用 Chrome 浏览器打开 `dist` 目录下的 `index.html` 文件即可运行 Demo。
 >!
 >- 一般情况下体验 Demo 需要部署至服务器，通过 `https://域名/xxx` 访问，或者直接在本地搭建服务器，通过 `localhost:端口`访问。
 - 目前桌面端 Chrome 浏览器支持 TRTC 桌面浏览器 SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
@@ -175,7 +173,7 @@ Vue.prototype.TWebLive = TWebLive
 ![](https://main.qcloudimg.com/raw/7eb28d195649d6c0027026eaa02fdedd.png)
 
 :::
-::: 方式2.\s基于即时通信\sIM
+::: 方式2：基于即时通信\sIM
 #### 步骤1：创建即时通信 IM 应用
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)，单击【创建新应用】将弹出对话框。
 ![](https://main.qcloudimg.com/raw/c8d1dc415801404e30e49ddd4e0c0c13.png)
@@ -195,9 +193,8 @@ Vue.prototype.TWebLive = TWebLive
 2. 打开 `TWebLive/dist/debug/GenerateTestUserSig.js` 文件，并设置相关参数：
  - SDKAPPID：请设置为 [步骤1](#step1) 中获取的实际应用 SDKAppID。
  - SECRETKEY：请设置为 [步骤2](#step2) 中获取的实际密钥信息。
- - PUSHDOMAIN：CDN观看，配置推流域名。（如果不需要 CDN 直播观看，可略过此配置）
+ - PUSHDOMAIN：CDN观看，配置推流域名。（如果不需要 CDN 直播观看，可略过此配置）。
 ![](https://main.qcloudimg.com/raw/1f5dc0239e9c26d04ca905656e8bb854.png)
-
 3. 在项目中通过 npm 安装最新版本的 tim-js-sdk、trtc-js-sdk、tweblive。如果项目已经集成有  tim-js-sdk 或 trtc-js-sdk，直接将其升级到最新版本即可。
 ```javascript
 npm install tim-js-sdk --save
@@ -220,8 +217,7 @@ Vue.prototype.TWebLive = TWebLive
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/269/32688#GeneratingdynamicUserSig)。
 
 #### 步骤4：运行 Demo
-使用 Chrome 浏览器打开 `dist` 目录下的 `index.html` 文件即可运行 Demo。运行界面如图所示：
-![](https://main.qcloudimg.com/raw/04d338ddc5340bed7257360c0c6a13d3.png)
+使用 Chrome 浏览器打开 `dist` 目录下的 `index.html` 文件即可运行 Demo。
 >!
 >- 一般情况下体验 Demo 需要部署至服务器，通过 `https://域名/xxx` 访问，或者直接在本地搭建服务器，通过 `localhost:端口`访问。
 - 目前桌面端 Chrome 浏览器支持 TRTC 桌面浏览器 SDK 的相关特性比较完整，因此建议使用 Chrome 浏览器进行体验。
@@ -233,12 +229,15 @@ Vue.prototype.TWebLive = TWebLive
 
 ## 架构与平台支持
 
+### TWebLive 架构
 TWebLive 架构设计如下图所示：
 ![](https://main.qcloudimg.com/raw/503229b90d3714e5340e7c860ee50a8d.png)
 Web 推流和 Web 低延时观看用到了 WebRTC 技术。
 - 在移动端推荐使用 [小程序](https://cloud.tencent.com/document/product/647/32399) 解决方案，微信和手机 QQ 小程序均已支持，由各平台的 Native 技术实现，音视频性能更好，且针对主流手机品牌进行了定向适配。
 - 如果您的应用场景主要为教育场景，那么教师端推荐使用稳定性更好的 [Electron](https://cloud.tencent.com/document/product/647/38549) 解决方案，支持大小双路画面，更灵活的屏幕分享方案以及更强大的弱网络恢复能力。
 >?WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器、桌面版 Edge 浏览器、桌面版 Firefox 浏览器、桌面版 Safari 浏览器以及移动版的 Safari 浏览器上有较为完整的支持，其他平台（例如 Android 平台的浏览器）支持情况均较差。
+
+### TWebLive 平台支持
 
 |  操作系统   |          浏览器类型          | 浏览器最低版本要求 | 接收（播放） | 发送（上麦） |
 | :---------: | :--------------------------: | :----------------: | :----------: | :----------: |
@@ -278,8 +277,7 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 出现该错误说明 TRTC 桌面浏览器 SDK 在 STUN 打洞失败，请根据环境要求检查防火墙配置。
 :::
 ::: 4.\s出现10006\serror\s该如何处理？
-如果出现 `"Join room failed result: 10006 error: service is suspended,if charge is overdue,renew it"`，请确认您的实时音视频应用的服务状态是否为可用状态。
-登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)，单击您创建的应用，单击【帐号信息】，在帐号信息面板即可确认服务状态。
+如果出现 `"Join room failed result: 10006 error: service is suspended,if charge is overdue,renew it"`。请登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)，单击您创建的应用，单击【帐号信息】，在帐号信息面板请确认您的实时音视频应用的服务状态是否为可用状态。
 ![](https://main.qcloudimg.com/raw/13c9b520ea333804cffb4e2c4273fced.png)
 :::
 </dx-accordion>
@@ -296,5 +294,6 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 
 - [TWebLive 接口手册](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblive/TWebLive.html)
 - [在线 Demo](https://trtc.qcloud.com/tweblive/index.html#/)
+
 ## 相关文档
 [折扣活动](https://cloud.tencent.com/document/product/269/46181)

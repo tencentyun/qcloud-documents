@@ -94,7 +94,7 @@ http://云服务器的公网 IP/test.php
 #### 下载 Discuz! 
 执行以下命令，下载安装包。
 ```
-git clone https://gitee.com/ComsenzDiscuz/DiscuzX.git
+git clone https://gitee.com/Discuz/DiscuzX.git
 ```
 
 #### 安装准备工作

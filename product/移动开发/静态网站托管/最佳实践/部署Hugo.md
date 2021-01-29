@@ -90,7 +90,13 @@ hugo -D
 
 ### 步骤2：静态托管部署[](id:step2)
 
+方式一：结合 Github 自动部署
+自动部署将会在每次更新仓库内文件时，自动提交更新到静态网站托管中，实现博客的自动更新。
+1. 提交本地文件至 GitHub 仓库中，具体操作步骤参考[添加现有项目](https://docs.github.com/cn/github/importing-your-projects-to-github/adding-an-existing-project-to-github-using-the-command-line)到 GitHub。
+2. 本地文件同步到 GitHub 仓库中后，需要配置自动化部署流程，具体步骤请参考[自动化部署]()。
 
+
+方式二：手动部署
 1. 登录 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击【新建】，选择空模板，单击【下一步】，填写环境名称并开通“按量计费”环境。
 ![](https://main.qcloudimg.com/raw/9ba130b28f526df18c7f0497beaf3b8a.jpg)
  开通环境以后，进入 [环境概览](https://console.cloud.tencent.com/tcb/env/overview) 页面请记住您的 `环境Id`，这个 ID 后续部署需要用到。[](id:envid)
@@ -114,4 +120,3 @@ cloudbase hosting deploy ./public  -e EnvID
  此处的 EnvID 替换为上述 [步骤](#envid) 创建好的环境 ID。
 ![](https://main.qcloudimg.com/raw/ad682ccff5b02b232062d89dea40fb7c.png)
 7. 登录 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，进入 [静态网站托管](https://console.cloud.tencent.com/tcb/hosting/index) 页面，可以找到默认的域名，单击域名，即可看到您刚部署的 Hugo。
-

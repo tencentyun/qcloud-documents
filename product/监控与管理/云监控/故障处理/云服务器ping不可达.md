@@ -18,11 +18,11 @@ ping 不可达告警原因和处理方法对照表：
 >- 云服务器 ping 网络状态由云监控告警系统自动监测，与您是否配置云服务器公网 IP 无关。
 >- 如果您的云服务器 iptables 禁止了 Ping 操作，则需要使用非固定 IP 才能 Ping 通。
 
-<span id="paichabuzhou"></span>
+[](id:paichabuzhou)
 
 ## 排查步骤
 
-<span id="buzhou1"></span>
+[](id:buzhou1)
 
 ### 步骤一：检查云服务器监控数据
 
@@ -32,7 +32,7 @@ ping 不可达告警原因和处理方法对照表：
 	![](https://main.qcloudimg.com/raw/74e937123ed49778ab308e4bf9d67d6c.png)
 	- 若无异常请进行下一步骤：[检查云服务器实例状态是否异常](#cvmstate)。
 
-<span id="buzhou2"></span>
+[](id:buzhou2)
 
 ### 步骤二：检查云服务器状态
 
@@ -44,7 +44,7 @@ ping 不可达告警原因和处理方法对照表：
  ![](https://main.qcloudimg.com/raw/a311287dc25eb7ce7a7d445dfa6c0dbe.png)
 - 若状态显示运行中可进行下一步：[检查云服务器实例关联的安全组是否允许 ICMP](#buzhou3)。
 
-<span id="buzhou3"></span>
+[](id:buzhou3)
 
 ### 步骤三：检查安全组的 ICMP 设置
 
@@ -56,7 +56,7 @@ ping 不可达告警原因和处理方法对照表：
      ![](https://main.qcloudimg.com/raw/d1970b158c79c23f4f0307f715f9076e.png)
    - 若安全组的 “ICMP 端口协议” 限制已修改，仍未解决问题。请进行下一步：[检查云服务器 Windows 防火墙或 Linux 内核参数、 iptables 是否有限制](#buzhou4) 。
 
-<span id="buzhou4"></span>
+[](id:buzhou4)
 
 ### 步骤四：检查防火墙或 Linux 内核参数和 iptables 设置
 
@@ -84,12 +84,12 @@ cat /proc/sys/net/ipv4/icmp_echo_ignore_all
 ```
 - 若返回结果为0，表示系统允许所有的 ICMP Echo 请求，请 [检查 iptables 设置](#CheckLinuxIptables)。
 - 若返回结果为1，表示系统限制所有的 ICMP Echo 请求，则说明 Linux 内核参数限制，导致的 “ping 不可达” 告警，请执行下文步骤3关闭限制。
-3. <span id="Linux_step03">使用拥有 root 权限的账户执行以下命令，修改内核参数 icmp_echo_ignore_all 的设置。</span>
+3. [](id:Linux_step03)使用拥有 root 权限的账户执行以下命令，修改内核参数 icmp_echo_ignore_all 的设置。
 ```plaintext
 echo "0" >/proc/sys/net/ipv4/icmp_echo_ignore_all
 ```
 
-<span id="CheckLinuxIptables"></span>
+[](id:CheckLinuxIptables)
 
 **检查 iptables 设置**
 
@@ -101,7 +101,7 @@ iptables -L
 		![](https://main.qcloudimg.com/raw/4edec2beb0d2cc175dddadd64ca6c51f.png)
 	- 若返回如下图所示，则表示 iptables 的 ICMP 被限制。说明  Linux iptables 的 ICMP 限制到导致的 “ping 不可达” 告警。请参考下文步骤2关闭 iptables 的 ICMP 限制。
 	![](https://main.qcloudimg.com/raw/004ce1d45e02a4dc5faa2ad0d3c56a9d.png)
-<span id="LinuxIptables"></span>
+[](id:LinuxIptables)
 2. 请执行以下命令，关闭 iptables 的 ICMP 限制。
 ```plaintext
 #Chain INPUT
@@ -112,7 +112,7 @@ iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 
 若上述步骤仍无法解决问题，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
 
-<span id="guanbi"></span>
+[](id:guanbi)
 
 ## 关闭告警功能
 

@@ -317,7 +317,7 @@ trtcCalling.setMicMute(true) // 开启麦克风
 | ------ | ------- | --------------------------------------------- |
 | isMute | Boolean | <li/>true：麦克风关闭 <li/> false：麦克风打开 |
 
-<span id="event"></span>
+[](id:event)
 ## TRTCCalling 事件表
 您可以参考如下代码捕获来自 TRTCCalling 组件的各种事件：
 

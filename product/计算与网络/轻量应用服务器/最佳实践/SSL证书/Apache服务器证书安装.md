@@ -91,7 +91,7 @@ SSLCertificateChainFile "/usr/local/lighthouse/softwares/apache/ssl/1_root_bundl
 </Directory>
 ```
 10. 按 **Esc** 并输入 **:wq**，保存修改。
-11. 执行以下命令，重启 apache 服务。
+11. 执行以下命令，重启 Apache 服务。
 ```
 sudo /usr/local/lighthouse/softwares/apache/bin/httpd -k restart
 ```
@@ -116,7 +116,7 @@ RewriteRule ^(.*)?$ https://%{SERVER_NAME}%{REQUEST_URI} [L,R]
 修改完成后如下图所示：
 ![](https://main.qcloudimg.com/raw/bf7abb0339ef8093b2e6756a64b3b29e.png)
 3. 按 **Esc** 并输入 **:wq**，保存修改。
-4. 执行以下命令，重启 apache 服务。
+4. 执行以下命令，重启 Apache 服务。
 ```
 sudo /usr/local/lighthouse/softwares/apache/bin/httpd -k restart
 ```

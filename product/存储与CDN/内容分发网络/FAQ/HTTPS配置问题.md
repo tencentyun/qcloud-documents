@@ -23,7 +23,7 @@ HTTPS 回源：源站更新证书，CDN 节点也需要同步更新。客户端�
 1. 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，单击左侧导航栏的 【域名管理】 进入域名管理页面。单击域名右侧【管理】按钮，进入管理页面。
 ![](https://main.qcloudimg.com/raw/63c5127bf5c12d7aa0be52e6ba1a2e31.png)
 2. 单击【Https 配置】，找到 HTTPS 配置模块。单击【前往配置】，跳转至证书管理页面配置证书。配置流程请参阅 [证书配置](https://cloud.tencent.com/document/product/228/41687#.E8.AF.81.E4.B9.A6.E9.85.8D.E7.BD.AE)。
-![](https://main.qcloudimg.com/raw/7b6bcb5536313b311b1a4a4ceb0cd1cd.png)
+![](https://main.qcloudimg.com/raw/88bcf378321ca664572f9ecfca3cf6ad.png)
 证书配置成功后即可开启 HTTPS 访问。
 
 

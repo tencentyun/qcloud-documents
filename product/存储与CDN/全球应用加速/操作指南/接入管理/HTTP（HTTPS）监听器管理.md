@@ -13,8 +13,9 @@
 ## 设置HTTP/HTTPS 监听器
 
 单击【HTTP/HTTPS 监听器管理】标签页，在操作栏单击【设置】，可以进入下一级页面，进行域名和 URL 管理。
-<span id ="添加规则">
-### 添加规则</span>
+
+
+### 添加规则[](id:添加规则)
 在“HTTP/HTTPS 监听器管理”，单击【添加规则】，可以添加域名和对应的 URL，同一个域名下可以添加最多20条 URL 规则，具体如下：
 1. 基本配置
 ![](https://main.qcloudimg.com/raw/b3cb374125b39dfb3584b241f4e96af4.png)

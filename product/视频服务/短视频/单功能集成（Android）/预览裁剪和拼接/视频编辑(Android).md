@@ -66,18 +66,18 @@ public void getThumbnail(int count, int width, int height, boolean fast, TXThumb
 ```
 
 参数 @param fast 可以使用两种模式：
->- 快速出图：输出的缩略图速度比较快，但是与视频对应不精准，传入参数 true。
->- 精准出图：输出的缩略图与视频时间点精准对应，但是在高分辨率上速度慢一些，传入参数 false。
+- 快速出图：输出的缩略图速度比较快，但是与视频对应不精准，传入参数 true。
+- 精准出图：输出的缩略图与视频时间点精准对应，但是在高分辨率上速度慢一些，传入参数 false。
 
 完整示例如下：
 ```
 mTXVideoEditer.getThumbnail(TCVideoEditerWrapper.mThumbnailCount, 100, 100, false, mThumbnailListener);
 
 private TXVideoEditer.TXThumbnailListener mThumbnailListener = new TXVideoEditer.TXThumbnailListener() {
- 	@Override
+    @Override
         public void onThumbnail(int index, long timeMs, final Bitmap bitmap) {
-        	Log.i(TAG, "onThumbnail: index = " + index + ",timeMs:" + timeMs);
-		//将缩略图放入图片控件上
+            Log.i(TAG, "onThumbnail: index = " + index + ",timeMs:" + timeMs);
+        //将缩略图放入图片控件上
         }
     };
 ```
@@ -112,7 +112,8 @@ txVideoEditer.getThumbnailList(list, 200, 200);
 ### 1. 快速导入
 快速导入视频，可以直接观看到视频编辑的预览效果，支持视频裁剪、时间特效（慢动作）、滤镜特效、滤镜风格、音乐混音、动态贴纸、静态贴纸、气泡字幕等功能，不支持的功能有时间特效（重复、倒放）。
 
-### <span id ="p1"></span> 2. 全功能导入
+[](id:p1)
+### 2. 全功能导入
 全功能导入，支持所有的功能，包括时间特效（重复、倒放）。需要为视频先预处理操作。
 经过全功能导入后的视频可以精确的 seek 到每个时间点，看到对应的画面，预处理操作同时还可以精确的生成当前时间点视频缩略图。
 
@@ -188,8 +189,10 @@ public void startPlayFromTime(long startTime, long endTime);
 // 暂停播放视频
 public void pausePlay();
 
+
 // 继续播放视频
 public void resumePlay();
+
 
 // 停止播放视频
 public void stopPlay();
@@ -267,6 +270,7 @@ public void setVideoBitrate(int videoBitrate);
   * @param endTime   视频剪切的结束时间(ms)
   */
 public void setCutFromTime(long startTime, long endTime)
+
 
 // ...
 // 生成最终的视频文件

@@ -5,7 +5,8 @@
 ## 版本下载
 您可以到 [移动直播 SDK 开发包](/doc/product/454/7873) 页面下方下载特权版 SDK 压缩包，压缩包有加密（解压密码与 License 文件可以联系商务获取）, 成功解压后得到一个 `txrtmpsdk.jar` 和 `libtxrtmpsdk.so` 等几个 so 文件，替换您工程中的非特权版 jar 文件和 so 文件即可。
 
-## <span id="jump">工程设置</span>
+[](id:jump)
+## 工程设置
 
 ### 1. 添加 SDK
 拷贝 SDK 里的 `txrtmpsdk.jar` 和 `libtxrtmpsdk.so` 等文件到工程对应位置，如 libs 下。

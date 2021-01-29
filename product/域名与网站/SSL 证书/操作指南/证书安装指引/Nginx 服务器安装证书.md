@@ -82,7 +82,7 @@ server {
 ```
  - 若存在，请您重新配置或者根据提示修改存在问题。
  - 若不存在，请执行 [步骤7](#step7)。
-<span id="step7"></span>
+[](id:step7)
 7. 重启 Nginx，即可使用 `https://cloud.tencent.com` 进行访问。
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）

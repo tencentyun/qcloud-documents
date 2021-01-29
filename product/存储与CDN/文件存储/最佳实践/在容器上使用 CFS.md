@@ -12,7 +12,7 @@
 ## 申请 CFS 文件存储资源并获取挂载点 IP
 
 - 若您还未拥有文件系统，则请按照 [创建 CFS 文件系统](https://cloud.tencent.com/document/product/582/9132) 指引创建一个文件系统，创建时请注意 VPC 网络的选择需要与您的容器母机在相同的 VPC 下，以保障网络的互通。 
-- 若您已经拥有与容器服务同在一个 VPC 下的文件系统，您可以前往 “[文件系统详情](https://console.cloud.tencent.com/cfs)” 页面获取挂载点 IP 。
+- 若您已经拥有与容器服务同在一个 VPC 下的文件系统，您可以前往 “[文件系统详情](https://console.cloud.tencent.com/cfs/fs)” 页面获取挂载点 IP 。
 
 ## 配置挂载 CFS 文件系统
 
@@ -31,11 +31,6 @@ sudo apt-get install nfs-common
 
 #### 步骤2：创建 PV
 执行以下命令创建一个类型为 CFS 的 PesistentVolume。
-
->?
->1. nfs.server：为上面已经获取到的 CFS 文件系统的挂载点 IP，本例子中假设文件系统 IP 为10.0.1.41。
->2. nfs.path：为 CFS 文件系统的根目录或者子目录，本案例以根目录为例。
-
 ```plaintext
 apiVersion: v1
 kind: PersistentVolume
@@ -55,6 +50,11 @@ spec:
     path: /
     server: 10.0.1.41
 ```
+>?
+> - nfs.server：为上面已经获取到的 CFS 文件系统的挂载点 IP，本例子中假设文件系统 IP 为10.0.1.41。
+> - nfs.path：为 CFS 文件系统的根目录或者子目录，本案例以根目录为例。
+>
+
 
 #### 步骤3：创建 PVC
 接下来，创建 PersistentVolumeClaim ，来请求绑定已经创建好的 PersistentVolume。
@@ -95,3 +95,4 @@ spec:
         claimName: cfsclaim
 ```
 完成上述步骤后，您就可以在新建的 Pod 中使用该文件系统了。
+

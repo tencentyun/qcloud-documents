@@ -204,7 +204,7 @@ Connection: close
 ```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Content-Length: 903
+Content-Length: 952
 Connection: close
 Date: Thu, 10 Dec 2020 03:35:34 GMT
 Server: tencent-cos
@@ -239,7 +239,8 @@ x-cos-request-id: NWZkMTk3ODZfZDUyNzVkNjRfNDgxYl8xNjU5****
 		        <LastModified>2020-12-10T03:35:24.000Z</LastModified>
 		        <ETag>&quot;dcffaafe67632b2bd2dd0b9456eafca7&quot;</ETag>
 		        <Size>23</Size>
-		        <StorageClass>STANDARD</StorageClass>
+		        <StorageClass>INTELLIGENT_TIERING</StorageClass>
+		        <StorageTier>FREQUENT</StorageTier>
 		        <Owner>
 					<ID>1250000000</ID>
 					<DisplayName>1250000000</DisplayName>
@@ -265,7 +266,7 @@ Connection: close
 ```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Content-Length: 2018
+Content-Length: 2070
 Connection: close
 Date: Thu, 10 Dec 2020 03:36:05 GMT
 Server: tencent-cos
@@ -300,7 +301,7 @@ x-cos-request-id: NWZkMTk3YTVfYjFiODJhMDlfNTg0MDZfMTdj****
 		        <LastModified>2020-12-10T03:35:44.000Z</LastModified>
 		        <ETag>&quot;51ffadb19b3bf062ecd0c6f044a4d4ce&quot;</ETag>
 		        <Size>23</Size>
-		        <StorageClass>STANDARD</StorageClass>
+		        <StorageClass>STANDARD_IA</StorageClass>
 		        <Owner>
 		        	<ID>1250000000</ID>
 		        	<DisplayName>1250000000</DisplayName>
@@ -313,7 +314,8 @@ x-cos-request-id: NWZkMTk3YTVfYjFiODJhMDlfNTg0MDZfMTdj****
 		        <LastModified>2020-12-10T03:35:24.000Z</LastModified>
 		        <ETag>&quot;dcffaafe67632b2bd2dd0b9456eafca7&quot;</ETag>
 		        <Size>23</Size>
-		        <StorageClass>STANDARD</StorageClass>
+		        <StorageClass>INTELLIGENT_TIERING</StorageClass>
+		        <StorageTier>FREQUENT</StorageTier>
 		        <Owner>
 		        	<ID>1250000000</ID>
 		        	<DisplayName>1250000000</DisplayName>
@@ -362,7 +364,7 @@ Connection: close
 ```shell
 HTTP/1.1 200 OK
 Content-Type: application/xml
-Content-Length: 2393
+Content-Length: 2396
 Connection: close
 Date: Thu, 10 Dec 2020 03:36:25 GMT
 Server: tencent-cos
@@ -410,7 +412,7 @@ x-cos-request-id: NWZkMTk3YjlfNDhhOTBiMDlfMTYzNTZfMTIw****
 		        <LastModified>2020-12-10T03:35:44.000Z</LastModified>
 		        <ETag>&quot;51ffadb19b3bf062ecd0c6f044a4d4ce&quot;</ETag>
 		        <Size>23</Size>
-		        <StorageClass>STANDARD</StorageClass>
+		        <StorageClass>STANDARD_IA</StorageClass>
 		        <Owner>
 		        	<ID>1250000000</ID>
 		        	<DisplayName>1250000000</DisplayName>

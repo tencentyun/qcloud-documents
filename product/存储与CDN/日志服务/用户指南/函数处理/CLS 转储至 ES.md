@@ -4,7 +4,7 @@
 
 ## 操作步骤
 
-<span id="step01"></span>
+[](id:step01)
 
 ### 创建日志集
 
@@ -14,7 +14,7 @@
 ![](https://main.qcloudimg.com/raw/4e44c9e0612d0a66e4e9e58bb6f063cb.jpg)
 4. 单击【确定】，即可创建日志集。
 
-<span id="step02"></span>
+[](id:step02)
 
 ### 创建日志主题
 
@@ -29,7 +29,7 @@
    ![](https://main.qcloudimg.com/raw/08e9dc61f1cc8bfcb1923345c86bef45.jpg)
 
 
-<span id="step03"></span>
+[](id:step03)
 
 ### 创建云函数 SCF
 
@@ -46,7 +46,7 @@
 > ! 函数需要在【函数配置】页面中，选择和 CLS 相同的 VPC 和子网。如下图所示：
 >  ![](https://main.qcloudimg.com/raw/a329381190dcf6ad0883f5f8a51a9567.png)
 
-<span id="step04"></span>
+[](id:step04)
 
 ### 配置 CLS 触发器
 
@@ -61,7 +61,7 @@
 	- **最长等待时间**：单次事件拉取的最长等待事件，默认60s。
 
 
-<span id="step05"></span>
+[](id:step05)
 
 ### 测试函数功能
 

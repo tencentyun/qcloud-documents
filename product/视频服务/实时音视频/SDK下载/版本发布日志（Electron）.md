@@ -1,3 +1,27 @@
+## Version 8.2.7 @ 2020.01.06
+
+**新增**
+- Windows & Mac：新增 [switchRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#switchRoom) 切换房间。
+- Windows & Mac：新增 [setLocalRenderParams](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setLocalRenderParams) 设置本地图像（主流）的渲染参数。
+- Windows & Mac：新增 [setRemoteRenderParams](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setRemoteRenderParams) 设置远端图像的渲染参数。
+- Windows & Mac：新增 [startPlayMusic](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startPlayMusic) 启动播放背景音乐。
+- Windows & Mac：新增 [stopPlayMusic](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopPlayMusic) 停止播放背景音乐。
+- Windows & Mac：新增 [pausePlayMusic](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#pausePlayMusic) 暂停播放背景音乐。
+- Windows & Mac：新增 [resumePlayMusic](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#resumePlayMusic) 恢复播放背景音乐。
+- Windows & Mac：新增 [getMusicDurationInMS](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#getMusicDurationInMS) 获取背景音乐文件总时长，单位毫秒。
+- Windows & Mac：新增 [seekMusicToPosInTime](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#seekMusicToPosInTime) 设置背景音乐播放进度。
+- Windows & Mac：新增 [setAllMusicVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setAllMusicVolume) 设置背景音乐的音量大小，播放背景音乐混音时使用，用来控制背景音音量大小。
+- Windows & Mac：新增 [setMusicPlayoutVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setMusicPlayoutVolume) 设置背景音乐本地播放音量的大小。
+- Windows & Mac：新增 [setMusicPublishVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setMusicPublishVolume) 设置背景音乐远端播放音量的大小。
+- Windows & Mac：新增 [onSwitchRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onSwitchRoom) 切换房间回调。
+- Windows & Mac：新增 [setRemoteAudioVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setRemoteAudioVolume) 设置远程用户播放音量。
+- Windows & Mac：新增 [snapshotVideo](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#snapshotVideo) 视频画面截图。
+- Windows & Mac：新增 [onSnapshotComplete](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onSnapshotComplete) 截图完成时回调。
+
+**改进**
+- Windows & Mac：enterRoom 和 switchRoom 支持 string 类型 strRoomId。
+- Windows & Mac：其他 bug 修复。
+
 ## Version 7.9.348 @ 2020.11.12
 
 **改进**

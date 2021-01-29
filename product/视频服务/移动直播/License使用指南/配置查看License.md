@@ -1,5 +1,4 @@
-
-<span id="config"></span>
+[](id:config)
 ## 配置方法
 调用 SDK 的相关接口前，您需要调用如下方法配置 License：
 - **iOS**
