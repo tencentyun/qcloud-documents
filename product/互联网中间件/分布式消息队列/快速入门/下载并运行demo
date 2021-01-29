@@ -117,4 +117,6 @@
 6. 登录[TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，依次点击【Topic管理】>【Topic名称】进入消费管理页面，点开订阅名下方右三角号，可查看生产消费记录。
 
    ![](https://main.qcloudimg.com/raw/da7ce2bc5ac606c91982efecdb3b53bb.png)
-7. 在【消息查询】列表可查看消息的运行轨迹。
+7. 在【消息查询】列表可查看demo运行后的消息轨迹。
+   ![](https://main.qcloudimg.com/raw/ba36faa571a2ace02b1fc68cc95d3e17.png)
+   ![](https://main.qcloudimg.com/raw/cbe1b59a0a8725dc350bde8a353c9049.png)
