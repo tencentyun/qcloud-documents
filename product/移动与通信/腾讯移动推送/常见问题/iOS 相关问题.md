@@ -1,3 +1,9 @@
+
+### Xcode12模拟器集成通知扩展插件编译报错building for iOS Simulator, but linking in object file built for iOS
+
+找到扩展插件target选择Build Settings->Excluded Architectures添加arm64指令集
+![](https://main.qcloudimg.com/raw/1b62d4bc884c1870c70209b99200d6a6.png)
+
 ### TPNS 控制台上传 push 证书失败如何解决？
 
 将推送证书 p12 文件转换成 pem 文件，并按以下步骤排查：
