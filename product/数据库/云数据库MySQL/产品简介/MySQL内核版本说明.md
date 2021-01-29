@@ -17,7 +17,7 @@
 ### 20200930
 #### 性能优化：
 - 备份锁优化 
-FLUSH TABLES WITH READ LOCK 的上锁备份方式导致整个数据库不可提供服务，该版本中提供了轻量级的数据进行上锁方式，从而支持备份过程中的数据访问以及实现物理备份、逻辑备份的一致性的保护。
+FLUSH TABLES WITH READ LOCK 的上锁备份方式导致整个数据库不可提供服务，该版本中提供了轻量级的数据备份加锁方式。
 - 大表 drop table 优化 
 快速清理自适应哈希的优化（innodb_fast_ahi_cleanup_for_drop_table 控制），可以大幅度缩短 drop 大表时，清理自适应哈希索引的耗时。
 
