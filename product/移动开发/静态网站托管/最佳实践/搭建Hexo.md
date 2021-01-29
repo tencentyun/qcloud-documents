@@ -1,11 +1,15 @@
 ## 操作场景
 本文档介绍通过腾讯云静态网站托管服务搭建一个 Hexo 网站，并使用云开发 CLI 工具管理部署 Hexo 网站。
 云开发提供两种方式进行部署：
-- 方式一：一键部署项目至云端；
+- 方式一：一键部署项目至云端。
 - 方式二：使用 CLI 工具，手动将本地文件部署至云端。
 
 ## 一键部署 Hexo
+
+单击下方按钮可一键部署 Hexo 到云开发：
+
 <div style="background-color:#00A4FF; width: 125px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/tcb/env/index?action=CreateAndDeployCloudBaseProject&appUrl=https%3A%2F%2Fgithub.com%2FTencentCloudBase%2Fcloudbase-templates&workDir=hexo&branch=master" target="_blank"  style="color: white; font-size:13px;">部署到云开发</a></div>
+
 
 
 ## CLI 工具部署
@@ -61,31 +65,32 @@ hexo s
 
 
 #### 步骤4：使用 CLI 部署 Hexo
-1. 初始化云开发 CLI
-完成了云开发环境的配置后，我们需要初始化一下云开发 CLI ，从而实现借助 CLI 工具来上传页面（您也可以通过网页端直接上传，但如果您博客的文章比较多，建议使用 CLI 工具上传更加方便）
-在命令行输入如下代码：
-```
+1. 初始化云开发 CLI。
+完成云开发环境配置后，需要初始化云开发 CLI ，从而实现借助 CLI 工具来上传页面（您也可以通过网页端直接上传，但如果您博客的文章较多，建议使用 CLI 工具上传）。在命令行执行以下命令进行初始化：
+```plaintext
 tcb login
 ```
-会提醒您需要在网页中进行授权：
+ 执行之后将提醒您需要在网页中进行授权：
 ![](https://main.qcloudimg.com/raw/0390dad15ae1a786d3e492c11c9277bb.png)
  在弹出的页面中单击【确认授权】。
 ![](https://main.qcloudimg.com/raw/40d3367db60f02f9312237d2657ad33f.png)
  确认授权后，您会看到控制台输出相应的命令部署，到这里，您的云开发 CLI 就初始化好了。
-2. 构建 Hexo 并上传
-回到您的 Hexo 目录中，执行 Hexo g 来生成文件，Hexo 会默认将文件生成在 Public 目录下。
+2. 构建 Hexo 并上传。
+在 Hexo 目录，执行 Hexo g 命令来生成文件，Hexo 会默认将文件生成在 Public 目录下。如下图所示：
 ![](https://main.qcloudimg.com/raw/24f9830110b6bb10c661e07b128ea74b.png)
-文件生成完成后，可以执行如下命令来进行部署（需要将 EnvID 替换为前面您的环境 ID）
-```
+文件生成完成后，可以执行以下命令来进行部署（需要将 EnvID 替换为前面您的环境 ID）：
+```plaintext
 cd public
 tcb hosting deploy ./ -e EnvID
 ```
-稍等片刻，部署完成，接下来就可以预览了。
-![](https://main.qcloudimg.com/raw/11710d7039ea7d3c1cef4bdcb33dbd13.png)
+ 稍等片刻等待部署完成，即可预览页面。
+![](https://main.qcloudimg.com/raw/127bae3dbb9fc635acb535ce592c3664.png)
+
+
 
 #### 步骤5：浏览 Hexo
 
-打开腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击左侧菜单栏中的【静态网站托管】>【设置】，进入设置页面，可以找到默认的域名，单击域名，就可以看到您刚部署的 Hexo。
+登录腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击左侧菜单栏中的【静态网站托管】>【设置】，进入设置页面，可以找到默认的域名，单击域名，就可以看到您刚部署的 Hexo。
 ![](https://main.qcloudimg.com/raw/439da24bfa3827fb41b8305c2ac1a5ae.png)
 
 
