@@ -15,6 +15,30 @@
 - 修复全文索引中，词组查找（phrase search）在多字节字符集下存在的崩溃问题。
 
 ## MySQL 5.7
+### 20200930
+#### 性能优化：
+- 备份锁优化 
+FLUSH TABLES WITH READ LOCK 的上锁备份方式导致整个数据库不可提供服务，该版本中提供了轻量级的数据进行上锁方式，从而支持备份过程中的数据访问以及实现物理备份、逻辑备份的一致性的保护。
+- 大表 drop table 优化 
+快速清理自适应哈希的优化（innodb_fast_ahi_cleanup_for_drop_table 控制），可以大幅度缩短 drop 大表时，清理自适应哈希索引的耗时。
+
+#### 官方 bug 修复：
+- 修复 MySQL 官方 truncate table 时，ibuf 访问导致 crash 的问题。
+- 修复有快速加列后的冷备无法拉起的问题。
+- 修复频繁释放 innodb 内存表对象，导致性能下降的问题。
+- 修复 left join 语句下 const 提前计算，导致的查询正确性问题。
+- 修复 sql 限流和 query rewrite 插件因为 Rule 类名冲突，导致 core 的问题。
+- 修复多个 session 下 insert on duplicate key update 语句的并发更新问题。
+- 修复针对 auto_increment_increment 并发插入，导致 duplicate key error 失败的问题。
+- 修复 innodb 内存对象淘汰触发宕机的问题。
+- 修复热点更新功能的并发安全问题。
+- 修复升级 jemalloc 版本至5.2.1，开启线程池触发 coredump 的问题。
+- 修复 fwrite 无错误处理，导致审计日志不完整的问题。
+- 优化 utf8/utf8mb4 字符串效率。
+- 关闭 crash 时打印 pstack 结果的功能。
+- 修复 mysqld_safe以root 用户启动时，不打印日志的问题。
+- 修复 alter table exchange partition 导致 ddl log 文件增长的问题。
+
 ### 20200701
 #### 官方 bug 修复：
 - 修复 INNOBASE_SHARE index mapping 错误问题。
