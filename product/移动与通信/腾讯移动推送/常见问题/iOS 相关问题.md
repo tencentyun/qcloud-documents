@@ -1,7 +1,7 @@
 
-### Xcode12模拟器集成通知扩展插件编译报错building for iOS Simulator, but linking in object file built for iOS
+### Xcode12 模拟器集成通知扩展插件编译报错 building for iOS Simulator, but linking in object file built for iOS，该如何处理？
 
-找到扩展插件target选择Build Settings->Excluded Architectures添加arm64指令集
+需要找到扩展插件 target，选择【Build Settings】>【Excluded Architectures】，添加 arm64 指令集，如下图所示：
 ![](https://main.qcloudimg.com/raw/1b62d4bc884c1870c70209b99200d6a6.png)
 
 ### TPNS 控制台上传 push 证书失败如何解决？
