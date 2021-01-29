@@ -39,12 +39,11 @@
 <td>1 × 0.35 = 0.35元/月</td>
 </tr>
 <tr>
-<td>Serverless MySQL 数据库</td>
+<td><nobr>Serverless MySQL 数据库</nobr></td>
 <td>存储费用：1 × 0.00485元/GB/小时 × 24 × 30=3.49元/月<br> 计算费用：100 × 0.000095 × 30 = 0.285元/月</td>
 </tr>
 <tr>
 <td colspan="2" style="text-align:center;">费用合计：0.018 + 0.068 + 0.35 + 3.49 + 0.285 = 4.211元</td>
-<td></td>
 </tr>
 </tbody></table>
    对比可以发现，与传统自建方案对比，Serverless Wordpress 使用成本极大降低。
