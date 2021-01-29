@@ -1,48 +1,54 @@
 ## 操作场景
 本文档介绍通过腾讯云静态网站托管服务搭建一个 VuePress 网站，并使用云开发 CLI 工具管理部署 VuePress 网站。
-- 方式一：一键部署项目至云端；
+- 方式一：一键部署项目至云端。
 - 方式二：使用 CLI 工具，手动将本地文件部署至云端。
+
+
 
 ## 一键部署 VuePress
 <div style="background-color:#00A4FF; width: 125px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/tcb/env/index?action=CreateAndDeployCloudBaseProject&appUrl=https://github.com/TencentCloudBase/cloudbase-templates&workDir=vuepress" target="_blank"  style="color: white; font-size:13px;">部署到云开发</a></div>
 
+
+
 ## CLI 工具部署
+
 ### 前提条件
+
 在进行后续的内容前，请先确保您的电脑中安装了 Node.js 运行环境。如果没有安装，可以访问 [Node.js 官网](https://nodejs.org/) 下载安装。
 
 
 ### 操作步骤
 #### 步骤1：安装云开发 CLI 工具 和 VuePresss
-执行如下命令，安装云开发 CLI 工具以及 VuePress。
+
+执行以下命令，安装云开发 CLI 工具以及 VuePress。
 ```plaintext
 npm i -g @cloudbase/cli vuepress
 ```
 
 #### 步骤2：在本地初始化一个 VuePress 项目
-首先，在本地创建一个目录，这里以 tcb 为例：
+
+1. 执行以下命令，在本地创建一个目录，这里以 tcb 为例：
 ```plaintext
 mkdir tcb && cd tcb
 ```
-进入到 tcb 目录后，创建一个默认的 hello world 文件。
+2. 进入到 tcb 目录后，执行以下命令，创建一个默认的 hello world 文件。
 ```plaintext
 echo "# Hello TCB & Vuepress" > README.md
 ```
 ![](https://main.qcloudimg.com/raw/db6cfcc664b38c32e8ce08055f6ffc7d.png)
-
-然后，执行命令，启动，并查看效果。
+3. 执行以下命令，启动 VuePresss。
 ```plaintext
 vuepress dev
 ```
-等待其编译完成，完成后如下如所示。
+ 等待其编译完成，完成后如下图所示：
 ![](https://main.qcloudimg.com/raw/0b1c90a075f1f4914ecc6c487e9abcbc.png)
-
-打开浏览器访问： localhost:8080 可以看到刚刚创建的文档产生的页面，说明已经成功的完成了 VuePress 的本地初始化。
+5. 打开浏览器访问 `localhost:8080` 可以看到上述步骤创建的文档产生的页面，说明已成功完成 VuePress 的本地初始化。
 ![](https://main.qcloudimg.com/raw/ecf3a06a5fef49864fe1e7983f9e091d.png)
 
 
 #### 步骤3：创建一个云开发环境
 
-完成了本地的 Vuepress 建设，接下来我们来创建一个云开发环境，用来部署 VuePresss。打开腾讯云控制台，在产品中找到云开发
+完成了本地的 Vuepress 建设，接下来我们来创建一个云开发环境，用来部署 VuePresss。
 
 1. **开通云开发环境**
 打开腾讯云 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)，单击【新建环境】，新建一个环境进行部署。
@@ -53,10 +59,8 @@ vuepress dev
 2. **开通静态网站托管**
 云开发环境创建完成后，单击左侧菜单栏中的【静态网站托管】，单击【选择已有按量计费环境】
 ![](https://main.qcloudimg.com/raw/0066b2dd6c36857cd0f52d3916c3c8d1.png)
-
  当您看到这样的界面时，就说明已经开通好了。
 ![](https://main.qcloudimg.com/raw/64f31f5655bfcce0506262c3f7f9163c.png)
-
  您现在可以通过上传文件手动上传一个文件测试，稍后，我们将会用云开发 CLI 来完成上传。
 
 #### 步骤4：使用 CLI 部署 VuePress
