@@ -43,7 +43,7 @@
   </tr>
 <tr>
     <td>Mac</td>
-    <td>Mac/TRTCScenesDemo/TRTCDemo/TRTC/GenerateTestUserSig.h</td>
+    <td>Mac/OCDemo/TRTCDemo/TRTC/GenerateTestUserSig.h</td>
   </tr></table>
 3. 设置`GenerateTestUserSig.h`文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
