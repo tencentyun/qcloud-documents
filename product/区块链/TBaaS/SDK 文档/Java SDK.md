@@ -58,7 +58,7 @@ Java SDK 推荐通过 Maven 安装。Maven 是 Java 的依赖管理工具，支�
 | SendTransactionHandler | 发送交易 |
 | TransByDynamicContractHandler | 根据动态部署的合约发送交易 |
 
-[](id:JavaSDK.sample">
+[](id:JavaSDK.sample)
 ## 示例
 
 以新增交易（Invoke）接口为例：
