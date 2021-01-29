@@ -8,8 +8,8 @@ Namespace=QCE/CDB
 
 | 指标英文名    | 指标中文名   | 指标说明                                                     | 单位  | 维度                     | 统计周期                     |
 | ------------- | ------------ | ------------------------------------------------------------ | ----- | ------------------------ | ---------------------------- |
-| BytesReceived | 内网入流量   | 每秒接受的字节数                                             | MB/s  | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
-| BytesSent     | 内网出流量   | 每秒发送的字节数                                             | MB/s   | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
+| BytesReceived | 内网入流量   | 每秒接收的字节数                                             | 字节/秒  | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
+| BytesSent     | 内网出流量   | 每秒发送的字节数                                             | 字节/秒   | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
 | Capacity      | 磁盘占用空间 | 包括 MySQL 数据目录和  binlog、relaylog、undolog、errorlog、slowlog 日志空间 | MB    | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
 | CpuUseRate    | CPU 利用率   | 允许闲时超用，CPU 利用率可能大于100%                         | %     | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
 | IOPS          | IOPS         | 每秒的输入输出量(或读写次数)                                 | 次/秒 | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
@@ -90,7 +90,7 @@ Namespace=QCE/CDB
 | 指标英文名           | 指标中文名                      | 指标说明                        | 单位  | 维度                     | 统计周期                     |
 | -------------------- | ------------------------------- | ------------------------------- | ----- | ------------------------ | ---------------------------- |
 | InnodbRowLockTimeAvg | InnoDB 平均获取行锁时间（毫秒） | Innodb 引擎行锁定的平均时长     | ms    | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
-| InnodbRowLockWaits   | InnoDB 等待行锁次数             | Innodb 引擎每秒等待行锁定的次数 | ms    | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
+| InnodbRowLockWaits   | InnoDB 等待行锁次数             | Innodb 引擎每秒等待行锁定的次数 | 次/秒    | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
 | InnodbRowsDeleted    | InnoDB 行删除量                 | Innodb 引擎每秒删除的行数       | 行/秒 | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
 | InnodbRowsInserted   | InnoDB 行插入量                 | Innodb 引擎每秒插入的行数       | 行/秒 | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
 | InnodbRowsRead       | InnoDB 行读取量                 | Innodb 引擎每秒读取的行数       | 行/秒 | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |

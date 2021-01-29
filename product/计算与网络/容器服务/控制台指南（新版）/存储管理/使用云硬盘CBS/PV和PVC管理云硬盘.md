@@ -14,11 +14,11 @@
 
 ### 控制台操作指引
 
-#### 通过控制台创建 StorageClass<span id="create"></span>
+#### 通过控制台创建 StorageClass[](id:create)
 由于静态创建云硬盘类型的 PV 时，需要绑定同类型可用 StorageClass，请参考 [创建 StorageClass](https://cloud.tencent.com/document/product/457/44239#create) 完成创建。
 
 
-#### 静态创建 PV<span id="pv"></span>
+#### 静态创建 PV[](id:pv)
 >? 静态创建 PV 适用于已有存量云盘，并在集群内使用的场景。
 >
 1. 登录容器服务控制台，选择左侧导航栏中的【[集群](https://console.cloud.tencent.com/tke2/cluster)】。
@@ -42,7 +42,7 @@
 
 
 
-#### 创建 PVC<span id="createPVC2"></span>
+#### 创建 PVC[](id:createPVC2)
 1. 在集群详情页，选择左侧菜单栏中的【存储】>【PersistentVolumeClaim】，进入 “PersistentVolumeClaim” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/df6c4f1d31510fdcfa6cf9d914e8f382.png)
 2. 选择【新建】进入 “新建PersistentVolumeClaim” 页面，参考以下信息进行创建。如下图所示：
@@ -86,7 +86,7 @@
 您可通过以下 YAML 示例文件，使用 Kubectl 进行创建操作。
 
 
-#### （可选）创建 PV<span id="createPV"></span>
+#### （可选）创建 PV[](id:createPV)
 
 可以通过已有云硬盘创建 PV，也可以直接 [创建 PVC](#createPVC) ，系统将自动创建对应的 PV。YAML 文件示例如下：
 ```yaml
@@ -107,7 +107,7 @@ spec:
 
 
 
-#### 创建 PVC<span id="createPVC"></span>
+#### 创建 PVC[](id:createPVC)
 
 若未 [创建 PV](#createPV)，则在创建 PVC 时，系统将自动创建对应的 PV。YAML 文件示例如下：
 ```yaml
