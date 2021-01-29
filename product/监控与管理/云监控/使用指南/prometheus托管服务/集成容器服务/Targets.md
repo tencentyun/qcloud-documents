@@ -2,8 +2,8 @@
 
 ## 准备工作
 
-- 已经对某个容器服务 （TKE) 安装了 Prometheus Agent，具体可以参考 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
-- 通过容器服务列表点击【集群 ID】进入到容器服务集成管理页面。
+- 已经为容器服务 TKE 集群安装 Prometheus Agent，具体可以参考 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
+- 通过 [容器服务](https://console.cloud.tencent.com/tke2/cluster?rid=4) 集群管理页面中单击【集群 ID】进入到容器服务集成管理页面。
 
 ## 说明
 
