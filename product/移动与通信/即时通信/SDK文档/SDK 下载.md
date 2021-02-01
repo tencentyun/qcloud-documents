@@ -1,4 +1,5 @@
 您可以在这里下载最新的即时通信 IM SDK 以及 Demo 源码。
+## SDK 下载
 <table>
 <tr>
 <th width="0px" style="text-align:center" >终端 SDK</td>
@@ -87,7 +88,7 @@
 
 
 ## Demo 及解决方案下载
-[即时通信 IM Demo](https://cloud.tencent.com/document/product/269/36852) 演示了各个场景下的 IM 功能，您可 [前往安装](https://cloud.tencent.com/document/product/269/36852) 并体验不同平台、不同使用场景下的 Demo。
+即时通信 IM Demo 演示了各个场景下的 IM 功能，您可 [前往安装](https://cloud.tencent.com/document/product/269/36852) 并体验不同平台、不同使用场景下的 Demo。
 <table>
 <tr>
 <th width="0px" style="text-align:center" >类别</td>
