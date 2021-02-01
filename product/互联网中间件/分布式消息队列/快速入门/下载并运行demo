@@ -1,6 +1,6 @@
 ## 操作场景
 
-该任务指导您在购买TDMQ服务和腾讯云服务器后，下载运行demo程序包，并进行简单的测试，快速了解TDMQ的使用原理。
+该任务指导您在购买TDMQ服务和腾讯云服务器后，下载demo并进行简单的测试，了解运行一个客户端的操作步骤。
 
 ## 前提条件
 
@@ -98,25 +98,20 @@
 
    ![](https://main.qcloudimg.com/raw/097d7bc213100b2c17e1db235dd02048.png)
 
-4. 运行成功后将程序包上传到云服务器，具体操作参考[如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
+4. 运行成功后将jar文件上传到云服务器，具体操作参考[如何将本地文件拷贝到云服务器](https://cloud.tencent.com/document/product/213/39138)。
 
-5. 登陆云服务器，进入到刚刚上传jar文件所在的目录，可查看到程序包已上传到云服务器。
+5. 登陆云服务器，进入到刚刚上传jar文件所在的目录，可看到文件已上传到云服务器。
 
    ![](https://main.qcloudimg.com/raw/408be8532bab78314333802a1b42afbe.png)
 
-   执行以下命令，将demo运行起来。
-
-   ```java
-   java -jar tdmq-demo-cloud-1.0.1.jar
-   ```
-
-   可查看运行日志：
+   执行命令`java -jar tdmq-demo-cloud-1.0.1.jar`，将demo运行起来，可查看运行日志。
 
    ![](https://main.qcloudimg.com/raw/ce7144d04ee5dcfd14ab1a06d266ad12.png)
 
 6. 登录[TDMQ 控制台](https://console.cloud.tencent.com/tdmq)，依次点击【Topic管理】>【Topic名称】进入消费管理页面，点开订阅名下方右三角号，可查看生产消费记录。
 
    ![](https://main.qcloudimg.com/raw/da7ce2bc5ac606c91982efecdb3b53bb.png)
-7. 在【消息查询】列表可查看demo运行后的消息轨迹。
-   ![](https://main.qcloudimg.com/raw/ba36faa571a2ace02b1fc68cc95d3e17.png)
-   ![](https://main.qcloudimg.com/raw/cbe1b59a0a8725dc350bde8a353c9049.png)
+
+7. 进入[【消息查询】](https://console.cloud.tencent.com/tdmq/message)页面，可查看demo运行后的消息轨迹。
+
+   ![](https://main.qcloudimg.com/raw/ba36faa571a2ace02b1fc68cc95d3e17.png)![](https://main.qcloudimg.com/raw/cbe1b59a0a8725dc350bde8a353c9049.png)
