@@ -93,12 +93,12 @@
 <th width="0px" style="text-align:center" >类别</td>
  <th width="0px" style="text-align:center" >介绍</td>
 <th width="0px"  style="text-align:center">所属平台</td>
-<th width="0px" style="text-align:center" colspan='2'>下载方式</td>
+<th width="250px" style="text-align:center" colspan='2'>下载方式</td>
 <th width="0px" style="text-align:center">参考文档</td>
 </tr>
 <tr>
 <td style="text-align:center" rowspan='4'>即时通信 IM Demo  </td>
-<td style="text-align:center" rowspan='4' th width="250px">包含所有 IM 功能以及群里直播连麦语聊能力。</td>
+<td style="text-align:center" rowspan='4' th width="200px">包含所有 IM 功能以及群里直播连麦语聊能力。</td>
 <td style="text-align:center" >Android</td>
 <td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Android">Github(推荐)</a></td>
 <td style="text-align:center" rowspan='4' ><a href="https://github-1252463788.cos.ap-shanghai.myqcloud.com/imsdk/TIMSDK.zip">ZIP</a></td>
