@@ -2,7 +2,7 @@
 
 例如，当 NAT 网关绑定了 EIP1、EIP2、EIP3、EIP4 等多个 EIP 时，则系统会在绑定的所有 EIP 中自动做负载均衡访问公网。如果将 EIP1、EIP2、EIP3 加入 SNAT 地址池，则系统使用 SNAT 地址池中的 EIP 访问公网，且自动在 SNAT 地址池中的 EIP 做负载均衡。
 
-本文介绍如何创建 SNAT 规则。
+本文介绍如何创建和管理 SNAT 规则。
 
 ## 创建 SNAT 规则[](id:cjgz)
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
