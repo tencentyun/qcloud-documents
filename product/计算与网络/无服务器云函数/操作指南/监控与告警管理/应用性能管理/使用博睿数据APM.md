@@ -3,10 +3,10 @@
 
 ## 前提条件
 
-- 已注册 [博睿 Server](https://server.bonree.com/overview/) 账号。若您没有博睿的账号，可以使用[该链接注册](https://passport.bonree.com/cas/user/toRegisterExt)以获得Serverless专属的15天免费产品体验。
+- 已注册 [博睿 Server](https://server.bonree.com/overview/) 账号。若您尚未注册博睿账号，可 [注册新账号](https://passport.bonree.com/cas/user/toRegisterExt) 以获得 Serverless 专属的15天免费产品体验。
 - 已 [创建云函数](https://cloud.tencent.com/document/product/583/19806#.E5.88.9B.E5.BB.BA.E5.87.BD.E6.95.B0) 并开启公网访问。
 
->?博睿探针目前支持Python和Node.js的多数主流框架，且仅在使用支持的框架时，博睿 smartAgent 才可自动捕获。详情请参见 [博睿探针支持列表](#list)。
+>?博睿探针目前支持 Python 和 Node.js 的多数主流框架，且仅在使用支持的框架时，博睿 smartAgent 才可自动捕获。详情请参见 [博睿探针支持列表](#list)。
 
 
 
@@ -27,12 +27,10 @@
 3. 在“层”管理页面，单击【新建】。
 4. 在“新建层”页面，根据提示信息进行配置。如下图所示：
    ![](https://main.qcloudimg.com/raw/19b29b36a09d6adaf8ce55f7dfc9a599.jpg)
-
  - **层名称**：输入层名称。只能包含字母、数字、下划线、连字符，以字母开头，以数字或字母结尾，2 - 60个字符。
  - **提交方法**：选择【本地上传zip包】。
  - **层代码**：选择步骤1下载的探针文件。
  - **运行环境**：根据实际运行环境进行选择。目前支持 Python 和 Node.js。
-
 5. 单击【确定】即可创建层。
 6. 选择左侧菜单栏中的【函数服务】，进入函数服务页面。
 7. 单击需要绑定层的函数名称，进入函数管理页面。
@@ -63,12 +61,13 @@ import sys
 
 sys.path.insert(0, "/opt/bonree/apm/agent/python/serverless")
 try:
-    from Bonree.autoinject import sitecustomize
+   from Bonree.autoinject import sitecustomize
 except ImportError:
-    pass
+   pass
 :::
-</dx-codeblock>如下图所示：
-![](https://main.qcloudimg.com/raw/5fac61e02d859885b623e71659f1cd76.png)
+</dx-codeblock>
+如下图所示：
+![](https://main.qcloudimg.com/raw/775d6e13f4112e166ba49c2ffa0862ad.png)
 :::
 </dx-tabs>
 
@@ -91,20 +90,19 @@ except ImportError:
 ### 使用 Serverless Framework 接入
 
 
-您还可以使用 Serverless Framework 的 bonree component 上传博睿探针，本文以 Flask 框架为例，介绍如何使用bonree component来绑定和使用博睿探针。您也可以单独使用 bonree component 上传层，再进行[层绑定](#bindagent)。
+您还可以使用 Serverless Framework 的 bonree component 上传博睿探针。本文以 Flask 框架为例，介绍如何使用bonree component来绑定和使用博睿探针。您也可以单独使用 bonree component 上传层，再进行 [层绑定](#bindagent)。
 
 
 #### 创建层并绑定至函数
 
 1. 在 apm 目录下新建 `serverless.yml` 文件，`serverless.yml` 文件内容如下：
-   <dx-codeblock>
-   :::  yaml
-   component: bonree
-   name: bonree_agent
-   org: tencent
-   app: tencent
-   stage: dev
-
+<dx-codeblock>
+:::  yaml
+component: bonree
+name: bonree_agent
+org: tencent
+app: tencent
+stage: dev
 inputs: 
   name: bonree_agent
   region: ap-beijing
@@ -116,40 +114,39 @@ inputs:
 </dx-codeblock>
 
 2. 同样在 src 目录下创建 Flask 的 `serverless.yml` 文件，在`layers`参数填写 bonree component 的信息，在环境变量中填写博睿账号的GUID和SDK路径参数。`serverless.yml` 文件内容如下：
-   <dx-codeblock>
-   :::  yaml
-   component: flask
-   name: bonree_flask
-   org: tencent
-   app: tencent
-   stage: dev
-   inputs: 
-     region: ap-beijing
-     runtime: Python3.6
-     layers: 
+<dx-codeblock>
+:::  yaml
+component: flask
+name: bonree_flask
+org: tencent
+app: tencent
+stage: dev
+inputs: 
+  region: ap-beijing
+  runtime: Python3.6
+  layers: 
     - name: ${output:${stage}:${app}:bonree_agent.name}
       version: ${output:${stage}:${app}:bonree_agent.version}
-        functionConf: 
-       memorySize: 128
-       environment: 
+  functionConf: 
+    memorySize: 128
+    environment: 
       variables: 
         BONREE_APM_ACCOUNT_GUID: your_bonree_GUID
         BONREE_SMARTAGENT_SDK_PATH: /opt/bonree/apm/agent/c/serverless/lib/libagentsdk-x64-linux.so
-      :::
-      </dx-codeblock>
+:::
+</dx-codeblock>
 3. 查看目录结构，具体目录结构如下所示：
-   <dx-codeblock>
-   :::  bash
+<dx-codeblock>
+:::  bash
    .
    ├── apm
    │   └── serverless.yml
    └── src
-    └── serverless.yml
-   :::
-   </dx-codeblock>
+       └── serverless.yml
+:::
+</dx-codeblock>
 4. 只使用 bonree component 便可以完成层的创建。在云函数中配置 layers 参数可以完成绑定操作，您也可以选择在云函数控制台手动绑定层。
 5. 在根目录下执行以下命令，进行应用部署。
-
 ```bash
 sls deploy
 ```
@@ -176,7 +173,7 @@ sls deploy
 4. 您可以将多个函数上报后关联至同一个应用，便可查看调用链路情况。如下图所示：
    ![image-20210120212212888](https://main.qcloudimg.com/raw/af72b23295b1a9baed10e41f4f90fad1/image-20210120212212888.png)
 
-更多操作指导可以查看[博睿 Server 产品文档](https://docs.qq.com/doc/DZkFPZURGU0xPR2VF)。
+更多操作指导可以查看 [博睿 Server 产品文档](https://docs.qq.com/doc/DZkFPZURGU0xPR2VF)。
 
 
 
