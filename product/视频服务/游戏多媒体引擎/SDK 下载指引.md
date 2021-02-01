@@ -50,4 +50,4 @@ v2.8 正式版本更新如下：
 
 | 平台/引擎 | 更新时间   | SDK 下载                                                     | Demo 下载                                                    | 文档                                                         |
 | --------- | ---------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| H5        | 2020/10/22 | [下载](http://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.7.1/H5/GME_H5_Audio_SDK_2.7.1.127.zip) | [下载](http://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.7.1/H5/GME_H5_Audio_Sample_2.7.1.127.zip) | [接口文档](https://cloud.tencent.com/document/product/607/32157) |
+| H5        | 2020/10/22 | [下载](https://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.7.1/H5/GME_H5_Audio_SDK_2.7.1.127.zip) | [下载](https://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.7.1/H5/GME_H5_Audio_Sample_2.7.1.127.zip) | [接口文档](https://cloud.tencent.com/document/product/607/32157) |
