@@ -7,7 +7,7 @@ Harbor 是 VMware 公司开源的企业级 Docker Registry 项目，在开源 Do
 在将自建 Harbor 内数据同步至云上容器镜像服务实例内，您需要首先确认并完成以下准备工作：
 - 已搭建 Harbor 服务，且仅支持 Harbor v1.8.0 及以上版本。
 - 确认自建 Harbor 可通过专线、公网或私有网络访问容器镜像服务。
-- 已在云上容器集群所在地域或邻近地域成功 [创建企业版实例](https://cloud.tencent.com/document/product/1141/40716)。
+- 已在云上容器集群所在地域或邻近地域成功 [购买企业版实例](https://cloud.tencent.com/document/product/1141/51110)。
 - 如果使用子账号进行操作，请参考 [企业版授权方案示例](https://cloud.tencent.com/document/product/1141/41417) 提前为子账号授予对应实例的容器镜像，Helm Chart 推送权限，建议将容器镜像服务全读写权限授予配置同步的子账号。
 
 ## 操作步骤
