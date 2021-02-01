@@ -22,7 +22,7 @@
 
 #### 步骤1：安装云开发 CLI 工具和 Hexo
 
-执行以下命令，安装云开发 cli 工具以及 Hexo：
+执行以下命令，安装云开发 CLI 工具以及 Hexo：
 ```plaintext
 npm i -g @cloudbase/cli hexo-cli
 ```
