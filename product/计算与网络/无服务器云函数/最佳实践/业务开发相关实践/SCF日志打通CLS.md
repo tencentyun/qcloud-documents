@@ -1,6 +1,6 @@
 
 <dx-alert infotype="explain" title="">
-云函数 SCF 于2021年01月29日起全量接入腾讯云 [日志服务 CLS](https://cloud.tencent.com/document/product/614)，在此之后创建的函数调用日志将默认投递至 CLS，且支持日志实时输出。若您的函数于2021年01月29日前创建，且需进行日志检索，请参考本文档增加该功能。
+云函数 SCF 于2021年01月29日起全量接入腾讯云 [日志服务 CLS](https://cloud.tencent.com/document/product/614)，在此之后创建的函数调用日志将默认投递至 CLS，且支持日志实时输出。若您的函数于2021年01月29日前创建，且需进行日志检索与日志投递，请参考本文档使用该功能。
 </dx-alert>
 
 
