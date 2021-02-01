@@ -16,7 +16,7 @@
 </tr>
 <tr>
 <td style="text-align:center">iOS  </td>
-<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/iOS">Github(推荐)</a></td>
+<td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/iOS/ImSDK">Github(推荐)</a></td>
 <td style="text-align:center" ><a href="https://gitee.com/cloudtencent/TIMSDK/tree/master/iOS/ImSDK">Gitee</a></td>
 <td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/37060">【极速集成】导入TUIKit (iOS)</a><br><a href="https://cloud.tencent.com/document/product/269/32675">【常规集成】快速导入到工程  (iOS)</a></td>
 </tr>
