@@ -25,9 +25,9 @@ pusher.setRenderView({
 }).then(() => {
 
 // 3、填入 sdkappid roomid 等信息，推流
-// url 必须以 `room://` 开头
-let url = `room://sdkappid=${SDKAppID}&roomid=${roomID}&userid=${userID}&usersig=${userSig}&livedomainname=${liveDomainName}&streamid=${streamID}`;
-pusher.startPush(url).then(() => {
+  // url 必须以 `room://` 开头
+  let url = `room://sdkappid=${SDKAppID}&roomid=${roomID}&userid=${userID}&usersig=${userSig}&livedomainname=${liveDomainName}&streamid=${streamID}`;
+  pusher.startPush(url).then(() => {
     console.log('pusher | startPush | ok');
   });
 }).catch(error => {
