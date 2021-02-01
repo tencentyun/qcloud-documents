@@ -87,8 +87,8 @@
 </table>
 
 
-## Demo 及 解决方案下载
-即时通信IM Demo 演示了各个场景下的IM功能，您可 [前往](https://cloud.tencent.com/document/product/269/36852) 安装并体验不同平台以及使用场景下的Demo 。
+## Demo 及解决方案下载
+[即时通信 IM Demo](https://cloud.tencent.com/document/product/269/36852) 演示了各个场景下的 IM 功能，您可 [前往安装](https://cloud.tencent.com/document/product/269/36852) 并体验不同平台、使用场景下的 Demo。
 <table>
 <tr>
 <th width="0px" style="text-align:center" >类别</td>
@@ -98,12 +98,12 @@
 <th width="0px" style="text-align:center">参考文档</td>
 </tr>
 <tr>
-<td style="text-align:center" rowspan='4'>即时通信<br>IM Demo  </td>
+<td style="text-align:center" rowspan='4'>即时通信 IM Demo  </td>
 <td style="text-align:center" rowspan='4' >包含所有 IM 功能以及群里直播连麦语聊能力。</td>
 <td style="text-align:center" >Android</td>
 <td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/Android">Github(推荐)</a></td>
 <td style="text-align:center" rowspan='4' ><a href="https://github-1252463788.cos.ap-shanghai.myqcloud.com/imsdk/TIMSDK.zip">ZIP</a></td>
-<td style="text-align:center" rowspan='4'><a href="https://cloud.tencent.com/document/product/269/36838">【Demo入门】一分钟跑通Demo</a></td>
+<td style="text-align:left" rowspan='4'><a href="https://cloud.tencent.com/document/product/269/36838">【Demo入门】一分钟跑通Demo</a></td>
 </tr>
 <tr>
 <td style="text-align:center" >iOS</td>
@@ -118,28 +118,28 @@
 <td style="text-align:center" ><a href="https://github.com/tencentyun/TIMSDK/tree/master/WXMini">Github(推荐)</a></td>
 </tr>
 <tr>
-<td style="text-align:center" >IM Demo<br>(Flutter)  </td>
-<td style="text-align:center" >包含 IM 主要功能</td>
+<td style="text-align:center" >IM Demo (Flutter)  </td>
+<td style="text-align:center" >包含 IM 主要功能。</td>
 <td style="text-align:center" >Flutter</td>
 <td style="text-align:center" ><a href="https://github.com/tencentyun/TencentIMFlutterDemo/tree/master">Github(推荐)</a></td>
 <td style="text-align:center" ><a href="https://upload-dianshi-1255598498.cos.ap-guangzhou.myqcloud.com/nodir/TencentImSDKPlugin-1610442889170.zip">ZIP</a></td>
-<td style="text-align:center" >参考 github README</td>
+<td style="text-align:left" >参考 github README</td>
 </tr>
 <tr>
-<td style="text-align:center" >直播电商<br>Demo  </td>
+<td style="text-align:center" >直播电商 Demo  </td>
 <td style="text-align:center" >包含弹幕、优惠券、购物车等直播电商能力。</td>
 <td style="text-align:center" >微信小程序</td>
 <td style="text-align:center" ><a href="https://github.com/tencentyun/TencentIMDemos">Github(推荐)</a></td>
 <td style="text-align:center" ><a href="https://im-demos-1256635546.cos.ap-guangzhou.myqcloud.com/TencentIMDemos-master.zip">ZIP</a></td>
-<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/44932">【最佳实践】 小程序直播带货</a><br><a href="https://cloud.tencent.com/document/product/269/44527">【最佳实践】小程序直播SDK API</a></td>
+<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/44932">【最佳实践】 小程序直播带货</a><br><a href="https://cloud.tencent.com/document/product/269/44527">【最佳实践】小程序直播SDK API</a></td>
 </tr>
 <tr>
-<td style="text-align:center" >直播互动<br>Demo  </td>
+<td style="text-align:center" >直播互动 Demo  </td>
 <td style="text-align:center" >包含直播发起以及观看方点赞互动等能力。</td>
 <td style="text-align:center" >H5 及 Web</td>
 <td style="text-align:center" ><a href="https://github.com/tencentyun/TWebLive">Github(推荐)</a></td>
 <td style="text-align:center" ><a href="https://webim-1252463788.cos.ap-shanghai.myqcloud.com/TWebLive-demo.zip?_ga=1.23181178.1931537.1590743323">ZIP</a></td>
-<td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/47959">【Demo 入门】 一分钟跑通直播互动组件</a><br><a href="https://cloud.tencent.com/document/product/269/47954">【最佳实践】Web 直播互动组件</a></td>
+<td style="text-align:left" ><a href="https://cloud.tencent.com/document/product/269/47959">【Demo 入门】 一分钟跑通直播互动组件</a><br><a href="https://cloud.tencent.com/document/product/269/47954">【最佳实践】Web 直播互动组件</a></td>
 </tr>
 </table>
 
