@@ -1,5 +1,4 @@
 您可以在这里下载最新的即时通信 IM SDK 以及 Demo 源码。
-## SDK 下载
 <table>
 <tr>
 <th width="0px" style="text-align:center" >终端 SDK</td>
