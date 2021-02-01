@@ -93,7 +93,7 @@
 <th width="0px" style="text-align:center" >类别</td>
  <th width="0px" style="text-align:center" >介绍</td>
 <th width="0px"  style="text-align:center">所属平台</td>
-<th width="250px" style="text-align:center" colspan='2'>下载方式</td>
+<th width="220px" style="text-align:center" colspan='2'>下载方式</td>
 <th width="0px" style="text-align:center">参考文档</td>
 </tr>
 <tr>
