@@ -2,7 +2,7 @@
 
 例如，当 NAT 网关绑定了 EIP1、EIP2、EIP3、EIP4 等多个 EIP 时，则系统会在绑定的所有 EIP 中自动做负载均衡访问公网。如果将 EIP1、EIP2、EIP3 加入 SNAT 地址池，则系统使用 SNAT 地址池中的 EIP 访问公网，且自动在 SNAT 地址池中的 EIP 做负载均衡。
 
-本文介绍如何创建和管理 SNAT 规则。
+本文介绍如何创建 SNAT 规则。
 
 ## 创建 SNAT 规则[](id:cjgz)
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
@@ -41,8 +41,7 @@
 
 ## 删除 SNAT 规则
 如果您不需要为云服务器访问外网指定 EIP，可删除 SNAT 规则。
-1.  在 [SNAT 规则](https://console.cloud.tencent.com/vpc/nat/detail?rid=1&id=nat-oh8mtvzm&tab=snat) 标签页，单击 SNAT 规则条目右侧的【删除】，进入确认删除对话框。
+1. 在 [SNAT 规则](https://console.cloud.tencent.com/vpc/nat/detail?rid=1&id=nat-oh8mtvzm&tab=snat) 标签页，单击 SNAT 规则条目右侧的【删除】，再单击【确认】完成该条 SNAT 规则的删除。
 ![](https://main.qcloudimg.com/raw/686a27e91f884856ea74b2279696567f.png)
-2.  确认后，单击【确认】完成该条 SNAT 规则的删除。
->?也可勾选多条 SNAT 规则，再单击上方的【删除】进行批量删除。
+2. 也可勾选多条 SNAT 规则，再单击上方的【删除】进行批量删除。
 ![](https://main.qcloudimg.com/raw/364b44365a78ac81f691a23baa3f0138.png)
