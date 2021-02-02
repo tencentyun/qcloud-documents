@@ -70,8 +70,8 @@
 <table>
 <tr>
 <th width="96px" style="text-align:center" >框架 SDK</td>
- <th width="0px" style="text-align:center" >下载地址</td>
-<th width="307px"  style="text-align:center">参考文档</td>
+ <th width="182px" style="text-align:center" >下载地址</td>
+<th width="217px"  style="text-align:center">参考文档</td>
 <th width="180px" style="text-align:center">更新日志</td>
 </tr>
 <tr>
