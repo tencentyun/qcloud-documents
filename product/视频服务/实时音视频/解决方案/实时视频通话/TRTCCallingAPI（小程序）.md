@@ -54,7 +54,7 @@ TRTCCalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯�
 | sdkAppID | String | 是 |开通实时音视频服务创建应用后分配的 [SDKAppID](https://console.cloud.tencent.com/trtc/app)。 |
 |userID|String| 是 |用户 ID，可以由您的帐号体系指定。|
 |userSig|String| 是 |身份签名（即相当于登录密码），由 userID 计算得出，具体计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。|
-|type|Number| 是 |指定通话类型，1：语音通话 2：视频通话。|
+|type|Number| 是 |指定通话类型。1：语音通话，2：视频通话。|
 
 **示例代码：**
 
@@ -261,21 +261,21 @@ const EVENT = trtcRoomContext.EVENT // 以下事件均在此EVENT对象下
 | reason | String|拒绝理由。|
 
 #### NO_RESP 
-邀请方发出的邀请无人响应（对方不在线）
+邀请方发出的邀请无人响应（对方不在线）。
 
 | 参数| 类型   |    含义   |
 | --------------- | ---------- | -------------- |
-|inviteID| String|邀请ID。|
+|inviteID| String|邀请 ID。|
 | timeoutUserList | Array| 超时用户列表。|
 
 #### CALLING_TIMEOUT
-邀请方发出的邀请无人响应（在线未接受邀请）
+邀请方发出的邀请无人响应（在线未接受邀请）。
 
 | 参数| 类型   |    含义   |
 | --------------- | ---------- | -------------- |
-|inviteID| String|邀请ID。|
+|inviteID| String|邀请 ID。|
 |timeoutUserList | Array| 超时用户列表。|
-| groupID | String | 群组ID。|
+| groupID | String | 群组 ID。|
 | sponsor | String | 邀请者。|
 
 #### LINE_BUSY
@@ -305,8 +305,8 @@ const EVENT = trtcRoomContext.EVENT // 以下事件均在此EVENT对象下
 | --------------- | ---------- | -------------- |
 |sponsor| String|邀请人。|
 | isFromGroup | Boolean | 是否是群通话。|
-|inviteID| String|邀请ID。|
-|inviteData| Object | callType: 通话类型,<br>roomID: 房间号。|
+|inviteID| String|邀请 ID。|
+|inviteData| Object | <li/>callType：通话类型。<li/>roomID：房间号。|
 
 #### CALLING_CANCEL
 接受的邀请被取消。
