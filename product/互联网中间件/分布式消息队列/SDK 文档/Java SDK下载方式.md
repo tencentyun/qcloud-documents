@@ -132,7 +132,7 @@ java -version
 
 在命令行执行如下命令
 ```
-mvn help:effective-settings 。
+mvn help:effective-settings
 ```
 
 - 查看执行结果，没有错误表明 setting.xml 格式正确。
