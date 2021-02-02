@@ -21,7 +21,8 @@ Typecho 是开源的博客建站平台，具有轻量、高效、稳定等特点
 即可获取 Typecho 管理员帐号（admin ）和对应的密码。
 9. 在“应用内软件信息”栏中，单击 Typecho 的【管理员登录地址】。如下图所示：
 ![](https://main.qcloudimg.com/raw/a6e715e38b41b628317b7ac5649325f0.png)
-10. 在新打开的浏览器窗口中，输入 [步骤8](#Step8) 记录的帐号和密码，单击【登录】。
+10. 在新打开的浏览器窗口中，输入 [步骤8](#Step8) 记录的帐号和密码，单击【登录】。如下图所示：
+![](https://main.qcloudimg.com/raw/b6b9a13700780ee4b4039a3166260795.png)
 成功登录后，您可根据实际需要对 Typecho 进行管理、自定义和配置。
 
 ## 相关操作
@@ -34,5 +35,5 @@ Typecho 是开源的博客建站平台，具有轻量、高效、稳定等特点
 域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云免费进行备案，审核时长请参考 [备案审核](https://cloud.tencent.com/document/product/243/19650)。
 3. 通过腾讯云 [DNS解析 DNSPod](https://cloud.tencent.com/product/cns?from=qcloudHpHeaderCns&fromSource=qcloudHpHeaderCns) 配置域名解析。具体操作请参考 [A 记录](https://cloud.tencent.com/document/product/302/3449)，将域名指向一个 IP 地址（外网地址）。
 
-### 安装 SSL 证书
+### 开启 HTTPS 访问
 可参考 [安装 SSL 证书](https://cloud.tencent.com/document/product/1207/47027) 文档为您的 Typecho 实例安装 SSL 证书并开启 HTTPS 访问。

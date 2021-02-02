@@ -2,10 +2,11 @@
 
 ## 前提条件
 
+- 应用性能监控目前处于内测阶段，如需体验需通过 [应用性能监控内测申请](https://cloud.tencent.com/apply/p/f5yvbf09mka)。
 - 安装人员熟悉 Java 探针的手动安装。
 - 安装人员了解 K8s&Docker 运行原理和镜像创建过程。
 - 在安装探针前，需要先确保本地浏览器时间与服务器时区、时间都一致。若有多个服务器，则要保证本地浏览器、多个服务器的时区、时间都一致。否则，可能会影响数据的准确性，例如拓扑不正确等。
-- 前往 TAPM 控制台 [探针下载](https://console.cloud.tencent.com/monitor/tapm/addagent) 页面下载  tapm-java-Agent。
+- 前往 TAPM 控制台 [探针下载](https://console.cloud.tencent.com/tapm/addagent) 页面下载  tapm-java-Agent。
 
 ## 注意事项
 
