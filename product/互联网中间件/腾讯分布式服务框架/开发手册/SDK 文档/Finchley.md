@@ -27,9 +27,9 @@ spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
 
 ### Bug 修复
 
-- spring-cloud-tsf-ratelimit：修复当只有一个限流规则时，限流规则关闭不生效的问题。
+- spring-cloud-tsf-ratelimit：修复多个限流规则时，全局限流无法关闭的问题。
 - spring-cloud-tsf-route：修复当只有一个路由规则时，路由规则关闭不生效的问题。
-- spring-cloud-tsf-lane：优化泳道规则生效逻辑。
+- spring-cloud-tsf-lane：修复泳道规则内存可见性 Bug。
 
 ### 版本建议
 
