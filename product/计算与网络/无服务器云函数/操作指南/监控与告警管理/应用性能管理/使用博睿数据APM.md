@@ -165,7 +165,7 @@ sls deploy
 
 ### 使用博睿 Server 
 
-1. 登录 [博睿 Server 控制台](https://server.bonree.com/overview/)，待数据上报至博睿。
+1. 登录 [博睿 Server 控制台](https://server.bonree.com/)，待数据上报至博睿。
 2. 在博睿 Server 控制台右上角中选择【<img src="https://main.qcloudimg.com/raw/3475d18df76f95b36d1cc5f3708494ac.jpg" width="2.5%">】>【部署状态】，进入部署状态页面查看已进行数据上报的函数。如下图所示：
    ![](https://main.qcloudimg.com/raw/8ab20877d29235519da69df08861a95a.png)
 3. 将该函数关联一个应用，即可查看应用运行的情况。如下图所示：
