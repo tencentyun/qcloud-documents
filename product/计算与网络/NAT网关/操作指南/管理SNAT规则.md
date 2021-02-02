@@ -1,4 +1,4 @@
-当 NAT 网关绑定多个 EIP 时，可以通过[ 创建 SNAT 规则](cjgz)，为不同业务分组的云服务器指定访问公网的 EIP。
+当 NAT 网关绑定多个 EIP 时，可以通过[ 创建 SNAT 规则](#cjgz)，为不同业务分组的云服务器指定访问公网的 EIP。
 
 例如，当 NAT 网关绑定了 EIP1、EIP2、EIP3、EIP4 等多个 EIP 时，则系统会在绑定的所有 EIP 中自动做负载均衡访问公网。如果将 EIP1、EIP2、EIP3 加入 SNAT 地址池，则系统使用 SNAT 地址池中的 EIP 访问公网，且自动在 SNAT 地址池中的 EIP 做负载均衡。
 
