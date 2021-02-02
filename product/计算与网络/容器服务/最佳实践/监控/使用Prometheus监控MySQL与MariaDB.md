@@ -10,11 +10,11 @@ MySQL 是常用的关系型数据库，MariaDB 作为 MySQL 的分支版本，�
 
 ## 操作步骤
 
-### 部署 mysqld-exporter<span id="mysqld-exporter"></span>
+### 部署 mysqld-exporter[](id:mysqld-exporter">
 
 >! 在部署 mysqld-exporter 之前需确保已在集群内、集群外或使用已有的云服务中部署 MySQL 或 MariaDB。
 
-#### 部署 MySQL<span id="MySQL"></span>
+#### 部署 MySQL[](id:MySQL)
 以从应用市场部署 MySQL 到集群为例。步骤如下：
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，在左侧导航栏选择【应用市场】。
 2. 在“应用市场”页面，搜索并单击【MySQL】。

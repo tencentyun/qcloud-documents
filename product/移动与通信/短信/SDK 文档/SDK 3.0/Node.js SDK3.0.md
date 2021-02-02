@@ -35,8 +35,8 @@ npm install tencentcloud-sdk-nodejs --save
 2. 解压源码包到您项目合适的位置。
 3. 在您的代码中引用对应模块代码，可参考 [示例代码](#example)。
 
-<span id="example"></span>
-## 示例代码
+
+## 示例代码[](id:example)
 >?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况进行修改，您也可以根据实际需求使用 [API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=sms&Version=2019-07-11&Action=SendSms) 自动化生成 Demo 代码。
 
 每个接口都有一个对应的 Request 结构和一个 Response 结构。本文仅列举几个常用功能的示例代码，更多示例请参见 [Node.js SDK 示例](https://github.com/TencentCloud/tencentcloud-sdk-nodejs/tree/master/examples/sms)。 

@@ -145,7 +145,7 @@ docker tag d64a665357b6 scf:python3
 
 1. 执行以下命令，启动容器并将本地项目目录挂载到容器内的目录（若目录不存在，将会自动创建该目录）。示例如下：
 ```bash
-docker run -v /path/to/your_project:/tmp/your_project scf:python3
+docker run --name test -it -v /path/to/your_project:/tmp/your_project scf:python3  /bin/bash
 ```
 2. 执行 `docker exec` 命令进入容器进行开发。示例如下：
 ```bash

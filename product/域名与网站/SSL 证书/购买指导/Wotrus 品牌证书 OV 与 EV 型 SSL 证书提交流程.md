@@ -13,7 +13,7 @@ Wotrus 品牌证书企业型（OV）与增强型（EV）SSL 证书在购买成�
 - 选择 “在线生成 CSR” 方式，执行 [在线生成 CSR 的操作](#csr1)（**推荐使用在线生成 CSR，由平台生成和管理您的私钥和公钥证书文件，避免私钥文件丢失**）。
 - 选择 “粘贴 CSR” 方式，执行 [粘贴 CSR 的操作](#csr2)（**自行上传，不可生成私钥**）。
 
-**在线生成 CSR**<span id="csr1"></span>
+**[在线生成 CSR](id:csr1)**
 1. 填写域名信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/87a87876e7b07746b77bf3c39b052846.png)
 主要参数信息如下：
@@ -29,13 +29,12 @@ Wotrus 品牌证书企业型（OV）与增强型（EV）SSL 证书在购买成�
 4. 填写联系人信息，可勾选【和管理员保持一致】。
 5. 单击【下一步】，进入 [步骤2](#message)。
 
-**粘贴 CSR**<span id="csr2"></span>
+**[粘贴 CSR](id:csr2)**
 1. 将已准备好的 CSR 信息粘贴至文本框中，即可识别您的域名信息，并填写公司信息、管理人信息以及联系人信息（可勾选【和管理员保持一致】）。如下图所示：
 ![](https://main.qcloudimg.com/raw/5be9216264255d632dc02fb05ca5fd7b.png)
 2. 单击【下一步】，进入 [步骤2](#message)。
 
-<span id="message"></span>
-### 步骤2：选择域名认证方式
+### [步骤2：选择域名认证方式](id:message)
 1. 在 “选择验证方式” 页面，选择域名验证方式。如下图所示：
 >!支持**自动 DNS 验证**需满足的条件如下：
 >- 须使用腾讯云 DNS 解析 DNSPod 的域名。
@@ -53,8 +52,8 @@ Wotrus 品牌证书企业型（OV）与增强型（EV）SSL 证书在购买成�
 1. 请根据 “验证域名” 页面的提示信息，进行域名所有权验证。例如，您选择的是手动 DNS 验证方式，将会展示以下信息，请您至对应的域名解析商平台添加解析。如下图所示：
  ![](https://main.qcloudimg.com/raw/841d6defbe10950f7e9798d9614d1df8.png)
 您可根据以下操作说明进行验证：
- - **手动 DNS 验证**：域名验证操作请参考 [手动 DNS 验证](https://cloud.tencent.com/document/product/400/4142#.E6.89.8B.E5.8A.A8-dns-.E9.AA.8C.E8.AF.81)。
- - **文件验证**：域名验证操作请参考 [文件验证](https://cloud.tencent.com/document/product/400/4142#.E6.96.87.E4.BB.B6.E9.AA.8C.E8.AF.81)。
+ - **手动 DNS 验证**：域名验证操作请参考 [手动 DNS 验证](https://cloud.tencent.com/document/product/400/4142#ManualVerification)。
+ - **文件验证**：域名验证操作请参考 [文件验证](https://cloud.tencent.com/document/product/400/4142#FileVerification)。
 2. 域名验证操作完成后，可单击【查看域名验证状态】，查看域名验证操作是否成功。
 
 ### 步骤5：人工审核

@@ -4,9 +4,9 @@
 
 ### 步骤1：创建测试 License
 1. 进入 [云点播控制台](https://console.cloud.tencent.com/vod/license)，左侧菜单中选择 【License 管理】 >【[短视频 SDK License](https://console.cloud.tencent.com/vod/license/video)】。
-![](https://main.qcloudimg.com/raw/ebf58d7dcc70e2fa3db512d55f69686f.png)
+![](https://main.qcloudimg.com/raw/b6c857644368a15ac8b3edc0004dcb4e.png)
 2. 单击 【立即申请】跳转到 License 设置页，请录入 App Name、Package Name 以及 Bundle ID。
-![](https://main.qcloudimg.com/raw/623c6e65bf01922ff98436fa4d6e05bf.png)
+![](https://main.qcloudimg.com/raw/56806fe6a87393d0bb78b479c960e3cf.png)
 3. 单击【免费创建】即可。
 
 ### 步骤2：保存测试  License

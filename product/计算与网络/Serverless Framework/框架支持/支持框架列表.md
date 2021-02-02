@@ -12,3 +12,4 @@
 | Django 组件 |[使用说明](https://github.com/serverless-components/tencent-django/blob/master/README.md)| [serverless.yml 全量配置](https://github.com/serverless-components/tencent-django/blob/master/docs/configure.md)|
 |Laravel 组件|[使用说明](https://github.com/serverless-components/tencent-laravel/blob/master/README.md)|[serverless.yml 全量配置](https://github.com/serverless-components/tencent-laravel/blob/master/docs/configure.md)|
 |ThinkPHP 组件|[使用说明](https://github.com/serverless-components/tencent-thinkphp/blob/master/README.md)|[serverless.yml 全量配置](https://github.com/serverless-components/tencent-thinkphp/blob/master/docs/configure.md)|
+|Wordpress 组件|[使用说明](https://github.com/serverless-components/tencent-wordpress/blob/master/README.md)|[serverless.yml 全量配置](https://github.com/serverless-components/tencent-wordpress/blob/master/docs/configure.md)|

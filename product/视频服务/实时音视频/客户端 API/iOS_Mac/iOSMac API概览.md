@@ -129,6 +129,7 @@
 
 | API | 描述 |
 |-----|-----|
+| [generateCustomPTS](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ae5f2a974fa23954c5efd682dc464cdee) | 生成自定义采集时间戳。 |
 | [enableCustomVideoCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ade46563b03208042e61bcc693e4a5d06) | 启用视频自定义采集模式。 |
 | [sendCustomVideoData](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a76e8101153afc009f374bc2b242c6831) | 向 SDK 投送自己采集的视频数据。 |
 | [setLocalVideoProcessDelegete](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2f73c33b1010a63bd3a06e639b3cf348) | 第三方美颜的视频数据回调。 |
@@ -137,6 +138,9 @@
 | [enableCustomAudioCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ab8f8aaa19d70c6a2c9d62ecceb6e974d) | 启用音频自定义采集模式。 |
 | [sendCustomAudioData](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a62cab4ec7c336ae135c2f681aca25da1) | 向 SDK 投送自己采集的音频数据。 |
 | [setAudioFrameDelegate](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a01726b03b102c32222a2a26b16abcd48) | 设置音频数据回调。 |
+| [setCapturedRawAudioFrameDelegateFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a4b58b1ee04d0c692f383084d87111f86) | 设置本地麦克风采集回调出来的 AudioFrame 格式。 |
+| [seLocalProcessedAudioFrameDelegateFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a75a64ed4131385cc9729f177d28add72) | 设置本地采集并经过音频模块前处理后的音频数据回调出来的 AudioFrame 格式。 |
+| [setMixedPlayAudioFrameDelegateFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a24ad642b88cd3b2ca2d3044d72817090) | 设置送入扬声器播放的音频数据回调的 AudioFrame 格式。 |
 
 
 ### 自定义消息发送
@@ -365,7 +369,8 @@
 | [onLocalProcessedAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a73a3e7de3c5c340957f119bb0f8744b0) | 本地采集并经过音频模块前处理后的音频数据回调。 |
 | [onRemoteUserAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#aa392c17c27bae1505f148bf541b7746a) | 混音前的每一路远程用户的音频数据，即混音前的各路原始数据。例如，对某一路音频进行文字转换时，您必须使用该路音频的原始数据。 |
 | [onMixedPlayAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a5a8a0bf6f8d02c33b2fe01c6175dfd4e) | 各路音频数据混合后的音频数据。 |
-| [onMixedAllAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a905748efe966e94ec1212fda14161aee) | SDK 所有音频数据混合后的数据回调（包括采集音频数据和所有播放音频数据）。 |
+| [onMixedAllAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a905748efe966e94ec1212fda14161aee) | SDK所有音频数据混合后的数据回调（包括采集音频数据和所有播放音频数据）。 |
+
 ### 日志相关回调
 
 建议在比较早初始化的类中设置回调委托对象，例如 AppDelegate。
@@ -380,6 +385,7 @@
 |-----|-----|
 | [TRTCRenderParams](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCRenderParams) | 视频渲染设置。 |
 | [TRTCParams](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCParams) | 进房相关参数。 |
+| [TRTCAudioFrameDelegateFormat](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCAudioFrameDelegateFormat) | 回调音频帧数据格式。 |
 | [TRTCVideoEncParam](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCVideoEncParam) | 视频编码参数。 |
 | [TRTCNetworkQosParam](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCNetworkQosParam) | 网络流控相关参数。 |
 | [TRTCQualityInfo](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCQualityInfo) | 网络质量。 |

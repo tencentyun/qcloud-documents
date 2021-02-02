@@ -49,14 +49,14 @@ SAML 示例如下：
 ```
 <samlp:Response>
     <saml:Issuer>...</saml:Issuer>
+    <ds:Signature>
+            ...
+    </ds:Signature>
     <samlp:Status>
         ...
     </samlp:Status>
     <saml:Assertion>
         <saml:Issuer>...</saml:Issuer>
-        <ds:Signature>
-            ...
-        </ds:Signature>
         <saml:Subject>
             <saml:NameID>${NameID}</saml:NameID>
             <saml:SubjectConfirmation>

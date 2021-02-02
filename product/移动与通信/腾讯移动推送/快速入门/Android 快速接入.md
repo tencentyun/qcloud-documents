@@ -17,12 +17,11 @@
 ![](https://main.qcloudimg.com/raw/7c4cf6eddf838d55a4dfa858ac3d6e3f.png)
 3. 若出现以下提示，则表示 SDK 接入成功 。
 ![](https://main.qcloudimg.com/raw/393d62182039f2164517d18b86cdb52a.png)
-	- 若出现以下提示，请确认该应用是否开通试用或购买了推送服务。
-![](https://main.qcloudimg.com/raw/0be6c16b6421faf7855c13f2bd670a19.png)
-	可在 [产品管理](https://console.cloud.tencent.com/tpns) 页面查看当前应用服务状态，在您申请试用或购买后30分钟内可开通服务。
-	![](https://main.qcloudimg.com/raw/058b0ef8a861acb3986aee92adc63e8e.png)
-	- 若出现以下提示，请确认 App 是否成功注册推送服务，可参见 [接入结果验证](#jierujieguo)。
+	若出现以下提示，请确认 App 是否成功注册推送服务，可参见 [接入结果验证](#jierujieguo)。
 	![](https://main.qcloudimg.com/raw/b234996ccd14cd5681bda3c5afcb5f30.png)
+>!为提升离线抵达率，TPNS SDK 默认开启联合保活能力，开发者可手动关闭，详情请参见 [关闭 TPNS 保活功能](https://cloud.tencent.com/document/product/548/36674#.E5.A6.82.E4.BD.95.E5.85.B3.E9.97.AD-tpns-.E7.9A.84.E4.BF.9D.E6.B4.BB.E5.8A.9F.E8.83.BD.EF.BC.9F)。
+
+
 
 <span id="jierujieguo"></span>
 

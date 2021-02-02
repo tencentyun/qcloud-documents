@@ -16,7 +16,7 @@
 其他的选项可根据业务具体业务场景，进行个性化配置，创建过程中的具体选项可参考 [创建 EMR 集群](https://cloud.tencent.com/document/product/589/10981)。
 
 ### API 创建集群
-腾讯云 EMR 还提供了 API 方式构建基于 Alluxi的大数据集群。具体可参考 [查询硬件节点信息](https://cloud.tencent.com/document/product/589/41707)。
+腾讯云 EMR 还提供了 API 方式构建基于 Alluxio 的大数据集群。具体可参考 [查询硬件节点信息](https://cloud.tencent.com/document/product/589/41707)。
 
 ## 基础配置
 创建一个带 Alluxio 组件的腾讯云 EMR 集群，默认会把 HDFS 挂载到 Alluxio 上，并使用内存作为单层 level0 存储。如果有需要更改更符合业务特性的多级存储，或者其他对应优化项，可以使用配置下发功能来完成相关配置。

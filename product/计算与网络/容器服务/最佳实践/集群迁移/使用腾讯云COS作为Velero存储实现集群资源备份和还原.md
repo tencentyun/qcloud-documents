@@ -48,7 +48,7 @@ Velero 使用与 AWS S3 兼容的 API 访问 COS ，需要使用一对访问密�
 1. 在腾讯云 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) 新建和获取 COS 授权子账号的腾讯云密钥 `SecretId` 与 `SecretKey`。其中：
  -  `SecretId` 值对应 `access_key_id` 字段
  -  `SecretKey` 值对应 `secret_access_key` 字段
-2. <span id="credentials"></span>根据上述对应关系，在本地目录创建 Velero 所需的凭证配置文件 `credentials-velero`，内容如下：
+2. [](id:credentials)根据上述对应关系，在本地目录创建 Velero 所需的凭证配置文件 `credentials-velero`，内容如下：
 ```bash
 [default]
 aws_access_key_id=<SecretId>
@@ -80,7 +80,7 @@ velero install  --provider aws --plugins velero/velero-plugin-for-aws:v1.1.0 --b
 --backup-location-config \
 region=ap-guangzhou,s3ForcePathStyle="true",s3Url=https://cos.ap-guangzhou.myqcloud.com
 ```
-<span id="velero"></span>安装参数说明：
+[](id:velero)安装参数说明：
 <table>
 <thead>
 <tr>
@@ -146,7 +146,7 @@ region=ap-guangzhou,s3ForcePathStyle="true",s3Url=https://cos.ap-guangzhou.myqcl
 ![](https://main.qcloudimg.com/raw/9352391a728698fe72ca414fb55d03d1.png)
 2. 登录 MinIO Web 管理页面，上传用于测试的图片， 如下图所示：
 ![](https://main.qcloudimg.com/raw/9dd7e1f08709292e5c58f5744ffb5f10.png)
-3. <span id="velerostep3"></span>使用 Velero 备份，可以直接备份集群中的所有对象，也可以按类型，名称空间和/或标签过滤对象。您可以执行以下命令仅备份 default 命名空间下所有资源。示例如下：
+3. [](id:velerostep3)使用 Velero 备份，可以直接备份集群中的所有对象，也可以按类型，名称空间和/或标签过滤对象。您可以执行以下命令仅备份 default 命名空间下所有资源。示例如下：
 ```bash
 velero backup create default-backup --include-namespaces default
 ```

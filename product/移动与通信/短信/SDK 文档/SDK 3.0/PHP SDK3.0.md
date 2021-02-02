@@ -42,8 +42,7 @@ composer require tencentcloud/tencentcloud-sdk-php
 require '/path/to/vendor/autoload.php';
 ```
 
-<span id="example"></span>
-## 示例代码
+## 示例代码[](id:example)
 >?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况进行修改，您也可以根据实际需求使用 [API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=sms&Version=2019-07-11&Action=SendSms) 自动化生成 Demo 代码。
 
 每个接口都有一个对应的 Request 结构和一个 Response 结构。本文仅列举几个常用功能的示例代码，更多示例请参见 [PHP SDK 示例](https://github.com/TencentCloud/tencentcloud-sdk-php/tree/master/examples/sms)。
@@ -358,7 +357,7 @@ catch(TencentCloudSDKException $e) {
 }
 ```
 
-## <span id="point">常见问题</span>
+## 常见问题[](id:point)
 ### 代理
 在有代理的环境下，需要设置系统环境变量`https_proxy`，否则可能无法正常调用，抛出连接超时的异常。
 或使用 GuzzleHttp 代理配置：

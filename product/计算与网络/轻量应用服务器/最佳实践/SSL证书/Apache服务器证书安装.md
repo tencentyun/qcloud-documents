@@ -91,7 +91,7 @@ SSLCertificateChainFile "/usr/local/lighthouse/softwares/apache/ssl/1_root_bundl
 </Directory>
 ```
 10. 按 **Esc** 并输入 **:wq**，保存修改。
-11. 执行以下命令，重启 apache 服务。
+11. 执行以下命令，重启 Apache 服务。
 ```
 sudo /usr/local/lighthouse/softwares/apache/bin/httpd -k restart
 ```

@@ -1,10 +1,12 @@
-以下视频将为您介绍实时音视频各个版本的 SDK：  
+TRTC 是腾讯云 LiteAV 系列产品之一，由于 LiteAV 体系的 SDK 都使用了相同的基础模块，如果您的项目中同时集成了两款以上的 LiteAV 体系的 SDK，就会出现符号冲突（symbol duplicate）的问题。因此我们为您提供集成了不同产品能力的**精简版（TRTC）**、**专业版（Professional）**和**企业版（Enterprise）**，您可以根据实际业务需要选择不同的版本。
+
+以下视频将为您介绍各个版本 SDK 的功能差别：  
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2497-42188?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
  
  
 <h2 id="TRTC">精简版（TRTC）</h2> 
 精简版仅包含 TRTC 和直播播放（TXLivePlayer）两项功能，对 App 的安装包体积增量最小，适合仅使用 TRTC 相关功能的客户。
-
+ 
 <table>
    <tr>
       <th width="0px" style="text-align:center">所属平台</td>

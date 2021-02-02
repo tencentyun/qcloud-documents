@@ -1,7 +1,6 @@
 高可用虚拟 IP（HAVIP）是从 VPC CIDR 分配的一个内网IP地址，通常和高可用软件（如 keepalived 或 Windows Server Failover Cluster）配合使用，应用于搭建高可用主备集群场景。
 >?
->- 目前 HAVIP 产品处于灰度优化中，非上海和非广州地域新用户如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/azh0w1qoavk)。
->- 上海和广州地域切换延时可能达1 - 2分钟，目前新用户已暂停使用，建议您使用腾讯云 [CLB](https://cloud.tencent.com/document/product/214)、[TDaTa](https://cloud.tencent.com/document/product/643/12573) 等产品以满足需要。
+>- 目前 HAVIP 产品处于灰度优化中，切换的时延在10s左右，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/azh0w1qoavk)。
 >- 为保证主备集群云服务器的高可用性，强烈建议通过 [置放群组](https://cloud.tencent.com/document/product/213/15486) 将不同云服务器分配到不同的宿主机上，更多关于置放群组的信息，请参考 [置放群组](https://cloud.tencent.com/document/product/213/15486)。
 >
 
