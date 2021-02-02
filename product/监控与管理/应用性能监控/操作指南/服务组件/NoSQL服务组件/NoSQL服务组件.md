@@ -1,6 +1,10 @@
 NoSQL 服务组件功能模块展示当前业务系统中使用到的所有 NoSQL 数据库的信息，目前支持 Redis、MongoDB 和 Memcached 三种类型的 NoSQL 数据库监控。
 本文将为您介绍如何查看 NoSQL 服务组件详情。
 
+## 前提条件
+
+
+应用性能监控目前处于内测阶段，如需体验需通过 [应用性能监控内测申请](https://cloud.tencent.com/apply/p/f5yvbf09mka)。
 
 ## 操作步骤
 
