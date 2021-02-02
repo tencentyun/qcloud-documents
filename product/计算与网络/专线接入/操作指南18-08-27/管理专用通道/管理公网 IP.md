@@ -12,7 +12,7 @@
 4. 状态为“已退还”的公网 IP，在8天内可以找回，找回后的公网 IP 经系统重新分配，状态为“使用中”。
 
 ## 前提条件
-在控制台申请互联网通道公网 IP，具体操作请参见[ 申请公网 IP]()。
+在控制台申请互联网通道公网 IP，具体操作请参见[ 申请公网 IP](https://cloud.tencent.com/document/product/216/50985#.EF.BC.88.E5.8F.AF.E9.80.89.EF.BC.89.E6.AD.A5.E9.AA.A4.E4.B8.89.EF.BC.9A.E7.94.B3.E8.AF.B7.E5.85.AC.E7.BD.91-ip)。
 
 ## 操作步骤
 1. 登录[ 专线接入控制台](https://console.cloud.tencent.com/dc/dc)，并在左侧导航栏选择【互联网通道】> 【互联网通道公网 IP】。
@@ -29,12 +29,12 @@
     >!请确保发布网段已变更为拆分后 CIDR，否则可能会导致网络中断，请谨慎操作。
     >
     ![](https://main.qcloudimg.com/raw/e5f514582a9d0b39f637ff063fc72848.png)
-  - **停用公网 IP**[](id:qygw)
+  - **停用公网 IP**[](id:tygw)
     1. 在互联网通道公网 IP 列表中，单击目标公网 IP 右侧操作列单击【停用】。
     ![](https://main.qcloudimg.com/raw/710daa5ff277c5e120ede28d8faee883.png)
     2. 在“停用 IP 地址”对话框，单击勾选【确定停用以上 IP 地址】，然后单击【停用】，即可停用该网段中的4个 IP 地址。
     ![](https://main.qcloudimg.com/raw/1c4bd7161b91481720a7c4c41adfbf58.png)
-  - **启用公网 IP**[](id:tygw)
+  - **启用公网 IP**[](id:qygw)
     >? 已停用的公网 IP 才能进行启用操作。
     >
     1. 在互联网通道公网 IP 列表中，单击目标公网 IP 右侧操作列单击【启用】。
