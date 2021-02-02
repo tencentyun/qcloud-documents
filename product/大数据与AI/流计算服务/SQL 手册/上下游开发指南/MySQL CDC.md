@@ -1,5 +1,5 @@
 ## 简介
-MySQL 的 CDC 源表，支持对 MySQL 数据库的全量和增量读取，并保证 Exactly Once 语义。MySQL CDC 底层使用了 Debezium 来做CDC（capture data changes）。
+MySQL 的 CDC 源表，支持对 MySQL 数据库的全量和增量读取，并保证 Exactly Once 语义。MySQL CDC 底层使用了 Debezium 来做 CDC（capture data changes）。
 
 其工作机制如下：
 1. 获取一个全局读锁，从而阻塞住其他数据库客户端的写操作。 
