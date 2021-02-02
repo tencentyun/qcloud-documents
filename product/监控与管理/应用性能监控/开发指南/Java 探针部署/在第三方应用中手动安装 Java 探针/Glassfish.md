@@ -5,7 +5,7 @@
 
 - 在安装探针前，请先安装好 Agent Collector。
 - 在安装探针前，需要先确保本地浏览器时间与服务器时区、时间都一致。若有多个服务器，则要保证本地浏览器、多个服务器的时区、时- 间都一致。否则，可能会影响数据的准确性，例如拓扑不正确等。
-- 前往 TAPM 控制台 [探针下载](https://console.cloud.tencent.com/monitor/tapm/addagent) 页面下载 tapm-java-Agent。
+- 前往 TAPM 控制台 [探针下载](https://console.cloud.tencent.com/tapm/addagent) 页面下载 tapm-java-Agent。
 
 
 

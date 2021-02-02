@@ -4,7 +4,7 @@ NoSQL 服务组件功能模块展示当前业务系统中使用到的所有 NoSQ
 
 ## 操作步骤
 
-1. 登录 [应用性能监控控制台](https://console.cloud.tencent.com/monitor/tapm)。
+1. 登录 [应用性能监控控制台](https://console.cloud.tencent.com/tapm)。
 2. 在左侧菜单栏选择【服务组件】>【NoSQL组件】，进入 NoSQL 组件页面。
 3. 您可以通过页面左上方的【业务系统】切换到其他业务系统，找到对应的实例，单击实例名称。
 ![](https://main.qcloudimg.com/raw/59d6b803e0e819d5b8809237c8dfe557.png)

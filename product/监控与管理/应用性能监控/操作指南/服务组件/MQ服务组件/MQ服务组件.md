@@ -3,7 +3,7 @@ MQ 服务组件功能模块用于展示当前业务系统中使用到的所有�
 
 ## 操作步骤
 
-1. 登录 [应用性能监控控制台](https://console.cloud.tencent.com/monitor/tapm)。
+1. 登录 [应用性能监控控制台](https://console.cloud.tencent.com/tapm)。
 2. 在左侧菜单栏选择【服务组件】>【MQ组件】，进入 MQ 组件页面。
 3. 您可以通过页面左上方的【业务系统】切换到其他业务系统，找到对应的实例，单击实例名称。
 ![](https://main.qcloudimg.com/raw/18d1f379cfd2ed02e3fa7bf46292453d.png)
