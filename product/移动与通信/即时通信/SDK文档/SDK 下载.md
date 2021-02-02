@@ -39,10 +39,10 @@
 
 <table>
 <tr>
-<th width="0px" style="text-align:center" >Web SDK</td>
- <th width="0px" style="text-align:center" colspan='3' >下载地址</td>
+<th width="96px" style="text-align:center" >Web SDK</td>
+ <th width="182px" style="text-align:center" colspan='3' >下载地址</td>
 <th width="0px"  style="text-align:center">集成指引文档</td>
-<th width="0px" style="text-align:center">更新日志</td>
+<th width="133px" style="text-align:center">更新日志</td>
 </tr>
 <tr>
 <td style="text-align:center">Web & H5  </td>
