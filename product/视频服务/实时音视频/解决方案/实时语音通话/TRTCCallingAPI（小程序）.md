@@ -207,13 +207,24 @@ const EVENT = trtcRoomContext.EVENT // 以下事件均在此EVENT对象下
 |inviteID| String|邀请 ID。|
 | reason | String|拒绝理由。|
 
-##### NO_RESP 
-邀请方发出的邀请无人响应。
+#### NO_RESP 
+邀请方发出的邀请无人响应（对方不在线）
 
 | 参数| 类型   |    含义   |
 | --------------- | ---------- | -------------- |
-|inviteID| String|邀请 ID。|
-| inviteeList | String| 邀请人列表。 |
+|inviteID| String|邀请ID。|
+| timeoutUserList | Array| 超时用户列表。|
+
+#### CALLING_TIMEOUT
+邀请方发出的邀请无人响应（在线未接受邀请）
+
+| 参数| 类型   |    含义   |
+| --------------- | ---------- | -------------- |
+|inviteID| String|邀请ID。|
+|timeoutUserList | Array| 超时用户列表。|
+| groupID | String | 群组ID。|
+| sponsor | String | 邀请者。|
+
 
 #### LINE_BUSY
 被邀请方正在通话中，忙线。
@@ -240,8 +251,10 @@ const EVENT = trtcRoomContext.EVENT // 以下事件均在此EVENT对象下
 
 | 参数| 类型   |    含义   |
 | --------------- | ---------- | -------------- |
-|inviter| String|邀请人。|
-|type| Number|邀请通话类型。|
+|sponsor| String|邀请人。|
+| isFromGroup | Boolean | 是否是群通话。|
+|inviteID| String|邀请ID。|
+|inviteData| Object | callType: 通话类型,<br>roomID: 房间号。|
 
 #### CALLING_CANCEL
 接受的邀请被取消。
