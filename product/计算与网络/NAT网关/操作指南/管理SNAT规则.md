@@ -47,5 +47,5 @@
 ![](https://main.qcloudimg.com/raw/686a27e91f884856ea74b2279696567f.png)
 
 - **批量删除**
- 1. 也可勾选多条 SNAT 规则，再单击上方的【删除】进行批量删除。
+ 1. 勾选多条 SNAT 规则，再单击上方的【删除】进行批量删除。
 ![](https://main.qcloudimg.com/raw/364b44365a78ac81f691a23baa3f0138.png)
