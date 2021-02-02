@@ -53,6 +53,17 @@ spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
 
 支持向后兼容，建议全量升级。
 
+## 1.23.7-Finchley-RELEASE（2021-02-02）
+### Bug 修复
+- 修复服务治理时 API PATH 标签匹配 PATH 参数失败问题。
+- 修复本地启动时监听原生consul路径的问题。
+
+### 优化
+- 统一第三方组件的版本号
+
+### 版本建议
+- 支持向后兼容，建议全量升级。
+
 ## 1.23.6-Finchley-RELEASE（2020-12-21）
 ### Bug 修复
 - 处理 Spring 组件开源漏洞风险，升级 Spring Framework 到5.0.19版本。
@@ -178,6 +189,17 @@ spring-cloud-tsf-msgw：
 
 - 优化默认日志配置支持容器部署场景。
 - 优化 TSF MSGW zuul 依赖。
+
+## 1.21.9-Finchley-RELEASE（2021-02-02）
+### Bug 修复
+- 修复服务治理时 API PATH 标签匹配 PATH 参数失败问题。
+- 修复本地启动时监听原生consul路径的问题。
+
+### 优化
+- 统一第三方组件的版本号
+
+### 版本建议
+- 支持向后兼容，建议全量升级。
 
 ## 1.21.8-Finchley-RELEASE（2020-12-31）
 ### Bug 修复
