@@ -112,7 +112,7 @@ SAML 示例如下：
  - {RoleName}替换您在腾讯云为身份提供商所创建的角色名称（单击查看如何在腾讯云 [为身份提供商创建的角色](https://cloud.tencent.com/document/product/598/19381#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.88.9B.E5.BB.BA)），角色名称可前往 [角色 - 控制台](https://console.cloud.tencent.com/cam/role) 查看。
  - {ProviderName} 替换您在腾讯云创建的 SAML 身份提供商名称，可前往 [身份提供商 - 控制台](https://console.cloud.tencent.com/cam/idp) 查看。 
 
-2. Name 属性值为 https://cloud.tencent.com/SAML/Attributes/RoleSessionName 的 Attribute 元素，该元素为必选且只能有一个。该字段由用户自定义，长度不超过32个字符。以下是一个 RoleSessionName Attribute 元素示例。该示例中，“userName”可替换成您的自定义信息，其他按照示例填写即可。
+2. Name 属性值为 https://cloud.tencent.com/SAML/Attributes/RoleSessionName 的 Attribute 元素，该元素为必选且只能有一个。该字段由用户自定义，长度不超过32个字符。以下是一个 RoleSessionName Attribute 元素示例。该示例中，“userName”可替换成您的自定义信息。
 
 ```
 <Attribute Name="https://cloud.tencent.com/SAML/Attributes/RoleSessionName">
