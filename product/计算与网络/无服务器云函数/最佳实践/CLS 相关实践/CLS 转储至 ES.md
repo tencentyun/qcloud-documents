@@ -43,7 +43,7 @@
 ![](https://main.qcloudimg.com/raw/dd8e76ba274ee692d67541c8f66ae9fa.png)
 4. 基本信息配置完成之后，单击【下一步】，进入函数配置页面。
 5. 函数配置保持默认配置，单击【完成】，完成函数的创建。
-> ! 函数需要在【函数配置】页面中，选择和 CLS 相同的 VPC 和子网。如下图所示：
+> ! 函数需要在【函数配置】页面中，选择和 Elasticsearch 相同的 VPC 和子网。如下图所示：
 >  ![](https://main.qcloudimg.com/raw/a329381190dcf6ad0883f5f8a51a9567.png)
 
 [](id:step04)
