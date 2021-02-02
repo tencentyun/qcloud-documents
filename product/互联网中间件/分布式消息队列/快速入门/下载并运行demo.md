@@ -7,7 +7,7 @@
 - 已 [注册腾讯云账号](https://cloud.tencent.com/document/product/378/17985)
 - 已 [购买云服务器](https://buy.cloud.tencent.com/cvm)
 
-### 操作步骤
+## 操作步骤
 
 1. 完成 Java SDK 的下载和安装，可参考 [Java SDK 下载方式](https://cloud.tencent.com/document/product/1179/44914)。
 2. 下载 Demo（[Demo下载地址](https://tdmq-gz-1255613487.cos.ap-guangzhou.myqcloud.com/TDMQ-demo/tdmq-java-client.zip)），并配置相关参数。
