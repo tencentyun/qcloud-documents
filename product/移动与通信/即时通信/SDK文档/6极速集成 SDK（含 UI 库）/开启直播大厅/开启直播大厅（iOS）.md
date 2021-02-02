@@ -16,6 +16,7 @@ TUIKit_live 直播UI组件集成后的直播效果：
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im) ，单击目标应用卡片，进入应用的基础配置页面。
 2. 单击【开通腾讯实时音视频服务】区域的【立即开通】。
 3. 在弹出的开通实时音视频 TRTC 服务对话框中，单击【确认】。
+4. 您还可单击 [开通 IM 专业版/旗舰版服务](https://cloud.tencent.com/act/pro/IMTRTC?from=13947)，购买 TRTC 时长包。
    >? 系统将为您在 [实时音视频控制台](https://console.cloud.tencent.com/trtc) 创建一个与当前 IM 应用相同 SDKAppID 的实时音视频应用，二者帐号与鉴权可复用。
    		
 
