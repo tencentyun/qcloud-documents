@@ -2,7 +2,7 @@
 ## SDK 下载
 <table>
 <tr>
-<th width="96px" style="text-align:center" >终端 SDK</td>
+<th width="94px" style="text-align:center" >终端 SDK</td>
  <th width="0px" style="text-align:center" colspan='2' >下载地址</td>
 <th width="0px"  style="text-align:center">集成指引文档</td>
 <th width="175px" style="text-align:center">更新日志</td>
@@ -39,7 +39,7 @@
 
 <table>
 <tr>
-<th width="96px" style="text-align:center" >Web SDK</td>
+<th width="94px" style="text-align:center" >Web SDK</td>
  <th width="182px" style="text-align:center" colspan='3' >下载地址</td>
 <th width="0px"  style="text-align:center">集成指引文档</td>
 <th width="175px" style="text-align:center">更新日志</td>
@@ -69,7 +69,7 @@
 
 <table>
 <tr>
-<th width="96px" style="text-align:center" >框架 SDK</td>
+<th width="94px" style="text-align:center" >框架 SDK</td>
  <th width="0px" style="text-align:center" >下载地址</td>
 <th width="307px"  style="text-align:center">参考文档</td>
 <th width="175px" style="text-align:center">更新日志</td>
@@ -91,7 +91,7 @@
 即时通信 IM Demo 演示了各个场景下的 IM 功能，您可 [前往安装](https://cloud.tencent.com/document/product/269/36852) 并体验不同平台、不同使用场景下的 Demo。
 <table>
 <tr>
-<th width="96px" style="text-align:center" >类别</td>
+<th width="94px" style="text-align:center" >类别</td>
  <th width="0px" style="text-align:center" >介绍</td>
 <th width="0px"  style="text-align:center">所属平台</td>
 <th width="220px" style="text-align:center" colspan='2'>下载方式</td>
