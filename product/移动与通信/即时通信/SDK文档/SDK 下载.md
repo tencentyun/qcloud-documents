@@ -5,7 +5,7 @@
 <th width="96px" style="text-align:center" >终端 SDK</td>
  <th width="0px" style="text-align:center" colspan='2' >下载地址</td>
 <th width="0px"  style="text-align:center">集成指引文档</td>
-<th width="180px" style="text-align:center">更新日志</td>
+<th width="175px" style="text-align:center">更新日志</td>
 </tr>
 <tr>
 <td style="text-align:center">Android  </td>
@@ -42,7 +42,7 @@
 <th width="96px" style="text-align:center" >Web SDK</td>
  <th width="182px" style="text-align:center" colspan='3' >下载地址</td>
 <th width="0px"  style="text-align:center">集成指引文档</td>
-<th width="180px" style="text-align:center">更新日志</td>
+<th width="175px" style="text-align:center">更新日志</td>
 </tr>
 <tr>
 <td style="text-align:center">Web & H5  </td>
@@ -72,7 +72,7 @@
 <th width="96px" style="text-align:center" >框架 SDK</td>
  <th width="0px" style="text-align:center" >下载地址</td>
 <th width="307px"  style="text-align:center">参考文档</td>
-<th width="180px" style="text-align:center">更新日志</td>
+<th width="175px" style="text-align:center">更新日志</td>
 </tr>
 <tr>
 <td style="text-align:center">Flutter  </td>
@@ -95,7 +95,7 @@
  <th width="0px" style="text-align:center" >介绍</td>
 <th width="0px"  style="text-align:center">所属平台</td>
 <th width="220px" style="text-align:center" colspan='2'>下载方式</td>
-<th width="180px" style="text-align:center">参考文档</td>
+<th width="175px" style="text-align:center">参考文档</td>
 </tr>
 <tr>
 <td style="text-align:center" rowspan='4'>即时通信 IM Demo  </td>
