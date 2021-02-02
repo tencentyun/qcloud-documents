@@ -47,5 +47,5 @@
 - **批量删除**
  1. 在 [SNAT 规则](https://console.cloud.tencent.com/vpc/nat/detail?rid=1&id=nat-oh8mtvzm&tab=snat) 标签页，勾选多条 SNAT 规则，单击上方的【删除】。
 ![](https://main.qcloudimg.com/raw/8c1fa2675cf1159e662661328bd388d8.png)
- 2. 单击【删除】，完成批量删除。
+ 2. 在弹出的提示框中，单击【删除】，完成批量删除。
 ![](https://main.qcloudimg.com/raw/364b44365a78ac81f691a23baa3f0138.png)
