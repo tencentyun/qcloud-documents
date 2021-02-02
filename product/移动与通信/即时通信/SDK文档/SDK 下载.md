@@ -2,7 +2,7 @@
 ## SDK 下载
 <table>
 <tr>
-<th width="0px" style="text-align:center" >终端 SDK</td>
+<th width="96px" style="text-align:center" >终端 SDK</td>
  <th width="0px" style="text-align:center" colspan='2' >下载地址</td>
 <th width="0px"  style="text-align:center">集成指引文档</td>
 <th width="180px" style="text-align:center">更新日志</td>
