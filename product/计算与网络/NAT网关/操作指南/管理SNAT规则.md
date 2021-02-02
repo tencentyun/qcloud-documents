@@ -18,7 +18,6 @@
    + 云服务器：仅当【源网段粒度】为【云服务器】时，需要指定云服务器，可添加多个云服务器。
    + 公网 IP：指定访问公网的弹性公网IP。
    + 描述：自定义描述信息，最多支持60个字符。
-![](https://main.qcloudimg.com/raw/e62bc5bbeb32946ec0dcb2a826e264ff.png)
 ![](https://main.qcloudimg.com/raw/6d7cfff1507c9442b70ad008f72cb892.png)
 8.  完成 SNAT 规则的参数设置后，单击【提交】。    
 
@@ -41,7 +40,12 @@
 
 ## 删除 SNAT 规则
 如果您不需要为云服务器访问外网指定 EIP，可删除 SNAT 规则。
-1. 在 [SNAT 规则](https://console.cloud.tencent.com/vpc/nat/detail?rid=1&id=nat-oh8mtvzm&tab=snat) 标签页，单击 SNAT 规则条目右侧的【删除】，再单击【确认】完成该条 SNAT 规则的删除。
+
+- **单条删除**
+ 1. 在 [SNAT 规则](https://console.cloud.tencent.com/vpc/nat/detail?rid=1&id=nat-oh8mtvzm&tab=snat) 标签页，单击 SNAT 规则条目右侧的【删除】。
+ 2. 单击【确认】完成该条 SNAT 规则的删除。
 ![](https://main.qcloudimg.com/raw/686a27e91f884856ea74b2279696567f.png)
-2. 也可勾选多条 SNAT 规则，再单击上方的【删除】进行批量删除。
+
+- **批量删除**
+ 1. 也可勾选多条 SNAT 规则，再单击上方的【删除】进行批量删除。
 ![](https://main.qcloudimg.com/raw/364b44365a78ac81f691a23baa3f0138.png)
