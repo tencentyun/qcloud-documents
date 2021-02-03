@@ -1,7 +1,7 @@
 TcaplusDB 可以通过多种方式进行访问读取，如客户端工具、各语言 SDK 工具包、RESTful 接口。
 
 ## 通过 client 客户端工具访问 TcaplusDB 数据
-支持通过 Linux [客户端工具 tcaplus_client](https://cloud.tencent.com/document/product/596/31654) 访问 TcaplusDB 数据
+支持通过 Linux [客户端工具 tcaplus_client](https://cloud.tencent.com/document/product/596/31654) 访问 TcaplusDB 数据。
 
 ## 通过 C++ SDK 接口访问 TcaplusDB 数据
 支持 [C++ 语言](https://cloud.tencent.com/document/product/596/31665) 通过 SDK 工具访问 TcaplusDB 数据。
