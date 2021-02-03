@@ -20,7 +20,7 @@ PulsarClient client = PulsarClient.builder()
 			 .listenerName("custom:pulsar-****/vpc-****/subnet-****")//custom:替换成路由ID，位于【集群管理】接入点列表
 			 .authentication(AuthenticationFactory.token("eyJr****"))//替换成角色密钥，位于【角色管理】页面
 			 .build();
-System.out.println(">> pulsar client created.");
+	System.out.println(">> pulsar client created.");
 :::
 </dx-codeblock>
   
