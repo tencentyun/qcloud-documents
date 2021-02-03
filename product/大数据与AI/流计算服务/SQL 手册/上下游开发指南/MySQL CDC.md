@@ -9,7 +9,7 @@ MySQL 的 CDC 源表，支持对 MySQL 数据库的全量和增量读取，并�
 5. 释放全局读锁，允许其他的数据库客户端对数据库进行写操作。 
 6. 扫描全表，当全表数据读取完后，会从第3步中得到的 Binlog 位置获取增量的变更记录。
 
-Flink 作业运行期间会周期性执行 checkpoint，记录下 Binlog 位置，当作业 Failover 时，便会从之前记录的 Binlog 点继续处理，从而保证 Exactly Once 语义。
+Flink 作业运行期间会周期性执行快照，记录下 Binlog 位置，当作业崩溃恢复时，便会从之前记录的 Binlog 点继续处理，从而保证 Exactly Once 语义。
 
 ## 使用范围
 MySQL CDC 只支持作为源表。
@@ -22,10 +22,10 @@ CREATE TABLE `MySQLSourceTable` (
     `response` varchar(80),
     PRIMARY KEY (`id`) NOT ENFORCED -- 如果要同步的数据库表定义了主键, 则这里也需要定义
 ) WITH (
-    'connector' = 'mysql-cdc',		-- 可选 'mysql-cdc' 和 'postgres-cdc'
+    'connector' = 'mysql-cdc',	  -- 固定值 'mysql-cdc'
     'hostname' = '192.168.10.22',   -- 数据库的 IP
     'port' = '3306',                -- 数据库的访问端口
-    'username' = 'debezium',        -- 数据库访问的用户名（需要提供 SELECT 权限）
+    'username' = 'debezium',        -- 数据库访问的用户名（需要提供 SHOW DATABASES、REPLICATION SLAVE、REPLICATION CLIENT、SELECT 和 RELOAD 权限）
     'password' = 'hello@world!',    -- 数据库访问的密码
     'database-name' = 'YourData',   -- 需要同步的数据库
     'table-name' = 'YourTable'      -- 需要同步的数据表名
