@@ -51,37 +51,109 @@ CREATE TABLE `MySQLSourceTable` (
 
 ## 类型映射
 MySQL 的 CDC 和 Flink 字段类型对应关系如下：
-
-| MySQL CDC 字段类型                    | Flink 字段类型                      |
-| :----------------------------------- | :--------------------------------- |
-| TINYINT                              | TINYINT                            |
-| SMALLINT                             | SMALLINT                           |
-| TINYINT UNSIGNED                     |                                    |
-| INT                                  | INT                                |
-| MEDIUMINT                            |                                    |
-| SMALLINT UNSIGNED                    |                                    |
-| BIGINT                               | BIGINT                             |
-| INT UNSIGNED                         |                                    |
-| BIGINT UNSIGNED                      | DECIMAL(20, 0)                     |
-| BIGINT                               | BIGINT                             |
-| FLOAT                                | FLOAT                              |
-| DOUBLE                               | DOUBLE                             |
-| DOUBLE PRECISION                     |                                    |
-| NUMERIC(p, s)                        | DECIMAL(p, s)                      |
-| DECIMAL(p, s)                        |                                    |
-| BOOLEAN                              | BOOLEAN                            |
-| TINYINT(1)                           |                                    |
-| DATE                                 | DATE                               |
-| TIME [(p)]                           | TIME [(p)] [WITHOUT TIMEZONE]      |
-| DATETIME [(p)]                       | TIMESTAMP [(p)] [WITHOUT TIMEZONE] |
-| TIMESTAMP [(p)]                      | TIMESTAMP [(p)]                    |
-| TIMESTAMP [(p)] WITH LOCAL TIME ZONE |                                    |
-| CHAR(n)                              | STRING                             |
-| VARCHAR(n)                           |                                    |
-| TEXT                                 |                                    |
-| BINARY                               | BYTES                              |
-| VARBINARY                            |                                    |
-| BLOB                                 |                                    |
+<table>
+  <tr>
+    <td>MySQL CDC 字段类型</td>
+    <td>Flink 字段类型</td>
+  </tr>
+  <tr>
+    <td>TINYINT</td>
+    <td>TINYINT</td>
+  </tr>
+  <tr>
+    <td>SMALLINT</td>
+    <td rowspan="2">SMALLINT</td>
+  </tr>
+  <tr>
+    <td>TINYINT UNSIGNED</td>
+  </tr>
+  <tr>
+    <td>INT</td>
+    <td rowspan="3">INT</td>
+  </tr>
+  <tr>
+    <td>MEDIUMINT</td>
+  </tr>
+  <tr>
+    <td>SMALLINT UNSIGNED</td>
+  </tr>
+  <tr>
+    <td>BIGINT</td>
+    <td rowspan="2">BIGINT</td>
+  </tr>
+  <tr>
+    <td>INT UNSIGNED</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>BIGINT UNSIGNED</td>
+    <td>DECIMAL(20, 0)</td>
+  </tr>
+  <tr>
+    <td>FLOAT</td>
+    <td>FLOAT</td>
+  </tr>
+  <tr>
+    <td>DOUBLE</td>
+    <td rowspan="2">DOUBLE</td>
+  </tr>
+  <tr>
+    <td>DOUBLE PRECISION</td>
+  </tr>
+  <tr>
+    <td>NUMERIC(p, s)</td>
+    <td rowspan="2">DECIMAL(p, s)</td>
+  </tr>
+  <tr>
+    <td>DECIMAL(p, s)</td>
+  </tr>
+  <tr>
+    <td>BOOLEAN</td>
+    <td rowspan="2">BOOLEAN</td>
+  </tr>
+  <tr>
+    <td>TINYINT(1)</td>
+  </tr>
+  <tr>
+    <td>DATE</td>
+    <td>DATE</td>
+  </tr>
+  <tr>
+    <td>TIME [(p)]</td>
+    <td>TIME [(p)] [WITHOUT TIMEZONE]</td>
+  </tr>
+  <tr>
+    <td>DATETIME [(p)]</td>
+    <td>TIMESTAMP [(p)] [WITHOUT TIMEZONE]</td>
+  </tr>
+  <tr>
+    <td rowspan="2">TIMESTAMP [(p)]</td>
+    <td>TIMESTAMP [(p)]</td>
+  </tr>
+  <tr>
+    <td>TIMESTAMP [(p)] WITH LOCAL TIME ZONE</td>
+  </tr>
+  <tr>
+    <td>CHAR(n)</td>
+    <td rowspan="3">STRING</td>
+  </tr>
+  <tr>
+    <td>VARCHAR(n)</td>
+  </tr>
+  <tr>
+    <td>TEXT</td>
+  </tr>
+  <tr>
+    <td>BINARY</td>
+    <td rowspan="3">BYTES</td>
+  </tr>
+  <tr>
+    <td>VARBINARY</td>
+  </tr>
+  <tr>
+    <td> BLOB</td>
+  </tr>
+</table>
 
 ## 注意事项
 ### 用户权限
