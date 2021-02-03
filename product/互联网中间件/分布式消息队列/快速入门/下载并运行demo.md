@@ -34,18 +34,18 @@ System.out.println(">> pulsar client created.");
 <dx-codeblock>
 :::  java
 Consumer<byte[]> consumer = client.newConsumer()
-								 .topic("persistent://pulsar-****")//topic完整路径，格式为persistent://集群（租户）ID/命名空间/Topic名称
-								 .subscriptionName("****")//需要现在控制台或者通过控制台API创建好一个订阅，此处填写订阅名
-								 .subscriptionType(SubscriptionType.Exclusive)//声明消费模式为exclusive（独占）模式
-								 .subscriptionInitialPosition(SubscriptionInitialPosition.Earliest)//配置从最早开始消费，否则可能会消费不到历史消息
-								 .subscribe();
-				 System.out.println(">> pulsar consumer created.");
+				 .topic("persistent://pulsar-****")//topic完整路径，格式为persistent://集群（租户）ID/命名空间/Topic名称
+				 .subscriptionName("****")//需要现在控制台或者通过控制台API创建好一个订阅，此处填写订阅名
+				 .subscriptionType(SubscriptionType.Exclusive)//声明消费模式为exclusive（独占）模式
+				 .subscriptionInitialPosition(SubscriptionInitialPosition.Earliest)//配置从最早开始消费，否则可能会消费不到历史消息
+				 .subscribe();
+		 System.out.println(">> pulsar consumer created.");
 :::
 </dx-codeblock>
 
     > ?
-   >- Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。
-   >- subscriptionName需要写入订阅名，可在【消费管理】界面查看。
+   >- Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/topic”，clusterid/namespace/topic 的部分可以从控制台上【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。
+   >- subscriptionName 需要写入订阅名，可在【消费管理】界面查看。
 
    - **创建生产者进程**
 <dx-codeblock>
