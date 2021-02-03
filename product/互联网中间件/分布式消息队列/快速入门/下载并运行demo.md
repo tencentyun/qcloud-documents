@@ -16,10 +16,10 @@
 <dx-codeblock>
 :::  java
 PulsarClient client = PulsarClient.builder()
-			 .serviceUrl("pulsar://**.**.**.**:****/")//ip:port 替换成路由地址，位于【集群管理】接入点列表
-			 .listenerName("custom:pulsar-****/vpc-****/subnet-****")//custom:替换成路由ID，位于【集群管理】接入点列表
-			 .authentication(AuthenticationFactory.token("eyJr****"))//替换成角色密钥，位于【角色管理】页面
-			 .build();
+		.serviceUrl("pulsar://**.**.**.**:****/")//ip:port 替换成路由地址，位于【集群管理】接入点列表
+		.listenerName("custom:pulsar-****/vpc-****/subnet-****")//custom:替换成路由ID，位于【集群管理】接入点列表
+		.authentication(AuthenticationFactory.token("eyJr****"))//替换成角色密钥，位于【角色管理】页面
+		.build();
 	System.out.println(">> pulsar client created.");
 :::
 </dx-codeblock>
@@ -34,12 +34,12 @@ PulsarClient client = PulsarClient.builder()
 <dx-codeblock>
 :::  java
 Consumer<byte[]> consumer = client.newConsumer()
-				 .topic("persistent://pulsar-****")//topic完整路径，格式为persistent://集群（租户）ID/命名空间/Topic名称
-				 .subscriptionName("****")//需要现在控制台或者通过控制台API创建好一个订阅，此处填写订阅名
-				 .subscriptionType(SubscriptionType.Exclusive)//声明消费模式为exclusive（独占）模式
-				 .subscriptionInitialPosition(SubscriptionInitialPosition.Earliest)//配置从最早开始消费，否则可能会消费不到历史消息
-				 .subscribe();
-		 System.out.println(">> pulsar consumer created.");
+		.topic("persistent://pulsar-****")//topic完整路径，格式为persistent://集群（租户）ID/命名空间/Topic名称
+		.subscriptionName("****")//需要现在控制台或者通过控制台API创建好一个订阅，此处填写订阅名
+		.subscriptionType(SubscriptionType.Exclusive)//声明消费模式为exclusive（独占）模式
+		.subscriptionInitialPosition(SubscriptionInitialPosition.Earliest)//配置从最早开始消费，否则可能会消费不到历史消息
+		.subscribe();
+	System.out.println(">> pulsar consumer created.");
 :::
 </dx-codeblock>
 
@@ -50,10 +50,10 @@ Consumer<byte[]> consumer = client.newConsumer()
    - **创建生产者进程**
 <dx-codeblock>
 :::  java
-   Producer<byte[]> producer = client.newProducer()
-                   .topic("persistent://pulsar-****")//topic完整路径，格式为persistent://集群（租户）ID/命名空间/Topic名称
-                   .create();
-           System.out.println(">> pulsar producer created.");
+Producer<byte[]> producer = client.newProducer()
+		.topic("persistent://pulsar-****")//topic完整路径，格式为persistent://集群（租户）ID/命名空间/Topic名称
+		.create();
+	System.out.println(">> pulsar producer created.");
 :::
 </dx-codeblock>
 
@@ -62,25 +62,27 @@ Consumer<byte[]> consumer = client.newConsumer()
   - **生产消息**
 <dx-codeblock>
 :::  java
-   for (int i = 0; i < 1000; i++) {
-               String value = "my-sync-message-" + i;
-               MessageId msgId = producer.newMessage().tags().value(value.getBytes()).send();//发送消息
-               System.out.println("deliver msg " + msgId + ",value:" + value);
-           }
-           producer.close();//关闭生产进程
+//生产5条消息
+for (int i = 0; i < 5; i++) {
+    String value = "my-sync-message-" + i;
+    MessageId msgId = producer.newMessage().value(value.getBytes()).send();//发送消息
+    System.out.println("deliver msg " + msgId + ",value:" + value);
+}
+producer.close();//关闭生产进程
 :::
 </dx-codeblock>
 
    - **消费消息**
 <dx-codeblock>
 :::  java
-   for (int i = 0; i < 1000; i++) {
-               Message<byte[]> msg = consumer.receive();//接收当前offset对应的一条消息
-               String msgId = msg.getMessageId().toString();
-               String value = new String(msg.getValue());
-               System.out.println("receive msg " + msgId + ",value:" + value);
-               consumer.acknowledge(msg);//接收到之后必须要ack，否则offset会一直停留在当前消息，无法继续消费
-           }
+//消费5条消息
+for (int i = 0; i < 5; i++) {
+      Message<byte[]> msg = consumer.receive();//接收当前offset对应的一条消息
+      String msgId = msg.getMessageId().toString();
+      String value = new String(msg.getValue());
+      System.out.println("receive msg " + msgId + ",value:" + value);
+      consumer.acknowledge(msg);//接收到之后必须要ack，否则offset会一直停留在当前消息，无法继续消费
+}
 :::
 </dx-codeblock>
 
