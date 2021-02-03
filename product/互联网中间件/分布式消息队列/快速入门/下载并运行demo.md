@@ -57,7 +57,7 @@ Producer<byte[]> producer = client.newProducer()
 :::
 </dx-codeblock>
 
-    >?Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。
+    >?Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/topic”，clusterid/namespace/topic 的部分可以从控制台上【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。
 
   - **生产消息**
 <dx-codeblock>
