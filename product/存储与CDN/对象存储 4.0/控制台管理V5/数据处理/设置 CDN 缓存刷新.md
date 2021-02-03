@@ -1,6 +1,6 @@
 ## 简介
 
-CDN 缓存刷新是腾讯云对象存储（Cloud Object Storage，COS）基于 [云函数服务（Serverless Cloud Function，SCF）](https://cloud.tencent.com/document/product/583) 为用户提供的数据刷新功能，可以协助用户自动刷新 CDN 边缘节点上的缓存数据。当用户为存储桶添加触发规则后，在该存储桶中更新文件时，会自动触发对象存储为您预配置的云函数，实现自动刷新缓存数据。
+内容分发网络（Content Delivery Network，CDN）缓存刷新是腾讯云对象存储（Cloud Object Storage，COS）基于 [云函数服务（Serverless Cloud Function，SCF）](https://cloud.tencent.com/document/product/583) 为用户提供的数据刷新功能，可以协助用户自动刷新 CDN 边缘节点上的缓存数据。当用户为存储桶添加触发规则后，在该存储桶中更新文件时，会自动触发对象存储为您预配置的云函数，实现自动刷新缓存数据。
 
 > !
 > - 若您此前在对象存储控制台上为存储桶添加了缓存刷新规则，可以在 [云函数控制台](https://console.cloud.tencent.com/scf/list?rid=1&ns=default) 上看到您所创建的 CDN 缓存刷新函数，请**不要**删除该函数，否则可能导致您的规则不生效。
