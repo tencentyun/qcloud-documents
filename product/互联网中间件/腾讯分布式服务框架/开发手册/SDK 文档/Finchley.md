@@ -27,9 +27,9 @@ spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
 
 ### Bug 修复
 
-- spring-cloud-tsf-ratelimit：修复当只有一个限流规则时，限流规则关闭不生效的问题。
+- spring-cloud-tsf-ratelimit：修复多个限流规则时，全局限流无法关闭的问题。
 - spring-cloud-tsf-route：修复当只有一个路由规则时，路由规则关闭不生效的问题。
-- spring-cloud-tsf-lane：优化泳道规则生效逻辑。
+- spring-cloud-tsf-lane：修复泳道规则内存可见性 Bug。
 
 ### 版本建议
 
@@ -52,6 +52,17 @@ spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
 ### 版本建议
 
 支持向后兼容，建议全量升级。
+
+## 1.23.7-Finchley-RELEASE（2021-02-02）
+### Bug 修复
+- 修复服务治理时 API PATH 标签匹配 PATH 参数失败问题。
+- 修复本地启动时监听原生consul路径的问题。
+
+### 优化
+- 统一第三方组件的版本号
+
+### 版本建议
+- 支持向后兼容，建议全量升级。
 
 ## 1.23.6-Finchley-RELEASE（2020-12-21）
 ### Bug 修复
@@ -178,6 +189,17 @@ spring-cloud-tsf-msgw：
 
 - 优化默认日志配置支持容器部署场景。
 - 优化 TSF MSGW zuul 依赖。
+
+## 1.21.9-Finchley-RELEASE（2021-02-02）
+### Bug 修复
+- 修复服务治理时 API PATH 标签匹配 PATH 参数失败问题。
+- 修复本地启动时监听原生consul路径的问题。
+
+### 优化
+- 统一第三方组件的版本号
+
+### 版本建议
+- 支持向后兼容，建议全量升级。
 
 ## 1.21.8-Finchley-RELEASE（2020-12-31）
 ### Bug 修复
