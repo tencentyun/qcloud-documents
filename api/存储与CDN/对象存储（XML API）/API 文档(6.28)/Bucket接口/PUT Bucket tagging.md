@@ -49,11 +49,11 @@ Content-Type: application/xml
 
 具体的数据描述如下：
 
-| 节点名称（关键字） | 父节点             | 描述                                                         | 类型       | 必选 |
+| 节点名称（关键字） | 父节点             | 描述                                                         | 类型       | 是否必选 |
 | ------------------ | ------------------ | ------------------------------------------------------------ | ---------- | ---- |
 | Tagging            | 无                 | 标签集合                                                     | Container  | 是   |
 | TagSet             | Tagging            | 标签集合                                                     | Container  | 是   |
-| Tag                | Tagging.TagSet     | 标签集合，最多支持10个标签                                 | Containers | 是   |
+| Tag                | Tagging.TagSet     | 标签集合，最多支持50个标签                                 | Containers | 是   |
 | Key                | Tagging.TagSet.Tag | 标签的 Key，长度不超过128字节, 支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线 | String     | 是   |
 | Value              | Tagging.TagSet.Tag | 标签的 Value，长度不超过256字节, 支持英文字母、数字、空格、加号、减号、下划线、等号、点号、冒号、斜线 | String     | 是   |
 
@@ -86,6 +86,8 @@ Authorization: q-sign-algorithm=sha1&q-ak=AKIDrbAYjEBqqdEconpFi8NPFsOjrnX4****&q
 Content-MD5: LIbd5t5HLPhuNWYkP6qHcQ==
 Content-Length: 127
 Content-Type: application/xml
+
+
 
 <Tagging>
     <TagSet>
