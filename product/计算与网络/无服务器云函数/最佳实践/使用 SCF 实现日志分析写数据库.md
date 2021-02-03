@@ -2,7 +2,7 @@
 在本文档示例中，我们用到了云函数（SCF），对象存储（COS），云数据库 MySQL。其中，COS 用来存储需要分析的日志文件，SCF 实现从 COS 下载日志文件并进行统计分析，把分析的结果写入到 MySQL 数据库中。
 
 ## 操作步骤
-<span id="step01"></span>
+[](id:step01)
 ### 创建 COS Bucket
 1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos)，选择左侧导航栏中的【存储桶列表】。
 2. 参考 [创建存储桶](https://cloud.tencent.com/document/product/436/38484#.E6.AD.A5.E9.AA.A44.EF.BC.9A.E5.88.9B.E5.BB.BA.E5.AD.98.E5.82.A8.E6.A1.B6) 创建一个存储桶，主要参数信息设置如下：
@@ -10,12 +10,12 @@
  - **所属地域**：选择北京地域。
  - **访问权限**：选择“私有读写”。
 
-<span id="step02"></span>
+[](id:step02)
 ### 创建 MySQL 云数据库
 1. 参考 [购买方式](https://cloud.tencent.com/document/product/236/5160) 创建一个 MySQL 云数据库。由于数据库需要付费购买，您可以选择在北京地域购买 [云数据库 MySQL 入门机型](https://cloud.tencent.com/act/event/cdbbasic.html)。
 2. 购买完成后，给数据库添加可访问的用户名和密码，并创建新库 `mason_demo`。
 
-<span id="step03"></span>
+[](id:step03)
 ### 创建云函数 SCF
 1. 登录云函数控制台，选择左侧导航栏中的【[函数服务](https://console.cloud.tencent.com/scf/list)】。
 2. 在“函数服务”页面上方选择**北京**地域，并单击【新建】进入新建函数页面。
@@ -67,7 +67,7 @@
 
 
 
-<span id="step04"></span>
+[](id:step04)
 #### 配置 COS 触发器
 在函数详情页面，选择左侧【触发管理】并单击【创建触发器】。在弹出的“创建触发器”窗口中为云函数添加 COS 触发器。如下图所示：
 ![](https://main.qcloudimg.com/raw/2f2cb84e50b4ec09078ea675a3bdd3c2.png)
@@ -76,7 +76,7 @@
  - **COS Bucket**：选择 [创建 COS Bucket](#step01) 步骤中已创建的存储桶 loganalysis。
  - **事件类型**：选择“全部创建。”
 
-<span id="step05"></span>
+[](id:step05)
 ### 测试函数功能
 1. 下载 [测试样例](https://main.qcloudimg.com/raw/6e0d4837eefd0ce77dac8a3973acdf39.zip) 中的日志文件，并解压出 demo-scf1.txt。
 2. 切换至 [对象存储控制台](https://console.cloud.tencent.com/cos/bucket)，选择创建好的存储桶 loganalysis，单击【上传文件】。

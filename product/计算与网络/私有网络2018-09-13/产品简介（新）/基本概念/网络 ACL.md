@@ -1,12 +1,10 @@
-您可通过如下视频了解使用网络 ACL 实现访问控制的相关规则。
+网络访问控制列表（Access Control List，ACL）是一种子网级别的可选安全层，用于控制进出子网的数据流，可以精确到协议和端口粒度。您可通过如下视频了解使用网络 ACL 实现访问控制的相关规则。
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2354-35387?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
-
-网络访问控制列表（Access Control List，ACL）是一种子网级别的可选安全层，用于控制进出子网的数据流，可以精确到协议和端口粒度。
-![](https://main.qcloudimg.com/raw/ece35157aa40118a18adb1a4885c14ce.png)
 
 ## 使用场景
 您可以为具有相同网络流量控制的子网关联同一个网络 ACL，通过设置出站和入站规则，对进出子网的流量进行精确控制。
 例如，您在腾讯云私有网络内托管多层 Web 应用，创建了不同子网分别部署 Web 层、逻辑层和数据层服务，通过网络 ACL，您可以控制这三个子网之间的访问，使得：Web 层子网和数据层子网无法相互访问，只有逻辑层可以访问 Web 层和数据层子网。
+![](https://main.qcloudimg.com/raw/ece35157aa40118a18adb1a4885c14ce.png)
 
 ## ACL 规则
 当您在网络 ACL 中添加或删除规则后，会自动应用到与其相关联的子网的网络流量控制。

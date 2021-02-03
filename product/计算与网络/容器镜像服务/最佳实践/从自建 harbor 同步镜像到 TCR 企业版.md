@@ -7,16 +7,16 @@ Harbor 是 VMware 公司开源的企业级 Docker Registry 项目，在开源 Do
 在将自建 Harbor 内数据同步至云上容器镜像服务实例内，您需要首先确认并完成以下准备工作：
 - 已搭建 Harbor 服务，且仅支持 Harbor v1.8.0 及以上版本。
 - 确认自建 Harbor 可通过专线、公网或私有网络访问容器镜像服务。
-- 已在云上容器集群所在地域或邻近地域成功 [创建企业版实例](https://cloud.tencent.com/document/product/1141/40716)。
+- 已在云上容器集群所在地域或邻近地域成功 [购买企业版实例](https://cloud.tencent.com/document/product/1141/51110)。
 - 如果使用子账号进行操作，请参考 [企业版授权方案示例](https://cloud.tencent.com/document/product/1141/41417) 提前为子账号授予对应实例的容器镜像，Helm Chart 推送权限，建议将容器镜像服务全读写权限授予配置同步的子账号。
 
 ## 操作步骤
-### 配置自建 Harbor 服务可访问容器镜像服务企业版实例<span id="Configuration"></span>
+### 配置自建 Harbor 服务可访问容器镜像服务企业版实例[](id:Configuration)
 您可根据自建 Harbor 服务的实际网络情况，选择以下方案配置访问容器镜像服务企业版实例：
 - [方案1：通过公网进行访问](#publicnet)
 - [方案2：通过腾讯云私有网络进行访问](#vpc)
 
-#### 方案1：通过公网进行访问<span id="publicnet"></span>
+#### 方案1：通过公网进行访问[](id:publicnet)
 若当前自建 Harbor 服务未部署在腾讯云私有网络环境内，或无法通过专线打通至腾讯云私有网络，则可通过公网进行数据同步。同步过程中可能产生公网流量费用，具体请参考网络运营商或云服务商定价。
 1. 登录 [容器镜像服务](https://console.cloud.tencent.com/tcr) 控制台，选择左侧导航栏中的【访问控制】>【公网访问】。
 2. 在页面上方的【实例名称】下拉列表中，选择需要进行数据同步的实例。
@@ -29,7 +29,7 @@ Harbor 是 VMware 公司开源的企业级 Docker Registry 项目，在开源 Do
 	配置完成后如下图所示：
 ![](https://main.qcloudimg.com/raw/dd1d7af259920f42f7ad2cdb07e22a50.png)
 
-#### 方案2：通过腾讯云私有网络进行访问<span id="vpc"></span>
+#### 方案2：通过腾讯云私有网络进行访问[](id:vpc)
 若当前自建 Harbor 服务部署在腾讯云私有网络环境内，或已通过专线打通至腾讯云私有网络，则可通过内网进行数据同步。通过内网进行数据同步可提升数据同步速度，并节省公网流量费用。
 1. 登录 [容器镜像服务](https://console.cloud.tencent.com/tcr) 控制台，选择左侧导航栏中的【访问控制】>【内网访问】。
 2. 在页面上方的【实例名称】下拉列表中，选择需要进行数据同步的实例。
@@ -45,7 +45,7 @@ echo x.x.x.x harbor-sync.tencentcloudcr.com >> /etc/hosts
 其中 `x.x.x.x` 请替换为创建内网访问链路后生成的内网解析 IP，`harbor-sync.tencentcloudcr.com` 请替换为实际的实例域名。
 
 
-### 创建企业版实例访问凭证<span id="getCertificate"></span>
+### 创建企业版实例访问凭证[](id:getCertificate)
 容器镜像服务企业版支持创建、管理多个访问凭证，建议您为数据同步操作创建独立的访问凭证，完成数据同步后及时删除，避免实例访问权限泄露。
 1. 登录 [容器镜像服务](https://console.cloud.tencent.com/tcr) 控制台，选择左侧导航栏中的【实例列表】。
 2. 在“实例列表”页面中选择需要进行数据同步的实例，进入实例详情页。
@@ -60,7 +60,7 @@ echo x.x.x.x harbor-sync.tencentcloudcr.com >> /etc/hosts
 Harbor 支持添加第三方 Registry 并配置数据复制规则，本文以 Harbor v2.0.0 为例进行操作说明。
 1. 使用管理员账号登录至自建 Harbor 服务，可查看并进行【系统管理】。
 2. 选择左侧导航栏中的【系统管理】>【仓库管理】，进入“仓库管理”页面。
-3. <span id="Step3"></span>在“仓库管理”页面中，单击【新建目标】，参考以下信息添加企业版实例。
+3. [](id:Step3)在“仓库管理”页面中，单击【新建目标】，参考以下信息添加企业版实例。
 	- **提供者**：选择 “docker registry”。
 	- **目标名**：自定义该同步目标名称，例如当前企业版实例名称或 ID。
 	- **描述**：该目标仓库的描述。
@@ -73,7 +73,7 @@ Harbor 支持添加第三方 Registry 并配置数据复制规则，本文以 Ha
  - 如显示“测试连接失败”，则请确认 [配置自建 Harbor 服务可访问容器镜像服务企业版实例](#Configuration)。
 4. 单击【确定】新建该目标仓库，新建成功后如下图所示：
 ![](https://main.qcloudimg.com/raw/02fb21b07386d0bf8135e76efc8e9ca3.png)
-5. <span id="createRule"></span>选择左侧导航栏中的【系统管理】>【复制管理】，并单击【新建规则】，参考以下信息创建同步规则。
+5. [](id:createRule)选择左侧导航栏中的【系统管理】>【复制管理】，并单击【新建规则】，参考以下信息创建同步规则。
 	- **名称**：同步规则名称，可根据具体使用场景填写。
 	- **描述**：该复制规则的描述。
 	- **复制模式**：仅支持 “Push-based”。

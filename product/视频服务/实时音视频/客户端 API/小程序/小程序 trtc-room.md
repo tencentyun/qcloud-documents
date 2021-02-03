@@ -108,7 +108,7 @@
 | enableEarMonitor     | Boolean | false     | 是否开启耳返（目前仅在 iOS 平台有效）。    |
 | enableAutoFocus      | Boolean | true      | 是否开启摄像头自动对焦，如果关闭则需要用户手动点击摄像头中的预览画面进行对焦。 |
 | enableZoom           | Boolean | false     | 是否支持双手滑动调整摄像头焦距。    |
-| minBitrate<span id="quality"></span>          | String  | 200       | 最小码率，不建议设置太低。  |
+| minBitrate[](id:quality)         | String  | 200       | 最小码率，不建议设置太低。  |
 | maxBitrate           | String  | 1000      | 最大码率，需要跟分辨率相匹配，建议参考 [分辨率码率参照表](https://cloud.tencent.com/document/product/647/32236#.E5.88.86.E8.BE.A8.E7.8E.87.E7.A0.81.E7.8E.87.E5.8F.82.E7.85.A7.E8.A1.A8)。 |
 | videoWidth           | String  | 360       | 视频宽，若设置视频宽高，会忽略 aspect。  |
 | videoHeight          | String  | 640       | 视频高，若设置视频宽高，会忽略 aspect。  |
@@ -988,11 +988,13 @@ trtcRoomContext.sendGroupCustomMessage({
 })
 ```
 
-<h2 id="Event">事件表</h2>
-
+[](id:Event)
+## 事件表
 通过组件实例的 EVENT 属性可以获取到事件常量字段，示例：
 
-```
+
+<dx-codeblock>
+::: js js
 let EVENT = trtcRoomContext.EVENT
 trtcRoomContext.on(EVENT.REMOTE_VIDEO_ADD,(event)=>{
     // 远端视频流添加事件，当远端用户发布视频流后会收到该通知
@@ -1004,7 +1006,9 @@ trtcRoomContext.on(EVENT.IM_MESSAGE_RECEIVED,(event)=>{
   // 收到推送的单聊、群聊、群提示、群系统通知的新消息，可通过遍历 messageEvent.data 获取消息列表数据并渲染到页面
   // messageEvent.data - 存储 Message 对象的数组
 })
-```
+:::
+</dx-codeblock>
+
 | CODE                       | 说明                                                     |
 |----------------------------|----------------------------------------------------------|
 | LOCAL_JOIN                 | 成功进入房间。                                               |

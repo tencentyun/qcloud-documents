@@ -20,7 +20,7 @@
 2. 单击需要获取集群访问凭证的集群 ID/名称，进入该集群的管理页面。
 3. 执行以下 [使用 Secret 管理 MongoDB 连接串](#step1) > [部署 MongoDB Exporter](#step2) > [验证](#step3) 步骤完成 Exporter 部署。
 
-<span id="step1"></span>
+[](id:step1)
 
 #### 使用 Secret 管理 MongoDB 连接串
 
@@ -38,7 +38,7 @@ stringData:
       datasource: "mongodb://{user}:{passwd}@{host1}:{port1},{host2}:{port2},{host3}:{port3}/admin"  # 对应连接URI
 ```
 
-<span id="step2"></span>
+[](id:step2)
 
 #### 部署 MongoDB Exporter
 
@@ -96,7 +96,7 @@ spec:
 
 >?Exporter 详细参数请参见 [mongodb_exporter](https://github.com/percona/mongodb_exporter)。
 
-<span id="step3"></span>
+[](id:step3)
 
 #### 验证
 

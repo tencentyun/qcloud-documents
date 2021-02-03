@@ -320,7 +320,7 @@ func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
 在 [麦位管理](#model.step7) 中，观众上下麦、主播抱人上麦都不需要经过对方的同意就可以直接操作。
 如果您的 App 需要对方同意才能进行下一步操作的业务流程，那么邀请信令可以提供相应支持。
 <dx-tabs>
-::: 如果您的观众上麦需要申请
+::: 观众主动申请上麦
 1. 观众端调用`sendInvitation`传入主播的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
 2. 主播端收到`onReceiveNewInvitation`的事件通知，此时 UI 可以弹窗并询问主播是否同意。
 3. 主播选择同意后，调用`acceptInvitation`并传入 inviteId。
@@ -355,7 +355,7 @@ func onReceiveNewInvitation(identifier: String, inviter: String, cmd: String, co
 :::
 </dx-codeblock>
 :::
-::: 如果您的主播需要发送邀请才能抱观众上麦
+::: 主播邀请观众上麦
 1. 主播端调用`sendInvitation`传入观众的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
 2. 观众端收到`onReceiveNewInvitation`的事件通知，此时 UI 可以弹窗并询问观众是否同意上麦。
 3. 观众选择同意后，调用`acceptInvitation`并传入 inviteId。
