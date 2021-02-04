@@ -1,11 +1,9 @@
-﻿>?当前VPN的路由表功能在灰度测试中，如有需要，请提交 [工单申请]()。
+>?当前VPN的路由表功能在灰度测试中，如有需要，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
 
 ## 前提条件
-
 在配置路由表前，请确保已完成VPN网关、对端网关及VPN通道的配置。
 
 ## 操作步骤
-
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 单击左导航栏中【VPN 连接】>【VPN 网关】。
 3. 选择地域和私有网络，单击VPN网关ID进入详情页。
