@@ -3,5 +3,5 @@
 >!
 >- 即将到期的证书需要在2018年1月1日以后重新申请时，会受到上述策略的限制。
 >- 感谢您对腾讯云的支持，我们将一如既往给您提供 HTTPS 专业服务！
->- 产品使用过程中如遇到产品相关问题，您可咨询 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_400) 或 [提交工单](https://console.cloud.tencent.com/workorder/category) 寻求帮助。
+>- 如您使用过程中遇到产品相关问题，您可咨询 [在线客服](https://cloud.tencent.com/act/event/Online_service?from=doc_400) 或 [提交工单](https://console.cloud.tencent.com/workorder/category) 寻求帮助。
 
