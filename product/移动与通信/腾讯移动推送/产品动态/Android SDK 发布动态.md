@@ -8,6 +8,13 @@
     <th width=16%>发布时间</th>
     <th width=20%>相关文档</th>
 </tr>
+	<tr>
+        <td>SDK 1.2.3.1 版本发布</td>
+<td><li>修复: 修复华为禁用组件逻辑错误
+</td>
+        <td>2021-02-04</td>
+        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK下载</a></td>
+    </tr>
 <tr>
         <td>SDK 1.2.3.0 版本发布</td>
 <td><li>优化：网络通讯协议支持消息二次加密处理
