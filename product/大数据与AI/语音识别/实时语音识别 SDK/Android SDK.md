@@ -449,13 +449,13 @@ void start() throws AudioRecognizerException;
 ```
 void stop();
 ```
--获取 sdk Pcm 格式录音源文件路径。
+- 获取 sdk Pcm 格式录音源文件路径。
 
 ```
 void savePcmFileCallBack(String filePath);
 ```
 
--获取 sdk wav 格式录音源文件路径。
+- 获取 sdk wav 格式录音源文件路径。
 
 ```
 void saveWaveFileCallBack(String filePath);
