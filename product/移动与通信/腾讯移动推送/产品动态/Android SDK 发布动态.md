@@ -16,7 +16,7 @@
 <li>新增：支持新荣耀手机角标逻辑
 <li>修复：检查网络连接状态时偶发的 ANR 问题</td>
         <td>2021-01-27</td>
-        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载 SDK</a></td>
+        <td>-</td>
     </tr>
 <tr>
         <td>SDK 1.2.2.4 版本发布</td>
