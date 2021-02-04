@@ -6,39 +6,37 @@ Android SDK 接入请观看视频：
 实时语音识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Realtime_Android.zip)。
 
 ### 接入须知
-+ 开发者在调用前请先查看实时语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37138)，了解接口的**使用要求**和**使用步骤**。
-+ 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 等），且系统为 **Android 4.0** 及其以上版本。
+- 开发者在调用前请先查看实时语音识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37138)，了解接口的**使用要求**和**使用步骤**。
+- 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 等），且系统为 **Android 4.0** 及其以上版本。
 
 ### 开发环境
-
-+ 引入 .so 文件
+- 引入 .so 文件
  libWXVoice.so： 腾讯云语音检测 so 库。
-+ 引入 aar 包
+- 引入 aar 包
  aai-2.1.5.aar： 腾讯云语音识别 SDK。
-+ 该接口 SDK 支持本地构建或者远程构建两种方式：
-	+ 本地构建   
-	可以直接下载 Android SDK 及 Demo，然后集成对应的 so 文件和 aar 包（均在 sdk-source 目录下），最后将 okhttp3、okio、gson 和 slf4j 4个库也集成到 App 中。   
-	在 build.gradle 文件中添加：
-		```
-		implementation(name: 'aai-2.1.5', ext: 'aar')
-		```
-	+ 远程构建   
-	在 build.gradle 文件中添加：
-		```
-		implementation 'com.tencent.aai:aai:2.1.5:@aar'
-		```
-	
-+ 添加相关依赖
+- 该接口 SDK 支持本地构建或者远程构建两种方式：
+ - 本地构建   
+可以直接下载 Android SDK 及 Demo，然后集成对应的 so 文件和 aar 包（均在 sdk-source 目录下），最后将 okhttp3、okio、gson 和 slf4j 4个库也集成到 App 中。   
+在 build.gradle 文件中添加：
+```
+implementation(name: 'aai-2.1.5', ext: 'aar')
+```
+ - 远程构建   
+在 build.gradle 文件中添加：
+```
+implementation 'com.tencent.aai:aai:2.1.5:@aar'
+```
+- 添加相关依赖
   okhttp3、okio、gson 和 slf4j 依赖添加，在 build.gradle 文件中添加:
-	```
+```
 	implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
 	implementation 'com.squareup.okio:okio:1.11.0'
 	implementation 'com.google.code.gson:gson:2.8.5'
 	implementation 'org.slf4j:slf4j-api:1.7.25'
-	```
-	如果您使用 gradle 来进行工程构建，我们强烈建议使用远程构建的方式来构建您的应用。
-+ 在 AndroidManifest.xml 添加如下权限：
-	```
+```
+如果您使用 gradle 来进行工程构建，我们强烈建议使用远程构建的方式来构建您的应用。
+- 在 AndroidManifest.xml 添加如下权限：
+```
 	< uses-permission android:name="android.permission.RECORD_AUDIO"/>
 	< uses-permission android:name="android.permission.INTERNET"/>
 	< uses-permission android:name="android.permission.WRITE_SETTINGS" />
@@ -46,15 +44,12 @@ Android SDK 接入请观看视频：
 	< uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 	< uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 	< uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-	```
+```
 
 ## 快速接入
-
-<span id="documen"></span>
-
+[](id:documen)
 ### 开发流程介绍
 **启动实时语音识别**
-
 ```
 int appid = XXX;
 int projectid = XXX;
@@ -110,9 +105,7 @@ try {
     e.printStackTrace();
 }
 ```
-
 **停止实时语音识别**
-
 ```
 // 1、获得请求的 ID
 final int requestId = audioRecognizeRequest.getRequestId();
@@ -127,9 +120,7 @@ new Thread(new Runnable() {
     }
 }).start();
 ```
-
 **取消实时语音识别**
-
 ```
 // 1、获得请求的id
 final int requestId = audioRecognizeRequest.getRequestId();
@@ -145,14 +136,11 @@ new Thread(new Runnable() {
 }).start();
 ```
 
-
-
 ### 主要接口类和方法说明
-
 #### 计算签名
 调用者需要自己实现 AbsCredentialProvider 接口来计算签名，此方法为 SDK 内部调用，上层不用关心 source 来源。
 
-+ **计算签名函数如下：**
+- **计算签名函数如下：**
 
 ```
 /**
@@ -162,8 +150,8 @@ new Thread(new Runnable() {
 */
 String getAudioRecognizeSign(String source);
 ```
-	
-+ **计算签名算法**   
+
+- **计算签名算法**   
 
 先以 SecretKey 对 source 进行 HMAC-SHA1 加密，然后对密文进行Base64编码，获得最终的签名串。即：sign=Base64Encode(HmacSha1(source，secretKey))。
 
@@ -272,7 +260,7 @@ void onFailure(AudioRecognizeRequest request, ClientException clientException, S
 | clientException | ClientException | 客户端异常 |
 | serverException | ServerException | 服务端异常 |
 
-示例代码详见[入门示例](#documen)。
+示例代码详见 [入门示例](#documen)。
 
 #### 设置语音识别参数
 通过构建 AudioRecognizeConfiguration 类，可以设置语音识别时的配置：
@@ -472,8 +460,7 @@ PcmAudioDataSource 接口的实现类，可以直接读取麦克风输入的音�
 **AudioFileDataSource**
 
 PcmAudioDataSource 接口的实现类，可以直接读取单通道、采样率16k的 PCM 音频数据的文件。
->!
-其他格式的数据无法正确识别。
+>!其他格式的数据无法正确识别。
 
 
 **AAILogger**
