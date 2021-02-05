@@ -35,5 +35,6 @@
 - [跑通 Demo（桌面浏览器）](https://cloud.tencent.com/document/product/647/32398)
 - [跑通 Demo（Electron）](https://cloud.tencent.com/document/product/647/38548)
 - [跑通 Demo（小程序）](https://cloud.tencent.com/document/product/647/32399)
+- [跑通 Demo（Flutter）](https://cloud.tencent.com/document/product/647/51601)
 
 编译完成后，单击【关闭指引，进入控制台管理应用】即可。
