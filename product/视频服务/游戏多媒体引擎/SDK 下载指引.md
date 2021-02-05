@@ -7,6 +7,8 @@
 ## 下载及使用
 
 下载 SDK 及 Demo 后，如果使用上有问题，您可参见 [Demo使用问题](https://cloud.tencent.com/document/product/607/51456)，或者 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系腾讯云工作人员。
+>?下载的 Demo 代码中，需要替换您申请的 SDKAppid 和 Key 才可编译执行，例如 Unity Demo，需要修改 **UserConfig.cs** 代码文件。申请服务详情请参见 [语音服务开通指引](https://cloud.tencent.com/document/product/607/10782)。
+
 
 ## 版本更新
 
@@ -37,9 +39,7 @@ v2.8 正式版本更新如下：
 
 ## SDK v2.8 正式版本下载
 
->! 
-- 下载的 Demo 代码中，需要替换您申请的 SDKAppid 和 Key 才可以编译执行。申请服务详情请参见 [语音服务开通指引](https://cloud.tencent.com/document/product/607/10782)。
-- Unity Demo 下载提供 zip 包以及 Unity Package 两种形式，根据项目需求下载其中一个即可。
+>! Unity Demo 下载提供 zip 包和 Unity Package 两种形式，根据项目需求下载其中一个即可。
 >
 
 | 平台/引擎     | 更新时间   | SDK 下载                                                     | Demo 下载                                                    | 文档                                                         |
@@ -61,7 +61,6 @@ v2.8 正式版本更新如下：
 
 ## 编译 Demo
 
-下载完的 Demo 需要修改代码，在代码中填入自己申请的 Appid 及 Key，才可以编译通过。例如 Unity Demo，需要修改 **UserConfig.cs** 代码文件。
 
 导出 Demo 为可执行文件的过程中，如遇见问题详情请参见 [工程导出问题](https://cloud.tencent.com/document/product/607/51457) 进行解决。
 
