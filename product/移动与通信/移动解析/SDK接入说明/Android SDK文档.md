@@ -53,7 +53,7 @@ App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP �
 ```
 
 ### 接入 HTTPDNS
-- 将 HttpDNSLibs\HTTPDNS_ANDROID_SDK_xxxx.aar 拷贝至应用 libs 相应位置。
+将 HttpDNSLibs\HTTPDNS_ANDROID_SDK_xxxx.aar 拷贝至应用 libs 相应位置。
 
 ### 接入灯塔
 
@@ -112,8 +112,8 @@ String ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
 ### 注意事项
 
 - getAddrByName 是耗时同步接口，应当在子线程调用。
-- 如果客户端的业务与 HOST 绑定，例如，客户端的业务绑定了 HOST 的 HTTP 服务或者是 CDN 的服务，那么您将  URL 中的域名替换成 HTTPDNS 返回的 IP 之后，还需要指定下 HTTP 头的 HOST 字段。
-  - 以 URLConnection 为例：
+- 如果客户端的业务与 HOST 绑定，例如，客户端的业务绑定了 HOST 的 HTTP 服务或者是 CDN 的服务，那么您将 URL 中的域名替换成 HTTPDNS 返回的 IP 之后，还需要指定下 HTTP 头的 HOST 字段。
+ - 以 URLConnection 为例：
  ```Java
 URL oldUrl = new URL(url);
 URLConnection connection = oldUrl.openConnection();
