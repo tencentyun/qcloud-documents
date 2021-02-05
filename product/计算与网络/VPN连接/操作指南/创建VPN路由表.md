@@ -11,6 +11,7 @@
    ![](https://main.qcloudimg.com/raw/d261071d65c453ecf21d3980d1b3a8cd.png)
 5. 单击【新增路由】，并配置路由策略。
 ![](https://main.qcloudimg.com/raw/288637983594aa439f67c2ee00a7a12a.png)
+
 <table>
 <tr>
 <th>配置项</th>
@@ -41,6 +42,7 @@
 <td>可删除路由策略，最后一条不允许删除。</td>
 </tr>
 </table>
+
 6. 完成路由策略的配置后，单击【确定】。
 7. 其他可执行操作。
     1. 启动、或禁用路由策略。
