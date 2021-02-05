@@ -80,8 +80,8 @@ Harbor 支持添加第三方 Registry 并配置数据复制规则，本文以 Ha
 <dx-alert infotype="notice" title="">
 如果自建 Harbor 版本较低，提供者选项中无 “Tencent TCR”，请在创建新的目标仓库时，选择提供者为 "Docker Registry"，且访问 ID、访问密码分别填写在实例管理中获取的镜像仓库长期访问凭证（用户名 + 密码），而不是腾讯云的 SecretId，SecretKey。在此配置下，暂不支持在 TCR 侧自动新建命名空间。
 </dx-alert>
-6. [](id:createRule)选择左侧导航栏中的【系统管理】>【复制管理】，并单击【新建规则】，参考以下信息创建同步规则。
-   ![](https://main.qcloudimg.com/raw/483daf04ec5426504648faa8c18fb7ed.png)
+6. [](id:createRule)选择左侧导航栏中的【系统管理】>【复制管理】，并单击【新建规则】，参考以下信息创建同步规则。如下图所示：
+ ![](https://main.qcloudimg.com/raw/d05dabf9a1f5a4226348497d5c2cd73c.png)
 	- **名称**：同步规则名称，可根据具体使用场景填写。
 	- **描述**：该复制规则的描述。
 	- **复制模式**：仅支持 “Push-based”。
