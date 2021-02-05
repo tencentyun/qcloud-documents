@@ -77,7 +77,7 @@ Container 类型 Request 的具体数据描述如下：
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 限制 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- | ---- |
 | Tag                | Request | 模板类型：Transcode                                    | String    | 是   | 无 |
-| Name               | Request | 模板名称 仅支持中文、英文、数字、_、-和*                    | String    | 是   | 无 |
+| Name               | Request | 模板名称 仅支持中文、英文、数字、\_、\-和\*                    | String    | 是   | 无 |
 | Container          | Request | 容器格式                                               | Container | 是   | 无 |
 | Video              | Request | 视频信息                                               | Container | 否   | 不传 Video，相当于删除视频信息 |
 | TimeInterval       | Request | 时间区间                                               | Container | 否   | 无 |
@@ -225,14 +225,14 @@ Container 节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
-| TemplateId         | Response.TemplateList | 模版 ID                                                      | String    |
-| Name               | Response.TemplateList | 模版名字                                                     | String    |
-| BucketId           | Response.TemplateList | 模版所属存储桶                                                | String    |
-| Category           | Response.TemplateList | 模版属性，Custom 或者 Official                                | String    |
-| Tag                | Response.TemplateList | 模版类型，Transcode                                          | String    |
+| TemplateId         | Response.TemplateList | 模板 ID                                                      | String    |
+| Name               | Response.TemplateList | 模板名字                                                     | String    |
+| BucketId           | Response.TemplateList | 模板所属存储桶                                                | String    |
+| Category           | Response.TemplateList | 模板属性，Custom 或者 Official                                | String    |
+| Tag                | Response.TemplateList | 模板类型，Transcode                                          | String    |
 | UpdateTime         | Response.TemplateList | 更新时间                                                     | String    |
 | CreateTime         | Response.TemplateList | 创建时间                                                     | String    |
-| TransTpl           | Response.TemplateList | 详细的模版参数                                                | Container |
+| TransTpl           | Response.TemplateList | 详细的模板参数                                                | Container |
 
 
 Container节点TransTpl的内容：
