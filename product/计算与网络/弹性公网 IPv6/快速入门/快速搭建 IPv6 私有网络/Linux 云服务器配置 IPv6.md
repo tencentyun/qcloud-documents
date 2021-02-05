@@ -187,7 +187,7 @@ vi /etc/modprobe.d/ipv6.conf
 ```plaintext
 options ipv6 disable=0
 ```
- ![](https://main.qcloudimg.com/raw/37a4754fd0a8f6192d5f3818bcd685fe.png) 
+    ![](https://main.qcloudimg.com/raw/37a4754fd0a8f6192d5f3818bcd685fe.png) 
 	3.  按 “Esc”，输入 “:wq”，保存文件并返回。
 4. 执行以下步骤修改并保存`sysctl.conf.first`文件。
   1. 执行如下命令，打开`etc`文件夹下的`sysctl.conf.first`文件。
@@ -200,7 +200,7 @@ net.ipv6.conf.all.disable_ipv6 = 0
 ```
     ![](https://main.qcloudimg.com/raw/e5faf656a6aa6fcbd8a4ac190a13759e.png)
    3. 按 “Esc”，输入 “:wq”，保存文件并返回。
-5. <span id="centstep5" />执行以下步骤修改并保存`network`文件。
+5. 执行以下步骤修改并保存`network`文件。[](id:centstep5)
   1. 执行如下命令，打开`/etc/sysconfig/`文件夹下的`network`文件。
 ```plaintext
 vi /etc/sysconfig/network
@@ -242,10 +242,7 @@ ifconfig
  ![](https://main.qcloudimg.com/raw/cedd7cbd7f5e649c01345356fa0d2688.png) 
 10. 请参考 [SSH 支持 IPv6 配置](#ssh-ipv6) 为 SSH 开启 IPv6 功能。
 
-
-<span id="CentOS7.3"/>
-
-### CentOS 7.3/CentOS 7.5/CentOS 7.6 配置 IPv6
+### CentOS 7.3/CentOS 7.5/CentOS 7.6 配置 IPv6[](id:CentOS7.3)
 1. 远程连接实例，具体操作请参见 [登录及远程连接](https://cloud.tencent.com/document/product/213/35701)。
 2. 检查实例是否已开启 IPv6 功能支持，执行如下命令：
 ```plaintext
@@ -439,17 +436,17 @@ gateway <IPv6网关>
  > !只添加 addresses 和 gateway6。
  >
 ```plaintext
-	network:
-		version: 2
-		ethernets:
-		eth0:
-		dhcp4: true                         //开启dhcp4
-		match:
-		macaddress: 52:54:00:75:ce:c2  //MAC地址
-		set-name: eth0                      //网卡名
-		addresses:
-		- 2a00:7b80:454:2000::xxx/64    //设置IPv6地址和掩码
-		gateway6: 2a00:7b80:454::1          //设置IPv6网关地址
+network:
+version: 2
+ethernets:
+eth0:
+dhcp4: true                         //开启dhcp4
+match:
+macaddress: 52:54:00:75:ce:c2  //MAC地址
+set-name: eth0                      //网卡名
+addresses:
+       - 2a00:7b80:454:2000::xxx/64    //设置IPv6地址和掩码
+gateway6: 2a00:7b80:454::1          //设置IPv6网关地址
 ```
  3. 执行如下命令，使配置生效。
 ```plaintext
