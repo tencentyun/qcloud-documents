@@ -1,5 +1,4 @@
 ## 功能描述
-
 CreateMediaTemplate 用于新增转码模板。
 
 ## 请求
@@ -54,7 +53,7 @@ Content-Type: application/xml
         <Channels>4</Channels>
     </Audio>
     <TransConfig>
-        <AdjDarMethod>rescale</AdjDarMethod>
+        <AdjDarMethod>scale</AdjDarMethod>
         <IsCheckReso>false</IsCheckReso>
         <ResoAdjMethod>1</ResoAdjMethod>
     </TransConfig>
@@ -75,15 +74,15 @@ Content-Type: application/xml
 
 Container 类型 Request 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
-| ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
-| Tag                | Request | 模板类型：Transcode                                    | String    | 是   |
-| Name               | Request | 模板名称仅支持中文、英文、数字、_、-和*                    | String    | 是   |
-| Container          | Request | 容器格式                                               | Container | 是   |
-| Video              | Request | 视频信息                                               | Container | 否   |
-| TimeInterval       | Request | 时间区间                                               | Container | 否   |
-| Audio              | Request | 音频信息                                               | Container | 否   |
-| TransConfig        | Request | 转码配置                                               | Container | 否   |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 限制 |
+| ------------------ | ------- | -------------------------------------------------------- | --------- | ---- | ---- |
+| Tag                | Request | 模板类型：Transcode                                    | String    | 是   | 无 |
+| Name               | Request | 模板名称 仅支持中文、英文、数字、_、-和*                    | String    | 是   | 无 |
+| Container          | Request | 容器格式                                               | Container | 是   | 无 |
+| Video              | Request | 视频信息                                               | Container | 否   | 不传 Video，相当于删除视频信息 |
+| TimeInterval       | Request | 时间区间                                               | Container | 否   | 无 |
+| Audio              | Request | 音频信息                                               | Container | 否   | 不传 Audio，相当于删除音频信息 |
+| TransConfig        | Request | 转码配置                                               | Container | 否   | 无 |
 
 
 Container 类型 Container 的具体数据描述如下：
@@ -91,6 +90,14 @@ Container 类型 Container 的具体数据描述如下：
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
 | ------------------ | ------- | ---------------------------------------------------- | --------- | ---- |
 | Format                | Request.Container | 容器格式：mp4，flv，hls，ts               | String    | 是   |
+
+设定 container，音频视频支持的格式如下表：
+
+| Container                  | Audio Codecs  | Video Codecs          |
+| -------------------------- | ------------- | --------------------- | 
+| flv/mp4/ts/hls             | AAC、MP3      | H.264                 |
+| aac                        | aac           | 不支持                |
+| mp3                        | mp3           | 不支持                |
 
 
 Container 类型 Video 的具体数据描述如下：
@@ -111,6 +118,7 @@ Container 类型 Video 的具体数据描述如下：
 | Maxrate                    | Request.Video | 视频码率<br/>峰值          | String | 否   | 无            | <li>值范围：[10，50000]<br/><li>单位：Kbps<br/> |
 | HlsTsTime                  | Request.Video | hls 分片<br/>时间           | String | 否   | 5            | <li>(0 视频时长] <br/><li>单位为秒 |
 | Pixfmt                     | Request.Video | 视频颜色<br/>格式           | String | 否   | 无           | 支持 yuv420p、yuv422p、<br/>yuv444p、yuvj420p、yuvj422p、yuvj444p |
+| LongShortMode              | Request.Video | 长短边自适应          | String | 否   | false        | true、false
 
 Container 类型 TimeInterval 的具体数据描述如下：
 
@@ -165,7 +173,7 @@ Container 类型 TransConfig 的具体数据描述如下：
 <Response>
     <Template>
         <Tag>Transcode</Tag>
-        <TemplateId></TemplateId>
+        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
         <Name>TemplateName</Name>
         <Container>
             <Format>mp4</Format>
@@ -191,7 +199,7 @@ Container 类型 TransConfig 的具体数据描述如下：
             <Channels>4</Channels>
         </Audio>
         <TransConfig>
-            <AdjDarMethod>rescale</AdjDarMethod>
+            <AdjDarMethod>scale</AdjDarMethod>
             <IsCheckReso>false</IsCheckReso>
             <ResoAdjMethod>1</ResoAdjMethod>
         </TransConfig>
@@ -248,8 +256,8 @@ Container节点TransTpl的内容：
 
 ```shell
 POST /template HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 1666
 Content-Type: application/xml
 
@@ -280,7 +288,7 @@ Content-Type: application/xml
         <Channels>4</Channels>
     </Audio>
     <TransConfig>
-        <AdjDarMethod>rescale</AdjDarMethod>
+        <AdjDarMethod>scale</AdjDarMethod>
         <IsCheckReso>false</IsCheckReso>
         <ResoAdjMethod>1</ResoAdjMethod>
     </TransConfig>
@@ -300,12 +308,12 @@ Content-Length: 100
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 <Response>
     <Template>
         <Tag>Transcode</Tag>
-        <TemplateId></TemplateId>
+        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
         <Name>TemplateName</Name>
         <Container>
             <Format>mp4</Format>
@@ -331,7 +339,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
             <Channels>4</Channels>
         </Audio>
         <TransConfig>
-            <AdjDarMethod>rescale</AdjDarMethod>
+            <AdjDarMethod>scale</AdjDarMethod>
             <IsCheckReso>false</IsCheckReso>
             <ResoAdjMethod>1</ResoAdjMethod>
         </TransConfig>
