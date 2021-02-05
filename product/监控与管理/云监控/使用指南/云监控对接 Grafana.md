@@ -15,67 +15,67 @@
 - 提供了云服务器、云数据库 MySQL 的具有代表性的 Dashboard 模板
 - 更多云产品的监控指标数据源在陆续完善中
 
-## 步骤1：安装 Grafana
+## 步骤1：安装
 
-腾讯云监控应用插件是运行在 Grafana 6.x 或更新的版本上，请先安装 Grafana 环境，详情请参见 [Grafana 安装文档](https://grafana.com/docs/grafana/download/)。
+腾讯云监控应用插件是运行在 Grafana 6.x 或更新的版本上，请先安装 Grafana 环境，详情请参见 [Grafana 安装文档](https://grafana.com/docs/grafana/latest/installation/?pg=docs)。
 
 ### 插件安装方式
 
-1. 已将本地的 Grafana 升级到 6.x 版本或更新的版本。
+1. 将本地的 Grafana 升级到 6.x 版本或更新的版本。
 2. 在 [Releases](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/releases) 中下载最新版本的腾讯云监控应用插件代码（资源名为 `tencentcloud-monitor-app-1.x.x.zip`），并将解压后的代码放置在 Grafana 的 `${GRAFANA_HOME}/data/plugins` 目录。
 3. 重启 Grafana 服务。
-4. 鼠标悬浮左侧导航栏的【齿轮】图标，单击【Plugins】，进入 Plugins 管理页面，如果插件列表中正常展示 `Tencent Cloud Monitor` APP 插件，表示插件安装成功。
-![Plugin APP](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/blob/master/src/image/plugin-app.png?raw=true)
+4. 在左侧导航栏中选择【<img src="https://main.qcloudimg.com/raw/3bf76c69408a80aa0859d9e2f81a1340.jpg" width="2%"></img>】>【Plugins】，进入 Plugins 管理页面，如果插件列表中正常显示 `Tencent Cloud Monitor` APP 插件，表示插件安装成功。如下图所示：
+![](https://main.qcloudimg.com/raw/fafe4bb02bc8a5c5d050788a4cfa5d86.png)
 5. 进入应用详情页面，单击【Enable】，启用成功后，即可在 Grafana 中使用腾讯云监控应用插件。
 
-### 支持 Docker
 
-为了更快地开发与测试，需添加 docker-compose.yml 文件，执行以下命令：
+### 配置支持 Docker
 
+1. 为更快地开发与测试，需添加 docker-compose.yml 文件，执行以下命令：
 ```plaintext
 docker-compose up
 ```
-
-折行成功后，在浏览器输入 `http://localhost:3000` 访问 Grafana。
+2. 折行成功后，在浏览器输入 `http://localhost:3000` 即可访问 Grafana。
 
 
 ## 步骤2：配置数据源
 
-腾讯云监控应用插件通过调用[云监控 API](https://cloud.tencent.com/document/product/248/30342) 的方式获取各云产品的监控指标数据，通过以下步骤，配置相应云产品的数据源。    
+腾讯云监控应用插件通过调用 [云监控 API](https://cloud.tencent.com/document/product/248/30342) 的方式获取各云产品的监控指标数据，通过以下步骤，配置相应云产品的数据源。    
 
-1. 鼠标悬浮左侧导航栏的【齿轮】图标，，单击【Data Sources】，进入数据源管理页面。
-   ![Datasource Add](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/blob/master/src/image/datasource-add.png?raw=true)
-2. 点击右上角的 `Add data source` 按钮，然后点击 `Tencent Cloud Monitor Datasource` 数据源，进入数据源配置页面；
-   ![Datasource Add](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/blob/master/src/image/datasource-choose.png?raw=true)
-   配置项说明如下：
-   - `Name` 数据源名称，可以是任意名称，默认为 Tencent Cloud Datasource；  
-   - SecretId` 和 `SecretKey` 是调用云监控 API 必需的安全证书信息，二者可以通过腾讯云控制台 [云 API 密钥页面](https://console.cloud.tencent.com/capi) 获取；
-   - 选择需要获取监控数据的云产品；  
-   - 点击 `Save & Test` 按钮，测试数据源的配置信息是否正确，配置成功后，即可以在 Dashboard 中使用该数据源。
-     ![Datasource Config](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/blob/master/src/image/datasource-config.png?raw=true)
-
+1. 在左侧导航栏中选择【<img src="https://main.qcloudimg.com/raw/3bf76c69408a80aa0859d9e2f81a1340.jpg" width="2%"></img>】>【Data Sources】，进入数据源管理页面。
+	 ![](https://main.qcloudimg.com/raw/9635586b065b8740165a7fa79a8fa428.png)
+2. 单击右上角的【Add data source】，并选择【Tencent Cloud Monitor Datasource】数据源，进入数据源配置页面。
+	 ![](https://main.qcloudimg.com/raw/5955eea74f8ab6b85d317d8589defe52.png)
+3. 数据源配置项说明如下：
+   - **Name**：数据源名称，可以是任意名称，默认为 Tencent Cloud Datasource。  
+   - **Security Credentials**：包含 **SecretId** 和 **SecretKey**，是调用云监控 API 必需的安全证书信息，可以在腾讯云控制台 [云 API 密钥](https://console.cloud.tencent.com/capi) 获取。
+   - **Monitor Services**：选择需要获取监控数据的云产品。
+		![](https://main.qcloudimg.com/raw/8cbb4db7bbafaf02773bd9a591b42dcd.png)
+4. 单击【Save & Test】，测试数据源的配置信息是否正确，配置成功后，即可以在 Dashboard 中使用该数据源。
 
 ## 步骤3：创建 Dashboard
 
-创建 Dashboard 支持三种方式： 快捷创建、管理页面和导入模板。
+
+支持三种方式创建 Dashboard ： 快捷创建、管理页面和导入模板。
+
 
 ### 快捷创建
 
-鼠标悬浮左侧导航栏的 **加号** 图标，点击 `+Dashboard` 选项，即可创建一个新的 Dashboard。
+鼠标悬浮左侧导航栏的【加号】，单击【+Dashboard】，即可创建一个新的 Dashboard。
 
 ### 管理页面
 
 1. 鼠标悬浮左侧导航栏的 **田字格** 图标，
-2. 点击 `Manage` 选项，进入 Dashboard 管理页面
-3. 点击 `New Dashboard` 按钮，即可创建一个新的 Dashboard。同时，在该页面可以对 Dashboard 进行各种管理操作，如新建文件夹、移动 Dashboard、导入 Dashboard 等。
+2. 单击【Manage】，进入 Dashboard 管理页面
+3. 单击【New Dashboard】，即可创建一个新的 Dashboard。同时，在该页面可以对 Dashboard 进行各种管理操作，例如新建文件夹、移动 Dashboard、导入 Dashboard 等。
 
 ### 导入模板
 
 1. 鼠标悬浮左侧导航栏的 **齿轮** 图标。
-2. 点击 `Plugins` 选项，进入 Plugins 管理页面。
-3. 点击 `Tencent Cloud Monitor` 应用，进入应用详情页面，切换至 `Dashboards` 选项卡，选择 Dashbboard 模板导入。
-
+2. 单击【Plugins】，进入 Plugins 管理页面。
+3. 单击【Tencent Cloud Monitor】应用，进入应用详情页面，切换至 `Dashboards` 选项卡，选择 Dashbboard 模板导入。
 ![Import Plugin Dashboard](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/blob/master/src/image/plugin-dashboard.png?raw=true)
+
 
 ## 步骤4：配置 Panel 数据
 
@@ -160,7 +160,7 @@ docker-compose up
 - `Refresh`  更新变量的方式，定义变量数据何时被更新。
 - `Query` 变量查询语句，详情参见上述表格的变量示例和描述。
 
-变量信息填写完毕，可在页面下方预览查询得到的变量值，如果与期望值相符，点击 `Add` 按钮添加变量。添加成功后，点击右侧菜单的 `Save` 保存至 Dashboard 配置。
+变量信息填写完毕，可在页面下方预览查询得到的变量值，如果与期望值相符，单击【Add】添加变量。添加成功后，点击右侧菜单的 `Save` 保存至 Dashboard 配置。
 
 以云服务器单机监控 Dashboard 为例，展示如何配置级联变量：地域变量、云服务器实例变量，如下图所示。
 
