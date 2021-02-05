@@ -23,9 +23,6 @@ Content-Type: application/xml
 
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
 
-#### 请求体
-该请求的请求体为空。
-
 #### 请求参数
 参数的具体内容如下：
 
@@ -36,6 +33,11 @@ Content-Type: application/xml
 | name          | 无        | 模板名称前缀              | String     |否|
 | pageNumber    | 无        | 第几页                   | Integer     |否|
 | pageSize      | 无        | 每页个数                 | Integer     |否|
+
+#### 请求体
+该请求的请求体为空。
+
+
 
 
 ## 响应
@@ -116,8 +118,8 @@ Container 类型 Watermark 的具体数据描述如下：
 | Type                | Response.TemplateList.<br/>Watermark | 水印类型    | String    | 是   | 无  | <li>Text：文字水印<li>Image：图片水印 |
 | Pos                 | Response.TemplateList.<br/>Watermark | 基准位置    | String    | 是   | 无  | <li>TopRight：右上<li>TopLeft：左上<li>BottomRight：右下<li>BottomLeft：左下 |
 | LocMode             | Response.TemplateList.<br/>Watermark | 偏移方式    | String    | 是   | 无  | <li>Relativity：按比例<li>Absolute：固定位置 |
-| Dx                  | Response.TemplateList.<br/>Watermark | 水平偏移    | String    | 是   | 无  | <li>值范围：[0 100] <br/><li>当 locMode 为 Relativity 时，单位为% <br/> <li>当 locMode 为 Absolute 时，单位为px |
-| Dy                  | Response.TemplateList.<br/>Watermark | 垂直偏移    | String    | 是   | 无  | <li>值范围：[0 100] <br/><li>当 locMode 为 Relativity 时，单位为% <br/><li>当 locMode 为 Absolute 时，单位为px |
+| Dx                  | Response.TemplateList.Watermark | 水平偏移    | String    | 是   | 无  |1. 在图片水印中，如果 Background 为 true，当 locMode 为 Relativity 时，为%，值范围：[-300 0]；当 locMode 为 Absolute 时，为px，值范围：[-4096 0] <br/> 2. 在图片水印中，如果 Background 为 false，当 locMode 为 Relativity 时，为%，值范围：[0 100]；当 locMode 为 Absolute 时，为 px，值范围：[0 4096]<br/>3. 在文字水印中，当 locMode 为 Relativity 时，为%，值范围：[0 100]；当 locMode 为 Absolute 时，为 px，值范围：[0 4096] |
+| Dy                  | Response.TemplateList.Watermark | 垂直偏移    | String    | 是   | 无  |1. 在图片水印中，如果 Background 为 true，当 locMode 为 Relativity 时，为%，值范围：[-300 0]；当 locMode 为 Absolute 时，为 px，值范围：[-4096 0] <br/> 2. 在图片水印中，如果 Background 为 false，当 locMode 为 Relativity 时，为%，值范围[0 100]；当 locMode 为 Absolute 时，为 px，值范围：[0 4096]<br/>3. 在文字水印中，当 locMode 为 Relativity 时，为%，值范围：[0 100]；当 locMode 为 Absolute 时，为 px 值范围：[0 4096] |
 | StartTime           | Response.TemplateList.<br/>Watermark | 水印开始时间 | String    | 否   | 0   | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
 | EndTime             | Response.TemplateList.<br/>Watermark | 水印结束时间 | String    | 否   | 视频结束时间  | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
 | Image               | Response.TemplateList.<br/>Watermark | 图片水印节点 | Container    | 否   | 无  | 无 |
@@ -130,20 +132,40 @@ Container 类型 Image 的具体数据描述如下：
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
 | Url                 | Response.TemplateList.<br/>Watermark.Image | 水印图地址   | String    | 是   | 无  | <li>水印图片地址 <br/><li>如果水印图片为私有对象时，请携带签名信息 |
 | Mode                 | Response.TemplateList.<br/>Watermark.Image | 尺寸模式    | String    | 是   | 无   | <li>Original：原有尺寸 <br/><li>Proportion：按比例 <br/><li>Fixed：固定大小 |
-| Width                | Response.TemplateList.<br/>Watermark.Image | 宽         | String    | 否   | 无   | <li>当 Mode 为 Original，水印图宽 <br/><li>当 Mode 为 Proportion，单位为%，值范围：[0 100]<br/><li>当 Mode 为 Fixed，单位为px，值范围：[128，4096]，若只设置 Width 时，按照视频原始比例计算 Height<br/> |
-| Height               | Response.TemplateList.<br/>Watermark.Image | 高         | String    | 否   | 无   | <li>当 Mode 为 Original，水印图高 <br/><li>当 Mode 为 Proportion，单位为%，值范围：[0 100]<br/><li>当 Mode 为 Fixed，单位为px，值范围：[128，4096]，若只设置 Height 时，按照视频原始比例计算 Width<br/>|
+| Width                | Response.TemplateList.<br/>Watermark.Image | 宽         | String    | 否   | 无   | <li>当 Mode 为 Original，水印图宽 <br/><li>当 Mode 为 Proportion，单位为%，背景图值范围：[100 300]；前景图值范围：[1 100]<br/><li>当 Mode 为 Fixed，单位为px，值范围：[8，4096]，若只设置 Width 时，按照视频原始比例计算 Height<br/> |
+| Height               | Response.TemplateList.<br/>Watermark.Image | 高         | String    | 否   | 无   | <li>当 Mode 为 Original，水印图高 <br/><li>当 Mode 为 Proportion，单位为%，背景图值范围：[100 300]；前景图值范围：[1 100]<br/><li>当 Mode 为 Fixed，单位为px，值范围：[8，4096]，若只设置 Height 时，按照视频原始比例计算 Width<br/>|
 | Transparency         | Response.TemplateList.<br/>Watermark.Image | 透明度      | String    | 是   | 无   | 值范围：[0 100]，单位% |
+| Background           | Request.Watermark.Image | 是否背景图   | String    | 否   | false   | true、false |
 
 
 Container 类型 Text 的具体数据描述如下：
 
 | 节点名称（关键字）     | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| FontSize            | Response.TemplateList.<br/>Watermark.Text | 字体大小    | String    | 是   | 无  | 值范围：[0 100]，单位px |
+| FontSize            | Response.TemplateList.<br/>Watermark.Text | 字体大小    | String    | 是   | 无  | 值范围：[0 100]，单位 px |
 | FontType            | Response.TemplateList.<br/>Watermark.Text | 字体类型    | String    | 是   | 无  | 参考下表  |
 | FontColor           | Response.TemplateList.<br/>Watermark.Text | 字体颜色    | String    | 是   | 无  | 格式：0xRRGGBB |
 | Transparency        | Response.TemplateList.<br/>Watermark.Text | 透明度      | String    | 是   | 无  | 值范围：[0 100]，单位%|
 | Text                | Response.TemplateList.<br/>Watermark.Text | 水印内容    | String    | 是   | 无  | 长度不超过64个字符，仅支持中文、英文、数字、_、-和*|
+
+Text 的 FontType 具体数据描述如下：
+
+| 字体名称               | 支持的语言             | 描述
+| ------------------     | -------                | ------
+| simfang.ttf            |  中/英                 | 仿宋
+| simhei.ttf             |  中/英                 | 黑体
+| simkai.ttf             |  中/英                 | 楷体
+| simsun.ttc             |  中/英                 | 宋体
+| STHeiti-Light.ttc      |  中/英                 | 华文黑体
+| STHeiti-Medium.ttc     |  中/英                 | 华文黑体中
+| youyuan.TTF            |  中/英                 | 幼圆
+| ariblk.ttf             |  英                    | 无
+| arial.ttf              |  英                    | 无
+| ahronbd.ttf            |  英                    | 无
+| Helvetica.dfont        |  英                    | 无
+| HelveticaNeue.dfont    |  英                    | 无
+
+
 
 #### 错误码
 
@@ -155,8 +177,8 @@ Container 类型 Text 的具体数据描述如下：
 
 ```shell
 GET /template?ids=A,B,C HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 0
 Content-Type: application/xml
 
@@ -171,10 +193,10 @@ Content-Length: 100
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 <Response>
-    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzh****=</RequestId>
+    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhf****</RequestId>
     <TotalCount>1</TotalCount>
     <PageNumber>1</PageNumber>
     <PageSize>10</PageSize>
@@ -212,8 +234,8 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
 
 ```shell
 GET /template?page_size=10&page_number=1 HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 0
 Content-Type: application/xml
 
@@ -228,10 +250,10 @@ Content-Length: 100
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 <Response>
-    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzh****=</RequestId>
+    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhf****</RequestId>
     <TotalCount>1</TotalCount>
     <PageNumber>1</PageNumber>
     <PageSize>10</PageSize>
