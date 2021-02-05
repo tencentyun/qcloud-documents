@@ -4,7 +4,7 @@
 ## 操作步骤
 创建 Custom Runtime 云函数前，需要创建运行时引导文件 [bootstrap](#bootstrap) 和 [函数处理文件](#hsfile)。
 
-### 创建 bootstrap 文件<span id="bootstrap"></span>
+### 创建 bootstrap 文件[](id:bootstrap)
 bootstrap 是运行时入口引导程序文件，Custom Runtime 加载函数时固定检索 bootstrap 同名文件，并执行该程序来启动 Custom Runtime 运行时。Custom Runtime 支持任意语言及版本开发运行函数，主要基于 bootstrap 引导程序由开发者自定义实现。其中，bootstrap 需具备以下条件：
  - 需具有可执行权限。
  - 能够在 SCF 系统环境（CentOS 7.6）中运行。
@@ -78,7 +78,7 @@ curl -d " " -X POST -s "http://$SCF_RUNTIME_API:$SCF_RUNTIME_API_PORT/runtime/in
 调用阶段日志及异常信息，请参见 [日志及异常](https://cloud.tencent.com/document/product/583/47274#.E6.97.A5.E5.BF.97.E5.8F.8A.E5.BC.82.E5.B8.B82)。
 
 
-### 创建函数处理文件<span id="hsfile"></span>
+### 创建函数处理文件[](id:hsfile)
 >? 函数处理文件包含函数逻辑的具体实现，执行方式及参数可以通过运行时自定义实现。
 >
 在命令行终端创建 index.sh。
@@ -112,7 +112,7 @@ $ zip demo.zip index.sh bootstrap
 
    
 
-### 使用 Serverless Framework 创建及发布函数<span id="Serverless"></span>
+### 使用 Serverless Framework 创建及发布函数[](id:Serverless)
 
 #### 创建函数
 
@@ -198,8 +198,8 @@ Echoing request:
 
 
 
-### 使用 SDK 创建及发布函数<span id="SDK"></span>
-#### 创建函数<span id="creat"></span>
+### 使用 SDK 创建及发布函数[](id:SDK)
+#### 创建函数[](id:creat)
 执行以下命令，通过 SCF 的 Python SDK 创建名为 CustomRuntime-Bash 的函数。
 ```
 from tencentcloud.common import credential
@@ -286,7 +286,7 @@ except TencentCloudSDKException as err:
     "RequestId": "3c32a636-****-****-****-d43214e161de"
 }
 ```
-### 使用控制台创建及发布函数<span id="KZT"></span>
+### 使用控制台创建及发布函数[](id:KZT)
 #### 创建函数
 1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，单击左侧导航栏的【函数服务】。
 2. 在“函数服务”页面上方选择期望创建函数的地域，并单击【新建】，进入函数创建流程。

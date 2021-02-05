@@ -201,3 +201,5 @@ xz-libs.i686                            4.999.9-0.5.beta.20091007git.el6
 	Macs hmac-sha1,umac-64@openssh.com,hmac-ripemd160,hmac-sha2-256,hmac-sha2-512
 2、不自动加载 nouveau 驱动。在使用 GPU 时，防止对 CUDA 驱动造成干扰。
 ```
+
+

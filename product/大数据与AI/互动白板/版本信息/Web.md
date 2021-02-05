@@ -1,23 +1,47 @@
+### 2.5.6 @ 2020.12.14
+* 链接地址：https://res.qcloudtiw.com/board/2.5.6/TEduBoard.min.js
+
+- 新增接口：
+    - 增加是否启用原生系统光标接口 setSystemCursorEnable
+        - 开启该功能后画笔图标和激光笔图标将使用系统的光标样式来实现，画笔图标和激光笔图标在本地会有一丢丢的流畅度提升。
+        - 开启该功能后会出现画笔图标和涂鸦有一点延迟现象，属于正常现象。
+        - 开启该功能 Mac 端在一些情况下会导致光标变成默认的鼠标指针，如消息弹窗等行为，属于正常现象。
+    - 增加设置画笔和激光笔工具的提示语接口 setToolTypeTitle
+    - 支持音频元素
+        - 新增音频 addElement
+        - 播放音频 playAudio
+        - 暂停音频 pauseAudio
+        - 跳转进度 seekAudio
+        - 是否启用音频控制面板 enableAudioControl
+- 新增特性：
+    - 点选和框选工具合并
+    - 激光笔和画笔支持多人
+- 体验优化：
+    - 选择工具，橡皮擦选中精度优化。
+
 ### 2.5.5 @ 2020.11.05
 * 链接地址：https://res.qcloudtiw.com/board/2.5.5/TEduBoard.min.js
 
 - 新增特性：
-    1. 新增文字工具预设文本内容 setNextTextInput
-    2. 优化白板缩放移动工具，支持鼠标滚轮缩放，焦点缩放，按 shift 键缩小等
-    3. 新增白板缩放工具图标 setZoomCursorIcon
-    4. TEduBoardToolType 新增自定义图形工具
-    5. TEduBoardElementType 新增自定义图形的元素类型
-    6. 新增白板放大后显示滚动条
+    - 新增文字工具预设文本内容 setNextTextInput
+    - 优化白板缩放移动工具，支持鼠标滚轮缩放，焦点缩放，按 shift 键缩小等
+    - 新增白板缩放工具图标] setZoomCursorIcon
+    - TEduBoardToolType 新增自定义图形工具
+    - TEduBoardElementType 新增自定义图形的元素类型
+    - 新增白板放大后显示滚动条
 - Bug 修复
-    1. Mac 端鼠标缓慢移除白板左边缘和上边缘，鼠标指针不隐藏的 bug
-    2. 修复偶现画笔不消失的 bug
+    - Mac 端鼠标缓慢移除白板左边缘和上边缘，鼠标指针不隐藏的 bug
+    - 修复偶现画笔不消失的 bug
+
+- 缩放移动工具使用说明：
     
+    ![](https://main.qcloudimg.com/raw/4b467dd838aaac65aa66d26a4c55572f.png)
 
 ### 2.5.4 @ 2020.10.15
 * 链接地址：https://res.qcloudtiw.com/board/2.5.4/TEduBoard.min.js
 
 - 新增工具类型
-    - 1. 新增正圆，正方形工具类，同时支持椭圆工具和矩形工具按 shift 键画正圆和正方形
+    - 新增正圆，正方形工具类，同时支持椭圆工具和矩形工具按 shift 键画正圆和正方形
 - 优化
     - 优化橡皮擦擦除箭头工具不精确的问题
 - Bug 修复

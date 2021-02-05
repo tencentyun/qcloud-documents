@@ -7,7 +7,7 @@
 	- ClusterRole 权限对象：可复用于多个命名空间授权 （Rolebinding）或为整个集群授权（ClusterRoleBinding）。
 - **授权对象（Subjects）**： 权限授予的主体对象，分别为 User、Group 和 ServiceAccount 三种类型主体。
 - **权限绑定（Rolebinding 或 ClusterRoleBinding）**： 将权限对象和授权对象进行组合绑定。其中：
-	- Rolebinding：作用于某个命名空间
+	- Rolebinding：作用于某个命名空间。
 	- ClusterRoleBinding：作用于整个集群。
 
 ![RBAC](https://main.qcloudimg.com/raw/4ec83327aca864ded5798c1018d39d8e.jpg)
@@ -35,7 +35,7 @@
 
 ### 方式1：作用于单个命名空间的权限绑定[](id:way1)
 
-此方式主要用于为某一个用户绑定某一个命名空间下的相关权限，适用于需要细化权限的场景，例如开发、测试、运维人员只能在各自的命名空间下对资源操作。以下将为您介绍如何在 TKE 中实现作用于单个命名空间的权限绑定。
+此方式主要用于为某一个用户绑定某一个命名空间下的相关权限，适用于需要细化权限的场景。例如，开发、测试、运维人员只能在各自的命名空间下对资源操作。以下将为您介绍如何在 TKE 中实现作用于单个命名空间的权限绑定。
 
 1. 使用以下 Shell 脚本，创建测试命名空间、ServiceAccount  类型的测试用户并设置集群访问凭证（token）认证 。示例如下：
 ```bash
@@ -71,7 +71,7 @@ rules: # 设置权限规则
   verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
 :::
 </dx-codeblock>
-4. 创建一个  RoleBinding 对象资源 sa-rb-test.yaml 文件。如下权限绑定表示，添加 ServiceAccount 类型的 sa-acc 用户在 sa-test 命名空间具有 sa-role-test（Role 类型）的权限。示例如下：
+4. 创建一个 RoleBinding 对象资源 sa-rb-test.yaml 文件。如下权限绑定表示，添加 ServiceAccount 类型的 sa-acc 用户在 sa-test 命名空间具有 sa-role-test（Role 类型）的权限。示例如下：
 <dx-codeblock>
 :::  yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -90,7 +90,7 @@ roleRef:
   apiGroup: ""  # 默认 apiGroup 组为 rbac.authorization.k8s.io
 :::
 </dx-codeblock>
-5. 执行以下命令进行验证。从下图验证结果可以得出，当 Context 为 sa-context 时，默认命名空间为 sa-test，  且拥有 sa-test 命名空间下 sa-role-test（Role）对象中配置的权限，但在 default 命名空间下不具有任何权限。
+5. 从下图验证结果可以得出，当 Context 为 sa-context 时，默认命名空间为 sa-test，且拥有 sa-test 命名空间下 sa-role-test（Role）对象中配置的权限，但在 default 命名空间下不具有任何权限。
 ![image-20201020111456470](https://main.qcloudimg.com/raw/237a717756c26ed8ed654851c2d7aa01.png)
 
 
@@ -144,7 +144,7 @@ rules:
   verbs: ["get", "watch", "list", "create"]
 :::
 </dx-codeblock>
-3. 创建一个  RoleBinding 对象资源 clusterrole-rb-test.yaml 文件，如下权限绑定表示，添加自签证书认证类型的 role_user 用户在 default 命名空间具有 test-clusterrole（ClusterRole 类型）的权限。示例如下：
+3. 创建一个 RoleBinding 对象资源 clusterrole-rb-test.yaml 文件，如下权限绑定表示，添加自签证书认证类型的 role_user 用户在 default 命名空间具有 test-clusterrole（ClusterRole 类型）的权限。示例如下：
 <dx-codeblock>
 :::  yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -163,7 +163,7 @@ roleRef:
   apiGroup: ""  # 默认 apiGroup 组为 rbac.authorization.k8s.io
 :::
 </dx-codeblock>
-4. 执行以下命令进行验证。从下图验证结果可以得出，当 Context 为 role_user 时，默认命名空间为 default，且拥有 test-clusterrole 权限对象配置的规则权限。
+4. 从下图验证结果可以得出，当 Context 为 role_user 时，默认命名空间为 default，且拥有 test-clusterrole 权限对象配置的规则权限。
 ![image-20201020114653469](https://main.qcloudimg.com/raw/2d57f7719b3f8d1b187b41943e396bd5.png)
 5. 创建第二个  RoleBinding 对象资源 clusterrole-rb-test2.yaml 文件，如下权限绑定表示，添加自签证书认证类型的 role_user 用户在 default2 命名空间具有 test-clusterrole（ClusterRole 类型）的权限。
 <dx-codeblock>
@@ -184,14 +184,14 @@ roleRef:
   apiGroup: ""  # 默认 apiGroup 组为 rbac.authorization.k8s.io
 :::
 </dx-codeblock>
-6. 执行以下命令进行验证。从下图验证结果可以得出，在 default2 命名空间下， role_user 同样拥有 test-clusterrole 配置的规则权限。至此通过上述步骤实现了多个命名空间复用集群权限的绑定。
+6. 从下图验证结果可以得出，在 default2 命名空间下， role_user 同样拥有 test-clusterrole 配置的规则权限。至此通过上述步骤实现了多个命名空间复用集群权限的绑定。
 ![image-20201020114512915](https://main.qcloudimg.com/raw/b948a35d0e49f1f99084b2cf8e6b7eb9.png)
 
 
 
 ### 方式3：整个集群权限的绑定[](id:way3)
 
-此方式主要用于为某个用户绑定所有命名空间下的权限（集群范围），适用于集群范围内授权的场景，例如日志收集权限、管理人员权限等，以下将为您介绍在如何在 TKE 中使用多个命名空间复用集群权限绑定授权。
+此方式主要用于为某个用户绑定所有命名空间下的权限（集群范围），适用于集群范围内授权的场景。例如，日志收集权限、管理人员权限等，以下将为您介绍在如何在 TKE 中使用多个命名空间复用集群权限绑定授权。
 
 1. 创建一个 ClusterRoleBinding 对象资源 clusterrole-crb-test3.yaml 文件，如下权限绑定表示，添加证书认证类型的 role_user 用户在整个集群具有 test-clusterrole（ClusterRole 类型） 的权限。
 <dx-codeblock>
@@ -211,7 +211,7 @@ roleRef:
   apiGroup: ""  # 默认 apiGroup 组为 rbac.authorization.k8s.io
 :::
 </dx-codeblock>
-2. 执行以下命令进行验证。从下图验证结果可以得出，应用了权限绑定的 YAML 后，role_user 拥有集群范围的 test-clusterrole 权限。
+2. 从下图验证结果可以得出，应用了权限绑定的 YAML 后，role_user 拥有集群范围的 test-clusterrole 权限。
 ![image-20201020141737129](https://main.qcloudimg.com/raw/5f3415f45bac5b622264fd4929e104a5.png)
 
 

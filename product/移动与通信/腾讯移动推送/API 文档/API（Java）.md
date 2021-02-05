@@ -8,9 +8,9 @@ Maven  依赖引用方式：
 
 ```
 <dependency>
-            <groupId>com.github.xingePush</groupId>
-            <artifactId>xinge</artifactId>
-            <version>1.2.4</version>
+				<groupId>com.github.xingePush</groupId>
+				<artifactId>xinge</artifactId>
+				<version>1.2.4.2</version>
 </dependency>
 ```
 
@@ -22,7 +22,7 @@ Maven  依赖引用方式：
 
 | 参数名         | 类型    | 必需 | 默认值                     | 参数描述                                                     |
 | -------------- | ------- | ---- | -------------------------- | ------------------------------------------------------------ |
-| appId          | Integer | 是   | 无                         | 推送目标 accessID（可在 [产品管理](https://console.cloud.tencent.com/tpns) 页面获取） |
+| appId          | String | 是   | 无                         | 推送目标 accessID（可在 [产品管理](https://console.cloud.tencent.com/tpns) 页面获取） |
 | secretKey      | String  | 是   | 无                         | 推送密钥                                                     |
 | proxy          | Proxy   | 否   | Proxy.NO\_PROXY            | 如果需要设置代理可以设定该参数                               |
 | connectTimeOut | Integer | 否   | 10s                        | 链接超时时间设置                                             |

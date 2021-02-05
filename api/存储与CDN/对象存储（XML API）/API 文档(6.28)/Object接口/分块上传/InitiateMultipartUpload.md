@@ -43,7 +43,7 @@ Authorization: Auth String
 
 | 名称                     | 描述                                                         | 类型   | 是否必选 |
 | ------------------------ | ------------------------------------------------------------ | ------ | -------- |
-| x-cos-acl                | 定义对象的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中对象的预设 ACL 部分，例如 default，private，public-read 等，默认为 default<br>**注意：**当前访问策略条目限制为1000条，如果您不需要进行对象 ACL 控制，请设置为 default 或者此项不进行设置，默认继承存储桶权限 | Enum   | 否       |
+| x-cos-acl                | 定义对象的访问控制列表（ACL）属性。枚举值请参见 [ACL 概述](https://cloud.tencent.com/document/product/436/30752#.E9.A2.84.E8.AE.BE.E7.9A.84-acl) 文档中对象的预设 ACL 部分，例如 default，private，public-read 等，默认为 default。<br>**注意：**如果您不需要进行对象 ACL 控制，请设置为 default 或者此项不进行设置，默认继承存储桶权限 | Enum   | 否       |
 | x-cos-grant-read         | 赋予被授权者读取对象的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
 | x-cos-grant-read-acp     | 赋予被授权者读取对象的访问控制列表（ACL）的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
 | x-cos-grant-write-acp    | 赋予被授权者写入对象的访问控制列表（ACL）的权限，格式为 id="[OwnerUin]"，例如 id="100000000001"，可使用半角逗号（,）分隔多组被授权者，例如`id="100000000001",id="100000000002"` | string | 否       |
@@ -71,11 +71,12 @@ Authorization: Auth String
 
 请求成功，返回 **application/xml** 数据，包含分块上传初始化信息。
 
-```xml
+
+```
 <InitiateMultipartUploadResult>
-	<Bucket>string</Bucket>
-	<Key>string</Key>
-	<UploadId>string</UploadId>
+       <Bucket>string</Bucket>
+       <Key>string</Key>
+       <UploadId>string</UploadId>
 </InitiateMultipartUploadResult>
 ```
 
@@ -124,10 +125,12 @@ Date: Wed, 25 Mar 2020 10:07:01 GMT
 Server: tencent-cos
 x-cos-request-id: NWU3YjJkNDVfNDliNTJhMDlfYzZhMl8yOTVj****
 
+
+
 <InitiateMultipartUploadResult>
-	<Bucket>examplebucket-1250000000</Bucket>
-	<Key>exampleobject</Key>
-	<UploadId>1585130821cbb7df1d11846c073ad648e8f33b087cec2381df437acdc833cf654b9ecc6361</UploadId>
+			<Bucket>examplebucket-1250000000</Bucket>
+			<Key>exampleobject</Key>
+			<UploadId>1585130821cbb7df1d11846c073ad648e8f33b087cec2381df437acdc833cf654b9ecc6361</UploadId>
 </InitiateMultipartUploadResult>
 ```
 
@@ -160,10 +163,12 @@ Date: Thu, 28 May 2020 08:35:34 GMT
 Server: tencent-cos
 x-cos-request-id: NWVjZjc3ZDZfOThjMjJhMDlfMjg5N18zNWYy****
 
+
+
 <InitiateMultipartUploadResult>
-	<Bucket>examplebucket-1250000000</Bucket>
-	<Key>exampleobject</Key>
-	<UploadId>1590654934dfb1343b4323b711afc22569c18af51596d4f2e40faf392fe1bb469c5b77115f</UploadId>
+			<Bucket>examplebucket-1250000000</Bucket>
+			<Key>exampleobject</Key>
+			<UploadId>1590654934dfb1343b4323b711afc22569c18af51596d4f2e40faf392fe1bb469c5b77115f</UploadId>
 </InitiateMultipartUploadResult>
 ```
 
@@ -194,10 +199,12 @@ Server: tencent-cos
 x-cos-request-id: NWVjZjc5Y2VfZjhjODBiMDlfMjIyOGFfMzYxYWVm****
 x-cos-server-side-encryption: AES256
 
+
+
 <InitiateMultipartUploadResult>
-	<Bucket>examplebucket-1250000000</Bucket>
-	<Key>exampleobject</Key>
-	<UploadId>15906554384f160dd0a272ebb6fbcdb0ffbb61adb2b46fa6b9f2ffabcfb2940b8f72277952</UploadId>
+			<Bucket>examplebucket-1250000000</Bucket>
+			<Key>exampleobject</Key>
+			<UploadId>15906554384f160dd0a272ebb6fbcdb0ffbb61adb2b46fa6b9f2ffabcfb2940b8f72277952</UploadId>
 </InitiateMultipartUploadResult>
 ```
 
@@ -231,12 +238,15 @@ x-cos-request-id: NWVjZjc5ZTNfMmZiOTJhMDlfMzJlNDJfMjkzNGJi****
 x-cos-server-side-encryption: cos/kms
 x-cos-server-side-encryption-cos-kms-key-id: 48ba38aa-26c5-11ea-855c-52540085****
 
+
+
 <InitiateMultipartUploadResult>
-	<Bucket>examplebucket-1250000000</Bucket>
-	<Key>exampleobject</Key>
-	<UploadId>15906554607990121702e8e4b706eb0f12b8568a3f3b0b76b884e4df676ed50291f0b17131</UploadId>
+			<Bucket>examplebucket-1250000000</Bucket>
+			<Key>exampleobject</Key>
+			<UploadId>15906554607990121702e8e4b706eb0f12b8568a3f3b0b76b884e4df676ed50291f0b17131</UploadId>
 </InitiateMultipartUploadResult>
 ```
+
 
 #### 案例五：使用服务端加密 SSE-C
 
@@ -268,9 +278,11 @@ x-cos-request-id: NWVjZjc5ZjlfOGJjOTJhMDlfNzJmYV8xOTcy****
 x-cos-server-side-encryption-customer-algorithm: AES256
 x-cos-server-side-encryption-customer-key-MD5: U5L61r7jcwdNvT7frmUG8g==
 
+
+
 <InitiateMultipartUploadResult>
-	<Bucket>examplebucket-1250000000</Bucket>
-	<Key>exampleobject</Key>
-	<UploadId>15906554815fb0c8bda2edae20d895ad7452e949bf51541b31ca14a029fb6f1617f10ca186</UploadId>
+			<Bucket>examplebucket-1250000000</Bucket>
+			<Key>exampleobject</Key>
+			<UploadId>15906554815fb0c8bda2edae20d895ad7452e949bf51541b31ca14a029fb6f1617f10ca186</UploadId>
 </InitiateMultipartUploadResult>
 ```

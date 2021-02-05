@@ -13,8 +13,8 @@ Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果
 
 ## 操作步骤
 
-<span id="ManualDown"></span>
-### 手工下载 cloud-init 源码包方式
+
+### 手工下载 cloud-init 源码包方式[](id:ManualDown)
 
 #### 下载 cloud-init 源码包
 >?  
@@ -89,6 +89,8 @@ useradd syslog
 
 #### 设置 cloud-init 服务开机自启动
 - **若操作系统是 systemd 自启动管理服务，则执行以下命令进行设置。**
+>?您可执行 `strings /sbin/init | grep "/lib/system"` 命令，若有返回信息，则操作系统是 systemd 自启动管理服务。
+>
  1. **针对 Ubuntu 或 Debian 操作系统，需执行以下命令。**
 ```
  ln -s /usr/local/bin/cloud-init /usr/bin/cloud-init 
@@ -158,6 +160,8 @@ StandardOutput=journal+console
 WantedBy=cloud-init.target
 ```
 - **若操作系统是 sysvinit 自启动管理服务，则执行以下命令进行设置。**
+>?您可执行 `strings /sbin/init | grep "sysvinit"` 命令，若有返回信息，则操作系统是 sysvinit 自启动管理服务。
+>
 ```
 chkconfig --add cloud-init-local
 chkconfig --add cloud-init

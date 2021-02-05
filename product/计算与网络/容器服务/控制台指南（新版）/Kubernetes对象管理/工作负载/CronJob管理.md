@@ -33,7 +33,7 @@ Cron 格式说明如下：
  - Job设置
     - 重复次数：Job 管理的 Pod 需要重复执行的次数。
     - 并行度：Job 并行执行的 Pod 数量。
-    - 失败重启策略：Pod下容器异常推出后的重启策略。
+    - 失败重启策略：Pod下容器异常退出后的重启策略。
         - Never：不重启容器，直至 Pod 下所有容器退出。
         - OnFailure：Pod 继续运行，容器将重新启动。
  - 实例内容器：根据实际需求，为 CronJob 的一个 Pod 设置一个或多个不同的容器。
@@ -55,7 +55,7 @@ Cron 格式说明如下：
 
 ## Kubectl 操作 CronJob 指引
 
-<span id="YAMLSample"></span>
+[](id:YAMLSample)
 ### YAML 示例
 
 ```Yaml

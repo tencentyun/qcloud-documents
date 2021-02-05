@@ -242,6 +242,8 @@ $install_path eth0
    dhclient -6 或 dhclient -6 网卡名称
    ifconfig
    ```
+  >?如果 dhclient 获取地址失败，检查 cvm 内的防火墙/ip6tables 是否允许了 udp 546和547端口的 dhcp 协议报文。
+  >
  若出现以下报文说明成功获取 IPv6 地址。
  ![](https://main.qcloudimg.com/raw/cedd7cbd7f5e649c01345356fa0d2688.png) 
 10. 请参考 [SSH 支持 IPv6 配置](#ssh-ipv6) 为 SSH 开启 IPv6 功能。
@@ -317,6 +319,8 @@ $install_path eth0
    dhclient -6 或 dhclient -6 网卡名称
    ifconfig
    ```
+   >?如果 dhclient 获取地址失败，检查 cvm 内的防火墙/ip6tables 是否允许了 udp 546和547端口的 dhcp 协议报文。
+   >
 若出现以下报文表示已成功获取到 IPv6 地址。
 ![](https://main.qcloudimg.com/raw/2e42f1a5e7b9672d60461fe05edfed52.png)
 10. 请参考 [SSH 支持 IPv6 配置](#ssh-ipv6) 为 SSH 开启 IPv6 功能。
@@ -357,6 +361,8 @@ $install_path eth0
    ifconfig
    若出现以下保存证明成功获取 IPv6 地址。
    ```
+   >?如果 dhclient 获取地址失败，检查 cvm 内的防火墙/ip6tables 是否允许了 udp 546和547端口的 dhcp 协议报文。
+   >
 ![](https://main.qcloudimg.com/raw/cd5a2072c73307c79b7997bbd24cec13.png)
 6. Debian 8.2 系统默认为 ssh（22端口）开启 IPv6 监听，无需特殊配置，您可执行如下命令，进行查看。
  ```plaintext

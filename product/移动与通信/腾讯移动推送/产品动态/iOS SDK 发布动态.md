@@ -1,3 +1,27 @@
+## 2021年01月
+
+<table>
+ <tr>
+ <th width=20%>动态名称 </th>
+ <th width=44%>动态描述 </th>
+ <th width=16%>发布时间 </th>
+ <th width=20%>相关文档 </th>
+ </tr>
+ <tr>
+ <td>SDK 1.3.0.0 版本发布 </td>
+ <td> <li> 修复：多线程时和低内存下的小概率 crash 的问题
+<li>优化：减少不必要的 MQTT 网络超时检测
+<li>优化：“抵达”的上报支持更高性能的方式
+<li>优化：减少“应用内消息”插件包体积
+<li>优化：对获取 TPNS token 的请求进行加密
+<li> 增加：账号、标签、用户属性接口的参数检查逻辑和错误回调
+<li>删除：账号类型枚举，由业务自己定义 </td>
+ <td>2021-01-25 </td>
+ <td> <a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载 </a> </li> </td>
+ </tr>
+ </table>
+
+
 ## 2020年11月
 
 <table>
@@ -23,7 +47,7 @@
  <li>增加：对 IPv6 的支持
  <li>删除：对免费版的兼容代码 </td>
  <td>2020-11-25 </td>
- <td> <a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载 </a> </li> </td>
+ <td> - </td>
  </tr>
  </table>
 

@@ -9,17 +9,18 @@ Linux x86_64 平台的 TcaplusServiceAPI 发布包包含64位 Linux 版本的 tc
 
 | 版本          | 发布时间   | 操作系统     | 下载包名                                                     |
 | ------------- | ---------- | ------------ | ------------------------------------------------------------ |
-| 3.36.0.192960 | 2020/04/21 | Linux x86_64 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/3.36.0.192960/TcaplusPbApi3.36.0.192960.x86_64_release_20200115.tar.gz) |
+| 3.46.0.199033 | 2020/12/28 | Linux x86_64 | [下载](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/release/3-46/TcaplusPbApi3.46.0.199033.x86_64_release_20201210.tar.gz) |
 
-
->?相关操作需要在用户腾讯云账号下申请的同 VPC 网络，同子网的云服务器 CVM 中进行。
+>?
+>- 相关操作需要在用户腾讯云账号下申请的同 VPC 网络、同子网的云服务器 CVM 中进行。
+>- 旧版本 3.36.0.192960，可通过 [该地址](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/3.36.0.192960/TcaplusPbApi3.36.0.192960.x86_64_release_20200115.tar.gz) 下载。
 
 ### 安装客户端
 下载完成 TcaplusServiceApi 安装包后，将其 [通过上传工具](https://cloud.tencent.com/document/product/213/39138) 上传至与 TcaplusDB 集群同一VPC，同一子网的云服务器中。
 
 1. 上传完成后，执行下列命令解压安装包。
 ```
-tar -xf TcaplusServiceApi3.32.0.191008.x86_64_release_20190409.tar.gz -C tcaplus
+tar -xf TcaplusPbApi3.46.0.199033.x86_64_release_20201210.tar.gz -C tcaplus
 ```
 2. 解压完成后，进入至 tcaplus 的 bin 目录中，并赋予可执行权限：
 ```
@@ -31,20 +32,31 @@ chmod +x tcaplus_client
 
 
 ```
-# ./tcaplus_client
+## ./tcaplus_client
 --------------------------------------------------------------------------------
  invalid parameters, please start the client as following:
+
     ./tcaplus_client -a app_id -z zone_id -s signature -d dir_server_url [-t table_name] [-l log_file.xml] [-T tdr_file.tdr] [-e execute_command]
-    the params in [] are optional, and theire order is not important.
-    -a(--ap_id)    App ID
+
+    the params in [] are optional, and their order is not important.
+
+    -a(--ap_id)    APP ID
+
     -z(--zone_id)    ZONE ID
-	-s(--signature)    PASSWORD
+
+    -s(--signature)    PASSWORD
+
     -d(--dir)    dir server addr
+
     -t(--table)    table to add
+
     -l(--log)    log file name that must be client_log.xml, and log class name be client
+
     -T(--tdr)    tdr filename 
-    -e(--execute)    content following should be with qoutes.
-    e.g. ./tcaplus_client -a 2 -z 3 -s "test@Password1" -d 172.xx.xx.181:9999 -T table_test.tdr 
+
+    -e(--execute)    SQL command need to execute, the content should be in quotes.
+
+    e.g. ./tcaplus_client -a 2 -z 3 -s "FE6533875C8385C3" -d 172.25.40.181:9999 -T table_test.tdr -e "select a, b from table where key = 1;" 
 --------------------------------------------------------------------------------
 ```
 
@@ -88,20 +100,18 @@ tcaplus>help
 ```
 
 ### 参数说明
-
-| 参数     | 说明                                         | 是否必填 |
-| ---- | -------------------------------------------- | -------- |
-| -a   | 业务 ID                                       | 是       |
-| -z   | 游戏区 ID                                     | 是       |
-| -s   | 业务密码                                     | 是       |
-| -d   | 目录服务器 IP 地址及端口                       | 是       |
-| -t   | 表格名                                       | 否       |
+| 参数 | 说明                                          | 是否必填 |
+| ---- | --------------------------------------------- | -------- |
+| -a   | 接入 ID                                       | 是       |
+| -z   | 表格组 ID                                     | 是       |
+| -s   | 集群密码                                      | 是       |
+| -d   | 集群 IP 地址及端口                            | 是       |
+| -t   | 表格名                                        | 否       |
 | -l   | 日志文件输出设置，文件名必须是 client_log.xml | 否       |
 | -T   | tdr 文件路径                                  | 否       |
-| -e   | 需要执行的 SQL 语句                            | 否       |
-| -v   | 版本查询                                     | 否       |
-| <    | 重定向 SQL 语句到 client 执行                    | 否       |
-
+| -e   | 需要执行的 SQL 语句                           | 否       |
+| -v   | 版本查询                                      | 否       |
+| <    | 重定向 SQL 语句到 client 执行                 | 否       |
 
 ### 连接 TcaplusDB（使用 TDR）
 如果需要使用 using tdr，必须在 client 启动参数中添加 TDR 文件路径，可通过 [TDR 工具](#tdrgj) 把多个 XML 格式的元数据描述库转换成二进制格式。如果多个 XML 文件之间存在依赖关系，则被依赖的 XML 文件必须放在参数表前面。
@@ -125,8 +135,7 @@ tcaplus > exit
 -------------------------------------------
 ```
 
-<span id = "tdrgj"></span>
-#### TDR 工具
+#### [TDR 工具](id:tdrgj)
 TDR 文件需要使用 TDR 工具生成，其主要是由数据定义文件（TDR 结构 xml 格式）生成，[工具下载地址](https://tcaplusdb-sdk-1301716906.cos.ap-shanghai.myqcloud.com/tdr)。
 
 使用示例：

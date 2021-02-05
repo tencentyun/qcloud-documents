@@ -54,7 +54,7 @@ Container 节点 Response 的内容：
 | 节点名称（关键字） | 父节点   | 描述             | 类型   |
 | :----------------- | :------- | :--------------- | :----- |
 | RequestId          | Response | 请求的唯一 ID     | String |
-| TemplateId         | Response | 被删除的模版的 ID | String |
+| TemplateId         | Response | 被删除的模板的 ID | String |
 
 #### 错误码
 
@@ -66,8 +66,8 @@ Container 节点 Response 的内容：
 
 ```shell
 DELETE /template/A HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 0
 Content-Type: application/xml
 
@@ -82,10 +82,10 @@ Content-Length: 100
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 <Response>
-    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzh****=</RequestId>
+    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhf****</RequestId>
     <TemplateId>A</TemplateId>
 <Response>
 ```

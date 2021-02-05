@@ -70,7 +70,7 @@ DeScheduler  基于 [社区版本 Descheduler](https://github.com/kubernetes-sig
 ### 依赖部署[](id:DeScheduler)
 
 DeScheduler 组件依赖于 Node 当前和过去一段时间的真实负载情况来进行调度决策，需要通过 Prometheus 等监控组件获取系统 Node 真实负载信息。在使用 DeScheduler 组件之前，您可以采用自建 Prometheus 监控或采用 TKE 云原生监控。
-<span id="rules"></span>
+[](id:rules)
 <dx-tabs>
 ::: 自建\sPrometheus\s监控服务
 #### 部署 node-exporter 和 Prometheus
