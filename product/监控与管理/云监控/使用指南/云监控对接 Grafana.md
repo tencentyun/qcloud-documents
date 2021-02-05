@@ -43,14 +43,11 @@ docker-compose up
 
 腾讯云监控应用插件通过调用[云监控 API](https://cloud.tencent.com/document/product/248/30342) 的方式获取各云产品的监控指标数据，通过以下步骤，配置相应云产品的数据源。    
 
-1. 鼠标悬浮左侧导航栏的 **齿轮** 图标，点击 `Data Sources` 选项，进入数据源管理页面。
+1. 鼠标悬浮左侧导航栏的【齿轮】图标，，单击【Data Sources】，进入数据源管理页面。
    ![Datasource Add](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/blob/master/src/image/datasource-add.png?raw=true)
-
 2. 点击右上角的 `Add data source` 按钮，然后点击 `Tencent Cloud Monitor Datasource` 数据源，进入数据源配置页面；
    ![Datasource Add](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/blob/master/src/image/datasource-choose.png?raw=true)
-
-   配置项说明如下。
-
+   配置项说明如下：
    - `Name` 数据源名称，可以是任意名称，默认为 Tencent Cloud Datasource；  
    - SecretId` 和 `SecretKey` 是调用云监控 API 必需的安全证书信息，二者可以通过腾讯云控制台 [云 API 密钥页面](https://console.cloud.tencent.com/capi) 获取；
    - 选择需要获取监控数据的云产品；  
