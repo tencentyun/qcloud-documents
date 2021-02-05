@@ -13,15 +13,15 @@
 
 [](id:step2)
 ### 步骤2：下载源码
-1. 鼠标移动至对应卡片，根据实际业务需求下载 SDK 及配套的 Demo 源码。
-2. 下载完成后，单击【已下载，下一步】
+1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
+2. 下载完成后，单击【已下载，下一步】。
 ![](https://main.qcloudimg.com/raw/438bd587b278c7494463f6e21b34298a.png)
 
 [](id:step3)
 ### 步骤3：修改配置
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
 2. 找到并打开相应的文件，将生成的 SDKAppID 和密钥粘贴到指定的位置。
-3. 粘贴完成后，单击【已复制粘贴，下一步】即可开始 [编译运行](#step4) Demo。
+3. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 
 ![](https://main.qcloudimg.com/raw/5cde8feaf68cfdebac2f74b82c38e137.png)
 >!密钥为敏感信息，请注意保密，不要泄露。
@@ -37,4 +37,4 @@
 - [跑通 Demo（小程序）](https://cloud.tencent.com/document/product/647/32399)
 - [跑通 Demo（Flutter）](https://cloud.tencent.com/document/product/647/51601)
 
-编译完成后，单击【关闭指引，进入控制台管理应用】即可。
+编译完成后，单击【回到控制台概览】即可。
