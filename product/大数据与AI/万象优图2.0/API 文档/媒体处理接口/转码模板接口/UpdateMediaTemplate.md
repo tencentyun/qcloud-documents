@@ -202,9 +202,9 @@ Container 节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
-| TemplateId         | Response | 模版 ID                                                      | String    |
-| Name               | Response | 模版名字                                                     | String    |
-| Tag                | Response | 模版类型，Transcode                                          | String    |
+| TemplateId         | Response | 模板 ID                                                      | String    |
+| Name               | Response | 模板名字                                                     | String    |
+| Tag                | Response | 模板类型，Transcode                                          | String    |
 | UpdateTime         | Response | 更新时间                                                     | String    |
 | TimeInterval       | Response | 同请求体中 Request.TimeInterval | Container |
 | Container          | Response | 同请求体中 Request.Container    | Container |
