@@ -23,19 +23,20 @@
 
 
 
-## 步骤1：安装
+## 步骤1：安装插件
 
-### 插件安装方式
+
 
 1. 将本地的 Grafana 升级到 6.x 版本或更新的版本。
 2. 在 [Releases](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/releases) 中下载最新版本的腾讯云监控应用插件代码（资源名为 `tencentcloud-monitor-app-1.x.x.zip`），并将解压后的代码放置在 Grafana 的 `${GRAFANA_HOME}/data/plugins` 目录。
 3. 重启 Grafana 服务。
 4. 在左侧导航栏中选择【<img src="https://main.qcloudimg.com/raw/3bf76c69408a80aa0859d9e2f81a1340.jpg" width="2%"></img>】>【Plugins】，进入 Plugins 管理页面，如果插件列表中正常显示 `Tencent Cloud Monitor` APP 插件，表示插件安装成功。如下图所示：
-![](https://main.qcloudimg.com/raw/fafe4bb02bc8a5c5d050788a4cfa5d86.png)
+<img src="https://main.qcloudimg.com/raw/fafe4bb02bc8a5c5d050788a4cfa5d86.png" width="50%"></img>
 5. 进入应用详情页面，单击【Enable】，启用成功后，即可在 Grafana 中使用腾讯云监控应用插件。
 
 
-### 配置支持 Docker
+
+#### 配置支持 Docker
 
 1. 为更快地开发与测试，需添加 docker-compose.yml 文件，执行以下命令：
 ```plaintext
@@ -109,16 +110,16 @@ docker-compose up
 ### CDB 云数据库 MySQL 监控
 
 1. 单击 **New Panel** 面板的【Add Query】，进入 Panel 配置页面。在左侧第一个 【Queries】 选项卡，通过配置选项获取腾讯云数据库 MySQL 的监控数据。
-2. `Queries to` 数据源列表，选择已配置的包含CDB监控服务的腾讯云监控数据源。
-3. 配置项的内容对齐腾讯云数据库MySQL监控接口的输入参数，可参考 [云数据库 MySQL 监控接口文档](https://cloud.tencent.com/document/api/248/30386)，更好地理解各配置项。
+2. `Queries to` 数据源列表，选择已配置的包含 CDB 监控服务的腾讯云监控数据源。
+3. 配置项的内容对齐腾讯云数据库 MySQL 监控接口的输入参数，可参考 [云数据库 MySQL 监控接口文档](https://cloud.tencent.com/document/api/248/30386)，更好地理解各配置项。
    - **Namespace**：命名空间，云服务器监控的命名空间为 `QCE/CDB`。
    - **Region**：地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
    - **MetricName**：指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
    - **Period**：监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
    - **Instance**：实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
-     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As InstanceId`，以 **实例ID** 展示实例列表。此外，可以选择 `As InstanceName` 实例名称、 `As Vip` 内网IP。
+     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As InstanceId`，以 **实例ID** 展示实例列表。此外，可以选择 `As InstanceName` 实例名称、 `As Vip` 内网 IP。
      - 实例列表的获取可参考云数据库 MySQL [查询实例列表](https://cloud.tencent.com/document/product/236/15872) 文档。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参考接口文档，配置相应参数。
-     - **注意：** 在本应用中，监控数据的单次查询为原子操作，即查询某一实例的某一指标的监控数据，故实例只能单选，如需查询多实例的监控数据，点击右上角的 `Add Query` 增加新的查询。  
+    >!在本应用中，监控数据的单次查询为原子操作，即查询某一实例的某一指标的监控数据，故实例只能单选，如需查询多实例的监控数据，单击右上角的 `Add Query` 增加新的查询。  
 
 ![](https://main.qcloudimg.com/raw/2d4f491c842df18c96f7025d090f4153.png)
 
@@ -181,7 +182,7 @@ docker-compose up
 ![](https://main.qcloudimg.com/raw/5a1747fe167cdb00fdb0e3172cccfc9e.png)
 
 
-## 应用变量
+#### 应用变量
 
 创建变量后，在 Dashboard 页面的左上角会展示变量选择框，可以切换变量值。变量有两种引用语法，`$varname` 和 `[[varname]]`。变量常用于 Panel 的查询语句中，以云服务器单机监控 Dashboard 为例，展示如何在查询中使用变量，如下图所示。此外，变量还可以应用在 Panel 标题、Text 文本面板等。
 ![](https://main.qcloudimg.com/raw/1fb3b205cf0c64e51de7f3a69047ed7f.png)
