@@ -1,5 +1,4 @@
-﻿当VPN通道不再使用时，您可以执行删除操作。
-
+当 VPN 通道不再使用时，您可以执行删除操作。
 
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
