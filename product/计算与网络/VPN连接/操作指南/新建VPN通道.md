@@ -97,33 +97,87 @@ VPN 通道的建立包括以下配置信息：
 
 ![](https://main.qcloudimg.com/raw/641121e50364a1a40b4b3643a20703c1.png)
 7. 单击【下一步】，进入【 IKE配置（可选）】界面，如不需要高级配置，可直接单击【下一步】。
-<style> table th:first-of-type { width: 150px; } </style>
+<table>
+<tr>
+<th width="20%">配置项</th>
+<th>说明</th>
+</tr>
+<tr>
+<td>版本</td>
+<td>IKE V1、IKE V2</td>
+</tr>
+<tr>
+<td>身份认证方法</td>
+<td>默认预共享密钥</td>
+</tr>
+<tr>
+<td>加密算法</td>
+<td>加密算法支持 AES-128、AES-192、AES-256、3DES、DES</td>
+</tr>
+<tr>
+<td>认证算法</td>
+<td>身份认证算法，支持 MD5 和 SHA1</td>
+</tr>
+<tr>
+<td>协商模式</td>
+<td>支持 main（主模式）和 aggressive（野蛮模式）<br/>二者的不同之处在于，aggressive 模式可以用更少的包发送更多信息，可以快速建立连接，但是是以清晰的方式发送安全网关的身份。使用 aggressive 模式时，配置参数如 Diffie-Hellman 和 PFS 不能进行协商，要求两端拥有兼容的配置</td>
+</tr>
+<tr>
+<td>本端标识</td>
+<td>支持 IP Address 和 FQDN（全称域名），默认IP Address</td>
+</tr>
+<tr>
+<td>对端标识</td>
+<td>支持 IP Address 和 FQDN ，IP Address</td>
+</tr>
+<tr>
+<td>DH group</td>
+<td>指定 IKE 交换密钥时使用的 DH 组，密钥交换的安全性随着 DH 组的扩大而增加，但交换的时间也增加了<br/>DH1：采用 768-bit 模指数（Modular Exponential，MODP ）算法的 DH 组<br/> DH2：采用 1024-bit MODP 算法的 DH 组<br/> DH5：采用 1536-bit MODP 算法的 DH 组<br/>DH14：采用 2048-bit MODP 算法，不支持动态 VPN 实现此选项<br/>DH24：带 256 位的素数阶子群的 2048-bit MODP算法 DH 组，不支持组 VPN 实现此选项</td>
+</tr>
+<tr>
+<td>IKE SA Lifetime</td>
+<td>单位：秒<br/>设置 IKE 安全提议的 SA 生存周期，在设定的生存周期超时前，会提前协商另一个 SA 来替换旧的 SA。在新的 SA 还没有协商完之前，依然使用旧的 SA；在新的 SA 建立后，将立即使用新的 SA，而旧的 SA 在生存周期超时后，被自动清除</td>
+</tr>
+</table>
 
-| 配置项             | 说明                                       |
-| --------------- | ---------------------------------------- |
-| 版本              | IKE V1、IKE V2                                   |
-| 身份认证方法          | 默认预共享密钥                                  |
-| 加密算法            | 加密算法支持 AES-128、AES-192、AES-256、3DES、DES  |
-| 认证算法            | 身份认证算法，支持 MD5 和 SHA1         |
-| 协商模式            | 支持 main（主模式）和 aggressive（野蛮模式）<br/>二者的不同之处在于，aggressive 模式可以用更少的包发送更多信息，可以快速建立连接，但是是以清晰的方式发送安全网关的身份。使用 aggressive 模式时，配置参数如 Diffie-Hellman 和 PFS 不能进行协商，要求两端拥有兼容的配置 |
-| 本端标识            | 支持 IP Address 和 FQDN（全称域名），默认IP Address              |
-| 对端标识            | 支持 IP Address 和 FQDN ，IP Address                    |
-| DH group        | 指定 IKE 交换密钥时使用的 DH 组，密钥交换的安全性随着 DH 组的扩大而增加，但交换的时间也增加了<br/>DH1：采用 768-bit 模指数（Modular Exponential，MODP ）算法的 DH 组<br/> DH2：采用 1024-bit MODP 算法的 DH 组<br/> DH5：采用 1536-bit MODP 算法的 DH 组<br/>DH14：采用 2048-bit MODP 算法，不支持动态 VPN 实现此选项<br/>DH24：带 256 位的素数阶子群的 2048-bit MODP算法 DH 组，不支持组 VPN 实现此选项 |
-| IKE SA Lifetime | 单位：秒<br/>设置 IKE 安全提议的 SA 生存周期，在设定的生存周期超时前，会提前协商另一个 SA 来替换旧的 SA。在新的 SA 还没有协商完之前，依然使用旧的 SA；在新的 SA 建立后，将立即使用新的 SA，而旧的 SA 在生存周期超时后，被自动清除 |
-
-![](https://main.qcloudimg.com/raw/cb7acde379a0aafb5d4b28dfe759c683.png)
+ ![](https://main.qcloudimg.com/raw/cb7acde379a0aafb5d4b28dfe759c683.png)
 8.  进入【 IPsec配置（可选）】界面，如果不需要高级配置，可直接单击【完成】。
-<style> table th:first-of-type { width: 150px; } </style>
+<table>
+<tr>
+<th width="22%">配置项</th>
+<th>说明</th>
+</tr>
+<tr>
+<td>加密算法</td>
+<td>支持 3DES、AES-128、AES-192、AES-256</td>
+</tr>
+<tr>
+<td>认证算法</td>
+<td>支持 MD5 和 SHA1</td>
+</tr>
+<tr>
+<td>报文封装模式</td>
+<td>Tunnel</td>
+</tr>
+<tr>
+<td>安全协议</td>
+<td>ESP</td>
+</tr>
+<tr>
+<td>PFS</td>
+<td>支持 disable、DH-GROUP1、DH-GROUP2、DH-GROUP5、DH-GROUP14 和 DH-GROUP24</td>
+</tr>
+<tr>
+<td>IPsec SA lifetime(s)</td>
+<td>单位：s</td>
+</tr>
+<tr>
+<td>IPsec SA lifetime(KB</td>
+<td>单位：KB</td>
+</tr>
+</table>
 
-| 配置项                   | 说明                                       |
-| --------------------- | ---------------------------------------- |
-| 加密算法                  | 支持 3DES、AES-128、AES-192、AES-256  |
-| 认证算法                  | 支持 MD5 和 SHA1                            |
-| 报文封装模式                | Tunnel                                   |
-| 安全协议                  | ESP                                      |
-| PFS                   | 支持 disable、DH-GROUP1、DH-GROUP2、DH-GROUP5、DH-GROUP14 和 DH-GROUP24 |
-| IPsec SA lifetime(s)  | 单位：s                                     |
-| IPsec SA lifetime(KB) | 单位：KB                                    |
+<style> table th:first-of-type { width: 150px; } </style>
 
 9. 创建成功后，返回 VPN 通道列表页，单击【更多】，选择【下载配置文件】并完成下载。
 10. 其他操作：
