@@ -213,7 +213,7 @@ hadoop jar cos-distcp-${version}.jar   --src /data/warehouse --dest cosn://examp
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse/logs --dest cosn://examplebucket-1250000000/data/warehouse/logs-gzip --outputCodec=gzip
 ```
 
->!其中除 keep 选项外，皆会先对文件先解压，随后转换为目标压缩类型，因此，除 keep 选项外，可能会由于压缩参数等不一致，导致目标文件和源文件不一致，但解压后的文件一致。
+>! 其中除 keep 选项外，皆会先对文件先解压，随后转换为目标压缩类型。因此，除 keep 选项外，可能会由于压缩参数等不一致，导致目标文件和源文件不一致，但解压后的文件一致。
 
 ### 多目录同步
 
@@ -320,7 +320,7 @@ void init() throws Exception;
 }
 ```
 
-COSDistCp 内部集成了云监控的告警，在任务出现异常及存在文件拷贝失败的时候，执行告警，：
+COSDistCp 内部集成了云监控的告警，在任务出现异常及存在文件拷贝失败的时候，执行告警：
 
 ```
 export alarmSecretId=SECRET-ID
@@ -340,7 +340,7 @@ hadoop jar cos-distcp-1.4-2.8.5.jar \
 --checkMode=checksum \
 --completionCallbackClass=com.qcloud.cos.distcp.DefaultTaskCompletionCallback
 ```
-以上命令中 alarmPolicyId 为云监控告警策略，可进入云监控控制台进行创建和配置（告警管理->告警配置->自定义消息）。
+以上命令中 alarmPolicyId 为云监控告警策略，可进入云监控控制台进行创建和配置（告警管理 > 告警配置 > 自定义消息）。
 
 
 
