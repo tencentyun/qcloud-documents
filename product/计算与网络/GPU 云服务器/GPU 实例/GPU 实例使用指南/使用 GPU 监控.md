@@ -7,7 +7,7 @@ GPU 监控是通过在 GPU 云服务上部署安装相关 [GPU 驱动](https://c
 - 使用导入镜像：需手动安装云服务器监控组件和 GPU 驱动。
 
 ## 查看 GPU 工作参数
-单击 GPU 列表中的 “<img style="margin:0;" src="https://main.qcloudimg.com/raw/99d10268805b09f693477afd664e05fb.png"/>” 监控图标， 访问 [控制台](https://cloud.tencent.com/login) GPU 实例的监控页面，查看 GPU 监控，移动鼠标到指标曲线上将显示对应 GPU 设备的 BDF 和监控数据。如下图所示：
+单击 GPU 列表中的 “<img style="margin:0;" src="https://main.qcloudimg.com/raw/99d10268805b09f693477afd664e05fb.png"/>” 监控图标， 访问 [控制台](https://console.cloud.tencent.com/cvm) GPU 实例的监控页面，查看 GPU 监控，移动鼠标到指标曲线上将显示对应 GPU 设备的 BDF 和监控数据。如下图所示：
 ![](https://main.qcloudimg.com/raw/13ae6f53519093601fbeba86971ec7a0.jpg)
 参数说明：
 <table>

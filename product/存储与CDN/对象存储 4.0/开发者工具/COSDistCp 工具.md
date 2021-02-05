@@ -22,9 +22,9 @@ Hadoop-2.6.0及以上版本、Hadoop-COS 插件 5.8.7 及以上版本
 
 #### 获取 COSDistCp jar 包
 
-Hadoop 2.x 用户可下载 [cos-distcp-1.3-2.8.5.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.3-2.8.5.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.3-2.8.5-md5.txt) 确认下载的 jar 包是否完整。
+Hadoop 2.x 用户可下载 [cos-distcp-1.4-2.8.5.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.4-2.8.5.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.4-2.8.5-md5.txt) 确认下载的 jar 包是否完整。
 
-Hadoop 3.x 用户可下载 [cos-distcp-1.3-3.1.0.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.3-3.1.0.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.3-3.1.0-md5.txt) 确认下载的 jar 包是否完整。
+Hadoop 3.x 用户可下载 [cos-distcp-1.4-3.1.0.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.4-3.1.0.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.4-3.1.0-md5.txt) 确认下载的 jar 包是否完整。
 
 #### 安装说明
 
@@ -68,7 +68,9 @@ COSDistCp 基于 MapReduce 框架实现，在 Mapper 中对文件进行分组，
 |      --diffOutput=LOCATION       | 指定差异文件列表的输出目录，该输出目录必须为空<br/>示例：--diffOutput=/diff-output |   无   |    否    |
 |      --cosChecksumType=TYPE      | 指定 Hadoop-COS 插件使用的 CRC 算法，可选值为 CRC32C 和 CRC64<br/>示例：--cosChecksumType=CRC32C | CRC32C |    否    |
 |      --preserveStatus=VALUE      | 指定是否将源文件的 user、group、permission、xattr 和 timestamps 元信息拷贝到目标文件，可选值为 ugpxt（即为 user、group、permission、xattr 和 timestamps 的英文首字母）<br/>示例：--preserveStatus=ugpt |   无   |    否    |
-
+|      --ignoreSrcMiss      | 忽略存在于文件清单中，但操作时不存在的文件 |   false   | 否       |
+|      --taskCompletionCallback=VALUE      | 在任务执行完成时，以收集到的信息作为参数回调给定函数 |   无   |    否    |
+|      --temp=VALUE      | 指定任务使用的临时目录|   /tmp  |    否   |
 
 ## 使用示例
 
@@ -211,7 +213,7 @@ hadoop jar cos-distcp-${version}.jar   --src /data/warehouse --dest cosn://examp
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse/logs --dest cosn://examplebucket-1250000000/data/warehouse/logs-gzip --outputCodec=gzip
 ```
 
->!其中除 keep 选项外，皆会先对文件先解压，随后转换为目标压缩类型，因此，除 keep 选项外，可能会由于压缩参数等不一致，导致目标文件和源文件不一致，但解压后的文件一致。
+>! 其中除 keep 选项外，皆会先对文件先解压，随后转换为目标压缩类型。因此，除 keep 选项外，可能会由于压缩参数等不一致，导致目标文件和源文件不一致，但解压后的文件一致。
 
 ### 多目录同步
 
@@ -293,6 +295,55 @@ hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://example
 ```plaintext
 hadoop jar cos-distcp-${version}.jar --src /data/warehouse --dest cosn://examplebucket-1250000000/data/warehouse/ --preserveStatus=ugpt
 ```
+
+### 拷贝文件失败时告警
+以参数`--completionCallbackClass`指定回调类路径执行命令，COSDistCp 会在拷贝任务完成的时候， 将收集的任务信息作为参数执行回调函数。用户自定义的回调函数，需要实现如下接口，下载回调[示例代码](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-alarm-1.0.jar )：
+```
+package com.qcloud.cos.distcp;
+import java.util.Map;
+public interface TaskCompletionCallback {
+/**
+ * @description: When the task is completed, the callback function is executed
+ * @param jobType Copy or Diff
+ * @param jobStartTime  the job start time
+ * @param errorMsg  the exception error msg
+ * @param applicationId the MapReduce application id
+ * @param: cosDistCpCounters the job 
+*/
+
+void doTaskCompletionCallback(String jobType, long jobStartTime, String errorMsg, String applicationId, Map<String, Long> cosDistCpCounters);
+
+/**
+ *  @description: init callback config before execute
+ */
+void init() throws Exception;
+}
+```
+
+COSDistCp 内部集成了云监控的告警，在任务出现异常及存在文件拷贝失败的时候，执行告警：
+
+```
+export alarmSecretId=SECRET-ID
+export alarmSecretKey=SECRET-KEY
+export alarmRegion=ap-guangzhou
+export alarmModule=module
+export alarmPolicyId=cm-xxx
+hadoop jar cos-distcp-1.4-2.8.5.jar \
+-Dfs.cosn.credentials.provider=org.apache.hadoop.fs.auth.SimpleCredentialProvider \
+-Dfs.cosn.userinfo.secretId=SECRET-ID \
+-Dfs.cosn.userinfo.secretKey=SECRET-KEY \
+-Dfs.cosn.bucket.region=ap-guangzhou \
+-Dfs.cosn.impl=org.apache.hadoop.fs.CosFileSystem \
+-Dfs.AbstractFileSystem.cosn.impl=org.apache.hadoop.fs.CosN \
+--src /data/warehouse \
+--dest cosn://examplebucket-1250000000/data/warehouse/ \
+--checkMode=checksum \
+--completionCallbackClass=com.qcloud.cos.distcp.DefaultTaskCompletionCallback
+```
+以上命令中 alarmPolicyId 为云监控告警策略，可进入云监控控制台进行创建和配置（告警管理 > 告警配置 > 自定义消息）。
+
+
+
 
 ## 常见问题
 

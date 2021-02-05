@@ -28,9 +28,9 @@ spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
 
 ### Bug 修复
 
-- spring-cloud-tsf-ratelimit：修复当只有一个限流规则时，限流规则关闭不生效的问题。
+- spring-cloud-tsf-ratelimit：修复多个限流规则时，全局限流无法关闭的问题。
 - spring-cloud-tsf-route：修复当只有一个路由规则时，路由规则关闭不生效的问题。
-- spring-cloud-tsf-lane：优化泳道规则生效逻辑。
+- spring-cloud-tsf-lane：修复泳道规则内存可见性 Bug。
 
 ### 版本建议
 
@@ -60,7 +60,7 @@ spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
 - 修复服务治理时 API PATH 标签匹配 PATH 参数失败问题。
 - 修复当存在多个限流规则的时候，全局限流规则开启后，无法删除的问题。
 - 修复泳道规则内存可见性 Bug。
-- 修复多个路由规则时，全局路由无法关闭的问题。
+- 修复路由关闭问题。
 - 修复分布式配置下发 spring.application.name 时，无法上报 swagger 问题。
 - 修复本地加密配置不能被正确解密的问题。 
 - 修复网关多个命名空间时 consul index 混用导致第一次跨命名空间调用加载慢的问题。

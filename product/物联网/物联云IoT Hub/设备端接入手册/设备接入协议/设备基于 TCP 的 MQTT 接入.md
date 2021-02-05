@@ -63,9 +63,9 @@ password 字段格式为：
 ${token};hmac 签名方法
 其中 hmac 签名方法字段填写第三步用到的摘要算法，可选的值有 hmacsha256 和 hmacsha1。
 ```
-作为对照，用户生成签名的 Python、Java 代码示例如下；
+作为对照，用户生成签名的 Python、Java、Nodejs 和 JavaScript 代码示例如下；
 Python 代码为：
-```
+```Python
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 import base64
@@ -108,7 +108,7 @@ if __name__ == '__main__':
 python3 IotHmac.py "YOUR_PRODUCTID" "YOUR_DEVICENAME" "YOUR_PSK" 
 ```
 Java代码为：
-```
+```Java
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 import java.util.*;
@@ -197,6 +197,41 @@ devicePsk) throws Exception {
         }
     }
 }
+```
+Nodejs 和 JavaScript 代码为：
+```JavaScript
+// 下面为node引入方式，浏览器的话，使用对应的方式引入crypto-js库
+const crypto = require('crypto-js')
+
+// 产生随机数的函数
+const randomString = (len) => {
+　　len = len || 32;
+　　var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+　　var maxPos = chars.length;
+　　var pwd = '';
+　　for (let i = 0; i < len; i++) {
+　　　　pwd += chars.charAt(Math.floor(Math.random() * maxPos));
+　　}
+　　return pwd;
+}
+// 需要产品id，设备名和设备密钥
+const productId = 'YOUR_PRODUCTID';
+const deviceName = 'YOUR_DEVICENAME';
+const devicePsk = 'YOUR_PSK';
+
+// 1. 生成 connid 为一个随机字符串，方便后台定位问题
+const connid =  randomString(5);
+// 2. 生成过期时间，表示签名的过期时间,从纪元1970年1月1日 00:00:00 UTC 时间至今秒数的 UTF8 字符串
+const expiry = Math.round(new Date().getTime() / 1000) + 3600 * 24;
+// 3. 生成 MQTT 的 clientid 部分, 格式为 ${productid}${devicename}
+const clientId = productId + deviceName;
+// 4. 生成 MQTT 的 username 部分, 格式为 ${clientid};${sdkappid};${connid};${expiry}
+const userName = `${clientId};12010126;${connid};${expiry}`;
+//5.  对 username 进行签名，生成token、根据物联网通信平台规则生成 password 字段
+const rawKey = crypto.enc.Base64.parse(devicePsk);   	// 对设备密钥进行base64解码
+const token =  crypto.HmacSHA256(userName, rawKey);
+const password = token.toString(crypto.enc.Hex) + ";hmacsha256";
+console.log(`userName:${userName}\npassword:${password}`);
 ```
 6. 最终将上面生成的参数填入对应的 MQTT connect 报文中。
 7. 将 clientid 填入到 MQTT 协议的 clientid 字段。

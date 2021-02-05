@@ -1,3 +1,13 @@
+### 2.9.3 @2021.2.3
+
+**变更**
+
+用户未加入群组（非直播群），[quitGroup](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#quitGroup) 时返回错误码 2623 - 用户不在该群组内。
+
+**修复**
+
+C2C 会话消息列表 `avatar`（头像）或 `nick`（昵称）不一致。
+
 ### 2.9.2 @2021.1.26
 
 **新增**

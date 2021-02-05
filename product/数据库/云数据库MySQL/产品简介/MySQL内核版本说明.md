@@ -7,7 +7,6 @@
 - 支持自动 kill 空闲任务，减少资源冲突，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
 - 支持透明数据加密功能。
 
-
 #### 官方 bug 修复：
 - 修复由于 relay_log_pos & master_log_pos 位点不一致导致切换失败的问题。
 - 修复异步落盘所引起的数据文件出错的问题。
@@ -18,7 +17,7 @@
 ### 20200930
 #### 性能优化：
 - 备份锁优化 
-FLUSH TABLES WITH READ LOCK 的上锁备份方式导致整个数据库不可提供服务，该版本中提供了轻量级的数据进行上锁方式，从而支持备份过程中的数据访问以及实现物理备份、逻辑备份的一致性的保护。
+FLUSH TABLES WITH READ LOCK 的上锁备份方式导致整个数据库不可提供服务，该版本中提供了轻量级的数据备份加锁方式。
 - 大表 drop table 优化 
 快速清理自适应哈希的优化（innodb_fast_ahi_cleanup_for_drop_table 控制），可以大幅度缩短 drop 大表时，清理自适应哈希索引的耗时。
 
@@ -34,8 +33,6 @@ FLUSH TABLES WITH READ LOCK 的上锁备份方式导致整个数据库不可提�
 - 修复热点更新功能的并发安全问题。
 - 修复升级 jemalloc 版本至5.2.1，开启线程池触发 coredump 的问题。
 - 修复 fwrite 无错误处理，导致审计日志不完整的问题。
-- 优化 utf8/utf8mb4 字符串效率。
-- 关闭 crash 时打印 pstack 结果的功能。
 - 修复 mysqld_safe以root 用户启动时，不打印日志的问题。
 - 修复 alter table exchange partition 导致 ddl log 文件增长的问题。
 

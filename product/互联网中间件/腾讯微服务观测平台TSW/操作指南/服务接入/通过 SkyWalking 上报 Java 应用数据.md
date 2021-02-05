@@ -2,7 +2,7 @@
 当您已经使用 Skywalking 追踪应用服务的调用数据时，您可通过客户端将 Tracing 数据上报至 TSW。通过将客户端采集的 Tracing 数据上报给 TSW，您可在 TSW 控制台使用全量功能，同时免除运维 Skywalking 服务端的人力成本与机器成本。此外，您无需对客户端进行代码修改，仅需修改上报配置即可完成接入。
 
 ## 前提条件
-- 下载 SkyWalking 8.X.X版本（[下载地址](http://skywalking.apache.org/downloads/)），解压后将 Agent 文件放至 Java 应用宝所在目录下。
+- 下载 SkyWalking 8.X.X版本（[下载地址](http://skywalking.apache.org/downloads/)），解压后将 Agent 文件放至 Java 应用所在目录下。
 - 插件放置路径与日志输出路径与原生保持一致，不要改变文件夹的结构。
 
 ## 操作流程
