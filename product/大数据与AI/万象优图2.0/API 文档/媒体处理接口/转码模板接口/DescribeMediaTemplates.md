@@ -1,5 +1,4 @@
 ## 功能描述
-
 DescribeMediaTemplates 用于搜索转码模板。
 
 ## 请求
@@ -84,7 +83,7 @@ Content-Type: application/xml
                 <Channels>4</Channels>
             </Audio>
             <TransConfig>
-                <AdjDarMethod>rescale</AdjDarMethod>
+                <AdjDarMethod>scale</AdjDarMethod>
                 <IsCheckReso>false</IsCheckReso>
                 <ResoAdjMethod>1</ResoAdjMethod>
             </TransConfig>
@@ -160,12 +159,15 @@ TransTpl 节点 Video 的具体数据描述如下：
 | Preset                     | Response.TemplateList.<br/>TransTpl.Video | 视频算法<br/>器预置        | String | 否   | medium       | <li>仅H.264支持该参数<br/><li>取值 veryfast、fast、medium、slow、slower |
 | Bufsize                    | Response.TemplateList.<br/>TransTpl.Video | 缓冲区<br/>大小            | String | 否   | 0            | <li>值范围：[1000，128000]<br/><li>单位：Kb<br/><li>默认值为0表示不使用 buf |
 | Maxrate                    | Response.TemplateList.<br/>TransTpl.Video | 视频码率<br/>峰值          | String | 否   | 0            | <li>值范围：[10，50000]<br/><li>单位：Kbps<br/><li>默认值0表示不使用此参数 |
+| HlsTsTime                  | Response.TemplateList.TransTpl.Video | hls 分片时间          | String | 否   | 5            | <li>值范围：(0 视频时长] <br/> <li>单位为秒 |
+| Pixfmt                     | Response.TemplateList.TransTpl.Video | 视频颜色格式          | String | 否   | 无           | 支持 yuv420p、yuv422p、yuv444p、yuvj420p、yuvj422p、yuvj444p |
+| LongShortMode              | Response.TemplateList.TransTpl.Video | 长短边自适应          | String | 否   | false        | true、false
 
 TransTpl 节点 TimeInterval 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Start                | Response.TemplateList.<br/>TransTpl.TimeInterval | 开始时间 | String    | 否   | 0 | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>持 float 格式，执行精度精确到毫秒 |
+| Start                | Response.TemplateList.<br/>TransTpl.TimeInterval | 开始时间 | String    | 否   | 0 | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
 | Duration             | Response.TemplateList.<br/>TransTpl.TimeInterval | 持续时间 | String    | 否   | 视频时长 | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
 
 TransTpl 节点 Audio 的具体数据描述如下：
@@ -196,18 +198,15 @@ TransTpl 节点 TransConfig 的具体数据描述如下：
 该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
 
 ## 实际案例
-
 **案例一：按照模板 ID 维度查询**
-
 #### 请求
 
 ```shell
 GET /template?ids=A,B,C HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 0
 Content-Type: application/xml
-
 ```
 
 #### 响应
@@ -219,10 +218,10 @@ Content-Length: 100
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 <Response>
-    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzh****=</RequestId>
+    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhf****</RequestId>
     <TemplateList>
         <TemplateId>A</TemplateId>
         <Name>TemplateName</Name>
@@ -253,7 +252,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
                 <Channels>4</Channels>
             </Audio>
             <TransConfig>
-                <AdjDarMethod>rescale</AdjDarMethod>
+                <AdjDarMethod>scale</AdjDarMethod>
                 <IsCheckReso>false</IsCheckReso>
                 <ResoAdjMethod>1</ResoAdjMethod>
             </TransConfig>
@@ -277,12 +276,11 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
 #### 请求
 
 ```shell
-GET /template?page_size=10&page_number=1 HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
+GET /template?pageSize=10&pageNumber=1 HTTP/1.1
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 0
 Content-Type: application/xml
-
 ```
 
 #### 响应
@@ -294,10 +292,10 @@ Content-Length: 100
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 <Response>
-    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzh****=</RequestId>
+    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhf****</RequestId>
     <TotalCount>1</TotalCount>
     <PageNumber>1</PageNumber>
     <PageSize>10</PageSize>
@@ -330,7 +328,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
                 <Channels>4</Channels>
             </Audio>
             <TransConfig>
-                <AdjDarMethod>rescale</AdjDarMethod>
+                <AdjDarMethod>scale</AdjDarMethod>
                 <IsCheckReso>false</IsCheckReso>
                 <ResoAdjMethod>1</ResoAdjMethod>
             </TransConfig>
