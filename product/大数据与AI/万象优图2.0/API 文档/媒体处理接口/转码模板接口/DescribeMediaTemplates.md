@@ -159,9 +159,9 @@ TransTpl 节点 Video 的具体数据描述如下：
 | Preset                     | Response.TemplateList.<br/>TransTpl.Video | 视频算法<br/>器预置        | String | 否   | medium       | <li>仅H.264支持该参数<br/><li>取值 veryfast、fast、medium、slow、slower |
 | Bufsize                    | Response.TemplateList.<br/>TransTpl.Video | 缓冲区<br/>大小            | String | 否   | 0            | <li>值范围：[1000，128000]<br/><li>单位：Kb<br/><li>默认值为0表示不使用 buf |
 | Maxrate                    | Response.TemplateList.<br/>TransTpl.Video | 视频码率<br/>峰值          | String | 否   | 0            | <li>值范围：[10，50000]<br/><li>单位：Kbps<br/><li>默认值0表示不使用此参数 |
-| HlsTsTime                  | Response.TemplateList.TransTpl.Video | hls 分片时间          | String | 否   | 5            | <li>值范围：(0 视频时长] <br/> <li>单位为秒 |
-| Pixfmt                     | Response.TemplateList.TransTpl.Video | 视频颜色格式          | String | 否   | 无           | 支持 yuv420p、yuv422p、yuv444p、yuvj420p、yuvj422p、yuvj444p |
-| LongShortMode              | Response.TemplateList.TransTpl.Video | 长短边自适应          | String | 否   | false        | true、false
+| HlsTsTime                  | Response.TemplateList.<br/>TransTpl.Video | hls 分片时间          | String | 否   | 5            | <li>值范围：(0 视频时长] <br/> <li>单位为秒 |
+| Pixfmt                     | Response.TemplateList.<br/>TransTpl.Video | 视频颜色格式          | String | 否   | 无           | 支持 yuv420p、yuv422p、yuv444p、yuvj420p、yuvj422p、yuvj444p |
+| LongShortMode              | Response.TemplateList.<br/>TransTpl.Video | 长短边自适应          | String | 否   | false        | true、false
 
 TransTpl 节点 TimeInterval 的具体数据描述如下：
 
@@ -175,7 +175,7 @@ TransTpl 节点 Audio 的具体数据描述如下：
 | 节点名称（关键字） | 父节点        | 描述           | 类型   | 必选 | 默认值 | 限制                                                         |
 | ------------------ | ------------- | -------------- | ------ | ---- | ------ | ------------------------------------------------------------ |
 | Codec              | Response.TemplateList.<br/>TransTpl.Audio | 编解码格式     | String | 否   | aac    | 取值 aac、mp3                                                |
-| Samplerate         | Response.TemplateList<br/>.TransTpl.Audio | 采样率         | String | 否   | 44100  | <li>单位：Hz<br/><li>44100、32000、44100、48000、96000<br/><li> 若视频容器格式为 flv，音频编解码格式选择为 mp3时，采样率不<br/>支持32000、48000、96000；音频编解码格式为 mp3时，采样率不支持96000 |
+| Samplerate         | Response.TemplateList.<br/>TransTpl.Audio | 采样率         | String | 否   | 44100  | <li>单位：Hz<br/><li>44100、32000、44100、48000、96000<br/><li> 若视频容器格式为 flv，音频编解码格式选择为 mp3时，采样率不<br/>支持32000、48000、96000；音频编解码格式为 mp3时，采样率不支持96000 |
 | Bitrate            | Response.TemplateList.<br/>TransTpl.Audio | 原始音频码率   | String | 否   | 128    | <li>单位：Kbps<br/><li>值范围：[8，1000]                       |
 | Channels           | Response.TemplateList.<br/>TransTpl.Audio | 声道数         | String | 否   |  无      | <li>当 Codec 设置为 aac，支持1、2、4、5、6、8<br/><li>当 Codec 设置为 mp3，支持1、2 |
 | Remove             | Response.TemplateList.<br/>TransTpl.Audio | 是否删除音频流 | String | 否   |   无    | 取值 true、false                                             |
