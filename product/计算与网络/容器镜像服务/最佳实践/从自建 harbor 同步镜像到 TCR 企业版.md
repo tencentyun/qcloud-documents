@@ -12,11 +12,12 @@ Harbor 是 VMware 公司开源的企业级 Docker Registry 项目，在开源 Do
 
 ## 操作步骤
 ### 配置自建 Harbor 服务可访问容器镜像服务企业版实例[](id:Configuration)
-您可根据自建 Harbor 服务的实际网络情况，选择以下方案配置访问容器镜像服务企业版实例：
-- [方案1：通过公网进行访问](#publicnet)
-- [方案2：通过腾讯云私有网络进行访问](#vpc)
+您可根据自建 Harbor 服务的实际网络情况，选择 [通过公网进行访问](#publicnet) 或 [通过腾讯云私有网络进行访问](#vpc) 方案配置访问容器镜像服务企业版实例。
 
-#### 方案1：通过公网进行访问[](id:publicnet)
+
+
+<dx-tabs>
+::: 通过公网进行访问[](id:publicnet)
 若当前自建 Harbor 服务未部署在腾讯云私有网络环境内，或无法通过专线打通至腾讯云私有网络，则可通过公网进行数据同步。同步过程中可能产生公网流量费用，具体请参考网络运营商或云服务商定价。
 1. 登录 [容器镜像服务](https://console.cloud.tencent.com/tcr) 控制台，选择左侧导航栏中的【访问控制】>【公网访问】。
 2. 在页面上方的【实例名称】下拉列表中，选择需要进行数据同步的实例。
@@ -28,8 +29,8 @@ Harbor 是 VMware 公司开源的企业级 Docker Registry 项目，在开源 Do
 	- **备注**：可填写白名单配置的备注信息，例如“允许自建 Harbor 公网访问”。
 	配置完成后如下图所示：
 ![](https://main.qcloudimg.com/raw/dd1d7af259920f42f7ad2cdb07e22a50.png)
-
-#### 方案2：通过腾讯云私有网络进行访问[](id:vpc)
+:::
+::: 通过腾讯云私有网络进行访问[](id:vpc)
 若当前自建 Harbor 服务部署在腾讯云私有网络环境内，或已通过专线打通至腾讯云私有网络，则可通过内网进行数据同步。通过内网进行数据同步可提升数据同步速度，并节省公网流量费用。
 1. 登录 [容器镜像服务](https://console.cloud.tencent.com/tcr) 控制台，选择左侧导航栏中的【访问控制】>【内网访问】。
 2. 在页面上方的【实例名称】下拉列表中，选择需要进行数据同步的实例。
@@ -37,24 +38,25 @@ Harbor 是 VMware 公司开源的企业级 Docker Registry 项目，在开源 Do
 	- **所属实例**：当前已选择实例，即需要进行数据同步的实例。
 	- **私有网络**：自建 Harbor 服务所在的私有网络，或已通过专线接入的私有网络。
 	- **子网**：新建内网访问链路将占用所选私有网络的一个内网 IP，请选择私有网络下的一个子网以分配该内网 IP 所属的子网。
-4. 完成以上配置后，可获得内网访问链路的目标访问 IP。为在私有网络环境中将实例域名解析至该内网 IP，请管理该内网访问链路的自动解析，开启默认域名的自动解析。您也可以在自建 Harbor 服务所在云服务器上配置 Host。如果当前正在使用独立的 DNS 服务，也可在 DNS 服务中配置。
-![](https://main.qcloudimg.com/raw/bed275cc4385194ec1ecb0cded988d45.png)
-如果选择手动配置，可在云服务器上执行以下命令，配置 Host。
-	```
-	echo x.x.x.x harbor-sync.tencentcloudcr.com >> /etc/hosts
-	```
-	其中 `x.x.x.x` 请替换为创建内网访问链路后生成的内网解析 IP，`harbor-sync.tencentcloudcr.com` 请替换为实际的实例域名。
+4. 完成以上配置后，可获得内网访问链路的目标访问 IP。为在私有网络环境中将实例域名解析至该内网 IP，请管理该内网访问链路的自动解析，开启默认域名的自动解析，如下图所示。详情可参见 [管理内网解析](https://cloud.tencent.com/document/product/1141/41838#.E7.AE.A1.E7.90.86.E5.86.85.E7.BD.91.E8.A7.A3.E6.9E.90)。
+![](https://main.qcloudimg.com/raw/59a6ccf0d9e4170aee0c1f762f92133a.png)
+您也可以在自建 Harbor 服务所在云服务器上配置 Host。如果选择手动配置，可在云服务器上执行以下命令，配置 Host。如果当前正在使用独立的 DNS 服务，也可在 DNS 服务中配置。
+```
+echo x.x.x.x harbor-sync.tencentcloudcr.com >> /etc/hosts
+```
+:::
+</dx-tabs>
+
 
 
 ### 创建企业版实例访问凭证[](id:getCertificate)
 容器镜像服务企业版支持创建、管理多个访问凭证，建议您为数据同步操作创建独立的访问凭证，完成数据同步后及时删除，避免实例访问权限泄露。
 1. 登录 [容器镜像服务](https://console.cloud.tencent.com/tcr) 控制台，选择左侧导航栏中的【实例列表】。
 2. 在“实例列表”页面中选择需要进行数据同步的实例，进入实例详情页。
-3. 选择【访问凭证】页签，并单击实例列表上方的【新建】。如下图所示：
-![](https://main.qcloudimg.com/raw/fe7af507d685b82c17f4262c52f7c800.png)
+3. 选择【访问凭证】页签，并单击实例列表上方的【新建】。
 4. 在弹出的“新建访问凭证”窗口中，按照以下步骤进行获取：
-   1. 在“新建访问凭证”步骤中，输入凭证“用途描述”并单击【下一步】。用途描述可填写为“自建 Harbor 数据同步专用”。
-   2. 在“保存访问凭证”步骤中，单击【保存访问凭证】下载凭证信息。**请妥善保管访问凭证，仅一次保存机会**。
+  1. 在“新建访问凭证”步骤中，输入凭证“用途描述”并单击【下一步】。用途描述可填写为“自建 Harbor 数据同步专用”。
+  2. 在“保存访问凭证”步骤中，单击【保存访问凭证】下载凭证信息。**请妥善保管访问凭证，仅一次保存机会**。
 创建完成后即可在【访问凭证】页签中查看。当数据同步完成后，请及时进行访问凭证的禁用及删除操作。
 
 ### 配置 Harbor 同步仓库及同步规则
@@ -62,23 +64,23 @@ Harbor 支持添加第三方 Registry 并配置数据复制规则，本文以 Ha
 1. 使用管理员账号登录至自建 Harbor 服务，可查看并进行【系统管理】。
 2. 选择左侧导航栏中的【系统管理】>【仓库管理】，进入“仓库管理”页面。
 3. [](id:Step3)在“仓库管理”页面中，单击【新建目标】，参考以下信息添加企业版实例。
-![](https://main.qcloudimg.com/raw/4e42d8a959cdeeb4bec87ff64b89954c.png)
+![](https://main.qcloudimg.com/raw/b96f66bbfc65c9d7991f1bcc52f61a68.png)
 	- **提供者**：选择 “Tencent TCR”。
 	- **目标名**：自定义该同步目标名称，例如 tencent-tcr。
 	- **描述**：该同步目标的描述。
 	- **目标 URL**：企业版实例访问域名，例如 `https://harbor-sync.tencentcloudcr.com`。
-	- **访问 ID**：填写已在 [访问管理-API密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取SecretId。
-	- **访问密码**：填写已在 [访问管理-API密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取的SecretKey。
+	- **访问 ID**：填写已在【访问管理】>【[API密钥管理](https://console.cloud.tencent.com/cam/capi)】中获取的 SecretId。
+	- **访问密码**：填写已在【访问管理】>【[API密钥管理](https://console.cloud.tencent.com/cam/capi)】中获取的 SecretKey。
 	- **验证远程证书**：保持默认设置。
-4. 单击【测试连接】：
+4. 单击【测试连接】。
  - 如显示“测试连接成功”，则说明当前自建 Harbor 服务可以正常访问该企业版实例。
  - 如显示“测试连接失败”，则请确认 [配置自建 Harbor 服务可访问容器镜像服务企业版实例](#Configuration)。
-4. 单击【确定】新建该目标仓库，新建成功后如下图所示：
+5. 单击【确定】新建该目标仓库，新建成功后如下图所示：
 ![](https://main.qcloudimg.com/raw/5c64b1a15de39c2f6366d24d26bec18b.png)
->!
-如果自建 Harbor 版本较低，提供者选项中无 “Tencent TCR”，请在创建新的目标仓库时，选择提供者为 "Docker Registry"，且访问ID，访问密码分别填写在实例管理中获取的镜像仓库长期访问凭证（用户名+密码），而不是腾讯云的 SecretId，SecretKey。在此配置下，暂不支持在 TCR 侧自动新建命名空间。
-
-5. [](id:createRule)选择左侧导航栏中的【系统管理】>【复制管理】，并单击【新建规则】，参考以下信息创建同步规则。
+<dx-alert infotype="notice" title="">
+如果自建 Harbor 版本较低，提供者选项中无 “Tencent TCR”，请在创建新的目标仓库时，选择提供者为 "Docker Registry"，且访问 ID、访问密码分别填写在实例管理中获取的镜像仓库长期访问凭证（用户名 + 密码），而不是腾讯云的 SecretId，SecretKey。在此配置下，暂不支持在 TCR 侧自动新建命名空间。
+</dx-alert>
+6. [](id:createRule)选择左侧导航栏中的【系统管理】>【复制管理】，并单击【新建规则】，参考以下信息创建同步规则。
    ![](https://main.qcloudimg.com/raw/483daf04ec5426504648faa8c18fb7ed.png)
 	- **名称**：同步规则名称，可根据具体使用场景填写。
 	- **描述**：该复制规则的描述。
