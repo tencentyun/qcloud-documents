@@ -10,10 +10,10 @@
 </tr>
 	<tr>
         <td>SDK 1.2.3.1 版本发布</td>
-<td><li>修复: 修复华为禁用组件逻辑错误
+<td><li>修复：修复华为禁用组件逻辑错误
 </td>
         <td>2021-02-04</td>
-        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK下载</a></td>
+        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></td>
     </tr>
 <tr>
         <td>SDK 1.2.3.0 版本发布</td>
