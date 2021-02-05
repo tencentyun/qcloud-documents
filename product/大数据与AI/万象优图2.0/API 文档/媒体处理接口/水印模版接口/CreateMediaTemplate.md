@@ -106,12 +106,12 @@ Container 类型 Image 的具体数据描述如下：
 
 | 节点名称（关键字）     | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Url                 | Request.Watermark.Image | 水印图地址(需要 Urlencode 后传入)   | String    | 是   | 无  | 同 bucket 的水印图片地址 |
-| Mode                 | Request.Watermark.Image | 尺寸模式    | String    | 是   | 无   | 1. Original：原有尺寸 <br/>  2. Proportion：按比例 <br/> 3. Fixed：固定大小 |
-| Width                | Request.Watermark.Image | 宽         | String    | 否   | 无   | 1. 当 Mode 为 Original，水印图宽 <br/> 2. 当 Mode 为 Proportion，单位为%，背景图：[100 300]；前景图：[1 100]，相对于视频宽，最大不超过4096px<br/> 3. 当 Mode 为 Fixed，单位为 px，取值范围：[8，4096]<br/> 4.若只设置 Width 时，按照水印图比例计算 Height<br/> |
-| Height               | Request.Watermark.Image | 高         | String    | 否   | 无   | 1. 当 Mode 为 Original，水印图高 <br/> 2. 当 Mode 为 Proportion，单位为%，背景图：[100 300]；前景图：[1 100]，相对于视频高，最大不超过4096px<br/> 3. 当 Mode 为 Fixed，单位为 px，取值范围：[8，4096]<br/> 4.若只设置 Height 时，按照水印图比例计算 Width<br/>|
-| Transparency         | Request.Watermark.Image | 透明度      | String    | 是   | 无   | 值范围：[1 100]，单位% |
-| Background           | Request.Watermark.Image | 是否背景图   | String    | 否   | false   | true、false |
+| Url                 | Request.Watermark.<br/>Image | 水印图地址(需要 Urlencode 后传入)   | String    | 是   | 无  | 同 bucket 的水印图片地址 |
+| Mode                 | Request.Watermark.<br/>Image | 尺寸模式    | String    | 是   | 无   | 1. Original：原有尺寸 <br/>  2. Proportion：按比例 <br/> 3. Fixed：固定大小 |
+| Width                | Request.Watermark.<br/>Image | 宽         | String    | 否   | 无   | 1. 当 Mode 为 Original，水印图宽 <br/> 2. 当 Mode 为 Proportion，单位为%，背景图：[100 300]；前景图：[1 100]，相对于视频宽，最大不超过4096px<br/> 3. 当 Mode 为 Fixed，单位为 px，取值范围：[8，4096]<br/> 4.若只设置 Width 时，按照水印图比例计算 Height<br/> |
+| Height               | Request.Watermark.<br/>Image | 高         | String    | 否   | 无   | 1. 当 Mode 为 Original，水印图高 <br/> 2. 当 Mode 为 Proportion，单位为%，背景图：[100 300]；前景图：[1 100]，相对于视频高，最大不超过4096px<br/> 3. 当 Mode 为 Fixed，单位为 px，取值范围：[8，4096]<br/> 4.若只设置 Height 时，按照水印图比例计算 Width<br/>|
+| Transparency         | Request.Watermark.<br/>Image | 透明度      | String    | 是   | 无   | 值范围：[1 100]，单位% |
+| Background           | Request.Watermark.<br/>Image | 是否背景图   | String    | 否   | false   | true、false |
 
 水印位置说明：
 ![](https://main.qcloudimg.com/raw/c945ad9dbe6ef1bd35c0e7fe8f68cbef.png)
@@ -120,11 +120,11 @@ Container 类型 Text 的具体数据描述如下：
 
 | 节点名称（关键字）     | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| FontSize            | Request.Watermark.Text | 字体大小    | String    | 是   | 无  | 值范围：[5 100]，单位 px |
-| FontType            | Request.Watermark.Text | 字体类型    | String    | 是   | 无  | 参考下表  |
-| FontColor           | Request.Watermark.Text | 字体颜色    | String    | 是   | 无  | 格式：0xRRGGBB |
-| Transparency        | Request.Watermark.Text | 透明度      | String    | 是   | 无  | 值范围：[1 100]，单位%|
-| Text                | Request.Watermark.Text | 水印内容    | String    | 是   | 无  | 长度不超过64个字符，仅支持中文、英文、数字、_、-和*|
+| FontSize            | Request.Watermark.<br/>Text | 字体大小    | String    | 是   | 无  | 值范围：[5 100]，单位 px |
+| FontType            | Request.Watermark.<br/>Text | 字体类型    | String    | 是   | 无  | 参考下表  |
+| FontColor           | Request.Watermark.<br/>Text | 字体颜色    | String    | 是   | 无  | 格式：0xRRGGBB |
+| Transparency        | Request.Watermark.<br/>Text | 透明度      | String    | 是   | 无  | 值范围：[1 100]，单位%|
+| Text                | Request.Watermark.<br/>Text | 水印内容    | String    | 是   | 无  | 长度不超过64个字符，仅支持中文、英文、数字、_、-和*|
 
 
 
