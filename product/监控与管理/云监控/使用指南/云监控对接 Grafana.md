@@ -61,20 +61,25 @@ docker-compose up
 
 ### 快捷创建
 
-鼠标悬浮左侧导航栏的【加号】，单击【+Dashboard】，即可创建一个新的 Dashboard。
+鼠标悬浮左侧导航栏的【+】，在弹出的添加二级菜单中选择【Dashboard】，即可创建一个新的 Dashboard。
 
 ### 管理页面
 
-1. 鼠标悬浮左侧导航栏的 **田字格** 图标，
-2. 单击【Manage】，进入 Dashboard 管理页面
+1. 在左侧导航栏中选择【<img src="https://main.qcloudimg.com/raw/38d83cd5295ee373914d06d32d1afb21.jpg" width="2%"></img>】>【Manage】，进入 Dashboard 管理页面。
 3. 单击【New Dashboard】，即可创建一个新的 Dashboard。同时，在该页面可以对 Dashboard 进行各种管理操作，例如新建文件夹、移动 Dashboard、导入 Dashboard 等。
+
+
+
+
+
+
 
 ### 导入模板
 
-1. 鼠标悬浮左侧导航栏的 **齿轮** 图标。
-2. 单击【Plugins】，进入 Plugins 管理页面。
-3. 单击【Tencent Cloud Monitor】应用，进入应用详情页面，切换至 `Dashboards` 选项卡，选择 Dashbboard 模板导入。
+1. 在左侧导航栏中选择【<img src="https://main.qcloudimg.com/raw/3bf76c69408a80aa0859d9e2f81a1340.jpg" width="2%"></img>】>【Plugins】，进入 Plugins 管理页面。
+3. 单击【Tencent Cloud Monitor】应用，进入应用详情页面，切换至【Dashboards】页签，选择 Dashbboard 模板导入。
 ![Import Plugin Dashboard](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/blob/master/src/image/plugin-dashboard.png?raw=true)
+
 
 
 ## 步骤4：配置 Panel 数据
@@ -85,7 +90,7 @@ docker-compose up
 
 1. 点击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Queries` 选项卡，通过配置选项获取腾讯云 CVM 云服务器的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 CVM 监控服务的腾讯云监控数据源。
-3. 配置项的内容对齐腾讯云服务器监控接口的输入参数，可参考 [云服务器监控接口文档](https://cloud.tencent.com/document/api/248/30385)，更好地理解各配置项。
+3. 配置项的内容对齐腾讯云服务器监控接口的输入参数，详情请参见 [云服务器监控接口文档](https://cloud.tencent.com/document/api/248/30385)，更好地理解各配置项。
    - `Namespace` 命名空间，云服务器监控的命名空间为 `QCE/CVM`。
    - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
    - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
@@ -96,7 +101,7 @@ docker-compose up
      - **注意：** 在本应用中，监控数据的单次查询为原子操作，即查询某一实例的某一指标的监控数据，故实例只能单选，如需查询多实例的监控数据，点击右上角的 `Add Query` 增加新的查询。  
        ![CVM Panel Query](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/blob/master/src/image/panel-cvm-query.png?raw=true)
 
-### CDB 云数据库MySQL监控
+### CDB 云数据库 MySQL 监控
 
 1. 点击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Queries` 选项卡，通过配置选项获取腾讯云数据库 MySQL 的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含CDB监控服务的腾讯云监控数据源。
