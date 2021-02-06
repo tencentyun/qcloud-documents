@@ -89,6 +89,8 @@
 | [enableAudioVolumeEvaluation](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a3127ec82f1610ac2bc0cb7d32b9bb4b9) | 启用或关闭音量大小提示。 |
 | [startAudioRecording](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a15b74c793aea807ef9142230c088473b) | 开始录音。 |
 | [stopAudioRecording](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a052a606496ce98cdc5a7e93098598a32) | 停止录音。 |
+| [startLocalRecording](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a55c3e8982056532a6cce56e3f7f29241) | 开启本地录制。 |
+| [stopLocalRecording](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a8b9b6f0608e48c27fc7c646718cb41ba) | 停止本地录制。 |
 
 
 ### 设备相关接口函数
