@@ -82,6 +82,11 @@
 | [enableAudioVolumeEvaluation](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a57d48cb0dbd7705486453b46e30e3fea) | 启用音量大小提示。 |
 | [startAudioRecording](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a9eadd65cef0ac6b9c04ddfd7265afb01) | 开始录音。 |
 | [stopAudioRecording](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ac8c12476bbcf3d691060954fcdb6ebe6) | 停止录音。 |
+| [startLocalRecording](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a5075d55a6fc31895eedd5b23a1b8826b) | 开启本地媒体录制(iOS)。 |
+| [stopLocalRecording](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#affae72630393980fee79c21f2d20f602) | 停止录制。 |
+| [startSystemAudioLoopback](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2979e32c019708dcc9209bb6d2db9486) | 开始录制系统声音，仅适用 Mac 平台。 |
+| [stopSystemAudioLoopback](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#adef486f26a2c7d74a8cccb537367e66a) | 停止录制系统声音，仅适用 Mac 平台。 |
+| [setSystemAudioLoopbackVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#afc45226807d84673bab78b21d1be54ae) | 设置系统声音采集的音量，仅适用 Mac 平台。 |
 
 
 ### 设备管理接口
@@ -110,13 +115,10 @@
 
 | API | 描述 |
 |-----|-----|
-| [startScreenCaptureInApp](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a5dbd40c4ad65152e85591c8535b4ee90) | 开始应用内的屏幕分享（该接口仅支持 iOS 13.0 及以上的 iPhone 和 iPad）。 |
-| [startScreenCaptureByReplaykit](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a92330045ce479f3b5e5c6b366731c7ff) | 开始全系统的屏幕分享（该接口支持 iOS 11.0 及以上的 iPhone 和 iPad）。 |
+| [startScreenCaptureInApp](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a16d30ca3f89863da2581ff3872bf31f0) | 开始应用内的屏幕分享（该接口仅支持 iOS 13.0 及以上的 iPhone 和 iPad）。 |
+| [startScreenCaptureByReplaykit](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a12414559fc82b18e671262c4da37b171) | 开始全系统的屏幕分享（该接口支持 iOS 11.0 及以上的 iPhone 和 iPad）。 |
 | [startScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a9a4b3b61c39c1c65e3426b35b0ace95f) | 开始桌面端屏幕分享（该接口仅支持 Mac OS 桌面系统）。 |
-| [stopScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa8ea0235691fc9cde0a64833249230bb) | 停止屏幕采集。 |
-| [pauseScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a6f536bcc3df21b38885809d840698280) | 暂停屏幕分享。 |
-| [resumeScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#af257a8fb6969fe908ca68a039e6dba15) | 恢复屏幕分享。 |
-| [getScreenCaptureSourcesWithThumbnailSize](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa8e5286e1035b64b7d2bf8fadd721123) | 枚举可分享的屏幕窗口，仅支持 Mac OS 平台，建议在 startScreenCapture 之前调用。 |
+| [getScreenCaptureSourcesWithThumbnailSize](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa8e5286e1035b64b7d2bf8fadd721123) | 停止屏幕采集。 |
 | [selectScreenCaptureTarget](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a01ead6fb3106ea266caa922f5901bf18) | 设置屏幕分享参数，仅支持 Mac OS 平台，该方法在屏幕分享过程中也可以调用。 |
 | [setSubStreamEncoderParam](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#abc0f3cd5c320d0e65163bd07c3c0a735) | 设置屏幕分享的编码器参数，仅适用 Mac 平台。 |
 | [setSubStreamMixVolume](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a18d3fb6535c9884784c5ad5f8dfd0b12) | 设置屏幕分享的混音音量大小，仅适用 Mac 平台。 |
@@ -307,6 +309,7 @@
 | [onDevice](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a0152908c497bd5ee5225251d9e93e500) | 本地设备通断回调。 |
 | [onAudioDeviceCaptureVolumeChanged](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a1c36efd81dc4edf88fc3bc6af83b1b5a) | 当前音频采集设备音量变化回调。 |
 | [onAudioDevicePlayoutVolumeChanged](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#af24c0f0258e83ab644e242ee0d01277f) | 当前音频播放设备音量变化回调。 |
+| [onSystemAudioLoopbackError](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a8644f5136138d13ffa8e0ea68f5c3676) | 系统声音采集结果回调。 |
 
 
 ### 自定义消息的接收回调
@@ -346,11 +349,13 @@
 | [onScreenCaptureStoped](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a323d2b3e5b8b364722e0b161ab11c816) | 当屏幕分享停止时，SDK 会通过此回调通知。 |
 
 
-### 视频数据帧的自定义处理回调
+### 媒体录制回调
 
 | API | 描述 |
 |-----|-----|
-| [onRenderVideoFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a7b43888945a9d12f088ed99a5854e3c1) | 自定义视频渲染回调。 |
+| [onLocalRecordBegin](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a044ce179ac4bc0bc987a3b74ecd911e7) | 媒体录制回调。 |
+| [onLocalRecording](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#ab4250c05ea4b843c27385f77d5004fc3) | 录制信息更新回调。 |
+| [onLocalRecordComplete](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#ae78ca25acea4152bfd9d0ccf71bd4108) | 录制任务已结束。 |
 
 
 ### 第三方美颜回调
@@ -359,6 +364,13 @@
 |-----|-----|
 | [onProcessVideoFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a8d4f000b4169a64a8a8af15e51e5dd95) | 第三方美颜的视频数据回调，需要使用 [TRTCCloud](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#interfaceTRTCCloud) 中的 setLocalVideoProcessDelegete 接口进行设置。 |
 | [onGLContextDestory](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a5f6d5ef01d3cd610959433107f78aa60) | SDK 内部的 OpenGL 环境的销毁通知。 |
+
+
+### 视频数据帧的自定义处理回调
+
+| API | 描述 |
+|-----|-----|
+| [onRenderVideoFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#gadbe65ee6ef1d72cd5207cd5a0eb78391) | 自定义视频渲染回调。 |
 
 
 ### 声音数据帧的自定义处理回调
@@ -370,6 +382,7 @@
 | [onRemoteUserAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#aa392c17c27bae1505f148bf541b7746a) | 混音前的每一路远程用户的音频数据，即混音前的各路原始数据。例如，对某一路音频进行文字转换时，您必须使用该路音频的原始数据。 |
 | [onMixedPlayAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a5a8a0bf6f8d02c33b2fe01c6175dfd4e) | 各路音频数据混合后的音频数据。 |
 | [onMixedAllAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a905748efe966e94ec1212fda14161aee) | SDK所有音频数据混合后的数据回调（包括采集音频数据和所有播放音频数据）。 |
+
 
 ### 日志相关回调
 
@@ -400,6 +413,7 @@
 | [TRTCAudioRecordingParams](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCAudioRecordingParams) | 录音参数。 |
 | [TRTCAudioEffectParam](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCAudioEffectParam) | 音效。 |
 | [TRTCSwitchRoomConfig](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCSwitchRoomConfig) | 切换房间。 |
+| [TRTCLocalRecordingParams](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCLocalRecordingParams) | 本地媒体文件录制参数。 |
 | [TRTCLocalStatistics](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCLocalStatistics) | 自己本地的音视频统计信息。 |
 | [TRTCRemoteStatistics](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCRemoteStatistics) | 远端成员的音视频统计信息。 |
 | [TRTCStatistics](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCStatistics) | 统计数据。 |
@@ -433,3 +447,4 @@
 | [TRTCGSensorMode](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#ga894251078222f9ac4ba5815aac4b493c) | 重力感应开关。 |
 | [TRTCScreenCaptureSourceType](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#gaeabd30a270055e48105a34c781c782b0) | 屏幕分享目标类型（仅 Mac）。 |
 | [TRTCTranscodingConfigMode](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#ga907c7b1ef1f09fb7417a549e82110855) | 混流参数配置模式。 |
+| [TRTCRecordType](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#ga4bb9927d377aa27b781fcfef5cf1058a) | 媒体录制类型。 |
