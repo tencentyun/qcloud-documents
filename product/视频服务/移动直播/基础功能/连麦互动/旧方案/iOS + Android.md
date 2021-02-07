@@ -35,10 +35,12 @@ TXLivePusher 和 TXLivePlayer 这两个基础组件可以比较容易的实现�
 
 我们已将上述组件均托管在 [Github](https://github.com/tencentyun/MLVBSDK/) 上，clone 下来便可使用，关键组件的具体获取路径如下表所示：
 
-| 所属平台 |   LiteAVSDK   |     TIMSDK     |  MLVBLiveRoom 组件    |   示例代码  |
-| :------: | :---------: | :-----------: | :------------: | :----------: |
+| 所属平台 |                          LiteAVSDK                           |                            TIMSDK                            |                      MLVBLiveRoom 组件                       |                           示例代码                           |
+| :------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
 |   iOS    | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/iOS/ImSDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LiveLinkMicDemoOld/LiveRoom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LiveLinkMicDemoOld/LiveRoomUI) |
 | Android  | [MLVBSDK](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SDK) | [TIMSDK](https://github.com/tencentyun/TIMSDK/tree/master/Android/SDK) | [MLVBLiveRoom](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livelinkmicdemoold/src/main/java/com/tencent/liteav/demo/liveroom) | [SimpleCode](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livelinkmicdemoold/src/main/java/com/tencent/liteav/demo/liveroom/ui) |
+
+
 
 
 ### Step2. 申请 License 
