@@ -29,7 +29,7 @@
 4. 选择域名验证方式，并单击【下一步】。如下图所示：
 ![](https://main.qcloudimg.com/raw/9adc3968c25a0745988d015a4c1ed1ca.png)
  - **选择自动添加 DNS**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/4142#AutomaticVerification)。
->?如果所申请域名成功添加 [DNS 解析平台](https://console.cloud.tencent.com/cns/domains)，可以支持自动 DNS 验证。
+>?如果所申请域名成功添加 [DNS 解析平台](https://console.cloud.tencent.com/cns/domains)，可以支持自动添加 DNS。
  - **选择 DNS 验证**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/4142#ManualVerification)。
  - **选择文件验证**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/4142#FileVerification)。
 5. 根据【验证操作】提示，完成域名身份验证即可获取证书。
