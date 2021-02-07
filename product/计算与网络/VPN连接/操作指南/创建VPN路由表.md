@@ -11,7 +11,6 @@
    ![](https://main.qcloudimg.com/raw/d261071d65c453ecf21d3980d1b3a8cd.png)
 5. 单击【新增路由】，并配置路由策略。
 ![](https://main.qcloudimg.com/raw/288637983594aa439f67c2ee00a7a12a.png)
-
 <table>
 <tr>
 <th>配置项</th>
@@ -31,7 +30,7 @@
 </tr>
 <tr>
 <td>权重</td>
-<td>选择通道的权重值：<li>0：优先级高</li><li>100：优先级低</li></td>
+<td>选择通道的权重值：<ul><li>0：优先级高</li><li>100：优先级低</li></ul></td>
 </tr>
 <tr>
 <td>新增一行</td>
@@ -42,7 +41,6 @@
 <td>可删除路由策略，最后一条不允许删除。</td>
 </tr>
 </table>
-
 6. 完成路由策略的配置后，单击【确定】。
 7. 其他可执行操作。
     1. 启动、或禁用路由策略。
