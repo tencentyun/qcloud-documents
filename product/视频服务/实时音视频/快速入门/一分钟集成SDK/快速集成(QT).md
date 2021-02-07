@@ -70,9 +70,9 @@ NSCameraUsageDescription : 申请使用摄像头
 2. 您的 QTTest 同级目录下新建一个空的SDK文件夹，将 [第1步](#win_step1) 下载的 `TXLiteAVSDKTRTCWin_latest/SDK/CPlusPlus` 拷贝到与您 QTTest 工程目录同级目录的 SDK 文件夹下。
 
 [](id:win_step2)
-#### 步骤2：配置 QTTest.pro
+#### 步骤2：配置 QTTest 工程依赖环境
 <dx-tabs>
-::: 场景一
+:::  场景一：使用QtCreator配置依赖环境
 打开 QTTest工程目录，使用一款任意文本编辑器（推荐 [Sublime Text](http://www.sublimetext.com/3)）打开 `QTTest.pro`（使用 Qt Creator 创建）文件，然后添加 SDK 相关引用：
 <dx-codeblock>
 ::: windows 
@@ -105,7 +105,7 @@ LIBS += -L$$PWD/../SDK/CPlusPlus/Win64/lib -lliteav
 :::
 </dx-codeblock>
 :::
-::: 场景二
+::: 场景二：使用VS配置依赖环境
 如果您的工程已经是一个成熟的 VS 项目，您也可以在 VS 中的工程属性 `Properties->Linker->Input 和 General` 配置 SDK 库路径依赖信息，同时在 `Properties -> C/C++ -> General` 设置好 SDK 的头文件路径依赖信息。
 :::
 </dx-tabs>
