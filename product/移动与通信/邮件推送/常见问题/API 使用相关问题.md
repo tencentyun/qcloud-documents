@@ -5,4 +5,4 @@
 每个账号最大日发送总量限制默认为30万，可以扩展。如需扩展，请联系 [腾讯云技术支持](https://console.cloud.tencent.com/workorder/category)。
 
 ### SendEmail接口中，Template.TemplateData 字段应该如何填写？
-详情请参考 API 文档检查 [TemplateData](https://cloud.tencent.com/document/api/1288/51053#Template) 字段格式。
+“`{}`”表示不传变量，详情请参考 API 文档检查 [TemplateData](https://cloud.tencent.com/document/api/1288/51053#Template) 字段格式。
