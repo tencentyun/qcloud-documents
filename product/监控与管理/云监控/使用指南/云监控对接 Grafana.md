@@ -19,7 +19,7 @@
 ## 前提条件
 
 
-腾讯云监控应用插件是运行在 Grafana 6.x 或更新的版本上，请先安装 Grafana 环境，详情请参见 [Grafana 安装文档](https://grafana.com/docs/grafana/latest/installation/?pg=docs)。
+腾讯云监控应用插件运行在 Grafana 6.x 或更新的版本上，请先安装 Grafana 环境，详情请参见 [Grafana 安装文档](https://grafana.com/docs/grafana/latest/installation/?pg=docs)。
 
 
 
@@ -98,8 +98,8 @@ docker-compose up
    - **MetricName**：指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
    - **Period**：监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
    - **Instance**：实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
-     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As InstanceId`，以 **实例ID** 展示实例列表。此外，可以选择 `As InstanceName` 实例名称、`As PrivateIpAddress` 主网卡的内网IP、 `As PublicIpAddress` 主网卡的公网IP。
-     - 可实例列表的获取可参考 [云服务器查询实例列表接口文档](https://cloud.tencent.com/document/api/213/15728)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参考接口文档，配置相应参数。
+     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As InstanceId`，以**实例ID** 展示实例列表。此外，可以选择 `As InstanceName` 实例名称、`As PrivateIpAddress` 主网卡的内网 IP、 `As PublicIpAddress` 主网卡的公网 IP。
+     - 可实例列表的获取可参考 [云服务器查询实例列表接口文档](https://cloud.tencent.com/document/api/213/15728)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如需变更实例查询条件，可参考接口文档，配置相应参数。
 <dx-alert infotype="notice" title="">
 在本应用中，监控数据的单次查询为原子操作，即查询某一实例的某一指标的监控数据，故实例只能单选，如需查询多实例的监控数据，单击右上角的 `Add Query` 增加新的查询。
 </dx-alert>
@@ -117,8 +117,8 @@ docker-compose up
    - **MetricName**：指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
    - **Period**：监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
    - **Instance**：实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
-     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As InstanceId`，以 **实例ID** 展示实例列表。此外，可以选择 `As InstanceName` 实例名称、 `As Vip` 内网 IP。
-     - 实例列表的获取可参考云数据库 MySQL [查询实例列表](https://cloud.tencent.com/document/product/236/15872) 文档。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参考接口文档，配置相应参数。
+     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As InstanceId`，以**实例ID** 展示实例列表。此外，可以选择 `As InstanceName` 实例名称、 `As Vip` 内网 IP。
+     - 实例列表的获取可参考云数据库 MySQL [查询实例列表](https://cloud.tencent.com/document/product/236/15872) 文档。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如需变更实例查询条件，可参考接口文档，配置相应参数。
     >!在本应用中，监控数据的单次查询为原子操作，即查询某一实例的某一指标的监控数据，故实例只能单选，如需查询多实例的监控数据，单击右上角的 `Add Query` 增加新的查询。  
 
 ![](https://main.qcloudimg.com/raw/2d4f491c842df18c96f7025d090f4153.png)
@@ -134,8 +134,8 @@ docker-compose up
    - **MetricName**：指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
    - **Period**：监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
    - **Instance**：实例，对应输入参数的 `Instances.N` 字段，实例列表会自动获取。
-     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As LoadBalancerId`，以 **实例ID** 展示实例列表。此外，可以选择 `As LoadBalancerName` 实例名称、`As LoadBalancerVips` 网络 IP。
-     - 实例列表的获取可参考 [负载均衡实例列表接口文档](https://cloud.tencent.com/document/api/214/30685)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如果需要变更实例查询条件，可参考接口文档，配置相应参数。
+     - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As LoadBalancerId`，以**实例ID** 展示实例列表。此外，可以选择 `As LoadBalancerName` 实例名称、`As LoadBalancerVips` 网络 IP。
+     - 实例列表的获取可参考 [负载均衡实例列表接口文档](https://cloud.tencent.com/document/api/214/30685)。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如需变更实例查询条件，可参考接口文档，配置相应参数。
      >!在本应用中，监控数据的单次查询为原子操作，即查询某一实例的某一指标的监控数据，故实例只能单选，如需查询多实例的监控数据，单击右上角的 `Add Query` 增加新的查询。  
    - **Listener**：监听器，对应输入参数的 `Listener.N` 字段，列表会自动获取。
      - 为了适应不同用户的习惯，监听器列表会以不同的字段展示，默认为 `As ListenerId`，以 **监听器ID** 展示实例列表。此外，可以选择 `As ListenerName` 监听器名称、`As Port` 端口。
@@ -154,9 +154,9 @@ docker-compose up
 | 地域                      | Namespace=QCE/CVM&Action=<br>DescribeRegions                 | 参考 [地域接口文档](https://cloud.tencent.com/document/api/213/15708)<br><li>`Action` 固定为 `DescribeRegions`<br><li>`Namespace` 为云产品对应的命名空间，例如 `QCE/CVM` `QCE/CDB`等<br><li>地区作为变量模板，只支持单选，如设置成多选或者选中 `All`，默认选中第一个地区值 |
 | 云服务器实例              | Namespace=QCE/CVM&Region=<br/>ap-beijing&Action=DescribeInstances&<br/>InstanceAlias=PublicIpAddresses | 参考 [云服务器查询实例列表接口文档](https://cloud.tencent.com/document/api/213/15728)<br><li>`Namespace` 固定为 `QCE/CVM`<br><li>`Action` 固定为 `DescribeInstances`<br><li>`Region` 为地域参数，可以为特定的地域值，例如 `ap-beijing`；也可以为变量值，例如 `$region`<br><li>`InstanceAlias` 为实例的展示字段，默认为 `InstanceId`，可选值为 `InstanceName`、`PrivateIpAddresses`、`PublicIpAddresses`<br><li>云服务器实例作为模板变量，同时支持单选和多选 |
 | 云数据库 MySQL 实例       | Namespace=QCE/CDB&Region=<br/>ap-beijing&Action=DescribeInstances&<br/>InstanceAlias=InstanceId | 参考 [云数据库 MySQL 查询实例列表接口文档](https://cloud.tencent.com/document/api/236/15872)<br><li>`Namespace` 固定为 `QCE/CDB`<br><li>`Action` 固定为`DescribeInstances`<br><li>`Region` 为地域参数，可以为特定的地域值，例如 `ap-beijing`；也可以为变量值，例如 `$region`<br><li>`InstanceAlias` 为实例的展示字段，默认为 `InstanceId`，可选值为 `InstanceName`、`Vip`<br><li>云数据库实例作为模板变量，同时支持单选和多选 |
-| 云数据库 PostgreSQL 实例  | Namespace=QCE/POSTGRES&Region=<br/>ap-beijing&Action=DescribeInstances&<br/>InstanceAlias=DBInstanceId | 参考 [云数据库 PostgreSQL 查询实例列表接口文档](https://cloud.tencent.com/document/api/409/16773)<br><li>`Namespace` 固定为 `QCE/CDB`<br><li>`Action` 固定为`DescribeInstances`<br><li>`Region` 为地域参数，可以为特定的地域值，例如 `ap-beijing`；也可以为变量值，例如 `$region`<br><li>`InstanceAlias` 为实例的展示字段，默认为 `DBInstanceId`，可选值为 `DBInstanceName`, `PrivateIpAddresses`, `PublicIpAddresses`<br><li>云数据库实例作为模板变量，同时支持单选和多选 |
-| 私有网络 NateGateway 实例 | Namespace=QCE/NAT_GATEWAY&Region=<br/>ap-beijing&Action=DescribeInstances&<br/>InstanceAlias=NatGatewayId | 参考 [私有网络 NAT 网关查询实例列表接口文档](https://cloud.tencent.com/document/api/215/4088)<br><li>`Namespace` 固定为`QCE/NAT_GATEWAY`<br><li>`Action` 固定为`DescribeInstances`<br><li>`Region` 为地域参数，可以为特定的地域值，例如 `ap-beijing`；也可以为变量值，例如 `$region`<br><li>`InstanceAlias` 为实例的展示字段，默认为 `NatGatewayId`，可选值为 `NatGatewayName`<br><li>NateGateway 网关实例作为模板变量，同时支持单选和多选 |
-| 私有网络对等连接实例      | Namespace=QCE/PCX&Region=<br/>ap-beijing&Action=DescribeInstances&<br/>InstanceAlias=peeringConnectionId | 参考 [私有网络对等连接查询实例列表接口文档](https://cloud.tencent.com/document/api/215/2101)<br><li>`Namespace` 固定为`QCE/PCX`<br><li>`Action` 固定为`DescribeInstances`<br><li>`Region` 为地域参数，可以为特定的地域值，例如 `ap-beijing`；也可以为变量值，例如 `$region`。<br><li>`InstanceAlias` 为实例的展示字段，默认为 `peeringConnectionId`，可选值为 `peeringConnectionName`<br><li>对等连接实例作为模板变量，同时支持单选和多选（如果是负载均衡则不支持多选，可选多个监听器）|
+| 云数据库 PostgreSQL 实例  | Namespace=QCE/POSTGRES&Region=<br/>ap-beijing&Action=DescribeInstances&<br/>InstanceAlias=DBInstanceId | 参考 [云数据库 PostgreSQL 查询实例列表接口文档](https://cloud.tencent.com/document/api/409/16773)<br><li>`Namespace` 固定为 `QCE/CDB`<br><li>`Action` 固定为 `DescribeInstances`<br><li>`Region` 为地域参数，可以为特定的地域值，例如 `ap-beijing`；也可以为变量值，例如 `$region`<br><li>`InstanceAlias` 为实例的展示字段，默认为 `DBInstanceId`，可选值为 `DBInstanceName`、`PrivateIpAddresses`、 `PublicIpAddresses`<br><li>云数据库实例作为模板变量，同时支持单选和多选 |
+| 私有网络 NateGateway 实例 | Namespace=QCE/NAT_GATEWAY&Region=<br/>ap-beijing&Action=DescribeInstances&<br/>InstanceAlias=NatGatewayId | 参考 [私有网络 NAT 网关查询实例列表接口文档](https://cloud.tencent.com/document/api/215/4088)<br><li>`Namespace` 固定为 `QCE/NAT_GATEWAY`<br><li>`Action` 固定为 `DescribeInstances`<br><li>`Region` 为地域参数，可以为特定的地域值，例如 `ap-beijing`；也可以为变量值，例如 `$region`<br><li>`InstanceAlias` 为实例的展示字段，默认为 `NatGatewayId`，可选值为 `NatGatewayName`<br><li>NateGateway 网关实例作为模板变量，同时支持单选和多选 |
+| 私有网络对等连接实例      | Namespace=QCE/PCX&Region=<br/>ap-beijing&Action=DescribeInstances&<br/>InstanceAlias=peeringConnectionId | 参考 [私有网络对等连接查询实例列表接口文档](https://cloud.tencent.com/document/api/215/2101)<br><li>`Namespace` 固定为 `QCE/PCX`<br><li>`Action` 固定为 `DescribeInstances`<br><li>`Region` 为地域参数，可以为特定的地域值，例如 `ap-beijing`；也可以为变量值，例如 `$region`<br><li>`InstanceAlias` 为实例的展示字段，默认为 `peeringConnectionId`，可选值为 `peeringConnectionName`<br><li>对等连接实例作为模板变量，同时支持单选和多选（如果是负载均衡则不支持多选，可选多个监听器）|
 | 负载均衡监听器            | Namespace=QCE/LB_PRIVATE&Action=<br/>DescribeListeners&Region=$region&Instance=<br/>$instance&listenerAlias=ListenerId | 参考 [负载均衡监听器列表接口文档](https://cloud.tencent.com/document/product/214/30686)<br><li>`Namespace` 可为 `QCE/LB_PRIVATE`，`QCE/LB_PUBLIC`，`QCE/LOADBALANCE`<br><li>`Action` 固定为 `DescribeListeners`<br><li>`Region` 为地域参数，可以为特定的地域值，例如 `ap-guangzhou`；也可以为变量值，例如 `$region`<br><li>`Instance` 为实例 id，可以为特定的实例，例如 `lb-rbw529fz`；也可以为变量值，例如 `$instance`<br><li>`listenerAlias` 为监听器的展示字段，默认为 `ListenerId`，可选值为 `ListenerName`，`Port`。同时支持单选和多选 |
 
 
