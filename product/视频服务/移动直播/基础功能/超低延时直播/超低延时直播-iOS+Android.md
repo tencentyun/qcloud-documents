@@ -57,7 +57,7 @@
   </tr>
   <tr>
 	  <td><a href='https://github.com/tencentyun/LiteAVProfessional_Android'> Android </a></td>
-    <td><img width="150" src="https://main.qcloudimg.com/raw/eca802244b1ccb54cacbbd684d0e776d.png"> </td>
+    <td><img width="150" src="https://main.qcloudimg.com/raw/bff0cfca4585c448f308b339a6c17c1c.png"> </td>
     <td rowspan="2">
       <div align="center">
         <img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/mlvb/ultra-low_latency_live/push.gif"/>

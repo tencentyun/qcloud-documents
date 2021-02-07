@@ -23,7 +23,7 @@
 ### 体验地址
 | 平台    | Demo体验 | 源码地址 | 目标文件夹 |
 | ------- | ------- | ------- | ------- |
-| Android | <img width="150" src="https://main.qcloudimg.com/raw/492e319bbd98ff3cfd9a5959f1a6622b.png"> | [Github](https://github.com/tencentyun/LiteAVProfessional_Android) | [Demo/livelinkmicdemonew](https://github.com/tencentyun/LiteAVProfessional_Android/tree/master/Demo/livelinkmicdemonew) |
+| Android | <img width="150" src="https://main.qcloudimg.com/raw/bff0cfca4585c448f308b339a6c17c1c.png"> | [Github](https://github.com/tencentyun/LiteAVProfessional_Android) | [Demo/livelinkmicdemonew](https://github.com/tencentyun/LiteAVProfessional_Android/tree/master/Demo/livelinkmicdemonew) |
 | iOS     | <img width="150" src="https://main.qcloudimg.com/raw/83973196cc1fc9972320182eb283d406.png"> | [Github](https://github.com/tencentyun/LiteAVProfessional_iOS) | [Demo/TXLiteAVDemo/LiveLinkMicDemoNew](https://github.com/tencentyun/LiteAVProfessional_iOS/tree/master/Demo/TXLiteAVDemo/LiveLinkMicDemoNew) |
 
 
@@ -266,7 +266,9 @@ V2TXLivePlayer *playerB = [[V2TXLivePlayer alloc] init];
 </dx-codeblock>
 4. **PK成功后**，主播 A 和主播 B 的观众各自调用 `V2TXLivePlayer` 开始播放另外一名主播的推流内容。
 
-> ?可能有小伙伴会说道：我信你的鬼！这么麻烦，还得我们自己维护一套房间状态，包含主播/观众状态，不搞不搞！没有关系，**没有更好的方案，只有更适合自己的方案**，如果对时延和并发要求不高的小伙伴，可以继续使用连麦互动的旧方案；另外如果需要用到V2相关的接口，但是又不想维护一套单独的房间状态，可以尝试搭配 [腾讯云IM SDK](https://cloud.tencent.com/document/product/269)，快速实现相关逻辑。
+> ?此处开发者可能会有疑问：貌似新方案还需要我们自己维护一套房间&用户状态，这样不是更麻烦吗？是的，**没有更好的方案，只有更适合自己的方案**，我们也有考虑到这样的场景：
+> - 如果对时延和并发要求并不高的场景，可以继续使用连麦互动的旧方案；
+> - 如果既想用到V2相关的接口，但是又不想维护一套单独的房间状态，可以尝试搭配 [腾讯云IM SDK](https://cloud.tencent.com/document/product/269)，快速实现相关逻辑。
 
 ## 新方案怎么计算费用?
 
@@ -301,11 +303,11 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 ```
 
 #### 3. `V2TXLivePusher&V2TXLivePlayer`如何设置音质或者画质呢？
-我们有提供对应的音质和画质的设置接口，详情见API文件：[设置推流音频质量]()和[设置推流视频参数]()。
+我们有提供对应的音质和画质的设置接口，详情见API文件：[设置推流音频质量](http://doc.qcloudtrtc.com/group__V2TXLivePusher__ios.html#a88956a3ad5e030af7b2f7f46899e5f13)和[设置推流视频参数](http://doc.qcloudtrtc.com/group__V2TXLivePusher__ios.html#a0b08436c1e14a8d7d9875fae59ac6d84)。
 
 
 #### 4. 收到一个错误码：`-5`，代表什么意思？
--5表示由于许可证无效，因此无法调用API，对应的枚举值为：[`V2TXLIVE_ERROR_INVALID_LICENSE`]()，更多错误码详见：[API状态码]()
+-5表示由于许可证无效，因此无法调用API，对应的枚举值为：[`V2TXLIVE_ERROR_INVALID_LICENSE`]()，更多错误码详见：[API状态码](http://doc.qcloudtrtc.com/group__V2TXLiveCode__ios.html)
 
 #### 5. 新方案的时延性有可以参考的数据吗？
 新方案中，主播连麦的延时 < 200ms，主播和观众的延时在：100ms - 1000ms，可以参考[超低延时直播一文]()的测试视频；
