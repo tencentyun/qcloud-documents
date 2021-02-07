@@ -152,7 +152,7 @@ crontab -e
 
 ## 日志查错
 
-在部署路径中有一个 sync.log 文件会实时打印程序执行的步骤，当进程出错退出时，可用于定位问题。
+在部署路径中有一个 sync.log 文件会实时打印程序执行的步骤，当进程出错退出时，可用于定位问题，日志中 ERROR 等级日志用于错误定位，如果定位有困难可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 咨询。
 
 
 
