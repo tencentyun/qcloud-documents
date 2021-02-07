@@ -1,6 +1,15 @@
 本文主要介绍如何快速运行腾讯云 TRTC Demo（Windows）。
 
 ## 环境要求
+### Windows（C++）开发环境
+- Microsoft Visual Studio 2015及以上版本，推荐使用 Microsoft Visual Studio 2015 
+- Windows SDK 8.0及以上版本，推荐使用 Windows SDK 8.1
+
+### Windows（C#）开发环境
+- Microsoft Visual Studio 2015及以上版本，推荐使用 Microsoft Visual Studio 2017
+- .Net Framework 4.0及以上版本，推荐使用 .Net Framework 4.0
+
+### Windows（QT）开发环境
 - Microsoft Visual Studio 2015 及以上版本，推荐使⽤ Microsoft Visual Studio 2015。
 - 下载并安装 `.vsix` 插件⽂件，官⽹上找对应插件版本安装即可。
 - 打开 VS 并在⼯具栏找到 `QT VS Tools -> Qt Options -> Qt Versions`，add 添加我们⾃⼰的 Qt 编译器 msvc。
