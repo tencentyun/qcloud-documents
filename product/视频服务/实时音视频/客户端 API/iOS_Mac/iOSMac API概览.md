@@ -82,7 +82,7 @@
 | [enableAudioVolumeEvaluation](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a57d48cb0dbd7705486453b46e30e3fea) | 启用音量大小提示。 |
 | [startAudioRecording](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a9eadd65cef0ac6b9c04ddfd7265afb01) | 开始录音。 |
 | [stopAudioRecording](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ac8c12476bbcf3d691060954fcdb6ebe6) | 停止录音。 |
-| [startLocalRecording](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a5075d55a6fc31895eedd5b23a1b8826b) | 开启本地媒体录制(iOS)。 |
+| [startLocalRecording](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a5075d55a6fc31895eedd5b23a1b8826b) | 开启本地媒体录制（iOS）。 |
 | [stopLocalRecording](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#affae72630393980fee79c21f2d20f602) | 停止录制。 |
 | [startSystemAudioLoopback](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2979e32c019708dcc9209bb6d2db9486) | 开始录制系统声音，仅适用 Mac 平台。 |
 | [stopSystemAudioLoopback](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#adef486f26a2c7d74a8cccb537367e66a) | 停止录制系统声音，仅适用 Mac 平台。 |
