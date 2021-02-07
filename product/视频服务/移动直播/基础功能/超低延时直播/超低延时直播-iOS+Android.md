@@ -39,7 +39,7 @@
   </tr>
   <tr>
 	  <td><a href='https://github.com/tencentyun/LiteAVProfessional_Android'> Android </a></td>
-    <td><img width="150" src="https://main.qcloudimg.com/raw/492e319bbd98ff3cfd9a5959f1a6622b.png"> </td>
+    <td><img width="150" src="https://main.qcloudimg.com/raw/eca802244b1ccb54cacbbd684d0e776d.png"> </td>
     <td rowspan="2">
       <div align="center">
         <img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/mlvb/ultra-low_latency_live/push.gif"/>
@@ -53,7 +53,7 @@
   </tr>
   <tr>
 	  <td><a href='https://github.com/tencentyun/LiteAVProfessional_iOS'> iOS </a></td>
-    <td><img width="150" src="https://main.qcloudimg.com/raw/4b21d7814a8a2aeb502f9f5ef0049e07.png"></td>
+    <td><img width="150" src="https://main.qcloudimg.com/raw/83973196cc1fc9972320182eb283d406.png"></td>
   </tr>
 </table>
 
@@ -73,7 +73,7 @@
 > = 因为超低延时直播的协议特性，目前连麦互动新方案并不支持：**同一台设备，使用相同的streamid，一边推超低延时流，一边拉超低延时的流**，这一点可能在体验 Demo 功能时需要注意。
 
 
-## 实现方法
+## 接入工程
 新版本的移动直播 SDK，提供了新的V2 接⼝：`V2TXLivePusher` (推流)、 `V2TXLivePlayer`  (拉流)，用于帮助客户实现**更加灵活、更低延时**的直播业务场景。同时考虑的客户对于标准直播的需求，移动直播 V2 接⼝兼容⽀持两种直播协议：
 
 | 协议类型 | 说明 | 
@@ -83,8 +83,7 @@
 
 >? 标准直播协议和低延时直播协议，除了 URL 不同，在接入方式上基本⼀致。但是超低延时直播协议具备更低的时延，在直播效果和体验上有着更好的表现。
 
-[](id:step1)
-### 步骤1：开通服务
+### 1. 服务开通 <span id="RegistrationService"> </span> 
 超低延时直播需要在开始接入前，先开通腾讯云 [**实时音视频**](https://cloud.tencent.com/document/product/647) 服务，具体步骤如下：
 1. 您需要[注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 2. 登录实时音视频控制台，选择【[应用管理](https://console.cloud.tencent.com/trtc/app)】。
@@ -92,24 +91,25 @@
 ![](https://main.qcloudimg.com/raw/f5f17df813b60d07ec7b9737aa361259.png)
 4. 创建成功后，单击右侧【应用信息】，查看应用对应的 `SDKAppID` 信息。
 5. 单击【快速上手】，加载完成后，记录出现的 **UserSig 的密钥**。
+
 > !
 > - 本文提到的生成 UserSig 的方案是在客户端代码中配置 UserSig，该 UserSig 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此 **该方法仅适合本地跑通 Demo 和功能调试** 。
 > - 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
-> ?在服务开通后，建议先可以编译&体验一下腾讯云提供的 SimpleCode（一个极简的 Demo），配合下文说明，方便您快速了解API 的使用。
+> ? 在服务开通后，建议先可以编译&体验一下腾讯云提供的 SimpleCode（一个极简的 Demo），配合下文说明，方便您快速了解API 的使用。
 > - [Android](https://git.code.oa.com/parkhuang/liteav_app/tree/dev/borry/v2/Android/MLVBSimpleDemo)
 > - [iOS](https://git.code.oa.com/parkhuang/liteav_app/tree/dev/borry/v2/iOS/MLVBSimpleDemo)
 
-[](id:step2)
-### 步骤2：拼装 URL
+
+### 2. 推拉流协议说明
 在直播场景中，不论是推/拉流都离不开对应的URL，在超低延时直播中，URL 的示例如下：
-- **低延时推流地址：**
+- **超低延时推流地址：**
 ```http
-trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxxxx
+trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888;userId=A;usersig=xxxxx
 ```
-- **低延时播放地址：**
+- **超低延时播放地址：**
 ```http
-trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&amp;userId=A&amp;usersig=xxx
+trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888;userId=A;usersig=xxx
 ```
 
 在上述的URL中，存在一些关键字段，关于其中关键字段的含义信息，详见下表：
@@ -120,37 +120,13 @@ trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&amp;userId=A&amp;user
 | **cloud.tencent.com** | 低延时直播特定域名，**请勿修改**。 |
 | **push** | 标识位，表示推流。 |
 | **play** | 标识位，表示拉流。 |
-| **sdkappid** | 对应 [服务开通](#step1) 一节中生成的`SDKAppID`。 |
+| **sdkappid** | 对应 [服务开通](#RegistrationService) 一节中生成的`SDKAppID`。 |
 | **userId** | 主播 ID，需要由开发者自定义。 |
-| **usersig** | 对应[服务开通](#step1) 中获取的 UserSig 密钥。 |
+| **usersig** | 对应[服务开通](#RegistrationService) 中获取的 UserSig 密钥。 |
 
 
-[](id:step3)
-### 步骤3：低延时播放
->! 要实现低延时直播，该直播流地址必须是使用 [**低延时推流**](#step4) 推出来的，否则会出现无法播放的问题。
-
-使用 `V2TXLivePlayer` 对象可以推出可供低延时播放的直播流，具体做法如下（拼装出正确的 URL 是关键）：
-#### 示例代码
-<dx-codeblock>
-::: Java
-// 创建⼀个 V2TXLivePlayer 对象；
-V2TXLivePlayer player = new V2TXLivePlayerImpl(mContext);
-player.setObserver(new MyPlayerObserver(playerView));
-player.setRenderView(mSurfaceView);
-// 传⼊低延时协议播放地址，即可开始播放；
-player.startPlay("trtc://cloud.tencent.com/play/streamid?sdkappid=1400188366&amp;amp;userId=A&amp;usersig=xxx");
-:::
-::: Objective-C
-V2TXLivePlayer *player = [[V2TXLivePlayer alloc] init];
-[player setObserver:self];
-[player setRenderView:videoView];
-[player startPlay:@"trtc://cloud.tencent.com/play/streamid?sdkappid=1400188366&amp;amp;userId=A&amp;usersig=xxx"];
-:::
-</dx-codeblock>
-
-[](id:step4)
-### 步骤4：低延时推流
-使用 `V2TXLivePusher` 对象可以推出可供低延时播放的直播流，具体做法如下（拼装出正确的 URL 是关键）：
+### 3. 实现超低延时推流 <span id="PushStreamStep"> </span> 
+使用 `V2TXLivePusher` 对象可以推出可供低延时播放的直播流，具体做法如下（拼装出正确的 URL 是关键，开发者可以按照上文协议说明中的规则，在工程代码中自行拼接）：
 
 #### 示例代码
 <dx-codeblock>
@@ -162,7 +138,7 @@ pusher.setRenderView(mSurfaceView);
 pusher.startCamera(TXDeviceManager.CAMERA_TYPE_FRONT);
 pusher.startMicrophone();
 // 传⼊低延时协议推流地址，即可开始推流；
-pusher.startPush("trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=finnguan&amp;usersig=xxxxx");
+pusher.startPush("trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888;userId=finnguan;usersig=xxxxx");
 :::
 ::: Objective-C
 // 创建⼀个 V2TXLivePusher 对象，并指定模式为 TXLiveMode_RTC；
@@ -172,12 +148,35 @@ V2TXLivePusher *pusher = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_R
 [pusher startCamera:TX_CAMERA_TYPE_FRONT];
 [pusher startMicrophone];
 // 传⼊低延时协议推流地址，即可开始推流；
-[pusher startPush:@"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&amp;userId=finnguan&amp;usersig=xxxxx"]
+[pusher startPush:@"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888;userId=finnguan;usersig=xxxxx"]
 :::
 </dx-codeblock>
 
-[](id:step5)
-### 步骤5：使用低延时播放实现连麦和 PK（可选功能）
+
+### 4. 实现超低延时播放
+使用 `V2TXLivePlayer` 对象可以播放超低延时播放的直播流，具体做法如下（传入正确的 URL 是关键）：
+>! 要实现超低延时播放，该直播流地址必须是使用 [**实现超低延时推流**](#PushStreamStep) 推出来的，否则会出现无法播放的问题。
+
+#### 示例代码
+<dx-codeblock>
+::: Java
+// 创建⼀个 V2TXLivePlayer 对象；
+V2TXLivePlayer player = new V2TXLivePlayerImpl(mContext);
+player.setObserver(new MyPlayerObserver(playerView));
+player.setRenderView(mSurfaceView);
+// 传⼊低延时协议播放地址，即可开始播放；
+player.startPlay("trtc://cloud.tencent.com/play/streamid?sdkappid=1400188366;userId=A;usersig=xxx");
+:::
+::: Objective-C
+V2TXLivePlayer *player = [[V2TXLivePlayer alloc] init];
+[player setObserver:self];
+[player setRenderView:videoView];
+[player startPlay:@"trtc://cloud.tencent.com/play/streamid?sdkappid=1400188366;userId=A;usersig=xxx"];
+:::
+</dx-codeblock>
+
+
+### 步骤5：使用超低延时播放实现连麦和 PK（可选功能）
 
 在超低延时播放的场景中，一般都伴随着中/高频的连麦需求，包括观众连麦和主播PK，目前新的 V2 接口可以**非常灵活、简单**的实现类似的互动需求，且最多支持30人同时连麦，功能更强大，稳定性更高，只需如下简单四步：
 1. 调用 V2TXLivePusher 开始主播A的推流。
@@ -204,4 +203,3 @@ V2TXLivePusher *pusher = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_R
 首次在 TRTC 控制台 [创建应用](https://cloud.tencent.com/document/product/647/50493) 的腾讯云账户，可自动获得10000分钟 [免费试用](https://cloud.tencent.com/document/product/647/44360) 时长。试用时长用完或过期后将自动停服，后续可通过 [官网](https://cloud.tencent.com/product/trtc) 购买套餐包来重新激活服务。
 
 >! TRTC 正在内测**按麦下用户产生的带宽**计费，如果您希望调整计费方式，可邮件联系 TRTC 产品经理（shixinwang@tencent.com）申请。
-
