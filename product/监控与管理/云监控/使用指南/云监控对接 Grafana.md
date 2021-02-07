@@ -88,7 +88,7 @@ docker-compose up
 
 创建 Dashboard 之后，通过配置 Panel 信息，即可获取腾讯云监控的相应监控数据。现在以简单的 Graph 为例，展示如何配置 Panel 信息。
 
-### CVM 云服务器监控
+### 云服务器 CVM 监控
 
 1. 单击 **New Panel** 面板的【Add Query】，进入 Panel 配置页面。在左侧第一个【Queries】选项卡，通过配置选项获取腾讯云 CVM 云服务器的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 CVM 监控服务的腾讯云监控数据源。
@@ -107,7 +107,7 @@ docker-compose up
 ![](https://main.qcloudimg.com/raw/da713f48dac3d037d1287b995a44b536.png)
 
 
-### CDB 云数据库 MySQL 监控
+### 云数据库 MySQL 监控
 
 1. 单击 **New Panel** 面板的【Add Query】，进入 Panel 配置页面。在左侧第一个 【Queries】 选项卡，通过配置选项获取腾讯云数据库 MySQL 的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 CDB 监控服务的腾讯云监控数据源。
@@ -123,7 +123,7 @@ docker-compose up
 
 ![](https://main.qcloudimg.com/raw/2d4f491c842df18c96f7025d090f4153.png)
 
-### CLB 负载均衡监控
+### 负载均衡 CLB 监控
 
 1. 单击 **New Panel** 面板的【Add Query】，进入 Panel 配置页面。在左侧第一个 【Queries】 选项卡，通过配置选项获取腾讯云负载均衡的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 CLB 监控服务的腾讯云监控数据源。
