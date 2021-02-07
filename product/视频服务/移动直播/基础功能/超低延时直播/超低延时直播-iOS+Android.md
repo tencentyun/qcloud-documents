@@ -102,7 +102,7 @@
 >? 标准直播协议和低延时直播协议，除了 URL 不同，在接入方式上基本⼀致。但是超低延时直播协议具备更低的时延，在直播效果和体验上有着更好的表现。
 
 [](id:RegistrationService)
-### 1. 服务开通
+### 步骤1：服务开通
 超低延时直播需要在开始接入前，先开通腾讯云 [**实时音视频**](https://cloud.tencent.com/document/product/647) 服务，具体步骤如下：
 1. 您需要[注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 2. 登录实时音视频控制台，选择【[应用管理](https://console.cloud.tencent.com/trtc/app)】。
@@ -120,7 +120,8 @@
 > - [iOS](https://git.code.oa.com/parkhuang/liteav_app/tree/dev/borry/v2/iOS/MLVBSimpleDemo)
 
 
-### 2. 推拉流协议说明
+[](id:step2)
+### 步骤2：推拉流协议说明
 在直播场景中，不论是推/拉流都离不开对应的URL，在超低延时直播中，URL 的示例如下：
 - **超低延时推流地址：**
 ```http
@@ -144,7 +145,8 @@ trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888;userId=A;usersig=xxx
 | **usersig** | 对应 [服务开通](#RegistrationService) 中获取的 UserSig 密钥 |
 
 
-### 3. 实现超低延时推流 <span id="PushStreamStep"> </span> 
+[](id:step3)[](id:PushStreamStep)
+### 步骤3：实现超低延时推流 
 使用 `V2TXLivePusher` 对象可以推出可供低延时播放的直播流，具体做法如下（拼装出正确的 URL 是关键，开发者可以按照上文协议说明中的规则，在工程代码中自行拼接）：
 
 #### 示例代码
@@ -171,8 +173,8 @@ V2TXLivePusher *pusher = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_R
 :::
 </dx-codeblock>
 
-
-### 4. 实现超低延时播放
+[](id:step4)
+### 步骤4：实现超低延时播放
 使用 `V2TXLivePlayer` 对象可以播放超低延时播放的直播流，具体做法如下（传入正确的 URL 是关键）：
 >! 要实现超低延时播放，该直播流地址必须是使用 [**实现超低延时推流**](#PushStreamStep) 推出来的，否则会出现无法播放的问题。
 
@@ -195,6 +197,7 @@ V2TXLivePlayer *player = [[V2TXLivePlayer alloc] init];
 </dx-codeblock>
 
 
+[](id:step5)
 ### 步骤5：使用超低延时播放实现连麦和 PK（可选功能）
 
 在超低延时播放的场景中，一般都伴随着中/高频的连麦需求，包括观众连麦和主播PK，目前新的 V2 接口可以**非常灵活、简单**的实现类似的互动需求，且最多支持30人同时连麦，功能更强大，稳定性更高，只需如下简单四步：
