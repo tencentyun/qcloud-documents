@@ -104,7 +104,7 @@
 [](id:RegistrationService)
 ### 步骤1：服务开通
 超低延时直播需要在开始接入前，先开通腾讯云 [**实时音视频**](https://cloud.tencent.com/document/product/647) 服务，具体步骤如下：
-1. 您需要[注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+1. 您需要 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 2. 登录实时音视频控制台，选择【[应用管理](https://console.cloud.tencent.com/trtc/app)】。
 3. 单击【创建应用】，输入应用名称，例如 `V2Demo` ，单击【确定】。
 ![](https://main.qcloudimg.com/raw/3493c6306121974ce375ee392eeb1fc6.png)
