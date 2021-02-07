@@ -11,7 +11,7 @@
 
 ### Windows（QT）开发环境
 - Microsoft Visual Studio 2015 及以上版本，推荐使⽤ Microsoft Visual Studio 2015。
-- 下载并安装 `.vsix` 插件⽂件，官⽹上找对应插件版本安装即可。
+- 下载并安装 [.vsix](https://download.qt.io/official_releases/vsaddin/) 插件⽂件，官⽹上找对应插件版本安装即可。
 - 打开 VS 并在⼯具栏找到 `QT VS Tools -> Qt Options -> Qt Versions`，add 添加我们⾃⼰的 Qt 编译器 msvc。
 - 需要将 `SDK/CPlusPlus/Win32/lib` 下的所有的 `.dll` ⽂件拷⻉到⼯程⽬录下的 `debug` / `release` ⽂件夹下。
 >! `debug/release` ⽂件夹均是在 VS 上的环境配置完后⾃动⽣成。
