@@ -1,13 +1,11 @@
 本文主要介绍如何快速运行腾讯云 TRTC Demo（Windows）。
 
 ## 环境要求
-**Windows（C++）开发环境**
-- Microsoft Visual Studio 2015及以上版本，推荐使用 Microsoft Visual Studio 2015 
-- Windows SDK 8.0及以上版本，推荐使用 Windows SDK 8.1
-
-**Windows（C#）开发环境**
-- Microsoft Visual Studio 2015及以上版本，推荐使用 Microsoft Visual Studio 2017
-- .Net Framework 4.0及以上版本，推荐使用 .Net Framework 4.0
+- Microsoft Visual Studio 2015 及以上版本，推荐使⽤ Microsoft Visual Studio 2015。
+- 下载并安装 `.vsix` 插件⽂件，官⽹上找对应插件版本安装即可。
+- 打开 VS 并在⼯具栏找到 `QT VS Tools -> Qt Options -> Qt Versions`，add 添加我们⾃⼰的 Qt 编译器 msvc。
+- 需要将 `SDK/CPlusPlus/Win32/lib` 下的所有的 `.dll` ⽂件拷⻉到⼯程⽬录下的 `debug` / `release` ⽂件夹下。
+>! `debug/release` ⽂件夹均是在 VS 上的环境配置完后⾃动⽣成。
 
 ## 前提条件
 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
@@ -54,11 +52,13 @@
 
 [](id:step4)
 ### 步骤4：编译运行
-- **Windows（C++）**
+- **Windows（C++）：**
 使用 Visual Studio（建议 VS2015）打开源码目录下的`DuilibDemo\TRTCDuilibDemo.sln`工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
-
-- **Windows（C#）**
+- **Windows（C#）：**
 使用 Visual Studio（建议 VS2017）打开源码目录下的`CSharpDemo\TRTCCSharpDemo.sln`工程文件，推荐选择 Release/X86 构建平台，编译并运行 Demo 工程即可。
+- **Windows（QT）：** 
+使⽤ Visual Studio（建议 VS2015 或以上）打开源码⽬录下的
+QTDemo\QTDemo.pro⼯程⽂件，编译并运⾏ QTDemo ⼯程即可。
 
 ## 常见问题
 
