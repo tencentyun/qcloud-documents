@@ -12,8 +12,8 @@
 
 [](id:mac_step1)
 #### 步骤1：下载 C++ 跨平台 SDK
-1. 下载 [SDK](http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Mac_latest.tar.bz2)，解压并打开文件。
-2. 在您的QTTest同级目录下新建一个空的SDK文件夹，将 [第1步](#mac_step1) 下载的`TXLiteAVSDKTRTCMacx.x.x/SDK/TXLiteAVSDKTRTC_Mac.framework` 拷贝到与您 QTTest 工程目录同级目录的 SDK 文件夹下。
+1. 下载 [SDK](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Mac_latest.tar.bz2)，解压并打开文件。
+2. 在您的QTTest同级目录下新建一个空的SDK文件夹，将第1步下载的`TXLiteAVSDKTRTCMacx.x.x/SDK/TXLiteAVSDKTRTC_Mac.framework` 拷贝到与您 QTTest 工程目录同级目录的 SDK 文件夹下。
 
 [](id:mac_step2)
 #### 步骤2：配置 QTTest.pro
@@ -67,7 +67,7 @@ NSCameraUsageDescription : 申请使用摄像头
 [](id:win_step1)
 #### 步骤1：下载 C++ 跨平台 SDK
 1. 下载 [SDK](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip)，解压并打开文件。
-2. 您的 QTTest 同级目录下新建一个空的SDK文件夹，将 [第1步](#win_step1) 下载的 `TXLiteAVSDKTRTCWin_latest/SDK/CPlusPlus` 拷贝到与您 QTTest 工程目录同级目录的 SDK 文件夹下。
+2. 您的 QTTest 同级目录下新建一个空的SDK文件夹，将第1步下载的 `TXLiteAVSDKTRTCWin_latest/SDK/CPlusPlus` 拷贝到与您 QTTest 工程目录同级目录的 SDK 文件夹下。
 
 [](id:win_step2)
 #### 步骤2：配置 QTTest 工程依赖环境
