@@ -61,7 +61,7 @@
 1. 下载视频云工具包，安装登录后，进入【连麦演示（新方案）】中。
 2. 允许相关权限申请，单击【Pusher】，默认选择为 `RTC`，即超低演示直播模式。
 3. 随机输入一个 steamId，例如：`11223344`。
-3. 单击【开始推流】，成功开始推流后，也可以单击右下侧的菜单按钮，放大窗口，进行美颜、BGM、切换摄像头等设置操作。 
+3. 单击【开始推流】，成功开始推流后，可单击右下侧的菜单按钮，放大窗口，进行美颜、BGM、切换摄像头等设置操作。 
  ![](https://main.qcloudimg.com/raw/e2160adc79b02798488fb674de423545.png)
 
 ### 播放体验
@@ -83,12 +83,13 @@
 
 >? 标准直播协议和低延时直播协议，除了 URL 不同，在接入方式上基本⼀致。但是超低延时直播协议具备更低的时延，在直播效果和体验上有着更好的表现。
 
-### 1. 服务开通 <span id="RegistrationService"> </span> 
+[](id:RegistrationService)
+### 1. 服务开通
 超低延时直播需要在开始接入前，先开通腾讯云 [**实时音视频**](https://cloud.tencent.com/document/product/647) 服务，具体步骤如下：
 1. 您需要[注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 2. 登录实时音视频控制台，选择【[应用管理](https://console.cloud.tencent.com/trtc/app)】。
 3. 单击【创建应用】，输入应用名称，例如 `V2Demo` ，单击【确定】。
-![](https://main.qcloudimg.com/raw/f5f17df813b60d07ec7b9737aa361259.png)
+![](https://main.qcloudimg.com/raw/3493c6306121974ce375ee392eeb1fc6.png)
 4. 创建成功后，单击右侧【应用信息】，查看应用对应的 `SDKAppID` 信息。
 5. 单击【快速上手】，加载完成后，记录出现的 **UserSig 的密钥**。
 
@@ -122,7 +123,7 @@ trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888;userId=A;usersig=xxx
 | **play** | 标识位，表示拉流。 |
 | **sdkappid** | 对应 [服务开通](#RegistrationService) 一节中生成的`SDKAppID`。 |
 | **userId** | 主播 ID，需要由开发者自定义。 |
-| **usersig** | 对应[服务开通](#RegistrationService) 中获取的 UserSig 密钥。 |
+| **usersig** | 对应 [服务开通](#RegistrationService) 中获取的 UserSig 密钥。 |
 
 
 ### 3. 实现超低延时推流 <span id="PushStreamStep"> </span> 
