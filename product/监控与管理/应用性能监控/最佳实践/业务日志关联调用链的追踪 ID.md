@@ -41,7 +41,7 @@ TAPM 日志溯源功能支持主流的 Log4j 和 Logback 日志框架。
    ```
    例如，Log4j 日志输出格式如下：
    ```
-   2020-10-29T16:30:27,730-07:00][DEBUG][com.tapm.Log-0][com.tapm.Test][TAPM.REQUEST_GUID:167d328d-b82a-4b8c-8049-7a3a13af158f][TAPM.APPID:0017]
+   [2020-10-29T16:30:27,730-07:00][DEBUG][com.tapm.Log-0][com.tapm.Test][TAPM.REQUEST_GUID:167d328d-b82a-4b8c-8049-7a3a13af158f][TAPM.APPID:0017]
    
    Test Log Message
    ```
@@ -51,4 +51,3 @@ TAPM 日志溯源功能支持主流的 Log4j 和 Logback 日志框架。
 6. 重启应用，然后查看应用业务日志。
    在应用的业务日志中成功打印出追踪 ID 信息，则说明业务日志跟调用链的追踪 ID 关联成功。
 ![](https://main.qcloudimg.com/raw/e0e6bee7614f66b9afac0c766462dadb.png)
-
