@@ -9,7 +9,7 @@
 - 已在源端实例中创建订阅帐号，需要帐号权限如下：REPLICATION CLIENT、REPLICATION SLAVE、PROCESS 和全部对象的 SELECT 权限。
 具体授权语句如下：
 ```
-create user ‘迁移账’ IDENTIFIED BY '账号密码';
+create user ‘迁移账号’ IDENTIFIED BY '账号密码';
 grant SELECT, REPLICATION CLIENT,REPLICATION SLAVE,PROCESS on *.* to '迁移账号'@'%';
 grant ALL PRIVILEGES on `__tencentdb__`.* to '迁移账号'@'%';
 flush privileges;
