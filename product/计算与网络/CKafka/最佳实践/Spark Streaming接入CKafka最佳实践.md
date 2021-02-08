@@ -217,7 +217,7 @@ object Kafka {
 SBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
 java $SBT_OPTS -jar `dirname $0`/bin/sbt-launch.jar "$@"
 ```
-```bash
+ ```bash
 chmod u+x ./sbt_run.sh
 ```
 
@@ -234,7 +234,7 @@ chmod u+x ./sbt_run.sh
 ./configure
 make && make install
 ```
-需要预先安装 gcc-g++，执行中可能需要 root 权限。
+ 需要预先安装 gcc-g++，执行中可能需要 root 权限。
 3. 重新登录，在命令行中输入下述内容。
 ```bash
 protoc --version
@@ -273,27 +273,27 @@ sudo yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel
 ```bash
 vim /etc/profile
 ```
-在文末加上下述内容：
+ 在文末加上下述内容：
 ```vim
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre
 export PATH=$PATH:$JAVA_HOME
 ```
-根据安装情况修改对应路径。
+ 根据安装情况修改对应路径。
 9. 解压 Hadoop，进入目录。
 ```bash
 ./bin/hadoop version
 ```
-若能显示版本信息说明能正常运行。
+ 若能显示版本信息说明能正常运行。
 10. 配置单机伪分布式（可根据需要搭建不同形式的集群）。
 ```bash
 vim /etc/profile
 ```
-在文末加上下述内容：
+ 在文末加上下述内容：
 ```vim
 export HADOOP_HOME=/usr/local/hadoop
 export PATH=$HADOOP_HOME/bin:$PATH
 ```
-根据安装情况修改对应路径。
+ 根据安装情况修改对应路径。
 11. 修改`/etc/hadoop/core-site.xml`。
 ```xml
 <configuration>
@@ -333,7 +333,7 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jr
 ```bash
 ./bin/hdfs namenode -format
 ```
-显示`Exitting with status 0`则表示成功。
+ 显示`Exitting with status 0`则表示成功。
 15. 启动 Hadoop。
 ```bash
 ./sbin/start-dfs.sh
@@ -350,14 +350,14 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jr
 cp ./conf/spark-env.sh.template ./conf/spark-env.sh
 vim ./conf/spark-env.sh
 ```
-在第一行添加下述内容：
+ 在第一行添加下述内容：
 ```vim
 export SPARK_DIST_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)
 ```
-根据 hadoop 安装情况修改路径。
+ 根据 hadoop 安装情况修改路径。
 3. 运行示例。
 ```bash
 bin/run-example SparkPi
 ```
-若成功安装可以看到程序输出 π 的近似值。
+ 若成功安装可以看到程序输出 π 的近似值。
 
