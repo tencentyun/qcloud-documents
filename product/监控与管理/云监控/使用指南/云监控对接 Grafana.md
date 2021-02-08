@@ -30,7 +30,7 @@
 1. 将本地的 Grafana 升级到 6.x 版本或更新的版本。
 2. 在 [Releases](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/releases) 中下载最新版本的腾讯云监控应用插件代码（资源名为 `tencentcloud-monitor-app-1.x.x.zip`），并将解压后的代码放置在 Grafana 的 `${GRAFANA_HOME}/data/plugins` 目录。
 3. 重启 Grafana 服务。
-4. 在左侧导航栏中选择【<img src="https://main.qcloudimg.com/raw/3bf76c69408a80aa0859d9e2f81a1340.jpg" width="2%"></img>】>【Plugins】，进入 Plugins 管理页面，如果插件列表中正常显示 `Tencent Cloud Monitor` APP 插件，表示插件安装成功。如下图所示：
+4. 在左侧导航栏中选择【<img src="https://main.qcloudimg.com/raw/3bf76c69408a80aa0859d9e2f81a1340.jpg" width="2%"></img>】>【Plugins】，进入 Plugins 管理页面，如果插件列表中正常显示 `Tencent Cloud Monitor` App 插件，表示插件安装成功。如下图所示：
 <img src="https://main.qcloudimg.com/raw/fafe4bb02bc8a5c5d050788a4cfa5d86.png" width="50%"></img>
 5. 进入应用详情页面，单击【Enable】，启用成功后，即可在 Grafana 中使用腾讯云监控应用插件。
 
