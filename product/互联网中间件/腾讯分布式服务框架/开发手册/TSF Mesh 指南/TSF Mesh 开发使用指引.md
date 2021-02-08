@@ -165,9 +165,9 @@ paths:
         '401':
            description: Unauthorized
         '402':
-           description: Forbidden
+           description: Payment Required
         '403':
-           description: Not Found
+           description: Forbidden
   /api/v6/user/account/query:
     get:
       responses:
@@ -176,9 +176,9 @@ paths:
         '401':
            description: Unauthorized
         '402':
-           description: Forbidden
+           description: Payment Required
         '403':
-           description: Not Found
+           description: Forbidden
   /health:
     get:
       responses:
@@ -187,9 +187,9 @@ paths:
         '401':
            description: Unauthorized
         '402':
-           description: Forbidden
+           description: Payment Required
         '403':
-           description: Not Found
+           description: Forbidden
 ```
 
 
