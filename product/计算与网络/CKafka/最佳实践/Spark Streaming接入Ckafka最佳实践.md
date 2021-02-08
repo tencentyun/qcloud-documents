@@ -21,11 +21,11 @@ Spark Streaming 将连续数据抽象成 DStream（Discretized Stream），而 D
 
 目前 CKafka 支持 0.9.0.x、0.10.0.x、0.10.1.x、0.10.2.x 版本，本次实践使用 0.10.2.1 版本的 Kafka 依赖。
 
-此外，EMR 中的 Spark Streaming 也支持直接对接 CKafka，详见 [SparkStreaming 对接 Ckafka 服务](https://cloud.tencent.com/document/product/589/12305)。
+此外，EMR 中的 Spark Streaming 也支持直接对接 CKafka，详见 [SparkStreaming 对接 CKafka 服务](https://cloud.tencent.com/document/product/589/12305)。
 
 ## Spark Streaming 接入 CKafka
 
-### 申请 Ckafka 实例
+### 申请 CKafka 实例
 登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)，创建一个 CKafka 实例（参考 [创建实例](https://cloud.tencent.com/document/product/597/30931)）。
 >?确认网络类型是否与当前使用网络相符。
 
@@ -83,7 +83,7 @@ object ProducerExample extends App {
 
 更多有关 ProducerRecord 的用法请参考 [ProducerRecord](https://kafka.apache.org/0100/javadoc/org/apache/kafka/clients/producer/ProducerRecord.html) 文档。
 
-### 从 Ckafka 消费
+### 从 CKafka 消费
 <span id="build.sbt"></span>
 #### DirectStream
 1. 在`build.sbt`添加依赖：
