@@ -80,8 +80,7 @@ docker-compose up
 
 1. 在左侧导航栏中选择【<img src="https://main.qcloudimg.com/raw/3bf76c69408a80aa0859d9e2f81a1340.jpg" width="2%"></img>】>【Plugins】，进入 Plugins 管理页面。
 3. 单击【Tencent Cloud Monitor】应用，进入应用详情页面，切换至【Dashboards】页签，选择 Dashbboard 模板导入。
-![Import Plugin Dashboard](https://github.com/TencentCloud/tencentcloud-monitor-grafana-app/blob/master/src/image/plugin-dashboard.png?raw=true)
-
+![](https://main.qcloudimg.com/raw/e7bfeec5a0207e8f80fcd4bf1ab518da.png)
 
 
 ## 步骤4：配置 Panel 数据
@@ -120,7 +119,7 @@ docker-compose up
      - 为了适应不同用户的习惯，实例列表会以不同的字段展示，默认为 `As InstanceId`，以**实例ID** 展示实例列表。此外，可以选择 `As InstanceName` 实例名称、 `As Vip` 内网 IP。
      - 实例列表的获取可参考云数据库 MySQL [查询实例列表](https://cloud.tencent.com/document/product/236/15872) 文档。切换 `Show Details` 为 `true`，可展示实例请求参数，默认参数为`Offset = 0` 和 `Limit = 20`。如需变更实例查询条件，可参考接口文档，配置相应参数。
     >!在本应用中，监控数据的单次查询为原子操作，即查询某一实例的某一指标的监控数据，故实例只能单选，如需查询多实例的监控数据，单击右上角的 `Add Query` 增加新的查询。  
-
+ 
 ![](https://main.qcloudimg.com/raw/2d4f491c842df18c96f7025d090f4153.png)
 
 ### 负载均衡 CLB 监控
@@ -140,7 +139,7 @@ docker-compose up
    - **Listener**：监听器，对应输入参数的 `Listener.N` 字段，列表会自动获取。
      - 为了适应不同用户的习惯，监听器列表会以不同的字段展示，默认为 `As ListenerId`，以 **监听器ID** 展示实例列表。此外，可以选择 `As ListenerName` 监听器名称、`As Port` 端口。
      - 监听器列表的获取可参见负载均衡 [查询负载均衡的监听器列表](https://cloud.tencent.com/document/api/214/30686) 文档。
-
+ 
 ![](https://main.qcloudimg.com/raw/b05767ee3135df2108e8628e6327e93a.png)
 
 ## 模板变量[](id:variables)
