@@ -57,7 +57,7 @@ spring-cloud-tsf-msgw-zuul 支持服务熔断能力。
 ## 1.23.8-Greenwich-RELEASE（2021-02-07）
 
 ### Bug 修复
-- 修复 msgw-scg 依赖 actuator 缺失导致启动失败的问题。
+修复 msgw-scg 依赖 actuator 缺失导致启动失败的问题。
 
 ### 优化
 - spring-cloud-tsf-fault-tolerance 和 spring-cloud-tsf-circuitbreaker 对 zuul 的依赖改为 optional。
