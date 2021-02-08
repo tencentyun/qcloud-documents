@@ -1,12 +1,19 @@
 数据传输服务 DTS 提供基于 binlog 的增量数据订阅功能，仅需几步简单操作，即可订阅云数据库 TencentDB 的增量更新数据。
 
 数据订阅 Kafka 版支持通过 Kafka 客户端直接消费数据。通过数据订阅功能您可以轻松实现源库的增量数据变更订阅，方便您搭建云数据库和异构系统之间的数据同步，如缓存更新，ETL（数据仓库技术）实时同步，业务异步解耦等。
->?如需使用数据订阅 Kafka 版，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请。
+>?数据订阅 Kafka 版数据订阅消息在中间存储 Kafka 中默认保留1天（24小时），请及时消费，否则可能导致订阅数据丢失。
 >
 ## 前提条件
 - 已准备好待订阅的腾讯云数据库 MySQL 或云数据库 MariaDB，云数据库 MySQL 支持同步的版本包括 MySQL 5.6、MySQL 5.7，云数据库 MariaDB 支持同步的版本包括 MariaDB 10.0.10、MariaDB 10.1.9、Percona 5.7.17。
 - 已在源端实例中开启 binlog。
 - 已在源端实例中创建订阅帐号，需要帐号权限如下：REPLICATION CLIENT、REPLICATION SLAVE、PROCESS 和全部对象的 SELECT 权限。
+具体授权语句如下：
+```
+create user ‘迁移账’ IDENTIFIED BY '账号密码';
+grant SELECT, REPLICATION CLIENT,REPLICATION SLAVE,PROCESS on *.* to '迁移账号'@'%';
+grant ALL PRIVILEGES on `__tencentdb__`.* to '迁移账号'@'%';
+flush privileges;
+```
 
 ## 支持订阅的 SQL 操作
 |  类型      | 数据变更                    | 结构变更                                                    | 数据+结构变更 |
