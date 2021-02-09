@@ -59,7 +59,8 @@ scalaVersion := "2.11.8"
 libraryDependencies += "org.apache.kafka" % "kafka-clients" % "0.10.2.1"
 ```
 2. 配置`producer_example.scala`：
-```scala
+<dx-codeblock>
+:::  scala
 import java.util.Properties
 import org.apache.kafka.clients.producer._
 object ProducerExample extends App {
@@ -79,7 +80,8 @@ object ProducerExample extends App {
     producer.send(record)
     producer.close() //最后要断开
 }
-```
+:::
+</dx-codeblock>
 
 更多有关 ProducerRecord 的用法请参考 [ProducerRecord](https://kafka.apache.org/0100/javadoc/org/apache/kafka/clients/producer/ProducerRecord.html) 文档。
 
