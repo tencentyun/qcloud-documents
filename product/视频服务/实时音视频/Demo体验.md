@@ -17,13 +17,13 @@
 ## 跨平台 Demo
 <table style="text-align:center;vertical-align:middle;">
 <tr>
-<th>微信小程序</th><th>桌面浏览器</th><th>Flutter</th><th>Electron</th>
+<th>微信小程序</th><th>桌面浏览器</th><th>Flutter </th><th>Electron</th>
 </tr>
 <tr>
 </div></a></td>
 <td><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/4cfc59a1b60c02fc975c8b3e23169fc7.png);background-size: cover;">
 </div></td>
-<td><a onclick="window.open('https://cloud.tencent.com/document/product/647/49789')"><div style="width:150px;height: 45px;background-image:url(https://main.qcloudimg.com/raw/a56f19858bfae732d43c278a94421cb3.png);background-size: cover;"></div></a><br><a onclick="window.open('https://trtc.qcloud.com/tweblive/index.html#/')"><div style="width:150px;height: 45px;background-image:url(https://main.qcloudimg.com/raw/9312a7e7ad3d42190bfcb2ba3f043902.png);background-size: cover;">
+<td><a onclick="window.open('https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html')"><div style="width:150px;height: 45px;background-image:url(https://main.qcloudimg.com/raw/d61bbbcc8f1e28d10d25c5b1f50ed15d.png);background-size: cover;"></div></a><br><a onclick="window.open('https://trtc.qcloud.com/tweblive/index.html#/')"><div style="width:150px;height: 45px;background-image:url(https://main.qcloudimg.com/raw/9312a7e7ad3d42190bfcb2ba3f043902.png);background-size: cover;">
 </div></a></td>
 <td><img style="width:150px" src="https://main.qcloudimg.com/raw/14d9fe31881712884e3e4d09c32fd219.png" data-nonescope="true"><br><img style="width:150px" src="https://main.qcloudimg.com/raw/9a256a1053da15b9f63323242854be1e.png" data-nonescope="true"></td>
 <td><a onclick="window.open('https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/electron_sdk/solution/education/TRTC_Education_Demo%20Setup%201.1.0.exe?_ga=1.35276513.1325816544.1607066203')"><div style="width:150px;height: 45px;background-image:url(https://main.qcloudimg.com/raw/1b7fc5b8e43bec05c95c7629045961ef.png);background-size: cover;"></div></a><br><a onclick="window.open('https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/electron_sdk/solution/education/TRTC_Education_Demo-1.1.0.dmg?_ga=1.35276513.1325816544.1607066203')"><div style="width:150px;height: 45px;background-image:url(https://main.qcloudimg.com/raw/61fb44724e1e5a7614a6029964321703.png);background-size: cover;">
@@ -59,7 +59,7 @@
 </table>
 
 :::
-::: Flutter
+::: Flutter\s(iOS/Android)
 Flutter 敬请期待
 :::
 ::: Windows
@@ -144,7 +144,7 @@ macOS 敬请期待
 </table>
 :::
 ::: 桌面浏览器
-请在此输入 桌面浏览器 正文
+![](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblivedemo/doc-assets/demo-official-website.gif)
 :::
 </dx-tabs>
 
@@ -209,7 +209,7 @@ macOS 敬请期待
 ## 互动课堂场景
 互动课堂场景支持老师和学生互动连麦，最多支持30人同时连麦，平滑上下麦，切换过程无需等待，沟通时延低于300ms；低延时直播模式下，支持10万学生同时观看，观看时延低至1000ms，CDN 旁路直播下，观众人数无限制；支持屏幕共享、互动白板、录制回放等多种课堂应用功能，打造形式更加丰富的线上教学。常见业务场景有大班课、小班课、超级小班课、AI课堂、招生课、内训直播课、1V1在线教育等。
 <dx-tabs>
-::: Electron(Windows/macOS)
+::: Electron\s(Windows/macOS) 
 <table>
      <tr>
          <th>老师端</th>  
