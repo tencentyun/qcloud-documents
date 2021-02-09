@@ -209,13 +209,17 @@ macOS 敬请期待
 ## 互动课堂场景
 互动课堂场景支持老师和学生互动连麦，最多支持30人同时连麦，平滑上下麦，切换过程无需等待，沟通时延低于300ms；低延时直播模式下，支持10万学生同时观看，观看时延低至1000ms，CDN 旁路直播下，观众人数无限制；支持屏幕共享、互动白板、录制回放等多种课堂应用功能，打造形式更加丰富的线上教学。常见业务场景有大班课、小班课、超级小班课、AI课堂、招生课、内训直播课、1V1在线教育等。
 <dx-tabs>
-::: Electron
-xxxx
+::: Electron(Windows/macOS)
+<table>
+     <tr>
+         <th>老师端</th>  
+         <th>学生端</th>  
+     </tr>
+<tr>
+<td><img src="https://imgcache.qq.com/operation/dianshi/other/Electron_teacher.76058b065f0b01ccc5d6bfd058c6b655e69a149c.gif"/></td>
+<td><img src="https://imgcache.qq.com/operation/dianshi/other/Electron_stu.9e3f55291b657d94878963ad86471b331190f47c.gif"/></td>
+</tr>
+</table>
 :::
-::: Windows
-请在此输入 Windows 正文
-:::
-::: macOS
-请在此输入 macOS 正文
-:::
+
 </dx-tabs>
