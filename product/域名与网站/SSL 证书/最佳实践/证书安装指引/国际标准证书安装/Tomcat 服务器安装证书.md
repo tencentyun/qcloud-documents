@@ -99,7 +99,7 @@
         <Context path="" docBase ="Knews" />
     <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs"
            prefix="localhost_access_log" suffix=".txt"  
-           pattern="%h %l %u %t "%r" %s %b" />
+           pattern="%h %l %u %t &quot;%r&quot; %s %b" />
       </Host>
     </Engine>
   </Service>
@@ -125,7 +125,7 @@
 
 如果您需要将 HTTP 请求自动重定向到 HTTPS。您可以通过以下操作设置：
 1. 编辑  `/usr/*/conf` 目录下的 `web.xml` 文件，找到 `</welcome-file-list>` 标签。
-2. 在 `</welcome-file-list>` 下面换行，并添加以下内容：
+2. 请在结束标签 `</welcome-file-list>` 后面换行，并添加以下内容：
 ```
 <login-config>
     <!-- Authorization setting for SSL -->
