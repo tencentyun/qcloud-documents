@@ -37,7 +37,7 @@ pod init
 -  方式二：使用 CocoaPod 官方源，支持选择版本号。
 <dx-codeblock>
 :::  CocoaPod
-   platform :ios, '8.0'
+   platform :ios, '9.0'
    source 'https://github.com/CocoaPods/Specs.git'
    
    target 'App' do
