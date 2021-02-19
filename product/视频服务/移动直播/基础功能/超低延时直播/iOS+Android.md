@@ -3,7 +3,7 @@
 
 <img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/mlvb/ultra-low_latency_live/rtc_compare_cdn.gif">
 
-> ?上图为超低延时直播和标准的 CDN 直播的真实对比视频（使用 [scrcpy工具](https://github.com/Genymobile/scrcpy) 配合录制），从左至右分别为：源视频、**超低延时直播（延时80ms）**、标准的 CDN 直播。
+> ?上图为超低延时直播和标准的 CDN 直播的真实对比视频（使用 [scrcpy 工具](https://github.com/Genymobile/scrcpy) 配合录制），从左至右分别为：源视频、**超低延时直播（延时80ms）**、标准的 CDN 直播。
 
 
 ### 方案优势
@@ -78,21 +78,21 @@
 ### 推流体验
 1. 下载视频云工具包，安装登录后，进入【连麦演示（新方案）】中。
 2. 允许相关权限申请，单击【Pusher】，默认选择为 `RTC`，即超低演示直播模式。
-3. 随机输入一个 steamId，例如：`11223344`。
+3. 随机输入一个 streamId，例如：`11223344`。
 3. 单击【开始推流】，成功开始推流后，可单击右下侧的菜单按钮，放大窗口，进行美颜、BGM、切换摄像头等设置操作。 
  ![](https://main.qcloudimg.com/raw/e2160adc79b02798488fb674de423545.png)
 
 ### 播放体验
 1. 下载视频云工具包，安装登录后，进入【连麦演示（新方案）】中。
 2. 允许相关权限申请，单击【Player】，默认选择为 `RTC`，即超低演示直播模式。
-3. 输入对应推流时设置 steamId，例如 `11223344`。
+3. 输入对应推流时设置 streamId，例如 `11223344`。
 4. 单击【开始播放】，成功开始播放后，可单击右下侧的菜单按钮，放大窗口，进行静音设置等操作。
 ![](https://main.qcloudimg.com/raw/3490e23ff34ecda11ebd5f0a57d404b7.png)
-> = 因为超低延时直播的协议特性，目前连麦互动新方案并不支持：**同一台设备，使用相同的streamid，一边推超低延时流，一边拉超低延时的流**，这一点可能在体验 Demo 功能时需要注意。
+> = 因为超低延时直播的协议特性，目前连麦互动新方案并不支持：**同一台设备，使用相同的 streamId，一边推超低延时流，一边拉超低延时的流**，这一点可能在体验 Demo 功能时需要注意。
 
 
 ## 接入工程
-新版本的移动直播 SDK，提供了新的V2 接⼝：`V2TXLivePusher` (推流)、 `V2TXLivePlayer`  (拉流)，用于帮助客户实现**更加灵活、更低延时**的直播业务场景。同时考虑的客户对于标准直播的需求，移动直播 V2 接⼝兼容⽀持两种直播协议：
+新版本的移动直播 SDK，提供了新的 V2 接⼝：`V2TXLivePusher` (推流)、 `V2TXLivePlayer`  (拉流)，用于帮助客户实现**更加灵活、更低延时**的直播业务场景。同时考虑的客户对于标准直播的需求，移动直播 V2 接⼝兼容⽀持两种直播协议：
 
 | 协议类型 | 说明 |
 |---------|---------|
@@ -140,8 +140,8 @@ trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx
 | **cloud.tencent.com** | 低延时直播特定域名，**请勿修改** |
 | **push** | 标识位，表示推流 |
 | **play** | 标识位，表示拉流 |
-| **sdkappid** | 对应 [服务开通](#RegistrationService) 一节中生成的`SDKAppID` |
-| **userId** | 主播 ID，需要由开发者自定义。 |
+| **sdkappid** | 对应 [服务开通](#RegistrationService) 一节中生成的 SDKAppID |
+| **userId** | 主播 ID，需要由开发者自定义 |
 | **usersig** | 对应 [服务开通](#RegistrationService) 中获取的 UserSig 密钥 |
 
 
@@ -201,12 +201,12 @@ V2TXLivePlayer *player = [[V2TXLivePlayer alloc] init];
 ### 步骤5：使用超低延时播放实现连麦和 PK（可选功能）
 
 在超低延时播放的场景中，一般都伴随着中/高频的连麦需求，包括观众连麦和主播PK，目前新的 V2 接口可以**非常灵活、简单**的实现类似的互动需求，且最多支持30人同时连麦，功能更强大，稳定性更高，只需如下简单四步：
-1. 调用 V2TXLivePusher 开始主播A的推流。
+1. 调用 V2TXLivePusher 开始主播 A 的推流。
 2. 所有观众侧调用 V2TXLivePlayer 开始播放主播 A 的推流。
 3. 开始连麦，连麦观众 B 调用 V2TXLivePusher 发起推流。
 4. 收到连麦消息后，主播 A 和其他观众调用 V2TXLivePlayer 开始播放观众 B 的推流。
 
-此时我们的主播 A，观众 B，其他观众即进入超低延时的实时互动场景中，更详细的步骤调用及代码示例，详情请参见 [连麦互动(新方案)](https://cloud.tencent.com/document/product/454/52751?!editLang=zh&!preview)。
+此时我们的主播 A，观众 B，其他观众即进入超低延时的实时互动场景中，更详细的步骤调用及代码示例，详情请参见 [连麦互动（新方案）](https://cloud.tencent.com/document/product/454/52751?!editLang=zh&!preview)。
 
 ## 费用计算
 超低延时直播能力由腾讯云实时音视频 TRTC 提供，由 TRTC **按麦下用户产生的时长** 向您收取相关费用。时长类型及刊例价如下表所示：
