@@ -128,7 +128,7 @@ trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx
 V2TXLivePusher pusher = new V2TXLivePusherImpl(this, V2TXLiveDef.V2TXLiveMode.TXLiveMode_RTC);
 pusher.setObserver(new MyPusherObserver());
 pusher.setRenderView(mSurfaceView);
-pusher.startCamera(TXDeviceManager.CAMERA_TYPE_FRONT);
+pusher.startCamera(true);
 pusher.startMicrophone();
 // 传⼊低延时协议推流地址，即可开始推流；
 pusher.startPush("trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=finnguan&usersig=xxxxx");
@@ -138,7 +138,7 @@ pusher.startPush("trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&use
 V2TXLivePusher *pusher = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
 [pusher setObserver:self];
 [pusher setRenderView:videoView];
-[pusher startCamera:TX_CAMERA_TYPE_FRONT];
+[pusher startCamera:true];
 [pusher startMicrophone];
 // 传⼊低延时协议推流地址，即可开始推流；
 [pusher startPush:@"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=finnguan&usersig=xxxxx"]
@@ -182,7 +182,7 @@ pusherA.startPush(pushURLA);
 ::: Objective-C
 V2TXLivePusher *pusherA = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
 ...
-[pusherA startPush:"pushURLA"]
+[pusherA startPush:pushURLA]
 :::
 </dx-codeblock>
 2. 所有观众观看主播 A 直播，调用 `V2TXLivePlayer` 开始播放主播 A 的流。
@@ -195,7 +195,7 @@ playerA.startPlay(playURLA);
 ::: Objective-C
 V2TXLivePlayer *player = [[V2TXLivePlayer alloc] init];
 ...
-[player startPlay:"playURLA"];
+[player startPlay:playURLA];
 :::
 </dx-codeblock>
 3. **开始连麦**，其中观众 B 调用 `V2TXLivePusher` 发起推流（后续会称呼为连麦观众B）。
@@ -208,7 +208,7 @@ pusherB.startPush(pushURLB);
 ::: Objective-C
 V2TXLivePusher *pusherB = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
 ...
-[pusherB startPush:"pushURLB"]
+[pusherB startPush:pushURLB]
 :::
 </dx-codeblock>
 4. **收到连麦消息后**，主播 A 调用 `V2TXLivePlayer` 开始播放**连麦观众B**的流，此时主播 A 和**连麦观众 B** 即可进入超低延时的实时互动场景中。
@@ -221,7 +221,7 @@ playerB.startPlay(playURLB);
 ::: Objective-C
 V2TXLivePlayer *playerB = [[V2TXLivePlayer alloc] init];
 ...
-[playerB startPlay:"playURLB"];
+[playerB startPlay:playURLB];
 :::
 </dx-codeblock>
 5. **连麦成功后**，其他观众调用 `V2TXLivePlayer` 同时也开始播放**连麦观众 B** 的流。
@@ -237,7 +237,7 @@ pusherA.startPush(pushURLA);
 ::: Objective-C
 V2TXLivePusher *pusherA = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
 ...
-[pusherA startPush:"pushURLA"]
+[pusherA startPush:pushURLA]
 :::
 </dx-codeblock>
 2. 主播 B 开始直播，调用 `V2TXLivePusher` 开始主播 B 的推流。
@@ -250,7 +250,7 @@ pusherB.startPush(pushURLB);
 ::: Objective-C
 V2TXLivePusher *pusherB = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
 ...
-[pusherB startPush:"pushURLB"]
+[pusherB startPush:pushURLB]
 :::
 </dx-codeblock>
 3. **开始 PK**，主播 A 和主播 B 分别调用 `V2TXLivePlayer` 开始播放对方的流，此时主播 A 和主播 B 即进入超低延时的实时互动场景中。
@@ -267,11 +267,11 @@ playerB.startPlay(playURLB);
 ::: Objective-C
 V2TXLivePlayer *playerA = [[V2TXLivePlayer alloc] init];
 ...
-[playerA startPlay:"playURLA"];
+[playerA startPlay:playURLA];
 
 V2TXLivePlayer *playerB = [[V2TXLivePlayer alloc] init];
 ...
-[playerB startPlay:"playURLB"];
+[playerB startPlay:playURLB];
 :::
 </dx-codeblock>
 
@@ -301,7 +301,7 @@ V2TXLivePlayer *playerB = [[V2TXLivePlayer alloc] init];
 
 ## 常见问题
 
-#### 1. 为什么同一台设备不支持使用相同 streamid 同时推流和拉流，而 `TXLivePusher&TXLivePlayer` 可以？
+#### 1. 为什么使用`V2TXLivePusher&V2TXLivePlayer`接口时，同一台设备不支持使用相同 streamid 同时推流和拉流，而 `TXLivePusher&TXLivePlayer` 可以支持？
 是的，目前`V2TXLivePusher&V2TXLivePlayer`是 [腾讯云TRTC](https://cloud.tencent.com/document/product/647/45151) 协议实现，其基于UDP的超低延时的私有协议暂时还不支持同一台设备使用相同的streamid进行通信，同时考虑到用户的使用场景，所以暂时并未支持，后续会酌情考虑此问题的优化。
 
 #### 2. [**服务开通**](#RegistrationService) 章节中生成参数都是什么意思呢？

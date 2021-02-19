@@ -156,7 +156,7 @@ trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx
 V2TXLivePusher pusher = new V2TXLivePusherImpl(this, V2TXLiveDef.V2TXLiveMode.TXLiveMode_RTC);
 pusher.setObserver(new MyPusherObserver());
 pusher.setRenderView(mSurfaceView);
-pusher.startCamera(TXDeviceManager.CAMERA_TYPE_FRONT);
+pusher.startCamera(true);
 pusher.startMicrophone();
 // 传⼊低延时协议推流地址，即可开始推流；
 pusher.startPush("trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=finnguan&usersig=xxxxx");
@@ -166,7 +166,7 @@ pusher.startPush("trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&use
 V2TXLivePusher *pusher = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
 [pusher setObserver:self];
 [pusher setRenderView:videoView];
-[pusher startCamera:TX_CAMERA_TYPE_FRONT];
+[pusher startCamera:true];
 [pusher startMicrophone];
 // 传⼊低延时协议推流地址，即可开始推流；
 [pusher startPush:@"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=finnguan&usersig=xxxxx"]
