@@ -5,7 +5,7 @@
 
 > ?上图为超低延时直播和标准的 CDN 直播的真实对比视频（使用 [scrcpy工具](https://github.com/Genymobile/scrcpy) 配合录制），从左至右分别为：源视频、**超低延时直播（延时80ms）**、标准的 CDN 直播。
 
- 
+
 ### 方案优势
 <table>
 <thead><tr><th width="15%">优势</th><th>说明</th></tr></thead>
@@ -42,7 +42,7 @@
 <td>超低延时观看助力主播助播实时解答观众提问，更能解锁秒杀、连麦等玩法，提高转化和留存</td>
 </tr>
 </tbody></table>
- 
+
 ## 体验超低延时直播
 视频云工具包是腾讯云开源的一套完整的音视频服务解决方案，包含实时音视频（TRTC）、移动直播（MLVB）、短视频（UGC）等多个 SDK 的能力展示，其中包含超低延时直播相关体验 UI —**连麦演示( 新方案 )** 。
 > ?因为超低延时播直播的特性（推流/播放），目前将其能力的展示整合在连麦演示（新方案）中，具体说明见下文。
@@ -94,10 +94,10 @@
 ## 接入工程
 新版本的移动直播 SDK，提供了新的V2 接⼝：`V2TXLivePusher` (推流)、 `V2TXLivePlayer`  (拉流)，用于帮助客户实现**更加灵活、更低延时**的直播业务场景。同时考虑的客户对于标准直播的需求，移动直播 V2 接⼝兼容⽀持两种直播协议：
 
-| 协议类型 | 说明 | 
+| 协议类型 | 说明 |
 |---------|---------|
-| 标准直播协议 | 标准的 RTMP 推流和 FLV 拉流，其 URL 分别以 `rtmp://` 和 `http://` 字符开始 | 
-| 超低延时直播协议 | 基于 UDP 实现的私有协议，其 URL 均以 `trtc://` 字符开始 | 
+| 标准直播协议 | 标准的 RTMP 推流和 FLV 拉流，其 URL 分别以 `rtmp://` 和 `http://` 字符开始 |
+| 超低延时直播协议 | 基于 UDP 实现的私有协议，其 URL 均以 `trtc://` 字符开始 |
 
 >? 标准直播协议和低延时直播协议，除了 URL 不同，在接入方式上基本⼀致。但是超低延时直播协议具备更低的时延，在直播效果和体验上有着更好的表现。
 
@@ -125,11 +125,11 @@
 在直播场景中，不论是推/拉流都离不开对应的URL，在超低延时直播中，URL 的示例如下：
 - **超低延时推流地址：**
 ```http
-trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888;userId=A;usersig=xxxxx
+trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=A&usersig=xxxxx
 ```
 - **超低延时播放地址：**
 ```http
-trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888;userId=A;usersig=xxx
+trtc://cloud.tencent.com/play/streamid?sdkappid=1400188888&userId=A&usersig=xxx
 ```
 
 在上述的URL中，存在一些关键字段，关于其中关键字段的含义信息，详见下表：
@@ -159,7 +159,7 @@ pusher.setRenderView(mSurfaceView);
 pusher.startCamera(TXDeviceManager.CAMERA_TYPE_FRONT);
 pusher.startMicrophone();
 // 传⼊低延时协议推流地址，即可开始推流；
-pusher.startPush("trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888;userId=finnguan;usersig=xxxxx");
+pusher.startPush("trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=finnguan&usersig=xxxxx");
 :::
 ::: Objective-C
 // 创建⼀个 V2TXLivePusher 对象，并指定模式为 TXLiveMode_RTC；
@@ -169,7 +169,7 @@ V2TXLivePusher *pusher = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_R
 [pusher startCamera:TX_CAMERA_TYPE_FRONT];
 [pusher startMicrophone];
 // 传⼊低延时协议推流地址，即可开始推流；
-[pusher startPush:@"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888;userId=finnguan;usersig=xxxxx"]
+[pusher startPush:@"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=finnguan&usersig=xxxxx"]
 :::
 </dx-codeblock>
 
@@ -186,13 +186,13 @@ V2TXLivePlayer player = new V2TXLivePlayerImpl(mContext);
 player.setObserver(new MyPlayerObserver(playerView));
 player.setRenderView(mSurfaceView);
 // 传⼊低延时协议播放地址，即可开始播放；
-player.startPlay("trtc://cloud.tencent.com/play/streamid?sdkappid=1400188366;userId=A;usersig=xxx");
+player.startPlay("trtc://cloud.tencent.com/play/streamid?sdkappid=1400188366&userId=A&usersig=xxx");
 :::
 ::: Objective-C
 V2TXLivePlayer *player = [[V2TXLivePlayer alloc] init];
 [player setObserver:self];
 [player setRenderView:videoView];
-[player startPlay:@"trtc://cloud.tencent.com/play/streamid?sdkappid=1400188366;userId=A;usersig=xxx"];
+[player startPlay:@"trtc://cloud.tencent.com/play/streamid?sdkappid=1400188366&userId=A&usersig=xxx"];
 :::
 </dx-codeblock>
 
