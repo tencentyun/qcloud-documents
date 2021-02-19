@@ -27,7 +27,7 @@ pod init
 -  方式一：使用腾讯云 LiteAVSDK 的 podspec 文件路径。
 <dx-codeblock>
 :::  podspec
-  platform :ios, '8.0'
+  platform :ios, '9.0'
   
   target 'App' do
   pod 'TXLiteAVSDK_Professional', :podspec => 'http://pod-1252463788.cosgz.myqcloud.com/liteavsdkspec/TXLiteAVSDK_Professional.podspec'
