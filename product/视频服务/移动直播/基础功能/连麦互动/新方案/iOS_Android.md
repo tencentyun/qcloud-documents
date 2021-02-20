@@ -73,10 +73,10 @@
 因为 MLVBLiveRoom 的互动方案集成度较高，导致在互动场景上丧失了很多灵活性，提升了开发者对于业务理解的难度和接入成本。所以，新版本的移动直播 SDK 提供了新的 V2 接⼝：` V2TXLivePusher ` (推流)、 `V2TXLivePlayer`  (拉流)，用来帮助客户实现**更加灵活、更低延时、更多人数**的直播互动场景，接下来将介绍基于 ` V2TXLivePusher ` 和 `V2TXLivePlayer` 组件如何快速实现观众连麦和主播 PK 等互动场景服务。
 
 [](id:RegistrationService)
-### 步骤1： 服务开通 
+### 步骤1：服务开通 
 超低延时直播需要在开始接入前，先开通腾讯云 [**实时音视频**](https://cloud.tencent.com/document/product/647) 服务，具体步骤如下：
 
-1. 您需要[注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)；
+1. 您需要 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
 2. 登录实时音视频控制台，选择【[应用管理](https://console.cloud.tencent.com/trtc/app)】。
 3.  单击【创建应用】，输入应用名称，例如 `V2Demo` ，单击【确定】。
 ![](https://main.qcloudimg.com/raw/21ef2f952c428c08cedfbef88ba16407.png)
@@ -87,10 +87,10 @@
 > - 本文提到的生成 UserSig 的方案是在客户端代码中配置 UserSig，该UserSig 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此 **该方法仅适合本地跑通 Demo 和功能调试** 。
 > - 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)
 
-> ?在服务开通后，建议先可以编译&体验一下腾讯云提供的 SimpleCode（一个极简的Demo），配合下文说明，方便您快速了解API的使用；
+> ?在服务开通后，建议先可以编译&体验一下腾讯云提供的 SimpleCode（一个极简的Demo），配合下文说明，方便您快速了解API的使用。
 > - [Android](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SimpleDemo)
 > - [iOS](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/SimpleDemo)
->
+
 ### 步骤2：了解推拉流协议
 在直播场景中，不论是推流还是拉流都离不开对应的 URL，在超低延时直播中，URL 的示例如下：
 
@@ -301,8 +301,8 @@ V2TXLivePlayer *playerB = [[V2TXLivePlayer alloc] init];
 
 ## 常见问题
 
-#### 1. 为什么使用`V2TXLivePusher&V2TXLivePlayer`接口时，同一台设备不支持使用相同 streamid 同时推流和拉流，而 `TXLivePusher&TXLivePlayer` 可以支持？
-是的，目前`V2TXLivePusher&V2TXLivePlayer`是 [腾讯云TRTC](https://cloud.tencent.com/document/product/647/45151) 协议实现，其基于UDP的超低延时的私有协议暂时还不支持同一台设备使用相同的streamid进行通信，同时考虑到用户的使用场景，所以暂时并未支持，后续会酌情考虑此问题的优化。
+#### 1. 为什么使用 `V2TXLivePusher&V2TXLivePlayer` 接口时，同一台设备不支持使用相同 streamid 同时推流和拉流，而 `TXLivePusher&TXLivePlayer` 可以支持？
+是的，目前 `V2TXLivePusher&V2TXLivePlayer` 是 [腾讯云 TRTC](https://cloud.tencent.com/document/product/647/45151) 协议实现，其基于 UDP 的超低延时的私有协议暂时还不支持同一台设备使用相同的 streamid 进行通信，同时考虑到用户的使用场景，所以暂时并未支持，后续会酌情考虑此问题的优化。
 
 #### 2. [**服务开通**](#RegistrationService) 章节中生成参数都是什么意思呢？
 SDKAppID 用于标识您的应用，UserID 用于标识您的用户，而 UserSig 则是基于前两者计算出的安全签名，它由 **HMAC SHA256** 加密算法计算得出。只要攻击者不能伪造 UserSig，就无法盗用您的云服务流量。UserSig 的计算原理如下图所示，其本质就是对 SDKAppID、UserID、ExpireTime 等关键信息进行了一次哈希加密：
@@ -313,11 +313,11 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
                                  base64(userid + sdkappid + currtime + expire)))
 ```
 
-#### 3. `V2TXLivePusher&V2TXLivePlayer` 如何设置音质或者画质呢？
+#### 3. V2TXLivePusher&V2TXLivePlayer 如何设置音质或者画质呢？
 我们有提供对应的音质和画质的设置接口，详情见 API 文件：[设置推流音频质量](http://doc.qcloudtrtc.com/group__V2TXLivePusher__ios.html#a88956a3ad5e030af7b2f7f46899e5f13) 和 [设置推流视频参数](http://doc.qcloudtrtc.com/group__V2TXLivePusher__ios.html#a0b08436c1e14a8d7d9875fae59ac6d84)。
 
 #### 4. 收到一个错误码：`-5`，代表什么意思？
--5表示由于许可证无效，因此无法调用API，对应的枚举值为：[`V2TXLIVE_ERROR_INVALID_LICENSE`](http://doc.qcloudtrtc.com/group__V2TXLiveCode__ios.html)，更多错误码请参见 [API 状态码](http://doc.qcloudtrtc.com/group__V2TXLiveCode__ios.html)。
+-5表示由于许可证无效，因此无法调用API，对应的枚举值为：[V2TXLIVE_ERROR_INVALID_LICENSE](http://doc.qcloudtrtc.com/group__V2TXLiveCode__ios.html)，更多错误码请参见 [API 状态码](http://doc.qcloudtrtc.com/group__V2TXLiveCode__ios.html)。
 
 #### 5. 新方案的时延性有可以参考的数据吗？
 新方案中，主播连麦的延时 < 200ms，主播和观众的延时在：100ms - 1000ms，可以参考 [超低延时直播](https://cloud.tencent.com/document/product/454/52749?!editLang=zh&!preview) 中的测试视频。
