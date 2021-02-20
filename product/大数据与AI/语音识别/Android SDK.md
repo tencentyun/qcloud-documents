@@ -13,7 +13,7 @@ Android SDK 接入请观看视频：
 1. **添加一句话识别 SDK aar**
 将 **speech_release.aar** 放在 libs 目录下，在 App 的 build.gradle 文件中添加以下代码。
 ```
-  implementation(name: 'speech_release.aar', ext: 'aar')
+  implementation(name: 'speech_release', ext: 'aar')
 ```
 2. **添加其他依赖，在 App 的 build.gradle 文件中添加以下代码**。
 ```
