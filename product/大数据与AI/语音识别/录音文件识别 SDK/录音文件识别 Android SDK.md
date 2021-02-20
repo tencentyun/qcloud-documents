@@ -13,7 +13,7 @@ Android SDK 接入请观看视频：
 ### 运行环境配置
 1. 添加录音文件识别 SDK aar，将 **speech_release.aar** 放在 libs 目录下，在 App 的 build.gradle 文件中添加。
 ```
-  implementation(name: 'speech_release.aar', ext: 'aar')
+  implementation(name: 'speech_release', ext: 'aar')
 ```
 2. 添加其他依赖，在 App 的 build.gradle 文件中添加。
 ```
