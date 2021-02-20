@@ -1,7 +1,6 @@
 ## 简介
 
-- [tim-upload-plugin](https://www.npmjs.com/package/tim-upload-plugin) 即腾讯云即时通信 IM 上传插件，是基于腾讯云对象存储预签名 URL 方式实现资源上传。
-- 开发者在集成腾讯云即时通信 IM 时使用 [tim-upload-plugin](https://www.npmjs.com/package/tim-upload-plugin)  可以彻底替代 cos-js-sdk 或 cos-wx-sdk 的资源上传功能，该插件不仅提升了应用数据的安全性，而且具有上传速度快、体积小、支持跨平台小程序应用等特性。
+- [tim-upload-plugin](https://www.npmjs.com/package/tim-upload-plugin) 即腾讯云即时通信 IM 上传插件，是基于腾讯云对象存储预签名 URL 方式实现资源上传。开发者在集成腾讯云即时通信 IM 时使用 [tim-upload-plugin](https://www.npmjs.com/package/tim-upload-plugin)  可以彻底替代 cos-js-sdk 或 cos-wx-sdk 的资源上传功能，该插件不仅提升了应用数据的安全性，而且具有上传速度快、体积小、支持跨平台小程序应用等特性。
 
 ## 优势
 
@@ -18,7 +17,7 @@
 - ### 支持多种格式文件上传
 目前可以支持 JPG、JPEG、PNG、BMP、GIF 五种格式的图片，MP4 格式的视频，语音以及 word、excel、pdf 等普通文件的上传。
 
-- ### 轻量级插件，目前体积在10KB以内
+- ### 轻量级插件
 插件的体积在10KB以内，而目前在腾讯云即时通信 IM web 应用中接入的 cos-js-sdk 体积为1.8M，小程序应用中接入的 cos-wx-sdk 体积为1.2M，在体积方面 tim-upload-plugin 减少了98%左右，对优化应用体积很有帮助。
 
 ## 工作原理
