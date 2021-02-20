@@ -107,12 +107,15 @@ Properties props = new Properties();
 ```
 
 >?除了使用 properties 添加 sasl.jaas.config 配置的方式，您也可以通过 System.setProperty 或 -D 的方式传入。
-> - System.setProperty("java.security.auth.login.config", "/etc/ckafka_client_jaas.conf");
-> ```java
-> KafkaClient {
->     org.apache.kafka.common.security.plain.PlainLoginModule required
->     username="yourinstance#yourusername"
->     password="yourpassword";
-> }; 
-> ```
+>- System.setProperty("java.security.auth.login.config", "/etc/ckafka_client_jaas.conf");
+>- <dx-codeblock>
+:::  java
+KafkaClient {
+	org.apache.kafka.common.security.plain.PlainLoginModule required
+	username="yourinstance#yourusername"
+	password="yourpassword";
+}; 
+:::
+</dx-codeblock>
+
 
