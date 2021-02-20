@@ -82,10 +82,9 @@
 ![](https://main.qcloudimg.com/raw/21ef2f952c428c08cedfbef88ba16407.png)
 4. 创建成功后，单击右侧【应用信息】，查看应用对应的 `SDKAppID` 信息。
 5. 单击【快速上手】，加载完成后，记录出现的 **UserSig 的密钥**。
-
 > !
 > - 本文提到的生成 UserSig 的方案是在客户端代码中配置 UserSig，该UserSig 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此 **该方法仅适合本地跑通 Demo 和功能调试** 。
-> - 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)
+> - 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 > ?在服务开通后，建议先可以编译&体验一下腾讯云提供的 SimpleCode（一个极简的Demo），配合下文说明，方便您快速了解API的使用。
 > - [Android](https://github.com/tencentyun/MLVBSDK/tree/master/Android/SimpleDemo)
@@ -320,4 +319,4 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 -5表示由于许可证无效，因此无法调用API，对应的枚举值为：[V2TXLIVE_ERROR_INVALID_LICENSE](http://doc.qcloudtrtc.com/group__V2TXLiveCode__ios.html)，更多错误码请参见 [API 状态码](http://doc.qcloudtrtc.com/group__V2TXLiveCode__ios.html)。
 
 #### 5. 新方案的时延性有可以参考的数据吗？
-新方案中，主播连麦的延时 < 200ms，主播和观众的延时在：100ms - 1000ms，可以参考 [超低延时直播](https://cloud.tencent.com/document/product/454/52749?!editLang=zh&!preview) 中的测试视频。
+新方案中，主播连麦的延时 < 200ms，主播和观众的延时在：100ms - 1000ms，可以参考 [超低延时直播](https://cloud.tencent.com/document/product/454/52749) 中的测试视频。
