@@ -82,6 +82,7 @@
 ![](https://main.qcloudimg.com/raw/21ef2f952c428c08cedfbef88ba16407.png)
 4. 创建成功后，单击右侧【应用信息】，查看应用对应的 `SDKAppID` 信息。
 5. 单击【快速上手】，加载完成后，记录出现的 **UserSig 的密钥**。
+
 > !
 > - 本文提到的生成 UserSig 的方案是在客户端代码中配置 UserSig，该UserSig 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此 **该方法仅适合本地跑通 Demo 和功能调试** 。
 > - 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
