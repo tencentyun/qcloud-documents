@@ -169,7 +169,7 @@ V2TXLivePusher *pusher = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_R
 [pusher startCamera:true];
 [pusher startMicrophone];
 // 传⼊低延时协议推流地址，即可开始推流；
-[pusher startPush:@"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=finnguan&usersig=xxxxx"]
+[pusher startPush:@"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=finnguan&usersig=xxxxx"];
 :::
 </dx-codeblock>
 

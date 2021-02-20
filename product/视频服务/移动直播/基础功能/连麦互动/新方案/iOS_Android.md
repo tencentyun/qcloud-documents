@@ -141,7 +141,7 @@ V2TXLivePusher *pusher = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_R
 [pusher startCamera:true];
 [pusher startMicrophone];
 // 传⼊低延时协议推流地址，即可开始推流；
-[pusher startPush:@"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=finnguan&usersig=xxxxx"]
+[pusher startPush:@"trtc://cloud.tencent.com/push/streamid?sdkappid=1400188888&userId=finnguan&usersig=xxxxx"];
 :::
 </dx-codeblock>
 
@@ -182,7 +182,7 @@ pusherA.startPush(pushURLA);
 ::: Objective-C
 V2TXLivePusher *pusherA = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
 ...
-[pusherA startPush:pushURLA]
+[pusherA startPush:pushURLA];
 :::
 </dx-codeblock>
 2. 所有观众观看主播 A 直播，调用 `V2TXLivePlayer` 开始播放主播 A 的流。
@@ -208,7 +208,7 @@ pusherB.startPush(pushURLB);
 ::: Objective-C
 V2TXLivePusher *pusherB = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
 ...
-[pusherB startPush:pushURLB]
+[pusherB startPush:pushURLB];
 :::
 </dx-codeblock>
 4. **收到连麦消息后**，主播 A 调用 `V2TXLivePlayer` 开始播放**连麦观众B**的流，此时主播 A 和**连麦观众 B** 即可进入超低延时的实时互动场景中。
@@ -237,7 +237,7 @@ pusherA.startPush(pushURLA);
 ::: Objective-C
 V2TXLivePusher *pusherA = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
 ...
-[pusherA startPush:pushURLA]
+[pusherA startPush:pushURLA];
 :::
 </dx-codeblock>
 2. 主播 B 开始直播，调用 `V2TXLivePusher` 开始主播 B 的推流。
@@ -250,7 +250,7 @@ pusherB.startPush(pushURLB);
 ::: Objective-C
 V2TXLivePusher *pusherB = [[V2TXLivePusher alloc] initWithLiveMode:V2TXLiveMode_RTC];
 ...
-[pusherB startPush:pushURLB]
+[pusherB startPush:pushURLB];
 :::
 </dx-codeblock>
 3. **开始 PK**，主播 A 和主播 B 分别调用 `V2TXLivePlayer` 开始播放对方的流，此时主播 A 和主播 B 即进入超低延时的实时互动场景中。
