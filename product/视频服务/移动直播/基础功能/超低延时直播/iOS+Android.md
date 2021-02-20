@@ -206,7 +206,7 @@ V2TXLivePlayer *player = [[V2TXLivePlayer alloc] init];
 3. 开始连麦，连麦观众 B 调用 V2TXLivePusher 发起推流。
 4. 收到连麦消息后，主播 A 和其他观众调用 V2TXLivePlayer 开始播放观众 B 的推流。
 
-此时我们的主播 A，观众 B，其他观众即进入超低延时的实时互动场景中，更详细的步骤调用及代码示例，详情请参见 [连麦互动（新方案）](https://cloud.tencent.com/document/product/454/52751?!editLang=zh&!preview)。
+此时我们的主播 A，观众 B，其他观众即进入超低延时的实时互动场景中，更详细的步骤调用及代码示例，详情请参见 [连麦互动（新方案）](https://cloud.tencent.com/document/product/454/52751)。
 
 ## 费用计算
 超低延时直播能力由腾讯云实时音视频 TRTC 提供，由 TRTC **按麦下用户产生的时长** 向您收取相关费用。时长类型及刊例价如下表所示：
