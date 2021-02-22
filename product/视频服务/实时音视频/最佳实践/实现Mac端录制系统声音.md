@@ -16,7 +16,7 @@ SDK 需要使用 [TRTCPrivilegedTask](https://liteavsdk-1252463788.cos.ap-guangz
 platform :osx, '10.10'	
 
 target 'Your Target' do
-        pod 'TRTCPrivilegedTask', :podspec => 'https://pod-1252463788.cos.ap-guangzhou.myqcloud.com/liteavsdkspec/TRTCPrivilegedTask.podspec'
+    pod 'TRTCPrivilegedTask', :podspec => 'https://pod-1252463788.cos.ap-guangzhou.myqcloud.com/liteavsdkspec/TRTCPrivilegedTask.podspec'
 end
 :::
 </dx-codeblock>
