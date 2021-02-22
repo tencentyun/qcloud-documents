@@ -23,19 +23,19 @@
 </div></a></td>
 <td><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/4cfc59a1b60c02fc975c8b3e23169fc7.png);background-size: cover;">
 </div></td>
-<td><input type="button" value="视频通话" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #006eff;
-    color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
+<td><input type="button" value="视频通话" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;
+    color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
     box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html')" /><br><br>
-      <input type="button" value="互动直播" style="height: 30px;width: 150px;margin-top: 5px;min-width: 24px;padding: 0 20px;background-color: #006eff;
-    color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
+      <input type="button" value="互动直播" style="height: 30px;width: 150px;margin-top: 5px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;
+    color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
     box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://trtc.qcloud.com/tweblive/index.html#/')" />
 </td>
 <td><img style="width:150px" src="https://main.qcloudimg.com/raw/14d9fe31881712884e3e4d09c32fd219.png" data-nonescope="true"><br><img style="width:150px" src="https://main.qcloudimg.com/raw/9a256a1053da15b9f63323242854be1e.png" data-nonescope="true"></td>
-<td><input type="button" value="Windows 版" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #006eff;
-    color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
+<td><input type="button" value="Windows 版" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;
+    color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
     box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/electron_sdk/solution/education/TRTC_Education_Demo%20Setup%201.1.0.exe?_ga=1.35276513.1325816544.1607066203')" /><br><br>
-      <input type="button" value="MacOS 版" style="height: 30px;width: 150px;margin-top: 5px;min-width: 24px;padding: 0 20px;background-color: #006eff;
-    color: #fff;border: 1px solid #006eff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
+      <input type="button" value="MacOS 版" style="height: 30px;width: 150px;margin-top: 5px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;
+    color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
     box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/electron_sdk/solution/education/TRTC_Education_Demo-1.1.0.dmg?_ga=1.35276513.1325816544.1607066203/')" /></td>
 </tr>
 </table>
