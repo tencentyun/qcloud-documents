@@ -8,7 +8,7 @@ Storm 是一个分布式实时计算框架，能够对数据进行流式处理�
 用户提交给 Storm 的数据处理程序称为`topology`，它处理的最小消息单位是`tuple`，一个任意对象的数组。`topology`由`spout`和`bolt`构成，`spout`是产生`tuple`的源头，`bolt`可以订阅任意`spout`或`bolt`发出的`tuple`进行处理。
 ![](https://mc.qcloudimg.com/static/img/93eb9e2621f5ad49fee536ab9d6e8799/image.png)
 
-## Storm with ckafka
+## Storm with CKafka
 Storm 可以把 CKafka 作为`spout`，消费数据进行处理；也可以作为`bolt`，存放经过处理后的数据提供给其它组件消费。
 
 ### 测试环境

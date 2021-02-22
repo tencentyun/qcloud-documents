@@ -21,11 +21,11 @@ Spark Streaming 将连续数据抽象成 DStream（Discretized Stream），而 D
 
 目前 CKafka 支持 0.9.0.x、0.10.0.x、0.10.1.x、0.10.2.x 版本，本次实践使用 0.10.2.1 版本的 Kafka 依赖。
 
-此外，EMR 中的 Spark Streaming 也支持直接对接 CKafka，详见 [SparkStreaming 对接 Ckafka 服务](https://cloud.tencent.com/document/product/589/12305)。
+此外，EMR 中的 Spark Streaming 也支持直接对接 CKafka，详见 [SparkStreaming 对接 CKafka 服务](https://cloud.tencent.com/document/product/589/12305)。
 
 ## Spark Streaming 接入 CKafka
 
-### 申请 Ckafka 实例
+### 申请 CKafka 实例
 登录 [消息队列 CKafka 控制台](https://console.cloud.tencent.com/ckafka)，创建一个 CKafka 实例（参考 [创建实例](https://cloud.tencent.com/document/product/597/30931)）。
 >?确认网络类型是否与当前使用网络相符。
 
@@ -59,7 +59,8 @@ scalaVersion := "2.11.8"
 libraryDependencies += "org.apache.kafka" % "kafka-clients" % "0.10.2.1"
 ```
 2. 配置`producer_example.scala`：
-```scala
+<dx-codeblock>
+:::  scala
 import java.util.Properties
 import org.apache.kafka.clients.producer._
 object ProducerExample extends App {
@@ -79,11 +80,12 @@ object ProducerExample extends App {
     producer.send(record)
     producer.close() //最后要断开
 }
-```
+:::
+</dx-codeblock>
 
 更多有关 ProducerRecord 的用法请参考 [ProducerRecord](https://kafka.apache.org/0100/javadoc/org/apache/kafka/clients/producer/ProducerRecord.html) 文档。
 
-### 从 Ckafka 消费
+### 从 CKafka 消费
 <span id="build.sbt"></span>
 #### DirectStream
 1. 在`build.sbt`添加依赖：
@@ -217,7 +219,7 @@ object Kafka {
 SBT_OPTS="-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled -XX:MaxPermSize=256M"
 java $SBT_OPTS -jar `dirname $0`/bin/sbt-launch.jar "$@"
 ```
-```bash
+ ```bash
 chmod u+x ./sbt_run.sh
 ```
 
@@ -234,7 +236,7 @@ chmod u+x ./sbt_run.sh
 ./configure
 make && make install
 ```
-需要预先安装 gcc-g++，执行中可能需要 root 权限。
+ 需要预先安装 gcc-g++，执行中可能需要 root 权限。
 3. 重新登录，在命令行中输入下述内容。
 ```bash
 protoc --version
@@ -273,27 +275,27 @@ sudo yum install java-1.8.0-openjdk java-1.8.0-openjdk-devel
 ```bash
 vim /etc/profile
 ```
-在文末加上下述内容：
+ 在文末加上下述内容：
 ```vim
 export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jre
 export PATH=$PATH:$JAVA_HOME
 ```
-根据安装情况修改对应路径。
+ 根据安装情况修改对应路径。
 9. 解压 Hadoop，进入目录。
 ```bash
 ./bin/hadoop version
 ```
-若能显示版本信息说明能正常运行。
+ 若能显示版本信息说明能正常运行。
 10. 配置单机伪分布式（可根据需要搭建不同形式的集群）。
 ```bash
 vim /etc/profile
 ```
-在文末加上下述内容：
+ 在文末加上下述内容：
 ```vim
 export HADOOP_HOME=/usr/local/hadoop
 export PATH=$HADOOP_HOME/bin:$PATH
 ```
-根据安装情况修改对应路径。
+ 根据安装情况修改对应路径。
 11. 修改`/etc/hadoop/core-site.xml`。
 ```xml
 <configuration>
@@ -333,7 +335,7 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jr
 ```bash
 ./bin/hdfs namenode -format
 ```
-显示`Exitting with status 0`则表示成功。
+ 显示`Exitting with status 0`则表示成功。
 15. 启动 Hadoop。
 ```bash
 ./sbin/start-dfs.sh
@@ -350,14 +352,14 @@ export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.121-0.b13.el6_8.x86_64/jr
 cp ./conf/spark-env.sh.template ./conf/spark-env.sh
 vim ./conf/spark-env.sh
 ```
-在第一行添加下述内容：
+ 在第一行添加下述内容：
 ```vim
 export SPARK_DIST_CLASSPATH=$(/usr/local/hadoop/bin/hadoop classpath)
 ```
-根据 hadoop 安装情况修改路径。
+ 根据 hadoop 安装情况修改路径。
 3. 运行示例。
 ```bash
 bin/run-example SparkPi
 ```
-若成功安装可以看到程序输出 π 的近似值。
+ 若成功安装可以看到程序输出 π 的近似值。
 

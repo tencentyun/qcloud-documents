@@ -2,7 +2,7 @@
 
 >!2020年5月19日起，TSF 主要支持 Greenwich 和 Finchley 版本的功能更新，Edgware 版本主要进行缺陷修复，建议您优先使用 Finchley和 Greenwich 版本（[社区 Edgware 版本](https://spring.io/blog/2019/05/29/spring-cloud-edgware-sr6-released) 于2019年8月停止更新）。
 
-## 1.21.5-Edgware-RELEASE（2021-02-02）
+## 1.21.5-Edgware-RELEASE（2021-02-07）
 ### Bug 修复
 - 处理 Spring 组件开源漏洞风险，升级 Spring Framework 到4.3.29版本。
 - spring-cloud-tsf-core 修复与 spring-boot-devtools 的冲突。

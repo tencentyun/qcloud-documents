@@ -1,6 +1,7 @@
 本文主要介绍如何快速地将腾讯云 IM SDK 集成到您的 Web 或者小程序项目中。
 - 您可以通过 NPM 和 Script 方式将 IM SDK 集成到您的 Web 项目中，推荐使用 NPM 集成。
 - 您可以通过 NPM 方式将 IM SDK 集成到您的小程序项目中。
+- 您可以通过集成 SDK 上传插件，实现更快更安全的富文本消息资源上传，请参见 [集成 SDK 上传插件](https://cloud.tencent.com/document/product/269/52962)。
 
 以下视频将帮助您快速了解如何将 IM SDK 集成到您的 Web 或者小程序项目中：
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2545-43224?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
@@ -14,6 +15,7 @@
 - [一分钟跑通 Demo](https://cloud.tencent.com/document/product/269/36838)
 - [IM SDK（小程序） Demo 运行](https://github.com/tencentyun/TIMSDK/tree/master/WXMini)
 - [IM SDK（Web） Demo 运行](https://github.com/tencentyun/TIMSDK/tree/master/H5)
+- [集成 SDK 上传插件（Web & 小程序）](https://cloud.tencent.com/document/product/269/52962)
 
 ## 集成 SDK
 
