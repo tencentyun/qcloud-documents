@@ -1,14 +1,6 @@
 ## 场景痛点及解决方案
 在屏幕分享等应用场景中，常需要共享系统音频给对方，而 Mac 电脑默认声卡不支持采集系统音频，所以在 Mac 电脑上共享系统音频比较困难。基于此，TRTC 提供了在 Mac 端录制系统音频的功能来满足该场景需求，具体接入步骤见下文。
 
-[](id:note)
-## 注意事项
-- App Sandbox 功能取消后，App 内获取到的用户路径会发生变化。  
-- 通过 NSSearchPathForDirectoriesInDomains 等系统方法获取到的 ` ~/Documents`、 `~/Library` 等目录会从沙盒目录切换成用户目录 `/Users/用户名/Documents`、 `/Users/用户名/Library`。
-- 集成 TRTCPrivilegedTask 库，可能会使 App 无法上架到 Mac App Store。  
-- SDK 自动安装虚拟声卡插件时需要关闭 App Sandbox 功能，并获取 root 权限，App 可能会无法上架到 Mac App Store。详请请参见  [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/#hardware-compatibility) 。  
-- 如需上架 App Store 或者使用 Sandbox 功能，建议选择手动安装虚拟音频插件的方案。  
-
 ## 集成说明
 
 [](id:step1)
@@ -106,3 +98,12 @@ TRTCCloud *trtcCloud = [TRTCCloud sharedInstance];
  sudo kill -9 `ps ax|grep 'coreaudio[a-z]' |awk '{print $1}'`
 :::
 </dx-codeblock>
+
+
+[](id:note)
+## 注意事项
+- App Sandbox 功能取消后，App 内获取到的用户路径会发生变化。  
+通过 NSSearchPathForDirectoriesInDomains 等系统方法获取到的 ` ~/Documents`、 `~/Library` 等目录会从沙盒目录切换成用户目录 `/Users/用户名/Documents`、 `/Users/用户名/Library`。
+- 集成 TRTCPrivilegedTask 库，可能会使 App 无法上架到 Mac App Store。  
+SDK 自动安装虚拟声卡插件时需要关闭 App Sandbox 功能，并获取 root 权限，App 可能会无法上架到 Mac App Store。详请请参见  [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/#hardware-compatibility) 。  
+如需上架 App Store 或者使用 Sandbox 功能，建议选择手动安装虚拟音频插件的方案。  
