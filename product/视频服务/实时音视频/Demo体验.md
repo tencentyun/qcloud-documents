@@ -23,7 +23,7 @@
 </div></a></td>
 <td><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/4cfc59a1b60c02fc975c8b3e23169fc7.png);background-size: cover;">
 </div></td>
-<td><a onclick="window.open('https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html')"><div style="width:150px;height: 45px;background-image:url(https://main.qcloudimg.com/raw/d61bbbcc8f1e28d10d25c5b1f50ed15d.png);background-size: cover;"></div></a><br><a onclick="window.open('https://trtc.qcloud.com/tweblive/index.html#/')"><div style="width:150px;height: 45px;background-image:url(https://main.qcloudimg.com/raw/9312a7e7ad3d42190bfcb2ba3f043902.png);background-size: cover;">
+<td><a onclick="window.open('https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html')"><div style="width:150px;height: 45px;background-image:url(https://main.qcloudimg.com/raw/fb89f3ea5c2cfd0603b6f46788d5f246.png);background-size: cover;"></div></a><br><a onclick="window.open('https://trtc.qcloud.com/tweblive/index.html#/')"><div style="width:150px;height: 45px;background-image:url(https://main.qcloudimg.com/raw/9426a0cc65207f8fae1b6fb7d6bcee10.png);background-size: cover;">
 </div></a></td>
 <td><img style="width:150px" src="https://main.qcloudimg.com/raw/14d9fe31881712884e3e4d09c32fd219.png" data-nonescope="true"><br><img style="width:150px" src="https://main.qcloudimg.com/raw/9a256a1053da15b9f63323242854be1e.png" data-nonescope="true"></td>
 <td><a onclick="window.open('https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/electron_sdk/solution/education/TRTC_Education_Demo%20Setup%201.1.0.exe?_ga=1.35276513.1325816544.1607066203')"><div style="width:150px;height: 45px;background-image:url(https://main.qcloudimg.com/raw/1b7fc5b8e43bec05c95c7629045961ef.png);background-size: cover;"></div></a><br><a onclick="window.open('https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/electron_sdk/solution/education/TRTC_Education_Demo-1.1.0.dmg?_ga=1.35276513.1325816544.1607066203')"><div style="width:150px;height: 45px;background-image:url(https://main.qcloudimg.com/raw/61fb44724e1e5a7614a6029964321703.png);background-size: cover;">
@@ -60,12 +60,7 @@
 
 :::
 ::: Flutter\s(iOS/Android)
-<table>
-<tr>
-<td style="border:2px solid White;"><img src="https://imgcache.qq.com/operation/dianshi/other/6931267491024844033.90ef900e3e7d05018b76781417ae3d95bcca43a4.gif"/></td>
-<td style="border:2px solid White;"><img src=""/></td>
-</tr>
-</table>
+![](https://imgcache.qq.com/operation/dianshi/other/6931267491024844033.90ef900e3e7d05018b76781417ae3d95bcca43a4.gif)
 :::
 ::: Windows
 ![](https://imgcache.qq.com/operation/dianshi/other/win.836bd473a766ea962d0b40117888e99aad5db6c8.gif)
