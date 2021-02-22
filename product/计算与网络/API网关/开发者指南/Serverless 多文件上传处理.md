@@ -1,8 +1,8 @@
 ## 操作场景
 
-通过腾讯云 Serverless 处理 multipart/form-data 多文件上传的 HTTP 请求，原理上需要利用 API 网关的 base64 编码能力，将原始 HTTP 请求中的 multipart 字节流编码为字符串，以便将 HTTP Event 序列化，传入云函数 SCF 进行处理。
+通过腾讯云 Serverless 处理 multipart/form-data 多文件上传的 HTTP 请求，原理上需要利用 API 网关的 [Base64 编码能力](https://cloud.tencent.com/document/product/628/51799)，将原始 HTTP 请求中的 multipart 字节流编码为字符串，以便将 HTTP Event 序列化，传入云函数 SCF 进行处理。
 
-云函数将 API 网关传来 event 中的 body 获取并解码 base64 后，生成的字节流则与普通 HTTP 请求中的无异，正常处理即可。在 Node.JS 中，我们可以利用 `busboy` 等库进行处理。
+云函数将 API 网关传来 event 中的 body 获取并解码 Base64 后，生成的字节流则与普通 HTTP 请求中的无异，正常处理即可。在 Node.JS 中，我们可以利用 `busboy` 等库进行处理。
 
 ## 操作步骤
 
