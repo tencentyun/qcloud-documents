@@ -60,7 +60,12 @@
 
 :::
 ::: Flutter\s(iOS/Android)
-![](https://imgcache.qq.com/operation/dianshi/other/6931267491024844033.90ef900e3e7d05018b76781417ae3d95bcca43a4.gif)
+<table>
+<tr>
+<td style="border:2px solid White;"><img src="https://imgcache.qq.com/operation/dianshi/other/6931267491024844033.90ef900e3e7d05018b76781417ae3d95bcca43a4.gif"/></td>
+<td style="border:2px solid White;"><img src=""/></td>
+</tr>
+</table>
 :::
 ::: Windows
 ![](https://imgcache.qq.com/operation/dianshi/other/win.836bd473a766ea962d0b40117888e99aad5db6c8.gif)
