@@ -1,7 +1,7 @@
 VPN 网关创建后支持修改 VPN 网关名称、标签、带宽上限。
 
 ## 操作步骤
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【网络】>【私有网络】进入私有网络控制台。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击【VPN 连接】>【VPN 网关】，进入管理页。
 3. 在“VPN 网关”页面，修改网关名称。
     + 单击 VPN 网关名称旁的编辑图标，可修改网关名称。
