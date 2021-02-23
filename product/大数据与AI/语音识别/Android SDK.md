@@ -31,6 +31,7 @@ Android SDK 接入请观看视频：
 < uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 < uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 ```
+![](https://main.qcloudimg.com/raw/6747bb63630abc76a7ec846397b59eff.png)
 
 ## 快速接入
 ### 开发流程及接入示例
