@@ -69,7 +69,7 @@
 
 :::
 ::: Flutter\s(iOS/Android)
-![](https://imgcache.qq.com/operation/dianshi/other/c343393a-b5da-4c6b-99e3-18c4cfa4f0bf.7860efb75df66608f3f41328ab2300b758c3138a.gif)
+![](https://imgcache.qq.com/operation/dianshi/other/flutter.a40eef4920da99225dc765e8d0c7aad8da5a48c1.gif)
 :::
 ::: Windows
 ![](https://imgcache.qq.com/operation/dianshi/other/win.836bd473a766ea962d0b40117888e99aad5db6c8.gif)
