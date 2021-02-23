@@ -13,18 +13,18 @@ Android SDK 接入请观看视频：
 - 引入 .so 文件
  libWXVoice.so： 腾讯云语音检测 so 库。
 - 引入 aar 包
- aai-2.1.5.aar： 腾讯云语音识别 SDK。
+ speech_release.aar： 腾讯云语音识别 SDK。
 - 该接口 SDK 支持本地构建或者远程构建两种方式：
  - 本地构建   
 可以直接下载 Android SDK 及 Demo，然后集成对应的 so 文件和 aar 包（均在 sdk-source 目录下），最后将 okhttp3、okio、gson 和 slf4j 4个库也集成到 App 中。   
 在 build.gradle 文件中添加：
 ```
-implementation(name: 'aai-2.1.5', ext: 'aar')
+implementation(name: 'speech_release', ext: 'aar')
 ```
  - 远程构建   
 在 build.gradle 文件中添加：
 ```
-implementation 'com.tencent.aai:aai:2.1.5:@aar'
+implementation 'com.tencent.aai:aai:speech_release:@aar'
 ```
 - 添加相关依赖
   okhttp3、okio、gson 和 slf4j 依赖添加，在 build.gradle 文件中添加:
