@@ -88,7 +88,7 @@ TRTCCloud *trtcCloud = [TRTCCloud sharedInstance];
 ## 集成小结
 
 - TRTC 在 Mac 端是通过虚拟声卡插件 `TRTCAudioPlugin.driver` 来录制系统音频。这个虚拟声卡插件需要拷贝至系统目录 `/Library/Audio/Plug-Ins/HAL` 并重启音频服务后生效。 可以通过 `启动台` 的 `其他`  文件夹中 `音频 MIDI 设置`  应用来检查虚拟声卡插件是否安装成功。在该应用的设备列表中，有名称为 “TRTC Audio Device” 的设备即表明 TRTC 的虚拟声卡插件安装成功。  
-- 上述步骤中的集成 TRTCPrivilegedTask 库 和取消 App Sandbox 是为 TRTC SDK 自动安装虚拟声卡插件提供 root 权限。如不集成 TRTCPrivilegedTask 库并保留 App Sandbox 功能， SDK 不会自动安装自动安装虚拟声卡插件，但如果系统中已安装好虚拟声卡插件，录制系统音频的功能仍然可以正常使用。
+- 上述步骤中的 [集成 TRTCPrivilegedTask 库](#step1) 和 [取消 App Sandbox 功能](#step2) 是为 TRTC SDK 自动安装虚拟声卡插件提供 root 权限。如不集成 TRTCPrivilegedTask 库并保留 App Sandbox 功能， SDK 不会自动安装自动安装虚拟声卡插件，但如果系统中已安装好虚拟声卡插件，录制系统音频的功能仍然可以正常使用。
 > ? 除上述方案外，也可以手动安装虚拟声卡插件来集成该功能：
 > 1. 将放置在 `TXLiteAVSDK_TRTC_Mac.framework` 的 PlugIns 目录下的 `TRTCAudioPlugin.driver` 拷贝至系统目录  `/Library/Audio/Plug-Ins/HAL`。
 > 2. 重启系统的音频服务。 
