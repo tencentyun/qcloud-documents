@@ -477,7 +477,7 @@ systemctl start nginx
 1. 登录到腾讯云 [对象存储控制台](https://console.cloud.tencent.com/cos5)。
 2. 找到此前创建的存储桶，并单击存储桶名称。
    ![](https://main.qcloudimg.com/raw/7eb9f887e61fadd3d0cb8d099fc9f074.png)
-3. 在跳转界面中，记录【基本信息】中的**存储桶名称**和**所属地域**中的英文部分。
+3. 在左侧导航栏中，选择【概览】页签，记录【基本信息】中的**存储桶名称**和**所属地域**中的英文部分。
    ![](https://main.qcloudimg.com/raw/ba0b3e8183e408c12669001ec6c3fd3d.png)
 
 ### 获取 API 密钥
