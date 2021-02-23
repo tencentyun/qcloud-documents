@@ -4,7 +4,7 @@ VPN 网关是 VPN 连接服务的功能实例，因此在使用 VPN 连接实现
 如需创建 VPC 类型的 VPN 网关，请提前创建好同地域的 VPC 网络，详情请参考 [创建 VPC](https://cloud.tencent.com/document/product/215/36515#1)。
 
 ## 操作步骤
-1. 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击【VPN 连接】>【VPN 网关】，进入管理页。
 3. 在VPN 网关管理页面，单击【+新建】。
 4. 在弹出的【新建VPN网关】对话框中，配置如下网关参数。
