@@ -65,7 +65,7 @@
 
       >?username是实例ID+刚配置的用户名，password是刚配置的用户密码。
 
-   3. 在工具包./bin目录下，在 kafka-console-producer.sh 和 kafka-console-consumer.sh 文件起始部位加一下对JAAS文件的路径的声明（必须是完整路径）：
+   3. 在工具包./bin目录下，在 kafka-console-producer.sh 和 kafka-console-consumer.sh 文件起始部位增加对JAAS文件的路径的声明（必须是完整路径）：
 
       ```bash
       export KAFKA_OPTS="-Djava.security.auth.login.config=****/config/ckafka_client_jaas.conf"
@@ -99,7 +99,7 @@
 
       ![](https://main.qcloudimg.com/raw/c25bdccd293ea4382064b57eec08a2fe.png)
 
-      消费
+      消费消息：
 
       ![](https://main.qcloudimg.com/raw/22860d730e70cfbe9eb5fcbca215d5a5.png)
 
