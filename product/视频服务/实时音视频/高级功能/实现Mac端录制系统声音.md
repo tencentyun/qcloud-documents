@@ -105,5 +105,5 @@ TRTCCloud *trtcCloud = [TRTCCloud sharedInstance];
 - App Sandbox 功能取消后，App 内获取到的用户路径会发生变化。  
 通过 NSSearchPathForDirectoriesInDomains 等系统方法获取到的 ` ~/Documents`、 `~/Library` 等目录会从沙盒目录切换成用户目录 `/Users/用户名/Documents`、 `/Users/用户名/Library`。
 - 集成 TRTCPrivilegedTask 库，可能会使 App 无法上架到 Mac App Store。  
-SDK 自动安装虚拟声卡插件时需要关闭 App Sandbox 功能，并获取 root 权限，App 可能会无法上架到 Mac App Store。详请请参见  [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/#hardware-compatibility) 。  
+SDK 自动安装虚拟声卡插件时需要关闭 App Sandbox 功能，并获取 root 权限，App 可能会无法上架到 Mac App Store。详情请参见  [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/#hardware-compatibility) 。  
 如需上架 App Store 或者使用 Sandbox 功能，建议选择手动安装虚拟音频插件的方案。  
