@@ -1,8 +1,9 @@
 本文主要介绍如何快速运行腾讯云 TRTC Demo（iOS&Mac）。
 
 ## 环境要求
-- Xcode 11.0及以上版本
-- 请确保您的项目已设置有效的开发者签名
+- Xcode 11.0及以上版本。
+- 请确保您的项目已设置有效的开发者签名。
+- Qt Creator 4.13.3（Mac）及以上版本。
 
 ## 前提条件
 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
@@ -59,7 +60,7 @@
 1. 在终端窗口进入源码的 TRTCScenesDemo > Podfile 文件所在目录。
 2. 执行`pod install`命令安装 TRTC SDK，或者执行`pod update`命令，更新本地库版本。
 3. 使用 XCode（11.0及以上的版本）打开源码目录下的 TXLiteAVDemo.xcworkspace 工程，编译并运行 Demo 工程即可。
-
+>? 如果您是使用 Qt Creator（4.13.3及以上版本），则直接打开源码目录下的 `QTDemo.pro` 工程，编译并运行 Demo 工程即可。
 ## 常见问题
 
 ### 1. 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？

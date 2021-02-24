@@ -190,3 +190,5 @@ grub-pc-bin.amd64                       2.02~beta2-22
 3、不自动加载 nouveau 驱动。在使用 GPU 时，防止对 CUDA 驱动造成干扰。
 4、添加 irqaffinity。优化中断处理。
 ```
+
+

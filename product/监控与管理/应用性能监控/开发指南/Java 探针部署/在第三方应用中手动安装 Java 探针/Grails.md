@@ -22,7 +22,7 @@
 grails -noreloading -javaagent:/${路径}/tapm-agent-java.jar run-app
 ```
 
-> ?`-noreloading` 参数只在 Grails 2.x 版本需要。
+> ?`-noreloading` 参数只需在 Grails 2.x 版本添加。
 
 ### 使用 run-war 启动 Grails
 

@@ -8,6 +8,13 @@
     <th width=16%>发布时间</th>
     <th width=20%>相关文档</th>
 </tr>
+	<tr>
+        <td>SDK 1.2.3.1 版本发布</td>
+<td><li>修复：修复华为禁用组件逻辑错误
+</td>
+        <td>2021-02-04</td>
+        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载</a></td>
+    </tr>
 <tr>
         <td>SDK 1.2.3.0 版本发布</td>
 <td><li>优化：网络通讯协议支持消息二次加密处理
@@ -16,7 +23,7 @@
 <li>新增：支持新荣耀手机角标逻辑
 <li>修复：检查网络连接状态时偶发的 ANR 问题</td>
         <td>2021-01-27</td>
-        <td><a href="https://console.cloud.tencent.com/tpns/sdkdownload">下载 SDK</a></td>
+        <td>-</td>
     </tr>
 <tr>
         <td>SDK 1.2.2.4 版本发布</td>

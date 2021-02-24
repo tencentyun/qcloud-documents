@@ -63,7 +63,7 @@ $ touch serverless.yml
 
 component: website # (必填) 引用 component 的名称，当前用到的是 tencent-website 组件
 name: hexodemo # (必填) 该 website 组件创建的实例名称
-org: test # (可选) 用于记录组织信息，默认值为您的腾讯云账号 APPID
+
 app: websiteApp # (可选) 该 website 应用名称
 stage: dev # (可选) 用于区分环境信息，默认值是 dev
 
