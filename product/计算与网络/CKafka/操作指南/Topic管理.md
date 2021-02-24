@@ -30,7 +30,7 @@ Topic（主题）是某一种分类的名字，消息在 Topic 中可以被存�
 
 3. 在实例详情页，点击【topic管理】标签页，查看Topic信息。
 
-   ![](./docfile/2-1.png)
+   ![](https://main.qcloudimg.com/raw/51252cbe37e61b6d8f647fb48754a0ad.png)
 
 ### 删除Topic
 
