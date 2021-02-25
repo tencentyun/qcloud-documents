@@ -37,7 +37,7 @@
     <td>Mac</td>
     <td>Mac/OCDemo/TRTCDemo/TRTC/GenerateTestUserSig.h</td>
   </tr></table>
-3. 设置`GenerateTestUserSig.h`文件中的相关参数：
+3. 设置 `GenerateTestUserSig.h` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
     <img src="https://main.qcloudimg.com/raw/dddc34ec35ab6d93d2ee6a1b2f5b8391.png">
