@@ -4,14 +4,14 @@ CDWPG 是腾讯云大数据数据仓库产品，通过 DTS 实现云数据库 My
 
 ## 前提条件
 - 已 [创建云数据库 MySQL](https://cloud.tencent.com/document/product/236/46433)，支持的 MySQL 版本：MySQL 5.6、MySQL 5.7。
-- 需要您在源端 MySQL 实例中创建迁移账号，需要的账号权限如下：
+- 需要您在源端 MySQL 实例中创建迁移帐号，需要的帐号权限如下：
 ```
-GRANT Reload, LockTable, ReplClient, ReplSlave, Select, REPLICATION CLIENT  ON *.* TO "迁移帐号"@"%" IDENTIFIED BY "迁移密码";
-GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO "迁移账号"@"%";
+GRANT RELOAD,LOCK TABLE,REPLICATION CLIENT,REPLICATION SLAVE,SELECT ON *.* TO "迁移帐号"@"%" IDENTIFIED BY "迁移密码";
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO "迁移帐号"@"%";
 FLUSH PRIVILEGES;
 ```
 - 已 [创建 CDWPG](https://cloud.tencent.com/document/product/878/31447)，支持的 CDWPG 版本：1.0.0。
-- 需要您在目标端 CDWPG 实例中创建迁移账号，需要的账号权限如下：
+- 需要您在目标端 CDWPG 实例中创建迁移帐号，需要的帐号权限如下：
 ```
 Delete
 Truncate
@@ -63,20 +63,20 @@ TRIGGER
 2. 在弹出的对话框，确认无误后，单击【立即购买】，返回数据同步列表，可看到刚创建的数据同步任务，刚创建的同步任务需要进行配置后才可以使用。
 ![](https://main.qcloudimg.com/raw/edcdb7fc6c76f9ce77f49757ba7c760d.png)
 3. 在 [数据同步列表](https://console.cloud.tencent.com/dts/replication)，单击“操作”列的【配置】，进入配置同步任务页面。
-4. 在配置同步任务页面，配置源端实例、账号密码，配置目标端实例、账号和密码，测试连通性后，单击【下一步】。
+4. 在配置同步任务页面，配置源端实例、帐号密码，配置目标端实例、帐号和密码，测试连通性后，单击【下一步】。
  - 任务名称：DTS 会自动生成一个任务名称，用户可以根据实际情况进行设置。
  - 运行模式：支持立即执行和定时执行。
  - 源实例类型：选择的云数据库实例类型，不可修改。
  - 源实例地域：选择的云数据库实例所在地域，不可修改。
  - 接入类型：目前支持云数据库。
  - 实例 ID：选择源实例 ID。
- - 源实例数据库账号和密码：填入实际 [数据库账号和密码](https://cloud.tencent.com/document/product/236/10305)，并单击【测试连通性】。
+ - 源实例数据库帐号和密码：填入实际 [数据库帐号和密码](https://cloud.tencent.com/document/product/236/10305)，并单击【测试连通性】。
  - 目标实例类型：选择的目标实例类型，不可修改。
  - 目标实例地域：选择的目标实例所在地域，不可修改。
  - 接入类型：目前支持 CDWPG。
  - 实例 ID：选择目标实例 ID。
  - 数据库名称：同步到 CDWPG 所在的数据名称。
- - 目标实例数据库账号和密码：填入实际 [数据库账号和密码](https://console.cloud.tencent.com/cdwpg)，并单击【测试连通性】。
+ - 目标实例数据库帐号和密码：填入实际 [数据库帐号和密码](https://console.cloud.tencent.com/cdwpg)，并单击【测试连通性】。
 ![](https://main.qcloudimg.com/raw/5fb32bc78048e1df3c309953b29f5781.png)
 5. 在设置同步选项和同步对象页面，选择相应配置，单击【保存并下一步】。
  - 同步初始化：目前只支持全量数据初始化。

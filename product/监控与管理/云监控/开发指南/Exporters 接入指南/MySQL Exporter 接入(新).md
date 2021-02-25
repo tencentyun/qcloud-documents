@@ -40,7 +40,7 @@ GRANT PROCESS, REPLICATION CLIENT, SELECT ON *.* TO 'exporter'@'ip';
 3. 执行以下 [使用 Secret 管理 MySQL 连接串](#step1) > [部署 MySQL Exporter](#step2) > [验证](#step3) 步骤完成 Exporter 部署。
 
 
-<span id="step1"></span>
+[](id:step1)
 
 #### 使用 Secret 管理 MySQL 连接串
 
@@ -58,7 +58,7 @@ stringData:
 		datasource: "user:password@tcp(ip:port)/"  #对应 MySQL 连接串信息
 ```
 
-<span id="step2"></span>
+[](id:step2)
 
 #### 部署 MySQL Exporter
 
@@ -105,7 +105,7 @@ spec:
       terminationGracePeriodSeconds: 30
 ```
 
-<span id="step3"></span>
+[](id:step3)
 
 #### 验证
 
@@ -238,7 +238,7 @@ MySQL Exporter 使用各种 `Collector` 来控制采集数据的启停，具体�
 | version                    | 打印版本信息。                                               |
 
 
-<span id="heartbeat"></span>
+[](id:heartbeat)
 
 ### heartbeat 心跳检测
 

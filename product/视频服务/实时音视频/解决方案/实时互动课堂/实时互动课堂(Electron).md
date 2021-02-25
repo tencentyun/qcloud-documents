@@ -1,4 +1,3 @@
-
 ## Demo 体验
 <table style="text-align:center;vertical-align:middle;width: 300px">
   <tr>
@@ -16,9 +15,6 @@
 </span></a></td>
   </tr>
 </table>
-
-
-
 
 ## 效果展示
 您可以下载安装我们的 Demo 体验实时互动课堂的能力效果，包括语音、视频、屏幕分享等上课方式，还封装了老师开始问答、学生举手、老师邀请学生上台回答、结束回答等相关能力。
@@ -38,8 +34,7 @@
 >?本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PAAS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
 
-
-<span id="ui.step2"></span>
+[](id:ui.step2)
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/Electron/TRTCScenesDemo/TRTCEducation)】跳转至 Github，下载相关 SDK 及配套的 Demo 源码。
 2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
@@ -152,7 +147,7 @@ rtcClient.openCamera(domEle)
 ```typescript
 const screenList = rtcClient.getScreenShareList()
 ```
-b. 调用组件的 [startScreenCapture](https://cloud.tencent.com/document/product/647/45466#startScreenCapture) 开始推屏幕分享的流。
+ b. 调用组件的 [startScreenCapture](https://cloud.tencent.com/document/product/647/45466#startScreenCapture) 开始推屏幕分享的流。
 ```typescript
 rtcClient.startScreenCapture({
       type,// 采集源类型

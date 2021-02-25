@@ -196,12 +196,15 @@ public abstract void setDelegateHandler(Handler handler);
 ### login
 
 登录。
-```java
+
+<dx-codeblock>
+::: java java
 public abstract void login(int sdkAppId,
  String userId, String userSig,
  TRTCLiveRoomDef.TRTCLiveRoomConfig config, 
  TRTCLiveRoomCallback.ActionCallback callback);
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 

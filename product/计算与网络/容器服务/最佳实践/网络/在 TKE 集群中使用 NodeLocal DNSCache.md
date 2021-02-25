@@ -17,7 +17,7 @@
 
 ## 操作步骤
 
-1. <span ID="StepOne"></span>一键部署 NodeLocal DNS Cache。YAML 示例如下：
+1. [](id:StepOne)一键部署 NodeLocal DNS Cache。YAML 示例如下：
 
 	```
 	---

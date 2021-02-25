@@ -84,7 +84,7 @@ https://meeting.tencent.com/wemeet-webapi/v2/oauth2/oauth/access_token
 | --------- | ---- | -------- | ------------- |
 | sdk_id    | 是   | string   | OAuth 应用 ID。   |
 | secret    | 是   | string   | OAuth 应用密钥。 |
-| auth_code | 是   | string   | 授权码。        |
+| auth_code | 是   | string   | 授权码，有效期五分钟。        |
 
 #### 输出参数
 

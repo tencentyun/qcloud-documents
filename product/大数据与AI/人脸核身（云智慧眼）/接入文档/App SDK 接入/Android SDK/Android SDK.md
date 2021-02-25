@@ -52,7 +52,7 @@ compile 'com.github.bumptech.glide:glide:3.7.0'
 }
 ```
 
-#### 3. 初始化 SDK 接口<span id="aar">
+#### [3. 初始化 SDK 接口](id:aar)
 在程序的 Application 中或在调用 SDK 之前初始化 SDK，设置相关配置，具体请参考 AuthDemo。**每次调用都需要从 [DetectAuth](https://cloud.tencent.com/document/api/1007/31816) 接口生成新的 BizToken**。
 ```
 AuthConfig.Builder configBuilder = new AuthConfig.Builder(editText.getText().toString(), R.class.getPackage().getName());

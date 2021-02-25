@@ -7,7 +7,7 @@
 ## 操作步骤
 ### 控制台操作指引
 
-#### 创建 StorageClass<span id="create"></span>
+#### 创建 StorageClass[](id:create)
 1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧栏中的【集群】，进入“集群管理”界面。
 2. 单击需创建 StorageClass 的集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的【存储】>【StorageClass】，进入 “StorageClass” 页面。如下图所示：
@@ -35,7 +35,7 @@
 >
 5. 单击【新建StorageClass】即可完成创建。
 
-#### 使用指定 StorageClass 创建 PVC<span id="createPVC"></span>
+#### 使用指定 StorageClass 创建 PVC[](id:createPVC)
 1. 在“集群管理”页面，选择需创建 PVC 的集群 ID。
 2. 在集群详情页面，选择左侧菜单栏中的【存储】>【PersistentVolumeClaim】，进入 “PersistentVolumeClaim” 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/e771b0d7e010605c3701de3f20831a96.png)
