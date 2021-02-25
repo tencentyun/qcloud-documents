@@ -1,6 +1,6 @@
 ## 计费方式
 
-调度到虚拟节点上的 Pod 采取按量计费模式。计费详情请参见 [弹性容器计费概述](https://cloud.tencent.com/document/product/457/39807)、[弹性容器产品定价](https://cloud.tencent.com/document/product/457/39806)、[弹性容器购买限制](https://cloud.tencent.com/document/product/457/39821)。
+调度到虚拟节点上的 Pod 采取按量计费模式，计费详情请参见 [弹性容器计费概述](https://cloud.tencent.com/document/product/457/39807)、[弹性容器产品定价](https://cloud.tencent.com/document/product/457/39806)、[弹性容器购买限制](https://cloud.tencent.com/document/product/457/39821)。
 
 ## Pod 规格配置
 
@@ -12,9 +12,7 @@ Pod 的规格配置是容器运行时可用资源和使用服务计费的依据�
 
 ## 默认配额
 
-默认每个集群仅可将 50 个 Pod 调度到虚拟节点上。
-
-若您需要超过以上配额的资源，可填写提升配额申请，由腾讯云对您的实际需求进行评估，评估通过之后将为您提升配额。
+默认每个集群仅可将50个 Pod 调度到虚拟节点上。若您需要超过以上配额的资源，可填写提升配额申请，由腾讯云对您的实际需求进行评估，评估通过之后将为您提升配额。
 
 #### 申请提升配额操作指引
 
@@ -30,14 +28,14 @@ Pod 的规格配置是容器运行时可用资源和使用服务计费的依据�
 
 >!
 >- 临时镜像存储将于 Pod 生命周期结束时删除，请勿用于存储重要数据。
->- 由于存储镜像，实际可用空间小于20GiB。
+>- 由于需存储镜像，实际可用空间小于20GiB。
 >- 重要数据、超大文件等推荐挂载 Volume 持久化存储。
 
 #### Pod 网络
 
 调度到虚拟节点上的 Pod 采用的是与云服务器、云数据库等云产品平级的 VPC 网络，每个 Pod 都会占用一个 VPC 子网 IP。
 
-Pod 与 Pod、Pod 与其他同 VPC 云产品间直接通过 VPC 网络通信，没有性能损耗。
+Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信，没有性能损耗。
 
 #### Pod 隔离性
 
@@ -127,9 +125,7 @@ DaemonSet 类型工作负载的 Pod 不会调度到虚拟节点上。
 
 ## 与 Cluster Autoscaler 的关系
 
-通常，除了上述调度限制外，大部分 Pod 都可以调度到虚拟节点上。
-
-此时，如果集群同时开启了 [Cluster Autoscaler](https://cloud.tencent.com/document/product/457/32190#AutomaticAddAndRemove) 和虚拟节点则会尽量将 Pod 调度到虚拟节点上，而非触发集群节点扩容。反之，如果受上述调度限制影响，Pod 无法调度到虚拟节点上，则会依然正常触发集群节点扩容。
+如果集群同时开启了 [Cluster Autoscaler](https://cloud.tencent.com/document/product/457/32190#AutomaticAddAndRemove) 和虚拟节点，则会尽量将 Pod 调度到虚拟节点上，而非触发集群节点扩容。如果受上述调度限制影响，Pod 无法调度到虚拟节点上，则会依然正常触发集群节点扩容。
 
 
 
