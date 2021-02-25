@@ -65,10 +65,8 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信�
 <tr>
 <td>eks.tke.cloud.tencent.com/security-group-id</td>
 <td>工作负载默认绑定的安全组，请填写 <a href="https://console.cloud.tencent.com/cvm/securitygroup" target="_blank">安全组 ID</a>：
-	<ul class="params">
 	<li>可填写多个，以<code>,</code>分割。例如 <code>sg-id1,sg-id2</code>。</li>
 	<li>网络策略按安全组顺序生效。</li>
-	</ul>
 </td>
 <td> 否。如不填写，则默认绑定节点池指定的安全组。<br>如填写，请确保同地域已存在该安全组 ID。</td></tr>
 <tr>
@@ -84,10 +82,8 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信�
 <tr>
 <td>eks.tke.cloud.tencent.com/cpu-type</td>
 <td>Pod 所需的 CPU 资源型号，目前支持型号如下：
-<ul  class="params">
 <li>intel</li>
 <li>amd</li>
-</ul>
 各型号支持的具体配置请参考 <a href="https://console.cloud.tencent.com/cvm/securitygroup" target="_blank">资源规格</a>。</td>
 <td>否。如果不填写则默认不强制指定 CPU 类型，会根据 <a href="https://cloud.tencent.com/document/product/457/44174" target="_blank">指定资源规格方法</a> 尽量匹配最合适的规格，若匹配到的规格 Intel 和 amd 均支持，则优先选择 Intel。</td>
 </tr>
