@@ -40,7 +40,8 @@
 	- 如果您的本地机器是 Linux 操作系统，推荐您首先安装 rdesktop 软件，并按照 [Linux 系统使用 RDP 登录](https://cloud.tencent.com/document/product/213/5435#linux-.E7.B3.BB.E7.BB.9F.E4.BD.BF.E7.94.A8-rdp-.E7.99.BB.E5.BD.95)。
 	- 如果您的本地机器是 MacOS 操作系统，推荐您首先安装 Microsoft Remote Desktop for Mac 软件，并按照  [MacOS 系统使用 RDP 登录](https://cloud.tencent.com/document/product/213/5435#macos-.E7.B3.BB.E7.BB.9F.E4.BD.BF.E7.94.A8-rdp-.E7.99.BB.E5.BD.95)。
 	>! 您可以在 [站内信](https://console.cloud.tencent.com/message) 查找云服务器的初始密码，也可以通过 [重置实例密码](https://cloud.tencent.com/document/product/213/16566) 后再登录。
-3. 输入云服务器的用户名和密码，即可正常登录。
+3. 输入云服务器的用户名和密码，即可正常登录。登录成功后将打开 Windows 云服务器界面，如下图所示：
+![](https://main.qcloudimg.com/raw/5a524210acd13624af7263b6de3aea54.png)
 
 ## 下一步操作：使用云服务器
 
