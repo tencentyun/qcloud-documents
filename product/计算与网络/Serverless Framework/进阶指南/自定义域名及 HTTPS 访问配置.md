@@ -19,7 +19,6 @@
 
 component: website
 name: myWebsite
-org: test
 app: websiteApp
 stage: dev
 
@@ -72,7 +71,6 @@ $ sls deploy
 
 component: apigateway # (必填) 组件名称，此处为 apigateway
 name: restApi # (必填) 实例名称
-org: orgDemo # (可选) 用于记录组织信息，默认值为您的腾讯云账户 appid
 app: appDemo # (可选) 该应用名称
 stage: dev # (可选) 用于区分环境信息，默认值为 dev
 

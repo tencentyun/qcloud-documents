@@ -9,7 +9,7 @@
 ## 前提条件
 从个人版服务迁移至企业版，您需要确认并完成以下准备工作：
 - 已开通并使用个人版服务，且迁移操作账号具有拉取个人版镜像仓库内所有镜像的权限，请参考 [个人版授权方案示例](https://cloud.tencent.com/document/product/1141/41409) 提前为子账号授予个人版的全部管理权限。
-- 已 [创建企业版实例](https://cloud.tencent.com/document/product/1141/40716)，且迁移操作账号具有向该企业版实例内推送镜像的权限，请参考 [企业版授权方案示例](https://cloud.tencent.com/document/product/1141/41417) 提前为子账号授予对应实例的容器镜像、Helm Chart 推送权限，建议将容器镜像服务全读写权限授予配置同步的子账号。
+- 已 [购买企业版实例](https://cloud.tencent.com/document/product/1141/51110)，且迁移操作账号具有向该企业版实例内推送镜像的权限，请参考 [企业版授权方案示例](https://cloud.tencent.com/document/product/1141/41417) 提前为子账号授予对应实例的容器镜像、Helm Chart 推送权限，建议将容器镜像服务全读写权限授予配置同步的子账号。
 - 已设置迁移工具运行的运行环境。建议在私有网络 VPC 内执行该迁移任务，以提升迁移速度，并避免公网流量成本。
   - 在私有网络 VPC 内运行迁移工具：在目标企业版实例的内网访问中添加迁移工具运行服务器所在的私有网络。详情可参见 [内网访问控制](https://cloud.tencent.com/document/product/1141/41838)。
   - 在公网环境内运行迁移工具：开启目标企业版实例的公网访问入口，并放通访问来源。详情可参见 [公网访问控制](https://cloud.tencent.com/document/product/1141/41837)。

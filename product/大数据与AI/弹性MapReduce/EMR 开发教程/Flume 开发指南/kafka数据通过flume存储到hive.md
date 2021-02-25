@@ -39,7 +39,7 @@ agent.sinks.hive_sink.serializer.fieldnames =id,msg
 # 以下配置 channel
 agent.channels.mem_channel.type = memory
 agent.channels.mem_channel.capacity = 100000
-agent.channels.mem_channel.transactionCapacity = 10000
+agent.channels.mem_channel.transactionCapacity = 100000
 ```
 其中 hive.metastore 可以通过以下方式确认：
 ```

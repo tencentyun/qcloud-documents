@@ -166,6 +166,7 @@ I/TPush: [OtherPushClient] handleUpdateToken other push token is : IQAAAACy0PsqA
 -keep class com.hianalytics.android.**{*;} 
 -keep class com.huawei.updatesdk.**{*;} 
 -keep class com.huawei.hms.**{*;}
+-keep class com.huawei.agconnect.**{*;}
 ```
 
 

@@ -1,6 +1,6 @@
 
 ## 操作场景
-如果您不想通过 Git 代码仓库来构建镜像，TKE 还提供了一种通过手动上传 Dockerfile 文件来构建镜像的方式。本文介绍如何通过 Dockerfile 文件手动构建容器镜像。
+如果您不想通过 Git 代码仓库来构建镜像，容器服务 TKE 还提供了一种通过手动上传 Dockerfile 文件来构建镜像的方式。本文介绍如何通过 Dockerfile 文件手动构建容器镜像。
 
 ## 前提条件
 - 已准备 Dockerfile 文件。
@@ -10,7 +10,7 @@
 ## 操作步骤
 
 ### 使用 Dockerfile 文件手动构建容器镜像
-1. 登录腾讯云容器服务控制台，选择左侧导航栏中的【镜像仓库】>【[我的镜像](https://console.cloud.tencent.com/tke2/registry/user/self)】。
+1. 登录腾讯云容器服务控制台，选择左侧导航栏中的【镜像仓库】>【[个人版](https://console.cloud.tencent.com/tke2/registry/user/self)】。
 2. 单击镜像 ID 并选择【镜像构建】页签，可在页面中查看镜像的构建历史记录。如下图所示：
 ![](https://main.qcloudimg.com/raw/19b39784e892623146b40137349c7ceb.png)
 3. 单击【立即构建】，并在弹出的“立即构建镜像”窗口中选择【使用Dockerfile进行构建】。如下图所示：

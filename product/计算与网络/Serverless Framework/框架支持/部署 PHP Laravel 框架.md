@@ -31,7 +31,6 @@ touch serverless.yml
 
 component: laravel
 name: laravelDemo
-org: orgDemo
 app: appDemo
 stage: dev
 
