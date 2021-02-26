@@ -17,7 +17,6 @@
 ### Exporter 部署
 
 
-
 1. 登录 [容器服务](https://console.cloud.tencent.com/tke2/cluster) 控制台。
 2. 单击需要获取集群访问凭证的集群 ID/名称，进入该集群的管理页面。
 3. 在左侧菜单中选择【工作负载】>【Deployment】，进入 Deployment 页面。
@@ -75,41 +74,35 @@ spec:
 3. 通过服务发现添加 `Pod Monitor` 来定义 Prometheus 抓取任务，YAML 配置示例如下：
 
 ```yaml
-apiVersion: monitoring.coreos.com/v1
-kind: PodMonitor
-metadata:
-  # 填写一个唯一名称
-  name: kafka-exporter
-  # namespace固定，不要修改
-  namespace: cm-prometheus
-spec:
-  podMetricsEndpoints:
-  - interval: 30s
-    # 填写pod yaml中Prometheus Exporter对应的Port的Name
-    port: metric-port
-    # 填写Prometheus Exporter对应的Path的值，不填默认/metrics
-    path: /metrics
-    relabelings:
-    - action: replace
-      sourceLabels: 
-      - instance
-      regex: (.*)
-      targetLabel: instance
-      replacement: 'ckafka-xxxxxx' # 调整成对应的 Kafka 实例 ID
-    - action: replace
-      sourceLabels: 
-      - instance
-      regex: (.*)
-      targetLabel: ip
-      replacement: '1.x.x.x' # 调整成对应的 Kafka 实例 IP
-  # 选择要监控pod所在的namespace
-  namespaceSelector:
-    matchNames:
-    - kafka-demo
-  # 填写要监控pod的Label值，以定位目标pod
-  selector:
-    matchLabels:
-      k8s-app: kafka-exporter
+  apiVersion: monitoring.coreos.com/v1
+  kind: PodMonitor
+  metadata:
+    name: kafka-exporter  # 填写一个唯一名称
+    namespace: cm-prometheus  # namespace固定，不要修改
+  spec:
+    podMetricsEndpoints:
+    - interval: 30s
+      port: metric-port # 填写pod yaml中Prometheus Exporter对应的Port的Name
+      path: /metrics # 填写Prometheus Exporter对应的Path的值，不填默认/metrics
+      relabelings:
+      - action: replace
+        sourceLabels: 
+        - instance
+        regex: (.*)
+        targetLabel: instance
+        replacement: 'ckafka-xxxxxx' # 调整成对应的 Kafka 实例 ID
+      - action: replace
+        sourceLabels: 
+        - instance
+        regex: (.*)
+        targetLabel: ip
+        replacement: '1.x.x.x' # 调整成对应的 Kafka 实例 IP
+    namespaceSelector: 
+      matchNames:
+      - kafka-demo
+    selector:  # 填写要监控pod的Label值，以定位目标pod
+      matchLabels:
+        k8s-app: kafka-exporter
 ```
 
 >?由于 `Exporter` 和 `Kafka` 部署在不同的服务器上，因此建议通过 Prometheus Relabel 机制将 Kafka 实例的信息放到监控指标中，以便定位问题。
