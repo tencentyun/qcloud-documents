@@ -29,7 +29,7 @@ display ip routing-table     //查看是否有对应目的地址为云上 VPC �
     + 若否，请执行 [步骤3](#step3)。
 3. [](id:step3)检查 VPC 中服务器关联的安全组和子网关联的网络 ACL 是否放通来自云下 IDC 的流量，同时检查 IDC 侧是否放通来自云上 VPC 的流量。
 进入 [VPC 中服务器安全组 ](https://console.cloud.tencent.com/vpc/securitygroup)界面，单击安全组 ID，进入“安全组规则”页检查：
-![](https://main.qcloudimg.com/raw/b452e9b1e2047e8d20e817215253b636.png)
+![](https://main.qcloudimg.com/raw/7f19f5f47c519d1f972c65abb618dba2.png)
 进入[ VPC 子网 ACL 规则 ](https://console.cloud.tencent.com/vpc/acl)，单击网络 ACL ID，进入“基本信息”页，单击“入站规则”页签检查：
  ![](https://main.qcloudimg.com/raw/c0692870dd748c5ce7990f7d3a189587.png)
  IDC 侧安全策略检查（此处以华为防火墙为例）：
