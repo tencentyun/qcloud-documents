@@ -40,12 +40,12 @@ display   current-configuration   configuration security-policy
     + 是 => 通信正常，问题解决，结束。
     + 否 => 请执行 [步骤5](#step5)。
 5. [](id:step5)分别检查 VPC 中云服务器和 IDC 侧内网服务器操作系统自带防火墙，是否有放通对端网段的策略。
-   linux 服务器查看防火墙：`iptables  --list`
+   Linux 服务器查看防火墙：`iptables  --list`
    Windows 服务器查看防火墙：控制面板\系统和安全\Windows 防火墙\允许的应用
    + 是 => 请执行 [步骤7](#step7)。
    + 否 => 请在内网机器防火墙中放通需要联通的业务网段，再执行 [步骤6](#step6)。
 6. [](id:step6)检查通信是否恢复正常，即登录 VPC/IDC 中的一台服务器，ping 对端服务器内网 IP。
->?登录VPC中云服务器请参考 [登录linux实例](https://cloud.tencent.com/document/product/213/5436) 或 [登录Windows实例](https://cloud.tencent.com/document/product/213/5435)。
+>?登录VPC中云服务器请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436) 或 [登录 Windows 实例](https://cloud.tencent.com/document/product/213/5435)。
 >
    + 是 => 通信正常，问题解决，结束。
    + 否 => 请执行 [步骤7](#step7)。
