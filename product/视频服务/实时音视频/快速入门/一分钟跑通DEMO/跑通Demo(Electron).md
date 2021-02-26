@@ -24,7 +24,8 @@
 
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
-1.  解压 [步骤2](#step2) 中下载的源码包，找到 `TRTCSDK/Electron/TRTCSimpleDemo/`目录，此为 **项目目录**，下文中提到的[](id:projectFolder)“项目目录”，指的即是 `TRTCSDK/Electron/TRTCSimpleDemo/` 目录。
+1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
+2. 找到 `TRTCSDK/Electron/TRTCSimpleDemo/` 目录，此为 **项目目录**，下文中提到的[](id:projectFolder)“项目目录”，指的即是 `TRTCSDK/Electron/TRTCSimpleDemo/` 目录。
 2.  找到项目目录中的 `debug/gen-test-user-sig.js` 文件，并打开。
 3.  设置 `gen-test-user-sig.js` 文件中的相关参数：
 <ul>
