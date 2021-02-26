@@ -23,7 +23,7 @@
 
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
-1. 解压 [步骤2](#step2) 中下载的源码包。
+1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
 2. 找到并打开 `GenerateTestUserSig.h` 文件：
  <table><tr>
       <th nowrap="nowrap">适用平台</th>
@@ -53,8 +53,8 @@
 2. 执行 `pod install` 命令安装 TRTC SDK，或者执行 `pod update` 命令，更新本地库版本。
 3. 使用 XCode（11.0及以上的版本）打开源码目录下的 TXLiteAVDemo.xcworkspace 工程，编译并运行 Demo 工程即可。
 >? 如果您是使用 Qt Creator（4.13.3及以上版本），则直接打开源码目录下的 `QTDemo.pro` 工程，编译并运行 Demo 工程即可。
-## 常见问题
 
+## 常见问题
 ### 1. 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
 TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法 ECDSA-SHA256](https://cloud.tencent.com/document/product/647/17275#Old)，如已升级，您按需切换为新旧算法。
 
