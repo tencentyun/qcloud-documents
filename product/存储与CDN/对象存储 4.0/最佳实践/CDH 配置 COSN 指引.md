@@ -15,7 +15,6 @@ COSN 大数据组件支持情况如下：
 | Sqoop    | 支持                    | 重启 NodeManager                             |
 | Presto   | 支持                    | 重启 HiveServer 和 HiveMetastore 以及 Presto |
 | Flink    | 支持                 | 否                                         |
-| Impala   | 不支持                   | 无                                         |
 | Impala   | 支持                    | 否                                         |
 |  EMR   |  支持                      |       否                                        |
 |自建组件  |  后续支持                    |   无                                         |
