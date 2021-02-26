@@ -24,6 +24,7 @@
 #### 步骤1：修改 pom 依赖 
 
 项目中已经引用 `spring-boot-starter-web` 的基础上，在 `pom.xml` 文件中添加 `actuator/prometheus` Maven 依赖项。
+
 ```xml
 <dependency>
   <groupId>org.springframework.boot</groupId>
@@ -38,7 +39,8 @@
 #### 步骤2：修改配置
 
 编辑 `resources` 目录下的 `application.yml` 文件，修改 `actuator` 相关的配置来暴露 Prometheus 协议的指标数据。
-```
+
+````
 management:
   endpoints:
     web:
@@ -55,7 +57,7 @@ management:
     tags:
       # 必须加上对应的应用名，因为需要以应用的维度来查看对应的监控
       application: spring-boot-mvc-demo
-```
+````
 
 #### 步骤3：本地验证
 
@@ -101,29 +103,29 @@ docker push ccr.ccs.tencentyun.com/prom_spring_demo/spring-boot-demo:latest
 单击【服务与路由】>【Service】，进入 Service 管理页面，选择对应的命名空间来调整 Service Yaml 配置，如下图：
 ![](https://main.qcloudimg.com/raw/fab7f044fdc658a7608214d86eed740e.png)
 配置示例如下：
-  ```
+
+```yaml
   apiVersion: v1
   kind: Service
   metadata:
-    # 可以根据实际情况添加对应的 labels
-    labels:
-      k8sapp: spring-mvc-demo
-    name: spring-mvc-demo
-    namespace: spring-demo
+     labels: # 可以根据实际情况添加对应的 labels
+       k8sapp: spring-mvc-demo
+     name: spring-mvc-demo
+     namespace: spring-demo
   spec:
-    ports:
-    - name: 8080-8080-tcp  # ServiceMonitor 抓取任务中 port 对应的值
-      port: 8080
-      protocol: TCP
-      targetPort: 8080
-    selector:
-      k8s-app: spring-mvc-demo
-      qcloud-app: spring-mvc-demo
-    sessionAffinity: None
-    type: ClusterIP
-  status:
-    loadBalancer: {}
-  ```
+     ports:
+     - name: 8080-8080-tcp  # ServiceMonitor 抓取任务中 port 对应的值
+       port: 8080
+       protocol: TCP
+       targetPort: 8080
+     selector:
+       k8s-app: spring-mvc-demo
+       qcloud-app: spring-mvc-demo
+     sessionAffinity: None
+     type: ClusterIP
+   status:
+     loadBalancer: {}
+```
 
 #### 步骤4：添加采取任务
 
@@ -131,30 +133,24 @@ docker push ccr.ccs.tencentyun.com/prom_spring_demo/spring-boot-demo:latest
 2. 单击集成容器服务列表中的【集群 ID】，进入到容器服务集成管理页面。
 3. 通过服务发现添加 Service Monitor，目前支持基于 Labels 发现对应的目标实例地址，所以可以对一些服务添加特定的 K8S Labels，配置之后在 Labels 下的服务都将被 Prometheus 服务自动识别出来，不需要再为每个服务一一添加采取任务。以该例子介绍，配置信息如下：
 > ?这里需要注意的是 `port` 的取值为 `service yaml` 配置文件里的 `spec/ports/name` 对应的值。
->
-```
-apiVersion: monitoring.coreos.com/v1
-kind: ServiceMonitor
-metadata:
-	# 填写一个唯一名称
-	name: spring-mvc-demo
-	# namespace固定，不要修改
-	namespace: cm-prometheus
-spec:
-	endpoints:
-	- interval: 30s
-		# 填写service yaml中Prometheus Exporter对应的Port的Name
-		port: 8080-8080-tcp
-		# 填写Prometheus Exporter对应的Path的值，不填默认/metrics
-		path: /actuator/prometheus
-	# 选择要监控service所在的namespace
-	namespaceSelector:
-		matchNames:
-		- spring-demo 
-	# 填写要监控service的Label值，以定位目标service
-	selector:
-		matchLabels:
-			k8sapp: spring-mvc-demo 
+
+```yaml
+  apiVersion: monitoring.coreos.com/v1
+  kind: ServiceMonitor
+  metadata:
+    name: spring-mvc-demo # 填写一个唯一名称
+    namespace: cm-prometheus # namespace固定，不要修改
+  spec:
+    endpoints:
+    - interval: 30s
+      port: 8080-8080-tcp # 填写service yaml中Prometheus Exporter对应的Port的Name
+      path: /actuator/prometheus  # 填写Prometheus Exporter对应的Path的值，不填默认/metrics
+    namespaceSelector:  # 选择要监控service所在的namespace
+      matchNames:
+      - spring-demo 
+    selector: # 填写要监控service的Label值，以定位目标service
+      matchLabels:
+        k8sapp: spring-mvc-demo 
 ```
 
 #### 步骤5：查看监控
