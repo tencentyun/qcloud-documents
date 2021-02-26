@@ -41,6 +41,7 @@ stringData:
 #### 部署 PostgreSQL Exporter[](id:step2) 
 
 在 Deployment 管理页面，单击【新建】，选择对应的**命名空间**来进行部署服务。可以通过控制台的方式创建，如下以 YAML 的方式部署 Exporter，YAML 配置示例如下（`请直接复制下面的内容，根据实际业务调整相应的参数`）:
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -211,6 +212,7 @@ spec:
 1. 创建一个包含 `queries.yaml` 的 [ConfigMap](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/)。
 2. 将 ConfigMap 作为 Volume 挂载到 Exporter 某个目录下面。
 3. 通过 `--extend.query-path` 来使用 ConfigMap，将上述的 [Secret](#step1) 以及 [Deployment](#step2) 进行汇总，汇总后的 YAML 如下所示：
+
 ```yaml
 # 注意: 以下 document 创建一个名为 postgres-test 的 Namespace，仅作参考
 apiVersion: v1
@@ -302,6 +304,7 @@ spec:
 ```
 
 4. 执行 `curl http://exporter:9187/metrics`，即可通过自定义的 `queries.yaml` 查询到 Postgres 实例启动时间指标。示例如下：
+
 ```
 # HELP pg_postmaster_start_time_seconds Time at which postmaster started
 # TYPE pg_postmaster_start_time_seconds gauge
@@ -317,6 +320,7 @@ pg_postmaster_start_time_seconds{server="x.x.x.x:5432"} 1.605061592e+09
 1. 登录 [云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
 2. 通过集成容器服务列表点击【集群 ID】进入到容器服务集成管理页面。
 3. 通过服务发现添加 `Pod Monitor` 来定义 Prometheus 抓取任务，YAML 配置示例如下：
+
 ```yaml
   apiVersion: monitoring.coreos.com/v1
   kind: PodMonitor
@@ -343,7 +347,9 @@ pg_postmaster_start_time_seconds{server="x.x.x.x:5432"} 1.605061592e+09
     selector:
       matchLabels:
         app: postgres
-```>?更多高阶用法请参见 [ServiceMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#servicemonitor) 和 [PodMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#podmonitor)。
+```
+
+>?更多高阶用法请参见 [ServiceMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#servicemonitor) 和 [PodMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#podmonitor)。
 
 ### Grafana 大屏可视化
 
