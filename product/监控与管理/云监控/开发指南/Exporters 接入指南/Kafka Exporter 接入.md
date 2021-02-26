@@ -86,18 +86,18 @@ spec:
       path: /metrics # 填写Prometheus Exporter对应的Path的值，不填默认/metrics
       relabelings:
       - action: replace
-        sourceLabels: 
+        sourceLabels:
         - instance
         regex: (.*)
         targetLabel: instance
         replacement: 'ckafka-xxxxxx' # 调整成对应的 Kafka 实例 ID
       - action: replace
-        sourceLabels: 
+        sourceLabels:
         - instance
         regex: (.*)
         targetLabel: ip
         replacement: '1.x.x.x' # 调整成对应的 Kafka 实例 IP
-    namespaceSelector: 
+    namespaceSelector:
       matchNames:
       - kafka-demo
     selector:  # 填写要监控pod的Label值，以定位目标pod
