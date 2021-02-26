@@ -19,7 +19,7 @@ Containerd 不支持 docker API 和 docker CLI，但是可以通过 cri-tool 命
 | 下载镜像     | docker pull    | crictl pull     |
 | 上传镜像     | docker push     | 无               |
 | 删除本地镜像   | docker rmi     | crictl rmi      |
-| 查看镜像详情   | docker inspect IMAGE-ID | crictl inspecti IMAGE-ID |
+| 查看镜像详情   | docker inspect IMAGE-ID | crictl inspect IMAGE-ID |
 
 
 
