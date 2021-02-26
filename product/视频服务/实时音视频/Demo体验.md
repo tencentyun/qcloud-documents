@@ -47,7 +47,7 @@
 <table>
 <tr>
    <th>主动呼叫</th>
-   <th>呼叫接听</th>
+   <th>被叫接听</th>
  </tr>
 <tr>
 <td><img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/videocall/group-call.gif"/></td>
@@ -69,7 +69,7 @@
 :::
 ::: 小程序
 <table>
-<tr><th>主动呼叫</th><th>呼叫接听</th> </tr>
+<tr><th>主动呼叫</th><th>被叫接听</th> </tr>
 <tr>
 <td><img src="https://webim-1252463788.cos.ap-shanghai.myqcloud.com/trtc-calling-doc-assets/videocall.gif"/></td>
 <td><img src="https://webim-1252463788.cos.ap-shanghai.myqcloud.com/trtc-calling-doc-assets/videoaccept.gif"/></td>
@@ -95,7 +95,7 @@
 :::
 ::: 小程序
 <table>
-<tr><th>主动呼叫</th><th>呼叫接听</th></tr>
+<tr><th>主动呼叫</th><th>被叫接听</th></tr>
 <tr>
 <td><img src="https://webim-1252463788.cos.ap-shanghai.myqcloud.com/trtc-calling-doc-assets/audiocall.gif"/></td>
 <td><img src="https://webim-1252463788.cos.ap-shanghai.myqcloud.com/trtc-calling-doc-assets/audioaccept.gif"/></td>
