@@ -29,7 +29,7 @@ display current-configuration configuration security-policy      //此处以华�
   - 若是，请执行 [步骤5](#step5)。
   - 若否，请修改安全策略，放通腾讯云侧 VPN 网关的 IP 以及对应 SPD 策略，再查看 VPN 通道状态是否已联通，如已联通，则问题解决，结束；如未联通，则继续执行[ 步骤5](#step5)。
 5. [](id:step5)比对腾讯云侧 VPN 网关与对端 IDC 的 VPN 设备协商参数（IKE、IPsec 配置）及协商模式（主模式 main/野蛮模式 aggressive）是否一致。
-   腾讯云侧配置参数可在 [VPN 通道控制台](https://console.cloud.tencent.com/vpc/vpnConn?rid=17) 相应通道详情的高级配置中查看：
+   进入 [VPN 通道控制台](https://console.cloud.tencent.com/vpc/vpnConn?rid=17) ，单击实例 ID，进入详情页，在“高级配置”页签中查看：
    ![](https://main.qcloudimg.com/raw/003f674d04966acebd7b713a64743609.png)
 	 IDC 侧设备配置参数可通过如下命令获取（此处以华为防火墙为例）：
 	  ```plaintext
