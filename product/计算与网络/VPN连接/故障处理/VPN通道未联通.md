@@ -11,6 +11,8 @@
 
 ## 处理方案
 1. 登录 VPC 中的一台服务器，ping 对端 IDC 侧服务器的内网 IP 来激活通道。
+>?登录VPC中云服务器请参考 [登录Linux实例](https://cloud.tencent.com/document/product/213/5436) 或 [登录Windows实例](https://cloud.tencent.com/document/product/213/5435)。
+>
     - 如果 ping 通，表示通道已激活，查看 VPN 通道状态是否已联通，如已联通，则问题解决，结束。
     - 如果 ping 不通，请直接执行 [步骤2](#step2)。
 2. [](id:step2)请登录 IDC 侧的 VPN 设备，ping 腾讯云侧 VPN 网关的公网 IP（本例假设 VPN 网关公网 IP 为139.186.120.129），查看是否可以 ping 通。
