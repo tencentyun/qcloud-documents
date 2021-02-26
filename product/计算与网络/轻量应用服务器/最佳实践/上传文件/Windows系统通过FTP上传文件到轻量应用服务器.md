@@ -17,10 +17,10 @@
 3. 在 FileZilla 窗口中，填写主机、用户名、密码和端口等信息，单击【快速连接】。如下图所示：
 ![](https://mc.qcloudimg.com/static/img/dc603f912adf94a33749155c69ddddd2/24.png)
 **配置信息说明：**
- - 主机：轻量应用服务器的公网 IP。在 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index) 的页面中可查看对应轻量应用服务器的公网 IP。
- - 用户名：[搭建 FTP 服务](https://cloud.tencent.com/document/product/1207/47638) 时设置的 FTP 用户的帐号。图中以 “ftpuser1” 为例。
- - 密码：[搭建 FTP 服务](https://cloud.tencent.com/document/product/1207/47638) 时设置的 FTP 用户帐号对应的密码。
- - 端口：FTP 监听端口，默认为**21**。
+ - **主机**：轻量应用服务器的公网 IP。在 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index) 的页面中可查看对应轻量应用服务器的公网 IP。
+ - **用户名**：[搭建 FTP 服务](https://cloud.tencent.com/document/product/1207/47638) 时设置的 FTP 用户的帐号。图中以 “ftpuser1” 为例。
+ - **密码**：[搭建 FTP 服务](https://cloud.tencent.com/document/product/1207/47638) 时设置的 FTP 用户帐号对应的密码。
+ - **端口**：FTP 监听端口，默认为**21**。
 连接成功后即可查看轻量应用服务器远程站点文件。
 
 ### 上传文件
