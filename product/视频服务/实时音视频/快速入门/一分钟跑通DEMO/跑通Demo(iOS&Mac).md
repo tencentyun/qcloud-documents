@@ -18,8 +18,8 @@
 [](id:step2)
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
-2. 下载完成后，单击【已下载，下一步】。可以查看 SDKAppID 和密钥信息。
-![](https://main.qcloudimg.com/raw/1b1759c79f50e5a525dc0f204b61d494.png)
+2. 下载完成后，单击【已下载，下一步】。
+![](https://main.qcloudimg.com/raw/99b61d22efb5ed9e6bb6c37805fbae9c.png)
 
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
