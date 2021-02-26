@@ -172,14 +172,14 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
-1. 解压 [步骤2](#step2) 中下载的源码包。
+1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
 2. 找到并打开 `Web/TRTCSimpleDemo/js/debug/GenerateTestUserSig.js` 文件。
 3. 设置 `GenerateTestUserSig.js` 文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
 	<img src="https://main.qcloudimg.com/raw/938de5d7cdb8e60fc73cf3f5a57e1b1d.png">
-4.粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
-5.编译完成后，单击【回到控制台概览】即可。
+4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
+5. 编译完成后，单击【回到控制台概览】即可。
 
 >!
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
@@ -202,8 +202,8 @@ Demo 运行界面如图所示：
 >?WebRTC 需要使用摄像头和麦克风采集音视频，在体验过程中您可能会收到来自 Chrome 浏览器的相关提示，单击【允许】。
 > ![](https://main.qcloudimg.com/raw/1a2c1e7036720b11f921f8ee1829762a.png)
 
-## 常见问题
 
+## 常见问题
 ### 1. 查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
 TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先升级签名算法才能获取新的加密密钥。如不升级，您也可以继续使用 [老版本算法 ECDSA-SHA256](https://cloud.tencent.com/document/product/647/17275#Old)，如已升级，您按需切换为新旧算法。
 
