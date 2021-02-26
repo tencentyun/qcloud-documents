@@ -19,7 +19,7 @@
 		![](https://main.qcloudimg.com/raw/8202c85bf541bcd3df296b72ce177a3a.png)
 3. [](id:step3)请检查 IDC 侧公网网络连接状态，是否可以正常连接到互联网。
     - 是 => 请执行 [步骤4](#step4)。
-    - 否 =>请修复本地网络后，再查看 VPN 通道状态是否已联通，如已联通，则问题解决，结束；如未联通，则继续执行 [步骤4](#step4)。
+    - 否 => 请修复本地网络后，再查看 VPN 通道状态是否已联通，如已联通，则问题解决，结束；如未联通，则继续执行 [步骤4](#step4)。
 4. [](id:step4)查看 IDC 侧 VPN 设备的安全策略，是否放通了腾讯云侧 VPN 网关的公网 IP 地址以及需要互通的内网地址。
 ```plaintext
 display current-configuration configuration security-policy      //此处以华为防火墙为例
