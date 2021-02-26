@@ -85,7 +85,7 @@
 <table>
 <tr>
    <th>主动呼叫</th>
-   <th>呼叫接听</th>
+   <th>被叫接听</th>
  </tr>
 <tr>
 <td><img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/audiocall/call.gif"/></td>
