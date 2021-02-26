@@ -14,7 +14,7 @@ VPC 侧服务器 ping IDC侧内网 IP，无法 ping 通：
 
 ## 处理步骤
 1. 检查 VPC 子网路由表中，是否有目的地址为 IDC 侧内网网段，下一跳地址为对应 VPN 网关的路由，同时检查 IDC 侧是否有目的地址为 VPC 网段，下一跳地址为对应 VPN 隧道的路由。
-    腾讯云侧可查看 [VPC 子网路由表](https://console.cloud.tencent.com/vpc/route?fromNav) ，单击路由表 ID 进入详情界面：
+    进入 [VPC 子网路由表](https://console.cloud.tencent.com/vpc/route?fromNav) ，单击路由表 ID，进入详情界面检查：
 	![](https://main.qcloudimg.com/raw/3cc1db15db0b2f669524a004087646ee.png)
   IDC 侧执行命令检查路由情况（以华为设备为例）：
 	```plaintext
@@ -28,9 +28,9 @@ display ip routing-table     //查看是否有对应目的地址为云上 VPC �
     + 若是，通信正常，问题解决，结束。
     + 若否，请执行 [步骤3](#step3)。
 3. [](id:step3)检查 VPC 中服务器关联的安全组和子网关联的网络 ACL 是否放通来自云下 IDC 的流量，同时检查 IDC 侧是否放通来自云上 VPC 的流量。
-登录 [VPC 中服务器安全组 ](https://console.cloud.tencent.com/vpc/securitygroup)检查，单击安全组 ID 进入“安全组规则”页：
+进入 [VPC 中服务器安全组 ](https://console.cloud.tencent.com/vpc/securitygroup)界面，单击安全组 ID，进入“安全组规则”页检查：
 ![](https://main.qcloudimg.com/raw/b452e9b1e2047e8d20e817215253b636.png)
-登录[ VPC 子网 ACL 规则 ](https://console.cloud.tencent.com/vpc/acl)，单击网络 ACL ID 进入“基本信息”页，单击“入站规则”页签检查：
+进入[ VPC 子网 ACL 规则 ](https://console.cloud.tencent.com/vpc/acl)，单击网络 ACL ID，进入“基本信息”页，单击“入站规则”页签检查：
  ![](https://main.qcloudimg.com/raw/c0692870dd748c5ce7990f7d3a189587.png)
  IDC 侧安全策略检查（此处以华为防火墙为例）：
    ```plaintext
@@ -50,7 +50,7 @@ display   current-configuration   configuration security-policy
    + 若是，通信正常，问题解决，结束。
    + 若否，请执行 [步骤7](#step7)。
 7. [](id:step7)分别检查 VPC 和 IDC 侧的 VPN 通道的感兴趣流（SPD 策略）是否包含需要互通的内网网段。
-   登录 [VPC 侧 SPD 策略 ](https://console.cloud.tencent.com/vpc/vpnConn?rid=1)，单击VPN 通道 ID，进入“基本信息”页，即可检查 SPD 策略：
+   进入 [VPC 侧 SPD 策略 ](https://console.cloud.tencent.com/vpc/vpnConn?rid=1)，单击VPN 通道 ID，进入“基本信息”页，即可检查 SPD 策略：
 	 ![](https://main.qcloudimg.com/raw/7be2d93e0b9384cf2761ecaadca54548.png)
   IDC 侧 SPD 策略检查（此处以华为防火墙为例）：
 	```plaintext
