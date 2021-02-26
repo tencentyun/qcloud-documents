@@ -59,4 +59,4 @@ display current-configuration configuration acl
 8. [](id:step8)检查通信是否恢复正常，即登录 VPC/IDC 中的一台服务器，ping 对端服务器内网 IP。
    + 是 => 通信正常，问题解决，结束。
    + 否 => 请执行 [步骤9](#step9) 。
-9. [](id:step9)请收集以上检查信息[ 提交工单 ](https://console.cloud.tencent.com/workorder/category)或联系设备厂商跟进处理。
+9. [](id:step9)请收集以上检查信息，并[ 提交工单 ](https://console.cloud.tencent.com/workorder/category)或联系设备厂商跟进处理。
