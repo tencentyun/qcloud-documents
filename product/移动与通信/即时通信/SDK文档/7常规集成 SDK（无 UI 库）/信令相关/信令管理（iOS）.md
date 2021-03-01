@@ -53,3 +53,4 @@
 4. 老师从举手成员列表中邀请某个同学进行发言，调用  [inviteInGroup](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Signaling_08.html#a1ea8dcc4ee2200bf5913a40efd76bf4e) 接口，此时自定义 `data` 中填入“发言操作”，学生们都收到 [onReceiveNewInvitation](http://doc.qcloudtrtc.com/im/protocolV2TIMSignalingListener-p.html#ae544e6c0e26c7f23cd2b544f66aab450) 回调。
 5. 学生根据  [onReceiveNewInvitation](http://doc.qcloudtrtc.com/im/protocolV2TIMSignalingListener-p.html#ae544e6c0e26c7f23cd2b544f66aab450) 回调中的 `inviteeList` 和 `data` 字段判断被邀请者里有自己且是发言操作，则调用 [accept](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Signaling_08.html#a1ffb6daba9deed8780f869205daf7771) 接口发言。
 6. 如果有学生发言，所有人都可以收到  [onInviteeAccepted](http://doc.qcloudtrtc.com/im/protocolV2TIMSignalingListener-p.html#ac768c6b6214ca04277bc732bf71c61c0) 回调，判断 `data` 中的字段为“发言操作”，展示发言成员列表。
+
