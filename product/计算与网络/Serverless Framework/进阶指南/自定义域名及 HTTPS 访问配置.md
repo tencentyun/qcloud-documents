@@ -122,3 +122,6 @@ $ sls deploy
 ```
 ### 添加 CNAME 记录
 部署完成后，在命令行的输出中可以查看到一个以 `.apigw.tencentcs.com` 为后缀的 CNAME 域名。参考 [添加 CNAME 记录](https://cloud.tencent.com/document/product/302/3450)，在 DNS 服务商处设置好对应的 CNAME 并生效后，即可访问自定义 HTTPS 域名。
+
+
+
