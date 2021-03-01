@@ -31,7 +31,7 @@ pod 'QCloudCOSXML'
 若是想关闭该功能，在您工程的 `Podfile` 文件中使用：
 
 ```shell
-pod 'QCloudCOSXML/WithoutMTA'
+pod 'QCloudCOSXML/Slim'
 ```
 
 #### 精简版 SDK

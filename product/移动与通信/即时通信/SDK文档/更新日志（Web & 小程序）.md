@@ -1,3 +1,28 @@
+### 2.9.3 @2021.2.3
+
+**变更**
+
+用户未加入群组（非直播群），[quitGroup](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#quitGroup) 时返回错误码 2623 - 用户不在该群组内。
+
+**修复**
+
+C2C 会话消息列表 `avatar`（头像）或 `nick`（昵称）不一致。
+
+### 2.9.2 @2021.1.26
+
+**新增**
+
+- 收发 C2C 消息带 `avatar`（头像） 和 `nick`（昵称）。
+- 支持腾讯云即时通信 IM 上传插件 [tim-upload-plugin](https://www.npmjs.com/package/tim-upload-plugin)，上传文件更快更安全，支持 Web 和微信、QQ、百度、头条、支付宝小程序平台，体积仅26KB，详细使用请参考 [registerPlugin](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#registerPlugin)。
+
+**修复**
+
+- 登出后匿名加入直播群，长轮询回包错误码70402。
+- Taro 3.0+ 集成时浏览器环境判断错误。
+- 图片类型和尺寸校验失败时，返回的数据结构异常。
+
+
+
 ### 2.9.1 @2020.12.23
 **修复**
 

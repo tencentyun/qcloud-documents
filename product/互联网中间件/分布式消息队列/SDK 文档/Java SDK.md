@@ -11,14 +11,16 @@ TDMQ 提供了 Java 语言的 SDK 来调用服务，进行消息队列的生产�
 
 ## 操作步骤
 ### 创建 Client
-
-```java
+<dx-codeblock>
+:::  java
 PulsarClient client = PulsarClient.builder()
     .serviceUrl("pulsar://*.*.*.*:6000/")
     .listenerName("custom:1300*****0/vpc-******/subnet-********")
     .authentication(AuthenticationFactory.token("eyJh****"))
     .build();
- ```
+:::
+</dx-codeblock>
+
 >?
 >- listenerName 即 “custom:” 拼接路由ID（NetModel），路由ID可以在控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】接入点页面查看并复制。
 >- token 即角色的密钥，角色密钥可以在【[角色管理](https://console.cloud.tencent.com/tdmq/role)】中复制。
@@ -26,30 +28,37 @@ PulsarClient client = PulsarClient.builder()
 
 ### 生产消息
 创建好 Client 之后，通过创建一个 Producer，就可以生产消息到指定的 Topic 中。
-
-```java
+<dx-codeblock>
+:::  java
 Producer<byte[]> producer = client.newProducer().topic("persistent://pulsar-****/default/mytopic").create();
 producer.send("My message".getBytes());
-```
+:::
+</dx-codeblock>
+
 Topic 名称需要填入完整路径，即“persistent://clusterid/namespace/Topic”，clusterid/namespace/topic 的部分可以从控制台上【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。
 ![](https://main.qcloudimg.com/raw/a2e32b311b825df9798b8c98df7c3416.png)
 
 这种生产方式是阻塞的方式生产消息到指定的 Topic 中，我们还可以使用异步发送的方式生产消息。
-```java
+<dx-codeblock>
+:::  java
     producer.sendAsync("my-async-message".getBytes()).thenAccept(msgId -> {
     	System.out.printf("Message with ID %s successfully sent", msgId);
     });
-```
+:::
+</dx-codeblock>
+
 
 TDMQ 的消息中除了可以保存消息体之外，还可以设置其他的消息属性。
-```java
+<dx-codeblock>
+:::  java
 producer.newMessage()
 	.key("my-message-key")//默认相同key路由到同一个partition中
 	.value("my-async-message".getBytes())
 	.property("my-key", "my-value")
 	.property("my-other-key", "my-other-value")
 	.send();
-```
+:::
+</dx-codeblock>
 
 消息延迟传递：
 ```java
@@ -57,14 +66,17 @@ producer.newMessage().deliverAfter(3L, TimeUnit.Minute).value("Hello Tdmq!").sen
 ```
 
 设置消息标签（TAG）：
-```java
+<dx-codeblock>
+:::  java
 producer.newMessage()
 	.key("my-message-key")
 	.value("my-sync-message".getBytes())
 	//支持设置多个标签
 	.tags("TagA", "TagB","TagC")
 	.send();
-```
+:::
+</dx-codeblock>
+
 
 路由模式：
 
@@ -79,14 +91,15 @@ producer.newMessage()
 | 顺序保证  | 描述  |
 | ------------ | ------------ |
 |每个 key 分区   |所有具有相同 key 的消息将按顺序排列并放置在相同的分区（Partition）中，同一个分区内是有序的。 |
-|同一个生产者  |自同一生产者的所有消息都是有序的   |
+|同一个生产者  |自同一生产者的所有消息都是有序的。   |
 
 ### 订阅消息
 
 #### Consumer
 ##### 通过指定 Topic 和订阅名进行消费消息
 - 主动拉取
-```java
+<dx-codeblock>
+:::  java
 Consumer consumer = client.newConsumer()
 	.topic("persistent://pulsar-****/default/mytopic")
 	//.subscriptionType(SubscriptionType.Shared)
@@ -111,10 +124,13 @@ while (true) {
 	    //默认延迟等级"1s 5s 10s 30s 1m 2m 3m 4m 5m 6m 7m 8m 9m 10m 20m 30m 1h 2h"
       }
 }
-```
+:::
+</dx-codeblock>
+
 
 - 被动接收
-```java
+<dx-codeblock>
+:::  java
 Consumer<byte[]> consumer = client.newConsumer()
    .topic("persistent://pulsar-****/default/mytopic")
    .messageListener(new  MessageListener<byte[]> () {
@@ -125,18 +141,23 @@ Consumer<byte[]> consumer = client.newConsumer()
      })
 	.subscriptionName("my-subscription")
 	.subscribe();
-```
+:::
+</dx-codeblock>
+
 
 - 指定标签（TAG） 
-```java
+<dx-codeblock>
+:::  java
 Consumer consumer = client.newConsumer()
-		.topicByTag("persistent://pulsar-****/default/mytopic", "TagA || TagB")
-		//.topic("my-topic", "*") 订阅所有
-		//.topicByTagsPattern("my-topic", "Tag.*")正则表达式
-		.subscriptionName("my-subscription")
-		.subscriptionType(SubscriptionType.Shared)
-		.subscribe();
-```
+	.topicByTag("persistent://pulsar-****/default/mytopic", "TagA || TagB")
+	//.topic("my-topic", "*") 订阅所有
+	//.topicByTagsPattern("my-topic", "Tag.*")正则表达式
+	.subscriptionName("my-subscription")
+	.subscriptionType(SubscriptionType.Shared)
+	.subscribe();
+:::
+</dx-codeblock>
+
 
 ##### 异步订阅
 
@@ -147,8 +168,8 @@ System.out.printf("Message received: %s", new String(msg.get().getData()));
 ```
 
 ##### 批量订阅
-
-```java
+<dx-codeblock>
+:::  java
 Consumer consumer = client.newConsumer() 
 	.topic("persistent://pulsar-****/default/mytopic") 
 	.subscriptionName("my-subscription") 
@@ -163,7 +184,9 @@ for (message in messages) {
   // 处理消息
 }
 consumer.acknowledge(messages)
-```
+:::
+</dx-codeblock>
+
 
 ##### 多主题订阅
 - 订阅指定的 Topic 列表：

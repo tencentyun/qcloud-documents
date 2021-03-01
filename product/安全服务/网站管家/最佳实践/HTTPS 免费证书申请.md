@@ -4,6 +4,8 @@ Web 应用防火墙提供域名 HTTPS 接入配置和防护能力，若您的网
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航中，选择【Web 应用防火墙】>【防护设置】。
 2. 在防护设置页面，单击【添加域名】，进入添加域名页面。
 3. 在域名配置的服务器配置中，勾选【HTTPS】，在证书配置中，单击【关联证书】。
+>?证书格式为 PEM 格式，内容为文本类型。
+>
 ![](https://main.qcloudimg.com/raw/f2509c947abbc6898217e031c15fa572.png)
 4. 选择证书来源为“腾讯云托管证书”，Web 应用防火墙会自动关联该域名的可用证书，配置完成后，单击【保存】。
 ![](https://main.qcloudimg.com/raw/0462e4ff8f1d785ba4c04f87336526a0.png)

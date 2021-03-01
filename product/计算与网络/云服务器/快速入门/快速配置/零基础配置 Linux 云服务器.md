@@ -32,11 +32,9 @@
 >
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)，在实例列表中找到刚购买的云服务器，在右侧操作栏中单击【登录】。
 ![](https://main.qcloudimg.com/raw/25d5fed7a99dda8a738490b2f89f3044.jpg)
-2. 推荐您 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
-您也可以根据实际操作习惯，选择其他不同的登录方式：
- - [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699)
- - [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)
-3. 输入云服务器的用户名和密码，即可正常登录。
+2. 请参考 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)，进行登录操作。
+3. 输入云服务器的用户名和密码，即可正常登录。登录成功后，界面如下图所示：
+![](https://main.qcloudimg.com/raw/a810f534d55fb5609e3323efc23689d0.png)
 
 
 ## 下一步操作：使用云服务器

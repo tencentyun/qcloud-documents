@@ -154,7 +154,7 @@ spec:
     weight: "66"
 ```
 
-## 附录<span id="other"></span>
+## 附录[](id:other)
 
 ### 腾讯云 CLB LBCF driver
 #### ConfigMap

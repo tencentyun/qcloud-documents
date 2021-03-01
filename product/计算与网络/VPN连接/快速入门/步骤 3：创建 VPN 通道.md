@@ -1,7 +1,7 @@
 您可通过如下视频了解 VPN 通道的相关操作。
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1786-20144?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【网络】>【私有网络】进入私有网络控制台。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击【VPN 连接】>【VPN 通道】，进入管理页。
 3. 选择对应的地域和私有网络，如示例中的**广州**和`TomVPC`，单击【+新建】。
  ![](https://main.qcloudimg.com/raw/736f88fd2bbf5e75033d77fcf372586f.png)
