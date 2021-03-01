@@ -13,11 +13,11 @@
 
 #### 使用数据万象控制台
 
-您可以使用对象存储控制台进行图片处理设置，详情请参见 [基础处理](https://cloud.tencent.com/document/product/460/46823)。
+您可以使用数据万象控制台进行图片处理设置，详情请参见 [基础处理](https://cloud.tencent.com/document/product/460/46823)。
 
 #### 使用 REST API
 
-您可以通过对象存储提供的 API 进行图片处理设置，详情请参见 [基础图片处理](https://cloud.tencent.com/document/product/460/6924) API 文档。
+您可以通过数据万象提供的 API 进行图片处理设置，详情请参见 [基础图片处理](https://cloud.tencent.com/document/product/460/6924) API 文档。
 
 ## 限制说明
 
