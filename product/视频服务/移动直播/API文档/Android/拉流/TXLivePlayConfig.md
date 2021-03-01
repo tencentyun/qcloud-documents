@@ -171,7 +171,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | boolean | true：开启；false：关闭。 |
+| enable | boolean | true：开启，false：关闭。 |
 
 __介绍__
 
