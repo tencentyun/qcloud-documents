@@ -13,4 +13,4 @@
 netsh interface ipv6 add route ::/0 "以太网"
 ipconfig
 ```
-![](https://main.qcloudimg.com/raw/ba325fb98c4efe86a1f3a4bcd55f77be.png)
+ ![](https://main.qcloudimg.com/raw/ba325fb98c4efe86a1f3a4bcd55f77be.png)
