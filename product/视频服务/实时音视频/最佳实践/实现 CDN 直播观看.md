@@ -184,7 +184,7 @@ http://播放域名/live/[streamId].flv
 
 
 ### 转码费用：启用多路画面混合时收取
-如果您启用了 [多路画面混合](#mixCDN) ，混流需要进行解码和编码，因此会产生额外的混流转码费用。混流转码根据分辨率大小和转码时长进行计费，主播用的分辨率越高，连麦时间（通常在连麦场景才需要混流转码）越长，费用越高，详情请参见 [云直播 > 标准直播 > 直播转码](https://cloud.tencent.com/document/product/267/34175#.E6.A0.87.E5.87.86.E8.BD.AC.E7.A0.81) 计费说明。
+如果您启用了 [多路画面混合](#mixCDN) ，混流需要进行解码和编码，因此会产生额外的混流转码费用。混流转码根据分辨率大小和转码时长进行计费，主播用的分辨率越高，连麦时间（通常在连麦场景才需要混流转码）越长，费用越高，详情请参见 [云直播 > 直播转码](https://cloud.tencent.com/document/product/267/39889) 计费说明。
 
 >例如，您通过 [setVideoEncodrParam()](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCVideoEncParam) 设置主播的码率（videoBitrate）为1500kbps，分辨率为720P。如果有一位主播跟观众连麦了1个小时，连麦期间开启了 [多路画面混合](#mixCDN) ，那么产生的转码费用为`0.0325元/分钟 × 60分钟 = 1.95元`。
 

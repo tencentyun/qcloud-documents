@@ -34,7 +34,6 @@ touch serverless.yml
 
 component: cdn
 name: cdnDemo
-org: orgDemo
 app: appDemo
 stage: dev
 

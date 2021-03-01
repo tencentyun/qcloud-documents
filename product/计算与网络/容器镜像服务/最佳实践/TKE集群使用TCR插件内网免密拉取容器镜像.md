@@ -3,7 +3,7 @@
 
 ## 前提条件
 在使用容器镜像服务 TCR 企业版内托管的私有镜像进行应用部署前，您需要完成以下准备工作：
-- 已成功 [创建企业版实例](https://cloud.tencent.com/document/product/1141/40716)。
+- 已成功 [购买企业版实例](https://cloud.tencent.com/document/product/1141/51110)。
 - 已成功 [创建 TKE 集群](https://cloud.tencent.com/document/product/457/32189)。
 - 如使用子账号进行操作，请参考 [企业版授权方案示例](https://cloud.tencent.com/document/product/1141/41417) 提前为子账号授予对应实例的操作权限。
 - 如使用已有 TKE 集群，请确认操作子账号具有集群相关权限，请参考 [TKE 集群权限管理](https://cloud.tencent.com/document/product/457/11542)。

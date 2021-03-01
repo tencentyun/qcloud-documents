@@ -5,8 +5,9 @@
 
 | Demo 语言 | 下载地址                                                     |
 | -------- | ------------------------------------------------------------ |
-| Go       | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_go_demo.zip)  |
-| Java     | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_java_demo.zip)  |
+| Go       | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_go_demo_1.1.0.zip)  |
+| Java    | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_java_demo_1.1.0.zip) |
+| Python    | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_python_demo_1.1.0.zip) |
 
 ## 配置参数说明
 

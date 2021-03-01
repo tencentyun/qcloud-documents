@@ -3,10 +3,10 @@
 
 ## 前提条件
 
-
+- 应用性能监控目前处于内测阶段，如需体验需通过 [应用性能监控内测申请](https://cloud.tencent.com/apply/p/f5yvbf09mka)。
 - 在安装探针前，请先安装 Agent Collector。
 - 在安装探针前，需要先确保本地浏览器时间与服务器时区、时间一致。若有多个服务器，则要保证本地浏览器、多个服务器的时区、时间都一致。否则，可能会影响数据的准确性，例如拓扑不正确等。
-- 前往 TAPM 控制台 [探针下载](https://console.cloud.tencent.com/monitor/tapm/addagent) 页面下载 tapm-java-Agent。
+- 前往 TAPM 控制台 [探针下载](https://console.cloud.tencent.com/tapm/addagent) 页面下载 tapm-java-Agent。
 
 
 
@@ -28,7 +28,7 @@ export JAVA_OPTS="$JAVA_OPTS -javaagent: /${路径}/tapm-agent-java.jar"
 
 1. 在 Windows 系统中，选择【Start】>【Apache Tomcat (Version)】>【Configure Tomcat】。
 2. 在 Configure Tomcat 页面选择【Java】。
-3. 在 **Java Options** 文本框中的行末增加，请使用正斜杠作为路径分隔符。示例如下，详细说明可参考 [javaagent](#javaagent) 。
+3. 在 **Java Options** 文本框中的行末增加，请使用正斜杠作为路径分隔符。示例如下，详细说明可参考 [javaagent](#javaagent)。
 ```shell
 -javaagent:/${路径}/tapm-agent-java.jar
 ```
@@ -56,7 +56,7 @@ export JAVA_OPTS="$JAVA_OPTS -javaagent: /${路径}/tapm-agent-java.jar"
  ```
 3. Tomcat 6 中自带的 Apache Commons Daemon(jsvc) 不支持`-javaagent`参数。关于该问题的描述请参见 [官方文档说明](http://issues.apache.org/jira/browse/DAEMON-84)。
 在 Apache Commons 源代码仓库中已经包含了该问题的修复版本。详情请参见：
-	- [Apache源代码仓库](http://commons.apache.org/svninfo.html)
-	- [Apache SVN源代码仓库](http://svn.apache.org/repos/asf/commons/proper/daemon/)
+	- [Apache 源代码仓库](http://commons.apache.org/svninfo.html)
+	- [Apache SVN 源代码仓库](http://svn.apache.org/repos/asf/commons/proper/daemon/)
 
  您也可以直接下载编译好的 [jsvc 版本](http://www.apache.org/dist/commons/daemon/binaries/) 。该版本的 jsvc 支持通过 `-X` 前缀来设置 `-javaagent` 参数。

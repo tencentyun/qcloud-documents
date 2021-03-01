@@ -1,9 +1,7 @@
 本文将为您介绍如何在 Web 应用防火墙控制台设置 CC 防护。
 ## 背景信息
 CC 防护可以对网站特定的 URL 进行访问保护，CC 防护支持紧急模式 CC 防护和自定义 CC 防护策略。
->!
-- 紧急模式 CC 防护策略和自定义 CC 规则防护策略，不能同时开启。
-- 使用基于 SESSION 的 CC 防护策略，需要先进行 SESSION 设置，才能设置基于 SESSION 的 CC 防护策略。
+>!紧急模式 CC 防护策略和自定义 CC 规则防护策略，不能同时开启。
 
 
 ## 操作步骤
@@ -50,6 +48,8 @@ CC 防护可以对网站特定的 URL 进行访问保护，CC 防护支持紧急
 
 ### 示例三： 基于 SESSION 的 CC 防护设置
 基于 SESSION 访问速率的 CC 防护，能够有效解决在办公网、商超和公共 Wi-Fi 场合，用户因使用相同 IP 出口而导致的误拦截问题。
+>!使用基于 SESSION 的 CC 防护策略，需要先进行 SESSION 设置，才能设置基于 SESSION 的 CC 防护策略，下文步骤1 - 步骤4为 SESSION 设置操作。
+
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 应用防火墙】>【防护设置】，进入防护设置页面。
 2. 在域名列表中，找到需要防护的域名，单击【防护配置】进入配置页面。
 ![](https://main.qcloudimg.com/raw/9be71efc16d6a472dfd7590b6ae11763.png)
@@ -69,7 +69,7 @@ CC 防护可以对网站特定的 URL 进行访问保护，CC 防护支持紧急
  - **COOKIE 示例 ：**如果一条请求的完整 COOKIE 内容为：cookie_1 = 123;cookie_2 = 456;cookie_3 = 789。
 	 - 字符串匹配模式下，SESSION 标识为 cookie_2 =，结束字符为“;”，则匹配内容为456。
 	 - 位置匹配模式下，SESSION 标识为 cookie_2，开始位置为0，结束位置2，则匹配内容为456。
-4. SESSION 维度信息测试。添加完成后，单击【测试】将填写内容进行测试。。
+4. SESSION 维度信息测试。添加完成后，单击【测试】将填写内容进行测试。
 ![](https://main.qcloudimg.com/raw/1eddcdb937b9e529167d24c98ca904d4.png)
 5. 进入 SESSION 设置页面，设置内容为 security = 0123456789……，后继 Web 应用防火墙将把 security 后面10位字符串作为 SESSION 标识，SESSION 信息也可以删除重新配置。
 ![](https://main.qcloudimg.com/raw/bf87f5f7037e7758d8c281151852ad70.png)

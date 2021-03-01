@@ -55,7 +55,7 @@ Cron 格式说明如下：
 
 ## Kubectl 操作 CronJob 指引
 
-<span id="YAMLSample"></span>
+[](id:YAMLSample)
 ### YAML 示例
 
 ```Yaml

@@ -78,6 +78,8 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 | allow_screen_shared_watermark   | Bool     | 开启屏幕共享水印。                                             |
 | only_allow_enterprise_user_join | Bool     | 是否仅企业内部成员可入会。 <br>true：仅企业内部用户可入会 <br>false：所有人可入会 |
 | auto_record_type | String     | 自动录制类型，仅客户端2.7及以上版本生效。<br>none：禁用 <br>local：本地录制 <br>cloud：云录制<br> |
+|participant_join_auto_record  | boolean | 当有参会成员入会时立即开启云录制，默认值为 false 关闭，关闭时，主持人入会自动开启云录制；当设置为开启时，则有参会成员入会自动开启云录制。<br>说明：<br><li>该参数必须 auto_record_type 设置为“cloud”时才生效，该参数依赖企业账户设置，当企业强制锁定后，该参数必须与企业配置保持一致。<li>仅客户端2.7及以上版本生效。 |
+|enable_host_pause_auto_record | boolean | 允许主持人暂停或者停止云录制，默认值为 true 开启，开启时，主持人允许暂停和停止云录制；当设置为关闭时，则主持人不允许暂停和关闭云录制。<br>说明：<br><li>该参数必须将 auto_record_type 设置为“cloud”时才生效，该参数依赖企业账户设置，当企业强制锁定后，该参数必须与企业配置保持一致。<li>仅客户端2.7及以上版本生效。 |
 
 **子会议对象**
 

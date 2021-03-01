@@ -8,7 +8,7 @@
 
 ## 操作步骤
 
-<span id="ObtainInformation"></span>
+[](id:ObtainInformation)
 ### 获取信息
 1. 登录 [黑石私有网络控制台](https://console.cloud.tencent.com/vpcbm/vpc)。
 2. 在私有网络管理页面中，记录需要建立黑石 VPC 的 **CIDR**。如下图所示：

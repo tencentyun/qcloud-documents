@@ -121,35 +121,29 @@ cat metrics
 3. 通过服务发现添加 `Pod Monitor` 来定义 Prometheus 抓取任务，YAML 配置示例如下：
 
 ```yaml
-apiVersion: monitoring.coreos.com/v1
-kind: PodMonitor
-metadata:
-  # 填写一个唯一名称
-  name: mongodb-exporter
-  # namespace固定，不要修改
-  namespace: cm-prometheus
-spec:
-  podMetricsEndpoints:
-  - interval: 30s
-    # 填写pod yaml中Prometheus Exporter对应的Port的Name
-    port: metric-port
-    # 填写Prometheus Exporter对应的Path的值，不填默认/metrics
-    path: /metrics
-    relabelings:
-    - action: replace
-      sourceLabels: 
-      - instance
-      regex: (.*)
-      targetLabel: instance
-      replacement: 'cmgo-xxxxxxxx' # 调整成对应的 MongoDB 实例 ID
-  # 选择要监控pod所在的namespace
-  namespaceSelector:
-    matchNames:
-    - mongodb-test 
-  # 填写要监控pod的Label值，以定位目标pod
-  selector:
-    matchLabels:
-      k8s-app: mongodb-exporter
+  apiVersion: monitoring.coreos.com/v1
+  kind: PodMonitor
+  metadata:
+    name: mongodb-exporter # 填写一个唯一名称
+    namespace: cm-prometheus  # namespace固定，不要修改
+  spec:
+    podMetricsEndpoints:
+    - interval: 30s
+      port: metric-port   # 填写pod yaml中Prometheus Exporter对应的Port的Name
+      path: /metrics  # 填写Prometheus Exporter对应的Path的值，不填默认/metrics
+      relabelings:
+      - action: replace
+        sourceLabels: 
+        - instance
+        regex: (.*)
+        targetLabel: instance
+        replacement: 'cmgo-xxxxxxxx' # 调整成对应的 MongoDB 实例 ID
+    namespaceSelector:  # 选择要监控pod所在的namespace
+      matchNames:
+      - mongodb-test 
+    selector: # 填写要监控pod的Label值，以定位目标pod
+      matchLabels:
+        k8s-app: mongodb-exporter
 ```
 
 > ? 由于 `Exporter` 和 `MongoDB` 部署在不同的服务器上，因此建议通过 Prometheus Relabel 机制将 MongoDB 实例的信息放到监控指标中，以便定位问题。
@@ -181,4 +175,3 @@ spec:
 
 需检查 Cache 使用率是否过高、Transactions 可用个数是否为0，可以通过 Grafana 大盘【MongoDB详情/核心指标/ WiredTiger Transactions 可用个数| WiredTiger Cache 使用率| GetLastError 写耗时| GetLastError 写超时】指标排查。
 ![](https://main.qcloudimg.com/raw/282ab600c5d8a65e0735d61b538e3db8.png)
-

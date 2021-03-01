@@ -6,7 +6,7 @@
 
 ## 前提条件
 
-- 已有容器镜像服务 TCR 企业版实例，并已创建镜像仓库。详情可参见 [创建企业版实例](https://cloud.tencent.com/document/product/1141/40716)、[创建镜像仓库](https://cloud.tencent.com/document/product/1141/41811#.E5.88.9B.E5.BB.BA.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93)。
+- 已有容器镜像服务 TCR 企业版实例，并已创建镜像仓库。详情可参见 [购买企业版实例](https://cloud.tencent.com/document/product/1141/51110)、[创建镜像仓库](https://cloud.tencent.com/document/product/1141/41811#.E5.88.9B.E5.BB.BA.E9.95.9C.E5.83.8F.E4.BB.93.E5.BA.93)。
 - 已有容器服务 TKE 集群，并已部署容器应用。详情可参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。
 - 已开通 [CODING DevOps](https://cloud.tencent.com/document/product/1115/37268) 服务。
 

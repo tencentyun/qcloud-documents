@@ -24,7 +24,7 @@
 >- 如果 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，挂载该盘的云服务器正处于正常运行状态，则需要 [重新扫描磁盘](#Scaning) 待识别扩容后的云硬盘空间后再 [扩展卷](#Extending)。
 >- 如果 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，该盘处于待挂载状态或者挂载该盘的云服务器正处于关机状态，直接 [扩展卷](#Extending) 即可。
 
-<span id="Scaning"></span>
+[](id:Scaning)
 ### 重新扫描磁盘
 1. 右键单击<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px">，并选择【计算机管理】。
 2. 在“计算机管理”窗口的左侧导航栏中，选择【存储】>【磁盘管理】。
@@ -33,7 +33,7 @@
 4. 扫描完成后，查看数据盘是否已经变为扩容后的大小（本例中执行扫描操作后识别到硬盘由原来的10GB扩容到了50GB）。如下图所示：
 ![](https://main.qcloudimg.com/raw/9612c8f95826b401d3a7c111fe632b05.png)
 
-<span id="Extending"></span>
+[](id:Extending)
 ### 扩展卷
 
 1. 右键单击磁盘空间的任一空白处，选择【扩展卷】。
