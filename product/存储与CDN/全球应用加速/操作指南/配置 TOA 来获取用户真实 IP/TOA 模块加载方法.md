@@ -42,8 +42,8 @@ yum install kernel-devel
 ```
 3. 加载 toa.ko 文件
 ```
-unzip linux_toa.zip
-cd toa
+unzip linux_toa.zip //解压 linux_toa.zip 文件
+cd toa// 进入目录
 make
 mv toa.ko /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
 insmod /lib/modules/`uname -r`/kernel/net/netfilter/ipvs/toa.ko
