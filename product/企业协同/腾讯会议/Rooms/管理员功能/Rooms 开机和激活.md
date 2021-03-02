@@ -29,7 +29,7 @@
 5. 完善会议室信息：选择绑定的账号后，需完成会议室信息填写，单击【下一步】，即可完成绑定。
 ![img](https://dldir1.qq.com/download/support-center/image/rooms/spc_bind_set.png)
 6. 激活设备：完成绑定后，Rooms 将进入激活页面，您可选择一键激活或激活码激活两种方式激活。
-![img](https://dldir1.qq.com/download/support-center/image/rooms/spc_activate.png)
-![img](https://dldir1.qq.com/download/support-center/image/rooms/spc_input_keycode.png)
+![](https://main.qcloudimg.com/raw/89fd4f9704d53fcdfd9a528ecb405045.png)
+![](https://main.qcloudimg.com/raw/7a35e3d3b63ca7eface32a51ad67c60e.png)
 7. 成功激活后即可使用腾讯会议 Rooms 服务。
 
