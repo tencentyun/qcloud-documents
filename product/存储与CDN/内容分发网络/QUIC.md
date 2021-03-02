@@ -12,9 +12,10 @@ QUIC (Quick UDP Internet Connections) 是一个通用的网络协议，能够保
 >!QUIC 平台现为测试平台，尚未全量，建议您仅对新的测试域名开启 QUIC 平台，不要使用业务域名。
 
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，新添域名时，您可通过选中 QUIC 平台项，为域名接入 QUIC 平台。
+![](https://main.qcloudimg.com/raw/cb7d9ab0a9026574363f7308047c04c6.png)
 
 #### 配置约束：
-![](https://main.qcloudimg.com/raw/cb7d9ab0a9026574363f7308047c04c6.png)
+
 - 流媒体点播加速业务类型的域名暂不支持 QUIC。
 - 开启IPv6访问后不可开启 QUIC。
 
