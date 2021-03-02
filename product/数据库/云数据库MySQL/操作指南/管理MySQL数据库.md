@@ -2,7 +2,7 @@
 
 ## 实例列表页
 在 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例列表页可查看实例相关信息，以及管理实例。
-![](https://main.qcloudimg.com/raw/6b5ce84ac2728e387d79703267efdbb8.png)
+![](https://main.qcloudimg.com/raw/aa66740c2c646c82db14cc316c32169d.png)
 
 | 功能 | 介绍 | 
 |---------|---------|
@@ -24,5 +24,4 @@
 | 操作日志 | 在操作日志页面，您可以查看和下载慢查询日志、错误日志、回档日志，详细介绍请参见 [操作日志](https://cloud.tencent.com/document/product/236/39348)。|
 | 只读实例 | 在只读实例页面，您可以创建一个或多个只读实例，以支持用户的读写分离和一主多从应用场景，可显著提高用户数据库的读负载能力，详细介绍请参见 [只读实例](https://cloud.tencent.com/document/product/236/7270)。|
 | 连接检查 | 在连接检查页面，您可以检测云数据库可能存在的连接访问问题，并根据提供的解决方法处理访问问题，以确保您的云数据库能够正常访问，详细介绍请参见 [一键连接检查工具](https://cloud.tencent.com/document/product/236/33206)。|
-
 
