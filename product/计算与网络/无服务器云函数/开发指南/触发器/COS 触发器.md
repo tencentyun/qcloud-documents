@@ -1,9 +1,21 @@
 用户可以编写 SCF 函数来处理 COS Bucket 中的对象创建和对象删除事件。COS 可将事件发布给 SCF 函数并将事件数据作为参数来调用该函数。用户可以在 COS Bucket 中添加存储桶通知配置，该配置可标识触发函数的事件类型和希望调用的函数名称等信息。
+>! 云函数 SCF 下的 COS 触发器有 SCF 侧和 COS 侧两个维度限制：
+ - SCF 侧限制：云函数仅支持单函数绑定10个 COS 触发器。 
+ - COS 侧限制：单函数的相同事件和前后缀规则可以支持触发3个函数，单个 COS 存储桶可绑定的规则上限为10个。
+
+
+
+
+
 
 COS 触发器具有以下特点：
 
 - **Push 模型**：COS 会监控指定的 Bucket 动作（事件类型）并调用相关函数，将事件数据推送给 SCF 函数。在推模型中使用 Bucket 通知来保存 COS 的事件源映射。
 - **异步调用**：COS 始终使用异步调用类型来调用函数，结果不会返回给调用方。有关调用类型的更多信息，请参阅 [调用类型](https://cloud.tencent.com/document/product/583/9694#.E8.B0.83.E7.94.A8.E7.B1.BB.E5.9E.8B)。
+
+
+
+
 
 ## COS 触发器属性
 
@@ -98,3 +110,5 @@ COS 触发器具有以下特点：
 ```
 https://github.com/tencentyun/scf-demo-java/blob/master/src/main/java/example/Cos.java
 ```
+
+
