@@ -38,7 +38,7 @@
 3. 设置 `GenerateTestUserSig.java` 文件中的相关参数：
 <ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
-<img src="https://main.qcloudimg.com/raw/630846426a3a4afffd76ebaf62de71d3.png">
+<img src="https://main.qcloudimg.com/raw/dad4c94a71b9330e09a8cbd5dce8fd39.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
