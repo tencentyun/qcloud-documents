@@ -57,7 +57,7 @@
 	<tr>
 		<td>DB_PORT</td>
 		<td>否</td>
-		<td>CDWPG 端口，默认为5436</td>
+		<td>云数据仓库 PostgreSQL 端口，默认为5436</td>
 	</tr>
 	<tr>
 		<td>MSG_SEPARATOR_ASCII</td>
