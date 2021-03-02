@@ -40,7 +40,7 @@
 3. 设置 `GenerateTestUserSig.h` 文件中的相关参数：
 <ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
 <li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
-<img src="https://main.qcloudimg.com/raw/dddc34ec35ab6d93d2ee6a1b2f5b8391.png">
+<img src="https://main.qcloudimg.com/raw/dc51102e39c2a913aacb6789e06c25e4.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
