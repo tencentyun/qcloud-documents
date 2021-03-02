@@ -1,9 +1,9 @@
 
-调用 [创建主密钥](https://cloud.tencent.com/document/product/573/34430) 接口创建用户主密钥。
->!在密钥管理系统（KMS）中创建密钥时，必须传入正确的密钥用途 `KeyUsage = ASYMMETRIC_SIGN_VERIFY_RSA_2048`，才可以使用签名功能。
 
 ## 操作步骤
 ### 步骤1：创建非对称签名密钥
+>!在 KMS 中调用 [创建主密钥](https://cloud.tencent.com/document/product/573/34430) 接口创建用户主密钥时，必须传入正确的密钥用途 ASYMMETRIC_SIGN_VERIFY_ECC，这样才可以使用签名功能。
+>
 - **请求**：
 ```
 tccli kms CreateKey --Alias test_rsa --KeyUsage ASYMMETRIC_SIGN_VERIFY_RSA_2048
