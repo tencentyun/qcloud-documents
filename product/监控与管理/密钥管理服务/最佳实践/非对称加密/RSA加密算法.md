@@ -63,7 +63,7 @@ echo "test" > test_verify.txt
 
 ### 步骤4：计算消息摘要
 >!
-- 如果待签名的消息长度不超过4096字节，可以跳过本步骤，直接进入 [步骤 5](#step5)。
+- 如果待签名的消息长度不超过4096字节，可以跳过本步骤，直接进入 [步骤5](#step5)。
 - 如果待签名的消息的长度超过4096字节，则需先在用户端本地计算消息摘要。
 
 使用 openssl 对 test_verity.txt 文件内容进行摘要计算。
@@ -86,14 +86,14 @@ openssl enc -e -base64 -A -in test_verify.txt -out encoded.base64
 	- **请求：**
 		- **RSA_PSS_SHA_256** 
 ```
-// 将上述 encoded.base64 的文件内容作为 SignByAsymmetricKey 的 Message 参数，以消息摘要的形式进行签名
+// 将上述 encoded.base64 的文件内容作为 SignByAsymmetricKey 的 Message 参数，以消息摘要的形式进行签名。
 tccli kms SignByAsymmetricKey --KeyId 22d79428-61d9-11ea-a3c8-525400****** --Algorithm RSA_PSS_SHA_256 --Message "qJQj83hSyOuU7Tn0SRReGCk4yuuVWaeZ44BP******==" --MessageType DIGEST
 // 以消息原文的形式进行签名（原文要进行Base64编码）
 tccli kms SignByAsymmetricKey --KeyId 22d79428-61d9-11ea-a3c8-525400****** --Algorithm RSA_PSS_SHA_256 --Message "dG***Ao=" --MessageType RAW
 ```
 		- **RSA_PKCS1_SHA_256**
 ```
-// 将上述 encoded.base64 的文件内容作为 SignByAsymmetricKey 的 Message 参数，以消息摘要的形式进行签名
+// 将上述 encoded.base64 的文件内容作为 SignByAsymmetricKey 的 Message 参数，以消息摘要的形式进行签名。
 tccli kms SignByAsymmetricKey --KeyId 22d79428-61d9-11ea-a3c8-525400****** --Algorithm RSA_PKCS1_SHA_256 --Message "qJQj83hSyOuU7Tn0SRReGCk4yuuVWaeZ44BP******==" --MessageType DIGEST
 // 以消息原文的形式进行签名（原文要进行Base64编码）
 tccli kms SignByAsymmetricKey --KeyId 22d79428-61d9-11ea-a3c8-525400****** --Algorithm RSA_PKCS1_SHA_256 --Message "dG***Ao=" --MessageType RAW
@@ -119,16 +119,16 @@ echo "U7Tn0SRReGCk4yuuVWaeZ4******" | base64 -d > signContent.bin
 	>
   - **RSA_PSS_SHA_256**
 ```
-// 对消息摘要进行验证(将步骤4 encoded.base64 文件内容作为 VerifyByAsymmetricKey 的 Message 参数，以消息摘要的形式进行验签)
+// 对消息摘要进行验证(将步骤4 encoded.base64 文件内容作为 VerifyByAsymmetricKey 的 Message 参数，以消息摘要的形式进行验签)。
 tccli kms VerifyByAsymmetricKey --KeyId 22d79428-61d9-11ea-a3c8-525400****** --SignatureValue "U7Tn0SRReGCk4yuuVWaeZ4******" --Message "QUuAcNFr1Jl5+3GDbCxU7te7Uekq+oTxZ**********=" --Algorithm RSA_PSS_SHA_256 --MessageType DIGEST
-// 对消息原文进行验证（原文要进行Base64编码）
+// 对消息原文进行验证（原文要进行Base64编码）。
 tccli kms VerifyByAsymmetricKey --KeyId 22d79428-61d9-11ea-a3c8-525400****** --SignatureValue "U7Tn0SRReGCk4yuuVWaeZ4******" --Message "dG***Ao=" --Algorithm RSA_PSS_SHA_256 --MessageType RAW
 ```
   - **RSA_PKCS1_SHA_256**
 ```
-// 对消息摘要进行验证(将步骤4 encoded.base64 文件内容作为 VerifyByAsymmetricKey 的 Message 参数，以消息摘要的形式进行验签)
+// 对消息摘要进行验证(将步骤4 encoded.base64 文件内容作为 VerifyByAsymmetricKey 的 Message 参数，以消息摘要的形式进行验签)。
 tccli kms VerifyByAsymmetricKey --KeyId 22d79428-61d9-11ea-a3c8-525400****** --SignatureValue "U7Tn0SRReGCk4yuuVWaeZ4******" --Message "QUuAcNFr1Jl5+3GDbCxU7te7Uekq+oTxZ**********=" --Algorithm RSA_PKCS1_SHA_256 --MessageType DIGEST
-// 对消息原文进行验证（原文要进行 Base64 编码）
+// 对消息原文进行验证（原文要进行 Base64 编码）。
 tccli kms VerifyByAsymmetricKey --KeyId 22d79428-61d9-11ea-a3c8-525400****** --SignatureValue "U7Tn0SRReGCk4yuuVWaeZ4******" --Message "dG***Ao=" --Algorithm RSA_PKCS1_SHA_256 --MessageType RAW
 ```
 	- **返回结果**：
@@ -144,9 +144,9 @@ tccli kms VerifyByAsymmetricKey --KeyId 22d79428-61d9-11ea-a3c8-525400****** --S
 2. 通过 KMS 公钥和签名内容在本地进行验证。
 	-  **请求**：
 ```
-//采用 RSA_PSS_SHA_256 算法进行签名的验签
+//采用 RSA_PSS_SHA_256 算法进行签名的验签。
 openssl dgst -verify public_key.pem -sha256 -sigopt rsa_padding_mode:pss -sigopt rsa_pss_saltlen:-1 -signature ./signContent.bin ./test_verify.txt
-//采用 RSA_PKCS1_SHA_256 算法进行签名的验签
+//采用 RSA_PKCS1_SHA_256 算法进行签名的验签。
 openssl dgst -verify public_key.pem -sha256 -signature ./signContent.bin ./test_verify.txt
 ```
 	- **返回结果**：
