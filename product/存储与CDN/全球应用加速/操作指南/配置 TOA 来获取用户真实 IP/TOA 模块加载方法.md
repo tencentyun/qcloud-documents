@@ -39,8 +39,8 @@ wget "http://thunder-pro-mainland-1258348367.cos.ap-guangzhou.myqcloud.com/gaap-
 yum install gcc
 yum install kernel-headers
 yum install kernel-devel
-unzip linux_toa.zip //解压上面的源代码
-cd toa //进入对应目录
+unzip gaap-toa*.zip //解压上面的源代码
+cd gaap-toa* //进入对应目录
 make
 ```
 3. 加载 toa 模块文件
