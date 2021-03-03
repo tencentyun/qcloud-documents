@@ -54,3 +54,5 @@ Anycast CLB 在游戏加速中的应用也非常广泛，游戏请求就近接�
 ![](https://main.qcloudimg.com/raw/46cb52e7a76c8c2e7eeb0a70641e0d4e.png)
 5. 内网负载均衡绑定加速 IP 后，该负载均衡即可提供 Anycast 负载均衡服务。更多负载均衡配置请参见 [负载均衡监听器概述](https://cloud.tencent.com/document/product/214/6151)。
 ![](https://main.qcloudimg.com/raw/dae5e2248aede6d523e7de28afbed0d5.png)
+
+
