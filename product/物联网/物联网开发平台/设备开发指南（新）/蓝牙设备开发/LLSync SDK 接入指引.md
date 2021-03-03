@@ -188,7 +188,7 @@ extract code success
 |  2   |     ble_event_get_status     |      获取数据模版最新信息，对应数据模版 `get_status` 方法      |
 |  3   |  ble_event_report_property   |          上报设备最新信息，对应数据模版 `report` 方法          |
 |  4   |        ble_event_post        |            上报事件，对应数据模版 `event_post` 方法            |
-|  5   |  ble_qiot_advertising_start  | 开始广播，广播包内容请参见 [LLSync 协议说明](https://git.code.oa.com/qcloud-iot-terminal/iot-document/blob/master/物联网/物联网开发平台/设备开发指南/蓝牙设备开发/LLSync接入协议.pdf) |
+|  5   |  ble_qiot_advertising_start  | 开始广播，广播包内容请参见 [LLSync 协议说明](https://github.com/tencentyun/qcloud-iot-explorer-BLE-sdk-embedded/blob/master/docs/LLSync%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%85%A5%E5%8D%8F%E8%AE%AE1.4.1.pdf) |
 |  6   |  ble_qiot_advertising_stop   |                           停止广播                           |
 |  7   |   ble_device_info_write_cb   |            UUID FFE1 数据到达后调用此接口传入数据             |
 |  8   |     ble_lldata_write_cb      |            UUID FFE2 数据到达后调用此接口传入数据             |
@@ -202,7 +202,7 @@ extract code success
 
 ## LLSync 协议
 
-请参见 [LLSync 协议说明](https://main.qcloudimg.com/raw/28854b0c56ed0cfd2e06904550d90243.pdf)
+请参见 [LLSync 协议说明](https://github.com/tencentyun/qcloud-iot-explorer-BLE-sdk-embedded/blob/master/docs/LLSync%E8%93%9D%E7%89%99%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%85%A5%E5%8D%8F%E8%AE%AE1.4.1.pdf)
 
 ## SDK 使用参考
 
