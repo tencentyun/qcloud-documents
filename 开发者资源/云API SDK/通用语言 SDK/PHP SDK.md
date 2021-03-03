@@ -54,8 +54,8 @@ require '/path/to/vendor/autoload.php';
 - 还可以参考 SDK 仓库中 [examples](https://github.com/TencentCloud/tencentcloud-sdk-php/tree/master/examples) 目录中的示例，展示了更多的用法。
 
 下面以查询实例接口 DescribeInstances 为例:
-<dx-tabs>
-::: 简略版
+<dx-codeblock>
+::: 简化版 php
 ```php
 <?php
 require_once '/path/to/vendor/autoload.php';
@@ -76,7 +76,7 @@ catch(TencentCloudSDKException $e) {
 }
 ```
 :::
-::: 详细版
+::: 详细版 php
 ```php
 <?php
 require_once '/path/to/vendor/autoload.php';
@@ -137,9 +137,9 @@ catch(TencentCloudSDKException $e) {
      echo $e;
 }
 ```
-
 :::
-</dx-tabs>
+</dx-codeblock>
+
 
 ### 更多示例
 
