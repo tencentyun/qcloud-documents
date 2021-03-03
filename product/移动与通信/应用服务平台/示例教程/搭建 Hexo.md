@@ -79,3 +79,4 @@ cloudbase hosting:deploy public -e [EnvID]
    ![](https://main.qcloudimg.com/raw/f5bec269430faa18cb19ce9792c09d13.jpg)
 3. 在浏览器中输入该链接并回车，即可打开线上部署好的 Hexo 博客。
    ![](https://main.qcloudimg.com/raw/590b7ee62174aa74f0119ac4775c6362.png)
+

@@ -1,5 +1,4 @@
 ## 功能描述
-
 CreateMediaTemplate 用于新增转码模板。
 
 ## 请求
@@ -54,7 +53,7 @@ Content-Type: application/xml
         <Channels>4</Channels>
     </Audio>
     <TransConfig>
-        <AdjDarMethod>rescale</AdjDarMethod>
+        <AdjDarMethod>scale</AdjDarMethod>
         <IsCheckReso>false</IsCheckReso>
         <ResoAdjMethod>1</ResoAdjMethod>
     </TransConfig>
@@ -75,15 +74,15 @@ Content-Type: application/xml
 
 Container 类型 Request 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
-| ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
-| Tag                | Request | 模板类型：Transcode                                    | String    | 是   |
-| Name               | Request | 模板名称仅支持中文、英文、数字、_、-和*                    | String    | 是   |
-| Container          | Request | 容器格式                                               | Container | 是   |
-| Video              | Request | 视频信息                                               | Container | 否   |
-| TimeInterval       | Request | 时间区间                                               | Container | 否   |
-| Audio              | Request | 音频信息                                               | Container | 否   |
-| TransConfig        | Request | 转码配置                                               | Container | 否   |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 限制 |
+| ------------------ | ------- | -------------------------------------------------------- | --------- | ---- | ---- |
+| Tag                | Request | 模板类型：Transcode                                    | String    | 是   | 无 |
+| Name               | Request | 模板名称 仅支持中文、英文、数字、\_、\-和\*                    | String    | 是   | 无 |
+| Container          | Request | 容器格式                                               | Container | 是   | 无 |
+| Video              | Request | 视频信息                                               | Container | 否   | 不传 Video，相当于删除视频信息 |
+| TimeInterval       | Request | 时间区间                                               | Container | 否   | 无 |
+| Audio              | Request | 音频信息                                               | Container | 否   | 不传 Audio，相当于删除音频信息 |
+| TransConfig        | Request | 转码配置                                               | Container | 否   | 无 |
 
 
 Container 类型 Container 的具体数据描述如下：
@@ -91,6 +90,14 @@ Container 类型 Container 的具体数据描述如下：
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
 | ------------------ | ------- | ---------------------------------------------------- | --------- | ---- |
 | Format                | Request.Container | 容器格式：mp4，flv，hls，ts               | String    | 是   |
+
+设定 container，音频视频支持的格式如下表：
+
+| Container                  | Audio Codecs  | Video Codecs          |
+| -------------------------- | ------------- | --------------------- | 
+| flv/mp4/ts/hls             | AAC、MP3      | H.264                 |
+| aac                        | aac           | 不支持                |
+| mp3                        | mp3           | 不支持                |
 
 
 Container 类型 Video 的具体数据描述如下：
@@ -111,6 +118,7 @@ Container 类型 Video 的具体数据描述如下：
 | Maxrate                    | Request.Video | 视频码率<br/>峰值          | String | 否   | 无            | <li>值范围：[10，50000]<br/><li>单位：Kbps<br/> |
 | HlsTsTime                  | Request.Video | hls 分片<br/>时间           | String | 否   | 5            | <li>(0 视频时长] <br/><li>单位为秒 |
 | Pixfmt                     | Request.Video | 视频颜色<br/>格式           | String | 否   | 无           | 支持 yuv420p、yuv422p、<br/>yuv444p、yuvj420p、yuvj422p、yuvj444p |
+| LongShortMode              | Request.Video | 长短边自适应          | String | 否   | false        | true、false
 
 Container 类型 TimeInterval 的具体数据描述如下：
 
@@ -131,7 +139,8 @@ Container 类型 Audio 的具体数据描述如下：
 | Remove             | Request.Audio | 是否删除音频流 | String | 否   | false    | 取值 true、false                                             |
 
 
-Y表示支持这种采样率，N表示不支持
+>? Y 表示支持这种采样率，N 表示不支持。
+>
 
 | 封装格式/音频采样率| 	11025  | 	22050| 	 32000 | 	44100|  	48000|   	96000 |
 | ------------------ | ------- | ------- | ------- | ------- |------------| ------------- |
@@ -165,7 +174,7 @@ Container 类型 TransConfig 的具体数据描述如下：
 <Response>
     <Template>
         <Tag>Transcode</Tag>
-        <TemplateId></TemplateId>
+        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
         <Name>TemplateName</Name>
         <Container>
             <Format>mp4</Format>
@@ -191,7 +200,7 @@ Container 类型 TransConfig 的具体数据描述如下：
             <Channels>4</Channels>
         </Audio>
         <TransConfig>
-            <AdjDarMethod>rescale</AdjDarMethod>
+            <AdjDarMethod>scale</AdjDarMethod>
             <IsCheckReso>false</IsCheckReso>
             <ResoAdjMethod>1</ResoAdjMethod>
         </TransConfig>
@@ -216,14 +225,14 @@ Container 节点 Response 的内容：
 
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
-| TemplateId         | Response.TemplateList | 模版 ID                                                      | String    |
-| Name               | Response.TemplateList | 模版名字                                                     | String    |
-| BucketId           | Response.TemplateList | 模版所属存储桶                                                | String    |
-| Category           | Response.TemplateList | 模版属性，Custom 或者 Official                                | String    |
-| Tag                | Response.TemplateList | 模版类型，Transcode                                          | String    |
+| TemplateId         | Response.TemplateList | 模板 ID                                                      | String    |
+| Name               | Response.TemplateList | 模板名字                                                     | String    |
+| BucketId           | Response.TemplateList | 模板所属存储桶                                                | String    |
+| Category           | Response.TemplateList | 模板属性，Custom 或者 Official                                | String    |
+| Tag                | Response.TemplateList | 模板类型，Transcode                                          | String    |
 | UpdateTime         | Response.TemplateList | 更新时间                                                     | String    |
 | CreateTime         | Response.TemplateList | 创建时间                                                     | String    |
-| TransTpl           | Response.TemplateList | 详细的模版参数                                                | Container |
+| TransTpl           | Response.TemplateList | 详细的模板参数                                                | Container |
 
 
 Container节点TransTpl的内容：
@@ -248,8 +257,8 @@ Container节点TransTpl的内容：
 
 ```shell
 POST /template HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0ea057
-Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
+Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 1666
 Content-Type: application/xml
 
@@ -280,7 +289,7 @@ Content-Type: application/xml
         <Channels>4</Channels>
     </Audio>
     <TransConfig>
-        <AdjDarMethod>rescale</AdjDarMethod>
+        <AdjDarMethod>scale</AdjDarMethod>
         <IsCheckReso>false</IsCheckReso>
         <ResoAdjMethod>1</ResoAdjMethod>
     </TransConfig>
@@ -300,12 +309,12 @@ Content-Length: 100
 Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
-x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 <Response>
     <Template>
         <Tag>Transcode</Tag>
-        <TemplateId></TemplateId>
+        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
         <Name>TemplateName</Name>
         <Container>
             <Format>mp4</Format>
@@ -331,7 +340,7 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
             <Channels>4</Channels>
         </Audio>
         <TransConfig>
-            <AdjDarMethod>rescale</AdjDarMethod>
+            <AdjDarMethod>scale</AdjDarMethod>
             <IsCheckReso>false</IsCheckReso>
             <ResoAdjMethod>1</ResoAdjMethod>
         </TransConfig>

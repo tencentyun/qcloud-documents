@@ -74,7 +74,7 @@ log.Info(context.Background(), "got message", zap.String("resp",resp))
 ```
 - 您可以通过注入环境变量 tsf_log_path 或者启动参数 tsf_log_path 来指定日志输出路径。
 - 如果不传递 Go 的 context，会导致日志中不打印 traceID。
-- 需要在 TSF 日志配置中配置日志类型为自定义 Logback，日志格式为 `%d{yyyy-MM-dd HH:mm:ss.SSS} %level %msg%n`。
+- 需要在 TSF 日志配置中配置日志类型为自定义 Logback，日志格式为 `%d{yyyy-MM-dd HH:mm:ss.SSS} %level %thread %trace %msg%n`。
 
 >?更多 TSF 日志配置可参考 [日志服务说明](https://cloud.tencent.com/document/product/649/18196)。 
 
