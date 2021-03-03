@@ -243,7 +243,9 @@ console.log(`userName:${userName}\npassword:${password}`);
 :::
 </dx-codeblock>
 C 语言代码如下：
+
 >?如果您想要了解更多关于 C 语言代码内容，详情请参见 [工程下载](https://github.com/tencentyun/qcloud_iot_mqtt_sign)。
+>
 
 <dx-codeblock>
 :::  c
