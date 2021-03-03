@@ -42,8 +42,7 @@ tccli kms GetPublicKey  --KeyId 22d79428-61d9-11ea-a3c8-525400******
 }
 ```
 
-- 将公钥 PublicKeyPem 转成pem格式，并存入文件 public_key.pem。
->!您也可以登录 [KMS 控制台](https://console.cloud.tencent.com/kms2/index) ，单击【用户密钥】>【密钥 ID/密钥名称】进入密钥信息页面，直接下载非对称密钥公钥。
+- **将公钥 PublicKeyPem 转成pem格式，并存入文件 public_key.pem**：
 ```
 echo "-----BEGIN PUBLIC KEY-----
 MFkwEwYHKoZIzj0CAQYIKoEcz1UBgi0DQgAEFLlge0vtct949CwtadHODzisgXJa
@@ -51,15 +50,16 @@ hujq+PvM***************bBs/f3axWbvgvHx8Jmqw==
 -----END PUBLIC KEY-----" > public_key.pem
 ```
 
+>!您也可以登录 [KMS 控制台](https://console.cloud.tencent.com/kms2/index) ，单击【用户密钥】>【密钥 ID/密钥名称】进入密钥信息页面，直接下载非对称密钥公钥。
 
 ### 步骤3：创建信息的明文文件
 
 创建测试明文文件。
->!当生成的文件内容中，存在不可见的字符情况下（如换行符等），需对文件进行 truncate 操作（如 truncate -s -1 test_verify.txt），从而保证签名准确。
->
 ```
 echo "test" > test_verify.txt
 ```
+>!当生成的文件内容中，存在不可见的字符情况下（如换行符等），需对文件进行 truncate 操作（如 truncate -s -1 test_verify.txt），从而保证签名准确。
+
 
 ### 步骤4：计算消息摘要
 >!
@@ -100,7 +100,7 @@ tccli kms SignByAsymmetricKey --KeyId 22d79428-61d9-11ea-a3c8-525400****** --Alg
 }
 }
 ```
-	- 将签名内容 Signature 存入文件 signContent.sign。
+	- **将签名内容 Signature 存入文件 signContent.sign：**
 ```
 echo "U7Tn0SRReGCk4yuuVWaeZ4******" | base64 -d > signContent.bin
 ```
@@ -109,7 +109,6 @@ echo "U7Tn0SRReGCk4yuuVWaeZ4******" | base64 -d > signContent.bin
 
 1. 通过 KMS 验证签名接口校验。( 建议使用该方法进行验证签名)
 	- **请求**：
-	>!签名接口和验签接口中使用的参数 Message 和 MessageType 的取值要保持一致。
 ```
 // 对消息摘要进行验证(将步骤4 encoded.base64 文件内容作为 VerifyByAsymmetricKey 的 Message 参数，以消息摘要的形式进行验签)。
 tccli kms VerifyByAsymmetricKey --KeyId 22d79428-61d9-11ea-a3c8-525400****** --SignatureValue "U7Tn0SRReGCk4yuuVWaeZ4******" --Message "QUuAcNFr1Jl5+3GDbCxU7te7Uekq+oTxZ**********=" --Algorithm ECC_P256_R1 --MessageType DIGEST
@@ -125,6 +124,9 @@ tccli kms VerifyByAsymmetricKey --KeyId 22d79428-61d9-11ea-a3c8-525400****** --S
 }
 }
 ```
+
+>!签名接口和验签接口中使用的参数 Message 和 MessageType 的取值要保持一致。
+
 2. 通过 KMS 公钥和签名内容在本地进行验证。
 	-  **请求**：
 ```
