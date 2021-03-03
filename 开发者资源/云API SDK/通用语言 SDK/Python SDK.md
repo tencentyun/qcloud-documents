@@ -39,8 +39,8 @@ pip install -i https://mirrors.tencent.com/pypi/simple/ --upgrade tencentcloud-s
 ## 使用 SDK
 以查询实例列表接口为例。
 
-<dx-tabs>
-::: 简化版
+<dx-codeblock>
+::: 简化版 python
 ```python
 from tencentcloud.common import credential
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
@@ -58,7 +58,7 @@ except TencentCloudSDKException as err:
      print(err)
 ```
 :::
-::: 详细版
+::: 详细版 python
 ```python
 # -*- coding: utf-8 -*-
 import sys
@@ -124,7 +124,7 @@ except TencentCloudSDKException as err:
      print(err)
 ```
 :::
-</dx-tabs>
+</dx-codeblock>
 
 ## 更多示例
 您可以在[github](https://github.com/tencentcloud/tencentcloud-sdk-python)中examples目录下找到更详细的示例。
