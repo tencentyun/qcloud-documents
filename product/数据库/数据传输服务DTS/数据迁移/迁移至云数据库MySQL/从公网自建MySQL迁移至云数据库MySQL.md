@@ -1,24 +1,24 @@
-本文主要介绍通过 DTS 数据迁移功能从公网自建 MySQL 迁移至腾讯云数据库 MySQL 实例。DTS 支持结构迁移、全量数据迁移以及增量数据迁移，可以实现在不停服的情况下，平滑迁移数据到腾讯云数据库 MySQL。
+本文主要介绍通过 DTS 数据迁移功能从公网自建 MySQL 迁移至腾讯云数据库 MySQL。DTS 支持结构迁移、全量数据迁移以及增量数据迁移，可以实现在不停服的情况下，平滑迁移数据到腾讯云数据库 MySQL。
 
 ## [前提条件](id:qttj)
-- 已 [创建云数据库 MySQL](https://cloud.tencent.com/document/product/236/46433)，支持的 MySQL 版本：MySQL 5.6、MySQL 5.7。
-- 需要您在目标端 MySQL 实例中创建迁移帐号，需要帐号权限：待迁移对象的全部读写权限。
-- 待迁移源端自建 MySQL 实例，支持版本：MySQL 5.5、MySQL 5.6、MySQL 5.7。
-- 需要您在源端自建 MySQL 实例中创建迁移帐号，需要的帐号权限如下：
+- 已 [创建云数据库 MySQL](https://cloud.tencent.com/document/product/236/46433)，支持的 MySQL 版本：MySQL 5.5、MySQL 5.6、MySQL 5.7。
+- 需要您在目标端 MySQL 中创建迁移帐号，需要帐号权限：待迁移对象的全部读写权限。
+- 待迁移源端自建 MySQL，支持版本：MySQL 5.5、MySQL 5.6、MySQL 5.7。
+- 需要您在源端自建 MySQL 中创建迁移帐号，需要的帐号权限如下：
 ```
 CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW
-DATABASES,SHOW VIEW,PROCESS ON \*.\* TO ‘迁移帐号’@‘%’;  
-GRANT ALL PRIVILEGES ON \`__tencentdb__\`.\* TO ‘迁移帐号’@‘%’;  
-GRANT SELECT ON \`mysql\`.\* TO ‘迁移帐号’@‘%’;
+DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
+GRANT ALL PRIVILEGES ON `tencentdb`.* TO ‘迁移帐号’@‘%’;  
+GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 ```
-- 部分库表迁移：`GRANT SELECT ON \待迁移的库\.\* TO ‘迁移帐号’;`
-- 全实例迁移：`GRANT SELECT ON \*.\* TO ‘迁移帐号’;`
+- 部分库表迁移：`GRANT SELECT ON 待迁移的库.* TO ‘迁移帐号’;`
+- 全实例迁移：`GRANT SELECT ON *.* TO ‘迁移帐号’;`
 
 ## 注意事项
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行迁移。
-- 源端 MySQL 实例中待迁移的表支持没有主键或唯一索引，并且不会导致目标数据库中出现重复数据。在全量迁移过程通过有锁迁移来实现，锁表过程中会短暂阻塞的写入操作。
-- 云数据库 MySQL 实例的存储空间需要大于源端自建 MySQL 数据库所占用存储空间的1.2倍。
+- 源端 MySQL 中待迁移的表支持没有主键或唯一索引，并且不会导致目标数据库中出现重复数据。在全量迁移过程通过有锁迁移来实现，锁表过程中会短暂阻塞的写入操作。
+- 云数据库 MySQL 的存储空间需要大于源端自建 MySQL 数据库所占用存储空间的1.2倍。
 - 源端自建 MySQL 是非 GTID 实例不支持 HA（Highly Available）切换，一旦源端自建 MySQL 发生切换可能会导致 DTS 增量同步中断。
 
 ## 支持迁移类型
