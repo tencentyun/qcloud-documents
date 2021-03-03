@@ -90,7 +90,7 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 <td>密码</td><td>源库 MySQL 的数据库帐号的密码。</td></tr>
 <tr>
 <td rowspan=6>目标库设置</td>
-<td>目标库类型</td><td>选择“MySQL”。</td></tr>
+<td>目标库类型</td><td>选择“TDSQL-C MySQL 版”。</td></tr>
 <tr>
 <td>接入类型</td><td>选择“云数据库”。</td></tr>
 <tr>
