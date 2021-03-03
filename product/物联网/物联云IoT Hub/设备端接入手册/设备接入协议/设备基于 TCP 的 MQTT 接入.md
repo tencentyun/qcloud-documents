@@ -267,7 +267,7 @@ C 语言代码如下：
 #define MAX_CONN_ID_LEN (6)
 
 /* IoT C-SDK APPID */
-#define QCLOUD_IOT_DEVICE_SDK_APPID     "21010406"
+#define QCLOUD_IOT_DEVICE_SDK_APPID     "21****06"
 #define QCLOUD_IOT_DEVICE_SDK_APPID_LEN (sizeof(QCLOUD_IOT_DEVICE_SDK_APPID) - 1)
 
 static void HexDump(char *pData, uint16_t len)
@@ -370,6 +370,7 @@ int main(int argc, char **argv)
 }
 :::
 </dx-codeblock>
+
 6. 最终将上面生成的参数填入对应的 MQTT connect 报文中。
 7. 将 clientid 填入到 MQTT 协议的 clientid 字段。
 8. 将 username 填入到 MQTT 的 username 字段。
