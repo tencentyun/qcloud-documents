@@ -1,6 +1,6 @@
 ## 计费方式
 
-调度到虚拟节点上的 Pod 采取按量计费模式。计费详情请参见 [弹性容器计费概述](https://cloud.tencent.com/document/product/457/39807)、[弹性容器产品定价](https://cloud.tencent.com/document/product/457/39806)、[弹性容器购买限制](https://cloud.tencent.com/document/product/457/39821)。
+调度到虚拟节点上的 Pod 采取按量计费模式，计费详情请参见 [弹性容器计费概述](https://cloud.tencent.com/document/product/457/39807)、[弹性容器产品定价](https://cloud.tencent.com/document/product/457/39806)、[弹性容器购买限制](https://cloud.tencent.com/document/product/457/39821)。
 
 ## Pod 规格配置
 
@@ -12,13 +12,11 @@ Pod 的规格配置是容器运行时可用资源和使用服务计费的依据�
 
 ## 默认配额
 
-默认每个集群仅可将 50 个 Pod 调度到虚拟节点上。
-
-若您需要超过以上配额的资源，可填写提升配额申请，由腾讯云对您的实际需求进行评估，评估通过之后将为您提升配额。
+默认每个集群仅可将**100个 Pod** 调度到虚拟节点上。若您需要超过以上配额的资源，可填写提升配额申请，由腾讯云对您的实际需求进行评估，评估通过之后将为您提升配额。
 
 #### 申请提升配额操作指引
 
-1. 请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&step=1)，选择【人工支持】或者【其他问题】 > 【立即创建】，进入创建工单信息填写页面。
+1. 请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=350&source=0&data_title=%E5%AE%B9%E5%99%A8%E6%9C%8D%E5%8A%A1TKE&step=1)，选择【人工支持】或者【其他问题】>【立即创建】，进入创建工单信息填写页面。
 2. 在问题描述中填写“期望提升集群虚拟节点 Pod 配额”，注明目标地区及目标配额，并按照页面提示填写您可用的手机号等信息。
 3. 填写完成后，单击【提交工单】即可。
 
@@ -28,17 +26,16 @@ Pod 的规格配置是容器运行时可用资源和使用服务计费的依据�
 
 每个调度到虚拟节点上的 Pod 创建时会分配不超过20GiB的临时镜像存储。
 
->**注意**
->
+>!
 >- 临时镜像存储将于 Pod 生命周期结束时删除，请勿用于存储重要数据。
->- 由于存储镜像，实际可用空间小于20GiB。
+>- 由于需存储镜像，实际可用空间小于20GiB。
 >- 重要数据、超大文件等推荐挂载 Volume 持久化存储。
 
 #### Pod 网络
 
 调度到虚拟节点上的 Pod 采用的是与云服务器、云数据库等云产品平级的 VPC 网络，每个 Pod 都会占用一个 VPC 子网 IP。
 
-Pod 与 Pod、Pod 与其他同 VPC 云产品间直接通过 VPC 网络通信，没有性能损耗。
+Pod 与 Pod、Pod 与其他同 VPC 云产品间可直接通过 VPC 网络通信，没有性能损耗。
 
 #### Pod 隔离性
 
@@ -52,7 +49,6 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间直接通过 VPC 网络通信，�
 调度到虚拟节点上的 Pod 可以通过在 yaml 中定义 `template annotation` 的方式，实现为 Pod 绑定安全组、分配资源等能力。配置方法见下表：
 
 >!
->
 >- 如果不指定安全组，则 Pod 会默认绑定节点池指定的安全组。请确保安全组的网络策略不影响该 Pod 正常工作，例如，Pod 启用 80 端口提供服务，请放通入方向 80 端口的访问。。
 >- 如需分配 CPU 资源，则必须同时填写 `cpu` 和 `mem` 2个 annotation，且数值必须符合 [资源规格](https://cloud.tencent.com/document/product/457/39808) 中的 CPU 规格。另外，可以通过 `cpu-type` 指定分配 intel 或 amd CPU，其中 amd 具备更高的性价比，详情请参考 [产品定价](https://cloud.tencent.com/document/product/457/39806)。 
 
@@ -69,10 +65,8 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间直接通过 VPC 网络通信，�
 <tr>
 <td>eks.tke.cloud.tencent.com/security-group-id</td>
 <td>工作负载默认绑定的安全组，请填写 <a href="https://console.cloud.tencent.com/cvm/securitygroup" target="_blank">安全组 ID</a>：
-	<ul class="params">
 	<li>可填写多个，以<code>,</code>分割。例如 <code>sg-id1,sg-id2</code>。</li>
 	<li>网络策略按安全组顺序生效。</li>
-	</ul>
 </td>
 <td> 否。如不填写，则默认绑定节点池指定的安全组。<br>如填写，请确保同地域已存在该安全组 ID。</td></tr>
 <tr>
@@ -88,10 +82,8 @@ Pod 与 Pod、Pod 与其他同 VPC 云产品间直接通过 VPC 网络通信，�
 <tr>
 <td>eks.tke.cloud.tencent.com/cpu-type</td>
 <td>Pod 所需的 CPU 资源型号，目前支持型号如下：
-<ul  class="params">
 <li>intel</li>
 <li>amd</li>
-</ul>
 各型号支持的具体配置请参考 <a href="https://console.cloud.tencent.com/cvm/securitygroup" target="_blank">资源规格</a>。</td>
 <td>否。如果不填写则默认不强制指定 CPU 类型，会根据 <a href="https://cloud.tencent.com/document/product/457/44174" target="_blank">指定资源规格方法</a> 尽量匹配最合适的规格，若匹配到的规格 Intel 和 amd 均支持，则优先选择 Intel。</td>
 </tr>
@@ -118,26 +110,18 @@ DaemonSet 类型工作负载的 Pod 不会调度到虚拟节点上。
 #### 其他说明
 
 - 没有任何服务器节点的空集群暂时无法正常使用虚拟节点功能。
-
 - 使用 GPU 资源的 Pod 暂不支持调度到虚拟节点上。
-
 - 开启了 [固定 IP ](https://cloud.tencent.com/document/product/457/34994)的 Pod 暂不支持调度到虚拟节点上。
-
 - 指定了 hostPort 的 Pod 不会调度到虚拟节点上。
-
 - 指定了 hostIP 配置的 Pod 默认会把 Pod IP 作为 hostIP。
-
 - 如果开启了反亲和性特性，同工作负载 Pod 仅会在虚拟节点上创建一个。
-
 - 如果容器日志存储在指定的节点文件中，也是通过节点文件进行的日志采集，则无法采集虚拟节点上的 pod 日志。
 
 
 
 ## 与 Cluster Autoscaler 的关系
 
-通常，除了上述调度限制外，大部分 Pod 都可以调度到虚拟节点上。
-
-此时，如果集群同时开启了 [Cluster Autoscaler](https://cloud.tencent.com/document/product/457/32190#AutomaticAddAndRemove)和虚拟节点则会尽量将 Pod 调度到虚拟节点上，而非触发集群节点扩容。反之，如果受上述调度限制影响，Pod 无法调度到虚拟节点上，则会依然正常触发集群节点扩容。
+如果集群同时开启了 [Cluster Autoscaler](https://cloud.tencent.com/document/product/457/32190#AutomaticAddAndRemove) 和虚拟节点，则会尽量将 Pod 调度到虚拟节点上，而非触发集群节点扩容。如果受上述调度限制影响，Pod 无法调度到虚拟节点上，则会依然正常触发集群节点扩容。
 
 
 

@@ -28,7 +28,7 @@ SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，�
 ### step 1： 创建 Player
 视频云 SDK 中的 TXLivePlayer 模块负责实现直播播放功能。
 ```objectivec
-TXLivePlayer _txLivePlayer = [[TXLivePlayer alloc] init];
+TXLivePlayer *_txLivePlayer = [[TXLivePlayer alloc] init];
 ```
 
 ### step 2：渲染 View

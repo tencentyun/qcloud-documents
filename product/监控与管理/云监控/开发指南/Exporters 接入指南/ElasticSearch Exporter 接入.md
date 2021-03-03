@@ -29,6 +29,7 @@
 1. 在左侧菜单中选择【工作负载】>【Deployment】，进入 Deployment 页面。
 2. 在页面右上角单击【YAML创建资源】，创建 YAML 配置，配置说明如下：
    使用 Kubernetes 的 Secret 来管理密码并对密码进行加密处理，在启动 ElasticSearch Exporter 的时候直接使用 Secret Key，需要调整对应的 URI，YAML 配置示例如下：
+	
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -44,12 +45,12 @@ stringData:
 
 [](id:step2)
 
-#### 部署 Kafka Exporter
+#### 部署 ElasticSearch Exporter
 
 在 Deployment 管理页面，单击【新建】，选择对应的**命名空间**来进行部署服务。可以通过控制台的方式创建，如下以 YAML 的方式部署 Exporter，YAML 配置示例如下：
 
 ```yaml
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -103,7 +104,7 @@ spec:
 
 1. 在 Deployment 页面单击上述步骤创建的 Deployment，进入 Deployment 管理页面。
 2. 单击【日志】页签，可以查看到 Exporter 成功启动并暴露对应的访问地址，如下图所示：
-  ![](https://main.qcloudimg.com/raw/c9b6c2a85da29a9176ae720d70ace7bb.png)
+    ![](https://main.qcloudimg.com/raw/c9b6c2a85da29a9176ae720d70ace7bb.png)
 3. 单击【Pod管理】页签进入 Pod 页面。
 4. 在右侧的操作项下单击【远程登录】登录 Pod，在命令行窗口中执行以下 curl 命令对应 Exporter 暴露的地址，可以正常得到对应的 ElasticSearch 指标。如发现未能得到对应的数据，请检查**连接串**是否正确，具体如：
 ```
@@ -120,6 +121,7 @@ curl localhost:9114/metrics
 1. 登录 [云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
 2. 通过集成容器服务列表点击【集群 ID】进入到容器服务集成管理页面。
 3. 通过服务发现添加 `Pod Monitor` 来定义 Prometheus 抓取任务，YAML 配置示例如下：
+
 ```yaml
 apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor

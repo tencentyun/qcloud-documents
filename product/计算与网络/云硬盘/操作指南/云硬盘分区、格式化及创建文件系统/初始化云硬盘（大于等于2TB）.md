@@ -302,5 +302,3 @@ UUID=fc3f42cc-2093-49c7-b4fd-c616ba6165f4 /data/newpart2   ext4 defaults     0  
 
 ## 相关操作
  [初始化云硬盘（小于2TB）](https://cloud.tencent.com/document/product/362/6734)
-
-

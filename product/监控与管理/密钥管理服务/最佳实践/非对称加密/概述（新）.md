@@ -4,17 +4,21 @@
 
 ## 非对称密钥的类型
 
-当前腾讯云 KMS 支持如下两种非对称密钥算法类型：
+当前腾讯云 KMS 支持如下三种非对称密钥算法类型：
 
 ### RSA
 
-目前 KMS 支持模长为2048比特的 RSA 密钥，KeyUsage = ASYMMETRIC_DECRYPT_RSA_2048
+目前 KMS 支持模长为2048比特的 RSA 密钥，KeyUsage = ASYMMETRIC_DECRYPT_RSA_2048。
 
 ### SM2
 
-SM2 是国密标准的公钥密钥算法，在中国的商用密码体系中被用来替换 RSA 算法。对于有相应的国密要求的应用，可以考虑使用此类型的密钥，KeyUsage = ASYMMETRIC_DECRYPT_SM2
+SM2 是国密标准的公钥密钥算法，在中国的商用密码体系中被用来替换 RSA 算法。对于有相应的国密要求的应用，可以考虑使用此类型的密钥，KeyUsage = ASYMMETRIC_DECRYPT_SM2。
 
->?当前非对称签名验签用途仅支持 SM2 算法。
+### ECC
+ECC 是基于椭圆曲线的加密算法，KeyUsage = ASYMMETRIC_SIGN_VERIFY_ECC。
+
+
+
 
 ## 非对称加密的典型场景
 
