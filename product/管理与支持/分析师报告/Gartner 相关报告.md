@@ -1,5 +1,5 @@
 ### 2021年02月
-**报告名称：**Magic Quadrant for Cloud AI Developer Services
+**报告名称：**全球云 AI 开发者服务魔力象限报告
 **腾讯云情况：**腾讯云 AI 在”执行能力“（产品、服务、销售等）维度的位次位居国内厂商第一
 [查看详情](https://www.gartner.com/reprints/tencent-cloud---beijing--co-ltd?id=1-25BWX1EJ&ct=210226&st=sb)
 
