@@ -51,7 +51,7 @@
 
 ### 步骤3：在 CLS 上接入服务
 
-参考 [五分钟入门指南](https://cloud.tencent.com/document/product/614/34340) 将一整套 Demo 接入CLS。
+参考 [五分钟入门指南](https://cloud.tencent.com/document/product/614/34340) 将一整套 Demo 接入 CLS。
 
 ### 步骤4：联动使用
 
