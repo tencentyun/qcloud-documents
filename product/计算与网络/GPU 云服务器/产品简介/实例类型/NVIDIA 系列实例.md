@@ -44,7 +44,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>广州、上海、南京、北京、成都、重庆、香港、新加坡、硅谷、孟买、弗吉尼亚、法兰克福</td>
             </tr><tr>
 				<td>vGPU - Tesla T4</td> 
-                <td><ul class="params"><li>CentOS 7.6 64位 GRID91</li><li>Ubuntu Server 18.04.1 64位 GRID91</li></td>
+                <td>CentOS 8.0 64位 GRID11.1</td>
                 <td>广州、上海、南京、北京、成都、重庆、香港、硅谷</td>
 			</tr><tr>
             </tr><tr>
@@ -61,7 +61,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>渲染型</td>
                 <td>GN7vw</td> 
                 <td>Tesla T4</td>
-                <td><ul class="params"><li>CentOS 7.6 64位 GRID91</li><li>Ubuntu Server 18.04.1 64位 GRID91</li><li>Windows Server 2016数据中心版 64位中文版 GRID93</li></td>
+                <td><ul class="params"><li>CentOS 8.0 64位 GRID11.1</li><li>Windows Server 2019 数据中心版 64位 中文版 GRID11.1</li></td>
                 <td>北京、上海、广州、南京、成都、重庆、香港、新加坡、孟买、硅谷、弗吉尼亚、法兰克福</td>
             </tr>
         </tbody>
