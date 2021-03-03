@@ -13,8 +13,8 @@
 
 ## 安装 SDK[](id:p1)
 ### 方式一、通过 Maven 安装（推荐）
-Maven 是 JAVA 的依赖管理工具，支持您项目所需的依赖项，并将其安装到项目中。关于 Maven 详细可参考 [Maven 官网](https://maven.apache.org/)。
-1. 请访问 [Maven官网](https://maven.apache.org/) 下载对应系统 Maven 安装包进行安装。
+Maven 是 JAVA 的依赖管理工具，支持您项目所需的依赖项，并将其安装到项目中。
+1. 请访问 [Maven官网](https://maven.apache.org/) 下载对应系统 Maven 安装包进行安装，关于 Maven 详细可参考 [Maven 官网](https://maven.apache.org/)。
 2. 为您的项目添加 Maven 依赖项，只需在 pom.xml 中找到`<dependencies>`标签，在里面添加以下依赖项即可。
 ```xml
 <dependency>
