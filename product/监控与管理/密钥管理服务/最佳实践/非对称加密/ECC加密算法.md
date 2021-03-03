@@ -43,7 +43,7 @@ tccli kms GetPublicKey  --KeyId 22d79428-61d9-11ea-a3c8-525400******
 ```
 
 - 将公钥 PublicKeyPem 转成pem格式，并存入文件 public_key.pem。
->!另外，您也可以登录 [KMS 控制台](https://console.cloud.tencent.com/kms2/index) ，单击【用户密钥】>【密钥 ID/密钥名称】进入密钥信息页面，直接下载非对称密钥公钥。
+>!您也可以登录 [KMS 控制台](https://console.cloud.tencent.com/kms2/index) ，单击【用户密钥】>【密钥 ID/密钥名称】进入密钥信息页面，直接下载非对称密钥公钥。
 ```
 echo "-----BEGIN PUBLIC KEY-----
 MFkwEwYHKoZIzj0CAQYIKoEcz1UBgi0DQgAEFLlge0vtct949CwtadHODzisgXJa
@@ -107,7 +107,7 @@ echo "U7Tn0SRReGCk4yuuVWaeZ4******" | base64 -d > signContent.bin
 
 ### 步骤6：验证签名
 
-1. 通过 KMS 验证签名接口校验。( 建议使用该方法进行验签)
+1. 通过 KMS 验证签名接口校验。( 建议使用该方法进行验证签名)
 	- **请求**：
 	>!签名接口和验签接口中使用的参数 Message 和 MessageType 的取值要保持一致。
 ```
