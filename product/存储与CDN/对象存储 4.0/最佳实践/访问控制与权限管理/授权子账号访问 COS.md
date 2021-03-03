@@ -42,11 +42,11 @@
 2. 选择【策略】>【新建自定义策略】>【按策略语法创建】，进入策略创建页面。
 3. 您可按照实际需求选择**空白模版**自定义授权策略，或选择与 COS 相关联的**系统模版**，单击【下一步】。
 ![](https://main.qcloudimg.com/raw/9c60306242955be93fa0bfbd5cea2bda.jpg)
-4. 输入便于您记忆的策略名称，若您选择**空白模板**，则需要输入您的策略语法，详情请参见 [策略示例](#策略示例)。您可将策略内容复制粘贴到【策略内容】编辑框内，确认输入无误后单击【完成】即可。
-![](https://main.qcloudimg.com/raw/880f49ec0df3199c2e301fd86b108580.png)
+4. 输入便于您记忆的策略名称，若您选择**空白模版**，则需要输入您的策略语法，详情请参见 [策略示例](#策略示例)。您可将策略内容复制粘贴到【策略内容】编辑框内，确认输入无误后单击【完成】即可。
+![](https://main.qcloudimg.com/raw/6f48b23fd7b995c1613cdd1e8323b389.png)
 5. 创建完成后，将刚才已创建的策略关联到子账号。
 ![](https://main.qcloudimg.com/raw/381ee6bc64f5aa56124148b1b1a24318.png)
-6. 勾选子账号确定授权后，子账号即可根据权限范围访问 COS 资源。
+6. 勾选子账号并单击【确定】授权后，即可使用子账号访问所限定的 COS 资源。
 ![](https://main.qcloudimg.com/raw/c37f96e1a2db3f74066ca48c1b09d538.png)
 
 ### 步骤3：子账号访问 COS 资源
@@ -79,18 +79,18 @@ COSCredentials cred = new BasicCOSCredentials("<主账号APPID>", "<子账号Sec
 实例如下：
 ```
 // 1 初始化身份信息
-COSCredentials cred = new BasicCOSCredentials("1250000000", "AKIDasdfmRxHPa9oLhJp", "e8Sdeasdfas2238Vi");
+COSCredentials cred = new BasicCOSCredentials("1250000000", "AKIDasdfmRxHPa9oLhJp****", "e8Sdeasdfas2238Vi****");
 ```
 
 #### COSCMD 命令行工具访问示例
 
-以 COSCMD `config`命令行为例，需填入参数如下：
+以 COSCMD 的配置命令为例，需填入的参数如下：
 ```sh
 coscmd config -u <主账号 APPID> -a <子账号 SecretId> -s <子账号SecretKey>  -b <主账号 bucketname> -r <主账号  bucket 所属地域>
 ```
 实例如下：
 ```sh
-coscmd config -u 1250000000 -a AKIDasdfmRxHPa9oLhJp -s e8Sdeasdfas2238Vi -b examplebucket -r ap-beijing
+coscmd config -u 1250000000 -a AKIDasdfmRxHPa9oLhJp**** -s e8Sdeasdfas2238Vi**** -b examplebucket -r ap-beijing
 ```
 
 
@@ -100,10 +100,13 @@ coscmd config -u 1250000000 -a AKIDasdfmRxHPa9oLhJp -s e8Sdeasdfas2238Vi -b exam
 
 <span id="策略示例"></span>
 ## 策略示例
-以下提供几种典型场景的策略示例，在配置自定义策略时，您可将以下参考策略复制粘贴至输入框【编辑策略内容】，根据实际配置修改即可。更多 COS 常见场景的策略语法请参见 [CAM 产品文档](https://cloud.tencent.com/document/product/598/11083) 的**商用案例**部分。
+以下提供几种典型场景的策略示例，在配置自定义策略时，您可将以下参考策略复制粘贴至输入框【编辑策略内容】，根据实际配置修改即可。更多 COS 常见场景的策略语法请参见 [访问策略语言概述](https://cloud.tencent.com/document/product/436/18023) 或 [CAM 产品文档](https://cloud.tencent.com/document/product/598/11083) 的**商用案例**部分。
 
-### 为子账户配置读写权限
-为子账户仅配置读写权限，具体策略如下所示：
+### 示例1：为子账户配置 COS 全读写权限
+
+>!该策略授权的范围较大，请谨慎配置。
+
+具体策略如下所示：
 ```
 {
     "version": "2.0",
@@ -123,7 +126,8 @@ coscmd config -u 1250000000 -a AKIDasdfmRxHPa9oLhJp -s e8Sdeasdfas2238Vi -b exam
     ]
 }
 ```
-### 为子帐户配置只读权限
+
+### 示例2：为子账户配置只读权限
 为子账户仅配置只读权限，具体策略如下所示：
 ```
 {
@@ -148,7 +152,35 @@ coscmd config -u 1250000000 -a AKIDasdfmRxHPa9oLhJp -s e8Sdeasdfas2238Vi -b exam
 }
 ```
 
-### 为子账户配置某 IP 段的读写权限
+
+### 示例3：为子账户配置只写权限（不含删除）
+
+具体策略如下所示：
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "effect": "allow",
+            "action": [
+                "cos:ListParts",
+                "cos:PostObject",
+                "cos:PutObject*",
+                "cos:InitiateMultipartUpload",
+                "cos:UploadPart",
+                "cos:UploadPartCopy",
+                "cos:CompleteMultipartUpload",
+                "cos:AbortMultipartUpload",
+                "cos:ListMultipartUploads"
+            ],
+            "resource": "*"
+        }
+    ]
+}
+```
+
+
+### 示例4：为子账户配置某 IP 段的读写权限
 本示例中限制仅 IP 网段为`192.168.1.0/24`和`192.168.2.0/24`的地址具有读写权限，如下所示。
 更丰富的生效条件填写，请参见 [生效条件](https://cloud.tencent.com/document/product/598/10608)。
 ```
