@@ -24,9 +24,9 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
   MySQL 发生切换可能会导致 DTS 增量同步中断。
 
 ## 支持迁移类型
--  结构迁移：DTS 支持将迁移对象的结构定义迁移到目标实例中，目前 DTS 支持结构迁移的对象包括数据库、数据表、视图。
--  全量迁移：DTS 支持将源端 MySQL 数据库迁移对象中的全量数据，全部迁移到目标端云数据库 MySQL。
--   增量同步：在全量数据迁移的基础上，DTS 会读取并解析源端 AWS RDS MySQL 数据库的 binlog 信息，将源端 AWS RDS MySQL 中的增量更新同步到目标云数据库 MySQL。通过增量数据同步完成应用在不停服的情况下平滑迁移到腾讯云。
+- 结构迁移：DTS 支持将迁移对象的结构定义迁移到目标实例中，目前 DTS 支持结构迁移的对象包括数据库、数据表、视图。
+- 全量迁移：DTS 支持将源端 MySQL 数据库迁移对象中的全量数据，全部迁移到目标端云数据库 MySQL。
+- 增量同步：在全量数据迁移的基础上，DTS 会读取并解析源端 AWS RDS MySQL 数据库的 binlog 信息，将源端 AWS RDS MySQL 中的增量更新同步到目标云数据库 MySQL。通过增量数据同步完成应用在不停服的情况下平滑迁移到腾讯云。
 
 ## 增量同步支持的 SQL 操作
 | 操作类型 | 支持同步的 SQL 操作                                            |
@@ -57,7 +57,7 @@ call mysql.rds_set_configuration('binlog retention hours', 24);
 | Binlog 参数检查       | 源端 binlog_format 变量必须为 ROW<br>源端 log_bin 变量必须为 ON<br>源端 binlog_row_image 变量必须为 FULL<br>源端 gtid_mode 变量在5.6及以上版本不为 ON 时，会报 WARNING，建议用户打开 gtid_mode<br>不允许设置do_db, ignore_db<br>对于源实例为从库的情况，log_slave_updates 变量必须为 ON |
 | 外键依赖检查         | 外键依赖只能是 no action 和 restrict 两种类型<br>部分库表迁移时，有外键依赖的表必须齐全 |
 | 视图检查             | 只允许和迁移目标 user@host 相同的 definer                       |
-| 其他警告项检查       | 检查源库和目标库的 max_allowed_packet，如果源库大于目标库，会有警告<br>目标库的 max_allowed_packet 小于1GB，会有警告<br>如果源库和目标库的字符集不一致，会有警告，对于全量迁移（没有增量），发警告告知用户这种全量迁移没有锁，不保证数据一致 |
+| 其他警告项检查       | 检查源库和目标库的 max_allowed_packet，如果源库大于目标库，会有警告<br>目标库的 max_allowed_packet 小于1GB，会有警告<br>如果源库和目标库的字符集不一致，会有警告<br>对于全量迁移（没有增量），发警告告知用户这种全量迁移没有锁，不保证数据一致 |
 | 无主键表检查         | 待迁移表不能存在无主键表                                     |
 
 ## 操作步骤
@@ -90,7 +90,7 @@ call mysql.rds_set_configuration('binlog retention hours', 24);
 <tr>
 <td>所属地域</td><td>源库所属地域为 DTS 服务出口地域，请选择离 AWS RDS MySQL 最近的一个地域即可。</td></tr>
 <tr>
-<td>主机地址</td><td>AWS RDS MySQL 访问 IP 地址，您可以在 Amazon RDS MySQL 的基本信息页面，获取数据库的访问地址。</td></tr>
+<td>主机地址</td><td>AWS RDS MySQL 访问 IP 地址，您可以在 AWS RDS MySQL 的基本信息页面，获取数据库的访问地址。</td></tr>
 <tr>
 <td>端口</td><td>AWS RDS MySQL 访问端口，默认为3306。</td></tr>
 <tr>
