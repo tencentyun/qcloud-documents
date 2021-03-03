@@ -113,7 +113,7 @@ echo "U7Tn0SRReGCk4yuuVWaeZ4******" | base64 -d > signContent.bin
 ```
 
 ### 步骤6：验证签名
-1. 通过 KMS 验证签名接口校验。( **建议使用该方法进行验签** )
+1. 通过 KMS 验证签名接口校验。( 建议使用该方法进行验证签名)
 	- **请求**：
 	>?签名接口和验签接口中使用的参数 Message 和 MessageType 的取值要保持一致。
 	>
