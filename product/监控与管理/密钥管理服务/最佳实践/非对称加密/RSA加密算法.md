@@ -42,7 +42,7 @@ tccli kms GetPublicKey  --KeyId 22d79428-61d9-11ea-a3c8-525400******
 }
 ```
 - 将公钥 PublicKeyPem 转成 pem 格式，并存入文件 public_key.pem。
->!另外，您可以登录 [KMS 控制台](https://console.cloud.tencent.com/kms2/index) ，单击【用户密钥】>【密钥 ID/密钥名称】进入密钥信息页面，直接下载非对称密钥公钥。
+>!您可以登录 [KMS 控制台](https://console.cloud.tencent.com/kms2/index) ，单击【用户密钥】>【密钥 ID/密钥名称】进入密钥信息页面，直接下载非对称密钥公钥。
 ```
 echo "-----BEGIN PUBLIC KEY-----
 MFkwEwYHKoZIzj0CAQYIKoEcz1UBgi0DQgAEFLlge0vtct949CwtadHODzisgXJa
