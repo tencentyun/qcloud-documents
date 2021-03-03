@@ -105,7 +105,7 @@ tccli kms SignByAsymmetricKey --KeyId 22d79428-61d9-11ea-a3c8-525400****** --Alg
 echo "U7Tn0SRReGCk4yuuVWaeZ4******" | base64 -d > signContent.bin
 ```
 
-### 步骤5 验证签名
+### 步骤6：验证签名
 
 1. 通过 KMS 验证签名接口校验。( 建议使用该方法进行验签)
 	- **请求**：
