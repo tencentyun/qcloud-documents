@@ -101,8 +101,7 @@ try {
      // $httpProfile->setProxy("https://ip:port");
      $httpProfile->setReqMethod("GET");  // post请求(默认为post请求)
      $httpProfile->setReqTimeout(30);    // 请求超时时间，单位为秒(默认60秒)
-     $httpProfile->setEndpoint("cvm.ap-shanghai.tencentcloudapi.com");  
-     // 指定接入地域域名(默认就近接入)
+     $httpProfile->setEndpoint("cvm.ap-shanghai.tencentcloudapi.com");  // 指定接入地域域名(默认就近接入)
 
     // 实例化一个client选项，可选的，没有特殊需求可以跳过
      $clientProfile = new ClientProfile();
