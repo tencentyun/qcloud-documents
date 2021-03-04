@@ -22,9 +22,9 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 
 ## 注意事项
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行迁移。
-- 源端 MySQL 中待迁移的表支持没有主键或唯一索引，并且不会导致目标数据库中出现重复数据。在全量迁移过程通过有锁迁移来实现，锁表过程中会短暂阻塞的写入操作。
-- 云数据库 MySQL 的存储空间需要大于源端自建 MySQL 数据库所占用存储空间的1.2倍。
-- 源端自建 MySQL 是非 GTID 实例不支持 HA（Highly Available）切换，一旦源端自建 MySQL 发生切换可能会导致 DTS 增量同步中断。
+- 源端 MySQL 中待迁移的表支持没有主键或唯一索引，并且不会导致目标数据库中出现重复数据。在全量迁移过程通过有锁迁移来实现，锁表过程中会短暂阻塞写入操作。
+- 云数据库 MySQL 的存储空间须是源端自建 MySQL 数据库所占用存储空间的1.2倍以上。
+- 源端自建 MySQL 如果是非 GTID 实例，DTS 不支持源端 HA（Highly Available）切换，一旦源端自建 MySQL 发生切换可能会导致 DTS 增量同步中断。
 
 ## 支持迁移类型
 -  结构迁移：DTS 支持将迁移对象的结构定义迁移到目标实例中，目前 DTS 支持结构迁移的对象包括数据库、数据表、视图。
@@ -50,10 +50,10 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 | 目标端权限检查     | 目标云数据库 MySQL 的帐号需要具有如下权限： ALTER,  ALTER ROUTINE,  CREATE,  CREATE ROUTINE,  CREATE TEMPORARY TABLES,  CREATE USER,  CREATE VIEW,  DELETE,  DROP,  EVENT,  EXECUTE,  INDEX,  INSERT,  LOCK TABLES,  PROCESS,  REFERENCES,  RELOAD,  SELECT,  SHOW DATABASES,  SHOW VIEW,  TRIGGER,  UPDATE |
 | 目标实例内容冲突检测 | 目标库不能有和源库冲突的库表                                 |
 | 目标实例空间检查     | 目标库的空间大小需要大于，源库待迁移库表需要的空间乘以膨胀系数1.2 |
-| Binlog 参数检查       | 源端 binlog_format 变量必须为 ROW<br>源端 log_bin 变量必须为 ON<br>源端 binlog_row_image 变量必须为 FULL<br>源端 gtid_mode 变量在5.6及以上版本不为 ON 时，会报 WARNING，建议用户打开 gtid_mode<br>不允许设置do_db, ignore_db<br>对于源实例为从库的情况，log_slave_updates 变量必须为 ON |
+| Binlog 参数检查       | 源端 binlog_format 变量必须为 ROW<br>源端 log_bin 变量必须为 ON<br>源端 binlog_row_image 变量必须为 FULL<br>源端 gtid_mode 变量在5.6及以上版本不为 ON 时，会报 WARNING，建议用户打开 gtid_mode<br>不允许设置 do_db, ignore_db<br>对于源实例为从库的情况，log_slave_updates 变量必须为 ON |
 | 外键依赖检查         | 外键依赖只能是 no action 和 restrict 两种类型<br>部分库表迁移时，有外键依赖的表必须齐全 |
 | 视图检查             | 只允许和迁移目标 user@host 相同的 definer                       |
-| 其他警告项检查       | 检查源库和目标库的 max_allowed_packet，如果源库大于目标库，会有警告<br>目标库的 max_allowed_packet 小于1GB，会有警告<br>如果源库和目标库的字符集不一致，会有警告，对于全量迁移（没有增量），发警告告知用户这种全量迁移没有锁，不保证数据一致 |
+| 其他警告项检查       | 检查源库和目标库的 max_allowed_packet，如果源库大于目标库，会有警告<br>目标库的 max_allowed_packet 小于1GB，会有警告<br>如果源库和目标库的字符集不一致，会有警告<br>对于全量迁移（没有增量），发警告告知用户这种全量迁移没有锁，不保证数据一致 |
 
 ## 操作步骤
 1. 登录 [DTS 数据迁移控制台](https://console.cloud.tencent.com/dts/migration?rid=8&page=1&pagesize=20)，单击【新建迁移任务】，进入新建迁移任务页面。
@@ -85,7 +85,7 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 <tr>
 <td>端口</td><td>源库 MySQL 访问端口。</td></tr>
 <tr>
-<td>账号</td><td>源库 MySQL 的数据库帐号，帐号权限需要满足要求。</td></tr>
+<td>帐号</td><td>源库 MySQL 的数据库帐号，帐号权限需要满足要求。</td></tr>
 <tr>
 <td>密码</td><td>源库 MySQL 的数据库帐号的密码。</td></tr>
 <tr>
@@ -102,7 +102,7 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 <tr>
 <td>数据库实例</td><td>选择目标端云数据库实例 ID。</td></tr>
 <tr>
-<td>账号</td><td>目标端云数据库的数据库帐号，帐号权限需要满足要求。</td></tr>
+<td>帐号</td><td>目标端云数据库的数据库帐号，帐号权限需要满足要求。</td></tr>
 <tr>
 <td>密码</td><td>目标端云数据库的数据库帐号的密码。</td></tr>
 </tbody></table>
