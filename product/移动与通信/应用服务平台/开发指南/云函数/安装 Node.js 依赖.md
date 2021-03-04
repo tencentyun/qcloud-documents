@@ -16,13 +16,17 @@ npm install request --save
 
 CloudBase 提供了云端安装依赖，免去了在终端手动安装依赖的工作。
 
-**"云开发 CloudBase 控制台"**
+<dx-tabs>
+
+::: "云开发 CloudBase 控制台"
 
 登录 [云开发 CloudBase 控制台](https://console.cloud.tencent.com/tcb)，在[函数编辑页面](https://console.cloud.tencent.com/tcb/scf/index)，在线编辑或者上传 zip 代码包之后，点击【保存并安装依赖】。
 
 ![](https://main.qcloudimg.com/raw/f51de788458b296091f3017ff999e6c3.png)
 
-**"CloudBase CLI 工具"**
+:::
+
+::: "CloudBase CLI 工具"
 在配置文件 **cloudbaserc.json** 对应的云函数的配置项中添加
 
 ```bash
@@ -55,3 +59,7 @@ installDependency:true
   ]
 }
 ```
+
+:::
+
+</dx-tabs>
