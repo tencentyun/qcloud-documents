@@ -55,7 +55,7 @@ Container 类型 Input 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点        | 描述           | 类型   | 是否必选 |
 | ------------------ | ------------- | -------------- | ------ | -------- |
-| Object             | Request.Input | 媒体文件的名称 | String | 是       |
+| Object             | Request.Input | 音频对象 | String | 是       |
 
 Container 类型 Conf 的具体数据描述如下：
 
