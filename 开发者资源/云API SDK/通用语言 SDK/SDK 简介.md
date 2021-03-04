@@ -114,7 +114,6 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [电子合同服务](https://cloud.tencent.com/document/product/869/17778) | Digital  Contract                                            | ds           |
 | [腾讯智学课堂分析](https://cloud.tencent.com/document/product/1059/35988) | Tencent  Classroom Intellisense                              | tci          |
 | [活动防刷](https://cloud.tencent.com/document/product/1189)         | - | aa         |
-|                                                                 | - | aai        |
 | [借贷反欺诈](https://cloud.tencent.com/document/product/668)         | AntiFraud | af         |
 | [定制建模](https://cloud.tencent.com/document/product/1029)         | Anti Fraud Customized | afc        |
 | [音频内容检测](https://cloud.tencent.com/document/product/1219)       | Audio Moderation System | ams        |
@@ -127,8 +126,6 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [云呼叫中心](https://cloud.tencent.com/document/product/679)         | Cloud Call Center | ccc        |
 | [云防火墙](https://cloud.tencent.com/document/product/1132)         | Cloud Firewall | cfw        |
 | [智能保险助手](https://cloud.tencent.com/document/product/1368)       | Cloud Intelligent Insurance | cii        |
-|                                                                 | - | cim        |
-|                                                                 | - | cis        |
 | [主机安全](https://cloud.tencent.com/document/product/296)          | - | cwp        |
 | [云数据库 CynosDB](https://cloud.tencent.com/document/product/1003) | Cloud Native Database TDSQL-C | cynosdb    |
 | [游戏玩家匹配](https://cloud.tencent.com/document/product/1294)       | Game Player Matchmaking | gpm        |
@@ -152,11 +149,10 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [流量反欺诈](https://cloud.tencent.com/document/product/1031)        | Traffic Anti-Fraud | taf        |
 | [腾讯云自动化助手](https://cloud.tencent.com/document/product/1340)     | TencentCloud Automation Tools | tat        |
 | [文件检测](https://cloud.tencent.com/document/product)              | - | tav        |
-|                                                                 | - | tbm        |
 | [腾讯云释义](https://cloud.tencent.com/document/product/1266)        | Tencent Cloud Explanation | tcex       |
 | [分布式消息队列](https://cloud.tencent.com/document/product/1179)      | Tencent Distributed Message Queue | tdmq       |
 | [智能钛机器学习](https://cloud.tencent.com/document/product)           | - | tia        |
-| [腾讯云IaC平台](https://cloud.tencent.com/document/product/1213)     | 无英文名 | tic        |
+| [腾讯云IaC平台](https://cloud.tencent.com/document/product/1213)     | - | tic        |
 | [智能鉴黄](https://cloud.tencent.com/document/product/864)          | - | ticm       |
 | [文本内容安全](https://cloud.tencent.com/document/product/1124)       | Text Moderation System | tms        |
 | [腾讯微服务观测平台 TSW](https://cloud.tencent.com/document/product/)    | - | tsw        |
@@ -164,7 +160,6 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [视频内容安全](https://cloud.tencent.com/document/product/1265)       | Video Moderation System | vm         |
 | [语音消息](https://cloud.tencent.com/document/product/1128)         | Voice Message Service | vms        |
 | [SSL证书管理服务](https://cloud.tencent.com/document/product)         | - | wss        |
-|                                                                 | - | youmall    |
 | [珠玑](https://cloud.tencent.com/document/product)                | - | zj         |
 
 ## API Explorer
