@@ -35,7 +35,7 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 | 操作类型 | 支持同步的 SQL 操作                                            |
 | -------- | ------------------------------------------------------------ |
 | DML      | INSERT、UPDATE、DELETE、REPLACE                              |
-| DDL      | <br>TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE <br>VIEW：CREATE VIEW、ALTER VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX <br>DATABASE：CREATE DATABASE、ALTER DATABASE、DROP DATABASE |
+| DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE <br>VIEW：CREATE VIEW、ALTER VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX <br>DATABASE：CREATE DATABASE、ALTER DATABASE、DROP DATABASE |
 
 ## 前置检查
 启动数据迁移任务前，需要进行前置检查，主要检查内容和检查点如下：
@@ -47,7 +47,7 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 | 版本检查             | 源库和目标库 MySQL 版本必须为 5.5、5.6、5.7，且源库版本必须小于或等于目标库版本 |
 | 部分实例参数检查     | table_row_format 不能为 Fixed<br>源库和目标库 lower_case_table_names 变量必须一致<br>检查目标端 max_allowed_packet 参数，至少为4M<br>源库变量 connect_timeout 必须大于10 |
 | 源端权限检查       | 同 [前提条件](#qttj) 的帐号权限                                     |
-| 目标端权限检查     | 目标云数据库 MySQL 的帐号需要具有如下权限： ALTER,  ALTER ROUTINE,  CREATE,  CREATE ROUTINE,  CREATE TEMPORARY TABLES,  CREATE USER,  CREATE VIEW,  DELETE,  DROP,  EVENT,  EXECUTE,  INDEX,  INSERT,  LOCK TABLES,  PROCESS,  REFERENCES,  RELOAD,  SELECT,  SHOW DATABASES,  SHOW VIEW,  TRIGGER,  UPDATE |
+| 目标端权限检查     | 目标云数据库 MySQL 的帐号需要具有如下权限：ALTER,  ALTER ROUTINE,  CREATE,  CREATE ROUTINE,  CREATE TEMPORARY TABLES,  CREATE USER,  CREATE VIEW,  DELETE,  DROP,  EVENT,  EXECUTE,  INDEX,  INSERT,  LOCK TABLES,  PROCESS,  REFERENCES,  RELOAD,  SELECT,  SHOW DATABASES,  SHOW VIEW,  TRIGGER,  UPDATE |
 | 目标实例内容冲突检测 | 目标库不能有和源库冲突的库表                                 |
 | 目标实例空间检查     | 目标库的空间大小需要大于，源库待迁移库表需要的空间乘以膨胀系数1.2 |
 | Binlog 参数检查       | 源端 binlog_format 变量必须为 ROW<br>源端 log_bin 变量必须为 ON<br>源端 binlog_row_image 变量必须为 FULL<br>源端 gtid_mode 变量在5.6及以上版本不为 ON 时，会报 WARNING，建议用户打开 gtid_mode<br>不允许设置 do_db, ignore_db<br>对于源实例为从库的情况，log_slave_updates 变量必须为 ON |
