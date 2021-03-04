@@ -38,35 +38,35 @@ Authorization: <Auth String>
 
 ``` shell
 <Response>
-  <JobsDetail>
-    <Code>Success</Code>
-    <Message>Success</Message>
-    <JobId></JobId>
-    <State></State>
-    <CreationTime></CreationTime>
-    <Object></Object>
-    <Result>1</Result>
-    <PornInfo>
-        <HitFlag></HitFlag>
-        <Score></Score>
-        <Label></Label>
-    </PornInfo>
-    <PoliticsInfo>
-        <HitFlag></HitFlag>
-        <Score></Score>
-        <Label></Label>
-    </PoliticsInfo>
-    <TerrorismInfo>
-        <HitFlag>0</HitFlag>
-        <Score>0</Score>
-        <Label></Label>
-    </TerrorismInfo>
-    <AdsInfo>
-        <HitFlag>0</HitFlag>
-        <Score>0</Score>
-        <Label></Label>
-    </AdsInfo>
-  </JobsDetail>
+			<JobsDetail>
+				<Code>Success</Code>
+				<Message>Success</Message>
+				<JobId>aab1ca9fc8a3ed11ea834c525400863904</JobId>
+				<State>Success</State>
+				<CreationTime>2019-07-07T12:12:12+0800</CreationTime>
+				<Object>a.mp3</Object>
+				<Result>1</Result>
+				<PornInfo>
+						<HitFlag>1</HitFlag>
+						<Score>93</Score>
+						<Label></Label>
+				</PornInfo>
+				<PoliticsInfo>
+						<HitFlag>0</HitFlag>
+						<Score>0</Score>
+						<Label></Label>
+				</PoliticsInfo>
+				<TerrorismInfo>
+						<HitFlag>0</HitFlag>
+						<Score>0</Score>
+						<Label></Label>
+				</TerrorismInfo>
+				<AdsInfo>
+						<HitFlag>0</HitFlag>
+						<Score>0</Score>
+						<Label></Label>
+				</AdsInfo>
+			</JobsDetail>
 </Response>
 ```
 
@@ -91,7 +91,7 @@ Container 节点 JobsDetail 的内容：
 | JobId | Response.JobsDetail | 任务的 ID |  String |
 | State | Response.JobsDetail | 任务的状态，值为 Submitted、Success、Failed、Auditing 其中一个 |  String |
 | CreationTime | Response.JobsDetail | 任务的创建时间 |  String |
-| Object | Response.JobsDetail | 视频对象 |  String |
+| Object | Response.JobsDetail | 音频对象 |  String |
 | Result | Response.JobsDetail | 供参考的识别结果，0表示确认正常，1表示确认敏感，2表示疑似敏感  |  String |
 | PornInfo | Response.JobsDetail | 涉黄信息，审核信息 |  Container |
 | TerrorismInfo | Response.JobsDetail | 涉暴恐信息，审核信息 |  Container |
