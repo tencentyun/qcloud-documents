@@ -1,3 +1,5 @@
+
+
 ## 现象描述
 使用 VPN 连接建立 VPC 与 IDC 的通信，完成配置后，发现 VPN 通道状态为【未联通】。
 ![](https://main.qcloudimg.com/raw/d37bb0a17e5b7ab17db816872ff5dfa5.png)
@@ -29,7 +31,11 @@ display current-configuration configuration security-policy      //此处以华�
   - 若是，请执行 [步骤5](#step5)。
   - 若否，请修改安全策略，放通腾讯云侧 VPN 网关的 IP 以及对应 SPD 策略，再查看 VPN 通道状态是否已联通，如已联通，则问题解决，结束；如未联通，则继续执行[ 步骤5](#step5)。
 5. [](id:step5)比对腾讯云侧 VPN 网关与对端 IDC 的 VPN 设备协商参数（IKE、IPsec 配置）及协商模式（主模式 main/野蛮模式 aggressive）是否一致。
-   进入 [VPN 通道控制台](https://console.cloud.tencent.com/vpc/vpnConn?rid=17) ，单击实例 ID，进入详情页，在“高级配置”页签中查看：
+>!
+>- 任何一个参数不一致，VPN 通道都无法建立。
+>- 不同厂家设备、公有云服务提供商的默认 VPN 配置不尽相同。
+>
+ 进入 [VPN 通道控制台](https://console.cloud.tencent.com/vpc/vpnConn?rid=17) ，单击实例 ID，进入详情页，在“高级配置”页签中查看：
    ![](https://main.qcloudimg.com/raw/003f674d04966acebd7b713a64743609.png)
 	 IDC 侧设备配置参数可通过如下命令获取（此处以华为防火墙为例）：
 	  ```plaintext
