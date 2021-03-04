@@ -1,3 +1,4 @@
+## 介绍
 ClickHouse Sink Connector 提供了对 ClickHouse 数据仓库的写入支持。
 
 ## 使用范围
