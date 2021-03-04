@@ -1,4 +1,4 @@
-本文主要介绍通过 DTS 数据迁移功能从通过腾讯云云联网的自建 MySQL 迁移至腾讯云数据库 MySQL。DTS 支持结构迁移、全量数据迁移以及增量数据迁移，可以实现在不停服的情况下，平滑迁移数据到腾讯云数据库 MySQL。
+本文主要介绍通过 DTS 数据迁移功能从通过腾讯云云联网的自建 MySQL 迁移数据至腾讯云数据库 MySQL。DTS 支持结构迁移、全量数据迁移以及增量数据迁移，可以实现在不停服的情况下，平滑迁移数据到腾讯云数据库 MySQL。
 
 ## [前提条件](id:qttj)
 - 已 [创建云数据库 MySQL](https://cloud.tencent.com/document/product/236/46433)，支持的 MySQL 版本：MySQL 5.5、MySQL 5.6、MySQL 5.7。
