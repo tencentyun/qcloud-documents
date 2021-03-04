@@ -24,6 +24,9 @@
 npm install tencentcloud-sdk-nodejs --save
 ```
 2. 在您的代码中引用对应模块代码，可参考下文使用 SDK 示例。
+>?
+>- 如上引用方式会将腾讯云所有产品 SDK 下载到本地，可以将`tencentcloud-sdk-nodejs`换成`tencentcloud-sdk-nodejs-cvm/cbs/vpc`等，即可引用特定产品的 SDK，代码中可将`require("tencentcloud-sdk-nodejs")`改为 `require("tencentcloud-sdk-nodejs-cvm/cbs/vpc")`，其余不变，可参考示例，可大大节省存储空间。
+>- 更多 SDK 支持的云产品，请参见 [云产品名列表](https://cloud.tencent.com/document/product/494/42698#.E6.94.AF.E6.8C.81-sdk-3.0.E7.89.88.E6.9C.AC.E7.9A.84.E4.BA.91.E4.BA.A7.E5.93.81.E5.88.97.E8.A1.A8)。
 
 ### 方式二：通过源码包安装
 
