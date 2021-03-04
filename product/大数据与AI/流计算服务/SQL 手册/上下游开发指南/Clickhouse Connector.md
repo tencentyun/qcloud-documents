@@ -38,12 +38,12 @@ CREATE TABLE clickhouse (
 |   sink.flush-interval   |  否  | 1000 （单位 ms） |          connector 异步线程刷新写入 ClickHouse 间隔          |
 |    sink.max-retries     |  否  |        3        |                     写入失败时的重试次数                     |
 |    sink.write-local     |  否  |      false      | 是否写入本地表。默认 false 不开启写入本地表策略，而通过集群地址写入。<br>当设置为 true 时：</br><li>table-name 参数需要指定为 local table 名字</li><li> 需要通过 sink.write-local-nodes 参数指定 local node ip 和 port 列表</li><li>配合 sink.partition-strategy 指定写 local node 策略</li> |
-| sink.write-local-nodes  |  否  |       无        |   local node 列表，举例 '127.1.1.10:8123,127.1.2.13:8123'    |
+| sink.write-local-nodes  |  否  |       -        |   local node 列表，举例 '127.1.1.10:8123,127.1.2.13:8123'    |
 | sink.partition-strategy |  否  |    balenced     | 数据分发策略，支持 balanced/shuffle/hash。当设置 sink.write-local 为 true 时启用。取值为 hash 时需要配合 sink.partition-key 使用。取值说明：<li>balanced 轮询模式写入</li><li>shuffle 随机挑选节点写入</li><li>hash 根据 partition-key hash 值选择节点写入</li> |
-|   sink.partition-key    |  否  |       无        | 当设置 sink.write-loal 为 true 且 sink.partition-strategy 为 hash 时需要设置，值为所定义表中的字段 |
+|   sink.partition-key    |  否  |       -        | 当设置 sink.write-loal 为 true 且 sink.partition-strategy 为 hash 时需要设置，值为所定义表中的字段 |
 
 >!定义 WITH 参数时，通常只需要填写必填参数即可。当您启用非必须参数时，请您一定要明确参数含义以及可能对数据写入产生的影响。
-
+ 
 ## 常见数据类型映射
 关于 ClickHouse 支持的数据类型定义及其使用，可参考 [ClickHouse data-types](https://clickhouse.tech/docs/en/sql-reference/data-types/)，这里列举常用的数据类型，及其与 Flink 类型的对应关系。
 
