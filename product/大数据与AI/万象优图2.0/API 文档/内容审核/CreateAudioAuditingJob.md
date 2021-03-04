@@ -28,13 +28,13 @@ Content-Type: application/xml
 
 ```plaintext
 <Request>
-  <Input>
-    <Object></Object>
-  </Input>
-  <Conf>
-    <DetectType>Porn,Politics</DetectType>
-    <Callback></Callback>
-  </Conf>
+			<Input>
+				<Object></Object>
+			</Input>
+			<Conf>
+				<DetectType>Porn,Politics</DetectType>
+				<Callback></Callback>
+			</Conf>
 </Request>
 ```
 
@@ -76,11 +76,11 @@ Container 类型 Conf 的具体数据描述如下：
 
 ```plaintext
 <Response>
-  <JobsDetail>
-    <JobId></JobId>
-    <State></State>
-    <CreationTime></CreationTime>
-  </JobsDetail>
+			<JobsDetail>
+				<JobId></JobId>
+				<State></State>
+				<CreationTime></CreationTime>
+			</JobsDetail>
 </Response>
 ```
 
@@ -120,13 +120,13 @@ Content-Length: 166
 Content-Type: application/xml
 
 <Request>
-  <Input>
-    <Object>a.mp4</Object>
-  </Input>
-  <Conf>
-    <DetectType>Porn,Politics</DetectType>
-    <Callback>http://callback.com/</Callback>
-  </Conf>
+			<Input>
+				<Object>a.mp4</Object>
+			</Input>
+			<Conf>
+				<DetectType>Porn,Politics</DetectType>
+				<Callback>http://callback.com/</Callback>
+			</Conf>
 </Request>
 ```
 
@@ -142,10 +142,10 @@ Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 <Response>
-  <JobsDetail>
-    <JobId>vab1ca9fc8a3ed11ea834c525400863904</JobId>
-    <State>Submitted</State>
-    <CreationTime>2019-07-07T12:12:12+0800</CreationTime>
-  </JobsDetail>
+			<JobsDetail>
+				<JobId>vab1ca9fc8a3ed11ea834c525400863904</JobId>
+				<State>Submitted</State>
+				<CreationTime>2019-07-07T12:12:12+0800</CreationTime>
+			</JobsDetail>
 </Response>
 ```
