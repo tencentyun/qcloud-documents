@@ -3,9 +3,10 @@
 本文将为您介绍如何使用 SM2 签名验签算法。
 ## 操作步骤
 
-调用 [创建主密钥](https://cloud.tencent.com/document/product/573/34430) API 接口创建用户主密钥，在 KMS 中创建密钥的时候，必须传入正确的密钥用途 **KeyUsage= ASYMMETRIC_SIGN_VERIFY_SM2**，才可以使用签名的功能。
-
 ### 步骤1：创建非对称签名密钥
+>!在密钥管理系统（KMS）中调用 [创建主密钥](https://cloud.tencent.com/document/product/573/34430) 接口创建用户主密钥时，在 KMS 中创建密钥的时候，必须传入正确的密钥用途 KeyUsage= ASYMMETRIC_SIGN_VERIFY_SM2，才可以使用签名的功能。
+>
+
 请求：
 ```
 tccli kms CreateKey --Alias test --KeyUsage ASYMMETRIC_SIGN_VERIFY_SM2
