@@ -56,6 +56,16 @@ Authorization: <Auth String>
         <Score></Score>
         <Label></Label>
     </PoliticsInfo>
+    <TerrorismInfo>
+        <HitFlag>0</HitFlag>
+        <Score>0</Score>
+        <Label></Label>
+    </TerrorismInfo>
+    <AdsInfo>
+        <HitFlag>0</HitFlag>
+        <Score>0</Score>
+        <Label></Label>
+    </AdsInfo>
   </JobsDetail>
 </Response>
 ```
@@ -84,10 +94,11 @@ Container 节点 JobsDetail 的内容：
 | Object | Response.JobsDetail | 视频对象 |  String |
 | Result | Response.JobsDetail | 供参考的识别结果，0表示确认正常，1表示确认敏感，2表示疑似敏感  |  String |
 | PornInfo | Response.JobsDetail | 涉黄信息，审核信息 |  Container |
+| TerrorismInfo | Response.JobsDetail | 涉暴恐信息，审核信息 |  Container |
 | PoliticsInfo | Response.JobsDetail | 涉政信息，审核信息 |  Container |
+| AdsInfo | Response.JobsDetail | 涉广告信息，审核信息 |  Container |
 
-
-Container 节点 PornInfo，PoliticsInfo 的内容：
+Container 节点 PornInfo，TerrorismInfo，PoliticsInfo，AdsInfo 的内容：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
@@ -124,6 +135,8 @@ Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
+
+
 <Response>
   <JobsDetail>
     <Code>Success</Code>
@@ -143,6 +156,16 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
         <Score>0</Score>
         <Label></Label>
     </PoliticsInfo>
+    <TerrorismInfo>
+        <HitFlag>0</HitFlag>
+        <Score>0</Score>
+        <Label></Label>
+    </TerrorismInfo>
+    <AdsInfo>
+        <HitFlag>0</HitFlag>
+        <Score>0</Score>
+        <Label></Label>
+    </AdsInfo>
   </JobsDetail>
 </Response>
 ```
