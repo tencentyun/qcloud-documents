@@ -1,7 +1,7 @@
 
 
 ## 前提条件
-接入验证码前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecret。注册完成后，您可以在验证码控制台的验证详情的基础配置中，查看 AppID 以及 AppSecret。
+接入验证码前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecretKey。注册完成后，您可以在验证码控制台的验证详情的基础配置中，查看 AppID 以及 AppSecretKey。
 >!小程序插件 AppID 仅限小程序插件接入方式使用，请勿使用在 Web 前端接入。
 ## 接入步骤
 ### 快速接入
@@ -139,7 +139,7 @@ options 提供以下配置参数：
 <tr>
 <td>sdkOpts</td>
 <td>Object</td>
-<td>示例 <code>{"width": 140, "height": 140}</code> <br>移动端原生webview调用时传入，为设置的验证码弹框大小。<br>注意：手机原生端页面弹框通过 webview 加载验证码时须设置此值。若使用验证码 Web 的 loading，可设置一个小的值，然后在 ready 回调后重新设置尺寸。若自己实现 loading，此值可随意设置，等待 ready 回调后，再设置实际大小。</td>
+<td>示例 <code>{"width": 140, "height": 140}</code> <br>移动端原生 webview 调用时传入，为设置的验证码弹框大小。<br>注意：手机原生端页面弹框通过 webview 加载验证码时须设置此值。若使用验证码 Web 的 loading，可设置一个小的值，然后在 ready 回调后重新设置尺寸。若自己实现 loading，此值可随意设置，等待 ready 回调后，再设置实际大小。</td>
 </tr>
 <tr>
 <td>ready</td>
