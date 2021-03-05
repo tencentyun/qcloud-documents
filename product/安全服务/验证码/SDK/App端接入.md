@@ -138,8 +138,6 @@ public class JsBridge {
         [wkUController addScriptMessageHandler:self  name:@"jsToOcNoPrams"];
         [wkUController addScriptMessageHandler:self  name:@"jsToOcWithPrams"]; 
         config.userContentController = wkUController;
-        //用于进行 JavaScript 注入
-        WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jSString injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
         [config.userContentController addUserScript:wkUScript];       
         _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) configuration:config];
         // UI 代理
