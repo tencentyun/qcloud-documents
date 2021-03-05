@@ -1,4 +1,4 @@
-@cloudbase/js-sdk 让您可以在 Web 端（如 PC Web 页面、微信公众平台 H5 等）使用 JavaScript 访问 Cloudbase 服务和资源。
+`@cloudbase/js-sdk` 能让您可以在 Web 端（例如 PC Web 页面、微信公众平台 H5 等）使用 JavaScript 访问 Cloudbase 服务和资源。
 
 ## 安装
 
@@ -15,8 +15,8 @@ yarn add @cloudbase/js-sdk
 
 通过 CDN 引入有两种方式：
 
-#### 引入全量 SDK
-
+<dx-tabs>
+::: 引入全量&nbsp;SDK
 ```html
 <script src="//imgcache.qq.com/qcloud/cloudbase-js-sdk/${version}/cloudbase.full.js"></script>
 <script>
@@ -25,9 +25,8 @@ yarn add @cloudbase/js-sdk
   });
 </script>
 ```
-
-#### 按需引入功能模块
-
+:::
+::: 按需引入功能模块
 ```html
 <!-- 内核 -->
 <script src="//imgcache.qq.com/qcloud/cloudbase-js-sdk/${version}/cloudbase.js"></script>
@@ -49,6 +48,9 @@ yarn add @cloudbase/js-sdk
   });
 </script>
 ```
+:::
+</dx-tabs>
+
 
 >? 功能模块必须在内核之后引入，并且登录模块必须引入。
 
@@ -59,15 +61,10 @@ yarn add @cloudbase/js-sdk
 ## 开发文档
 
 - [初始化](https://docs.cloudbase.net/api-reference/webv2/initialization.html)
-
 - [登录认证](https://docs.cloudbase.net/api-reference/webv2/authentication.html)
-
 - [云函数](https://docs.cloudbase.net/api-reference/webv2/functions.html)
-
 - [数据库](https://docs.cloudbase.net/api-reference/webv2/database.html)
-
 - [文件存储](https://docs.cloudbase.net/api-reference/webv2/storage.html)
-
 - [跨端开发](https://docs.cloudbase.net/api-reference/webv2/adapter.html)
 
 >? 新版 JavaScript SDK 已更名 `@cloudbase/js-sdk`，旧版本 `tcb-js-sdk` 未来不再更新，详情请参见 [迁移指南](https://docs.cloudbase.net/api-reference/webv2/migrating.html)。
