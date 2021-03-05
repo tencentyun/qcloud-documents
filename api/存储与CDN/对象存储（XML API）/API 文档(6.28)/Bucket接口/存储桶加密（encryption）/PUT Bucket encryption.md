@@ -31,11 +31,11 @@ Authorization: Auth String
 
 ```sh
 <ServerSideEncryptionConfiguration>
-   <Rule>
-      <ApplySideEncryptionConfiguration>
-         <SSEAlgorithm>AES256</SSEAlgorithm>
-      </ApplySideEncryptionConfiguration>
-   </Rule>
+      <Rule>
+            <ApplyServerSideEncryptionByDefault>
+            <SSEAlgorithm>AES256</SSEAlgorithm>
+         </ApplyServerSideEncryptionByDefault>
+      </Rule>
 </ServerSideEncryptionConfiguration>
 ```
 
@@ -74,12 +74,14 @@ Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Mon, 17 Jun 2019 08:37:35 GMT
 Authorization: signatureValue
 
+
+
 <ServerSideEncryptionConfiguration>
-   <Rule>
-      <ApplySideEncryptionConfiguration>
-         <SSEAlgorithm>AES256</SSEAlgorithm>
-      </ApplySideEncryptionConfiguration>
-   </Rule>
+      <Rule>
+         <ApplyServerSideEncryptionByDefault>
+            <SSEAlgorithm>AES256</SSEAlgorithm>
+         </ApplyServerSideEncryptionByDefault>
+      </Rule>
 </ServerSideEncryptionConfiguration>
 ```
 
