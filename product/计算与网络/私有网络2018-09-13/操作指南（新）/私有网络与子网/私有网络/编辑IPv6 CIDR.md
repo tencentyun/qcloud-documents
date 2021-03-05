@@ -1,4 +1,4 @@
-﻿VPC支持IPv6功能，当您有IPv6业务需求时，需要先为VPC分配一个IPv6 CIDR网段，然后VPC内云资源才可以在VPC的IPv6 CIDR内分配到IPv6地址，从而进行IPv6业务通信。本章节介绍如何通过控制台为VPC分配IPv6 CIDR。
+VPC 支持 IPv6 功能，当您有 IPv6 业务需求时，需要先为 VPC 分配一个 IPv6 CIDR 网段，然后 VPC 内云资源才可以在 VPC 的 IPv6 CIDR 内分配到 IPv6 地址，从而进行 IPv6 业务通信。本章节介绍如何通过控制台为 VPC 分配 IPv6 CIDR。
 >?目前弹性公网 IPv6 处于内测中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/c28sebss8v)。
 >
 ## 分配 IPv6 CIDR[](id:31)
@@ -9,7 +9,7 @@
 ![](https://main.qcloudimg.com/raw/c49782731a42f854bf4317ca3e79bfaf.png)
 4. 在弹出的编辑对话框中单击【获取】，系统将为该 VPC 分配1个`/56`的 IPv6 CIDR。
 	<img src="https://main.qcloudimg.com/raw/01b7354205829501fba21d99efd7d660.png" width="50%" />
-5. 单击【确定】完成IPv6 CIDR的分配。
+5. 单击【确定】完成 IPv6 CIDR 的分配。
 
 
 ## 释放 IPv6 CIDR[](id:22)
@@ -19,5 +19,4 @@
 3. 在 VPC 列表中已获取 IPv6 CIDR 的 VPC 右侧**操作**列选择【更多】>【编辑 IPv6 CIDR】，弹出IPv6 CIDR编辑对话框。
 4.  单击【释放】，在弹出的风险提示框中，知悉释放操作的风险并确认无误后，单击【确认】。
  	![](https://main.qcloudimg.com/raw/67c14889527598438bfca28227d25419.png)
-	
-5. 单击【确定】完成 IPv6 CIDR的释放。
+5. 单击【确定】完成 IPv6 CIDR 的释放。
