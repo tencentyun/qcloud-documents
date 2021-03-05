@@ -39,7 +39,7 @@ dependencies:
   cloudbase_database: ^0.0.10
 ```
 
-然后在命令行中运行
+然后在命令行中运行。
 
 ```bash
 flutter pub get
