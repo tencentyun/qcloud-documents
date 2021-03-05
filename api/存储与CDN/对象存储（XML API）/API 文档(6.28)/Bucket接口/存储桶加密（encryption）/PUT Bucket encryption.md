@@ -32,8 +32,8 @@ Authorization: Auth String
 ```sh
 <ServerSideEncryptionConfiguration>
       <Rule>
-            <ApplyServerSideEncryptionByDefault>
-            <SSEAlgorithm>AES256</SSEAlgorithm>
+         <ApplyServerSideEncryptionByDefault>
+             <SSEAlgorithm>AES256</SSEAlgorithm>
          </ApplyServerSideEncryptionByDefault>
       </Rule>
 </ServerSideEncryptionConfiguration>
@@ -79,7 +79,7 @@ Authorization: signatureValue
 <ServerSideEncryptionConfiguration>
       <Rule>
          <ApplyServerSideEncryptionByDefault>
-            <SSEAlgorithm>AES256</SSEAlgorithm>
+             <SSEAlgorithm>AES256</SSEAlgorithm>
          </ApplyServerSideEncryptionByDefault>
       </Rule>
 </ServerSideEncryptionConfiguration>
