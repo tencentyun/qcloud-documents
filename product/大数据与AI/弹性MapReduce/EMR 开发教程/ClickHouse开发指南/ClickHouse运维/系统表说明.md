@@ -27,11 +27,11 @@ SELECT * FROM system.asynchronous_metrics LIMIT 10
 | shard_num               | UInt32 | 集群中分片号                                           |
 | shard_weight            | UInt32 | 写数据时分片的权重                                     |
 | replica_num             | UInt32 | 分片中的副本号                                         |
-| host_name               | String | 主机名                                                 |
-| host_address            | String | 主机 IP 地址                                             |
+| host_name               | String | 节点名                                                 |
+| host_address            | String | 节点 IP 地址                                             |
 | port                    | UInt16 | 用于连接 server 的端口号                                 |
 | user                    | String | 用于连接 server 的用户名                                 |
-| errors_count            | UInt32 | 该主机无法到达副本的次数                               |
+| errors_count            | UInt32 | 该节点无法到达副本的次数                               |
 | estimated_recovery_time | UInt32 | 从当前到副本错误数为零且被认为恢复正常的时间，单位为秒 |
 
 ### system.clusters

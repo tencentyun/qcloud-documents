@@ -94,20 +94,20 @@ pkg-config --modversion fuse  #查看 fuse 版本号，当看到 “2.9.4” 时
 SUSE 系统下手动安装 fuse 2.8.4及以上版本，安装命令示例如下：
 >!安装时，需要注释掉`example/fusexmp.c`文件下第222行内容，否则 make 将报错。注释方法为`/*content*/` 。
 
-	```shell
-	zypper remove fuse libfuse2
-	wget https://github.com/libfuse/libfuse/releases/download/fuse_2_9_4/fuse-2.9.4.tar.gz
-	tar -zxvf fuse-2.9.4.tar.gz
-	cd fuse-2.9.4
-	./configure
-	make 
-	make install
-	export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/lib64/pkgconfig/:/usr/local/lib/pkgconfig
-	modprobe fuse   #挂载 fuse 内核模块
-	echo "/usr/local/lib" >> /etc/ld.so.conf
-	ldconfig   #更新动态链接库
-	pkg-config --modversion fuse   #查看 fuse 版本号，当看到 “2.9.4” 时，表示 fuse2.9.4 安装成功 
-	```
+```shell
+zypper remove fuse libfuse2
+wget https://github.com/libfuse/libfuse/releases/download/fuse_2_9_4/fuse-2.9.4.tar.gz
+tar -zxvf fuse-2.9.4.tar.gz
+cd fuse-2.9.4
+./configure
+make 
+make install
+export PKG_CONFIG_PATH=/usr/lib/pkgconfig:/usr/lib64/pkgconfig/:/usr/local/lib/pkgconfig
+modprobe fuse   #挂载 fuse 内核模块
+echo "/usr/local/lib" >> /etc/ld.so.conf
+ldconfig   #更新动态链接库
+pkg-config --modversion fuse   #查看 fuse 版本号，当看到 “2.9.4” 时，表示 fuse2.9.4 安装成功 
+```
 
 - 在 macOS 进行 configure 操作时，可能会出现如下提示：
 ```shell
@@ -131,7 +131,7 @@ chmod 640 /etc/passwd-cosfs
 ```
 
 >!您需要将 &lt;BucketName-APPID&gt;、&lt;SecretId&gt; 和 &lt;SecretKey&gt; 替换为您的信息。
->- Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
+>- Bucket 命名规范，请参见 [存储桶命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
 >- &lt;SecretId&gt; 和 &lt;SecretKey&gt; 请前往访问管理控制台的 [云 API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取。
 >此外，您也可以将密钥放置在文件 $HOME/.passwd-cosfs 中，或通过 -opasswd_file=[path] 指定密钥文件路径，此时，您需要将密钥文件权限设置成600。
 
@@ -194,9 +194,6 @@ v1.0.5 之前版本 COSFS 的配置文件格式是：
 
 ####  -onoxattr
 禁用 getattr/setxattr 功能，在1.0.9之前版本的 COSFS 不支持设置和获取扩展属性，如果在挂载时使用了 use_xattr 选项，可能会导致 mv 文件到 Bucket 失败。
-
-#### -ouse_cache=[path]
-使用缓存目录缓存文件，path 为本地缓存目录路径，该选项可以在文件缓存下来后，加速文件的读写（非第一次读写），如果不需要本地缓存或本地磁盘容量有限，可不指定该选项。
 
 #### -opasswd_file=[path]
 该选项可以指定 COSFS 密钥文件的所在路径，该选项设定的密钥文件需要设置权限为600。

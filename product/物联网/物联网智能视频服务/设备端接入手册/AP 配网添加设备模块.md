@@ -113,4 +113,3 @@ typedef struct iv_ad_ap_init_parm_s
 | iv_ad_ap_recv_config_info_cb | 接收配网信息回调 | -  |
 
 
-

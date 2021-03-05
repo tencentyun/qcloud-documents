@@ -23,6 +23,13 @@ TensorFlow 是一个端到端开源机器学习平台。它拥有一个全面而
 - 支持 tensorflow on spark 做分布式训练
  
 ## Tensorflow 开发示例
+首先需要安装 Tensorflow，切换到 root 用户下，密码为创建 EMR 集群时设置的密码，先安装 python-pip 工具再安装依赖包：
+```
+[hadoop@172 hbase]$ su
+Password: ********
+[root@172 hbase]# yum install python-pip
+[root@172 hbase]# pip install Tensorflow
+```
 编写代码：`test.py`
 ```
 import tensorflow as tf

@@ -11,7 +11,7 @@
 
 ```
 //下载后解压
-tar -xzf c++_stream_tts_sdk.tar.gz
+tar -xzf c++_stream_tts_sdk.zip
 cd c++_stream_tts_sdk
 cmake ./
 //编译静态库和测试demo可执行文件

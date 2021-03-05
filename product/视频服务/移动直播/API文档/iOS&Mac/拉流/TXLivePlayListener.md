@@ -36,5 +36,5 @@ __参数__
 | param | NSDictionary * | 参见头文件 TXLiveSDKTypeDef.h |
 
 ***
-
+  
 

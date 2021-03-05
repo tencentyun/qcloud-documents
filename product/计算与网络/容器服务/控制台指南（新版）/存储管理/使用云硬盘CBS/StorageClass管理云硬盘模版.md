@@ -7,13 +7,13 @@
 ## 操作步骤
 ### 控制台操作指引
 
-#### 创建 StorageClass<span id="create"></span>
+#### 创建 StorageClass[](id:create)
 1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧栏中的【集群】，进入“集群管理”界面。
 2. 单击需创建 StorageClass 的集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的【存储】>【StorageClass】，进入 “StorageClass” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/9e4085b33612d7c234c9e868d941e561.png)
 4. 单击【新建】进入“新建StorageClass” 页面，参考以下信息进行创建。如下图所示：
-![](https://main.qcloudimg.com/raw/cf1174e04957af4587f39b2c45247d9b.png)
+![](https://main.qcloudimg.com/raw/0ec304e86847fbb976e627f97a8c0f80.png)
 主要参数信息如下：
 	- **名称**：自定义，本文以 `cbs-test` 为例。
 	- **Provisioner**：选择【云硬盘CBS】。
@@ -35,12 +35,12 @@
 >
 5. 单击【新建StorageClass】即可完成创建。
 
-#### 使用指定 StorageClass 创建 PVC<span id="createPVC"></span>
+#### 使用指定 StorageClass 创建 PVC[](id:createPVC)
 1. 在“集群管理”页面，选择需创建 PVC 的集群 ID。
 2. 在集群详情页面，选择左侧菜单栏中的【存储】>【PersistentVolumeClaim】，进入 “PersistentVolumeClaim” 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/e771b0d7e010605c3701de3f20831a96.png)
 3. 单击【新建】进入“新建PersistentVolumeClaim” 页面，参考以下信息设置 PVC 关键参数。如下图所示：
-![](https://main.qcloudimg.com/raw/007f255c46582078e598932c5b1052a6.png)
+![](https://main.qcloudimg.com/raw/c1099db788c2f8f284df7616d7273a77.png)
 主要参数信息如下：
    - **名称**：自定义，本文以 `cbs-pvc` 为例。
    - **命名空间**：选择 “default”。

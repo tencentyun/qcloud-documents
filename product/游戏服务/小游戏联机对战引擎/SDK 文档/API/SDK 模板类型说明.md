@@ -24,7 +24,7 @@ interface ResponseEvent<T> {
 |seq|string|请求序列号|
 |data|object|消息数据，由各消息回调接口定义|
 
-SDK 使用 Typescript 的模板类型定义了 data 字段，具体的 data 结构由 API 各接口定义。
+SDK 使用 TypeScript 的模板类型定义了 data 字段，具体的 data 结构由 API 各接口定义。
 - 如```MGOBE.types.ResponseEvent<MGOBE.types.CreateRoomRsp>```定义了创建房间的响应消息，其中 data 的类型为```MGOBE.types.CreateRoomRsp```。
 - 由于有些响应消息没有 data 内容，API 将使用```MGOBE.types.ResponseEvent<null>```来表示这类响应消息。
 
@@ -50,4 +50,4 @@ interface BroadcastEvent<T> {
 ```
 ReqCallback<T> = (event: MGOBE.types.ResponseEvent<T>) => any;
 ```
-响应函数是使用 SDK 接口向后台发起请求后，后台返回消息时的回调函数。上述定义表明该函数的入参是响应消息 MGOBE.types.ResponseEvent，函数体由开发者自定义。
+响应函数是使用 SDK 接口向后台发起请求后，后台返回消息时的回调函数。上述定义表明该函数的入参是响应消息 MGOBE.types.ResponseEvent，函数体由您自定义。

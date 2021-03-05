@@ -11,7 +11,7 @@
 4. 在“组件管理”页面，单击【新建】，进入“新建组件”页面。
 5. 勾选【COS（腾讯云对象存储）】并单击完成即可。
 
-### 创建访问密钥<span id="CreatAccessKey"></span>
+### 创建访问密钥[](id:CreatAccessKey)
 >!
 > - 为避免主账号密钥泄露造成您的云上资产损失，建议您参照[ 最佳实践 ](https://cloud.tencent.com/document/product/598/10592)停止使用主账号登录控制台或者使用主账号密钥访问云 API，并使用已授予相关管理权限的子账号/协作者进行相关资源操作。
 > - 本文以已授予访问管理相关权限的子用户创建或查看访问密钥为例，关于如何创建子用户并实现访问管理权限请参考文档[ 自定义创建子用户](https://cloud.tencent.com/document/product/598/13674)。
@@ -23,13 +23,13 @@
 >- API 密钥是构建腾讯云 API 请求的重要凭证，为了您的财产和服务安全，请妥善保存和定期更换密钥。当您更换密钥后，请及时删除旧密钥。
 
 
-### 创建存储桶<span id="CreatBucket"></span>
+### 创建存储桶[](id:CreatBucket)
 >!根据相关法规和政策要求，使用腾讯云对象存储服务前需要完成[ 实名认证](https://console.cloud.tencent.com/developer/auth)。
 >
 1. 登录 [对象存储控制台](https://console.cloud.tencent.com/cos5)，单击左侧导航中【存储桶列表】，进入“存储桶列表”页面。
 2. 单击【创建存储桶】，在弹出的“创建存储桶”窗口，参考以下信息进行创建。如下图所示：
 ![](https://main.qcloudimg.com/raw/6837245b169037467e1934ff49269dd8.png)
-   - **名称**：存储桶名称由 [自定义名称]-[开发商 APPID] 构成。请输入自定义名称，设置后不可修改。命名说明请参见存储桶的 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
+   - **名称**：存储桶名称由 [自定义名称]-[开发商 APPID] 构成。请输入自定义名称，设置后不可修改。命名说明请参见存储桶的 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83)。
    - **所属地域**：请选择本文中目标集群所在地域，设置后不可修改。详情请参见 [地域和访问域名](https://cloud.tencent.com/document/product/436/6224)。
    - **多AZ特性**：开启多 AZ 特性后，可提供同地域多个数据中心的容灾。详情请参见 [多 AZ 特性概述](https://cloud.tencent.com/document/product/436/40548)。
    - **访问权限**：存储桶默认提供【私有读写】、【公有读私有写】和【公有读写】三种访问权限，设置后仍可修改。
@@ -42,7 +42,7 @@
 3. 确认信息无误后单击【确定】即可。创建完成后，即可在存储桶列表中进行查看。
 
 
-### 获取存储桶子目录<span id="getPath"></span>
+### 获取存储桶子目录[](id:getPath)
 
 1. 在“存储桶列表”页面，选择已创建的存储桶名称，进入该存储桶名称的详情页。
 2. 在存储桶详情页面，选择需要挂载的子文件夹，进入该文件夹详情页。在页面右上角获取子目录路径 `/costest`。如下图所示：
@@ -56,7 +56,7 @@
 
 ### 通过控制台使用对象存储
 
-#### 创建可以访问对象存储的 Secret<span id="StepOne"></span>
+#### 创建可以访问对象存储的 Secret[](id:StepOne)
 
 1. 单击左侧导航栏中的【集群】，进入集群管理界面。
 2. 选择目标集群 ID，进入集群详情页面。
@@ -72,7 +72,7 @@
 5. 单击【创建 Secret】即可。
 
 
-#### 创建支持 COS-CSI 动态配置的 PV <span id="StepTwo"></span>
+#### 创建支持 COS-CSI 动态配置的 PV [](id:StepTwo)
 >!本步骤需使用存储桶，若当前地域无可用存储桶，则请参考 [创建存储桶](#CreatBucket) 进行创建。
 >
 1. 在目标集群详情页面，选择左侧菜单栏中的【存储】>【PersistentVolume】，进入 “PersistentVolume” 页面。
@@ -92,7 +92,7 @@
 3. 单击【创建PersistentVolume】即可。
 
 
-#### 创建 PVC 绑定 PV<span id="StepThree"></span>
+#### 创建 PVC 绑定 PV[](id:StepThree)
 >!请勿绑定状态为 Bound 的 PV。
 >
 1. 在目标集群详情页，选择左侧菜单栏中的【存储】>【PersistentVolumeClaim】，进入 “PersistentVolumeClaim” 页面。
@@ -123,7 +123,7 @@
 
 ### 通过 YAML 文件使用对象存储
 
-#### 创建可以访问对象存储的 Secret<span id="StepOne"></span>
+#### 创建可以访问对象存储的 Secret[](id:StepOne)
 
 可通过 YAML 创建可以访问对象存储的 Secret，模版如下：
 ```yaml
@@ -141,7 +141,7 @@ data:
   SecretKey: Qa3p4ZTVCMFlQek...(base64 encode)
 ```
 
-#### 创建支持 COS-CSI 动态配置的 PV<span id="StepTwo"></span>
+#### 创建支持 COS-CSI 动态配置的 PV[](id:StepTwo)
 可通过 YAML 创建 PV 以支持 COS-CSI 动态配置，模版如下：
 ```yaml
 apiVersion: v1

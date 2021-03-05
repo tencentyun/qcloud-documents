@@ -40,7 +40,7 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
 
 #### 带宽曲线图
 
-```sql
+```plaintext
 * | select HISTOGRAM(CAST(msec*1000 AS TIMESTAMP), INTERVAL 1 MINUTE) AS dt, round(SUM(body_bytes_sent)*8/1000.0, 2) AS "带宽(Kb/min)" group by dt order by dt limit 50
 ```
 
@@ -48,7 +48,7 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
 
 #### 平均下载速度
 
-```sql
+```plaintext
 * | select HISTOGRAM(CAST(msec*1000 AS TIMESTAMP), INTERVAL 1 MINUTE) AS dt, round(SUM(body_bytes_sent) * 1.0 / SUM(request_time),2) AS "下载速度(KB/s)" group by dt order by dt limit 50
 ```
 
@@ -56,7 +56,7 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
 
 #### uv
 
-```sql
+```plaintext
 * | select HISTOGRAM(CAST(msec*1000 AS TIMESTAMP), INTERVAL 1 MINUTE) AS dt, count(distinct(remote_addr)) as uv group by dt order by dt limit 50
 ```
 
@@ -64,7 +64,7 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
 
 #### pv
 
-```sql
+```plaintext
 * | select HISTOGRAM(CAST(msec*1000 AS TIMESTAMP), INTERVAL 1 MINUTE) AS dt, count(*) as pv group by dt order by dt limit 50
 ```
 
@@ -72,13 +72,13 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
 
 #### 请求类型分布
 
-```sql
+```plaintext
 * | select HISTOGRAM(CAST(msec*1000 AS TIMESTAMP), INTERVAL 1 MINUTE) AS dt, count(*) as pv, method group by dt, method order by dt limit 200
 ```
 
 ![image-20200911112536464](https://main.qcloudimg.com/raw/ee19047e3e3802fd80350875acb06832.png)状态码占比
 
-```sql
+```plaintext
 * | select count(*) as count, status where url like 'http://console.cloud.tencent.com/cls/sql/index1%' group by status
 ```
 
@@ -86,7 +86,7 @@ log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
 
 #### Top URL
 
-```sql
+```plaintext
 * | select request_url as "t-url", count(*) as count group by request_url order by count desc limit 10
 ```
 

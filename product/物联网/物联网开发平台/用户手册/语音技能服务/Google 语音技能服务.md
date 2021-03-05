@@ -15,33 +15,35 @@
 
 ### 步骤1：确认产品范围和功能
 
+新建产品时，产品品类需选择平台指定支持的品类，若选择其他品类或自定义将无法使用语音技能服务。
+<img src="https://main.qcloudimg.com/raw/620d3f0bb3ade3a15b0e8ae2a748d85d.png" style="width:85%;"></img>
 您可以通过下表，查看支持的品类和功能是否满足您的产品开发。  
 
-| 支持的品类 | 支持的功能（状态获取&指令） |
-| ---------- | --------------------------- |
-| 灯         | 开关、颜色调节、亮度调节    |
-| 开关面板   | 开关                        |
-| 插座       | 开关                        |
-| 窗帘       | 开关、百分比调节            |
-| 香薰机     | 开关                        |
-| 扫地机器人 | 开关                        |
-| 风扇       | 开关                        |
+| 支持的品类                   | 支持的功能（状态获取&指令） |
+| ---------------------------- | --------------------------- |
+| 智慧生活—电工照明—灯         | 开关、颜色调节、亮度调节    |
+| 智慧生活—电工照明—开关面板   | 开关                        |
+| 智慧生活—电工照明—插座       | 开关                        |
+| 智慧生活—电工照明—窗帘       | 开关、百分比调节            |
+| 智慧生活—家用电器—香薰机     | 开关                        |
+| 智慧生活—家用电器—扫地机器人 | 开关                        |
+| 智慧生活—家用电器—风扇       | 开关                        |
 
 
->?腾讯云物联网平台关于 Google Assistant 支持的品类或者功能，后续将会支持更多，若您有接入需求，您可以在腾讯云官网通过 [在线客服](https://cloud.tencent.com/act/event/connect-service) ，描述您的产品需求并提交开通申请，我们将安排相关工作人员与您进行对接。
+>?腾讯云物联网平台关于 Google Assistant 支持的品类或功能，后续将会支持更多，若您有接入需求，您可以在腾讯云官网通过 [在线客服](https://cloud.tencent.com/act/event/connect-service)，描述您的产品需求并提交开通申请，我们将安排相关工作人员与您进行对接。
 
 ### 步骤2：申请开通 Google Assistant 服务
 
 1. 登录 [物联网开发平台](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2F)，地区选择美国，创建项目及产品，详情请参考 [产品定义](https://cloud.tencent.com/document/product/1081/34739)。
 ![](https://main.qcloudimg.com/raw/beca495cb2aec4218f6aa3e6eab9b723.jpg)
 2. 单击项目进入项目详情界面，单击【语音技能】>【Google Assistant】> 【申请开通】，进入申请界面。 
-![](https://main.qcloudimg.com/raw/51d9fe29017535932f2df538d1313e28.png)
+![](https://main.qcloudimg.com/raw/8b67d2cc1ace18ccea3a19a090b8dcd9.png)
 3. 选择需要开通的产品，填写申请信息后，还需勾选“我了解并同意《开发者须知与授权》”，单击【提交申请】，我们将安排相关工作人员与您进行对接。
  - **选择产品**：该项目下创建的产品。
  - **其他需求描述**：最多不超过250个字符。
 ![](https://main.qcloudimg.com/raw/9573d9c3c13c6be2bb3b7b2792866b57.png)
 4. 申请通过后，您也可以在【选择产品】处新增您该项目下的产品。
-![](https://main.qcloudimg.com/raw/c0c20a4d40b11ee5fce7e1c2cfe7e69e.png)
+![](https://main.qcloudimg.com/raw/9efd773c43fbf6b1fca1b5099a250f42.png)
 5. 选择需要添加的产品，单击【确定】。
 ![img](https://main.qcloudimg.com/raw/44bd971e38b9612ee991a510eb533119.jpg)
 6. 添加产品审核通过后，即可生效语音技能。

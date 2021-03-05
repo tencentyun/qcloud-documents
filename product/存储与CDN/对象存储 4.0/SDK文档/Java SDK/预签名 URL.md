@@ -20,7 +20,7 @@ Request 成员说明：
 | Request 成员    | 设置方法            | 描述                                                         | 类型                    |
 | --------------- | ------------------- | ------------------------------------------------------------ | ----------------------- |
 | method          | 构造函数或 set 方法 | HTTP 方法，可选：GET、POST、PUT、DELETE、HEAD                | HttpMethodName          |
-| bucketName      | 构造函数或 set 方法 | 存储桶名称，存储桶的命名格式为 BucketName-APPID，详情请参见 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) | String |
+| bucketName      | 构造函数或 set 方法 | 存储桶名称，存储桶的命名格式为 BucketName-APPID，详情请参见 [命名规范](https://cloud.tencent.com/document/product/436/13312#.E5.AD.98.E5.82.A8.E6.A1.B6.E5.91.BD.E5.90.8D.E8.A7.84.E8.8C.83) | String |
 | key             | 构造函数或 set 方法 | 对象键（Key）是对象在存储桶中的唯一标识，详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324#.E5.AF.B9.E8.B1.A1.E9.94.AE) | String                  |
 | expiration      | set 方法            | 签名过期的时间                                               | Date                    |
 | contentType     | set 方法            | 要签名的请求中的 Content-Type                                | String                  |

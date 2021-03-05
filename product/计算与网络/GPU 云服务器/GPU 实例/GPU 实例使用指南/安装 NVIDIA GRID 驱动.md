@@ -70,3 +70,5 @@
 7. 完成以上配置，NVIDIA GPU 实例便即可运行图形图像处理程序。如下图所示：
 ![](https://main.qcloudimg.com/raw/bc690d2fc2dd6f1828ed9ee1e8e5bf95.png)
 
+
+

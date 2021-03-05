@@ -1,5 +1,5 @@
 ## 功能简介
-通过 BOT 详情，用户可以查看域名正常请求和 BOT 请求次数的访问趋势，查看未知类型 BOT、公开类型 BOT和自定义类型BOT详情，同时可以了解 WAF 检测检出的 BOT 会话详情。
+通过 BOT 详情，用户可以查看域名正常请求和 BOT 请求次数的访问趋势，查看未知类型 BOT、公开类型 BOT 和自定义类型 BOT 详情，同时可以了解 WAF 检测检出的 BOT 会话详情。
 ## 使用说明
 ### 概览查看
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/bot2/record/overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 详情】，进入 BOT 详情概览页。

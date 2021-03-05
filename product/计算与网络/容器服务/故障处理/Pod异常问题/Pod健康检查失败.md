@@ -45,3 +45,5 @@ SYN backlog 大小即 SYN 队列大小，如果短时间内新建连接比较多
 
 #### 解决方法
 如果已确认由于 backlog 满了导致的丢包，则建议调高 backlog 值，相关内核参数为 `net.ipv4.tcp_max_syn_backlog`。
+
+

@@ -15,7 +15,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 - 已在访问管理控制台 >【[API密钥管理](https://console.cloud.tencent.com/cam/capi)】页面获取 SecretID 和 SecretKey。
  - SecretID 用于标识 API 调用者的身份。
  - SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥，**SecretKey 需妥善保管，避免泄露**。
-- 已获取调用地址（endpoint），短信的调用地址为`sms.tencentcloudapi.com`。
+- 短信的调用地址为`sms.tencentcloudapi.com`。
 
 ## 相关资料
 - 各个接口及其参数的详细介绍请参见 [API 文档](https://cloud.tencent.com/document/product/382/38764)。
@@ -42,8 +42,7 @@ composer require tencentcloud/tencentcloud-sdk-php
 require '/path/to/vendor/autoload.php';
 ```
 
-<span id="example"></span>
-## 示例代码
+## 示例代码[](id:example)
 >?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况进行修改，您也可以根据实际需求使用 [API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=sms&Version=2019-07-11&Action=SendSms) 自动化生成 Demo 代码。
 
 每个接口都有一个对应的 Request 结构和一个 Response 结构。本文仅列举几个常用功能的示例代码，更多示例请参见 [PHP SDK 示例](https://github.com/TencentCloud/tencentcloud-sdk-php/tree/master/examples/sms)。
@@ -69,7 +68,8 @@ try {
 	 * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
 	 * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
 	 * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
-	 * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi */
+	 * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi
+	 */
     
 		$cred = new Credential("xxx", "xxx");
     //$cred = new Credential(getenv("TENCENTCLOUD_SECRET_ID"), getenv("TENCENTCLOUD_SECRET_KEY"));
@@ -96,7 +96,8 @@ try {
      * 基本类型的设置:
 	   * 帮助链接：
 	   * 短信控制台：https://console.cloud.tencent.com/smsv2
-  	   * sms helper：https://cloud.tencent.com/document/product/382/3773 */
+  	 * sms helper：https://cloud.tencent.com/document/product/382/3773
+  	*/
 	
 	/* 模板名称 */
 	$req->TemplateName = "腾讯云";
@@ -145,7 +146,8 @@ try {
      * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
      * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
      * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
-     * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi */
+     * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi
+     */
 
     $cred = new Credential("xxx", "xxx");
     //$cred = new Credential(getenv("TENCENTCLOUD_SECRET_ID"), getenv("TENCENTCLOUD_SECRET_KEY"));
@@ -228,7 +230,8 @@ try {
      * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
      * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
      * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
-     * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi */
+     * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi
+     */
 
     $cred = new Credential("xxx", "xxx");
     //$cred = new Credential(getenv("TENCENTCLOUD_SECRET_ID"), getenv("TENCENTCLOUD_SECRET_KEY"));
@@ -298,7 +301,8 @@ try {
      * 实例化一个认证对象，入参需要传入腾讯云账户密钥对 secretId 和 secretKey
      * 本示例采用从环境变量读取的方式，需要预先在环境变量中设置这两个值
      * 您也可以直接在代码中写入密钥对，但需谨防泄露，不要将代码复制、上传或者分享给他人
-     * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi */
+     * CAM 密钥查询：https://console.cloud.tencent.com/cam/capi
+     */
 
     $cred = new Credential("xxx", "xxx");
     //$cred = new Credential(getenv("TENCENTCLOUD_SECRET_ID"), getenv("TENCENTCLOUD_SECRET_KEY"));
@@ -353,7 +357,7 @@ catch(TencentCloudSDKException $e) {
 }
 ```
 
-## 常见问题
+## 常见问题[](id:point)
 ### 代理
 在有代理的环境下，需要设置系统环境变量`https_proxy`，否则可能无法正常调用，抛出连接超时的异常。
 或使用 GuzzleHttp 代理配置：

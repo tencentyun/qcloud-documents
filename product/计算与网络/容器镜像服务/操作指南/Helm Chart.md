@@ -6,7 +6,7 @@
 
 ## 前提条件
 在上传并管理 TCR 企业版实例内的 Helm Chart 前，您需要完成以下准备工作：
-- 已成功 [创建企业版实例](https://cloud.tencent.com/document/product/1141/40716)。
+- 已成功 [购买企业版实例](https://cloud.tencent.com/document/product/1141/51110)。
 - 如使用子账号进行操作，请参考 [企业版授权方案示例](https://cloud.tencent.com/document/product/1141/41417) 提前为子账号授予对应实例的操作权限。
 
 ## 操作步骤
@@ -62,7 +62,7 @@ chmod 700 get_helm.sh
 
 #### 添加 Helm 仓库
 1. 登录 [容器镜像服务控制台](https://console.cloud.tencent.com/tcr)，在“实例列表”页面选择实例名称，进入实例详情页。
-2. <span id="Step2"></span>参考 [获取实例访问凭证](https://cloud.tencent.com/document/product/1141/41829) 获取用户名及登录密码。
+2. [](id:Step2)参考 [获取实例访问凭证](https://cloud.tencent.com/document/product/1141/41829) 获取用户名及登录密码。
 3. 在节点上执行以下命令，添加希望用于托管 Helm Chart 的命名空间至本地 Helm 仓库。
 >!执行命令的机器需确保已在对应实例的公网白名单或已链接的私有网络 VPC 中，详情请参见 [公网访问控制](https://cloud.tencent.com/document/product/1141/41837)，[内网访问控制](https://cloud.tencent.com/document/product/1141/41838)
 >
@@ -80,6 +80,8 @@ helm repo add $instance-$namespace https://$instance.tencentcloudcr.com/chartrep
 
 #### 推送 Helm Chart
 1. 安装 Helm Push 插件
+>! 请安装 0.9.0 及以上版本的 helm-push 插件，避免因版本不兼容等问题造成无法正常推送 helm chart。
+>
 使用 Helm CLI 上传 Chart 包需要安装 helm-push 插件，该插件支持使用 `helm push` 指令推送 helm chart 至指定 repo，同时支持上传目录及压缩包。
 ```
 helm plugin install https://github.com/chartmuseum/helm-push

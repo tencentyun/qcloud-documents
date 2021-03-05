@@ -104,7 +104,13 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 	在命令行中确认，若 UID 与 GID 分别为0，则表示文件系统是使用 root 权限挂载，此时可以开始正常使用文件系统了；若 UID 与GID 分别为 -2 等其他值，则可能导致无法正常写入数据等，请重复前面的步骤、保证文件系统是以 root 权限挂载。
 	<img src="https://main.qcloudimg.com/raw/3ccc26279bb8d73c16eae43f89fea8c7.png" width="80%">
   
-	d. 验证读写
+若以上界面中出现" locking=yes"，为了避免文件锁导致读写异常（NFS v3 暂不支持锁），请按以下步骤修改注册表：
+
+（1）找到如下注册表路径 【HKEY_LOCAL_MACHINE】 > 【SOFTWARE】 > 【Microsoft】 > 【ClientForNFS】 > 【CurrentVersion】 > 【User】 > 【Default】 > 【Mount】。
+（2）在右侧内容区右键新建【DWORD (64-位)值】，名称为”Locking”，值为”0” 。
+
+
+d. 验证读写
   确认后，页面直接进入到已经挂载的文件系统中。可以右键新建一个文件来验证读写的正确性。
 	<img src="https://main.qcloudimg.com/raw/208537681d0ab96cd801e22332a419a9.jpeg" width="80%">
 - 通过 CMD 命令行挂载
@@ -172,6 +178,6 @@ umount X：
 
 >!文件系统删除后，资源不可恢复，建议您删除文件系统之前，先备份资源。
 
-您可以从腾讯云控制台终止文件系统。进入腾讯云 [文件存储控制台](https://console.cloud.tencent.com/cfs)，选中需要终止的文件系统，单击【删除】并【确认】，即可删除文件系统。
+您可以从腾讯云控制台终止文件系统。进入腾讯云 [文件存储控制台](https://console.cloud.tencent.com/cfs/fs)，选中需要终止的文件系统，单击【删除】并【确认】，即可删除文件系统。
 
 

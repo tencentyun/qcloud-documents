@@ -18,7 +18,7 @@
   -  **标签**：key = value 键值对，本例中标签默认值为 k8s-app = **nginx**。
   -  **命名空间**：根据实际需求进行选择。
   -  **类型**：根据实际需求进行选择。
-  -   **数据卷**：根据实需求设置工作负载的挂载卷，详情请参见 [Volumne 管理](https://cloud.tencent.com/document/product/457/31713)。
+  -   **数据卷**：根据实际需求设置工作负载的挂载卷，详情请参见 [Volume 管理](https://cloud.tencent.com/document/product/457/31713)。
 4. 参考以下信息设置“实例内容器”。如下图所示：
 ![](https://main.qcloudimg.com/raw/5c750650b8d6df2c5158db3151205894.png)
 主要参数信息如下：

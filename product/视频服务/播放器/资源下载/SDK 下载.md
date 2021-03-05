@@ -1,5 +1,4 @@
 ## SDK 功能列表
-
 <table width="850px">
   <tr align="center">
      <th style="text-align:center">功能</th>
@@ -8,8 +7,8 @@
   </tr>
   <tr align="center">
      <td>版本</td>
-        <td style="text-align:center">SDK（7.8.9518）@ 2020.09.27</td>
-        <td style="text-align:center">SDK（ 7.8.9518）@ 2020.09.27</td>
+        <td style="text-align:center">SDK（8.4.9944）@2021.02.07</td>
+        <td style="text-align:center">SDK（8.4.9947）@2021.02.07</td>
   </tr>
   <tr align="center">
     <td>小窗播放</td>
@@ -89,8 +88,8 @@
  
   <tr align="center">
      <th>SDK 下载</th>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_play") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Player_iOS_latest.zip">iOS 下载</a></td>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_play") href="http://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Player_Android_latest.zip">Android 下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_play") href="https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Player_iOS_latest.zip">iOS 下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_play") href="https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Player_Android_latest.zip">Android 下载</a></td>
   </tr>
   <tr align="center">
      <th>超级播放器</th>
@@ -99,7 +98,7 @@
   </tr>
 </table>
 
-详细介绍请参见 [此文档](https://github.com/tencentyun/SuperPlayer)。
+>? 详细介绍请参见 [此文档](https://github.com/tencentyun/SuperPlayer)。
 
 
 ## 技术交流

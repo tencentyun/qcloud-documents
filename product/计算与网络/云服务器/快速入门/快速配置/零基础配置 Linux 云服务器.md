@@ -31,12 +31,11 @@
 >! 通过快速配置购买的云服务器，系统将为您自动分配云服务器登录密码并发送到您的站内信中。此密码为登录云服务器的凭据。<div style="background-color:#00A4FF; width: 160px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/message" target="_blank"  style="color: white; font-size:16px;">点此获取初始密码</a></div>
 >
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm)，在实例列表中找到刚购买的云服务器，在右侧操作栏中单击【登录】。
-![](https://main.qcloudimg.com/raw/25d5fed7a99dda8a738490b2f89f3044.jpg)
-2. 推荐您 [使用标准登录方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。
-您也可以根据实际操作习惯，选择其他不同的登录方式：
- - [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699)
- - [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)
-3. 输入云服务器的用户名和密码，即可正常登录。
+![](https://main.qcloudimg.com/raw/f97dec23b6b0b8bdd7916e6c8af72cce.jpg)
+2. 在“登录Linux实例“窗口中选择【立即登录】后，输入云服务器的用户名和密码，并单击【确定】即可正常登录。如下图所示：
+![](https://main.qcloudimg.com/raw/64deb3d85b3bd3cd986cc50b28b64ec8.png)
+3. 登录成功后，界面如下图所示：
+![](https://main.qcloudimg.com/raw/a810f534d55fb5609e3323efc23689d0.png)
 
 
 ## 下一步操作：使用云服务器
@@ -53,3 +52,5 @@
 请参考 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 - 登录不成功？如何定位问题？
 请参考 [无法登录 Linux 实例](https://cloud.tencent.com/document/product/213/35574)。
+
+

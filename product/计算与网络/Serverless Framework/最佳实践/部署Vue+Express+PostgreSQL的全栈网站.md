@@ -41,14 +41,12 @@ Components: 2.31.6
 
 ### 配置
 
-1.新建一个本地文件夹，使用`serverless init`命令，下载相关 template。
-
+1. 新建一个本地文件夹，使用 `serverless init` 命令，下载相关 template。
 ```console
 serverless init fullstack
 ```
 
-2.在项目模板中找到.env.example 文件，修改名称为.env，并在其中配置对应的腾讯云 SecretId、SecretKey、地域和可用区信息。
-
+2. 在项目根目录下新建 .env 文件，并在其中配置对应的腾讯云 SecretId、SecretKey、地域和可用区信息。
 ```text
 # .env
 TENCENT_SECRET_ID=xxx  // 您账号的 SecretId
@@ -58,24 +56,21 @@ TENCENT_SECRET_KEY=xxx // 您账号的 SecretKey
 REGION=ap-guangzhou //资源部署区，该项目中指云函数与静态页面部署区
 ZONE=ap-guangzhou-2 //资源部署可用区 ，该项目中指 DB 部署所在的可用区
 ```
+ >?
+>- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
+>- 如果已有腾讯云账号，请保证您的账号已经授权了 AdministratorAccess 权限。 您可以在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
+>- ZONE 目前只支持 ap-beijing-3 、ap-guangzhou-2、ap-shanghai-2。
 
->?
-- 如果没有腾讯云账号，请先 [注册新账号](https://cloud.tencent.com/register)。
-- 如果已有腾讯云账号，请保证您的账号已经授权了 AdministratorAccess 权限。 您可以
-  在 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 中获取 SecretId 和 SecretKey。
-- ZONE 目前只支持 ap-beijing-3 、ap-guangzhou-2、ap-shanghai-2。
-
-3.通过执行以下命令，安装所需依赖：
-
+3. 通过执行以下命令，安装所需依赖：
 ```bash
 npm run bootstrap
 ```
 
 ### 部署
 
-1.执行sls deploy --all命令进行部署。返回信息如下所示：
-
-```console
+1. 执行 `sls deploy --all` 命令进行部署。返回信息如下所示：
+<dx-codeblock>
+:::  console
 $ sls deploy --all
 
 serverless ⚡ framework
@@ -120,15 +115,15 @@ fullstack-frontend:
   website: https://fullstack-serverless-db-123456789.cos-website.ap-guangzhou.myqcloud.com
 
 50s › tencent-fullstack › Success 
-```
+:::
+</dx-codeblock>
 
-部署成功后，您可以使用浏览器访问项目产生的 website 链接，即可看到生成的网站。
-
+ 部署成功后，您可以使用浏览器访问项目产生的 website 链接，即可看到生成的网站。
 >?本项目云函数因 VPC，导致无法直接访问外网，如需访问外网请参考 [云函数网络配置]( https://cloud.tencent.com/document/product/583/38202 )。
 
-2.执行 npm run info 查看部署信息，该项目部署的信息：vpc、db、api、frontend（前端网站）。返回信息如下所示：
-
-```bash
+2. 执行 npm run info 查看部署信息，该项目部署的信息：vpc、db、api、frontend（前端网站）。返回信息如下所示：
+<dx-codeblock>
+:::  bash
 $ npm run info
 > tencent-fullstack@1.1.0 info /root/tencent-fullstack
 > npm run info:vpc && npm run info:db && npm run info:api && npm run info:frontend
@@ -218,12 +213,11 @@ Deployments:  9
 website: https://fullstack-serverless-db-123456789.cos-website.ap-guangzhou.myqcloud.com
 
 fullstack-frontend › Info successfully loaded
+:::
+</dx-codeblock>
 
-```
 
-
-3.执行 `sls remove --all`，可移除项目。返回信息如下所示：
-
+3. 执行 `sls remove --all`，可移除项目。返回信息如下所示：
 ```bash
 $  sls remove --all
 

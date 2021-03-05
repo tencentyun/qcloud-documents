@@ -93,7 +93,7 @@ Wordpress 将会占用根路径，如果当前环境被占用，推荐再创建�
 
 此能力使用云开发与其他腾讯云服务，可能会产生相关费用。云开发与云上其他资源分开计费，您可以在 [费用中心](https://console.cloud.tencent.com/expense/overview) 查看具体信息。
 
-1. 云托管（[产品定价](https://cloud.tencent.com/document/product/1003/30493) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
+1. 云托管（[产品定价](https://cloud.tencent.com/document/product/1243/47823) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
 2. 静态网站托管（[产品定价](https://cloud.tencent.com/document/product/876/39095) 及 [使用明细](https://console.cloud.tencent.com/tcb)）。
 3. 文件存储（Cloud File Storage，CFS）（[产品定价](https://cloud.tencent.com/document/product/582/47378) 及 [使用明细](https://console.cloud.tencent.com/cfs/overview)）。
 4. 云数据库 CynosDB for MySQL（[产品定价](https://cloud.tencent.com/document/product/1003/30493) 及 [使用明细](https://console.cloud.tencent.com/cynosdb)）。

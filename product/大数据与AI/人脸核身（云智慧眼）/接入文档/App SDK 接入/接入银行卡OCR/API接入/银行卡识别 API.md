@@ -9,7 +9,7 @@
 
 | 参数 | 说明   | 类型   | 长度（字节） | 是否必填 |
 | ----- | ------- | -------- | ---------------- | ---------- |
-| webankAppId | WebankAppId，由腾讯指定        | String        | 腾讯云线下对接决定 | 是          |
+| webankAppId | 业务流程唯一标识，即 wbappid，可参考 [获取 WBappid](https://cloud.tencent.com/document/product/1007/49634) 指引在人脸核身控制台内申请 | String        | 8 | 是    |
 | version     | 接口版本号，默认值：1.0.0                    | String        | 20          | 是 |
 | nonce       | 随机数，32位随机串（字母+数字组成的随机数） | String        | 32          | 是        |
 | sign        | 签名：使用上面生成的签名            | String        | 40          | 是         |
@@ -33,3 +33,6 @@
 | clarity       | String | 图片清晰度                |
 
 >?success：false 无意义，合作伙伴可忽略，无需处理。
+
+### 计费
+腾讯云文字识别 OCR 提供预付费和后付费两种计费模式，开通服务后默认使用后付费的计费模式。如果您拥有免费资源包或者付费资源包，将优先对资源包进行扣减，资源包耗尽后自动转入后付费（月结）的方式。详细的产品价格及计费方式请参考 [OCR 计费说明](https://cloud.tencent.com/document/product/1007/49309)。

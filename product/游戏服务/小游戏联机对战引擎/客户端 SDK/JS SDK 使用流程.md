@@ -3,16 +3,15 @@
 本文档指导您如何使用游戏联机对战引擎 JS SDK。
 
 ## 前提条件
-
-- 已在游戏联机对战引擎控制台创建小游戏实例，并 [开通联机对战服务](https://cloud.tencent.com/document/product/1038/33299#.E5.BC.80.E9.80.9A.E8.81.94.E6.9C.BA.E5.AF.B9.E6.88.98.E6.9C.8D.E5.8A.A1)。
-- 已获取游戏 gameID 和 secretKey。JS SDK 需要对这两个参数进行校验。
+- 已在游戏联机对战引擎控制台创建游戏，并开通联机对战服务，详情可参见 [开通服务](https://cloud.tencent.com/document/product/1038/33299)。
+- 已获取游戏 gameID 和 secretKey，您可在游戏概览的基本信息里查看。JS SDK 需要对这两个参数进行校验。
 
 ## 操作步骤
 
-### 设置请求域名
->!出于安全考虑，微信小程序/小游戏会限制请求域名，所有的 HTTPS、WebSocket、上传、下载请求域名都需要在 [微信公众平台](https://mp.weixin.qq.com) 进行配置。因此，在正式接入游戏联机对战引擎 JS SDK 前，需要开发者在微信公众平台配置合法域名。
+### 设置 request 和 socket 域名
+>!出于安全考虑，微信小程序/小游戏会限制请求域名，所有的 HTTPS、WebSocket、上传、下载请求域名都需要在 [微信公众平台](https://mp.weixin.qq.com) 进行配置。因此，在正式接入游戏联机对战引擎 JS SDK 前，需要您在微信公众平台配置合法域名。
 
-1. 需要配置的域名包含两条 socket 域名和一条 request 域名记录。开发者在 MGOBE 控制台上获取域名后，需要配置该域名的默认端口、 5443 端口两条记录。
+1. 需要配置的域名包含一条 request 域名和两条 socket 域名记录。您在游戏联机对战引擎控制台上获取域名后，需要配置该域名的默认端口、 5443 端口两条记录。
 ```
 // request 域名
 report.wxlagame.com
@@ -168,9 +167,9 @@ Listener.init(gameInfo, config, event => {
 调用 Listener.init 时，需要传入游戏信息 gameInfo 和游戏配置 config 两个参数。
 - gameInfo.gameId、gameInfo.secretKey 和 config.url 都需要根据控制台上的信息传入。
 - gameInfo.openId 为玩家唯一 ID，例如，微信小游戏平台上的 OpenID。
-- 其它字段由开发者自定义。
+- 其它字段由您自定义。
 
-每个字段的具体含义可以参考 [Listener 对象](https://cloud.tencent.com/document/product/1038/33323)。
+每个字段的具体含义您可参考 [Listener 对象](https://cloud.tencent.com/document/product/1038/33323)。
 
 初始化成功后才能继续调用其他接口。因此，下文的 API 调用代码都应该在初始化回调函数内调用。
 
@@ -228,7 +227,7 @@ room.onDismissRoom = event => console.log("房间被解散");
 // ...
 ```
 
-其他广播接口可以参考 [Room 对象](https://cloud.tencent.com/document/product/1038/33325)。
+其他广播接口您可参考 [Room 对象](https://cloud.tencent.com/document/product/1038/33325)。
 
 #### 移除监听
 如果不想再接收该 Room 实例的广播，可以从 Listener 中移除：
@@ -239,7 +238,7 @@ Listener.remove(room);
 ```
 
 ### 游戏对战
-如果玩家已经加入房间，可以通过帧同步功能进行游戏对战。游戏过程中用到的接口有发送帧消息、帧广播，开发者可以利用这两个接口进行帧同步。帧广播的开始、结束需要使用房间的 startFrameSync、stopFrameSync 接口。
+如果玩家已经加入房间，可以通过帧同步功能进行游戏对战。游戏过程中用到的接口有发送帧消息、帧广播，您可以利用这两个接口进行帧同步。帧广播的开始、结束需要使用房间的 startFrameSync、stopFrameSync 接口。
 
 
 #### 开始帧同步
@@ -269,7 +268,7 @@ room.sendFrame({ data: frame }, event => {
 ```
 
 #### 接收帧广播
-开发者可设置 room.onRecvFrame 广播回调函数获得帧广播数据。
+您可设置 room.onRecvFrame 广播回调函数获得帧广播数据。
 
 ```
 // 广播：收到帧消息

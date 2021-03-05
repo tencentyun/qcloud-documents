@@ -42,7 +42,7 @@ function TEB_INIT()
 
 
 ### TEB_HISTROYDATA_SYNCCOMPLETED
-白板历史数据同步完成回调 
+白板历史数据同步完成回调  
 ``` C++
 function TEB_HISTROYDATA_SYNCCOMPLETED()
 ```

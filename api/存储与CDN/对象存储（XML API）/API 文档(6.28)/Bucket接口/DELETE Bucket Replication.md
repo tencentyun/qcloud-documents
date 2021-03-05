@@ -1,7 +1,9 @@
 ## 功能描述
-DELETE Bucket replication 用来删除存储桶中的跨地域复制配置。用户发起该请求时需获得请求签名，表明该请求已获得许可。
+
+DELETE Bucket replication 用来删除存储桶中的存储桶复制配置。用户发起该请求时需获得请求签名，表明该请求已获得许可。
 
 ## 请求
+
 #### 请求示例
 
 ```shell
@@ -10,6 +12,7 @@ Host: <BucketName-APPID>.cos.<Region>.myqcloud.com
 Date: GMT Date
 Authorization: Auth String
 ```
+
 >?Authorization: Auth String（详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
 
 #### 请求头
@@ -17,14 +20,17 @@ Authorization: Auth String
 此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/436/7728) 文档。
 
 #### 请求体
+
 该请求的请求体为空。
 
 ## 响应
+
 #### 响应头
 
 此接口仅返回公共响应头部，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/436/7729) 文档。
 
 #### 响应体
+
 该响应体为空。
 
 #### 错误码
@@ -35,7 +41,8 @@ Authorization: Auth String
 
 #### 请求
 
-下述请求示例展示了从存储桶`originbucket-1250000000`中删除跨地域配置信息。
+下述请求示例展示了从存储桶`originbucket-1250000000`中删除配置信息。
+
 ```shell
 DELETE /?replication HTTP/1.1
 Date: Fri, 14 Apr 2019 07:47:35 GMT
@@ -45,7 +52,8 @@ Host: originbucket-1250000000.cos.ap-chengdu.myqcloud.com
 
 #### 响应
 
-上述请求后，COS 返回`204 No Content`的响应表明已成功删除了该存储桶内的跨地域复制配置。删除跨地域复制配置后，COS 将不再复制源存储桶中的对象到目标存储桶中，目标存储桶中已有的对象数据将被保留。
+上述请求后，COS 返回`204 No Content`的响应表明已成功删除了该存储桶内的存储桶复制配置。删除存储桶复制配置后，COS 将不再复制源存储桶中的对象到目标存储桶中，目标存储桶中已有的对象数据将被保留。
+
 ```shell
 Content-Length: 0
 Connection: keep-alive

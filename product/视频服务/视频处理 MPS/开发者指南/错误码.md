@@ -1,0 +1,12 @@
+## 错误码列表
+### 视频处理类错误码
+
+| 错误码 | 含义 |
+| -- | -- |
+| InvalidInput | 输入参数不合法，请检查输入参数。 |
+| InvalidInput.InvalidTimeOffset | 输入参数不合法：指定的时间点不合法。 |
+| InvalidInput.DefinitionNotExist | 输入参数不合法：指定的模板 ID 不存在。 |
+| SourceFileError | 源文件错误（如视频数据损坏），请确认源文件是否正常。 |
+| SourceFileError.NoVideoMedia | 源文件错误：没有视频轨画面。 |
+| SourceFileError.NoVideoResolutio | 源文件错误：无法获取源文件的分辨率。 |
+| InternalError | 内部服务错误，建议重试。 |

@@ -13,13 +13,13 @@ vi /etc/fstab
 2. 打开 "fstab" 文件后，输入 "i"（insert），在 /etc/fstab 添加如下命令行，有以下几种挂载的方式。
 ```shell
 使用 NFS4.0 挂载
-<挂载点IP>:/ <待挂载目标目录> nfs4 nfsvers=4.0,hard,timeo=600,retrans=2,_netdev 0 0
-例如：10.10.19.12:/ /local/test nfs4 nfsvers=4.0,hard,timeo=600,retrans=2,_netdev 0 0
+<挂载点IP>:/ <待挂载目标目录> nfs4 vers=4,minorversion=0,hard,timeo=600,retrans=2,_netdev,noresvport 0 0
+例如：10.10.19.12:/ /local/test nfs4 vers=4,minorversion=0,hard,timeo=600,retrans=2,_netdev,noresvport 0 0
 ```
 ```shell
 使用 NFS3.0 挂载
-<挂载点IP>:/<fsid> <待挂载目标目录> nfs nfsvers=3,hard,timeo=600,retrans=2,_netdev 0 0
-例如：10.10.19.12:/djoajeo4 /local/test nfs nfsvers=3,hard,timeo=600,retrans=2,_netdev 0 0
+<挂载点IP>:/<fsid> <待挂载目标目录> nfs nfsvers=3,nolock,proto=tcp,hard,timeo=600,retrans=2,_netdev,noresvport 0 0
+例如：10.10.19.12:/djoajeo4 /local/test nfs nfsvers=3,nolock,proto=tcp,hard,timeo=600,retrans=2,_netdev,noresvport 0 0
 ```
 3. 按下键盘 "Esc" 按键并输入 ":wq" 以保存上述修改。重启客户端后，可以看到文件系统为自动挂载。
 

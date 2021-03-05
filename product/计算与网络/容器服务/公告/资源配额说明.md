@@ -1,0 +1,43 @@
+
+
+自2021年1月13日起，腾讯云容器服务 TKE 系统会向节点数（nodeNum）不超过5个（0 < nodeNum ≤ 5）、大于5个且小于20个（5 < nodeNum < 20）的集群上的命名空间自动应用一组资源配额。您将无法移除这些配额，此资源配额将保护集群控制平面，避免因部署到集群的应用中存在潜在 Bug 而导致其不稳定。
+
+如需检查此配额，您可执行以下命令：
+```
+kubectl get resourcequota tke-default-quota -o yaml
+```
+
+如需查看给定命名空间的 `tke-default-quota` 对象，请添加 `--namespace` 选项以指定命名空间。
+
+具体的配额限制如下：
+                                  
+
+<table>
+<thead>
+<tr>
+<th align="left">集群规模</th>
+<th align="left">配额限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">0 &lt; nodeNum &le; 5</td>
+<td align="left">总数限制 Pod：4000，configMap：3000，CustomResourceDefinition(CRD)：4000 </td>
+</tr>
+<tr>
+<td>5 &lt; nodeNum &lt; 20</td>
+<td>总数限制 Pod：8000，configMap：6000，CustomResourceDefinition(CRD)：8000</td>
+</tr>
+<tr>
+<td> 20 &le; nodeNum </td>
+<td>无限制</td>
+</tr>
+</tbody></table>
+
+
+
+
+
+
+如有特殊场景需要调整配额，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 进行申请。
+

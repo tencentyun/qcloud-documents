@@ -11,7 +11,7 @@
 ### 步骤1：在 API 网关控制台绑定自定义域名
 
 参考 [配置自定义域名](https://cloud.tencent.com/document/product/628/11791) 文档，在 API 网关控制台绑定自定义域名。
->!API 网关绑定自定义域名时，会校验自定义域名是否解析（通过 CNAME）到该服务的子域名。因此，您必须先将自定义域名解析（通过 CNAME）到 API 网关服务的子域名并配置绑定成功。再修改 CNAME 记录，将自定义域名指向 WAF 的 CNAME 域名。
+>!API 网关绑定自定义域名时，会校验自定义域名是否解析（通过 CNAME）到该服务的子域名。因此，您必须先将自定义域名解析（通过 CNAME）到 API 网关服务的子域名并配置绑定成功，再修改 DNS 记录，将自定义域名指向 WAF 的 CNAME 域名。
 >
 <img src="https://main.qcloudimg.com/raw/d9602adbae069b353545476d4c7ee146.png">
 

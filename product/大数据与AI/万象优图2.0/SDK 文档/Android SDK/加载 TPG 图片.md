@@ -5,7 +5,7 @@
 ### 安装 TPG SDK
 
 ```
-implementation 'com.tencent.qcloud:tpg:1.2.0'    
+implementation 'com.tencent.qcloud:tpg:1.3.1'    
 ```
 
 安装时会自动包含 SO 库，建议在 Module 的 build.gradle 文件中使用 NDK 的“abiFilter”配置，设置支持的 SO 库架构。

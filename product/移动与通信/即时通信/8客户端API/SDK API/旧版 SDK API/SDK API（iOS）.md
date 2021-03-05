@@ -270,3 +270,4 @@ TIMConversation 提供的接口函数都是围绕消息的相关操作，包括�
 | [setSender](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/ImSDK/Classes/TIMMessage.html#setsender) | 设置消息发送方。 |
 
 
+

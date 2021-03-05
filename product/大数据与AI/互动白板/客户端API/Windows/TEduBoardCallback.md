@@ -205,6 +205,9 @@ virtual void onTEBAddImageElement(const char *url)
 | --- | --- | --- |
 | url | const char * | 调用 AddImageElement 时传入的 URL |
 
+#### 警告
+该回调已废弃，请使用 AddElement 接口及 onTEBAddElement 回调代替
+
 #### 介绍
 只有本地调用 AddImageElement 时会收到该回调 收到该回调表示图片已经上传或下载成功，并且显示出来 
 
@@ -380,6 +383,20 @@ virtual void onTEBH5FileStatusChanged(const char *fileId, TEduBoardH5FileStatus 
 | --- | --- | --- |
 | fileId | const char * | 文件 ID  |
 | status | TEduBoardH5FileStatus | 文件状态  |
+
+
+### onTEBH5PPTStatusChanged
+H5PPT 文件状态改变回调 
+``` C++
+virtual void onTEBH5PPTStatusChanged(const char *fileId, TEduBoardH5PPTStatus status, const char *message)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fileId | const char * | 文件 ID  |
+| status | TEduBoardH5PPTStatus | 文件状态  |
+| message | const char * | 状态消息  |
 
 
 ### onTEBDeleteFile

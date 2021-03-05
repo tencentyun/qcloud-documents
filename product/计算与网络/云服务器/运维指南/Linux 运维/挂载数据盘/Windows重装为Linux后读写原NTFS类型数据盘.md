@@ -50,3 +50,6 @@ mount -t ntfs-3g /dev/vdb1 /mnt
 ```
 由于此时的文件系统可识别，挂载的数据盘可直接被 Linux 系统读写。
 
+
+
+

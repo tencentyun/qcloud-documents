@@ -113,7 +113,8 @@ SDK 支持 iOS 8.0 以上系统。
 
 1. **录制**
 `UGCKitRecordViewController`提供了完整的录制功能，您只需实例化这个控制器后展现在界面中即可。
-```
+<dx-codeblock>
+::: XCode 
 UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController alloc] initWithConfig:nil theme:nil];
 [self.navigationController pushViewController:recordViewController]
 ```
@@ -133,10 +134,12 @@ UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController 
            }
        }
    };
-```
+:::
+</dx-codeblock>
 2. **编辑**
 `UGCKitEditViewController`提供了完整的图片转场和视频编辑功能，实例化时需要传入待编辑的媒体对象，以处理录制结果为例，示例如下：
-```
+<dx-codeblock>
+::: XCode 
    - (void)processRecordedVideo:(UGCKitMedia *)media {
        // 实例化编辑控制器
        UGCKitEditViewController *editViewController = [[UKEditViewController alloc] initWithMedia:media conifg:nil theme:nil];
@@ -159,10 +162,12 @@ UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController 
            }
        }
    }
-```
+:::
+</dx-codeblock>
 3. **从相册中选择视频或图片**
 `UGCKitMediaPickerViewController`用来处理媒体的选择与合并，当选择多个视频时，将会返回拼接后的视频。示例如下：
-```
+<dx-codeblock>
+::: XCode 
    // 初始化配置
    UGCKitMediaPickerConfig *config = [[UGCKitMediaPickerConfig alloc] init];
    config.mediaType = UGCKitMediaTypeVideo;//选择视频
@@ -189,10 +194,12 @@ UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController 
           }
      }
    }
-```
+:::
+</dx-codeblock>
 4. **裁剪**
 `UGCKitCutViewController`提供视频的裁剪功能，与编辑接口相同，在实例化时传入媒体对象，在 completion 中处理剪辑结果即可。示例如下：
-```
+<dx-codeblock>
+::: XCode 
    UGCKitMedia *media = [UGCKitMedia mediaWithVideoPath:@"<#视频路径#>"];
    UGCKitCutViewController *cutViewController = [[UGCKitCutViewController alloc] initWithMedia:media theme:nil];
    cutViewController.completion = ^(UGCKitResult *result) {
@@ -203,7 +210,8 @@ UGCKitRecordViewController *recordViewController = [[UGCKitRecordViewController 
         }
    }
    [self.navigationController pushViewController: cutViewController]
-```
+:::
+</dx-codeblock>
    
 
 ## 详细介绍
