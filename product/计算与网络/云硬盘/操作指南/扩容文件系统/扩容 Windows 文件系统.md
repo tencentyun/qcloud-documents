@@ -20,8 +20,8 @@
 
 ## 操作步骤
 >!
->- 如通过控制台 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，挂载该盘的云服务器正处于正常运行状态，则需要 [重新扫描磁盘](#Scaning) 待识别扩容后的云硬盘空间后再 [扩容文件系统或新建分区](#Extending)。
->- 如通过控制台 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，该盘处于待挂载状态或者挂载该盘的云服务器正处于关机状态，直接 [扩容文件系统或新建分区](#Extending) 即可。
+>- 如通过控制台 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，挂载该盘的云服务器正处于正常运行状态，则需要 [重新扫描磁盘](#Scaning) 待识别扩容后的云硬盘空间后再 [扩容原有分区的文件系统或新建分区](#Extending)。
+>- 如通过控制台 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，该盘处于待挂载状态或者挂载该盘的云服务器正处于关机状态，直接 [扩容原有分区的文件系统或新建分区](#Extending) 即可。
 
 [](id:Scaning)
 ### 重新扫描磁盘
@@ -58,3 +58,5 @@
 ## 相关操作
 - [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747)
 - [扩展分区及文件系统（Linux）](https://cloud.tencent.com/document/product/362/6738)
+
+
