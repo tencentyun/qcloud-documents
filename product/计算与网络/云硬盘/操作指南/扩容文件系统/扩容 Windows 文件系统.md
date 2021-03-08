@@ -33,7 +33,7 @@
 ![](https://main.qcloudimg.com/raw/9612c8f95826b401d3a7c111fe632b05.png)
 
 [](id:Extending)
-### 扩容文件系统或新建分区
+### 扩容原有分区的文件系统或新建分区
 您可根据实际需求，参考以下步骤扩容数据盘原有分区的文件系统，或创建新分区：
 <dx-tabs>
 ::: 扩容原有分区的文件系统
@@ -56,6 +56,5 @@
 
 
 ## 相关操作
-[扩展分区及文件系统（Linux）](https://cloud.tencent.com/document/product/362/6738)
-
-
+- [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747)
+- [扩展分区及文件系统（Linux）](https://cloud.tencent.com/document/product/362/6738)
