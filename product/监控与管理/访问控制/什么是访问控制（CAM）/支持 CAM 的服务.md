@@ -85,7 +85,7 @@
 | [游戏数据库 TcaplusDB](https://cloud.tencent.com/document/product/596) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/596/42901) |
 | [数据库智能管家 DBbrain](https://cloud.tencent.com/document/product/1130) | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/1130/39344) |
 | [数据传输服务](https://cloud.tencent.com/document/product/571) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/571/38480) |
-| [分布式HTAP数据库 TBase](https://cloud.tencent.com/document/product/1129) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/1129/39783) |
+| [TDSQL PostgreSQL版](https://cloud.tencent.com/document/product/1129) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/1129/39783) |
 | [数据库管理](https://cloud.tencent.com/document/product/1130/40879) | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/1130/45992) |
 
 
@@ -164,7 +164,8 @@
 | [文本内容安全](https://cloud.tencent.com/document/product/1124) | 操作级   | &#10003; | -                | -        | -        |
 | [音频内容安全](https://cloud.tencent.com/document/product/1219) | 操作级   | &#10003; | -                | -        | -        |
 | [视频内容安全](https://cloud.tencent.com/document/product/1265) | 操作级   | &#10003; | -                | -        | -        |
-| [联邦学习](https://cloud.tencent.com/document/product/1192)  | 服务级   | -        | -                | -        | -        |
+| [联邦学习](https://cloud.tencent.com/document/product/1192)  | 服务级   | &#10003; | -                | -        | -        |
+| [全栈式风控引擎](https://cloud.tencent.com/document/product/1343) | 操作级   | &#10003; | -                | -        | -        |
 
 > ?<sup>1</sup> 天御业务安全防护中活动防刷、登录保护、注册保护、行业风险评估、置信度评分均已支持使用 CAM。
 
@@ -468,3 +469,7 @@
 | 服务                                           | 服务角色 |
 | ---------------------------------------------- | -------- |
 | [腾讯区块链开发平台](https://trustsql.qq.com/) | &#10003; |
+
+|      |      |
+| ---- | ---- |
+|      |      |
