@@ -20,11 +20,11 @@ CloudBase Flutter SDK 提供一系列插件，可以根据场景按需安装。
 [function_badge]: https://img.shields.io/pub/v/cloudbase_function
 [storage_badge]: https://img.shields.io/pub/v/cloudbase_storage
 [database_badge]: https://img.shields.io/pub/v/cloudbase_database
-[core_doc]: /api-reference/flutter/initialization.html
-[auth_doc]: /api-reference/flutter/authentication.html
-[function_doc]: /api-reference/flutter/functions.html
-[storage_doc]: /api-reference/flutter/storage.html
-[database_doc]: /api-reference/flutter/database.html
+[core_doc]: https://docs.cloudbase.net/api-reference/flutter/initialization.html
+[auth_doc]: https://docs.cloudbase.net/api-reference/flutter/authentication.html
+[function_doc]: https://docs.cloudbase.net/api-reference/flutter/functions.html
+[storage_doc]: https://docs.cloudbase.net/api-reference/flutter/storage.html
+[database_doc]: https://docs.cloudbase.net/api-reference/flutter/database.html
 
 ## 安装
 
