@@ -1,5 +1,5 @@
 ## 操作场景
-本文介绍如何在 Linux 及 Mac 系统的本地机器上使用 FTP 服务，将文件从本地上传到腾讯云轻量应用服务器中。
+本文介绍如何在 Linux 及 Mac OS 系统的本地机器上使用 FTP 服务，将文件从本地上传到腾讯云轻量应用服务器中。
 
 ## 前提条件
 已在轻量应用服务器中搭建 FTP 服务。具体操作请参考 [Linux 轻量应用服务器搭建 FTP 服务](https://cloud.tencent.com/document/product/1207/47638)。
@@ -44,7 +44,7 @@ get A.txt /home/A.txt
 :::
 </dx-tabs>
 
-### Mac 系统使用 FTP 服务
+### Mac OS 系统使用 FTP 服务
 1. 单击左下角的 <img src="https://main.qcloudimg.com/raw/992cc18057d7ab31bcc0c01cb571d395.png" style="margin:-5px 0px; width:4%">，在右上角菜单栏中选择【前往】>【连接服务器...】。
 2. 在“连接服务器”窗口中输入 `ftp://轻量应用服务器的 IP 地址`，并单击【连接】。如下图所示：
 ![](https://main.qcloudimg.com/raw/0cb8e99214441e8ea93db3cf25867cd5.png)
