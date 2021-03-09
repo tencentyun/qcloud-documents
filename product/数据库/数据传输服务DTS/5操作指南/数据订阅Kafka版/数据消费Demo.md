@@ -3,11 +3,11 @@
 ## 消费 Demo 下载
 参考下表下载数据订阅 Kafka 版客户端消费 Demo 代码：
 
-| Demo 语言 | 下载地址                                                     |
-| -------- | ------------------------------------------------------------ |
-| Go       | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_go_demo_1.1.0.zip)  |
-| Java    | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_java_demo_1.1.0.zip) |
-| Python    | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_python_demo_1.1.0.zip) |
+| Demo 语言 | 下载地址                                             |
+| ------------- | ------------------------------------------------------------ |
+| Go            | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_go_demo_1.1.1.zip) |
+| Java          | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_java_demo_1.1.1.zip) |
+| Python3       | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_python_demo_1.1.1.zip) |
 
 ## 配置参数说明
 | 参数       | 说明                        |
