@@ -1,4 +1,4 @@
-Cloudbase Server Node.js SDK 让您可以在服务端（如腾讯云云函数或 云主机 等）使用 Node.js 服务访问 TCB 的的服务，如云函数调用，文件上传下载，数据库集合文档操作等，方便快速搭建应用。
+Cloudbase Server Node.js SDK 让您可以在服务端（如腾讯云云函数或 云主机 等）使用 Node.js 服务访问 TCB 的服务，如云函数调用，文件上传下载，数据库集合文档操作等，方便快速搭建应用。
 
 需要 Node.js v8.9 及以上版本。
 
