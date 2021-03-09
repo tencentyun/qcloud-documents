@@ -22,7 +22,7 @@
 2. 单击需要获取集群访问凭证的集群 ID/名称，进入该集群的管理页面。
 3. 执行以下 [使用 Secret 管理 ElasticSearch 连接串](#step1) > [部署 Kafka Exporter](#step2) > [验证](#step3) 步骤完成 Exporter 部署。
 
-<span id="step1"></span>
+[](id:step1)
 
 #### 使用 Secret 管理 ElasticSearch 连接串
 
@@ -42,7 +42,7 @@ stringData:
 
 >?ElasticSearch 连接串的格式为 `<proto>://<user>:<password>@<host>:<port>`，例如 `http://admin:pass@localhost:9200`。
 
-<span id="step2"></span>
+[](id:step2)
 
 #### 部署 Kafka Exporter
 
@@ -96,7 +96,7 @@ spec:
 
 >?上述示例通过 `ES_ALL` 采集了所有 ElasticSearch 的监控项，可以通过对应的参数进行调整，Exporter 更多详细的参数请参见 [elasticsearch_exporter](https://github.com/justwatchcom/elasticsearch_exporter)。
 
-<span id="step3"></span>
+[](id:step3)
 
 #### 验证
 

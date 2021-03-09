@@ -13,16 +13,18 @@
 ::: shayuyan
 FROM centos:7
 RUN yum update -y &amp;&amp; yum install -y java-1.8.0-openjdk
- # 设置时区
+# 设置时区
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "Asia/Shanghai" > /etc/timezone
 ENV workdir /app/
 
-# 下面的 jar 包可替换为您的 jar 包，注意这个 jar 包要和您的 dockerfile 位于同一级目录
+# 下面的 jar 包需要替换为您的 jar 包，注意这个 jar 包要和您的 dockerfile 位于同一级目录
 ENV jar test-registry-0.0.1-SNAPSHOT.jar
 
-# Agent 运行必要参数，替换成自己的设置，在 TSW 控制台上将以他来显示调用链、拓扑图
+# Agent 运行必要参数，服务名需要替换为具体服务（应用）名，在 TSW 的同一环境/地域（命名空间）中，将以 servicename 隔离服务数据
+# servicename 需要与 jar 包主体名称保持一致。此外，您在控制台接入服务时输入的服务名需要与 servicename 保持一致
  ENV servicename test-registry
+
 
 # Agent 运行必要参数：数据上报 IP、端口（port），如果没有特殊情况 IP、port 不变
 ENV etlip 169.254.0.143

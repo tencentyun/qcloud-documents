@@ -16,7 +16,7 @@ fdisk/e2fsck/resize2fs 自动扩容工具适用于 Linux 操作系统，用于�
 
 ## 操作步骤
 
-<span id="Add"></span>
+[](id:Add)
 ### 将扩容部分的容量划分至原有 MBR 分区
 1. 以 root 用户执行以下命令，卸载分区。
 ```
@@ -54,7 +54,7 @@ fsck -a /dev/vdb1
 ```
 python /tmp/devresize.py /dev/vdb
 ```
-4. <span id="step4MBR"></span>执行以下命令，手动挂载扩容后的分区，本文以挂载点以 `/data` 为例。
+4. [](id:step4MBR)执行以下命令，手动挂载扩容后的分区，本文以挂载点以 `/data` 为例。
 ```
 mount <分区路径> <挂载点>
 ```
@@ -77,7 +77,7 @@ df -h
 ll /data
 ```
 
-<span id="New"></span>
+[](id:New)
 ### 将扩容部分的容量格式化成独立的 MBR 分区
 1. 以 root 用户执行以下命令，查看已挂载的数据盘分区信息。
 ```
@@ -101,7 +101,7 @@ umount /data
 ```
 >? 请将云硬盘上所有分区都解挂后，再执行 [步骤4](#Step4MBR)。
 >
-4. <span id="Step4MBR"></span>执行以下命令，新建一个新分区。
+4. [](id:Step4MBR)执行以下命令，新建一个新分区。
 ```
 fdisk <硬盘路径>
 ```
@@ -157,11 +157,11 @@ df -h
 返回如下图所示信息则说明挂载成功，即可以查看到数据盘：
 ![](//mccdn.qcloud.com/static/img/7b749a4bb6e7c8267c9354e1590c35d4/image.png)
 >?若您希望云服务器在重启或开机时能自动挂载数据盘，则需要执行 [步骤10](#AddNewPartINFOstep10) 和 [步骤11](#AddNewPartINFOstep11) 添加新分区信息至`/etc/fstab`中。
-10. <span id="AddNewPartINFOstep10"></span>执行以下命令，添加信息。
+10. [](id:AddNewPartINFOstep10)执行以下命令，添加信息。
 ```
 echo '/dev/xvdc2 /data1 ext3 defaults 0 0' >> /etc/fstab
 ```
-<span id="AddNewPartINFOstep11"></span>
+[](id:AddNewPartINFOstep11)
 11. 执行以下命令，查看信息。
 ```
 cat /etc/fstab

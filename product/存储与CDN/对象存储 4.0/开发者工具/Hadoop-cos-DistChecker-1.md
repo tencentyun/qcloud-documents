@@ -9,7 +9,7 @@ Hadoop-cos-DistChecker 是一个校验迁移目录完整性的工具。用户在
 
 > !
 > - 如果是自建 Hadoop 集群，则 Hadoop-cos 依赖需要选择最新版本（GitHub release 版本为5.8.2以上）才能支持 CRC64校验码的获取。
-> - 如果是使用腾讯云 EMR 套件，则2020年5月8日后创建的集群才包含该 Hadoop-cos 版本，早于这个时间创建的集群，需要 [提交工单](https://console.cloud.tencent.com/workorder/category) 处理。
+> - 如果是使用腾讯云 EMR 套件，则2020年5月8日后创建的集群才包含该 Hadoop-cos 版本，早于这个时间创建的集群，请通过 [在线支持](https://cloud.tencent.com/online-service) 或 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
 
 ## 使用说明
 
@@ -129,7 +129,6 @@ check_list.txt中的源文件路径 源文件绝对路径,目标文件绝对路�
 - SOURCE_FILE_MISSING：源文件不存在。
 - TARGET_FILE_MISSING：目标文件不存在。
 - TARGET_FILESYSTEM_ERROR：目标文件系统不是 CosN 文件系统。
-
 
 
 ## 常见问题

@@ -2,7 +2,7 @@
 - [手动模拟测试](#ManualSimulationTest)
 - [使用 COS 上传文件测试](#UploadFileTestUsingCOS)
 
-<span id="ManualSimulationTest"></span>
+[](id:ManualSimulationTest)
 ### 手动模拟测试
 
 1. 在新创建的 DownloadImage 函数详情页面中，选择【函数代码】页签。
@@ -29,7 +29,7 @@
 ![](https://main.qcloudimg.com/raw/fb05ce67cf556c2b94fa8ba84922a0d3.png)
 >? 您也可切换至【运行日志】页签，查看运行结果。
 
-<span id="UploadFileTestUsingCOS"></span>
+[](id:UploadFileTestUsingCOS)
 ### 使用 COS 上传文件测试
 
 1. 登录 [对象存储服务控制台](https://console.cloud.tencent.com/cos5/bucket)，进入【存储桶列表】页面。

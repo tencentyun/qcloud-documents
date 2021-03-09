@@ -16,7 +16,7 @@ prometheus-adapter 支持以上两种API，在实际环境中，使用 Custom Me
 ## 操作步骤
 
 
-<span id="example"></span>
+[](id:example)
 
 ### 暴露监控指标
 
@@ -120,7 +120,7 @@ spec:
 您可以通过 [Promtheus 采集规则](#way1) 或 [ServiceMonitor](#way2) 配置 Promtheus 采集业务暴露的监控指标。
 
 
-<span id="way1"></span>
+[](id:way1)
 
 #### 方式1：配置 Promtheus 采集规则
 
@@ -144,7 +144,7 @@ spec:
 			regex: http
 ```
 
-<span id="way2"></span>
+[](id:way2)
 
 #### 方式2：配置 ServiceMonitor
 

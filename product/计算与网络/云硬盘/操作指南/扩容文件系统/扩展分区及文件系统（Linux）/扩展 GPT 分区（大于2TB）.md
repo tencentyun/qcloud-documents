@@ -14,7 +14,7 @@ e2fsck/resize2fs 自动扩容工具适用于 Linux 操作系统，用于将新�
 
 ## 操作步骤
 
-<span id="Add"></span>
+[](id:Add)
 ### 将扩容部分的容量划分至原有 GPT 分区
 1. 以 root 用户执行以下命令，确认云硬盘的容量变化。
 ```
@@ -60,7 +60,7 @@ parted '/dev/vdb'
 ```
 unit s
 ```
-5. <span id="step5"></span>执行以下命令，查看分区信息，并记录已有分区的 Start 值。
+5. [](id:step5)执行以下命令，查看分区信息，并记录已有分区的 Start 值。
 ```
 print
 ```
@@ -146,7 +146,7 @@ df -h
 返回如下图信息说明挂载成功，即可以查看到数据盘。
 ![](https://main.qcloudimg.com/raw/b99b58b68ae1d156325392767cdc5c72.png)
 
-<span id="New"></span>
+[](id:New)
 ### 将扩容部分的容量格式化成独立的 GPT 分区
 1. 以 root 用户执行以下命令， 确认云硬盘的容量变化。
 ```
@@ -188,7 +188,7 @@ parted '<磁盘路径>'
 ```
 parted '/dev/vdb'
 ```
-4. <span id="Step4"></span>执行以下命令，查看分区信息，并记录已有分区的 End 值，以此值作为下一个分区的起始偏移值。
+4. [](id:Step4)执行以下命令，查看分区信息，并记录已有分区的 End 值，以此值作为下一个分区的起始偏移值。
 ```
 print
 ```

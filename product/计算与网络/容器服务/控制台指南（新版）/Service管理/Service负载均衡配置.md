@@ -16,7 +16,7 @@ TkeServiceConfig 并不会帮您直接配置并修改协议和端口，您需要
   * `spec.loadBalancer.l4Listeners.port`：监听端口
 
 ## Service 与 TkeServiceConfig 关联行为
-1. 创建 Loadbalancer 模式 Service 时，设置 **service.cloud.tencent.com/tke-service-config-auto:&lt;true&gt;** ，将自动创建 &lt;ServiceName&gt;-auto-service-config。 您也可以通过 **service.cloud.tencent.com/tke-service-config:&lt;config-name&gt;** 直接指定您自行创建的 TkeServiceConfig。两个注解不可同时使用。 
+1. 创建 Loadbalancer 模式 Service 时，设置注解 **service.cloud.tencent.com/tke-service-config-auto: "true"**，将自动创建 &lt;ServiceName&gt;-auto-service-config。 您也可以通过 **service.cloud.tencent.com/tke-service-config:&lt;config-name&gt;** 直接指定您自行创建的 TkeServiceConfig。两个注解不可同时使用。 
 2. 其中自动创建的 TkeServiceConfig 存在以下同步行为：
   - 更新 Service 资源时，新增若干四层监听器时，如果该监听器或转发规则没有对应的 TkeServiceConfig 配置片段。 Service-Controller 将主动添加 TkeServiceConfig 对应片段。
   - 删除若干四层监听器时，Service-controller 组件将主动删除 TkeServiceConfig 对应片段。
@@ -36,24 +36,24 @@ TkeServiceConfig 并不会帮您直接配置并修改协议和端口，您需要
 apiVersion: cloud.tencent.com/v1alpha1
 kind: TkeServiceConfig
 metadata:
-  name: sample # 配置的名称
-  namespace: default # 配置的命名空间
+     name: sample # 配置的名称
+     namespace: default # 配置的命名空间
 spec:
-  loadBalancer:
-    l4Listeners: # 四层规则配置，适用于Service的监听器配置。
-    - protocol: TCP # 协议端口锚定Service的四层规则。必填，枚举值：TCP|UDP。
-      port: 80 # 必填，可选值：1~65535。
-      session: # 会话保持相关配置。选填
-        enable: true # 是否开启会话保持。必填，布尔值
-        sessionExpireTime: 100 # 会话保持的时间。选填，默认值：30，可选值：30~3600，单位：秒。
-      healthCheck: # 健康检查相关配置。选填
-        enable: true # 是否开启会话保持。必填，布尔值
-        intervalTime: 10 # 健康检查探测间隔时间。选填，默认值：5，可选值：5~300，单位：秒。
-        healthNum: 2 # 健康阈值，表示当连续探测几次健康则表示该转发正常。选填，默认值：3，可选值：2~10，单位：次。
-        unHealthNum: 3 # 不健康阈值，表示当连续探测几次健康则表示该转发异常。选填，默认值：3，可选值：2~10，单位：次。
-        timeout: 10 # 健康检查的响应超时时间，响应超时时间要小于检查间隔时间。选填，默认值：2，可选值：2~60，单位：秒。
-      scheduler: WRR # 请求转发方式配置。WRR、LEAST_CONN、IP_HASH分别表示按权重轮询、最小连接数、按IP哈希。选填，枚举值：WRR|LEAST_CONN。
-    internetMaxBandwidthOut: 100 # 最大出带宽，仅对公网属性的LB生效。选填，可选值：0~2048，单位Mbps。
+     loadBalancer:
+       l4Listeners: # 四层规则配置，适用于Service的监听器配置。
+       - protocol: TCP # 协议端口锚定Service的四层规则。必填，枚举值：TCP|UDP。
+         port: 80 # 必填，可选值：1~65535。
+         session: # 会话保持相关配置。选填
+           enable: true # 是否开启会话保持。必填，布尔值
+           sessionExpireTime: 100 # 会话保持的时间。选填，默认值：30，可选值：30~3600，单位：秒。
+         healthCheck: # 健康检查相关配置。选填
+           enable: true # 是否开启健康检查。必填，布尔值
+           intervalTime: 10 # 健康检查探测间隔时间。选填，默认值：5，可选值：5~300，单位：秒。
+           healthNum: 2 # 健康阈值，表示当连续探测几次健康则表示该转发正常。选填，默认值：3，可选值：2~10，单位：次。
+           unHealthNum: 3 # 不健康阈值，表示当连续探测几次健康则表示该转发异常。选填，默认值：3，可选值：2~10，单位：次。
+           timeout: 10 # 健康检查的响应超时时间，响应超时时间要小于检查间隔时间。选填，默认值：2，可选值：2~60，单位：秒。
+         scheduler: WRR # 请求转发方式配置。WRR、LEAST_CONN、IP_HASH分别表示按权重轮询、最小连接数、按IP哈希。选填，枚举值：WRR|LEAST_CONN。
+       internetMaxBandwidthOut: 100 # 最大出带宽，仅对公网属性的LB生效。选填，可选值：0~2048，单位Mbps。
 ```
 
 
@@ -64,45 +64,45 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app: jetty
-  name: jetty-deployment
-  namespace: default
+   labels:
+     app: jetty
+   name: jetty-deployment
+   namespace: default
 spec:
-  progressDeadlineSeconds: 600
-  replicas: 3
-  revisionHistoryLimit: 10
-  selector:
-    matchLabels:
-      app: jetty
-  strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
-  template:
-    metadata:
-      creationTimestamp: null
-      labels:
-        app: jetty
-    spec:
-      containers:
-      - image: jetty:9.4.27-jre11
-        imagePullPolicy: IfNotPresent
-        name: jetty
-        ports:
-        - containerPort: 80
-          protocol: TCP
-        - containerPort: 443
-          protocol: TCP
-        resources: {}
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-      dnsPolicy: ClusterFirst
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      terminationGracePeriodSeconds: 30
+   progressDeadlineSeconds: 600
+   replicas: 3
+   revisionHistoryLimit: 10
+   selector:
+     matchLabels:
+       app: jetty
+   strategy:
+     rollingUpdate:
+       maxSurge: 25%
+       maxUnavailable: 25%
+     type: RollingUpdate
+   template:
+     metadata:
+       creationTimestamp: null
+       labels:
+         app: jetty
+     spec:
+       containers:
+       - image: jetty:9.4.27-jre11
+         imagePullPolicy: IfNotPresent
+         name: jetty
+         ports:
+         - containerPort: 80
+           protocol: TCP
+         - containerPort: 443
+           protocol: TCP
+         resources: {}
+         terminationMessagePath: /dev/termination-log
+         terminationMessagePolicy: File
+       dnsPolicy: ClusterFirst
+       restartPolicy: Always
+       schedulerName: default-scheduler
+       securityContext: {}
+       terminationGracePeriodSeconds: 30
 ```
 
 ### Service 示例：jetty-service.yaml
@@ -110,26 +110,26 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    service.cloud.tencent.com/tke-service-config: jetty-service-config 
-    # 指定已有的 tke-service-config
-    # service.cloud.tencent.com/tke-service-config-auto: true 
-    # 自动创建 tke-service-config
-  name: jetty-service
-  namespace: default
+   annotations:
+     service.cloud.tencent.com/tke-service-config: jetty-service-config 
+     # 指定已有的 tke-service-config
+     # service.cloud.tencent.com/tke-service-config-auto: true 
+     # 自动创建 tke-service-config
+   name: jetty-service
+   namespace: default
 spec:
-  ports:
-  - name: tcp-80-80
-    port: 80
-    protocol: TCP
-    targetPort: 80
-  - name: tcp-443-443
-    port: 443
-    protocol: TCP
-    targetPort: 443
-  selector:
-    app: jetty
-  type: LoadBalancer
+   ports:
+   - name: tcp-80-80
+     port: 80
+     protocol: TCP
+     targetPort: 80
+   - name: tcp-443-443
+     port: 443
+     protocol: TCP
+     targetPort: 443
+   selector:
+     app: jetty
+   type: LoadBalancer
 ```
 该示例中包含以下配置：
 - Service 为公网 LoadBalancer 类型。声明了两个 TCP 服务，一个在80端口，一个在443端口。
@@ -140,27 +140,27 @@ spec:
 apiVersion: cloud.tencent.com/v1alpha1
 kind: TkeServiceConfig
 metadata:
-  name: jetty-service-config
-  namespace: default
+   name: jetty-service-config
+   namespace: default
 spec:
-  loadBalancer:
-    l4Listeners:
-    - protocol: TCP
-      port: 80
-      healthCheck:
-        enable: false
-    - protocol: TCP
-      port: 443
-      session:
-        enable: true
-        sessionExpireTime: 3600
-      healthCheck:
-        enable: true
-        intervalTime: 10
-        healthNum: 2
-        unHealthNum: 2
-        timeout: 5
-      scheduler: LEAST_CONN
+   loadBalancer:
+     l4Listeners:
+     - protocol: TCP
+       port: 80
+       healthCheck:
+         enable: false
+     - protocol: TCP
+       port: 443
+       session:
+         enable: true
+         sessionExpireTime: 3600
+       healthCheck:
+         enable: true
+         intervalTime: 10
+         healthNum: 2
+         unHealthNum: 2
+         timeout: 5
+       scheduler: LEAST_CONN
 ```
 该示例中包含以下配置：
 名称为 `jetty-service-config`。且在四层监听器配置中，声明了以下两段配置：
@@ -176,22 +176,22 @@ spec:
 ➜ kubectl apply -f jetty-deployment.yaml
 ➜ kubectl apply -f jetty-service.yaml
 ➜ kubectl apply -f jetty-service-config.yaml
-
+  
 ➜ kubectl get pods
 NAME                                READY   STATUS    RESTARTS   AGE
 jetty-deployment-8694c44b4c-cxscn   1/1     Running   0          8m8s
 jetty-deployment-8694c44b4c-mk285   1/1     Running   0          8m8s
 jetty-deployment-8694c44b4c-rjrtm   1/1     Running   0          8m8s
-
+  
 ➜ kubectl get service jetty
 NAME    TYPE           CLUSTER-IP       EXTERNAL-IP       PORT(S)                      AGE
 jetty   LoadBalancer   10.127.255.209   150.158.220.237   80:31338/TCP,443:32373/TCP   2m47s
-
+  
 # 获取TkeServiceConfig配置列表
 ➜ kubectl get tkeserviceconfigs.cloud.tencent.com
 NAME                   AGE
 jetty-service-config   52s
-
+ 
 # 更新修改TkeServiceConfig配置
 ➜ kubectl edit tkeserviceconfigs.cloud.tencent.com jetty-service-config
 TkeServiceConfig.cloud.tencent.com/jetty-service-config edited

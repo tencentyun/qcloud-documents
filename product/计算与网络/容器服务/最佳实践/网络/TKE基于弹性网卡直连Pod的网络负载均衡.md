@@ -226,7 +226,7 @@ kubernetes          ClusterIP      10.187.252.1    <none>           443/TCP     
 - Google Kubernetes Engine，GKE 也有类似方案，结合 Google Cloud Load Balancing，CLB 的 Network Endpoint Groups，NEG 特性实现接入层直连 Pod。
 
 
-## 参考资料<span id="helpDoc"></span>
+## 参考资料[](id:helpDoc)
 
 - [Kubernetes Service 介绍](https://kubernetes.io/docs/concepts/services-networking/service)
 2. [Kubernetes Ingress 介绍](https://kubernetes.io/docs/concepts/services-networking/ingress)
