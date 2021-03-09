@@ -19,7 +19,8 @@
 | password   | 消费组密码                  |
 | trans2sql  | 是否转换为 SQL 语句    | 
 
-## Demo 关键逻辑讲解
+
+## [Demo 关键逻辑讲解](id:dgxljjj)
 ### 生产逻辑
 下文对消息生产逻辑进行简要说明，助于用户理解消费逻辑。
 我们采用 Protobuf 进行序列化，各语言 Demo 中均附带有 Protobuf 定义文件。文件中定义了几个关键结构：Envelope 是最终发送的 Kafka 消息结构；Entry 是单个订阅事件结构；Entries 是多个 Entry 的集合。
