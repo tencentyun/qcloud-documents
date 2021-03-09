@@ -344,7 +344,6 @@ hadoop jar cos-distcp-1.4-2.8.5.jar \
 
 
 
-
 ## 常见问题
 
 ### 环境中未配置 Hadoop-COS, 如何运行 COSDistCp?
@@ -378,3 +377,6 @@ grep -v '"comment":"SRC_MISS"' failed-manifest |gzip > failed-manifest.gz
 yarn logs -applicationId application_1610615435237_0021 > application_1610615435237_0021.log
 ```
 其中 application_1610615435237_0021 为应用 ID。
+
+### COSDistCp 是否会在网络等异常情况下，拷贝生成不完整文件？
+在网络异常、源文件缺失和权限不足等情况下，COSDistCp 无法在目的端，生成和源端同样大小的文件。对于COSDistCp 1.5 以下版本，会尝试删除生成在目的端文件。在目的端删除失败的情况下，您需要重新执行拷贝任务覆盖这些文件，或者手动删除这些不完整的文件。对于 COSDistCp 1.5 及其以上版本，且您的运行环境的 Hadoop COS 插件版本在 2.9.3 及其以上版本时，在拷贝到 COS 拷贝失败的情况下，会调用 abort 接口终止正在上传的请求，因此即使在遇到异常情况下，也不会生成不完整的文件。对于非 COS 的目的端，COSDistCp 会尝试删除目的端文件。
