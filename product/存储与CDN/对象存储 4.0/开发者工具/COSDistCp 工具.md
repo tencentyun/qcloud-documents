@@ -16,15 +16,15 @@ COSDistCp 是一款基于 MapReduce 的分布式文件拷贝工具，主要用�
 
 #### 软件依赖
 
-Hadoop-2.6.0及以上版本、Hadoop-COS 插件 5.8.7 及以上版本
+Hadoop-2.6.0及以上版本、Hadoop-COS 插件 5.9.3 及以上版本
 
 ## 下载与安装
 
 #### 获取 COSDistCp jar 包
 
-Hadoop 2.x 用户可下载 [cos-distcp-1.4-2.8.5.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.4-2.8.5.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.4-2.8.5-md5.txt) 确认下载的 jar 包是否完整。
+Hadoop 2.x 用户可下载 [cos-distcp-1.5-2.8.5.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.5-2.8.5.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.4-2.8.5-md5.txt) 确认下载的 jar 包是否完整。
 
-Hadoop 3.x 用户可下载 [cos-distcp-1.4-3.1.0.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.4-3.1.0.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.4-3.1.0-md5.txt) 确认下载的 jar 包是否完整。
+Hadoop 3.x 用户可下载 [cos-distcp-1.5-3.1.0.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.5-3.1.0.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.4-3.1.0-md5.txt) 确认下载的 jar 包是否完整。
 
 #### 安装说明
 
