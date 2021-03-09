@@ -1,7 +1,7 @@
 ### 为什么我消费不到数据？
 - 排查网络问题，Kafka 服务器地址为腾讯云内网地址，只能在腾讯云与订阅实例相同地域的私有网络内访问。
 - 排查订阅 topic、内网地址、消费组名称、帐号、密码等是否正确。可在 [数据订阅控制台](https://console.cloud.tencent.com/dts/dss) 单击订阅名进入订阅详情页和消费管理页查看。
-- 排查加密参数是否正确，参见 [问题3](#faq3)。
+- 排查加密参数是否正确，参见 [Kafka 使用何种认证机制](#faq3)。
 
 ### 数据格式是怎么样的?
 数据订阅 Kafka 版使用 Protobuf 进行序列化。Demo 工程中包含了 Protobuf 定义文件，具体请参考 [生产和消费逻辑讲解](https://cloud.tencent.com/document/product/571/52381#dgxljjj)。
