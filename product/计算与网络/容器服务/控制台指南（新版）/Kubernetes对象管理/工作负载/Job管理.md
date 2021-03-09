@@ -101,3 +101,6 @@ job       1         0            1m
 ```
 kubectl delete job [NAME]
 ```
+
+
+

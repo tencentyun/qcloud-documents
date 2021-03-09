@@ -1,4 +1,4 @@
-Serverless Framework 支持的 CLI 命令如下：
+Serverless 应用基于 Serverless Framework 部署，支持的 CLI 命令如下：
 
 - **`serverless registry`**：查看可用的 Components 列表。
 

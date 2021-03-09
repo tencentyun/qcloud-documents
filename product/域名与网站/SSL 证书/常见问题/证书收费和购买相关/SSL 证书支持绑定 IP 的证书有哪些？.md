@@ -35,7 +35,7 @@
   </tr>
   <tr>
     <td>TrustAsia</td>
-    <td>不支持</td>
+    <td>支持</td>
     <td>-</td>
     <td>不支持</td>
     <td>-</td>

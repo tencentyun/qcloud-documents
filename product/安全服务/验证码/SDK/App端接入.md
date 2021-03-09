@@ -1,6 +1,6 @@
 本文将为您介绍 App（iOS 和 Android）如何通过 Web 前端 H5 方式接入验证码。
 ## 前提条件
-接入验证码前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecret。注册完成后，您可以在控制台的基础配置中，查看 AppID 以及 AppSecret。
+接入验证码前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecretKey。注册完成后，您可以在控制台的基础配置中，查看 AppID 以及 AppSecretKey。
 >!小程序插件 AppID 仅限 [小程序插件接入方式](https://cloud.tencent.com/document/product/1110/49319) 使用，请勿使用在 Web 前端接入。
 
 ## 接入步骤
@@ -138,8 +138,6 @@ public class JsBridge {
         [wkUController addScriptMessageHandler:self  name:@"jsToOcNoPrams"];
         [wkUController addScriptMessageHandler:self  name:@"jsToOcWithPrams"]; 
         config.userContentController = wkUController;
-        //用于进行 JavaScript 注入
-        WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jSString injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
         [config.userContentController addUserScript:wkUScript];       
         _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) configuration:config];
         // UI 代理

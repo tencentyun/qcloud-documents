@@ -1,10 +1,10 @@
 ## 相关资源
 
 - SDK 源码地址请参考： [XML iOS SDK](https://github.com/tencentyun/qcloud-sdk-ios.git)。
-- 示例 Demo 可参考：[XML iOS  SDK Demo](https://github.com/tencentyun/qcloud-sdk-ios-samples.git)。
+- 示例 Demo 可参考：[XML iOS SDK Demo](https://github.com/tencentyun/qcloud-sdk-ios-samples.git)。
 - SDK 接口与参数文档请参见 [SDK API 参考](https://cos-ios-sdk-doc-1253960454.file.myqcloud.com)。
 - SDK 文档中的所有示例代码请参见 [SDK 代码示例](https://github.com/tencentyun/cos-snippets/tree/master/iOS)。
-- SDK 更新日志请参考：[ ChangeLog](https://github.com/tencentyun/qcloud-sdk-ios/blob/master/CHANGELOG.md)。
+- SDK 更新日志请参考：[ChangeLog](https://github.com/tencentyun/qcloud-sdk-ios/blob/master/CHANGELOG.md)。
 
 ## 准备工作
 
@@ -24,9 +24,9 @@
 pod 'QCloudCOSXML'
 ```
 
-#### 关闭 mta 上报功能
+#### 关闭灯塔上报功能（适用于5.8.3及以上版本）
 
-为了持续跟踪和优化 SDK 的质量，给您带来更好的使用体验，我们在 SDK 中引入了腾讯移动分析（mta）。
+为了持续跟踪和优化 SDK 的质量，给您带来更好的使用体验，我们在 SDK 中引入了灯塔上报 SDK。
 
 若是想关闭该功能，在您工程的 `Podfile` 文件中使用：
 
@@ -50,9 +50,9 @@ pod 'QCloudCOSXML/Transfer'
 
 #### 1. 导入二进制库
 
-将 **QCloudCOSXML.framework、QCloudCore.framework 和 libmtasdk.a** 拖入到工程中。
+将 **QCloudCOSXML.framework、QCloudCore.framework 和 BeaconAPI_Base.framework 以及 BeaconId.framework** 拖入到工程中。
 
-![](https://main.qcloudimg.com/raw/ce990d8871293daec0aa434f28b152e6.png)  
+![](https://main.qcloudimg.com/raw/5bdcb1f0bb6ac5dc80e82b1cd1960a19.png)  
 
 并添加以下依赖库：
  - CoreTelephony
@@ -87,7 +87,7 @@ pod 'QCloudCOSXML/Transfer'
 import QCloudCOSXML
 ```
 
-对于精简版 SDK，请导入:
+对于精简版 SDK，请导入：
 
 **Objective-c**
 

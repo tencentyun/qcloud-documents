@@ -74,3 +74,4 @@ kind: Deployment
       imagePullSecrets:
       - name: coding-regcred
 ```
+
