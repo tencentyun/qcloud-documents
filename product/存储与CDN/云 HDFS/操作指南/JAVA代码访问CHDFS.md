@@ -2,7 +2,7 @@
 
 ## 前提条件
 - 确保已经部署了CHDFS的相关JAR包，可参考[挂载CHDFS](https://cloud.tencent.com/document/product/1105/36368)
-- 确保运行JAVA程序的机器满足挂载点的vpc权限组的
+- 确保运行JAVA程序的机器处于挂载点权限组允许访问的vpc
 
 
 ## 实例代码
