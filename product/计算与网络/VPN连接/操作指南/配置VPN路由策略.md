@@ -1,7 +1,7 @@
->?当前 VPN 的路由表功能在灰度测试中，如有需要，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
+>?当前 VPN 路由功能在灰度测试中，如有需要，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
 
 ## 前提条件
-在配置路由表前，请确保已完成 VPN 网关、对端网关及 VPN 通道的配置。
+在配置 VPN 路由策略前，请确保已完成 VPN 网关、对端网关及 VPN 通道的配置。
 
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
