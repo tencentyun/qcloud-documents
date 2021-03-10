@@ -119,7 +119,7 @@
 </tr>
     <tr>
         <td>SDK 1.2.6.1 版本发布</td>
-        <td><li> 提升稳定性，修复已知问题</li><li> 优化接入，新增注册回调方法</li><li>新增 TPNS 通道，支持 APNs 通道下发失败后，通过 TPNS 通道补发消息</li><li>优化数据统计</li></td>
+        <td><li> 提升稳定性，修复已知问题</li><li> 优化接入，新增注册回调方法</li><li>新增 TPNS 通道，若 APNs 通道下发消息失败，将通过 TPNS 通道进行消息补发</li><li>优化数据统计</li></td>
         <td>2020-05-06</td>
         <td><a href="https://cloud.tencent.com/document/product/548/36663#.E8.B0.83.E8.AF.95.E6.96.B9.E6.B3.95">注册回调方法</a></li></td>
     </tr>        
