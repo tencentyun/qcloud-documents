@@ -153,4 +153,5 @@ options 提供以下配置参数：
 </tr>
 </tbody></table>
 
-
+### 更多信息
+您可以登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，在页面右上角单击【快速咨询】，了解更多详细信息。
