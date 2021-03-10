@@ -1,6 +1,9 @@
-本文主要介绍如何从零开始，以最简单的方式搭建一个 Linux 云服务器。
 
-如果您之前没有搭建云服务器的经验，建议您按照以下视频及文档，购买和配置您的第一台云服务器。
+<dx-alert infotype="explain" title="">
+轻量应用服务器是新一代云服务器产品，具备轻运维及开箱即用等特点，相比传统云服务器更加简单易用，是使用腾讯云的最佳入门途径。更多关于轻量应用云服务器信息请参见 [轻量应用服务器概述](https://cloud.tencent.com/document/product/1207/44361)。
+ 如果您不具备熟练搭建或使用云服务器的经验，您可先通过轻量应用服务器（Lighthouse）获取与云服务器一致的体验。详情请参见 [快速配置轻量应用服务器 Linux 实例](https://cloud.tencent.com/document/product/1207/44548)。
+</dx-alert>
+本文主要介绍如何从零开始，以最简单的方式搭建一个 Linux 云服务器。您可按照以下视频及文档，购买和配置您的第一台云服务器。
 
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2019-24308?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
