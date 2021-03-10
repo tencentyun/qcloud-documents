@@ -25,7 +25,7 @@
 
 #### Kubernetes 云账号（非 TKE 集群）
 
-如果通过 Kubeconfig 或 Service Account 凭据添加的 Kubernetes 云账号，在 manifest 引用私有库的镜像时，需要先在 Kubernetes 集群中创建 Secret，以 CODING 私有制品库为例：
+如果通过 Kubeconfig 或 Service Account 凭据添加的 Kubernetes 云账号，在 manifest 引用私有库的镜像时，需要先在 Kubernetes 集群中创建 Secret，以 CODING 制品库为例：
 ![](https://main.qcloudimg.com/raw/1c5c7d144b1856a008e61ca5c7277910.png)
 在 manifest 中直接引用此私有库的镜像会失败，需要在集群中生成 Secret：
 
@@ -74,3 +74,4 @@ kind: Deployment
       imagePullSecrets:
       - name: coding-regcred
 ```
+

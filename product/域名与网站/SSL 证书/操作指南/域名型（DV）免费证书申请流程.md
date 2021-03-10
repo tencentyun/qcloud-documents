@@ -10,6 +10,7 @@
 >- 免费证书提供二级域名证书申请。
 >- 亚洲诚信范围内（不一定在腾讯云申请）的同一主域最多只能申请20张免费证书，申请时请注意该域名是否在其他服务商平台存在亚洲诚信下的证书，避免申请达到上限无法申请。更多详情可参考 [免费证书名额相关问题](https://cloud.tencent.com/document/product/400/46849)。
 >- 如需要给二级域名进行配置证书，请您单独对该二级域名进行申请证书。
+>- 免费证书到期后如需继续使用证书，请重新申请并安装。
 >
 1. 登录 [SSL证书管理控制台](https://console.cloud.tencent.com/ssl)，选择【证书管理】>【证书列表】，单击【申请免费证书】。如下图所示：
 ![](https://main.qcloudimg.com/raw/7fb2560e501edab5c8ccc162a8ea5f18.png)
@@ -29,7 +30,7 @@
 4. 选择域名验证方式，并单击【下一步】。如下图所示：
 ![](https://main.qcloudimg.com/raw/9adc3968c25a0745988d015a4c1ed1ca.png)
  - **选择自动添加 DNS**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/4142#AutomaticVerification)。
->?如果所申请域名成功添加 [DNS 解析平台](https://console.cloud.tencent.com/cns/domains)，可以支持自动 DNS 验证。
+>?如果所申请域名成功添加 [DNS 解析平台](https://console.cloud.tencent.com/cns/domains)，可以支持自动添加 DNS。
  - **选择 DNS 验证**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/4142#ManualVerification)。
  - **选择文件验证**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/4142#FileVerification)。
 5. 根据【验证操作】提示，完成域名身份验证即可获取证书。
@@ -45,3 +46,5 @@
 ## 下载和部署
 完成域名审核后，颁发的证书可下载到本地，或者部署到腾讯云相关云服务。如下图所示：
 ![](https://main.qcloudimg.com/raw/5c3b23c2abb7e3dfa75e5847a8945987.png)
+
+

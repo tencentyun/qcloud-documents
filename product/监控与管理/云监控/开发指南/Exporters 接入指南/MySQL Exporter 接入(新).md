@@ -47,6 +47,7 @@ GRANT PROCESS, REPLICATION CLIENT, SELECT ON *.* TO 'exporter'@'ip';
 1. 在左侧菜单中选择【工作负载】>【Deployment】，进入 Deployment 页面。
 2. 在页面右上角单击【YAML创建资源】，创建 YAML 配置，配置说明如下：
 使用 Kubernetes 的 Secret 来管理连接串，并对连接串进行加密处理，在启动 MySQL Exporter 的时候直接使用 Secret Key，需要调整对应的**连接串**，YAML 配置示例如下：
+
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -63,8 +64,9 @@ stringData:
 #### 部署 MySQL Exporter
 
 在 Deployment 管理页面，选择对应的命名空间来进行部署服务，可以通过控制台的方式创建。如下以 YAML 的方式部署 Exporter， 配置示例如下：
+
 ```yaml
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -114,9 +116,11 @@ spec:
 ![](https://main.qcloudimg.com/raw/353be171da1dbdff76735a4b67a2055d.png)
 3. 单击【Pod管理】页签进入 Pod 页面。
 4. 在右侧的操作项下单击【远程登录】登录 Pod，在命令行窗口中执行以下 curl 命令对应 Exporter 暴露的地址，可以正常得到对应的 MySQL 指标。如发现未能得到对应的数据，请检查**连接串**是否正确，具体如下：
+
 ```
 curl localhost:9104/metrics
 ```
+
 执行结果如下图所示：
 ![](https://main.qcloudimg.com/raw/cc2feadce888950b8a94c9f7ae272abd.png)
 
@@ -128,41 +132,35 @@ curl localhost:9104/metrics
 3. 通过服务发现添加 `Pod Monitor` 来定义 Prometheus 抓取任务，YAML 配置示例如下：
 
 ```yaml
-apiVersion: monitoring.coreos.com/v1
-kind: PodMonitor
-metadata:
-  # 填写一个唯一名称
-  name: mysql-exporter
-  # namespace固定，不要修改
-  namespace: cm-prometheus
-spec:
-  podMetricsEndpoints:
-  - interval: 30s
-    # 填写pod yaml中Prometheus Exporter对应的Port的Name
-    port: metric-port
-    # 填写Prometheus Exporter对应的Path的值，不填默认/metrics
-    path: /metrics
-    relabelings:
-    - action: replace
-      sourceLabels: 
-      - instance
-      regex: (.*)
-      targetLabel: instance
-      replacement: 'crs-xxxxxx' # 调整成对应的 MySQL 实例 ID
-    - action: replace
-      sourceLabels: 
-      - instance
-      regex: (.*)
-      targetLabel: ip
-      replacement: '1.x.x.x' # 调整成对应的 MySQL 实例 IP
-  # 选择要监控pod所在的namespace
-  namespaceSelector:
-    matchNames:
-    - mysql-demo
-  # 填写要监控pod的Label值，以定位目标pod
-  selector:
-    matchLabels:
-      k8s-app: mysql-exporter
+  apiVersion: monitoring.coreos.com/v1
+  kind: PodMonitor
+  metadata:
+    name: mysql-exporter  # 填写一个唯一名称
+    namespace: cm-prometheus  # namespace固定，不要修改
+  spec:
+    podMetricsEndpoints:
+    - interval: 30s
+      port: metric-port    # 填写pod yaml中Prometheus Exporter对应的Port的Name
+      path: /metrics  # 填写Prometheus Exporter对应的Path的值，不填默认/metrics
+      relabelings:
+      - action: replace
+        sourceLabels: 
+        - instance
+        regex: (.*)
+        targetLabel: instance
+        replacement: 'crs-xxxxxx' # 调整成对应的 MySQL 实例 ID
+      - action: replace
+        sourceLabels: 
+        - instance
+        regex: (.*)
+        targetLabel: ip
+        replacement: '1.x.x.x' # 调整成对应的 MySQL 实例 IP
+    namespaceSelector:   # 选择要监控pod所在的namespace
+      matchNames:
+      - mysql-demo
+    selector:  # 填写要监控pod的Label值，以定位目标pod
+      matchLabels:
+        k8s-app: mysql-exporter
 ```
 
 ### 查看监控

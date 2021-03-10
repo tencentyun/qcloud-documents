@@ -50,7 +50,7 @@ Linux 云服务器配置 IPv6 有两种方式：[工具配置](#gjpz) 和 [手�
   <tr>
   <td rowspan="2">
   <ul>
-  <li>Ubuntu14.04/Ubuntu 12.04/Ubuntu 16/Ubuntu 18</li>
+  <li>Ubuntu14.04/Ubuntu 12.04/Ubuntu 16/Ubuntu 18/Ubuntu16.04/Ubuntu18.04</li>
   <li>Debian 8/Debian 9</li>
   <li>CoreOS 17</li>
   <li>Tencent Linux</li>

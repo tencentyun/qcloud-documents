@@ -13,7 +13,7 @@ Namespace=QCE/CDB
 | Capacity      | 磁盘占用空间 | 包括 MySQL 数据目录和  binlog、relaylog、undolog、errorlog、slowlog 日志空间 | MB    | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
 | CpuUseRate    | CPU 利用率   | 允许闲时超用，CPU 利用率可能大于100%                         | %     | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
 | IOPS          | IOPS         | 每秒的输入输出量(或读写次数)                                 | 次/秒 | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
-| MemoryUse     | 内存占用     | 允许闲时超用，实际内存占用可能大于购买规格                   | %     | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
+| MemoryUse     | 内存占用     | 允许闲时超用，实际内存占用可能大于购买规格                   | MB     | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
 | MemoryUseRate | 内存利用率   | 允许闲时超用，内存利用率可能大于100%                         | %     | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
 | RealCapacity  | 磁盘使用空间 | 仅包括 MySQL 数据目录，不含  binlog、relaylog、undolog、errorlog、slowlog 日志空间 | MB    | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
 | VolumeRate    | 磁盘利用率   | 磁盘使用空间/实例购买空间                                    | %     | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
@@ -157,7 +157,7 @@ Namespace=QCE/CDB
 | MasterSlaveSyncDistance | 主从延迟距离 | 主从 binlog 差距 | MB                                  | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
 | SecondsBehindMaster     | 主从延迟时间 | 主从延迟时间     | 秒                                 | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
 | SlaveIoRunning          | IO 线程状态  | IO 线程运行状态  | 状态值（0-Yes，1-No，2-Connecting） | InstanceId、InstanceType | 5s、60s、300s、3600s、86400s |
-| SlaveSqlRunning         | SQL 线程状态 | SQL 线程运行状态 | slave_sql_running                   | InstanceId、InstanceTyp  | 5s、60s、300s、3600s、86400s |
+| SlaveSqlRunning         | SQL 线程状态 | SQL 线程运行状态 | 状态值（0-Yes，1-No）                   | InstanceId、InstanceTyp  | 5s、60s、300s、3600s、86400s |
 
 > ?每个指标的统计粒度（Period）可取值不一定相同，可通过 [DescribeBaseMetrics](https://cloud.tencent.com/document/product/248/30351) 接口获取每个指标支持的统计粒度。
 

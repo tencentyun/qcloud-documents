@@ -4,7 +4,7 @@
 
 1. 登录 [CODING 控制台](https://console.cloud.tencent.com/coding)，单击【立即使用】进入 CODING 使用页面。
 2. 单击页面右上角的 <img src ="https://main.qcloudimg.com/raw/d94a8e60dd3a41d0af07d72ae0e9d70e.png" style ="margin:0">，进入项目列表页面，单击项目图标进入目标项目。
-3. 单击左侧菜单栏的【制品库】，进入制品库功能页面。
+3. 单击左侧菜单栏的【制品管理】，进入制品库功能页面。
 
 ## 功能介绍
 
@@ -278,3 +278,4 @@ body 参数说明
 
 	若不为 0 则表示操作有误，可根据提示来进行调整，例：
 ![删除失败示例](https://main.qcloudimg.com/raw/0967a2dbdaf2649fcbca48c0c6be01cc.png)
+
