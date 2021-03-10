@@ -7,7 +7,7 @@
 
 ## 实例代码
 1. 新建maven工程, maven的pom.xml中添加以下依赖项(请根据自己实际hadoop环境设置hadoop-common包的版本)
-```
+```xml
     <dependencies>
         <dependency>
             <groupId>org.apache.hadoop</groupId>
@@ -16,11 +16,11 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-```xml
+```
 
 2. 参考如下操作hadoop的代码进行修改， 其中的配置项等可参考[挂载CHDFS](https://cloud.tencent.com/document/product/1105/36368)
 
-```
+```java
 package com.qcloud.chdfs.demo;
 
 import org.apache.commons.io.IOUtils;
@@ -175,10 +175,7 @@ public class Demo {
         closeFileSystem(fs);
     }
 }
+
 4. 运行
-在代码编译后，运行前确保正确的设置classpath，需包含 Hadoop common包以及CHDFS包的路径，对于
-
-
-
-
-```java
+在代码编译后，运行前确保正确的设置classpath，需包含 Hadoop common包以及CHDFS包的路径。
+对于EMR环境,Hadoop common通常在/usr/local/service/hadoop/share/hadoop/common/，CHDFS包在/usr/local/service/hadoop/share/hadoop/common/lib/
