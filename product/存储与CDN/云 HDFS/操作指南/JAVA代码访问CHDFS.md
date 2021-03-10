@@ -19,6 +19,7 @@
 ```
 
 2. 参考如下操作hadoop的代码进行修改， 其中的配置项等可参考[挂载CHDFS](https://cloud.tencent.com/document/product/1105/36368)
+以下只列出了部分常见的文件系统的操作，其他的接口可参考[Hadoop FileSystem 接口文档](https://hadoop.apache.org/docs/r2.8.2/api/org/apache/hadoop/fs/FileSystem.html).
 
 ```java
 package com.qcloud.chdfs.demo;
