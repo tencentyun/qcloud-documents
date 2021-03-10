@@ -48,8 +48,8 @@ public class Demo {
         conf.set("fs.ofs.tmp.cache.dir", "/data/chdfs_tmp_cache");
         conf.set("fs.ofs.user.appid", "1250000000");
         // please refer to https://cloud.tencent.com/document/product/1105/36368 for other optional config
-        
-        String chdfsUrl = "ofs://f4maaaaaa-bbbb.chdfs.ap-guangzhou.myqcloud.com/";
+
+        String chdfsUrl = "ofs://f4maaabbb-ccdd.chdfs.ap-guangzhou.myqcloud.com/";
         return FileSystem.get(URI.create(chdfsUrl), conf);
     }
 
@@ -122,6 +122,14 @@ public class Demo {
         fs.rename(oldPath, newPath);
     }
 
+    private static void listDirPath(FileSystem fs, Path dirPath) throws IOException {
+        FileStatus[] dirMemberArray = fs.listStatus(dirPath);
+
+        for (FileStatus dirMember : dirMemberArray) {
+            System.out.printf("dirMember path %s, fileLen: %d\n", dirMember.getPath(), dirMember.getLen());
+        }
+    }
+
     // the recursive delete flag is used to delete dir
     // if recursive is false and dir is not empty, the operation will fail
     private static void deleteFileOrDir(FileSystem fs, Path path, boolean recursive) throws IOException {
@@ -163,20 +171,27 @@ public class Demo {
         renamePath(fs, chdfsFilePath, newPath);
 
         // delete file
-        // deleteFileOrDir(fs, newPath, false);
+        deleteFileOrDir(fs, newPath, false);
 
         // mkdir
         Path dirPath = new Path("/fff");
         mkdir(fs, dirPath);
 
+        // create file for dir
+        Path subFilePath = new Path("/fff/ggg.txt");
+        createFile(fs, subFilePath);
+
+        // list dir
+        listDirPath(fs, dirPath);
+
         // delete dir
-        // deleteFileOrDir(fs, dirPath, true);
+        deleteFileOrDir(fs, dirPath, true);
 
         // close filesystem
         closeFileSystem(fs);
     }
 }
-
+```
 4. 运行
 在代码编译后，运行前确保正确的设置classpath，需包含 Hadoop common包以及CHDFS包的路径。
 对于EMR环境,Hadoop common通常在/usr/local/service/hadoop/share/hadoop/common/，CHDFS包在/usr/local/service/hadoop/share/hadoop/common/lib/
