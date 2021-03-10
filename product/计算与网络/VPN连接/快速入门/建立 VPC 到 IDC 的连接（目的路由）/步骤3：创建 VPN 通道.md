@@ -1,4 +1,4 @@
-﻿1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击【VPN 连接】>【VPN 通道】，进入管理页。
 3. 选择对应的地域和私有网络，如示例中的**东京**和 `VPC1`，单击【+新建】。
 4. 输入通道名称（如：tunnel1），选择 VPN 网关 VPN1 与对端网关 `UserGw1`，并输入预共享密钥（如：`123456`），然后单击【下一步】。
