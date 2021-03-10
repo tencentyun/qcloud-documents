@@ -1,4 +1,4 @@
-<dx-alert infotype="notice" title="">
+<dx-alert infotype="explain" title="">
 如果您是首次使用云服务器，建议您先选择轻量应用服务器（Lighthouse） 来作为云服务器使用的入门途径，详情请参见 [快速配置轻量应用服务器 Windows 实例](https://cloud.tencent.com/document/product/1207/44549)。轻量应用服务器专为云开发者及云计算入门者设计，您可前往 [与云服务器 CVM 对比](https://cloud.tencent.com/document/product/1207/49819) 了解云服务器与轻量应用服务器的区别。
 </dx-alert>
 
