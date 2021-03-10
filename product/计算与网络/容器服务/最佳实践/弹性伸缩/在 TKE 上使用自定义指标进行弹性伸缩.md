@@ -189,7 +189,6 @@ prometheus:
   port: 9090
 ```
 3. 执行以下 Helm 命令安装 prometheus-adapter，示例如下：
-
 >! 安装前需要删除 TKE 已经注册的 Custom Metrics API，删除命令如下：
 > `kubectl delete apiservice v1beta1.custom.metrics.k8s.io`
 ```bash
