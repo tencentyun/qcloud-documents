@@ -194,4 +194,4 @@ public class Demo {
 ```
 4. 运行
 在代码编译后，运行前确保正确的设置classpath，需包含 Hadoop common包以及CHDFS包的路径。
-对于EMR环境,Hadoop common通常在/usr/local/service/hadoop/share/hadoop/common/，CHDFS包在/usr/local/service/hadoop/share/hadoop/common/lib/
+对于EMR环境, 如果是按照[挂载CHDFS](https://cloud.tencent.com/document/product/1105/36368)操作的， Hadoop common通常在/usr/local/service/hadoop/share/hadoop/common/，CHDFS包在/usr/local/service/hadoop/share/hadoop/common/lib/
