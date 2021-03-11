@@ -5,7 +5,7 @@ TRTCChatSalon 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服�
 - 观众可以申请上麦，变成麦上主播，可以和其他人语音互动，也可以随时下麦成为普通的观众。
 - 支持发送各种文本消息和自定义消息，自定义消息可用于实现弹幕、点赞和礼物等。
 
-TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [语音沙龙（Android）](https://cloud.tencent.com/document/product/647/53537?!editLang=zh&!preview)。
+TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [语音沙龙（Android）](https://cloud.tencent.com/document/product/647/53537)。
 
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时语音聊天组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 AVChatroom 实现聊天室的功能，同时，通过 IM 的属性接口来存储麦位表等房间信息，邀请信令可以用于上麦申请/抱麦申请。
@@ -143,7 +143,7 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 ### sharedInstance
 
-获取 [TRTCChatSalon](https://cloud.tencent.com/document/product/647/53537?!editLang=zh&!preview) 单例对象。
+获取 [TRTCChatSalon](https://cloud.tencent.com/document/product/647/53537) 单例对象。
 
 ```java
  public static synchronized TRTCChatSalon sharedInstance(Context context);
@@ -158,7 +158,7 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
    
 ### destroySharedInstance
 
-销毁 [TRTCChatSalon](https://cloud.tencent.com/document/product/647/53537?!editLang=zh&!preview) 单例对象。
+销毁 [TRTCChatSalon](https://cloud.tencent.com/document/product/647/53537) 单例对象。
 
 >?销毁实例后，外部缓存的 TRTCChatSalon 实例无法再使用，需要重新调用 [sharedInstance](#sharedinstance) 获取新实例。
 
@@ -167,7 +167,7 @@ public static void destroySharedInstance();
 ```
 
 ### setDelegate
-[TRTCChatSalon](https://cloud.tencent.com/document/product/647/53537?!editLang=zh&!preview) 事件回调，您可以通过 TRTCChatSalonDelegate 获得 [TRTCChatSalon](https://cloud.tencent.com/document/product/647/53537?!editLang=zh&!preview) 的各种状态通知。
+[TRTCChatSalon](https://cloud.tencent.com/document/product/647/53537) 事件回调，您可以通过 TRTCChatSalonDelegate 获得 [TRTCChatSalon](https://cloud.tencent.com/document/product/647/53537) 的各种状态通知。
 
 ```java
 public abstract void setDelegate(TRTCChatSalonDelegate delegate);
