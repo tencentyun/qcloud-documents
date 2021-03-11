@@ -8,8 +8,8 @@
          <th>观众麦位操作</th>  
      </tr>
 <tr>
-<td><div style="width:331px;height: 721.98px;background-image:url(https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/chatsalon_anchor.gif);background-size:100% 100% ;"></td>
-<td><div style="width:331px;height: 721.98px;background-image:url(https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/chatsalon_audicence.gif);background-size:100% 100% ;"></td>
+<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/chatsalon_anchor.gif" style="max-height:700px"></td>
+<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/chatsalon_audicence.gif" style="max-height:700px"></td>
 </tr>
 </table>
 
