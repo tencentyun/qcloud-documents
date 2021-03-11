@@ -845,8 +845,8 @@ void onSeatMute(String userId, boolean isMute);
 
 | 参数   | 类型    | 含义                               |
 | ------ | ------- | ---------------------------------- |
-| userId  | String     | 麦位的用户id。                       |
-| isMute | boolean | true：静音麦位； false：解除静音。 |
+| userId  | String     | 麦位的用户 id。                       |
+| isMute | boolean | true：静音麦位；false：解除静音。 |
 
 
 
