@@ -300,7 +300,6 @@ public void onAnchorEnterSeat(TRTCChatSalonDef.UserInfo userInfo) {
 
 <dx-tabs>
 ::: 主播端
-
 1. `pickSeat` 传入观众 userId, 可以抱人上麦，房间内所有成员会收到 `onAnchorEnterSeat` 的事件通知。
 2. `kickSeat` 传入对应用户的 userId 后，可以踢人下麦，房间内所有成员会收到 `onAnchorLeaveSeat` 的事件通知。
 
@@ -325,7 +324,6 @@ public void onAnchorEnterSeat(TRTCChatSalonDef.UserInfo user) {
 </dx-codeblock>
 :::
 ::: 观众端
-
 1. `enterSeat` 可以进行上麦，房间内所有成员会收到 `onAnchorEnterSeat` 的事件通知。
 2. `leaveSeat` 主动下麦，房间内所有成员会收到 `onAnchorLeaveSeat` 的事件通知。
 
@@ -358,7 +356,6 @@ public void onAnchorEnterSeat(int index, TRTCChatSalonDef.UserInfo user) {
 
 <dx-tabs>
 ::: 观众主动申请上麦
-
 1. 观众端调用 `sendInvitation` 传入主播的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
 2. 主播端收到 `onReceiveNewInvitation` 的事件通知，此时 UI 可以弹窗并询问主播是否同意。
 3. 主播选择同意后，调用 `acceptInvitation` 并传入 inviteId。
@@ -393,7 +390,6 @@ public void onReceiveNewInvitation(final String id, String inviter, String cmd, 
 </dx-codeblock>
 :::
 ::: 主播邀请观众上麦
-
 1. 主播端调用 `sendInvitation` 传入观众的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
 2. 观众端收到 `onReceiveNewInvitation` 的事件通知，此时 UI 可以弹窗并询问观众是否同意上麦。
 3. 观众选择同意后，调用 `acceptInvitation` 并传入 inviteId。
