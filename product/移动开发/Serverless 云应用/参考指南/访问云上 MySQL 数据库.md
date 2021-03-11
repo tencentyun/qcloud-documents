@@ -1,7 +1,7 @@
 云托管服务可以通过其所在的 VPC（私有网络）访问您在腾讯云上的 MySQL 数据库。
 
 ## 背景知识
-关于使用 VPC 连接 MySQL，请参阅 [连接 MySQL 实例](https://cloud.tencent.com/document/product/236/3130)。
+关于使用 VPC 连接 MySQL，请参见 [连接 MySQL 实例](https://cloud.tencent.com/document/product/236/3130)。
 点击服务所在私有网络的名称，可以跳转到私有网络控制台查看该私有网络内您有哪些MySQL数据库资源，可以与此服务配合使用。
 
 ## 前置条件
@@ -17,16 +17,16 @@
 
 ### 第 2 步：新建云托管服务
 
-具体流程请参阅：[新建服务](https://cloud.tencent.com/document/product/1243/46126)。
+具体流程请参见 [新建服务](https://cloud.tencent.com/document/product/1243/46126)。
 创建时，在“云托管网络”中选择【已有私有网络】，下拉选择步骤 1 中查询到 MySQL 实例所在的 VPC 和子网。
 
 ### 第 3 步：部署服务
-具体流程请参阅[部署服务](https://cloud.tencent.com/document/product/1243/46127)。
+具体流程请参见 [部署服务](https://cloud.tencent.com/document/product/1243/46127)。
 服务部署完成后，该服务将可以访问您选定的 MySQL 实例，以及同 VPC 下其他 MySQL 实例。
 
 ## 说明
 
-- 已有云托管服务不支持修改所在VPC。若您已部署好了服务，误选了和 MySQL 实例不相同的 VPC，可选择：
-   1. 重新在正确VPC部署服务，删除部署错误的服务；或
-   2. [打通多个 VPC](https://cloud.tencent.com/document/product/215/36698)。
+- 已有云托管服务不支持修改所在 VPC。若您已部署好了服务，误选了和 MySQL 实例不相同的 VPC，可选择：
+   - 重新在正确 VPC 部署服务，删除部署错误的服务。
+   - [打通多个 VPC](https://cloud.tencent.com/document/product/215/36698)。
 - 云托管暂时仅支持上海、广州、北京地域。若您的 MySQL 实例不在上述地域则无法复用。更多地域将陆续开放，敬请期待。
