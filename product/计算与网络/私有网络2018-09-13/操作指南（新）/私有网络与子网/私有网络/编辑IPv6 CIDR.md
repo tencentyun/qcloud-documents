@@ -1,8 +1,8 @@
 VPC 支持 IPv6 功能，当您有 IPv6 业务需求时，需要先为 VPC 分配一个 IPv6 CIDR 网段，然后 VPC 内云资源才可以在 VPC 的 IPv6 CIDR 内分配到 IPv6 地址，从而进行 IPv6 业务通信。本章节介绍如何通过控制台为 VPC 分配 IPv6 CIDR。
 >?目前弹性公网 IPv6 处于内测中，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/c28sebss8v)。
 >
-## 分配 IPv6 CIDR[](id:31)
 
+## 分配 IPv6 CIDR[](id:31)
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 在【私有网络】页面顶部，选择 VPC 所属地域。
 3. 在 VPC 列表中目标 VPC 右侧**操作**列选择【更多】>【编辑 IPv6 CIDR】。
