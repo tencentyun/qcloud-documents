@@ -3,10 +3,10 @@
 
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
-2. 单击左侧目录中的【子网】，进入子网管理页面。
+2. 在左侧目录中单击【子网】，进入子网管理页面。
 3. 单击某子网 ID，进入子网详情界面后，可选择在如下任一位置执行 ACL 的绑定/解绑/更换操作。
     + 在基本信息页签下的【关联 ACL】中
-    <img src="https://main.qcloudimg.com/raw/fa883626d1a92ec3991c1c4846422bf1.png" width="40%" />
+    <img src="https://main.qcloudimg.com/raw/fa883626d1a92ec3991c1c4846422bf1.png" width="50%" />
     + 在【ACL 规则】页签下
      <img src="https://main.qcloudimg.com/raw/bede2faf8d4855693fbac075507b5a5e.png" width="50%" />
 4. 请根据业务需要执行如下操作（此处截图以 ACL 页签操作为例）：
