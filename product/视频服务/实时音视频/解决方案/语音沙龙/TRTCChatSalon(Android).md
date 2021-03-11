@@ -833,6 +833,23 @@ void onAnchorLeaveSeat(TRTCChatSalonDef.UserInfo user);
 | user | UserInfo | 上麦用户的详细信息。 |
 
 
+### onSeatMute
+
+主播禁麦。
+
+```java
+void onSeatMute(String userId, boolean isMute);
+```
+
+参数如下表所示：
+
+| 参数   | 类型    | 含义                               |
+| ------ | ------- | ---------------------------------- |
+| userId  | String     | 麦位的用户id。                       |
+| isMute | boolean | true：静音麦位； false：解除静音。 |
+
+
+
 ## 观众进出事件回调
 
 ### onAudienceEnter
