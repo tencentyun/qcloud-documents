@@ -31,8 +31,8 @@
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
-2. 找到并打开 `/lib/debug/GenerateTestUserSig.dart` 文件。
-3. 设置 `GenerateTestUserSig.java` 文件中的相关参数：
+2. 找到并打开 `/example/lib/debug/GenerateTestUserSig.dart` 文件。
+3. 设置 `GenerateTestUserSig.dart` 文件中的相关参数：
 <ul><li/>SDKAPPID：默认为 PLACEHOLDER ，请设置为实际的 SDKAppID。
 	<li/>SECRETKEY：默认为 PLACEHOLDER ，请设置为实际的密钥信息。</ul>
 	<img src="https://main.qcloudimg.com/raw/31b265429e66a899acccb875a8c17ad6.png"/>
