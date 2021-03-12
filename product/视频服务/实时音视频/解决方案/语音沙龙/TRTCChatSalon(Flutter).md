@@ -131,8 +131,8 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                                    | 描述                                     |
 | -------------------------------------- | ---------------------------------------- |
-| [onRaiseHand](#onreceivenewinvitation) | 有观众举手，申请上麦。                   |
-| [onAgreeToSpeak](#oninviteeaccepted)   | 观众申请举手后，收到群主同意举手的回调。 |
+| [onRaiseHand](#onraisehand) | 有观众举手，申请上麦。                   |
+| [onAgreeToSpeak](#onagreetospeak)   | 观众申请举手后，收到群主同意举手的回调。 |
 | [onRefuseToSpeak](#onrefusetospeak)    | 观众申请举手后，群主拒绝举手的回调。     |
 
 ## SDK 基础函数
@@ -300,9 +300,35 @@ Future<RoomInfoCallback> getRoomInfoList(List<String> roomIdList)
 | roomIdList | List&lt;Integer&gt; | 房间号列表。 |
 
 
+### getRoomMemberList
+
+获取房间内所有成员列表。
+
+>?IM 直播聊天群默认只能拉取最近31个成员列表。
+
+
+```dart
+Future<MemberListCallback> getRoomMemberList(double nextSeq)
+```
+
+参数如下表所示：
+
+| 参数    | 类型   | 含义                                                         |
+| ------- | ------ | ------------------------------------------------------------ |
+| nextSeq | double | 分页拉取标志，第一次拉取填0，回调成功如果 nextSeq 不为零，需要分页，传入再次拉取，直至为0。 |
+
+### getArchorInfoList
+
+获取房间内主播列表。
+
+```dart
+Future<UserListCallback> getArchorInfoList()
+```
+
+
 ### getUserInfoList
 
-获取指定userId的用户信息。
+获取指定 userId 的用户信息。
 
 ```dart
 Future<UserListCallback> getUserInfoList(List<String> userIdList)
