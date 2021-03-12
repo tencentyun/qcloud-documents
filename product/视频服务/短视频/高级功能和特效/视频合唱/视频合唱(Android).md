@@ -19,15 +19,14 @@
 
 1. 从小视频主页的视频列表中，选择一个视频进入播放界面 TCVodPlayerActivity，单击右下角的“合拍”按钮。
 首先会下载该视频到本地 sdcard 中，并获取该视频的音频采样率以及 fps 等信息后进入录制界面。
-
 2. 进入录制界面 TCVideoRecordActivity 进行合唱。需要注意以下几点：
  - 录制进度条以跟拍视频的进度为最大长度。
  - 保证录制视频的帧率和合唱视频的帧率一致，否则可能出现音画不同步的现象。
  - 保证录制视频的音频采样率和合唱视频的音频采样率一致，否则可能出现音画不同步的现象。
  - 录制设置渲染模式为自适应模式，在9:16的宽高比时能等比例缩放。
  - Android 的录制需要设置静音，否则会造成与跟拍视频的“二重唱”。
- 
- ```
+<dx-codeblock>
+::: android 
 // 录制的界面
 mVideoView = mVideoViewFollowShotRecord;
 // 播放的视频
@@ -41,8 +40,10 @@ mFollowShotAudioSampleRateType = intent.getIntExtra(TCConstants.VIDEO_RECORD_AUD
 // 初始化合拍的接口
 mTXVideoJoiner = new TXVideoJoiner(this);
 mTXVideoJoiner.setVideoJoinerListener(this);
-```
-```objc
+:::
+</dx-codeblock>
+<dx-codeblock>
+::: android 
 // 播放器初始化，这里使用 TXVideoEditer，也可以使用 TXVodPlayer
 mTXVideoEditer = new TXVideoEditer(this);
 mTXVideoEditer.setVideoPath(mFollowShotVideoPath);
@@ -50,17 +51,20 @@ TXVideoEditConstants.TXPreviewParam param = new TXVideoEditConstants.TXPreviewPa
 param.videoView = mVideoViewPlay;
 param.renderMode = TXVideoEditConstants.PREVIEW_RENDER_MODE_FILL_EDGE;
 mTXVideoEditer.initWithPreview(param);
-```
-```
+:::
+</dx-codeblock>
+<dx-codeblock>
+::: android 
 customConfig.videoFps = mFollowShotVideoFps;
 customConfig.audioSampleRate = mFollowShotAudioSampleRateType; // 录制的视频的音频采样率必须与跟拍的音频采样率相同
 customConfig.needEdit = false;
 mTXCameraRecord.setVideoRenderMode(TXRecordCommon.VIDEO_RENDER_MODE_ADJUST_RESOLUTION); // 设置渲染模式为自适应模式
 mTXCameraRecord.setMute(true); // 跟拍不从喇叭录制声音，因为跟拍的视频声音也会从喇叭发出来被麦克风录制进去，造成跟原视频声音的"二重唱"。
-```
-
+:::
+</dx-codeblock>
 3. 接下来就可以开始录制了，在录制到最大长度后，会回调 onRecordComplete，继续完成拼接部分，这里需要指定两个视频在结果中的位置。
-```
+<dx-codeblock>
+::: android 
 private void prepareToJoiner(){
     List<String> videoSourceList = new ArrayList<>();
     videoSourceList.add(mRecordVideoPath);
@@ -96,10 +100,11 @@ private void prepareToJoiner(){
     mTXVideoJoiner.setSplitScreenList(list, recordVideoInfo.width + followVideoWidth, recordVideoInfo.height); //第2、3个 param：两个视频合成画布的宽高
     mTXVideoJoiner.splitJoinVideo(TXVideoEditConstants.VIDEO_COMPRESSED_540P, mFollowShotVideoOutputPath);
 }
-```
-
+:::
+</dx-codeblock>
 4. 监听合成的回调，在 onJoinComplete 后跳转到预览界面播放。
-```
+<dx-codeblock>
+::: android 
 @Override
 public void onJoinComplete(TXVideoEditConstants.TXJoinerResult result) {
     mCompleteProgressDialog.dismiss();
@@ -124,5 +129,7 @@ public void onJoinComplete(TXVideoEditConstants.TXJoinerResult result) {
         });
     }
 }
-```
+:::
+</dx-codeblock>
+
 至此就完成了全部合唱的基础功能，完整代码可以参考 [小视频源码](https://cloud.tencent.com/document/product/584/9366#.E5.85.A8.E5.8A.9F.E8.83.BD.E5.B0.8F.E8.A7.86.E9.A2.91-app.EF.BC.88demo.EF.BC.89.E6.BA.90.E4.BB.A3.E7.A0.81)。

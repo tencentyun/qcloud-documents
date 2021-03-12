@@ -117,3 +117,9 @@ Serverless Web IDE 中预置的扩展、常用工具和运行环境及版本如�
 | PHP-IntelliSense |      2.3.14       |
 |      ESLint      |      2.1.13       |
 |     Prettier     |       5.8.0       |
+
+
+## 注意事项
+
+在 IDE 中执行以下操作可能会带来数据泄漏等安全隐患，如必须执行，请谨慎操作。
+- 安装 phpmyadmin、struts2 等高危开源组件。

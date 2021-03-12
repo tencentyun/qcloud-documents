@@ -36,11 +36,11 @@
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)。
 2. 在左侧导航栏中选择【集群运维】>【审计检索】，进入“审计检索”页面。
 3. 选择【聚合检索】页签，进入“聚合检索”页面。该页面提供了 [用户](#user)、[操作类型](#type)、[返回状态码](#statuscode) 等多个维度对于 apiserver 访问的趋势图。 如下图所示：
- - <span id="user"></span>**操作用户分布趋势**：
+ - [](id:user)**操作用户分布趋势**：
 ![](https://main.qcloudimg.com/raw/1dd7b23886fbac9da2cd0a8b1f9ee65e.png)
- - <span id="type"></span>**操作类型分布趋势**：
+ - [](id:type)**操作类型分布趋势**：
 ![](https://main.qcloudimg.com/raw/cae4ff8e36bdb9edded07031b2845002.png)
- - <span id="statuscode"></span>**状态码分布趋势**：
+ - [](id:statuscode)**状态码分布趋势**：
 ![](https://main.qcloudimg.com/raw/6130c71389d87c99f3bd653fde115904.png)
 由图可见，用户 `tke-kube-state-metrics` 的访问量远高于其他用户，并且在 [操作类型分布趋势](#type) 图中可以看出大多数为 list 操作，在 [状态码分布趋势](#statuscode) 图中可以看出，状态码大多数为403。结合业务日志可知，由于 RBAC 鉴权问题导致 `tke-kube-state-metrics` 组件不停的请求 apiserver 重试，导致 apiserver 访问剧增。日志示例如下：
 ```plaintext

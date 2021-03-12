@@ -3,7 +3,7 @@
 ## 依赖环境
 1. 依赖环境：JDK 1.8版本及以上。
 2. 从 [腾讯云控制台](https://console.cloud.tencent.com/tts) 开通相应产品。
-3. 获取 SecretID、SecretKey 。
+3. 获取 SecretID、SecretKey。
 
 
 ## 获取安装
@@ -11,26 +11,22 @@
 
 
 ### 通过 Maven 安装
-从 maven 服务器下载最新版本 SDK
+从 maven 服务器下载最新版本 SDK：
 ```xml
 <dependency>
     <groupId>com.tencentcloudapi</groupId>
     <artifactId>tencentcloud-speech-sdk-java</artifactId>
-    <version>1.0.8</version>
+    <version>1.0.12</version>
 </dependency>
 ```
 
 ## TTS SDK 说明
 ###  关键类说明
-
 - SpeechClient 通过 SpeechClient.newInstance 创建该实例，newInstance 为单例实现。
 - SpeechSynthesizer 语音合成器，通过客户端 speechClient.newSpeechSynthesizer 创建实例。
 - SpeechSynthesizerRequest 用于配置请求参数，可通过 SpeechSynthesizerRequest.initialize() 方法进行初始化。
 - SpeechSynthesizerResponse 请求响应。
 - SpeechSynthesizerListener 请求回调。包含 onMessage onComplete  onFail 回调方法。
-
-
-
 
 ### SDK 使用说明
 1.创建 SpeechClient 实例。
@@ -40,7 +36,6 @@
 
 ## 示例
 #### [参考案例](https://github.com/TencentCloud/tencentcloud-speech-sdk-java-example)
-
 ```java
 package com.tencentcloud.tts;
 

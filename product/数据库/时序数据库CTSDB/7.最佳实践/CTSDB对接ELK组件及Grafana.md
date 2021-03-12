@@ -19,37 +19,37 @@ Filebeat 启动时可以指定配置文件路径，若不指定则默认使用 f
 ![](https://main.qcloudimg.com/raw/62440378c4f5dbde3169363178491623.png)
 2. 然后，配置 filebeat.yml，配置参考如下： 
 ```
- filebeat.shutdown_timeout: 5 # How long filebeat waits on shutdown for the publisher to finish.
-    	max_procs: 4 # 可同时执行的最大cpu数，默认为操作系统可用的逻辑cpu数
-    	filebeat.spool_size: 102400
-    	filebeat.idle_timeout: 2s
-    	processors:
-    	- drop_fields: # 需要drop掉的字段
-    	fields: ["beat","input_type","source","offset"]
-    	filebeat.prospectors:
-    	- paths: ["/data/log/filebeat-tutorial.log"]   # 样例数据所在的路径
-    	  fields:
-    	metricname: metric1
-    	  harvester_buffer_size: 1638400
-    	  close_timeout: 0.5h
-    	  scan_frequency: 2s
-    	- paths: ["/mylog/*.log","/mylog1/*.log"]
-    	  fields:
-    	metricname: table2
-    	  harvester_buffer_size: 1638401
-    	  close_timeout: 0.5h
-    	  scan_frequency: 2s
-    	output.elasticsearch:
-    	  hosts: ["127.0.0.1:9200"]
-    	  index: "%{[fields.indexname]}"  # 通配，可以达到不同类别的数据写入不同index的目的
-    	  username: "root" # 对于有权限的CTSDB这里需要填用户名和密码
-    	  password: "changeme"
-    	  worker: 2 # 工作线程数
-    	  loadbalance: true # 是否开启负载均衡
-    	  bulk_max_size: 512 # 一次bulk的最大文档数
-    	  flush_interval: 2s
-    	  template:
-    	enabled: false  # 注意：Filebeat启动后会put一个默认的template，对接CTSDB时，需要禁用Filebeat的template
+filebeat.shutdown_timeout: 5 # How long filebeat waits on shutdown for the publisher to finish.
+max_procs: 4 # 可同时执行的最大cpu数，默认为操作系统可用的逻辑cpu数
+filebeat.spool_size: 102400
+filebeat.idle_timeout: 2s
+processors:
+- drop_fields: # 需要drop掉的字段
+  fields: ["beat","input_type","source","offset"]
+filebeat.prospectors:
+- paths: ["/data/log/filebeat-tutorial.log"]   # 样例数据所在的路径
+  fields:
+    metricname: metric1
+  harvester_buffer_size: 1638400
+  close_timeout: 0.5h
+  scan_frequency: 2s
+- paths: ["/mylog/*.log","/mylog1/*.log"]
+  fields:
+    metricname: table2
+  harvester_buffer_size: 1638401
+  close_timeout: 0.5h
+  scan_frequency: 2s
+output.elasticsearch:
+  hosts: ["127.0.0.1:9200"]
+  index: "%{[fields.indexname]}"  # 通配，可以达到不同类别的数据写入不同index的目的
+  username: "root" # 对于有权限的CTSDB这里需要填用户名和密码
+  password: "changeme"
+  worker: 2 # 工作线程数
+  loadbalance: true # 是否开启负载均衡
+  bulk_max_size: 512 # 一次bulk的最大文档数
+  flush_interval: 2s
+  template:
+    enabled: false  # 注意：Filebeat启动后会put一个默认的template，对接CTSDB时，需要禁用Filebeat的template
 ```       
 部分样例数据如下： 
 ```
@@ -162,11 +162,9 @@ grok filter 插件在 Logstash 默认可用的，其能够将非结构化的数�
 	# 清空Filebeat的data目录，启动Filebeat
 	rm data/registry
 	nohup ./filebeat &
-	
 	# 启动Logstash
 	nohup bin/logstash -f first-pipeline.conf --config.reload.automatic &
-	# 通过kibana或curl查看CTSDB中是否有数据写入到metric1
-	
+	# 通过kibana或curl查看CTSDB中是否有数据写入到metric1	
 	# 命令：
 	GET logstash_metric/_search
 	{

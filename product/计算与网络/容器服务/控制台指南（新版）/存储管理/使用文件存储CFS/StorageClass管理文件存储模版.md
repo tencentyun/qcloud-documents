@@ -37,7 +37,7 @@
 
 ## 操作步骤
 ### 控制台操作指引
-#### 通过控制台创建 StorageClass<span id="create"></span>
+#### 通过控制台创建 StorageClass[](id:create)
 1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【集群】。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的【存储】>【StorageClass】，进入 “StorageClass” 页面。如下所示：
@@ -58,7 +58,7 @@
 5. 单击【新建 StorageClass 】即可。
 
 
-#### 使用指定 StorageClass 创建 PVC<span id="createPVC"></span>
+#### 使用指定 StorageClass 创建 PVC[](id:createPVC)
 1. 在“集群管理”页，选择需创建 PVC 的集群 ID。
 2. 在集群详情页，选择左侧菜单栏中的【存储】>【PersistentVolumeClaim】，进入 “PersistentVolumeClaim” 信息页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/e771b0d7e010605c3701de3f20831a96.png)
@@ -97,7 +97,7 @@
        - **目标路径**：填写目标路径，本文以 `/cache` 为例。
        - **挂载子路径**：仅挂载选中数据卷中的子路径或单一文件。例如， `/data` 或 `/test.txt`。
 3. 单击【创建Workload】，完成创建。
- > ! 如使用 PVC 挂载模式，则数据卷只能挂载到一台 Node 主机上。
+ >! 如使用 CFS 的 PVC 挂载模式，数据卷支持挂载到多台 Node 主机上。
 
 
 ### Kubectl 操作指引
@@ -107,11 +107,11 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name:  CFS auto
+   name:  CFS auto
 parameters:
 # first you must modify vpcid and subnetid in storageclass parameters
-  vpcid: vpc-xxxxxxxx
-  subnetid: subnet-xxxxxxxx
+   vpcid: vpc-xxxxxxxx
+   subnetid: subnet-xxxxxxxx
 provisioner: com.tencent.cloud.csi. CFS 
 ```
 支持参数如下：

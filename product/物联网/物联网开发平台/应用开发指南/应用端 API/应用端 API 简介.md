@@ -57,15 +57,15 @@
 对所有请求参数按参数名做字典序升序排列，所谓字典序升序排列，直观上就如同在字典中排列单词一样排序，按照字母表或数字表里递增顺序的排列次序，即先考虑第一个 “字母”，在相同的情况下考虑第二个 “字母”，依此类推。您可以借助编程语言中的相关排序函数来实现这一功能，例如 PHP 中的 ksort 函数。上述示例参数的排序结果如下：
 ```
 {
-    Action=AppCreateCellphoneUser,
-    AppKey=ahPxdK****TGrejd,
-    CountryCode=86,
-    Nonce=71087795,
-    Password=My!P@ssword,
-    PhoneNumber=13900000000,
-    RequestId=8b8d499bbba1ac28b6da21b4,
-    Timestamp=1546315200,
-    VerificationCode=123456
+		Action=AppCreateCellphoneUser,
+		AppKey=ahPxdK****TGrejd,
+		CountryCode=86,
+		Nonce=71087795,
+		Password=My!P@ssword,
+		PhoneNumber=13900000000,
+		RequestId=8b8d499bbba1ac28b6da21b4,
+		Timestamp=1546315200,
+		VerificationCode=123456
 }
 ```
 

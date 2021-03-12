@@ -78,7 +78,7 @@ XML Body
 | :---------------------- | :---------------------- | :------------------------------------------- | :-------- |
 | CreateLiveChannelResult | 无                      | 保存 CreateLiveChannel 请求结果的容器 | Container |
 | PublishUrls | CreateLiveChannelResult | 保存推流地址的容器              | Container |
-| Url | PublishUrls | 推流地址<br> 说明：这里返回的推流地址未加签名信息，可通过调用 SDK 或者参见 [RTMP 请求地址与签名](#跳转到 RTMP 请求地址与签名) 获取签名 | String |
+| Url | PublishUrls | 推流地址<br> 说明：这里返回的推流地址未加签名信息，可通过调用 SDK 或者参见 [RTMP 请求地址与签名](https://cloud.tencent.com/document/product/436/50892) 获取签名 | String |
 | PlayUrls | CreateLiveChannelResult | 保存播放地址的容器 | Container |
 | Url | PlayUrls | 播放地址 | String |
 

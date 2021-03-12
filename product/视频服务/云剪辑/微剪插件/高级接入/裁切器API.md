@@ -44,7 +44,7 @@
 | bindended                | Function | -| 时间轴播放到末尾（右手柄位置）事件| 否       |
 
 
-###  trackInfo 结构<span id="clipper_trackInfo"></span>
+###  trackInfo 结构[](id:clipper_trackInfo)
 clipper 组件接受的 trackInfo 数据相比于标准的 Track 多了几个属性，如下所示：
 ```
  {
@@ -53,7 +53,7 @@ clipper 组件接受的 trackInfo 数据相比于标准的 Track 多了几个属
    scrollStartTime: Number // 缩略图滚动时间（影响最终的 clipped 数据）
  }
 ```
-###  settings 默认值<span id="clipper_settings"></span>
+###  settings 默认值[](id:clipper_settings)
 ```
   {
     clipMaxDuration: 60, // 裁切时长限制（秒）

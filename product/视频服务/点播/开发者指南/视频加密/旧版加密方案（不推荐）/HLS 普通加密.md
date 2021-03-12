@@ -75,7 +75,7 @@
 - 转码过程使用加密模板10进行加密。
 - 事件通知模式为：待整个事件执行完毕之后发起一次事件通知。
 
-<pre>
+```plaintext
 https://vod.api.qcloud.com/v2/index.php?Action=ProcessFile
 &transcode.definition.0=210
 &transcode.definition.1=220
@@ -84,7 +84,7 @@ https://vod.api.qcloud.com/v2/index.php?Action=ProcessFile
 &transcode.drm.definition=10
 &amp;notifyMode=Finish
 &COMMON_PARAMS
-</pre>
+```
 
 #### 2. 点播平台获取加密密钥
 云点播平台根据调用方指定的加密参数模板，读取密钥获取方式、最终用户获取解密密钥的 URL（如 `https://getkey.example.com`），然后从指定 KMS 系统中获取视频加密密钥 DK 和 EDK。
@@ -99,9 +99,9 @@ https://vod.api.qcloud.com/v2/index.php?Action=ProcessFile
 
 在增加上述参数之后，写入转码目标视频文件的 URL 可能为
 
-<pre>
+```plaintext
 https://getkey.example.com?fileId=123456&keySource=VodBuildInKMS&edk=abcdef
-</pre>
+```
 
 
 该 URL 也是客户端最终在视频播放过程中获取解密密钥时访问的 URL。
@@ -123,7 +123,7 @@ https://getkey.example.com?fileId=123456&keySource=VodBuildInKMS&edk=abcdef
 1. 将用户身份信息通过参数的方式追加到 URL 中，带给 App 的鉴权服务。该方案适用于所有的 HLS 播放器。具体方案请参见 [视频播放方案1](#p1)：通过 QueryString 传递身份认证信息。
 2. 将用户身份信息通过 Cookie 带给 App 的鉴权服务。该方案安全性更高，但仅适用于在访问`EXT-X-KEY`标签所标识的 URL 时会携带 Cookie 的播放器。具体方案请参见 [视频播放方案2](#p2)：通过 Cookie 传递身份认证信息。
 
-### <span id="p1"></span>视频播放方案1
+### [](id:p1)视频播放方案1
 
 视频播放方案1：通过 QueryString 传递身份认证信息，该方案适用于任意支持 HLS 的播放器。
 
@@ -135,14 +135,14 @@ https://getkey.example.com?fileId=123456&keySource=VodBuildInKMS&edk=abcdef
 在拿到多码率播放地址后，客户端需要将用户身份信息添加到播放地址中。对于任意播放 URL，增加用户身份信息的方法是：在 URL 中的**文件名**前增加`voddrm.token.<Token>`。
 
 例如，用户身份信息标识为 ABC123；某一码率的播放地址为：
-<pre>
+```plaintext
 http://example.vod2.myqcloud.com/path/to/a/video.m3u8
-</pre>
+```
 
 则最终 URL 为：
-<pre>
+```plaintext
 http://example.vod2.myqcloud.com/path/to/a/voddrm.token.ABC123.video.m3u8
-</pre>
+```
 
 
 #### 3. 获取视频内容（已加密）
@@ -150,24 +150,24 @@ http://example.vod2.myqcloud.com/path/to/a/voddrm.token.ABC123.video.m3u8
 当播放器访问已经按照上一步所述流程携带用户身份信息的 URL 时，云点播后台会自动将 Token 信息以 QueryString 的方式附加到原始 M3U8 文件`EXT-X-KEY`标签所标识的 URL 中。
 
 例如，某一码率的已加密视频 URL 为：
-<pre>
+```plaintext
 http://example.vod2.myqcloud.com/path/to/a/video.m3u8
-</pre>
+```
 
 该文件中，`EXT-X-KEY`标签所标识的获取视频解密密钥的 URL 为：
-<pre>
+```plaintext
 https://getkey.example.com?fileId=123456&keySource=VodBuildInKMS&edk=abcdef
-</pre>
+```
 
 则当播放器访问携带 Token 信息的播放地址，即：
-<pre>
+```plaintext
 http://example.vod2.myqcloud.com/path/to/a/voddrm.token.ABC123.video.m3u8
-</pre>
+```
 
 其中`EXT-X-KEY`标签所标识的获取视频解密密钥的 URL 会被替换为：
-<pre>
+```plaintext
 https://getkey.example.com?fileId=123456&keySource=VodBuildInKMS&edk=abcdef&token=ABC123
-</pre>
+```
 
 此时，播放器获取解密密钥 DK 时便会带上第1步派发的 Token。
 
@@ -176,7 +176,7 @@ https://getkey.example.com?fileId=123456&keySource=VodBuildInKMS&edk=abcdef&toke
 当播放器获取到视频索引文件（M3U8 文件）后，会在播放视频文件之前自动发起第4步。App 后台在收到客户端的请求后，首先对 QueryString 中的 Token 进行校验。如果用户身份非法，则直接拒绝请求。如果用户身份合法，则根据 URL 中携带的 fileId、keySource、edk 等参数，到 KMS 系统中获取 DK，并返回给客户端。
 以上步骤均完成后，客户端便拿到了视频解密密钥，从而可以进行正常的视频解密与播放。
 
-### <span id="p2"></span>视频播放方案2
+### [](id:p2)视频播放方案2
 视频播放方案2：通过 Cookie 传递身份认证信息。该方案仅适用于 iOS/PC 平台的 H5/Flash 播放器。在该平台下，播放器在访问`EXT-X-KEY`标签所标识的 URL 时会带上 Cookie。
 
 >!实际测试发现，Android 平台的 H5 播放器在访问`EXT-X-KEY`标签所标识的 URL 时不会携带 Cookie，所以 Android 平台目前只能使用**方案1**。
@@ -190,13 +190,13 @@ https://getkey.example.com?fileId=123456&keySource=VodBuildInKMS&edk=abcdef&toke
 #### 3. 获取视频内容（已加密）
 当开始播放视频时，视频播放器会自动发起这一步。
 视频播放器开始播放视频时，会向点播 CDN 边缘节点请求视频数据文件。对于 HLS 格式的视频，播放器会根据 M3U8 文件中的`EXT-X-KEY`标签来获取视频解密密钥。例如，`EXT-X-KEY`标签中获取视频解密密钥的 URL 为：
-<pre>
+```plaintext 
 https://getkey.example.com?fileId=123456&keySource=VodBuildInKMS&edk=abcdef
-</pre>
+```
 
 当播放器获取解密密钥 DK 时，会带上第1步由 App 后台派发的`example.com`域的 Cookie。
 
-#### 4. 获取视频解密密钥（携带身份验证 Cookie）
+#### 4. 获取视频解密密钥（携带身份验证 Cookie）[](id:cookie)
 
 当播放器获取到视频索引文件（M3U8 文件）后，会在播放视频文件之前自动发起第4步。
 
@@ -207,9 +207,9 @@ App 后台在收到客户端的请求之后，首先对 Cookie 中的身份认�
 
 ####  1. 加密 HLS 与普通 HLS 有什么差异？
 根据 HLS 文档规范，HLS 加密是对媒体文件（TS 文件）进行加密，M3U8 文件描述了播放器如何解密 TS 文件的方法。加密 HLS 的 M3U8 文件里包含了`EXT-X-KEY`标签，该参数包含`METHOD`和`URI`属性。`METHOD`属性描述了加密的算法，如`AES-128`，`URI`属性描述了获取解密密钥的地址，播放器访问这个 URI 就可以获取到解密的密钥数据。如 URI 为：
-<pre>
+```plaintext
 http://www.test.com/getdk?fileId=123&edk=14cf
-</pre>
+```
 
 播放器解析该 M3U8 文件时就会向这个 URI 发起 HTTP 请求，从返回包里获取到密钥数据。
 

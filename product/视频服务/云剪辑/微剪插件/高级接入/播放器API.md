@@ -5,6 +5,8 @@
 >
 >v1.5.0 后新增功能：
 >转场和动效，详情请参见 [转场和动效](https://cloud.tencent.com/document/product/1156/50070)。
+>
+>v1.6.0 版本新增3种特效，详情请参见 [新特效](#NewSpecialEffects)。
 
 ## 使用方式
 1. 配置 JSON 文件：
@@ -78,6 +80,7 @@
 | getPlayStatus | -      | String       | 获取当前播放状态                         |
 | hideClipControl| -      | -           | 强制隐藏所有的编辑控件                         |
 | preloadSticker| String（spritesheet 地址或 key 值）| -       | 异步方法，预加载贴纸       |
+| preloadTemplate| String（模板 key 值）| -       | 异步方法，预加载模板       |
 
 播放器围绕 Tracks 和 Clips 进行视频渲染， 前文数据结构详细介绍了 Tracks 和 Clips 直接的关系。接下来，我们一起来看一下如何对播放器进行渲染。
 >?
@@ -168,12 +171,12 @@ let imageClip1 = new global['wj-types'].Clip({
 ```javascript
 this.mediaTrack.clips = [videoClip1, imageClip1];
 ```>? 可以看到此时媒体轨道中已经添加一个视频和一张图片。以此类推，您可以按照这种方式添加更多的视频或者图片。
-4. 更新播放器。<span id="updata_play"></span>
+4. 更新播放器。[](id:updata_play)
 播放器均通过`updateData`方法实现更新`updateData`接受的参数为包含轨道的数组。以创建的媒体轨道后更新播放器为例，只需`updateData([媒体轨道])`即可 ：
 ```javascript
 this.player.updateData([this.mediaTrack]);
 ```>? 以此类推，若您的播放器中包含视频，音乐，特效等，则`updateData([媒体轨道，音乐轨道， 特效轨道])`。
-5. 修改视频时长。<span id="change_video"></span>
+5. 修改视频时长。[](id:change_video)
 以修改视频片段 videoClip1 时长为例，直接修改 videoClip1 的 section 属性。
 ```javascript
 videoClip1.section = new global['wj-types'].ClipSection({
@@ -189,7 +192,7 @@ videoClip1.startAt = 1;
 ```javascript
   this.player.updateData([this.mediaTrack]);
 ```
-6. 删除某个视频。<span id="delect_video"></span>
+6. 删除某个视频。[](id:delect_video)
 在 media 轨道中删除对应的 Clip 即可，以删除 videoClip1 为例：
 	1. 获取视频对应的 id（`video1`）进行删除。
 ```javascript 
@@ -267,11 +270,11 @@ this.filterTrack = new global['wj-types'].Track({
 			clips: []
 });
 ```
-2. 添加滤镜片段。<span id="filter_step2"></span>
+2. 添加滤镜片段。[](id:filter_step2)
   1. 获取播放器内部提供的默认滤镜：
   ```javascript
     const filterList = this.player.getFilters();
-  ```	<span id="filterList"></span>**filterList** 的数据结构如下所示：
+  ```	[](id:filterList)**filterList** 的数据结构如下所示：
   ```
 [
 					{
@@ -342,7 +345,7 @@ this.effectTrack = new global['wj-types'].Track({
 			clips: []
 });
 ```
-2. 添加滤镜片段。<span id="effect_step2"></span>
+2. 添加滤镜片段。[](id:effect_step2)
   1. 获取播放器内部提供的默认特效：
 ```javascript
   const effectList = this.player.getEffects();
@@ -421,8 +424,54 @@ this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrackm, thi
 this.player.updateData([this.mediaTrack, this.musicTrack, this.filterTrack]);
 ```
 
-<span id = "sss"></span>
-### 文字轨道使用说明
+#### 1.6.0 版本新增3种特效[](id:NewSpecialEffects)
+插件在1.6.0版本新增了3种金粉系列特效，原理和其他特效有些区别，所以这里接入方法会有一些差异。
+1. 先从播放器中获取所有的特效类型
+``` javascript
+  const effetcs = this.player.getEffects();
+````effetcs`为如下结构：
+``` javascript
+{
+  key: 'jinfen1',
+  name: '闪粉',
+  is_alpha: true,
+  previewImage: 'https://imgcache.qq.com/qcloud/vod/dist/mp-video-edit/effect/ScNine.gif'
+}, {
+  key: 'jinfen2',
+  name: '星火',
+  is_alpha: true,
+  previewImage: 'https://imgcache.qq.com/qcloud/vod/dist/mp-video-edit/effect/ScNine.gif'
+}, {
+  key: 'jinfen3',
+  name: '金粉',
+  is_alpha: true,
+  previewImage: 'https://imgcache.qq.com/qcloud/vod/dist/mp-video-edit/effect/ScNine.gif'
+}
+```可以看到新增了3种特效，分别为`闪粉`, `星火`, `金粉`。字段相比`1.6.0`之前的版本新增了`is_alpha`字段，意味着需要做如下处理才能使用。
+2. 下载特效素材
+假设您要加载`jinfen1`, 在`downLoadEffect`方法中传入 key 即可。`downLoadEffect`方法包装为 Promise，下载完成之后就可以进行播放器的渲染了。下载素材只需要使用播放器内置方法即可:
+``` javascript
+this.player.downLoadEffect('jinfen1').then(() => {
+  ...
+})
+```>?`1.6.0`版本素材都为内置 shader 的模式，但是新增的金粉系列特效底层使用 mp4 进行渲染，因此需要先下载一些 mp4 素材。
+3. 特效渲染
+特效渲染和`1.6.0`版本方法基本一致, 唯一区别就是需要在Clip中加一个字段`isAlpha`为`true`。
+``` javascript
+let effectClip2 = new global['wj-types'].Clip({
+  id: 'jinfen1',
+  type: 'effect',
+  key: 'jinfen1',
+  section: new global['wj-types'].ClipSection({
+    start: 0,
+    end: 2
+  }),
+  isAlpha: true
+  startAt: 3
+})
+```
+
+### 文字轨道使用说明[](id:sss)
 1. 添加文字轨道。
 ```javascript
 this.textTrack1 = new global['wj-types'].Track({
@@ -430,6 +479,7 @@ this.textTrack1 = new global['wj-types'].Track({
 			clips: []
 });
 ```
+
 2. 添加文字片段。
 	1. 创建 textClip：
 ```javascript
@@ -448,7 +498,8 @@ this.textTrack1 = new global['wj-types'].Track({
 							backgroundColor: text.bgColor
 					}
 			},
-	})```<table>
+	})
+```<table>
 <tr><th>参数</th><th>说明</th></tr><tr>
 <td>content</td>
 <td>content 为文字的内容，可通过 style 自定义文字的颜色和背景颜色。</td>
@@ -458,7 +509,7 @@ this.textTrack1 = new global['wj-types'].Track({
   2. 将新创建的 textClip 添加到轨道中：
 ```javascript
 this.textTrack.clips = [textClip1]
-```<span id = "more_clip"></span>当然，您也可以在一个轨道添加多个文字，文字 Clip 的 section 没有重叠。
+```[](id:more_clip)当然，您也可以在一个轨道添加多个文字，文字 Clip 的 section 没有重叠。
 ```javascript
 this.textTrack.clips = [textClip1, textClips2, ...]
 ```
@@ -503,7 +554,8 @@ this.player.updateData([this.mediaTrack, this.musicTrack,this.filterTrack, this.
 6. 给文字添加字体。
 由于小程序插件无法调用 wx.loadFontFace 方法，因此需要小程序手动暴露该接口给插件，或者在小程序内提前加载字体后再传入插件渲染。详情可参考 [自定义贴纸和字体](https://cloud.tencent.com/document/product/1156/49440)。
 **加载字体**：
-```javascript
+```
+javascript
 loadFontFace({
 		family: 'fangzhengyouhei',
 		source: "https://fontPath",
@@ -519,7 +571,8 @@ loadFontFace({
 			reject()
 		}
 });
-```**构造对应的文字 clip**：
+```
+**构造对应的文字 clip**：
 ```javascript
 let mytext = new global['wj-types'].Clip({
 	type: 'text',
@@ -544,6 +597,7 @@ let mytext = new global['wj-types'].Clip({
 	},
 })
 ```>? 内置字体列表获取请参考 [内置资源](https://cloud.tencent.com/document/product/1156/49439)。
+
 
 ### 贴纸轨道使用说明
 1. 创建贴纸轨道

@@ -19,14 +19,14 @@
 
 ### 步骤1：添加短视频 License
 1. 进入 [短视频 License](https://console.cloud.tencent.com/vod/license) ，单击【新增 License】，进入短视频 License 新增页。
-![](https://main.qcloudimg.com/raw/ff6252ca1182fb17682fb6c4891c36c2.png)
+![](https://main.qcloudimg.com/raw/43d053d5c02b99d83bc9599897df1127.png)
 2. 请选择当前账户可用的资源包来绑定。若提示无可用资源包，请单击【[购买页](https://buy.cloud.tencent.com/vod?p=mp)】前往选购 [流量资源包10TB](https://buy.cloud.tencent.com/vod?p=mp)、[流量资源包50TB](https://buy.cloud.tencent.com/vod?p=mp) 或 [流量资源包200TB](https://buy.cloud.tencent.com/vod?p=mp) 中的任意一种。请参见 [点播流量资源包与短视频 SDK License 版本对应表](https://cloud.tencent.com/document/product/266/33149#.E7.9F.AD.E8.A7.86.E9.A2.91-sdk-license)。
-![](https://main.qcloudimg.com/raw/0db35cf7b4722c4eebea35fb41ca6cf9.png)
+![](https://main.qcloudimg.com/raw/3daa77e7721ca7a9c482cdfcd15d408d.png)
 3. 单击【确认并继续完成 License 设置】跳转到 License 设置页。
 
 ### 步骤2：绑定短视频 License
 1. 请录入 App Name、Package Name 以及 Bundle ID。
-![](https://main.qcloudimg.com/raw/4e431708c0e9043b98059cd136666700.png)
+![](https://main.qcloudimg.com/raw/6db5057d5e2b2f4bb443bf8287cf6297.png)
 2. 单击【确定】即可。
 
 >!**购买点播套餐包并绑定 License 后，请确认 [Bundle ID 和 Package Name]( https://cloud.tencent.com/document/product/266/50296#5.E3.80.81license-.E5.BA.94.E8.AF.A5.E5.A6.82.E4.BD.95.E7.A1.AE.E8.AE.A4.E7.BB.91.E5.AE.9A.E5.85.B3.E7.B3.BB.EF.BC.88android-.E7.9A.84-packagename-.E5.92.8C-ios-.E7.9A.84-bundleid.EF.BC.89.3F) 无误，一旦提交，License 信息不能再做修改。**

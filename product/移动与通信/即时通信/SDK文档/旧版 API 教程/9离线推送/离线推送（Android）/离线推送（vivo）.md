@@ -198,6 +198,7 @@ if (IMFunc.isBrandVivo()) {
 以下为 Demo 中的示例代码：
 
 - 定义证书 ID 常量：
+
 ```java
 /**
  * 我们先定义一些常量信息在 Constants.java
@@ -212,6 +213,7 @@ public static final String VIVO_PUSH_APPKEY = "12345abcde"; // 见清单文件
 ```
 
 - 上报推送的证书 ID 及 regId：
+
 ```java
 /**
  * 在 ThirdPushTokenMgr.java 中对推送的证书 ID 及设备信息进行上报操作
@@ -276,6 +278,7 @@ public class ThirdPushTokenMgr {
         });
     }
 }
+
 ```
 
 ### 步骤5：离线推送
@@ -303,7 +306,7 @@ public class ThirdPushTokenMgr {
 ### 打开应用内指定界面
 
 1. 在 manifest 中配置需要打开的 Activity 的`intent-filter`，示例代码如下：
-	```
+```
 	<activity
 		android:name="com.tencent.qcloud.tim.demo.chat.ChatActivity"
 		android:launchMode="singleTask"
@@ -317,21 +320,21 @@ public class ThirdPushTokenMgr {
 				android:path="/detail"
 				android:scheme="pushscheme" />
 		</intent-filter>
-		   
+
 	</activity>
-	```
+```
 
 2. 获取 intent URL，方式如下：
-    ```
+```
     Intent intent = new Intent(this, ChatActivity.class);
     intent.setData(Uri.parse("pushscheme://com.tencent.qcloud.tim/detail"));
     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
     String intentUri = intent.toUri(Intent.URI_INTENT_SCHEME);
     Log.i(TAG, "intentUri = " + intentUri);
-      
-    // 打印结果
-    intent://com.tencent.qcloud.tim/detail#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.chat.ChatActivity;end
-    ```
+
+// 打印结果
+ intent://com.tencent.qcloud.tim/detail#Intent;scheme=pushscheme;launchFlags=0x4000000;component=com.tencent.qcloud.tim.tuikit/com.tencent.qcloud.tim.demo.chat.ChatActivity;end
+```
 
 3. 在 [添加证书](#Step2) 时选择【打开应用内指定界面】并输入上述打印结果。
     ![](https://main.qcloudimg.com/raw/1ab25b8c52b953014786682bce43c2ed.png)

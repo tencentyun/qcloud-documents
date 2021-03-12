@@ -4,7 +4,8 @@
 ## 前提条件
 1. 已下载安装 [控件](https://cloud.tencent.com/document/product/1025/32034)。
 2. 已下载安装 WinSCP 工具。
-2. 拥有访问 Windows 资源权限，若无权限，请联系管理员进行配置。
+3. 拥有访问 Windows 资源权限，若无权限，请联系管理员进行配置。
+4. Windows 资源机使用 XFTP 工具前，需要在 Windows 资源机上部署 FTP 服务。 
 
 
 ## 操作步骤
@@ -18,6 +19,7 @@
 	- 协议：选择“FTP”。
 	- 账号：输入 Windows 的系统账号。
 	- 口令：输入 Windows 账号的密码。
+	>?账号和口令为 [添加资源](https://cloud.tencent.com/document/product/1025/32220) 时设置的账号和口令。
 	- 工具：选择 XFTP 工具。
 	- 超时时间：连接 Windows 资源的超时时间，默认为5秒。
 ![](https://main.qcloudimg.com/raw/bf7bdfec613dc093b79c9dbc93a95fdf.png)

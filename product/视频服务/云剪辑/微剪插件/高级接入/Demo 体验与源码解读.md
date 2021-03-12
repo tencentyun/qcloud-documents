@@ -27,8 +27,7 @@
 >? 具体操作请参见 [准备工作](https://cloud.tencent.com/document/product/1156/45645)。
 
 
-<span id="download"></span>
-## Demo 下载
+## Demo 下载[](id:download)
 1. 单击 [GitHub](https://github.com/tencentyun/weijian-sdk/tree/master/outside-demo)，可以查看带注释的 Demo 小程序源码。
 2. 使用小程序 [开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html) 打开，使用手机扫一扫即可体验。
 
@@ -48,14 +47,14 @@ Demo 主要以微剪插件为核心，集成了一个简单的视频剪辑小程
 
 
 
-#### <span id="shoot">拍摄模块</span>
+#### 拍摄模块[](id:shoot)
 - 拍摄模块支持**拍摄视频**、**选择视频**和**选择图片**功能。
 - 拍摄页核心代码位于 `pages/demo/index`，核心功能借助插件的 `wj-camera` 组件。
 - 选择或者拍摄完视频后，`wj-camera` 组件会自动生成 `media track` 提供给裁切页使用。
 
 >? 拍摄完成后单击【下一步】，进入视频裁切页。
 
-#### <span id="cut">裁切模块</span>
+#### 裁切模块[](id:cut)
 - 裁切模块支持**单段视频时长选择**和**多段视频组合时长选择**功能。
 - 裁切页的核心代码位于 `pages/demo/preview`，核心功能借助插件的 `wj-clipper` 和 `wj-player`组件。
 - 进入裁切页后，裁切器会自动生成缩略图以及拖拽式 seek 游标，可选择视频的时长。
@@ -65,7 +64,7 @@ Demo 主要以微剪插件为核心，集成了一个简单的视频剪辑小程
 >? 视频裁切完成后单击【下一步】，进入视频编辑页。
 
 
-#### <span id="edit">视频编辑模块</span>
+#### 视频编辑模块[](id:edit)
 - 视频编辑模块支持**添加音乐、滤镜、特效、文字**功能。
 - 视频编辑页核心代码位于 `pages/demo/edit`，核心功能借助插件的 `wj-player` 组件。
 - 小程序的编辑能力主要依赖于 `wj-player` 组件的核心方法 `updateData`。
@@ -78,7 +77,7 @@ Demo 主要以微剪插件为核心，集成了一个简单的视频剪辑小程
 
 >? 视频编辑完成后单击【下一步】，进入导出页。
 
-#### <span id="export">导出模块</span>
+#### 导出模块[](id:export)
 - 导出模块支持**视频导出**、**视频封面生成**、**水印添加**和**导出进度百分比**功能。
 - 导出页核心代码位于 `pages/demo/export`, 核心功能借助插件的`wj-export`组件。
 - 借助 `wj-export` 组件，只需引入一个标签和编写一个 js 文件即可实现视频导出功能。

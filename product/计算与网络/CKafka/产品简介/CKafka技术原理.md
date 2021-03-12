@@ -42,7 +42,7 @@
 Replica 均匀分布到整个集群，Replica 的算法如下：
 1. 将所有 Broker（假设共 n 个 Broker）和待分配的 Partition 排序。
 2. 将第 i 个 Partition 分配到第（i mod n）个 Broker 上。
-3. 将第 i 个 Partition 的第 j 个 Replica 分配到第（(i + j) mode n）个 Broker 上。
+3. 将第 i 个 Partition 的第 j 个 Replica 分配到第（(i + j) mod n）个 Broker 上。
 
 ## Leader Election 选举机制
 消息队列 CKafka 在 ZooKeeper 中动态维护了一个 ISR（in-sync replicas），ISR 里的所有 Replica 都跟上了 Leader。只有 ISR 里的成员才有被选为 Leader 的可能。

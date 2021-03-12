@@ -1,7 +1,6 @@
 提交当前事务。
 
 ## 概要
-
 ```sql
 COMMIT [WORK | TRANSACTION]
 ```
@@ -10,7 +9,6 @@ COMMIT [WORK | TRANSACTION]
 COMMIT 提交当前事务。所有由该事务所作的更改会变得对他人可见并且被保证在崩溃发生时仍能持久。
 
 ## 参数
-
 WORK
 TRANSACTION
 可选的关键词。它们没有效果。
@@ -21,7 +19,6 @@ TRANSACTION
 
 ## 示例
 要提交当前事务并且让所有更改持久化：
-
 ```sql
 COMMIT;
 ```
@@ -30,5 +27,4 @@ COMMIT;
 SQL 标准仅指定了两种形式：COMMIT 和 COMMIT WORK。除此之外，这个命令完全符合。
 
 ## 另见
-
 BEGIN、END、START TRANSACTION、ROLLBACK

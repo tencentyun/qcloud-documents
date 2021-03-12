@@ -40,7 +40,7 @@
 - [群组管理（Web & 小程序）](https://cloud.tencent.com/document/product/269/37459)
 
 ## 使用指南
-<span id="Step1"></span>
+[](id:Step1)
 ### 步骤1：创建应用
 
 1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
@@ -51,7 +51,7 @@
 3. 在【创建应用】对话框中输入您的应用名称，单击【确定】。创建完成后，可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。
 4. 记录该应用的 SDKAppID 信息。
 
-<span id="Step2"></span>
+[](id:Step2)
 ### 步骤2：创建 AVChatRoom
 您可以通过控制台创建群组，也可以通过调用 [创建群组 API](https://cloud.tencent.com/document/product/269/1615) 创建群组。本文以通过控制台创建为例。
 
@@ -62,7 +62,7 @@
 4. 单击【确定】，待群组创建成功后，记录其【群ID】（本文以`@TGS#aC72FIKG3`为例）。
 
 
-<span id="Step3"></span>
+[](id:Step3)
 ### 步骤3：集成 SDK
 您可以通过 NPM 或 Script 集成 SDK，推荐使用 NPM 集成。本文以使用 NPM 集成为例。
 
@@ -83,7 +83,7 @@ npm install tim-wx-sdk --save-dev
 npm config set registry http://r.cnpmjs.org/
 ```
 
-<span id="Step4"></span>
+[](id:Step4)
 ### 步骤4：创建 SDK 实例
 
 <pre><code><span class="hljs-comment">// 创建 SDK 实例，TIM.create() 方法对于同一个 SDKAppID 只会返回同一份实例</span>
@@ -174,7 +174,7 @@ _handleGroupSystemNotice(message) {
   <span class="hljs-comment">// 用 REST API 发送群系统通知请参考 <a href="https://cloud.tencent.com/document/product/269/1630">在群组中发送系统通知 API</a></span>
 }</code></pre>
 
-<span id="Step5"></span>
+[](id:Step5)
 ### 步骤5：登录 SDK
 
 ```javascript
@@ -186,7 +186,7 @@ promise.then(function(imResponse) {
 });
 ```
 
-<span id="Step6"></span>
+[](id:Step6)
 ### 步骤6：设置自己的昵称和头像
 2.6.2及以上版本 SDK，AVChatRoom 内的群聊消息和群提示消息（例如进群退群等），都增加了 nick（昵称） 和 avatar（头像URL） 属性，您可以调用接口 [updateMyProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateMyProfile) 设置自己的 nick（昵称） 和 avatar（头像URL）。
 
@@ -204,7 +204,7 @@ promise.then(function(imResponse) {
 });
 ```
 
-<span id="Step7"></span>
+[](id:Step7)
 ### 步骤7：加入群组
 ```javascript
 // 匿名用户加入（无需登录，入群后仅能接收消息）
@@ -266,7 +266,7 @@ promise.then(<span class="hljs-function"><span class="hljs-keyword">function</sp
 
 可以将踢人功能通过自定义消息实现，自定义消息中需包含被踢者的 Members_Account，通过将该消息优先级设置为 High 避免因40条/秒消息限频后被后台抛弃，被踢者的 SDK 收到该消息后，调用 [退出群组](https://cloud.tencent.com/document/product/269/44498#.E7.BE.A4.E7.BB.84.E7.9B.B8.E5.85.B3.E6.8E.A5.E5.8F.A3) 接口即可在直播群中实现踢人功能。
 
-### 4. <span id="p4"></span>为什么在小程序/Web 端调用退出群组接口后，Android/iOS/PC 端会同步退群；但是 Android/iOS/PC 调用退出群组接口后，小程序/Web 端不会退出呢？
+### 4. [](id:p4)为什么在小程序/Web 端调用退出群组接口后，Android/iOS/PC 端会同步退群；但是 Android/iOS/PC 调用退出群组接口后，小程序/Web 端不会退出呢？
 
 因为小程序/Web 端支持用户以游客模式访问，所以当 Android/iOS/PC 退群后，小程序/Web 端不会主动触发退出群组操作。
 

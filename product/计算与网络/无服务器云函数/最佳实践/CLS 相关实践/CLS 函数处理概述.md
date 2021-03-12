@@ -24,9 +24,9 @@
 | 函数处理场景                                               | 描述说明                                |
 | ------------------------------------------------------------ | --------------------------------------- |
 | [ ETL 日志加工](https://cloud.tencent.com/document/product/583/49591) | 日志数据通过云函数进行日志清洗，日志加工，格式转换等操作  |
-| [CLS 转储至 Ckafka](https://cloud.tencent.com/document/product/614/49878) | 日志数据通过云函数进行日志清洗等操作并投递至 Ckafka  |
-| [CLS 转储至 COS](https://cloud.tencent.com/document/product/614/50077) | 日志数据通过云函数进行日志清洗等操作并投递至 COS   |
-| [CLS 转储至 ES ](https://cloud.tencent.com/document/product/614/50079) | 日志数据通过云函数投递至 ES   |
+| [CLS 转储至 Ckafka](https://cloud.tencent.com/document/product/583/51595) | 日志数据通过云函数进行日志清洗等操作并投递至 Ckafka  |
+| [CLS 转储至 COS](https://cloud.tencent.com/document/product/583/51596) | 日志数据通过云函数进行日志清洗等操作并投递至 COS   |
+| [CLS 转储至 ES ](https://cloud.tencent.com/document/product/583/51597) | 日志数据通过云函数投递至 ES   |
 
 
 

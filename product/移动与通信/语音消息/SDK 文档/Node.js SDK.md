@@ -1,82 +1,192 @@
-## SDK 功能简介
-
-语音消息 SDK 支持以下操作：
-- [发送语音验证码](#发送语音验证码)
-- [指定模板发送语音通知](#指定模板发送语音通知)
-
->?
+SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [语音消息 API](https://cloud.tencent.com/document/product/1128/51569)。新版 SDK 实现了统一化，具有各个语言版本的 SDK 使用方法相同，接口调用方式相同，错误码相同以及返回包格式相同等优点。
+>!
 >- 发送语音验证码
->只需提供验证码数字，如需自定义内容，可以 [发送语音通知](#指定模板发送语音通知)。例如，当 msg=“5678” 时，您收到的语音通知为`您的语音验证码是五六七八。`。
+>只需提供验证码数字，如需自定义内容，可以 [发送语音通知](#SendTtsVoice)。例如，当 msg=“5678” 时，您收到的语音通知为`您的语音验证码是五六七八。`。
 >- 发送语音通知
 >数字默认按照个十百千万进行播报，可通过在数字前添加英文逗号（,）改变播报方式。例如，当 msg=`您的语音验证码是5678。` 时，您收到的语音通知为`您的语音验证码是五千六百七十八。`，当 msg=`您的语音验证码是5,6,7,8。`时，您收到的语音通知为`您的语音验证码是五六七八。`。
 
-## SDK 使用指南
-### 相关资料
-各个接口及其参数的详情介绍请参见 [API 指南](https://cloud.tencent.com/document/product/1128/37530) 、[SDK 文档](https://github.com/qcloudsms/qcloudsms_js) 和 [错误码](https://cloud.tencent.com/document/product/1128/37531)。
-
-### 前提条件
-在使用 SDK 前，您需要准备以下信息：
-- **获取 SDK AppID 和 App Key**
-语音消息应用 **SDK AppID** 和 **App Key** 可在 [语音消息控制台](https://console.cloud.tencent.com/vms) 的应用信息里获取。如您尚未添加应用，请登录语音消息控制台 [创建应用](https://cloud.tencent.com/document/product/1128/37461)。
-- **申请模板并确认审核通过**
-语音正文内容**模板**需申请和审核，**模板**可在 [语音消息控制台](https://console.cloud.tencent.com/vms) 的【应用管理】>【语音模板】页面申请，详细申请操作请参见 [配置语音模板](https://cloud.tencent.com/document/product/1128/37517)。
 
 
-### 配置 SDK
+## 前提条件
 
-- **npm 配置：**
-qcloudsms_js 采用 npm 进行安装，要使用 qcloudsms 功能，只需要执行：
-```shell
-npm install qcloudsms_js
+- 已开通语音消息服务，具体操作请参见 [快速入门](https://cloud.tencent.com/document/product/1128/37343)。
+- 已准备依赖环境：NODEJS 10.0.0 版本及以上。
+- 已在访问管理控制台 >【[API密钥管理](https://console.cloud.tencent.com/cam/capi)】页面获取 SecretID 和 SecretKey。
+ - SecretID 用于标识 API 调用者的身份。
+ - SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥，**SecretKey 需妥善保管，避免泄露**。
+- 语音消息的调用地址为`vms.tencentcloudapi.com`。
+
+## 相关资料
+- 各个接口及其参数的详细介绍请参见 [API 文档](https://cloud.tencent.com/document/product/1128/51569)。
+- 下载 SDK 源码请访问 [Node.js SDK 源码](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)。
+
+## 安装 SDK
+### 通过 npm 安装（推荐）
+[npm](https://www.npmjs.com/) 是 Node.js 的包管理工具。
+
+1. 执行以下安装命令。
 ```
+npm install tencentcloud-sdk-nodejs --save
+```
+2. 在您的代码中引用对应模块代码，可参考 [示例代码](#example)。
 
-- **手动配置：**
- 1.手动下载或 clone 最新版本 qcloudsms_js 代码。
- 2.把 qcloudsms_js 把代码放入项目目录。
- 3.在项目里 require qcloudsms_js， 如： `var moduleName = require("path/to/qcloudsms_js")`。
+### 通过源码包安装
+1. 前往 [GitHub 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-nodejs) 或 [快速下载地址](https://tencentcloud-sdk-1253896243.file.myqcloud.com/tencentcloud-sdk-nodejs/tencentcloud-sdk-nodejs.zip)，下载源码压缩包。
+2. 解压源码包到您项目合适的位置。
+3. 在您的代码中引用对应模块代码，可参考 [示例代码](#example)。
 
+## 示例代码[](id:example)
+>?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况进行修改，您也可以根据实际需求使用 [API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=vms&Version=2020-09-02&Action=SendCodeVoice) 自动化生成 Demo 代码。
 
-### 示例代码
+每个接口都有一个对应的 Request 结构和一个 Response 结构。示例代码如下所示。
 
->?所有示例代码仅作参考，无法直接编译和运行，需根据实际情况进行修改。
+### 发送语音验证码
 
-- 准备必要参数和实例化 QcloudSms
-```javascript
-var QcloudSms = require("qcloudsms_js");
-// 语音消息应用 SDK AppID
-var appid = 1400009099;  // SDK AppID 以1400开头
-// 语音消息应用 App Key
-var appkey = "9ff91d87c2cd7cd0ea762f141975d1df37481d48700d70ac37470aefc60f9bad";
-// 需要发送语音消息的手机号码
-var phoneNumbers = ["21212313123", "12345678902", "12345678903"];
-// 语音模板 ID，需要在语音消息控制台中申请
-var templateId = 7839;  // NOTE: 这里的模板 ID`7839`只是示例，真实的模板 ID 需要在语音消息控制台中申请
-// 实例化 QcloudSms
-var qcloudsms = QcloudSms(appid, appkey);
-// 设置请求回调处理, 这里只是演示，用户需要自定义相应处理回调
-function callback(err, res, resData) {
+```
+const tencentcloud = require("tencentcloud-sdk-nodejs");
+
+// 导入 VMS 模块的 client models
+const vmsClient = tencentcloud.vms.v20200902.Client;
+
+/* 实例化要请求 VMS 的 client 对象 */
+const client = new vmsClient({
+    credential: {
+    /* 必填：腾讯云账户密钥对secretId，secretKey。
+     * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
+     * 您也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
+     * 以免泄露密钥对危及您的财产安全。
+     * CAM密匙查询: https://console.cloud.tencent.com/cam/capi */
+      secretId: process.env.secretId,
+      secretKey: process.env.secretKey,
+    },
+    /* 必填：地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
+    region: "ap-guangzhou",
+    /* 非必填:
+     * 客户端配置对象，可以指定超时时间等配置 */
+    profile: {
+      /* SDK默认用TC3-HMAC-SHA256进行签名，非必要请不要修改这个字段 */
+      signMethod: "TC3-HMAC-SHA256",
+      httpProfile: {
+        /* SDK默认使用POST方法。
+         * 如果您一定要使用GET方法，可以在这里设置。GET方法无法处理一些较大的请求 */
+        reqMethod: "POST",
+        /* SDK有默认的超时时间，非必要请不要进行调整
+         * 如有需要请在代码中查阅以获取最新的默认值 */
+        reqTimeout: 30,
+        /**
+         * SDK会自动指定域名。通常是不需要特地指定域名的，但是如果您访问的是金融区的服务
+         * 则必须手动指定域名，例如vms的上海金融区域名： vms.ap-shanghai-fsi.tencentcloudapi.com
+         */
+        endpoint: "vms.tencentcloudapi.com"
+      },
+    },
+  });
+  
+  /* 请求参数，根据调用的接口和实际情况，可以进一步设置请求参数
+   * 属性可能是基本类型，也可能引用了另一个数据结构
+   * 推荐使用IDE进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明 
+   * 帮助链接：
+   * 语音消息控制台：https://console.cloud.tencent.com/vms
+   * vms helper：https://cloud.tencent.com/document/product/1128/37720
+   */
+  const params = {
+    /* 验证码，仅支持填写数字，实际播报语音时，会自动在数字前补充语音文本"您的验证码是" */
+    CodeMessage: "1234",
+    /* 被叫手机号码，采用 e.164 标准，格式为+[国家或地区码][用户号码]
+     * 例如：+8613711112222，其中前面有一个+号，86为国家码，13711112222为手机号
+     */
+    CalledNumber: "+8613711112222",
+    /* 在语音控制台添加应用后生成的实际SdkAppid，示例如1400006666 */
+    VoiceSdkAppid: "1400006666",
+    /* 播放次数，可选，最多3次，默认2次 */
+    PlayTimes: 2,
+    /* 用户的 session 内容，腾讯 server 回包中会原样返回 */
+    SessionContext: "xxxx",
+  };
+  // 通过client对象调用想要访问的接口，需要传入请求对象以及响应回调函数
+  client.SendCodeVoice(params, function (err, response) {
+    // 请求异常返回，打印异常信息
     if (err) {
-        console.log("err: ", err);
-    } else {
-        console.log("request data: ", res.req);
-        console.log("response data: ", resData);
+      console.log(err);
+      return;
     }
-}
+    // 请求正常返回，打印response对象
+    console.log(response);
+  })
 ```
 
-<a id="发送语音验证码" ></a>
-- **发送语音验证码**
-```javascript
-var cvsender = qcloudsms.CodeVoiceSender();
-cvsender.send("86", phoneNumbers[0], "1234", 2, "", callback);
+### 指定模版发送语音通知[](id:SendTtsVoice)
+
 ```
+const tencentcloud = require("tencentcloud-sdk-nodejs");
 
+// 导入 VMS 模块的 client models
+const vmsClient = tencentcloud.vms.v20200902.Client;
 
-<a id="指定模板发送语音通知" ></a>
-- **指定模板发送语音通知**
-```javascript
-var templateId = 12345;
-var params = ["5678"];
-var tvsender = qcloudsms.TtsVoiceSender();
-tvsender.send("86", phoneNumbers[0], templateId, params, 2, "", callback);
+/* 实例化要请求 VMS 的 client 对象 */
+const client = new vmsClient({
+    credential: {
+    /* 必填：腾讯云账户密钥对secretId，secretKey。
+     * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
+     * 您也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
+     * 以免泄露密钥对危及您的财产安全。
+     * CAM密匙查询: https://console.cloud.tencent.com/cam/capi */
+      secretId: process.env.secretId,
+      secretKey: process.env.secretKey,
+    },
+    /* 必填：地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
+    region: "ap-guangzhou",
+    /* 非必填:
+     * 客户端配置对象，可以指定超时时间等配置 */
+    profile: {
+      /* SDK默认用TC3-HMAC-SHA256进行签名，非必要请不要修改这个字段 */
+      signMethod: "TC3-HMAC-SHA256",
+      httpProfile: {
+        /* SDK默认使用POST方法。
+         * 如果您一定要使用GET方法，可以在这里设置。GET方法无法处理一些较大的请求 */
+        reqMethod: "POST",
+        /* SDK有默认的超时时间，非必要请不要进行调整
+         * 如有需要请在代码中查阅以获取最新的默认值 */
+        reqTimeout: 30,
+        /**
+         * SDK会自动指定域名。通常是不需要特地指定域名的，但是如果您访问的是金融区的服务
+         * 则必须手动指定域名，例如vms的上海金融区域名： vms.ap-shanghai-fsi.tencentcloudapi.com
+         */
+        endpoint: "vms.tencentcloudapi.com"
+      },
+    },
+  });
+  
+  /* 请求参数，根据调用的接口和实际情况，可以进一步设置请求参数
+   * 属性可能是基本类型，也可能引用了另一个数据结构
+   * 推荐使用IDE进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明 
+   * 帮助链接：
+   * 语音消息控制台：https://console.cloud.tencent.com/vms
+   * vms helper：https://cloud.tencent.com/document/product/1128/37720
+   */
+  const params = {
+    // 模板 ID，必须填写在控制台审核通过的模板 ID，可登录 [语音消息控制台] 查看模板 ID
+    TemplateId: "4356",
+    TemplateParamSet: ["7652"],
+    /* 被叫手机号码，采用 e.164 标准，格式为+[国家或地区码][用户号码]
+     * 例如：+8613711112222，其中前面有一个+号，86为国家码，13711112222为手机号
+     */
+    CalledNumber: "+8613711112222",
+    /* 在语音控制台添加应用后生成的实际SdkAppid，示例如1400006666 */
+    VoiceSdkAppid: "1400006666",
+    /* 播放次数，可选，最多3次，默认2次 */
+    PlayTimes: 2,
+    /* 用户的 session 内容，腾讯 server 回包中会原样返回 */
+    SessionContext: "xxxx",
+  };
+  // 通过client对象调用想要访问的接口，需要传入请求对象以及响应回调函数
+  client.SendTtsVoice(params, function (err, response) {
+    // 请求异常返回，打印异常信息
+    if (err) {
+      console.log(err);
+      return;
+    }
+    // 请求正常返回，打印response对象
+    console.log(response);
+  })
 ```

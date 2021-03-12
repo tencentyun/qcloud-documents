@@ -4,7 +4,7 @@
 ## 操作步骤
 
 ### 如何选择安装驱动预装镜像
-1. 在购买页选择所需要的 GPU 实例机型及相关配置。如下图所示：
+1. 在 [购买页](https://buy.cloud.tencent.com/cvm) 选择所需要的 GPU 实例机型及相关配置。如下图所示：
 ![](https://main.qcloudimg.com/raw/fcf6b4d104a2d15d8494281db10673b5.png)
 2. 在“镜像”中选择【镜像市场】，单击【从镜像市场选择】。如下图所示：
 ![](https://main.qcloudimg.com/raw/e7057c82c5a95725d226901653e6169d.png)

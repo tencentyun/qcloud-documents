@@ -3,13 +3,12 @@ CMQ 调用链组件目前支持使用cmq-http-client和cmq-tcp-client的方式
 cmq-http-client方式
 
 1. 需要引入cmq的依赖1.0.7.4以上版本，低版本不支持
-
 ```plaintext
-        <dependency>
-            <groupId>com.qcloud</groupId>
-            <artifactId>cmq-http-client</artifactId>
-            <version>1.0.7.4</version>
-        </dependency>
+<dependency>
+			<groupId>com.qcloud</groupId>
+			<artifactId>cmq-http-client</artifactId>
+			<version>1.0.7.4</version>
+</dependency>
 ```
 2. 直接使用已经构建好的bean
 @Autowired
@@ -46,11 +45,10 @@ private Producer producer;
 ```plaintext
 cmq:
   server:
-    endpoint: http://ocloud-cmq-queue-nameserver # cmq的端点地址
-    secret-id: ******* # 获取账号secret-id
-    secret-key: ****** # 获取账号secret-key
+    endpoint: http://ocloud-cmq-queue-nameserver # CMQ 的端点地址
+    secret-id: ******* # 获取账号 SecretId
+    secret-key: ****** # 获取账号 SecretKey
 ```
-
 
 tips:
 1. TSF SDK 1.21.10-Finchley 以及 1.21.x后续版本支持

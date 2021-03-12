@@ -5,7 +5,7 @@
 ### GME 的 Windows Demo 应该使用什么版本的 VS 打开？
 请使用 VS2015 打开。如果需要用 VS2010 打开则请自行对工程进行降级。
 
-### GME Demo 下载后，如何更换账号？
+### GME Demo 下载后，如何替换为自己申请的账号？
 
 - 需要在 [控制台](https://console.cloud.tencent.com/gamegme/detail/1400391524) 服务管理中获取 AppID 和权限密钥。
 - 若使用您申请的 AppID ，则需要在 AVChatViewController 中的 GetAuthBuffer 中修改实时语音的 Key。

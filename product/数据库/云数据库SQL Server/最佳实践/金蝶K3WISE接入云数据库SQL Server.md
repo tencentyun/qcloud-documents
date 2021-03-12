@@ -14,10 +14,10 @@
 ## 步骤一：迁移数据至云数据库 SQL Server
 前提条件：已备份本地金蝶K/3 WISE 账套数据库文件的全量数据备份。
 
-1. [登录 Windows 系统的云服务器](https://cloud.tencent.com/document/product/213/2764#.E6.AD.A5.E9.AA.A43.EF.BC.9A.E7.99.BB.E5.BD.95.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8) ，安装金蝶K/3 WISE。
+1. [登录 Windows 系统的云服务器](https://cloud.tencent.com/document/product/213/2764) ，安装金蝶K/3 WISE。
 >?安装金蝶的云服务器须和云数据库 SQL Server 实例在同一个地域，且同一私有网络。
 2. [创建云数据库 SQL Server 实例](https://cloud.tencent.com/document/product/238/36822)。
-3. 上传全量备份文件并完成数据恢复，详细步骤可参见 [上传备份至 COS](https://cloud.tencent.com/document/product/238/19103#.E4.B8.8A.E4.BC.A0.E5.A4.87.E4.BB.BD.E8.87.B3-cos) 和 [通过 COS 源文件迁移数据](https://cloud.tencent.com/document/product/238/19103#.E9.80.9A.E8.BF.87-cos-.E6.BA.90.E6.96.87.E4.BB.B6.E8.BF.81.E7.A7.BB.E6.95.B0.E6.8D.AE)。
+3. 上传全量备份文件并完成数据恢复，详细步骤可参见 [上传备份至 COS](https://cloud.tencent.com/document/product/238/19103#.3Ca-id.3D.22shangchuan_beifen.22.3E.E4.B8.8A.E4.BC.A0.E5.A4.87.E4.BB.BD.E8.87.B3-cos.3C.2Fa.3E) 和 [通过 COS 源文件迁移数据](https://cloud.tencent.com/document/product/238/19103#.3Ca-id.3D.22qianyi_shuju.22.3E.E9.80.9A.E8.BF.87-cos-.E6.BA.90.E6.96.87.E4.BB.B6.E8.BF.81.E7.A7.BB.E6.95.B0.E6.8D.AE.3C.2Fa.3E)。
 4. 创建云数据库 SQL Server 帐号并授权，可参见 [创建帐号](https://cloud.tencent.com/document/product/238/7521)。
 
 ## 步骤二：设置允许执行分布式事务
@@ -31,9 +31,8 @@
  - “来源”的 IP 信息，可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 获取。
  - 入站规则和出站规则的“协议端口”，须开通1433、135、1024-65535端口。
 
-
 #### 设置 Windows 系统
-1. [登录 Windows 系统的云服务器](https://cloud.tencent.com/document/product/213/2764#.E6.AD.A5.E9.AA.A43.EF.BC.9A.E7.99.BB.E5.BD.95.E4.BA.91.E6.9C.8D.E5.8A.A1.E5.99.A8)。
+1. [登录 Windows 系统的云服务器](https://cloud.tencent.com/document/product/213/2764)。
 2. 打开 hosts 文件，路径为`C:\Windows\System32\drivers\etc\hosts`。
 3. 将云数据库 SQL Server 提供的 VIP 和 host 信息（该信息可通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 获取），填写至 hosts 文件的结尾处，并保存 hosts 文件。
 ![](https://main.qcloudimg.com/raw/b93ce2e5b6db9f1a67df7d73b522d1b3.png)
@@ -45,7 +44,6 @@
 ![](https://main.qcloudimg.com/raw/a2e26a22d28ddd345a65090e025de205.png)
 8. 在弹出的 MSDTC 服务对话框中，单击【是】，等待 MSDTC 服务重新启动完成。
  
-
 ## 步骤三：初始化账套管理
 1. 下载对应的账套管理工具：金蝶K/3 WISE 15.1、金蝶K/3 WISE 15.0。
 >?不同金蝶K/3 WISE 版本需要的账套管理工具不同。
@@ -68,5 +66,4 @@
 若在登入时遇到如下报错信息：
 `中间层创建事务失败，请联系系统管理员，高级显示：错误代码:5(5H)`
 请参考 [金蝶官方文档](https://club.kingdee.com/club/newclub/helpDetail?product_id=3&id=366259) 进行处理。 
-
 

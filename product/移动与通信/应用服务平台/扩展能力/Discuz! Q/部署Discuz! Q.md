@@ -1,4 +1,4 @@
-云开发支持一键部署 [Discuz!Q](https://discuz.com/) 应用。通过云托管结合静态网站托管、共享文件存储 CFS、云数据库 CynosDB for MySQL 等各项云计算资源能力，为您提供高性能、高可靠性、可弹性扩缩容的的应用体验。
+云开发支持一键部署 [Discuz! Q](https://discuz.com/) 应用。通过云托管结合静态网站托管、共享文件存储 CFS、云数据库 CynosDB for MySQL 等各项云计算资源能力，为您提供高性能、高可靠性、可弹性扩缩容的的应用体验。
 
 | 方案特性 | 介绍                                                                                         |
 | -------- | -------------------------------------------------------------------------------------------- |
@@ -30,16 +30,16 @@
 1. 登录 [云开发控制台](https://console.cloud.tencent.com/tcb/env/index)。
 2. 单击【新建环境】，新建一个**按量计费**环境，详情可参见 [开通环境](https://cloud.tencent.com/document/product/876/41391) 文档。
 3. 环境创建完后，单击【环境卡片】，进入环境管理页面。
-4. 单击左侧导航栏底部的 【[扩展应用](https://console.cloud.tencent.com/tcb/extensions/index)】，在更多扩展能力中，可以看到 Discuz!Q 应用。
+4. 单击左侧导航栏底部的 【[扩展应用](https://console.cloud.tencent.com/tcb/extensions/index)】，在更多扩展能力中，可以看到 Discuz! Q 应用。
    ![disucz入口](https://main.qcloudimg.com/raw/69482ddda7cc18bf2fbc15d559417578.png)
-5. 在 Discuz!Q 应用中，单击【安装】，进入扩展安装流程。
+5. 在 Discuz! Q 应用中，单击【安装】，进入扩展安装流程。
    - 确认应用相关资源
    - 授予云开发相关资源的操作权限
    - 扩展云资源准备，声明会依赖的 2 个资源(文件存储、云数据库)
    - 扩展程序配置，请勿长期使用默认的密码，注意**修改密码**，避免管理后台被他人登录
      ![disucz安装](https://main.qcloudimg.com/raw/81bb3905d3972d4f298b9c1fbc551944.png)
-6. 已安装列表里显示 Discuz!Q 应用正在安装中，安装完成后单击可进入详情页。
-7. 详情页内，可以查看 Discuz!Q 的访问地址。
+6. 已安装列表里显示 Discuz! Q 应用正在安装中，安装完成后单击可进入详情页。
+7. 详情页内，可以查看 Discuz! Q 的访问地址。
    ![discuz详情页](https://main.qcloudimg.com/raw/009a5504f4f2f439f53ee5ae2478be1c.png)
 
 ## 部署异常
@@ -49,11 +49,11 @@
 
 ### 账户余额不足
 
-Discuz!Q 应用创建时，会一同创建云数据库 CynosDB for MySQL。创建数据库资源会预先扣 1 个小时的费用，为了保证服务的可用，推荐先 [充值腾讯云账户](https://console.cloud.tencent.com/expense/recharge) 5 元钱。
+Discuz! Q 应用创建时，会一同创建云数据库 CynosDB for MySQL。创建数据库资源会预先扣 1 个小时的费用，为了保证服务的可用，推荐先 [充值腾讯云账户](https://console.cloud.tencent.com/expense/recharge) 5 元钱。
 
 ### HTTP 访问服务 “/” 路径已经被占用
 
-Discuz!Q 将会占用 “/” 路径，如果当前环境的 “/” 已经被占用，推荐再创建一个按量计费环境进行安装。
+Discuz! Q 将会占用 “/” 路径，如果当前环境的 “/” 已经被占用，推荐再创建一个按量计费环境进行安装。
 
 ### CynosDB 被隔离
 
@@ -65,7 +65,7 @@ Discuz!Q 将会占用 “/” 路径，如果当前环境的 “/” 已经被�
 
 ### 部署异常后，但是资源已经创建
 
-Discuz!Q 涉及资源较多，过程中可能产生异常。顺序为先创建 CFS、CynosDB for MySQL 资源，再开通云托管。
+Discuz! Q 涉及资源较多，过程中可能产生异常。顺序为先创建 CFS、CynosDB for MySQL 资源，再开通云托管。
 CFS 是按照存储量计费，没有存储数据则不产生费用。
 CynosDB for MySQL 与服务器类似，是按照使用时间计费，即使没有调用也会计费。请开发者注意该项资源的计费方式。
 
@@ -86,11 +86,11 @@ CynosDB for MySQL 与服务器类似，是按照使用时间计费，即使没�
 此能力使用云开发与其他腾讯云服务，可能会产生相关费用。云开发与云上其他资源分开计费，您可以在 [费用中心](https://console.cloud.tencent.com/expense/overview) 查看具体信息。
 
 #### 云托管
-[产品定价](https://cloud.tencent.com/document/product/1003/30493) 及 [使用明细](https://console.cloud.tencent.com/tcb)。
+[产品定价](https://cloud.tencent.com/document/product/1243/47823) 及 [使用明细](https://console.cloud.tencent.com/tcb)。
 ![云托管与静态网站托管用量查询](https://main.qcloudimg.com/raw/3135c5ef7c19be7a86156f10dc0a8749.png)
 
 #### 静态网站托管
-[产品定价](https://cloud.tencent.com/document/product/876/39095) 及 [使用明细](https://console.cloud.tencent.com/tcb)。
+[产品定价](https://cloud.tencent.com/document/product/1210/42854) 及 [使用明细](https://console.cloud.tencent.com/tcb)。
 
 
 #### 文件存储（Cloud File Storage，CFS）

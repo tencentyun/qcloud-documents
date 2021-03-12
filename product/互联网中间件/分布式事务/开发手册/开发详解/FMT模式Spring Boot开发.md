@@ -305,23 +305,68 @@ DTF-Last-Branch-ID: ${LastBranchId}
 
 ## 与 TSF 结合使用
 
-DTF 框架完全兼容 TSF 应用，请按照下面的指引使用。
+引入依赖后（注意 SDK 版本），直接正常使用 TSF 即可。
 
->?目前仅支持 Greenwich 版本的 TSF SDK。
 
-### Maven POM
-
+### 使用方式
+目前支持 Greenwich（G）和 Finchley（F）版本的 TSF SDK。您可以单击以下页签，查看对应的使用方式。
+<dx-tabs>
+::: G&nbsp;版本&nbsp;TSF&nbsp;SDK&nbsp;使用方式
 ``` xml
 <!-- TSF 启动器 -->
 <dependency>
     <groupId>com.tencent.tsf</groupId>
     <artifactId>spring-cloud-tsf-starter</artifactId>
+    <version>1.23.0-Greenwich-RELEASE</version>
 </dependency>
 ```
+:::
+::: F&nbsp;版本&nbsp;TSF&nbsp;SDK&nbsp;使用方式
+>!需要再排除 DTF 中的一些依赖。
+
+```xml
+<!-- TSF 启动器 -->
+<dependency>
+    <groupId>com.tencent.tsf</groupId>
+    <artifactId>spring-cloud-tsf-starter</artifactId>
+    <version>1.23.5-Finchley-RELEASE</version>
+</dependency>
+<!-- Spring Boot DTF -->
+<dependency>
+        <groupId>com.tencent.cloud</groupId>
+        <artifactId>spring-boot-dtf</artifactId>
+        <version>${dtf.version}</version>
+        <exclusions>
+                <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-context</artifactId>
+                </exclusion>
+                <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter</artifactId>
+                </exclusion>
+                <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-aspects</artifactId>
+                </exclusion>
+                <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+                <exclusion>
+                        <groupId>io.github.openfeign</groupId>
+                        <artifactId>feign-core</artifactId>
+                </exclusion>
+        </exclusions>
+</dependency>
+```
+:::
+</dx-tabs>
+
 
 ### 启用 TSF
-
-``` java
+<dx-codeblock>
+:::  java
 @SpringBootApplication
 @EnableDtf
 @EnableTsf
@@ -331,5 +376,8 @@ public class OrderApplication {
         SpringApplication.run(OrderApplication.class, args);
     }
 }
-```
+:::
+</dx-codeblock>
+
+
 
