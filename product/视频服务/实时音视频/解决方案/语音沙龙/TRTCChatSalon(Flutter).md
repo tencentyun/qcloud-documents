@@ -20,8 +20,8 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | ----------------------------------------------- | -------------- |
 | [sharedInstance](#sharedinstance)               | 获取单例对象。 |
 | [destroySharedInstance](#destroysharedinstance) | 销毁单例对象。 |
-| [registerListener](#registerListener)           | 设置事件监听。 |
-| [unRegisterListener](#unRegisterListener)       | 销毁事件监听。 |
+| [registerListener](#registerlistener)           | 设置事件监听。 |
+| [unRegisterListener](#unregisterlistener)       | 销毁事件监听。 |
 | [login](#login)                                 | 登录。         |
 | [logout](#logout)                               | 登出。         |
 | [setSelfProfile](#setselfprofile)               | 修改个人信息。 |
@@ -35,18 +35,18 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | [enterRoom](#enterroom)                 | 进入房间（观众调用）。                                       |
 | [exitRoom](#exitroom)                   | 离开房间（观众调用）。                                       |
 | [getRoomInfoList](#getroominfolist)     | 获取房间列表的详细信息。                                     |
-| [getRoomMemberList](#getRoomMemberList) | 获取房间内所有用户信息。                                     |
-| [getArchorInfoList](#getArchorInfoList) | 获取房间主播列表。                                           |
+| [getRoomMemberList](#getroommemberlist) | 获取房间内所有用户信息。                                     |
+| [getArchorInfoList](#getarchorInfolist) | 获取房间主播列表。                                           |
 | [getUserInfoList](#getuserinfolist)     | 获取指定 userId 的用户信息。                                 |
 
 ### 上下麦接口
 
 | API                   | 描述                                |
 | --------------------- | ----------------------------------- |
-| [enterMic](#enterMic) | 观众上麦。                          |
-| [leaveMic](#leaveMic) | 主播下麦。                          |
-| [muteMic](#muteMic)   | 静音/解除静音某个麦位（主播调用）。 |
-| [kickMic](#kickMic)   | 踢人下麦（群主调用）。              |
+| [enterMic](#entermic) | 观众上麦。                          |
+| [leaveMic](#leavemic) | 主播下麦。                          |
+| [muteMic](#mutemic)   | 静音/解除静音某个麦位（主播调用）。 |
+| [kickMic](#kickmic)   | 踢人下麦（群主调用）。              |
 
 ### 本地音频操作接口
 
@@ -83,11 +83,12 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                             | 描述           |
 | ------------------------------- | -------------- |
-| [raiseHand](#raiseHand)         | 观众申请上麦。 |
-| [agreeToSpeak](#agreeToSpeak)   | 群主同意上麦。 |
-| [refuseToSpeak](#refuseToSpeak) | 群主拒绝上麦。 |
+| [raiseHand](#raisehand)         | 观众申请上麦。 |
+| [agreeToSpeak](#agreetospeak)   | 群主同意上麦。 |
+| [refuseToSpeak](#refusetospeak) | 群主拒绝上麦。 |
 
-<h2 id="TRTCChatSalonDelegate">TRTCChatSalonDelegate API 概览</h2>
+[](id:TRTCChatSalonDelegate)
+## TRTCChatSalonDelegate API 概览
 
 ### 通用事件回调
 
@@ -95,23 +96,23 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | ----------------------------------- | ---------- |
 | [onError](#onerror)                 | 错误回调。 |
 | [onWarning](#onwarning)             | 警告回调。 |
-| [onKickedOffline](#onKickedOffline) | 警告回调。 |
+| [onKickedOffline](#onkickedoffline) | 警告回调。 |
 
 ### 房间事件回调
 
 | API                                       | 描述                     |
 | ----------------------------------------- | ------------------------ |
 | [onRoomDestroy](#onroomdestroy)           | 房间被销毁的回调。       |
-| [onAnchorListChange](#onAnchorListChange) | 主播列表发生变化的回调。 |
+| [onAnchorListChange](#onanchorlistchange) | 主播列表发生变化的回调。 |
 | [onUserVolumeUpdate](#onuservolumeupdate) | 用户通话音量回调。       |
 
 ### 麦位变更回调
 
 | API                                   | 描述                                  |
 | ------------------------------------- | ------------------------------------- |
-| [onAnchorEnterMic](#onAnchorEnterMic) | 有成员上麦（主动上麦/群主抱人上麦）。 |
-| [onAnchorLeaveMic](#onAnchorLeaveMic) | 有成员下麦（主动下麦/群主踢人下麦）。 |
-| [onMicMute](#onMicMute)               | 主播禁麦。                            |
+| [onAnchorEnterMic](#onanchorentermic) | 有成员上麦（主动上麦/群主抱人上麦）。 |
+| [onAnchorLeaveMic](#onanchorleavemic) | 有成员下麦（主动下麦/群主踢人下麦）。 |
+| [onMicMute](#onmicmute)               | 主播禁麦。                            |
 
 ### 观众进出事件回调
 
@@ -132,7 +133,7 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | -------------------------------------- | ---------------------------------------- |
 | [onRaiseHand](#onreceivenewinvitation) | 有观众举手，申请上麦。                   |
 | [onAgreeToSpeak](#oninviteeaccepted)   | 观众申请举手后，收到群主同意举手的回调。 |
-| [onRefuseToSpeak](#onRefuseToSpeak)    | 观众申请举手后，群主拒绝举手的回调。     |
+| [onRefuseToSpeak](#onrefusetospeak)    | 观众申请举手后，群主拒绝举手的回调。     |
 
 ## SDK 基础函数
 
