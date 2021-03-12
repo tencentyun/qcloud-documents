@@ -231,7 +231,7 @@
 | [流计算服务](https://cloud.tencent.com/document/product/849) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/849/38621) |
 | [Elasticsearch Service](https://cloud.tencent.com/document/product/845) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/845/19550) |
 | [WeData 数据开发平台](https://cloud.tencent.com/document/product/1267) | 操作级   | &#10003; | -                | &#10003; | -                                                            |
-| [云数据仓库 ClickHouse](https://cloud.tencent.com/document/product/1299) | 操作级   | &#10003; | -                | -        | -                                                            |
+| [云数据仓库 ClickHouse](https://cloud.tencent.com/document/product/1299) | 资源级   | &#10003; | -                | -        | -                                                            |
 
 ## 云智大数据可视化
 
@@ -423,6 +423,7 @@
 | [云监控](https://cloud.tencent.com/document/product/248)     | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/248/48707) |
 | [云拨测](https://cloud.tencent.com/document/product/280)     | 服务级   | &#10003; | -                | -        | -                                                            |
 | [迁移服务平台](https://cloud.tencent.com/document/product/659) | 服务级   | &#10003; | -                | &#10003; | -                                                            |
+| [应用性能监控](https://cloud.tencent.com/document/product/1349) | 操作级   | &#10003; | -                | -        | -                                                            |
 
 ## 解决方案 
 
