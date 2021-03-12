@@ -1,4 +1,3 @@
-## 操作场景
 
 在部署云 HDFS（Cloud HDFS，CHDFS） 的 JAR 包之后，除了可以使用命令行、大数据组件等方式操作 CHDFS ，还可以通过 Java 代码来访问 CHDFS。本文指导您如何通过 Java 代码访问 CHDFS。
 
