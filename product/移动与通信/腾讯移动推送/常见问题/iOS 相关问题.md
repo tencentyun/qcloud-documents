@@ -1,21 +1,22 @@
-### iOS的开发环境token，被当做生产环境token 是什么原因？该如何处理？
+### iOS 的开发环境 token，被当做生产环境 token 是什么原因？该如何处理？
 
-在Xcode开发环境下安装APP，并使用TPNS推送开发环境的消息时，出现以下两种错误提示:
-1.在TPNS控制台推送排查工具查询，出现提示"Token的环境为product，推送环境为dev两者不匹配"。
+在 Xcode 开发环境下安装 App，并使用 TPNS 推送开发环境的消息时，出现以下两种错误提示：
+- 在 TPNS 控制台推送排查工具查询，出现提示"Token注册环境为：product，推送环境为：dev两者不匹配"。
 ![](https://main.qcloudimg.com/raw/40ada7768004d4d15d98276dfbe9b00d.png)
-2.Xcode 调试TPNS SDK错误日志提示embedded.mobileprovision缺失。
+- Xcode 调试 TPNS SDK 错误日志提示 embedded.mobileprovision 缺失。
 ```xml
 Missing Provisioning Profile - iOS Apps must contain a provisioning profile  named embedded.mobileprovision.
 缺少配置文件-iOS应用程序必须包含名为embedded.mobileprovision的配置文件。
 ```
-错误原因: App包缺少配置文件embedded.mobileprovision，导致token环境未知。
+
+错误原因：App 包缺少配置文件 embedded.mobileprovision，导致 token 环境未知。
 出现此问题时，可按以下步骤解决：
-1.点击Xcode顶部菜单栏目 File 中的 Project Settings 选项；
+1. 在 Xcode 顶部菜单栏，单击【File】>【Project Settings】。
 ![](https://main.qcloudimg.com/raw/c470889681e34e87cc7f661ffb677e7d.png)
-2.更改Build System，改为Legacy Build System，点击Done；
+2. 将【Build System】设置为【Legacy Build System】，单击【Done】。
 ![](https://main.qcloudimg.com/raw/812b625ddfe5c2e7c40c0ad52cae9aec.png)
-3.重新打包, 卸载App重新安装。
-4.注册成功后，对token进行推送测试。
+3. 重新打包, 卸载 App 重新安装。
+4. 注册成功后，对 token 进行推送测试。
 
 ### Xcode12 模拟器集成通知扩展插件编译报错 building for iOS Simulator, but linking in object file built for iOS，该如何处理？
 
