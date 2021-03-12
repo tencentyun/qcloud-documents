@@ -1,6 +1,6 @@
 ## 效果展示
 
-注意：本项目暂不支持flutter2.0，如果您用的是flutter2.0版本，请先降低版本。
+>! 本项目暂不支持 Flutter2.0，如果您用的是 Flutter2.0 版本，请先降低版本。
 
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 Demo 体验语音沙龙的能力，包括语音聊天、上下麦、低延时语音互动等 TRTC 在语音聊天场景下的相关能力。
 
