@@ -8,7 +8,31 @@
 - IPAMD 组件启动了安全组能力，启动参数：`--enable-security-groups`（默认未启用）。
 - 目前仅支持多 Pod 共享网卡模式。
 
-## IPAMD 开启安全特性
+## IPAMD 组件角色添加安全组接口的访问权限
+
+1. 在[访问管理-策略控制台](https://console.cloud.tencent.com/cam/policy)中`新建自定义策略`。
+2. 选择`按策略语法创建`和`空白模板`，随后输入以下策略语法：
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "action": [
+                "cvm:AssociateNetworkInterfaceSecurityGroups",
+                "cvm:DisassociateNetworkInterfaceSecurityGroups"
+            ],
+            "resource": "*",
+            "effect": "allow"
+        }
+    ]
+}
+```
+可命名为：`SecurityGroupsAccessForIPAMD`。
+
+3. 在[访问管理-角色控制台](https://console.cloud.tencent.com/cam/role) 搜索 IPAMD 组件的相关角色 `IPAMDofTKE_QCSRole`，点击进入角色详情页面。
+4. 选择`关联策略`，关联刚刚创建的自定义策略 `SecurityGroupsAccessForIPAMD`。
+
+## IPAMD 组件开启安全特性
 
 - 修改现存的 tke-eni-ipamd deployment：`kubectl edit deploy tke-eni-ipamd -n kube-system`。
 - 执行以下命令，在 `spec.template.spec.containers[0].args` 中加入启动参数。
