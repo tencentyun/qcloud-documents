@@ -40,154 +40,176 @@ import java.nio.ByteBuffer;
 
 public class Demo {
 			private static FileSystem initFS() throws IOException {
-					Configuration conf = new Configuration();
-					// CHDFS 的配置项可参见 https://cloud.tencent.com/document/product/1105/36368
-					// 以下配置是必填项
+				Configuration conf = new Configuration();
+				// CHDFS 的配置项可参见 https://cloud.tencent.com/document/product/1105/36368
+				// 以下配置是必填项
 
-					conf.set("fs.ofs.impl", "com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter");
-					conf.set("fs.AbstractFileSystem.ofs.impl", "com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter");
-					conf.set("fs.ofs.tmp.cache.dir", "/data/chdfs_tmp_cache");
-					conf.set("fs.ofs.user.appid", "1250000000");
-					// 其他可选配置项请参见 https://cloud.tencent.com/document/product/1105/36368 
+			conf.set("fs.ofs.impl", "com.qcloud.chdfs.fs.CHDFSHadoopFileSystemAdapter");
+				conf.set("fs.AbstractFileSystem.ofs.impl", "com.qcloud.chdfs.fs.CHDFSDelegateFSAdapter");
+				conf.set("fs.ofs.tmp.cache.dir", "/data/chdfs_tmp_cache");
+				conf.set("fs.ofs.user.appid", "1250000000");
+				// 其他可选配置项请参见 https://cloud.tencent.com/document/product/1105/36368 
 
-					String chdfsUrl = "ofs://f4maaabbb-ccdd.chdfs.ap-guangzhou.myqcloud.com/";
-					return FileSystem.get(URI.create(chdfsUrl), conf);
+			String chdfsUrl = "ofs://f4maaabbb-ccdd.chdfs.ap-guangzhou.myqcloud.com/";
+				return FileSystem.get(URI.create(chdfsUrl), conf);
 			}
 
-			private static void mkdir(FileSystem fs, Path filePath) throws IOException {
-					fs.mkdirs(filePath);
+		private static void mkdir(FileSystem fs, Path filePath) throws IOException {
+				fs.mkdirs(filePath);
 			}
 
-			private static void createFile(FileSystem fs, Path filePath) throws IOException {
-					// 创建一个文件（如果存在则将其覆盖）
-					// if the parent dir does not exist, fs will create it!
-					FSDataOutputStream out = fs.create(filePath, true);
-					try {
-							// 写入一个文件
-							String content = "test write file";
-							out.write(content.getBytes());
-					} finally {
-							IOUtils.closeQuietly(out);
-					}
+		private static void createFile(FileSystem fs, Path filePath) throws IOException {
+				// 创建一个文件（如果存在则将其覆盖）
+				// if the parent dir does not exist, fs will create it!
+				FSDataOutputStream out = fs.create(filePath, true);
+				try {
+						// 写入一个文件
+						String content = "test write file";
+						out.write(content.getBytes());
+				} finally {
+						IOUtils.closeQuietly(out);
+				}
 			}
 
-			private static void readFile(FileSystem fs, Path filePath) throws IOException {
-					FSDataInputStream in = fs.open(filePath);
-					try {
-							byte[] buf = new byte[4096];
-							int readLen = -1;
-							do {
-									readLen = in.read(buf);
-							} while (readLen >= 0);
-					} finally {
-							IOUtils.closeQuietly(in);
-					}
+		private static void readFile(FileSystem fs, Path filePath) throws IOException {
+				FSDataInputStream in = fs.open(filePath);
+				try {
+						byte[] buf = new byte[4096];
+						int readLen = -1;
+						do {
+								readLen = in.read(buf);
+						} while (readLen >= 0);
+				} finally {
+						IOUtils.closeQuietly(in);
+				}
 			}
 
 
 			private static void queryFileOrDirStatus(FileSystem fs, Path path) throws IOException {
-					FileStatus fileStatus = fs.getFileStatus(path);
-					if (fileStatus.isDirectory()) {
-							System.out.printf("path %s is dir\n", path);
-							return;
-					}
+				FileStatus fileStatus = fs.getFileStatus(path);
+				if (fileStatus.isDirectory()) {
+						System.out.printf("path %s is dir\n", path);
+						return;
+				}
 
-					long fileLen = fileStatus.getLen();
-					long accessTime = fileStatus.getAccessTime();
-					long modifyTime = fileStatus.getModificationTime();
-					String owner = fileStatus.getOwner();
-					String group = fileStatus.getGroup();
+			long fileLen = fileStatus.getLen();
+				long accessTime = fileStatus.getAccessTime();
+				long modifyTime = fileStatus.getModificationTime();
+				String owner = fileStatus.getOwner();
+				String group = fileStatus.getGroup();
 
-					System.out.printf("path %s is file, fileLen: %d, accessTime: %d, modifyTime: %d, owner: %s, group: %s\n",
-									path, fileLen, accessTime, modifyTime, owner, group);
+
+				System.out.printf("path %s is file, fileLen: %d, accessTime: %d, modifyTime: %d, owner: %s, group: %s\n",
+						path, fileLen, accessTime, modifyTime, owner, group);
 			}
+
 
 			// 默认的校验类型为 COMPOSITE-CRC32C
 			private static void getFileCheckSum(FileSystem fs, Path path) throws IOException {
-					FileChecksum checksum = fs.getFileChecksum(path);
-					System.out.printf("path %s, checkSumType: %s, checkSumCrcVal: %d\n",
-									path, checksum.getAlgorithmName(), ByteBuffer.wrap(checksum.getBytes()).getInt());
+				FileChecksum checksum = fs.getFileChecksum(path);
+				System.out.printf("path %s, checkSumType: %s, checkSumCrcVal: %d\n",
+						path, checksum.getAlgorithmName(), ByteBuffer.wrap(checksum.getBytes()).getInt());
 			}
+
 
 			private static void copyFileFromLocal(FileSystem fs, Path chdfsPath, Path localPath) throws  IOException {
-					fs.copyFromLocalFile(localPath, chdfsPath);
+				fs.copyFromLocalFile(localPath, chdfsPath);
 			}
+
 
 			private static void copyFileToLocal(FileSystem fs, Path chdfsPath, Path localPath) throws  IOException {
-					fs.copyToLocalFile(chdfsPath, localPath);
+				fs.copyToLocalFile(chdfsPath, localPath);
 			}
+
 
 			private static void renamePath(FileSystem fs, Path oldPath, Path newPath) throws IOException {
-					fs.rename(oldPath, newPath);
+				fs.rename(oldPath, newPath);
 			}
+
 
 			private static void listDirPath(FileSystem fs, Path dirPath) throws IOException {
-					FileStatus[] dirMemberArray = fs.listStatus(dirPath);
+				FileStatus[] dirMemberArray = fs.listStatus(dirPath);
 
-					for (FileStatus dirMember : dirMemberArray) {
-							System.out.printf("dirMember path %s, fileLen: %d\n", dirMember.getPath(), dirMember.getLen());
-					}
+
+				for (FileStatus dirMember : dirMemberArray) {
+						System.out.printf("dirMember path %s, fileLen: %d\n", dirMember.getPath(), dirMember.getLen());
+				}
 			}
+
 
 			// 递归删除标志用于删除目录
 			// 如果递归为 false 并且 dir 不为空，则操作将失败
 			private static void deleteFileOrDir(FileSystem fs, Path path, boolean recursive) throws IOException {
-					fs.delete(path, recursive);
+				fs.delete(path, recursive);
 			}
 
+
 			private static void closeFileSystem(FileSystem fs) throws IOException {
-					fs.close();
+				fs.close();
 			}
 
 
 			public static void main(String[] args) throws IOException {
-					// 初始化文件
-					FileSystem fs = initFS();
+				// 初始化文件
+				FileSystem fs = initFS();
 
-					// 创建文件
-					Path chdfsFilePath = new Path("/folder/exampleobject.txt");
-					createFile(fs, chdfsFilePath);
 
-					// 读取文件
-					readFile(fs, chdfsFilePath);
+				// 创建文件
+				Path chdfsFilePath = new Path("/folder/exampleobject.txt");
+				createFile(fs, chdfsFilePath);
 
-					// 查询文件或目录
-					queryFileOrDirStatus(fs, chdfsFilePath);
 
-					// 获取文件校验和
-					getFileCheckSum(fs, chdfsFilePath);
+				// 读取文件
+				readFile(fs, chdfsFilePath);
 
-					// 从本地复制文件
-					Path localFilePath = new Path("file:///home/hadoop/ofs_demo/data/exampleobject.txt");
-					copyFileFromLocal(fs, chdfsFilePath, localFilePath);
 
-					// 获取文件到本地
-					Path localDownFilePath = new Path("file:///home/hadoop/ofs_demo/data/exampleobject.txt");
-					copyFileToLocal(fs, chdfsFilePath, localDownFilePath);
+				// 查询文件或目录
+				queryFileOrDirStatus(fs, chdfsFilePath);
 
-					// 重命名
-					Path newPath = new Path("/doc/example.txt");
-					renamePath(fs, chdfsFilePath, newPath);
 
-					// 删除文件
-					deleteFileOrDir(fs, newPath, false);
+				// 获取文件校验和
+				getFileCheckSum(fs, chdfsFilePath);
 
-					// 创建目录
-					Path dirPath = new Path("/folder");
-					mkdir(fs, dirPath);
 
-					// 在目录中创建文件
-					Path subFilePath = new Path("/folder/exampleobject.txt");
-					createFile(fs, subFilePath);
+				// 从本地复制文件
+				Path localFilePath = new Path("file:///home/hadoop/ofs_demo/data/exampleobject.txt");
+				copyFileFromLocal(fs, chdfsFilePath, localFilePath);
 
-					// 列出目录
-					listDirPath(fs, dirPath);
 
-					// 删除目录
-					deleteFileOrDir(fs, dirPath, true);
+				// 获取文件到本地
+				Path localDownFilePath = new Path("file:///home/hadoop/ofs_demo/data/exampleobject.txt");
+				copyFileToLocal(fs, chdfsFilePath, localDownFilePath);
 
-					// 关闭文件系统
-					closeFileSystem(fs);
+
+				// 重命名
+				Path newPath = new Path("/doc/example.txt");
+				renamePath(fs, chdfsFilePath, newPath);
+
+
+				// 删除文件
+				deleteFileOrDir(fs, newPath, false);
+
+
+				// 创建目录
+				Path dirPath = new Path("/folder");
+				mkdir(fs, dirPath);
+
+
+				// 在目录中创建文件
+				Path subFilePath = new Path("/folder/exampleobject.txt");
+				createFile(fs, subFilePath);
+
+
+				// 列出目录
+				listDirPath(fs, dirPath);
+
+
+				// 删除目录
+				deleteFileOrDir(fs, dirPath, true);
+
+
+				// 关闭文件系统
+				closeFileSystem(fs);
 			}
 }
 ```
