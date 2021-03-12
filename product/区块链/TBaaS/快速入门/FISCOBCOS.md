@@ -9,7 +9,8 @@ TBaaS-BCOS 支持 FISCO BCOS 2.X，新增多群组功能。
 
 ## 操作步骤
 ### 步骤1：网络概览
-选择左侧导航栏中的【BCOS】>【[区块链网络](https://console.cloud.tencent.com/tbaas/bcos/deploy)】，进入“区块链网络”页面。“区块链网络”页面展示区块链网络的相关信息，包含以下内容：
+选择左侧导航栏中的【BCOS】>【[区块链网络](https://console.cloud.tencent.com/tbaas/bcos/deploy)】，进入“区块链网络”页面。
+“区块链网络”页面展示区块链网络的相关信息，包含以下内容：
 - 数据概览，包含区块链的群组、节点、组织和智能合约数量。
 - 网络基础信息。
 - 网络配置信息。
@@ -33,10 +34,10 @@ TBaaS-BCOS 支持 FISCO BCOS 2.X，新增多群组功能。
 1. 在“私钥管理”页签中，单击【导入私钥】。
 2. 在弹出的“导入私钥”窗口中，输入私钥名称和私钥描述，并上传文件。私钥导入支持 txt、pem 和 p12 格式的私钥。单击【保存】即可导入私钥。如下图所示：
 ![](https://main.qcloudimg.com/raw/4de24529ebbd679b811b1b744932792b.png)
-<dx-alert infotype="notice" title="">
-- 导入 p12 格式的私钥时，需要输入对应的密码。如下图所示：
+导入 p12 格式的私钥时，需要输入对应的密码。如下图所示：
 ![](https://main.qcloudimg.com/raw/09b5889890162a82dbb5774e6a027e75.png)
-- 调用云 API 发送交易的私钥 id 为私钥页面的 Sign User ID。
+<dx-alert infotype="notice" title="">
+调用云 API 发送交易的私钥 id 为私钥页面的 Sign User ID。
 </dx-alert>
 
 ### 步骤4：合约管理
