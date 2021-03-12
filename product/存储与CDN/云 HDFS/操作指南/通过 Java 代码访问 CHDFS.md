@@ -1,3 +1,4 @@
+## 操作场景
 
 在部署云 HDFS（Cloud HDFS，CHDFS） 的 JAR 包之后，除了可以使用命令行、大数据组件等方式操作 CHDFS ，还可以通过 Java 代码来访问 CHDFS。本文指导您如何通过 Java 代码访问 CHDFS。
 
@@ -54,7 +55,6 @@ public class Demo {
     }
 
     private static void mkdir(FileSystem fs, Path filePath) throws IOException {
-        // 创建一个文件（如果存在则将其覆盖）
         fs.mkdirs(filePath);
     }
 
@@ -72,7 +72,6 @@ public class Demo {
     }
 
     private static void readFile(FileSystem fs, Path filePath) throws IOException {
-        // 创建一个文件（如果存在则将其覆盖）
         FSDataInputStream in = fs.open(filePath);
         try {
             byte[] buf = new byte[4096];
@@ -189,7 +188,6 @@ public class Demo {
 
         // 关闭文件系统
         closeFileSystem(fs);
-    }
 }
 ```
 3. 编译和运行。
