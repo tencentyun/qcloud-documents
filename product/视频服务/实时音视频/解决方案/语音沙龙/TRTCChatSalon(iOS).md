@@ -112,7 +112,7 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                                            | 描述                                   |
 | ---------------------------------------------- | -------------------------------------- |
-| [onEnterRoomSeatListNotify](#onseatlistchange) | 观众进入房间后，当前房间主播信息回调。 |
+| [onEnterRoomSeatListNotify](#onenterroomseatlistnotify) | 观众进入房间后，当前房间主播信息回调。 |
 | [onAnchorEnterSeat](#onanchorenterseat)        | 有成员上麦（主动上麦/主播抱人上麦）。  |
 | [onAnchorLeaveSeat](#onanchorleaveseat)        | 有成员下麦（主动下麦/主播踢人下麦）。  |
 | [onSeatMute](#onseatmute)                      | 主播禁麦。                             |
