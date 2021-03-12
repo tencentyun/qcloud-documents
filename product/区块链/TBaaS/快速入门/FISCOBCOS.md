@@ -9,8 +9,7 @@ TBaaS-BCOS 支持 FISCO BCOS 2.X，新增多群组功能。
 
 ## 操作步骤
 ### 步骤1：网络概览
-选择左侧导航栏中的【BCOS】>【[区块链网络](https://console.cloud.tencent.com/tbaas/bcos/deploy)】，进入“区块链网络”页面。
-“区块链网络”页面展示区块链网络的相关信息，包含以下内容：
+选择左侧导航栏中的【BCOS】>【[区块链网络](https://console.cloud.tencent.com/tbaas/bcos/deploy)】，进入“区块链网络”页面。“区块链网络”页面展示区块链网络的相关信息，包含以下内容：
 - 数据概览，包含区块链的群组、节点、组织和智能合约数量。
 - 网络基础信息。
 - 网络配置信息。
