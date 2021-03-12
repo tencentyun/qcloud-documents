@@ -3,7 +3,7 @@
 
 目前语音识别 SDK 支持的功能：
 - [录音文件识别](https://cloud.tencent.com/document/product/1093/37823)
-- [实时语音识别识别](https://cloud.tencent.com/document/product/1093/48982)
+- [实时语音识别](https://cloud.tencent.com/document/product/1093/48982)
 - [语音流异步识别](https://cloud.tencent.com/document/product/1093/52061)
 - [录音文件识别极速版](https://cloud.tencent.com/document/product/1093/52097)
 - [一句话识别](https://cloud.tencent.com/document/product/1093/35646)

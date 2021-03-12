@@ -12,19 +12,20 @@
    ![](https://main.qcloudimg.com/raw/1b514661b252a3dd87f52f841a5496d8.png)
    执行成功示例如下：
    ![](https://main.qcloudimg.com/raw/9737c22b742419eb798f5dfa8bdb84d0.png)
+4. 返回 Agent 管理页面，如果 Agent 正常运行，可以看到 Agent 上报的版本，IP 地址和心跳时间。
 
 ## 其它命令
 
 <dx-tabs>
-::: 重启&nbsp;Agent 
+::: 重启&nbsp;Agent
 执行如下命令：
 
-``` 
+```
 systemctl restart prometheus
 ```
 
 :::
-::: 停止&nbsp;Agent 
+::: 停止&nbsp;Agent
 执行如下命令：
 
 ```
@@ -47,6 +48,12 @@ systemctl status prometheus
 journalctl -f --unit=prometheus
 ```
 
+:::
+::: 卸载&nbsp;Agent
+执行如下命令：
+```
+systemctl stop prometheus && rm -rf /usr/lib/systemd/system/prometheus.service
+```
 :::
 </dx-tabs>
 

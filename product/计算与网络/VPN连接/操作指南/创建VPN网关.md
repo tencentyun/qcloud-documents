@@ -4,10 +4,10 @@ VPN 网关是 VPN 连接服务的功能实例，因此在使用 VPN 连接实现
 如需创建 VPC 类型的 VPN 网关，请提前创建好同地域的 VPC 网络，详情请参考 [创建 VPC](https://cloud.tencent.com/document/product/215/36515#1)。
 
 ## 操作步骤
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择【云产品】>【网络】>【私有网络】进入私有网络控制台。
+1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击【VPN 连接】>【VPN 网关】，进入管理页。
-3. 在VPN 网关管理页面，单击【+新建】。
-4. 在弹出的【新建VPN网关】对话框中，配置如下网关参数。
+3. 在 VPN 网关管理页面，单击【+新建】。
+4. 在弹出的【新建 VPN 网关】对话框中，配置如下网关参数。
 <img src="https://main.qcloudimg.com/raw/52f055358ccea8f1679ddb49a49b2d40.png" width="50%" />
 <table>
 <tr>
@@ -43,5 +43,5 @@ VPN 网关是 VPN 连接服务的功能实例，因此在使用 VPN 连接实现
 <td>支持按流量计费和包年包月。按流量计费适用于带宽波动较大的场景；包年包月适用于带宽较稳定的场景。</td>
 </tr>
 </table>
-5.完成网关参数设置后，单击【创建】启动 VPN 网关的创建，此时【状态】为【创建中】，等待约1～2分钟，创建成功的 VPN 网关状态为【运行中】，系统为 VPN 网关分配一个公网 IP。
+5. 完成网关参数设置后，单击【创建】启动 VPN 网关的创建，此时【状态】为【创建中】，等待约1～2分钟，创建成功的 VPN 网关状态为【运行中】，系统为 VPN 网关分配一个公网 IP。
 <img src="https://main.qcloudimg.com/raw/880187e214d253d4fac8fd135b838ebf.png">

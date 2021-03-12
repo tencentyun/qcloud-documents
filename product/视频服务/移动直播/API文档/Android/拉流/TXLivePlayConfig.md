@@ -171,7 +171,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| enable | boolean | true：开启；false：关闭。 |
+| enable | boolean | true：开启，false：关闭。 |
 
 __介绍__
 
@@ -304,6 +304,5 @@ __介绍__
 
 待废弃，用于点播视频下载；如果您需要使用点播播放器，推荐您使用：[TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#.E5.AF.B9.E6.8E.A5.E6.94.BB.E7.95.A5)。
 
-***
 
 

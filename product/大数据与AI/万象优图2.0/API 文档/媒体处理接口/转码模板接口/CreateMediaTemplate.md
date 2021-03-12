@@ -67,14 +67,14 @@ Content-Type: application/xml
 
 具体数据描述如下：
 
-| 节点名称（关键字） | 父节点 | 描述           | 类型      | 必选 |
+| 节点名称（关键字） | 父节点 | 描述           | 类型      | 是否必选 |
 | ------------------ | ------ | -------------- | --------- | ---- |
 | Request            | 无     | 保存请求的容器 | Container | 是   |
 
 
 Container 类型 Request 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 限制 |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 | 限制 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- | ---- |
 | Tag                | Request | 模板类型：Transcode                                    | String    | 是   | 无 |
 | Name               | Request | 模板名称 仅支持中文、英文、数字、\_、\-和\*                    | String    | 是   | 无 |
@@ -87,9 +87,9 @@ Container 类型 Request 的具体数据描述如下：
 
 Container 类型 Container 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 |
 | ------------------ | ------- | ---------------------------------------------------- | --------- | ---- |
-| Format                | Request.Container | 容器格式：mp4，flv，hls，ts               | String    | 是   |
+| Format                | Request.Container | 容器格式：mp4、flv、hls、ts、mp3、aac           | String    | 是   |
 
 设定 container，音频视频支持的格式如下表：
 
@@ -102,7 +102,7 @@ Container 类型 Container 的具体数据描述如下：
 
 Container 类型 Video 的具体数据描述如下：
 
-| 节点名称（关键字）         | 父节点        | 描述                  | 类型   | 必选 | 默认值       | 限制                                                         |
+| 节点名称（关键字）         | 父节点        | 描述                  | 类型   | 是否必选 | 默认值       | 限制                                                         |
 | -------------------------- | ------------- | --------------------- | ------ | ---- | ------------ | ------------------------------------------------------------ |
 | Codec                      | Request.Video | 编解码格式            | String | 否   |   H.264 |  H.264                                          |
 | Width                      | Request.Video | 宽                    | String | 否   | 视频原<br/>始宽度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Width 时，按照<br/>视频原始比例计算 Height |
@@ -122,7 +122,7 @@ Container 类型 Video 的具体数据描述如下：
 
 Container 类型 TimeInterval 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
 | Start                | Request.TimeInterval | 开始时间 | String    | 否   | 无 | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
 | Duration             | Request.TimeInterval | 持续时间 | String    | 否   | 无 | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
@@ -130,7 +130,7 @@ Container 类型 TimeInterval 的具体数据描述如下：
 
 Container 类型 Audio 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点        | 描述           | 类型   | 必选 | 默认值 | 限制                                                         |
+| 节点名称（关键字） | 父节点        | 描述           | 类型   | 是否必选 | 默认值 | 限制                                                         |
 | ------------------ | ------------- | -------------- | ------ | ---- | ------ | ------------------------------------------------------------ |
 | Codec              | Request.Audio | 编解码格式     | String | 否   | aac    | 取值 aac、mp3                                                |
 | Samplerate         | Request.Audio | 采样率         | String | 否   | 44100  | <li>单位：Hz<br/><li>可选 11025、22050、32000、44100、48000、96000<br/><li>不同的封装，mp3 支持不同的采样率，如下表所示|
@@ -151,7 +151,7 @@ Container 类型 Audio 的具体数据描述如下：
 
 Container 类型 TransConfig 的具体数据描述如下：
 
-| 节点名称（关键字）    | 父节点              | 描述             | 类型   | 必选 | 默认值 | 限制                                                         |
+| 节点名称（关键字）    | 父节点              | 描述             | 类型   | 是否必选 | 默认值 | 限制                                                         |
 | --------------------- | ------------------- | ---------------- | ------ | ---- | ------ | ------------------------------------------------------------ |
 | AdjDarMethod          | Request.TransConfig | 分辨率调整方式   | String | 否   | none   | <li>取值 scale、crop、pad、none<br/><li>当输出视频的宽高比与原视频不等时，<br/>需要此参数进行执行调整方式 |
 | IsCheckReso           | Request.TransConfig | 是否检查分辨率   | String | 否   | false  | <li>true、false <br/><li>当为 false时，按照配置参数转码 |
@@ -226,7 +226,7 @@ Container 节点 Response 的内容：
 | 节点名称（关键字） | 父节点                | 描述                                                         | 类型      |
 | :----------------- | :-------------------- | :----------------------------------------------------------- | :-------- |
 | TemplateId         | Response.TemplateList | 模板 ID                                                      | String    |
-| Name               | Response.TemplateList | 模板名字                                                     | String    |
+| Name               | Response.TemplateList | 模板名称                                                     | String    |
 | BucketId           | Response.TemplateList | 模板所属存储桶                                                | String    |
 | Category           | Response.TemplateList | 模板属性，Custom 或者 Official                                | String    |
 | Tag                | Response.TemplateList | 模板类型，Transcode                                          | String    |

@@ -42,7 +42,7 @@
    TXVideoEditer *editor = [[TXVideoEditer alloc] initWithPreview:param];
 
    // 设置源视频路径
-   NString *path = [[NSBundle mainBundle] pathForResource:@"demo" ofType:@"mp4"]
+   NSString *path = [[NSBundle mainBundle] pathForResource:@"demo" ofType:@"mp4"]
    [editor setVideoPath: path];
 
    // 配置代理

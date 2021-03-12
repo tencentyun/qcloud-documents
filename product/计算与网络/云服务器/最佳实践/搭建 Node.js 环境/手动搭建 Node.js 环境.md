@@ -57,7 +57,7 @@ yum install -y git
 ```
 2. 执行以下命令，下载 NVM 源码并检查最新版本。
 ```
-git clone https://github.com/cnpm/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
+git clone git://github.com/cnpm/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
 ```
 3. 执行以下命令，配置 NVM 环境变量。
 ```

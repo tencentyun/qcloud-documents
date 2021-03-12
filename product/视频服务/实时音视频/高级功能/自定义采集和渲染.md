@@ -112,7 +112,7 @@ public int onTextureProcess(int textureId, EGLContext eglContext) {
 
 TRTC SDK 使用 OpenGL 进行视频画面的渲染，如果您是用在游戏开发中，或者需要在自己的界面引擎中嵌入 TRTC SDK，那么就要自己渲染视频画面。
 
-### iOS 平台（包括 iMac）
+### iOS 平台（包括 Mac）
 
 通过 TRTCCloud 的 `setLocalVideoRenderDelegate` 和 `setRemoteVideoRenderDelegate` 可以设置本地和远程画面的自定义渲染回调，相关参数如下：
 

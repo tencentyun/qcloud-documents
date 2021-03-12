@@ -4,7 +4,10 @@
 >?数据订阅 Kafka 版数据订阅消息在中间存储 Kafka 中默认保留1天（24小时），请及时消费，否则可能导致订阅数据丢失。
 >
 ## 前提条件
-- 已准备好待订阅的腾讯云数据库 MySQL 或云数据库 MariaDB，云数据库 MySQL 支持同步的版本包括 MySQL 5.6、MySQL 5.7，云数据库 MariaDB 支持同步的版本包括 MariaDB 10.0.10、MariaDB 10.1.9、Percona 5.7.17。
+- 已准备好待订阅的腾讯云数据库 MySQL 、云数据库 MariaDB 或 TDSQL MySQL版：
+ - 云数据库 MySQL 支持同步的版本：MySQL 5.6、MySQL 5.7。
+ - 云数据库 MariaDB 支持同步的版本：MariaDB 10.0.10、MariaDB 10.1.9、Percona 5.7.17。
+ - TDSQL MySQL版 支持同步的版本：Percona 5.7.17。
 - 已在源端实例中开启 binlog。
 - 已在源端实例中创建订阅帐号，需要帐号权限如下：REPLICATION CLIENT、REPLICATION SLAVE、PROCESS 和全部对象的 SELECT 权限。
 具体授权语句如下：
@@ -14,6 +17,13 @@ grant SELECT, REPLICATION CLIENT,REPLICATION SLAVE,PROCESS on *.* to '迁移账�
 grant ALL PRIVILEGES on `__tencentdb__`.* to '迁移账号'@'%';
 flush privileges;
 ```
+
+## TDSQL MySQL版 数据订阅说明
+- 数据订阅源是 TDSQL MySQL版 时，订阅帐号的权限需要在 [TDSQL 控制台](https://console.cloud.tencent.com/tdsqld) 单击实例名，进入帐号管理页中添加。
+- 数据订阅源是 TDSQL MySQL版 时，不支持实例创建两级分区的分表。如果实例在订阅任务发起前已经存在两级分区的分表，则校验任务不通过；如果实例在订阅任务运行中创建了两级分区分表，则订阅任务会报错暂定。
+关于两级分区信息请参见 [两级分区](https://cloud.tencent.com/document/product/557/16945)。
+- 数据订阅源是 TDSQL MySQL版 的订阅任务，各个分片的 DDL 操作都会被订阅并投递到 Kafka，所以对于一个分表的 DDL 操作，会出现重复的 DDL 语句，例如，实例 A 有上3个分片，表 A 是一个分表，那么对于表 A 的 DDL 语句会订阅到3条。
+- Kafka 中的每条消息的消息头中都带有分片信息，以 key/value 的形式存在消息头中，key 是 ShardId，value 是 SQL 透传 ID，请参见 [分片管理](https://console.cloud.tencent.com/tdsqld)，可根据 SQL 透传 ID 区分该消息来自哪个分片。
 
 ## 支持订阅的 SQL 操作
 |  类型      | 数据变更                    | 结构变更                                                    | 数据+结构变更 |
