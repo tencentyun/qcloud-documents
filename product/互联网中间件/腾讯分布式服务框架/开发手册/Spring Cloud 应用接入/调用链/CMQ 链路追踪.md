@@ -27,7 +27,7 @@ cmq:
 
 1. 在 pom 中引入 tcp 的依赖，版本要求1.1.2以上（低版本不支持）：
 ```plaintext
-        <dependency>
+<dependency>
 	<groupId>com.qcloud</groupId>
 	<artifactId>cmq-tcp-client</artifactId>
 	<version>1.1.2</version>
