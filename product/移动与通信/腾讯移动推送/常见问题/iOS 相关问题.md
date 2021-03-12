@@ -1,3 +1,21 @@
+### iOS的开发环境token，被当做生产环境token 是什么原因？该如何处理？
+
+在Xcode开发环境下安装APP，并使用TPNS推送开发环境的消息时，出现以下两种错误提示:
+1.在TPNS控制台推送排查工具查询，出现提示"Token的环境为product，推送环境为dev两者不匹配"。
+![](https://main.qcloudimg.com/raw/40ada7768004d4d15d98276dfbe9b00d.png)
+2.Xcode 调试TPNS SDK错误日志提示embedded.mobileprovision缺失。
+```xml
+Missing Provisioning Profile - iOS Apps must contain a provisioning profile  named embedded.mobileprovision.
+缺少配置文件-iOS应用程序必须包含名为embedded.mobileprovision的配置文件。
+```
+错误原因: App包缺少配置文件embedded.mobileprovision，导致token环境未知。
+出现此问题时，可按以下步骤解决：
+1.点击Xcode顶部菜单栏目 File 中的 Project Settings 选项；
+![](https://main.qcloudimg.com/raw/c470889681e34e87cc7f661ffb677e7d.png)
+2.更改Build System，改为Legacy Build System，点击Done；
+![](https://main.qcloudimg.com/raw/812b625ddfe5c2e7c40c0ad52cae9aec.png)
+3.重新打包, 卸载App重新安装。
+4.注册成功后，对token进行推送测试。
 
 ### Xcode12 模拟器集成通知扩展插件编译报错 building for iOS Simulator, but linking in object file built for iOS，该如何处理？
 
@@ -36,9 +54,6 @@ openssl x509 -in apns-dev-cert.pem -inform pem -noout -text
 
 p8 证书存在安全隐患。虽然 p8 比 p12 有更长的有效期，但是同时也有更大的推送权限和范围。若泄露，可能会造成更加严重的影响。TPNS 推荐您使用 p12 来分别管理您的应用的推送服务。
 
-### TPNS SDK 1.2.5.4及以下的版本模拟器提示找不到 XGForFreeVersion 符号？
-
-1.2.5.4及以下版本仅支持真机调试，如需使用模拟器调试请升级到最新版本。
 
 
 ### 推送消息无法收到？
@@ -68,15 +83,8 @@ SDK 接入问题，在接入 SDK 之后，请确保能够获取到接收消息�
 
 
 
-
-### 账号/标签绑定和解绑为什么不起作用？
-使用 SDK API 进行账号和标签的绑定或是解绑操作，移动推送 TPNS 服务器需要10s左右进行数据同步
-
-
-
 ### 终端出现未找到应用程序的 “aps-environment” 的授权字符串错误？
 请检查 Xcode 工程中配置的 bundle id 是否和设置的 Provision Profile 文件匹配，且对应 App 的 Provision Profile 文件是否已配置了消息推送能力。
-
 
 
 
@@ -99,7 +107,6 @@ SDK 接入问题，在接入 SDK 之后，请确保能够获取到接收消息�
 
 ### 使用移动推送 TPNS 服务端 SDK ，如何创建静默推送？
 请给参数 content-available 赋值1，同时不使用 alert、badge、sound。
-
 
 
 
@@ -142,7 +149,6 @@ TestFlight 发布预览版，先将 ipa 包上传到 [App Store Connect](https:/
 }
 :::
 </dx-codeblock>
-
 
 
 
