@@ -38,6 +38,12 @@ TK 的代码可前往 GitHub 获取，详情请参见 [TencentOS-kernel](https:/
 ### 如何在腾讯云上使用 TencentOS Server ？
 腾讯云提供了 TencentOS Server 两个版本的公共镜像，您可在创建 Linux 操作系统的云服务器时，选择使用 TencentOS Server 镜像版本。
 
+### TencentOS Server 支持哪些云服务器实例类型？
+TencentOS Server 支持大部分云服务器实例类型，您可在 [云服务器购买页面](https://buy.cloud.tencent.com/cvm?regionId=1&projectId=-1) 选择镜像开始使用。
+
+### 在云服务器中使用 TencentOS Server 是否收费？
+否。TencentOS Server 本身不收取任何费用，您只需支付云服务器运行费用。
+
 ### 使用 TencentOS Server 后，如何安装和升级软件？
 TencentOS Server 发行版可以通过 `yum` 命令管理软件包，也可以通过 TencentOS Server 自带的 `t` 命令来管理软件包。其中，TencentOS Server 3 还可以通过 `dnf` 命令管理软件包。
 
