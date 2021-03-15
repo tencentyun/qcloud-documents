@@ -137,8 +137,7 @@ public class JsBridge {
         //注册一个name为jsToOcNoPrams的js方法 设置处理接收JS方法的对象
         [wkUController addScriptMessageHandler:self  name:@"jsToOcNoPrams"];
         [wkUController addScriptMessageHandler:self  name:@"jsToOcWithPrams"]; 
-        config.userContentController = wkUController;
-        [config.userContentController addUserScript:wkUScript];       
+        config.userContentController = wkUController;     
         _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) configuration:config];
         // UI 代理
         _webView.UIDelegate = self;
