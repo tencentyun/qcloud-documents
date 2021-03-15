@@ -48,29 +48,24 @@ users:
 # 添加 TencentOS Server 的 YUM 源。
 yum_repos:
     base:
-        baseurl: 待补充
-        enabled: true
-        gpgcheck: true
-        gpgkey: 待补充
-        name: 待补充
+        name=tlinux-$releasever - tlinux 
+        baseurl=http://mirrors.tencentyun.com/tlinux/$releasever/tlinux/$basearch/
+        enabled=1
+        gpgcheck=1
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Tlinux-2
     updates:
-        baseurl: 待补充
-        enabled: true
-        gpgcheck: true
-        gpgkey: 待补充
-        name: 待补充
+        name=tlinux-$releasever - tlinux-updates
+        baseurl=http://mirrors.tencentyun.com/tlinux/$releasever/tlinux-updates/$basearch/
+        enabled=1
+        gpgcheck=1
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Tlinux-2
     extras:
-        baseurl: 待补充
-        enabled: true
-        gpgcheck: true
-        gpgkey: 待补充
-        name: 待补充
-    plus:
-        baseurl: 待补充
-        enabled: true
-        gpgcheck: true
-        gpgkey: 待补充
-        name: 待补充
+        name=tlinux-$releasever - tlinux-extras
+        baseurl=http://mirrors.tencentyun.com/tlinux/$releasever/tlinux-extras/$basearch/
+        enabled=1
+        gpgcheck=1
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Tlinux-2
+
 
 # 使用 cloud-init 或 systemd-networkd 可能导致 meta-data 中步骤失效，以下为网络设置的替代方案。
 write_files:
