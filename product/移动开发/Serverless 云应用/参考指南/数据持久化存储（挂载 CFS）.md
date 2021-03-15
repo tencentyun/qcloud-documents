@@ -27,17 +27,19 @@
 4. 如果您有其他安全组诉求无法直接使用上述 default 安全组默认值，则至少需保证您的安全组入站规则与出站规则符合以下条件：
 	- **来源：**包含挂载 CFS 的服务所在的子网 IP 段。
 	- **协议端口：**包含2049（对应 NFS4.0 协议要求）。
+![](https://main.qcloudimg.com/raw/0c0dd045239e457d8fb4435000b6745f.png)
+
 
 ### 步骤3：检查 VPC 网络 ACL 配置[](id:step3)
 了解更多什么是 ACL 及 ACL 如何使用，请参见 [私有网络ACL文档](https://cloud.tencent.com/document/product/215/20088)。
 1. 在云托管控制台上，点击服务所在私有网络名称，跳转到对应的私有网络控制台。
 2. 单击左侧菜单进入【安全】>【网络ACL】。
 3. 单击【新建】创建 ACL，确保入站规则与出站规则如下图所示使用默认值。（已有符合条件的 ACL 可不用新建）。
-![](https://main.qcloudimg.com/raw/998c49084850e7ee45be91ed46be471a.png)
+![](https://main.qcloudimg.com/raw/be9abc7bf87535830e90d673a8ea58e3.jpg)
 4. 如果您有其他 ACL 诉求无法直接使用上述默认值，则至少需保证您的 ACL 入站规则与出站规则符合以下条件：
 	- **来源：**包含挂载 CFS 的服务版本所在的子网 IP 段。
 	- **协议端口：**包含2049（对应 NFS4.0 协议要求）。
-
+![](https://main.qcloudimg.com/raw/998c49084850e7ee45be91ed46be471a.png)
 
 ### 步骤4: 创建文件存储 CFS[](id:step4)
 1. 登录 [文件存储CFS控制台](https://console.cloud.tencent.com/cfs/overview)，单击【创建】，新增文件系统。
