@@ -1,7 +1,7 @@
 ## 操作背景
 TencentOS Server 全面开源，并内置 cloud-init。您可以在本地服务器或 virtualbox 、KVM 等虚拟机中安装使用。本文介绍如何在本地通过 KVM 虚拟机使用 TencentOS Server 镜像。
 
-本文本地机器使用了 CentOS 7 操作系统，通过 TencentOS Server 镜像创建 KVM，并使用 cloud-init 初始化虚拟机系统设置，cloud-init 的相关信息请参见 [Cloud-Init 常见问题](https://cloud.tencent.com/document/product/213/19670)。使用 NoCloud 数据源在本地建立相关配置文件，以虚拟磁盘的形式挂载到 KVM 虚拟机中进行设置，并启动虚拟机。
+本文中本地机器以 CentOS 7 操作系统为例，通过 TencentOS Server 镜像创建 KVM，并使用 cloud-init 初始化虚拟机系统设置，cloud-init 的相关信息请参见 [Cloud-Init 常见问题](https://cloud.tencent.com/document/product/213/19670)。使用 NoCloud 数据源在本地建立相关配置文件，以虚拟磁盘的形式挂载到 KVM 虚拟机中进行设置，并启动虚拟机。
 
 ## 操作步骤
 ### 下载 TencentOS Server 镜像
