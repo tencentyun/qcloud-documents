@@ -168,7 +168,7 @@ void registerListener(VoiceListenerFunc func)
 
 ### unRegisterListener
 
-移除组件事件监听接口
+移除组件事件监听接口。
 
 ```dart
 void unRegisterListener(VoiceListenerFunc func)
@@ -347,7 +347,7 @@ Future<UserListCallback> getUserInfoList(List<String> userIdList)
 
 上麦（观众端和主播均可调用）。
 
->?上麦成功后，房间内所有成员会收到`onAnchorEnterSeat`的事件通知。
+>?上麦成功后，房间内所有成员会收到 `onAnchorEnterSeat` 的事件通知。
 
 ```
 Future<ActionCallback> enterMic();
@@ -357,7 +357,7 @@ Future<ActionCallback> enterMic();
 
 ### leaveMic
 
-主动下麦
+主动下麦。
 
 >? 下麦成功后，房间内所有成员会收到 `onAnchorLeaveMic` 的事件通知。
 
