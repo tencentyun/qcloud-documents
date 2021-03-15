@@ -12,7 +12,7 @@
 ```
 java -version
 ```
-如果输出 Java 版本号，说明 Java 安装成功；如果没有安装 Java，请 [下载安装 Java 软件开发套件（JDK）](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
+如果输出 Java 版本号，说明 Java 安装成功；如果没有安装 Java，请 [下载安装 Java 软件开发套件（JDK）](http://kafka.apache.org/downloads)。
 
 
 #### 2. 设置 Java 环境。
