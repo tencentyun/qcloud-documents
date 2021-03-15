@@ -66,7 +66,7 @@
 }
 ```
 
-## 步骤6：验证 CFS 挂载成功
+### 步骤6：验证 CFS 挂载成功
 1. 登录 [云托管控制台](https://console.cloud.tencent.com/tcb/service)，进入【服务】>【版本】>【实例】。
 2. 单击【webshell】登录容器。
 ![](https://main.qcloudimg.com/raw/09c460a8879af9fea06d9c8c23004d69.jpg)
