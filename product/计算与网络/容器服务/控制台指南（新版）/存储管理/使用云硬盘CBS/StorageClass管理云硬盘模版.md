@@ -77,6 +77,7 @@
 		- **目标路径**：填写目标路径，本文以 `/cache` 为例。
 		- **挂载子路径**：仅挂载选中数据卷中的子路径或单一文件。例如，`/data` 或 `/test.txt`。
 4. 单击【创建Workload】，即可完成创建。
+>! 如使用 CBS 的 PVC 挂载模式，则数据卷只能挂载到一台 Node 主机上。
 
 ### Kubectl 操作指引
 您可参考本文提供的示例模板，使用 Kubectl 进行 StorageClass 创建操作。
@@ -91,10 +92,10 @@ metadata:
   # annotations:
   #   storageclass.beta.kubernetes.io/is-default-class: "true"
   #   如果有这一条，则会成为 default-class，创建 PVC 时不指定类型则自动使用此类型
-  name: cloud-premium
+   name: cloud-premium
 provisioner: cloud.tencent.com/qcloud-cbs ## TKE 集群自带的 provisioner
 parameters:
-  type: CLOUD_PREMIUM
+   type: CLOUD_PREMIUM
   # 支持 CLOUD_BASIC,CLOUD_PREMIUM,CLOUD_SSD  如果不识别则当做 CLOUD_BASIC
   # renewflag: NOTIFY_AND_AUTO_RENEW
   # renewflag为云硬盘的续费模式，NOTIFY_AND_AUTO_RENEW模式支持通知过期且按月自动续费，NOTIFY_AND_MANUAL_RENEW模式支持通知过期但不支持自动续费，DISABLE_NOTIFY_AND_MANUAL_RENEW模式支持不通知过期也不自动续费。不指定该字段则默认为NOTIFY_AND_MANUAL_RENEW模式。
@@ -133,32 +134,32 @@ parameters:
 apiVersion: apps/v1beta1
 kind: StatefulSet
 metadata:
-  name: web
+   name: web
 spec:
-  serviceName: "nginx"
-  replicas: 3
-  template:
-    metadata:
-      labels:
-        app: nginx
-    spec:
-      terminationGracePeriodSeconds: 10
-      containers:
-      - name: nginx
-        image: nginx
-        ports:
-        - containerPort: 80
-          name: web
-        volumeMounts:
-        - name: www
-          mountPath: /usr/share/nginx/html
-  volumeClaimTemplates:  # 自动创建pvc，进而自动创建pv
-  - metadata:
-      name: www
-    spec:
-      accessModes: [ "ReadWriteOnce" ]
-      storageClassName: cloud-premium
-      resources:
-        requests:
-          storage: 10Gi
+   serviceName: "nginx"
+   replicas: 3
+   template:
+     metadata:
+       labels:
+         app: nginx
+     spec:
+       terminationGracePeriodSeconds: 10
+       containers:
+       - name: nginx
+         image: nginx
+         ports:
+         - containerPort: 80
+           name: web
+         volumeMounts:
+         - name: www
+           mountPath: /usr/share/nginx/html
+   volumeClaimTemplates:  # 自动创建pvc，进而自动创建pv
+   - metadata:
+       name: www
+     spec:
+       accessModes: [ "ReadWriteOnce" ]
+       storageClassName: cloud-premium
+       resources:
+         requests:
+           storage: 10Gi
 ```

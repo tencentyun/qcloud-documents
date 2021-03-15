@@ -79,7 +79,7 @@
        - **目标路径**：填写目标路径，本文以 `/cache` 为例。
        - **挂载子路径**：仅挂载选中数据卷中的子路径或单一文件。例如，`/data` 或 `/test.txt`。
 4. 单击【创建Workload】即可完成创建。
- > ! 如使用 PVC 挂载模式，则数据卷只能挂载到一台 Node 主机上。
+ > ! 如使用 CBS 的 PVC 挂载模式，则数据卷只能挂载到一台 Node 主机上。
 
 ### Kubectl 操作指引
 
@@ -93,16 +93,16 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: nginx-pv
+   name: nginx-pv
 spec:
-  capacity:
-    storage: 10Gi
-  accessModes:
-    - ReadWriteOnce
-  qcloudCbs:
-      cbsDiskId: disk-xxxxxxx ## 指定已有的CBS id
-      fsType: ext4
-  storageClassName: cbs
+   capacity:
+     storage: 10Gi
+   accessModes:
+     - ReadWriteOnce
+   qcloudCbs:
+       cbsDiskId: disk-xxxxxxx ## 指定已有的CBS id
+       fsType: ext4
+   storageClassName: cbs
 ```
 
 
@@ -114,14 +114,14 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: nginx-pv-claim
+   name: nginx-pv-claim
 spec:
-  storageClassName: cbs
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 10Gi
+   storageClassName: cbs
+   accessModes:
+     - ReadWriteOnce
+   resources:
+     requests:
+       storage: 10Gi
 ```
 - 普通云盘大小必须是10的倍数，最小为10GB。
 - 高性能云硬盘最小为50GB。
@@ -134,26 +134,26 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: nginx-deployment
+   name: nginx-deployment
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      qcloud-app: nginx-deployment
-  template:
-    metadata:
-      labels:
-        qcloud-app: nginx-deployment
-    spec:
-      containers:
-      - image: nginx
-        imagePullPolicy: Always
-        name: nginx
-        volumeMounts:
-        - mountPath: "/opt/"
-          name: pvc-test
-      volumes:
-      - name: pvc-test
-        persistentVolumeClaim:
-          claimName: nginx-pv-claim # 已经创建好的 PVC
+   replicas: 1
+   selector:
+     matchLabels:
+       qcloud-app: nginx-deployment
+   template:
+     metadata:
+       labels:
+         qcloud-app: nginx-deployment
+     spec:
+       containers:
+       - image: nginx
+         imagePullPolicy: Always
+         name: nginx
+         volumeMounts:
+         - mountPath: "/opt/"
+           name: pvc-test
+       volumes:
+       - name: pvc-test
+         persistentVolumeClaim:
+           claimName: nginx-pv-claim # 已经创建好的 PVC
 ```

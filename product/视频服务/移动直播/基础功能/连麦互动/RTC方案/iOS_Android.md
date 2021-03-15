@@ -9,7 +9,7 @@
 | QoS      | 弱网抗性能力弱             | 50%丢包率可正常视频观看，70%丢包率可正常语音连麦 |
 | 支持区域 | 仅支持中国内地（大陆）地区 | 全球覆盖                                           |
 | 使用产品 | 需开通移动直播、云直播服务 | 需开通移动直播、云直播、实时音视频服务             |
-| 价格     | 0.016元/分钟               | 阶梯价格，详情请参见 [RTC 连麦方案怎么计算费用](#price})  |
+| 价格     | 0.016元/分钟               | 阶梯价格，详情请参见 [RTC 连麦方案怎么计算费用](#price)  |
 
 
 ## 开始体验 RTC 连麦方案
@@ -306,4 +306,4 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 -5表示由于许可证无效，因此无法调用API，对应的枚举值为：[V2TXLIVE_ERROR_INVALID_LICENSE](http://doc.qcloudtrtc.com/group__V2TXLiveCode__ios.html)，更多错误码请参见 [API 状态码](http://doc.qcloudtrtc.com/group__V2TXLiveCode__ios.html)。
 
 #### 5. RTC连麦方案的时延性有可以参考的数据吗？
-新的RTC连麦方案中，主播连麦的延时 < 200ms，主播和观众的延时在：100ms - 1000ms，可以参考 [超低延时直播](https://cloud.tencent.com/document/product/454/52749) 中的测试视频。
+新的 RTC 连麦方案中，主播连麦的延时 < 200ms，主播和观众的延时在 100ms - 1000ms。

@@ -21,13 +21,13 @@
 3. 检查目标云数据库 MySQL 容量必须大于源云数据库 MySQL。
 4. 在源端云数据库 MySQL 上创建迁移帐号（若有已授权可用于数据迁移的帐号，也可不创建）。
 ```
-GRANT ALL PRIVILEGES ON \*.\* TO "迁移帐号"@"%" IDENTIFIED BY "迁移密码";
+GRANT ALL PRIVILEGES ON *.* TO "迁移帐号"@"%" IDENTIFIED BY "迁移密码";
 FLUSH PRIVILEGES;
 ```
 5. 确认源库 MySQL 变量。
 通过`SHOW GLOBAL VARIABLES LIKE 'XXX';`查看 MySQL 全局变量，确认当前状态是否可以进行迁移：
 ```
-server_id \> 1
+server_id > 1
 log_bin = ON;
 binlog_format = ROW/MIXED
 binlog_row_image = FULL

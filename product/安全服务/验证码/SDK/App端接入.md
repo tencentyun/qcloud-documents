@@ -204,3 +204,6 @@ function jsToOcFunction()
 
 ## 后续步骤
 至此，验证码客户端接入已完成，验证码后台需二次核查验证码票据结果，您需要进行后台 API 接入，即 [核查验证码票据结果](https://cloud.tencent.com/document/product/1110/36926) 操作，确保验证安全性。
+
+## 更多信息
+您可以登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，在页面右上角单击【快速咨询】，了解更多详细信息。
