@@ -45,9 +45,7 @@ Flags:
 
 ## edgectl  check 命令[](id:check)
 ### 含义
-检查节点是否满足安装边缘节点的条件。
-
-check 项目包含内容：
+检查节点是否满足安装边缘节点的条件。check 项目包含内容：
 - check 是否 root 用户。
 - check 系统是否在支持范围内。
 - check 交换区是否关闭。
@@ -57,7 +55,7 @@ check 项目包含内容：
 - check 是否开启 cgroup memory。
 - check 节点之前是否安装过 kubeadm docker kubelet kubectl。
 
-### 返回示例
+### 使用示例
 ```
 # ./edgectl check 
 Unit firewalld.service could not be found.
@@ -82,9 +80,7 @@ WARN >> The machine is not clean. Please reinstall the system.
 
 ## edgectl  clear  命令[](id:clear)
 ### 含义
-清理边缘节点。
-
-clear 命令会清除如下信息：
+清理边缘节点。clear 命令会清除如下信息：
 - 删除边缘节点上运行的所有容器和 Pod。
 - 停止 kubelet、lite-apiserver、docker。
 - 删除创建的网络信息和路由信息。
@@ -100,17 +96,19 @@ clear 命令会清除如下信息：
  - /data/lite-apiserver >/dev/null 2>&1
  - /usr/lib/systemd/system/{kubelet,docker,lite-apiserver}.service
  
-### 返回示例
+>!
+- `edgectl clear` 会删除节点上的所有容器和 Pod，请谨慎执行。
+- `edgectl clear` 会删除相关的文件夹或文件，请提前备份重要的资料。
+- `edgectl install` 命令默认会执行 `edgectl clear`，执行 `edgectl install` 前请考虑 `edgectl clear` 删除的风险项。
+ 
+### 使用示例
 ```
 # ./edgectl clear
 removed '/etc/kubernetes/cluster-ca.crt'
 ...
   >> Clear Node Complete! << 
 ```
->!
-- `edgectl clear` 会删除节点上的所有容器和 Pod，请谨慎执行。
-- `edgectl clear` 会删除相关的文件夹或文件，请提前备份重要的资料。
-- `edgectl install` 命令默认会执行 `edgectl clear`，执行 `edgectl install` 前请考虑 `edgectl clear` 删除的风险项。
+
 
 
 ## edgectl  install 命令[](id:install)
@@ -134,7 +132,7 @@ Flags:
 	- 默认值为从腾讯云页面填的指定网卡名称，指定 `--interface` 将覆盖原默认值。
 
 
-### 返回示例
+### 使用示例
 ```
 # ./edgectl install  --node-name node-192.168.67.91 --interface eth0
 NOTE:
