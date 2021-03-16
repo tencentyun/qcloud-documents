@@ -3,9 +3,7 @@
 
 ## 操作步骤
 ### 安装配置 chrony 服务
-1. [使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。您也可以根据实际操作习惯，选择其他不同的登录方式：
-	- [使用远程登录软件登录 Linux 实例](https://cloud.tencent.com/document/product/213/35699)
-	- [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)
+1. 登录云服务器实例，详情请参见 [使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
 2. 执行以下命令，安装 chrony 服务。
 ```
 yum -y install chrony
