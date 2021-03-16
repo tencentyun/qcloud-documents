@@ -86,10 +86,7 @@ yum install python-pip 或 python2-pip 或 python3-pip
 index-url = https://mirrors.tencent.com/pypi/simple1. 
 ```
 
-### 安装 ceph-fuse。
-```
-
-```
+### 安装 ceph-fuse
 1. 执行以下命令，安装源 tlinux-ceph.repo。
 ```
 yum install tlinux-release-ceph
@@ -145,7 +142,7 @@ yum install glusterfs-server
 ```
 
 ### 安装 git-2.19
-通过 tlinux-testing 源仓库可安装高版本软件包。例如，git 2.19版本，适用于 TencentOS Server 2 for x86_64 和 arm64。执行以下命令，安装 git-2.19。
+通过 tlinux-testing 源仓库可安装高版本软件包。本文以安装 git 2.19版本为例，适用于 TencentOS Server 2 for x86_64 和 arm64。执行以下命令，即可安装 git-2.19。
 ```
 yum --enablerepo=tlinux-testing install git
 ```
