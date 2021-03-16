@@ -156,7 +156,6 @@ SDK 3.0支持全部 API 3.0下的云产品，本列表可能滞后于实际代�
 | [智能鉴黄](https://cloud.tencent.com/document/product/864)          | - | ticm       |
 | [文本内容安全](https://cloud.tencent.com/document/product/1124)       | Text Moderation System | tms        |
 | [腾讯微服务观测平台 TSW](https://cloud.tencent.com/document/product/)    | - | tsw        |
-| [客流数字化平台](https://cloud.tencent.com/document/product/1320)      | - | ump        |
 | [视频内容安全](https://cloud.tencent.com/document/product/1265)       | Video Moderation System | vm         |
 | [语音消息](https://cloud.tencent.com/document/product/1128)         | Voice Message Service | vms        |
 | [SSL证书管理服务](https://cloud.tencent.com/document/product)         | - | wss        |
