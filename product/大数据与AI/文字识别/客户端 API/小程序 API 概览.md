@@ -149,11 +149,11 @@ ocrType 是一个枚举类型，列举了当前文字识别 OCR 的 SDK 所支�
 
 | ocrType 类型             | 代表含义             |
 | ----------------------- | ------------------- |
-| ocrType.ID_Card         | 身份证识别模式（包含正反面）      |
-| ocrType.ID_Card_FRONT       | 身份证正面识别模式（仅包含正面）    |
-| ocrType.ID_Card_BACK   | 身份证反面识别模式（仅包含反面）     |
-| ocrType.Bank_Card       | 银行卡识别模式     |
-| ocrType.Business_Card   | 名片识别模式     |
+| ocrType.ID_CARD      | 身份证识别模式（包含正反面）      |
+| ocrType.ID_CARD_FRONT       | 身份证正面识别模式（仅包含正面）    |
+| ocrType.ID_CARD_BACK   | 身份证反面识别模式（仅包含反面）     |
+| ocrType.BANK_CARD     | 银行卡识别模式     |
+| ocrType.BUSINESS_CARD   | 名片识别模式     |
 
 配置了 ocrType 之后，当调用 ocrSdk.start（）方法之后，小程序会前往配置模式对应的页面。
 
@@ -190,7 +190,7 @@ ocrSdk.start({
 当该字段配置为 true 时，小程序 SDK 在识别完成之后会进入到结果页，您可以在结果页查看识别结果。
 当该字段配置为 false（默认）时，小程序 SDK 在识别完成之后会直接执行您传入的回调函数。
 
-**特别说明：当选择了身份证双面识别模式（即：orcType 字段配置为 ocrType.ID_Card）时，SDK 默认展示结果页面。如您希望不展示结果页面，请配置为身份证单面模式（即：orcType 字段配置为 ocrType.ID_Card_FRONT 或 ocrType.ID_Card_BACK）。**
+**特别说明：当选择了身份证双面识别模式（即：ocrType 字段配置为 orcType.ID_CARD）时，SDK 默认展示结果页面。如您希望不展示结果页面，请配置为身份证单面模式（即：ocrType 字段配置为 ocrType.ID_CARD_FRONT 或 ocrType.ID_CARD_BACK）。**
 
 <br/>
 
