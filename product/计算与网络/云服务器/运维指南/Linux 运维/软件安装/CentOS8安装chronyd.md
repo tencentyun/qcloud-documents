@@ -1,10 +1,10 @@
 ## 操作场景
-目前原生 CentOS 8 不支持安装 ntp 服务，因此会发生时间不准的问题，需使用 chrony 来调整时间服务。本文介绍了如何在 CentOS 8 操作系统的腾讯云服务器上安装并配置 chrony 时间服务。
+目前原生 CentOS 8 不支持安装 ntp 服务，因此会发生时间不准的问题，需使用 chronyd 来调整时间服务。本文介绍了如何在 CentOS 8 操作系统的腾讯云服务器上安装并配置 chronyd 时间服务。
 
 ## 操作步骤
-### 安装配置 chrony 服务
+### 安装配置 chronyd 服务
 1. 登录云服务器实例，详情请参见 [使用标准方式登录 Linux 实例（推荐）](https://cloud.tencent.com/document/product/213/5436)。
-2. 执行以下命令，安装 chrony 服务。
+2. 执行以下命令，安装 chronyd 服务。
 ```
 yum -y install chrony
 ```
