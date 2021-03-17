@@ -317,7 +317,7 @@ trtcCalling.setMicMute(true) // 开启麦克风
 | ------ | ------- | --------------------------------------------- |
 | isMute | Boolean | <li/>true：麦克风关闭 <li/> false：麦克风打开 |
 
-<span id="event"></span>
+[](id:event)
 ## TRTCCalling 事件表
 您可以参考如下代码捕获来自 TRTCCalling 组件的各种事件：
 
@@ -465,7 +465,7 @@ function handleInviteeReject({userID}) {
 
 <dx-codeblock>
 :::  javascript javascript
-function handleNoResponse({userID}) {
+function handleNoResponse({userID, userIDList}) {
 
 }
 :::
@@ -473,9 +473,10 @@ function handleNoResponse({userID}) {
 
 参数如下表所示：
 
-| 参数   | 类型   | 含义    |
-| ------ | ------ | ------- |
-| userID | String | 用户 ID |
+| 参数       | 类型   | 含义         |
+| ---------- | ------ | ------------ |
+| userID     | String | 用户 ID      |
+| userIDList | Array  | 超时用户列表 |
 
 #### LINE_BUSY
 被邀请方正在通话中，忙线。

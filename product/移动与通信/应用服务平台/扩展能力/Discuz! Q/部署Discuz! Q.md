@@ -86,11 +86,11 @@ CynosDB for MySQL 与服务器类似，是按照使用时间计费，即使没�
 此能力使用云开发与其他腾讯云服务，可能会产生相关费用。云开发与云上其他资源分开计费，您可以在 [费用中心](https://console.cloud.tencent.com/expense/overview) 查看具体信息。
 
 #### 云托管
-[产品定价](https://cloud.tencent.com/document/product/1003/30493) 及 [使用明细](https://console.cloud.tencent.com/tcb)。
+[产品定价](https://cloud.tencent.com/document/product/1243/47823) 及 [使用明细](https://console.cloud.tencent.com/tcb)。
 ![云托管与静态网站托管用量查询](https://main.qcloudimg.com/raw/3135c5ef7c19be7a86156f10dc0a8749.png)
 
 #### 静态网站托管
-[产品定价](https://cloud.tencent.com/document/product/876/39095) 及 [使用明细](https://console.cloud.tencent.com/tcb)。
+[产品定价](https://cloud.tencent.com/document/product/1210/42854) 及 [使用明细](https://console.cloud.tencent.com/tcb)。
 
 
 #### 文件存储（Cloud File Storage，CFS）

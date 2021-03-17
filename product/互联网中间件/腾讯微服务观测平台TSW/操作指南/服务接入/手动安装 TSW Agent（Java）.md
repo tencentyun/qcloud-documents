@@ -16,9 +16,7 @@
 2. 解压 tsw-client-package.zip 压缩包。
 3. 进入 tsw-client-package\config，打开 agent.conf 以编辑。
 4. 修改 agent.service_name、sender.etl_ip、sender.etl_port、sender.token。其中，agent.service_name 需要修改为应用程序包名。
-目前公网的接入点信息如下：
-sender.etl_ip=169.254.0.143
-sender.etl_port=9550
+私网接入点的，可通过 Skywalking 接入方式中的私网接入点获取。sender.etl_ip 使用域名，sender.etl_port 使用端口号。
 sender.token 可通过 TSW 控制台【[接入服务](https://console.cloud.tencent.com/tsw/service-access?rid=1) 】界面中的脚本复制，token 的位置如下图所示。
 ![](https://main.qcloudimg.com/raw/b36ce10a1b150814749e3b1f029ccab4.png)
 5. 完成修改后，将 tsw-client-package 复制/SCP 到主机的应用程序目录下。启动/重启应用同时，启动 agent。启动脚本可参考：

@@ -1,10 +1,11 @@
-### 引入 SDK 运行后，出现 java.lang.NoSuchMethodError 的异常，该如何处理？
 
+### 客户端网络正常，但是通过 HTTP 访问 COS 非常慢，或者报错 Connection reset，该如何处理？
+部分区域的运营商可能会对 COS 的域名进行劫持，因此尽量通过 HTTPS 来访问 COS。
+
+### 引入 SDK 运行后，出现 java.lang.NoSuchMethodError 的异常，该如何处理？
 
 原因一般是发生了 JAR 包冲突，例如，用户的工程中的 httpclient 库中 的 JAR 包版本没有A方法，但是  SDK 依赖的 JAR 包使用了 A 方法。此时，由于运行时加载顺序的问题，加载了用户工程中的 httpclient  库，运行时便会抛出 NoSuchMethodError 的异常。
 解决方法：将工程中引起 NoSuchMethodError 包的版本，改成和 SDK 中 pom.xml 里的对应库的版本一致。
-
-
 
 ### SDK 上传速度慢，日志频繁打印 IOException，该如何处理？
 

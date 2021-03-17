@@ -1,7 +1,6 @@
 更改一个数据库配置参数的值。
 
 ## 概要
-
 ```sql
 SET [SESSION | LOCAL] configuration_parameter {TO | =} value | 
     'value' | DEFAULT}
@@ -21,7 +20,6 @@ SET LOCAL 的效果只持续到当前事务结束，不管事务是否被提交�
 如果在一个事务中，使用 DECLARE 创建了一个游标，那么久不能在该事务中使用 SET 命令，直到使用 CLOSE 命令关闭游标。
 
 ## 参数
-
 SESSION
 指定该命令对当前会话有效（这是默认值）。
 
@@ -32,46 +30,38 @@ configuration_parameter
 一个可设置运行时参数的名称。只有被分类为 *session* 类别的参数能够通过 SET 命令就行修改。 
 
 value
-参数的新值。根据特定的参数，值可以被指定为字符串常量、标识符、 数字或者以上构成的逗号分隔列表。写 DEFAULT 可以指定把该参数重置成它的默认值。如果指定内存大小伙子时间单位，则值包含在单引号中。
+参数的新值。根据特定的参数，值可以被指定为字符串常量、标识符、数字或者以上构成的逗号分隔列表。写 DEFAULT 可以指定把该参数重置成它的默认值。如果指定内存大小伙子时间单位，则值包含在单引号中。
 
 TIME ZONE
-SET TIME ZONE value 是 SET timezone TO value 的一个别 名。语法 SET TIME ZONE 允许用于时区指定的特殊语法。这里是合法值的例子：
-
+SET TIME ZONE value 是 SET timezone TO value 的一个别名。语法 SET TIME ZONE 允许用于时区指定的特殊语法。这里是合法值的例子：
+```
 'PST8PDT'
 'Europe/Rome'
 -7 (UTC 以西7小时的时区)
 INTERVAL '-08:00' HOUR TO MINUTE (UTC 以西8小时的时区)。
-LOCAL
+	LOCAL
 DEFAULT
+```
 把时区设置为用户的本地时区（也就是说服务器的 timezone 默认值）。
 
 ## 示例
 设置模式搜索路径：
-
 ```sql
 SET search_path TO my_schema, public;
 ```
-
 增加每个查询的段主机内存到200MB：
-
 ```sql
 SET statement_mem TO '200MB';
 ```
-
 把日期风格设置为传统 POSTGRES 的"日在月之前"的输入习惯：
-
 ```sql
 SET datestyle TO postgres, dmy;
 ```
-
 设置时区为加州伯克利：
-
 ```sql
 SET TIME ZONE 'PST8PDT';
 ```
-
 设置时区为意大利：
-
 ```sql
 SET TIME ZONE 'Europe/Rome'; 
 ```

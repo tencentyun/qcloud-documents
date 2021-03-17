@@ -19,7 +19,7 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 >?如果访问 Github 较慢，您也可以直接下载 [TXLiteAVSDK_TRTC_iOS_latest.zip](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip)。
 
 ## 操作步骤
-<span id="step1"> </span>
+[](id:step1)
 ### 步骤1：集成 SDK
 您可以选择以下方式将 **TRTC SDK** 集成到项目中。
 #### 方式一：使用 CocoaPods 集成
@@ -42,7 +42,7 @@ pod install
 #### 方式二：下载 ZIP 包手动集成
 如果您暂时不想安装 CocoaPods 环境，或者已经安装但是访问 CocoaPods 仓库比较慢，您可以直接下载 [ZIP 压缩包](https://cloud.tencent.com/document/product/647/32689)，并参考 [快速集成(iOS)](https://cloud.tencent.com/document/product/647/32173#.E6.89.8B.E5.8A.A8.E9.9B.86.E6.88.90) 将 SDK 集成到您的工程中。
 
-<span id="step2"> </span>
+[](id:step2)
 ### 步骤2：添加媒体设备权限
 在`Info.plist`文件中添加摄像头和麦克风的申请权限：
 
@@ -51,17 +51,18 @@ pod install
 | Privacy - Camera Usage Description | 描述使用摄像头权限的原因，例如，需要访问您的相机权限，开启后视频聊天才会有画面 |
 | Privacy - Microphone Usage Description | 描述使用麦克风权限的原因，例如，需要访问您的麦克风权限，开启后聊天才会有声音 |
 
-<span id="step3"> </span>
+[](id:step3)
 ### 步骤3：初始化 SDK 实例并监听事件回调
 
 1. 使用 [sharedInstance()](https://cloud.tencent.com/document/product/647/32258) 接口创建`TRTCCloud`实例。
-```swift
+```
 // 创建 trtcCloud 实例
 let trtcCloud: TRTCCloud = TRTCCloud.sharedInstance()
 trtcCloud.delegate = self
 ```
 2. 设置`delegate`属性注册事件回调，并监听相关事件和错误通知。
-```swift
+<dx-codeblock>
+::: swift swift
 // 错误通知是要监听的，需要捕获并通知用户
 func onError(_ errCode: TXLiteAVError, errMsg: String?, extInfo: [AnyHashable : Any]?) {
         if ERR_ROOM_ENTER_FAIL == errCode {
@@ -69,9 +70,10 @@ func onError(_ errCode: TXLiteAVError, errMsg: String?, extInfo: [AnyHashable : 
                 exitRoom()
         }
 }
-```
+:::
+</dx-codeblock>
 
-<span id="step4"> </span>
+[](id:step4)
 ### 步骤4：组装进房参数 TRTCParams
 在调用 [enterRoom()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a96152963bf6ac4bc10f1b67155e04f8d) 接口时需要填写一个关键参数 [TRTCParams](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCParams)，该参数包含的必填字段如下表所示。
 
@@ -84,7 +86,7 @@ func onError(_ errCode: TXLiteAVError, errMsg: String?, extInfo: [AnyHashable : 
 
 >! TRTC 同一时间不支持两个相同的 userId 进入房间，否则会相互干扰。
 
-<span id="step5"> </span>
+[](id:step5)
 ### 步骤5：创建并进入房间
 1. 调用 [enterRoom()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a96152963bf6ac4bc10f1b67155e04f8d) 即可加入 TRTCParams 参数中`roomId`代指的音视频房间。如果该房间不存在，SDK 会自动创建一个以字段`roomId`的值为房间号的新房间。
 2. 请根据应用场景设置合适的**`appScene`**参数，使用错误可能会导致卡顿率或画面清晰度不达预期。
@@ -92,7 +94,8 @@ func onError(_ errCode: TXLiteAVError, errMsg: String?, extInfo: [AnyHashable : 
  - 语音通话，请设置为`TRTCAppScene.audioCall`。
 3. 进房成功后，SDK 会回调`onEnterRoom(result)`事件。其中，参数`result`大于0时表示进房成功，具体数值为加入房间所消耗的时间，单位为毫秒（ms）；当`result`小于0时表示进房失败，具体数值为进房失败的错误码。
 
-```swift
+<dx-codeblock>
+::: swift swift
 func enterRoom() {
     let params = TRTCParams.init()
     params.sdkAppId = sdkappid
@@ -109,13 +112,14 @@ func onEnterRoom(_ result: Int) {
         toastTip("进房失败，错误码[\(result)]")
     }
 }
-```
+:::
+</dx-codeblock>
 
 >! 
 >- 如果进房失败，SDK 同时还会回调`onError`事件，并返回参数`errCode`（[错误码](https://cloud.tencent.com/document/product/647/32257)）、`errMsg`（错误原因）以及`extraInfo`（保留参数）。
 >- 如果已在某一个房间中，则必须先调用`exitRoom()`退出当前房间，才能进入下一个房间。
 
-<span id="step6"> </span>
+[](id:step6)
 ### 步骤6：订阅远端的音视频流
 SDK 支持自动订阅和手动订阅。
 
@@ -129,7 +133,8 @@ SDK 支持自动订阅和手动订阅。
  - Fit 模式：表示适应，画面可能会等比缩小以完全显示其内容，可能会有黑边。
 5. 您可以通过 [stopRemoteView(userId)](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2b7e96e4b527798507ff743c61a6a066) 可以屏蔽某一个 userId 的视频数据，也可以通过 [stopAllRemoteView()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aaa75cd1b98c226bb7b8a19412b204d2b) 屏蔽所有远端用户的视频数据，屏蔽后 SDK 不再继续拉取对应远端用户的视频数据。
 
-```swift
+<dx-codeblock>
+::: swift swift
 // 实例代码：根据通知订阅（或取消订阅）远端用户的视频画面
 func onUserVideoAvailable(_ userId: String, available: Bool) {
     let remoteView = remoteViewDic[userId] as! UIView
@@ -140,7 +145,8 @@ func onUserVideoAvailable(_ userId: String, available: Bool) {
         trtcCloud.stopRemoteView(userId)
     }
 }
-```
+:::
+</dx-codeblock>
 
 >? 如果您在收到`onUserVideoAvailable()`事件回调后没有立即调用`startRemoteView()`订阅视频流，SDK 将会在5s内停止接收来自远端的视频数据。
 
@@ -151,7 +157,7 @@ func onUserVideoAvailable(_ userId: String, available: Bool) {
 2. 当房间中有其他用户在上行音频数据时，您会收到 [onUserAudioAvailable()](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a8c885eeb269fc3d2e085a5711d4431d5) 事件通知。此时，您需要通过调用 [muteRemoteAudio(userId, mute: false)](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#afede3cc79a8d68994857b410fb5572d2) 手动订阅该用户的音频数据，SDK 会在接收到该用户的音频数据后解码并播放。
 3. 当房间中有其他用户在上行视频数据时，您会收到 [onUserVideoAvailable()](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a533d6ea3982a922dd6c0f3d05af4ce80) 事件通知。此时，您需要通过调用 [startRemoteView(userId, view: view)](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#af85283710ba6071e9fd77cc485baed49) 方法手动订阅该用户的视频数据，SDK 会在接收到该用户的视频数据后解码并播放。
 
-<span id="step7"> </span>
+[](id:step7)
 ### 步骤7：发布本地的音视频流
 1. 调用 [startLocalAudio()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a3177329bc84e94727a1be97563800beb) 可以开启本地的麦克风采集，并将采集到的声音编码并发送出去。
 2. 调用 [startLocalPreview()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a3fc1ae11b21944b2f354db258438100e) 可以开启本地的摄像头，并将采集到的画面编码并发送出去。
@@ -160,27 +166,31 @@ func onUserVideoAvailable(_ userId: String, available: Bool) {
  - Fit 模式表示适应，画面可能会等比缩小以完全显示其内容，可能会有黑边。
 4. 调用 [setVideoEncoderParam()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a57938e5b62303d705da2ceecf119d74e) 接口可以设定本地视频的编码参数，该参数将决定房间里其他用户观看您的画面时所感受到的 [画面质量](https://cloud.tencent.com/document/product/647/32236)。
 
-```swift
+<dx-codeblock>
+::: swift swift
 //示例代码：发布本地的音视频流
 trtcCloud.setLocalViewFillMode(TRTCVideoFillMode.fit)
 trtcCloud.startLocalPreview(frontCamera, view: localView)
 trtcCloud.startLocalAudio()
-```
+:::
+</dx-codeblock>
 
 >! Mac 版 SDK 默认会使用当前系统默认的摄像头和麦克风。您可以通过调用 [setCurrentCameraDevice()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aae9955bb39985586f7faba841d2692fc) 和 [setCurrentMicDevice()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a5141fec83e7f071e913bfc539c193ac6) 选择其他摄像头和麦克风。
 
-<span id="step8"> </span>
+[](id:step8)
 ### 步骤8：退出当前房间
 
 调用 [exitRoom()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a715f5b669ad1d7587ae19733d66954f3) 方法退出房间，SDK 在退房时需要关闭和释放摄像头、麦克风等硬件设备，因此退房动作并非瞬间完成的，需收到 [onExitRoom()](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a6a98fcaac43fa754cf9dd80454897bea) 回调后才算真正完成退房操作。
 
-```swift
+<dx-codeblock>
+::: swift swift
 // 调用退房后请等待 onExitRoom 事件回调
 trtcCloud.exitRoom()
 
 func onExitRoom(_ reason: Int) {
     print("离开房间[\(roomId)]: reason[\(reason)]")
 }
-```
+:::
+</dx-codeblock>
 
 >! 如果您的 App 中同时集成了多个音视频 SDK，请在收到`onExitRoom`回调后再启动其它音视频 SDK，否则可能会遇到硬件占用问题。
