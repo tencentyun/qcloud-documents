@@ -1,0 +1,61 @@
+## 命名空间
+Namespace=QCE/TKE
+## 监控指标
+
+| 指标英文名                                 | 指标中文名                  | 指标单位 | 维度                    | 统计周期                               |
+| ------------------------------------------ | --------------------------- | -------- | ----------------------- | -------------------------------------- |
+| K8sClusterCpuCoreTotal                     | CPU总配置                   | 核       | tke_cluster_instance_id | 60s、 300s、 3600s、 86400             |
+| K8sClusterFsReadTimes                      | 块设备读取次数              | 次       | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterMemUsageBytes                    | 网络出流量                  | MB       | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterNetwork<br/>TransmitBytes        | 网络出流量                  | MB       | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterRateCpu<br/>CoreRequestCluster   | CPU分配率                   | %        | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterRateMem<br/>RequestBytesCluster  | 内存分配率                  | %        | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterCpuCoreUsed                      | CPU使用量                   | 核       | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、 86400     |
+| K8sClusterFsWriteBytes                     | 块设备写入大小              | MB       | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterNetwork<br/>ReceiveBytes         | 网络入流量                  | MB       | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterNetwork<br/>TransmitBytesBw      | 网络出带宽                  | MB/S     | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterRateCpu<br/>CoreUsedCluster      | CPU利用率                   | %        | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterRateMem<br/>UsageBytesCluster    | 内存利用率                  | %        | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterEtcdDb<br/>TotalSizeBytes        | etcd存储量                  | MB       | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterFsWriteTimes                     | 块设备写入次数              | 次       | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterNetwork<br/>ReceiveBytesBw       | 网络入带宽                  | B        | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterNetwork<br/>TransmitPackets      | 网络出包量                  | 个/秒    | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterRateMemNo<br/>CacheBytesCluster  | 内存利用率_不含cache        | %        | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterFsReadBytes                      | 块设备读取大小              | MB       | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterMemoryTotal                      | 内存总和                    | GB       | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterNetwork<br/>ReceivePackets       | 网络入包量                  | 个/秒    | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterMem<br/>NoCacheBytes             | 内存使用量_不含cache        | MB       | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterAllocatable<br/>PodsTotal        | Allocatable_Pod数量         | 个       | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterGpu<br/>MemoryTotalBytes         | GPU内存总量                 | GB       | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterPods<br/>UsedTotal               | Pod数量                     | 个       | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterNodeTotal                        | Node数量                    | 个       | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterGpu<br/>MemoryUsedBytes          | GPU内存使用量               | MB       | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterGpuTotal                         | GPU总量                     | 卡       | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterGpuUsed                          | GPU使用量                   | 卡       | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterRateGpu<br/>MemoryRequestCluster | GPU内存分配率               | %        | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterRateGpu<br/>MemoryUsedCluster    | GPU内存利用率               | %        | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterRate<br/>GpuRequestCluster       | GPU分配率                   | %        | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterRate<br/>GpuUsedCluster          | GPU利用率                   | %        | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterEks<br/>CpuCoreUsed              | CPU使用量                   | 核       | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterEksMem<br/>NoCacheBytes          | 内存使用量弹性容器不含cache | MB/S     | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sClusterEksMem<br/>UsageBytes            | 内存使用量                  | MB/S     | tke_cluster_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+
+## 各维度对应参数总览
+
+| 参数名称                       | 维度名称                | 维度解释       | 格式                                              |
+| ------------------------------ | ----------------------- | -------------- | ------------------------------------------------- |
+| Instances.N.Dimensions.N.Name  | tke_cluster_instance_id | 集群的维度名称 | 输入 String 类型维度名称：tke_cluster_instance_id |
+| Instances.N.Dimensions.N.Value | tke_cluster_instance_id | 具体集群 ID    | 输入具体集群 ID，例如：cls-fvkxp123               |
+
+## 入参说明
+
+**入参取值如下：**
+&Namespace=QCE/TKE
+&Instances.N.Dimensions.0.Name=tke_cluster_instance_id
+&Instances.N.Dimensions.0.Value=cls-fvkxp123
+
+
+
+
+
+
