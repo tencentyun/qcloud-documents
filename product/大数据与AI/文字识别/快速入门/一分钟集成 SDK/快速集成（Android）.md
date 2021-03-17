@@ -29,13 +29,10 @@ SDK提供的文件为 [OCR_Android_SDK_V1.0.6](https://ai-sdk-release-1254418846
 dependencies {
   // 依赖腾讯云的 OcrSDK 的 aar
   implementation files('libs/OcrSDKv1.0.2-alpha.aar')
-  
-  // OCR SDK 依赖 xlog 组件需要添加引用
-  implementation 'com.tencent.mars:mars-xlog:1.2.3'
   // OCR SDK 返回实体对象需要的依赖
   implementation 'com.google.code.gson:gson:2.8.5'
 }
- ```
+```
 
 3. 同时需要在 AndroidManifest.xml 文件中进行必要的权限声明
 ```xml
