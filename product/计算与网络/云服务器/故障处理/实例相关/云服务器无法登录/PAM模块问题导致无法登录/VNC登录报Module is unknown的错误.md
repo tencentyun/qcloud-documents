@@ -12,7 +12,7 @@ vim /var/log/secure
 ```
 此文件一般用来记录安全相关的信息，其中大部分记录为用户登录云服务器的相关日志。如下图所示，可从信息中获取有 `/lib/security/pam_limits.so` 的报错信息。
 ![](https://main.qcloudimg.com/raw/8f9f992d1835a9058020b435f1ef3c99.png)
-3. 依次执行以下命令，进入 `/etc/pam.d` 后搜索日志中报错的 pam 模块的关键字 `/lib/security/pam_limits.so`。
+3. 依次执行以下命令，进入 `/etc/pam.d` 后，搜索日志中报错 pam 模块的关键字 `/lib/security/pam_limits.so`。
 ```
 cd /etc/pam.d
 ```
@@ -25,7 +25,7 @@ find . | xargs grep -ri "/lib/security/pam_limits.so" -l
 ## 原因分析
 1. 使用 VNC 登录会调用 `/etc/pam.d/login` 这个 pam 模块进行校验，而该模块会将 `/etc/pam.d/system-auth` 模块引入进行校验。`/etc/pam.d/login` 配置文件的内容，如下图所示：
 ![](https://main.qcloudimg.com/raw/334e393e16d8a03eec44009be9265ea9.png)
-2. 则可得出导致登录失败的原因是 `system-auth` 配置文件中的 `pam_limits.so` 模块的模块路径写错了。如下图所示：
+2. 可得出导致登录失败的原因是 `system-auth` 配置文件中的 `pam_limits.so` 模块的模块路径写错了。如下图所示：
 ![](https://main.qcloudimg.com/raw/36f36e0f2f5d0954f6fcebd39095d3b6.png)
 请参考下文的处理步骤，修正 `pam_limits.so` 模块的模块路径。
 
@@ -33,4 +33,4 @@ find . | xargs grep -ri "/lib/security/pam_limits.so" -l
 `pam_limits.so` 模块的主要功能是限制用户会话过程中对各种系统资源的使用情况。模块路径需根据操作系统实际情况进行填写，若写错路径会导致无法找到对应的认证模块，导致登录认证报错。请参考以下步骤修正模块路径：
 1. 按照 [排查思路](#TroubleshootingIdeas) 步骤，进入 `system-auth` 文件，并找到 `pam_limits.so` 模块路径配置。
 2. 修改配置为正确的模块路径即可。
-例如，在64位的操作系统中，该模块路径可写为绝对路径 `/lib64/security/pam_limits.so`，也可写为相对路径 `pam_limits.so`。
+例如，在64位的操作系统中，该模块路径可配置为绝对路径 `/lib64/security/pam_limits.so`，也可可配置为相对路径 `pam_limits.so`。
