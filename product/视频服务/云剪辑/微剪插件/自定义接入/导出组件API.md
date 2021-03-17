@@ -13,8 +13,8 @@
     }
 ```
 2. 在 wxml 中引入组件：
-```wxml
-  <export
+```
+<export
       tracks="{{tracks}}"
       bindprogress="handleProgress"
       bindexportsuccess="handleExportSuccess"
@@ -25,7 +25,7 @@
       quality="{{quality}}"
       showloading="{{showloading}}">
       <button bindTap="startExport">导出视频</button>
-  </export>
+</export>
 ```
 
 ### 属性说明
