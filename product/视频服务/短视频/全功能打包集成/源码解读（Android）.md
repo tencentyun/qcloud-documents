@@ -1,3 +1,4 @@
+[](id:structure)
 ## 工程结构
 
 下载小视频代码，使用 Android Studio 打开工程后，您将看到如下的目录结构：
@@ -17,14 +18,17 @@
 | videorecord  | 短视频录制模块                                               |
 | jniLibs      | 小视频依赖的腾讯相关 sdk，主要是 BuglySDK、文件上传所用的库及 LiteAVSDK |
 
+[](id:effect)
 ## 动效表情
 
 小视频源代码中默认使用的是普通版短视频 SDK，而非商用版本，所以动效贴纸等功能并不包含。如果您需要此功能，请在 [DOWNLOAD](https://cloud.tencent.com/document/product/584/9366) 中获取商用版本。
 
+[](id:function)
 ## 模块介绍
 
 小视频按照功能划分成帐号、主界面、播放、短视频（编辑、合成、录制、发布），代码上也是按照这种划分进行分类，下面我们将分别介绍这些模块以及相应实现。
 
+[](id:account)
 ### 帐号模块
 
 #### 模块简介
@@ -45,6 +49,7 @@
 | TCUserInfoFragment.java     | 用户资料展示页面                                             |
 | TCAboutActivity             |  小视频介绍的关于页面                                   |
 
+[](id:board)
 ### 主界面和列表管理
 
 #### 模块简介
@@ -65,6 +70,7 @@
 | TCUGCVideoListAdapter.java | 短视频列表适配层                                         |
 | TCVideoInfo            | 视频数据                                             |
 
+[](id:record)
 ### 短视频录制模块
 
 #### 模块简介
@@ -79,7 +85,7 @@
 | RecordProgressView         | 按住拍摄短视频 View   |
 | ComposeRecordBtn           | 短视频多段拍摄进度条 |
 
-
+[](id:file)
 ### 文件选择模块
 
 #### 模块简介
@@ -95,6 +101,7 @@
 | TCVideoEditerMgr.java         | mp4 视频文件管理类，提供接口获取存储在手机中的 mp4 文件 |
 | TCVideoFileInfo.java          | 本地视频数据                                         |
 
+[](id:edit)
 ### 编辑模块
 
 #### 模块简介
@@ -103,44 +110,41 @@
 
 #### 相关代码
 
-- videoeditor/ 目录
+- **videoeditor/ 目录：**
+<table>
+<thead><tr><th>类名</th><th>描述</th></tr></thead>
+<tbody><tr>
+<td>TCVideoPreprocessActivity.java</td>
+<td>录制后的视频进入编辑时预处理类的界面</td>
+</tr><tr>
+<td>TCVideoCutterActivity.java</td>
+<td>短视频裁剪界面</td>
+</tr><tr>
+<td>TCVideoEditerActivity.java</td>
+<td>短视频裁剪后编辑界面，底部有音乐，滤镜，速度，色调，贴纸，字幕等功能</td>
+</tr><tr>
+<td>TCVideoEffectActivity.java</td>
+<td>单击底部按钮，进入短视频添加特效界面</td>
+</tr><tr>
+<td>BaseEditFragment.java</td>
+<td>特效 Fragment 的父类，用于控制多个界面特效的播放状态</td>
+</tr><tr>
+<td>TCVideoJoinerActivity.java</td>
+<td>当选择多个文件进行编辑时，先将多个视频文件合成一个视频界面</td>
+</tr>
+</tbody></table>
+- **videoeditor/cutter/目录**：  视频裁剪相关。
+- **videoeditor/time/ 目录**：时间特效相关，包括慢动作，重复，视频倒放。
+- **videoeditor/bgm/ 目录**：背景音相关。
+- **videoeditor/paster/ 目录**：贴纸相关，包括动态贴纸和静态贴纸。
+- **videoeditor/motion/ 目录**：动态滤镜相关，包括四种动态滤镜（不支持自定义扩展，如需更多滤镜特效，请提交工单联系我们）。
+- **videoditor/bubble/ 目录**：气泡字幕相关。
+- **videoeditor/utils/ 目录**：短视频编辑工具相关。
+- **videoeditor/common/目录**：短视频编辑通用组件。
+- **videojoiner/目录**：短视频合成相关。
 
-| 类名                           | 描述                                                         |
-| ------------------------------ | ------------------------------------------------------------ |
-| TCVideoPreprocessActivity.java | 录制后的视频进入编辑时预处理类的界面                         |
-| TCVideoCutterActivity.java     | 短视频裁剪界面                                               |
-| TCVideoEditerActivity.java     | 短视频裁剪后编辑界面，底部有音乐，滤镜，速度，色调，贴纸，字幕等功能 |
-| TCVideoEffectActivity.java     | 单击底部按钮，进入短视频添加特效界面                         |
-| BaseEditFragment.java          | 特效 Fragment 的父类，用于控制多个界面特效的播放状态           |
-| TCVideoJoinerActivity.java     | 当选择多个文件进行编辑时，先将多个视频文件合成一个视频界面   |
 
-- videoeditor/cutter/目录
-  视频裁剪相关。
-
-- videoeditor/time/ 目录
-  时间特效相关：包括慢动作，重复，视频倒放。
-
-- videoeditor/bgm/ 目录
-  背景音相关。
-
-- videoeditor/paster/ 目录
-  贴纸相关：包括动态贴纸和静态贴纸。
-
-- videoeditor/motion/ 目录
-  动态滤镜相关：包括四种动态滤镜【目前不支持自定义扩展，如需更多滤镜特效，请提交工单联系我们】。
-
-- videoditor/bubble/ 目录
-  气泡字幕相关。
-
-- videoeditor/utils/ 目录
-  短视频编辑工具相关。
-
-- videoeditor/common/目录
-  短视频编辑通用组件。
-
-- videojoiner/目录
-  短视频合成相关。
-
+[](id:pod)
 ### 短视频发布模块
 
 #### 模块简介
@@ -153,6 +157,7 @@
 | ----------------------------- | -------------- |
 | TCVideoPublisherActivity.java | 短视频发布界面 |
 
+[](id:play)
 ### 短视频播放
 
 #### 模块简介

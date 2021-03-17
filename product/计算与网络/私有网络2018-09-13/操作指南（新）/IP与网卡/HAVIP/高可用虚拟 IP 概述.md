@@ -1,7 +1,6 @@
 高可用虚拟 IP（HAVIP）是从 VPC CIDR 分配的一个内网IP地址，通常和高可用软件（如 keepalived 或 Windows Server Failover Cluster）配合使用，应用于搭建高可用主备集群场景。
 >?
->- 目前 HAVIP 产品处于灰度优化中，非上海和非广州地域新用户如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/azh0w1qoavk)。
->- 上海和广州地域切换延时可能达1 - 2分钟，目前新用户已暂停使用，建议您使用腾讯云 [CLB](https://cloud.tencent.com/document/product/214)、[TDaTa](https://cloud.tencent.com/document/product/643/12573) 等产品以满足需要。
+>- 目前 HAVIP 产品处于灰度优化中，切换的时延在10s左右，如有需要，请提交 [内测申请](https://cloud.tencent.com/apply/p/azh0w1qoavk)。
 >- 为保证主备集群云服务器的高可用性，强烈建议通过 [置放群组](https://cloud.tencent.com/document/product/213/15486) 将不同云服务器分配到不同的宿主机上，更多关于置放群组的信息，请参考 [置放群组](https://cloud.tencent.com/document/product/213/15486)。
 >
 
@@ -29,7 +28,7 @@
 - **负载均衡的 HA**
   用户自己部署负载均衡时，一般业务架构是：负载均衡之间做 HA，后端机器做集群。因此部署负载均衡的两台服务器间要部署 HA，用 HAVIP 作为 virtual IP。
 - **关系型数据库主备**
-  两台数据库之间 keepalived 或 Windows Server Failover Cluster，需要 HAVIP 作为 virtual IP。详细操作请参见 [最佳实践-用 HAVIP+Keepallved 搭建高可用主备集群 ](https://cloud.tencent.com/document/product/215/20186)和 [最佳实践-用 HAVIP + Windows Server Failover Cluster 搭建高可用 DB](https://cloud.tencent.com/document/product/215/20187) 。
+  两台数据库之间通过 keepalived 或 Windows Server Failover Cluster 搭建高可用主备集群，需要 HAVIP 作为 virtual IP。详细操作请参见 [最佳实践-用 HAVIP+Keepallved 搭建高可用主备集群 ](https://cloud.tencent.com/document/product/215/20186)和 [最佳实践-用 HAVIP + Windows Server Failover Cluster 搭建高可用 DB](https://cloud.tencent.com/document/product/215/20187) 。
 
 
 ## 常见问题

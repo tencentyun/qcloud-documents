@@ -70,7 +70,7 @@ CMD node server.js
 ```shell
 docker build -t hello-node:v1 .
 ```
-4. <span id="search">执行以下命令，查看构建好的 hello-node 镜像。</span>
+4. [](id:search)执行以下命令，查看构建好的 hello-node 镜像。
 ```
 docker images 
 ```

@@ -10,7 +10,7 @@
 
 ### Android 端OCR SDK 介绍
 
-SDK提供的文件为 **OcrSDKv1.0.2-alpha.aar** (具体版本号以官网下载为准)，该文件封装了 OCR 识别终端能力。目前包括了身份证识别、银行卡识别以及名片识别。
+SDK提供的文件为 [OCR_Android_SDK_V1.0.6](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.6/OCR_Android_SDK_V1.0.6.zip)，该文件封装了 OCR 识别终端能力。目前包括了身份证识别、银行卡识别以及名片识别。
 
 
 

@@ -1,4 +1,4 @@
-DML（Data Manipulation Language 数据操作语言），用于对数据库表中的数据进行操作。例如插入、更新、查询、删除。
+DML（Data Manipulation Language 数据操作语言），用于对数据库表中的数据进行操作，例如插入、更新、查询、删除。
 
 ## 插入数据
 向表中插入一条或者多条数据。

@@ -1,7 +1,7 @@
 ## 操作场景
 
-[扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 完成后，需要将扩容部分的容量划分至已有分区内，或者将扩容部分的容量格式化成一个独立的新分区。
-- 若您在云硬盘连接在云服务器上并且该云服务为正常运行状态时执行了硬盘扩容操作，需要先执行【重新扫描磁盘】操作来识别扩容后的硬盘空间。
+在通过控制台 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 后，需要将扩容部分的容量划分至已有分区内，或者将扩容部分的容量格式化成一个独立的新分区。
+- 若您在云硬盘连接在云服务器上并且该云服务为正常运行状态时执行了硬盘扩容操作，需要先执行 [重新扫描磁盘](#Scaning) 操作来识别扩容后的硬盘空间。
 - 若您在硬盘待挂载状态/硬盘挂载但服务器已经关机执行了扩容操作，扩容后的硬盘空间将自动识别。
 
 >!
@@ -12,19 +12,18 @@
 
 
 ## 前提条件
-
-- 已 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747)  空间。
-- 该云硬盘已 [挂载](https://cloud.tencent.com/document/product/362/5745) 到 Windows 云服务器且已创建文件系统。
-- 已 [登录](https://cloud.tencent.com/document/product/213/5435) 待扩展分区及文件系统的 Windows 云服务器。
+- 已通过控制台 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747)。
+- 该云硬盘已通过控制台挂载到 Windows 云服务器并已创建文件系统。详情请参见 [挂载云硬盘](https://cloud.tencent.com/document/product/362/5745)。
+- 已登录待扩展分区及文件系统的 Windows 云服务器。详情请参见 [使用 RDP 登录 Windows 实例（推荐）](https://cloud.tencent.com/document/product/213/5435)。
 >?本文以 Windows Server 2012 R2 操作系统的云服务器为例，不同操作系统的扩容操作可能略有不同，本文仅供参考。
 >
 
 ## 操作步骤
->?
->- 如果 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，挂载该盘的云服务器正处于正常运行状态，则需要 [重新扫描磁盘](#Scaning) 待识别扩容后的云硬盘空间后再 [扩展卷](#Extending)。
->- 如果 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，该盘处于待挂载状态或者挂载该盘的云服务器正处于关机状态，直接 [扩展卷](#Extending) 即可。
+>!
+>- 如通过控制台 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，挂载该盘的云服务器正处于正常运行状态，则需要 [重新扫描磁盘](#Scaning) 待识别扩容后的云硬盘空间后再 [扩容原有分区的文件系统或新建分区](#Extending)。
+>- 如通过控制台 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，该盘处于待挂载状态或者挂载该盘的云服务器正处于关机状态，直接 [扩容原有分区的文件系统或新建分区](#Extending) 即可。
 
-<span id="Scaning"></span>
+[](id:Scaning)
 ### 重新扫描磁盘
 1. 右键单击<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px">，并选择【计算机管理】。
 2. 在“计算机管理”窗口的左侧导航栏中，选择【存储】>【磁盘管理】。
@@ -33,13 +32,31 @@
 4. 扫描完成后，查看数据盘是否已经变为扩容后的大小（本例中执行扫描操作后识别到硬盘由原来的10GB扩容到了50GB）。如下图所示：
 ![](https://main.qcloudimg.com/raw/9612c8f95826b401d3a7c111fe632b05.png)
 
-<span id="Extending"></span>
-### 扩展卷
-
-1. 右键单击磁盘空间的任一空白处，选择【扩展卷】。
+[](id:Extending)
+### 扩容原有分区的文件系统或新建分区
+您可根据实际需求，参考以下步骤扩容数据盘原有分区的文件系统，或创建新分区：
+<dx-tabs>
+::: 扩容原有分区的文件系统
+1. 右键单击磁盘空间的任一空白处，选择【扩展卷】。如下图所示：
+![](https://main.qcloudimg.com/raw/6b19804749d997c9aa008dfa1d37b5cd.png)
 2. 根据扩展卷向导的指引完成扩展卷操作。
-完成后新增的数据盘空间将会合入原有卷中。如下图所示：
-![](https://main.qcloudimg.com/raw/6cbe03c130898c4ad905d27edc315af4.png)
+完成后新增的数据盘空间将会合入原有卷中。
+:::
+::: 创建新分区
+1. 右键单击磁盘未分配空白处，选择【新建简单卷】。如下图所示：
+![](https://main.qcloudimg.com/raw/bf0c7eb05e2658d5b426e85112bbaf0a.png)
+2. 根据新建简单卷向导的默认设置完成简单卷操作。
+完成后新增的数据盘空间会新建一个分区。
+:::
+</dx-tabs>
+
+
+
+
+
 
 ## 相关操作
-[扩展分区及文件系统（Linux）](https://cloud.tencent.com/document/product/362/6738)
+- [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747)
+- [扩展分区及文件系统（Linux）](https://cloud.tencent.com/document/product/362/6738)
+
+

@@ -1,7 +1,7 @@
 ## 操作场景
 
 腾讯云容器服务 [云原生监控](https://cloud.tencent.com/document/product/457/49889) 兼容 Prometheus 与 Grafana 的 API，同时也兼容主流 prometheus-operator 的 CRD 用法，为云原生监控提供了极大的灵活性与扩展性，结合 Prometheus 开源生态工具可以解锁更多高级用法。
-本文将介绍如何通过一些辅助脚本和迁移工具，快速将自建 Prometheus 迁移到云原生监控。
+本文将介绍如何通过辅助脚本和迁移工具，快速将自建 Prometheus 迁移到云原生监控。
 
 
 
@@ -49,11 +49,11 @@ for _ns in ${_ns_list}; do
 done;
 :::
 </dx-codeblock>
-2. 执行以下命令运行 `prom-backup.sh` 脚本：
+2. 执行以下命令，运行 `prom-backup.sh` 脚本：
 ```bash
 bash prom-backup.sh
 ```
-3.  `prom-backup.sh` 脚本会将每个 ServiceMonitor 与 PodMonitor 资源导出成单独的 YAML 文件。可执行以下 `ls` 命令查看输出的文件列表，示例如下：
+3.  `prom-backup.sh` 脚本会将每个 ServiceMonitor 与 PodMonitor 资源导出成单独的 YAML 文件。可执行 `ls` 命令查看输出的文件列表，示例如下：
 ```bash
 $ ls
 kube-system_servicemonitors.monitoring.coreos.com_kube-state-metrics.yaml
@@ -91,7 +91,7 @@ monitoring_servicemonitors.monitoring.coreos.com_node-exporter.yaml
 
 云原生监控提供 Prometheus CRD 资源，可以通过修改该资源来修改全局配置。
 
-1. 执行以下命令获取 Prometheus 相关信息。
+1. 执行以下命令，获取 Prometheus 相关信息。
 ```bash
 $ kubectl get ns
 prom-fnc7bvu9     Active   13m
@@ -104,7 +104,7 @@ $ kubectl -n prom-fnc7bvu9 edit prometheus tke-cls-hha93bp9
 ```bash
 $ kubectl -n prom-fnc7bvu9 edit prometheus tke-cls-hha93bp9
 ```
- 其中：
+ 在弹出的编辑页面，您可修改以下参数：
  - **scrapeInterval**：采集抓取间隔时长（默认为15s）。
  - **externalLabels**：可为所有时序数据增加默认的 label 标识。
 
@@ -145,6 +145,7 @@ Prometheus 的聚合配置，无论是原始 [Recording rules](https://prometheu
 3. 单击需要配置的云原生监控 ID/名称，进入基本信息页面。
 4. 选择 【告警配置】>【新建告警策略】，配置告警策略：
 ![](https://main.qcloudimg.com/raw/66c4ac3a9d4c43cb23e1248328ef4657.png)
+主要参数信息如下：
 	-  **PromQL**：等同于 [原始配置](#prometheus-native) 的 expr 字段，为告警的核心配置，用于指示告警触发条件的 PromQL 表达式。
 	- **Labels**：等同于 [原始配置](#prometheus-native) 的 labels 字段，为告警添加额外的 label。
 	- **告警内容**：表示推送的告警内容，通常使用模板，可插入变量。建议带上集群 ID，可使用变量 `{{ $labels.cluster }}` 表示集群 ID。
@@ -162,7 +163,7 @@ Prometheus 的聚合配置，无论是原始 [Recording rules](https://prometheu
 ![](https://main.qcloudimg.com/raw/2952c6434f51e08b10f24fe6460177a5.jpg)
 :::
 </dx-tabs>
-6. 上面示例告警的微信推送效果如下图所示：
+ 告警配置完成后，微信推送效果如下图所示：
 <img src="https://main.qcloudimg.com/raw/00db0f555e4e04af1128d85169a2ffcd.png" width="70%"></img><br>
 
 
@@ -171,7 +172,7 @@ Prometheus 的聚合配置，无论是原始 [Recording rules](https://prometheu
 
 ### 迁移 Grafana 面板
 
-自建 Prometheus 通常配置了许多自定义的 Grafana 监控面板，如需迁移到其他平台，在面板数量较多的情况下，挨个导出再导入方式效率太低。借助 [grafana-backup](https://github.com/ysde/grafana-backup-tool) 工具可以实现 Grafana 面板的批量导出和导入，您可以参考以下批量导出导入面板步骤进行快速迁移。
+自建 Prometheus 通常配置了许多自定义的 Grafana 监控面板，如需迁移到其他平台，在面板数量较多的情况下，依次导出再导入方式效率太低。借助 [grafana-backup](https://github.com/ysde/grafana-backup-tool) 工具可以实现 Grafana 面板的批量导出和导入，您可以参考以下批量导出导入面板步骤进行快速迁移。
 
 1. 执行以下命令安装 grafana-backup。示例如下：
 ```bash

@@ -1,3 +1,4 @@
+
 ## 简介
 
 Android SDK 是移动推送 TPNS 服务为客户端实现消息推送而提供给开发者的接口，本文将提供 AndroidStudio Gradle 自动集成和 Android Studio 手动集成两种方式。
@@ -367,6 +368,9 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 
 
 ### 关闭联合保活
+
+
+>!为提升离线抵达率，TPNS SDK 默认开启联合保活能力，开发者可手动关闭。
 
 如果需要关闭 TPNS 的保活功能，若您使用 gradle 自动集成方式，请在自身应用的 AndroidManifest.xml 文件 “application” 标签下配置如下结点，其中 `xxx` 为任意自定义名称；如果使用手动集成方式，请修改如下节点属性：
 

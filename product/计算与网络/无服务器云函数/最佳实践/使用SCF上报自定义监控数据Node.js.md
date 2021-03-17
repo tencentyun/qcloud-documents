@@ -123,7 +123,7 @@ ll
 ![](https://main.qcloudimg.com/raw/20730a7b44055f70c359fb8a4f3b77fe.png)
 
 
-### 步骤4：打包项目文件<span id="Step4"></span>
+### 步骤4：打包项目文件[](id:Step4)
 1. 执行以下命令，将整个项目目录打包成 zip 文件。
 ```
 zip newnodeproject.zip * -r

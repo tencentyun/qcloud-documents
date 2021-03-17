@@ -43,6 +43,10 @@
 | Uptime                  | s        | 进程运行时长                            |
 | DaemonThreadCount       | 个       | Daemon 线程数                           |
 | ThreadCount             | 个       | 总线程数                                |
+| Open   | ms   | 会话打开的平均时间 |
+| Active | ms   | 会话活跃的平均时间 |
+| Open   | 个   | 打开的会话个数     |
+| Active | 个   | 活跃的会话个数     |
 
 ### HIVE-HiveWebHcat
 

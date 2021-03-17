@@ -5,11 +5,11 @@
 |  TRTC SDK（Native） | 白名单项目 |
 |---------|---------|
 | TCP 端口 | 443、20166 |
-| UDP 端口 | 8000 |
+| UDP 端口 | 8000、8080、16285 |
 
 域名白名单：
 
-<pre>
+```
 cloud.tim.qq.com
 gz.file.myqcloud.com
 avc.qcloud.com
@@ -17,7 +17,7 @@ yun.tim.qq.com
 dldir1.qq.com
 mlvbdc.live.qcloud.com
 query.tencent-cloud.com
-</pre>
+```
 
  
 ### WebRTC 需要配置哪些端口或域名为白名单？
@@ -31,22 +31,22 @@ query.tencent-cloud.com
 
 域名白名单：
 
-<pre>
+```
 qcloud.rtc.qq.com
-</pre>
+```
 
 
 ### 微信小程序需要配置哪些域名为白名单？
 
 &lt;trtc-room&gt; 域名白名单：
 
-<pre>
+```
 https://official.opensso.tencent-cloud.com
 https://yun.tim.qq.com
 https://cloud.tencent.com
 https://webim.tim.qq.com
 https://query.tencent-cloud.com
-</pre>
+```
 
 
 >!因为腾讯云服务端 IP 地址是动态更新的，并不是固定的一批 IP 地址，所以我们无法提供固定的一组 IP 列表给您。
