@@ -7,7 +7,12 @@
 ![](https://main.qcloudimg.com/raw/334e393e16d8a03eec44009be9265ea9.png)
 2. 可能导致登录失败的原因是 `system-auth` 配置文件中的 `pam_limits.so` 模块的模块路径配置错误。如下图所示：
 ![](https://main.qcloudimg.com/raw/36f36e0f2f5d0954f6fcebd39095d3b6.png)
+<dx-alert infotype="explain" title="">
 `pam_limits.so` 模块的主要功能是限制用户会话过程中对各种系统资源的使用情况。模块路径需根据操作系统实际情况进行填写，若写错路径会导致无法找到对应的认证模块，导致登录认证报错。
+
+</dx-alert>
+
+
 
 ## 解决思路
 1. 参考 [处理步骤](#ProcessingSteps)，进入 `system-auth` 文件，并找到 `pam_limits.so` 模块路径配置。
@@ -33,9 +38,6 @@ find . | xargs grep -ri "/lib/security/pam_limits.so" -l
 返回类似如下图所示信息，则表示 `system-auth` 文件中配置了该参数。
 ![](https://main.qcloudimg.com/raw/eab27cf686eccfeb8a8b796360010bb5.png)
 4. 进入 `system-auth` 文件，修复 `pam_limits.so` 模块路径配置。
-例如，在64位的操作系统中，该模块路径可配置为绝对路径 `/lib64/security/pam_limits.so`，也可可配置为相对路径 `pam_limits.so`。
+例如，在64位的操作系统中，该模块路径可配置为绝对路径 `/lib64/security/pam_limits.so`，也可配置为相对路径 `pam_limits.so`。
 
-
-
-## 处理步骤
 
