@@ -157,6 +157,8 @@ OcrSDKConfig 是在 OCR 初始化时需要传入的 SDK 的配置信息实体类
 | BOOL                        | TempIdWarn      | 开启临时身份证告警                                           | NO                                           |
 | BOOL                        | InvalidDateWarn | 开启身份证有效日期不合法告警                                 | NO                                           |
 | BOOL                        | Quality         | 开启图片质量分数（评价图片的模糊程度）                       | NO                                           |
+| BOOL                        | MultiCardDetect | 是否开启多卡证检测                                           | NO                                           |
+| BOOL                        | ReflectWarn     | 是否开启反光告警                                             | NO                                           |
 | NSString                    | RetImageType    | 图像预处理，检测图片倾斜的角度，将原本倾斜的图片围绕中心点转正，最终输出一张正的名片抠图。 | 空                                           |
 | BOOL                        | RetImage        | 马来西亚身份证接口是否返回图片                               | NO                                           |
 
