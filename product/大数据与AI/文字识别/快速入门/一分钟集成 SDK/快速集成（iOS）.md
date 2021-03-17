@@ -133,5 +133,5 @@ OCR SDK 支持使用临时密钥接口，使用临时密钥的好处主要有以
 
 ### 常见错误
 
-1. 当提示 **requsetConfigDict is nil**，检查下是不是在进入 SDK 时，执行了 [OcrSDKKit cleanInstance] 把秘钥和配置设置清除了。
+1. 当提示 **requsetConfigDict is nil**，检查下是不是在进入 SDK 时，执行了 [OcrSDKKit cleanInstance] 把密钥和配置设置清除了。
 2. SDK 页面依托于 UIWindow，所以需要再 AppDelegate.h 中添加 **@property (**nonatomic**, **strong**) UIWindow * window;**
