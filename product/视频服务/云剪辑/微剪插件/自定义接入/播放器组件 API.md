@@ -2,12 +2,12 @@
 
 `wj-player` 是支持微剪运行的核心组件，它是由轨道数据驱动运行的播放器，并内置了一些常用功能。
 
->?v1.4.0后新增功能：
->- 贴纸，详情请参见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440)。
->- 文字和贴纸内置编辑控件，详情请参见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
->
->v1.5.0后新增功能：
->转场和动效，详情请参见 [转场和动效](https://cloud.tencent.com/document/product/1156/50070)。
+>?
+>- v1.4.0后新增功能：
+	- 贴纸，详情请参见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440)。
+	- 文字和贴纸内置编辑控件，详情请参见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
+>- v1.5.0后新增功能：
+转场和动效，详情请参见 [转场和动效](https://cloud.tencent.com/document/product/1156/50070)。
 
 ### 使用方式
 1. 配置 JSON 文件：
@@ -105,16 +105,15 @@
 #### 使用
 ##### 位移、缩放和旋转
 位移、缩放和旋转在播放器内部完全实现，仅提供回调给开发者对更新后的数据进行存储。
-Step1 绑定事件回调：
+1. 绑定事件回调：
 ```
 <wj-player
 	bindclipedit="handleClipEdit"
 ><wj-player>
 ```
-
-Step2 编写回调函数
-
-```javascript
+2. 编写回调函数
+<dx-codeblock>
+::: javascript javascript
 Page({
 	handleClipEdit(e) {
 		let {
@@ -128,10 +127,11 @@ Page({
     }
 	}
 })
-```
-
-`e.detail`的数据结构如下:
-```javasctipt
+:::
+</dx-codeblock>
+	e.detail 的数据结构如下:
+<dx-codeblock>
+::: javascript javascript
 {
 	clipId, // 编辑的clipId
 	type, // 编辑的clip类型
@@ -146,18 +146,19 @@ Page({
 		rotation, // 旋转角度
 	}
 }
-```
+:::
+</dx-codeblock>
 
 ##### 点击其他按钮
-Step1 绑定事件回调
+1. 绑定事件回调
 ```
 <wj-player
 	bindclipoperation="handleClipOperation"
 ><wj-player>
 ```
-
-Step2 处理回调数据
-```javascript
+2. 处理回调数据
+<dx-codeblock>
+::: javascript javascript
 handleClipOperation(e) {
   const operation = e.detail.operation;
   switch (key) {
@@ -174,17 +175,20 @@ handleClipOperation(e) {
       break;
   }
 }
-```
-
-`e.detail`的数据结构如下:
-```
+:::
+</dx-codeblock>
+	e.detail 的数据结构如下:
+<dx-codeblock>
+::: javascript javascript
 {
 	clipId: this.container.id,
 	type: this.container.type,
 	trackId: this.container.parent.id,
 	operation: type,
 }
-```
+:::
+</dx-codeblock>
+
 
 
 
