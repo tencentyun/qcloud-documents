@@ -223,6 +223,7 @@ typedef void (^OcrSDKKitProcessSucceedBlock)(id _Nonnull resultInfo, UIImage *re
 /// SDKKIt 处理失败回调接口
 /// @param error 处理过程中触发的异常错误
 /// @param reserved 预留位
+///tips
 typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullable reserved);
 ```
 
@@ -280,7 +281,7 @@ typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullabl
 
 名片请求结果返回 resultInfo 结果示例：
 
- ```json
+```json
 {
     "BusinessCardInfos": [
       {
@@ -323,7 +324,8 @@ typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullabl
     "RetImageBase64": "",
     "RequestId": "98f8fcbf-933a-4e95-ac48-6f1a9308fs6h"
  }
- ```
+
+```
 
 对于返回的错误码以及错误信息，可以参考 [错误码](https://cloud.tencent.com/document/product/866/33528) 。
 
