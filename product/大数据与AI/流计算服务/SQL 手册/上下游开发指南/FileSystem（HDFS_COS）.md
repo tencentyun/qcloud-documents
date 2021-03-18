@@ -48,7 +48,7 @@ CREATE TABLE `DataOutput` (
 
 ## HDFS 配置
 
-在使用 HDFS 作为数据写入的文件系统时，用户需要作业参数的高级参数中对 HDFS 的地址进行配置。常见的配置项包括：
+在使用 HDFS 作为数据写入的文件系统时，用户需要在作业参数的高级参数中对 HDFS 的地址进行配置。常见的配置项包括：
 * fs.hdfs.dfs.nameservices: HDFS nameserivce 名称
 * fs.hdfs.dfs.ha.namenodes.{nameservice}: nameservice 的 name node 列表
 * fs.hdfs.dfs.namenode.http-address.${nameserivce}.${nn}: nameserivce 中 name node 的 Http 地址
