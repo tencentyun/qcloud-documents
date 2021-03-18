@@ -108,7 +108,7 @@ SDK 接入问题，在接入 SDK 之后，请确保能够获取到接收消息�
 
 ### 为何 iOS 没有抵达数据？
 - iOS 9.x 之前的版本，操作系统未提供 API 接口来监听消息抵达终端，故而无法统计。  
-- iOS 10.0+ 的版本，操作系统提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达。详情参考[通知服务扩展的使用说明]（https://cloud.tencent.com/document/product/548/36667）
+- iOS 10.0+ 的版本，操作系统提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达。详情参考[通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
 
 
 ### 使用移动推送 TPNS 服务端 SDK ，如何创建静默推送？
