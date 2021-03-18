@@ -54,9 +54,14 @@ Causal relationships between Spans in a single Trace
 ```
 
 从实用角度，通过如下所示的时序图能够更方便的理解调用链。
-
- `&ndash;&ndash;|&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;|&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;|&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;|&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;|&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;|&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;|&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;&ndash;|&ndash;> time [Span A&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;]   [Span B&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;]      [Span D&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;]    [Span C&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;&middot;]         [Span E&middot;&middot;&middot;&middot;&middot;&middot;&middot;]        [Span F&middot;&middot;] [Span G&middot;&middot;] [Span H&middot;&middot;]` 
-
+```
+ ––|–––––––|–––––––|–––––––|–––––––|–––––––|–––––––|–––––––|–> time 
+ [Span A···················································]   
+   [Span B··············································]      
+      [Span D··········································]    
+    [Span C········································]         
+         [Span E·······]        [Span F··] [Span G··] [Span H··]
+```
 
 ### Span 状态
 每一个 Span 封装以下状态：
