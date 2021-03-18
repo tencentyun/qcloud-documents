@@ -63,7 +63,7 @@ p8 证书存在安全隐患。虽然 p8 比 p12 有更长的有效期，但是�
 
 
 ### 推送消息无法收到？
-消息推送是一个涉及到很多关联模块协作的任务，每一个环节出现异常都可能会导致消息收不到，建议使用[工具箱](https://console.cloud.tencent.com/tpns/user-tools)进行排查。以下是最为常见的问题：
+消息推送是一个涉及到很多关联模块协作的任务，每一个环节出现异常都可能会导致消息收不到，建议使用 [工具箱](https://console.cloud.tencent.com/tpns/user-tools) 进行排查。以下是最为常见的问题：
 
 **客户端排查**
 - 检查设备通知设置
@@ -108,7 +108,7 @@ SDK 接入问题，在接入 SDK 之后，请确保能够获取到接收消息�
 
 ### 为何 iOS 没有抵达数据？
 - iOS 9.x 之前的版本，操作系统未提供 API 接口来监听消息抵达终端，故而无法统计。  
-- iOS 10.0+ 的版本，操作系统提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达。详情参考[通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
+- iOS 10.0+ 的版本，操作系统提供了 Service Extension 接口，可供客户端调用，从而可以监听消息的到达。详情请参见 [通知服务扩展的使用说明](https://cloud.tencent.com/document/product/548/36667)。
 
 
 ### 使用移动推送 TPNS 服务端 SDK ，如何创建静默推送？
@@ -127,7 +127,7 @@ SDK 接入问题，在接入 SDK 之后，请确保能够获取到接收消息�
 ### iOS 如何在测试设备有限的情况下扩大测试规模？
 1. 企业级证书签名
 申请企业级签名证书和企业级推送证书，发布方式如下：
-使用企业级签名证书构建并发布App，体验者可以通过企业内部开放的渠道下载安装App。
+使用企业级签名证书构建并发布 App，体验者可以通过企业内部开放的渠道下载安装 App。
 2. AppStore 发布证书签名
 使用当前 AppStore 的发布签名证书，发布方式如下：
 TestFlight 发布预览版，先将 ipa 包上传到 [App Store Connect](https://appstoreconnect.apple.com)，然后通过 TestFlight 创建一个灰度版本，并在 TestFlight 上设置指定版本的体验人员名单(Apple ID)，最后体验者可以通过苹果官方【TestFlight】App 下载安装。
