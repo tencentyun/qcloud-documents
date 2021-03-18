@@ -7,7 +7,7 @@ TPNS 默认开启联合保活能力，请在应用初始化的时候，例如 Ap
 XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 ```
 
-若您使用 gradle 自动集成方式，请在自身应用的 AndroidManifest.xml 文件 <application> 标签下配置如下结点，其中 `xxx` 为任意自定义名称；如果使用手动集成方式，请修改如下节点属性：
+若您使用 gradle 自动集成方式，请在自身应用的 AndroidManifest.xml 文件 &lt;application&gt; 标签下配置如下结点，其中 `xxx` 为任意自定义名称；如果使用手动集成方式，请修改如下节点属性：
 ```xml
 <!-- 在自身应用的AndroidManifest.xml文件中添加如下结点，其中 xxx 为任意自定义名称: -->     
 <!-- 关闭与 TPNS 应用的联合保活功能，请配置 -->
@@ -97,7 +97,7 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 
 ### 如何设置消息点击事件？
 
-当订阅者点击您的通知时，可以根据您的配置跳转至指定的应用内页面、H5、Deeplink 等，来满足您在不同场景下的需求。详情参见[通知点击跳转](https://cloud.tencent.com/document/product/548/48572)。
+当订阅者点击您的通知时，可以根据您的配置跳转至指定的应用内页面、H5、Deeplink 等，来满足您在不同场景下的需求。详情请参见 [通知点击跳转](https://cloud.tencent.com/document/product/548/48572)。
 
 ### 终端内厂商通道支持哪些通知事件回调？
 
@@ -197,8 +197,7 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 
 ### Android 拓展库 V4 到 AndroidX 如何转换？
 
-在 AndroidX 项目工程的 gradle.properties 文件中添加如下属性
-
+在 AndroidX 项目工程的 gradle.properties 文件中添加如下属性：
 ```
 android.useAndroidX=trueandroid.enableJetifier=true
 ```
@@ -206,6 +205,7 @@ android.useAndroidX=trueandroid.enableJetifier=true
 > ? 
 > - android.useAndroidX=true，表示当前项目启用 AndroidX。
 > - android.enableJetifier=true，表示将依赖包迁移到 AndroidX。 
+> 
 
 ### 厂商通道推送服务 SDK “存在通过 HTTP 明文传输信息的行为”，如何处理？
 
@@ -218,9 +218,11 @@ android.useAndroidX=trueandroid.enableJetifier=true
 
 
 ### Android 版本4.4.4编译报错，怎么办？
+
 由于工程加载方法数超过65K，请对工程做分包处理。
 
 ### 指定打开某个 Activity 页面，但经常不能正常跳转？
+
 在部分手机，通知栏跳转到某个页面可能会出现权限问题。
 处理方法：在 androidManifest.xml 中，需要打开的 Activity 加上 android:exported="true"。
 
