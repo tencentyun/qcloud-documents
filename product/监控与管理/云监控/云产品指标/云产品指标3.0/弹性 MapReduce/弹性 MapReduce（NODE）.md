@@ -45,8 +45,8 @@ Namespace=QCE/TXMR_NODE
 
 | 指标英文名                                    | 指标中文名                                | 单位     | 指标含义                                                     | 维度                                  |
 | --------------------------------------------- | ----------------------------------------- | -------- | ------------------------------------------------------------ | ------------------------------------- |
-| NodeNetworkTcp<br>ListenExtListendrops        | TCPLISTEN<br> 异常_ListenDrops            | 次/s     | 任何原因导致的丢弃传入连接（SYN 包）的次数                   | host4nodenetwork、<br>id4nodenetwork  |
-| NodeNetworkTcpListen<br>ExtListenoverflows    | TCPLISTEN<br> 异常_ListenOverflows        | 次/s     | 三次握手最后一步完成之后，Accept 队列超过上限的次数          | host4nodenetwork、<br/>id4nodenetwork |
+| NodeNetworkTcp<br>ListenExtListendrops        | TCPLISTEN<br>异常_ListenDrops            | 次/s     | 任何原因导致的丢弃传入连接（SYN 包）的次数                   | host4nodenetwork、<br>id4nodenetwork  |
+| NodeNetworkTcpListen<br>ExtListenoverflows    | TCPLISTEN<br>异常_ListenOverflows        | 次/s     | 三次握手最后一步完成之后，Accept 队列超过上限的次数          | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkTcpSyncookies<br>Syncookiesfailed  | TCPSyncookies_Syn<br/>cookiesFailed       | 次/s     | 收到携带无效 SYN Cookie 信息的包的个数                       | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkTcpSyncookies<br>Syncookiesrecv    | TCPSyncookies_Syn<br/>cookiesRecv         | 次/s     | 收到携带有效 SYN Cookie 信息的包的个数                       | host4nodenetwork、<br/>id4nodenetwork |
 | NodeNetworkTcpSyncookies<br>Syncookiessent    | TCPSyncookies_Syn<br/>cookiesSent         | 次/s     | 使用 SYN Cookie 发送的 SYN/ACK 包个数                        | host4nodenetwork、<br/>id4nodenetwork |

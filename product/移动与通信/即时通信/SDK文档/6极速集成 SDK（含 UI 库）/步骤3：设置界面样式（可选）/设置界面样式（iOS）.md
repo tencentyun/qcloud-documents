@@ -1,4 +1,5 @@
 本文介绍如何设置样式（iOS）
+>?更多实操教学视频请参见：[设置样式（iOS）](https://cloud.tencent.com/edu/learning/course-3130-56989)。
 
 ## 修改头像
 

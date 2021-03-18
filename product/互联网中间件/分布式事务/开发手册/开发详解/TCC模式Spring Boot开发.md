@@ -111,12 +111,13 @@ public Boolean order(@RequestBody Order order) {
 
 #### 主事务注解支持的能力包括
 
-| 参数    | 数据类型 | 必填 | 默认值    | 描述                                                          |
-| ------- | -------- | ---- | --------- | ------------------------------------------------------------- |
-| timeout | Integer  | 否   | 60 × 1000 | 事务超时时间（主事务**开启**到**提交**/**回滚**的时长），单位：毫秒 |
-| groupId | String   | 否   |     -      | 在此事务分组下开启主事务                                      |
+| 参数 | 数据类型 | 必填 | 默认值 | 描述 | 
+| ------- | -------- | ---- | ---------------------------------------------- | --------------------------------------- |
+| timeout | Integer | 否 | 60 * 1000 | 事务超时时间（所有 Try 阶段），单位：毫秒 | 
+| groupId | String | 否 | dtf.env.groups<br>仅配置了一个事务分组时，使用该值 | 主事务的事务分组 ID| 
+| autoCommit | Boolean | 否 | true | 为 false 时需要手动提交事务，即在能获取到事务上下文的地方显示调用 `DtfTransaction.commit()`|
 
-DTF 目前支持通过 @DtfTransactional 传染主事务。当您的主事务有多个入口时，使用多个@DtfTransactional 不会报错。全局事务的开始与结束，将由第一个开始执行的标有 @DtfTransactional 的主事务纳管。
+DTF 目前支持通过 @DtfTransactional 传染主事务。当您的主事务有多个入口时，使用多个 @DtfTransactional 不会报错。全局事务的开始与结束，将由第一个开始执行的标有 @DtfTransactional 的主事务纳管。
 
 >?如果`dtf.env.groups`下只配置了**1个**事务分组 ID，则 @DtfTransactional 注解中**不需要**填写 groupId，DTF 框架会自动从配置中获取。
 
@@ -303,24 +304,68 @@ DTF-Last-Branch-ID: ${LastBranchId}
 可以参考 [Spring Free 开发指导](https://cloud.tencent.com/document/product/1224/45970) 中的**远程请求时传递分布式事务上下文**章节。
 
 ## 与 TSF 结合使用
+引入依赖后（注意 SDK 版本），直接正常使用 TSF 即可。
 
-DTF 框架完全兼容 TSF 应用，请按照下面的指引使用。
 
->?目前仅支持 Greenwich 版本的 TSF SDK。
-
-### Maven POM
-
+### 使用方式
+目前支持 Greenwich（G）和 Finchley（F）版本的 TSF SDK。您可以单击以下页签，查看对应的使用方式。
+<dx-tabs>
+::: G&nbsp;版本&nbsp;TSF&nbsp;SDK&nbsp;使用方式
 ``` xml
 <!-- TSF 启动器 -->
 <dependency>
     <groupId>com.tencent.tsf</groupId>
     <artifactId>spring-cloud-tsf-starter</artifactId>
+    <version>1.23.0-Greenwich-RELEASE</version>
 </dependency>
 ```
+:::
+::: F&nbsp;版本&nbsp;TSF&nbsp;SDK&nbsp;使用方式
+>!需要再排除 DTF 中的一些依赖。
+
+```xml
+<!-- TSF 启动器 -->
+<dependency>
+    <groupId>com.tencent.tsf</groupId>
+    <artifactId>spring-cloud-tsf-starter</artifactId>
+    <version>1.23.5-Finchley-RELEASE</version>
+</dependency>
+<!-- Spring Boot DTF -->
+<dependency>
+        <groupId>com.tencent.cloud</groupId>
+        <artifactId>spring-boot-dtf</artifactId>
+        <version>${dtf.version}</version>
+        <exclusions>
+                <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-context</artifactId>
+                </exclusion>
+                <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter</artifactId>
+                </exclusion>
+                <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-aspects</artifactId>
+                </exclusion>
+                <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+                <exclusion>
+                        <groupId>io.github.openfeign</groupId>
+                        <artifactId>feign-core</artifactId>
+                </exclusion>
+        </exclusions>
+</dependency>
+```
+:::
+</dx-tabs>
+
 
 ### 启用 TSF
-
-``` java
+<dx-codeblock>
+:::  java
 @SpringBootApplication
 @EnableDtf
 @EnableTsf
@@ -330,4 +375,6 @@ public class OrderApplication {
         SpringApplication.run(OrderApplication.class, args);
     }
 }
-```
+:::
+</dx-codeblock>
+

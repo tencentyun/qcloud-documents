@@ -143,7 +143,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 ## SDK 基础函数
 
-<span id="sharedInstance"></span>
+[](id:sharedInstance)
 
 ### sharedInstance
 

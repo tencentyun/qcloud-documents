@@ -1,6 +1,6 @@
 本文将为您介绍 App（iOS 和 Android）如何通过 Web 前端 H5 方式接入验证码。
 ## 前提条件
-接入验证码前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecret。注册完成后，您可以在控制台的基础配置中，查看 AppID 以及 AppSecret。
+接入验证码前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecretKey。注册完成后，您可以在控制台的基础配置中，查看 AppID 以及 AppSecretKey。
 >!小程序插件 AppID 仅限 [小程序插件接入方式](https://cloud.tencent.com/document/product/1110/49319) 使用，请勿使用在 Web 前端接入。
 
 ## 接入步骤
@@ -79,7 +79,7 @@ public class JsBridge {
  }
 ```
 6. 在 H5 业务页面中，集成验证码 SDK，并通过 JS 调用 SDK 获取验证码相关数据，最后使用 JSBridge 传回数据给具体业务端。
->!如需隐藏验证码帮助按钮等功能，请参见 [Web 前端接入](https://cloud.tencent.com/document/product/1110/36841#.E9.85.8D.E7.BD.AE.E5.8F.82.E6.95.B0) 文档。
+>!如需隐藏验证码帮助按钮等功能，请参见 [Web 前端接入](https://cloud.tencent.com/document/product/1110/36841) 文档。
 >
 ```
 <!DOCTYPE html>
@@ -137,10 +137,7 @@ public class JsBridge {
         //注册一个name为jsToOcNoPrams的js方法 设置处理接收JS方法的对象
         [wkUController addScriptMessageHandler:self  name:@"jsToOcNoPrams"];
         [wkUController addScriptMessageHandler:self  name:@"jsToOcWithPrams"]; 
-        config.userContentController = wkUController;
-        //用于进行 JavaScript 注入
-        WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jSString injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
-        [config.userContentController addUserScript:wkUScript];       
+        config.userContentController = wkUController;     
         _webView = [[WKWebView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) configuration:config];
         // UI 代理
         _webView.UIDelegate = self;
@@ -206,3 +203,6 @@ function jsToOcFunction()
 
 ## 后续步骤
 至此，验证码客户端接入已完成，验证码后台需二次核查验证码票据结果，您需要进行后台 API 接入，即 [核查验证码票据结果](https://cloud.tencent.com/document/product/1110/36926) 操作，确保验证安全性。
+
+## 更多信息
+您可以登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，在页面右上角单击【快速咨询】，了解更多详细信息。

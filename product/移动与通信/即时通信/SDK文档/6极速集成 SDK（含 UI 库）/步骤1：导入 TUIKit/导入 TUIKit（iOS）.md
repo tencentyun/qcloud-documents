@@ -1,10 +1,8 @@
-
 ## 开发环境要求
 
 - Xcode 10 及以上
 - iOS 8.0 及以上
-
-
+>?更多实操教学视频请参见：[极速集成 TUIKit（iOS）](https://cloud.tencent.com/edu/learning/course-3130-56699)。
 ## 集成说明
 
 

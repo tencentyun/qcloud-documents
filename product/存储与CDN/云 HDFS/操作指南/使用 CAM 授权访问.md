@@ -20,10 +20,13 @@ CHDFS 预设授权策略如下：
 | chdfs:DeleteMountPoint     | qcs::chdfs:${region-id}:uin/${account-uin}:mountpoint/${mount-point-id} | 删除挂载点           |
 | chdfs:ModifyMountPoint     | qcs::chdfs:${region-id}:uin/${account-uin}:mountpoint/${mount-point-id} | 修改挂载点属性       |
 | chdfs:DescribeMountPoint   | qcs::chdfs:${region-id}:uin/${account-uin}:mountpoint/${mount-point-id} | 查看挂载点详细信息   |
-| chdfs:DescribeMountPoints  | qcs::chdfs:${region-id}:uin/${account-uin}:filesystem/${file-system-id}<br>或qcs::chdfs:${region-id}:uin/${account-uin}:accessgroup/${access-group-id} | 查看挂载点列表       |
-| chdfs:CreateAccessGroup    | qcs::chdfs:${region-id}:uin/${account-uin}:accessgroup/*      | 创建权限组           |
+| chdfs:DescribeMountPoints  | qcs::chdfs:${region-id}:uin/${account-uin}:mountpoint/${mount-point-id} | 查看挂载点列表       |
+| chdfs:AssociateAccessGroups   | qcs::chdfs:${region-id}:uin/${account-uin}:mountpoint/${mount-point-id} | 绑定权限组列表  |
+| chdfs:DisassociateAccessGroups| qcs::chdfs:${region-id}:uin/${account-uin}:mountpoint/${mount-point-id} | 解绑权限组列表 |
+| chdfs:CreateAccessGroup    | qcs::chdfs:${region-id}:uin/${account-uin}:vpc/${vpc-id}<br>或qcs::chdfs:${region-id}:uin/${account-uin}:unVpcId/${unVpcId}     | 创建权限组           |
 | chdfs:DeleteAccessGroup    | qcs::chdfs:${region-id}:uin/${account-uin}:accessgroup/${access-group-id} | 删除权限组           |
 | chdfs:ModifyAccessGroup    | qcs::chdfs:${region-id}:uin/${account-uin}:accessgroup/${access-group-id} | 修改权限组属性       |
+| chdfs:DescribeAccessGroup  | qcs::chdfs:${region-id}:uin/${account-uin}:accessgroup/${access-group-id} | 查看权限组详细信息  |
 | chdfs:DescribeAccessGroups | qcs::chdfs:${region-id}:uin/${account-uin}:accessgroup/${access-group-id} | 查看权限组列表       |
 | chdfs:CreateAccessRules    | qcs::chdfs:${region-id}:uin/${account-uin}:accessgroup/${access-group-id}  | 批量创建权限规则     |
 | chdfs:DeleteAccessRules    | qcs::chdfs:${region-id}:uin/${account-uin}:accessrule/${access-rule-id} | 批量删除权限规则     |

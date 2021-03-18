@@ -10,7 +10,7 @@
 
 ### Android 端OCR SDK 介绍
 
-SDK提供的文件为 **OcrSDKv1.0.2-alpha.aar** (具体版本号以官网下载为准)，该文件封装了 OCR 识别终端能力。目前包括了身份证识别、银行卡识别以及名片识别。
+SDK提供的文件为 [OCR_Android_SDK_V1.0.6](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.6/OCR_Android_SDK_V1.0.6.zip)，该文件封装了 OCR 识别终端能力。目前包括了身份证识别、银行卡识别以及名片识别。
 
 
 
@@ -29,13 +29,10 @@ SDK提供的文件为 **OcrSDKv1.0.2-alpha.aar** (具体版本号以官网下载
 dependencies {
   // 依赖腾讯云的 OcrSDK 的 aar
   implementation files('libs/OcrSDKv1.0.2-alpha.aar')
-  
-  // OCR SDK 依赖 xlog 组件需要添加引用
-  implementation 'com.tencent.mars:mars-xlog:1.2.3'
   // OCR SDK 返回实体对象需要的依赖
   implementation 'com.google.code.gson:gson:2.8.5'
 }
- ```
+```
 
 3. 同时需要在 AndroidManifest.xml 文件中进行必要的权限声明
 ```xml
@@ -181,7 +178,7 @@ protected void onDestroy() {
 
 #第三方 jar 包不被混淆
 -keep class com.tencent.youtu.** {*;}
--keep class com.tencent.mars.xlog.** {*;}
+
 ```
 
 ​	
@@ -202,18 +199,15 @@ android {
 }
 ```
 
-2. 如同时集成智能扫码 SDK，出现 **More than one file was found with OS independent path 'lib/armeabi-v7a/libc++_shared.so'.** 的问题。
-
-主要是由于智能扫码和 xlog 中 native 库冲突了，解决方法可以在 build.gradle 中添加如下配置：
+2. 如果集成方使用了 AndResGuard 的混淆工具，可以添加混淆配置：
 
 ```groovy
-android {
-		...
-		    // 过滤重复定义 so 的问题
-    packagingOptions{
-        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
-    }
-}
+// for OCR SDK
+"R.string.ocr_*",
+"R.string.rst_*",
+"R.string.net_*",
+"R.string.msg_*",
+
 ```
 
 3. 集成 OCR SDK 后如果出现 **Invoke-customs are only supported starting with Android O (--min-api 26)** 错误？

@@ -1,4 +1,4 @@
-DCL（Data Control Language 数据控制语言），是用来设置或更改数据库用户或角色权限的语句。
+DCL（Data Control Language 数据控制语言），用来设置或更改数据库用户或角色权限的语句。
 
 ## 授权
 定义访问特权。
@@ -7,12 +7,9 @@ DCL（Data Control Language 数据控制语言），是用来设置或更改数�
 | ---- | ------- |
 | 授权 | GRANT   |
 
- 
-
 ## 收回权限
 回收指定的权限。
 
 | 功能     | 相关 SQL |
 | -------- | ------- |
 | 回收授权 | REVOKE  |
-

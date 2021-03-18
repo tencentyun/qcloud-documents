@@ -20,12 +20,13 @@
 
 | API | 描述 |
 |-----|-----|
-| [enterRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a28b2d3ec27af8c9bfd5cf687dd8e002b) | 进入房间，若房间不存在，系统将自动创建一个新房间。 |
+| [enterRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a28b2d3ec27af8c9bfd5cf687dd8e002b) | 进入房间。 |
 | [exitRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a715f5b669ad1d7587ae19733d66954f3) | 离开房间。 |
 | [switchRole](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a94ab2e8a7df0c120def9d4b0c7658d84) | 切换角色，仅适用于直播场景（TRTCAppSceneLIVE 和 TRTCAppSceneVoiceChatRoom）。 |
 | [connectOtherRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aa29407e4c40f2bf61777bbe054f6bf0f) | 请求跨房通话（主播 PK）。 |
 | [disconnectOtherRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#abd656e4c9b6a01231810ae897627e9bc) | 关闭跨房连麦。 |
-| [setDefaultStreamRecvMode](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ae870243f89b5829cd7ac5612ec958cdf) | 设置音视频数据接收模式，需要在进房前设置才能生效。 |
+| [setDefaultStreamRecvMode](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ae870243f89b5829cd7ac5612ec958cdf) | 设置音视频数据接收模式（需要在进房前设置才能生效）。 |
+| [switchRoom](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ab3ea127e2b270b8045fa139edab1dc1c) | 切换房间。 |
 
 
 ### CDN 相关接口函数
@@ -43,38 +44,35 @@
 
 | API | 描述 |
 |-----|-----|
-| [startLocalPreview](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ad8c3209fababfee7491605fd288e83df) | 开启本地视频的预览画面。 |
+| [startLocalPreview](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a74a3e5ec77196bd9bca67bf422e25b14) | 开启本地视频的预览画面。 |
+| [updateLocalView](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a1ac7c1b6934150c07a7e9ee1918cfebe) | 更新本地视频预览画面的窗口。 |
 | [stopLocalPreview](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a01ee967e3180a5e2fc0e37e9e99e85b3) | 停止本地视频采集及预览。 |
-| [muteLocalVideo](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ad531b6af4f07d93b937901aea73d9008) | 是否屏蔽自己的视频画面。 |
-| [startRemoteView](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a3c630b75a0e4452f4003b78e56770cda) | 开始显示远端视频画面。 |
-| [stopRemoteView](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a94c9bede8c6630418ea7e960578c033f) | 停止显示远端视频画面，同时不再拉取远端用户的视频数据流。 |
+| [muteLocalVideo](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ad531b6af4f07d93b937901aea73d9008) | 暂停/恢复推送本地的视频数据。 |
+| [startRemoteView](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ab4024c7f416d583dba3ef7cbcdb4145c) | 开始拉取并显示指定用户的远端画面。 |
+| [updateRemoteView](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aacca47d45d316473d5a5615e9d8a4e26) | 更新远端视频渲染的窗口。 |
+| [stopRemoteView](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a8fca9a14fc9a214bf7c9caac59d4b52f) | 停止显示远端视频画面，同时不再拉取远端用户的视频数据流。 |
 | [stopAllRemoteView](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aaa75cd1b98c226bb7b8a19412b204d2b) | 停止显示所有远端视频画面，同时不再拉取远端用户的视频数据流。 |
-| [muteRemoteVideoStream](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a3ab42b16228893891003df17c51fa2c4) | 暂停接收指定的远端视频流。 |
-| [muteAllRemoteVideoStreams](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a129fb0485b0ba8b002e5806e57642715) | 停止接收所有远端视频流。 |
+| [muteRemoteVideoStream](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a3ab42b16228893891003df17c51fa2c4) | 暂停/恢复接收指定的远端视频流。 |
+| [muteAllRemoteVideoStreams](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a129fb0485b0ba8b002e5806e57642715) | 暂停/恢复接收所有远端视频流。 |
 | [setVideoEncoderParam](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a9445f85f7e8aef1c63829842ea801c11) | 设置视频编码器相关参数。 |
 | [setNetworkQosParam](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aa1b61a44d79e6f6b11163594077d93b7) | 设置网络流控相关参数。 |
-| [setLocalViewFillMode](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ada1aa39d0b579f0f939d17c3ca78df92) | 设置本地图像的渲染模式。 |
-| [setRemoteViewFillMode](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aeeb9e236aaa9c2ae9846af86ff3195d4) | 设置远端图像的渲染模式。 |
-| [setLocalViewRotation](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a8d5dc6995392c71257493353e3571e86) | 设置本地图像的顺时针旋转角度。 |
-| [setRemoteViewRotation](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a87f256d5148e34bd59756fa516307fce) | 设置远端图像的顺时针旋转角度。 |
+| [setLocalRenderParams](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a73b2e0cd0da9c721d35f813bb662cf17) | 设置本地图像（主流）的渲染参数。 |
 | [setVideoEncoderRotation](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a291f1c48e5446135c29188f759f023cb) | 设置视频编码输出的画面方向，即设置远端用户观看到的和服务器录制的画面方向。 |
-| [setLocalViewMirror](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a050a53b8bed638f76a64ad82ecd89078) | 设置本地摄像头预览画面的镜像模式。 |
 | [setVideoEncoderMirror](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a3e6dae3e385f1e15d528ec3d6f57a59c) | 设置编码器输出的画面镜像模式。 |
+| [setRemoteRenderParams](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ae2cf26ff0b2680527ace23f316548af4) | 设置远端图像的渲染模式。 |
 | [enableSmallVideoStream](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a4a83369f8798e273caf0a6550cb19cfe) | 开启大小画面双路编码模式。 |
 | [setRemoteVideoStreamType](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a0c980fb80401d6fc14a69bfd16283b76) | 选定观看指定 userId 的大画面还是小画面。 |
-| [setPriorRemoteVideoStreamType](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a5cc9f8652845ff0d7adc5b2d24b8a269) | 设定观看方优先选择的视频质量。 |
 
 
 ### 音频相关接口函数
 
 | API | 描述 |
 |-----|-----|
-| [setAudioQuality](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ae241d03683fdde1e033078a6057f609c) | 设置音频质量 主播端的音质越高，观众端的听感越好，但传输所依赖的带宽也就越高，在带宽有限的场景下也更容易出现卡顿。 |
 | [startLocalAudio](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a3177329bc84e94727a1be97563800beb) | 开启本地音频的采集和上行。 |
 | [stopLocalAudio](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ab78601c38f1b872b03b662e6856be84c) | 关闭本地音频的采集和上行。 |
-| [muteLocalAudio](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a16d9b4a197a7bc1955240a1ede889246) | 静音本地的音频。 |
-| [muteRemoteAudio](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#abe535ac1d0a74de860c85ae09a3317df) | 静音掉某一个用户的声音，同时不再拉取该远端用户的音频数据流。 |
-| [muteAllRemoteAudio](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a9c118b189a47109289528b3c00019649) | 静音掉所有用户的声音，同时不再拉取该远端用户的音频数据流。 |
+| [muteLocalAudio](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a16d9b4a197a7bc1955240a1ede889246) | 静音/取消静音本地的音频。 |
+| [muteRemoteAudio](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#abe535ac1d0a74de860c85ae09a3317df) | 静音/取消静音指定的远端用户的声音。 |
+| [muteAllRemoteAudio](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a9c118b189a47109289528b3c00019649) | 静音/取消静音所有用户的声音。 |
 | [setAudioCaptureVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a53681962139b81140f2d66abc4ea6a0f) | 设置 SDK 采集音量。 |
 | [getAudioCaptureVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ad3dd226f138590f0e2c6b03f108c4e38) | 获取 SDK 采集音量。 |
 | [setAudioPlayoutVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a9b8946403b8b3ac8e11f3a78e9d531ca) | 设置 SDK 播放音量。 |
@@ -84,29 +82,11 @@
 | [stopAudioRecording](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ac8c12476bbcf3d691060954fcdb6ebe6) | 停止录音。 |
 
 
-### 摄像头相关接口函数
+### 设备相关接口函数
 
 | API | 描述 |
 |-----|-----|
-| [getCameraDevicesList](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ac089937783fa14655f4944e7137e9fe6) | 获取摄像头设备列表。 |
-| [setCurrentCameraDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aa0f185dd21e3e55fadf5c21528223e5f) | 设置要使用的摄像头。 |
-| [getCurrentCameraDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a24ac636304cb989cce4e43a460ad659e) | 获取当前使用的摄像头。 |
-
-
-### 音频设备相关接口函数
-
-| API | 描述 |
-|-----|-----|
-| [getMicDevicesList](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#af52dcefa14a0838a98d878620e4a8e83) | 获取麦克风设备列表。 |
-| [getCurrentMicDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aeea733cfe13334913e7e8d1cbb4d35ff) | 获取当前选择的麦克风。 |
-| [setCurrentMicDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a7a7bc332f677f536e2697e6f30235241) | 设置要使用的麦克风。 |
-| [getCurrentMicDeviceVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a5feaad27747bc7e909de43444aa86e2f) | 获取系统当前麦克风设备音量。 |
-| [setCurrentMicDeviceVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a02cdbf0a22ec4effeb662da83d7b5218) | 设置系统当前麦克风设备的音量。 |
-| [getSpeakerDevicesList](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a9f680a2953562c62e5024ef98e691803) | 获取扬声器设备列表。 |
-| [getCurrentSpeakerDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#af38430fc0b347637e5b050481b2d6065) | 获取当前的扬声器设备。 |
-| [setCurrentSpeakerDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a3d8a1b1f3c71a08faaff27edaef3f80f) | 设置要使用的扬声器。 |
-| [getCurrentSpeakerVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a1617113ec7db9d646b27233da8132b48) | 获取系统当前扬声器设备音量。 |
-| [setCurrentSpeakerVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a5fe7bfacc946565df7d14a91f6de9f21) | 设置系统当前扬声器设备音量。 |
+| [getDeviceManager](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aa76f8d5680282b409b90158abd01886e) | 获取设备管理模块。 |
 
 
 ### 美颜特效和图像水印
@@ -117,18 +97,17 @@
 | [setWaterMark](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ac6451172a12f33274215785b029be727) | 设置水印。 |
 
 
-
 ### 音乐特效和人声特效
 
 | API | 描述 |
 |-----|-----|
-| [getAudioEffectManager](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ab43456e2e7d83986fd66708131d8c264) | 获取音效管理类 TXAudioEffectManager。 |
+| [getAudioEffectManager](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ab43456e2e7d83986fd66708131d8c264) | 获取音效管理类 ITXAudioEffectManager。 |
 | [startSystemAudioLoopback](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aac7057a9556fc1b1b106733a87069e06) | 打开系统声音采集。 |
 | [stopSystemAudioLoopback](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#adef486f26a2c7d74a8cccb537367e66a) | 关闭系统声音采集。 |
 | [setSystemAudioLoopbackVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a2bb76d46a5fcf037c560ab8f09b1825f) | 设置系统声音采集的音量。 |
 
 
-### 辅流相关接口函数
+### 屏幕分享相关接口函数
 
 | API | 描述 |
 |-----|-----|
@@ -136,14 +115,13 @@
 | [stopScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ad02093be5c603f66f356978169946a18) | 停止屏幕采集。 |
 | [pauseScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a448e432a91c092f80421d377425fb1bb) | 暂停屏幕分享。 |
 | [resumeScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ad1fc32927622168e9b3cbb3f70043450) | 恢复屏幕分享。 |
-| [getScreenCaptureSources](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a1eda1853bfc49c43a35e4d945dfccd7a) | 枚举可共享的窗口列表。 |
+| [getScreenCaptureSources](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a1eda1853bfc49c43a35e4d945dfccd7a) | 枚举可分享的屏幕窗口，建议在 startScreenCapture 之前调用。 |
 | [selectScreenCaptureTarget](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a2aabe079ed38fb5122be988434a81a92) | 设置屏幕共享参数，该方法在屏幕共享过程中也可以调用。 |
-| [startRemoteSubStreamView](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ae029514645970e7d32470cf1c7aca716) | 开始渲染远端用户辅流画面。 |
-| [stopRemoteSubStreamView](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a92ad3b6468abc72890c053a94765c4de) | 停止显示远端用户的屏幕分享画面。 |
-| [setRemoteSubStreamViewFillMode](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a23a2fc554362748ef3d0c543918fd35d) | 设置辅流画面的渲染模式。 |
-| [setRemoteSubStreamViewRotation](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#acd8fb23b00e6638466f65512723a7395) | 设置屏幕分享画面的顺时针旋转角度。 |
 | [setSubStreamEncoderParam](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ae8c2f4248a165d3b8846316e035c9b3b) | 设置屏幕分享的编码器参数。 |
-| [setSubStreamMixVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aabc643e4be3add7e08b8fb3f1a9789a9) | 设置辅流的混音音量大小。 |
+| [setSubStreamMixVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aabc643e4be3add7e08b8fb3f1a9789a9) | 设置屏幕分享的混音音量大小。 |
+| [addExcludedShareWindow](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ab975f0d54e63bf810b1a92539ad78057) | 将指定窗口加入屏幕分享的排除列表中，加入排除列表中的窗口不会被分享出去。 |
+| [removeExcludedShareWindow](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a3794c820d0d45cf55802b7162df063c9) | 将指定窗口从屏幕分享的排除列表中移除。 |
+| [removeAllExcludedShareWindow](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a179d325cc9f043d049cdedc35a64497a) | 将所有窗口从屏幕分享的排除列表中移除。 |
 
 
 ### 自定义采集和渲染
@@ -167,18 +145,12 @@
 | [sendSEIMsg](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a253023d332139a09cbb4d592042b84e6) | 将小数据量的自定义数据嵌入视频帧中。 |
 
 
-### 设备和网络测试
+### 网络测试
 
 | API | 描述 |
 |-----|-----|
 | [startSpeedTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a7dc88d324541c15e2781d1df10625fed) | 开始进行网络测速（视频通话期间请勿测试，以免影响通话质量）。 |
 | [stopSpeedTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a58d732ba648d1f9a3a460c02de79bb9b) | 停止网络测速。 |
-| [startCameraDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#adfdfd81465003ac6d21e5be20c119c41) | 开始进行摄像头测试。 |
-| [stopCameraDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a1b67fa3f322efe538d924b381c06e676) | 停止摄像头测试。 |
-| [startMicDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aaa98e72f47a57ee2ff4e8b3670573688) | 开启麦克风测试。 |
-| [stopMicDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a8cca1c5913ac021987680195075e5fc9) | 停止麦克风测试。 |
-| [startSpeakerDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a2adcedc6f4e867eca4d6db7c1923009a) | 开启扬声器测试。 |
-| [stopSpeakerDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#abf383f971dc54f0254b2d40f100cc9ca) | 停止扬声器测试。 |
 
 
 ### LOG 相关接口函数
@@ -199,7 +171,7 @@
 
 | API | 描述 |
 |-----|-----|
-| [setMicVolumeOnMixing](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a1fff2c9d17bc4197c0097c01397bf70e) | 设置麦克风的音量大小 |
+| [setMicVolumeOnMixing](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a1fff2c9d17bc4197c0097c01397bf70e) | 设置麦克风的音量大小。 |
 | [startScreenCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#adde6382876b0afab78bab89e8be8e2542) | 启动屏幕分享。 |
 | [playBGM](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a2dc777ac9dbc51c01eb735a62318fcc5) | 启动播放背景音乐。 |
 | [stopBGM](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a11004f1ba27b057985850a25307b0bec) | 停止播放背景音乐。 |
@@ -218,6 +190,39 @@
 | [pauseAudioEffect](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a43f83a1323cc39c1610c61cf79ab652c) | 暂停音效。 |
 | [resumeAudioEffect](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a23b65446d7dd9835da888b5285867629) | 恢复音效。 |
 | [selectScreenCaptureTarget](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a2aabe079ed38fb5122be988434a81a922) | 设置屏幕共享参数。 |
+| [startRemoteView](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ab4024c7f416d583dba3ef7cbcdb4145c2) | 开始显示远端视频画面。 |
+| [stopRemoteView](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a8fca9a14fc9a214bf7c9caac59d4b52f2) | 停止显示远端视频画面，同时不再拉取远端用户的视频数据流。 |
+| [setLocalViewFillMode](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ada1aa39d0b579f0f939d17c3ca78df92) | 设置本地图像的渲染模式。 |
+| [setRemoteViewFillMode](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a4d3e1c147a6c6656873246c069980d5e) | 设置远端图像的渲染模式。 |
+| [setLocalViewRotation](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a8d5dc6995392c71257493353e3571e86) | 设置本地图像的顺时针旋转角度。 |
+| [setRemoteViewRotation](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a5a14374fb4547d496b0c9bdf98458f37) | 设置远端图像的顺时针旋转角度。 |
+| [setLocalViewMirror](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a050a53b8bed638f76a64ad82ecd89078) | 设置本地摄像头预览画面的镜像模式。 |
+| [startRemoteSubStreamView](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#af3e5347c5973c34594ce32e677cd105a) | 开始显示远端用户的辅路画面（TRTCVideoStreamTypeSub，一般用于屏幕分享）。 |
+| [stopRemoteSubStreamView](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a00d9b103bdee9c4b9424aa669d8bb6c8) | 停止显示远端用户的辅路画面（TRTCVideoStreamTypeSub，一般用于屏幕分享）。 |
+| [setRemoteSubStreamViewFillMode](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#af18f341b99546110d255ac48b8f17647) | 设置辅路画面（TRTCVideoStreamTypeSub，一般用于屏幕分享）的显示模式。 |
+| [setRemoteSubStreamViewRotation](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#afdf43dda66b2618071c780f937d326a7) | 设置辅路画面（TRTCVideoStreamTypeSub，一般用于屏幕分享）的顺时针旋转角度。 |
+| [setPriorRemoteVideoStreamType](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a5cc9f8652845ff0d7adc5b2d24b8a269) | 设定观看方优先选择的视频质量。 |
+| [setAudioQuality](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ae241d03683fdde1e033078a6057f609c) | 设置音频质量。 |
+| [startLocalAudio](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a3177329bc84e94727a1be97563800beb2) | 开启本地音频的采集和上行。 |
+| [getCameraDevicesList](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ac089937783fa14655f4944e7137e9fe6) | 获取摄像头设备列表。 |
+| [setCurrentCameraDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a38d1826dcbb34fa6300b81dd0de82799) | 设置要使用的摄像头。 |
+| [getCurrentCameraDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a24ac636304cb989cce4e43a460ad659e) | 获取当前使用的摄像头。 |
+| [getMicDevicesList](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#af52dcefa14a0838a98d878620e4a8e83) | 获取麦克风设备列表。 |
+| [getCurrentMicDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aeea733cfe13334913e7e8d1cbb4d35ff) | 获取当前选择的麦克风。 |
+| [setCurrentMicDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a410ac986bd2b77180987b8a4789e99f7) | 设置要使用的麦克风。 |
+| [getCurrentMicDeviceVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a5feaad27747bc7e909de43444aa86e2f) | 获取系统当前麦克风设备音量。 |
+| [setCurrentMicDeviceVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a02cdbf0a22ec4effeb662da83d7b5218) | 设置系统当前麦克风设备的音量。 |
+| [getSpeakerDevicesList](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a9f680a2953562c62e5024ef98e691803) | 获取扬声器设备列表。 |
+| [getCurrentSpeakerDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#af38430fc0b347637e5b050481b2d6065) | 获取当前的扬声器设备。 |
+| [setCurrentSpeakerDevice](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a44bb513e08eefd17d1f0c18adea68f6d) | 设置要使用的扬声器。 |
+| [getCurrentSpeakerVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a1617113ec7db9d646b27233da8132b48) | 获取系统当前扬声器设备音量。 |
+| [setCurrentSpeakerVolume](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a5fe7bfacc946565df7d14a91f6de9f21) | 设置系统当前扬声器设备音量。 |
+| [startCameraDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#adfdfd81465003ac6d21e5be20c119c41) | 开始进行摄像头测试。 |
+| [stopCameraDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a1b67fa3f322efe538d924b381c06e676) | 停止摄像头测试。 |
+| [startMicDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#aaa98e72f47a57ee2ff4e8b3670573688) | 开启麦克风测试。 |
+| [stopMicDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#a8cca1c5913ac021987680195075e5fc9) | 停止麦克风测试。 |
+| [startSpeakerDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#ac68c3a3fd8215ba6377936a210d400c1) | 开启扬声器测试。 |
+| [stopSpeakerDeviceTest](http://doc.qcloudtrtc.com/group__ITRTCCloud__csharp.html#abf383f971dc54f0254b2d40f100cc9ca) | 停止扬声器测试。 |
 
 
 ## TRTCCloudCallback @ TXLiteAVSDK
@@ -228,8 +233,8 @@
 
 | API | 描述 |
 |-----|-----|
-| [onError](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#aa90039556e52de79965ca4d338c83ebf) | 错误回调，表示 SDK 不可恢复的错误，一定要监听并分情况给用户适当的界面提示。 |
-| [onWarning](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a2e4c89560e538402907c1aa8fa6b68d1) | 警告回调，用于告知您一些非严重性问题，例如出现了卡顿或者可恢复的解码失败。 |
+| [onError](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#aa90039556e52de79965ca4d338c83ebf) | 错误回调，SDK 不可恢复的错误，一定要监听，并分情况给用户适当的界面提示。 |
+| [onWarning](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a2e4c89560e538402907c1aa8fa6b68d1) | 警告回调：用于告知您一些非严重性问题，例如出现了卡顿或者可恢复的解码失败。 |
 
 
 ### 房间事件回调
@@ -241,6 +246,7 @@
 | [onSwitchRole](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a497f7b16f98dae3e8aa735d7d19df1ff) | 切换角色结果回调。 |
 | [onConnectOtherRoom](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a9bc4aec6ac8593f3171f8ab6b6e91658) | 请求跨房通话（主播 PK）的结果回调。 |
 | [onDisconnectOtherRoom](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a6c11aecb5474f578ce0b83e346b14cac) | 结束跨房通话（主播 PK）的结果回调。 |
+| [onSwitchRoom](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#aff76a17875e1eda9c4c7112a9c280f23) | 切换房间 (switchRoom) 的结果回调。 |
 
 
 ### 成员事件回调
@@ -248,23 +254,21 @@
 | API | 描述 |
 |-----|-----|
 | [onRemoteUserEnterRoom](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#ac917f8d9bfc0ba8fdf86a33baba14149) | 有用户加入当前房间。 |
-| [onRemoteUserLeaveRoom](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a7d921af747d72aa87a88ade6a238efc0) | 有用户离开当前房间，与 onuserEnterRoom 相对应。 |
-| [onUserVideoAvailable](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#af6669bcf5f2fd63ee63fd6d3f6b5823a) | 远端用户是否存在可播放的主路画面（一般用于摄像头）。 |
-| [onUserSubStreamAvailable](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a15be39bb902bf917321b26701e961286) | 远端用户是否存在可播放的辅路画面（一般用于屏幕分享）。 |
-| [onUserAudioAvailable](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a166aaaff75287cfbb84f64e0dcab79dc) | 远端用户是否存在可播放的音频数据。 |
+| [onRemoteUserLeaveRoom](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a7d921af747d72aa87a88ade6a238efc0) | 有用户离开当前房间。 |
+| [onUserVideoAvailable](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#af6669bcf5f2fd63ee63fd6d3f6b5823a) | 用户是否开启摄像头视频。 |
+| [onUserSubStreamAvailable](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a15be39bb902bf917321b26701e961286) | 用户是否开启屏幕分享。 |
+| [onUserAudioAvailable](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a166aaaff75287cfbb84f64e0dcab79dc) | 用户是否开启音频上行。 |
 | [onFirstVideoFrame](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#aa25eb882b81fd83b1aedf7a4248fd15a) | 开始渲染本地或远程用户的首帧画面。 |
 | [onFirstAudioFrame](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a6c059e46c986cfae0f959cd833a08130) | 开始播放远程用户的首帧音频（本地声音暂不通知）。 |
 | [onSendFirstLocalVideoFrame](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a266f7551ab47384616b36ad2783615d1) | 首帧本地视频数据已经被送出。 |
 | [onSendFirstLocalAudioFrame](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#acb73daf4ce82cd03f787f057b233b412) | 首帧本地音频数据已经被送出。 |
-| [onUserEnter](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#ad236edc28918b6fc28104f69547964ba) | 废弃接口：有主播加入当前房间。 |
-| [onUserExit](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#ab1d8d76808cf417b6f859f3991b2e8f8) | 有用户（主播）离开当前房间。 |
 
 
 ### 统计和质量回调
 
 | API | 描述 |
 |-----|-----|
-| [onNetworkQuality](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a7a959df0ee5e4d6fa45f0e0785998daf) | 网络质量，该回调每2秒触发一次，统计当前网络的上行和下行质量。 |
+| [onNetworkQuality](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a7a959df0ee5e4d6fa45f0e0785998daf) | 网络质量：该回调每2秒触发一次，统计当前网络的上行和下行质量。 |
 | [onStatistics](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#ab392e7b7325c89a260ce47b1a6b7dde4) | 技术指标统计回调。 |
 
 
@@ -284,10 +288,12 @@
 |-----|-----|
 | [onCameraDidReady](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#aaa74021e5fd2564afb2df50e25eedeff) | 摄像头准备就绪。 |
 | [onMicDidReady](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#afdac7dee94451913a4dc9982badc8035) | 麦克风准备就绪。 |
-| [onUserVoiceVolume](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a04422f826fccefdd91d4ecd42b124686) | 用于提示音量大小的回调，包括每个 userId 的音量和远端总音量。 |
+| [onUserVoiceVolume](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a04422f826fccefdd91d4ecd42b124686) | 用于提示音量大小的回调,包括每个 userId 的音量和远端总音量。 |
 | [onDeviceChange](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a2ce42edc00da08dd4aafa5e1e60927be) | 本地设备通断回调。 |
 | [onTestMicVolume](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a199c708ee69b2667e89515d14250de5f) | 麦克风测试音量回调。 |
 | [onTestSpeakerVolume](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a7cc29016572d6aa30f389df92d70c048) | 扬声器测试音量回调。 |
+| [onAudioDeviceCaptureVolumeChanged](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a32109c06ac9c5be57d1be55d70d17ef1) | 当前音频采集设备音量变化通知。 |
+| [onAudioDevicePlayoutVolumeChanged](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#aa1340bc299119aede65225ca6f1ddd0e) | 当前音频播放设备音量变化通知。 |
 
 
 ### 自定义消息的接收回调
@@ -310,13 +316,6 @@
 | [onSetMixTranscodingConfig](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a77631560b26c7343df3d9bc9a2e0390e) | 设置云端的混流转码参数的回调，对应于 TRTCCloud 中的 setMixTranscodingConfig() 接口。 |
 
 
-### 音效回调
-
-| API | 描述 |
-|-----|-----|
-| [onAudioEffectFinished](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#abe967d855abae66836877fe0dacf8b5f) | 播放音效结束回调。 |
-
-
 ### 屏幕分享回调
 
 | API | 描述 |
@@ -328,13 +327,16 @@
 | [onScreenCaptureStoped](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#ad0c359a7cefb8f246d498a3fbf52b1ac) | 当屏幕分享停止时，SDK 会通过此回调通知。 |
 
 
-### 背景混音事件回调
+### 弃用接口回调
 
 | API | 描述 |
 |-----|-----|
-| [onPlayBGMBegin](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a61d9fa641b1790094e955aeb355cca92) | 开始播放背景音乐。 |
-| [onPlayBGMProgress](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a6dade9af4a799d8f47fba53c5f1015b6) | 播放背景音乐的进度。 |
-| [onPlayBGMComplete](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#aff8d7c6c3d2a5984ddd6448008041340) | 播放背景音乐结束。 |
+| [onUserEnter](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#aff18b3bc5b1e448b21b7614e5716e73e) | 废弃接口：有主播加入当前房间。 |
+| [onUserExit](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a0d1361e52e96b4c7c1a5f1b89f4ef0fb) | 废弃接口：有用户（主播）离开当前房间。 |
+| [onAudioEffectFinished](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#abe967d855abae66836877fe0dacf8b5f) | 废弃接口：播放音效结束回调。 |
+| [onPlayBGMBegin](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a61d9fa641b1790094e955aeb355cca92) | 废弃接口：开始播放背景音乐。 |
+| [onPlayBGMProgress](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a6dade9af4a799d8f47fba53c5f1015b6) | 废弃接口：播放背景音乐的进度。 |
+| [onPlayBGMComplete](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#aff8d7c6c3d2a5984ddd6448008041340) | 废弃接口：播放背景音乐结束。 |
 
 
 ### 视频数据帧的自定义处理回调
@@ -346,13 +348,13 @@
 
 ### 声音数据帧的自定义处理回调（只读）
 
-回调函数是在 SDK 内部线程同步抛出的，请不要做耗时操作。 
+回调函数是在 SDK 内部线程同步抛出来的，请不要做耗时操作。 
 >?请按需定义相关函数实现，减少不必要的性能损耗。
 
 | API | 描述 |
 |-----|-----|
 | [onCapturedAudioFrame](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#ad207bbc5b8ab7885540fb5a2de1e4d3d) | 本地麦克风采集到的音频数据回调。 |
-| [onPlayAudioFrame](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a0014b81d218cde7372580dd5995a1b24) | 混音前的每一路远程用户的音频数据，即混音前的各路原始数据。例如，对某一路音频进行文字转换时，您必须使用该路音频的原始数据。 |
+| [onPlayAudioFrame](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#a0014b81d218cde7372580dd5995a1b24) | 混音前的每一路远程用户的音频数据（例如您要对某一路的语音进行文字转换，必须要使用这里的原始数据，而不是混音之后的数据）。 |
 | [onMixedPlayAudioFrame](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__csharp.html#ac5262e14766154bda8ad437923285567) | 各路音频数据混合后送入喇叭播放的音频数据。 |
 
 

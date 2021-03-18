@@ -15,7 +15,7 @@
 1. 登录腾讯云 [网站建设控制台](https://console.cloud.tencent.com/wds)，选择您需要进行建站服务的 “服务名称”，单击【管理】。
 2. 在网站服务详情中，单击 “网站管理” 模块下的【管理后台地址】。
 3. 由网站建设控制台跳转到建站引导页面后，选择您需要部署的网站，单击【免费开启】。如下图所示：
-![](https://main.qcloudimg.com/raw/be5c9cc7b208d2b3c2c7fc9c4a4fb5f6.png)
+![](https://main.qcloudimg.com/raw/f16f634a703e7b3c6e2c3b26f4c0114e.png)
 4. 在弹出的【开启 https】窗口中，单击【浏览】上传证书与私钥文件。如下图所示：
 >?请您在 [SSL 证书控制台](https://console.cloud.tencent.com/ssl) 下载证书文件，并上传 Nginx 文件内容至证书与私钥文件。
 >

@@ -320,7 +320,7 @@ try
   //设置拷贝源
   request.SetCopySource(copySource);
   //设置是否拷贝还是更新,此处是拷贝
-  request.SetCopyMetaDataDirective(COSXML.Common.CosMetaDataDirective.COPY);
+  request.SetCopyMetaDataDirective(COSXML.Common.CosMetaDataDirective.Copy);
   //执行请求
   CopyObjectResult result = cosXml.CopyObject(request);
   //请求成功
@@ -360,7 +360,7 @@ try
   //设置拷贝源
   request.SetCopySource(copySource);
   //设置是否拷贝还是更新,此处是拷贝
-  request.SetCopyMetaDataDirective(COSXML.Common.CosMetaDataDirective.REPLACED);
+  request.SetCopyMetaDataDirective(COSXML.Common.CosMetaDataDirective.Replaced);
   // 替换元数据
   request.SetRequestHeader("Content-Disposition", "attachment; filename=example.jpg");
   //执行请求
@@ -400,7 +400,7 @@ try
   //设置拷贝源
   request.SetCopySource(copySource);
   //设置是否拷贝还是更新,此处是拷贝
-  request.SetCopyMetaDataDirective(COSXML.Common.CosMetaDataDirective.REPLACED);
+  request.SetCopyMetaDataDirective(COSXML.Common.CosMetaDataDirective.Replaced);
   // 替换元数据
   request.SetRequestHeader("Content-Disposition", "attachment; filename=example.jpg");
   request.SetRequestHeader("Content-Type", "image/png");
@@ -441,7 +441,7 @@ try
   //设置拷贝源
   request.SetCopySource(copySource);
   //设置是否拷贝还是更新,此处是拷贝
-  request.SetCopyMetaDataDirective(COSXML.Common.CosMetaDataDirective.REPLACED);
+  request.SetCopyMetaDataDirective(COSXML.Common.CosMetaDataDirective.Replaced);
   // 修改为归档存储
   request.SetCosStorageClass("ARCHIVE");
   //执行请求
@@ -569,7 +569,7 @@ try
   int partNumber = 1; //分块编号，必须从1开始递增
   string srcPath = @"temp-source-file";//本地文件绝对路径
   UploadPartRequest request = new UploadPartRequest(bucket, key, partNumber, 
-    uploadId, srcPath);
+    uploadId, srcPath, 0, -1);
   //设置进度回调
   request.SetCosProgressCallback(delegate (long completed, long total)
   {
@@ -630,7 +630,7 @@ try
   UploadPartCopyResult result = cosXml.PartCopy(request);
   //请求成功
   //获取返回分块的eTag,用于后续CompleteMultiUploads
-  this.eTag = result.copyObject.eTag;
+  this.eTag = result.copyPart.eTag;
   Console.WriteLine(result.GetResultInfo());
 }
 catch (COSXML.CosException.CosClientException clientEx)

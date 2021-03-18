@@ -5,27 +5,26 @@
 
 
 ## 步骤1：安装 CloudBase CLI 以及本地部署 Hexo
-
 1. 在本地安装 Node.js：如果未安装请前往 [Node.js 官网](https://nodejs.org) 下载安装，并确保 Node.js 安装成功。
 2. 安装 CloudBase CLI。打开命令提示符，执行如下命令：
-```plaintext
+<dx-codeblock>
+:::  plaintext
 npm i -g @cloudbase/cli hexo-cli
-```
-3. <span id="step1.3"></span>执行完毕后，在本地新建名称为 Hexo 的文件夹。在该文件夹中，打开命令提示符，并执行如下命令进行初始化：
-```plaintext
+:::
+</dx-codeblock>
+3. 执行完毕后，在本地新建名称为 Hexo 的文件夹。在该文件夹中，打开命令提示符，并执行如下命令进行初始化：
+<dx-codeblock>
+:::  plaintext
 hexo init
-```
+:::
+</dx-codeblock>
 4. 在初始化过程中，您可以看到如下图的输出：
    ![](https://main.qcloudimg.com/raw/a194e51c289b3ec2e4662237387ed613.png)
 5. 初始化完成后，执行如下命令，启动预览：
 ```plaintext
 hexo s
-```
-![](https://main.qcloudimg.com/raw/789d798d929e69b980eb37f55bbbeb37.png)
-预览后，在浏览器中打开 [localhost:4000](http://localhost:4000)，即可看到部署的 Hexo 博客。
-![](https://main.qcloudimg.com/raw/5b91e6303e40aea5c1d5f0cfc521dc4a.png)
-
-
+```![](https://main.qcloudimg.com/raw/789d798d929e69b980eb37f55bbbeb37.png)
+预览后，在浏览器中打开 [localhost:4000](http://localhost:4000)，即可看到部署的 Hexo 博客。![](https://main.qcloudimg.com/raw/5b91e6303e40aea5c1d5f0cfc521dc4a.png)
 
 ## 步骤2：创建云开发环境
 
@@ -79,3 +78,4 @@ cloudbase hosting:deploy public -e [EnvID]
    ![](https://main.qcloudimg.com/raw/f5bec269430faa18cb19ce9792c09d13.jpg)
 3. 在浏览器中输入该链接并回车，即可打开线上部署好的 Hexo 博客。
    ![](https://main.qcloudimg.com/raw/590b7ee62174aa74f0119ac4775c6362.png)
+

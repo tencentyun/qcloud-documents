@@ -1,3 +1,4 @@
+
 ## 1. 接口描述
 接口请求域名：`iot.cloud.tencent.com/api/exploreropen/tokenapi`
 本接口（AppTokenBindDeviceFamily）用于小程序或 App 用户绑定 Wi-Fi 类设备。

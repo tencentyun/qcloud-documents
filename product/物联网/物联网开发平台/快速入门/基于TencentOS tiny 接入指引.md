@@ -30,10 +30,10 @@
   - 通信方式：随意选择。
   - 数据协议：默认为“数据模板”。
   - 描述：按照实际需求填写项目描述。
-![](https://main.qcloudimg.com/raw/5632337cf6b43546f83d4cf9a92a18dd.png)
+![](https://main.qcloudimg.com/raw/6f79d468a05c1bd5dd7dd7357a5c0971.jpg)
 3. 产品信息填写完成后，单击【保存】，即可完成产品创建。
 4. 产品创建成功后，可在产品列表页查看到“智能灯”。
-![](https://main.qcloudimg.com/raw/cea75c03773aed81f9061da302e9fb3d.png)
+
 
 ### 创建数据模板
 

@@ -31,10 +31,10 @@
 
 ### 初始化 TtsController 示例
 
-构造 ttsController：长文本使用 LongTextTtsController；实时流式使用 RealtimeTtsController，2选1。
+通过 LongTextTtsController 构造 ttsController。
 
 ```
-TtsController mTtsController = new TtsController();
+LongTextTtsController mTtsController = new LongTextTtsController();
 ```
 
 在使用云 API 之前，请前往腾讯云 API 密钥页面申请安全凭证。安全凭证包括 SecretId 和 SecretKey。
@@ -172,3 +172,5 @@ mTtsController.stop();
 ### 错误码
 
 请参考 [语音合成 API 文档](https://cloud.tencent.com/document/product/1073/37995)。
+
+

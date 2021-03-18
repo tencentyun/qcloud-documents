@@ -10,20 +10,22 @@
 
 ## 操作步骤
 
-1. 安装 TCCLI，执行以下命令：
-```sh
+1. Windows 系统按 Win+R 打开运行窗口输入 cmd 并单击【确定】，本文以 Linux 为例。
+2. 在命令行窗口中，执行以下命令进行 TCCLI 安装。
+```bash
 pip install tccli
 ```
->!如果您是从3.0.252.3以下版本进行升级，需要执行以下命令：
-> ```bash
-> sudo pip uninstall tccli jmespath
-> sudo pip install tccli
-> ```
-
-2. 安装完成之后，执行以下命令，检测是否安装成功。
+ >!如果您是从3.0.252.3以下版本进行升级，需要执行以下命令：
+>```bash
+sudo pip uninstall tccli jmespath
+sudo pip install tccli
+```
+3. 安装完成之后，执行以下命令，检测是否安装成功。
 ```bash
 tccli --version
 ```
+
+
 
 #### 命令补全
 

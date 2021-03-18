@@ -11,7 +11,9 @@
 8. 停止录制。
 9. 停止 BGM。
 
-```
+
+<dx-codeblock>
+::: android
 // 开始录制
 mTXCameraRecord.startRecord();
 
@@ -47,5 +49,5 @@ mTXUGCPartsManager.deleteAllParts();
 
 // 您可以添加当前录制视频之外的视频
 mTXUGCPartsManager.insertPart(videoPath, index) ;
-
-```
+:::
+</dx-codeblock>

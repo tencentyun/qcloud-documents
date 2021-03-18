@@ -1,4 +1,5 @@
 本文介绍如何设置样式（Android）
+>?更多实操教学视频请参见：[设置样式（Android）](https://cloud.tencent.com/edu/learning/course-3130-57629)。
 
 ## 设置会话列表
 会话列表 Layout 由标题区 TitleBarLayout 与列表区 ConversationListLayout 组成，每部分都提供了 UI 样式以及事件注册的接口可供修改。
@@ -405,3 +406,4 @@ public static class CustomInputFragment extends BaseInputFragment {
 ```
 效果如下图所示：
 ![替换面板](https://main.qcloudimg.com/raw/d347f9e12358fb00d0c517e6a7aa44a6.gif)
+

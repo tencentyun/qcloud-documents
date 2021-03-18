@@ -26,12 +26,12 @@
     - 设备类型：选择“设备”。
     - 认证方式：选择“密钥认证”。
     - 通信方式：选择“LoRaWAN”。
-![](https://main.qcloudimg.com/raw/f4bf52254ad7caeca25e8a496b21a9d1.png)
+![](https://main.qcloudimg.com/raw/e1d8add09289d020a3ea3b9a8e93c501.jpg)
 3. 产品新建成功后，您可在产品列表页查看“LoRa 温湿度传感器”。
 
 #### 创建数据模板
-单击产品名称，进入产品配置页，在【自定义功能】配置项下，单击【新建功能】，自定义产品功能。
-![](https://main.qcloudimg.com/raw/ab908e72c372289da329aac252da51ed.png)
+单击产品名称，进入产品配置页，在【数据模板】的“自定义功能”配置项下，单击【新建功能】，自定义产品功能。
+![](https://main.qcloudimg.com/raw/df88f053e5316049df4ee3f1c68edb71.jpg)
 
 #### 配置 LoRaWAN 参数
 在设备开发页面中，按需调整 LoRaWAN 参数配置。本示例中使用默认的 OTAA 配置。
@@ -110,10 +110,7 @@ function ProtocolToRaw(obj) {
 #### 创建测试设备
 
 在设备调试页面中，单击【新建设备】，设备名为 dev001。
-
-DevEUI 等信息可从 LoRa 节点开发板背面贴纸上获取。
-![](https://main.qcloudimg.com/raw/67a62104fada6a28c72271b18dd9e31d.png)
-
+![](https://main.qcloudimg.com/raw/6b868147e1d5758df6e81e9a5a2b8ddb.jpg)
 ## 控制台操作 LoRa 网关
 
 1. 登录 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer)，选择上文 “控制台操作 LoRa 节点” 中对应的项目。
@@ -242,11 +239,10 @@ tos_lora_module_join_otaa("8cf957200000f806", "8cf957200000f8061b39aaaaad204a72"
 1. 保持 LoRa 节点和 LoRa 网关 为运行状态。
 2. 进入【控制台】>【产品开发】>【设备调试】，可查看到设备 "dev001" 。
 3. 单击【调试】，可进入设备详情页。
-![](https://main.qcloudimg.com/raw/b873b65c618480ede6485073090bc1f2.png)
+![](https://main.qcloudimg.com/raw/a1db99a803be3e01c0e161ef7509a5bb.jpg)
 4. 单击【设备属性】，可查询设备上报到开发平台的最新数据及历史数据。
  - 设备属性的最新值：会显示设备上报的最新数据。
  - 设备属性的更新时间：显示数据的更新时间。
-![](https://main.qcloudimg.com/raw/1feec8668680ca8008f9608b79514549.png)
 5. 单击【查看】，可查看某个属性的历史上报数据。
 
 ## 查看设备通信日志
@@ -254,13 +250,11 @@ tos_lora_module_join_otaa("8cf957200000f806", "8cf957200000f8061b39aaaaad204a72"
 单击【设备日志】，可查询该设备某段时间范围的所有上下行数据。
  - 上行：上行指设备端上报到开发平台的数据。
  - 下行：下行指从开发平台下发到设备的数据。
-![](https://main.qcloudimg.com/raw/36159398adef700e88b8740d45c5b129.png)
 
 ## 在线调试
 
 1. 当 LoRa 节点 成功连接到物联网开发平台后，您可在控制台【设备调试】列表，单击【调试】，进入在线调试。
 2. 将“上报周期”设置为15秒，单击【发送】。
-![](https://main.qcloudimg.com/raw/734c684a361c53bcd0c038e0f4573ad6.png)
 3. 查看 LoRa 节点的串口日志，可查看已成功接收到下发的数据。
  >?
  - 由于本示例中 LoRa 节点是 LoRaWAN Class A 类设备，这类设备不会立即下发数据，需要在有数据上行后，服务器才会向该设备下行数据。

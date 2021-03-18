@@ -14,8 +14,3 @@ CHECKPOINT
 
 ## 兼容性
 CHECKPOINT 是数据库语言扩展。
-
-
-
-
-

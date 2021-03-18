@@ -3,7 +3,7 @@ Android SDK 面向使用 Java 语言的平台实现接入腾讯云物联网开�
 
 ## SDK 获取
 
-SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [iot-device-java](https://github.com/tencentyun/iot-device-java)。
+SDK 使用 Github 托管，可访问 Github 下载最新版本设备端 [iot-device-android](https://github.com/tencentyun/iot-device-java/tree/master/explorer/explorer-device-android)。
 
 ## 软件架构
 

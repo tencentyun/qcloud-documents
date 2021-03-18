@@ -139,7 +139,7 @@ tccli configure
 
 ## 使用 TCCLI
 
-### 基础功能<span id="primaryfunction"></span>
+### [基础功能](id:primaryfunction)
 TCCLI 支持自主配置，helper 信息支持中文信息且支持 JSON、table 及 text 输出格式。
 >! 请注意示例中非简单类型的参数必须为标准 JSON 格式。 
 >
@@ -377,7 +377,7 @@ REGIONSET       na-siliconvalley        美国西部(硅谷)  AVAILABLE
 REGIONSET       na-toronto      北美地区(多伦多)        AVAILABLE
 ```
 
-### 高级功能<span id="sophisticatedfunctions"></span>
+### [高级功能](id:sophisticatedfunctions)
 该步骤以 CVM 为例，详细介绍了如何使用 TCCLI 高级功能，包括多版本接口访问、指定最近的接入点、返回结果过滤、输出入参数据结构到 JSON 文件以及从 JSON 文件读取参数等。
 
 #### 多版本接口访问

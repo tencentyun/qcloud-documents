@@ -29,8 +29,8 @@ Authorization: Auth String
 | encoding-type    | 规定返回值的编码格式，合法值：url。                               | String | 否    |
 | prefix           | 限定返回的 Object key 必须以 Prefix 作为前缀。</br>注意使用 prefix 查询时，返回的 key 中仍会包含 Prefix。 | String | 否    |
 | max-uploads      | 设置最大返回的 multipart 数量，合法取值从1到1000，默认1000。                       | String | 否    |
-| key-marker       | 与 upload-id-marker 一起使用：<Br/><li>当 upload-id-marker 未被指定时，ObjectName 字母顺序大于 key-marker 的条目将被列出。<Br/><li>当 upload-id-marker 被指定时，ObjectName 字母顺序大于 key-marker 的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadID 大于 upload-id-marker 的条目将被列出。 | String | 否    |
-| upload-id-marker | 与 key-marker 一起使用：<Br/><li>当 key-marker 未被指定时，upload-id-marker 将被忽略。<Br/><li>当 key-marker 被指定时，ObjectName字母顺序大于 key-marker 的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadID 大于 upload-id-marker 的条目将被列出。 | String | 否    |
+| key-marker       | 与 upload-id-marker 一起使用：<Br/><li>当 upload-id-marker 未被指定时，ObjectName 字母顺序大于 key-marker 的条目将被列出。<Br/><li>当 upload-id-marker 被指定时，ObjectName 字母顺序大于 key-marker 的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadId 大于 upload-id-marker 的条目将被列出。 | String | 否    |
+| upload-id-marker | 与 key-marker 一起使用：<Br/><li>当 key-marker 未被指定时，upload-id-marker 将被忽略。<Br/><li>当 key-marker 被指定时，ObjectName字母顺序大于 key-marker 的条目被列出，ObjectName 字母顺序等于 key-marker 同时 UploadId 大于 upload-id-marker 的条目将被列出。 | String | 否    |
 
 #### 请求体
 该请求的请求体为空。
@@ -57,7 +57,7 @@ Authorization: Auth String
   <Delimiter></Delimiter>
   <Upload>
     <Key></Key>
-    <UploadID></UploadID>
+    <UploadId></UploadId>
     <StorageClass></StorageClass>
     <Initiator>
       <ID></ID>
@@ -103,7 +103,7 @@ Container 节点 Upload 的内容：
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
 | Key | ListMultipartUploadsResult.Upload |  Object 的名称。 |  String |
-| UploadID | ListMultipartUploadsResult.Upload |  标示本次分块上传的 ID。 | String |
+| UploadId | ListMultipartUploadsResult.Upload |  标示本次分块上传的 ID。 | String |
 | StorageClass | ListMultipartUploadsResult.Upload |  用来表示分块的存储级别，枚举值：STANDARD，STANDARD_IA，ARCHIVE。 |  String |
 | Initiator | ListMultipartUploadsResult.Upload |  用来表示本次上传发起者的信息。 |  Container |
 | Owner | ListMultipartUploadsResult.Upload | 用来表示这些分块所有者的信息。 |  Container |
@@ -165,7 +165,7 @@ x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRf****
     <IsTruncated>false</IsTruncated>
     <Upload>
         <Key>Object</Key>
-        <UploadID>1484726657932bcb5b17f7a98a8cad9fc36a340ff204c79bd2f51e7dddf0b6d1da6220520c</UploadID>
+        <UploadId>1484726657932bcb5b17f7a98a8cad9fc36a340ff204c79bd2f51e7dddf0b6d1da6220520c</UploadId>
         <Initiator>
            <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
 		<DisplayName>100000000001</DisplayName>
@@ -179,7 +179,7 @@ x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRf****
     </Upload>
     <Upload>
         <Key>Object</Key>
-        <UploadID>1484727158f2b8034e5407d18cbf28e84f754b791ecab607d25a2e52de9fee641e5f60707c</UploadID>
+        <UploadId>1484727158f2b8034e5407d18cbf28e84f754b791ecab607d25a2e52de9fee641e5f60707c</UploadId>
         <Initiator>
            <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
 		<DisplayName>100000000001</DisplayName>
@@ -193,7 +193,7 @@ x-cos-request-id: NTg3ZjI0ZGRfNDQyMDRlXzNhZmRf****
     </Upload>
     <Upload>
         <Key>exampleobject</Key>
-        <UploadID>1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e</UploadID>
+        <UploadId>1484727270323ddb949d528c629235314a9ead80f0ba5d993a3d76b460e6a9cceb9633b08e</UploadId>
         <Initiator>
            <ID>qcs::cam::uin/100000000001:uin/100000000001</ID>
 		<DisplayName>100000000001</DisplayName>

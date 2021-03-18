@@ -2,6 +2,8 @@
 
 POST Object restore 接口请求可以对一个归档存储或深度归档存储类型的对象进行恢复（解冻）以便读取该对象内容，恢复出的可读取对象是临时的，您可以设置需要保持可读以及随后删除该临时副本的时间。您可以用 Days 参数来指定临时对象的过期时间，若超出该时间且期间您没有发起任何复制、延长等操作，该临时对象将被系统自动删除。临时对象仅为归档存储类型对象的副本，原始归档存储对象在此期间将始终存在。有关归档存储的进一步说明，请参见 [存储类型 - 归档存储](https://cloud.tencent.com/document/product/436/33417#.E5.BD.92.E6.A1.A3.E5.AD.98.E5.82.A8) 文档。
 
+>?POST Object restore 接口请求存在 QPS 限制，限制为100次/秒。
+
 #### 版本控制
 
 当启用版本控制时，该请求操作可以使用 versionId 请求参数指定要恢复的版本 ID，此时将恢复对象的指定版本，否则将恢复指定对象的最新版本。
@@ -18,6 +20,8 @@ Content-Type: application/xml
 Content-Length: Content Length
 Content-MD5: MD5
 Authorization: Auth String
+
+
 
 [Request Body]
 ```
@@ -64,7 +68,8 @@ Authorization: Auth String
 
 | 节点名称（关键字） | 父节点 | 描述 | 类型 | 是否必选 |
 | --- | --- | --- | --- | --- |
-| Tier | RestoreRequest.CASJobParameters | 恢复时，Tier 可以指定为支持的恢复模式。<br>对于恢复归档存储类型数据，有三种恢复模式，分别为：<br><li>Expedited：极速模式，恢复任务在1 - 5分钟内可完成，仅支持不超过 256MB 的对象。<br> <li>Standard：标准模式，恢复任务在3 - 5小时内完成 <br><li>Bulk：批量模式，恢复任务在5 - 12小时内完成。<br>对于恢复深度归档存储类型数据，有两种恢复模式，分别为：<br><li>Standard：标准模式，恢复时间为12 - 24小时。<br><li>Bulk：批量模式，恢复时间为24 - 48小时。 | Enum | 是 |
+| Tier | RestoreRequest.CASJobParameters | 恢复时，Tier 可以指定为支持的恢复模式。<br>对于恢复归档存储类型数据，有三种恢复模式，分别为：<br><li>Expedited：极速模式，恢复任务在1 - 5分钟内可完成。<br> <li>Standard：标准模式，恢复任务在3 - 5小时内完成 <br><li>Bulk：批量模式，恢复任务在5 - 12小时内完成。<br>对于恢复深度归档存储类型数据，有两种恢复模式，分别为：<br><li>Standard：标准模式，恢复时间为12 - 24小时。<br><li>Bulk：批量模式，恢复时间为24 - 48小时。 | Enum | 是 |
+
 
 ## 响应
 
@@ -96,11 +101,13 @@ Content-MD5: Nr7RAnRMgrplFvD8bt5+0w==
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1577434769;1577441969&q-key-time=1577434769;1577441969&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=restore&q-signature=ed3ee8ca63689dbff4be1533fddc17c0b4d8****
 Connection: close
 
+
+
 <RestoreRequest>
-	<Days>1</Days>
-	<CASJobParameters>
-		<Tier>Expedited</Tier>
-	</CASJobParameters>
+			<Days>1</Days>
+			<CASJobParameters>
+				<Tier>Expedited</Tier>
+			</CASJobParameters>
 </RestoreRequest>
 ```
 
@@ -129,11 +136,13 @@ Content-MD5: Nr7RAnRMgrplFvD8bt5+0w==
 Authorization: q-sign-algorithm=sha1&q-ak=AKID8A0fBVtYFrNm02oY1g1JQQF0c3JO****&q-sign-time=1579509820;1579517020&q-key-time=1579509820;1579517020&q-header-list=content-length;content-md5;content-type;date;host&q-url-param-list=restore;versionid&q-signature=f92b1c6753c452bed9ade49739ddb81a0a47****
 Connection: close
 
+
+
 <RestoreRequest>
-	<Days>1</Days>
-	<CASJobParameters>
-		<Tier>Expedited</Tier>
-	</CASJobParameters>
+			<Days>1</Days>
+			<CASJobParameters>
+				<Tier>Expedited</Tier>
+			</CASJobParameters>
 </RestoreRequest>
 ```
 
