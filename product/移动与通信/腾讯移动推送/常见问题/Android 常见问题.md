@@ -223,3 +223,7 @@ android.useAndroidX=trueandroid.enableJetifier=true
 ### 指定打开某个 Activity 页面，但经常不能正常跳转？
 在部分手机，通知栏跳转到某个页面可能会出现权限问题。
 处理方法：在 androidManifest.xml 中，需要打开的 Activity 加上 android:exported="true"。
+
+### 注册方法能在线程中创建吗？
+注册方法可以在任何地方调用，但注意要传递 ApplicationContext。
+
