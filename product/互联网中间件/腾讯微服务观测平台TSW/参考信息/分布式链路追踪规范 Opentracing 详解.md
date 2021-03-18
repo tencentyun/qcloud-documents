@@ -26,7 +26,7 @@ Span 之间可以是以下逻辑关系：
 
 Causal relationships between Spans in a single Trace
 
-        [Span A]  &amp;larr;&amp;larr;&amp;larr;(the root span)
+        [Span A]  ←←←(the root span)
 
             |
 
@@ -34,7 +34,7 @@ Causal relationships between Spans in a single Trace
 
      |             |
 
- [Span B]      [Span C] &amp;larr;&amp;larr;&amp;larr;(Span C is a `ChildOf` Span A)
+ [Span B]      [Span C] ←←←(Span C is a `ChildOf` Span A)
 
      |             |
 
@@ -44,11 +44,11 @@ Causal relationships between Spans in a single Trace
 
            [Span E]    [Span F] >>> [Span G] >>> [Span H]
 
-                                       &amp;uarr;
+                                      ↑
 
-                                       &amp;uarr;
+                                      ↑
 
-                                       &amp;uarr;
+                                      ↑
 
                          (Span G `FollowsFrom` Span F)
 ```
@@ -122,8 +122,8 @@ senderProps.put(ProducerConfig.INTERCEPTOR_CLASSES_CONFIG,
 TracingProducerInterceptor.class.getName());
 	
 				
-// Instantiate KafkaProduce
-rKafkaProducer<Integer, String> producer = new KafkaProducer<>(senderProps);
+// Instantiate KafkaProducer
+KafkaProducer<Integer, String> producer = new KafkaProducer<>(senderProps);
 
 
 // Send
