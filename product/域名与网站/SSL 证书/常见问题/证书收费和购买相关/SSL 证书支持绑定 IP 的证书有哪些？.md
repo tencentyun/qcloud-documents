@@ -61,9 +61,9 @@
   <tr>
     <td>DNSPod </td>
     <td>支持</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td>支持</td>
     <td>-</td>
   </tr>
