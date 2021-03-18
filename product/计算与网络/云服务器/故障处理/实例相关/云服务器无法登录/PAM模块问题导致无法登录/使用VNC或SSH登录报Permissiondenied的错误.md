@@ -11,7 +11,7 @@
 2. `pam_limits.so` 模块的主要功能是限制用户会话过程中对各种系统资源的使用情况。默认情况下该模块的配置文件是 `/etc/security/limits.conf`，该配置文件规定了用户可使用的最大文件数、最大线程数、最大内存等资源使用量。参数说明如下表：
 <table>
 <tr>
-<th>参数</th><th>说明</th>
+<th style="width:20%">参数</th><th>说明</th>
 </tr>
 <tr>
 <td><code>soft nofile</code></td>
