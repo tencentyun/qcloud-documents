@@ -3,7 +3,7 @@
 - VNC 登录报错如下图所示：
 ![](https://main.qcloudimg.com/raw/5f1aedd75b6d99cddab4d83fa82d964f.png)
 - SSH 登录报错如下图所示：
-![](https://main.qcloudimg.com/raw/db09e73d2a057fb8b297ffd31bf67b62.png)
+![](https://main.qcloudimg.com/raw/7ab31fbb82391da2c8ae28e8ad3b961f.png)
 
 ## 可能原因
 1. 使用 VNC 或 SSH 登录会调用 `/etc/pam.d/login` 这个 pam 模块进行校验，在 `/etc/pam.d/login` 配置中默认会引入 `system-auth` 模块进行认证，`system-auth` 模块默认会引入 `pam_limits.so` 模块进行认证。`system-auth` 的默认配置如下图所示：
