@@ -14,7 +14,7 @@
 - 修复全文索引中，词组查找（phrase search）在多字节字符集下存在的崩溃问题。
 
 ## MySQL 5.7
-### 20201230
+### 20201231
 #### 新特性：
 - 支持 SELECT FOR UPDATE/SHARE 使用 NOWAIT 和 SKIP LOCKED 选项。
 - 支持动态设置 thread_handling 线程模式或连接池模式。
