@@ -106,7 +106,6 @@
 
 
 #### 对接步骤
-
 iOS 系统上的跨应用屏幕分享，需要增加 Extension 录屏进程以配合主 App 进程进行推流。Extension 录屏进程由系统在需要录屏的时候创建，并负责接收系统采集到屏幕图像。因此需要：
 <dx-steps>
 -创建 App Group，并在 XCode 中进行配置（可选）。这一步的目的是让 Extension 录屏进程可以同主 App 进程进行跨进程通信。
@@ -140,7 +139,7 @@ dependencies:
 
 [](id:createExtension)
 ##### 步骤2：创建 Broadcast Upload Extension
-1. 在 Xcode 菜单依次单击【File】、【New】 、【Target...】，选择【Broadcast Upload Extension】。
+1. 在 Xcode 菜单依次单击【File】>【New】 >【Target...】，选择【Broadcast Upload Extension】。
 2. 在弹出的对话框中填写相关信息，**不用**勾选"【Include UI Extension】，单击【Finish】完成创建。
 3. 将下载到的 SDK 压缩包中的 TXLiteAVSDK_ReplayKitExt.framework 拖动到工程中，勾选刚创建的 Target。
 4. 选中新增加的 Target，依次单击【+ Capability】，双击【App Groups】，如下图：
@@ -229,7 +228,6 @@ class SampleHandler: RPBroadcastSampleHandler, TXReplayKitExtDelegate {
 2. 调用 [startScreenCapture](https://pub.flutter-io.cn/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud/startScreenCapture.html) 方法，并传入 [步骤1](#createGroup) 中设置的 AppGroup，让 SDK 进入“等待”状态。
 3. 等待用户触发屏幕分享。如果不实现 [步骤4](#launch) 中的“触发按钮”，屏幕分享就需要用户在 iOS 系统的控制中心，通过长按录屏按钮来触发，这一操作步骤如下图所示：
 ![](https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/trtcdemo/01.png)
-
 4. 通过调用 [stopScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa8ea0235691fc9cde0a64833249230bb) 接口可以随时中止屏幕分享。
  
 <dx-codeblock>
@@ -259,7 +257,7 @@ onRtcListener(type, param){
 
 [](id:launch)
 ##### 步骤4：增加屏幕分享的触发按钮（可选）
-截止到 [步骤3](#receive) ，我们的屏幕分享还必须要用户从控制中心中长按录屏按钮来手动启动。您可通过下述方法实现类似TRTC Demo Screen的单击按钮即可触发的效果：
+截止到 [步骤3](#receive) ，我们的屏幕分享还必须要用户从控制中心中长按录屏按钮来手动启动。您可通过下述方法实现类似 TRTC Demo Screen 的单击按钮即可触发的效果：
 ![](https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/trtcdemo/2.png)
 
 1. 将 `replay_kit_launcher` 插件加入到您的工程中。
