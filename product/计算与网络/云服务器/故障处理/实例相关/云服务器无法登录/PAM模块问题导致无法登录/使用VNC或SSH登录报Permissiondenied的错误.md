@@ -62,8 +62,8 @@ sysctl -a 2>/dev/null | grep -Ei "file-max|nr_open"
 >
  - `fs.file-max` = 2000000
  - `fs.nr_open` = 2000000
-5. 执行以下命令，使配置立即生效。
+5. 执行以下命令，使配置立即生效。配置完成后，即可恢复登录。
 ```
 sysctl -p
 ```
-6. 配置完成后，即可恢复登录。
+
