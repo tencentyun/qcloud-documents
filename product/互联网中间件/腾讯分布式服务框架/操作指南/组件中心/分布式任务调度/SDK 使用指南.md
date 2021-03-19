@@ -25,7 +25,8 @@ tct
 ```
 
 ## 编写任务
-#### 1. 编写简单任务
+
+### 1. 编写简单任务
 实现 `com.tencent.cloud.task.worker.spi.ExecutableTask` 接口，覆写 execute 方法，在方法中实现任务执行逻辑。
 SDK  内部通过反射机制，生成任务对象实例，并执行 execute 方法。任务示例如下：
 
@@ -77,7 +78,7 @@ public class SimpleLogExecutableTask implements ExecutableTask {
 }
 ```
 
-#### 2. 编写可停止的任务
+### 2. 编写可停止的任务
 
 分布式任务调度框架支持任务的停止操作，通过实现`com.tencent.cloud.task.worker.spi.TerminableTask`接口，覆写 cancel 方法，实现停止逻辑，并返回停止结果。任务示例如下：
 ```java
@@ -138,20 +139,14 @@ public class SimpleLogExecutableTask implements ExecutableTask,CancellableTask {
 通过 Future 的 cancel 方法，**不一定**能停止正在运行中的任务, 通常需要配合业务逻辑标识符的方式进行终止（参考 [任务停止原理及实践](https://cloud.tencent.com/document/product/649/41640)）。
 
 
-## 自定义任务生成器
+## 自定义任务工厂
 
-SDK 内部默认的任务生成器 `com.tencent.cloud.task.worker.DefaultTaskFactory` 是通过 Java 的反射机制来生成任务对象的实例。我们也支持用户自定义任务生成器。
+SDK 内部默认的任务生成工厂 `com.tencent.cloud.task.sdk.client.DefaultTaskFactory` 是通过 Java 的反射机制来生成任务对象的实例。我们也支持用户自定义任务生成器。
 
-#### 1. 编写任务生成器
+### 1. 编写任务工厂
 ```java
-import com.tencent.cloud.task.worker.DefaultTaskFactory;
-import com.tencent.cloud.task.worker.exception.InstancingException;
-import com.tencent.cloud.task.worker.model.ExecutableTaskData;
-import com.tencent.cloud.task.worker.spi.ExecutableTask;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
-import java.lang.invoke.MethodHandles;
+package com.tencent.cloud.task.factory
 
 public class SimpleExecuteTaskFactory extends DefaultTaskFactory {
     private static final Logger LOG = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
@@ -172,21 +167,84 @@ public class SimpleExecuteTaskFactory extends DefaultTaskFactory {
 }
 ```
 
-#### 2. 在 application.yml 中添加配置
+### 2. 在 application.yml 中添加配置
 ```xml
 tct:
   client:
     properties:
+	   # 配置自定义的任务工厂类名称
       "task.factory.name": "com.tencent.cloud.task.factory.SimpleExecuteTaskFactory"  
 ```
 
-#### 3. 补充说明
+
+## 结合Spring框架自定义任务工厂
+
+### 1.定义Bean类型的任务工厂
+```java
+
+package com.tencent.cloud.task.factory;
+// 将工厂类定义为Bean
+@Component
+public class SpringExecuteTaskFactory implements ExecutableTaskFactory, ApplicationContextAware {
+
+    private static final Logger LOG = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+
+    private ApplicationContext applicationContext;
+
+    private final ExecutableTaskFactory defaultFactory = new DefaultTaskFactory(Thread.currentThread().getContextClassLoader());
+
+    @Override
+    public ExecutableTask newExecutableTask(ExecutableTaskData executableTaskData) throws InstancingException {
+        try {
+            ExecutableTask executableTask = (ExecutableTask)applicationContext.getBean(Class.forName(executableTaskData.getTaskContent()));
+                    applicationContext.getBean(executableTaskData.getTaskContent(),ExecutableTask.class);
+            LOG.info("generate executableTask bean SpringExecutableTaskFactory. taskName: {}", executableTaskData.getTaskContent());
+            return executableTask;
+        } catch (Throwable t) {
+            return defaultFactory.newExecutableTask(executableTaskData);
+        }
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        this.applicationContext = applicationContext;
+    }
+}
+
+```
+### 2. 定义Bean类型的任务
+```java
+// 将任务定义为Bean
+@Component
+public class SimpleSpringBeanLogTask implements ExecutableTask {
+    @Override
+    public ProcessResult execute(ExecutableTaskData executableTaskData) {
+        LogReporter.log(executableTaskData,"spring bean task start to execute");
+        ThreadUtils.waitMs(5000);
+        LogReporter.log(executableTaskData,"spring bean task end to execute");
+        return ProcessResult.newSuccessResult();
+    }
+}
+```
+
+### 3. 在 application.yml 中添加配置
+```xml
+tct:
+  client:
+    properties:
+	   # 配置自定义的Bean类型的任务工厂类名称
+      "task.factory.name": "com.tencent.cloud.task.factory.SpringExecuteTaskFactory"  
+```
+
+## 更多
+
+### 说明
+
 为适配 Spring 容器的运行环境，自定义任务 Factory 实现逻辑中，有如下逻辑：
  - 优先尝试从 ApplicationContext 中，通过 Bean 加载的方式获取对应的 Factory 实例。
  - Spring 容器获取 Bean 实例失败后，通过反射方式创建自定义的 Factory 对象实例。 
 
-
-## 更多配置
+### 配置
 SDK 中存在一些参数可以允许通过配置方式进行调配，如下所示：
 ```xml
 tct:
@@ -201,8 +259,3 @@ tct:
       // 线程类型: FIXED，CACHED,LIMITED, EAGER
       thread.pool.type: FIXED
 ```
-
-
-
-
-
