@@ -58,7 +58,7 @@ HDFS 路径的形式为 hdfs://${dfs.nameserivces}/${path}，${dfs.nameserivces}
 
 若目标 Hadoop 集群只有单个 Master，仅需要为 path 参数传入 HDFS 路径即可，无需使用高级参数。
 
-若目标 Hadoop 集群为高可用的双 Master 集群，为 path 参数传入 HDFS 路径后，还需要在作业参数的 [高级参数](https://cloud.tencent.com/document/product/849/53853) 中对两个 Master 的地址和端口进行配置。以下是一个配置示例，相应的参数值都可在 hdfs-site.xml 中查找并替换：
+若目标 Hadoop 集群为高可用的双 Master 集群，为 path 参数传入 HDFS 路径后，还需要在作业参数的 [高级参数](https://cloud.tencent.com/document/product/849/53391) 中对两个 Master 的地址和端口进行配置。以下是一个配置示例，相应的参数值都可在 hdfs-site.xml 中查找并替换：
 
 ```yml
 fs.hdfs.dfs.nameservices: HDFS12345
