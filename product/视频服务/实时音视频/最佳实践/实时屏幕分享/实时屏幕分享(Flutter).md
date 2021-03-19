@@ -62,7 +62,7 @@
 >! 需要注意的一点是，TRTC SDK 的移动端版本并不像桌面端版本一样支持“辅路分享”，因为 iOS 和 Android 系统都对运行于后台的 App 限制了摄像头使用权，因此支持辅路分享的意义并不大。
 
 
-### 方案一：iOS 平台应用内分享[](id:Internal)
+### 方案1：iOS 平台应用内分享[](id:Internal)
 
 应用内分享的方案非常简单，只需要调用 TRTC SDK 提供的接口 [startScreenCapture](https://pub.flutter-io.cn/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud/startScreenCapture.html) 并传入编码参数`TRTCVideoEncParam`和 参数`appGroup`设置为`''`。`TRTCVideoEncParam` 参数可以设置为 null，此时 SDK 会沿用开始屏幕分享之前的编码参数。
 
@@ -81,7 +81,7 @@
 - 最高码率（videoBitrate）是指画面在剧烈变化时的最高输出码率，如果屏幕内容变化较少，实际编码码率会比较低。
 
 
-### 方案二：iOS 平台跨应用分享[](id:Cross)
+### 方案2：iOS 平台跨应用分享[](id:Cross)
 
 #### 示例代码
 我们在 [Github](https://github.com/c1avie/trtc_demo) 中的 ** trtc_demo/ios ** 目录下放置了一份跨应用分享的示例代码，其包含如下一些文件：
