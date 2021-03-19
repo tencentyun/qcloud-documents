@@ -102,7 +102,7 @@
 | 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档                                                     |
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
 | [消息队列 CMQ](https://cloud.tencent.com/document/product/406) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/406/8618) |
-| [消息队列 CKafka](https://cloud.tencent.com/document/product/597) | 资源级   | &#10003; | -                | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/597/31528) |
+| [消息队列 CKafka](https://cloud.tencent.com/document/product/597) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/597/31528) |
 | [API 网关](https://cloud.tencent.com/document/product/628)   | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/628/34267) |
 | [腾讯微服务平台](https://cloud.tencent.com/document/product/649) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/649/38327) |
 | [消息队列 TDMQ](https://cloud.tencent.com/document/product/1179) | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/1179/45125) |
@@ -191,6 +191,7 @@
 | [漏洞扫描服务](https://cloud.tencent.com/document/product/692) | 操作级   | &#10003; | -                | &#10003; | -        |
 | [网络资产风险监测系统](https://cloud.tencent.com/document/product/1088) | 服务级   | &#10003; | -                | &#10003; | -        |
 | [小程序应用安全](https://cloud.tencent.com/document/product/1223) | 操作级   | &#10003; | -                | -        | -        |
+| [软件定义边界](https://cloud.tencent.com/document/product/1309) | 操作级   | &#10003; | -                | -        | -        |
 
 ## 视频服务
 
@@ -368,8 +369,9 @@
 | [物联网设备身份认证](https://cloud.tencent.com/document/product/1086) | 服务级   | &#10003; | -                | -        | -                                                            |
 | [ LPWA 物联网络](https://cloud.tencent.com/document/product/1023) | 服务级   | &#10003; | -                | -        | -                                                            |
 | [物联网开发平台](https://cloud.tencent.com/document/product/1081) | 服务级   | &#10003; | -                | -        | -                                                            |
-| [ 物联网智能视频服务](https://cloud.tencent.com/document/product/1131) | 服务级   | &#10003; | -                | &#10003; | -                                                            |
+| [ 物联网智能视频服务（消费版）](https://cloud.tencent.com/document/product/1131) | 服务级   | &#10003; | -                | &#10003; | -                                                            |
 | [ 物联网市场](https://iot.cloud.tencent.com/market/index)    | 服务级   | &#10003; | -                | -        | -                                                            |
+| [ 物联网智能视频服务（行业版）](https://cloud.tencent.com/document/product/1161) | 服务级   | &#10003; | -                | -        | -                                                            |
 
 ## 区块链  
 
