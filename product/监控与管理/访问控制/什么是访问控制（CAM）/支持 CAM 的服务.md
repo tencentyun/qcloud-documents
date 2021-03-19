@@ -371,7 +371,7 @@
 | [物联网开发平台](https://cloud.tencent.com/document/product/1081) | 服务级   | &#10003; | -                | -        | -                                                            |
 | [ 物联网智能视频服务（消费版）](https://cloud.tencent.com/document/product/1131) | 服务级   | &#10003; | -                | &#10003; | -                                                            |
 | [ 物联网市场](https://iot.cloud.tencent.com/market/index)    | 服务级   | &#10003; | -                | -        | -                                                            |
-| [ 物联网智能视频服务（行业版）](https://cloud.tencent.com/document/product/1161) | 服务级   | &#10003; | -                | -        | -                                                            |
+| [ 物联网智能视频服务（行业版）](https://cloud.tencent.com/document/product/1361) | 服务级   | &#10003; | -                | -        | -                                                            |
 
 ## 区块链  
 
