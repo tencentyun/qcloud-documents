@@ -89,16 +89,11 @@
 ```
 ├── Broadcast.Upload        //录屏进程 Broadcast Upload Extension 代码详见步骤2
 │   ├── Broadcast.Upload.entitlements       //用于设置进程间通信的 AppGroup 信息
-│   ├── Broadcast.UploadDebug.entitlements
+│   ├── Broadcast.UploadDebug.entitlements  //用于设置进程间通信的 AppGroup 信息（debug环境）
 │   ├── Info.plist
 │   └── SampleHandler.swift     // 用于接收来自系统的录屏数据
-├── Flutter
-├── Podfile
-├── Pods
 ├── Resource                    // 资源文件
 ├── Runner                      // TRTC 精简化 Demo
-├── Runner.xcodeproj
-├── Runner.xcworkspace
 ├── TXLiteAVSDK_ReplayKitExt.framework      //TXLiteAVSDK_ReplayKitExt SDK
 ```
 
@@ -240,7 +235,8 @@ trtcCloud.startScreenCapture(
 );
 
 // 停止屏幕分享
-await trtcCloud.stopLocalPreview();
+await trtcCloud.stopScreenCapture();
+
 
 // 屏幕分享的启动事件通知，可以通过 TRTCCloudListener 进行接收
 onRtcListener(type, param){
