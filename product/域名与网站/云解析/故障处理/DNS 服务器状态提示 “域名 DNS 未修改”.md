@@ -1,5 +1,5 @@
 ## 现象描述
-登录腾讯云 [DNS 解析 DNSPod 控制台](https://console.cloud.tencent.com/cns) ，进入域名解析列表， 即可查看解析状态，分别包含以下5种状态：
+登录腾讯云 [DNS 解析 DNSPod 控制台](https://console.cloud.tencent.com/cns) ，进入域名解析列表， 即可查看解析状态，包含以下5种常见状态：
 
 ![](https://main.qcloudimg.com/raw/6ccb73d1f176256ddad924518ab0c370.png)
 <table>
