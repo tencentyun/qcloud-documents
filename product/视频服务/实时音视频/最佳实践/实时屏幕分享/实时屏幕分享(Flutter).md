@@ -146,7 +146,6 @@ dependencies:
  ![AddGroup](https://main.qcloudimg.com/raw/b4904a8b425cf55e58497b35c0700966.png)
 5. 选中主 App 的 Target ，**并按照上述步骤对主 App 的 Target 做同样的处理。**
 6. 在新创建的 Target 中，Xcode 会自动创建一个名为 "SampleHandler.swift" 的文件，用如下代码进行替换。**需将代码中的 APPGROUP 改为上文中的创建的 App Group Identifier**。
-
 <dx-codeblock>
 ::: iOS swift
 
