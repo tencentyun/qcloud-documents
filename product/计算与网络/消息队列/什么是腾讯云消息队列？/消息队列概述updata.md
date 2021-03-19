@@ -1,5 +1,5 @@
 ## CMQ 消息队列介绍
-CMQ（Cloud Message Queue）是基于腾讯自研消息引擎的分布式消息队列系统，CMQ 通过腾讯自研分布式 Raft 算法保证消息强一致，消息同步3副本落盘保障消息高可靠，提供消息队列、发布订阅、消息回溯、延时消息、顺序消息、消息轨迹等服务。具有高可靠、高可用、高性能、动态伸缩等优势。 CMQ 的开发迭代历程超过7年，为腾讯内部包括微信、webank、QQ 秀、手机 QQ 等大型业务提供异步的消息服务支持。
+消息队列 CMQ（Cloud Message Queue，以下简称 CMQ）是基于腾讯自研消息引擎的分布式消息队列系统，CMQ 通过腾讯自研分布式 Raft 算法保证消息强一致，消息同步3副本落盘保障消息高可靠，提供消息队列、发布订阅、消息回溯、延时消息、顺序消息、消息轨迹等服务。具有高可靠、高可用、高性能、动态伸缩等优势。 CMQ 的开发迭代历程超过7年，为腾讯内部包括微信、webank、QQ 秀、手机 QQ 等大型业务提供异步的消息服务支持。
 
 CMQ 已经正式商用，目前在腾讯云全球多个地域提供了高可用消息云服务，机房硬件设施按照腾讯自建 IDC 的高标准来实施。单个地域内采用多机房部署，即使整个机房都不可用，仍然可以为应用提供消息发布服务。同时在深圳金融专区、上海金融专区均有部署，提供金融级数据高可靠消息队列服务。
  
@@ -11,9 +11,8 @@ CMQ 目前提供 HTTP(S)、TCP 协议的接入。提供 PHP、Java、Python 等�
 | **面向场景**    |  提供基于 HTTP(S) 协议的同步接入方式，支持 Restful API 和多语言的 SDK 简单方便接入。|  提供 TCP 同步/异步接入方式，支持多语言 SDK，提高生产端和消费端的效率，提供更高性能的消息队列服务。| 
 | **亮点能力**    |  消息无限堆积、水平扩展金融级消息高可靠，消息实时落盘。 |  TCP 异步非阻塞方式收发消息，提升效率。消息无限堆积、水平扩展金融级消息高可靠，消息实时落盘。| 
 
->?
->- CMQ TCP 接入方式正在内测中，欢迎 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=876&level2_id=947&source=0&data_title=%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%20CMQ&step=1) 联系售后工程师，将有专人为您开通内测服务。
->- CMQ 支持私有化部署，欢迎 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=876&level2_id=947&source=0&data_title=%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%20CMQ&step=1) 联系售后工程师，将有专人为您开通内测服务。
+>?CMQ TCP 接入方式正在内测中，欢迎 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=876&level2_id=947&source=0&data_title=%E6%B6%88%E6%81%AF%E9%98%9F%E5%88%97%20CMQ&step=1) 联系售后工程师，将有专人为您开通内测服务。
+
 
 以下视频将为您介绍 CMQ 消息异步通信和安全可靠的特点：
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/1628-11588?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>

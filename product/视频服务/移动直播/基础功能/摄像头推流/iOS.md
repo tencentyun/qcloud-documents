@@ -13,8 +13,8 @@
 
 | 所属平台 | GitHub 地址 | 关键类 |
 |:---------:|:--------:|:---------:|
-| iOS | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LVB/CameraPush) | CameraPushViewController.m |
-| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/app/src/main/java/com/tencent/liteav/demo/lvb/camerapush) | CameraPusherActivity.java |
+| iOS | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo/TXLiteAVDemo/LivePusherDemo/CameraPushDemo) | CameraPushViewController.m |
+| Android | [Github](https://github.com/tencentyun/MLVBSDK/tree/master/Android/Demo/livepusherdemo/src/main/java/com/tencent/liteav/demo/livepusher/camerapush) | CameraPushImpl.java |
 
 
 ## 功能对接
@@ -22,7 +22,7 @@
 ### 1. 下载 SDK 开发包
 [下载](https://cloud.tencent.com/document/product/454/7873) SDK 开发包，并按照 [SDK 集成指引](https://cloud.tencent.com/document/product/454/7876) 将 SDK 嵌入您的 App 工程中。
 
-<span id="step2"></span>
+[](id:step2)
 ### 2. 给 SDK 配置 License 授权
 单击 [License 申请](https://console.cloud.tencent.com/live/license) 获取测试用的 License，您会获得两个字符串：一个字符串是 licenseURL，另一个字符串是解密 key。
 
@@ -34,7 +34,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSString * const licenceURL = @"<获取到的licenseUrl>";
     NSString * const licenceKey = @"<获取到的key>";
-		
+        
     //TXLiveBase 位于 "TXLiveBase.h" 头文件中
     [TXLiveBase setLicenceURL:licenceURL key:licenceKey]; 
     NSLog(@"SDK Version = %@", [TXLiveBase getSDKVersionStr]);
@@ -51,7 +51,7 @@
  TXLivePush *_pusher = [[TXLivePush alloc] initWithConfig: _config]; // config 参数不能为空
 ```
 
-<span id="step4"></span>
+[](id:step4)
 ### 4. 开启摄像头预览
 调用 [TXLivePush](https://cloud.tencent.com/document/product/454/34755) 中的`startPreview`接口可以开启当前手机的摄像头预览。您需要为`startPreview` 接口提供一个用于显示视频画面的 view 对象。
 
@@ -89,10 +89,10 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    //此处填写您的 rtmp
 ```
 
 -  **如何获取可用的推流 URL？**
->开通直播服务后，可以使用 [直播控制台 > 辅助工具 > 地址生成器](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
->![](https://main.qcloudimg.com/raw/0ec9d83f340454c287d96f83eec3a3e4.png)
+开通直播服务后，可以使用【直播控制台】>【辅助工具】> [【地址生成器】](https://console.cloud.tencent.com/live/addrgenerator/addrgenerator) 生成推流地址，详细信息请参见 [推拉流 URL](https://cloud.tencent.com/document/product/454/7915)。
+![](https://main.qcloudimg.com/raw/0ec9d83f340454c287d96f83eec3a3e4.png)
 - **返回 -5 的原因？**
->如果 `startPush` 接口返回 -5，则代表您的 License 校验失败了，请检查 [第2步“给 SDK 配置   License 授权”](#step2) 中的工作是否有问题。
+如果 `startPush` 接口返回 -5，则代表您的 License 校验失败了，请检查 [第2步“给 SDK 配置   License 授权”](#step2) 中的工作是否有问题。
 
 
 ### 6. 纯音频推流
@@ -107,10 +107,10 @@ TXLivePush *_pusher = [[TXLivePush alloc] initWithConfig: _config];
 NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";    
 [_pusher startPush:rtmpUrl];
 ```
-如果您启动纯音频推流，但是 rtmp、flv 、hls 格式的播放地址拉不到流，那是因为线路配置问题，请提工单联系我们帮忙修改配置。
+如果您启动纯音频推流，但是 rtmp、flv 、hls 格式的播放地址拉不到流，那是因为线路配置问题，请 [提工单](https://console.cloud.tencent.com/workorder/category) 联系我们帮忙修改配置。
 
 ### 7. 设定画面清晰度
-调用 TXLivePush 中的`setVideoQuality`接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而`setVideoQuality`设定的视频编码器的编码质量，观众端可以感受到画质的差异。详情请参考 [设定画面质量](https://cloud.tencent.com/document/product/454/9868#.E8.AE.BE.E5.AE.9A.E5.BB.BA.E8.AE.AE)。
+调用 TXLivePush 中的`setVideoQuality`接口，可以设定观众端的画面清晰度。之所以说是观众端的画面清晰度，是因为主播看到的视频画面是未经编码压缩过的高清原画，不受设置的影响。而`setVideoQuality`通过设定视频编码器的编码质量，使观众端感受到画质的差异。详情请参考 [设定画面质量](https://cloud.tencent.com/document/product/454/9868#.E8.AE.BE.E5.AE.9A.E5.BB.BA.E8.AE.AE)。
 ![](https://main.qcloudimg.com/raw/8fc91a05e4e96c39a9fdcf45247fb988.png)
 
 ### 8. 美颜美白和红润特效
@@ -121,7 +121,8 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";
 | BEAUTY_STYLE_SMOOTH | 光滑风格，算法更加注重皮肤的光滑程度，适合秀场直播类场景下使用。 |
 | BEAUTY_STYLE_NATURE| 自然风格，算法更加注重保留皮肤细节，适合对真实性要求更高的主播。|
 
-![](https://main.qcloudimg.com/raw/61ef817e3c12944665f1b7098c584ee3.jpg)
+![](https://main.qcloudimg.com/raw/65a8ca85f71b41fa0cb3fa3f46eb8782.png)
+
 
 ```objectivec
 //     beautyStyle     : 美颜算法，目前支持 自然 和 光滑 两种。
@@ -138,16 +139,18 @@ NSString* rtmpUrl = @"rtmp://test.com/live/xxxxxx";
 调用 TXLivePush 中的`setSpecialRatio`接口可以设定滤镜的浓度，设置的浓度越高，滤镜效果也就越明显。
 
 从手机 QQ 和 Now 直播的经验来看，单纯通过`setBeautyStyle`调整磨皮效果是不够的，只有将美颜效果和`setFilter`配合使用才能达到更加多变的美颜效果。所以，我们的设计师团队提供了17种默认的色彩滤镜，并将其默认打包在 [Demo](https://github.com/tencentyun/MLVBSDK/tree/master/iOS/Demo) 中供您使用。
-![](https://main.qcloudimg.com/raw/51623e68291ef31a462318414e0a50e6.jpg)
+![](https://main.qcloudimg.com/raw/ef097190798fc104d8fec9cc40a13bf8.png)
 
-```objectivec
+<dx-codeblock>
+::: objectivec objectivec
 NSString * path = [[NSBundle mainBundle] pathForResource:@"FilterResource" ofType:@"bundle"];
 path = [path stringByAppendingPathComponent:lookupFileName];
 
 UIImage *image = [UIImage imageWithContentsOfFile:path];
 [_pusher setFilter:image];
 [_pusher setSpecialRatio:0.5f];
-```
+:::
+</dx-codeblock>
 
 ### 10. 控制摄像头
 TXLivePush 提供了一组 API 用户控制摄像头的行为：
@@ -168,10 +171,11 @@ TXLivePush 提供了一组 API 用户控制摄像头的行为：
 ![](https://main.qcloudimg.com/raw/d42f32ad9deef5b3eba3ccb271fe05e8.png)
 
 TXLivePush 默认推出的是竖屏分辨率的视频画面，如果希望推出横屏分辨率的画面，需要：
-1. 设置 TXLivePushConfig 中的`homeOrientation`可以改变观众端看到的视频画面宽高比方向。
-2. 调用 TXLivePush 中的`setRenderRotation`可以接口改变主播端的视频画面的渲染方向。
+1. 设置 TXLivePushConfig 中的`homeOrientation`接口可以改变观众端看到的视频画面宽高比方向。
+2. 调用 TXLivePush 中的`setRenderRotation`接口可以改变主播端的视频画面的渲染方向。
 
-```objectivec
+<dx-codeblock>
+::: objectivec objectivec
 // 如果希望竖屏推流（HOME 键在下），这是 SDK 的默认行为
 _config.homeOrientation = HOME_ORIENTATION_DOWN;
 [_pusher setConfig:_config];
@@ -181,7 +185,8 @@ _config.homeOrientation = HOME_ORIENTATION_DOWN;
 _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 [_pusher setConfig:_config];
 [_pusher setRenderRotation:90];
-```
+:::
+</dx-codeblock>
 
 ### 13. 隐私模式（垫片推流）
 
@@ -189,13 +194,12 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 
 该功能也常用于 App 被切到后台时：在 iOS 系统中，当 App 切到后台以后，操作系统不再允许该 App 继续采集摄像头画面。 此时就可以通过调用`pausePush`进入垫片状态。因为对于大多数直播 CDN 而言，如果超过一定时间（腾讯云目前为70s）不推视频数据，服务器就会断开当前的推流链接，所以在 App 切到后台后进入垫片模式是很有必要的。
 ![](https://main.qcloudimg.com/raw/bdc0e50690ff8d721d924d9570fc682f.jpg)
-
 - **step1: 开启 XCode 中的 Background 模式**
 ![](https://main.qcloudimg.com/raw/8aeeee0ec6b5294cecf5dadd3e32f075.jpg)
-
 - **step2: 设置 TXLivePushConfig 中的相关参数**
 在开始推流前，使用 LivePushConfig 的`pauseImg`、`pauseFps`和`pauseTime`接口可以设置垫片推流的详细参数：
-```objectivec
+<dx-codeblock>
+::: objectivec objectivec
     TXLivePushConfig *_config = [[TXLivePushConfig alloc] init];
     // 设置后台推流持续时长，单位秒，默认300秒。
     _config.pauseTime = 300;
@@ -203,38 +207,40 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
     _config.pauseFps = 10;
     // 设置后台推流的默认图片，默认为黑色背景, 图片最大尺寸不能超过1920*1920。
     _config.pauseImg = [UIImage imageNamed:@"pause_publish.jpg"];
-		
+        
     TXLivePush *_pusher = [[TXLivePush alloc] initWithConfig: _config]; 
-```
-
+:::
+</dx-codeblock>
 - **step3: 监听 App 的前后台切换事件**
 如果 App 在切到后台后就被 iOS 系统彻底休眠掉，SDK 将无法继续推流，观众端就会看到主播画面进入黑屏或者冻屏状态。您可以使用下面的代码让 App 在切到后台后还可再跑几分钟。
-```objectivec
-    // 注册 App 被切到后台的处理函数
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppDidEnterBackground:)
-		                                         name:UIApplicationDidEnterBackgroundNotification object:nil];
-    // 注册 App 被切回前台的处理函数 
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onAppWillEnterForeground:) 
-		                                         name:UIApplicationWillEnterForegroundNotification object:nil];
-    // App 被切到后台的处理函数																				 
-    -(void)onAppDidEnterBackground:(NSNotification *)notification {
-        [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{}];
-        _appIsBackground = YES;
-        [_pusher pausePush];
-    }
-    // App 被切回前台的处理函数																			 
-    -(void)onAppWillEnterForeground:(NSNotification *)notification {
-        if (_appIsBackground ){
-            [_pusher resumePush];
-        }
-    }		
-```
+<dx-codeblock>
+::: objectivec objectivec
+// 注册应用监听事件
+ NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+[center addObserver:self selector:@selector(willResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
+[center addObserver:self selector:@selector(didBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+
+
+// 具体实现. _livePuser 为当前TXLivePush实例对象
+#pragma mark - 前后台切换
+- (void)willResignActive:(NSNotification *)notification {
+    [_livePusher pausePush];
+    _inBackground = YES;
+}
+
+- (void)didBecomeActive:(NSNotification *)notification {
+    [_livePusher resumePush];
+    _inBackground = NO;
+    // 其他唤醒业务逻辑
+}
+:::
+</dx-codeblock>
 
 >! 请注意调用顺序：startPush => ( pausePush => resumePush ) => stopPush，错误的调用顺序会导致 SDK 表现异常，因此使用成员变量对执行顺序进行保护是很有必要的。
 
 ### 14. 背景混音
 调用 TXLivePush 中的 BGM 相关接口可以实现背景混音功能。背景混音是指主播在直播时可以选取一首歌曲伴唱，歌曲会在主播的手机端播放出来，同时也会被混合到音视频流中被观众端听到，所以被称为“混音”。
-![](https://main.qcloudimg.com/raw/dea3d833cd284f79a1cc0818fa97d566.jpg)
+![](https://main.qcloudimg.com/raw/0bbeb0cc7e6001a7c2fe68723b943540.png)
 
 | 接口 | 说明 |
 |-------|---------|
@@ -253,7 +259,7 @@ _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 ![](https://main.qcloudimg.com/raw/a90a110e2950568b9d7cd6bef8e0893b.png)
 
 ### 16. 设置 Logo 水印
-设置 TXLivePushConfig 中的`watermark`可以让 SDK 在推出的视频流中增加一个水印，水印的位置位由`watermarkNormalization`选项决定。
+设置 TXLivePushConfig 中的`watermark`可以让 SDK 在推出的视频流中增加一个水印，水印位置位是由`watermarkNormalization`选项决定。
 
 - SDK 所要求的水印图片格式为 png 而不是 jpg，因为 png 这种图片格式有透明度信息，因而能够更好地处理锯齿等问题（将 jpg 图片在 Windows 下修改后缀名是不起作用的）。
 - `watermarkNormalization`设置的是水印图片相对于推流分辨率的归一化坐标。假设推流分辨率为：540 × 960，该字段设置为：（0.1，0.1，0.1，0.0），那么水印的实际像素坐标为：（540 × 0.1，960 × 0.1，水印宽度 × 0.1，水印高度会被自动计算）。
@@ -274,10 +280,10 @@ _config.watermarkNormalization = CGRectMake(0.1f，0.1f，0.1f，0.0f);
 ```
 
 >! 
->1. 只有启动推流后才能开始录制，非推流状态下启动录制无效。
->2. 出于安装包体积的考虑，仅专业版和企业版两个版本的 LiteAVSDK 支持该功能，直播精简版仅定义了接口但并未实现。
->3. 录制过程中请勿动态切换分辨率和软硬编，会有很大概率导致生成的视频异常。
->4. 使用 TXLivePusher 录制视频会一定程度地降低推流性能，云直播服务也提供了云端录制功能，具体使用方法请参考 [直播录制](https://cloud.tencent.com/document/product/267/32739)。
+>- 只有启动推流后才能开始录制，非推流状态下启动录制无效。
+>- 出于安装包体积的考虑，仅专业版和企业版两个版本的 LiteAVSDK 支持该功能，直播精简版仅定义了接口但并未实现。
+>- 录制过程中请勿动态切换分辨率和软硬编，会有很大概率导致生成的视频异常。
+>- 使用 TXLivePusher 录制视频会一定程度地降低推流性能，云直播服务也提供了云端录制功能，具体使用方法请参考 [直播录制](https://cloud.tencent.com/document/product/267/32739)。
 
 ### 18. 主播端弱网提醒
 
@@ -290,12 +296,12 @@ _config.watermarkNormalization = CGRectMake(0.1f，0.1f，0.1f，0.0f);
 - (void)onPushEvent:(int)evtID withParam:(NSDictionary *)param {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (evtID == PUSH_ERR_NET_DISCONNECT || evtID == PUSH_ERR_INVALID_ADDRESS) {
-		    //...
+            //...
         } else if (evtID == PUSH_WARNING_NET_BUSY) {
             [_notification displayNotificationWithMessage:
                 @"您当前的网络环境不佳，请尽快更换网络保证正常直播" forDuration:5];
         }
-		//...
+        //...
     });
 }
 ```

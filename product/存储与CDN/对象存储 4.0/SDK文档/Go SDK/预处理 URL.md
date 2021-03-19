@@ -88,3 +88,4 @@ if bytes.Compare(bs2, bs) != 0 {
     panic(errors.New("content is not consistent"))
 }
 ```
+

@@ -121,14 +121,14 @@ BACKEND = 2 // 后台
 ```
 void Awake ()
 {
-Tp2Sdk.Tp2SdkInitEx(8888, "d5ab8dc7ef67ca92e41d730982c5c602");
+Tp2Sdk.Tp2SdkInitEx(8888, "d5ab8dc7ef67ca92e41d730982******");
 }
 // 用户登录后调用
 void Start ()
 {
 int accountType = (int)Tp2Entry.ENTRY_ID_QZONE ; /* 帐号类型 */
 int worldId = 100; /* 大区 ID*/
-string openId = "B73B36366565F9E02C752"; /* 用户 id*/
+string openId = "B73B36366565F9E******"; /* 用户 id*/
 string roleId = "paladin"; /* 角色 ID*/
 Tp2Sdk.Tp2UerLogin(accountType， worldId， openId， roleId);
 }

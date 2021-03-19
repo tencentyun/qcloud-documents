@@ -38,6 +38,7 @@ def main_handler(event, context):
 
 ```python
 # -*- coding: utf8 -*-
+from tencentserverless import scf 
 from tencentserverless.scf import Client
 from tencentserverless.exception import TencentServerlessSDKException
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
@@ -64,6 +65,7 @@ def main_handler(event, context):
 
 ```python
 # -*- coding: utf8 -*-
+from tencentserverless import scf 
 from tencentserverless.scf import Client
 from tencentserverless.exception import TencentServerlessSDKException
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
@@ -138,6 +140,7 @@ def main_handler(event, context):
 
 ```python
 # -*- coding: utf8 -*-
+from tencentserverless import scf 
 from tencentserverless.scf import Client
 from tencentserverless.exception import TencentServerlessSDKException
 from tencentcloud.common.exception.tencent_cloud_sdk_exception import TencentCloudSDKException
@@ -250,7 +253,7 @@ prepare to invoke a function!
 | data          |    否    | `String` | 函数运行入参，必须可以被 json.dumps 的对象。 |
 | namespace     |    否    | `String` | 命名空间，默认为 default。 |
 
-<span id="TencentserverlessSDKException"></span>
+[](id:TencentserverlessSDKException)
 #### TencentserverlessSDKException
 **属性：**
 - [**code**]

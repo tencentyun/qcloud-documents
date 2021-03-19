@@ -3,7 +3,7 @@
 ## 访问 Kibana 页面
 ### 入口
 Kibana 页面有两个入口，分别位于集群列表页和集群详情页，详情如下图。单击对应的入口，会跳转到 Kibana 登录页面。
-> ?默认情况下，Kibana 通过公网地址访问， 如果您担心通过公网访问 Kibana 会造成安全问题，我们也支持在集群详情页关闭 Kibana 公网地址，开启 Kibana 内网地址来进行访问（**所有节点均为1核2G的集群暂不支持，冷热模式下节点不全是1核2G的集群支持此功能**）。
+> ?默认情况下，Kibana 通过公网地址访问， 如果您担心通过公网访问 Kibana 会造成安全问题，我们也支持在集群详情页关闭 Kibana 公网地址，开启 Kibana 内网地址来进行访问。
 > 
 ![](https://main.qcloudimg.com/raw/a286bf6ca026fe0d903c21aee017425a.png)
 ![](https://main.qcloudimg.com/raw/c488592500ebdb99e892ffc1f35f5501.png)
@@ -20,7 +20,7 @@ Kibana 页面访问需要登录，帐号为 elastic，密码为用户创建集�
 登录 Kibana 页面后，如果用户是第一次使用，集群尚未存入用户自定义的索引数据，页面会提示用户配置索引，具体参考 [索引添加及访问](#jump)。
 ![](https://main.qcloudimg.com/raw/f3fe032cbea6e431856fa3c16dbf9342.png)
 
-## <span id="jump">索引添加及访问（存储数据）</span>
+## 索引添加及访问（存储数据）[](id:jump)
 
 在 Kibana 页面左侧菜单，单击【Dev Tools】进入开发工具页面，用户可以通过控制台，向集群发送各种操作请求。下面将通过城市信息的数据存储操作的示例，演示如何通过控制台操作集群和存储数据。
 
@@ -28,7 +28,7 @@ Kibana 页面访问需要登录，帐号为 elastic，密码为用户创建集�
 
 #### 定义索引的 mapping
 
-索引名称为 china，类型名称为 city，以及详细的字段及类型信息。其中字段 loacation 的类型是 geo_point，可以表示地理位置信息；level 是对象类型，包含二级字段信息。关于字段类型说明，可查看官方文档 [Field Datatypes](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/mapping-types.html)。
+索引名称为 china，类型名称为 city，以及详细的字段及类型信息。其中字段 location 的类型是 geo_point，可以表示地理位置信息；level 是对象类型，包含二级字段信息。关于字段类型说明，可查看官方文档 [Field Datatypes](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/mapping-types.html)。
 ![](https://main.qcloudimg.com/raw/4ccd6c4f2c5eef0cdc9d25a0819ffcfc.png)
 ```
 PUT china

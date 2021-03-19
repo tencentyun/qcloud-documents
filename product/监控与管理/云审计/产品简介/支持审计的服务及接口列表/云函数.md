@@ -1,0 +1,47 @@
+腾讯云云函数（Serverless Cloud Function，SCF）是腾讯云为企业和开发者们提供的无服务器执行环境，帮助您在无需购买和管理服务器的情况下运行代码， 是实时文件处理和数据处理等场景下理想的计算平台。 您只需使用 SCF 平台支持的语言编写核心代码并设置代码运行的条件，即可在腾讯云基础设施上弹性、安全地运行代码。
+
+下表为云审计支持的云函数操作列表：
+
+| 操作名称                                               | 资源类型 | 事件名称                          |
+|----------------------------------------------------|------|-------------------------------|
+| 复制函数                                               | scf  | CopyFunction                  |
+| 创建函数版本别名                                           | scf  | CreateAlias                   |
+| 创建函数                                               | scf  | CreateFunction                |
+| 创建函数测试模板                                           | scf  | CreateFunctionTestModel       |
+| 创建命名空间                                             | scf  | CreateNamespace               |
+| 设置函数触发方式                                           | scf  | CreateTrigger                 |
+| 删除别名                                               | scf  | DeleteAlias                   |
+| 删除函数                                               | scf  | DeleteFunction                |
+| 删除函数测试模板                                           | scf  | DeleteFunctionTestModel       |
+| 删除指定层的指定版本，被删除的版本无法再关联到函数上，但不会影响正在引用这个层的函数         | scf  | DeleteLayerVersion            |
+| 删除命名空间                                             | scf  | DeleteNamespace               |
+| 删除函数触发器                                            | scf  | DeleteTrigger                 |
+| 查询账户配额                                             | scf  | GetAccount                    |
+| 查询账户配额                                             | scf  | GetAccountSettings            |
+| 获取别名详细信息                                           | scf  | GetAlias                      |
+| 获取函数详情                                             | scf  | GetFunction                   |
+| 获取函数代码下载地址                                        | scf  | GetFunctionAddress            |
+| 获取函数日志                                             | scf  | GetFunctionLogs               |
+| 获取函数对应的无服务器应用程序模型                                  | scf  | GetFunctionSAM                |
+| 获取函数测试模板                                           | scf  | GetFunctionTestModel          |
+| 获取函数总量                                             | scf  | GetFunctionTotalNum           |
+| 获取函数触发数量                                           | scf  | GetFunctionUsageTriggerCount  |
+| 获取层版本详细信息，包括用于下载层中文件的链接                            | scf  | GetLayerVersion               |
+| 获取用户月使用量                                           | scf  | GetUserMonthUsage             |
+| 获取用户昨日的数据                                          | scf  | GetUserYesterdayUsage         |
+| 获取别名列表                                             | scf  | ListAliases                   |
+| 获取函数列表                                             | scf  | ListFunctions                 |
+| 获得函数测试模板列表                                         | scf  | ListFunctionTestModels        |
+| 返回全部层的列表，其中包含了每个层最新版本的信息，可以通过适配运行时进行过滤             | scf  | ListLayers                    |
+| 返回指定层的全部版本的信息                                      | scf  | ListLayerVersions             |
+| 列出命名空间列表                                           | scf  | ListNamespaces                |
+| 查询函数版本                                             | scf  | ListVersionByFunction         |
+| 使用给定的 zip 文件或 cos 对象创建一个层的新版本，每次使用相同的层的名称调用本接口，都会生成一个新版本 | scf  | PublishLayerVersion           |
+| scfPublishVersion                                  | scf  | PublishVersion                |
+| 更新别名的配置                                            | scf  | UpdateAlias                   |
+| 更新函数代码                                             | scf  | UpdateFunctionCode            |
+| 更新函数配置                                             | scf  | UpdateFunctionConfiguration   |
+| 增量更新函数代码                                           | scf  | UpdateFunctionIncrementalCode |
+| 更新函数测试模板                                           | scf  | UpdateFunctionTestModel       |
+| 更新命名空间                                             | scf  | UpdateNamespace               |
+| 更新触发器状态                                            | scf  | UpdateTriggerStatus           |

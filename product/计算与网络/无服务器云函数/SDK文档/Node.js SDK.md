@@ -21,7 +21,7 @@ npm install tencentcloud-sdk-nodejs --save
 | 接口名称 | 接口功能                            |
 | :--- | :------------------------------------ |
 | [CreateFunction](https://cloud.tencent.com/document/api/583/18586)   | 创建函数          |
-| [DeleteFunction](https://cloud.tencent.com/document/api/583/18585)   | 删除函数范        |
+| [DeleteFunction](https://cloud.tencent.com/document/api/583/18585)   | 删除函数          |
 | [GetFunction](https://cloud.tencent.com/document/api/583/18584)      | 获取函数详细信息   |
 | [GetFunctionLogs](https://cloud.tencent.com/document/api/583/18583)  | 获取函数运行日志   |
 | [Invoke](https://cloud.tencent.com/document/api/583/17243)           | 运行函数          |
@@ -47,7 +47,7 @@ exports.main_handler = (event, context, callback) => {
     callback(null, event); 
 
     // 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey
-    let cred = new Credential("AKIDqeHm8Jn8mEYhgWkhOwJUUj4KQPDpqj3C", "75rRuGRSHtKvTwMgsvnwxmTyJSODrMkx");
+    let cred = new Credential("AKIxxxxxxPDpqj3C", "75rxxxxxxyJSODrMkx");
 
      // 实例化要请求产品的client对象，以及函数所在的地域
     let client = new ScfClient(cred, "ap-shanghai");

@@ -55,7 +55,7 @@ var Authorization = COS.getAuthorization({
 
 示例一：获取不带签名 Object Url。
 
-[//]: # (.cssg-snippet-get-presign-download-url)
+[//]: # (.cssg-snippet-get-presign-download-url-nosign)
 ```js
 var url = cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',
@@ -67,7 +67,7 @@ var url = cos.getObjectUrl({
 
 示例二：获取带签名 Object Url。
 
-[//]: # (.cssg-snippet-get-presign-download-url-signed)
+[//]: # (.cssg-snippet-get-presign-download-url)
 ```js
 var url = cos.getObjectUrl({
     Bucket: 'examplebucket-1250000000',

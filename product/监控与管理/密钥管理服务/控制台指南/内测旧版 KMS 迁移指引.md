@@ -36,3 +36,5 @@
 3. 内测版密钥管理系统加密数据进行解密：只需要处理 DataKey 的迁移，按照 API/SDK 2017 接口规范，使用旧版本 SDK，调用解密 Decrypt 接口，获取明文 DataKey，详情请参见 [解密](https://cloud.tencent.com/document/product/573/8890) API 文档。
 4. 新版密钥管理系统（合规）信封加密：按照腾讯云 API 3.0 标准，使用新版 SDK，调用加密 Encrypt 接口进行加密，详情请参见 [加密](https://cloud.tencent.com/document/product/573/34420) API 文档。
 5. 新版密钥管理系统（合规）信封解密：按照腾讯云 API 3.0 标准，使用新版 SDK，调用解密 Decrypt 接口解密 DataKey 获取明文，使用 DataKey 明文对数据进行解密。详情请参见 [解密](https://cloud.tencent.com/document/product/573/34429) API 文档。
+
+

@@ -1,9 +1,10 @@
 使用 Hive 来映射 Hbase 表，可以使用 Hive 来读取 Hbase 上的数据，使用 Hive-SQL 语句在 Hbase 表上进行查询、插入等操作。
-## 1.	开发准备
-- 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群时需要在软件配置界面选择 Hive，Hbase 组件。 
+
+## 开发准备
+- 确认已开通腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群时需要在软件配置界面选择 Hive、Hbase 组件。 
 - Hive 等相关软件安装在路径 EMR 云服务器的`/usr/local/service/`路径下。
 
-## 2.	创建一个 Hbase 表 
+## 创建一个 Hbase 表 
 首先需要登录 EMR 集群中的任意机器，最好是登录到 Master 节点。登录 EMR 的方式请参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入命令行界面。
 
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，进入 Hbase 文件夹并进入 Hbase shell：
@@ -37,7 +38,7 @@ row3   column=cf:c, timestamp=1530276792839, value=value3
 3 row(s) in 0.2110 seconds
 ```
 
-## 3.	映射 Hive 表
+## 映射 Hive 表
 切换到 Hive 文件夹下，并且连接到 Hive 上：
 ```
 [hadoop@172 hive]$ cd /usr/local/service/hive/

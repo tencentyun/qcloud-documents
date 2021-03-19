@@ -12,7 +12,7 @@ void onTEBError(int code, String msg)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | int | 错误码，参见 TEduBoardErrorCode 定义  |
+| code | int | 错误码，参见 [TEduBoardErrorCode](https://cloud.tencent.com/document/product/1137/39971#teduboarderrorcode) 定义  |
 | msg | String | 错误信息，编码格式为 UTF8  |
 
 
@@ -25,7 +25,7 @@ void onTEBWarning(int code, String msg)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| code | int | 错误码，参见 TEduBoardWarningCode 定义  |
+| code | int | 错误码，参见 [TEduBoardWarningCode](https://cloud.tencent.com/document/product/1137/39971#teduboardwarningcode) 定义  |
 | msg | String | 错误信息，编码格式为 UTF8  |
 
 
@@ -59,7 +59,7 @@ void onTEBSyncData(String data)
 | data | String | 白板同步数据（JSON 格式字符串） |
 
 #### 介绍
-收到该回调时需要将回调数据通过信令通道发送给房间内其他人，接受者收到后调用 AddSyncData 接口将数据添加到白板以实现数据同步，该回调用于多个白板间的数据同步，使用腾讯云 IMSDK 进行实时数据同步时，不会收到该回调 
+收到该回调时需要将回调数据通过信令通道发送给房间内其他人，接受者收到后调用 addSyncData 接口将数据添加到白板以实现数据同步，该回调用于多个白板间的数据同步，使用腾讯云 IMSDK 进行实时数据同步时，不会收到该回调 
 
 
 ### onTEBUndoStatusChanged
@@ -71,7 +71,7 @@ void onTEBUndoStatusChanged(boolean canUndo)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| canUndo | boolean | 白板当前是否还能执行 Undo 操作  |
+| canUndo | boolean | 白板当前是否还能执行 undo 操作  |
 
 
 ### onTEBRedoStatusChanged
@@ -83,7 +83,7 @@ void onTEBRedoStatusChanged(boolean canRedo)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| canRedo | boolean | 白板当前是否还能执行 Redo 操作  |
+| canRedo | boolean | 白板当前是否还能执行 redo 操作  |
 
 
 
@@ -112,7 +112,7 @@ void onTEBSetBackgroundImage(final String url)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | final String | 调用 SetBackgroundImage 时传入的 URL |
+| url | final String | 调用 setBackgroundImage 时传入的 URL |
 
 #### 介绍
 只有本地调用 SetBackgroundImage 时会收到该回调 收到该回调表示背景图片已经上传或下载成功，并且显示出来 
@@ -127,10 +127,23 @@ void onTEBAddImageElement(final String url)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| url | final String | 调用 SetBackgroundImage 时传入的 URL |
+| url | final String | 调用 setBackgroundImage 时传入的 URL |
 
 #### 介绍
 只有本地调用 addImageElement 时会收到该回调 收到该回调表示背景图片已经上传或下载成功，并且显示出来 
+
+
+### onTEBAddElement
+添加元素回调 
+``` Java
+void onTEBAddElement(final String id, final String url)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| id | final String |  |
+| url | final String |  |
 
 
 ### onTEBBackgroundH5StatusChanged
@@ -210,6 +223,12 @@ void onTEBRectSelected()
 #### 警告
 只有框选中涂鸦或图片元素后触发回调 
 
+
+### onTEBRefresh
+刷新白板回调 
+``` Java
+void onTEBRefresh()
+```
 
 
 ## 文件操作回调
@@ -340,6 +359,34 @@ void onTEBVideoStatusChanged(String fileId, int status, float progress, float du
 | status | int | 文件状态  |
 | progress | float | 当前进度（秒）（仅支持 mp4 格式）  |
 | duration | float | 总时长（秒）（仅支持 mp4 格式）  |
+
+
+### onTEBSnapshot
+白板快照 
+``` Java
+void onTEBSnapshot(final String path, int code, final String msg)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| path | final String | 快照本地路径  |
+| code | int | 错误码，返回 0，表示获取快照成功  |
+| msg | final String | 错误信息  |
+
+
+### onTEBH5PPTStatusChanged
+ppt 状态改变回调 
+``` Java
+void onTEBH5PPTStatusChanged(final int statusCode, final String fid, final String describeMsg)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| statusCode | final int | 状态码  |
+| fid | final String | 文件 fid  |
+| describeMsg | final String | 事件描述信息  |
 
 
 

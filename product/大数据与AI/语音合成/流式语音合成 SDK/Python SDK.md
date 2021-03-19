@@ -11,8 +11,7 @@ Python 3 和 Python 2.7版本
 
 **requests**
 
-安装方法：`pip install requests`  或先下载，然后进入目录执行：`python setup.py install`
-下载 [requests 链接](https://2.python-requests.org//zh_CN/latest/user/install.html#install)。
+安装方法：`pip install requests`  
 
 ###  <span id="result">获取用户信息</span>
 **获取 AppID，SecretId 与 SecretKey**

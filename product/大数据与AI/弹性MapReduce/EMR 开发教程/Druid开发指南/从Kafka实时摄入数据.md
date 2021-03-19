@@ -1,11 +1,10 @@
-本文介绍如何使用 Apache Druid Kafka Indexing Service 实时消费 Kafka 数据。开始本节前，类似 Hadoop 集群，您需要确保 Kafka 集群和 Druid 集群之间能够正常通信。
+本文介绍如何使用 Apache Druid Kafka Indexing Service 实时消费 Kafka 数据。开始本节前，类似 Hadoop 集群，需要确保 Kafka 集群和 Druid 集群之间能够正常通信。
 
 >?
 >- 两个集群在同一个 VPC 下，或两个集群在不同 VPC，但两个 VPC 之间能够正常通信（如通过云联网或者对等连接）。
 >- 如有必要需要将 Kafka 集群的 Host 信息配置到 Druid 集群中。
 
 ## 命令行方式
-
 1. 首先在 Kafka 集群启动 kafka broker。
 ```
 ./bin/kafka-server-start.sh config/server.properties
@@ -127,4 +126,4 @@ curl -XPOST -H 'Content-Type: application/json' -d @query-mytopic.json http://{d
 
 ## Web 可视化方式
 
-您也可以通过 Druid Web UI 控制台可视化方式，从 Kafka 集群摄入数据并查询，详细步骤请参考 [通过 data loader 加载 Kafka 数据](https://druid.apache.org/docs/latest/tutorials/tutorial-kafka.html#loading-data-with-the-data-loader)。
+您可通过 Druid Web UI 控制台可视化方式，从 Kafka 集群摄入数据并查询，详细步骤请参考 [通过 data loader 加载 Kafka 数据](https://druid.apache.org/docs/latest/tutorials/tutorial-kafka.html#loading-data-with-the-data-loader)。

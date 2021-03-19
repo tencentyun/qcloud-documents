@@ -15,7 +15,7 @@
 - **使用 CDN 资源**
 	使用 CDN 资源，可直接按以下方式引入：
 ```html
-<script src="//cdn-go.cn/cdn/vod-js-sdk-v6/latest/vod-js-sdk-v6.js"></script>
+<script src="https://cdn-go.cn/cdn/vod-js-sdk-v6/latest/vod-js-sdk-v6.js"></script>
 ```
 
 请 [单击此处](https://tencentyun.github.io/vod-js-sdk-v6/) 查看 script 方式引入的 Demo，请 [单击此处](https://github.com/tencentyun/vod-js-sdk-v6/blob/master/docs/index.html) 查看 Demo 源码。
@@ -190,5 +190,4 @@ SDK 支持自动断点续传功能，无需做额外操作。当上传意外终�
 Chrome、Firefox 等支持`HTML5`的主流浏览器，IE 方面支持的最低版本是 IE10。
 4. **如何实现类似暂停上传或恢复上传的功能？**
 SDK 底层已经自动实现了断点续传的功能，因此暂停的本质即是调用`uploader.cancel()`这个方法。同理，暂停后的恢复上传也是调用初始的`tcVod.upload`方法，区别在于恢复上传时调用该方法的参数，应该是之前缓存起来的参数（例如可以在启动上传时全局变量存储一份参数，上传完成后再清掉）。
-
 

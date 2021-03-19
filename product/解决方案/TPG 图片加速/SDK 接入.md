@@ -4,6 +4,7 @@
 
 ## Android SDK 接入
 ### 步骤一：加载解码库
+
 将解码库放在工程的`lib`目录下，工程代码里需加载 TPG 解码库：
 ```
 System.loadLibrary（“TPGDecoder”）

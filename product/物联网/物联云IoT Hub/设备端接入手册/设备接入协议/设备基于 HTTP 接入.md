@@ -1,3 +1,4 @@
+
 ## 接口描述
 - 接口域名：`device-iot.tencentcloudapi.com/pub`（支持 HTTP 和 HTTPS）。
 - 设备可以使用本接口通过 HTTP 协议，向指定 Topic 上报消息。
@@ -56,3 +57,4 @@ curl -i -d 'deviceName=devpublish_test1&productId=W9GMG550YD&topicName=topic-59p
 ```
 {"returnCode":2000,"returnMessage":"code:ResourceNotFound.ProductNotExist msg:产品不存在。"}
 ```
+

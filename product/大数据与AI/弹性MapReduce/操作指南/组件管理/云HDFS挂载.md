@@ -2,6 +2,7 @@
 CHDFS 是标准 HDFS 访问协议和分层命名空间的高性能分布式文件系统，EMR 支持读写 CHDFS 上的数据，本文主要介绍了如何将 CHDFS 挂载到 EMR 集群。
 
 ## 操作步骤
+
 ### 场景一：新集群挂载 CHDFS
 >?新集群：2019年12月31日当日及之后创建的集群，EMR 默认 CHDFS 挂载地址为`/data/emr/hdfs/tmp/chdfs`。
 

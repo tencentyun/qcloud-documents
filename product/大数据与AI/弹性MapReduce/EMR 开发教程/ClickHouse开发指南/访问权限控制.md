@@ -1,7 +1,7 @@
 用户访问权限通常配置在配置文件中，该配置文件默认名称为 user.xml。该文件通常包含三个子 session，分别是 users、profiles、quotas。
 
 ## users 配置
-用户名会记录在该配置文件中。在配置文件 user.xml 中，users session 中配置了用户访问权限，每一个用户在 users session 下有独立的子 session，以用户名命名，且包含如下内容：
+用户名会记录在此配置文件中。在配置文件 user.xml 中，users session 中配置了用户访问权限，每一个用户在 users session 下有独立的子 session，以用户名命名，且包含如下内容：
 - password：明文密码。
 - password_sha256_hex：sha256 加密。
 - password_double_sha1_hex：double sha1 加密。

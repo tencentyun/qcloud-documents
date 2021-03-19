@@ -312,7 +312,7 @@ __参数__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| audioRoute | int | 声音播放模式，可设置值：TXLiveConstants#AUDIO_ROUTE_SPEAKER、TXLiveConstants#AUDIO_ROUTE_SPEAKER。 |
+| audioRoute | int | 声音播放模式，可设置值：TXLiveConstants#AUDIO_ROUTE_RECEIVER、TXLiveConstants#AUDIO_ROUTE_SPEAKER。 |
 
 __介绍__
 
@@ -465,7 +465,7 @@ __参数__
 
 ***
 
-<span id="addVideoRawData"></span>
+[](id:addVideoRawData)
 ## 自定义数据处理
 ### addVideoRawData
 
@@ -498,6 +498,7 @@ void setVideoRawDataListener(final ITXVideoRawDataListener listener)
 
 >?
 >- 此功能会有一定的性能开销，特别是在高分辨率的情况下。
+>- 调用前需先调用 addVideoRawData 设置数据载体。
 >- 除非您有特殊的需求，否则不建议您开启。
 
 ***
@@ -599,7 +600,7 @@ __参数__
 
 __介绍__
 
-待废弃，此接口仅针对点播视频使用，对直播视频无效；若您想使用点播功能，请使用 [TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#step-2.3A-.E5.88.9B.E5.BB.BAplayer) 进行点播播放。
+待废弃，此接口仅针对点播视频使用，对直播视频无效；若您想使用点播功能，请使用 [TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#.E5.AF.B9.E6.8E.A5.E6.94.BB.E7.95.A5) 进行点播播放。
 
 ***
 
@@ -618,7 +619,7 @@ __参数__
 
 __介绍__
 
-待废弃，此接口仅针对点播视频使用，对直播视频无效；若您想使用点播功能，请使用 [TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#step-2.3A-.E5.88.9B.E5.BB.BAplayer) 进行点播播放。
+待废弃，此接口仅针对点播视频使用，对直播视频无效；若您想使用点播功能，请使用 [TXVodPlayer](https://cloud.tencent.com/document/product/881/20216#.E5.AF.B9.E6.8E.A5.E6.94.BB.E7.95.A5) 进行点播播放。
 
 ***
 
@@ -733,7 +734,7 @@ __功能__
 播放器音量大小回调。
 
 
-<span id="onAudioVolumeEvaluationNotify"></span>
+[](id:onAudioVolumeEvaluationNotify)
 ### onAudioVolumeEvaluationNotify
 
 播放器音量大小回调。

@@ -9,7 +9,7 @@
 | 公网自建 | 用户在外网环境下部署的 Redis 服务。 | 
 
 ## 迁移支持说明
->?单机版迁移集群版兼容性问题请参见 [单机版迁移集群版说明](https://cloud.tencent.com/document/product/239/43697)。
+>?单机版迁移内存版（集群架构）兼容性问题请参见 [单机版迁移集群版说明](https://cloud.tencent.com/document/product/239/43697)。
 
 #### 支持功能
 - 数据迁移：DTS 迁移服务支持一次性将数据迁移到云上。
@@ -17,7 +17,7 @@
 
 #### 支持版本
 - DTS 迁移服务支持的版本包括 Redis 2.8、3.0、3.2、4.0、5.0。
-- 支持的架构包括单节点、redis cluster、codis、tewmproxy。
+- 支持的架构包括单节点、redis cluster、codis、twemproxy。
 - 迁移权限要求：DTS 迁移数据需要源实例支持 SYNC 或者 PSYNC 命令。
 
 #### 支持网络
@@ -27,72 +27,75 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
 - 上云迁移：支持将您在传统 IDC 的 Redis 迁移到云数据库 Redis，帮助您的业务高效、便捷的完成上云迁移。
 - 云上自建迁移：支持将您在腾讯云或者其他云上，通过虚拟机自建的 Redis 服务迁移到腾讯云。
 - 其他云厂商 Redis 服务迁移：支持将其他云厂商提供的 Redis 数据迁移到腾讯云，前提条件是云厂商需要提供 SYNC 或者 PSYNC 命令权限。
-- 云实例间迁移：支持在云实例间进行数据迁移或者实时同步，支持的版本如下：   
+- 云实例间迁移：支持在云实例间进行数据迁移或者实时同步，支持的版本如下：
+   
 <table>
-    <caption></caption>
-    <tr>
-<th style ="width:130px;position:relative;text-align:left;padding:5px px;font-weight:00;" valign="top" ><div style="position:absolute;width:1px;height:140px;top:0;left:0;background-color: #d9d9d9;display:block;transform:rotate(-66deg);transform-origin:top;valign=top;"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目标实例<br>源实例</th>
-    </div>
-    </th>
-    <th style="background-color:#f2f2f2;">2.8标准版</th>
-    <th style="background-color:#f2f2f2;">4.0标准版</th>
-    <th style="background-color:#f2f2f2;">4.0集群版</th>
-		<th style="background-color:#f2f2f2;">5.0标准版</th>
-    <th style="background-color:#f2f2f2;">5.0集群版</th>
-    </tr>
-    <tr>
-    <td style="background-color:#f2f2f2;">2.8标准版</td>
-    <td>✓</td>
-    <td>✓</td>
-    <td>✓</td>
-		<td>✓</td>
-    <td>✓</td>
-    </tr>
-    <tr>
-    <td style="background-color:#f2f2f2;">4.0标准版</td>
-    <td>x</td>
-    <td>✓</td>
-    <td>✓</td>
-		<td>✓</td>
-    <td>✓</td>
-    </tr>
-    <tr>
-    <td style="background-color:#f2f2f2;">4.0集群版</td>
-    <td>x</td>
-    <td>✓</td>
-    <td>✓</td>
-		<td>✓</td>
-    <td>✓</td>
-    </tr>
-	<tr>
-    <td style="background-color:#f2f2f2;">5.0标准版</td>
-    <td>x</td>
-    <td>✓</td>
-    <td>✓</td>
-	 <td>✓</td>
-    <td>✓</td>
-    </tr>
-    <tr>
-    <td style="background-color:#f2f2f2;">5.0集群版</td>
-    <td>x</td>
-    <td>✓</td>
-    <td>✓</td>
-		<td>✓</td>
-    <td>✓</td>
-    </tr>
-    </table>
-		
+<caption></caption>
+<tr>
+<th style="width:130px;position:relative;text-align:left;padding:5px px;font-weight:00;" valign="top">
+<div style="position:absolute;width:1px;height:140px;top:0;left:0;background-color: #d9d9d9;display:block;transform:rotate(-66deg);transform-origin:top;valign=top;"></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;目标实例<br>源实例
+</th>
+</div>
+</th>
+<th style="background-color:#f2f2f2;">2.8内存版（标准架构）</th>
+<th style="background-color:#f2f2f2;">4.0内存版（标准架构）</th>
+<th style="background-color:#f2f2f2;">4.0内存版（集群架构）</th>
+<th style="background-color:#f2f2f2;">5.0内存版（标准架构）</th>
+<th style="background-color:#f2f2f2;">5.0内存版（集群架构）</th>
+</tr>
+<tr>
+<td style="background-color:#f2f2f2;">2.8内存版（标准架构）</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+<tr>
+<td style="background-color:#f2f2f2;">4.0内存版（标准架构）</td>
+<td>x</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+<tr>
+<td style="background-color:#f2f2f2;">4.0内存版（集群架构）</td>
+<td>x</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+<tr>
+<td style="background-color:#f2f2f2;">5.0内存版（标准架构）</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+<tr>
+<td style="background-color:#f2f2f2;">5.0内存版（集群架构）</td>
+<td>x</td>
+<td>x</td>
+<td>x</td>
+<td>&#10003;</td>
+<td>&#10003;</td>
+</tr>
+</table>
+
 #### 迁移限制
 - 为保障迁移效率，CVM 自建实例迁移不支持跨地域迁移。
 - 外网实例迁移时，需确保源实例服务在外网环境下可访问。
 - 进行迁移任务时，只允许迁移正常运行状态下的实例，未初始化密码或者有其他任务在执行中的实例，不能迁移。
-- 目标实例必须是没有数据的空实例，迁移过程中，会锁住实例，不能对实例进行写入操作。
+- 目标实例必须是没有数据的空实例，迁移过程中，目标实例会被设置为只读，不能对实例进行写入操作。
 - 迁移成功时，由业务侧验证数据后，可断开源实例连接，将连接切换到目标实例。
 
 ## 迁移过程
 ### 1. 新建迁移任务
-1）登录 [数据传输服务控制台](https://console.cloud.tencent.com/dtsnew/migrate/page) ，在数据迁移列表，单击【新建任务】创建迁移任务。
-2）在【链路地域】选择对应地域，单击【0元购买】。
+1）登录 [DTS 控制台](https://console.cloud.tencent.com/dts )，在数据迁移页，单击【新建迁移任务】。
+2）在“链路地域”选择对应地域，单击【0元购买】。
 
 ### 2. 设置任务
 - 任务名称：为任务指定名称。
@@ -107,15 +110,14 @@ DTS 迁移服务支持常见的网络迁移，包括公网、CVM 自建、专线
 | 字段 | 描述 | 备注 | 必填 |
 |---------|---------|---------|---------|
 | 任务名称 | 迁移任务的名称 |方便用户管理任务 | 是 |
-| CVM 实例 ID |源 Redis 实例所在的腾讯云服务器 ID |迁移任务会根据 CVM 实例 ID，检查云服务器运行情况 | 是 |
-| CVM 内网 IP |源 Redis 实例所在的腾讯云服务器的内网 IP |迁移任务会检查云服务器内网 IP | 是 |
+| CVM 实例（实例 ID/内网 IP） |源 Redis 实例所在的腾讯云服务器 ID和内网 IP |迁移任务会根据 CVM 实例 ID，检查云服务器运行情况，及检查云服务器内网 IP | 是 |
 | 端口 | 源实例端口号 |迁移任务会访问源实例服务 | 是 |
 | 密码 | 源实例密码 |访问源实例服务时，有 auth 鉴权 | 否 |
-| 实例 ID | 目标实例 ID |同步数据到目标实例 | 是 |
+| 数据库实例 ID | 目标实例 ID |同步数据到目标实例 | 是 |
 
 **集群版迁移说明**
-DTS 服务支持 Redis 集群版迁移，不论是 Redis Cluster、Codis 或者是 tewmproxy 架构的集群方案，只需要在 DTS 任务创建的节点信息中，将原集群的所有分片节点地址以及密码填如节点信息即可，强烈建议从源实例的副本节点（从节点）进行数据迁移，避免影响源实例的业务访问。DTS支持无密码迁移，迁移填充信息参考如下：
-![](https://main.qcloudimg.com/raw/08cd54d22beabddfec6e4e3ef72d1cca.png)
+DTS 服务支持 Redis 集群版迁移，不论是 Redis Cluster、Codis 或者是 twemproxy 架构的集群方案，只需要在 DTS 任务创建的节点信息中，将原集群的所有分片节点地址以及密码填入节点信息即可，强烈建议从源实例的副本节点（从节点）进行数据迁移，避免影响源实例的业务访问。DTS支持无密码迁移，迁移填充信息参考如下：
+![](https://main.qcloudimg.com/raw/23a1465fd8c26cd250c853971970548a.png)
 
 ### 4. 启动迁移任务
 1）网络连通性测试成功，单击【保存】。

@@ -39,7 +39,7 @@ https://console.tim.qq.com/v4/openim_dirty_words/add?sdkappid=88888888&identifie
 ### 最高调用频率
 200次/秒。
 ### 请求包示例
-支持批量添加 App 自定义的脏字，单次最多可以添加50个脏字。
+支持批量添加 App 自定义的脏字。限制1次添加100个脏词，每个脏词不多于10个UTF-8字符。
 ```
 {
     "DirtyWordsList": [ // 自定义脏字列表（必填），列表中的脏字不能超过50个
@@ -53,7 +53,7 @@ https://console.tim.qq.com/v4/openim_dirty_words/add?sdkappid=88888888&identifie
 
 | 字段 | 类型 | 属性 | 说明 |
 |---------|---------|---------|---------|
-| DirtyWordsList | Array | 必填 |该字段用来指定需要添加的自定义脏字；单次最多可以添加50个脏字，每个脏字的长度不能超过200字节 |
+| DirtyWordsList | Array | 必填 |该字段用来指定需要添加的自定义脏字。限制1次添加100个脏词，每个脏词不多于10个UTF-8字符 |
 
 ### 应答包体示例
 ```

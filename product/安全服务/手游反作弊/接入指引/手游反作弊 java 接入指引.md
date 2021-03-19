@@ -119,10 +119,10 @@ int onAppPause ();
 public void onCreate()
  {
 // 游戏启动的第一时间调用
-TP2Sdk. initEx(9000, “d5ab8dc7ef67ca92e41d730982c5c602”);
+TP2Sdk. initEx(9000, “d5ab8dc7ef67ca92e41d730982******”);
 int accountType = ENTRYID.ENTRY_ID_QZONE; /* 帐号类型 */
 int worldId = 1; /* 大区 ID*/
-String openId = "B73B36366565F9E02C752"; /* 与平台相关的用户标识 */
+String openId = "B73B36366565F9E******"; /* 与平台相关的用户标识 */
 String roleId = "paladin"; /* 角色 ID*/
 // 用户登录游戏时调用
 TP2Sdk.onUserLogin(accountType, worldId, openId, roleId);

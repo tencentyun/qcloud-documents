@@ -1,4 +1,4 @@
-## 描述
+## 功能描述
 
 GET Bucket encryption 接口用于查询指定存储桶下的默认加密配置。
 
@@ -35,7 +35,20 @@ Authorization: Auth String
 
 **响应体**
 
-返回以下响应元素：
+以下是返回 SSE-COS 加密的响应体：
+
+```sh
+<ServerSideEncryptionConfiguration>
+      <Rule>
+            <ApplyServerSideEncryptionByDefault>
+                <SSEAlgorithm>AES256</SSEAlgorithm>
+            </ApplyServerSideEncryptionByDefault>
+      </Rule>
+</ServerSideEncryptionConfiguration>
+```
+
+
+具体元素如下：
 
 | 元素名称                           | 父节点                             | 描述                                                         | 类型      |
 | ---------------------------------- | ---------------------------------- | ------------------------------------------------------------ | --------- |
@@ -46,7 +59,7 @@ Authorization: Auth String
 
 **错误码**
 
-此接口无特殊错误信息，全部错误信息请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
+此接口遵循统一的错误响应和错误码，详情请参见 [错误码](https://cloud.tencent.com/document/product/436/7730) 文档。
 
 ## 实际案例
 
@@ -69,12 +82,14 @@ Date: Mon, 17 Jun 2019 08:37:36 GMT
 Server: tencent-cos
 x-cos-request-id: NWQwNzUxNTBfMzdiMDJhMDlfOWM0Nl85NDFk****
 
+
+
 <?xml version = "1.0" encoding = "UTF-8">
 <ServerSideEncryptionConfiguration>
-   <Rule>
-      <ApplySideEncryptionConfiguration>
-         <SSEAlgorithm>AES256</SSEAlgorithm>
-      </ApplySideEncryptionConfiguration>
-   </Rule>
+      <Rule>
+            <ApplyServerSideEncryptionByDefault>
+                <SSEAlgorithm>AES256</SSEAlgorithm>
+            </ApplyServerSideEncryptionByDefault>
+      </Rule>
 </ServerSideEncryptionConfiguration>
 ```

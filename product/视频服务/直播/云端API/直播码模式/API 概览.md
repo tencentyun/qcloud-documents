@@ -1,5 +1,5 @@
 腾讯云提供了一组直播码管理 API，包括状态查询和状态管理等功能，供您的后台服务器调用。
->? 云直播 API 已升级到 3.0 版本，建议您使用 [API 3.0](https://cloud.tencent.com/document/product/267/20456) 接入腾讯云产品。
+>? 云直播 API 已升级到 3.0 版本，建议您使用 [API 3.0](https://cloud.tencent.com/document/product/267/20456) 接入腾讯云产品。 
 
 ### API 列表
 

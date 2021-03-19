@@ -1,3 +1,6 @@
+您可通过如下视频了解配置网络 ACL 实现访问控制的相关信息。
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2355-35415?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 创建网络 ACL
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 单击左侧目录中的【安全】>【网络 ACL】，进入管理页面。
@@ -61,4 +64,6 @@
 >?若【删除】置灰，如下图中的网络 ACL`testEg`，表示该网络 ACL 正与子网相关联，您需要先解除子网关联后，才能进行删除操作。
 >
 ![](https://main.qcloudimg.com/raw/52d13aac33e609dc59d132ffa4c71171.png)
+
+
 

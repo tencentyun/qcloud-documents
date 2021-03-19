@@ -5,7 +5,11 @@
 ### 内网 NTP 服务器
 
 ```
-ntpupdate.tencentyun.com
+time1.tencentyun.com
+time2.tencentyun.com
+time3.tencentyun.com
+time4.tencentyun.com
+time5.tencentyun.com
 ```
 
 ### 外网 NTP 服务器

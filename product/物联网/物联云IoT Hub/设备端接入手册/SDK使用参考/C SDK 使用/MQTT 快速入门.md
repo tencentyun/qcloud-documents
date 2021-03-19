@@ -1,5 +1,3 @@
-
-
 本文档主要介绍如何在腾讯云物联网通信 IoT Hub 控制台创建设备和权限，并结合 C-SDK 的 **mqtt_sample** 快速体验设备端通过 MQTT 协议连接到腾讯云 IoT Hub，进行消息发送和接收。
 
 ## 控制台操作
@@ -102,5 +100,7 @@ INF|2019-09-12 21:28:21|mqtt_sample.c|on_message_callback(195): Receive Message 
 #### 6. 观察控制台日志
 登录 [物联网通信控制台](https://console.cloud.tencent.com/iotcloud)，单击该产品名称，单击上方菜单【云日志】，即可查看刚上报的消息。
 ![](https://main.qcloudimg.com/raw/c6f7b9b71a96a1efc7611f38871c0ea0.jpg)
+
+
 
 

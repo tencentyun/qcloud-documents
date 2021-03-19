@@ -6,3 +6,4 @@
 【问题原因】当前登录账号缺少权限。
 【解决方案】打开如下链接：
 `https://console.cloud.tencent.com/cam/role/grant?roleName=EMR_QCSRole&policyName=QcloudAccessForEMRRole&principal=eyJzZXJ2aWNlIjoiZW1yLmNsb3VkLnRlbmNlbnQuY29tIn0=&serviceType=EMR`，然后使用主账号授权 EMR 权限即可。
+

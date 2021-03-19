@@ -1,75 +1,91 @@
-腾讯云云监控为云数据库实例（MySQL）提供以下监控指标：
 
-|       指标英文名                 |                     指标中文名           | 单位                                | 维度        |
-| -------------------------------- | ---------------------------------------- | ----------------------------------- | ----------- |
-| cpu_user_ate                     | CPU 利用率                                | %                                   | uInstanceId |
-| memory_use_rate                  | 内存利用率                               | %                                   | uInstanceId |
-| memory_use                       | 内存占用                                 | MB                                  | uInstanceId |
-| volume_rate                      | 磁盘使用率                               | %                                   | uInstanceId |
-| real_capacity                    | 磁盘使用空间（仅包含数据空间使用量）     | MB                                  | uInstanceId |
-| capacity                         | 磁盘占用空间（包含数据及日志空间使用量） | MB                                  | uInstanceId |
-| bytes_sent                       | 内网出流量                               | Byte/秒                             | uInstanceId |
-| bytes_received                   | 内网入流量                               | Byte/秒                             | uInstanceId |
-| qps                              | 每秒执行操作数                           | 次/秒                               | uInstanceId |
-| tps                              | 每秒执行事务数                           | 次/秒                               | uInstanceId |
-| max_connections                  | 最大连接数                               | 个                                  | uInstanceId |
-| threads_connected                | 当前打开连接数                           | 个                                  | uInstanceId |
-| connection_use_rate              | 连接数利用率                             | %                                   | uInstanceId |
-| slow_queries                     | 慢查询数                                 | 次/分                               | uInstanceId |
-| select_scan                      | 全表扫描数                               | 次/秒                               | uInstanceId |
-| select_count                     | 查询数                                   | 次/秒                               | uInstanceId |
-| com_update                       | 更新数                                   | 次/秒                               | uInstanceId |
-| com_delete                       | 删除数                                   | 次/秒                               | uInstanceId |
-| com_insert                       | 插入数                                   | 次/秒                               | uInstanceId |
-| com_replace                      | 覆盖数                                   | 次/秒                               | uInstanceId |
-| queries                          | 总请求数                                 | 次/秒                               | uInstanceId |
-| query_rate                       | 查询使用率                               | %                                   | uInstanceId |
-| created_tmp_tables               | 临时表数量                               | 次/秒                               | uInstanceId |
-| table_locks_waited               | 等待表锁次数                             | 次/秒                               | uInstanceId |
-| innodb_cache_use_rate            | innodb 缓存使用率                         | %                                   | uInstanceId |
-| innodb_cache_hit_rate            | innodb 缓存命中率                         | %                                   | uInstanceId |
-| innodb_os_file_reads             | innodb 读磁盘数量                         | 次/秒                               | uInstanceId |
-| innodb_os_file_writes            | innodb 写磁盘数量                         | 次/秒                               | uInstanceId |
-| innodb_os_fsyncs                 | innodb fsync 数量                         | 次/秒                               | uInstanceId |
-| innodb_num_open_files            | 当前 InnoDB 打开表的数量                   | 个                                  | uInstanceId |
-| key_cache_use_rate               | myisam 缓存使用率                         | %                                   | uInstanceId |
-| key_cache_hit_rate               | myisam 缓存命中率                         | %                                   | uInstanceId |
-| com_commit                       | 提交数                                   | 次/秒                               | uInstanceId |
-| com_rollback                     | 回滚数                                   | 次/秒                               | uInstanceId |
-| threads_created                  | 已创建的线程数                           | 个                                  | uInstanceId |
-| threads_running                  | 运行的线程数                             | 个                                  | uInstanceId |
-| created_tmp_disk_tables          | 磁盘临时表数量                           | 次/秒                               | uInstanceId |
-| created_tmp_files                | 临时文件数量                             | 次/秒                               | uInstanceId |
-| handler_read_rnd_next            | 读下一行请求数                           | 次/秒                               | uInstanceId |
-| handler_rollback                 | 内部回滚数                               | 次/秒                               | uInstanceId |
-| handler_commit                   | 内部提交数                               | 次/秒                               | uInstanceId |
-| innodb_buffer_pool_pages_free    | InnoDB 空页数                             | 个                                  | uInstanceId |
-| innodb_buffer_pool_pages_total   | InnoDB 总页数                             | 个                                  | uInstanceId |
-| innodb_buffer_pool_read_requests | InnoDB 逻辑读                             | 次/秒                               | uInstanceId |
-| innodb_buffer_pool_reads         | InnoDB 物理读                             | 次/秒                               | uInstanceId |
-| innodb_data_reads                | InnoDB 总读取量                           | 次/秒                               | uInstanceId |
-| innodb_data_read                 | InnoDB 读取量                             | Byte/秒                             | uInstanceId |
-| innodb_data_writes               | InnoDB 总写入量                           | 次/秒                               | uInstanceId |
-| innodb_data_written              | InnoDB 写入量                             | Byte/秒                             | uInstanceId |
-| innodb_rows_deleted              | InnoDB 行删除量                           | 次/秒                               | uInstanceId |
-| innodb_rowsinserted              | InnoDB 行插入量                           | 次/秒                               | uInstanceId |
-| innodb_rows_updated              | InnoDB 行更新量                           | 次/秒                               | uInstanceId |
-| innodb_rows_read                 | InnoDB 行读取量                           | 次/秒                               | uInstanceId |
-| innodb_row_lock_time_avg         | InnoDB 平均获取行锁时间                   | 毫秒                                | uInstanceId |
-| innodb_row_lock_waits            | InnoDB 等待行锁次数                       | 次/秒                               | uInstanceId |
-| key_blocks_unused                | 键缓存内未使用的块数量                   | 个                                  | uInstanceId |
-| key_blocks_used                  | 键缓存内使用的块数量                     | 个                                  | uInstanceId |
-| key_read_requests                | 键缓存读取数据块次数                     | 次/秒                               | uInstanceId |
-| key_reads                        | 硬盘读取数据块次数                       | 次/秒                               | uInstanceId |
-| key_write_requests               | 数据块写入键缓冲次数                     | 次/秒                               | uInstanceId |
-| key_writes                       | 数据块写入磁盘次数                       | 次/秒                               | uInstanceId |
-| opened_tables                    | 已经打开的表数                           | 个                                  | uInstanceId |
-| table_locksimmediate             | 立即释放的表锁数                         | 个                                  | uInstanceId |
-| open_files                       | 打开文件总数                             | 个                                  | uInstanceId |
-| log_capacity                     | 日志使用量                               | MB                                  | uInstanceId |
-| slaveio_running                  | IO 线程状态                               | 状态值（0-Yes，1-No，2-Connecting） | uInstanceId |
-| slavesql_running                 | SQL 线程状态                              | 状态值（0-Yes，1-No）               | uInstanceId |
-| master_slavesync_distance        | 主从延迟距离                             | MB                                  | uInstanceId |
-| seconds_behind_master            | 主从延迟时间                             | 秒                                  | uInstanceId |
 
-有关更多如何使用云数据库监控指标的内容，可以查看云监控 API 中的 [云数据库 MySQL 监控接口](https://cloud.tencent.com/document/api/248/11006)。
+## 命名空间
+
+Namespace=QCE/CDB
+
+
+## 监控指标
+
+| 指标英文名                   | 指标中文名                               | 含义                                                         | 单位    | 维度                     |
+| ---------------------------- | ---------------------------------------- | ------------------------------------------------------------ | ------- | ------------------------ |
+| CPUUseRate                   | CPU 利用率                                | 允许闲时超用，CPU 利用率可能大于100%                         | %       | InstanceId、InstanceType |
+| MemoryUseRate                | 内存利用率                               | 允许闲时超用，内存利用率可能大于100%                         | %       | InstanceId、InstanceType |
+| MemoryUse                    | 内存占用                                 | 允许闲时超用，实际内存占用可能大于购买规格                   | MB      | InstanceId、InstanceType |
+| VolumeRate                   | 磁盘使用率                               | 磁盘使用空间/实例购买空间                                    | %       | InstanceId、InstanceType |
+| RealCapacity                 | 磁盘使用空间（仅包含数据空间使用量）     | 仅包括 MySQL 数据目录，不含 binlog、relaylog、undolog、errorlog、slowlog 日志空间 | MB      | InstanceId、InstanceType |
+| Capacity                     | 磁盘占用空间（包含数据及日志空间使用量） | 包括 MySQL 数据目录和 binlog、relaylog、undolog、errorlog、slowlog 日志空间 | MB      | InstanceId、InstanceType |
+| BytesSent                    | 内网出流量                               | 内网每秒入流量                                               | Byte/秒 | InstanceId、InstanceType |
+| BytesReceived                | 内网入流量                               | 内网每秒出流量                                               | Byte/秒 | InstanceId、InstanceType |
+| QPS                          | 每秒执行操作数                           | 数据库每秒执行的 SQL 数（含 insert、select、update、delete、replace），QPS 指标主要体现 TencentDB 实例的实际处理能力 | 次/秒   | InstanceId、InstanceType |
+| TPS                          | 每秒执行事务数                           | 数据库每秒执行的事务数                                       | 次/秒   | InstanceId、InstanceType |
+| MaxConnections               | 最大连接数                               | 数据库最大连接数                                             | 个      | InstanceId、InstanceType |
+| ThreadsConnected             | 当前打开连接数                           | 当前打开连接数                                               | 个      | InstanceId、InstanceType |
+| SlowQueries                  | 慢查询数                                 | 查询时间超过 long_query_time 秒的查询的个数                  | 次/分   | InstanceId、InstanceType |
+| SelectScan                   | 全表扫描数                               | 执行全表搜索查询的数量                                       | 次/秒   | InstanceId、InstanceType |
+| SelectCount                  | 查询数                                   | 每秒查询数                                                   | 次/秒   | InstanceId、InstanceType |
+| ComUpdate                    | 更新数                                   | 每秒更新数                                                   | 次/秒   | InstanceId、InstanceType |
+| ComDelete                    | 删除数                                   | 每秒删除数                                                   | 次/秒   | InstanceId、InstanceType |
+| ComInsert                    | 插入数                                   | 每秒插入数                                                   | 次/秒   | InstanceId、InstanceType |
+| ComReplace                   | 覆盖数                                   | 每秒覆盖数                                                   | 次/秒   | InstanceId、InstanceType |
+| Queries                      | 总请求数                                 | 所有执行的 SQL 语句，包括 set，show 等                       | 次/秒   | InstanceId、InstanceType |
+| QueryRate                    | 查询使用率                               | 每秒执行操作数 QPS/推荐每秒操作数                            | %       | InstanceId、InstanceType |
+| CreatedTmpTables             | 临时表数量                               | 创建临时表的数量                                             | 次/秒   | InstanceId、InstanceType |
+| TableLocksWaited             | 等待表锁次数                             | 不能立即获得的表的锁的次数                                   | 次/秒   | InstanceId、InstanceType |
+| InnodbCacheUseRate           | innodb缓存使用率                         | Innodb 引擎的缓存使用率                                      | %       | InstanceId、InstanceType |
+| InnodbCacheHitRate           | innodb缓存命中率                         | Innodb 引擎的缓存命中率                                      | %       | InstanceId、InstanceType |
+| InnodbOsFileReads            | innodb读磁盘数量                         | Innodb 引擎每秒读磁盘文件的次数                              | 次/秒   | InstanceId、InstanceType |
+| InnodbOsFileWrites           | innodb写磁盘数量                         | Innodb 引擎每秒写磁盘文件的次数                              | 次/秒   | InstanceId、InstanceType |
+| InnodbOsFsyncs               | innodb fsync数量                         | Innodb 引擎每秒调用 fsync 函数次数                           | 次/秒   | InstanceId、InstanceType |
+| InnodbNumOpenFiles           | 当前 InnoDB 打开表的数量                   | Innodb 引擎当前打开表的数量                                  | 个      | InstanceId、InstanceType |
+| KeyCacheUseRate              | myisam 缓存使用率                         | myisam 引擎的缓存命中率                                      | %       | InstanceId、InstanceType |
+| KeyCacheHitRate              | myisam 缓存命中率                         | myisam 引擎的缓存使用率                                      | %       | InstanceId、InstanceType |
+| ComCommit                    | 提交数                                   | 每秒提交次数                                                 | 次/秒   | InstanceId、InstanceType |
+| ComRollback                  | 回滚数                                   | 每秒回滚次数                                                 | 次/秒   | InstanceId、InstanceType |
+| ThreadsCreated               | 已创建的线程数                           | 创建用来处理连接的线程数                                     | 个      | InstanceId、InstanceType |
+| ThreadsRunning               | 运行的线程数                             | 激活的（非睡眠状态）线程数                                   | 个      | InstanceId、InstanceType |
+| CreatedTmpDiskTables         | 磁盘临时表数量                           | 每秒创建磁盘临时表的次数                                     | 次/秒   | InstanceId、InstanceType |
+| CreatedTmpFiles              | 临时文件数量                             | 每秒创建临时文件的次数                                       | 次/秒   | InstanceId、InstanceType |
+| HandlerReadRndNext           | 读下一行请求数                           | 每秒读取下一行的请求次数                                     | 次/秒   | InstanceId、InstanceType |
+| HandlerRollback              | 内部回滚数                               | 每秒事务被回滚的次数                                         | 次/秒   | InstanceId、InstanceType |
+| HandlerCommit                | 内部提交数                               | 每秒事务提交的次数                                           | 次/秒   | InstanceId、InstanceType |
+| InnodbBufferPoolPagesFree    | InnoDB 空页数                             | Innodb 引擎内存空页个数                                      | 个      | InstanceId、InstanceType |
+| InnodbBufferPoolPagesTotal   | InnoDB 总页数                             | Innodb 引擎占用内存总页数                                    | 个      | InstanceId、InstanceType |
+| InnodbBufferPoolReadRequests | InnoDB 逻辑读                             | Innodb 引擎每秒已经完成的逻辑读请求次数                      | 次/秒   | InstanceId、InstanceType |
+| InnodbBufferPoolReads        | InnoDB 物理读                             | Innodb 引擎每秒已经完成的物理读请求次数                      | 次/秒   | InstanceId、InstanceType |
+| InnodbDataReads              | InnoDB 总读取量                           | Innodb 引擎每秒已经完成读取数据的字节数                      | 次/秒   | InstanceId、InstanceType |
+| InnodbDataRead               | InnoDB 读取量                             | Innodb 引擎每秒已经完成读取数据的次数                        | Byte/秒 | InstanceId、InstanceType |
+| InnodbDataWrites             | InnoDB 总写入量                           | Innodb 引擎每秒已经完成写数据的次数                          | 次/秒   | InstanceId、InstanceType |
+| InnodbDataWritten            | InnoDB 写入量                             | Innodb 引擎每秒已经完成写数据的字节数                        | Byte/秒 | InstanceId、InstanceType |
+| InnodbRowsDeleted            | InnoDB 行删除量                           | Innodb 引擎每秒删除的行数                                    | 次/秒   | InstanceId、InstanceType |
+| InnodbRowsInserted           | InnoDB 行插入量                           | Innodb 引擎每秒插入的行数                                    | 次/秒   | InstanceId、InstanceType |
+| InnodbRowsUpdated            | InnoDB 行更新量                           | Innodb 引擎每秒更新的行数                                    | 次/秒   | InstanceId、InstanceType |
+| InnodbRowsRead               | InnoDB 行读取量                           | Innodb 引擎每秒读取的行数                                    | 次/秒   | InstanceId、InstanceType |
+| InnodbRowLockTimeAvg         | InnoDB 平均获取行锁时间                   | Innodb 引擎行锁定的平均时长                                  | 毫秒    | InstanceId、InstanceType |
+| InnodbRowLockWaits           | InnoDB 等待行锁次数                       | Innodb 引擎每秒等待行锁定的次数                              | 次/秒   | InstanceId、InstanceType |
+| KeyBlocksUnused              | 键缓存内未使用的块数量                   | myisam 引擎未使用键缓存块的个数                              | 个      | InstanceId、InstanceType |
+| KeyBlocksUsed                | 键缓存内使用的块数量                     | myisam 引擎已使用键缓存块的个数                              | 个      | InstanceId、InstanceType |
+| KeyReadRequests              | 键缓存读取数据块次数                     | myisam 引擎每秒读取键缓存块的次数                            | 次/秒   | InstanceId、InstanceType |
+| KeyReads                     | 硬盘读取数据块次数                       | myisam 引擎每秒读取硬盘数据块的次数                          | 次/秒   | InstanceId、InstanceType |
+| KeyWriteRequests             | 数据块写入键缓冲次数                     | myisam 引擎每秒写键缓存块的次数                              | 次/秒   | InstanceId、InstanceType |
+| KeyWrites                    | 数据块写入磁盘次数                       | myisam 引擎每秒写硬盘数据块的次数                            | 次/秒   | InstanceId、InstanceType |
+| OpenedTables                 | 已经打开的表数                           | 当前数据库已经打开的表数                                     | 个      | InstanceId、InstanceType |
+| TableLocksImmediate          | 立即释放的表锁数                         | 立即释放的表锁个数                                           | 个      | InstanceId、InstanceType |
+| OpenFiles                    | 打开文件总数                             | 当前数据库打开文件总数                                       | 个      | InstanceId、InstanceType |
+| LogCapacity                  | 日志使用量                               | 当前数据库日志使用量                                         | MB      | InstanceId、InstanceType |
+| SlaveIoRunning               | IO 线程状态                               | Slave下 IO 线程状态                                          | —       | InstanceId、InstanceType |
+| SlaveSqlRunning              | SQL 线程状态                              | Slave下 ISQL 线程状态                                         | —       | InstanceId、InstanceType |
+| MasterSlaveSyncDistance      | 主从延迟距离                             | 主从 binlog 差距                                             | MB      | InstanceId、InstanceType |
+| SecondsBehindMaster          | 主从延迟时间                             | 主从延迟时间                                                 | MB      | InstanceId、InstanceType |
+
+
+
+## 各维度对应参数总览
+
+ 
+  | 参数名称                       | 维度名称     | 维度解释                                                     | 格式                                     |
+  | ------------------------------ | ------------ | ------------------------------------------------------------ | ---------------------------------------- |
+  | Instances.N.Dimensions.0.Name  | InstanceId   | 数据库实例 ID                                                | 输入 String 类型维度名称，例如 topicId      |
+  | Instances.N.Dimensions.0.Value | InstanceId   | 数据库的具体 ID                                               | 输入具体实例ID，例如 topic-i4p4k0u0      |
+  | Instances.N.Dimensions.1.Name  | InstanceType | 数据库实例类型                                               | 输入 String 类型维度名称，例如 InstanceType |
+  | Instances.N.Dimensions.1.Value | InstanceType | 数据库实例类型，默认取值为1：<br><li>取值为1：表示拉取 master 监控数据<br><li>取值为2：表示拉取 slave 的 SlaveIoRunning、SlaveSqlRunning、MasterSlaveSyncDistance、SecondsBehindMaster 监控数据 | 输入实例类型，默认取值为1                |

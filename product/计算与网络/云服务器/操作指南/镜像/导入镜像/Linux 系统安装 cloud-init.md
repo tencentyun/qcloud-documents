@@ -13,8 +13,8 @@ Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果
 
 ## 操作步骤
 
-<span id="ManualDown"></span>
-### 手工下载 cloud-init 源码包方式
+
+### 手工下载 cloud-init 源码包方式[](id:ManualDown)
 
 #### 下载 cloud-init 源码包
 >?  
@@ -46,6 +46,7 @@ yum install python-pip -y
 ```
 apt-get install python-pip -y
 ```
+若在安装时，出现无法安装或找不到安装包的错误，可参考 [解决无法安装 Python-pip 问题](#updateSoftware) 进行处理。
 4. 执行以下命令，安装依赖包。
 >!  Cloud-init 依赖组件 requests 2.20.0版本后，已弃用 Python2.6。如果镜像环境的 Python 解释器为 Python2.6及以下，在安装 cloud-init 依赖包之前，请执行 `pip install 'requests<2.20.0'` 命令，安装 requests 2.20.0 版本以下的版本。
 >
@@ -76,8 +77,8 @@ python setup.py install --init-system systemd
 #### 修改 cloud-init 配置文件
 
 1. 根据不同操作系统，下载 cloud.cfg。
- - [点此下载](http://cloudinit-1251783334.cosgz.myqcloud.com/ubuntu-cloud.cfg) Ubuntu 操作系统的 cloud.cfg。
- - [点此下载](http://cloudinit-1251783334.cosgz.myqcloud.com/centos-cloud.cfg) CentOS 操作系统的 cloud.cfg。
+ - [点此下载](https://cloudinit-1251783334.cos.ap-guangzhou.myqcloud.com/ubuntu/cloud.cfg) Ubuntu 操作系统的 cloud.cfg。
+ - [点此下载](https://cloudinit-1251783334.cos.ap-guangzhou.myqcloud.com/centos/cloud.cfg) CentOS 操作系统的 cloud.cfg。
 2. 将 `/etc/cloud/cloud.cfg` 的内容替换为已下载的 cloud.cfg 文件内容。
 
 #### 添加 syslog 用户
@@ -88,6 +89,8 @@ useradd syslog
 
 #### 设置 cloud-init 服务开机自启动
 - **若操作系统是 systemd 自启动管理服务，则执行以下命令进行设置。**
+>?您可执行 `strings /sbin/init | grep "/lib/system"` 命令，若有返回信息，则操作系统是 systemd 自启动管理服务。
+>
  1. **针对 Ubuntu 或 Debian 操作系统，需执行以下命令。**
 ```
  ln -s /usr/local/bin/cloud-init /usr/bin/cloud-init 
@@ -157,6 +160,8 @@ StandardOutput=journal+console
 WantedBy=cloud-init.target
 ```
 - **若操作系统是 sysvinit 自启动管理服务，则执行以下命令进行设置。**
+>?您可执行 `strings /sbin/init | grep "sysvinit"` 命令，若有返回信息，则操作系统是 sysvinit 自启动管理服务。
+>
 ```
 chkconfig --add cloud-init-local
 chkconfig --add cloud-init
@@ -183,8 +188,8 @@ apt-get/yum install cloud-init
 
 #### 修改 cloud-init 配置文件
 1. 根据不同操作系统，下载 cloud.cfg。
- - [点此下载](http://cloudinit-1251740579.cosgz.myqcloud.com/ubuntu-cloud.cfg) Ubuntu 操作系统的 cloud.cfg。
- - [点此下载](http://cloudinit-1251740579.cosgz.myqcloud.com/centos-cloud.cfg) CentOS 操作系统的 cloud.cfg。
+ - [点此下载](https://cloudinit-1251783334.cos.ap-guangzhou.myqcloud.com/ubuntu/cloud.cfg) Ubuntu 操作系统的 cloud.cfg。
+ - [点此下载](https://cloudinit-1251783334.cos.ap-guangzhou.myqcloud.com/centos/cloud.cfg) CentOS 操作系统的 cloud.cfg。
 2. 将 `/etc/cloud/cloud.cfg` 的内容替换为已下载的 cloud.cfg 文件内容。
 
 ## 相关操作
@@ -225,8 +230,25 @@ cd greeninit
 sh install.sh 
 ```
 
-
-
-
+### 解决无法安装 Python-pip 问题<span id="updateSoftware"></span>
+若在安装 Python-pip 出现无此安装包或无法安装的错误，可对应实际使用的操作系统，参考以下步骤进行解决：
+- CentOS 6/7系列：
+  1. 执行以下命令，设置 EPEL 存储库。
+```
+yum install epel-release -y
+```
+  2. 执行以下命令，安装 Python-pip。
+```
+yum install python-pip -y
+```
+- Ubuntu 系列：
+  1. 执行以下命令，更新软件包列表。
+```
+apt-get update -y
+```
+  2. 执行以下命令，安装 Python-pip。
+```
+apt-get install python-pip -y
+```
 
 

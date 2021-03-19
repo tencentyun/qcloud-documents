@@ -1,4 +1,4 @@
-Sqoop 是一款开源的工具，主要用于在 Hadoop 和传统数据库（MySQL、PostgreSQL 等）之间进行数据传递，可以将一个关系型数据库（例如：MySQL、Oracle、Postgres等）中的数据导入到 Hadoop 的 HDFS 中，也可以将 HDFS 的数据导入到关系型数据库中。 Sqoop 中一大亮点就是可以通过 Hadoop 的 MapReduce 把数据从关系型数据库中导入数据到 HDFS。
+Sqoop 是一款开源的工具，主要用于在 Hadoop 和传统数据库（MySQL、PostgreSQL 等）之间进行数据传递，可以将一个关系型数据库（例如 MySQL、Oracle、Postgres 等）中的数据导入到 Hadoop 的 HDFS 中，也可以将 HDFS 的数据导入到关系型数据库中。Sqoop 中一大亮点就是可以通过 Hadoop 的 MapReduce 把数据从关系型数据库中导入数据到 HDFS。
 
 本文介绍了 Sqoop 的增量导入操作，即在数据库中的数据增加或更新后，把数据库的改动同步到导入 HDFS 的数据中。其中分为 append 模式和 lastmodified 模式，append 模式只能用在数据库的数据增加但不更新的场景，lastmodified 模式用在数据增加并且更新的场景。
 
@@ -70,7 +70,7 @@ root -P --table sqoop_test --check-column id  --incremental append --last-value 
 ```
 <property>
   <name>sqoop.metastore.client.enable.autoconnect</name>
-  <value>ture</value>
+  <value>true</value>
 </property>
 ```
 然后在 bin 目录下启动 sqoop-metastore 服务：
@@ -128,7 +128,12 @@ mysql> select max(time) from sqoop_test;
 ```
 [hadoop@172 sqoop]$ bin/sqoop job --create job2 -- import --connect jdbc:mysql://$mysqlIP/test --username root -P --table sqoop_test --check-column time --incremental lastmodified --merge-key id --last-value '2018-07-03 16:02:29' --target-dir /sqoop
 ```
-其中 $mysqlIP 为您的 MySQL 的内网地址。新增了几个参数，--check-column 必须使用 timestamp，--incremental 模式选择 lastmodified，--merge-key 选择 ID，--last-value 为我们查询到的表中的最后更新时间。在此时间后做出的更新都会被同步到 HDFS 中，而 Sqoop job 每次会自动保存和更新该值。
+**参数说明：**
+- $mysqlIP 为您的 MySQL 的内网地址。
+- --check-column 必须使用 timestamp。
+- --incremental 模式选择 lastmodified。
+- --merge-key 选择 ID。
+- --last-value 为我们查询到的表中的最后更新时间。在此时间后做出的更新都会被同步到 HDFS 中，而 Sqoop job 每次会自动保存和更新该值。
 
 对 MySQL 中的 sqoop_test 表添加数据并做出更改：
 ```

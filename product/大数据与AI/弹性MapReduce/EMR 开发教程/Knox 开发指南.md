@@ -1,8 +1,8 @@
 目前 EMR-V1.3.1 和 EMR-V2.0.1 版本已经支持 [Apache Knox](https://knox.apache.org/?spm=a2c4g.11186623.2.10.22b554deZiOUor)，完成以下准备工作后，即可在公网直接访问 Yarn、HDFS 等服务的 Web UI。
 
 ## 准备工作
-- 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。
-- EMR-V1.3.1 和 EMR-V2.0.1 默认在创建集群时，Knox 作为必选组件。如果您的集群是老集群，目前可以通过 [联系客服](https://cloud.tencent.com/about/connect)，为您的集群安装 Knox。
+- 确认您已开通腾讯云，并且创建了一个 EMR 集群。
+- EMR-V1.3.1 和 EMR-V2.0.1 默认在创建集群时，Knox 作为必选组件。如果您的集群是老集群，目前可通过 [联系客服](https://cloud.tencent.com/about/connect) 安装 Knox。
 
 ## 开始访问 Knox
 使用集群公网 IP 地址访问。建议修改集群拥有公网 IP 的 CVM 安全组规则，限定 TCP:30002 端口的访问 IP 端为您的 IP 端。

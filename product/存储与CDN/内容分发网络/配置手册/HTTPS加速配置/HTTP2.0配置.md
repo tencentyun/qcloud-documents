@@ -1,10 +1,13 @@
+
+
 ## 配置场景
-已配置证书启用 HTTPS 加速的域名，可自助开启 HTTP2.0 协议支持。
+HTTP2.0 作为最新的 HTTP 协议，大幅提升了 Web 性能，进一步减少了网络延迟。已配置证书启用 HTTPS 加速的域名，可自助开启 HTTP2.0 协议支持。
 > !目前仅支持 HTTP2.0 访问，暂不支持 HTTP2.0 协议回源。
+
 
 ## 配置指南
 ### 查看配置
-登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面最后一栏【高级配置】中，可看到【HTTP2.0 配置】，默认情况下为开启状态：
+登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可进入域名配置页面【Https 配置】中，可看到【HTTP2.0 配置】，默认情况下为开启状态：
 ![](https://main.qcloudimg.com/raw/6baf0831d42acad8b8ab1a0c705805bf.png)
 
 ###  修改配置

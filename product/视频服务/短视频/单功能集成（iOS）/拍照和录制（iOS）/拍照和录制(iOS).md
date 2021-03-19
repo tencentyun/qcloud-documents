@@ -1,5 +1,5 @@
 ## 功能概览
-视频录制包括视频变速录制、美颜、滤镜、声音特效、背景音乐设置等功能。
+视频录制包括视频变速录制、美颜、滤镜、声音特效、背景音乐设置等功能。 
 
 ## 使用类介绍
 腾讯云 UGC SDK 提供了相关接口用来实现短视频的录制，其详细定义如下：
@@ -20,7 +20,8 @@
 4. 完成录制。
 
 示例
-```
+<dx-codeblock>
+::: ios objcect-c
 @interface VideoRecordViewController <TXUGCRecordListener> {
    UIView *_videoRecordView;
 }
@@ -79,13 +80,14 @@
     [alert show];
 }
 @end
-
-```
+:::
+</dx-codeblock>
 
 ## 画面预览
 TXUGCRecord（位于 TXUGCRecord.h）负责小视频的录制功能，我们的第一个工作是先把预览功能实现。startCameraSimplePreview 函数用于启动预览。由于启动预览要打开摄像头和麦克风，所以这里可能会有权限申请的提示窗。
 ### 1. 启动预览
-```objc
+<dx-codeblock>
+::: ios objcect-c
 TXUGCRecord *record = [TXUGCRecord sharedInstance];
 record.recordDelegate = self; //设置录制回调, 回调方法见 TXUGCRecordListener
 
@@ -104,13 +106,15 @@ param.enableBFrame = YES; // 开启B帧，相同码率下能获得更好的画�
 
 //结束画面预览
 [[TXUGCRecord shareInstance] stopCameraPreview];
-
-```
+:::
+</dx-codeblock>
 
 ### 2. 调整预览参数
 
 如果在相机启动后，可以通过以下方法修改：
-```objc
+
+<dx-codeblock>
+::: ios objcect-c
 // 切换视频录制分辨率到540p
 [recorder setVideoResolution: VIDEO_RESOLUTION_540_960];
 
@@ -128,10 +132,13 @@ param.enableBFrame = YES; // 开启B帧，相同码率下能获得更好的画�
 
 // 设置自定义图像处理回调
 recorder.videoProcessDelegate = delegate;
-```
+:::
+</dx-codeblock>
+
 ## 录制过程控制
 ### 录制的开始、暂停与恢复
-```
+<dx-codeblock>
+::: ios objcect-c
 // 开始录制
 [recorder startRecord];
 
@@ -149,22 +156,20 @@ recorder.videoProcessDelegate = delegate;
 
 // 结束录制
 [recorder stopRecord];
-```
+:::
+</dx-codeblock>
 
 录制的过程和结果是通过 TXUGCRecordListener（位于 TXUGCRecordListener.h 中定义）协议进行回调：
-
 - onRecordProgress 用于反馈录制的进度，参数 millisecond 表示录制时长，单位毫秒。
 ```
   @optional
    (void)onRecordProgress:(NSInteger)milliSecond;
 ```
-
 - onRecordComplete 反馈录制的结果，TXRecordResult 的 retCode 和 descMsg 字段分别表示错误码和错误描述信息，videoPath 表示录制完成的小视频文件路径，coverImage 为自动截取的小视频第一帧画面，便于在视频发布阶段使用。
 ```
   @optional
    (void)onRecordComplete:(TXUGCRecordResult*)result;
 ```
-
 - onRecordEvent 录制事件回调预留的接口，暂未使用。
 ```
   @optional
@@ -201,14 +206,16 @@ recorder.videoProcessDelegate = delegate;
 ```
 
 ### 3. 声音设置
-```
+<dx-codeblock>
+::: ios objcect-c
 // 设置麦克风的音量大小，播放背景音混音时使用，用来控制麦克风音量大小
 // 音量大小,1为正常音量,建议值为0-2,如果需要调大音量可以设置更大的值.
 [recorder setMicVolume:volume];
 
 // 设置录制是否静音 参数 isMute 代表是否静音，默认不静音
 [recorder setMute:isMute];
-```
+:::
+</dx-codeblock>
 
 ## 拍照
 
@@ -233,7 +240,9 @@ recorder.videoProcessDelegate = delegate;
 ```
 
 ### 2. 滤镜效果
-```
+
+<dx-codeblock>
+::: ios objcect-c
 //设置风格滤镜
 // 设置颜色滤镜：浪漫、清新、唯美、粉嫩、怀旧...
 // filterImage : 指定滤镜用的颜色查找表。注意：一定要用 png 格式
@@ -251,7 +260,8 @@ recorder.videoProcessDelegate = delegate;
 // leftRadio       左侧图片占的比例大小
 // 可以此接口实现滑动切换滤镜的效果，详见 demo。
 [recorder setFilter:leftFilterImgage leftIntensity:leftIntensity rightFilter:rightFilterImgage rightIntensity:rightIntensity leftRatio:leftRatio];
-```
+:::
+</dx-codeblock>
 
 ### 3. 美颜效果
 ```

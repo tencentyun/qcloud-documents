@@ -1,0 +1,65 @@
+全球应用加速（Global Application Acceleration Platform，GAAP）是一款实现业务全球最佳访问延迟的 PAAS 类产品，依赖全球节点之间的高速通道、转发集群及智能路由技术，实现各地用户的就近接入，并将流量转发至源站，帮助业务解决全球用户访问卡顿或者延迟过高的问题。
+
+下表为云审计支持的全球应用加速操作列表：
+
+| 操作名称         | 资源类型 | 事件名称                                |
+|--------------|------|-------------------------------------|
+| 添加源站         | gaap | AddRealServers                      |
+| 监听器绑定源站      | gaap | BindListenerRealServers             |
+| 转发规则绑定源站     | gaap | BindRuleRealServers                 |
+| 关闭通道         | gaap | CloseProxies                        |
+| 关闭安全策略       | gaap | CloseSecurityPolicy                 |
+| 创建 HTTP 监听器    | gaap | CreateHTTPListener                  |
+| 创建 HTTPS 监听器   | gaap | CreateHTTPSListener                 |
+| 创建通道         | gaap | CreateProxy                         |
+| 开通通道组域名      | gaap | CreateProxyGroupDomain              |
+| 创建监听器转发规则    | gaap | CreateRule                          |
+| 创建安全策略       | gaap | CreateSecurityPolicy                |
+| 添加安全策略规则     | gaap | CreateSecurityRules                 |
+| 创建 TCP 监听器     | gaap | CreateTCPListeners                  |
+| 创建 UDP 监听器     | gaap | CreateUDPListeners                  |
+| 根据域名删除转发规则   | gaap | DeleteDomain                        |
+| 删除通道监听器      | gaap | DeleteListeners                     |
+| 删除通道组        | gaap | DeleteProxyGroup                    |
+| 删除7层监听器转发规则  | gaap | DeleteRule                          |
+| 删除安全策略       | gaap | DeleteSecurityPolicy                |
+| 删除安全策略规则     | gaap | DeleteSecurityRules                 |
+| 查询域名列表       | gaap | DescribeGlobalDomains               |
+| 查询统计通道组和通道信息 | gaap | DescribeGroupAndStatisticsProxy     |
+| 获取通道组域名配置详情  | gaap | DescribeGroupDomainConfig           |
+| 查询 HTTP 监听器信息  | gaap | DescribeHTTPListeners               |
+| 查询 HTTPS 监听器信息 | gaap | DescribeHTTPSListeners              |
+| 查询监听器信息      | gaap | DescribeL4Listeners                 |
+| 查询监听器源站列表    | gaap | DescribeListenerRealServers         |
+| 查询监听器统计数据    | gaap | DescribeListenerStatistics          |
+| 查询通道实例列表     | gaap | DescribeProxies                     |
+| 查询通道状态       | gaap | DescribeProxiesStatus               |
+| 查询统计通道和监听器信息 | gaap | DescribeProxyAndStatisticsListeners |
+| 查询通道详情       | gaap | DescribeProxyDetail                 |
+| 查询通道详情       | gaap | DescribeProxyGroupDetails           |
+| 拉取通道组列表      | gaap | DescribeProxyGroupList              |
+| 查询通道组统计数据    | gaap | DescribeProxyGroupStatistics        |
+| 查询通道统计数据     | gaap | DescribeProxyStatistics             |
+| 查询源站列表       | gaap | DescribeRealServers                 |
+| 查询源站绑定状态     | gaap | DescribeRealServersStatus           |
+| 查询转发规则相关源站信息 | gaap | DescribeRuleRealServers             |
+| 查询转发规则信息     | gaap | DescribeRules                       |
+| 获取安全策略详情     | gaap | DescribeSecurityPolicyDetail        |
+| 查询TCP监听器列表   | gaap | DescribeTCPListeners                |
+| 查询UDP监听器列表   | gaap | DescribeUDPListeners                |
+| 销毁通道         | gaap | DestroyProxies                      |
+| 更新监听器转发规则域名  | gaap | ModifyDomain                        |
+| 修改通道组域名配置    | gaap | ModifyGroupDomainConfig             |
+| 修改 HTTP 监听器配置  | gaap | ModifyHTTPListenerAttribute         |
+| 修改 HTTPS 监听器配置 | gaap | ModifyHTTPSListenerAttribute        |
+| 修改通道属性       | gaap | ModifyProxiesAttribute              |
+| 修改通道配置       | gaap | ModifyProxyConfiguration            |
+| 修改通道组属性      | gaap | ModifyProxyGroupAttribute           |
+| 修改源站名称       | gaap | ModifyRealServerName                |
+| 修改转发规则信息     | gaap | ModifyRuleAttribute                 |
+| 修改安全策略规则     | gaap | ModifySecurityRule                  |
+| 修改 TCP 监听器配置   | gaap | ModifyTCPListenerAttribute          |
+| 修改 UDP 监听器配置   | gaap | ModifyUDPListenerAttribute          |
+| 开启通道         | gaap | OpenProxies                         |
+| 开启安全策略       | gaap | OpenSecurityPolicy                  |
+| 删除源站         | gaap | RemoveRealServers                   |

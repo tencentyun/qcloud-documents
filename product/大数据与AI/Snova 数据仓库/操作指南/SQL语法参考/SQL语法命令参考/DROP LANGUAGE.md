@@ -1,17 +1,14 @@
 删除一个程序语言。
 
 ## 概要
-
 ```sql
 DROP [PROCEDURAL] LANGUAGE [IF EXISTS] name [CASCADE | RESTRICT]
 ```
 
 ## 描述
-
 DROP LANGUAGE 会删除之前注册程序语言的定义。用户必须是超级用户或者是该语言的拥有者才能删除该语言。
 
 ## 参数
-
 PROCEDURAL
 可选关键字，没有效果。
 
@@ -29,7 +26,6 @@ RESTRICT
 
 ## 示例
 删除程序语言 plsample：
-
 ```sql
 DROP LANGUAGE plsample;
 ```

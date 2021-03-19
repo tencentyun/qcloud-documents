@@ -1,9 +1,9 @@
-Sqoop 是一款开源的工具，主要用于在 Hadoop 和传统数据库（MySQL、PostgreSQL 等）之间进行数据传递，可以将一个关系型数据库（例如：MySQL、Oracle、Postgres 等）中的数据导入到 Hadoop 的 HDFS 中，也可以将 HDFS 的数据导入到关系型数据库中。Sqoop 中一大亮点就是可以通过 Hadoop 的 MapReduce 把数据从关系型数据库中导入数据到 HDFS。
+Sqoop 是一款开源的工具，主要用于在 Hadoop 和传统数据库（MySQL、PostgreSQL 等）之间进行数据传递，可以将一个关系型数据库（例如 MySQL、Oracle、Postgres 等）中的数据导入到 Hadoop 的 HDFS 中，也可以将 HDFS 的数据导入到关系型数据库中。Sqoop 中一大亮点就是可以通过 Hadoop 的 MapReduce 把数据从关系型数据库中导入数据到 HDFS。
 
 本文介绍了使用腾讯云 Sqoop 服务将数据在 MySQL 和 HDFS 之间导入/导出的使用方法。
 
 ## 1. 开发准备
-- 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择 Sqoop 组件。 
+- 确认已开通腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择 Sqoop 组件。 
 - Sqoop 等相关软件安装在路径 EMR 云服务器的`/usr/local/service/`路径下。
 
 ## 2. 新建一个 MySQL 表
@@ -85,7 +85,7 @@ Enter password:
 mysql> use test;
 Database changed
 
-mysql> create table sqoop_test_back(id int not null primary key auto_increment, title varchar(64), time timestamp, (content varchar(255));
+mysql> create table sqoop_test_back(id int not null primary key auto_increment, title varchar(64), time timestamp, content varchar(255));
 Query ok , 0 rows affected(0.00 sec)
 ```
 查看表是否创建成功后退出 MySQL：
@@ -103,7 +103,7 @@ mysql> exit;
 ```
 使用 sqoop-export 把上一步导入 HDFS 中的数据再一次导入到 MySQL 中：
 ```
-[hadoop@172 sqoop]$ bin/sqoop-export --connect jdbc:mysql://172.16.16.42/test --username 
+[hadoop@172 sqoop]$ bin/sqoop-export --connect jdbc:mysql://$mysqlIP/test --username 
 root -P --table sqoop_test_back --export-dir /sqoop
 ```
 参数和 sqoop-import 类似，只不过变成了 --export-dir，该参数为 HDFS 中的存放数据的路径。回车后也需要输入密码。

@@ -1,3 +1,4 @@
+
 ## 1. 接口描述
 接口请求域名：`iot.cloud.tencent.com/api/exploreropen/tokenapi`
 本接口（AppTokenBindDeviceFamily）用于小程序或 App 用户绑定 Wi-Fi 类设备。
@@ -72,12 +73,12 @@ content-type: application/json
 |InvalidParameterValue.TokenNotExist|Token 不存在|
 |InvalidParameterValue.TokenIsExpire|Token 已过期|
 |InvalidParameterValue.ReadTokenInfoError|Token 读错误|
-|InvalidParameterValue.TokenNotBind|Token 未绑定|
+|InvalidParameterValue.TokenNotBind|Token 未绑定，即在上一步接口 AppGetDeviceBindTokenState 查询返回状态为初始状态，非可使用状态|
 |InvalidParameterValue.FamilyDeviceCountReadError|读设备数量错误|
 |UnauthorizedOperation|无操作权限|
 |UnauthorizedOperation.APPNoPermissionToStudioProduct|App 对操作该产品无权限|
 |UnauthorizedOperation.NoPermissionToFamily|操作该家庭无权限|
-|ResourceNotFound|资源部存在|
+|ResourceNotFound|资源不存在|
 |ResourceNotFound.StudioFamilyNotExist|家庭未创建或是已删除|
 |ResourceNotFound.StudioProductNotExist|产品尚未创建或已被删除|
 |ResourceNotFound.DeviceNotExist|设备未创建或是已删除|

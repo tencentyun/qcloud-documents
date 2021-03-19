@@ -8,22 +8,22 @@ SDK 支持 在 Android 4.0.3（API 15）及以上系统上运行，但只有（A
 - Android NDK: android-ndk-r12b
 - Android SDK Tools: android-sdk_25.0.2
 - minSdkVersion: 15
-- targetSdkVersion: 21
+- targetSdkVersion: 26
 - Android Studio（推荐您也使用 Android Studio，当然您也可以使用 Eclipse + ADT）
 
 ### 3. 集成攻略
-#### 3.1 集成攻略（aar）
+#### 3.1 集成攻略（aar 集成方式）
 1. **新建工程**
 ![](https://main.qcloudimg.com/raw/ca473c3bf484da3d7d959dbb83b192b1.png)
-2. **拷贝文件**
-将 aar 包放在工程 libs 目录下即可。
-3. **工程配置**
+
+2. **工程配置**
 	1. 在工程 App 目录下的 build.gradle 中，添加引用 aar 包的代码：
 ```
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    // 导入短视频SDK aar，LiteAVSDK_UGC_x.x.xxxx 请自行修改为最新版本号
-    compile(name: 'LiteAVSDK_UGC_6.8.7969', ext: 'aar')
+    // 导入短视频 SDK aar，LiteAVSDK_UGC_x.y.zzzz 请自行修改为最新版本号
+    compile(name: 'LiteAVSDK_UGC_7.4.9211', ext: 'aar')
+    ...
 }
 ```
 	2. 在工程目录下的 build.gradle 中，添加 flatDir，指定本地仓库：
@@ -40,20 +40,15 @@ allprojects {
 	3. 在 App 工程目录下的 build.gradle 的 defaultConfig 里面，指定 ndk 兼容的架构：
 ```
 defaultConfig {
-    applicationId "com.tencent.liteav.demo"
-    minSdkVersion rootProject.ext.minSdkVersion
-    targetSdkVersion rootProject.ext.targetSdkVersion
-    versionCode 1
-    versionName "2.0"
-
+    ...
     ndk {
         abiFilters "armeabi", "armeabi-v7a"
     }
 }
 ```
-	4. 最后编译一下工程 Rebuild Project。
+	4. 最后点击 Sync Now，编译工程。
 
-#### 3.2 集成攻略（jar）
+#### 3.2 集成攻略（jar+so 集成方式）
 1. **库说明**
 解压 zip 压缩包后得到 libs 目录，里面主要包含 jar 文件和 so 文件，文件清单如下：
 <table border=0 cellpadding="0" cellspacing="0">
@@ -95,7 +90,7 @@ defaultConfig {
 </tr>
 </tbody></table>
 2. **拷贝文件**
-如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才得到的 jar 包和 so 库拷贝到 **Demo\app\src\main\jniLibs** 目录下，这是 Android studio 默认的 jni 加载目录。
+如果您的工程之前没有指定过 jni 的加载路径，推荐您将刚才得到的 jar 包和 so 库拷贝到 **Demo\app\src\main\jniLibs** 目录下，这是 Android Studio 默认的 jni 加载目录。
 
 	如果您使用的是企业版，那么解压 zip 包后，除了 jar 包和 so 库增加了以外，还多了 assets 目录下的文件，这些是动效所需要的，需要全部拷贝到工程的 assets 目录下，请参见 [动效变脸 - 工程配置](https://cloud.tencent.com/document/product/584/13510#.E5.B7.A5.E7.A8.8B.E8.AE.BE.E7.BD.AE)。
 3. **工程配置**
@@ -105,6 +100,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     // 导入腾讯云短视频SDK jar
     compile fileTree(dir: 'src/main/jniLibs', includes: ['*.jar'])
+    ...
 }
 ```
 4. **减少 APK 体积**
@@ -142,8 +138,8 @@ dependencies {
 在您的应用中使用短视频功能之前，建议在 - Application onCreate() 中进行如下设置：
 ```
 public class DemoApplication extends Application {
-    String ugcLicenceUrl = "http://xxxxxxxx.cossh.myqcloud.com/xiaoshipin/licence_android/TXUgcSDK.licence"; //您从控制台申请的 licence url
-    String ugcKey = "xxxxxxxxxxxxxxx";                                                                 //您从控制台申请的 licence key
+    String ugcLicenceUrl = ""; // 填入您从控制台申请的 licence url
+    String ugcKey = "";        // 填入您从控制台申请的 licence key
 
     @Override
     public void onCreate() {
@@ -186,7 +182,7 @@ Log.d("liteavsdk", "liteav sdk version is : " + sdkver);
 ```
 3. **编译运行**
 如果前面各步骤都操作正确，demo 工程将顺利编译通过，运行之后将在 logcat 中看到如下 log 信息：
-`09-26 19:30:36.547 19577-19577/ D/liteavsdk: liteav sdk version is : 3.9.2794`
+`09-26 19:30:36.547 19577-19577/ D/liteavsdk: liteav sdk version is : 7.4.9211`
 
 ### 常见问题排查
 如果您将 SDK 导入到您的工程，编译运行出现类似以下错误：
@@ -201,12 +197,7 @@ Binary XML file #14:Error inflating class com.tencent.rtmp.ui.TXCloudVideoView
 - 如果您使用 aar 集成方式的完整版本，在工程目录下的 build.gradle 的 defaultConfig 里面确认下是否将 x64 架构的 so 库过滤掉。因为完整版本中连麦功能所使用的声学组件库暂时不支持 x64 架构的手机。
 ```
 defaultConfig {
-    applicationId "com.tencent.liteav.demo"
-    minSdkVersion rootProject.ext.minSdkVersion
-    targetSdkVersion rootProject.ext.targetSdkVersion
-    versionCode 1
-    versionName "2.0"
-		
+    ...		
     ndk {
         abiFilters "armeabi", "armeabi-v7a"
     }
@@ -217,7 +208,7 @@ defaultConfig {
 -keep class com.tencent.** { *; }
 ```
 - 配置 App 打包参数。
-![](https://main.qcloudimg.com/raw/dabfd69ee06e4d38bb3b51fc436c0ad1.png)
+![](https://main.qcloudimg.com/raw/b2dd9bde1cdf13ad5c77c1e00c4092aa.png)
 
 ## 快速接入功能模块
 本篇文档讲述了如何在已有的项目中快速集成短视频SDK，完成从录制、预览到编辑的完整过程。
@@ -232,114 +223,43 @@ defaultConfig {
 - videorecord：SDK开发包中短视频录制 UI 组件
 - videojoiner：SDK开发包中短视频合成 UI 组件
 	
-在新建的工程 UGC/settings.gradle 下指明引入这四个 module：
+在新建的工程 UGC/settings.gradle 下指明引入这几个 module：
 ```
-include ':app'
-# 拷贝这段代码起始位置
 include ':videorecorder'
 include ':videoediter'
 include ':videojoiner'
-# 拷贝这段代码结束位置
 ```
-在新建的工程 module：app 的 build.gradle 下指明引入这四个 module：
+在新建的工程 module：app 的 build.gradle 下指明引入这几个 module：
 ```
-apply plugin: 'com.android.application'
-
-android {
-	compileSdkVersion rootProject.ext.compileSdkVersion
-        buildToolsVersion rootProject.ext.buildToolsVersion
-	defaultConfig {
-		applicationId "com.tencent.liteav.demo"
-		minSdkVersion 15
-		targetSdkVersion 23
-		versionCode 1
-		versionName "1.0"
-		// 拷贝这段代码起始位置
-		ndk {
-			abiFilters "armeabi", "armeabi-v7a"
-		}
-		// 拷贝这段代码结束位置
-		testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-	}
-	buildTypes {
-		release {
-			minifyEnabled false
-			proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-		}
-	}
-	// 拷贝这段代码起始位置
-	sourceSets {
-		main {
-			jniLibs.srcDirs = ['libs']
-		}
-	}
-	// 集成短视频企业版需要添加 packagingOptions，非企业版不需要
-	packagingOptions {
-		pickFirst '**/libc++_shared.so'
-        	doNotStrip "*/armeabi/libYTCommon.so"
-        	doNotStrip "*/armeabi-v7a/libYTCommon.so"
-        	doNotStrip "*/x86/libYTCommon.so"
-        	doNotStrip "*/arm64-v8a/libYTCommon.so"
-    	}
-	// 拷贝这段代码结束位置
-}
-
 dependencies {
 	compile fileTree(dir: 'libs', include: ['*.jar'])
-	// 拷贝这段代码起始位置
+    ...
 	compile project(':videoediter')
 	compile project(':videojoiner')
 	compile project(':videorecorder')
-	// 拷贝这段代码结束位置
+    ...
 }
 ```
-**步骤3**：修改 Project:build.gradle 的配置。 
+**步骤3**：修改工程根目录下 build.gradle 的配置。 
 ```
-buildscript {
-	repositories {
-		jcenter()
-	}
-	dependencies {
-		classpath 'com.android.tools.build:gradle:2.2.3'
-	}
-}
-
 allprojects {
 	repositories {
-		jcenter()
-		 // 拷贝这段代码起始位置
+		...
 		flatDir {
 			 dirs project(':videoediter').file('libs')
-            		 dirs project(':videojoiner').file('libs')
-         		 dirs project(':videorecorder').file('libs')
+             dirs project(':videojoiner').file('libs')
+         	 dirs project(':videorecorder').file('libs')
 		}
-		// 拷贝这段代码结束位置
 	}
 }
-
-task clean(type: Delete) {
-	delete rootProject.buildDir
-}
- // 拷贝这段代码起始位置
-ext {
-	compileSdkVersion = 28
-        buildToolsVersion = "28.0.3"
-        minSdkVersion = 16
-        targetSdkVersion = 23
-        supportSdkVersion = "26.0.0"
-}
-// 拷贝这段代码结束位置
 ```
 **步骤4**：在拷贝的三个 module："videoediter"，"videojoiner"，"videorecorder" 中 libs 文件夹拷贝最新 sdk 的 aar，并在每个 module 的 build.gradle 配置 sdk。如下示例"videoediter"。
 ```
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     // 请修改为拷贝到libs下的sdk名称
-    compile(name: 'LiteAVSDK_Professional', ext: 'aar')
-
-    compile "com.android.support:appcompat-v7:$rootProject.ext.supportSdkVersion"
-    compile "com.android.support:recyclerview-v7:$rootProject.ext.supportSdkVersion"
-    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile(name: 'LiteAVSDK_UGC_7.4.9211', ext: 'aar')
+    ...
 }
 ```
 **步骤5**：请确保 Android Gradle Plugin 版本和本地 Gradle 版本的兼容性。
@@ -348,7 +268,7 @@ The versions of the Android Gradle plugin and Gradle are not compatible.
 ```
 可以按照如下给出的代码配置，保证 Gradle 版本兼容性，修改 gradle-wrapper.properties 文件的 Gradle 版本：
 ```
-distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
+distributionUrl=https\://services.gradle.org/distributions/gradle-5.4.1-all.zip
 ```
 **步骤6**：License 配置。
 新建 DemoApplication 类，用于设置 License，并在 AndroidManifest.xml 中声明此 Application。
@@ -357,8 +277,8 @@ distributionUrl=https\://services.gradle.org/distributions/gradle-3.3-all.zip
 import com.tencent.ugc.TXUGCBase;
 
 public class DemoApplication extends Application {
-	String ugcLicenceUrl = "http://download-1252463788.cossh.myqcloud.com/xiaoshipin/licence_android/TXUgcSDK.licence";
-	String ugcKey = "731ebcab46ecc59ab1571a6a837ddfb6";
+	String ugcLicenceUrl = "xxx";
+	String ugcKey = "xxx";
 
 	@Override
 	public void onCreate() {
@@ -367,6 +287,7 @@ public class DemoApplication extends Application {
 
 		String string = TXUGCBase.getInstance().getLicenceInfo(this);
 		Log.i("SDK", "string=" + string);
+		UGCKit.init(this);
 	}
 }
 

@@ -1,5 +1,5 @@
 ### 请求 URL 字段说明
-Rest API 是一种灵活、安全、通用的接入解决方案，同时 Rest API 读写简单，请求 body 信息直观，业务可以快速完成功能集成，实现产品上线。小微客服机器人 Rest 请求格式如下所示：
+Rest API 是一种灵活、安全、通用的接入解决方案，同时 Rest API 读写简单，请求 body 信息直观，业务可以快速完成功能集成，实现产品上线。小微客服机器人 Rest 请求格式如下所示：  
 
 <pre>
 https://yun.tim.qq.com/v3/prophet/$command?

@@ -178,7 +178,7 @@ try
         phoneNumbers[0], beginTime, endTime, maxNum);
     Console.WriteLine(callbackResult);
 
-    // 拉取回复，国际/港澳台短信不支持回复功能
+    // 拉取回复（国际/港澳台短信不支持回复功能）
     var replyResult = mspuller.pullReply("86",
         phoneNumbers[0], beginTime, endTime, maxNum);
     Console.WriteLine(replyResult);

@@ -55,7 +55,7 @@ vim /etc/ssh/sshd_config
 ```
 systemctl restart sshd.service
 ```
-6. 配置防火墙。
+6. （可选）配置防火墙。
  - CentOS 7 以前版本的 Linux 云服务器默认使用 iptables 服务作为防火墙。如果云服务器配置了 iptables 规则，则需要执行如下操作配置防火墙：
     1. 执行如下命令，配置防火墙。
 ```

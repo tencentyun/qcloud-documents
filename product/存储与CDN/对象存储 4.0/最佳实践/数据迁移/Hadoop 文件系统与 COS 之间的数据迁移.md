@@ -13,6 +13,13 @@ hadoop fs -ls cosn://examplebucket-1250000000/
 如果能够正确地列出 COS Bucket 中的文件列表，则表示 Hadoop-COS 安装和配置正确，可以进行以下实践步骤。
 2. COS 的访问账户必须要具备读写 COS 存储桶中目标路径的权限。
 
+>!
+>- 您可以按需授予子账号读写 COS 存储桶内资源的权限，建议按照 [最小权限原则](https://cloud.tencent.com/document/product/436/38618) 和 [子用户授权指南](https://cloud.tencent.com/document/product/598/36256) 进行授权，以下几种是常见预设策略：
+>  - [DataFullControl](https://console.cloud.tencent.com/cam/policy/detail/5294998&QcloudCOSDataFullControl&2)：数据全读写权限，包含读、写、列出文件列表以及删除操作，建议谨慎授予。
+>  - [QcloudCOSDataReadOnly](https://console.cloud.tencent.com/cam/policy/detail/5295051&QcloudCOSDataReadOnly&2)：数据只读权限。
+>  - [QcloudCOSDataWriteOnly](https://console.cloud.tencent.com/cam/policy/detail/5295044&QcloudCOSDataWriteOnly&2)：数据只写权限。
+>- 如果需要使用自定义监控能力，需要授权云监控指标上报和读取接口操作权限，请谨慎授予 [QcloudMonitorFullAccess](https://console.cloud.tencent.com/cam/policy/detail/276210&QcloudMonitorFullAccess&2) 或者按需授予 [云监控接口](https://cloud.tencent.com/document/product/397/40208) 权限。
+
 ## 实践步骤
 
 ### 将 HDFS 中的数据复制到 COS 的存储桶中
@@ -42,7 +49,28 @@ Hadoop Distcp 是一个支持不同集群和文件系统之间复制数据的工
 hadoop distcp cosn://hdfs-test-1250000000/test hdfs://10.0.0.3:9000/
 ```
 
+### 指定配置 Distcp 命令行参数进行 HDFS 和 COS 之间的数据迁移
+
+>?该命令行配置支持双向操作，可支持 HDFS 数据迁移到 COS，也可以将 COS 数据迁移到 HDFS。
+
+用户可直接配置以下命令：
+```plaintext
+hadoop distcp -Dfs.cosn.impl=org.apache.hadoop.fs.CosFileSystem -Dfs.cosn.bucket.region=ap-XXX  -Dfs.cosn.userinfo.secretId=AK**XXX  -Dfs.cosn.userinfo.secretKey=XXXX  -libjars /home/hadoop/hadoop-cos-2.6.5-shaded.jar  cosn://bucketname-appid/test/ hdfs:///test/
+```
+
+参数说明如下：
+
+- Dfs.cosn.impl：始终配置为 org.apache.hadoop.fs.CosFileSystem。
+- Dfs.cosn.bucket.region：填写存储桶所在地域，可在 COS 控制台存储桶列表中查看。
+- Dfs.cosn.userinfo.secretId：填写存储桶拥有者账号下的 SecretId，可前往 [云 API 密钥](https://console.cloud.tencent.com/capi) 中获取。
+- Dfs.cosn.userinfo.secretKey：填写存储桶拥有者账号下的 secretKey，可前往 [云 API 密钥](https://console.cloud.tencent.com/capi) 中获取。
+- libjars：指定 Hadoop-COS jar 包位置。Hadoop-COS jar 包可前往 [Github 仓库](https://github.com/tencentyun/hadoop-cos) 中的 dep 目录下进行下载。
+
+>?其他参数请参考 [Hadoop 工具](https://cloud.tencent.com/document/product/436/6884) 文档。
+
+
 ## Hadoop distcp 的扩展参数
 
-Hadoop distcp 工具支持丰富的运行参数，例如，可以通过`-m`来指定最大用于并行复制的 Map 任务数目，`-bandwidth`来限制每个 map 所使用的最大带宽等。具体可参考 Apache Hadoop distcp 工具的官方文档：[DistCp Guide](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html)。
+Hadoop distcp 工具支持丰富的运行参数。例如，可以通过`-m`来指定最大用于并行复制的 Map 任务数目，`-bandwidth`来限制每个 map 所使用的最大带宽等。具体可参考 Apache Hadoop distcp 工具的官方文档：[DistCp Guide](https://hadoop.apache.org/docs/current/hadoop-distcp/DistCp.html)。
+
 

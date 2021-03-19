@@ -1,7 +1,7 @@
 >!
 - 身份证识别接口全面升级，算法更强、性能更优，支持子账号调用。欢迎立即体验 [新版身份证识别](https://cloud.tencent.com/document/product/866/33524)。
 - 新老版本的接口计费模式相同，且共享计费阶梯和资源包，您可以在【文字识别控制台】>【[身份证识别](https://console.cloud.tencent.com/ai/ocr/idcard)】中查看调用情况。
-- 老版本接口我们仍继续维护，但不支持新客户开通调用，建议您使用 [新版身份证识别](https://cloud.tencent.com/document/product/866/33524)，体验更优服务。
+- 老版本接口我们仍继续维护，但不支持新客户开通调用，建议您使用 [新版身份证识别](https://cloud.tencent.com/document/product/866/33524)，体验更优服务。  
 
 ## 接口描述
 接口请求域名：`https://recognition.image.myqcloud.com/ocr/idcard`
@@ -338,7 +338,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 | -7004   | 不是身份证反面照片(请使用身份证反面进行扫描)           |
 | -7005   | 确保扫描证件图像清晰                        |
 | -7006   | 请避开灯光直射在证件表面                      |
-| -9100   | 身份证日期不合法                          |
 | -9101   | 身份证边框不完整                          |
+| -9100   | 身份证日期不合法                          |
 
 更多其他 API 错误码请查看 [错误码说明](https://cloud.tencent.com/document/product/866/17733)。

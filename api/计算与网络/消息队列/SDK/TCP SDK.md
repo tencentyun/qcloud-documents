@@ -5,7 +5,7 @@ TCP 协议目前支持公网访问以及同地域的私有网络的 CVM 内网�
 - **更少的计算资源**
 HTTP 针对请求鉴权，每次请求都需要签名；TCP 针对链接鉴权，只需要建立连接的时候对链接鉴权，节约客户端计算资源。
 - **更安全的客户端线程**
-HTTP 客户端非线程安全；TCP 客户端线程安全，多个线程可使用相同的链接，节省链接资源。
+TCP 客户端线程安全，多个线程可使用相同的链接，节省链接资源。
 - **更高效的传输效率**
 TCP 传输提高有效数据占比，在相同客户端下，拥有更高的吞吐量和 QPS，相比 HTTP 具有更高效的传输效率。
 - **更优的使用体验**
@@ -78,3 +78,4 @@ String queue = “创建的队列名”
 | 泰国     | http://cmq-nameserver-th.tencentcloudapi.com| http://cmq-nameserver-vpc-th.api.tencentyun.com |     
 | 美东     | http://cmq-nameserver-use.tencentcloudapi.com | http://cmq-nameserver-vpc-use.api.tencentyun.com        |  
 | 美西     | http://cmq-nameserver-usw.tencentcloudapi.com | http://cmq-nameserver-vpc-usw.api.tencentyun.com |     
+

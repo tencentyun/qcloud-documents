@@ -11,16 +11,12 @@
 <tr><th>参数</th><th>说明</th><th>类型</th><th>长度（字节）</th><th>是否必填</th></tr>
 <tr>
 <td>app_id</td>
-<td>请添加小助手微信 faceid001，进行线下对接获取</td>
-<td>String</td>
-<td>腾讯云线下对接决定</td>
-<td>是</td>
-</tr>
+<td>业务流程唯一标识，即 wbappid，可参考<a href="https://cloud.tencent.com/document/product/1007/49634"> 获取 WBappid</a>  指引在人脸核身控制台内申请</td><td>	String	</td><td>8</td><td>	是</td></tr>
 <tr>
 <td>secret</td>
-<td>请添加小助手微信 faceid001，进行线下对接获取</td>
+<td>wbappid 对应的密钥，申请 wbappid 时得到，可参考<a href="https://cloud.tencent.com/document/product/1007/49634"> 获取 WBappid</a>  指引在人脸核身控制台内申请</td>
 <td>String</td>
-<td>腾讯云线下对接决定</td>
+<td>64</td>
 <td>是</td>
 </tr>
 <tr>
@@ -55,7 +51,7 @@ https://idasc.webank.com/api/oauth2/access_token?app_id=xxx&secret=xxx&grant_typ
 }
 ```
 >!
->- code 不为0则表示获取失败，可以根据 code 和 msg 字段进行定位和调试。code 详情请参见 [错误码](https://cloud.tencent.com/document/product/1007/31082)。
+>- code 不为0则表示获取失败，可以根据 code 和 msg 字段进行定位和调试。code 详情请参见 [SaaS 服务错误码](https://cloud.tencent.com/document/product/1007/47912)。
 >- expire_in 为 access_token 的最大生存时间，单位：秒，合作伙伴在**判定有效期时以此为准**。
 >- expire_time 为 access_token 失效的绝对时间，由于各服务器时间差异，不能以此作为有效期的判定依据，只作为展示使用。
 >- 修改 secret 之后，该 app_id 生成的 access_token 和 ticket 都失效。

@@ -10,7 +10,7 @@
 - 服务配置信息错误
   查看应用的软件包，获取服务配置信息（spec.yaml），检查服务名是否为期望暴露的服务名、端口号是否为服务真实监听的端口号、健康检查接口是否存在、检查健康接口格式是否正确（不含 ip:port，类似`/health`是符合的）。
 - 服务配置文件格式错误
-  将 spec.yaml 内容，拷贝到 [yamllint](http://www.yamllint.com/) 中，校验 yaml 格式是否正确。如果格式正确，则继续检查字段名称，是否与下面示例的格式一致。
+  将 spec.yaml 内容，复制到 [yamllint](http://www.yamllint.com/) 中，校验 yaml 格式是否正确。如果格式正确，则继续检查字段名称，是否与下面示例的格式一致。
 ```
 apiVersion: v1
 kind: Application
@@ -28,7 +28,7 @@ spec:
 ```
 
 -  服务配置没有挂载到正确的位置
-  - 在容器环境下，排查业务是否在容器的启动脚本中，把 spec.yaml 和 apis 目录（可选），拷贝到挂载路径`/opt/tsf/app_config`下面。
+  - 在容器环境下，排查业务是否在容器的启动脚本中，把 spec.yaml 和 apis 目录（可选），复制到挂载路径`/opt/tsf/app_config`下面。
   - 在虚拟机环境下，排查业务程序包根目录下面，是否存在 spec.yaml 以及 apis 目录（可选），如果没有，则需要修改。
   - 通用排查方法：
     1. 检查 pilot-agent 加载配置文件的绝对目录。

@@ -3,10 +3,9 @@
 
 ## 接口调用说明
 ### 适用的群组类型
-即时通信 IM 内置五种群组类型，详情请参见 [群组系统](https://cloud.tencent.com/document/product/269/1502)。
-自定义的群组类型，详情请参见 [自定义群组形态](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E7.BE.A4.E7.BB.84.E5.BD.A2.E6.80.81)。
+即时通信 IM 内置多种群组类型，详情请参见 [群组系统](https://cloud.tencent.com/document/product/269/1502)。自定义的群组类型，详情请参见 [自定义群组形态](https://cloud.tencent.com/document/product/269/1502#.E8.87.AA.E5.AE.9A.E4.B9.89.E7.BE.A4.E7.BB.84.E7.B1.BB.E5.9E.8B)。
 
-### 请求 URL示例
+### 请求 URL 示例
 ```
 https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?sdkappid=88888888&identifier=admin&usersig=xxx&random=99999999&contenttype=json
 ```
@@ -25,7 +24,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?sdkappid=
 
 ### 最高调用频率
 
-100次/秒。
+1次/秒。
 
 ### 请求包示例
 
@@ -118,7 +117,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_appid_group_list?sdkappid=
 
 ## 接口调试工具
 
-通过 [REST API 在线调试工具](https://avc.cloud.tencent.com/im/APITester/APITester.html#v4/group_open_http_svc/get_appid_group_list) 调试本接口。
+通过 [REST API 在线调试工具](https://29294-22989-29805-29810.cdn-go.cn/api-test.html#v4/group_open_http_svc/get_appid_group_list) 调试本接口。
 
 ## 参考
 获取用户所加入的群组（[v4/group_open_http_svc/get_joined_group_list](https://cloud.tencent.com/document/product/269/1625)）。

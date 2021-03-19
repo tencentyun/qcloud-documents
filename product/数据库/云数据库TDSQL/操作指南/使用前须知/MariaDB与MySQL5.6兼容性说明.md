@@ -1,3 +1,4 @@
+
 ## MariaDB 和开源 MariaDB 的兼容性
 完全兼容 MariaDB。
 
@@ -10,13 +11,11 @@ MariaDB 与 MySQL 5.6 高度兼容，已用于 MySQL 数据库的代码、应用
 - 可使用 MySQL 客户端连接到 MariaDB。
 
 ## MariaDB 和 MySQL 5.6 的不兼容性
-MariaDB 的 Binlog 默认采用 row 格式，而原生 MySQL、原生 MariaDB 默认采用 statement 格式。
-
 ### 1. GTID 不兼容
 MariaDB 的 GTID 和 MySQL 5.6 的 GTID 不兼容，即 MySQL 不能作为 MariaDB 的从库。
 
 ### 2. Binlog 默认配置不同
-MariaDB 的 Binlog 默认采用 row 格式，MySQL、MariaDB 默认采用 statement 格式。
+MariaDB 的 Binlog 默认采用 row 格式，而原生 MySQL 5.6 和原生 MariaDB 10.2.3 之前的版本，都默认采用 statement 格式。
 
 ### 3. CREAT TABLE ... SELECT 命令在基于行模式复制和基于命令模式复制
 为使 CREAT TABLE ... SELECT 命令在基于行模式复制和基于命令模式复制的情况下都能正常工作，MariaDB 中的 CREAT TABLE ... SELECT 命令在从库上将会被转化为 CREAT OR RPLACE 命令执行，好处是即使从库中途宕机恢复后仍然能够正常工作。

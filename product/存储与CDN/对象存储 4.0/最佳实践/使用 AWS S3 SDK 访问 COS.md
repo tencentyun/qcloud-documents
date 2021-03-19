@@ -139,7 +139,7 @@ AWS SDK 的默认配置文件通常在用户目录下，可以参考 [配置和�
 [default]  
 s3 =   
 	signature_version = s3
-	addressing_style = virtuall
+	addressing_style = virtual
 ```
 - 在证书文件（文件位置是`~/.aws/credentials`）中配置腾讯云的密钥：  
 ```
@@ -153,7 +153,7 @@ aws_secret_access_key = [COS_SECRETKEY]
 以存储桶所在地域是`ap-guangzhou`为例：
 
 ```
-client = boto3.client('s3', endpoint_url='"https://cos.ap-guangzhou.myqcloud.com"')
+client = boto3.client('s3', endpoint_url='https://cos.ap-guangzhou.myqcloud.com')
 ```
 
 ## PHP

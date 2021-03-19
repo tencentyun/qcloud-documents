@@ -14,11 +14,11 @@ Elasticsearch 是一个广泛应用于全文搜索领域的开源搜索引擎，
 1. 在【云函数】>【[函数服务](https://console.cloud.tencent.com/scf/list?rid=1&ns=default)】界面左上角首先选择您购买 ES 集群的地域。
 ![](https://main.qcloudimg.com/raw/acff301e0865deeeae3e07de6275127e.png)
 2. 新建一个函数服务，**记住您设置的函数名称**，然后选择【下一步】>【完成】。
-![](https://main.qcloudimg.com/raw/768dd0287e163f507f55cc727336b7a0.png)
+![](https://main.qcloudimg.com/raw/a95ad851839e032fad804f9840396e80.png)
 3. 在**函数配置**页单击右上角的【编辑】，开启**内网访问**，并选择您创建 ES 所选的 VPC，然后单击【保存】。
 ![](https://main.qcloudimg.com/raw/911af3571ffa69053edfd1a03dfebd19.png)
 4. 首先将 [代码 zip 包](https://es-bot-1254139681.cos.ap-guangzhou.myqcloud.com/myserver.zip) 下载到本地。然后在**函数代码**页的**提交方法**中选择上传本地 zip 包，并选择刚下载的 zip 包，单击【保存】。
-![](https://main.qcloudimg.com/raw/fc0f03367594f90416ce3a5366ac18c7.png)
+![](https://main.qcloudimg.com/raw/c8e23480efafc1b7f949271006939b0b.png)
 5. 在**函数代码**页修改代码。需要修改的文件有`index.py`和`index.html`：
  - `index.py`中的`es_endpoint`修改为您的 ES 集群的内网地址，填写格式如：`http://10.0.3.14:9200`。
  - `index.py`中的`es_password`修改为白金版 ES 密码，如果不是白金版则不修改。
@@ -36,8 +36,9 @@ Elasticsearch 是一个广泛应用于全文搜索领域的开源搜索引擎，
 
 ## 了解更多
 ### 停用词和用户词典导入
-停用词不会被 ES 检索，用户词典在分词的时候将保留该词。在上面的案例中，我们导入了默认的 [停用词库](https://es-bot-1254139681.cos.ap-guangzhou.myqcloud.com/stopwords.dic) 和 [用户词典](https://es-bot-1254139681.cos.ap-guangzhou.myqcloud.com/user_dict.dic)，您也可以通过 ES 集群详情页的【高级配置】>【更新词典】导入自己的停用词和用户词典。
-![image](https://main.qcloudimg.com/raw/ab9410ad5485ae8f279558606de6510f.png)
+停用词不会被 ES 检索，用户词典在分词时将保留该词。在上面的案例中，我们导入了默认的 [停用词库](https://es-bot-1254139681.cos.ap-guangzhou.myqcloud.com/stopwords.dic) 和 [用户词典](https://es-bot-1254139681.cos.ap-guangzhou.myqcloud.com/user_dict.dic)，您也可以在 ES 集群详情页的【插件列表】>【更新词典】导入自己的停用词和用户词典。
+![](https://main.qcloudimg.com/raw/9fdddd0b2e9e58d228412c0db068802e.png)
+![](https://main.qcloudimg.com/raw/d0bc4d4f55bf4896cc720f154ef048fc.png)
 
 ### 同义词配置
 同义词配置需要在创建索引时指定，支持 Solr 和 WordNet 两种同义词格式，具体可参考 [Solr synonyms](https://www.elastic.co/guide/en/elasticsearch/reference/6.4/analysis-synonym-tokenfilter.html#_solr_synonyms) 对格式的介绍。

@@ -1,3 +1,5 @@
+本文档将指导您如何修改 DNS 的解析记录，使公网用户访问网站的流量经过 Web 应用防火墙的防护。
+## 操作步骤
 为了使公网用户访问网站的流量经过 Web 应用防火墙的防护，需要修改 DNS 的解析记录。下面以在腾讯云 DNS 解析 DNSPod 上修改测试站点`waf.qcloudwaf.com`的 DNS 解析为例，说明配置步骤。
 
 1. 登录 [DNS 解析 DNSPod 控制台](https://console.cloud.tencent.com/cns)，在左侧导航栏中，单击【域名解析列表】，找到需要接入 Web 应用防火墙的域名`qcloudwaf.com`，单击【解析】进入解析配置界面。
@@ -18,3 +20,6 @@
 >?DNS 记录生效需要10分钟左右时间。
 >
 ![](https://main.qcloudimg.com/raw/c3dfeae5cf9442df882946bb0bbec902.png)
+
+## 后续步骤
+当您修改完成 DNS 的解析记录后，可执行 [步骤 4：设置安全组](https://cloud.tencent.com/document/product/627/18634)。

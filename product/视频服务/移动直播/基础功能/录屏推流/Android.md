@@ -3,7 +3,7 @@
 手机录屏直播，即可以直接把主播的手机画面作为直播源，同时可以叠加摄像头预览，应用于游戏直播、移动端 App 演示等需要手机屏幕画面的场景。
 >?直播中叠加摄像头预览，即通过在手机上添加浮框，显示摄像头预览画面。录屏的时候会把浮框预览画面一并录制下来，达到叠加摄像头预览的效果。具体实现方法可参见  [小直播源码](https://github.com/tencentyun/MLVBSDK/blob/master/Android/XiaoZhiBo/app/src/main/java/com/tencent/qcloud/xiaozhibo/anchor/screen/widget/FloatingCameraView.java)。
 
-![](https://main.qcloudimg.com/raw/c8b39da129043f471c44bdb4396111c4.jpg)
+![](https://main.qcloudimg.com/raw/5be5fa0002348a29614bb129084455a5.png)
 
 ## 限制说明
 - Android 5.0 系统以后开始支持录屏功能。
@@ -14,22 +14,23 @@
 
 
 ## 对接攻略
-<span id="step_1"></span>
+[](id:step_1)
 ### 步骤 1：添加 Activity
-在 manifest 文件中黏贴进如下一个 activity。
+
+在 manifest 文件中粘贴如下 activity（若项目代码中存在则不需要添加）。
 ```xml
 <activity 
     android:name="com.tencent.rtmp.video.TXScreenCapture$TXScreenCaptureAssistantActivity" 
     android:theme="@android:style/Theme.Translucent"/>
 ```
 
-<span id="step_2"></span>
+[](id:step_2)
 ### 步骤 2：创建 Pusher 对象
 创建一个 **TXLivePusher** 对象，我们后面主要用它来完成推流工作。
 
 不过在创建 LivePush 对象之前，还需要您指定一个 **LivePushConfig** 对象，该对象的用途是决定 LivePush 推流时各个环节的配置参数，例如推流用多大的分辨率、每秒钟要多少帧画面（FPS）以及多少秒一个I帧（ Gop）等等。
 
-LivePushConfig 在 new 出来之后便已经装配了一些我们反复调过的参数，如果您不需要自己定制这些配置，简单地塞给 LivePush 对象就可以了。如果您有相关领域的经验基础，需要对这些默认配置进行调整，可以阅读进阶篇中的内容。
+LivePushConfig 在 new 出来之后便已经装配了一些我们反复调过的参数，如果您不需要自己定制这些配置，简单地塞给 LivePush 对象就可以了。如果您有相关领域的经验基础，需要对这些默认配置进行调整，可以阅读 [进阶篇](https://cloud.tencent.com/document/product/454/34771) 中的内容。
 
 ```java
 TXLivePusher mLivePusher = new TXLivePusher(getActivity());
@@ -54,7 +55,6 @@ mLivePusher.startScreenCapture();
 要实现这样功能，您可以按如下步骤进行对接：
 - **4.1) 设置 pauseImg**
 在开始推流前，使用 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34771) 的 setPauseImg 接口设置一张等待图片，例如“主播把画面切走一会儿...”。
-
 - **4.2) 隐私模式开关**
 在用于工具条的悬浮窗口上增加一个用于开关隐私模式的按钮，打开隐私模式的响应逻辑为对 TXLivePusher##pausePush 接口函数的调用，关闭隐私模式的响应逻辑为对 [TXLivePusher##resumePush](https://cloud.tencent.com/document/product/454/34772#resumepusher) 接口函数的调用。
 ```java
@@ -77,8 +77,7 @@ public void triggerPrivateMode() {
 ```
  
 ### 步骤 5：设置 Logo 水印
-最近相关政策规定，直播的视频必须要打上水印，所以这个之前看起来并不是特别起眼的功能现在要重点说一下：
-腾讯视频云目前支持两种水印设置方式：一种是在推流 SDK 进行设置，原理是在 SDK 内部进行视频编码前就给画面打上水印。另一种方式是在云端打水印，也就是云端对视频进行解析并添加水印 Logo。
+**据相关政策规定，直播视频必须加上水印。**腾讯视频云目前支持两种水印设置方式：一种是在推流 SDK 进行设置，原理是在 SDK 内部进行视频编码前就给画面打上水印。另一种方式是在云端打水印，也就是云端对视频进行解析并添加水印 Logo。
 
 这里我们特别建议您使用 SDK 添加水印，因为在云端打水印有三个明显的问题：
  - 这是一种很耗云端机器的服务，而且不是免费的，会拉高您的费用成本。
@@ -132,7 +131,7 @@ _config.audioChannels   = 1;
 ```
 之后，调用 **sendCustomPCMData** 向 SDK 塞入您自己的 PCM 数据即可。
 
-<span id="step10"></span>
+[](id:step10)
 ### 步骤 10：事件处理
 ####  事件监听
 RTMP SDK 通过 [ITXLivePushListener](https://cloud.tencent.com/document/product/454/34770) 代理来监听推流相关的事件，注意 ITXLivePushListener  只能监听得到 PUSH_前缀的推流事件。
@@ -161,11 +160,9 @@ SDK 发现了一些严重问题，推流无法继续了，例如，用户禁用�
 
 ####  警告事件 
 SDK 发现了一些问题，但这并不意味着无法解决，很多 WARNING 都会触发一些重试性的保护逻辑或者恢复逻辑，而且有很大概率能够恢复，所以，千万不要“小题大做”。
-
-- PUSH_WARNING_NET_BUSY
+- **PUSH_WARNING_NET_BUSY**
 主播网络不给力，如果您需要 UI 提示，这个 WARNING 相对比较有用（[步骤10](#step10)）。
-
-- PUSH_WARNING_SERVER_DISCONNECT
+- **PUSH_WARNING_SERVER_DISCONNECT**
 推流请求被后台拒绝了，会触发有限次数的重试逻辑，有可能可以在某一次重试中推流成功。但实际上，大部分场景中都是推流地址里的 txSecret 计算错了，或者被其他人占用了测试地址，所以这个 WARNING 对您的调试帮助意义更大。
 
 | 事件ID                 |    数值  |  含义说明                    |   

@@ -13,7 +13,7 @@
 `http://119.29.29.29/d?dn=$push_domain.&ip=$ip` ，HTTP Get 请求，参数的含义如下：
 - push_domain 代表推流域名。
 - IP 字段代表请求端的外网出口 IP，这个 IP 代表最终会调度到的接入点 IP 所在的地区和运营商。
-
+ 
 
 ### 2. 拼接上行推流 URL
 这里的 server_ip 为**请求上行接入点 IP** 中获取到的 IP，那么拼接的推流 URL 如下：
@@ -50,4 +50,4 @@ https://server_ip/play_domain/live/ streamname -123.ts?xxxxxxxxxx
 rtmp://server_ip/play_domain/live/ streamname?xxxxxxxxxx
 ```
 
->!以上方案均基于云直播海外的调度平台，不可完全参照在国内使用。
+>!以上方案均基于云直播海外的调度平台，不可完全参照在国内使用。 

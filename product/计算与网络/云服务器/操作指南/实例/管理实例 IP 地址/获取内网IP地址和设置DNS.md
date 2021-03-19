@@ -53,3 +53,5 @@ options timeout:1 rotate
 5. 选择【使用下面的 DNS 服务器地址】，根据 [内网 DNS](https://cloud.tencent.com/document/product/213/5225#.E5.86.85.E7.BD.91-dns) 列表中对应的不同地域，修改 DNS IP。
 ![](https://main.qcloudimg.com/raw/8921862c0b6ea5e407de4796f2806c8e.png)
 6. 单击【确定】。
+
+

@@ -1,0 +1,52 @@
+密钥管理系统（Key Management Service，KMS）是一款安全管理类服务，可以让您轻松创建和管理密钥，保护密钥的保密性、完整性和可用性，满足用户多应用多业务的密钥管理需求，符合监管和合规要求。
+
+下表为云审计支持的密钥管理系统操作列表：
+
+| 操作名称              | 资源类型 | 事件名称                                |
+|-------------------|------|-------------------------------------|
+| 非对称密钥 RSA 解密        | kms  | AsymmetricRsaDecrypt                |
+| 非对称密钥 Sm2 解密        | kms  | AsymmetricSm2Decrypt                |
+| 绑定密钥和云产品资源的使用关系   | kms  | BindCloudResource                   |
+| 取消计划删除主密钥         | kms  | CancelKeyDeletion                   |
+| 创建主密钥             | kms  | CreateKey                           |
+| 创建白盒密钥            | kms  | CreateWhiteBoxKey                   |
+| 解密                | kms  | Decrypt                             |
+| 删除导入的密钥材料         | kms  | DeleteImportedKeyMaterial           |
+| 删除白盒密钥            | kms  | DeleteWhiteBoxKey                   |
+| 获取主密钥属性           | kms  | DescribeKey                         |
+| 获取多个主密钥属性         | kms  | DescribeKeys                        |
+| 获取白盒解密密钥          | kms  | DescribeWhiteBoxDecryptKey          |
+| 获取指定密钥的设备指纹列表     | kms  | DescribeWhiteBoxDeviceFingerprints  |
+| 获取白盒密钥服务状态        | kms  | DescribeWhiteBoxServiceStatus       |
+| 禁用主密钥             | kms  | DisableKey                          |
+| 禁止密钥轮换            | kms  | DisableKeyRotation                  |
+| 批量禁用主密钥           | kms  | DisableKeys                         |
+| 禁用白盒密钥            | kms  | DisableWhiteBoxKey                  |
+| 批量禁用白盒密钥          | kms  | DisableWhiteBoxKeys                 |
+| 启用主密钥             | kms  | EnableKey                           |
+| 开启密钥轮换            | kms  | EnableKeyRotation                   |
+| 批量启动主密钥           | kms  | EnableKeys                          |
+| 启用白盒密钥            | kms  | EnableWhiteBoxKey                   |
+| 批量启用白盒密钥          | kms  | EnableWhiteBoxKeys                  |
+| 加密                | kms  | Encrypt                             |
+| 使用白盒密钥进行加密        | kms  | EncryptByWhiteBox                   |
+| 生成数据密钥            | kms  | GenerateDataKey                     |
+| 随机数生成接口           | kms  | GenerateRandom                      |
+| 获取主密钥属性           | kms  | GetKeyAttributes                    |
+| 查询密钥轮换状态          | kms  | GetKeyRotationStatus                |
+| 获取导入主密钥（CMK）材料的参数 | kms  | GetParametersForImport              |
+| 获取非对称密钥的公钥        | kms  | GetPublicKey                        |
+| 获取服务可用的地域         | kms  | GetRegions                          |
+| 查询服务状态            | kms  | GetServiceStatus                    |
+| 导入密钥材料            | kms  | ImportKeyMaterial                   |
+| 列出当前 Region 支持的加密方式 | kms  | ListAlgorithms                      |
+| 获取主密钥列表           | kms  | ListKey                             |
+| 获取主密钥列表详情         | kms  | ListKeyDetail                       |
+| 获取主密钥列表           | kms  | ListKeys                            |
+| 覆盖指定密钥的设备指纹信息     | kms  | OverwriteWhiteBoxDeviceFingerprints |
+| 密文刷新              | kms  | ReEncrypt                           |
+| 计划删除主密钥           | kms  | ScheduleKeyDeletion                 |
+| 修改主密钥属性           | kms  | SetKeyAttributes                    |
+| 解绑 CMK 和云资源的关联关系    | kms  | UnbindCloudResource                 |
+| 修改别名              | kms  | UpdateAlias                         |
+| 修改主密钥描述信息         | kms  | UpdateKeyDescription                |

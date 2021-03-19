@@ -13,9 +13,9 @@ Okta 是身份识别与访问管理解决方案提供商。腾讯云支持基于
 4. 在应用管理页面，单击【Add Application】。进入添加应用页面。
 5. 在添加应用页面，单击【Create New APP】。如下图所示：
 ![](https://main.qcloudimg.com/raw/c79f6042d72f01434555222f9e6079fd.png)
-6. 在弹出的 创建应用程序/Create a New Application Integration 窗口，选择 Platform 及 Sign on method，其中 Sign on method 设置为 SAML 2.0，单击【Create】，如下图所示：
+6. 在弹出的创建应用程序/Create a New Application Integration 窗口，选择 Platform 及 Sign on method，其中 Sign on method 设置为 SAML 2.0，单击【Create】，如下图所示：
 ![](https://main.qcloudimg.com/raw/8126a0a697e4014e64138d7e8b0e5cab.png)
-7. 在 通用设置/General Settings 页面，补充 App name、App logo（可选）、App visibility（可选）信息，单击【Next】，此应用程序可以用于和腾讯云进行集成，实现 Okta 帐户自动登录（单一登录）腾讯云控制台管理腾讯云的资源。
+7. 在通用设置/General Settings 页面，补充 App name、App logo（可选）、App visibility（可选）信息，单击【Next】，此应用程序可以用于和腾讯云进行集成，实现 Okta 帐户自动登录（单一登录）腾讯云控制台管理腾讯云的资源。
 
 
 ### <span id="stepCAM"></span>为 Okta 应用程序配置 SAML
@@ -78,3 +78,5 @@ Audience URL(SP Entity ID)：intl.cloud.tencent.com
 ![](https://main.qcloudimg.com/raw/2d80e92964f5e7be9849c82ad4017ea7.jpg)
 5. 前往 [应用管理页面](#stepapp) ，单击您创建的应用程序名称，进入应用详情页。
 6. 在应用详情页，选择 GENERAL，复制 App Embed Link 栏下的 EMBED LINK，登录腾讯云控制台。
+
+

@@ -23,7 +23,7 @@ ip addr add 辅助内网IP/CIDR位数 dev eth0
 ![](https://main.qcloudimg.com/raw/98b7e2e0d683644e9694390c4b0ef733.png)
 
 ### Windows 云服务器
-1. <span id="step1" />执行如下步骤，查找云服务器的 IP 地址、子网掩码和默认网关和 DNS 服务器：
+1. <span id="step1" />执行如下步骤，查看云服务器的 IP 地址、子网掩码和默认网关和 DNS 服务器：
  1. 在操作系统界面，选择左下角的<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px;width:25px">，单击 <img src="https://main.qcloudimg.com/raw/f0c84862ef30956c201c3e7c85a26eec.png" style="margin: -3px 0px;">，打开 “Windows PowerShell” 窗口，执行如下命令：
 ```
 ipconfig /all
@@ -73,4 +73,5 @@ ipconfig /all
 10. 在“以太网属性”弹窗中，单击【确定】即可完成配置。
 11. 在“以太网状态”弹窗中，单击【详细信息】，可查看已配置的 IP 信息，如下图所示。
 ![](https://main.qcloudimg.com/raw/172cb1189fe0886d6b0b6483a924f8cd.png)
-		
+
+

@@ -31,6 +31,7 @@ log.retention.check.interval.ms=300000
 ```
 >?其他未列出的 Broker 配置参考 [开源 Kafka 默认配置](http://kafka.apache.org/0102/documentation.html#brokerconfigs)。
 
+<span id="topic"></span>
 ## Topic 配置参数说明
 #### 1. 选取合适的分区数量
 
@@ -40,7 +41,7 @@ partition 的数量需要根据生产和消费的吞吐来判断。理想情况�
 
 其中，Num 代表 partition 数量，T 代表目标吞吐量，PT 代表生产者写入单个 partition 的最大吞吐，CT 代表消费者从单个 partition 消费的最大吞吐。则 partition 数量应该等于 T/PT 和 T/CT 中较大的那一个。
 
-在实际情况中，生产者写入但 partition 的最大吞吐 PT 的影响因素和批处理的规模、压缩算法、确认机制、副本数等有关。消费者从单个 partition 消费的最大吞吐 CT 的影响因素和业务逻辑有关，需要在不同场景下实测得出。
+在实际情况中，生产者写入单个 partition 的最大吞吐 PT 的影响因素和批处理的规模、压缩算法、确认机制、副本数等有关。消费者从单个 partition 消费的最大吞吐 CT 的影响因素和业务逻辑有关，需要在不同场景下实测得出。
 
 **通常建议 partition 的数量一定要大于等于消费者的数量来实现最大并发。 如果消费者数量是 5，则 partition 的数目也应该是 ≥ 5 的。**同时，过多的分区会导致生产吞吐的降低和选举耗时的增加，因此也不建议过多分区。提供如下信息供参考：
 - 单个 partition 是可以实现消息的顺序写入的。
@@ -130,7 +131,7 @@ retry.backoff.ms=100
 
 ```
 # 是否在消费消息后将 offset 同步到 Broker，当 Consumer 失败后就能从 Broker 获取最新的 offset
-auto.commit.enable=true
+enable.auto.commit=true
 
 # 当 auto.commit.enable=true 时，自动提交 Offset 的时间间隔，建议设置至少1000
 auto.commit.interval.ms=5000

@@ -6,3 +6,8 @@
 ![](https://main.qcloudimg.com/raw/9cd1a8754cb0b2e7d2d407fec1f82db1.png)
 
 针对特定域名禁用 ATS 是可以被苹果审核所接受的，您可能需要在审核时进行说明，`myqcloud.com` 是用于视频播放的域名。
+ 
+ 
+  
+  
+ 

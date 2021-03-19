@@ -1,5 +1,3 @@
-
-
 本文档介绍如何将设备端 C-SDK 移植到目标硬件平台。C-SDK 采用模块化设计，分离核心协议服务与硬件抽象层，在进行跨平台移植时，一般只需对硬件抽象层进行修改适配即可。
 
 ## C-SDK 架构
@@ -63,10 +61,10 @@ UDP/DTLS 相关的函数仅在使能 **COAP** 通讯的时候才需要移植。
 | 6   | HAL_TLS_Disconnect     | 断开 TLS 连接                            |
 | 7   | HAL_TLS_Write          | TLS 写                   |
 | 8   | HAL_TLS_Read           | TLS 读                  |
-| 9    | HAL_UDP_Connect               | 建立 TCP 连接                              |
-| 10    | HAL_UDP_Disconnect             | 断开 TCP 连接 |
+| 9    | HAL_UDP_Connect               | 建立 UDP 连接                              |
+| 10    | HAL_UDP_Disconnect             | 断开 UDP 连接 |
 | 11  | HAL_UDP_Write        | UDP 写                                |
-| 12   | HAL_UDP_Read        | UPD 读                               |
+| 12   | HAL_UDP_Read        | UDP 读                               |
 | 13   | HAL_DTLS_Connect        | 建立 DTLS 连接              |
 | 14   | HAL_DTLS_Disconnect     | 断开 DTLS 连接                            |
 | 15   | HAL_DTLS_Write          | DTLS 写                   |

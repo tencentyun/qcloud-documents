@@ -1,7 +1,8 @@
 ## 功能描述
 
 Append Object 接口请求可以将一个对象以分块追加的方式上传至指定存储桶中。对象首次使用 Append Object 接口上传时，该对象的属性自动为 appendable ，使用其他接口上传时则属性自动为 normal （如果该对象已存在则属性会被覆盖为 normal），可以使用 [GET Object](https://cloud.tencent.com/document/product/436/7753) 或 [HEAD Object](https://cloud.tencent.com/document/product/436/7745) 接口获取 x-cos-object-type 响应头来判断对象属性。对象属性为 appendable 时才能使用本接口追加上传。
-追加上传的对象每个分块最小为4K，建议大小1M - 5G。如果 Position 的值和当前对象的长度不致，COS 将返回409错误。如果追加一个 normal 属性的文件，COS 将返回409 ObjectNotAppendable。
+
+追加上传的对象，每个分块大小默认最小为4KB，最大为5GB，同时通过追加方式产生的对象大小不得超过5GB。如果 Position 的值和当前对象的长度不致，COS 将返回409错误。如果追加一个 normal 属性的文件，COS 将返回409 ObjectNotAppendable。
 
 >!appendable 的对象不可以被复制，不参与版本管理，不参与生命周期管理，不可跨地域复制。
 
@@ -113,7 +114,7 @@ You must provide the Content-Length HTTP header。
 POST /coss3/app?append&position=0 HTTP/1.1
 Host: examplebucket-1250000000.cos.ap-beijing.myqcloud.com
 Date: Tue, 16 Jan 2016 21:32:00 GMT
-Authorization: q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3MqQCn&q-sign-time=1484208848;32557104848&q-key-time=1484208848;32557104848&q-header-list=host&q-url-param-list=append;position&q-signature=855fe6b833fadf20570f7f650e2120e17ce8a2fe
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDDNMEycgLRPI2axw9xa2Hhx87wZ3M****&q-sign-time=1484208848;32557104848&q-key-time=1484208848;32557104848&q-header-list=host&q-url-param-list=append;position&q-signature=855fe6b833fadf20570f7f650e2120e17ce8a2fe
 Content-Length: 4096
 
 [Object]
