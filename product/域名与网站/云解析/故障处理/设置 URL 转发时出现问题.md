@@ -39,7 +39,7 @@ URL 转发站点禁止 frame 引用。
 请检查转发站点 `header` 中是否设置为 `X-Frame-Options`，如果转发站点不允许做嵌套，则需要联系您的网站技术人员在转发后站点中去掉 `X-Frame-Options` 配置。
 
 #### URL 转发站点禁止 frame 引用
-请在去掉转发站点中去掉相关限制。如 js 代码：`if (window.top!==window.self ) {window.top.location=window.location};`
+请去掉转发站点中相关限制。如 js 代码：`if (window.top!==window.self ) {window.top.location=window.location};`
 
 #### 目标页面（转发后的 URL 站点）中有 JS 代码设置了跳转
 该问题需要联系您的网站技术人员进行排查。
