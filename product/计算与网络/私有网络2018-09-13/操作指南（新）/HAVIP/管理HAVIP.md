@@ -19,7 +19,7 @@ HAVIP 用于配合第三方 HA 软件使用，创建后还需要在第三方 HA 
 >?常见的 HA 软件有：Linux 下的 HeartBeat、keepalived、pacemaker，Windows下的 MSCS 等。
 >
 在 HA 软件指定 VIP 时（配置文件），填入您创建的 HAVIP 即可，配置示例如下：
-```plaintext
+<pre><code class="language-html">
 vrrp_instanceVI_1 {
 #注意主备参数选择
     state MASTER               #设置初始状态为"备"。
@@ -38,10 +38,11 @@ vrrp_instanceVI_1 {
 		172.16.16.6                #对端设备的 IP 地址
 		}
     virtual_ipaddress {     
-		172.16.16.12               #设置“高可用虚拟IP”为可漂移的IP
+		172.16.16.12               #<font color="red">设置“高可用虚拟IP”为可漂移的IP</font>
     }
 	}
-```
+</code></pre>
+
 在云服务器的 HA 软件中配置了 HAVIP 后，控制台中该 HAVIP 的状态将变更为【已绑定云服务器】。
 ![](https://main.qcloudimg.com/raw/f22aaa2b2b9aeb72e445c27f8702e089.png)
 
