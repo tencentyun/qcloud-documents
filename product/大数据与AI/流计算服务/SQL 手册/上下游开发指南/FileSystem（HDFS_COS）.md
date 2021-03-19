@@ -40,12 +40,12 @@ CREATE TABLE `DataOutput` (
 | sink.rolling-policy.file-size | 否 | 128MB | 文件最大大小。当当前写入的文件大小达到设置的阈值时，当前写入的文件将被关闭，并打开一个新的文件进行写入。 |
 | sink.rolling-policy.rollover-interval | 否 | 30min | 文件最大持续写入时间。当当前写入的文件写入的时间超过了设置的阈值时，当前写入的文件将被关闭，并打开一个新的文件进行写入。 |
 | sink.rolling-policy.check-interval | 否 | 1min | 文件检查间隔。FileSystem 按照这个间隔检查文件的写入时间是否已经满足了关闭条件，并将满足条件的文件进行关闭。 |
-| sink.partition-commit.trigger | 否 | process-time | 分区关闭策略。可选值包括：<br />processing-time：当分区创建超过一定时间之后将这个分区关闭，分区创建时间为分区创建时的物理时间。<br />partition-time: 当分区创建超过一定时间之后将这个分区关闭，分区创建时间从分区中抽取出来。 |
-| sink.partition-commit.trigger | 否 | process-time | 分区关闭策略。可选值包括：<br />processing-time：当分区创建超过一定时间之后将这个分区关闭，分区创建时间为分区创建时的物理时间。<br />partition-time: 当分区创建超过一定时间之后将这个分区关闭，分区创建时间从分区中抽取出来。 |
+| sink.partition-commit.trigger | 否 | process-time | 分区关闭策略。可选值包括：<li/>processing-time：当分区创建超过一定时间之后将这个分区关闭，分区创建时间为分区创建时的物理时间。<li/>partition-time: 当分区创建超过一定时间之后将这个分区关闭，分区创建时间从分区中抽取出来。 |
+| sink.partition-commit.trigger | 否 | process-time | 分区关闭策略。可选值包括：<li/>processing-time：当分区创建超过一定时间之后将这个分区关闭，分区创建时间为分区创建时的物理时间。<li/>partition-time: 当分区创建超过一定时间之后将这个分区关闭，分区创建时间从分区中抽取出来。 |
 | sink.partition-commit.delay | 否 | 0s | 分区关闭延迟。当分区在创建超过一定时间之后将被关闭。 |
 | partition.time-extractor.kind | 否 | default | 分区时间抽取方式。这个配置仅当 sink.partition-commit.trigger 配置为 partition-time 时生效。如果用户有自定义的分区时间抽取方法，配置为 custom。 |
 | partition.time-extractor.class | 否 | 无 | 分区时间抽取类，这个类必须实现 PartitionTimeExtractor 接口。 |
-| sink.partition-commit.policy.kind | 是 | 无 | 用于提交分区的策略。可选值包括：<br />success-file: 当分区关闭时将在分区对应的目录下生成一个 _success 的文件。<br />custom: 用户实现的自定义分区提交策略。 |
+| sink.partition-commit.policy.kind | 是 | 无 | 用于提交分区的策略。可选值包括：<li/>success-file: 当分区关闭时将在分区对应的目录下生成一个 _success 的文件。<li/>custom: 用户实现的自定义分区提交策略。 |
 | sink.partition-commit.policy.class | 否 | 无 | 分区提交类，这个类必须实现 PartitionCommitPolicy。 |
 
 ## HDFS 配置
