@@ -1,11 +1,11 @@
 ## 现象描述
-登录腾讯云 [DNS 解析 DNSPod 控制台](https://console.cloud.tencent.com/cns) ，进入域名解析列表， 即可查看 DNS 服务器状态，分别包含以下5种状态：
+登录腾讯云 [DNS 解析 DNSPod 控制台](https://console.cloud.tencent.com/cns) ，进入域名解析列表， 即可查看解析状态，分别包含以下5种状态：
 
 ![](https://main.qcloudimg.com/raw/6ccb73d1f176256ddad924518ab0c370.png)
 <table>
 <thead>
   <tr>
-    <th>DNS 服务器状态</th>
+    <th>解析状态</th>
     <th>状态说明</th>
   </tr>
 </thead>
@@ -33,13 +33,16 @@
 </tbody>
 </table>
 
-
-若您的状态为以下状态，您可以参考以下方式进行解决：
+若显示以下几种状态，则建议您调整为正常解析状态：
+- 暂停解析。
 - 域名 DNS 未修改。
 - 待添加解析记录。
 - 已封禁。
 
 ## 解决办法
+#### 暂停解析
+如您设置解析状态为暂停解析，现需要重新开启，可参考 [暂停或启用解析记录](https://cloud.tencent.com/document/product/302/42165) 进行调整。
+
 #### 域名 DNS 未修改
 DNS 地址未修改会影响解析生效，请前往域名注册商处修改 DNS 服务器，如您的域名在腾讯云注册，可参考 [修改域名 DNS 服务器](https://cloud.tencent.com/document/product/302/5518) 进行调整。
 
