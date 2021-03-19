@@ -48,4 +48,4 @@ SQL 语句的编写请参考 [SQL 开发指南](https://cloud.tencent.com/docume
 
 ### 高级参数
 
-支持部分 Flink 高级参数自定义，需按照 YML 语法，并以“key: value”的形式进行配置。详细说明请见 [设置作业高级参数](https://cloud.tencent.com/document/product/849/53853)。
+支持部分 Flink 高级参数自定义，需按照 YML 语法，并以“key: value”的形式进行配置。详细说明请见 [设置作业高级参数](https://cloud.tencent.com/document/product/849/53391)。
