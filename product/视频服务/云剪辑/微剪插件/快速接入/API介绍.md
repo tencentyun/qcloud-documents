@@ -18,7 +18,7 @@ clip 组件作为插件快速接入方式的入口组件，只需要将其引用
 </view>
 ```
 3. clip 组件提供拍摄、相册及模板入口，默认为拍摄。若需要自定义初始模式，比如只保留拍摄和相册入口，且默认跳转相册，可通过注入配置的方式实现，如下所示：
->? 具体配置项可参考 [自定义配置](https://tcloud-doc.isd.com/document/product/1156/53802?!preview&!editLang=zh#.E9.85.8D.E7.BD.AE.E9.A1.B9.E8.AF.B4.E6.98.8E) 中的配置项说明部分。
+>? 具体配置项可参考 [自定义配置](https://cloud.tencent.com/document/product/1156/53802) 中的配置项说明部分。
 <dx-codeblock>
 ::: dart 
 <!-- 初始化逻辑通常写在app.js中-->
