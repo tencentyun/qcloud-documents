@@ -65,6 +65,11 @@ find . | xargs grep -ri "pam_tally2" -l
 ```
 返回类似如下图所示信息，则表示 `login` 文件中配置了该参数。
 ![](https://main.qcloudimg.com/raw/a5d272e11a88d4f9cee347244fb98441.png)
+4. 执行以下命令，临时注释 `pam_tally2.so` 模块配置。
+```
+sed -i "s/.*pam_tally.*/#&/" /etc/pam.d/login
+```
+5. 完成配置后，即可恢复登录。
 4. 核实帐户锁定是由人为误操作还是暴力破解引起。若是由暴力破解引起，建议选择以下方案加固安全策略：
  - 修改云服务器密码，密码设置为由大写、小写、特殊字符、数字组成的12 - 16位的复杂随机密码。详情请参见 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
  - 删除云服务器中已不再使用的用户。
