@@ -174,7 +174,6 @@ tct:
       "task.factory.name": "com.tencent.cloud.task.factory.SimpleExecuteTaskFactory"  
 ```
 
-
 ## 结合Spring框架自定义任务工厂
 
 ### 1.定义Bean类型的任务工厂
