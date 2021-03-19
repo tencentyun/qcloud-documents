@@ -137,7 +137,7 @@ public class SimpleLogExecutableTask implements ExecutableTask,TerminableTask {
 通过 Future 的 cancel 方法，**不一定**能停止正在运行中的任务, 通常需要配合业务逻辑标识符的方式进行终止（参考 [任务停止原理及实践](https://cloud.tencent.com/document/product/649/41640)）。
 
 
-## 自定义任务工厂
+## 普通自定义任务工厂
 
 SDK 内部默认的任务生成工厂 `com.tencent.cloud.task.sdk.client.DefaultTaskFactory` 是通过 Java 的反射机制来生成任务对象的实例。我们也支持用户自定义任务生成器。
 
@@ -174,9 +174,9 @@ tct:
       "task.factory.name": "com.tencent.cloud.task.factory.SimpleExecuteTaskFactory"  
 ```
 
-## 结合Spring框架自定义任务工厂
+## 集成Spring框架自定义任务工厂
 
-### 1.定义Bean类型的任务工厂
+### 1. 定义Bean类型的任务工厂
 ```java
 
 package com.tencent.cloud.task.factory;
