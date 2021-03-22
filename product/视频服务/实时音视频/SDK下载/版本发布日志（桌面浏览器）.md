@@ -8,6 +8,22 @@
 > - 建议您及时更新至最新版本，以便获得更好的产品稳定性及在线支持。
 > - 版本升级注意事项请参见：[升级指引](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-00-info-update-guideline.html)。
 
+## Version 4.9.0 @ 2021.03.19
+
+**Feature**
+
+- 云端混流支持预排版模式，参考：[Client.startMixTranscode](https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/web/docs/Client.html#startMixTranscode) 接口。
+- 支持音量回调，参考：[Client.enableAudioVolumeEvaluation](https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/web/docs/Client.html#enableAudioVolumeEvaluation) 接口。
+
+**Improvement**
+
+Websocket 的默认端口改为 443。
+
+**Bug Fixed**
+
+- 修复 live 模式下，观众收不到主播进退房通知的问题。
+- 修复使用字符串房间号时，偶现重连失败的问题。
+
 ## Version 4.8.6 @ 2021.03.01
 
 **Improvement**
