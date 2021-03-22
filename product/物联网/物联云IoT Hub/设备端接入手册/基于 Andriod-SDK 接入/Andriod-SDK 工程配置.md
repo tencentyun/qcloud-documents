@@ -9,8 +9,8 @@
  - 依赖 maven 远程构建，示例如下：
 ```gr
 dependencies {
-							implementation 'com.tencent.iot.hub:hub-device-android-core:x.x.x'
-							implementation 'com.tencent.iot.hub:hub-device-android-service:x.x.x'
+						implementation 'com.tencent.iot.hub:hub-device-android-core:x.x.x'
+						implementation 'com.tencent.iot.hub:hub-device-android-service:x.x.x'
 }
   ```
 >?用户可根据 [版本说明](https://cloud.tencent.com/document/product/634/48712) 把上述x.x.x设置成最新版本。
