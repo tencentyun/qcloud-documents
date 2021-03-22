@@ -1,5 +1,5 @@
 ## 注意事项
-下列描述出现的 `tke_cluster_instance_id` 维度，都为必填维度，其余为选填参数，选填参数必选一项或多项入参。
+下列所有指标必入参 `tke_cluster_instance_id` 维度，选填维度中必须选一项入参，非必选维度可不入参。
 
 ## 命名空间
 Namespace=QCE/TKE
