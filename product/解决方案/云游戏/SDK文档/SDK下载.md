@@ -8,7 +8,7 @@
 | Android SDK | Android    | [DOWNLOAD](https://recorder-10018504.cos.ap-shanghai.myqcloud.com/1.1.2/tcgsdk_v1.1.2.107_202012291751.zip) | [DOC](https://cloud.tencent.com/document/product/1162/47434) |
 
 
-### 云游戏 SDK 时序图
+### 云游戏 JS SDK 时序图
 
 ![](https://main.qcloudimg.com/raw/bd9d347d6b38a6587854119ac57d9799.png)
 **其中：**

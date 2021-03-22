@@ -46,3 +46,5 @@ EIP 拥有普通公网 IP 不具备的灵活绑定与解绑能力，若云服务
  2. 选择云服务器 B 所在地域，并在列表中找到迁移的 EIP 所在行，即可查看到该 EIP 已成功绑定云服务器 B。
 ![](https://main.qcloudimg.com/raw/ecae8e7a7e67b1d95dc3713e1e9cff62.png)
 
+
+

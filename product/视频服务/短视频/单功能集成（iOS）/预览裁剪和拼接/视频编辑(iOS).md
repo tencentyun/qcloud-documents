@@ -5,8 +5,8 @@
 
 | 类名           | 功能  |
 | ------------- | --------- |
-| `TXVideoInfoReader.h`| 媒体信息获取 |
-| `TXVideoEditer.h` | 视频编辑 |
+| TXVideoInfoReader.h| 媒体信息获取 |
+| TXVideoEditer.h | 视频编辑 |
 
 ## 使用说明
 视频编辑的基本使用流程如下：
@@ -17,7 +17,9 @@
 4. 监听生成事件。
 
 #### 示例
-```
+
+<dx-codeblock>
+::: ios objective-c
 // 这以使用了 Demo 中的 Common/UGC/VideoPreview 来做预览的视图
 #import "VideoPreview.h"
 
@@ -40,7 +42,7 @@
    TXVideoEditer *editor = [[TXVideoEditer alloc] initWithPreview:param];
 
    // 设置源视频路径
-   NString *path = [[NSBundle mainBundle] pathForResource:@"demo" ofType:@"mp4"]
+   NSString *path = [[NSBundle mainBundle] pathForResource:@"demo" ofType:@"mp4"]
    [editor setVideoPath: path];
 
    // 配置代理
@@ -72,11 +74,13 @@
    }
 }
 @end
-```
+:::
+</dx-codeblock>
 
 ## 视频信息获取
 TXVideoInfoReader 的 getVideoInfo 方法可以获取指定视频文件的一些基本信息, 相关接口如下：
-```objective-c
+<dx-codeblock>
+::: ios objective-c
 // 获取视频文件的信息
 + (TXVideoInfo *)getVideoInfo:(NSString *)videoPath;
 
@@ -85,9 +89,11 @@ TXVideoInfoReader 的 getVideoInfo 方法可以获取指定视频文件的一些
  * @return 视频信息
  */
 + (TXVideoInfo *)getVideoInfoWithAsset:(AVAsset *)videoAsset;
-```
+:::
+</dx-codeblock>
 返回的 TXVideoInfo 定义如下：
-```
+<dx-codeblock>
+::: ios objective-c
 /// 视频信息
 @interface TXVideoInfo : NSObject
 /// 视频首帧图片
@@ -109,14 +115,16 @@ TXVideoInfoReader 的 getVideoInfo 方法可以获取指定视频文件的一些
 /// 视频旋转角度
 @property (nonatomic, assign) int                   angle;
 @end
-```
+:::
+</dx-codeblock>
 
 ## 缩略图获取
 缩略图的接口主要用于生成视频编辑界面的预览缩略图，或获取视频封面等。
 ### 1. 按个数平分时间获取缩略图
 
 TXVideoInfoReader 的 getSampleImages 可以获取按指定数量，时间间隔相同的预览图：
-```
+<dx-codeblock>
+::: ios objective-c
 /** 获取视频的采样图列表
  * @param count        获取的采样图数量（均匀采样）
  * @param maxSize      缩略图的最大大小，生成的缩略图大小不会超出这个宽高
@@ -127,11 +135,13 @@ TXVideoInfoReader 的 getSampleImages 可以获取按指定数量，时间间隔
                 maxSize:(CGSize)maxSize
              videoAsset:(AVAsset *)videoAsset
                progress:(sampleProcess)sampleProcess;
-```
+:::
+</dx-codeblock>
 开发包中的 VideoRangeSlider 即使用了 getSampleImages 获取了10张缩略图来构建一个由视频预览图组成的进度条。
 
 ### 2. 根据时间列表获取缩略图
-```
+<dx-codeblock>
+::: ios objective-c
  /**
  * 根据时间列表获取缩略图列表
  * @param asset   视频文件对象
@@ -142,7 +152,8 @@ TXVideoInfoReader 的 getSampleImages 可以获取按指定数量，时间间隔
                                 times:(NSArray<NSNumber*> *)times
                               maxSize:(CGSize)maxSize
                              progress:(sampleProcess)sampleProcess;
-```
+:::
+</dx-codeblock>
 
 ## 编辑预览
 视频编辑提供了**定点预览**（将视频画面定格在某一时间点）与**区间预览**（循环播放某一时间段 A<=>B 内的视频片段）两种效果预览方式，使用时需要给 SDK 绑定一个 UIView 用于显示视频画面。

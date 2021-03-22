@@ -19,3 +19,4 @@
     4. 输入要写入的数据库名。
     5. 输入要写入的集合名。
 ![](https://main.qcloudimg.com/raw/5afe47d64dac569a759a69dc9c02fbd5.jpg)
+

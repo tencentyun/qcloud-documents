@@ -1,5 +1,32 @@
-### 2.5.5.70 @ 2020.11.09
-* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.5.70.zip)
+### 2.5.6.85 @ 2020.12.14
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.6.85.zip)
+
+- 新增接口：
+    - 增加是否启用原生系统光标接口 setSystemCursorEnable
+        - 开启该功能后画笔图标和激光笔图标将使用系统的光标样式来实现，画笔图标和激光笔图标在本地会有一丢丢的流畅度提升。
+        - 开启该功能后会出现画笔图标和涂鸦有一点延迟现象，属于正常现象。
+        - 开启该功能 Mac 端在一些情况下会导致光标变成默认的鼠标指针，如消息弹窗等行为，属于正常现象。
+    - 增加设置画笔和激光笔工具的提示语接口 setToolTypeTitle
+    - 支持音频元素
+        - 新增音频 addElement
+        - 播放音频 playAudio
+        - 暂停音频 pauseAudio
+        - 跳转进度 seekAudio
+        - 是否启用音频控制面板 enableAudioControl
+- 新增特性：
+    - 点选和框选工具合并
+    - 激光笔和画笔支持多人
+- 体验优化：
+    - 选择工具，橡皮擦选中精度优化。
+
+### 2.5.5.83 @ 2020.12.03 
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.5.83.zip)
+- Bug 修复   
+  - 修复 WebView 远程调试漏洞
+  - 替换日志模块，防止内存泄漏
+
+### 2.5.5.71 @ 2020.11.09
+* [单击下载 SDK](https://sdk.qcloudtiw.com/android/TEduBoardSdk_2.5.5.71.zip)
 
 - 新增特性：
     - 新增文字工具预设文本内容 setNextTextInput

@@ -38,5 +38,5 @@ LAMP（Linux+Apache+MySQL+PHP）是目前国际流行的 Web 应用框架，包�
 1. 登录使用 LAMP 应用镜像创建的实例，并参考 [Linux 轻量应用服务器搭建 FTP 服务](https://cloud.tencent.com/document/product/1207/47638) 文档搭建 FTP 服务。
 2. 在本地计算机中使用 FTP 工具（如 WinSCP ）向 LAMP 服务器上传自己的网站代码，并对网站进行测试调试。
 
-### 安装 SSL 证书
+### 开启 HTTPS 访问
 可参考 [Apache 服务器证书安装](https://cloud.tencent.com/document/product/1207/50330) 文档为您的 LAMP 实例安装 SSL 证书并开启 HTTPS 访问。

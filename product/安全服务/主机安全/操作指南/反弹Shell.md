@@ -30,7 +30,7 @@
 反弹 Shell 功能支持添加白名单，通过设置白名单提权条件，将满足条件的事件标记为白名单。
 1. 登录 [主机安全控制台](https://console.cloud.tencent.com/cwp/manage/maliciousRequest)，在左侧导航栏，选择【入侵检测】>【反弹 Shell 】，进入反弹 Shell 页面。
 2. 在“反弹 Shell ”页面，选择【白名单管理】>【添加白名单】。
-![](https://main.qcloudimg.com/raw/efb9da76a7848d7f1e71fa6f3c755cbf.png)
+![](https://main.qcloudimg.com/raw/6d529dc645370d679d952754d03eca5a.png)
 3. 在“添加白名单”页面，设置反弹 Shell 条件，包括：目标主机、自定义连接进程（支持多个进程名，以英文逗号分隔），同时选择该条件覆盖的服务器范围，单击【确定】。
 >!
 >- IP地址格式：单个 IP（127.0.0.1）、IP 范围（127.0.0.1-127.0.0.254）、IP 网段（127.0.0.1/24）。

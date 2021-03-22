@@ -22,18 +22,18 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    // 示例1：不传 groupInfo 参数
-    // 该 Group 实例没有队组信息
-    const group1 = new MGOBE.Group();
+	// 示例1：不传 groupInfo 参数
+	// 该 Group 实例没有队组信息
+	const group1 = new MGOBE.Group();
 
-    // 示例2：传 groupInfo 参数
-    // 该 Group 实例代表 ID 为 xxx 的队组，group2.getGroupDetail 将查询 xxx 队组信息
-    const groupInfo = {
-        id: "xxx",
-        // 其他字段
-        // ...
-    };
-    const group2 = new MGOBE.Group(groupInfo);
+	// 示例2：传 groupInfo 参数
+	// 该 Group 实例代表 ID 为 xxx 的队组，group2.getGroupDetail 将查询 xxx 队组信息
+	const groupInfo = {
+			id: "xxx",
+			// 其他字段
+			// ...
+	};
+	const group2 = new MGOBE.Group(groupInfo);
 ```
 
 ### groupInfo
@@ -52,9 +52,9 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    // 打印 Group 实例的 groupInfo 属性
-    // 如需刷新该属性，可以使用 getGroupDetail 方法
-    console.log(group.groupInfo);
+	// 打印 Group 实例的 groupInfo 属性
+	// 如需刷新该属性，可以使用 getGroupDetail 方法
+	console.log(group.groupInfo);
 ```
 
 ### initGroup
@@ -80,16 +80,16 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    const group = new Group();
+	const group = new Group();
 
-    // 示例1：不传 groupInfo 参数
-    // 该 Group 实例队组信息被清除
-    group.initGroup();
+	// 示例1：不传 groupInfo 参数
+	// 该 Group 实例队组信息被清除
+	group.initGroup();
 
-    // 示例2：指定队组 ID
-    // 该 Group 实例代表 ID 为 xxx 的队组，group.getGroupDetail 将查询 xxx 队组信息
-    const groupInfo = { id: "xxx" };
-    group.initGroup(groupInfo);
+	// 示例2：指定队组 ID
+	// 该 Group 实例代表 ID 为 xxx 的队组，group.getGroupDetail 将查询 xxx 队组信息
+	const groupInfo = { id: "xxx" };
+	group.initGroup(groupInfo);
 ```
 
 ### getGroupByGroupId
@@ -115,12 +115,12 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    // 查询指定队组ID的信息
-    const getGroupByGroupIdPara = {
-        groupId: "xxx",
-    };
+// 查询指定队组ID的信息
+const getGroupByGroupIdPara = {
+		groupId: "xxx",
+};
 
-    MGOBE.Group.getGroupByGroupId(getGroupByGroupIdPara, event => console.log(event));
+MGOBE.Group.getGroupByGroupId(getGroupByGroupIdPara, event => console.log(event));
 ```
 
 ### getMyGroups
@@ -144,13 +144,13 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    MGOBE.Group.getMyGroups(event => {
-        if (event.code === 0 && event.data.groupInfoList.length > 0) {
-            console.log("玩家在队组数量=", event.data.groupInfoList.length);
-            // 可以使用队组信息初始化 Group 实例
-            const group = new MGOBE.Group(event.data.groupInfoList[0]);
-        }
-    });
+	MGOBE.Group.getMyGroups(event => {
+			if (event.code === 0 && event.data.groupInfoList.length > 0) {
+					console.log("玩家在队组数量=", event.data.groupInfoList.length);
+					// 可以使用队组信息初始化 Group 实例
+					const group = new MGOBE.Group(event.data.groupInfoList[0]);
+			}
+	});
 ```
 
 ### createGroup
@@ -174,23 +174,23 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    const playerInfo = {
-        name: "Tom",
-        customGroupPlayerStatus: 1,
-        customGroupPlayerProfile: "https://xxx.com/icon.png",
-    };
+const playerInfo = {
+		name: "Tom",
+		customGroupPlayerStatus: 1,
+		customGroupPlayerProfile: "https://xxx.com/icon.png",
+};
 
-    const createGroupPara = {
-        groupName: "队组名",
-        groupType: MGOBE.ENUM.GroupType.GROUP_MANY,
-        maxPlayers: 4,
-        isForbidJoin: false,
-        isPersistent: false,
-        customProperties: "自定义队组属性",
-        playerInfo,
-    };
+const createGroupPara = {
+		groupName: "队组名",
+		groupType: MGOBE.ENUM.GroupType.GROUP_MANY,
+		maxPlayers: 4,
+		isForbidJoin: false,
+		isPersistent: false,
+		customProperties: "自定义队组属性",
+		playerInfo,
+};
 
-    group.createGroup(createGroupPara, event => console.log(event));
+group.createGroup(createGroupPara, event => console.log(event));
 ```
 
 ### getGroupDetail
@@ -214,11 +214,11 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    group.getGroupDetail(event => {
-        if (event.code === 0) {
-            console.log("队组名", event.data.groupInfo.name);
-        }
-    });
+	group.getGroupDetail(event => {
+			if (event.code === 0) {
+					console.log("队组名", event.data.groupInfo.name);
+			}
+	});
 ```
 
 ### joinGroup
@@ -247,20 +247,20 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    const playerInfo = {
-        name: "Tom",
-        customGroupPlayerStatus: 1,
-        customGroupPlayerProfile: "https://xxx.com/icon.png",
-    };
+	const playerInfo = {
+			name: "Tom",
+			customGroupPlayerStatus: 1,
+			customGroupPlayerProfile: "https://xxx.com/icon.png",
+	};
 
-    const joinGroupPara = {
-        playerInfo,
-    };
+	const joinGroupPara = {
+			playerInfo,
+	};
 
-    // 加入指定 ID 的队组
-    const group = new MGOBE.Group();
-    group.initGroup({ id: "xxx" });
-    group.joinGroup(joinGroupPara, event => console.log(event));
+	// 加入指定 ID 的队组
+	const group = new MGOBE.Group();
+	group.initGroup({ id: "xxx" });
+	group.joinGroup(joinGroupPara, event => console.log(event));
 ```
 
 ### leaveGroup
@@ -286,13 +286,13 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    group.leaveGroup({}, event => {
-        if (event.code === 0) {
-            console.log("退出队组成功", group.groupInfo.id);
-            // 可以使用 initGroup 清除 groupInfo
-            group.initGroup();
-        }
-    });
+	group.leaveGroup({}, event => {
+			if (event.code === 0) {
+					console.log("退出队组成功", group.groupInfo.id);
+					// 可以使用 initGroup 清除 groupInfo
+					group.initGroup();
+			}
+	});
 ```
 
 ### dismissGroup
@@ -318,11 +318,11 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    group.dismissGroup({}, event => {
-        if (event.code === 0) {
-            console.log("解散成功");
-        }
-    });
+	group.dismissGroup({}, event => {
+			if (event.code === 0) {
+					console.log("解散成功");
+			}
+	});
 ```
 
 ### changeGroup
@@ -348,18 +348,18 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    const changeGroupPara = {
-        groupName: "队组名",
-        owner: "xxxxxx",
-        isForbidJoin: false,
-        customProperties: "xxxxxx",
-    };
+	const changeGroupPara = {
+			groupName: "队组名",
+			owner: "xxxxxx",
+			isForbidJoin: false,
+			customProperties: "xxxxxx",
+	};
 
-    group.changeGroup(changeGroupPara, event => {
-        if (event.code === 0) {
-            console.log("更新队组成功", event.data.groupInfo);
-        }
-    });
+	group.changeGroup(changeGroupPara, event => {
+			if (event.code === 0) {
+					console.log("更新队组成功", event.data.groupInfo);
+			}
+	});
 ```
 
 ### removeGroupPlayer
@@ -384,11 +384,11 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    const removeGroupPlayerPara = {
-        removePlayerId: "xxxxxx",
-    };
+const removeGroupPlayerPara = {
+		removePlayerId: "xxxxxx",
+};
 
-    group.removeGroupPlayer(removeGroupPlayerPara, event => console.log(event)); 
+group.removeGroupPlayer(removeGroupPlayerPara, event => console.log(event)); 
 ```
 
 ### changeCustomGroupPlayerStatus
@@ -415,12 +415,47 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    const changeCustomGroupPlayerStatusPara = {
-        customGroupPlayerStatus: 2,
-    };
+const changeCustomGroupPlayerStatusPara = {
+		customGroupPlayerStatus: 2,
+};
 
-    group.changeCustomGroupPlayerStatus(changeCustomGroupPlayerStatusPara, event => console.log(event));
+group.changeCustomGroupPlayerStatus(changeCustomGroupPlayerStatusPara, event => console.log(event));
 ```
+
+
+### changeGroupPlayerProfile
+
+#### 接口描述
+
+修改队组玩家自定义属性。
+
+#### 参数描述
+
+| 参数名                       | 类型/值                                                      | 描述                       |
+| :--------------------------- | ------------------------------------------------------------ | -------------------------- |
+| changeGroupPlayerProfilePara | [MGOBE.types.ChangeGroupPlayerProfilePara](https://cloud.tencent.com/document/product/1038/35534#changegroupplayerprofilepara) | 修改队组玩家自定义属性参数 |
+| callback                     | [MGOBE.types.ReqCallback](https://cloud.tencent.com/document/product/1038/33331#.E5.93.8D.E5.BA.94.E5.9B.9E.E8.B0.83.E5.87.BD.E6.95.B0-mgobe.types.reqcallback)[&lt;MGOBE.types.ChangeGroupPlayerProfileRsp&gt;](https://cloud.tencent.com/document/product/1038/35534#changegroupplayerprofilepara) | 响应回调函数               |
+
+>?
+- 修改玩家属性是修改 GroupPlayerInfo 中的 customGroupPlayerProfile 字段，玩家的属性由您自定义。
+- 修改成功后，队组内全部成员都会收到一条修改玩家属性广播 onChangeGroupPlayerProfile，groupInfo 属性将更新。
+- 每个玩家只能修改自己的属性，调用结果将在 callback 中异步返回。
+
+#### 返回值说明
+
+无
+
+
+#### 使用示例
+
+```
+	const changeGroupPlayerProfilePara = {
+			customProfile: "{name: 'name_example'}",
+	};
+
+	group.changeGroupPlayerProfile(changeGroupPlayerProfilePara, event => console.log(event));
+```
+
 
 ### sendToGroupClient
 
@@ -447,13 +482,13 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    const sendToGroupClientPara = {
-        recvType: MGOBE.ENUM.GroupRecvType.GROUP_SOME,
-        recvPlayerList: ["xxxxxxxx1", "xxxxxxxx2"],
-        msg: "hello",
-    };
+const sendToGroupClientPara = {
+		recvType: MGOBE.ENUM.GroupRecvType.GROUP_SOME,
+		recvPlayerList: ["xxxxxxxx1", "xxxxxxxx2"],
+		msg: "hello",
+};
 
-    group.sendToGroupClient(sendToGroupClientPara, event => console.log(event));
+group.sendToGroupClient(sendToGroupClientPara, event => console.log(event));
 ```
 
 ### onUpdate
@@ -477,10 +512,10 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    group.onUpdate = (_) => {
-        console.log(_ === group); // true, 参数 _ 等于 group
-        console.log("队组信息更新", group.groupInfo);
-    };
+	group.onUpdate = (_) => {
+			console.log(_ === group); // true, 参数 _ 等于 group
+			console.log("队组信息更新", group.groupInfo);
+	};
 ```
 
 ### onRecvFromGroupClient
@@ -504,7 +539,7 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    group.onRecvFromGroupClient = event => console.log("新消息", event.data.msg);
+group.onRecvFromGroupClient = event => console.log("新消息", event.data.msg);
 ```
 
 ### onChangeCustomGroupPlayerStatus
@@ -528,10 +563,39 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    group.onChangeCustomGroupPlayerStatus = event => {
-        console.log("玩家状态变化", event.data.changePlayerId);
-    };
+group.onChangeCustomGroupPlayerStatus = event => {
+		console.log("玩家状态变化", event.data.changePlayerId);
+};
 ```
+
+### onChangeGroupPlayerProfile
+
+#### 接口描述
+
+玩家自定义属性变化广播回调接口。
+
+#### 参数描述
+
+| 参数名 | 类型/值                                                      | 描述     |
+| :----- | ------------------------------------------------------------ | -------- |
+| event  | [MGOBE.types.BroadcastEvent](https://cloud.tencent.com/document/product/1038/33331#.E5.B9.BF.E6.92.AD.E6.B6.88.E6.81.AF-mgobe.types.broadcastevent)[&lt;MGOBE.types.ChangeGroupPlayerProfileBst&gt;](https://cloud.tencent.com/document/product/1038/35534#changegroupplayerprofilebst) | 回调参数 |
+
+>?onChangeGroupPlayerProfile 广播表示队组内 ID 为 changePlayerId 的玩家属性发生变化。玩家属性由您自定义。
+
+#### 返回值说明
+
+无
+
+
+#### 使用示例
+
+```
+	group.onChangeGroupPlayerProfile = event => {
+			console.log("玩家属性变化", event.data.changePlayerId);
+	};
+```
+
+
 
 ### onChangeGroupPlayerNetworkState
 
@@ -555,10 +619,10 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    group.onChangeGroupPlayerNetworkState = event => {
-        if (event.data.networkState === MGOBE.ENUM.NetworkState.COMMON_OFFLINE)
-            console.log("玩家下线");
-    };
+	group.onChangeGroupPlayerNetworkState = event => {
+			if (event.data.networkState === MGOBE.ENUM.NetworkState.COMMON_OFFLINE)
+					console.log("玩家下线");
+	};
 ```
 
 ### onRemoveGroupPlayer
@@ -582,7 +646,7 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    group.onRemoveGroupPlayer = event => console.log("玩家被移除", event.data.removePlayerId);
+	group.onRemoveGroupPlayer = event => console.log("玩家被移除", event.data.removePlayerId);
 ```
 
 ### onChangeGroup
@@ -606,7 +670,7 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    group.onChangeGroup = event => console.log("队组属性变更", event.data.groupInfo);
+	group.onChangeGroup = event => console.log("队组属性变更", event.data.groupInfo);
 ```
 
 ### onDismissGroup
@@ -630,7 +694,7 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    group.onDismissGroup = event => console.log("队组解散");
+	group.onDismissGroup = event => console.log("队组解散");
 ```
 
 ### onLeaveGroup
@@ -655,7 +719,7 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    group.onLeaveGroup = event => console.log("玩家退出", event.data.leavePlayerId);
+	group.onLeaveGroup = event => console.log("玩家退出", event.data.leavePlayerId);
 ```
 
 ### onJoinGroup
@@ -678,7 +742,7 @@ Group 类为 MGOBE 的子属性，用来实现玩家组成队组。
 
 #### 使用示例
 ```
-    group.onJoinGroup = event => console.log("新玩家加入", event.data.joinPlayerId);
+	group.onJoinGroup = event => console.log("新玩家加入", event.data.joinPlayerId);
 ```
 
 

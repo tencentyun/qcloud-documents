@@ -3,7 +3,7 @@
 
 
 ## 操作步骤
-<span id="binary"></span>
+[](id:binary)
 ### 方式1：二进制安装
 
 如果您的本地环境未安装 Node.js，您可以直接使用二进制的方式进行安装：
@@ -29,7 +29,7 @@ choco install serverless
 choco upgrade serverless
 ```
 
-<span id="npm"></span>
+[](id:npm)
 ### 方式2：NPM 安装
 >?如果您的本地环境未安装 Node.js，可参考 [Node.js 安装指南](https://nodejs.org/zh-cn/download/) 根据本地系统环境进行安装。
 >

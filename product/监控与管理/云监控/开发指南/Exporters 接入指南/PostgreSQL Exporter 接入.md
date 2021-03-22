@@ -203,7 +203,7 @@ spec:
 </tr>
 </tbody></table>
 
-<span id="way"></span>
+[](id:way)
 
 #### 获取指标[](id:step3)
 
@@ -322,32 +322,31 @@ pg_postmaster_start_time_seconds{server="x.x.x.x:5432"} 1.605061592e+09
 3. 通过服务发现添加 `Pod Monitor` 来定义 Prometheus 抓取任务，YAML 配置示例如下：
 
 ```yaml
-apiVersion: monitoring.coreos.com/v1
-kind: PodMonitor
-metadata:
-  name: postgres-exporter
-  namespace: cm-prometheus
-spec:
-  namespaceSelector:
-    matchNames:
-    - postgres-test
-  podMetricsEndpoints:
-  - interval: 30s
-    path: /metrics
-    # 前面 Exporter 那个 Container 的端口名
-    port: http-metrics
-    relabelings:
-    - action: labeldrop
-      regex: __meta_kubernetes_pod_label_(pod_|statefulset_|deployment_|controller_)(.+)
-    - action: replace
-      regex: (.*)
-      replacement: postgres-xxxxxx
-      sourceLabels:
-      - instance
-      targetLabel: instance
-  selector:
-    matchLabels:
-      app: postgres
+  apiVersion: monitoring.coreos.com/v1
+  kind: PodMonitor
+  metadata:
+    name: postgres-exporter
+    namespace: cm-prometheus
+  spec:
+    namespaceSelector:
+      matchNames:
+      - postgres-test
+    podMetricsEndpoints:
+    - interval: 30s
+      path: /metrics
+      port: http-metrics # 前面 Exporter 那个 Container 的端口名
+      relabelings:
+      - action: labeldrop
+        regex: __meta_kubernetes_pod_label_(pod_|statefulset_|deployment_|controller_)(.+)
+      - action: replace
+        regex: (.*)
+        replacement: postgres-xxxxxx
+        sourceLabels:
+        - instance
+        targetLabel: instance
+    selector:
+      matchLabels:
+        app: postgres
 ```
 
 >?更多高阶用法请参见 [ServiceMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#servicemonitor) 和 [PodMonitor](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/api.md#podmonitor)。

@@ -17,8 +17,7 @@
 >- 源 SQL Server 实例 sa 账号密码是否正确。
 >- 源 SQL Server 实例 IP 和 PORT 连通性是否正常。
 
-<span id = "step2"></span>
-### 步骤二：配置源 SQL Server 实例
+### [步骤二：配置源 SQL Server 实例](id:step2)
 1. 源 SQL Server 实例开启 sa 账户。
 2. 在【连接】里选择【允许远程连接到此服务器】，并设置合理的远程查询超时值。
 ![](https://main.qcloudimg.com/raw/5f0cec5032756cbf39c3260447746781.png)
@@ -39,8 +38,7 @@
  ![](https://main.qcloudimg.com/raw/9d8658d6f44517e7554c3416780f0a58.png)
  7.  使用 D:\dbbackup\（**此路径不可改变**）为 SQL Server 迁移中使用的备份文件夹，选择【SFTP】选项，并将此路径配置到“SFTP home path”中。
 
-<span id = "step3"></span>
-### 步骤三：配置迁移任务
+### [步骤三：配置迁移任务](id:step3)
 选择迁移类型、设置数据库（选择需要迁移的库表），单击【保存并校验】，如校验不通过可按错误提示完成修复。
 ![](https://main.qcloudimg.com/raw/6ea9a3c3c3496a3c3782037e0e988ff3.png)
 

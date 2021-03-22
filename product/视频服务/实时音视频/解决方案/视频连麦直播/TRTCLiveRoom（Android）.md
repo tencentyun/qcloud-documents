@@ -8,8 +8,8 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时直播组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 AVChatroom 实现直播聊天室的功能，同时，通过 IM 消息串联主播间的连麦流程。
 
-
-<h2 id="TRTCLiveRoom">TRTCLiveRoom API 概览</h2>
+[](id:TRTCLiveRoom)
+## TRTCLiveRoom API 概览
 
 ### SDK 基础函数
 
@@ -146,7 +146,7 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 
 ## SDK 基础函数
 
-<span id="sharedInstance"></span>
+[](id:sharedInstance)
 ### sharedInstance
 
 获取 [TRTCLiveRoom](https://cloud.tencent.com/document/product/647/43182) 单例对象。
@@ -196,12 +196,15 @@ public abstract void setDelegateHandler(Handler handler);
 ### login
 
 登录。
-```java
+
+<dx-codeblock>
+::: java java
 public abstract void login(int sdkAppId,
  String userId, String userSig,
  TRTCLiveRoomDef.TRTCLiveRoomConfig config, 
  TRTCLiveRoomCallback.ActionCallback callback);
-```
+:::
+</dx-codeblock>
 
 参数如下表所示：
 
@@ -972,7 +975,7 @@ void onRecvRoomCustomMsg(String cmd, String message, TRTCLiveRoomDef.TRTCLiveUse
 | user | TRTCLiveUserInfo | 发送者用户信息。 |
 
    
-<span id="TRTCAudioEffectManager"></span>
+[](id:TRTCAudioEffectManager)
 ## TRTCAudioEffectManager
 ### playBGM
 

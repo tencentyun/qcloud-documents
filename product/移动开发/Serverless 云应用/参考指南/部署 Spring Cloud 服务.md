@@ -98,7 +98,7 @@ java -jar app.jar &
 
 ![](https://main.qcloudimg.com/raw/8cb877698c7c77a7fccf36804dede364.png)
 
-然后登陆 CloudBase 云托管控制台，选择新建版本，将示例项目的 `/hello-service` 目录上传，同时版本配置参考如下：
+然后登录 CloudBase 云托管控制台，选择新建版本，将示例项目的 `/hello-service` 目录上传，同时版本配置参考如下：
 
 ![](https://main.qcloudimg.com/raw/bfd406578dd8aa7874a766bf0616630b.png)
 
@@ -120,7 +120,7 @@ java -jar app.jar &
 
 ![](https://main.qcloudimg.com/raw/0831b976cb9a2eb3fc6e8feadf7c8270.png)
 
-然后登陆 CloudBase 云托管控制台，选择新建版本，将示例项目的 `/hello-client` 目录上传，同时版本配置参考如下：
+然后登录 CloudBase 云托管控制台，选择新建版本，将示例项目的 `/hello-client` 目录上传，同时版本配置参考如下：
 
 ![](https://main.qcloudimg.com/raw/3c08d7b04f6cc9ef82fef4273bf4107c.png)
 

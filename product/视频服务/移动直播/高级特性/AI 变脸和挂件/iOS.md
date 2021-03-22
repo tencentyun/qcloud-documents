@@ -243,8 +243,9 @@ Metal.framework
 :::
 </dx-codeblock>
 
-<span id="beauty_dynamic"></span>
+[](id:beauty_dynamic)
 ### 美颜动效（动效贴纸、AI抠图、美妆、手势）
+美颜动效接口的设置对象可以通过 TXLivePusher 的 [getBeautyManager](https://cloud.tencent.com/document/product/454/34772#getbeautymanager) 方法获取。
 购买美颜动效素材后，您可以获得对应效果的素材包。每一个素材包就是一个独立的目录，目录里包含了很多资源文件。每个素材包因其复杂度不同，文件数量和大小尺寸也各不相同。
 
 为了节省安装包体积，我们建议您将素材包上传到您的服务器上，并将下载地址配置在您的 App 中，例如：`http://yourcompany.com/hudongzhibo/AISpecial/**/{动效名}.zip`。
@@ -258,11 +259,11 @@ Metal.framework
  * @param tmplName 动效名称
  * @param tmplDir 动效所在目录
  */
-- (void)selectMotionTmpl:(NSString *)tmplName inDir:(NSString *)tmplDir;
+- (void)setMotionTmpl:(nullable NSString *)tmplName inDir:(nullable NSString *)tmplDir;
 ```
 
 ### 绿幕功能
-
+绿幕接口的设置对象可以通过 TXLivePusher 的 [getBeautyManager](https://cloud.tencent.com/document/product/454/34772#getbeautymanager) 方法获取。
 如果要使用绿幕功能，需要先让主播站在一个绿色背景前。开启绿幕功能以后，SDK 会识别出图像中的绿色区域，并将其替换成视频内容。
 ![](https://main.qcloudimg.com/raw/8a5038bcd30151d6a7224a8450d1525a.png)
 您需要先准备一个用于播放的 mp4 文件，然后通过调用如下接口即可开启绿幕效果：

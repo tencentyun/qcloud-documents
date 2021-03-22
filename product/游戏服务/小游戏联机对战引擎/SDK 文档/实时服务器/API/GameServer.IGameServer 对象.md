@@ -425,6 +425,49 @@ gameServer.onChangePlayerNetworkState = args => {
 };
 ```
 
+### onChangeRoomPlayerProfile 接口
+
+**描述**
+
+玩家自定义属性变化广播回调接口。
+
+**参数说明**
+
+| 参数名 | 类型                                                         | 描述     |
+| :----- | ------------------------------------------------------------ | -------- |
+| args   | [ActionArgs](https://cloud.tencent.com/document/product/1038/34992)&lt;IChangeRoomPlayerProfileBst&gt; | 回调参数 |
+
+IChangeRoomPlayerProfileBst 定义如下：
+
+| 字段名         | 类型                                                         | 描述     |
+| :------------- | ------------------------------------------------------------ | -------- |
+| changePlayerId | string                                                       | 玩家 ID  |
+| customProfile  | string                                                       | 玩家属性 |
+| roomInfo       | [IRoomInfo](https://cloud.tencent.com/document/product/1038/34991#oninitgamedata-.E6.8E.A5.E5.8F.A3) | 房间信息 |
+
+**返回值说明**
+无。
+
+**使用示例**
+
+```
+	const gameServer = {};
+	gameServer.onChangeRoomPlayerProfile = args => {
+
+		// 当前房间信息
+			const room = args.room;
+			// 游戏数据
+			const gameData = args.gameData;
+
+		// 收到的广播内容
+			// args.actionData 类型为 IChangeRoomPlayerProfileBst
+			const bst = args.actionData;
+
+			args.SDK.logger.debug("onChangeRoomPlayerProfile", bst.changePlayerId);
+	};
+```
+
+
 ### onDestroyRoom 接口
 
 **描述**

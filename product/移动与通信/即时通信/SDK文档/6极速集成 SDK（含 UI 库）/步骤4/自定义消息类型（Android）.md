@@ -107,3 +107,5 @@ public class CustomMessageDraw implements IOnCustomMessageDrawListener {
 
 显示效果如下图所示：
 ![](https://main.qcloudimg.com/raw/019fe0810738f271b61cd1d7a33c5b03.png)
+
+

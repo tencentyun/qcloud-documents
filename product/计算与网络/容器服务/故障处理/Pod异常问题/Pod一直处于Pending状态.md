@@ -106,7 +106,7 @@ Pod 一直处于 Pending 状态可能是低版本 `kube-scheduler` 的 bug 导�
 
 
 ## 相关操作
-### 添加污点<span id="addTaints"></span>
+### 添加污点[](id:addTaints)
 #### 手动添加污点
 通过以下或类似方式，可以手动为节点添加指定污点：
 ``` bash

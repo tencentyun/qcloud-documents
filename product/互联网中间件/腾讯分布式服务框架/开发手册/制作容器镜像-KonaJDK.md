@@ -16,8 +16,9 @@
 ```dockerfile
 FROM centos:7
 RUN echo "ip_resolve=4" >> /etc/yum.conf
-#安装 KonaJDK 
-RUN yum update -y && yum install -y ./java-8-konajdk.rpm
+#安装 KonaJDK
+ADD ./java-8-konajdk.rpm /java-8-konajdk.rpm
+RUN yum update -y && yum install -y java-8-konajdk.rpm
 
 # 设置时区。这对于日志、调用链等功能能否在 TSF 控制台被检索到非常重要。
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
@@ -43,8 +44,10 @@ CMD ["sh", "-ec", "exec java ${JAVA_OPTS} -Xshare:off -jar ${jar}"]
 ```dockerfile
 FROM centos:7
 RUN echo "ip_resolve=4" >> /etc/yum.conf
-#安装 KonaJDK 
-RUN yum update -y && yum install -y ./java-8-konajdk.rpm
+#安装 KonaJDK
+ADD ./java-8-konajdk.rpm /java-8-konajdk.rpm
+RUN yum update -y && yum install -y java-8-konajdk.rpm
+
 # 设置时区。这对于日志、调用链等功能能否在 TSF 控制台被检索到非常重要。
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 RUN echo "Asia/Shanghai" > /etc/timezone
@@ -77,7 +80,8 @@ CMD ["sh", "-ec", "exec java -Xloggc:/data/tsf_apm/monitor/jvm-metrics/gclog.log
 FROM centos:7
 RUN echo "ip_resolve=4" >> /etc/yum.conf
 #安装 KonaJDK 
-RUN yum update -y && yum install -y ./java-8-konajdk.rpm
+ADD ./java-8-konajdk.rpm /java-8-konajdk.rpm
+RUN yum update -y && yum install -y java-8-konajdk.rpm
 
 # 设置时区。这对于日志、调用链等功能能否在 TSF 控制台被检索到非常重要。
 RUN /bin/cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime

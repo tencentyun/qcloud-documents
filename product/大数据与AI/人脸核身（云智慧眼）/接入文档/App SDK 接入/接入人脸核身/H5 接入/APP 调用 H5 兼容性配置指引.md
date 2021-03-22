@@ -3,8 +3,8 @@
 - 请按照 [兼容性配置](#pz) 指引进行 iOS 及 Android 手机的兼容性适配。
 - 选择至少10款手机进行 [兼容性验证](#yz)，需覆盖 Android 系统版本4.0 - 10.0。
 
-<span id='pz'></span>
-## 兼容性配置
+
+## [兼容性配置](id:pz)
 ### iOS 接入
 iPhone 的兼容性适配，需在配置里加上摄像头和麦克风的使用权限。App 的 info.plist 中加入：
 `.NSMicrophoneUsageDescription`   
@@ -97,8 +97,7 @@ WebView 所属的 Activity 必须重写如下函数：
  >- 如果第三方 WebView 所属的 Activity 已重写以上函数，请将上述函数体内容添加至第三方的对应函数体首行。
  >- 如果第三方 WebView 所属的 Activity 没有重写以上函数，则直接按照上图所示重写即可。
 
-<span id='yz'></span>
-## 兼容性验证
+## [兼容性验证](id:yz)
 为了验证合作方 Android 端已经兼容了摄像头的处理，建议合作方做如下兼容性测试。
 - 从下面的机型列表中选择覆盖 Android4.0 - 10.0 版本号的机型进行测试。
 - 每个系统版本号选取至少2款不同手机。

@@ -34,7 +34,7 @@
 | streamId | 选填  | String | 流名称 |
 | channelId | 选填  | string | 频道 ID |
 | img | 必填 | string | 预警图片链接 |
-| type | 必填 | Array | 图片类型，0：正常图片，1 - 5：不合宜图片，6 - 9：其他其它图片 |
+| type | 必填 | Array | 图片类型，0：正常图片，1 - 5：不合宜图片 |
 | confidence | 必填 | Number | 涉黄置信度，范围 0-100；normalScore， hotScore， pornScore 的综合评分 |
 | normalScore | 必填 | Number | 图片为正常图片的评分 |
 | hotScore | 必填 | Number | 图片为性感图片的评分 |
@@ -43,7 +43,6 @@
 | ocrMsg | 选填  | string | 图片的 OCR 识别信息（如果存在） |
 | screenshotTime | 必填 | Number | 截图时间 |
 | sendTime | 必填 | Number | 请求发送时间，UNIX 时间戳 |
-| abductionRisk | 选填  | Array | 一个包含 AbductionRisk 结构的数组 |
 | gameDetails | 选填 | Object |  游戏详情信息  |
 | similarScore  | 选填 | Number | 图片相识度评分|
 | stream_param  | 选填 | String | 推流参数 
@@ -51,26 +50,6 @@
 | appid  | 选填 | Number | 业务 ID  |
 | appname  | 选填 | String | 推流 path 路径  |
 
-
-
-#### AbductionRisk 介绍：
-
-| **参数** | **是否必填** | **数据类型** | **描述** |
-| --- | --- | --- | --- |
-| level | 必填 | Number | 风险等级范围0 - 4，数字越大风险越高，3和4表示恶意，建议进行处理 |
-| type | 必填 | Number | 风险类型，20002：色情  |
-
-#### faceDetail 说明：
-| **参数名称** | **是否必填** | **类型** | **描述** |
-| --- | --- | --- | --- |
-| gender | 选填 | Number | 性别 [0(female) - 100(male)] |
-| age | 选填 | Number | 年龄 |
-| expression | 选填 | Number | 微笑 [0(normal) - 50(smile) - 100(laugh)] |
-| beauty | 选填 | Number | 魅力 [0 - 100] |
-| x | 选填 | Number | 人脸框左上角 x |
-| y | 选填 | Number | 人脸框左上角 y |
-| width | 选填 | Number | 人脸框宽度 |
-| height | 选填 | Number | 人脸框高度 |
 
 #### gameDetails 说明：
 | **参数名称** | **是否必填** | **类型** | **描述** |
@@ -107,8 +86,6 @@ HTTP Body：
     "level":0,
             
     "img":"http://test-10000.cos.ap-shanghai.myqcloud.com/2019-12-05/teststream-screenshot-10-32-54-960x540.jpg",
-            
-    "abductionRisk":[ ],
             
     "sendTime":1575513176,
             

@@ -1,7 +1,6 @@
-[Apache Airflow](https://airflow.apache.org/) 是一款开源的工作流管理系统，集成了编排、调度，监控以及图形化展示等功能。在数据仓库场景，Airflow 则可以应用于 ETL 任务的管理。本文主要介绍如何在云端服务器上搭建 Airflow。
+[Apache Airflow](https://airflow.apache.org/) 是一款开源的工作流管理系统，集成了编排、调度、监控以及图形化展示等功能。在数据仓库场景，Airflow 则可以应用于 ETL 任务的管理。本文主要介绍如何在云端服务器上搭建 Airflow。
 
 ## Airflow 默认安装
-
 1. 购买 [云服务器](https://buy.cloud.tencent.com/cvm?tab=custom&step=1&devPayMode=monthly&regionId=1&zoneId=100003&instanceType=SA2.SMALL1&vpcId=vpc-qhnt5wsl&subnetId=subnet-lfpz8i7u&platform=CentOS&systemDiskType=CLOUD_PREMIUM&systemDiskSize=50&bandwidthType=BANDWIDTH_PREPAID&bandwidth=1)。
 >!本文以 CentOS 8.0 为例。
 >
@@ -40,7 +39,6 @@ airflow webserver -D
 
 ## 处理时区
 Airflow 使用 UTC 时间，与北京时间差8个小时，因此需要进行处理，由于 Airflow 写死部分代码，因此除了修改配置文件外，也需要修改源码，步骤如下：
-
 1. 修改`AIRFLOW_HOME`下的`airflow.cfg`
 ```
 default_timezone = utc 修改为 default_timezone = Asia/Shanghai
@@ -98,9 +96,7 @@ kill {pid}
 airflow webserver -D
 ```
 
-
 ## 使用云数据库 MySQL 存储数据
-
 Airflow 默认使用嵌入式的 Sqlite 存储数据，如果要上生产环境，必须满足高可用的要求，这里以云数据库 MySQL 为例，步骤如下：
 1. 购买 [云数据库 MySQL](https://buy.cloud.tencent.com/cdb?regionId=1&zoneId=100004&engineVersion=5.7&cdbType=Z3&memory=8000&cpu=4&volume=200&protectMode=0&netType=2&securityGroupId=sg-i0td4ogd&vpcId=1426914&subnetId=995385&goodsNum=1)
 >!必须是高可用版或者金融版，基础版由于不支持 explicit_defaults_for_timestamp 参数，因此无法作为 Airflow 的存储。

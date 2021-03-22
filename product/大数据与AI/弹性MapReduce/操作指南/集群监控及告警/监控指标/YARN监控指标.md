@@ -31,6 +31,10 @@
 | AggregateContainersAllocated | 个       | 容器分配释放总数 |
 | AggregateContainersReleased  | 个       | 容器分配释放总数 |
 | ActiveUsers                  | 个       | 用户数           |
+| AMLaunchDelayNumOps    | 个   | AM 启动数量           |
+| AMLaunchDelayAvgTime   | ms   | RM 启动 AM 的平均时间   |
+| AMRegisterDelayNumOps  | 个   | 注册的 AM 总数         |
+| AMRegisterDelayAvgTime | ms   | AM 注册到 RM 的平均时间 |
 
 
 ### YARN-ResourceManager
@@ -213,4 +217,8 @@ ThreadsNew                         | 个       | JVM 线程数量       |
 | Uptime                         | s        | 进程运行时长     |
 | DaemonThreadCount              | 个       | 工作线程数       |
 | ThreadCount                    | 个       | 工作线程数       |
+
+
+
+
 

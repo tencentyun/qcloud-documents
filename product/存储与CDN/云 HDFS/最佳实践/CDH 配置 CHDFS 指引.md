@@ -12,8 +12,10 @@ CHDFS 大数据组件支持情况如下：
 | Spark    | 支持                     | 重启 NodeManager                           |
 | Sqoop    | 支持                     | 重启 NodeManager                           |
 | Presto   | 支持                     | 重启 HiveServer 及 HiveMetastore 和 Presto |
-| Flink    | 后续支持                 | 否                                         |
-| Impala   | 不支持                   | 无                                         |
+| Flink    | 支持                 | 否                                         |
+| Impala   | 支持                   | 否                                        |
+|  EMR   |  支持  | 否                                        |
+|自建组件  |  后续支持  |  无                                         |
 | HBase    | 不推荐                   | 无                                         |
 
 

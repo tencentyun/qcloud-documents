@@ -146,3 +146,4 @@ drwxr-xr-x  2 root root    4096 Dec 16 20:40 tencentcloud_sdk_python-3.0.113.dis
 ### 步骤8：配置告警
 
 详细的告警配置步骤请参见 [配置告警策略](https://cloud.tencent.com/document/product/397/40223)。
+

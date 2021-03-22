@@ -8,5 +8,6 @@
 等待配置完成后，直接切换节点进行测试。
  ![](https://main.qcloudimg.com/raw/f0f14342a734693f3a4051fba4e5909e.png)
 正常情况下会看到只有短暂中断后网络又通了（若切换较快甚至看不到中断），业务不受影响。
- ![3](https://main.qcloudimg.com/raw/de5e3fd284d55c38c0a134efc1badf23.png)
+ ![](https://main.qcloudimg.com/raw/de5e3fd284d55c38c0a134efc1badf23.png)
+ 
  

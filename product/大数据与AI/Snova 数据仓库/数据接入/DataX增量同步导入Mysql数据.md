@@ -1,6 +1,6 @@
-本文主要介绍使用 HashData 公司修改过的 [DataX](https://github.com/HashDataInc/DataX)，将其 MySQL 中的数据增量同步到 CDWPG。
+本文主要介绍使用 HashData 公司修改过的 [DataX](https://github.com/HashDataInc/DataX)，将其 MySQL 中的数据增量同步到云数据仓库 PostgreSQL。
 
-使用 DataX 将 MySQL 中的数据增量同步到 CDWPG 中，具体步骤如下：
+使用 DataX 将 MySQL 中的数据增量同步到云数据仓库 PostgreSQL 中，具体步骤如下：
 1. 从本地文件读取上次同步成功之后的最大时间 MaxTime（初始同步时，可以结合业务选取指定一个初始时间值）。
 2. 将 MaxTime 作为本次同步时间 LastTime（增量同步的下限），将当前时间 CurTime 作为同步增量的上限。
 3. 修改 datax.json 配置，指定同步表的时间区间（Sql 的 where 条件）为：`[LastTime, CurTime)`。

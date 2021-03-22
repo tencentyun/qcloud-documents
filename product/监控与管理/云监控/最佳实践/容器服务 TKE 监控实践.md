@@ -1,5 +1,4 @@
-云监控对容器服务 TKE 监控进行全面升级，如需使用情进入 [申请页面](https://cloud.tencent.com/apply/p/hkhd8gfv0c) 申请体验。
-
+本文为您介绍容器服务 TKE 监控告警最佳实践。
 
 
 ## 新版 TKE 监控特性

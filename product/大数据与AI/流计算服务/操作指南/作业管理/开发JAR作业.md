@@ -9,10 +9,6 @@
 
 ## 参数说明
 
-### 内置 Connector
-
-由系统提供可让用户选择的 Connector，例如在 JAR 包中使用了来自 Ckafka 的数据流，则必须要在此处选择 Ckafka 相应的 connector。关于内置 Connector 的使用说明请参考 [上下游开发指南](https://cloud.tencent.com/document/product/849/48263)。
-
 ### 引用程序包
 
 若用户有自定义函数的需求，可以自行开发 JAR 包并在【程序包管理】中上传后，方可在此添加引用程序包，并选择版本。
@@ -21,11 +17,15 @@
 
 程序包的上传和版本管理方式请参考 [程序包管理](https://cloud.tencent.com/document/product/849/48295)。
 
+### 内置 Connector
+
+由系统提供可让用户选择的 Connector，例如在 JAR 包中使用了来自 Ckafka 的数据流，则必须要在此处选择 Ckafka 相应的 connector。关于内置 Connector 的使用说明请参考 [上下游开发指南](https://cloud.tencent.com/document/product/849/48263)。
+
 ### 算子默认并行度
 
 当没有在 JAR 包中通过代码显式定义算子并行度时，作业将采用用户指定的算子默认并行度。1个并行度将占用1 CU 计算资源。
 
-### 日志状态
+### 运行日志采集
 
-显示当前地域的运行日志的开启状态，若要进行调整则需要到【诊断日志】>【运行日志】>【日志投递设置】中进行操作。详情可参考 [查看作业日志信息](https://cloud.tencent.com/document/product/849/48288) 中的开启运行日志。
+显示当前地域的运行日志的开启状态，默认为开启，关闭后需重启作业才能生效。
 

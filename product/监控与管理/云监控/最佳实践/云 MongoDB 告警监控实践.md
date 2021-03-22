@@ -32,7 +32,7 @@
 1. 在 Web 控制台或者 API 发起扩容操作。
 2. 系统根据需要按新规格创建对应数量的 Secondary 节点。
 3. 依次把新创建的 Secondary 节点加入集群实例内部，同步数据。
-4. 待最后一个 Secondary 节点数据同步完成以后，开始一个一个剔除原节点，剔除的舒徐按先从（Secondary）后主（Primary）。
+4. 待最后一个 Secondary 节点数据同步完成以后，开始一个一个剔除原节点，剔除的原节点按先从（Secondary）后主（Primary）。
 5. 当集群内部没有主节点时，会选举出新的主节点。
 ![](https://main.qcloudimg.com/raw/c5201c21e42ddb3de20bfa14fb7f297d.png)
 

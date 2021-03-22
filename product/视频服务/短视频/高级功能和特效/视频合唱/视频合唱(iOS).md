@@ -41,7 +41,8 @@ Privacy - Camera Usage Description
 
 1. 首先是声明与初始化。
     打开 ViewContorller.m，引用 SDK 并声明上述三个类的实例。另外这里播放、录制和合成视频都是异步操作，需要监听他们的事件，所以要加上实现 TXVideoJoinerListener、TXUGCRecordListener、TXVideoPreviewListener 这三个协议的声明。加好后如下所示：
-    ```objective-c
+<dx-codeblock>
+::: ios objective-c
     #import "ViewController.h"
     @import TXLiteAVSDK_UGC;
 
@@ -64,9 +65,11 @@ Privacy - Camera Usage Description
 
     - (IBAction)onTapButton:(UIButton *)sender;
     @end
-    ```
-    准备好成员变量和接口实现声明后，我们在 viewDidLoad 中对上面的成员变量进行初始化。
-    ```objective-c
+:::
+</dx-codeblock>
+准备好成员变量和接口实现声明后，我们在 viewDidLoad 中对上面的成员变量进行初始化。
+<dx-codeblock>
+::: ios objective-c
     - (void)viewDidLoad {
         [super viewDidLoad];
         // 这里找一段 mp4 视频放到了工程里，或者用手机录制的 mov 格式视频也可以
@@ -118,10 +121,11 @@ Privacy - Camera Usage Description
         _joiner.joinerDelegate = self;
         [_joiner setVideoPathList:@[_recordPath, mp4Path]];
     }
-    ```
-    
+:::
+</dx-codeblock>   
 2. 接下来是录制部分，只要响应用户单击按钮调用 SDK 方法就可以了，为了方便起见，这里复用了这个按钮来显示当前状态。另外加上在进度条上显示进度的逻辑。
-    ```objective-c
+<dx-codeblock>
+::: ios objective-c
     - (IBAction)onTapButton:(UIButton *)sender {
         [_editor startPlayFromTime:0 toTime:_videoInfo.duration];
         if ([_recorder startRecord:_recordPath coverPath:[_recordPath stringByAppendingString:@".png"]] != 0) {
@@ -136,10 +140,11 @@ Privacy - Camera Usage Description
     {
         self.progressView.progress = time / _videoInfo.duration;    
     }
-    ```
-
+:::
+</dx-codeblock>   
 3. 录制好后开始完成拼接部分, 这里需要指定两个视频在结果中的位置，这里设置一左一右。
-    ```objective-c
+<dx-codeblock>
+::: ios objective-c
     -(void)onRecordComplete:(TXUGCRecordResult*)result;
     {
         NSLog(@"录制完成，开始合成");
@@ -156,19 +161,21 @@ Privacy - Camera Usage Description
         [_joiner setSplitScreenList:@[[NSValue valueWithCGRect:recordScreen],[NSValue valueWithCGRect:playScreen]] canvasWidth:width * 2 canvasHeight:height];
         [_joiner splitJoinVideo:VIDEO_COMPRESSED_720P videoOutputPath:_resultPath];
     }
-    ```
-
+:::
+</dx-codeblock>  
 4. 实现合成进度的委托方法, 在进度条中显示进度。   
-    ```objective-c
+<dx-codeblock>
+::: ios objective-c
     -(void) onJoinProgress:(float)progress
     {
         NSLog(@"视频合成中%d%%",(int)(progress * 100));
         self.progressView.progress = progress;
     }
-    ```
-
+:::
+</dx-codeblock>  
 5. 实现合成完成的委托方法，并切换到预览界面。
-    ```objective-c
+<dx-codeblock>
+::: ios objective-c
     #pragma mark TXVideoJoinerListener
     -(void) onJoinComplete:(TXJoinerResult *)result
     {
@@ -176,22 +183,23 @@ Privacy - Camera Usage Description
         VideoPreviewController *controller = [[VideoPreviewController alloc] initWithVideoPath:_resultPath];
         [self.navigationController pushViewController:controller animated:YES];
     }
-    ```
+:::
+</dx-codeblock>  
 
-至此就制作完成了，上面提到了一个视频预览的`VideoPreviewController`代码如下：
-- `VideoPreviewController.h`
-
-    ```objective-c
+	此就制作完成了，上面提到了一个视频预览的`VideoPreviewController`代码如下：
+	- `VideoPreviewController.h`
+<dx-codeblock>
+::: ios objective-c
     #import <UIKit/UIKit.h>
 
     @interface VideoPreviewController : UIViewController
     - (instancetype)initWithVideoPath:(NSString *)path;
     @end
-    ```
-
-- `VideoPreviewController.m:`
-
-    ```objective-c
+:::
+</dx-codeblock>  
+	- `VideoPreviewController.m:`
+<dx-codeblock>
+::: ios objective-c
     @import TXLiteAVSDK_UGC;
 
     @interface VideoPreviewController () <TXVideoPreviewListener>
@@ -227,6 +235,7 @@ Privacy - Camera Usage Description
         [_editor startPlayFromTime:0 toTime:[TXVideoInfoReader getVideoInfo:self.videoPath].duration];
     }
     @end
-    ```
+:::
+</dx-codeblock>  
 
 至此就完成了全部合唱的基础功能，功能更加丰富的示例可以参考 [小视频源码](https://cloud.tencent.com/document/product/584/9366#.E5.85.A8.E5.8A.9F.E8.83.BD.E5.B0.8F.E8.A7.86.E9.A2.91-app.EF.BC.88demo.EF.BC.89.E6.BA.90.E4.BB.A3.E7.A0.81)。

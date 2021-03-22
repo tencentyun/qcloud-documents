@@ -1,4 +1,4 @@
-<span id="配置推送"></span>
+[](id:配置推送)
 
 ## 配置离线推送
 
@@ -12,13 +12,13 @@
 配置过 APNs 的 App ，当其切到后台或者被用户 Kill 之后，腾讯云就可以通过苹果的 APNs 后台对该设备进行离线消息推送，详细推送原理请参见 [Apple Push Notification Service](https://developer.apple.com/library/archive/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)。
 >!对于已经退出登录（主动登出或者被踢下线）的用户，不会收到任何消息通知。
 
-<span id ="ApplyForCertificate"></span>
+[](id:ApplyForCertificate)
 
 ### 步骤1：申请 APNs 证书
 
 申请 APNs 证书的具体操作步骤请参见 [Apple 推送证书申请](https://cloud.tencent.com/document/product/269/3898)。
 
-<span id ="UploadCertificate"></span>
+[](id:UploadCertificate)
 
 ### 步骤2：上传证书到控制台
 
@@ -33,7 +33,7 @@
  >- 上传的 p12 证书必须是自己申请的真实有效的证书。
 5. 待推送证书信息生成后，记录证书的 ID。
 
-<span id ="DeviceToken"></span>
+[](id:DeviceToken)
 
 ### 步骤3：App 向苹果后台请求 DeviceToken
 
@@ -65,7 +65,7 @@
 }
 ```
 
-<span id ="uploadDeviceToken"></span>
+[](id:uploadDeviceToken)
 
 ### 步骤4：登录 IM SDK 后上传 Token 到腾讯云
 

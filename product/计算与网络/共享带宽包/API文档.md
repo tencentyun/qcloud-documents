@@ -41,4 +41,14 @@
 <td><a href="https://cloud.tencent.com/document/product/215/19210">DescribeBandwidthPackageQuota</a></td>
 <td>查询账户在当前地域的带宽包上限数量以及使用数量。</td>
 </tr>
+<tr>
+<td>查询共享带宽包内的资源</td>
+<td><a href="https://cloud.tencent.com/document/product/215/48944">DescribeBandwidthPackageResources</a></td>
+<td>根据共享带宽包唯一 ID 查询共享带宽包内的资源列表，支持按条件过滤查询结果和分页查询。</td>
+</tr>
+<tr>
+<td>查询后付费共享带宽包当前的用量</td>
+<td><a href="https://cloud.tencent.com/document/product/215/48945">DescribeBandwidthPackageBillUsage</a></td>
+<td>查询后付费共享带宽包当前的计费用量。</td>
+</tr>
 </table>

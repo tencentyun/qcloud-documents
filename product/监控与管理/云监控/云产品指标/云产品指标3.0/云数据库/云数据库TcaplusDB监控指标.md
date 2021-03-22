@@ -8,8 +8,8 @@ Namespace=QCE/TCAPLUS
 | Writelatency  | 平均写时延 | 表格一般操作的错误比例 | 微秒 | TableInstanceId、ClusterId |
 | Comerror     | 一般错误率 | 对表格实际读取的容量单位数量 | %  | TableInstanceId、ClusterId |
 | Readlatency      | 平均读时延 | 平均读取数据时延 | 微秒  | TableInstanceId、ClusterId |
-| Volume | 存储容量 | 系统错误比例 | KBytes | TableInstanceId、ClusterId |
-| Syserror  | 系统错误率 | 表格所占用的存储容量 | % | TableInstanceId、ClusterId |
+| Volume | 存储容量 | 表格所占用的存储容量 | KBytes | TableInstanceId、ClusterId |
+| Syserror  | 系统错误率 | 系统错误比例 | % | TableInstanceId、ClusterId |
 | Writecu | 实际写容量单位 | 平均写入数据时延 | 个/秒   | TableInstanceId、ClusterId |
 | Readcu     | 实际读容量单位 | 对表格实际写入的容量单位数量 | 个/秒  | TableInstanceId、ClusterId |
 

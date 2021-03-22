@@ -10,10 +10,9 @@
 
 ## 操作步骤
 
-
 ### 为集群暴露多个 Nginx Ingress 流量入口
 
-Nginx-ingress 扩展组件安装后，在 `kube-system` 下会有个 Nginx-ingress 的 operator 组件，通过该组件可以创建多个 Nginx Ingress 实例，每个 Nginx Ingress 实例都使用不同的 IngressClass，且使用不同的 CLB 作为流量入口，从而实现不同的 Ingress 绑定到不同流量入口。可以根据实际需求，为集群创建多个 Nginx Ingress 实例。
+Nginx-ingress 扩展组件安装后，在 `kube-system` 下会有 Nginx-ingress 的 operator 组件，通过该组件可以创建多个 Nginx Ingress 实例，每个 Nginx Ingress 实例都使用不同的 IngressClass，且使用不同的 CLB 作为流量入口，从而实现不同的 Ingress 绑定到不同流量入口。可以根据实际需求，为集群创建多个 Nginx Ingress 实例。
 
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【集群】。
@@ -47,7 +46,7 @@ Nginx-ingress 扩展组件安装后，在 `kube-system` 下会有个 Nginx-ingre
 集群网络模式为 Global Router 时，默认未开启 LB 直通 Pod，建议您按照以下步骤开启 LB 直通 Pod：
 
 1. 为集群启用 [VPC-CNI](https://cloud.tencent.com/document/product/457/50355)。
-2. 创建 Nginx Ingress 实例时，勾选 【使用CLB直连Pod模式】，可以使流量绕过 NodePort 直达 Pod，以此来提升性能。如下图所示：
+2. 创建 Nginx Ingress 实例时，勾选【使用CLB直连Pod模式】，可以使流量绕过 NodePort 直达 Pod，以此来提升性能。如下图所示：
 ![](https://main.qcloudimg.com/raw/b920ef483e80e83d2080910471f7de4c.png)
 >?创建 Nginx Ingress 实例详细步骤，请参见 [安装 Nginx-ingress 实例](https://cloud.tencent.com/document/product/457/50503)。
 

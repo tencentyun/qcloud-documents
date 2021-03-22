@@ -6,3 +6,5 @@
 5. 单击需解绑的内网 IP 所在行中 “已绑定公网 IP” 列的【解绑】。
 ![](https://main.qcloudimg.com/raw/12791698e582711f2c572ad8bcf87c5f.png)
 6. 在弹框中单击【确定】即可。
+
+

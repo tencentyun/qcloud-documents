@@ -35,15 +35,12 @@ statement
 
 ## 示例
 为一个 INSERT 语句创建一个预备语句，然后执行它：
-
 ```sql
 PREPARE fooplan (int, text, bool, numeric) AS INSERT INTO 
 foo VALUES($1, $2, $3, $4);
 EXECUTE fooplan(1, 'Hunter Valley', 't', 200.00);
 ```
-
 为一个 SELECT 语句创建一个预备语句，然后执行它。注意第二个参数的数据类型没有被指定，因此会从使用$2的环境中推知：
-
 ```sql
 PREPARE usrrptplan (int) AS SELECT * FROM users u, logs l 
 WHERE u.usrid=$1 AND u.usrid=l.usrid AND l.date = $2;

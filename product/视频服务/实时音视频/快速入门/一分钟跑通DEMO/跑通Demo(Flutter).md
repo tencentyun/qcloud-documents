@@ -18,25 +18,26 @@
 [](id:step1)
 ### 步骤1：创建新的应用
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 单击【立即开始】，输入应用名称，例如 `TestTRTC`，单击【创建应用】。
+2. 输入应用名称，例如 TestTRTC，单击【创建】。
+![](https://main.qcloudimg.com/raw/9b2db43594f4744b42ef74c94494ea8e.png)
 
 [](id:step2)
 ### 步骤2：下载 SDK 和 Demo 源码
-1. 单击【[Github](https://github.com/c1avie/trtc_demo)】跳转至 Github，下载相关 SDK 及配套的 Demo 源码。
-![](https://main.qcloudimg.com/raw/7a4343e8004f1a459637267aa934db13.png)
-2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
+1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
+2. 下载完成后，单击【已下载，下一步】。
+![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
 
 
 [](id:step3)
 ### 步骤3：配置 Demo 工程文件
-1. 解压 [步骤2](#step2) 中下载的源码包。
-2. 找到并打开 `/lib/debug/GenerateTestUserSig.dart` 文件。
-3. 设置 `GenerateTestUserSig.java` 文件中的相关参数：
+1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
+2. 找到并打开 `/example/lib/debug/GenerateTestUserSig.dart` 文件。
+3. 设置 `GenerateTestUserSig.dart` 文件中的相关参数：
 <ul><li/>SDKAPPID：默认为 PLACEHOLDER ，请设置为实际的 SDKAppID。
-	</li>SECRETKEY：默认为 PLACEHOLDER ，请设置为实际的密钥信息。
-<img src="https://main.qcloudimg.com/raw/8933718aafec140c01ea5bae0bf8cace.png"/>
-4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
-5. 单击【关闭指引，进入控制台管理应用】。
+	<li/>SECRETKEY：默认为 PLACEHOLDER ，请设置为实际的密钥信息。</ul>
+	<img src="https://main.qcloudimg.com/raw/31b265429e66a899acccb875a8c17ad6.png"/>
+4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
+5. 编译完成后，单击【回到控制台概览】即可。
 
 >!
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。

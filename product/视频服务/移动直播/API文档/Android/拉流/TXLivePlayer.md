@@ -465,7 +465,7 @@ __参数__
 
 ***
 
-<span id="addVideoRawData"></span>
+[](id:addVideoRawData)
 ## 自定义数据处理
 ### addVideoRawData
 
@@ -734,7 +734,7 @@ __功能__
 播放器音量大小回调。
 
 
-<span id="onAudioVolumeEvaluationNotify"></span>
+[](id:onAudioVolumeEvaluationNotify)
 ### onAudioVolumeEvaluationNotify
 
 播放器音量大小回调。

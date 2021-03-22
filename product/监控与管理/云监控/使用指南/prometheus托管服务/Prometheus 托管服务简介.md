@@ -2,7 +2,7 @@
 
 ## Prometheus 简介
 
-Prometheus 是一个开源监控系统。与 Kubernetes的相似，Prometheus 受启发于 Google 的 Borgman 监控系统，而 Kubernetes 也是从 Google 的 Borg 演变而来的。Prometheus 始于2012年，并由 SoundCloud 内部工程师开发，于2015年1月发布。2016年5月，其成为继 Kubernetes 之后第二个正式加入 [Cloud Native Computing Foundation（CNCF）](https://www.cncf.io/) 基金会的项目。现最常见的 Kubernetes 容器管理系统中，通常会搭配 Prometheus 进行监控。
+Prometheus 是一个开源监控系统。与 Kubernetes 相似，Prometheus 受启发于 Google 的 Borgman 监控系统，而 Kubernetes 也是从 Google 的 Borg 演变而来的。Prometheus 始于2012年，并由 SoundCloud 内部工程师开发，于2015年1月发布。2016年5月，其成为继 Kubernetes 之后第二个正式加入 [Cloud Native Computing Foundation（CNCF）](https://www.cncf.io/) 基金会的项目。现最常见的 Kubernetes 容器管理系统中，通常会搭配 Prometheus 进行监控。
 
 
 Prometheus 具有如下特性：
@@ -34,5 +34,5 @@ Prometheus 具有如下特性：
 
 ### 节省开发运维成本
 - 云监控提供了原生的 Prometheus 一站式服务，在您购买 Prometheus 实例之后，可以快速与腾讯云容器服务 TKE 集成，Prometheus 为运行在 Kubernetes 之上的服务提供监控服务，免去用户搭建运维及开发成本。
-- 配合 Prometheus，云监控提供了开通即可使用的 Grafana 服务，同时也集成了丰富的 Kubernetes 基础监控的 Dashboard，以及常用服务监控的 Dashboard，用户开通后即可快速使用，免去自己维护 Dashboard 到成本。
+- 配合 Prometheus，云监控提供了开通即可使用的 Grafana 服务，同时也集成了丰富的 Kubernetes 基础监控的 Dashboard，以及常用服务监控的 Dashboard，用户开通后即可快速使用，免去自己维护 Dashboard 的成本。
 - 基于云监控告警通道的能力，打通 Prometheus Alertmanager，同时提供丰富的报警规则模板，免去用户学习告警配置的成本。

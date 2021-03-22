@@ -1,0 +1,69 @@
+时移回看依托直播录制能力，结合直播时移和点播的加速分发，实现在直播过程中进行回看的功能，用户可以实时选择从开播后的某个过往时间点开始进行回看，从而达到播放之前直播内容的效果。常用于赛事直播中的精彩片段回看，用户可以直接拖动进度条，进行回看，而不必等到直播结束，回看过程中直播流保持不变，用户可以在回看过程中切回直播。
+
+## 功能特性
+- 允许指定回看的相对时移时长（即回看的时间起点与当前的时间差）。
+- 当直播流使用多码率录制时，允许指定指定码率的视频流。
+
+## 前提条件
+- [注册](https://cloud.tencent.com/register?&s_url=https%3A%2F%2Fcloud.tencent.com%2F) 并 [登录](https://cloud.tencent.com/login?s_url=https%3A%2F%2Fcloud.tencent.com%2F) 腾讯云账号，并且完成账号实名认证。
+- 已开通腾讯云直播服务，并添加 [推流域名](https://cloud.tencent.com/document/product/267/20381)。
+
+## 注意事项：
+- 使用时移回看功能的前提是目标直播流开启了 [时移回看](#time) 功能。
+- 相对时移时长当前最小为90秒，即回看的内容相较直播内容有 90 秒以上的延迟。
+- 开启时移功能将产生点播流量和点播存储费用。详细可参见云点播 [价格总览](https://cloud.tencent.com/document/product/266/2838)。
+
+## 实践步骤
+### 步骤1：开通云点播服务[](id:step1)
+1. 进入 [云点播控制台](https://console.cloud.tencent.com/vod/overview)，单击【立即开通】。
+2. 勾选开通服务协议，单击【确定】即可成功开通云点播服务，并访问云点播控制台。
+
+
+### 步骤2：添加时移播放域名[](id:step2)
+您需要添加用于时移播放的云点播域名，具体操作如下：
+1. 在[云点播控制台](https://console.cloud.tencent.com/vod/overview)，左侧导航栏里【分发播放管理】>【域名管理】。
+![](https://main.qcloudimg.com/raw/a945065b6369de2dbc3b6acdd54ee187.png)
+2. 单击【添加域名】并填写已备案的云点播域名，具体操作请参见 [分发播放设置](https://cloud.tencent.com/document/product/266/33371)。
+![](https://main.qcloudimg.com/raw/8c889bf37db61b99e6558c79d76cf35a.png)
+3. 完成新增域名 CNAME 配置操作，具体请参见 CNAME 配置 [快速添加域名解析](https://cloud.tencent.com/document/product/302/3446)。
+
+### 步骤3：关联录制模板[](id:step3)
+1. 进入 [云直播控制台](https://console.cloud.tencent.com/live/config/record)，单击【功能配置】>【[直播录制](https://console.cloud.tencent.com/live/config/record)】。
+![](https://main.qcloudimg.com/raw/86b879c221d7ab8cafae1ca479898d1a.png)
+2. 单击【创建录制模板】，具体操作请参见 [录制模板配置](https://cloud.tencent.com/document/product/267/20384)。
+![](https://main.qcloudimg.com/raw/6b66873f0f047081565f142b247c8417.png)
+>!
+>- 选择录制文件类型为 HLS 格式，开启 HLS 录制。
+>- 自定义文件存储时长，且该时长不得短于 [时移时长](https://cloud.tencent.com/document/product/267/32742#step4)。
+2. 将录制模板关联到所需配置的推流域名，具体操作请参见 [录制配置](https://cloud.tencent.com/document/product/267/35251)。
+
+### 步骤4：开通时移服务[](id:time)
+您可 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=29&level2_id=39&source=0&data_title=%E4%BA%91%E7%9B%B4%E6%92%AD%20%20CSS&step=1)，并选择问题所属产品为“云直播”，提出开通时移服务申请要求，并提供以下参数：
+- [步骤2](#step2) 中已添加的云点播 时移播放域名 。
+- [步骤3](#step3) 中的录制模板 ID。
+- 自定义时移时长 timeshift_dur ，单位：秒。
+>?
+	- 时移时长：指时移可以看多长时间的内容（目前最长可配置时移7天内的内容）。
+	- 此项并不保证绝对精准，按需求配置的前提下，建议多加一小段时间。
+	- 假设配置为7200（2小时）：表示当前可请求2小时前到现在的时移内容（即 delay 相对时移时长可为90s - 2小时）；时移超过2小时前的内容，即使有直播内容，也会返回 HTTP 404 。
+
+## 播放请求
+### 请求 URL 格式
+```
+http://[Domain]/timeshift/[AppName]/[StreamName]/timeshift.m3u8?delay=xxx
+```
+
+### 参数说明
+| 参数 | 说明 | 
+|---------|---------|
+| [Domain] | 您注册的时移服务访问域名，即您在云点播控制台上添加的 时移播放域名 |
+| timeshift | 固定字段，无须修改|
+| [AppName] | 应用名称，若您的应用名称是 live ，则填 live|
+| [StreamName]	 | 流名称，填您请求对应的流名称|
+| timeshift.m3u8	 | 固定字段，无须修改|
+| delay | 表示相对时移时长，单位秒。目前该值小于90，后台可调整成90|
+
+### 示例
+假设当前时移域名为 `testtimeshift.com` ，时移应用名称为 `live` ，流名称为 `SLPUrIFzGPE` ，若您需要时移该地址5分钟前的直播内容，则请求 URL 如下：
+
+`http://testtimeshift.com/timeshift/live/SLPUrIFzGPE/timeshift.m3u8?delay=300`

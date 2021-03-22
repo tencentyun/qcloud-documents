@@ -281,6 +281,7 @@ NSSet *accountsKeys = [[NSSet alloc] initWithObjects:@(accountType), nil];
 
 > ? 
 > - 需要先在管理台配置用户属性的键，才能操作成功。
+> - key，value 长度都限制50个字符以内。
 > - 需要使用字典且 key 是固定要求。
 > - Objective-C 的写法 : @{@"gender": @"Female", @"age": @"29"}；
 > - Swift 的写法：["gender":"Female", "age": "29"]

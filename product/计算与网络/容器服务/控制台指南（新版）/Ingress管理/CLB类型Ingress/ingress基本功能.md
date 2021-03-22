@@ -2,7 +2,7 @@
 Ingress 是允许访问到集群内 Service 的规则的集合，您可以通过配置转发规则，实现不同 URL 可以访问到集群内不同的 Service。
 为了使 Ingress 资源正常工作，集群必须运行 Ingress-controller。TKE 服务在集群内默认启用了基于腾讯云负载均衡器实现的 `l7-lb-controller`，支持 HTTP、HTTPS，同时也支持在集群内自建其他 Ingress 控制器，您可以根据您的业务需要选择不同的 Ingress 类型。
 
-## 注意事项<span id="annotations"></span>   
+## 注意事项[](id:annotations)   
 - 确保您的容器业务不和 CVM 业务共用一个 CLB。
 - 不支持您在 CLB 控制台操作 TKE 管理的 CLB 的监听器、转发路径、证书和后端绑定的服务器，您的更改会被 TKE 自动覆盖。
 - 使用已有的 CLB 时：
@@ -58,7 +58,7 @@ Ingress 是允许访问到集群内 Service 的规则的集合，您可以通过
 ## Kubectl 操作 Ingress 指引
 
 
-### YAML 示例<span id="YAMLSample"></span>
+### YAML 示例[](id:YAMLSample)
 ```Yaml
 apiVersion: extensions/v1beta1
 kind: Ingress

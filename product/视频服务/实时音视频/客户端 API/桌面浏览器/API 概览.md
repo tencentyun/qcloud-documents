@@ -5,130 +5,151 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 - 如果您的应用场景主要为教育场景，那么教师端推荐使用稳定性更好的 [Electron](https://cloud.tencent.com/document/product/647/38549) 解决方案，支持大小双路画面，更灵活的屏幕分享方案以及更强大的弱网络恢复能力。
 
 <table>
-<thead><tr><th width="15%">操作系统</th>
-<th width="24%">浏览器类型</th>
-<th>浏览器最低<br>版本要求</th>
-<th>接收（播放）</th>
-<th>发送（上麦）</th>
-<th>屏幕分享</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Mac OS</td>
+<tr>
+<th>操作系统</th>
+<th width="22%">浏览器类型</th><th>浏览器最低<br>版本要求</th><th width="16%">接收（播放）</th><th width="16%">发送（上麦）</th><th>屏幕分享</th><th>SDK 版本要求</th>
+</tr><tr>
+<td rowspan="4">Mac OS</td>
 <td>桌面版 Safari 浏览器</td>
 <td>11+</td>
 <td>支持</td>
 <td>支持</td>
-<td>支持（需要  Safari 13+ 版本）</td>
-</tr><tr>
-<td>Mac OS</td>
+<td>支持（需要 Safari13+ 版本）</td>
+<td>-</td>
+</tr>
+<tr>
 <td>桌面版 Chrome 浏览器</td>
 <td>56+</td>
 <td>支持</td>
 <td>支持</td>
-<td>支持（需要 Chrome 72+ 版本）</td>
-</tr><tr>
-<td>Mac OS</td>
+<td>支持（需要 Chrome72+ 版本）</td>
+<td>-</td>
+</tr>
+<tr>
 <td>桌面版 Firefox 浏览器</td>
 <td>56+</td>
 <td>支持</td>
 <td>支持</td>
-<td>支持（需要 Firefox 66+ 版本）</td>
-</tr><tr>
-<td>Mac OS</td>
+<td>支持（需要 Firefox66+ 版本）</td>
+<td>v4.7.0+</td>
+</tr>
+<tr>
 <td>桌面版 Edge 浏览器</td>
 <td>80+</td>
 <td>支持</td>
 <td>支持</td>
 <td>支持</td>
-</tr><tr>
-<td>Windows</td>
+<td>v4.7.0+</td>
+</tr>
+<tr>
+<td  rowspan="4">Windows</td>
 <td>桌面版 Chrome 浏览器</td>
 <td>56+</td>
 <td>支持</td>
 <td>支持</td>
-<td>支持（需要 Chrome 72+ 版本）</td>
-</tr><tr>
-<td>Windows</td>
+<td>支持（需要 Chrome72+ 版本）</td>
+<td>-</td>
+</tr>
+<tr>
 <td>桌面版 QQ 浏览器（极速内核）</td>
 <td>10.4+</td>
 <td>支持</td>
 <td>支持</td>
 <td>不支持</td>
-</tr><tr>
-<td>Windows</td>
+<td>-</td>
+</tr>
+<tr>
 <td>桌面版 Firefox 浏览器</td>
 <td>56+</td>
 <td>支持</td>
 <td>支持</td>
-<td>支持（需要 Firefox 66+ 版本）</td>
-</tr><tr>
-<td>Windows</td>
+<td>支持（需要 Firefox66+ 版本）</td>
+<td>v4.7.0+</td>
+</tr>
+<tr>
 <td>桌面版 Edge 浏览器</td>
 <td>80+</td>
 <td>支持</td>
 <td>支持</td>
 <td>支持</td>
-</tr><tr>
+<td>v4.7.0+</td>
+</tr>
+<tr>
 <td>iOS 11.1.2+</td>
 <td>移动版 Safari 浏览器</td>
 <td>11+</td>
 <td>支持</td>
 <td>支持</td>
 <td>不支持</td>
-</tr><tr>
+<td>-</td>
+</tr>
+<tr>
 <td>iOS 12.1.4+</td>
 <td>微信内嵌网页</td>
 <td>-</td>
 <td>支持</td>
 <td>不支持</td>
 <td>不支持</td>
-</tr><tr>
-<td>Android</td>
+<td>-</td>
+</tr>
+<tr>
+<td>iOS 14.3+</td>
+<td>微信内嵌网页</td>
+<td>6.5+（微信版本）</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+<td>-</td>
+</tr>
+<tr>
+<td  rowspan="4">Android</td>
 <td>移动版 QQ 浏览器</td>
 <td>-</td>
 <td>不支持</td>
 <td>不支持</td>
 <td>不支持</td>
+<td>-</td>
 </tr><tr>
-<td>Android</td>
 <td>移动版 UC 浏览器</td>
 <td>-</td>
 <td>不支持</td>
 <td>不支持</td>
 <td>不支持</td>
-</tr><tr>
-<td>Android</td>
+<td>-</td>
+</tr>
+<tr>
 <td>微信内嵌网页（TBS 内核）</td>
 <td>-</td>
 <td>支持</td>
 <td>支持</td>
 <td>不支持</td>
-</tr><tr>
-<td>Android</td>
+<td>-</td>
+</tr>
+<tr>
 <td>微信内嵌网页（XWEB 内核）</td>
 <td>-</td>
 <td>支持</td>
+<td>支持</td>
 <td>不支持</td>
-<td>不支持</td>
+<td>-</td>
 </tr>
-</tbody></table>
+</table>
 
 ## API 使用指引
 详细的 API 使用介绍请参见以下指引：
 
 | 功能                       | Sample Code 指引                                                                                                      |
 | -------------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| 基础音视频通话             | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-01-basic-video-call.html)                      |
-| 互动直播                   | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-02-live-video.html)                            |
-| 切换摄像头和麦克风         | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-03-advanced-switch-camera-mic.html)            |
-| 设置本地视频属性           | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-04-advanced-set-video-profile.html)            |
-| 动态关闭打开本地音频或视频 | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-05-advanced-dynamic-add-video.html)            |
-| 屏幕分享                   | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-06-advanced-screencast.html)                   |
-| 音量大小检测               | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-07-advanced-detect-volume.html)                |
-| 自定义采集与自定义播放渲染 | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-08-advanced-customized-capture-rendering.html) |
-| 房间内上行用户个数限制     | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-09-advanced-uplink-limits.html)                |
-| 背景音乐和音效实现方案     | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-12-advanced-audio-mixer.html)                  |
+| 基础音视频通话             | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-11-basic-video-call.html)                      |
+| 互动直播                   | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-12-basic-live-video.html)                            |
+| 切换摄像头和麦克风         | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-13-basic-switch-camera-mic.html)            |
+| 设置本地视频属性           | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-14-basic-set-video-profile.html)            |
+| 动态关闭打开本地音频或视频 | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-15-basic-dynamic-add-video.html)            |
+| 屏幕分享                   | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-16-basic-screencast.html)                   |
+| 音量大小检测               | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-17-basic-detect-volume.html)                |
+| 自定义采集与自定义播放渲染 | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-20-advanced-customized-capture-rendering.html) |
+| 房间内上行用户个数限制     | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-04-info-uplink-limits.html)                |
+| 背景音乐和音效实现方案     | [指引链接](https://trtc-1252463788.file.myqcloud.com/web/docs/tutorial-22-advanced-audio-mixer.html)                  |
 
 
 ## TRTC
