@@ -29,7 +29,7 @@ done
 ```
 [hadoop@10 ~]$ ./gen_data.sh > impala_test.data
 ```
-这个脚本文件会生成1000000个随机数对，并且保存到文件`hive_test.data`中。然后把生成的测试数据上传到 HDFS 中，执行如下命令：
+这个脚本文件会生成1000000个随机数对，并且保存到文件`impala_test.data`中。然后把生成的测试数据上传到 HDFS 中，执行如下命令：
 ```
 [hadoop@10 ~]$ hdfspath="/impala_test_dir"
 [hadoop@10 ~]$ hdfs dfs -mkdir $hdfspath
