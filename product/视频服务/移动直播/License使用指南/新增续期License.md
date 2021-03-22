@@ -1,6 +1,6 @@
 移动直播 SDK 推荐配合腾讯云直播服务使用，购买指定直播流量资源包，即送移动直播基础版 License 1年使用权限，资源包与 SDK License 版本对应关系请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008)。
 
-
+[](id:test)
 ## 测试版 License
 ### 申请测试版 License
 您可以免费申请测试版 License（基础版，免费测试有效期为14天，可续期1次，共28天）体验测试，具体步骤如下：
@@ -19,7 +19,7 @@
 测试版 License 初次申请默认有效期默认为14天，期满后您可续期**1次**，单击测试版 License 右侧的【编辑】进入修改界面，单击【确定】重新保存即可续期14天。
 >! 测试版 License 有效期共28天，只能续期一次。若您需继续使用，请购买正式版 License。
 
-<span id="buy"></span>
+[](id:buy)
 ## 正式版 License
 ### 购买正式版 License
 1. 购买指定规格的 [直播流量包](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb)，获得赠送1年有效期的正式直播基础版 License 使用权限，具体价格请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008)。
@@ -37,7 +37,7 @@
 >- **正式版 License 不支持信息修改**，若您需要修改 License 信息，购买资源包后请勿用于续期 License，请单击【新增 License】重新新增 License 绑定新的包名信息。
 
 
-
+[](id:renew)
 ### 续期正式版 License
 您可以登录 [移动直播 License](https://console.cloud.tencent.com/live/license) 页面查看 License 的有效期，若您的正式版 License 已到期，可进行如下操作进行续期：
 1. 购买指定规格的 [直播流量包](https://buy.cloud.tencent.com/mobilelive?urlctr=yes&basepack=10tb)，赠送1年有效期的正式直播基础版 License 使用权限，具体价格请参见 [价格总览](https://cloud.tencent.com/document/product/454/8008)。
@@ -48,5 +48,6 @@
 	例如，您的标准直播服务是日结流量计费，在2020年01月01日购买了10TB的直播流量包，为直播 App 创建了直播License C；在2020年05月01日购买了50TB的直播流量包，则该流量包可用于新增 License D，或者将 License C 的有效期更新为2020年5月1日 - 2021年5月1日。
 
 
+[](id:prolicense)
 ## 企业版 License
 相比于专业版，企业版增加了基于腾讯优图实验室专利技术的人脸特效功能。使用企业版 License 可以开启优图实验室的 AI 功能，具体详情请参见 [美颜特效](https://cloud.tencent.com/product/x-magic)。

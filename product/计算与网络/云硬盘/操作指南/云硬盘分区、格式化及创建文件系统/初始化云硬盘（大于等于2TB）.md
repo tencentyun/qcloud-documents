@@ -11,7 +11,7 @@ MBR 支持的磁盘最大容量为2TB，因此当为容量大于2TB的磁盘分�
 - 为避免服务发生异常，格式化前请确保云服务器已停止对外服务。
 
 ## 操作步骤
-<span id="2TBWindows2012"></span>
+[](id:2TBWindows2012)
 ### 初始化云硬盘（Windows）
 >?本文将以 Windows Server 2012 操作系统为例，不同操作系统的格式化操作可能不同，本文仅供参考。
 
@@ -23,11 +23,11 @@ MBR 支持的磁盘最大容量为2TB，因此当为容量大于2TB的磁盘分�
 
 >?若新增磁盘处于脱机状态（如上图），需要先执行 [步骤5](#online) 联机后再执行 [步骤6](#initialize) 进行初始化。否则直接执行 [步骤6](#initialize) 进行初始化。
 
-<span id="online"></span>
+[](id:online)
 5. 在右侧窗格中出现磁盘列表，右键单击1所在行，在菜单列表中选择【联机】，进行联机。联机后，1由【脱机】状态变为【联机】。
  ![](https://main.qcloudimg.com/raw/e8bf6970a2b203a3fc926a35322680c2.png)
  
-<span id="initialize"></span>
+[](id:initialize)
 6. 右键单击1所在行，在菜单列表中选择【初始化】。
  ![](https://main.qcloudimg.com/raw/9cb41b9ea7d29115035e15924e65a86f.png)
 7. 根据界面提示，单击【是】。
@@ -50,14 +50,14 @@ MBR 支持的磁盘最大容量为2TB，因此当为容量大于2TB的磁盘分�
  初始化成功后，进入【这台电脑】界面可以查看到新磁盘。
  ![](https://main.qcloudimg.com/raw/1053f9ea5f3ab8cf85f7c81ba1bf53b8.png)
 
-<span id="2TBLinux"></span>
+[](id:2TBLinux)
 ### 初始化云硬盘（Linux）
 
 请根据您实际使用场景选择初始化方式：
 - 若整块硬盘只呈现为一个独立的分区（即不存在多个逻辑盘如 vdb1 和 vdb2 ），强烈推荐您不使用分区，直接 [在裸设备上构建文件系统](#CreateFileSystemOnBareDevice)。
 - 若整块硬盘需要呈现为多个逻辑分区（即存在多个逻辑盘），则您需要先进行分区操作，再 [在分区上构建文件系统](#CreateFileSystemOnPartition)。
 
-<span id="CreateFileSystemOnBareDevice"></span>
+[](id:CreateFileSystemOnBareDevice)
 #### 在裸设备上构建文件系统
 
 1. [登录 Linux 云服务器](https://cloud.tencent.com/document/product/213/5436)。
@@ -154,7 +154,7 @@ mount -a
 ```
 如果运行通过则说明文件写入成功，新建的文件系统会在操作系统启动时自动挂载。
 
-<span id="CreateFileSystemOnPartition"></span>
+[](id:CreateFileSystemOnPartition)
 #### 在分区上构建文件系统
 
 >?本文将以在 CentOS 7.5 操作系统中使用 parted 分区工具将数据盘 `/dev/vdc`设置为主分区，分区形式默认设置为 GPT，文件系统设置为 EXT4 格式，挂载在`/data/newpart2`下，并设置开机启动自动挂载为例，不同操作系统的格式化操作可能不同，本文仅供参考。
@@ -302,5 +302,3 @@ UUID=fc3f42cc-2093-49c7-b4fd-c616ba6165f4 /data/newpart2   ext4 defaults     0  
 
 ## 相关操作
  [初始化云硬盘（小于2TB）](https://cloud.tencent.com/document/product/362/6734)
-
-

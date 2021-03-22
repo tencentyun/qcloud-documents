@@ -76,7 +76,7 @@ export default getSignature;
 
 #### 客户端
 
-客户端在初始化 SDK 时，需要实现一个 createSignature 签名函数，从服务端获取签名信息然后回调给 SDK。
+客户端在初始化 SDK 时，需要实现一个 createSignature 签名函数，从服务端获取签名信息然后回调给 SDK。示例代码如下：
 
 ```
 const gameInfo = {
@@ -110,3 +110,4 @@ Listener.init(gameInfo, config, event => {
     }
 });
 ```
+>?示例代码帮助您理解如何使用签名的方式初始化 SDK，具体业务里的服务端部署、请求方式、请求协议格式，由您自行实现。

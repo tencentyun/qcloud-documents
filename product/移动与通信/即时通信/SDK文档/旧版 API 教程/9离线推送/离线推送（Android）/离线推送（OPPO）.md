@@ -15,14 +15,14 @@ OPPO 手机使用深度定制 Android 系统，对于第三方 App 自启动权�
 >- 此指引文档是直接参考 OPPO 推送官方文档所写，若 OPPO 推送有变动，请以 [OPPO 推送官网文档](https://open.oppomobile.com/wiki/doc#id=10194) 为准。
 >- 如果不需要对 OPPO 设备做专门的离线推送适配，可以忽略此章节。
 
-<span id="Step1"></span>
+[](id:Step1)
 ### 步骤1：申请 OPPO 推送证书
 1. 请参考 [OPPO PUSH 服务开启指南](https://open.oppomobile.com/wiki/doc#id=10195) 开通 PUSH 服务。
 2. 在 [OPPO 推送平台](https://push.oppo.com/) >【配置管理】>【应用配置】页面，您可以查看详细的应用信息。
-<span id="Step1_3"></span>
+[](id:Step1_3)
 3. 记录`AppId`、`AppKey`、`AppSecret`和`MasterSecret`信息。
 
-<span id="Step2"></span>
+[](id:Step2)
 ### 步骤2：创建 ChannelID
 
 按照 OPPO 官网要求，在 OPPO Android 8.0 及以上系统版本必须配置 ChannelID，否则推送消息无法展示。您需要先在 App 中创建对应的 ChannelID（例如 `tuikit`）：
@@ -45,7 +45,7 @@ public void createNotificationChannel(Context context) {
     }
 ```
 	
-<span id="Step3"></span>
+[](id:Step3)
 ### 步骤3：托管证书信息到即时通信 IM
 1. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面。
 2. 单击【Android平台推送设置】区域的【添加证书】。
@@ -65,7 +65,7 @@ public void createNotificationChannel(Context context) {
 5. 待推送证书信息生成后，记录证书的**`ID`**。
  ![](https://main.qcloudimg.com/raw/23dc3500472be773bf5499299e511444.png)
 
-<span id="Step4"></span>
+[](id:Step4)
 ### 步骤4：集成推送 SDK
 
 1. 请参考  [OPPO PUSH SDK 接口文档](https://open.oppomobile.com/wiki/doc#id=10196) 集成 SDK，并在 OPPO 控制台测试通知消息，确保已成功集成。
@@ -73,7 +73,7 @@ public void createNotificationChannel(Context context) {
  注册成功后，您可以在 `PushCallback` 的 `onRegister` 回调方法中得到`regId`。
 3. 记录`regId`信息。
 
-<span id="Step5"></span>
+[](id:Step5)
 ### 步骤5：上报推送信息至即时通信 IM 服务端
 
 若您需要通过 OPPO 推送进行即时通信 IM 消息的推送通知，必须在**用户登录成功后**通过`TIMManager`中的`setOfflinePushToken`方法将您托管到即时通信 IM 控制台生成的**证书 ID** 及 OPPO 推送服务返回的 **regId** 上报到即时通信 IM 服务端。
@@ -152,22 +152,22 @@ public class ThirdPushTokenMgr {
 >- OPPO 推送的常见问题请参见 [OPPO PUSH FAQ]( https://open.oppomobile.com/wiki/doc#id=10200)。
 >- 若即时通信 IM 用户已经 logout 或被即时通信 IM 服务端主动下线（例如在其他端登录被踢等情况），则该设备上不会再收到消息推送。
 
-<span id="click"></span>
+[](id:click)
 ## 配置点击通知栏消息事件
 
 您可以选择点击通知栏消息后**打开应用**、**打开网页**或**打开应用内指定界面**。
 
-<span id="App"></span>
+[](id:App)
 ### 打开应用
 
 默认为点击通知栏消息打开应用。
 
-<span id="Webpage"></span>
+[](id:Webpage)
 ### 打开网页
 
 您需要在 [添加证书](#Step2) 时选择【打开网页】并输入以`http://`或`https://`开头的网址，例如`https://cloud.tencent.com/document/product/269`。
 
-<span id="AppInterface"></span>
+[](id:AppInterface)
 ### 打开应用内指定界面
 
 打开应用内指定界面有以下几种方式：
@@ -186,7 +186,7 @@ public class ThirdPushTokenMgr {
 2. 在控制台上填入 `android.intent.action.VIEW`。
 
 
-<span id="Trans"></span>
+[](id:Trans)
 ## 透传自定义内容
 
 ### 步骤1：发送端设置自定义内容

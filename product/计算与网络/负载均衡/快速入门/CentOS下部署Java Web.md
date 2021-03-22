@@ -193,3 +193,5 @@ chmod -R 777 tomcat
 ### 配置安全组
 如果访问不通，请检查安全组。如上示例中 server.xml 中的 connector port 是8080，因此需在对应的云服务器所绑定的安全组上放通 TCP:8080，详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/215/39790)。
 ![](https://main.qcloudimg.com/raw/966d10d1b63663af4d056854a7123c33.png)
+
+

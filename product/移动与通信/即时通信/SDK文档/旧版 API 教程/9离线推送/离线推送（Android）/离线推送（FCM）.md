@@ -11,7 +11,7 @@
 6. 当客户端 App 在即时通信 IM 没有退出登录的情况下，被系统或者用户 kill 时，即时通信 IM 服务端将通过消息推送进行提醒。
 
 ## 配置离线推送
-<span id="Step1"></span>
+[](id:Step1)
 ### 步骤1：设置 Firebase 和 FCM SDK
 >?本步骤中的网址为 Firebase 官方网址，需要在中国大陆地区以外才能访问。
 
@@ -21,7 +21,7 @@
 4. 单击 Project Overview 右侧的<img src="https://main.qcloudimg.com/raw/0d062411405553c9fae29f8e0daf02ad.png"  style="margin:0;">，选择【项目设置】>【服务帐号】。
 5. 单击【生成新的私钥】下载私钥文件。
 
-<span id="Step2"></span>
+[](id:Step2)
 ### 步骤2：托管证书信息到即时通信 IM 
 1. 登录腾讯云 [即时通信 IM 控制台](https://console.qcloud.com/avc)，单击目标应用卡片，进入应用的基础配置页面。
 2. 单击【Android平台推送设置】区域的【添加证书】。
@@ -34,7 +34,7 @@
 5. 待推送证书信息生成后，记录证书的**`ID`**。
  ![](https://main.qcloudimg.com/raw/2199bbf955cf52f09b78af6a97ab8122.png)
 
-<span id="Step3"></span>
+[](id:Step3)
 ### 步骤3：上报推送信息至即时通信 IM 服务端
 
 在**用户登录成功后**通过`TIMManager`中的`setOfflinePushToken`方法将您托管到即时通信 IM 控制台生成的**证书 ID** 及集成 FCM 后在客户端生成的 **token** 上报到即时通信 IM 服务端。
@@ -100,7 +100,7 @@ public class ThirdPushTokenMgr {
 }
 ```
 
-<span id="Step4"></span>
+[](id:Step4)
 ### 步骤4：离线推送
 
 成功上报证书 ID 及 token 后，即时通信 IM 服务端会在该设备上的即时通信 IM 用户 logout 之前、App 被 kill 之后将消息通过 FCM 推送通知到用户端。

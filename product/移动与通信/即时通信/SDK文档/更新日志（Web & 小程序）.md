@@ -1,3 +1,69 @@
+### 2.10.1 @2021.3.19
+
+**新增**
+
+- [createMergerMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createMergerMessage) 接口，创建合并消息。
+- [createForwardMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createForwardMessage) 接口，创建转发消息。
+- 多实例或多终端登录，一端上报已读后，Web 端同一个会话未读数同步清零。
+
+**变更**
+
+废弃 MTA 统计。
+
+**修复**
+
+- Web 多实例登录，C2C 会话对端头像和昵称出错。
+- 注册发消息后回调并调用 REST API 频繁撤回消息的场景，部分消息未正确撤回。
+
+### 2.9.3 @2021.2.3
+
+**变更**
+
+用户未加入群组（非直播群），[quitGroup](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#quitGroup) 时返回错误码 2623 - 用户不在该群组内。
+
+**修复**
+
+C2C 会话消息列表 `avatar`（头像）或 `nick`（昵称）不一致。
+
+### 2.9.2 @2021.1.26
+
+**新增**
+
+- 收发 C2C 消息带 `avatar`（头像） 和 `nick`（昵称）。
+- 支持腾讯云即时通信 IM 上传插件 [tim-upload-plugin](https://www.npmjs.com/package/tim-upload-plugin)，上传文件更快更安全，支持 Web 和微信、QQ、百度、头条、支付宝小程序平台，体积仅26KB，详细使用请参考 [registerPlugin](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#registerPlugin)。
+
+**修复**
+
+- 登出后匿名加入直播群，长轮询回包错误码70402。
+- Taro 3.0+ 集成时浏览器环境判断错误。
+- 图片类型和尺寸校验失败时，返回的数据结构异常。
+
+
+
+### 2.9.1 @2020.12.23
+**修复**
+
+微信开发者工具基础版本库2.14.1引入 [tim-wx-sdk.js](https://www.npmjs.com/package/tim-wx-sdk) 编译报错。
+
+
+### 2.9.0 @2020.12.15
+**新增**
+
+- [createTextAtMessage](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#createTextMessage) 接口，支持群聊时 @ 某人或者 @ 所有人。
+- [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html) 增加 `namecard` 属性，用于展示群成员的群名片（简称群昵称）。
+
+
+### 2.8.5 @2020.11.23
+**变更**
+
+[logout](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#logout) 接口在 SDK 未 ready 时可以调用。
+
+**修复**
+
+- 已读回执和已读通知同时存在时 SDK 运行时错误。
+- 登出后再次匿名加入直播群失败。
+- 群组列表被异常清空。
+
 ### 2.8.4 @2020.11.4
 **新增**
 

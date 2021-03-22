@@ -9,7 +9,7 @@
 
 ## 操作步骤
 本文以使用零知识范围证明一个隐藏的值满足特定的条件为例，例如“大于等于18岁”。
-1. <span id="stepone"></span>执行以下命令，使用 Bulletproofs 对特定的数字生成零知识证明，证明其为非负数。
+1. [](id:stepone)执行以下命令，使用 Bulletproofs 对特定的数字生成零知识证明，证明其为非负数。
 ```
 bulletproofs prove -value=18
 ```
@@ -20,7 +20,7 @@ proof: jM0+O70Z0nBQJif0BBQHTkWqKskk06FkwwNqTv3B9RcqcElZXezAkhEaMdFwpZKLX09PS8ZOh
 commitment: QAlb0rww7GFQF3IGj0osBrj9VdWCV8JG+bSfFX3GlhI=
 opening: 04QToSmCYt3KaFqB6VMYDhh/aMKXh1G2b+xnS0IwYAY=
 ```
-2. <span id="steptwo"></span>执行以下命令，使用 Bulletproofs 对 [步骤1](#stepone) 的数字执行同态减法操作，并生成证明，确保对应的数字为非负整数。
+2. [](id:steptwo)执行以下命令，使用 Bulletproofs 对 [步骤1](#stepone) 的数字执行同态减法操作，并生成证明，确保对应的数字为非负整数。
 ```
 bulletproofs sub -value1=18 -commitment1=QAlb0rww7GFQF3IGj0osBrj9VdWCV8JG+bSfFX3GlhI= -opening1=04QToSmCYt3KaFqB6VMYDhh/aMKXh1G2b+xnS0IwYAY= -value2=18
 ```

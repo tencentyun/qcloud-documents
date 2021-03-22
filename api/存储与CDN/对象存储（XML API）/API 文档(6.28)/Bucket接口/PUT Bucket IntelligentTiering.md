@@ -3,7 +3,7 @@
 PUT Bucket IntelligentTiering 接口用于启用存储桶的智能分层存储配置。
 
 > ?
-> - 启用智能分层配置后，将无法关闭，只能修改转换天数。
+> - 启用智能分层配置后，将无法关闭或修改。
 > - 只有主账号或者被授权 PUT Bucket IntelligentTiering 接口权限的子账号可以调用该接口。
 > - 您可以通过 [查询对象元数据](https://cloud.tencent.com/document/product/436/7745) 接口返回的`x-cos-storage-tier`获取对象所处的存储层。
 

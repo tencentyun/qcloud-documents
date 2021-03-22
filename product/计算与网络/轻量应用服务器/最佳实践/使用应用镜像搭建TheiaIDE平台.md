@@ -1,10 +1,11 @@
 ## 操作场景
 Theia IDE 是一套构建基于 Web 的云端 IDE 的开源框架，是一个可扩展的平台，具备良好的多语言支持能力，并支持 VS Code 扩展。腾讯云轻量应用服务器提供 Theia IDE 镜像，已安装 Go、Python、Node.js、Clang 及 OpenJDK 开发环境，您可通过它便捷的实现跨平台，并可快速进行项目及业务开发。
 
+
 ## 操作步骤
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse/instance/index)。
 2. 单击【新建】，进入轻量应用服务器购买页面。如下图所示：
-![](https://main.qcloudimg.com/raw/7679376b362b5357a9adff972e63adce.png)
+![](https://main.qcloudimg.com/raw/9c4f0ff07438dd392dec703aed750120.png)
 	- **地域**：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，则地域选择 “广州”。
 	- **镜像**：选择 “Theia IDE 1.5.0” 应用镜像。
 	- **实例套餐**：按照所需的服务器配置（CPU、内存、系统盘、带宽或峰值带宽、每月流量），选择一种实例套餐。
@@ -22,6 +23,8 @@ Theia IDE 是一套构建基于 Web 的云端 IDE 的开源框架，是一个可
 即可获取 Theia IDE 管理员账号（admin）和对应的密码，请妥善保管并记录。
 9. 关闭登录窗口，并返回该实例的应用管理详情页。
 10. 在“应用内软件信息”栏中，单击 Theia 1.5.0 的【访问地址】。
+>!执行操作时建议使用 Chrome 或 Firefox 浏览器，其他浏览器（例如 Safari）可能存在兼容性问题。
+>
 11. 在弹出窗口中输入 [步骤8](#Step8) 获取的管理员帐户及密码，并单击【确定】。如下图所示：
 ![](https://main.qcloudimg.com/raw/26af0c90cf5a4cb7a87942ce7c6bdd72.png)
 验证成功后即可进入 Theia IDE 工作界面，按需进行使用。
@@ -135,6 +138,55 @@ Theia IDE 是一套构建基于 Web 的云端 IDE 的开源框架，是一个可
 </li>
 </ol>
 </ul>
+
+### 开启 HTTPS 访问
+可参考 [安装 SSL 证书](https://cloud.tencent.com/document/product/1207/47027) 文档为您的 Theia IDE 实例安装 SSL 证书并开启 HTTPS 访问。
+>!Theia IDE 实例无需修改 `/usr/local/lighthouse/softwares/nginx/conf/nginx.conf` 配置文件，仅需修改 `/usr/local/lighthouse/softwares/nginx/conf/include/theia.conf` 配置文件即可。
+>
+请参考以下配置对文件进行修改：
+```
+server {
+    listen 443 ssl;
+    server_tokens off;
+    keepalive_timeout 5;
+    root /usr/local/lighthouse/softwares/nginx/html;
+    index index.php index.html;
+    access_log logs/theia.log combinediox;
+    error_log logs/theia.error.log;
+    server_name cloud.tencent.com;   #填写您的证书绑定的域名，例如：cloud.tencent.com
+    ssl_certificate 1_cloud.tencent.com_bundle.crt;   #填写您的证书文件名称，例如：1_cloud.tencent.com_bundle.crt
+    ssl_certificate_key 2_cloud.tencent.com.key;    #填写您的私钥文件名称，例如：2_cloud.tencent.com.key
+    ssl_session_timeout 5m;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;  # 可参考此 SSL 协议进行配置
+    ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;   #可按照此加密套件配置，写法遵循 openssl 标准
+    ssl_prefer_server_ciphers on;
+
+   auth_digest_user_file /home/lighthouse/passwd.digest;
+    auth_digest_shm_size  8m;   # the storage space allocated for tracking active sessions
+
+   location / {
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+
+        auth_digest 'lighthouse';
+        auth_digest_timeout 120s;   # allow users to wait 2 minute between receiving the
+                                    # challenge and hitting send in the browser dialog box
+        auth_digest_expires 600s;   # after a successful challenge/response, let the client
+                                    # continue to use the same nonce for additional requests
+                                    # for 600 seconds before generating a new challenge
+        auth_digest_replays 60;     # also generate a new challenge if the client uses the
+                                    # same nonce more than 60 times before the expire time limit
+
+        proxy_pass http://127.0.0.1:3000;
+    }
+}
+
+server {
+    listen 80;
+    server_name cloud.tencent.com;    #填写您的证书绑定的域名，例如：cloud.tencent.com
+    return 301 https://$host$request_uri;       #将http的域名请求转成https
+}
+```
 
 
 <style>

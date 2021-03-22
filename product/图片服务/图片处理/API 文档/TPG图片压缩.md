@@ -34,3 +34,4 @@ http://examples-1251000004.cos.ap-shanghai.myqcloud.com/sample.jpeg?imageMogr2/f
 ```
 
 转换为 TPG 格式后，图片大小为97KB，减少39%。
+

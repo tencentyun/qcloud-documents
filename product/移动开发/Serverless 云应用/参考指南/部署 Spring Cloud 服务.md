@@ -16,15 +16,13 @@
 
 ## 部署流程
 
->? 
-> 以下所有涉及的 CVM 实例、云托管实例，都处于同一个 VPC 内。您可以在云托管详情内看到您的应用所属的 VPC。
+>? 以下所有涉及的 CVM 实例、云托管实例，都处于同一个 VPC 内。您可以在云托管详情内看到您的应用所属的 VPC。
 
 ## 第 1 步：部署注册中心（eureka-server）
 
 首先需要您准备一个腾讯云 CVM 实例，如果您没有实例，可以前往腾讯云 CVM 购买。
 
->? 
-> CVM 实例需要与云托管服务处于同一 VPC 内。您可以在购买 CVM 时指定，也可以修改已有的 CVM 实例所处的 VPC 网络。
+>? CVM 实例需要与云托管服务处于同一 VPC 内。您可以在购买 CVM 时指定，也可以修改已有的 CVM 实例所处的 VPC 网络。
 
 下载 [项目示例代码][1]，进入 `eureka-server` 目录下，执行：
 
@@ -46,8 +44,7 @@ scp app.jar root@1.2.3.4:/root/
 java -jar app.jar &
 ```
 
->? 
-> 此处需要您的 CVM 已经预先安装好了 Java，如果没有安装 Java，请参阅相关文档进行安装。
+>? 此处需要您的 CVM 已经预先安装好了 Java，如果没有安装 Java，请参阅相关文档进行安装。
 
 安装成功后，打开 CVM 对应公网的 IP 和端口（项目默认为 `8280`）可查看到如下的界面：
 
@@ -57,8 +54,7 @@ java -jar app.jar &
 
 首先需要您准备一个腾讯云 CVM 实例，如果您没有实例，可以前往腾讯云 CVM 购买。
 
->? 
-> 为了更接近真实的服务场景，我们建议您使用与上文的注册中心不同的 CVM 示例。
+>? 为了更接近真实的服务场景，我们建议您使用与上文的注册中心不同的 CVM 示例。
 
 进入示例项目的 `config-server/src/main/resources` 目录，修改 `application.yml`，将 Eureka 的地址改为上文的 **注册中心（eureka-server）** 的地址，如下图：
 
@@ -102,7 +98,7 @@ java -jar app.jar &
 
 ![](https://main.qcloudimg.com/raw/8cb877698c7c77a7fccf36804dede364.png)
 
-然后登陆 CloudBase 云托管控制台，选择新建版本，将示例项目的 `/hello-service` 目录上传，同时版本配置参考如下：
+然后登录 CloudBase 云托管控制台，选择新建版本，将示例项目的 `/hello-service` 目录上传，同时版本配置参考如下：
 
 ![](https://main.qcloudimg.com/raw/bfd406578dd8aa7874a766bf0616630b.png)
 
@@ -124,7 +120,7 @@ java -jar app.jar &
 
 ![](https://main.qcloudimg.com/raw/0831b976cb9a2eb3fc6e8feadf7c8270.png)
 
-然后登陆 CloudBase 云托管控制台，选择新建版本，将示例项目的 `/hello-client` 目录上传，同时版本配置参考如下：
+然后登录 CloudBase 云托管控制台，选择新建版本，将示例项目的 `/hello-client` 目录上传，同时版本配置参考如下：
 
 ![](https://main.qcloudimg.com/raw/3c08d7b04f6cc9ef82fef4273bf4107c.png)
 

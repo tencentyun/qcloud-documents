@@ -6,6 +6,7 @@
 
 #### 主账号
 主账号又被称为开发商。用户申请腾讯云账号时，系统会创建一个用于登录腾讯云服务的主账号身份。主账号是腾讯云资源使用计量计费的基本主体。
+
 主账号默认拥有其名下所拥有的资源的完全访问权限，包括访问账单信息，修改用户密码，创建用户和用户组以及访问其他云服务资源等。默认情况下，资源只能被主账号所访问，任何其他用户访问都需要获得主账号的授权。
 
 #### 子账号（用户）和用户组
@@ -25,11 +26,10 @@
 在 CAM 控制台可创建子账号，并配置授予子账号的访问权限。具体操作如下所示：
 1. 登录 [CAM 控制台](https://console.cloud.tencent.com/cam)。
 2. 选择【用户】>【用户列表】>【新建用户】，进入新建用户页面。
-3. 单击【自定义创建】，选择**可访问资源并接收消息**类型，然后下一步。
+3. 选择【自定义创建】，选择【**可访问资源并接收消息**】类型，单击【下一步】。
 4. 按照要求填写用户相关信息。
- - **用户名**：输入子用户名称，例如 Sub_user。
- - **邮箱**：您需要为子用户添加邮箱来获取由腾讯云发出的绑定微信的邮件。
- - **访问方式**：选择编程访问和腾讯云控制台访问。
+ - **设置用户信息**：输入子用户名称，例如 Sub_user。输入子用户的邮箱，您需要为子用户添加邮箱来获取由腾讯云发出的绑定微信的邮件。
+ - **访问方式**：选择编程访问和腾讯云控制台访问。其他配置可按需选择。
 4. 填写用户信息完毕后，单击【下一步】，进行身份验证。
 5. 身份验证完毕，设置子用户权限。根据系统提供的策略选择，可配置简单的策略，例如 COS 的存储桶列表的访问权限，只读权限等。如需配置更复杂的策略，可进行 [步骤2：对子账号授予权限](#.E6.AD.A5.E9.AA.A42.EF.BC.9A.E5.AF.B9.E5.AD.90.E8.B4.A6.E5.8F.B7.E6.8E.88.E4.BA.88.E6.9D.83.E9.99.90) 。
 6. 确认输入的用户信息无误后，单击【完成】即可创建子账号。
@@ -40,32 +40,36 @@
 对子账号授予权限可通过 CAM，对子账号（用户）或用户组进行策略配置。
 1. 登录 [CAM 控制台](https://console.cloud.tencent.com/cam)。
 2. 选择【策略】>【新建自定义策略】>【按策略语法创建】，进入策略创建页面。
-3. 可供选择的模版有**空白模板**和与 COS 相关联的**预设策略模板**，选择您需要授予子账号的策略模板，单击【下一步】。
+3. 您可按照实际需求选择**空白模版**自定义授权策略，或选择与 COS 相关联的**系统模版**，单击【下一步】。
 ![](https://main.qcloudimg.com/raw/9c60306242955be93fa0bfbd5cea2bda.jpg)
-4. 输入便于您记忆的策略名称，若您选择**空白模板**，则需要输入您的策略语法，详情请参见 [策略示例](#策略示例)。您可将策略内容复制粘贴到【编辑策略内容】输入框内，单击【创建策略】。
-![](https://main.qcloudimg.com/raw/880f49ec0df3199c2e301fd86b108580.png)
+4. 输入便于您记忆的策略名称，若您选择**空白模版**，则需要输入您的策略语法，详情请参见 [策略示例](#策略示例)。您可将策略内容复制粘贴到【策略内容】编辑框内，确认输入无误后单击【完成】即可。
+![](https://main.qcloudimg.com/raw/6f48b23fd7b995c1613cdd1e8323b389.png)
 5. 创建完成后，将刚才已创建的策略关联到子账号。
-![](https://main.qcloudimg.com/raw/481057a2b826bf038bffa4f49817b380.png)
-6. 勾选子账号确定授权后，子账号即可根据权限范围访问 COS 资源。
-![](https://main.qcloudimg.com/raw/2a4783ba4976aa7acb89347e75d1236b.png)
+![](https://main.qcloudimg.com/raw/381ee6bc64f5aa56124148b1b1a24318.png)
+6. 勾选子账号并单击【确定】授权后，即可使用子账号访问所限定的 COS 资源。
+![](https://main.qcloudimg.com/raw/c37f96e1a2db3f74066ca48c1b09d538.png)
 
 ### 步骤3：子账号访问 COS 资源
-COS 访问（API 或 SDK）需要如下资源：APPID、SecretId、SecretKey。
-当使用子账号访问 COS 资源时，需要使用主账号的 APPID，子账号的 SecretId 和 SecretKey，您可以在访问管理控制台生成子账号的 SecretId 和 SecretKey。
+
+根据上面步骤1设置的两种访问方式：编程访问和腾讯云控制台访问两种，介绍如下：
+
+（1）编程访问
+
+当使用子账号通过编程（例如 API、SDK 和工具等）访问 COS 资源时需要先获取主账号的 APPID、子账号的 SecretId 和 SecretKey 信息。您可以在访问管理控制台生成子账号的 SecretId 和 SecretKey。
 
 1. 主账号登录 [CAM 控制台](https://console.cloud.tencent.com/cam/capi)  。
 2. 选择【用户列表】，进入用户列表页面。
 3. 单击子账号用户名称，进入子账号信息详情页。
 4. 单击【API 密钥】页签，并单击【新建密钥】为该子账号创建 SecretId 和 SecretKey。
 
-
 至此您就可以通过子账号的 SecretId 和 SecretKey、主账号的 APPID，访问 COS 资源。 
 
 >!
->- 子账号需通过 XML API 或基于 XML API 的 SDK 访问 COS 资源。
->- 子账号访问 COS 资源时，需要使用主账号的 APPID，子账号的 SecretId 和 SecretKey。
+>子账号需通过 XML API 或基于 XML API 的 SDK 访问 COS 资源。
+
 
 #### 基于 XML 的 Java SDK 访问示例
+
 以基于 XML 的 Java SDK 命令行为例，需填入参数如下：
 ```
 // 1 初始化身份信息
@@ -75,26 +79,34 @@ COSCredentials cred = new BasicCOSCredentials("<主账号APPID>", "<子账号Sec
 实例如下：
 ```
 // 1 初始化身份信息
-COSCredentials cred = new BasicCOSCredentials("1250000000", "AKIDasdfmRxHPa9oLhJp", "e8Sdeasdfas2238Vi");
+COSCredentials cred = new BasicCOSCredentials("1250000000", "AKIDasdfmRxHPa9oLhJp****", "e8Sdeasdfas2238Vi****");
 ```
 
 #### COSCMD 命令行工具访问示例
-以 COSCMD `config`命令行为例，需填入参数如下：
+
+以 COSCMD 的配置命令为例，需填入的参数如下：
 ```sh
 coscmd config -u <主账号 APPID> -a <子账号 SecretId> -s <子账号SecretKey>  -b <主账号 bucketname> -r <主账号  bucket 所属地域>
 ```
 实例如下：
 ```sh
-coscmd config -u 1250000000 -a AKIDasdfmRxHPa9oLhJp -s e8Sdeasdfas2238Vi -b examplebucket -r ap-beijing
+coscmd config -u 1250000000 -a AKIDasdfmRxHPa9oLhJp**** -s e8Sdeasdfas2238Vi**** -b examplebucket -r ap-beijing
 ```
 
 
+（2）腾讯云控制台
+
+子用户被授予权限后，可在 [子用户登录界面](https://cloud.tencent.com/login/subAccount?s_url=https%3A%2F%2Fconsole.cloud.tencent.com%2Fdeveloper) 输入主账号 ID、子用户名和子用户密码登录控制台，并在【云产品】中选择单击【对象存储】，即可访问主账号下的存储资源。
+
 <span id="策略示例"></span>
 ## 策略示例
-以下提供几种典型场景的策略示例，在配置自定义策略时，您可将以下参考策略复制粘贴至输入框【编辑策略内容】，根据实际配置修改即可。更多 COS 常见场景的策略语法请参见 [CAM 产品文档](https://cloud.tencent.com/document/product/598/11083) 的**商用案例**部分。
+以下提供几种典型场景的策略示例，在配置自定义策略时，您可将以下参考策略复制粘贴至输入框【编辑策略内容】，根据实际配置修改即可。更多 COS 常见场景的策略语法请参见 [访问策略语言概述](https://cloud.tencent.com/document/product/436/18023) 或 [CAM 产品文档](https://cloud.tencent.com/document/product/598/11083) 的**商用案例**部分。
 
-### 为子账户配置读写权限
-为子账户仅配置读写权限，具体策略如下所示：
+### 示例1：为子账户配置 COS 全读写权限
+
+>!该策略授权的范围较大，请谨慎配置。
+
+具体策略如下所示：
 ```
 {
     "version": "2.0",
@@ -114,7 +126,8 @@ coscmd config -u 1250000000 -a AKIDasdfmRxHPa9oLhJp -s e8Sdeasdfas2238Vi -b exam
     ]
 }
 ```
-### 为子帐户配置只读权限
+
+### 示例2：为子账户配置只读权限
 为子账户仅配置只读权限，具体策略如下所示：
 ```
 {
@@ -139,7 +152,35 @@ coscmd config -u 1250000000 -a AKIDasdfmRxHPa9oLhJp -s e8Sdeasdfas2238Vi -b exam
 }
 ```
 
-### 为子账户配置某 IP 段的读写权限
+
+### 示例3：为子账户配置只写权限（不含删除）
+
+具体策略如下所示：
+```
+{
+    "version": "2.0",
+    "statement": [
+        {
+            "effect": "allow",
+            "action": [
+                "cos:ListParts",
+                "cos:PostObject",
+                "cos:PutObject*",
+                "cos:InitiateMultipartUpload",
+                "cos:UploadPart",
+                "cos:UploadPartCopy",
+                "cos:CompleteMultipartUpload",
+                "cos:AbortMultipartUpload",
+                "cos:ListMultipartUploads"
+            ],
+            "resource": "*"
+        }
+    ]
+}
+```
+
+
+### 示例4：为子账户配置某 IP 段的读写权限
 本示例中限制仅 IP 网段为`192.168.1.0/24`和`192.168.2.0/24`的地址具有读写权限，如下所示。
 更丰富的生效条件填写，请参见 [生效条件](https://cloud.tencent.com/document/product/598/10608)。
 ```

@@ -113,15 +113,17 @@ yum -y remove 包名
 vi /etc/yum.repos.d/MariaDB.repo
 ```
 3. 按 “**i**” 切换至编辑模式，写入以下内容，添加 MariaDB 软件库。
->? 不同操作系统的 MariaDB 软件库不同，您可前往 [MariaDB 官网](https://downloads.mariadb.org) 获取其他版本操作系统的 MariaDB 软件库安装信息。
+>? 
+>- 不同操作系统的 MariaDB 软件库不同，您可前往 [MariaDB 官网](https://downloads.mariadb.org) 获取其他版本操作系统的 MariaDB 软件库安装信息。
+>- 若您的云服务器使用了 [内网服务](https://cloud.tencent.com/document/product/213/5225)，则可以将 `mirrors.cloud.tencent.com` 替换为 `mirrors.tencentyun.com` 内网地址，内网流量不占用公网流量且速度更快。
 >
 ```
 # MariaDB 10.4 CentOS repository list - created 2019-11-05 11:56 UTC
 # http://downloads.mariadb.org/mariadb/repositories/
 [mariadb]
 name = MariaDB
-baseurl = http://yum.mariadb.org/10.4/centos7-amd64
-gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+baseurl = https://mirrors.cloud.tencent.com/mariadb/yum/10.4/centos7-amd64
+gpgkey=https://mirrors.cloud.tencent.com/mariadb/yum/RPM-GPG-KEY-MariaDB
 gpgcheck=1
 ```
 4. 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
@@ -196,7 +198,3 @@ http://云服务器实例的公网 IP
 - 云服务器的登录问题，可参考 [密码及密钥](https://cloud.tencent.com/document/product/213/18120)、[登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 - 云服务器的网络问题，可参考 [IP 地址](https://cloud.tencent.com/document/product/213/17285)、[端口与安全组](https://cloud.tencent.com/document/product/213/2502)。
 - 云服务器硬盘问题，可参考 [系统盘和数据盘](https://cloud.tencent.com/document/product/213/17351)。
-
-
-
-

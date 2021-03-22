@@ -25,7 +25,7 @@ Serverless SSR 为您提供了完整的控制台开发应用流程，该任务�
 
 ![](https://main.qcloudimg.com/raw/1b517a43b6250b3bcb4ef0cfd9eeb4cd.png)
 
-您还可以在【高级配置】部分，为您的项目进行静态资源存储、自定义域名、CDN 加速等高级能力的配置
+您还可以在【高级设置】部分，为您的项目进行静态资源存储、自定义域名、CDN 加速等高级能力的配置。
 ![](https://main.qcloudimg.com/raw/c3824c2fa8a031ddeba9d270d3be3c3e.png)
 
 >?配置自定义域名时，请确定您的域名已在腾讯云备案并配置了 CNAME 解析，详细步骤参考 [自定义域名配置文档](https://cloud.tencent.com/document/product/628/11791)。

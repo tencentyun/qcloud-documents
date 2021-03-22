@@ -41,6 +41,9 @@ EMR 集群中 Hbase 默认集成了 Thrift，并在 Master1（外网 IP 节点�
 ```
 可见 Thrift Server 已经在后台运行。我们可以直接使用 Python 编程来操作 Hbase。
 
+### 负载均衡
+HA 集群有两个 master 节点，两个节点默认都启动了 Thrift Server。若需要实现负载均衡，客户端代码需要自定义策略将请求分散到两台 Thrift Server 上，这两台 Thrift Server 是完全独立的，之间没通信。
+
 ### 准备数据
 使用 Hbase Shell 在 Hbase 中新建一个表，如果您使用过 EMR 的 Hbase 并且创建过自己的表，那么该步骤可以略过：
 ```

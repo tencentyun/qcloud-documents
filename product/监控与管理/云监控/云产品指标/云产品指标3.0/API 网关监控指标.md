@@ -32,7 +32,7 @@ Namespace=QCE/APIGATEWAY
 | Instances.N.Dimensions.2.Name  | apiid/key       | APIid 或者 SecretKey 的维度名称 | 输入 String 类型维度名称：apiid/key        |
 | Instances.N.Dimensions.2.Value | apiid/secretid  | 具体的 APIid 或者 SecretId      | 输入具体的 APIid 或者 SecretId          |
 
-<span id="weidu">
+[](id:weidu)
 
 ## 维度说明
 
@@ -48,7 +48,7 @@ Namespace=QCE/APIGATEWAY
 &Instances.N.Dimensions.0.Name=serviceId
 &Instances.N.Dimensions.0.Value=serviceId 的值
 &Instances.N.Dimensions.1.Name=environmentName
-&Instances.N.Dimensions.1.Value=为环境名
+&Instances.N.Dimensions.1.Value=环境名
 
 #### 2.  API 维度，入参取值
 
@@ -56,9 +56,9 @@ Namespace=QCE/APIGATEWAY
 &Instances.N.Dimensions.0.Name=serviceId
 &Instances.N.Dimensions.0.Value=serviceId 的值
 &Instances.N.Dimensions.1.Name=environmentName
-&Instances.N.Dimensions.1.Value=为环境名
+&Instances.N.Dimensions.1.Value=环境名
 &Instances.N.Dimensions.2.Name=apiid
-&Instances.N.Dimensions.2.Value= 为 API 的 ID
+&Instances.N.Dimensions.2.Value=API 的 ID
 
 #### 3. 密钥对维度，入参取值（需要开启白名单）
 
@@ -68,4 +68,4 @@ Namespace=QCE/APIGATEWAY
 &Instances.N.Dimensions.1.Name=environmentName
 &Instances.N.Dimensions.1.Value=为环境名
 &Instances.N.Dimensions.2.Name=key
-&Instances.N.Dimensions.2.Value=为密钥对的 secretid
+&Instances.N.Dimensions.2.Value=密钥对的 secretid

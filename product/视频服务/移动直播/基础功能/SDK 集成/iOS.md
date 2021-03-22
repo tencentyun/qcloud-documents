@@ -8,6 +8,7 @@
 ## 集成 LiteAVSDK
 您可以选择使用 CocoaPods 自动加载的方式，或者先下载 SDK，再将其导入到您当前的工程项目中。
 
+[](id:cocoapods)
 ### CocoaPods
 #### 1. 安装 CocoaPods
 在终端窗口中输入如下命令（需要提前在 Mac 中安装 Ruby 环境）：
@@ -24,25 +25,26 @@ pod init
 #### 3. 编辑 Podfile 文件
 编辑 Podfile 文件，有如下有两种设置方式：
 -  方式一：使用腾讯云 LiteAVSDK 的 podspec 文件路径。
-
-```
-  platform :ios, '8.0'
+<dx-codeblock>
+:::  podspec
+  platform :ios, '9.0'
   
   target 'App' do
   pod 'TXLiteAVSDK_Professional', :podspec => 'http://pod-1252463788.cosgz.myqcloud.com/liteavsdkspec/TXLiteAVSDK_Professional.podspec'
   end
-```
-
+:::
+</dx-codeblock>
 -  方式二：使用 CocoaPod 官方源，支持选择版本号。
-
-```
-   platform :ios, '8.0'
+<dx-codeblock>
+:::  CocoaPod
+   platform :ios, '9.0'
    source 'https://github.com/CocoaPods/Specs.git'
    
    target 'App' do
    pod 'TXLiteAVSDK_Professional'
    end
-```
+:::
+</dx-codeblock>
 
 #### 4. 更新并安装 SDK
 在终端窗口中输入如下命令以更新本地库文件，并安装 LiteAVSDK：
@@ -56,16 +58,13 @@ pod update
 
 pod 命令执行完后，会生成集成了 SDK 的 `.xcworkspace` 后缀的工程文件，双击打开即可。
 
-
+[](id:manual)
 ### 手动集成
 1. 下载 [LiveAVSDK](https://cloud.tencent.com/document/product/454/7873) ，下载完成后进行解压。
-
 2. 打开您的 Xcode 工程项目，选择要运行的 target , 选中 **Build Phases** 项。
 ![](https://main.qcloudimg.com/raw/d78299d12be0f6c3255eabec91941e7a.jpg)
-
 3. 单击 **Link Binary with Libraries** 项展开，单击底下的“+”添加依赖库。
 ![](https://main.qcloudimg.com/raw/dffd804d78d3e5765add218cb228c842.png)
-
 4. 依次添加所下载的 `TXLiteAVSDK_Professional.framework` 及其所需依赖库 :
 ```
 libz.tbd
@@ -86,12 +85,11 @@ OpenAL.framework
 
 ## 在工程中引入 SDK
 项目代码中使用 SDK 有两种方式：
-- 方式一： 在项目需要使用 SDK API 的文件里，添加模块引用。
+- **方式一：** 在项目需要使用 SDK API 的文件里，添加模块引用。
 ```
 @import TXLiteAVSDK_Professional;
 ```
-
-- 方式二：在项目需要使用 SDK API 的文件里，引入具体的头文件。
+- **方式二：**在项目需要使用 SDK API 的文件里，引入具体的头文件。
 ```
 #import "TXLiteAVSDK_Professional/TXLiteAVSDK.h"
 ```

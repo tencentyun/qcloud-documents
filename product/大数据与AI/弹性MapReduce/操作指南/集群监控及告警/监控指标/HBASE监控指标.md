@@ -19,6 +19,7 @@
 
 ### HBASE-HMaster
 
+
 | 指标名称                       | 指标单位 | 指标含义       |
 | ------------------------------ | -------- | -------------- |
 | YGC                            | 次       | GC 次数        |
@@ -149,3 +150,9 @@
 | mutationsWithoutWALCount          | 个       | mutation 个数       |
 | mutationsWithoutWALSize           | Byte     | mutation 大小      |
 | regionServerStartTime             | s        | 进程启动时间       |
+| 99th_percentile   | ms   | 99%请求处理时延   |
+| 99.9th_percentile | ms   | 99.9%请求处理时延 |
+| 99th_percentile   | ms   | 99%请求排队时延   |
+| 99.9th_percentile | ms   | 99.9%请求排队时延 |
+
+

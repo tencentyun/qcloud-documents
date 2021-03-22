@@ -3,10 +3,10 @@
 
 | EMR 版本 | Spark | Kafka               | maven example                   |
 | ------- | ----- | ------------------- | ------------------------------- |
-| v1.3.1  | 2.0.2 | 0.8.2.1 or   higher | spark-streaming-kafka-0-8_2.11  |
-| v2.0.1  | 2.2.1 | 0.8.2.1 or   higher | spark-streaming-kafka-0-8_2.11  |
-| v2.1.0  | 2.3.2 | 0.10.0 or   higher  | spark-streaming-kafka-0-10_2.11 |
-| v3.0.0  | 2.4.3 | 0.10.0 or   higher  | spark-streaming-kafka-0-10_2.12 |
+| v1.3.1  | 2.0.2 | 0.8.2.1 or higher | spark-streaming-kafka-0-8_2.11  |
+| v2.0.1  | 2.2.1 | 0.8.2.1 or higher | spark-streaming-kafka-0-8_2.11  |
+| v2.1.0  | 2.3.2 | 0.10.0 or higher  | spark-streaming-kafka-0-10_2.11 |
+| v3.0.0  | 2.4.3 | 0.10.0 or higher  | spark-streaming-kafka-0-10_2.12 |
 
 ### 查找方法
 1. 访问官网链接，输入版本号链接模板：

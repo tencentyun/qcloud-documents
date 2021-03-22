@@ -25,16 +25,13 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
         <tbody>
             <tr>
                 <td rowspan="8">计算型</td>
-                <td rowspan="2">GN10X<br>GN10Xp</td> 
+                <td>GN10X<br>GN10Xp</td> 
                 <td>Tesla V100 NVLink 32G</td>
                 <td><ul class="params"><li>CentOS 7.2 及以上</li><li>Ubuntu 14.04 及以上</li><li>Windows Server 2012 及以上</li></td>
                 <td><ul class="params"><li>GN10X：广州、上海、南京、北京、成都、重庆、新加坡、硅谷、法兰克福、孟买</li><li>GN10Xp：广州、上海、南京、北京、成都、重庆、香港、法兰克福</li></ul></td>
             </tr>
             <tr>
-				<td>vGPU - Tesla V100 NVLink 32G</td> 
-                <td><ul class="params"><li>CentOS 7.6 64位 GRID91</li><li>Ubuntu Server 18.04.1 64位 GRID91</li></ul></td>
-                <td><ul class="params"><li>GN10X：广州、上海、南京、北京、成都、重庆</li><li>GN10Xp：广州、上海、南京、北京、成都、重庆、香港</li></ul></td>
-			</tr>
+					</tr>
             <tr>
                 <td>GN8</td> 
                 <td>Tesla P40</td>
@@ -47,7 +44,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>广州、上海、南京、北京、成都、重庆、香港、新加坡、硅谷、孟买、弗吉尼亚、法兰克福</td>
             </tr><tr>
 				<td>vGPU - Tesla T4</td> 
-                <td><ul class="params"><li>CentOS 7.6 64位 GRID91</li><li>Ubuntu Server 18.04.1 64位 GRID91</li></td>
+                <td>CentOS 8.0 64位 GRID11.1</td>
                 <td>广州、上海、南京、北京、成都、重庆、香港、硅谷</td>
 			</tr><tr>
             </tr><tr>
@@ -64,7 +61,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>渲染型</td>
                 <td>GN7vw</td> 
                 <td>Tesla T4</td>
-                <td><ul class="params"><li>CentOS 7.6 64位 GRID91</li><li>Ubuntu Server 18.04.1 64位 GRID91</li><li>Windows Server 2016数据中心版 64位中文版 GRID93</li></td>
+                <td><ul class="params"><li>CentOS 8.0 64位 GRID11.1</li><li>Windows Server 2019 数据中心版 64位 中文版 GRID11.1</li></td>
                 <td>北京、上海、广州、南京、成都、重庆、香港、新加坡、孟买、硅谷、弗吉尼亚、法兰克福</td>
             </tr>
         </tbody>
@@ -266,28 +263,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
                 <td>4</td>
                 <td rowspan="1">广州三、四区，南京一区，成都一区，重庆一区</td>
 			</tr>
-            <tr>
-			<td>GN10X.MEDIUM10</td>
-			<td>1/4颗</td> 
-            <td>8GB vGPU</td>
-			<td>2核</td>
-			<td>10GB</td>
-            <td>1Gbps</td>
-			<td>20万PPS</td>
-             <td>2</td>
-            <td rowspan="2">-</td>
-		</tr>
-        <tr>
-			<td>GN10X.LARGE20</td>
-			<td>1/2颗</td> 
-            <td>16GB vGPU</td>
-			<td>4核</td>
-			<td>20GB</td>
-            <td>2Gbps</td>
-			<td>40万PPS</td>
-            <td>2</td>
-		</tr>
-        <tr>
+      <tr>
 			<td>GN10Xp.2XLARGE40</td>
 			<td>1颗</td> 
             <td>1 * 32GB</td>
@@ -330,12 +306,6 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 		</tr>
 		</tbody>
 </table>
-
-
->?**vGPU**：GN10X 实例簇提供支持 vGPU 的实例类型。目前 vGPU 类型处于限量购买阶段，如需使用，请前往 [申请页面](https://cloud.tencent.com/apply/p/itgrxpby8al)。vGPU 的类型为 vComputeServer，仅支持 CUDA 计算 API。
-
-
-
 
 
 ## 计算型 GN8 
@@ -471,7 +441,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
         <td>4GB vGPU</td>
 				<td>4核</td>
 				<td>20GB</td>
-        <td>2Gbps</td>
+        <td>1.5Gbps</td>
 				<td>50万PPS</td>
          <td>4</td>
          <td rowspan="2">广州三、四区，上海二、四区，南京一、二区，北京三，五区，成都一区，重庆一区，硅谷二区</td>
@@ -482,7 +452,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
         <td>8GB vGPU</td>
 				<td>10核</td>
 				<td>40GB</td>
-        <td>4Gbps</td>
+        <td>3Gbps</td>
 				<td>70万PPS</td>
         <td>10</td>
 			</tr>
@@ -492,7 +462,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
                 <td>1 * 16GB</td>
 				<td>8核</td>
 				<td>32GB</td>
-                <td>7Gbps</td>
+                <td>3Gbps</td>
 				<td>60万PPS</td>
                 <td>8</td>
                 <td rowspan="5">广州三、四区，上海二、四区，南京一、二区，北京三、五区，成都一区，重庆一区，新加坡一区，硅谷二区，香港二区，孟买二区，弗吉尼亚二区，法兰克福一区</td>
@@ -513,7 +483,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
         <td>1 * 16GB</td>
 				<td>32核</td>
 				<td>128GB</td>
-        <td>7Gbps</td>
+        <td>10Gbps</td>
 				<td>240万PPS</td>
         <td>16</td>
 			</tr>

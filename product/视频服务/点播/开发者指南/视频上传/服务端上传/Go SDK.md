@@ -354,3 +354,4 @@ func main() {
 | InvalidParameterValue.SubAppId       | 参数值错误：子应用 ID。              |
 | InvalidParameterValue.VodSessionKey       | 参数值错误：点播会话。              |
 | ResourceNotFound       | 资源不存在。              |
+

@@ -4,3 +4,5 @@
 4. 单击【IDC 网段】选项卡，输入您要连通的 IDC 网段，并保存即可。
 ![](https://main.qcloudimg.com/raw/22f7bf33253aef92d5d6ffc371f062d8.png)
 
+
+

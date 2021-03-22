@@ -104,7 +104,7 @@ __介绍__
 
 针对腾讯云的推流地址，会采用 QUIC 协议进行加速，配合改进后的 BBR2 带宽测算方案，可以最大限度的利用主播的上行带宽，降低直播卡顿率。
 
->?-5返回码代表 license 校验失败，TXLivePusher 需要 [license](https://cloud.tencent.com/document/product/454/34750)校验通过才能工作。
+>?-5返回码代表 license 校验失败，TXLivePusher 需要 [License](https://cloud.tencent.com/document/product/454/34750) 校验通过才能工作。
 
 
 ***
@@ -252,7 +252,7 @@ __介绍__
 该接口仅能够改变主播本地预览画面的方向，而不会改变观众端的画面效果。 如果希望改变观众端看到的视频画面的方向，例如原来是540 × 960，希望变成960 × 540，则可以通过设置 [TXLivePushConfig](https://cloud.tencent.com/document/product/454/34756) 中的 homeOrientation 来实现。
 
 
-<pre>
+```
 // 竖屏推流（HOME 键在下）
 _config.homeOrientation = HOME_ORIENTATION_DOWN;
 [_txLivePublisher setConfig:_config];
@@ -261,13 +261,13 @@ _config.homeOrientation = HOME_ORIENTATION_DOWN;
 _config.homeOrientation = HOME_ORIENTATION_RIGHT;
 [_txLivePublisher setConfig:_config];
 [_txLivePublisher setRenderRotation:90];
-</pre>
+```
 
 ***
 
 ### toggleTorch
 
-打开后置摄像头旁边的闪关灯。
+打开后置摄像头旁边的闪光灯。
 ```
 - (BOOL)toggleTorch:(BOOL)bEnable 
 ```
@@ -331,12 +331,12 @@ SDK 默认使用摄像头自动对焦功能，您也可以通过 [TXLivePushConf
 - (TXBeautyManager *)getBeautyManager 
 ```
 
->通过美颜管理，您可以使用以下功能：
->- 设置”美颜风格”、”美白”、“红润”、“大眼”、“瘦脸”、“V脸”、“下巴”、“短脸”、“小鼻”、“亮眼”、“白牙”、“祛眼袋”、“祛皱纹”、“祛法令纹”等美容效果。
->- 调整“发际线”、“眼间距”、“眼角”、“嘴形”、“鼻翼”、“鼻子位置”、“嘴唇厚度”、“脸型”。
->- 设置人脸挂件（素材）等动态效果。
->- 添加美妆。
->- 进行手势识别。
+通过美颜管理，您可以使用以下功能：
+- 设置”美颜风格”、”美白”、“红润”、“大眼”、“瘦脸”、“V脸”、“下巴”、“短脸”、“小鼻”、“亮眼”、“白牙”、“祛眼袋”、“祛皱纹”、“祛法令纹”等美容效果。
+- 调整“发际线”、“眼间距”、“眼角”、“嘴形”、“鼻翼”、“鼻子位置”、“嘴唇厚度”、“脸型”。
+- 设置人脸挂件（素材）等动态效果。
+- 添加美妆。
+- 进行手势识别。
 
 
 ***
@@ -799,6 +799,6 @@ __介绍__
 - (BOOL)enableClockOverlay
 ```
 
-***
+
 
 

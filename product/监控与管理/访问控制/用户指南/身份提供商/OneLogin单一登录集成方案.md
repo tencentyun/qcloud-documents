@@ -32,7 +32,7 @@ OneLogin 是一家云身份访问管理解决方案提供商，可以通过其�
 2. 选择【Configuration】页签，输入以下内容，单击【SAVE】。如下图所示：
 ![](https://main.qcloudimg.com/raw/2211da7f372415f536a81795d3a02207.png)
 
->>?
+>?
 > - 如果您的腾讯云账号所在站点为中国站，请按照如下信息进行配置：
 SAML Consumer URL：https://cloud.tencent.com/login/saml
 SAML Audience：https://cloud.tencent.com
@@ -41,9 +41,8 @@ SAML Recipient：https://cloud.tencent.com/login/saml
 SAML Consumer URL：https://intl.cloud.tencent.com/login/saml
 SAML Audience：https://intl.cloud.tencent.com
 SAML Recipient：https://intl.cloud.tencent.com/login/saml
-
+>
 3. 单击【Parameters】，选择【Add parameter】，添加以下两条配置信息。
-
 <table>
 	<tr>
 		<th>Field name</th>
@@ -54,8 +53,7 @@ SAML Recipient：https://intl.cloud.tencent.com/login/saml
 	<tr>
 		<td>https://cloud.tencent.com/SAML/Attributes/Role</td>
 		<td>Include in SAML assertion</td>
-		<td>Macro</td>
-	<td>qcs::cam::uin/{AccountID}:roleName/{RoleName1};qcs::cam::uin/{AccountID}:roleName/{RoleName2},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName}</td>
+		<td>Macro</td>	<td>qcs::cam::uin/{AccountID}:roleName/{RoleName1};qcs::cam::uin/{AccountID}:roleName/{RoleName2},qcs::cam::uin/{AccountID}:saml-provider/{ProviderName}</td>
 	</tr>
 		<tr>
 		<td>https://cloud.tencent.com/SAML/Attributes/RoleSessionName</td>
@@ -65,12 +63,11 @@ SAML Recipient：https://intl.cloud.tencent.com/login/saml
 	</tr>
 </table>
 
-
 >?在 Role 源属性中 {AccountID}，{RoleName} ，{ProviderName} 分别替换内容下：
->- {AccountID} 替换为您的腾讯云帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
->- {RoleName} 替换您在腾讯云创建的角色名称，可前往 [角色 - 控制台](https://console.cloud.tencent.com/cam/role) 查看。
->- {ProviderName} 替换您在腾讯云创建的 SAML 身份提供商名称，可前往  [身份提供商 - 控制台](https://console.cloud.tencent.com/cam/idp) 查看。
->
+ >- {AccountID} 替换为您的腾讯云帐户 ID，可前往 [账号信息 - 控制台](https://console.cloud.tencent.com/developer) 查看。
+ >- {RoleName} 替换您在腾讯云创建的角色名称，可前往 [角色 - 控制台](https://console.cloud.tencent.com/cam/role) 查看。
+ >- {ProviderName} 替换您在腾讯云创建的 SAML 身份提供商名称，可前往  [身份提供商 - 控制台](https://console.cloud.tencent.com/cam/idp) 查看。
+ >
 4. 单击右上角【SAVE】保存配置。
 
 ### 配置 OneLogin 用户

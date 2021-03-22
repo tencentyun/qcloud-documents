@@ -163,7 +163,7 @@ kubeadm 对 HA 的支持进入 beta 阶段，用户可以使用 `kubeadm init` �
 - Kubelet 增加 Topology Manager 组件，旨在协调资源分配决策，优化资源分配。
 - 支持 IPv4/IPv6双栈，可同时给 Pod 与服务分配 v4和 v6的地址。
 - alpha 特性 API Server 网络代理。
-- 面向云控制器管理器迁移提供更多 [扩展选项](https://github.com/kubernetes/enhancements/blob/master/keps/sig-cloud-provider/20190422-cloud-controller-manager-migration.md)。
+- 面向云控制器管理器迁移提供更多扩展选项。
 - 弃用 extensions/v1beta1、apps/v1beta1以及 apps/v1beta2 API。
 
 #### 已知问题

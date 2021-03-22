@@ -5,7 +5,7 @@ PUT Bucket replication 用于向已启用版本控制的存储桶中配置存储
 > !
 >
 > - 使用该接口时，需确保存储桶已经开启版本控制，开启版本控制的 API 文档请参见 [PUT Bucket versioning](https://cloud.tencent.com/document/product/436/19889)  接口文档。
-> - 开启了多 AZ 配置的存储桶，不支持将多 AZ 存储类型复制为单 AZ 存储类型。
+> - 开启了多 AZ 配置的存储桶，不支持将多 AZ 存储类型复制为单 AZ 存储类型，例如标准存储（多 AZ）类型不支持复制为标准存储类型。
 
 ## 请求
 
@@ -56,7 +56,7 @@ request body
 | Prefix                   | ReplicationConfiguration.Rule             | 前缀匹配策略，不可重叠，重叠返回错误。前缀匹配根目录为空     | String    | 是       |
 | Destination              | ReplicationConfiguration.Rule             | 目标存储桶信息                                               | Container | 是       |
 | Bucket                   | ReplicationConfiguration.Rule.Destination | 资源标识符：<br>`qcs::cos:<Region>::<BucketName-APPID>`      | String    | 是       |
-| StorageClass             | ReplicationConfiguration.Rule.Destination | 存储类型，枚举值：STANDARD，STANDARD_IA。默认值：原存储类型<br>**注意：** 目前存储桶复制暂不支持将复制后的对象指定为归档存储这一存储类型，如果您需要将对象副本设置为归档存储类型，可在目标存储桶中配置生命周期管理，详细操作请参见 [PUT Bucket lifecycle](https://cloud.tencent.com/document/product/436/8280) | String    | 否       |
+| StorageClass             | ReplicationConfiguration.Rule.Destination | 存储类型，枚举值：STANDARD，INTELLIGENT_TIERING，STANDARD_IA。默认值：原存储类型| String    | 否       |
 
 ## 响应
 

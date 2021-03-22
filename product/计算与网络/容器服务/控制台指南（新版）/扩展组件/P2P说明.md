@@ -15,11 +15,11 @@ P2P Addon 是容器镜像服务 TCR 推出的基于 P2P 技术的容器镜像加
 | p2p-agent          | DaemonSet  | 每个节点0.2核 CPU，0.2G内存 | kube-system    |
 | p2p-proxy          | Deployment | 每个节点0.5核 CPU，0.5G内存   | kube-system    |
 | p2p-tracker        | Deployment | 每个节点0.5核 CPU，0.5G内存   | kube-system    |
-| p2p-proxy          | Service    | \                            | kube-system    |
-| p2p-tracker        | Service    | \                            | kube-system    |
-| agent              | Configmap  | \                            | kube-system    |
-| proxy              | Configmap  | \                            | kube-system    |
-| tracker            | Configmap  | \                            | kube-system    |
+| p2p-proxy          | Service    | -                            | kube-system    |
+| p2p-tracker        | Service    | -                            | kube-system    |
+| agent              | Configmap  | -                            | kube-system    |
+| proxy              | Configmap  | -                            | kube-system    |
+| tracker            | Configmap  | -                            | kube-system    |
 
 ## 使用场景
 
@@ -41,7 +41,7 @@ P2P Addon 是容器镜像服务 TCR 推出的基于 P2P 技术的容器镜像加
 
 
 
-## 使用方法<span id="Instructions"></span>
+## 使用方法[](id:Instructions)
 1. 选取合适的节点部署运行 Proxy 组件。
 可通过 `kubectl label nodes XXXX proxy=p2p-proxy` 命令标记节点，插件安装时将自动在这些节点中部署该组件。安装后如果需要调整 Proxy 组件的个数，可在指定节点上添加或者删除该 label 后，修改集群中 kube-system 命名空间下 p2p-proxy 工作负载的副本个数。
 2. 选取合适的节点部署运行 Tracker 组件。
@@ -57,7 +57,7 @@ P2P Addon 是容器镜像服务 TCR 推出的基于 P2P 技术的容器镜像加
 
 
 
-## 操作步骤<span id="start"></span>
+## 操作步骤[](id:start)
 1. 登录[ 容器服务控制台 ](https://console.cloud.tencent.com/tke2)，选择左侧导航栏中的【集群】。
 2. 在“集群管理”页面单击目标集群 ID，进入集群详情页。
 3. 选择左侧菜单栏中的【组件管理】，进入“组件列表”页面。

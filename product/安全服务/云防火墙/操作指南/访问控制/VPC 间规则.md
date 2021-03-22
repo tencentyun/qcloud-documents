@@ -55,3 +55,8 @@ VPC 间规则提供有多张访问控制列表，每张访问控制列表对应�
 7. 导入规则，单击【导入规则】，可以从本地选择文件导入，您可以指定导入位置、下载导入模板和导出现有规则。
 &nbsp;
 ![](https://main.qcloudimg.com/raw/3cc529af73cf333623960fd3d1b2bfab.png)
+
+## 相关信息
+- 如需在云防火墙控制台对互联网边界的入向与出向流量进行管控，请参见 [互联网边界规则](https://cloud.tencent.com/document/product/1132/46932)。
+- 如需在云防火墙控制台对 NAT 边界的入向与出向流量进行管控，请参见 [NAT 边界规则](https://cloud.tencent.com/document/product/1132/46933)。
+- 如需了解云防火墙的访问控制功能的特殊应用场景，请参见 [特殊应用场景](https://cloud.tencent.com/document/product/1132/46935)。

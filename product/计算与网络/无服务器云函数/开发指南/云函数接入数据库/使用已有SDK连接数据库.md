@@ -1,5 +1,5 @@
 ## 操作场景
-本文介绍如何使用已有 SDK 在云函数代码中连接 [MySQL](https://cloud.tencent.com/document/product/236/5147) 数据库，并实现对数据库的插入、查询等操作。同时还支持连接 [CynosDB](https://cloud.tencent.com/document/product/1003/30488) 或 [TDSQL](https://cloud.tencent.com/document/product/557/7700) 数据库，您可按需进行相应操作。
+本文介绍如何使用已有 SDK 在云函数代码中连接 [MySQL](https://cloud.tencent.com/document/product/236/5147) 数据库，并实现对数据库的插入、查询等操作。同时还支持连接 [TDSQL-C](https://cloud.tencent.com/document/product/1003/30488) 或 [TDSQL MySQL版](https://cloud.tencent.com/document/product/557/7700) 数据库，您可按需进行相应操作。
 
 
 
@@ -10,14 +10,18 @@
 
 ## 操作步骤
 
-### 创建私有网络 VPC<span id="createVPC"></span>
+### 创建私有网络 VPC[](id:createVPC)
 参考 [快速搭建私有网络](https://cloud.tencent.com/document/product/215/30716) 创建 VPC 和子网。
 
 ### 创建数据库实例
 1. 参考 [购买方式](https://cloud.tencent.com/document/product/236/5160) 创建 MySQL。
->?配置项“网络”请选择在 [创建私有网络 VPC](#createVPC) 步骤中已创建的 VPC。
->
+<dx-alert infotype="explain" title="">
+配置项“网络”请选择在 [创建私有网络 VPC](#createVPC) 步骤中已创建的 VPC。
+</dx-alert>
 2. 参考 [初始化 MySQL 数据库](https://cloud.tencent.com/document/product/236/3128) 完成初始化操作，并获取数据库帐户名称及密码。
+<dx-alert infotype="explain" title="">
+腾讯云原生数据库 TDSQL-C（原 CynosDB）目前已支持 Serverless 版本 MySQL，实现按需付费。详情请参见 [Serverless 服务](https://cloud.tencent.com/document/product/1003/50853)。
+</dx-alert>
 3. 在 “[MySQL - 实例列表](https://console.cloud.tencent.com/cdb)” 页面，选择实例 ID 进入数据库详情页面，获取该数据库的**内网地址**、**所属网络**、**内网端口**信息。如下图所示：
 ![](https://main.qcloudimg.com/raw/b75a1d566c8e43f435e191777064f24e.png)
 

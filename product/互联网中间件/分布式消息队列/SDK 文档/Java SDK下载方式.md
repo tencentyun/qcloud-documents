@@ -130,14 +130,13 @@ java -version
 
 #### 3.2 验证配置是否成功
 
-在命令行执行如下命令
+在命令行执行如下命令：
 ```
-mvn help:effective-settings 。
+mvn help:effective-settings
 ```
 
 - 查看执行结果，没有错误表明 setting.xml 格式正确。
-- profiles 中包含 qcloud-repo ，则表明 qcloud-repo 私服已经加入到 
-- profiles 中；activeProfiles 中包含 qcloud-repo，则表明 qcloud-repo 私服已经激活成功。可以通过mvn help:effective-settings | grep 'qcloud-repo'命令检查。
+- profiles 中包含 qcloud-repo ，则表明 qcloud-repo 私服已经加入到 profiles 中；activeProfiles 中包含 qcloud-repo，则表明 qcloud-repo 私服已经激活成功。可以通过 mvn help:effective-settings | grep 'qcloud-repo'命令检查。
 
 ![](https://main.qcloudimg.com/raw/43645276539f8a85703f137ae2bb65fc.png)
 

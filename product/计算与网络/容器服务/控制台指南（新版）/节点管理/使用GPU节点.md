@@ -12,7 +12,7 @@
 
 ## 操作步骤
 
-<span id="createGPUService"></span>
+[](id:createGPUService)
 ### 新建 GPU 云服务器
 
 具体操作请参考 [创建集群](https://cloud.tencent.com/document/product/457/32189)。创建过程中，请注意以下两点：
@@ -20,13 +20,16 @@
 ![](https://main.qcloudimg.com/raw/75841abda27c525c4eef1ce15d5c32be.png)
 - 在 “云服务器配置” 页面，TKE 将自动根据选择的机型进行 GPU 的驱动安装等初始流程，您无需关心基础镜像。 
 
-<span id="addGPUService"></span>
+[](id:addGPUService)
 ### 添加已有 GPU 云服务器
 
 具体操作请参考 [添加已有节点](https://cloud.tencent.com/document/product/457/32203#addExistingNode)。添加过程中，请注意以下两点：
 - 在 “选择节点” 页面，勾选已有的 GPU 节点。如下图所示：
 ![](https://main.qcloudimg.com/raw/f4c849c61dac096b9a0535bf6e7a2b9e.png)
 - 在 “云服务器配置” 页面，TKE 将自动根据选择的机型进行 GPU 的驱动安装等初始流程，您无需关心基础镜像。 
+
+
+
 
 
 

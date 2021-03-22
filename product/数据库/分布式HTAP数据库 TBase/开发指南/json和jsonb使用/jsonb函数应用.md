@@ -16,7 +16,6 @@ postgres=#  select * from  jsonb_each((select  f_jsonb  from t_jsonb where id=1)
 (3 rows)
 ```
 
-
 ## jsonb_each_text() 将 json 对象转变文本类型的键和值
 ```
 postgres=#  select * from  jsonb_each_text((select  f_jsonb  from t_jsonb where id=1)); 
@@ -27,7 +26,6 @@ postgres=#  select * from  jsonb_each_text((select  f_jsonb  from t_jsonb where 
  col2 | tbase
 (3 rows)
 ```
-
 
 ## row_to_json() 将一行记录变成一个 json 对象
 ```

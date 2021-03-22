@@ -12,6 +12,7 @@ Linux、Mac OS 或 Windows（Windows 10 和 Windows Server 2019 版本）
 
 ## 前提条件
 - 已获取登录实例的管理员帐号及密码（或密钥）。
+ - Linux 实例管理员帐号通常默认为 `root`，Ubuntu 系统默认为 `ubuntu`。您需结合实际情况修改。
  - 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
  - 如果您 [使用密钥登录](#LoginWithKey) 实例，需完成密钥的创建，并已将密钥绑定至该云服务器中。 具体操作请参看 [SSH 密钥](https://cloud.tencent.com/document/product/213/16691)。
  - 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
@@ -56,7 +57,7 @@ ssh -i <下载的与云服务器关联的私钥的绝对路径> <username>@<host
  - `username` 即为前提条件中获得的默认帐号。
  - `hostname or IP address` 为您的 Linux 实例公网 IP 或自定义域名。
 
- 例如，执行 `ssh -i "Mac/Downloads/shawn_qcloud_stable" ubuntu@192.168.11.123` 命令，远程登录 Linux 云服务器。
+ 例如，执行 `ssh -i "Mac/Downloads/shawn_qcloud_stable.pem" ubuntu@192.168.11.123` 命令，远程登录 Linux 云服务器。
 
 ## 后续操作
 

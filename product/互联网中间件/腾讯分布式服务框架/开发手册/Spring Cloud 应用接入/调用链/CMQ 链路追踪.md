@@ -1,32 +1,64 @@
-CMQ 组件目前通过 Spring Cloud Stream Binder 方式接入Spring Cloud 体系，对于 CMQ 组件的全链路追踪目前基于`spring-cloud-stream-binder-cmq`扩展实现，使用时需在上下游服务中添加`spring-cloud-stream-binder-cmq`依赖并按照规范进行 CMQ 配置。
-```
-<!-- 使用 CMQ -->
+CMQ 调用链组件目前支持使用 cmq-http-client 和 cmq-tcp-client 两种方式。
+
+## cmq-http-client 方式
+
+1. 引入 CMQ 的依赖1.0.7.4以上版本（低版本不支持）：
+```plaintext
 <dependency>
-    <groupId>com.qcloud</groupId>
-    <artifactId>spring-cloud-stream-binder-cmq</artifactId>
-    <version>VERSION</version>
+			<groupId>com.qcloud</groupId>
+			<artifactId>cmq-http-client</artifactId>
+			<version>1.0.7.4</version>
 </dependency>
 ```
-配置参考：
+2. 直接使用已经构建好的 bean：
+@Autowired
+private Account account;        
+
+3. CMQ 接入配置：
 ```plaintext
-spring:
-  application:
-    name: cmq-demo
-  cloud:
-    stream:
-      bindings:
-        input:
-          destination: test-topic
-          group: queue  # 必填，与 input.destination 共同组成消费队列
-        output:
-          destination: test-topic
-      cmq:
-        bindings:
-          input:
-            consumer:
-              pollingWaitSeconds: 3
-        binder:
-          secretId: ***
-          secretKey: ***
-          endpoint: https://cmq-queue-***.api.qcloud.com
+cmq:
+  server:
+    endpoint: http://ocloud-cmq-queue-nameserver # cmq的端点地址
+    secret-id: ******* # 获取账号secret-id
+    secret-key: ****** # 获取账号secret-key
 ```
+
+## cmq-tcp-client 方式
+
+1. 在 pom 中引入 tcp 的依赖，版本要求1.1.2以上（低版本不支持）：
+```plaintext
+<dependency>
+	<groupId>com.qcloud</groupId>
+	<artifactId>cmq-tcp-client</artifactId>
+	<version>1.1.2</version>
+</dependency>
+```
+2. 直接使用已经构建好的 bean：
+	@Autowired
+	private Consumer consumer;
+
+	@Autowired
+	private Producer producer;        
+
+3. CMQ 接入配置：
+```plaintext
+cmq:
+  server:
+    endpoint: http://ocloud-cmq-queue-nameserver # CMQ 的端点地址
+    secret-id: ******* # 获取账号 SecretId
+    secret-key: ****** # 获取账号 SecretKey
+```
+
+## 注意事项
+- TSF SDK 1.21.10-Finchley 以及 1.21.x后续版本支持。
+- TSF SDK 1.28.1-Finchley 以及上版本提供支持。
+- 单条接收的调用链信息在同个线程中自动传递，批量接收的场景在接收之后的流程里面需要继续传递调用链则需要使用如下方法将调用链信息注入：
+<dx-codeblock>
+:::  plaintext
+@Autowired
+private JoinSapn joinSapn;
+
+joinSapn.joinBatchReceiveSpan(message);
+:::
+</dx-codeblock>
+

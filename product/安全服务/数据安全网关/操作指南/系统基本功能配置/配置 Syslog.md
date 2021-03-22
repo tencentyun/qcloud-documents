@@ -16,3 +16,4 @@
 ![](https://main.qcloudimg.com/raw/4b5144efeb10fab062c0f1fccfe6d1d4.png)
 4. 配置完毕，单击【保存】，保存配置。
 5. 单击【开启】，即可开启 Syslog。
+

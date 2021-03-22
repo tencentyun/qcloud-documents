@@ -10,7 +10,7 @@
 
 ### Android 端OCR SDK 介绍
 
-SDK提供的文件为 **OcrSDKv1.0.2-alpha.aar** (具体版本号以官网下载为准)，该文件封装了 OCR 识别终端能力。目前包括了身份证识别、银行卡识别以及名片识别。
+SDK提供的文件为 [OCR_Android_SDK_V1.0.6](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.6/OCR_Android_SDK_V1.0.6.zip)，该文件封装了 OCR 识别终端能力。目前包括了身份证识别、银行卡识别以及名片识别。
 
 
 
@@ -29,11 +29,10 @@ SDK提供的文件为 **OcrSDKv1.0.2-alpha.aar** (具体版本号以官网下载
 dependencies {
   // 依赖腾讯云的 OcrSDK 的 aar
   implementation files('libs/OcrSDKv1.0.2-alpha.aar')
-  
-  // Ocr 依赖 xlog 组件需要添加引用
-  implementation 'com.tencent.mars:mars-xlog:1.2.3'
+  // OCR SDK 返回实体对象需要的依赖
+  implementation 'com.google.code.gson:gson:2.8.5'
 }
- ```
+```
 
 3. 同时需要在 AndroidManifest.xml 文件中进行必要的权限声明
 ```xml
@@ -66,8 +65,8 @@ dependencies {
 OcrModeType modeType = OcrModeType.OCR_DETECT_AUTO_MANUAL; // 设置默认的业务识别模式自动 + 手动步骤模式
 OcrType ocrType = OcrType.BankCardOCR; // 设置默认的业务识别，银行卡
 OcrSDKConfig configBuilder = OcrSDKConfig.newBuilder(SecretPamera.secretId, SecretPamera.secretKey, null)
-                .OcrType(ocrType)
-                .ModeType(modeType)
+                .ocrType(ocrType)
+                .setModeType(modeType)
                 .build();
 // 初始化 SDK
 OcrSDKKit.getInstance().initWithConfig(this.getApplicationContext(), configBuilder);
@@ -92,7 +91,7 @@ OcrSDKKit.getInstance().updateFederationToken(tmpSecretId, tmpSecretKey, token);
 
 
 
-#### ocr 识别：
+#### OCR 识别（返回 Json 字符串）：
 
 当您需要使用 OCR 识别的功能的时候，您可以直接调用识别接口，进行 OCR 业务识别。
 
@@ -111,15 +110,35 @@ OcrSDKKit.getInstance().startProcessOcr(MainActivity.this, OcrType.IDCardOCR_FRO
 });
 ```
 
-目前 OCR SDK 支持四种类型的识别模式如下表所示。
+#### OCR 识别（返回对象实体类）：
 
-| OcrType 类型             | 代表含义               |
-| ----------------------- | ---------------------- |
-| OcrType.IDCardOCR_FRONT | 身份证人像面识别模式   |
-| OcrType.IDCardOCR_BACK  | 身份证国徽面识别模式   |
-| OcrType.BankCardOCR     | 银行卡正面识别模式     |
-| OcrType.BusinessCardOCR | 名片卡正面识别模式     |
-| OcrType.MLIdCardOCR     | 马来西亚身份证识别模式 |
+当您需要使用 OCR 识别功能，同时需要直接获取实体对象而非 JsonString 时，可以使用此方法。
+
+```java
+OcrSDKKit.getInstance().startProcessOcrResultEntity(OcrTypeIdCardActivity.this,
+        OcrType.IDCardOCR_FRONT, null, IdCardOcrResult.class,
+        new ISdkOcrEntityResultListener<IdCardOcrResult>() {
+            @Override
+            public void onProcessSucceed(IdCardOcrResult idCardOcrResult, String base64Str) {
+                Log.e(TAG, "IdCardOcrResult:" + idCardOcrResult.toString()); // OCR 识别成功 IdCardOcrResult
+            }
+
+            @Override
+            public void onProcessFailed(String errorCode, String message, String requestId) {
+                Log.e(TAG, "errorCode:" + errorCode + " message:" + message); // OCR 识别失败 IdCardOcrResult
+            }
+        });
+```
+
+目前 OCR SDK 支持五种类型的识别模式如下表所示，以及对应的实体类返回结果。
+
+| OcrType 类型             | 代表含义               | 对应结果实体类          |
+| ----------------------- | ---------------------- | ----------------------- |
+| OcrType.IDCardOCR_FRONT | 身份证人像面识别模式   | IdCardOcrResult         |
+| OcrType.IDCardOCR_BACK  | 身份证国徽面识别模式   | IdCardOcrResult         |
+| OcrType.BankCardOCR     | 银行卡正面识别模式     | BankCardOcrResult       |
+| OcrType.BusinessCardOCR | 名片卡正面识别模式     | BusinessCardOcrResult   |
+| OcrType.MLIdCardOCR     | 马来西亚身份证识别模式 | MalaysiaIdCardOcrResult |
 
 
 
@@ -159,7 +178,7 @@ protected void onDestroy() {
 
 #第三方 jar 包不被混淆
 -keep class com.tencent.youtu.** {*;}
--keep class com.tencent.mars.xlog.** {*;}
+
 ```
 
 ​	
@@ -180,17 +199,26 @@ android {
 }
 ```
 
-2. 如同时集成智能扫码 SDK，出现 **More than one file was found with OS independent path 'lib/armeabi-v7a/libc++_shared.so'.** 的问题。
-
-主要是由于智能扫码和 xlog 中 native 库冲突了，解决方法可以在 build.gradle 中添加如下配置：
+2. 如果集成方使用了 AndResGuard 的混淆工具，可以添加混淆配置：
 
 ```groovy
-android {
-		...
-		    // 过滤重复定义 so 的问题
-    packagingOptions{
-        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
-    }
+// for OCR SDK
+"R.string.ocr_*",
+"R.string.rst_*",
+"R.string.net_*",
+"R.string.msg_*",
+
+```
+
+3. 集成 OCR SDK 后如果出现 **Invoke-customs are only supported starting with Android O (--min-api 26)** 错误？
+
+需要在 build.gradle 中添加如下配置：
+
+```groovy
+// java 版本支持1.8
+compileOptions {
+    sourceCompatibility JavaVersion.VERSION_1_8
+    targetCompatibility JavaVersion.VERSION_1_8
 }
 ```
 

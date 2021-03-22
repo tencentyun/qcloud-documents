@@ -6,7 +6,7 @@ Discuz! Q 是全球成熟度最高、覆盖率最大的社区论坛软件系统�
 ## 操作步骤
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)。
 2. 单击【新建】，进入轻量应用服务器购买页面。如下图所示：
-![](https://main.qcloudimg.com/raw/f279bcd90f120c2b511655591ae4cc7b.png)
+![](https://main.qcloudimg.com/raw/020b125b26d6f790592cdf115a2f361c.png)
 	- **地域**：建议选择靠近目标客户的地域，降低网络延迟、提高您的客户的访问速度。例如目标客户在 “深圳”，地域选择 “广州”。
 	- **镜像**：选择 “Discuz! Q v1.0” 应用镜像。
 	- **实例套餐**：按照所需的服务器配置（CPU、内存、系统盘、峰值带宽、每月流量），选择一种实例套餐。
@@ -47,7 +47,7 @@ Discuz! Q 是全球成熟度最高、覆盖率最大的社区论坛软件系统�
 在 Discuz! Q 实例的应用管理详情页，您除了可以查看 Discuz! Q 的配置信息，还可以查看其他配置信息。例如宝塔Linux面板登录信息、 MySQL 数据库管理员密码、实例中各个软件的安装路径等。如下图所示：
 ![](https://main.qcloudimg.com/raw/46dfb1a9fdbbc8191e697744b8a04103.png)
 
-### 安装 SSL 证书
+### 开启 HTTPS 访问
 您可通过以下方式，为您的实例安装 SSL 证书：
 - 方式1：Discuz! Q 实例创建完成后，使用实例中内置的宝塔 Linux 面板安装 SSL 证书。详情可参考宝塔 Linux 面板官方文档。
 - 方式2：可参考 [安装 SSL 证书](https://cloud.tencent.com/document/product/1207/47027) 文档为您的 Discuz! Q 实例安装 SSL 证书并开启 HTTPS 访问。

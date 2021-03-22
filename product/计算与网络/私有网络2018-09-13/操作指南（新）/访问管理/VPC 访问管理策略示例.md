@@ -48,7 +48,7 @@
             "resource": "*",
             "effect": "allow",
             "condition": {
-                "string_equal_if_exist": {
+                "string_equal_if_exist": {  //请按照条件判断，只允许管理符合条件的VPC
                     "vpc:vpc": [
                     "vpc-d08sl2zr"
                     ],

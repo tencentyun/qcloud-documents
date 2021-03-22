@@ -16,3 +16,5 @@
 4. 单击【发送请求】，您将看到响应 Body 和响应 Headers：
 响应：API 调用后实际返回给前端的响应码和数据内容。
 ![](https://main.qcloudimg.com/raw/292bf3b8f7cc55eddb9ed9640324f878.png)
+
+

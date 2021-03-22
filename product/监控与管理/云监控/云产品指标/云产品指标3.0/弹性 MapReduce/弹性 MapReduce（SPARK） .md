@@ -26,7 +26,7 @@ Namespace=QCE/TXMR_SPARK
 | :----------------------------- | :------------------------------ | :--------------------------- | :------------------------------------------------------- |
 | Instances.N.Dimensions.0.Name  | id4sparksparkjob<br/>historyserver   | EMR 实例 ID 的维度名称       | 输入 String 类型维度名称：id4sparksparkjobhistoryserver  |
 | Instances.N.Dimensions.0.Value | id4sparksparkjob<br/>historyserver   | EMR 实例具体 ID              | 输入 EMR 具体实例 ID，例如：emr-mm8bs222                |
-| Instances.N.Dimensions.1.Name  | host4sparksparkjob<br/>historyserver | EMR 实例中节点 IP 的维度名称 | 输入String 类型维度名称：host4sparksparkjobhistoryserver |
+| Instances.N.Dimensions.1.Name  | host4sparksparkjob<br/>historyserver | EMR 实例中节点 IP 的维度名称 | 输入 String 类型维度名称：host4sparksparkjobhistoryserver |
 | Instances.N.Dimensions.1.Value | host4sparksparkjob<br/>historyserver | EMR 实例中具体节点 IP        | 输入具体节点 IP ，例如：1.1.1.1                          |
 
 ## 入参说明

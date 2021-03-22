@@ -3,12 +3,12 @@ UserSig 是用户登录即时通信 IM 的密码，其本质是对 UserID 等信
 以下视频将帮助您快速了解如何生成 UserSig：
 <div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/2332-34428?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
 
-<span id="getkey"></span>
+[](id:getkey)
 ## 获取密钥 
 
 1. 登录即时通信 IM [控制台](https://console.cloud.tencent.com/im)。
  >?如果您还没有应用，请先 [创建应用](https://cloud.tencent.com/document/product/269/36838#step1)，然后执行 [步骤2](#step2)。
-<span id="step2"></span>
+[](id:step2)
 2. 单击目标应用卡片，进入应用的基础配置页面。
 3. 在【基本信息】区域，单击【密钥】右侧的【显示密钥】。
 4. 单击【复制】即可复制并储存密钥信息。
@@ -26,11 +26,12 @@ IM SDK 示例代码中提供的`GenerateTestUserSig`的开源模块可以帮忙�
 | C++ | Windows | [GenerateTestUserSig.h](https://github.com/tencentyun/TIMSDK/blob/master/cross-platform/Windows/IMApp/IMApp/GenerateTestUserSig.h) |
 | Javascript | Web | [GenerateTestUserSig.js](https://github.com/tencentyun/TIMSDK/blob/master/H5/dist/debug/GenerateTestUserSig.js) |
 | Javascript | 小程序 | [GenerateTestUserSig.js](https://github.com/tencentyun/TIMSDK/blob/master/WXMini/dist/wx/debug/GenerateTestUserSig.js) | 
+|Dart|Flutter|[GenerateTestUserSig.dart](https://github.com/tencentyun/TencentIMFlutterDemo/blob/master/lib/utils/GenerateTestUserSig.dart)|
 
 >!该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
 >正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](#GeneratingdynamicUserSig)。
 
-<span id="GeneratingdynamicUserSig"></span>
+[](id:GeneratingdynamicUserSig)
 ## 服务端计算 UserSig
 采用服务端计算 UserSig，可以最大限度地保障计算 UserSig 所用的密钥信息不被泄露。您只需将计算代码部署在您的服务器上，并提供面向 App 的服务端接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。
 为了简化实现过程，我们提供了下列语言或平台的 UserSig 计算源码，您可以直接下载并集成到您的服务端。
@@ -57,7 +58,7 @@ UserSig 计算函数中主要包括 SDKAppID、UserID 以及 UserSig 有效期�
 |  key  | 密钥信息，可在即时通信 IM [控制台](https://console.cloud.tencent.com/im) 的应用详情页面中获取，具体操作请参见 [获取密钥](#getkey)。   |
 
 
-<span id="ECDSA-SHA256"></span>
+[](id:ECDSA-SHA256)
 ## 老版本算法
 
 为了简化签名计算难度，方便客户更快速地使用腾讯云服务，即时通信 IM 服务自2019.07.19开始启用新的签名算法，从之前的 ECDSA-SHA256 升级为 HMAC-SHA256。 2019.07.19以后创建的 SDKAppID 均会采用新的 HMAC-SHA256 算法。

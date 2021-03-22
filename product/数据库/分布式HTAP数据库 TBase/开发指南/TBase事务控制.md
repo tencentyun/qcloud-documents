@@ -33,7 +33,7 @@ postgres=# select * from tbase order by id;
   4 | TBase default
 ```
 
-TBase 完全支持 ACID 特性，没提交前开启另一个连接查询，会看到5条记录，这是 TBase 隔离性和多版本视图的实现，如下所示：
+TDSQL PostgreSQL版 完全支持 ACID 特性，没提交前开启另一个连接查询，会看到5条记录，这是 TDSQL PostgreSQL版 隔离性和多版本视图的实现，如下所示：
 
 **进程#2访问**
 ```

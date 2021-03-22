@@ -5,16 +5,13 @@
 
 - 您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629) 。
 - 进入 [文字识别控制台](https://console.cloud.tencent.com/ocr/general)，即可开通相应服务，并在 [账号中心](https://console.cloud.tencent.com/cam/capi) 获取 API 密钥。
-- 并将 OcrDemo 文件下载到本地。
+- 并将 [OcrDemo](https://github.com/TencentCloud/tc-ocr-sdk/tree/master/MiniProgram/OcrDemo) 文件下载到本地。
 
 
 ### 环境要求
 
-- 开发工具使用微信开发者工具，基础库 2.8.0 或以上版本，推荐使用 2.12.0
-- 基础库 2.8.0 支持微信客户端：iOS（7.0.5及以上版本）Android（7.0.5及以上版本）
-
-  **客户端版本过低可能会导致拍照时无法打开手电筒**
-- 建议使用真机体验
+- 开发工具使用微信开发者工具，基础库 2.12.2 或以上版本
+- 建议使用真机体验（开发者工具中无法体验自动识别模式）
 
 
 ### 操作步骤

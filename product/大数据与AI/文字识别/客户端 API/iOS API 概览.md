@@ -157,6 +157,8 @@ OcrSDKConfig 是在 OCR 初始化时需要传入的 SDK 的配置信息实体类
 | BOOL                        | TempIdWarn      | 开启临时身份证告警                                           | NO                                           |
 | BOOL                        | InvalidDateWarn | 开启身份证有效日期不合法告警                                 | NO                                           |
 | BOOL                        | Quality         | 开启图片质量分数（评价图片的模糊程度）                       | NO                                           |
+| BOOL                        | MultiCardDetect | 是否开启多卡证检测                                           | NO                                           |
+| BOOL                        | ReflectWarn     | 是否开启反光告警                                             | NO                                           |
 | NSString                    | RetImageType    | 图像预处理，检测图片倾斜的角度，将原本倾斜的图片围绕中心点转正，最终输出一张正的名片抠图。 | 空                                           |
 | BOOL                        | RetImage        | 马来西亚身份证接口是否返回图片                               | NO                                           |
 
@@ -177,8 +179,9 @@ CustomConfigUI 是在启动 SDK 模块时需要传入的 SDK 的 UI 配置信息
 | UIColor  | cardFrameColor     | 卡片框选中颜色               | RGBA：5 106 1 1                       |
 | UIImage  | takePictureImage   | 拍照按钮图标 80x80           | 默认图标                              |
 | UIImage  | lightONImage       | 打开手电筒按钮图标 40x40     | 默认图标                              |
-| UIImage  | lightOFFImage      | 关闭手电筒按钮图标40x40      | 默认图标                              |
-| UIImage  | albumImage         | 相册按钮图标40x40            | 默认图标                              |
+| UIImage  | lightOFFImage      | 关闭手电筒按钮图标 40x40      | 默认图标                              |
+| UIImage  | albumImage         | 相册按钮图标 40x40            | 默认图标                              |
+| BOOL     | isShowAlbumBtn     | 是否显示相册按钮             | YES                                   |
 
 
 
@@ -222,8 +225,16 @@ typedef void (^OcrSDKKitProcessSucceedBlock)(id _Nonnull resultInfo, UIImage *re
 /// SDKKIt 处理失败回调接口
 /// @param error 处理过程中触发的异常错误
 /// @param reserved 预留位
+///tips
 typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullable reserved);
 ```
+
+> **Tips：**用户取消文字识别退出会在 OcrSDKKitProcessFailedBlock 回调
+>
+> domain: "OcrSdk.UserCancelOcr" - code: 200101
+>
+> NSLocalizedDescription : "用户主动停止文字识别"
+
 
 身份证正面请求返回 resultInfo 结果示例：
 
@@ -272,7 +283,7 @@ typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullabl
 
 名片请求结果返回 resultInfo 结果示例：
 
- ```json
+```json
 {
     "BusinessCardInfos": [
       {
@@ -315,7 +326,8 @@ typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullabl
     "RetImageBase64": "",
     "RequestId": "98f8fcbf-933a-4e95-ac48-6f1a9308fs6h"
  }
- ```
+
+```
 
 对于返回的错误码以及错误信息，可以参考 [错误码](https://cloud.tencent.com/document/product/866/33528) 。
 

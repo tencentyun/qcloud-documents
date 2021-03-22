@@ -2,7 +2,7 @@ IP 带宽包是共享带宽包的其中一种类型，详情请参见 [产品概
 
 ## 前提条件
 - 目前共享带宽包处于内测阶段，使用前，请确保您的 [内测申请](https://cloud.tencent.com/apply/p/8o8lmsr5nj8) 已通过 。
-- 请确保您的账户类型为标准账户类型。若您无法确定账户类型，请参见 [区分账户类型](https://cloud.tencent.com/document/product/1199/41692#judge)。
+- 请确保您的账户类型为标准账户类型。若您无法确定账户类型，请参见 [判断账户类型](https://cloud.tencent.com/document/product/1199/49090#judge)。
 
 ## 限制说明
 1. EIP 中仅支持将按流量和按小时带宽计费的常规 IP 手动加入 IP 带宽包，包月带宽的常规 IP 不支持加入 IP 带宽包。

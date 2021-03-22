@@ -3,14 +3,14 @@
 
 ## 前提条件
 - 已在 Windows10 系统上安装 Thunderbird 客户端。
-- 已 [申请购买邮件（S/MIME）证书](https://cloud.tencent.com/apply/p/cn69mmv599k)。
+- 已 [申请购买邮件（S/MIME）证书](https://da.do/6g0p)。
 
 
 ## 操作步骤
 ### 步骤1：安装证书文件
 1. 购买邮件（S/MIME）证书并信息审核通过后，线下业务人员将发送给您邮件证书压缩包，获取邮件证书压缩包至 Windows10 系统中，并进行解压。
 2. 在 Windows10 中，双击 \*.fpx 后缀证书文件。
-<span id="step1"></span>
+[](id:step1)
 3. 在弹出的“证书导入向导”中，如果需要设置密码，可将私钥密码输入，单击【下一步】，即可设置成功。
 <img src="https://main.qcloudimg.com/raw/09eb20202ccd941c6e66a6997a7f0df7.png" style="zoom:90%;" />
 

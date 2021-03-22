@@ -155,7 +155,7 @@ TIMLoginParam * login_param = [[TIMLoginParam alloc ]init];
 
 ## IM SDK 同步离线消息
 
-IM SDK 启动后会同步离线消息和最近联系人。如果不需要离线消息，可以在发消息时使用：[发送在线消息](/doc/product/269/9150#.E5.9C.A8.E7.BA.BF.E6.B6.88.E6.81.AF)。默认登录后会异步获取离线消息以及同步资料数据（如果有开启，可参见关系链资料章节），同步完成后会通过 `onRefresh` 回调通知更新界面，用户得到这个消息时，可以刷新界面，例如会话列表的未读等。
+IM SDK 启动后会同步离线消息和最近联系人。如果不需要离线消息，可以在发消息时使用：[发送在线消息](https://cloud.tencent.com/doc/product/269/9150#.E5.9C.A8.E7.BA.BF.E6.B6.88.E6.81.AF)。默认登录后会异步获取离线消息以及同步资料数据（如果有开启，可参见关系链资料章节），同步完成后会通过 `onRefresh` 回调通知更新界面，用户得到这个消息时，可以刷新界面，例如会话列表的未读等。
 
 ```
 @interface TIMUserConfig : NSObject

@@ -17,10 +17,10 @@
 | 目录名       | 说明                                             |
 | ------------ | ------------------------------------------------ |
 | includes     | 接口头文件                                      |
-| lib\Win32\Debug   | **32位 Debug模式**，采用/MTd 编译生成的 .lib 静态库文件和 dll 动态库文件 |
-| lib\Win32\Release | **32位 Release模式**，采用/MT 编译生成的 .lib 静态库文件和 dll 动态库文件 |
-| lib\Win64\Debug   | **64位 Debug模式**，采用/MTd 编译生成的 .lib 静态库文件和 dll 动态库文件 |
-| lib\Win64\Release | **64位 Release模式**，采用/MT 编译生成的 .lib 静态库文件和 dll 动态库文件 |
+| lib\Win32\Debug   | **32位 Debug 模式**，采用 /MTd 选项链接库文件 |
+| lib\Win32\Release | **32位 Release 模式**，采用 /MT 选项链接库文件 |
+| lib\Win64\Debug   | **64位 Debug 模式**，采用 /MTd 选项链接库文件 |
+| lib\Win64\Release | **64位 Release 模式**，采用 /MT 选项链接库文件 |
 
 
 ### 步骤2. 新建工程
@@ -116,3 +116,4 @@ error LNK2019: 无法解析的外部符号 __imp__TIMGetSDKVersion，该符号�
 
 - 出现以下错误，请按照前面的工程配置，检查 IM SDK 的 DLL 是否拷贝到执行目录：
 ![](https://main.qcloudimg.com/raw/5d829626978836db0ac9cc1937f7fc27.png)
+

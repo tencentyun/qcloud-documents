@@ -27,3 +27,4 @@ Windows 类资源包含两种单点登录方式：图形登录（WEB 登录）�
 ![](https://main.qcloudimg.com/raw/2556d8076152d338daa56e5ecbbe6f85.png)
 5. 确认配置信息无误后，单击【登录】，系统将根据配置，调用本地的 Mstsc 连接到目标资源。
 
+

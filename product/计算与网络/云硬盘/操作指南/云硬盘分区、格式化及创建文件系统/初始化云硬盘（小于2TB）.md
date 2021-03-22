@@ -12,7 +12,7 @@
 
 ## 操作步骤
 
-<span id="Windows2008"></span>
+[](id:Windows2008)
 ### 初始化云硬盘（Windows）
 >?本文将以 Windows Server 2012 R2 操作系统为例，不同操作系统的格式化操作可能不同，本文仅供参考。
 >
@@ -21,9 +21,9 @@
 3. 在弹出的菜单中，选择【磁盘管理】打开“磁盘管理”窗口。如下图所示：
 ![](https://main.qcloudimg.com/raw/fcf4fe5cafbbf4e3a52db750a4c3e2e2.png)
 >?若新增磁盘处于脱机状态（如上图），需要先执行 [步骤4](#online) 联机后再执行 [步骤5](#initialize) 进行初始化。否则直接执行 [步骤5](#initialize) 进行初始化。
-4. <span id="online"></span>在右侧窗格中出现磁盘列表，右键单击磁盘1区域，在菜单列表中选择【联机】，进行联机。联机后，磁盘1由【脱机】状态变为【没有初始化】。如下图所示：
+4. [](id:online)在右侧窗格中出现磁盘列表，右键单击磁盘1区域，在菜单列表中选择【联机】，进行联机。联机后，磁盘1由【脱机】状态变为【没有初始化】。如下图所示：
 ![](https://main.qcloudimg.com/raw/4d3c952ca5ffdd3b1a4874191c33dc8c.png)
-5. <span id="initialize"></span>右键单击磁盘1区域，在菜单列表中选择【初始化磁盘】。如下图所示：
+5. [](id:initialize)右键单击磁盘1区域，在菜单列表中选择【初始化磁盘】。如下图所示：
 ![](https://main.qcloudimg.com/raw/e20181dc979f1b018baba0ccaa0c5291.png)
 6. 在【初始化磁盘】对话框中显示需要初始化的磁盘，选中【MBR（主启动记录）】或【GPT（GUID 分区表）】，单击【确定】。如下图所示：
 >!磁盘投入使用后再切换磁盘分区形式，磁盘上的原有数据将会清除，因此请根据实际需求合理选择分区形式。
@@ -42,14 +42,14 @@
   初始化成功后，进入【计算机】界面可以查看到新磁盘。
 ![](https://main.qcloudimg.com/raw/05261659e6d9eed38da84a933c20ba12.png)
 
-<span id="Linux"></span>
+[](id:Linux)
 ### 初始化云硬盘（Linux）
 
 请根据您实际使用场景选择初始化方式：
 - 若整块硬盘只呈现为一个独立的分区（即不存在多个逻辑盘，如 vdb1 和 vdb2 ），强烈推荐您不使用分区，直接 [在裸设备上构建文件系统](#CreateFileSystemOnBareDevice)。
 - 若整块硬盘需要呈现为多个逻辑分区（即存在多个逻辑盘），则您需要先进行分区操作，再 [在分区上构建文件系统](#CreateFileSystemOnPartition)。
 
-<span id="CreateFileSystemOnBareDevice"></span>
+[](id:CreateFileSystemOnBareDevice)
 #### 在裸设备上构建文件系统
 
 1. [登录 Linux 云服务器](https://cloud.tencent.com/document/product/213/5436)。
@@ -146,7 +146,7 @@ mount -a
 ```
 如果运行通过则说明文件写入成功，新建的文件系统会在操作系统启动时自动挂载。
 
-<span id="CreateFileSystemOnPartition"></span>
+[](id:CreateFileSystemOnPartition)
 #### 在分区上构建文件系统
 
 >?本操作将以在 CentOS 7.5 操作系统中使用 fdisk 分区工具将数据盘 `/dev/vdb`设置为主分区，分区形式默认设置为 MBR，文件系统设置为 EXT4 格式，挂载在`/data/newpart`下，并设置开机启动自动挂载为例，不同操作系统的格式化操作可能不同，本文仅供参考。

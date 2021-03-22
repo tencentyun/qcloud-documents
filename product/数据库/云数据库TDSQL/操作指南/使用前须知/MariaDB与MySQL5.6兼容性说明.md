@@ -1,3 +1,4 @@
+
 ## MariaDB 和开源 MariaDB 的兼容性
 完全兼容 MariaDB。
 

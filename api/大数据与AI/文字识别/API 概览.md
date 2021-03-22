@@ -14,5 +14,5 @@
 | [OCR-名片识别（V2）](https://cloud.tencent.com/document/product/866/17595)      | 支持对名片各字段的自动定位与识别，包含姓名、电话、手机号、邮箱、公司、部门、职位、网址、地址、QQ、微信等。 |
 | [OCR-银行卡识别](https://cloud.tencent.com/document/product/866/17602)     | 支持主流银行卡的卡号和有效期的自动识别，同时返回发卡行、卡类型、卡名字等信息。 |
 | [OCR-增值税发票识别](https://cloud.tencent.com/document/product/866/17606)      | 支持对增值税发票的全字段识别，包含价税合计、发票代码、发票号码、合计税额、合计金额、密码区、开票日期、税率、购买方识别号、销售方识别号等。 |
-
+   
 

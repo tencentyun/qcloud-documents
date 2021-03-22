@@ -154,7 +154,7 @@ GET /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records?keys={JSON
 ##### URL
 - URL 未 UrlEncode 结果：
 ```
-http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys={'region': 101, 'name': 'calvinshao', 'uin': 100}
+http://10.123.9.70:31002/ver1.0/apps/2/zones/1/tables/tb_example/records?keys={"region": 101, "name": "calvinshao", "uin": 100}
 ```
 - URL UrlEncode 结果：
 ```
@@ -494,7 +494,7 @@ GET /ver1.0/apps/{APP_ID}/zones/{ZONE_ID}/tables/{TABLE_NAME}/records?keys={JSON
 #### 示例
 ##### URL 未 UrlEncode 结果
 ```
-http://10.123.9.70/ver1.0/apps/2/zones/1/tables/tb_example/records?keys={'region': 101, 'name': 'calvinshao', 'uin': 100}&select=['gamesvrid', 'lockid', 'pay.auth.pay_keys', 'pay.total_money']
+http://10.123.9.70/ver1.0/apps/2/zones/1/tables/tb_example/records?keys={"region": 101, "name": "calvinshao", "uin": 100}&select=["gamesvrid", "lockid", "pay.auth.pay_keys", "pay.total_money"]
 ```
 
 ##### URL UrlEncode 结果
@@ -739,7 +739,7 @@ limit 和 offset 是用于记录部分返回控制的参数。
 #### 示例
 ##### URL 未 UrlEncode 结果
 ```
-http://10.123.9.70/ver1.0/apps/2/zones/1/tables/tb_example/records?keys={'name': 'calvinshao', 'uin': 100}&select=['gamesvrid', 'lockid', 'pay.total_money', 'pay.auth.pay_keys']
+http://10.123.9.70/ver1.0/apps/2/zones/1/tables/tb_example/records?keys={"name": "calvinshao", "uin": 100}&select=["gamesvrid", "lockid", "pay.total_money", "pay.auth.pay_keys"]
 ```
 
 ##### URL UrlEncode 结果

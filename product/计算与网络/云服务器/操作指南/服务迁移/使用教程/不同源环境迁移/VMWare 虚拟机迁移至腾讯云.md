@@ -31,8 +31,8 @@
 2. 配置 user.json 文件。
 user.json 是配置源端主机和目标云服务器的文件。该文件的配置项如下：
  - 您的账户 API 访问密钥 SecretId 和 SecretKey，详细信息请参考 [访问密钥](https://cloud.tencent.com/document/product/598/37140)。
- - 目标云服务器所在地域。
- - 目标云服务器的实例 ID。
+ - 目标云服务器所在地域，云服务器支持地域请参见 [地域和可用区](https://cloud.tencent.com/document/product/213/6091)。
+ - 目标云服务器的实例 ID，可前往 [实例列表](https://console.cloud.tencent.com/cvm/instance/index?rid=1) 页面查看。
  - 源端主机的数据盘配置。（可选）  
 3. 配置 client.json 文件。
 client.json 是配置迁移模式和其他迁移配置项的文件。无论选择哪种迁移场景，均需在 client.json 里的`Client.Net.Mode`项中设置相应的参数值。

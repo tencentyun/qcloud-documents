@@ -15,6 +15,6 @@
 ![](https://main.qcloudimg.com/raw/aeb4f6b6ba6f270727d4266f708f4db1.png)
 >!
 	- CC 防护等级策略仅对接入配置为网站业务（七层接入）的域名生效。
-	- 如果用户还未将需要配置的网站域名接入高防 IP 实例，请参考 [接入网站业务](https://cloud.tencent.com/document/product/1014/31106#.E9.85.8D.E7.BD.AE.E8.BD.AC.E5.8F.91.E8.A7.84.E5.88.99) 将域名添加至已购买的高防 IP 实例。
+	- 如果用户还未将需要配置的网站域名接入高防 IP 实例，请参考 [接入网站业务](https://cloud.tencent.com/document/product/1014/31106) 将域名添加至已购买的高防 IP 实例。
 
 更多信息请参考 [管理 CC 防护策略](https://cloud.tencent.com/document/product/1014/31118#.E8.87.AA.E5.AE.9A.E4.B9.89-cc-.E9.98.B2.E6.8A.A4.E7.AD.96.E7.95.A5)。

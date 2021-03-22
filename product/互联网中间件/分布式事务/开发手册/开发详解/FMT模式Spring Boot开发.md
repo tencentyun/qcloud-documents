@@ -50,6 +50,7 @@ dtf:
 | dtf.env.groups.secretId   | String   | 是   | 无                                       | 用户的腾讯云 SecretID                                         |
 | dtf.env.groups.secretKey  | String   | 是   | 无                                       | 用户的腾讯云 SecretKey                                        |
 | dtf.env.groups.server     | String   | 否   | ${spring.application.name}               | 客户端服务标识，一个事务分组下，同一服务需要使用相同的标识。 |
+| dtf.env.fmt  |  Boolean  | 否  | true  | 启动时会对 DB 进行大量初始化工作，若不需使用 fmt 建议禁用。 |
 
 通常情况下，仅需要在dtf.env.groups下配置一个事务分组。例如：
 用户 A，创建了一个事务分组`group-x3k9s0ns`，在[分布式事务控制台](https://console.cloud.tencent.com/dtf/)获取该分组的 TC 集群地址为`127.0.0.1:8080;127.0.0.1:8081;127.0.0.1:8082`。该用户访问密钥的 SecretId 为`SID`，SecretKey为`SKEY`。需要在业务应用`app-test`上使用该事物时，配置样例为：
@@ -304,23 +305,68 @@ DTF-Last-Branch-ID: ${LastBranchId}
 
 ## 与 TSF 结合使用
 
-DTF 框架完全兼容 TSF 应用，请按照下面的指引使用。
+引入依赖后（注意 SDK 版本），直接正常使用 TSF 即可。
 
->?目前仅支持 Greenwich 版本的 TSF SDK。
 
-### Maven POM
-
+### 使用方式
+目前支持 Greenwich（G）和 Finchley（F）版本的 TSF SDK。您可以单击以下页签，查看对应的使用方式。
+<dx-tabs>
+::: G&nbsp;版本&nbsp;TSF&nbsp;SDK&nbsp;使用方式
 ``` xml
 <!-- TSF 启动器 -->
 <dependency>
     <groupId>com.tencent.tsf</groupId>
     <artifactId>spring-cloud-tsf-starter</artifactId>
+    <version>1.23.0-Greenwich-RELEASE</version>
 </dependency>
 ```
+:::
+::: F&nbsp;版本&nbsp;TSF&nbsp;SDK&nbsp;使用方式
+>!需要再排除 DTF 中的一些依赖。
+
+```xml
+<!-- TSF 启动器 -->
+<dependency>
+    <groupId>com.tencent.tsf</groupId>
+    <artifactId>spring-cloud-tsf-starter</artifactId>
+    <version>1.23.5-Finchley-RELEASE</version>
+</dependency>
+<!-- Spring Boot DTF -->
+<dependency>
+        <groupId>com.tencent.cloud</groupId>
+        <artifactId>spring-boot-dtf</artifactId>
+        <version>${dtf.version}</version>
+        <exclusions>
+                <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-context</artifactId>
+                </exclusion>
+                <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter</artifactId>
+                </exclusion>
+                <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-aspects</artifactId>
+                </exclusion>
+                <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>spring-boot-starter-web</artifactId>
+                </exclusion>
+                <exclusion>
+                        <groupId>io.github.openfeign</groupId>
+                        <artifactId>feign-core</artifactId>
+                </exclusion>
+        </exclusions>
+</dependency>
+```
+:::
+</dx-tabs>
+
 
 ### 启用 TSF
-
-``` java
+<dx-codeblock>
+:::  java
 @SpringBootApplication
 @EnableDtf
 @EnableTsf
@@ -330,5 +376,8 @@ public class OrderApplication {
         SpringApplication.run(OrderApplication.class, args);
     }
 }
-```
+:::
+</dx-codeblock>
+
+
 

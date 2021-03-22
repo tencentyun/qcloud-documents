@@ -38,9 +38,9 @@
 
 #### 代码准备
 在 `example` 文件夹内创建 `Pojo.java`，`RequestClass.java`，`PersonClass.java`，`CityClass.java`，`ResponseClass.java` 文件，文件内容分别如下：
-* **Pojo.java**
 
-```
+<dx-codeblock>
+::: Pojo.java java
 package example;
 
 public class Pojo{  
@@ -49,11 +49,8 @@ public class Pojo{
         return new ResponseClass(greetingString);
     }
 }
-```
-
-* **RequestClass.java**
-
-```
+:::
+::: RequestClass.java java
 package example;
 
 public class RequestClass {
@@ -84,11 +81,8 @@ public class RequestClass {
     public RequestClass() {
     }
 }
-```
-
-* **PersonClass.java**
-
-```
+:::
+::: PersonClass.java java
 package example;
 
 public class PersonClass {
@@ -119,11 +113,8 @@ public class PersonClass {
     public PersonClass() {
     }
 }
-```
-
-* **CityClass.java**
-
-```
+:::
+::: CityClass.java java
 package example;
 
 public class CityClass {
@@ -144,11 +135,8 @@ public class CityClass {
     public CityClass() {
     }
 }
-```
-
-* **ResponseClass.java**
-
-```
+:::
+::: ResponseClass.java java
 package example;
 
 public class ResponseClass {
@@ -169,7 +157,8 @@ public class ResponseClass {
     public ResponseClass() {
     }
 }
-```
+:::
+</dx-codeblock>
 
 ### 代码编译
 >?本示例使用 Maven 进行编译打包，您可以根据自身情况，选择使用打包方法。

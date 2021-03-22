@@ -35,7 +35,7 @@
   在本端链接选项中单击【查看】，并下载 nginx 证书（记为TLS_CERT），保存在文件中。如下图所示：
 ![](https://main.qcloudimg.com/raw/33ecdd5e5e06c82834716821db248a76.png)
 
-### 外网访问（仅用于开发测试）<span id="stepwaiwang"></span>
+### 外网访问（仅用于开发测试）[](id:stepwaiwang)
 1. 登录 [TBaaS 控制台](https://console.cloud.tencent.com/tbaas/overview)。
 2. 选择左侧导航栏中的【Fabric】>【区块链网络】，进入“区块链网络”页面。
 3.  在“区块链网络”页面中，选择需查看的网络，进入“访问管理”页面。
@@ -57,7 +57,7 @@
 4. 在“区块链网络”页面中，选择需查看的网络，进入“证书管理”页面。
 5. 在“证书管理”页面中单击【申请】，在“申请证书”弹窗中，填写认证信息中的企业名称。如下图所示：
 ![](https://main.qcloudimg.com/raw/ff07dc48863aff4b78e452ad8d61f4fe.png)           
-6. 在“证书信息”页面上传通过 [外网访问](#stepwaiwang) 获取的 `out.csr` 文件。如下图所示：<span id="1"></span>
+6. 在“证书信息”页面上传通过 [外网访问](#stepwaiwang) 获取的 `out.csr` 文件。如下图所示：[](id:1)
 <img src="https://main.qcloudimg.com/raw/87d60ce40d8a630e138c36d674fd700b.png" alt="img" style="zoom:40%;" />  
 7. 下载 [上一步](#1) 申请到的证书，记为 USER_CERT。如下图所示：
 ![img](https://main.qcloudimg.com/raw/de368d437f5a1a27a8517da9807dfd0f.png)            

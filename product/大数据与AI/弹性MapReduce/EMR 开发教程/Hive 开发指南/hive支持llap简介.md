@@ -7,16 +7,16 @@ apache hive 从 Hive 2.0 版本引⼊了 LLAP（Live Long And Process），2.1�
 - 执行引擎
 LLAP 在现有的 process-based Hive 执行中工作，以保持 Hive 的可伸缩性和多功能性。它不会替换现有的执行 model，而是会增强它。
 - 查询片段执行
-LLAP 节点执行“查询片段”，例如过滤器、投影、数据变换、部分聚合、排序、分组、散列`joins/semi-joins`等。
+LLAP 节点执行“查询片段”，例如过滤器、投影、数据变换、部分聚合、排序、分组、散列 `joins/semi-joins` 等。
 - I/O
 守护进程 off-loads I/O 并从压缩格式转换为单独的线程。数据在准备就绪时传递给执行，因此可以在准备下一批数据时处理以前的批次。数据以简单的 RLE-encoded 柱状格式传递给执行，可以进行矢量化处理；这也是缓存格式，旨在最小化 I/O、缓存和执行之间的复制。
 - 缓存
 守护进程缓存输入 files 的元数据以及数据。即使对于当前未缓存的数据，也可以缓存元数据和索引信息。
 
 ## 安装 hive-llap
-1. 进入 EMR [购买页](https://cloud.tencent.com/product/emr)。
+1. 进入 EMR [购买页](https://buy.cloud.tencent.com/emapreduce#/)。
 2. 选择产品版本：EMR-V2.3.0。
-3. 在【可选组件】列表中，选择【TEZ 0.9.2】后就会默认安装 hive-llap，安装目录位于`/usr/local/service/slider`。
+3. 在【可选组件】列表中，选择【TEZ 0.9.2】后就会默认安装 hive-llap，安装目录位于 `/usr/local/service/slider`。
  
 ## 使用 hive-llap
 - 修改`/usr/local/service/slider/conf/slider-client.xml`，增加配置项：
@@ -28,7 +28,7 @@ LLAP 节点执行“查询片段”，例如过滤器、投影、数据变换、
 ```
 这里的 value，如果是非高可用集群 IP 是 master 节点，如果是高可用集群，执行如下命令查看 zookeeper 组件（即 zk）。
 ```
-cat /usr/local/service/hadoop/etc/hadoop/core-site.xml |grep 2181
+cat /usr/local/service/hadoop/etc/hadoop/hdfs-site.xml |grep 2181
 ```
 - 修改 hive-site.xml（通过控制台下发）
 ```
@@ -76,7 +76,6 @@ cat /usr/local/service/hadoop/etc/hadoop/core-site.xml |grep 2181
 >!这里的`hive.zookeeper.quorum`配置项需要填写实际的 zookeeper 地址和端口。
 >
  - 重启 hive 所有服务
- - 启动 llap
  - 生成 llap 启动文件和命令
 ```
 hive --service llap --name llap_service --instances 2 --size 2g --loglevel INFO --cache 1g --executors 2 --iothreads 5 --slider-am-container-mb 1024 --args " -XX:+UseG1GC -XX:+ResizeTLAB -XX:+UseNUMA -XX:-ResizePLAB" 
@@ -86,7 +85,7 @@ hive --service llap --name llap_service --instances 2 --size 2g --loglevel INFO 
 ```
 llap-slider-27May2020/run.sh
 ```
-执行上面这个`run.sh`文件，这里会在 yarn 上提交一个常驻 application，等待几分钟会在`yarn-ui`上看到这个application。
+执行上面这个`run.sh`文件，这里会在 yarn 上提交一个常驻 application，等待几分钟会在 `yarn-ui` 上看到这个application。
 >?这里 LLAP 初始化会需要几分钟，等待几分钟后再去执行数据操作。
 - 验证 llap
 进入 hive cli
@@ -97,9 +96,3 @@ select id, count(1) from t1 group by id;
 ```
 预期结果：
 ![](https://main.qcloudimg.com/raw/e29c4a4032916bb0e00edca55876ebd0.png)
-
-
-
-
-
-

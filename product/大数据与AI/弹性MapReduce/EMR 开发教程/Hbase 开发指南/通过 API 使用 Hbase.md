@@ -1,4 +1,4 @@
-HBase 是一个高可靠性、高性能、面向列、可伸缩的分布式存储系统，是 Google BigTable 的开源实现，HBase 利用 Hadoop HDFS 作为其文件存储系统；Hadoop MapReduce 来处理 HBase 中的海量数据；Zookeeper 来做协同服务。
+HBase 是一个高可靠性、高性能、面向列、可伸缩的分布式存储系统，是 Google BigTable 的开源实现。HBase 利用 Hadoop HDFS 作为其文件存储系统；Hadoop MapReduce 来处理 HBase 中的海量数据；Zookeeper 来做协同服务。
 
 Hbase 主要由 Zookeeper、HMaster 和 HRegionServer 组成。其中 ZooKeeper 可避免 Hmaster 的单点故障，其 Master 选举机制可保证一个 Master 提供服务。
 
@@ -12,7 +12,7 @@ HRegionServer 是 Hbase 中最核心的模块，其主要负责响应用户的 I
 确认您已经开通了腾讯云，并且创建了一个 EMR 集群。在创建 EMR 集群的时候需要在软件配置界面选择了 Hbase 组件和 Zookeeper 组件。
 
 ## 2. 使用 Hbase Shell
-在使用 Hbase Shell 之前请登录 EMR 集群的 Master 节点。登录 EMR 的方式可参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里我们可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入 EMR 命令行界面。
+在使用 Hbase Shell 之前请登录 EMR 集群的 Master 节点。登录 EMR 的方式可参考 [登录 Linux 实例](https://cloud.tencent.com/document/product/213/5436)。这里可以选择使用 WebShell 登录。单击对应云服务器右侧的登录，进入登录界面，用户名默认为 root，密码为创建 EMR 时用户自己输入的密码。输入正确后，即可进入 EMR 命令行界面。
 
 在 EMR 命令行先使用以下指令切换到 Hadoop 用户，并进入目录 `/usr/local/service/hbase`：
 ```
@@ -77,7 +77,6 @@ hbase(main):011:0> drop 'test'
 首先 [下载并安装 Maven](http://maven.apache.org/download.cgi)，配置 Maven 的环境变量，如果您使用 IDE，请在 IDE 中设置 Maven 相关配置。
 
 ### 新建一个 Maven 工程
-
 在命令行下进入您想要新建工程的目录，例如`D://mavenWorkplace`中，输入如下命令新建一个 Maven 工程：
 ```
 mvn      archetype:generate      -DgroupId=$yourgroupID       -DartifactId=$yourartifactID 
@@ -85,7 +84,7 @@ mvn      archetype:generate      -DgroupId=$yourgroupID       -DartifactId=$your
 ```
 其中 $yourgroupID 即为您的包名。$yourartifactID 为您的项目名称，而 maven-archetype-quickstart 表示创建一个 Maven Java 项目。工程创建过程中需要下载一些文件，请保持网络通畅。
 
-创建成功之后，在`D://mavenWorkplace`目录下就会生成一个名为 $yourartifactID 的工程文件夹。其中的文件结构如下所示：
+创建成功后，在 `D://mavenWorkplace` 目录下就会生成一个名为 $yourartifactID 的工程文件夹。其中的文件结构如下所示：
 ```
 simple
 　　　---pom.xml　　　　核心配置，项目根下
@@ -201,15 +200,16 @@ public class PutExample {
 ```
 mvn package
 ```
-在显示 build success 表示操作成功，在工程目录下的 target 文件夹中能够看到打包好的文件。
-使用 scp 或者 sftp 工具把打包好的文件上传到 EMR 集群。注意这里一定要上传把依赖一起进行打包的 jar 包。在本地命令行模式下运行：
+显示 build success 表示操作成功，在工程目录下的 target 文件夹中能够看到打包好的文件。
+
+使用 scp 或者 sftp 工具把打包好的文件上传到 EMR 集群。**这里一定要上传把依赖一起进行打包的 jar 包**。在本地命令行模式下运行：
 ```
 scp $localfile root@公网IP地址:$remotefolder
 ```
 其中，$localfile 是您的本地文件的路径加名称，root 为 CVM 服务器用户名，公网 IP 可以在 EMR 控制台的节点信息中或者在云服务器控制台查看。$remotefolder 是您想存放文件的 CVM 服务器路径。上传完成后，在 EMR 集群命令行中即可查看对应文件夹下是否有相应文件。
 
 ## 4. 运行样例
-登录 EMR 集群的 Master 节点，并且切换到 hadoop 用户。使用如下指令来执行样例：
+登录 EMR 集群的 Master 节点，并且切换到 hadoop 用户。使用如下命令执行样例：
 ```
 [hadoop@10 hadoop]$ java –jar $package.jar
 ```

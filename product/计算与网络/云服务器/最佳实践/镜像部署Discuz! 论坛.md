@@ -21,7 +21,6 @@
 >? 单击镜像名可查看镜像详情。
 >
 <img src="https://main.qcloudimg.com/raw/32d0a64b6fb0aba038dcc2602291bab9.png" style="width: 88%"></img>
-更多此镜像详细信息，请参考 [镜像手册](http://www.websoft9.com/xdocs/discuz-image-guide)。
 4. 根据您的实际需求，选择存储介质、带宽、设置安全组等其他配置，并选择购买完成云服务器的创建。
 
 ### 步骤2：安装并启动 Discuz! 论坛

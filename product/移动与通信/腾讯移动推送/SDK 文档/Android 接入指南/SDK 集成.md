@@ -1,3 +1,4 @@
+
 ## 简介
 
 Android SDK 是移动推送 TPNS 服务为客户端实现消息推送而提供给开发者的接口，本文将提供 AndroidStudio Gradle 自动集成和 Android Studio 手动集成两种方式。
@@ -45,9 +46,9 @@ android {
 dependencies {
     ......
     //添加以下依赖
-    implementation 'com.tencent.jg:jg:1.1'
-    implementation 'com.tencent.tpns:tpns:[VERSION]-release' //  TPNS 推送 [VERSION] 为当前 SDK 版本号，版本号可在 Android 发布动态页查看
-
+    implementation 'com.tencent.jg:jg:1.1'                  
+    implementation 'com.tencent.tpns:tpns:[VERSION]-release' 
+		  // TPNS 推送 [VERSION] 为最新 SDK 版本号，即为上述步骤2获取的版本号
 }
 ```
 
@@ -72,7 +73,7 @@ dependencies {
 
  - 如在添加以上 abiFilter 配置后， Android Studio 出现以下提示：
    NDK integration is deprecated in the current plugin. Consider trying the new experimental plugin，则在 Project 根目录的 gradle.properties 文件中添加  `android.useDeprecatedNdk=true`。
- - 如需监听消息请参考 XGPushBaseReceiver 接口或 demo 的 MessageReceiver 类。自行继承 XGPushBaseReceiver 并且在配置文件中配置如下内容（请勿在 receiver  里处理耗时操作）：
+ - 如需监听消息请参考 XGPushBaseReceiver 接口或 Demo（在 SDK 压缩包内，可前往 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面获取 ）的 MessageReceiver 类。自行继承 XGPushBaseReceiver 并且在配置文件中配置如下内容（请勿在 receiver  里处理耗时操作）：
 ```xml
 <receiver android:name="com.tencent.android.xg.cloud.demo.MessageReceiver">
     <intent-filter>
@@ -91,6 +92,9 @@ dependencies {
 
 
 ###  Android Studio 手动集成
+
+前往 [SDK 下载](https://console.cloud.tencent.com/tpns/sdkdownload) 页面获取最新版 SDK，并参考以下步骤将 SDK 导入到您的 Android 工程中。
+
 
 #### 工程配置
 
@@ -365,6 +369,9 @@ XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 
 ### 关闭联合保活
 
+
+>!为提升离线抵达率，TPNS SDK 默认开启联合保活能力，开发者可手动关闭。
+
 如果需要关闭 TPNS 的保活功能，若您使用 gradle 自动集成方式，请在自身应用的 AndroidManifest.xml 文件 “application” 标签下配置如下结点，其中 `xxx` 为任意自定义名称；如果使用手动集成方式，请修改如下节点属性：
 
 ```xml
@@ -388,3 +395,19 @@ XGPushConfig.getToken(getApplicationContext());
 ```
 
 ![](https://main.qcloudimg.com/raw/854020af14428df9972629e7dbbee55f.png)
+
+### 隐私协议声明建议
+
+您可在申请 App 权限使用时，使用以下内容声明授权的用途：
+
+
+<pre>
+我们使用 <a href="https://cloud.tencent.com/product/tpns">腾讯云移动推送 TPNS</a> 用于实现产品信息的推送，在您授权我们“访问网络连接”和“访问网络状态”权限后，表示您同意 <a href="https://cloud.tencent.com/document/product/548/50955">腾讯 SDK 隐私协议</a>。您可以通过关闭终端设备中的通知选项来拒绝接受此 SDK 推送服务。
+</pre>
+
+
+
+其中上述声明授权的两个链接如下：
+- 腾讯云移动推送 TPNS ：`https://cloud.tencent.com/product/tpns`
+- 腾讯 SDK 隐私协议：`https://cloud.tencent.com/document/product/548/50955`
+

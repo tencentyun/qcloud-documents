@@ -17,3 +17,4 @@
 ![](https://main.qcloudimg.com/raw/e3991179474f97cf018761b92822cec0.png)
 5. 单击【保存】，即可完成资源账号的添加。
 
+

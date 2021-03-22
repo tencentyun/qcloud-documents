@@ -7,7 +7,7 @@
 | API | 描述 |
 | --- | --- |
 | [delegate](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/TUIKit/Classes/TUIConversationListController.html) | 委托回调，用于外部处理选中事件 |
-| [viewMode](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/TUIKit/Classes/TUIConversationListController.html) | 控制器的数据源 |
+| [viewModel](https://imsdk-1252463788.cos.ap-guangzhou.myqcloud.com/IM_DOC/iOS/TUIKit/Classes/TUIConversationListController.html) | 控制器的数据源 |
 
 ## 聊天界面
 

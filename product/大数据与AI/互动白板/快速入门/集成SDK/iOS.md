@@ -18,26 +18,22 @@
 ```
 sudo gem install cocoapods
 ```
-
 #### 2. 创建 Podfile 文件
 进入项目所在路径，输入以下命令行之后项目路径下会出现一个 Podfile 文件。
 ```
 pod init
 ```
-
 #### 3. 编辑 Podfile 文件
 编辑 Podfile 文件，支持选择版本号
-
 ```
 platform :ios, '8.0'
 
 target 'TICDemo' do
   pod 'TEduBoard_iOS'
   pod 'TXIMSDK_iOS'
+  pod 'TIWLogger_iOS'
 end
-
 ```
-
 互动白板默认使用 IMSDK 作为信令通道，如果您有独立的信令通道，无需集成 IMSDK。
 
 #### 4. 更新并安装 SDK
@@ -49,28 +45,19 @@ pod install
 ```
 pod update
 ```
-
 pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程文件，双击打开即可。
 
 
 ### 手动集成
-
 1. 前往 [版本信息](https://cloud.tencent.com/document/product/1137/43151)，下载 SDK。
-
 2. 前往 [即时通讯官网](https://cloud.tencent.com/document/product/269/36887) 下载 IMSDK。互动白板默认使用 IMSDK 作为信令通道，如果您有独立的信令通道，请跳过此步。
-
 3. 打开您的 Xcode 工程项目，选择要运行的 target ，选中 Build Phases 项。
-
 4. 单击 Link Binary with Libraries 项展开，单击底下的“+”号图标去添加依赖库。
-
 ![](https://main.qcloudimg.com/raw/18551cb8b0c0da49f258d133e1e7dd3a.jpg)
 
 ## 使用 TEduBoard SDK
-
 #### 1. `#import` SDK
-
 在项目需要使用 SDK API 的文件里，引入具体的头文件
-
 ```objc
 #import <TEduBoard/TEduBoard.h>
 ```
@@ -78,7 +65,6 @@ pod 命令执行完后，会生成集成了 SDK 的 .xcworkspace 后缀的工程
 #### 2. 创建白板控制器
 
 使用如下代码创建并初始化白板控制器：
-
 ```objc
 // 创建并初始化白板控制器
 //（1）鉴权配置
@@ -110,27 +96,18 @@ _boardController = [[TEduBoardController alloc] initWithAuthParam:authParam room
 }
 ```
 
-注意事项
-1. `onTEBInit` 表示白板创建并鉴权完成。
-2. `onTEBHistroyDataSyncCompleted` 表示历史数据加载完成，此时可调用白板的相关接口。
-3. SDK 所有回调都在主线程内执行，因此可以在回调里直接执行 UI 操作。
+>!1. `onTEBInit` 表示白板创建并鉴权完成。<br>2. `onTEBHistroyDataSyncCompleted` 表示历史数据加载完成，此时可调用白板的相关接口。<br>3. SDK 所有回调都在主线程内执行，因此可以在回调里直接执行 UI 操作。
 
 #### 4. 白板数据同步
-
 白板在使用过程中，需要在不同的用户之间进行数据同步（涂鸦数据等），SDK 默认使用 IMSDK 作为信令通道，您需要自行实现 IMSDK 的初始化、登录、加入群组操作，确保白板初始化时，IMSDK 已处于所指定的群组内。
-
-步骤一、初始化 IMSDK
-
+步骤1：初始化 IMSDK
 ```objc
 TIMSdkConfig *config = [[TIMSdkConfig alloc] init];
 config.sdkAppId = sdkAppId;
 [[TIMManager sharedInstance] initSdk:config];
 ```
-
 如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，请在 `AppDelegate` 的 `application:didFinishLaunchingWithOptions` 方法中初始化 IMSDK，否则请在登录前初始化 IMSDK，在登出后反初始化 IMSDK。
-
-步骤二、登录 IMSDK
-
+步骤2：登录 IMSDK
 ```objc
 TIMLoginParam *loginParam = [TIMLoginParam new];
 loginParam.identifier = userId;
@@ -143,11 +120,8 @@ __weak typeof(self) ws = self;
   // 登录 IMSDK 失败
 }];
 ```
-
-步骤三、加入群组
-
+步骤3：加入群组
 登录 IMSDK 成功后加入白板所在的群组。
-
 ```objc
 [[TIMGroupManager sharedInstance] joinGroup:group msg:nil succ:^{
   // 加入 IM 群组成功
@@ -176,24 +150,15 @@ __weak typeof(self) ws = self;
 }];
 ```
 
-注意事项
-
-1. 推荐业务后台使用 [IM REST API](https://cloud.tencent.com/document/product/269/1615) 提前创建群组。
-2. 不同的群组类型，群组功能以及成员数量有所区别，具体请查看 [IM 群组系统](https://cloud.tencent.com/document/product/269/1502)。
-
+>!1. 推荐业务后台使用 [IM REST API](https://cloud.tencent.com/document/product/269/1615) 提前创建群组。<br>2. 不同的群组类型，群组功能以及成员数量有所区别，具体请查看 [IM 群组系统](https://cloud.tencent.com/document/product/269/1502)。
 
 #### 5. 销毁白板
-
 调用 `unInit` 方法后，内部将彻底销毁白板并停止计费，请您确保此接口的调用。
-
 ```objc
 [_boardController unInit];
 ```
-
 如果您使用 IMSDK 作为信令通道，请根据业务的需要决定是否退出群组、退出登录并反初始化。
-
-步骤一、退出群组
-
+步骤1：退出群组
 ```objc
 [[TIMGroupManager sharedInstance] quitGroup:group succ:^{
   // 退出 IM 群组成功
@@ -201,9 +166,7 @@ __weak typeof(self) ws = self;
   // 退出 IM 群组失败
 }];
 ```
-
-步骤二、登出 IMSDK
-
+步骤2：登出 IMSDK
 ```objc
 [[TIMManager sharedInstance] logout:^{
   // 登出 IMSDK 成功
@@ -211,11 +174,8 @@ __weak typeof(self) ws = self;
   // 登出 IMSDK 失败
 }];
 ```
-
-步骤三、反初始化 IMSDK
-
+步骤3：反初始化 IMSDK
 ```objc
 [[TIMManager sharedInstance] unInit];
 ```
-
 如果您有其他业务使用了 IMSDK 并期望 IMSDK 的生命周期与 App 的生命周期保持一致，无需调用此接口。

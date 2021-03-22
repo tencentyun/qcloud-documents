@@ -131,3 +131,4 @@
 | [TIMFriendshipReportPendencyReaded](https://cloud.tencent.com/document/product/269/37662#timfriendshipreportpendencyreaded) | 上报好友添加请求未决信息已读 |
 
 
+

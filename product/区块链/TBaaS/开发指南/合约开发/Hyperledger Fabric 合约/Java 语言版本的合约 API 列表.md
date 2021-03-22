@@ -5,7 +5,7 @@ Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实
 - [参数处理](#parameter)
 - [其他辅助类](#auxiliary)
 
-<span id="information"></span>
+[](id:information)
 ### 交易信息提取
 <table>
 	<tr>
@@ -42,7 +42,7 @@ Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实
 	</tr>
 </table>
 
-<span id="count"></span>
+[](id:count)
 ### 账本交互
 <table>
 	<tr>
@@ -167,7 +167,7 @@ Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实
 	</tr>
 </table>
 
-<span id="parameter"></span>
+[](id:parameter)
 ### 参数处理
 <table>
 	<tr>
@@ -192,7 +192,7 @@ Fabric Java 语言版本智能合约有丰富的 API 接口，具体的代码实
 	</tr>
 </table>
 
-<span id="auxiliary"></span>
+[](id:auxiliary)
 ### 其他辅助类
 <table>
 	<tr>

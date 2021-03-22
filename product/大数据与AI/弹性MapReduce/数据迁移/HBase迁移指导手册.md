@@ -9,7 +9,7 @@ Hbase 表是基于 hadoop HDFS 构建，所以 Hbase 的迁移可从两个维度
 $ ./bin/hbase shell  
 hbase>snapshot 'myTable', 'myTableSnapshot'  
 ```
-这里`'myTable'`是 hbase 的表名， `'myTableSnapshot'`是快照的名称。创建完成后可使用 list_snapshots 确认是否成功，或使用 delete_snapshot 删除快照。
+这里`'myTable'`是 hbase 的表名，`'myTableSnapshot'`是快照的名称。创建完成后可使用 list_snapshots 确认是否成功，或使用 delete_snapshot 删除快照。
 ```
 hbase> delete_snapshot 'myTableSnapshot'  
 ```
@@ -17,7 +17,7 @@ hbase> delete_snapshot 'myTableSnapshot'
 ```
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot myTableSnapshot -copy-to hdfs://10.0.0.38:4007/hbase/snapshot/myTableSnapshot  
 ```
-这里`10.0.0.38:4007`是目标集群的`$activeip:$rpcport`，导出快照时系统级别会启动一个 mapreduce 的任务，可以在后面增加`-mappers 16 -bandwidth 200`来指定 mapper 和带宽。这里200指的是200MB/sec。
+这里 `10.0.0.38:4007` 是目标集群的 `$activeip:$rpcport`，导出快照时系统级别会启动一个 mapreduce 的任务，可以在后面增加 `-mappers 16 -bandwidth 200` 来指定 mapper 和带宽。其中200指的是200MB/sec。
 4. 快照还原到目标集群的目标 HDFS，在目标集群中执行如下命令。
 ```
 hbase org.apache.hadoop.hbase.snapshot.ExportSnapshot -snapshot myTableSnapshot -copy-from /hbase/snapshot/myTableSnapshot -copy-to /hbase/  

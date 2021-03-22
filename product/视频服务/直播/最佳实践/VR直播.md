@@ -2,7 +2,7 @@
 
 
 
-<span id="keyword"></span>
+[](id:keyword)
 ## 关键词说明
 <table>
 <thead><tr><th width="24%">关键词</th><th>描述</th></tr></thead>
@@ -33,10 +33,10 @@
  ![](https://main.qcloudimg.com/raw/e15c63657c22d51cc3e934e6ceb07d87.png)
 5. 软件下载完成之后需要对相机进行调试，调试方法参见 [基础拍摄准备-相机调试](https://onlinemanual.insta360.com/pro2/zh-cn/basic/prepare/adjustment)。
 
-
-
-## 步骤1：VR 相机推流设置
-<span id="step1"> </span> 
+## 操作步骤
+[](id:step1)
+### 步骤1：VR 相机推流设置
+[](id:step1_1)
 1. 进入云直播控制台的【地址生成器】生成推流地址，具体操作请参见 [生成推流域名](https://cloud.tencent.com/document/product/267/35257#push)。
 2. 打开软件之后，选择界面上的直播按钮，然后通过右上方基础设置开始设置相机参数。
 ![](https://main.qcloudimg.com/raw/a033e0d3a5bbaf91566834075c116954.png)
@@ -55,11 +55,11 @@
 <td>帧率</td><td>默认帧率值为：30fps。</td>
 </tr><tr>
 <td>码率</td><td>自定义直播码率，在手机端观看的情况下推荐码率调整为4Mbps。
-			<br><b>说明：</b>造成卡顿原因很多情况下是因为上传带宽不够。如果手机端画面卡顿，请先排除是否因为手机卡顿引起该情况。若不是，请选择更低的码率。</td>
+            <br><b>说明：</b>造成卡顿原因很多情况下是因为上传带宽不够。如果手机端画面卡顿，请先排除是否因为手机卡顿引起该情况。若不是，请选择更低的码率。</td>
 </tr><tr>
-<td>推流地址</td><td>填入<a href="#step1">步骤1</a> 所得推流地址的前部分，格式为：<code>rtmp://domain/AppName/</code>。</td>
+<td>推流地址</td><td>填入<a href="#step1_1">步骤1</a> 所得推流地址的前部分，格式为：<code>rtmp://domain/AppName/</code>。</td>
 </tr><tr>
-<td>流密钥</td><td>填入<a href="#step1">步骤1</a> 所得推流地址的后部分，格式为：<code>StreamName?txSecret=xxxxx&txTime=5C1E5F7F</code>。</td>
+<td>流密钥</td><td>填入<a href="#step1_1">步骤1</a> 所得推流地址的后部分，格式为：<code>StreamName?txSecret=xxxxx&txTime=5C1E5F7F</code>。</td>
 </tr><tr>
 <td><a href="#keyword">直播同时保存视频画面</a></td><td>根据个人需求勾选，是否边播边保存相关数据到机身 SD 卡中。</td>
 </tr><tr>
@@ -73,7 +73,8 @@
 
 >? 若您需要进行更多设置，可参考 [Insta360 相机拍摄进阶说明](https://onlinemanual.insta360.com/pro2/zh-cn/live/production/1)。
 
-## 步骤2：直播播放
+[](id:step2)
+### 步骤2：直播播放
 1. 通过云直播控制台的【地址生成器】生成对应流的播放地址，具体操作请参见 [生成播放域名](https://cloud.tencent.com/document/product/267/35257#play)。
 >?播放地址 StreamName 要与推流地址 StreamName 一致才能播放对应的流。
 2. 通过[【Insta360 官网】](https://www.insta360.com/cn/download/insta360-one#player_download)下载 Android/iOS 手机端、Windows 端或 Mac 端的全景视频播放器软件。
@@ -84,7 +85,7 @@
 ![](https://main.qcloudimg.com/raw/457e6bfae36185ca47d5511058d3b67c.png)
 
 
-
+[](id:suggest)
 ## VR 设备参考建议
 本文以“Insta360 Pro 2”相机为例介绍如何基于 VR 全景相机与标准直播完成一次 VR 直播。其他**建议设备**可单击下列链接了解详情，具体使用方法可咨询云市场设备供应商。
 

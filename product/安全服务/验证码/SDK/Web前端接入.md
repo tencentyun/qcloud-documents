@@ -1,7 +1,7 @@
 
 
 ## 前提条件
-接入验证码前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecret。注册完成后，您可以在验证码控制台的验证详情的基础配置中，查看 AppID 以及 AppSecret。
+接入验证码前，需要先在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中注册 AppID 和 AppSecretKey。注册完成后，您可以在验证码控制台的验证详情的基础配置中，查看 AppID 以及 AppSecretKey。
 >!小程序插件 AppID 仅限小程序插件接入方式使用，请勿使用在 Web 前端接入。
 ## 接入步骤
 ### 快速接入
@@ -112,8 +112,8 @@ TencentCaptcha 的实例提供一些操作验证码的常用方法：
 |getTicket|获取验证码验证成功后的 ticket。|无|`Object:{"appid":"","ticket":""}`|
 
 >?show 与 destroy 可以反复调用。
-<span id="pzcs"></span>
-### 配置参数
+
+### [配置参数](id:pzcs)
 options 提供以下配置参数：
 >! 
 - 验证码弹窗内部不支持调整样式大小，如果需要调整，可在弹窗最外层`id=tcaptcha_transform`的元素设置 `transform:scale();`。
@@ -139,12 +139,12 @@ options 提供以下配置参数：
 <tr>
 <td>sdkOpts</td>
 <td>Object</td>
-<td>示例 <code>{"width": 140, "height": 140}</code> <br>移动端原生webview调用时传入，为设置的验证码弹框大小。<br>注意：手机原生端页面弹框通过 webview 加载验证码时须设置此值。若使用验证码 Web 的 loading，可设置一个小的值，然后在 ready 回调后重新设置尺寸。若自己实现 loading，此值可随意设置，等待 ready 回调后，再设置实际大小。</td>
+<td>示例 <code>{"width": 140, "height": 140}</code> <br>移动端原生 webview 调用时传入，为设置的验证码弹框大小。<br>注意：手机原生端页面弹框通过 webview 加载验证码时须设置此值。若使用验证码 Web 的 loading，可设置一个小的值，然后在 ready 回调后重新设置尺寸。若自己实现 loading，此值可随意设置，等待 ready 回调后，再设置实际大小。</td>
 </tr>
 <tr>
 <td>ready</td>
 <td>Function</td>
-<td>验证码加载完成的回调，回调参数为验证码实际的宽高：<br> <code>{"sdkView": {</code><br>&nbsp;&nbsp;<code>"width": number,</code><br>&nbsp;&nbsp;<code>"height": number</code><br><code>}}</code><br>手机原生端可根据此值设置弹框大小。</td>
+<td>验证码加载完成的回调，回调参数为验证码实际的宽高：<br> <code>{"sdkView": {</code><br>&nbsp;&nbsp;<code>"width": number,</code><br>&nbsp;&nbsp;<code>"height": number</code><br><code>}}</code><br>请勿使用此参数直接设定宽高，手机原生端可参考回调数值，设置弹框大小。</td>
 </tr>
 <tr>
 <td>needFeedBack</td>
@@ -153,4 +153,5 @@ options 提供以下配置参数：
 </tr>
 </tbody></table>
 
-
+## 更多信息
+您可以登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，在页面右上角单击【快速咨询】，了解更多详细信息。
