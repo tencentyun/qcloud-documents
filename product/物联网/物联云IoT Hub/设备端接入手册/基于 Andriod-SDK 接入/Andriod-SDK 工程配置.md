@@ -9,8 +9,8 @@
  - 依赖 maven 远程构建，示例如下：
  ``` gr
 dependencies {
-		implementation 'com.tencent.iot.hub:hub-device-android-core:x.x.x'
-		implementation 'com.tencent.iot.hub:hub-device-android-service:x.x.x'
+							implementation 'com.tencent.iot.hub:hub-device-android-core:x.x.x'
+							implementation 'com.tencent.iot.hub:hub-device-android-service:x.x.x'
 }
   ```
 >?用户可根据 [版本说明](https://cloud.tencent.com/document/product/634/48712) 把上述x.x.x设置成最新版本。
@@ -19,8 +19,8 @@ dependencies {
    修改应用模块的 [build.gradle](https://github.com/tencentyun/iot-device-java/blob/master/hub/hub-android-demo/build.gradle)，使应用模块依赖 [iot_core](https://github.com/tencentyun/iot-device-java/tree/master/hub/hub-device-android/iot_service) 和 [iot_service](https://github.com/tencentyun/iot-device-java/tree/master/hub/hub-device-android/iot_service) 源码，示例如下：
    ```gr
    dependencies {
-       implementation project(':hub-device-android:iot_core')
-       implementation project(':hub-device-android:iot_service')
+									 implementation project(':hub-device-android:iot_core')
+									 implementation project(':hub-device-android:iot_service')
    }
    ```
 
@@ -30,15 +30,15 @@ dependencies {
 
 ``` gr
 {
-	"PRODUCT_ID":        "",
-	"DEVICE_NAME":       "",
-	"DEVICE_PSK":        "",
-	"SUB_PRODUCT_ID":    "",
-	"SUB_DEV_NAME":      "",
-	"SUB_PRODUCT_KEY":   "",
-	"TEST_TOPIC":        "",
-	"SHADOW_TEST_TOPIC": "",
-	"PRODUCT_KEY":       ""
+			"PRODUCT_ID":        "",
+			"DEVICE_NAME":       "",
+			"DEVICE_PSK":        "",
+			"SUB_PRODUCT_ID":    "",
+			"SUB_DEV_NAME":      "",
+			"SUB_PRODUCT_KEY":   "",
+			"TEST_TOPIC":        "",
+			"SHADOW_TEST_TOPIC": "",
+			"PRODUCT_KEY":       ""
  }
 ```
 
@@ -49,8 +49,8 @@ SDK 提供证书认证与密钥认证两种认证方式，需按照已创建的�
  - 通过 InputStream 进行读取，此时需传入设备证书、私钥的全路径信息。
    1. 成功读取证书文件与私钥文件之后，需在 [IoTMqttFragment.java](https://github.com/tencentyun/iot-device-java/blob/master/hub-device-android/hub-demo/src/main/java/com/tencent/iot/hub/device/android/app/IoTMqttFragment.java) 中设置 mDevCertName 证书名称与 mDevKeyName 私钥名称。
 ```
-    private String mDevCertName = "YOUR_DEVICE_NAME_cert.crt";
-    private String mDevKeyName  = "YOUR_DEVICE_NAME_private.key";
+	private String mDevCertName = "YOUR_DEVICE_NAME_cert.crt";
+	private String mDevKeyName  = "YOUR_DEVICE_NAME_private.key";
 ```
    2. 配置完成之后，在工程中调用 SDK 中 MQTT 连接的相关接口，即可完成设备的接入。
    ``` java
