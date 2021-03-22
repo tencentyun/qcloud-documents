@@ -101,7 +101,7 @@
 | API | 描述 |
 |-----|-----|
 | [getBeautyManager](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a4fb05ae6b5face276ace62558731280a) | 获取美颜管理对象。 |
-| [setWatermark](https://cloud.tencent.com/document/product/647/32259#setwatermark) | 添加水印。 |
+| [setWatermark](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ad0bedbddf415d26cff8242d5842a0908) | 添加水印。 |
 
 
 ### 音乐特效和人声特效
@@ -146,9 +146,9 @@
 | [enableCustomAudioCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ab8f8aaa19d70c6a2c9d62ecceb6e974d) | 启用音频自定义采集模式。 |
 | [sendCustomAudioData](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a62cab4ec7c336ae135c2f681aca25da1) | 向 SDK 投送自己采集的音频数据。 |
 | [setAudioFrameDelegate](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a01726b03b102c32222a2a26b16abcd48) | 设置音频数据回调。 |
-| [setCapturedRawAudioFrameDelegateFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a4b58b1ee04d0c692f383084d87111f86) | 设置本地麦克风采集回调出来的AudioFrame格式。 |
-| [setLocalProcessedAudioFrameDelegateFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a9ec7c7123eb2f333769508de193ea51f) | 设置本地采集并经过音频模块前处理后的音频数据回调出来的AudioFrame格式。 |
-| [setMixedPlayAudioFrameDelegateFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a24ad642b88cd3b2ca2d3044d72817090) | 设置送入扬声器播放的音频数据回调的AudioFrame格式。 |
+| [setCapturedRawAudioFrameDelegateFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a4b58b1ee04d0c692f383084d87111f86) | 设置本地麦克风采集回调出来的 AudioFrame 格式。 |
+| [setLocalProcessedAudioFrameDelegateFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a9ec7c7123eb2f333769508de193ea51f) | 设置本地采集并经过音频模块前处理后的音频数据回调出来的 AudioFrame 格式。 |
+| [setMixedPlayAudioFrameDelegateFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a24ad642b88cd3b2ca2d3044d72817090) | 设置送入扬声器播放的音频数据回调的 AudioFrame 格式。 |
 | [enableCustomVideoCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ade46563b03208042e61bcc693e4a5d062) | 启用自定义视频采集模式。 |
 | [sendCustomVideoData](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a76e8101153afc009f374bc2b242c68312) | 向 SDK 中指定 streamType 投送自己采集的视频数据。 |
 | [enableMixExternalAudioFrame](https://cloud.tencent.com/document/product/647/32259#enablemixexternalaudioframe) | 控制外部音频是否要混入推流和混入播放。 |
@@ -182,7 +182,7 @@
 | [setLogDirPath](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a93b48089741f7022aea1f8f93ce8fff9) | 修改日志保存路径。 |
 | [setLogDelegate](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a41497e4242e3c42acfa35730cdc1ddf6) | 设置日志回调。 |
 | [showDebugView](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a3bd71c8a99029c1a4708bf1c176aa299) | 显示仪表盘。 |
-| [setDebugViewMargin](https://cloud.tencent.com/document/product/647/32259#setdebugviewmargin) | 设置仪表盘的边距。 |
+| [setDebugViewMargin](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aad41ff6d5b5565046911acf27bb3dee4) | 设置仪表盘的边距。 |
 | [callExperimentalAPI](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a16c53e91f9b32aaf4bf3d409a3790ef6) | 调用实验性 API 接口。 |
 
 
