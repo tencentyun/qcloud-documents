@@ -1,14 +1,14 @@
-## SRT 推流协议的优势对比
+## SRT 推流协议优势对比
 ts over SRT 推流通过 SRT 直接传输包含音视频数据的 ts 流，下行复用现有直播系统。TS over SRT 已作为 Haivision 硬件及 OBS 的推流格式标准。
 此种模式下，SRT 服务器会解析负载（TS），并转封装为 RTMP 协议，转推到后端 RTMP 服务器。
 ![](https://main.qcloudimg.com/raw/5ceb4e1d0d3a2e1f07bb601d17d04eb5.png)
 
-## 上行卡顿率的对比
+## 上行卡顿率对比
 应用 SRT 推流后卡顿率有所改善，并反馈了一些端上的质量信息。
 ![](https://main.qcloudimg.com/raw/8c55654a4d4050092f98a88b21949e4f.png)
 
 
-## 关于推流丢包率的对比
+## 关于推流丢包率对比
 下行方面，在户外灰度 SRT 后，因为上行质量的优化，下行流畅度也得到了提升。
 - Android 平台 SRT 推流性能测试数据（测试平台—MI9）：
 ![](https://main.qcloudimg.com/raw/91d7a0a3ba846ce2cb92415e4b096b16.png)
