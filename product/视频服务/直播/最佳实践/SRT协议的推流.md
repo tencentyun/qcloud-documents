@@ -3,10 +3,6 @@ ts over SRT 推流通过 SRT 直接传输包含音视频数据的 ts 流，下�
 此种模式下，SRT 服务器会解析负载（TS），并转封装为 RTMP 协议，转推到后端 RTMP 服务器。
 ![](https://main.qcloudimg.com/raw/5ceb4e1d0d3a2e1f07bb601d17d04eb5.png)
 
-
-目前很多用户已经在大规模应用 SRT 上行路数。从上行卡顿率数据看到，卡顿率有明显的改善。
-![](https://main.qcloudimg.com/raw/306f8541bd2a0bf4b44ccbdc04c40bc9.png)
-
 ## 上行卡顿率的对比
 应用 SRT 推流后卡顿率有所改善，并反馈了一些端上的质量信息。
 ![](https://main.qcloudimg.com/raw/8c55654a4d4050092f98a88b21949e4f.png)
