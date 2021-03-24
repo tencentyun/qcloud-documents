@@ -28,7 +28,7 @@ ping COS 的访问域名
 ```
 例如：
 ```
-ping test-12345.cos.ap-beijing.mqcloud.com
+ping examplebucket-1250000000.cos.ap-beijing.mqcloud.com
 ```
  - 是，请执行 [步骤3](#step03)。
  - 否，请执行 [步骤2](#step02)。
