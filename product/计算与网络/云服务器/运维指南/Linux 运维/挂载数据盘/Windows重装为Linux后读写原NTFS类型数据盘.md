@@ -44,9 +44,9 @@ Number  Start   End     Size    File system  Name                          Flags
 ```
 mount -t ntfs-3g 数据盘路径 挂载点
 ```
-例如，您需要将路径为 `/dev/vdb1` 的数据盘挂载至 `/mnt`，则执行以下命令：
+例如，您需要将路径为 `/dev/vdb2` 的数据盘挂载至 `/mnt`，则执行以下命令：
 ```
-mount -t ntfs-3g /dev/vdb1 /mnt
+mount -t ntfs-3g /dev/vdb2 /mnt
 ```
 由于此时的文件系统可识别，挂载的数据盘可直接被 Linux 系统读写。
 
