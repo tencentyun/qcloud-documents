@@ -30,8 +30,8 @@ ping COS 的访问域名
 ```
 ping examplebucket-1250000000.cos.ap-beijing.mqcloud.com
 ```
- - 是，请执行 [步骤3](#step03)。
- - 否，请执行 [步骤2](#step02)。
+ - 是，请执行 [步骤3](#step03)，检查所用的 Wi-Fi 路由器是否存在限速。
+ - 否，请执行 [步骤2](#step02)，检查浏览器是否设置了代理。
 2. <span id="step02"></span>以 Chrome 浏览器为例，检查浏览器是否设置了代理。
     1. 打开 Chrome 浏览器，单击右上角的 <img src="https://main.qcloudimg.com/raw/41a048f92c3d6160faff7e211bacce76.png"/> > 【设置】，打开设置页面。
     2. 单击【高级】，在“系统”栏中选择【在您计算机的代理设置】，打开操作系统的设置窗口。
