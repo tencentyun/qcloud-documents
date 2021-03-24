@@ -3,7 +3,7 @@ ts over SRT 推流通过 **SRT 协议**直接传输包含音视频数据的 ts �
 ![](https://main.qcloudimg.com/raw/5ceb4e1d0d3a2e1f07bb601d17d04eb5.png)
 
 ## 上行卡顿率对比
-在使用 SRT 推流后，可以明显的看到卡顿率有所改善，具体如下质量对比图所示：
+在使用 SRT 推流后，可以明显的看到卡顿率有所改善，如下质量对比图所示：
 ![](https://main.qcloudimg.com/raw/8c55654a4d4050092f98a88b21949e4f.png)
 
 
