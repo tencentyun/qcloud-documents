@@ -28,7 +28,7 @@ ping COS 的访问域名
 ```
 例如：
 ```
-ping test-123456-cos.ap-beijing.mqcloud.com
+ping test-12345.cos.ap-beijing.mqcloud.com
 ```
  - 是，请执行 [步骤3](#step03)。
  - 否，请执行 [步骤2](#step02)。
@@ -61,7 +61,7 @@ coscmd probe -n 1 -s 20
 ### 修改自定义域名解析
 
 1. 检查自定义域名解析是否为 COS 域名。
- - 是，请执行 [步骤2](#2_step02)。
+ - 是，请联系 [在线客服](https://cloud.tencent.com/act/event/Online_service)。
  常见的 COS 域名如下：
 ```
 XXX.cos.ap-beijing.myqcloud.com  （COS 默认域名）
@@ -69,16 +69,15 @@ XXX.cos.accelerate.myqcloud.com （COS 全球加速域名）
 XXX.cos-website.ap-beijing.myqcloud.com（COS 静态页域名）
 XXX.picbj.myqcloud.com（COS 数据万象默认域名）
 ```
- - 否，请执行 [步骤3](#2_step03)。
+ - 否，请执行 [步骤2](#2_step02)。
 常见的非 COS 域名如下： 
 ```
 XXX.file.myqcloud.com 或 XXX.cdn.dnsv1.com（腾讯云 CDN 默认域名）
 XXX.w.kunlungr.com（aliyunCDN 默认域名）
 ```
-
 2. <span id="2_step02"></span>将自定义域名的 CNAME 解析到所需的 COS 域名中，并进行数据上传。
 例如 `upload.mydomain.com  cname XXX.cos.ap-beijing.myqcloud.com`，具体操作请参见 [开启自定义源站域名](https://cloud.tencent.com/document/product/436/36638)。
-3. <span id="2_step03"></span>修改客户端的默认 COS 域名。
+3. 修改客户端的默认 COS 域名。
 以 C# 代码为例：
 ```
 CosXmlConfig config = new CosXmlConfig.Builder()
