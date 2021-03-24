@@ -40,14 +40,14 @@
 - 已封禁。
 
 ## 解决办法
-#### 暂停解析
+### 暂停解析
 如您设置解析状态为暂停解析，现需要重新开启，可参考 [暂停或启用解析记录](https://cloud.tencent.com/document/product/302/42165) 进行调整。
 
-#### 域名 DNS 未修改
+### 域名 DNS 未修改
 DNS 地址未修改会影响解析生效，请前往域名注册商处修改 DNS 服务器，如您的域名在腾讯云注册，可参考 [修改域名 DNS 服务器](https://cloud.tencent.com/document/product/302/5518) 进行调整。
 
-#### 待添加解析记录
+### 待添加解析记录
 解析记录中，无解析记录值。需对域名添加正确且有效的解析记录，才可以正常使用。设置解析记录请参考 [各记录类型说明及规则](https://cloud.tencent.com/document/product/302/38661)。
 
-#### 已封禁
+### 已封禁
 该域名已被举报封禁，如有问题，可咨询 [在线客服](https://cloud.tencent.com/online-service?from=cns)。
