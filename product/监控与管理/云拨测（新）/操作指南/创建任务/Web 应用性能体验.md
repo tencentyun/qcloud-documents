@@ -56,7 +56,7 @@ Web 应用性能体验监控帮助您快速了解网页运行情况，快速发�
 	</tr>
 	<tr>
 	<td>拨测点选择</td>
-	<td>您可以选择系统推荐的节点组，也可以自定义节点组。网络监测按拨测点收费，拨测点越多收费越高，详情请参见 <a href="https://cloud.tencent.com/document/product/280/52111">产品定价</a>。您可以根据需求勾选拨测点组，勾选后单击【<img src="https://main.qcloudimg.com/raw/b0ef53201062fcb9d4e22b727b8a334b.jpg" width="3.5%">】即可。如需取消拨测点选择单击【<img src="https://main.qcloudimg.com/raw/c11fd0c6306294fd07a7208dd6cffdf7.jpg" width="3.5%">】即可。</td>
+	<td>您可以选择系统推荐的节点组，也可以自定义节点组。Web 应用性能体验按拨测点收费，拨测点越多收费越高，详情请参见 <a href="https://cloud.tencent.com/document/product/280/52111">产品定价</a>。您可以根据需求勾选拨测点组，勾选后单击【<img src="https://main.qcloudimg.com/raw/b0ef53201062fcb9d4e22b727b8a334b.jpg" width="3.5%">】即可。如需取消拨测点选择单击【<img src="https://main.qcloudimg.com/raw/c11fd0c6306294fd07a7208dd6cffdf7.jpg" width="3.5%">】即可。</td>
 	</tr>
 	</tbody></table>
 	- **拨测参数**
