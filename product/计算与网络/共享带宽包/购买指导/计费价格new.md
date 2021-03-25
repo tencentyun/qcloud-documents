@@ -5,8 +5,8 @@
 <table>
 <tr><th width="30%">带宽类型</th><th>说明</th></tr>
 <tr><td><a href="#bgp">常规 BGP 带宽包</a></td><td>普通 BGP IP 线路类型的带宽包。可手动创建。</td></tr>
-<tr><td><a href="#anycast">Anycast 加速 BGP 带宽包</a></td><td>采用 Anycast 加速 BGP IP 线路类型的带宽包。自动创建，不支持手动创建。</td></tr>
 <tr><td><a href="#cn2">精品 BGP 带宽包</a></td><td>使用专属线路的精品 BGP IP 线路类型的带宽包。可手动创建。</td></tr>
+<tr><td><a href="#anycast">Anycast 加速 BGP 带宽包</a></td><td>采用 Anycast 加速 BGP IP 线路类型的带宽包。自动创建，不支持手动创建。</td></tr>
 <tr><td><a href="#singleip">移动/联通/电信带宽包</a></td><td>通过单个网络运营商访问公网，静态单线 IP 线路类型的带宽包。自动创建，不支持手动创建。</td></tr>
 </table>
 
@@ -20,22 +20,6 @@
 </thead>
 <tbody><tr>
 <td align="left">所有地域
-</td>
-<td align="left">108</td>
-</tr>
-</tbody></table>
-
-## [Anycast 加速 BGP 带宽包](id:anycast)
->?计费详情请参见 [Anycast 公网加速购买指南](https://cloud.tencent.com/document/product/644/12617)。
-<table>
-<thead>
-<tr>
-<th align="left">地域</th>
-<th align="left" width="35%">单价（元/Mbps/月）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">中国香港、新加坡、曼谷、孟买、首尔、东京、硅谷、法兰克福、莫斯科
 </td>
 <td align="left">108</td>
 </tr>
@@ -57,7 +41,21 @@
 </tr>
 </tbody></table>
 
-
+## [Anycast 加速 BGP 带宽包](id:anycast)
+>?计费详情请参见 [Anycast 公网加速购买指南](https://cloud.tencent.com/document/product/644/12617)。
+<table>
+<thead>
+<tr>
+<th align="left">地域</th>
+<th align="left" width="35%">单价（元/Mbps/月）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">中国香港、新加坡、曼谷、孟买、首尔、东京、硅谷、法兰克福、莫斯科
+</td>
+<td align="left">108</td>
+</tr>
+</tbody></table>
 
 ## [移动/联通/电信带宽包](id:singleip)
 >?目前仅杭州、济南、福州、武汉、长沙、石家庄地域支持静态单线 IP 线路类型，其他地域支持情况请以控制台页面为准。该功能处于内测阶段，如需体验，请提交[ 内测申请](https://cloud.tencent.com/apply/p/6nzb3jwbsk)。
