@@ -20,9 +20,10 @@
  >同一个腾讯云账号，最多可创建100个即时通信 IM 应用。若已有100个应用，您可以先 [停用并删除](https://cloud.tencent.com/document/product/269/32578#.E5.81.9C.E7.94.A8.2F.E5.88.A0.E9.99.A4.E5.BA.94.E7.94.A8) 无需使用的应用后再创建新的应用。**应用删除后，该 SDKAppID 对应的所有数据和服务不可恢复，请谨慎操作。**
  >
 2. 单击【创建新应用】，在【创建应用】对话框中输入您的应用名称，单击【确定】。
-  创建完成后，可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。请保存 SDKAppID 信息。
+![](https://main.qcloudimg.com/raw/78340e403359fcf4d753ade29ae9aace.png)
+3. 请保存 SDKAppID 信息。可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。
   ![](https://main.qcloudimg.com/raw/ed34d9294a485d8d06b3bb7e0cc5ae59.png)
-3. 单击创建后的应用，左侧导航栏单击【辅助工具】>【UserSig 生成&校验】，创建一个 UserID 及其对应的 UserSig，复制签名信息，后续登录使用。
+4. 单击创建后的应用，左侧导航栏单击【辅助工具】>【UserSig 生成&校验】，创建一个 UserID 及其对应的 UserSig，复制签名信息，后续登录使用。
 ![](https://main.qcloudimg.com/raw/8315da2551bf35ec85ce10fd31fe2f52.png)
 
 [](id:step2)
