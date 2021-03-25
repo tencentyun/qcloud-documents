@@ -23,7 +23,7 @@
 3. 在【创建应用】对话框中输入您的应用名称，单击【确定】。
   创建完成后，可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。请记录 SDKAppID 信息。
   ![](https://main.qcloudimg.com/raw/ed34d9294a485d8d06b3bb7e0cc5ae59.png)
-4. 进入应用，在左侧导航栏单击【辅助工具】>【UserSig 生成&校验】，创建一个 UserID 及其对应的 UserSig, 复制下来，后续登录使用。
+4. 单击应用，在左侧导航栏单击【辅助工具】>【UserSig 生成&校验】，创建一个 UserID 及其对应的 UserSig, 复制签名信息，后续登录使用。
 ![](https://main.qcloudimg.com/raw/8315da2551bf35ec85ce10fd31fe2f52.png)
 
 [](id:step2)
@@ -31,45 +31,44 @@
 1. 根据您的实际业务需求，下载 SDK 及配套的 [Demo 源码](https://cloud.tencent.com/document/product/269/36887)。
 2. 下载完成后，双击打开 Package，默认全选并导入包资源到当前 Unity 项目。
 ![](https://main.qcloudimg.com/raw/c338ce838fff81841f85b06fd3dc5c6c.png)
-3. 打开源码`Assets/TIMCloud/Demo/ExampleEntry.cs`，把步骤一获取的 sdkAppID，userID，userSig 填入。
+3. 打开源码`Assets/TIMCloud/Demo/ExampleEntry.cs`，把 [步骤1](#step1) 获取的 sdkAppID，userID，userSig 填入。
 ![](https://main.qcloudimg.com/raw/e52b615d507b761ee910aa1d74853949.png)
 
 ## 步骤3：打包运行
 ### Android 平台
-1. 配置 Unity Editor，单击【File】>【Build Setting】，切换至安卓。
-![](https://main.qcloudimg.com/raw/1295274fd2901e863764c3064bd878bd.png)
+1. 配置 Unity Editor，单击【File】>【Build Setting】，切换至 Android。
+![](https://main.qcloudimg.com/raw/d913d32e36aa01ff93acf0316d4f103f.png)
 2. 启动一个安卓的模拟器，单击【 Build And Run】，Demo 就能跑起来。
->? Demo 里面包含了已上线的所有 API，可以测试和作为调用参考。
-> UI 可能会有部分调整更新，请以最新版为准。
-> API 文档参考[这里](https://testcomm.qq.com/im/apidoc/api/com.tencent.imsdk.unity.V2TIMManager.html#com_tencent_imsdk_unity_V2TIMManager_initSDK_System_Int32_com_tencent_imsdk_unity_LogLevel_)。
+>? 
+>- Demo 里面包含了已上线的所有 API，可以测试和作为调用参考。
+> - UI 可能会有部分调整更新，请以最新版为准。
+> - API 文档参考[这里](https://testcomm.qq.com/im/apidoc/api/com.tencent.imsdk.unity.V2TIMManager.html#com_tencent_imsdk_unity_V2TIMManager_initSDK_System_Int32_com_tencent_imsdk_unity_LogLevel_)。
 >
 ![](https://main.qcloudimg.com/raw/e6f3583d0b807af62a27ee753cfa3b53.png)
 3. 接口测试，需要先在第一行第二个输入框里添加 userID，然后调用 initSDK 和 login，数据展示窗口显示调用成功，然后基本上接口都可以尝试调用。
 
 ### iOS平台
 1. 配置 Unity Editor，单击【File】>【Build Setting】，切换至 iOS。
-![](https://main.qcloudimg.com/raw/a8949711a424c3a4aa43fd2cd5a687f0.png)
+![](https://main.qcloudimg.com/raw/3982b96c4f9e76107bb4aadac33a5de5.png)
 2. 连接 iPhone 真机，单击【Build And Run】，需要选择一个新的目录存放编译出来的 iOS 工程，等待编译完成，会有新窗口弹出 Xcode 工程。
-3. 然后在 Xcode 里面按以下步骤对项目做几个配置：
->1. 在UnityFramework/UnityFramework.h里引入UnityInterface.h
-><img width=300 src="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/ios_step1.png">
->2. 修改Classes/Unity目录下，UnityFramework.h、UnityForwardDecls.h、UnityRendering.h、UnitySharedDecls.h文件为Public
+3. 然后在 Xcode 里面按以下步骤对项目调整配置：
+	1. 在 UnityFramework/UnityFramework.h 里引入 UnityInterface.h。
+![](https://main.qcloudimg.com/raw/5660b680f77434e59a870a5f8143ad78.png)
+	2. 修改 Classes/Unity 目录下，UnityFramework.h、UnityForwardDecls.h、UnityRendering.h、UnitySharedDecls.h 文件为 Public。
 ><img width=300 src="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/ios_step2.png">
->3. 在Classes/Prefix.pch里面引入imsdk
+	3. 在 Classes/Prefix.pch 里面引入 imsdk。
 ><img width=300 src="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/ios_step3.png">
->4. 在项目引入imsdk
+	4. 在项目引入 imsdk。
 ><img width=300 src="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/ios_step4.png">
->5. 最后，设置Target的Signing & Capabilities，让项目可以在真机上运行
->6. 启动项目，在真机上进行Demo的调试
->
+	5. 设置 Target 的 Signing & Capabilities，让项目可以在 iPhone 真机上运行。
+	6. 启动项目，在真机上进行Demo的调试
 
 ## 常见问题
 
 ### Android 单击 Build And Run 报错找不到可用设备？
-确保设备没被其他资源占用，或者单击 Build 生成 apk 包，再拖动进模拟器里运行。
+确保设备没被其他资源占用，或单击 Build 生成 apk 包，再拖动进模拟器里运行。
 
 ### iOS 第一次运行报错？
-
-按照上面的 Demo 运行配置后，如果报错，可以单击【Product】>【Clean】，清除产物后重新 build，或者关闭 Xcode 重新打开再次 build。
+按照上面的 Demo 运行配置后，如果报错，可以单击【Product】>【Clean】，清除产物后重新 build，或者关闭 Xcode 重新打开再次 build。
 
 
