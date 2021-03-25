@@ -82,7 +82,7 @@
 </tr>
 <tr>
 <td style="text-align:center">Unity  </td>
-<td style="text-align:center" colspan='3' >敬请期待</td>
+<td style="text-align:center" colspan='3' >公测邀请中，加 QQ 群：764231117 获取 SDK 包</td>
 </tr>
 </table>
 
