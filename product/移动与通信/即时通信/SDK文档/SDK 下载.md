@@ -82,7 +82,7 @@
 </tr>
 <tr>
 <td style="text-align:center">Unity  </td>
-<td style="text-align:center" colspan='3' >公测邀请中，&nbsp;<a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=fVHzwGDQ0Hb9Qtn0KzQx7tsChGnzO9vm&jump_from=webapi"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="腾讯云Unity IM SDK交流群" title="腾讯云Unity IM SDK交流群"></a>&nbsp;获取 SDK 包</td>
+<td style="text-align:center" colspan='3' >公测邀请中，获取资源请加 QQ 群：<a href="https://qm.qq.com/cgi-bin/qm/qr?k=fVHzwGDQ0Hb9Qtn0KzQx7tsChGnzO9vm&jump_from=webapi">764231117</a></td>
 </tr>
 </table>
 
