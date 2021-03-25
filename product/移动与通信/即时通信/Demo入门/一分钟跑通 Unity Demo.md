@@ -61,7 +61,7 @@
 	4. 在项目引入 imsdk。
 ![](https://main.qcloudimg.com/raw/335c2b8ae8c797694b4e4dd5000c4751.png)
 	5. 设置 Target 的 Signing & Capabilities，让项目可以在 iPhone 真机上运行。
-	6. 启动项目，在真机上进行Demo的调试
+	6. 启动项目，在真机上进行Demo的调试。
 
 ## 常见问题
 
