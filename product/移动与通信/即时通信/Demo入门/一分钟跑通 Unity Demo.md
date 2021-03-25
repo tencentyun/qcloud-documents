@@ -27,7 +27,7 @@
 ![](https://main.qcloudimg.com/raw/8315da2551bf35ec85ce10fd31fe2f52.png)
 
 [](id:step2)
-## 步骤2：下载 SDK 和 Demo 源码
+## 步骤2：下载 SDK 与源码
 1. 根据您的实际业务需求，下载 SDK 及配套的 [Demo 源码](https://cloud.tencent.com/document/product/269/36887)。
 2. 下载完成后，双击打开 Package，默认全选并导入包资源到当前 Unity 项目。
 ![](https://main.qcloudimg.com/raw/c338ce838fff81841f85b06fd3dc5c6c.png)
@@ -53,13 +53,13 @@
 2. 连接 iPhone 真机，单击【Build And Run】，需要选择一个新的目录存放编译出来的 iOS 工程，等待编译完成，会有新窗口弹出 Xcode 工程。
 3. 然后在 Xcode 里面按以下步骤对项目调整配置：
 	1. 在 UnityFramework/UnityFramework.h 里引入 UnityInterface.h。
-![](https://main.qcloudimg.com/raw/5660b680f77434e59a870a5f8143ad78.png)
+![](https://main.qcloudimg.com/raw/0a69e67c63479810309080efa3721d6a.png)
 	2. 修改 Classes/Unity 目录下，UnityFramework.h、UnityForwardDecls.h、UnityRendering.h、UnitySharedDecls.h 文件为 Public。
-><img width=300 src="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/ios_step2.png">
+![](https://main.qcloudimg.com/raw/0b1a43e69f965b710c91f24eff8870fd.png)
 	3. 在 Classes/Prefix.pch 里面引入 imsdk。
-><img width=300 src="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/ios_step3.png">
+![](https://main.qcloudimg.com/raw/59715b2119cd9239d4fa8b9cb4914a09.png)
 	4. 在项目引入 imsdk。
-><img width=300 src="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/ios_step4.png">
+![](https://main.qcloudimg.com/raw/335c2b8ae8c797694b4e4dd5000c4751.png)
 	5. 设置 Target 的 Signing & Capabilities，让项目可以在 iPhone 真机上运行。
 	6. 启动项目，在真机上进行Demo的调试
 
