@@ -68,6 +68,6 @@
 确保设备没被其他资源占用，或单击 Build 生成 apk 包，再拖动进模拟器里运行。
 
 ### iOS 第一次运行报错？
-按照上面的 Demo 运行配置后，如果报错，可以单击【Product】>【Clean】，清除产物后重新 build，或者关闭 Xcode 重新打开再次 build。
+按照上面的 Demo 运行配置后，如果报错，可以单击【Product】>【Clean】，清除产物后重新 Build，或者关闭 Xcode 重新打开再次 Build。
 
 
