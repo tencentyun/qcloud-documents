@@ -31,14 +31,14 @@
 1. 根据您的实际业务需求，下载 SDK 及配套的 [Demo 源码](https://cloud.tencent.com/document/product/269/36887)。
 2. 下载完成后，双击打开 Package，默认全选并导入包资源到当前 Unity 项目。
 ![](https://main.qcloudimg.com/raw/c338ce838fff81841f85b06fd3dc5c6c.png)
-3. 打开源码`Assets/TIMCloud/Demo/ExampleEntry.cs`，把 [步骤1](#step1) 获取的 sdkAppID，userID，userSig 填入。
+3. 打开源码 Assets/TIMCloud/Demo/ExampleEntry.cs，把 [步骤1](#step1) 获取的 sdkAppID，userID，userSig 填入。
 ![](https://main.qcloudimg.com/raw/e52b615d507b761ee910aa1d74853949.png)
 
 ## 步骤3：打包运行
 ### Android 平台
 1. 配置 Unity Editor，单击【File】>【Build Setting】，切换至 Android。
 ![](https://main.qcloudimg.com/raw/d913d32e36aa01ff93acf0316d4f103f.png)
-2. 启动一个安卓的模拟器，单击【 Build And Run】，Demo 就能跑起来。
+2. 启动一个 Android 的模拟器，单击【 Build And Run】，Demo 就能跑起来。
 >? 
 >- Demo 里面包含了已上线的所有 API，可以测试和作为调用参考，API 文档参见 [这里](https://testcomm.qq.com/im/apidoc/api/com.tencent.imsdk.unity.V2TIMManager.html#com_tencent_imsdk_unity_V2TIMManager_initSDK_System_Int32_com_tencent_imsdk_unity_LogLevel_)。
 > - UI 可能会有部分调整更新，请以最新版为准。
