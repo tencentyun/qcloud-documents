@@ -47,7 +47,7 @@ __参数__
 
 ### setPlayListener
 
-设置推流回调接口。
+设置播放回调接口。
 ```
 void setPlayListener(ITXLivePlayListener listener)
 ```

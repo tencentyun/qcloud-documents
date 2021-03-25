@@ -32,25 +32,26 @@
 apiVersion: tkeedge.io/v1
 kind: DeploymentGrid
 metadata:
-  name: deploymentgrid-demo
-  namespace: default
+    name: deploymentgrid-demo
+    namespace: default
 spec:
-  gridUniqKey: zone
-  template:
-    selector:
-      matchLabels:
-        appGrid: nginx
-    replicas: 2
+    gridUniqKey: zone
     template:
-      metadata:
-        labels:
+      selector:
+        matchLabels:
           appGrid: nginx
-      spec:
-        containers:
-        - name: nginx
-          image: nginx:1.7.9
-          ports:
-          - containerPort: 80
+      replicas: 2
+      template:
+        metadata:
+          labels:
+            appGrid: nginx
+        spec:
+          containers:
+          - name: nginx
+            image: nginx:1.7.9
+            ports:
+            - containerPort: 80
+              protocol: TCP
 ```
 
 ### 部署 ServiceGrid
@@ -59,17 +60,17 @@ spec:
 apiVersion: tkeedge.io/v1
 kind: ServiceGrid
 metadata:
-  name: servicegrid-demo
-  namespace: default
+    name: servicegrid-demo
+    namespace: default
 spec:
-  gridUniqKey: zone
-  template:
-    selector:
-      appGrid: nginx
-    ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
+    gridUniqKey: zone
+    template:
+      selector:
+        appGrid: nginx
+      ports:
+      - protocol: TCP
+        port: 80
+        targetPort: 80
 ```
 >?可查看此处 gridUniqKey 字段设置为 zone，因此对应 [通过 Label 将边缘节点分组](#Step2) 步骤中对节点进行分组时 Label 的 key 也应设置为 zone。如果有三组节点，则分别添加 `zone: zone-0`，`zone: zone-1 `，`zone: zone-2 `的 Label 即可。
 

@@ -5,114 +5,135 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 - 如果您的应用场景主要为教育场景，那么教师端推荐使用稳定性更好的 [Electron](https://cloud.tencent.com/document/product/647/38549) 解决方案，支持大小双路画面，更灵活的屏幕分享方案以及更强大的弱网络恢复能力。
 
 <table>
-<thead><tr><th width="15%">操作系统</th>
-<th width="24%">浏览器类型</th>
-<th>浏览器最低<br>版本要求</th>
-<th>接收（播放）</th>
-<th>发送（上麦）</th>
-<th>屏幕分享</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Mac OS</td>
+<tr>
+<th>操作系统</th>
+<th width="22%">浏览器类型</th><th>浏览器最低<br>版本要求</th><th width="16%">接收（播放）</th><th width="16%">发送（上麦）</th><th>屏幕分享</th><th>SDK 版本要求</th>
+</tr><tr>
+<td rowspan="4">Mac OS</td>
 <td>桌面版 Safari 浏览器</td>
 <td>11+</td>
 <td>支持</td>
 <td>支持</td>
-<td>支持（需要  Safari 13+ 版本）</td>
-</tr><tr>
-<td>Mac OS</td>
+<td>支持（需要 Safari13+ 版本）</td>
+<td>-</td>
+</tr>
+<tr>
 <td>桌面版 Chrome 浏览器</td>
 <td>56+</td>
 <td>支持</td>
 <td>支持</td>
-<td>支持（需要 Chrome 72+ 版本）</td>
-</tr><tr>
-<td>Mac OS</td>
+<td>支持（需要 Chrome72+ 版本）</td>
+<td>-</td>
+</tr>
+<tr>
 <td>桌面版 Firefox 浏览器</td>
 <td>56+</td>
 <td>支持</td>
 <td>支持</td>
-<td>支持（需要 Firefox 66+ 版本）</td>
-</tr><tr>
-<td>Mac OS</td>
+<td>支持（需要 Firefox66+ 版本）</td>
+<td>v4.7.0+</td>
+</tr>
+<tr>
 <td>桌面版 Edge 浏览器</td>
 <td>80+</td>
 <td>支持</td>
 <td>支持</td>
 <td>支持</td>
-</tr><tr>
-<td>Windows</td>
+<td>v4.7.0+</td>
+</tr>
+<tr>
+<td  rowspan="4">Windows</td>
 <td>桌面版 Chrome 浏览器</td>
 <td>56+</td>
 <td>支持</td>
 <td>支持</td>
-<td>支持（需要 Chrome 72+ 版本）</td>
-</tr><tr>
-<td>Windows</td>
+<td>支持（需要 Chrome72+ 版本）</td>
+<td>-</td>
+</tr>
+<tr>
 <td>桌面版 QQ 浏览器（极速内核）</td>
 <td>10.4+</td>
 <td>支持</td>
 <td>支持</td>
 <td>不支持</td>
-</tr><tr>
-<td>Windows</td>
+<td>-</td>
+</tr>
+<tr>
 <td>桌面版 Firefox 浏览器</td>
 <td>56+</td>
 <td>支持</td>
 <td>支持</td>
-<td>支持（需要 Firefox 66+ 版本）</td>
-</tr><tr>
-<td>Windows</td>
+<td>支持（需要 Firefox66+ 版本）</td>
+<td>v4.7.0+</td>
+</tr>
+<tr>
 <td>桌面版 Edge 浏览器</td>
 <td>80+</td>
 <td>支持</td>
 <td>支持</td>
 <td>支持</td>
-</tr><tr>
+<td>v4.7.0+</td>
+</tr>
+<tr>
 <td>iOS 11.1.2+</td>
 <td>移动版 Safari 浏览器</td>
 <td>11+</td>
 <td>支持</td>
 <td>支持</td>
 <td>不支持</td>
-</tr><tr>
+<td>-</td>
+</tr>
+<tr>
 <td>iOS 12.1.4+</td>
 <td>微信内嵌网页</td>
 <td>-</td>
 <td>支持</td>
 <td>不支持</td>
 <td>不支持</td>
-</tr><tr>
-<td>Android</td>
+<td>-</td>
+</tr>
+<tr>
+<td>iOS 14.3+</td>
+<td>微信内嵌网页</td>
+<td>6.5+（微信版本）</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+<td>-</td>
+</tr>
+<tr>
+<td  rowspan="4">Android</td>
 <td>移动版 QQ 浏览器</td>
 <td>-</td>
 <td>不支持</td>
 <td>不支持</td>
 <td>不支持</td>
+<td>-</td>
 </tr><tr>
-<td>Android</td>
 <td>移动版 UC 浏览器</td>
 <td>-</td>
 <td>不支持</td>
 <td>不支持</td>
 <td>不支持</td>
-</tr><tr>
-<td>Android</td>
+<td>-</td>
+</tr>
+<tr>
 <td>微信内嵌网页（TBS 内核）</td>
 <td>-</td>
 <td>支持</td>
 <td>支持</td>
 <td>不支持</td>
-</tr><tr>
-<td>Android</td>
+<td>-</td>
+</tr>
+<tr>
 <td>微信内嵌网页（XWEB 内核）</td>
 <td>-</td>
 <td>支持</td>
+<td>支持</td>
 <td>不支持</td>
-<td>不支持</td>
+<td>-</td>
 </tr>
-</tbody></table>
+</table>
 
 ## API 使用指引
 详细的 API 使用介绍请参见以下指引：

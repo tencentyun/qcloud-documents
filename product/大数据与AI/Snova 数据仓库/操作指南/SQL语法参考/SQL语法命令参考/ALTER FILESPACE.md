@@ -7,7 +7,7 @@ ALTER FILESPACE name OWNER TO newowner
 ```
 
 ## 描述
-**ALTER FILESPACE 更改一个文件空间的定义**。用户必须拥有文件空间去 ALTER FILESPACE。要更改所有者，用户必须是新的角色的直接或间接成员（**超级用户自动拥有这些权限**）。
+ALTER FILESPACE 更改一个文件空间的定义。用户必须拥有文件空间去 ALTER FILESPACE。要更改所有者，用户必须是新的角色的直接或间接成员（**超级用户自动拥有这些权限**）。
 
 ## 参数
 

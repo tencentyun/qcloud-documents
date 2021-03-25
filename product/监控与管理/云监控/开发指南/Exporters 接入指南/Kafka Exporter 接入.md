@@ -62,7 +62,7 @@ spec:
       terminationGracePeriodSeconds: 30
 ```
 
->?Exporter 详细参数请参见 [elasticsearch_exporter](https://github.com/justwatchcom/elasticsearch_exporter)。
+>?Exporter 详细参数请参见 [kafka_exporter](https://github.com/danielqsj/kafka_exporter)。
 
 
 

@@ -97,7 +97,7 @@
        - **目标路径**：填写目标路径，本文以 `/cache` 为例。
        - **挂载子路径**：仅挂载选中数据卷中的子路径或单一文件。例如， `/data` 或 `/test.txt`。
 3. 单击【创建Workload】，完成创建。
- > ! 如使用 PVC 挂载模式，则数据卷只能挂载到一台 Node 主机上。
+ >! 如使用 CFS 的 PVC 挂载模式，数据卷支持挂载到多台 Node 主机上。
 
 
 ### Kubectl 操作指引
@@ -107,11 +107,11 @@
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name:  CFS auto
+   name:  CFS auto
 parameters:
 # first you must modify vpcid and subnetid in storageclass parameters
-  vpcid: vpc-xxxxxxxx
-  subnetid: subnet-xxxxxxxx
+   vpcid: vpc-xxxxxxxx
+   subnetid: subnet-xxxxxxxx
 provisioner: com.tencent.cloud.csi. CFS 
 ```
 支持参数如下：

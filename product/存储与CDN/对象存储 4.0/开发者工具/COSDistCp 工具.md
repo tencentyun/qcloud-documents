@@ -16,15 +16,15 @@ COSDistCp 是一款基于 MapReduce 的分布式文件拷贝工具，主要用�
 
 #### 软件依赖
 
-Hadoop-2.6.0及以上版本、Hadoop-COS 插件 5.8.7 及以上版本
+Hadoop-2.6.0及以上版本、Hadoop-COS 插件 5.9.3 及以上版本
 
 ## 下载与安装
 
 #### 获取 COSDistCp jar 包
 
-Hadoop 2.x 用户可下载 [cos-distcp-1.4-2.8.5.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.4-2.8.5.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.4-2.8.5-md5.txt) 确认下载的 jar 包是否完整。
+Hadoop 2.x 用户可下载 [cos-distcp-1.5-2.8.5.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.5-2.8.5.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.5-2.8.5-md5.txt) 确认下载的 jar 包是否完整。
 
-Hadoop 3.x 用户可下载 [cos-distcp-1.4-3.1.0.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.4-3.1.0.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.4-3.1.0-md5.txt) 确认下载的 jar 包是否完整。
+Hadoop 3.x 用户可下载 [cos-distcp-1.5-3.1.0.jar 包](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.5-3.1.0.jar)，根据 jar 包的 [MD5 校验值](https://cos-sdk-archive-1253960454.file.myqcloud.com/cos-distcp/cos-distcp-1.5-3.1.0-md5.txt) 确认下载的 jar 包是否完整。
 
 #### 安装说明
 
@@ -344,7 +344,6 @@ hadoop jar cos-distcp-1.4-2.8.5.jar \
 
 
 
-
 ## 常见问题
 
 ### 环境中未配置 Hadoop-COS, 如何运行 COSDistCp?
@@ -378,3 +377,10 @@ grep -v '"comment":"SRC_MISS"' failed-manifest |gzip > failed-manifest.gz
 yarn logs -applicationId application_1610615435237_0021 > application_1610615435237_0021.log
 ```
 其中 application_1610615435237_0021 为应用 ID。
+
+### COSDistCp 是否会在网络等异常情况下，拷贝生成不完整文件？
+在网络异常、源文件缺失和权限不足等情况下，COSDistCp 无法在目的端生成和源端同样大小的文件。
+- 对于 COSDistCp 1.5 以下版本，COSDistCp 会尝试删除生成在目的端文件。如果删除失败，则需要您重新执行拷贝任务覆盖这些文件，或者手动删除这些不完整的文件。
+- 对于 COSDistCp 1.5 及以上版本，且运行环境的 Hadoop COS 插件版本在 5.9.3 及以上版本时，如果拷贝到 COS 拷贝失败，COSDistCp 会调用 abort 接口终止正在上传的请求。因此，即使遇到异常情况，也不会生成不完整的文件。
+- 对于 COSDistCp 1.5 及以上版本，如果运行环境的 Hadoop COS 插件版本低于 5.9.3，建议升级到 5.9.3 及其以上版本。
+- 对于非 COS 的目的端，COSDistCp 会尝试删除目的端文件。

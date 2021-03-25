@@ -1,0 +1,136 @@
+## 注意事项
+下列所有指标必入参 `tke_cluster_instance_id` 维度，其余为非必选维度，可不入参。
+
+## 命名空间
+Namespace=QCE/TKE
+## 监控指标
+
+| 指标英文名                                 | 指标中文名                           | 指标单位 | 维度                                                         | 统计周期                            |
+| ------------------------------------------ | ------------------------------------ | -------- | ------------------------------------------------------------ | ----------------------------------- |
+| K8sWorkloadAbnormal                        | 工作负载异常                         | -        | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadFsWriteTimes                    | 块设备读取次数                       | 次       | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadNetwork<br>ReceiveBytesBw       | 网络入带宽                           | MB       | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadNetwork<br>TransmitBytesBw      | 网络出带宽                           | MB       | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadRateCpu<br>CoreUsedCluster      | CPU利用率                            | %        | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkload<br>CpuCoreUsed                 | CPU使用量                            | 核       | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadMemNo<br>CacheBytes             | 内存使用量（不包含cache）            | MB       | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadNetwork<br>ReceivePackets       | 网络入包量                           | 个/秒    | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadNetwork<br>TransmitPackets      | 网络出包量                           | 个/秒    | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadRateMem<br>NoCacheCluster       | 内存利用率（不含cache）              | %        | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkload<br>FsReadBytes                 | 块设备读取大小                       | MB       | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkload<br>MemUsageBytes               | 内存使用量                           | MB       | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadNetwork<br>TransmitBytes        | 网络出流量                           | MB       | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadPod<br/>RestartTotal            | Pod重启次数                          | 次       | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadRateMem<br/>UsageBytesCluster   | 内存利用率                           | %        | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkload<br>FsReadTimes                 | 块设备读取次数                       | 次       | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadNetwork<br>ReceiveBytes         | 网络入流量                           | MB       | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkload<br>FsWriteBytes                | 块设备写入大小                       | B        | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadGpu<br>MemoryUsedBytes          | GPU内存使用量                        | MB       | tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadGpuUsed                         | GPU使用量                            | 卡       | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadRateGpu<br>MemoryUsedCluster    | GPU内存利用率                        | %        | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadRate<br>GpuUsedCluster          | GPU利用率                            | %        | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadEks<br>GpuMemoryUsage           | GPU显存利用率（弹性容器）            | %        | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadEks<br>GpuMemoryUsedMib         | GPU显存使用量（弹性容器）            | MB       | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadEks<br>GpuUtilizationRates      | GPU利用率（弹性容器）                | MB       | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadRateCpu<br>CoreUsedResource     | CPU利用率（占Pod规格）               | %        | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadRateMem<br>UsageBytesResource   | 内存利用率（占Pod规格）              | %        | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+| K8sWorkloadRateMem<br>NoCacheBytesResource | 内存利用率（占Pod规格，不包含cache） | %        | 必填维度：tke_cluster_instance_id、<br/>非必选：namespace、workload_kind、workload_name | 60s、<br>300s、<br>3600s、<br>86400 |
+
+## 各维度对应参数总览
+<table>
+    <thead>
+        <tr>
+            <th><span>参数名称</span></th>
+            <th><span>类型</span></th>
+            <th><span>维度名称</span></th>
+            <th><span>维度解释</span></th>
+            <th><span>格式</span></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><span>Instances.N.Dimensions.N.Name</span></td>
+            <td rowspan="2"><span>必选</span></td>
+            <td><span>tke_cluster_instance_id</span></td>
+            <td><span>集群的维度名称</span></td>
+            <td><span>输入 String 类型维度名称：tke_cluster_instance_id</span></td>
+        </tr>
+        <tr>
+            <td><span>Instances.N.Dimensions.N.Value</span></td>
+            <td><span>tke_cluster_instance_id</span></td>
+            <td><span>具体集群 ID</span></td>
+            <td><span>输入具体集群 ID，例如：cls-fvkxp123</span></td>
+        </tr>
+        <tr>
+            <td><span>Instances.N.Dimensions.N.Name</span></td>
+             <td rowspan="6"><span>非必选（可不选，也可选择一项或多项）</span></td>
+            <td><span>namespace</span></td>
+            <td><span>命名空间的维度名称</span></td>
+            <td><span>输入 String 类型维度名称：namespace</span></td>
+        </tr>
+        <tr>
+            <td><span>Instances.N.Dimensions.N.Value</span></td>
+            <td><span>namespace</span></td>
+            <td><span>具体命名空间</span></td>
+            <td><span>输入具体命名空间，例如：kube-system</span></td>
+        </tr>
+        <tr>
+            <td><span>Instances.N.Dimensions.N.Name</span></td>
+            <td><span>workload_kind</span></td>
+            <td><span>工作负载类型的维度名称</span></td>
+            <td><span>输入 String 类型维度名称：workload_kind</span></td>
+        </tr>
+        <tr>
+            <td><span>Instances.N.Dimensions.N.Value</span></td>
+            <td><span>workload_kind</span></td>
+            <td><span>具体工作负载类型</span></td>
+            <td><span>输入具体工作负载名称，例如：Deployment</span></td>
+        </tr>
+        <tr>
+            <td><span>Instances.N.Dimensions.N.Name</span></td>
+            <td><span>workload_name</span></td>
+            <td><span>工作负载名称的维度名称</span></td>
+            <td><span>输入 String 类型维度名称：workload_name</span></td>
+        </tr>
+        <tr>
+            <td><span>Instances.N.Dimensions.N.Value</span></td>
+            <td><span>workload_name</span></td>
+            <td><span>具体工作负载名称</span></td>
+            <td><span>输入具体工作负载名称，例如：coredns</span></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+## 入参说明
+**集群（必填参数）入参取值如下：**
+&Namespace=QCE/TKE
+&Instances.N.Dimensions.0.Name=tke_cluster_instance_id
+&Instances.N.Dimensions.0.Value=cls-fvkxp123
+
+**根据命名空间入参取值如下：**
+&Namespace=QCE/TKE
+&Instances.N.Dimensions.0.Name=tke_cluster_instance_id
+&Instances.N.Dimensions.0.Value=cls-fvkxp123
+&Instances.N.Dimensions.1.Name=namespace
+&Instances.N.Dimensions.1.Value=kube-system
+
+**根据工作负载入参取值如下：**
+&Namespace=QCE/TKE
+&Instances.N.Dimensions.0.Name=tke_cluster_instance_id
+&Instances.N.Dimensions.0.Value=cls-fvkxp123
+&Instances.N.Dimensions.1.Name=workload_kind
+&Instances.N.Dimensions.1.Value=Deployment
+
+**根据工作负载名称入参取值如下：**
+&Namespace=QCE/TKE
+&Instances.N.Dimensions.0.Name=tke_cluster_instance_id
+&Instances.N.Dimensions.0.Value=cls-fvkxp123
+&Instances.N.Dimensions.1.Name=workload_name
+&Instances.N.Dimensions.1.Value=coredns
+
+
+
+
+

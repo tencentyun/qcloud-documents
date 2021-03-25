@@ -30,6 +30,10 @@ pip install tencentcloud-sdk-python
 pip install -i https://mirrors.tencent.com/pypi/simple/ --upgrade tencentcloud-sdk-python
 ```
 
+>?
+>- 如果只想使用某个具体产品的包，例如云服务器 CVM，可以单独安装，但是注意不能和总包同时工作。`pip install --upgrade tencentcloud-sdk-python-common tencentcloud-sdk-python-cvm`
+>- 更多 SDK 支持的云产品，请参见 [云产品名列表](https://cloud.tencent.com/document/product/494/42698#.E6.94.AF.E6.8C.81-sdk-3.0.E7.89.88.E6.9C.AC.E7.9A.84.E4.BA.91.E4.BA.A7.E5.93.81.E5.88.97.E8.A1.A8)。
+
 ### 方式二、通过源码包安装
 前往 [Github 代码托管地址](https://github.com/tencentcloud/tencentcloud-sdk-python) 下载最新代码，解压后：
 

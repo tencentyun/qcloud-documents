@@ -2,7 +2,7 @@
 本文主要介绍通过 DTS 数据迁移功能实现腾讯云数据库 MySQL 实例之间的数据迁移。DTS支 持结构迁移、全量数据迁移以及增量数据迁移，可以实现在不停服的情况下，在腾讯云数据库 MySQL 实例之间进行平滑迁移。
 
 ## [前提条件](id:qttj)
-- 已 [创建云数据库 MySQL](https://cloud.tencent.com/document/product/236/46433)，支持的 MySQL 版本：MySQL 5.5、MySQL 5.6、MySQL 5.7。
+- 已 [创建云数据库 MySQL](https://cloud.tencent.com/document/product/236/46433)，支持版本：MySQL 5.5、MySQL 5.6、MySQL 5.7。
 - 需要您在目标端 MySQL 中创建迁移帐号，需要帐号权限：待迁移对象的全部读写权限。
 
 ## 注意事项 
@@ -21,13 +21,13 @@
 3. 检查目标云数据库 MySQL 容量必须大于源云数据库 MySQL。
 4. 在源端云数据库 MySQL 上创建迁移帐号（若有已授权可用于数据迁移的帐号，也可不创建）。
 ```
-GRANT ALL PRIVILEGES ON \*.\* TO "迁移帐号"@"%" IDENTIFIED BY "迁移密码";
+GRANT ALL PRIVILEGES ON *.* TO "迁移帐号"@"%" IDENTIFIED BY "迁移密码";
 FLUSH PRIVILEGES;
 ```
 5. 确认源库 MySQL 变量。
 通过`SHOW GLOBAL VARIABLES LIKE 'XXX';`查看 MySQL 全局变量，确认当前状态是否可以进行迁移：
 ```
-server_id \> 1
+server_id > 1
 log_bin = ON;
 binlog_format = ROW/MIXED
 binlog_row_image = FULL
@@ -52,8 +52,8 @@ set global binlog_row_image=FULL;
 set global innodb_stats_on_metadata = 0;
 ```
 
-## 操作步骤 ##
-1. 登录 [DTS 数据迁移控制台](https://console.cloud.tencent.com/dts/migration?rid=8&page=1&pagesize=20)，单击【新建迁移任务】，进入新建迁移任务页面。
+## 操作步骤
+1. 登录 [DTS 数据迁移控制台](https://console.cloud.tencent.com/dts/migration)，单击【新建迁移任务】，进入新建迁移任务页面。
 2. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击【0元购买】，目前 DTS 数据迁移功能免费使用。
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击【新建】。
 >?如果连通性测试失败，请根据提示进行排查并解决后再次重试。

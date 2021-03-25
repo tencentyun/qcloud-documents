@@ -90,3 +90,4 @@ CODING 持续部署的制品允许您引用任何远程的可部署资源。部�
 
 为了确保部署阶段获取到正确的制品，您可以强制阶段绑定所有需要的制品，如果绑定失败，阶段将执行失败。以下配置的含义是 Docker 镜像`lhkprod-docker.pkg.coding.net/cd-demo/release/nginx`必须被绑定到 manifest，否则阶段将会执行失败。
 ![](https://main.qcloudimg.com/raw/d4099adb8f05dbf171fc19fbaaf0e4a2.png)
+

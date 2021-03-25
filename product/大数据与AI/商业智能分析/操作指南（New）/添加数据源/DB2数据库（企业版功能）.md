@@ -1,4 +1,4 @@
-1. 在添加数据源首页单击【DB2 数据库】，进入新建页面。新建的页面如下：
+1. 登录 [商业智能分析控制台](https://console.cloud.tencent.com/bi)，在添加数据源首页单击【DB2 数据库】，进入新建页面。新建的页面如下：
 ![](https://main.qcloudimg.com/raw/6a6f5f99beacc7db5f8542226833a8b3.png)
 2. 填写相应的 DB2 数据库连接信息，至少把必填项都填写完毕。
 <table>

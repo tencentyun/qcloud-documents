@@ -18,11 +18,23 @@ fdisk/e2fsck/resize2fs 自动扩容工具适用于 Linux 操作系统，用于�
 
 [](id:Add)
 ### 将扩容部分的容量划分至原有 MBR 分区
+以 root 用户执行以下命令，查询云硬盘的分区信息。
+```
+lsblk
+```
+ - 返回信息如下图所示，则说明仅具备1个分区。您可使用工具进行自动扩容，详情请参见 [使用工具扩容](#AutomaticExpansion)。
+ ![](https://main.qcloudimg.com/raw/297d678489b57dd70171a8882c9416f4.png)
+ - 返回信息如下图所示，则说明已具备 `vdb1`、`vdb2` 两个分区。如果您具备2个或以上分区时，请参考 [手动扩容](#ManualExpansion) 选择分区进行扩容。
+![](https://main.qcloudimg.com/raw/070f2144acc543c84d4ab8ab3db25620.png)
+
+<dx-tabs>
+::: 使用工具扩容[](id:AutomaticExpansion)
+>?使用工具扩容的方式支持仅1个分区的场景。若存在2个及以上分区，请使用 [手动扩容](#ManualExpansion) 方式。
+>
 1. 以 root 用户执行以下命令，卸载分区。
-```
+``` 
 umount <挂载点>
-```
-本文挂载点以 `/data` 为例，则执行：
+```本文挂载点以 `/data` 为例，则执行：
 ```
 umount /data
 ```
@@ -33,8 +45,7 @@ wget -O /tmp/devresize.py https://raw.githubusercontent.com/tencentyun/tencentcl
 3. 执行以下命令，使用扩容工具进行扩容。
 ```
 python /tmp/devresize.py <硬盘路径>
-```
-本文以硬盘路径以 `/dev/vdb` ，文件系统在 `vdb1` 上为例，则执行：
+```本文以硬盘路径以 `/dev/vdb` ，文件系统在 `vdb1` 上为例，则执行：
 ```
 python /tmp/devresize.py /dev/vdb
 ```
@@ -44,37 +55,66 @@ python /tmp/devresize.py /dev/vdb
    a. 执行以下命令，修复文件系统所在分区。
 ```
 fsck -a <分区路径>
-```
-本文以硬盘路径是`/dev/vdb`且文件系统在 `vdb1` 上为例，则执行：
+```本文以硬盘路径是`/dev/vdb`且文件系统在 `vdb1` 上为例，则执行：
 ```
 fsck -a /dev/vdb1
-```
-    b. 修复成功后，再次执行以下命令，使用扩容工具进行扩容。
+```    b. 修复成功后，再次执行以下命令，使用扩容工具进行扩容。
 ```
 python /tmp/devresize.py /dev/vdb
 ```
 4. [](id:step4MBR)执行以下命令，手动挂载扩容后的分区，本文以挂载点以 `/data` 为例。
 ```
 mount <分区路径> <挂载点>
-```
- - 若扩容前已有分区且以分区路径以 `/dev/vdb1` 为例，则执行：
+```若扩容前已有分区且以分区路径以 `/dev/vdb1` 为例，则执行：
 ```
 mount /dev/vdb1 /data
-```
- - 若扩容前没有分区，则执行：
-```
-mount /dev/vdb /data
 ```
 5. 执行以下命令，查看扩容后的分区容量。
 ```
 df -h
-```
-若返回类似如下图所示的信息，说明挂载成功，即可查看到数据盘：
+```若返回类似如下图所示的信息，说明挂载成功，即可查看到数据盘：
 ![](https://main.qcloudimg.com/raw/4f57fd2e0038dc1fba5a4389d01ab7dc.png)
 6. 执行以下命令，查看扩容后原分区的数据信息，确认新增加的存储空间是否扩容到文件系统中。
 ```
 ll /data
 ```
+:::
+::: 手动扩容[](id:ManualExpansion)
+1. 以 root 用户执行以下命令，卸载分区。
+```
+umount <挂载点>
+```本文挂载点以 `/data` 为例，则执行：
+```
+umount /data
+```
+2. 执行以下命令，扩容分区 `vdb2`。本文以扩容 `vdb2` 分区为例，您可根据实际情况修改命令。 
+```
+growpart /dev/vdb 2
+```
+3. 执行以下命令，扩容分区的文件系统。
+```
+resize2fs /dev/vdb2
+```返回结果如下图所示，则表示已成功扩容。
+![](https://main.qcloudimg.com/raw/ba8d2693823a3eb0ccfc4dd097f09ed5.png)
+4. [](id:step4MBR)执行以下命令，手动挂载扩容后的分区，本文以挂载点以 `/data` 为例。
+```
+mount <分区路径> <挂载点>
+```若扩容前已有分区且以分区路径以 `/dev/vdb2` 为例，则执行：
+```
+mount /dev/vdb2 /data
+```
+5. 执行以下命令，查看扩容后的分区容量。
+```
+df -h
+```若返回类似如下图所示的信息，说明挂载成功，即可查看到数据盘：
+![](https://main.qcloudimg.com/raw/92cd4cc0e9b1c08975603f73e922266f.png)
+6. 执行以下命令，查看扩容后原分区的数据信息，确认新增加的存储空间是否扩容到文件系统中。
+```
+ll /data
+```
+:::
+</dx-tabs>
+
 
 [](id:New)
 ### 将扩容部分的容量格式化成独立的 MBR 分区

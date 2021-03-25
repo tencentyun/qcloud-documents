@@ -55,7 +55,7 @@ dependencies {
 >!
  - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
  - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成其他服务接入点域名配置。
-   在 Androidanifest 文件 application 标签内添加以下元数据：
+   在 AndroidManifest 文件 application 标签内添加以下元数据：
 ```
 <application>
 	// 其他安卓组件
@@ -272,7 +272,7 @@ dependencies {
 >!
  - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
  - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成其他服务接入点域名配置。
-   在 Androidanifest 文件 application 标签内添加以下元数据：
+   在 AndroidManifest 文件 application 标签内添加以下元数据：
 ```
 <application>
 	// 其他安卓组件
