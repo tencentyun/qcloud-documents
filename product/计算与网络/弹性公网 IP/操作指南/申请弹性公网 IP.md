@@ -116,7 +116,7 @@
 <tbody>
 <tr>
 <td>IP 地址类型</td>
-<td>腾讯云支持常规 IP、加速 IP 和静态单线 IP 等多种类型的 EIP。
+<td>腾讯云支持常规 BGP IP、精品 BGP IP、加速 IP 和静态单线 IP 等多种类型的 EIP。
 <ul>
 <li>常规 BGP IP：普通 BGP IP，用于平衡网络质量与成本。</li>
 <li>加速 IP：采用 Anycast 加速，使公网访问更稳定、可靠、低延迟。加速 IP 需要开通 <a href="https://cloud.tencent.com/document/product/644">Anycast 公网加速</a> 才可申请，请提交  <a href="https://cloud.tencent.com/apply/p/47mdddtoc56">内测申请</a>。</li>
