@@ -1,1 +1,82 @@
-xx
+本文主要介绍如何快速运行腾讯云 IM Demo（Unity）。
+
+## 环境要求
+- Unity 2020.2.7f1c1 及以上版本。
+- Android 端开发：
+  -  Android Studio 3.5及以上版本。
+  -  App 要求 Android 4.1及以上版本设备。
+- iOS 端开发：
+  - Xcode 11.0及以上版本。
+  - 请确保您的项目已设置有效的开发者签名。
+
+## 前提条件
+
+您已 [注册腾讯云](https://cloud.tencent.com/document/product/378/17985) 账号，并完成 [实名认证](https://cloud.tencent.com/document/product/378/3629)。
+
+## 操作步骤
+
+[](id:step1)
+## 步骤1：创建应用
+1. 登录 [即时通信 IM 控制台](https://console.cloud.tencent.com/im)。
+ >?如果您已有应用，请记录其 SDKAppID 并 [获取密钥信息](#step2)。
+ >同一个腾讯云账号，最多可创建100个即时通信 IM 应用。若已有100个应用，您可以先 [停用并删除](https://cloud.tencent.com/document/product/269/32578#.E5.81.9C.E7.94.A8.2F.E5.88.A0.E9.99.A4.E5.BA.94.E7.94.A8) 无需使用的应用后再创建新的应用。**应用删除后，该 SDKAppID 对应的所有数据和服务不可恢复，请谨慎操作。**
+ >
+2. 单击【+添加新应用】。
+3. 在【创建应用】对话框中输入您的应用名称，单击【确定】。
+  创建完成后，可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。请记录 SDKAppID 信息。
+  ![](https://main.qcloudimg.com/raw/2753962b67754a9ebb2a2a5b8042f2ef.png)
+4. 点击进入应用，在左侧菜单辅助工具 > UserSig生成&校验里，创建一个UserID及其对应的UserSig, 复制下来，后续登录使用。
+<img width="500" src="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/usersig.jpg">
+
+[](id:step2)
+### 步骤2：下载 SDK 和 Demo 源码
+1. 根据实际业务需求下载 SDK 及配套的 [Demo 源码](https://cloud.tencent.com/document/product/269/36887)。
+3. 下载完成后，双击打开package，默认全选并导入包资源到当前Unity项目。
+<img width="300" src="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/unitypackage%402x.png">
+
+4. 打开源码`Assets/TIMCloud/Demo/ExampleEntry.cs`，把步骤一获取的sdkAppID，userID，userSig填入。
+<img width="300" src="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/sdkappid.png">
+
+### 步骤3：打包运行
+
+#### Android平台
+
+1. 配置Unity Editor，File > Build Setting，切换到安卓。
+<img width="300" src="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/android_build_setting.png">
+2. 启动一个安卓的模拟器，点击上面的Build And Run，Demo就能跑起来。
+> Demo里面包含了已上线的所有Api，可以测试和作为调用参考。
+> UI可能会有部分调整更新，请以最新版为准。
+> Api文档参考[这里](https://testcomm.qq.com/im/apidoc/api/com.tencent.imsdk.unity.V2TIMManager.html#com_tencent_imsdk_unity_V2TIMManager_initSDK_System_Int32_com_tencent_imsdk_unity_LogLevel_)。
+>
+<img width="300" src="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/android_simulator.png"> 
+
+3. 接口测试，需要先在第一行第二个输入框里添加userID，然后调用initSDK和login，数据展示窗口显示调用成功，然后基本上接口都可以尝试调用
+
+#### iOS平台
+1. 配置Unity Editor，File > Build Setting，切换到iOS。
+<img width=300 src="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/ios_build_setting.png">
+2. 连接iPhone真机，点击Build And Run，需要选择一个新的目录存放编译出来的iOS工程，等待编译完成，会有新窗口弹出xcode工程
+3. 然后在xcode里面按以下步骤对项目做几个配置
+>1. 在UnityFramework/UnityFramework.h里引入UnityInterface.h
+><img width=300 src="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/ios_step1.png">
+>2. 修改Classes/Unity目录下，UnityFramework.h、UnityForwardDecls.h、UnityRendering.h、UnitySharedDecls.h文件为Public
+><img width=300 src="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/ios_step2.png">
+>3. 在Classes/Prefix.pch里面引入imsdk
+><img width=300 src="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/ios_step3.png">
+>4. 在项目引入imsdk
+><img width=300 src="https://flutter-im-trtc-1256635546.cos.ap-guangzhou.myqcloud.com/unity/ios_step4.png">
+>5. 最后，设置Target的Signing & Capabilities，让项目可以在真机上运行
+>6. 启动项目，在真机上进行Demo的调试
+>
+
+## 常见问题
+
+### Android点击Build And Run报错找不到可用设备
+
+确保设备没被其他资源占用，或者点击Build生成apk包，再拖动进模拟器里运行
+
+### iOS第一次运行报错
+
+按照上面的demo运行配置后，如果报错，可以Product > Clean清除产物后重新build，或者关闭xcode重新打开再次build
+
+
