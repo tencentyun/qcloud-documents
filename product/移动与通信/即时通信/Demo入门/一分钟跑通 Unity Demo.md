@@ -4,7 +4,7 @@
 
 | 平台 | 版本 | 
 |---------|---------|
-| Unity | 2020.2.7f1c1及以上版本。 | 
+| Unity | 2020.2.7f1c1 及以上版本 | 
 |Android|Android Studio 3.5及以上版本，App 要求 Android 4.1及以上版本设备。|
 |iOS|Xcode 11.0及以上版本，请确保您的项目已设置有效的开发者签名。|
 
@@ -57,7 +57,7 @@
 	2. 修改 Classes/Unity 目录下，UnityFramework.h、UnityForwardDecls.h、UnityRendering.h、UnitySharedDecls.h 文件为 Public。
 ![](https://main.qcloudimg.com/raw/0b1a43e69f965b710c91f24eff8870fd.png)
 	3. 在 Classes/Prefix.pch 里面引入 imsdk。
-![](https://main.qcloudimg.com/raw/59715b2119cd9239d4fa8b9cb4914a09.png)
+![](https://main.qcloudimg.com/raw/299789b6275e30ede0d8e7d8afcbdd59.png)
 	4. 在项目引入 imsdk。
 ![](https://main.qcloudimg.com/raw/335c2b8ae8c797694b4e4dd5000c4751.png)
 	5. 设置 Target 的 Signing & Capabilities，让项目可以在 iPhone 真机上运行。
