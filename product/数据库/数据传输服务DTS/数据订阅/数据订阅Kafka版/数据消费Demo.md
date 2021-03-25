@@ -1,3 +1,4 @@
+
 数据订阅 Kafka 版中，您可以直接通过0.11版本及以上的 Kafka 客户端进行消费订阅数据，本文为您提供了 Java、Go、Python 语言的客户端消费 Demo。
 
 ## 消费 Demo 下载（云数据库 MySQL、MariaDB）
@@ -14,9 +15,15 @@
 
 | Demo 语言 | 下载地址                                             |
 | ------------- | ------------------------------------------------------------ |
-| Go            | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_go_demo_1.0.0.zip) |
-| Java          | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_java_demo_1.0.0.zip) |
-| Python       | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_python_demo_1.0.0.zip) |
+| Go          | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_go_demo_1.0.0.zip) |
+| Java        | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_java_demo_1.0.1.zip)  |
+| Python   | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_python_demo_1.0.1.zip) |
+
+## Protobuf 协议文件下载
+| 协议文件 | 下载地址                                             |
+| ------------- | ------------------------------------------------------------ |
+| Protobuf      | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe.proto) |
+
 
 ## 配置参数说明
 | 参数       | 说明                        |
@@ -112,3 +119,47 @@ pip install protobuf
 4. 运行`python main.py --brokers=xxx --topic=xxx --group=xxx --user=xxx \--password=xxx --trans2sql=1`。
 5. 观察消费情况。
 ![](https://main.qcloudimg.com/raw/6055041985904335b43d7df8f4e75561.png)
+
+## 字段映射和存储
+具体的 MySQL/TDSQL 字段值在 Protobuf 协议中用下图所示的 Data 结构来存储。
+![](https://main.qcloudimg.com/raw/2d0af55b06c62f410e715f150391cb62.png)
+其中 DataType 字段代表存储的字段类型，可取枚举值如下图所示。
+![](https://main.qcloudimg.com/raw/b9b5b081d2f12f6bfda3c24a7043b8e7.png)
+其中 bv 字段存储 STRING 和 BYTES 类型的二进制表示，sv 字段存储 INT8/16/32/64/UINT8/16/32/64/DECIMAL 类型的字符串表示，charset 字段存储 STRING 的编码类型。
+
+MySQL/TDSQL 原始类型与 DataType 映射关系如下（对 UNSIGNED 修饰的 MYSQL_TYPE_INT8/16/24/32/64 分别映射为 UINT8/16/32/32/64）：
+
+| MySQL 字段类型（TDSQL 支持与 MySQL 相同的类型） | 对应的 Protobuf DataType 枚举值 |
+| ------------------------------------------- | ----------------------------- |
+| MYSQL_TYPE_NULL                             | NIL                           |
+| MYSQL_TYPE_INT8                             | INT8                          |
+| MYSQL_TYPE_INT16                            | INT16                         |
+| MYSQL_TYPE_INT24                            | INT32                         |
+| MYSQL_TYPE_INT32                            | INT32                         |
+| MYSQL_TYPE_INT64                            | INT64                         |
+| MYSQL_TYPE_BIT                              | INT64                         |
+| MYSQL_TYPE_YEAR                             | INT64                         |
+| MYSQL_TYPE_FLOAT                            | FLOAT32                       |
+| MYSQL_TYPE_DOUBLE                           | FLOAT64                       |
+| MYSQL_TYPE_VARCHAR                          | STRING                        |
+| MYSQL_TYPE_STRING                           | STRING                        |
+| MYSQL_TYPE_VAR_STRING                       | STRING                        |
+| MYSQL_TYPE_TIMESTAMP                        | STRING                        |
+| MYSQL_TYPE_DATE                             | STRING                        |
+| MYSQL_TYPE_TIME                             | STRING                        |
+| MYSQL_TYPE_DATETIME                         | STRING                        |
+| MYSQL_TYPE_TIMESTAMP_NEW                    | STRING                        |
+| MYSQL_TYPE_DATE_NEW                         | STRING                        |
+| MYSQL_TYPE_TIME_NEW                         | STRNG                         |
+| MYSQL_TYPE_DATETIME_NEW                     | STRING                        |
+| MYSQL_TYPE_ENUM                             | STRING                        |
+| MYSQL_TYPE_SET                              | STRING                        |
+| MYSQL_TYPE_DECIMAL                          | DECIMAL                       |
+| MYSQL_TYPE_DECIMAL_NEW                      | DECIMAL                       |
+| MYSQL_TYPE_JSON                             | BYTES                         |
+| MYSQL_TYPE_BLOB                             | BYTES                         |
+| MYSQL_TYPE_TINY_BLOB                        | BYTES                         |
+| MYSQL_TYPE_MEDIUM_BLOB                      | BYTES                         |
+| MYSQL_TYPE_LONG_BLOB                        | BYTES                         |
+| MYSQL_TYPE_GEOMETRY                         | BYTES                         |
+
