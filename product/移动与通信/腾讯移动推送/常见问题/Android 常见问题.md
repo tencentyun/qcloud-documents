@@ -1,7 +1,6 @@
 
 ### 如何关闭 TPNS 的保活功能？
-
-TPNS 默认开启联合保活能力，请在应用初始化的时候，例如 Application 或 LauncherActivity 的 onCreate 中调用如下接口，并传递 false 值：
+若您集成的SDK版本低于1.1.5.4，TPNS 默认开启联合保活能力，且不可关闭；若集成1.1.5.4以后的版本，如需关闭联合保活功能，请在应用初始化的时候，例如 Application 或 LauncherActivity 的 onCreate 中调用如下接口，并传递 false 值：
 
 ```java
 XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
