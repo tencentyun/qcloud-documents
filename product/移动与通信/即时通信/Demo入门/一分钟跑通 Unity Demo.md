@@ -5,8 +5,8 @@
 | 平台 | 版本 | 
 |---------|---------|
 | Unity | 2020.2.7f1c1 及以上版本 | 
-|Android|<li>Android Studio 3.5及以上版本。</li><li>App 要求 Android 4.1及以上版本设备。</li>|
-|iOS|<li>Xcode 11.0及以上版本。</li><li>请确保您的项目已设置有效的开发者签名。</li>|
+|Android|Android Studio 3.5及以上版本，App 要求 Android 4.1及以上版本设备。|
+|iOS|Xcode 11.0及以上版本，请确保您的项目已设置有效的开发者签名。|
 
 ## 前提条件
 
@@ -22,7 +22,7 @@
 2. 单击【+添加新应用】。
 3. 在【创建应用】对话框中输入您的应用名称，单击【确定】。
   创建完成后，可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。请记录 SDKAppID 信息。
-  ![](https://main.qcloudimg.com/raw/2753962b67754a9ebb2a2a5b8042f2ef.png)
+  ![](https://main.qcloudimg.com/raw/ed34d9294a485d8d06b3bb7e0cc5ae59.png)
 4. 进入应用，在左侧导航栏单击【辅助工具】>【UserSig 生成&校验】，创建一个 UserID 及其对应的 UserSig, 复制下来，后续登录使用。
 ![](https://main.qcloudimg.com/raw/8315da2551bf35ec85ce10fd31fe2f52.png)
 
@@ -30,9 +30,9 @@
 ## 步骤2：下载 SDK 和 Demo 源码
 1. 根据您的实际业务需求，下载 SDK 及配套的 [Demo 源码](https://cloud.tencent.com/document/product/269/36887)。
 2. 下载完成后，双击打开 Package，默认全选并导入包资源到当前 Unity 项目。
-![](https://main.qcloudimg.com/raw/8079dcd40fc8d8a637b1266cad9ab1b4.png)
-3. 打开源码`Assets/TIMCloud/Demo/ExampleEntry.cs`，把步骤一获取的sdkAppID，userID，userSig填入。
-![](https://main.qcloudimg.com/raw/236f68e70b0f2a2884f1b4510347f5b3.png)
+![](https://main.qcloudimg.com/raw/c338ce838fff81841f85b06fd3dc5c6c.png)
+3. 打开源码`Assets/TIMCloud/Demo/ExampleEntry.cs`，把步骤一获取的 sdkAppID，userID，userSig 填入。
+![](https://main.qcloudimg.com/raw/e52b615d507b761ee910aa1d74853949.png)
 
 ## 步骤3：打包运行
 ### Android 平台
