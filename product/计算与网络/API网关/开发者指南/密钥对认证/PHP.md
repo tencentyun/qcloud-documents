@@ -32,7 +32,7 @@ $Authen = $Authen.$signStr."\"";
 echo $Authen;
 # echo '</br>';
 
-$url = 'http://service-xxxxxxxx-1234567890.ap-guangzhou.apigateway.myqcloud.com/release/yousa'; // 用户 API 的访问路径
+$url = 'http://service-xxxxxxxx-1234567890.ap-guangzhou.apigateway.myqcloud.com/release/yousa'; # 用户 API 的访问路径
 $headers = array( 
 	'Host:service-xxxxxxxx-1234567890.ap-guangzhou.apigateway.myqcloud.com', # 用户 API 所在服务的域名
 	'Accept:text/html, */*; q=0.01',
