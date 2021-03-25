@@ -319,7 +319,7 @@ XGPushManager.registerPush(this, new XGIOperateCallback() {
 过滤 "TPush" 注册成功的日志如下：
 
 ```xml
-XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
+TPNS register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 ```
 
 
