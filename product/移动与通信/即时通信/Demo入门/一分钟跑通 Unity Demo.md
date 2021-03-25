@@ -40,7 +40,7 @@
 ![](https://main.qcloudimg.com/raw/d913d32e36aa01ff93acf0316d4f103f.png)
 2. 启动一个 Android 的模拟器，单击【 Build And Run】，Demo 就能跑起来。
 >? 
->- Demo 里面包含了已上线的所有 API，可以测试和作为调用参考，API 文档参见 [这里](https://testcomm.qq.com/im/apidoc/api/com.tencent.imsdk.unity.V2TIMManager.html#com_tencent_imsdk_unity_V2TIMManager_initSDK_System_Int32_com_tencent_imsdk_unity_LogLevel_)。
+>- Demo 里面包含了已上线的所有 API，可以测试和作为调用参考，API 文档参见 [SDK API（Flutter）](https://cloud.tencent.com/document/product/269/51940)。
 > - UI 可能会有部分调整更新，请以最新版为准。
 >
 ![](https://main.qcloudimg.com/raw/e6f3583d0b807af62a27ee753cfa3b53.png)
