@@ -19,11 +19,10 @@
  >?如果您已有应用，请记录其 SDKAppID 并 [获取密钥信息](#step2)。
  >同一个腾讯云账号，最多可创建100个即时通信 IM 应用。若已有100个应用，您可以先 [停用并删除](https://cloud.tencent.com/document/product/269/32578#.E5.81.9C.E7.94.A8.2F.E5.88.A0.E9.99.A4.E5.BA.94.E7.94.A8) 无需使用的应用后再创建新的应用。**应用删除后，该 SDKAppID 对应的所有数据和服务不可恢复，请谨慎操作。**
  >
-2. 单击【+添加新应用】。
-3. 在【创建应用】对话框中输入您的应用名称，单击【确定】。
-  创建完成后，可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。请记录 SDKAppID 信息。
+2. 单击【创建新应用】，在【创建应用】对话框中输入您的应用名称，单击【确定】。
+  创建完成后，可在控制台总览页查看新建应用的状态、业务版本、SDKAppID、创建时间以及到期时间。请保存 SDKAppID 信息。
   ![](https://main.qcloudimg.com/raw/ed34d9294a485d8d06b3bb7e0cc5ae59.png)
-4. 单击应用，在左侧导航栏单击【辅助工具】>【UserSig 生成&校验】，创建一个 UserID 及其对应的 UserSig, 复制签名信息，后续登录使用。
+3. 单击创建后的应用，左侧导航栏单击【辅助工具】>【UserSig 生成&校验】，创建一个 UserID 及其对应的 UserSig，复制签名信息，后续登录使用。
 ![](https://main.qcloudimg.com/raw/8315da2551bf35ec85ce10fd31fe2f52.png)
 
 [](id:step2)
@@ -40,14 +39,13 @@
 ![](https://main.qcloudimg.com/raw/d913d32e36aa01ff93acf0316d4f103f.png)
 2. 启动一个安卓的模拟器，单击【 Build And Run】，Demo 就能跑起来。
 >? 
->- Demo 里面包含了已上线的所有 API，可以测试和作为调用参考。
+>- Demo 里面包含了已上线的所有 API，可以测试和作为调用参考，API 文档参见 [这里](https://testcomm.qq.com/im/apidoc/api/com.tencent.imsdk.unity.V2TIMManager.html#com_tencent_imsdk_unity_V2TIMManager_initSDK_System_Int32_com_tencent_imsdk_unity_LogLevel_)。
 > - UI 可能会有部分调整更新，请以最新版为准。
-> - API 文档参考[这里](https://testcomm.qq.com/im/apidoc/api/com.tencent.imsdk.unity.V2TIMManager.html#com_tencent_imsdk_unity_V2TIMManager_initSDK_System_Int32_com_tencent_imsdk_unity_LogLevel_)。
 >
 ![](https://main.qcloudimg.com/raw/e6f3583d0b807af62a27ee753cfa3b53.png)
 3. 接口测试，需要先在第一行第二个输入框里添加 userID，然后调用 initSDK 和 login，数据展示窗口显示调用成功，然后基本上接口都可以尝试调用。
 
-### iOS平台
+### iOS 平台
 1. 配置 Unity Editor，单击【File】>【Build Setting】，切换至 iOS。
 ![](https://main.qcloudimg.com/raw/3982b96c4f9e76107bb4aadac33a5de5.png)
 2. 连接 iPhone 真机，单击【Build And Run】，需要选择一个新的目录存放编译出来的 iOS 工程，等待编译完成，会有新窗口弹出 Xcode 工程。
@@ -61,7 +59,7 @@
 	4. 在项目引入 imsdk。
 ![](https://main.qcloudimg.com/raw/335c2b8ae8c797694b4e4dd5000c4751.png)
 	5. 设置 Target 的 Signing & Capabilities，让项目可以在 iPhone 真机上运行。
-	6. 启动项目，在真机上进行Demo的调试。
+	6. 启动项目，在真机上进行 Demo 的调试。
 
 ## 常见问题
 
