@@ -1,3 +1,6 @@
+![](https://support.huaweicloud.com/wtsnew-lts/zh-cn_image_0294731496.png)
+
+
 ## 2021年03月
 <table>
 	<tr><th style="width: 25%;">动态名称</th><th style="width: 50%;">动态描述</th><th style="width: 25%;">相关文档</th></tr>
