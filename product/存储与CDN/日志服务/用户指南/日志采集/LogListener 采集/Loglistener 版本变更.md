@@ -1,5 +1,3 @@
-## Loglistener版本变更
-
 本文档为您介绍日志服务 Loglistener 的版本更新记录。
 
 >? 多行-完全正则模式采集需升级至 Loglistener 2.4.5版本，建议您前往安装 [最新版本](https://cloud.tencent.com/document/product/614/17414)。
