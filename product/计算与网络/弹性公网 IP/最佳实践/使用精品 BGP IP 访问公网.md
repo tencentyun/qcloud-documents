@@ -1,26 +1,23 @@
 精品 BGP IP 线路类型的 EIP 使用专属线路，避免绕行国际运营商出口，网络延时更低。
-
 >?
 >- 目前仅标准账户类型支持精品 BGP IP，传统账户类型需升级后才能使用，升级详情请参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。
 >- 仅香港地域支持精品 BGP IP，价格详情请参见 [精品 BGP 带宽包](https://cloud.tencent.com/document/product/684/15255#cn2)。
 >- 如需体验，请提交 [内测申请](https://cloud.tencent.com/apply/p/224jt7718s8)。
 
-
-## 步骤一：创建精品 BGP 带宽包[](id:step1)
+## 操作步骤
+### 步骤一：创建精品 BGP 带宽包[](id:step1)
 创建精品 BGP IP 线路类型的 EIP 前，需先创建精品 BGP 带宽包。
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)，单击左侧导航栏的【共享带宽包】。
 2. 在“共享带宽包”页面顶部，选择中国香港地域，单击左上角的【新建】。
 3. 在“新建共享带宽包”对话框中，输入名称，选择“精品 BGP”线路类型和计费模式后，单击【确定】。
 <img src="https://main.qcloudimg.com/raw/13c8828b8542400e779b37735c4d59f7.png" width="53%" />
 
-## 步骤二：创建精品 BGP IP 线路类型的 EIP[](id:step2)
+### 步骤二：创建精品 BGP IP 线路类型的 EIP[](id:step2)
 创建精品 BGP IP 线路类型的 EIP，并将此 EIP 加入已创建好的精品 BGP 带宽包。
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)。
 2. 在“弹性公网 IP”页面顶部，选择中国香港地域，单击左上角的【申请】。
 3. 在弹出的“申请 EIP”对话框中，配置以下参数。
-
-<img src="https://main.qcloudimg.com/raw/48149cb4930c63296402c71a1eae7c80.png" width="50%" />
-
+<p><img src="https://main.qcloudimg.com/raw/48149cb4930c63296402c71a1eae7c80.png" width="50%" /></p>
 <table>
 <thead>
 <tr>
@@ -63,7 +60,7 @@
 </tbody></table>
 
 
-## 步骤三：绑定云资源
+### 步骤三：绑定云资源
 1. 登录 [EIP 控制台](https://console.cloud.tencent.com/cvm/eip)，并选择中国香港地域。
 2. 在目标 EIP 实例右侧的操作栏下，选择【更多】>【绑定】。
 3. 在弹出的“绑定资源”窗口中，选择需绑定的云资源类型和云资源，单击【确定】。
