@@ -4,7 +4,7 @@
 >
 
 <table>
-	<tr><th>版本号</th><th>变更类型</th><th>描述</th></tr>
+	<tr><th style="width: 10%;">版本号</th><th style="width: 11%;">变更类型</th><th>描述</th></tr>
 	<tr><td><b>v2.5.3</b></td><td>Bugfix</td><td>修复线程不安全的 mempool 引发的 double free，segment fault 问题。</td></tr>
 	<tr><td rowspan=2><b>v2.5.2</b></td><td>新功能</td><td>支持解析失败日志上传需求。</td></tr>
 	<tr><td>Bugfix</td><td>修复黑名单 bug，当黑名单配置为 FILE 模式，且指定文件名中带通配字符时，无法有效过滤掉对应文件。</td></tr>
