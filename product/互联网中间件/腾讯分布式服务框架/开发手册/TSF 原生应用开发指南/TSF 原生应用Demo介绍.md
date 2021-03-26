@@ -3,9 +3,9 @@
 开发前，请确保：
 
 * 已安装 Java 和 Maven
-* (如果需要部署容器)已安装 Docker
+* （如果需要部署容器）已安装 Docker
 
-下载 demo 地址： [spring cloud demo](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/native-app-demo/spring-cloud-boot2.tar.gz)。README 中介绍了打包 jar 包和 Docker 镜像的方法。
+下载 Demo 地址： [spring cloud demo](https://tsf-doc-attachment-1300555551.cos.ap-guangzhou.myqcloud.com/native-app-demo/spring-cloud-boot2.tar.gz)。README 中介绍了打包 jar 包和 Docker 镜像的方法。
 
 ## Demo 目录结构
 
@@ -25,14 +25,14 @@
 
 ## 调用说明
 
-demo 提供的服务和监听端口为：
+Demo 提供的服务和监听端口为：
 
 * consul-consumer:8001
 * consul-provider:8002
 * eureka-consumer:8003
 * eureka-provider:8004
 
-可以访问 consumer 来调用 provider，比如：
+可以访问 consumer 来调用 provider，例如：
 
 ```
 curl consul-consumer:8001/ping-provider # 会调用 consul-provider:8002/ping
