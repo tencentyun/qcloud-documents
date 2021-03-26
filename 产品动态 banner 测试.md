@@ -1,5 +1,6 @@
 ![](https://support.huaweicloud.com/wtsnew-lts/zh-cn_image_0294731496.png)
 
+本文介绍了 XXXXXX 各特性版本的功能发布和对应的文档动态，新特性将在各个区域（Region）陆续发布，欢迎体验。
 
 ## 2021年03月
 <table>
