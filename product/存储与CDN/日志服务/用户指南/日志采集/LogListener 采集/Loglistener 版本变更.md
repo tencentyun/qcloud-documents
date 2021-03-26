@@ -32,7 +32,7 @@
 	<tr><td><b>v2.2.4</b></td><td>体验优化</td><td><ul  style="margin: 0;"><li>安装和初始化改为：tools/loglistener.sh 的子命令 install 和 init。</li><li>启动改成：/etc/init.d/loglistenerd start|stop|restart。</li><li>编译方式改为：CMakeLists.txt。</li></ul></td></tr>
 	<tr><td><b>v2.2.3</b></td><td>体验优化</td><td>日志轮转 rename+create 不丢日志。</td></tr>
 	<tr><td><b>v2.2.2</b></td><td>体验优化</td><td>日志超过512K自动截断。</td></tr>
-	<tr><td><b>Earlier versions</b></td><td>-</td><td><ul  style="margin: 0;"><li>2.2.2版本的 LogListener 支持完全正则采集。</li><li>2.1.4版本的 LogListener 支持多行全文格式。</li><li>2.1.1版本的 LogListener 支持日志结构化。</li><li>2.0.0版本的 LogListener 更新时需要停止较低版本的 LogListener，然后重新下载安装最新版本。</li></ul></td></tr>
+	<tr><td><b>更早版本</b></td><td>-</td><td><ul  style="margin: 0;"><li>2.2.2版本的 LogListener 支持完全正则采集。</li><li>2.1.4版本的 LogListener 支持多行全文格式。</li><li>2.1.1版本的 LogListener 支持日志结构化。</li><li>2.0.0版本的 LogListener 更新时需要停止较低版本的 LogListener，然后重新下载安装最新版本。</li></ul></td></tr>
 </table>
 
 
