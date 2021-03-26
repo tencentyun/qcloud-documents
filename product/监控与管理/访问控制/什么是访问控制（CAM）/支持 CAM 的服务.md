@@ -232,7 +232,7 @@
 | [流计算服务](https://cloud.tencent.com/document/product/849) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/849/38621) |
 | [Elasticsearch Service](https://cloud.tencent.com/document/product/845) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/845/19550) |
 | [WeData 数据开发平台](https://cloud.tencent.com/document/product/1267) | 操作级   | &#10003; | -                | &#10003; | -                                                            |
-| [云数据仓库 ClickHouse](https://cloud.tencent.com/document/product/1299) | 资源级   | &#10003; | -                | -        | -                                                            |
+| [云数据仓库 ClickHouse](https://cloud.tencent.com/document/product/1299) | 资源级   | &#10003; | &#10003;         | -        | -                                                            |
 
 ## 云智大数据可视化
 
