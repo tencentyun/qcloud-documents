@@ -351,6 +351,7 @@ subscribeEvents(this.rtcCloud);
 | API | 描述 |
 |-----|-----|
 | [onSystemAudioLoopbackError](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onSystemAudioLoopbackError) | 系统音量采集状态的回调（仅在 Mac 上有效）。 |
+
 ### 音效回调
 
 | API | 描述 |
