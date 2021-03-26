@@ -1,13 +1,13 @@
 ## 准备工作
 
 1. 本地安装 java 和 maven 环境。
-2. 下载 TSF 提供的 Demo (参考[TSF 原生应用 demo 介绍]())。
+2. 下载 TSF 提供的 Demo (参考 [TSF 原生应用 Demo 介绍](https://cloud.tencent.com/document/product/649/54148))。
 3. 解压 Demo 压缩包，按 README.md 提示执行命令 `make build`。
 4. 在 TSF 控制台上已创虚拟机集群并添加节点，参考 [集群](https://cloud.tencent.com/document/product/649/13684)。
 
 ## 操作步骤
 
-### 步骤一：创建并部署原生应用
+### 步骤1：创建并部署原生应用
 
 #### 1. 创建应用
 
@@ -18,7 +18,6 @@
    - 部署方式：选择**虚拟机部署**
    - 应用类型：选择 **原生应用**
    - 标签（可选）：可选择已有标签或者点击标签管理去新建标签。
-
 4. 单击【提交】，完成应用创建，在弹出的窗口中选择【确认】，前往上传程序包并部署应用。
 
 #### 2. 上传程序包
@@ -28,15 +27,15 @@
 
 #### 3. 创建部署组
 
-详细操作 [虚拟机应用部署组](https://cloud.tencent.com/document/product/649/15524) 中关于**创建部署组**的内容。
+详细操作请参考 [虚拟机应用部署组](https://cloud.tencent.com/document/product/649/15524) 中关于**创建部署组**的内容。
 
 #### 4. 部署应用
 
-详细操作 [虚拟机应用部署组](https://cloud.tencent.com/document/product/649/15524) 中关于**部署应用**的内容。部署应用后部署组状态变为运行中。
+详细操作请参考 [虚拟机应用部署组](https://cloud.tencent.com/document/product/649/15524) 中关于**部署应用**的内容。部署应用后部署组状态变为运行中。
 
 ![](https://main.qcloudimg.com/raw/9f6267360bdc9216d45f2be2ed03c445.png)
 
-### 步骤二：查看服务是否注册成功
+### 步骤2：查看服务是否注册成功
 
 1. 在左侧导航栏单击 【[服务治理](https://console.cloud.tencent.com/tsf/service)】，进入服务列表页，查看服务是否注册成功。如果成功，服务显示在线状态。
 
@@ -44,7 +43,7 @@
 
 2. 在服务列表页单击服务 ID，进入服务详情页，查看具体信息。
 
-### 步骤三：验证服务调用
+### 步骤3：验证服务调用
 
 使用与之前相同的流程部署一组 consumer 和 provider（如 consul-consumer 和 consul-provider）。
 
@@ -56,13 +55,11 @@
 为了验证 consumer 服务能通过服务名来调用 provider 服务，需要用户通过以下方式来请求 provider 服务的调用（以 consul 为例）：
 
 - 登录 consul-consumer 所在云服务器，执行如下 `curl` 命令调用 provider 服务接口。
-
 ```
 curl localhost:8001/ping-provider
 ```
 
 - 登录 consul-consumer 所在云服务器，执行如下 `curl` 命令调用 provider 服务接口。
-
 ```
 curl consul-provider:8002/ping
 ```
