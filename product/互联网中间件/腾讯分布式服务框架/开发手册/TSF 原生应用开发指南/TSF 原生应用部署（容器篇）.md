@@ -1,12 +1,12 @@
 ## 准备工作
 
-1. 下载 TSF 提供的 Demo (参考[TSF 原生应用 demo 介绍]())。
+1. 下载 TSF 提供的 Demo (参考 [TSF 原生应用 Demo 介绍](https://cloud.tencent.com/document/product/649/54148))。
 2. 解压 Demo 压缩包，按 README 提示执行命令 `make docker-build`。
 3. 在 TSF 控制台上已创建容器集群并添加节点，详情参考 [集群](https://cloud.tencent.com/document/product/649/13684)。
 
 ## 操作步骤
 
-### 步骤一：创建并部署原生应用
+### 步骤1：创建并部署原生应用
 
 #### 1. 创建应用
 
@@ -17,33 +17,30 @@
    - 部署方式：选择**容器部署**
    - 应用类型：选择 **原生应用**
    - 标签（可选）：可选择已有标签或者点击标签管理去新建标签。
-
 4. 单击【提交】，完成应用创建。
 
 #### 2. 将镜像推送到仓库
 
 1. 在左侧导航拦，单击【镜像仓库】，进入镜像列表页。首次使用时，您需要设置镜像仓库密码（该密码与腾讯云官网账号密码独立）。
-2. 在镜像列表页，单击【应用管理】>【ID/应用名】>【镜像】，单击【使用指引】，根据指引中的命令将 demo 应用的镜像（参考 [准备工作](#zb) 中的第2步）推送到镜像仓库中（详请参见 [镜像仓库使用指引](https://cloud.tencent.com/document/product/649/16695)）。
+2. 在镜像列表页，单击【应用管理】>【ID/应用名】>【镜像】，单击【使用指引】，根据指引中的命令将 Demo 应用的镜像（参考 [准备工作](#zb) 中的第2步）推送到镜像仓库中（详请参见 [镜像仓库使用指引](https://cloud.tencent.com/document/product/649/16695)）。
 
 #### 3. 创建部署组
 
-详细操作参考[容器应用部署组](https://cloud.tencent.com/document/product/649/15525) 中关于**创建部署组**的内容。
+详细操作请参考 [容器应用部署组](https://cloud.tencent.com/document/product/649/15525) 中关于**创建部署组**的内容。
 
 #### 4. 部署应用
 
-详细操作参考[容器应用部署组](https://cloud.tencent.com/document/product/649/15525) 中关于**部署应用**的内容。部署应用后部署组状态变为运行中。
+详细操作请参考 [容器应用部署组](https://cloud.tencent.com/document/product/649/15525) 中关于**部署应用**的内容。部署应用后部署组状态变为运行中。
 
 ![](https://main.qcloudimg.com/raw/9f6267360bdc9216d45f2be2ed03c445.png)
 
-### 步骤二：查看服务是否注册成功
+### 步骤2：查看服务是否注册成功
 
 1. 在左侧导航栏，单击【[服务治理](https://console.cloud.tencent.com/tsf/service)】进入服务列表页，选择正确的地域和命名口行家，查看服务是否注册成功。如果注册成功，服务显示在线状态。
-
    ![](https://main.qcloudimg.com/raw/39452614a27038d9d055ed7389ed91ce.png)
-
 2. 在服务列表页，单击服务 ID，进入服务详情页，查看具体信息。
 
-### 步骤三：验证服务调用
+### 步骤3：验证服务调用
 
 使用与之前相同的流程部署一组 consumer 和 provider（如 consul-consumer 和 consul-provider）。
 
@@ -54,7 +51,6 @@
 有3种方式可以从公网请求 consumer：
 
 - **云主机 IP + NodePort**： 如果部署组在部署时，选择了 NodePort 访问方式，可以通过**云主机 IP + NodePort**来访问`consumer`服务的`/ping-provider`接口。其中`云主机 IP`为集群中任一云主机的 IP，`NodePort`可以在部署组的基本信息页面被查看。
-
 ```
 curl <云主机 IP>:<NodePort>/ping-provider
 ```
