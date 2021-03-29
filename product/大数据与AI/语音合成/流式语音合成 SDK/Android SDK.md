@@ -105,7 +105,7 @@ mTtsController.setProjectId(0);
 ### 语音合成
 
 ```
-mTtsController.startTts(ttsText, mTtsExceptionHandler, new QCloudTTSPlayer.QCloudTTSPlayerCallback() {
+mTtsController.startTts(ttsText, mTtsExceptionHandler, new QCloudPlayerCallback() {
 
 	//播放开始
 	@Override
