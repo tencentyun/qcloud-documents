@@ -9,7 +9,6 @@
 - 语音合成 Android SDK [下载地址](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/tts/tts_sdk_android_v2.zip)。
 - 解压得到 tts-sdk-android 文件夹，即是示例代码工程，工程目录 app/libs 下的 aar 格式 SDK 包。
 - 用 Android Studio 打开此工程查看语音合成示例代码。
-- 流式接口：实例代码参考 RealtimeTtsActivity 类，语音实时返回，支持不超过300中文字符或900英文字符，不支持暂停与恢复。
 - 长文本接口：实例代码参考 LongTextTtsActivity 类，支持长文本，支持播放暂停与恢复。
 
 ### 参数说明
