@@ -18,7 +18,7 @@
 ![](https://main.qcloudimg.com/raw/b97b630532f223b5628e86577fd7f55a.png)
 3. 填写证书申请内容，例如 `qcloud.com`，`cloud.tencent.com`，`demo.test.qlcoud.com`，并单击【下一步】。如下图所示：
 ![](https://main.qcloudimg.com/raw/94b5d0af2af5a11d5eb7a0c8f11a54bd.png)
- - **算法选择**：勾选所需证书的加密算法。
+ - **算法选择**：勾选所需证书的加密算法。加密算法具体内容可查看 [RSA 加密算法与 ECC 加密算法的区别？](https://cloud.tencent.com/document/product/400/54179)
  - **证书绑定域名**：即绑定证书的域名，请填写单个域名。例如 tencent.com、ssl.tencent.com。
  - **申请邮箱**：请输入您的邮箱地址。
  - **证书备注名**：可选，请输入证书的备注名称，不可超过200字。
