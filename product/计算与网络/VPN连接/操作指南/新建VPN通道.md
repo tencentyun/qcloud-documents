@@ -121,11 +121,11 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>本端标识</td>
-<td>支持 IP Address 和 FQDN（全称域名），默认IP Address</td>
+<td>支持 IP Address 和 FQDN（全称域名），默认 IP Address</td>
 </tr>
 <tr>
 <td>对端标识</td>
-<td>支持 IP Address 和 FQDN ，IP Address</td>
+<td>支持 IP Address 和 FQDN ，默认 IP Address</td>
 </tr>
 <tr>
 <td>DH group</td>
