@@ -20,9 +20,9 @@
 | secretId  | String  | 是   | 腾讯云安全凭证，[获取地址](https://console.cloud.tencent.com/cam/capi)                                              |
 | secretKey | String  | 是   | 腾讯云安全凭证，获取地址同上                                              |
 | sessionId | String  | 否   | 一次请求对应一个 SessionId，会原样返回                       |
-| projectId | String  | 否   | 项目 ID，用户自定义，默认为 0 ，[获取地址](https://console.cloud.tencent.com/project)                              |
+| projectId | String  | 是   | 项目 ID，用户自定义，默认为0，[获取地址](https://console.cloud.tencent.com/project)                              |
 | speed     | int | 否   | 语速，范围：[-2，2]，分别对应不同语速：0.6倍、0.8倍、1.0倍、1.2倍、1.5倍，默认为0 |
-| voiceType | int | 否   | tts音色，默认女声，亲和风格                                  |
+| voiceType | int | 否   | tts 音色，默认女声，亲和风格                                  |
 | language  | int | 否   | 主语言类型，默认中文                                         |
 
 
