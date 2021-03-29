@@ -8,7 +8,7 @@ ts over SRT 推流通过 **SRT 协议**直接传输包含音视频数据的 ts �
 
 
 ## 推流丢包率对比
-下行方面，在应用 SRT 推流后由于上行质量的优化，下行流畅度也得到相应的提升。
+下行方面，在应用 SRT 推流后由于上行质量的优化，下行流畅度也得到相应的提升。下图为斗鱼 App 实际对比效果：
 - Android 平台 SRT 推流性能测试数据（测试平台—MI9）：
 ![](https://main.qcloudimg.com/raw/91d7a0a3ba846ce2cb92415e4b096b16.png)
 - iOS 平台 SRT 推流性能测试数据（测试平台—iphone XR）：
