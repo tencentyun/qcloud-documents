@@ -1,4 +1,4 @@
-TSF 原生应用基于开源的的 Spring Cloud 应用，无需改造可直接接入TSF，使用 TSF 服务治理和调用链等功能。
+TSF 原生应用基于开源的 Spring Cloud 应用，无需改造可直接接入TSF，使用 TSF 服务治理和调用链等功能。
 
 ## 优势说明
 
@@ -22,7 +22,7 @@ TSF 原生应用基于开源的的 Spring Cloud 应用，无需改造可直接�
 | 负载均衡         | Netflix Ribbon Spring Cloud loadbalancer | 兼容     | -                                                      |
 | 服务调用         | Feign RestTemplate                       | 兼容     | 自定义标签，需在 HTTP 请求头添加 tsf-mesh-tag: KEY=VALUE |
 | 服务限流         | -                                        | 支持     | 自定义标签，需在 HTTP 请求头添加 tsf-mesh-tag: KEY=VALUE |
-| 服务熔断         | hystrix                                  | 支持     |                                                        |
+| 服务熔断         | hystrix                                  | 支持     |             -                                          |
 | 服务鉴权         | -                                        | 支持     | 自定义标签，需在 HTTP 请求头添加 tsf-mesh-tag: KEY=VALUE |
 | 配置管理         | Config Server Consul Config              | 支持     | 引入 tsf-sdk                                            |
 | 链路追踪         | Spring Cloud Sleuth zipkin               | 兼容     | -                                                      |
