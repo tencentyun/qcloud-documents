@@ -6,7 +6,7 @@
 您可以通过下表对比项目查看两种加密算法的具体区别：
 <table>
 <tr>
-<th width="10%">对比项目</th>
+<th width="15%">对比项目</th>
 <th>ECC 加密算法</th>
 <th>RSA 加密算法</th>
 </tr>
