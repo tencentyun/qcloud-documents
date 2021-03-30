@@ -20,10 +20,8 @@
 执行以下命令，获取内网 IP。
 ```
 curl http://metadata.tencentyun.com/meta-data/local-ipv4
-```
-返回的信息即为内网 IP 地址，如下图所示：
+``` 返回的信息即为内网 IP 地址，如下图所示：
 ![](//mc.qcloudimg.com/static/img/14a13eccebc7eee6f83bc026adb30902/image.png)
-
 更多实例元数据的信息，请参阅 [查看实例元数据](https://cloud.tencent.com/document/product/213/4934)。
 :::
 </dx-tabs>
