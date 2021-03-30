@@ -129,7 +129,7 @@ VPN 通道的建立包括以下配置信息：
 </tr>
 <tr>
 <td>DH group</td>
-<td>指定 IKE 交换密钥时使用的 DH 组，密钥交换的安全性随着 DH 组的扩大而增加，但交换的时间也增加了<br/>DH1：采用 768-bit 模指数（Modular Exponential，MODP ）算法的 DH 组<br/> DH2：采用 1024-bit MODP 算法的 DH 组<br/> DH5：采用 1536-bit MODP 算法的 DH 组<br/>DH14：采用 2048-bit MODP 算法，不支持动态 VPN 实现此选项<br/>DH24：带 256 位的素数阶子群的 2048-bit MODP算法 DH 组，不支持组 VPN 实现此选项</td>
+<td>指定 IKE 交换密钥时使用的 DH 组，密钥交换的安全性随着 DH 组的扩大而增加，但交换的时间也增加了<br/>DH1：采用 768-bit 模指数（Modular Exponential，MODP ）算法的 DH 组<br/> DH2：采用 1024-bit MODP 算法的 DH 组<br/> DH5：采用 1536-bit MODP 算法的 DH 组<br/>DH14：采用 2048-bit MODP 算法，不支持动态 VPN 实现此选项<br/>DH24：带 256 位的素数阶子群的 2048-bit MODP算法 DH 组。</td>
 </tr>
 <tr>
 <td>IKE SA Lifetime</td>
