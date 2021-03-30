@@ -1,3 +1,21 @@
+### Version 8.5 @ 2021.03.24
+**功能新增**
+1. Mac：优化屏幕分享功能，您可以在分享目标窗口的同时指定其他窗口一起分享出去。参见 API addIncludedShareWindow
+1. 全平台：新增播片功能，您可以使用 TXVODPlayer 与 TRTCCloud 绑定，把点播正在播放的内容通过 TRTC 的辅路推流分享出去。
+1. 全平台：新增辅路自定义采集，参见 API sendCustomVideoData。
+1. 全平台：新增自定义混音功能，您可以将自己的一路音轨混入 SDK 的音频处理流程中，SDK 会先将两路音轨混合后再一起发布出去，参见 API mixExternalAudioFrame。
+1. 全平台：支持指定纯视频混流，混流控制更灵活。
+
+**质量优化**
+1. Mac：startSystemAudioLoopback 支持双声道。
+1. Windows：选择幻灯片窗口进行屏幕分享时，支持自动切换到放映窗口。
+1. 全平台：状态回调增加端到端延迟。
+
+**问题修复**
+1. iOS：优化部分设备偶现后台 OpenGL 渲染 crash 的问题。
+1. iOS：优化屏幕画面静止时屏幕分享在播放无法播放的问题。
+
+
 ## Version 8.4 @ 2021.02.08
 **功能新增**
 - Mac：开始支持采集 Mac 操作系统的输出声音，也就是跟 Windows 端一样的 SystemLoopback 能力，该功能可以让 SDK 采集当前系统的声音，开启这个功能后，主播就可以很方便地向其他用户直播音乐或者电影文件。
