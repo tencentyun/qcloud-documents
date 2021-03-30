@@ -8,7 +8,7 @@
 
 ### 存储使用空间
 - binlog 迁移至高性能 SSD 盘后，binlog 会占用您的部分 [存储空间](https://cloud.tencent.com/document/product/236/18335#.E8.AE.A1.E8.B4.B9.E5.85.AC.E5.BC.8F)。
-- 云数据库 MySQL 默认会保留5天的 binlog 在本地，即 binlog 会先暂存于磁盘存储空间，超出保留期后会自动删除，请参见  [设置本地 Binlog 保留](https://cloud.tencent.com/document/product/236/53513)。
+- 云数据库 MySQL 默认会保留5天的 binlog 在本地，即 binlog 会先暂存于磁盘存储空间，超出保留期后会自动删除，请参见  [设置本地 binlog 保留](https://cloud.tencent.com/document/product/236/53513)。
 >?binlog 生成的同时亦会通过自动备份功能上传至 COS 备份，自动备份功能请参见 [备份数据库](https://cloud.tencent.com/document/product/236/35172)。
 
 ### 监控指标
@@ -23,7 +23,7 @@
 - 2021年04月22日0时之后新增地域的双节点、三节点云数据库 MySQL，亦会将 binlog 使用空间计入磁盘总使用空间。
 
 ## 减少本地 binlog 占用空间建议
-本地 binlog 支持设置保留周期，您可以通过缩短保留周期来减少 binlog 存放时间，详情请参见 [设置本地 Binlog 保留](https://cloud.tencent.com/document/product/236/53513)。
+本地 binlog 支持设置保留周期，您可以通过缩短保留周期来减少 binlog 存放时间，详情请参见 [设置本地 binlog 保留](https://cloud.tencent.com/document/product/236/53513)。
 
 ## 热点问题
 #### 升级过程中是否会影响扩缩容？
