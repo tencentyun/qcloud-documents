@@ -2,7 +2,7 @@
 
 ## MQTT-WebSocket 概述
 
-物联网平台支持基于 WebSocket 的 MQTT 通信，设备可以在 WebSocket 协议的基础之上使用 MQTT 协议进行消息的传输。从而使基于浏览器的应用可以实现与平台及与平台连接的设备之间的数据通信。同时 WebSocket 采用443端口，消息传输时可以穿过大多数防火墙。
+物联网平台支持基于 WebSocket 的 MQTT 通信，设备可以在 WebSocket 协议的基础之上使用 MQTT 协议进行消息的传输。从而使基于浏览器的应用可以实现与平台及与平台连接的设备之间的数据通信。同时 WebSocket 采用443/80端口，消息传输时可以穿过大多数防火墙。
 
 ## MQTT-WebSocket 接入
 
@@ -10,7 +10,7 @@
 
 #### 证书认证设备接入指引
 
-1. 下载证书、设备私钥、CA 证书等文件。
+1. 下载证书、设备私钥等文件。
 2. 连接域名：广州域设备需连接，`${ProductId}.ap-guangzhou.iothub.tencentdevices.com:443`，其中 ${ProductId} 为变量参数产品 ID。
 3. MQTT 连接参数设置：
 连接参数设置与 MQTT-TCP 接入时一致，具体信息请参见 [设备基于 TCP 的 MQTT 接入](https://cloud.tencent.com/document/product/634/32546#mqtt-.E6.8E.A5.E5.85.A5) 文档中的 MQTT 接入章节。
