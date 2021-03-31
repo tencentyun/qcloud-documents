@@ -10,13 +10,13 @@
 	<tr><th style="width: 10%;">版本号</th><th style="width: 11%;">变更类型</th><th>描述</th></tr>
 	<tr><td><b>v2.5.3</b></td><td>Bug 修复</td><td>修复内存问题引发 loglistener 工作异常。</td></tr>
 	<tr><td rowspan=2><b>v2.5.2</b></td><td>新功能</td><td>支持解析失败日志上传需求。</td></tr>
-	<tr><td>Bug 修复</td><td>修复黑名单 bug，支持通配符过滤。</td></tr>
+	<tr><td>Bug 修复</td><td>修复黑名单 bug，黑名单 FILE 模式支持通配符过滤。</td></tr>
 	<tr><td><b>v2.5.1</b></td><td>体验优化</td><td>优化当采集文件找不到断点元数据时的处理。</td></tr>
 	<tr><td><b>v2.5.0</b></td><td>新功能</td><td><ul  style="margin: 0;"><li>支持 Loglistener 自动升级。</li><li>支持在 Ubuntu 系统下，Loglistener 自启动。</li></ul></td></tr>
 	<tr><td><b>v2.4.6</b></td><td>Bug 修复</td><td><ul  style="margin: 0;"><li>修复变更采集配置时，相关配置cache的数据残留问题。</li><li>修复处理软链接的IN_DELETE事件时，影响其他指向此realpath文件的软链接文件采集的问题。</li><li>修复对于同一源文件同时使用文件软链接和目录软连接进行采集时，loglistener会退出的问题。</li></ul></td></tr>
 	<tr><td><b>v2.4.5</b></td><td>新功能</td><td>新增 multiline_fullregex_log 日志采集类型支持。</td></tr>
 	<tr><td><b>v2.4.4</b></td><td>Bug 修复</td><td>修复 msec 功能导致的日志采集使用日志时间不准确的问题。</td></tr>
-	<tr><td><b>v2.4.3</b></td><td>新功能</td><td>自动检测日志格式（logFormat）。</td></tr>
+	<tr><td><b>v2.4.3</b></td><td>新功能</td><td>支持自动检测日志格式（logFormat）。</td></tr>
 	<tr><td><b>v2.4.2</b></td><td>Bug 修复</td><td>修复拉取配置时，腾讯云容器场景下相关配置的缓存淘汰问题。</td></tr>
 	<tr><td rowspan=2><b>v2.4.1</b></td><td>新功能</td><td>支持毫秒采集日志数据。</td></tr>
 	<tr><td>Bug 修复</td><td>修复用户日志中无换行符数据引发的工作异常。</td></tr>
@@ -34,7 +34,7 @@
 	<tr><td>Bug 修复</td><td>修复 getip 的 bug: 导致 core。</td></tr>
 	<tr><td><b>v2.2.4</b></td><td>体验优化</td><td><ul  style="margin: 0;"><li>安装和初始化改为：tools/loglistener.sh 的子命令 install 和 init。</li><li>启动改成: /etc/init.d/loglistenerd start|stop|restart。</li></ul></td></tr>
 	<tr><td><b>v2.2.3</b></td><td>体验优化</td><td>日志轮转 rename+create 不丢日志。</td></tr>
-	<tr><td><b>v2.2.2</b></td><td>体验优化</td><td>日志超过512KB自动截断。</td></tr>
+	<tr><td><b>v2.2.2</b></td><td>体验优化</td><td>日志大小超过512KB自动截断。</td></tr>
 	<tr><td><b>更早版本</b></td><td>-</td><td><ul  style="margin: 0;"><li>2.2.2版本的 LogListener 支持完全正则采集。</li><li>2.1.4版本的 LogListener 支持多行全文格式。</li><li>2.1.1版本的 LogListener 支持日志结构化。</li></ul></td></tr>
 </table>
 
