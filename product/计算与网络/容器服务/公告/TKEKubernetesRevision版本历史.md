@@ -24,8 +24,9 @@
 </tr>
 <tr>
     <td>2020-12-28</td>	
-    <td>v1.18.4-tke.6（从本版本起，开始支持 arm64）</td>	
+    <td>v1.18.4-tke.6</td>	
     <td><ul class="params">
+		<li>从本版本起，开始支持 arm64。</li>
 		<li>为 QcloudCbs 添加 metrics（kube-controller-manager）。</li>
 	        <li>修复 mount cbs 盘时查看 serial 值的多余空格问题（kubelet）。</li>
 	        </ul></td>
