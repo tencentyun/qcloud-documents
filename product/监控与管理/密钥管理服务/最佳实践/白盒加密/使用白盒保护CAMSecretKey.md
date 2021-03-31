@@ -15,13 +15,13 @@
 2. 在密钥操作列中，单击【显示】，完成身份验证，获取并复制 SecretKey。
 ![](https://main.qcloudimg.com/raw/56cb5e8dccb266796937a5fe17eaa3e7.png)
 
-## 步骤3：对SecretKey明文进行 base64 编码
+## 步骤3：对 SecretKey 明文进行 base64 编码
 将步骤2中获取的 SecretKey 内容进行 base64 编码。 例如，要加密的 SecretKey 明文是：lY9Ynrabcdj05YH1234LE370HOM，使用 openssl 命令生成 base64 编码后的结果为：`bFk5WW5yYWJjZGowNVlIMTIzNExFMzcwSE9NCg==`。
 ```
 echo lY9Ynrabcdj05YH1234LE370HOM | openssl base64
 ```
 
-## 步骤4：使用白盒密钥加密 API Key
+## 步骤4：使用白盒密钥加密 API SecretKey
 1. 登录 [密钥管理系统（合规）控制台](https://console.cloud.tencent.com/kms2/whitebox)，在白盒密钥列表，单击“白盒密钥ID/名称”或“操作”列的【加密】。
 ![](https://main.qcloudimg.com/raw/f7657edb34801f683ea8a29a6f4ac2f5.png)
 2. 在弹出的对话框，将步骤3中获取的编码内容填充至明文（base64）文本框中，单击【白盒加密】。
@@ -42,11 +42,11 @@ echo lY9Ynrabcdj05YH1234LE370HOM | openssl base64
 2. 在弹出的对话框，根据各业务系统自身的编程语言，选择下载相应编程语言的解密 SDK，并将 SDK 集成到业务系统中。
 ![](https://main.qcloudimg.com/raw/1e4b73df39bb47b893669d8157b48d04.png)
 
-## 步骤7：白盒解密密钥和 API Key 密文分发
+## 步骤7：白盒解密密钥和 API SecretKey 密文分发
 管理员将上述步骤中下载的解密密钥、IV 和密文三个文件，分发给各业务系统的开发或运维人员。其中，解密密钥部署到相应业务系统的文件中，而初始化向量 IV 和密文会作为 SDK 的传参。
 >!下载的解密密钥是一个二进制 bin 文件，将文件放在和业务系统（已经集成了解密 SDK）相同的服务器上的指定目录`./data`中。
 
-## 步骤8：使用 API Key 密文
+## 步骤8：使用 API SecretKey 密文
 在业务逻辑中调用 SDK 的解密函数（whitebox_decrypt），传入参数：decrypt_key_bin_dir（解密密钥 SDK 存放目录），decrypt_key.bin（解密密钥文件名），InitializationVector（初始化向量），CipherText（密文内容），algorithmType 从而获得解密后的明文。
 - 其中 algorithmType 是生成密钥时使用的算法类型，取值为0或1。0表示 AES_256，1表示 SM4。
 - 关于白盒密钥如何进行解密，请参考 [白盒密钥解密代码示例](https://cloud.tencent.com/document/product/573/54237) ，各语言 SDK 均有详细的代码示例。
