@@ -22,10 +22,40 @@ COSFS 工具支持将 COS 存储桶挂载到本地，像使用本地文件系统
 
 
 ## 安装方式
-COSFS 主要提供两种安装方式：通过源码安装和通过安装包安装。
+COSFS 主要提供两种安装方式：通过安装包方式安装和通过编译源码方式安装。
 
 
-### 方式一：通过源码安装
+### 方式一：通过安装包安装
+>?该方式支持主流的 Ubuntu、CentOS 系统。
+
+#### Ubuntu 系统
+
+1. 下载对应系统的 COSFS 安装包
+```shell
+wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs_1.0.19-ubuntu16.04_amd64.deb
+```
+2. 安装
+```shell
+sudo dpkg -i cosfs_1.0.19-ubuntu16.04_amd64.deb
+```
+
+#### CentOS 系统
+
+1. 安装依赖
+```shell
+sudo yum install  libxml2-devel libcurl-devel -y
+```
+2. 下载对应系统的 COSFS 安装包
+```shell
+wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs-1.0.19-centos7.0.x86_64.rpm
+```
+3. 安装
+```shell
+rpm -ivh cosfs-1.0.19-centos7.0.x86_64.rpm
+```
+
+
+### 方式二：通过编译源码方式安装
 >?该方式支持主流的 Ubuntu、CentOS、SUSE、macOS 系统。
 
 
@@ -122,39 +152,6 @@ No package 'libcrypto' found
 brew info openssl 
 export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig #您可能需要根据上一条命令的提示信息修改这条命令
 ```
-
-### 方式二：通过安装包安装
->?该方式支持主流的 Ubuntu、CentOS 系统。
-
-#### Ubuntu 系统
-
-1. 下载对应系统的 COSFS 安装包
-```shell
-wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs_1.0.19-ubuntu16.04_amd64.deb
-```
-2. 安装
-```shell
-sudo dpkg -i cosfs_1.0.19-ubuntu16.04_amd64.deb
-```
-
-
-
-#### CentOS 系统
-
-1. 安装依赖
-```shell
-sudo yum install   libxml2-devel libcurl-devel -y
-```
-2. 下载最新版本 COSFS
-```shell
-wget https://github.com/tencentyun/cosfs/releases/download/v1.0.19/cosfs-1.0.19-centos7.0.x86_64.rpm
-```
-3. 安装
-```shell
-rpm -ivh cosfs-1.0.19-centos7.0.x86_64.rpm
-```
-
-
 
 
 ## 使用方法
