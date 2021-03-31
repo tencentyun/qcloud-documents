@@ -32,21 +32,22 @@ COSFS 主要提供两种安装方式：通过源码安装和通过安装包安�
 #### 1. 安装依赖软件 
 COSFS 的编译安装依赖于 automake、git、libcurl-devel、libxml2-devel、fuse-devel、make、openssl-devel 等软件包，Ubuntu 、CentOS、SUSE 和 macOS 的依赖软件安装过程如下：
 
-（1）Ubuntu 系统下安装依赖软件：
+- Ubuntu 系统下安装依赖软件：
 ```shell
 sudo apt-get install automake autotools-dev g++ git libcurl4-gnutls-dev libfuse-dev libssl-dev libxml2-dev make pkg-config fuse
 ```
-（2）CentOS 系统下安装依赖软件：
+
+- CentOS 系统下安装依赖软件：
 ```shell
 sudo yum install automake gcc-c++ git libcurl-devel libxml2-devel fuse-devel make openssl-devel fuse
 ```
-（3）SUSE 系统下安装依赖软件：
+
+- SUSE 系统下安装依赖软件：
 ```shell
 sudo zypper install gcc-c++ automake make libcurl-devel libxml2-devel openssl-devel pkg-config
 ```
 
-（4）macOS 系统下安装依赖软件：
-
+- macOS 系统下安装依赖软件：
 ```shell
 brew install automake git curl libxml2 make pkg-config openssl 
 brew cask install osxfuse
@@ -94,7 +95,7 @@ ldconfig   #更新动态链接库
 pkg-config --modversion fuse  #查看 fuse 版本号，当看到 “2.9.4” 时，表示 fuse 2.9.4 安装成功 
 ```
 
-（1）SUSE 系统下手动安装 fuse 2.8.4及以上版本，安装命令示例如下：
+- SUSE 系统下手动安装 fuse 2.8.4及以上版本，安装命令示例如下：
 >!安装时，需要注释掉`example/fusexmp.c`文件下第222行内容，否则 make 将报错。注释方法为`/*content*/` 。
 ```shell
 zypper remove fuse libfuse2
@@ -111,12 +112,12 @@ ldconfig   #更新动态链接库
 pkg-config --modversion fuse   #查看 fuse 版本号，当看到 “2.9.4” 时，表示 fuse2.9.4 安装成功 
 ```
 
-（2）在 macOS 进行 configure 操作时，可能会出现如下提示：
+- 在 macOS 进行 configure 操作时，可能会出现如下提示：
 ```shell
 configure: error: Package requirements (fuse >= 2.7.3 libcurl >= 7.0 libxml-2.0 >2.6 libcrypto >= 0.9) were not met
 No package 'libcrypto' found
 ```
-此时，您需要设置 PKG_CONFIG_PATH 变量，以使得 pkg-config 工具能找到 openssl，命令如下：
+ 此时，您需要设置 PKG_CONFIG_PATH 变量，以使得 pkg-config 工具能找到 openssl，命令如下：
 ```shell
 brew info openssl 
 export PKG_CONFIG_PATH=/usr/local/opt/openssl/lib/pkgconfig #您可能需要根据上一条命令的提示信息修改这条命令
@@ -178,8 +179,7 @@ echo examplebucket-1250000000:AKIDHTVVaVR6e3****:PdkhT9e2rZCfy6**** > /etc/passw
 chmod 640 /etc/passwd-cosfs
 ```
 
->!
->V1.0.5及较早版本的 COSFS，配置文件格式如下：
+>!V1.0.5及较早版本的 COSFS，配置文件格式如下：
 >```shell
 <BucketName>:<SecretId>:<SecretKey>
 ```
@@ -204,8 +204,7 @@ mkdir -p /mnt/cosfs
 cosfs examplebucket-1250000000 /mnt/cosfs -ourl=http://cos.ap-guangzhou.myqcloud.com -odbglevel=info -onoxattr -oallow_other
 ```
 
->!
->V1.0.5及较早版本的 COSFS，挂载命令如下：
+>!V1.0.5及较早版本的 COSFS，挂载命令如下：
 >```shell
 cosfs <APPID>:<BucketName> <MountPoint> -ourl=<CosDomainName> -oallow_other
 ```
