@@ -27,7 +27,7 @@ echo lY9Ynrabcdj05YH1234LE370HOM | openssl base64
 2. 在弹出的对话框，将步骤3中获取的编码内容填充至明文（base64）文本框中，单击【白盒加密】。
 ![](https://main.qcloudimg.com/raw/ca314494fae1a17e0da7fe66ed9ee635.png)
 3. 加密成功之后，会返回随机生成的初始化向量（简称 IV） 和加密后的密文，单击【下载IV】和【下载密文】 ，即可完成内容的下载。
->?其中初始化向量（简称 IV） 和加密后的密文均已进行 base64 编码，而初始化向量是用于增加密文被破解的难度。
+>?其中初始化向量（简称 IV） 和加密后的密文均已进行 base64 编码。
 >
 ![](https://main.qcloudimg.com/raw/5ef7869f287d91ad3368694d600c5987.png)
 
@@ -44,11 +44,11 @@ echo lY9Ynrabcdj05YH1234LE370HOM | openssl base64
 
 ## 步骤7：白盒解密密钥和 API SecretKey 密文分发
 管理员将上述步骤中下载的解密密钥、IV 和密文三个文件，分发给各业务系统的开发或运维人员。其中，解密密钥部署到相应业务系统的文件中，而初始化向量 IV 和密文会作为 SDK 的传参。
->!下载的解密密钥是一个二进制 bin 文件，将文件放在和业务系统（已经集成了解密 SDK）相同的服务器上的指定目录`./data`中。
+>! 下载的解密密钥是一个二进制 bin 文件，需要将该文件和可执行文件（已经集成了解密 SDK）放在相同的服务器上，文件路径将作为 SDK 的解密参数。
+例如：代码示例中指定目录为 ./data，表示放在和可执行文件相同父目录的 data 子目录中。
 
 ## 步骤8：使用 API SecretKey 密文
-在业务逻辑中调用 SDK 的解密函数（whitebox_decrypt），传入参数：decrypt_key_bin_dir（解密密钥 SDK 存放目录），decrypt_key.bin（解密密钥文件名），InitializationVector（初始化向量），CipherText（密文内容），algorithmType 从而获得解密后的明文。
+- 在业务逻辑中调用 SDK 的解密函数（whitebox_decrypt），传入参数：decrypt_key_bin_dir（解密密钥存放的目录），decrypt_key_sm4.bin（解密密钥文件名），InitializationVector（步骤4中下载的IV），CipherText（步骤4中用白盒加密后的SecretKey 密文），algorithmType 从而获得解密后的明文。
 - 其中 algorithmType 是生成密钥时使用的算法类型，取值为0或1。0表示 AES_256，1表示 SM4。
 - 关于白盒密钥如何进行解密，请参考 [白盒密钥解密代码示例](https://cloud.tencent.com/document/product/573/54237) ，各语言 SDK 均有详细的代码示例。
-
 
