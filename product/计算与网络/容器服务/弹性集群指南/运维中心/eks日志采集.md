@@ -74,7 +74,7 @@ EKS 日志采集功能支持指定用户自建的 Kafka 实例、日志服务 CL
 ![](https://main.qcloudimg.com/raw/c3f3a6f892b9c07cb24f7e210db5f80e.png)
 :::
 ::: 配置CLS作为日志消费端
-- 日志服务 CLS 目前只能支持同地域的容器集群进行日志采集上报。详情请参见 [创建日志集和日志主题](https://cloud.tencent.com/document/product/614/34340)。
+- 日志服务 CLS 目前只能支持同地域的容器集群进行日志采集上报。详情请参见 [创建日志集和日志主题](https://cloud.tencent.com/document/product/614/34340#3.-.E5.88.9B.E5.BB.BA.E6.97.A5.E5.BF.97.E9.9B.86.E5.92.8C.E6.97.A5.E5.BF.97.E4.B8.BB.E9.A2.98)。
 - 打开日志主题的【日志索引】。如下图所示：
 ![](https://main.qcloudimg.com/raw/a8413fb410367e01acfa9ff62e7a291d.png)
 :::
