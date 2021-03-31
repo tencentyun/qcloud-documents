@@ -48,29 +48,22 @@ message Entry {
         Header header = 1;       //事件的头部
         Event event   = 2;
 }
-
 message Header {
         int32       version        = 1;
         SourceType  sourceType     = 2;   //源库的类型信息，包括 mysql，oracle 等类型
         MessageType messageType    = 3;   //消息的类型
-
-       uint32 timestamp           = 4;   //Event在原始 binlog 中的时间戳
+        uint32 timestamp           = 4;   //Event在原始 binlog 中的时间戳
         int64  serverId            = 5;   //源的 serverId
-
-       string fileName            = 6;   //源 binlog 的文件名称
+        string fileName            = 6;   //源 binlog 的文件名称
         uint64 position            = 7;   //事件在源 binlog 文件中的偏移量
         string gtid                = 8;   //当前事务的 gtid
-
-       string schemaName          = 9;   //变更影响的 schema
+        string schemaName          = 9;   //变更影响的 schema
         string tableName           = 10;  //变更影响的 table
-
-       uint64 seqId               = 11;  //如果 event 分片，同一分片的 seqId 一致
+        uint64 seqId               = 11;  //如果 event 分片，同一分片的 seqId 一致
         uint64 eventIndex          = 12;  //大的 event 分片，序号从0开始，当前版本无意义，留待后续扩展用
         bool   isLast              = 13;  //当前 event 是不是 event 分片的最后一块，是则为 true，当前版本无意义，留待后续扩展用
-
-       repeated KVPair properties = 15;
+        repeated KVPair properties = 15;
 }
-
 message Event {
         BeginEvent      beginEvent      = 1;
         DMLEvent        dmlEvent        = 2;
@@ -130,29 +123,22 @@ message Entry {
         Header header = 1;       //事件的头部
         Event event   = 2;
 }
-
 message Header {
         int32       version        = 1;
         SourceType  sourceType     = 2;   //源库的类型信息，包括 mysql，oracle 等类型
         MessageType messageType    = 3;   //消息的类型
-
-       uint32 timestamp           = 4;   //Event在原始 binlog 中的时间戳
+        uint32 timestamp           = 4;   //Event在原始 binlog 中的时间戳
         int64  serverId            = 5;   //源的 serverId
-
-       string fileName            = 6;   //源 binlog 的文件名称
+        string fileName            = 6;   //源 binlog 的文件名称
         uint64 position            = 7;   //事件在源 binlog 文件中的偏移量
         string gtid                = 8;   //当前事务的 gtid
-
-       string schemaName          = 9;   //变更影响的 schema
+        string schemaName          = 9;   //变更影响的 schema
         string tableName           = 10;  //变更影响的 table
-
-       uint64 seqId               = 11;  //如果 event 分片，同一分片的 seqId 一致
+        uint64 seqId               = 11;  //如果 event 分片，同一分片的 seqId 一致
         uint64 eventIndex          = 12;  //大的 event 分片，序号从0开始，当前版本无意义，留待后续扩展用
-        bool   isLast              = 13;  //当前 event 是不是 event 分片的最后一块，是则为 true，当前版本无意义，留待后续扩展用
-
-       repeated KVPair properties = 15;
+        bool   isLast              = 13;  //当前 event 是不是 event 分片的最后一块，是则为 true，当前版本无意义，留待后续扩展用 
+        repeated KVPair properties = 15;
 }
-
 message Event {
         BeginEvent      beginEvent      = 1;
         DMLEvent        dmlEvent        = 2;
