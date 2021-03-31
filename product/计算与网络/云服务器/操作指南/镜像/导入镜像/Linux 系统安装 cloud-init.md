@@ -71,8 +71,10 @@ apt-get install cloud-guest-utils -y
 ```
 python setup.py build
 python setup.py install --init-system systemd
-```
->! --init-system 的可选参数有：(systemd, sysvinit,  sysvinit_deb, sysvinit_freebsd, sysvinit_openrc, sysvinit_suse, upstart)  [default: None]。请根据当前操作系统使用的自启动服务管理方式，进行选择。若选择错误，cloud-init 服务会无法开机自启动。本文以 systemd 自启动服务管理为例。
+``` <dx-alert infotype="notice" title="">
+--init-system 的可选参数有：(systemd, sysvinit,  sysvinit_deb, sysvinit_freebsd, sysvinit_openrc, sysvinit_suse, upstart)  [default: None]。请根据当前操作系统使用的自启动服务管理方式，进行选择。若选择错误，cloud-init 服务会无法开机自启动。本文以 systemd 自启动服务管理为例。
+</dx-alert>
+
 
 ### 修改 cloud-init 配置文件
 
@@ -81,11 +83,13 @@ python setup.py install --init-system systemd
  - [点此下载](https://cloudinit-1251783334.cos.ap-guangzhou.myqcloud.com/centos/cloud.cfg) CentOS 操作系统的 cloud.cfg。
 2. 将 `/etc/cloud/cloud.cfg` 的内容替换为已下载的 cloud.cfg 文件内容。
 
+
 ### 添加 syslog 用户
 执行以下命令，添加 syslog 用户。
 ```
 useradd syslog
 ```
+
 
 ### 设置 cloud-init 服务开机自启动
 - **若操作系统是 systemd 自启动管理服务，则执行以下命令进行设置。**
