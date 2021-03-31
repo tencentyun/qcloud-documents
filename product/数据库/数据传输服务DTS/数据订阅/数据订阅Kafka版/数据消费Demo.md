@@ -45,47 +45,47 @@
 1. 拉取 Binlog 消息，将每个 Binlog Event 编码为一个 Entry 结构体。
 ```
 message Entry {
-    Header header = 1;       //事件的头部
-    Event event   = 2;
+        Header header = 1;       //事件的头部
+        Event event   = 2;
 }
 
 message Header {
-    int32       version        = 1;
-    SourceType  sourceType     = 2;   //源库的类型信息，包括 mysql，oracle 等类型
-    MessageType messageType    = 3;   //消息的类型
+        int32       version        = 1;
+        SourceType  sourceType     = 2;   //源库的类型信息，包括 mysql，oracle 等类型
+        MessageType messageType    = 3;   //消息的类型
 
-    uint32 timestamp           = 4;   //Event在原始 binlog 中的时间戳
-    int64  serverId            = 5;   //源的 serverId
+       uint32 timestamp           = 4;   //Event在原始 binlog 中的时间戳
+        int64  serverId            = 5;   //源的 serverId
 
-    string fileName            = 6;   //源 binlog 的文件名称
-    uint64 position            = 7;   //事件在源 binlog 文件中的偏移量
-    string gtid                = 8;   //当前事务的 gtid
+       string fileName            = 6;   //源 binlog 的文件名称
+        uint64 position            = 7;   //事件在源 binlog 文件中的偏移量
+        string gtid                = 8;   //当前事务的 gtid
 
-    string schemaName          = 9;   //变更影响的 schema
-    string tableName           = 10;  //变更影响的 table
+       string schemaName          = 9;   //变更影响的 schema
+        string tableName           = 10;  //变更影响的 table
 
-    uint64 seqId               = 11;  //如果 event 分片，同一分片的 seqId 一致
-    uint64 eventIndex          = 12;  //大的 event 分片，序号从0开始，当前版本无意义，留待后续扩展用
-    bool   isLast              = 13;  //当前 event 是不是 event 分片的最后一块，是则为 true，当前版本无意义，留待后续扩展用
+       uint64 seqId               = 11;  //如果 event 分片，同一分片的 seqId 一致
+        uint64 eventIndex          = 12;  //大的 event 分片，序号从0开始，当前版本无意义，留待后续扩展用
+        bool   isLast              = 13;  //当前 event 是不是 event 分片的最后一块，是则为 true，当前版本无意义，留待后续扩展用
 
-    repeated KVPair properties = 15;
+       repeated KVPair properties = 15;
 }
 
 message Event {
-    BeginEvent      beginEvent      = 1;
-    DMLEvent        dmlEvent        = 2;
-    CommitEvent     commitEvent     = 3;
-    DDLEvent        ddlEvent        = 4;
-    RollbackEvent   rollbackEvent   = 5;
-    HeartbeatEvent  heartbeatEvent  = 6;
-    CheckpointEvent checkpointEvent = 7;
-    repeated KVPair properties      = 15;
+        BeginEvent      beginEvent      = 1;
+        DMLEvent        dmlEvent        = 2;
+        CommitEvent     commitEvent     = 3;
+        DDLEvent        ddlEvent        = 4;
+        RollbackEvent   rollbackEvent   = 5;
+        HeartbeatEvent  heartbeatEvent  = 6;
+        CheckpointEvent checkpointEvent = 7;
+        repeated KVPair properties      = 15;
 }
 ```
 2. 为减少消息量，将多个 Entry 合并，合并后的结构为 Entries，Entries.items 字段即为 Entry 顺序列表。合并的数量以合并后不超过 Kafka 单个消息大小限制为标准。对单个 Event 就已超过大小限制的，则不再合并，Entries 中只有唯一 Entry 。
 ```
 message Entries {
-    repeated Entry items = 1; //entry list
+        repeated Entry items = 1; //entry list
 }
 ```
 3. 对 Entries 进行 Protobuf 编码得到二进制序列。
@@ -93,11 +93,11 @@ message Entries {
 Envelope.index 和 Evelope.total 分别记录总段数和当前 Envelope 的序号（从0开始）。
 ```
 message Envelope {
-    int32  version                  = 1; //protocol version, 决定了 data 内容如何解码
-    uint32 total                    = 2;
-    uint32 index                    = 3;
-    bytes  data                     = 4; //当前 version 为1, 表示 data 中数据为 Entries 被 PB 序列化之后的结果, 通过 PB 反序列化可以得到一个 Entries 对象
-    repeated KVPair properties      = 15;
+        int32  version                  = 1; //protocol version, 决定了 data 内容如何解码
+        uint32 total                    = 2;
+        uint32 index                    = 3;
+        bytes  data                     = 4; //当前 version 为1, 表示 data 中数据为 Entries 被 PB 序列化之后的结果, 通过 PB 反序列化可以得到一个 Entries 对象
+        repeated KVPair properties      = 15;
 }
 ```
 5. 对上一步生成的一个或多个 Envelope 依次进行 Protobuf 编码，然后投递到 Kafka 分区。同一个 Entries 分割后的多个 Envelope 顺序投递到同一个分区。
@@ -110,58 +110,58 @@ message Envelope {
 4. partitionMsgConsumer 将原始消息反序列化为 Envelope 结构。
 ```
 message Envelope {
-    int32  version                  = 1; //protocol version, 决定了 data 内容如何解码
-    uint32 total                    = 2;
-    uint32 index                    = 3;
-    bytes  data                     = 4; //当前 version 为1, 表示 data 中数据为 Entries 被 PB 序列化之后的结果, 通过 PB 反序列化可以得到一个 Entries 对象
-    repeated KVPair properties      = 15;
+        int32  version                  = 1; //protocol version, 决定了 data 内容如何解码
+        uint32 total                    = 2;
+        uint32 index                    = 3;
+        bytes  data                     = 4; //当前 version 为1, 表示 data 中数据为 Entries 被 PB 序列化之后的结果, 通过 PB 反序列化可以得到一个 Entries 对象
+        repeated KVPair properties      = 15;
 }
 ```
 5. partitionMsgConsumer 根据 Envelope 中记录的 index 和 total 连续消费一条或者多条消息，直到 Envlope.index 等于 Envelope.total-1（参见上面消费生产逻辑，表示收到了一个完整的 Entries ）。
 6. 将收到的连续多条 Envelope 的 data 字段顺序组合到一起。将组合后的二进制序列用 Protobuf 解码为 Entries 。
 ```
 message Entries {
-    repeated Entry items = 1; //entry list
+        repeated Entry items = 1; //entry list
 }
 ```
 7. 对 Entries.items 依次处理，打印原始 Entry 结构或者转化为 SQL 语句。
 ```
 message Entry {
-    Header header = 1;       //事件的头部
-    Event event   = 2;
+        Header header = 1;       //事件的头部
+        Event event   = 2;
 }
 
 message Header {
-    int32       version        = 1;
-    SourceType  sourceType     = 2;   //源库的类型信息，包括 mysql，oracle 等类型
-    MessageType messageType    = 3;   //消息的类型
+        int32       version        = 1;
+        SourceType  sourceType     = 2;   //源库的类型信息，包括 mysql，oracle 等类型
+        MessageType messageType    = 3;   //消息的类型
 
-    uint32 timestamp           = 4;   //Event在原始 binlog 中的时间戳
-    int64  serverId            = 5;   //源的 serverId
+       uint32 timestamp           = 4;   //Event在原始 binlog 中的时间戳
+        int64  serverId            = 5;   //源的 serverId
 
-    string fileName            = 6;   //源 binlog 的文件名称
-    uint64 position            = 7;   //事件在源 binlog 文件中的偏移量
-    string gtid                = 8;   //当前事务的 gtid
+       string fileName            = 6;   //源 binlog 的文件名称
+        uint64 position            = 7;   //事件在源 binlog 文件中的偏移量
+        string gtid                = 8;   //当前事务的 gtid
 
-    string schemaName          = 9;   //变更影响的 schema
-    string tableName           = 10;  //变更影响的 table
+       string schemaName          = 9;   //变更影响的 schema
+        string tableName           = 10;  //变更影响的 table
 
-    uint64 seqId               = 11;  //如果 event 分片，同一分片的 seqId 一致
-    uint64 eventIndex          = 12;  //大的 event 分片，序号从0开始，当前版本无意义，留待后续扩展用
-    bool   isLast              = 13;  //当前 event 是不是 event 分片的最后一块，是则为 true，当前版本无意义，留待后续扩展用
+       uint64 seqId               = 11;  //如果 event 分片，同一分片的 seqId 一致
+        uint64 eventIndex          = 12;  //大的 event 分片，序号从0开始，当前版本无意义，留待后续扩展用
+        bool   isLast              = 13;  //当前 event 是不是 event 分片的最后一块，是则为 true，当前版本无意义，留待后续扩展用
 
-    repeated KVPair properties = 15;
+       repeated KVPair properties = 15;
 }
 
 message Event {
-    BeginEvent      beginEvent      = 1;
-    DMLEvent        dmlEvent        = 2;
-    CommitEvent     commitEvent     = 3;
-    DDLEvent        ddlEvent        = 4;
-    RollbackEvent   rollbackEvent   = 5;
-    HeartbeatEvent  heartbeatEvent  = 6;
-    CheckpointEvent checkpointEvent = 7;
-    repeated KVPair properties      = 15;
+        BeginEvent      beginEvent      = 1;
+        DMLEvent        dmlEvent        = 2;
+        CommitEvent     commitEvent     = 3;
+        DDLEvent        ddlEvent        = 4;
+        RollbackEvent   rollbackEvent   = 5;
+        HeartbeatEvent  heartbeatEvent  = 6;
+        CheckpointEvent checkpointEvent = 7;
+        repeated KVPair properties      = 15;
 }
 ```
 
@@ -224,30 +224,30 @@ pip install protobuf
 具体的 MySQL/TDSQL 字段值在 Protobuf 协议中用下图所示的 Data 结构来存储。
 ```
 message Data {
-    DataType     dataType = 1;
-    string       charset  = 2;  //DataType_STRING 的编码类型, 值存储在 bv 里面
-    string       sv       = 3;  //DataType_INT8/16/32/64/UINT8/16/32/64/Float32/64/DataType_DECIMAL 的字符串值
-    bytes        bv       = 4;  //DataType_STRING/DataType_BYTES 的值
+     DataType     dataType = 1;
+     string       charset  = 2;  //DataType_STRING 的编码类型, 值存储在 bv 里面
+     string       sv       = 3;  //DataType_INT8/16/32/64/UINT8/16/32/64/Float32/64/DataType_DECIMAL 的字符串值
+     bytes        bv       = 4;  //DataType_STRING/DataType_BYTES 的值
 }
 ```
 其中 DataType 字段代表存储的字段类型，可取枚举值如下图所示。
 ```
 enum DataType {
-    NIL     = 0; //值为 NULL
-    INT8    = 1;
-    INT16   = 2;
-    INT32   = 3;
-    INT64   = 4;
-    UINT8   = 5;
-    UINT16  = 6;
-    UINT32  = 7;
-    UINT64  = 8;
-    FLOAT32 = 9;
-    FLOAT64 = 10;
-    BYTES   = 11;
-    DECIMAL = 12;
-    STRING  = 13;
-    NA      = 14; //值不存在(N/A)
+     NIL     = 0; //值为 NULL
+     INT8    = 1;
+     INT16   = 2;
+     INT32   = 3;
+     INT64   = 4;
+     UINT8   = 5;
+     UINT16  = 6;
+     UINT32  = 7;
+     UINT64  = 8;
+     FLOAT32 = 9;
+     FLOAT64 = 10;
+     BYTES   = 11;
+     DECIMAL = 12;
+     STRING  = 13;
+     NA      = 14; //值不存在(N/A)
 }
 ```
 其中 bv 字段存储 STRING 和 BYTES 类型的二进制表示，sv 字段存储 INT8/16/32/64/UINT8/16/32/64/DECIMAL 类型的字符串表示，charset 字段存储 STRING 的编码类型。
