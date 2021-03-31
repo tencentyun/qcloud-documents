@@ -14,7 +14,9 @@ Cloud-init 主要提供实例首次初始化时自定义配置的能力。如果
 ## 操作步骤
 <dx-tabs>
 ::: 手工下载\scloud-init\s源码包方式[](id:ManualDown)
+
 ### 下载 cloud-init 源码包
+
 >?  
 > - 在正常安装的情况下，cloud-init-17.1 版本与腾讯云的兼容性最佳，可以保证使用该镜像创建的云服务器的所有配置项都可以正常初始化。建议选择 **cloud-init-17.1.tar.gz** 安装版本。您也可以 [点此获取](https://launchpad.net/cloud-init/+download) 其他版本的 cloud-init 源码包。本文以 cloud-init-17.1 版本为例。
 > - 如使用 cloud-init-17.1 或其他版本的 cloud-init 源码包安装不成功，您还可以通过 [手工下载绿色版 cloud-init 包方式](#greeninitCloudInit) 进行安装。
@@ -212,8 +214,7 @@ source /etc/network/interfaces.d/*
 
 ## 附录
 
-<span id="greeninitCloudInit"></span>
-### 手工下载绿色版 cloud-init 包方式
+### 手工下载绿色版 cloud-init 包方式[](id:greeninitCloudInit)
 若通过 [手工下载 cloud-init 源码包方式](#ManualDown) 安装不成功，可通过以下操作进行安装：
 1. [点此获取](https://image-tools-1251783334.cos.ap-guangzhou.myqcloud.com/greeninit-x64-beta.tgz) 绿色版 cloud-init 包。
 2. 执行以下命令，解压绿色版 cloud-init 包。
@@ -229,7 +230,7 @@ cd greeninit
 sh install.sh 
 ```
 
-### 解决无法安装 Python-pip 问题<span id="updateSoftware"></span>
+### 解决无法安装 Python-pip 问题[](id:updateSoftware)
 若在安装 Python-pip 出现无此安装包或无法安装的错误，可对应实际使用的操作系统，参考以下步骤进行解决：
 <dx-tabs>
 ::: CentOS\s6/7系列
