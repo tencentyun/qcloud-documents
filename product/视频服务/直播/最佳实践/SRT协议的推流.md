@@ -40,6 +40,9 @@ SRT 服务器会将 TS 转封装为 RTMP，并转推到 `${rtmp-push-domain}域�
 OBS 推流码填写示例：
 ![](https://main.qcloudimg.com/raw/d0257df71d0905036eeb0779bcbd74f9.png)
 
+>! 若您需使用 SRT 协议推流，OBS 版本不能低于 25.0。
+
+
 ## 直播拉流
 按照正常拉流播放流程操作即可，具体请参见 [直播播放](https://cloud.tencent.com/document/product/267/32733)。
 
