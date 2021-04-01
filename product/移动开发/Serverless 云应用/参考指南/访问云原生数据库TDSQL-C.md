@@ -14,6 +14,7 @@
 1. 登录 [云原生数据库 TDSQL-C 控制台](https://console.cloud.tencent.com/cynosdb)，找到您的 TDSQL-C 集群。
 2. 在左侧菜单中，单击【集群列表】。单击集群名进入详情页，进入【集群详情】选项卡，在基本信息版块中，查找到**所属网络**信息：
 ![](https://main.qcloudimg.com/raw/0354d81a152424863c51b74b4a4e61f9.png)
+
 ### 步骤2：新建云托管服务
 
 具体流程请参见 [新建服务](https://cloud.tencent.com/document/product/1243/46126)。
