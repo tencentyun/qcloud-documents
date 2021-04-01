@@ -50,6 +50,7 @@
 | [muteRemoteVideoStream](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a79f78532789dc6bbf67b128d004fab6a) | 暂停/恢复接收指定的远端视频流。 |
 | [muteAllRemoteVideoStreams](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a2d8a7b74068026a85158262cc9aedd66) | 暂停/恢复接收所有远端视频流。 |
 | [setVideoEncoderParam](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ae047d96922cb1c19135433fa7908e6ce) | 设置视频编码器相关参数。 |
+| [setSubStreamEncoderParam](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a34d994fbba559994aaf3a1f20420a885) | 设置辅路视频的编码器参数。 |
 | [setNetworkQosParam](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a02631a5e4251657875535c38ab319239) | 设置网络流控相关参数。 |
 | [setLocalRenderParams](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#afe6ea1bf7c959722595356a9b7fc2179) | 设置本地图像的渲染模式。 |
 | [setRemoteRenderParams](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a069766641cee1aff4844d0beaa18ee13) | 设置远端图像相关参数。 |
@@ -134,6 +135,10 @@
 | [setCapturedRawAudioFrameCallbackFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a9047b34857b12d85688b3b3f1ca1c3f0) | 设置本地麦克风采集回调出来的 AudioFrame 格式。 |
 | [setLocalProcessedAudioFrameCallbackFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ac0f65e13815edc05ebd765826a94e3dc) | 设置本地采集并经过音频模块前处理后的音频数据回调出来的 AudioFrame 格式。 |
 | [setMixedPlayAudioFrameCallbackFormat](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a98a2e38d75366fbc2c4da92fec5c0a30) | 设置送入扬声器播放的音频数据回调的 AudioFrame 格式。 |
+| [enableCustomVideoCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa29d36eaa707f6acf622e2f87f14b26a2) | 启用视频自定义采集模式。 |
+| [sendCustomVideoData](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ad898c0d44a55b86af57de9854638193e2) | 向 SDK 投送自己采集的视频数据。 |
+| [enableMixExternalAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a7b7d3707d2ed8e8f1221faf73af49027) | 控制外部音频是否要混入推流和混入播放。 |
+| [mixExternalAudioFrame](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa411a035318c3a757c5d361d143c929d) | 向 SDK 投送音频数据。 |
 
 
 ### 自定义消息发送
@@ -223,7 +228,7 @@
 | [isCameraFocusPositionInPreviewSupported](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#abd39aca40adfc8da6beaf32141f84cfa) | 查询是否支持设置焦点 v8.0 版本弃用，请使用 TXDeviceManager 中的函数。 |
 | [setFocusPosition](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa7c65fb033727804e7a79b8f135c776c) | 设置摄像头焦点。 |
 | [isCameraAutoFocusFaceModeSupported](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a23f25ffb81215a32517da78455459ff2) | 查询是否支持自动识别人脸位置 v8.0 版本弃用，请使用 TXDeviceManager 中的函数。 |
-
+| [TRTCViewMargin](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#adeb72b7f954af864743cdbeb283c534b) | 视图边距。 |
 
 ### 播放背景音乐的回调接口
 
@@ -352,6 +357,7 @@
 
 
 ### 视频数据帧的自定义渲染回调
+跳转到 [TRTCVideoRenderListener](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#interfacecom_1_1tencent_1_1trtc_1_1TRTCCloudListener_1_1TRTCVideoRenderListener)
 
 | API | 描述 |
 |-----|-----|

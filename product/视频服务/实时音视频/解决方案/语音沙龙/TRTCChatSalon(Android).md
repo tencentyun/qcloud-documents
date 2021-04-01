@@ -111,7 +111,6 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                                            | 描述                                   |
 | ---------------------------------------------- | -------------------------------------- |
-| [onEnterRoomSeatListNotify](#onenterroomseatlistnotify) | 观众进入房间后，当前房间主播信息回调。 |
 | [onAnchorEnterSeat](#onanchorenterseat)        | 有成员上麦（主动上麦/主播抱人上麦）。  |
 | [onAnchorLeaveSeat](#onanchorleaveseat)        | 有成员下麦（主动下麦/主播踢人下麦）。  |
 | [onSeatMute](#onseatmute)                      | 主播禁麦。                             |
@@ -155,7 +154,7 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | ------- | ------- | ------------------------------------------------------------ |
 | context | Context | Android 上下文，内部会转为 ApplicationContext 用于系统 API 调用 |
 
-   
+
 ### destroySharedInstance
 
 销毁 [TRTCChatSalon](https://cloud.tencent.com/document/product/647/53537) 单例对象。
@@ -308,8 +307,7 @@ public abstract void enterRoom(int roomId, TRTCChatSalonCallback.ActionCallback 
 1. 观众向您的服务端获取最新的语音沙龙列表，可能包含多个语音沙龙房间的 roomId 和房间信息。
 2. 观众选择一个语音沙龙，调用`enterRoom`并传入房间号即可进入该房间。
 3. 进房后会收到组件的`onRoomInfoChange`房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求主播同意等。
-4. 进房后会收到组件的`onEnterRoomSeatListNotify`当前房间主播信息回调，此时可以根据麦位列表的信息查询到当前房间主播的用户信息，然后刷新到 UI 界面上。
-5. 进房后还会收到麦位表有主播进入的`onAnchorEnterSeat`的事件通知。
+4. 进房后还会收到麦位表有主播进入的`onAnchorEnterSeat`的事件通知。
 
 ### exitRoom
 
@@ -790,20 +788,6 @@ void onUserVolumeUpdate(String userId, int volume);
 
 ## 麦位回调
 
-### onEnterRoomSeatListNotify
-
-进入房间后，当前房间主播信息回调。
-
-```java
-void onEnterRoomSeatListNotify(List<SeatInfo> seatInfoList);
-```
-
-参数如下表所示：
-
-| 参数         | 类型                 | 含义                 |
-| ------------ | -------------------- | -------------------- |
-| seatInfoList | List&lt;SeatInfo&gt; | 所有主播的麦位列表。 |
-
 ### onAnchorEnterSeat
 
 有成员上麦(主动上麦/主播抱人上麦)。
@@ -980,3 +964,17 @@ void onInvitationCancelled(String id, String inviter);
 | ------- | ------ | ----------------- |
 | id      | String | 邀请 ID。         |
 | inviter | String | 邀请人的用户 ID。 |
+
+### onInvitationTimeout
+
+邀请超时。
+
+```java
+void onInvitationTimeout(String id);
+```
+
+参数如下表所示：
+
+| 参数    | 类型   | 含义              |
+| ------- | ------ | ----------------- |
+| id      | String | 邀请 ID。         |

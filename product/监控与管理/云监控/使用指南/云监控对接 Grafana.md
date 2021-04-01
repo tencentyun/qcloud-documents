@@ -285,7 +285,7 @@ $ wget -qO- https://raw.githubusercontent.com/TencentCloud/tencentcloud-monitor-
      - `Show Details` 按钮仅在选择非模板变量时显示。
 
 
-     >!在本应用中，监控数据的单次查询为原子操作，即查询某一实例的某一指标的监控数据，故实例只能单选，如需查询多实例的监控数据，单击右上角的【Add Query】增加新的查询。  
+   >!在本应用中，监控数据的单次查询为原子操作，即查询某一实例的某一指标的监控数据，故实例只能单选，如需查询多实例的监控数据，单击右上角的【Add Query】增加新的查询。  
 
 
 ![](https://main.qcloudimg.com/raw/b785c3bd601ded982bd32fccf852a6b5.png)

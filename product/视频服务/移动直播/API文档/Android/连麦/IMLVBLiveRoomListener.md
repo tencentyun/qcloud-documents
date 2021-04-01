@@ -3,7 +3,7 @@ __功能__
 [MLVBLiveRoom](https://cloud.tencent.com/document/product/454/34776) 事件回调。
 
 __介绍__
-
+ 
 包括房间关闭、Debug 事件信息和出错说明等。
 
 

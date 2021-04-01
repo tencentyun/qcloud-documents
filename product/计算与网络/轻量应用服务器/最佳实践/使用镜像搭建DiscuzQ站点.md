@@ -1,6 +1,8 @@
 ## 操作场景
 Discuz! Q 是全球成熟度最高、覆盖率最大的社区论坛软件系统之一。腾讯云轻量应用服务器 Lighthouse 提供 Discuz! Q 应用镜像，其中已集成宝塔 Linux 面板、MySQL、Nginx 和 PHP 软件，您可以使用它构建移动端社区。
->?Discuz! Q 应用镜像底层基于 CentOS 7.6 64位操作系统。实例创建完成后将会自动下载并安装最新版的 Discuz! Q 软件。
+>?
+>- Discuz! Q 应用镜像底层基于 CentOS 7.6 64位操作系统。
+>- 轻量应用服务器实例创建完成后，将会自动下载并安装最新版的 Discuz! Q 软件。您无需进行 Discuz! Q 初始化等安装操作，可直接使用已获取的管理员帐号及密码进行登录。
 
 
 ## 操作步骤
@@ -46,6 +48,15 @@ Discuz! Q 是全球成熟度最高、覆盖率最大的社区论坛软件系统�
 ### 查看其他配置信息
 在 Discuz! Q 实例的应用管理详情页，您除了可以查看 Discuz! Q 的配置信息，还可以查看其他配置信息。例如宝塔Linux面板登录信息、 MySQL 数据库管理员密码、实例中各个软件的安装路径等。如下图所示：
 ![](https://main.qcloudimg.com/raw/46dfb1a9fdbbc8191e697744b8a04103.png)
+
+### 域名与 DNS 解析设置
+您可以给自己的 Discuz! Q 论坛设定一个单独的域名。用户可以使用易记的域名访问您的网站，而不需要使用复杂的 IP 地址。有些用户搭建网站仅用于学习，那么可使用 IP 直接访问网站，但不推荐这样操作。
+
+如果您已有域名或者想要通过域名来访问您的网站，请参考以下步骤：
+1. 通过腾讯云 [购买域名](https://dnspod.cloud.tencent.com/?from=qcloud)，具体操作请参考 [域名注册](https://cloud.tencent.com/document/product/242/9595)。
+2. 进行 [网站备案](https://cloud.tencent.com/product/ba?from=qcloudHpHeaderBa&fromSource=qcloudHpHeaderBa)。
+域名指向中国境内服务器的网站，必须进行网站备案。在域名获得备案号之前，网站是无法开通使用的。您可以通过腾讯云免费进行备案，审核时长请参考 [备案审核](https://cloud.tencent.com/document/product/243/19650)。
+3. 通过腾讯云 [DNS解析 DNSPod](https://cloud.tencent.com/product/cns?from=qcloudHpHeaderCns&fromSource=qcloudHpHeaderCns) 配置域名解析。具体操作请参考 [A 记录](https://cloud.tencent.com/document/product/302/3449)，将域名指向一个 IP 地址（外网地址）。
 
 ### 开启 HTTPS 访问
 您可通过以下方式，为您的实例安装 SSL 证书：

@@ -92,7 +92,7 @@ TBaaS-BCOS 支持 FISCO BCOS 2.X，新增多群组功能。
 
 #### 发送交易
 
-发送交易详情请参见 [FISCO BCOS 相关接口](https://cloud.tencent.com/document/product/663/38526) 文档。
+发送交易详情请参见 [FISCO BCOS 相关接口](https://cloud.tencent.com/document/product/663/38527) 文档。
 
 
 ### 步骤5：节点查看
