@@ -18,11 +18,11 @@ Maven 是 JAVA 的依赖管理工具，支持您项目所需的依赖项，并�
 2. 为您的项目添加 Maven 依赖项，只需在 pom.xml 中找到`<dependencies>`标签，在里面添加以下依赖项即可。
 ```xml
 <dependency>
-    <groupId>com.tencentcloudapi</groupId>
-    <artifactId>tencentcloud-sdk-java</artifactId>
-    <!-- go to https://search.maven.org/search?q=tencentcloud-sdk-java and get the latest version. -->
-    <!-- 请到https://search.maven.org/search?q=tencentcloud-sdk-java查询所有版本，最新版本如下 -->
-    <version>3.1.217</version>
+	<groupId>com.tencentcloudapi</groupId>
+	<artifactId>tencentcloud-sdk-java</artifactId>
+	<!-- go to https://search.maven.org/search?q=tencentcloud-sdk-java and get the latest version. -->
+	<!-- 请到https://search.maven.org/search?q=tencentcloud-sdk-java查询所有版本，最新版本如下 -->
+	<version>3.1.217</version>
 </dependency>
 ```
 	>!
@@ -33,9 +33,9 @@ Maven 是 JAVA 的依赖管理工具，支持您项目所需的依赖项，并�
 ```xml
 <repositories>
 	<repository>
-      <id>nexus-tencentyun</id>
-      <name>Nexus tencentyun</name>
-      <url>https://mirrors.tencent.com/nexus/repository/maven-public/</url>
+		<id>nexus-tencentyun</id>
+		<name>Nexus tencentyun</name>
+		<url>https://mirrors.tencent.com/nexus/repository/maven-public/</url>
 	</repository>
 </repositories>
 ```
