@@ -51,7 +51,7 @@
 | API | 描述 |
 |-----|-----|
 | [startLocalPreview](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aaf4651f9913924560859f4541211f2df) | 开启本地视频的预览画面(Windows、 Mac版本)。 |
-| [startLocalPreview](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aaf4651f9913924560859f4541211f2df2) | 开启本地视频的预览画面 (iOS、 Android版本) 在 enterRoom 之前调用此函数，SDK 只会开启摄像头，并一直等到您调用 enterRoom 之后才开始推流。 在 enterRoom 之后调用此函数，SDK 会开启摄像头并自动开始视频推流。 当开始渲染首帧摄像头画面时，您会收到 [ITRTCCloudCallback](http://doc.qcloudtrtc.com/group__ITRTCCloudCallback__cplusplus.html#classtrtc_1_1ITRTCCloudCallback) 中的 onFirstVideoFrame(null) 回调。 |
+| [startLocalPreview](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aaf4651f9913924560859f4541211f2df2) | 开启本地视频的预览画面 (iOS、 Android版本) 在 enterRoom 之前调用此函数，SDK 只会开启摄像头，并一直等到您调用 enterRoom 之后才开始推流。 在 enterRoom 之后调用此函数，SDK 会开启摄像头并自动开始视频推流。 当开始渲染首帧摄像头画面时，您会收到 [ITRTCCloudCallback](https://cloud.tencent.com/document/product/647/32270#itrtccloudcallback) 中的 onFirstVideoFrame(null) 回调。 |
 | [updateLocalView](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a6db572d1e387b21328c6c78de561838c) | 更新本地视频预览画面的窗口。 |
 | [stopLocalPreview](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#af7003d2c12f5f783115ada43a715abe7) | 停止本地视频采集及预览。 |
 | [muteLocalVideo](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a6070313a28d3302c94ad807c636eb60f) | 暂停/恢复推送本地的视频数据。 |
@@ -142,10 +142,12 @@
 
 | API | 描述 |
 |-----|-----|
-| [enableCustomVideoCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ae76c4361dc14162d2c37a76829aa7a45) | 启用视频自定义采集模式。 |
-| [sendCustomVideoData](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a17437be2e0609beb741b7d11eb49430c) | 向 SDK 投送自己采集的视频数据。 |
+| [enableCustomVideoCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a3278ac2b7b2e093ef22332cff3e6d97f) | 启用视频自定义采集模式。 |
+| [sendCustomVideoData](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aeeff994b8a298fa4948a11225312f629) | 向 SDK 投送自己采集的视频数据。 |
 | [enableCustomAudioCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a166d6ea0b36bc1adf3d3eddde35207c3) | 启用音频自定义采集模式 开启该模式后，SDK 停止运行原有的音频采集流程，只保留编码和发送能力。 您需要用 [sendCustomAudioData()](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a47ba3ba599134e902299dda9c5596c0d) 不断地向 SDK 塞入自己采集的音频数据。 |
 | [sendCustomAudioData](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a47ba3ba599134e902299dda9c5596c0d) | 向 SDK 投送自己采集的音频数据。 |
+| [enableMixExternalAudioFrame](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a896ff4b2731488821dd1ce382276ca0c) | 控制外部音频是否要混入推流和混入播放。 |
+| [mixExternalAudioFrame](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a6d04ce887009661a551e23c61d41571f) | 向 SDK 发送自定义辅流音频数据。 |
 | [setLocalVideoRenderCallback](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ad64031e060146f7985263aad994fc733) | 设置本地视频自定义渲染。 |
 | [setRemoteVideoRenderCallback](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a1efc475e32f06c768330ff80ebffbc8a) | 设置远端视频自定义渲染。 |
 | [setAudioFrameCallback](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a607dc63d8d944869537457c5b92b56e9) | 设置音频数据回调。 |
@@ -244,6 +246,6 @@
 | [resumeAudioEffect](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#af10583316f15ed709247590a081b2307) | 恢复音效。 |
 | [selectScreenCaptureTarget](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#adc372b21294cd36bf4f4af0d1ac6624a2) | 设置屏幕共享参数。 |
 | [enableCustomVideoCapture](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#ac9d547341170330a70623299b366c44a) | 启用视频自定义采集模式。 |
-| [sendCustomVideoData](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a3a53ae79c1bd28825cb276c7555500fe) | TRTCVideoFrame 推荐如下填写方式（其他字段不需要填写）。 |
+| [sendCustomVideoData](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a3a53ae79c1bd28825cb276c7555500fe) | TRTCVideoFrame 推荐如下填写方式（其他字段不需要填写）|
 
 
