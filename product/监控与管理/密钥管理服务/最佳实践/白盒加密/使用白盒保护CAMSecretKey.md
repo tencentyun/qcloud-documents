@@ -48,7 +48,7 @@ echo lY9Ynrabcdj05YH1234LE370HOM | openssl base64
 例如：代码示例中指定目录为 ./data，表示放在和可执行文件相同父目录的 data 子目录中。
 
 ## 步骤8：使用 API SecretKey 密文
-- 在业务逻辑中调用 SDK 的解密函数（whitebox_decrypt），传入参数：decrypt_key_bin_dir（解密密钥存放的目录），decrypt_key_sm4.bin（解密密钥文件名），InitializationVector（步骤4中下载的IV），CipherText（步骤4中用白盒加密后的SecretKey 密文），algorithmType 从而获得解密后的明文。
+- 在业务逻辑中调用 SDK 的解密函数（whitebox_decrypt），传入参数：decrypt_key_bin_dir（步骤7中解密密钥存放的目录）、decrypt_key_sm4.bin（步骤5中下载的解密密钥，其对应的文件名）、InitializationVector（步骤4中下载的 IV）、CipherText（步骤4中用白盒加密后的 SecretKey 密文）和 algorithmType，从而获得解密后的明文
 - 其中 algorithmType 是生成密钥时使用的算法类型，取值为0或1。0表示 AES_256，1表示 SM4。
 - 关于白盒密钥如何进行解密，请参考 [白盒密钥解密代码示例](https://cloud.tencent.com/document/product/573/54237) ，各语言 SDK 均有详细的代码示例。
 
