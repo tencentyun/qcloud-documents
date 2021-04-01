@@ -1,7 +1,7 @@
 云托管服务可以通过其所在的 VPC（私有网络）访问您在腾讯云上的 TDSQL- C 数据库。
 
 ## 背景知识
-- 了解什么是 TDSQL-C 及如何使用，请参见 [云数据库TDSQL-C文档](https://cloud.tencent.com/document/product/1003)。
+- 了解什么是 TDSQL-C 及如何使用，请参见 [云数据库 TDSQL-C](https://cloud.tencent.com/document/product/1003)。
 - 点击服务所在私有网络的名称，可以跳转到私有网络控制台查看该私有网络内您有哪些TDSQL-C 数据库资源，可以与此服务配合使用。
 
 ## 前置条件
@@ -13,8 +13,7 @@
 
 1. 登录 [云数据库 MySQL 控制台](https://console.cloud.tencent.com/cynosdb)，找到您的 TDSQL-C 集群。
 2. 在左侧菜单中，单击【集群列表】。单击集群名进入详情页，进入【集群详情】选项卡，在基本信息版块中，查找到**所属网络**信息：
-   ![](https://main.qcloudimg.com/raw/266aad1031ae077522bb85b916b3e4b7.png)
-
+![](https://main.qcloudimg.com/raw/0354d81a152424863c51b74b4a4e61f9.png)
 ### 步骤2：新建云托管服务
 
 具体流程请参见 [新建服务](https://cloud.tencent.com/document/product/1243/46126)。
