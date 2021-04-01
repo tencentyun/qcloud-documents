@@ -1,9 +1,9 @@
 ### Version 8.5 @ 2021.03.24
 **功能新增**
-1. Mac：优化屏幕分享功能，您可以在分享目标窗口的同时指定其他窗口一起分享出去。参见 API addIncludedShareWindow
+1. Mac：优化屏幕分享功能，您可以在分享目标窗口的同时指定其他窗口一起分享出去。参见 API [addIncludedShareWindow](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2e101f0ff00c8752eea1fa9a1a432233)
 1. 全平台：新增播片功能，您可以使用 TXVODPlayer 与 TRTCCloud 绑定，把点播正在播放的内容通过 TRTC 的辅路推流分享出去。
-1. 全平台：新增辅路自定义采集，参见 API sendCustomVideoData。
-1. 全平台：新增自定义混音功能，您可以将自己的一路音轨混入 SDK 的音频处理流程中，SDK 会先将两路音轨混合后再一起发布出去，参见 API mixExternalAudioFrame。
+1. 全平台：新增辅路自定义采集，参见 API [sendCustomVideoData](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aeeff994b8a298fa4948a11225312f629)。
+1. 全平台：新增自定义混音功能，您可以将自己的一路音轨混入 SDK 的音频处理流程中，SDK 会先将两路音轨混合后再一起发布出去，参见 API [mixExternalAudioFrame](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a6d04ce887009661a551e23c61d41571f)。
 1. 全平台：支持指定纯视频混流，混流控制更灵活。
 
 **质量优化**
