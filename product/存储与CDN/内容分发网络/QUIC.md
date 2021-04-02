@@ -2,9 +2,11 @@
 
 QUIC (Quick UDP Internet Connections) 是一个通用的网络协议，能够保障网络安全性，同时减少传输和连接时的延时，避免网络拥塞。您可开启 QUIC 协议，保障客户端访问 CDN 节点时数据传输的安全性，提升访问效率。
 
+当前默认支持 h3 Draft 28, h3-Q050, h3-Q046, h3-Q043, Q046, Q043 版本。
+
 腾讯云 CDN 已开启 QUIC 内测，您可以 [提交申请表](https://cloud.tencent.com/apply/p/2j0i34wqyw8) 申请试用。如果您已经提交申请，我们将在15个工作日对您的申请进行审核。
 
-开启 QUIC 后默认支持 h3 Draft 28, h3-Q050, h3-Q046, h3-Q043, Q046, Q043 协议。
+
 
 ## 内测指南
 
