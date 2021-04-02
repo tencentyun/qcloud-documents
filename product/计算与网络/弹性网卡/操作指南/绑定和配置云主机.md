@@ -1,4 +1,4 @@
-本文将指引您在 [Linux](#centos) 和 [Windows](#windows) 操作系统下配置云服务器。
+本文指引您在 [Linux](#centos) 和 [Windows](#windows) 操作系统下为云服务器配置弹性网卡。
 ## 绑定云服务器
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc) 。
 2. 单击左侧目录中的【IP 与网卡】>【弹性网卡】。
