@@ -1,10 +1,16 @@
-本文介绍如何将腾讯云服务器 CVM 自建数据库接入数据库智能管家 DBbrain。
+本文为您介绍如何将腾讯云服务器 CVM 自建数据库接入数据库智能管家 DBbrain。通过接入自建数据库，使得多种类型的自建数据库也能拥有 DBbrain 提供的监控告警、诊断优化、数据库管理等自治服务能力。
 
-接入方式支持直连接入和将 DBbrain agent 部署在用户主机上接入，通过接入自建数据库，使得多种类型的自建数据库也能拥有 DBbrain 提供的监控告警、诊断优化、数据库管理等自治服务能力。
+## 接入方式
+- **agent 接入（推荐）**：部署 DBbrain agent 在数据库主机上，可以自动发现您的数据库，可支持 DBbrain 提供的全部自治服务。优势如下：
+ - 数据传输加密。
+ - agent 自动采集并暂存数据，即使与 Server 断开连接也不会丢失数据。
+ - 服务端与 agent 通讯需经过认证，且发送给 agent 执行的 SQL 语句带有校验。
+ - 能够采集主机资源信息及慢日志，支持慢日志分析。
+- **直连接入**：无需部署 DBbrain agent，仅需要在网络连通前提下，通过输入数据库帐号和密码即可快速接入您的数据库，可支持部分 DBbrain 提供的自治服务，适合比较少的自建数据库接入。
 
-两种接入方式的说明及功能请参见 [接入方式说明](https://cloud.tencent.com/document/product/1130/54283#jrfssm) 及 [功能对比](https://cloud.tencent.com/document/product/1130/54283#jrfsdgndb)。
-
->?DBbrain 当前支持的腾讯云 CVM 自建数据库实例类型：MySQL。
+>?
+>- 两种接入方式的功能对比请参见 [功能对比](https://cloud.tencent.com/document/product/1130/54283#jrfsdgndb)。
+>- DBbrain 当前支持的腾讯云 CVM 自建数据库类型：MySQL。
 
 ## agent 接入流程（推荐）
 ### 进入接入页面
@@ -35,8 +41,6 @@
 2. 在弹出的对话框，选择 agent 端口后，单击【部署】，即可根据所选的端口号，生成 agent 部署命令。
 ![](https://main.qcloudimg.com/raw/f0ce129450d3dca87028bf0492275084.png)
 3. 复制生成的 agent 部署命令，并在 CVM 上运行，出现 `Start agent successfully` 后，则表示 agent 部署成功，返回至腾讯云控制台，可查看 agent 状态变为“连接正常”。
-![](https://main.qcloudimg.com/raw/b4ef69e3c9671f0083424b3201b83233.png)
-4. 待至少存在一个状态为“连接正常”的 agent，单击【下一步】，进行下一步添加数据库。
 agent 状态说明及对应操作如下：
 <table>
 <thead><tr><th width=10%>agent 状态</th><th width=35%>状态说明</th><th width=10%>操作</th><th width=45%>操作说明</th></tr></thead>
@@ -59,7 +63,7 @@ agent 状态说明及对应操作如下：
 <td>重置</td><td>单击【重置】，可将 agent 状态恢复为“--”，以满足用户想换 agent 端口号的场景，重新部署 agent</td></tr>
 <tr>
 <td rowspan=2>连接失败</td>
-<td rowspan=2>CVM 中部署 agent 失败，具体请参见 [agent接入问题及排查指引]()</td>
+<td rowspan=2>CVM 中部署 agent 失败，请参见 [agent接入问题及排查指引]()</td>
 <td>查看</td><td>单击【查看】，可查看该 agent 的端口号及 agent 命令</td></tr>
 <tr>
 <td>重置</td><td>单击【重置】，可将 agent 状态恢复为“--”，以此可以更换 agent 端口号，重新部署 agent</td></tr>
@@ -72,6 +76,8 @@ agent 状态说明及对应操作如下：
 <tr>
 <td>重置</td><td>单击【重置】，可将 agent 状态恢复为“--”，以满足用户想换 agent 端口号的场景，重新部署 agent</td></tr>
 </tbody></table>
+<img src="https://main.qcloudimg.com/raw/b4ef69e3c9671f0083424b3201b83233.png"  style="margin:0;">
+4. 待至少存在一个状态为“连接正常”的 agent，单击【下一步】，进行下一步添加数据库。
 
 #### 步骤3：添加数据库
 在添加数据库实例页面，展示了上一步已成功部署 agent 的 CVM 及其数据库状态，列表展现了 CVM 的实例ID/名称、IP 地址、数据库端口号、数据库配置、数据库状态。
@@ -106,7 +112,7 @@ agent 状态说明及对应操作如下：
 <td>SHOW DATABASES, SHOW VIEW, RELOAD, SELECT</td><td>默认的库，表的读权限以及刷新权限。</td></tr>
 </tbody></table>
 <img src="https://main.qcloudimg.com/raw/60fac86f0b271710d61e388ec8a4d60b.png"  style="margin:0;">
-4. 返回添加数据库实例页面，单击【完成】，数状态为“连接正常”的数据库，即可成功接入 DBbrain 自治服务。
+4. 返回添加数据库实例页面，单击【完成】，状态为“连接正常”的数据库，即可成功接入 DBbrain 自治服务。
 ![](https://main.qcloudimg.com/raw/c6773c68ca64a77dbcb4959cc85d4c68.png)
 5. 返回 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/instance)，进入实例管理页面，在上方选择对应的自建数据库类型，即可查看及管理接入的自建数据库。
 ![](https://main.qcloudimg.com/raw/dce74d82953dae117cb3d2201317ca9e.png)
@@ -164,7 +170,7 @@ agent 状态说明及对应操作如下：
 <td >SHOW DATABASES, SHOW VIEW, RELOAD, SELECT</td><td>默认的库，表的读权限以及刷新权限。</td></tr>
 </tbody></table>
 <img src="https://main.qcloudimg.com/raw/60fac86f0b271710d61e388ec8a4d60b.png"  style="margin:0;">
-4. 返回添加数据库实例页面，单击【完成】，数状态为“连接正常”的数据库，即可成功接入 DBbrain 自治服务。
+4. 返回添加数据库实例页面，单击【完成】，状态为“连接正常”的数据库，即可成功接入 DBbrain 自治服务。
 ![](https://main.qcloudimg.com/raw/c6773c68ca64a77dbcb4959cc85d4c68.png)
 5. 返回 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/instance)，进入实例管理页面，在上方选择对应的自建数据库类型，即可查看及管理接入的自建数据库。
 ![](https://main.qcloudimg.com/raw/dce74d82953dae117cb3d2201317ca9e.png)
