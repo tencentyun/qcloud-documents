@@ -159,7 +159,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 [](id:step1)
 
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
+1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
 2. 输入应用名称，例如 TestTRTC，单击【创建】。
 ![](https://main.qcloudimg.com/raw/9b2db43594f4744b42ef74c94494ea8e.png)
 
