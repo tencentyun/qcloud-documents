@@ -4,7 +4,7 @@ QUIC (Quick UDP Internet Connections) 是一个通用的网络协议，能够保
 
 腾讯云 CDN 已开启 QUIC 内测，您可以 [提交申请表](https://cloud.tencent.com/apply/p/2j0i34wqyw8) 申请试用。如果您已经提交申请，我们将在15个工作日对您的申请进行审核。
 
-
+开启 QUIC 后默认支持 h3 Draft 28, h3-Q050, h3-Q046, h3-Q043, Q046, Q043 协议。
 
 ## 内测指南
 
@@ -14,7 +14,7 @@ QUIC (Quick UDP Internet Connections) 是一个通用的网络协议，能够保
 >- QUIC 平台现为测试平台，尚未全量，建议您仅对测试域名开启 QUIC 平台，不要使用业务域名。
 >- 业务类型切换涉及资源平台调度，接入 QUIC 平台后，建议您不要再切换域名的业务类型。
 >- 当前不支持 QUIC 回源。
->- 开启 QUIC 后默认支持 h3 Draft 28, h3-Q050, h3-Q046, h3-Q043, Q046, Q043 协议。
+
 
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，新添域名时，您可通过选中 QUIC 平台项，为域名接入 QUIC 平台：
 ![](https://main.qcloudimg.com/raw/cb7d9ab0a9026574363f7308047c04c6.png)
