@@ -5,7 +5,7 @@
 </thead>
 <tbody>
 <tr>
-    <td>2021-03-31</td>	
+    <td>2021-04-02</td>	
     <td>v1.18.4-tke.8</td>	
     <td><ul class="params">
 		<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/97752" rel="nofollow">pr97752</a>，修复 describe deployment 时 NewReplicaSet 显示为 <code>&lt;none&gt;</code> 的问题（kubectl）。</li>
