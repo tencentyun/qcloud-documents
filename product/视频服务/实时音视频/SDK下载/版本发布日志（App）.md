@@ -1,19 +1,19 @@
 ### Version 8.5 @ 2021.03.24
 **功能新增**
-1. Mac：优化屏幕分享功能，您可以在分享目标窗口的同时指定其他窗口一起分享出去。参见 API [addIncludedShareWindow](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2e101f0ff00c8752eea1fa9a1a432233)
-1. 全平台：新增播片功能，您可以使用 TXVODPlayer 与 TRTCCloud 绑定，把点播正在播放的内容通过 TRTC 的辅路推流分享出去。
-1. 全平台：新增辅路自定义采集，参见 API [sendCustomVideoData](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aeeff994b8a298fa4948a11225312f629)。
-1. 全平台：新增自定义混音功能，您可以将自己的一路音轨混入 SDK 的音频处理流程中，SDK 会先将两路音轨混合后再一起发布出去，参见 API [mixExternalAudioFrame](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a6d04ce887009661a551e23c61d41571f)。
-1. 全平台：支持指定纯视频混流，混流控制更灵活。
+-  Mac：优化屏幕分享功能，您可以在分享目标窗口的同时指定其他窗口一起分享出去。请参见 API [addIncludedShareWindow](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2e101f0ff00c8752eea1fa9a1a432233)
+-  全平台：新增播片功能，您可以使用 TXVODPlayer 与 TRTCCloud 绑定，把点播正在播放的内容通过 TRTC 的辅路推流分享出去。
+-  全平台：新增辅路自定义采集，请参见 API [sendCustomVideoData](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#aeeff994b8a298fa4948a11225312f629)。
+-  全平台：新增自定义混音功能，您可以将自己的一路音轨混入 SDK 的音频处理流程中，SDK 会先将两路音轨混合后再一起发布出去，请参见 API [mixExternalAudioFrame](http://doc.qcloudtrtc.com/group__ITRTCCloud__cplusplus.html#a6d04ce887009661a551e23c61d41571f)。
+-  全平台：支持指定纯视频混流，混流控制更灵活。
 
 **质量优化**
-1. Mac：startSystemAudioLoopback 支持双声道。
-1. Windows：选择幻灯片窗口进行屏幕分享时，支持自动切换到放映窗口。
-1. 全平台：状态回调增加端到端延迟。
+- Mac：startSystemAudioLoopback 支持双声道。
+- Windows：选择幻灯片窗口进行屏幕分享时，支持自动切换到放映窗口。
+- 全平台：状态回调增加端到端延迟。
 
 **问题修复**
-1. iOS：优化部分设备偶现后台 OpenGL 渲染 crash 的问题。
-1. iOS：优化屏幕画面静止时屏幕分享在播放无法播放的问题。
+- iOS：优化部分设备偶现后台 OpenGL 渲染 crash 的问题。
+- iOS：优化屏幕画面静止时屏幕分享在播放无法播放的问题。
 
 
 ## Version 8.4 @ 2021.02.08
