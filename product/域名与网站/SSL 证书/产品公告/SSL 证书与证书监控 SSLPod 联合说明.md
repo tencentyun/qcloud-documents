@@ -28,3 +28,5 @@
 | ![](https://main.qcloudimg.com/raw/e82dae0e4c34b0af62456319f70226aa.png) | 目前该 SSL 证书状态异常 | 单击【查看监控报告】，即可跳转至健康报告页查看详情。 |
 | ![](https://main.qcloudimg.com/raw/043b9f8792c40f017c78bd7d3c0e36ae.png)| 该域名目前还开启未证书监控 | 单击【免费开通】，即可快速对该证书进行监控。 |
 | ![](https://main.qcloudimg.com/raw/078535ca3f663659f4014c4ed1261d76.png) | 目前该 SSL 证书状态良好 | 单击【查看监控报告】，即可跳转至健康报告页查看详情。 |
+|![](https://main.qcloudimg.com/raw/9bb019a73e9b4572d5bb31b4f9b6b40e.png)| 该域名正在使用其它证书 | 单击【查看监控报告】，即可跳转至健康报告页查看详情。 |
+
