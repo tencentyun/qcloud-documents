@@ -15,7 +15,7 @@
 
 
 ## 新增短视频 License
-您可通过购买点播流量资源包即可获赠短视频 SDK License（一年授权使用）。请参见 [点播流量资源包与短视频 SDK License 版本对应表](https://cloud.tencent.com/document/product/266/33149#.E7.9F.AD.E8.A7.86.E9.A2.91-sdk-license)。
+您可通过购买点播流量资源包即可获赠短视频 SDK License（一年授权使用）。请参见 [点播流量资源包与短视频 SDK License 版本对应表](https://cloud.tencent.com/document/product/266/33149#.E7.9F.AD.E8.A7.86.E9.A2.91-sdk-license.3Ca-id.3D.22license.22.3E.3C.2Fa.3E)。
 
 ### 步骤1：添加短视频 License
 1. 进入 [短视频 License](https://console.cloud.tencent.com/vod/license) ，单击【新增 License】，进入短视频 License 新增页。
