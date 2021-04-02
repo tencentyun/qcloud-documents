@@ -1,3 +1,7 @@
+## 前提条件
+1. 已注册腾讯云账号，并完成实名认证。
+2. 使用服务前需要通过企业资质审核，请进行 [企业账号实名认证](https://cloud.tencent.com/document/product/378/10496)。
+
 ## 接入流程
 
 ![image.png](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/image/dongjh/eid_77f519b8-eda0-441d-9740-082c4615507b.png)
