@@ -30,7 +30,7 @@ QUIC (Quick UDP Internet Connections) 是一个通用的网络协议，能够保
 
 
 
+## 计费规则
 
-
-
+QUIC 访问属于增值服务，目前腾讯云 CDN 正在免费内测中，暂不进行收费。
 
