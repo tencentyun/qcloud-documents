@@ -42,6 +42,8 @@ MySQL 主要是两类线程占用 CPU：系统线程和用户线程。因此 MyS
 - **慢 SQL 分析**：针对当前实例出现的慢 SQL 进行分析，并给出慢 SQL 的优化建议。操作详情请参见 [使用“慢 SQL 分析”功能排查导致 CPU 利用率过高的 SQL](https://cloud.tencent.com/document/product/1130/42404#.E6.96.B9.E5.BC.8F.E4.BA.8C.EF.BC.9A.E4.BD.BF.E7.94.A8.E2.80.9C.E6.85.A2-sql-.E5.88.86.E6.9E.90.E2.80.9D.E5.8A.9F.E8.83.BD.E6.8E.92.E6.9F.A5.E5.AF.BC.E8.87.B4-cpu-.E5.88.A9.E7.94.A8.E7.8E.87.E8.BF.87.E9.AB.98.E7.9A.84-sql)。
 - **审计日志分析**：利用云数据库审计数据（全量 SQL），多维度深入分析 SQL 语句并给出优化建议。操作详情请参见 [使用“审计日志分析”功能排查导致 CPU 利用率过高的 SQL](https://cloud.tencent.com/document/product/1130/42404#.E6.96.B9.E5.BC.8F.E4.B8.89.EF.BC.9A.E4.BD.BF.E7.94.A8.E2.80.9C.E5.AE.A1.E8.AE.A1.E6.97.A5.E5.BF.97.E5.88.86.E6.9E.90.E2.80.9D.E5.8A.9F.E8.83.BD.E6.8E.92.E6.9F.A5.E5.AF.BC.E8.87.B4-cpu-.E5.88.A9.E7.94.A8.E7.8E.87.E8.BF.87.E9.AB.98.E7.9A.84-sql)。
 
+MySQL 慢查询时间（long_query_time）的默认值是10s，在遇到性能问题时，若发现没有慢查询，建议将其参数调成1s ，再观察业务周期内的慢查询，进而对其慢查询进行优化。若参数调整后，在其业务周期内依然未发现慢查询，而 CPU 利用率依然偏高，建议升级 CPU 的配置，进而提高数据库的整体性能。
+
 ### [计算量大](id:jsld)
 若数据量比较大，即使索引和执行计划没什么问题，也会导致 CPU 利用率过高，而且结合 MySQL one-thread-per-connection 的特性，并不需要太多的并发就能把 CPU 使用率跑满。
 
