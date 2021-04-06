@@ -28,7 +28,7 @@ SDK 版本 License 与您需要购买的点播套餐包对应关系如下：
 > - 各规格资源包均有对应的 SDK License 版本，具体请参见 [价格总览](https://cloud.tencent.com/document/product/584/9368)。
 3. 进入 License 设置页，填写正式版 License 的信息，【Package Name】为 Android 的包名，【Bundle Id】为 iOS 的 Bundle ID，单击【确认】即可。
 ![](https://main.qcloudimg.com/raw/475ab5e49ebf804e4f8d449fd02520e3.png)
-> !  购买点播套餐包并绑定 License 后，请确认 [Bundle ID 和 Package Name]( https://tcloud-doc.isd.com/document/product/584/54335?!editLang=zh&!preview#que2) 无误再单击【确定】提交。一旦提交，**License 信息不能再做修改**。
+> !  购买点播套餐包并绑定 License 后，请确认 [Bundle ID 和 Package Name](https://cloud.tencent.com/document/product/584/54335#que2) 无误再单击【确定】提交。一旦提交，**License 信息不能再做修改**。
 
 
 [](id:renew)
