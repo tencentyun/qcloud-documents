@@ -1,5 +1,3 @@
-## 支持绑定 IP 的证书品牌与类型有那些？
-
 腾讯云支持绑定 IP 的 SSL 证书请参考下表：
 
 <table>
@@ -63,9 +61,9 @@
   <tr>
     <td>DNSPod </td>
     <td>支持</td>
-    <td></td>
-    <td></td>
-    <td></td>
+    <td>-</td>
+    <td>-</td>
+    <td>-</td>
     <td>支持</td>
     <td>-</td>
   </tr>

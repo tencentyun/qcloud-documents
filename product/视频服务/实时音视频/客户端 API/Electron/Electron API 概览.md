@@ -194,9 +194,9 @@ subscribeEvents(this.rtcCloud);
 | [setBGMVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setBGMVolume) | 废弃接口：设置背景音乐播放音量的大小。 |
 | [setBGMPlayoutVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setBGMPlayoutVolume) | 废弃接口：设置背景音乐本地播放音量的大小。 |
 | [setBGMPublishVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setBGMPublishVolume) | 废弃接口：设置背景音乐远端播放音量的大小。 |
-| [startSystemAudioLoopback](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startSystemAudioLoopback) | 打开系统声音采集（Mac 和 Windows 64位 SDK 尚不支持系统混音能力，目前只支持 Windows 32位，其他系统调用失效）。 |
-| [stopSystemAudioLoopback](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopSystemAudioLoopback) | 关闭系统声音采集（Mac 和 Windows 64位 SDK 尚不支持系统混音能力，目前只支持 Windows 32位，其他系统调用失效）。 |
-| [setSystemAudioLoopbackVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setSystemAudioLoopbackVolume) | 设置系统声音采集的音量（Mac 和 Windows 64位 SDK 尚不支持系统混音能力，目前只支持 Windows 32位，其他系统调用失效）。 |
+| [startSystemAudioLoopback](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startSystemAudioLoopback) | 打开系统声音采集。 |
+| [stopSystemAudioLoopback](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopSystemAudioLoopback) | 关闭系统声音采集。 |
+| [setSystemAudioLoopbackVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setSystemAudioLoopbackVolume) | 设置系统声音采集的音量。 |
 | [startPlayMusic](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startPlayMusic) | 启动播放背景音乐。 |
 | [stopPlayMusic](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopPlayMusic) | 停止播放背景音乐。 |
 | [pausePlayMusic](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#pausePlayMusic) | 暂停播放背景音乐。 |
@@ -347,13 +347,16 @@ subscribeEvents(this.rtcCloud);
 | [onStopPublishCDNStream](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onStopPublishCDNStream) | 停止旁路推流到 CDN 完成的回调。 |
 | [onSetMixTranscodingConfig](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onSetMixTranscodingConfig) | 设置云端的混流转码参数的回调，对应于 TRTCCloud 中的 setMixTranscodingConfig() 接口。 |
 
+### 系统音量采集回调
+| API | 描述 |
+|-----|-----|
+| [onSystemAudioLoopbackError](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onSystemAudioLoopbackError) | 系统音量采集状态的回调（仅在 Mac 上有效）。 |
 
 ### 音效回调
 
 | API | 描述 |
 |-----|-----|
 | [onAudioEffectFinished](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onAudioEffectFinished) | 废弃接口：播放音效结束回调。 |
-
 
 ### 屏幕分享回调
 

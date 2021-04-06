@@ -5,8 +5,26 @@
 </thead>
 <tbody>
 <tr>
+    <td>2021-04-02</td>	
+    <td>v1.18.4-tke.8</td>	
+    <td><ul class="params">
+		<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/97752" rel="nofollow">pr97752</a>，修复 describe deployment 时 NewReplicaSet 显示为 <code>&lt;none&gt;</code> 的问题（kubectl）。</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/93808" rel="nofollow">pr93808</a>，修复执行 <code>kube-scheduler --version</code> 返回多余信息的问题（kube-scheduler）。</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/91590" rel="nofollow">pr91590</a>，修复使用 NodePort 类型多协议 Service 时警告端口已分配的问题（kube-apiserver）。</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/98262" rel="nofollow">pr98262</a>，支持 kube-controller-manager 动态调整日志级别（kube-controller-manager）。</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/95154" rel="nofollow">pr95154</a>，修复 kube-scheduler snapshot 包含删除中的节点的问题（kube-scheduler）。</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/95711" rel="nofollow">pr95711</a>，修复 kubectl drain 命令占用 CPU 高的问题（kubectl）。</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/96602" rel="nofollow">pr96602</a>，修复时间前后跳变时，apiserver 内存泄漏的问题（kube-apiserver）。</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/97023" rel="nofollow">pr97023</a>，在卸载 emptyDir 类型的卷时，删除相关元数据目录（kubelet）。</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/97527" rel="nofollow">pr97527</a>，修复  cpumanager 中未同步 map 访问操作的问题（kubelet）。</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/100190" rel="nofollow">pr100190</a>，自动删除孤儿 Pod 遗留的 volume 目录（kubelet）。</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/92614" rel="nofollow">pr92614</a>，当重启策略为 RestartPolicyOnFailure 的 Pod 所有容器都成功退出时，不再创建新的 Sandbox（kubelet）。</li>
+<li>合并 <a href="https://github.com/kubernetes/kubernetes/pull/94833" rel="nofollow">pr94833</a>，修复当 Pod 镜像有多个 tag 时，status 中镜像 tag 不匹配的问题（kubelet）。</li>
+	        </ul></td>
+</tr>
+<tr>
     <td>2020-12-28</td>	
-    <td>v1.18.4-tke.6</td>	
+    <td>v1.18.4-tke.6（从本版本起，开始支持 ARM 集群）</li></td>	
     <td><ul class="params">
 		<li>为 QcloudCbs 添加 metrics（kube-controller-manager）。</li>
 	        <li>修复 mount cbs 盘时查看 serial 值的多余空格问题（kubelet）。</li>

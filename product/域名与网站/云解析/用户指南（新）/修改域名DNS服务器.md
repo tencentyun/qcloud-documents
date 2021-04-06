@@ -7,13 +7,12 @@
 
 ### 查看 DNS 服务器
 您可以通过以下步骤查看 DNS 服务器是否正确：
-1. 登录 [腾讯云控制台](https://console.cloud.tencent.com/)，选择 “云产品 > 域名与网站 > DNS 解析 DNSPod”，进入 “域名解析列表” 页面。
-2. 选择需要查看的域名，进入该域名的管理页面。
-3. 选择 “记录管理” 页签。若存在如下提示，说明 DNS 服务器不正确。您可复制页面提供的 DNS 地址到该域名的管理页面进行修改。如下图所示：
-![](https://main.qcloudimg.com/raw/b00e50bead0b36ec57559b779d364d7c.png)
+1. 登录 [DNS 解析 DNSPod 控制台](https://console.cloud.tencent.com/cns)，选择需要查看的域名，单击【解析】，进入该域名的管理页面。
+2. 选择 “记录管理” 页签。若存在如下提示，说明 DNS 服务器不正确。您可复制页面提供的 DNS 地址到该域名的管理页面进行修改。如下图所示：
+![](https://main.qcloudimg.com/raw/0165f8c5de242de9deefae452750c626.png)
 >!不同解析套餐对应的 DNS 地址不同，请参考 [各个套餐对应的 DNS 服务器地址](https://cloud.tencent.com/document/product/302/9070)。
 
-### 腾讯云注册域名修改 DNS
+### 腾讯云注册域名修改 DNS[](id:serverAddress)
 如果域名在腾讯云注册，或者已转入腾讯云，可以通过以下步骤修改 DNS 服务器：
 1. 登录 [腾讯云域名注册控制台](https://console.cloud.tencent.com/domain/)，进入 “我的域名” 页面。
 2. 选择待修改 DNS 的域名，单击【管理】。如下图所示：

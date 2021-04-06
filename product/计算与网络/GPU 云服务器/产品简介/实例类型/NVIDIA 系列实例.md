@@ -511,7 +511,9 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 </table>
 
 
->?**vGPU**：GN7 实例簇支持 vGPU 的实例类型。vGPU 的类型为 vComputeServer，只支持 CUDA 计算 API。
+>?**vGPU**：
+>- GN7 实例簇支持 vGPU 的实例类型。vGPU 的类型为 vComputeServer，只支持 CUDA 计算 API。
+>- vCS 实例需安装 GRID 驱动，且 vCS 的实例不支持 Windows 操作系统。
 
 
 ## 计算型 GN6/GN6S 

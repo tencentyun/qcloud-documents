@@ -13,7 +13,7 @@
 3. 选择左侧菜单栏中的【存储】>【StorageClass】，进入 “StorageClass” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/9e4085b33612d7c234c9e868d941e561.png)
 4. 单击【新建】进入“新建StorageClass” 页面，参考以下信息进行创建。如下图所示：
-![](https://main.qcloudimg.com/raw/0ec304e86847fbb976e627f97a8c0f80.png)
+![](https://main.qcloudimg.com/raw/e3984211f83d506aa1116ffc39f47747.png)
 主要参数信息如下：
 	- **名称**：自定义，本文以 `cbs-test` 为例。
 	- **Provisioner**：选择【云硬盘CBS】。

@@ -55,7 +55,7 @@ dependencies {
 >!
  - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
  - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成其他服务接入点域名配置。
-   在 Androidanifest 文件 application 标签内添加以下元数据：
+   在 AndroidManifest 文件 application 标签内添加以下元数据：
 ```
 <application>
 	// 其他安卓组件
@@ -103,7 +103,8 @@ dependencies {
 1. 创建或打开 Android 工程。
 2. 将移动推送 TPNS  SDK 目录下的 libs 目录所有 .jar 文件拷贝到工程的 libs（或 lib）目录下。
 3. .so 文件是移动推送 TPNS 必须的组件，支持 armeabi、armeabi-v7a、arm64-v8a、mips、mips64、x86、x86_64平台，请根据自己当前 .so 支持的平台添加
-4. 打开 Androidmanifest.xml，添加以下配置（建议参考下载包的 Demo 修改），其中 YOUR_ACCESS_ID 和YOUR_ACCESS_KEY 替换为 App 对应的 AccessId 和 AccessKey，请确保按照要求配置，否则可能导致服务不能正常使用。
+4. 打开 AndroidManifest.xml，添加以下配置（建议参考下载包 Demo 中的 Merged Manifest 修改），其中 “APP的AccessId ” 和 “APP的AccessKey” 替换为 App 对应的 AccessId 和 AccessKey，请确保按照要求配置，否则可能导致服务不能正常使用。
+
 
 #### 权限配置
 
@@ -272,7 +273,7 @@ dependencies {
 >!
  - 如果您的应用服务接入点为广州，SDK 默认实现该配置。
  - 如果您的应用服务接入点为上海、新加坡或中国香港，请按照下文步骤完成其他服务接入点域名配置。
-   在 Androidanifest 文件 application 标签内添加以下元数据：
+   在 AndroidManifest 文件 application 标签内添加以下元数据：
 ```
 <application>
 	// 其他安卓组件
@@ -318,7 +319,7 @@ XGPushManager.registerPush(this, new XGIOperateCallback() {
 过滤 "TPush" 注册成功的日志如下：
 
 ```xml
-XG register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
+TPNS register push success with token : 6ed8af8d7b18049d9fed116a9db9c71ab44d5565
 ```
 
 

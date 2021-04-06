@@ -1,7 +1,7 @@
 
 ## 导出：wj-export
 导出组件提供了视频导出的功能，内部复用了`wj-player`，针对小程序导出进行了专门处理。
->!受微信 Android 客户端 7.0.19 与 7.0.20 版本策略影响，导出表现偏慢，预计在11月底的版本修复。
+
 
 ### 使用方式
 1. 配置 JSON 文件：
@@ -13,8 +13,8 @@
     }
 ```
 2. 在 wxml 中引入组件：
-```wxml
-  <export
+```
+<export
       tracks="{{tracks}}"
       bindprogress="handleProgress"
       bindexportsuccess="handleExportSuccess"
@@ -25,7 +25,7 @@
       quality="{{quality}}"
       showloading="{{showloading}}">
       <button bindTap="startExport">导出视频</button>
-  </export>
+</export>
 ```
 
 ### 属性说明
