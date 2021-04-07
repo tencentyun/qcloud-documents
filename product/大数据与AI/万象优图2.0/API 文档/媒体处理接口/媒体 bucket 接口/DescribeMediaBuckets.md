@@ -28,44 +28,16 @@ Content-Type: application/xml
 
 #### 请求参数
 
-<table>
-   <tr>
-      <th nowrap="nowrap">名称</th>
-      <th>类型</th>
-      <th>描述</th>
-      <th>是否必选</th>
-   </tr>
-   <tr>
-      <td>regions</td>
-      <td>string</td>
-      <td>地域信息，以“,”分隔字符串，支持 ap-shanghai、ap-beijing</td>
-      <td>否</td>
-   </tr>
-   <tr>
-      <td>bucketNames</td>
-      <td>string</td>
-      <td>存储桶名称，以“,”分隔，支持多个存储桶，精确搜索</td>
-      <td>否</td>
-   </tr>
-   <tr>
-      <td>bucketName</td>
-      <td>string</td>
-      <td>存储桶名称前缀，前缀搜索</td>
-      <td>否</td>
-   </tr>
-   <tr>
-      <td>pageNumber</td>
-      <td>string</td>
-      <td>第几页</td>
-      <td>否</td>
-   </tr>
-   <tr>
-      <td>pageSize</td>
-      <td>string</td>
-      <td>每页个数</td>
-      <td>否</td>
-   </tr>
-</table>
+
+
+| 名称        |  描述                     | 类型   |是否必选 |
+| :---------- | :----- | :------------------ | :------- |
+| regions     |  地域信息，例如 ap-shanghai、ap-beijing，若查询多个地域以“,”分隔字符串，支持中国大陆地域，详情请参见 [地域与域名](https://cloud.tencent.com/document/product/460/31066) |string |  否    |
+| bucketNames | 存储桶名称，以“,”分隔，支持多个存储桶，精确搜索  |string |否 |
+| bucketName  | 存储桶名称前缀，前缀搜索        |string |  否       |
+| pageNumber  | 第几页                  |  string |否       |
+| pageSize    | 每页个数                | string | 否       |
+
 
 ## 响应
 
@@ -147,19 +119,19 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
 
 
 <Response>
-    <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhf****</RequestId>
-    <TotalCount>1</TotalCount>
-    <PageNumber>1</PageNumber>
-    <PageSize>10</PageSize>
-    <MediaBucketList>
-        <BucketId></BucketId>
-        <Region></Region>
-        <CreateTime></CreateTime>
-    </MediaBucketList>
-    <MediaBucketList>
-        <BucketId></BucketId>
-        <Region></Region>
-        <CreateTime></CreateTime>
-    </MediaBucketList>
+      <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzhf****</RequestId>
+      <TotalCount>1</TotalCount>
+      <PageNumber>1</PageNumber>
+      <PageSize>10</PageSize>
+      <MediaBucketList>
+            <BucketId></BucketId>
+            <Region></Region>
+            <CreateTime></CreateTime>
+      </MediaBucketList>
+      <MediaBucketList>
+            <BucketId></BucketId>
+            <Region></Region>
+            <CreateTime></CreateTime>
+      </MediaBucketList>
 </Response>
 ```
