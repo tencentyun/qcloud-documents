@@ -17,7 +17,7 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 您可以登录 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCSimpleDemo) 获取本文档相关的示例代码。
 ![](https://main.qcloudimg.com/raw/6604e9db461b459916f8fb5f7e0760d4.png)
 
->?如果访问 Github 较慢，您也可以直接下载 [TXLiteAVSDK_TRTC_Android_latest.zip](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.zip)。
+>?如果访问 Github 较慢，您也可以直接下载 [TXLiteAVSDK_TRTC_Android_latest.zip](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Android_latest.zip)。
 
 ## 操作步骤
 [](id:step1)
@@ -98,7 +98,7 @@ public void onError(int errCode, String errMsg, Bundle extraInfo) {
 
 [](id:step4)
 ### 步骤4：组装进房参数 TRTCParams
-在调用 [enterRoom()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#abfc1841af52e8f6a5f239a846a1e5d5c) 接口时需要填写一个关键参数 [TRTCParams](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#a674b3c744a0522802d68dfd208763b59)，该参数包含的必填字段如下表所示。
+在调用 [enterRoom()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#abfc1841af52e8f6a5f239a846a1e5d5c) 接口时需要填写一个关键参数 [TRTCParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#a674b3c744a0522802d68dfd208763b59)，该参数包含的必填字段如下表所示。
 
 | 参数名称 | 字段类型 | 补充说明 |填写示例 | 
 |---------|---------|---------|---------|
@@ -111,12 +111,12 @@ public void onError(int errCode, String errMsg, Bundle extraInfo) {
 
 [](id:step5)
 ### 步骤5：主播端开启摄像头预览和麦克风采音
-1. 主播端调用 [startLocalPreview()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a84098740a2e69e3d1f02735861614116) 可以开启本地的摄像头预览，SDK 会向系统请求摄像头使用权限。
-2. 主播端调用 [setLocalViewFillMode()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#af36ab721c670e5871e5b21a41518b51d) 可以设定本地视频画面的显示模式：
+1. 主播端调用 [startLocalPreview()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a84098740a2e69e3d1f02735861614116) 可以开启本地的摄像头预览，SDK 会向系统请求摄像头使用权限。
+2. 主播端调用 [setLocalViewFillMode()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#af36ab721c670e5871e5b21a41518b51d) 可以设定本地视频画面的显示模式：
  - Fill 模式表示填充，画面可能会被等比放大和裁剪，但不会有黑边。
  - Fit 模式表示适应，画面可能会等比缩小以完全显示其内容，可能会有黑边。
-3. 主播端调用 [setVideoEncoderParam()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ae047d96922cb1c19135433fa7908e6ce) 接口可以设定本地视频的编码参数，该参数将决定房间里其他用户观看您的画面时所感受到的 [画面质量](https://cloud.tencent.com/document/product/647/32236)。
-4. 主播端调用 [startLocalAudio()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a9428ef48d67e19ba91272c9cf967e35e) 开启麦克风，SDK 会向系统请求麦克风使用权限。
+3. 主播端调用 [setVideoEncoderParam()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ae047d96922cb1c19135433fa7908e6ce) 接口可以设定本地视频的编码参数，该参数将决定房间里其他用户观看您的画面时所感受到的 [画面质量](https://cloud.tencent.com/document/product/647/32236)。
+4. 主播端调用 [startLocalAudio()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a9428ef48d67e19ba91272c9cf967e35e) 开启麦克风，SDK 会向系统请求麦克风使用权限。
 
 ```java
 //示例代码：发布本地的音视频流
@@ -135,22 +135,22 @@ mTRTCCloud.startLocalAudio();
 [](id:step6)
 ### 步骤6：主播端设置美颜效果
 
-1. 主播端调用 [getBeautyManager()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3fdfeb3204581c27bbf1c8b5598714fb) 可以获取美颜设置接口 [TXBeautyManager](http://doc.qcloudtrtc.com/group__TXBeautyManager__android.html#classcom_1_1tencent_1_1liteav_1_1beauty_1_1TXBeautyManager)。
-2. 主播端调用 [setBeautyStyle()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a46ffe2b60f916a87345fb357110adf10) 可以设置美颜风格：
+1. 主播端调用 [getBeautyManager()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a3fdfeb3204581c27bbf1c8b5598714fb) 可以获取美颜设置接口 [TXBeautyManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__android.html#classcom_1_1tencent_1_1liteav_1_1beauty_1_1TXBeautyManager)。
+2. 主播端调用 [setBeautyStyle()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a46ffe2b60f916a87345fb357110adf10) 可以设置美颜风格：
  - Smooth：光滑，效果比较明显，类似网红风格。
  - Nature：自然，磨皮算法更多地保留了面部细节，主观感受上会更加自然。
  - Pitu ：仅 [企业版](https://cloud.tencent.com/document/product/647/32689#Enterprise) 才支持。
-3. 主播端调用 [setBeautyLevel()](http://doc.qcloudtrtc.com/group__TXBeautyManager__android.html#a7f388122cf319218b629fb8e192a2730) 可以设置磨皮的级别，一般设置为5即可。
-4. 主播端调用 [setWhitenessLevel()](http://doc.qcloudtrtc.com/group__TXBeautyManager__android.html#aa4e57d02a4605984f4dc6d3508987746) 可以设置美白级别，一般设置为5即可。
+3. 主播端调用 [setBeautyLevel()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__android.html#a7f388122cf319218b629fb8e192a2730) 可以设置磨皮的级别，一般设置为5即可。
+4. 主播端调用 [setWhitenessLevel()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__android.html#aa4e57d02a4605984f4dc6d3508987746) 可以设置美白级别，一般设置为5即可。
 
 
 [](id:step7)
 ### 步骤7：主播端创建房间并开始推流
-1. 主播端设置 [TRTCParams](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#a674b3c744a0522802d68dfd208763b59) 中的字段`role`为 **`TRTCCloudDef.TRTCRoleAnchor`**，表示当前用户的角色为主播。
-2. 主播端调用 [enterRoom()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#abfc1841af52e8f6a5f239a846a1e5d5c) 即可创建 TRTCParams 参数中字段`roomId`的值为房间号的音视频房间，并指定**`appScene`**参数：
+1. 主播端设置 [TRTCParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#a674b3c744a0522802d68dfd208763b59) 中的字段`role`为 **`TRTCCloudDef.TRTCRoleAnchor`**，表示当前用户的角色为主播。
+2. 主播端调用 [enterRoom()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#abfc1841af52e8f6a5f239a846a1e5d5c) 即可创建 TRTCParams 参数中字段`roomId`的值为房间号的音视频房间，并指定**`appScene`**参数：
  - TRTCCloudDef.TRTC_APP_SCENE_LIVE：视频互动直播模式，本文以该模式为例。
  - TRTCCloudDef.TRTC_APP_SCENE_VOICE_CHATROOM：语音互动直播模式。
-3. 房间创建成功后，主播端开始音视频数据的编码和传输流程。同时，SDK 会回调 [onEnterRoom(result)](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#abf0525c3433cbd923fd1f13b42c416a2)  事件，参数`result`大于0时表示进房成功，具体数值为加入房间所消耗的时间，单位为毫秒（ms）；当`result`小于0时表示进房失败，具体数值为进房失败的错误码。
+3. 房间创建成功后，主播端开始音视频数据的编码和传输流程。同时，SDK 会回调 [onEnterRoom(result)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#abf0525c3433cbd923fd1f13b42c416a2)  事件，参数`result`大于0时表示进房成功，具体数值为加入房间所消耗的时间，单位为毫秒（ms）；当`result`小于0时表示进房失败，具体数值为进房失败的错误码。
 
 ```java
 public void enterRoom() {
@@ -174,19 +174,19 @@ public void onEnterRoom(long result) {
 
 [](id:step8)
 ### 步骤8：观众端进入房间观看直播
-1. 观众端设置 [TRTCParams](http://doc.qcloudtrtc.com/group__TRTCCloudDef__android.html#a674b3c744a0522802d68dfd208763b59) 中的字段`role`为**`TRTCCloudDef.TRTCRoleAudience`**，表示当前用户的角色为观众。
-2. 观众端调用 [enterRoom()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#abfc1841af52e8f6a5f239a846a1e5d5c) 即可进入 TRTCParams 参数中`roomId`代指的音视频房间，并指定**`appScene`**参数：
+1. 观众端设置 [TRTCParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__android.html#a674b3c744a0522802d68dfd208763b59) 中的字段`role`为**`TRTCCloudDef.TRTCRoleAudience`**，表示当前用户的角色为观众。
+2. 观众端调用 [enterRoom()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#abfc1841af52e8f6a5f239a846a1e5d5c) 即可进入 TRTCParams 参数中`roomId`代指的音视频房间，并指定**`appScene`**参数：
  - TRTCCloudDef.TRTC_APP_SCENE_LIVE：视频互动直播模式，本文以该模式为例。
  - TRTCCloudDef.TRTC_APP_SCENE_VOICE_CHATROOM：语音互动直播模式。
 3. 观看主播的画面：
- - 如果观众端事先知道主播的 userId，直接在进房成功后使用主播`userId`调用 [startRemoteView(userId, view)](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a57541db91ce032ada911ea6ea2be3b2c) 即可显示主播的画面。
- - 如果观众端不知道主播的 userId，观众端在进房成功后会收到 [onUserVideoAvailable()](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#ac1a0222f5b3e56176151eefe851deb05) 事件通知，使用回调中获取的主播`userId`调用 [startRemoteView(userId, view)](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a57541db91ce032ada911ea6ea2be3b2c) 便可显示主播的画面。
+ - 如果观众端事先知道主播的 userId，直接在进房成功后使用主播`userId`调用 [startRemoteView(userId, view)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a57541db91ce032ada911ea6ea2be3b2c) 即可显示主播的画面。
+ - 如果观众端不知道主播的 userId，观众端在进房成功后会收到 [onUserVideoAvailable()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#ac1a0222f5b3e56176151eefe851deb05) 事件通知，使用回调中获取的主播`userId`调用 [startRemoteView(userId, view)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a57541db91ce032ada911ea6ea2be3b2c) 便可显示主播的画面。
 
 [](id:step9)
 ### 步骤9：观众跟主播连麦
-1. 观众端调用 [switchRole(TRTCCloudDef.TRTCRoleAnchor)](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a915a4b3abca0e41f057022a4587faf66) 将角色切换为主播（TRTCCloudDef.TRTCRoleAnchor）。
-2. 观众端调用 [startLocalPreview()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a84098740a2e69e3d1f02735861614116) 可以开启本地的画面。
-3. 观众端调用 [startLocalAudio()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a9428ef48d67e19ba91272c9cf967e35e) 开启麦克风采音。
+1. 观众端调用 [switchRole(TRTCCloudDef.TRTCRoleAnchor)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a915a4b3abca0e41f057022a4587faf66) 将角色切换为主播（TRTCCloudDef.TRTCRoleAnchor）。
+2. 观众端调用 [startLocalPreview()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a84098740a2e69e3d1f02735861614116) 可以开启本地的画面。
+3. 观众端调用 [startLocalAudio()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a9428ef48d67e19ba91272c9cf967e35e) 开启麦克风采音。
 
 ```java
 //示例代码：观众上麦
@@ -206,10 +206,10 @@ mTrtcCloud.stopLocalPreview();
 
 TRTC 中两个不同音视频房间中的主播，可以在不退出原来的直播间的场景下，通过“跨房通话”功能拉通连麦通话功能进行“跨房连麦 PK”。
 
-1. 主播 A 调用 [connectOtherRoom()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#ac1ab7e4a017b99bb91d89ce1b0fac5fd) 接口，目前接口参数采用 JSON 格式，需要将主播 B 的`roomId`和`userId`拼装成格式为`{"roomId": "978","userId": "userB"}`的参数传递给接口函数。
-2. 跨房成功后，主播 A 会收到 [onConnectOtherRoom()](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#ac9fd524ab9de446f4aaf502f80859e95)  事件回调。同时，两个直播房间里的所有用户均会收到 [onUserVideoAvailable()](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#ac1a0222f5b3e56176151eefe851deb05)  和 [onUserAudioAvailable()](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#ac474bbf919f96c0cfda87c93890d871f) 事件通知。
+1. 主播 A 调用 [connectOtherRoom()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ac1ab7e4a017b99bb91d89ce1b0fac5fd) 接口，目前接口参数采用 JSON 格式，需要将主播 B 的`roomId`和`userId`拼装成格式为`{"roomId": "978","userId": "userB"}`的参数传递给接口函数。
+2. 跨房成功后，主播 A 会收到 [onConnectOtherRoom()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#ac9fd524ab9de446f4aaf502f80859e95)  事件回调。同时，两个直播房间里的所有用户均会收到 [onUserVideoAvailable()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#ac1a0222f5b3e56176151eefe851deb05)  和 [onUserAudioAvailable()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#ac474bbf919f96c0cfda87c93890d871f) 事件通知。
  例如，当房间“001”中的主播 A 通过`connectOtherRoom()`与房间“002”中的主播 B 拉通跨房通话后， 房间“001”中的用户会收到主播 B 的`onUserVideoAvailable(B, true)`回调和`onUserAudioAvailable(B, true)`回调。 房间“002”中的用户会收到主播 A 的`onUserVideoAvailable(A, true)` 回调和`onUserAudioAvailable(A, true)`回调。
-3. 两个房间里的用户通过调用 [startRemoteView(userId, view)](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a57541db91ce032ada911ea6ea2be3b2c) 即可显示另一房间里主播的画面，声音会自动播放。
+3. 两个房间里的用户通过调用 [startRemoteView(userId, view)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a57541db91ce032ada911ea6ea2be3b2c) 即可显示另一房间里主播的画面，声音会自动播放。
 
 ```java
 //示例代码：跨房连麦 PK
@@ -219,7 +219,7 @@ mTRTCCloud.ConnectOtherRoom(String.format("{\"roomId\":%s,\"userId\":\"%s\"}", r
 [](id:step11)
 ### 步骤11：退出当前房间
 
-调用 [exitRoom()](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a41d16a97a9cb8f16ef92f5ef5bfebee1) 方法退出房间，SDK 在退房时需要关闭和释放摄像头、麦克风等硬件设备，因此退房动作并非瞬间完成的，需收到 [onExitRoom()](http://doc.qcloudtrtc.com/group__TRTCCloudListener__android.html#ad5ac26478033ea9c0339462c69f9c89e) 回调后才算真正完成退房操作。
+调用 [exitRoom()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a41d16a97a9cb8f16ef92f5ef5bfebee1) 方法退出房间，SDK 在退房时需要关闭和释放摄像头、麦克风等硬件设备，因此退房动作并非瞬间完成的，需收到 [onExitRoom()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudListener__android.html#ad5ac26478033ea9c0339462c69f9c89e) 回调后才算真正完成退房操作。
 
 ```java
 // 调用退房后请等待 onExitRoom 事件回调
