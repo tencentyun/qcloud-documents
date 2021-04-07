@@ -14,7 +14,7 @@
 
 ## 应用内分享
 
-应用内分享的方案非常简单，只需要调用 TRTC SDK 提供的接口 [startScreenCaptureInApp](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a5dbd40c4ad65152e85591c8535b4ee90) 并传入编码参数`TRTCVideoEncParam` 即可。该参数可以设置为 nil，此时 SDK 会沿用开始屏幕分享之前的编码参数。
+应用内分享的方案非常简单，只需要调用 TRTC SDK 提供的接口 [startScreenCaptureInApp](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a16d30ca3f89863da2581ff3872bf31f0) 并传入编码参数`TRTCVideoEncParam` 即可。该参数可以设置为 nil，此时 SDK 会沿用开始屏幕分享之前的编码参数。
 
 我们推荐的用于 iOS 屏幕分享的编码参数是：
 
