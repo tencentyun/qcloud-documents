@@ -1,7 +1,7 @@
 ## 前提条件
 注册企业账号，并完成实名认证。
 
-如过还未完成以上操作，可参考 [企业实名认证指引](https://cloud.tencent.com/document/product/378/10496) 完成操作。
+如果还未完成以上操作，可参考 [企业实名认证指引](https://cloud.tencent.com/document/product/378/10496) 完成操作。
 
 ## 接入流程
 
