@@ -1,6 +1,6 @@
 ## 功能描述
 
-DescribeMediaBuckets 接口用于查询已经开通媒体处理功能的 Bucket。
+DescribeMediaBuckets 接口用于查询已经开通媒体处理功能的存储桶。
 
 ## 请求
 
@@ -38,7 +38,7 @@ Content-Type: application/xml
    <tr>
       <td>regions</td>
       <td>string</td>
-      <td>地域信息，以“,”分隔字符串，支持 All、ap-shanghai、ap-beijing</td>
+      <td>地域信息，以“,”分隔字符串，支持 ap-shanghai、ap-beijing</td>
       <td>否</td>
    </tr>
    <tr>
@@ -127,7 +127,7 @@ Container 节点 MediaBucketList 的内容：
 ```shell
 GET /mediabucket HTTP/1.1
 Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
-Host:ci.ap-beijing.myqcloud.com
+Host: ci.ap-beijing.myqcloud.com
 Content-Length: 0
 Content-Type: application/xml
 
