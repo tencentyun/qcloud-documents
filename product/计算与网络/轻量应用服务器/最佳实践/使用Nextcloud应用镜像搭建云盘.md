@@ -18,10 +18,10 @@ Nextcloud 是一款开源免费的云存储网盘软件，您可使用它快速�
 2. [](id:Step2)在“应用内软件信息”栏中，单击 <img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png" style="margin:-3px 0px">，复制获取 Nextcloud 管理员密码的命令。如下图所示：
 ![](https://main.qcloudimg.com/raw/d4db12317869c9dc61f795de3a52a0b6.png)
 3. 在“应用内软件信息”栏中，单击【登录】。
-4. 在弹出的登录窗口中，粘贴并执行 [步骤3](#Step3) 获取的命令，按 **Enter**。
+4. 在弹出的登录窗口中，粘贴并执行 [步骤2](#Step2) 获取的命令，按 **Enter**。
 5. [](id:Step5)记录返回结果中的 Nextcloud 管理员名与密码（即 “nextcloud_username” 和 “nextcloud_password” 值）。如下图所示：
 ![](https://main.qcloudimg.com/raw/894a91340f457a5a2ebd9cc0044f30e7.png)
-7. 使用浏览器访问“应用内软件信息”中的“首页地址”，输入 [步骤6](#Step6) 获取的用户名与密码，并单击【登录】。如下图所示：
+7. 使用浏览器访问“应用内软件信息”中的“首页地址”，输入 [步骤5](#Step5) 获取的用户名与密码，并单击【登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/2705040ce2e1cd3416ac716f5b7d0a70.png)
 登录成功后，即可开始使用共享云同步网盘。
 
