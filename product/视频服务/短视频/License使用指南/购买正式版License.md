@@ -15,8 +15,8 @@ SDK 版本 License 与您需要购买的点播套餐包对应关系如下：
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | [精简版 SDK（UGC_Smart）](https://cloud.tencent.com/document/product/584/9366#sdk) | 点播流量资源包 10TB                                          |
 | [基础版 SDK（UGC）](https://cloud.tencent.com/document/product/584/9366#sdk) | [点播流量资源包 50TB 或 200TB](https://buy.cloud.tencent.com/vod?t=ugsv&from=console-license-bottom-ugsv) |
-| [企业版 SDK（UGC_Enterprise）](https://cloud.tencent.com/document/product/584/9366#sdk) | 请参见 [申请企业版本 License](https://cloud.tencent.com/document/product/584/20333#enterpriseli) |
-| [企业版 Pro SDK（EnterprisePro）](https://cloud.tencent.com/document/product/584/9366#sdk) | 请参见 [申请企业版本 License](https://cloud.tencent.com/document/product/584/20333#enterpriseli) |
+| [企业版 SDK（UGC_Enterprise）](https://cloud.tencent.com/document/product/584/9366#sdk) | 请参见 [申请企业版本 License](#enterpriseli) |
+| [企业版 Pro SDK（EnterprisePro）](https://cloud.tencent.com/document/product/584/9366#sdk) | 请参见 [申请企业版本 License](3#enterpriseli) |
 
 [](id:add)
 ## 新增短视频 License
@@ -51,7 +51,7 @@ SDK 版本 License 与您需要购买的点播套餐包对应关系如下：
 #### 示例
 用户购买流量资源包10TB（赠送精简版 License），如需升级至基础版 License，则控制台需要存在50TB或200TB资源包。
 
-[](id:pro)
+[](id:pro)[](id:enterpriseli)
 ## 企业版本 License
 
 相比于基础版，企业版增加了基于腾讯优图实验室专利技术的人脸特效功能。使用企业版 License 可以开启优图实验室的 AI 功能。
