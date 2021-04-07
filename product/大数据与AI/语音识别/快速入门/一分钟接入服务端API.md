@@ -128,8 +128,3 @@ client.DescribeZones().then(
 ```
 实例化 Client 的入参支持 clientConfig 数据结构和说明，详请可参见 [ClientConfig](https://github.com/TencentCloud/tencentcloud-sdk-nodejs/blob/master/src/common/interface.ts)。
 
-### 注意事项
-#### 代理
-如果是有代理的环境下，需要设置系统环境变量 https_proxy ，否则可能无法正常调用，抛出连接超时的异常。
-#### 旧版 SDK
-我们推荐使用新版 NODEJS SDK，如果一定要用旧版 SDK，请前往 [github 仓库](https://github.com/CFETeam/qcloudapi-sdk) 下载。
