@@ -1,5 +1,6 @@
 ## 操作场景
 如果您需要授权指定 CA 机构为您的域名签发 SSL 证书，以防止 SSL 证书错误签发，则需要添加 CAA 记录。本文档指导您如何添加 CAA 记录。
+>!CAA 解析记录请前往 [DNSPod 管理控制台](https://console.dnspod.cn/dns/list) 进行设置。
 
 ## 操作步骤
 1. 登录 [DNSPod 管理控制台](https://console.dnspod.cn/dns/list)。
