@@ -30,7 +30,7 @@
  - 若获取方式选择【列表拉取】，则选择好地域后，可直接在列表获取选择一个或多个 CVM。
 ![](https://main.qcloudimg.com/raw/9aa0ff851abe1af2c8c1fb79e4c5f4d3.png)
  - 若获取方式选择【手动输入】，则用户可以在文本框输入一个或多个实例 IP 来添加 CVM。
-![](https://main.qcloudimg.com/raw/4d4143756cb4f0a742c7a802bbfe15d6.png)
+![](https://main.qcloudimg.com/raw/08974b52498cfe20a916eb2c56ed5efb.png)
 
 #### 步骤2：部署 agent 
 在 agent 部署页面，展示了上一步已选择的 CVM 和其 agent 状态。
