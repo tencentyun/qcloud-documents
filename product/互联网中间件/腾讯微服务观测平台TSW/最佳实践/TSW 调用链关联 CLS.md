@@ -61,4 +61,4 @@
 日志配置界面如下：
 ![](https://main.qcloudimg.com/raw/a722931c37d21f250db8984e43acd3e0.png)
 2. 在 TSW 控制台的【链路追踪】>【[调用链查询](https://console.cloud.tencent.com/tsw/trace)】中，展开任意 Trace，即可通过日志 icon 跳转到对应的业务日志。在各请求列表中，您也可以直接跳转到对应 Trace 的日志。
-	 ![](https://main.qcloudimg.com/raw/f87186d5737e3ef4c7c424d0a98598e0.png)
+![](https://main.qcloudimg.com/raw/079ed56b5a99c03e218eadb11aad1e2e.png)
