@@ -290,7 +290,7 @@ function(res) {
 | ----------- | ---------- | ------------------------------------------------------------ |
 | code        | number     | 0：success；1：ack dataChannel 未创建成功，请重试；2：该数据通道已经存在 |
 | msg         | string     | 回传的 message 信息                                          |
-| sendMessage | function   | 用于发送 message 的方法，params any                          |
+| sendMessage | function   | 用于发送 message 的方法，参数类型为 any，SDK 只负责提供数据透传能力 |
 
 ### TCGSDK.setRemoteDesktopResolution({width, height})
 
