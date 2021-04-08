@@ -5,8 +5,8 @@
 2. 以 sysadmin 账号登录数据安全审计管理页面，在左侧导航栏中，选择【Agent 管理】>【Agent 配置】，即可进入 Agent 配置页面。
 >?如忘记登录密码，可以 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=517&level2_id=727&source=0&data_title=%E5%85%B6%E4%BB%96%E8%85%BE%E8%AE%AF%E4%BA%91%E4%BA%A7%E5%93%81&level3_id=729&radio_title=%E6%95%85%E9%9A%9C%E6%8E%92%E6%9F%A5&queue=15&scene_code=17784&step=2) 找回密码。 
 > 
-4. Agent 部署。在 Agent 配置页面，单击【配置 Agent】，可配置审计 Agent 的各类参数并提供下载链接。
-5. 配置 Agent。配置 Agent 用于展示所有已正确安装且能实现 DSA 实例网络互通的 Agent 信息。
+3. Agent 部署。在 Agent 配置页面，单击【配置 Agent】，可配置审计 Agent 的各类参数并提供下载链接。
+4. 配置 Agent。配置 Agent 用于展示所有已正确安装且能实现 DSA 实例网络互通的 Agent 信息。
 ![](https://main.qcloudimg.com/raw/ea099f2ea5c41c023c6ee52a0e1faa71.png)
 列表各字段含义如下：
 	- 审计服务 IP： Agent 回传数据的源 IP。
