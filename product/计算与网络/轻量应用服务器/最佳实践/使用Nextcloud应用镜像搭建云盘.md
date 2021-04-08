@@ -1,5 +1,5 @@
 ## 操作场景
-Nextcloud 是一款开源免费的云存储网盘软件，您可使用它快速便捷地搭建一套属于自己或团队共享的云同步网盘，实现跨平台跨设备文件同步、共享、版本控制、团队协作等功能。Nextcloud 19.0 腾讯云插件版镜像基于 CentOS 7.6 64位操作系统，已预置 Nginx、MariaDB、PHP 软件，同时 Nextcloud 软件还集成了腾讯云对象存储（COS）插件。
+Nextcloud 是一款开源免费的云存储网盘软件，您可使用它快速便捷地搭建一套属于自己或团队共享的云同步网盘，实现跨平台跨设备文件同步、共享、版本控制、团队协作等功能。Nextcloud 19.0 腾讯云插件版镜像基于 CentOS 7.6 64位操作系统，已预置 Nginx、MariaDB、PHP 软件，同时还集成了腾讯云对象存储（COS）插件。
 
 ## 操作步骤
 ### 使用 Nextcloud 镜像创建实例
@@ -10,7 +10,7 @@ Nextcloud 是一款开源免费的云存储网盘软件，您可使用它快速�
 ### 安装 Nextcloud
 1. 在“服务器”页面中，选择并进入实例详情页。
 2. 在“应用内软件信息”栏中获取“面板首页地址”，并使用浏览器访问，进入 Nextcloud 页面。
-3. 在 Nextcloud 页面中，单击【安装完成】。等待片刻即可成功登录 Nextcloud。如下图所示：
+3. 在 Nextcloud 页面中，单击【安装完成】。等待片刻即可成功安装 Nextcloud。如下图所示：
 ![](https://main.qcloudimg.com/raw/9c4a87e7ab935ff5cb3ae392e3bba4be.png)
 
 ### 使用 Nextcloud
