@@ -15,7 +15,7 @@ CAA 记录的格式为：[flag] [tag] [value]，是由一个标志字节的 [fla
 <table>
 <thead>
 <tr>
-<th>字段</th>
+<th width="10%">字段</th>
 <th>说明</th>
 </tr>
 </thead>
@@ -36,7 +36,7 @@ tag 字段说明：
 <table>
 <thead>
 <tr>
-<th>字段</th>
+<th width="10%">字段</th>
 <th>说明</th>
 </tr>
 </thead>
@@ -57,5 +57,4 @@ tag 字段说明：
  - **MX 优先级**：不需要填写。
  - **TTL**：为缓存时间，数值越小，修改记录各地生效时间越快，默认为600秒。
 4. 单击【确定】，完成添加。
-
 
