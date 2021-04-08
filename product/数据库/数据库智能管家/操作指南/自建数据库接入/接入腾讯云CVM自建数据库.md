@@ -12,7 +12,7 @@
 >- 两种接入方式的功能对比请参见 [功能对比](https://cloud.tencent.com/document/product/1130/54283#jrfsgndb)。
 >- DBbrain 当前支持的腾讯云 CVM 自建数据库类型：MySQL。
 
-## agent 接入流程（推荐）
+## [agent 接入流程](id:ajrlc)
 ### 进入接入页面
 1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/instance)，在左侧导航选择【实例概览】页，在上方自建实例接入卡片中单击【快速接入】，进入自建数据库实例接入页面。
 ![](https://main.qcloudimg.com/raw/b329ffde59299d6d3990eea430d7eae0.png)
@@ -117,7 +117,7 @@ agent 状态及对应操作说明：
 5. 返回 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/instance)，进入实例管理页面，在上方选择对应的自建数据库类型，即可查看及管理接入的自建数据库。
 ![](https://main.qcloudimg.com/raw/dce74d82953dae117cb3d2201317ca9e.png)
 
-## 直连接入流程
+## [直连接入流程](id:zljrlc)
 ### 进入接入页面
 1.登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/instance)，在左侧导航选择【实例概览】页，在上方自建实例接入卡片中单击【快速接入】，进入自建数据库实例接入页面。
 ![](https://main.qcloudimg.com/raw/b329ffde59299d6d3990eea430d7eae0.png)
