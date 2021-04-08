@@ -16,7 +16,7 @@ SDK 版本 License 与您需要购买的点播套餐包对应关系如下：
 | [精简版 SDK（UGC_Smart）](https://cloud.tencent.com/document/product/584/9366#sdk) | 点播流量资源包 10TB                                          |
 | [基础版 SDK（UGC）](https://cloud.tencent.com/document/product/584/9366#sdk) | [点播流量资源包 50TB 或 200TB](https://buy.cloud.tencent.com/vod?t=ugsv&from=console-license-bottom-ugsv) |
 | [企业版 SDK（UGC_Enterprise）](https://cloud.tencent.com/document/product/584/9366#sdk) | 请参见 [申请企业版本 License](#enterpriseli) |
-| [企业版 Pro SDK（EnterprisePro）](https://cloud.tencent.com/document/product/584/9366#sdk) | 请参见 [申请企业版本 License](3#enterpriseli) |
+| [企业版 Pro SDK（EnterprisePro）](https://cloud.tencent.com/document/product/584/9366#sdk) | 请参见 [申请企业版本 License](#enterpriseli) |
 
 [](id:add)
 ## 新增短视频 License
