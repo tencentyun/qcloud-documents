@@ -1,5 +1,5 @@
 [](id:que0)
-### 关于 License 版本的相关问题？
+### 关于 License 版本问题？
 短视频 SDK 分基础版和企业版，从4.5版本开始需要 License，基础版只需要短视频的 License（TXUgcSDK.licence），企业版还同时需要 Pitu 的 License（YTFaceSDK.licence），把 License 放到工程目录，并修改为对应的名字即可。
 
 4.9版本开始 License 使用方式有改变，可以选择是否把 License 打包到项目中。使用时需要调用 setLicenceURL：key：接口设置 License 的 url 和 key。
