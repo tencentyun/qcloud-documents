@@ -1,7 +1,8 @@
 
 ### 如何关闭 TPNS 的保活功能？
 
-TPNS 默认开启联合保活能力，请在应用初始化的时候，例如 Application 或 LauncherActivity 的 onCreate 中调用如下接口，并传递 false 值：
+如需关闭联合保活功能，请在应用初始化的时候，例如 Application 或 LauncherActivity 的 onCreate 中调用如下接口，并传递 false 值：
+>!仅 1.1.6.0 之后版本支持关闭联合保活功能，1.1.6.0之前版本TPNS 默认开启联合保活能力，且不可关闭。
 
 ```java
 XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
@@ -103,15 +104,15 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 
 | 回调 | 抵达回调 | 点击回调 |
 |---------|---------|---------|
-| 小米 | 支持 | 支持 |
-| 魅族 | 支持 | 支持 |
-| FCM | 支持 | 支持 |
+| 小米 | 不支持 | 支持 |
+| 魅族 | 不支持 | 支持 |
+| FCM | 不支持 | 支持 |
 | 华为 | 不支持 | 支持 |
 | OPPO | 不支持 | 支持 |
 | vivo | 不支持 | 支持 |
 
 >! 厂商通道的点击回调需 SDK 版本1.2.0.1及以上版本支持；旧版本仅支持华为、小米、魅族、vivo。
-
+>
 
 
 ### 应用接入了厂商通道，但在调试过程中遇到 other push Token 为空的问题，如何解决？

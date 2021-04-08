@@ -1,4 +1,27 @@
-## Version 8.2.7 @ 2020.01.06
+## Version 8.4.1 @ 2021.03.26
+
+**功能新增**
+- Mac：开始支持采集 Mac 操作系统的输出声音[startSystemAudioLoopback](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startSystemAudioLoopback)，也就是跟 Windows 端一样的 SystemLoopback 能力，该功能可以让 SDK 采集当前系统的声音，开启这个功能后，主播就可以很方便地向其他用户直播音乐或者电影文件。
+- Mac：系统音频采集回调 [onSystemAudioLoopbackError](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onSystemAudioLoopbackError)，您可以获取系统音频驱动的运行情况。
+-  Mac：屏幕分享开始支持本地预览功能，您可以通过一个小窗口像用户展示屏幕分享的预览内容。
+- 全平台：支持美颜插件机制。
+
+**质量优化**
+- 全平台：优化 [Music](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#ga865e618ff3a81236f9978723c00e86fb) 模式下的声音质量，更加适合类似 cloubhouse 的语音直播场景。
+-  全平台：优化音视频链路的网络抗性，在 70% 的极端查网络环境下，音视频依然较为流畅。
+-  Windows：优化部分场景下的直播音质，大幅减少了声音损伤问题。
+-  Windows：性能优化，在部分使用场景下的性能较旧版本有 20%-30% 的提升。
+
+**问题修复**
+- Mac：修复 Mac mini (m1) 换到全屏分享后，再切回某个窗口，远端还是展示的全屏分享窗口的问题。
+- Mac：解决 Mac 下屏幕分享无高亮的问题（Mac 系统 11.1，10.14.5 不出现绿框；Mac 系统 10.3.2 会出现绿框，但放大窗口会闪烁)。
+-  Mac：修复 Mac mini m1 获取分享屏幕列表 crash，针对底层 sourceName 为 null 时上层返回""的问题。
+-  Mac：修复 Mac mini m1，getCurrentMicDevice 导致 crash (sourceName) 可能为空问题
+-  Windows：修复 Windows Server 2019 Datacenter x64 系统上启动桌面分享 crash 的问题。
+-  Windows：修复分享窗口的同时改变目标窗口大小会偶发分享意外终止的 BUG。
+-  Windows：修复部分型号的摄像头采集不出画面的问题。
+
+## Version 8.2.7 @ 2021.01.06
 
 **新增**
 - Windows & Mac：新增 [switchRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#switchRoom) 切换房间。

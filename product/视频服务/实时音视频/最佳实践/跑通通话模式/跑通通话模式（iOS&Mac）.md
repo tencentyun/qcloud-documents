@@ -1,6 +1,6 @@
 ## 适用场景
 TRTC 支持四种不同的进房模式，其中视频通话（VideoCall）和语音通话（VoiceCall）统称为通话模式，视频互动直播（Live）和语音互动直播（VoiceChatRoom）统称为 [直播模式](https://cloud.tencent.com/document/product/647/35429)。
-通话模式下的 TRTC，支持单个房间最多300人同时在线，支持最多30人同时发言。适合1对1视频通话、300人视频会议、在线问诊、远程面试、视频客服、在线狼人杀等应用场景。
+通话模式下的 TRTC，支持单个房间最多300人同时在线，支持最多50人同时发言。适合1对1视频通话、300人视频会议、在线问诊、远程面试、视频客服、在线狼人杀等应用场景。
 
 ## 原理解析
 TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口机”和“代理机”：
@@ -9,14 +9,14 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 - **代理机**
 该类节点都采用普通的线路和性能一般的机器，善于处理高并发的拉流观看需求，单位时长计费较低。
 
-在通话模式下，TRTC 房间中的所有用户都会被分配到接口机上，相当于每个用户都是“主播”，每个用户随时都可以发言（最高的上行并发限制为30路），因此适合在线会议等场景，但单个房间的人数限制为300人。
+在通话模式下，TRTC 房间中的所有用户都会被分配到接口机上，相当于每个用户都是“主播”，每个用户随时都可以发言（最高的上行并发限制为50路），因此适合在线会议等场景，但单个房间的人数限制为300人。
 ![](https://main.qcloudimg.com/raw/b88a624c0bd67d5d58db331b3d64c51c.gif)
 
 ## 示例代码
 您可以登录 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCSimpleDemo) 获取本文档相关的示例代码。
 ![](https://main.qcloudimg.com/raw/6baf3fba222db297fa4763d45b57b981.png)
 
->?如果访问 Github 较慢，您也可以直接下载 [TXLiteAVSDK_TRTC_iOS_latest.zip](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip)。
+>?如果访问 Github 较慢，您也可以直接下载 [TXLiteAVSDK_TRTC_iOS_latest.zip](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_iOS_latest.zip)。
 
 ## 操作步骤
 [](id:step1)
@@ -75,7 +75,7 @@ func onError(_ errCode: TXLiteAVError, errMsg: String?, extInfo: [AnyHashable : 
 
 [](id:step4)
 ### 步骤4：组装进房参数 TRTCParams
-在调用 [enterRoom()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a96152963bf6ac4bc10f1b67155e04f8d) 接口时需要填写一个关键参数 [TRTCParams](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCParams)，该参数包含的必填字段如下表所示。
+在调用 [enterRoom()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a96152963bf6ac4bc10f1b67155e04f8d) 接口时需要填写一个关键参数 [TRTCParams](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCParams)，该参数包含的必填字段如下表所示。
 
 | 参数名称 | 字段类型 | 补充说明 |填写示例 | 
 |---------|---------|---------|---------|
@@ -88,7 +88,7 @@ func onError(_ errCode: TXLiteAVError, errMsg: String?, extInfo: [AnyHashable : 
 
 [](id:step5)
 ### 步骤5：创建并进入房间
-1. 调用 [enterRoom()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a96152963bf6ac4bc10f1b67155e04f8d) 即可加入 TRTCParams 参数中`roomId`代指的音视频房间。如果该房间不存在，SDK 会自动创建一个以字段`roomId`的值为房间号的新房间。
+1. 调用 [enterRoom()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a96152963bf6ac4bc10f1b67155e04f8d) 即可加入 TRTCParams 参数中`roomId`代指的音视频房间。如果该房间不存在，SDK 会自动创建一个以字段`roomId`的值为房间号的新房间。
 2. 请根据应用场景设置合适的**`appScene`**参数，使用错误可能会导致卡顿率或画面清晰度不达预期。
  - 视频通话，请设置为`TRTCAppScene.videoCall`。
  - 语音通话，请设置为`TRTCAppScene.audioCall`。
@@ -125,13 +125,13 @@ SDK 支持自动订阅和手动订阅。
 
 #### 自动订阅模式（默认）
 在自动订阅模式下，进入某个房间之后，SDK 会自动接收房间中其他用户的音频流，从而达到最佳的“秒开”效果：
-1. 当房间中有其他用户在上行音频数据时，您会收到 [onUserAudioAvailable()](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a8c885eeb269fc3d2e085a5711d4431d5) 事件通知，SDK 会自动播放这些远端用户的声音。
-2. 您可以通过 [muteRemoteAudio(userId, mute: true)](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#afede3cc79a8d68994857b410fb5572d2) 屏蔽某一个 userId 的音频数据，也可以通过 [muteAllRemoteAudio(true)](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a75148bf8a322c852965fe774cbc7dd14) 屏蔽所有远端用户的音频数据，屏蔽后 SDK 不再继续拉取对应远端用户的音频数据。
-3. 当房间中有其他用户在上行视频数据时，您会收到 [onUserVideoAvailable()](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a533d6ea3982a922dd6c0f3d05af4ce80) 事件通知，但此时 SDK 未收到该如何展示视频数据的指令，因此不会自动处理视频数据。您需要通过调用 [startRemoteView(userId, view: view)](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#af85283710ba6071e9fd77cc485baed49) 方法将远端用户的视频数据和显示`view`关联起来。
-4. 您可以通过 [setRemoteViewFillMode()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#afda6658d1bf7dc9bc1445838b95d21ff) 指定视频画面的显示模式：
+1. 当房间中有其他用户在上行音频数据时，您会收到 [onUserAudioAvailable()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#a8c885eeb269fc3d2e085a5711d4431d5) 事件通知，SDK 会自动播放这些远端用户的声音。
+2. 您可以通过 [muteRemoteAudio(userId, mute: true)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#afede3cc79a8d68994857b410fb5572d2) 屏蔽某一个 userId 的音频数据，也可以通过 [muteAllRemoteAudio(true)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a75148bf8a322c852965fe774cbc7dd14) 屏蔽所有远端用户的音频数据，屏蔽后 SDK 不再继续拉取对应远端用户的音频数据。
+3. 当房间中有其他用户在上行视频数据时，您会收到 [onUserVideoAvailable()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#a533d6ea3982a922dd6c0f3d05af4ce80) 事件通知，但此时 SDK 未收到该如何展示视频数据的指令，因此不会自动处理视频数据。您需要通过调用 [startRemoteView(userId, view: view)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#af85283710ba6071e9fd77cc485baed49) 方法将远端用户的视频数据和显示`view`关联起来。
+4. 您可以通过 [setRemoteViewFillMode()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#afda6658d1bf7dc9bc1445838b95d21ff) 指定视频画面的显示模式：
  - Fill 模式：表示填充，画面可能会等比放大和裁剪，但不会有黑边。
  - Fit 模式：表示适应，画面可能会等比缩小以完全显示其内容，可能会有黑边。
-5. 您可以通过 [stopRemoteView(userId)](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a2b7e96e4b527798507ff743c61a6a066) 可以屏蔽某一个 userId 的视频数据，也可以通过 [stopAllRemoteView()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aaa75cd1b98c226bb7b8a19412b204d2b) 屏蔽所有远端用户的视频数据，屏蔽后 SDK 不再继续拉取对应远端用户的视频数据。
+5. 您可以通过 [stopRemoteView(userId)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a2b7e96e4b527798507ff743c61a6a066) 可以屏蔽某一个 userId 的视频数据，也可以通过 [stopAllRemoteView()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#aaa75cd1b98c226bb7b8a19412b204d2b) 屏蔽所有远端用户的视频数据，屏蔽后 SDK 不再继续拉取对应远端用户的视频数据。
 
 <dx-codeblock>
 ::: swift swift
@@ -151,20 +151,20 @@ func onUserVideoAvailable(_ userId: String, available: Bool) {
 >? 如果您在收到`onUserVideoAvailable()`事件回调后没有立即调用`startRemoteView()`订阅视频流，SDK 将会在5s内停止接收来自远端的视频数据。
 
 #### 手动订阅模式
-您可以通过 [setDefaultStreamRecvMode()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ada2e2155e0e7c3001c6bb6dca1d93048) 接口将 SDK 指定为手动订阅模式。在手动订阅模式下，SDK 不会自动接收房间中其他用户的音视频数据，需要您手动通过 API 函数触发。
+您可以通过 [setDefaultStreamRecvMode()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#ada2e2155e0e7c3001c6bb6dca1d93048) 接口将 SDK 指定为手动订阅模式。在手动订阅模式下，SDK 不会自动接收房间中其他用户的音视频数据，需要您手动通过 API 函数触发。
 
-1. 在**进房前**调用 [setDefaultStreamRecvMode(false, video: false)](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#ada2e2155e0e7c3001c6bb6dca1d93048) 接口将 SDK 设定为手动订阅模式。
-2. 当房间中有其他用户在上行音频数据时，您会收到 [onUserAudioAvailable()](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a8c885eeb269fc3d2e085a5711d4431d5) 事件通知。此时，您需要通过调用 [muteRemoteAudio(userId, mute: false)](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#afede3cc79a8d68994857b410fb5572d2) 手动订阅该用户的音频数据，SDK 会在接收到该用户的音频数据后解码并播放。
-3. 当房间中有其他用户在上行视频数据时，您会收到 [onUserVideoAvailable()](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a533d6ea3982a922dd6c0f3d05af4ce80) 事件通知。此时，您需要通过调用 [startRemoteView(userId, view: view)](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#af85283710ba6071e9fd77cc485baed49) 方法手动订阅该用户的视频数据，SDK 会在接收到该用户的视频数据后解码并播放。
+1. 在**进房前**调用 [setDefaultStreamRecvMode(false, video: false)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#ada2e2155e0e7c3001c6bb6dca1d93048) 接口将 SDK 设定为手动订阅模式。
+2. 当房间中有其他用户在上行音频数据时，您会收到 [onUserAudioAvailable()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#a8c885eeb269fc3d2e085a5711d4431d5) 事件通知。此时，您需要通过调用 [muteRemoteAudio(userId, mute: false)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#afede3cc79a8d68994857b410fb5572d2) 手动订阅该用户的音频数据，SDK 会在接收到该用户的音频数据后解码并播放。
+3. 当房间中有其他用户在上行视频数据时，您会收到 [onUserVideoAvailable()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#a533d6ea3982a922dd6c0f3d05af4ce80) 事件通知。此时，您需要通过调用 [startRemoteView(userId, view: view)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#af85283710ba6071e9fd77cc485baed49) 方法手动订阅该用户的视频数据，SDK 会在接收到该用户的视频数据后解码并播放。
 
 [](id:step7)
 ### 步骤7：发布本地的音视频流
-1. 调用 [startLocalAudio()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a3177329bc84e94727a1be97563800beb) 可以开启本地的麦克风采集，并将采集到的声音编码并发送出去。
-2. 调用 [startLocalPreview()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a3fc1ae11b21944b2f354db258438100e) 可以开启本地的摄像头，并将采集到的画面编码并发送出去。
-3. 调用 [setLocalViewFillMode()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a961596f832657bfca81fd675878a2d15) 可以设定本地视频画面的显示模式：
+1. 调用 [startLocalAudio()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a3177329bc84e94727a1be97563800beb) 可以开启本地的麦克风采集，并将采集到的声音编码并发送出去。
+2. 调用 [startLocalPreview()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a3fc1ae11b21944b2f354db258438100e) 可以开启本地的摄像头，并将采集到的画面编码并发送出去。
+3. 调用 [setLocalViewFillMode()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a961596f832657bfca81fd675878a2d15) 可以设定本地视频画面的显示模式：
  - Fill 模式表示填充，画面可能会被等比放大和裁剪，但不会有黑边。
  - Fit 模式表示适应，画面可能会等比缩小以完全显示其内容，可能会有黑边。
-4. 调用 [setVideoEncoderParam()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a57938e5b62303d705da2ceecf119d74e) 接口可以设定本地视频的编码参数，该参数将决定房间里其他用户观看您的画面时所感受到的 [画面质量](https://cloud.tencent.com/document/product/647/32236)。
+4. 调用 [setVideoEncoderParam()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a57938e5b62303d705da2ceecf119d74e) 接口可以设定本地视频的编码参数，该参数将决定房间里其他用户观看您的画面时所感受到的 [画面质量](https://cloud.tencent.com/document/product/647/32236)。
 
 <dx-codeblock>
 ::: swift swift
@@ -175,12 +175,12 @@ trtcCloud.startLocalAudio()
 :::
 </dx-codeblock>
 
->! Mac 版 SDK 默认会使用当前系统默认的摄像头和麦克风。您可以通过调用 [setCurrentCameraDevice()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aae9955bb39985586f7faba841d2692fc) 和 [setCurrentMicDevice()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a5141fec83e7f071e913bfc539c193ac6) 选择其他摄像头和麦克风。
+>! Mac 版 SDK 默认会使用当前系统默认的摄像头和麦克风。您可以通过调用 [setCurrentCameraDevice()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#aae9955bb39985586f7faba841d2692fc) 和 [setCurrentMicDevice()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a5141fec83e7f071e913bfc539c193ac6) 选择其他摄像头和麦克风。
 
 [](id:step8)
 ### 步骤8：退出当前房间
 
-调用 [exitRoom()](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a715f5b669ad1d7587ae19733d66954f3) 方法退出房间，SDK 在退房时需要关闭和释放摄像头、麦克风等硬件设备，因此退房动作并非瞬间完成的，需收到 [onExitRoom()](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#a6a98fcaac43fa754cf9dd80454897bea) 回调后才算真正完成退房操作。
+调用 [exitRoom()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a715f5b669ad1d7587ae19733d66954f3) 方法退出房间，SDK 在退房时需要关闭和释放摄像头、麦克风等硬件设备，因此退房动作并非瞬间完成的，需收到 [onExitRoom()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#a6a98fcaac43fa754cf9dd80454897bea) 回调后才算真正完成退房操作。
 
 <dx-codeblock>
 ::: swift swift

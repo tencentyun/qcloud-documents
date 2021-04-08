@@ -52,9 +52,9 @@ if common.sendAndVerify("shop", sidecarPort, "/api/v6/shop/items", headers):
 
 **如果是虚拟机部署**，需要在应用程序所在目录中设置创建`spec.yaml`文件；**如果是容器部署**，需要在应用启动时，在`/opt/tsf/app_config`下写入`spec.yaml`文件，该文件用于描述服务信息。Sidecar 会通过服务描述文件将服务注册到服务注册中心。
 
-> ？当前支持在控制台上选择【使用本地spec.yaml】和【控制台配置】两种方式描述服务信息，推荐在控制台上直接设置。具体操作参考[Mesh应用部署(容器篇)](https://cloud.tencent.com/document/product/649/17930)或者[Mesh应用部署(虚拟机篇)](https://cloud.tencent.com/document/product/649/18787)。
+>?当前支持在控制台上选择【使用本地spec.yaml】和【控制台配置】两种方式描述服务信息，推荐在控制台上直接设置。具体操作参考 [Mesh 应用部署（容器篇）](https://cloud.tencent.com/document/product/649/17930) 或者 [Mesh 应用部署（虚拟机篇）](https://cloud.tencent.com/document/product/649/18787)。
 
-若选择使用本地spec.yaml文件，spec.yaml 格式如下：
+若选择使用本地 spec.yaml 文件，spec.yaml 格式如下：
 
 ```yaml
 apiVersion: v1
@@ -70,7 +70,6 @@ spec:
 ```
 
 >!
->
 >- healthCheck 是健康检查的接口，请确认本地调用`curl -i -H 'Host: local-service' {ip}:{Port}/health`能返回200，否则，健康检查失败会导致此服务实例变为离线状态，其它服务将无法调用该服务实例；如果不提供此健康检查接口，sidecar 会通过 TCP 的方式探测 targetPort 是否连通来判断此服务实例是否健康。
 >- `Host: local-service`是代理加的 header，业务如果对 Host 有检查（如 Nginx 配置的 server_name），则需将 local-service 加到白名单。
 
@@ -117,8 +116,8 @@ spec:
       randomSampling: 1.0
 ```
 
-访问 user 服务，可以通过curl`http://test.com/api/v6/user/create`进行访问。
-访问 shop 服务，可以通过curl`http://test.com/api/v6/shop/query`进行访问。
+- 访问 user 服务，可以通过curl`http://test.com/api/v6/user/create`进行访问。
+- 访问 shop 服务，可以通过curl`http://test.com/api/v6/shop/query`进行访问。
 
 #### 配置项说明
 

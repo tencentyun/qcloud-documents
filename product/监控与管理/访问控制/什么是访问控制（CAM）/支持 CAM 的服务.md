@@ -232,7 +232,7 @@
 | [流计算服务](https://cloud.tencent.com/document/product/849) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/849/38621) |
 | [Elasticsearch Service](https://cloud.tencent.com/document/product/845) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/845/19550) |
 | [WeData 数据开发平台](https://cloud.tencent.com/document/product/1267) | 操作级   | &#10003; | -                | &#10003; | -                                                            |
-| [云数据仓库 ClickHouse](https://cloud.tencent.com/document/product/1299) | 资源级   | &#10003; | -                | -        | -                                                            |
+| [云数据仓库 ClickHouse](https://cloud.tencent.com/document/product/1299) | 资源级   | &#10003; | &#10003;         | -        | -                                                            |
 
 ## 云智大数据可视化
 
@@ -388,13 +388,13 @@
 
 ## 企业服务
 
-| 服务                                                        | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档 |
-| ----------------------------------------------------------- | -------- | -------- | ---------------- | -------- | -------- |
-| [商标注册](https://cloud.tencent.com/document/product/1145) | 服务级   | &#10003; | -                | -        | -        |
-| [版权登记](https://cloud.tencent.com/document/product/1215) | 服务级   | &#10003; | -                | -        | -        |
-| [工商注册](https://cloud.tencent.com/document/product/1260) | 操作级   | &#10003; | -                | -        | -        |
-| [增值电信](https://cloud.tencent.com/document/product/1251) | 操作级   | &#10003; | -                | -        | -        |
-| [网站建设](https://cloud.tencent.com/document/product/1276) | 操作级   | &#10003; | -                | -        | -        |
+| 服务                                                        | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档                                                     |
+| ----------------------------------------------------------- | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
+| [商标注册](https://cloud.tencent.com/document/product/1145) | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/1145/54113) |
+| [版权登记](https://cloud.tencent.com/document/product/1215) | 服务级   | &#10003; | -                | -        | -                                                            |
+| [工商注册](https://cloud.tencent.com/document/product/1260) | 操作级   | &#10003; | -                | -        | -                                                            |
+| [增值电信](https://cloud.tencent.com/document/product/1251) | 操作级   | &#10003; | -                | -        | -                                                            |
+| [网站建设](https://cloud.tencent.com/document/product/1276) | 操作级   | &#10003; | -                | -        | -                                                            |
 
 
 

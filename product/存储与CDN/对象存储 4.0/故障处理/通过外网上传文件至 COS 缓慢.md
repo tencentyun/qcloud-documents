@@ -15,7 +15,7 @@
 ## 解决思路
 
 - 如果您遇到 [现象1](#FaultPhenomenon1) 的情况，则可以通过检查客户端网络环境的方式自行处理。操作详情请参见 [排查客户端网络](#SearchTheClientNetwork)。
-- 如果您遇到 [现象2](FaultPhenomenon2) 的情况，则可以通过修改自定义域名解析的方式减少传输中转链路，提高传输效率。操作详情请参见 [修改自定义域名解析](#ModifyCustomDomainNameResolution)。
+- 如果您遇到 [现象2](#FaultPhenomenon2) 的情况，则可以通过修改自定义域名解析的方式减少传输中转链路，提高传输效率。操作详情请参见 [修改自定义域名解析](#ModifyCustomDomainNameResolution)。
 
 ## 处理步骤
 

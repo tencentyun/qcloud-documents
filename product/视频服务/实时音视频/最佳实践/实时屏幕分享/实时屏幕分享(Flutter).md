@@ -220,7 +220,7 @@ class SampleHandler: RPBroadcastSampleHandler, TXReplayKitExtDelegate {
 2. 调用 [startScreenCapture](https://pub.flutter-io.cn/documentation/tencent_trtc_cloud/latest/trtc_cloud/TRTCCloud/startScreenCapture.html) 方法，并传入 [步骤1](#createGroup) 中设置的 AppGroup，让 SDK 进入“等待”状态。
 3. 等待用户触发屏幕分享。如果不实现 [步骤4](#launch) 中的“触发按钮”，屏幕分享就需要用户在 iOS 系统的控制中心，通过长按录屏按钮来触发，这一操作步骤如下图所示：
 ![](https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/trtcdemo/01.png)
-4. 通过调用 [stopScreenCapture](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#aa8ea0235691fc9cde0a64833249230bb) 接口可以随时中止屏幕分享。
+4. 通过调用 [stopScreenCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#aa8ea0235691fc9cde0a64833249230bb) 接口可以随时中止屏幕分享。
 <dx-codeblock>
 ::: dart 
 // 开始屏幕分享，需要将 APPGROUP 替换为上述步骤中创建的 App Group 
