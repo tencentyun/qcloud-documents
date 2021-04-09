@@ -7,7 +7,7 @@
 
 在开始本文的实践前，您需要先了解以下产品：
 
-- [TSW 服务调用监控](https://cloud.tencent.com/document/product/1311/51690)
+- [TSW 服务观测](https://cloud.tencent.com/document/product/1311/51690)
 - [CLS 产品概述](https://cloud.tencent.com/document/product/614/11254) 
 
 ## 操作步骤
