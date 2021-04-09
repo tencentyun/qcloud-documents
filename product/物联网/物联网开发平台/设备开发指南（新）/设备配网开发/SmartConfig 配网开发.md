@@ -51,7 +51,7 @@ SmartConfig 配网设备端与腾讯连连小程序及后台交互的数据协�
 设备端也可以通过订阅主题 $thing/down/service/ProductID/DeviceName 来获取 Token 上报的结果。
 
 >!注意如果设备需要通过动态注册来创建设备并获取设备密钥，则会先进行动态注册再连接 MQTT。
-
+>
 9. 在以上5 - 7步骤中，需观察以下情况：
 
  - 如果小程序收到设备 UDP 服务发送过来的错误日志，且 deviceReply 字段的值为"Current_Error"，则表示当前配网绑定过程中出错，需要退出配网操作。
