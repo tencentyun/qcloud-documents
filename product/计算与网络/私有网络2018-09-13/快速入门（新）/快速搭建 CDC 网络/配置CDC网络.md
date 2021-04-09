@@ -17,7 +17,7 @@
 
 ### 步骤2：创建CDC本地网关
 1. 单击CDC集群控制台下的CDC 本地网关。
-2. 在弹出的网关创建界面，填写网关名称，系统自动关联出所属CDC集群和所属VPC网络。
+2. 在弹出的网关创建界面，填写网关名称，选择所属CDC集群和所属VPC网络。
  ![](https://main.qcloudimg.com/raw/81f47315a7347d62df99652c8e22ff22.png)
 3. 单击【确定】，CDC本地网关展示在列表中，目前1个CDC集群仅支持创建1个CDC本地网关。
    ![](https://main.qcloudimg.com/raw/b56d0a48e0d13dc6d9df87b3cbce3f27.png)
