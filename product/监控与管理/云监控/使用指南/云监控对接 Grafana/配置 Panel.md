@@ -56,7 +56,7 @@
 1. 单击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Query` 选项卡，通过配置选项获取腾讯云云数据库 MongoDB 的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 mongodb 监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯云服务器监控接口的输入参数，可参见 [mongodb云监控接口文档](https://cloud.tencent.com/document/product/248/45104)，更好地理解各配置项。
-    - `Namespace` 命名空间，比如 `QCE/CMONGO`。
+    - `Namespace` 命名空间，例如 `QCE/CMONGO`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
     - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -74,7 +74,7 @@
 2. `Queries to` 数据源列表，选择已配置的包含 redis 监控服务的腾讯云监控数据源。
 3. 云数据库 Redis 分两个命名空间：内存版（5秒）（Namespace=QCE/REDIS_MEM），ckv版和内存版（1分钟）（Namespace=QCE/REDIS）可根据自己需要在`Namespace`选择。
 4. 配置项的内容对齐腾讯云服务器监控接口的输入参数，可参见 [Redis云监控接口文档](https://cloud.tencent.com/document/product/248/49729)，更好地理解各配置项。
-    - `Namespace` 命名空间，比如 `QCE/REDIS_MEM`。
+    - `Namespace` 命名空间，例如 `QCE/REDIS_MEM`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
     - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -92,7 +92,7 @@
   2. `Queries to` 数据源列表，选择已配置的包含 cynosdbMysql 监控服务的腾讯云监控数据源。
   3. 配置项的内容对齐腾讯云监控cynosdbMysql监控接口的输入参数，可参见 [云数据库 CYNOSDB(CYNOSDB_MYSQL) 云监控接口文档](https://cloud.tencent.com/document/product/248/45106)，更好地理解各配置项。
 
-    - `Namespace` 命名空间，比如 `QCE/CYNOSDB_MYSQL`。
+    - `Namespace` 命名空间，例如 `QCE/CYNOSDB_MYSQL`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
     - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -110,7 +110,7 @@
 1. 单击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Query` 选项卡，通过配置选项获取腾讯云云数据库 TcaplusDB(TCAPLUS)的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 tcaplus 监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯云监控tcaplus监控接口的输入参数，可参见 [云数据库  TcaplusDB(TCAPLUS) 云监控接口文档](https://cloud.tencent.com/document/product/248/45107)，更好地理解各配置项。
-  - `Namespace` 命名空间，比如 `QCE/TCAPLUS`。
+  - `Namespace` 命名空间，例如 `QCE/TCAPLUS`。
   - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
   - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
   - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -127,7 +127,7 @@
 1. 单击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Query` 选项卡，通过配置选项获取腾讯云云数据库 sqlserver(SQLSERVER) 的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 sqlserver 监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯云监控 sqlserver 监控接口的输入参数，可参见 [云数据库sqlserver(SQLSERVER)云监控接口文档](https://cloud.tencent.com/document/product/248/45146)，更好地理解各配置项。
-  - `Namespace` 命名空间，比如 `QCE/SQLSERVER`。
+  - `Namespace` 命名空间，例如 `QCE/SQLSERVER`。
   - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
   - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
   - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -145,7 +145,7 @@
 2. `Queries to` 数据源列表，选择已配置的包含 CDN 监控服务的腾讯云监控数据源。
 3. CDN 指标分两个命名空间：国内域名（Namespace=QCE/CDN），国外域名（Namespace=QCE/OV_CDN）可根据自己需要在`Namespace`选择。
 4. 配置项的内容对齐腾讯 CDN 监控接口的输入参数，可参见 [CDN云监控接口文档](https://cloud.tencent.com/document/product/248/50386)，更好地理解各配置项。
-    - `Namespace` 命名空间，比如 `QCE/CDN`。
+    - `Namespace` 命名空间，例如 `QCE/CDN`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
     - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -160,7 +160,7 @@
 1. 单击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Query` 选项卡，通过配置选项获取腾讯云 BWP 的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 BWP 监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯云 BWP 监控接口的输入参数，可参见 [BWP云监控接口文档](https://cloud.tencent.com/document/product/248/45098)，更好地理解各配置项。
-    - `Namespace` 命名空间，比如 `QCE/BWP`。
+    - `Namespace` 命名空间，例如 `QCE/BWP`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
     - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -177,7 +177,7 @@
 1. 单击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Query` 选项卡，通过配置选项获取腾讯云 ckafka 消息队列的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 ckafka 监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯 ckafka 监控接口的输入参数，可参见 [ckafka云监控接口文档](https://cloud.tencent.com/document/product/248/45121)，更好地理解各配置项。
-    - `Namespace` 命名空间，比如 `QCE/CKAFKA`。
+    - `Namespace` 命名空间，例如 `QCE/CKAFKA`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
     - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -195,7 +195,7 @@
 2. `Queries to` 数据源列表，选择已配置的包含 CLB 监控服务的腾讯云监控数据源。
 3. 负载均衡指标分三个命名空间：公网负载均衡监控指标（Namespace=QCE/LB_PUBLIC），内网负载均衡四层协议监控指标（Namespace=QCE/LB_PRIVATE）， 七层协议监控指标（Namespace=QCE/LOADBALANCE），可根据自己需要在`Namespace`选择。
 4. 配置项的内容对齐腾讯云服务器监控接口的输入参数，可参见 [负载均衡云监控接口文档](https://cloud.tencent.com/document/product/248/51898)，更好地理解各配置项。
-    - `Namespace` 命名空间，比如 `QCE/LB_PUBLIC`。
+    - `Namespace` 命名空间，例如 `QCE/LB_PUBLIC`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
     - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -215,7 +215,7 @@
 1. 单击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Query` 选项卡，通过配置选项获取腾讯云lb弹性公网ip的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 lb 监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯 lb 监控接口的输入参数，可参见 [lb云监控接口文档](https://cloud.tencent.com/document/product/248/45099)，更好地理解各配置项。
-    - `Namespace` 命名空间，比如 `QCE/LB`。
+    - `Namespace` 命名空间，例如 `QCE/LB`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
     - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -232,7 +232,7 @@
 1. 单击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Query` 选项卡，通过配置选项获取腾讯云cfs文件存储的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 cfs 监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯cfs监控接口的输入参数，可参见 [cfs云监控接口文档](https://cloud.tencent.com/document/product/248/45143)，更好地理解各配置项。
-    - `Namespace` 命名空间，比如 `QCE/CFS`。
+    - `Namespace` 命名空间，例如 `QCE/CFS`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
     - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -249,7 +249,7 @@
 1. 单击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Query` 选项卡，通过配置选项获取腾讯云scf云函数的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 scf 监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯 scf 监控接口的输入参数，可参见 [ scf 云监控接口文档](https://cloud.tencent.com/document/product/248/45130)，更好地理解各配置项。
-    - `Namespace` 命名空间，比如 `QCE/SCF_V2`。
+    - `Namespace` 命名空间，例如 `QCE/SCF_V2`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
     - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -266,7 +266,7 @@
 1. 单击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Query` 选项卡，通过配置选项获取腾讯云专线接入-专用通道(DCX)的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 dcx 监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯云监控dcx监控接口的输入参数，可参见 [专线接入-专用通道(DCX)云监控接口文档](https://cloud.tencent.com/document/product/248/45101)，更好地理解各配置项。
- - `Namespace` 命名空间，比如 `QCE/DCX`。
+ - `Namespace` 命名空间，例如 `QCE/DCX`。
  - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
  - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
  - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -284,7 +284,7 @@
 1. 单击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Query` 选项卡，通过配置选项获取腾讯云专线接入-物理专线(DC)的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 dc 监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯云监控dc监控接口的输入参数，可参见 [专线接入-物理专线(DC)云监控接口文档](https://cloud.tencent.com/document/product/248/45102)，更好地理解各配置项。
-  - `Namespace` 命名空间，比如 `QCE/DC`。
+  - `Namespace` 命名空间，例如 `QCE/DC`。
   - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
   - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
   - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -301,7 +301,7 @@
 1. 单击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Query` 选项卡，通过配置选项获取腾讯云私有网络-VPN 网关(VPNGW)的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 vpngw 监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯云监控vpngw监控接口的输入参数，可参见 [私有网络-VPN 网关(VPNGW)云监控接口文档](https://cloud.tencent.com/document/product/248/45070)，更好地理解各配置项。
-  - `Namespace` 命名空间，比如 `QCE/VPNGW`。
+  - `Namespace` 命名空间，例如 `QCE/VPNGW`。
   - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
   - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
   - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -319,7 +319,7 @@
 1. 单击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Query` 选项卡，通过配置选项获取腾讯云私有网络-专线网关(DCG)的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 dcg 监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯云监控dcg监控接口的输入参数，可参见 [私有网络-专线网关(DCG)云监控接口文档](https://cloud.tencent.com/document/product/248/45072)，更好地理解各配置项。
-  - `Namespace` 命名空间，比如 `QCE/DCG`。
+  - `Namespace` 命名空间，例如 `QCE/DCG`。
   - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
   - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
   - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -337,7 +337,7 @@
 1. 单击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Query` 选项卡，通过配置选项获取腾讯云省份域名(CDN_LOG_DATA)的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 cdnProvince 监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯云监控 cdnProvince 监控接口的输入参数，可参见 [省份域名(CDN_LOG_DATA)云监控接口文档](https://cloud.tencent.com/document/product/248/50388)，更好地理解各配置项。
-    - `Namespace` 命名空间，比如 `QCE/CDN_LOG_DATA`。
+    - `Namespace` 命名空间，例如 `QCE/CDN_LOG_DATA`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
     - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -358,7 +358,7 @@
 1. 单击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Query` 选项卡，通过配置选项获取腾讯云API 网关(APIGATEWAY)的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 apigateway 监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯云监控apigateway监控接口的输入参数，可参见 [API 网关(APIGATEWAY)云监控接口文档](https://cloud.tencent.com/document/product/248/45127)，更好地理解各配置项。
-    - `Namespace` 命名空间，比如 `QCE/APIGATEWAY`。
+    - `Namespace` 命名空间，例如 `QCE/APIGATEWAY`。
     - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
     - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
     - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -378,7 +378,7 @@
 1. 单击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Query` 选项卡，通过配置选项获取腾讯云云硬盘(BLOCK_STORAGE)的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 cbs 监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯云监控cbs监控接口的输入参数，可参见 [云硬盘(BLOCK_STORAGE)云监控接口文档](https://cloud.tencent.com/document/product/248/45411)，更好地理解各配置项。
-  - `Namespace` 命名空间，比如 `QCE/BLOCK_STORAGE`。
+  - `Namespace` 命名空间，例如 `QCE/BLOCK_STORAGE`。
   - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
   - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
   - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -396,7 +396,7 @@
 1. 单击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Query` 选项卡，通过配置选项获取腾讯云Elasticsearch指标(CES)的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 ces 监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯云监控ces监控接口的输入参数，可参见 [Elasticsearch指标(CES)云监控接口文档](https://cloud.tencent.com/document/product/248/45129)，更好地理解各配置项。
-  - `Namespace` 命名空间，比如 `QCE/CES`。
+  - `Namespace` 命名空间，例如 `QCE/CES`。
   - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
   - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
   - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -414,7 +414,7 @@
 1. 单击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Query` 选项卡，通过配置选项获取腾讯云消息队列CMQ(队列服务监控CMQ)的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 cmq 监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯云监控cmq监控接口的输入参数，可参见 [消息队列CMQ(队列服务监控CMQ)云监控接口文档](https://cloud.tencent.com/document/product/248/45114)，更好地理解各配置项。
-  - `Namespace` 命名空间，比如 `QCE/CMQ`。
+  - `Namespace` 命名空间，例如 `QCE/CMQ`。
   - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
   - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
   - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
@@ -432,7 +432,7 @@
 1. 单击 **New Panel** 面板的 **Add Query** 选项，进入 Panel 配置页面。在左侧第一个 `Query` 选项卡，通过配置选项获取腾讯云消息队列CMQTOPIC(主题订阅监控)的监控数据。
 2. `Queries to` 数据源列表，选择已配置的包含 cmqTopic 监控服务的腾讯云监控数据源。
 3. 配置项的内容对齐腾讯云监控cmqTopic监控接口的输入参数，可参见 [消息队列CMQTOPIC(主题订阅监控)云监控接口文档](https://cloud.tencent.com/document/product/248/45113)，更好地理解各配置项。
-  - `Namespace` 命名空间，比如 `QCE/CMQTOPIC`。
+  - `Namespace` 命名空间，例如 `QCE/CMQTOPIC`。
   - `Region` 地域，地域列表会根据 `Namespace` 选项自动获取，单击选择某一地域。
   - `MetricName` 指标名称，指标列表会根据 `Namespace` 和 `Region` 选项自动获取，单击选择某一指标。
   - `Period` 监控统计周期，周期列表会根据 `MetricName` 选项自动获取，单击选择某一统计周期。
