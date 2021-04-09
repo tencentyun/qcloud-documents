@@ -104,7 +104,7 @@ func hello()(string, error)
 
 Golang 环境的云函数，仅支持 zip 包上传，您可以选择使用本地上传 zip 包或通过 COS 对象存储引用 zip 包。zip 包内包含的应该是编译后的可执行二进制文件。
 
-Golang 编译可以在任意平台上通过制定 OS 及 ARCH 完成跨平台的编译，因此在 Linux，Windows 或 MacOS 下都可以进行编译。
+Golang 编译可以在任意平台上通过指定 OS 及 ARCH 完成跨平台的编译，因此在 Linux，Windows 或 MacOS 下都可以进行编译。
 
 - 在 Linux 或 MacOS 的终端通过如下方法完成编译及打包：
 ```

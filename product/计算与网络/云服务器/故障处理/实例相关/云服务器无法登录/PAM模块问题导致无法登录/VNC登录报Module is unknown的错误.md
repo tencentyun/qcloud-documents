@@ -3,9 +3,9 @@
 ![](https://main.qcloudimg.com/raw/117961622ff73a5859a56bd890011302.png)
 
 ## 可能原因
-1. 使用 VNC 登录会调用 `/etc/pam.d/login` 这个 pam 模块进行校验，而该模块会将 `/etc/pam.d/system-auth` 模块引入进行校验。`/etc/pam.d/login` 配置文件的内容，如下图所示：
+使用 VNC 登录会调用 `/etc/pam.d/login` 这个 pam 模块进行校验，而该模块会将 `/etc/pam.d/system-auth` 模块引入进行校验。`/etc/pam.d/login` 配置文件的内容，如下图所示：
 ![](https://main.qcloudimg.com/raw/334e393e16d8a03eec44009be9265ea9.png)
-2. 可能导致登录失败的原因是 `system-auth` 配置文件中的 `pam_limits.so` 模块的模块路径配置错误。如下图所示：
+可能导致登录失败的原因是 `system-auth` 配置文件中的 `pam_limits.so` 模块的模块路径配置错误。如下图所示：
 ![](https://main.qcloudimg.com/raw/36f36e0f2f5d0954f6fcebd39095d3b6.png)
 <dx-alert infotype="explain" title="">
 `pam_limits.so` 模块的主要功能是限制用户会话过程中对各种系统资源的使用情况。模块路径需根据操作系统实际情况进行填写，若写错路径会导致无法找到对应的认证模块，导致登录认证报错。

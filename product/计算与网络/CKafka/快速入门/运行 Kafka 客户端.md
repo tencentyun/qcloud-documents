@@ -44,7 +44,7 @@ java -version
 ### 步骤3：Kafka API 测试
 
 1. 在本地配置 ACL 策略。
-   1. 在工具包 `./config` 目录下，在 producer.propertise 和 consumer.properties 文件末尾添加以下内容：
+   1. 在工具包 `./config` 目录下，在 producer.properties 和 consumer.properties 文件末尾添加以下内容：
       ```properties
       security.protocol=SASL_PLAINTEXT 
       sasl.mechanism=PLAIN

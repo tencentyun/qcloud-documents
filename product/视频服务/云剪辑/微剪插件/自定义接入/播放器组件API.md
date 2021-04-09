@@ -4,10 +4,11 @@
 
 >?
 >- v1.4.0后新增功能：
-	- 贴纸，详情请参见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440)。
-	- 文字和贴纸内置编辑控件，详情请参见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
+	- 贴纸，详情请参见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/48610)。
+	- 文字和贴纸内置编辑控件，详情请参见 [编辑控件](#Plugin)。
 >- v1.5.0后新增功能：
-转场和动效，详情请参见 [转场和动效](https://cloud.tencent.com/document/product/1156/50070)。
+转场和动效，详情请参见 [转场和动效](https://cloud.tencent.com/document/product/1156/48610)。
+>- v1.6.0之后支持模板。
 
 ### 使用方式
 1. 配置 JSON 文件：
@@ -43,7 +44,7 @@
 | allowSetVolumn       | Boolean  | false                                                        | 是否需要调整视频原声音量                                     | 否   |
 | enableTapPause       | Boolean  | false                                                        | 是否启用点击暂停                                             | 否   |
 | enablePauseIcon      | Boolean  | true                                                         | 是否显示暂停按钮                                             | 否   |
-| enableClipEdit      | Boolean  | true                                                         | 是否启用编辑控件，编辑控件详见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)                        | 否   |
+| enableClipEdit      | Boolean  | true                                                         | 是否启用编辑控件，编辑控件详见 [编辑控件](#Plugin)                        | 否   |
 | preloadFilter        | Boolean  | true                                                         | 是否启用滤镜预加载                                           | 否   |
 | preloadFilterKeys    | Array    | ['key1', 'key2']                                             | 需要提前加载的滤镜                                           | 否   |
 | filters(1.7.0版本废弃，使用initPlugin方法统一注入)     | Array    | [{<br />key: 'lujing',<br />name: '滤镜'<br />src: 'wxfile://xxxxx'<br />}] | 定制化 effect 列表                                           | 否   |
@@ -61,8 +62,8 @@
 | bindtexttouchstart   | Function | -                                                            | 文字开始触摸(v1.4.0后废弃)                                   | 否   |
 | bindtexttouchend     | Function | -                                                            | 文字触摸结束(v1.4.0后废弃)                                   | 否   |
 | bindtexttouchmove    | Function | -                                                            | 文字移动(v1.4.0后废弃)                                       | 否   |
-| bindclipedit    | Function | 详见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441#.E4.BD.8D.E7.A7.BB.E3.80.81.E7.BC.A9.E6.94.BE.E5.92.8C.E6.97.8B.E8.BD.AC)                                                     |clip 位移、旋转、缩放                                   | 否   |
-| bindclipoperation   | Function | 详见 [编辑控件](https://cloud.tencent.com/document/product/1156/49441#.E5.85.B6.E4.BB.96.E6.8C.89.E9.92.AE)                                                     |编辑控件按钮点击                                 | 否   |
+| bindclipedit    | Function | 详见 [编辑控件](#Plugin)                                                     |clip 位移、旋转、缩放                                   | 否   |
+| bindclipoperation   | Function | 详见 [编辑控件](#Plugin)                                                     |编辑控件按钮点击                                 | 否   |
 
 ### 方法说明
 
@@ -90,12 +91,12 @@
 >?
 >- 定制滤镜目前只支持 LUT 图滤镜，由于小程序下载文件的限制，LUT 图需要先 downloadFile 到本地。
 >- 定制特效需要传入特效的片元着色器，详情见 [自定义特效和滤镜](https://cloud.tencent.com/document/product/1156/48621)。
->- v1.4.0之后支持贴纸渲染，贴纸和文字的位移和缩放，详见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440) 和 [编辑控件](https://cloud.tencent.com/document/product/1156/49441)。
+>- v1.4.0之后支持贴纸渲染，贴纸和文字的位移和缩放，详见 [自定义贴纸和文字](https://cloud.tencent.com/document/product/1156/49440) 和 [编辑控件](#Plugin)。
 
 
 
 
-### 编辑控件
+### 编辑控件[](id:Plugin)
 微剪播放器内置了编辑控件支持贴纸、文字等元素的位移、缩放和旋转。
 - 贴纸和文字类型的 Clip 内置编辑控件的支持，单击即可激活。
 - 控件有四个按钮：删除（左上角），修改（右上角），缩放旋转（右下角）和编辑时间段（左下角）。其中缩放旋转为播放器内部完全实现的功能，其余三个按钮只提供回调函数，供开发者自行定制功能交互。

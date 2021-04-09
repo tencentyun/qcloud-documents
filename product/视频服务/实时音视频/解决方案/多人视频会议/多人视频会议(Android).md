@@ -269,7 +269,7 @@ trtcMeeting.setDelegate(new TRTCMeetingDelegate() {
 ### 步骤7：屏幕分享
 
 1. 屏幕分享功能需向系统需要申请悬浮窗权限，需要您在 UI 中实现具体的逻辑。
-2. 调用 `startScreenCapture`，传入编码参数和录屏过程中的悬浮窗即可实现屏幕分享功能，具体信息请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#aa6671fc587513dad7df580556e43be58)。
+2. 调用 `startScreenCapture`，传入编码参数和录屏过程中的悬浮窗即可实现屏幕分享功能，具体信息请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aa6671fc587513dad7df580556e43be58)。
 3. 会议中其他成员会收到 `onUserVideoAvailable` 的事件通知。
 >! 幕分享和摄像头采集是两个互斥的操作，如果需要打开屏幕分享功能，请先调用`stopCameraPreview`关闭摄像头采集。
 

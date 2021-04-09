@@ -10,8 +10,6 @@ Android SDK 接入请观看视频：
 - 该接口需要手机能够连接网络（GPRS、3G 或 Wi-Fi 等），且系统为 **Android 4.0** 及其以上版本。
 
 ### 开发环境
-- 引入 .so 文件
- libWXVoice.so： 腾讯云语音检测 so 库。
 - 引入 aar 包
  speech_release.aar： 腾讯云语音识别 SDK。
 - 该接口 SDK 支持本地构建或者远程构建两种方式：
