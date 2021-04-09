@@ -15,14 +15,14 @@
 5. （可选）如需更换路由表，可单击【更多】>【更换路由表】，可为CDC子网更换路由表。
 	![](https://main.qcloudimg.com/raw/a039849dd23858734727d868bc702c4a.png)
 
-### 步骤2 创建CDC本地网关
+### 步骤2：创建CDC本地网关
 1. 单击CDC集群控制台下的CDC 本地网关。
 2. 在弹出的网关创建界面，填写网关名称，系统自动关联出所属CDC集群和所属VPC网络。
  ![](https://main.qcloudimg.com/raw/81f47315a7347d62df99652c8e22ff22.png)
 3. 单击【确定】，CDC本地网关展示在列表中，目前1个CDC集群仅支持创建1个CDC本地网关。
    ![](https://main.qcloudimg.com/raw/b56d0a48e0d13dc6d9df87b3cbce3f27.png)
 
-### 步骤3 创建自定义路由策略
+### 步骤3：创建自定义路由策略
 当 CDC 子网需要访问 IDC 网段时，可配置到本地网关的路由策略。CDC 默认关联 VPC 主路由表，可在路由表中增加路由策略，也可以创建自定义路由表并增加路由策略。
 1. 登录 [路由表控制台](https://console.cloud.tencent.com/vpc/route?rid=1)。
 2. 选择 CDC 子网关联路由表，单击路由表 ID 进入路由表详情界面。
