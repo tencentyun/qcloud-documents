@@ -38,7 +38,7 @@ MQTT 协议支持通过设备证书和密钥签名两种方式接入物联网通
 
 ### 证书认证设备接入指引
 
-物联网平台采用 TLS 加密方式来保障设备传输数据时的安全性。证书设备接入时，获取到证书设备的证书、私钥与 CA 证书文件之后，设置好 KeepAlive，ClientId，UserName，PassWord 等内容（采用腾讯云设备端 SDK 方式接入的设备无需设置，SDK 可根据设备信息自动生成）。设备向证书认证对应的 URL 上传认证文件，通过之后发送 MqttConnect 消息即可完成证书设备基于 TCP 的 MQTT 接入。
+物联网平台采用 TLS 加密方式来保障设备传输数据时的安全性。证书设备接入时，获取到证书设备的证书、密钥与 CA 证书文件之后，设置好 KeepAlive，ClientId，UserName，PassWord 等内容（采用腾讯云设备端 SDK 方式接入的设备无需设置，SDK 可根据设备信息自动生成）。设备向证书认证对应的 URL 上传认证文件，通过之后发送 MqttConnect 消息即可完成证书设备基于 TCP 的 MQTT 接入。
 
 ### 密钥认证设备接入指引
 
@@ -55,7 +55,7 @@ ${productId}${deviceName};${sdkappid};${connid};${expiry}
 	- sdkappid：固定填12010126。
 	- connid ：一个随机字符串。
 	- expiry ：表示签名的有效期， 从1970年1月1日00:00:00 UTC 时间至今秒数的 UTF8 字符串。
-3. 用 base64 对设备私钥进行解码得到原始密钥 raw_key。
+3. 用 base64 对设备密钥进行解码得到原始密钥 raw_key。
 4. 用第3步生成的 raw_key，通过 HMAC-SHA1 或者 HMAC-SHA256 算法对 username 生成一串摘要，简称 Token。
 5. 按照物联网通信约束生成 password 字段，password 字段格式为：
 ```plaintext
