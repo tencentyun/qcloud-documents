@@ -25,7 +25,7 @@
 </div></td>
 <td><input type="button" value="视频通话" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;
     color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
-    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html')" /><br><br>
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/latest/official-demo/index.html')" /><br><br>
       <input type="button" value="互动直播" style="height: 30px;width: 150px;margin-top: 5px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;
     color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
     box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://trtc.qcloud.com/tweblive/index.html#/')" />
