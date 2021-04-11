@@ -16,7 +16,7 @@ kubectl edit cm  ip-masq-agent-config -n kube-system
 
 修改说明如下图所示（注意 YAML 格式）：
 
-![image-20210324160422287](/Users/jokey/Library/Application Support/typora-user-images/image-20210324160422287.png)
+![image-20210324160422287](https://main.qcloudimg.com/raw/76707d393811d7db49e94b311909a059.png)
 
 等待 "ResyncInterval" 时间周期（默认1分钟）后测试看看配置是否生效。
 
