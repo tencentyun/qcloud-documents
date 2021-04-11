@@ -157,6 +157,8 @@ OcrSDKConfig 是在 OCR 初始化时需要传入的 SDK 的配置信息实体类
 | BOOL                        | TempIdWarn      | 开启临时身份证告警                                           | NO                                           |
 | BOOL                        | InvalidDateWarn | 开启身份证有效日期不合法告警                                 | NO                                           |
 | BOOL                        | Quality         | 开启图片质量分数（评价图片的模糊程度）                       | NO                                           |
+| BOOL                        | MultiCardDetect | 是否开启多卡证检测                                           | NO                                           |
+| BOOL                        | ReflectWarn     | 是否开启反光告警                                             | NO                                           |
 | NSString                    | RetImageType    | 图像预处理，检测图片倾斜的角度，将原本倾斜的图片围绕中心点转正，最终输出一张正的名片抠图。 | 空                                           |
 | BOOL                        | RetImage        | 马来西亚身份证接口是否返回图片                               | NO                                           |
 
@@ -223,6 +225,7 @@ typedef void (^OcrSDKKitProcessSucceedBlock)(id _Nonnull resultInfo, UIImage *re
 /// SDKKIt 处理失败回调接口
 /// @param error 处理过程中触发的异常错误
 /// @param reserved 预留位
+///tips
 typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullable reserved);
 ```
 
@@ -280,7 +283,7 @@ typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullabl
 
 名片请求结果返回 resultInfo 结果示例：
 
- ```json
+```json
 {
     "BusinessCardInfos": [
       {
@@ -323,7 +326,8 @@ typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullabl
     "RetImageBase64": "",
     "RequestId": "98f8fcbf-933a-4e95-ac48-6f1a9308fs6h"
  }
- ```
+
+```
 
 对于返回的错误码以及错误信息，可以参考 [错误码](https://cloud.tencent.com/document/product/866/33528) 。
 

@@ -2,7 +2,7 @@
 ### 创建 COS Bucket
 1. 登录对象存储控制台选择[【存储桶列表】](https://console.cloud.tencent.com/cos5/bucket)。
 2. 单击【创建储存桶】在弹出页填写相应信息后，单击【确定】即可成功创建存储桶 COS Bucket。
- ![](https://main.qcloudimg.com/raw/1c1c9e576dd1dca595a4e4669b3b2777.png)
+![](https://main.qcloudimg.com/raw/5de41b5738d322a90c2ef6ef274cb74b.png)
 >!
 > - Bucket name 为 buckettest123，不含 -1259222427。  
 > - 以上信息均可按照业务实际需要配置。

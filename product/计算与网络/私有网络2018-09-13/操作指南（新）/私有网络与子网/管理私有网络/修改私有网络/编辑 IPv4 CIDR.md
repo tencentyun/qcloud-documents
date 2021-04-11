@@ -15,8 +15,6 @@ VPC CIDR（主）创建后不可修改，当 VPC 的主 CIDR 不满足业务分�
 <img src="https://main.qcloudimg.com/raw/775126708149064bad3383f873fcc654.png" width="50%" />
 5. 单击【确定】完成辅助 CIDR 的创建。
 
-
-
 ## 删除辅助 CIDR[](id:32)
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc)。
 2. 在【私有网络】页面顶部，选择 VPC 所属地域。

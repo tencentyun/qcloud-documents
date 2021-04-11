@@ -37,12 +37,12 @@
          <td rowspan="2">基础人像美颜 SDK</td>   
       <td>Android</td>   
       <td><1M</td>   
-			<td>Android 版本要求：Android 4.4+</td>   
+			<td>版本要求：不低于14（Android 4.0）</td>   
      </tr> 
   <tr>
-      <td>ios</td>   
+      <td>iOS</td>   
       <td><2M</td>
-			<td>最低配置：iPhone 5s 及同等配置机型</td>  
+			<td>最低配置：iPhone 5S 及同等配置机型</td>  
      </tr> 
   <tr> 
 	<td rowspan="2">高级人像美颜 SDK</td>   
@@ -50,10 +50,9 @@
       <td><22.7M</td>   
       <td>最低配置：Android 5.0 以上及同等配置机型</td>   
      </tr> 
-		       <td>ios</td>   
+		       <td>iOS</td>   
       <td><20M</td>   
-      <td>最低配置：iphone6s 及同等配置机型</td>   
+      <td>最低配置：iPhone 6S 及同等配置机型</td>   
      </tr> 
 </table>
-
   

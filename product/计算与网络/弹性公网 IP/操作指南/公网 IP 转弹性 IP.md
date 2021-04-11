@@ -1,4 +1,6 @@
 您可以将云服务器的普通公网 IP 转换为弹性公网 IP（EIP），转换后，弹性公网 IP 具备随时与云服务器解绑和绑定的能力，更易于实现公网 IP 的灵活管理。
+>?当前普通公网 IP 仅支持常规 BGP IP 线路类型。
+>
 
 ## 背景信息
 公网 IP 地址是 Internet 上的非保留地址，有公网 IP 地址的云服务器可以和 Internet 上的其他计算机互相访问。
@@ -61,6 +63,3 @@
 ## 后续步骤
 - 若需要调整 EIP 的带宽峰值，请参见 [调整带宽](https://cloud.tencent.com/document/product/1199/41705)。
 - 若需要监控 EIP 的流量波动情况，请参见 [查看监控数据](https://cloud.tencent.com/document/product/1199/42105)。
-
-
-

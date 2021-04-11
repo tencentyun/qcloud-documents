@@ -175,23 +175,21 @@ sum(rate(http_requests_total[2m])) by (pod)
 2. 将其转换为 prometheus-adapter 的配置，创建 `values.yaml`，内容如下：
 ```yaml
 rules:
- default: false
- custom:
- - seriesQuery: 'httpserver_requests_total'
-   resources:
-     template: <<.Resource>>
-   name:
-     matches: "httpserver_requests_total"
-     as: "httpserver_requests_qps" # PromQL 计算出来的 QPS 指标
-   metricsQuery: sum(rate(<<.Series>>{<<.LabelMatchers>>}[1m])) by (<<.GroupBy>>)
+      default: false
+      custom:
+      - seriesQuery: 'httpserver_requests_total'
+        resources:
+          template: <<.Resource>>
+        name:
+          matches: "httpserver_requests_total"
+          as: "httpserver_requests_qps" # PromQL 计算出来的 QPS 指标
+        metricsQuery: sum(rate(<<.Series>>{<<.LabelMatchers>>}[1m])) by (<<.GroupBy>>)
 prometheus:
-  url: http://prometheus.monitoring.svc.cluster.local # 替换 Prometheus API 的地址 (不写端口)
-  port: 9090
+      url: http://prometheus.monitoring.svc.cluster.local # 替换 Prometheus API 的地址 (不写端口)
+      port: 9090
 ```
 3. 执行以下 Helm 命令安装 prometheus-adapter，示例如下：
-
-> ！注意：安装前需要删除 TKE 已经注册的 Custom Metrics API，删除命令如下：
->
+>! 安装前需要删除 TKE 已经注册的 Custom Metrics API，删除命令如下：
 > `kubectl delete apiservice v1beta1.custom.metrics.k8s.io`
 ```bash
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts

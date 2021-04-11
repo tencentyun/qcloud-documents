@@ -7,9 +7,8 @@
 - 需要您在源端阿里云 RDS MySQL 中创建迁移帐号，需要的帐号权限如下：
 ```
 CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW
-DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
-GRANT ALL PRIVILEGES ON `tencentdb`.* TO ‘迁移帐号’@‘%’;  
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO ‘迁移帐号’@‘%’;  
 GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 ```
 - 部分库表迁移：`GRANT SELECT ON 待迁移的库.* TO ‘迁移帐号’;`
@@ -50,7 +49,7 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 | 外键依赖检查         | 外键依赖只能是 no action 和 restrict 两种类型<br>部分库表迁移时，有外键依赖的表必须齐全 |
 | 视图检查             | 只允许和迁移目标 user@host 相同的 definer                       |
 | 其他警告项检查       | 检查源库和目标库的 max_allowed_packet，如果源库大于目标库，会有警告<br>目标库的 max_allowed_packet 小于1GB，会有警告<br>如果源库和目标库的字符集不一致，会有警告<br>对于全量迁移（没有增量），发警告告知用户这种全量迁移没有锁，不保证数据一致 |
-| 无主键表检查         | 待迁移表不能存在无主键表                                     |
+| 无主键表检查         | MySQL 5.6 待迁移表不能存在无主键表，MySQL 5.7 等其他版本不限制                  |
 
 ## 操作步骤
 1. 登录 [DTS 数据迁移控制台](https://console.cloud.tencent.com/dts/migration?rid=8&page=1&pagesize=20)，单击【新建迁移任务】，进入新建迁移任务页面。
@@ -111,7 +110,7 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 <td>如果只进行结构迁移，请选择结构迁移。<br>如果只进行数据全量迁移，请选择全量迁移。<br>如果需要不停机平滑迁移，请选择全量 + 增量迁移。</td></tr>
 <tr>
 <td>迁移对象</td>
-<td>如果需要整个实例迁移，请选择整个实例，不包括系统库，如 information_schema、mysql、performance_schema、sys。 <br>如果需要指定库表迁移，请选择指定对象。</td></tr>
+<td>如果需要整个实例迁移，请选择整个实例，不包括系统库，如 information_schema、mysql、performance_schema、sys。<br>如果需要指定库表迁移，请选择指定对象。</td></tr>
 <tr>
 <td>指定对象</td>
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>

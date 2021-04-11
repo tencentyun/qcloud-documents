@@ -55,6 +55,10 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 | current_sub_meeting_id | String         | 当前子会议 ID（进行中 / 即将开始）。     |
 | enable_live | Boolean      | 是否开启直播（会议创建人才有权限查询）。   |
 | live_config | 直播信息对象 | 会议的直播配置（会议创建人才有权限查询）。 |
+|meeting_room_info_list |Object | 会议室列表。 |
+|enable_doc_upload_permission    | Boolean       | 是否允许成员上传文档，默认为允许。                                                     |
+|guests   | Guest数组     | 会议嘉宾列表。                                                     |
+
 
 <span id="settings"></span>
 
@@ -110,6 +114,25 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 | enable_live_im     | Boolean  | 是否开启直播互动。 |
 | enable_live_replay | Boolean  | 是否开启直播回放。 |
 | live_addr          | string   | 直播观看地址。     |
+| live_watermark   | object  |直播水印对象信息。     |
+
+
+**直播水印信息 live_watermark_info**
+
+| **参数名称**  | **必选** | **参数类型** | **参数描述**                              |
+| ------------- | -------- | ------------ | ----------------------------------------- |
+| watermark_opt | 否       | integer      | 水印选项，默认为0。<br> 0：默认水印<br> 1：无水印 |
+
+
+**会议嘉宾 Guest 对象**
+
+| 参数名称     | 参数类型 | 参数描述                                           |
+| ------------ |-------- | -------------------------------------------------- |
+| area         |  String   | 国家/地区代码（例如：中国传86，不是+86，也不是0086）。 |
+| phone_number | String   | 手机号。                                             |
+| guest_name   |  String   | 嘉宾名称。                                          |
+
+
 
 ## 示例
 #### 输入示例

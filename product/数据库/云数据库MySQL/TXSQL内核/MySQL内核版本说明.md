@@ -14,7 +14,7 @@
 - 修复全文索引中，词组查找（phrase search）在多字节字符集下存在的崩溃问题。
 
 ## MySQL 5.7
-### 20201230
+### 20201231
 #### 新特性：
 - 支持 SELECT FOR UPDATE/SHARE 使用 NOWAIT 和 SKIP LOCKED 选项。
 - 支持动态设置 thread_handling 线程模式或连接池模式。
@@ -172,6 +172,15 @@ FLUSH TABLES WITH READ LOCK 的上锁备份方式导致整个数据库不可提�
 - 修复在异步模式下速度限制插件不可用的问题。
 
 ## MySQL 5.6
+### 20201231
+#### 官方 bug 修复：
+- 修复由于 hash scan，导致1032问题。 
+- 修复 row 格式下 replace into，导致主从 auto increment 值不一致的问题。
+- 修复 SQL 解析申请内存未释放，导致内存泄漏的问题。
+- 修复 create table as select 建表时，跳过 sql mode 检查的问题。
+- 修复 Insert 语句在插入默认值时，跳过 sql mode 检查的问题。
+- 修复绑定参数执行 update 语句时，跳过 sql mode 检查的问题。
+
 ### 20200915
 #### 新特性：
 - 支持 [SQL 限流](https://cloud.tencent.com/document/product/1130/37882#sql-.E9.99.90.E6.B5.81) 功能。

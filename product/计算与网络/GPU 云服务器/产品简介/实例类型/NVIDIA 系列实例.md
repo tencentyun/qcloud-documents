@@ -441,7 +441,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
         <td>4GB vGPU</td>
 				<td>4核</td>
 				<td>20GB</td>
-        <td>2Gbps</td>
+        <td>1.5Gbps</td>
 				<td>50万PPS</td>
          <td>4</td>
          <td rowspan="2">广州三、四区，上海二、四区，南京一、二区，北京三，五区，成都一区，重庆一区，硅谷二区</td>
@@ -452,7 +452,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
         <td>8GB vGPU</td>
 				<td>10核</td>
 				<td>40GB</td>
-        <td>4Gbps</td>
+        <td>3Gbps</td>
 				<td>70万PPS</td>
         <td>10</td>
 			</tr>
@@ -462,7 +462,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
                 <td>1 * 16GB</td>
 				<td>8核</td>
 				<td>32GB</td>
-                <td>7Gbps</td>
+                <td>3Gbps</td>
 				<td>60万PPS</td>
                 <td>8</td>
                 <td rowspan="5">广州三、四区，上海二、四区，南京一、二区，北京三、五区，成都一区，重庆一区，新加坡一区，硅谷二区，香港二区，孟买二区，弗吉尼亚二区，法兰克福一区</td>
@@ -483,7 +483,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
         <td>1 * 16GB</td>
 				<td>32核</td>
 				<td>128GB</td>
-        <td>7Gbps</td>
+        <td>10Gbps</td>
 				<td>240万PPS</td>
         <td>16</td>
 			</tr>
@@ -511,7 +511,9 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 </table>
 
 
->?**vGPU**：GN7 实例簇支持 vGPU 的实例类型。vGPU 的类型为 vComputeServer，只支持 CUDA 计算 API。
+>?**vGPU**：
+>- GN7 实例簇支持 vGPU 的实例类型。vGPU 的类型为 vComputeServer，只支持 CUDA 计算 API。
+>- vCS 实例需安装 GRID 驱动，且 vCS 的实例不支持 Windows 操作系统。
 
 
 ## 计算型 GN6/GN6S 

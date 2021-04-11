@@ -23,6 +23,8 @@
         type="button"
 >验证</button>
 ```
+其中验证码 AppID 请在 [验证码控制台](https://console.cloud.tencent.com/captcha) 中，选择【查看详情】>【基础配置】进行查看 。如果未新建验证，请根据业务需求选择适合的验证渠道、验证场景进行新建。
+![](https://main.qcloudimg.com/raw/a143e2cca37a045debafe1d369049616.png)
 3. 为验证码创建回调函数。
 >!函数名要与 data-cbfn 相同。
 >
@@ -153,4 +155,5 @@ options 提供以下配置参数：
 </tr>
 </tbody></table>
 
-
+## 更多信息
+您可以登录 [验证码控制台](https://console.cloud.tencent.com/captcha/graphical) ，在页面右上角单击【快速咨询】，了解更多详细信息。

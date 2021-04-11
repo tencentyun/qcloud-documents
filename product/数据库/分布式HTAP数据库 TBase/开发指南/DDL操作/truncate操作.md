@@ -11,7 +11,6 @@ TRUNCATE TABLE
 postgres=# 
 ```
 
-
 ## truncate 分区表
 ### truncate 一个时间分区表
 ```

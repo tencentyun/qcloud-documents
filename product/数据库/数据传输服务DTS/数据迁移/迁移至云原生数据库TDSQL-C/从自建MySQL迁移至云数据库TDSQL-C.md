@@ -9,7 +9,7 @@
 CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW
 DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
-GRANT ALL PRIVILEGES ON `tencentdb`.* TO ‘迁移帐号’@‘%’;  
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO ‘迁移帐号’@‘%’;  
 GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 ```
 - 部分库表迁移：`GRANT SELECT ON 待迁移的库.* TO ‘迁移帐号’;`

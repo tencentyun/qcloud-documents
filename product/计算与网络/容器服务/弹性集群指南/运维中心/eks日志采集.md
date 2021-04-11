@@ -46,7 +46,7 @@ EKS 日志采集功能采集到的日志信息将会以 JSON 格式输出到您�
   1. 登录访问管理控制台，在左侧导航栏选择【[角色](https://console.cloud.tencent.com/cam/role)】。
   2. 在“角色”页面，单击【新建角色】。
   3. 在“选择角色载体” 弹窗中，选择【腾讯云产品服务】，进入【新建自定义角色】页面。
-  4. 在“输入角色载体信息”步骤中，选择绑定【云服务器（cvm）】载体，单击【下一步】。
+  4. 在“输入角色载体信息”步骤中，选择**绑定【云服务器（cvm）】载体**，单击【下一步】。
   5. 在“配置角色策略”步骤中，选择【QcloudCLSAccessForApiGateWayRole】策略，单击【下一步】。
   6. 在“审阅”步骤中，输入您的角色名称，审阅您即将创建角色的相关信息，单击【完成】后即完成自定义角色创建。详情请参见 [创建角色](https://cloud.tencent.com/document/product/598/19381)。
 :::
@@ -74,7 +74,7 @@ EKS 日志采集功能支持指定用户自建的 Kafka 实例、日志服务 CL
 ![](https://main.qcloudimg.com/raw/c3f3a6f892b9c07cb24f7e210db5f80e.png)
 :::
 ::: 配置CLS作为日志消费端
-- 日志服务 CLS 目前只能支持同地域的容器集群进行日志采集上报。详情请参见 [创建日志集和日志主题](https://cloud.tencent.com/document/product/614/34340)。
+- 日志服务 CLS 目前只能支持同地域的容器集群进行日志采集上报。详情请参见 [创建日志集和日志主题](https://cloud.tencent.com/document/product/614/34340#3.-.E5.88.9B.E5.BB.BA.E6.97.A5.E5.BF.97.E9.9B.86.E5.92.8C.E6.97.A5.E5.BF.97.E4.B8.BB.E9.A2.98)。
 - 打开日志主题的【日志索引】。如下图所示：
 ![](https://main.qcloudimg.com/raw/a8413fb410367e01acfa9ff62e7a291d.png)
 :::
