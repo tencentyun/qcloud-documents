@@ -1,8 +1,8 @@
 
 ## 安装 gRPC
 1. 使用 gRPC Go 时，需要先安装 Go 的最新主要版本。
-2. 安装 Protocol buffer 编辑器，版本为 protoc3。
-3. 安装 Protocol buffer 编辑器里 Go 插件。
+2. 安装 Protocol buffer 编译器，版本为 protoc3。
+3. 安装 Protocol buffer 编译器里 Go 插件。
   - 使用以下命令为 Go（protoc-gen-go）安装 Protocol buffer 编译器插件：
   ```
   $ export GO111MODULE=on  # Enable module mode
@@ -12,7 +12,7 @@
 ```
 $ export PATH="$PATH:$(go env GOPATH)/bin"
 ```
- >?具体流程请您参考 [安装 Go 的说明](https://github.com/grpc/grpc-go/tree/master/examples)，[安装 Protocol buffer 编辑器的说明](https://www.grpc.io/docs/protoc-installation/)。
+ >?具体流程请您参考 [安装 Go 的说明](https://github.com/grpc/grpc-go/tree/master/examples)，[安装 Protocol buffer 编译器的说明](https://www.grpc.io/docs/protoc-installation/)。
 
 ## 定义服务
  gRPC 通过 protocol buffers 实现定义一个服务：一个 RPC 服务通过参数和返回类型来指定可以远程调用的方法。
