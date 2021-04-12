@@ -22,8 +22,8 @@
 3. 单击【确定】，CDC 本地网关展示在列表中，目前1个 CDC 集群仅支持创建1个 CDC 本地网关。
    ![](https://main.qcloudimg.com/raw/b56d0a48e0d13dc6d9df87b3cbce3f27.png)
 
-### 步骤3：创建自定义路由策略
-当 CDC 子网需要访问 IDC 网段时，可配置到本地网关的路由策略。CDC 默认关联 VPC 主路由表，可在路由表中增加路由策略，也可以创建自定义路由表并增加路由策略。
+### 步骤3：创建路由策略
+当 CDC 子网需要访问 IDC 网段时，可配置目标到本地网关的路由策略。CDC 默认关联主 Region 下 VPC 主路由表，可在路由表中增加路由策略，也可以[ 创建自定义路由表 ](https://cloud.tencent.com/document/product/215/36682)并增加路由策略。
 1. 登录 [路由表控制台](https://console.cloud.tencent.com/vpc/route?rid=1)。
 2. 选择 CDC 子网关联路由表，单击路由表 ID 进入路由表详情界面。
 3. 单击【新增路由】，当 CDC 子网访问 IDC 网段，可配置目的端为 IDC 网段，下一跳类型为 CDC 本地网关，下一跳为具体 CDC 网关实例。
@@ -60,10 +60,9 @@
 4. 单击配置监听器，新建监听器、配置监听器规则，并绑定后端云服务器实例。
 
 
-### 步骤6：（可选）其他操作
-1. 您也可以创建自定义路由表，并新增路由策略，完成路由策略配置后，关联至 CDC 子网，具体操作请参加[路由表](https://cloud.tencent.com/document/product/215/20122)。    
-2. CDC 子网及子网中的云资源支持网络 ACL 和安全组，规则使用及配置与普通子网及云服务器无差异，具体操作请参考 [网络 ACL](https://cloud.tencent.com/document/product/215/20160) 和 [安全组](https://cloud.tencent.com/document/product/215/37888)。
-3. CDC 支持网络流日志，具体请参考 [网络流日志](https://cloud.tencent.com/document/product/682/18935)。
+### 步骤6：（可选）其他操作   
+1. CDC 子网及子网中的云资源支持网络 ACL 和安全组，规则使用及配置与普通子网及云服务器无差异，具体操作请参考 [网络 ACL](https://cloud.tencent.com/document/product/215/20160) 和 [安全组](https://cloud.tencent.com/document/product/215/37888)。
+2. CDC 支持网络流日志，具体请参考 [网络流日志](https://cloud.tencent.com/document/product/682/18935)。
 
 ## 测试连接
 可通过如下方式测试网络连接：
