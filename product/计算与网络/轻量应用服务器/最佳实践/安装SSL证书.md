@@ -91,13 +91,13 @@ server {
     listen 443 ssl;
     server_tokens off;
     keepalive_timeout 5;
-    root /usr/local/lighthouse/softwares/wordpress;
+    root /usr/local/lighthouse/softwares/wordpress; #填写您的网站根目录，例如：/usr/local/lighthouse/softwares/wordpress
     index index.php index.html;
     access_log logs/wordpress.log combinediox;
     error_log logs/wordpress.error.log;
-    server_name cloud.tencent.com;   #填写您的证书绑定的域名，例如：cloud.tencent.com
-    ssl_certificate 1_cloud.tencent.com_bundle.crt;   #填写您的证书文件名称，例如：1_cloud.tencent.com_bundle.crt
-    ssl_certificate_key 2_cloud.tencent.com.key;    #填写您的私钥文件名称，例如：2_cloud.tencent.com.key
+    server_name cloud.tencent.com; #填写您的证书绑定的域名，例如：cloud.tencent.com
+    ssl_certificate 1_cloud.tencent.com_bundle.crt; #填写您的证书文件名称，例如：1_cloud.tencent.com_bundle.crt
+    ssl_certificate_key 2_cloud.tencent.com.key; #填写您的私钥文件名称，例如：2_cloud.tencent.com.key
     ssl_session_timeout 5m;
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;  # 可参考此 SSL 协议进行配置
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;   #可按照此加密套件配置，写法遵循 openssl 标准
