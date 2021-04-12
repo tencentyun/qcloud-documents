@@ -10,7 +10,7 @@
 2. 选择 CDC 子网，单击创建 CDC 子网。
 3. 在弹出的对话框中，选择您本地机房已部署的 CDC 集群，以及集群关联的 VPC，系统自动关联出可用区，路由表默认是 VPC 主路由表，如果创建多个子网请单击【添加子网】。
 	![](https://main.qcloudimg.com/raw/d81e2e02af5afc641fd9024ca078fdc0.png)
-4. 完成 CDC 子网配置后，单击【创建】完成操作，CDC 子网将展示在 CDC 子网列表和主 Region 子网列表。
+4. 在配置完 CDC 子网后，单击【创建】完成操作，子网创建后，即可在子网中创建云服务器资源。
 	![](https://main.qcloudimg.com/raw/8fd183549092a70809252c4bd29ed6e7.png)
 5. （可选）如需更换路由表，可单击【更多】>【更换路由表】，可为 CDC 子网更换路由表。
 	![](https://main.qcloudimg.com/raw/a039849dd23858734727d868bc702c4a.png)
