@@ -24,7 +24,12 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
         </thead>
         <tbody>
             <tr>
-                <td rowspan="8">计算型</td>
+                <td rowspan="9">计算型</td>
+							  <td>GT4</td> 
+                <td>Tesla A100 NVLink 40G</td>
+                                <td><ul class="params"><li>Windows Server 2016 及以上</li><li>CentOS 7.2 及以上</li><li>Ubuntu 16.04 及以上</li></ul></td>
+                <td>广州、上海、北京</td>
+            </tr>
                 <td>GN10X<br>GN10Xp</td> 
                 <td>Tesla V100 NVLink 32G</td>
                 <td><ul class="params"><li>CentOS 7.2 及以上</li><li>Ubuntu 14.04 及以上</li><li>Windows Server 2012 及以上</li></td>
@@ -88,6 +93,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
             <th width="13%">GN8</th>
             <th width="13%">GN10X/GN10Xp</th>
             <th width="13%">GN7vw</th>
+						<th width="13%">GT4</th>
         </tr>
         </thead>
         <tbody>
@@ -99,6 +105,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>✓</td>
                 <td>✓</td>
                 <td>★</td>
+								 <td>-</td> 
             </tr>
             <tr>
                 <td>视频编解码</td>
@@ -108,6 +115,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>✓</td>
                 <td>✓</td>
                 <td>★</td>
+								 <td>-</td> 
             </tr>
             <tr>
                 <td>深度学习训练</td>
@@ -117,6 +125,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>★</td>
                 <td>★</td>
                 <td>-</td>
+								<td>★</td>
             </tr>
             <tr>
                 <td>深度学习推理</td>
@@ -126,6 +135,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>★</td>
                 <td>✓</td>
                 <td>-</td>
+								<td>✓</td>
             </tr>
             <tr>
                 <td>科学计算</td>
@@ -135,6 +145,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>-</td>
                 <td>★</td>
                 <td>-</td>
+								<td>★</td>
             </tr>
         </tbody>
 </table>
@@ -174,6 +185,93 @@ NVIDIA GN* 系列其他实例（GN2 除外）可以通过安装 GRID Driver 的�
 - 支持与 [负载均衡](/doc/product/214/524) 等产品的业务对接，不增加额外的管理和运维成本，内网流量免费。
 
 
+## 计算型 GT4 
+
+**NVIDIA 实例 GT4** 适用于深度学习、科学计算等 GPU 通用计算场景。
+
+### 适用场景
+
+GT4 具有强大的双精度浮点运算能力 ，适用于大规模深度学习训练，推理和科学计算场景。例如：
+  - 深度学习
+  - 高性能数据库
+  - 计算流体动力学
+  - 计算金融
+  - 地震分析
+  - 分子建模
+  - 基因组学及其他
+
+
+
+### 硬件规格
+
+- **CPU：**GT4 配置 AMD EPYC™ ROME 处理器，主频2.6GHz。
+- **GPU：**NVIDIA<sup>®</sup>  A100 NVLink 40GB（19.5TFLOPS单精度浮点计算，9.7TFLOPS双精度浮点计算，600GB/s NVLink）。
+- **内存：**DDR4，内存计算性能稳定。
+- **存储：**可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
+- **网络：**最高科支持50Gbps内网带宽，超高网络收发包能力，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
+
+**GN10X/GN10Xp 实例提供以下配置：**
+
+<table>
+		<thead>
+		<tr>
+			<th width=10%>型号</th>
+			<th width=10%>GPU<br>（NVIDIA<br>Tesla A100 NVLink 40G）</th>
+            <th width=12%>GPU 显存<br>（HBM2）</th>
+			<th width=8%>vCPU</th>
+			<th>内存<br>（DDR4）</th>
+            <th width=10%>内网带宽</th>
+            <th>网络收发包</th>
+            <th>队列数</th>
+			<th>可用区</th>
+		</tr>
+		</thead>
+		<tbody>
+        <tr>
+			<td>GT4.4XLARGE96</td>
+			<td>1颗</td> 
+            <td>1 * 40GB</td>
+			<td>16核</td>
+			<td>96GB</td>
+            <td>5Gbps</td>
+			<td>120万PPS</td>
+            <td>4</td>
+            <td rowspan="4">广州四区，上海四区，北京五区</td>
+		</tr>
+		<tr>
+			<td>GT4.8XLARGE192</td>
+			<td>2颗</td> 
+            <td>2 * 40GB</td>
+			<td>32核</td>
+			<td>192GB</td>
+            <td>10Gbps</td>
+			<td>235万PPS</td>
+            <td>8</td>
+		</tr>
+        <tr>
+			<td>GT4.20XLARGE474</td>
+			<td>4颗</td> 
+            <td>4 * 40GB</td>
+			<td>82核</td>
+			<td>474GB</td>
+            <td>25Gbps</td>
+			<td>600万PPS</td>
+            <td>16</td>
+		</tr>
+        <tr>
+			<td>GT4.41XLARGE948</td>
+			<td>8颗</td> 
+            <td>8 * 40GB</td>
+			<td>164核</td>
+			<td>320GB</td>
+            <td>50Gbps</td>
+			<td>1200万PPS</td>
+            <td>32</td>
+		</tr>
+		</tbody>
+</table>
+
+>?**vGPU**：NVIDIA A100 系列需要安装 NVIDIA Tesla 450 版本以上驱动，推荐您安装 460.32.03(Linux)/461.33(Windows) 版本驱动，驱动版本信息请参见 [NVIDIA 官方文档](https://docs.nvidia.com/datacenter/tesla/index.html#nvidia-driver-documentation)。
 
 
 ## 计算型 GN10X/GN10Xp 
