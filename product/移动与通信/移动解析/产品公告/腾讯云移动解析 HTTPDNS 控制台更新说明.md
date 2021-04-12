@@ -13,7 +13,7 @@
 </tr>
 <tr>
 <td>域名管理</td>
-<td>域名管理页面主要用于添加解析域名和查看解析域名使用情况。详情请参见：<a href="1">添加解析域名</a> 与 <a href="2">查看域名解析详情。</a></td>
+<td>域名管理页面主要用于添加解析域名和查看解析域名使用情况。详情请参见：<a href="https://cloud.tencent.com/document/product/379/54588">添加解析域名</a> 与 <a href="https://cloud.tencent.com/document/product/379/54589">查看域名解析详情。</a></td>
 </tr>
 <tr>
 <td>开发配置</td>
