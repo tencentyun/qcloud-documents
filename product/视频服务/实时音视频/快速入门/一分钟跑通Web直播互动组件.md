@@ -125,19 +125,19 @@ im.enterRoom('your roomID').then((imResponse) => {
 
 [](id:step1)
 ### 步骤1：创建应用
-首先我们需要在实时音视频控制台创建一个 TRTC 应用，腾讯云会默认为该 TRTC 应用绑定一个具有相同 SDKAppID 的 IM 应用。
 
+首先我们需要在实时音视频控制台创建一个 TRTC 应用，腾讯云会默认为该 TRTC 应用绑定一个具有相同 SDKAppID 的 IM 应用。
 1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)。
-2. 进入[【应用管理】](https://console.cloud.tencent.com/trtc/app)，单击【创建应用】，输入应用名称，单击【确定】创建一个实时音视频应用。
-![](https://main.qcloudimg.com/raw/9a6003b3b96e7219d0718fde3cf83297.png)
+2. 进入【[应用管理](https://console.cloud.tencent.com/trtc/app)】，单击【创建应用】，输入应用名称，单击【确定】创建一个实时音视频应用。
+![](https://main.qcloudimg.com/raw/73ddaf11a33ab49bfa69f448916409e5.png)
 
 [](id:step2)
 ### 步骤2：获取 SDKAppID 及密钥
 1. 在 [应用列表](https://console.cloud.tencent.com/trtc/app) 里，选择目标应用，单击右侧的【应用信息】进入详情页。
 2. 查看【应用信息】模块，单击复制按钮，记录 SDKAppID 信息。
-![](https://main.qcloudimg.com/raw/33807f21a5591c4bde5e58911126d908.png)
+![](https://main.qcloudimg.com/raw/ed1cc18dd2a62b04e8d16a6ca72e54ab.png)
 3. 选择【快速上手】页签，查看【第二步 获取签发UserSig的密钥】标签，单击【复制密钥】。
-![](https://main.qcloudimg.com/raw/ad738c0b26ac45afe404a013c4c280ab.png)
+![](https://main.qcloudimg.com/raw/67116f7537236589cea3ba2719be3a9a.png)
 
 >!
 >- 本地计算 UserSig 的方式仅用于本地开发调试，请勿直接发布到线上，一旦您的 `SECRETKEY` 泄露，攻击者就可以盗用您的腾讯云流量。
@@ -219,6 +219,7 @@ Web 推流和 Web 低延时观看用到了 WebRTC 技术。而 WebRTC 技术是�
 |   Windows   |      桌面版 Edge 浏览器      |        80+         |     支持     |     支持     |
 | iOS 11.1.2+ |     移动版 Safari 浏览器     |        11+         |     支持     |     支持     |
 | iOS 12.1.4+ |         微信内嵌网页         |         -          |     支持     |    不支持    |
+| iOS 14.3+   |         微信内嵌网页         |   6.5+（微信版本） |     支持     |    支持     |
 |   Android   |       移动版 QQ 浏览器       |         -          |    不支持    |    不支持    |
 |   Android   |       移动版 UC 浏览器       |         -          |    不支持    |    不支持    |
 |   Android   |   微信内嵌网页（TBS 内核）   |         -          |     支持     |     支持     |

@@ -5,6 +5,10 @@
 - 下载 SkyWalking 8.X.X版本（[下载地址](http://skywalking.apache.org/downloads/)），在 SkyWalking APM 中选择 Distribution，下载任一 tar 包，解压后在 bin 文件中获取 Agent 文件。
 - 插件放置路径与日志输出路径与原生保持一致，不要改变文件夹的结构。
 
+## 容器 Kubernetes 的最佳实践
+
+如果您通过容器服务TKE来部署应用，请参考 [在容器服务 TKE 中使用 Skywalking Agent 公共镜像接入 Java 应用](https://cloud.tencent.com/document/product/1311/54161) 文档。
+
 ## 操作流程
 #### 1. 获取接入点信息与 Token
 在 [TSW 控制台](https://console.cloud.tencent.com/tsw)的【服务监控】>【服务列表】页，单击【接入服务】，选择 Java 语言与 SkyWalking 的数据采集方式。

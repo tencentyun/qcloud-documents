@@ -21,7 +21,7 @@
 ![](https://main.qcloudimg.com/raw/8c8e2e57d320ba2b25e0aecf0dbb3b28.png)
 
 ####  CKafka 实例配置
-1. 在配置文件（参见 [配置文件示例](#配置文件示例)）中，增加如下配置：
+1. 在配置文件（参见 [配置文件示例](#example)）中，增加如下配置：
 ```
 sasl.mechanism=PLAIN
 security.protocol=SASL_PLAINTEXT
@@ -57,6 +57,7 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 >?
 - 开通路由只影响接入时的验证方式，设置的 ACL 权限则是全局的。
 - 如果您在开通公网访问路由的同时还使用了 PLAINTEXT 方式接入 Kafka，那么之前为  Topic 设置的 ACL 仍然会生效；如果希望 PLAINTEXT 方式的访问不受影响，请为 PLAINTEXT 需要访问的 Topic 添加全部用户的可读写的权限。
+- 如果该 Topic 已经在有其他云产品在使用（例如：日志服务 CLS 的日志投递、云函数 SCF 消息转储、大数据 EMR 组件的消费等），开启 ACL 策略相当于对这些联动能力的权限加以限制，会直接导致这些能力不可用，请一定谨慎操作。对于此类情况建议生产同一份数据到另一个 Topic 做分别处理，不要在同一个 Topic 上配置统一的 ACL 策略。
 
 ###  步骤四：连通性测试
 ####  Kafka 自带工具脚本

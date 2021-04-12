@@ -37,7 +37,7 @@
 3. 设置`GenerateTestUserSig.js`文件中的相关参数：
   <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
   <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-  <img src="https://main.qcloudimg.com/raw/50acf9a7e958fba08e0920938e93cbd5.png">
+  <img src="https://main.qcloudimg.com/raw/bf4e96ecc305b7d4eee5ec677a52b6a2.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 

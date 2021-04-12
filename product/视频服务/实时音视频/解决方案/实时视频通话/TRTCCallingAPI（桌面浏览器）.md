@@ -489,7 +489,7 @@ function handleInviteeReject({userID}) {
 
 <dx-codeblock>
 ::: javascript javascript
-function handleNoResponse({userID}) {
+function handleNoResponse({userID, userIDList}) {
 
 }
 :::
@@ -497,9 +497,10 @@ function handleNoResponse({userID}) {
 
 参数如下表所示：
 
-| 参数   | 类型   | 含义    |
-| ------ | ------ | ------- |
-| userID | String | 用户 ID |
+| 参数       | 类型   | 含义         |
+| ---------- | ------ | ------------ |
+| userID     | String | 用户 ID      |
+| userIDList | Array  | 超时用户列表 |
 
 #### LINE_BUSY
 

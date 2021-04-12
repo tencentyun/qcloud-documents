@@ -115,7 +115,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_joined_group_list?sdkappid
             "Role", 
             "JoinTime",
             "MsgFlag", 
-            "UnreadMsgNum" 
+            "MsgSeq" 
         ]
     }
 }
@@ -217,14 +217,14 @@ https://console.tim.qq.com/v4/group_open_http_svc/get_joined_group_list?sdkappid
             "MaxMemberNum": 200,
             "MemberNum": 1,
             "Name": "d",
-            "NextMsgSeq": 1,
+            "NextMsgSeq": 2,
             "Notification": "",
             "Owner_Account": "",
             "SelfInfo": {
                 "JoinTime": 1588148506,
                 "MsgFlag": "AcceptAndNotify",
                 "Role": "Member",
-                "UnreadMsgNum": 0
+                "MsgSeq": 1
             },
             "ShutUpAllMember": "Off",
             "Type": "Private"

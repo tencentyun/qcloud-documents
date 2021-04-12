@@ -52,6 +52,8 @@
 | [createFileMessage](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Message_08.html#a9e487ae9541111038ebed900ab639d4c) | 创建文件消息 |
 | [createLocationMessage](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Message_08.html#a2a997472dd62d794cfd4e3a42cfab930) | 创建地理位置消息 |
 | [createFaceMessage](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Message_08.html#ab7a593be2cca1c8eddd7e73255f3f34a) | 创建表情消息 |
+| [createMergerMessage](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Message_08.html#a2943bb31403aeb22f8582cd9966cf13e) | 创建合并转发消息 |
+| [createForwardMessage](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Message_08.html#a05d088b7d9883e18af41355cdd3f4562) | 创建单条转发消息 |
 | [sendMessage](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Message_08.html#a681947465d6ab718da40f7f983740a21) | 发送消息，消息对象可以由 createXXXMessage 接口创建得来。 |
 | [revokeMessage](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Message_08.html#a9e242ba327377fe74b83e8d5572d39a0) |  撤回消息，消息对象可以由 createXXXMessage 接口创建得来。 |
 | [getC2CHistoryMessageList](http://doc.qcloudtrtc.com/im/categoryV2TIMManager_07Message_08.html#abca63ad64f69aa4f424cf11849a9b89e) | 获取单聊（C2C）历史消息 |

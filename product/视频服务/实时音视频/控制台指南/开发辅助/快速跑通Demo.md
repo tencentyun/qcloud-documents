@@ -23,7 +23,7 @@
 2. 找到并打开相应的文件，将生成的 SDKAppID 和密钥粘贴到指定的位置。
 3. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 
-![](https://main.qcloudimg.com/raw/5cde8feaf68cfdebac2f74b82c38e137.png)
+![](https://main.qcloudimg.com/raw/77e08d1d93e9d0e678a80efe253c2ae4.png)
 >!密钥为敏感信息，请注意保密，不要泄露。
 
 [](id:step4)

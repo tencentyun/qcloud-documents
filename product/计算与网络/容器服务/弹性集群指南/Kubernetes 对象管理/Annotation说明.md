@@ -77,12 +77,12 @@
 <td>否。如填写，请确保填写的 CAM 角色名存在。</td>
 </tr>
 <tr>
-<td>eks.tke.cloud.tencent.com/monitor_port</td>
+<td>eks.tke.cloud.tencent.com/monitor-port</td>
 <td>为 Pod 设置监控数据暴露端口，以便被 Prometheus 等组件采集。</td>
 <td>否。不填写默认为 9100。</td>
 </tr>
 <tr>
-<td>eks.tke.cloud.tencent.com/custom_metrics_url</td>
+<td>eks.tke.cloud.tencent.com/custom-metrics-url</td>
 <td>为 Pod 设置自定义监控指标拉取地址，通过该地址暴露的监控数据会自动被监控组件读取并上报。</td>
 <td>否。如填写，请确保暴露的数据协议可被监控系统识别，如 Prometheus 协议、云监控数据协议。</td>
 </tr>
@@ -95,64 +95,64 @@
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
-  generation: 1
-  labels:
-    k8s-app: nginx
-    qcloud-app: nginx
-  name: nginx
-  namespace: default
+   generation: 1
+   labels:
+     k8s-app: nginx
+     qcloud-app: nginx
+   name: nginx
+   namespace: default
 spec:
-  progressDeadlineSeconds: 600
-  replicas: 1
-  revisionHistoryLimit: 10
-  selector:
-    matchLabels:
-      k8s-app: nginx
-      qcloud-app: nginx
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 0
-    type: RollingUpdate
-  template:
-    metadata:
-      annotations:
-        eks.tke.cloud.tencent.com/cpu: "2"
-        eks.tke.cloud.tencent.com/gpu-count: "1"
-        eks.tke.cloud.tencent.com/gpu-type: 1/4*V100
-        eks.tke.cloud.tencent.com/mem: 10Gi
-        eks.tke.cloud.tencent.com/security-group-id: "sg-dxxxxxx5,sg-zxxxxxxu"
-        eks.tke.cloud.tencent.com/static-ip: "true"
-        eks.tke.cloud.tencent.com/role-name: "cam-role-name"
-        eks.tke.cloud.tencent.com/monitor_port: "9123"
-        eks.tke.cloud.tencent.com/custom_metrics_url: "http://localhost:8080/metrics"
-      creationTimestamp: null
-      labels:
-        k8s-app: nginx
-        qcloud-app: nginx
-    spec:
-      containers:
-      - image: nginx:latest
-        imagePullPolicy: Always
-        name: nginx
-        resources:
-          limits:
-            cpu: "1"
-            memory: 2Gi
-            nvidia.com/gpu: "1"
-          requests:
-            cpu: "1"
-            memory: 2Gi
-            nvidia.com/gpu: "1"
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-      dnsPolicy: ClusterFirst
-      imagePullSecrets:
-      - name: qcloudregistrykey
-      restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      terminationGracePeriodSeconds: 30
+   progressDeadlineSeconds: 600
+   replicas: 1
+   revisionHistoryLimit: 10
+   selector:
+     matchLabels:
+       k8s-app: nginx
+       qcloud-app: nginx
+   strategy:
+     rollingUpdate:
+       maxSurge: 1
+       maxUnavailable: 0
+     type: RollingUpdate
+   template:
+     metadata:
+       annotations:
+         eks.tke.cloud.tencent.com/cpu: "2"
+         eks.tke.cloud.tencent.com/gpu-count: "1"
+         eks.tke.cloud.tencent.com/gpu-type: 1/4*V100
+         eks.tke.cloud.tencent.com/mem: 10Gi
+         eks.tke.cloud.tencent.com/security-group-id: "sg-dxxxxxx5,sg-zxxxxxxu"
+         eks.tke.cloud.tencent.com/static-ip: "true"
+         eks.tke.cloud.tencent.com/role-name: "cam-role-name"
+         eks.tke.cloud.tencent.com/monitor-port: "9123"
+         eks.tke.cloud.tencent.com/custom-metrics-url: "http://localhost:8080/metrics"
+       creationTimestamp: null
+       labels:
+         k8s-app: nginx
+         qcloud-app: nginx
+     spec:
+       containers:
+       - image: nginx:latest
+         imagePullPolicy: Always
+         name: nginx
+         resources:
+           limits:
+             cpu: "1"
+             memory: 2Gi
+             nvidia.com/gpu: "1"
+           requests:
+             cpu: "1"
+             memory: 2Gi
+             nvidia.com/gpu: "1"
+         terminationMessagePath: /dev/termination-log
+         terminationMessagePolicy: File
+       dnsPolicy: ClusterFirst
+       imagePullSecrets:
+       - name: qcloudregistrykey
+       restartPolicy: Always
+       schedulerName: default-scheduler
+       securityContext: {}
+       terminationGracePeriodSeconds: 30
 ```
 
 
@@ -173,20 +173,20 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    service.kubernetes.io/tke-existed-lbid: lb-pxxxxxxq
-  name: servicename
-  namespace: default
+   annotations:
+     service.kubernetes.io/tke-existed-lbid: lb-pxxxxxxq
+   name: servicename
+   namespace: default
 spec:
-  externalTrafficPolicy: Cluster
-  ports:
-  - name: tcp-80-80
-    nodePort: 31728
-    port: 80
-    protocol: TCP
-    targetPort: 80
-  sessionAffinity: None
-  type: LoadBalancer
+   externalTrafficPolicy: Cluster
+   ports:
+   - name: tcp-80-80
+     nodePort: 31728
+     port: 80
+     protocol: TCP
+     targetPort: 80
+   sessionAffinity: None
+   type: LoadBalancer
 ```
 
 <style>

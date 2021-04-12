@@ -1,13 +1,13 @@
 VPN 网关是 VPN 连接服务的功能实例，因此在使用 VPN 连接实现外部网络到腾讯云 VPC 的网络的安全访问之前，您必须先创建一个 IPsec VPN 网关，本文指导您如何在控制台创建 VPN 网关。
 
 ## 前提条件
-如需创建 VPC 类型的 VPN 网关，请提前创建好同地域的 VPC 网络，详情请参考 [创建 VPC](https://cloud.tencent.com/document/product/215/36515#1)。
+如需创建 VPC 类型的 VPN 网关，请提前创建好同地域的 VPC 网络，详情请参考 [创建私有网络](https://cloud.tencent.com/document/product/215/36515)。
 
 ## 操作步骤
 1. 登录 [私有网络控制台](https://console.cloud.tencent.com/vpc/vpc?rid=1)。
 2. 在左侧目录中单击【VPN 连接】>【VPN 网关】，进入管理页。
-3. 在VPN 网关管理页面，单击【+新建】。
-4. 在弹出的【新建VPN网关】对话框中，配置如下网关参数。
+3. 在 VPN 网关管理页面，单击【+新建】。
+4. 在弹出的【新建 VPN 网关】对话框中，配置如下网关参数。
 <img src="https://main.qcloudimg.com/raw/52f055358ccea8f1679ddb49a49b2d40.png" width="50%" />
 <table>
 <tr>

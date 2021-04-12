@@ -81,8 +81,8 @@
 <td style="text-align:center" ><a href="https://cloud.tencent.com/document/product/269/52049">更新日志(开源框架)</a></td>
 </tr>
 <tr>
-<td style="text-align:center">Electron  </td>
-<td style="text-align:center" colspan='3' >敬请期待</td>
+<td style="text-align:center">Unity  </td>
+<td style="text-align:center" colspan='3' >公测邀请中，获取资源请加 QQ 群：<a href="https://qm.qq.com/cgi-bin/qm/qr?k=fVHzwGDQ0Hb9Qtn0KzQx7tsChGnzO9vm&jump_from=webapi">764231117</a></td>
 </tr>
 </table>
 

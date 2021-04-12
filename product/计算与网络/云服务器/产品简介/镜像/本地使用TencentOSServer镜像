@@ -1,0 +1,161 @@
+## 操作背景
+TencentOS Server 全面开源，并内置 cloud-init。您可以在本地服务器或 virtualbox 、KVM 等虚拟机中安装使用。本文介绍如何在本地通过 KVM 虚拟机使用 TencentOS Server 镜像。
+
+本文中本地机器以 CentOS 7 操作系统为例，通过 TencentOS Server 镜像创建 KVM，并使用 cloud-init 初始化虚拟机系统设置，cloud-init 的相关信息请参见 [Cloud-Init 常见问题](https://cloud.tencent.com/document/product/213/19670)。使用 NoCloud 数据源在本地建立相关配置文件，以虚拟磁盘的形式挂载到 KVM 虚拟机中进行设置，并启动虚拟机。
+
+## 操作步骤
+### 下载 TencentOS Server 镜像
+[点此下载](http://mirrors.tencent.com/tlinux/2.4/iso/) TencentOS Server 镜像。
+
+### 生成引导镜像
+`seed.img` 为引导镜像，需进行网络、账号、YUM 源等配置。您可通过 NoCloud 数据源手动生成  `seed.img` 镜像：
+1. 在本地同一级目录下，创建 `meta-data` 和 `user-data` 配置文件。
+2. 依次执行以下命令，新建 `seed` 目录并进入该目录。
+```
+mkdir seed
+```
+```
+cd seed/
+```
+3. 创建 `meta-data` 文件，并写入如下内容。您可根据实际情况修改配置信息。
+```
+#cloud-config
+#vim:syntax=yaml
+
+local-hostname: tlinux-host
+# FIXME: doesn't work for systemd-networkd
+#network-interfaces: |
+#  iface eth0 inet static
+#  address 192.168.122.68
+#  network 192.168.122.0
+#  netmask 255.255.255.0
+#  broadcast 192.168.122.255
+#  gateway 192.168.122.1
+```
+4. 创建 `user-data` 文件，并写入如下内容。您可根据实际情况修改配置信息。
+```
+#cloud-config
+#vim:syntax=yaml
+
+# 添加一个名为 tencentuser 的账号，并且可以执行 sudo 命令。
+users:
+  - default
+  - name: tencentuser
+    sudo: ['ALL=(ALL)   ALL']
+    plain_text_passwd: tencentuser
+    lock_passwd: false
+
+# 添加 TencentOS Server 的 YUM 源。
+yum_repos:
+    base:
+        name=tlinux-$releasever - tlinux 
+        baseurl=http://mirrors.tencentyun.com/tlinux/$releasever/tlinux/$basearch/
+        enabled=1
+        gpgcheck=1
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Tlinux-2
+    updates:
+        name=tlinux-$releasever - tlinux-updates
+        baseurl=http://mirrors.tencentyun.com/tlinux/$releasever/tlinux-updates/$basearch/
+        enabled=1
+        gpgcheck=1
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Tlinux-2
+    extras:
+        name=tlinux-$releasever - tlinux-extras
+        baseurl=http://mirrors.tencentyun.com/tlinux/$releasever/tlinux-extras/$basearch/
+        enabled=1
+        gpgcheck=1
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-Tlinux-2
+
+
+# 使用 cloud-init 或 systemd-networkd 可能导致 meta-data 中步骤失效，以下为网络设置的替代方案。
+write_files:
+  - path: /etc/systemd/network/20-eth0.network
+    permissions: 0644
+    owner: root
+    content: |
+      [Match]
+      Name=eth0
+
+      [Network]
+      Address=192.168.*.*/24
+      Gateway=192.168.*.1
+
+# 您也可以用以下网络设置的替代方案。
+runcmd:
+  - ifdown eth0
+  - systemctl restart systemd-networkd
+```
+5. 执行以下命令，在本地安装 cloud-utils 组件。
+```
+yum install cloud-utils-growpart -y
+```
+6. 在 `seed` 目录下，执行以下命令生成 `seed.img` 镜像。
+```
+cloud-localds seed.img user-data meta-data
+```
+
+### 启动虚拟机
+您可通过以下方式启动 KVM 虚拟机，成功启动虚拟机后，使用 `user-data` 配置文件中的账号信息登录虚拟机。
+
+#### 使用 libvirt 工具启动虚拟机
+1. 在本地创建名为 `tlinux.xml` 的配置文件，并写入如下内容。您可按需修改文件名及配置信息。
+```
+<domain type='kvm'>
+    <name>tlinux</name>
+    <memory>1048576</memory> <!-- 1 GB内存。 -->
+    <vcpu>1</vcpu>
+    <os>
+        <type arch='x86_64'>hvm</type>
+        <boot dev='hd'/>
+    </os>
+    <clock sync="localtime"/>
+    <on_poweroff>destroy</on_poweroff>
+    <on_reboot>restart</on_reboot>
+    <on_crash>restart</on_crash>
+    <devices>
+        <emulator>/usr/bin/qemu-kvm</emulator><!-- 请根据不同的操作系统设置对应的kvm路径。例如，Ubuntu 对应的 kvm 路径是 /usr/bin/kvm -->
+        <disk type='file' device='disk'><!-- 请根据镜像格式设置下面的 type 参数：qcow2 对应 type='qcow2'、vhd 对应 type='vhd'。 -->
+            <driver name='qemu' type='qcow2' cache='none' dataplane='on' io='native'/> <!-- 如果要创建 qcow2 快照，需要关闭 dataplane。 -->
+            <source file='path'/> <!-- 填写 TencentOS Server 镜像的绝对路径。 -->
+            <target dev='vda' bus='virtio'/>
+        </disk>
+        <!-- 加入 seed.img 信息。 -->
+        <disk type='file' device='disk'>
+            <driver name='qemu' type='raw'/>
+            <source file='/path/to/your/seed.img'/> <!-- 填写 seed 镜像的绝对路径。 -->
+            <target dev='vdb' bus='virtio'/>
+        </disk>
+        <interface type='network'>
+            <source network='default'/>
+            <model type='virtio'/>
+        </interface>
+        <console type='pty'>
+            <target type='virtio' port='0'/>
+        </console>
+        <video>
+            <model type='cirrus' vram='9216' heads='1'/>
+            <alias name='video0'/>
+        </video>
+        <input type='tablet' bus='usb'/>
+        <input type='mouse' bus='ps2'/>
+        <graphics type='vnc' port='-1' autoport='yes'/>
+    </devices>
+</domain>
+```
+2. 使用 `virsh` 命令启动虚拟机，示例如下。
+```
+virsh define tlinux.xml
+```
+```
+virsh start KVMName    # 请修改为 KVM 虚拟机的真实名称。
+```
+
+#### 使用 qemu-kvm 命令行启动虚拟机
+您需要在命令行中追加如下参数信息，其中 file 参数信息请修改为 seed.img 镜像真实的绝对路径。
+```
+-drive file=/path/to/your/seed.img,if=virtio,format=raw
+```
+关于 libvirt 和 qemu-kvm 命令的更多信息，请参见 [Red Hat 官方说明](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/virtualization_deployment_and_administration_guide/index?spm=a2c4g.11186623.2.9.5a8d271bdAVH5b#sect-Installing_virtualization_packages_on_an_existing_Red_Hat_Enterprise_Linux_system-Installing_the_virtualization_packages_with_yum)。
+
+#### 使用图形界面启动虚拟机
+您可使用图形界面（virt-manger）启动 KVM 虚拟机。在启动虚拟机之前，您需要在本地找到 KVM 虚拟机的配置文件，在文件内添加 seed.img 镜像文件的绝对路径。

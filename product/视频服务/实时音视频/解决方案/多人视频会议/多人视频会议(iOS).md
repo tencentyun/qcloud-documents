@@ -15,30 +15,30 @@
 如需快速接入多人视频会议功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCMeeting 组件并实现自定义 UI 界面。
 
 ## 复用 Demo 的 UI 界面
-
+[](id:ui_step1)
 ### 步骤1：创建新的应用
-
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 单击【立即开始】，输入应用名称，例如 `TestMeetingRoom` ，单击【创建应用】。
+2. 输入应用名称，例如 `TestMeetingRoom` ，单击【创建】。
 
->? 本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PAAS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
+>!本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
-
-
+[](id:ui_step2)
 ### 步骤2：下载 SDK 和 Demo 源码
-1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS)】跳转至 Github（或单击【[ZIP](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
- ![](https://main.qcloudimg.com/raw/716b5af9207ad2b11835dec4e2d15da0.png)
-2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
+1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
+2. 下载完成后，单击【已下载，下一步】。
+![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
 
+[](id:ui_step3)
 ### 步骤3：配置 Demo 工程文件
-1. 解压 [步骤2](#ui.step2) 中下载的源码包。
+1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
 2. 找到并打开 `iOS/TRTCScenesDemo/TXLiteAVDemo/Debug/GenerateTestUserSig.h` 文件。
 3. 设置 `GenerateTestUserSig.h` 文件中的相关参数：
-  <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
-  <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-    <img src="https://main.qcloudimg.com/raw/15d986c5f4bc340e555630a070b90d63.png">
-4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
-5. 单击【关闭指引，进入控制台管理应用】。
+<ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
+<li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
+<img src="https://main.qcloudimg.com/raw/6cebe7386e62a7a4ff336814f43d7025.png">
+4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
+5. 编译完成后，单击【回到控制台概览】即可。
+
 
 >!
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
@@ -206,7 +206,7 @@ renderView?.refreshVideo(isVideoAvailable: available)
 
 [](id:model.step7)
 ### 步骤7：屏幕分享
-1. 调用 `startScreenCapture`，传入编码参数和录屏过程中的悬浮窗即可实现屏幕分享功能，具体信息请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#a59b16baa51d86cc0465dc6edd3cbfc97)。
+1. 调用 `startScreenCapture`，传入编码参数和录屏过程中的悬浮窗即可实现屏幕分享功能，具体信息请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a59b16baa51d86cc0465dc6edd3cbfc97)。
 2. 会议中其他成员会收到 `onUserVideoAvailable` 的事件通知。
 
 >!屏幕分享和摄像头采集是两个互斥的操作，如果需要打开屏幕分享功能，请先调用`stopCameraPreview`关闭摄像头采集。
