@@ -27,7 +27,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td rowspan="9">计算型</td>
 								<td><a href="#GT4">GT4</a></td> 
                 <td>Tesla A100 NVLink 40G</td>
-                                <td><ul class="params"><li>Windows Server 2016 及以上</li><li>CentOS 7.2 及以上</li><li>Ubuntu 16.04 及以上</li></ul></td>
+                                <td><ul class="params"><li>CentOS 7.2 及以上</li><li>Ubuntu 16.04 及以上</li><li>Windows Server 2016 及以上</li></ul></td>
                 <td>广州、上海、北京</td>
             </tr>
 						<td><a href="#GN10XGN10Xp">GN10X<br>GN10Xp</a></td> 
@@ -164,7 +164,7 @@ NVIDIA GN* 系列其他实例（GN2 除外）可以通过安装 GRID Driver 的�
 
 ### 深度学习训练
 
-推荐使用 GN8/GN10X/GN10Xp 实例。 GN8/GN10X 实例采用 P40、V100 中高端 GPU，具有强大的单精度浮点运算能力，并具备较大的 GPU 板载内存，是深度学习训练的首选。
+推荐使用 GN8/GN10X/GN10Xp/GT4 实例。 GN8/GN10Xp/GT4 实例采用 P40、V100、A100 中高端 GPU，具有强大的单精度浮点运算能力，并具备较大的 GPU 板载内存，是深度学习训练的首选。
 
 ### 深度学习推理
 
@@ -172,7 +172,7 @@ NVIDIA GN* 系列其他实例（GN2 除外）可以通过安装 GRID Driver 的�
 
 ### 科学计算
 
-推荐使用 GN10X/GN10Xp 实例。GN10X/GN10Xp 实例采用 V100 GPU，具有强大的双精度浮点运算能力，可为科学与工程计算相关的应用软件提供最好的加速能力。
+推荐使用 GN10X/GN10Xp/GT4 实例。GN10X/GN10Xp/GT4 实例采用 V100、A100 GPU，具有强大的双精度浮点运算能力，可为科学与工程计算相关的应用软件提供最好的加速能力。
 
 >!
 >- 以上推荐用途仅供参考，请根据实际需要进行选择。
@@ -209,7 +209,7 @@ GT4 具有强大的双精度浮点运算能力 ，适用于大规模深度学习
 - **GPU：**NVIDIA<sup>®</sup>  A100 NVLink 40GB（19.5TFLOPS单精度浮点计算，9.7TFLOPS双精度浮点计算，600GB/s NVLink）。
 - **内存：**DDR4，内存计算性能稳定。
 - **存储：**可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
-- **网络：**最高科支持50Gbps内网带宽，超高网络收发包能力，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
+- **网络：**最高可支持50Gbps内网带宽，超高网络收发包能力，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
 
 **GT4 实例提供以下配置：**
 
@@ -272,7 +272,7 @@ GT4 具有强大的双精度浮点运算能力 ，适用于大规模深度学习
 		</tbody>
 </table>
 
->?**vGPU**：NVIDIA A100 系列需要安装 NVIDIA Tesla 450 版本以上驱动，推荐您安装 460.32.03(Linux)/461.33(Windows) 版本驱动，驱动版本信息请参见 [NVIDIA 官方文档](https://docs.nvidia.com/datacenter/tesla/index.html#nvidia-driver-documentation)。
+>?**GPU 驱动**：NVIDIA A100 系列需要安装 NVIDIA Tesla 450 版本以上驱动，推荐您安装 460.32.03(Linux)/461.33(Windows) 版本驱动，驱动版本信息请参见 [NVIDIA 官方文档](https://docs.nvidia.com/datacenter/tesla/index.html#nvidia-driver-documentation)。
 
 
 ## 计算型 GN10X/GN10Xp[](id:GN10XGN10Xp) 
