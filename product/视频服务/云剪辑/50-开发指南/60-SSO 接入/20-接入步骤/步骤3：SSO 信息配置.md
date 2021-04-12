@@ -24,19 +24,19 @@
   <td>AuthorizationEndpoint</td>
   <td>string</td>
   <td>是</td>
-  <td>认证服务的授权认证地址，在访问制作云平台且未登录时将会通过该地址发起授权登录。</td>
+  <td>认证服务的授权认证地址，在访问制作云平台且未登录时将会通过该地址发起授权登录。[即步骤2中的授权认证接口]</td>
 </tr>
 <tr>
   <td>TokenEndpoint</td>
   <td>string</td>
   <td>是</td>
-  <td>到认证服务获取 AccessToken 等信息的访问地址，制作云拿到授权 Code 后将通过该地址获取 AccessToken 信息。</td>
+  <td>到认证服务获取 AccessToken 等信息的访问地址，制作云拿到授权 Code 后将通过该地址获取 AccessToken 信息。[即步骤2中的换取 AccessToken 接口]</td>
 </tr>
 <tr>
   <td>UserInfoEndpoint</td>
   <td>string</td>
   <td>是</td>
-  <td>到认证服务获取用户信息的访问地址，制作云将通过该地址获取用户唯一标识等信息。</td>
+  <td>到认证服务获取用户信息的访问地址，制作云将通过该地址获取用户唯一标识等信息。[即步骤2中的获取用户信息接口]</td>
 </tr>
 <tr>
   <td>Scope</td>
