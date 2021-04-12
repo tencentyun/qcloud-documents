@@ -31,7 +31,36 @@
 4. 单击【创建】完成路由策略的配置，路由表详情如下图所示。
     ![](https://main.qcloudimg.com/raw/7c5e837eb481b2db93499dfdf7193e66.png)
 		
-### 步骤4：（可选）其他操作
+### 步骤4：（可选）绑定EIP
+如果 CDC 子网中云服务器实例有访问公网的需求，可以为云服务器绑定 CDC 本地 EIP，且仅支持绑定本地 EIP。
+>?
++ 仅支持标准账户
++ 主 Region 资源不能绑定 CDC 本地 EIP
++ 仅支持 EIP，不支持普通公网 IP
++ IP资源费和网络费用暂不计费
++ 专有集群弹性 IP 暂不支持监控
+
+1. 在 CDC 集群控制台，选择专有集群弹性 IP。
+2. 单击申请 EIP。
+3. 单击【更多】>【绑定】，绑定 CDC 子网中的云服务器实例，绑定后该云服务器即可与公网通信。
+4. 其他操作：如不再需要 EIP，可在更多中执行解绑、释放等操作。
+
+### 步骤5:（可选）公网CLB
+目前 CDC 支持公网四、七层 CLB 功能，如有需要可在 CDC 本地配置公网 CLB。
+>?
+>+ 仅支持应用型负载均衡
+>+ 仅支持标准账户
+>+ CDC 本地公网 CLB 仅支持绑定 CDC 子网内云服务器，不支持绑定 VPC 其他子网内的云服务器。
+>+ CDC 的 CLB 不收费。
+
+1. 在 CDC 集群控制台下，选择创建 CLB。
+2. 在创建界面，选择 CDC 所属 VPC，勾选本地专用集群，在 CDC 集群下拉框中，选择 CDC 集群。
+    ![](https://main.qcloudimg.com/raw/9fadea3eed2cd1b1c1eda0f67f7c3177.png)
+3. 配置完 CLB 参数后，单击立即购买完成 CLB 创建。
+4. 单击配置监听器，新建监听器、配置监听器规则，并绑定后端云服务器实例。
+
+
+### 步骤6：（可选）其他操作
 1. 您也可以创建自定义路由表，并新增路由策略，完成路由策略配置后，关联至 CDC 子网，具体操作请参加[路由表](https://cloud.tencent.com/document/product/215/20122)。    
 2. CDC 子网及子网中的云资源支持网络 ACL 和安全组，规则使用及配置与普通子网及云服务器无差异，具体操作请参考 [网络 ACL](https://cloud.tencent.com/document/product/215/20160) 和 [安全组](https://cloud.tencent.com/document/product/215/37888)。
 3. CDC 支持网络流日志，具体请参考 [网络流日志](https://cloud.tencent.com/document/product/682/18935)。
