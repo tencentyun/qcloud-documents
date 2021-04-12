@@ -7,8 +7,8 @@
 ## NVIDIA 系列实例总览
 
 NVIDIA 系列实例包括计算型和渲染型两类。其中：
-- 渲染型：适用于 3D 渲染、视频编解码、CAD 等。
-- 计算型：适用于深度学习、科学计算、CAE 等。
+- **渲染型**：适用于 3D 渲染、视频编解码、CAD 等。
+- **计算型**：适用于深度学习、科学计算、CAE 等。
 
 **GPU 云服务器 NVIDIA 系列提供以下实例：**
 
@@ -25,12 +25,12 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
         <tbody>
             <tr>
                 <td rowspan="9">计算型</td>
-							  <td>GT4</td> 
+								<td><a href="#GT4">GT4</a></td> 
                 <td>Tesla A100 NVLink 40G</td>
                                 <td><ul class="params"><li>Windows Server 2016 及以上</li><li>CentOS 7.2 及以上</li><li>Ubuntu 16.04 及以上</li></ul></td>
                 <td>广州、上海、北京</td>
             </tr>
-                <td>GN10X<br>GN10Xp</td> 
+						<td><a href="#GN10XGN10Xp">GN10X<br>GN10Xp</a></td> 
                 <td>Tesla V100 NVLink 32G</td>
                 <td><ul class="params"><li>CentOS 7.2 及以上</li><li>Ubuntu 14.04 及以上</li><li>Windows Server 2012 及以上</li></td>
                 <td><ul class="params"><li>GN10X：广州、上海、南京、北京、成都、重庆、新加坡、硅谷、法兰克福、孟买</li><li>GN10Xp：广州、上海、南京、北京、成都、重庆、香港、法兰克福</li></ul></td>
@@ -38,13 +38,13 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
             <tr>
 					</tr>
             <tr>
-                <td>GN8</td> 
+						<td><a href="#GN8">GN8</a></td> 
                 <td>Tesla P40</td>
                 <td  rowspan=2><ul class="params"><li>CentOS 7.2 及以上</li><li>Ubuntu 14.04 及以上</li><li>Windows Server 2012 及以上</li></td>
                 <td>广州、上海、北京、成都、重庆、香港、硅谷</td>
             </tr>
             <tr>
-                <td rowspan="2">GN7</td> 
+						<td rowspan="2"><a href="#GN7">GN7</a></td> 
                 <td>Tesla T4</td>
                 <td>广州、上海、南京、北京、成都、重庆、香港、新加坡、硅谷、孟买、弗吉尼亚、法兰克福</td>
             </tr><tr>
@@ -53,18 +53,19 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>广州、上海、南京、北京、成都、重庆、香港、硅谷</td>
 			</tr><tr>
             </tr><tr>
-                <td>GN6<br>GN6S</td> 
+						<td><a href="#GN6GN6S">GN6<br>GN6S</a></td> 
                 <td>Tesla P4</td>
             	<td  rowspan=2><ul class="params"><li>CentOS 7.2 及以上</li><li>Ubuntu 14.04 及以上</li><li>Windows Server 2012 及以上</li></td>
                 <td><ul class="params"><li>GN6：成都</li><li>GN6S：广州、上海、北京</li></ul></td>
             </tr>
-                <tr><td>GN2</td> 
+                <tr>
+								<td><a href="#GN2">GN2</a></td> 
                 <td>Tesla M40</td>
                 <td>广州、北京、上海</td>
             </tr>
             <tr>
                 <td>渲染型</td>
-                <td>GN7vw</td> 
+								<td><a href="#GN7vw">GN7vw</a></td> 
                 <td>Tesla T4</td>
                 <td><ul class="params"><li>CentOS 8.0 64位 GRID11.1</li><li>Windows Server 2019 数据中心版 64位 中文版 GRID11.1</li></td>
                 <td>北京、上海、广州、南京、成都、重庆、香港、新加坡、孟买、硅谷、弗吉尼亚、法兰克福</td>
@@ -87,13 +88,13 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
         <thead>
         <tr>
             <th width="20%">功能\实例</th>
-            <th width="13%">GN2</th>
-            <th width="13%">GN6/GN6S</th>
-            <th width="13%">GN7</th>
-            <th width="13%">GN8</th>
-            <th width="13%">GN10X/GN10Xp</th>
-            <th width="13%">GN7vw</th>
-						<th width="13%">GT4</th>
+            <th width="11.5%">GN2</th>
+            <th width="11.5%">GN6<br>GN6S</th>
+            <th width="11.5%">GN7</th>
+            <th width="11.5%">GN8</th>
+            <th width="11.5%">GN10X<br>GN10Xp</th>
+            <th width="11.5%">GN7vw</th>
+            <th width="11.5%">GT4</th>
         </tr>
         </thead>
         <tbody>
@@ -105,7 +106,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>✓</td>
                 <td>✓</td>
                 <td>★</td>
-								 <td>-</td> 
+                 <td>-</td> 
             </tr>
             <tr>
                 <td>视频编解码</td>
@@ -115,7 +116,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>✓</td>
                 <td>✓</td>
                 <td>★</td>
-								 <td>-</td> 
+                <td>-</td> 
             </tr>
             <tr>
                 <td>深度学习训练</td>
@@ -125,7 +126,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>★</td>
                 <td>★</td>
                 <td>-</td>
-								<td>★</td>
+                <td>★</td>
             </tr>
             <tr>
                 <td>深度学习推理</td>
@@ -135,7 +136,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>★</td>
                 <td>✓</td>
                 <td>-</td>
-								<td>✓</td>
+                <td>✓</td>
             </tr>
             <tr>
                 <td>科学计算</td>
@@ -145,7 +146,7 @@ NVIDIA 系列实例包括计算型和渲染型两类。其中：
                 <td>-</td>
                 <td>★</td>
                 <td>-</td>
-								<td>★</td>
+                <td>★</td>
             </tr>
         </tbody>
 </table>
@@ -185,7 +186,7 @@ NVIDIA GN* 系列其他实例（GN2 除外）可以通过安装 GRID Driver 的�
 - 支持与 [负载均衡](/doc/product/214/524) 等产品的业务对接，不增加额外的管理和运维成本，内网流量免费。
 
 
-## 计算型 GT4 
+## 计算型 GT4[](id:GT4) 
 
 **NVIDIA 实例 GT4** 适用于深度学习、科学计算等 GPU 通用计算场景。
 
@@ -210,7 +211,7 @@ GT4 具有强大的双精度浮点运算能力 ，适用于大规模深度学习
 - **存储：**可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
 - **网络：**最高科支持50Gbps内网带宽，超高网络收发包能力，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
 
-**GN10X/GN10Xp 实例提供以下配置：**
+**GT4 实例提供以下配置：**
 
 <table>
 		<thead>
@@ -274,7 +275,7 @@ GT4 具有强大的双精度浮点运算能力 ，适用于大规模深度学习
 >?**vGPU**：NVIDIA A100 系列需要安装 NVIDIA Tesla 450 版本以上驱动，推荐您安装 460.32.03(Linux)/461.33(Windows) 版本驱动，驱动版本信息请参见 [NVIDIA 官方文档](https://docs.nvidia.com/datacenter/tesla/index.html#nvidia-driver-documentation)。
 
 
-## 计算型 GN10X/GN10Xp 
+## 计算型 GN10X/GN10Xp[](id:GN10XGN10Xp) 
 **NVIDIA 实例 GN10X/GN10Xp** 不仅适用于深度学习、科学计算等 GPU 通用计算场景，也适用于图形图像处理（3D 渲染，视频编解码）场景。
 
 ### 适用场景
@@ -296,11 +297,11 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 
 ### 硬件规格
 
-- **CPU：** GN10X 配置 Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6133 CPU，主频2.5GHz。GN10Xp 配置 Intel<sup>®</sup> Xeon<sup>®</sup> Platinum 8255C CPU，主频2.5GHz。
-- **GPU：** NVIDIA<sup>®</sup> Tesla<sup>®</sup> V100 NVLink 32GB（15.7TFLOPS 单精度浮点计算，7.8TFLOPS 双精度浮点计算，125TFLOPS Tensor Core 深度学习加速，300GB/s NVLink）。
-- **内存：** DDR4 ，内存带宽达2666MT/s。
-- **存储：** 可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
-- **网络：** 默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
+- **CPU：**GN10X 配置 Intel<sup>®</sup> Xeon<sup>®</sup> Gold 6133 CPU，主频2.5GHz。GN10Xp 配置 Intel<sup>®</sup> Xeon<sup>®</sup> Platinum 8255C CPU，主频2.5GHz。
+- **GPU：**NVIDIA<sup>®</sup> Tesla<sup>®</sup> V100 NVLink 32GB（15.7TFLOPS 单精度浮点计算，7.8TFLOPS 双精度浮点计算，125TFLOPS Tensor Core 深度学习加速，300GB/s NVLink）。
+- **内存：**DDR4，内存带宽达2666MT/s。
+- **存储：**可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
+- **网络：**默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
 
 **GN10X/GN10Xp 实例提供以下配置：**
 
@@ -406,7 +407,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 </table>
 
 
-## 计算型 GN8 
+## 计算型 GN8[](id:GN8) 
 
 **NVIDIA 实例 GN8** 不仅适用于深度学习等 GPU 通用计算场景，也适用于图形图像处理（3D 渲染，视频编解码）场景。
 
@@ -422,16 +423,15 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 	- 图形数据库
 
 
-
 ### 硬件规格
 
-- **CPU：** Intel<sup>®</sup> Xeon<sup>®</sup> E5-2680 v4 CPU，主频2.4GHz。
-- **GPU：** NVIDIA<sup>®</sup> Tesla<sup>®</sup> P40（12TFLOPS 单精度浮点计算，47INT8 TOPS）。
-- **内存：** DDR4 ，内存带宽达2666MT/s。
-- **存储：** 可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
-- **网络：** 默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
+- **CPU：**Intel<sup>®</sup> Xeon<sup>®</sup> E5-2680 v4 CPU，主频2.4GHz。
+- **GPU：**NVIDIA<sup>®</sup> Tesla<sup>®</sup> P40（12TFLOPS 单精度浮点计算，47INT8 TOPS）。
+- **内存：**DDR4，内存带宽达2666MT/s。
+- **存储：**可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
+- **网络：**默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
 
-**GN8实例提供以下配置：**
+**GN8 实例提供以下配置：**
 
 <table>
 		<thead>
@@ -493,7 +493,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 </table>
 
 
-## 计算型 GN7 
+## 计算型 GN7[](id:GN7) 
 **NVIDIA 实例 GN7** 不仅适用于深度学习等 GPU 通用计算场景，也适用于图形图像处理（3D 渲染，视频编解码）场景。
 
 ### 适用场景
@@ -506,17 +506,15 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 	- 视频编解码
 	- 图形数据库
 
-
-
 ### 硬件规格
 
-- **CPU：** Intel<sup>®</sup> Xeon<sup>®</sup> Platinum 8255C CPU，主频 2.5 GHz。
-- **GPU：** NVIDIA<sup>®</sup> Tesla<sup>®</sup> T4（8.1 TFLOPS 单精度浮点计算，130 INT8 TOPS，260 INT4 TOPS）。
-- **内存：** DDR4 ，内存带宽达2666MT/s。
-- **存储：** 可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
-- **网络：** 默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
+- **CPU：**Intel<sup>®</sup> Xeon<sup>®</sup> Platinum 8255C CPU，主频 2.5 GHz。
+- **GPU：**NVIDIA<sup>®</sup> Tesla<sup>®</sup> T4（8.1 TFLOPS 单精度浮点计算，130 INT8 TOPS，260 INT4 TOPS）。
+- **内存：**DDR4，内存带宽达2666MT/s。
+- **存储：**可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
+- **网络：**默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
 
-**GN7实例提供以下配置：**
+**GN7 实例提供以下配置：**
 
 <table>
 		<thead>
@@ -614,7 +612,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 >- vCS 实例需安装 GRID 驱动，且 vCS 的实例不支持 Windows 操作系统。
 
 
-## 计算型 GN6/GN6S 
+## 计算型 GN6/GN6S[](id:GN6GN6S) 
 
 **NVIDIA 实例 GN6/GN6S** 不仅适用于深度学习等 GPU 通用计算场景，也适用于图形图像处理（3D 渲染，视频编解码）场景。
 
@@ -632,13 +630,13 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 
 ### 硬件规格
 
-- **CPU：** GN6 配置 Intel<sup>®</sup> Xeon<sup>®</sup> E5-2680 v4 CPU，主频2.4GHz。GN6S 配置 Intel<sup>®</sup> Xeon<sup>®</sup> Silver 4110 CPU，主频2.1GHz。
-- **GPU：** NVIDIA<sup>®</sup> Tesla<sup>®</sup> P4（5.5TFLOPS 单精度浮点计算，22INT8 TOPS）。
-- **内存：** DDR4 ，内存带宽达2666MT/s。
-- **存储：** 可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
-- **网络：** 默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
+- **CPU：**GN6 配置 Intel<sup>®</sup> Xeon<sup>®</sup> E5-2680 v4 CPU，主频2.4GHz。GN6S 配置 Intel<sup>®</sup> Xeon<sup>®</sup> Silver 4110 CPU，主频2.1GHz。
+- **GPU：**NVIDIA<sup>®</sup> Tesla<sup>®</sup> P4（5.5TFLOPS 单精度浮点计算，22INT8 TOPS）。
+- **内存：**DDR4，内存带宽达2666MT/s。
+- **存储：**可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
+- **网络：**默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
 
-**GN6/GN6S实例提供以下配置：**
+**GN6/GN6S 实例提供以下配置：**
 
 <table>
 		<thead>
@@ -703,7 +701,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 
 
 
-## 计算型 GN2 
+## 计算型 GN2[](id:GN2) 
 **NVIDIA 实例 GN2** 适用于深度学习、科学计算等 GPU 通用计算场景，也部分适用于图形图像处理（视频编解码）场景。
 
 
@@ -722,13 +720,13 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 
 ### 硬件规格
 
-- **CPU：** Intel<sup>®</sup> Xeon<sup>®</sup> E5-2680 v4 (Broadwell)，主频2.4GHz 。
-- **GPU：** NVIDIA<sup>®</sup> Tesla<sup>®</sup> Ｍ40（GPU Boost加速下单精度浮点计算７TFLOPS，0.2TFLOPS 双精度浮点计算）。
-- **内存：** DDR4 ，内存带宽达2666MT/s。
-- **存储：** 本地 SSD 硬盘，本机型暂不支持购买云硬盘。	 
-- **网络：** 默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
+- **CPU：**Intel<sup>®</sup> Xeon<sup>®</sup> E5-2680 v4 (Broadwell)，主频2.4GHz 。
+- **GPU：**NVIDIA<sup>®</sup> Tesla<sup>®</sup> Ｍ40（GPU Boost加速下单精度浮点计算７TFLOPS，0.2TFLOPS 双精度浮点计算）。
+- **内存：**DDR4，内存带宽达2666MT/s。
+- **存储：**本地 SSD 硬盘，本机型暂不支持购买云硬盘。	 
+- **网络：**默认网络优化，实例网络性能与规格对应。[公网网络](https://cloud.tencent.com/document/product/213/10578) 可按需配置。
 
-**GN2实例提供以下配置：**
+**GN2 实例提供以下配置：**
 
 <table>
 		<thead>
@@ -771,7 +769,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 
 
 
-## 渲染型 GN7vw
+## 渲染型 GN7vw[](id:GN7vw)
 
 **NVIDIA 实例 GN7vw** 是在 GN7 基础上配置 vDWS License 服务器并安装 GRID driver 的渲染型实例，适用于图形图像处理（3D 渲染，视频编解码）场景。使用该实例，您可免除手动配置 GPU 图形图像处理基础环境。
 >!GPU 渲染型 GN7vw 现处于限量购买阶段，如需使用，请前往 [申请](https://cloud.tencent.com/apply/p/l133eutcwd9) 页面。
@@ -789,7 +787,7 @@ GN10X/GN10Xp 具有强大的双精度浮点运算能力 ，适用于如下场景
 
 ### 硬件规格
 
-- **CPU：** Intel<sup>®</sup> Xeon<sup>®</sup> Platinum 8255C CPU，主频 2.5 GHz。
+- **CPU：**Intel<sup>®</sup> Xeon<sup>®</sup> Platinum 8255C CPU，主频 2.5 GHz。
 - **GPU：** NVIDIA<sup>®</sup> Tesla<sup>®</sup> T4（8.1 TFLOPS 单精度浮点计算，130 INT8 TOPS，260 INT4 TOPS）。
 - **内存：** DDR4 ，内存带宽达2666MT/s。
 - **存储：** 可选择 [云硬盘类型](https://cloud.tencent.com/document/product/362/2353)，如需 [扩容](https://cloud.tencent.com/document/product/362/32539) 可新建弹性云盘进行挂载。	 
