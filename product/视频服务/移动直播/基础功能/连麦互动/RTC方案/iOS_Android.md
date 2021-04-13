@@ -33,17 +33,17 @@
         <tr>
                 <td>
 									<div align=center>
-										<img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/mlvb/linkmic/new/anchor.gif">
+										<img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/anchor.gif">
 										</div>
 									</td>
                 <td>
 									<div align=center>
-										<img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/mlvb/linkmic/new/link_audience.gif">
+										<img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/link_audience.gif">
 										</div>
 								</td>
 								<td>
 									<div align=center>
-										<img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/mlvb/linkmic/new/others_audience.gif">
+										<img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/others_audience.gif">
 										</div>
 								</td>
         </tr>
