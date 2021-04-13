@@ -12,7 +12,7 @@
 将客户端的解析方式改为 HTTPDNS 解析，注意在接入过程中需要**保留 LocalDNS 的解析方式作为备选**，具体可以参考接入 [最佳实践](/doc/product/379/最佳实践) 。
 
 ## 4. 申请 SDK 使用（可选）
-使用 HTTPDNS 服务还可以申请使用 SDK 接入，HTTPDNS 服务提供腾讯云自研的 **智营 SDK**，高度定制化、可直接嵌入 App 内调用，已经广泛应用于腾讯各类游戏客户端，功能成熟稳定。
+使用 HTTPDNS 服务还可以申请 [使用 SDK 接入](https://cloud.tencent.com/document/product/379/12544)，HTTPDNS 服务提供腾讯云自研的 **智营 SDK**，高度定制化、可直接嵌入 App 内调用，已经广泛应用于腾讯各类游戏客户端，功能成熟稳定。
 
 具体可参考以下文档：
 [iOS 版本 SDK >>](https://cloud.tencent.com/document/product/379/17669)
