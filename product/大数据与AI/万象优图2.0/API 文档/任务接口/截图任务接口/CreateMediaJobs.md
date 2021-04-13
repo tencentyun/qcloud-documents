@@ -185,6 +185,8 @@ Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
 
+
+
 <Request>
   <Tag>Snapshot</Tag>
   <Input>
@@ -212,6 +214,8 @@ Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+
+
 
 <Response>
   <JobsDetail>
@@ -251,6 +255,8 @@ Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
 
+
+
 <Request>
   <Tag>Snapshot</Tag>
   <Input>
@@ -285,6 +291,8 @@ Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+
+
 
 <Response>
   <JobsDetail>
