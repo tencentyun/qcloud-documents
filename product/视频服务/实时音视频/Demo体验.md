@@ -50,8 +50,8 @@
    <th>被叫接听</th>
  </tr>
 <tr>
-<td><img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/videocall/group-call.gif"/></td>
-<td><img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/videocall/group-recv.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/group-call.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/group-recv.gif"/></td>
 </tr>
 </table>
 :::
@@ -88,8 +88,8 @@
    <th>被叫接听</th>
  </tr>
 <tr>
-<td><img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/audiocall/call.gif"/></td>
-<td><img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/audiocall/recv.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/call.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/recv.gif"/></td>
 </tr>
 </table>
 :::
@@ -110,10 +110,10 @@
 ::: iOS&Android
 <table>
 <tr>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcliveroom/beauty.gif"/></td>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcliveroom/join.gif"/></td>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcliveroom/msg.gif"/></td>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcliveroom/pk.gif"/></td>
+<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/beauty.gif"/></td>
+<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/join.gif"/></td>
+<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/msg.gif"/></td>
+<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/pk.gif"/></td>
 </tr>
 </table>
 :::
