@@ -13,6 +13,22 @@
 
 >?主机记录与私有域组合前缀（即 `in-addr.arpa` 的前缀）需遵循 IPV4 格式，例如，创建私有域名 `10.255.123.in-addr.arpa`，则主机记录仅允许添加为0 - 255内的整数。
 
+### 添加反向私有域
+以反向私有域名称 `0.168.192.in-addr.arpa`为例。
+
+
+1. 登录[私有域名解析管理控制台](https://console.cloud.tencent.com/privatedns/domains)。
+2. 在私有域列表页中，单击【新建私有域】。
+![](https://main.qcloudimg.com/raw/9e72be858bcb432aacf34e1a896b1b3c.png)
+3. 在新建私有域页中，输入反向解析域名【该例中输入 `0.168.192.in-addr.arpa`】并单击【确定】。如下图所示：
+![](https://main.qcloudimg.com/raw/d7acaf9ac7f61ad57319d8b1815ece2d.png)
+
+4. 即可完成添加反向私有域操作。您可直接进入该域名的解析记录页添加 PTR 记录。
+![](https://main.qcloudimg.com/raw/ab7cd35f1db5b8e6f393c01449ca384c.png)
+
+
+
+
 ### 私有网段
 在公共网络上，反向解析是无法由 DNS 服务商提供的，因为 IP 地址的管理权限属于运营商，所以需要向运营商（ISP）进行申请添加反向解析。
 
@@ -30,3 +46,7 @@
 >- 私有网段详情内容可参考：[网络规划](https://cloud.tencent.com/document/product/215/30313)。
 >- 相同网段的反向域名视为相同私有域，相同私有域不允许关联同一 VPC，例如，`2.1.in-addr.arpa` 与 `4.3.1.in-addr.arpa` 不允许关联相同的 VPC。
 >- 在私有域解析 Private DNS 中添加 PTR 记录详情操作请查看：[PTR 记录](https://cloud.tencent.com/document/product/1338/50542)。
+
+
+
+
