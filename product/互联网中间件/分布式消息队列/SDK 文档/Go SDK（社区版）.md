@@ -16,7 +16,7 @@ TDMQ 现已支持 Pulsar 社区版 Go SDK。本文介绍如何使用 Pulsar 社�
 $ go get -u "github.com/apache/pulsar-client-go/pulsar"
 ```
 
-2. 安装完成后，即可通过以下代码引用到你的 Go工程文件中。
+2. 安装完成后，即可通过以下代码引用到您的 Go工程文件中。
 ```go
 import "github.com/apache/pulsar-client-go/pulsar"
 ```
