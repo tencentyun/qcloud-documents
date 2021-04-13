@@ -18,6 +18,7 @@ Content-Type: application/xml
 ```
 
 >? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>
 
 
 #### 请求头
@@ -181,6 +182,8 @@ Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
 
+
+
 <Request>
   <Tag>SmartCover</Tag>
   <Input>
@@ -207,6 +210,8 @@ Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+
+
 
 <Response>
   <JobsDetail>
