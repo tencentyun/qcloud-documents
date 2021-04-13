@@ -23,6 +23,7 @@ Content-Type: application/xml
 | 名称       | 描述                | 类型   | 是否必选 |
 | :--------- | :------------------ | :----- | :------- |
 | workflowId | 需要触发的工作流 ID | String | 是       |
+|  object     |     需要进行工作流处理的对象名称  | String | 是       |
 
 
 #### 请求头
