@@ -10,7 +10,7 @@ FileSystem 支持作为 Append-Only 数据流的目的表 (Sink)，目前还不�
 - Orc
 
 ## 示例
-### 用作数据目的
+**用作数据目的**
 
 ```sql
 CREATE TABLE `DataOutput` (
