@@ -106,15 +106,17 @@ void _av_data_recv(uint8_t *data, size_t len);  //裸数据回调接口(具体�
 	
 ### 步骤6：P2P 通道关闭回调
 
-  - 函数声明：
-  ```
-	char* _msg_notify(int type, const char* msg);
-  代码示例:
-  char* _msg_notify(int type, const char* msg) {
-    	if (type == 0) {
-    		//p2p通道正常关闭
-    	}
-  }
+- 函数声明：
+```
+char* _msg_notify(int type, const char* msg);
+```
+- 代码示例：
+```
+char* _msg_notify(int type, const char* msg) {
+		if (type == 0) {
+			//p2p通道正常关闭
+		}
+}
 ```
 
 ### 步骤7. P2P 通道错误断开回调
