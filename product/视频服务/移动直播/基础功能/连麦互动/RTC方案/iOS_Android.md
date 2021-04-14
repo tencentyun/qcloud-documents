@@ -50,7 +50,7 @@
 </table>
 
 ### 步骤图示
-![](https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/blog/min.helloworld/e5f124f52ae18feb5f96fe562d5eef76.png)
+![](https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/v2_demo_use_step.png)
 > =体验 Demo 功能时需要注意，由于超低延时直播的协议特性，目前RTC连麦方案并不支持：**同一台设备，使用相同的 streamid，一边推超低延时流，一边拉超低延时的流**。
 
 ## RTC 连麦方案如何接入
