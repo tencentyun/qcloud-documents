@@ -192,6 +192,8 @@ Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 1666
 Content-Type: application/xml
 
+
+
 <Request>
    <Tag>Animation</Tag>
    <Name>TemplateName</Name>
@@ -222,6 +224,8 @@ Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYz****=
+
+
 
 <Response>
     <Template>
