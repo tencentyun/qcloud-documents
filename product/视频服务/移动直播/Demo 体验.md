@@ -17,7 +17,7 @@
 </tr>
 <tr>
 <td>Android</td>
-<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/xiaozhibo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/35403c77b7293c795df103fcb85b8f70.png);background-size: cover;margin:auto">
+<td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/xiaozhibo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/35403c77b7293c795df103fcb85b8f70.png);background-size: cover;margin:auto">
 </div></a></td>
 <td><a href="https://github.com/tencentyun/MLVBSDK/tree/master/Android/XiaoZhiBo">Github</a></td>
 </tr>
@@ -47,7 +47,7 @@
 </tr>
 <tr>
 <td>Android</td>
-<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/rtmpdemo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/b3372ebd80f820d9b70509c6bf5df418.png);background-size: cover;margin:auto">
+<td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/rtmpdemo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/b3372ebd80f820d9b70509c6bf5df418.png);background-size: cover;margin:auto">
 </div></a></td>
 <td><a href="https://github.com/tencentyun/LiteAVProfessional_Android/tree/master/Demo">Github</a></td>
 </tr>
