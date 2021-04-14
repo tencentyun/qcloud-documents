@@ -63,7 +63,7 @@ Payload 部分也是一个 JSON 对象，用来存放实际需要传递的数据
 
 Signature 部分是对前两部分的签名，防止数据篡改。
 
-生成JWT令牌（token）需要私钥，用户可以在这个站点 [https://mkjwk.org](https://mkjwk.org/) 生成与验证的公钥与私钥。使用 Header 里面指定的签名算法（默认是 HMAC SHA256），按照下面的公式产生签名。
+生成 JWT 令牌（token）需要私钥，[点此](https://mkjwk.org/) 生成与验证的公钥与私钥。使用 Header 里面指定的签名算法（默认是 HMAC SHA256），按照下面的公式产生签名。
 
 ```javascript
 HMACSHA256(
@@ -78,7 +78,6 @@ HMACSHA256(
 
 1. 添加 JWT 的 pom 依赖。
    微服务网关使用 jose4j 来实现。在 pom 文件中添加以下依赖：
-
 ```xml
 <!-- jwt -->
 <dependency>
@@ -89,7 +88,6 @@ HMACSHA256(
 ```
 
 2. 编写生成令牌的 Java 代码。
-
 ```java
 // 下面省略了无关代码
 import org.jose4j.json.JsonUtil;
