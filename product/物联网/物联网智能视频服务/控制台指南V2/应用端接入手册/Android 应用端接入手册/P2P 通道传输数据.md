@@ -1,7 +1,7 @@
 
-文本为您介绍 P2P 通道数据分别通过 C++ so 库调用方法和 AAR 库调用方法进行传输的操作步骤。
+文本为您介绍 P2P 通道数据分别通过 so 库调用方法和 aar 库调用方法进行传输的操作步骤。
 
-## C++ so 库调用方法
+## so 库调用方法
 
 ### 步骤1：P2P 通道初始化
 
@@ -38,9 +38,14 @@ void _av_data_recv(uint8_t *data, size_t len);  //裸数据回调接口(具体�
   ```
 	const char *delegateHttpFlv(); // 获取本地请求数据的标准http url,可使用该url请求设备端数据
 	```
-  播放器调用示例：
-	
-  ...
+  - 播放器调用示例：
+```
+char url[128] = { 0 };
+/* 组合请求url */
+snprintf(url, sizeof(url), "%s%s", delegateHttpFlv($id), "ipc.flv?action=live");
+/* 设置url到播放器 */
+setUrl2Player(url);
+```
 
 ### 步骤3：发送语音对讲数据
 
@@ -133,8 +138,8 @@ char* _msg_notify(int type, const char* msg) {
   }
 ```
 
-## AAR 库调用方法 
-接口详细说明可参考：SDK接口说明部分
+## aar 库调用方法
+
 
 ### 步骤1：P2P 通道初始化
   - 函数声明：
@@ -147,7 +152,7 @@ char* _msg_notify(int type, const char* msg) {
   XP2P.setCallback(this)
   XP2P.startServiceWithXp2pInfo(xp2p_info)
 	```
-  参考：APP接入SDK说明部分
+
 	
 ### 步骤2：P2P 通道传输音视频流
 1. 接收裸数据
