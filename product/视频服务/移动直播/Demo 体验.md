@@ -2,82 +2,167 @@
 .markdown-text-box table th,.markdown-text-box table td{text-align: center;}
 </style>
 
-## 小直播 App
-小直播 App 是一套开源的完整的在线直播解决方案，它基于云直播服务（LVB）、即时通信（IM）和对象存储服务（COS）构建，并使用云服务器（CVM）提供简单的后台服务，可以实现登录、注册、开播、房间列表、连麦互动、文字互动和弹幕消息等功能。
-
+## Native Demo
 <table>
 <tr>
-<th>平台</th><th>Demo体验</th><th>源码地址</th>
+<th>iOS</th><th>Android</th><th>Windows</th><th >Mac OS</th>
 </tr>
 <tr>
-<td>iOS</td>
-<td><a onclick="window.open('https://itunes.apple.com/cn/app/id1132521667?mt=8')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/2f382045b3a4f2c9be168b4677997477.png);background-size: cover;margin:auto">
+<td><img style="width:150px" src="https://main.qcloudimg.com/raw/6ff70145b6ff767305520ced9b5bb14b.png" data-nonescope="true"></td>
+<td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/TRTC/Demo/TRTCDemo.apk')"><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/233f4ccc698034f7f8e9f11d5eec5812.png);background-size: cover;">
 </div></a></td>
-<td><a href="https://github.com/tencentyun/MLVBSDK/tree/master/iOS/XiaoZhiBoApp">Github</a></td>
-</tr>
-<tr>
-<td>Andriod</td>
-<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/xiaozhibo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/35403c77b7293c795df103fcb85b8f70.png);background-size: cover;margin:auto">
+<td><a onclick="window.open('https://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Win_Demo.exe')"><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/e80b8f4462e2904b31dcdcaabe71c484.png);background-size: cover;">
 </div></a></td>
-<td><a href="https://github.com/tencentyun/MLVBSDK/tree/master/Android/XiaoZhiBo">Github</a></td>
-</tr>
+<td><a onclick="window.open('https://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Mac_Demo.tar.bz2')"><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/e80b8f4462e2904b31dcdcaabe71c484.png);background-size: cover;">
+</div></a></td>
 </tr>
 </table>
- 
-**小直播 App 展示**
- 
-<img width="900" src="https://main.qcloudimg.com/raw/732c851eb9c25dd426e02e764a4c0bc1.png"/>
 
->!  下载安装“小直播”App，注册一个小直播账号即可开始体验。
->注册时需注意用户名可填写小写字母、数字和下划线，账号密码必须由8 - 16个字符组成。
-
-
-## 精简版 Demo
-如果您是开发人员，可以直接下载我们的 SDK Demo，Demo 中的每一个菜单项均对应 SDK 中的一项独立功能，您可以根据当前项目需要进行针对性的调试。
-
-<table style="text-align:center;vertical-align:middle;">
+## 跨平台 Demo
+<table>
 <tr>
-<th>平台</th><th>Demo体验</th><th>源码地址</th>
+<th>微信小程序</th><th>桌面浏览器</th><th>Flutter </th><th>Electron</th>
 </tr>
 <tr>
-<td>iOS</td>
-<td><a onclick="window.open('https://itunes.apple.com/cn/app/id1152295397?mt=8')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/8f2e407cde055849912f9b8bdb518c63.png);background-size: cover;margin:auto">
 </div></a></td>
-<td><a href="https://github.com/tencentyun/LiteAVProfessional_iOS/tree/master/Demo">Github</a></td>
-</tr>
-<tr>
-<td>Andriod</td>
-<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/rtmpdemo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/b3372ebd80f820d9b70509c6bf5df418.png);background-size: cover;margin:auto">
-</div></a></td>
-<td><a href="https://github.com/tencentyun/LiteAVProfessional_Android/tree/master/Demo">Github</a></td>
-</tr>
-</tr>
-</table>
- 
-**腾讯云工具包 App 展示**
- 
-<img width="900" src="https://main.qcloudimg.com/raw/7f5440164eb5835b1fb2b67c3752fe2a.png"/>
-
-
-## 小程序 Demo
-除了 Native 版本的 Demo，我们还提供了微信小程序上的解决方案，打开“微信 > 发现 > 小程序”，搜索“腾讯视频云”即可体验。
-
-如果您是开发人员，可以直接下载我们的 SDK Demo，Demo 中的每一个菜单项均对应 SDK 中的一项独立功能，您可以根据当前项目需要进行针对性的调试。
-
-<table style="text-align:center;vertical-align:middle;">
-<tr>
-<th>平台</th><th>Demo 体验</th><th>源码地址</th>
-</tr>
-<tr>
-<td>微信小程序</td>
-<td><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/4cfc59a1b60c02fc975c8b3e23169fc7.png);background-size: cover;margin:auto">
+<td><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/4cfc59a1b60c02fc975c8b3e23169fc7.png);background-size: cover;">
 </div></td>
-<td><a href="https://github.com/tencentyun/MLVBSDK/tree/master/WXMini">Github</a></td>
+<td><input type="button" value="视频通话" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;
+    color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/latest/official-demo/index.html')" /><br><br>
+      <input type="button" value="互动直播" style="height: 30px;width: 150px;margin-top: 5px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;
+    color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://trtc.qcloud.com/tweblive/index.html#/')" />
+</td>
+<td><img style="width:150px" src="https://main.qcloudimg.com/raw/14d9fe31881712884e3e4d09c32fd219.png" data-nonescope="true"><br><img style="width:150px" src="https://main.qcloudimg.com/raw/9a256a1053da15b9f63323242854be1e.png" data-nonescope="true"></td>
+<td><input type="button" value="Windows 版" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;
+    color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/electron_sdk/solution/education/TRTC_Education_Demo%20Setup%201.1.0.exe?_ga=1.35276513.1325816544.1607066203')" /><br><br>
+      <input type="button" value="MacOS 版" style="height: 30px;width: 150px;margin-top: 5px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;
+    color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/electron_sdk/solution/education/TRTC_Education_Demo-1.1.0.dmg?_ga=1.35276513.1325816544.1607066203/')" /></td>
 </tr>
-<tr>
 </table>
- 
-**腾讯云视频云小程序展示**
-<img width="900" src="https://main.qcloudimg.com/raw/f694497d19b92b71b649ad41da185e5a.png"/>
 
+## 视频通话场景
+视频通话场景即两人或多人视频通话，支持720P、1080P高清画质；单个房间最多支持300人同时在线，最多支持50人同时开启摄像头。常见应用场景有1对1视频通话、300人视频会议、在线问诊、视频聊天、视频客服、视频面审、视频双录、在线理赔、视频狼人杀等。
+<dx-tabs>
+::: iOS&Android
+<table>
+<tr>
+   <th>主动呼叫</th>
+   <th>被叫接听</th>
+ </tr>
+<tr>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/group-call.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/group-recv.gif"/></td>
+</tr>
+</table>
+:::
+::: Flutter\s(iOS/Android)
+![](https://imgcache.qq.com/operation/dianshi/other/8d81a52d-ffd3-4bbd-bd09-1a1648569b2d.453825bf12c01b9fe937ca8d7291f3c44b48cced.gif)
+:::
+::: Windows
+![](https://imgcache.qq.com/operation/dianshi/other/win.836bd473a766ea962d0b40117888e99aad5db6c8.gif)
+:::
+::: macOS
+![](https://imgcache.qq.com/operation/dianshi/other/macOS.cd7d6d7e8a7fcc388ec27e41c6952b8615ce9d34.gif)
+:::
+::: 桌面浏览器
+![](https://imgcache.qq.com/operation/dianshi/other/058ffcf5-60f0-430c-96c7-e1760b93e444.fdd0f2c10a8242dadbf99108a48a59124124b437.gif)
+:::
+::: 小程序
+<table>
+<tr><th>主动呼叫</th><th>被叫接听</th> </tr>
+<tr>
+<td><img src="https://webim-1252463788.cos.ap-shanghai.myqcloud.com/trtc-calling-doc-assets/videocall.gif"/></td>
+<td><img src="https://webim-1252463788.cos.ap-shanghai.myqcloud.com/trtc-calling-doc-assets/videoaccept.gif"/></td>
+</tr>
+</table>
+:::
+</dx-tabs>
+
+## 语音通话场景
+语音通话场景即两人或多人语音通话，支持 48kHz，支持双声道；单个房间最多支持300人同时在线，最多支持50人同时开启麦克风。常见应用场景有1对1语音通话、多人语音通话、语音聊天、语音会议、语音客服、狼人杀等。
+<dx-tabs>
+::: iOS&Android
+<table>
+<tr>
+   <th>主动呼叫</th>
+   <th>被叫接听</th>
+ </tr>
+<tr>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/call.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/recv.gif"/></td>
+</tr>
+</table>
+:::
+::: 小程序
+<table>
+<tr><th>主动呼叫</th><th>被叫接听</th></tr>
+<tr>
+<td><img src="https://webim-1252463788.cos.ap-shanghai.myqcloud.com/trtc-calling-doc-assets/audiocall.gif"/></td>
+<td><img src="https://webim-1252463788.cos.ap-shanghai.myqcloud.com/trtc-calling-doc-assets/audioaccept.gif"/></td>
+</tr>
+</table>
+:::
+</dx-tabs>
+
+## 视频互动直播场景
+视频互动直播场景支持主播与观众视频连麦互动；支持主播跨房间（跨直播间）PK；支持平滑上下麦，切换过程无需等待，主播延时小于300ms；单个房间可连麦人数无限制，最多支持50人同时连麦；低延时直播模式下，支持10万观众同时播放，播放延时低至1000ms；CDN 旁路直播模式下，观众数量无限制。常见应用场景有视频低延时直播、十万人互动课堂、视频直播 PK、视频相亲房、互动课堂、远程培训、大型会议等。
+<dx-tabs>
+::: iOS&Android
+<table>
+<tr>
+<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/beauty.gif"/></td>
+<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/join.gif"/></td>
+<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/msg.gif"/></td>
+<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/pk.gif"/></td>
+</tr>
+</table>
+:::
+::: 桌面浏览器
+![](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblivedemo/doc-assets/demo-official-website.gif)
+:::
+</dx-tabs>
+
+## 语音互动直播场景
+语音互动直播场景支持主播与观众语音连麦互动；支持主播跨房间（跨直播间）PK；支持平滑上下麦，切换过程无需等待，主播延时小于300ms；单个房间可连麦人数无限制，最多支持50人同时连麦；低延时直播模式下，支持10万观众同时播放，播放延时低至1000ms；CDN 旁路直播模式下，观众数量无限制。常见应用场景有语音低延时直播、语音直播连麦、语音直播 PK、语聊房、语音相亲房、K 歌房、FM 电台等。
+<table>
+     <tr>
+         <th>主播麦位操作</th>  
+         <th>观众麦位操作</th>  
+     </tr>
+<tr>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/voiceroom_pick_seat.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/voiceroom_enter_seat.gif"/></td>
+</tr>
+</table>
+
+
+## 视频会议场景
+视频会议场景支持 支持1080p高清画质与48kHz高音质，音视频时延低于300ms，畅享流畅高清的会议体验；支持屏幕分享、文件分享，让会议更高效；并结合即时通信，支持文字图片等多种形式辅助讨论，不干扰会议进程。常见的应用场景有全媒体客服、在线会议、政企业直播等。
+<table>
+     <tr>
+         <th>进入会议</th>  
+         <th>屏幕分享</th>  
+     </tr>
+<tr>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/enterroom.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/enterroom.gif"/></td>
+</tr>
+</table>
+
+## 互动课堂场景
+互动课堂场景支持老师和学生互动连麦，最多支持50人同时连麦，平滑上下麦，切换过程无需等待，沟通时延低于300ms；低延时直播模式下，支持10万学生同时观看，观看时延低至1000ms，CDN 旁路直播下，观众人数无限制；支持屏幕共享、互动白板、录制回放等多种课堂应用功能，打造形式更加丰富的线上教学。常见业务场景有大班课、小班课、超级小班课、AI课堂、招生课、内训直播课、1V1在线教育等。
+<table>
+     <tr>
+         <th>老师端（Electron）</th>  
+         <th>学生端（Electron）</th>  
+     </tr>
+<tr>
+<td><img src="https://imgcache.qq.com/operation/dianshi/other/Electron_teacher.76058b065f0b01ccc5d6bfd058c6b655e69a149c.gif"/></td>
+<td><img src="https://imgcache.qq.com/operation/dianshi/other/Electron_stu.9e3f55291b657d94878963ad86471b331190f47c.gif"/></td>
+</tr>
+</table>
 
