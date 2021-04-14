@@ -1,5 +1,5 @@
 ## 现象描述
-Linux云服务器在内存使用率未占满的情况下触发了 OOM（Out Of Memory）。如下图所示：
+Linux 云服务器在内存使用率未占满的情况下触发了 OOM（Out Of Memory）。如下图所示：
 ![](https://main.qcloudimg.com/raw/72cbd63ac445a1caa8d82fa1e55ba5a5.png)
 
 ## 可能原因
