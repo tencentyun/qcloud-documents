@@ -7,13 +7,13 @@
 </tr>
 <tr>
 <td>iOS</td>
-<td><a onclick="window.open('https://itunes.apple.com/cn/app/id1132521667?mt=8')"><div style="width:130px;height: 130px;background-image:url(https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/xiaozhibo_app_qr_code_ios.png);background-size: cover;">
+<td><a onclick="window.open('https://itunes.apple.com/cn/app/id1132521667?mt=8')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/2f382045b3a4f2c9be168b4677997477.png);background-size: cover;">
 </div></a></td>
 <td><a href="https://github.com/tencentyun/MLVBSDK/tree/master/iOS/XiaoZhiBoApp">Github</a></td>
 </tr>
 <tr>
 <td>Andriod</td>
-<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/xiaozhibo.apk')"><div style="width:130px;height: 130px;background-image:url(https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/xiaozhibo_app_qr_code_android.png);background-size: cover;">
+<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/xiaozhibo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/35403c77b7293c795df103fcb85b8f70.png);background-size: cover;">
 </div></a></td>
 <td><a href="https://github.com/tencentyun/MLVBSDK/tree/master/Android/XiaoZhiBo">Github</a></td>
 </tr>
@@ -37,13 +37,13 @@
 </tr>
 <tr>
 <td>iOS</td>
-<td><a onclick="window.open('https://itunes.apple.com/cn/app/id1152295397?mt=8')"><div style="width:130px;height: 130px;background-image:url(https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/video_cloud_tools_app_qr_code_ios.png);background-size: cover;">
+<td><a onclick="window.open('https://itunes.apple.com/cn/app/id1152295397?mt=8')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/8f2e407cde055849912f9b8bdb518c63.png);background-size: cover;">
 </div></a></td>
 <td><a href="https://github.com/tencentyun/LiteAVProfessional_iOS/tree/master/Demo">Github</a></td>
 </tr>
 <tr>
 <td>Andriod</td>
-<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/rtmpdemo.apk')"><div style="width:130px;height: 130px;background-image:url(https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/video_cloud_tools_app_qr_code_android.png);background-size: cover;">
+<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/rtmpdemo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/b3372ebd80f820d9b70509c6bf5df418.png);background-size: cover;">
 </div></a></td>
 <td><a href="https://github.com/tencentyun/LiteAVProfessional_Android/tree/master/Demo">Github</a></td>
 </tr>
