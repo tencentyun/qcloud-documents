@@ -12,15 +12,15 @@ Linux 云服务器实例在内存使用率未占满的情况下触发了 OOM。
 
 
 ## 处理步骤[](id:ProcessingSteps)
-1. 参考 [内存使用率高问题处理](https://cloud.tencent.com/document/product/213/54644#ProcessingSteps) ，查看实例是否内存使用率过高。
-2. 参考 [日志报错 fork：Cannot allocate memory](https://cloud.tencent.com/document/product/213/54645)，核实线程数是否超限。
+1. 参考 [内存使用率高问题处理](https://cloud.tencent.com/document/product/213/54644#ProcessingSteps) ，查看实例是否内存使用率过高。若实例内存使用率正常，则执行下一步。
+2. 参考 [日志报错 fork：Cannot allocate memory](https://cloud.tencent.com/document/product/213/54645)，核实线程数是否超限。若总线程数未超限，则执行下一步。
 3. 登录云服务器，执行以下命令查看 `min_free_kbytes` 值。
 ```
 sysctl -a | grep min_free
 ```
 `min_free_kbytes` 值单位为 kbytes，下图所示 `min_free_kbytes = 1024000` 即为1GB。
 ![](https://main.qcloudimg.com/raw/18ac6c04962abfbf67132eab1a604167.png)
-4. 执行以下命令，使用 VIM 编辑器打开 /etc/sysctl.conf 配置文件。
+4. 执行以下命令，使用 VIM 编辑器打开 `/etc/sysctl.conf` 配置文件。
 ```
 vim /etc/sysctl.conf
 ```
