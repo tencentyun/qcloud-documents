@@ -28,3 +28,7 @@ pstree -p | wc -l
 >
 4. 将 `/etc/sysctl.conf` 配置文件中的 `kernel.pid_max` 值修改为65535，以增加线程数。修改完成后如下图所示：
 ![](https://main.qcloudimg.com/raw/a4bbf49b3236b9f50988e914298adb31.png)
+5. 执行以下命令，使配置立即生效。
+```
+sysctl -p
+```
