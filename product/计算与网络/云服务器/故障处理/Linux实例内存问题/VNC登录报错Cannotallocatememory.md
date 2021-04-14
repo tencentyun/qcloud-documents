@@ -8,10 +8,10 @@
 
 
 ## 解决思路
-参考 [处理步骤](#ProcessingSteps)，核实问题是否由大页内存配置引起。
+参考 [处理步骤](#ProcessingSteps)，核实大页内存配置是否正确。
 
 ## 处理步骤[](id:ProcessingSteps)
-1. 参考 [日志报错 fork：Cannot allocate memory](https://cloud.tencent.com/document/product/213/54645)，核实线程数是否超限。若线程数正常，则执行下一步。
+1. 参考 [日志报错 fork：Cannot allocate memory](https://cloud.tencent.com/document/product/213/54645)，核实线程数是否超限。
 2. 使用单用户模式登入云服务器，详情请参见 [设置 Linux 云服务器进入单用户模式](https://cloud.tencent.com/document/product/213/33321)。
 3. 执行以下命令，查看是否配置了大页内存。
 ```
