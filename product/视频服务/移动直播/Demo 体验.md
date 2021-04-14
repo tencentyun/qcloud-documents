@@ -1,19 +1,23 @@
+<style>
+.markdown-text-box table th,.markdown-text-box table td{text-align: center;}
+</style>
+
 ## 小直播 App
 小直播 App 是一套开源的完整的在线直播解决方案，它基于云直播服务（LVB）、即时通信（IM）和对象存储服务（COS）构建，并使用云服务器（CVM）提供简单的后台服务，可以实现登录、注册、开播、房间列表、连麦互动、文字互动和弹幕消息等功能。
 
-<table style="text-align:center;vertical-align:middle;">
+<table>
 <tr>
 <th>平台</th><th>Demo体验</th><th>源码地址</th>
 </tr>
 <tr>
 <td>iOS</td>
-<td><a onclick="window.open('https://itunes.apple.com/cn/app/id1132521667?mt=8')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/2f382045b3a4f2c9be168b4677997477.png);background-size: cover;">
+<td><a onclick="window.open('https://itunes.apple.com/cn/app/id1132521667?mt=8')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/2f382045b3a4f2c9be168b4677997477.png);background-size: cover;margin:auto">
 </div></a></td>
 <td><a href="https://github.com/tencentyun/MLVBSDK/tree/master/iOS/XiaoZhiBoApp">Github</a></td>
 </tr>
 <tr>
 <td>Andriod</td>
-<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/xiaozhibo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/35403c77b7293c795df103fcb85b8f70.png);background-size: cover;">
+<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/xiaozhibo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/35403c77b7293c795df103fcb85b8f70.png);background-size: cover;margin:auto">
 </div></a></td>
 <td><a href="https://github.com/tencentyun/MLVBSDK/tree/master/Android/XiaoZhiBo">Github</a></td>
 </tr>
@@ -37,13 +41,13 @@
 </tr>
 <tr>
 <td>iOS</td>
-<td><a onclick="window.open('https://itunes.apple.com/cn/app/id1152295397?mt=8')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/8f2e407cde055849912f9b8bdb518c63.png);background-size: cover;">
+<td><a onclick="window.open('https://itunes.apple.com/cn/app/id1152295397?mt=8')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/8f2e407cde055849912f9b8bdb518c63.png);background-size: cover;margin:auto">
 </div></a></td>
 <td><a href="https://github.com/tencentyun/LiteAVProfessional_iOS/tree/master/Demo">Github</a></td>
 </tr>
 <tr>
 <td>Andriod</td>
-<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/rtmpdemo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/b3372ebd80f820d9b70509c6bf5df418.png);background-size: cover;">
+<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/rtmpdemo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/b3372ebd80f820d9b70509c6bf5df418.png);background-size: cover;margin:auto">
 </div></a></td>
 <td><a href="https://github.com/tencentyun/LiteAVProfessional_Android/tree/master/Demo">Github</a></td>
 </tr>
@@ -66,7 +70,7 @@
 </tr>
 <tr>
 <td>微信小程序</td>
-<td><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/4cfc59a1b60c02fc975c8b3e23169fc7.png);background-size: cover;">
+<td><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/4cfc59a1b60c02fc975c8b3e23169fc7.png);background-size: cover;margin:auto">
 </div></td>
 <td><a href="https://github.com/tencentyun/MLVBSDK/tree/master/WXMini">Github</a></td>
 </tr>
