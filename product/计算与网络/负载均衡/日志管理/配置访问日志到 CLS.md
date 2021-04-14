@@ -98,4 +98,20 @@
 <tr><td>ssl_handshake_time</td><td> SSL 握手所花费时间。 </td><td>double</td></tr>
 <tr><td>ssl_cipher</td><td> SSL 加密套件。</td><td>text</td></tr>
 <tr><td>ssl_protocol</td><td> SSL 协议版本。</td><td>text</td></tr>
-<tr><td>vip_vpcid</td><td>负载均衡 VIP 的所属私有网络 ID。</td><td>long</td></tr></tbody></table>
+<tr><td>vip_vpcid</td><td>负载均衡 VIP 的所属私有网络 ID。</td><td>long</td></tr>
+<tr>
+<td>server_addr</td><td>CLB 的 VIP。</td><td>text</td>
+</tr>
+<tr>
+<td>server_port</td><td>CLB 的 VPort，即监听端口。</td><td>long</td>
+</tr>
+<tr>
+<td>server_name</td><td> 规则的 server_name，CLB 的监听器中配置的域名。</td><td>text</td>
+</tr>
+<tr>
+<td>http_host</td><td>请求域名，即 HTTP 头部中的 Host。</td><td>text</td>
+</tr>
+<tr>
+<td>vip_vpcid</td><td>负载均衡 VIP 的所属私有网络 ID，公网 CLB 的 vip_vpcid 为-1。</td><td>long</td>
+</tr>
+</tbody></table>
