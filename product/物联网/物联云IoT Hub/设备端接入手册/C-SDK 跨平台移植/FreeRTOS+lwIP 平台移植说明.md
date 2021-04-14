@@ -1,4 +1,3 @@
-
 本文档介绍如何将腾讯云物联 C-SDK 移植到 **FreeRTOS+lwIP** 平台。
 
 ## FreeRTOS 移植简介

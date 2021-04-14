@@ -7,7 +7,7 @@
 >?
 >- 当前负载均衡仅七层协议（HTTP/HTTPS）支持配置访问日志到 CLS，四层协议（TCP/UDP/TCP SSL）不支持配置访问日志到 CLS。
 - 负载均衡配置访问日志到 CLS 的功能免费，用户仅需支付日志服务 CLS 的费用。
-- 支持配置负载均衡访问日志到 CLS 的地域包括：广州、上海、南京、北京、重庆、成都、上海金融、深圳金融、香港、新加坡、孟买、硅谷、多伦多、东京、法兰克福，可直接在控制台使用或通过 API 配置。
+- 支持配置负载均衡访问日志到 CLS 的地域包括：广州、深圳金融、上海、上海金融、南京、北京、北京金融、成都、重庆、香港、新加坡、孟买、首尔、东京、硅谷、弗吉尼亚、多伦多、法兰克福，可直接在控制台使用或通过 API 配置。
 
 
 ## 开启访问日志存入 CLS
@@ -98,4 +98,20 @@
 <tr><td>ssl_handshake_time</td><td> SSL 握手所花费时间。 </td><td>double</td></tr>
 <tr><td>ssl_cipher</td><td> SSL 加密套件。</td><td>text</td></tr>
 <tr><td>ssl_protocol</td><td> SSL 协议版本。</td><td>text</td></tr>
-<tr><td>vip_vpcid</td><td>负载均衡 VIP 的所属私有网络 ID。</td><td>long</td></tr></tbody></table>
+<tr><td>vip_vpcid</td><td>负载均衡 VIP 的所属私有网络 ID。</td><td>long</td></tr>
+<tr>
+<td>server_addr</td><td>CLB 的 VIP。</td><td>text</td>
+</tr>
+<tr>
+<td>server_port</td><td>CLB 的 VPort，即监听端口。</td><td>long</td>
+</tr>
+<tr>
+<td>server_name</td><td> 规则的 server_name，CLB 的监听器中配置的域名。</td><td>text</td>
+</tr>
+<tr>
+<td>http_host</td><td>请求域名，即 HTTP 头部中的 Host。</td><td>text</td>
+</tr>
+<tr>
+<td>vip_vpcid</td><td>负载均衡 VIP 的所属私有网络 ID，公网 CLB 的 vip_vpcid 为-1。</td><td>long</td>
+</tr>
+</tbody></table>

@@ -101,7 +101,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/group_msg_get_simple?sdkappid=
                     "MsgType": "TIMFaceElem"
                 }
             ],
-            "MsgPriority": High,
+            "MsgPriority": 1,
             "MsgRandom": 51083293,
             "MsgSeq": 7803321,
             "MsgTimeStamp": 1458721802
@@ -125,7 +125,7 @@ https://console.tim.qq.com/v4/group_open_http_svc/group_msg_get_simple?sdkappid=
                     "MsgType": "TIMTextElem"
                 }
             ],
-            "MsgPriority": High,
+            "MsgPriority": 1,
             "MsgRandom": 235168582,
             "MsgSeq": 7803320,
             "MsgTimeStamp": 1458721797

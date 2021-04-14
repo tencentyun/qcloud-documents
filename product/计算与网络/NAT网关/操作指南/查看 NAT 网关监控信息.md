@@ -5,3 +5,4 @@
 ![](https://main.qcloudimg.com/raw/af58186373385bb161ddd10b7142ef10.png)
 4. 您也可以在 NAT 网关列表中，单击需要查看的 NAT 网关条目中的监控按钮，即可查看监控信息。
 ![](https://main.qcloudimg.com/raw/2ae365dd7ca46296ec5d1464d142bd51.png)
+

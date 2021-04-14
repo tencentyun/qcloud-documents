@@ -5,7 +5,7 @@
 **视频通话&语音通话（scene = "rtc"）**
 - 视频通话场景，支持 [720P、1080P](#quality) 高清画质。
 - 视频通话场景，支持48kHz全频带，支持双声道。
-- 单个房间最多支持300人同时在线，最高支持30人同时发言。
+- 单个房间最多支持300人同时在线，最高支持50人同时发言。
 - 适用场景：1对1视频通话、300人视频会议、在线问诊、远程面试、视频客服、在线狼人杀等。
 - 使用方法：需要您将 &lt;trtc-room&gt; 的 [scene](#Config) 属性设置为 **rtc**。
 
@@ -17,10 +17,10 @@
 
 <table>
 <tr>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcvoiceroom.gif"/></td>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcvideocall.gif"/></td>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcmeeting1.gif"/></td>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcmeeting2.gif"/></td>
+<td><img width="260" height="561" src="https://web.sdk.qcloud.com/trtc/miniapp/doc/zh-cn/trtcvoiceroom.gif"/></td>
+<td><img width="260" height="561" src="https://web.sdk.qcloud.com/trtc/miniapp/doc/zh-cn/trtcvideocall.gif"/></td>
+<td><img width="260" height="561" src="https://web.sdk.qcloud.com/trtc/miniapp/doc/zh-cn/trtcmeeting1.gif"/></td>
+<td><img width="260" height="561" src="https://web.sdk.qcloud.com/trtc/miniapp/doc/zh-cn/trtcmeeting2.gif"/></td>
 </tr>
 </table>
 
@@ -96,7 +96,7 @@
 
 | 参数                 | 类型    | 默认值    | 说明         |
 |:---------------------|:--------|:----------|:-------------|
-| scene                | String  | rtc       | 必填参数，使用场景：<li>rtc：实时通话，采用优质线路，同一房间中的人数不应超过300人。</li><li>live：直播模式，采用混合线路，支持单一房间十万人在线（同时上麦的人数应控制在20人以内）。</li>  |
+| scene                | String  | rtc       | 必填参数，使用场景：<li>rtc：实时通话，采用优质线路，同一房间中的人数不应超过300人。</li><li>live：直播模式，采用混合线路，支持单一房间十万人在线（同时上麦的人数应控制在50人以内）。</li>  |
 | sdkAppID             | String  | -         | 必填参数，开通实时音视频服务创建应用后分配的 SDKAppID。            |
 | userID               | String  | -         | 必填参数，用户 ID，可以由您的帐号体系指定。 |
 | userSig              | String  | -         | 必填参数，身份签名（即相当于登录密码），由 userID 计算得出，具体计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。    |
@@ -108,7 +108,7 @@
 | enableEarMonitor     | Boolean | false     | 是否开启耳返（目前仅在 iOS 平台有效）。    |
 | enableAutoFocus      | Boolean | true      | 是否开启摄像头自动对焦，如果关闭则需要用户手动点击摄像头中的预览画面进行对焦。 |
 | enableZoom           | Boolean | false     | 是否支持双手滑动调整摄像头焦距。    |
-| minBitrate<span id="quality"></span>          | String  | 200       | 最小码率，不建议设置太低。  |
+| minBitrate[](id:quality)         | String  | 200       | 最小码率，不建议设置太低。  |
 | maxBitrate           | String  | 1000      | 最大码率，需要跟分辨率相匹配，建议参考 [分辨率码率参照表](https://cloud.tencent.com/document/product/647/32236#.E5.88.86.E8.BE.A8.E7.8E.87.E7.A0.81.E7.8E.87.E5.8F.82.E7.85.A7.E8.A1.A8)。 |
 | videoWidth           | String  | 360       | 视频宽，若设置视频宽高，会忽略 aspect。  |
 | videoHeight          | String  | 640       | 视频高，若设置视频宽高，会忽略 aspect。  |
@@ -988,11 +988,13 @@ trtcRoomContext.sendGroupCustomMessage({
 })
 ```
 
-<h2 id="Event">事件表</h2>
-
+[](id:Event)
+## 事件表
 通过组件实例的 EVENT 属性可以获取到事件常量字段，示例：
 
-```
+
+<dx-codeblock>
+::: js js
 let EVENT = trtcRoomContext.EVENT
 trtcRoomContext.on(EVENT.REMOTE_VIDEO_ADD,(event)=>{
     // 远端视频流添加事件，当远端用户发布视频流后会收到该通知
@@ -1004,7 +1006,9 @@ trtcRoomContext.on(EVENT.IM_MESSAGE_RECEIVED,(event)=>{
   // 收到推送的单聊、群聊、群提示、群系统通知的新消息，可通过遍历 messageEvent.data 获取消息列表数据并渲染到页面
   // messageEvent.data - 存储 Message 对象的数组
 })
-```
+:::
+</dx-codeblock>
+
 | CODE                       | 说明                                                     |
 |----------------------------|----------------------------------------------------------|
 | LOCAL_JOIN                 | 成功进入房间。                                               |
@@ -1016,6 +1020,7 @@ trtcRoomContext.on(EVENT.IM_MESSAGE_RECEIVED,(event)=>{
 | REMOTE_AUDIO_ADD           | 远端音频流添加事件，当远端用户发布音频流后会收到该通知。 |
 | REMOTE_AUDIO_REMOVE        | 远端音频流移除事件，当远端用户取消发布音频流后会收到该通知。 |
 | REMOTE_STATE_UPDATE        | 远端用户播放状态变更通知。                                   |
+| LOCAL_AUDIO_VOLUME_UPDATE  | 本地音量变更。                                   |
 | LOCAL_NET_STATE_UPDATE     | 本地推流的网络状态变更通知。                                   |
 | REMOTE_NET_STATE_UPDATE    | 远端用户网络状态变更通知。                                   |
 | REMOTE_AUDIO_VOLUME_UPDATE | 远端用户音量变更通知。                                       |

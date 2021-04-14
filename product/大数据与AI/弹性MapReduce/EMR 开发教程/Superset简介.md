@@ -12,6 +12,13 @@ EMR 上的 Superset，原装了对 Mysql、Hive、Presto、Impala、Kylin、Drui
 2. 创建集群时，可选组件中勾选了 Superset。
 3. Superset 默认安装在集群的 master 节点上。
 4. 打开 master 节点的安全组策略，确保您的网络可以访问 master 节点的18088端口。
+5. 添加初始化操作。
+```
+export PYTHONPATH=/usr/local/service/superset/conf
+/usr/local/service/superset/bin/superset db upgrade
+/usr/local/service/superset/bin/superset fab create-admin   设置用户名admin及密码
+/usr/local/service/superset/bin/superset init
+```
 
 ## 登录
 

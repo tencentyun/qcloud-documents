@@ -14,7 +14,7 @@
 
 ## 操作步骤
 ### 确认扩展方式
-<span id="fdisk"></span>
+[](id:fdisk)
 1. 以 root 用户执行以下命令，查询云硬盘使用的分区形式。
 ```plaintext
 fdisk -l
@@ -59,7 +59,7 @@ fdisk -l
      </tr> 
 </table>
 
-<span id="ExpandTheFileSystem"></span>
+[](id:ExpandTheFileSystem)
 ### 扩容文件系统
 
 1. 根据文件系统的类型，执行不同的命令进行扩容。
@@ -78,7 +78,7 @@ resize2fs /dev/vdb
 df -h
 ```
 
-<span id="AddToTheExistingGPTPart"></span>
+[](id:AddToTheExistingGPTPart)
 ### 将扩容部分的容量划分至原有分区（GPT）
 1. 以 root 用户执行以下命令，确认云硬盘的容量变化。
  ```plaintext
@@ -116,7 +116,7 @@ mount | grep '/dev/vdb'
 ```
  云硬盘上所有的分区文件系统均已解挂。如下图所示：
 ![](https://main.qcloudimg.com/raw/9242efdec1aab382ae74f975ca68d68a.png)
-4. <span id="step4"></span>执行以下命令，进入 parted 分区工具。
+4. [](id:step4)执行以下命令，进入 parted 分区工具。
 ```plaintext
 parted '<磁盘路径>'
 ```
@@ -220,7 +220,7 @@ df -h
  返回如下图信息说明挂载成功，即可以查看到数据盘。
 ![](//mccdn.qcloud.com/static/img/a2bd04c79e8383745689e19033a0daaa/image.png)
 
-<span id="CreateANewGPTPart"></span>
+[](id:CreateANewGPTPart)
 ### 将扩容部分的容量格式化成独立的新分区（GPT）
 
 1. 以 root 用户执行以下命令， 确认云硬盘的容量变化。
@@ -259,7 +259,7 @@ mount | grep '/dev/vdb'
 ```
  云硬盘上所有的分区文件系统均已解挂。如下图所示：
 ![](https://main.qcloudimg.com/raw/d1a9a33f0d4e3725aed677f2403c91ae.png)
-<span id="Step4"></span>
+[](id:Step4)
 4. 执行以下命令，进入 parted 分区工具。
 ```plaintext
 parted '<磁盘路径>'
@@ -300,7 +300,7 @@ mkfs.<fstype> <分区路径>
 mkfs.ext3 /dev/vdb2
 ```
 
-<span id="AddToTheExistingMBRPart"></span>
+[](id:AddToTheExistingMBRPart)
 ### 将扩容部分的容量划分至原有分区（MBR）
 fdisk/e2fsck/resize2fs 自动扩容工具适用于 Linux 操作系统，用于将新扩容的云硬盘空间添加到已有的文件系统中，扩容能够成功必须满足以下四个条件：
 - 文件系统是 EXT2/EXT3/EXT4/XFS。
@@ -350,7 +350,7 @@ python /tmp/devresize.py /dev/vdb
 	```plaintext
 	python /tmp/devresize.py /dev/vdb
 	```
-<span id="step4MBR"></span>
+[](id:step4MBR)
 4. 执行以下命令，手动挂载扩容后的分区。
 ```plaintext
 mount <分区路径> <挂载点>
@@ -375,7 +375,7 @@ df -h
 ll /data
 ```
 
-<span id="CreateANewMBRPart"></span>
+[](id:CreateANewMBRPart)
 ### 将扩容部分的容量格式化成独立的新分区（MBR）
 1. 以 root 用户执行以下命令，查看已挂载的数据盘分区信息。
 ```plaintext
@@ -400,7 +400,7 @@ umount /data
 mount | grep '<磁盘路径>'
 ```
  如返回结果为空，则云硬盘上所有的分区文件系统均已解挂。
-4. <span id="Step4MBR"></span>执行以下命令，新建一个新分区。
+4. [](id:Step4MBR)执行以下命令，新建一个新分区。
 ```plaintext
 fdisk <硬盘路径>
 ```
@@ -450,11 +450,11 @@ df -h
  返回如下图所示信息则说明挂载成功，即可以查看到数据盘。
  ![](//mccdn.qcloud.com/static/img/7b749a4bb6e7c8267c9354e1590c35d4/image.png)
 >?若您希望云服务器在重启或开机时能自动挂载数据盘，则需要执行 [步骤10](#AddNewPartINFOstep10) 和 [步骤11](#AddNewPartINFOstep11) 添加新分区信息至`/etc/fstab`中。
-10. <span id="AddNewPartINFOstep10"></span>执行以下命令，添加信息。
+10. [](id:AddNewPartINFOstep10)执行以下命令，添加信息。
 ```plaintext
 echo '/dev/xvdc2 /data1 ext3 defaults 0 0' >> /etc/fstab
 ```
-11. <span id="AddNewPartINFOstep11"></span>执行以下命令，查看信息。
+11. [](id:AddNewPartINFOstep11)执行以下命令，查看信息。
 ```plaintext
 cat /etc/fstab
 ```

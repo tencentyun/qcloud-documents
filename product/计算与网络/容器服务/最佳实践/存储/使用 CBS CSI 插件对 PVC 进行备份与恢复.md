@@ -33,7 +33,7 @@ cbs-snapclass   com.tencent.cloud.csi.cbs   Delete           17m
 
 #### 创建 PVC 快照 VolumeSnapshot
 
-1. <span id="volumesnapshot"></span>本文以 `new-snapshot-demo` 快照名为例创建 VolumeSnapshot。使用以下 YAML，创建 VolumeSnapshot 对象。示例如下：
+1. [](id:volumesnapshot)本文以 `new-snapshot-demo` 快照名为例创建 VolumeSnapshot。使用以下 YAML，创建 VolumeSnapshot 对象。示例如下：
 ```yaml
 apiVersion: snapshot.storage.k8s.io/v1beta1
 kind: VolumeSnapshot

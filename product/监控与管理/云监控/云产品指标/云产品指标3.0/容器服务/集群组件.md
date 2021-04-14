@@ -1,0 +1,90 @@
+## 注意事项
+下列所有指标必入参 `tke_cluster_instance_id` 维度，其余为非必选维度，可不入参。
+
+## 命名空间
+Namespace=QCE/TKE
+## 监控指标
+
+| 指标英文名                              | 指标中文名                      | 指标单位 | 维度                                                         | 统计周期                               |
+| --------------------------------------- | ------------------------------- | -------- | ------------------------------------------------------------ | -------------------------------------- |
+| K8sComponent<br/>ApiserverReady         | kube-apiserver是否正常          | -        | 必填维度：tke_cluster_instance_id、<br/>非必选：node、un_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sComponentController<br/>ManagerReady | kube-controller-manager是否正常 | -        | 必填维度：tke_cluster_instance_id、<br/>非必选：node、un_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sComponent<br/>EtcdReady              | etcd是否正常                    | -        | 必填维度：tke_cluster_instance_id、<br/>非必选：node、un_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sComponent<br/>SchedulerReady         | kube-scheduler是否正常          | -        | 必填维度：tke_cluster_instance_id、<br/>非必选：node、un_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+| K8sContainerNet<br/>workReceiveBytes    | 网络入流量                      | MB/S     | 必填维度：tke_cluster_instance_id、<br/>非必选：node、un_instance_id | 60s、<br/>300s、<br/>3600s、<br/>86400 |
+
+## 各维度对应参数总览
+<table>
+    <thead>
+        <tr>
+            <th><span>参数名称</span></th>
+            <th><span>类型</span></th>
+            <th><span>维度名称</span></th>
+            <th><span>维度解释</span></th>
+            <th><span>格式</span></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><span>Instances.N.Dimensions.N.Name</span></td>
+            <td rowspan="2"><span>必选</span></td>
+            <td><span>tke_cluster_instance_id</span></td>
+            <td><span>集群的维度名称</span></td>
+            <td><span>输入 String 类型维度名称：tke_cluster_instance_id</span></td>
+        </tr>
+        <tr>
+            <td><span>Instances.N.Dimensions.N.Value</span></td>
+            <td><span>tke_cluster_instance_id</span></td>
+            <td><span>具体集群 ID</span></td>
+            <td><span>输入具体集群 ID，例如：cls-fvkxp123</span></td>
+        </tr>
+        <tr>
+            <td><span>Instances.N.Dimensions.N.Name</span></td>
+            <td rowspan="4"><span>非必选（可不选，也可选择一项或多项）</span></td>
+            <td><span>node</span></td>
+            <td><span>节点名称的维度名称</span></td>
+            <td><span>输入 String 类型维度名称：node</span></td>
+        </tr>
+        <tr>
+            <td><span>Instances.N.Dimensions.N.Value</span></td>
+            <td><span>node</span></td>
+            <td><span>具体节点名称</span></td>
+            <td><span>输入具体节点名称，例如：node</span></td>
+        </tr>
+        <tr>
+            <td><span>Instances.N.Dimensions.N.Name</span></td>
+            <td><span>un_instance_id</span></td>
+            <td><span>节点ID的维度名称</span></td>
+            <td><span>输入 String 类型维度名称：un_instance_id</span></td>
+        </tr>
+        <tr>
+            <td><span>Instances.N.Dimensions.N.Value</span></td>
+            <td><span>un_instance_id</span></td>
+            <td><span>具体节点ID</span></td>
+            <td><span>输入具体节点 ID，例如：ins-nwjhh123</span></td>
+        </tr>
+    </tbody>
+</table>
+
+
+
+## 入参说明
+**集群入参取值如下：**
+&Namespace=QCE/TKE
+&Instances.N.Dimensions.0.Name=tke_cluster_instance_id
+&Instances.N.Dimensions.0.Value=cls-fvkxp123
+
+**根据节点 ID 入参取值如下：**
+&Namespace=QCE/TKE
+&Instances.N.Dimensions.0.Name=tke_cluster_instance_id
+&Instances.N.Dimensions.0.Value=cls-fvkxp123
+&Instances.N.Dimensions.1.Name=un_instance_id
+&Instances.N.Dimensions.1.Value=ins-nwjhh123
+
+**根据节点名称入参取值如下：**
+&Namespace=QCE/TKE
+&Instances.N.Dimensions.0.Name=tke_cluster_instance_id
+&Instances.N.Dimensions.0.Value=cls-fvkxp123
+&Instances.N.Dimensions.1.Name=node
+&Instances.N.Dimensions.1.Value=node
+

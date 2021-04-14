@@ -43,3 +43,6 @@ Helm Client 使用 TKE 生成的客户端证书访问集群，具体操作步骤
 helm  install ....  --kubeconfig [kubeconfig所在路径]
 ```
 
+
+
+

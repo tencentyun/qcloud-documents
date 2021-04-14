@@ -13,6 +13,13 @@ hadoop fs -ls cosn://examplebucket-1250000000/
 如果能够正确地列出 COS Bucket 中的文件列表，则表示 Hadoop-COS 安装和配置正确，可以进行以下实践步骤。
 2. COS 的访问账户必须要具备读写 COS 存储桶中目标路径的权限。
 
+>!
+>- 您可以按需授予子账号读写 COS 存储桶内资源的权限，建议按照 [最小权限原则](https://cloud.tencent.com/document/product/436/38618) 和 [子用户授权指南](https://cloud.tencent.com/document/product/598/36256) 进行授权，以下几种是常见预设策略：
+>  - [DataFullControl](https://console.cloud.tencent.com/cam/policy/detail/5294998&QcloudCOSDataFullControl&2)：数据全读写权限，包含读、写、列出文件列表以及删除操作，建议谨慎授予。
+>  - [QcloudCOSDataReadOnly](https://console.cloud.tencent.com/cam/policy/detail/5295051&QcloudCOSDataReadOnly&2)：数据只读权限。
+>  - [QcloudCOSDataWriteOnly](https://console.cloud.tencent.com/cam/policy/detail/5295044&QcloudCOSDataWriteOnly&2)：数据只写权限。
+>- 如果需要使用自定义监控能力，需要授权云监控指标上报和读取接口操作权限，请谨慎授予 [QcloudMonitorFullAccess](https://console.cloud.tencent.com/cam/policy/detail/276210&QcloudMonitorFullAccess&2) 或者按需授予 [云监控接口](https://cloud.tencent.com/document/product/397/40208) 权限。
+
 ## 实践步骤
 
 ### 将 HDFS 中的数据复制到 COS 的存储桶中

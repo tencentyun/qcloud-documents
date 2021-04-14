@@ -5,11 +5,11 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 - 使用基于 SESSION 的 CC 防护策略，需要先进行 SESSION 设置，才能设置基于 SESSION 的 CC 防护策略。
 - 如果您使用的 Web 应用防火墙版本不支持 CC 防护设置2.0，请您参考 [旧版 CC 防护设置](https://cloud.tencent.com/document/product/627/35525) 进行配置。
 
-## 配置步骤
+## 操作步骤
 #### **示例一：紧急模式 CC 防护配置**
 紧急模式 CC 防护默认关闭，开启前请确认自定义 CC 防护规则处于未启用状态。
 
-1. 进入 [ Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 应用防火墙】>【防护设置】，进入防护设置页面，在域名列表中，找到需要防护的域名，单击【防护配置】进入配置页面。
+1. 进入 [ Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 安全防护】>【防护设置】，进入防护设置页面，在域名列表中，找到需要防护的域名，单击【防护配置】进入配置页面。
 ![](https://main.qcloudimg.com/raw/9be71efc16d6a472dfd7590b6ae11763.png)
 2. 单击【CC 防护设置2.0】，进行紧急模式 CC 防护配置。
 ![](https://main.qcloudimg.com/raw/f0da1e170b1376e6213d10d988a49a2b.png)
@@ -19,7 +19,7 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 
 #### **示例二： 基于访问源 IP 的 CC 防护设置**
 基于 IP 的 CC 防护策略，不需要对 SESSION 维度进行设置，直接配置即可。
-1. 进入 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 应用防火墙】>【防护设置】，进入防护设置页面，在域名列表中，找到需要防护的域名，单击【防护配置】进入配置页面。
+1. 进入 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 安全防护】>【防护设置】，进入防护设置页面，在域名列表中，找到需要防护的域名，单击【防护配置】进入配置页面。
 ![](https://main.qcloudimg.com/raw/9be71efc16d6a472dfd7590b6ae11763.png)
 2. 单击【CC 防护设置2.0】进行 CC 规则配置，单击【添加规则】填写相应信息。
 ![](https://main.qcloudimg.com/raw/587d2e546abf2809d12023fe54639495.png)
@@ -47,7 +47,7 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
 
 #### **示例三： 基于 SESSION 的 CC 防护设置**
 基于 SESSION 访问速率的 CC 防护，能够有效解决在办公网、商超和公共 WIFI 场合，用户因使用相同 IP 出口而导致的误拦截问题。
-1. 进入 [ Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 应用防火墙】>【防护设置】，进入防护设置页面，在域名列表中，找到需要防护的域名，单击【防护配置】进入配置页面。
+1. 进入 [ Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏，选择【Web 安全防护】>【防护设置】，进入防护设置页面，在域名列表中，找到需要防护的域名，单击【防护配置】进入配置页面。
 ![](https://main.qcloudimg.com/raw/9f30721ac5c501c07935833eeb364417.png)
 2. 选择【CC 防护设置2.0】>【设置】，设置 SESSION 维度信息。
 ![](https://main.qcloudimg.com/raw/a9bbf8a68bdd04f6bb66b97081ffb86e.png)
@@ -61,12 +61,12 @@ CC 防护对网站特定的 URL 进行访问保护，CC 防护2.0全新改版，
  - **结束位置：**字符串或位置匹配的结束位置。
  - **GET/POST 示例 ：**
 如果一条请求的完整参数内容为：key_a = 124&key_b = 456&key_c = 789。
- - 字符串匹配模式下，SESSION 标识为 key_b = ，结束字符为&，则匹配内容为456。
- - 位置匹配模式下，SESSION 标识为 key_b，开始位置为0，结束位置2，则匹配内容为456。
+	 - 字符串匹配模式下，SESSION 标识为 key_b = ，结束字符为&，则匹配内容为456。
+ 	- 位置匹配模式下，SESSION 标识为 key_b，开始位置为0，结束位置2，则匹配内容为456。
  - **COOKIE 示例 ：**
 如果一条请求的完整 COOKIE 内容为：cookie_1 = 123;cookie_2 = 456;cookie_3 = 789。
- - 字符串匹配模式下，SESSION 标识为 cookie_2 =，结束字符为“;”，则匹配内容为456。
- - 位置匹配模式下，SESSION 标识为 cookie_2，开始位置为0，结束位置2，则匹配内容为456。
+ 	- 字符串匹配模式下，SESSION 标识为 cookie_2 =，结束字符为“;”，则匹配内容为456。
+ 	- 位置匹配模式下，SESSION 标识为 cookie_2，开始位置为0，结束位置2，则匹配内容为456。
 
 4. SESSION 维度信息测试。添加完成后，单击【测试】将填写内容进行测试。。
 ![](https://main.qcloudimg.com/raw/1eddcdb937b9e529167d24c98ca904d4.png)

@@ -1,6 +1,6 @@
 ## 组件介绍
-TRTCCalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯云信令 SDK（TSignalling）组合而成，支持1V1，多人场景下的语音通话。TRTCCalling 是一个开源组件，依赖闭源的信令 SDK（TSignalling）进行状态管理，通过 C2C 通信，完成信令传递。组件可快速服务线上客服，咨询，医疗问诊，跨端实时通话等应用场景。您可前往 [【Github】](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini/TRTCScenesDemo)或单击 [【ZIP】](https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/TRTC_WXMini_latest.zip)，下载相关 SDK 及配套的 Demo 源码。
-![](https://main.qcloudimg.com/raw/6b1368e2186abcd5126fc1c165f2fb78.png)
+TRTCCalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯云信令 SDK（TSignalling）组合而成，支持1V1，多人场景下的语音通话。TRTCCalling 是一个开源组件，依赖闭源的信令 SDK（TSignalling）进行状态管理，通过 C2C 通信，完成信令传递。组件可快速服务线上客服，咨询，医疗问诊，跨端实时通话等应用场景。您可前往 [【Github】](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini/TRTCScenesDemo)或单击 [【ZIP】](https://web.sdk.qcloud.com/component/trtccalling/download/trtc-calling-miniapp.zip)，下载相关 SDK 及配套的 Demo 源码。
+![](https://web.sdk.qcloud.com/component/trtccalling/doc/miniapp/6b1368e2186abcd5126fc1c165f2fb78.png)
 
 ## TRTCCalling API 概览
 
@@ -58,15 +58,17 @@ TRTCCalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯�
 <TRTCCalling id="TRTCCalling-room" config="{{config}}"></TRTCCalling>
 ```
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 // videocall.js
 trtcConfig = {
-  sdkAppID: '1401000123', // 开通实时音视频服务创建应用后分配的 SDKAppID
-  userID: 'test_user_001', // 用户 ID，可以由您的帐号系统指定
-  userSig: 'xxxxxxxxxxxx', // 身份签名，相当于登录密码的作用
-  type: 1, // 通话模式
+	sdkAppID: '1401000123', // 开通实时音视频服务创建应用后分配的 SDKAppID
+	userID: 'test_user_001', // 用户 ID，可以由您的帐号系统指定
+	userSig: 'xxxxxxxxxxxx', // 身份签名，相当于登录密码的作用
+	type: 1, // 通话模式
 }
-```
+:::
+</dx-codeblock>
 
 ### 组件方法
 
@@ -142,21 +144,25 @@ TRTCCallingContext.groupCall({userIDList, type, groupID})
 当收到邀请后，调用该接口将接受当前的邀请。
 >? 当上一个 invitation 未处理完成时，组件会默认占线，之后的邀请都会回复忙线。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 TRTCCallingContext.on(EVENT.INVITED, () => {
   TRTCCallingContext.accept()
 })
-```
+:::
+</dx-codeblock>
 
 [](id:reject)
 #### reject()
 当收到邀请后，调用该接口将拒绝当前收到的邀请。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 TRTCCallingContext.on(EVENT.INVITED, () => {
   TRTCCallingContext.reject()
 })
-```
+:::
+</dx-codeblock>
 
 [](id:hangup)
 #### hangup()  
@@ -207,13 +213,24 @@ const EVENT = trtcRoomContext.EVENT // 以下事件均在此EVENT对象下
 |inviteID| String|邀请 ID。|
 | reason | String|拒绝理由。|
 
-##### NO_RESP 
-邀请方发出的邀请无人响应。
+#### NO_RESP 
+邀请方发出的邀请无人响应（对方不在线）
 
 | 参数| 类型   |    含义   |
 | --------------- | ---------- | -------------- |
-|inviteID| String|邀请 ID。|
-| inviteeList | String| 邀请人列表。 |
+|inviteID| String|邀请ID。|
+| timeoutUserList | Array| 超时用户列表。|
+
+#### CALLING_TIMEOUT
+邀请方发出的邀请无人响应（在线未接受邀请）
+
+| 参数| 类型   |    含义   |
+| --------------- | ---------- | -------------- |
+|inviteID| String|邀请ID。|
+|timeoutUserList | Array| 超时用户列表。|
+| groupID | String | 群组ID。|
+| sponsor | String | 邀请者。|
+
 
 #### LINE_BUSY
 被邀请方正在通话中，忙线。
@@ -240,8 +257,10 @@ const EVENT = trtcRoomContext.EVENT // 以下事件均在此EVENT对象下
 
 | 参数| 类型   |    含义   |
 | --------------- | ---------- | -------------- |
-|inviter| String|邀请人。|
-|type| Number|邀请通话类型。|
+|sponsor| String|邀请人。|
+| isFromGroup | Boolean | 是否是群通话。|
+|inviteID| String|邀请ID。|
+|inviteData| Object | callType: 通话类型,<br>roomID: 房间号。|
 
 #### CALLING_CANCEL
 接受的邀请被取消。
@@ -289,12 +308,15 @@ const EVENT = trtcRoomContext.EVENT // 以下事件均在此EVENT对象下
 
 通过监听 EVENT 里的 ERROR 字段，对组件抛出的错误进行处理。
 
-```javascript
+<dx-codeblock>
+::: javascript javascript
 let EVENT = trtcRoomContext.EVENT
 trtcRoomContext.on(EVENT.ERROR,(event)=>{
   console.log(event.data)
 })
-```
+::: 
+</dx-codeblock>
+
 ## 常见问题
 #### 为什么拨打不通，或者被踢下线？
 组件暂不支持多实例登入，不支持**离线推送信令**功能，请您确认账号登入的唯一性。

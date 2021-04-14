@@ -16,7 +16,7 @@
 
 ## 操作步骤
 
-### 创建 KMS 密钥并获取 ID<span id="createKMS"></span>
+### 创建 KMS 密钥并获取 ID[](id:createKMS)
 
 1. 登录 [密钥管理系统（合规）](https://console.cloud.tencent.com/kms2) 控制台，进入“用户密钥”页面。
 2. 在“用户密钥”页面上方，选择需要创建密钥的区域并单击【新建】。
@@ -31,7 +31,7 @@
 5. 单击密钥 ID，进入密钥信息页，记录该密钥完整 ID。如下图所示：
 ![](https://main.qcloudimg.com/raw/ab708d6ade0bdd9dd12cd54e2cea35d9.png)
 
-### 创建并获取访问密钥<span id="createCAM"></span>
+### 创建并获取访问密钥[](id:createCAM)
 >?如已创建访问密钥，则请跳过此步骤。
 >
 1. 登录[ 访问管理控制台](https://console.cloud.tencent.com/cam/overview)，选择左侧导航栏中的【访问密钥】>【API密钥管理】，进入 “API密钥管理”页面。

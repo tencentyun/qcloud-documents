@@ -1,5 +1,5 @@
 ## 操作场景
-本文以使用 WordPress 应用镜像的轻量应用服务器为例，介绍如何在服务器中安装 SSL 证书并开启 HTTPS 访问。该服务器中默认已安装 Nginx 软件，您可参考本文并结合实际情况进行操作。
+本文以使用 **WordPress 5.2.4 社区版应用镜像**的轻量应用服务器为例，介绍如何在服务器中安装 SSL 证书并开启 HTTPS 访问。该服务器中默认已安装 Nginx 软件，您可参考本文并结合实际情况进行操作。
 
 >?
 >- 本文档以通过腾讯云SSL证书服务申请的付费、免费证书为例。腾讯云 SSL 证书服务相关信息可参考 [SSL 证书产品介绍](https://cloud.tencent.com/document/product/400/7572)、[SSL 证书购买指南](https://cloud.tencent.com/document/product/400/7994) 和 [申请免费 SSL 证书](https://cloud.tencent.com/document/product/400/6814)。
@@ -36,7 +36,7 @@
 ## 操作步骤
 
 ### 证书安装
-1.  前往 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载 SSL 证书（名称以 `cloud.tencent.com` 为例）文件压缩包，并解压到本地目录。
+1. 前往 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中下载 SSL 证书（名称以 `cloud.tencent.com` 为例）文件压缩包，并解压到本地目录。
 解压缩后，可获得相关类型的证书文件。其中包含 Nginx 文件夹和 CSR 文件：
  - **文件夹名称**：Nginx
  - **文件夹内容**：
@@ -49,7 +49,7 @@
 3. 将已获取到的 `1_cloud.tencent.com_bundle.crt` 证书文件和 `2_cloud.tencent.com.key` 私钥文件从本地目录拷贝到轻量应用服务器 Nginx 默认配置文件目录中。
 >?WordPress 镜像的默认配置文件目录为 `/usr/local/lighthouse/softwares/nginx/conf` 。您可以在轻量应用服务器实例详情页的【应用管理】页面中查看 Nginx 软件的主安装目录，在主安装目录下的 `./conf/` 即为 Nginx 默认配置文件目录。
 >
-4. <span id="Step4"></span>对于 WordPress 镜像创建的实例则执行以下命令，编辑 Nginx 默认配置文件目录中的 `nginx.conf` 文件。
+4. [](id:Step4)对于 WordPress 镜像创建的实例则执行以下命令，编辑 Nginx 默认配置文件目录中的 `nginx.conf` 文件。
 ```
 sudo vim /usr/local/lighthouse/softwares/nginx/conf/nginx.conf
 ```
@@ -91,13 +91,13 @@ server {
     listen 443 ssl;
     server_tokens off;
     keepalive_timeout 5;
-    root /usr/local/lighthouse/softwares/wordpress;
+    root /usr/local/lighthouse/softwares/wordpress; #填写您的网站根目录，例如：/usr/local/lighthouse/softwares/wordpress
     index index.php index.html;
     access_log logs/wordpress.log combinediox;
     error_log logs/wordpress.error.log;
-    server_name cloud.tencent.com;   #填写您的证书绑定的域名，例如：cloud.tencent.com
-    ssl_certificate 1_cloud.tencent.com_bundle.crt;   #填写您的证书文件名称，例如：1_cloud.tencent.com_bundle.crt
-    ssl_certificate_key 2_cloud.tencent.com.key;    #填写您的私钥文件名称，例如：2_cloud.tencent.com.key
+    server_name cloud.tencent.com; #填写您的证书绑定的域名，例如：cloud.tencent.com
+    ssl_certificate 1_cloud.tencent.com_bundle.crt; #填写您的证书文件名称，例如：1_cloud.tencent.com_bundle.crt
+    ssl_certificate_key 2_cloud.tencent.com.key; #填写您的私钥文件名称，例如：2_cloud.tencent.com.key
     ssl_session_timeout 5m;
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;  # 可参考此 SSL 协议进行配置
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;   #可按照此加密套件配置，写法遵循 openssl 标准
@@ -113,18 +113,20 @@ server {
     }
 }
 ```
-5. 保存修改后的 `nginx.conf` 文件后退出。
-6. <span id="Step6"></span>执行以下命令，验证配置文件是否存在问题。
+5. 找到 http{...}，并输入以下配置信息。
+```
+ssl_certificate 1_cloud.tencent.com_bundle.crt;   #填写您的证书文件名称，例如：1_cloud.tencent.com_bundle.crt
+ssl_certificate_key 2_cloud.tencent.com.key;    #填写您的私钥文件名称，例如：2_cloud.tencent.com.key
+```
+6. 保存修改后的 `nginx.conf` 文件后退出。
+7. [](id:Step7)执行以下命令，验证配置文件是否存在问题。
 ```
 sudo /usr/local/lighthouse/softwares/nginx/sbin/nginx -t
 ```
- - 若输出如下成功提示，请继续执行 [步骤7](#Step7)。
-```
-nginx: the configuration file /usr/local/lighthouse/softwares/nginx/conf/nginx.conf syntax is ok
-nginx: configuration file /usr/local/lighthouse/softwares/nginx/conf/nginx.conf test is successful
-```
+ - 若输出信息如下如所示，则为配置成功，请继续执行 [步骤8](#Step8)。
+![](https://main.qcloudimg.com/raw/e2be8baf455c0c4cfa8f0f5f3c4bb494.png)
  - 若存在错误提示，请您重新配置或者根据提示修改存在问题。
-7. <span id="Step7"></span>执行以下命令，重启 Nginx。
+8. [](id:Step8)执行以下命令，重启 Nginx。
 ```
 sudo /usr/local/lighthouse/softwares/nginx/sbin/nginx -s reload
 ```
@@ -143,6 +145,7 @@ server {
     return 301 https://$host$request_uri;  	 #将http的域名请求转成https
 }
 ```
-2. 保存修改后的 `nginx.conf` 文件后退出，参考“证书安装”的 [步骤6](#Step6) 及 [步骤7](#Step7) 验证并重启 Nginx。
-至此已成功设置 HTTPS 的自动跳转，您可使用 `http://cloud.tencent.com`（示例）自动跳转至 HTTPS 页面。
+2. 保存修改后的 `nginx.conf` 文件后退出，参考“证书安装”的 [步骤7](#Step7) 及 [步骤8](#Step8) 验证并重启 Nginx。
+至此已成功设置 HTTPS 的自动跳转，您可使用 `http://cloud.tencent.com`（示例）自动跳转至 HTTPS 页面。如下图所示：
+![](https://main.qcloudimg.com/raw/006c7e90aa5e5ca71bd6db6b270650c4.png)
 

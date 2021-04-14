@@ -253,7 +253,7 @@ prepare to invoke a function!
 | data          |    否    | `String` | 函数运行入参，必须可以被 json.dumps 的对象。 |
 | namespace     |    否    | `String` | 命名空间，默认为 default。 |
 
-<span id="TencentserverlessSDKException"></span>
+[](id:TencentserverlessSDKException)
 #### TencentserverlessSDKException
 **属性：**
 - [**code**]

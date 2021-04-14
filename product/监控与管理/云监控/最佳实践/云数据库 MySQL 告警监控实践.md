@@ -69,14 +69,14 @@
 ![](https://main.qcloudimg.com/raw/47018a9e21ef0952a89f1ea09598df0b.png)
 
 
-<span id="Network"></span>
+[](id:Network)
 
 **网络连接层**
 
 接入集群：提供与 MySQL 服务器建立连接的支持。
 
 
-<span id="service"></span>
+[](id:service)
 
 **服务层**
 
@@ -88,7 +88,7 @@
 - **优化器**：当“解析树”通过解析器语法检查后，交由优化器对查询进行优化，将其转换成执行计划。
 - **执行器**：执行优化器给出的执行计划，然后存储引擎交互。
 
-<span id="storage"></span>
+[](id:storage)
 
 **存储引擎层**
 
@@ -144,7 +144,7 @@ MySQL 的内存是重要的性能参数，常出现由于低效 SQL 请求以及
 
 ## 指标说明
 
-<span id="step1"></span>
+[](id:step1)
 
 > ?下方表格中加粗的指标为核心指标。
 

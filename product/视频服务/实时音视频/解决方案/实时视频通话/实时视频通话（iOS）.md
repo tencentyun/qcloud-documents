@@ -3,11 +3,11 @@
 <table>
 <tr>
    <th>主动呼叫</th>
-   <th>呼叫接听</th>
+   <th>被叫接听</th>
  </tr>
 <tr>
-<td><img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/videocall/group-call.gif"/></td>
-<td><img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/videocall/group-recv.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/group-call.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/group-recv.gif"/></td>
 </tr>
 </table>
 
@@ -16,52 +16,48 @@
 
 >! 我们之前提供了 TRTCVideoCall 组件，旧版本组件已经移动到 [组件仓库](https://github.com/tencentyun/LiteAVClassic) 中。TRTCCalling 组件使用了 IM 信令的接口，将不再与旧组件兼容。
 
-<span id="ui"> </span>
+[](id:ui)
 
 ## 复用 Demo 的 UI 界面
 
-<span id="ui.step1"></span>
+[](id:ui.step1)
 
 ### 步骤1：创建新的应用
-
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 单击【立即开始】，输入应用名称，例如 `TestVideoCall` ，单击【创建应用】。
+2. 输入应用名称，例如 `TestVideoCall` ，单击【创建】。
 
->! 本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
+>!本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
 
-<span id="ui.step2"></span>
-
+[](id:ui.step2)
 ### 步骤2：下载 SDK 和 Demo 源码
+1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
+2. 下载完成后，单击【已下载，下一步】。
+![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
 
-1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS)】跳转至 Github（或单击【[ZIP](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_iOS_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
-   ![](https://main.qcloudimg.com/raw/716b5af9207ad2b11835dec4e2d15da0.png)
-2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
-
-<span id="ui.step3"></span>
+[](id:ui.step3)
 
 ### 步骤3：配置 Demo 工程文件
-
-1. 解压 [步骤2](#ui.step2) 中下载的源码包。
+1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
 2. 找到并打开 `iOS/TRTCScenesDemo/TXLiteAVDemo/Debug/GenerateTestUserSig.h` 文件。
 3. 设置 `GenerateTestUserSig.h` 文件中的相关参数：
-	- SDKAPPID：默认为0，请设置为实际的 SDKAppID。
-	- SECRETKEY：默认为空字符串，请设置为实际的密钥信息。
-![](https://main.qcloudimg.com/raw/75e76cc2708c8569bfabf01386c1f5c1.png)
-4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
-5. 单击【关闭指引，进入控制台管理应用】。
+<ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
+<li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
+<img src="https://main.qcloudimg.com/raw/73c4227a4f4eb737f2cb495181df52fe.png">
+4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
+5. 编译完成后，单击【回到控制台概览】即可。
 
 >!
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
-<span id="ui.step4"></span>
+[](id:ui.step4)
 
 ### 步骤4：运行 Demo
 
 使用 Xcode（11.0及以上的版本）打开源码工程 `iOS/TRTCScenesDemo/TXLiteAVDemo.xcworkspace`，单击【运行】即可开始调试本 Demo。
 
-<span id="ui.step5"></span>
+[](id:ui.step5)
 
 ### 步骤5：修改 Demo 源代码
 
@@ -74,7 +70,7 @@
 | TRTCCallingContactViewController.swift | 用于展示搜索联系人的界面。                               |
 
 
-<span id="model"> </span>
+[](id:model)
 
 ## 实现自定义 UI 界面
 
@@ -83,7 +79,7 @@
 
 您可以使用开源组件 TRTCCalling 实现自己的 UI 界面，即只复用 model 部分，自行实现 UI 部分。
 
-<span id="model.step1"> </span>
+[](id:model.step1)
 
 ### 步骤1：集成 SDK
 
@@ -115,13 +111,13 @@ pod 'TXLiteAVSDK_TRTC'
 </tr>
 </table>
 
-<span id="model.step2"> </span>
+[](id:model.step2)
 
 ### 步骤2：配置权限
 
 在 info.plist 文件中需要添加 `Privacy - Camera Usage Description`， `Privacy - Microphone Usage Description` 申请摄像头和麦克风权限。
 
-<span id="model.step3"> </span>
+[](id:model.step3)
 
 ### 步骤3：导入 TRTCCalling 组件
 
@@ -130,7 +126,7 @@ pod 'TXLiteAVSDK_TRTC'
 iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model 
 ```
 
-<span id="model.step4"> </span>
+[](id:model.step4)
 
 ### 步骤4：初始化并登录组件
 
@@ -152,16 +148,19 @@ iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model
 <td>userSig</td>
 <td> <a href="https://cloud.tencent.com/document/product/647/17275">如何计算 UserSig</a>。</td>
 </tr></table>
-<pre>
+<dx-codeblock>
+::: Objective-C Objective-C
 // 登录
 [[TRTCCalling shareInstance] login:SDKAPPID user:userID userSig:userSig success:^{
         NSLog(@"Video call login success.");
 } failed:^(int code, NSString *error) {
         NSLog(@"Video call login failed.");
 }];
-</pre>
+:::
+</dx-codeblock>
 
-<span id="model.step5"> </span>
+
+[](id:model.step5)
 
 ### 步骤5：实现 1v1 通话
 
@@ -170,7 +169,8 @@ iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model
 3. 接收方：如果希望接听电话，接收方可以调用 `accept()` 函数，如果此时是视频通话，可以同时调用 `openCamera()` 函数打开自己本地的摄像头。接收方也可以调用 `reject()` 拒绝此次通话。
 4. 当双方的音视频通道建立完成后，通话的双方还会接收到名为 `onUserVideoAvailable()` 的回调，表示对方的视频画面已经拿到。此时双方用户均可以调用 `startRemoteView()` 展示远端的视频画面。远端的声音默认是自动播放的。
 
-```Objective-C
+<dx-codeblock>
+::: Objective-C Objective-C
 // 1.监听回调
 [[TRTCCalling shareInstance] addDelegate:delegate];
 
@@ -187,12 +187,12 @@ iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model
 // 2.观看对方的画面
 // 由于 A 打开了摄像头，B 接受通话后会收到 onUserVideoAvailable(A, true) 回调
 - (void)onUserVideoAvailable:(NSString *)uid available:(BOOL)available {
-	if (available) {
-		UIView* renderView =[[UIView alloc] init];
-		[[TRTCCalling shareInstance] startRemoteView:uid view:renderView]; // 就可以看到对方的画面了
-	} else {
-		[[TRTCCalling shareInstance] stopRemoteView:uid]; // 停止渲染画面
-	}
+  if (available) {
+    UIView* renderView =[[UIView alloc] init];
+    [[TRTCCalling shareInstance] startRemoteView:uid view:renderView]; // 就可以看到对方的画面了
+  } else {
+    [[TRTCCalling shareInstance] stopRemoteView:uid]; // 停止渲染画面
+  }
 }
 
 // 3.调用组件的其他功能函数发起通话或挂断等
@@ -203,11 +203,10 @@ iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model
 [[TRTCCalling shareInstance] hangup];
 // 拒绝
 [[TRTCCalling shareInstance] reject];
+:::
+</dx-codeblock>
 
-```
-
-
-<span id="model.step6"> </span>
+[](id:model.step6)
 
 ### 步骤6：实现多人通话
 
@@ -220,7 +219,8 @@ iOS/TRTCSceneDemo/TXLiteAVDemo/TRTCCallingDemo/model
 
 >?接口 `groupCall:type:groupID:` 中的 `groupID` 参数是 IM SDK 中的群组 ID，如果填写该参数，那么通话请求消息的信令消息是通过群 ID 发送出去的，这种消息广播方式比较简单可靠。如果不填写，那么 `TRTCalling` 组件会采用单发消息逐一通知。
 
-```Objective-C
+<dx-codeblock>
+::: Objective-C Objective-C
 // 前面省略...
 // 拼凑需要拨打的用户列表
 NSArray *callList = @[];
@@ -232,9 +232,10 @@ NSArray *callList = @[];
 
 //打开自己的摄像头
 [[TRTCCalling shareInstance] openCamera:true view:renderView];
-```
+:::
+</dx-codeblock>
 
-<span id="offline"> </span>
+[](id:offline)
 
 ### 步骤7：实现离线接听
 
@@ -246,7 +247,7 @@ IM SDK 支持离线推送，您需要进行相应的设置才能达到可用标�
 2. 在后台及客户端配置离线推送，具体操作请参见 [离线推送（iOS）](https://cloud.tencent.com/document/product/269/9154)。
 3. 修改 login 函数中的 `param.busiId` 为对应证书 ID。
 
-<span id="api"> </span>
+[](id:api)
 
 ## 组件 API 列表
 

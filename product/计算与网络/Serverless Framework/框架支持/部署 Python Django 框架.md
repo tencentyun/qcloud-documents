@@ -37,7 +37,6 @@ touch serverless.yml
 #serverless.yml
 component: django
 name: djangoDemo
-org: orgDemo
 app: appDemo
 stage: dev
 

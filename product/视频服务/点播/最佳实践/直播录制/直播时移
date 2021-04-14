@@ -38,7 +38,7 @@
 2. 将录制模板关联到所需配置的推流域名，具体操作请参见 [录制配置](https://cloud.tencent.com/document/product/267/35251)。
 
 ### 步骤4：开通时移服务[](id:time)
-[提工单](https://console.cloud.tencent.com/workorder/category?level1_id=29&level2_id=39&source=0&data_title=%E4%BA%91%E7%9B%B4%E6%92%AD%20%20CSS&step=1)，并选择问题所属产品为“云直播”，提出开通时移服务申请要求，并提供以下参数：
+您可 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=29&level2_id=39&source=0&data_title=%E4%BA%91%E7%9B%B4%E6%92%AD%20%20CSS&step=1)，并选择问题所属产品为“云直播”，提出开通时移服务申请要求，并提供以下参数：
 - [步骤2](#step2) 中已添加的云点播 时移播放域名 。
 - [步骤3](#step3) 中的录制模板 ID。
 - 自定义时移时长 timeshift_dur ，单位：秒。

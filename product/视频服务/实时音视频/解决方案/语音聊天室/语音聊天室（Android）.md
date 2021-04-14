@@ -6,8 +6,8 @@
          <th>观众麦位操作</th>  
      </tr>
 <tr>
-<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/voiceroom_pick_seat.gif"/></td>
-<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/voiceroom_enter_seat.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/voiceroom_pick_seat.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/voiceroom_enter_seat.gif"/></td>
 </tr>
 </table>
 
@@ -19,28 +19,29 @@
 [](id:ui.step1)
 ### 步骤1：创建新的应用
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 单击【立即开始】，输入应用名称，例如 `TestVoiceRoom` ，单击【创建应用】。
+2. 输入应用名称，例如  `TestVoiceRoom`  ，单击【创建】。
 
->?本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PAAS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
+>!本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
 
 
 [](id:ui.step2)
 ### 步骤2：下载 SDK 和 Demo 源码
-1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android)】跳转至 Github（或单击【[ZIP](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
- ![](https://main.qcloudimg.com/raw/c3067ef0d7244bfdd3bc31eef191c5fc.png)
-2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
+1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
+2. 下载完成后，单击【已下载，下一步】。
+![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
 
 [](id:ui.step3)
 ### 步骤3：配置 Demo 工程文件
-1. 解压 [步骤2](#ui.step2) 中下载的源码包。
-2. 找到并打开`Android/TRTCScenesDemo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java`文件。
+1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
+2. 找到并打开 `Android/TRTCScenesDemo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java` 文件。
 3. 设置 `GenerateTestUserSig.java` 文件中的相关参数：
-  <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
-  <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-    <img src="https://main.qcloudimg.com/raw/345c3e8915ef988eb158833d1655d0c5.png">
-4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
-5. 单击【关闭指引，进入控制台管理应用】。
+<ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
+<li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
+<img src="https://main.qcloudimg.com/raw/586439966d8588888cecf80d3bb4fe46.png">
+4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
+5. 编译完成后，单击【回到控制台概览】即可。
+
 
 >!本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
 >正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
@@ -165,8 +166,8 @@ trtcvoiceroomdemo/src/main/java/com/tencent/liteav/trtcvoiceroom/model
 <td>登录回调，成功时 code 为0。</td>
 </tr>
 </table>
-
-<pre>
+<dx-codeblock>
+::: java java
 TRTCVoiceRoom mTRTCVoiceRoom = TRTCVoiceRoom.sharedInstance(this);
 mTRTCVoiceRoom.setDelegate(this);
 mTRTCVoiceRoom.login(SDKAPPID, userId, userSig, new TRTCVoiceRoomCallback.ActionCallback() {
@@ -177,7 +178,8 @@ mTRTCVoiceRoom.login(SDKAPPID, userId, userSig, new TRTCVoiceRoomCallback.Action
         }
     }
 });
-</pre>
+:::
+</dx-codeblock>
 
 [](id:model.step5)
 ### 步骤5：主播端开播
@@ -189,7 +191,8 @@ mTRTCVoiceRoom.login(SDKAPPID, userId, userSig, new TRTCVoiceRoomCallback.Action
 
 ![](https://main.qcloudimg.com/raw/628f0aa3f0c15e53fec6ac904c8d3943.png)
 
-```java
+<dx-codeblock>
+::: java java
 // 1.主播设置昵称和头像
 mTRTCVoiceRoom.setSelfProfile("my_name", "my_face_url", null);
 
@@ -225,7 +228,8 @@ public void onSeatListChange(final List<TRTCVoiceRoomDef.SeatInfo> seatInfoList)
 @Override
 public void onAnchorEnterSeat(TRTCVoiceRoomDef.UserInfo userInfo) {
 }
-```
+:::
+</dx-codeblock>
 
 [](id:model.step6)
 ### 步骤6：观众端观看
@@ -241,8 +245,8 @@ public void onAnchorEnterSeat(TRTCVoiceRoomDef.UserInfo userInfo) {
 7. 进房后还会收到麦位表有主播进入的`onAnchorEnterSeat`的事件通知。
 
 ![](https://main.qcloudimg.com/raw/6e36bc8029a8abbeed69b43e197ba3c0.png)
-
-```java
+<dx-codeblock>
+::: java java
 // 1.观众设置昵称和头像
 mTRTCVoiceRoom.setSelfProfile("my_name", "my_face_url", null);
 
@@ -287,28 +291,31 @@ public void onSeatListChange(final List<TRTCVoiceRoomDef.SeatInfo> seatInfoList)
 @Override
 public void onAnchorEnterSeat(TRTCVoiceRoomDef.UserInfo userInfo) {
 }
-```
+:::
+</dx-codeblock>
 
 [](id:model.step7)
 ### 步骤7：麦位管理
-主播端：
+
+<dx-tabs>
+::: 主播端
 1. `pickSeat`传入对应的麦位和观众 userId, 可以抱人上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
 2. `kickSeat`传入对应麦位后，可以踢人下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
 3. `muteSeat`传入对应麦位后，可以静音/解除静音，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
 4. `closeSeat`传入对应麦位后，可以封禁/解禁某个麦位，封禁后观众端将不能再上麦，房间内所有成员会收到`onSeatListChange`和`onSeatClose`的事件通知。
 
 ![](https://main.qcloudimg.com/raw/299e62ae7d20d10622197ad8685d4639.png)
-
-观众端：
+:::
+::: 观众端
 1. `enterSeat`传入对应的麦位后，可以进行上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
 2. `leaveSeat`主动下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
 
 ![](https://main.qcloudimg.com/raw/3ac11818d7d23f61104600ea7235867d.png)
 
-麦位操作后的事件通知顺序如下：
-callback > onSeatListChange > onAnchorEnterSeat 等独立事件
+麦位操作后的事件通知顺序如下：callback > onSeatListChange > onAnchorEnterSeat 等独立事件。
 
-```java
+<dx-codeblock>
+::: java java
 // case1: 主播抱人上1号麦位
 mTRTCVoiceRoom.pickSeat(1, "123", new TRTCVoiceRoomCallback.ActionCallback() {
     @Override
@@ -327,9 +334,11 @@ public void onSeatListChange(final List<TRTCVoiceRoomDef.SeatInfo> seatInfoList)
 // 4.单个麦位变化的通知，可以在这里判断观众是不是真的上麦成功
 public void onAnchorEnterSeat(int index, TRTCVoiceRoomDef.UserInfo user) {
 }
-```
+:::
+</dx-codeblock>
 
-```java
+<dx-codeblock>
+::: java java
 // case2: 观众主动上2号麦位
 mTRTCVoiceRoom.enterSeat(2, new TRTCVoiceRoomCallback.ActionCallback() {
     @Override
@@ -348,13 +357,19 @@ public void onSeatListChange(final List<TRTCVoiceRoomDef.SeatInfo> seatInfoList)
 // 4.单个麦位变化的通知，可以在这里判断是不是自己并进行相应处理
 public void onAnchorEnterSeat(int index, TRTCVoiceRoomDef.UserInfo user) {
 }
-```
+:::
+</dx-codeblock>
+:::
+</dx-tabs>
+
 
 [](id:model.step8)
 ### 步骤8：邀请信令的使用
 在 [麦位管理](#model.step7) 中，观众上下麦、主播抱人上麦都不需要经过对方的同意就可以直接操作。
 如果您的 App 需要对方同意才能进行下一步操作的业务流程，那么邀请信令可以提供相应支持。
-如果您的观众上麦需要申请：
+
+<dx-tabs>
+::: 观众主动申请上麦
 1. 观众端调用`sendInvitation`传入主播的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
 2. 主播端收到`onReceiveNewInvitation`的事件通知，此时 UI 可以弹窗并询问主播是否同意。
 3. 主播选择同意后，调用`acceptInvitation`并传入 inviteId。
@@ -362,7 +377,8 @@ public void onAnchorEnterSeat(int index, TRTCVoiceRoomDef.UserInfo user) {
 
 ![](https://main.qcloudimg.com/raw/e2b97c645590c835b54fffbf0ff4ebfd.png)
 
-```java
+<dx-codeblock>
+::: java java
 // 观众端视角
 // 1.调用 sendInvitation，请求上1号麦位
 String inviteId = mTRTCVoiceRoom.sendInvitation("ENTER_SEAT", ownerUserId, "1", null);
@@ -384,9 +400,10 @@ public void onReceiveNewInvitation(final String id, String inviter, String cmd, 
          mTRTCVoiceRoom.acceptInvitation(id, null);
     }
 }
-```
-
-如果您的主播需要发送邀请才能抱观众上麦：
+:::
+</dx-codeblock>
+:::
+::: 主播邀请观众上麦
 1. 主播端调用`sendInvitation`传入观众的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
 2. 观众端收到`onReceiveNewInvitation`的事件通知，此时 UI 可以弹窗并询问观众是否同意上麦。
 3. 观众选择同意后，调用`acceptInvitation`并传入 inviteId。
@@ -394,7 +411,8 @@ public void onReceiveNewInvitation(final String id, String inviter, String cmd, 
 
 ![](https://main.qcloudimg.com/raw/e68e2dd9a8056ad8496cbe3dcfe634f1.png)
 
-```java
+<dx-codeblock>
+::: java java
 // 主播端视角
 // 1.主播调用 sendInvitation，请求抱观众123上2号麦
 String inviteId = mTRTCVoiceRoom.sendInvitation("PICK_SEAT", "123", "2", null);
@@ -416,13 +434,18 @@ public void onReceiveNewInvitation(final String id, String inviter, String cmd, 
          mTRTCVoiceRoom.acceptInvitation(id, null);
     }
 }
-```
+:::
+</dx-codeblock>
+:::
+</dx-tabs>
+
 
 [](id:model.step9)
 ### 步骤9：实现文字聊天和弹幕消息
 - 通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到`onRecvRoomTextMsg`回调。
  即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
-```java
+<dx-codeblock>
+::: java java
 // 发送端：发送文本消息
 mTRTCVoiceRoom.sendRoomTextMsg("Hello Word!", null);
 // 接收端：监听文本消息
@@ -432,10 +455,12 @@ mTRTCVoiceRoom.setDelegate(new TRTCVoiceRoomDelegate() {
         Log.d(TAG, "收到来自" + userInfo.userName + "的消息:" + message);
     }
 });
-```
+:::
+</dx-codeblock>
 - 通过`sendRoomCustomMsg`可以发送自定义（信令）的消息，所有在该房间内的主播和观众均可以收到`onRecvRoomCustomMsg`回调。
 自定义消息常用于传输自定义信令，例如用于点赞消息的发送和广播。
-```java
+<dx-codeblock>
+::: java java
 // 发送端：您可以通过自定义 Cmd 来区分弹幕和点赞消息
 // eg:"CMD_DANMU"表示弹幕消息，"CMD_LIKE"表示点赞消息
 mTRTCVoiceRoom.sendRoomCustomMsg("CMD_DANMU", "Hello world", null);
@@ -453,4 +478,5 @@ mTRTCVoiceRoom.setDelegate(new TRTCVoiceRoomDelegate() {
         }
     }
 });
-```
+:::
+</dx-codeblock>

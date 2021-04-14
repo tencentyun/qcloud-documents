@@ -19,7 +19,9 @@ exports.main = async (event, context) => {
 
 ## 初始化 SDK
 
-**Node.js**
+<dx-tabs>
+
+::: Node.js
 
 ```js
 const cloudbase = require("@cloudbase/node-sdk");
@@ -28,9 +30,15 @@ const app = cloudbase.init({
 });
 ```
 
+:::
+
+</dx-tabs>
+
 ## 调用云数据库
 
-**Node.js**
+<dx-tabs>
+
+::: Node.js
 
 ```js
 const db = app.database();
@@ -39,9 +47,15 @@ exports.main = async (event, context) => {
 };
 ```
 
+:::
+
+</dx-tabs>
+
 ## 调用云存储
 
-**Node.js**
+<dx-tabs>
+
+::: Node.js
 
 ```js
 exports.main = async (event, context) => {
@@ -53,9 +67,15 @@ exports.main = async (event, context) => {
 };
 ```
 
+:::
+
+</dx-tabs>
+
 ## 调用其它云函数
 
-**Node.js**
+<dx-tabs>
+
+::: Node.js
 
 ```js
 exports.main = async (event, context) => {
@@ -69,11 +89,16 @@ exports.main = async (event, context) => {
 };
 ```
 
+:::
+
+</dx-tabs>
+
 ## 获取用户信息
 
 当从客户端调用云函数时，如在小程序中或者 web 端使用微信登录授权，云函数的传入参数中会被注入用户的 `openid`，开发者无需校验 `openid` 的正确性，可以直接使用该 `openid`。与 `openid` 一起注入云函数的还有其它相关的用户身份信息。
 
-**Node.js**
+<dx-tabs>
+::: Node.js
 
 ```js
 //引用SDK
@@ -90,9 +115,10 @@ const {
 } = userInfo;
 ```
 
-**小程序·云开发**
+:::
+::: 小程序·云开发
 
-从小程序端调用云函数时，开发者可以在云函数内使用 [wx-server-sdk](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/functions/wx-server-sdk.html) 提供的 [getWXContext](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-server-api/utils/getWXContext.html) 方法获取到每次调用的上下文（`appid`、`openid` 等），无需维护复杂的鉴权机制，即可获取可信任的用户登录态（`openid`）。
+从小程序端调用云函数时，开发者可以在云函数内使用 [wx-server-sdk](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/functions/wx-server-sdk.html) 提供的 [getWXContext](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-sdk-api/utils/Cloud.getWXContext.html) 方法获取到每次调用的上下文（`appid`、`openid` 等），无需维护复杂的鉴权机制，即可获取可信任的用户登录态（`openid`）。
 
 示例代码
 
@@ -110,6 +136,9 @@ exports.main = async (event, context) => {
   };
 };
 ```
+
+:::
+</dx-tabs>
 
 ## 参考
 

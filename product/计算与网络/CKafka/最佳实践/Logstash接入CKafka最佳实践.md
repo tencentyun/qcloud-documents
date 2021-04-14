@@ -54,7 +54,7 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
 ### 准备工作
 - Java 版本：Java 8
 - Logstash 版本：5.5.2 （August 17, 2017）
-- Ckafka 实例，并且创建相应 topic
+- CKafka 实例，并且创建相应 topic
 
 #### 创建 CKafka
 1. 拥有实例后，可以从 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 中看到自己的实例信息。

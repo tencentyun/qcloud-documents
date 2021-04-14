@@ -43,7 +43,7 @@ TRTC 6.3 版本开始已提供 arm64-v8a 架构 ABI 支持。
 
 [](id:que10)
 ### iOS 端是否可以监听远端离开房间？
-可以使用 [onRemoteUserLeaveRoom](http://doc.qcloudtrtc.com/group__TRTCCloudDelegate__ios.html#afa7d16e1e4c66d938fc2bc69f3e34c28) 来监听用户离开房间事件，且该接口仅在 VideoCall 的所有用户和 LIVE 模式下的主播离开房间时会触发回调，观众离开房间不会有回调。 
+可以使用 [onRemoteUserLeaveRoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#afa7d16e1e4c66d938fc2bc69f3e34c28) 来监听用户离开房间事件，且该接口仅在 VideoCall 的所有用户和 LIVE 模式下的主播离开房间时会触发回调，观众离开房间不会有回调。 
 
 [](id:que11)
 ### 手机锁屏状态，视频如何拨通？

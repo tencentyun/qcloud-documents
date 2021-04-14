@@ -10,12 +10,12 @@ TRTC 虽然支持 WebRTC 协议接入，但主要用于 Chrome 桌面版浏览�
 
 ## 原理解析
 腾讯云会使用一批旁路转码集群，将 TRTC 中的音视频数据旁路到直播 CDN 系统中，该集群负责将 TRTC 所使用的 UDP 协议转换为标准的直播 RTMP 协议。
-<span id="directCDN"></span>
+[](id:directCDN)
 **单路画面的旁路直播**
 当 TRTC 房间中只有一个主播时，TRTC 的旁路推流跟标准的 RTMP 协议直推功能相同，不过 TRTC 的 UDP 相比于 RTMP 有更强大的弱网络抗性。
 ![](https://main.qcloudimg.com/raw/b682b1493a81bc8a53aea6a07f375ba2.gif)
 
-<span id="mixCDN"></span>
+[](id:mixCDN)
 **混合画面的旁路直播**
 TRTC 最擅长的领域就是音视频互动连麦，如果一个房间里同时有多个主播，而 CDN 观看端只希望拉取一路音视频画面，就需要使用 [云端混流服务](https://cloud.tencent.com/document/product/647/16827) 将多路画面合并成一路，其原理如下图所示：
 ![](https://main.qcloudimg.com/raw/f2feaaaac176bb4fe7dd1c318490f9e1.gif)
@@ -28,7 +28,7 @@ TRTC 最擅长的领域就是音视频互动连麦，如果一个房间里同时
 
 ## 使用步骤
 
-<span id="step1"></span>
+[](id:step1)
 ### 步骤1：开启旁路推流功能
 
 1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)。
@@ -36,7 +36,7 @@ TRTC 最擅长的领域就是音视频互动连麦，如果一个房间里同时
 3. 在【旁路推流配置】中，单击【启用旁路推流】右侧的![](https://main.qcloudimg.com/raw/5f58afe211aa033037e5c0b793023b49.png)，在弹出的【开启旁路推流功能】对话框中，单击【开启旁路推流功能】即可开通。
 
 
-<span id="step2"></span>
+[](id:step2)
 ### 步骤2：配置播放域名并完成 CNAME
 1. 登录 [云直播控制台](https://console.cloud.tencent.com/live/)。
 2. 在左侧导航栏选择【域名管理】，您会看到在您的域名列表新增了一个推流域名，格式为 `xxxxx.livepush.myqcloud.com`，其中 xxxxx 是一个数字，叫做 bizid，您可以在实时音视频控制台 >【[应用管理](https://console.cloud.tencent.com/trtc/app)】>【应用信息】中查找到 bizid 信息。
@@ -47,7 +47,7 @@ TRTC 最擅长的领域就是音视频互动连麦，如果一个房间里同时
 
 >! **不需要添加推流域名**，在 [步骤1](#step1) 中开启旁路直播功能后，腾讯云会默认在您的云直播控制台中增加一个格式为  `xxxxx.livepush.myqcloud.com` 的推流域名，该域名为腾讯云直播服务和 TRTC 服务之间约定的一个默认推流域名，暂时不支持修改。
 
-<span id="step3"></span>
+[](id:step3)
 ### 步骤3：关联 TRTC 的音视频流到直播 streamId
 开启旁路推流功能后， TRTC 房间里的每一路画面都配备一路对应的播放地址，该地址的格式如下：
 ```
@@ -102,7 +102,7 @@ userSig 的计算方法请参见 [如何计算 UserSig](https://cloud.tencent.co
 </table>
 
 
-<span id="step4"></span>
+[](id:step4)
 ### 步骤4：控制多路画面的混合方案
 
 如果您想要获得混合后的直播画面，需要调用 TRTCCloud 的 `setMixTranscodingConfig` 接口启动云端混流转码，该接口的参数 `TRTCTranscodingConfig` 可用于配置：
@@ -113,7 +113,7 @@ userSig 的计算方法请参见 [如何计算 UserSig](https://cloud.tencent.co
 
 >! `setMixTranscodingConfig` 并不是在终端进行混流，而是将混流配置发送到云端，并在云端服务器进行混流和转码。由于混流和转码都需要对原来的音视频数据进行解码和二次编码，所以需要更长的处理时间。因此，混合画面的实际观看时延要比独立画面的多出1s - 2s。
 
-<span id="step5"></span>
+[](id:step5)
 ### 步骤5：获取播放地址并对接播放
 当您通过 [步骤2](#step2) 配置完播放域名和 [步骤3](#step3) 完成 streamId 的映射后，即可得到直播的播放地址。播放地址的标准格式为：
 ```
@@ -139,7 +139,7 @@ http://播放域名/live/[streamId].flv
 |微信小程序| [接入指引](https://cloud.tencent.com/document/product/454/34931) | [&lt;live-player&gt; 标签](https://developers.weixin.qq.com/miniprogram/dev/component/live-player.html)| 推荐 FLV |
 
 
-<span id="step6"></span>
+[](id:step6)
 ### 步骤6：优化播放延时
 
 开启旁路直播后的 http - flv 地址，由于经过了直播 CDN 的扩散和分发，观看时延肯定要比直接在 TRTC 直播间里的通话时延要高。
@@ -171,7 +171,7 @@ http://播放域名/live/[streamId].flv
     // 启动直播播放
 ```
 
-<span id="expense"></span>
+[](id:expense)
 ## 相关费用
 
 实现 CDN 直播观看的费用包括**观看费用**和**转码费用**，观看费用为基础费用，转码费用仅在启用 [多路画面混合](#mixCDN) 时才会收取。
@@ -184,9 +184,9 @@ http://播放域名/live/[streamId].flv
 
 
 ### 转码费用：启用多路画面混合时收取
-如果您启用了 [多路画面混合](#mixCDN) ，混流需要进行解码和编码，因此会产生额外的混流转码费用。混流转码根据分辨率大小和转码时长进行计费，主播用的分辨率越高，连麦时间（通常在连麦场景才需要混流转码）越长，费用越高，详情请参见 [云直播 > 标准直播 > 直播转码](https://cloud.tencent.com/document/product/267/34175#.E6.A0.87.E5.87.86.E8.BD.AC.E7.A0.81) 计费说明。
+如果您启用了 [多路画面混合](#mixCDN) ，混流需要进行解码和编码，因此会产生额外的混流转码费用。混流转码根据分辨率大小和转码时长进行计费，主播用的分辨率越高，连麦时间（通常在连麦场景才需要混流转码）越长，费用越高，详情请参见 [云直播 > 直播转码](https://cloud.tencent.com/document/product/267/39889) 计费说明。
 
->例如，您通过 [setVideoEncodrParam()](http://doc.qcloudtrtc.com/group__TRTCCloudDef__ios.html#interfaceTRTCVideoEncParam) 设置主播的码率（videoBitrate）为1500kbps，分辨率为720P。如果有一位主播跟观众连麦了1个小时，连麦期间开启了 [多路画面混合](#mixCDN) ，那么产生的转码费用为`0.0325元/分钟 × 60分钟 = 1.95元`。
+>例如，您通过 [setVideoEncodrParam()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDef__ios.html#interfaceTRTCVideoEncParam) 设置主播的码率（videoBitrate）为1500kbps，分辨率为720P。如果有一位主播跟观众连麦了1个小时，连麦期间开启了 [多路画面混合](#mixCDN) ，那么产生的转码费用为`0.0325元/分钟 × 60分钟 = 1.95元`。
 
 ## 常见问题
 **为什么房间里只有一个人时画面又卡又模糊?**

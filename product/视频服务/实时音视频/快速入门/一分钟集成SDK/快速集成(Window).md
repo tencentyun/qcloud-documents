@@ -12,7 +12,7 @@
 
 [](id:step1)
 ### 步骤1：下载  Windows SDK 
-[下载 SDK](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip)，解压并打开文件，包含以下部分：
+[下载 SDK](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Win_latest.zip)，解压并打开文件，包含以下部分：
 
 | 目录名  | 说明                                   |
 | ------- | -------------------------------------- |
@@ -115,7 +115,7 @@ ENDLOCAL
 
 [](id:using_cpp_step1)
 ### 步骤1：下载  SDK
-[下载 SDK](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Win_latest.zip)，解压并打开，包含以下几个部分：
+[下载 SDK](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Win_latest.zip)，解压并打开，包含以下几个部分：
 
 | 目录名  | 说明                                   |
 | ------- | -------------------------------------- |

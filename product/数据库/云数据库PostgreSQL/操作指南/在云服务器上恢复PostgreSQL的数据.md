@@ -6,13 +6,15 @@
 >
 1. 登录 Linux 系统的云服务器，请参见 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
 2. 安装 PostgreSQL 数据库，本文采用 yum 源的安装方式，yum 源可至 [该地址](https://yum.postgresql.org/) 查找所需版本。
+>?如果您需要恢复 11.8 或者 12.4 版本，建议安装同版本的数据库，请更改安装包中的版本号，如`postgresql10-server`修改为`postgresql11-server`或者`postgresql12-server`。
+>
 执行如下命令，安装 PostgreSQL 10 版本。
 ```
 yum install https://download.postgresql.org/pub/repos/yum/reporpms/EL-7-x86_64/pgdg-redhat-repo-latest.noarch.rpm
 yum install postgresql10-server postgresql10-contrib postgresql10 postgresql10.x86_64
 ```
 >?PostgreSQL 9.5 版本安装命令如下：
-```
+>```
 yum install https://yum.postgresql.org/9.5/redhat/rhel-7.6-x86_64/pgdg-centos95-9.5-3.noarch.rpm
 yum install postgresql95-server postgresql95-contrib postgresql95
 ```
@@ -79,6 +81,7 @@ archive_command
 synchronous_commit
 synchronous_standby_names
 ```
+>?如果恢复版本为 PostgreSQL 12.4，还需要注释 `include = 'standby.conf'` 这一行。
 2. 修改配置文件`postgresql.conf`。
 ```
 port = '5432'    ##将port参数的值修改为5432

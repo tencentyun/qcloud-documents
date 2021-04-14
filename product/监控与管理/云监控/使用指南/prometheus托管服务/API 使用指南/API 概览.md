@@ -10,7 +10,7 @@ Prometheus 所有稳定的 HTTP API 都在 `/api/v1` 路径下。当我们有数
 | /api/v1/query_range               |       范围查询        | 是       | GET/POST     |
 | /api/v1/series                    |      series 查询      | 是       | GET/POST     |
 | /api/v1/labels                    |      labels 查询      | 是       | GET/POST     |
-| /api/v1/label/<label_name>/values |   label value 查询    | 是       | GET          |
+| /api/v1/label/&lt;label_name>/values |   label value 查询    | 是       | GET          |
 | /api/v1/prom/write                | remote write 数据提交 | 是       | remote write |
 | Pushgateway                       | pushgateway 数据提交  | 是       | SDK          |
 
