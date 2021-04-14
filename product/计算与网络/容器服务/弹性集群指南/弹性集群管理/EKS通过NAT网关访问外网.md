@@ -33,4 +33,4 @@
 ## 验证配置
 1. 在“弹性集群”列表页面，单击集群 ID 进入该集群的管理页面。
 2. 选择需登录容器所在行右侧的【远程登录】，并执行 ping 命令验证该 Pod 是否可访问外网。返回结果如下所示，则表明已成功访问外网。
-<img style="width:50%" src="https://main.qcloudimg.com/raw/35fec47afacbe6d9407f61be565bbb24.png"></img>
+![](https://main.qcloudimg.com/raw/35fec47afacbe6d9407f61be565bbb24.png)
