@@ -7,7 +7,7 @@
 >?
 >- 当前负载均衡仅七层协议（HTTP/HTTPS）支持配置访问日志到 CLS，四层协议（TCP/UDP/TCP SSL）不支持配置访问日志到 CLS。
 - 负载均衡配置访问日志到 CLS 的功能免费，用户仅需支付日志服务 CLS 的费用。
-- 支持配置负载均衡访问日志到 CLS 的地域包括：广州、上海、南京、北京、重庆、成都、上海金融、深圳金融、香港、新加坡、孟买、硅谷、多伦多、东京、法兰克福，可直接在控制台使用或通过 API 配置。
+- 支持配置负载均衡访问日志到 CLS 的地域包括：广州、深圳金融、上海、上海金融、南京、北京、北京金融、成都、重庆、香港、新加坡、孟买、首尔、东京、硅谷、弗吉尼亚、多伦多、法兰克福，可直接在控制台使用或通过 API 配置。
 
 
 ## 开启访问日志存入 CLS
@@ -73,9 +73,9 @@
 <tbody><tr><td>stgw_request_id</td><td> 请求 ID。 </td><td>text</td></tr>
 <tr><td>time_local</td><td> 访问的时间与时区，例如，“01/Jul/2019:11:11:00 +0800”，最后的“+0800”表示所处时区为 UTC 之后的8小时，即为北京时间。</td><td>text</td></tr>
 <tr><td>protocol_type</td><td> 协议类型（HTTP/HTTPS/SPDY/HTTP2/WS/WSS）。</td><td>text</td></tr>
-<tr><td>server_addr</td><td> 请求的目的 IP。 </td><td>text</td></tr>
-<tr><td>server_port</td><td>请求的目的端口。</td><td>long</td></tr>
-<tr><td>server_name</td><td> 规则的 server_name，即服务器名称。</td><td>text</td></tr>
+<tr><td>server_addr</td><td>CLB 的 VIP。 </td><td>text</td></tr>
+<tr><td>server_port</td><td>CLB 的 VPort，即监听端口。</td><td>long</td></tr>
+<tr><td>server_name</td><td> 规则的 server_name，CLB 的监听器中配置的域名。</td><td>text</td></tr>
 <tr><td>remote_addr</td><td> 客户端 IP。</td><td>text</td></tr>
 <tr><td>remote_port</td><td> 客户端端口。</td><td>long</td></tr>
 <tr><td>status</td><td> CLB 返回给客户端的状态码。 </td><td>long</td></tr>
@@ -85,7 +85,7 @@
 <tr><td>request</td><td> 请求行。 </td><td>text</td></tr>
 <tr><td>request_length</td><td> 从客户端收到的请求字节数。 </td><td>long</td></tr>
 <tr><td>bytes_sent</td><td> 发送到客户端的字节数。 </td><td>long</td></tr>
-<tr><td>http_host</td><td> 请求域名。 </td><td>text</td></tr>
+<tr><td>http_host</td><td> 请求域名，即 HTTP 头部中的 Host。</td><td>text</td></tr>
 <tr><td>http_user_agent</td><td> HTTP 协议头的 user_agent 字段。</td><td>text</td></tr>
 <tr><td>http_referer</td><td> HTTP 请求来源。 </td><td>text</td></tr>
 <tr><td>request_time</td><td> 请求处理时间：从收到客户端的第一个字节开始，直到给客户端发送的最后一个字节为止，包括客户端请求到 CLB、CLB 转发请求到 RS、RS 响应数据到 CLB、CLB 转发数据到客户端的总时间。</td><td>double</td></tr>
@@ -98,4 +98,5 @@
 <tr><td>ssl_handshake_time</td><td> SSL 握手所花费时间。 </td><td>double</td></tr>
 <tr><td>ssl_cipher</td><td> SSL 加密套件。</td><td>text</td></tr>
 <tr><td>ssl_protocol</td><td> SSL 协议版本。</td><td>text</td></tr>
-<tr><td>vip_vpcid</td><td>负载均衡 VIP 的所属私有网络 ID。</td><td>long</td></tr></tbody></table>
+<tr><td>vip_vpcid</td><td>负载均衡 VIP 的所属私有网络 ID，公网 CLB 的 vip_vpcid 为-1。</td><td>long</td></tr>
+</tbody></table>

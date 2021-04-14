@@ -8,8 +8,8 @@
          <th>观众麦位操作</th>  
      </tr>
 <tr>
-<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/chatsalon_anchor.gif"/ style="max-height:700px;"></td>
-<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/chatsalon_audicence.gif"/  style="max-height:700px;"></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/chatsalon_anchor.gif"/ style="max-height:700px;"></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/chatsalon_audicence.gif"/  style="max-height:700px;"></td>
 </tr>
 </table>
 
@@ -54,7 +54,7 @@
 
 [](id:ui.step4)
 ### 步骤4：运行 Demo
-使用 Android Studio（3.5以上的版本）打开源码工程`TRTCScenesDemo`，单击【运行】即可开始调试本 Demo。
+使用 Android Studio（3.5以上的版本）打开源码工程 `TRTCScenesDemo`，单击【运行】即可开始调试本 Demo。
 
 [](id:ui.step5)
 ### 步骤5：修改 Demo 源代码
@@ -239,8 +239,7 @@ public void onAnchorEnterSeat(TRTCChatSalonDef.UserInfo userInfo) {
 >!如果您的语音沙龙列表包含了足够全面的信息，可跳过调用 `getRoomInfoList` 相关步骤。
 4. 观众选择一个语音沙龙，调用 `enterRoom` 并传入房间号即可进入该房间。
 5. 进房后会收到组件的 `onRoomInfoChange` 房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求主播同意等。
-6. 进房后会收到组件的 `onEnterRoomSeatListNotify` 当前房间主播信息回调，此时可以根据麦位列表的信息查询到当前房间主播的用户信息，然后刷新到 UI 界面上。
-7. 进房后还会收到麦位表有主播进入的 `onAnchorEnterSeat` 的事件通知。
+6. 进房后还会收到麦位表有主播进入的 `onAnchorEnterSeat` 的事件通知。
 
 ![](https://main.qcloudimg.com/raw/b08253d1835ca6e571378af76c84e275.png)
 <dx-codeblock>
@@ -281,13 +280,7 @@ public void onRoomInfoChange(TRTCChatSalonDef.RoomInfo roomInfo) {
     // UI 可以展示标题等
 }
 
-// 6.进房成功后，收到 onEnterRoomSeatListNotify 事件通知
-@Override
-public void onEnterRoomSeatListNotify(final List<TRTCChatSalonDef.SeatInfo> seatInfoList) {
-    //根据麦位列表的信息查询到当前房间主播的用户信息， 展示您的主播列表信息
-}
-
-// 7.收到 onAnchorEnterSeat 事件通知
+// 6.收到 onAnchorEnterSeat 事件通知
 @Override
 public void onAnchorEnterSeat(TRTCChatSalonDef.UserInfo userInfo) {
 }

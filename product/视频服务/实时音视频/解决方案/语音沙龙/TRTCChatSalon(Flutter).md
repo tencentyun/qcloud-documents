@@ -5,7 +5,7 @@ TRTCChatSalon 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服�
 - 观众可以申请上麦，变成麦上主播，可以和其他人语音互动，也可以随时下麦成为普通的观众。
 - 支持发送各种文本消息。
 
-TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [语音沙龙（Flutter）](https://cloud.tencent.com/document/product/647/53582?!editLang=zh&!preview)。
+TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [语音沙龙（Flutter）](https://cloud.tencent.com/document/product/647/53582)。
 
 - TRTC SDK：使用 [TRTC SDK](https://cloud.tencent.com/document/product/647) 作为低延时语音聊天组件。
 - IM SDK：使用 [IM SDK](https://cloud.tencent.com/document/product/269) 的 AVChatroom 实现聊天室的功能，同时，通过 IM 的属性接口来存储麦位表等房间信息，邀请信令可以用于上麦申请/抱麦申请。
@@ -71,7 +71,7 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                                             | 描述                                                         |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。 |
+| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TXAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。 |
 
 ### 消息发送相关接口
 
@@ -168,7 +168,7 @@ void registerListener(VoiceListenerFunc func)
 
 ### unRegisterListener
 
-移除组件事件监听接口
+移除组件事件监听接口。
 
 ```dart
 void unRegisterListener(VoiceListenerFunc func)
@@ -347,7 +347,7 @@ Future<UserListCallback> getUserInfoList(List<String> userIdList)
 
 上麦（观众端和主播均可调用）。
 
->?上麦成功后，房间内所有成员会收到`onAnchorEnterSeat`的事件通知。
+>?上麦成功后，房间内所有成员会收到 `onAnchorEnterSeat` 的事件通知。
 
 ```
 Future<ActionCallback> enterMic();
@@ -357,7 +357,7 @@ Future<ActionCallback> enterMic();
 
 ### leaveMic
 
-主动下麦
+主动下麦。
 
 >? 下麦成功后，房间内所有成员会收到 `onAnchorLeaveMic` 的事件通知。
 
@@ -408,7 +408,7 @@ void startMicrophone(int quality)
 
 | 参数    | 类型 | 含义                                                         |
 | ------- | ---- | ------------------------------------------------------------ |
-| quality | int  | 音频质量，详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a955cccaddccb0c993351c656067bee55)。 |
+| quality | int  | 音频质量，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a955cccaddccb0c993351c656067bee55)。 |
 
 ### stopMicrophone
 
@@ -430,7 +430,7 @@ void muteLocalAudio(bool mute)
 
 | 参数 | 类型    | 含义                                                         |
 | ---- | ------- | ------------------------------------------------------------ |
-| mute | boolean | 静音/取消静音，详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86)。 |
+| mute | boolean | 静音/取消静音，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86)。 |
 
 
 ### setSpeaker
@@ -512,7 +512,7 @@ void muteAllRemoteAudio(bool mute)
 
 ### getAudioEffectManager
 
-获取背景音乐音效管理对象 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。
+获取背景音乐音效管理对象 [TXAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。
 
 ```dart
 TXAudioEffectManager getAudioEffectManager()

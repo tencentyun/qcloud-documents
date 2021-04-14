@@ -71,7 +71,7 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                                             | 描述                                                         |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。 |
+| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TXAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。 |
 
 ### 消息发送相关接口
 
@@ -90,6 +90,7 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | [cancelInvitation](#cancelinvitation) | 取消邀请。       |
 
 [](id:TRTCChatSalonDelegate)
+
 ## TRTCChatSalonDelegate API 概览
 
 ### 通用事件回调
@@ -110,12 +111,11 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 ### 麦位变更回调
 
-| API                                            | 描述                                   |
-| ---------------------------------------------- | -------------------------------------- |
-| [onEnterRoomSeatListNotify](#onenterroomseatlistnotify) | 观众进入房间后，当前房间主播信息回调。 |
-| [onAnchorEnterSeat](#onanchorenterseat)        | 有成员上麦（主动上麦/主播抱人上麦）。  |
-| [onAnchorLeaveSeat](#onanchorleaveseat)        | 有成员下麦（主动下麦/主播踢人下麦）。  |
-| [onSeatMute](#onseatmute)                      | 主播禁麦。                             |
+| API                                     | 描述                                  |
+| --------------------------------------- | ------------------------------------- |
+| [onAnchorEnterSeat](#onanchorenterseat) | 有成员上麦（主动上麦/主播抱人上麦）。 |
+| [onAnchorLeaveSeat](#onanchorleaveseat) | 有成员下麦（主动下麦/主播踢人下麦）。 |
+| [onSeatMute](#onseatmute)               | 主播禁麦。                            |
 
 ### 观众进出事件回调
 
@@ -290,7 +290,6 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | callback  | ActionCallback | 创建房间的结果回调，成功时 code 为0。                        |
 
 主播开播的正常调用流程如下： 
-
 1. 主播调用 `createRoom` 创建新的语音聊天室，此时传入房间 ID、上麦是否需要房主确认等房间属性信息。
 2. 主播创建房间成功后，调用 `enterSeat` 进入座位。
 3. 主播还会收到麦位表有成员进入的 `onAnchorEnterSeat` 的事件通知，此时会自动打开麦克风采集。
@@ -333,8 +332,7 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 1. 观众向您的服务端获取最新的语音沙龙列表，可能包含多个语音沙龙房间的 roomId 和房间信息。
 2. 观众选择一个语音聊天室，调用 `enterRoom` 并传入房间号即可进入该房间。
 3. 进房后会收到组件的 `onRoomInfoChange` 房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求主播同意等。
-4. 进房后会收到组件的`onEnterRoomSeatListNotify`当前房间主播信息回调，此时可以根据麦位列表的信息查询到当前房间主播的用户信息，然后刷新到 UI 界面上。
-5. 进房后还会收到麦位表有主播进入的 `onAnchorEnterSeat` 的事件通知。
+4. 进房后还会收到麦位表有主播进入的 `onAnchorEnterSeat` 的事件通知。
 
 ### exitRoom
 
@@ -493,7 +491,7 @@ NS_SWIFT_NAME(enterSeat(callback:));
 
 | 参数    | 类型 | 含义                                                         |
 | ------- | ---- | ------------------------------------------------------------ |
-| quality | int  | 音频质量，详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a955cccaddccb0c993351c656067bee55)。 |
+| quality | int  | 音频质量，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a955cccaddccb0c993351c656067bee55)。 |
 
 
 ### muteLocalAudio
@@ -508,7 +506,7 @@ NS_SWIFT_NAME(enterSeat(callback:));
 
 | 参数 | 类型    | 含义                                                         |
 | ---- | ------- | ------------------------------------------------------------ |
-| mute | boolean | 静音/取消静音，详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86)。 |
+| mute | boolean | 静音/取消静音，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86)。 |
 
 
 
@@ -592,7 +590,7 @@ NS_SWIFT_NAME(enterSeat(callback:));
 
 ### getAudioEffectManager
 
-获取背景音乐音效管理对象 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。
+获取背景音乐音效管理对象 [TXAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。
 
 ```Objective-C
 - (TXAudioEffectManager * _Nullable)getAudioEffectManager;
@@ -817,28 +815,13 @@ NS_SWIFT_NAME(onUserVolumeUpdate(userVolumes:totalVolume:));
 
 参数如下表所示：
 
-| 参数        | 类型                      | 含义               |
-| ----------- | ------------------------- | ------------------ |
+| 参数        | 类型                            | 含义               |
+| ----------- | ------------------------------- | ------------------ |
 | userVolumes | NSArray&lt;TRTCVolumeInfo *&gt; | 各个用户音量信息。 |
-| totalVolume | int                       | 整体音量信息。     |
+| totalVolume | int                             | 整体音量信息。     |
 
 
 ## 麦位回调
-
-### onEnterRoomSeatListNotify
-
-进入房间后，当前房间主播信息回调。
-
-```Objective-C
-- (void)onEnterRoomSeatListNotify:(NSArray<ChatSalonSeatInfo *> *)seatInfoList
-NS_SWIFT_NAME(onEnterRoomSeatListNotify(seatInfoList:));
-```
-
-参数如下表所示：
-
-| 参数         | 类型                          | 含义                 |
-| ------------ | ----------------------------- | -------------------- |
-| seatInfoList | List&lt;ChatSalonSeatInfo&gt; | 所有主播的麦位列表。 |
 
 ### onAnchorEnterSeat
 
@@ -1033,3 +1016,17 @@ NS_SWIFT_NAME(onInviteeRejected(identifier:invitee:));
 | ---------- | ------ | ----------------- |
 | identifier | String | 邀请 ID。         |
 | inviter    | String | 邀请人的用户 ID。 |
+
+### onInvitationTimeout
+
+邀请超时。
+
+```Objective-C
+- (void)onInvitationTimeout:(NSString *)identifier;
+```
+
+参数如下表所示：
+
+| 参数       | 类型   | 含义      |
+| ---------- | ------ | --------- |
+| identifier | String | 邀请 ID。 |

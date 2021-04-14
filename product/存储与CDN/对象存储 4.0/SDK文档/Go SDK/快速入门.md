@@ -35,7 +35,7 @@ func NewClient(uri *BaseURL, httpClient *http.Client) *Client
 // 将 examplebucket-1250000000 和 COS_REGION修改为真实的信息
 u, _ := url.Parse("https://examplebucket-1250000000.cos.COS_REGION.myqcloud.com")
 // 用于Get Service 查询，默认全地域 service.cos.myqcloud.com
-su, _ := url.Parse(https://cos.COS_REGION.myqcloud.com")
+su, _ := url.Parse("https://cos.COS_REGION.myqcloud.com")
 b := &cos.BaseURL{BucketURL: u, ServiceURL: su}
 // 1.永久密钥
 client := cos.NewClient(b, &http.Client{

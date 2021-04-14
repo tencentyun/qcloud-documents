@@ -6,8 +6,8 @@
          <th>观众麦位操作</th>  
      </tr>
 <tr>
-<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/voiceroom_pick_seat.gif"/></td>
-<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/voiceroom_enter_seat.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/voiceroom_pick_seat.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/voiceroom_enter_seat.gif"/></td>
 </tr>
 </table>
 
@@ -104,7 +104,7 @@ pod 'TXLiteAVSDK_TRTC'
 
 [](id:model.step4)
 ### 步骤4：创建并登录组件
-1. 调用 TRTCVoiceRoomImp 的`sharedInstance`类方法可以创建一个遵守 TRTCVoiceRoom 协议的实例对象。也可以使用调用`shared`类方法，获取 TRTCVoiceRoomImp实例对象直接使用，二者在 TRTCVoiceRoom 的接口使用上没有任何区别。
+1. 调用 TRTCVoiceRoom 的`sharedInstance`类方法可以创建一个遵守 TRTCVoiceRoom 协议的实例对象。也可以使用调用`shared`类方法，获取 TRTCVoiceRoomImp实例对象直接使用，二者在 TRTCVoiceRoom 的接口使用上没有任何区别。
 2. 调用`setDelegate`函数注册组件的事件回调通知。
 3. 调用`login`函数完成组件的登录，请参考下表填写关键参数：
 <table>    

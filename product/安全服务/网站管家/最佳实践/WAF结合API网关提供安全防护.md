@@ -20,7 +20,7 @@
 ### 步骤2：配置 WAF
 
 1. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/config)。
-2. 在左侧导航栏中，选择【Web 应用防火墙】>【防护设置】，进入防护设置页面。
+2. 在左侧导航栏中，选择【Web 安全防护】>【防护设置】，进入防护设置页面。
 3. 单击域名列表上方的【添加域名】，进入域名配置页面。
 4. 在“域名配置”页面，根据实际情况填写相关字段，其中源站地址选择【域名】，并填写 API 网关服务的子域名，单击【保存】。
 ![](https://main.qcloudimg.com/raw/8c83fbec08742ede0ddb19f762eaf90b.png)
@@ -31,6 +31,6 @@
 ### 步骤3：修改 CNAME 记录
 
 1. 在 DNS 提供商中修改 CNAME 记录，将自定义域名指向 WAF 的 CNAME 域名。
-2. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/config)，选择【Web 应用防火墙】>【防护设置】，进入防护设置页面。
+2. 登录 [Web 应用防火墙控制台](https://console.cloud.tencent.com/guanjia/waf/config)，选择【Web 安全防护】>【防护设置】，进入防护设置页面。
 3. 在域名列表中，单击接入状态后面的刷新按钮，可以看到接入状态变为“正常防护”，至此接入配置完成。
 ![](https://main.qcloudimg.com/raw/e26f4a5c7f9e21f6b2d57be2e6867480.png)
