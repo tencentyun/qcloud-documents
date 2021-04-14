@@ -1,5 +1,6 @@
 ## 现象描述
-Linux 云服务器实例在内存使用率未占满的情况下触发了 OOM。
+Linux云服务器在内存使用率未占满的情况下触发了 OOM（Out Of Memory）。如下图所示：
+![](https://main.qcloudimg.com/raw/72cbd63ac445a1caa8d82fa1e55ba5a5.png)
 
 ## 可能原因
 可能是由系统可用内存低于 `min_free_kbytes` 值导致。`min_free_kbytes` 值表示强制 Linux 系统最低保留的空闲内存（Kbytes），如果系统可用内存低于设定的 `min_free_kbytes` 值，则默认系统启动 oom-killer 或强制重启。具体行为由内核参数 `vm.panic_on_oom` 值决定：
