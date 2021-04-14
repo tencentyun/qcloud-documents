@@ -78,7 +78,7 @@ Request 节点 Video 的具体数据描述如下：
 | Width                      | Request.Video | 宽                    | String | 否   | 视频原<br/>始宽度 | <li>值范围：[128，4096]</li><li>单位：px</li><li>若只设置 Width 时，按照视频原始比例计算 Height</li> |
 | Height                     | Request.Video | 高                    | String | 否   | 视频原<br/>始高度 | <li>值范围：[128，4096]</li><li>单位：px</li><li>若只设置 Height 时，按照视频原始比例计算 Width</li> |
 | Fps                        | Request.Video | 帧率                  | String | 否   | 视频原<br/>始帧率 | <li>值范围：(0，60]</li><li>单位：fps</li><li>如果不设置，那么播放速度按照原来的时间戳。这里设置 fps 为动图的播放帧率</li> |
-| AnimateOnly<br/>KeepKeyFrame    | Request.Video | 动图只保留<br/>关键帧      | String | 否   |      无        | <li>true、false</li><li>动图保留关键帧参数 </li>                    |
+| AnimateOnly<br/>KeepKeyFrame    | Request.Video | 动图只保留<br/>关键帧      | String | 否   |      false        | <li>true、false</li><li>动图保留关键帧参数 </li>                    |
 | AnimateTime<br/>IntervalOfFrame | Request.Video | 动图抽帧间<br/>隔时间      | String | 否   |      无        | <li>（0，视频时长]</li><li>动图抽帧时间间隔</li><li>若设置 TimeInterval.Duration，则小于该值</li> |
 | AnimateFrames<br/>PerSecond     | Request.Video | Animation 每秒<br/>抽帧帧数 | String | 否   |     无         | <li>（0，视频帧率)</li><li>动图抽帧频率</li><li>优先级：AnimateFramesPerSecond >  AnimateOnlyKeepKeyFrame  > AnimateTimeIntervalOfFrame</li> |
 | Quality                    | Request.Video | 设置相对质量          | String | 否   |     无         | <li>[1, 100)</li><li>webp 图像质量设定生效，gif 没有质量参数</li> |
