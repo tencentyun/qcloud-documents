@@ -17,11 +17,11 @@ startServiceWithXp2pInfo("");
 ```
 
 >!
->1.	此处的 pro_id、sec_id 和 sec_key 需替换为您腾讯云 API 的 APPID、SecretId 和 SecretKey，您可登录 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) >【访问密钥】>【API 密钥管理】中获取，**请务必保存好您的信息不被泄露。**
->2.	demo app 目的是为了获取您该产品下的所有设备，需要您填写腾讯云 API 密钥（APPID、SecretId 和 SecretKey），不区分 C 端用户；**在实际使用场景中建议获取设备列表的操作在您自建的后台进行，腾讯云 API 的 APPID、SecretId 和 SecretKey 不保存在 App 上，避免泄露风险**。
->
+1.	此处的 pro_id、sec_id 和 sec_key 需替换为您腾讯云 API 的 APPID、SecretId 和 SecretKey，您可登录 [访问管理控制台](https://console.cloud.tencent.com/cam/capi) >【访问密钥】>【API 密钥管理】中获取，**请务必保存好您的信息不被泄露。**
+2.	demo app 目的是为了获取您该产品下的所有设备，需要您填写腾讯云 API 密钥（APPID、SecretId 和 SecretKey），不区分 C 端用户；**在实际使用场景中建议获取设备列表的操作在您自建的后台进行，腾讯云 API 的 APPID、SecretId 和 SecretKey 不保存在 App 上，避免泄露风险**。
 
 ### 步骤2：P2P 通道传输音视频流
+
 1. 接收裸数据
 ```
 //1.开始接受裸流数据,参数说明:cmd直播传action=live，回放action=playback
@@ -50,13 +50,17 @@ self.player.shouldAutoplay = YES;
 [self.player play];
 ```
 
+
 ### 步骤3：发送语音对讲数据
+
 ```
 //1.准备开始发送对讲voice数据
 runSendService();
 //2.开始发送app采集到的音频数据,此处demo发送的音频格式为flv
 dataSend(pcm, pcm_size);
-2.1.3 P2P通道传输自定义数据
+```
+### 步骤4：P2P 通道传输自定义数据
+```
 NSString *cmd = @"action=user_define&cmd=custom_cmd"；
 uint64_t timeout = 2*1000*1000； //2秒超时
 char *buf = nullptr; //返回值
@@ -64,12 +68,14 @@ size_t len = 0;
 getCommandRequestWithSync(cmd.UTF8String,&buf,&len,timeout);
 ```
 
-### 步骤4：主动关闭 P2P 通道
+### 步骤5：主动关闭 P2P 通道
+
 ```
 stopService();
 ```
 
-### 步骤5：P2P 通道关闭回调
+### 步骤6：P2P 通道关闭回调
+
 ```
 //type=0:close通知； type=1:日志； type=2:json; type=3:文件开关; type=4:文件路径;type=5:p2p通道断开
 char* XP2PMsgHandle(int type, constchar* msg) {
@@ -116,7 +122,6 @@ self.player.shouldAutoplay = YES;
 ```
 //开始对讲
 [[TIoTCoreXP2PBridge sharedInstance] sendVoiceToServer];
-
 //结束对讲
 [[TIoTCoreXP2PBridge sharedInstance] stopVoiceToServer];
 ```
@@ -146,7 +151,3 @@ char* XP2PMsgHandle(int type, constchar* msg) {
 }
 ```
 >?此步骤示例代码详情请参见 [TIoTCoreXP2PBridge](https://github.com/tencentyun/iot-link-ios/blob/master/Source/SDK/LinkVideo/TIoTCoreXP2PBridge.mm) 。
->
-
-
-
