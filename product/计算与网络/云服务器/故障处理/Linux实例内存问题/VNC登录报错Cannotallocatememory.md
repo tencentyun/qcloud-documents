@@ -19,6 +19,7 @@
 ```
 cat /etc/sysctl.conf | grep hugepages
 ```
+若存在多个大页内存，则请按照以下步骤修改配置。
 4. 执行以下命令，使用 VIM 编辑器打开 `/etc/sysctl.conf` 配置文件。
 ```
 vim /etc/sysctl.conf
