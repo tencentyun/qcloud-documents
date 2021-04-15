@@ -12,7 +12,7 @@
 
 
 ## 处理步骤[](id:ProcessingSteps)
-1. 参考 [内存使用率高问题处理](https://cloud.tencent.com/document/product/213/54644#ProcessingSteps) ，查看实例是否内存使用率过高。若实例内存使用率正常，则执行下一步。
+1. 参考 [内存使用率过高问题处理](https://cloud.tencent.com/document/product/213/54644#ProcessingSteps) ，查看实例是否内存使用率过高。若实例内存使用率正常，则执行下一步。
 2. 执行以下命令，查看系统 `pid_max` 值。
 ```
 sysctl  -a | grep pid_max
