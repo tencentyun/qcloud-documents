@@ -40,7 +40,7 @@ Python3 语言 SDK，底层使用 C 语言实现，上层通过 ctypes 封装后
   - 当接口返回值为非0，代表初始化失败。
 
 > !
->  - SecretId 和 SecretKey 需保密存储：腾讯云接口认证主要依靠 SecretID 和 SecretKey，SecretID 和 SecretKey 是用户的唯一认证凭证。业务系统需要该凭证调用腾讯云接口.。
+>  - SecretId 和 SecretKey 需保密存储：腾讯云接口认证主要依靠 SecretID 和 SecretKey，SecretID 和 SecretKey 是用户的唯一认证凭证。业务系统需要该凭证调用腾讯云接口。
 >  - SecretID 和 SecretKey 的权限控制：建议使用子账号，根据业务需要进行接口授权的方式管控风险。
 >  - 在设置 domainName 时：如果 domainName 入参为""，则从环境变量 TENCENT_SDK_DOMAIN 中读取值，反之，则以入参为准。
 
