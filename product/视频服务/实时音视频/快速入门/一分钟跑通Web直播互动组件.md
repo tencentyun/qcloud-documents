@@ -302,7 +302,7 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 ::: WebTRC\s低延时播放，iOS\s无法拉流播放？
 1. 将 tweblive sdk 升级到 1.2.0。
 2. 在调用 `player.startPlay()` 方法后，监听 `PLAYER_AUTOPLAY_NOT_ALLOWED` 浏览器不允许自动播放。
-3. 监听到不能自动播放后，可显示一个播放按钮。在点击播放按钮时调用 [resumePlay()](https://web.sdk.qcloud.com/component/tweblive/doc/zh-cn/Player.html#resumePlay) 方法可恢复播放。
+3. 监听到不能自动播放后，可显示一个播放按钮，再点击播放按钮时调用 [resumePlay()](https://web.sdk.qcloud.com/component/tweblive/doc/zh-cn/Player.html#resumePlay) 方法即可恢复播放。
 iOS 自动播放受限，请参见 [自动播放受限处理建议](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-21-advanced-auto-play-policy.html)。
 :::
 </dx-accordion>
