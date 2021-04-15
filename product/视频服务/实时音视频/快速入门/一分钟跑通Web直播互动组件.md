@@ -5,7 +5,7 @@
 
 ## 实现原理
 
-[**TWebLive**](https://trtc.qcloud.com/tweblive/index.html#/) 是腾讯云基于 TRTC 、IM 以及 CDN 等服务构建的一套 Web 端直播组件，您只要简单几段代码就可以实现如下的推流、拉流和聊天室功能。
+[**TWebLive**](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 是腾讯云基于 TRTC 、IM 以及 CDN 等服务构建的一套 Web 端直播组件，您只要简单几段代码就可以实现如下的推流、拉流和聊天室功能。
 
 <dx-tabs>
 ::: 推流
@@ -247,7 +247,7 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 ## 参考资料
 
 - [TWebLive API 手册](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblive/TWebLive.html)
-- [在线 Demo](https://trtc.qcloud.com/tweblive/index.html#/)
+- [在线 Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html)
 - [折扣活动](https://cloud.tencent.com/document/product/269/46181)
 
 
