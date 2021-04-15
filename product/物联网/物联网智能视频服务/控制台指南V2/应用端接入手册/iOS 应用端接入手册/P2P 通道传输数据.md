@@ -5,14 +5,19 @@
 
 ### 步骤1：P2P 通道初始化
 
+#### 1. 注册回调
 ```
-//1.注册回调
 setUserCallbackToXp2p(XP2PDataMsgHandle, XP2PMsgHandle);
-//2.配置IOT_P2P SDK
+```
+#### 2. 配置 IOT_P2P SDK
+```
 setQcloudApiCred([sec_id UTF8String], [sec_key UTF8String]);
 setDeviceInfo([pro_id UTF8String], [dev_name UTF8String]);
 setXp2pInfoAttributes("_sys_xp2p_info");
-//3.启动p2p通道，demoapp作为演示需要配置第二步，客户正式发布的app不建议配置第二步，需通过自建业务服务获取xp2pInfo传入第三步的参数中
+```
+#### 3. 启动 p2p 通道
+```
+//demoapp作为演示需要配置第二步，客户正式发布的app不建议配置第二步，需通过自建业务服务获取xp2pInfo传入第三步的参数中
 startServiceWithXp2pInfo("");
 ```
 
@@ -22,25 +27,34 @@ startServiceWithXp2pInfo("");
 
 ### 步骤2：P2P 通道传输音视频流
 
-#### 1. 接收裸数据
+#### 接收裸数据
+
+1. 开始接受裸流数据
 ```
-//1.开始接受裸流数据,参数说明:cmd直播传action=live，回放action=playback
+//参数说明:cmd直播传action=live，回放action=playback
 const char *cmd = "action=live"
 startAvRecvService(cmd);
-//2.通过初始化p2p回调返回
+```
+2. 通过初始化 p2p 回调返回
+```
 voidXP2PDataMsgHandle(uint8_t* recv_buf, size_t recv_len) {
  ...处理接收到的裸流数据
 }
-//3.结束裸流数据
+```
+3. 结束裸流数据
+```
 stopAvRecvService(nullptr);
 ```
 
-#### 2. 接收 FLV 音视频流，使用 ijkplayer 播放
+#### 接收 FLV 音视频流，使用 ijkplayer 播放
+1. 获取 httpflv 的 url、ipc 拼接参数
 ```
-//1.获取httpflv的url,ipc拼接参数说明 直播拼接ipc.flv?action=live；本地回看拼接ipc.flv?action=playback
+//直接拼接ipc.flv?action=live；本地回看拼接ipc.flv?action=playback
 const char *httpflv = delegateHttpFlv();
 NSString *videoUrl = [NSString stringWithFormat:@"%@ipc.flv?action=live",httpflv];
-//2.使用ijkplayer播放器播放
+```
+2. 使用 ijkplayer 播放器播放
+```
 [IJKFFMoviePlayerController checkIfFFmpegVersionMatch:YES];
 IJKFFOptions *options = [IJKFFOptions optionsByDefault];
 self.player = [[IJKFFMoviePlayerController alloc] initWithContentURL:[NSURLURLWithString:videoUrl] withOptions:options];
@@ -54,10 +68,14 @@ self.player.shouldAutoplay = YES;
 
 ### 步骤3：发送语音对讲数据
 
+
+1. 准备开始发送对讲 voice 数据
 ```
-//1.准备开始发送对讲voice数据
 runSendService();
-//2.开始发送app采集到的音频数据,此处demo发送的音频格式为flv
+```
+2. 开始发送 App 采集到的音频数据
+```
+//此处demo发送的音频格式为flv
 dataSend(pcm, pcm_size);
 ```
 
@@ -99,25 +117,35 @@ char* XP2PMsgHandle(int type, constchar* msg) {
 
 ### 步骤2：P2P 通道传输音视频流
 
-#### 1. 接收裸数据
+####  接收裸数据
+1. 开始接受裸流数据
 ```
-//1.开始接受裸流数据,参数说明:cmd直播传action=live，回放action=playback
+//参数说明:cmd直播传action=live，回放action=playback
 [[TIoTCoreXP2PBridge sharedInstance] startAvRecvService:@"action=live"];
-//通过TIoTCoreXP2PBridgeDelegate返回裸流数据
+```
+2. 通过 TIoTCoreXP2PBridgeDelegate 返回裸流数据
+<dx-codeblock>
+:::  Java
 [TIoTCoreXP2PBridge sharedInstance].delegate = self
 - (void)getVideoPacket:(uint8_t *)data len:(size_t)len{
- ...处理接收到的裸流数据
-}
-//结束裸流传输
+// ...处理接收到的裸流数据
+:::
+</dx-codeblock>
+3. 结束裸流传输
+```
 [[TIoTCoreXP2PBridge sharedInstance] stopAvRecvService];
 ```
 
-#### 2. 接收 FLV 音视频流，使用 ijkplayer 播放
+#### 接收 FLV 音视频流，使用 ijkplayer 播放
+
+1. 获取 httpflv 的 url、ipc 拼接参数
 ```
-//1.获取httpflv的url,ipc拼接参数说明 直播拼接ipc.flv?action=live；本地回看拼接ipc.flv?action=playback
+//直接拼接ipc.flv?action=live；本地回看拼接ipc.flv?action=playback
 NSString *urlString = [[TIoTCoreXP2PBridge sharedInstance] getUrlForHttpFlv]?:@"";
 NSString *videoUrl = [NSString stringWithFormat:@"%@ipc.flv?action=playback",urlString];
-//2.使用ijkplayer播放器播放
+```
+2.使用 ijkplayer 播放器播放
+```
 self.player = [[IJKFFMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:videoUrl] withOptions:options];
 self.player.shouldAutoplay = YES;
 [self.player prepareToPlay];
