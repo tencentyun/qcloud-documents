@@ -106,26 +106,26 @@ spec:
                 key: SecretKey 
                 name: cls 
                 optional: false
-            image: nginx 
-              imagePullPolicy: Always 
-              name: ng
-              resources:
-                limits:
-                  cpu: 500m 
-                  memory: 1Gi
-                requests:
-                  cpu: 250m 
-                  memory: 256Mi
-            volumeMounts:
-              - mountPath: /mnt
-                name: volume-name 
-                imagePullSecrets:
-                - name: qcloudregistrykey 
-                restartPolicy: Always 
-            volumes:
-              - configMap:
-                defaultMode: 420
-                name: cm
+          image: nginx 
+          imagePullPolicy: Always 
+          name: ng
+          resources:
+            limits:
+              cpu: 500m 
+              memory: 1Gi
+            requests:
+              cpu: 250m 
+              memory: 256Mi
+          volumeMounts:
+          - mountPath: /mnt
+              name: volume-name 
+              imagePullSecrets:
+              - name: qcloudregistrykey 
+              restartPolicy: Always 
+          volumes:
+          - configMap:
+              defaultMode: 420
+              name: cm
             name: volume-name
 ```
 
