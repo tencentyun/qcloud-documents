@@ -10,7 +10,7 @@
 /* to master */
 /*FORCE_MASTER*/   
 ```  
-- 指定到到只读实例执行：
+- 指定到只读实例执行：
 ```
 /* to slave */
 /*FORCE_SLAVE*/  
