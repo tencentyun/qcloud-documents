@@ -42,7 +42,7 @@
 5. 通话结束即某一方挂断电话，该用户退出 TRTC 房间。对方收到 TRTC SDK 的 `onRemoteUserLeaveRoom` 回调后计算通话总时长并再次发起一次邀请，此邀请的自定义数据中标明是结束通话并附带通话时长，方便 UI 界面做展示。
 
 **时序图**
-![信令结合 TRTC](https://main.qcloudimg.com/raw/0282df9543e2f5fe1b5097c9e9253da1.png)
+![](https://main.qcloudimg.com/raw/7842313b14aec5eabbe9a12baa73547e.png)
 
 ### 教育场景中老师邀请学生举手发言
 该场景为老师先让同学们举手，再从举手的同学中选一个同学进行发言。详细流程如下：

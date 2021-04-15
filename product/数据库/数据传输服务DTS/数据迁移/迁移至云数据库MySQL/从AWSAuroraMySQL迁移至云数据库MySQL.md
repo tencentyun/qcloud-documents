@@ -5,7 +5,7 @@
 - 已 [创建云数据库 MySQL](https://cloud.tencent.com/document/product/236/46433)，支持版本：MySQL 5.6、MySQL 5.7。
 - 需要您在目标端 MySQL 中创建迁移帐号，需要帐号权限：待迁移对象的全部读写权限。
 - 待迁移源端 AWS Aurora MySQL 能够通过公网访问，需要将 AWS Aurora MySQL 的网络与安全配置中公开可用性功能设置为是。
-- 需要您在源端 AWS RDS MySQL 中创建迁移帐号，需要的帐号权限如下：
+- 需要您在源端 AWS Aurora MySQL 中创建迁移帐号，需要的帐号权限如下：
 ```
 CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  

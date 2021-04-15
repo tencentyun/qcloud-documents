@@ -6,8 +6,8 @@ VNC（Virtual Network Console）是虚拟网络控制台的缩写。它是一款
 Linux：Linux 操作系统，本文以 Ubuntu Server 16.04.1 LTS 64位为例。
 
 ## 前提条件
-
-已购买操作系统为 Ubuntu 的 Linux 云服务器。如果您还未购买云服务器，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
+- 已购买操作系统为 Ubuntu 的 Linux 云服务器。如果您还未购买云服务器，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
+- 云服务器关联的安全组需放通 VNC Server 所监听的5901端口，即需在“入站规则”中添加放通协议端口为 `TCP:5901` 的规则，具体操作请参见 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740)。
 
 ## 操作步骤
 

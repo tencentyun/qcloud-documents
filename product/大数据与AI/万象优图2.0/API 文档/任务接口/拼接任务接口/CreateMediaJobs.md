@@ -58,9 +58,9 @@ Container 类型 Request 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
-| Tag                | Request | 创建任务的Tag：Concat。 | String    | 是   |
+| Tag                | Request | 创建任务的 Tag：Transcode（转码）、Animation（动图）、SmartCover（智能封面）、Snapshot（截图）、Concat（拼接） | String    | 是   |
 | Input              | Request | 待操作的媒体信息                                         | Container | 是   |
-| Operation          | Request | 操作规则                                                 | Container | 是   |
+| Operation          | Request | 操作规则，支持对单个文件执行多个不同任务，最多可填写6个                                                 | Container | 是   |
 | QueueId            | Request | 任务所在的队列 ID                                         | String    | 是   |
 
 Container 类型 Input 的具体数据描述如下：
@@ -77,7 +77,8 @@ Container 类型 Operation 的具体数据描述如下：
 | TemplateId                   | Request.Operation | 指定的模版 ID                                          | String    | 否   |
 | Output                       | Request.Operation | 结果输出地址                                          | Container | 是   |
 
->!优先使用 TemplateId，无 TemplateId 时使用对应任务类型的参数。
+>! 优先使用 TemplateId，无 TemplateId 时使用对应任务类型的参数。
+>
 
 Container 类型 ConcatTemplate 的具体数据描述如下：
 
@@ -94,8 +95,8 @@ Container 类型 ConcatFragment 的具体数据描述如下：
 | 节点名称（关键字）     | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
 | Url                 | Request.Operation.<br/>ConcatTemplate.<br/>ConcatFragment | 拼接对象地址   | String    | 是   | 无   | 同 bucket 对象文件 |
-| StartTime           | Request.Operation.<br/>ConcatTemplate.<br/>ConcatFragment | 开始时间   | String    | 否   | 视频开始   | <li>[0 视频时长] <br/><li>单位为秒 <br/>  |
-| EndTime             | Request.Operation.<br/>ConcatTemplate.<br/>ConcatFragment | 结束时间   | String    | 否   | 视频结束   | <li>[0 视频时长] <br/><li>单位为秒 <br/>  |
+| StartTime           | Request.Operation.<br/>ConcatTemplate.<br/>ConcatFragment | 开始时间   | String    | 否   | 视频开始   | <li>[0 视频时长] </li><li>单位为秒 </li>  |
+| EndTime             | Request.Operation.<br/>ConcatTemplate.<br/>ConcatFragment | 结束时间   | String    | 否   | 视频结束   | <li>[0 视频时长] </li><li>单位为秒 </li>  |
 
 Container 类型 Output 的具体数据描述如下：
 
@@ -168,13 +169,13 @@ Container 节点 JobsDetail 的内容：
 | Code | Response.JobsDetail | 错误码，只有 State 为 Failed 时有意义 |  String |
 | Message | Response.JobsDetail | 错误描述，只有 State 为 Failed 时有意义 |  String |
 | JobId | Response.JobsDetail | 新创建任务的 ID |  String |
-| Tag | Response.JobsDetail | 新创建任务的 Tag：Concat | String |
+| Tag | Response.JobsDetail | 新创建任务的 Tag：Transcode（转码）、Animation（动图）、SmartCover（智能封面）、Snapshot（截图）、Concat（拼接） | String |
 | State | Response.JobsDetail | 任务的状态，为 Submitted、Running、Success、<br/>Failed、Pause、Cancel 其中一个 |  String |
 | CreationTime | Response.JobsDetail | 任务的创建时间 |  String |
 | EndTime | Response.JobsDetail | 任务的结束时间 |  String |
 | QueueId | Response.JobsDetail | 任务所属的队列 ID |  String |
 | Input | Response.JobsDetail | 该任务的输入资源地址 |  Container |
-| Operation | Response.JobsDetail | 该任务的规则 |  Container |
+| Operation | Response.JobsDetail | 该任务的规则，支持对单个文件执行多个不同任务，最多可填写6个 |  Container |
 
 Container 节点 Input 的内容：
 同请求中的 Request.Input节点。
@@ -209,6 +210,8 @@ Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
 
+
+
 <Request>
   <Tag>Concat<Tag>
   <Input>
@@ -236,6 +239,8 @@ Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+
+
 
 <Response>
   <JobsDetail>
@@ -273,6 +278,8 @@ Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR98****-
 Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
+
+
 
 <Request>
   <Tag>Concat<Tag>
@@ -326,6 +333,8 @@ Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+
+
 
 <Response>
   <JobsDetail>
