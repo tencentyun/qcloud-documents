@@ -290,7 +290,7 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
   - UDP 端口：8000，8080，8800，843，443，16285
   - 域名：qcloud.rtc.qq.com
 :::
-::: 出现客户端错误：“RtcError:ICE/DTLS\sTransport\sconnection\sfailed”或“RtcError: DTLS\sTransport\sconnection\stimeout”该如何处理？
+::: 出现客户端错误：“RtcError:ICE/DTLS\sTransport\sconnection\sfailed”或“RtcError:DTLS\sTransport\sconnection\stimeout”该如何处理？
 出现该错误说明 TRTC 桌面浏览器 SDK 在 STUN 打洞失败，请根据环境要求检查防火墙配置，配置完成后，您可以通过访问并体验官网 [Demo](https://web.sdk.qcloud.com/im/demo/latest/index.html) 检查配置是否生效。
   - TCP 端口：8687
   - UDP 端口：8000，8080，8800，843，443，16285
