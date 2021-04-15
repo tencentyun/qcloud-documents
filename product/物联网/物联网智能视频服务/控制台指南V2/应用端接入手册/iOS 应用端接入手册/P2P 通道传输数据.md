@@ -55,7 +55,6 @@ self.player.shouldAutoplay = YES;
 [self.player play];
 ```
 
-
 ### 步骤3：发送语音对讲数据
 ```
 //1.准备开始发送对讲voice数据
@@ -152,3 +151,8 @@ char* XP2PMsgHandle(int type, constchar* msg) {
 }
 ```
 >?此步骤示例代码详情请参见 [TIoTCoreXP2PBridge](https://github.com/tencentyun/iot-link-ios/blob/master/Source/SDK/LinkVideo/TIoTCoreXP2PBridge.mm) 。
+>
+
+
+
+
