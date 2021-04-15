@@ -22,7 +22,7 @@ startServiceWithXp2pInfo("");
 
 ### 步骤2：P2P 通道传输音视频流
 
-1. 接收裸数据
+#### 1. 接收裸数据
 ```
 //1.开始接受裸流数据,参数说明:cmd直播传action=live，回放action=playback
 const char *cmd = "action=live"
@@ -34,7 +34,8 @@ voidXP2PDataMsgHandle(uint8_t* recv_buf, size_t recv_len) {
 //3.结束裸流数据
 stopAvRecvService(nullptr);
 ```
-2. 接收 FLV 音视频流，使用 ijkplayer 播放
+
+#### 2. 接收 FLV 音视频流，使用 ijkplayer 播放
 ```
 //1.获取httpflv的url,ipc拼接参数说明 直播拼接ipc.flv?action=live；本地回看拼接ipc.flv?action=playback
 const char *httpflv = delegateHttpFlv();
@@ -98,19 +99,20 @@ char* XP2PMsgHandle(int type, constchar* msg) {
 
 ### 步骤2：P2P 通道传输音视频流
 
-1. 接收裸数据
+#### 1. 接收裸数据
 ```
 //1.开始接受裸流数据,参数说明:cmd直播传action=live，回放action=playback
 [[TIoTCoreXP2PBridge sharedInstance] startAvRecvService:@"action=live"];
 //通过TIoTCoreXP2PBridgeDelegate返回裸流数据
 [TIoTCoreXP2PBridge sharedInstance].delegate = self
-		- (void)getVideoPacket:(uint8_t *)data len:(size_t)len{
+- (void)getVideoPacket:(uint8_t *)data len:(size_t)len{
  ...处理接收到的裸流数据
 }
 //结束裸流传输
 [[TIoTCoreXP2PBridge sharedInstance] stopAvRecvService];
 ```
-2. 接收 FLV 音视频流，使用 ijkplayer 播放
+
+#### 2. 接收 FLV 音视频流，使用 ijkplayer 播放
 ```
 //1.获取httpflv的url,ipc拼接参数说明 直播拼接ipc.flv?action=live；本地回看拼接ipc.flv?action=playback
 NSString *urlString = [[TIoTCoreXP2PBridge sharedInstance] getUrlForHttpFlv]?:@"";
