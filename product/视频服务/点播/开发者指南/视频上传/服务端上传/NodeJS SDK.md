@@ -20,7 +20,7 @@ npm i vod-node-sdk --save
 ```
 const { VodUploadClient, VodUploadRequest } = require('vod-node-sdk');
 
-client = new VodUploadClient("your secretId", "your secretKey");
+const client = new VodUploadClient("your secretId", "your secretKey");
 ```
 
 ### 构造上传请求对象
