@@ -1,4 +1,3 @@
-## TWebLive 简介
 [TWebLive](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 即腾讯云 Web 直播互动组件，是腾讯云终端研发团队推出的一个新的 [SDK](https://www.npmjs.com/package/tweblive)，集成了 [腾讯云实时音视频 TRTC](https://cloud.tencent.com/product/trtc/)、[腾讯云即时通信 IM](https://cloud.tencent.com/product/im) 以及 [腾讯云超级播放器 TCPlayer](https://cloud.tencent.com/document/product/454/7503)，覆盖了 Web 直播互动场景常见的功能（如推流、开/关麦、开/关摄像头、微信分享观看、聊天点赞等），并封装了简单易用的 [API](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblive/TWebLive.html)，接入后可快速实现 Web 端推流、拉流以及实时聊天互动功能。
 
 ![](https://web.sdk.qcloud.com/component/tweblive/assets/doc/demo-official-website.gif)
@@ -122,7 +121,7 @@ im.enterRoom('your roomID').then((imResponse) => {
 
 为了进一步降低开发者的开发和人力成本，我们在 TWebLive SDK 的基础上，提供了同时适配 PC 和移动端浏览器的 [Demo](https://github.com/tencentyun/TWebLive)，并开源到了 Github。开发者 fork&clone 项目到本地，稍作修改即可把 Demo 运行起来，也可集成到自己的项目部署上线。
 
-## TWebLive 使用
+## 操作步骤
 ### 步骤1：创建应用
 <dx-tabs>
 ::: 基于实时音视频
