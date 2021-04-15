@@ -8,8 +8,8 @@
 <th>iOS</th><th>Android</th><th>Windows</th><th >Mac OS</th>
 </tr>
 <tr>
-<td><img style="width:150px" src="https://main.qcloudimg.com/raw/6ff70145b6ff767305520ced9b5bb14b.png" data-nonescope="true"></td>
-<td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/TRTCDemo.apk')"><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/233f4ccc698034f7f8e9f11d5eec5812.png);background-size: cover;">
+<td><img style="width:150px" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/trtc_app_qr_code_ios.png" data-nonescope="true"></td>
+<td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/TRTCDemo.apk')"><div style="width:150px;height: 150px;background-image:url(https://liteav.sdk.qcloud.com/doc/res/trtc/picture/trtc_app_qr_code_android.png);background-size: cover;">
 </div></a></td>
 <td><a onclick="window.open('https://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Win_Demo.exe')"><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/e80b8f4462e2904b31dcdcaabe71c484.png);background-size: cover;">
 </div></a></td>
