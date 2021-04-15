@@ -285,13 +285,13 @@ Web 推流和 Web 低延时观看用到了 WebRTC 技术。
 TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先升级签名算法才能获取新的加密密钥。
 :::
 ::: 出现客户端错误：“RtcError:\sno\svalid\sice\scandidate\sfound”该如何处理？
-出现该错误说明 TRTC 桌面浏览器 SDK 在 STUN 打洞失败，请根据环境要求检查防火墙配置，配置完成后，您可以通过访问并体验 官网 [Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 检查配置是否生效。
+出现该错误说明 TRTC 桌面浏览器 SDK 在 STUN 打洞失败，请根据环境要求检查防火墙配置，配置完成后，您可以通过访问并体验官网 [Demo](https://web.sdk.qcloud.com/im/demo/latest/index.html) 检查配置是否生效。
   - TCP 端口：8687
   - UDP 端口：8000，8080，8800，843，443，16285
   - 域名：qcloud.rtc.qq.com
 :::
 ::: 出现客户端错误：“RtcError:ICE/DTLS\sTransport\sconnection\sfailed”或“RtcError: DTLS\sTransport\sconnection\stimeout”该如何处理？
-出现该错误说明 TRTC 桌面浏览器 SDK 在 STUN 打洞失败，请根据环境要求检查防火墙配置，配置完成后，您可以通过访问并体验 官网 [Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 检查配置是否生效。
+出现该错误说明 TRTC 桌面浏览器 SDK 在 STUN 打洞失败，请根据环境要求检查防火墙配置，配置完成后，您可以通过访问并体验官网 [Demo](https://web.sdk.qcloud.com/im/demo/latest/index.html) 检查配置是否生效。
   - TCP 端口：8687
   - UDP 端口：8000，8080，8800，843，443，16285
   - 域名：qcloud.rtc.qq.com
@@ -300,7 +300,7 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 如果出现 `"Join room failed result: 10006 error: service is suspended,if charge is overdue,renew it"`。请登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)，单击您创建的应用，单击【帐号信息】，在帐号信息面板请确认您的实时音视频应用的服务状态是否为可用状态。<img src="https://main.qcloudimg.com/raw/13c9b520ea333804cffb4e2c4273fced.png">
 :::
 ::: WebTRC\s低延时播放，iOS\s无法拉流播放？
-1. 将 tweblive sdk 升级到 1.2.0。
+1. 将 TWebLive SDK 升级到 1.2.0。
 2. 在调用 `player.startPlay()` 方法后，监听 `PLAYER_AUTOPLAY_NOT_ALLOWED` 浏览器不允许自动播放。
 3. 监听到不能自动播放后，可显示一个播放按钮，再点击播放按钮时调用 [resumePlay()](https://web.sdk.qcloud.com/component/tweblive/doc/zh-cn/Player.html#resumePlay) 方法即可恢复播放。
 iOS 自动播放受限，请参见 [自动播放受限处理建议](https://web.sdk.qcloud.com/trtc/webrtc/doc/zh-cn/tutorial-21-advanced-auto-play-policy.html)。
@@ -313,14 +313,13 @@ iOS 自动播放受限，请参见 [自动播放受限处理建议](https://web.
 
 本文为您介绍了腾讯云新的 Web 直播互动组件：TWebLive，通过接入此 [SDK](https://www.npmjs.com/package/tweblive)，开发者可以快速轻便地实现 Web 推流、Web 低延时观看、CDN 观看以及实时聊天互动（或弹幕）等功能，能够很好替换传统的 Flash 推流方案。
 
-同时，提供详细的接入方案和 [在线 Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 供您体验。目前 TWebLive 在主流的桌面浏览器上也有较好的支持，在移动端支持小程序的解决方案。
+同时，提供详细的接入方案和 [在线 Demo](https://web.sdk.qcloud.com/im/demo/latest/index.html) 供您体验。目前 TWebLive 在主流的桌面浏览器上也有较好的支持，在移动端支持小程序的解决方案。
 
 后续，我们会提供更全方位的直播功能服务，例如：推流端支持屏幕分享、图片消息互动、观众端多线路观看（WebRTC 低延时线路和 CDN 线路）、主播观众连麦互动等功能。
 
 参考资料：
-
-- [TWebLive 接口手册](https://web.sdk.qcloud.com/component/tweblive/doc/zh-cn/TWebLive.html)
-- [在线 Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html)
+- [TWebLive 接口手册](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)
+- [在线 Demo](https://web.sdk.qcloud.com/im/demo/latest/index.html)
 
 ## 相关文档
 
