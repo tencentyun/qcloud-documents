@@ -29,7 +29,7 @@ const char *cmd = "action=live"
 startAvRecvService(cmd);
 //2.通过初始化p2p回调返回
 voidXP2PDataMsgHandle(uint8_t* recv_buf, size_t recv_len) {
-   ...处理接收到的裸流数据
+ ...处理接收到的裸流数据
 }
 //3.结束裸流数据
 stopAvRecvService(nullptr);
@@ -59,7 +59,9 @@ runSendService();
 //2.开始发送app采集到的音频数据,此处demo发送的音频格式为flv
 dataSend(pcm, pcm_size);
 ```
+
 ### 步骤4：P2P 通道传输自定义数据
+
 ```
 NSString *cmd = @"action=user_define&cmd=custom_cmd"；
 uint64_t timeout = 2*1000*1000； //2秒超时
@@ -89,6 +91,7 @@ char* XP2PMsgHandle(int type, constchar* msg) {
 使用 iOS 库调用方法进行 P2P 数据传输的操作步骤如下，以下示例代码仅根据相应的操作步骤展示了部分代码，完整的示例代码详情请参见 [TIoTPlayMovieVC](https://github.com/tencentyun/iot-link-ios/blob/master/Source/LinkSDKDemo/Home/Controllers/Device/TIoTPlayMovieVC.m) 。
 
 ### 步骤1：P2P 通道初始化
+
 ```
 [[TIoTCoreXP2PBridge sharedInstance] startAppWith:@"" sec_key:@"" pro_id:@"" dev_name:@""];
 ```
@@ -97,15 +100,15 @@ char* XP2PMsgHandle(int type, constchar* msg) {
 
 1. 接收裸数据
 ```
-		//1.开始接受裸流数据,参数说明:cmd直播传action=live，回放action=playback
-		[[TIoTCoreXP2PBridge sharedInstance] startAvRecvService:@"action=live"];
-		//通过TIoTCoreXP2PBridgeDelegate返回裸流数据
-		[TIoTCoreXP2PBridge sharedInstance].delegate = self
-		- (void)getVideoPacket:(uint8_t *)data len:(size_t)len{
-			 ...处理接收到的裸流数据
-		}
-		//结束裸流传输
-		[[TIoTCoreXP2PBridge sharedInstance] stopAvRecvService];
+//1.开始接受裸流数据,参数说明:cmd直播传action=live，回放action=playback
+[[TIoTCoreXP2PBridge sharedInstance] startAvRecvService:@"action=live"];
+//通过TIoTCoreXP2PBridgeDelegate返回裸流数据
+[TIoTCoreXP2PBridge sharedInstance].delegate = self
+- (void)getVideoPacket:(uint8_t *)data len:(size_t)len{
+ ...处理接收到的裸流数据
+}
+//结束裸流传输
+[[TIoTCoreXP2PBridge sharedInstance] stopAvRecvService];
 ```
 2. 接收 FLV 音视频流，使用 ijkplayer 播放
 ```
