@@ -44,7 +44,7 @@ Python2 语言 SDK，底层使用 C 语言实现，上层通过 ctypes 封装后
 >  - 需注意 SecretID 和 SecretKey 的权限控制：建议使用子账号，根据业务需要进行接口授权的方式管控风险。
 >  - 需注意 domainName 的设置：如果 domainName 入参为""，则从环境变量 TENCENT_SDK_DOMAIN 中读取值，反之，则以入参为准。
 
-### KMS 加密方式的接口说明：
+## KMS 加密方式的接口说明
 
 ### NewMasterKey
 
