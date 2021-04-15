@@ -144,7 +144,7 @@ char* XP2PMsgHandle(int type, constchar* msg) {
 NSString *urlString = [[TIoTCoreXP2PBridge sharedInstance] getUrlForHttpFlv]?:@"";
 NSString *videoUrl = [NSString stringWithFormat:@"%@ipc.flv?action=playback",urlString];
 ```
-2.使用 ijkplayer 播放器播放
+2. 使用 ijkplayer 播放器播放
 ```
 self.player = [[IJKFFMoviePlayerController alloc] initWithContentURL:[NSURL URLWithString:videoUrl] withOptions:options];
 self.player.shouldAutoplay = YES;
