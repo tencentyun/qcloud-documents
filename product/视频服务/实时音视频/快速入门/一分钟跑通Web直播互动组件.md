@@ -285,13 +285,13 @@ Web 推流和 Web 低延时观看用到了 WebRTC 技术。
 TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先升级签名算法才能获取新的加密密钥。
 :::
 ::: 出现客户端错误：“RtcError:\sno\svalid\sice\scandidate\sfound”该如何处理？
-出现该错误说明 TRTC 桌面浏览器 SDK 在 STUN 打洞失败，请根据环境要求检查防火墙配置，配置完成后，您可以通过访问并体验官网 [Demo](https://web.sdk.qcloud.com/im/demo/latest/index.html) 检查配置是否生效。
+出现该错误说明 TRTC 桌面浏览器 SDK 在 STUN 打洞失败，请根据环境要求检查防火墙配置，配置完成后，您可以通过访问并体验官网 [Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 检查配置是否生效。
   - TCP 端口：8687
   - UDP 端口：8000，8080，8800，843，443，16285
   - 域名：qcloud.rtc.qq.com
 :::
 ::: 出现客户端错误：“RtcError:ICE/DTLS\sTransport\sconnection\sfailed”或“RtcError:DTLS\sTransport\sconnection\stimeout”该如何处理？
-出现该错误说明 TRTC 桌面浏览器 SDK 在 STUN 打洞失败，请根据环境要求检查防火墙配置，配置完成后，您可以通过访问并体验官网 [Demo](https://web.sdk.qcloud.com/im/demo/latest/index.html) 检查配置是否生效。
+出现该错误说明 TRTC 桌面浏览器 SDK 在 STUN 打洞失败，请根据环境要求检查防火墙配置，配置完成后，您可以通过访问并体验官网 [Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 检查配置是否生效。
   - TCP 端口：8687
   - UDP 端口：8000，8080，8800，843，443，16285
   - 域名：qcloud.rtc.qq.com
@@ -310,16 +310,16 @@ iOS 自动播放受限，请参见 [自动播放受限处理建议](https://web.
 
 
 ## 结语
-
 本文为您介绍了腾讯云新的 Web 直播互动组件：TWebLive，通过接入此 [SDK](https://www.npmjs.com/package/tweblive)，开发者可以快速轻便地实现 Web 推流、Web 低延时观看、CDN 观看以及实时聊天互动（或弹幕）等功能，能够很好替换传统的 Flash 推流方案。
 
-同时，提供详细的接入方案和 [在线 Demo](https://web.sdk.qcloud.com/im/demo/latest/index.html) 供您体验。目前 TWebLive 在主流的桌面浏览器上也有较好的支持，在移动端支持小程序的解决方案。
+同时，提供详细的接入方案和 [在线 Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 供您体验。目前 TWebLive 在主流的桌面浏览器上也有较好的支持，在移动端支持小程序的解决方案。
 
 后续，我们会提供更全方位的直播功能服务，例如：推流端支持屏幕分享、图片消息互动、观众端多线路观看（WebRTC 低延时线路和 CDN 线路）、主播观众连麦互动等功能。
 
 参考资料：
-- [TWebLive 接口手册](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html)
-- [在线 Demo](https://web.sdk.qcloud.com/im/demo/latest/index.html)
+
+- [TWebLive 接口手册](https://web.sdk.qcloud.com/component/tweblive/doc/zh-cn/TWebLive.html)
+- [在线 Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html)
 
 ## 相关文档
 
