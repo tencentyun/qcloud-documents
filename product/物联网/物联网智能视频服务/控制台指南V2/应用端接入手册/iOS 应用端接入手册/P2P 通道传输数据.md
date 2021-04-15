@@ -104,7 +104,7 @@ char* XP2PMsgHandle(int type, constchar* msg) {
 [[TIoTCoreXP2PBridge sharedInstance] startAvRecvService:@"action=live"];
 //通过TIoTCoreXP2PBridgeDelegate返回裸流数据
 [TIoTCoreXP2PBridge sharedInstance].delegate = self
-- (void)getVideoPacket:(uint8_t *)data len:(size_t)len{
+		- (void)getVideoPacket:(uint8_t *)data len:(size_t)len{
  ...处理接收到的裸流数据
 }
 //结束裸流传输
@@ -121,7 +121,8 @@ self.player.shouldAutoplay = YES;
 [self.player prepareToPlay];
 [self.player play];
 ```
-3. 发送语音对讲数据
+
+### 步骤3：发送语音对讲数据
 ```
 //开始对讲
 [[TIoTCoreXP2PBridge sharedInstance] sendVoiceToServer];
@@ -129,7 +130,7 @@ self.player.shouldAutoplay = YES;
 [[TIoTCoreXP2PBridge sharedInstance] stopVoiceToServer];
 ```
 
-### 步骤3： P2P  通道传输自定义数据
+### 步骤4： P2P  通道传输自定义数据
 
 ```
 [[TIoTCoreXP2PBridge sharedInstance] getCommandRequestWithAsync:@"action=user_define&cmd=custom_cmd" timeout:2*1000*1000 completion:^(NSString * _Nonnull jsonList) {
@@ -137,13 +138,13 @@ self.player.shouldAutoplay = YES;
 }];
 ```
 
-### 步骤4：主动关闭 P2P 通道
+### 步骤5：主动关闭 P2P 通道
 
 ```
 [[TIoTCoreXP2PBridge sharedInstance] stopService];
 ```
 
-### 步骤5：P2P 通道关闭回调
+### 步骤6：P2P 通道关闭回调
 
 ```
 //type=0:close通知； type=1:日志； type=2:json; type=3:文件开关; type=4:文件路径;type=5:p2p通道断开
