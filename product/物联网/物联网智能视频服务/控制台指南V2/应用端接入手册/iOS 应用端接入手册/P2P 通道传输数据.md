@@ -1,9 +1,10 @@
-
 文本为您介绍 P2P 通道数据分别通过 C++ .a  库调用方法和 iOS 库调用方法进行传输的操作步骤。
 
 ## C++ .a 库调用方法
 使用 C++ .a 库调用方法进行 P2P 数据传输的操作步骤如下，以下示例代码仅根据相应的操作步骤展示了部分代码，完整的示例代码详情请参见 [TIoTCoreXP2PBridge](https://github.com/tencentyun/iot-link-ios/blob/master/Source/SDK/LinkVideo/TIoTCoreXP2PBridge.mm) 。
+
 ### 步骤1：P2P 通道初始化
+
 ```
 //1.注册回调
 setUserCallbackToXp2p(XP2PDataMsgHandle, XP2PMsgHandle);
@@ -55,7 +56,9 @@ self.player.shouldAutoplay = YES;
 [self.player play];
 ```
 
+
 ### 步骤3：发送语音对讲数据
+
 ```
 //1.准备开始发送对讲voice数据
 runSendService();
@@ -73,11 +76,13 @@ getCommandRequestWithSync(cmd.UTF8String,&buf,&len,timeout);
 ```
 
 ### 步骤4：主动关闭 P2P 通道
+
 ```
 stopService();
 ```
 
 ### 步骤5：P2P 通道关闭回调
+
 ```
 //type=0:close通知； type=1:日志； type=2:json; type=3:文件开关; type=4:文件路径;type=5:p2p通道断开
 char* XP2PMsgHandle(int type, constchar* msg) {
@@ -89,6 +94,7 @@ char* XP2PMsgHandle(int type, constchar* msg) {
 
 ## iOS 库调用方法
 使用 iOS 库调用方法进行 P2P 数据传输的操作步骤如下，以下示例代码仅根据相应的操作步骤展示了部分代码，完整的示例代码详情请参见 [TIoTPlayMovieVC](https://github.com/tencentyun/iot-link-ios/blob/master/Source/LinkSDKDemo/Home/Controllers/Device/TIoTPlayMovieVC.m) 。
+
 ### 步骤1：P2P 通道初始化
 ```
 [[TIoTCoreXP2PBridge sharedInstance] startAppWith:@"" sec_key:@"" pro_id:@"" dev_name:@""];
@@ -129,6 +135,7 @@ self.player.shouldAutoplay = YES;
 ```
 
 ### 步骤3： P2P  通道传输自定义数据
+
 ```
 [[TIoTCoreXP2PBridge sharedInstance] getCommandRequestWithAsync:@"action=user_define&cmd=custom_cmd" timeout:2*1000*1000 completion:^(NSString * _Nonnull jsonList) {
  ...处理返回的数据
@@ -136,6 +143,7 @@ self.player.shouldAutoplay = YES;
 ```
 
 ### 步骤4：主动关闭 P2P 通道
+
 ```
 [[TIoTCoreXP2PBridge sharedInstance] stopService];
 ```
@@ -151,8 +159,3 @@ char* XP2PMsgHandle(int type, constchar* msg) {
 }
 ```
 >?此步骤示例代码详情请参见 [TIoTCoreXP2PBridge](https://github.com/tencentyun/iot-link-ios/blob/master/Source/SDK/LinkVideo/TIoTCoreXP2PBridge.mm) 。
->
-
-
-
-
