@@ -262,7 +262,7 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 如果出现 `"Join room failed result: 10006 error: service is suspended,if charge is overdue,renew it"`。请登录 [实时音视频控制台](https://console.cloud.tencent.com/rav)，单击您创建的应用，单击【帐号信息】，在帐号信息面板请确认您的实时音视频应用的服务状态是否为可用状态。
 ![](https://main.qcloudimg.com/raw/13c9b520ea333804cffb4e2c4273fced.png)
 :::
-::: 5.\sWebTRC\s低延时播放，iOS\s无法拉流播放？
+::: 5.\sWebRTC\s低延时播放，iOS\s无法拉流播放？
 1. 将 tweblive sdk 升级到 1.2.0。
 2. 在调用 player.startPlay() 方法后，监听 PLAYER_AUTOPLAY_NOT_ALLOWED 浏览器不允许自动播放。
 3. 监听到不能自动播放后，可显示一个播放按钮，在单击播放按钮时调用方法：[resumePlay()](https://web.sdk.qcloud.com/component/tweblive/doc/zh-cn/Player.html#resumePlay) 可恢复播放。
