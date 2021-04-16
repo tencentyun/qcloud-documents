@@ -12,7 +12,7 @@
 ```
 java -version
 ```
-如果输出 Java 版本号，说明 Java 安装成功；如果没有安装 Java，请 [下载安装 Java 软件开发套件（JDK）](http://www.oracle.com/technetwork/java/javase/downloads/index.html)。
+如果输出 Java 版本号，说明 Java 安装成功；如果没有安装 Java，请 [下载安装 Java 软件开发套件（JDK）](http://kafka.apache.org/downloads)。
 
 
 #### 2. 设置 Java 环境。
@@ -44,7 +44,7 @@ java -version
 ### 步骤3：Kafka API 测试
 
 1. 在本地配置 ACL 策略。
-   1. 在工具包 `./config` 目录下，在 producer.propertise 和 consumer.properties 文件末尾添加以下内容：
+   1. 在工具包 `./config` 目录下，在 producer.properties 和 consumer.properties 文件末尾添加以下内容：
       ```properties
       security.protocol=SASL_PLAINTEXT 
       sasl.mechanism=PLAIN
@@ -57,7 +57,7 @@ java -version
           password="yourpassword";
       };
       ```
-      >?username 是实例 ID + 刚配置的用户名，password 是刚配置的用户密码。
+      >?username 是`实例 ID` + `#` + `刚配置的用户名`，password 是刚配置的用户密码。
 
    3. 在工具包 `./bin` 目录下，在 kafka-console-producer.sh 和 kafka-console-consumer.sh 文件起始部位增加对 JAAS 文件的路径的声明（必须是完整路径）：
       ```bash

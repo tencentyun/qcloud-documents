@@ -10,7 +10,7 @@
 CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW
 DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
-GRANT ALL PRIVILEGES ON `tencentdb`.* TO ‘迁移帐号’@‘%’;  
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO ‘迁移帐号’@‘%’;  
 GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 ```
 - 部分库表迁移：`GRANT SELECT ON 待迁移的库.* TO ‘迁移帐号’;`
@@ -20,7 +20,7 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行迁移。
 - 源端 MySQL 中待迁移的表仅支持有主键的表。全量数据迁移过程通过无锁迁移来实现，全量迁移过程中不会阻塞写操作，对业务影响也更小。建议用户在源端数据表中添加主键再发起数据迁移。
 - 全量数据无锁迁移过程如果发生 DDL 操作，有可能导致迁移任务失败，所以在 DTS 全量数据迁移过程请避免 DDL 操作。
-- TDSQL-C 的存储空间需要大于源端 AWS Aurora MySQL 数据库所占用存储空间的1.2倍。
+- TDSQL-C 的存储空间须是源端 AWS Aurora MySQL 数据库所占用存储空间的1.2倍以上。
 
 ## 支持迁移类型
 - 结构迁移：DTS 支持将迁移对象的结构定义迁移到目标实例中，目前 DTS 支持结构迁移的对象包括数据库、数据表、视图。
@@ -31,7 +31,7 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 | 操作类型 | 支持同步的 SQL 操作                                            |
 | -------- | ------------------------------------------------------------ |
 | DML      | INSERT、UPDATE、DELETE、REPLACE                              |
-| DDL      | <br>TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE <br>VIEW：CREATE VIEW、ALTER VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX <br>DATABASE：CREATE DATABASE、ALTER DATABASE、DROP DATABASE |
+| DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE <br>VIEW：CREATE VIEW、ALTER VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX <br>DATABASE：CREATE DATABASE、ALTER DATABASE、DROP DATABASE |
 
 ## 迁移准备
 - 登录 AWS Aurora MySQL 数据库，设置 binlog 日志保存时间，执行如下命令：
@@ -46,22 +46,22 @@ call mysql.rds_set_configuration('binlog retention hours', 24);
 
 | 检查内容             | 检查点                                                       |
 | -------------------- | ------------------------------------------------------------ |
-| 连接 DB 检查           | 源库和目标库网络能够连通                                     |
+| 连接数据库检查           | 源库和目标库网络能够连通                                     |
 | 周边检查             | 检查环境变量 innodb_stats_on_metadata=off                     |
 | 版本检查             | 源库和目标库 MySQL 版本必须为5.6、5.7，且源库版本必须小于或等于目标库版本 |
 | 部分实例参数检查     | table_row_format 不能为 Fixed<br>源库和目标库 lower_case_table_names 变量必须一致<br>检查目标端 max_allowed_packet 参数，至少为4M<br>源库变量 connect_timeout 必须大于10 |
 | 源端权限检查       | 同 [前提条件](#qttj) 的帐号权限                                     |
-| 目标端权限检查     | 目标云数据库 MySQL 的帐号需要具有如下权限： ALTER,  ALTER ROUTINE,  CREATE,  CREATE ROUTINE,  CREATE TEMPORARY TABLES,  CREATE USER,  CREATE VIEW,  DELETE,  DROP,  EVENT,  EXECUTE,  INDEX,  INSERT,  LOCK TABLES,  PROCESS,  REFERENCES,  RELOAD,  SELECT,  SHOW DATABASES,  SHOW VIEW,  TRIGGER,  UPDATE |
+| 目标端权限检查     | 目标云数据库 MySQL 的帐号需要具有如下权限：ALTER,  ALTER ROUTINE,  CREATE,  CREATE ROUTINE,  CREATE TEMPORARY TABLES,  CREATE USER,  CREATE VIEW,  DELETE,  DROP,  EVENT,  EXECUTE,  INDEX,  INSERT,  LOCK TABLES,  PROCESS,  REFERENCES,  RELOAD,  SELECT,  SHOW DATABASES,  SHOW VIEW,  TRIGGER,  UPDATE |
 | 目标实例内容冲突检测 | 目标库不能有和源库冲突的库表                                 |
-| 目标实例空间检查     | 目标库的空间大小需要大于，源库待迁移库表需要的空间乘以膨胀系数1.2 |
-| Binlog 参数检查       | 源端 binlog_format 变量必须为 ROW<br>源端 log_bin 变量必须为 ON<br>源端 binlog_row_image 变量必须为 FULL<br>源端 gtid_mode 变量在5.6及以上版本不为 ON 时，会报 WARNING，建议用户打开 gtid_mode<br>不允许设置do_db, ignore_db<br>对于源实例为从库的情况，log_slave_updates 变量必须为 ON |
+| 目标实例空间检查     | 目标库的空间大小须是源库待迁移库表空间的1.2倍以上 |
+| Binlog 参数检查       | 源端 binlog_format 变量必须为 ROW<br>源端 log_bin 变量必须为 ON<br>源端 binlog_row_image 变量必须为 FULL<br>源端 gtid_mode 变量在5.6及以上版本不为 ON 时，会报 WARNING，建议用户打开 gtid_mode<br>不允许设置 do_db, ignore_db<br>对于源实例为从库的情况，log_slave_updates 变量必须为 ON |
 | 外键依赖检查         | 外键依赖只能是 no action 和 restrict 两种类型<br>部分库表迁移时，有外键依赖的表必须齐全 |
 | 视图检查             | 只允许和迁移目标 user@host 相同的 definer                       |
 | 其他警告项检查       | 检查源库和目标库的 max_allowed_packet，如果源库大于目标库，会有警告<br>目标库的 max_allowed_packet 小于1GB，会有警告<br>如果源库和目标库的字符集不一致，会有警告<br>对于全量迁移（没有增量），发警告告知用户这种全量迁移没有锁，不保证数据一致 |
 | 无主键表检查         | 待迁移表不能存在无主键表                                     |
 
 ## 操作步骤
-1. 登录 [DTS 数据迁移控制台](https://console.cloud.tencent.com/dts/migration?rid=8&page=1&pagesize=20)，单击【新建迁移任务】，进入新建迁移任务页面。
+1. 登录 [DTS 数据迁移控制台](https://console.cloud.tencent.com/dts/migration)，单击【新建迁移任务】，进入新建迁移任务页面。
 2. 在新建迁移任务页面，选择迁移的目标实例所属地域，单击【0元购买】，目前 DTS 数据迁移功能免费使用。
 3. 在设置源和目标数据库页面，完成任务设置、源库设置和目标库设置，测试源库和目标库连通性通过后，单击【新建】。
 >?如果连通性测试失败，请根据提示进行排查并解决后再次重试。
@@ -94,7 +94,7 @@ call mysql.rds_set_configuration('binlog retention hours', 24);
 <tr>
 <td>端口</td><td>AWS RDS MySQL 访问端口，默认为3306。</td></tr>
 <tr>
-<td>账号</td><td>AWS RDS MySQL 的数据库帐号，帐号权限需要满足要求。</td></tr>
+<td>帐号</td><td>AWS RDS MySQL 的数据库帐号，帐号权限需要满足要求。</td></tr>
 <tr>
 <td>密码</td><td>AWS RDS MySQL 的数据库帐号的密码。</td></tr>
 <tr>
@@ -107,7 +107,7 @@ call mysql.rds_set_configuration('binlog retention hours', 24);
 <tr>
 <td>数据库实例</td><td>选择目标端 TDSQL-C ID。</td></tr>
 <tr>
-<td>账号</td><td>目标端 TDSQL-C 的数据库帐号，帐号权限需要满足要求。</td></tr>
+<td>帐号</td><td>目标端 TDSQL-C 的数据库帐号，帐号权限需要满足要求。</td></tr>
 <tr>
 <td>密码</td><td>目标端 TDSQL-C 的数据库帐号的密码。</td></tr>
 </tbody></table>

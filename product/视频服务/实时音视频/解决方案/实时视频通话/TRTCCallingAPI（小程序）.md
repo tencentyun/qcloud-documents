@@ -1,6 +1,6 @@
 ## 组件介绍
-TRTCCalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯云信令 SDK（TSignalling）组合而成，支持1V1，多人场景下的视频通话。TRTCCalling 是一个开源组件，依赖闭源的信令 SDK（TSignalling）进行状态管理，通过 C2C 通信，完成信令传递。组件可快速服务线上客服，咨询，医疗问诊，跨端实时通话等应用场景。您可前往 [【Github】](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini/TRTCScenesDemo)或单击 [【ZIP】](https://liteavsdk-1252463788.cos.ap-guangzhou.myqcloud.com/TRTC_WXMini_latest.zip)，下载相关 SDK 及配套的 Demo 源码。
-![](https://main.qcloudimg.com/raw/6b1368e2186abcd5126fc1c165f2fb78.png)
+TRTCCalling 小程序组件是基于腾讯云实时音视频（TRTC）和腾讯云信令 SDK（TSignalling）组合而成，支持1V1，多人场景下的视频通话。TRTCCalling 是一个开源组件，依赖闭源的信令 SDK（TSignalling）进行状态管理，通过 C2C 通信，完成信令传递。组件可快速服务线上客服，咨询，医疗问诊，跨端实时通话等应用场景。您可前往 [【Github】](https://github.com/tencentyun/TRTCSDK/tree/master/WXMini/TRTCScenesDemo)或单击 [【ZIP】](https://web.sdk.qcloud.com/component/trtccalling/download/trtc-calling-miniapp.zip)，下载相关 SDK 及配套的 Demo 源码。
+![](https://web.sdk.qcloud.com/component/trtccalling/doc/miniapp/6b1368e2186abcd5126fc1c165f2fb78.png)
 
 ## TRTCCalling API 概览
 
@@ -366,4 +366,5 @@ trtcRoomContext.on(EVENT.ERROR,(event)=>{
 组件暂不支持多实例登入，不支持**离线推送信令**功能，请您确认账号登入的唯一性。
 
 - 多实例：一个 userID 重复登入，或在不同端登入，将会引起信令的混乱。 
-- 离线推送：实例在线才能接收消息，实例离线时接收到的信令不会在上线后重新推送。
+- 离线推送：实例在线才能接收消息，实例离线时接收到的信令不会在上线后重新推送。即，小程序在后台与离线状态下，无法收到呼入提醒或来电提醒。
+

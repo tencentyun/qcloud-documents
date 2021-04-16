@@ -72,7 +72,7 @@ curl -v -u${adminUser}:${adminPasswd} -X DELETE -H "Accept:application/json" -H 
 8. 在跳转界面中，配置以下参数。具体说明如下：
 ![](https://main.qcloudimg.com/raw/317e1b5cb39abae6904552cb1ebade58.png)
  - **MountPoint**:  挂载点的名称，格式为 f4mxxxxxx-yyyy 等样式，可登录 [CHDFS 控制台](https://console.cloud.tencent.com/chdfs/filesystem) 查看。
- - **path**: CHDFS 路径。注意 CHDFS 路径不以/开始。
+ - **path**: CHDFS 路径。注意 CHDFS 路径必须以`/`开始。
     - include：表示设置的权限适用于 path 本身，还是除了 path 以外的其他路径。
     - recursive：表示权限不仅适用于 path，还适用于 path 路径下的子成员（即递归子成员）。通常用于 path 设置为目录的情况。
  - **user/group**：用户名和用户组。这里是或的关系，即用户名或者用户组满足其中一个，即可拥有对应的操作权限。

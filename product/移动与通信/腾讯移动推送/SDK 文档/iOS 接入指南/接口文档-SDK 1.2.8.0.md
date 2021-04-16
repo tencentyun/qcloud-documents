@@ -116,7 +116,8 @@ SDK 1.2.7.2 新增，当注册推送服务失败会走此回调。
 >- 账号类型和账号名称一起作为联合主键。
 >- 需要使用字典类型，key 为账号类型，value 为账号，示例：@{@(accountType):@"account"}。
 >- Objective-C的写法 : @{@(0):@"account0",@(1):@"account1"}；Swift的写法：[NSNumber(0):@"account0",NSNumber(1):@"account1"]。
->- 更多 accountType 请参照 SDK 包内 XGPush.h 文件中的 XGPushTokenAccountType 枚举。
+>- 更多 accountType 请参照 SDK Demo 包内的 XGPushTokenAccountType 枚举。
+>- 目前仅支持下发账号类型为 UNKNOWN 的推送，其他账号类型预计2021年04月底支持。
 
 
 #### 示例代码

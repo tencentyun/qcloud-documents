@@ -4,14 +4,43 @@
 * 目前已支持云服务器 CVM、私有网络 VPC 、云硬盘 CBS 等 [腾讯云产品](https://cloud.tencent.com/document/sdk/Description)，后续会支持其他云产品接入。
 
 ## 依赖环境
-
-* C++ 11或更高版本的编译器，即 GCC 4.8 或以上版本。暂时仅支持 Linux 安装环境。
+* C++ 11 或更高版本的编译器，即 GCC 4.8 或以上版本。暂时仅支持 Linux 安装环境，不支持 Windows 环境。
 * 获取安全凭证。安全凭证包含 SecretId 及 SecretKey 两部分。SecretId 用于标识 API 调用者的身份，SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥。前往 [API 密钥管理](https://console.cloud.tencent.com/cam/capi) 页面，即可进行获取，如下图所示：
-![](https://main.qcloudimg.com/raw/78145f9e6a830a188304991552a5c614.png)
+![](https://main.qcloudimg.com/raw/47b500546a15eaec10d9855b7c99184c.png)
 >!**您的安全凭证代表您的账号身份和所拥有的权限，等同于您的登录密码，切勿泄露他人。**
 * 获取调用地址。调用地址（endpoint）一般形式为`*.tencentcloudapi.com`，产品的调用地址有一定区别，例如，云服务器的调用地址为`cvm.tencentcloudapi.com`。具体调用地址可参考对应产品的 [API 文档](https://cloud.tencent.com/document/api)。
+* 安装 [cmake](https://cmake.org/) 编译工具（cmake 3.0 或以上版本），例如：
+```
+ubuntu
+sudo apt-get install cmake
 
+centos
+yum install cmake3
+```
+* 安装依赖库 [libcurl](https://curl.haxx.se/libcurl/)，建议安装最新版的 libcurl 库，否则可能存在 libcurl 库内存泄露 bug 问题。
+```
+ubuntu
+sudo apt-get install libcurl4-openssl-dev
 
+centos
+yum install libcurl-devel
+```
+* 安装依赖库 [openssl](https://www.openssl.org/)，安装示例如下：
+```
+ubuntu
+sudo apt-get install libssl-dev
+
+centos
+yum install openssl-devel
+```
+* 安装依赖库 libuuid，安装示例如下：
+```
+ubuntu
+sudo apt-get install uuid-dev
+
+centos
+yum install libuuid-devel
+```
 
 ## 安装 SDK
 
@@ -31,13 +60,69 @@ sudo make install
 
 
 
-## 使用 C++ SDK 示例
+## 使用SDK
 
 >!示例不能直接运行，需要将密钥等信息改为真实可用的信息，最好配置在环境变量，避免暴露在代码中。
 
 以 cvm 产品的 DescribeInstances 接口为例：
 
+<dx-codeblock>
+::: 简化版 c++
 ```c++
+#include <tencentcloud/core/TencentCloud.h>
+#include <tencentcloud/core/Credential.h>
+#include <tencentcloud/cvm/v20170312/CvmClient.h>
+#include <tencentcloud/cvm/v20170312/model/DescribeInstancesRequest.h>
+#include <tencentcloud/cvm/v20170312/model/DescribeInstancesResponse.h>
+#include <tencentcloud/cvm/v20170312/model/Instance.h>
+
+#include <iostream>
+#include <string>
+
+using namespace TencentCloud;
+using namespace TencentCloud::Cvm::V20170312;
+using namespace TencentCloud::Cvm::V20170312::Model;
+using namespace std;
+
+int main()
+{
+    TencentCloud::InitAPI();
+
+    string secretId = "<your secret id>";
+    string secretKey = "<your secret key>";
+    Credential cred = Credential(secretId, secretKey);
+
+    DescribeInstancesRequest req = DescribeInstancesRequest();
+
+    CvmClient cvm_client = CvmClient(cred, "ap-guangzhou");
+
+    auto outcome = cvm_client.DescribeInstances(req);
+    if (!outcome.IsSuccess())
+    {
+        cout << outcome.GetError().PrintAll() << endl;
+        TencentCloud::ShutdownAPI();
+        return -1;
+    }
+    DescribeInstancesResponse rsp = outcome.GetResult();
+    cout<<"RequestId="<<rsp.GetRequestId()<<endl;
+    cout<<"TotalCount="<<rsp.GetTotalCount()<<endl;
+    if (rsp.InstanceSetHasBeenSet())
+    {
+        vector<Instance> instanceSet = rsp.GetInstanceSet();
+        for (auto itr=instanceSet.begin(); itr!=instanceSet.end(); ++itr)
+        {
+            cout<<(*itr).GetPlacement().GetZone()<<endl;
+        }
+    }
+
+    TencentCloud::ShutdownAPI();
+
+    return 0;
+}
+```
+:::
+::: 详细版 c++
+```C++
 #include <tencentcloud/core/TencentCloud.h>
 #include <tencentcloud/core/profile/HttpProfile.h>
 #include <tencentcloud/core/profile/ClientProfile.h>
@@ -62,21 +147,26 @@ int main()
     TencentCloud::InitAPI();
 
     // use the sdk
-    // 实例化一个认证对象，入参需要传入腾讯云账户 secretId、secretKey，此处还需注意密钥对的保密
+    // 实例化一个认证对象，入参需要传入腾讯云账户secretId，secretKey,此处还需注意密钥对的保密
     string secretId = "<your secret id>";
     string secretKey = "<your secret key>";
     Credential cred = Credential(secretId, secretKey);
 
-    // 实例化一个 http 选项，可选的，没有特殊需求可以跳过
+    // 实例化一个http选项，可选的，没有特殊需求可以跳过。
     HttpProfile httpProfile = HttpProfile();
-    httpProfile.SetKeepAlive(true);  // 状态保持，默认是 False
-    httpProfile.SetEndpoint("cvm.ap-guangzhou.tencentcloudapi.com");  // 指定接入地域域名（默认就近接入）
-    httpProfile.SetReqTimeout(30);  // 请求超时时间，单位为秒（默认60秒）
-    httpProfile.SetConnectTimeout(30); // 响应超时时间，单位是秒（默认是60秒）
+    httpProfile.SetKeepAlive(true);  // 状态保持，默认是False
+    httpProfile.SetEndpoint("cvm.ap-guangzhou.tencentcloudapi.com");  // 指定接入地域域名(默认就近接入)
+    httpProfile.SetReqTimeout(30);  // 请求超时时间，单位为秒(默认60秒)
+    httpProfile.SetConnectTimeout(30); // 响应超时时间，单位是秒(默认是60秒)
 
     ClientProfile clientProfile = ClientProfile(httpProfile);
 
     DescribeInstancesRequest req = DescribeInstancesRequest();
+   
+    Filter respFilter;
+    respFilter.SetName("zone");
+    respFilter.SetValues({ "ap-guangzhou-1", "ap-guangzhou-2" });
+    req.SetFilters({ respFilter });
     req.SetOffset(0);
     req.SetLimit(5);
 
@@ -110,6 +200,9 @@ int main()
     return 0;
 }
 ```
+:::
+</dx-codeblock>
+
 
 Demo 用例编译执行：
 
@@ -129,7 +222,7 @@ export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
 ./DescribeInstances
 ```
 
->?更多示例请参考 example 目录。
+>?更多示例请参考 [example](https://github.com/TencentCloud/tencentcloud-sdk-cpp/tree/master/example/cvm/v20170312) 目录。
 
 
 
@@ -150,8 +243,8 @@ make
 
 ### 配置环境变量
 
-- TENCENTCLOUD_SECRET_ID：密钥 ID
-- TENCENTCLOUD_SECRET_KEY：密钥 Key
+- ENV_SecretId: 密钥 ID
+- ENV_SecretKey: 密钥 Key
 
 ### 测试
 

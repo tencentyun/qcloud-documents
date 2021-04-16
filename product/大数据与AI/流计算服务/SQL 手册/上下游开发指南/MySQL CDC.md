@@ -1,4 +1,4 @@
-## 简介
+## 介绍
 MySQL 的 CDC 源表，支持对 MySQL 数据库的全量和增量读取，并保证 Exactly Once 语义。MySQL CDC 底层使用了 Debezium 来做 CDC（Change Data Capture）。
 
 其工作机制如下：
