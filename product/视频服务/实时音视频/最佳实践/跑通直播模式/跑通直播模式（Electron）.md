@@ -63,7 +63,7 @@ trtcCloud.on('onError',onError);
 [](id:step4)
 ### 步骤4： 组装进房参数 TRTCParams
 
-在调用 [enterRoom()](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#enterRoom) 接口时需要填写一个关键参数 [TRTCParams](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCParams.html)，该参数包含的必填字段如下表所示。
+在调用 [enterRoom()](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#enterRoom) 接口时需要填写一个关键参数 [TRTCParams](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCParams.html)，该参数包含的必填字段如下表所示。
 
 | 参数     | 类型   | 说明                                                         | 示例                   |
 | :------- | :----- | :----------------------------------------------------------- | :--------------------- |
