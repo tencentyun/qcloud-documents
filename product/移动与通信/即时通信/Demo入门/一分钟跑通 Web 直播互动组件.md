@@ -244,7 +244,9 @@ Web 推流和 Web 低延时观看用到了 WebRTC 技术。
 ## 常见问题
 <dx-accordion>
 ::: 1.\s查看密钥时只能获取公钥和私钥信息，要如何获取密钥？
-TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256。在此之前已创建的应用，需要先升级签名算法才能获取新的加密密钥。
+2019年08月之前创建的 TRTC 以及 IM 应用（SDKAppID）默认使用区分公钥和私钥的 ECDSA-SHA256 签名算法，强烈建议您升级至 HMAC-SHA256 签名算法使用密钥。
+- IM 升级方法请参见 [基本配置](https://cloud.tencent.com/document/product/269/32578#.E8.8E.B7.E5.8F.96.E5.AF.86.E9.92.A5)。
+- TRTC 升级方法请参见 [UserSig 相关问题](https://cloud.tencent.com/document/product/647/17275#.E6.9F.A5.E7.9C.8B.E5.AF.86.E9.92.A5.E6.97.B6.E5.8F.AA.E8.83.BD.E8.8E.B7.E5.8F.96.E5.85.AC.E9.92.A5.E5.92.8C.E7.A7.81.E9.92.A5.E4.BF.A1.E6.81.AF.EF.BC.8C.E8.A6.81.E5.A6.82.E4.BD.95.E8.8E.B7.E5.8F.96.E5.AF.86.E9.92.A5.EF.BC.9F)。
 :::
 ::: 2.\s出现客户端错误：“RtcError:\sno\svalid\sice\scandidate\sfound”该如何处理？
 出现该错误说明 TRTC 桌面浏览器 SDK 在 STUN 打洞失败，请根据环境要求检查防火墙配置，配置完成后，您可以通过访问并体验官网 [Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html) 检查配置是否生效。
