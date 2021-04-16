@@ -131,11 +131,8 @@
 
 | 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档 |
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | -------- |
-| [DDoS 防护（大禹）](https://cloud.tencent.com/product/ddos)  <sup>1</sup> | 服务级   | &#10003; | -                | -        | -        |
 | [样本智能分析平台](https://cloud.tencent.com/document/product/1012) | 资源级   | -        | &#10003;         | -        | -        |
 | [云防火墙](https://cloud.tencent.com/document/product/1132)  | 操作级   | &#10003; | -                | &#10003; | -        |
-
-> ?<sup>1</sup> DDoS 防护（大禹）中 [DDoS 基础防护](https://cloud.tencent.com/document/product/1020)、 [BGP 高防包](https://cloud.tencent.com/document/product/1021)、[BGP 高防 IP](https://cloud.tencent.com/document/product/1014) 均已支持使用 CAM。
 
 ## 数据安全
 
