@@ -27,6 +27,7 @@ https://api.meeting.qq.com/v1/guests/{meeting_id}?userid={userid}&instanceid={in
 | ------------ | --------- | ---------------- |
 | meeting_id   | String    | 会议 ID。           |
 | meeting_code | String    | 会议 Code。         |
+| subject | String    | 会议主题。         |
 | guests       | Guest 数组 | 会议嘉宾列表数组。 |
 
 **会议嘉宾 Guest 对象**
@@ -61,4 +62,5 @@ GET https://api.meeting.qq.com/v1/guests/15923312864334416762?userid=leonxsun&in
         }
     ]
 }
+
 ```

@@ -8,8 +8,6 @@ https://api.meeting.qq.com/v1/guests?meeting_code={meeting_code}&userid={userid}
 ```
 
 
-
-
 ## 输入参数
 
 以下请求参数列表仅列出了接口请求参数，HTTP 请求头公共参数请参见签名验证章节的 [公共参数说明](https://cloud.tencent.com/document/product/1095/42413#.E5.85.AC.E5.85.B1.E5.8F.82.E6.95.B0)。
@@ -27,6 +25,7 @@ https://api.meeting.qq.com/v1/guests?meeting_code={meeting_code}&userid={userid}
 | ------------ | --------- | ---------------- |
 | meeting_id   | String    | 会议 ID。          |
 | meeting_code | String    | 会议 Code。       |
+| subject| String    | 会议主题。       |
 | guests       | Guest 数组 | 会议嘉宾列表数组。 |
 
 
@@ -62,4 +61,5 @@ GET https://api.meeting.qq.com/v1/guests?meeting_code=653202434&userid=xxx&insta
         }
     ]
 }
+
 ```
