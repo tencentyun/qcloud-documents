@@ -66,7 +66,7 @@
 ```
 
 1. 将参数填写在 API Explorer 工具中，Timestamp 等可变参数请与所需验证的签名（API 错误签名）使用的参数保持一致，并选择功能区的【签名串生成】>【生成签名】。如下图所示：
-![](https://main.qcloudimg.com/raw/ae95f5ab80c67e2942e438fdc1f78159.png)
+![](https://main.qcloudimg.com/raw/b5341dc2c3f0fa1136107e0203013b7f.png)
 2. 在响应区获得签名步骤及结果后，即可进行前后数据对比。
 
 
