@@ -31,7 +31,7 @@
 | [invite](https://testcomm.qq.com/im/apidoc/api/com.tencent.imsdk.unity.V2TIMSignallingManager.html#com_tencent_imsdk_unity_V2TIMSignallingManager_invite_System_String_System_String_System_Boolean_System_Int32_com_tencent_imsdk_unity_OfflinePushInfo_) | 邀请某个人 |
 | [inviteInGroup](https://testcomm.qq.com/im/apidoc/api/com.tencent.imsdk.unity.V2TIMSignallingManager.html#com_tencent_imsdk_unity_V2TIMSignallingManager_inviteInGroup_System_String_System_String___System_String_System_Boolean_System_Int32_) | 邀请群内的某些人 |
 | [cancel](https://testcomm.qq.com/im/apidoc/api/com.tencent.imsdk.unity.V2TIMSignallingManager.html#com_tencent_imsdk_unity_V2TIMSignallingManager_cancel_System_String_System_String_) | 邀请方取消邀请 |
-| [accept](https://testcomm.qq.com/im/apidoc/api/com.tencent.imsdk.unity.V2TIMSignallingManager.html#com_tencent_imsdk_unity_V2TIMSignallingManager_accept_System_String_System_String_) | 接收方接收邀请 |
+| [accept](https://testcomm.qq.com/im/apidoc/api/com.tencent.imsdk.unity.V2TIMSignallingManager.html#com_tencent_imsdk_unity_V2TIMSignallingManager_accept_System_String_System_String_) | 接收方接受邀请 |
 | [reject](https://testcomm.qq.com/im/apidoc/api/com.tencent.imsdk.unity.V2TIMSignallingManager.html#com_tencent_imsdk_unity_V2TIMSignallingManager_reject_System_String_System_String_) | 接收方拒绝邀请 |
 
 ## 高级消息收发接口
