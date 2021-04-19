@@ -17,10 +17,10 @@
 
 <table>
 <tr>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcvoiceroom.gif"/></td>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcvideocall.gif"/></td>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcmeeting1.gif"/></td>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcmeeting2.gif"/></td>
+<td><img width="260" height="561" src="https://web.sdk.qcloud.com/trtc/miniapp/doc/zh-cn/trtcvoiceroom.gif"/></td>
+<td><img width="260" height="561" src="https://web.sdk.qcloud.com/trtc/miniapp/doc/zh-cn/trtcvideocall.gif"/></td>
+<td><img width="260" height="561" src="https://web.sdk.qcloud.com/trtc/miniapp/doc/zh-cn/trtcmeeting1.gif"/></td>
+<td><img width="260" height="561" src="https://web.sdk.qcloud.com/trtc/miniapp/doc/zh-cn/trtcmeeting2.gif"/></td>
 </tr>
 </table>
 

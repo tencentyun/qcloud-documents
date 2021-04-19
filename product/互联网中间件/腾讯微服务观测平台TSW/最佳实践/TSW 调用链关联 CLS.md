@@ -7,7 +7,7 @@
 
 在开始本文的实践前，您需要先了解以下产品：
 
-- [TSW 服务调用监控](https://cloud.tencent.com/document/product/1311/51690)
+- [TSW 服务观测](https://cloud.tencent.com/document/product/1311/51690)
 - [CLS 产品概述](https://cloud.tencent.com/document/product/614/11254) 
 
 ## 操作步骤
@@ -55,7 +55,7 @@
 
 ### 步骤4：联动使用
 
-在 [CLS 控制台](https://console.cloud.tencent.com/cls) 中创建完成日志 Topic，并成功写入 TraceID 后，您就可以在 TSW 控制台的服务列表中，配置服务关联的日志主题。
+在 [CLS 控制台](https://console.cloud.tencent.com/cls) 成功创建日志主题，并成功写入 TraceID 后，您就可以在 TSW 控制台的服务列表中，配置服务关联的日志主题。
 1. 单击【日志配置】，打开关联日志的开关，并正确配置日志集与日志主题。
 	 ![](https://main.qcloudimg.com/raw/1efab147a3d9008e6b0aa3e63bcdaa58.png)
 日志配置界面如下：

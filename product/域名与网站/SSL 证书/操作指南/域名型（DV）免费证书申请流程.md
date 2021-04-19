@@ -29,10 +29,10 @@
  - **所属项目**：请选择您证书所属项目，方便您通过项目管理您的证书。
 4. 选择域名验证方式，并单击【下一步】。如下图所示：
 ![](https://main.qcloudimg.com/raw/9adc3968c25a0745988d015a4c1ed1ca.png)
- - **选择自动添加 DNS**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/4142#AutomaticVerification)。
+ - **选择自动添加 DNS**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/54499)。
 >?如果所申请域名成功添加 [DNS 解析平台](https://console.cloud.tencent.com/cns/domains)，可以支持自动添加 DNS。
- - **选择 DNS 验证**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/4142#ManualVerification)。
- - **选择文件验证**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/4142#FileVerification)。
+ - **选择 DNS 验证**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/54500)。
+ - **选择文件验证**：验证方法可查看 [详情](https://cloud.tencent.com/document/product/400/54501)。
 5. 根据【验证操作】提示，完成域名身份验证即可获取证书。
 >?单击【查看域名验证状态】，即可查看当前域名验证的状态。
 >- 验证中：系统正在进行验证检查。

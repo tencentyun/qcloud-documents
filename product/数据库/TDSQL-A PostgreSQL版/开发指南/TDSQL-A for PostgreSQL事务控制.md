@@ -33,7 +33,7 @@ postgres=# select * from tdapg order by id;
   4 | tdapg default
 ```
 
-TDSQL-A PostgreSQL版完全支持 ACID 特性，没提交前开启另一个连接查询，会看到5条记录，这是 TDSQL-A PostgreSQL版 隔离性和多版本视图的实现，如下所示：
+TDSQL-A PostgreSQL版 完全支持 ACID 特性，没提交前开启另一个连接查询，会看到5条记录，这是 TDSQL-A PostgreSQL版 隔离性和多版本视图的实现，如下所示：
 
 **进程#2访问**
 ```

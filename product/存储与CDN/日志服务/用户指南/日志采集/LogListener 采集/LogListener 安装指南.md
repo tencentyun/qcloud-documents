@@ -129,12 +129,14 @@ cp -r loglistener-2.2.3/data /tmp/loglistener-backup/
 </dx-codeblock>
 3. 使用卸载命令卸载旧版本的 LogListener。
 4. 下载最新版本的 LogListener，并使用相关命令安装和初始化新版本 LogListener。
-5. 复制所备份的断点文件目录（步骤2）到新版本 LogListener 目录下。例如：
-<dx-codeblock>
-:::  plaintext
+5. 复制所备份的断点文件目录（步骤2）到新版本 LogListener 目录下。
+```plaintext
+cp -r /tmp/loglistener-backup/data loglistener-<version>/
+```
+ 请根据实际情况替换 `<version>`，例如：
+```plaintext
 cp -r /tmp/loglistener-backup/data loglistener-2.2.8/
-:::
-</dx-codeblock>
+```
 6. 使用启动命令启动运行新版本 LogListener。
 
 

@@ -1,7 +1,7 @@
 ## 操作场景
-Nextcloud 是一款开源免费的云存储网盘软件，其客户端覆盖 Windows、Mac、Android、iOS、Linux 等各种平台，提供网页端以及  WebDAV 接口，您可跨设备跨平台访问您的云盘。同时，Nextcloud 提供多种应用安装，包括但不限于 Markdown 在线编辑、OnlyOffice、思维导图、日历等，您可自行选择安装引用以丰富个人网盘的功能。
+Nextcloud 是一款开源免费的云存储网盘软件，其客户端覆盖 Windows、Mac、Android、iOS、Linux 等各种平台，提供网页端以及  WebDAV 接口，您可跨设备跨平台访问您的云盘。同时，Nextcloud 提供多种应用安装，包括但不限于 Markdown 在线编辑、OnlyOffice、思维导图、日历等，您可自行选择安装应用以丰富个人网盘的功能。
 
-Nextcloud 19.0 腾讯云插件版镜像基于 CentOS 7.6 64位操作系统，已预置 Nginx、MariaDB、PHP 软件，同时还集成了腾讯云对象存储（COS）插件。您可参考本文，使用该镜像快速便捷地搭建一套属于自己或团队共享的云同步网盘，实现跨平台跨设备文件同步、共享、版本控制、团队协作等能力。
+Nextcloud 19.0 腾讯云插件版镜像基于 CentOS 7.6 64位操作系统，已预置 Nginx、MariaDB、PHP 软件。同时还集成了腾讯云对象存储（COS）插件，插件使用方法请参见 [腾讯云开源应用插件中心](https://openapp.qq.com/docs/Nextcloud/cos.html)。您可参考本文，使用该镜像快速便捷地搭建一套属于自己或团队共享的云同步网盘，实现跨平台跨设备文件同步、共享、版本控制、团队协作等能力。
 
 
 ## 操作步骤
@@ -40,3 +40,25 @@ Nextcloud 19.0 腾讯云插件版镜像基于 CentOS 7.6 64位操作系统，已
 
 ### 开启 HTTPS 访问
 可参考 [安装 SSL 证书](https://cloud.tencent.com/document/product/1207/47027) 文档为您的 Nextcloud 实例安装 SSL 证书并开启 HTTPS 访问。
+>!Nextcloud 实例无需修改 `/usr/local/lighthouse/softwares/nginx/conf/nginx.conf` 配置文件，仅需修改 `/usr/local/lighthouse/softwares/nginx/conf/include/nextcloud.conf` 配置文件即可。
+>
+请查阅以下 SSL 相关配置内容，参考注释并按照实际环境进行修改，并添加至 `nextcloud.conf` 文件：
+```
+server {
+    listen 80;
+    listen [::]:80;
+    server_name cloud.tencent.com; #填写您的证书绑定的域名，例如：cloud.tencent.com
+    return 301 https://$server_name:443$request_uri;
+}
+
+server {
+      listen 443 ssl;
+      listen [::]:443 ssl;
+      server_name cloud.tencent.com; #填写您的证书绑定的域名，例如：cloud.tencent.com
+      ssl_certificate 1_cloud.tencent.com_bundle.crt; #填写您的证书文件名称，例如：1_cloud.tencent.com_bundle.crt
+      ssl_certificate_key 2_cloud.tencent.com.key; #填写您的私钥文件名称，例如：2_cloud.tencent.com.key
+      ····
+}			
+```
+添加完成后，效果如下图所示：
+![](https://main.qcloudimg.com/raw/b6236cb22189a6f3789c304faa3fa6af.png)

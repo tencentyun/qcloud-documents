@@ -65,7 +65,7 @@ mkdir my-cloudbase-app && cd my-cloudbase-app && touch index.html && touch cloud
 >? 这里我们把 `localhost:5000` 加入到安全域名中，让此域名下的页面可以使用 SDK 访问云开发服务。
 
 ## 步骤3：开启匿名登录
-请参考：[开启匿名登录授权](https://cloud.tencent.com/document/product/876/41729#.E5.BC.80.E5.90.AF.E5.8C.BF.E5.90.8D.E7.99.BB.E5.BD.95)。
+请参考：[开启匿名登录授权](https://cloud.tencent.com/document/product/876/41729#step1)。
 
 ## 步骤4：开启本地开发环境
 在项目根目录运行：

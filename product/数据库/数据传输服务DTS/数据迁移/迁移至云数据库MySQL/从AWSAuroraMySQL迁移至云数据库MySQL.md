@@ -5,7 +5,7 @@
 - 已 [创建云数据库 MySQL](https://cloud.tencent.com/document/product/236/46433)，支持版本：MySQL 5.6、MySQL 5.7。
 - 需要您在目标端 MySQL 中创建迁移帐号，需要帐号权限：待迁移对象的全部读写权限。
 - 待迁移源端 AWS Aurora MySQL 能够通过公网访问，需要将 AWS Aurora MySQL 的网络与安全配置中公开可用性功能设置为是。
-- 需要您在源端 AWS RDS MySQL 中创建迁移帐号，需要的帐号权限如下：
+- 需要您在源端 AWS Aurora MySQL 中创建迁移帐号，需要的帐号权限如下：
 ```
 CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
@@ -21,6 +21,7 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 - 全量数据无锁迁移过程如果发生 DDL 操作，有可能导致迁移任务失败，所以在 DTS 全量数据迁移过程请避免 DDL 操作。
 - 云数据库 MySQL 的存储空间须是源端 AWS Aurora MySQL 数据库所占用存储空间的1.2倍以上。
 - 源端 AWS Aurora MySQL 如果是非 GTID 实例，DTS 不支持源端 HA（Highly Available）切换，一旦源端 AWS Aurora MySQL 发生切换可能会导致 DTS 增量同步中断。
+- 全量数据迁移仅支持 innodb、myisam、tokudb 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行迁移。
 
 ## 支持迁移类型
 - 结构迁移：DTS 支持将迁移对象的结构定义迁移到目标实例中，目前 DTS 支持结构迁移的对象包括数据库、数据表、视图。

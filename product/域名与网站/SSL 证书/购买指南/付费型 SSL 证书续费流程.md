@@ -2,6 +2,7 @@ SSL 证书续费操作相当于在控制台重新申请了一个新证书，您�
 > ! 
 > - 如证书信息需要变更，请重新申请证书。
 > - 证书续费后相当于重新颁发证书，您需要将新证书替换现有证书。证书安装请查看 [证书安装相关文档](#certificate)。
+> - 免费证书不支持续费操作，请重新申请证书进行使用，详细操作参见：[域名型（DV）免费 SSL 证书申请流程](https://cloud.tencent.com/document/product/400/6814)。
 
 
 ## 续费优势
@@ -17,7 +18,7 @@ SSL 证书续费操作相当于在控制台重新申请了一个新证书，您�
 >-  付费证书在过期**前30个自然日以内**会开启快速续费通道，续费证书有效期时长**不超过398天**。
 >- 过期提醒信息将会在开启快速续费通道后第2个自然日进行发送，如接收到过期提醒信息，请尽快进行续费操作。
 
-## 证书续费流程
+## 付费证书续费流程
 
 ### 步骤1：进入证书续费入口
 1. 付费证书在**过期前1个月**会开启快速续费通道，您可在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 我的证书中，对应证书的状态项中单击【快速续费】，打开快速续费窗口。
@@ -65,21 +66,22 @@ DNSPod 品牌国密标准（SM2）OV/EV 型证书续费后需人工审核及域�
 证书颁发成功后，您需要重新安装证书，您可以根据您购买的证书加密标准类型和搭建的服务器类型进行证书安装。
 - 国际标准证书：
  - 若您购买使用的服务器是 Linux 系统，建议您使用以下方式：
-   - [Apache 服务器证书安装](https://cloud.tencent.com/document/product/400/35243)
-   - [Nginx 服务器证书安装](https://cloud.tencent.com/document/product/400/35244)
-   - [Tomcat 服务器证书安装](https://cloud.tencent.com/document/product/400/35224)
-   - [GlassFish 服务器证书安装](https://cloud.tencent.com/document/product/400/44759)
-   - [JBoss 服务器证书安装](https://cloud.tencent.com/document/product/400/44760)
-   - [Jetty 服务器证书安装](https://cloud.tencent.com/document/product/400/44761)
+   - [宝塔面板 SSL 证书安装部署](https://cloud.tencent.com/document/product/400/50874)
+   - [Apache 服务器证书安装部署](https://cloud.tencent.com/document/product/400/35243)
+   - [Nginx 服务器证书安装部署](https://cloud.tencent.com/document/product/400/35244)
+   - [Tomcat 服务器证书安装部署](https://cloud.tencent.com/document/product/400/35224)
+   - [GlassFish 服务器证书安装部署](https://cloud.tencent.com/document/product/400/44759)
+   - [JBoss 服务器证书安装部署](https://cloud.tencent.com/document/product/400/44760)
+   - [Jetty 服务器证书安装部署](https://cloud.tencent.com/document/product/400/44761)
  - 若您购买使用的服务器是 Windows 系统，建议您使用以下方式：
    - [IIS 服务器证书安装](https://cloud.tencent.com/document/product/400/35225)
-   - [Weblogic 服务器证书安装](https://cloud.tencent.com/document/product/400/47358)
+   - [Weblogic 服务器证书安装部署](https://cloud.tencent.com/document/product/400/47358)
 - 国密标准证书：
  - 若您购买使用的服务器是 Linux 系统，建议您使用以下方式：
-   - [Apache 服务器国密证书安装](https://cloud.tencent.com/document/product/400/47359)
-   - [Nginx For Linux 国密证书安装](https://cloud.tencent.com/document/product/400/47360)
+   - [Apache 服务器国密证书安装部署](https://cloud.tencent.com/document/product/400/47359)
+   - [Nginx For Linux 国密证书安装部署](https://cloud.tencent.com/document/product/400/47360)
  - 若您购买使用的服务器是 Windows 系统，建议您使用以下方式：
-   - [Nginx For Windows 服务器国密证书安装](https://cloud.tencent.com/document/product/400/47361)
+   - [Nginx For Windows 服务器国密证书安装部署](https://cloud.tencent.com/document/product/400/47361)
 
 >?如果您因使用不同服务器类型，没有可进行参考的证书安装教程，腾讯云将提供人工服务安装证书的渠道，可快速帮助您进行证书的安装。详情请查看 [证书安装服务](https://market.cloud.tencent.com/categories/1100?tagName=%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85)。
 

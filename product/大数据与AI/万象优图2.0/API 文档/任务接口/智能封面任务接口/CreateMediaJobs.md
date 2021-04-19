@@ -18,6 +18,7 @@ Content-Type: application/xml
 ```
 
 >? Authorization: Auth String （详情请参见 [请求签名](https://cloud.tencent.com/document/product/436/7778) 文档）。
+>
 
 
 #### 请求头
@@ -55,9 +56,9 @@ Container 类型 Request 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
-| Tag                | Request | 创建任务的 Tag：SmartCover                               | String    | 是   |
+| Tag                | Request | 创建任务的 Tag：Transcode（转码）、Animation（动图）、SmartCover（智能封面）、Snapshot（截图）、Concat（拼接）                             | String    | 是   |
 | Input              | Request | 待操作的媒体信息                                         | Container | 是   |
-| Operation          | Request | 操作规则                                                | Container | 是   |
+| Operation          | Request | 操作规则，支持对单个文件执行多个不同任务，最多可填写6个                                               | Container | 是   |
 | QueueId            | Request | 任务所在的队列 ID                                         | String    | 是   |
 
 Container 类型 Input 的具体数据描述如下：
@@ -139,13 +140,13 @@ Container 节点 JobsDetail 的内容：
 | Code | Response.JobsDetail | 错误码，只有 State为 Failed 时有意义 |  String |
 | Message | Response.JobsDetail | 错误描述，只有 State 为 Failed 时有意义 |  String |
 | JobId | Response.JobsDetail | 新创建任务的 ID |  String |
-| Tag | Response.JobsDetail | 新创建任务的 Tag：SmartCover | String |
+| Tag | Response.JobsDetail | 新创建任务的 Tag：Transcode（转码）、Animation（动图）、SmartCover（智能封面）、Snapshot（截图）、Concat（拼接） | String |
 | State | Response.JobsDetail | 任务的状态，为 Submitted、Running、Success、Failed、Pause、Cancel 其中一个 |  String |
 | CreationTime | Response.JobsDetail | 任务的创建时间 |  String |
 | EndTime | Response.JobsDetail | 任务的结束时间 |  String |
 | QueueId | Response.JobsDetail | 任务所属的队列 ID |  String |
 | Input | Response.JobsDetail | 该任务的输入资源地址 |  Container |
-| Operation | Response.JobsDetail | 该任务的规则 |  Container |
+| Operation | Response.JobsDetail | 该任务的操作规则，支持对单个文件执行多个不同任务，最多可填写6个 |  Container |
 
 Container 节点 Input 的内容：
 同请求中的 Request.Input 节点。
@@ -181,6 +182,8 @@ Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
 
+
+
 <Request>
   <Tag>SmartCover</Tag>
   <Input>
@@ -207,6 +210,8 @@ Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+
+
 
 <Response>
   <JobsDetail>

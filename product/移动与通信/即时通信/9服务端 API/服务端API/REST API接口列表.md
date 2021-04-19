@@ -63,7 +63,7 @@
 | 校验黑名单 | [v4/sns/black_list_check](https://cloud.tencent.com/document/product/269/3725) |
 | 添加分组 | [v4/sns/group_add](https://cloud.tencent.com/document/product/269/10107) |
 | 删除分组 | [v4/sns/group_delete](https://cloud.tencent.com/document/product/269/10108) |
-
+|拉取分组|[v4/sns/group_get](https://cloud.tencent.com/document/product/269/54763)|
 
 
 ## 群组管理
