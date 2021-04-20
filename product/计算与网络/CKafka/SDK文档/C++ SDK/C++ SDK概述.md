@@ -39,5 +39,5 @@ C/C++客户端可以通过消息队列 CKafka 提供的多种接入点接入并�
 | 协议     | PLAINTEXT              | SASL_PLAINTEXT                                               |
 | 端口     | 9092                   | 请在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 实例基本信息页面的【接入方式模块】获取SASL接入点信息。<br>![](https://main.qcloudimg.com/raw/6855a9d500dcbefbabed91515b695050.png) |
 | SASL机制 | 不适用                 | PLAIN：一种简单的用户名密码校验机制。                        |
-| Demo     | [PLAINTEXT]()          | [SASL_PLAINTEXT/PLAIN]()                                     |
+| Demo     | [PLAINTEXT](https://github.com/TencentCloud/ckafka-sdk-demo/commit/86f0b2d6d6fafd0bfd16d36dd3beb9c399d68155)          | [SASL_PLAINTEXT/PLAIN](https://github.com/TencentCloud/ckafka-sdk-demo/commit/86f0b2d6d6fafd0bfd16d36dd3beb9c399d68155)                                     |
 | 文档     | [默认接入点收发消息](https://cloud.tencent.com/document/product/597/54866) | [SASL 接入点 PLAIN 机制收发消息](https://cloud.tencent.com/document/product/597/54867)                              |
