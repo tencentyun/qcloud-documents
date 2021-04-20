@@ -8,6 +8,13 @@
  <th width=20%>相关文档 </th>
  </tr>
  <tr>
+ <td>SDK 1.3.1.1版本发布 </td>
+ <td>  
+<li>修复：GCDAsync库可能导致的编译冲突 </td>
+ <td>2021-04-19 </td>
+ <td> <a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载 </a> </li> </td>
+ </tr>
+ <tr>
  <td>SDK 1.3.1.0 版本发布 </td>
  <td>  
 <li>修复：TPNS自建通道和APNs通道的播放声音规则不一致问题。
@@ -24,7 +31,7 @@
 <li> 增加：Demo新增全球集群切换的示例代码。
 <li>增加：TPNS网络连接的建连成功和断开回调。 </td>
  <td>2021-04-12 </td>
- <td> <a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载 </a> </li> </td>
+ <td>-</td>
  </tr>
  </table>
 
