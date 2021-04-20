@@ -29,7 +29,7 @@
 ### 部署 DeploymentGrid
 
 ```
-apiVersion: tkeedge.io/v1
+apiVersion: superedge.io/v1
 kind: DeploymentGrid
 metadata:
     name: deploymentgrid-demo
@@ -57,7 +57,7 @@ spec:
 ### 部署 ServiceGrid
 
 ```
-apiVersion: tkeedge.io/v1
+apiVersion: superedge.io/v1
 kind: ServiceGrid
 metadata:
     name: servicegrid-demo
