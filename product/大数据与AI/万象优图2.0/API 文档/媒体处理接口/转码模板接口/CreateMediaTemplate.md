@@ -107,10 +107,10 @@ Container 类型 Video 的具体数据描述如下：
 | Codec                      | Request.Video | 编解码格式            | String | 否   |   H.264 |  H.264                                          |
 | Width                      | Request.Video | 宽                    | String | 否   | 视频原<br/>始宽度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Width 时，按照<br/>视频原始比例计算 Height |
 | Height                     | Request.Video | 高                    | String | 否   | 视频原<br/>始高度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Height 时，按照<br/>视频原始比例计算 Width |
-| Fps                        | Request.Video | 帧率                  | String | 否   | 无 | <li>值范围：(0，60]<br><li>单位：fps |
+| Fps                        | Request.Video | 帧率                  | String | 否   | 视频原始帧率 | <li>值范围：(0，60]<br><li>单位：fps |
 | Remove                     | Request.Video | 是否删除<br/>视频流        | String | 否   | false        | true、false                                               |
 | Profile                    | Request.Video | 编码级别              | String | 否   | high         | <li>支持 baseline、main、high<br/><li>baseline：适合移动设备<br/><li>main：适合标准分辨率设备<br/><li>high：适合高分辨率设备<br/><li>仅H.264支持此参数 |
-| Bitrate                    | Request.Video | 视频输出<br/>文件的码率    | String | 否   |  无           | <li>值范围：[10，50000]<br/><li>单位：Kbps                     |
+| Bitrate                    | Request.Video | 视频输出<br/>文件的码率    | String | 否   |  视频原始码率           | <li>值范围：[10，50000]<br/><li>单位：Kbps                     |
 | Crf                        | Request.Video | 码率-质量<br/>控制因子     | String | 否   | 无           | <li>值范围：(0，51]<br/><li>如果设置了 Crf，则 <br/>Bitrate 的设置失效 |
 | Gop                        | Request.Video | 关键帧间<br/>最大帧数      | String | 否   |  无            | 值范围：[0，100000]                                          |
 | Preset                     | Request.Video | 视频算法<br/>器预置        | String | 否   | medium       | <li>仅H.264支持该参数<br/><li>取值 veryfast、fast、<br/>medium、slow、slower |
