@@ -41,7 +41,7 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
 
 | 参数             | 描述                                                         |
 | :--------------- | :----------------------------------------------------------- |
-| topic            | Topic 名称，在 CKafka 控制台实例详情页面的【topic管理】获取     |
+| topic            | Topic 名称，在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 实例详情页面的【topic管理】获取     |
 | sasl.username    | 用户名，用户在【用户管理】创建用户时设置                     |
 | sasl.password    | 用户密码，在 CKafka 控制台实例详情页面的【用户管理】创建用户时设置 |
 | sasl.instanceId  | 实例 ID，实例 ID 在 CKafka 控制台的实例详情页面的基本信息获取     |
