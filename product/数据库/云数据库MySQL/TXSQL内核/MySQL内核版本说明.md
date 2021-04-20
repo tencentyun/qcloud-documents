@@ -14,6 +14,30 @@
 - 修复全文索引中，词组查找（phrase search）在多字节字符集下存在的崩溃问题。
 
 ## MySQL 5.7
+### 20201231
+#### 新特性：
+- 支持 SELECT FOR UPDATE/SHARE 使用 NOWAIT 和 SKIP LOCKED 选项。
+- 支持动态设置 thread_handling 线程模式或连接池模式。
+- 支持主从 buffer pool 同步功能。
+- 用户连接状态监控功能，监控项包括：同步异步 IO、内存、日志量，CPU 时间、锁占用时长等。
+
+#### 性能优化：
+- 事务子系统优化，提升高并发性能。
+- 大事务 crash recover 启动时间优化。
+- redo log 刷盘优化。
+- buffer pool 初始化时间优化。
+- utf8/utf8mb4 字符串效率优化。
+- 审计性能优化。
+- 解除了设置 gtid_purged 必须为空的限制。
+- 备份锁优化：引入3个新的 SQL 语句，LOCK TABLES FOR BACKUP, LOCK BINLOG FOR BACKUP 和 UNLOCK BINLOG。相对于 FLUSH TABLES WITH READ LOCK 的上锁备份方式导致整个数据库不可提供服务，这三个语句是为了用于能够轻量级地对数据进行上锁，从而支持备份过程中的数据访问。不论是物理备份还是逻辑备份都可以使用这些语句来实现备份一致性的保护。
+- 大表 drop table 优化。
+
+#### 官方 bug 修复：
+- 修复对 performance_schema 查询时 hang 住的问题。
+- 修复 digest_add_token 函数里面的 overflow 的问题。
+- 修复 MySQL 官方 truncate table 时，ibuf 访问导致 crash 的问题。
+- 修复 left join 语句下 const 提前计算导致的查询正确性问题。
+
 ### 20200930
 #### 性能优化：
 - 备份锁优化 
@@ -93,7 +117,6 @@ FLUSH TABLES WITH READ LOCK 的上锁备份方式导致整个数据库不可提�
 - 修复使用 NAME_CONST 导致的 crash 问题。
 - 修复字符集引起的 illegal mix of collation 问题。
 
-
 ### 20190203
 #### 新特性：
 - 支持异步删除大表：异步、缓慢地清理文件，进而避免因删除大表导致业务性能出现抖动情况，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
@@ -108,7 +131,6 @@ FLUSH TABLES WITH READ LOCK 的上锁备份方式导致整个数据库不可提�
 - 修复 fsync 返回 EIO，反复尝试陷入死循环的问题。
 - 修复 GTID 空洞造成复制中断且不能恢复的问题。
    
-
 ### 20180918
 #### 新特性：
 - 支持自动 kill 空闲事务，减少资源冲突，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
@@ -124,7 +146,6 @@ FLUSH TABLES WITH READ LOCK 的上锁备份方式导致整个数据库不可提�
 - 修复由于主备切换而引起 event 失效的问题。
 - 修复 REPLAY LOG RECORD 所引起的 Crash 问题。
 - 修复 Loose index scans 所导致查询结果错误的问题。
-
 
 ### 20180530
 #### 新特性：
@@ -150,8 +171,16 @@ FLUSH TABLES WITH READ LOCK 的上锁备份方式导致整个数据库不可提�
 - 根据 bytes_data 计算 innodb_buffer_pool_pages_data，避免该参数溢出。
 - 修复在异步模式下速度限制插件不可用的问题。
 
-   
 ## MySQL 5.6
+### 20201231
+#### 官方 bug 修复：
+- 修复由于 hash scan，导致1032问题。 
+- 修复 row 格式下 replace into，导致主从 auto increment 值不一致的问题。
+- 修复 SQL 解析申请内存未释放，导致内存泄漏的问题。
+- 修复 create table as select 建表时，跳过 sql mode 检查的问题。
+- 修复 Insert 语句在插入默认值时，跳过 sql mode 检查的问题。
+- 修复绑定参数执行 update 语句时，跳过 sql mode 检查的问题。
+
 ### 20200915
 #### 新特性：
 - 支持 [SQL 限流](https://cloud.tencent.com/document/product/1130/37882#sql-.E9.99.90.E6.B5.81) 功能。
@@ -188,7 +217,6 @@ FLUSH TABLES WITH READ LOCK 的上锁备份方式导致整个数据库不可提�
 - 修复删除临时表会导致备机回放失败的问题。
 - 修复高并发下死锁的问题。
    
-
 ### 20190203
 #### 新特性：
 - 异步删除大表：异步、缓慢地清理文件，进而避免因删除大表导致业务性能出现抖动情况，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。
@@ -211,7 +239,6 @@ FLUSH TABLES WITH READ LOCK 的上锁备份方式导致整个数据库不可提�
 #### 官方 bug 修复：
 - 修复 REPLAY LOG RECORD 所导致 crash 的问题。
 - 修复 decimal 精度问题所导致主备时间数据不一致的问题。
-
 
 ### 20180130
 #### 新特性：

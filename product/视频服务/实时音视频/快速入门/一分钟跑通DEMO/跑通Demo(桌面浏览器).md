@@ -13,7 +13,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <th>操作系统</th>
 <th width="22%">浏览器类型</th><th>浏览器最低<br>版本要求</th><th width="16%">接收（播放）</th><th width="16%">发送（上麦）</th><th>屏幕分享</th><th>SDK 版本要求</th>
 </tr><tr>
-<td>Mac OS</td>
+<td rowspan="4">Mac OS</td>
 <td>桌面版 Safari 浏览器</td>
 <td>11+</td>
 <td>支持</td>
@@ -22,7 +22,6 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>-</td>
 </tr>
 <tr>
-<td>Mac OS</td>
 <td>桌面版 Chrome 浏览器</td>
 <td>56+</td>
 <td>支持</td>
@@ -31,7 +30,6 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>-</td>
 </tr>
 <tr>
-<td>Mac OS</td>
 <td>桌面版 Firefox 浏览器</td>
 <td>56+</td>
 <td>支持</td>
@@ -40,7 +38,6 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>v4.7.0+</td>
 </tr>
 <tr>
-<td>Mac OS</td>
 <td>桌面版 Edge 浏览器</td>
 <td>80+</td>
 <td>支持</td>
@@ -49,7 +46,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>v4.7.0+</td>
 </tr>
 <tr>
-<td>Windows</td>
+<td  rowspan="4">Windows</td>
 <td>桌面版 Chrome 浏览器</td>
 <td>56+</td>
 <td>支持</td>
@@ -58,7 +55,6 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>-</td>
 </tr>
 <tr>
-<td>Windows</td>
 <td>桌面版 QQ 浏览器（极速内核）</td>
 <td>10.4+</td>
 <td>支持</td>
@@ -67,7 +63,6 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>-</td>
 </tr>
 <tr>
-<td>Windows</td>
 <td>桌面版 Firefox 浏览器</td>
 <td>56+</td>
 <td>支持</td>
@@ -76,7 +71,6 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>v4.7.0+</td>
 </tr>
 <tr>
-<td>Windows</td>
 <td>桌面版 Edge 浏览器</td>
 <td>80+</td>
 <td>支持</td>
@@ -103,16 +97,23 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>-</td>
 </tr>
 <tr>
-<td>Android</td>
+<td>iOS 14.3+</td>
+<td>微信内嵌网页</td>
+<td>6.5+（微信版本）</td>
+<td>支持</td>
+<td>支持</td>
+<td>不支持</td>
+<td>-</td>
+</tr>
+<tr>
+<td  rowspan="4">Android</td>
 <td>移动版 QQ 浏览器</td>
 <td>-</td>
 <td>不支持</td>
 <td>不支持</td>
 <td>不支持</td>
 <td>-</td>
-</tr>
-<tr>
-<td>Android</td>
+</tr><tr>
 <td>移动版 UC 浏览器</td>
 <td>-</td>
 <td>不支持</td>
@@ -121,7 +122,6 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>-</td>
 </tr>
 <tr>
-<td>Android</td>
 <td>微信内嵌网页（TBS 内核）</td>
 <td>-</td>
 <td>支持</td>
@@ -130,7 +130,6 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 <td>-</td>
 </tr>
 <tr>
-<td>Android</td>
 <td>微信内嵌网页（XWEB 内核）</td>
 <td>-</td>
 <td>支持</td>
@@ -141,13 +140,13 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 </table>
 
 >! 
->- 您可以在浏览器中打开 [WebRTC 能力测试](https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/web/demo/env-detect/index.html) 页面进行检测是否完整支持 WebRTC。例如公众号等浏览器环境。
+>- 您可以在浏览器中打开 [WebRTC 能力测试](https://web.sdk.qcloud.com/trtc/webrtc/demo/detect/index.html) 页面进行检测是否完整支持 WebRTC。例如公众号等浏览器环境。
 >- 由于 H.264 版权限制，华为系统的 Chrome 浏览器和以 Chrome WebView 为内核的浏览器均不支持 TRTC 桌面浏览器端 SDK 的正常运行。
 
 [](id:requirements)
 ## 环境要求
 - 请使用最新版本的 Chrome 浏览器。
-- TRTC 桌面浏览器 SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Demo](https://trtc-1252463788.file.myqcloud.com/web/demo/official-demo/index.html) 检查配置是否生效。
+- TRTC 桌面浏览器 SDK 依赖以下端口进行数据传输，请将其加入防火墙白名单，配置完成后，您可以通过访问并体验 [官网 Demo](https://web.sdk.qcloud.com/trtc/webrtc/demo/latest/official-demo/index.html) 检查配置是否生效。
  - TCP 端口：8687
  - UDP 端口：8000，8080，8800，843，443，16285
  - 域名：qcloud.rtc.qq.com
@@ -160,7 +159,7 @@ WebRTC 技术由 Google 最先提出，目前主要在桌面版 Chrome 浏览器
 [](id:step1)
 
 ### 步骤1：创建新的应用
-1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
+1. 登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc)，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
 2. 输入应用名称，例如 TestTRTC，单击【创建】。
 ![](https://main.qcloudimg.com/raw/9b2db43594f4744b42ef74c94494ea8e.png)
 

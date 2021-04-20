@@ -15,16 +15,16 @@ CloudBase Flutter SDK 提供一系列插件，可以根据场景按需安装。
 [function_pub]: https://pub.dartlang.org/packages/cloudbase_function
 [storage_pub]: https://pub.dartlang.org/packages/cloudbase_storage
 [database_pub]: https://pub.dartlang.org/packages/cloudbase_database
-[core_badge]: https://img.shields.io/pub/v/cloudbase_core
-[auth_badge]: https://img.shields.io/pub/v/cloudbase_auth
-[function_badge]: https://img.shields.io/pub/v/cloudbase_function
-[storage_badge]: https://img.shields.io/pub/v/cloudbase_storage
-[database_badge]: https://img.shields.io/pub/v/cloudbase_database
-[core_doc]: /api-reference/flutter/initialization.html
-[auth_doc]: /api-reference/flutter/authentication.html
-[function_doc]: /api-reference/flutter/functions.html
-[storage_doc]: /api-reference/flutter/storage.html
-[database_doc]: /api-reference/flutter/database.html
+[core_badge]: https://main.qcloudimg.com/raw/8764115ed2dc882cf9d45e5b8f331ef8.svg
+[auth_badge]: https://main.qcloudimg.com/raw/00ce58ec8f140a3b3ca9d786d1b90c2d.svg
+[function_badge]: https://main.qcloudimg.com/raw/609869527fd1f38401bc42679c7bfa60.svg
+[storage_badge]: https://main.qcloudimg.com/raw/02f620a770ab4dec3dc37d82f14761dd.svg
+[database_badge]: https://main.qcloudimg.com/raw/01ab88e435b490caccc36c57810bda54.svg
+[core_doc]: https://docs.cloudbase.net/api-reference/flutter/initialization.html
+[auth_doc]: https://docs.cloudbase.net/api-reference/flutter/authentication.html
+[function_doc]: https://docs.cloudbase.net/api-reference/flutter/functions.html
+[storage_doc]: https://docs.cloudbase.net/api-reference/flutter/storage.html
+[database_doc]: https://docs.cloudbase.net/api-reference/flutter/database.html
 
 ## 安装
 

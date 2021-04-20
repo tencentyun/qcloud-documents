@@ -1,3 +1,5 @@
+>?旧版分布式数据库 TDSQL MySQL 版监控指标即将下线，请使用 [新版监控](https://cloud.tencent.com/document/product/248/54398) 指标。
+
 ## 命名空间
 Namespace=QCE/DCDB
 

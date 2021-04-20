@@ -41,7 +41,7 @@ unzip cls-grafana-datasource.zip
 ```
 >? 
 > - 如果您的云服务器非 CentOS 系统，请先确认 Grafana 的插件目录位置，再进入该插件目录进行安装。
-> - 如果安装 Grafana 的版本低于7.0，则无需修改 Grafana 配置文件，请跳过以下步骤，直接 [配置日志数据源](#ConfigLogDataSource)。
+> - 需要安装 Grafana 7.0以上版本才可使用此插件。若 Grafana 版本低于7.0，需进行配置备份和升级，详情请参考 [Grafana 升级指南](https://grafana.com/docs/grafana/latest/installation/upgrading/)。
 > 
 2. 在已部署 Grafana 的机器中，打开 `grafana.ini` 配置文件。
  - MacOS 系统的文件路径：`/usr/local/etc/grafana/grafana.ini`

@@ -20,6 +20,7 @@ Windows、Linux 和 macOS 系统。
 
 #### 软件依赖
 - JDK 1.8 X64或以上，有关 JDK 的安装与配置请参见 [Java 安装与配置](https://cloud.tencent.com/document/product/436/10865)。
+- Linux 环境需要 IFUNC 支持，确保环境 binutils 版本大于 2.20 。
 
 ## 使用方法
 ### 1. 获取工具

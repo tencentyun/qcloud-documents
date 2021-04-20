@@ -7,9 +7,8 @@
 - 需要您在源端阿里云 RDS MySQL 中创建迁移帐号，需要的帐号权限如下：
 ```
 CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW
-DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
-GRANT ALL PRIVILEGES ON `tencentdb`.* TO ‘迁移帐号’@‘%’;  
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO ‘迁移帐号’@‘%’;  
 GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 ```
 - 部分库表迁移：`GRANT SELECT ON 待迁移的库.* TO ‘迁移帐号’;`
@@ -21,6 +20,7 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 - 全量数据无锁迁移过程如果发生 DDL 操作，有可能导致迁移任务失败，所以在 DTS 全量数据迁移过程请避免 DDL 操作。
 - 云数据库 MySQL 的存储空间须是源端阿里云 RDS MySQL 数据库所占用存储空间的1.2倍以上。
 - 源端阿里云 RDS MySQL 如果是非 GTID 实例，DTS 不支持源端 HA（Highly Available）切换，一旦源端阿里云 RDS MySQL 发生切换可能会导致 DTS 增量同步中断。
+- 全量数据迁移仅支持 innodb、myisam、tokudb 三种数据库引擎，如果存在这三种以外的数据引擎表则默认跳过不进行迁移。
 
 ## 支持迁移类型
 - 结构迁移：DTS 支持将迁移对象的结构定义迁移到目标实例中，目前 DTS 支持结构迁移的对象包括数据库、数据表、视图。
@@ -38,19 +38,19 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 
 | 检查内容             | 检查点                                                       |
 | -------------------- | ------------------------------------------------------------ |
-| 连接 DB 检查           | 源库和目标库网络能够连通                                     |
+| 连接数据库检查           | 源库和目标库网络能够连通                                     |
 | 周边检查             | 检查环境变量 innodb_stats_on_metadata=off                     |
 | 版本检查             | 源库和目标库 MySQL 版本必须为5.6、5.7，且源库版本必须小于或等于目标库版本 |
 | 部分实例参数检查     | table_row_format 不能为 Fixed<br>源库和目标库 lower_case_table_names 变量必须一致<br>检查目标端 max_allowed_packet 参数，至少为4M<br>源库变量 connect_timeout 必须大于10 |
 | 源端权限检查       | 同 [前提条件](#qttj) 的帐号权限                                     |
 | 目标端权限检查     | 目标云数据库 MySQL 的帐号需要具有如下权限：ALTER,  ALTER ROUTINE,  CREATE,  CREATE ROUTINE,  CREATE TEMPORARY TABLES,  CREATE USER,  CREATE VIEW,  DELETE,  DROP,  EVENT,  EXECUTE,  INDEX,  INSERT,  LOCK TABLES,  PROCESS,  REFERENCES,  RELOAD,  SELECT,  SHOW DATABASES,  SHOW VIEW,  TRIGGER,  UPDATE |
 | 目标实例内容冲突检测 | 目标库不能有和源库冲突的库表                                 |
-| 目标实例空间检查     | 目标库的空间大小需要大于，源库待迁移库表需要的空间乘以膨胀系数1.2 |
+| 目标实例空间检查     | 目标库的空间大小须是源库待迁移库表空间的1.2倍以上 |
 | Binlog 参数检查       | 源端 binlog_format 变量必须为 ROW<br>源端 log_bin 变量必须为 ON<br>源端 binlog_row_image 变量必须为 FULL<br>源端 gtid_mode 变量在5.6及以上版本不为 ON 时，会报 WARNING，建议用户打开 gtid_mode<br>不允许设置 do_db, ignore_db<br>对于源实例为从库的情况，log_slave_updates 变量必须为 ON |
 | 外键依赖检查         | 外键依赖只能是 no action 和 restrict 两种类型<br>部分库表迁移时，有外键依赖的表必须齐全 |
 | 视图检查             | 只允许和迁移目标 user@host 相同的 definer                       |
 | 其他警告项检查       | 检查源库和目标库的 max_allowed_packet，如果源库大于目标库，会有警告<br>目标库的 max_allowed_packet 小于1GB，会有警告<br>如果源库和目标库的字符集不一致，会有警告<br>对于全量迁移（没有增量），发警告告知用户这种全量迁移没有锁，不保证数据一致 |
-| 无主键表检查         | 待迁移表不能存在无主键表                                     |
+| 无主键表检查         | MySQL 5.6 待迁移表不能存在无主键表，MySQL 5.7 等其他版本不限制                  |
 
 ## 操作步骤
 1. 登录 [DTS 数据迁移控制台](https://console.cloud.tencent.com/dts/migration?rid=8&page=1&pagesize=20)，单击【新建迁移任务】，进入新建迁移任务页面。
@@ -111,7 +111,7 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 <td>如果只进行结构迁移，请选择结构迁移。<br>如果只进行数据全量迁移，请选择全量迁移。<br>如果需要不停机平滑迁移，请选择全量 + 增量迁移。</td></tr>
 <tr>
 <td>迁移对象</td>
-<td>如果需要整个实例迁移，请选择整个实例，不包括系统库，如 information_schema、mysql、performance_schema、sys。 <br>如果需要指定库表迁移，请选择指定对象。</td></tr>
+<td>如果需要整个实例迁移，请选择整个实例，不包括系统库，如 information_schema、mysql、performance_schema、sys。<br>如果需要指定库表迁移，请选择指定对象。</td></tr>
 <tr>
 <td>指定对象</td>
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>

@@ -1,3 +1,6 @@
+以下视频将为您进一步介绍在 Nginx 服务器安装 SSL 证书的操作过程：
+<div class="doc-video-mod"><iframe src="https://cloud.tencent.com/edu/learning/quick-play/3386-59866?source=gw.doc.media&withPoster=1&notip=1"></iframe></div>
+
 ## 操作场景
 本文档指导您如何在 Nginx 服务器中安装 SSL 证书。
 >?

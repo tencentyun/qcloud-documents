@@ -6,8 +6,8 @@ VNC（Virtual Network Console）是虚拟网络控制台的缩写。它是一款
 Linux：Linux 操作系统，本文以 Ubuntu Server 16.04.1 LTS 64位为例。
 
 ## 前提条件
-
 已购买操作系统为 Ubuntu 的 Linux 云服务器。如果您还未购买云服务器，请参考 [快速配置 Linux 云服务器](https://cloud.tencent.com/document/product/213/2936)。
+
 
 ## 操作步骤
 
@@ -78,6 +78,7 @@ vncserver :1 #生成新的会话
 ![](https://main.qcloudimg.com/raw/df25e2085e9d27d53b1827ccf98a3618.png)
 16. 在弹出的提示框中，单击【Continue】。
 17. 输入 [步骤5](#step05) 设置的 VNC 的密码，单击【OK】。
+>?如出现连接超时报错信息，则请检查网网络是否联通，安全组是否放通。其中，安全组需放通 VNC Server 所监听的5901端口，即需在“入站规则”中添加放通协议端口为 `TCP:5901` 的规则，具体操作请参见 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740)。
 
 
 

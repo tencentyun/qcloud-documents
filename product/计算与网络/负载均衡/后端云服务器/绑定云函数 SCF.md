@@ -24,14 +24,15 @@
 :::
 </dx-accordion>
 
-
 ## 限制说明
+- 仅广州、深圳金融、上海、上海金融、北京、成都、中国香港、新加坡、孟买、东京、硅谷地域支持绑定 SCF。
 - 仅标准账户类型支持绑定 SCF，传统账户类型不支持。建议升级为标准账户类型，详情可参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。 
 - 传统型负载均衡不支持绑定 SCF。
 - 基础网络类型不支持绑定 SCF。
 - 仅支持跨 VPC 绑定 SCF，不支持跨地域绑定。
 - 目前仅 IPv4、IPv6 NAT64 版本的负载均衡支持绑定 SCF，IPv6 版本的暂不支持。
 - 仅七层（HTTP、HTTPS）监听器支持绑定 SCF，四层（TCP、UDP、TCP SSL）监听器和七层 QUIC 监听器不支持。
+
 
 ## 前提条件
 1. [创建负载均衡实例](https://cloud.tencent.com/document/product/214/6149)
