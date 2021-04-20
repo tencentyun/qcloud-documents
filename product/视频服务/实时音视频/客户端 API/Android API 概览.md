@@ -123,7 +123,7 @@
 
 | API | 描述 |
 |-----|-----|
-| [enableCustomVideoCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a68187fc9a1656bb32cf825363745f7e7) | 启用视频自定义采集模式。 |
+| [enableCustomVideoCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aa29d36eaa707f6acf622e2f87f14b26a) | 启用视频自定义采集模式。 可以选择推送辅流、主画面视频流、小画面视频流。  |
 | [sendCustomVideoData](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a39b79b77e3795e918383e945e9513d35) | 向 SDK 投送自己采集的视频数据。 |
 | [setLocalVideoProcessListener](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a0b565dc8c77df7fb826f0c45d8ad2d85) | 第三方美颜的视频数据回调。 |
 | [setLocalVideoRenderListener](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aa3cbb7a501c3151d94473965e2538c7a) | 设置本地视频的自定义渲染回调。 |
@@ -135,7 +135,6 @@
 | [setCapturedRawAudioFrameCallbackFormat](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a9047b34857b12d85688b3b3f1ca1c3f0) | 设置本地麦克风采集回调出来的 AudioFrame 格式。 |
 | [setLocalProcessedAudioFrameCallbackFormat](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ac0f65e13815edc05ebd765826a94e3dc) | 设置本地采集并经过音频模块前处理后的音频数据回调出来的 AudioFrame 格式。 |
 | [setMixedPlayAudioFrameCallbackFormat](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a98a2e38d75366fbc2c4da92fec5c0a30) | 设置送入扬声器播放的音频数据回调的 AudioFrame 格式。 |
-| [enableCustomVideoCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aa29d36eaa707f6acf622e2f87f14b26a2) | 启用视频自定义采集模式。 |
 | [sendCustomVideoData](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ad898c0d44a55b86af57de9854638193e) | 向 SDK 投送自己采集的视频数据。 |
 | [enableMixExternalAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a7b7d3707d2ed8e8f1221faf73af49027) | 控制外部音频是否要混入推流和混入播放。 |
 | [mixExternalAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aa411a035318c3a757c5d361d143c929d) | 向 SDK 投送音频数据。 |
@@ -186,28 +185,28 @@
 | [setNoseSlimLevel](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a3f806534b2596d7e29ea0ea6c070b591) | 设置瘦鼻级别，该接口仅在 [企业版 SDK](https://cloud.tencent.com/document/product/647/32689#Enterprise) 中生效。 |
 | [selectMotionTmpl](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a521a0446d0922d480a1eec4b86f1ecb2) | 选择使用哪一款 AI 动效挂件，该接口仅在 [企业版 SDK](https://cloud.tencent.com/document/product/647/32689#Enterprise) 中生效。 |
 | [setMotionMute](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a066cbf8f4f6c1cd23fe9451b82c5a073) | 设置动效静音，该接口仅在 [企业版 SDK](https://cloud.tencent.com/document/product/647/32689#Enterprise) 中生效。 |
-| [setFilter](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a925323ab809957ccaeb4cef30841cb72) | 设置指定素材滤镜特效 v7.2 版本弃用，请使用 TXBeautyManager 设置滤镜功能。 |
-| [setFilterConcentration](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a5fb4c8bc9948e61a75b9ef85f618309d) | 设置滤镜浓度 v7.2 版本弃用，请使用 TXBeautyManager 设置滤镜浓度功能。 |
+| [setFilter](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a925323ab809957ccaeb4cef30841cb72) | 设置指定素材滤镜特效，v7.2 版本弃用，请使用 TXBeautyManager 设置滤镜功能。 |
+| [setFilterConcentration](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a5fb4c8bc9948e61a75b9ef85f618309d) | 设置滤镜浓度，v7.2 版本弃用，请使用 TXBeautyManager 设置滤镜浓度功能。 |
 | [setGreenScreenFile](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aef56a36b901d5e525ee539e7d5642063) | 设置绿幕背景视频（企业版有效，其它版本设置此参数无效） v7.2 版本弃用，请使用 TXBeautyManager 设置绿幕功能。 |
-| [playBGM](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a3df738557f5c658c37174ac9aeae9684) | 启动播放背景音乐 v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [stopBGM](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a3ee7bdd15de4ba9010aa5ece3abff0ab) | 停止播放背景音乐 v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [pauseBGM](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a21ddee03e6f4cec028a24e5d5e30955e) | 暂停播放背景音乐 v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [resumeBGM](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aaa8b34ef2b334bd22a1cb6541a4c6702) | 继续播放背景音乐 v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
+| [playBGM](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a3df738557f5c658c37174ac9aeae9684) | 启动播放背景音乐，v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
+| [stopBGM](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a3ee7bdd15de4ba9010aa5ece3abff0ab) | 停止播放背景音乐，v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
+| [pauseBGM](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a21ddee03e6f4cec028a24e5d5e30955e) | 暂停播放背景音乐，v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
+| [resumeBGM](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aaa8b34ef2b334bd22a1cb6541a4c6702) | 继续播放背景音乐，v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
 | [getBGMDuration](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ae7342a8bcfda22a872aa684f06a4677f) | 获取音乐文件总时长，单位毫秒 v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [setBGMPosition](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a78f901b6175352a31b0236776bfdc661) | 设置 BGM 播放进度 v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [setBGMVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ada9c2b4aaf9a1a9ab9cd846593fdf9e6) | 设置背景音乐播放音量的大小 v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [setBGMPlayoutVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ab1e1c94c9efd967dbffb46d3ba08fef5) | 设置背景音乐本地播放音量的大小 v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [setBGMPublishVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a535eab48f9df390f4de5ebd5afcd59e3) | 设置背景音乐远端播放音量的大小 v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [setReverbType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a6f4f89be3c810acfa2430ad65fd7ea68) | 设置混响效果 v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [setVoiceChangerType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a37acaf3b2539e0b1c18123a646e91189) | 设置变声类型 v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [playAudioEffect](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ad1ed7667282eccfac1992c1e547a5aeb) | 播放音效 v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [setAudioEffectVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a214846db40c2d1be2fe8008c6637f631) | 设置音效的音量 v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [stopAudioEffect](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a18e4ca6939d005a1d67cef397ee8b8d4) | 停止音效 v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [stopAllAudioEffects](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a770543c80d3a5629a26d1382535fb6c4) | 停止所有音效 v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [setAllAudioEffectsVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a9bb41c4ff1a5b24ca742fe3ce45a2bc0) | 设置所有音效的音量 v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [pauseAudioEffect](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ab32923d04ce164b82879b3e05833959f) | 暂停音效 v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [resumeAudioEffect](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a33ab6e798d3da245435166464b702d4f) | 恢复音效 v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
-| [startRemoteView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a57541db91ce032ada911ea6ea2be3b2c2) | 开始显示远端视频画面 v8.0 版本弃用，请使用 startRemoteView(userId, streamType, view)。 |
+| [setBGMPosition](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a78f901b6175352a31b0236776bfdc661) | 设置 BGM 播放进度，v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
+| [setBGMVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ada9c2b4aaf9a1a9ab9cd846593fdf9e6) | 设置背景音乐播放音量的大小，v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
+| [setBGMPlayoutVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ab1e1c94c9efd967dbffb46d3ba08fef5) | 设置背景音乐本地播放音量的大小，v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
+| [setBGMPublishVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a535eab48f9df390f4de5ebd5afcd59e3) | 设置背景音乐远端播放音量的大小，v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
+| [setReverbType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a6f4f89be3c810acfa2430ad65fd7ea68) | 设置混响效果，v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
+| [setVoiceChangerType](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a37acaf3b2539e0b1c18123a646e91189) | 设置变声类型，v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
+| [playAudioEffect](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ad1ed7667282eccfac1992c1e547a5aeb) | 播放音效，v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
+| [setAudioEffectVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a214846db40c2d1be2fe8008c6637f631) | 设置音效的音量，v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
+| [stopAudioEffect](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a18e4ca6939d005a1d67cef397ee8b8d4) | 停止音效，v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
+| [stopAllAudioEffects](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a770543c80d3a5629a26d1382535fb6c4) | 停止所有音效，v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
+| [setAllAudioEffectsVolume](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a9bb41c4ff1a5b24ca742fe3ce45a2bc0) | 设置所有音效的音量，v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
+| [pauseAudioEffect](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ab32923d04ce164b82879b3e05833959f) | 暂停音效，v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
+| [resumeAudioEffect](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a33ab6e798d3da245435166464b702d4f) | 恢复音效，v7.3 版本弃用，请使用 TXAudioEffectManager 设置音效和背景音乐。 |
+| [startRemoteView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a57541db91ce032ada911ea6ea2be3b2c2) | 开始显示远端视频画面，v8.0 版本弃用，请使用 startRemoteView(userId, streamType, view)。 |
 | [stopRemoteView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a8f3e86bc219090d0e8f2d5c2fab4467a2) | 停止显示远端视频画面，同时不再拉取该远端用户的视频数据流。 |
 | [setLocalViewFillMode](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#af36ab721c670e5871e5b21a41518b51d) | 设置本地图像的渲染模式。 |
 | [setLocalViewRotation](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a87fd1307871debc7c051de4878eb6d69) | 设置本地图像的顺时针旋转角度。 |
@@ -220,15 +219,16 @@
 | [stopRemoteSubStreamView](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ae5f540d795425046c9166b0a2361a8de) | 停止显示远端用户的屏幕分享画面。 |
 | [setRemoteSubStreamViewFillMode](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a73f66e66ffee44e19ebb4d8c56c89718) | 设置屏幕分享画面的显示模式。 |
 | [setRemoteSubStreamViewRotation](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#affdf177b468fdf40a41782e2e47524cc) | 设置屏幕分享画面的顺时针旋转角度。 |
-| [switchCamera](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a1b43a65a32f9dcb81b39b9c51c5bc4c6) | 切换摄像头 v8.0 版本弃用，请使用 TXDeviceManager 中的函数。 |
-| [isCameraZoomSupported](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ac7ae26eca2f9a673121803d6d175b034) | 查询当前摄像头是否支持缩放 v8.0 版本弃用，请使用 TXDeviceManager 中的函数。 |
+| [switchCamera](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a1b43a65a32f9dcb81b39b9c51c5bc4c6) | 切换摄像头，v8.0 版本弃用，请使用 TXDeviceManager 中的函数。 |
+| [isCameraZoomSupported](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#ac7ae26eca2f9a673121803d6d175b034) | 查询当前摄像头是否支持缩放，v8.0 版本弃用，请使用 TXDeviceManager 中的函数。 |
 | [setZoom](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a9f761eebdf04f724e0d1591c41c6045f) | 设置摄像头缩放因子（焦距）。 |
 | [isCameraTorchSupported](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a645183ba7c0cea748973796cb38aad8c) | 查询是否支持开关闪光灯（手电筒模式） v8.0 版本弃用，请使用 TXDeviceManager 中的函数。 |
 | [enableTorch](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a09253f6547914d54058831b61325e770) | 开关闪光灯。 |
-| [isCameraFocusPositionInPreviewSupported](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#abd39aca40adfc8da6beaf32141f84cfa) | 查询是否支持设置焦点 v8.0 版本弃用，请使用 TXDeviceManager 中的函数。 |
+| [isCameraFocusPositionInPreviewSupported](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#abd39aca40adfc8da6beaf32141f84cfa) | 查询是否支持设置焦点，v8.0 版本弃用，请使用 TXDeviceManager 中的函数。 |
 | [setFocusPosition](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#aa7c65fb033727804e7a79b8f135c776c) | 设置摄像头焦点。 |
-| [isCameraAutoFocusFaceModeSupported](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a23f25ffb81215a32517da78455459ff2) | 查询是否支持自动识别人脸位置 v8.0 版本弃用，请使用 TXDeviceManager 中的函数。 |
+| [isCameraAutoFocusFaceModeSupported](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a23f25ffb81215a32517da78455459ff2) | 查询是否支持自动识别人脸位置，v8.0 版本弃用，请使用 TXDeviceManager 中的函数。 |
 | [TRTCViewMargin](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#adeb72b7f954af864743cdbeb283c534b) | 视图边距。 |
+| [enableCustomVideoCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a68187fc9a1656bb32cf825363745f7e7) | 启用视频自定义采集模式。 |
 
 ### 播放背景音乐的回调接口
 

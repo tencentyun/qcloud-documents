@@ -1,5 +1,4 @@
 本章节介绍如何快速创建 VPN 连接，并使用路由功能配置路由转发策略，实现 VPC 与对端 IDC 间的安全通信。
-> ?VPN 的路由功能当前处于灰度测试中，如需使用，请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
 
 ## 步骤说明
 VPN 连接激活流程图如下所示：

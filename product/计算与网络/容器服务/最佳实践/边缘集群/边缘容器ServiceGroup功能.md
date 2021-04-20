@@ -46,14 +46,14 @@ ServiceGroup 整体架构示意图如下：
 DeploymentGrid 的格式与 Deployment 类似，`deployment-template` 字段为原先 Deployment 中的 `template` 字段，其中较为特殊的 `gridUniqKey` 字段指明了节点分组的 label 的 key 值。示例如下：
 
 ```
-apiVersion: tkeedge.io/v1
+apiVersion: superedge.io/v1
 kind: DeploymentGrid
 metadata:
-  name:
-  namespace:
+    name:
+    namespace:
 spec:
-  gridUniqKey: <NodeLabel Key>
-  <deployment-template>
+    gridUniqKey: <NodeLabel Key>
+    <deployment-template>
 ```
 
 #### ServiceGrid
@@ -61,14 +61,14 @@ spec:
 ServiceGrid 的格式与 Service 类似，`service-template` 字段为原先 Service 中的 `template` 字段，其中较为特殊的 `gridUniqKey` 字段指明了节点分组的 label 的 key 值。示例如下：
 
 ```
-apiVersion: tkeedge.io/v1
+apiVersion: superedge.io/v1
 kind: ServiceGrid
 metadata:
-  name:
-  namespace:
+    name:
+    namespace:
 spec:
-  gridUniqKey: <NodeLabel Key>
-  <service-template>
+    gridUniqKey: <NodeLabel Key>
+    <service-template>
 ```
 
 
