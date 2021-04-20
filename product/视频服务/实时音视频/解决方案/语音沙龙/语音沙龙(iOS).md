@@ -8,18 +8,22 @@
          <th>观众麦位操作</th>  
      </tr>
 <tr>
-<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/chatsalon_anchor.gif" style="max-height:700px"></td>
-<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/chatsalon_audicence.gif" style="max-height:700px"></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/chatsalon_anchor.gif" style="max-height:700px"></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/chatsalon_audicence.gif" style="max-height:700px"></td>
 </tr>
 </table>
+
 
 如需快速接入语音沙龙功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCChatSalon 组件并实现自定义 UI 界面。
 
 [](id:DemoUI)
+
 ## 复用 Demo 的 UI 界面
+
 [](id:ui.step1)
 
 ### 步骤1：创建新的应用
+
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
 2. 输入应用名称，例如  `TestChatSalon`  ，单击【创建】。
 
@@ -32,10 +36,11 @@
 ### 步骤2：下载 SDK 和 Demo 源码
 1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
 2. 下载完成后，单击【已下载，下一步】。
-![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
+   ![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
 
 [](id:ui.step3)
 ### 步骤3：配置 Demo 工程文件
+
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
 2. 找到并打开 `iOS/TRTCScenesDemo/TXLiteAVDemo/Debug/GenerateTestUserSig.h` 文件。
 3. 设置 `GenerateTestUserSig.h` 文件中的相关参数：
@@ -44,7 +49,6 @@
 <img src="https://main.qcloudimg.com/raw/144433d5562569cd6d0e9ad9804d6c48.png">
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
-
 
 >!
 >- 本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
@@ -70,6 +74,7 @@
 | TRTCChatSalonViewController       | 主房间页面，包括主播和观众两种界面。 |
 
 [](id:model)
+
 ## 实现自定义 UI 界面
 
 [源码](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCChatSalonDemo) 中的 trtcchatsalondemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCChatSalon，您可以在`TRTCChatSalon.h`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
@@ -102,7 +107,7 @@ pod 'TXLiteAVSDK_TRTC'
 
 ### 步骤2：配置权限
 
-在 info.plist 文件中需要添加 Privacy > Camera Usage Description， Privacy > Microphone Usage Description 申请麦克风权限。
+在 `info.plist` 文件中需要添加 `Privacy > Camera Usage Description`， `Privacy > Microphone Usage Description` 申请麦克风权限。
 
 [](id:model.step3)
 
@@ -118,7 +123,6 @@ pod 'TXLiteAVSDK_TRTC'
 1. 调用 TRTCChatSalon 的 `sharedInstance` 类方法可以创建一个 TRTCChatSalon 的实例对象。
 2. 调用 `setDelegate` 方法注册组件的事件回调通知。
 3. 调用 `login` 方法完成组件的登录，请参考下表填写关键参数：
-
 <table>    
 <tr><th>参数名</th><th>作用</th></tr><tr>
 <td>sdkAppId</td>
@@ -134,7 +138,6 @@ pod 'TXLiteAVSDK_TRTC'
 <td>callback</td>
 <td>登录回调，成功时 code 为0。</td>
 </tr></table>
-
 <dx-codeblock>
 ::: Swift Swift
 // Swift 示例
@@ -215,8 +218,7 @@ func onAnchorEnterSeat(user: ChatSalonUserInfo) {
  >!如果您的语音沙龙列表包含了足够全面的信息，可跳过调用 `getRoomInfoList` 相关步骤。
 4. 观众选择一个语音沙龙，调用 `enterRoom` 并传入房间号即可进入该房间。
 5. 进房后会收到组件的 `onRoomInfoChange` 房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求主播同意等。
-6. 进房后会收到组件的 `onEnterRoomSeatListNotify` 当前房间主播信息回调，此时可以根据麦位列表的信息查询到当前房间主播的用户信息，然后刷新到 UI 界面上。
-7. 进房后还会收到麦位表有主播进入的 `onAnchorEnterSeat` 的事件通知。
+6. 进房后还会收到麦位表有主播进入的 `onAnchorEnterSeat` 的事件通知。
 
 ![](https://main.qcloudimg.com/raw/b08253d1835ca6e571378af76c84e275.png)
 <dx-codeblock>
@@ -247,12 +249,7 @@ func onRoomInfoChange(roomInfo: ChatSalonInfo) {
     // 可以更新房间名称等信息
 }
 
-// 6.进房成功后，收到 onEnterRoomSeatListNotify 事件通知
-func onEnterRoomSeatListNotify(seatInfoList: [ChatSalonSeatInfo]) {
-    // 刷新麦位列表
-}
-
-// 7.收到 onAnchorEnterSeat 事件通知
+// 6.收到 onAnchorEnterSeat 事件通知
 func onAnchorEnterSeat(user: ChatSalonUserInfo) {
     // 处理上麦事件
 }
@@ -260,9 +257,12 @@ func onAnchorEnterSeat(user: ChatSalonUserInfo) {
 </dx-codeblock>
 
 [](id:model.step7)
+
 ### 步骤7：上下麦
+
 <dx-tabs>
 ::: 主播端
+
 1. `pickSeat` 传入观众 userId, 可以抱人上麦，房间内所有成员会收到 `onAnchorEnterSeat` 的事件通知。
 2. `kickSeat` 传入对应用户的 userId 后，可以踢人下麦，房间内所有成员会收到 `onAnchorLeaveSeat` 的事件通知。
 
@@ -286,6 +286,7 @@ func onAnchorEnterSeat(user: ChatSalonUserInfo) {
 
 :::
 ::: 观众端
+
 1. `enterSeat` 可以进行上麦，房间内所有成员会收到 `onAnchorEnterSeat` 的事件通知。
 2. `leaveSeat` 主动下麦，房间内所有成员会收到 `onAnchorLeaveSeat` 的事件通知。
 
@@ -316,6 +317,7 @@ func onAnchorEnterSeat(user: ChatSalonUserInfo) {
 
 <dx-tabs>
 ::: 观众主动申请上麦
+
 1. 观众端调用 `sendInvitation` 传入主播的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
 2. 主播端收到 `onReceiveNewInvitation` 的事件通知，此时 UI 可以弹窗并询问主播是否同意。
 3. 主播选择同意后，调用 `acceptInvitation` 并传入 inviteId。
@@ -350,6 +352,7 @@ func onReceiveNewInvitation(identifier: String, inviter: String, cmd: String, co
 </dx-codeblock>
 :::
 ::: 主播邀请观众上麦
+
 1. 主播端调用 `sendInvitation` 传入观众的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
 2. 观众端收到 `onReceiveNewInvitation` 的事件通知，此时 UI 可以弹窗并询问观众是否同意上麦。
 3. 观众选择同意后，调用 `acceptInvitation` 并传入 inviteId。

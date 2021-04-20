@@ -4,7 +4,7 @@
 
 ## 下载方式
 - **iOS**
-iOS 通用版 App 目前发布 Beta 版本，可以通过 [testflight](https://testflight.apple.com/join/M5JW3K1U) 进行下载体验。
+iOS 通用版 App 目前发布 Beta 版本，可以通过 [testflight](https://testflight.apple.com/join/edZbHRbv) 进行下载体验。
 >?您需要使用 iOS 系统手机访问上述链接。
 >
 
@@ -13,6 +13,16 @@ Android 通用版 App 目前已经上架到各大安卓应用市场，包括小�
 
 
 ## 版本更新
+
+### V1.4.0
+
+- 发布日期：2021/04/15
+- 内容如下：
+  - 首页视觉优化。
+  - 首页添加天气功能。
+  - 家庭定位支持地图选址。
+  - 切换时区时提示优化。
+  - 修复部分已知问题。
 
 ### V1.3.0
 

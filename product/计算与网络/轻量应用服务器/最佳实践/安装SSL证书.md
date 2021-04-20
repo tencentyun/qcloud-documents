@@ -1,5 +1,5 @@
 ## 操作场景
-本文以使用 WordPress 应用镜像的轻量应用服务器为例，介绍如何在服务器中安装 SSL 证书并开启 HTTPS 访问。该服务器中默认已安装 Nginx 软件，您可参考本文并结合实际情况进行操作。
+本文以使用 **WordPress 5.2.4 社区版应用镜像**的轻量应用服务器为例，介绍如何在服务器中安装 SSL 证书并开启 HTTPS 访问。该服务器中默认已安装 Nginx 软件，您可参考本文并结合实际情况进行操作。
 
 >?
 >- 本文档以通过腾讯云SSL证书服务申请的付费、免费证书为例。腾讯云 SSL 证书服务相关信息可参考 [SSL 证书产品介绍](https://cloud.tencent.com/document/product/400/7572)、[SSL 证书购买指南](https://cloud.tencent.com/document/product/400/7994) 和 [申请免费 SSL 证书](https://cloud.tencent.com/document/product/400/6814)。
@@ -91,13 +91,13 @@ server {
     listen 443 ssl;
     server_tokens off;
     keepalive_timeout 5;
-    root /usr/local/lighthouse/softwares/wordpress;
+    root /usr/local/lighthouse/softwares/wordpress; #填写您的网站根目录，例如：/usr/local/lighthouse/softwares/wordpress
     index index.php index.html;
     access_log logs/wordpress.log combinediox;
     error_log logs/wordpress.error.log;
-    server_name cloud.tencent.com;   #填写您的证书绑定的域名，例如：cloud.tencent.com
-    ssl_certificate 1_cloud.tencent.com_bundle.crt;   #填写您的证书文件名称，例如：1_cloud.tencent.com_bundle.crt
-    ssl_certificate_key 2_cloud.tencent.com.key;    #填写您的私钥文件名称，例如：2_cloud.tencent.com.key
+    server_name cloud.tencent.com; #填写您的证书绑定的域名，例如：cloud.tencent.com
+    ssl_certificate 1_cloud.tencent.com_bundle.crt; #填写您的证书文件名称，例如：1_cloud.tencent.com_bundle.crt
+    ssl_certificate_key 2_cloud.tencent.com.key; #填写您的私钥文件名称，例如：2_cloud.tencent.com.key
     ssl_session_timeout 5m;
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;  # 可参考此 SSL 协议进行配置
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:HIGH:!aNULL:!MD5:!RC4:!DHE;   #可按照此加密套件配置，写法遵循 openssl 标准
