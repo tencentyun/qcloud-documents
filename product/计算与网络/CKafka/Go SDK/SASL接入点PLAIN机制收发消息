@@ -1,15 +1,15 @@
 ## 操作背景
 
-本文介绍Go客户端如何在公网环境下通过SASL接入点接入消息队列CKafka版并使用PLAIN机制收发消息。
+本文介绍 Go 客户端如何在公网环境下通过SASL接入点接入消息队列 CKafka 版并使用 PLAIN 机制收发消息。
 
 ## 前提条件
 
-- [安装Go](https://golang.org/download)
-- [配置ACL策略](https://cloud.tencent.com/document/product/597/31528)
+- [安装 Go](https://golang.org/dl)
+- [配置 ACL 策略](https://cloud.tencent.com/document/product/597/31528)
 
 ## 操作步骤
 
-#### 步骤一：准备Go依赖库
+### 步骤一：准备 Go 依赖库
 
 执行以下命令安装：
 
@@ -17,9 +17,9 @@
 go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
 ```
 
-#### 步骤二：准备配置文件
+### 步骤二：准备配置文件
 
-创建配置文件ckafka.json
+创建配置文件 ckafka.json：
 
 ```json
 {
@@ -41,19 +41,19 @@ go get -v gopkg.in/confluentinc/confluent-kafka-go.v1/kafka
 
 | 参数             | 描述                                                         |
 | :--------------- | :----------------------------------------------------------- |
-| topic            | Topic名称，在CKafka控制台实例详情页面的【topic管理】获取     |
+| topic            | Topic 名称，在 CKafka 控制台实例详情页面的【topic管理】获取     |
 | sasl.username    | 用户名，用户在【用户管理】创建用户时设置                     |
-| sasl.password    | 用户密码，在CKafka控制台实例详情页面的【用户管理】创建用户时设置 |
-| sasl.instanceId  | 实例ID，实例ID在CKafka控制台的实例详情页面的基本信息获取     |
-| bootstrapServers | SASL接入点，在CKafka控制台的实例详情页面的【基本信息】>【接入方式】获取 |
-| consumerGroupId  | 配置的消费组ID                                               |
+| sasl.password    | 用户密码，在 CKafka 控制台实例详情页面的【用户管理】创建用户时设置 |
+| sasl.instanceId  | 实例 ID，实例 ID 在 CKafka 控制台的实例详情页面的基本信息获取     |
+| bootstrapServers | SASL 接入点，在 CKafka 控制台的实例详情页面的【基本信息】>【接入方式】获取 |
+| consumerGroupId  | 配置的消费组 ID                                               |
 
 
-#### 步骤三：发送消息
+### 步骤三：发送消息
 
-1. 编写生产消息程序
-
-```go
+1. 编写生产消息程序。
+<dx-codeblock>
+:::  go
 package main
 
 import (
@@ -131,30 +131,28 @@ func main() {
 
 	// 等待消息传递
 	p.Flush(10 * 1000)
-```
+:::
+</dx-codeblock>
 
 2. 编译并运行程序发送消息。
-
 ```bash
 go run main.go
 ```
 
-3. 运行结果示例
-
+3. 运行结果示例。
 ```bash
 Delivered message to test[0]@628
 Delivered message to test[0]@629
 ```
 
-4. 在CKafka控制台【topic管理】页面，选择对应的 topic ， 点击【更多】>【消息查询】，查看刚刚发送的消息。
-
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【topic管理】页面，选择对应的 topic ， 点击【更多】>【消息查询】，查看刚刚发送的消息。
 ![](https://main.qcloudimg.com/raw/ec5fbf218cf50ff3d760be15f6331867.png)
 
-#### 步骤四：消费消息
+### 步骤四：消费消息
 
-1. 创建单个Consumer。
-
-```go
+1. 创建单个 Consumer。
+<dx-codeblock>
+:::  go
 package main
 
 import (
@@ -219,24 +217,21 @@ func main() {
 
 	c.Close()
 }
-```
+:::
+</dx-codeblock>
+
 
 2. 编译并运行程序消费消息。
-
 ```bash
 go run main.go
 ```
 
-3. 运行结果示例
-
-
+3. 运行结果示例。
 ```bash
 Message on test[0]@628: Confluent-Kafka
 Message on test[0]@629: Golang Client Message
 ```
 
-4. 在CKafka控制台【Consumer Group】页面，选择对应的消费组名称，在主题名称输入topic名称，点击【查询详情】，查看消费详情。
-
-
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【Consumer Group】页面，选择对应的消费组名称，在主题名称输入 topic 名称，点击【查询详情】，查看消费详情。
 ![](https://main.qcloudimg.com/raw/27775267907600f4ff759e6a197195ee.png)
 
