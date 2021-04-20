@@ -20,6 +20,8 @@ yum install openssl openssl-devel
 yum install cyrus-sasl{,-plain}
 ```
 
+
+
 ### 步骤三：发送消息
 
 1. 创建 producer.c 文件。
@@ -345,6 +347,8 @@ gcc -lrdkafka ./producer.c -o producer
 | topic    | Topic名称，您可在Ckafka控制台的topic管理获取主题名称信息。   |
 | username | sasl_plaintext接入方式的用户名称，您可在Ckafka控制台的用户管理信息中获取用户名称，注意配置用户名称时，需要添加实例Id作为前缀 ，格式为${instanceId}#username。 |
 | password | sasl_plaintext接入方式下的用户接入密码。                     |
+
+
 
 ### 步骤四：消费消息
 
