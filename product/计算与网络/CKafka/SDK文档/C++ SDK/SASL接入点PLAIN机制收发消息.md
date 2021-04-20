@@ -9,16 +9,17 @@
 
 ## 操作步骤
 
-### 步骤一：安装C/C++依赖库
+### 步骤一：安装 C/C++依赖库
 
 详细操作请参考 [安装 librdkafka](https://github.com/edenhill/librdkafka#installation)。
 
-### 步骤二：安装SSL/SASL依赖
-
-```shell script
+### 步骤二：安装 SSL/SASL依赖
+<dx-codeblock>
+:::  shell script
 yum install openssl openssl-devel
 yum install cyrus-sasl{,-plain}
-```
+:::
+</dx-codeblock>
 
 
 
