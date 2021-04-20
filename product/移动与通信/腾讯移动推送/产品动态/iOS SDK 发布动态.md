@@ -8,9 +8,8 @@
  <th width=20%>相关文档 </th>
  </tr>
  <tr>
- <td>SDK 1.3.1.1版本发布 </td>
- <td>  
-<li>修复：GCDAsync 库可能导致的编译冲突 </td>
+ <td>SDK 1.3.1.1 版本发布 </td>
+ <td>修复：GCDAsync 库可能导致的编译冲突 </td>
  <td>2021-04-19 </td>
  <td> <a href="https://console.cloud.tencent.com/tpns/sdkdownload">SDK 下载 </a> </li> </td>
  </tr>
