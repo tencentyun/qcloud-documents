@@ -53,7 +53,7 @@ curl 127.0.0.1:80
 >
 1. 依次执行以下命令，在 hellonode 文件夹下，创建 Dockerfile 文件。
 ```
-cd /hellonode
+cd hellonode
 ```
 ```
 vim Dockerfile
