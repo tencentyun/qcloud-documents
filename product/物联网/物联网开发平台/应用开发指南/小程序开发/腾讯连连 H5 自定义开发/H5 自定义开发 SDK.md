@@ -1341,7 +1341,6 @@ sdk.off(type: string, listener: (...args) => void) => void
 <td>0 | 1</td>
 </tr>
 </tbody></table>
-
 - **wsEventReport 事件**：当 WebSocket 收到 `wsEventReport` 指令后触发。
 <table>
 <thead>
@@ -1362,7 +1361,6 @@ sdk.off(type: string, listener: (...args) => void) => void
 <td>object</td>
 </tr>
 </tbody></table>
-
 - **wsActionPush 事件**：当 WebSocket 收到 `wsActionPush` 指令后触发。
 <table>
 <thead>
