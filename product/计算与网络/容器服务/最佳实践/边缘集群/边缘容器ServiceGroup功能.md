@@ -49,11 +49,11 @@ DeploymentGrid 的格式与 Deployment 类似，`deployment-template` 字段为�
 apiVersion: superedge.io/v1
 kind: DeploymentGrid
 metadata:
-  name:
-  namespace:
+    name:
+    namespace:
 spec:
-  gridUniqKey: <NodeLabel Key>
-  <deployment-template>
+    gridUniqKey: <NodeLabel Key>
+    <deployment-template>
 ```
 
 #### ServiceGrid
@@ -64,11 +64,11 @@ ServiceGrid 的格式与 Service 类似，`service-template` 字段为原先 Ser
 apiVersion: superedge.io/v1
 kind: ServiceGrid
 metadata:
-  name:
-  namespace:
+    name:
+    namespace:
 spec:
-  gridUniqKey: <NodeLabel Key>
-  <service-template>
+    gridUniqKey: <NodeLabel Key>
+    <service-template>
 ```
 
 
