@@ -203,7 +203,7 @@ QCloudRealTimeRecognizer 是实时语音识别类，提供两种初始化方法�
 /**
  * 录音音量实时回调用
  * @param recognizer 实时语音识别实例
- * @param volume 声音音量，取值范围（-40-0)
+ * @param volume 声音音量，取值范围（-40-0）
  */
 - (void)realTimeRecognizerDidUpdateVolume:(QCloudRealTimeRecognizer *)recognizer volume:(float)volume;
 
