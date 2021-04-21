@@ -167,8 +167,8 @@ trtcCalling.groupCall({userIDList, type, groupID})
 
 <dx-codeblock>
 :::  javascript javascript
-import TrtcCalling from 'trtc-calling-js';
-trtcCalling.on(TrtcCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
+import TRTCCalling from 'trtc-calling-js';
+trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
   // ...
   trtcCalling.accept({inviteID, roomID, callType})
 })
@@ -189,8 +189,8 @@ trtcCalling.on(TrtcCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
 
 <dx-codeblock>
 :::  javascript javascript
-import TrtcCalling from 'trtc-calling-js';
-trtcCalling.on(TrtcCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
+import TRTCCalling from 'trtc-calling-js';
+trtcCalling.on(TRTCCalling.EVENT.INVITED, ({inviteID, sponsor, inviteData}) => {
   // ...
   trtcCalling.reject({inviteID, isBusy, callType})
 })
@@ -319,16 +319,16 @@ trtcCalling.setMicMute(true) // 开启麦克风
 
 [](id:event)
 ## TRTCCalling 事件表
-您可以参考如下代码捕获来自 TRTCCalling 组件的各种事件：
+您可以参考如下代码监听 [TRTCCalling 组件事件](https://web.sdk.qcloud.com/component/trtccalling/doc/web/zh-cn/module-EVENT.html)：
 
 <dx-codeblock>
 :::  javascript javascript
-import TrtcCalling from 'trtc-calling-js';
+import TRTCCalling from 'trtc-calling-js';
 // etc
 function handleInviteeReject({userID}) {
 
 }
-trtcCalling.on(TrtcCalling.EVENT.REJECT, handleInviteeReject)
+trtcCalling.on(TRTCCalling.EVENT.REJECT, handleInviteeReject)
 :::
 </dx-codeblock>
 
@@ -548,7 +548,7 @@ function handleCallTimeout() {
 
 <dx-codeblock>
 :::  javascript javascript
-import TrtcCalling from 'trtc-calling-js';
+import TRTCCalling from 'trtc-calling-js';
 let onError = function(error) {
   console.log(error)
 };

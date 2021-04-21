@@ -76,13 +76,13 @@ TRTCLiveRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具
 
 | API                                             | 描述                                                         |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TXAudioEffectManager](#trtcaudioeffectmanagerapi)。 |
+| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TXAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXAudioEffectManager__ios.html#interfaceTXAudioEffectManager)。 |
 
 ### 美颜滤镜相关接口函数
 
 | API                                   | 描述                                                         |
 | ------------------------------------- | ------------------------------------------------------------ |
-| [getBeautyManager](#getbeautymanager) | 获取美颜管理对象 [TXBeautyManager](http://doc.qcloudtrtc.com/group__TXBeautyManager__ios.html#interfaceTXBeautyManager)。 |
+| [getBeautyManager](#getbeautymanager) | 获取美颜管理对象 [TXBeautyManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__ios.html#interfaceTXBeautyManager)。 |
 
 ### 消息发送相关接口函数
 
@@ -861,7 +861,7 @@ NS_SWIFT_NAME(setAudioiQuality(_:));
 
 ### getAudioEffectManager
 
-获取背景音乐音效管理对象 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TRTCCloud__ios.html#af962213fefe6988a08820ac9af00df66)。
+获取背景音乐音效管理对象 [TXAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#af962213fefe6988a08820ac9af00df66)。
 
 ```objc
 /// 获取音效管理对象
@@ -872,7 +872,7 @@ NS_SWIFT_NAME(setAudioiQuality(_:));
 
 ### getBeautyManager
 
-获取美颜管理对象 [TXBeautyManager](http://doc.qcloudtrtc.com/group__TXBeautyManager__ios.html#interfaceTXBeautyManager)。
+获取美颜管理对象 [TXBeautyManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXBeautyManager__ios.html#interfaceTXBeautyManager)。
 
 ```objc
 /* 获取美颜管理对象 TXBeautyManager

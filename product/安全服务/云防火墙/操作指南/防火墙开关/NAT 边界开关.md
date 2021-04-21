@@ -85,3 +85,4 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 - 如需对所持有的公网 IP 以及关联的云上资产，配置对应的防火墙开关，可参见 [互联网边界防火墙开关](https://cloud.tencent.com/document/product/1132/46928) 进行操作。
 - 如需自动探测 VPC 信息与互通关系，并在每一对互通的 VPC 间，建立云防火墙开关，可参见 [VPC 间防火墙开关](https://cloud.tencent.com/document/product/1132/46930) 进行操作。
 - 已绑定外网 IP 的主机，如需直接通过外网 IP 访问，请参见 [调整 NAT 网关和 EIP 的优先级](https://cloud.tencent.com/document/product/552/30012) 文档。
+- 如遇到 NAT 边界防火墙相关问题，可参见 [防火墙相关](https://cloud.tencent.com/document/product/1132/54852#nat-.E8.BE.B9.E7.95.8C.E9.98.B2.E7.81.AB.E5.A2.99) 文档。

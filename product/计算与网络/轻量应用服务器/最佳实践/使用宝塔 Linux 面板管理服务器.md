@@ -50,7 +50,7 @@
 ![](https://main.qcloudimg.com/raw/9d93b13f71eafa1898f68f5003e0447f.png)
 
 随后您可以参考 [快速添加域名解析](https://cloud.tencent.com/document/product/302/3446) 将域名解析到对应的轻量应用服务器 IP 地址，即可通过域名来访问您新创建的网站。
->? 如您使用的轻量应用服务器位于中国大陆地域，请参考 [如何快速备案您的网站](https://cloud.tencent.com/document/product/243/39038) 进行网站备案。
+>? 如您使用的轻量应用服务器位于中国内地地域，请参考 [如何快速备案您的网站](https://cloud.tencent.com/document/product/243/39038) 进行网站备案。
 >
 
 

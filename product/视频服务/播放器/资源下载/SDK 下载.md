@@ -88,8 +88,8 @@
  
   <tr align="center">
      <th>SDK 下载</th>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_play") href="https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Player_iOS_latest.zip">iOS 下载</a></td>
-        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_play") href="https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Player_Android_latest.zip">Android 下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_ios_play") href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Player_iOS_latest.zip">iOS 下载</a></td>
+        <td style="text-align:center"><a onclick=MtaH5.clickStat("player_sdk_download_android_play") href="https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_Player_Android_latest.zip">Android 下载</a></td>
   </tr>
   <tr align="center">
      <th>超级播放器</th>

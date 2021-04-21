@@ -4,7 +4,7 @@ CLB 的四层（TCP/UDP/TCP SSL）和七层（HTTP/HTTPS）服务均支持直接
 - 七层负载均衡，您可以通过 `X-Forwarded-For` 或 `remote_addr` 字段来直接获取客户端 IP。七层负载均衡的访问日志请参见 [配置访问日志到 CLS](https://cloud.tencent.com/document/product/214/41379)。 
 
 >?
-- 对于 CLB 来说，无需在后端 CVM 上做额外配置即可获取客户端 IP。
+- 对于四层负载均衡来说，无需在后端 CVM 上做额外配置即可获取客户端 IP。
 - 对于其他做了 SNAT 的七层负载均衡服务，您需要在后端 CVM 上配置，然后使用 X-Forwarded-For 的方式获取客户端的真实 IP。
 
 下文将对常见的应用服务器配置方案进行介绍。

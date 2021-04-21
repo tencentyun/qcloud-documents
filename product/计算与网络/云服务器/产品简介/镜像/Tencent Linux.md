@@ -1,4 +1,4 @@
-TencentOS Server（又名 Tencent Linux，简称 TS 或 tlinux）是腾讯针对云的场景研发的 Linux 操作系统，提供特定的功能及性能优化，为云服务器实例中的应用程序提供高性能及更加安全可靠的运行环境。TencentOS Server 提供免费使用，在 CentOS（及其他发行版）上开发的应用程序可直接在 TencentOS Server 上运行，用户还可持续获得腾讯 OS 团队的更新维护和技术支持。
+TencentOS Server（又名 Tencent Linux，简称 TS 或 tlinux）是腾讯针对云的场景研发的 Linux 操作系统，提供特定的功能及性能优化，为云服务器实例中的应用程序提供高性能及更加安全可靠的运行环境。TencentOS Server 提供免费使用，在 CentOS（及其他发行版）上开发的应用程序可直接在 TencentOS Server 上运行，用户还可持续获得腾讯云团队的更新维护和技术支持。
 
 ## 适用说明
 

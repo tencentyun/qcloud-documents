@@ -69,7 +69,7 @@ CREATE TABLE clickhouse (
 | sink.batch-size         | 否   | 1000             | connector batch 写入的条数                                   |
 | sink.flush-interval     | 否   | 1000（单位 ms） | connector 异步线程刷新写入 ClickHouse 间隔                   |
 | sink.max-retries        | 否   | 3                | 写入失败时的重试次数                                         |
-| table.collapsing.field  | 否   |                  | CollapsingMergeTree 类型列字段的名称                         |
+| table.collapsing.field  | 否   |   -               | CollapsingMergeTree 类型列字段的名称                         |
 | sink.write-local        | 否   | false            | 是否写入本地表。默认 false 不开启写入本地表策略，而通过集群地址写入。当设置为 true 时：table-name 参数需要指定为 local table 名字；如果 sink.write-local-nodes 没有设置，则通过 clickhouse 的 system.clusters 获取 cluster = ${sink.cluster-name} 且 replica_num 为1的节点作为 local node 列表 |
 | sink.write-local-nodes  | 否   | -                | local node 列表，举例 '127.1.1.10:8123,127.1.2.13:8123'（**需要使用 http port**） |
 | sink.partition-strategy | 否   | balanced         | 数据分发策略，支持 balanced/shuffle/hash。当设置 sink.write-local 为 true 时启用。取值为 hash 时需要配合 sink.partition-key 使用。取值说明：balanced 轮询模式写入 shuffle 随机挑选节点写入 hash 根据 partition-key hash 值选择节点写入 |

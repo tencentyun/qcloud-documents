@@ -33,24 +33,24 @@
         <tr>
                 <td>
 									<div align=center>
-										<img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/mlvb/linkmic/new/anchor.gif">
+										<img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/anchor.gif">
 										</div>
 									</td>
                 <td>
 									<div align=center>
-										<img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/mlvb/linkmic/new/link_audience.gif">
+										<img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/link_audience.gif">
 										</div>
 								</td>
 								<td>
 									<div align=center>
-										<img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/mlvb/linkmic/new/others_audience.gif">
+										<img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/others_audience.gif">
 										</div>
 								</td>
         </tr>
 </table>
 
 ### 步骤图示
-![](https://min-cos-1300507594.cos.ap-beijing.myqcloud.com/blog/min.helloworld/e5f124f52ae18feb5f96fe562d5eef76.png)
+![](https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/v2_demo_use_step.png)
 > =体验 Demo 功能时需要注意，由于超低延时直播的协议特性，目前RTC连麦方案并不支持：**同一台设备，使用相同的 streamid，一边推超低延时流，一边拉超低延时的流**。
 
 ## RTC 连麦方案如何接入
@@ -300,10 +300,10 @@ usersig = hmacsha256(secretkey, (userid + sdkappid + currtime + expire +
 ```
 
 #### 3. V2TXLivePusher&V2TXLivePlayer 如何设置音质或者画质呢？
-我们有提供对应的音质和画质的设置接口，详情见 API 文件：[设置推流音频质量](http://doc.qcloudtrtc.com/group__V2TXLivePusher__ios.html#a88956a3ad5e030af7b2f7f46899e5f13) 和 [设置推流视频参数](http://doc.qcloudtrtc.com/group__V2TXLivePusher__ios.html#a0b08436c1e14a8d7d9875fae59ac6d84)。
+我们有提供对应的音质和画质的设置接口，详情见 API 文件：[设置推流音频质量](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a88956a3ad5e030af7b2f7f46899e5f13) 和 [设置推流视频参数](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLivePusher__ios.html#a0b08436c1e14a8d7d9875fae59ac6d84)。
 
 #### 4. 收到一个错误码：`-5`，代表什么意思？
--5表示由于许可证无效，因此无法调用API，对应的枚举值为：[V2TXLIVE_ERROR_INVALID_LICENSE](http://doc.qcloudtrtc.com/group__V2TXLiveCode__ios.html)，更多错误码请参见 [API 状态码](http://doc.qcloudtrtc.com/group__V2TXLiveCode__ios.html)。
+-5表示由于许可证无效，因此无法调用API，对应的枚举值为：[V2TXLIVE_ERROR_INVALID_LICENSE](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveCode__ios.html)，更多错误码请参见 [API 状态码](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__V2TXLiveCode__ios.html)。
 
 #### 5. RTC连麦方案的时延性有可以参考的数据吗？
 新的 RTC 连麦方案中，主播连麦的延时 < 200ms，主播和观众的延时在 100ms - 1000ms。

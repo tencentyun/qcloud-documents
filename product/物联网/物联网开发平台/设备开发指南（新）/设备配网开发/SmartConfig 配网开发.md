@@ -2,16 +2,16 @@
 
 ### 基本原理
 
-1. 设备进入 Wi-Fi 混杂模式（promiscuous mode）以监听捕获周围的 Wi-Fi 报文。由于设备暂未联网，且 Wi-Fi 网络的数据帧已通过加密，设备无法获取 payload 的内容，但可以获取报文的某些特征数据，例如每个报文的长度。同时对于某些数据帧，例如，UDP 的广播包或多播包，其报文的帧头结构比较固定，较容易识别。
-2. 此时在手机 App 或者小程序侧，即可通过发送 UDP 的广播包或多播包，并利用报文的特征，例如，长度变化进行编码。
+1. 设备进入 Wi-Fi 混杂模式（promiscuous mode）以监听捕获周围的 Wi-Fi 报文。由于设备暂未联网，且 Wi-Fi 网络的数据帧已通过加密，设备无法获取 payload 的内容，但可以获取报文的某些特征数据，例如每个报文的长度。同时对于某些数据帧，例如 UDP 的广播包或多播包，其报文的帧头结构比较固定，较容易识别。
+2. 此时在手机 App 或者小程序侧，即可通过发送 UDP 的广播包或多播包，并利用报文的特征，例如长度变化进行编码。
 3. 将目标 Wi-Fi 路由器的 SSID/PSW 字符以约定的编码方式发送出去，设备端在捕获到 UDP 报文后，按约定的方式进行解码，即可得到目标 Wi-Fi 路由器的相关信息并进行联网。
 
 ### 设备绑定流程
 
-SmartConfig 方式配网，每个厂商编码方式和报文选择上有自己的协议，对于 ESP8266，采用的协议是乐鑫 [ESP-TOUCH协议](https://www.espressif.com/zh-hans/products/software/esp-touch/overview)。
+SmartConfig 方式配网，每个厂商的编码方式和报文选择上有自己的协议，对于 ESP8266，采用的协议是乐鑫 [ESP-TOUCH协议](https://www.espressif.com/zh-hans/products/software/esp-touch/overview)。
 
 - 基于该协议，设备端在连接 Wi-Fi 路由器成功后，将会告知手机端自己的 IP 地址。
-- 此时手机端可以通过数据通道，例如，TCP/UDP 通讯将后台提供的配网 Token 发送给设备，并由设备转发至物联网后台，依据 Token 可以进行设备绑定。
+- 此时手机端可以通过数据通道，例如 TCP/UDP 通讯将后台提供的配网 Token 发送给设备，并由设备转发至物联网后台，依据 Token 进行设备绑定。
 
 目前腾讯连连小程序已支持采用 ESP-TOUCH 协议进行 SmartConfig 配网，并提供相应的 [小程序 SDK](https://www.npmjs.com/package/qcloud-iotexplorer-appdev-sdk)。
 SmartConfig 方式配网及设备绑定的示例流程图如下：
@@ -28,13 +28,17 @@ SmartConfig 配网设备端与腾讯连连小程序及后台交互的数据协�
 3. 小程序按照提示依次获取 Wi-Fi 列表，输入家里目标路由器的 SSID/PSW，按下一步后，将通过 SmartConfig 方式发送报文。
 4. 设备端通过监听捕获 SmartConfig 报文，解析出目标路由器的 SSID/PSW 并进行联网，联网成功后，设备会告知小程序自己的 IP 地址，同时开始连接物联网后台。
 5. 小程序作为 UDP 客户端会连接 Wi-Fi 设备上面的 UDP 服务（默认端口为**8266**）。给设备发送配网 Token，JSON 格式为：
-```json
+<dx-codeblock>
+::: json json
    {"cmdType":0,"token":"6xx82618a9d529a2ee777****528a0fd"} 
-```
+:::
+</dx-codeblock>
 发送完成后，等待设备 UDP 回复设备信息及配网协议版本号：
-```json  
+<dx-codeblock>
+::: json json
    {"cmdType":2,"productId":"OSPB5ASRWT","deviceName":"dev_01","protoVersion":"2.0"}
-```
+:::
+</dx-codeblock>
 6. 如果2秒之内未收到设备回复，则重复步骤5，UDP 客户端重复发送配网 Token。（如果重复发送5次都没有收到回复，则认为配网失败，Wi-Fi 设备有异常）
 7. 如果步骤5收到设备回复，则说明设备端已经收到 Token，并准备上报 Token。此时小程序会开始通过 Token 轮询物联网后台来确认配网及设备绑定是否成功。小程序相关操作可以参考 [查询配网 Token 状态](https://cloud.tencent.com/document/product/1081/44045)。
 8. 设备端在成功连接 Wi-Fi 路由器后，需要通过 MQTT 连接物联网后台，并将小程序发送来的配网 Token 通过下面 MQTT 报文上报给后台服务：
@@ -47,7 +51,7 @@ SmartConfig 配网设备端与腾讯连连小程序及后台交互的数据协�
 设备端也可以通过订阅主题 $thing/down/service/ProductID/DeviceName 来获取 Token 上报的结果。
 
 >!注意如果设备需要通过动态注册来创建设备并获取设备密钥，则会先进行动态注册再连接 MQTT。
-
+>
 9. 在以上5 - 7步骤中，需观察以下情况：
 
  - 如果小程序收到设备 UDP 服务发送过来的错误日志，且 deviceReply 字段的值为"Current_Error"，则表示当前配网绑定过程中出错，需要退出配网操作。
@@ -83,8 +87,8 @@ AT+TCSTARTSMART
 #### 使用示例
 
 配网接口说明请查看 wifi_config/qcloud_wifi_config.h，可以按照下面方式使用：
-
-```c
+<dx-codeblock>
+:::  c
 /* 在微信小程序中使用WiFi配置和设备绑定 */
 int wifi_config_state;
 int ret = start_smartconfig();
@@ -107,7 +111,9 @@ if (!wifi_connected) {
 		start_log_softAP();
 }
 
-```
+:::
+</dx-codeblock>
+
 
 #### 代码设计说明
 
