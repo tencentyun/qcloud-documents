@@ -99,7 +99,7 @@ SDK 1.2.7.2 新增，当注册推送服务失败会走此回调。
 
 #### 接口说明
 
-SDK 1.3.0.0 新增，通知弹窗授权的结果会走此回调。
+SDK 1.3.1.0 新增，通知弹窗授权的结果会走此回调。
 
 ```objective-c
 - (void)xgPushDidRequestNotificationPermission:(bool)isEnable error:(nullable NSError *)error;
@@ -284,7 +284,7 @@ tags：标签数组。
 
 #### 接口说明
 
-SDK 1.3.0.0 新增，查询设备绑定的标签。
+SDK 1.3.1.0 新增，查询设备绑定的标签。
 
 ```Objective-C
 - (void)queryTags:(NSUInteger)offset limit:(NSUInteger)limit;
@@ -307,7 +307,7 @@ SDK 1.3.0.0 新增，查询设备绑定的标签。
 
 #### 接口说明
 
-SDK 1.3.0.0 新增，查询标签的结果会走此回调。
+SDK 1.3.1.0 新增，查询标签的结果会走此回调。
 
 ```objective-c
 - (void)xgPushDidQueryTags:(nullable NSArray<NSString *> *)tags totalCount:(NSUInteger)totalCount error:(nullable NSError *)error;
