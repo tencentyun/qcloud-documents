@@ -6,7 +6,7 @@
   <tr>
     <th>云资源</th>
     <th>规格</th>
-    <th width="25%">定价</th>
+    <th width="35%">定价</th>
   </tr>
 </thead>
 <tbody>
