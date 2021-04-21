@@ -335,7 +335,7 @@ new Thread(new Runnable() {
 ```
 
 #### 设置状态监听器
-AudioRecognizeStateListener 可以用来监听语音识别的状态，一共有如下七个接口：
+AudioRecognizeStateListener 可以用来监听语音识别的状态，一共有如下八个接口：
 
 | 方法 | 方法描述 | 
 |---------|---------|
@@ -345,6 +345,7 @@ AudioRecognizeStateListener 可以用来监听语音识别的状态，一共有�
 | onVoiceFlowStartRecognize | 语音流开始识别 | 
 | onVoiceFlowFinishRecognize | 语音流结束识别 | 
 | onVoiceVolume | 音量 | 
+|onNextAudioData			  | 返回音频流，用于返回宿主层做录音缓存业务。new AudioRecordDataSource(true) 传递true时生效  |
 
 #### 设置超时监听器
 AudioRecognizeTimeoutListener 可以用来监听语音识别的超时，一共有如下两个接口：
@@ -357,63 +358,45 @@ AudioRecognizeTimeoutListener 可以用来监听语音识别的超时，一共�
 **示例：**
 ```
 AudioRecognizeStateListener audioRecognizeStateListener = new AudioRecognizeStateListener() {
+  @Override
+  public void onStartRecord(AudioRecognizeRequest audioRecognizeRequest) {
+      // 开始录音
+  }
     @Override
-    public void onStartRecord(AudioRecognizeRequest audioRecognizeRequest) {
-        // 开始录音
-    }
-
+  public void onStopRecord(AudioRecognizeRequest audioRecognizeRequest) {
+// 结束录音
+  }
     @Override
-    public void onStopRecord(AudioRecognizeRequest audioRecognizeRequest) {
-		// 结束录音
-    }
-
+  public void onVoiceFlowStart(AudioRecognizeRequest audioRecognizeRequest, int i) {
+// 语音流开始
+  }
     @Override
-    public void onVoiceFlowStart(AudioRecognizeRequest audioRecognizeRequest, int i) {
-		// 语音流开始
-    }
-
+  public void onVoiceFlowFinish(AudioRecognizeRequest audioRecognizeRequest, int i) {
+// 语音流结束
+  }
     @Override
-    public void onVoiceFlowFinish(AudioRecognizeRequest audioRecognizeRequest, int i) {
-		// 语音流结束
-    }
-
+  public void onVoiceFlowStartRecognize(AudioRecognizeRequest audioRecognizeRequest, int i) {
+// 语音流开始识别
+  }
     @Override
-    public void onVoiceFlowStartRecognize(AudioRecognizeRequest audioRecognizeRequest, int i) {
-		// 语音流开始识别
-    }
-
+  public void onVoiceFlowFinishRecognize(AudioRecognizeRequest audioRecognizeRequest, int i) {
+// 语音流结束识别
+  }
     @Override
-    public void onVoiceFlowFinishRecognize(AudioRecognizeRequest audioRecognizeRequest, int i) {
-		// 语音流结束识别
-    }
-
-    @Override
-    public void onVoiceVolume(AudioRecognizeRequest audioRecognizeRequest, int i) {
-		// 音量回调
-    }
+  public void onVoiceVolume(AudioRecognizeRequest audioRecognizeRequest, int i) {
+// 音量回调
+  }
 };
-
-AudioRecognizeTimeoutListener audioRecognizeTimeoutListener = new AudioRecognizeTimeoutListener() {
+/**
+    * 返回音频流，
+    * 用于返回宿主层做录音缓存业务。
+    * 由于方法跑在sdk线程上，这里多用于文件操作，宿主需要新开一条线程专门用于实现业务逻辑
+    * new AudioRecordDataSource(true) 有效，否则不会回调该函数
+    * @param audioDatas
+  */
     @Override
-    public void onFirstVoiceFlowTimeout(AudioRecognizeRequest audioRecognizeRequest) {
-        // 检测语音起始超时
+    public void onNextAudioData(final short[] audioDatas, final int readBufferLength){
     }
-
-    @Override
-    public void onNextVoiceFlowTimeout(AudioRecognizeRequest audioRecognizeRequest) {
-		// 检测语音结束超时
-    }
-};
-
-// 启动语音识别
-new Thread(new Runnable() {
-    @Override
-    public void run() {
-        if (aaiClient!=null) {
-            aaiClient.startAudioRecognize(audioRecognizeRequest, audioRecognizeResultListener, audioRecognizeStateListener,audioRecognizeTimeoutListener, audioRecognizeConfiguration);
-        }
-    }
-}).start();
 ```
 
 #### 其他重要类说明
