@@ -3,7 +3,7 @@ Android SDK 接入请观看视频：
 
 ## 开发准备
 ### SDK 下载
-录音文件识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/record/QCloudOneSentenceSDK_Android.zip)
+录音文件识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Android_v2.4.6.zip)
 
 ### 接入须知
 - 开发者使用录音文件识别功能前，需要先在 [腾讯云控制台](https://console.cloud.tencent.com/) 注册账号，并获得 APPID、SecretId 和 SecretKey 信息。
@@ -18,7 +18,7 @@ Android SDK 接入请观看视频：
 2. 添加其他依赖，在 App 的 build.gradle 文件中添加。
 ```
  implementation 'com.google.code.gson:gson:2.8.5'
- implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
+ implementation 'com.squareup.okhttp3:okhttp:4.2.2'
  implementation 'com.squareup.okio:okio:1.11.0'
  implementation 'org.slf4j:slf4j-api:1.7.25'
 ```
