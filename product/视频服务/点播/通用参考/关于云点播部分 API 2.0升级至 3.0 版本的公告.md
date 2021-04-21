@@ -16,3 +16,9 @@
 | [ModifyVodInfo](https://cloud.tencent.com/document/product/266/7828) | [ModifyMediaInfo](https://cloud.tencent.com/document/product/266/31762) | 是 |直接替换 |
 | [DescribeDrmDataKey](https://cloud.tencent.com/document/product/266/9643) | [DescribeDrmDataKey](https://cloud.tencent.com/document/product/266/54177) | 是 |直接替换 |
 | [GetTaskInfo](https://cloud.tencent.com/document/product/266/11724) | [DescribeTaskDetail](https://cloud.tencent.com/document/product/266/33431) |  是 |直接替换，推荐任务发起方式也可以升级为3.0 |
+
+感谢您对腾讯云的信赖与支持！
+
+2021-04-21
+
+腾讯云
