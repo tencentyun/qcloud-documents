@@ -4,31 +4,31 @@
 <table>
 <thead>
   <tr>
-    <th>云资源</th>
+    <th width="25%">云资源</th>
     <th>规格</th>
     <th width="35%">定价</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td>云托管（CloudBase Run）</td>
+    <td>云托管<br>（CloudBase Run）</td>
     <td><ul style="margin:0"><li>默认配置0.25核0.5G内存的容器，伸缩范围0 - 4个实例，遇到 CPU 负载大于60将会进行扩容。无流量则会缩容到0，不产生费用</li><li>使用 “镜像拉取” 方式无构建费用</li></ul></td>
-    <td><ul style="margin:0"><li>CPU：0.055元/核/小时</li><li>内存：0.032元/GiB/小时</li><li>流量：0.8元/GB</li></ul></td>
+    <td><ul style="margin:0"><li><b>CPU：</b>0.055元/核/小时</li><li><b>内存：</b>0.032元/GiB/小时</li><li><b>流量：</b>0.8元/GB</li></ul></td>
   </tr>
   <tr>
-    <td>云原生数据库 TDSQL-C（MySQL for Serverless）</td>
+    <td>云原生数据库 TDSQL-C<br>（MySQL for Serverless）</td>
     <td><ul style="margin:0"><li>数据库 1C1G</li><li>算力 Min 0.25/Max 0.5</li><li>存储按照容量计费</li></ul></td>
-    <td><ul style="margin:0"><li>Serverless 算力价格：0.000095元/个/秒</li><li>存储空间价格：0.00485元/GB/小时</li><li>具体可查看 <a href= "https://cloud.tencent.com/document/product/1003/30493#.E8.AE.A1.E8.B4.B9.E8.AF.B4.E6.98.8E">计费说明</a></li></ul></td>
+    <td><ul style="margin:0"><li><b>Serverless 算力价格：</b>0.000095元/个/秒</li><li><b>存储空间价格：</b>0.00485元/GB/小时</li><li>具体可查看 <a href= "https://cloud.tencent.com/document/product/1003/30493#.E8.AE.A1.E8.B4.B9.E8.AF.B4.E6.98.8E">计费说明</a></li></ul></td>
   </tr>
   <tr>
     <td>文件存储（CFS）</td>
     <td>按照实际容量付费，DAU 1000 的站点预估消耗量在 5GB 以下</td>
-    <td><ul style="margin:0"><li>存储空间 0 - 10TB：<ul><li>0.35元/GB/月</li><li>0.00048611元/GB/时</li></ul></li><li>存储空间10TB以上：<ul><li>0.33 元/GB/月</li><li>0.00045833 元/GB/时</li></ul></li></ul></td>
+    <td><ul style="margin:0"><li><b>存储空间0 - 10TB：</b><ul><li>0.35元/GB/月</li><li>0.00048611元/GB/时</li></ul></li><li><b>存储空间10TB以上：</b><ul><li>0.33 元/GB/月</li><li>0.00045833 元/GB/时</li></ul></li></ul></td>
   </tr>
 	  <tr>
     <td>静态网站托管</td>
     <td>按照实际容量与流量付费</td>
-    <td><ul style="margin:0"><li>容量：0.0043 元/GB/天</li><li>流量：0.21元/GB</li></ul></td>
+    <td><ul style="margin:0"><li><b>容量：</b>0.0043 元/GB/天</li><li><b>流量：</b>0.21元/GB</li></ul></td>
   </tr>
 </tbody>
 </table>
