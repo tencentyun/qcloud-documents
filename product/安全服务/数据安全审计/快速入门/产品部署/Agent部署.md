@@ -17,14 +17,14 @@ Agent 部署流程如下图所示，其中前五步为参数配置操作：
  - Port：数据资产对应的端口。
  ![](https://main.qcloudimg.com/raw/0db8d751133a83016bc0f10fbb487ded.png)
 3. 单击【确定】，提示添加成功。
-4. Agent 配置。
+4. Agent 下载。
 	1. 以 useradmin 账号登录数据安全审计管理页面，在左侧导航栏中，选择【数据资产与Agent】>【审计用 Agent】，即可进入审计用 Agent 页面。
-	2. 在审计用 Agent 页面，选择【Agent 配置】>【添加 Agent】，输入 Agent 名称，单击【添加审计的数据资产】，选择对应得数据资产，并在添加 Agent 弹窗下方，设置停止审计阈值相关参数。
+	2. 在审计用 Agent 页面，选择【Agent 下载】>【添加 Agent】，输入 Agent 名称，选择勾选对应得数据资产，单击“>”，设置停止审计阈值相关参数。
 	>?
 	>- 设置停止审计阈值。若被审计数据库因性能导致濒临宕机，可以通过关闭更多服务和进程缓解宕机情况。您可以设置一个基于 CPU 与内存使用率的阈值，当被审计数据库超过阈值时，Agent 将发送告警信息并停止工作，缓解数据库的性能压力。
 	>- 如您要求 Agent 任何情况都进行工作，可将负载检测开关关闭，Agent将持续审计数据。
 	>
-	![](https://main.qcloudimg.com/raw/d294a8b836a375a14f820dbe406a4438.png)
+	![](https://main.qcloudimg.com/raw/3bd87034d8fa848b4f19e9e817cd7850.png)
 	3. 单击【确定】，提示配置成功。
 	4. 配置成功后，可以单击【下载 Linux Agent】、【下载 Windows Agent】或【linux 批量部署】进行配置 Agent。
 
