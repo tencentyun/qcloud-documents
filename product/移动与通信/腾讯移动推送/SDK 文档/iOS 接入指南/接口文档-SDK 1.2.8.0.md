@@ -93,6 +93,21 @@ SDK 1.2.7.2 新增，当注册推送服务失败会走此回调。
 - (void)xgPushDidFailToRegisterDeviceTokenWithError:(nullable NSError *)error
 ```
 
+### 通知授权弹窗的回调
+
+#### 接口说明
+
+SDK 1.3.0.0 新增，通知弹窗授权的结果会走此回调。
+
+```objective-c
+- (void)xgPushDidRequestNotificationPermission:(bool)isEnable error:(nullable NSError *)error;
+```
+
+#### 返回参数说明
+
+- isEnable：是否同意授权。
+- error：错误信息，若 error 为 nil，则获取弹窗结果成功。
+
 ## 账号功能
 以下为账号相关接口方法，若需了解调用时机及调用原理，可查看 [账号相关流程](https://cloud.tencent.com/document/product/548/36662#.E8.B4.A6.E5.8F.B7.E7.9B.B8.E5.85.B3.E6.B5.81.E7.A8.8B)。
 ### 添加账号
@@ -261,6 +276,46 @@ NSSet *accountsKeys = [[NSSet alloc] initWithObjects:@(accountType), nil];
 ```Objective-C
 [[XGPushTokenManager defaultTokenManager] clearTags];
 ```
+
+### 查询标签
+
+#### 接口说明
+
+SDK 1.3.0.0 新增，查询设备绑定的标签。
+
+```Objective-C
+- (void)queryTags:(NSUInteger)offset limit:(NSUInteger)limit;
+```
+
+> ?此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
+
+#### 参数说明 
+
+- offset：此次查询的偏移大小。
+
+- offset：limit 此次查询的分页大小, 最大200。
+
+#### 示例代码
+
+```Objective-C
+ [[XGPushTokenManager defaultTokenManager] queryTags:0 limit:100];
+```
+
+### 查询标签的回调
+
+#### 接口说明
+
+SDK 1.3.0.0 新增，查询标签的结果会走此回调。
+
+```objective-c
+- (void)xgPushDidQueryTags:(nullable NSArray<NSString *> *)tags totalCount:(NSUInteger)totalCount error:(nullable NSError *)error;
+```
+
+#### 返回参数说明
+
+- tags：查询条件返回的标签。
+- totalCount：设备绑定的总标签数量。
+- error：错误信息，若 error 为 nil，则查询成功。
 
 ## 用户属性功能
 以下为用户属性相关接口方法，若需了解调用时机及调用原理，可查看 [用户属性相关流程](https://cloud.tencent.com/document/product/548/36662#.E7.94.A8.E6.88.B7.E5.B1.9E.E6.80.A7.E7.9B.B8.E5.85.B3.E6.B5.81.E7.A8.8B)。
@@ -545,4 +600,5 @@ XGNotificationConfigure *configure = [XGNotificationConfigure configureNotificat
 ## 本地推送
 
 本地推送相关功能请参见 [苹果开发者文档](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SchedulingandHandlingLocalNotifications.html#//apple_ref/doc/uid/TP40008194-CH5-SW1)。
+
 
