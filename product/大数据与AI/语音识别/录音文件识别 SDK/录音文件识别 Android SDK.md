@@ -18,7 +18,7 @@ Android SDK 接入请观看视频：
 2. 添加其他依赖，在 App 的 build.gradle 文件中添加。
 ```
  implementation 'com.google.code.gson:gson:2.8.5'
- implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
+ implementation 'com.squareup.okhttp3:okhttp:4.2.2'
  implementation 'com.squareup.okio:okio:1.11.0'
  implementation 'org.slf4j:slf4j-api:1.7.25'
 ```
