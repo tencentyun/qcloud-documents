@@ -1,7 +1,12 @@
+
 Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提供接口供 Go 语言调用。
+
 <span id="test"></span>
 ## 接口返回错误码说明
+
 大部分接口的返回值为 EncryptSDKError 类型结构体（Code：错误码，Message：错误消息）。详情如下：
+
+
 | 错误码               | 错误消息                 |
 | -------------------- | -------------------- |
 | InvalidParameter     | 参数错误             |
@@ -17,7 +22,9 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 | LocalDecryptError    | 本地解密出错         |
 | KmsServiceError      | KMS 服务未开通        |
 | UserEditionError     | KMS 未升级为旗舰版    |
+
 ## 初始化SDK接口
+
 ### InitSdk
 - 功能描述：检验用户是否已开通 KMS 旗舰版服务。
 - 输入参数：
@@ -48,16 +55,27 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 <td>string</td>
 <td>云账号 API 密钥 Key 值</td>
 </tr>
+<tr>
+<td>string</td>
+<td>是</td>
+<td>char *</td>			
+<td>域名信息字符串</td>
+</tr>
 </tbody></table>
+
 - 返回值：接口返回 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示初始化成功。
   - 当接口返回值为非nil，代表初始化失败， 详情请参见 [错误码](#test)。
- 
+
 >!
->  - 需注意 SecretId 和 SecretKey 的保密存储：腾讯云接口认证主要依靠 SecretID 和 SecretKey，SecretID 和 SecretKey 是用户的唯一认证凭证。业务系统需要该凭证调用腾讯云接口。
->  - 需注意 SecretID 和 SecretKey 的权限控制：建议使用子账号，根据业务需要进行接口授权的方式管控风险。
+> - 需注意 SecretId 和 SecretKey 的保密存储：腾讯云接口认证主要依靠 SecretID 和 SecretKey，SecretID 和 SecretKey 是用户的唯一认证凭证。业务系统需要该凭证调用腾讯云接口。
+> - 需注意 SecretID 和 SecretKey 的权限控制：建议使用子账号，根据业务需要进行接口授权的方式管控风险。
+> - 需注意 domainName 的设置：如果domainName入参为""，则从环境变量TENCENT_SDK_DOMAIN中读取值，反之，则以入参为准。
+
 ## KMS加密方式的接口说明
+
 ### NewMasterKey
+
 - 功能描述：将用户首个主密钥加入主密钥信息列表。
 - 参数说明：
 <table>
@@ -91,10 +109,11 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 - 返回值：接口返回 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示添加成功。
   - 当接口返回值为非 nil，代表添加失败， 详情请参见 [错误码](#test)。
+
 >!请确保用于加密的首个主密钥，在 KMS 平台中是处于**生效**的状态。
 
-
 ### AddMasterKey
+
 - 功能描述：加入备用的用户主密钥，目的是为了灾备，当首个主密钥无法使用时，会使用的备用密钥，最多支持加入4个。
 - 参数说明：
 <table>
@@ -131,6 +150,7 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 
 
 ### InitKeyManager
+
 - 功能描述：初始化 KeyManager 的结构体，KeyManager 用来保存密钥管理相关参数，包含主密钥信息、密钥加密次数、密钥生效时间等。
 - 参数说明：
 <table>
@@ -189,8 +209,8 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
   - 当接口返回值为 nil，表示初始化成功。
   - 当接口返回值为非 nil，代表初始化失败， 详情请参见 [错误码](#test)。
 
-
 ### Encrypt
+
 - 功能描述：使用 KMS 平台创建的 DataKey，进行本地数据加密。
 - 输入参数：
 <table>
@@ -248,10 +268,11 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示加密成功。
   - 当接口返回值为非 nil，代表加密失败， 详情请参见 [错误码](#test)。
+
 >!加密后的数据，会加入 DataKey 相关信息，只能使用 KMS 密钥保护方式的接口进行解密。
 
-
 ### Decrypt
+
 - 功能描述：方法用于解密密文，得到明文数据。
 - 输入参数：
 <table>
@@ -286,9 +307,9 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
   - 当接口返回值为 nil，表示解密成功，解密后的明文内容在返回的字符数组中。
   - 当接口返回值为非 nil，代表解密失败， 详情请参见 [错误码](#test)。
 
-
 <span id="test5"></span>
 ### C.enum_Algorithm 支持的加密算法列表
+
 | 枚举值                       | 数值 | 说明                            |
 | ---------------------------- | ---- | ------------------------------- |
 | C.SM4_CBC_128_WITH_SIGNATURE | 1    | 使用 SM3 HAC 签名的 SM4 CBC模式     |
@@ -302,6 +323,7 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 
 <span id="test6"></span>
 ### C.EncryptedDataKey 结构体说明
+
 | 参数名称  | 类型     | 说明                                 |
 | --------- | -------- | ------------------------------------ |
 | cmkRegion | C.char * | 主密钥 CMK 地域信息                |
@@ -309,6 +331,7 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 | dataKey   | C.char * | 存储的 Datakey 对应的密文              |
 
 ### C.struct_MsgHead 结构体说明
+
 | 参数名称          | 类型                        | 说明                                                         |
 | ----------------- | --------------------------- | ------------------------------------------------------------ |
 | algorithm         | C.enum_Algorithm            | 算法枚举值，详情请参见 [加密算法列表](#test5)                           |
@@ -320,6 +343,7 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 
 <span id="test7"></span>
 ### C.enum_BlockType 结构体说明
+
 | 枚举值        | 数值 | 说明             |
 | ------------- | ---- | ---------------- |
 | C.WITHOUT_BLOCK | 1    | 密文加密未做分块 |
@@ -329,24 +353,28 @@ Go 语言 SDK，底层使用 C 语言实现，上层通过 cgo 封装后，提�
 KMS 密钥保护方式接口调用示例如下：
 ```
 package main
+
 /*
 #include "kms_enc_sdk.h"
 */
 import "C"
+
 import (
     "fmt"
 //    "time"
 //    "encoding/hex"
 )
+
 func ECBEnAndDeWithSignTest(){
     masterKeys := make([]byte, 1024)
-	NewMasterKey(masterKeys,"ap-guangzhou","replace-with-****keyid")
-	AddMasterKey(masterKeys,"ap-shanghai","replace-with-****keyid")
+	NewMasterKey(masterKeys,"ap-guangzhou","replace-with-realkeyid")
+	AddMasterKey(masterKeys,"ap-shanghai","replace-with-realkeyid")
 	
 	f := &C.struct_KeyManager{}
 	header_en := &C.struct_MsgHead{}
 	header_de := &C.struct_MsgHead{}
-	error := InitKeyManager(f,string(masterKeys),0,0,0,"replace-with-real-secretId"," replace-with-real-****etKey ")
+
+	error := InitKeyManager(f,string(masterKeys),0,0,0,"replace-with-real-secretId"," replace-with-real-secretKey ")
 	if ( nil != error ){
 		fmt.Println(error.Error())
 		return 
@@ -368,22 +396,35 @@ func ECBEnAndDeWithSignTest(){
 	}
 	fmt.Println(string(plainTexttest))
 }
+
 func main() {
-    error := InitSdk("ap-guangzhou","replace-with-real-secretId","replace-with-real-****etKey ")
+    error := InitSdk("ap-guangzhou","replace-with-real-secretId","replace-with-real-secretKey ","kms.tencentcloudapi.com")
     if(nil != error){
         fmt.Println(error.Eoor())
         return
     }
+
 	ECBEnAndDeWithSignTest()
+
 }
+
 ```
 
 ## 原生加密方式的接口说明
+
 原生加密方式对应的服务也需要升级为旗舰版，与 KMS 密钥保护方式相比，原生加密方式需要用户自己生成加密密钥进行加解密，由用户保证密钥的安全性。出于安全与合规的考虑，建议用户使用 KMS 密钥保护方式。
 >?其中CTR模式加密没有填充，其他的模式加密采用 PKCS#7 标准进行填充。
 
+### Sm2GetKey
+
+- 功能描述：使用SM2算法生成密钥对。
+- 输入参数：无需填充输入参数。
+- 返回值：接口返回三个内容，两个字节数组（分别是生成的公钥值、私钥值）和一个EncryptSDKError类型结构体，具体请查看开头说明。
+  - 当接口返回的结构体信息为nil，表示获取密钥对成功；
+  - 非nil，代表获取失败，具体查看结构体中的错误码Code和错误信息Message。
 
 ### Sm2Sign
+
 - 功能描述：使用 SM2 算法进行签名。
 - 输入参数：
 <table>
@@ -417,10 +458,11 @@ func main() {
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示签名成功，签名内容在返回的字符数组中。
   - 当接口返回值为非 nil，代表签名失败， 详情请参见 [错误码](#test)。
+
 >!公钥和私钥的长度为固定长度，用户如果输入长度不一致的数据，可能导致内存访问异常。
 
-
 ### Sm2Verify
+
 - 功能描述：使用 SM2 算法进行验签。
 - 输入参数：
 <table>
@@ -454,10 +496,11 @@ func main() {
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示验签成功，签名内容在返回的字符数组中。
   - 当接口返回值为非 nil，代表验签失败， 详情请参见 [错误码](#test)。
+
 >!公钥长度为固定长度64字节，用户如果输入长度不一致的数据，可能导致内存访问异常。
 
-
 ### Sm2Encrypt
+
 - 功能描述：使用 SM2 算法进行加密。
 - 输入参数：
 <table>
@@ -485,10 +528,11 @@ func main() {
 - 返回值：接口返回两个内容，一个字符数组和一个 EncryptSDKError 类型结构体。
   - 当接口返回值为 nil，表示加密成功，加密后的密文内容在返回的字符数组中。
   - 当接口返回值为非 nil，代表加密失败， 详情请参见 [错误码](#test)。
+
 >!SM2 加密适用于小数据的场景，不建议加密超过256k的数据。
 
-
 ### Sm2Decrypt
+
 -	功能描述：使用 SM2 算法进行解密
 -	输入参数：
 <table>
@@ -517,8 +561,66 @@ func main() {
   - 当接口返回值为 nil，表示解密成功，解密后的明文内容在返回。
   - 当接口返回值为非 nil，表示解密失败， 详情请参见 [错误码](#test)。
 
+### Sm2PemChangeToPubkey
+
+- 功能描述：对pem格式的公钥内容进行转换。
+- 输入参数：
+
+| 参数名称      | 必选 | 类型   | 描述              |
+| ------------- | ---- | ------ | ----------------- |
+| pemPubKeyInfo | 是   | []byte | pem格式的公钥信息 |
+
+- 返回值：接口返回两个内容，一个字符数组和一个EncryptSDKError类型结构体，具体请查看开头说明。
+  - 当接口返回的结构体信息为nil，代表转换成功，转换后的公钥内容在返回的字节数组中；
+  - 非nil，代表转换失败，具体查看结构体中的错误码Code和错误信息Message。
+
+### HashForSM3WithSM2
+
+- 功能描述：使用 **Sm2GetKey** 接口生成的公钥，并基于SM3算法生成信息摘要。
+- 输入参数：
+
+| 参数名称 | 必选 | 类型   | 描述                           |
+| -------- | ---- | ------ | ------------------------------ |
+| msg      | 是   | []byte | 原文数据                       |
+| pubKey   | 是   | []byte | 公钥内容，数据长度固定为64字节 |
+| id       | 是   | []byte | id值                           |
+
+- 返回值：接口返回两个内容，一个字节数组和一个EncryptSDKError类型结构体，具体请查看开头说明。
+  - 当接口返回的结构体信息为nil，代表摘要生成成功，生成的摘要内容在返回的字节数组中；
+  - 非nil，代表摘要生成失败，具体查看结构体中的错误码Code和错误信息Message。
+
+### Sm2SignWithDigest
+
+- 功能描述：使用本地生成的消息摘要生成签名
+- 输入参数：
+
+| 参数名称 | 必选 | 类型   | 描述                                     |
+| -------- | ---- | ------ | ---------------------------------------- |
+| pubKey   | 是   | []byte | 公钥内容，数据长度固定为64字节           |
+| priKey   | 是   | []byte | 私钥内容，数据长度固定为32字节           |
+| digest   | 是   | []byte | **HashForSM3WithSM2** 生成的摘要信息内容 |
+
+- 返回值：接口返回两个内容，一个字节数组和一个EncryptSDKError类型结构体，具体请查看开头说明。
+  - 当接口返回的结构体信息为nil，代表签名成功，生成的签名内容在返回的字节数组中；
+  - 非nil，代表摘要签名失败，具体查看结构体中的错误码Code和错误信息Message。
+
+### Sm2VerifyWithDigest
+
+- 功能描述：通过生成的摘要内容进行验签。
+- 输入参数：
+
+| 参数名称 | 必选 | 类型   | 描述                                     |
+| -------- | ---- | ------ | ---------------------------------------- |
+| pubKey   | 是   | []byte | 公钥内容，数据长度固定为64字节           |
+| sig      | 是   | []byte | 签名的内容                               |
+| digest   | 是   | []byte | **HashForSM3WithSM2** 生成的摘要信息内容 |
+
+- 返回值：接口返回一个EncryptSDKError类型结构体，具体请查看开头说明。
+  - 当接口返回的结构体信息为nil，代表验签成功；
+  - 非nil，代表摘要验签失败，具体查看结构体中的错误码Code和错误信息Message。
 
 ### Sm3Hmac
+
 -	功能描述：使用 SM3 哈希运算 Hmac 计算。
 -	输入参数：
 <table>
@@ -547,8 +649,21 @@ func main() {
   - 当接口返回值为 nil，表示 Hmac 计算成功，Hmac 内容在返回的字符数组中。
   - 当接口返回值为非 nil，表示Hmac计算失败， 详情请参见 [错误码](#test)。
 
+### Sm3Digest
+
+-	功能描述：使用SM3生成摘要。
+-	输入参数：
+
+| 参数名称 | 必选 | 类型   | 描述     |
+| -------- | ---- | ------ | -------- |
+| msg      | 是   | []byte | 原文数据 |
+
+- 返回值：接口返回两个内容，一个字节数组和一个EncryptSDKError类型结构体，具体请查看开头说明。
+  - 当接口返回的结构体信息为nil，代表生成摘要成功，生成的摘要内容在返回的字节数组中；
+  - 非nil，代表生成摘要失败，具体查看结构体中的错误码Code和错误信息Message。
 
 ### Sm4CbcEncrypt/Sm4CtrEncrypt
+
 -	功能描述：方法是用于 SM4 加密算法 CBC、CTR 模式下的加密。
 -	输入参数：
 <table>
@@ -585,6 +700,7 @@ func main() {
 
 
 ### Sm4CbcDecrypt/Sm4CtrDecrypt
+
 -	功能描述：方法是用于 SM4 加密算法 CBC、CTR 模式下的解密。
 -	输入参数：
 <table>
@@ -621,6 +737,7 @@ func main() {
 
 
 ### Sm4EcbEncrypt
+
 -	功能描述：方法是用于 SM4 加密算法 ECB 模式下的加密。
 -	输入参数：
 <table>
@@ -651,6 +768,7 @@ func main() {
 
 
 ### Sm4EcbDecrypt
+
 -	功能描述：方法是用于 SM4 加密算法 ECB 模式下的解密。
 -	输入参数：
 <table>
@@ -681,6 +799,7 @@ func main() {
 
 
 ### Sm4GcmEncrypt
+
 -	功能描述：方法是用于 SM4 加密算法 GCM 模式下的加密。
 -	输入参数：
 <table>
@@ -727,8 +846,8 @@ func main() {
   - 当接口返回值为 nil，表示加密成功，加密后的密文内容在返回的字符数组中。
   - 当接口返回值为非 nil，表示加密失败， 详情请参见 [错误码](#test)。
 
-
 ### Sm4GcmDecrypt
+
 -	功能描述：方法是用于 SM4 加密算法 GCM 模式下的解密。
 -	输入参数：
 <table>
@@ -775,15 +894,16 @@ func main() {
   - 当接口返回值为 nil，表示解密成功，解密后的明文内容在解密后的字符数组中。
   - 当接口返回值为非 nil，表示解密失败， 详情请参见 [错误码](#test)。
 
-
 ### 原生加密方式的接口调用示例
 原生加密方式的接口调用示例如下：
 ```
 package main
+
 import (
 	"fmt"
 	"encoding/hex"
 )
+
 func Sm4EcbTest(){
 	key := []byte("1234567890abcdef")
 	msg := []byte("hello world!")
@@ -801,8 +921,9 @@ func Sm4EcbTest(){
 		}
 	}
 }
+
 func main(){
-	error := InitSdk("ap-guangzhou","replace-with-real-secretId","replace-with-real-****etKey")
+	error := InitSdk("ap-guangzhou","replace-with-real-secretId","replace-with-real-secret","kms.tencentcloudapi.com")
 	if (nil != error){
 		fmt.Println("InitSdk err",error.Error())
 		return 
