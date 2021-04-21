@@ -161,7 +161,7 @@ QCloudSentenceRecognizer 是一句话识别入口类，提供两种初始化方�
 /**
  * 录音音量实时回调用
  * @param recognizer 识别器实例
- * @param volume 声音音量，取值范围（-40-0)
+ * @param volume 声音音量，取值范围（-40-0）
  */
 - (void)oneSentenceRecognizerDidUpdateVolume:(QCloudSentenceRecognizer *)recognizer volume:(float)volume;
 @end
