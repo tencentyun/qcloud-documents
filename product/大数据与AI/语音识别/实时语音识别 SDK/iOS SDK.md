@@ -244,7 +244,7 @@ QCloudRealTimeRecognizer 是实时语音识别类，提供两种初始化方法�
 ```
 
 #### QCloudAudioDataSource 协议说明[](id:QCloudAudioDataSource)
-调用者不适用 SDK 内置录音器进行语音数据采集，自己提供语音数据需要实现此协议所有方法，可见 Demo 工程里的 QDAudioDataSource 实现
+调用者不适用 SDK 内置录音器进行语音数据采集，自己提供语音数据需要实现此协议所有方法，可见 Demo 工程中的 QDAudioDataSource 实现。
 
 ```objective-c
 /**
