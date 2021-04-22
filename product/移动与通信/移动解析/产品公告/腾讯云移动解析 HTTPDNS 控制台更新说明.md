@@ -23,6 +23,10 @@
 <td>流量包管理</td>
 <td>主要用于移动解析 HTTPDNS 流量包管理。如流量包购买和查看使用情况等。</td>
 </tr>
+<tr>
+<td>API</td>
+<td>新版本 API 更新为使用 119.29.29.99 接入，同时使用 119.29.29.29 接入的老用户不受影响。详情请参见：<a href="https://cloud.tencent.com/document/product/379/54976">API 说明。</a></td>
+</tr>
 </table>
 
 
