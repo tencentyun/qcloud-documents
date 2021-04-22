@@ -7,7 +7,7 @@
 开通服务后，授权 ID 和加密密钥及 HTTPS Token 将发送至您在腾讯云 [账号中心](https://console.cloud.tencent.com/developer/security) 设置的安全邮箱。
 获取授权 ID 和加密密钥及 HTTPS Token 后，可以使用以下方式请求解析：
 - HTTPS 加密方式：
-` https://119.29.29.99/d?dn=[域名]&id=[授权ID]&ttl=1`
+` https://119.29.29.99/d?dn=[域名]&token=[HTTPS Token]&ttl=1`
 - AES/DES 加密方式：
  `http://119.29.29.98/d?dn=[域名加密后的字符串]&id=[授权ID]&ttl=1`
 - 具体加密方式请参见 [加密指引](https://cloud.tencent.com/document/product/379/3530)。
