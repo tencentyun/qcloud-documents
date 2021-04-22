@@ -9,6 +9,6 @@
 
 ## 故障处理
 
-请检查访问的文件路径及大小写是否正确。
+检查访问的文件路径及大小写是否正确。
  - 是，请联系 [在线客服](https://cloud.tencent.com/act/event/Online_service)。
  - 否，请修改文件路径。对象（Object）的命名规范请参考 [对象概述](https://cloud.tencent.com/document/product/436/13324)。
