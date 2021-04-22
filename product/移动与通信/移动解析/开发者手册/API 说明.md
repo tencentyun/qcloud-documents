@@ -1,9 +1,12 @@
-新版本移动解析 HTTPDNS 服务地址为 `119.29.29.99`，并且新版本移动解析可以通过 `http://119.29.29.99/d` 或 `https://119.29.29.99/d` 接口使用移动解析服务。
+新版本移动解析 HTTPDNS 可以通过 `http://119.29.29.98/d` 或 `https://119.29.29.99/d` 接口使用移动解析服务。
 
->? 原移动解析服务地址 `119.29.29.29` 所提供的服务不受影响。
+>? 
+>- http 协议服务地址为 `119.29.29.98`，https 协议服务地址为 `119.29.29.99`。
+>- 原移动解析服务地址 `119.29.29.29` 所提供的服务不受影响。
+
 
 ## 接口描述
-- 接口请求地址：`http://119.29.29.99/d` 或 `https://119.29.29.99/d`。
+- 接口请求地址：`http://119.29.29.98/d` 或 `https://119.29.29.99/d`。
 - 请求方式：POST 或 GET。
 
 ## 请求参数
@@ -28,7 +31,7 @@
 </tr>
 <tr>
 <td>id</td>
-<td>被查询的域名</td>
+<td>用户标识</td>
 <td>是</td>
 <td>1 - 10000</td>
 <td>否</td>
@@ -105,7 +108,7 @@
 
 ### 请求 A 记录
 ```
-curl "http://119.29.29.99/d?dn=cloud.tencent.com&id=xxx"
+curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx"
 ```
 - **返回格式**：`2.3.3.4;2.3.3.5;2.3.3.6`。
 - **格式说明**：返回查询结果，多个结果以 ';' 分隔。
@@ -114,7 +117,7 @@ curl "http://119.29.29.99/d?dn=cloud.tencent.com&id=xxx"
 
 ### 返回结果中携带 ttl 信息
 ```
-curl "http://119.29.29.99/d?dn=cloud.tencent.com&id=xxx&ttl=1"
+curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx&ttl=1"
 ```
 - **返回格式**：`2.3.3.4;2.3.3.5;2.3.3.6,120`。
 - **格式说明**：返回查询结果，多个结果以 ';' 分隔。记录值与 ttl 值以 ',' 分隔。
@@ -123,7 +126,7 @@ curl "http://119.29.29.99/d?dn=cloud.tencent.com&id=xxx&ttl=1"
 
 ### 返回结果携带查询线路 IP 地址
 ```
-curl "http://119.29.29.99/d?dn=cloud.tencent.com&id=xxx&clientip=1&ip=1.2.3.4&ttl=1"
+curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx&clientip=1&ip=1.2.3.4&ttl=1"
 ```
 - **返回格式**：12.3.3.4;2.3.3.5;2.3.3.6,120|1.2.3.4。
 - **格式说明**：返回结果中携带线路 ip 地址，以'|'分隔。如果没有传入 “ip=xxx” 参数，则返回出口 IP 地址；否则返回 ip 参数中的地址。
@@ -132,7 +135,7 @@ curl "http://119.29.29.99/d?dn=cloud.tencent.com&id=xxx&clientip=1&ip=1.2.3.4&tt
 
 ### 同时请求 A 和 AAAA 记录
 ```
-curl "http://119.29.29.99/d?dn=cloud.tencent.com&id=xxx&clientip=1&ip=1.2.3.4&type=addrs&ttl=1"
+curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx&clientip=1&ip=1.2.3.4&type=addrs&ttl=1"
 ```
 - **返回格式**：`2.3.3.4;2.3.3.5;2.3.3.6,120-2402:4e00:0123:4567:0::2345;2403:4e00:0123:4567:0::2346,120|1.2.3.4`。
 - **格式说明**：A 记录和 AAAA 记录之间以 '-' 分隔，A 记录在前，AAAA 记录在后。
@@ -140,7 +143,7 @@ curl "http://119.29.29.99/d?dn=cloud.tencent.com&id=xxx&clientip=1&ip=1.2.3.4&ty
 
 ### 返回结果中携带被查询域名
 ```
-curl "http://119.29.29.99/d?dn=cloud.tencent.com&id=xxx&clientip=1&ip=1.2.3.4&query=1&ttl=1"
+curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx&clientip=1&ip=1.2.3.4&query=1&ttl=1"
 ```
 **返回格式**：`cloud.tencent.com:2.3.3.4;2.3.3.5;2.3.3.6,120|1.2.3.4`
 **格式说明**：返回格式为 “域名:结果” 的格式。
@@ -149,7 +152,7 @@ curl "http://119.29.29.99/d?dn=cloud.tencent.com&id=xxx&clientip=1&ip=1.2.3.4&qu
 
 ### 批量域名请求
 ```
-curl "http://119.29.29.99/d?dn=cloud.tencent.com,www.qq.com,www.dnspod.cn&id=xxx&clientip=1&ip=1.2.3.4&ttl=1"
+curl "http://119.29.29.98/d?dn=cloud.tencent.com,www.qq.com,www.dnspod.cn&id=xxx&clientip=1&ip=1.2.3.4&ttl=1"
 ```
 - **返回格式：**
 ```
@@ -164,7 +167,7 @@ www.dnspod.cn:4.3.3.4;4.3.3.5;4.3.3.6,60|1.2.3.4
 ## 请求异常或无记录说明
 ### 查询 A 记录
 ```
-curl "http://119.29.29.99/d?dn=cloud.tencent.comm&id=xxx"
+curl "http://119.29.29.98/d?dn=cloud.tencent.comm&id=xxx"
 ```
 - **返回格式：** 空
 - **格式说明：** 没有记录，则返回空字符串。
@@ -172,7 +175,7 @@ curl "http://119.29.29.99/d?dn=cloud.tencent.comm&id=xxx"
 
 ### 返回结果中包含域名
 ```
-curl "http://119.29.29.99/d?dn=cloud.tencent.com&id=xxx&type=addrs&query=1&ip=1.2.3.4"
+curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx&type=addrs&query=1&ip=1.2.3.4"
 ```
 - **返回格式：**`cloud.tencent.com|1.2.3.4`。
 - **格式说明：**0表示没有记录。
@@ -181,7 +184,7 @@ curl "http://119.29.29.99/d?dn=cloud.tencent.com&id=xxx&type=addrs&query=1&ip=1.
 
 ### 返回 A 与 AAAA 的记录
 ```
-curl "http://119.29.29.99/d?dn=www.notexist.com&id=xxx&type=addrs&query=1&ip=1.2.3.4"
+curl "http://119.29.29.98/d?dn=www.notexist.com&id=xxx&type=addrs&query=1&ip=1.2.3.4"
 ```
 - **返回格式：**`cloud.tencent.com:0-0|1.2.3.4`。
 - **格式说明：**0表示没有记录。如果某个记录存在，则该记录正常返回在结果中，如 `cloud.tencent.com:2.3.4.5;3.3.3.3-0|1.2.3.4`，表示 AAAA 记录无法查询到。
@@ -190,7 +193,7 @@ curl "http://119.29.29.99/d?dn=www.notexist.com&id=xxx&type=addrs&query=1&ip=1.2
 
 ### 批量域名请求
 ```
-curl "http://119.29.29.99/d?dn=cloud.tencent.com,www.qq.com,www.dnspod.cn&id=xxx&clientip=1&ip=1.2.3.4&ttl=1"
+curl "http://119.29.29.98/d?dn=cloud.tencent.com,www.qq.com,www.dnspod.cn&id=xxx&clientip=1&ip=1.2.3.4&ttl=1"
 ```
 - **返回格式**：
 ```
@@ -207,7 +210,7 @@ www.dnspod.cn:4.3.3.4;4.3.3.5;4.3.3.6,60|1.2.3.4
 
 | 状态码 | 描述|
 |---------|---------|
-| 200 OK | 如果接口调用正确，无论是否查询成功，都返回状态码 200。|
+| 200 OK | 如果接口调用正确，无论是否查询成功，均返回状态码200。|
 | 404 Not Found | 接口不存在或 URL 实际上访问了某不存在的资源。|
 | 429 Too Many Request | 访问过于频繁，超过了服务器限制。|
 | 501 Not Implemented | 使用了非 “Get” 或 “POST” 请求方式。|
