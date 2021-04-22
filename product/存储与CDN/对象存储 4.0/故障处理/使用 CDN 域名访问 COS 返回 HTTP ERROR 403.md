@@ -1,6 +1,6 @@
 ## 故障现象
 
-使用内容分发网络（Content Delivery Network，CDN）加速域名访问对象存储（Cloud Object Storage，COS）时，返回 HTTP ERROR 403 错误码。
+使用内容分发网络（Content Delivery Network，CDN）域名访问对象存储（Cloud Object Storage，COS）时，返回 HTTP ERROR 403 错误码。
 
 ## 可能原因
 
