@@ -35,19 +35,10 @@ sudo vncserver
 ```
 sudo apt-get install x-window-system-core
 ```
-6. 按照实际情况选择执行以下命令，安装登录管理器。
-<dx-tabs>
-::: Ubuntu\s18.04
-```
-sudo apt-get install gdm
-```
-:::
-::: Ubuntu\s20.04
+6. 执行以下命令，安装登录管理器。
 ```
 sudo apt-get install gdm3
 ```
-:::
-</dx-tabs>
 7. 执行以下命令，安装 Ubuntu 的桌面。
 ```
 sudo apt-get install ubuntu-desktop
@@ -89,3 +80,12 @@ sudo vncserver :1 #生成新的会话
 15. 在弹出的提示框中，单击【Continue】。
 16. 输入 [步骤5](#step05) 设置的 VNC 的密码，单击【OK】。
 >?如出现连接超时报错信息，则请检查网网络是否联通，防火墙规则是否放通。其中，防火墙需规则放通 VNC Server 所监听的5901端口，即需在“入站规则”中添加放通协议端口为 `TCP:5901` 的规则，具体操作请参见 [管理防火墙](https://cloud.tencent.com/document/product/1207/44577)。
+
+
+
+
+
+
+
+
+
