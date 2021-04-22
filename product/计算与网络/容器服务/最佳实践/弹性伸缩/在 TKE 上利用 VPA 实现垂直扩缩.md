@@ -1,29 +1,30 @@
-
-
-
-
 ## 概述
-
-Kubernetes Pod 垂直自动扩缩（[Vertical Pod Autoscaler](https://github.com/kubernetes/autoscaler/tree/vpa-release-0.8/vertical-pod-autoscaler)，以下简称 VPA）可以自动调整 Pod 的 CPU 和内存预留。VPA 可以帮助提高集群资源利用率并释放 CPU 和内存供其它 Pod 使用。本文将在腾讯云容器服务 TKE 上介绍和使用社区版的 VPA 功能实现 Pod 垂直扩缩容。
+Kubernetes Pod 垂直自动扩缩（[Vertical Pod Autoscaler](https://github.com/kubernetes/autoscaler/tree/vpa-release-0.8/vertical-pod-autoscaler)，以下简称 VPA）可以自动调整 Pod 的 CPU 和内存预留，帮助提高集群资源利用率并释放 CPU 和内存供其它 Pod 使用。本文介绍如何在腾讯云容器服务 TKE 上使用社区版 VPA 功能实现 Pod 垂直扩缩容。
 
 ## 使用场景
 
-VPA 自动伸缩特性使容器服务具有非常灵活的自适应能力，能够在用户设定内快速扩大容器的 Request 来应对业务负载的急剧飙升，也可以在业务负载变小的情况下根据实际情况适当缩小 Request 来节省计算资源给其它的服务，整个过程自动化无须人为干预，适合需要快速扩容、有状态应用扩容等场景。
+VPA 自动伸缩特性使容器服务具有非常灵活的自适应能力。应对业务负载急剧飙升的情况时，VPA 能够在用户设定范围内快速扩大容器的 Request。在业务负载变小的情况下，VPA 可根据实际情况适当缩小 Request 来节省计算资源给其它的服务。整个过程自动化无须人为干预，适用于需要快速扩容、有状态应用扩容等场景。
 
-此外， VPA 非常适合用于推荐用户更合理的 Request，保证容器有足够资源使用的情况下，提升容器的资源利用率。
+此外，VPA 可用于向用户推荐更合理的 Request，在保证容器有足够使用的资源的情况下，提升容器的资源利用率。
 
-**相较 [HPA](../../控制台指南（新版）/Kubernetes对象管理/自动伸缩/自动伸缩.md) 的优势**：
 
-1. 扩容速度更快。扩容不需要增加副本数量，速度更快
-2. HPA 不适合有状态应用的水平扩容，有状态应用可以通过 VPA 实现扩容
-3. Request 设置过大时，即使使用 HPA 缩容到只有一个 Pod，资源利用率依旧很低，此时可以通过 VPA 垂直缩容
+## VPA 优势与限制
+### VPA 优势
+相较于 [自动伸缩功能 HPA](https://cloud.tencent.com/document/product/457/37384)，VPA 具有以下优势：
+- VPA 扩容不需要调整 Pod 副本数量，因此扩容速度更快。
+- 有状态应用可以通过 VPA 实现扩容，HPA 则不适合有状态应用的水平扩容。
+- Request 设置过大时，即使使用 HPA 水平缩容到只有一个 Pod，资源利用率依旧很低。此时可以通过 VPA 进行垂直缩容。
 
-## VPA 限制
 
->  社区 VPA 当前仍然处于试验阶段，请谨慎使用。建议您将 “updateMode” 置为 “Off”，这样 VPA 不会自动帮您更换 Request 数值，但您仍然可以在 VPA 对象里查看到它绑定的负载的 Request 推荐值
 
-- 更新正在运行的 Pod 是 VPA 的一项实验功能。每当 VPA 更新 Pod 资源时，都会重新创建 Pod，这会导致所有正在运行的容器被重建，并且有可能被调度到其它节点上
-- VPA 不会驱逐不在控制器下运行的 Pod。对于此类 Pod，`Auto` 模式等效于 `Initial`
+### VPA 限制
+
+<dx-alert infotype="notice" title="">
+社区 VPA 功能当前处于试验阶段，请谨慎使用。推荐您将 “updateMode” 设置为 “Off”，以确保 VPA 不会自动替您更换 Request 数值。您仍然可以在 VPA 对象中查看到已绑定负载的 Request 推荐值。
+</dx-alert>
+
+- 更新正在运行的 Pod 资源是 VPA 的一项实验功能。当 VPA 更新 Pod 资源时，会导致 Pod 的重建和重启，并且有可能被调度到其他节点上。
+- VPA 不会驱逐不在控制器下运行的 Pod。对于此类 Pod，`Auto` 模式等效于 `Initial`。
 - 目前不得在 CPU 或内存上将 **VPA** 与 **[Horizontal Pod Autoscaler](https://translate.google.com/website?sl=en&tl=zh-CN&u=https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)（HPA）**一起使用。 除非此时 HPA 使用是除了 CPU 和内存以外的指标，例如 [使用自定义指标进行 HPA](在 TKE 上使用自定义指标进行弹性伸缩.md)
 - VPA 使用 Admission Webhook 作为其准入控制器。如果集群中存在其它的 Admission Webhook，需要确保它们不会与 VPA 的 Admission Webhook 发生冲突。准入控制器的执行顺序定义在 API Server 的配置参数中
 - VPA 对大多数 OOM（Out Of Memory）事件做出反应，但并非在所有情况下都做出反应
