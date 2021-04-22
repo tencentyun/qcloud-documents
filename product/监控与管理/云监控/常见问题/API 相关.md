@@ -3,7 +3,7 @@ GetMonitorData 接口默认调用频率上限为 20次/秒，超过该频率会�
 
 
 ###  如何解决 GetMonitorData 接口报错 ？
-GetMonitorData 接口常见报错 ：<font color="red">**Unauthorized operation or the instance has been destroyed** </font>（未经授权的操作或实例已被销毁）
+GetMonitorData 接口常见报错 ：<font>**Unauthorized operation or the instance has been destroyed** </font>（未经授权的操作或实例已被销毁）
 
 出现该错误提示主要有以下几个原因：
 **1. 未找到该实例。**请检查实例是否已销毁、实例 ID 是否输入正确或实例是否属于当前账号。
