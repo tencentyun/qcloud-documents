@@ -7,18 +7,98 @@
 - 请求方式：POST 或 GET
 
 ## 请求参数
-| 参数名 | 参数含义 | 是否必选 | 取值 | 加密 | 说明 |
-|---------|---------|---------|---------|---------|---------|
-| dn | 被查询的域名 | 是 | 加密前的单个域名长度为253 | 是 |如果使用 AES、DES 加密方式，需要传输加密后的字符串。 |
-| id | 被查询的域名 | 是 | 1 - 10000  | 否 | 如果使用 AES、DES 加密方式，必须传入 ID，不需要进行加密。 |
-| token | 使用 HTTPS 方式的标识 | 是 | 整型数据  | 否 | 如果使用 HTTPS 方式，必须要传入 token。 |
-| alg | 选择使用何种算法 | 是 | [aes/des]  | 否 | 默认使用 DES 算法，不同算法具有不同密钥。 |
-| ip | DNS 请求的 ECS 值 | 否 | IPv4/IPv6 地址值  | 是 | 默认情况下 HTTPDNS 服务器会查询客户端出口 IP 为 DNS 线路查询 IP，使用 “ip=xxx” 参数，可以指定线路 IP 地址。支持 IPv4/IPv6 地址传入，接口会自动识别。 |
-| query | 结果中返回被查询域名 | 否 | 1  | 否 | 单域名查询情况下，此参数要求返回结果中携带被查询域名。 |
-| timeout | 超时返回时间 | 否 | 1000 - 5000，单位为毫秒 | 否 | 可用值[1000, 5000]，单位为ms，查询超时时间，默认值为5秒。|
-| ttl | 查询结果是否返回 TTL 值 | 否 | 1 | 否 | 可用值 [1]，不携带此参数，默认为不传递TTL值。|
-| type | 查询类型 | 否 | [aaaa/AAAA/addrs/ADDRS] | 否 | 可用值 [aaaa,AAAA,addrs,ADDRS]。默认查询 A 记录，设置 AAAA/aaaa 查询AAAA记录，设置 addrs/ADDRS 同时查询 A 和 AAAA 记录。|
-| clientip | 查询结果中返回的客户端 IP 地址 | 否 |1 | 否 | 地址值在 `\|` 符号后，可用值 [1]，默认值为不返回。若携带有 ip 参数，返回的是 ip 参数的值，否则返回客户端地址 IP。|
+<table>
+<thead>
+<tr>
+<th width="5%">参数名</th>
+<th width="20%">参数含义</th>
+<th width="5%">是否必选</th>
+<th width="15%">取值</th>
+<th width="5%">加密</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>dn</td>
+<td>被查询的域名</td>
+<td>是</td>
+<td>加密前的单个域名长度为253</td>
+<td>是</td>
+<td>如果使用 AES、DES 加密方式，需要传输加密后的字符串。</td>
+</tr>
+<tr>
+<td>id</td>
+<td>被查询的域名</td>
+<td>是</td>
+<td>1 - 10000</td>
+<td>否</td>
+<td>如果使用 AES、DES 加密方式，必须传入 ID，不需要进行加密。</td>
+</tr>
+<tr>
+<td>token</td>
+<td>使用 HTTPS 方式的标识</td>
+<td>是</td>
+<td>整型数据</td>
+<td>否</td>
+<td>如果使用 HTTPS 方式，必须要传入 token。</td>
+</tr>
+<tr>
+<td>alg</td>
+<td>选择使用何种算法</td>
+<td>是</td>
+<td>[aes/des]</td>
+<td>否</td>
+<td>默认使用 DES 算法，不同算法具有不同密钥。</td>
+</tr>
+<tr>
+<td>ip</td>
+<td>DNS 请求的 ECS 值</td>
+<td>否</td>
+<td>IPv4/IPv6 地址值</td>
+<td>是</td>
+<td>默认情况下 HTTPDNS 服务器会查询客户端出口 IP 为 DNS 线路查询 IP，使用 “ip=xxx” 参数，可以指定线路 IP 地址。支持 IPv4/IPv6 地址传入，接口会自动识别。</td>
+</tr>
+<tr>
+<td>query</td>
+<td>结果中返回被查询域名</td>
+<td>否</td>
+<td>1</td>
+<td>否</td>
+<td>单域名查询情况下，此参数要求返回结果中携带被查询域名。</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>超时返回时间</td>
+<td>否</td>
+<td>1000 - 5000，单位为毫秒</td>
+<td>否</td>
+<td>可用值[1000, 5000]，单位为ms，查询超时时间，默认值为5秒。</td>
+</tr>
+<tr>
+<td>ttl</td>
+<td>查询结果是否返回 TTL 值</td>
+<td>否</td>
+<td>1</td>
+<td>否</td>
+<td>可用值 [1]，不携带此参数，默认为不传递TTL值。</td>
+</tr>
+<tr>
+<td>type</td>
+<td>查询类型</td>
+<td>否</td>
+<td>[aaaa/AAAA/addrs/ADDRS]</td>
+<td>否</td>
+<td>可用值 [aaaa,AAAA,addrs,ADDRS]。默认查询 A 记录，设置 AAAA/aaaa 查询 AAAA 记录，设置 addrs/ADDRS 同时查询 A 和 AAAA 记录。</td>
+</tr>
+<tr>
+<td>clientip</td>
+<td>查询结果中返回的客户端 IP 地址</td>
+<td>否</td>
+<td>1</td>
+<td>否</td>
+<td>地址值在 <code>|</code> 符号后，可用值 [1]，默认值为不返回。若携带有 ip 参数，返回的是 ip 参数的值，否则返回客户端地址 IP。</td>
+</tr>
+</tbody></table>
 
 ## 请求说明
 以请求域名为 `cloud.tencent.com`，ID 为 `xxx`，token 为 `yyyy` 为例。
