@@ -35,10 +35,9 @@ VPA 自动伸缩特性使容器服务具有非常灵活的自适应能力。应�
 完整请参考 [VPA Known limitations](https://github.com/kubernetes/autoscaler/tree/vpa-release-0.8/vertical-pod-autoscaler#known-limitations)
 
 ## 前提条件
+- 已创建容器服务 TKE 集群。如果您还未创建集群，请参考 [快速创建一个标准集群](https://cloud.tencent.com/document/product/457/54231)。
+- 已使用命令行工具连接集群。如果您还未连接集群，请参考 [连接集群](https://cloud.tencent.com/document/product/457/32191)。
 
-- 已 [注册腾讯云账户](https://cloud.tencent.com/register)
-- 已登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)
-- 已创建 TKE 集群。关于创建集群，详情请参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)
 
 ## 操作步骤
 
