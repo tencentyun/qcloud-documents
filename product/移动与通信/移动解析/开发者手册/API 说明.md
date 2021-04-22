@@ -105,12 +105,12 @@
 ## 请求说明
 以请求域名为 `cloud.tencent.com`，ID 为 `xxx`，token 为 `yyyy` 为例。
 
-### 请求 A 记录
 >!
->- 如使用 AES/DES 加密方式和 HTTP 协议进行请求，以下示例中 `cloud.tencent.com` 应为加密后的数据。
->- 如使用 HTTPS 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须要传入 token。
->- 如使用 AES/DES 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须传入授权 ID，授权 ID 不需要进行加密。
-
+>- 以下示例为 AES/DES 加密方式，其中域名和 IP 参数均需要加密，如 `cloud.tencent.com` 为域名加密后的信息，授权 ID 不需要进行加密。
+>- 如使用 HTTPS 加密方式，请求地址改为 119.29.29.99 并且必须要传入 token。
+>
+### 请求 A 记录
+- **输入示例：**
 ```
 curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx"
 ```
@@ -119,11 +119,7 @@ curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx"
 
 
 ### 返回结果中携带 ttl 信息
->!
->- 如使用 AES/DES 加密方式和 HTTP 协议进行请求，以下示例中 `cloud.tencent.com` 应为加密后的数据。
->- 如使用 HTTPS 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须要传入 token。
->- 如使用 AES/DES 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须要传入授权 ID，授权 ID 不需要进行加密。
-
+- **输入示例：**
 ```
 curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx&ttl=1"
 ```
@@ -132,11 +128,7 @@ curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx&ttl=1"
 
 
 ### 返回结果携带查询线路 IP 地址
->!
->- 如使用 AES/DES 加密方式和 HTTP 协议进行请求，以下示例中 `cloud.tencent.com` 和 ip 参数中的 `1.2.3.4` 应为加密后的数据。
->- 如使用 HTTPS 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须要传入 token。
->- 如使用 AES/DES 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须要传入授权 ID，授权 ID 不需要进行加密。
-
+- **输入示例：**
 ```
 curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx&clientip=1&ip=1.2.3.4&ttl=1"
 ```
@@ -144,11 +136,7 @@ curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx&clientip=1&ip=1.2.3.4&tt
 - **格式说明**：返回结果中携带线路 ip 地址，以'|'分隔。如果没有传入 “ip=xxx” 参数，则返回出口 IP 地址；否则返回 ip 参数中的地址。
 
 ### 同时请求 A 和 AAAA 记录
->!
->- 如使用 AES/DES 加密方式和 HTTP 协议进行请求，以下示例中 `cloud.tencent.com` 和 ip 参数中的 `1.2.3.4` 应为加密后的数据。
->- 如使用 HTTPS 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须要传入 token。
->- 如使用 AES/DES 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须要传入授权 ID，授权 ID 不需要进行加密。
-
+- **输入示例：**
 ```
 curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx&clientip=1&ip=1.2.3.4&type=addrs&ttl=1"
 ```
@@ -157,11 +145,7 @@ curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx&clientip=1&ip=1.2.3.4&ty
 
 
 ### 返回结果中携带被查询域名
->!
->- 如使用 AES/DES 加密方式和 HTTP 协议进行请求，以下示例中 `cloud.tencent.com` 和 ip 参数中的 `1.2.3.4` 应为加密后的数据。
->- 如使用 HTTPS 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须要传入 token。
->- 如使用 AES/DES 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须要传入授权 ID，授权 ID 不需要进行加密。
-
+- **输入示例：**
 ```
 curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx&clientip=1&ip=1.2.3.4&query=1&ttl=1"
 ```
@@ -169,11 +153,7 @@ curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx&clientip=1&ip=1.2.3.4&qu
 **格式说明**：返回格式为 “域名:结果” 的格式。
 
 ### 批量域名请求
->!
->- 如使用 AES/DES 加密方式和 HTTP 协议进行请求，以下示例中 `cloud.tencent.com` 等域名和 ip 参数中的 `1.2.3.4` 应为加密后的数据。
->- 如使用 HTTPS 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须要传入 token。
->- 如使用 AES/DES 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须要传入授权 ID，授权 ID 不需要进行加密。
-
+- **输入示例：**
 ```
 curl "http://119.29.29.98/d?dn=cloud.tencent.com,www.qq.com,www.dnspod.cn&id=xxx&clientip=1&ip=1.2.3.4&ttl=1"
 ```
@@ -186,12 +166,12 @@ www.dnspod.cn:4.3.3.4;4.3.3.5;4.3.3.6,60|1.2.3.4
 - **格式说明：**多个域名返回内容之间以 “换行符” 分隔，ip 地址附加在所有记录值的最后。
 
 ## 请求异常或无记录说明
-### 查询 A 记录
 >!
->- 如使用 AES/DES 加密方式和 HTTP 协议进行请求，以下示例中 `cloud.tencent.com` 和 ip 参数中的 `1.2.3.4` 应为加密后的数据。空字符串也是加密后的内容格式。
->- 如使用 HTTPS 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须要传入 token。
->- 如使用 AES/DES 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须要传入授权 ID，授权 ID 不需要进行加密。
-
+>- 以下示例为 AES/DES 加密方式，其中域名和 IP 参数均需要加密，如 `cloud.tencent.com` 为域名加密后的信息，授权 ID 不需要进行加密。
+>- 如使用 HTTPS 加密方式，请求地址改为 119.29.29.99 并且必须要传入 token。
+>
+### 查询 A 记录
+- **输入示例：**
 ```
 curl "http://119.29.29.98/d?dn=cloud.tencent.comm&id=xxx"
 ```
@@ -199,11 +179,7 @@ curl "http://119.29.29.98/d?dn=cloud.tencent.comm&id=xxx"
 - **格式说明：** 没有记录，则返回空字符串。
 
 ### 返回结果中包含域名
->!
->- 如使用 AES/DES 加密方式和 HTTP 协议进行请求，以下示例中 `cloud.tencent.com` 等域名和 ip 参数中的 `1.2.3.4` 应为加密后的数据。
->- 如使用 HTTPS 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须要传入 token。
->- 如使用 AES/DES 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须要传入授权 ID，授权 ID 不需要进行加密。
-
+- **输入示例：**
 ```
 curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx&type=addrs&query=1&ip=1.2.3.4"
 ```
@@ -213,11 +189,7 @@ curl "http://119.29.29.98/d?dn=cloud.tencent.com&id=xxx&type=addrs&query=1&ip=1.
 
 
 ### 返回 A 与 AAAA 的记录
->!
->- 如使用 AES/DES 加密方式和 HTTP 协议进行请求，以下示例中 `cloud.tencent.com` 等域名和 ip 参数中的 `1.2.3.4` 应为加密后的数据。
->- 如使用 HTTPS 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须要传入 token。
->- 如使用 AES/DES 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须要传入授权 ID，授权 ID 不需要进行加密。
-
+- **输入示例：**
 ```
 curl "http://119.29.29.98/d?dn=www.notexist.com&id=xxx&type=addrs&query=1&ip=1.2.3.4"
 ```
@@ -226,11 +198,7 @@ curl "http://119.29.29.98/d?dn=www.notexist.com&id=xxx&type=addrs&query=1&ip=1.2
 
 
 ### 批量域名请求
->!
->- 如使用 AES/DES 加密方式和 HTTP 协议进行请求，以下示例中 `cloud.tencent.com` 等域名和 ip 参数中的 `1.2.3.4` 应为加密后的数据。
->- 如使用 HTTPS 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须要传入 token。
->- 如使用 AES/DES 加密方式和 HTTPS 协议进行请求，请求地址为 `119.29.29.99` 并且必须要传入授权 ID，授权 ID 不需要进行加密。
-
+- **输入示例：**
 ```
 curl "http://119.29.29.98/d?dn=cloud.tencent.com,www.qq.com,www.dnspod.cn&id=xxx&clientip=1&ip=1.2.3.4&ttl=1"
 ```
@@ -250,6 +218,6 @@ www.dnspod.cn:4.3.3.4;4.3.3.5;4.3.3.6,60|1.2.3.4
 | 200 OK | 如果接口调用正确，无论是否查询成功，均返回状态码200。|
 | 404 Not Found | 接口不存在或 URL 实际上访问了某不存在的资源。|
 | 429 Too Many Request | 访问过于频繁，超过了服务器限制。|
-| 501 Not Implemented | 使用了非 “Get” 或 “POST” 请求方式。|
+| 501 Not Implemented | 使用了非 “GET” 或 “POST” 请求方式。|
 
 
