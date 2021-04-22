@@ -3,18 +3,18 @@
 >? 原移动解析服务地址 `119.29.29.29` 所提供的服务不受影响。
 
 ## 接口描述
-- 接口请求地址：`http://119.29.29.99/d` 或 `https://119.29.29.99/d`
-- 请求方式：POST 或 GET
+- 接口请求地址：`http://119.29.29.99/d` 或 `https://119.29.29.99/d`。
+- 请求方式：POST 或 GET。
 
 ## 请求参数
 <table>
 <thead>
 <tr>
 <th width="5%">参数名</th>
-<th width="28%">参数含义</th>
-<th width="5%">是否必选</th>
-<th width="15%">取值</th>
-<th width="5%">加密</th>
+<th width="25%">参数含义</th>
+<th>是否必选</th>
+<th>取值</th>
+<th>加密</th>
 <th>说明</th>
 </tr>
 </thead>
@@ -88,7 +88,7 @@
 <td>否</td>
 <td>[aaaa/AAAA/addrs/ADDRS]</td>
 <td>否</td>
-<td>可用值 [aaaa,AAAA,addrs,ADDRS]。默认查询 A 记录，设置 AAAA/aaaa 查询 AAAA 记录，设置 addrs/ADDRS 同时查询 A 和 AAAA 记录。</td>
+<td>可用值[aaaa,AAAA,addrs,ADDRS]。默认查询 A 记录，设置 AAAA/aaaa 查询 AAAA 记录，设置 addrs/ADDRS 同时查询 A 和 AAAA 记录。</td>
 </tr>
 <tr>
 <td>clientip</td>
@@ -145,7 +145,7 @@ curl "http://119.29.29.99/d?dn=cloud.tencent.com&id=xxx&clientip=1&ip=1.2.3.4&qu
 **返回格式**：`cloud.tencent.com:2.3.3.4;2.3.3.5;2.3.3.6,120|1.2.3.4`
 **格式说明**：返回格式为 “域名:结果” 的格式。
 
->! 如果使用 AES/DES 加密，`cloud.tencent.com` 和ip参数中的 `1.2.3.4`应为加密后的数据。
+>! 如果使用 AES/DES 加密，`cloud.tencent.com` 和ip参数中的 `1.2.3.4` 应为加密后的数据。
 
 ### 批量域名请求
 ```
@@ -159,7 +159,7 @@ www.dnspod.cn:4.3.3.4;4.3.3.5;4.3.3.6,60|1.2.3.4
 ```
 - **格式说明：**多个域名返回内容之间以 “换行符” 分隔，ip 地址附加在所有记录值的最后。
 
->! 如果使用 AES/DES 加密，`cloud.tencent.com` 等域名和 ip 参数中的 `1.2.3.4`应为加密后的数据。
+>! 如果使用 AES/DES 加密，`cloud.tencent.com` 等域名和 ip 参数中的 `1.2.3.4` 应为加密后的数据。
 
 ## 请求异常或无记录说明
 ### 查询 A 记录
@@ -177,7 +177,7 @@ curl "http://119.29.29.99/d?dn=cloud.tencent.com&id=xxx&type=addrs&query=1&ip=1.
 - **返回格式：**`cloud.tencent.com|1.2.3.4`。
 - **格式说明：**0表示没有记录。
 
->! 如果使用 AES/DES 加密，`cloud.tencent.com` 和 ip 参数中的 `1.2.3.4`应为加密后的数据。
+>! 如果使用 AES/DES 加密，`cloud.tencent.com` 和 ip 参数中的 `1.2.3.4` 应为加密后的数据。
 
 ### 返回 A 与 AAAA 的记录
 ```
@@ -186,7 +186,7 @@ curl "http://119.29.29.99/d?dn=www.notexist.com&id=xxx&type=addrs&query=1&ip=1.2
 - **返回格式：**`cloud.tencent.com:0-0|1.2.3.4`。
 - **格式说明：**0表示没有记录。如果某个记录存在，则该记录正常返回在结果中，如 `cloud.tencent.com:2.3.4.5;3.3.3.3-0|1.2.3.4`，表示 AAAA 记录无法查询到。
 
->! 如果使用 AES/DES 加密，`cloud.tencent.com` 和 ip 参数中的 `1.2.3.4`应为加密后的数据。
+>! 如果使用 AES/DES 加密，`cloud.tencent.com` 和 ip 参数中的 `1.2.3.4` 应为加密后的数据。
 
 ### 批量域名请求
 ```
