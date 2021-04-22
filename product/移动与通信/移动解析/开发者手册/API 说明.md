@@ -11,7 +11,7 @@
 <thead>
 <tr>
 <th width="5%">参数名</th>
-<th width="25%">参数含义</th>
+<th width="28%">参数含义</th>
 <th width="5%">是否必选</th>
 <th width="15%">取值</th>
 <th width="5%">加密</th>
