@@ -6,8 +6,8 @@
 ## 2. 使用 HTTPDNS API 接口解析域名
 开通服务后，授权 ID 和加密密钥及 HTTPS Token 将发送至您在腾讯云 [账号中心](https://console.cloud.tencent.com/developer/security) 设置的安全邮箱。
 获取授权 ID 和加密密钥及 HTTPS Token 后，才可以使用 `http://119.29.29.99/d?dn=[域名加密后的字符串]&id=[授权ID]&ttl=1` 的格式请求解析。
-具体加密方式参考 [加密指引](https://cloud.tencent.com/document/product/379/3530)。
-具体请求格式参考 [API 说明](1)。
+- 具体加密方式参考 [加密指引](https://cloud.tencent.com/document/product/379/3530)。
+- 具体请求格式参考 [API 说明](https://cloud.tencent.com/document/product/379/54976)。
 
 ## 3. 客户端改造
 将客户端的解析方式改为 HTTPDNS 解析，注意在接入过程中需要**保留 LocalDNS 的解析方式作为备选**，具体可以参考接入 [最佳实践](/doc/product/379/最佳实践)。
