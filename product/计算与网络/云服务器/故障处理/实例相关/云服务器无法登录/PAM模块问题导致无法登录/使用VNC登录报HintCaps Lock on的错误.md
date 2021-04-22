@@ -5,7 +5,7 @@
 ![](https://main.qcloudimg.com/raw/db09e73d2a057fb8b297ffd31bf67b62.png)
 
 ## 可能原因
-可能是由于频繁暴力破解导致 `/var/log/btmp` 日志容量过大。该文件用于记录错误登录的日志，容量过大会导致登录是写入日志异常，造成无法正常登录。如下图所示：
+可能是由于频繁暴力破解导致 `/var/log/btmp` 日志容量过大。该文件用于记录错误登录的日志，容量过大会导致登录时写入日志异常，造成无法正常登录。如下图所示：
 ![](https://main.qcloudimg.com/raw/c19f9e57a67ce6b1ed30cee22af9964c.png)
 
 ## 解决思路
@@ -15,7 +15,7 @@
 ## 处理步骤[](id:ProcessingSteps)
 1. 尝试使用 SSH 登录云服务器，详情请参见 [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)。
 	- 登录成功，则执行下一步。
-	- 登录失败，则需使用单用户模式，详情请参见 [通过控制台进入 Linux 实例单用户模式](https://cloud.tencent.com/developer/article/1729568)。
+	- 登录失败，则需使用单用户模式，详情请参见 [通过控制台进入 Linux 实例单用户模式](https://cloud.tencent.com/document/product/213/33321)。
 2. 进入 `/var/log` 查看日志文件 `/var/log/btmp` 容量。
 3. 若日志文件 `/var/log/btmp` 容量过大，则执行以下命令，对 btmp 日志内容进行清空。清空日志文件后，即可恢复登录。
 ```

@@ -6,8 +6,8 @@
          <th>屏幕分享</th>  
      </tr>
 <tr>
-<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/enterroom.gif"/></td>
-<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/screencapture.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/enterroom.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/screencapture.gif"/></td>
 </tr>
 </table>
 

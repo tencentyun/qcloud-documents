@@ -184,11 +184,25 @@ GET https://api.meeting.qq.com/v1/meetings/7567173273889276131?userid=tester1&in
             "live_password":"654321",
             "enable_live_im":true,
             "enable_live_replay":true,
-            "live_addr":"https://meeting.tencent.com/l/xxxx"
-        }    
+            "live_addr":"https://meeting.tencent.com/l/xxxx",
+            "live_watermark":{
+                "watermark_opt":0
+            }
+        },
+        "meeting_room_info":[
+            {"meeting_room_id":"133195"}
+        ],
+        "guests":[
+            {
+                "area":"86",
+                "phone_number":"xxxxxxxxx",
+                "guest_name":"xxxx"
+            }
+        ]   
     }  
   ]
 }
+
 ```
 #### 输出示例（周期性会议）
 ```plaintext

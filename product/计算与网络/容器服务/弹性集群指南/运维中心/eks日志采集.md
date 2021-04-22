@@ -18,7 +18,7 @@ EKS 日志采集功能开启后，日志采集 Agent 根据您配置的采集路
 - 需确认 Kubernetes 集群能够访问日志消费端。
 - 日志长度限制为单条2M，如果超过则会截断。
   <dx-alert infotype="notice" title="">
-若日志输出速率过快，为避免 OOM，需要调整此参数配置，详情请参见 []()。
+若日志输出速率过快，为避免 OOM，需要调整此参数配置，详情请参见 [如何调整日志采集配置](https://cloud.tencent.com/document/product/457/54614)。
 </dx-alert>
 
 

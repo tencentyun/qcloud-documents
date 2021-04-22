@@ -1,7 +1,7 @@
 ## 效果展示
 <table>
 <tr><th>主动呼叫</th><th>呼叫接听</th></tr>
-<tr><td><img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/videocall/group-call.gif"/></td><td><img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/videocall/group-recv.gif"/></td>
+<tr><td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/group-call.gif"/></td><td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/group-recv.gif"/></td>
 </tr></table>
 
 

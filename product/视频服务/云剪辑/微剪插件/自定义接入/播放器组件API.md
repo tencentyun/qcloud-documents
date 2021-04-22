@@ -84,7 +84,9 @@
 | hideClipControl| -      | -           | 强制隐藏所有的编辑控件                         |
 | preloadSticker| String（spritesheet 地址或 key 值）| -       | 异步方法，预加载贴纸       |
 | preloadTemplate| String（模板 key 值）| -       | 异步方法，预加载模板       |
-| downloadEffect| String（特效 key 值）| -       | 异步方法，预下载alpha类型特效的资源       |
+| downloadEffect| String（特效 key 值）| -       | 异步方法，预下载 alpha 类型特效的资源       |
+| setCoverImage| -| -       | 异步方法，设置封面（seek 到您需要截取封面的位置再调用此方法）       |
+| getCoverImage| -| Object (path, width, height)       | 获取封面信息，如果没有先 setCoverImage，则自动获取第一帧的画面       |
 
 播放器围绕 Tracks 和 Clips 进行视频渲染， 前文数据结构详细介绍了 Tracks 和 Clips 直接的关系。接下来，我们一起来看一下如何对播放器进行渲染。
 

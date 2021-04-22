@@ -1,4 +1,4 @@
-[VPN 连接](https://cloud.tencent.com/document/product/554) 是一种基于网络隧道技术，实现本地数据中心与腾讯云上资源连通的传输服务，它能帮您在 Internet 上快速构建一条安全、可靠的加密通道。
+[VPN 连接](https://cloud.tencent.com/document/product/554/18980) 是一种基于网络隧道技术，实现本地数据中心与腾讯云上资源连通的传输服务，它能帮您在 Internet 上快速构建一条安全、可靠的加密通道。
 
 关于VPN 连接的常用操作，请参见：
 + [管理 VPN 网关](https://cloud.tencent.com/document/product/554/52861)

@@ -49,7 +49,7 @@
 ## 处理步骤[](id:ProcessingSteps)
 1. 尝试使用 SSH 登录云服务器，详情请参见 [使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700)。
 	- 登录成功，则执行下一步。
-	- 登录失败，则需使用单用户模式，详情请参见 [通过控制台进入 Linux 实例单用户模式](https://cloud.tencent.com/developer/article/1729568)。
+	- 登录失败，则需使用单用户模式，详情请参见 [通过控制台进入 Linux 实例单用户模式](https://cloud.tencent.com/document/product/213/33321)。
 2. 登录成功后，执行以下命令查看日志信息。
 ```
 vim /var/log/secure
@@ -75,6 +75,6 @@ sed -i "s/.*pam_tally.*/#&/" /etc/pam.d/login
  - 将 sshd 的默认22端口改为1024 - 65525间的其他非常用端口。详情请参见 [修改云服务器远程默认端口](https://cloud.tencent.com/document/product/213/42838)。
  - 管理云服务器已关联安全组中的规则，只需放通业务和协议所需端口，不建议放通所有协议及端口。详情请参见 [添加安全组规则](https://cloud.tencent.com/document/product/213/39740)。
  - 不建议向公网开放核心应用服务端口访问。例如，mysql 及 redis 等。您可将相关端口修改为本地访问或禁止外网访问。
- - 安装云镜、云锁等防护软件，并添加实时告警，以便及时获取异常登录信息。
+ - 安装云镜等防护软件，并添加实时告警，以便及时获取异常登录信息。
  
 

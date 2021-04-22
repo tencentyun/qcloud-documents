@@ -1,8 +1,8 @@
 ## Version 8.4.1 @ 2021.03.26
 
 **功能新增**
-- Mac：开始支持采集 Mac 操作系统的输出声音[startSystemAudioLoopback](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startSystemAudioLoopback)，也就是跟 Windows 端一样的 SystemLoopback 能力，该功能可以让 SDK 采集当前系统的声音，开启这个功能后，主播就可以很方便地向其他用户直播音乐或者电影文件。
-- Mac：系统音频采集回调 [onSystemAudioLoopbackError](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onSystemAudioLoopbackError)，您可以获取系统音频驱动的运行情况。
+- Mac：开始支持采集 Mac 操作系统的输出声音[startSystemAudioLoopback](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#startSystemAudioLoopback)，也就是跟 Windows 端一样的 SystemLoopback 能力，该功能可以让 SDK 采集当前系统的声音，开启这个功能后，主播就可以很方便地向其他用户直播音乐或者电影文件。
+- Mac：系统音频采集回调 [onSystemAudioLoopbackError](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onSystemAudioLoopbackError)，您可以获取系统音频驱动的运行情况。
 -  Mac：屏幕分享开始支持本地预览功能，您可以通过一个小窗口像用户展示屏幕分享的预览内容。
 - 全平台：支持美颜插件机制。
 
@@ -24,22 +24,22 @@
 ## Version 8.2.7 @ 2021.01.06
 
 **新增**
-- Windows & Mac：新增 [switchRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#switchRoom) 切换房间。
-- Windows & Mac：新增 [setLocalRenderParams](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setLocalRenderParams) 设置本地图像（主流）的渲染参数。
-- Windows & Mac：新增 [setRemoteRenderParams](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setRemoteRenderParams) 设置远端图像的渲染参数。
-- Windows & Mac：新增 [startPlayMusic](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startPlayMusic) 启动播放背景音乐。
-- Windows & Mac：新增 [stopPlayMusic](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#stopPlayMusic) 停止播放背景音乐。
-- Windows & Mac：新增 [pausePlayMusic](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#pausePlayMusic) 暂停播放背景音乐。
-- Windows & Mac：新增 [resumePlayMusic](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#resumePlayMusic) 恢复播放背景音乐。
-- Windows & Mac：新增 [getMusicDurationInMS](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#getMusicDurationInMS) 获取背景音乐文件总时长，单位毫秒。
-- Windows & Mac：新增 [seekMusicToPosInTime](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#seekMusicToPosInTime) 设置背景音乐播放进度。
-- Windows & Mac：新增 [setAllMusicVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setAllMusicVolume) 设置背景音乐的音量大小，播放背景音乐混音时使用，用来控制背景音音量大小。
-- Windows & Mac：新增 [setMusicPlayoutVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setMusicPlayoutVolume) 设置背景音乐本地播放音量的大小。
-- Windows & Mac：新增 [setMusicPublishVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setMusicPublishVolume) 设置背景音乐远端播放音量的大小。
-- Windows & Mac：新增 [onSwitchRoom](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onSwitchRoom) 切换房间回调。
-- Windows & Mac：新增 [setRemoteAudioVolume](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setRemoteAudioVolume) 设置远程用户播放音量。
-- Windows & Mac：新增 [snapshotVideo](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#snapshotVideo) 视频画面截图。
-- Windows & Mac：新增 [onSnapshotComplete](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onSnapshotComplete) 截图完成时回调。
+- Windows & Mac：新增 [switchRoom](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#switchRoom) 切换房间。
+- Windows & Mac：新增 [setLocalRenderParams](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setLocalRenderParams) 设置本地图像（主流）的渲染参数。
+- Windows & Mac：新增 [setRemoteRenderParams](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setRemoteRenderParams) 设置远端图像的渲染参数。
+- Windows & Mac：新增 [startPlayMusic](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#startPlayMusic) 启动播放背景音乐。
+- Windows & Mac：新增 [stopPlayMusic](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#stopPlayMusic) 停止播放背景音乐。
+- Windows & Mac：新增 [pausePlayMusic](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#pausePlayMusic) 暂停播放背景音乐。
+- Windows & Mac：新增 [resumePlayMusic](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#resumePlayMusic) 恢复播放背景音乐。
+- Windows & Mac：新增 [getMusicDurationInMS](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#getMusicDurationInMS) 获取背景音乐文件总时长，单位毫秒。
+- Windows & Mac：新增 [seekMusicToPosInTime](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#seekMusicToPosInTime) 设置背景音乐播放进度。
+- Windows & Mac：新增 [setAllMusicVolume](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setAllMusicVolume) 设置背景音乐的音量大小，播放背景音乐混音时使用，用来控制背景音音量大小。
+- Windows & Mac：新增 [setMusicPlayoutVolume](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setMusicPlayoutVolume) 设置背景音乐本地播放音量的大小。
+- Windows & Mac：新增 [setMusicPublishVolume](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setMusicPublishVolume) 设置背景音乐远端播放音量的大小。
+- Windows & Mac：新增 [onSwitchRoom](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onSwitchRoom) 切换房间回调。
+- Windows & Mac：新增 [setRemoteAudioVolume](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setRemoteAudioVolume) 设置远程用户播放音量。
+- Windows & Mac：新增 [snapshotVideo](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#snapshotVideo) 视频画面截图。
+- Windows & Mac：新增 [onSnapshotComplete](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onSnapshotComplete) 截图完成时回调。
 
 **改进**
 - Windows & Mac：enterRoom 和 switchRoom 支持 string 类型 strRoomId。
@@ -54,13 +54,13 @@
 ## Version 7.8.342 @ 2020.10.10
 
 **新增**
-- Windows & Mac：新增 [onAudioDeviceCaptureVolumeChanged](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onAudioDeviceCaptureVolumeChanged) 当前音频采集设备音量变化回调。
-- Windows & Mac：新增 [onAudioDevicePlayoutVolumeChanged](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCallback.html#event:onAudioDevicePlayoutVolumeChanged) 当前音频播放设备音量变化回调。
+- Windows & Mac：新增 [onAudioDeviceCaptureVolumeChanged](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onAudioDeviceCaptureVolumeChanged) 当前音频采集设备音量变化回调。
+- Windows & Mac：新增 [onAudioDevicePlayoutVolumeChanged](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCallback.html#event:onAudioDevicePlayoutVolumeChanged) 当前音频播放设备音量变化回调。
 
 ## Version 7.7.330 @ 2020.09.11
 
 **新增**
-Windows & Mac：新增 [setAudioQuality](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setAudioQuality) 用于设置音频质量。
+Windows & Mac：新增 [setAudioQuality](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setAudioQuality) 用于设置音频质量。
 
 **改进**
 - Windows：优化在某些低端摄像头下 CPU 使用率过高的问题。
@@ -71,7 +71,7 @@ Windows & Mac：新增 [setAudioQuality](https://trtc-1252463788.file.myqcloud.c
 ## Version 7.6.300 @ 2020.08.26
 
 **新增**
-Windows & Mac：新增 [setCurrentMicDeviceMute](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setCurrentMicDeviceMute) 、[getCurrentMicDeviceMute](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#getCurrentMicDeviceMute)、[setCurrentSpeakerDeviceMute](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setCurrentSpeakerDeviceMute)、[getCurrentSpeakerDeviceMute](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#getCurrentSpeakerDeviceMute) 用于控制 PC 的麦克风和扬声器。
+Windows & Mac：新增 [setCurrentMicDeviceMute](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setCurrentMicDeviceMute) 、[getCurrentMicDeviceMute](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#getCurrentMicDeviceMute)、[setCurrentSpeakerDeviceMute](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setCurrentSpeakerDeviceMute)、[getCurrentSpeakerDeviceMute](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#getCurrentSpeakerDeviceMute) 用于控制 PC 的麦克风和扬声器。
 
 ## Version 7.5.210 @ 2020.08.11
 
@@ -105,11 +105,11 @@ Windows & Mac：新增 [setCurrentMicDeviceMute](https://trtc-1252463788.file.my
 
 **新增**
 
-支持使用 [主路](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/global.html#TRTCVideoStreamType) 进行 [屏幕分享](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#startScreenCapture)。
+支持使用 [主路](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/global.html#TRTCVideoStreamType) 进行 [屏幕分享](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#startScreenCapture)。
 
 **改进**
-- 优化 [混流预设模版](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/global.html#TRTCTranscodingConfigMode) 易用性。
-- 优化 [混流](https://trtc-1252463788.file.myqcloud.com/electron_sdk/docs/TRTCCloud.html#setMixTranscodingConfig)，提升成功率。
+- 优化 [混流预设模版](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/global.html#TRTCTranscodingConfigMode) 易用性。
+- 优化 [混流](https://web.sdk.qcloud.com/trtc/electron/doc/zh-cn/trtc_electron_sdk/TRTCCloud.html#setMixTranscodingConfig)，提升成功率。
 - 优化 Windows 屏幕分享。
 
 

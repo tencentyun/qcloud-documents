@@ -80,9 +80,9 @@ exports.main = async (event, context, callback) => {
 
 关于 Redis 连接，推荐阅读 Redis 官方博客的博文 [Redis Clients Handling](https://redis.io/topics/clients)。
 
-Redis 连接数的配置参数`maxclients`，默认是10000，如果需要修改请提交 [工单申请](https://console.cloud.tencent.com/workorder/category)。
+Redis 连接数的配置参数`maxclients`，默认是10000，可前往 Redis 控制台修改。
 
-云函数中使用 Redis 时，每个云函数实例与 Redis Server 都会有连接，那么此云函数与 Redis 的最大连接数是，单个实例的最大连接数 \* 实际运行的最大并发数；在配置 Redis 的`maxclients`的时候，此参数应该大于使用此数据库的所有云函数的最大连接数之和。
+云函数中使用 Redis 时，每个云函数实例与 Redis Server 都会有连接，那么此云函数与 Redis 的最大连接数是：单个实例的最大连接数 \* 实际运行的最大并发数；在配置 Redis 的`maxclients`的时候，此参数应该大于使用此数据库的所有云函数的最大连接数之和。
 
 因此，在云函数中使用 Redis，建议您将使用到同一个 Redis 实例的所有读写 Redis 的代码集中到一个云函数中，这样做有两个好处：
 

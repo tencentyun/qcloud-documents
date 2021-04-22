@@ -1,21 +1,25 @@
+<style>
+.markdown-text-box table th,.markdown-text-box table td{text-align: center;}
+</style>
+
 ## Native Demo
-<table style="text-align:center;vertical-align:middle;">
+<table>
 <tr>
 <th>iOS</th><th>Android</th><th>Windows</th><th >Mac OS</th>
 </tr>
 <tr>
-<td><img style="width:150px" src="https://main.qcloudimg.com/raw/7a2a1fc253e7b6afee96538e90d3cf79.png" data-nonescope="true"></td>
-<td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/TRTC/Demo/TRTCDemo.apk')"><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/8c59496262e772a492b50c6e1b9cff52.png);background-size: cover;">
+<td><img style="width:150px" src="https://main.qcloudimg.com/raw/a1a6fd4a9bc3ad2b5fe60e31202c8fda.png" data-nonescope="true"></td>
+<td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/TRTCDemo.apk')"><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/8a603ced0a61983018c794df842f7029.png);background-size: cover;">
 </div></a></td>
-<td><a onclick="window.open('https://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Win_Demo.exe')"><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/e80b8f4462e2904b31dcdcaabe71c484.png);background-size: cover;">
+<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/TXLiteAVSDK_Win_Demo.exe')"><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/e80b8f4462e2904b31dcdcaabe71c484.png);background-size: cover;">
 </div></a></td>
-<td><a onclick="window.open('https://trtc-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_Mac_Demo.tar.bz2')"><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/e80b8f4462e2904b31dcdcaabe71c484.png);background-size: cover;">
+<td><a onclick="window.open('https://liteav.sdk.qcloud.com/app/install/TXLiteAVSDK_Mac_Demo.tar.bz2')"><div style="width:150px;height: 150px;background-image:url(https://main.qcloudimg.com/raw/e80b8f4462e2904b31dcdcaabe71c484.png);background-size: cover;">
 </div></a></td>
 </tr>
 </table>
 
 ## 跨平台 Demo
-<table style="text-align:center;vertical-align:middle;">
+<table>
 <tr>
 <th>微信小程序</th><th>桌面浏览器</th><th>Flutter </th><th>Electron</th>
 </tr>
@@ -28,17 +32,19 @@
     box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://web.sdk.qcloud.com/trtc/webrtc/demo/latest/official-demo/index.html')" /><br><br>
       <input type="button" value="互动直播" style="height: 30px;width: 150px;margin-top: 5px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;
     color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
-    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://trtc.qcloud.com/tweblive/index.html#/')" />
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html')" />
 </td>
 <td><img style="width:150px" src="https://main.qcloudimg.com/raw/14d9fe31881712884e3e4d09c32fd219.png" data-nonescope="true"><br><img style="width:150px" src="https://main.qcloudimg.com/raw/9a256a1053da15b9f63323242854be1e.png" data-nonescope="true"></td>
 <td><input type="button" value="Windows 版" style="height: 30px;width: 150px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;
     color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
-    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/electron_sdk/solution/education/TRTC_Education_Demo%20Setup%201.1.0.exe?_ga=1.35276513.1325816544.1607066203')" /><br><br>
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;"  onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/education/TRTC_Education_Demo%20Setup%201.1.0.exe')" /><br><br>
       <input type="button" value="MacOS 版" style="height: 30px;width: 150px;margin-top: 5px;min-width: 24px;padding: 0 20px;background-color: #00a4ff;
     color: #fff;border: 1px solid #00a4ff;line-height: 30px;text-align: center;display: inline-block;cursor: pointer;outline: 0 none;
-    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://trtc-1252463788.cos.ap-guangzhou.myqcloud.com/electron_sdk/solution/education/TRTC_Education_Demo-1.1.0.dmg?_ga=1.35276513.1325816544.1607066203/')" /></td>
+    box-sizing: border-box;text-decoration: none;font-size: 12px;vertical-align: middle;white-space: nowrap;" onclick="window.open('https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/TRTC-EDUCATION-DEMO-1.2.0.dmg')" /></td>
 </tr>
 </table>
+
+
 
 ## 视频通话场景
 视频通话场景即两人或多人视频通话，支持720P、1080P高清画质；单个房间最多支持300人同时在线，最多支持50人同时开启摄像头。常见应用场景有1对1视频通话、300人视频会议、在线问诊、视频聊天、视频客服、视频面审、视频双录、在线理赔、视频狼人杀等。
@@ -50,8 +56,8 @@
    <th>被叫接听</th>
  </tr>
 <tr>
-<td><img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/videocall/group-call.gif"/></td>
-<td><img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/videocall/group-recv.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/group-call.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/group-recv.gif"/></td>
 </tr>
 </table>
 :::
@@ -88,8 +94,8 @@
    <th>被叫接听</th>
  </tr>
 <tr>
-<td><img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/audiocall/call.gif"/></td>
-<td><img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/audiocall/recv.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/call.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/recv.gif"/></td>
 </tr>
 </table>
 :::
@@ -110,10 +116,10 @@
 ::: iOS&Android
 <table>
 <tr>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcliveroom/beauty.gif"/></td>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcliveroom/join.gif"/></td>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcliveroom/msg.gif"/></td>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcliveroom/pk.gif"/></td>
+<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/beauty.gif"/></td>
+<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/join.gif"/></td>
+<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/msg.gif"/></td>
+<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/pk.gif"/></td>
 </tr>
 </table>
 :::
@@ -130,8 +136,8 @@
          <th>观众麦位操作</th>  
      </tr>
 <tr>
-<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/voiceroom_pick_seat.gif"/></td>
-<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/voiceroom_enter_seat.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/voiceroom_pick_seat.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/voiceroom_enter_seat.gif"/></td>
 </tr>
 </table>
 
@@ -144,8 +150,8 @@
          <th>屏幕分享</th>  
      </tr>
 <tr>
-<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/enterroom.gif"/></td>
-<td><img src="https://liteav-test-1252463788.cos.ap-guangzhou.myqcloud.com/gif/screencapture.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/enterroom.gif"/></td>
+<td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/enterroom.gif"/></td>
 </tr>
 </table>
 

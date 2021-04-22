@@ -64,7 +64,7 @@ TRTC 是腾讯云 LiteAV 系列产品之一，由于 LiteAV 体系的 SDK 都使
    </tr>
      <tr>
       <td style="text-align:center">桌面浏览器</td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_web_trtc") href="https://web.sdk.qcloud.com/trtc/webrtc/download/latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_web_trtc") href="https://web.sdk.qcloud.com/trtc/webrtc/download/webrtc_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/TRTCSDK">Github</a></td>
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32398">DOC</a></td>
@@ -73,7 +73,7 @@ TRTC 是腾讯云 LiteAV 系列产品之一，由于 LiteAV 体系的 SDK 都使
    </tr>
    <tr>
       <td style="text-align:center">Electron  </td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_wxmini_trtc") href="https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Electron_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_electron_trtc") href="https://web.sdk.qcloud.com/trtc/electron/download/TXLiteAVSDK_TRTC_Electron_latest.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/TRTCSDK">Github</a></td>
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/38548">DOC</a></td>
@@ -82,7 +82,7 @@ TRTC 是腾讯云 LiteAV 系列产品之一，由于 LiteAV 体系的 SDK 都使
    </tr>
    <tr>
       <td style="text-align:center">微信小程序 </td>
-      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_wxmini_trtc") href="https://liteavsdk-1252463788.cosgz.myqcloud.com/TRTC_WXMini_latest.zip">DOWNLOAD</a></td>
+      <td style="text-align:center"><a onclick=MtaH5.clickStat("trtc_sdk_download_wxmini_trtc") href="https://web.sdk.qcloud.com/trtc/miniapp/download/trtc-room.zip">DOWNLOAD</a></td>
       <td style="text-align:center"><a href="https://github.com/tencentyun/TRTCSDK">Github</a></td>
       <td style="text-align:center"><a href="https://gitee.com/cloudtencent/TRTCSDK">Gitee</a></td>
       <td style="text-align:center"><a href="https://cloud.tencent.com/document/product/647/32399">DOC</a></td>

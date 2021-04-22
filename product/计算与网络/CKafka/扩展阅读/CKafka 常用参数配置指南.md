@@ -163,7 +163,7 @@ fetch.max.bytes=52428800
 # Fetch 请求等待时间
 fetch.max.wait.ms=500
 
-# Fetch 请求每个 partition 返回的最大数据大小，默认为10MB
+# Fetch 请求每个 partition 返回的最大数据大小，默认为1MB
 max.partition.fetch.bytes=1048576
 
 # 在一次 poll 调用中返回的记录数

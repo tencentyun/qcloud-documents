@@ -1,7 +1,7 @@
 ## 超低延时直播概述
 超低延时直播，是腾讯云基于目前市场需求推出的新的直播场景解决方案，可以快速实现超低延时的互动直播功能，支持30w观众的并发播放，以及30人的实时连麦互动，适用于主播和观众有着较强的同步需求，需要频繁互动的场景。
 
-<img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/mlvb/ultra-low_latency_live/rtc_compare_cdn.gif">
+<img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/rtc_compare_cdn.gif">
 
 > ?上图为超低延时直播和标准的 CDN 直播的真实对比视频（使用 [scrcpy 工具](https://github.com/Genymobile/scrcpy) 配合录制），从左至右分别为：源视频、**超低延时直播（延时80ms）**、标准的 CDN 直播。
 
@@ -60,12 +60,12 @@
     <td><img width="150" src="https://main.qcloudimg.com/raw/bff0cfca4585c448f308b339a6c17c1c.png"> </td>
     <td rowspan="2">
       <div align="center">
-        <img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/mlvb/ultra-low_latency_live/push.gif"/>
+        <img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/push.gif"/>
       </div>
     </td>
     <td rowspan="2">
       <div align="center">
-        <img src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/mlvb/ultra-low_latency_live/play.gif"/>
+        <img src="https://liteav.sdk.qcloud.com/doc/res/mlvb/picture/play.gif"/>
       </div>
     </td>
   </tr>
