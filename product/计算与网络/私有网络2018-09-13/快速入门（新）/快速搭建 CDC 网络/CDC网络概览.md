@@ -10,7 +10,7 @@ CDC支持的网络功能包括：
 + 支持安全组、ACL、流日志
 + 支持访问主 Region 云上公共服务，如 DNS、YUM 等
 + 本地 IDC 通信
-+ 本地 EIP
++ 弹性 IP
 + 公网 CLB 通信
 
 ![](https://main.qcloudimg.com/raw/589aa793b1268761919ef4c437e04d9e.png)
