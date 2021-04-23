@@ -383,7 +383,7 @@ VPA 使用 `lowerBound` 和 `upperBound` 推荐值来决定是否驱逐 Pod 并�
 
 ## 故障处理
 
-### 1. 执行 `vpa-up.sh` 脚本时报错
+#### 1. 执行 `vpa-up.sh` 脚本时报错
 
 #### 报错信息
 ```shell
@@ -396,7 +396,7 @@ ERROR: Failed to create CA certificate for self-signing. If the error is "unknow
  - 检查集群 CVM 的 `openssl` 版本是否大于 1.1.1。
  - 使用 Autoscaler 项目的 `vpa-release-0.8` 分支
 
-### 2. VPA 相关负载无法启动
+#### 2. VPA 相关负载无法启动
 
 #### 报错信息
 如果您的 VPA 相关负载无法启动，并产生如下图所示信息：
