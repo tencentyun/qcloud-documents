@@ -6,7 +6,7 @@
 > - 与同规格的 [标准型云服务器 CVM](https://cloud.tencent.com/document/product/213/11518#S) 相比，轻量应用服务器的 CPU、内存性能与其处于同一水准。
 >
 
-轻量应用服务器与云服务器 CVM 的主要区别请参考下表：
+轻量应用服务器相比云服务器 CVM 的主要区别和优势请参考下表：
 <table style="width:908px;">
 <tr>
 <th style="width:95px;height:45px;position:relative;font-weight:700;" valign="top" colspan="2"><div style="position:absolute;width:1px;height: 244px;top:0;left:0;background-color: #d9d9d9;transform: rotate(-76deg);transform-origin:top;"></div><div style="position:relative;left:150px">产品</div>优势</th>
