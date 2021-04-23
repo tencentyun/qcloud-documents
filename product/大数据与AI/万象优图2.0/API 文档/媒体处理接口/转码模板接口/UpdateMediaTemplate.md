@@ -102,7 +102,7 @@ Container 类型 Video 的具体数据描述如下：
 | Profile                    | Request.Video | 编码级别              | String | 否   | high         |  <li>支持 baseline、main、high<br/> <li>baseline：适合移动设备<br/> <li>main：适合标准分辨率设备<br/> <li>high：适合高分辨率设备<br/> <li>仅H.264支持此参数 |
 | Bitrate                    | Request.Video | 视频输出文件的码率    | String | 否   |  视频原始码率           |  <li>值范围：[10，50000]<br/> <li>单位：Kbps                     |
 | Crf                        | Request.Video | 码率-质量控制因子     | String | 否   | 空           |  <li>值范围：[0，51]<br/> <li>如果设置了 Crf，则 Bitrate 的设置失效 <br/> <li>默认为不设置 Crf  |
-| Gop                        | Request.Video | 关键帧间最大帧数      | String | 否   |  无            | <li>值范围：[0，100000]  <br/> <li>默认不设置 Gop                                        |
+| Gop                        | Request.Video | 关键帧间最大帧数      | String | 否   |  空            | <li>值范围：[0，100000]  <br/> <li>默认不设置 Gop                                        |
 | Preset                     | Request.Video | 视频算法器预置        | String | 否   | medium       |  <li>仅H.264支持该参数<br/> <li>取值 veryfast、fast、medium、slow、slower |
 | Bufsize                    | Request.Video | 缓冲区大小            | String | 否   | 0            |  <li>值范围：[1000，128000]<br/> <li>单位：Kb<br/> <li>默认值为0，表示不使用缓冲区 |
 | Maxrate                    | Request.Video | 视频码率峰值          | String | 否   | 0            |  <li>值范围：[10，50000]<br/> <li>单位：Kbps<br/> <li>默认值为0，表示不使用此参数 |
@@ -227,6 +227,8 @@ Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 1666
 Content-Type: application/xml
 
+
+
 <Request>
     <Tag>Transcode</Tag>
     <Name>TemplateName</Name>
@@ -275,6 +277,8 @@ Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
+
+
 
 <Response>
     <Template>
