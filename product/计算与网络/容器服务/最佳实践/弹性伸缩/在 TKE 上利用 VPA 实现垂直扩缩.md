@@ -383,7 +383,7 @@ VPA 使用 `lowerBound` 和 `upperBound` 推荐值来决定是否驱逐 Pod 并�
 
 ## 故障处理
 
-#### 1. 执行 `vpa-up.sh` 脚本时报错
+### 1. 执行 `vpa-up.sh` 脚本时报错
 
 #### 报错信息
 ```shell
@@ -394,9 +394,9 @@ ERROR: Failed to create CA certificate for self-signing. If the error is "unknow
 1. 如果您没有通过集群中的云服务器执行命令，建议您在云服务器中下载 Autoscaler 项目，并执行完整的 [部署 VPAhttps://main.qcloudimg.com/raw/026ae791429cb584fa1c61af3ac8340f.png](#VPA) 的操作。如需为您的云服务器连接集群，详情可参见 [连接集群](https://cloud.tencent.com/document/product/457/32191)。
 2. 如出现继续报错的情况，请检查是否存在以下问题：
  - 检查集群 CVM 的 `openssl` 版本是否大于 1.1.1。
- - 使用 Autoscaler 项目的 `vpa-release-0.8` 分支
+ - 是否使用 Autoscaler 项目的 `vpa-release-0.8` 分支。
 
-#### 2. VPA 相关负载无法启动
+### 2. VPA 相关负载无法启动
 
 #### 报错信息
 如果您的 VPA 相关负载无法启动，并产生如下图所示信息：
