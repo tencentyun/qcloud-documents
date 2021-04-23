@@ -18,7 +18,7 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 	>?用户可在拥有 VPC 的所有国内地域（支持香港地域）中进行地域选择，但已经创建了 NAT 边界防火墙的地域将无法选择。
 	- **可选区**：根据需求选合适的择可用区。
 	- **实例名称**：输入实例名称。
-	- **带宽规格**：根据需求选择带宽规格，最小20Mbps，最大60Mbps，如需更多带宽请 [升级扩容](https://buy.cloud.tencent.com/cfw)。
+	- **带宽规格**：根据需求选择带宽规格，最小20Mbps，最大60Mbps，如需更多带宽请 [升级扩容](https://buy.cloud.tencent.com/cfw?type=modify&adtag=cfw.from.console.page.buy)。
 	>?互联网带宽保持一致，如果分了多个 NAT 防火墙，那么多个 NAT 防火墙的带宽之和，要小于等于互联网边界的带宽。
 	- **模式**：分为新增模式和接入模式。
 		- **新增模式**：若当前地域没有 NAT 网关，新增模式可以通过 NAT 边界防火墙内置的 NAT 功能，实现指定实例通过防火墙访问互联网。
@@ -105,6 +105,28 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 	>- 解除绑定某个弹性 IP 时，页面上与其相应的 DNAT 规则也会消失。
 	>
 ![](https://main.qcloudimg.com/raw/48461beaa0162204aa2db464d949458a.png)
+
+### 升级扩容
+1. 在 [NAT 边界开关](https://console.cloud.tencent.com/cfw/switch/nat) 页面下，单击【升级扩容】。
+![](https://main.qcloudimg.com/raw/ff67ed7ed725dcaa53a9dd2b13791da5.png)
+2. 在 NAT 边界网关页面，可以直接调整带宽规格。
+>?
+>- 调整的范围与互联网带宽保持一致，如果分了多个 NAT 防火墙，那么多个 NAT 防火墙的带宽之和，要小于等于互联网边界的带宽。
+>- 如果目标带宽超过当前购买的带宽规格，可以单击 [升级扩容](https://buy.cloud.tencent.com/cfw?type=modify&adtag=cfw.from.console.page.buy)，来调整互联网边界带宽。
+>- 如果是小范围调整带宽，后台修改，无需切换网络。在较大范围调整带宽时，需要重新配置网络，否则会造成业务闪断。
+>
+![](https://main.qcloudimg.com/raw/3038bb363ab8ce1914400287ea18da82.png)
+
+### 监控情况
+在 [NAT 边界开关](https://console.cloud.tencent.com/cfw/switch/nat) 页面，可进行查看并监控基于 NAT 边界的带宽情况、同步资产、网络拓扑等。
+1. 在状态监控面板右上角，单击统计按钮，进入防火墙状态监控页面。
+![](https://main.qcloudimg.com/raw/b2bde53bb5413094f075911a883608dd.png)
+2. 在防火墙状态监控页面，可实时查看并监控基于 NAT 边界的带宽情况，可避免因 NAT 边界防火墙带宽超出规格而带来网络丢包和波动，从而及时作出扩容或关闭部分开关等调整。
+![](https://main.qcloudimg.com/raw/4b2b7b993418e8287b0d3debea58cdd7.png)
+
+### 同步资产
+在 [NAT 边界开关](https://console.cloud.tencent.com/cfw/switch/nat) 页面下，单击【同步资产】，可以主动调用后台接口重新读取并同步用户子网的资产信息，可避免发生因用户资产规模在后台轮询间隔内发生变化，但尚未被同步的情况。
+![](https://main.qcloudimg.com/raw/562aca3bf423d65b4f42fd7d5b469e67.png)
 
 
 ## 相关信息
