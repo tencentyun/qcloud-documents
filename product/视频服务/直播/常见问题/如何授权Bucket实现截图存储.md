@@ -22,7 +22,7 @@
 ![](https://main.qcloudimg.com/raw/e7e90c31cccdda1f9b9ede3024346e0f.png)
 ![](https://main.qcloudimg.com/raw/2848fee89c03a70cc4aa6b55087e7c8b.png)
 >! <b>账号 ID 需填入根账号（也就是主账号） ID：`125****577` 进行授权。（根账号 ID：`125****577` 即为云直播服务 APPID，直接输入 `125****577` 即可）</b>。
-   2. 存储桶访问权限设置 API 可参考 [PUT Bucket acl 文档](https://cloud.tencent.com/document/product/436/7737)。
+   2. 存储桶访问权限设置 API 请参考 [PUT Bucket acl 文档](https://cloud.tencent.com/document/product/436/7737)。
 2. 获取已授权 COS Bucket 信息。
    1. 在存储桶的【[概览](https://console.cloud.tencent.com/cos5/bucket/setting?type=bucketoverview&bucketName=text-1258968577&projectId=&path=%252F&region=ap-guangzhou)】里即可查看到 COS 的所有信息。访问域名（源站域名）包含 bucket name、cos appid 和 bucket region。
 ![](https://main.qcloudimg.com/raw/81d6c9907a6ead48a83451be4a62843e.png)
