@@ -3,21 +3,18 @@ Kubernetes Pod 垂直自动扩缩（[Vertical Pod Autoscaler](https://github.com
 
 ## 使用场景
 
-VPA 自动伸缩特性使容器服务具有非常灵活的自适应能力。应对业务负载急剧飙升的情况时，VPA 能够在用户设定范围内快速扩大容器的 Request。在业务负载变小的情况下，VPA 可根据实际情况适当缩小 Request 来节省计算资源给其它的服务。整个过程自动化无须人为干预，适用于需要快速扩容、有状态应用扩容等场景。
-
-此外，VPA 可用于向用户推荐更合理的 Request，在保证容器有足够使用的资源的情况下，提升容器的资源利用率。
+VPA 自动伸缩特性使容器服务具有非常灵活的自适应能力。应对业务负载急剧飙升的情况，VPA 能够在用户设定范围内快速扩大容器的 Request。在业务负载变小的情况下，VPA 可根据实际情况适当缩小 Request 节省计算资源。整个过程自动化无须人为干预，适用于需要快速扩容、有状态应用扩容等场景。此外，VPA 可用于向用户推荐更合理的 Request，在保证容器有足够使用的资源的情况下，提升容器的资源利用率。
 
 
-## VPA 优势与限制
-### VPA 优势
+## VPA 优势
 相较于 [自动伸缩功能 HPA](https://cloud.tencent.com/document/product/457/37384)，VPA 具有以下优势：
 - VPA 扩容不需要调整 Pod 副本数量，扩容速度更快。
 - 有状态应用可以通过 VPA 实现扩容，HPA 则不适合有状态应用的水平扩容。
-- Request 设置过大时，即使使用 HPA 水平缩容到只有一个 Pod，资源利用率依旧很低。此时可以通过 VPA 进行垂直缩容。
+- Request 设置过大，使用 HPA 水平缩容至一个 Pod 时资源利用率仍然很低，此时可以通过 VPA 进行垂直缩容提高集群资源利用率。
 
 
 
-### VPA 限制
+## VPA 限制
 
 <dx-alert infotype="notice" title="">
 社区 VPA 功能当前处于试验阶段，请谨慎使用。推荐您将 “updateMode” 设置为 “Off”，以确保 VPA 不会自动替您更换 Request 数值。您仍然可以在 VPA 对象中查看到已绑定负载的 Request 推荐值。
@@ -25,15 +22,14 @@ VPA 自动伸缩特性使容器服务具有非常灵活的自适应能力。应�
 
 - 自动更新正在运行的 Pod 资源是 VPA 的一项实验功能。当 VPA 更新 Pod 资源时，会导致 Pod 的重建和重启，并且有可能被调度到其他节点上。
 - VPA 不会驱逐不在控制器下运行的 Pod。对于此类 Pod，`Auto` 模式等效于 `Initial`。
-- **VPA** 与 **HPA** 不可同时在 CPU 和内存需求上运行。
-- 目前不可在 CPU 或内存上将 **VPA** 与 **Horizontal Pod AutoscalerHPA）**一起使用。 除非 HPA 使用是除了 CPU 和内存以外的指标，例如 [使用自定义指标进行 HPA](在 TKE 上使用自定义指标进行弹性伸缩.md)
-- VPA 使用 Admission Webhook 作为其准入控制器。如果集群中存在其它的 Admission Webhook，需要确保它们不会与 VPA 的 Admission Webhook 发生冲突。准入控制器的执行顺序定义在 API Server 的配置参数中
-- VPA 对大多数 OOM（Out Of Memory）事件做出反应，但并非在所有情况下都做出反应
-- VPA 性能尚未在大型群集中进行测试
-- VPA 建议可能会超出可用资源（例如节点资源上限、空闲资源或资源配额），并导致 Pod 处于 Pending 状态无法被调度。通过将 VPA 与 [Cluster Autoscaler](../../控制台指南（新版）/节点池管理/节点池概述.md) 一起使用，可以部分解决此问题
-- 与同一个 Pod 匹配的多个 VPA 资源具有未定义的行为
+- VPA 与 HPA 不可同时在 CPU 和内存预留上运行。如需同时运行 **VPA** 与 **HPA**，则 HPA 需使用除 CPU 和内存以外的指标，详情可参见 [在 TKE 上使用自定义指标进行弹性伸缩](https://cloud.tencent.com/document/product/457/50125)。
+- VPA 使用 Admission Webhook 作为其准入控制器。如果集群中存在其他的 Admission Webhook，需要确保它们不会与 VPA 的 Admission Webhook 发生冲突。准入控制器的执行顺序定义在 API Server 的配置参数中。
+- VPA 会处理大多数 OOM（Out Of Memory）事件。
+- VPA 性能尚未在大型群集中进行测试。
+- VPA 对 Pod 资源 Request 的建议值可能会超出可用资源（例如节点资源上限、空闲资源或资源配额），并导致 Pod 处于 Pending 状态无法被调度。同时使用 VPA 与 [Cluster Autoscaler](https://cloud.tencent.com/document/product/457/43719) 可以部分解决此问题。
+- 与同一个 Pod 匹配的多个 VPA 资源具有未定义的行为。
 
-完整请参考 [VPA Known limitations](https://github.com/kubernetes/autoscaler/tree/vpa-release-0.8/vertical-pod-autoscaler#known-limitations)
+更多 VPA 限制请参见 [VPA Known limitations](https://github.com/kubernetes/autoscaler/tree/vpa-release-0.8/vertical-pod-autoscaler#known-limitations)。
 
 ## 前提条件
 - 已创建容器服务 TKE 集群。如果您还未创建集群，请参考 [快速创建一个标准集群](https://cloud.tencent.com/document/product/457/54231)。
@@ -79,7 +75,7 @@ kubectl get deploy -n kube-system | grep vpa
 
 
 
-在本示例中，您将创建 `updateMode` 为 “Off” 的 VPA 对象，并创建具有两个 Pod 的 Deployment，每个 Pod 各有一个容器。在创建 Pod 后，VPA 会分析容器的 CPU 和内存需求，并在 `status` 字段中记录 Request 推荐值。VPA 不会自动更新正在运行的容器的资源请求。
+在本示例中，您将创建 `updateMode` 为 `Off` 的 VPA 对象，并创建具有两个 Pod 的 Deployment，每个 Pod 各有一个容器。在创建 Pod 后，VPA 会分析容器的 CPU 和内存需求，并在 `status` 字段中记录 Request 推荐值。VPA 不会自动更新正在运行的容器的资源请求。
 
 在终端中执行以下命令，生成一个名为 `tke-vpa` 的 VPA 对象，指向一个名为 `tke-deployment` 的 Deployment：
 
@@ -88,14 +84,14 @@ cat <<EOF | kubectl apply -f -
 apiVersion: autoscaling.k8s.io/v1
 kind: VerticalPodAutoscaler
 metadata:
-  name: tke-vpa
+    name: tke-vpa
 spec:
-  targetRef:
-    apiVersion: "apps/v1"
-    kind: Deployment
-    name: tke-deployment
-  updatePolicy:
-    updateMode: "Off"
+    targetRef:
+      apiVersion: "apps/v1"
+      kind: Deployment
+      name: tke-deployment
+    updatePolicy:
+      updateMode: "Off"
 EOF
 ```
 
@@ -106,20 +102,20 @@ cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tke-deployment
+    name: tke-deployment
 spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: tke-deployment
-  template:
-    metadata:
-      labels:
+    replicas: 2
+    selector:
+      matchLabels:
         app: tke-deployment
-    spec:
-      containers:
-      - name: tke-container
-        image: nginx
+    template:
+      metadata:
+        labels:
+          app: tke-deployment
+      spec:
+        containers:
+        - name: tke-container
+          image: nginx
 EOF
 ```
 
@@ -131,9 +127,6 @@ EOF
 >
 
 
-待 VPA 运行一小段时间后，您就可以看到 VPA 推荐的 CPU 和内存的 Request，如上图中红框所示。您可以通过以下命令查看 VPA 推荐的具体值：
-
-
 执行以下命令，您可以查看 VPA 推荐的 CPU 和内存 Request：
 ```shell
 kubectl get vpa tke-vpa -o yaml
@@ -143,20 +136,20 @@ kubectl get vpa tke-vpa -o yaml
 ```yaml
 ...
 recommendation:
-    containerRecommendations:
-    - containerName: tke-container
-      lowerBound:
-        cpu: 25m
-        memory: 262144k
-      target:	# 推荐值
-        cpu: 25m
-        memory: 262144k
-      uncappedTarget:
-        cpu: 25m
-        memory: 262144k
-      upperBound:
-        cpu: 1771m
-        memory: 1851500k
+      containerRecommendations:
+      - containerName: tke-container
+        lowerBound:
+          cpu: 25m
+          memory: 262144k
+        target:	# 推荐值
+          cpu: 25m
+          memory: 262144k
+        uncappedTarget:
+          cpu: 25m
+          memory: 262144k
+        upperBound:
+          cpu: 1771m
+          memory: 1851500k
 ```
 
 其中 `target` 对应的 CPU 和内存为推荐 Request。您可以选择删除之前的 Deployment，并使用推荐的 Request 值创建新的 Deployment。
@@ -165,16 +158,16 @@ recommendation:
 |---------|---------|
 |  **lowerBound** | 推荐的最小值。使用小于该值的 Request 可能会对性能或可用性产生重大影响。 | 
 | **target** | 推荐值。由 VPA 计算出最合适的 Request。 | 
-| **uncappedTarget** | 最新建议值。仅基于实际资源使用情况，不考虑。 `.spec.resourcePolicy.containerPolicies` 中设置的容器可以被推荐的数值范围。uncappedTarget 可能与推荐上下界限不同。该字段仅用作状态指示，不会影响实际的资源分配。 | 
+| **uncappedTarget** | 最新建议值。仅基于实际资源使用情况，不考虑  `.spec.resourcePolicy.containerPolicies` 中设置的容器可以被推荐的数值范围。uncappedTarget 可能与推荐上下界限不同。该字段仅用作状态指示，不会影响实际的资源分配。 | 
 | **upperBound** |推荐的最大值。使用高于该值的 Request 可能造成浪费。 | 
 
 
 
 ### 示例2：停用特定容器
 
-如果您的 Pod 中有多个容器，一个是真正的业务容器，一个是辅助容器，此时为了节省集群资源，不想为辅助容器推荐 Request，您可以停止它
+如果您的 Pod 中有多个容器，例如一个是真正的业务容器，另一个是辅助容器。为了节省集群资源，您可以选择停止为辅助容器推荐 Request。
 
-在示例中，您将创建一个停用了特定容器的 VPA。然后创建一个 Deployment，其中包含一个 Pod，该 Pod 内又包含两个容器。在创建 Pod 后，VPA 将仅为一个容器创建并计算推荐值，另外一个容器被停用 VPA 的推荐能力。
+在示例中，您将创建一个停用了特定容器的 VPA，并创建一个 Deployment。Deployment 中包含一个 Pod，该 Pod 内包含两个容器。在创建 Pod 后，VPA 仅为一个容器创建并计算推荐值，另外一个容器被停用 VPA 的推荐能力。
 
 在终端中执行以下命令，生成一个名为 `tke-opt-vpa` 的 VPA 对象，指向一个名为 `tke-opt-deployment` 的 Deployment：
 
@@ -183,18 +176,18 @@ cat <<EOF | kubectl apply -f -
 apiVersion: autoscaling.k8s.io/v1
 kind: VerticalPodAutoscaler
 metadata:
-  name: tke-opt-vpa
+    name: tke-opt-vpa
 spec:
-  targetRef:
-    apiVersion: "apps/v1"
-    kind: Deployment
-    name: tke-opt-deployment
-  updatePolicy:
-    updateMode: "Off"
-  resourcePolicy:
-    containerPolicies:
-    - containerName: tke-opt-sidecar
-      mode: "Off"
+    targetRef:
+      apiVersion: "apps/v1"
+      kind: Deployment
+      name: tke-opt-deployment
+    updatePolicy:
+      updateMode: "Off"
+    resourcePolicy:
+      containerPolicies:
+      - containerName: tke-opt-sidecar
+        mode: "Off"
 EOF
 ```
 
@@ -207,23 +200,23 @@ cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tke-opt-deployment
+    name: tke-opt-deployment
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: tke-opt-deployment
-  template:
-    metadata:
-      labels:
+    replicas: 1
+    selector:
+      matchLabels:
         app: tke-opt-deployment
-    spec:
-      containers:
-      - name: tke-opt-container
-        image: nginx
-      - name: tke-opt-sidecar
-        image: busybox
-        command: ["sh","-c","while true; do echo TKE VPA; sleep 60; done"]
+    template:
+      metadata:
+        labels:
+          app: tke-opt-deployment
+      spec:
+        containers:
+        - name: tke-opt-container
+          image: nginx
+        - name: tke-opt-sidecar
+          image: busybox
+          command: ["sh","-c","while true; do echo TKE VPA; sleep 60; done"]
 EOF
 ```
 
@@ -240,28 +233,28 @@ kubectl get vpa tke-opt-vpa -o yaml
 
 ```yaml
 ...
-  recommendation:
-    containerRecommendations:
-    - containerName: tke-opt-container
-      lowerBound:
-        cpu: 25m
-        memory: 262144k
-      target:
-        cpu: 25m
-        memory: 262144k
-      uncappedTarget:
-        cpu: 25m
-        memory: 262144k
-      upperBound:
-        cpu: 1595m
-        memory: 1667500k
+    recommendation:
+      containerRecommendations:
+      - containerName: tke-opt-container
+        lowerBound:
+          cpu: 25m
+          memory: 262144k
+        target:
+          cpu: 25m
+          memory: 262144k
+        uncappedTarget:
+          cpu: 25m
+          memory: 262144k
+        upperBound:
+          cpu: 1595m
+          memory: 1667500k
 ```
 
 在执行结果中，仅有 `tke-opt-container` 的推荐值，没有 `tke-opt-sidecar` 的推荐值。
 
 ### 示例3：自动更新 Request
 
->! 自动更新正在运行的 Pod 资源是 VPA 的一项实验功能，建议不要在生产环境中使用。
+>! 自动更新正在运行的 Pod 资源是 VPA 的一项实验功能，建议不要在生产环境中使用该功能。
 
 
 在本示例中，您将创建一个自动调整 CPU 和内存请求的 VPA，并创建具有两个 Pod 的 Deployment。每个 Pod 都会设置资源的 Request 和 Limits。
@@ -273,14 +266,14 @@ cat <<EOF | kubectl apply -f -
 apiVersion: autoscaling.k8s.io/v1
 kind: VerticalPodAutoscaler
 metadata:
-  name: tke-auto-vpa
+    name: tke-auto-vpa
 spec:
-  targetRef:
-    apiVersion: "apps/v1"
-    kind: Deployment
-    name: tke-auto-deployment
-  updatePolicy:
-    updateMode: "Auto"
+    targetRef:
+      apiVersion: "apps/v1"
+      kind: Deployment
+      name: tke-auto-deployment
+    updatePolicy:
+      updateMode: "Auto"
 EOF
 ```
 
@@ -293,27 +286,27 @@ cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: tke-auto-deployment
+    name: tke-auto-deployment
 spec:
-  replicas: 2
-  selector:
-    matchLabels:
-      app: tke-auto-deployment
-  template:
-    metadata:
-      labels:
+    replicas: 2
+    selector:
+      matchLabels:
         app: tke-auto-deployment
-    spec:
-      containers:
-      - name: tke-container
-        image: nginx
-        resources:
-          requests:
-            cpu: 100m
-            memory: 100Mi
-          limits:
-            cpu: 200m
-            memory: 200Mi
+    template:
+      metadata:
+        labels:
+          app: tke-auto-deployment
+      spec:
+        containers:
+        - name: tke-container
+          image: nginx
+          resources:
+            requests:
+              cpu: 100m
+              memory: 100Mi
+            limits:
+              cpu: 200m
+              memory: 200Mi
 EOF
 ```
 
@@ -325,7 +318,7 @@ EOF
 生成的 Deployment 对象如下图所示：
 ![](https://main.qcloudimg.com/raw/10b6c1a69ea1a3270bd3b9b286a561b3.png)
 
-待 VPA 运行一小段时间后，您就可以看到 VPA 推荐的 CPU 和内存的 Request，如上图中红框所示。
+
 
 执行以下命令，获取正在运行中的 Pod 的详细信息：
 
@@ -339,22 +332,22 @@ kubectl get pod pod-name -o yaml
 apiVersion: v1
 kind: Pod
 metadata:
-  annotations:
-    ...
-    vpaObservedContainers: tke-container
-    vpaUpdates: Pod resources updated by tke-auto-vpa: container 0: memory request, cpu request
+    annotations:
+      ...
+      vpaObservedContainers: tke-container
+      vpaUpdates: Pod resources updated by tke-auto-vpa: container 0: memory request, cpu request
 ...
 spec:
-  containers:
-  ...
-    resources:
-      limits:		# 新的 Request 和 Limits 会维持初始设置的比例
-        cpu: 50m	
-        memory: 500Mi
-      requests:
-        cpu: 25m
-        memory: 262144k
+    containers:
     ...
+      resources:
+        limits:		# 新的 Request 和 Limits 会维持初始设置的比例
+          cpu: 50m	
+          memory: 500Mi
+        requests:
+          cpu: 25m
+          memory: 262144k
+      ...
 ```
 
 执行以下命令，获取相关 VPA 的详细信息：
@@ -367,21 +360,21 @@ kubectl get vpa tke-auto-vpa -o yaml
 
 ```yaml
 ...
-  recommendation:
-    containerRecommendations:
-    - containerName: tke-container
-      Lower Bound:
-        Cpu:     25m
-        Memory:  262144k
-      Target:
-        Cpu:     25m
-        Memory:  262144k
-      Uncapped Target:
-        Cpu:     25m
-        Memory:  262144k
-      Upper Bound:
-        Cpu:     101m
-        Memory:  262144k
+    recommendation:
+      containerRecommendations:
+      - containerName: tke-container
+        Lower Bound:
+          Cpu:     25m
+          Memory:  262144k
+        Target:
+          Cpu:     25m
+          Memory:  262144k
+        Uncapped Target:
+          Cpu:     25m
+          Memory:  262144k
+        Upper Bound:
+          Cpu:     101m
+          Memory:  262144k
 ```
 
 其中 `target` 表示容器请求 25m CPU 和 262144k 的内存时将以最佳状态运行。
