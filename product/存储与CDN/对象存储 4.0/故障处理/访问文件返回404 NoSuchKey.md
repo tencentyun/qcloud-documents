@@ -1,6 +1,7 @@
 ## 现象描述
 
 在访问文件时，提示找不到文件或不显示文件，返回404 NoSuchKey 错误码。
+![](https://main.qcloudimg.com/raw/0974c1635f7a0d9189008b4543b59d4e.png)
 
 ## 可能原因
 
