@@ -1,6 +1,7 @@
 ## 现象描述
 
 使用 HTTPS 协议访问自定义源站域名时报错。
+<img src="https://main.qcloudimg.com/raw/210dc87de0dc28eac8460114c642daef.png" style="width: 50%"></img>
 
 ## 可能原因
 
