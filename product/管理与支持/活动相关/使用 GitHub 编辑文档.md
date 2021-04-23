@@ -8,7 +8,7 @@
 
 ## 操作步骤
 
-1. 在任意一篇 [腾讯云文档](https://cloud.tencent.com/document/product) 中，单击【前往 GitHub 编辑】，提交自己对文档改进的建议。
+1. 在任意一篇 [腾讯云文档](https://cloud.tencent.com/document/product) 中，单击【前往 GitHub 编辑】，提交您对文档改进的建议。
    ![](https://main.qcloudimg.com/raw/c108f17a5037f247fe710bd1bf25c3df.png)
 2. 进入 GitHub 页面，单击<img src ="https://main.qcloudimg.com/raw/dc516033976f7571fec1562ac2d9588e.png" style ="margin:0">进入文档编辑页面。
    ![](https://main.qcloudimg.com/raw/2343c31384b089244ce775173e518cf9.png)
