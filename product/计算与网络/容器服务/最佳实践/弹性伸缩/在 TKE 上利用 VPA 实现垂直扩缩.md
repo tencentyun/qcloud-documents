@@ -25,7 +25,8 @@ VPA 自动伸缩特性使容器服务具有非常灵活的自适应能力。应�
 
 - 更新正在运行的 Pod 资源是 VPA 的一项实验功能。当 VPA 更新 Pod 资源时，会导致 Pod 的重建和重启，并且有可能被调度到其他节点上。
 - VPA 不会驱逐不在控制器下运行的 Pod。对于此类 Pod，`Auto` 模式等效于 `Initial`。
-- 目前不得在 CPU 或内存上将 **VPA** 与 **[Horizontal Pod Autoscaler](https://translate.google.com/website?sl=en&tl=zh-CN&u=https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/)（HPA）**一起使用。 除非此时 HPA 使用是除了 CPU 和内存以外的指标，例如 [使用自定义指标进行 HPA](在 TKE 上使用自定义指标进行弹性伸缩.md)
+- **VPA** 与 **HPA** 不可同时
+- 目前不得在 CPU 或内存上将 **VPA** 与 **Horizontal Pod AutoscalerHPA）**一起使用。 除非此时 HPA 使用是除了 CPU 和内存以外的指标，例如 [使用自定义指标进行 HPA](在 TKE 上使用自定义指标进行弹性伸缩.md)
 - VPA 使用 Admission Webhook 作为其准入控制器。如果集群中存在其它的 Admission Webhook，需要确保它们不会与 VPA 的 Admission Webhook 发生冲突。准入控制器的执行顺序定义在 API Server 的配置参数中
 - VPA 对大多数 OOM（Out Of Memory）事件做出反应，但并非在所有情况下都做出反应
 - VPA 性能尚未在大型群集中进行测试
@@ -36,50 +37,39 @@ VPA 自动伸缩特性使容器服务具有非常灵活的自适应能力。应�
 
 ## 前提条件
 - 已创建容器服务 TKE 集群。如果您还未创建集群，请参考 [快速创建一个标准集群](https://cloud.tencent.com/document/product/457/54231)。
-- 已使用命令行工具连接集群。如果您还未连接集群，请参考 [连接集群](https://cloud.tencent.com/document/product/457/32191)。
+- 已使用命令行工具 Kubectl 连接集群。如果您还未连接集群，请参考 [连接集群](https://cloud.tencent.com/document/product/457/32191)。
 
 
 ## 操作步骤
 
 ### 部署 VPA
-
-1. 打开终端，登陆到一台集群里的 CVM
-
-2. 使用 Kubectl [连接集群](../../控制台指南（新版）/集群管理/连接集群.md)
-
-3. 克隆 [kubernetes/autoscaler](https://github.com/kubernetes/autoscaler) GitHub  Repository
-
-   ```sh
-   git clone https://github.com/kubernetes/autoscaler.git
-   ```
-
-4. 切换到 `vertical-pod-autoscaler` 目录
-
-   ```
-   cd autoscaler/vertical-pod-autoscaler/
-   ```
-
-5. （可选）如果您已经部署另一个版本的 VPA，请使用以下命令将其删除。否则可能会有异常影响。
-
-   ```
-   ./hack/vpa-down.sh
-   ```
-
-6. 使用以下命令将 VPA 相关组件部署到您的集群
-
-   ```
+1. 登录集群中的云服务器。 
+2. 通过命令行工具 Kubectl 从本地客户端机器连接到 TKE 集群。
+3. 执行以下命令，克隆 [kubernetes/autoscaler](https://github.com/kubernetes/autoscaler) GitHub Repository。
+```sh
+git clone https://github.com/kubernetes/autoscaler.git
+```
+4. 执行以下命令，切换至 `vertical-pod-autoscaler` 目录。
+```
+cd autoscaler/vertical-pod-autoscaler/
+```
+5. （可选）如果您已经部署其他版本的 VPA，执行以下命令将其删除。否则将会产生异常影响。
+```
+./hack/vpa-down.sh
+```
+6. 执行以下命令，将 VPA 相关组件部署到您的集群。
+```
 ./hack/vpa-up.sh
-   ```
-   
-7. 验证已成功创建 VPA 组件
+```
+7. 执行以下命令，验证是否成功创建 VPA 组件。
+```
+kubectl get deploy -n kube-system | grep vpa
+```
+成功创建 VPA 组件后，您可在 kube-system 命名空间中查阅三个 Deployment，分别为 vpa-admission-controller、vpa-recommender、vpa-updater。如下图所示：
+![](https://main.qcloudimg.com/raw/fb4cdfb049c81f5ca3c0e535acbf0d75.png)
 
-   ```
-   kubectl get deploy -n kube-system | grep vpa
-   ```
 
-   执行上述命令您将在 kube-system 命名空间里看到三个 Deployment：vpa-admission-controller、vpa-recommender、vpa-updater：
 
-   ![](https://main.qcloudimg.com/raw/fb4cdfb049c81f5ca3c0e535acbf0d75.png)
 
 ### 示例1：使用 VPA 获取 Request 推荐值
 
@@ -391,18 +381,16 @@ kubectl get vpa tke-auto-vpa -o yaml
 
 VPA 使用 `lowerBound` 和 `upperBound` 推荐值来决定是否驱逐 Pod 并将其替换为新 Pod。如果 Pod 的请求小于下限或大于上限，则 VPA 将删除 Pod 并将其替换为具有目标推荐值的 Pod。
 
-## FAQ
+## 故障处理
 
 ### 1. 执行 `vpa-up.sh` 脚本时报错
 
-报错如下：
-
+#### 报错信息
 ```shell
 ERROR: Failed to create CA certificate for self-signing. If the error is "unknown option -addext", update your openssl version or deploy VPA from the vpa-release-0.8 branch.
 ```
 
-解决方案：
-
+#### 解决方案
 1. 如果您执行命令的设备不是集群里面的 CVM，建议您在 CVM 里面下载 Autoscaler 项目并执行完整的 [部署 VPA](#部署 VPA) 的操作
 
    >  注意：同样地，在需要操作的 CVM 里面需要首先[连接集群](../../控制台指南（新版）/集群管理/连接集群.md)
