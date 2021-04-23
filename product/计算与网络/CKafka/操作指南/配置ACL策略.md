@@ -3,7 +3,7 @@
 该任务指导您在使用消息队列 CKafka 时，通过控制台配置 SASL 鉴权和 ACL 规则，增强对公网/内网传输中的用户访问控制，增加对 Topic 等资源的生产消费权限控制。
 
 >?
->- Kafka 提供了多种安全认证机制，主要分为 SSL 和 SASL2 大类，其中 SASL/PLAIN 是基于账号密码的认证方式，比较常用。CKafka 支持 SASL_PLAINTEXT 认证。
+>- Kafka 提供了多种安全认证机制，主要分为 SSL 和 SASL2 大类，其中 SASL/PLAIN 是基于账号密码的认证方式，比较常用。CKafka 支持 SASL_PLAINTEXT 认证（参考  [添加路由策略-公网域名接入](https://cloud.tencent.com/document/product/597/36348)）。
 >- ACL 访问控制列表（Access Control List），帮助用户定义一组权限规则，允许/拒绝用户 user 通过 IP 读/写 Topic 资源。
 
 
