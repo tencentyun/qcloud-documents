@@ -22,6 +22,7 @@
 >!
 >- 如通过控制台 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，挂载该盘的云服务器正处于正常运行状态，则需要 [重新扫描磁盘](#Scaning) 待识别扩容后的云硬盘空间后再 [扩容原有分区的文件系统或新建分区](#Extending)。
 >- 如通过控制台 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，该盘处于待挂载状态或者挂载该盘的云服务器正处于关机状态，直接 [扩容原有分区的文件系统或新建分区](#Extending) 即可。
+>- 如果云服务器的 Virtio 驱动版本低于588003，则请重新启动服务器再进行以下操作。详情请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
 
 [](id:Scaning)
 ### 重新扫描磁盘
