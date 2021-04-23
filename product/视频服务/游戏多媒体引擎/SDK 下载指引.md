@@ -52,7 +52,7 @@ v2.8.1 正式版本更新如下：
 | Android       | 2021/04/07 | [下载](https://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.8.1/Android/GME_android_audio_sdk_2.8.1.7b05edc5.zip) | [下载](https://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.8.1/Android/GME_android_audio_demo_2.8.1.7b05edc5.zip) | [快速入门](https://cloud.tencent.com/document/product/607/18158) [接口文档](https://cloud.tencent.com/document/product/607/15210) |
 | macOS         | 2021/04/07 | [下载](https://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.8.1/Mac/GME_mac_audio_sdk_2.8.1.7b05edc5.zip) | [下载](https://dldir1.qq.com/hudongzhibo/QCloud_TGP/GME/GME2.8.1/Mac/GME_mac_audio_demo_2.8.1.7b05edc5.zip) | [快速入门](https://cloud.tencent.com/document/product/607/18738) [接口文档](https://cloud.tencent.com/document/product/607/18739) |
 
-## SDK v2.7.1 正式版本下载
+## WEB SDK beta 版本下载
 
 | 平台/引擎 | 更新时间   | SDK 下载                                                     | Demo 下载                                                    | 文档                                                         |
 | --------- | ---------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |

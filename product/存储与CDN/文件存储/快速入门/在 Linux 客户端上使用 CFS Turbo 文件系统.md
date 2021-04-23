@@ -91,7 +91,7 @@ uname -a
 根据实例的操作系统类型，执行相应命令，安装客户端。
 - Ubuntu 操作系统：
 ```
-dpkg -i
+sudo dpkg -i
 ```
 - CentOS 操作系统：
 ```
