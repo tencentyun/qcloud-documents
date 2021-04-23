@@ -5,14 +5,6 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 >?当某个 NAT 边界防火墙开关开启后，对应子网的互联网流量将经过防火墙，届时访问控制规则、入侵防御功能将对其生效，流量日志也会生成。
 2. 在 “NAT 边界开关”页面，可进行创建实例、同步资产、查看并监控基于 NAT 边界的带宽情况等操作。
 
-
-### **网络拓扑**
-云防火墙提供了一个可视化视图，帮助您快速梳理 NAT 边界的访问关系。在 NAT 边界可视化视图中，私有网络展现了 VPC 实例。
-1. 在 [NAT 边界开关页面](https://console.cloud.tencent.com/cfw/switch/nat) 下，单击【网络拓扑】，可查看 NAT 边界的访问关系。
-![](https://main.qcloudimg.com/raw/54a0d19fdc727d18f4b1f881c6b58914.png)
-2. 单击某个 VPC 节点，可查看对应子网列表，可以只针对当前子网开启或关闭防火墙开关。
-![](https://main.qcloudimg.com/raw/3038c664f8b44abb950378f396e84acf.png)
-
 ###  **创建实例**	
 1. 在 [NAT 边界开关页面](https://console.cloud.tencent.com/cfw/switch/nat) 下，单击【创建实例】。
 	![](https://main.qcloudimg.com/raw/c59558e085b6e3b7da47870f588caea7.png)
@@ -32,6 +24,14 @@ NAT 边界防火墙开关支持基于内网资产进行流量管控与安全防�
 		- **接入模式**：若当前地域已有 NAT 网关，或者希望公网对外的出口 IP 保持不变，接入模式可以将 NAT 边界防火墙平滑接入到 NAT 网关与 CVM 实例之间。
 	- **弹性 IP**：若选择新建弹性 IP，系统会自动为用户申请一个弹性 IP，用户也可从所有闲置的弹性 IP 中选择一个进行绑定。
 3. 选择需要接入的 VPC 或 NAT，单击【创建】,即可创建成功。
+
+
+### **网络拓扑**
+云防火墙提供了一个可视化视图，帮助您快速梳理 NAT 边界的访问关系。在 NAT 边界可视化视图中，私有网络展现了 VPC 实例。
+1. 在 [NAT 边界开关页面](https://console.cloud.tencent.com/cfw/switch/nat) 下，单击【网络拓扑】，可查看 NAT 边界的访问关系。
+![](https://main.qcloudimg.com/raw/54a0d19fdc727d18f4b1f881c6b58914.png)
+2. 单击某个 VPC 节点，可查看对应子网列表，可以只针对当前子网开启或关闭防火墙开关。
+![](https://main.qcloudimg.com/raw/3038c664f8b44abb950378f396e84acf.png)
 
 ### 防火墙开关
 在 [防火墙开关页面](https://console.cloud.tencent.com/cfw/switch/nat?tab=switch)，支持开启或关闭 NAT 边界防护。云防火墙会定时自动同步云资产，因此不用担心资产变更后的防火墙配置（例如，变更了某个子网，防火墙会在短时间内自动同步）。
