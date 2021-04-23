@@ -123,7 +123,7 @@ spec:
 EOF
 ```
 
-生成的两个对象如下图所示：
+生成的 Deployment 对象如下图所示：
 ![](https://main.qcloudimg.com/raw/556334a46666d4f74c18432ed6083c55.png)
 
 >! 上述操作创建 `tke-deployment` 时并没有设置 CPU 或内存的 Request，Pod 中的 [Qos](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) 为 BestEffort，此时 Pod 容易被驱逐。建议您在创建业务的 Deployment 时设置 Request/Limit。如果您通过容器服务控制台创建工作负载，平台将自动为每个容器设置 Request 和 Limits 的默认值。
@@ -171,11 +171,11 @@ recommendation:
 
 ### 示例2：停用特定容器
 
-> 如果您的 Pod 里面有多个容器，一个是真正的业务容器，一个是辅助容器，此时为了节省集群资源，不想为辅助容器推荐 Request，您可以停止它
+如果您的 Pod 中有多个容器，一个是真正的业务容器，一个是辅助容器，此时为了节省集群资源，不想为辅助容器推荐 Request，您可以停止它
 
 在示例中，您将创建一个停用了特定容器的 VPA。然后创建一个 Deployment，其中包含一个 Pod，该 Pod 内又包含两个容器。在创建 Pod 后，VPA 将仅为一个容器创建并计算推荐值，另外一个容器被停用 VPA 的推荐能力。
 
-您可以在终端中执行以下命令生成一个名为`tke-opt-vpa`的 VPA 对象，它指向一个名为 `tke-opt-deployment` 的 Deployment：
+在终端中执行以下命令，生成一个名为 `tke-opt-vpa` 的 VPA 对象，指向一个名为 `tke-opt-deployment` 的 Deployment：
 
 ```shell
 cat <<EOF | kubectl apply -f -
@@ -199,8 +199,8 @@ EOF
 
 >! 该 VPA 的 `.spec.resourcePolicy.containerPolicies` 中，指定了 `tke-opt-sidecar` 的 `mode` 为 “Off”，VPA 将不会对 `tke-opt-sidecar` 计算和推荐新的 Request
 
-您可以在终端中执行以下命令生成一个名为`tke-deployment`的 Deployment 对象：
 
+执行以下命令，生成一个名为 `tke-deployment` 的 Deployment 对象：
 ```sh
 cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
@@ -226,12 +226,11 @@ spec:
 EOF
 ```
 
-以上命令会生成两个对象：
-
+生成的 Deployment 对象如下图所示：
 ![](https://main.qcloudimg.com/raw/54c88b647bfe17489cf8cea1cc1ca95e.png)
 
-待 VPA 运行一小段时间后，您就可以看到 VPA 推荐的 CPU 和内存的 Request，如上图中红框所示。您可以通过以下命令查看 VPA 推荐的具体值：
 
+执行以下命令，您可以查看 VPA 推荐的 CPU 和内存 Request：
 ```shell
 kubectl get vpa tke-opt-vpa -o yaml
 ```
