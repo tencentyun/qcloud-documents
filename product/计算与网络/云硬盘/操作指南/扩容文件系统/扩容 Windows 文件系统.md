@@ -22,10 +22,10 @@
 >!
 >- 如通过控制台 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，挂载该盘的云服务器正处于正常运行状态，则需要 [重新扫描磁盘](#Scaning) 待识别扩容后的云硬盘空间后再 [扩容原有分区的文件系统或新建分区](#Extending)。
 >- 如通过控制台 [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747) 时，该盘处于待挂载状态或者挂载该盘的云服务器正处于关机状态，直接 [扩容原有分区的文件系统或新建分区](#Extending) 即可。
->- 如果云服务器的 Virtio 驱动版本低于588003，则请重新启动服务器再进行以下操作。详情请参见 [重启实例](https://cloud.tencent.com/document/product/213/4928)。
+>- 如果云服务器的存储控制器的 Virtio 驱动版本低于58003，则请 [重启实例](https://cloud.tencent.com/document/product/213/4928) 后再进行以下操作。可参考 [查看 Virtio 驱动版本](#VirtioVersion)，确定正在使用的 Virtio 驱动版本。 
 
-[](id:Scaning)
-### 重新扫描磁盘
+
+### 重新扫描磁盘[](id:Scaning)
 1. 右键单击<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px">，并选择【计算机管理】。
 2. 在“计算机管理”窗口的左侧导航栏中，选择【存储】>【磁盘管理】。
 3. 右键单击 【磁盘管理】，选择 【重新扫描磁盘】。如下图所示：
@@ -33,8 +33,8 @@
 4. 扫描完成后，查看数据盘是否已经变为扩容后的大小（本例中执行扫描操作后识别到硬盘由原来的10GB扩容到了50GB）。如下图所示：
 ![](https://main.qcloudimg.com/raw/9612c8f95826b401d3a7c111fe632b05.png)
 
-[](id:Extending)
-### 扩容原有分区的文件系统或新建分区
+
+### 扩容原有分区的文件系统或新建分区[](id:Extending)
 您可根据实际需求，参考以下步骤扩容数据盘原有分区的文件系统，或创建新分区：
 <dx-tabs>
 ::: 扩容原有分区的文件系统
@@ -52,11 +52,15 @@
 </dx-tabs>
 
 
-
-
-
-
 ## 相关操作
+### 查看 Virtio 驱动版本[](id:VirtioVersion)
+1. 右键单击<img src="https://main.qcloudimg.com/raw/87d894e564b7e837d9f478298cf2e292.png" style="margin:-3px 0px">，并选择【设备管理器】。
+2. 在“设备管理器”窗口中，展开【存储控制器】项，并双击【Tencent VirtIO SCSI controller】。
+3. 在 “Tencent VirtIO SCSI controller 属性”窗口中，选择【驱动程序】，查看当前版本。如下图所示，当前版本为58005。
+![](https://main.qcloudimg.com/raw/d6df197dfc47a719edc42a9b7ed0d4f2.png)
+
+
+## 相关文档
 - [扩容云硬盘](https://cloud.tencent.com/document/product/362/5747)
 - [扩展分区及文件系统（Linux）](https://cloud.tencent.com/document/product/362/6738)
 
