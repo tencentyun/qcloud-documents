@@ -111,21 +111,21 @@ Container 类型 Video 的具体数据描述如下：
 | Remove                     | Request.Video | 是否删除<br/>视频流        | String | 否   | false        | true、false                                               |
 | Profile                    | Request.Video | 编码级别              | String | 否   | high         | <li>支持 baseline、main、high<br/><li>baseline：适合移动设备<br/><li>main：适合标准分辨率设备<br/><li>high：适合高分辨率设备<br/><li>仅H.264支持此参数 |
 | Bitrate                    | Request.Video | 视频输出<br/>文件的码率    | String | 否   |  视频原始码率           | <li>值范围：[10，50000]<br/><li>单位：Kbps                     |
-| Crf                        | Request.Video | 码率-质量<br/>控制因子     | String | 否   | 无           | <li>值范围：(0，51]<br/><li>如果设置了 Crf，则 <br/>Bitrate 的设置失效 |
-| Gop                        | Request.Video | 关键帧间<br/>最大帧数      | String | 否   |  无            | 值范围：[0，100000]                                          |
+| Crf                        | Request.Video | 码率-质量<br/>控制因子     | String | 否   | 空          | <li>值范围：(0，51]<br/><li>如果设置了 Crf，则 Bitrate 的设置失效<br/><li>默认为不设置 Crf |
+| Gop                        | Request.Video | 关键帧间<br/>最大帧数      | String | 否   |  空            | <li>值范围：[0，100000] <br/><li>默认不设置 Gop                                     |
 | Preset                     | Request.Video | 视频算法<br/>器预置        | String | 否   | medium       | <li>仅H.264支持该参数<br/><li>取值 veryfast、fast、<br/>medium、slow、slower |
-| Bufsize                    | Request.Video | 缓冲区<br/>大小            | String | 否   | 无            | <li>值范围：[1000，128000]<br/><li>单位：Kb<br/> |
-| Maxrate                    | Request.Video | 视频码率<br/>峰值          | String | 否   | 无            | <li>值范围：[10，50000]<br/><li>单位：Kbps<br/> |
+| Bufsize                    | Request.Video | 缓冲区<br/>大小            | String | 否   | 0           | <li>值范围：[1000，128000]<br/><li>单位：Kb<br/><li>默认值为0，表示不使用缓冲区  |
+| Maxrate                    | Request.Video | 视频码率<br/>峰值          | String | 否   | 0           | <li>值范围：[10，50000]<br/><li>单位：Kbps<br/><li>默认值为0，表示不使用此参数  |
 | HlsTsTime                  | Request.Video | hls 分片<br/>时间           | String | 否   | 5            | <li>(0 视频时长] <br/><li>单位为秒 |
-| Pixfmt                     | Request.Video | 视频颜色<br/>格式           | String | 否   | 无           | 支持 yuv420p、yuv422p、<br/>yuv444p、yuvj420p、yuvj422p、yuvj444p |
-| LongShortMode              | Request.Video | 长短边自适应          | String | 否   | false        | true、false
+| Pixfmt                     | Request.Video | 视频颜色<br/>格式           | String | 否   | yuv420p           | 支持 yuv420p、yuv422p、<br/>yuv444p、yuvj420p、yuvj422p、yuvj444p |
+| LongShortMode              | Request.Video | 长短边自适应          | String | 否   | false        | true、false    |
 
 Container 类型 TimeInterval 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Start                | Request.TimeInterval | 开始时间 | String    | 否   | 无 | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
-| Duration             | Request.TimeInterval | 持续时间 | String    | 否   | 无 | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
+| Start                | Request.TimeInterval | 开始时间 | String    | 否   | 0  | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
+| Duration             | Request.TimeInterval | 持续时间 | String    | 否   | 视频原始时长 | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
 
 
 Container 类型 Audio 的具体数据描述如下：
@@ -153,7 +153,7 @@ Container 类型 TransConfig 的具体数据描述如下：
 
 | 节点名称（关键字）    | 父节点              | 描述             | 类型   | 是否必选 | 默认值 | 限制                                                         |
 | --------------------- | ------------------- | ---------------- | ------ | ---- | ------ | ------------------------------------------------------------ |
-| AdjDarMethod          | Request.TransConfig | 分辨率调整方式   | String | 否   | none   | <li>取值 scale、crop、pad、none<br/><li>当输出视频的宽高比与原视频不等时，<br/>需要此参数进行执行调整方式 |
+| AdjDarMethod          | Request.TransConfig | 分辨率调整方式   | String | 否   | none   | <li>取值 scale、crop、pad、none<br/><li>当输出视频的宽高比与原视频不等时，根据此参数做分辨率的相应调整 |
 | IsCheckReso           | Request.TransConfig | 是否检查分辨率   | String | 否   | false  | <li>true、false <br/><li>当为 false时，按照配置参数转码 |
 | ResoAdjMethod         | Request.TransConfig | 分辨率调整方式   | String | 否   | 0      | <li>取值0、1；0 表示使用原视频分辨率；<br/>1表示返回转码失败<br/><li>当 IsCheckReso 为 true 时生效 |
 | IsCheckVideoBitrate   | Request.TransConfig | 是否检查视频码率 | String | 否   | false  | <li>true、false <br/><li>当为 false 时，按照配置参数转码 |
