@@ -11,7 +11,7 @@ VPA 自动伸缩特性使容器服务具有非常灵活的自适应能力。应�
 ## VPA 优势与限制
 ### VPA 优势
 相较于 [自动伸缩功能 HPA](https://cloud.tencent.com/document/product/457/37384)，VPA 具有以下优势：
-- VPA 扩容不需要调整 Pod 副本数量，因此扩容速度更快。
+- VPA 扩容不需要调整 Pod 副本数量，扩容速度更快。
 - 有状态应用可以通过 VPA 实现扩容，HPA 则不适合有状态应用的水平扩容。
 - Request 设置过大时，即使使用 HPA 水平缩容到只有一个 Pod，资源利用率依旧很低。此时可以通过 VPA 进行垂直缩容。
 
@@ -23,7 +23,7 @@ VPA 自动伸缩特性使容器服务具有非常灵活的自适应能力。应�
 社区 VPA 功能当前处于试验阶段，请谨慎使用。推荐您将 “updateMode” 设置为 “Off”，以确保 VPA 不会自动替您更换 Request 数值。您仍然可以在 VPA 对象中查看到已绑定负载的 Request 推荐值。
 </dx-alert>
 
-- 更新正在运行的 Pod 资源是 VPA 的一项实验功能。当 VPA 更新 Pod 资源时，会导致 Pod 的重建和重启，并且有可能被调度到其他节点上。
+- 自动更新正在运行的 Pod 资源是 VPA 的一项实验功能。当 VPA 更新 Pod 资源时，会导致 Pod 的重建和重启，并且有可能被调度到其他节点上。
 - VPA 不会驱逐不在控制器下运行的 Pod。对于此类 Pod，`Auto` 模式等效于 `Initial`。
 - **VPA** 与 **HPA** 不可同时在 CPU 和内存需求上运行。
 - 目前不可在 CPU 或内存上将 **VPA** 与 **Horizontal Pod AutoscalerHPA）**一起使用。 除非 HPA 使用是除了 CPU 和内存以外的指标，例如 [使用自定义指标进行 HPA](在 TKE 上使用自定义指标进行弹性伸缩.md)
@@ -74,7 +74,7 @@ kubectl get deploy -n kube-system | grep vpa
 ### 示例1：使用 VPA 获取 Request 推荐值
 
 >? 
-- 不建议您在生产环境中使用 VPA 自动更新 Request。
+- 不建议在生产环境中使用 VPA 自动更新 Request。
 - 您可以利用 VPA 查看 Request 推荐值，在合适条件下手动触发更新。
 
 
@@ -126,7 +126,7 @@ EOF
 生成的 Deployment 对象如下图所示：
 ![](https://main.qcloudimg.com/raw/556334a46666d4f74c18432ed6083c55.png)
 
->! 上述操作创建 `tke-deployment` 时并没有设置 CPU 或内存的 Request，Pod 中的 [Qos](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) 为 BestEffort，此时 Pod 容易被驱逐。建议您在创建业务的 Deployment 时设置 Request/Limit。如果您通过容器服务控制台创建工作负载，平台将自动为每个容器设置 Request 和 Limits 的默认值。
+>! 上述操作创建 `tke-deployment` 时并没有设置 CPU 或内存的 Request，Pod 中的 [Qos](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) 为 BestEffort，此时 Pod 容易被驱逐。建议您在创建业务的 Deployment 时设置 Request 及 Limit。如果您通过容器服务控制台创建工作负载，控制台将自动为每个容器的 Request 和 Limits 设置默认值。
 ![](https://main.qcloudimg.com/raw/3adff8df7f72b5bdc65734e5d3c7ba98.png)
 >
 
@@ -161,11 +161,12 @@ recommendation:
 
 其中 `target` 对应的 CPU 和内存为推荐 Request。您可以选择删除之前的 Deployment，并使用推荐的 Request 值创建新的 Deployment。
 
-**字段解释**：
-* **lowerBound**：推荐的最小值。使用小于该值的 Request 可能会对性能或可用性产生重大影响。
-* **target**：推荐值。由 VPA 计算出最合适的 Request。
-* **uncappedTarget**：最新建议值。仅基于实际资源使用情况，不考虑。 `.spec.resourcePolicy.containerPolicies` 中设置的容器可以被推荐的数值范围。uncappedTarget 可能与推荐上下界限不同。该字段仅用作状态指示，不会影响实际的资源分配。
-* **upperBound**：推荐的最大值。使用高于该值的 Request 可能造成浪费。
+| 字段 | 释义 | 
+|---------|---------|
+|  **lowerBound** | 推荐的最小值。使用小于该值的 Request 可能会对性能或可用性产生重大影响。 | 
+| **target** | 推荐值。由 VPA 计算出最合适的 Request。 | 
+| **uncappedTarget** | 最新建议值。仅基于实际资源使用情况，不考虑。 `.spec.resourcePolicy.containerPolicies` 中设置的容器可以被推荐的数值范围。uncappedTarget 可能与推荐上下界限不同。该字段仅用作状态指示，不会影响实际的资源分配。 | 
+| **upperBound** |推荐的最大值。使用高于该值的 Request 可能造成浪费。 | 
 
 
 
@@ -197,7 +198,7 @@ spec:
 EOF
 ```
 
->! 该 VPA 的 `.spec.resourcePolicy.containerPolicies` 中，指定了 `tke-opt-sidecar` 的 `mode` 为 “Off”，VPA 将不会对 `tke-opt-sidecar` 计算和推荐新的 Request
+>! 该 VPA 的 `.spec.resourcePolicy.containerPolicies` 中，指定了 `tke-opt-sidecar` 的 `mode` 为 “Off”，VPA 将不会为 `tke-opt-sidecar` 计算和推荐新的 Request。
 
 
 执行以下命令，生成一个名为 `tke-deployment` 的 Deployment 对象：
@@ -235,7 +236,7 @@ EOF
 kubectl get vpa tke-opt-vpa -o yaml
 ```
 
-以下输出显示推荐的 CPU 和内存请求：
+执行结果如下所示：
 
 ```yaml
 ...
@@ -256,16 +257,17 @@ kubectl get vpa tke-opt-vpa -o yaml
         memory: 1667500k
 ```
 
-可以看到，这里仅有 `tke-opt-container` 的推荐值，没有 `tke-opt-sidecar` 的推荐值。
+在执行结果中，仅有 `tke-opt-container` 的推荐值，没有 `tke-opt-sidecar` 的推荐值。
 
 ### 示例3：自动更新 Request
 
-> 自动更新正在运行的 Pod 是 VPA 的一项实验功能，建议不要在生产环境中使用
+>! 自动更新正在运行的 Pod 资源是 VPA 的一项实验功能，建议不要在生产环境中使用。
 
-在本示例中，您将创建一个自动调整 CPU 和内存请求的  VPA。然后创建具有两个 Pod 的 Deployment，每个 Pod 都会设置资源的 Request 和 Limits。
 
-您可以在终端中执行以下命令生成一个名为`tke-auto-vpa`的 VPA 对象，它指向一个名为 `tke-auto-deployment` 的 Deployment：
+在本示例中，您将创建一个自动调整 CPU 和内存请求的 VPA，并创建具有两个 Pod 的 Deployment。每个 Pod 都会设置资源的 Request 和 Limits。
 
+
+在终端中执行以下命令，生成一个名为 `tke-auto-vpa` 的 VPA 对象，指向一个名为 `tke-auto-deployment` 的 Deployment：
 ```yaml
 cat <<EOF | kubectl apply -f - 
 apiVersion: autoscaling.k8s.io/v1
@@ -282,10 +284,10 @@ spec:
 EOF
 ```
 
-> 注意：该 VPA 的`updateMode` 字段的值为 `Auto`，表示 VPA 可以在 Pod 的生命周期内更新 CPU 和内存请求。VPA 可以删除 Pod，调整 CPU 和内存请求，然后启动一个新 Pod。
+>! 该 VPA 的 `updateMode` 字段的值为 `Auto`，表示 VPA 可以在 Pod 的生命周期内更新 CPU 和内存请求。VPA 可以删除 Pod，调整 CPU 和内存请求，然后启动一个新 Pod。
 
-您可以在终端中执行以下命令生成一个名为`tke-auto-deployment`的 Deployment 对象：
 
+执行以下命令，生成一个名为 `tke-auto-deployment` 的 Deployment 对象：
 ```shell
 cat <<EOF | kubectl apply -f -
 apiVersion: apps/v1
@@ -315,21 +317,23 @@ spec:
 EOF
 ```
 
-> 注意：上面的 Deployment 设置了资源的 Request 和 Limits，VPA 此时不仅会推荐 Request 数值，还会按照 Request 和 Limits 的初始比例自动推荐 Limits数值。例如上面 YAML 中 CPU 的 Request 和 Limits 的初始比例为 100m:200m = 1:2，那 VPA 推荐的 Limits 数值则是 VPA 对象中推荐的 Request 数值的两倍。
 
-以上命令会生成两个对象：
+>! 上述操作创建 Deployment 时设置了资源的 Request 和 Limits，VPA 此时不仅会推荐 Request 值，还会按照 Request 和 Limits 的初始比例自动推荐 Limits 值。例如，YAML 中 CPU 的 Request 和 Limits 的初始比例为 100m:200m = 1:2，那么 VPA 推荐的 Limits 数值则是 VPA 对象中推荐的 Request 数值的两倍。
 
+
+
+生成的 Deployment 对象如下图所示：
 ![](https://main.qcloudimg.com/raw/10b6c1a69ea1a3270bd3b9b286a561b3.png)
 
 待 VPA 运行一小段时间后，您就可以看到 VPA 推荐的 CPU 和内存的 Request，如上图中红框所示。
 
-获取有正在运行的其中一个 Pod 的详细信息：
+执行以下命令，获取正在运行中的 Pod 的详细信息：
 
 ```sh
 kubectl get pod pod-name -o yaml
 ```
 
-在以下输出中，您可以看到 VPA 修改了原来设置的 Request 和 Limits，变成了 VPA 的推荐值，并且维持了初始的  Request 和 Limits 比例。还可以看到一个记录更新的 Annotation：
+执行结果如下所示。VPA 修改了原来设置的 Request 和 Limits，更新为 VPA 的推荐值，并维持了初始的 Request 和 Limits 比例。同时生成一个记录更新的 Annotation：
 
 ```yaml
 apiVersion: v1
@@ -353,13 +357,13 @@ spec:
     ...
 ```
 
-获取有关 VPA 的详细信息：
+执行以下命令，获取相关 VPA 的详细信息：
 
 ```sh
 kubectl get vpa tke-auto-vpa -o yaml
 ```
 
-以下输出显示 Request 推荐值：
+执行结果如下所示：
 
 ```yaml
 ...
@@ -380,7 +384,7 @@ kubectl get vpa tke-auto-vpa -o yaml
         Memory:  262144k
 ```
 
-`target` :表示容器请求 25m CPU 和 262144k 的内存时将以最佳状态运行。
+其中 `target` 表示容器请求 25m CPU 和 262144k 的内存时将以最佳状态运行。
 
 VPA 使用 `lowerBound` 和 `upperBound` 推荐值来决定是否驱逐 Pod 并将其替换为新 Pod。如果 Pod 的请求小于下限或大于上限，则 VPA 将删除 Pod 并将其替换为具有目标推荐值的 Pod。
 
@@ -394,30 +398,26 @@ ERROR: Failed to create CA certificate for self-signing. If the error is "unknow
 ```
 
 #### 解决方案
-1. 如果您没有通过集群中的云服务器执行命令，建议您在云服务器中下载 Autoscaler 项目，并执行完整的 [部署 VPA](#VPA) 的操作。
-
-   >  注意：同样地，在需要操作的 CVM 里面需要首先[连接集群](../../控制台指南（新版）/集群管理/连接集群.md)
-
-2. 如果依然报错，按报错里的提示：
-
-   1. 可以检查集群 CVM 的 `openssl` 版本是否大于 1.1.1
-   2. 或者，使用 Autoscaler 项目的 `vpa-release-0.8` 分支
+1. 如果您没有通过集群中的云服务器执行命令，建议您在云服务器中下载 Autoscaler 项目，并执行完整的 [部署 VPAhttps://main.qcloudimg.com/raw/026ae791429cb584fa1c61af3ac8340f.png](#VPA) 的操作。如需为您的云服务器连接集群，详情可参见 [连接集群](https://cloud.tencent.com/document/product/457/32191)。
+2. 如出现继续报错的情况，请检查是否存在以下问题：
+ - 检查集群 CVM 的 `openssl` 版本是否大于 1.1.1。
+ - 使用 Autoscaler 项目的 `vpa-release-0.8` 分支
 
 ### 2. VPA 相关负载无法启动
 
 #### 报错信息
-如果您的 VPA 相关负载无法启动，并产生如下图所示报错信息：
+如果您的 VPA 相关负载无法启动，并产生如下图所示信息：
 ![](https://main.qcloudimg.com/raw/026ae791429cb584fa1c61af3ac8340f.png)
-**错误1**：表示负载中的 Pod 没有成功运行。
-**错误2**：表示镜像来源于 Google 的 GCR。
+**信息1**：表示负载中的 Pod 没有成功运行。
+**信息2**：表示镜像来源于 Google 的 GCR。
 
 
 #### 解决方案
-产生以上错误的原因是无法下载这三个位于 GCR 的镜像，您需要：
-
-1. **下载镜像**：找一台可以访问 Google 的设备先下载这三个镜像
-2. **更换标签 & 推送**：将这三个镜像更换标签后推送到您可以访问的镜像仓库里
-3. **更改 YAML 镜像地址**：更改这三个负载里面的镜像地址为新地址
-
-建议您可以参考使用免费的 [TCR 腾讯容器镜像服务](https://cloud.tencent.com/document/product/1141/50332) 上传这三个镜像。
+VPA 相关负载无法启动的原因是位于 GCR 的镜像无法被下载，为解决问题您可尝试以下步骤：
+1. **下载镜像**。
+    访问 Google，下载 vpa-admission-controller、vpa-recommender、vpa-updater 的镜像。
+2. **更换标签 & 推送**。
+    将 vpa-admission-controller、vpa-recommender、vpa-updater 的镜像更换标签后推送到您的镜像仓库中。上传镜像操作详情可参见 [容器镜像服务个人版快速入门](https://cloud.tencent.com/document/product/1141/50332)。
+3. **更改 YAML 镜像地址**。
+    在 YAML 文件中将 vpa-admission-controller、vpa-recommender、vpa-updater 的镜像地址更新为您设定的新地址。
 
