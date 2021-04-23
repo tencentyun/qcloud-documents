@@ -64,7 +64,7 @@ CREATE TABLE clickhouse (
 | table-name              | 是   | -                | ClickHouse 集群数据表                                        |
 | sink.batch-size         | 否   | 1000             | connector batch 写入的条数                                   |
 | sink.flush-interval     | 否   | 1000 （单位 ms） | connector 异步线程刷新写入 ClickHouse 间隔                   |
-| table.collapsing.field  | 否   |                  | CollapsingMergeTree 类型列字段的名称                         |
+| table.collapsing.field  | 否   |   -               | CollapsingMergeTree 类型列字段的名称                         |
 | sink.max-retries        | 否   | 3                | 写入失败时的重试次数                                         |
 | sink.write-local        | 否   | false            | 是否写入本地表。默认 false 不开启写入本地表策略              |
 | sink.write-local-nodes  | 否   | -                | local node 列表，举例 '127.1.1.10:8123,127.1.2.13:8123'（**需要使用 http port**） |
