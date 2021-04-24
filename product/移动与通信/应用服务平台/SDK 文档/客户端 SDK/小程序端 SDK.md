@@ -7,9 +7,9 @@
 
 ### 开发文档
 
-* [云存储](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-client-api/storage/)
-* [数据库](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-client-api/database/)
-* [云函数](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/reference-client-api/functions/)
+* [云存储](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/storage.html)
+* [数据库](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/database.html)
+* [云函数](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/guide/functions.html)
 
 ## QQ 小程序
 

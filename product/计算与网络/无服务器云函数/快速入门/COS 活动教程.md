@@ -45,7 +45,7 @@ $ scf configure get
 ```
 scf init
 ```
-2. <span id="cd"></span>根据您的实际情况，执行以下命令进入对应的函数目录。
+2. [](id:cd)根据您的实际情况，执行以下命令进入对应的函数目录。
 ```
 $ cd hello_world/
 ```

@@ -5,7 +5,7 @@
 
 
 ## 通过控制台使用 ServiceGroup 功能
-### 新建 DeploymentGrid 资源<span id="step1"></span>
+### 新建 DeploymentGrid 资源[](id:step1)
 1. 登录容器服务控制台，选择左侧导航栏中的【[边缘集群](https://console.cloud.tencent.com/tke2/edge?rid=1)】。
 2. 在“边缘集群”页面单击需要创建 DeploymentGrid 资源的集群 ID，进入边缘集群管理页面。
 3. 选择边缘集群左侧菜单中的【ServiceGroup】>【DeploymentGrid】，进入 “DeploymentGrid” 管理页面。
@@ -19,7 +19,7 @@
 6. 创建成功后，在 “DeploymentGrid” 管理页面即可查看已新建的 DeploymentGrid 对象。在 “NodeGroup” 管理页面即可查看创建 DeploymentGrid 时填写的 NodeGroup 对象。
 
  
-### 管理 NodeGroup<span id="step2"></span>
+### 管理 NodeGroup[](id:step2)
 1. 登录容器服务控制台，选择左侧导航栏中的【[边缘集群](https://console.cloud.tencent.com/tke2/edge?rid=1)】。
 2. 单击需要管理 NodeGroup 的集群 ID，进入该集群详情页。
 3. 选择边缘集群左侧菜单中的【ServiceGroup】>【NodeGroup】，进入 “NodeGroup” 管理页面。
@@ -32,7 +32,7 @@
 6. 单击【确定】，完成创建 NodeUnit。创建成功后，即可在 NodeUnit 列表页面进行查看。
 
 
-### 新建 ServiceGrid 资源<span id="step3"></span>
+### 新建 ServiceGrid 资源[](id:step3)
 1. 登录容器服务控制台，选择左侧导航栏中的【[边缘集群](https://console.cloud.tencent.com/tke2/edge?rid=1)】。
 2. 单击需要新建 ServiceGrid 资源的集群 ID，进入该集群详情页。
 3. 选择边缘集群左侧菜单中的【ServiceGroup】>【ServiceGrid】，进入 “ServiceGrid” 管理页面。

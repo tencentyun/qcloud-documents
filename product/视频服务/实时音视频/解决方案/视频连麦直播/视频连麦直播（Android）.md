@@ -4,53 +4,52 @@
 
 <table>
 <tr>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcliveroom/beauty.gif"/></td>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcliveroom/join.gif"/></td>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcliveroom/msg.gif"/></td>
-<td><img width="260" height="561" src="https://demovideo-1252463788.cos.ap-shanghai.myqcloud.com/trtcliveroom/pk.gif"/></td>
+<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/beauty.gif"/></td>
+<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/join.gif"/></td>
+<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/msg.gif"/></td>
+<td><img width="260" height="561" src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/pk.gif"/></td>
 </tr>
 </table>
 
 
 如需快速接入视频互动直播功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCLiveRoom 组件并实现自定义 UI 界面。
 
-<span id="DemoUI"> </span>
+[](id:DemoUI)
 ## 复用 Demo 的 UI 界面
 
-<span id="ui.step1"></span>
+[](id:ui.step1)
 ### 步骤1：创建新的应用
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
-2. 单击【立即开始】，输入应用名称，例如 `TestLiveRoom` ，单击【创建应用】。
+2. 输入应用名称，例如 `TestLiveRoom`，单击【创建】。
 
->?本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PAAS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
+>! 本功能同时使用了腾讯云 [实时音视频 TRTC](https://cloud.tencent.com/document/product/647/16788) 和 [即时通信 IM](https://cloud.tencent.com/document/product/269) 两个基础 PaaS 服务，开通实时音视频后会同步开通即时通信 IM 服务。 即时通信 IM 属于增值服务，详细计费规则请参见 [即时通信 IM 价格说明](https://cloud.tencent.com/document/product/269/11673)。
 
 
-
-<span id="ui.step2"></span>
+[](id:ui.step2)
 ### 步骤2：下载 SDK 和 Demo 源码
-1. 鼠标移动至对应卡片，单击【[Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android)】跳转至 Github（或单击【[ZIP](https://liteavsdk-1252463788.cosgz.myqcloud.com/TXLiteAVSDK_TRTC_Android_latest.zip)】），下载相关 SDK 及配套的 Demo 源码。
- ![](https://main.qcloudimg.com/raw/c3067ef0d7244bfdd3bc31eef191c5fc.png)
-2. 下载完成后，返回实时音视频控制台，单击【我已下载，下一步】，可以查看 SDKAppID 和密钥信息。
+1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
+2. 下载完成后，单击【已下载，下一步】。
+![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
 
-<span id="ui.step3"></span>
+[](id:ui.step3)
 ### 步骤3：配置 Demo 工程文件
-1. 解压 [步骤2](#ui.step2) 中下载的源码包。
+1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
 2. 找到并打开 `Android/TRTCScenesDemo/debug/src/main/java/com/tencent/liteav/debug/GenerateTestUserSig.java` 文件。
 3. 设置 `GenerateTestUserSig.java` 文件中的相关参数：
-  <ul><li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
-  <li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li></ul> 
-    <img src="https://main.qcloudimg.com/raw/345c3e8915ef988eb158833d1655d0c5.png">
-4. 返回实时音视频控制台，单击【粘贴完成，下一步】。
-5. 单击【关闭指引，进入控制台管理应用】。
+<ul style="margin:0"><li/>SDKAPPID：默认为0，请设置为实际的 SDKAppID。
+<li/>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</ul>
+<img src="https://main.qcloudimg.com/raw/dad4c94a71b9330e09a8cbd5dce8fd39.png">
+4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
+5. 编译完成后，单击【回到控制台概览】即可。
 
 >!本文提到的生成 UserSig 的方案是在客户端代码中配置 SECRETKEY，该方法中 SECRETKEY 很容易被反编译逆向破解，一旦您的密钥泄露，攻击者就可以盗用您的腾讯云流量，因此**该方法仅适合本地跑通 Demo 和功能调试**。
 >正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
-<span id="ui.step4"></span>
+[](id:ui.step4)
 ### 步骤4：运行 Demo
 使用 Android Studio（3.5以上的版本）打开源码工程 `TRTCScenesDemo`，单击【运行】即可开始调试本 Demo。
 
-<span id="ui.step5"></span>
+[](id:ui.step5)
 ### 步骤5：修改 Demo 源代码
 源码中的 trtcliveroomdemo 文件夹包含两个子文件夹 ui 和 model，ui 文件夹中均为界面代码，如下表格列出了各个文件或文件夹及其所对应的 UI 界面，以便于您进行二次调整：
 
@@ -62,13 +61,13 @@
 | liveroomlist | 房间列表页实现代码。 |
 | widget | 通用控件。 |
 
-<span id="model"> </span>
+[](id:model)
 ## 实现自定义 UI 界面
 
 [源码](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCScenesDemo/trtcliveroomdemo/src/main/java/com/tencent/liteav/liveroom) 中的 trtcliveroomdemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCLiveRoom，您可以在`TRTCLiveRoom.java` 文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/b0c39e5b7ce3a6b1decb1fbbf7ec4ff1.png)
 
-<span id="model.step1"> </span>
+[](id:model.step1)
 ### 步骤1：集成 SDK
 视频通话组件 TRTCLiveRoom 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
@@ -112,7 +111,7 @@ defaultConfig {
 </tr>
 </table>
 
-<span id="model.step2"> </span>
+[](id:model.step2)
 ### 步骤2：配置权限及混淆规则
 在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请相机、读取存储权限）：
 ```
@@ -135,14 +134,14 @@ defaultConfig {
 -keep class com.tencent.** { *; }
 ```
 
-<span id="model.step3"> </span>
+[](id:model.step3)
 ### 步骤3：导入 TRTCLiveRoom 组件
 拷贝以下目录中的所有文件到您的项目中：
 ```
 src/main/java/com/tencent/liteav/liveroom/model
 ```
 
-<span id="model.step4"> </span>
+[](id:model.step4)
 ### 步骤4：创建并登录组件
 1. 调用`sharedInstance`接口可以创建一个 TRTCLiveRoom 组件的实例对象。
 2. 创建一个`TRTCLiveRoomConfig`对象，该对象可以设置  useCDNFirst 和 CDNPlayDomain 属性：
@@ -178,7 +177,8 @@ src/main/java/com/tencent/liteav/liveroom/model
 <td>登录回调，成功时 code 为0。</td>
 </tr>
 </table>
-<pre>
+<dx-codeblock>
+::: java java
 TRTCLiveRoom mLiveRoom = TRTCLiveRoom.sharedInstance(this);
 //useCDNFirst：true 表示普通观众通过 CDN 观看，false 表示普通观众通过低延时观看
 //yourCDNPlayDomain：表示 CDN 观看时配置的播放域名
@@ -193,9 +193,10 @@ mLiveRoom.login(SDKAPPID, userId, userSig, config,
                 }
             }
 });
-</pre>
+:::
+</dx-codeblock>
 
-<span id="model.step5"> </span>
+[](id:model.step5)
 ### 步骤5：主播端开播
 1. 主播执行 [步骤四](#model.step4) 登录后，可以调用`setSelfProfile`设置自己的昵称和头像。
 2. 主播在开播前可先调用`startCameraPreview`开启摄像头预览，界面上可以配置美颜调节按钮调用，通过`getBeautyManager`进行美颜设置。
@@ -206,7 +207,8 @@ mLiveRoom.login(SDKAPPID, userId, userSig, config,
 
 ![](https://main.qcloudimg.com/raw/754450346c831a792a0cc7a06b2c7d31.png)
 
-```java
+<dx-codeblock>
+::: java java
 // 1.主播设置昵称和头像
 mLiveRoom.setSelfProfile("A", "your_face_url", null);
 
@@ -229,9 +231,10 @@ mLiveRoom.createRoom(123456789, param, new TRTCLiveRoomCallback.ActionCallback()
         }
     }
 });
-```
+:::
+</dx-codeblock>
 
-<span id="model.step6"> </span>
+[](id:model.step6)
 ### 步骤6：观众端观看
 1. 观众端执行 [步骤四](#model.step4) 登录后，可以调用`setSelfProfile`设置自己的昵称和头像。
 2. 观众端向业务后台获取最新的直播房间列表。
@@ -246,7 +249,8 @@ mLiveRoom.createRoom(123456789, param, new TRTCLiveRoomCallback.ActionCallback()
 
 ![](https://main.qcloudimg.com/raw/70320746e332252cddbb842e280c95a5.png)
 
-```java
+<dx-codeblock>
+::: java java
 // 1.假定您从业务后台获取房间列表为 roomList
 List<Integer> roomList = GetRoomList();
 
@@ -271,9 +275,10 @@ mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
         mLiveRoom.startPlay(userId, mTXCloudVideoView, null);
     }
 });
-```
+:::
+</dx-codeblock>
 
-<span id="model.step7"> </span>
+[](id:model.step7)
 ### 步骤7：观众与主播连麦
 1. 观众端调用`requestJoinAnchor`向主播端发起连麦请求。
 2. 主播端会收到 `TRTCLiveRoomDelegate#onRequestJoinAnchor`（即有观众请求与您连麦）的事件通知。
@@ -285,7 +290,8 @@ mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
 
 ![](https://main.qcloudimg.com/raw/743009e16a89eb6ff8d708b4564d8a91.png)
 
-```java
+<dx-codeblock>
+::: java java
 // 1.观众端发起连麦请求
 mLiveRoom.requestJoinAnchor(mSelfUserId + "请求和您连麦", 
     new TRTCLiveRoomCallback.ActionCallback() {
@@ -306,7 +312,7 @@ mLiveRoom.requestJoinAnchor(mSelfUserId + "请求和您连麦",
 mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
     @Override
     public void onRequestJoinAnchor(final TRTCLiveRoomDef.TRTCLiveUserInfo userInfo, 
-		    String reason, final int timeout) {
+        String reason, final int timeout) {
         // 3.同意对方的连麦请求
         mLiveRoom.responseJoinAnchor(userInfo.userId, true, "同意连麦");
     }
@@ -320,9 +326,10 @@ mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
         mLiveRoom.startPlay(userId, view, null);
     }
 });
-```
+:::
+</dx-codeblock>
 
-<span id="model.step8"> </span>
+[](id:model.step8)
 ### 步骤8：主播与主播 PK
 1. 主播 A 调用`requestRoomPK`向主播 B 发起 PK 请求。
 2. 主播 B 会收到`TRTCLiveRoomDelegate onRequestRoomPK`回调通知。
@@ -333,7 +340,8 @@ mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
 
 ![](https://main.qcloudimg.com/raw/8e3868af20a2cd4f968b673da107e227.png)
 
-```java
+<dx-codeblock>
+::: java java
 // 主播 A:
 // 主播 A 创建12345的房间
 mLiveRoom.createRoom(12345, param, null);
@@ -378,28 +386,31 @@ mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
         mLiveRoom.startPlay(userId, mTXCloudVideoView, null);
     }
 });
-```
+:::
+</dx-codeblock>
 
-<span id="model.step9"> </span>
+[](id:model.step9)
 ### 步骤9：实现文字聊天和弹幕消息
 - 通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到`onRecvRoomTextMsg`回调。
  即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
-```java
+<dx-codeblock>
+::: java java
 // 发送端：发送文本消息
 mLiveRoom.sendRoomTextMsg("Hello Word!", null);
 // 接收端：监听文本消息
 mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
     @Override
     public void onRecvRoomTextMsg(String roomId, 
-		    String message, TRTCLiveRoomDef.TRTCLiveUserInfo userInfo) {
+        String message, TRTCLiveRoomDef.TRTCLiveUserInfo userInfo) {
         Log.d(TAG, "收到来自" + userInfo.userName + "的消息:" + message);
     }
 });
-```
+:::
+</dx-codeblock>
 - 通过`sendRoomCustomMsg`可以发送自定义（信令）的消息，所有在该房间内的主播和观众均可以收到`onRecvRoomCustomMsg`回调。
 自定义消息常用于传输自定义信令，例如用于点赞消息的发送和广播。
-```java
-// 发送端：您可以通过自定义 Cmd 来区分弹幕和点赞消息
+<dx-codeblock>
+::: java java// 发送端：您可以通过自定义 Cmd 来区分弹幕和点赞消息
 // eg:"CMD_DANMU"表示弹幕消息，"CMD_LIKE"表示点赞消息
 mLiveRoom.sendRoomCustomMsg("CMD_DANMU", "Hello world", null);
 mLiveRoom.sendRoomCustomMsg("CMD_LIKE", "", null);
@@ -407,7 +418,7 @@ mLiveRoom.sendRoomCustomMsg("CMD_LIKE", "", null);
 mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
     @Override
     public void onRecvRoomCustomMsg(String roomId, String cmd, 
-		    String message, TRTCLiveRoomDef.TRTCLiveUserInfo userInfo) {
+        String message, TRTCLiveRoomDef.TRTCLiveUserInfo userInfo) {
         if ("CMD_DANMU".equals(cmd)) {
             // 收到弹幕消息
             Log.d(TAG, "收到来自" + userInfo.userName + "的弹幕消息:" + message);
@@ -417,4 +428,6 @@ mLiveRoom.setDelegate(new TRTCLiveRoomDelegate() {
         }
     }
 });
-```
+:::
+</dx-codeblock>
+

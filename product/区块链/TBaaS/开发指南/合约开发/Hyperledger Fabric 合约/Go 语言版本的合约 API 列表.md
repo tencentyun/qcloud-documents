@@ -5,7 +5,7 @@ Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情�
 - [参数处理](#parametersProcess)
 - [其他辅助类](#otherClass)
 
-<span id="informationExtraction"></span>
+[](id:informationExtraction)
 ### 交易信息提取
 
 <table><thead>
@@ -48,7 +48,7 @@ Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情�
 </tr>
 </tbody></table>
 
-<span id="accountInteraction"></span>
+[](id:accountInteraction)
 ### 账本交互
 
 <table><thead>
@@ -145,7 +145,7 @@ Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情�
 
 
 
-<span id="parametersProcess"></span>
+[](id:parametersProcess)
 ### 参数处理
 
 <table>
@@ -173,7 +173,7 @@ Fabric Go 语言版本智能合约有丰富的 API 接口，代码实现详情�
 </tr>
 </tbody></table>
 
-<span id="otherClass"></span>
+[](id:otherClass)
 ### 其他辅助类
 
 <table>

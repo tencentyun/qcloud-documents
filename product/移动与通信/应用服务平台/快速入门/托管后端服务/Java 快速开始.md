@@ -4,11 +4,9 @@
 
 <div style="background-color:#00A4FF; width: 125px; height: 35px; line-height:35px; text-align:center;"><a href="https://console.cloud.tencent.com/tcb/env/index?action=CreateAndDeployCloudBaseProject&appUrl=https%3A%2F%2Fgithub.com%2FTencentCloudBase%2Fcloudbase-examples&workDir=cloudbaserun%2Fjava&appName=java-hello-world" target="_blank"  style="color: white; font-size:13px;">部署到云开发</a></div><br>
 
-## 第 1 步：编写基础应用
+## 步骤1：编写基础应用
 
-首先我们创建一个 Spring Boot 应用。
-
-使用 curl 和 unzip 命令新建一个空 Web 项目：
+首先我们创建一个 Spring Boot 应用。使用 curl 和 unzip 命令新建一个空 Web 项目：
 
 ```sh
 curl https://start.spring.io/starter.zip \
@@ -28,7 +26,7 @@ cd helloworld
 >? 如需在 Windows 系统上使用上述 curl 命令，您需要以下命令行之一：
 > - [WSL（推荐）](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
 > - [cygwin](https://cygwin.com/install.html)
->  
+> 
 > 或者选择性地使用 [Spring Initializr（预加载配置）](https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.3.3.RELEASE&packaging=jar&jvmVersion=1.8&groupId=com.example&artifactId=helloworld&name=helloworld&description=&packageName=com.example.helloworld&dependencies=web) 生成项目。
 
 
@@ -70,7 +68,7 @@ server.port=8080
 
 以上代码会创建一个基本的 Web 服务器，并监听 `8080` 端口。
 
-## 第 2 步：将应用容器化
+## 步骤2：将应用容器化
 
 在项目根目录下，创建一个名为 `Dockerfile` 的文件，内容如下：
 
@@ -107,23 +105,18 @@ Dockerfile
 target/
 ```
 
-## 第 3 步（可选）：本地构建镜像
-
+## 步骤3（可选）：本地构建镜像
 如果您本地已经安装了 Docker，可以运行以下命令，在本地构建 Docker 镜像：
-
 ```sh
 docker build -t helloworld-java .
 ```
-
 构建成功后，运行 `docker images`，可以看到构建出的镜像：
-
 ```
 REPOSITORY        TAG       IMAGE ID         CREATED            SIZE
 helloworld-java   latest    c994813b495b     8 seconds ago      271MB
 ```
-
 随后您可以将此镜像上传至您的镜像仓库。
 
-## 第 4 步：部署到 CloudBase 云托管
+## 步骤4：部署到 CloudBase 云托管
 
 请参考 [部署服务](https://cloud.tencent.com/document/product/1243/46127) 与 [版本配置说明](https://cloud.tencent.com/document/product/1243/49177)。

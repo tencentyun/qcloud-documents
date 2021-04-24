@@ -54,7 +54,7 @@ DaemonSet 主要用于部署常驻集群内的后台程序，例如节点的日�
 ## Kubectl 操作 DaemonSet 指引
 
 
-### YAML 示例<span id="YAMLSample"></span>
+### YAML 示例[](id:YAMLSample)
 ```Yaml
 apiVersion: apps/v1
 kind: DaemonSet

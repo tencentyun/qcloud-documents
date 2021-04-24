@@ -38,7 +38,6 @@ mkdir VPC && cd VPC
 <dx-codeblock>
 :::  yml
 #serverless.yml
-org: mysql-app
 app: mysql-app
 stage: dev
 component: vpc # (required) name of the component. In that case, it's vpc.
@@ -59,7 +58,6 @@ inputs:
 <dx-codeblock>
 :::  yml
 # serverless.yml 
-org: mysql-app
 app: mysql-app
 stage: dev
 component: cynosdb
@@ -105,7 +103,6 @@ npm install mysql2
 4. 完成业务代码编写和依赖安装后，创建 `serverless.yml` 文件，示例文件如下：
 <dx-codeblock>
 :::  yml
-org: mysql-app
 app: mysql-app
 stage: dev
 component: scf

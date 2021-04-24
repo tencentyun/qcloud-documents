@@ -33,7 +33,7 @@ apiVersion: v1
 kind: Service
 metadata:
     annotations:  
-      service.cloud.tencent.com/specify-protocol: {"80":{"protocol":["TCP_SSL"],"tls":"cert-secret"}}
+      service.cloud.tencent.com/specify-protocol: '{"80":{"protocol":["TCP_SSL"],"tls":"cert-secret"}}'
     name: test
    ....
 ```

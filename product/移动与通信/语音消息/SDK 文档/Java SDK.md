@@ -1,7 +1,7 @@
 SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [语音消息 API](https://cloud.tencent.com/document/product/1128/51569)。新版 SDK 实现了统一化，具有各个语言版本的 SDK 使用方法相同，接口调用方式相同，错误码相同以及返回包格式相同等优点。
 >!
 >- 发送语音验证码
->只需提供验证码数字，如需自定义内容，可以 [发送语音通知](#SendTtsVoice)。例如，当 msg=“5678” 时，您收到的语音通知为`您的语音验证码是五六七八。`。
+>只需提供验证码数字，如需自定义内容，可以 [发送语音通知](#指定模板发送语音通知)。例如，当 msg=“5678” 时，您收到的语音通知为`您的语音验证码是五六七八。`。
 >- 发送语音通知
 >数字默认按照个十百千万进行播报，可通过在数字前添加英文逗号（,）改变播报方式。例如，当 msg=`您的语音验证码是5678。` 时，您收到的语音通知为`您的语音验证码是五千六百七十八。`，当 msg=`您的语音验证码是5,6,7,8。`时，您收到的语音通知为`您的语音验证码是五六七八。`。
 
@@ -10,7 +10,7 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 ## 前提条件
 
 - 已开通语音消息服务，具体操作请参见 [快速入门](https://cloud.tencent.com/document/product/1128/37343)。
-- 已准备依赖环境：JDK 7 及以上版本。
+- 已准备依赖环境：JDK 7 版本及以上。
 - 已在访问管理控制台 >【[API密钥管理](https://console.cloud.tencent.com/cam/capi)】页面获取 SecretID 和 SecretKey。
  - SecretID 用于标识 API 调用者的身份。
  - SecretKey 用于加密签名字符串和服务器端验证签名字符串的密钥，**SecretKey 需妥善保管，避免泄露**。
@@ -23,22 +23,29 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 ## 安装 SDK
 
 ### 通过 Maven 安装（推荐）
+
 [Maven](https://maven.apache.org) 是 Java 的依赖管理工具，支持您项目所需的依赖项，并将其安装到项目中。
+
 1. 访问 [Maven 官网](https://maven.apache.org/) 下载对应系统 Maven 安装包进行安装。
 2. 添加 Maven 依赖项，只需在 Maven pom.xml 添加以下依赖项即可：
+
  >!版本号仅为示例，请在 [Maven 仓库](https://search.maven.org/search?q=tencentcloud-sdk-java) 获取最新的版本号并替换。
+
 <pre><code class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.tencentcloudapi<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>tencentcloud-sdk-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.1.188<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><span class="hljs-comment">&lt;!-- 注：这里只是示例版本号，请获取并替换为 <a href="https://mvnrepository.com/artifact/com.tencentcloudapi/tencentcloud-sdk-java">最新的版本号</a> --&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span></code></pre>
+
 3. 引用方法可参考 [示例代码](#example)。
 
 ### 通过源码包安装
+
 1. [下载](https://github.com/tencentcloud/tencentcloud-sdk-java) 源码压缩包。
 2. 解压源码包到您项目中合适的位置。
 3. 将 vendor 目录下的 jar 包放在 Java 可找到的路径中。
 4. 引用方法可参考 [示例代码](#example)。
+
 
 ## 示例代码[](id:example)
 
@@ -94,7 +101,7 @@ public class SendCodeVoice
              * 如有需要请在代码中查阅以获取最新的默认值 */
             httpProfile.setConnTimeout(60);
             /* SDK会自动指定域名。通常是不需要特地指定域名的，但是如果您访问的是金融区的服务
-             * 则必须手动指定域名，例如sms的上海金融区域名： sms.ap-shanghai-fsi.tencentcloudapi.com */
+             * 则必须手动指定域名，例如vms的上海金融区域名： vms.ap-shanghai-fsi.tencentcloudapi.com */
             httpProfile.setEndpoint("vms.tencentcloudapi.com");
 
             /* 非必要步骤:
@@ -142,7 +149,7 @@ public class SendCodeVoice
             req.setSessionContext(sessionContext);
 
             /* 通过 client 对象调用 SendCodeVoice 方法发起请求。注意请求方法名与请求对象是对应的
-             * 返回的 res 是一个 SendSmsResponse 类的实例，与请求对象对应 */
+             * 返回的 res 是一个 SendCodeVoiceResponse 类的实例，与请求对象对应 */
             SendCodeVoiceResponse res = client.SendCodeVoice(req);
 
             // 输出json格式的字符串回包
@@ -206,7 +213,7 @@ public class SendTtsVoice
              * 如有需要请在代码中查阅以获取最新的默认值 */
             httpProfile.setConnTimeout(60);
             /* SDK会自动指定域名。通常是不需要特地指定域名的，但是如果您访问的是金融区的服务
-             * 则必须手动指定域名，例如sms的上海金融区域名： sms.ap-shanghai-fsi.tencentcloudapi.com */
+             * 则必须手动指定域名，例如vms的上海金融区域名： vms.ap-shanghai-fsi.tencentcloudapi.com */
             httpProfile.setEndpoint("vms.tencentcloudapi.com");
 
             /* 非必要步骤:
@@ -257,8 +264,8 @@ public class SendTtsVoice
             String sessionContext = "xxxx";
             req.setSessionContext(sessionContext);
 
-            /* 通过 client 对象调用 SendCodeVoice 方法发起请求。注意请求方法名与请求对象是对应的
-             * 返回的 res 是一个 SendSmsResponse 类的实例，与请求对象对应 */
+            /* 通过 client 对象调用 SendTtsVoice 方法发起请求。注意请求方法名与请求对象是对应的
+             * 返回的 res 是一个 SendTtsVoiceResponse 类的实例，与请求对象对应 */
             SendTtsVoiceResponse res = client.SendTtsVoice(req);
 
             // 输出json格式的字符串回包

@@ -1,3 +1,4 @@
+
 关键字 sequence 语法和 mariadb/Oracle 兼容，但是保证分布式全局递增且唯一，具体使用如下：
 
 创建序列需要 CREATE SEQUENCE 系统权限。序列的创建语法如下：

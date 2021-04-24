@@ -1,7 +1,6 @@
 重建索引。
 
 ## 概要
-
 ```sql
 REINDEX {INDEX | TABLE | DATABASE | SYSTEM} name
 ```
@@ -9,7 +8,7 @@ REINDEX {INDEX | TABLE | DATABASE | SYSTEM} name
 ## 描述
 REINDEX 使用索引的表里存储的数据重建一个索引，并且替换该索引的旧拷贝。有一些场景需要使用 REINDEX：
 - 一个索引中包含很多空的或者近乎为空的页面。数据库中的 B-树索引在特定的非常规访问模式下可能会发生这种情况。REINDEX 提供了一种方法来减少索引的空间消耗，即制造一个新版本的索引，其中没有死亡页面。
-- 修改了一个索引的存储参数（例如：填充因子），并且希望确保这种修改完全生效。
+- 修改了一个索引的存储参数（例如填充因子），并且希望确保这种修改完全生效。
 
 ## 参数
 INDEX
@@ -36,13 +35,10 @@ REINDEX 类似于删除索引并且重建索引，在其中索引内容会被从
 
 ## 示例
 重建一个单独的索引：
-
 ```sql
 REINDEX INDEX my_index;
 ```
-
 重建表 my_table 上的所有索引：
-
 ```sql
 REINDEX TABLE my_table;
 ```

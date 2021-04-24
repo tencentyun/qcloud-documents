@@ -38,7 +38,7 @@ Tencent Linux 从2010年启动研发，在腾讯内部已经上线运营了10年
 Tecent Linux 根据内部与外部的用户在大规模落地实践中遇到的问题，针对容器场景做了大量性能优化，包括但不限于：
 1. 解决 IPVS 模式高并发场景下，连接复用引发连接异常的问题（[#81775](https://github.com/kubernetes/kubernetes/issues/81775)）。
 2. 解决 IPVS 模式在高配节点（核数多）下 IPVS 规则过多引发网络毛刺的问题。
-3. <span id="three"></span>解决在容器密集场景下（单节点上容器数量较多），cAdvisor 读取 memcg 陷入内核态过久引发网络毛刺的问题。
+3. [](id:three)解决在容器密集场景下（单节点上容器数量较多），cAdvisor 读取 memcg 陷入内核态过久引发网络毛刺的问题。
 4. 解决大 Pod（占用核数多，单核占用高）在高配节点（核数多）场景下，CPU 负载均衡引发网络毛刺的问题。
 5. 解决高并发场景下的 TCP 连接监控（例如单独部署 cAdvisor 配置监控 TCP 连接）引发网络周期性抖动问题。
 6. 优化网络收包软中断，提升网络性能。
@@ -80,7 +80,7 @@ sysctl -w kernel.container_stats_isolated=0
 >! Tencent Linux 除了支持普通的云服务器机型外，还支持黑石物理机与 Nvidia GPU 的机型。
 
 ## 相关操作
-### 修改操作系统<span id="revise"></span>
+### 修改操作系统[](id:revise)
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2) ，单击左侧导航栏中的【集群】。
 2. 单击需修改操作系统的集群 ID，进入集群的“基本信息”页面。
 3. 在集群“基本信息”页面的节点和网络信息模块，单击默认操作系统右侧的![](https://main.qcloudimg.com/raw/3b38ca6981068a10b031df5708bc4f41.png)。如下图所示：

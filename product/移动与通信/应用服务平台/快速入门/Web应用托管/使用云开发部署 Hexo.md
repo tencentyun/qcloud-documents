@@ -2,7 +2,7 @@
 
 代码示例：[Hexo](https://github.com/TencentCloudBase/cloudbase-templates/tree/master/hexo)
 
-## 第 1 步：初始化项目
+## 步骤1：初始化项目
 
 使用 hexo 命令行初始化一个项目：
 
@@ -10,7 +10,7 @@
 npx hexo init hexo-hello-world
 ```
 
-## 第 2 步：发布项目
+## 步骤2：发布项目
 
 安装并登录 CloudBase Framework，在项目根目录下运行：
 

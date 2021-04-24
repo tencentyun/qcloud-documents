@@ -130,7 +130,7 @@ Dynamic-scheduler 是一个 scheduler-extender，根据 node annotation 负载�
 ### 依赖部署[](id:Dynamic)
 
 Dynamic Scheduler 动态调度器依赖于 Node 当前和过去一段时间的真实负载情况来进行调度决策，需通过 Prometheus 等监控组件获取系统 Node 真实负载信息。在使用动态调度器之前，需要部署 Prometheus 等监控组件。在容器服务 TKE 中，您可按需选择采用自建的 Prometheus 监控服务或采用 TKE 推出的云原生监控。
-<span id="rules"></span>
+[](id:rules)
 <dx-tabs>
 ::: 自建Prometheus监控服务
 #### 部署 node-exporter 和 prometheus

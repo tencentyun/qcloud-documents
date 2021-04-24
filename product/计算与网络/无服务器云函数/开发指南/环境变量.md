@@ -47,7 +47,12 @@ print(value)
 var value = process.env.key
 console.log(value)
 ```
-- 在 Java 运行环境中，读取环境变量的方法为：
+- 在 Java 运行环境中，读取环境变量的方法分为临时授权字段和其他字段两种情况：
+ - 临时授权字段包括：`TENCENTCLOUD_SESSIONTOKEN`、`TENCENTCLOUD_SECRETID`、`TENCENTCLOUD_SECRETKEY`，读取环境变量的方法为：
+```
+System.out.println("value: "+ System.getProperty("key"));
+```
+ - 其他字段，读取环境变量的方法为：
 ```
 System.out.println("value: "+ System.getenv("key"));
 ```
@@ -61,6 +66,13 @@ value = os.Getenv("key")
 ```
 $value = getenv('key');
 ```
+
+
+
+
+
+
+
 
 ## 使用场景
 

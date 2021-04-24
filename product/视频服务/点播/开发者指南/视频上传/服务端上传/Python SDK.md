@@ -45,7 +45,7 @@ try:
     print(response.FileId)
     print(response.MediaUrl)
 except Exception as err:
-    // 处理业务异常
+    # 处理业务异常
     print(err)
 ```
 
@@ -67,7 +67,7 @@ try:
     print(response.MediaUrl)
     print(response.CoverUrl)
 except Exception as err:
-    // 处理业务异常
+    # 处理业务异常
     print(err)
 ```
 
@@ -86,7 +86,7 @@ try:
     print(response.FileId)
     print(response.MediaUrl)
 except Exception as err:
-    // 处理业务异常
+    # 处理业务异常
     print(err)
 ```
 
@@ -105,7 +105,7 @@ try:
     print(response.FileId)
     print(response.MediaUrl)
 except Exception as err:
-    // 处理业务异常
+    # 处理业务异常
     print(err)
 ```
 
@@ -124,7 +124,7 @@ try:
     print(response.FileId)
     print(response.MediaUrl)
 except Exception as err:
-    // 处理业务异常
+    # 处理业务异常
     print(err)
 ```
 
@@ -143,7 +143,7 @@ try:
     print(response.FileId)
     print(response.MediaUrl)
 except Exception as err:
-    // 处理业务异常
+    # 处理业务异常
     print(err)
 ```
 
@@ -161,7 +161,7 @@ try:
     print(response.FileId)
     print(response.MediaUrl)
 except Exception as err:
-    // 处理业务异常
+    # 处理业务异常
     print(err)
 ```
 
@@ -181,7 +181,7 @@ try:
     print(response.FileId)
     print(response.MediaUrl)
 except Exception as err:
-    // 处理业务异常
+    # 处理业务异常
     print(err)
 ```
 
@@ -237,3 +237,5 @@ except Exception as err:
 | InvalidParameterValue.SubAppId       | 参数值错误：子应用 ID。               |
 | InvalidParameterValue.VodSessionKey       | 参数值错误：点播会话。              |
 | ResourceNotFound       | 资源不存在。               |
+
+

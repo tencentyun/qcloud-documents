@@ -3,7 +3,7 @@
 
 ## 获取当前未读消息数量
 
-每次使用 [ getConversationList() ](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getConversationList) 时，会获得[[Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)，[Conversation](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Conversation.html)，......]数组，每个`Conversation`都有当前会话的未读数目，用`unreadCount`表示。
+每次使用 [ getConversationList() ](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#getConversationList) 时，会获得[[Conversation](https://web.sdk.qcloud.com/im/doc/zh-cn//Conversation.html)，[Conversation](https://web.sdk.qcloud.com/im/doc/zh-cn//Conversation.html)，......]数组，每个`Conversation`都有当前会话的未读数目，用`unreadCount`表示。
 所有会话的未读计数，由所有会话的`unreadCount`相加所得。
 
 
@@ -11,7 +11,7 @@
 
 当用户阅读某个会话的消息后，需要进行会话消息的已读上报，IM SDK 根据会话中最后一条阅读的消息，设置会话中之前所有消息为已读。建议在单击进行切换会话时进行消息的已读上报。
 
->?已读上报会改变会话的未读计数。v2.7.0 起，设置`C2C`会话消息已读，会向对端推送已读回执，请参考事件 [TIM.EVENT.MESSAGE_READ_BY_PEER](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_READ_BY_PEER)。
+>?已读上报会改变会话的未读计数。v2.7.0 起，设置`C2C`会话消息已读，会向对端推送已读回执，请参考事件 [TIM.EVENT.MESSAGE_READ_BY_PEER](https://web.sdk.qcloud.com/im/doc/zh-cn//module-EVENT.html#.MESSAGE_READ_BY_PEER)。
 
 **接口**
 
@@ -39,4 +39,5 @@ promise.then(function(imResponse) {
   console.warn('setMessageRead error:', imError);
 });
 ```
+
 

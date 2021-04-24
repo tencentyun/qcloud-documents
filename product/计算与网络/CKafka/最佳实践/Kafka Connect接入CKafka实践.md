@@ -6,7 +6,7 @@ Kafka Connect 目前支持两种执行模式：standalone 和 distributed。
 ```
 bin/connect-standalone.sh config/connect-standalone.properties connector1.properties [connector2.properties ...]
 ```
-接入 ckafka 与接入开源 kafka 没有区别，仅需要修改 bootstrap.servers 为申请实例时分配的 IP。
+接入 CKafka 与接入开源 Kafka 没有区别，仅需要修改 bootstrap.servers 为申请实例时分配的 IP。
 
 ## 以 distributed 模式启动 connect
 通过以下命令以 distributed 模式启动 connect：

@@ -2,13 +2,13 @@
 
 ## 准备工作
 
-- 已经对某个容器服务 （TKE) 安装了 Prometheus Agent，具体可以参考 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
-- 通过容器服务列表点击【集群 ID】进入到容器服务集成管理页面。
+- 已经为容器服务 TKE 集群安装 Prometheus Agent，具体可以参考 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
+- 通过 [容器服务](https://console.cloud.tencent.com/tke2/cluster?rid=4) 集群管理页面中单击【集群 ID】进入到容器服务集成管理页面。
 
 ## 说明
 
 - 在任务状态中没有找到对应的抓取任务，说明 Prometheus Agent 没有正确获取到对应的抓取任务的配置，请查看对应的配置是否正确。
-- 【红色】数值表示该任务下有多少个抓任任务是失败的，展开可以查看具体的失败原因。
+- 【红色】数值表示该任务下有多少个抓取任务失败，展开可以查看具体的失败原因。
 
 ## 操作步骤
 

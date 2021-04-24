@@ -2,7 +2,9 @@
 您可以为视频添加多种滤镜特效，我们目前支持11种滤镜特效，每种滤镜您也可以设置视频作用的起始时间和结束时间。如果同一个时间点设置了多种滤镜特效，SDK 会应用最后一种滤镜特效作为当前的滤镜特效。
 
 设置滤镜特效：
-```
+
+<dx-codeblock>
+::: android java
 /**
   * 设置滤镜特效开始时间
    * @param type      滤镜特效类型 
@@ -15,7 +17,9 @@ public void startEffect(int type, long startTime);
   * @param endTime 滤镜特效结束时间（ms）
 */
 public void stopEffect(int type, long endTime);
-```
+:::
+</dx-codeblock>
+
 参数说明：@param type：滤镜特效的类型，在常量 TXVideoEditConstants 中有定义：
 ``` 
 public static final int TXEffectType_SOUL_OUT = 0;                    //滤镜效果1
@@ -55,7 +59,8 @@ mTXVideoEditer.deleteLastEffect();
 ## 慢/快动作
 您可以进行多段视频的慢速/快速播放，设置慢速/快速播放的方法为：
 
-```
+<dx-codeblock>
+::: android java
 public void setSpeedList(List speedList)；
 
 //TXSpeed 的参数如下：
@@ -71,10 +76,12 @@ SPEED_LEVEL_SLOW       - 慢
 SPEED_LEVEL_NORMAL     - 正常
 SPEED_LEVEL_FAST       - 快
 SPEED_LEVEL_FASTEST    - 极快
-```
+:::
+</dx-codeblock>
 
 完整示例如下：
-```
+<dx-codeblock>
+::: android java
 List<TXVideoEditConstants.TXSpeed> list = new ArrayList<>();
 TXVideoEditConstants.TXSpeed speed1 = new TXVideoEditConstants.TXSpeed();
 speed1.startTime = 0;                                               
@@ -95,7 +102,8 @@ speed3.speedLevel = TXVideoEditConstants.SPEED_LEVEL_SLOW;                      
 list.add(speed3);
 
 mTXVideoEditer.setSpeedList(list);
-```
+:::
+</dx-codeblock>
 
 ## 倒放
 您可以将视频画面倒序播放。通过调用 **setReverse(true)** 开启倒序播放，调用 **setReverse(false)** 停止倒序播放。
@@ -112,7 +120,8 @@ mTXVideoEditer.setReverse(true);
 如需取消之前设置的重复片段，调用 **setRepeatPlay(null)** 即可。
 
 设置重复片段方法：
-```
+<dx-codeblock>
+::: android java
 public void setRepeatPlay(List repeatList);
 
 //TXRepeat 的参数如下：
@@ -121,10 +130,12 @@ public final static class TXRepeat {
     public long endTime;                //重复播放结束时间(ms)
     public int  repeatTimes;            //重复播放次数
 }
-```
+:::
+</dx-codeblock>
 
 Demo 示例：
-```
+<dx-codeblock>
+::: android java
 long currentPts = mVideoProgressController.getCurrentTimeMs();
 
 List repeatList = new ArrayList<>();
@@ -134,4 +145,5 @@ repeat.endTime = currentPts + DEAULT_DURATION_MS;
 repeat.repeatTimes = 3;  //目前只支持重复三次
 repeatList.add(repeat);  //目前只支持重复一段时间
 mTXVideoEditer.setRepeatPlay(repeatList);
-```
+:::
+</dx-codeblock>

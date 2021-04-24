@@ -1,13 +1,10 @@
 定义一个新的默认带有 LOGIN 权限的数据库角色。
 
 ## 概要
-
 ```sql
 CREATE USER name [ [WITH] option [ ... ] ]
 ```
-
 该 option 可以是：
-
 ```sql
       SUPERUSER | NOSUPERUSER
     | CREATEDB | NOCREATEDB
@@ -31,7 +28,6 @@ CREATE USER name [ [WITH] option [ ... ] ]
 在 CREATE ROLE 和 CREATE USER 之间仅有的区别是 LOGIN 权限默认和 CREATE USER 一起创建，然而 NOLOGIN 权限默认和 CREATE ROLE 一起创建。
 
 ## 兼容性
-
 在 SQL 标准中没有 CREATE USER 语句。
 
 ## 另见

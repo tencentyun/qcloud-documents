@@ -20,9 +20,9 @@ WordPress 功能强大、扩展性强，这主要得益于其插件众多，易�
  - 您也可以在安装服务器系统时在 [镜像市场](https://market.cloud.tencent.com/) 中选择预装 WordPress 博客平台的 CVM 镜像。
 2. 创建一个**公有读私有写**的存储桶，存储桶的地域建议与运行 WordPress 博客平台的 CVM 的地域相同，创建详情请参见 [创建存储桶](https://cloud.tencent.com/document/product/436/13309) 文档。
 3. 在【存储桶列表】中找到刚才创建的存储桶，并单击其存储桶名称，进入存储桶页面。
-![](https://main.qcloudimg.com/raw/d1645d05146c7b96f5620d9ffe61baf7.png)
-4. 单击左侧的【基础配置】，查看访问域名并记录。
-![](https://main.qcloudimg.com/raw/e71d2c19aea0343dac14f9f21cbe7280.png)
+![](https://main.qcloudimg.com/raw/879cce343c28376f41b6561d6c73a6df.png)
+4. 在左侧导航栏中，单击【概览】，查看访问域名并记录。
+![](https://main.qcloudimg.com/raw/f70fd4d43e0db9faca94f5d5f4e2ac60.png)
 
 ## 安装并配置插件
 
@@ -52,7 +52,7 @@ WordPress 功能强大、扩展性强，这主要得益于其插件众多，易�
 3. 上传一个新文件进行测试，查看附件详情，查看附件图片的 URL，确认附件图片的 URL 指向腾讯云 COS。
 ![](https://main.qcloudimg.com/raw/eec09d6877cf0d573a6522146418eea2.png)
 
->?如果以上测试成功，那么接下来需要同步旧资源到 COS 存储桶中（可使用 [COSCMD 工具](https://cloud.tencent.com/document/product/436/10976) 或者 [COS Migration 工具](https://cloud.tencent.com/document/product/436/15392)），**否则后台无法正常预览旧资源**。同步完成以后，可以开启回源设置，可参考下文的 [设置回源](#1)。
+>? 如果以上测试成功，那么接下来需要同步旧资源到 COS 存储桶中（可使用 [COSCMD 工具](https://cloud.tencent.com/document/product/436/10976) 或者 [COS Migration 工具](https://cloud.tencent.com/document/product/436/15392)），**否则后台无法正常预览旧资源**。同步完成以后，可以开启回源设置，可参考下文的 [设置回源](#1)。
 
 ## 扩展
 
@@ -66,7 +66,8 @@ WordPress 功能强大、扩展性强，这主要得益于其插件众多，易�
 在文章中引用对应的资源链接，控制台会提示跨域的错误`No 'Access-Control-Allow-Origin' header is present on the requested resource`。原因是没有添加 header。您需要在跨域访问 CORS 设置中添加 HTTP Header 配置。下面提供两种途径进行配置：
  - 在 COS 控制台上配置
 ![](https://main.qcloudimg.com/raw/ec11051c0737ca9b66710d368106cbd6.png)
->?关于跨域配置操作步骤，请参见 [设置跨域访问](https://cloud.tencent.com/document/product/436/13318) 文档。
+>? 关于跨域配置操作步骤，请参见 [设置跨域访问](https://cloud.tencent.com/document/product/436/13318) 文档。
+>
  - 在 CDN 控制台上配置
     - 如允许所有域名，则配置如下：
 ```plaintext
@@ -77,7 +78,7 @@ Access-Control-Allow-Origin: *
 Access-Control-Allow-Origin: https://example.com
 ```
 
-<span id=1>
+<span id=1></span>
 
 4. 设置回源
 如果您不在 WordPress 后台媒体库中上传资源，建议开启回源设置，详细步骤请参见 [设置回源](https://cloud.tencent.com/document/product/436/13310) 文档。

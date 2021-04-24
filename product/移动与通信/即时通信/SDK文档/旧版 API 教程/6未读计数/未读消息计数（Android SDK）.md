@@ -132,3 +132,4 @@ public void onRefreshConversation(List<TIMConversation> conversations);
 public TIMUserConfig disableAutoReport(boolean disableAutoReport) 
 ```
 
+

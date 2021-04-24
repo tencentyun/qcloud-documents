@@ -23,7 +23,7 @@ pod init
 ```
 
 #### 3. 编辑 Podfile 文件
-如果使用标准版 SDK，请您按照如下方式设置：
+如果使用标准版 SDK，请您按照如下方式设置 Podfile 文件：
 
 ```
 platform :ios, '8.0'
@@ -34,13 +34,43 @@ pod 'TXIMSDK_iOS'
 end
 ```
 
-如果使用精简版 SDK，请您按照如下方式设置：
+如果使用精简版 SDK，请您按照如下方式设置 Podfile 文件：
 ```
 platform :ios, '8.0'
 source 'https://github.com/CocoaPods/Specs.git'
 
 target 'App' do
 pod 'TXIMSDK_Smart_iOS'
+end
+```
+
+如果使用精简版 bitcode 版本 SDK，请您按照如下方式设置 Podfile 文件：
+```
+platform :ios, '8.0'
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'App' do
+pod 'TXIMSDK_Smart_iOS_Bitcode'
+end
+```
+
+如果使用精简版 xcframework 版本 SDK，请您按照如下方式设置 Podfile 文件：
+```
+platform :ios, '8.0'
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'App' do
+pod 'TXIMSDK_Smart_iOS_XCFramework'
+end
+```
+
+如果使用精简版 xcframework 版本 SDK（支持 bitcode），请您按照如下方式设置 Podfile 文件：
+```
+platform :ios, '8.0'
+source 'https://github.com/CocoaPods/Specs.git'
+
+target 'App' do
+pod 'TXIMSDK_Smart_iOS_Bitcode_XCFramework'
 end
 ```
 

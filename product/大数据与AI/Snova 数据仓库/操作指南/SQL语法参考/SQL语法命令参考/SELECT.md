@@ -81,7 +81,7 @@ SELECT 从零或更多表中检索行。SELECT 的通常处理如下：
 用户必须拥有在要读取值的表上的 SELECT 特权。FOR UPDATE、FOR SHARE 还要求 UPDATE 特权。
 
 ## 参数
-**WITH 子句**
+### **WITH 子句**
 WITH 子句允许用户指定一个或者多个在主查询中可以其名称引用的子查询。在主查询期间子查询实际扮演了临时表或者视图的角色。每一个子查询都可以是一个 SELECT 或者 VALUES 语句。
 
 对于每一个 WITH 子句，都必须指定一个名称（无需方案限定）。可选地，可以指定一个列名列表。如果省略该列表，会从该子查询中推导列名。主查询和 WITH 查询全部（理论上）都在同一时间被执行。
@@ -97,14 +97,14 @@ SELECT 列表（位于关键词 SELECT 和 FROM 之间）指定构成 SELECT 语
 
 一些构造可以分类为一个表达式但是不符合通用的语法规则。这些通常有一个操作符或者函数的语义。可以在输出列表中写来取代表达式，它是被选中行的所有列的一种简写方式。还可以写 table_name.，它是只来自那个表的所有列的简写形式。
 
-**FROM 子句**
+### **FROM 子句**
 FROM 子句为 SELECT 指定一个或者更多源表。如果指定了多个源表，结果将是所有源表的笛卡尔积（交叉连接）。但是通常会增加限定条件，来把返回的行限制为该笛卡尔积的一个小子集。FROM 子句可以包含下列元素：
 - table_name
 一个现有表或视图的名称（可以是方案限定的）。如果在表名前指定了 ONLY，则只会扫描该表。如果没有指定 ONLY，该表及其所有后代表（如果有）都会被扫描。
 - alias
 一个包含别名的 FROM 项的替代名称。别名被用于让书写简洁或者消除自连接中的混淆（其中同一个表会被扫描多次）。当提供一个别名时，表或者函数的实际名称会被隐藏。例如给定 FROM foo AS f，SELECT 的剩余部分就必须以 f 而不是 foo 来引用这个 FROM 项。如果写了一个别名，还可以写一个列别名列表来为该表的一个或者多个列提供替代名称。
 - select
-一个子-SELECT 可以出现在 FROM 子句中。这就好像把它的输出创建为一个存在于该 SELECT 命令期间的临时表。注意 子-SELECT 必须用圆括号包围，并且必须为它提供一个别名，也可以在这里使用一个 VALUES 命令。
+一个子-SELECT 可以出现在 FROM 子句中。这就好像把它的输出创建为一个存在于该 SELECT 命令期间的临时表。**子-SELECT 必须用圆括号包围，并且必须为它提供一个别名，也可以在这里使用一个 VALUES 命令**。
 - with_query_name
 在 FROM 子句中，可以通过写一个 WITH 查询的名称来引用 WITH 查询，就好像该查询的名称是一个表名。WITH 查询的名称不能包含一个方案限定词。可以像表一样，以同样的方式提供一个别名。
 - function_name
@@ -139,19 +139,18 @@ USING (join_column [, ...])
 **NATURAL**
 NATURAL 是列出在两个表中所有具有相同名称的列的 USING 的简写。
 
-**WHERE 子句**
+### **WHERE 子句**
 可选的 WHERE 子句的形式：
 ```sql
 WHERE condition
 ```
 其中 condition 是任一计算得到 boolean 类型结果的表达式。任何不满足这个条件的行都会从输出中被消除。如果用一行的实际值替换其中的变量引用后，该表达式返回真，则该行符合条件。
 
-**GROUP BY 子句**
+### **GROUP BY 子句**
 可选的 GROUP BY 子句的形式：
 ```sql
 GROUP BY grouping_element [, ...]
 ```
-
 grouping_element 可以为下列之一：
 ```sql
 ()
@@ -160,58 +159,55 @@ ROLLUP (expression [,...])
 CUBE (expression [,...])
 GROUPING SETS ((grouping_element [, ...]))
 ```
-
 GROUP BY 将会把所有被选择的行中共享相同分组表达式值的那些行压缩成一个行。一个被用在 expression 可以是输入列名、输出列（SELECT 列表项）的名称或序号或者由输入列值构成的任意表达式。在出现歧义时，GROUP BY 名称将被解释为输入列名而不是输出列名。
 
 聚集函数（如果使用）会在组成每一个分组的所有行上进行计算，从而为每一个分组产生一个单独的值（如果有聚集函数但是没有 GROUP BY子 句，则查询会被当成是由所有选中行构成的一个单一分组）。当存在 GROUP BY 子句或者任何聚集函数时，SELECT 列表表达式不能引用非分组列（除非它出现在聚集函数中或者它函数依赖于分组列），因为这样做会导致返回非分组列的值时会有多种可能的值。
 
-数据库有下面增加的 OLAG 分组扩展（通常被称为*supergroups*）：
-ROLLUP
+数据库有下面增加的 OLAG 分组扩展（通常被称为 `supergroups`）：
+- ROLLUP
 一个 ROLLUP 分组是 GROUP BY 分组的扩展。该分组创建一个从最细的级别到一个粗粒度级别上卷聚集操作，后面紧跟着一系列的分组列（或者表达式）。ROLLUP 接受一个有序的分组列，计算在 GROUP BY 中指定的标准聚集值，然后从右到左进一步创建高层次的部分和，最后创建了累积和。一个 ROLLUP 分组能够看做一系列的分组集。例如：
 ```sql
 GROUP BY ROLLUP (a,b,c) 
 ```
-等价于：
+ 等价于：
 ```sql
 GROUP BY GROUPING SETS( (a,b,c), (a,b), (a), () ) 
 ```
-一个有 n 个元素的 ROLLUP 翻译为 n+1 分组集。同时，在 ROLLUP 中指定分组表达式的顺序很重要。
-
-CUBE
+ 一个有 n 个元素的 ROLLUP 翻译为 n+1 分组集。同时，在 ROLLUP 中指定分组表达式的顺序很重要。
+- CUBE
 CUBE 分组是 GROUP BY 子句的一个扩展。它能够为给定的分组列（或者表达式）所有可能的组合创建部分和。在多维分析上，CUBE 为指定维度的、可计算的数据立方体计算出所有的部分和。例如：
 ```sql
 GROUP BY CUBE (a,b,c) 
 ```
-等价于：
+ 等价于：
 ```sql
 GROUP BY GROUPING SETS( (a,b,c), (a,b), (a,c), (b,c), (a), 
 (b), (c), () ) 
 ```
-一个有 n 个元素的 CUBE 翻译为 2n 个分组集。在任何需要交叉表报表的场景下，考虑使用 CUBE。CUBE 典型的适用于查询中从多个维度中使用列而不是一个列代表不同层次上使用列。例如一个常用的交叉列表可能需要分类汇总为月、所有组合的状态和产品。
-
-GROUPING SETS
+ 一个有 n 个元素的 CUBE 翻译为 2n 个分组集。在任何需要交叉表报表的场景下，考虑使用 CUBE。CUBE 典型的适用于查询中从多个维度中使用列而不是一个列代表不同层次上使用列。例如一个常用的交叉列表可能需要分类汇总为月、所有组合的状态和产品。
+- GROUPING SETS
 GROUP BY 子句中，可以在想要使用 GROUPING SETS 表达式的地方选择性指定分组集合。这允许精确的规范在多个维度而不用计算整个 ROLLUP 或 CUBE。例如：
 ```sql
 GROUP BY GROUPING SETS( (a,c), (a,b) )
 ```
-如果使用分组扩展子句 ROLLUP、CUBE 或者 GROUPING SETS，有两个挑战将会出现。首先，如何决定哪些结果行需要是部分和，以及给定的部分和的准确聚集层次。或者用户如何区别包含 NULL 或者由 ROLLUP 、CUBE 产生"NULL"值的结果行。第二，当在 GROUP BY 子句中指定了重复分组，如何决定哪些结果行是冗余的，有两个额外的分组函数可以使用在 SELECT 列表中帮助：
-- **grouping(column      [, ...])**：grouping 函数能够被应用到一个或者更多的分组属性上来从正规的分组行区分开超级聚集行（这对将一个超级聚集行中表示所有值集合的“NULL”与普通行中的 NULL 区分开很有用）。该函数中的每个参数产生一个位，要么为1或者0，其中1意味着结果行是超级聚集的，0意味着结果行来自于普通聚集。
+ 如果使用分组扩展子句 ROLLUP、CUBE 或者 GROUPING SETS，有两个挑战将会出现。首先，如何决定哪些结果行需要是部分和，以及给定的部分和的准确聚集层次。或者用户如何区别包含 NULL 或者由 ROLLUP 、CUBE 产生"NULL"值的结果行。第二，当在 GROUP BY 子句中指定了重复分组，如何决定哪些结果行是冗余的，有两个额外的分组函数可以使用在 SELECT 列表中帮助：
+ - **grouping(column      [, ...])**：grouping 函数能够被应用到一个或者更多的分组属性上来从正规的分组行区分开超级聚集行（这对将一个超级聚集行中表示所有值集合的“NULL”与普通行中的 NULL 区分开很有用）。该函数中的每个参数产生一个位，要么为1或者0，其中1意味着结果行是超级聚集的，0意味着结果行来自于普通聚集。
 grouping 函数通过将这些位当做一个二进制数然后将它们转换为一个十进制的书，返回一个整数。
-- **group_id()**：对于包含有冗余分组集，group_id 函数被用来鉴别在输出中的冗余行。所有 `*unique*` 分组集输出行将有一个为0的 group_id 值。对于每个检测到的冗余的分组集，group_id 函数分配一个大于0的 group_id。
+ - **group_id()**：对于包含有冗余分组集，group_id 函数被用来鉴别在输出中的冗余行。所有 `*unique*` 分组集输出行将有一个为0的 group_id 值。对于每个检测到的冗余的分组集，group_id 函数分配一个大于0的 group_id。
 在一个特定的冗余分组集中的所有行被有相同的 group_id 值。
 
-**WINDOW 子句**
+### **WINDOW 子句**
 WINDOW 子句是用来定义一个能够被用在一个窗口函数（例如 rank 或 avg）的 OVER() 表达式中的窗口。 例如：
 ```sql
 SELECT vendor, rank() OVER (mywindow) FROM sale
 GROUP BY vendor
 WINDOW mywindow AS (ORDER BY sum(prc*qty));
 ```
-一个 WINDOW 子句有一般的形式：
+ 一个 WINDOW 子句有一般的形式：
 ```sql
 WINDOW window_name AS (window_specification)
 ```
-其中 window_specification 可以为：
+ 其中 window_specification 可以为：
 ```sql
 [window_name]
 [PARTITION BY expression [, ...]]
@@ -228,8 +224,7 @@ WINDOW window_name AS (window_specification)
                expression FOLLOWING
                UNBOUNDED FOLLOWING
 ```
-
-window_name
+ window_name
 给窗口说明一个名字。
 
 PARTITION BY
@@ -252,7 +247,7 @@ ROWS | RANGE
 
 如果没有指定一个 ROW 或者 RANGE 子句，窗口的界会从分区的第一行开始（UNBOUNDED PRECEDING） 同时以当前行为结束（CURRENT ROW），如果使用了 ORDER BY ，ORDER BY 没有指定，那么窗口开始于分区（UNBOUNDED PRECEDING）的第一行同时结束语分区（UNBOUNDED FOLLOWING）的最后一行。
 
-**HAVING 子句**
+### **HAVING 子句**
 可选 HAVING 子句的形式：
 ```sql
 HAVING condition
@@ -262,7 +257,7 @@ HAVING 与 WHERE 不同：WHERE 会在应用 GROUP BY 之前过滤个体行，�
 
 即使没有 GROUP BY 子句，HAVING 的存在也会把一个查询转变成一个分组查询。这和查询中包含聚集函数但没有 GROUP BY 子句时的情况相同。所有被选择的行都被认为是一个单一分组，并且 SELECT 列表和 HAVING 子句只能引用聚集函数中的表列。如果该 HAVING 条件为真，这样一个查询将会发出一个单一行；否则不返回行。
 
-**UNION 子句**
+### **UNION 子句**
 UNION 子句具有下面的形式：
 ```sql
 select_statement UNION [ALL] select_statement
@@ -277,7 +272,7 @@ UNION 的结果不会包含重复行，除非指定了 ALL 选项。ALL 会阻�
 
 当前，FOR UPDATE 和 FOR SHARE 不能用于 UNION 结果或者 UNION 的任何输入。
 
-**INTERSECT** **子句**
+### **INTERSECT** **子句**
 INTERSECT子句具有下面的形式：
 ```sql
 select_statement INTERSECT [ALL] select_statement
@@ -292,7 +287,7 @@ INTERSECT 的结果不会包含重复行，除非指定了 ALL 选项。如果�
 
 当前，FOR UPDATE 和 FOR SHARE 不能用于 INTERSECT 结果或者 INTERSECT 的任何输入。
 
-**EXCEPT 子句**
+### **EXCEPT 子句**
 
 EXCEPT 子句具有如下形式：
 ```sql
@@ -308,7 +303,7 @@ EXCEPT 的结果不会包含重复行，除非指定了 ALL 选项。如果有 A
 
 当前，FOR UPDATE 和 FOR SHARE 不能用于 EXCEPT 结果或者 EXCEPT 的任何输入。
 
-**ORDER BY 子句**
+### **ORDER BY 子句**
 
 ORDER BY 子句可选的形式如下：
 ```sql
@@ -330,15 +325,15 @@ SELECT name FROM distributors ORDER BY code;
 
 如果一个 ORDER BY 表达式是一个既匹配输出列名称又匹配输入列名称的简单名称，ORDER BY 将把它解读成输出列名称。这与在同样情况下 GROUP BY 会做出的选择相反。这种不一致是为了与 SQL 标准兼容。
 
-可以为 ORDER BY 子句中的任何表达式之后增加关键词 ASC（上升）、DESC（下降）。如果没有指定， ASC 被假定为默认值。或者可以在 USING 子句中指定一个特定的排序操作符名称。ASC 通常等价于 USING <，而 DESC 通常等价于USING >（但是一种用户定义数据类型的创建者可以准确地定义默认排序顺序是什么，并且它可能会对应于其他名称的操作符）。
+可以为 ORDER BY 子句中的任何表达式之后增加关键词 ASC（上升）、DESC（下降）。如果没有指定，ASC 被假定为默认值。或者可以在 USING 子句中指定一个特定的排序操作符名称。ASC 通常等价于 USING <，而 DESC 通常等价于USING >（但是一种用户定义数据类型的创建者可以准确地定义默认排序顺序是什么，并且它可能会对应于其他名称的操作符）。
 
-如果指定 NULLS LAST，空值会排在非空值之后；如果指定 NULLS FIRST，空值会排在非空值之前。如果都没有指定， 在指定或者隐含 ASC 时的默认行为是 NULLS LAST， 而指定或者隐含 DESC 时的默认行为是 NULLS FIRST（因此，默认行为是空值大于非空值）。当指定 USING 时，默认的空值顺序取决于该操作符是否为小于或者大于操作符。
+如果指定 NULLS LAST，空值会排在非空值之后；如果指定 NULLS FIRST，空值会排在非空值之前。如果都没有指定，在指定或者隐含 ASC 时的默认行为是 NULLS LAST，而指定或者隐含 DESC 时的默认行为是 NULLS FIRST（因此，默认行为是空值大于非空值）。当指定 USING 时，默认的空值顺序取决于该操作符是否为小于或者大于操作符。
 
 顺序选项只应用到它们所跟随的表达式上。例如`ORDER BY x, y DESC 和 ORDER BY x DESC, y DESC`是不同的。
 
 字符串数据被根据区域相关的排序规则顺序排序，该顺序在数据库系统被初始化时建立。
 
-**DISTINCT 子句**
+### DISTINCT 子句
 
 如果指定了 DISTINCT 子句，所有重复的行会被从结果集中移除（为每一组重复的行保留一行）。ALL 则指定相反的行为，所有行都会被保留，这也是默认情况。
 
@@ -353,27 +348,24 @@ DISTINCT ON 表达式必须匹配最左边的 ORDER BY 表达式。ORDER BY 子�
 
 当数据库处理包含有 DISTINCT 子句的查询时，查询将会转换为 GROUP BY 查询。在很多场景中，变换能够提供显著的性能提升。然而，当 distinct 值的数量与总的行数相近时，该转换可能会导致多个层次的分组计划的产生。在这种情况下，由于引入的低聚集度开销，预期性能会降低。
 
-**LIMIT 子句**
+### LIMIT 子句
 LIMIT 子句两个独立的子句构成：
 ```sql
 LIMIT {count | ALL}
 OFFSET start
 ```
-count 指定要返回 的最大行数，而 start 指定在返回行之前要跳过的行数。在两者都被指定时，在开始计算要返回的  count 行之前会跳过 start 行。
+count 指定要返回的最大行数，而 start 指定在返回行之前要跳过的行数。在两者都被指定时，在开始计算要返回的 count 行之前会跳过 start 行。
 
 在使用 LIMIT 时，用一个 ORDER BY 子句把结果行约束到一个唯一顺序是个好办法。否则用户讲得到该查询结果行的 一个不可预测的子集，用户可能要求从第10到第20行，但是在什么顺序下的第10到第20，除非指定 ORDER BY，用户是不知道顺序的。
 
-查询规划器在生成一个查询计划时会考虑 LIMIT，因此根据用户使用的 LIMIT 和 OFFSET，用户很可能得到不同的计划（得到不同的行序）。所以，使用不同的 LIMIT/OFFSET 值来选择一个查询结果的不同子集将会给出不一致的结果，除非用户用 ORDER BY 强制一种可预测的结果顺序。这不是一个缺陷，它是 SQL 不承诺以任何特定顺序（除非使用  ORDER BY 来约束顺序）给出一个查询结果这一事实造成的必然后果。
+查询规划器在生成一个查询计划时会考虑 LIMIT，因此根据用户使用的 LIMIT 和 OFFSET，用户很可能得到不同的计划（得到不同的行序）。所以，使用不同的 LIMIT/OFFSET 值来选择一个查询结果的不同子集将会给出不一致的结果，除非用户用 ORDER BY 强制一种可预测的结果顺序。这不是一个缺陷，它是 SQL 不承诺以任何特定顺序（除非使用 ORDER BY 来约束顺序）给出一个查询结果这一事实造成的必然后果。
 
-**FOR UPDATE/FOR SHARE 子句**
+### FOR UPDATE/FOR SHARE 子句
 FOR UPDATE 子句的形式如下：
-
 ```sql
 FOR UPDATE [OF table_name [, ...]] [NOWAIT]
 ```
-
 非常接近的 FOR SHARE 子句的形式为：
-
 ```sql
 FOR SHARE [OF table_name [, ...]] [NOWAIT]
 ```
@@ -382,7 +374,7 @@ FOR UPDATE 导致被 SELECT 语句访问的表被锁定，就好像在做更新�
 
 为了防止该操作等待其他事务提交，可使用 NOWAIT。使用 NOWAIT 时，如果选中的行不能被立即锁定，该语句会报告错误而不是等待。
 
-NOWAIT 只适合行级锁，所要求的 ROW SHARE 表级锁仍然会以常规的方式取得。如果想要不等待的表级锁，用户可以先使用带 NOWAIT 的 LOCK（见**LOCK**）。
+NOWAIT 只适合行级锁，所要求的 ROW SHARE 表级锁仍然会以常规的方式取得。如果想要不等待的表级锁，用户可以先使用带 NOWAIT 的 LOCK（见 **LOCK**）。
 
 FOR SHARE 的行为相似，除了需要一个在表上的共享锁而不是排它锁。一个共享锁阻塞其它在表上执行 UPDATE、DELETE 或者 SELECT FOR UPDATE的事务，但是不禁止它们执行 SELECT FOR SHARE。
 
@@ -474,7 +466,7 @@ GROUP BY region, product;
 该示例能够不用 WITH 子句进行重写，但是将需要两层的子-SELECT 语句。
 
 ## 兼容性
-SELECT 语句是兼容 SQL 标准的。 但是也有一些扩展和缺失的特性。
+SELECT 语句是兼容 SQL 标准的。但是也有一些扩展和缺失的特性。
 
 **省略的 FROM 子句**
 数据库允许我们省略 FROM 子句。一种简单的使用是计算简单表达式的结果，例如：

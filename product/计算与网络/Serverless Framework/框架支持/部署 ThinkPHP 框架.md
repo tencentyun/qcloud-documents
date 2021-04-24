@@ -29,7 +29,6 @@ $ touch serverless.yml
 在 `serverless.yml` 中进行如下配置：
 ```yml
 # serverless.yml
-org: orgDemo
 app: appDemo
 stage: dev
 component: thinkphp

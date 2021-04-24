@@ -54,7 +54,7 @@
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
 | [负载均衡](https://cloud.tencent.com/document/product/214)   | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/214/9776) |
 | [私有网络](https://cloud.tencent.com/document/product/215)<sup>1</sup> | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/215/20168) |
-| [专线接入](https://cloud.tencent.com/document/product/216)   | 资源级   | &#10003; | -                | -        | -                                                            |
+| [专线接入](https://cloud.tencent.com/document/product/216)   | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/216/52045) |
 
 > ?<sup>1</sup> 私有网络中 [弹性网卡](https://cloud.tencent.com/document/product/576)、[NAT 网关](https://cloud.tencent.com/document/product/552)、[对等连接](https://cloud.tencent.com/document/product/553)、[VPN 连接](https://cloud.tencent.com/document/product/554)、[网络流日志](https://cloud.tencent.com/document/product/682) 、[Anycast 公网加速](https://cloud.tencent.com/document/product/644)、[云联网](https://cloud.tencent.com/document/product/877)、[共享带宽包](https://cloud.tencent.com/document/product/684) 均已支持使用 CAM。
 
@@ -75,9 +75,9 @@
 | [云数据库 MySQL](https://cloud.tencent.com/document/product/236) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/236/14465) |
 | [云数据库 CynosDB](https://cloud.tencent.com/document/product/1003) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/1003/38067) |
 | [云数据库 MariaDB](https://cloud.tencent.com/document/product/237) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/237/30940) |
-| [云数据库 SQL Server](https://cloud.tencent.com/document/product/238) | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/238/38874) |
+| [云数据库 SQL Server](https://cloud.tencent.com/document/product/238) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/238/38874) |
 | [云数据库 PostgreSQL](https://cloud.tencent.com/document/product/409) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/409/45388) |
-| [分布式数据库 TDSQL](https://cloud.tencent.com/document/product/557) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/557/30965) |
+| [TDSQL MySQL版](https://cloud.tencent.com/document/product/557) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/557/30965) |
 | [云数据库 Redis](https://cloud.tencent.com/document/product/239) | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/239/38687) |
 | [云数据库 MongoDB](https://cloud.tencent.com/document/product/240) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/240/38703) |
 | [云数据库 Memcached](https://cloud.tencent.com/document/product/241) | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/241/38708) |
@@ -85,7 +85,7 @@
 | [游戏数据库 TcaplusDB](https://cloud.tencent.com/document/product/596) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/596/42901) |
 | [数据库智能管家 DBbrain](https://cloud.tencent.com/document/product/1130) | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/1130/39344) |
 | [数据传输服务](https://cloud.tencent.com/document/product/571) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/571/38480) |
-| [分布式HTAP数据库 TBase](https://cloud.tencent.com/document/product/1129) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/1129/39783) |
+| [TDSQL PostgreSQL版](https://cloud.tencent.com/document/product/1129) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/1129/39783) |
 | [数据库管理](https://cloud.tencent.com/document/product/1130/40879) | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/1130/45992) |
 
 
@@ -94,7 +94,7 @@
 | 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档                                                     |
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
 | [云函数](https://cloud.tencent.com/document/product/583)     | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/583/9203) |
-| [Serverless Framework](https://cloud.tencent.com/document/product/1154) | 资源级   | &#10003; | -                | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1154/41936) |
+| [Serverless 应用中心](https://cloud.tencent.com/document/product/1154) | 资源级   | &#10003; | -                | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1154/41936) |
 
 
 ## 中间件  
@@ -102,11 +102,11 @@
 | 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档                                                     |
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
 | [消息队列 CMQ](https://cloud.tencent.com/document/product/406) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/406/8618) |
-| [消息队列 CKafka](https://cloud.tencent.com/document/product/597) | 资源级   | &#10003; | -                | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/597/31528) |
+| [消息队列 CKafka](https://cloud.tencent.com/document/product/597) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/597/31528) |
 | [API 网关](https://cloud.tencent.com/document/product/628)   | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/628/34267) |
-| [腾讯微服务平台](https://cloud.tencent.com/document/product/649) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/649/38327) |
-| [分布式消息队列](https://cloud.tencent.com/document/product/1179) | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/1179/45125) |
-| [分布式事务](https://cloud.tencent.com/document/product/1224) | 操作级   | &#10003; | -                | -        | -                                                            |
+| [腾讯微服务平台 TSF](https://cloud.tencent.com/document/product/649) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/649/38327) |
+| [消息队列 TDMQ](https://cloud.tencent.com/document/product/1179) | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/1179/45125) |
+| [分布式事务 DTF](https://cloud.tencent.com/document/product/1224) | 操作级   | &#10003; | -                | -        | -                                                            |
 | [腾讯微服务观测平台 TSW](https://cloud.tencent.com/document/product/1311) | 操作级   | &#10003; | -                | -        | -                                                            |
 
 ## 数据处理 
@@ -122,25 +122,23 @@
 | [域名注册](https://cloud.tencent.com/document/product/242)   | 服务级   | &#10003; | -                | -        | -                                                            |
 | [网站备案](https://cloud.tencent.com/document/product/243)   | 服务级   | &#10003; | -                | -        | -                                                            |
 | [SSL证书](https://cloud.tencent.com/document/product/400)    | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/400/40432) |
+| [证书监控 SSLPod](https://cloud.tencent.com/document/product/1084) | 操作级   | &#10003; | -                | -        | -                                                            |
 | [移动解析 HTTPDNS](https://cloud.tencent.com/document/product/379) | 操作级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/379/45155) |
 | [腾讯企业邮](https://cloud.tencent.com/product/exmail)       | 操作级   | &#10003; | -                | -        | -                                                            |
-| [网站建设](https://cloud.tencent.com/document/product/1276)  | 操作级   | &#10003; | -                | -        | -                                                            |
+| [私有域解析](https://cloud.tencent.com/document/product/1338) | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/1338/51643) |
 
 ## 网络安全 
 
 | 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档 |
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | -------- |
-| [DDoS 防护（大禹）](https://cloud.tencent.com/product/ddos)  <sup>1</sup> | 服务级   | &#10003; | -                | -        | -        |
 | [样本智能分析平台](https://cloud.tencent.com/document/product/1012) | 资源级   | -        | &#10003;         | -        | -        |
 | [云防火墙](https://cloud.tencent.com/document/product/1132)  | 操作级   | &#10003; | -                | &#10003; | -        |
-
-> ?<sup>1</sup> DDoS 防护（大禹）中 [DDoS 基础防护](https://cloud.tencent.com/document/product/1020)、 [BGP 高防包](https://cloud.tencent.com/document/product/1021)、[BGP 高防 IP](https://cloud.tencent.com/document/product/1014) 均已支持使用 CAM。
 
 ## 数据安全
 
 | 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档                                                     |
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
-| [堡垒机](https://cloud.tencent.com/document/product/1025)    | 服务级   | &#10003; | &#10003;         | -        | -                                                            |
+| [堡垒机](https://cloud.tencent.com/document/product/1025)    | 服务级   | &#10003; | -                | -        | -                                                            |
 | [数据安全审计](https://cloud.tencent.com/document/product/856) | 服务级   | &#10003; | -                | -        | -                                                            |
 | [ 敏感数据处理](https://cloud.tencent.com/document/product/882) | 服务级   | &#10003; | -                | -        | -                                                            |
 | [数据安全治理中心](https://cloud.tencent.com/document/product/1087) | 操作级   | &#10003; | -                | &#10003; | -                                                            |
@@ -159,11 +157,14 @@
 | [定制建模](https://cloud.tencent.com/document/product/1029)  | 服务级   | &#10003; | -                | -        | -        |
 | [天御业务安全防护](https://cloud.tencent.com/document/product/295)<sup>1</sup> | 服务级   | &#10003; | -                | -        | -        |
 | [流量反欺诈](https://cloud.tencent.com/document/product/1031) | 操作级   | &#10003; | -                | -        | -        |
-| [内容安全](https://cloud.tencent.com/document/product/669) <sup>2</sup> | 服务级   | &#10003; | -                | -        | -        |
-| [联邦学习](https://cloud.tencent.com/document/product/1192)  | 服务级   | -        | -                | -        | -        |
+| [图片内容安全](https://cloud.tencent.com/document/product/1125) | 操作级   | &#10003; | -                | -        | -        |
+| [文本内容安全](https://cloud.tencent.com/document/product/1124) | 操作级   | &#10003; | -                | -        | -        |
+| [音频内容安全](https://cloud.tencent.com/document/product/1219) | 操作级   | &#10003; | -                | -        | -        |
+| [视频内容安全](https://cloud.tencent.com/document/product/1265) | 操作级   | &#10003; | -                | -        | -        |
+| [联邦学习](https://cloud.tencent.com/document/product/1192)  | 服务级   | &#10003; | -                | -        | -        |
+| [全栈式风控引擎](https://cloud.tencent.com/document/product/1343) | 操作级   | &#10003; | -                | -        | -        |
 
 > ?<sup>1</sup> 天御业务安全防护中活动防刷、登录保护、注册保护、行业风险评估、置信度评分均已支持使用 CAM。
-> <sup>2</sup> 内容安全中  [图片内容安全](https://cloud.tencent.com/document/product/1125)、 [文本内容安全](https://cloud.tencent.com/document/product/1124) 均已支持使用 CAM。
 
 ## 营销风控
 
@@ -187,14 +188,21 @@
 | [漏洞扫描服务](https://cloud.tencent.com/document/product/692) | 操作级   | &#10003; | -                | &#10003; | -        |
 | [网络资产风险监测系统](https://cloud.tencent.com/document/product/1088) | 服务级   | &#10003; | -                | &#10003; | -        |
 | [小程序应用安全](https://cloud.tencent.com/document/product/1223) | 操作级   | &#10003; | -                | -        | -        |
+| [软件定义边界](https://cloud.tencent.com/document/product/1309) | 操作级   | &#10003; | -                | -        | -        |
+
+## 身份安全
+
+| 服务             | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档 |
+| ---------------- | -------- | -------- | ---------------- | -------- | -------- |
+| 数字身份管控平台 | 操作级   | &#10003; | -                | -        | -        |
 
 ## 视频服务
 
 | 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档                                                     |
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
 | [实时音视频](https://cloud.tencent.com/document/product/647) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/647/46764) |
-| [云直播](https://cloud.tencent.com/document/product/267)     | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/267/34301) |
-| [云点播](https://cloud.tencent.com/document/product/266)     | 资源级   | &#10003; | -                | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/266/39337) |
+| [云直播](https://cloud.tencent.com/document/product/267)     | 资源级   | &#10003; | -                | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/267/34301) |
+| [云点播](https://cloud.tencent.com/document/product/266)     | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/266/39337) |
 | [视频处理](https://cloud.tencent.com/document/product/862)   | 服务级   | &#10003; | -                | &#10003; | -                                                            |
 | [腾讯云剪](https://cloud.tencent.com/document/product/1156)  | 操作级   | &#10003; | -                | &#10003; | -                                                            |
 
@@ -205,11 +213,12 @@
 | ----------------------------------------------------------- | -------- | -------- | ---------------- | -------- | -------- |
 | [智能编辑](https://cloud.tencent.com/document/product/1186) | 服务级   | &#10003; | -                | -        | -        |
 
-## 移动开发
+## 云开发
 
-| 服务                                                     | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档 |
-| -------------------------------------------------------- | -------- | -------- | ---------------- | -------- | -------- |
-| [云开发](https://cloud.tencent.com/document/product/876) | 服务级   | &#10003; | -                | &#10003; | -        |
+| 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档 |
+| ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | -------- |
+| [云开发](https://cloud.tencent.com/document/product/876)     | 服务级   | &#10003; | -                | &#10003; | -        |
+| [云开发低码](https://cloud.tencent.com/document/product/1301) | 服务级   | &#10003; | -                | &#10003; | -        |
 
 ## 安全服务
 
@@ -225,7 +234,8 @@
 | [云数据仓库 PostgreSQL](https://cloud.tencent.com/document/product/878) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/878/20072) |
 | [流计算服务](https://cloud.tencent.com/document/product/849) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/849/38621) |
 | [Elasticsearch Service](https://cloud.tencent.com/document/product/845) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/845/19550) |
-| [云数据仓库 ClickHouse](https://cloud.tencent.com/document/product/1299) | 操作级   | &#10003; | -                | -        | -                                                            |
+| [WeData 数据开发平台](https://cloud.tencent.com/document/product/1267) | 操作级   | &#10003; | -                | &#10003; | -                                                            |
+| [云数据仓库 ClickHouse](https://cloud.tencent.com/document/product/1299) | 资源级   | &#10003; | &#10003;         | -        | -                                                            |
 
 ## 云智大数据可视化
 
@@ -308,6 +318,7 @@
 | 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档 |
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | -------- |
 | [腾讯云小微](https://cloud.tencent.com/document/product/645) | 服务级   | &#10003; | -                | -        | -        |
+| [腾讯同传系统](https://cloud.tencent.com/document/product/1399) | 服务级   | &#10003; | -                | -        | -        |
 
 ## AI 平台服务  
 
@@ -321,20 +332,20 @@
 
 | 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档                                                     |
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
-| [小游戏联机对战引擎](https://cloud.tencent.com/document/product/1038) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1038/38760) |
+| [游戏联机对战引擎](https://cloud.tencent.com/document/product/1038) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1038/38760) |
 | [游戏多媒体引擎](https://cloud.tencent.com/document/product/607) | 资源级   | &#10003; | &#10003;         | -        | -                                                            |
-| [游戏服务器引擎](https://cloud.tencent.com/document/product/1165) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1165/46373) |
+| [游戏服务器伸缩](https://cloud.tencent.com/document/product/1165) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1165/46373) |
 | [游戏玩家匹配](https://cloud.tencent.com/document/product/1294) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1294/49901) |
 
 ## 教育服务 
 
-| 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档 |
-| ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | -------- |
-| [智聆口语评测](https://cloud.tencent.com/document/product/884) | 操作级   | &#10003; | -                | -        | -        |
-| [ 数学作业批改](https://cloud.tencent.com/document/product/1004) | 操作级   | &#10003; | -                | -        | -        |
-| [题目结构化归档](https://cloud.tencent.com/document/product/1085) | 操作级   | -        | -                | -        | -        |
-| [互动白板](https://cloud.tencent.com/document/product/1137)  | 操作级   | &#10003; | -                | &#10003; | -        |
-| [招生通](https://cloud.tencent.com/document/product/1230)    | 服务级   | &#10003; | -                | -        | -        |
+| 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档                                                     |
+| ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
+| [智聆口语评测](https://cloud.tencent.com/document/product/884) | 操作级   | &#10003; | -                | -        | -                                                            |
+| [ 数学作业批改](https://cloud.tencent.com/document/product/1004) | 操作级   | &#10003; | -                | -        | -                                                            |
+| [题目结构化归档](https://cloud.tencent.com/document/product/1085) | 操作级   | -        | -                | -        | -                                                            |
+| [互动白板](https://cloud.tencent.com/document/product/1137)  | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1137/49843) |
+| [招生通](https://cloud.tencent.com/document/product/1230)    | 服务级   | &#10003; | -                | -        | -                                                            |
 
 ## 移动服务 
 
@@ -362,8 +373,9 @@
 | [物联网设备身份认证](https://cloud.tencent.com/document/product/1086) | 服务级   | &#10003; | -                | -        | -                                                            |
 | [ LPWA 物联网络](https://cloud.tencent.com/document/product/1023) | 服务级   | &#10003; | -                | -        | -                                                            |
 | [物联网开发平台](https://cloud.tencent.com/document/product/1081) | 服务级   | &#10003; | -                | -        | -                                                            |
-| [ 物联网智能视频服务](https://cloud.tencent.com/document/product/1131) | 服务级   | &#10003; | -                | &#10003; | -                                                            |
+| [ 物联网智能视频服务（消费版）](https://cloud.tencent.com/document/product/1131) | 服务级   | &#10003; | -                | &#10003; | -                                                            |
 | [ 物联网市场](https://iot.cloud.tencent.com/market/index)    | 服务级   | &#10003; | -                | -        | -                                                            |
+| [ 物联网智能视频服务（行业版）](https://cloud.tencent.com/document/product/1361) | 服务级   | &#10003; | -                | -        | -                                                            |
 
 ## 区块链  
 
@@ -375,11 +387,24 @@
 
 | 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档 |
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | -------- |
-| [商标注册](https://cloud.tencent.com/document/product/1145)  | 服务级   | &#10003; | -                | -        | -        |
-| [版权登记](https://cloud.tencent.com/document/product/1215)  | 服务级   | &#10003; | -                | -        | -        |
-| [增值电信](https://cloud.tencent.com/document/product/1251)  | 操作级   | &#10003; | -                | -        | -        |
 | [企业集成服务](https://cloud.tencent.com/document/product/1270) | 操作级   | &#10003; | -                | -        | -        |
 | [品牌经营管家](https://cloud.tencent.com/document/product/1296) | 服务级   | &#10003; | -                | -        | -        |
+
+## 企业服务
+
+| 服务                                                        | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档                                                     |
+| ----------------------------------------------------------- | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
+| [商标注册](https://cloud.tencent.com/document/product/1145) | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/1145/54113) |
+| [版权登记](https://cloud.tencent.com/document/product/1215) | 服务级   | &#10003; | -                | -        | -                                                            |
+| [工商注册](https://cloud.tencent.com/document/product/1260) | 操作级   | &#10003; | -                | -        | -                                                            |
+| [增值电信](https://cloud.tencent.com/document/product/1251) | 操作级   | &#10003; | -                | -        | -                                                            |
+| [网站建设](https://cloud.tencent.com/document/product/1276) | 操作级   | &#10003; | -                | -        | -                                                            |
+
+## 汽车服务
+
+| 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档 |
+| ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | -------- |
+| [汽车精准获客服务](https://cloud.tencent.com/document/product/1244/52041) | 操作级   | &#10003; | -                | -        | -        |
 
 ## 云资源管理
 
@@ -408,6 +433,7 @@
 | [云监控](https://cloud.tencent.com/document/product/248)     | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/248/48707) |
 | [云拨测](https://cloud.tencent.com/document/product/280)     | 服务级   | &#10003; | -                | -        | -                                                            |
 | [迁移服务平台](https://cloud.tencent.com/document/product/659) | 服务级   | &#10003; | -                | &#10003; | -                                                            |
+| [应用性能监控](https://cloud.tencent.com/document/product/1349) | 操作级   | &#10003; | -                | -        | -                                                            |
 
 ## 解决方案 
 
@@ -435,11 +461,13 @@
 
 > ?<sup>1</sup> CODING DevOps 中 [代码托管](https://cloud.tencent.com/document/product/1112)、[项目管理](https://cloud.tencent.com/document/product/1113)、[测试管理](https://cloud.tencent.com/document/product/1114)、[持续集成](https://cloud.tencent.com/document/product/1115)、[制品库](https://cloud.tencent.com/document/product/1116) 、[持续部署](https://cloud.tencent.com/document/product/1159) 均已支持使用 CAM。
 
-## 管理与支持
+
+
+## 设计协同管理工具
 
 | 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档 |
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | -------- |
-| [应用与服务编排工作流](https://cloud.tencent.com/document/product/1272) | 服务级   | &#10003; | -                | -        | -        |
+| [泰山创意创作](https://cloud.tencent.com/document/product/1351) | 操作级   | &#10003; | -                | -        | -        |
 
 ## 管理与支持
 
@@ -447,6 +475,7 @@
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
 | [渠道合作伙伴](https://cloud.tencent.com/document/product/563) | 操作级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/563/31828) |
 | [开发者实验室](https://cloud.tencent.com/document/product/658/13897) | -        | -        | -                | &#10003; | -                                                            |
+| [应用与服务编排工作流](https://cloud.tencent.com/document/product/1272) | 服务级   | &#10003; | -                | -        | -                                                            |
 
 
 ## 第三方服务  

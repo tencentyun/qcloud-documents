@@ -1,22 +1,20 @@
-## 故障现象
+## 现象描述
 
-<span id="FaultPhenomenon1"></span>
-### 现象描述（一）
-Windows 使用远程桌面连接 Windows 实例时，提示 “连接被拒绝，因为没有授权此用户帐户进行远程登录。”。如下图所示：
+[](id:FaultPhenomenon1)
+**现象1**：Windows 使用远程桌面连接 Windows 实例时，提示 “连接被拒绝，因为没有授权此用户帐户进行远程登录。”。如下图所示：
 ![连接被拒绝](https://main.qcloudimg.com/raw/9ce749a2481cabf30cccdefeb00ae770.png)
 
-<span id="FaultPhenomenon2"></span>
-### 现象描述（二）
-Windows 使用远程桌面连接 Windows 实例时，提示 “要远程登录，您需要具有通过远程桌面服务进行登录的权限。默认情况下，远程桌面用户组的成员有这项权限。如果您所属的组没有这项权限，或者远程桌面用户组中已经删除了这项权限，那么需要手动为您授予这一权限。”。如下图所示：
+[](id:FaultPhenomenon2)
+**现象2**：Windows 使用远程桌面连接 Windows 实例时，提示 “要远程登录，您需要具有通过远程桌面服务进行登录的权限。默认情况下，远程桌面用户组的成员有这项权限。如果您所属的组没有这项权限，或者远程桌面用户组中已经删除了这项权限，那么需要手动为您授予这一权限。”。如下图所示：
 ![错误提示](https://main.qcloudimg.com/raw/52a79c81015d7e6b2f5299f98474348d.png)
 
-## 故障原因
+## 可能原因
 
 该用户未被允许通过远程桌面连接方式登录 Windows 实例。
 
-## 解决方案
-- 如果您远程桌面连接 Windows 实例时，遇到 [现象描述（一）](#FaultPhenomenon1) 的情况，则需要将用户帐户添加至 Windows 实例设置的允许通过远程桌面服务登录的列表中。具体的操作请参见 [配置允许远程登录的权限](#ConfigurationToAllowAccess)。
-- 如果您远程桌面连接 Windows 实例时，遇到 [现象描述（二）](#FaultPhenomenon2) 的情况，则需要将用户帐户从 Windows 实例设置的不允许通过远程桌面服务登录的列表中删除。具体的操作请参见 [修改拒绝远程登录的权限](#ModifyLoginAuthority)。
+## 解决思路
+- 如果您远程桌面连接 Windows 实例时，遇到 [现象1](#FaultPhenomenon1) 的情况，则需要将用户帐户添加至 Windows 实例设置的允许通过远程桌面服务登录的列表中。具体的操作请参见 [配置允许远程登录的权限](#ConfigurationToAllowAccess)。
+- 如果您远程桌面连接 Windows 实例时，遇到 [现象2](#FaultPhenomenon2) 的情况，则需要将用户帐户从 Windows 实例设置的不允许通过远程桌面服务登录的列表中删除。具体的操作请参见 [修改拒绝远程登录的权限](#ModifyLoginAuthority)。
 
 ## 处理步骤
 
@@ -28,8 +26,8 @@ Windows 使用远程桌面连接 Windows 实例时，提示 “要远程登录�
 4. 在弹出的登录窗口中，选择左上角的 “发送远程命令”，单击 **Ctrl-Alt-Delete** 进入系统登录界面。如下图所示：
 ![](https://main.qcloudimg.com/raw/2dec43fa6ddb5e442da59c75f7a34b0f.png)
 
-<span id="ConfigurationToAllowAccess"></span>
-### 配置允许远程登录的权限
+
+### [配置允许远程登录的权限](id:ConfigurationToAllowAccess)
 
 >? 以下操作以 Windows Server 2016 为例。
 >
@@ -40,13 +38,13 @@ Windows 使用远程桌面连接 Windows 实例时，提示 “要远程登录�
 ![允许通过远程桌面服务登录](https://main.qcloudimg.com/raw/acd4d3cb6204a34c612b32c777308f9f.png)
  - 如果该用户不在允许通过远程桌面服务登录的列表中，请执行 [步骤4](#step04)。
  - 如果该用户已经在允许通过远程桌面服务登录的列表中，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&level3_id=142&radio_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%99%BB%E5%BD%95%E4%B8%8D%E4%B8%8A&queue=15&scene_code=12686&step=2) 反馈。
-4. <span id="step04">单击【添加用户或组】，打开 “选择用户或组” 窗口。</span>
+4. [](id:step04)单击【添加用户或组】，打开 “选择用户或组” 窗口。
 5. 输入需要进行远程登录的帐户，单击【确定】。
 6. 单击【确定】，并关闭本地组策略编辑器。
 7. 重启实例，重新尝试使用该帐户远程桌面连接 Windows 实例。
 
-<span id="ModifyLoginAuthority"></span>
-### 修改拒绝远程登录的权限
+
+### [修改拒绝远程登录的权限](id:ModifyLoginAuthority)
 
 >? 以下操作以 Windows Server 2016 为例。
 >

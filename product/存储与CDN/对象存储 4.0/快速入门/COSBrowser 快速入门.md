@@ -82,16 +82,13 @@ Windows 版 COSBrowser 的系统要求：Windows 7 32/64位以上、Windows Serv
 ![](https://main.qcloudimg.com/raw/e8317ff57b37391f2bcc0dfe88aabacc.jpg)
 3. 单击【复制】，复制临时文件链接。您即可通过该链接访问文件。
 
-
-
 ## 更多功能
 
 除以上功能外，COSBrowser 还拥有其它更丰富的功能，例如修改存储桶访问权限，文件预览等，详情请参见 [桌面端功能列表](https://cloud.tencent.com/document/product/436/11366#.E6.A1.8C.E9.9D.A2.E7.AB.AF.E5.8A.9F.E8.83.BD.E5.88.97.E8.A1.A8) 文档。
 
-
 ## 遇到问题？
 
-非常抱歉您在使用时遇到问题，您可以通过 [智能客服](https://cloud.tencent.com/act/event/smarty-service?from=smarty-service) 及时寻找答案或通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 的方式联系我们。
+非常抱歉您在使用时遇到问题，您可以通过 [在线客服](https://cloud.tencent.com/act/event/smarty-service?from=smarty-service) 或 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。
 
 ## 相关文档
 

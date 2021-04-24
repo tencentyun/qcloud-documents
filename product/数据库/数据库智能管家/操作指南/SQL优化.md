@@ -4,7 +4,7 @@ SQL 优化不仅能够为用户提供的专家级别的 SQL 优化建议，同�
 
 您可手动输入 SQL 语句，执行分析得到该语句的性能评估结果以及优化建议。
 
->?SQL 优化目前支持云数据库 MySQL（不含基础版）、云原生数据库 TDSQL-C（TDSQL-C for MySQL）。
+>?SQL 优化目前支持云数据库 MySQL（不含单节点 - 基础型）、云原生数据库 TDSQL-C（TDSQL-C for MySQL）、自建数据库 MySQL。
 
 ## 优化器执行
 1. 登录 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/analysis)，在左侧导航选择【诊断优化】，在上方选择对应数据库，然后选择【SQL 优化】页。

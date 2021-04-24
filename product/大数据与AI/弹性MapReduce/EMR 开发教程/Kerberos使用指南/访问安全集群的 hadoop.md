@@ -1,5 +1,4 @@
 ## Hadoop 命令
-
 ### 未获取 ticket
 当已启用 kerberos 时，执行 hadoop 命令时都需要提前获取 ticket。
 
@@ -15,7 +14,6 @@ ls: Failed on local exception: java.io.IOException: javax.security.sasl.SaslExce
 ```
 kinit -kt /var/krb5kdc/emr.keytab hadoop@EMR
 ```
-
 执行命令即可正常访问。
 ```
 hadoop fs -ls /
@@ -32,11 +30,9 @@ drwxr-xr-x   - hadoop supergroup          0 2019-01-17 19:43 /usr
 ```
 
 ## Java 代码访问 HDFS
-
 ### 使用本地 ticket
-
 >!需要提前执行 kinit 获取 ticket，ticket 过期后程序会访问异常。
-
+>
 ```java
 public static void main(String[] args) throws IOException {
 	Configuration conf = new Configuration();
@@ -53,7 +49,6 @@ public static void main(String[] args) throws IOException {
 ```
 
 ### 使用 keytab 文件
-
 ```java
 public static void main(String[] args) throws IOException {
 	Configuration conf = new Configuration();

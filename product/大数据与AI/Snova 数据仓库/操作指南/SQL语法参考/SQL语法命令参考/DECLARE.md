@@ -1,7 +1,6 @@
 定义一个游标。
 
 ## 概要
-
 ```sql
 DECLARE name [BINARY] [INSENSITIVE] [NO SCROLL] CURSOR 
      [{WITH | WITHOUT} HOLD] 
@@ -22,7 +21,6 @@ DECLARE 允许用户创建游标，可以使用游标来从大查询中一次检
 可以在 UPDATE 或 DELETE 语句中的 WHERE CURRENT OF 子句中指定游标，以更新或删除表数据。该 UPDATE 或 DELETE 语句只能在服务器上执行，例如在交互式 psql 会话或脚本中。语言扩展（如 PL/pgSQL）不支持可更新的游标。
 
 ## 参数
-
 name
 要创建有游标的名字。
 
@@ -37,8 +35,7 @@ NO SCROLL
 
 WITH HOLD
 WITHOUT HOLD
-WITH HOLD 指出了该表可能会继续使用，在创建该游标的事务成功提交之后。WITHOUT HOLD 指出游标在脱离创建它的事务之后，就不能再使用了。默认值为 WITHOUT HOLD。
-WITH HOLD 不能指定，当 query 包含 FOR UPDATE 或 FOR SHARE 子句。
+WITH HOLD 指出了该表可能会继续使用，在创建该游标的事务成功提交后。WITHOUT HOLD 指出游标在脱离创建它的事务之后，就不能再使用了。默认值为 WITHOUT HOLD。WITH HOLD 不能指定，当 query 包含 FOR UPDATE 或 FOR SHARE 子句。
 
 query
 SELECT 或 VALUES 命令会提供供游标返回的行。
@@ -47,11 +44,11 @@ SELECT 或 VALUES 命令会提供供游标返回的行。
 - 仅引用一张表。
 该表必须是可更新的，例如，以下是不可更新的：表函数，设置了返回值的函数，仅附加表、列表。
 - 不能包含任何以下的：
- - 分组语句
- 例如 UNION ALL 或 UNION DISTINCT 的集合操作。
+ - 分组语句，例如 UNION ALL 或 UNION DISTINCT 的集合操作。
  - 排序子句
  - 窗口子句
  - 连接或者左连接
+
 指定 FOR UPDATE 子句在 SELECT 命令中可以阻止元组在获取和更新之间被其他会话更改行。没有该 FOR UPDATE 子句，那么随后（同会话中）带有 WHERE CURRENT OF 子句的 UPDATE 或 DELETE 命令就不起作用了，如果该行在创建游标之前已经更改（被其他会话更改，如数据删除之后用户去更新会找不到）。
 >!指定 FOR UPDATE 子句在 SELECT 命令中锁定的是整个表，而不仅是用户选择的行。
 
@@ -73,20 +70,12 @@ FOR READ ONLY 指明该游标仅仅用于只读模式。
 
 ## 示例
 声明一个游标：
-
 ```sql
 DECLARE mycursor CURSOR FOR SELECT * FROM mytable;
 ```
 
 ## 兼容性
-SQL 标准只允许在嵌入式 SQL 和模块中使用游标。数据库数据库允许交互式使用游标（interactively）。
-
-数据库没有实现有游标的 OPEN 语句。游标在声明时就被认为是打开的。
-
-SQL 标准允许游标向前向后移动。所有数据库游标仅向前移动（非滚动）。
-
-二进制游标是数据库扩展。
+SQL 标准只允许在嵌入式 SQL 和模块中使用游标。数据库数据库允许交互式使用游标（interactively）。数据库没有实现有游标的 OPEN 语句。游标在声明时就被认为是打开的。SQL 标准允许游标向前向后移动。所有数据库游标仅向前移动（非滚动）。二进制游标是数据库扩展。
 
 ## 另见
-
 CLOSE、DELETE、FETCH、MOVE、SELECT、UPDATE

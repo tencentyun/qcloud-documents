@@ -6,9 +6,9 @@
 目前流计算 Oceanus 支持 Java 和 Scala 两种语言编写的程序包。当用户上传了自定义程序包后，在界面上关联后即可用下面的 CREATE FUNCTION 语句来声明：
 ```sql
 CREATE TEMPORARY SYSTEM FUNCTION 函数名
-  AS 函数类全名 [LANGUAGE JAVA|SCALA]
+  AS '函数类全名' [LANGUAGE JAVA|SCALA]
 ```
-其中的**函数名**可以自行定义，但不要与现有的冲突。**函数类全名**为 Java 或 Scala 类的类全名（例如 `com.example.flink.MyCustomFunction`）。
+其中的**函数名**可以自行定义，但不要与现有的冲突。**函数类全名**为 Java 或 Scala 类的类全名（例如 `'com.example.flink.MyCustomFunction'`）。
 
 ## 命名覆盖
 如果存在系统内置的同名函数时，用户使用上述语法创建的 UDF 会覆盖系统内置的函数。因此除非有意改变系统函数的功能，请不要创建与系统内置函数同名的自定义函数。

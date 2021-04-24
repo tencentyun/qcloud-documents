@@ -53,8 +53,7 @@ App targetSdkVersion >= 28(Android 9.0)情况下，系统默认不允许 HTTP �
 ```
 
 ### 接入 HTTPDNS
-- 将 HttpDNSLibs\HttpDNS_xxxx.jar 拷贝至应用 libs 相应位置。
-- 将 HttpDNSLibs/*/libhttpdns.so 拷贝至应用 jniLibs 相应位置。
+将 HttpDNSLibs\HTTPDNS_ANDROID_SDK_xxxx.aar 拷贝至应用 libs 相应位置。
 
 ### 接入灯塔
 
@@ -79,9 +78,9 @@ try {
  * 初始化HTTPDNS：如果接入了MSDK，建议初始化MSDK后再初始化HTTPDNS
  *
  * @param context 应用上下文，最好传入ApplicationContext
- * @param appkey 业务appkey，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
+ * @param appkey 业务appkey，即SDK AppID，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
  * @param dnsid dns解析id，即授权id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
- * @param dnskey dns解析key，即授权id对应的key(加密密钥)，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
+ * @param dnskey dns解析key，即授权id对应的key(加密密钥)，在申请SDK后的邮箱里，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
  * @param debug 是否开启debug日志，true为打开，false为关闭，建议测试阶段打开，正式上线时关闭
  * @param timeout dns请求超时时间，单位ms，建议设置1000
  */
@@ -113,8 +112,8 @@ String ips = MSDKDnsResolver.getInstance().getAddrByName(domain);
 ### 注意事项
 
 - getAddrByName 是耗时同步接口，应当在子线程调用。
-- 如果客户端的业务与 HOST 绑定，例如，客户端的业务绑定了 HOST 的 HTTP 服务或者是 CDN 的服务，那么您将  URL 中的域名替换成 HTTPDNS 返回的 IP 之后，还需要指定下 HTTP 头的 HOST 字段。
-  - 以 URLConnection 为例：
+- 如果客户端的业务与 HOST 绑定，例如，客户端的业务绑定了 HOST 的 HTTP 服务或者是 CDN 的服务，那么您将 URL 中的域名替换成 HTTPDNS 返回的 IP 之后，还需要指定下 HTTP 头的 HOST 字段。
+ - 以 URLConnection 为例：
  ```Java
 URL oldUrl = new URL(url);
 URLConnection connection = oldUrl.openConnection();

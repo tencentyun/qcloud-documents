@@ -1,13 +1,10 @@
 定位一个游标。
 
 ## 概要
-
 ```sql
 MOVE [ forward_direction {FROM | IN} ] cursorname
 ```
-
 其中 forward_direction 可以为空或者下列之一：
-
 ```sql
     NEXT
     FIRST
@@ -23,7 +20,6 @@ MOVE [ forward_direction {FROM | IN} ] cursorname
 
 ## 描述
 MOVE 重新定位一个游标而不检索任何数据。 MOVE 的工作完全像 FETCH 命令，但是它只定位游标并且不返回行。
-
 >!在数据库中向后移动一个游标是不可能的，因为在数据库中不支持滚动游标。只能够用 MOVE 向前移动游标位置。
 
 **输出**
@@ -42,26 +38,19 @@ cursorname
 
 ## 示例
 开始一个事务：
-
 ```sql
 BEGIN;
 ```
-
 建立一个游标：
-
 ```sql
 DECLARE mycursor CURSOR FOR SELECT * FROM films;
 ```
-
 使用游标 mycursor 向前移动五行：
-
 ```sql
 MOVE FORWARD 5 IN mycursor;
 MOVE 5
 ```
-
 获取之后的一行（第六行）：
-
 ```sql
 FETCH 1 FROM mycursor;
  code  | title  | did | date_prod  |  kind  |  len
@@ -69,9 +58,7 @@ FETCH 1 FROM mycursor;
  P_303 | 48 Hrs | 103 | 1982-10-22 | Action | 01:37
 (1 row)
 ```
-
 关闭游标，结束事务：
-
 ```sql
 CLOSE mycursor;
 COMMIT;

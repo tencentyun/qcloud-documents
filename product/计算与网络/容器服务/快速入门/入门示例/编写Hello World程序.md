@@ -13,7 +13,7 @@
 ```shell
 mkdir hellonode
 ```
-```shell
+ ```shell
 cd hellonode/
 ```
 2. 执行以下命令，新建并打开 server.js 文件。
@@ -31,7 +31,7 @@ var handleRequest = function(request, response) {
 var www = http.createServer(handleRequest);
 www.listen(80);
 ```
-按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
+ 按 “**Esc**”，输入 “**:wq**”，保存文件并返回。
 4. 执行以下命令，执行 server.js 文件。
 ```shell
 node server.js
@@ -41,7 +41,7 @@ node server.js
 ```shell
 curl 127.0.0.1:80
 ```
-显示如下，则说明 Hello World 程序运行成功。
+ 显示如下，则说明 Hello World 程序运行成功。
 ![](https://main.qcloudimg.com/raw/4b97b9e2fdaee77376b114ef92f90936.png)
  - 打开本地浏览器，以 `IP 地址：端口` 的形式访问，端口为80。
  显示如下，则说明 Hello World 程序运行成功。
@@ -53,7 +53,7 @@ curl 127.0.0.1:80
 >
 1. 依次执行以下命令，在 hellonode 文件夹下，创建 Dockerfile 文件。
 ```
-cd /hellonode
+cd hellonode
 ```
 ```
 vim Dockerfile
@@ -70,7 +70,7 @@ CMD node server.js
 ```shell
 docker build -t hello-node:v1 .
 ```
-4. <span id="search">执行以下命令，查看构建好的 hello-node 镜像。</span>
+4. [](id:search)执行以下命令，查看构建好的 hello-node 镜像。
 ```
 docker images 
 ```

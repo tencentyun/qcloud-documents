@@ -1,6 +1,6 @@
 ## 功能描述
 
-Update Workflow 接口用于更新工作流。
+UpdateWorkflow 接口用于更新工作流。
 
 ## 请求
 
@@ -35,9 +35,12 @@ Content-Type: application/xml
         <State></State>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Animation_1581665960538</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
+                <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
+                <Concat_1581665960539>End</Concat_1581665960539>
+                <SmartCover_1581665960539>End</SmartCover_1581665960539>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -47,10 +50,20 @@ Content-Type: application/xml
                         <ObjectPrefix></ObjectPrefix>
                     </Input>
                 </Start>
+                <SmartCover_1581665960539>
+                    <Type>SmartCover</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>abc/${RunId}/cover-${Number}.jpg</Object>
+                        </Output>
+                    </Operation>
+                </SmartCover_1581665960539>
                 <Snapshot_1581665960536>
                     <Type>Snapshot</Type>
                     <Operation>
-                        <TemplateId></TemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
                         <Output>
                             <Region></Region>
                             <Bucket></Bucket>
@@ -58,10 +71,21 @@ Content-Type: application/xml
                         </Output>
                     </Operation>
                 </Snapshot_1581665960536>
+                <Transcode_1581665960537>
+                    <Type>Transcode</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/snapshot-${number}.jpg</Object>
+                        </Output>
+                    </Operation>
+                </Transcode_1581665960537>
                 <Animation_1581665960538>
                     <Type>Animation</Type>
                     <Operation>
-                        <TemplateId></TemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
                         <Output>
                             <Region></Region>
                             <Bucket></Bucket>
@@ -69,6 +93,17 @@ Content-Type: application/xml
                         </Output>
                     </Operation>
                 </Animation_1581665960538>
+                <Concat_1581665960539>
+                    <Type>Concat</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>abc/${RunId}/abc.${ext}</Object>
+                        </Output>
+                    </Operation>
+                </Concat_1581665960539>
             </Nodes>
         </Topology>
     </MediaWorkflow>
@@ -78,8 +113,8 @@ Content-Type: application/xml
 具体数据描述如下：
 
 | 节点名称（关键字） | 父节点 | 描述                                          | 类型      | 是否必选 |
-| :----------------- | :----- | :-------------------------------------------- | :-------- | -------- |
-| Request            | 无     | 保存请求的容器，同 POST Workflow 中的 Request | Container | 是       |
+| :----------------- | :----- | :---------------------------------------- | :-------- | ---- |
+| Request            | 无     | 保存请求的容器，同 CreateWorkflow 中的 Request | Container | 是   |
 
 ## 响应
 
@@ -99,9 +134,12 @@ Content-Type: application/xml
         <State></State>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Animation_1581665960538</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
+                <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
+                <Concat_1581665960539>End</Concat_1581665960539>
+                <SmartCover_1581665960539>End</SmartCover_1581665960539>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -111,10 +149,20 @@ Content-Type: application/xml
                         <ObjectPrefix></ObjectPrefix>
                     </Input>
                 </Start>
+                <SmartCover_1581665960539>
+                    <Type>SmartCover</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>abc/${RunId}/cover-${Number}.jpg</Object>
+                        </Output>
+                    </Operation>
+                </SmartCover_1581665960539>
                 <Snapshot_1581665960536>
                     <Type>Snapshot</Type>
                     <Operation>
-                        <TemplateId></TemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
                         <Output>
                             <Region></Region>
                             <Bucket></Bucket>
@@ -122,10 +170,21 @@ Content-Type: application/xml
                         </Output>
                     </Operation>
                 </Snapshot_1581665960536>
+                <Transcode_1581665960537>
+                    <Type>Transcode</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/snapshot-${number}.jpg</Object>
+                        </Output>
+                    </Operation>
+                </Transcode_1581665960537>
                 <Animation_1581665960538>
                     <Type>Animation</Type>
                     <Operation>
-                        <TemplateId></TemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
                         <Output>
                             <Region></Region>
                             <Bucket></Bucket>
@@ -133,6 +192,17 @@ Content-Type: application/xml
                         </Output>
                     </Operation>
                 </Animation_1581665960538>
+                <Concat_1581665960539>
+                    <Type>Concat</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>abc/${RunId}/abc.${ext}</Object>
+                        </Output>
+                    </Operation>
+                </Concat_1581665960539>
             </Nodes>
         </Topology>
         <CreateTime></CreateTime>
@@ -144,8 +214,8 @@ Content-Type: application/xml
 具体的数据内容如下：
 
 | 节点名称（关键字） | 父节点 | 描述                                         | 类型      | 是否必选 |
-| :----------------- | :----- | :------------------------------------------- | :-------- | -------- |
-| Response           | 无     | 保存请求的容器，同 POST Workflow中的Response | Container | 是       |
+| :----------------- | :----- | :---------------------------------------- | :-------- | ---- |
+| Response            | 无     | 保存请求的容器，同 POST Workflow 中的 Response | Container | 是   |
 
 #### 错误码
 
@@ -157,7 +227,7 @@ Content-Type: application/xml
 
 ```shell
 PUT /workflow/<WorkflowId> HTTP/1.1
-Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
+Authorization: q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-sign-time=1497530202;1497610202&q-key-time=1497530202;1497610202&q-header-list=&q-url-param-list=&q-signature=28e9a4986df11bed0255e97ff90500557e0e****
 Host: examplebucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 166
 Content-Type: application/xml
@@ -169,9 +239,12 @@ Content-Type: application/xml
         <State></State>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Animation_1581665960538</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
+                <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
+                <Concat_1581665960539>End</Concat_1581665960539>
+                <SmartCover_1581665960539>End</SmartCover_1581665960539>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -181,10 +254,20 @@ Content-Type: application/xml
                         <ObjectPrefix></ObjectPrefix>
                     </Input>
                 </Start>
+                <SmartCover_1581665960539>
+                    <Type>SmartCover</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>abc/${RunId}/cover-${Number}.jpg</Object>
+                        </Output>
+                    </Operation>
+                </SmartCover_1581665960539>
                 <Snapshot_1581665960536>
                     <Type>Snapshot</Type>
                     <Operation>
-                        <TemplateId></TemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
                         <Output>
                             <Region></Region>
                             <Bucket></Bucket>
@@ -192,10 +275,21 @@ Content-Type: application/xml
                         </Output>
                     </Operation>
                 </Snapshot_1581665960536>
+                <Transcode_1581665960537>
+                    <Type>Transcode</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/snapshot-${number}.jpg</Object>
+                        </Output>
+                    </Operation>
+                </Transcode_1581665960537>
                 <Animation_1581665960538>
                     <Type>Animation</Type>
                     <Operation>
-                        <TemplateId></TemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
                         <Output>
                             <Region></Region>
                             <Bucket></Bucket>
@@ -203,6 +297,17 @@ Content-Type: application/xml
                         </Output>
                     </Operation>
                 </Animation_1581665960538>
+                <Concat_1581665960539>
+                    <Type>Concat</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>abc/${RunId}/abc.${ext}</Object>
+                        </Output>
+                    </Operation>
+                </Concat_1581665960539>
             </Nodes>
         </Topology>
     </MediaWorkflow>
@@ -227,9 +332,12 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
         <State></State>
         <Topology>
             <Dependencies>
-                <Start>Snapshot_1581665960536,Animation_1581665960538</Start>
+                <Start>Snapshot_1581665960536,Transcode_1581665960537,Animation_1581665960538,Concat_1581665960539,SmartCover_1581665960539</Start>
                 <Snapshot_1581665960536>End</Snapshot_1581665960536>
+                <Transcode_1581665960537>End</Transcode_1581665960537>
                 <Animation_1581665960538>End</Animation_1581665960538>
+                <Concat_1581665960539>End</Concat_1581665960539>
+                <SmartCover_1581665960539>End</SmartCover_1581665960539>
             </Dependencies>
             <Nodes>
                 <Start>
@@ -239,10 +347,20 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                         <ObjectPrefix></ObjectPrefix>
                     </Input>
                 </Start>
+                <SmartCover_1581665960539>
+                    <Type>SmartCover</Type>
+                    <Operation>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>abc/${RunId}/cover-${Number}.jpg</Object>
+                        </Output>
+                    </Operation>
+                </SmartCover_1581665960539>
                 <Snapshot_1581665960536>
                     <Type>Snapshot</Type>
                     <Operation>
-                        <TemplateId></TemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
                         <Output>
                             <Region></Region>
                             <Bucket></Bucket>
@@ -250,10 +368,21 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                         </Output>
                     </Operation>
                 </Snapshot_1581665960536>
+                <Transcode_1581665960537>
+                    <Type>Transcode</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>bcd/${RunId}/snapshot-${number}.jpg</Object>
+                        </Output>
+                    </Operation>
+                </Transcode_1581665960537>
                 <Animation_1581665960538>
                     <Type>Animation</Type>
                     <Operation>
-                        <TemplateId></TemplateId>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
                         <Output>
                             <Region></Region>
                             <Bucket></Bucket>
@@ -261,6 +390,17 @@ x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzhf****
                         </Output>
                     </Operation>
                 </Animation_1581665960538>
+                <Concat_1581665960539>
+                    <Type>Concat</Type>
+                    <Operation>
+                        <TemplateId>t1460606b9752148c4ab182f55163ba7cd</TemplateId>
+                        <Output>
+                            <Region></Region>
+                            <Bucket></Bucket>
+                            <Object>abc/${RunId}/abc.${ext}</Object>
+                        </Output>
+                    </Operation>
+                </Concat_1581665960539>
             </Nodes>
         </Topology>
         <CreateTime></CreateTime>

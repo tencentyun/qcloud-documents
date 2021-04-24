@@ -13,9 +13,8 @@ Android 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、Ocr
 | [updateFederationToken()](#updateFederationToken()) | 主动更新临时密钥        |
 | [startProcessOcr()](#startProcessOcr())                      | 启动 OCR 识别，返回 JsonString           |
 | [startProcessOcrResultEntity()](#startProcessOcrResultEntity()) | 启动 OCR 识别，返回不同模式对应实体对象 |
-
-<span id="getInstance()"></span>
-#### getInstance()
+                                                             
+#### [getInstance()](id:getInstance())
 
 ```java
 public static OcrSDKKit getInstance()
@@ -31,8 +30,7 @@ public static OcrSDKKit getInstance()
 
 
 
-<span id="release()"></span>
-#### release()
+#### [release()](id:release())
 
 ```java
 public void release()
@@ -44,8 +42,8 @@ public void release()
 
 
 
-<span id="getVersion()"></span>
-#### getVersion()
+
+#### [getVersion()](id:getVersion())
 
 ```java
 public final String getVersion() 
@@ -61,8 +59,8 @@ public final String getVersion()
 
 
 
-<span id="initWithConfig()"></span>
-#### initWithConfig()
+
+#### [initWithConfig()](id:initWithConfig)
 
 ```java
 public void initWithConfig(Context context, OcrSDKConfig config)
@@ -81,12 +79,11 @@ public void initWithConfig(Context context, OcrSDKConfig config)
 
 
 
-<span id="updateFederationToken()"></span>
-#### updateFederationToken()
+
+#### [updateFederationToken()](id:updateFederationToken())
 
 ```java
-public void updateFederationToken(final String tmpSecretId, final String tmpSecretKey,
-                                  final String token)
+public void updateFederationToken(final String tmpSecretId, final String tmpSecretKey,final String token)
 ```
 
 功能描述：
@@ -103,12 +100,11 @@ public void updateFederationToken(final String tmpSecretId, final String tmpSecr
 
 
 
-<span id="startProcessOcr()"></span>
-#### startProcessOcr()
+
+#### [startProcessOcr()](id:startProcessOcr())
 
 ```java
-public void startProcessOcr(Activity activity, OcrType ocrType,
-                                CustomConfigUi customConfigUi, ISDKKitResultListener resultListener)
+public void startProcessOcr(Activity activity, OcrType ocrType, CustomConfigUi customConfigUi, ISDKKitResultListener resultListener)
 ```
 
 功能描述：
@@ -125,13 +121,11 @@ public void startProcessOcr(Activity activity, OcrType ocrType,
 | [ISDKKitResultListener](#ISDKKitResultListener) | resultListener | 用于接收 OCR 识别结果的回调对象                                |
 
 
-<span id="startProcessOcrResultEntity()"></span>
-#### startProcessOcrResultEntity()
+
+#### [startProcessOcrResultEntity()](id:startProcessOcrResultEntity())
 
 ```java
-public <T extends OcrResult> void startProcessOcrResultEntity(Activity activity, OcrType ocrType,
-        CustomConfigUi customConfigUi, Class<T> entity,
-        ISdkOcrEntityResultListener<T> ocrEntityResultListener) 
+public <T extends OcrResult> void startProcessOcrResultEntity(Activity activity, OcrType ocrType,CustomConfigUi customConfigUi, Class<T> entity,ISdkOcrEntityResultListener<T> ocrEntityResultListener) 
 ```
 
 功能描述：
@@ -150,8 +144,8 @@ public <T extends OcrResult> void startProcessOcrResultEntity(Activity activity,
 | < T > extends OcrResult                                     | < T >                   | OCR 识别识别结果 OcrResult 的子类型[IdCardOcrResult](#IdCardOcrResult)、[BankCardOcrResult](#BankCardOcrResult)、[BusinessCardOcrResult](#BusinessCardOcrResult)、[MalaysiaIdCardOcrResult](#MalaysiaIdCardOcrResult) |
  
 
-<span id="OcrSDKConfig"></span>
-### OcrSDKConfig
+
+### [OcrSDKConfig](id:OcrSDKConfig)
 
 OcrSDKConfig 是在 OCR 初始化时需要传入的 SDK 的配置信息实体类，采用构建者 builder 的方式进行参数配置。
 
@@ -180,8 +174,8 @@ OcrSDKConfig 是在 OCR 初始化时需要传入的 SDK 的配置信息实体类
 | boolean             | RetImage        | 马来西亚身份证是否返回图片                                   | false                                        |
 
 
-<span id="OcrType"></span>
-### OcrType
+
+### [OcrType](id:OcrType)
 
 OcrType 是一个枚举类型，列举了当前文字识别 OCR 的 SDK 所支持业务类型的种类，大致如下：
 
@@ -206,8 +200,8 @@ OcrModeType 是一个枚举类型，列举了卡片识别模式
 
 
 
-<span id="CustomConfigUi"></span>
-### CustomConfigUi
+
+### [CustomConfigUi](id:CustomConfigUi)
 
 此为用户自定义 UI 的配置类，当前支持配置的属性如下表所示，可以通过 javabean set 的方式设置。
 
@@ -224,11 +218,11 @@ OcrModeType 是一个枚举类型，列举了卡片识别模式
 | int     | lightImageOnResId      | 设置默认界面打开闪光灯的图标资源 id                         |
 | int     | lightImageOffResId     | 设置默认界面关闭闪光灯的图标资源 id                         |
 | int     | takePicturesResId      | 设置默认界面主动拍照按钮的图标资源 id                       |
-| boolean | isRemoveAlbum          | 设置默认界面是否显示相册选取按钮，默认为显示               |
+| boolean | isRemoveAlbum          | 设置默认界面是否现实相册选取按钮，默认为显示               |
 
 
-<span id="IdCardOcrResult"></span>
-### IdCardOcrResult
+
+### [IdCardOcrResult](id:IdCardOcrResult)
 
 身份证 OCR 识别的结果实体对象
 
@@ -243,10 +237,10 @@ OcrModeType 是一个枚举类型，列举了卡片识别模式
 | String | authority | 发证机关 |
 | String | validDate | 有效日期 |
 | String | requestId | 请求 id   |
+| String | advancedInfo | 扩展字段内容 [参考官网](https://cloud.tencent.com/document/product/866/33524) |
 
 
-<span id="BankCardOcrResult"></span>
-### BankCardOcrResult
+### [BankCardOcrResult](id:BankCardOcrResult)
 
 银行卡 OCR 识别的结果实体对象
 
@@ -258,10 +252,10 @@ OcrModeType 是一个枚举类型，列举了卡片识别模式
 | String | requestId | 请求 id   |
 
 
-<span id="BusinessCardOcrResult"></span>
-### BusinessCardOcrResult
 
-名片 OCR 识别的结果实体对象，主要包含一些列的[BusinessCardItems](#BusinessCardItems)对象。
+### [BusinessCardOcrResult](id:BusinessCardOcrResult)
+
+名片 OCR 识别的结果实体对象，主要包含一些列的 [BusinessCardItems](#BusinessCardItems) 对象。
 
 | 类型                                            | 名称              | 含义         |
 | ----------------------------------------------- | ----------------- | ------------ |
@@ -269,8 +263,8 @@ OcrModeType 是一个枚举类型，列举了卡片识别模式
 | String                                          | requestId         | 请求 id       |
 
 
-<span id="BusinessCardItems"></span>
-### BusinessCardItems
+
+### [BusinessCardItems](id:BusinessCardItems)
 
 名片 OCR 识别的基本元素，包括名称与信息。
 
@@ -280,8 +274,8 @@ OcrModeType 是一个枚举类型，列举了卡片识别模式
 | String | value | 子项内容 |
 
 
-<span id="MalaysiaIdCardOcrResult"></span>
-### MalaysiaIdCardOcrResult
+
+### [MalaysiaIdCardOcrResult](id:MalaysiaIdCardOcrResult)
 
 马来身份证 OCR 识别的结果实体对象
 
@@ -297,8 +291,8 @@ OcrModeType 是一个枚举类型，列举了卡片识别模式
 | String          | requestId | 请求 id     |
 
 
-<span id="ISDKKitResultListener"></span>
-### ISDKKitResultListener
+
+### [ISDKKitResultListener](id:ISDKKitResultListener)
 
 文字识别 OCR 识别结果的回调类，用于接收识别结果以及错误异常。
 
@@ -308,7 +302,7 @@ OcrModeType 是一个枚举类型，列举了卡片识别模式
  */
 public interface ISDKKitResultListener {
     /**
-     * orc识别成功结果
+     * orc 识别成功结果
      * @param response 识别结果 Json 信息
      * @param base64Str 所识别的图片 Base64 数据
      * @param requestId 此次识别请求的唯一标识符 requestId
@@ -316,7 +310,7 @@ public interface ISDKKitResultListener {
     void onProcessSucceed(String response, String base64Str, String requestId);
 
     /**
-     * orc识别异常
+     * orc 识别异常
      * @param errorCode 错误码
      * @param message 异常信息
      * @param requestId 此次请求的唯一标识符 requestId
@@ -475,7 +469,7 @@ public interface ISdkOcrEntityResultListener<T> {
 | ResourceInUse                     | 资源被占用。                                                 |
 | InternalError                     | 内部错误。                                                   |
 | RequestLimitExceeded              | 请求的次数超过了频率限制。                                   |
-| AuthFailure.SecretIdNotFound      | 密钥不存在。请在控制台检查密钥是否已被删除或者禁用，如状态正常，请检查密钥是否填写正确，注意前后不得有空格。 |
+| AuthFailure.SecretIdNotFound      | 密钥不存在。 请在控制台检查密钥是否已被删除或者禁用，如状态正常，请检查密钥是否填写正确，注意前后不得有空格。 |
 | LimitExceeded                     | 超过配额限制。                                               |
 | NoSuchVersion                     | 接口版本不存在。                                             |
 | ResourceNotFound                  | 资源不存在。                                                 |
@@ -534,5 +528,3 @@ public interface ISdkOcrEntityResultListener<T> {
 | 错误码               | 说明                 |
 | -------------------- | -------------------- |
 | OcrSdk.UserCancelOcr | 用户主动停止文字识别 |
-
-

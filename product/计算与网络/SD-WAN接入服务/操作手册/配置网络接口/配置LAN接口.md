@@ -37,3 +37,4 @@ LAN（Local Area Network）即局域网端口，Edge 设备通过 LAN 口连接�
 		 - **DHCP**：通过 DHCP 协议动态获取 IP 地址。
 10. （可选）重复步骤8-9，配置其他 LAN 接口。
 
+

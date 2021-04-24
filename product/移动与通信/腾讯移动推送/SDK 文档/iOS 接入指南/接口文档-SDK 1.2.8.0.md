@@ -3,9 +3,9 @@
 本文档中账号功能、标签功能及用户属性功能适用于 **SDK 1.2.9.0或更高版本**，**1.2.7.2**及之前版本请参见 [接口文档](https://cloud.tencent.com/document/product/548/36668)。
 
 
-
 ## 启动腾讯移动推送服务
 以下为设备注册相关接口方法，若需了解调用时机及调用原理，可查看 [设备注册流程](https://cloud.tencent.com/document/product/548/36662#.E8.AE.BE.E5.A4.87.E6.B3.A8.E5.86.8C.E6.B5.81.E7.A8.8B)。
+
 #### 接口说明
 
 通过使用在腾讯移动推送官网注册的应用信息，启动腾讯移动推送服务。
@@ -22,7 +22,8 @@
 - accessKey：通过前台申请的 AccessKey。
 - Delegate：回调对象。 
 
->!接口所需参数必须要正确填写，否则腾讯移动推送服务将不能正确为应用推送消息。
+>! 接口所需参数必须要正确填写，否则腾讯移动推送服务将不能正确为应用推送消息。
+>
 
 #### 示例代码
 
@@ -32,6 +33,7 @@
 
 ## 终止腾讯移动推送服务
 以下为设备注册相关接口方法，若需了解调用时机及调用原理，可查看 [设备反注册流程](https://cloud.tencent.com/document/product/548/36662#.E8.AE.BE.E5.A4.87.E5.8F.8D.E6.B3.A8.E5.86.8C.E6.B5.81.E7.A8.8B)。
+
 #### 接口说明
 
 终止腾讯移动推送服务后，将无法通过腾讯移动推送服务向设备推送消息，如再次需要接收腾讯移动推送服务的消息推送，则必须再次调用 `startXGWithAccessID:accessKey:delegate:` 方法重启腾讯移动推送服务。
@@ -93,6 +95,21 @@ SDK 1.2.7.2 新增，当注册推送服务失败会走此回调。
 - (void)xgPushDidFailToRegisterDeviceTokenWithError:(nullable NSError *)error
 ```
 
+### 通知授权弹窗的回调
+
+#### 接口说明
+
+SDK 1.3.1.0 新增，通知弹窗授权的结果会走此回调。
+
+```objective-c
+- (void)xgPushDidRequestNotificationPermission:(bool)isEnable error:(nullable NSError *)error;
+```
+
+#### 返回参数说明
+
+- isEnable：是否同意授权。
+- error：错误信息，若 error 为 nil，则获取弹窗结果成功。
+
 ## 账号功能
 以下为账号相关接口方法，若需了解调用时机及调用原理，可查看 [账号相关流程](https://cloud.tencent.com/document/product/548/36662#.E8.B4.A6.E5.8F.B7.E7.9B.B8.E5.85.B3.E6.B5.81.E7.A8.8B)。
 ### 添加账号
@@ -103,20 +120,22 @@ SDK 1.2.7.2 新增，当注册推送服务失败会走此回调。
 - (void)upsertAccountsByDict:(nonnull NSDictionary<NSNumber *, NSString *> *)accountsDict;
 ```
 
->?此接口应该在 xgPushDidRegisteredDeviceToken:error: 返回正确之后被调用。
+>? 此接口应该在 xgPushDidRegisteredDeviceToken:error: 返回正确之后被调用。
+>
 
 
 
 #### 参数说明 
 
 
-- accountsDict：账号字典。
+accountsDict：账号字典。
 
 >?
 >- 账号类型和账号名称一起作为联合主键。
 >- 需要使用字典类型，key 为账号类型，value 为账号，示例：@{@(accountType):@"account"}。
 >- Objective-C的写法 : @{@(0):@"account0",@(1):@"account1"}；Swift的写法：[NSNumber(0):@"account0",NSNumber(1):@"account1"]。
->- 更多 accountType 请参照 SDK 包内 XGPush.h 文件中的 XGPushTokenAccountType 枚举。
+>- 更多 accountType 请参照 SDK Demo 包内的 XGPushTokenAccountType 枚举。
+>- 目前仅支持下发账号类型为 UNKNOWN 的推送，其他账号类型预计2021年04月底支持。
 
 
 #### 示例代码
@@ -199,9 +218,9 @@ NSSet *accountsKeys = [[NSSet alloc] initWithObjects:@(accountType), nil];
 
 #### 参数说明
 
-- tags：标签数组。
+tags：标签数组。
 
-> ?标签操作 tags 为标签字符串数组（标签字符串不允许有空格或者是 tab 字符）。
+>? 标签操作 tags 为标签字符串数组（标签字符串不允许有空格或者是 tab 字符）。
 
 #### 示例代码
 
@@ -231,9 +250,9 @@ NSSet *accountsKeys = [[NSSet alloc] initWithObjects:@(accountType), nil];
 
 #### 参数说明 
 
-- tags：标签数组。
+tags：标签数组。
 
-> ?标签操作 tags 为标签字符串数组（标签字符串不允许有空格或者是 tab 字符）。
+>? 标签操作 tags 为标签字符串数组（标签字符串不允许有空格或者是 tab 字符）。
 
 
 
@@ -253,13 +272,52 @@ NSSet *accountsKeys = [[NSSet alloc] initWithObjects:@(accountType), nil];
 - (void)clearTags
 ```
 
-> ?此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
+>? 此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
 
 #### 示例代码
 
 ```Objective-C
 [[XGPushTokenManager defaultTokenManager] clearTags];
 ```
+
+### 查询标签
+
+#### 接口说明
+
+SDK 1.3.1.0 新增，查询设备绑定的标签。
+
+```Objective-C
+- (void)queryTags:(NSUInteger)offset limit:(NSUInteger)limit;
+```
+
+> ?此接口应在 xgPushDidRegisteredDeviceToken:error: 返回正确后被调用。
+
+#### 参数说明 
+
+- offset：此次查询的偏移大小。
+- offset：limit 此次查询的分页大小, 最大200。
+
+#### 示例代码
+
+```Objective-C
+ [[XGPushTokenManager defaultTokenManager] queryTags:0 limit:100];
+```
+
+### 查询标签的回调
+
+#### 接口说明
+
+SDK 1.3.1.0 新增，查询标签的结果会走此回调。
+
+```objective-c
+- (void)xgPushDidQueryTags:(nullable NSArray<NSString *> *)tags totalCount:(NSUInteger)totalCount error:(nullable NSError *)error;
+```
+
+#### 返回参数说明
+
+- tags：查询条件返回的标签。
+- totalCount：设备绑定的总标签数量。
+- error：错误信息，若 error 为 nil，则查询成功。
 
 ## 用户属性功能
 以下为用户属性相关接口方法，若需了解调用时机及调用原理，可查看 [用户属性相关流程](https://cloud.tencent.com/document/product/548/36662#.E7.94.A8.E6.88.B7.E5.B1.9E.E6.80.A7.E7.9B.B8.E5.85.B3.E6.B5.81.E7.A8.8B)。
@@ -277,10 +335,11 @@ NSSet *accountsKeys = [[NSSet alloc] initWithObjects:@(accountType), nil];
 
 #### 参数说明 
 
-- attributes：用户属性字符串字典，字符串不允许有空格或者是 tab 字符。
+attributes：用户属性字符串字典，字符串不允许有空格或者是 tab 字符。
 
 > ? 
 > - 需要先在管理台配置用户属性的键，才能操作成功。
+> - key，value 长度都限制50个字符以内。
 > - 需要使用字典且 key 是固定要求。
 > - Objective-C 的写法 : @{@"gender": @"Female", @"age": @"29"}；
 > - Swift 的写法：["gender":"Female", "age": "29"]
@@ -305,7 +364,7 @@ NSSet *accountsKeys = [[NSSet alloc] initWithObjects:@(accountType), nil];
 
 #### 参数说明 
 
-- attributeKeys：用户属性 key 组成的集合，字符串不允许有空格或者是 tab 字符。
+attributeKeys：用户属性 key 组成的集合，字符串不允许有空格或者是 tab 字符。
 
 > ?使用集合且key是固定要求。
 
@@ -460,7 +519,7 @@ handler：查询结果的返回方法。
 
 #### 参数说明
 
-- logInfo：日志信息。
+logInfo：日志信息。
 
 #### 示例代码
 
@@ -492,7 +551,7 @@ handler：查询结果的返回方法。
 XGNotificationAction *action1 = [XGNotificationAction actionWithIdentifier:@"xgaction001" title:@"xgAction1" options:XGNotificationActionOptionNone];
 ```
 
-> !通知栏带有点击事件的特性，只有在 iOS8.0+ 以上支持，iOS 7.x or earlier 的版本，此方法返回空。
+>! 通知栏带有点击事件的特性，只有在 iOS8.0+ 以上支持，iOS 7.x or earlier 的版本，此方法返回空。
 
 ### 创建分类对象
 
@@ -511,7 +570,7 @@ XGNotificationAction *action1 = [XGNotificationAction actionWithIdentifier:@"xga
 - intentIdentifiers：用以表明可以通过 Siri 识别的标识。
 - options：分类的特性。
 
-> !通知栏带有点击事件的特性，只有在 iOS8+ 以上支持，iOS 8 or earlier的版本，此方法返回空。
+>! 通知栏带有点击事件的特性，只有在 iOS8+ 以上支持，iOS 8 or earlier的版本，此方法返回空。
 
 #### 示例代码
 
@@ -543,4 +602,5 @@ XGNotificationConfigure *configure = [XGNotificationConfigure configureNotificat
 ## 本地推送
 
 本地推送相关功能请参见 [苹果开发者文档](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SchedulingandHandlingLocalNotifications.html#//apple_ref/doc/uid/TP40008194-CH5-SW1)。
+
 

@@ -9,12 +9,14 @@
 如果您不考虑复用我们开发包中的 UI 代码，决心自己实现 UI 部分，则可以参考如下的攻略进行对接：
 
 ### 1. 选择视频文件  
-自己实现多选文件功能
+自己实现多选文件功能。
 
 ### 2. 设置预览 View  
 视频合成需要创建 TXVideoJoiner 对象，同 TXVideoEditer 类似，预览功能也需要上层提供预览 FrameLayout：
 
-```
+
+<dx-codeblock>
+::: android java
 //准备预览 View        
 TXVideoEditConstants.TXPreviewParam param = new TXVideoEditConstants.TXPreviewParam();
 param.videoView = mVideoView;
@@ -26,7 +28,9 @@ mTXVideoJoiner.setTXVideoPreviewListener(this);
 mTXVideoJoiner.initWithPreview(param);
 // 设置待拼接的视频文件组 mVideoSourceList，也就是第一步中选择的若干个文件
 mTXVideoJoiner.setVideoPathList(mVideoSourceList);
-```
+:::
+</dx-codeblock>
+
 设置好预览 view 同时传入待合成的视频文件数组后，可以开始播放预览，合成模块提供了一组接口来做视频的播放预览：
 
 - startPlay：表示视频播放开始。

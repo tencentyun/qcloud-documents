@@ -10,7 +10,7 @@
 ## 前提条件
 
 
-- 在 Proemtheus 实例对应地域及私有网络 VPC 下，创建腾讯云容器服务 [Kubernetes 集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)，并为集群创建 [命名空间](https://cloud.tencent.com/document/product/1141/41803)。
+- 在 Proemtheus 实例对应地域及私有网络 VPC 下，创建腾讯云容器服务 [Kubernetes 集群](https://cloud.tencent.com/document/product/457/32189#TemplateCreation)，并为集群创建 [命名空间](https://cloud.tencent.com/document/product/1141/41803)。
 - 在【[云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)】  >【选择“对应的 Prometheus 实例”】 >【集成容器服务】中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
 
 
@@ -25,7 +25,7 @@
 3. 执行以下 [使用 Secret 管理 Redis 密码](#step1) > [部署 Redis Exporter](#step2) > [验证](#step3) 步骤完成 Exporter 部署。
 
 
-<span id="step1"></span>
+[](id:step1)
 
 #### 使用 Secret 管理 Redis 密码
 
@@ -43,14 +43,14 @@ stringData:
 			password: you-guess  #对应 Redis 密码
 ```
 
-<span id="step2"></span>
+[](id:step2)
 
 #### 部署 Redis Exporter
 
 在 Deployment 管理页面，单击【新建】，选择对应的**命名空间**来进行部署服务。可以通过控制台的方式创建，如下以 YAML 的方式部署 Exporter，YAML 配置示例如下：
 >?更多 Exporter 详细参数介绍请参见 [redis_exporter](https://github.com/oliver006/redis_exporter)。
 ```
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -97,7 +97,7 @@ spec:
 
 
 
-<span id="step3"></span>
+[](id:step3)
 
 #### 验证
 
@@ -121,42 +121,36 @@ curl localhost:9121/metrics
 2. 通过集成容器服务列表单击【集群 ID】进入到容器服务集成管理页面。
 3. 通过服务发现添加 `Pod Monitor` 来定义 Prometheus 抓取任务，YAML 配置示例如下：
 
-```
-apiVersion: monitoring.coreos.com/v1
-kind: PodMonitor
-metadata:
-  # 填写一个唯一名称
-  name: redis-exporter
-  # namespace固定，不要修改
-  namespace: cm-prometheus
-spec:
-  podMetricsEndpoints:
-  - interval: 30s
-    # 填写pod yaml中Prometheus Exporter对应的Port的Name
-    port: metric-port
-    # 填写Prometheus Exporter对应的Path的值，不填默认/metrics
-    path: /metrics
-    relabelings:
-    - action: replace
-      sourceLabels: 
-      - instance
-      regex: (.*)
-      targetLabel: instance
-      replacement: 'crs-xxxxxx' # 调整成对应的 Redis 实例 ID
-    - action: replace
-      sourceLabels: 
-      - instance
-      regex: (.*)
-      targetLabel: ip
-      replacement: '1.x.x.x' # 调整成对应的 Redis 实例 IP
-  # 选择要监控pod所在的namespace
-  namespaceSelector:
-    matchNames:
-    - redis-test 
-  # 填写要监控pod的Label值，以定位目标pod
-  selector:
-    matchLabels:
-      k8s-app: redis-exporter
+```yaml
+  apiVersion: monitoring.coreos.com/v1
+  kind: PodMonitor
+  metadata:
+    name: redis-exporter # 填写一个唯一名称
+    namespace: cm-prometheus  # namespace固定，不要修改
+  spec:
+    podMetricsEndpoints:
+    - interval: 30s
+      port: metric-port  # 填写pod yaml中Prometheus Exporter对应的Port的Name
+      path: /metrics  # 填写Prometheus Exporter对应的Path的值，不填默认/metrics
+      relabelings:
+      - action: replace
+        sourceLabels:
+        - instance
+        regex: (.*)
+        targetLabel: instance
+        replacement: 'crs-xxxxxx' # 调整成对应的 Redis 实例 ID
+      - action: replace
+        sourceLabels:
+        - instance
+        regex: (.*)
+        targetLabel: ip
+        replacement: '1.x.x.x' # 调整成对应的 Redis 实例 IP
+    namespaceSelector:   # 选择要监控pod所在的namespace
+      matchNames:
+      - redis-test
+    selector:    # 填写要监控pod的Label值，以定位目标pod
+      matchLabels:
+        k8s-app: redis-exporter
 ```
 
 >?由于 `Exporter` 和 `Redis` 部署在不同的服务器上，因此建议通过 Prometheus Relabel 机制将 Redis 实例的信息放到监控指标中，以方便定位问题。

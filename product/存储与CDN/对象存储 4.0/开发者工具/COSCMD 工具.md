@@ -37,7 +37,7 @@
 pip install coscmd
 ```
 
- 安装成功之后，用户可以通过`-v`或者`--version`命令查看当前的版本信息。
+安装成功之后，用户可以通过`-v`或者`--version`命令查看当前的版本信息。
 
 #### 1.2 pip 更新
 
@@ -83,7 +83,7 @@ pip install coscmd --no-index -f coscmd-packages
 用户可通过`-h`或`--help`命令来查看工具的 help 信息和用法。
 
 ```plaintext
-coscmd -h  //查看当前版本信息
+coscmd -h  
 ```
 
 help 信息如下所示：
@@ -303,6 +303,7 @@ coscmd upload -rs D:/doc / --ignore *.txt,*.doc
 
 > !
 > - 请将 "<>" 中的参数替换为您需要上传的本地文件路径（localpath），以及 COS 上存储的路径（cospath）。
+> - 当上传大于10MB的文件，COSCMD 即采用分块上传方式，命令用法和简单上传一致，即`coscmd upload <localpath> <cospath>`。
 > - COSCMD 支持大文件断点上传功能；当分块上传大文件失败时，重新上传该文件只会上传失败的分块，而不会从头开始（请保证重新上传的文件的目录以及内容和上传的目录保持一致）。
 > - COSCMD 分块上传时会对每一块进行 MD5 校验。
 > - COSCMD 上传默认会携带 `x-cos-meta-md5` 的头部，值为该文件的 md5 值。

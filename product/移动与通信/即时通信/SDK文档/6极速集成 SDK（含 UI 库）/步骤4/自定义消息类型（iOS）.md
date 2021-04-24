@@ -147,3 +147,4 @@ cellData.innerMessage = [[V2TIMManager sharedInstance] createCustomMessage:data]
 [chatController sendMessage:cellData];
 ```
 
+

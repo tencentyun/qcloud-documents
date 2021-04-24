@@ -9,3 +9,5 @@
  - 若有可选的弹性公网 IP，选中并单击【确定】即可。
  - 若无可选的弹性公网 IP，可单击弹框上方的【新建】进行申请，详情请参见 [申请弹性公网 IP](https://cloud.tencent.com/document/product/1199/41698)，申请成功后返回弹出框并单击【刷新】，即可看见申请的弹性公网 IP，选中并单击【确定】即可。
 ![](https://main.qcloudimg.com/raw/db7fd5243319cca249a5c85215c8578d.png)
+
+

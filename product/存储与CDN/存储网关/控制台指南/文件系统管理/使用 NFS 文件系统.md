@@ -147,7 +147,6 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 ![](https://main.qcloudimg.com/raw/2500de31739754cb03f97b0d1f771c90.jpg)
 
 
-
 #### 输入访问路径
 在弹出的设置窗口中设置 "驱动器" 盘符名称及文件夹（即在 NFS 文件系统中看到的挂载目录）。
 ![](https://mc.qcloudimg.com/static/img/c7b07faf43812540d383b7767c52158b/image.png)
@@ -160,4 +159,5 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\ClientForNFS\CurrentVersion\Default
 #### 断开文件系统
 要断开已经挂载的文件系统，只需鼠标右键单击磁盘，再出现的菜单中单击【断开】选项，即可断开文件系统的连接。
 ![](https://mc.qcloudimg.com/static/img/376cd0547aa64f4d519e5444c5a58f93/image.png)
+
 

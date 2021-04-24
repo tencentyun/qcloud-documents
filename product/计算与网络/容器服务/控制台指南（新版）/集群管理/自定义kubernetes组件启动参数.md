@@ -10,7 +10,7 @@
 
 ## 操作说明
 ### 创建集群设置自定义 Kubernetes 组件参数
-1. <span id="step1">登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)，单击左侧导航栏中的【集群】。</span>
+1. [](id:step1)登录 [腾讯云容器服务控制台](https://console.cloud.tencent.com/tke2)，单击左侧导航栏中的【集群】。
 2. 在“集群管理”页面，单击集群列表上方的【新建】。
 3. 在“创建集群”页面，选择【高级设置】>【设置kubernetes自定义组件参数】。如下图所示：
 ![](https://main.qcloudimg.com/raw/1a575c7f673244ad1b60bebf6893c134.png)

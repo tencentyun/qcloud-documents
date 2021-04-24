@@ -48,7 +48,7 @@ select * from table1;
  
 Time: 16.718 ms
  
---开启事务，等价于START TRANSACTION。
+--开启事务，等价于 START TRANSACTION。
 BEGIN;
  
 --更新字段值。
@@ -66,7 +66,7 @@ select * from table1;
  
 Time: 6.378 ms
  
---终止事务，上面所执行的更新会被撤销掉，等价于ROLLBACK。
+--终止事务，上面所执行的更新会被撤销掉，等价于 ROLLBACK。
 ABORT; 
 ROLLBACK
 Time: 0.651 ms
@@ -80,8 +80,6 @@ select * from table1;
  
 Time: 6.124 ms
 ```
-
- 
 
 ## 兼容性
 由于历史原因，此命令是数据库扩展名。ROLLBACK 是等效的标准 SQL 命令。ROLLBACK 是等效的标准 SQL 命令。

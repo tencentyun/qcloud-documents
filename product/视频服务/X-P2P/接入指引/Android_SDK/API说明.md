@@ -53,7 +53,7 @@ http:://${XNet.proxyOf}${func}?${param}
 
 ## 设置上下行
 ### 接口描述
-- 描述：请求设置 P2P 上行与下行，0为开启，1为关闭
+- 描述：请求设置 P2P 上行与下行，0为关闭，1为开启
 - 方法：GET
 - 路径：`/feature?download=${0or1}&upload=${0or1}`
 

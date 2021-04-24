@@ -8,7 +8,7 @@
 
 ## 前提条件
 
-- 在 Prometheus 实例对应地域及私有网络 VPC 下，创建腾讯云容器服务 [托管版集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)，并为集群创建 [命名空间](https://cloud.tencent.com/document/product/1141/41803)。
+- 在 Prometheus 实例对应地域及私有网络 VPC 下，创建腾讯云容器服务 [托管版集群](https://cloud.tencent.com/document/product/457/32189#TemplateCreation)，并为集群创建 [命名空间](https://cloud.tencent.com/document/product/1141/41803)。
 - 在【[云监控 Prometheus 控制台](https://console.cloud.tencent.com/monitor/prometheus)】 >【选择“对应的 Prometheus 实例”】 >【集成容器服务】中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
 
 
@@ -17,14 +17,13 @@
 ### Exporter 部署
 
 
-
 1. 登录 [容器服务](https://console.cloud.tencent.com/tke2/cluster) 控制台。
 2. 单击需要获取集群访问凭证的集群 ID/名称，进入该集群的管理页面。
 3. 在左侧菜单中选择【工作负载】>【Deployment】，进入 Deployment 页面。
 4. 在 Deployment 管理页面，单击【新建】，选择对应的**命名空间**来进行部署服务。可以通过控制台的方式创建，如下以 YAML 的方式部署 Exporter，YAML 配置示例如下：
 
 ```yaml
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -63,7 +62,7 @@ spec:
       terminationGracePeriodSeconds: 30
 ```
 
->?Exporter 详细参数请参见 [elasticsearch_exporter](https://github.com/justwatchcom/elasticsearch_exporter)。
+>?Exporter 详细参数请参见 [kafka_exporter](https://github.com/danielqsj/kafka_exporter)。
 
 
 
@@ -75,41 +74,35 @@ spec:
 3. 通过服务发现添加 `Pod Monitor` 来定义 Prometheus 抓取任务，YAML 配置示例如下：
 
 ```yaml
-apiVersion: monitoring.coreos.com/v1
-kind: PodMonitor
-metadata:
-  # 填写一个唯一名称
-  name: kafka-exporter
-  # namespace固定，不要修改
-  namespace: cm-prometheus
-spec:
-  podMetricsEndpoints:
-  - interval: 30s
-    # 填写pod yaml中Prometheus Exporter对应的Port的Name
-    port: metric-port
-    # 填写Prometheus Exporter对应的Path的值，不填默认/metrics
-    path: /metrics
-    relabelings:
-    - action: replace
-      sourceLabels: 
-      - instance
-      regex: (.*)
-      targetLabel: instance
-      replacement: 'ckafka-xxxxxx' # 调整成对应的 Kafka 实例 ID
-    - action: replace
-      sourceLabels: 
-      - instance
-      regex: (.*)
-      targetLabel: ip
-      replacement: '1.x.x.x' # 调整成对应的 Kafka 实例 IP
-  # 选择要监控pod所在的namespace
-  namespaceSelector:
-    matchNames:
-    - kafka-demo
-  # 填写要监控pod的Label值，以定位目标pod
-  selector:
-    matchLabels:
-      k8s-app: kafka-exporter
+  apiVersion: monitoring.coreos.com/v1
+  kind: PodMonitor
+  metadata:
+    name: kafka-exporter  # 填写一个唯一名称
+    namespace: cm-prometheus  # namespace固定，不要修改
+  spec:
+    podMetricsEndpoints:
+    - interval: 30s
+      port: metric-port # 填写pod yaml中Prometheus Exporter对应的Port的Name
+      path: /metrics # 填写Prometheus Exporter对应的Path的值，不填默认/metrics
+      relabelings:
+      - action: replace
+        sourceLabels:
+        - instance
+        regex: (.*)
+        targetLabel: instance
+        replacement: 'ckafka-xxxxxx' # 调整成对应的 Kafka 实例 ID
+      - action: replace
+        sourceLabels:
+        - instance
+        regex: (.*)
+        targetLabel: ip
+        replacement: '1.x.x.x' # 调整成对应的 Kafka 实例 IP
+    namespaceSelector:
+      matchNames:
+      - kafka-demo
+    selector:  # 填写要监控pod的Label值，以定位目标pod
+      matchLabels:
+        k8s-app: kafka-exporter
 ```
 
 >?由于 `Exporter` 和 `Kafka` 部署在不同的服务器上，因此建议通过 Prometheus Relabel 机制将 Kafka 实例的信息放到监控指标中，以便定位问题。

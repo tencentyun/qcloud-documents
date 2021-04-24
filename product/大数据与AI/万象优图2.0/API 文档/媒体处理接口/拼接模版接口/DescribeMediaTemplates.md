@@ -171,8 +171,8 @@ Container 类型 Video 的具体数据描述如下：
 | Codec                      | Response.TemplateList.<br/>ConcatTemplate.Video | 编解码格式             | String | 否   |   H.264 | H.264                                          |
 | Width                      | Response.TemplateList.<br/>ConcatTemplate.Video | 宽                    | String | 否   | 视频原始宽度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Width 时，按照视频原始比例计算 Height |
 | Height                     | Response.TemplateList.<br/>ConcatTemplate.Video | 高                    | String | 否   | 视频原始高度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Height 时，按照视频原始比例计算 Width |
-| Fps                        | Response.TemplateList.<br/>ConcatTemplate.Video | 帧率                  | String | 否   | 无 | <li>值范围：(0，60]<br><li>单位：fps |
-| Bitrate                    | Response.TemplateList.<br/>ConcatTemplate.Video | 视频输出文件的码率      | String | 否   |  无           | <li>值范围：[10，50000]<br/><li>单位：Kbps                     |
+| Fps                        | Response.TemplateList.<br/>ConcatTemplate.Video | 帧率                  | String | 否   | 视频原始帧率 | <li>值范围：(0，60]<br><li>单位：fps |
+| Bitrate                    | Response.TemplateList.<br/>ConcatTemplate.Video | 视频输出文件的码率      | String | 否   |  视频原始码率           | <li>值范围：[10，50000]<br/><li>单位：Kbps   </li>                  |
 | Remove                     | Response.TemplateList.<br/>ConcatTemplate.Video | 是否删除视频流         | String | 否   | false        | 取值 true、false
 
 
@@ -204,6 +204,8 @@ Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+
+
 
 <Response>
     <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzh****=</RequestId>
@@ -272,6 +274,8 @@ Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYzh****=
+
+
 
 <Response>
     <RequestId>NTk0MjdmODlfMjQ4OGY3XzYzYzh****=</RequestId>

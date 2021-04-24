@@ -40,7 +40,7 @@
 
 ### Kubectl 操作指引
 
-#### 配置证书并创建一个 HTTPS 服务<span id="CreatingSecret"></span>
+#### 配置证书并创建一个 HTTPS 服务[](id:CreatingSecret)
 
 1. 执行以下命令，计算证书 “XczRzegn” 的 ID。
 ```yaml
@@ -97,7 +97,7 @@ type: Opaque
 </pre>
 
 
-#### 修改证书<span id="ModifySecret"></span>
+#### 修改证书[](id:ModifySecret)
 
 1. 执行以下命令，使用默认编辑器打开需修改的 Secret。
 ```

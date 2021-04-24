@@ -8,7 +8,7 @@ TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和
 - 已经在本地安装 Golang 开发环境（[下载地址](https://studygolang.com/dl)）。
 - 已经准备好 Go 1.11+ 的部署环境（云服务器或其他云资源），且该环境所在的 VPC 已接入TDMQ（参考 [VPC 接入指南](https://cloud.tencent.com/document/product/1179/46240)）。
 - 已获取调用地址（URL）和路由 ID（NetModel）。
-这两个参数均可以在【[环境管理](https://console.cloud.tencent.com/tdmq/env)】的接入点列表中获取。请根据客户端部署的云服务器或其他资源所在的私有网络选择正确的接入点来复制参数信息，否则会有无法连接的问题。
+这两个参数均可以在【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】的接入点列表中获取。请根据客户端部署的云服务器或其他资源所在的私有网络选择正确的接入点来复制参数信息，否则会有无法连接的问题。
 ![](https://main.qcloudimg.com/raw/6d2535de8a505fe4975690053925884e.png)
 - 已参考 [角色与鉴权](https://cloud.tencent.com/document/product/1179/47543) 文档配置好了角色与权限，并获取到了对应角色的密钥（Token）。
 
@@ -24,7 +24,7 @@ TDMQ 提供了 Go 语言的 SDK 来调用服务，进行消息队列的生产和
 
 3. 打开命令控制台，运行以下命令：
 ```bash
-go get -u "github.com/TencentCloud/tdmq-go-client@v0.3.0-beta.1"
+go get -u "github.com/TencentCloud/tdmq-go-client@v0.3.0-beta.3"
 ```
 
 
@@ -42,20 +42,18 @@ go env | findstr GOPATH
 
 ### 创建 Demo工程
 
-1.使用 IDE 创建一个新工程，在文件夹中创建 go.mod 文件并编辑如下：
+1. 使用 IDE 创建一个新工程，在文件夹中创建 go.mod 文件并编辑如下：
 ```go
 module example/godemo
 
 go 1.12
 
-require github.com/TencentCloud/tdmq-go-client v0.3.0-beta.2 
+require github.com/TencentCloud/tdmq-go-client v0.3.0-beta.3 
 ```
+ 上述 v0.3.0-beta.3 是 Go SDK 的版本，云上资源环境中下载的依赖文件压缩包也需要是同样的版本。
 
-上述 v0.3.0-beta.2 是 Go SDK 的版本，云上资源环境中下载的依赖文件压缩包也需要是同样的版本。
-
-2.创建 producer.go 和 consumer.go 测试 Demo 文件。
-
-- producer.go 代码内容如下，其中 `ListenerName` 即 `custom:` 拼接路由 ID（NetModel），路由 ID 可以在控制台【[环境管理](https://console.cloud.tencent.com/tdmq/env)】接入点查看并复制，`NewAuthenticationToken`即角色密钥，可以在【[角色管理](https://console.cloud.tencent.com/tdmq/role)】页面复制。
+2. 创建 producer.go 和 consumer.go 测试 Demo 文件。
+	- producer.go 代码内容如下，其中 `ListenerName` 即 `custom:` 拼接路由 ID（NetModel），路由 ID 可以在控制台【[集群管理](https://console.cloud.tencent.com/tdmq/cluster)】的接入点列表查看并复制，`NewAuthenticationToken` 即角色密钥，可以在【[角色管理](https://console.cloud.tencent.com/tdmq/role)】页面复制。
 <dx-codeblock>
 :::  go
 package main
@@ -72,7 +70,7 @@ func main() {
     client, err := pulsar.NewClient(pulsar.ClientOptions{
         URL:            "pulsar://*.*.*.*:6000",
         ListenerName:   "custom:1300*****0/vpc-******/subnet-********",
-        Authentication: pulsar.NewAuthenticationToken(),
+        Authentication: pulsar.NewAuthenticationToken("eyJh****"),
     })
     if err != nil {
         log.Fatal(err)
@@ -81,7 +79,7 @@ func main() {
 
     producer, err := client.CreateProducer(pulsar.ProducerOptions{
         DisableBatching: true,
-        Topic:           "persistent://appid/namespace/topic-1",
+        Topic:           "persistent://pulsar-****/namespace/topic-1",
     })
     if err != nil {
         log.Fatal(err)
@@ -103,12 +101,9 @@ func main() {
 :::
 </dx-codeblock>
 
-
-其中 Topic 名称需要填入完整路径，即`persistent://appid/environment/Topic`的组合，其中`appid/environment/topic`的部分可以从控制台【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。
+	其中 Topic 名称需要填入完整路径，即`persistent://pulsar-****/namespace/Topic`的组合，其中`pulsar-****/namespace/topic`的部分可以从控制台【[Topic管理](https://console.cloud.tencent.com/tdmq/topic)】页面直接复制。
 ![](https://main.qcloudimg.com/raw/a2e32b311b825df9798b8c98df7c3416.png)
-
-
-- consumer.go 的代码内容如下：
+	- consumer.go 的代码内容如下：
 <dx-codeblock>
 :::  go
 package main
@@ -125,7 +120,7 @@ func main() {
     client, err := pulsar.NewClient(pulsar.ClientOptions{
         URL:       	"pulsar://10.*.*.*:6000",//更换为接入点地址
         ListenerName:	"custom:1300*****0/vpc-******/subnet-********",
-        Authentication: NewAuthenticationToken("eyJh****"),
+        Authentication: pulsar.NewAuthenticationToken("eyJh****"),
     })
     if err != nil {
         log.Fatal(err)
@@ -133,7 +128,7 @@ func main() {
     defer client.Close()
 
     consumer, err := client.Subscribe(pulsar.ConsumerOptions{
-        Topics:           []string{"persistent://appid/namespace/topic-1"},
+        Topics:           []string{"persistent://pulsar-****/namespace/topic-1"},
         SubscriptionName: "my-sub",
         Type:             pulsar.Shared,
     })
@@ -187,13 +182,13 @@ go run consumer.go
 在 consumer.go 运行的控制台可以看到消息被成功接收并打印出来：
 
 ```bash
-Received message msgId: &pulsar.messageID{ledgerID:581, entryID:0, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 0' -- topic : 'persistent://appid/namespace/topic-1'
+Received message msgId: &pulsar.messageID{ledgerID:581, entryID:0, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 0' -- topic : 'persistent://pulsar-****/namespace/topic-1'
 
-Received message msgId: &pulsar.messageID{ledgerID:581, entryID:1, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 1' -- topic : 'persistent://appid/namespace/topic-1'
+Received message msgId: &pulsar.messageID{ledgerID:581, entryID:1, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 1' -- topic : 'persistent://pulsar-****/namespace/topic-1'
 
-Received message msgId: &pulsar.messageID{ledgerID:581, entryID:2, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 2' -- topic : 'persistent://appid/namespace/topic-1'
+Received message msgId: &pulsar.messageID{ledgerID:581, entryID:2, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 2' -- topic : 'persistent://pulsar-****/namespace/topic-1'
 
-Received message msgId: &pulsar.messageID{ledgerID:581, entryID:3, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 3' -- topic : 'persistent://appid/namespace/topic-1'
+Received message msgId: &pulsar.messageID{ledgerID:581, entryID:3, batchIdx:0, partitionIdx:0, tracker:(*pulsar.ackTracker)(nil), consumer:(*pulsar.partitionConsumer)(0xc000198000)} -- content: 'Hello 3' -- topic : 'persistent://pulsar-****/namespace/topic-1'
 
 ...//后续省略
 ```
@@ -207,10 +202,10 @@ Received message msgId: &pulsar.messageID{ledgerID:581, entryID:3, batchIdx:0, p
 <dx-codeblock>
 :::  go
 consumer, err := client.Subscribe(pulsar.ConsumerOptions{
-        Topics:           []string{"persistent://appid/namespace/topic-1"},
+        Topics:           []string{"persistent://pulsar-****/namespace/topic-1"},
         SubscriptionName: "my-sub",
         Type:             pulsar.Shared,
-    TagMapTopicNames: map[string]string{"persistent://appid/namespace/topic-1":"a||b"},
+    TagMapTopicNames: map[string]string{"persistent://pulsar-****/namespace/topic-1":"a||b"},
 })
 if err != nil {
         log.Fatal(err)
@@ -225,7 +220,7 @@ defer consumer.Close()
 :::  go
 // 创建 Producer 对象
 producer, err := client.CreateProducer(pulsar.ProducerOptions{
-    Topic:           "persistent://appid/namespace/topic-1",
+    Topic:           "persistent://clusterid/namespace/topic-1",
 })
 if err != nil {
     log.Fatal(err)
@@ -254,7 +249,7 @@ for j := 0; j < 10; j++ {
 <dx-codeblock>
 :::  go
 consumer, err := client.Subscribe(pulsar.ConsumerOptions{
-    Topics:           []string{"persistent://appid/namespace/topic-1"},
+    Topics:           []string{"persistent://pulsar-****/namespace/topic-1"},
     SubscriptionName: "my-sub",
     Type:             pulsar.Shared,
   //EnableRetry 设为 true 是必须的，否则默认关闭 Retry 功能

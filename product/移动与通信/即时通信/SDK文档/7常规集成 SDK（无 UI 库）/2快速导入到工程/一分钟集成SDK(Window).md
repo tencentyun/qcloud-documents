@@ -17,10 +17,10 @@
 | 目录名       | 说明                                             |
 | ------------ | ------------------------------------------------ |
 | includes     | 接口头文件                                      |
-| lib\Win32\Debug   | **32位 Debug模式**，采用/MTd 编译生成的 .lib 静态库文件和 dll 动态库文件 |
-| lib\Win32\Release | **32位 Release模式**，采用/MT 编译生成的 .lib 静态库文件和 dll 动态库文件 |
-| lib\Win64\Debug   | **64位 Debug模式**，采用/MTd 编译生成的 .lib 静态库文件和 dll 动态库文件 |
-| lib\Win64\Release | **64位 Release模式**，采用/MT 编译生成的 .lib 静态库文件和 dll 动态库文件 |
+| lib\Win32\Debug   | **32位 Debug 模式**，采用 /MTd 选项链接库文件 |
+| lib\Win32\Release | **32位 Release 模式**，采用 /MT 选项链接库文件 |
+| lib\Win64\Debug   | **64位 Debug 模式**，采用 /MTd 选项链接库文件 |
+| lib\Win64\Release | **64位 Release 模式**，采用 /MT 选项链接库文件 |
 
 
 ### 步骤2. 新建工程

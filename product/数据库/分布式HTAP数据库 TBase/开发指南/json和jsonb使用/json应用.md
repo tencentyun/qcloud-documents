@@ -6,7 +6,6 @@ NOTICE:  Replica identity is needed for shard table, please add to this table th
 CREATE TABLE
 ```
 
-
 ## 插入数据
 ```
 postgres=# insert into t_json values(1,'{"col1":1,"col2":"tbase"}');
@@ -21,7 +20,6 @@ postgres=# select * from t_json;
 (2 rows)
 ```
 
-
 ## 通过键获得 json 对象域
 
 ```
@@ -32,7 +30,6 @@ postgres=# select f_json ->'col2' as col2 ,f_json -> 'col3' as col3 from t_json;
  "tbase" | "pgxz"
 (2 rows)
 ```
-
 
 ## 以文本形式获取对象值
 

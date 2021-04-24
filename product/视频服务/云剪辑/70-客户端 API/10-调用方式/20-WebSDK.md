@@ -1,7 +1,7 @@
 ## 步骤1：初始化 SDK 
 在您的 Web 页面中引入 SDK 资源文件：
 ```html
-<script src="https://imgcache.qq.com/qcloud/cme/sdk_v1.js"></script>
+<script src="https://vs-cdn.tencent-cloud.com/sdk/cme_v2.0.1.js">
 ```
 引入完成后，全局将挂载一个`CME`实例。
 ## 步骤2：获取客户端访问签名

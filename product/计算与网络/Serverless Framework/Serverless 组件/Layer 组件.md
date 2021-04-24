@@ -36,7 +36,6 @@ touch serverless.yml
 
 component: layer
 name: layerDemo
-org: orgDemo
 app: appDemo
 stage: dev
 

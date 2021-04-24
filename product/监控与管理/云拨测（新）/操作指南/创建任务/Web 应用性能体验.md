@@ -52,11 +52,11 @@ Web 应用性能体验监控帮助您快速了解网页运行情况，快速发�
 	</thead>
 	<tbody><tr>
 	<td>拨测点类型</td>
-	<td>不同的拨测点类型收费规则不同，详情请参见 <a href="https://cloud.tencent.com/document/product/280/52111">产品定价</a><br><ul> <li>骨干IDC：部署在骨干线路中IDC机房的拨测点，代表骨干线路</li> <li>终端网民 LastMail：部署在终端用户PC电脑上的拨测点，代表终端PC用户体验</li><li>手机端：部署在终端移动手机上的拨测点，代表终端移动用户体验</li></ul></td>
+	<td>不同的拨测点类型收费规则不同，详情请参见 <a href="https://cloud.tencent.com/document/product/280/52111">产品定价</a><br><ul> <li>骨干IDC：部署在骨干线路中IDC机房的拨测点，代表骨干线路</li> <li>终端网民 LastMile：部署在终端用户PC电脑上的拨测点，代表终端PC用户体验</li><li>手机端：部署在终端移动手机上的拨测点，代表终端移动用户体验</li></ul></td>
 	</tr>
 	<tr>
 	<td>拨测点选择</td>
-	<td>您可以选择系统推荐的节点组，也可以自定义节点组。网络监测按拨测点收费，拨测点越多收费越高，详情请参见 <a href="https://cloud.tencent.com/document/product/280/52111">产品定价</a>。您可以根据需求勾选拨测点组，勾选后单击【<img src="https://main.qcloudimg.com/raw/b0ef53201062fcb9d4e22b727b8a334b.jpg" width="3.5%">】即可。如需取消拨测点选择单击【<img src="https://main.qcloudimg.com/raw/c11fd0c6306294fd07a7208dd6cffdf7.jpg" width="3.5%">】即可。</td>
+	<td>您可以选择系统推荐的节点组，也可以自定义节点组。Web 应用性能体验按拨测点收费，拨测点越多收费越高，详情请参见 <a href="https://cloud.tencent.com/document/product/280/52111">产品定价</a>。您可以根据需求勾选拨测点组，勾选后单击【<img src="https://main.qcloudimg.com/raw/b0ef53201062fcb9d4e22b727b8a334b.jpg" width="3.5%">】即可。如需取消拨测点选择单击【<img src="https://main.qcloudimg.com/raw/c11fd0c6306294fd07a7208dd6cffdf7.jpg" width="3.5%">】即可。</td>
 	</tr>
 	</tbody></table>
 	- **拨测参数**
@@ -73,7 +73,7 @@ Web 应用性能体验监控帮助您快速了解网页运行情况，快速发�
 	</tr>
 	<tr>
 	<td>自定义 Host</td>
-	<td>填写您需要检测的主机信息。支持按 IP 地址轮询或随机监测，多个IP请用半角逗号分隔符，例如<code>IPv4：192.168.2.1,192.168.2.5:img.a.com|192.168.2.1󠉀]:img.a.com|ipv6:[0:0:0:0:0:0:0:1][8080],[0:0:0:0:0:0:0:2][8081]:www.a.com|]</code></td>
+	<td>填写您需要检测的主机信息。支持按 IP 地址轮询或随机监测，多个IP请用半角逗号分隔符，例如<code> IPv4：192.168.2.1,192.168.2.5:img.a.com|192.168.2.1󠉀]:img.a.com|ipv6:[0:0:0:0:0:0:0:1][8080],[0:0:0:0:0:0:0:2][8081]:www.a.com|]</code></td>
 	</tr>
 	</tbody></table>
 	- **拨测周期配置**
@@ -94,7 +94,11 @@ Web 应用性能体验监控帮助您快速了解网页运行情况，快速发�
 	</tr>
 	<tr>
 	<td>分析报告</td>
-	<td>支持性能分析报告、专项性能优化报告、竞品对比分析报告，购买后需填写邮箱信息。这里的报告是指人工分析报告，是按需提供的，购买之后工程师在一定时间内完成，发送到用户指定的邮箱。不同报告类型收费不一致，详情请参见 <a href="https://cloud.tencent.com/document/product/280/52111">产品定价</a></td>
+	<td>支持三种人工分析报告，不同报告适用场景不同。
+<ul><li> 性能分析报告：常规人工分析报告，分析影响用户体验性能的问题定位和优化建议
+<li> 竞品对比分析报告：图文结合的对比，分析与竞品的性能差异，提供优化建议
+<li>专项性能优化报告：针对版本迭代的场景，分析性能差异以及优化的程度
+<br>购买后需填写邮箱信息。云拨测将会把拨测报告发送到用户指定的邮箱。不同报告类型收费不一致，详情请参见 <a href="https://cloud.tencent.com/document/product/280/52111">产品定价</a></ul></td>
 	</tr>
 	</tbody></table>
 4. 若选择【免费体验版】请单击【确定】，即可新建 Web 应用性能拨测任务；若选择【高级定制版】请单击【立即购买】进行购买，即可新建 Web 应用性能的拨测任务。

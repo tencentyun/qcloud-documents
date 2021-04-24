@@ -1,8 +1,8 @@
 ## 操作场景
-EKS 日志采集功能可以将集群内服务的日志发送至 [日志服务 CLS](https://cloud.tencent.com/product/cls)、[消息队列 CKafka](https://cloud.tencent.com/product/ckafka) 或用户自建 Kafka，适用于需要对 EKS 集群内服务日志进行存储和分析的用户。本文介绍如何使用弹性容器服务 EKS 提供的集群内日志采集功能。
+EKS 日志采集功能可以将集群内服务的日志发送至 [日志服务 CLS](https://cloud.tencent.com/product/cls) 或用户自建 Kafka，适用于需要对 EKS 集群内服务日志进行存储和分析的用户。本文介绍如何使用弹性容器服务 EKS 提供的集群内日志采集功能。
 
 
-EKS 日志采集功能需要在创建工作负载时为每个弹性集群手动开启。您可根据以下操作开启日志采集功能：
+EKS 日志采集功能需要在创建工作负载时手动开启。您可根据以下操作开启日志采集功能：
   - [配置日志采集](#output)
   - [配置日志消费端](#output2)
   - [通过 yaml 配置日志采集](#yaml)
@@ -16,7 +16,12 @@ EKS 日志采集功能开启后，日志采集 Agent 根据您配置的采集路
 ## 前提条件
 
 - 需确认 Kubernetes 集群能够访问日志消费端。
-- 日志长度限制为单条512K，如果超过则会截断。
+- 日志长度限制为单条2M，如果超过则会截断。
+  <dx-alert infotype="notice" title="">
+若日志输出速率过快，为避免 OOM，需要调整此参数配置，详情请参见 [如何调整日志采集配置](https://cloud.tencent.com/document/product/457/54614)。
+</dx-alert>
+
+
 
 
 ## 操作步骤
@@ -46,7 +51,10 @@ EKS 日志采集功能采集到的日志信息将会以 JSON 格式输出到您�
   1. 登录访问管理控制台，在左侧导航栏选择【[角色](https://console.cloud.tencent.com/cam/role)】。
   2. 在“角色”页面，单击【新建角色】。
   3. 在“选择角色载体” 弹窗中，选择【腾讯云产品服务】，进入【新建自定义角色】页面。
-  4. 在“输入角色载体信息”步骤中，选择绑定【云服务器（cvm）】载体，单击【下一步】。
+  4. 在“输入角色载体信息”步骤中，选择**绑定【云服务器（cvm）】载体**，单击【下一步】。
+  <dx-alert infotype="notice" title="">
+必须选择【云服务器（cvm）】作为角色载体，选择容器服务则无法完成授权。
+  </dx-alert>
   5. 在“配置角色策略”步骤中，选择【QcloudCLSAccessForApiGateWayRole】策略，单击【下一步】。
   6. 在“审阅”步骤中，输入您的角色名称，审阅您即将创建角色的相关信息，单击【完成】后即完成自定义角色创建。详情请参见 [创建角色](https://cloud.tencent.com/document/product/598/19381)。
 :::
@@ -74,13 +82,13 @@ EKS 日志采集功能支持指定用户自建的 Kafka 实例、日志服务 CL
 ![](https://main.qcloudimg.com/raw/c3f3a6f892b9c07cb24f7e210db5f80e.png)
 :::
 ::: 配置CLS作为日志消费端
-- 日志服务 CLS 目前只能支持同地域的容器集群进行日志采集上报。详情请参见 [创建日志集和日志主题](https://cloud.tencent.com/document/product/614/34340)。
+- 日志服务 CLS 目前只能支持同地域的容器集群进行日志采集上报。详情请参见 [创建日志集和日志主题](https://cloud.tencent.com/document/product/614/34340#3.-.E5.88.9B.E5.BB.BA.E6.97.A5.E5.BF.97.E9.9B.86.E5.92.8C.E6.97.A5.E5.BF.97.E4.B8.BB.E9.A2.98)。
 - 打开日志主题的【日志索引】。如下图所示：
 ![](https://main.qcloudimg.com/raw/a8413fb410367e01acfa9ff62e7a291d.png)
 :::
 </dx-tabs>
 
-<span id="yaml"></span>
+[](id:yaml)
 ### 通过 yaml 配置日志采集 [](id:yaml)
 本文提供采集日志到 Kafka、通过 secret 采集日志到 CLS 和通过 role 采集日志到 CLS 三种方式，请按需选择：
 >! 若 yaml 中同时配置了密钥和角色授权，pod 实际上采用的是角色授权。
@@ -161,10 +169,10 @@ labels:
 
 
 ::: 通过secret采集日志到CLS
-#### 创建 secret<span id="z"></span>
+#### 创建 secret[](id:z)
 >! 以下示例为通过 yaml 手动创建 secret。如通过控制台创建 secret，则不需要进行64编码，详情请参考 [secret 管理](https://cloud.tencent.com/document/product/457/31718)。
 >
-通过 kubectl 执行以下命令，获取进行 base64编码的 secretid 和 secretkey。其中，secretid 及 secretkey 请替换为您实际使用的 secretid 和 secretkey。
+通过 kubectl 执行以下命令，获取进行 base64编码的 secretid 和 secretkey。其中，secretid 及 secretkey 请替换为您账号的 secretid 和 secretkey，可在 [API 密钥](https://console.cloud.tencent.com/cam/capi) 中查看。
 ```shell
 $ echo -n 'secretid' | base64
 c2VjcmV0aWQ=

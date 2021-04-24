@@ -25,7 +25,7 @@ SDK 早期版本只有 TXLivePlayer 一个 Class 承载直播和点播功能，�
 
 
 ## 对接攻略
-<span id="step_1"></span>
+[](id:step_1)
 ### step 1: 添加 View
 为了能够展示播放器的视频画面，我们第一步要做的就是在布局 xml 文件里加入如下一段代码：
 ```xml
@@ -237,7 +237,8 @@ mLivePlayer.seek(600); // 从第10分钟开始播放
 
 >? 时移功能处于公测申请阶段，如您需要可 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请使用。
 
-<h2 id="Delay">延时调节</h2>
+[](id:Delay)
+## 延时调节
 腾讯云 SDK 的直播播放（LVB）功能，并非基于 ffmpeg 做二次开发， 而是采用了自研的播放引擎，所以相比于开源播放器，在直播的延迟控制方面有更好的表现，我们提供了三种延迟调节模式，分别适用于：秀场、游戏以及混合场景。
 
 - **三种模式的特性对比**
@@ -289,8 +290,8 @@ mLivePlayer.setConfig(mPlayConfig);
 
 >? 更多关于卡顿和延迟优化的技术知识，可以阅读 [如何优化视频卡顿？](https://cloud.tencent.com/document/product/454/7946)
 
-<h2 id="RealTimePlay">超低延时播放</h2>
-
+[](id:RealTimePlay)
+## 超低延时播放
 支持**400ms**左右的超低延迟播放是腾讯云直播播放器的一个特点，它可以用于一些对时延要求极为苛刻的场景，例如**远程夹娃娃**或者**主播连麦**等，关于这个特性，您需要知道：
 
 - **播放地址需要带防盗链**
