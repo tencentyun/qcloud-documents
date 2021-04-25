@@ -304,7 +304,7 @@ spec:
 EKS 中的 Pod 通过暴露9100端口向外提供监控数据，您可以通过访问 podip：9100/metrics 获取监控数据指标。相较于容器服务 TKE 标准的监控配置，监控 EKS 需要修改相应的配置文件，建议使用 Operator 的 [additional scrape config ](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/additional-scrape-config.md) 配置。此外，您也可以通过在 Pod 中添加 annotation 的方式对指定的 Pod 进行监控。
 
 <dx-accordion>
-::: 通过访问\spodip：9100/metrics\s获取监控数据指标
+::: 通过配置\sOperator\s的\sadditional scrape config\s获取监控数据指标
 若您希望通过访问\spodip：9100/metrics\s获取监控数据指标，可执行以下步骤：
 
 1. 新建 prometheus-additional.yaml 文件。
