@@ -101,7 +101,7 @@ int iv_avt_p2p_set_buf_watermark(size_t low_mark, size_t warn_mark, size_t high_
 - 如果三个值都设置为0，则不进行告警，您可以通过 `iv_avt_p2p_get_send_buf` 自行做拥塞控制。
 
 
-### iv_avt_p2p_get_send_buf
+#### iv_avt_p2p_get_send_buf
 
 **接口描述**
 获取相关 P2P 数据流传输通道的缓冲区大小用于用户自定义的 P2P 链路拥塞控制。
@@ -128,7 +128,7 @@ size_t iv_avt_p2p_get_send_buf(void *handle);
 
 
 
-### p2p_handle_send_init_cb
+#### p2p_handle_send_init_cb
 
 **接口描述**
  设备端发送数据开始通知回调，传入参数为 App 端获取媒体流请求时传递的参数，可以通过 `action=live` 或 `action=playback` 来区分实时流和回放。
@@ -152,7 +152,7 @@ void *(*p2p_handle_send_init_cb)(const char *params, const char *peer);
 | handle | 数据传输通道的句柄 |
 
 
-### p2p_handle_send_get_cb
+#### p2p_handle_send_get_cb
 
 **接口描述**
 获取设备端媒体流数据的回调，会传入 `p2p_handle_send_init_cb` 返回的句柄，该回调每10ms触发一次。
@@ -174,7 +174,7 @@ iv_cm_memory_s (*p2p_handle_send_get_cb)(void *handle);
 | -------------- | ------------------------------------------- |
 | iv_cm_memory_s | 返回的数据结构体，包括地址、大小和地址释放回调 |
 
-### p2p_handle_send_stop_cb
+#### p2p_handle_send_stop_cb
 
 **接口描述**
 设备端发送数据停止通知回调。
@@ -197,7 +197,7 @@ int (*p2p_handle_send_stop_cb)(void *handle);
 | -------- | -------------- |
 | 整形数值 | 返回数值不影响 |
 
-### p2p_handle_event_notify_cb
+#### p2p_handle_event_notify_cb
 
 **接口描述**
 P2P 事件通知的回调。
@@ -223,7 +223,7 @@ void (*p2p_handle_event_notify_cb)(iv_avt_event_e, void *handle);
 
 >?当事件类型为 `*WATERMARK*` 类型时，`handle` 是 `p2p_handle_send_init_cb`时返回的句柄；否则 `handle` 为 `NULL`。
 
-### p2p_handle_recv_init_cb
+#### p2p_handle_recv_init_cb
 
 **接口描述**
 P2P 开始接收 App 音频数据通知回调。
@@ -245,7 +245,7 @@ void *(*p2p_handle_recv_init_cb)(const char *params, const char *peer);
 | ------ | ---------- |
 | void*  | 自定义句柄 |
 
-### p2p_handle_recv_voice_cb
+#### p2p_handle_recv_voice_cb
 
 **接口描述**
 P2P 接收 App 音频的数据回调，当 App 发送结束时，会传入 `recv_buf=NULL` 且 `recv_len=0`。
@@ -270,7 +270,7 @@ void (*p2p_handle_recv_voice_cb)(void *handle, uint8_t *recv_buf, size_t recv_le
 | ------ | ---- |
 | -     |-   |
 
-### p2p_handle_command_cb
+#### p2p_handle_command_cb
 
 **接口描述**
 P2P 事件通知的回调同步接口，不能有耗时过久的操作。
