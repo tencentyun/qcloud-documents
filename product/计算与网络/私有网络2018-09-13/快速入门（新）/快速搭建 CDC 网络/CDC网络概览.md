@@ -16,7 +16,6 @@ CDC 目前支持的网络功能包括：
 ![](https://main.qcloudimg.com/raw/0f6e2acdf223585ce7594725bca29f3b.png)
 
 ## 使用限制
-- CDC 支持和云上关联的 VPC 内的所有子网服务进行通信。
 - 1个 CDC 只支持1个 VPC，1个 CDC 集群的1个 VPC 只能够创建1个 CDC 本地网关。
 - CDC 不支持 IPv6、广播、内网 CLB、NAT 网关功能，也不支持 VPN 接入、专线接入、云联网等网络接入能力。
 - CDC 所关联的 VPC 网段不能与 IDC 网段重叠。
