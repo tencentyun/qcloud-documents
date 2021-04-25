@@ -5,7 +5,7 @@
 2. 在物理专线列表中单击待查看的专线名称。
 3. 在专线信息详情页面查看该物理专线的基本信息，包含专线供应商、接口类型、接入点、带宽、冗余物理专线等信息。</br><img src="https://main.qcloudimg.com/raw/b7b338537758259c5d15c1cb9c58e244.png" style="zoom:80%;" />
 
-## 修改专线带宽
+## 修改专线带宽[](id:xgzxdk)
 若当前物理专线带宽不能满足您的业务需求时，可以在控制台修改物理专线带宽。
 1. 登录 [专线接入控制台](https://console.cloud.tencent.com/dc/dc)，并在左侧导航栏单击【物理专线】。
 2. 在目标专线有的“带宽”列单击<img src="https://main.qcloudimg.com/raw/134ed671d2fa3ec1b82525985c0a6633.svg" style="zoom:6%;" />。
