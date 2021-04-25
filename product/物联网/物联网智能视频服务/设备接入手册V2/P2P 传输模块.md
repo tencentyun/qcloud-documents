@@ -195,7 +195,7 @@ int (*p2p_handle_send_stop_cb)(void *handle);
 
 | 返回值   | 描述           |
 | -------- | -------------- |
-| 整形数值 | 返回数值不影响 |
+| 整形数值 | 返回数值不影响接口使用 |
 
 #### p2p_handle_event_notify_cb
 
@@ -215,11 +215,7 @@ void (*p2p_handle_event_notify_cb)(iv_avt_event_e, void *handle);
 | handle   | void *         | 通道的句柄 | 输入      |
 
 
-**返回值**
 
-| 返回值 | 描述 |
-| ------ | ---- |
-| -     | -   |
 
 >?当事件类型为 `*WATERMARK*` 类型时，`handle` 是 `p2p_handle_send_init_cb`时返回的句柄；否则 `handle` 为 `NULL`。
 
