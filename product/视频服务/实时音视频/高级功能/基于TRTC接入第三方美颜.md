@@ -7,7 +7,7 @@
 
 ## 原理解析
 从 TRTC 8.1 版本开始，TRTC SDK 提供了新的接口 [setLocalVideoProcessListener](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a0b565dc8c77df7fb826f0c45d8ad2d85)，TRTC SDK 会在编码和渲染之前，将 TRTC SDK 采集到的图像通过该接口回调出来。您可以使用该接口，对回调出来的图像进行二次处理（例如：使用第三方美颜 SDK 进行美颜处理），并将处理后的图像通过参数传递给 TRTC SDK，TRTC SDK 后续渲染和编码都将使用二次处理后的图像。
-
+![](https://main.qcloudimg.com/raw/5bf10ca44b2e5905c934d9ea86226283.png)
 
 
 ## 操作步骤
