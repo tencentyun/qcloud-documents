@@ -402,7 +402,7 @@ ERROR: Failed to create CA certificate for self-signing. If the error is "unknow
 如果您的 VPA 相关负载无法启动，并产生如下图所示信息：
 ![](https://main.qcloudimg.com/raw/026ae791429cb584fa1c61af3ac8340f.png)
 **信息1**：表示负载中的 Pod 没有成功运行。
-**信息2**：表示镜像来源于 Google 的 GCR。
+**信息2**：表示镜像的地址。
 
 
 #### 解决方案
