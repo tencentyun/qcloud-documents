@@ -36,7 +36,7 @@
 <td>
 <a onclick="window.open('https://www.pgyer.com/KP03')"><img style="width:150px" src="https://main.qcloudimg.com/raw/14d9fe31881712884e3e4d09c32fd219.png" data-nonescope="true">
 </a><br>
-<a onclick="window.open('https://comm.qq.com/im_demo_download/trtc_flutter_demo.apk')"><img style="width:150px" src="https://main.qcloudimg.com/raw/9a256a1053da15b9f63323242854be1e.png" data-nonescope="true">
+<a onclick="window.open('https://comm.qq.com/im_demo_download/trtc_flutter_demo.apk')"><img style="width:150px" src="https://main.qcloudimg.com/raw/10cf962518d6b5bb5a7d71fbe509d4c5.png" data-nonescope="true">
 </a></td>
 <td>
 <input type="button" value="Windows 版" class="inbuttom"  onclick="window.open('https://web.sdk.qcloud.com/trtc/electron/download/solution/education/TRTC_Education_Demo%20Setup%201.1.0.exe')" /><br><br>
