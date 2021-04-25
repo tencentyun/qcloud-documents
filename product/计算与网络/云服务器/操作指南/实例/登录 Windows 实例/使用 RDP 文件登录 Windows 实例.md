@@ -58,7 +58,7 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
  - `Administrator` 即为前提条件中获得的管理员帐号。
  - `&lt;your-password&gt;` 即为您设置的登录密码。
    如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
- - `&lt;hostname or IP address&gt;` 即为您的 Windows 实例公网 IP 或自定义域名。
+ - `&lt;hostname or IP address&gt;` 即为您的 Windows 实例公网 IP 或自定义域名。实例公网 IP 获取方法请参见 [获取公网 IP 地址](https://cloud.tencent.com/document/product/213/17940)。
 :::
 ::: MacOS\s系统使用\sRDP\s登录
 >?
@@ -70,7 +70,7 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
 ![](https://main.qcloudimg.com/raw/e69528d10e9a17dfa26119a090766c49.png)
 3. 弹出的 “Add Desktop” 窗口，按以下步骤创建连接。如下图所示：
 ![](https://main.qcloudimg.com/raw/d8e20278dd7c8aed487be2c43986f5e4.png)
-    1. 在 “PC name” 处输入云服务器公网 IP。
+    1. 在 “PC name” 处输入云服务器公网 IP。获取方法请参见 [获取公网 IP 地址](https://cloud.tencent.com/document/product/213/17940)。
     2. 单击【Add】确认创建 。
     3. 其余选项保持默认设置，完成创建连接。
     即可在窗口中查看已成功创建的连接。如下图所示：

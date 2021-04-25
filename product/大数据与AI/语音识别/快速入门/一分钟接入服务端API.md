@@ -3,21 +3,20 @@
 
 ## 操作步骤
 ### 开通语音识别服务
-在调用语音识别相关接口前，您需要进入 [语音识别控制台](https://console.cloud.tencent.com/asr)，阅读《用户协议》后勾选“我已阅读并同意《用户协议》”，然后单击【立即开通】，即可一键开通**录音文件识别、实时语音识别、一句话识别、录音文件识别极速版、语音流异步识别服务接口**，如需开通营业执照核验或增值税发票核验功能，可前往官网页服务介绍页申请开通，审核通过后即可使用该服务。 
+在调用语音识别相关接口前，您需要进入 [语音识别控制台](https://console.cloud.tencent.com/asr)，进行实名认证和人脸认证，认证完成后，阅读《用户协议》后勾选“我已阅读并同意《用户协议》”，然后单击【立即开通】，即可一键开通**录音文件识别、实时语音识别、一句话识别、录音文件识别极速版、语音流异步识别服务接口**，如需开通营业执照核验或增值税发票核验功能，可前往官网页服务介绍页申请开通，审核通过后即可使用该服务。 
 ![](https://main.qcloudimg.com/raw/284e58e4eaed33b3ea9e290b0872f920.png)
 
 服务开通成功后，您将获得各项服务对应的免费调用额度，可在 [资源包管理页](https://console.cloud.tencent.com/asr/resourcebundle) 查看。同时您也可以在 [语音识别购买页](https://buy.cloud.tencent.com/asr) 中购买对应语音识别服务的资源包，若免费额度以及资源包调用次数耗尽，接口计费将自动转为后付费方式按月进行结算，具体计费标准可以查看语音识别的 [计费概述](https://cloud.tencent.com/document/product/1093/35686)。
 
 ### 调试语音识别接口
-语音识别服务开通成功后，进入语音识别 [API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=asr&Version=2019-06-14&Action=CreateAsyncRecognitionTask&SignVersion=) 在线接口调试页面，选择需要调用的接口，并填写**个人密钥**和**输入参数**。
-- 个人密钥：密钥信息可单击“个人密钥”右侧【查看密钥】查看。
-- 输入参数：在 API 3.0 Explorer 界面的“参数说明”选项卡中可以查看对应接口输入参数的具体含义。
+语音识别服务开通成功后，进入语音识别 [API 3.0 Explorer](https://console.cloud.tencent.com/api/explorer?Product=asr&Version=2019-06-14&Action=CreateAsyncRecognitionTask&SignVersion=) 在线接口调试页面，选择需要调用的接口，并填写**输入参数**。输入参数在 API 3.0 Explorer 界面的“参数说明”选项卡中可以查看对应接口输入参数的具体含义。
+>?平台将对登录用户提供临时 Access Key，以便进行调试。
 
-![](https://main.qcloudimg.com/raw/8c76534e53551deb1bbea4b37c167e0e.png)
+![](https://main.qcloudimg.com/raw/32372679d9f39b46009ec5eaebb302d5.png)
 
-填写好**个人密钥**和**输入参数**之后，选择“代码生成”选项卡，可以看到自动生成的不同编程语言代码（可支持 Java、Python、Node.js、PHP、GO、.NET、C++ 语言），生成代码中的部分字段信息和填写内容是关联的，如需调整传入参数，可在左侧修改参数值后重新生成代码。
-![](https://main.qcloudimg.com/raw/8476aceacc9b8dc2ea97cc661c46ab01.png)
-填写好**个人密钥**和**输入参数**之后，选择“在线调用”选项卡，单击【发送请求】可进行真实请求，供您调试、参考。
+填写**输入参数**后，选择“代码生成”选项卡，可以看到自动生成的不同编程语言代码（可支持 Java、Python、Node.js、PHP、GO、.NET、C++ 语言），生成代码中的部分字段信息和填写内容是关联的，如需调整传入参数，可在左侧修改参数值后重新生成代码。
+![](https://main.qcloudimg.com/raw/d2c7cdbf68df6d975bf538babb70b0ba.png)
+选择“在线调用”选项卡，单击【发送请求】可进行真实请求，供您调试、参考。
 ![](https://main.qcloudimg.com/raw/2822cfaacc45d821ea57375409740ace.png)
 
 ### 集成语音识别 SDK
