@@ -391,7 +391,7 @@ ERROR: Failed to create CA certificate for self-signing. If the error is "unknow
 ```
 
 #### 解决方案
-1. 如果您没有通过集群中的云服务器执行命令，建议您在云服务器中下载 Autoscaler 项目，并执行完整的 [部署 VPAhttps://main.qcloudimg.com/raw/026ae791429cb584fa1c61af3ac8340f.png](#VPA) 的操作。如需为您的云服务器连接集群，详情可参见 [连接集群](https://cloud.tencent.com/document/product/457/32191)。
+1. 如果您没有通过集群中的云服务器执行命令，建议您在云服务器中下载 Autoscaler 项目，并执行完整的 [部署 VPA](#VPA) 的操作。如需为您的云服务器连接集群，详情可参见 [连接集群](https://cloud.tencent.com/document/product/457/32191)。
 2. 如出现继续报错的情况，请检查是否存在以下问题：
  - 检查集群 CVM 的 `openssl` 版本是否大于 1.1.1。
  - 是否使用 Autoscaler 项目的 `vpa-release-0.8` 分支。
@@ -409,7 +409,7 @@ ERROR: Failed to create CA certificate for self-signing. If the error is "unknow
 VPA 相关负载无法启动的原因是位于 GCR 的镜像无法被下载，为解决问题您可尝试以下步骤：
 1. **下载镜像**。
     访问 Google，下载 vpa-admission-controller、vpa-recommender、vpa-updater 的镜像。
-2. **更换标签 & 推送**。
+2. **更换标签及推送**。
     将 vpa-admission-controller、vpa-recommender、vpa-updater 的镜像更换标签后推送到您的镜像仓库中。上传镜像操作详情可参见 [容器镜像服务个人版快速入门](https://cloud.tencent.com/document/product/1141/50332)。
 3. **更改 YAML 镜像地址**。
     在 YAML 文件中将 vpa-admission-controller、vpa-recommender、vpa-updater 的镜像地址更新为您设定的新地址。
