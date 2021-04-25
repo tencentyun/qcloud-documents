@@ -1,5 +1,12 @@
 基于 Spring Cloud Greenwich 版本 SDK，支持 spring boot 2.1.6。
 
+## 1.26.2-Greenwich-RELEASE（2021-04-25）
+### 优化
+支持通过配置 -Dspring.cloud.consul.enabled=false 关闭连接 consul ，适配单元测试场景时的启动
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
 ## 1.26.1-Greenwich-RELEASE（2020-12-31）
 ### 优化
 spring-cloud-tsf-sleuth 新增 CMQ 调用支持。
