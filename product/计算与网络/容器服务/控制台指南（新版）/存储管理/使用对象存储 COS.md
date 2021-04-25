@@ -163,7 +163,7 @@ spec:
        # Replaced by the bucket name you want to use.
        bucket: "testbucket-1010101010"
        # You can specify sub-directory of bucket in cosfs command in here.
-	   path: /costest
+	          path: /costest
        # You can specify any other options used by the cosfs command in here.
        #additional_args: "-oallow_other"
      nodePublishSecretRef:
