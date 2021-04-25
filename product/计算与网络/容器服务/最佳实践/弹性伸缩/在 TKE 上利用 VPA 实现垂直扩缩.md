@@ -9,15 +9,15 @@ VPA 自动伸缩特性使容器服务具有非常灵活的自适应能力。应�
 ## VPA 优势
 相较于 [自动伸缩功能 HPA](https://cloud.tencent.com/document/product/457/37384)，VPA 具有以下优势：
 - VPA 扩容不需要调整 Pod 副本数量，扩容速度更快。
-- 有状态应用可以通过 VPA 实现扩容，HPA 则不适合有状态应用的水平扩容。
-- Request 设置过大，使用 HPA 水平缩容至一个 Pod 时资源利用率仍然很低，此时可以通过 VPA 进行垂直缩容提高集群资源利用率。
+- VPA 可为有状态应用实现扩容，HPA 则不适合有状态应用的水平扩容。
+- Request 设置过大，使用 HPA 水平缩容至一个 Pod 时集群资源利用率仍然很低，此时可以通过 VPA 进行垂直缩容提高集群资源利用率。
 
 
 
 ## VPA 限制
 
 <dx-alert infotype="notice" title="">
-社区 VPA 功能当前处于试验阶段，请谨慎使用。推荐您将 “updateMode” 设置为 “Off”，以确保 VPA 不会自动替您更换 Request 数值。您仍然可以在 VPA 对象中查看到已绑定负载的 Request 推荐值。
+社区版 VPA 功能当前处于试验阶段，请谨慎使用。推荐您将 “updateMode” 设置为 “Off”，以确保 VPA 不会自动为您更换 Request 数值。您仍然可以在 VPA 对象中查看已绑定负载的 Request 推荐值。
 </dx-alert>
 
 - 自动更新正在运行的 Pod 资源是 VPA 的一项实验功能。当 VPA 更新 Pod 资源时，会导致 Pod 的重建和重启，并且有可能被调度到其他节点上。
@@ -391,7 +391,7 @@ ERROR: Failed to create CA certificate for self-signing. If the error is "unknow
 ```
 
 #### 解决方案
-1. 如果您没有通过集群中的云服务器执行命令，建议您在云服务器中下载 Autoscaler 项目，并执行完整的 [部署 VPA](#VPA) 的操作。如需为您的云服务器连接集群，详情可参见 [连接集群](https://cloud.tencent.com/document/product/457/32191)。
+1. 如果您没有通过集群中的云服务器执行命令，建议您在云服务器中下载 Autoscaler 项目，并执行完整的 [部署 VPA](#VPA) 操作。如需为您的云服务器连接集群，详情可参见 [连接集群](https://cloud.tencent.com/document/product/457/32191)。
 2. 如出现继续报错的情况，请检查是否存在以下问题：
  - 检查集群 CVM 的 `openssl` 版本是否大于 1.1.1。
  - 是否使用 Autoscaler 项目的 `vpa-release-0.8` 分支。
