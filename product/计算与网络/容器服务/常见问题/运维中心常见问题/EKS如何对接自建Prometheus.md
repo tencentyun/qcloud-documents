@@ -2,7 +2,6 @@
 
 
 
-
 ## EKS 如何对接腾讯云原生 Prometheus 监控？
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/prometheus/list?rid=8)，选择左侧导航中的【云原生监控】。
@@ -44,224 +43,223 @@
 - kube-state-metrics-ClusterRole
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
-   kind: ClusterRole
-   metadata:
-     labels:
-       app.kubernetes.io/name: kube-state-metrics
-       app.kubernetes.io/version: 1.9.7
-     name: tke-kube-state-metrics
-   rules:
-     - apiGroups:
-         - ""
-       resources:
-         - configmaps
-         - secrets
-         - nodes
-         - pods
-         - services
-         - resourcequotas
-         - replicationcontrollers
-         - limitranges
-         - persistentvolumeclaims
-         - persistentvolumes
-         - namespaces
-         - endpoints
-       verbs:
-         - list
-         - watch
-     - apiGroups:
-         - extensions
-       resources:
-         - daemonsets
-         - deployments
-         - replicasets
-         - ingresses
-       verbs:
-         - list
-         - watch
-     - apiGroups:
-         - apps
-       resources:
-         - statefulsets
-         - daemonsets
-         - deployments
-         - replicasets
-       verbs:
-         - list
-         - watch
-     - apiGroups:
-         - batch
-       resources:
-         - cronjobs
-         - jobs
-       verbs:
-         - list
-         - watch
-     - apiGroups:
-         - autoscaling
-       resources:
-         - horizontalpodautoscalers
-       verbs:
-         - list
-         - watch
-     - apiGroups:
-         - authentication.k8s.io
-       resources:
-         - tokenreviews
-       verbs:
-         - create
-     - apiGroups:
-         - authorization.k8s.io
-       resources:
-         - subjectaccessreviews
-       verbs:
-         - create
-     - apiGroups:
-         - policy
-       resources:
-         - poddisruptionbudgets
-       verbs:
-         - list
-         - watch
-     - apiGroups:
-         - certificates.k8s.io
-       resources:
-         - certificatesigningrequests
-       verbs:
-         - list
-         - watch
-     - apiGroups:
-         - storage.k8s.io
-       resources:
-         - storageclasses
-         - volumeattachments
-       verbs:
-         - list
-         - watch
-     - apiGroups:
-         - admissionregistration.k8s.io
-       resources:
-         - mutatingwebhookconfigurations
-         - validatingwebhookconfigurations
-       verbs:
-         - list
-         - watch
-     - apiGroups:
-         - networking.k8s.io
-       resources:
-         - networkpolicies
-       verbs:
-         - list
-         - watch
-     - apiGroups:
-         - coordination.k8s.io
-       resources:
-         - leases
-       verbs:
-         - list
-         - watch
+kind: ClusterRole
+metadata:
+   labels:
+     app.kubernetes.io/name: kube-state-metrics
+     app.kubernetes.io/version: 1.9.7
+   name: tke-kube-state-metrics
+ rules:
+   - apiGroups:
+       - ""
+     resources:
+       - configmaps
+       - secrets
+       - nodes
+       - pods
+       - services
+       - resourcequotas
+       - replicationcontrollers
+       - limitranges
+       - persistentvolumeclaims
+       - persistentvolumes
+       - namespaces
+       - endpoints
+     verbs:
+       - list
+       - watch
+   - apiGroups:
+       - extensions
+     resources:
+       - daemonsets
+       - deployments
+       - replicasets
+       - ingresses
+     verbs:
+       - list
+       - watch
+   - apiGroups:
+       - apps
+     resources:
+       - statefulsets
+       - daemonsets
+       - deployments
+       - replicasets
+     verbs:
+       - list
+       - watch
+   - apiGroups:
+       - batch
+     resources:
+       - cronjobs
+       - jobs
+     verbs:
+       - list
+       - watch
+   - apiGroups:
+       - autoscaling
+     resources:
+       - horizontalpodautoscalers
+     verbs:
+       - list
+       - watch
+   - apiGroups:
+       - authentication.k8s.io
+     resources:
+       - tokenreviews
+     verbs:
+       - create
+   - apiGroups:
+       - authorization.k8s.io
+     resources:
+       - subjectaccessreviews
+     verbs:
+       - create
+   - apiGroups:
+       - policy
+     resources:
+       - poddisruptionbudgets
+     verbs:
+       - list
+       - watch
+   - apiGroups:
+       - certificates.k8s.io
+     resources:
+       - certificatesigningrequests
+     verbs:
+       - list
+       - watch
+   - apiGroups:
+       - storage.k8s.io
+     resources:
+       - storageclasses
+       - volumeattachments
+     verbs:
+       - list
+       - watch
+   - apiGroups:
+       - admissionregistration.k8s.io
+     resources:
+       - mutatingwebhookconfigurations
+       - validatingwebhookconfigurations
+     verbs:
+       - list
+       - watch
+   - apiGroups:
+       - networking.k8s.io
+     resources:
+       - networkpolicies
+     verbs:
+       - list
+       - watch
+   - apiGroups:
+       - coordination.k8s.io
+     resources:
+       - leases
+     verbs:
+       - list
+       - watch
 ```
 
 - kube-state-metrics-service-ClusterRoleBinding
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
-   kind: ClusterRoleBinding
-   metadata:
-     labels:
-       app.kubernetes.io/name: kube-state-metrics
-       app.kubernetes.io/version: 1.9.7
+kind: ClusterRoleBinding
+metadata:
+   labels:
+     app.kubernetes.io/name: kube-state-metrics
+     app.kubernetes.io/version: 1.9.7
+   name: tke-kube-state-metrics
+roleRef:
+   apiGroup: rbac.authorization.k8s.io
+   kind: ClusterRole
+   name: tke-kube-state-metrics
+subjects:
+   - kind: ServiceAccount
      name: tke-kube-state-metrics
-   roleRef:
-     apiGroup: rbac.authorization.k8s.io
-     kind: ClusterRole
-     name: tke-kube-state-metrics
-   subjects:
-     - kind: ServiceAccount
-       name: tke-kube-state-metrics
-       namespace: kube-system
-   
+     namespace: kube-system
 ```
 
 - kube-state-metrics-deployment
 ```yaml
 apiVersion: apps/v1
-   kind: Deployment
-   metadata:
-     labels:
+kind: Deployment
+metadata:
+   labels:
+     app.kubernetes.io/name: kube-state-metrics
+     app.kubernetes.io/version: 1.9.7
+   name: tke-kube-state-metrics
+   namespace: kube-system
+ spec:
+   replicas: 1
+   selector:
+     matchLabels:
        app.kubernetes.io/name: kube-state-metrics
-       app.kubernetes.io/version: 1.9.7
-     name: tke-kube-state-metrics
-     namespace: kube-system
-   spec:
-     replicas: 1
-     selector:
-       matchLabels:
+   template:
+     metadata:
+       labels:
          app.kubernetes.io/name: kube-state-metrics
-     template:
-       metadata:
-         labels:
-           app.kubernetes.io/name: kube-state-metrics
-           app.kubernetes.io/version: 1.9.7
-       spec:
-         containers:
-           - image: ccr.ccs.tencentyun.com/tkeimages/kube-state-metrics:v1.9.7
-             livenessProbe:
-               httpGet:
-                 path: /healthz
-                 port: 8080
-               initialDelaySeconds: 5
-               timeoutSeconds: 5
-             name: kube-state-metrics
-             ports:
-               - containerPort: 8080
-                 name: http-metrics
-               - containerPort: 8081
-                 name: telemetry
-             readinessProbe:
-               httpGet:
-                 path: /
-                 port: 8081
-               initialDelaySeconds: 5
-               timeoutSeconds: 5
-             securityContext:
-               runAsUser: 65534
-         serviceAccountName: tke-kube-state-metrics
+         app.kubernetes.io/version: 1.9.7
+     spec:
+       containers:
+         - image: ccr.ccs.tencentyun.com/tkeimages/kube-state-metrics:v1.9.7
+           livenessProbe:
+             httpGet:
+               path: /healthz
+               port: 8080
+             initialDelaySeconds: 5
+             timeoutSeconds: 5
+           name: kube-state-metrics
+           ports:
+             - containerPort: 8080
+               name: http-metrics
+             - containerPort: 8081
+               name: telemetry
+           readinessProbe:
+             httpGet:
+               path: /
+               port: 8081
+             initialDelaySeconds: 5
+             timeoutSeconds: 5
+           securityContext:
+             runAsUser: 65534
+       serviceAccountName: tke-kube-state-metrics
 ```
 
 - kube-state-metrics-service
 ```yaml
 apiVersion: v1
-   kind: Service
-   metadata:
-     labels:
-       app.kubernetes.io/name: kube-state-metrics
-       app.kubernetes.io/version: 1.9.7
-     name: tke-kube-state-metrics
-     namespace: kube-system
-   spec:
-     clusterIP: None
-     ports:
-       - name: http-metrics
-         port: 8180
-         targetPort: http-metrics
-       - name: telemetry
-         port: 8181
-         targetPort: telemetry
-     selector:
-       app.kubernetes.io/name: kube-state-metrics
+kind: Service
+metadata:
+   labels:
+     app.kubernetes.io/name: kube-state-metrics
+     app.kubernetes.io/version: 1.9.7
+   name: tke-kube-state-metrics
+   namespace: kube-system
+ spec:
+   clusterIP: None
+   ports:
+     - name: http-metrics
+       port: 8180
+       targetPort: http-metrics
+     - name: telemetry
+       port: 8181
+       targetPort: telemetry
+   selector:
+     app.kubernetes.io/name: kube-state-metrics
 ```
 
 
 - kube-state-metrics-serviceaccount
 ```yaml
 apiVersion: v1
-   kind: ServiceAccount
-   metadata:
-     labels:
-       app.kubernetes.io/name: kube-state-metrics
-       app.kubernetes.io/version: 1.9.7
-     name: tke-kube-state-metrics
-     namespace: kube-system
+kind: ServiceAccount
+metadata:
+   labels:
+     app.kubernetes.io/name: kube-state-metrics
+     app.kubernetes.io/version: 1.9.7
+   name: tke-kube-state-metrics
+   namespace: kube-system
 ```
 :::
 ::: 在\sEKS\s集群内部署\sServiceMonitor
@@ -272,21 +270,21 @@ ServiceMonitor 可以定义如何监控一组动态服务，部署 kube-state-me
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-     labels:
-       app.kubernetes.io/name: kube-state-metrics
-       app.kubernetes.io/version: 1.9.7
-     name: kube-state-metrics
-     namespace: kube-system
+   labels:
+     app.kubernetes.io/name: kube-state-metrics
+     app.kubernetes.io/version: 1.9.7
+   name: kube-state-metrics
+   namespace: kube-system
 spec:
-     endpoints:
-       - interval: 15s
-         port: http-metrics
-         scrapeTimeout: 15s
-         honorLabels: true
-     jobLabel: app.kubernetes.io/name
-     selector:
-       matchLabels:
-         app.kubernetes.io/name: kube-state-metrics
+   endpoints:
+     - interval: 15s
+       port: http-metrics
+       scrapeTimeout: 15s
+       honorLabels: true
+   jobLabel: app.kubernetes.io/name
+   selector:
+     matchLabels:
+       app.kubernetes.io/name: kube-state-metrics
 ```
 
 :::
@@ -303,7 +301,7 @@ spec:
 
 #### 监控容器运行时指标
 
-EKS 中的 Pod 通过暴露9100端口向外提供监控数据，您可以通过访问 podip：9100/metrics 获取监控数据指标。相较于容器服务 TKE 标准的监控配置，监控 EKS 需要修改相应的配置文件，建议使用 Operator 的 [additional scrape config ](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/additional-scrape-config.md) 配置。
+EKS 中的 Pod 通过暴露9100端口向外提供监控数据，您可以通过访问 podip：9100/metrics 获取监控数据指标。相较于容器服务 TKE 标准的监控配置，监控 EKS 需要修改相应的配置文件，建议使用 Operator 的 [additional scrape config ](https://github.com/prometheus-operator/prometheus-operator/blob/master/Documentation/additional-scrape-config.md) 配置。此外，您也可以通过在 Pod 中添加 annotation 的方式对指定的 Pod 进行监控。
 
 <dx-accordion>
 ::: 通过访问\spodip：9100/metrics\s获取监控数据指标
