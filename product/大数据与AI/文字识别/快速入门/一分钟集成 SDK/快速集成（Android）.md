@@ -10,7 +10,7 @@
 
 ### Android 端OCR SDK 介绍
 
-SDK提供的文件为 [OCR_Android_SDK_V1.0.6](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.6/OCR_Android_SDK_V1.0.6.zip)，该文件封装了 OCR 识别终端能力。目前包括了身份证识别、银行卡识别以及名片识别。
+SDK提供的文件为 [OCR_Android_SDK_V1.0.7](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.7-3/OCR_Android_SDK_V1.0.7.zip)，该文件封装了 OCR 识别终端能力。目前包括了身份证识别、银行卡识别以及名片识别。
 
 
 
@@ -32,7 +32,7 @@ dependencies {
   // OCR SDK 返回实体对象需要的依赖
   implementation 'com.google.code.gson:gson:2.8.5'
 }
-```
+ ```
 
 3. 同时需要在 AndroidManifest.xml 文件中进行必要的权限声明
 ```xml
@@ -139,6 +139,8 @@ OcrSDKKit.getInstance().startProcessOcrResultEntity(OcrTypeIdCardActivity.this,
 | OcrType.BankCardOCR     | 银行卡正面识别模式     | BankCardOcrResult       |
 | OcrType.BusinessCardOCR | 名片卡正面识别模式     | BusinessCardOcrResult   |
 | OcrType.MLIdCardOCR     | 马来西亚身份证识别模式 | MalaysiaIdCardOcrResult |
+| OcrType.VinOCR | 车辆的VIN识别模式 | VinOcrResult |
+| OcrType.LicensePlateOCR | 车辆的车牌识别模式 | CarLicensePlateResult |
 
 
 
@@ -185,16 +187,16 @@ protected void onDestroy() {
 
 ### 常见问题
 
-1. 如同时集成慧眼 SDK，出现 **More than one file was found with OS independent path 'lib/armeabi-v7a/libopencv_world.so'.** 的问题。
+1. 如同时集成其余SDK，出现 **More than one file was found with OS independent path 'lib/armeabi-v7a/libc++_shared.so'.** 的问题。
 
-​	主要是 OCR SDK 和慧眼 SDK 都添加了 libopencv_world.so 这个库，解决办法可以在 build.gradle 中添加如下配置：
+   主要是 OCR SDK 和其余SDK 都添加了 libc++_shared.so 这个库，解决办法可以在 build.gradle 中添加如下配置：
 
 ```groovy
 android {
 		...
 		    // 过滤重复定义 so 的问题
     packagingOptions{
-        pickFirst 'lib/armeabi-v7a/libopencv_world.so'
+        pickFirst 'lib/armeabi-v7a/libc++_shared.so'
     }
 }
 ```

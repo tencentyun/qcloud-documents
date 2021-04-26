@@ -144,23 +144,24 @@ OcrSDKConfig 是在 OCR 初始化时需要传入的 SDK 的配置信息实体类
 
 支持参数及其默认值如下：
 
-| 类型                        | 名称            | 含义                                                         | 默认值                                       |
-| :-------------------------- | :-------------- | :----------------------------------------------------------- | :------------------------------------------- |
+| 类型                        | 名称            | 含义                                                         | 默认值                                         |
+| :-------------------------- | :-------------- | :----------------------------------------------------------- | :--------------------------------------------- |
 | [OcrType](#OcrType)         | OcrType         | 默认识别类型                                                 | IDCardOCR_FRONT，IDCardOCR_BACK 均代表 id_card |
-| [OcrModeType](#OcrModeType) | ModeType        | 识别模式类型：OCR_DETECT_MANUAL 代表手动拍摄模式，OCR_DETECT_AUTO_MANUAL 代码自动捕获模式 20s未检测提示是否切换至手动拍摄 | OCR_DETECT_MANUAL 默认值                     |
-| BOOL                        | CropIdCard      | 开启身份证照片裁剪（去掉证件外多余的边缘、自动矫正拍摄角度）开关 | NO                                           |
-| BOOL                        | CropPortrait    | 开启人像照片裁剪（自动抠取身份证头像区域）                   | NO                                           |
-| BOOL                        | CopyWarn        | 开启复印件告警                                               | NO                                           |
-| BOOL                        | BorderCheckWarn | 开启边框和框内遮挡告警                                       | NO                                           |
-| BOOL                        | ReshootWarn     | 开启翻拍告警                                                 | NO                                           |
-| BOOL                        | DetectPsWarn    | 开启 PS 检测告警                                               | NO                                           |
-| BOOL                        | TempIdWarn      | 开启临时身份证告警                                           | NO                                           |
-| BOOL                        | InvalidDateWarn | 开启身份证有效日期不合法告警                                 | NO                                           |
-| BOOL                        | Quality         | 开启图片质量分数（评价图片的模糊程度）                       | NO                                           |
-| BOOL                        | MultiCardDetect | 是否开启多卡证检测                                           | NO                                           |
-| BOOL                        | ReflectWarn     | 是否开启反光告警                                             | NO                                           |
-| NSString                    | RetImageType    | 图像预处理，检测图片倾斜的角度，将原本倾斜的图片围绕中心点转正，最终输出一张正的名片抠图。 | 空                                           |
-| BOOL                        | RetImage        | 马来西亚身份证接口是否返回图片                               | NO                                           |
+| [OcrModeType](#OcrModeType) | ModeType        | 识别模式类型：OCR_DETECT_MANUAL 代表手动拍摄模式，OCR_DETECT_AUTO_MANUAL 代码自动捕获模式 20s未检测提示是否切换至手动拍摄 | OCR_DETECT_MANUAL 默认值                       |
+| long                        | auto_timeout_ms | 自动捕捉模式下自动切换至手动拍照模式的超时时间(5000ms<auto_timeout_ms<180000ms) | 20000ms                                        |
+| BOOL                        | CropIdCard      | 开启身份证照片裁剪（去掉证件外多余的边缘、自动矫正拍摄角度）开关 | NO                                             |
+| BOOL                        | CropPortrait    | 开启人像照片裁剪（自动抠取身份证头像区域）                   | NO                                             |
+| BOOL                        | CopyWarn        | 开启复印件告警                                               | NO                                             |
+| BOOL                        | BorderCheckWarn | 开启边框和框内遮挡告警                                       | NO                                             |
+| BOOL                        | ReshootWarn     | 开启翻拍告警                                                 | NO                                             |
+| BOOL                        | DetectPsWarn    | 开启 PS 检测告警                                             | NO                                             |
+| BOOL                        | TempIdWarn      | 开启临时身份证告警                                           | NO                                             |
+| BOOL                        | InvalidDateWarn | 开启身份证有效日期不合法告警                                 | NO                                             |
+| BOOL                        | Quality         | 开启图片质量分数（评价图片的模糊程度）                       | NO                                             |
+| BOOL                        | MultiCardDetect | 是否开启多卡证检测                                           | NO                                             |
+| BOOL                        | ReflectWarn     | 是否开启反光告警                                             | NO                                             |
+| NSString                    | RetImageType    | 图像预处理，检测图片倾斜的角度，将原本倾斜的图片围绕中心点转正，最终输出一张正的名片抠图。 | 空                                             |
+| BOOL                        | RetImage        | 马来西亚身份证接口是否返回图片                               | NO                                             |
 
 
 
@@ -197,6 +198,8 @@ OcrType 是一个枚举类型，列举了当前文字识别 OCR 的 SDK 所支�
 | OcrType.BankCardOCR     | 银行卡正面识别模式     |
 | OcrType.BusinessCardOCR | 名片卡正面识别模式     |
 | OcrType.MLIdCardOCR     | 马来西亚身份证识别模式 |
+| OcrType.LicensePlateOCR | 汽车车牌识别模式 |
+| OcrType.VinOCR | 汽车VIN码识别模式 |
 
 
 
@@ -329,5 +332,65 @@ typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullabl
 
 ```
 
-对于返回的错误码以及错误信息，可以参考 [错误码](https://cloud.tencent.com/document/product/866/33528) 。
+马来西亚身份证请求结果返回resultInfo结果示例：
+
+```json
+{
+  "Response": {
+    "Name": "KAVIN ONG KHI MN",
+    "ID": "710716-08-6085",
+    "Address": "NO 11 PERSIARN PERAJRIT 4 TAMA PERAK 31400 IPOH ERAK",
+    "Sex": "LEAKI",
+    "Birthday": "",
+    "Warn": [],
+    "Image": "",
+    "AdvancedInfo": "{\"ID\":{\"Confidence\":\"1.0000\"},\"Name\":{\"Confidence\":\"0.9996\"},\"Address\":{\"Confidence\":\"0.9997\"},\"Sex\":{\"Confidence\":\"0.9999\"}}",
+    "Type": "MyKad",
+    "RequestId": "c969da05-54e3-4d0a-a55d-b3ef90d4ebf5"
+  }
+}
+```
+
+车牌识别请求结果返回resultInfo结果示例：
+
+```json
+{
+  "Response": {
+    "Number": "京N0L9U8",
+    "Confidence": 99,
+    "Rect": {
+      "X": 217,
+      "Y": 233,
+      "Width": 170,
+      "Height": 21
+    },
+    "RequestId": "210103d3-db06-4691-abe0-c0853aae606b"
+  }
+}
+```
+
+车辆VIN码识请求结果返回resultInfo结果示例：
+
+```json
+{
+  "Response": {
+    "Vin": "LBV2B25G2E5069977",
+    "RequestId": "c59d9002-6c8c-426d-b57f-a8837dee2c7c"
+  }
+}
+```
+
+对于返回的错误码以及错误信息，可以参考[错误码](https://cloud.tencent.com/document/product/866/33528)。
+
+```json
+{
+  "Response": {
+    "Error": {
+      "Code": "AuthFailure.SignatureFailure",
+      "Message": "The provided credentials could not be validated. Please check your signature is correct."
+		},
+  	"RequestId": "ed93f3cb-f35e-473f-b9f3-0d451b8b79c6"
+ 	}
+}
+```
 

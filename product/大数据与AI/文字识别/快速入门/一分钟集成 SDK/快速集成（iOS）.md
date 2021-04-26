@@ -12,23 +12,44 @@
 
 ### iOS 端 OCR SDK 介绍
 
-​	SDK 中包含了四个 framework：
+​	SDK中包含了以下framework库以及资源文件：
 
-- **OcrSDKKit.framework** - OCR 对外接口、页面设置及网络请求库
+- **OcrSDKKit.framework** - OCR对外接口、页面设置及网络请求库
 - **TXYComm.framework**- 公共库
 - **YtSDKKit.framework** - 边缘检测逻辑
 - **YTImageRefiner_pub.framework** - 图片解析
-- **opencv2.framework** - opencv 库
+- **tiny_opencv2.framework** - opencv库
+- **tnn.framework** - 底层深度学习库
 - **OcrSDK.bundle** - 资源文件
+- **ocr-001.bundle** -模型文件
 
 ### 环境依赖
 
-- 当前 iOS OCR 识别 SDK 版本适用于 iOS 9.0及以上的版本
+- 当前 iOS OCR 识别 SDK 版本适用于 iOS 11.0及以上的版本
 - 开发工具使用 xcode11 或以上版本集成开发
 
 ### 接入步骤
 
-1. 将 **OcrSDKKit.framework**、**TXYComm.framework**、**YtSDKKit.framework**、**YTImageRefiner_pub**、**opencv2.framework**、**OcrSDK.bundle** 添加至项目中。                        
+1. 将ocr Framework、系统Framework库以及bundle 文件都添加至项目中。
+
+   ```
+   ├── OcrSDKKit.framework
+   ├── TXYComm.framework
+   ├── YtSDKKit.framework
+   ├── YTImageRefiner_pub.framework
+   ├── tiny_opencv2.framework
+   └── tnn.framework
+   //系统库
+   ├── Accelerate.framework
+   └── CoreML.framework
+   ```
+
+   ```
+   //资源文件
+   ├── OcrSDK.bundle
+   └── ocr-001.bundle                        
+   ```
+
 2. 添加编译选项
 
 
@@ -121,7 +142,7 @@ OCR SDK 支持使用临时密钥接口，使用临时密钥的好处主要有以
 
 
 
- 目前 ocr SDK 支持四种类型的识别模式如下表所示。
+ 目前 ocr SDK 支持七种类型的识别模式如下表所示。
 
 | OcrType 类型             | 代表含义               |
 | ----------------------- | ---------------------- |
@@ -130,8 +151,13 @@ OCR SDK 支持使用临时密钥接口，使用临时密钥的好处主要有以
 | OcrType.BankCardOCR     | 银行卡正面识别模式     |
 | OcrType.BusinessCardOCR | 名片卡正面识别模式     |
 | OcrType.MLIdCardOCR     | 马来西亚身份证识别模式 |
+| OcrType.LicensePlateOCR | 汽车车牌识别模式       |
+| OcrType.VinOCR          | 汽车VIN码识别模式      |
+
+
 
 ### 常见错误
 
-1. 当提示 **requsetConfigDict is nil**，检查下是不是在进入 SDK 时，执行了 [OcrSDKKit cleanInstance] 把密钥和配置设置清除了。
-2. SDK 页面依托于 UIWindow，所以需要再 AppDelegate.h 中添加 **@property (**nonatomic**, **strong**) UIWindow * window;**
+1. 当提示**requsetConfigDict is nil**，检查下是不是在进入SDK时，执行了[OcrSDKKit cleanInstance]把秘钥和配置设置清除了。
+2. SDK页面依托于UIWindow，所以需要再AppDelegate.h 中添加 **@property (**nonatomic**, **strong**) UIWindow * window;**
+3. 当出现进入SDK黑屏，打印日志**Application tried to push a nil view controller on target....**，原因是self.storyboard等于 nil，可以参考demo，在调用SDK页面的ViewController手动加载xib页面，然后调用SDK进入识别页面。
