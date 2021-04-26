@@ -442,7 +442,7 @@ scrape_configs:
 
 
 
-## 自建Prometheus如何迁移到腾讯云原生监控服务?
+## 自建 Prometheus 如何迁移到腾讯云原生监控服务?
 若您需要将自建的 Prometheus 迁移至腾讯云原生监控服务，可参见 [自建 Prometheus 迁移到云原生监控](https://cloud.tencent.com/document/product/457/51684)。
 
 

@@ -16,7 +16,7 @@
 ### 步骤4：创建 CDC 子网
 1. 登录本地专用集群控制台。
 2. 选择 CDC 子网，单击创建 CDC 子网。
-3. 在弹出的对话框中，选择已创建的 CDC 集群，以及集群关联的主 Region VPC、可用区、专线网关等信息，路由表默认是 VPC 主路由表，如需创建多个子网请单击【添加子网】。
+3. 在弹出的对话框中，选择已创建的 CDC 集群，以及集群关联的主 Region VPC、可用区等信息，路由表默认是 VPC 主路由表，如需创建多个子网请单击【添加子网】。
 	![](https://main.qcloudimg.com/raw/d81e2e02af5afc641fd9024ca078fdc0.png)
 4. 在配置完 CDC 子网后，单击【确定】完成操作。
 	![](https://main.qcloudimg.com/raw/8fd183549092a70809252c4bd29ed6e7.png)
