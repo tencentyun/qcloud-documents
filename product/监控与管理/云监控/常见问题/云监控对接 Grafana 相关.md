@@ -5,8 +5,9 @@
 
 ### 插件支持在同地域多个实例对比吗？
 
-可以将模板变量中 `Selection Options` 下的 `Multi-value` 设置为 true， Dashboard 中下拉框便可以进行多选实例，如图所示：
+可以将模板变量中 `Selection Options` 下的 `Multi-value` 设置为 true。
 ![](https://main.qcloudimg.com/raw/da6acdd13a5fd82b52de1ec53364c0c5.png)
+ Dashboard 中下拉框便可以进行多选实例，如图所示：
 ![](https://main.qcloudimg.com/raw/041a8658cc5e349ab8a51e6d7c9f6c17.png)
 
 ###  模板变量中的实例下拉框的选项显示的是 `InstanceId` ，如何展示 `InstanceName` ？
