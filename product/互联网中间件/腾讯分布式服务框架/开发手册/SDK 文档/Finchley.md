@@ -506,6 +506,22 @@ spring-cloud-tsf-sleuth bug fixed：
 
 支持向后兼容，建议全量升级。
 
+## 1.12.6-Finchley-RELEASE（2021-03-25）
+
+### Bug 修复
+- 处理 Spring 组件开源漏洞风险，升级 Spring Framework 到5.0.19版本。
+- spring-cloud-tsf-core 修复与 spring-boot-devtools 的冲突。
+- spring-cloud-tsf-ratelimit：修复多个限流规则时，全局限流无法关闭的问题。
+
+### 优化
+- spring-cloud-tsf-consul-discovery 心跳请求增加重试。
+- spring-cloud-tsf-consul-config 支持本地加密配置解析。
+- spring-cloud-tsf-swagger 支持多路径扫码
+
+### 版本建议
+
+支持向后兼容，建议全量升级。
+
 ## 1.12.5-Finchley-RELEASE（2020-07-17）
 
 ### Bug 修复
