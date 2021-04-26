@@ -1,19 +1,23 @@
+>!目前查阅的是历史版本 SDK 文档，后续不再更新和维护，我们建议您查阅新版 [SDK 文档](https://cloud.tencent.com/document/product/436/6474) 。
+
+
 ## 开发准备
 
 ### SDK 获取
 
-COS服务的js sdk v4版本的GitHub下载地址： [https://github.com/tencentyun/cos-js-sdk-v4.git](https://github.com/tencentyun/cos-js-sdk-v4.git)
+COS 服务的 JS SDK V4 版本的 [GitHub 地址](https://github.com/tencentyun/cos-js-sdk-v4.git)。
 
 ### 开发环境
 
-1. 使用SDK需要浏览器支持HTML 5
-2. 请您到https://console.cloud.tencent.com/cos 获取您的项目ID(appid)，bucket，secret_id和secret_key。
-3. 请您到https://console.cloud.tencent.com/cos 针对您要操作的bucket进行跨域（CORS）设置
-（本版本SDK基于JSON API封装组成）
+1. 使用 SDK 需要浏览器支持 HTML 5。
+2. 请您登录 [腾讯云控制台](https://console.cloud.tencent.com/cos) 获取您的项目 ID（APPID），bucket，secret_id 和 secret_key。
+3. 请您登录 [对象存储控制台](https://console.cloud.tencent.com/cos) 针对您要操作的 bucket 进行跨域（CORS）设置。
+
+>?本版本 SDK 基于 JSON API 封装组成。
 
 ### SDK 配置
 
-直接下载github上提供的源代码，使用SDK之前，加载dist目录里的cos-js-sdk-v4.js文件即可。
+直接下载 github 上提供的源代码，使用 SDK 之前，加载 dist 目录里的 cos-js-sdk-v4.js 文件即可。
 
 ```javascript
 <script type="text/javascript" src="cos-js-sdk-v4.js"></script>
@@ -32,7 +36,7 @@ COS服务的js sdk v4版本的GitHub下载地址： [https://github.com/tencenty
 		region: 'sh',//地域信息 必填参数 华南地区填gz 华东填sh 华北填tj
 		getAppSign: function (callback) {//获取签名 必填参数
 
-			//下面简单讲一下获取签名的几种办法
+			//下面介绍获取签名的几种办法
 
 			//1.搭建一个鉴权服务器，自己构造请求参数获取签名，推荐实际线上业务使用，优点是安全性好，不会暴露自己的私钥
 			//拿到签名之后记得调用callback
@@ -68,22 +72,22 @@ COS服务的js sdk v4版本的GitHub下载地址： [https://github.com/tencenty
 
 | **参数名**        | **类型**   | **是否必填** | **默认值** | **参数描述**                                 |
 | -------------- | -------- | -------- | ------- | ---------------------------------------- |
-| appid          | int      | 是        | 无       | appid                                    |
-| bucket         | String   | 是        | 无       | bucket名称，bucket创建参见[创建Bucket](https://cloud.tencent.com/document/product/436/6232) |
-| region         | String   | 是        | 'gz'    | 地域信息，必填参数 华南地区填gz 华东填sh 华北填tj            |
+| appid          | int      | 是        | 无       | APPID                                    |
+| bucket         | String   | 是        | 无       | bucket 名称|
+| region         | String   | 是        | 'gz'    | 地域信息，必填参数，华南地区填gz 华东填sh 华北填tj            |
 | getAppSign     | Function | 是        | 无       | 获取多次签名的函数，建议从服务器端获取签名字符串                 |
 | getAppSignOnce | Function | 是        | 无       | 获取单次签名的函数，建议从服务器端获取签名字符串                 |
 
 
 #### 返回结果说明
 
-返回值：cos object对象，初始化之后可以用这个cos object对象进行内置接口调用例如uploadFile,deleteFile等
+返回值：cos object 对象，初始化之后可以用这个 cos object 对象进行内置接口调用例如 uploadFile，deleteFile 等。
 
 ## 文件操作
 
 ### 普通文件上传
 
-接口说明：通常用于较小文件(一般小于20MB)的上传，可以通过此接口上传较小的文件并获得文件的url，如果文件大于20M则本接口内部会去调用分片上传接口。
+接口说明：通常用于较小文件（一般小于20MB）的上传，可以通过此接口上传较小的文件并获得文件的 url，如果文件大于20M则本接口内部会去调用分片上传接口。
 
 #### 方法原型
 
@@ -99,23 +103,23 @@ cos.uploadFile(successCallBack, errorCallBack, progressCallBack, bucket, path, f
 | ---------------- | -------- | -------- | ------- | ----------------------------------- |
 | successCallBack  | Function | 是        | 无       | 上传成功的回调                             |
 | errorCallBack    | Function | 是        | 无       | 上传失败的回调                             |
-| progressCallBack | Function | 是        | 无       | 上传过程进度的回调，比如文件1M已经上传了100K则会回调进度0.1  |
+| progressCallBack | Function | 是        | 无       | 上传过程进度的回调，例如文件1M已经上传了100K则会回调进度0.1  |
 | bucket           | String   | 是        | 无       | bucket名称                            |
 | path             | String   | 是        | 无       | 文件在COS服务端的路径                        |
 | file             | File     | 是        | 无       | 本地要上传文件的文件对象（二进制数据）                 |
-| insertOnly       | Int      | 否        | 无       | insertOnly==0 表示允许覆盖文件 1表示不允许 其他值忽略 |
 
-#### 返回结果说明(json字符串)
+
+#### 返回结果说明（json字符串）
 
 | **参数名**            | **类型** | **是否必然返回** | **参数描述**                   |
 | ------------------ | ------ | ---------- | -------------------------- |
 | code               | Int    | 是          | 错误码，成功时为0                  |
 | message            | String | 是          | 提示信息                       |
 | data               | Object | 是          | 返回数据                       |
-| data.access_url    | String | 是          | 生成的文件CDN下载url              |
-| data.source_url    | String | 是          | 生成的文件COS源站url              |
+| data.access_url    | String | 是          | 生成的文件 CDN 下载 url              |
+| data.source_url    | String | 是          | 生成的文件 COS 源站 url              |
 | data.url           | String | 是          | 操作文件的url                   |
-| data.resource_path | String | 是          | 资源路径. 格式:/appid/bucket/xxx |
+| data.resource_path | String | 是          | 资源路径，格式：/appid/bucket/xxx |
 
 #### 示例
 
@@ -140,8 +144,6 @@ cos.uploadFile(successCallBack, errorCallBack, progressCallBack, bucket, path, f
 		cos.uploadFile(successCallBack, errorCallBack, progressCallBack, bucket, myFolder+file.name, file, 0);
 		return false;
 	});
-
-
 ```
 
 ### 大文件分片上传
@@ -151,9 +153,7 @@ cos.uploadFile(successCallBack, errorCallBack, progressCallBack, bucket, path, f
 #### 方法原型
 
 ```js
-
 cos.sliceUploadFile(successCallBack, errorCallBack, progressCallBack, bucket, path, file, insertOnly);
-
 ```
 
 #### 参数说明
@@ -162,11 +162,11 @@ cos.sliceUploadFile(successCallBack, errorCallBack, progressCallBack, bucket, pa
 | ---------------- | -------- | -------- | ------- | ----------------------------------- |
 | successCallBack  | Function | 是        | 无       | 上传成功的回调                             |
 | errorCallBack    | Function | 是        | 无       | 上传失败的回调                             |
-| progressCallBack | Function | 是        | 无       | 上传过程进度的回调，比如文件1M已经上传了100K则会回调进度0.1  |
+| progressCallBack | Function | 是        | 无       | 上传过程进度的回调，例如文件1M已经上传了100K则会回调进度0.1  |
 | bucket           | String   | 是        | 无       | bucket名称                            |
 | path             | String   | 是        | 无       | 文件在COS服务端的路径                        |
 | file             | File     | 是        | 无       | 本地要上传文件的文件对象（二进制数据）                 |
-| insertOnly       | Int      | 否        | 无       | insertOnly==0 表示允许覆盖文件 1表示不允许 其他值忽略 |
+
 
 #### 返回结果说明(json字符串)
 
@@ -272,7 +272,7 @@ cos.getFileStat(successCallBack, errorCallBack, bucket, path);
 | path            | String   | 是        | 无       | 文件在COS服务端的路径 |
 
 
-#### 返回结果说明(json字符串)：
+#### 返回结果说明（json字符串）
 
 | **参数名**             | **类型** | **是否必然返回** | **参数描述**                                 |
 | ------------------- | ------ | ---------- | ---------------------------------------- |
@@ -287,7 +287,7 @@ cos.getFileStat(successCallBack, errorCallBack, bucket, path);
 | data.filelen        | Int    | 是          | 文件已传输大小                                  |
 | data.sha            | String | 是          | 文件文件sha                                  |
 | data.access_url     | String | 是          | 生成的文件下载url                               |
-| data.authority      | String | 否          | eInvalid,eWRPrivate,eWPrivateRPublic,文件可以与bucket拥有不同的权限类型，已经设置过权限的文件如果想要撤销，直接赋值为eInvalid，则会采用bucket的权限 |
+| data.authority      | String | 否          | eInvalid,eWRPrivate,eWPrivateRPublic,文件可以与 bucket 拥有不同的权限类型，已经设置过权限的文件如果想要撤销，直接赋值为eInvalid，则会采用 bucket 的权限 |
 | data.custom_headers | String | 否          | 自定义header对象                              |
 
 
@@ -324,7 +324,7 @@ cos.updateFile(successCallBack, errorCallBack, bucket, path, bizAttr);
 | bizAttr         | String   | 是        | 无       | 文件的自定义属性     |
 
 
-#### 返回结果说明(json字符串)：
+#### 返回结果说明（json字符串）
 
 | **参数名** | **类型** | **是否必然返回** | **参数描述**  |
 | ------- | ------ | ---------- | --------- |
@@ -365,7 +365,7 @@ cos.copyFile(successCallBack, errorCallBack, bucket, path, destPath, overWrite);
 | overWrite       | Int      | 是        | 无       | 是否覆盖同名文件，0表示不覆盖，1表示覆盖 |
 
 
-#### 返回结果说明(json字符串)：
+#### 返回结果说明（json字符串）
 
 | **参数名** | **类型** | **是否必然返回** | **参数描述**  |
 | ------- | ------ | ---------- | --------- |
@@ -381,7 +381,7 @@ cos.copyFile(successCallBack, errorCallBack, bucket, path, destPath, overWrite);
 
 		var myFile = '111/2.txt';//填您自己实际存在的文件
 
-		//注意一下目标的路径，这里如果填333/2.txt 则表示文件复制到111/333/2.txt
+		//注意目标的路径，这里如果填333/2.txt 则表示文件复制到111/333/2.txt
 		//如果填/333/2.txt 则表示文件复制到bucket根目录下的333/2.txt
 		var newFile = '/333/2.txt';
 		var overWrite = 1;//0 表示不覆盖 1表示覆盖
@@ -412,7 +412,7 @@ cos.moveFile(successCallBack, errorCallBack, bucket, path, destPath, overWrite);
 | overWrite       | Int      | 是        | 无       | 是否覆盖同名文件，0表示不覆盖，1表示覆盖 |
 
 
-#### 返回结果说明(json字符串)：
+#### 返回结果说明（json字符串）
 
 | **参数名** | **类型** | **是否必然返回** | **参数描述**  |
 | ------- | ------ | ---------- | --------- |
@@ -429,7 +429,7 @@ cos.moveFile(successCallBack, errorCallBack, bucket, path, destPath, overWrite);
 
 		var myFile = '/111/2.txt';//填您自己实际存在的文件
 
-		//注意一下目标的路径，这里如果填333/2.txt 则表示文件移动到111/333/2.txt
+		//注意目标的路径，这里如果填333/2.txt 则表示文件移动到111/333/2.txt
 		//如果填/333/2.txt 则表示文件移动到bucket根目录下的333/2.txt
 		//如果填/111/3.txt 则相当于把2.txt改名成3.txt
 		var newFile = '/333/2.txt';
@@ -462,7 +462,7 @@ cos.createFolder(successCallBack, errorCallBack, bucket, path);
 | path            | String   | 是        | 无       | 需要操作的文件夹在COS服务端的路径 |
 
 
-#### 返回结果说明(json字符串)：
+#### 返回结果说明（json字符串）
 
 | **参数名** | **类型** | **是否必然返回** | **参数描述**  |
 | ------- | ------ | ---------- | --------- |
@@ -474,7 +474,7 @@ cos.createFolder(successCallBack, errorCallBack, bucket, path);
 ```js
 
 	$('#createFolder').on('click', function () {
-		var newFolder = '/333/';//填您需要创建的文件夹，记得用斜杠包一下
+		var newFolder = '/333/';//填您需要创建的文件夹
 		cos.createFolder(successCallBack, errorCallBack, bucket, newFolder);
 	});
 
@@ -501,7 +501,7 @@ cos.deleteFolder(successCallBack, errorCallBack, bucket, path);
 | path            | String   | 是        | 无       | 需要操作的文件夹在COS服务端的路径 |
 
 
-#### 返回结果说明(json字符串)：
+#### 返回结果说明（json字符串）
 
 | **参数名** | **类型** | **是否必然返回** | **参数描述**  |
 | ------- | ------ | ---------- | --------- |
@@ -514,7 +514,7 @@ cos.deleteFolder(successCallBack, errorCallBack, bucket, path);
 
 	//删除文件夹
 	$('#deleteFolder').on('click', function () {
-		var newFolder = '/333/';//填您需要删除的文件夹，记得用斜杠包一下
+		var newFolder = '/333/';//填您需要删除的文件夹
 		cos.deleteFolder(successCallBack, errorCallBack, bucket, newFolder);
 	});
 
@@ -540,7 +540,7 @@ cos.getFolderStat(successCallBack, errorCallBack, bucket, path);
 | path            | String   | 是        | 无       | 需要操作的文件夹在COS服务端的路径 |
 
 
-#### 返回结果说明(json字符串)：
+#### 返回结果说明（json字符串）
 
 | **参数名**       | **类型** | **是否必然返回** | **参数描述**   |
 | ------------- | ------ | ---------- | ---------- |
@@ -582,7 +582,7 @@ cos.updateFolder(successCallBack, errorCallBack, bucket, path, bizAttr);
 | bizAttr         | String   | 是        | 无       | 新的属性信息             |
 
 
-#### 返回结果说明(json字符串)：
+#### 返回结果说明（json字符串）
 
 | **参数名** | **类型** | **是否必然返回** | **参数描述**  |
 | ------- | ------ | ---------- | --------- |
@@ -621,7 +621,7 @@ cos.getFolderList(successCallBack, errorCallBack, bucket, path);
 | path            | String   | 是        | 无       | 需要操作的文件夹在COS服务端的路径 |
 
 
-#### 返回结果说明(json字符串)：
+#### 返回结果说明（json字符串）
 
 | **参数名**               | **类型** | **是否必然返回**   | **参数描述**                                 |
 | --------------------- | ------ | ------------ | ---------------------------------------- |
@@ -644,11 +644,9 @@ cos.getFolderList(successCallBack, errorCallBack, bucket, path);
 
 #### 示例
 
-```js
-
+```j
 	//获取指定文件夹内的列表,默认每次返回20条
 	$('#getFolderList').on('click', function () {
 		cos.getFolderList(successCallBack, errorCallBack, bucket, myFolder);
 	});
-
 ```

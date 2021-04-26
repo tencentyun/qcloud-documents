@@ -1,0 +1,84 @@
+## 适用场景
+适用 Windows 远程连接 Window 实例时出现如下图所示的提示：
+![](https://main.qcloudimg.com/raw/fc8eb4050af9a2b5d808b6bf5f40cbe7.png)
+
+远程桌面由于以下原因之一无法连接到远程计算机：
+1）未启用对服务器的远程访问
+2）远程计算机已关闭
+3）在网络上远程计算机不可用
+
+确保打开远程计算机、连接到网络并且启用远程访问。
+
+
+## 可能原因
+
+导致出现以上提示的原因包括（不限于以下情况，请根据实际情况进行分析）：
+- 实例处于非正常运行状态
+- 无公网 IP 或公网带宽为0
+- 实例绑定的安全组未放通远程登录端口（默认为3389）
+- 远程桌面服务未启动
+- 远程桌面设置问题
+- Windows 防火墙设置问题
+
+## 排查步骤
+
+### 检查实例是否处于运行状态
+1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
+2. 在 “云服务器” 页面的实例列表中，查看实例是否处于【运行中】。如下图所示：
+![CVM列表页](https://main.qcloudimg.com/raw/eacd0a1d69d696d81a39d8239c6c04bc.png)
+ - 是，请 [检查服务器是否设置公网 IP](#step01)。
+ - 否，请启动该 Windows 实例。
+
+<span id="step01"></span>
+### 检查服务器是否设置公网 IP
+在云服务器控制台检查服务器是否设置公网 IP。如下图所示：
+![无公网IP](https://main.qcloudimg.com/raw/c3de8a36a5fec23c75eceb22eb239d66.png)
+ - 是，请 [检查是否购买公网带宽](#step02)。
+ - 否，请 [申请弹性公网 IP 并进行绑定](https://cloud.tencent.com/document/product/213/16586)。
+ 
+<span id="step02"></span>
+###  检查是否购买公网带宽
+检查公网带宽是否为0Mb（最少1Mbps）。
+ - 是，请通过 [调整网络](https://cloud.tencent.com/document/product/213/15517) 将带宽调整到1Mbps或以上。
+![](https://main.qcloudimg.com/raw/08fa61c6bd7c539ced5efa21988c7057.png)
+ - 否，请 [检查实例远程登录端口（3389）是否放通](#step03)。
+
+<span id="step03"></span>
+### 检查实例远程登录端口（3389）是否放通
+1. 在控制台单击需要登录的实例，进入实例信息页面。
+2. 在 “安全组” 页签下，检查实例的安全组是否放通远程登录接口（默认远程桌面端口：3389）。如下图所示：
+![安全组](https://main.qcloudimg.com/raw/8591cea100c0e39b7d2f6cde250b4b16.png)
+ - 是，请 [检查 Windows 实例的系统设置](#step04)。
+ - 否，请编辑对应的安全组规则，进行放通。操作方法请参考 [安全组操作指南](https://cloud.tencent.com/document/product/213/18197)。
+
+<span id="step04"></span>
+### 检查 Windows 实例的系统设置
+1. 使用 VNC 登录实例，排查 Windows 实例的系统设置。
+>? VNC 登录详细请参考 [登录 Windows 实例](https://cloud.tencent.com/document/product/213/5435) 中的 “使用 VNC 登录” 。
+2. 在登录的实例系统中，单击【开始】，在【运行】中输入 **services.msc**，并按 **Enter**，打开 “服务” 窗口。
+3. 双击打开 “Remote Desktop Services” 的属性，检查远程桌面服务是否已启动。如下图所示：
+![Remote Desktop Service](https://main.qcloudimg.com/raw/ad9fc18310fc823ea11883f9c31b7838.png)
+ - 是，请执行 [步骤4](#step04_4)。
+ - 否，请将 “启动类型” 设置为 “自动”，“服务状态” 设置为 “正在运行”（即单击【启动】，启动服务）。
+4. <span id="step04_4">单击【开始】，在【运行】中输入 **sysdm.cpl**，按 **Enter**，打开 “系统属性” 窗口。</span>
+5. 在 “远程” 页签中，检查远程桌面是否设置为 “允许远程连接到此计算机(L)”。如下图所示：
+![远程设置](https://main.qcloudimg.com/raw/7cadb6d62af77f7035d973283b104ac8.png)
+ - 是，请执行 [步骤6](#step04_6)。
+ - 否，请将远程桌面设置为 “允许远程连接到此计算机(L)”。
+6. <span id="step04_6">单击【开始】，选择【控制面板】，打开控制面板。</span>
+7. 在 “控制面板” 中，选择【系统与安全】>【Windows 防火墙】，打开 “Windows 防火墙”。
+8. 在 “Windows 防火墙” 中，检查 Windows 防火墙状态。如下图所示：
+![Windows 防火墙状态](https://main.qcloudimg.com/raw/5a18e345dd8fcb6aaa5b9f95c4bc4d63.png)
+ - 为 “启用” 状态，请执行 [步骤9](#step04_9)。
+ - 为 “关闭” 状态，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&level3_id=142&radio_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%99%BB%E5%BD%95%E4%B8%8D%E4%B8%8A&queue=15&scene_code=12686&step=2) 反馈。
+9. <span id="step04_9">在 “Windows 防火墙” 中，单击【允许应用或能通过 Windows 防火墙】，打开 “允许的应用” 窗口。</span>
+10. 在 “允许的应用” 窗口中，检查 “允许的应用和功能(A)” 是否勾选 “远程桌面”。如下图所示：
+![勾选远程桌面](https://main.qcloudimg.com/raw/4a0d3906b5be714610fa8e21e4ed3624.png)
+ - 是，请执行 [步骤11](#step04_11)。
+ - 否，请勾选 “远程桌面”，放通“远程桌面”。
+11. <span id="step04_11">在 “Windows 防火墙” 中，单击【启用或关闭 Windows 防火墙】，打开 “自定义设置” 窗口。</span>
+12. 在 “自定义设置” 窗口中，将 “专用网络设置” 和 “公用网络设置” 设置为 “关闭 Windwos 防火墙(不推荐)”。如下图所示：
+![关闭](https://main.qcloudimg.com/raw/4a09dea7a9695599b02a2facc1be02ec.png)
+
+若执行以上操作后仍无法通过远程桌面连接到 Windows 实例，请 [提交工单](https://console.cloud.tencent.com/workorder/category?level1_id=6&level2_id=7&source=0&data_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8CVM&level3_id=142&radio_title=%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%99%BB%E5%BD%95%E4%B8%8D%E4%B8%8A&queue=15&scene_code=12686&step=2) 反馈。
+

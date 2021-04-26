@@ -1,19 +1,18 @@
-## 1 环境及依赖
-环境: 在腾讯云 CVM 上安装对应的[[Apache](http://www.apache.org/dyn/closer.cgi)], [[PHP](http://php.net/downloads.php)], 建议使用较新版本, Apache2.0+, PHP Version 5.3+.
 
-依赖: 安装[[PHP-Memcache-3.0.6+](http://php.net/manual/zh/book.memcache.php)]或者[[PHP-Memcached-1.0.2+](http://php.net/manual/zh/book.memcached.php)]扩展.
+## 环境及依赖
+环境：在腾讯云 CVM 上安装对应的 [Apache](http://www.apache.org/dyn/closer.cgi)、[PHP](http://php.net/downloads.php)，建议使用较新版本 Apache2.0+、PHP Version 5.3+。
 
-[[php-memcache GitHub源码](https://github.com/tricky/php-memcache)]
-[[php-memcached GitHub源码](https://github.com/php-memcached-dev/php-memcached)]
-## 2 使用步骤
+依赖：安装 [PHP-Memcache-3.0.6+](http://php.net/manual/zh/book.memcache.php) 或者 [PHP-Memcached-1.0.2+](http://php.net/manual/zh/book.memcached.php) 扩展。
 
-在腾讯云 CVM 上部署好 Apache+PHP 环境并安装好 PHP-Memcache 或者 PHP-Memcached 扩展.
+[PHP-memcache GitHub 源码](https://github.com/tricky/php-memcache)
+[PHP-memcached GitHub 源码](https://github.com/php-memcached-dev/php-memcached)
 
-编写测试代码并运行.
+## 使用步骤
+在腾讯云 CVM 上部署好 Apache+PHP 环境并安装好 PHP-Memcache 或者 PHP-Memcached 扩展。
+编写测试代码并运行。
 
-## 3 代码示例 PHP-Memcache
-
-[[GitHub 代码参考]](https://github.com/tricky/php-memcache/blob/master/example.php)
+## 代码示例 PHP-Memcache
+[GitHub 代码参考](https://github.com/tricky/php-memcache/blob/master/example.php)
 
 ```
 <?php
@@ -26,9 +25,9 @@ var_dump ($val);
 $cache->close();
 ?>
 ```
-## 4 代码示例 PHP-Memcached
 
-[[GitHub 代码参考]](https://github.com/php-memcached-dev/php-memcached/blob/master/server-example/test-server.php)
+## 代码示例 PHP-Memcached
+[GitHub 代码参考](https://github.com/php-memcached-dev/php-memcached/blob/master/server-example/test-server.php)
 
 ```
 <?php

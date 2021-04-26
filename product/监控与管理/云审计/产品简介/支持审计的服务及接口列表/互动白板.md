@@ -1,0 +1,32 @@
+腾讯云互动白板（Tencent Interactive Whiteboard，TIW）提供整套完备的多人实时白板互动服务，打破线上教学中师生信息传递障碍，拥有比面授教学板书更丰富、直观和多样的功能。包含的功能有互动涂鸦、轨迹实时同步、文档共享、媒体共享、文档转码、白板与音视频实时同步录制、回放等功能。具备灵活易用、扩展性强的优点，帮助用户高度还原线下面授教学的互动体验，显著提升线上教学质量。
+
+下表为云审计支持的互动白板操作列表：
+
+| 申请互动白板试用                 | tiw | ApplyTiwTrial                       |
+|--------------------------|-----|-------------------------------------|
+| 创建互动白板应用                 | tiw | CreateApplication                   |
+| 创建文档转码任务                 | tiw | CreateTranscode                     |
+| 查询白板应用列表                 | tiw | DescribeApplicationInfos            |
+| 查询互动白板各个子产品用量            | tiw | DescribeApplicationUsage            |
+| 查询不是白板应用的IM应用列表          | tiw | DescribeIMApplications              |
+| 查询课后录制回调地址               | tiw | DescribeOfflineRecordCallback       |
+| 查询实时录制任务                 | tiw | DescribeOnlineRecord                |
+| 查询实时录制回调地址               | tiw | DescribeOnlineRecordCallback        |
+| 查询用户后付费用量                | tiw | DescribePostpaidUsage               |
+| 查询文档转码任务                 | tiw | DescribeTranscode                   |
+| 查询文档转码回调地址               | tiw | DescribeTranscodeCallback           |
+| 查询子产品用量统计                | tiw | DescribeUsageSummary                |
+| 查询客户资源列表                 | tiw | DescribeUserResources               |
+| 查询用户关于互动白板详情             | tiw | DescribeUserStatus                  |
+| 查询白板应用配置，包括事件回调地址，资源存储桶等 | tiw | DescribeWhiteboardApplicationConfig |
+| 修改白板应用                   | tiw | ModifyApplication                   |
+| 修改白板应用配置                 | tiw | ModifyWhiteboardApplicationConfig   |
+| 暂停实时录制                   | tiw | PauseOnlineRecord                   |
+| 恢复实时录制                   | tiw | ResumeOnlineRecord                  |
+| 设置回调地址                   | tiw | SetOfflineRecordCallback            |
+| 设置实时录制回调地址               | tiw | SetOnlineRecordCallback             |
+| 设置实时录制的回调鉴权密钥            | tiw | SetOnlineRecordCallbackKey          |
+| 设置文档转码回调地址               | tiw | SetTranscodeCallback                |
+| 设置文档转码的回调鉴权密钥            | tiw | SetTranscodeCallbackKey             |
+| 开始实时录制                   | tiw | StartOnlineRecord                   |
+| 停止实时录制                   | tiw | StopOnlineRecord                    |

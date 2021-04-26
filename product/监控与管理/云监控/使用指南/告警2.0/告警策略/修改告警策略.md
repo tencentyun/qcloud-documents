@@ -1,0 +1,10 @@
+本文将介绍如何修改告警策略。
+
+## 操作步骤
+
+1. 进入 [云监控控制台—告警策略列表页](https://console.cloud.tencent.com/monitor/alarm2/policy)。
+2. 找到需要修改的告警策略，单击对应的策略名称。
+3. 进入管理告警策略页，在对应的区域单击编辑或编辑按钮，即可修改相关信息。
+![](https://main.qcloudimg.com/raw/599e1001e0cf29881ab4c433f1edb824.png)
+
+

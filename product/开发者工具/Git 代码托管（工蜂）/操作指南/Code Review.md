@@ -1,7 +1,5 @@
 ## 创建评审、添加评委
-
-> **注意：**
-> Code Review 设置的【Suggestion reviewers】和【Necessary reviewers】有添加成员的话，在创建合并请求时会自动创建评审，【Suggestion reviewers】和【Necessary reviewers】中添加的成员会自动成为该 评审的评委。【Suggestion reviewers】可删除，【Necessary reviewers】不可删除。
+>! Code Review 设置的【Suggestion reviewers】和【Necessary reviewers】有添加成员的话，在创建合并请求时会自动创建评审，【Suggestion reviewers】和【Necessary reviewers】中添加的成员会自动成为该 评审的评委。【Suggestion reviewers】可删除，【Necessary reviewers】不可删除。
 
 1. 新建合并请求，创建成功后的部分截图如下所示。
 ![img](https://main.qcloudimg.com/raw/dee7e2666247a25f60d10cd0150c1b5d.png)
@@ -17,9 +15,7 @@
 ![img](https://main.qcloudimg.com/raw/fcda2ac08277d901b0cd5da62d17b1d5.png)
 
 ## Code Review 设置
-
-> **注意：**
-> 可在保护分支上设置评审的默认行为。当合并请求在该分支（作为目标分支）发起时，评审会依据配置自动带起。
+>!可在保护分支上设置评审的默认行为。当合并请求在该分支（作为目标分支）发起时，评审会依据配置自动带起。
 
 操作步骤： `Settings-> Protected Branches-> Edit`，单击至如下所示页面。
 ![img](https://main.qcloudimg.com/raw/17f89dabacd1bfdede8e8ae702b857a4.png)

@@ -7,7 +7,7 @@
 | [删除函数](https://cloud.tencent.com/document/product/583/9750) | DeleteFunction | 用于删除指定函数
 | [更新函数](https://cloud.tencent.com/document/product/583/9743) | UpdateFunction |  用于更新指定函数配置信息，或更新指定函数代码
 | [获取函数运行日志](https://cloud.tencent.com/document/product/583/9746) | GetFunctionLogs |  用于查询获取指定函数的运行日志
-| [获取函数监控数据](https://cloud.tencent.com/document/product/583/10645) | GetMonitorData |  用于查询获取指定函数的监控信息
+| [获取函数监控数据](https://cloud.tencent.com/document/product/248/31649) | GetMonitorData |  用于查询获取指定函数的监控信息
 | [运行函数](https://cloud.tencent.com/document/product/583/9747) | InvokeFunction |  用于运行指定函数
 
 ##  触发器相关接口
@@ -15,3 +15,4 @@
 |---------|---------|---------|
 | [设置函数触发器](https://cloud.tencent.com/document/product/583/9748) | SetTrigger |  用于设置指定函数的触发器
 | [删除函数触发器](https://cloud.tencent.com/document/product/583/9749) | DeleteTrigger |  用于删除指定函数的指定触发器
+

@@ -8,7 +8,7 @@ Domain name for API request: <font style="color:red">cdn.api.qcloud.com</font>
 
 **Notes:**
 
-- You can submit a maximum of 5 domain names at a time to query the real-time number of origin-pull requests for each domain name.
+- You can submit a maximum of 20 domain names at a time to query the real-time number of origin-pull requests for each domain name.
 - The statistic value of the number of origin-pull bandwidth requests is generated at an interval of 5 minutes, with the delay of real-time data being 5-10 minutes.
 - You can query the data with a time range of 60 days between a start and end time (inclusive).
 - By default, the data granularity is 5 minutes for the data within a time range of 3 days, 1 hour for the data within 4-7 days (total requests), and 1 day for the data within 8 or more days (total requests).

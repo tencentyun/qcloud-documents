@@ -1,5 +1,8 @@
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。黑石物理服务器1.0 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/386/18637" target="_blank">黑石物理服务器1.0 API 3.0</a>。**
+>
+
 ## 功能描述
-DescribeBmSslVpnGwEx 用于获取黑石sslvpn网关。
+DescribeBmSslVpnGw 用于获取黑石sslvpn网关。
 
 接口请求域名：bmvpc.api.qcloud.com
 
@@ -8,7 +11,7 @@ DescribeBmSslVpnGwEx 用于获取黑石sslvpn网关。
 
 语法示例：
 ```
-GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmSslVpnGwEx
+GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmSslVpnGw
     &<公共请求参数>
     &unVpcId=<私有网络唯一ID>
 ```
@@ -84,7 +87,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmSslVpnGwEx
 ### 请求
 ```
 GET https://bmvpc.api.qcloud.com/v2/index.php?
-	Action=DescribeBmSslVpnGwEx
+	Action=DescribeBmSslVpnGw
 	&SecretId=AKIDlfdHxN0ntSVt4KPH0xXWnGl21UUFNoO5
 	&Nonce=11362
 	&Timestamp=1515570588

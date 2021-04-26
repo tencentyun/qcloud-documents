@@ -1,3 +1,6 @@
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。黑石物理服务器1.0 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/386/18637" target="_blank">黑石物理服务器1.0 API 3.0</a>。**
+>
+
 ## 功能描述
 DescribeBmNatGateway 接口用于查询租户创建的NAT网关列表信息，包括网关统一 ID、网关名称、网关并发连接上限、绑定 eip 列表等。
 接口请求域名：bmvpc.api.qcloud.com
@@ -35,31 +38,28 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=DescribeBmNatGateway
 ### 响应示例
 ```
 {
-    "code": 0,
-    "message": "",
-    "codeDesc": "Success",
-    "totalCount": <NAT网关数目>,
-    "data": [
-        {
-            "natId": <NAT网关ID>,
-            "natName": <NAT网关名称>,
-            "unVpcId": <VPC统一ID>,
-            "vpcId": <vpc网络ID>,
-            "vpcName": <VPC名称>,
-            "state": <NAT网关状态>,
-            "forwardMode": <转发方式>,
-            "productionStatus": <NAT网关生产状态>,
-            "eipCount": <绑定至NAT网关的eip个数>,
-            "eipSet": [
-                <绑定的eip>
-            ],
-            "maxConcurrent":  <NAT网关并发连接上限>,
-            "ntype": <NAT网关并发连接上限类型>,
-            "exclusive": <NAT网关共享型和独占型标识>,
-            "createTime": <创建时间>
-        }
-    ]
+ "code": 0,
+ "message": "",
+ "codeDesc": "Success",
+ "totalCount": "< NAT网关数目 > ",
+ "data": [{
+  "natId": "< NAT网关ID >",
+  "natName": "< NAT网关名称 >",
+  "unVpcId": "< VPC统一ID >",
+  "vpcId": "< vpc网络ID >",
+  "vpcName": "< VPC名称 >",
+  "state": "< NAT网关状态 >",
+  "forwardMode": "< 转发方式 >",
+  "productionStatus": "< NAT网关生产状态 >",
+  "eipCount": "< 绑定至NAT网关的eip个数 >",
+  "eipSet": ["<绑定的eip >"],
+  "maxConcurrent": "< NAT网关并发连接上限 >",
+  "ntype": "< NAT网关并发连接上限类型 >",
+  "exclusive": "< NAT网关共享型和独占型标识 >",
+  "createTime": "< 创建时间 >"
+ }]
 }
+
 ```
 
 ### 响应参数

@@ -1,0 +1,46 @@
+
+- [gameserver 如何剔除某个无效的 tcaproxy（接入层）节点？](#52)
+- [gameserver 是怎么选择 tcaproxy（接入层）节点的？](#53)
+- [TcaplusDB 有压缩功能吗？](#59)
+- [TcaplusDB API 是线程安全的吗？](#61)
+- [tcapsvr（存储层）的容灾是怎么做的？](#63)
+- [tcaproxy（接入层）的容灾是怎么做的？](#62)
+- [TcaplusDB 有过载保护吗？](#66)
+- [TcaplusDB 的冷热数据交换原理是什么？](#71)
+- [tcaproxy（接入层）是怎么选择 tcapsvr（存储层）的？](#81)
+- [TcaplusDB 锁的级别是什么？](#84)
+
+### [gameserver 如何剔除某个无效的 tcaproxy（接入层）节点？](id:52)
+TcaplusDB API 在这里对 tcaproxy 异常做了容灾的处理，API 剔除无效的 tcaproxy 进程的方式主要有2个：
+
+1. API 物理上认为某个 tcaproxy 不可用，API 每隔1秒对起链接的所有的 tcaproxy 发送心跳检测包，如果某个 gameserver 在10s内没有从 tcaproxy 收到相应的心跳回包，则 API 会主动断开与 tcaproxy 的 TCP 链接， 在下个 onupdate 时主动去链接该 tcaproxy 。
+2. API 逻辑上认为 tcaproxy 不可用，是每隔10s去计算下某个 tcaproxy 的请求和响应比，作为判断依据，其中 API 为某个请求包超时的阈值是3s，大于3次则认为该 tcaproxy 不可用，请求不会再发给该 tcaproxy ，在60s后发送 getmetdata 请求，如果 tcaproxy 能够正确处理 getmetadata 的请求，则 API 再次认为该 tcaproxy 可用，请求会再次发送给该 tcaproxy。
+
+从现象上看，gameserver 在10s内发现某个 tcaproxy 不可用，则不会再向该 tcaproxy 节点发送数据了。
+
+### [gameserver 是怎么选择 tcaproxy（接入层）节点的？](id:53)
+gameserver 本地维护了一致性的 Hash 环，凡是某个 tcaproxy（接入层）节点认证通过后即增加到 Hash 环上，如果某个 tcaproxy（接入层）节点缩容后或者由于机器异常导致 gameserver 与 tcaproxy（接入层）之间的 TCP 链接断掉后，gameserver 会从 Hash 环上摘除该 tcaproxy（接入层）节点。gameserver 根据请求里的主键计算 hash 值（如果是 batchget 请求，会随机的选择单个 tcaproxy（接入层）节点），然后在一致性 Hash 环上选择单个 tcaproxy（接入层）节点发送出去。
+
+### [TcaplusDB 有压缩功能吗？](id:59)
+TcaplusDB 有压缩功能，采用的压缩算法是 Google snappy 压缩算法，包括协议压缩，即 gameserver <--> tcaproxy（接入层）间的请求包/响应包的压缩功能；数据压缩，即 tcapsvr（存储层）在数据存储时会压缩需要存储的数据，如果您需要节省 gameserver <--> tcaproxy 间的网络流量，推荐开启协议压缩，调用 TcaplusDB API 的函数 SetCompressSwitch，推荐您开启 tcapsvr（存储层）压缩，节省磁盘空间、提高 IO 磁盘性能的同时压缩、解压缩耗费的 CPU 也是可控的问题。
+
+### [TcaplusDB API 是线程安全的吗？](id:61)
+TcaplusDB API 是非线程安全的，主要是 tlog、tdr 等组件是非线程安全的，推荐单个线程采用单个 API 对象，单个游戏区采用单个 API 对象，如果需要跨游戏区交互，建议单个 gameserver 维护多个 API 对象。
+
+### [tcaproxy（接入层）的容灾是怎么做的？](id:62)
+tcaproxy（接入层）采用对等设计方案，即单个游戏区下面的所有 tcaproxy（接入层）节点都包含了单个游戏区下所有表的路由信息，如果某个 tcaproxy（接入层）故障后，只要其余的 tcaproxy（接入层）节点不会过载，则 gameserver 会剔除异常的 tcaproxy（接入层）节点，不会影响 gameserver 的使用，tcaproxy（接入层）没有单点的风险。
+
+### [tcapsvr（存储层）的容灾是怎么做的？](id:63)
+tcapsvr（存储层）采用一主（tcapsvr master）一从（tcapsvr slave）的模式运行，tcapsvr master/slave 实时的在同步数据，采用同城异 IDC 部署，确保主从同步时延小于10ms，如果 tcapsvr slave 异常，不会影响 gameserver 的使用（没有开启读分流， gameserver 的请求是 tcapsvr master 处理，如果开启读分流后，tcapsvr slave 会协助处理部分读请求），DBA 进行 tcapsvr slave 重建即可；如果 tcapsvr master 异常，则 tcapsvr slave 会进行故障恢复，DBA 再申请新的机器的 tcapsvr slave 重建即可，tcapsvr（存储层）没有单点的风险。
+
+### [TcaplusDB 有过载保护吗？](id:66)
+接入层、存储层都有进程级的过载保护措施，保障业务高峰时服务不雪崩。
+
+### [TcaplusDB 的冷热数据交换原理是什么？](id:71)
+TcaplusDB 采用内存 + SSD 盘存储，单个引擎文件，前1GB映射在内存，热数据尽量放在内存，冷数据放在磁盘，采用 LRU 算法进行冷热数据交换，gameserver 的 get 操作触发 LRU 换入操作，tcapsvr（存储层）的 LRU 线程负责 LRU 换出操作，尽量保证热数据存储在内存里，确保 cache 命中率高、单次读写延时低。
+
+### [tcaproxy（接入层）是怎么选择 tcapsvr（存储层）的？](id:81)
+每个表定义的有分表因子，如果没有定义分表，分表因子则默认是主键，tcaproxy（接入层）根据 hash（分表因子）%1w，选择对应的 tcapsvr（存储层），故分表因子离散度要高。
+
+### [TcaplusDB 锁的级别是什么？](id:84)
+TcaplusDB 锁的粒度是记录级别。

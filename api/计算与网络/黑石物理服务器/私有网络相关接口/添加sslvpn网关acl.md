@@ -1,3 +1,6 @@
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。黑石物理服务器1.0 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/386/18637" target="_blank">黑石物理服务器1.0 API 3.0</a>。**
+>
+
 ## 功能描述
 AddBmSslVpnGwAcl 用于添加黑石sslvpn网关下的acl列表。 acl的position为每条acl的唯一标识，acl的匹配规则为从position最小到最大，匹配到后终止不再执行后面的匹配。此接口成功后返回的sslvpn网关所有的acl列表。
 
@@ -87,7 +90,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php/?Action=AddBmSslVpnGwAcl
 | data.n.dstCidr | String | 目标ip网段，cidr形式,如 192.168.10.0/24。为用户私有网络unVpcId内的子网|
 | data.n.direction | string | 规则生效方向，目前只有ingress。|
 | data.n.action | string | 规则生效动作，allow 或 deny。|
-| data.n.portRange | string | 如果protocol为tcp或者udp生效，否则填null。 两种：1.单个port,  (0, 65535) 范围: p1:p2 (p1,p2的范围为0:65535)。|
+| data.n.portRange | string | 如果protocol为tcp或者udp，必须指定port或范围：1).单个port,  2).范围: p1:p2 (p1,p2的范围为0:65535); 如非tcp或udp, portRange填null。|
 
 
 ## 错误码

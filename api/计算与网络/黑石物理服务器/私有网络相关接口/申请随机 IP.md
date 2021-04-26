@@ -1,3 +1,6 @@
+>? **当前页面接口为旧版 API，未来可能停止维护，目前不展示在左侧导航。黑石物理服务器1.0 API 3.0 版本接口定义更加规范，访问时延下降显著，建议使用 <a href="https://cloud.tencent.com/document/api/386/18637" target="_blank">黑石物理服务器1.0 API 3.0</a>。**
+>
+
 ## 功能描述
 ApplyIps 用于申请黑石私有网络子网 IP。
 
@@ -18,7 +21,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ApplyIps
     &unVpcId=<VPC网络唯一ID>
 	&unSubnetId=<子网唯一ID>
 	&count=<申请IP个数>
-    &ipClass=<IP类型>
 ```
 ### 请求参数
 以下请求参数列表仅列出了接口请求参数，正式调用时需要加上公共请求参数，见<a href="/doc/api/372/4153" title="公共请求参数">公共请求参数</a>页面。其中，此接口的 Action 字段为 ApplyIps。
@@ -28,7 +30,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ApplyIps
 | unVpcId |系统分配的私有网络 ID，例如：vpc-kd7d06of。可通过 DescribeBmVpcEx 接口查询返回的 unVpcId 值。 | String |  是 |
 | unSubnetId |  系统分配的私有网络子网 ID，例如：subnet-k20jbhp0。可通过DescribeBmSubnetEx接口查询返回的unSubnetId值。 |String | 是 |
 | count |申请 IP 个数，默认为1，取值范围 1-20。 | Int |  否 |
-| ipClass | IP 类型，0 为物理机 IP，1 为云服务器类型 IP，2 为托管类型 IP。默认传 1 | Int | 否 |
 
 
 ## 响应
@@ -49,7 +50,7 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?Action=ApplyIps
 
 | 参数名称 | 描述 | 类型 |
 |---------|---------|---------|
-| code | 公共错误码, 0表示成功，其他值表示失败。详见错误码页面的<a href="https://cloud.tencent.com/doc/api/372/%E9%94%99%E8%AF%AF%E7%A0%81#1.E3.80.81.E5.85.AC.E5.85.B1.E9.94.99.E8.AF.AF.E7.A0.81" title="公共错误码">公共错误码</a>。| Int |
+| code | 公共错误码, 0表示成功，其他值表示失败。| Int |
 | message | 模块错误信息描述，与接口相关。| String |
 | count |申请成功的 IP 个数。| Int | 
 | data.n | 申请成功的 IP 数组。| Array |
@@ -77,7 +78,6 @@ GET https://bmvpc.api.qcloud.com/v2/index.php?
 	&unVpcId=vpc-2ari9m7h
 	&unSubnetId=subnet-keqt3oty
 	&count=1
-	&ipClass=1
 ```
 
 ### 输出

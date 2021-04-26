@@ -137,12 +137,12 @@ libstdc++6.i386                         4.7.2-5
 
 ### 配置修改
 ```
-1、调长rcu_cpu_stall_timeout，由60改为300。
-2、去掉ssh的弱MAC和弱Ciphers，保留：
+1、调长 rcu_cpu_stall_timeout，由60改为300。
+2、去掉 ssh 的弱 MAC 和弱 Ciphers，保留：
 	ciphers aes128-ctr,aes192-ctr,aes256-ctr
 	Macs hmac-sha1,umac-64@openssh.com,hmac-ripemd160,hmac-sha2-256,hmac-sha2-512
-3、不自动加载nouveau驱动。在使用GPU时，防止对CUDA驱动造成干扰。
-4、添加irqaffinity。优化中断处理。
+3、不自动加载 nouveau 驱动。在使用 GPU 时，防止对 CUDA 驱动造成干扰。
+4、添加 irqaffinity。优化中断处理。
 ```
 
 ## debian78_160501
@@ -509,3 +509,5 @@ xml-core.all                            0.13+nmu2
 xz-utils.amd64                          5.1.1alpha+20120614-2                   
 zlib1g.amd64                            1:1.2.7.dfsg-13                         
 ```
+
+
