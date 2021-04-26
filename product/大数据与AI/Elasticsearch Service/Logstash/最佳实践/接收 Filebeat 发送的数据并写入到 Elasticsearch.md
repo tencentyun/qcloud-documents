@@ -14,7 +14,7 @@ Logstash 的一个典型应用场景，就是消费 kafka 中的数据并且写�
 - port：logstash 要监听的端口号，默认为5044
 - type：标识字段
 
-查看更多参数，详情可参见 [input-beats](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-beats.html#plugins-inputs-beats-host)
+查看更多参数，详情可参见 [input-beats](https://www.elastic.co/guide/en/logstash/current/plugins-inputs-beats.html#plugins-inputs-beats-host)。
 
 ### output-elasticsearch
 - hosts：elasticsearch 集群地址列表
@@ -24,7 +24,7 @@ Logstash 的一个典型应用场景，就是消费 kafka 中的数据并且写�
 - document\_type：索引 type，对于不同版本的 ES 集群，该字段有不同的默认值，5.x及以下版本的集群，默认会使用 input 中指定的 type 字段。如果 type 字段不存在，则该字段的值为 doc；6.x版本的集群，该字段默认值为 doc；7.x版本的集群，该字段默认值为\_doc；8.x版本的集群，不会使用该字段
 - document_id：文档 ID
 
-查看更多参数，详情可参见 [output-elasticsearch](https://www.elastic.co/guide/en/logstash/7.10/plugins-outputs-elasticsearch.html)
+查看更多参数，详情可参见 [output-elasticsearch](https://www.elastic.co/guide/en/logstash/7.10/plugins-outputs-elasticsearch.html)。
 
 在配置完管道后，单击【保存并部署】即可创建一个管道并自动部署。
 ![](https://main.qcloudimg.com/raw/4624ba100e9b21f31f63972c4be9d2c6.png)
