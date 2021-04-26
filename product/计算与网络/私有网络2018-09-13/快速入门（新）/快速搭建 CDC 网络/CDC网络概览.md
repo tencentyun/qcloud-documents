@@ -12,7 +12,7 @@ CDC 目前支持的网络功能包括：
 + 支持通过 CDC 本地网关与 IDC 通信
 + 支持 CDC 内云服务器绑定弹性 IP，并最终经过 IDC 本地 NAT 转换后与公网通信
 
-![](https://main.qcloudimg.com/raw/3c8be2d7dba2dfd78eceec0dcf505966.png)
+![](https://main.qcloudimg.com/raw/48646b57f161c09a2b42ec7390c00aa7.png)
 
 ## 使用限制
 - 1个 CDC 只支持1个 VPC，1个 CDC 集群的1个 VPC 只能够创建1个 CDC 本地网关。
