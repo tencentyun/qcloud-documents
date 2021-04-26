@@ -11,7 +11,6 @@ CDC 目前支持的网络功能包括：
 + 支持 CDC 子网关联网络 ACL，控制 CDC 子网的出入流量
 + 支持通过 CDC 本地网关与 IDC 通信
 + 支持 CDC 内云服务器绑定弹性 IP，并最终经过 IDC 本地 NAT 转换后与公网通信
-+ CDC 支持和云上关联的 VPC 内的所有子网服务进行通信
 
 ![](https://main.qcloudimg.com/raw/3c8be2d7dba2dfd78eceec0dcf505966.png)
 
