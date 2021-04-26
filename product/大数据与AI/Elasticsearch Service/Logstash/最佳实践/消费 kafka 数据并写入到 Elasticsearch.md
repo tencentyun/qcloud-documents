@@ -14,7 +14,7 @@ Logstash 的一个典型应用场景，就是消费 kafka 中的数据并且写�
 - client_id：客户端 ID
 - group_id：消费组 ID
 - consumer_threads：消费线程数量，建议保持：该参数 × Logstash 实例节点的数量 = topic 的 partitions 数量
-- topics：topic列表
+- topics：topic 列表
 - auto\_offset\_reset：当 kafka 中 topic 没有初始的 offset 时，如何重置 offset，常用可选值为 earliest（最早）、latest（最新）
 - type：标识字段
 
