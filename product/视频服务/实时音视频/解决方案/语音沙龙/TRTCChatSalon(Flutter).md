@@ -96,7 +96,7 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 | ----------------------------------- | ---------- |
 | [onError](#onerror)                 | 错误回调。 |
 | [onWarning](#onwarning)             | 警告回调。 |
-| [onKickedOffline](#onkickedoffline) | 警告回调。 |
+| [onKickedOffline](#onkickedoffline) | 被踢下线。 |
 
 ### 房间事件回调
 
@@ -655,7 +655,7 @@ Future<ActionCallback> refuseToSpeak(String userId)
 
 | 参数       | 类型   | 含义                 |
 | ---------- | ------ | -------------------- |
-| userId     | String | 上麦的用户 ID。       |
+| userId     | String | 进房的用户 ID。       |
 | userName   | String | 用户昵称。           |
 | userAvatar | String | 头像地址。           |
 | mute       | bool   | 麦位状态，默认开麦。 |
@@ -668,7 +668,7 @@ Future<ActionCallback> refuseToSpeak(String userId)
 
 | 参数   | 类型   | 含义           |
 | ------ | ------ | -------------- |
-| userId | String | 下麦的用户 ID。 |
+| userId | String | 退房的用户 ID。 |
 
 ### onMicMute
 

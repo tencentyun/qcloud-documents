@@ -2,11 +2,11 @@
 
 对比 [云服务器 CVM](https://cloud.tencent.com/document/product/213/495)，轻量应用服务器更加简单易用，简化了传统云服务器的高阶概念及功能，一站式融合多种云服务，您可以便捷高效的部署、配置和管理应用，是使用腾讯云的最佳入门途径。
 >?
-> - 创建轻量应用服务器时不支持指定底层物理服务器的 CPU 型号，腾讯云将随机分配物理 CPU 型号。
+> - 创建轻量应用服务器时不支持指定底层物理服务器的 CPU 型号，腾讯云将随机分配满足套餐规格的物理 CPU 型号。
 > - 与同规格的 [标准型云服务器 CVM](https://cloud.tencent.com/document/product/213/11518#S) 相比，轻量应用服务器的 CPU、内存性能与其处于同一水准。
 >
 
-轻量应用服务器与云服务器 CVM 的主要区别请参考下表：
+轻量应用服务器相比云服务器 CVM 的主要区别和优势请参考下表：
 <table style="width:908px;">
 <tr>
 <th style="width:95px;height:45px;position:relative;font-weight:700;" valign="top" colspan="2"><div style="position:absolute;width:1px;height: 244px;top:0;left:0;background-color: #d9d9d9;transform: rotate(-76deg);transform-origin:top;"></div><div style="position:relative;left:150px">产品</div>优势</th>
@@ -72,3 +72,6 @@
 >   轻量应用服务器具体使用限制说明，请参见 [使用限制](https://cloud.tencent.com/document/product/1207/44376)。
 >- 轻量应用服务器在内网连通性上也存在一定限制，详情请参见 [地域与网络连通性](https://cloud.tencent.com/document/product/1207/50103)。
 >
+
+
+如果您需要使用更丰富的实例类型，如内存优化型、高 IO 型、大数据型、裸金属、GPU/FPGA 异构计算型等，支持高并发网站、视频编解码、大型游戏、复杂分布式集群应用等业务场景，请使用云服务器 CVM 产品，具体可以参考 [云服务器-实例规格](https://cloud.tencent.com/document/product/213/11518)。

@@ -12,7 +12,6 @@ ClickHouse 提供了两种方法将外部云对象存储的数据导入到表中
 
 
 ## 表引擎方式
-
 通过创建 Engine 为 S3 的外表和目的数据表，然后使用 INSERT INTO 语句批量插入数据。
 ```
 CREATE TABLE testdb.costb (
@@ -45,7 +44,6 @@ INSERT INTO testdb.chtb SELECT * FROM testdb.costb;
 EMR 1.2.0 以上的版本（ClickHouse 20.7.2.30+）可以将 S3 表引擎修改为 COSN 引擎，用法和效果与 S3 一样。
 
 ## 表函数方式
-
 在创建数据表时使用 s3 内置函数直接将数据导入到表中。
 ```
 CREATE TABLE testdb.chtb
@@ -66,6 +64,5 @@ CREATE TABLE testdb.chtb
 ```
 
 ## 参考资料
-
 - [clickhouse sql](https://clickhouse.tech/docs/en/query_language/create/)
 - [clickhouse issue](https://github.com/ClickHouse/ClickHouse/issues/1394)

@@ -32,6 +32,6 @@ FTP Server 默认支持 200 GB 以内的单文件上传，但是不建议用户�
 
 当实际上传的单文件大小超过了配置文件中的限制，系统会返回一个 IOError 的异常，并且在日志中标注错误信息。
 
-如遇有其他问题，请通过 [在线支持](https://cloud.tencent.com/online-service) 或 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们，并附上完整的`cos_v5.log`日志，便于我们进一步排查和解决问题。
+如遇有其他问题，请 [联系我们](https://cloud.tencent.com/document/product/436/37708)，并附上完整的`cos_v5.log`日志，便于我们进一步排查和解决问题。
 
 
