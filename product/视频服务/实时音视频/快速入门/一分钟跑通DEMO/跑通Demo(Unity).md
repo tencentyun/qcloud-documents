@@ -6,7 +6,7 @@ Unity 示例项目中包含了以下功能：
 - 设备管理、音乐特效和人声特效。
 
 >?
-- 具体 API 功能参数说明，请参见 [API概览](https://cloud.tencent.com/document/product/647/55158?!editLang=zh&!preview)
+- 具体 API 功能参数说明，请参见 [API概览](https://cloud.tencent.com/document/product/647/55158?!editLang=zh&!preview)。
 - 更多项目接入问题，请接入 QQ 群（788910197）咨询。
 
 
