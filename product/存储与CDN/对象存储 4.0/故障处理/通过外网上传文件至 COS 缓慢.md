@@ -83,7 +83,8 @@ XXX.w.kunlungr.com（aliyunCDN 默认域名）
 CosXmlConfig config = new CosXmlConfig.Builder()
 .SetConnectionTimeoutMs(60000) //设置连接超时时间，单位 毫秒 ，默认 45000ms
 .SetReadWriteTimeoutMs(40000) //设置读写超时时间，单位 毫秒 ，默认 45000ms
-.IsHttps(true) //设置默认 https 请求 .SetAppid(appid) //设置腾讯云账户的账户标识 APPID
+.IsHttps(true) //设置默认 https 请求 
+.SetAppid(appid) //设置腾讯云账户的账户标识 APPID
 .SetRegion(region) //设置一个默认的存储桶地域
 .SetHost("XXXXXX.com") //输入自定义域名
 .SetDebugLog(true) .Build(); //创建 CosXmlConfig 对象
