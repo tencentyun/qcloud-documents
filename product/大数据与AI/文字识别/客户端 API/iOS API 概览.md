@@ -20,13 +20,10 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 + (nonnull instancetype)sharedInstance;
 ```
 
-功能描述：
-
-​    创建 OcrSDKKit 的单例。
-
-返回结果：
-
-​    OcrSDKKit 的单例对象。	
+- 功能描述：
+创建 OcrSDKKit 的单例。
+- 返回结果：
+OcrSDKKit 的单例对象。	
 
 
 
@@ -38,9 +35,8 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 + (void)clearInstance;
 ```
 
-功能描述：
-
-​    主动释放资源的方法，可在退出应用或者需要清理资源的时候调用。
+- 功能描述：
+主动释放资源的方法，可在退出应用或者需要清理资源的时候调用。
 
 
 
@@ -51,13 +47,10 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 - (NSString *_Nonnull)getVersion;
 ```
 
-功能描述：
-
-​	获取 SDK 当前的版本号。
-
-返回结果：
-
-​	当前 SDK 的版本信息。
+- 功能描述：
+获取 SDK 当前的版本号。
+- 返回结果：
+当前 SDK 的版本信息。
 
 
 
@@ -72,11 +65,9 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 - (int)loadSDKConfigWithSecretId:(NSString *)secretId withSecretKey:(NSString *)secretKey withConfig:(OcrSDKConfig *)ocrSDKConfig;
 ```
 
-功能描述：
-
-​    初始化 SDK 信息。
-
-传入参数：
+- 功能描述：
+初始化 SDK 信息。
+- 传入参数：
 
 | 参数类型                          | 参数名称       | 参数含义               |
 | --------------------------------- | -------------- | ---------------------- |
@@ -97,11 +88,9 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 - (void)updateFederationToken:(NSString *_Nonnull) tmpSecretId withTempSecretKey:(NSString *_Nullable)tmpSecretKey withToken:(NSString *_Nonnull)token;
 ```
 
-功能描述：
-
-​    主动更新临时密钥信息，在您与服务器兑换得到临时密钥之后主动调用设置。
-
-传入参数：
+- 功能描述：
+主动更新临时密钥信息，在您与服务器兑换得到临时密钥之后主动调用设置。
+- 传入参数：
 
 | 参数类型 | 参数名称     | 参数含义              |
 | -------- | ------------ | --------------------- |
@@ -123,11 +112,9 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 - (void)startProcessOcr:(int)ocrType withSDKUIConfig:(CustomConfigUI *)customConfigUI withProcessSucceedBlock:(OcrSDKKitProcessSucceedBlock _Nonnull)onProcessSucceed withProcessFailedBlock:(OcrSDKKitProcessFailedBlock _Nonnull)onProcessFailed;
 ```
 
-功能描述：
-
-​    启动 OCR 识别
-
-传入参数：
+- 功能描述：
+启动 OCR 识别
+- 传入参数：
 
 | 参数类型                          | 参数名称         | 参数含义          |
 | --------------------------------- | ---------------- | ----------------- |
@@ -332,7 +319,7 @@ typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullabl
 
 ```
 
-马来西亚身份证请求结果返回resultInfo结果示例：
+马来西亚身份证请求结果返回 resultInfo 结果示例：
 
 ```json
 {
@@ -351,7 +338,7 @@ typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullabl
 }
 ```
 
-车牌识别请求结果返回resultInfo结果示例：
+车牌识别请求结果返回 resultInfo 结果示例：
 
 ```json
 {
@@ -369,7 +356,7 @@ typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullabl
 }
 ```
 
-车辆VIN码识请求结果返回resultInfo结果示例：
+车辆 VIN 码识请求结果返回 resultInfo 结果示例：
 
 ```json
 {
@@ -380,7 +367,7 @@ typedef void (^OcrSDKKitProcessFailedBlock)(NSError *_Nonnull error, id _Nullabl
 }
 ```
 
-对于返回的错误码以及错误信息，可以参考[错误码](https://cloud.tencent.com/document/product/866/33528)。
+对于返回的错误码以及错误信息，可以参考 [错误码](https://cloud.tencent.com/document/product/866/33528)。
 
 ```json
 {
