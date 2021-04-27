@@ -31,36 +31,27 @@ SDK 中包含了以下 framework 库以及资源文件：
 ### 接入步骤
 
 1. 将 ocr Framework、系统 Framework 库以及 bundle 文件都添加至项目中。
-
-   ```
-   ├── OcrSDKKit.framework
-   ├── TXYComm.framework
-   ├── YtSDKKit.framework
-   ├── YTImageRefiner_pub.framework
-   ├── tiny_opencv2.framework
-   └── tnn.framework
-   //系统库
-   ├── Accelerate.framework
-   └── CoreML.framework
-   ```
-
-   ```
-   //资源文件
-   ├── OcrSDK.bundle
-   └── ocr-001.bundle                        
-   ```
-
+```
+├── OcrSDKKit.framework
+├── TXYComm.framework
+├── YtSDKKit.framework
+├── YTImageRefiner_pub.framework
+├── tiny_opencv2.framework
+└── tnn.framework
+//系统库
+├── Accelerate.framework
+└── CoreML.framework
+```
+```
+//资源文件
+├── OcrSDK.bundle
+└── ocr-001.bundle
+```
 2. 添加编译选项
-
-
-- 将**调用 SDK 的 ViewController** 设置为 **Objective-C++Source** 或者更改后缀为 **.mm** (sdk 内部使用了 Objective-C++ 语法)
-- 将 **Other Linker Flags** 设置为 **-ObjC**
-
-
+	- 将**调用 SDK 的 ViewController** 设置为 **Objective-C++Source** 或者更改后缀为 **.mm** (sdk 内部使用了 Objective-C++ 语法)
+	- 将 **Other Linker Flags** 设置为 **-ObjC**
 3. 权限设置
-
 OCR SDK 需要手机网络、 摄像头、访问相册的使用权限，请添加对应的权限声明。
-
 ```xml
 <key>NSAppTransportSecurity</key>
 <dict>
@@ -158,6 +149,6 @@ OCR SDK 支持使用临时密钥接口，使用临时密钥的好处主要有以
 
 ### 常见错误
 
-1. 当提示**requsetConfigDict is nil**，检查下是不是在进入 SDK 时，执行了 [OcrSDKKit cleanInstance] 把密钥和配置设置清除了。
+1. 当提示 **requsetConfigDict is nil**，检查下是不是在进入 SDK 时，执行了 [OcrSDKKit cleanInstance] 把密钥和配置设置清除了。
 2. SDK 页面依托于 UIWindow，所以需要再 AppDelegate.h 中添加 **@property (**nonatomic**, **strong**) UIWindow * window;**
 3. 当出现进入 SDK 黑屏，打印日志 **Application tried to push a nil view controller on target....**，原因是 self.storyboard 等于 nil，可以参考 demo，在调用 SDK 页面的 ViewController 手动加载 xib 页面，然后调用 SDK 进入识别页面。
