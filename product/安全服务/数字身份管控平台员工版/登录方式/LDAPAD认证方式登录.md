@@ -1,5 +1,5 @@
 
-本文为您介绍通过 LDAP（AD）认证方式登录到数字身份管控平台（员工版）门户。
+
 认证流程如下：
  ![](https://main.qcloudimg.com/raw/31fb5ea513ee05956b514ff2e68ad424.png)
 
