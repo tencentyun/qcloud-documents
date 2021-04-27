@@ -143,38 +143,40 @@ Dynamic Scheduler 动态调度器依赖于 Node 当前和过去一段时间的�
 在 node-exporter 获取节点监控数据后，需要通过 Prometheus 对原始的 node-exporter 采集数据进行聚合计算。为了获取动态调度器中需要的 `cpu_usage_avg_5m`、`cpu_usage_max_avg_1h`、`cpu_usage_max_avg_1d`、`mem_usage_avg_5m`、`mem_usage_max _avg_1h`、`mem_usage_max_avg_1d` 等指标，需要在 Prometheus 的 rules 规则进行如下配置：
 
 ```yaml
-  groups:
-  - name: cpu_mem_usage_active
-    interval: 30s
-    rules:
-    - record: cpu_usage_active
-      expr: 100*(1-(sum by (instance)(node_cpu_seconds_total{mode="idle"})/(sum by (instance)(node_cpu_seconds_total))))
-    - record: mem_usage_active
-      expr: 100*(1-node_memory_MemAvailable_bytes/node_memory_MemTotal_bytes)
-  - name: cpu-usage-5m
-    interval: 5m
-    rules:
-    - record: cpu_usage_max_avg_1h
-      expr: max_over_time(cpu_usage_avg_5m[1h])
-    - record: cpu_usage_max_avg_1d
-      expr: max_over_time(cpu_usage_avg_5m[1d])
-  - name: cpu-usage-1m
-    interval: 1m
-    rules:
-    - record: cpu_usage_avg_5m
-      expr: avg_over_time(cpu_usage_active[5m])
-  - name: mem-usage-5m
-    interval: 5m
-    rules:
-    - record: mem_usage_max_avg_1h
-      expr: max_over_time(mem_usage_avg_5m[1h])
-    - record: mem_usage_max_avg_1d
-      expr: max_over_time(mem_usage_avg_5m[1d])
-  - name: mem-usage-1m
-    interval: 1m
-    rules:
-    - record: mem_usage_avg_5m
-      expr: avg_over_time(mem_usage_active[5m])
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+groups:
+   - name: cpu_mem_usage_active
+     interval: 30s
+     rules:
+     - record: cpu_usage_active
+       expr: 100*(1-(sum by (instance)(node_cpu_seconds_total{mode="idle"})/(sum by (instance)(node_cpu_seconds_total))))
+     - record: mem_usage_active
+       expr: 100*(1-node_memory_MemAvailable_bytes/node_memory_MemTotal_bytes)
+   - name: cpu-usage-5m
+     interval: 5m
+     rules:
+     - record: cpu_usage_max_avg_1h
+       expr: max_over_time(cpu_usage_avg_5m[1h])
+     - record: cpu_usage_max_avg_1d
+       expr: max_over_time(cpu_usage_avg_5m[1d])
+   - name: cpu-usage-1m
+     interval: 1m
+     rules:
+     - record: cpu_usage_avg_5m
+       expr: avg_over_time(cpu_usage_active[5m])
+   - name: mem-usage-5m
+     interval: 5m
+     rules:
+     - record: mem_usage_max_avg_1h
+       expr: max_over_time(mem_usage_avg_5m[1h])
+     - record: mem_usage_max_avg_1d
+       expr: max_over_time(mem_usage_avg_5m[1d])
+   - name: mem-usage-1m
+     interval: 1m
+     rules:
+     - record: mem_usage_avg_5m
+       expr: avg_over_time(mem_usage_active[5m])
 ```
 
 #### Prometheus 文件配置
@@ -204,40 +206,41 @@ rule_files:
 3. 设置 Prometheus 聚合规则，具体规则内容与上述 [自建Prometheus监控服务](#rules) 中的“聚合规则配置”相同。如下所示：
 
 ```yaml
-  groups:
-  - name: cpu_mem_usage_active
-    interval: 30s
-    rules:
-    - record: cpu_usage_active
-      expr: 100*(1-(sum by (instance)(node_cpu_seconds_total{mode="idle"})/(sum by (instance)(node_cpu_seconds_total))))
-    - record: mem_usage_active
-      expr: 100*(1-node_memory_MemAvailable_bytes/node_memory_MemTotal_bytes)
-  - name: cpu-usage-5m
-    interval: 5m
-    rules:
-    - record: cpu_usage_max_avg_1h
-      expr: max_over_time(cpu_usage_avg_5m[1h])
-    - record: cpu_usage_max_avg_1d
-      expr: max_over_time(cpu_usage_avg_5m[1d])
-  - name: cpu-usage-1m
-    interval: 1m
-    rules:
-    - record: cpu_usage_avg_5m
-      expr: avg_over_time(cpu_usage_active[5m])
-  - name: mem-usage-5m
-    interval: 5m
-    rules:
-    - record: mem_usage_max_avg_1h
-      expr: max_over_time(mem_usage_avg_5m[1h])
-    - record: mem_usage_max_avg_1d
-      expr: max_over_time(mem_usage_avg_5m[1d])
-  - name: mem-usage-1m
-    interval: 1m
-    rules:
-    - record: mem_usage_avg_5m
-      expr: avg_over_time(mem_usage_active[5m])
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+groups:
+   - name: cpu_mem_usage_active
+     interval: 30s
+     rules:
+     - record: cpu_usage_active
+       expr: 100*(1-(sum by (instance)(node_cpu_seconds_total{mode="idle"})/(sum by (instance)(node_cpu_seconds_total))))
+     - record: mem_usage_active
+       expr: 100*(1-node_memory_MemAvailable_bytes/node_memory_MemTotal_bytes)
+   - name: cpu-usage-5m
+     interval: 5m
+     rules:
+     - record: cpu_usage_max_avg_1h
+       expr: max_over_time(cpu_usage_avg_5m[1h])
+     - record: cpu_usage_max_avg_1d
+       expr: max_over_time(cpu_usage_avg_5m[1d])
+   - name: cpu-usage-1m
+     interval: 1m
+     rules:
+     - record: cpu_usage_avg_5m
+       expr: avg_over_time(cpu_usage_active[5m])
+   - name: mem-usage-5m
+     interval: 5m
+     rules:
+     - record: mem_usage_max_avg_1h
+       expr: max_over_time(mem_usage_avg_5m[1h])
+     - record: mem_usage_max_avg_1d
+       expr: max_over_time(mem_usage_avg_5m[1d])
+   - name: mem-usage-1m
+     interval: 1m
+     rules:
+     - record: mem_usage_avg_5m
+       expr: avg_over_time(mem_usage_active[5m])
 ```
-
 
 :::
 </dx-tabs>
