@@ -13,7 +13,7 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 | [updateFederationToken()](#updateFederationToken()) | 主动更新临时密钥        |
 | [startProcessOcr()](#startProcessOcr())             | 启动 OCR 识别             |
 
-<span id="shareInstance"></span>
+[](id:shareInstance)
 #### sharedInstance()
 
 ```objective-c
@@ -26,8 +26,7 @@ iOS 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、CustomC
 OcrSDKKit 的单例对象。	
 
 
-
-<span id="clearInstance()"></span>
+[](id:clearInstance)
 #### clearInstance()
 
 ```objective-c
@@ -39,8 +38,7 @@ OcrSDKKit 的单例对象。
 主动释放资源的方法，可在退出应用或者需要清理资源的时候调用。
 
 
-
-<span id="getVersion()"></span>
+[](id:getVersion())
 #### getVersion()
 
 ```objective-c
@@ -53,8 +51,7 @@ OcrSDKKit 的单例对象。
 当前 SDK 的版本信息。
 
 
-
-<span id="loadSDKConfig()"></span>
+[](id:loadSDKConfig)
 #### loadSDKConfig()
 
 ```objective-c
@@ -77,8 +74,7 @@ OcrSDKKit 的单例对象。
 | NSString                          | secretKey      | SecretKey 密钥         |
 
 
-
-<span id="updateFederationToken()"></span>
+[](id:updateFederationToken())
 #### updateFederationToken()
 
 ```objective-c
@@ -99,8 +95,7 @@ OcrSDKKit 的单例对象。
 | NSString | token        | 兑换后的临时访问 token |
 
 
-
-<span id="startProcessOcr()"></span>
+[](id:startProcessOcr())
 #### startProcessOcr()
 
 ```objective-c
@@ -123,8 +118,7 @@ OcrSDKKit 的单例对象。
 | OcrSDKKitProcessSucceedBlock      | onProcessSucceed | 识别成功的回调    |
 | OcrSDKKitProcessFailedBlock       | onProcessFailed  | 识别失败的回调    |
 
-
-<span id="OcrSDKConfig"></span>
+[](id:OcrSDKConfig)
 ### OcrSDKConfig
 
 OcrSDKConfig 是在 OCR 初始化时需要传入的 SDK 的配置信息实体类。
@@ -151,8 +145,7 @@ OcrSDKConfig 是在 OCR 初始化时需要传入的 SDK 的配置信息实体类
 | BOOL                        | RetImage        | 马来西亚身份证接口是否返回图片                               | NO                                             |
 
 
-
-<span id="CustomConfigUI"></span>
+[](id:CustomConfigUI)
 ### CustomConfigUI
 
 CustomConfigUI 是在启动 SDK 模块时需要传入的 SDK 的 UI 配置信息实体类。
@@ -172,8 +165,7 @@ CustomConfigUI 是在启动 SDK 模块时需要传入的 SDK 的 UI 配置信息
 | BOOL     | isShowAlbumBtn     | 是否显示相册按钮             | YES                                   |
 
 
-
-<span id="OcrType"></span>
+[](id:OcrType)
 ### OcrType
 
 OcrType 是一个枚举类型，列举了当前文字识别 OCR 的 SDK 所支持业务类型的种类，大致如下：
@@ -190,7 +182,7 @@ OcrType 是一个枚举类型，列举了当前文字识别 OCR 的 SDK 所支�
 
 
 
-<span id="OcrModeType"></span>
+[](id:OcrModeType)
 ### OcrModeType
 
 OcrModeType 是一个枚举类型，列举了卡片识别模式
