@@ -5,7 +5,7 @@ Hive Sink Connector 提供了对 Hive 的写入支持。当前支持的 Hive 版
 Hive connector 支持数据流的目的表（Sink），不支持 Upsert 数据流。支持 Text、SequenceFile、ORC、Parquet 格式的写入。
 
 ## 示例
-### 用作数据目的（Sink）
+#### 用作数据目的（Sink）
 1. 需要在 Hive 数据库里建 Hive 表
 ```SQL
 # 在 Hive 的 testdb 数据库创建 test_sink 数据表
