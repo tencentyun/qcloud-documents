@@ -19,14 +19,10 @@ Android 端文字识别 SDK 主要涉及的类有 OcrSDKKit、OcrSDKConfig、Ocr
 ```java
 public static OcrSDKKit getInstance()
 ```
-
-功能描述：
-
-​    创建 OcrSDKKit 的单例。
-
-返回结果：
-
-​    OcrSDKKit 的单例对象。	
+- 功能描述：
+创建 OcrSDKKit 的单例。
+- 返回结果：
+ OcrSDKKit 的单例对象。	
 
 
 
@@ -36,9 +32,8 @@ public static OcrSDKKit getInstance()
 public void release()
 ```
 
-功能描述：
-
-​    主动释放资源的方法，可在退出应用或者需要清理资源的时候调用。
+- 功能描述：
+主动释放资源的方法，可在退出应用或者需要清理资源的时候调用。
 
 
 
@@ -49,13 +44,10 @@ public void release()
 public final String getVersion() 
 ```
 
-功能描述：
-
-​	获取 SDK 当前的版本号。
-
-返回结果：
-
-​	当前 SDK 的版本信息。
+- 功能描述：
+获取 SDK 当前的版本号。
+- 返回结果：
+当前 SDK 的版本信息。
 
 
 
@@ -66,11 +58,9 @@ public final String getVersion()
 public void initWithConfig(Context context, OcrSDKConfig config)
 ```
 
-功能描述：
-
-​    初始化 SDK 信息。
-
-传入参数：
+- 功能描述：
+初始化 SDK 信息。
+- 传入参数：
 
 | 参数类型                      | 参数名称 | 参数含义            |
 | ----------------------------- | -------- | ------------------- |
@@ -86,11 +76,9 @@ public void initWithConfig(Context context, OcrSDKConfig config)
 public void updateFederationToken(final String tmpSecretId, final String tmpSecretKey,final String token)
 ```
 
-功能描述：
-
-​    主动更新临时密钥信息，在您与服务器兑换得到临时密钥之后主动调用设置。
-
-传入参数：
+- 功能描述：
+主动更新临时密钥信息，在您与服务器兑换得到临时密钥之后主动调用设置。
+- 传入参数：
 
 | 参数类型 | 参数名称     | 参数含义              |
 | -------- | ------------ | --------------------- |
@@ -107,11 +95,9 @@ public void updateFederationToken(final String tmpSecretId, final String tmpSecr
 public void startProcessOcr(Activity activity, OcrType ocrType, CustomConfigUi customConfigUi, ISDKKitResultListener resultListener)
 ```
 
-功能描述：
-
-​    启动默认界面进行 OCR 识别，可进行部分 UI 元素的自定义配置。(**如 CustomConfigUi 传入 null，可使用默认 UI 配置**)
-
-传入参数：
+- 功能描述：
+启动默认界面进行 OCR 识别，可进行部分 UI 元素的自定义配置。(**如 CustomConfigUi 传入 null，可使用默认 UI 配置**)
+- 传入参数：
 
 | 参数类型                                        | 参数名称       | 参数含义                                                     |
 | ----------------------------------------------- | -------------- | ------------------------------------------------------------ |
@@ -128,11 +114,9 @@ public void startProcessOcr(Activity activity, OcrType ocrType, CustomConfigUi c
 public <T extends OcrResult> void startProcessOcrResultEntity(Activity activity, OcrType ocrType,CustomConfigUi customConfigUi, Class<T> entity,ISdkOcrEntityResultListener<T> ocrEntityResultListener) 
 ```
 
-功能描述：
-
-​	启动默认界面进行 OCR 识别，可进行部分 UI 元素的自定义配置。(**如 CustomConfigUi 传入 null，可使用默认 UI 配置**)，根据指定不同的识别模式返回不同识别结果类型实体。
-
-传入参数：
+- 功能描述：
+启动默认界面进行 OCR 识别，可进行部分 UI 元素的自定义配置。(**如 CustomConfigUi 传入 null，可使用默认 UI 配置**)，根据指定不同的识别模式返回不同识别结果类型实体。
+- 传入参数：
 
 | 参数类型                                                    | 参数名称                | 参数含义                                                     |
 | ----------------------------------------------------------- | ----------------------- | ------------------------------------------------------------ |
