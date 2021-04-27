@@ -282,7 +282,7 @@ Logstash 实例 支持以下节点类型：
     <td class="tg-llyw" colspan="1">北京/上海/广州/南京</td>
     <td class="tg-llyw" colspan="1">成都/重庆</td>
 		<td class="tg-llyw" colspan="1">上海/深圳金融</td>
-    <td class="tg-llyw" colspan="1">香港</td>
+    <td class="tg-llyw" colspan="1">中国香港</td>
     <td class="tg-llyw" colspan="1">新加坡</td>
     <td class="tg-llyw" colspan="1">泰国</td>
 		<td class="tg-llyw" colspan="1">孟买</td>
@@ -555,7 +555,7 @@ Logstash 实例 支持以下节点类型：
     <td class="tg-llyw" colspan="1">北京/上海/广州/南京</td>
     <td class="tg-llyw" colspan="1">成都/重庆</td>
 		<td class="tg-llyw" colspan="1">上海/深圳金融</td>
-    <td class="tg-llyw" colspan="1">香港</td>
+    <td class="tg-llyw" colspan="1">中国香港</td>
     <td class="tg-llyw" colspan="1">新加坡</td>
     <td class="tg-llyw" colspan="1">泰国</td>
 		<td class="tg-llyw" colspan="1">孟买</td>
@@ -834,7 +834,7 @@ Logstash 实例 支持以下节点类型：
 用户在广州二区，购买了一个 Logstash 实例，包含2个节点，每个节点规格是2核4G（LOGSTASH.S1.MEDIUM4），每个节点存储量20G，采用SSD 云盘，购买时长是1个月，用户所需支付的费用计算如下：
 - 节点2核4G（ES.S1.MEDIUM4）：198.2 元/个/月
 - SSD 云盘20G：1 元/GB/月 × 20 = 20 元/个/月
-- 节点个数：2个
+- 节点个数：2 个
 
 总的费用为：（198.2 + 20）× 2 = 436.4 元/月
 
