@@ -129,7 +129,7 @@ OcrSDKConfig 是在 OCR 初始化时需要传入的 SDK 的配置信息实体类
 | :-------------------------- | :-------------- | :----------------------------------------------------------- | :--------------------------------------------- |
 | [OcrType](#OcrType)         | OcrType         | 默认识别类型                                                 | IDCardOCR_FRONT，IDCardOCR_BACK 均代表 id_card |
 | [OcrModeType](#OcrModeType) | ModeType        | 识别模式类型：OCR_DETECT_MANUAL 代表手动拍摄模式，OCR_DETECT_AUTO_MANUAL 代码自动捕获模式 20s未检测提示是否切换至手动拍摄 | OCR_DETECT_MANUAL 默认值                       |
-| long                        | auto_timeout_ms | 自动捕捉模式下自动切换至手动拍照模式的超时时间(5000ms<auto_timeout_ms<180000ms) | 20000ms                                        |
+| long                        | auto_timeout_ms | 自动捕捉模式下自动切换至手动拍照模式的超时时间(5000ms<`auto_timeout_ms`<180000ms) | 20000ms                                        |
 | BOOL                        | CropIdCard      | 开启身份证照片裁剪（去掉证件外多余的边缘、自动矫正拍摄角度）开关 | NO                                             |
 | BOOL                        | CropPortrait    | 开启人像照片裁剪（自动抠取身份证头像区域）                   | NO                                             |
 | BOOL                        | CopyWarn        | 开启复印件告警                                               | NO                                             |
