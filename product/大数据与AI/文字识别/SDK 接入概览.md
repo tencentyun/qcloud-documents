@@ -10,6 +10,8 @@
 - [**银行卡识别**](https://cloud.tencent.com/document/product/866/36216)
 - [**名片识别**](https://cloud.tencent.com/document/product/866/36214)
 - [**马来西亚身份证识别**](https://cloud.tencent.com/document/product/866/37656)（小程序 SDK 暂不支持）
+- [**车辆VIN码识别**](https://cloud.tencent.com/document/product/866/34935)（小程序 SDK 暂不支持）
+- [**车牌识别**](https://cloud.tencent.com/document/product/866/36211)（小程序 SDK 暂不支持）
 
 ![](https://main.qcloudimg.com/raw/d6bd440224ef23a574f47a30a8596018.png)
 
@@ -23,9 +25,9 @@
 
 文字识别客户端 SDK 目前支持 Android、iOS 双平台。
 
-| 所属平台 | SDK 包                                                        | Github                                               | Demo 运行说明                                                 | SDK 集成指引                                                  |
+| 所属平台 | SDK 包                                                       | Github                                               | Demo 运行说明                                                | SDK 集成指引                                                 |
 | -------- | ------------------------------------------------------------ | ---------------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| iOS      | [下载地址](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.6-2/OCR_iOS_SDK_V1.0.6.zip) | [Github](https://github.com/TencentCloud/tc-ocr-sdk) | [一分钟跑通 Demo](https://cloud.tencent.com/document/product/866/47302) | [iOS 端集成文档](https://cloud.tencent.com/document/product/866/47304) |
-| Android  | [下载地址](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.6-2/OCR_Android_SDK_V1.0.6.zip) | [Github](https://github.com/TencentCloud/tc-ocr-sdk) | [一分钟跑通 Demo](https://cloud.tencent.com/document/product/866/47303) | [Android 端集成文档](https://cloud.tencent.com/document/product/866/47305) |
+| iOS      | [下载地址](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.7-3/OCR_iOS_SDK_v1.0.7.zip) | [Github](https://github.com/TencentCloud/tc-ocr-sdk) | [一分钟跑通 Demo](https://cloud.tencent.com/document/product/866/47302) | [iOS 端集成文档](https://cloud.tencent.com/document/product/866/47304) |
+| Android  | [下载地址](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.0.7-3/OCR_Android_SDK_V1.0.7.zip) | [Github](https://github.com/TencentCloud/tc-ocr-sdk) | [一分钟跑通 Demo](https://cloud.tencent.com/document/product/866/47303) | [Android 端集成文档](https://cloud.tencent.com/document/product/866/47305) |
 | 小程序   | [下载地址](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/ocr/1.1.0/OCR_MP_SDK_V1.1.1.zip) | [Github](https://github.com/TencentCloud/tc-ocr-sdk) | [一分钟跑通 Demo](https://cloud.tencent.com/document/product/866/49453) | [小程序端集成文档](https://cloud.tencent.com/document/product/866/49457) |
 
