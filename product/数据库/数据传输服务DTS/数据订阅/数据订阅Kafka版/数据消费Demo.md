@@ -7,17 +7,17 @@
 | Demo 语言 | 下载地址                                             |
 | ------------- | ------------------------------------------------------------ |
 | Go            | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_go_demo_1.1.1.zip) |
-| Java          | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_java_demo_1.1.1.zip) |
-| Python3       | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_python_demo_1.1.1.zip) |
+| Java          | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_java_demo_1.1.2.zip) |
+| Python3       | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/subscribe_kafka_python_demo_1.1.2.zip) |
 
 ## 消费 Demo 下载（TDSQL MySQL版）
 参考下表下载数据订阅 Kafka 版客户端消费 Demo 代码：
 
 | Demo 语言 | 下载地址                                             |
 | ------------- | ------------------------------------------------------------ |
-| Go          | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_go_demo_1.0.0.zip) |
-| Java        | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_java_demo_1.0.1.zip)  |
-| Python   | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_python_demo_1.0.1.zip) |
+| Go          | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_go_demo_1.0.3.zip) |
+| Java        | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_java_demo_1.0.3.zip)  |
+| Python   | [地址](https://subscribesdk-1254408587.cos.ap-beijing.myqcloud.com/tdsql_subscribe_kafka_python_demo_1.0.3.zip) |
 
 ## Protobuf 协议文件下载
 | 协议文件 | 下载地址                                             |
@@ -43,13 +43,56 @@
 
 生产过程如下：
 1. 拉取 Binlog 消息，将每个 Binlog Event 编码为一个 Entry 结构体。
-![](https://main.qcloudimg.com/raw/2ba445362f3e0f65dd368742965ff921.png)
+```
+message Entry {
+        Header header = 1;       //事件的头部
+        Event event   = 2;
+}
+message Header {
+        int32       version        = 1;
+        SourceType  sourceType     = 2;   //源库的类型信息，包括 mysql，oracle 等类型
+        MessageType messageType    = 3;   //消息的类型
+        uint32 timestamp           = 4;   //Event在原始 binlog 中的时间戳
+        int64  serverId            = 5;   //源的 serverId
+        string fileName            = 6;   //源 binlog 的文件名称
+        uint64 position            = 7;   //事件在源 binlog 文件中的偏移量
+        string gtid                = 8;   //当前事务的 gtid
+        string schemaName          = 9;   //变更影响的 schema
+        string tableName           = 10;  //变更影响的 table
+        uint64 seqId               = 11;  //如果 event 分片，同一分片的 seqId 一致
+        uint64 eventIndex          = 12;  //大的 event 分片，序号从0开始，当前版本无意义，留待后续扩展用
+        bool   isLast              = 13;  //当前 event 是不是 event 分片的最后一块，是则为 true，当前版本无意义，留待后续扩展用
+        repeated KVPair properties = 15;
+}
+message Event {
+        BeginEvent      beginEvent      = 1;
+        DMLEvent        dmlEvent        = 2;
+        CommitEvent     commitEvent     = 3;
+        DDLEvent        ddlEvent        = 4;
+        RollbackEvent   rollbackEvent   = 5;
+        HeartbeatEvent  heartbeatEvent  = 6;
+        CheckpointEvent checkpointEvent = 7;
+        repeated KVPair properties      = 15;
+}
+```
 2. 为减少消息量，将多个 Entry 合并，合并后的结构为 Entries，Entries.items 字段即为 Entry 顺序列表。合并的数量以合并后不超过 Kafka 单个消息大小限制为标准。对单个 Event 就已超过大小限制的，则不再合并，Entries 中只有唯一 Entry 。
-![](https://main.qcloudimg.com/raw/79f305c3d844b580940636cd228b2299.png)
+```
+message Entries {
+        repeated Entry items = 1; //entry list
+}
+```
 3. 对 Entries 进行 Protobuf 编码得到二进制序列。
 4. 将 Entries 的二进制序列放入 Envelope 的 data 字段。当存在单个 Binlog Event 过大时，二进制序列可能超过 Kafka 单个消息大小限制，此时我们会将其分割为多段，每段装入一个 Envelope。
 Envelope.index 和 Evelope.total 分别记录总段数和当前 Envelope 的序号（从0开始）。
-![](https://main.qcloudimg.com/raw/c997e3d7ae2211e772a9db25281e5768.png)
+```
+message Envelope {
+        int32  version                  = 1; //protocol version, 决定了 data 内容如何解码
+        uint32 total                    = 2;
+        uint32 index                    = 3;
+        bytes  data                     = 4; //当前 version 为1, 表示 data 中数据为 Entries 被 PB 序列化之后的结果, 通过 PB 反序列化可以得到一个 Entries 对象
+        repeated KVPair properties      = 15;
+}
+```
 5. 对上一步生成的一个或多个 Envelope 依次进行 Protobuf 编码，然后投递到 Kafka 分区。同一个 Entries 分割后的多个 Envelope 顺序投递到同一个分区。
 
 ### 消费逻辑
@@ -58,12 +101,55 @@ Envelope.index 和 Evelope.total 分别记录总段数和当前 Envelope 的序�
 2. 启动消费。
 3. 依次消费原始消息，并根据消息中的分区找到分区对应的 partitionMsgConsumer 对象，由该对象对消息进行处理。
 4. partitionMsgConsumer 将原始消息反序列化为 Envelope 结构。
-![](https://main.qcloudimg.com/raw/0605c87fc818a9100fdb1ac941f83ea3.png)
+```
+message Envelope {
+        int32  version                  = 1; //protocol version, 决定了 data 内容如何解码
+        uint32 total                    = 2;
+        uint32 index                    = 3;
+        bytes  data                     = 4; //当前 version 为1, 表示 data 中数据为 Entries 被 PB 序列化之后的结果, 通过 PB 反序列化可以得到一个 Entries 对象
+        repeated KVPair properties      = 15;
+}
+```
 5. partitionMsgConsumer 根据 Envelope 中记录的 index 和 total 连续消费一条或者多条消息，直到 Envlope.index 等于 Envelope.total-1（参见上面消费生产逻辑，表示收到了一个完整的 Entries ）。
 6. 将收到的连续多条 Envelope 的 data 字段顺序组合到一起。将组合后的二进制序列用 Protobuf 解码为 Entries 。
-![](https://main.qcloudimg.com/raw/a5368cd3c3ef9ec800a25d97ce5c13e0.png)
+```
+message Entries {
+        repeated Entry items = 1; //entry list
+}
+```
 7. 对 Entries.items 依次处理，打印原始 Entry 结构或者转化为 SQL 语句。
-![](https://main.qcloudimg.com/raw/dd45ebaeaed65efc50d3210c722b2806.png)
+```
+message Entry {
+        Header header = 1;       //事件的头部
+        Event event   = 2;
+}
+message Header {
+        int32       version        = 1;
+        SourceType  sourceType     = 2;   //源库的类型信息，包括 mysql，oracle 等类型
+        MessageType messageType    = 3;   //消息的类型
+        uint32 timestamp           = 4;   //Event在原始 binlog 中的时间戳
+        int64  serverId            = 5;   //源的 serverId
+        string fileName            = 6;   //源 binlog 的文件名称
+        uint64 position            = 7;   //事件在源 binlog 文件中的偏移量
+        string gtid                = 8;   //当前事务的 gtid
+        string schemaName          = 9;   //变更影响的 schema
+        string tableName           = 10;  //变更影响的 table
+        uint64 seqId               = 11;  //如果 event 分片，同一分片的 seqId 一致
+        uint64 eventIndex          = 12;  //大的 event 分片，序号从0开始，当前版本无意义，留待后续扩展用
+        bool   isLast              = 13;  //当前 event 是不是 event 分片的最后一块，是则为 true，当前版本无意义，留待后续扩展用 
+        repeated KVPair properties = 15;
+}
+message Event {
+        BeginEvent      beginEvent      = 1;
+        DMLEvent        dmlEvent        = 2;
+        CommitEvent     commitEvent     = 3;
+        DDLEvent        ddlEvent        = 4;
+        RollbackEvent   rollbackEvent   = 5;
+        HeartbeatEvent  heartbeatEvent  = 6;
+        CheckpointEvent checkpointEvent = 7;
+        repeated KVPair properties      = 15;
+}
+```
 
 ## Java Demo 使用说明
 编译环境：Maven 或者 Gradle 包管理工具，JDK8。
@@ -122,9 +208,34 @@ pip install protobuf
 
 ## 字段映射和存储
 具体的 MySQL/TDSQL 字段值在 Protobuf 协议中用下图所示的 Data 结构来存储。
-![](https://main.qcloudimg.com/raw/2d0af55b06c62f410e715f150391cb62.png)
+```
+message Data {
+     DataType     dataType = 1;
+     string       charset  = 2;  //DataType_STRING 的编码类型, 值存储在 bv 里面
+     string       sv       = 3;  //DataType_INT8/16/32/64/UINT8/16/32/64/Float32/64/DataType_DECIMAL 的字符串值
+     bytes        bv       = 4;  //DataType_STRING/DataType_BYTES 的值
+}
+```
 其中 DataType 字段代表存储的字段类型，可取枚举值如下图所示。
-![](https://main.qcloudimg.com/raw/b9b5b081d2f12f6bfda3c24a7043b8e7.png)
+```
+enum DataType {
+     NIL     = 0; //值为 NULL
+     INT8    = 1;
+     INT16   = 2;
+     INT32   = 3;
+     INT64   = 4;
+     UINT8   = 5;
+     UINT16  = 6;
+     UINT32  = 7;
+     UINT64  = 8;
+     FLOAT32 = 9;
+     FLOAT64 = 10;
+     BYTES   = 11;
+     DECIMAL = 12;
+     STRING  = 13;
+     NA      = 14; //值不存在(N/A)
+}
+```
 其中 bv 字段存储 STRING 和 BYTES 类型的二进制表示，sv 字段存储 INT8/16/32/64/UINT8/16/32/64/DECIMAL 类型的字符串表示，charset 字段存储 STRING 的编码类型。
 
 MySQL/TDSQL 原始类型与 DataType 映射关系如下（对 UNSIGNED 修饰的 MYSQL_TYPE_INT8/16/24/32/64 分别映射为 UINT8/16/32/32/64）：

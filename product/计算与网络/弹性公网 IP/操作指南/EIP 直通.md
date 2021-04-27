@@ -10,6 +10,7 @@ EIP 直通功能适用于云服务器内需要查看公网 IP 的场景，例如
 ## 使用限制
 - 云服务器的 EIP 直通不能与 NAT 网关同时使用。如果您的云服务器所在子网的路由表配置了通过 NAT 网关访问公网的路由策略，则云服务器上的 EIP 将无法实现直通功能；您可以通过 [调整 NAT 网关和 EIP 的优先级](https://cloud.tencent.com/document/product/552/30012)，使云服务器先通过本身的 EIP，而不是 NAT 网关来访问公网，此时可以实现 EIP 直通功能。
 - EIP 直通过程会导致网络中断，您需先下载 EIP 直通脚本到云服务器中，并确认您的业务允许短暂的中断。
+- 配置 EIP 直通的云服务器如果切换了私有网络，则需重新配置直通。
 
 ## 操作步骤
 EIP 直通不仅需要在控制台开启，也需要在操作系统内将 IP 加到网卡上，然后根据业务需求配置操作系统内的路由，为此我们提供了配置 IP 的脚本，让内网流量走内网 IP，外网流量走公网 IP。如果有其他业务场景，请根据具体业务场景配置路由。
@@ -29,7 +30,7 @@ Linux 脚本针对的场景为：内网 IP 和公网 IP 均在主网卡（eth0�
  2. Linux 脚本下载到本地后，上传至需要进行 EIP 直通的云服务器中。
 - **方法二：直接使用命令**
 进入 [云服务器控制台](https://console.cloud.tencent.com/cvm/instance/index?rid=1) 并登录需要 EIP 直通的云服务器，在云服务器中直接执行如下命令下载：
-```
+```plaintext
 wget https://eip-direct-1254277469.cos.ap-guangzhou.myqcloud.com/eip_direct.sh
 ```
 
@@ -67,7 +68,7 @@ Windows 脚本针对的场景为：主网卡走外网流量，辅助网卡走内
 #### 步骤一：下载 EIP 直通脚本 <span id="step1" />
 由于 EIP 直通过程会导致网络中断，您需先下载 EIP 直通脚本到云服务器中。
 使用 [ VNC 登录的方式](https://cloud.tencent.com/document/product/213/35704) 登录需要 EIP 直通的云服务器，并在云服务器的浏览器中打开如下链接进行 EIP 直通脚本的下载：
-```
+```plaintext
 https://windows-1254277469.cos.ap-guangzhou.myqcloud.com/eip_windows_direct.bat
 ```
 

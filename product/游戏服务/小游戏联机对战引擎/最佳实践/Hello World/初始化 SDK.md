@@ -1,7 +1,6 @@
 ## 操作场景
 本文档指导您如何初始化 SDK。
 
-
 ## 操作步骤
 1. 在 game.js 文件中，将启动页改为 MainView。
 2. 完成 SDK 监听器初始化、实例化 Room 对象。玩家 playerId 通过使用 Util.js 中的 mockPlayerId 方法生成。

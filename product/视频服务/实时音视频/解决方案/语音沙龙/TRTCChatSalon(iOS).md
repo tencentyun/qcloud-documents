@@ -71,7 +71,7 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                                             | 描述                                                         |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。 |
+| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TXAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。 |
 
 ### 消息发送相关接口
 
@@ -491,7 +491,7 @@ NS_SWIFT_NAME(enterSeat(callback:));
 
 | 参数    | 类型 | 含义                                                         |
 | ------- | ---- | ------------------------------------------------------------ |
-| quality | int  | 音频质量，详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a955cccaddccb0c993351c656067bee55)。 |
+| quality | int  | 音频质量，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a955cccaddccb0c993351c656067bee55)。 |
 
 
 ### muteLocalAudio
@@ -506,7 +506,7 @@ NS_SWIFT_NAME(enterSeat(callback:));
 
 | 参数 | 类型    | 含义                                                         |
 | ---- | ------- | ------------------------------------------------------------ |
-| mute | boolean | 静音/取消静音，详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86)。 |
+| mute | boolean | 静音/取消静音，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86)。 |
 
 
 
@@ -590,7 +590,7 @@ NS_SWIFT_NAME(enterSeat(callback:));
 
 ### getAudioEffectManager
 
-获取背景音乐音效管理对象 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。
+获取背景音乐音效管理对象 [TXAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。
 
 ```Objective-C
 - (TXAudioEffectManager * _Nullable)getAudioEffectManager;

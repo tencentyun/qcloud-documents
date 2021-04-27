@@ -5,7 +5,7 @@
 ## 群组管理
 
 ### 获取加入的群组列表
-需要渲染或刷新【我的群组列表】时，调用该接口获取群组列表，更多详情请参见 [Group](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Group.html)。
+需要渲染或刷新【我的群组列表】时，调用该接口获取群组列表，更多详情请参见 [Group](https://web.sdk.qcloud.com/im/doc/zh-cn//Group.html)。
 
 >!接口返回的群组列表，不包含 TIM.TYPES.GRP_AVCHATROOM（直播群）类型的群组 
 
@@ -26,8 +26,8 @@ tim.getGroupList();
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data.groupList`中获取群组列表。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，可在`IMResponse.data.groupList`中获取群组列表。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 - 默认拉取：
@@ -55,7 +55,7 @@ promise.then(function(imResponse) {
 
 ### 获取群详细资料
 
-更多详情请参见 [Group](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Group.html)。
+更多详情请参见 [Group](https://web.sdk.qcloud.com/im/doc/zh-cn//Group.html)。
 
 **接口名**
 
@@ -75,8 +75,8 @@ tim.getGroupProfile(options);
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data.group`中获取群组资料。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，可在`IMResponse.data.group`中获取群组资料。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -96,9 +96,9 @@ promise.then(function(imResponse) {
 
 ### 创建群组
 
-更多详情请参见 [Group](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Group.html)。
+更多详情请参见 [Group](https://web.sdk.qcloud.com/im/doc/zh-cn//Group.html)。
 
->!该接口创建 TIM.TYPES.GRP_AVCHATROOM（直播群） 后，需调用 [joinGroup](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#joinGroup) 接口加入群组后，才能进行消息收发流程。
+>!该接口创建 TIM.TYPES.GRP_AVCHATROOM（直播群） 后，需调用 [joinGroup](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#joinGroup) 接口加入群组后，才能进行消息收发流程。
 
 **接口名**
 
@@ -135,8 +135,8 @@ tim.createGroup(options);
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data.group`中获取群组资料。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，可在`IMResponse.data.group`中获取群组资料。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -174,8 +174,8 @@ tim.dismissGroup(groupID);
 **返回值**
 
 该接口返回`Promise`对象：
-- `then` 的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data.groupID`中获取被解散的群组 ID。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then` 的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，可在`IMResponse.data.groupID`中获取被解散的群组 ID。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -223,8 +223,8 @@ tim.updateGroupProfile(options);
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，可在`IMResponse.data.group`中获取修改后的群组资料。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，可在`IMResponse.data.group`中获取修改后的群组资料。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -248,7 +248,7 @@ promise.then(function(imResponse) {
 申请加群的接口，申请加入某个群组时调用。
 
 >!
-- 好友工作群不允许申请加群，只能通过 [addGroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#addGroupMember) 方式添加。
+- 好友工作群不允许申请加群，只能通过 [addGroupMember](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#addGroupMember) 方式添加。
 - TIM.TYPES.GRP_AVCHATROOM（直播群）有两种加群方式：
  - 正常加群，即登录加群。此时 SDK 内的所有接口都能正常调用。
  - 匿名加群，即不登录加群。此时只能收消息，其他任何需要鉴权的接口都不能调用。
@@ -274,7 +274,7 @@ tim.joinGroup(options);
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data`中包括的属性值如下表所示：
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，`IMResponse.data`中包括的属性值如下表所示：
 	<table>
      <tr>
          <th>名称</th>  
@@ -290,7 +290,7 @@ tim.joinGroup(options);
      </tr> 
 </table>
 
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -331,8 +331,8 @@ tim.quitGroup(groupID);
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.groupID`为退出的群组 ID。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，`IMResponse.data.groupID`为退出的群组 ID。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -366,8 +366,8 @@ tim.searchGroupByID(groupID);
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.group`为群组资料。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，`IMResponse.data.group`为群组资料。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -403,8 +403,8 @@ tim.changeGroupOwner(options);
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.group`为群组资料。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，`IMResponse.data.group`为群组资料。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -424,7 +424,7 @@ promise.then(function(imResponse) { // 转让成功
 
 处理申请加群（同意或拒绝）
 
->!如果一个群有多位管理员，当有人申请加群时，所有在线的管理员都会收到 [申请加群](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload)的群系统通知。如果某位管理员处理了这个申请（同意或者拒绝），则其他管理员无法重复处理（即不能修改处理的结果）。
+>!如果一个群有多位管理员，当有人申请加群时，所有在线的管理员都会收到 [申请加群](https://web.sdk.qcloud.com/im/doc/zh-cn//Message.html#.GroupSystemNoticePayload)的群系统通知。如果某位管理员处理了这个申请（同意或者拒绝），则其他管理员无法重复处理（即不能修改处理的结果）。
 
 **接口名**
 
@@ -440,13 +440,13 @@ tim.handleGroupApplication(options);
 | :-------------- | :--------------------- | :--------- | :----------------------------------------------- |
 | `handleAction`  | `String `               |       -     | 处理结果 Agree（同意） / Reject（拒绝）                          |
 | `handleMessage` | `String`                       | `<optional>` | 附言                                                         |
-| `message`       | [Message](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html) |      -      | 申请加群的【群系统通知消息】的消息实例。该实例可通过以下方式获取：<li><a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.GROUP_SYSTEM_NOTICE_RECERIVED">收到新的群系统通知事件</a> 的回调参数中获取</li><li>系统类型会话的消息列表中获取</li> |
+| `message`       | [Message](https://web.sdk.qcloud.com/im/doc/zh-cn//Message.html) |      -      | 申请加群的【群系统通知消息】的消息实例。该实例可通过以下方式获取：<li><a href="https://web.sdk.qcloud.com/im/doc/zh-cn//module-EVENT.html#.GROUP_SYSTEM_NOTICE_RECERIVED">收到新的群系统通知事件</a> 的回调参数中获取</li><li>系统类型会话的消息列表中获取</li> |
 
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.group`为群组资料。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，`IMResponse.data.group`为群组资料。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -478,13 +478,13 @@ tim.setMessageRemindType(options);
 | 名称                | 类型   | 描述                                                         |
 | :------------------ | :----- | :----------------------------------------------------------- |
 | `groupID`           | `String` | 群组 ID                                                      |
-| `messageRemindType` | `String` | 群消息提示类型。详细如下：<li>TIM.TYPES.MSG_REMIND_ACPT_AND_NOTE：SDK 接收消息并抛出 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED">收到消息事件</a> 通知接入侧，接入侧做提示</li><li>TIM.TYPES.MSG_REMIND_ACPT_NOT_NOTE：SDK 接收消息并抛出 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED">收到消息事件</a> 通知接入侧，接入侧不做提示</li><li>TIM.TYPES.MSG_REMIND_DISCARD：SDK 拒收消息，不会抛出 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/module-EVENT.html#.MESSAGE_RECEIVED">收到新消息事件</a></li>|
+| `messageRemindType` | `String` | 群消息提示类型。详细如下：<li>TIM.TYPES.MSG_REMIND_ACPT_AND_NOTE：SDK 接收消息并抛出 <a href="https://web.sdk.qcloud.com/im/doc/zh-cn//module-EVENT.html#.MESSAGE_RECEIVED">收到消息事件</a> 通知接入侧，接入侧做提示</li><li>TIM.TYPES.MSG_REMIND_ACPT_NOT_NOTE：SDK 接收消息并抛出 <a href="https://web.sdk.qcloud.com/im/doc/zh-cn//module-EVENT.html#.MESSAGE_RECEIVED">收到消息事件</a> 通知接入侧，接入侧不做提示</li><li>TIM.TYPES.MSG_REMIND_DISCARD：SDK 拒收消息，不会抛出 <a href="https://web.sdk.qcloud.com/im/doc/zh-cn//module-EVENT.html#.MESSAGE_RECEIVED">收到新消息事件</a></li>|
 
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.group`为群组资料。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，`IMResponse.data.group`为群组资料。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -503,10 +503,10 @@ promise.then(function(imResponse) {
 
 >!
 >- 从v2.6.2版本开始，该接口支持拉取群成员禁言截止时间戳（muteUntil），接入侧可根据此值判断群成员是否被禁言，以及禁言的剩余时间。
->- 低于v2.6.2版本时，该接口获取的群成员列表中的资料仅包括头像、昵称等，能够满足群成员列表的渲染需求。如需查询群成员禁言截止时间戳（muteUntil）等详细资料，请使用 [getGroupMemberProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberProfile)。
->- 该接口是分页拉取群成员，不能直接用于获取群的总人数。获取群的总人数（memberNum）请使用 [getGroupProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupProfile) 。
+>- 低于v2.6.2版本时，该接口获取的群成员列表中的资料仅包括头像、昵称等，能够满足群成员列表的渲染需求。如需查询群成员禁言截止时间戳（muteUntil）等详细资料，请使用 [getGroupMemberProfile](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#getGroupMemberProfile)。
+>- 该接口是分页拉取群成员，不能直接用于获取群的总人数。获取群的总人数（memberNum）请使用 [getGroupProfile](https://web.sdk.qcloud.com/im/doc/zh-cn//SDK.html#getGroupProfile) 。
 
-更多详情请参见 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
+更多详情请参见 [GroupMember](https://web.sdk.qcloud.com/im/doc/zh-cn//GroupMember.html)。
 
 **接口名**
 
@@ -528,8 +528,8 @@ tim.getGroupMemberList(options);
 
 该接口返回`Promise`对象：
 
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.memberList`为群成员列表，请参考 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，`IMResponse.data.memberList`为群成员列表，请参考 [GroupMember](https://web.sdk.qcloud.com/im/doc/zh-cn//GroupMember.html)。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -562,7 +562,7 @@ promise.then(function(imResponse) {
 >- 使用该接口前，需要将 SDK 版本升级至v2.2.0或以上。
 >- 每次查询的用户数上限为50。如果传入的数组长度大于50，则只取前50个用户进行查询，其余丢弃。 
 
-更多详情请参见 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
+更多详情请参见 [GroupMember](https://web.sdk.qcloud.com/im/doc/zh-cn//GroupMember.html)。
 
 **接口名**
 
@@ -584,8 +584,8 @@ tim.getGroupMemberProfile(options);
 
 该接口返回`Promise`对象：
 
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.memberList`为查询成功的群成员列表，请参考 [GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html)。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，`IMResponse.data.memberList`为查询成功的群成员列表，请参考 [GroupMember](https://web.sdk.qcloud.com/im/doc/zh-cn//GroupMember.html)。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 ### 添加群成员
 
@@ -594,7 +594,7 @@ tim.getGroupMemberProfile(options);
 -  TIM.TYPES.GRP_PUBLIC 陌生人社交群/ TIM.TYPES.GRP_MEETING 临时会议群：只有 App 管理员可以邀请他人入群，且无需被邀请人同意，直接将其拉入群组中。
 -  TIM.TYPES.GRP_AVCHATROOM 直播群：不允许任何人邀请他人入群（包括 App 管理员）。
 
-更多详情请参见 [Group](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Group.html)[GroupMember](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/GroupMember.html) 和 [加群方式差异](https://cloud.tencent.com/document/product/269/1502#.E5.8A.A0.E7.BE.A4.E6.96.B9.E5.BC.8F.E5.B7.AE.E5.BC.82)。
+更多详情请参见 [Group](https://web.sdk.qcloud.com/im/doc/zh-cn//Group.html)[GroupMember](https://web.sdk.qcloud.com/im/doc/zh-cn//GroupMember.html) 和 [加群方式差异](https://cloud.tencent.com/document/product/269/1502#.E5.8A.A0.E7.BE.A4.E6.96.B9.E5.BC.8F.E5.B7.AE.E5.BC.82)。
 
 **接口名**
 
@@ -614,7 +614,7 @@ tim.addGroupMember(options);
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data`属性值如下表所示：
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，`IMResponse.data`属性值如下表所示：
 	<table>
      <tr>
          <th nowrap="nowrap">名称</th>  
@@ -638,12 +638,12 @@ tim.addGroupMember(options);
      </tr> 
 	 <tr>      
          <td>group</td>   
-	     <td><a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Group.html">Group</a></td>   
+	     <td><a href="https://web.sdk.qcloud.com/im/doc/zh-cn//Group.html">Group</a></td>   
 	     <td>接口调用后的群组资料</td>   
      </tr> 
 </table>
 
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -687,8 +687,8 @@ tim.deleteGroupMember(options)
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.group`为更新后的群组资料。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，`IMResponse.data.group`为更新后的群组资料。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -730,8 +730,8 @@ tim.setGroupMemberMuteTime(options)
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.group`是修改后的群资料。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，`IMResponse.data.group`是修改后的群资料。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -774,8 +774,8 @@ tim.setGroupMemberRole(options)
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.group`是修改后的群资料。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，`IMResponse.data.group`是修改后的群资料。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -821,8 +821,8 @@ tim.setGroupMemberNameCard(options)
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.group`是修改后的群资料。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，`IMResponse.data.group`是修改后的群资料。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -868,8 +868,8 @@ tim.setGroupMemberCustomField(options)
 **返回值**
 
 该接口返回`Promise`对象：
-- `then`的回调函数参数为 [IMResponse](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMResponse)，`IMResponse.data.group`是修改后的群资料。
-- `catch`的回调函数参数为 [IMError](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/global.html#IMError)。
+- `then`的回调函数参数为 [IMResponse](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMResponse)，`IMResponse.data.group`是修改后的群资料。
+- `catch`的回调函数参数为 [IMError](https://web.sdk.qcloud.com/im/doc/zh-cn//global.html#IMError)。
 
 **示例**
 
@@ -886,7 +886,7 @@ promise.then(function(imResponse) {
 ## 群提示消息
 
 当有用户被邀请加入群组或有用户被移出群组等事件发生时，群内会产生提示消息，接入侧可以根据需要展示给群组用户，或者忽略。
-群提示消息有多种类型，详细描述请参见 [Message.GroupTipPayload](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupTipPayload)。
+群提示消息有多种类型，详细描述请参见 [Message.GroupTipPayload](https://web.sdk.qcloud.com/im/doc/zh-cn//Message.html#.GroupTipPayload)。
 
 | 名称              | 类型             | 描述                                   |
 | :---------------- | :--------------- | :------------------------------------- |
@@ -900,12 +900,12 @@ promise.then(function(imResponse) {
 ## 群系统通知
 
 当有用户申请加群等事件发生时，管理员会收到申请加群等系统消息。管理员同意或拒绝加群申请，IM SDK 会将相应的消息通过群系统通知消息发送给接入侧，由接入侧展示给用户。
-群系统通知消息有多种类型，详细描述请参见 [群系统通知类型常量及含义](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload)。
+群系统通知消息有多种类型，详细描述请参见 [群系统通知类型常量及含义](https://web.sdk.qcloud.com/im/doc/zh-cn//Message.html#.GroupSystemNoticePayload)。
 
 <pre>
 let onGroupSystemNoticeReceived = function(event) {
-  const type = event.data.type; // 群系统通知的类型，详情请参见 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupSystemNoticePayload">Message.GroupSystemNoticePayload</a> 
-  const message = event.data.message; // 群系统通知的消息实例，详情请参见 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html">Message</a>
+  const type = event.data.type; // 群系统通知的类型，详情请参见 <a href="https://web.sdk.qcloud.com/im/doc/zh-cn//Message.html#.GroupSystemNoticePayload">Message.GroupSystemNoticePayload</a> 
+  const message = event.data.message; // 群系统通知的消息实例，详情请参见 <a href="https://web.sdk.qcloud.com/im/doc/zh-cn//Message.html">Message</a>
   console.log(message.payload); // 消息内容. 群系统通知 payload 结构描述
 };
 tim.on(TIM.EVENT.GROUP_SYSTEM_NOTICE_RECEIVED, onGroupSystemNoticeReceived);

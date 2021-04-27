@@ -1,3 +1,8 @@
+## 前提条件
+注册企业账号，并完成实名认证。
+
+如果还未完成以上操作，可参考 [企业实名认证指引](https://cloud.tencent.com/document/product/378/10496) 完成操作。
+
 ## 接入流程
 
 ![image.png](https://ai-sdk-release-1254418846.cos.ap-guangzhou.myqcloud.com/image/dongjh/eid_77f519b8-eda0-441d-9740-082c4615507b.png)

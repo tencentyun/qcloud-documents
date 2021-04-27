@@ -24,6 +24,7 @@
 	<ul class="params">
 	<li>可填写多个，以<code>,</code>分割。例如 <code>sg-id1,sg-id2</code>。</li>
 	<li>网络策略按安全组顺序生效。</li>
+	<li>请注意单个安全组默认只能关联 2000 个计算实例，如云服务器 CVM 或 弹性容器 Pod，详细请参考<a href="https://cloud.tencent.com/document/product/213/15379#.E5.AE.89.E5.85.A8.E7.BB.84.E7.9B.B8.E5.85.B3.E9.99.90.E5.88.B6" target="_blank">安全组限制</a>。</li>
 	</ul>
 </td>
 <td> 否。如不填写，则默认关联工作负载绑定同地域的 <code>default</code> 安全组。<br>如填写，请确保同地域已存在该安全组 ID。</td></tr>
@@ -43,6 +44,7 @@
 <ul  class="params">
 <li>intel</li>
 <li>amd</li>
+<li>支持优先级顺序写法，如 “amd,intel” 表示优先创建 amd 资源 Pod，如果所选地域可用区 amd 资源不足，则会创建 intel 资源 Pod。</li>
 </ul>
 各型号支持的具体配置请参考 <a href="https://console.cloud.tencent.com/cvm/securitygroup" target="_blank">资源规格</a>。</td>
 <td>否。如果不填写则默认不强制指定 CPU 类型，会根据 <a href="https://cloud.tencent.com/document/product/457/44174" target="_blank">指定资源规格方法</a> 尽量匹配最合适的规格，若匹配到的规格 Intel 和 amd 均支持，则优先选择 Intel。</td>
@@ -57,6 +59,7 @@
 <li>1/4*T4</li>
 <li>1/2*T4</li>
 <li>T4</li>
+<li>支持优先级顺序写法，如 “T4,V100” 表示优先创建 T4 资源 Pod，如果所选地域可用区 T4 资源不足，则会创建 V100 资源 Pod。</li>
 </ul>
 各型号支持的具体配置请参考 <a href="https://console.cloud.tencent.com/cvm/securitygroup" target="_blank">资源规格</a>。</td>
 <td>如需 GPU，则此项为必填项。填写时，请确保为支持的 GPU 型号，否则会报错。</td>
@@ -160,12 +163,36 @@ spec:
 
 弹性容器服务支持使用已有负载均衡器创建公网/内网访问的 Service。如果您具备空闲的应用型负载均衡，需要提供给即将创建的 Service 使用，或需要在集群内使用相同的负载均衡时，您可以通过添加 annotations 的方法指定。
 
+<table>
+<thead>
+<tr>
+<th width="20%">Annotation Key</th>
+<th width="40%">Annotation Value 及描述</th>
+<th width="40%">是否必填</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>service.kubernetes.io/tke-existed-lbid</td>
+<td> Service 使用已有 <a href="https://cloud.tencent.com/document/product/214/524" target="_blank">负载均衡CLB</a> 创建，value 填写希望使用的 CLB 实例 ID。</td>
+<td>否。如填写，请确保填写的 CLB 实例 ID 存在。</td>
+</tr>
+<tr>
+<td>service.kubernetes.io/qcloud-share-existed-lb</td>
+<td> 默认多个 Service 不可共用同一个 CLB 实例，如果希望 Service 复用其他 Service 占用的 CLB，请添加此 annotation 并将 value 填写为 <code>"true"</code>。</td>
+<td>否。不填写默认不可复用。</td>
+</tr>
+</tr>
+</tbody></table>
+
+另外，弹性集群也支持和 TKE 普通集群一致的扩展协议，详情请参考[Service 扩展协议](https://cloud.tencent.com/document/product/457/51259)。
+
 >!
 >- 请确保您的弹性容器服务业务不与云服务器业务共用一个负载均衡。
-> - 使用已有负载均衡时：
->  - 只能使用通过负载均衡控制台创建的负载均衡器，不支持复用由容器服务自动创建的负载均衡器。
->  - 复用负载均衡的 Service 端口不能冲突。
->  - 不支持跨集群 Service 复用负载均衡。
+>- 使用已有负载均衡时：
+>   - 只能使用通过负载均衡控制台创建的负载均衡器，不支持复用由容器服务自动创建的负载均衡器。
+>   - 复用负载均衡的 Service 端口不能冲突。
+>   - 不支持跨集群 Service 复用负载均衡。
 
 
 ### 示例
@@ -175,6 +202,7 @@ kind: Service
 metadata:
    annotations:
      service.kubernetes.io/tke-existed-lbid: lb-pxxxxxxq
+     service.kubernetes.io/qcloud-share-existed-lb: true
    name: servicename
    namespace: default
 spec:

@@ -58,7 +58,7 @@ Container 类型 Request 的具体数据描述如下：
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
 | Tag                | Request | 模板类型：Animation                                    | String    | 是   |
-| Name               | Request | 模板名称仅支持中文、英文、数字、_、-和*                    | String    | 是   |
+| Name               | Request | 模板名称仅支持中文、英文、数字、\_、\-和\*                    | String    | 是   |
 | Container          | Request | 容器格式                                               | Container | 是   |
 | Video              | Request | 视频信息                                               | Container | 否   |
 | TimeInterval       | Request | 时间区间                                               | Container | 否   |
@@ -75,21 +75,21 @@ Request 节点 Video 的具体数据描述如下：
 | 节点名称（关键字）         | 父节点        | 描述                  | 类型   | 必选 | 默认值       | 限制                                                         |
 | -------------------------- | ------------- | --------------------- | ------ | ---- | ------------ | ------------------------------------------------------------ |
 | Codec                      | Request.Video | 编解码格式            | String | 是   |  无  | gif, webp                                          |
-| Width                      | Request.Video | 宽                    | String | 否   | 视频原<br/>始宽度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Width 时，按照视频原始比例计算 Height |
-| Height                     | Request.Video | 高                    | String | 否   | 视频原<br/>始高度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Height 时，按照视频原始比例计算 Width |
-| Fps                        | Request.Video | 帧率                  | String | 否   | 视频原<br/>始帧率 | <li>值范围：(0，60]<br/><li>单位：fps<br/><li>如果不设置，那么播放速度按照原来的时间戳。这里设置 fps 为动图的播放帧率 |
-| AnimateOnly<br/>KeepKeyFrame    | Request.Video | 动图只保留<br/>关键帧      | String | 否   |      无        | <li>true、false<br/><li>动图保留关键帧参数                     |
-| AnimateTime<br/>IntervalOfFrame | Request.Video | 动图抽帧间<br/>隔时间      | String | 否   |      无        | <li>（0，视频时长]<br/><li>动图抽帧时间间隔<br/><li>若设置 TimeInterval.Duration，则小于该值 |
-| AnimateFrames<br/>PerSecond     | Request.Video | Animation 每秒<br/>抽帧帧数 | String | 否   |     无         | <li>（0，视频帧率)<br/><li>动图抽帧频率<br/><li>优先级：AnimateFramesPerSecond >  AnimateOnlyKeepKeyFrame  > AnimateTimeIntervalOfFrame |
-| Quality                    | Request.Video | 设置相对质量          | String | 否   |     无         | <li>[1, 100)<br/><li>webp 图像质量设定生效，gif 没有质量参数 |
+| Width                      | Request.Video | 宽                    | String | 否   | 视频原<br/>始宽度 | <li>值范围：[128，4096]</li><li>单位：px</li><li>若只设置 Width 时，按照视频原始比例计算 Height</li> |
+| Height                     | Request.Video | 高                    | String | 否   | 视频原<br/>始高度 | <li>值范围：[128，4096]</li><li>单位：px</li><li>若只设置 Height 时，按照视频原始比例计算 Width</li> |
+| Fps                        | Request.Video | 帧率                  | String | 否   | 视频原<br/>始帧率 | <li>值范围：(0，60]</li><li>单位：fps</li><li>如果不设置，那么播放速度按照原来的时间戳。这里设置 fps 为动图的播放帧率</li> |
+| AnimateOnly<br/>KeepKeyFrame    | Request.Video | 动图只保留<br/>关键帧      | String | 否   |      false        | <li>true、false</li><li>动图保留关键帧参数 </li>                    |
+| AnimateTime<br/>IntervalOfFrame | Request.Video | 动图抽帧间<br/>隔时间      | String | 否   |      无        | <li>（0，视频时长]</li><li>动图抽帧时间间隔</li><li>若设置 TimeInterval.Duration，则小于该值</li> |
+| AnimateFrames<br/>PerSecond     | Request.Video | Animation 每秒<br/>抽帧帧数 | String | 否   |     无         | <li>（0，视频帧率)</li><li>动图抽帧频率</li><li>优先级：AnimateFramesPerSecond >  AnimateOnlyKeepKeyFrame  > AnimateTimeIntervalOfFrame</li> |
+| Quality                    | Request.Video | 设置相对质量          | String | 否   |     无         | <li>[1, 100)</li><li>webp 图像质量设定生效，gif 没有质量参数</li> |
 
 
 Request 节点 TimeInterval 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Start                | Request.TimeInterval | 开始时间 | String    | 否   | 0 |<li> [0 视频时长] <br/> <li>单位为秒 <br/> <li>支持 float 格式，执行精度精确到毫秒 |
-| Duration             | Request.TimeInterval | 持续时间 | String    | 否   | 视频时长 | <li> [0 视频时长] <br/><li>单位为秒 <br/> <li>支持 float 格式，执行精度精确到毫秒 |
+| Start                | Request.TimeInterval | 开始时间 | String    | 否   | 0 |<li> [0 视频时长] </li> <li>单位为秒 </li> <li>支持 float 格式，执行精度精确到毫秒</li> |
+| Duration             | Request.TimeInterval | 持续时间 | String    | 否   | 视频时长 | <li> [0 视频时长] </li><li>单位为秒 </li> <li>支持 float 格式，执行精度精确到毫秒</li> |
 
 
 ## 响应
@@ -160,21 +160,21 @@ TransTpl 节点 Video 的具体数据描述如下：
 | 节点名称（关键字）         | 父节点        | 描述                  | 类型   | 必选 | 默认值       | 限制                                                         |
 | -------------------------- | ------------- | --------------------- | ------ | ---- | ------------ | ------------------------------------------------------------ |
 | Codec                      | Response.<br/>TransTpl.Video | 编解码格式            | String | 是   |  无  |  gif, webp                                          |
-| Width                      | Response.<br/>TransTpl.Video | 宽                    | String | 否   | 视频原始宽度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Width 时，按照视频原始比例计算 Height |
-| Height                     | Response.<br/>TransTpl.Video | 高                    | String | 否   | 视频原始高度 | <li>值范围：[128，4096]<br/><li>单位：px<br/><li>若只设置 Height 时，按照视频原始比例计算Width |
-| Fps                        | Response.<br/>TransTpl.Video | 帧率                  | String | 否   | 视频原始帧率 | <li>值范围：(0，60]<br/><li>单位：fps<br/><li>帧率超过60时，设置为60<br/>用户可以设置 fps，如果不设置，那么播放速度按照原来的时间戳。这里设置 fps 为动图的播放帧率 |
-| AnimateOnly<br/>KeepKeyFrame    | Response.<br/>TransTpl.Video | 动图只保留关键帧      | String | 否   |      无        | <li>true、false<br/><li>动图保留关键帧参数                     |
-| AnimateTime<br/>IntervalOfFrame | Response.<br/>TransTpl.Video | 动图抽帧间隔时间      | String | 否   |      无        | <li>（0，视频时长]<br/><li>动图抽帧时间间隔<br/><li> 若设置 TimeInterval.Duration，则小于该值 |
-| AnimateFrames<br/>PerSecond     | Response.<br/>TransTpl.Video | Animation 每秒抽帧帧数 | String | 否   |     无         | <li>（0，视频帧率)<br/><li>动图抽帧频率<br/><li> 优先级：AnimateFramesPerSecond >  AnimateOnlyKeepKeyFrame  > AnimateTimeIntervalOfFrame |
-| Quality                    | Response.<br/>TransTpl.Video | 设置相对质量          | String | 否   |     无         | <li>[1, 100)<br/><li>webp 图像质量设定生效，gif 没有质量参数 |
+| Width                      | Response.<br/>TransTpl.Video | 宽                    | String | 否   | 视频原始宽度 | <li>值范围：[128，4096]</li><li>单位：px</li><li>若只设置 Width 时，按照视频原始比例计算 Height</li> |
+| Height                     | Response.<br/>TransTpl.Video | 高                    | String | 否   | 视频原始高度 | <li>值范围：[128，4096]</li><li>单位：px</li><li>若只设置 Height 时，按照视频原始比例计算Width </li>|
+| Fps                        | Response.<br/>TransTpl.Video | 帧率                  | String | 否   | 视频原始帧率 | <li>值范围：(0，60]</li><li>单位：fps</li><li>帧率超过60时，设置为60<br/>用户可以设置 fps，如果不设置，那么播放速度按照原来的时间戳。这里设置 fps 为动图的播放帧率</li> |
+| AnimateOnly<br/>KeepKeyFrame    | Response.<br/>TransTpl.Video | 动图只保留关键帧      | String | 否   |      false        | <li>true、false<br/><li>动图保留关键帧参数                     |
+| AnimateTime<br/>IntervalOfFrame | Response.<br/>TransTpl.Video | 动图抽帧间隔时间      | String | 否   |      无        | <li>（0，视频时长]</li><li>动图抽帧时间间隔</li><li> 若设置 TimeInterval.Duration，则小于该值 </li>|
+| AnimateFrames<br/>PerSecond     | Response.<br/>TransTpl.Video | Animation 每秒抽帧帧数 | String | 否   |     无         | <li>（0，视频帧率)</li><li>动图抽帧频率</li><li> 优先级：AnimateFramesPerSecond >  AnimateOnlyKeepKeyFrame  > AnimateTimeIntervalOfFrame </li>|
+| Quality                    | Response.<br/>TransTpl.Video | 设置相对质量          | String | 否   |     无         | <li>[1, 100)</li><li>webp 图像质量设定生效，gif 没有质量参数</li> |
 
 
 TransTpl 节点 TimeInterval 的具体数据描述如下：
 
 | 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 | 默认值       | 限制  |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
-| Start                | Response.TransTpl.TimeInterval | 开始时间 | String    | 否   | 0 | <li> [0 视频时长] <br/> <li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
-| Duration             | Response.TransTpl.TimeInterval | 持续时间 | String    | 否   | 视频时长 | <li>[0 视频时长] <br/><li>单位为秒 <br/><li>支持 float 格式，执行精度精确到毫秒 |
+| Start                | Response.TransTpl.TimeInterval | 开始时间 | String    | 否   | 0 | <li> [0 视频时长]</li> <li>单位为秒</li><li>支持 float 格式，执行精度精确到毫秒</li> |
+| Duration             | Response.TransTpl.TimeInterval | 持续时间 | String    | 否   | 视频时长 | <li>[0 视频时长] </li><li>单位为秒 </li><li>支持 float 格式，执行精度精确到毫秒</li> |
 
 
 #### 错误码
@@ -191,6 +191,8 @@ Authorization:q-sign-algorithm=sha1&q-ak=AKIDZfbOAo7cllgPvF9cXFrJD0a1ICvR****&q-
 Host:bucket-1250000000.ci.ap-beijing.myqcloud.com
 Content-Length: 1666
 Content-Type: application/xml
+
+
 
 <Request>
    <Tag>Animation</Tag>
@@ -222,6 +224,8 @@ Connection: keep-alive
 Date: Thu, 15 Jun 2017 12:37:29 GMT
 Server: tencent-ci
 x-ci-request-id: NTk0MjdmODlfMjQ4OGY3XzYzYz****=
+
+
 
 <Response>
     <Template>

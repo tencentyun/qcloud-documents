@@ -67,52 +67,65 @@ EKS 提供以下型号 GPU Pod 规格，不同的 GPU 卡型号和大小会对�
 	<tr>
 		<th>地域</th>
 		<th>可用区</th>
-		<th>支持资源类型</th>
 	</tr>
 	<tr>
-		<td rowspan="2">华南地区（广州）<br> ap-guangzhou</td>
-		<td>广州三区<br> ap-guangzhou-3</td>
-		<td> Intel CPU、GPU/vGPU(V100) </td>
+		<td rowspan="3">华南地区（广州）<br> ap-guangzhou</td>
+		<td>广州三区<br> ap-guangzhou-3</td>	
 	</tr>
 	<tr>
 		<td>广州四区<br>ap-guangzhou-4</td>
-		<td> AMD CPU、GPU/vGPU(V100) </td>
+	</tr>	
+		<tr>
+		<td>广州六区<br>ap-guangzhou-6</td>
 	</tr>	
 	<tr>
 		<td rowspan="4">华东地区（上海）<br>ap-shanghai</td>
 		<td>上海二区<br>ap-shanghai-2</td>
-		<td> Intel CPU、GPU/vGPU(T4)  </td>
 	</tr>
 	<tr>
 		<td>上海三区<br>ap-shanghai-3</td>
-		<td> Intel CPU </td>
 	</tr>
 	<tr>
 		<td>上海四区<br>ap-shanghai-4</td>
-		<td> Intel CPU </td>
 	</tr>
 	<tr>
 		<td>上海五区<br>ap-shanghai-5</td>
-		<td> Intel/AMD CPU </td>
 	</tr>
 	<tr>
-		<td rowspan="1">华东地区（南京）<br> ap-nanjing</td>
-		<td>南京一区<br> ap-nanjing-1</td>
-		<td> Intel/AMD CPU </td>
-	</tr>
+		<td rowspan="3">华东地区（南京）<br> ap-nanjing</td>
+		<td>南京一区<br> ap-nanjing-1</td></tr>
+			<tr><td>南京二区<br> ap-nanjing-2</td></tr>
+	<tr><td>南京三区<br> ap-nanjing-3</td></tr>
 	<tr>
-			<td rowspan="3">华北地区（北京）<br>ap-beijing</td>
+			<td rowspan="5">华北地区（北京）<br>ap-beijing</td>
 			<td>北京三区<br>ap-beijing-3</td>
-			<td> Intel/AMD CPU </td>
 	</tr>
 	<tr>
 		<td>北京四区<br>ap-beijing-4</td>
-		<td> Intel CPU </td>
 	</tr>
 	<tr>
 		<td>北京五区<br>ap-beijing-5</td>
-		<td> Intel CPU </td>
 	</tr>
+	<tr>
+		<td>北京六区<br>ap-beijing-6</td>
+	</tr>
+	<tr>
+		<td>北京七区<br>ap-beijing-7</td>
+	</tr>
+		<tr>
+		<td rowspan="2">西南地区（成都）<br> ap-chengdu</td>
+		<td>成都一区<br> ap-chengdu-1</td>
+	</tr>
+	<tr>
+		<td>成都二区<br>ap-chengdu-2</td>
+	</tr>	   
+			<tr>
+		<td rowspan="1">港澳台地区（中国香港）
+<br> ap-hongkong</td>
+		<td>香港二区（中国香港节点可用于覆盖港澳台地区）
+<br> ap-hongkong-2</td>
+	</tr>
+	
 </tbody>
 </table>
 

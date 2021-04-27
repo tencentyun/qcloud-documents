@@ -14,26 +14,33 @@
 3. 小程序按照提示依次获取 Wi-Fi 列表，输入家里目标路由器的 SSID/PSW，再选择设备 softAP 热点的 SSID/PSW。
 4. 手机连接设备 softAP 热点成功后，小程序作为 UDP 客户端会连接 Wi-Fi 设备上面的 UDP 服务（默认 IP 为**192.168.4.1**，端口为**8266**）。
 5. 小程序给设备 UDP 服务，发送目标 Wi-Fi 路由器的 SSID/PSW 以及配网 Token，JSON 格式为：
-```json
+<dx-codeblock>
+:::  json
    {"cmdType":1,"ssid":"Home-WiFi","password":"abcd1234","token":"6aa11111****23****546****11****d"} 
-```
+:::
+</dx-codeblock>
 发送完成后，等待设备 UDP 回复设备信息及配网协议版本号：
-```json  
-   {"cmdType":2,"productId":"OSPB5ASRWT","deviceName":"dev_01","protoVersion":"2.0"}
-```
+<dx-codeblock>
+:::  json
+{"cmdType":2,"productId":"OSPB5ASRWT","deviceName":"dev_01","protoVersion":"2.0"}
+:::
+</dx-codeblock>
 6. 如果2秒之内，未收到设备回复，则重复步骤5，UDP 客户端重复发送目标 Wi-Fi 路由器的 SSID/PSW 及配网 Token。（如果重复发送5次，都没有收到回复，则认为配网失败，Wi-Fi 设备有异常）      
 7. 如果步骤5收到设备回复，则说明设备端已收到 Wi-Fi 路由器的 SSID/PSW 及 Token，正在连接 Wi-Fi 路由器，并上报 Token。此时小程序会提示手机也将连接 Wi-Fi 路由器，并通过 Token 轮询物联网后台，来确认配网及设备绑定是否成功。小程序相关操作可以参考 [查询配网Token状态](https://cloud.tencent.com/document/product/1081/44045)。
 8. 设备端在成功连接 Wi-Fi 路由器后，需要通过 MQTT 连接物联网后台，并将小程序发送的配网 Token，通过下面 MQTT 报文上报给后台服务：
+
 ```json
-    topic: $thing/up/service/ProductID/DeviceName
-    payload: {"method":"app_bind_token","clientToken":"client-1234","params": {"token":"6****345****234ee7****6e528a0fd"}}
+	topic: $thing/up/service/ProductID/DeviceName
+	payload: {"method":"app_bind_token","clientToken":"client-1234","params": {"token":"6****345****234ee7****6e528a0fd"}}
 ```
 设备端也可以通过订阅主题 $thing/down/service/ProductID/DeviceName 来获取 Token 上报的结果。
 >!如果设备需要通过动态注册来创建设备并获取设备密钥，则会先进行动态注册再连接 MQTT。
+>
 9. 在以上5 - 7步骤中，需观察以下情况：
   - 如果小程序收到设备 UDP 服务发送过来的错误日志，且 deviceReply 字段的值为"Current_Error"，则表示当前配网绑定过程中出错，需要退出配网操作。
   - 如果 deviceReply 字段是"Previous_Error"，则为上一次配网的出错日志，只需要上报，不影响当此操作。
 错误日志 JSON 格式，示例如下：
+
 ```json
 {"cmdType":2,"deviceReply":"Current_Error","log":"ESP WIFI connect error! (10, 2)"} 
 ```
@@ -56,7 +63,8 @@ AT+TCSAP="ESP8266-SAP","12345678"
 
 #### 使用示例
 配网接口说明请查看 wifi_config/qcloud_wifi_config.h，您可以按照以下方式使用：
-```c
+<dx-codeblock>
+:::  c
 /* 在微信小程序中使用WiFi配置和设备绑定 */
 int wifi_config_state;
 int ret = start_softAP("ESP8266-SAP", "12345678", 0);
@@ -79,7 +87,8 @@ if (!wifi_connected) {
 		start_log_softAP();
 }
 
-```
+:::
+</dx-codeblock>
 
 #### 代码设计说明
 配网代码将核心逻辑与平台相关底层操作分离，便于移植到不同的硬件设备上。

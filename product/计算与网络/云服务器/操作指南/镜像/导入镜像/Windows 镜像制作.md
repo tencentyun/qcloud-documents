@@ -72,21 +72,14 @@ bootmenupolicy          Standard
  - 网卡更换为 Virtio Nic，默认为本地连接。
 
 ### 导出镜像
-
-根据实际需求，选择不同的工具导出镜像。
-- [使用平台工具导出镜像](#Useplatform)。
-- [使用 disk2vhd 导出镜像](#Usedisk2vhd)。
-
-<span id="Useplatform"></span>
-#### 使用平台工具导出镜像
-
+根据实际需求，选择不同的工具导出镜像：
+<dx-tabs>
+::: 使用平台工具导出镜像[](id:Useplatform)
 使用 VMWare vCenter Convert 或 Citrix XenConvert 等虚拟化平台的导出镜像工具。详情请参见各平台的导出工具文档。
 >? 目前腾讯云服务迁移支持的镜像格式有：qcow2，vhd，raw，vmdk。
 >
-
-<span id="Usedisk2vhd"></span>
-#### 使用 disk2vhd 导出镜像
-
+:::
+::: 使用\sdisk2vhd\s导出镜像[](id:Usedisk2vhd)
 当您的需要导出物理机上的系统或者不想使用平台工具导出时，可以使用 disk2vhd 工具进行导出。
 1. 安装并打开 disk2vhd 工具。
 [点此下载 disk2vhd 工具 >>](https://download.sysinternals.com/files/Disk2vhd.zip)
@@ -97,6 +90,9 @@ bootmenupolicy          Standard
 > - 建议勾选 “Use volume Shadow Copy”，使用卷影复制功能，将能更好地保证数据完整性。
 > 
 ![image](https://main.qcloudimg.com/raw/68d9c4e5e7db49c4cefdd3785ce9b68d.jpg)
+:::
+</dx-tabs>
+
 
 ### 检查镜像
 

@@ -3,7 +3,7 @@ Android SDK 接入请观看视频：
 
 ## 接入准备
 ### SDK 获取
-一句话识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/sentence/QCloudOneSentenceSDK_Android.zip)
+一句话识别 Android SDK 及 Demo 下载地址：[Android SDK](https://sdk-1300466766.cos.ap-shanghai.myqcloud.com/realtime/QCloudSDK_Android_v2.4.6.zip)。
 
 ### 接入须知
 - 开发者在调用前请先查看一句话识别的 [接口说明](https://cloud.tencent.com/document/product/1093/37308)，了解接口的使用要求和使用步骤。  
@@ -18,7 +18,7 @@ Android SDK 接入请观看视频：
 2. **添加其他依赖，在 App 的 build.gradle 文件中添加以下代码**。
 ```
  implementation 'com.google.code.gson:gson:2.8.5'
- implementation 'com.squareup.okhttp3:okhttp:4.0.0-RC1'
+ implementation 'com.squareup.okhttp3:okhttp:4.2.2'
  implementation 'com.squareup.okio:okio:1.11.0'
  implementation 'org.slf4j:slf4j-api:1.7.25'
 ```
@@ -31,7 +31,11 @@ Android SDK 接入请观看视频：
 < uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 < uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
 ```
-![](https://main.qcloudimg.com/raw/6747bb63630abc76a7ec846397b59eff.png)
+4. **在 AndroidManifest.xml 声明如下 service：**
+```
+<!--<service android:name=".service.MyIntentService"/>-->
+<service android:name="com.tencent.cloud.qcloudasrsdk.recorder.service.QCloudAudioMp3RecoderService" />
+```
 
 ## 快速接入
 ### 开发流程及接入示例

@@ -72,7 +72,7 @@ TRTCVoiceRoom 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                                             | 描述                                                         |
 | ----------------------------------------------- | ------------------------------------------------------------ |
-| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TXAudioEffectManager](#trtcaudioeffectmanagerapi)。 |
+| [getAudioEffectManager](#getaudioeffectmanager) | 获取背景音乐音效管理对象 [TXAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXAudioEffectManager__android.html#interfacecom_1_1tencent_1_1liteav_1_1audio_1_1TXAudioEffectManager)。 |
 
 ### 消息发送相关接口
 
@@ -517,7 +517,7 @@ public abstract void setAudioQuality(int quality);
 
 | 参数    | 类型 | 含义                                                         |
 | ------- | ---- | ------------------------------------------------------------ |
-| quality | int  | 音频质量，详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a955cccaddccb0c993351c656067bee55)。 |
+| quality | int  | 音频质量，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a955cccaddccb0c993351c656067bee55)。 |
 
 
 ### muteLocalAudio
@@ -532,7 +532,7 @@ public abstract void muteLocalAudio(boolean mute);
 
 | 参数 | 类型    | 含义                                                         |
 | ---- | ------- | ------------------------------------------------------------ |
-| mute | boolean | 静音/取消静音，详情请参见 [TRTC SDK](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86)。 |
+| mute | boolean | 静音/取消静音，详情请参见 [TRTC SDK](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a37f52481d24fa0f50842d3d8cc380d86)。 |
 
 
 
@@ -616,7 +616,7 @@ public abstract void muteAllRemoteAudio(boolean mute);
 
 ### getAudioEffectManager
 
-获取背景音乐音效管理对象 [TXAudioEffectManager](http://doc.qcloudtrtc.com/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。
+获取背景音乐音效管理对象 [TXAudioEffectManager](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__android.html#a3646dad993287c3a1a38a5bc0e6e33aa)。
 
 ```java
 public abstract TXAudioEffectManager getAudioEffectManager();

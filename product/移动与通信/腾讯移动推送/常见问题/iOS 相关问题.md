@@ -49,7 +49,10 @@ openssl x509 -in apns-dev-cert.pem -inform pem -noout -text
 5. 查看证书环境及对应 Bundle id 看是否与应用匹配，如下图所示：
 ![](https://main.qcloudimg.com/raw/ba0e35a8bbd0e77022f26ad1dcca83ca.png)
 
+### 在 App 冷启动时点击通知， 为什么没有触发点击通知事件的回调？
 
+1. 请检查 TPNS SDK 的版本，如果是 V1.2.5.3 及之前的版本，建议更新至 V1.2.5.4 及之后的 SDK 版本。
+2. 请检查 TPNS SDK 的初始化方法调用时机，目前需要在 App 启动方法中的主线程中尽快调用，保证 TPNS SDK 第一时间被设置为通知中心的代理。
 
 ### 推送内容为空时，在 iOS 10系统版本及以下的设备无法弹出通知？
 

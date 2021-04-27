@@ -9,29 +9,30 @@
 <dx-accordion>
 ::: 典型场景一：秒杀/抢购活动
 秒杀&抢购活动中，对整体资源的应用弹性的要求较高，而且和业务的主干场景联系较为紧密。云函数 SCF 一般是业务系统中较为独立的模块，便于迁移和改造。您可以通过负载均衡 CLB 无缝支持云函数，对于按调用次数的收费场景，整体计费和迁移成本都会比较低。同域名下，还可以轻松解决跨资源共享（CORS）跨域问题。
-![](https://main.qcloudimg.com/raw/9407d48ee26c116a59c26c83e3f8c9db.png)
+![](https://main.qcloudimg.com/raw/44f4f22951e7a2f66bda10f5a372ba82.svg)
 :::
 ::: 典型场景二：辅助系统架构
 企业的非主干 WEB 业务，例如订单系统、采集系统、BI 分析等对削峰填谷比较敏感的非主干场景，使用云函数 SCF 结合负载均衡 CLB ，整体迁移成本会比较低且迁移收益大。
-![](https://main.qcloudimg.com/raw/414fc87fbcc391912d42261a8347bf15.png)
+![](https://main.qcloudimg.com/raw/72d7fbf9db19e2613c773e4c1ef40493.svg)
 :::
 ::: 典型场景三：动静态业务分离
 当业务请求量较大时，可以通过区分网站的静态和动态请求，有针对性地对其进行分发处理，有效减少后端负载压力。其中动态请求可以通过单独部署负载均衡及关联云函数 SCF 服务进行处理，静态内容可以通过接入 CDN 服务，结合对象存储进行优化，提升加载速度。
-![](https://main.qcloudimg.com/raw/910ee56aac139ead66be7dae556ca6e2.png)
+![](https://main.qcloudimg.com/raw/ce8ccd3bcd1a56e7ea6dfc1c5b044c82.svg)
 :::
 ::: 典型场景四：同域名的地域级访问服务
 业务对地域要求较高时，可以通过负载均衡 CLB 对云函数 SCF 做地域级访问划分。
 :::
 </dx-accordion>
 
-
 ## 限制说明
+- 仅广州、深圳金融、上海、上海金融、北京、成都、中国香港、新加坡、孟买、东京、硅谷地域支持绑定 SCF。
 - 仅标准账户类型支持绑定 SCF，传统账户类型不支持。建议升级为标准账户类型，详情可参见 [账户类型升级说明](https://cloud.tencent.com/document/product/1199/49090)。 
 - 传统型负载均衡不支持绑定 SCF。
 - 基础网络类型不支持绑定 SCF。
 - 仅支持跨 VPC 绑定 SCF，不支持跨地域绑定。
 - 目前仅 IPv4、IPv6 NAT64 版本的负载均衡支持绑定 SCF，IPv6 版本的暂不支持。
 - 仅七层（HTTP、HTTPS）监听器支持绑定 SCF，四层（TCP、UDP、TCP SSL）监听器和七层 QUIC 监听器不支持。
+
 
 ## 前提条件
 1. [创建负载均衡实例](https://cloud.tencent.com/document/product/214/6149)

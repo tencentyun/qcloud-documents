@@ -1,7 +1,8 @@
 ## 操作场景
 Discuz! Q 是全球成熟度最高、覆盖率最大的社区论坛软件系统之一。腾讯云轻量应用服务器 Lighthouse 提供 Discuz! Q 应用镜像，其中已集成宝塔 Linux 面板、MySQL、Nginx 和 PHP 软件，您可以使用它构建移动端社区。
->?Discuz! Q 应用镜像底层基于 CentOS 7.6 64位操作系统。实例创建完成后将会自动下载并安装最新版的 Discuz! Q 软件。
-
+>?
+>- Discuz! Q 应用镜像底层基于 CentOS 7.6 64位操作系统。
+>- 轻量应用服务器实例创建完成后，将会自动下载并安装最新版的 Discuz! Q 软件。您无需进行 Discuz! Q 初始化等安装操作，可参考文档步骤，获取管理员帐号及密码并进行登录。
 
 ## 操作步骤
 1. 登录 [轻量应用服务器控制台](https://console.cloud.tencent.com/lighthouse)。
@@ -17,10 +18,10 @@ Discuz! Q 是全球成熟度最高、覆盖率最大的社区论坛软件系统�
 4. 待实例创建完成后，在服务器列表中，选择并进入该实例的详情页。
 您可以在此页面查看 Discuz! Q 应用的各项配置信息。
 5. 选择【应用管理】页签，进入应用管理详情页。
-6. <span id="Step6"></span>在“应用内软件信息”栏中，单击<img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png">，复制获取 Discuz! Q 的管理员帐户密码的命令。
+6. [](id:Step6)在“应用内软件信息”栏中，单击<img src="https://main.qcloudimg.com/raw/6603ab4f907562addb1c01596c6296cd.png">，复制获取 Discuz! Q 的管理员帐户密码的命令。
 7. 在“应用内软件信息”栏中，单击【登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/f98e022191f1fcb49698fa2db2f519ff.png)
-8. <span id="Step8"></span>在弹出的登录窗口中，粘贴 [步骤6](#Step6) 复制的管理员密码，按 **Enter**。
+8. [](id:Step8)在弹出的登录窗口中，粘贴 [步骤6](#Step6) 复制的管理员密码，按 **Enter**。
 如下图所示即可获取 Discuz! Q 管理员账号（admin）和对应的密码，请妥善保管并记录。
 ![](https://main.qcloudimg.com/raw/1a809d9ca378835675299e37a1c9cebd.png)
 9. 关闭登录窗口，并返回该实例的应用管理详情页。
