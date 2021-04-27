@@ -281,7 +281,7 @@ Logstash 实例 支持以下节点类型：
   <tr>
     <td class="tg-llyw" colspan="1">北京/上海/广州/南京</td>
     <td class="tg-llyw" colspan="1">成都/重庆</td>
-		<td class="tg-llyw" colspan="1">上海/深圳金融</td>
+		<td class="tg-llyw" colspan="1">北京/上海/深圳金融</td>
     <td class="tg-llyw" colspan="1">中国香港</td>
     <td class="tg-llyw" colspan="1">新加坡</td>
     <td class="tg-llyw" colspan="1">泰国</td>
@@ -554,7 +554,7 @@ Logstash 实例 支持以下节点类型：
   <tr>
     <td class="tg-llyw" colspan="1">北京/上海/广州/南京</td>
     <td class="tg-llyw" colspan="1">成都/重庆</td>
-		<td class="tg-llyw" colspan="1">上海/深圳金融</td>
+		<td class="tg-llyw" colspan="1">北京/上海/深圳金融</td>
     <td class="tg-llyw" colspan="1">中国香港</td>
     <td class="tg-llyw" colspan="1">新加坡</td>
     <td class="tg-llyw" colspan="1">泰国</td>
