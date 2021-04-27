@@ -140,7 +140,7 @@ OcrSDKKit.getInstance().startProcessOcrResultEntity(OcrTypeIdCardActivity.this,
 | OcrType.BankCardOCR     | 银行卡正面识别模式     | BankCardOcrResult       |
 | OcrType.BusinessCardOCR | 名片卡正面识别模式     | BusinessCardOcrResult   |
 | OcrType.MLIdCardOCR     | 马来西亚身份证识别模式 | MalaysiaIdCardOcrResult |
-| OcrType.VinOCR | 车辆的VIN识别模式 | VinOcrResult |
+| OcrType.VinOCR | 车辆的 VIN 识别模式 | VinOcrResult |
 | OcrType.LicensePlateOCR | 车辆的车牌识别模式 | CarLicensePlateResult |
 
 
