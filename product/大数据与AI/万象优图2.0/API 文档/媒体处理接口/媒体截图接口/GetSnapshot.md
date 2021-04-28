@@ -18,14 +18,9 @@ Content-Length: <length>
 
 #### 请求头
 
-#### 公共头部
-该请求操作的实现使用公共请求头，了解公共请求头详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
+此接口仅使用公共请求头部，详情请参见 [公共请求头部](https://cloud.tencent.com/document/product/460/42865) 文档。
 
-#### 非公共头部
-该请求操作无特殊的请求头部信息。
-
-#### 请求体
-该请求无请求体。
+#### 请求参数
 
 参数的具体内容如下：
 
@@ -40,14 +35,15 @@ Content-Length: <length>
 | mode | 截帧方式<br/><li>keyframe：截取指定时间点之前的最近的一个关键帧<br><li>exactframe：截取指定时间点的帧<br/>默认值为 exactframe | String |否|
 
 
+#### 请求体
+该请求无请求体。
+
+
 ## 响应
 
 #### 响应头
-#### 公共响应头
-该响应包含公共响应头，了解公共响应头详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 文档。
 
-#### 特有响应头
-该响应无特殊的响应头。
+该响应包含公共响应头，详情请参见 [公共响应头部](https://cloud.tencent.com/document/product/460/42866) 文档。
 
 #### 响应体
 该响应体为截图文件内容。
