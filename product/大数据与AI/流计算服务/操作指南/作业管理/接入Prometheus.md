@@ -62,7 +62,7 @@ metrics.reporter.promgateway.password: ${Prometheus 访问密码}
 3. 进入 Prometheus 的告警配置界面，新增一条规则。
 > ! 
 >- 在规则 PromQL 中，{ } 中不要包含上图中的 Grafana 变量，例如 `instance_id="$InstanceId"` 等。如果需要按条件筛选，请在 { } 中填入具体值，例如 `instance_id="cql-abcd0012"`。
->- 数据源中的变量（例如 job_id），可以在告警对象和告警消息中引用，例如 `{{ $labels.job_id }}`，而查询语句的值可以用 `{{ $value }}` 表示。
+>- 数据源中的标签（例如 job_id），可以在告警对象和告警消息中引用，例如 `{{ $labels.job_id }}`，而查询语句的值可以用 `{{ $value }}` 表示。
 > 
 ![](https://main.qcloudimg.com/raw/ec1b90b289b6a92e816e03c579a51e1f.png)
 4. 当告警触发、恢复时，配置的告警渠道就会收到通知。此外，[通知模板](https://console.cloud.tencent.com/monitor/alarm2/notice) 中还支持短信、电话、邮件等其他告警渠道。
