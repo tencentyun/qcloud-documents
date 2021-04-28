@@ -8,21 +8,18 @@
 ## Oceanus Grafana 面板导入方法
 1. 下载 Oceanus Grafana Dashboard 模板并解压到本地。[点此下载 Dashboard](https://oceanus-public-1257058918.cos.ap-guangzhou.myqcloud.com/Oceanus-Prometheus-Dashboard.zip)
 2. 在 Prometheus 的 Grafana 面板上，鼠标移动到左边栏，选择【Dashboard】>【Manage】。
-![](https://main.qcloudimg.com/raw/0e5e67edfb521542060481c38e89da90.png)
+![](https://main.qcloudimg.com/raw/4899b13ef9523d5f5dbb3491018dc6aa.png)
 3. 创建一个名为 Oceanus 新文件夹。
-![](https://main.qcloudimg.com/raw/26e7e894ebca1b3e90e640346cba80f9.png)
-![](https://main.qcloudimg.com/raw/5102f4b6a2fe7dd3e6d10bfacae2e396.png)
+![](https://main.qcloudimg.com/raw/e6886e7dd7b99a6d1ebca724bd923d50.png)![](https://main.qcloudimg.com/raw/ce24ede1a62e492fbf2fa9e896d2883b.png)
 4. 再次进入 Dashboard 管理页面，单击右上角的【Import】，**逐个**将解压后的 json 文件内容粘贴进来。
 > !
 >- 请按照下文指引，逐一导入每个 JSON 文件。
 >- 不要修改面板的 UID（即不要单击【Change uid】），以免面板之间的跳转链接失效。
 >
 ![](https://main.qcloudimg.com/raw/262bcf13814f254c8eac922e62a81852.png)
-![](https://main.qcloudimg.com/raw/759669c559e55f37714737e007380662.png)
-![](https://main.qcloudimg.com/raw/44005a8e64cf3894797822f0fc33850c.png)
-![](https://main.qcloudimg.com/raw/b2d1bf6f66119417b8bb66a2e1a34ba6.png)
+![](https://main.qcloudimg.com/raw/dc0a7cd37ebdb2154ee0f03d2a0df7b0.png)![](https://main.qcloudimg.com/raw/61ad2099bbc35aa07c5256fce2e48784.png)![](https://main.qcloudimg.com/raw/bb619598c3885a435bcc87444846b198.png)
 5. 导入完毕后，检查 Oceanus 目录是否包含了如下面板：
-![](https://main.qcloudimg.com/raw/a37a60bd782ba76dc485ff463f335afa.png)
+![](https://main.qcloudimg.com/raw/cc4eda9ac87d43c1ff9f6840f0ccec1c.png)
 
 ## 作业启用 Prometheus 监控指标上报
 > !
@@ -45,19 +42,18 @@ metrics.reporter.promgateway.needBasicAuth: true
 metrics.reporter.promgateway.password: ${Prometheus 访问密码}
 ```
  **示例图：**
-![](https://main.qcloudimg.com/raw/019b01c2e4d56e7399816f76b34b23e4.png)
-![](https://main.qcloudimg.com/raw/2a1db02466c191e91c03bd602b98d6e5.png)
+![](https://main.qcloudimg.com/raw/3f305d970ab40af7b6b99aa1808086f0.png)![](https://main.qcloudimg.com/raw/b36788e0d29379f88f408bf3be892d64.png)
 2. 以新的配置发布并启动作业，稍等1分钟（上报周期），随后即可查看面板上的数据。
 ![](https://main.qcloudimg.com/raw/740638bdbdefa2d860d0afbfb623a278.png)
 3. 还可以编辑 Prometheus 面板，以满足个性化的监控需求。
-![](https://main.qcloudimg.com/raw/dd37f3ee4b18cdf931e49f31d733b29e.png)
+![](https://main.qcloudimg.com/raw/173aba463177171d6ecfd26f4a1b4d79.png)
 
 ## 告警配置
 如果希望对某项指标进行告警，我们以 `Checkpoint 失败数`为例，在腾讯云 [Prometheus 监控](https://console.cloud.tencent.com/monitor/prometheus) 上展示配置告警策略的方法。
 1. 在 Dashboard 选择需要配置告警的指标项，例如 `Checkpoint 失败数`。
-![](https://main.qcloudimg.com/raw/91e6fbec75b5b271767b7e7ef5492a27.png)
+![](https://main.qcloudimg.com/raw/aa79e8cca779680dac9317d0e8535154.png)
 2. 进入编辑界面，查看告警指标的查询条件。
-![](https://main.qcloudimg.com/raw/7e9968d3b9f6d4ae982979a7a626571b.png)
+![](https://main.qcloudimg.com/raw/846fe998f9c201d66cf25247df455fef.png)
 ![](https://main.qcloudimg.com/raw/617f95916d5f5eb2aa13e4781e411a57.png)
 3. 进入 Prometheus 的告警配置界面，新增一条规则。
 > ! 
