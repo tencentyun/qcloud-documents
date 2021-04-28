@@ -32,7 +32,7 @@
 1. 在 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus/job)，单击需要添加监控的作业，进入【开发调试】面板。
 ![](https://main.qcloudimg.com/raw/469266f4c077fa0584113f8bc231f037.png)
 2. 单击【作业参数】，在高级参数中新增以下内容：
-> ! ${ } 的变量请替换为实际值。
+> ! ${ } 的变量需替换为实际值。
 > 
 ```yaml
 metrics.reporters: promgateway
