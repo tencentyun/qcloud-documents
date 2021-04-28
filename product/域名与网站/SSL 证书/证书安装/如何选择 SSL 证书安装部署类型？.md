@@ -52,5 +52,12 @@
 </tr>
 </table>
 
+## 证书部署至云服务
+目前证书支持以下方式部署至云服务，请您根据实际需求进行部署操作。
+- [安装部署 SSL 证书到负载均衡（CLB）指引](https://cloud.tencent.com/document/product/400/6502)
+- [安装部署 SSL 证书到内容分发网络（CDN）指引 ](https://cloud.tencent.com/document/product/400/51804)
+- [安装部署 SSL 证书到 Web 应用防火墙（WAF）指引](https://cloud.tencent.com/document/product/400/51803)
+- [腾讯云实现全站 HTTPS 方案](https://cloud.tencent.com/document/product/400/6813)
+
 ## [使用 “云市场” 的证书安装服务](id:service)
 以上手动证书安装方式主要包括主流服务器的证书安装，如果您因使用不同服务器类型，没有可进行参考的证书安装教程，腾讯云将提供人工服务安装证书的渠道，可快速帮助您进行证书的安装。详情请查看 [证书安装服务](https://market.cloud.tencent.com/categories/1100?tagName=%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85)。
