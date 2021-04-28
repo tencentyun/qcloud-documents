@@ -17,7 +17,7 @@
 >- 不要修改面板的 UID（即不要单击【Change uid】），以免面板之间的跳转链接失效。
 >
 ![](https://main.qcloudimg.com/raw/262bcf13814f254c8eac922e62a81852.png)
-![](https://main.qcloudimg.com/raw/dc0a7cd37ebdb2154ee0f03d2a0df7b0.png)![](https://main.qcloudimg.com/raw/61ad2099bbc35aa07c5256fce2e48784.png)![](https://main.qcloudimg.com/raw/bb619598c3885a435bcc87444846b198.png)
+![](https://main.qcloudimg.com/raw/dc0a7cd37ebdb2154ee0f03d2a0df7b0.png)![](https://main.qcloudimg.com/raw/61ad2099bbc35aa07c5256fce2e48784.png)![](https://main.qcloudimg.com/raw/54481cc9355d7bc21a6c25faeb89f48d.png)
 5. 导入完毕后，检查 Oceanus 目录是否包含了如下面板：
 ![](https://main.qcloudimg.com/raw/cc4eda9ac87d43c1ff9f6840f0ccec1c.png)
 
