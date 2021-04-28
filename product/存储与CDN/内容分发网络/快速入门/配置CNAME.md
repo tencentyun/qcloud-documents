@@ -5,8 +5,8 @@
 
 本文提供腾讯云和阿里云的 CNAME 配置步骤说明，您可以根据域名所在的服务商进行设置：
 
-- [腾讯云设置方法](https://cloud.tencent.com/document/product/228/3121#m1)
-- [阿里云设置方法](https://cloud.tencent.com/document/product/228/3121#m2)
+- [腾讯云设置方法](#m1)
+- [阿里云设置方法](#m2)
 
 [](id:m1)
 ### 腾讯云设置方法
