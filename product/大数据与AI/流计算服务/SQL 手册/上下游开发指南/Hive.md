@@ -57,7 +57,7 @@ with (
 ### 获取 Hive 连接配置 jar 包
 Flink SQL 任务写 Hive 时需要使用包含 Hive 及 HDFS 配置信息的 jar 包来连接到 Hive 集群。具体获取配置 jar 及其使用的步骤如下：
 
-1. ssh 登陆到对应 Hive 集群节点。
+1. ssh 登录到对应 Hive 集群节点。
 2. 从如下路径获取 hive-site.xml 和 hdfs-site.xml。
 ```
 /usr/local/service/hive/conf/hive-site.xml
