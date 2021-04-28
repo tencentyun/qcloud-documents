@@ -12,8 +12,8 @@ Hive connector 支持数据流的目的表（Sink），不支持 Upsert 数据�
 # 具体语法可以参考 Hive 的相关文档，这里不再赘述
 USE testdb;
 CREATE TABLE `test_sink` (
-    `name` string,
-    `age` int)
+			`name` string,
+			`age` int)
 PARTITIONED BY (`dt` string, `hr` string)
 STORED AS ORC;
 ```
@@ -22,19 +22,19 @@ STORED AS ORC;
 ```SQL
 # Flink SQL 中使用 Hive 表 testdb.test_sink, 这里的 CREATE TABLE 的表名对应 Hive 库的表名，库名通过 hive-database 参数指定
 CREATE TABLE test_sink (
-    name STRING,
-    age INT,
-    dt STRING,
-    hr STRING
+			name STRING,
+			age INT,
+			dt STRING,
+			hr STRING
 ) PARTITIONED BY (dt, hr)
 with (
-    'connector.type' = 'hive',
-    'hive-version' = '3.1.1',
-    'hive-database' = 'testdb',
-    'partition.time-extractor.timestamp-pattern'='$dt $hr:00:00',
-    'sink.partition-commit.trigger'='partition-time',
-    'sink.partition-commit.delay'='1 h',
-    'sink.partition-commit.policy.kind'='metastore,success-file'
+			'connector.type' = 'hive',
+			'hive-version' = '3.1.1',
+			'hive-database' = 'testdb',
+			'partition.time-extractor.timestamp-pattern'='$dt $hr:00:00',
+			'sink.partition-commit.trigger'='partition-time',
+			'sink.partition-commit.delay'='1 h',
+			'sink.partition-commit.policy.kind'='metastore,success-file'
 );
 ```
 
