@@ -12,7 +12,7 @@
 <tr>
 <td rowspan="4">网络配置 </td>
 <td rowspan="2">VPC 信息 </td>
-<td>VPC CIDR</td>
+<td>子网 CIDR</td>
 <td>10.1.1.0/24 </td>
 </tr>
 <tr>
