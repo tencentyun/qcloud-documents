@@ -83,5 +83,5 @@ nvidia-smi
 ## 安装失败原因
 Linux 系统驱动安装失败表现为 nvidia-smi 无法工作，通常原因如下：
 1. 系统缺乏编译 kernel module 所需要的包，如 gcc，kernel-devel-xxx 等，导致无法编译，最终安装失败。
-2. 系统里面存在多个版本的 kernel，由于 DKMS 的不正确配置，导致驱动编译为非当前版本 kernel 的 kernel moudule，导致 kernel module 安装失败。
+2. 系统里面存在多个版本的 kernel，由于 DKMS 的不正确配置，导致驱动编译为非当前版本 kernel 的 kernel module，导致 kernel module 安装失败。
 3. 安装驱动后，升级了 kernel 版本导致原来的安装失效。

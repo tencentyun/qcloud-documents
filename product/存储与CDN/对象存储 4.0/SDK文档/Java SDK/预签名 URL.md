@@ -1,5 +1,7 @@
 ## 简介
 Java SDK 提供获取请求预签名 URL 和生成签名接口，可以分发给客户端，用于下载或者上传。如果您的文件是私有读权限，那么请注意预签名链接只有一定的有效期。
+生成的预签名 URL 包含协议名（HTTP或者HTTPS），该协议名与发起预签名请求的 COS 客户端设置的协议保持一致。
+具体使用请参见请求示例。
 
 ## 获取请求预签名 URL 
 
@@ -41,6 +43,8 @@ String secretKey = "COS_SECRETKEY";
 COSCredentials cred = new BasicCOSCredentials(secretId, secretKey);
 Region region = new Region("COS_REGION");
 ClientConfig clientConfig = new ClientConfig(region);
+// 如果要生成一个使用 https 协议的 URL，则设置此行，推荐设置。
+// clientConfig.setHttpProtocol(HttpProtocol.https);
 // 生成 cos 客户端。
 COSClient cosClient = new COSClient(cred, clientConfig);
 // 存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式
@@ -72,6 +76,8 @@ COSCredentials cred = new BasicSessionCredentials(tmpSecretId, tmpSecretKey, ses
 // clientConfig 中包含了设置 region, https(默认 http), 超时, 代理等 set 方法, 使用可参见源码或者常见问题 Java SDK 部分
 Region region = new Region("COS_REGION");
 ClientConfig clientConfig = new ClientConfig(region);
+// 如果要生成一个使用 https 协议的 URL，则设置此行，推荐设置。
+// clientConfig.setHttpProtocol(HttpProtocol.https);
 // 生成 cos 客户端
 COSClient cosClient = new COSClient(cred, clientConfig);
 // 存储桶的命名格式为 BucketName-APPID 

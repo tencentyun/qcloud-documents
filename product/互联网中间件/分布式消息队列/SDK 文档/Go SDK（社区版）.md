@@ -37,5 +37,5 @@ if err != nil {
 :::
 </dx-codeblock>
   
-关于 Pulsar 社区版 Java SDK 各种功能的使用方式，请参考 [Pulsar官方文档](http://pulsar.apache.org/docs/en/client-libraries-go/)。
+关于 Pulsar 社区版 Go SDK 各种功能的使用方式，请参考 [Pulsar官方文档](http://pulsar.apache.org/docs/en/client-libraries-go/)。
 

@@ -3,7 +3,7 @@ Apache Kudu 是一个分布式，可水平扩展的列式存储系统，它完�
 ## Kudu 基本特点
 - 高效处理类 OLAP 负载。
 - 与 MapReduce、Spark 以及 Hadoop 生态系统中其他组件进行友好集成。
-- 可与 Impala 集成，替代目前 Impala 常用的 HDFS+Parquet 组合。
+- 可与 Impala 集成，替代目前 Impala 常用的 HDFS + Parquet 组合。
 - 灵活的一致性模型。
 - 顺序写和随机写并存的场景下，仍能达到良好的性能。
 - 高可用，使用 Raft 协议保证数据高可靠存储。
@@ -17,10 +17,12 @@ Apache Kudu 是一个分布式，可水平扩展的列式存储系统，它完�
 - 支持跨地域的实时数据备份和查询。
 
 ## Kudu 基本架构
-![](https://main.qcloudimg.com/raw/fb48d41fecde3f4ca1c2202170f5cbe2.png)
 Kudu 包含如下两种类型的组件：
 - master 主要负责管理元数据信息、监听 server，当 server 宕机后负责 tablet 的重分配。
 - tserver 主要负责 tablet 的存储与和数据的增删改查。
+
+![](https://main.qcloudimg.com/raw/fb48d41fecde3f4ca1c2202170f5cbe2.png)
+
 
 ## Kudu 使用
 EMR-2.4.0版本支持了 Kudu 组件。在创建 Hadoop 集群时勾选 Kudu 组件，即会创建 Kudu 集群。默认情况下 Kudu 集群包含5个 Kudu Master 服务并开启 HA。 

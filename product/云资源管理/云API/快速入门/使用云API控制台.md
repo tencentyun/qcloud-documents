@@ -1,6 +1,5 @@
 [云 API 控制台](https://console.cloud.tencent.com/api/overview) 提供了用户查看调用产品情况的可视化界面，方便用户了解腾讯云 API 调用次数、错误率、使用 API 调用的产品分布以及错误码分布。同时还提供了 API 库、API Explorer 工具及错误码中心，您可按需选择并开始使用。
 >!
->- 云 API 控制台处于灰度内测阶段，如需使用，请 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请。
 >- 云 API 控制台仅展示您使用 API 3.0调用的数据情况（包括 API Explorer、TCCLI 及 SDK 调用），不包括控制台关联的 API 调用。
 >- [API 中心](https://cloud.tencent.com/document/api) 具有3.0标识代表该产品具备 API 3.0。
 

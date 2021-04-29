@@ -68,8 +68,13 @@ TRTC 6.3 版本开始已提供 arm64-v8a 架构 ABI 支持。
 可以。[Version 7.6 版本](https://cloud.tencent.com/document/product/647/32689) 开始支持一个用户进入多个房间了。
 
 
-
-
+[](id:que16)
+### 如何查询 SDK 最新版本号？
+- 若您使用自动加载的方法，`latest.release` 为匹配最新版并进行自动加载，不需要对版本号进行修改。具体集成方法请参见 [一分钟集成 SDK](https://cloud.tencent.com/document/product/647/32173)。
+- 当前 SDK 最新版本号可通过发布日志查看，具体请参见：
+  - iOS & Android 端，请参见 [发布日志（App）](https://cloud.tencent.com/document/product/647/46907)。
+  - 桌面浏览器端，请参见 [发布日志（桌面浏览器）](https://cloud.tencent.com/document/product/647/38958)。
+  - Electron 端，请参见 [发布日志（Electron）](https://cloud.tencent.com/document/product/647/43117)。
 
 
 

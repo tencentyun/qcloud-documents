@@ -5,7 +5,7 @@ Topic（主题）是某一种分类的名字，消息在 Topic 中可以被存�
 该任务指导您通过 CKafka 控制台，在已有实例下 Topic 进行管理。
 
 ## 前提条件
-已创建实例（参考 [资源创建与准备](https://cloud.tencent.com/document/product/597/30931)）。
+已 [创建实例](https://cloud.tencent.com/document/product/597/54849)
 
 ## 操作步骤
 

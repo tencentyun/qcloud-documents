@@ -20,3 +20,4 @@ MGOBE.DebuggerLog.enable = true;
 MGOBE.DebuggerLog.callback = (log) => console.log(...log); // 默认值;
 ```
 
+

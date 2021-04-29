@@ -52,9 +52,9 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 | current_sub_meeting_id | String         | 当前子会议 ID（进行中 / 即将开始）。         |
 | enable_live | Boolean      | 是否开启直播（会议创建人才有权限查询）。   |
 | live_config | 直播信息对象 | 会议的直播配置（会议创建人才有权限查询）。 |
-|meeting_room_info_list | Object | 会议室列表。 |
 |enable_doc_upload_permission    | Boolean       | 是否允许成员上传文档，默认为允许。                                                     |
 |guests   | Guest数组     | 会议嘉宾列表。                                                     |
+|has_vote   | Boolean     | 是否有投票（会议创建人和主持人才有权限查询）。                                                     |
 
 <span id="settings"></span>
 
@@ -175,11 +175,25 @@ GET https://api.meeting.qq.com/v1/meetings?meeting_code=806146667&userid=tester1
             "live_password":"654321",
             "enable_live_im":true,
             "enable_live_replay":true,
-            "live_addr":"https://meeting.tencent.com/l/xxxx"
-        }
+            "live_addr":"https://meeting.tencent.com/l/xxxx",
+            "live_watermark":{
+                "watermark_opt":0
+            }
+        },
+        "meeting_room_info":[
+            {"meeting_room_id":"133195"}
+        ],
+        "guests":[
+            {
+                "area":"86",
+                "phone_number":"xxxxxxxxx",
+                "guest_name":"xxxx"
+            }
+        ] 
     }  
   ]
 }
+
 ```
 #### 输出示例（周期性会议）
 ```plaintext

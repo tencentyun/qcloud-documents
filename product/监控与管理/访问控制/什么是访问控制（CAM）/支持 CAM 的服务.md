@@ -94,7 +94,7 @@
 | 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档                                                     |
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
 | [云函数](https://cloud.tencent.com/document/product/583)     | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/583/9203) |
-| [Serverless Framework](https://cloud.tencent.com/document/product/1154) | 资源级   | &#10003; | -                | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1154/41936) |
+| [Serverless 应用中心](https://cloud.tencent.com/document/product/1154) | 资源级   | &#10003; | -                | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1154/41936) |
 
 
 ## 中间件  
@@ -104,9 +104,9 @@
 | [消息队列 CMQ](https://cloud.tencent.com/document/product/406) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/406/8618) |
 | [消息队列 CKafka](https://cloud.tencent.com/document/product/597) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/597/31528) |
 | [API 网关](https://cloud.tencent.com/document/product/628)   | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/628/34267) |
-| [腾讯微服务平台](https://cloud.tencent.com/document/product/649) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/649/38327) |
+| [腾讯微服务平台 TSF](https://cloud.tencent.com/document/product/649) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/649/38327) |
 | [消息队列 TDMQ](https://cloud.tencent.com/document/product/1179) | 资源级   | &#10003; | -                | -        | [访问管理指南](https://cloud.tencent.com/document/product/1179/45125) |
-| [分布式事务](https://cloud.tencent.com/document/product/1224) | 操作级   | &#10003; | -                | -        | -                                                            |
+| [分布式事务 DTF](https://cloud.tencent.com/document/product/1224) | 操作级   | &#10003; | -                | -        | -                                                            |
 | [腾讯微服务观测平台 TSW](https://cloud.tencent.com/document/product/1311) | 操作级   | &#10003; | -                | -        | -                                                            |
 
 ## 数据处理 
@@ -332,9 +332,9 @@
 
 | 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档                                                     |
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | ------------------------------------------------------------ |
-| [小游戏联机对战引擎](https://cloud.tencent.com/document/product/1038) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1038/38760) |
+| [游戏联机对战引擎](https://cloud.tencent.com/document/product/1038) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1038/38760) |
 | [游戏多媒体引擎](https://cloud.tencent.com/document/product/607) | 资源级   | &#10003; | &#10003;         | -        | -                                                            |
-| [游戏服务器引擎](https://cloud.tencent.com/document/product/1165) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1165/46373) |
+| [游戏服务器伸缩](https://cloud.tencent.com/document/product/1165) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1165/46373) |
 | [游戏玩家匹配](https://cloud.tencent.com/document/product/1294) | 资源级   | &#10003; | &#10003;         | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1294/49901) |
 
 ## 教育服务 

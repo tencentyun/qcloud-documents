@@ -14,20 +14,16 @@ yarn add @cloudbase/js-sdk
 ### 方式二：通过 CDN 引入
 
 通过 CDN 引入有两种方式：
-
-<dx-tabs>
-::: 引入全量&nbsp;SDK
-```html
+<dx-codeblock>
+:::  引入全量&nbsp;SDK
 <script src="//imgcache.qq.com/qcloud/cloudbase-js-sdk/${version}/cloudbase.full.js"></script>
 <script>
   const app = cloudbase.init({
     env: "your-env-id"
   });
 </script>
-```
 :::
-::: 按需引入功能模块
-```html
+:::  按需引入功能模块
 <!-- 内核 -->
 <script src="//imgcache.qq.com/qcloud/cloudbase-js-sdk/${version}/cloudbase.js"></script>
 <!-- 登录模块 -->
@@ -47,10 +43,8 @@ yarn add @cloudbase/js-sdk
     env: "your-env-id"
   });
 </script>
-```
 :::
-</dx-tabs>
-
+</dx-codeblock>
 
 >? 功能模块必须在内核之后引入，并且登录模块必须引入。
 
