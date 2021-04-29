@@ -1,5 +1,5 @@
 使用 IPsec VPN 建立腾讯云 VPC 到用户 IDC 的连接时，在配置完腾讯云 VPN 网关后，您还需在用户 IDC 本地站点的网关设备中进行 VPN 配置。本文以 Juniper 防火墙为例介绍如何在本地站点中加载 VPN 配置。
->?本文腾讯云 VPN 使用的是 VPN3.0 版本，即 VPN 具备路由功能。
+
 
 ## 前提条件
 请确保您已经在腾讯云 VPC 内创建 VPN，并完成 VPN 通道配置。
@@ -12,7 +12,7 @@
 <tr>
 <td rowspan="4">网络配置 </td>
 <td rowspan="2">VPC 信息 </td>
-<td>VPC CIDR</td>
+<td>子网 CIDR</td>
 <td>10.1.1.0/24 </td>
 </tr>
 <tr>
@@ -30,17 +30,13 @@
 </tr>
 <tr>
 <td rowspan="16">IPsec 连接配置 </td>
-<td rowspan="10">IKE 配置 </td>
+<td rowspan="9">IKE 配置 </td>
 <td>版本</td>
 <td>IKEV1 </td>
 </tr>
 <tr>
 <td>身份认证方法</td>
 <td>预共享密钥</td>
-</tr>
-<tr>
-<td >PSK </td>
-<td>pre-shared-keys</td>
 </tr>
 <tr>
 <td>加密算法</td>
@@ -108,7 +104,7 @@
     root@SRX1# commit 
     commit complete           //在配置模式下面修改配置，不会直接生效，通过“commit”命令，修改的配置才会保存并生效
 ```
-2. 配置 SRX 防火墙网络接口、安全域、地址簿信息，以及自定义服务。
+2. 配置防火墙网络接口、安全域、地址簿信息，以及自定义服务。
 ```
   # 为内部接口 ge-0/0/2定义 IP 地址
      set interfaces ge-0/0/2 unit 0 family inet address 172.16.0.1/16  
