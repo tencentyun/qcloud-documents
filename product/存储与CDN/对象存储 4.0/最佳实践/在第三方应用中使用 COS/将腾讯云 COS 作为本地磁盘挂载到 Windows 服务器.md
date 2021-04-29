@@ -35,11 +35,12 @@
 11. 执行到 `secret_access_key>` 时，输入腾讯云 COS 的访问密钥 SecretKey，按 **Enter**。
 12. 根据显示的腾讯云各地域的网关地址，查看存储桶的所属地域，选择对应的地域。
 本实践以广州为例，选择 `cos.ap-guangzhou.myqcloud.com`，输入**4**，按 **Enter**。
-13. 在显示的腾讯云 COS 的权限类型中，根据实际需求选择 private 或者 public-read。
-本实践以 public-read 为例，输入**2**，按 **Enter**。
-14. 在显示的腾讯云对象存储的存储类型，根据实际需求选择。
-默认为 Default，Standard storage class 表示标准存储，Archive storage mode 表示归档存储，Infrequent access storage mode 表示低频存储（Standard_IA）。
- 本实践以 Default 为例，输入**1**，按 **Enter**。
+13. 在显示的腾讯云 COS 的权限类型中，根据实际需求选择 private 或者 public-read。此处选择的权限类型为对象权限类型，仅针对新上传的文件有效。本实践以 public-read 为例，输入**2**，按 **Enter**。
+14. 在显示的腾讯云对象存储的存储类型中，您可根据实际需求选择以何种存储类型将文件上传到 COS。本实践以 Default 为例，输入**1**，按 **Enter**。
+ - Default 表示默认
+ - Standard storage class 表示标准存储（STANDARD）
+ - Infrequent access storage mode 表示低频存储（Standard_IA）
+ - Archive storage mode 表示归档存储（ARCHIVE）
 15. 执行到 `Edit advanced config? (y/n)` 时，按 **Enter**。
 16. 确认信息无误后，按 **Enter**。
 17. 输入**q**，完成配置。
@@ -53,7 +54,7 @@
 ```plaintext
 rclone mount myCOS:/ Y: --cache-dir E:\temp --vfs-cache-mode writes &
 ```
- - myCOS：替换为用户自定义的名称。
+ - myCOS：替换为用户自定义的磁盘名称。
  - Y：替换为您想要挂载后，硬盘的盘符名称即可，请不要与本地的 C、D、E 盘等重复。
  - E:\temp 为本地缓存目录，可自行设置。
 
@@ -61,6 +62,11 @@ rclone mount myCOS:/ Y: --cache-dir E:\temp --vfs-cache-mode writes &
 2. 输入 **exit**，退出终端。
 3. 在本地计算机的【我的电脑】中，即可找到一个名为 myCOS(Y:) 的磁盘。
 打开该磁盘，即可查看包含您整个广州地域的所有存储桶名称。此时，您可以进行上传、下载、新建和删除等本地磁盘的常用操作。
+>!
+>- 从挂载磁盘中把归档类型的文件下载到本地会报错，原因是归档类型的文件不支持直接下载，需先进行恢复（解冻）。
+>- 在挂载磁盘中，若对存储桶进行删除操作，无论存储桶是否存在文件，都将会被删除，请谨慎操作。
+  >!若您对挂载磁盘中的存储桶名称进行更改，会导致 COS 存储桶名称发生改变，请谨慎操作。
+
 
 ## 设置开机自启动挂载硬盘
 
