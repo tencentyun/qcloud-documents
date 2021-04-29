@@ -95,9 +95,10 @@
 
 ## 操作步骤
 <dx-tabs>
-::: 适用于基于SPD策略转发的VPN
+::: 适用于基于&nbsp;SPD&nbsp;策略转发的&nbsp;VPN
 1. 登录防火墙设备的命令行配置界面。
-```
+<dx-codeblock>
+::: ssh
  ssh -p 22 root@172.16.0.1    # 通过 SSH 命令登录防火墙命令行界面
     root@SRX1> configure 
     Entering configuration mode    # 登录之后为操作模式，键入“configure”进入配置模式
@@ -105,9 +106,11 @@
     root@SRX1#                   # “#” 表示已经进入配置模式
     root@SRX1# commit 
     commit complete           # 在配置模式下面修改配置，不会直接生效，通过“commit”命令，修改的配置才会保存并生效
-```
+:::
+</dx-codeblock>
 2. 配置防火墙网络接口、安全域、地址簿信息，以及自定义服务。
-```
+<dx-codeblock>
+::: ssh
 set interfaces ge-0/0/2 unit 0 family inet address 172.16.0.1/16  
 # 为内部接口ge-0/0/2定义IP地址
 set interfaces ge-0/0/3 unit 0 family inet address 120.235.225.76/30  
@@ -122,9 +125,11 @@ set security zones security-zone trust address-book address vpn-local_subnet 172
 # 定义本地的业务地址簿，用于后续的访问策略调用，命名可以自定义
 set applications application tcp_2020 source-port 0-65535 destination-port 2020 protocol tcp inactivity-timeout 1800 description vpn-HR-system  
 # 定义要访问的业务端口，通常 SRX 系列防火墙内置了大部分常用的协议端口，可以直接在策略中调用，以”junos-“字段开头，例如“junos-ssh” 对应 ssh 协议，本例采用自定义协议端口，如定义一个 TCP 类服务，使用目的端口为 TCP 2020，服务超时时间为1800
-```
+:::
+</dx-codeblock>
 3. 配置 IKE 策略。
-```
+<dx-codeblock>
+::: ssh
 set security ike proposal ike-proposal-cfgr authentication-method pre-shared-keys
 # 定义IPSEC VPN 认证方式（本实例使用共享密钥模式：pre-shared-keys），注意“ike-proposal-cfgr”为定义的命名，后续设置需要调用该命名
 set security ike proposal ike-proposal-cfgr dh-group group2
@@ -135,16 +140,17 @@ set security ike proposal ike-proposal-cfgr encryption-algorithm aes-128-cbc
 # 定义IKE加密算法
 set security ike proposal ike-proposal-cfgr lifetime-seconds 86400
 # 定义IKE生存时间， 范围：(180～86400 seconds)
-
 set security ike policy ike-policy-cfgr mode main
 # 指定IKE模式
 set security ike policy ike-policy-cfgr proposals ike-proposal-cfgr
 # 定义IKE策略，需要调用上面步骤中的算法定义命名定义
 set security ike policy ike-policy-cfgr pre-shared-key ascii-text "TestPassword"
 # 定义密钥，注意密钥不能包含：“@“，”+“，”-“，”=“ 字符
-```
+:::
+</dx-codeblock>
 4. 配置 IKE 网关、出接口和协议版本。
-```
+<dx-codeblock>
+::: ssh
 set security ike gateway ike-gate-cfgr ike-policy ike-policy-cfgr
 # 调用之前定义的IKE策略命名
 set security ike gateway ike-gate-cfgr address 159.75.41.242
@@ -156,9 +162,11 @@ set security ike gateway ike-gate-cfgr external-interface ge-0/0/3
 # 绑定VPN的接口，即本地的公网出口
 set security ike gateway ike-gate-cfgr version v1-only
 # 定义IKE的版本，v1
-```
+:::
+</dx-codeblock>
 5. 配置 IPsec 策略。
-```
+<dx-codeblock>
+::: ssh
 set security ipsec proposal ipsec-proposal-cfgr protocol esp
 # 定义IPSEC阶段的加密协议
 set security ipsec proposal ipsec-proposal-cfgr authentication-algorithm hmac-md5-96
@@ -173,55 +181,67 @@ set security ipsec vpn-monitor-options interval 4
 set security ipsec vpn-monitor-options threshold 3
 set security ipsec vpn ipsec-vpn-cfgr vpn-monitor
 # 以上3项建议配置，设置通道状态监控参数以及调用（实例设置为4s一次ping间隔，3次丢失判断通道异常）可根据实际情况选择阈值。
-```
+:::
+</dx-codeblock>
 6. 应用 IPsec 策略。
-```
+<dx-codeblock>
+::: ssh
 set security ipsec vpn ipsec-vpn-cfgr ike gateway ike-gate-cfgr
 # 调用之前定义的 IPsec 策略配置
 set security ipsec vpn ipsec-vpn-cfgr establish-tunnels immediately
 # 配置VPN直接建立通道，而不是等待流量触发
 set routing-options static route 10.1.1.0/24 next-hop x.x.x.x
 # 基于策略的VPN需要将远端的网段配置路由从公网接口发出，x.x.x.x为设备的公网接口下一跳地址
-```
+:::
+</dx-codeblock>
 7. 配置出站策略。
-```
+<dx-codeblock>
+:::ssh
 set security policies from-zone trust to-zone vpn policy trust-to-untrust_tcp-2020_permit match source-address vpn-local_subnet
 set security policies from-zone trust to-zone vpn policy trust-to-untrust_tcp-2020_permit match destination-address vpn-peer_subnet
 set security policies from-zone trust to-zone vpn policy trust-to-untrust_tcp-2020_permit match application tcp_2020
 set security policies from-zone untrust to-zone trust policy trust-to-untrust_tcp-2020_permit then permit tunnel ipsec-vpn ipsec-vpn-cfgr
 set security policies from-zone untrust to-zone trust policy trust-to-untrust_tcp-2020_permit then permit tunnel pair-policy untrust-to-trust_tcp-2020_permit
 # 定义访问策略，本策略为本地网段访问VPN对端业务网段方向的策略（trust to untrust），指定调用IPSEC VPN 通道。具体的访问权限根据实际业务访问情况来设置
-```
+:::
+</dx-codeblock>
 8. 配置入站策略。
-```
+<dx-codeblock>
+:::ssh
 set security policies from-zone vpn to-zone trust policy untrust-to-trust_tcp-2020_permit match source-address vpn-peer_subnet
 set security policies from-zone vpn to-zone trust policy untrust-to-trust_tcp-2020_permit match destination-address vpn-local_subnet
 set security policies from-zone vpn to-zone trust policy untrust-to-trust_tcp-2020_permit match application tcp_2020
 set security policies from-zone vpn to-zone trust policy untrust-to-trust_tcp-2020_permit then permit tunnel ipsec-vpn ipsec-vpn-cfgr
 set security policies from-zone vpn to-zone trust policy untrust-to-trust_tcp-2020_permit then permit tunnel pair-policy trust-to-untrust_tcp-2020_permit
 # 定义访问策略，本策略为对端VPN网段访问本地业务网段方向的策略（untrust to trust），指定调用IPSEC VPN 通道。具体的访问权限根据实际业务访问情况来设置
-```
+:::
+</dx-codeblock>
 9. 保存配置。
-```
+<dx-codeblock>
+:::ssh
 root@SRX1# commit 
 commit complete
 # 在配置模式下面修改配置，不会直接生效，通过“commit”命令，修改的配置才会保存并生效
-```
+:::
+</dx-codeblock>
 
 :::
-::: 适用于基于路由转发的VPN
+::: 适用于基于路由转发的&nbsp;VPN
 1. 登录防火墙设备的命令行配置界面。
-```
- ssh -p 22 root@172.16.0.1    # 通过 SSH 命令登录防火墙命令行界面
-    root@SRX1> configure 
-    Entering configuration mode    # 登录之后为操作模式，键入“configure”进入配置模式
-    [edit]
-    root@SRX1#                   # “#” 表示已经进入配置模式
-    root@SRX1# commit 
-    commit complete           # 在配置模式下面修改配置，不会直接生效，通过“commit”命令，修改的配置才会保存并生效
-```
+<dx-codeblock>
+::: ssh
+ssh -p 22 root@172.16.0.1    # 通过 SSH 命令登录防火墙命令行界面
+root@SRX1> configure 
+Entering configuration mode    # 登录之后为操作模式，键入“configure”进入配置模式
+[edit]
+root@SRX1#                   # “#” 表示已经进入配置模式
+root@SRX1# commit 
+commit complete           # 在配置模式下面修改配置，不会直接生效，通过“commit”命令，修改的配置才会保存并生效
+:::
+</dx-codeblock>
 2. 配置防火墙网络接口、安全域、地址簿信息，以及自定义服务。
-```
+<dx-codeblock>
+::: ssh
 set interfaces ge-0/0/2 unit 0 family inet address 172.16.0.1/16  
 # 为内部接口 ge-0/0/2定义 IP 地址
 set interfaces ge-0/0/3 unit 0 family inet address 120.235.225.76/30  
@@ -240,9 +260,11 @@ set security zones security-zone trust address-book address vpn-local_subnet 172
 # 定义本地的业务地址簿，用于后续的访问策略调用，命名可以自定义
 set applications application tcp_2020 source-port 0-65535 destination-port 2020 protocol tcp inactivity-timeout 1800 description vpn-HR-system
 # 定义要访问的业务端口，通常 SRX 系列防火墙内置了大部分常用的协议端口，可以直接在策略中调用，以”junos-“字段开头，例如“junos-ssh” 对应 ssh 协议，本例采用自定义协议端口，如定义一个 TCP 类服务，使用目的端口为 TCP 2020，服务超时时间为1800
-```
+:::
+</dx-codeblock>
 3. 配置 IKE 策略。
-```
+<dx-codeblock>
+::: ssh
 set security ike proposal ike-proposal-cfgr authentication-method pre-shared-keys
 # 定义 IPSEC VPN 认证方式（本实例使用共享密钥模式：pre-shared-keys），注意“ike-proposal-cfgr”为定义的命名，后续设置需要调用该命名
 set security ike proposal ike-proposal-cfgr dh-group group2
@@ -257,9 +279,11 @@ set security ike policy ike-policy-cfgr mode main
 set security ike policy ike-policy-cfgr proposals ike-proposal-cfgr
 set security ike policy ike-policy-cfgr pre-shared-key ascii-text "TestPassword"
 # 定义 IKE 策略，指定模式以及密钥，需要调用上面步骤中的算法定义命名，注意密钥不能包含：“@“，”+“，”-“，”=“ 字符
-```
+:::
+</dx-codeblock>
 4. 配置 IKE 网关、出接口和协议版本。
-```
+<dx-codeblock>
+::: ssh
 set security ike gateway ike-gate-cfgr ike-policy ike-policy-cfgr
 # 调用之前定义的 IKE 策略命名
 set security ike gateway ike-gate-cfgr address 159.75.41.242
@@ -271,9 +295,11 @@ set security ike gateway ike-gate-cfgr external-interface ge-0/0/3
 # 绑定 VPN 的接口，即本地的公网出口
 set security ike gateway ike-gate-cfgr version v1-only
 # 定义 IKE 的版本，v1
-```
+:::
+</dx-codeblock>
 5. 配置 IPsec 策略。
-```
+<dx-codeblock>
+::: ssh
 set security ipsec proposal ipsec-proposal-cfgr protocol esp
 # 定义 IPSEC 阶段的加密协议
 set security ipsec proposal ipsec-proposal-cfgr authentication-algorithm hmac-md5-96
@@ -293,40 +319,54 @@ set security ipsec vpn-monitor-options interval 4
 set security ipsec vpn-monitor-options threshold 3
 set security ipsec vpn ipsec-vpn-cfgr vpn-monitor
 # 以上3项为建议配置，设置通道状态监控参数以及调用（实例设置为4s一次 ping 间隔，3次丢失判断通道异常）可根据实际情况选择阈值
-```
+:::
+</dx-codeblock>
 6. 应用 IPsec 策略。
-```
+<dx-codeblock>
+::: ssh
 set security ipsec vpn ipsec-vpn-cfgr ike gateway ike-gate-cfgr
 # 调用之前定义的 IPsec 策略配置
 set security ipsec vpn ipsec-vpn-cfgr establish-tunnels immediately
 # 配置 VPN 直接建立通道，而不是等待流量触发
 set routing-options static route 10.1.1.0/24 next-hop st0.0
 # 配置远端的业务 IP 网段，通过虚拟通道接口进行转发
-```
+:::
+</dx-codeblock>
 7. 配置出站策略。
-```
+<dx-codeblock>
+::: ssh
 set security policies from-zone trust to-zone vpn policy trust-to-vpn_tcp-2020_permit match source-address vpn-local_subnet
 set security policies from-zone trust to-zone vpn policy trust-to-vpn_tcp-2020_permit match destination-address vpn-peer_subnet
 set security policies from-zone trust to-zone vpn policy trust-to-vpn_tcp-2020_permit match application tcp_2020
 set security policies from-zone trust to-zone vpn policy trust-to-vpn_tcp-2020_permit then permit
 # 定义访问策略，本策略为本地网段访问 VPN 对端业务网段方向的策略（trust to vpn）。具体的访问权限根据实际业务访问情况来设置
-```
+:::
+</dx-codeblock>
 8. 配置入站策略。
-```
-
+<dx-codeblock>
+::: ssh
 set security policies from-zone vpn to-zone trust policy vpn-to-trust_tcp-2020_permit match source-address vpn-peer_subnet
 set security policies from-zone vpn to-zone trust policy vpn-to-trust_tcp-2020_permit match destination-address vpn-local_subnet
 set security policies from-zone vpn to-zone trust policy vpn-to-trust_tcp-2020_permit match application tcp_2020
 set security policies from-zone vpn to-zone trust policy vpn-to-trust_tcp-2020_permit then permit
 # 定义访问策略，本策略为对端 VPN 网段访问本地业务网段方向的策略（vpn to trust）。具体的访问权限根据实际业务访问情况来设置
-```
+:::
+</dx-codeblock>
 9. 保存配置
-```
+<dx-codeblock>
+::: ssh
 root@SRX1# commit 
 commit complete
 #在配置模式下面修改配置，不会直接生效，通过“commit”命令，修改的配置才会保存并生效
-```
-
+:::
+</dx-codeblock>
 :::
 </dx-tabs>
+
+
+
+
+
+
+
 
