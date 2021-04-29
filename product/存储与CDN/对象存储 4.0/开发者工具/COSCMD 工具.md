@@ -318,8 +318,7 @@ coscmd -b examplebucket-1250000000 -r ap-beijing deletebucket
 ```plaintext
 coscmd -b examplebucket-1250000000 -r ap-beijing deletebucket -f
 ```
-
->!使用`-f`参数则会强制删除该存储桶，包括所有文件、开启版本控制之后历史文件夹、上传产生的碎片，请谨慎操作。
+ >!使用`-f`参数则会强制删除该存储桶，包括所有文件、开启版本控制之后历史文件夹、上传产生的碎片，请谨慎操作。
 
 
 ## 常用对象命令
@@ -344,7 +343,7 @@ coscmd upload D:/doc/picture.jpg doc/
 ```plaintext
 coscmd upload D:/picture.jpg doc/ -H "{'x-cos-storage-class':'Archive'}"
 ```
->!使用 -H 参数设置 HTTP header 时，请务必保证格式为 JSON，示例：`coscmd upload -H "{'x-cos-storage-class':'Archive','Content-Language':'zh-CN'}" <localpath> <cospath>`。更多头部可参见 [PUT Object](https://cloud.tencent.com/document/product/436/7749) 文档。
+ >!使用 -H 参数设置 HTTP header 时，请务必保证格式为 JSON，示例：`coscmd upload -H "{'x-cos-storage-class':'Archive','Content-Language':'zh-CN'}" <localpath> <cospath>`。更多头部可参见 [PUT Object](https://cloud.tencent.com/document/product/436/7749) 文档。
 
 - 操作示例 - 设置 meta 元属性，上传一个文件到 COS 的 doc 目录下
 ```plaintext
@@ -370,13 +369,13 @@ coscmd upload -r D:/doc doc
 ```plaintext
 coscmd upload -rs D:/doc doc
 ```
->!使用 -s 参数可以使用同步上传，跳过上传 md5 一致的文件（COS 上的原文件必须是由 1.8.3.2 版本之后的 COSCMD 上传的，默认带有 x-cos-meta-md5 的 header）。
+ >!使用 -s 参数可以使用同步上传，跳过上传 md5 一致的文件（COS 上的原文件必须是由 1.8.3.2 版本之后的 COSCMD 上传的，默认带有 x-cos-meta-md5 的 header）。
 
 - 操作示例 - 同步上传，跳过文件大小相同的同名文件
 ```plaintext
 coscmd upload -rs --skipmd5 D:/doc doc
 ```
->!使用 -s 参数可以使用同步上传，且带上 --skipm5 参数后，将只对比同名文件的大小，如果大小相同则跳过上传。
+ >!使用 -s 参数可以使用同步上传，且带上 --skipm5 参数后，将只对比同名文件的大小，如果大小相同则跳过上传。
 
 - 操作示例 - 同步上传，并删除 “D 盘 doc 文件夹中已经删除的文件”
 ```plaintext
@@ -386,7 +385,7 @@ coscmd upload -rs --delete D:/doc /
 ```plaintext
 coscmd upload -rs D:/doc / --ignore *.txt,*.doc
 ```
->!在上传文件夹时，使用`--ignore`参数可以忽略某一类文件，使用`--include`参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,` 或者加入`""`。
+ >!在上传文件夹时，使用`--ignore`参数可以忽略某一类文件，使用`--include`参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,` 或者加入`""`。
 
 - 操作示例 - D 盘 doc 文件夹中 .txt 和 .doc 的后缀文件上传
 ```plaintext
@@ -487,13 +486,13 @@ coscmd download -r / D:/ --ignore doc/*
 ```plaintext
 coscmd download -rf / D:/examplefolder/
 ```
->!若本地存在同名文件，则会下载失败，需要使用`-f`参数覆盖本地文件。
+ >!若本地存在同名文件，则会下载失败，需要使用`-f`参数覆盖本地文件。
 
 - 操作示例 - 同步下载当前 bucket 根目录下所有的文件，跳过 md5校验相同的同名文件
 ```plaintext
 coscmd download -rs / D:/examplefolder
 ```
->!使用 `-s` 或者 `--sync` 参数，可以在下载文件夹时跳过本地已存在的相同文件（前提是下载的文件是通过 COSCMD 的 upload 接口上传的，文件携带有 `x-cos-meta-md5` 头部）。
+ >!使用 `-s` 或者 `--sync` 参数，可以在下载文件夹时跳过本地已存在的相同文件（前提是下载的文件是通过 COSCMD 的 upload 接口上传的，文件携带有 `x-cos-meta-md5` 头部）。
 
 - 操作示例 - 同步下载当前 bucket 根目录下所有的文件，跳过文件大小相同的同名文件
 ```plaintext
@@ -507,7 +506,7 @@ coscmd download -rs --delete / D:/examplefolder
 ```plaintext
 coscmd download -rs / D:/examplefolder --ignore *.txt,*.doc
 ```
->!在下载文件夹时，使用`--ignore`参数可以忽略某一类文件，使用`--invlude`参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,`或者使用双引号`""`。
+ >!在下载文件夹时，使用`--ignore`参数可以忽略某一类文件，使用`--invlude`参数可以过滤某一类文件，支持 shell 通配规则，支持多条规则，用逗号`,`分隔。当忽略一类后缀时，必须最后要输入`,`或者使用双引号`""`。
 
 - 操作示例 - 过滤 .txt 和 .doc 的后缀文件
 ```plaintext
