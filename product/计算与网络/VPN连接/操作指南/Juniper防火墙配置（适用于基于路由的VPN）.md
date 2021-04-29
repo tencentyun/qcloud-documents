@@ -98,7 +98,7 @@
 ```
  ssh -p 22 root@172.16.0.1    //通过 SSH 命令登录防火墙命令行界面
     root@SRX1> configure 
-    Entering configuration mode    //登录之后为操作模式，键入“configure”进入配置模式，进入配置模式后
+    Entering configuration mode    //登录之后为操作模式，键入“configure”进入配置模式
     [edit]
     root@SRX1#                   //“#” 表示已经进入配置模式
     root@SRX1# commit 
