@@ -175,7 +175,7 @@ set security ipsec vpn ipsec-vpn-cfgr vpn-monitor
 6. 应用 IPsec 策略。
 ```
 set security ipsec vpn ipsec-vpn-cfgr ike gateway ike-gate-cfgr
-# 调用之前定义的IPEC策略配置
+# 调用之前定义的 IPsec 策略配置
 set security ipsec vpn ipsec-vpn-cfgr establish-tunnels immediately
 # 配置VPN直接建立通道，而不是等待流量触发
 set routing-options static route 10.1.1.0/24 next-hop x.x.x.x
