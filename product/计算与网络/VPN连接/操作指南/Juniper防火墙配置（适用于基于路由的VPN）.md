@@ -114,15 +114,16 @@ set interfaces st0 unit 0 family inet
 # 定义通道接口，默认不设置 IP 地址，通道接口的 unit 后的参数需要指定，一个 unit 号可以绑定一个 VPN 通道，序号范围：0-16385
 set security zones security-zone trust interfaces ge-0/0/2.0  
 # 绑定 ge-0/0/0/2 为内部安全区(trust)，对接内部业务区
-set security zones security-zone untrust interfaces ge-0/0/3.0  host-inbound-traffic system-services ike   # 绑定ge-0/0/3为外部安全区(untrust)，对接外部广域网，并启用 ike 服务，表示该区域可以建立 VPN
+set security zones security-zone untrust interfaces ge-0/0/3.0  host-inbound-traffic system-services ike
+# 绑定ge-0/0/3为外部安全区(untrust)，对接外部广域网，并启用 ike 服务，表示该区域可以建立 VPN
 set security zones security-zone vpn interfaces st0.0     
 # 绑定通道接口到 vpn 区域(vpn)，作为连接 IPSEC VPN 的逻辑通道,用于后续的路由策略以及访问策略
 set security zones security-zone vpn address-book address vpn-peer_subnet 10.1.1.0/24   
-# 定义要访问的 VPN 对端的业务地址簿，用于后续的访问策略调用。命名可以自定义
+# 定义要访问的 VPN 对端的业务地址簿，用于后续的访问策略调用，命名可以自定义
 set security zones security-zone trust address-book address vpn-local_subnet 172.16.0.0/16   
 # 定义本地的业务地址簿，用于后续的访问策略调用，命名可以自定义
 set applications application tcp_2020 source-port 0-65535 destination-port 2020 protocol tcp inactivity-timeout 1800 description vpn-HR-system
-# 定义要访问的业务端口，通常 SRX 系列防火墙内置了大部分常用的协议端口，可以直接在策略中调用，以”junos-“字段开头，例如  “junos-ssh” 对应 ssh 协议，本例采用自定义协议端口，如定义一个 TCP 类服务，使用目的端口为 TCP 2020，服务超时时间为1800
+# 定义要访问的业务端口，通常 SRX 系列防火墙内置了大部分常用的协议端口，可以直接在策略中调用，以”junos-“字段开头，例如“junos-ssh” 对应 ssh 协议，本例采用自定义协议端口，如定义一个 TCP 类服务，使用目的端口为 TCP 2020，服务超时时间为1800
 ```
 3. 配置 IKE 策略。
 ```
@@ -175,12 +176,12 @@ set security ipsec vpn ipsec-vpn-cfgr bind-interface st0.0
 set security ipsec vpn-monitor-options interval 4
 set security ipsec vpn-monitor-options threshold 3
 set security ipsec vpn ipsec-vpn-cfgr vpn-monitor
-# 如下为建议配置，设置通道状态监控参数以及调用（实例设置为4s一次 ping 间隔，3次丢失判断通道异常）可根据实际情况选择阈值
+# 以上三项为建议配置，设置通道状态监控参数以及调用（实例设置为4s一次 ping 间隔，3次丢失判断通道异常）可根据实际情况选择阈值
 ```
 6. 应用 IPsec 策略。
 ```
 set security ipsec vpn ipsec-vpn-cfgr ike gateway ike-gate-cfgr
-# 调用之前定义的 IPEC 策略配置
+# 调用之前定义的 IPsec 策略配置
 set security ipsec vpn ipsec-vpn-cfgr establish-tunnels immediately
 # 配置 VPN 直接建立通道，而不是等待流量触发
 set routing-options static route 10.1.1.0/24 next-hop st0.0
