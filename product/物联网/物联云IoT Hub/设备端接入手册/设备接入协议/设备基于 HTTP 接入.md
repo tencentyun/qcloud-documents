@@ -1,6 +1,6 @@
 ## 参数说明
 
-设备上报消息时需携带 ProductId、DeviceName 和 TopicName 向平台发起`http/https`请求，请求接口及参数如下：
+设备上报消息时需携带 ProductId、DeviceName 和 TopicName 向平台发起 `http/https` 请求，请求接口及说明参数如下：
 
 - 请求的 URL 为：
   ``
