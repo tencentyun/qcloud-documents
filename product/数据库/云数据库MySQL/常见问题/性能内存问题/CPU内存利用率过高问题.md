@@ -1,6 +1,6 @@
 
 ## 现象描述
-云数据库 MySQL 出现响应变慢、无法获取连接、超时等现象。当云数据库 MySQL CPU 利用率超过80%时，可能会出现业务相应变慢、超时、无法连接数据库等现象。
+云数据库 MySQL 出现响应变慢、无法获取连接、超时等现象。当云数据库 MySQL CPU 利用率超过80%时，可能会出现业务响应变慢、超时、无法连接数据库等现象。
 
 云数据库 MySQL CPU 使用情况，可在 [MySQL 控制台](https://console.cloud.tencent.com/cdb) 的实例监控页面或数据库智能管家 [DBbrain 控制台](https://console.cloud.tencent.com/dbbrain/event?product=mysql) 查看。
 

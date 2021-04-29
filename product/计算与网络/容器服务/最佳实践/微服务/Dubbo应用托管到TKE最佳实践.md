@@ -8,8 +8,8 @@
 - Kubernetes 天然适合微服务架构。
 - 提升运维效率，便于 Devops 落地实施。
 - Kubernetes 的高弹性，可轻松实现应用的动态扩缩容。
-- TKE 提供 Kubernetes Master 托管功能，可减少 Kubernetes 集群运维和管理的负担。
-- TKE 和腾讯云的其他云原生产品做了整合和优化，帮助用户更好的使用腾讯云上产品。
+- 容器服务 TKE 提供 Kubernetes Master 托管功能，可减少 Kubernetes 集群运维和管理的负担。
+- 容器服务 TKE 和腾讯云的其他云原生产品进行了整合和优化，帮助用户更好的使用腾讯云上产品。
 
 
 ## 服务介绍
@@ -20,29 +20,27 @@
 
 本文以 Q 云书城（Q Cloud Book Mall，QCBM）项目为例，详细介绍 Dubbo 应用托管到 TKE 的整个过程。
 QCBM 首页如下图展所示：
-![](https://main.qcloudimg.com/raw/a6350375839c1eac09b57e2ea4734b6c.png)
+![](https://main.qcloudimg.com/raw/958f718bb6e1656449e8bcdd9dd88ae2.png)
 
-QCBM 是采用微服务架构，并使用 dubbo-2.7.8 框架开发的一个网上书城 Demo 项目。QCBM 包含以下微服务：
+QCBM 是采用微服务架构，并使用 dubbo-2.7.8 框架开发的一个网上书城 Demo 项目。QCBM 的部署和代码托管在 Coding，详情可参见 [QCBM 项目](https://github.com/TencentCloud/container-demo/tree/main/dubbo-on-tke)。QCBM 包含以下微服务：
 
 
 | 微服务                          | 说明                                                         |
 | ------------------------------- | ------------------------------------------------------------ |
 | QCBM-Front                      | 使用 React 开发的前端项目，基于 Nginx 官方提供的 [1.19.8 Docker 镜像](https://hub.docker.com/_/nginx) 构建和部署。 |
-| QCBM-Gateway                    | API 网关，接受前端的 HTTP 请求，并转化为后台的 Dubbo 请求。  |
+| QCBM-Gateway                    | API 网关，接受前端的 HTTP 请求，并将其转化为后台的 Dubbo 请求。  |
 | User-Service                    | 基于 Dubbo 的微服务，提供用户注册、登录、鉴权等功能。        |
-| <nobr> Favorites-Service</nobr> | 基于 dubbo 的微服务，提供用户图书收藏功能。                  |
+| Favorites-Service             | 基于 Dubbo 的微服务，提供用户图书收藏功能。                  |
 | Order-Service                   | 基于 Dubbo 的微服务，提供用户订单生成和查询等功能。          |
 | Store-Service                   | 基于 Dubbo 的微服务，提供图书信息的存储等功能。              |
 
-Q 云书城的部署和代码托管在 coding 上，详情请前往[ QCBM](https://github.com/TencentCloud/container-demo/tree/main/dubbo-on-tke) 查看。
 
 
 #### QCBM 架构和组件
 
-本文最佳实践实例模拟将原先部署在 CVM 上的应用进行容器化，并托管到 TKE 的场景。在该场景中采用一个 VPC，并划分为以下两个子网：
-
-- Subnet-Basic：部署有状态的基础服务，包括 Dubbo 的服务注册中心 Nacos、MySQL 和 Redis 等。
-- Subnet-K8S：部署 QCBM 的应用服务，所有服务都进行容器化，并运行在 TKE 上。
+本文最佳实践实例模拟将原先部署在云服务器 CVM 的应用进行容器化，并托管到容器服务 TKE 的场景。在该场景中需要采用一个 VPC，并划分为以下两个子网：
+- **Subnet-Basic**：部署有状态的基础服务，包括 Dubbo 的服务注册中心 Nacos、MySQL 和 Redis 等。
+- **Subnet-K8S**：部署 QCBM 的应用服务，所有服务都进行容器化，并运行在容器服务 TKE 上。
 
 子网划分如下图所示：
 ![](https://main.qcloudimg.com/raw/e0cd362e05f73d3a5236d34febe02708.jpeg)
@@ -53,7 +51,7 @@ QCBM 实例的网络规划如下表所示：
 | :----------------------------- | :----------------------------------------------------------- |
 | Region/AZ                      | 南京/南京一区                                                |
 | VPC                            | CIDR：10.0.0.0/16                                            |
-| <nobr>子网 Subnet-Basic</nobr> | 南京一区，CIDR：10.0.1.0/24                                  |
+|子网 Subnet-Basic | 南京一区，CIDR：10.0.1.0/24                                  |
 | 子网 Subnet-K8S                | 南京一区，CIDR：10.0.2.0/24                                  |
 | Nacos 集群                     | 采用3台 “标准型SA2” 1C2G 机型的 CVM 构建 Nacos 集群，对应的 IP 为：10.0.1.9，10.0.1.14，10.0.1.15 |
 
@@ -61,29 +59,24 @@ QCBM 实例中用到的组件如下表所示：
 
 | 组件  | 版本  |         来源          | 备注                                                         |
 | :---- | :---: | :-------------------: | :----------------------------------------------------------- |
-| K8S   | 1.8.4 |        腾讯云         | TKE 托管模式                                                 |
+| k8s   | 1.8.4 |        腾讯云         | TKE 托管模式                                                 |
 | MySQL |  5.7  |        腾讯云         | TencentDB for MySQL 双节点                                   |
 | Redis |  5.0  |        腾讯云         | TencentDB for Redis 标准型                                   |
 | CLS   |  N/A  |        腾讯云         | 日志服务                                                     |
-| TSW   |  N/A  |        腾讯云         | 采用 Skywalking 8.4.0 版的 Agent 接入，[下载地址](https://apache.website-solution.net/skywalking/8.4.0/apache-skywalking-apm-es7-8.4.0.tar.gz) |
+| TSW   |  N/A  |        腾讯云         | 采用 Skywalking 8.4.0 版的 Agent 接入，点此 [下载](https://archive.apache.org/dist/skywalking/8.4.0/apache-skywalking-apm-es7-8.4.0.tar.gz) |
 | Java  |  1.8  |       开源社区        | Docker 镜像为 java:8-jre                                     |
-| Nacos | 2.0.0 |       开源社区        | [下载地址](https://github.com/alibaba/nacos/releases/download/2.0.0/nacos-server-2.0.0.tar.gz) |
-| Dubbo | 2.7.8 | <nobr>开源社区</nobr> | [Github 地址](https://github.com/apache/dubbo)               |
+| Nacos | 2.0.0 |       开源社区        | 点此 [下载](https://github.com/alibaba/nacos/releases/download/2.0.0-bugfix/nacos-server-2.0.0.tar.gz) |
+| Dubbo | 2.7.8 | 开源社区| [Github 地址](https://github.com/apache/dubbo)               |
 
 
 
 ### TCR 介绍
 
-腾讯云 [容器镜像服务 TCR](https://cloud.tencent.com/product/tcr) 提供个人版和企业版两种镜像仓库。两者区别如下：
-
-- 个人版镜像仓库仅部署在腾讯云广州，企业版则部署在每个地域。
-- 个人版未提供服务 SLA 保证。
-
-详细区别如下图所示：
+腾讯云 [容器镜像服务 TCR](https://cloud.tencent.com/product/tcr) 提供个人版和企业版两种镜像仓库。两者区别如下图所示：
 ![](https://main.qcloudimg.com/raw/169e2d9b46f59b2eeb58a935dc5e0c30.jpeg)
 
 
-QCBM 是一个 Dubbo 容器化的 Demo 项目，因此个人版完全满足需求。但对于企业用户，推荐使用 [企业版 TCR](https://console.cloud.tencent.com/tcr)。有关镜像仓库的具体操作，请参见 [镜像仓库基本操作](https://cloud.tencent.com/document/product/1141/41811) 文档。
+QCBM 是一个 Dubbo 容器化的 Demo 项目，因此个人版完全满足需求。但对于企业用户，推荐使用 [容器镜像服务企业版](https://cloud.tencent.com/document/product/1141/39287)。如需使用镜像仓库，请参见 [镜像仓库基本操作](https://cloud.tencent.com/document/product/1141/41811)。
 
 
 ### TSW 介绍
@@ -117,34 +110,33 @@ TSW 在架构上分为以下四大模块：
 
 
 
-## 前提条件
 
-- 已在 [Mysql 控制台](https://console.cloud.tencent.com/cdb) 创建实例，并使用 [qcbm-ddl.sql](https://tencent-cloud-native.coding.net/public/qcbm-k8s/qcbm-k8s/git/files/master/qcbm-ddl.sql) 初始化。
-- 已在 [Redis 控制台](https://console.cloud.tencent.com/redis) 创建实例并初始化。
-- 已在 [CLB 控制台](https://console.cloud.tencent.com/clb) 为子网 Subnet-K8S 新建一个内网型的 CLB（后续实践中会使用到该 CLB 实例 ID）。
-- 已申请通过 [TSW 内测](https://cloud.tencent.com/apply/p/rvo6c9fnug)，TSW 目前处于内测阶段，支持 Java 和 Golang 两种语言接入。
-- 已部署 Nacos 集群：
- - 在 [CVM 控制台](https://console.cloud.tencent.com/cvm) 购买3台 “标准型SA2” 1C2G 的 CVM，并执行以下命令安装 Java。
-   <dx-codeblock>
-   :::  sh
 
-# 安装 Java
 
+
+
+## 操作步骤
+
+### 搭建基础服务集群
+
+- 在 [Mysql 控制台](https://console.cloud.tencent.com/cdb) 创建实例，并使用 [qcbm-ddl.sql](https://tencent-cloud-native.coding.net/public/qcbm-k8s/qcbm-k8s/git/files/master/qcbm-ddl.sql) 初始化。详情请参见 [创建 MySQL 实例](https://cloud.tencent.com/document/product/236/46433)。
+- 在 [Redis 控制台](https://console.cloud.tencent.com/redis) 创建实例并初始化。详情请参见 [创建 Redis 实例](https://cloud.tencent.com/document/product/239/30871)。
+- 在 [负载均衡控制台](https://console.cloud.tencent.com/clb) 为子网 Subnet-K8S 新建一个**内网型**的负载均衡（后续实践中会使用到该 CLB 实例 ID）。详情请参见 [创建负载均衡实例](https://cloud.tencent.com/document/product/214/6149)。
+- 申请通过 [TSW 内测](https://cloud.tencent.com/apply/p/rvo6c9fnug)。TSW 目前处于内测阶段，支持 Java 和 Golang 两种语言接入。
+- 部署 Nacos 集群：
+  1. 在 [云服务器控制台](https://console.cloud.tencent.com/cvm) 购买3台 “标准型SA2” 1核2G的云服务器，详情请参见 [通过购买页创建实例](https://cloud.tencent.com/document/product/213/4855)。
+  2. 登录实例，执行以下命令安装 Java。
+```plaintext
 yum install java-1.8.0-openjdk.x86_64
-
-# 执行下面命令，如有输出 java 版本信息，说明 java 安装成功
-
+```   执行以下命令，如有输出 java 版本信息，则说明 java 安装成功。
+```plaintext
 java - version
-:::
-</dx-codeblock>
-
- - 部署 Nacos 集群，详情请参见 Nacos 官方文档 [集群部署说明](https://nacos.io/zh-cn/docs/cluster-mode-quick-start.html) 。
+```  3. 部署 Nacos 集群，详情请参见 Nacos 官方文档 [集群部署说明](https://nacos.io/zh-cn/docs/cluster-mode-quick-start.html) 。
 
  
 
 
 
-## 操作步骤
 
 ### 构建 Docker 镜像
 
@@ -185,12 +177,12 @@ COPY ./target/${FULL_APP_NAME}.zip .
 
 # 创建日志目录 logs，解压并删除原始文件和解压后的目录
 RUN mkdir logs \
-    && unzip ${FULL_APP_NAME}.zip \
-    && mv ${FULL_APP_NAME}/** . \
-    && rm -rf ${FULL_APP_NAME}*
+      && unzip ${FULL_APP_NAME}.zip \
+      && mv ${FULL_APP_NAME}/** . \
+      && rm -rf ${FULL_APP_NAME}*
 
 # user-service 的启动脚本和参数
-ENTRYPOINT ["/app/bin/user-service.sh"]CMD ["start", "-t"]
+ENTRYPOINT ["/app/bin/user-service.sh"] CMD ["start", "-t"]
 
 # dubbo 端口号
 EXPOSE 20880
@@ -199,13 +191,13 @@ EXPOSE 20880
 >!
 >
 >- 生产中的 Java 应用有很多配置参数，导致启动脚本很复杂。将启动脚本里的内容全部写到 dockerfile 中工作量很大，其次 dockerfile 远没有 Shell 脚本灵活，若出现问题也无法快速定位，因此不建议弃用启动脚本。 
->- 通常在启动脚本最后使用 **nohup** 启动 Java 应用，但该方式启动的 deamon 进程会导致容器运行后直接退出。因此 `nohup java ${OPTIONS} -jar user-service.jar > ${LOG_PATH} 2>&1 &`  这种写法存在问题，需改成 `java ${OPTIONS} -jar user-service.jar > ${LOG_PATH} 2>&1`。
+>- 通常在启动脚本最后使用 **nohup** 启动 Java 应用，但该方式启动的 deamon 进程会导致容器运行后直接退出。因此 `nohup java ${OPTIONS} -jar user-service.jar > ${LOG_PATH} 2>&1 &`  需改成 `java ${OPTIONS} -jar user-service.jar > ${LOG_PATH} 2>&1`。
 >- Dockerfile 中每多一个 RUN 命令，生成的镜像就多一层，推荐将这些 RUN 命令合成一条。
 
 
 #### 构建镜像
 
-TKE 容器服务提供了自动和手工构建方式，详情可参见 [镜像构建](https://cloud.tencent.com/document/product/1141/50337) 文档。为展示具体的构建过程，本文采用手工构建方式。
+容器镜像服务 TCR 提供了自动和手工构建镜像方式，详情可参见 [镜像构建](https://cloud.tencent.com/document/product/1141/50337) 文档。为展示具体的构建过程，本文采用手工构建方式。
 
 镜像名称需要符合规范 `ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]`：
 
@@ -214,7 +206,6 @@ TKE 容器服务提供了自动和手工构建方式，详情可参见 [镜像�
 
 
 1. 执行以下命令构建镜像。示例如下：
-
 ```sh
 # 推荐的构建方式，可省去二次打 tag 操作
 sudo docker build -t ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]
@@ -225,14 +216,11 @@ sudo docker build -t ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版�
 # 将已存在镜像按命名规范对镜像重命名
 sudo docker tag [ImageId] ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]
 ```
-
 2. 构建完成后，可执行以下命令查看本地仓库中的所有镜像。
-
 ```sh
 docker images
 ```
-
- 如下示例所示：
+ 示例如下图所示：
 ![](https://main.qcloudimg.com/raw/3ef0c5d4ff3b33f8ddf8cabfda518665.png)
 
 
@@ -242,7 +230,7 @@ docker images
 
 #### 创建命名空间
 
-QCBM 项目采用个人版镜像仓库（对于企业客户建议使用企业版镜像仓库）。
+QCBM 项目采用个人版镜像仓库（建议企业客户使用企业版镜像仓库）。
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2) 。
 2. 选择【镜像仓库】>【个人版】> 【命名空间】进入“命名空间”页面。
@@ -256,12 +244,10 @@ QCBM 项目采用个人版镜像仓库（对于企业客户建议使用企业版
 上传镜像需要完成以下步骤：登录腾讯云 registry 和上传镜像。
 
 
-1. 执行以下命令登录腾讯云 registry。示例如下：
-
+1. 执行以下命令登录腾讯云 registry。
 ```sh
  docker login --username=[腾讯云账号 ID] ccr.ccs.tencentyun.com
 ```
-
  <dx-alert infotype="explain" title="">
 
 - 腾讯云账号 ID 可在 [账号信息](https://console.cloud.tencent.com/developer) 页面获取。
@@ -271,71 +257,65 @@ QCBM 项目采用个人版镜像仓库（对于企业客户建议使用企业版
 
 ```sh
  sudo docker login --username=[腾讯云账号 ID] ccr.ccs.tencentyun.com
-​```如下图所示：
+```如下图所示：
 ![](https://main.qcloudimg.com/raw/d34997020efabeb1f52f3eb9327f20cb.png)
 </dx-alert>
-2. 执行以下命令将本地生成好的镜像上传到 TKE 的镜像仓库中。示例如下：
-​```sh
+2. 执行以下命令将本地生成的镜像推送至 TKE 的镜像仓库中。
+```sh
 docker push ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]
-```
-
- 如下示例所示：
+```如下图所示：
 ![](https://main.qcloudimg.com/raw/466adcd0ebf9adf2c16421885a0c6567.png)
 
-3. 在 [我的镜像](https://console.cloud.tencent.com/tke2/registry/user/self?rid=1) 中可以查看上传的所有镜像，如下图展示的是上传到腾讯云镜像仓库中 QCBM 的5个镜像。
+3. 在 [我的镜像](https://console.cloud.tencent.com/tke2/registry/user/self?rid=1) 中可以查看上传的所有镜像，下图展示的是上传到腾讯云镜像仓库中 QCBM 的5个镜像。
    ![](https://main.qcloudimg.com/raw/05c412370fb69e675bfb9149b33063a6.png)
 
->?TCR 镜像默认镜像为“私有”，若想供任何人使用，可在【镜像信息】中设置为公有。如下图所示：
+>?默认镜像类型为“私有”，如需提供镜像给他人使用，可在【镜像信息】中将镜像类型设置为公有。如下图所示：
 >![](https://main.qcloudimg.com/raw/88b73306c07a4ea281cef52a77d3246c.png)
 
 
 ### 在 TKE 上部署服务
 
-#### 创建 K8s 集群 QCBM
+#### 创建 k8s 集群 QCBM
 
 
 
-1. 实际部署前，需要新建一个 K8S 集群。有关集群的创建，请参见 [购买容器集群](https://cloud.tencent.com/document/product/457/9082) 文档。
+1. 实际部署前，需要新建一个 k8s 集群。有关集群的创建，请参见 [创建集群](https://cloud.tencent.com/document/product/457/54231) 文档。
 
->!在创建集群第二步“选择机型”时，建议开启“置放群组功能”，该功能可将 CVM 打散到到不同母机上，增加系统可靠性。如下图所示：
+>! 创建集群时，在“选择机型”页面建议开启“置放群组功能”，该功能可将 CVM 打散到到不同母机上，增加系统可靠性。如下图所示：
 >![](https://main.qcloudimg.com/raw/e02eb656cd91db18eb58eabf34b0da69.png)
 
-2. 创建完成后，在容器服务控制台的 [集群管理](https://console.cloud.tencent.com/tke2/cluster) 页面可以看到新建的集群信息。本文新建的集群名称为 qcbm-k8s-demo。如下图所示：
+2. 集群创建完成后，在容器服务控制台的 [集群管理](https://console.cloud.tencent.com/tke2/cluster) 页面可以查看新建的集群信息。本文新建的集群名称为 qcbm-k8s-demo。如下图所示：
    ![](https://main.qcloudimg.com/raw/37105f08a2ccf070621f0a621e972b0a.png)
-3. 单击集群 qcbm-k8s-demo 进入“基本信息”页面，可以看到整个集群的配置信息。如下图所示：
+3. 单击集群名称进入“基本信息”页面，查看集群的配置信息。如下图所示：
    ![](https://main.qcloudimg.com/raw/8de9b997674164f32a05104d613a24b9.png)
-4. （可选）如需使用 Kubectl 和 lens 等 K8S 管理工具，还需进行以下两步操作：
+4. （可选）如需使用 Kubectl 和 lens 等 k8s 管理工具，还需进行以下两步操作：
    1. 开启外网访问。
-   2. 将 API 认证 Token 保存为本地 `用户 home/.kube` 下的 config 文件中（若 config 文件已有内容，需要替换）。这样每次访问都能进入默认集群中。当然也可以不保存为 `.kube` 下的 config 文件中，相关操作指引可参考控制台【集群APIServer信息】下的 【通过Kubectl连接Kubernetes集群操作说明】。如下图所示：
+   2. 将 API 认证 Token 保存在本地 `用户 home/.kube` 下的 config 文件中（若 config 文件已有内容，则需要替换），以确保每次访问都能进入默认集群中。如果选择不将 API 认证 Token 保存在 `.kube` 下的 config 文件中，则可参考控制台【集群APIServer信息】下的 【通过Kubectl连接Kubernetes集群操作说明】。如下图所示：
       ![](https://main.qcloudimg.com/raw/fc1ce98044d792325b75c3eb4c34feae.jpeg)
 
 
 #### 创建 Namespace
 
-Namespaces 是 Kubernetes 在同一个集群中进行逻辑环境划分的对象， 可以通过 Namespaces 进行管理多个团队多个项目的划分。您可以通过以下三种方式创建 Namespace，推荐使用方式1命令行方式创建。
+Namespaces 是 Kubernetes 在同一个集群中进行逻辑环境划分的对象，通过 Namespaces 可以进行多个团队多个项目的划分。您可以通过以下三种方式创建 Namespace，推荐使用方式1命令行方式创建。
 
 
 <dx-tabs>
 ::: 方式1：使用命令行
 执行以下命令即可创建 Namespace：
-
 ```sh
  kubectl create namespace qcbm
 ```
-
 :::
 ::: 方式2：使用控制台
-
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2)，单击集群 ID/名称进入集群详情页面。  
 2. 单击【命名空间】>【新建】，创建名称为 qcbm 的 Namespace。
-   :::
-   ::: 方式3：使用\sYAML\s部署
-   执行以下命令使用 YAML 创建 Namespace：
-
+:::
+::: 方式3：使用\sYAML\s部署
+执行以下命令使用 YAML 创建 Namespace：
 ```
 shkubctl create –f namespace.yaml
-​```其中 namespace.yaml 如下： 
-​```yaml
+```其中 namespace.yaml 如下： 
+```yaml
   # 创建命名空间 qcbm
   apiVersion: v1
   kind: Namespace
@@ -360,7 +340,7 @@ shkubctl create –f namespace.yaml
 
 <dx-tabs>
 ::: 方式1：使用\sYAML
-下文为 QCBM 的 ConfigMap YAML，其中**纯数字类型的 value 需要用双引号括起来**。例如，下文示例 YAML 中的 MYSQL_PORT：
+下文为 QCBM 的 ConfigMap YAML，其中**纯数字类型的 value 需要使用双引号**。例如，下文示例 YAML 中的 MYSQL_PORT：
 <dx-codeblock>
 :::  yaml
 
@@ -407,7 +387,6 @@ Secret 可用于存储密码、令牌、密钥等敏感信息，降低直接对�
 :::  yaml
 
 # 创建 Secret
-
 apiVersion: v1
 kind: Secret
 metadata:
@@ -416,9 +395,7 @@ metadata:
   labels:
     qcloud-app: qcbm-keys
 data:
-
   # xxx 为base64 编码后的字符串，可使用 shell 命令 “echo -n 原始字符串 | base64” 生成
-
   MYSQL_ACCOUNT:  xxx
   MYSQL_PASSWORD: xxx
   REDIS_PASSWORD: xxx
@@ -621,7 +598,7 @@ spec:
 
 #### 查看部署结果
 
-至此，您已完成 QCBM 在 TKE 上的部署，可通过以下步骤查看部署结果：
+至此，您已完成 QCBM 在容器服务 TKE 上的部署，可通过以下步骤查看部署结果：
 
 1. 登录 [容器服务控制台](https://console.cloud.tencent.com/tke2/)，单击集群 ID/名称进入集群详情页面。
 2. 单击【服务与路由】>【Ingress】进入 Ingress 页面，可查看到创建的 Ingress。通过 Ingress 的 VIP 即可访问 Q 云书城页面。
@@ -746,7 +723,7 @@ TSW 目前处于内测阶段，只在广州和上海进行了部署，本文选�
 
 #### 接入 TSW — 获取接入点信息
 
-1. 登录 [TSW 控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏种的【服务观测】>【服务列表】。
+1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏种的【服务观测】>【服务列表】。
 2. 单击【接入服务】，选择 Java 语言与 SkyWalking 的数据采集方式。接入方式下提供了如下接入信息：**接入点**和 **Token**。
    ![](https://main.qcloudimg.com/raw/b56682adba6bdfb330fe98aa7dbf09fa.png)
 
@@ -773,7 +750,7 @@ Skywalking agent 也支持使用环境变量方式进行配置，QCBM 使用 Con
 
 #### 通过服务接口和调用链查看调用异常
 
-1. 登录 [TSW 控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏中的【服务观测】>【接口观测】。
+1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏中的【服务观测】>【接口观测】。
 2. 在接口观测页面可查看一个服务下所有接口的调用情况，包括请求量、成功率、错误率、响应时间等指标。如下图所示：
    ![](https://main.qcloudimg.com/raw/d35983cddeb99eb027cd4f76fa927cab.png)
 3. 上图中 qcbm-gateway 的两个接口：查询用户收藏夹 `/api/favorites/query/{userId}` 和查询用户订单 `/api/order/{userId}` 出现调用异常。单击查询用户收藏夹接口，可以查看到该接口的所有调用记录，找到异常的调用链，单击进入可以查看具体异常原因。如下图所示：
@@ -784,7 +761,7 @@ Skywalking agent 也支持使用环境变量方式进行配置，QCBM 使用 Con
 
 #### 使用 TSW 分析 SQL 和缓存等组件调用情况
 
-1. 登录 [TSW 控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏中的【组件调用观测】>【SQL 调用】。
+1. 登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏中的【组件调用观测】>【SQL 调用】。
 2. 在“SQL 调用”页面可查看 SQL、NOSQL、MQ 及其它组件的调用情况。例如，通过 SQL 的请求量及耗时，可以快速定位应用中的高频 SQL 和慢查询。如下图所示：
    ![](https://main.qcloudimg.com/raw/43376cf371bc037bd7a07b3a1782a5e6.png)
 
@@ -792,6 +769,6 @@ Skywalking agent 也支持使用环境变量方式进行配置，QCBM 使用 Con
 
 #### 查看服务拓扑
 
-1.  登录 [TSW 控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏中的【链路追踪】> 【分布式依赖拓扑】。
+1.  登录 [腾讯微服务观测平台控制台](https://console.cloud.tencent.com/tsw)，选择左侧导航栏中的【链路追踪】> 【分布式依赖拓扑】。
 2.  在“分布式依赖拓扑”页面可查看完成的服务依赖情况，以及调用次数和平均延迟等信息。如下图所示：
     ![](https://main.qcloudimg.com/raw/f17189bbf5e40ce6a4132caa2b00e0ee.png)

@@ -1,13 +1,13 @@
 本文的示例项目主要演示如何在 Unity 中快速集成 TRTC SDK，实现在游戏中的音频通话。
 
 Unity 示例项目中包含了以下功能：
-- 加入通话和离开通话
-- 音频相关接口函数
+- 加入通话和离开通话。
+- 音频相关接口函数。
 - 设备管理、音乐特效和人声特效。
 
 >?
-- 具体 API 功能参数说明，请参见 [API 概览](https://cloud.tencent.com/document/product/647/55158?!editLang=zh&!preview)。
-- 更多项目接入问题，请接入 QQ 群（788910197）咨询。
+- 具体 API 功能参数说明，请参见 [API 概览](https://cloud.tencent.com/document/product/647/55158)。
+- 更多项目接入问题，请接入 QQ 群（764231117）咨询。
 
 
 ## 运行环境要求

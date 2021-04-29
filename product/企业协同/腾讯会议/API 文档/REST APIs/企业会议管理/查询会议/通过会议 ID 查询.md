@@ -55,9 +55,9 @@ https://api.meeting.qq.com/v1/meetings/{meetingId}?userid={userid}&instanceid={i
 | current_sub_meeting_id | String         | 当前子会议 ID（进行中 / 即将开始）。     |
 | enable_live | Boolean      | 是否开启直播（会议创建人才有权限查询）。   |
 | live_config | 直播信息对象 | 会议的直播配置（会议创建人才有权限查询）。 |
-|meeting_room_info_list |Object | 会议室列表。 |
 |enable_doc_upload_permission    | Boolean       | 是否允许成员上传文档，默认为允许。                                                     |
 |guests   | Guest数组     | 会议嘉宾列表。                                                     |
+|has_vote   | Boolean     | 是否有投票（会议创建人和主持人才有权限查询）。                                                     |
 
 
 <span id="settings"></span>

@@ -21,7 +21,7 @@
 </tr>
 </table>
 4. 查看 Logstash 监控信息。
-实例重启完成后，“X-Pack 监控”状态变为开启，同时会显示当前关联的腾讯云Elasticsearch实例。
+实例重启完成后，“X-Pack 监控”状态变为开启，同时会显示当前关联的腾讯云 Elasticsearch 实例。
  - 在【监控】页签，单击【前往 Kibana 控制台】，跳转到 Kibana 控制台。
 ![](https://main.qcloudimg.com/raw/bb083ebbfcd24cc4491b97dd185d9602.png)
  - 登录 Kibana 控制台后，在左侧导航栏单击【Stack Monitoring】切换到监控页面，在【Logstash】区域就可以相应的监控信息。

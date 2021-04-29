@@ -1,19 +1,19 @@
 ## 操作场景
 
-消息队列 CKafka 支持用户转储消息的能力，您可以将 CKafka 消息转储至Elasticsearch Service（ES）便于海量数据存储搜索、实时日志分析等操作。
+消息队列 CKafka 支持用户转储消息的能力，您可以将 CKafka 消息转储至 Elasticsearch Service（ES）便于海量数据存储搜索、实时日志分析等操作。
 
 ## 前提条件
 
-该功能目前依赖 SCF，Elasticsearch 服务。使用时需提前开通云函数 SCF ，Elasticsearch Service 等相关服务及功能。
+该功能目前依赖 SCF、Elasticsearch 服务。使用时需提前开通云函数 SCF、Elasticsearch Service 等相关服务及功能。
 
 ## 操作步骤
 
-### 转储消息
+### 转储消息[](id:1)
 
 转储 Elasticsearch 的方案将使用 SCF 的 CKafka 触发器进行，通过 CKafka 触发器将消息转储到 Elasticsearch。
 
 1. 登录 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 。
-2. 在左侧导航树点击【实例列表】，单击目标实例的“ID/名称”，进入实例详情页。
+2. 在左侧导航栏单击【实例列表】，单击目标实例的“ID/名称”，进入实例详情页。
 3. 在实例详情页，点击【topic管理】标签页，单击操作列的【消息转储】。
 4. 单击【添加消息转储】，转储类型选择【Elasticsearch Service】。
    ![](https://main.qcloudimg.com/raw/ef35ef87117791731fffff3b6c8a28ff.png)
@@ -25,7 +25,6 @@
     - 起始位置：转储时历史消息的处理方式，topic offset 设置。
     - 角色授权：使用云函数 SCF 产品功能，您需要授予一个第三方角色代替您执行访问相关产品权限。
     - 云函数授权：知晓并同意开通创建云函数，该函数创建后需用户前往云函数设置更多高级配置及查看监控信息。
-
 5. 创建完成后，单击【提交】，即可完成转储创建。创建完成后不会立即开启转储，需在控制台手动开启。
 
 ### 数据清洗设置
@@ -38,7 +37,6 @@
    ![](https://main.qcloudimg.com/raw/d53d4fd5aec72743c44be5b8efa623be.png)
 
 当前模版代码拥有显性注释，可根据注释填写，主要配置列举：
-
 ```
 # 自定义es索引
 def createIndex(ES_Index_KeyWord, ES_Index_TimeFormat):

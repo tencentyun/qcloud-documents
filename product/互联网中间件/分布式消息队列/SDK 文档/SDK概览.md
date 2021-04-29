@@ -10,7 +10,7 @@
 </tr>
 <tr>
 <td>TCP 协议（Pulsar 社区版）</td>
-<td><li><a href="https://cloud.tencent.com/document/product/1179/48552">Java SDK</a></li><li><a href="http://pulsar.apache.org/docs/en/client-libraries-go/"> Go SDK</a></li><li><a href="http://pulsar.apache.org/docs/en/client-libraries-cpp/">C++ SDK</a></li><li><a href="http://pulsar.apache.org/docs/en/client-libraries-python/">Python SDK</a></li><li><a href="http://pulsar.apache.org/docs/en/client-libraries-node/">Node.js</a></li></td>
+<td><li><a href="https://cloud.tencent.com/document/product/1179/48552">Java SDK</a></li><li><a href="http://pulsar.apache.org/docs/en/client-libraries-go/"> Go SDK</a></li></td>
 </tr>
 <tr>
 <td>TCP 协议（腾讯云版，仅限存量客户使用）</td>

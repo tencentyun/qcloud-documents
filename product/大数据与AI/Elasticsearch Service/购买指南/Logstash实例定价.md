@@ -1,12 +1,15 @@
 Logstash 实例目前支持包年包月和按量计费两种计费模式：
 - 包年包月实例部署方案：实例的全部节点计费模式均为 [包年包月（预付费）](https://cloud.tencent.com/document/product/555/9618)，适用于长期存在且计算量稳定的实例。
-- 按量付费实例部署方案：实例的全部节点计费模式均为 [按量付费（后付费）](https://cloud.tencent.com/document/product/555/9617)，适用于短时间存在或周期性存在的实例。
+- 按量计费实例部署方案：实例的全部节点计费模式均为 [按量计费](https://cloud.tencent.com/document/product/555/9617)，适用于短时间存在或周期性存在的实例。
 
 Logstash 实例的计费项包括节点机型和节点存储两部分，实例收取的费用由全部节点构成。
 
 ## 节点机型价格
+
 ### 节点机型
+
 Logstash 实例支持以下节点类型：
+
 <table>
   <tr>
     <th width="15%">类型</th>
@@ -25,129 +28,123 @@ Logstash 实例支持以下节点类型：
 </table>
 
 [](id:step1)
+
 ### 标准型 SA2 定价
+
 #### 包年包月
+
 <table class="tg">
   <tr>
-    <th class="tg-llyw" rowspan="3">节点机型</th>
-		<th class="tg-llyw" rowspan="3">节点规格</th>
-    <th class="tg-llyw" rowspan="3">CPU</th>
-    <th class="tg-llyw" rowspan="3">内存（GB）</th>
-    <th class="tg-llyw" rowspan="3">适用场景</th>
+    <th class="tg-llyw" rowspan="2">节点机型</th>
+		<th class="tg-llyw" rowspan="2">节点规格</th>
+    <th class="tg-llyw" rowspan="2">CPU</th>
+    <th class="tg-llyw" rowspan="2">内存（GB）</th>
+    <th class="tg-llyw" rowspan="2">适用场景</th>
     <th class="tg-llyw" colspan="26">预付费（元/个/月）</th>
   </tr>
   <tr>
-    <td class="tg-llyw" colspan="2">北京/上海/广州/南京</td>
-    <td class="tg-llyw" colspan="2">成都/重庆</td>
+    <td class="tg-llyw" colspan="1">北京/上海/广州/南京</td>
+    <td class="tg-llyw" colspan="1">成都/重庆</td>
   </tr>
-  <tr>
-    <td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-    <td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-  </tr>
-  <tr>
-	<td class="tg-0pky"  rowspan="10">标准型 SA2 </td>
-    <td class="tg-0pky">ES.SA2.SMALL2</td>
-    <td class="tg-0pky">1</td>
+	<tr>
+    <td class="tg-0pky"  rowspan="12">标准型 SA2 </td>
+    <td class="tg-0pky">LOGSTASH.S1.MEDIUM4</td>
     <td class="tg-0pky">2</td>
-    <td class="tg-0pky">测试</td>
-    <td class="tg-0pky">43.2</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">生产</td>
+   	<td class="tg-0pky">140.8</td>
+    <td class="tg-0pky">126.6</td>
+  </tr>
+	<tr>
+    <td class="tg-0pky">LOGSTASH.S1.MEDIUM8</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">8</td>
+    <td class="tg-0pky">生产</td>
+		<td class="tg-0pky">211.2</td>
+    <td class="tg-0pky">189.8</td>
+  </tr>
+	<tr>
+    <td class="tg-0pky">LOGSTASH.S1.LARGE16</td>
+    <td class="tg-0pky">4</td>
+    <td class="tg-0pky">16</td>
+    <td class="tg-0pky">生产</td>
+		<td class="tg-0pky">422.4</td>
+    <td class="tg-0pky">379.6</td>
+  </tr>
+	<tr>
+    <td class="tg-0pky">LOGSTASH.S1.2XLARGE16</td>
+    <td class="tg-0pky">8</td>
+    <td class="tg-0pky">16</td>
+    <td class="tg-0pky">生产</td>
+		<td class="tg-0pky">563.2</td>
+    <td class="tg-0pky">506.4</td>
+  </tr>
+	<tr>
+    <td class="tg-0pky">LOGSTASH.S1.2XLARGE32</td>
+    <td class="tg-0pky">8</td>
+    <td class="tg-0pky">32</td>
+    <td class="tg-0pky">生产</td>
+		<td class="tg-0pky">844.8</td>
+    <td class="tg-0pky">759.2</td>
+  </tr>
+	<tr>
+    <td class="tg-0pky">LOGSTASH.S1.4XLARGE32</td>
+    <td class="tg-0pky">16</td>
+    <td class="tg-0pky">32</td>
+    <td class="tg-0pky">生产</td>
+		<td class="tg-0pky">1126.4</td>
+    <td class="tg-0pky">1012.8</td>
+  </tr>
+	<tr>
+    <td class="tg-0pky">LOGSTASH.S1.4XLARGE64</td>
+    <td class="tg-0pky">16</td>
+    <td class="tg-0pky">64</td>
+    <td class="tg-0pky">生产</td>
+			<td class="tg-0pky">1689.6</td>
+    <td class="tg-0pky">1518.4</td>
+  </tr>
+	<tr>
+    <td class="tg-0pky">LOGSTASH.S1.6XLARGE48</td>
+    <td class="tg-0pky">24</td>
     <td class="tg-0pky">48</td>
-    <td class="tg-0pky">37.8</td>
-    <td class="tg-0pky">42</td>
-  </tr>
-	<tr>
-    <td class="tg-0pky">ES.SA2.MEDIUM4</td>
-    <td class="tg-0pky">2</td>
-    <td class="tg-0pky">4</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">172.8</td>
-    <td class="tg-0pky">192</td>
-    <td class="tg-0pky">155.52</td>
-    <td class="tg-0pky">172.8</td>
+		<td class="tg-0pky">1689.6</td>
+    <td class="tg-0pky">1519.2</td>
   </tr>
 	<tr>
-    <td class="tg-0pky">ES.SA2.MEDIUM8</td>
-    <td class="tg-0pky">4</td>
-    <td class="tg-0pky">8</td>
+    <td class="tg-0pky">LOGSTASH.S1.6XLARGE96</td>
+    <td class="tg-0pky">24</td>
+    <td class="tg-0pky">96</td>
     <td class="tg-0pky">生产</td>
-			<td class="tg-0pky">259.2</td>
-    <td class="tg-0pky">288</td>
-    <td class="tg-0pky">233.28</td>
-    <td class="tg-0pky">259.2</td>
+			<td class="tg-0pky">2534.4</td>
+    <td class="tg-0pky">2277.6</td>
   </tr>
-	<tr>
-    <td class="tg-0pky">ES.SA2.LARGE16</td>
-    <td class="tg-0pky">4</td>
-    <td class="tg-0pky">16</td>
-    <td class="tg-0pky">生产</td>
-			<td class="tg-0pky">518.4</td>
-    <td class="tg-0pky">576</td>
-    <td class="tg-0pky">466.56</td>
-    <td class="tg-0pky">518.4</td>
-  </tr>
-	<tr>
-    <td class="tg-0pky">ES.SA2.2XLARGE16</td>
-    <td class="tg-0pky">8</td>
-    <td class="tg-0pky">16</td>
-    <td class="tg-0pky">生产</td>
-			<td class="tg-0pky">691.2</td>
-    <td class="tg-0pky">768</td>
-    <td class="tg-0pky">622.08</td>
-    <td class="tg-0pky">691.2</td>
-  </tr>
-	<tr>
-    <td class="tg-0pky">ES.SA2.2XLARGE32</td>
-    <td class="tg-0pky">8</td>
-    <td class="tg-0pky">32</td>
-    <td class="tg-0pky">生产</td>
-			<td class="tg-0pky">1036.8</td>
-    <td class="tg-0pky">1152</td>
-    <td class="tg-0pky">933.12</td>
-    <td class="tg-0pky">1036.8</td>
-  </tr>
-	<tr>
-    <td class="tg-0pky">ES.SA2.4XLARGE32</td>
-    <td class="tg-0pky">16</td>
-    <td class="tg-0pky">32</td>
-    <td class="tg-0pky">生产</td>
-			<td class="tg-0pky">1382.4</td>
-    <td class="tg-0pky">1536</td>
-    <td class="tg-0pky">1244.16</td>
-    <td class="tg-0pky">1382.4</td>
-  </tr>
-	<tr>
-    <td class="tg-0pky">ES.SA2.4XLARGE64</td>
-    <td class="tg-0pky">16</td>
-    <td class="tg-0pky">64</td>
-    <td class="tg-0pky">生产</td>
-			<td class="tg-0pky">2073.6</td>
-    <td class="tg-0pky">2304</td>
-    <td class="tg-0pky">1866.24</td>
-    <td class="tg-0pky">2073.6</td>
-  </tr>
-	<tr>
-    <td class="tg-0pky">ES.SA2.8XLARGE64</td>
+  <tr>
+    <td class="tg-0pky">LOGSTASH.S1.8XLARGE64</td>
     <td class="tg-0pky">32</td>
     <td class="tg-0pky">64</td>
     <td class="tg-0pky">生产</td>
-			<td class="tg-0pky">2764.8</td>
-    <td class="tg-0pky">3072</td>
-    <td class="tg-0pky">2488.32</td>
-    <td class="tg-0pky">2764.8</td>
+			<td class="tg-0pky">2252.8</td>
+    <td class="tg-0pky">2025.6</td>
   </tr>
-	<tr>
-    <td class="tg-0pky">ES.SA2.12XLARGE96</td>
+  <tr>
+    <td class="tg-0pky">LOGSTASH.S1.8XLARGE128</td>
+    <td class="tg-0pky">32</td>
+    <td class="tg-0pky">128</td>
+    <td class="tg-0pky">生产</td>
+			<td class="tg-0pky">3379.2</td>
+    <td class="tg-0pky">3036.8</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">LOGSTASH.S1.8XLARGE128</td>
     <td class="tg-0pky">48</td>
     <td class="tg-0pky">96</td>
     <td class="tg-0pky">生产</td>
-			<td class="tg-0pky">4147.2</td>
-    <td class="tg-0pky">4608</td>
-    <td class="tg-0pky">3732.48</td>
-    <td class="tg-0pky">4147.2</td>
-  </tr>
+			<td class="tg-0pky">3379.2</td>
+    <td class="tg-0pky">3038.4</td>
+  </tr> 
 </table>
+
 
 
 
@@ -155,124 +152,114 @@ Logstash 实例支持以下节点类型：
 
 <table class="tg">
   <tr>
-	  <th class="tg-llyw" rowspan="3">节点机型</th>
-    <th class="tg-llyw" rowspan="3">节点规格</th>
-    <th class="tg-llyw" rowspan="3">CPU</th>
-    <th class="tg-llyw" rowspan="3">内存（GB）</th>
-    <th class="tg-llyw" rowspan="3">适用场景</th>
+    <th class="tg-llyw" rowspan="2">节点机型</th>
+		<th class="tg-llyw" rowspan="2">节点规格</th>
+    <th class="tg-llyw" rowspan="2">CPU</th>
+    <th class="tg-llyw" rowspan="2">内存（GB）</th>
+    <th class="tg-llyw" rowspan="2">适用场景</th>
     <th class="tg-llyw" colspan="26">后付费（元/个/小时）</th>
   </tr>
   <tr>
-    <td class="tg-llyw" colspan="2">北京/上海/广州/南京</td>
-    <td class="tg-llyw" colspan="2">成都/重庆</td>
-  </tr>
-  <tr>
-    <td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-    <td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-  </tr>
-  <tr>
-	<td class="tg-0pky"  rowspan="10">标准型 SA2 </td>
-    <td class="tg-0pky">ES.SA2.SMALL2</td>
-    <td class="tg-0pky">1</td>
-    <td class="tg-0pky">2</td>
-    <td class="tg-0pky">测试</td>
-    <td class="tg-0pky">0.09</td>
-    <td class="tg-0pky">0.1</td>
-    <td class="tg-0pky">0.08</td>
-    <td class="tg-0pky">0.08</td>
+    <td class="tg-llyw" colspan="1">北京/上海/广州/南京</td>
+    <td class="tg-llyw" colspan="1">成都/重庆</td>
   </tr>
 	<tr>
-    <td class="tg-0pky">ES.SA2.MEDIUM4</td>
+    <td class="tg-0pky"  rowspan="12">标准型 SA2 </td>
+    <td class="tg-0pky">LOGSTASH.S1.MEDIUM4</td>
     <td class="tg-0pky">2</td>
     <td class="tg-0pky">4</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">0.35</td>
+   	<td class="tg-0pky">0.29</td>
+    <td class="tg-0pky">0.26</td>
+  </tr>
+	<tr>
+    <td class="tg-0pky">LOGSTASH.S1.MEDIUM8</td>
+    <td class="tg-0pky">2</td>
+    <td class="tg-0pky">8</td>
+    <td class="tg-0pky">生产</td>
+		<td class="tg-0pky">0.43</td>
     <td class="tg-0pky">0.39</td>
-    <td class="tg-0pky">0.31</td>
-    <td class="tg-0pky">0.35</td>
   </tr>
 	<tr>
-    <td class="tg-0pky">ES.SA2.MEDIUM8</td>
-    <td class="tg-0pky">4</td>
-    <td class="tg-0pky">8</td>
-    <td class="tg-0pky">生产</td>
-			<td class="tg-0pky">0.52</td>
-    <td class="tg-0pky">0.58</td>
-    <td class="tg-0pky">0.47</td>
-    <td class="tg-0pky">0.52</td>
-  </tr>
-	<tr>
-    <td class="tg-0pky">ES.SA2.LARGE16</td>
+    <td class="tg-0pky">LOGSTASH.S1.LARGE16</td>
     <td class="tg-0pky">4</td>
     <td class="tg-0pky">16</td>
     <td class="tg-0pky">生产</td>
-			<td class="tg-0pky">1.04</td>
-    <td class="tg-0pky">1.16</td>
-    <td class="tg-0pky">0.94</td>
-    <td class="tg-0pky">1.04</td>
+		<td class="tg-0pky">0.86</td>
+    <td class="tg-0pky">0.77</td>
   </tr>
 	<tr>
-    <td class="tg-0pky">ES.SA2.2XLARGE16</td>
+    <td class="tg-0pky">LOGSTASH.S1.2XLARGE16</td>
     <td class="tg-0pky">8</td>
     <td class="tg-0pky">16</td>
     <td class="tg-0pky">生产</td>
-			<td class="tg-0pky">1.39</td>
-    <td class="tg-0pky">1.54</td>
-    <td class="tg-0pky">1.25</td>
-    <td class="tg-0pky">1.39</td>
+		<td class="tg-0pky">1.14</td>
+    <td class="tg-0pky">1.03</td>
   </tr>
 	<tr>
-    <td class="tg-0pky">ES.SA2.2XLARGE32</td>
+    <td class="tg-0pky">LOGSTASH.S1.2XLARGE32</td>
     <td class="tg-0pky">8</td>
     <td class="tg-0pky">32</td>
     <td class="tg-0pky">生产</td>
-			<td class="tg-0pky">2.08</td>
-    <td class="tg-0pky">2.31</td>
-    <td class="tg-0pky">1.87</td>
-    <td class="tg-0pky">2.08</td>
+		<td class="tg-0pky">1.72</td>
+    <td class="tg-0pky">1.55</td>
   </tr>
 	<tr>
-    <td class="tg-0pky">ES.SA2.4XLARGE32</td>
+    <td class="tg-0pky">LOGSTASH.S1.4XLARGE32</td>
     <td class="tg-0pky">16</td>
     <td class="tg-0pky">32</td>
     <td class="tg-0pky">生产</td>
-			<td class="tg-0pky">2.78</td>
+		<td class="tg-0pky">2.29</td>
+    <td class="tg-0pky">2.06</td>
+  </tr>
+	<tr>
+    <td class="tg-0pky">LOGSTASH.S1.4XLARGE64</td>
+    <td class="tg-0pky">16</td>
+    <td class="tg-0pky">64</td>
+    <td class="tg-0pky">生产</td>
+			<td class="tg-0pky">3.43</td>
     <td class="tg-0pky">3.09</td>
-    <td class="tg-0pky">2.5</td>
-    <td class="tg-0pky">2.78</td>
   </tr>
 	<tr>
-    <td class="tg-0pky">ES.SA2.4XLARGE64</td>
-    <td class="tg-0pky">16</td>
-    <td class="tg-0pky">64</td>
-    <td class="tg-0pky">生产</td>
-			<td class="tg-0pky">4.17</td>
-    <td class="tg-0pky">4.63</td>
-    <td class="tg-0pky">3.75</td>
-    <td class="tg-0pky">4.17</td>
-  </tr>
-	<tr>
-    <td class="tg-0pky">ES.SA2.8XLARGE64</td>
-    <td class="tg-0pky">32</td>
-    <td class="tg-0pky">64</td>
-    <td class="tg-0pky">生产</td>
-			<td class="tg-0pky">5.56</td>
-    <td class="tg-0pky">6.17</td>
-    <td class="tg-0pky">5</td>
-    <td class="tg-0pky">5.56</td>
-  </tr>
-	<tr>
-    <td class="tg-0pky">ES.SA2.12XLARGE96</td>
+    <td class="tg-0pky">LOGSTASH.S1.6XLARGE48</td>
+    <td class="tg-0pky">24</td>
     <td class="tg-0pky">48</td>
+    <td class="tg-0pky">生产</td>
+		<td class="tg-0pky">3.43</td>
+    <td class="tg-0pky">3.09</td>
+  </tr>
+	<tr>
+    <td class="tg-0pky">LOGSTASH.S1.6XLARGE96</td>
+    <td class="tg-0pky">24</td>
     <td class="tg-0pky">96</td>
     <td class="tg-0pky">生产</td>
-			<td class="tg-0pky">8.33</td>
-    <td class="tg-0pky">9.26</td>
-    <td class="tg-0pky">7.5</td>
-    <td class="tg-0pky">8.33</td>
+			<td class="tg-0pky">5.15</td>
+    <td class="tg-0pky">4.64</td>
   </tr>
+  <tr>
+    <td class="tg-0pky">LOGSTASH.S1.8XLARGE64</td>
+    <td class="tg-0pky">32</td>
+    <td class="tg-0pky">64</td>
+    <td class="tg-0pky">生产</td>
+			<td class="tg-0pky">4.58</td>
+    <td class="tg-0pky">4.12</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">LOGSTASH.S1.8XLARGE128</td>
+    <td class="tg-0pky">32</td>
+    <td class="tg-0pky">128</td>
+    <td class="tg-0pky">生产</td>
+			<td class="tg-0pky">6.87</td>
+    <td class="tg-0pky">6.18</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">LOGSTASH.S1.8XLARGE128</td>
+    <td class="tg-0pky">48</td>
+    <td class="tg-0pky">196</td>
+    <td class="tg-0pky">生产</td>
+			<td class="tg-0pky">6.87</td>
+    <td class="tg-0pky">6.18</td>
+  </tr> 
 </table>
 
 
@@ -284,474 +271,272 @@ Logstash 实例支持以下节点类型：
 
 <table class="tg">
   <tr>
-	  <th class="tg-llyw" rowspan="3">节点机型</th>
-    <th class="tg-llyw" rowspan="3">节点规格</th>
-    <th class="tg-llyw" rowspan="3">CPU</th>
-    <th class="tg-llyw" rowspan="3">内存（GB）</th>
-    <th class="tg-llyw" rowspan="3">适用场景</th>
-    <th class="tg-llyw" colspan="26">预付费（元/个/月）</th>
+	  <th class="tg-llyw" rowspan="2">节点机型</th>
+    <th class="tg-llyw" rowspan="2">节点规格</th>
+    <th class="tg-llyw" rowspan="2">CPU</th>
+    <th class="tg-llyw" rowspan="2">内存（GB）</th>
+    <th class="tg-llyw" rowspan="2">适用场景</th>
+    <th class="tg-llyw" colspan="14">预付费（元/个/月）</th>
   </tr>
   <tr>
-    <td class="tg-llyw" colspan="2">北京/上海/广州/南京</td>
-    <td class="tg-llyw" colspan="2">成都/重庆</td>
-		<td class="tg-llyw" colspan="2">上海/深圳金融</td>
-    <td class="tg-llyw" colspan="2">中国香港</td>
-    <td class="tg-llyw" colspan="2">新加坡</td>
-		<td class="tg-llyw" colspan="2">孟买</td>
-		<td class="tg-llyw" colspan="2">东京</td>
-		<td class="tg-llyw" colspan="2">首尔</td>
-    <td class="tg-llyw" colspan="2">硅谷</td>
-		<td class="tg-llyw" colspan="2">弗吉尼亚</td>
-    <td class="tg-llyw" colspan="2">多伦多</td>
-		<td class="tg-llyw" colspan="2">法兰克福</td>
-		<td class="tg-llyw" colspan="2">莫斯科</td>
+    <td class="tg-llyw" colspan="1">北京/上海/广州/南京</td>
+    <td class="tg-llyw" colspan="1">成都/重庆</td>
+		<td class="tg-llyw" colspan="1">北京/上海/深圳金融</td>
+    <td class="tg-llyw" colspan="1">中国香港</td>
+    <td class="tg-llyw" colspan="1">新加坡</td>
+    <td class="tg-llyw" colspan="1">泰国</td>
+		<td class="tg-llyw" colspan="1">孟买</td>
+		<td class="tg-llyw" colspan="1">首尔</td>
+		<td class="tg-llyw" colspan="1">日本</td>
+    <td class="tg-llyw" colspan="1">美国硅谷</td>
+		<td class="tg-llyw" colspan="1">弗吉尼亚</td>
+    <td class="tg-llyw" colspan="1">多伦多</td>
+		<td class="tg-llyw" colspan="1">法兰克福</td>
+		<td class="tg-llyw" colspan="1">俄罗斯</td>  
   </tr>
   <tr>
-    <td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-    <td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-    <td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-    <td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-    <td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-    <td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-		<td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-		<td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-		<td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-		<td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-		<td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-		<td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-		<td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-  </tr>
-  <tr>
-	  <td class="tg-0pky"  rowspan="13">标准型 S1</td>
-    <td class="tg-0pky">ES.S1.SMALL2</td>
-    <td class="tg-0pky">1</td>
-    <td class="tg-0pky">2</td>
-    <td class="tg-0pky">测试</td>
-		<td class="tg-0pky">92.43</td>
-    <td class="tg-0pky">102.7</td>
-    <td class="tg-0pky">88.02</td>
-    <td class="tg-0pky">97.8</td>
-    <td class="tg-0pky">147.87</td>
-    <td class="tg-0pky">164.3</td>
-    <td class="tg-0pky">139.23</td>
-    <td class="tg-0pky">154.7</td>
-    <td class="tg-0pky">139.23</td>
-    <td class="tg-0pky">154.7</td>
-    <td class="tg-0pky">88.92</td>
-    <td class="tg-0pky">98.8</td>
-		<td class="tg-0pky">138.06</td>
-		<td class="tg-0pky">153.4</td>
-    <td class="tg-0pky">147.42</td>
-    <td class="tg-0pky">163.8</td>
-		<td class="tg-0pky">132.21</td>
-    <td class="tg-0pky">146.9</td>
-		<td class="tg-0pky">99.45</td>
-		<td class="tg-0pky">110.5</td>
-		<td class="tg-0pky">99.45</td>
-		<td class="tg-0pky">110.5</td>
-		<td class="tg-0pky">138.06</td>
-		<td class="tg-0pky">153.4</td>
-		<td class="tg-0pky">131.04</td>
-		<td class="tg-0pky">145.6</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">ES.S1.MEDIUM4</td>
+    <td class="tg-0pky"  rowspan="14">标准型 S1</td>
+    <td class="tg-0pky">LOGSTASH.S1.MEDIUM4</td>
     <td class="tg-0pky">2</td>
     <td class="tg-0pky">4</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">243.18</td>
-    <td class="tg-0pky">270.2</td>
-    <td class="tg-0pky">221.04</td>
-    <td class="tg-0pky">245.6</td>
-    <td class="tg-0pky">388.80</td>
-    <td class="tg-0pky">432.0</td>
-    <td class="tg-0pky">323.82</td>
-    <td class="tg-0pky">359.8</td>
-    <td class="tg-0pky">323.82</td>
-    <td class="tg-0pky">359.8</td>
-    <td class="tg-0pky">232.02</td>
-    <td class="tg-0pky">257.8</td>
-		<td class="tg-0pky">337.68</td>
-		<td class="tg-0pky">375.2</td>
-		<td class="tg-0pky">337.68</td>
-    <td class="tg-0pky">375.2</td>
-		<td class="tg-0pky">306.54</td>
-    <td class="tg-0pky">340.6</td>
-		<td class="tg-0pky">239.04</td>
-		<td class="tg-0pky">265.6</td>
-		<td class="tg-0pky">239.04</td>
-    <td class="tg-0pky">265.6</td>
-		<td class="tg-0pky">312.48</td>
-    <td class="tg-0pky">347.2</td>
-		<td class="tg-0pky">294.48</td>
-    <td class="tg-0pky">327.2</td>
+    <td class="tg-0pky">198.2</td>
+    <td class="tg-0pky">180</td>
+    <td class="tg-0pky">316.8</td>
+    <td class="tg-0pky">272.8</td>
+    <td class="tg-0pky">272.8</td>
+    <td class="tg-0pky">264</td>
+    <td class="tg-0pky">228.8</td>
+    <td class="tg-0pky">308</td>
+    <td class="tg-0pky">308</td>
+    <td class="tg-0pky">290.4</td>
+    <td class="tg-0pky">226.6</td>
+    <td class="tg-0pky">226.6</td>
+		<td class="tg-0pky">308</td>
+		<td class="tg-0pky">290.4</td>
   </tr>
   <tr>
-    <td class="tg-0pky">ES.S1.MEDIUM8</td>
+    <td class="tg-0pky">LOGSTASH.S1.MEDIUM8</td>
     <td class="tg-0pky">2</td>
     <td class="tg-0pky">8</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">364.86</td>
-    <td class="tg-0pky">405.4</td>
-    <td class="tg-0pky">331.56</td>
-    <td class="tg-0pky">368.4</td>
-    <td class="tg-0pky">583.20</td>
-    <td class="tg-0pky">648.0</td>
-    <td class="tg-0pky">485.82</td>
-    <td class="tg-0pky">539.8</td>
-    <td class="tg-0pky">485.82</td>
-    <td class="tg-0pky">539.8</td>
-    <td class="tg-0pky">347.94</td>
-    <td class="tg-0pky">386.6</td>
-		<td class="tg-0pky">506.52</td>
-		<td class="tg-0pky">562.8</td>
-		<td class="tg-0pky">506.52</td>
-    <td class="tg-0pky">562.8</td>
-		<td class="tg-0pky">459.90</td>
-    <td class="tg-0pky">511.0</td>
-		<td class="tg-0pky">358.56</td>
-		<td class="tg-0pky">398.4</td>
-		<td class="tg-0pky">358.56</td>
-    <td class="tg-0pky">398.4</td>
-		<td class="tg-0pky">468.72</td>
-    <td class="tg-0pky">520.8</td>
-		<td class="tg-0pky">441.72</td>
-    <td class="tg-0pky">490.8</td>
+    <td class="tg-0pky">297.4</td>
+    <td class="tg-0pky">270</td>
+    <td class="tg-0pky">475.2</td>
+    <td class="tg-0pky">409.2</td>
+    <td class="tg-0pky">409.2</td>
+    <td class="tg-0pky">396</td>
+    <td class="tg-0pky">343.2</td>
+    <td class="tg-0pky">462</td>
+    <td class="tg-0pky">462</td>
+    <td class="tg-0pky">435.6</td>
+    <td class="tg-0pky">339.8</td>
+    <td class="tg-0pky">339.8</td>
+		<td class="tg-0pky">462</td>
+		<td class="tg-0pky">435.6</td>
   </tr>
   <tr>
-    <td class="tg-0pky">ES.S1.LARGE16</td>
+    <td class="tg-0pky">LOGSTASH.S1.LARGE16</td>
     <td class="tg-0pky">4</td>
     <td class="tg-0pky">16</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">729.72</td>
-    <td class="tg-0pky">810.8</td>
-    <td class="tg-0pky">663.12</td>
-    <td class="tg-0pky">736.8</td>
-    <td class="tg-0pky">1166.40</td>
-    <td class="tg-0pky">1296.0</td>
-    <td class="tg-0pky">971.64</td>
-    <td class="tg-0pky">1079.6</td>
-    <td class="tg-0pky">971.64</td>
-    <td class="tg-0pky">1079.6</td>
-    <td class="tg-0pky">695.88</td>
-    <td class="tg-0pky">773.2</td>
-		<td class="tg-0pky">1013.04</td>
-		<td class="tg-0pky">1125.6</td>
-		<td class="tg-0pky">1013.04</td>
-    <td class="tg-0pky">1125.6</td>
-		<td class="tg-0pky">919.80</td>
-    <td class="tg-0pky">1022.0</td>
-		<td class="tg-0pky">717.12</td>
-		<td class="tg-0pky">796.8</td>
-		<td class="tg-0pky">717.12</td>
-    <td class="tg-0pky">796.8</td>
-		<td class="tg-0pky">937.44</td>
-    <td class="tg-0pky">1041.6</td>
-		<td class="tg-0pky">883.44</td>
-    <td class="tg-0pky">981.6</td>
+    <td class="tg-0pky">594.8</td>
+    <td class="tg-0pky">540</td>
+    <td class="tg-0pky">950.4</td>
+    <td class="tg-0pky">818.4</td>
+    <td class="tg-0pky">818.4</td>
+    <td class="tg-0pky">792</td>
+    <td class="tg-0pky">686.4</td>
+    <td class="tg-0pky">924</td>
+    <td class="tg-0pky">924</td>
+    <td class="tg-0pky">871.2</td>
+    <td class="tg-0pky">679.6</td>
+    <td class="tg-0pky">679.6</td>
+		<td class="tg-0pky">924</td>
+		<td class="tg-0pky">871.2</td>
   </tr>
 	<tr>
-    <td class="tg-0pky">ES.S1.2XLARGE16</td>
+    <td class="tg-0pky">LOGSTASH.S1.2XLARGE16</td>
     <td class="tg-0pky">8</td>
     <td class="tg-0pky">16</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">972.72</td>
-    <td class="tg-0pky">1080.8</td>
-    <td class="tg-0pky">884.16</td>
-    <td class="tg-0pky">982.4</td>
-    <td class="tg-0pky">1555.20</td>
-    <td class="tg-0pky">1728.0</td>
-    <td class="tg-0pky">1295.28</td>
-    <td class="tg-0pky">1439.2</td>
-    <td class="tg-0pky">1295.28</td>
-    <td class="tg-0pky">1439.2</td>
-    <td class="tg-0pky">928.08</td>
-    <td class="tg-0pky">1031.2</td>
-		<td class="tg-0pky">1350.72</td>
-		<td class="tg-0pky">1500.8</td>
-		<td class="tg-0pky">1350.72</td>
-    <td class="tg-0pky">1500.8</td>
-		<td class="tg-0pky">1226.16</td>
-    <td class="tg-0pky">1362.4</td>
-		<td class="tg-0pky">956.16</td>
-		<td class="tg-0pky">1062.4</td>
-		<td class="tg-0pky">956.16</td>
-    <td class="tg-0pky">1062.4</td>
-		<td class="tg-0pky">1249.92</td>
-    <td class="tg-0pky">1388.8</td>
-		<td class="tg-0pky">1177.92</td>
-    <td class="tg-0pky">1308.8</td>
+    <td class="tg-0pky">792.8</td>
+    <td class="tg-0pky">720</td>
+    <td class="tg-0pky">1267.2</td>
+    <td class="tg-0pky">1091.2</td>
+    <td class="tg-0pky">1091.2</td>
+    <td class="tg-0pky">1056</td>
+    <td class="tg-0pky">915.2</td>
+    <td class="tg-0pky">1232</td>
+    <td class="tg-0pky">1232</td>
+    <td class="tg-0pky">1161.6</td>
+    <td class="tg-0pky">906.4</td>
+    <td class="tg-0pky">906.4</td>
+		<td class="tg-0pky">1232</td>
+		<td class="tg-0pky">1161.6</td>
   </tr>
   <tr>
-    <td class="tg-0pky">ES.S1.2XLARGE32</td>
+    <td class="tg-0pky">LOGSTASH.S1.2XLARGE32</td>
     <td class="tg-0pky">8</td>
     <td class="tg-0pky">32</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">1459.44</td>
-    <td class="tg-0pky">1621.6</td>
-    <td class="tg-0pky">1326.24</td>
-    <td class="tg-0pky">1473.6</td>
-    <td class="tg-0pky">2332.80</td>
-    <td class="tg-0pky">2592.0</td>
-    <td class="tg-0pky">1943.28</td>
-    <td class="tg-0pky">2159.2</td>
-    <td class="tg-0pky">1943.28</td>
-    <td class="tg-0pky">2159.2</td>
-    <td class="tg-0pky">1391.76</td>
-    <td class="tg-0pky">1546.4</td>
-		<td class="tg-0pky">2026.08</td>
-		<td class="tg-0pky">2251.2</td>
-		<td class="tg-0pky">2026.08</td>
-    <td class="tg-0pky">2251.2</td>
-		<td class="tg-0pky">1839.60</td>
-    <td class="tg-0pky">2044.0</td>
-		<td class="tg-0pky">1434.24</td>
-		<td class="tg-0pky">1593.6</td>
-		<td class="tg-0pky">1434.24</td>
-    <td class="tg-0pky">1593.6</td>
-		<td class="tg-0pky">1874.88</td>
-    <td class="tg-0pky">2083.2</td>
-		<td class="tg-0pky">1766.88</td>
-    <td class="tg-0pky">1963.2</td>
+    <td class="tg-0pky">1189.6</td>
+    <td class="tg-0pky">1080</td>
+    <td class="tg-0pky">1900.8</td>
+    <td class="tg-0pky">1636.8</td>
+    <td class="tg-0pky">1636.8</td>
+    <td class="tg-0pky">1584</td>
+    <td class="tg-0pky">1372.8</td>
+    <td class="tg-0pky">1848</td>
+    <td class="tg-0pky">1848</td>
+    <td class="tg-0pky">1742.4</td>
+    <td class="tg-0pky">1359.2</td>
+    <td class="tg-0pky">1359.2</td>
+		<td class="tg-0pky">1848</td>
+		<td class="tg-0pky">1742.4</td>
   </tr>
   <tr>
-    <td class="tg-0pky">ES.S1.4XLARGE32</td>
+    <td class="tg-0pky">LOGSTASH.S1.4XLARGE32</td>
     <td class="tg-0pky">16</td>
     <td class="tg-0pky">32</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">1945.44</td>
-    <td class="tg-0pky">2161.6</td>
-    <td class="tg-0pky">1768.32</td>
-    <td class="tg-0pky">1964.8</td>
-    <td class="tg-0pky">3110.40</td>
-    <td class="tg-0pky">3456.0</td>
-    <td class="tg-0pky">2590.56</td>
-    <td class="tg-0pky">2878.4</td>
-    <td class="tg-0pky">2590.56</td>
-    <td class="tg-0pky">2878.4</td>
-    <td class="tg-0pky">1856.16</td>
-    <td class="tg-0pky">2062.4</td>
-		<td class="tg-0pky">2701.44</td>
-		<td class="tg-0pky">3001.6</td>
-		<td class="tg-0pky">2701.44</td>
-    <td class="tg-0pky">3001.6</td>
-		<td class="tg-0pky">2452.32</td>
-    <td class="tg-0pky">2724.8</td>
-		<td class="tg-0pky">1912.32</td>
-		<td class="tg-0pky">2124.8</td>
-		<td class="tg-0pky">1912.32</td>
-    <td class="tg-0pky">2124.8</td>
-		<td class="tg-0pky">2499.84</td>
-    <td class="tg-0pky">2777.6</td>
-		<td class="tg-0pky">2355.84</td>
-    <td class="tg-0pky">2617.6</td>
+    <td class="tg-0pky">1585.6</td>
+    <td class="tg-0pky">1440</td>
+    <td class="tg-0pky">2534.4</td>
+    <td class="tg-0pky">2182.4</td>
+    <td class="tg-0pky">2182.4</td>
+    <td class="tg-0pky">2112</td>
+    <td class="tg-0pky">1830.4</td>
+    <td class="tg-0pky">2464</td>
+    <td class="tg-0pky">2464</td>
+    <td class="tg-0pky">2323.2</td>
+    <td class="tg-0pky">1812.8</td>
+    <td class="tg-0pky">1812.8</td>
+		<td class="tg-0pky">2464</td>
+		<td class="tg-0pky">2323.2</td>
   </tr>
   <tr>
-    <td class="tg-0pky">ES.S1.4XLARGE64</td>
+    <td class="tg-0pky">LOGSTASH.S1.4XLARGE64</td>
     <td class="tg-0pky">16</td>
     <td class="tg-0pky">64</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">2918.88</td>
-    <td class="tg-0pky">3243.2</td>
-    <td class="tg-0pky">2652.48</td>
-    <td class="tg-0pky">2947.2</td>
-    <td class="tg-0pky">4665.60</td>
-    <td class="tg-0pky">5184.0</td>
-    <td class="tg-0pky">3886.56</td>
-    <td class="tg-0pky">4318.4</td>
-    <td class="tg-0pky">3886.56</td>
-    <td class="tg-0pky">4318.4</td>
-    <td class="tg-0pky">2783.52</td>
-    <td class="tg-0pky">3092.8</td>
-		<td class="tg-0pky">4052.16</td>
-		<td class="tg-0pky">4502.4</td>
-		<td class="tg-0pky">4052.16</td>
-    <td class="tg-0pky">4502.4</td>
-		<td class="tg-0pky">3679.20</td>
-    <td class="tg-0pky">4088.0</td>
-		<td class="tg-0pky">2868.48</td>
-		<td class="tg-0pky">3187.2</td>
-		<td class="tg-0pky">2868.48</td>
-    <td class="tg-0pky">3187.2</td>
-		<td class="tg-0pky">3749.76</td>
-    <td class="tg-0pky">4166.4</td>
-		<td class="tg-0pky">3533.76</td>
-    <td class="tg-0pky">3926.4</td>
+    <td class="tg-0pky">2379.2</td>
+    <td class="tg-0pky">2160</td>
+    <td class="tg-0pky">3801.6</td>
+    <td class="tg-0pky">3273.6</td>
+    <td class="tg-0pky">3273.6</td>
+    <td class="tg-0pky">3168</td>
+    <td class="tg-0pky">2745.6</td>
+    <td class="tg-0pky">3696</td>
+    <td class="tg-0pky">3696</td>
+    <td class="tg-0pky">3484.8</td>
+    <td class="tg-0pky">2718.4</td>
+    <td class="tg-0pky">2718.4</td>
+		<td class="tg-0pky">3696</td>
+		<td class="tg-0pky">3484.8</td>
   </tr>
 	<tr>
-    <td class="tg-0pky">ES.S1.6XLARGE48</td>
+    <td class="tg-0pky">LOGSTASH.S1.6XLARGE48</td>
     <td class="tg-0pky">24</td>
     <td class="tg-0pky">48</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">2918.16</td>
-    <td class="tg-0pky">3242.4</td>
-    <td class="tg-0pky">2652.48</td>
-    <td class="tg-0pky">2947.2</td>
-    <td class="tg-0pky">4665.60</td>
-    <td class="tg-0pky">5184.0</td>
-    <td class="tg-0pky">3885.84</td>
-    <td class="tg-0pky">4317.6</td>
-    <td class="tg-0pky">3885.84</td>
-    <td class="tg-0pky">4317.6</td>
-    <td class="tg-0pky">2784.24</td>
-    <td class="tg-0pky">3093.6</td>
-		<td class="tg-0pky">4052.16</td>
-		<td class="tg-0pky">4502.4</td>
-		<td class="tg-0pky">4052.16</td>
-    <td class="tg-0pky">4502.4</td>
-		<td class="tg-0pky">3678.48</td>
-    <td class="tg-0pky">4087.2</td>
-		<td class="tg-0pky">2868.48</td>
-		<td class="tg-0pky">3187.2</td>
-		<td class="tg-0pky">2868.48</td>
-    <td class="tg-0pky">3187.2</td>
-		<td class="tg-0pky">3749.76</td>
-    <td class="tg-0pky">4166.4</td>
-		<td class="tg-0pky">3533.76</td>
-    <td class="tg-0pky">3926.4</td>
+    <td class="tg-0pky">2378.4</td>
+    <td class="tg-0pky">2160</td>
+    <td class="tg-0pky">3801.6</td>
+    <td class="tg-0pky">3273.6</td>
+    <td class="tg-0pky">3273.6</td>
+    <td class="tg-0pky">3168</td>
+    <td class="tg-0pky">2745.6</td>
+    <td class="tg-0pky">3696</td>
+    <td class="tg-0pky">3696</td>
+    <td class="tg-0pky">3484.8</td>
+    <td class="tg-0pky">2719.2</td>
+    <td class="tg-0pky">2719.2</td>
+		<td class="tg-0pky">3696</td>
+		<td class="tg-0pky">3484.8</td>
   </tr>
 	<tr>
-    <td class="tg-0pky">ES.S1.6XLARGE96</td>
+    <td class="tg-0pky">LOGSTASH.S1.6XLARGE96</td>
     <td class="tg-0pky">24</td>
     <td class="tg-0pky">96</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">4378.32</td>
-    <td class="tg-0pky">4864.8</td>
-    <td class="tg-0pky">3978.72</td>
-    <td class="tg-0pky">4420.8</td>
-    <td class="tg-0pky">6998.40</td>
-    <td class="tg-0pky">7776.0</td>
-    <td class="tg-0pky">5829.84</td>
-    <td class="tg-0pky">6477.6</td>
-    <td class="tg-0pky">5829.84</td>
-    <td class="tg-0pky">6477.6</td>
-    <td class="tg-0pky">4175.28</td>
-    <td class="tg-0pky">4639.2</td>
-		<td class="tg-0pky">6078.24</td>
-		<td class="tg-0pky">6753.6</td>
-		<td class="tg-0pky">6078.24</td>
-    <td class="tg-0pky">6753.6</td>
-		<td class="tg-0pky">5518.80</td>
-    <td class="tg-0pky">6132.0</td>
-		<td class="tg-0pky">4302.72</td>
-		<td class="tg-0pky">4780.8</td>
-		<td class="tg-0pky">4302.72</td>
-    <td class="tg-0pky">4780.8</td>
-		<td class="tg-0pky">5624.64</td>
-    <td class="tg-0pky">6249.6</td>
-		<td class="tg-0pky">5300.64</td>
-    <td class="tg-0pky">5889.6</td>
+    <td class="tg-0pky">3568.8</td>
+    <td class="tg-0pky">3240</td>
+    <td class="tg-0pky">5702.4</td>
+    <td class="tg-0pky">4910.4</td>
+    <td class="tg-0pky">4910.4</td>
+    <td class="tg-0pky">4752</td>
+    <td class="tg-0pky">4118.4</td>
+    <td class="tg-0pky">5544</td>
+    <td class="tg-0pky">5544</td>
+    <td class="tg-0pky">5227.2</td>
+    <td class="tg-0pky">4077.6</td>
+    <td class="tg-0pky">4077.6</td>
+		<td class="tg-0pky">5544</td>
+		<td class="tg-0pky">5227.2</td>
   </tr>
 		<tr>
-    <td class="tg-0pky">ES.S1.8XLARGE64</td>
+    <td class="tg-0pky">LOGSTASH.S1.8XLARGE64</td>
     <td class="tg-0pky">32</td>
     <td class="tg-0pky">64</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">3890.88</td>
-    <td class="tg-0pky">4323.2</td>
-    <td class="tg-0pky">3536.64</td>
-    <td class="tg-0pky">3929.6</td>
-    <td class="tg-0pky">6220.8</td>
-    <td class="tg-0pky">6912.0</td>
-    <td class="tg-0pky">5181.12</td>
-    <td class="tg-0pky">5756.8</td>
-    <td class="tg-0pky">5181.12</td>
-    <td class="tg-0pky">5756.8</td>
-    <td class="tg-0pky">3712.32</td>
-    <td class="tg-0pky">4124.8</td>
-		<td class="tg-0pky">5402.88</td>
-		<td class="tg-0pky">6003.2</td>
-		<td class="tg-0pky">5402.88</td>
-    <td class="tg-0pky">6003.2</td>
-		<td class="tg-0pky">4904.64</td>
-    <td class="tg-0pky">5449.6</td>
-		<td class="tg-0pky">3824.64</td>
-		<td class="tg-0pky">4249.6</td>
-		<td class="tg-0pky">3824.64</td>
-    <td class="tg-0pky">4249.6</td>
-		<td class="tg-0pky">4999.68</td>
-    <td class="tg-0pky">5555.2</td>
-		<td class="tg-0pky">4711.68</td>
-    <td class="tg-0pky">5235.2</td>
+    <td class="tg-0pky">3171.2</td>
+    <td class="tg-0pky">2880</td>
+    <td class="tg-0pky">5068.8</td>
+    <td class="tg-0pky">4364.8</td>
+    <td class="tg-0pky">4364.8</td>
+    <td class="tg-0pky">4224</td>
+    <td class="tg-0pky">3660.8</td>
+    <td class="tg-0pky">4928</td>
+    <td class="tg-0pky">4928</td>
+    <td class="tg-0pky">4646.4</td>
+    <td class="tg-0pky">3625.6</td>
+    <td class="tg-0pky">3625.6</td>
+		<td class="tg-0pky">4928</td>
+		<td class="tg-0pky">4646.4</td>
   </tr>
 			<tr>
-    <td class="tg-0pky">ES.S1.8XLARGE128</td>
+    <td class="tg-0pky">LOGSTASH.S1.8XLARGE128</td>
     <td class="tg-0pky">32</td>
     <td class="tg-0pky">128</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">5837.76</td>
-    <td class="tg-0pky">6486.4</td>
-    <td class="tg-0pky">5304.96</td>
-    <td class="tg-0pky">5894.4</td>
-    <td class="tg-0pky">9331.20</td>
-    <td class="tg-0pky">10368.0</td>
-    <td class="tg-0pky">7773.12</td>
-    <td class="tg-0pky">8636.8</td>
-    <td class="tg-0pky">7773.12</td>
-    <td class="tg-0pky">8636.8</td>
-    <td class="tg-0pky">5567.04</td>
-    <td class="tg-0pky">6185.6</td>
-		<td class="tg-0pky">8104.32</td>
-		<td class="tg-0pky">9004.8</td>
-		<td class="tg-0pky">8104.32</td>
-    <td class="tg-0pky">9004.8</td>
-		<td class="tg-0pky">7358.40</td>
-    <td class="tg-0pky">8176.0</td>
-		<td class="tg-0pky">5736.96</td>
-		<td class="tg-0pky">6374.4</td>
-		<td class="tg-0pky">5736.96</td>
-    <td class="tg-0pky">6374.4</td>
-		<td class="tg-0pky">7499.52</td>
-    <td class="tg-0pky">8332.8</td>
-		<td class="tg-0pky">7067.52</td>
-    <td class="tg-0pky">7852.8</td>
+    <td class="tg-0pky">4758.4</td>
+    <td class="tg-0pky">4320</td>
+    <td class="tg-0pky">7603.2</td>
+    <td class="tg-0pky">6547.2</td>
+    <td class="tg-0pky">6547.2</td>
+    <td class="tg-0pky">6336</td>
+    <td class="tg-0pky">5491.2</td>
+    <td class="tg-0pky">7392</td>
+    <td class="tg-0pky">7392</td>
+    <td class="tg-0pky">6969.6</td>
+    <td class="tg-0pky">5436.8</td>
+    <td class="tg-0pky">5436.8</td>
+		<td class="tg-0pky">7392</td>
+		<td class="tg-0pky">6969.6</td>
   </tr>
 	<tr>
-    <td class="tg-0pky">ES.S1.12XLARGE96</td>
+    <td class="tg-0pky">LOGSTASH.S1.12XLARGE96</td>
     <td class="tg-0pky">48</td>
     <td class="tg-0pky">96</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">5836.32</td>
-    <td class="tg-0pky">6484.8</td>
-    <td class="tg-0pky">5304.96</td>
-    <td class="tg-0pky">5894.4</td>
-    <td class="tg-0pky">9331.20</td>
-    <td class="tg-0pky">10368.0</td>
-    <td class="tg-0pky">7771.68</td>
-    <td class="tg-0pky">8635.2</td>
-    <td class="tg-0pky">7771.68</td>
-    <td class="tg-0pky">8635.2</td>
-    <td class="tg-0pky">5568.48</td>
-    <td class="tg-0pky">6187.2</td>
-		<td class="tg-0pky">8104.32</td>
-		<td class="tg-0pky">9004.8</td>
-		<td class="tg-0pky">8104.32</td>
-    <td class="tg-0pky">9004.8</td>
-		<td class="tg-0pky">7356.96</td>
-    <td class="tg-0pky">8174.4</td>
-		<td class="tg-0pky">5736.96</td>
-		<td class="tg-0pky">6374.4</td>
-		<td class="tg-0pky">5736.96</td>
-    <td class="tg-0pky">6374.4</td>
-		<td class="tg-0pky">7499.52</td>
-    <td class="tg-0pky">8332.8</td>
-		<td class="tg-0pky">7067.52</td>
-    <td class="tg-0pky">7852.8</td>
+    <td class="tg-0pky">4756.8</td>
+    <td class="tg-0pky">4320</td>
+    <td class="tg-0pky">7603.2</td>
+    <td class="tg-0pky">6547.2</td>
+    <td class="tg-0pky">6547.2</td>
+    <td class="tg-0pky">6336</td>
+    <td class="tg-0pky">5491.2</td>
+    <td class="tg-0pky">7392</td>
+    <td class="tg-0pky">7392</td>
+    <td class="tg-0pky">6969.6</td>
+    <td class="tg-0pky">5438.4</td>
+    <td class="tg-0pky">5438.4</td>
+		<td class="tg-0pky">7392</td>
+		<td class="tg-0pky">6969.6</td>
   </tr>
 </table>
+
 
 
 
@@ -759,476 +544,278 @@ Logstash 实例支持以下节点类型：
 
 <table class="tg">
   <tr>
-    <th class="tg-llyw" rowspan="3">节点机型</th>
-		<th class="tg-llyw" rowspan="3">节点规格</th>
-    <th class="tg-llyw" rowspan="3">CPU</th>
-    <th class="tg-llyw" rowspan="3">内存（GB）</th>
-    <th class="tg-llyw" rowspan="3">适用场景</th>
-    <th class="tg-llyw" colspan="26">后计费（元/个/小时）</th>
+	  <th class="tg-llyw" rowspan="2">节点机型</th>
+    <th class="tg-llyw" rowspan="2">节点规格</th>
+    <th class="tg-llyw" rowspan="2">CPU</th>
+    <th class="tg-llyw" rowspan="2">内存（GB）</th>
+    <th class="tg-llyw" rowspan="2">适用场景</th>
+    <th class="tg-llyw" colspan="14">后付费（元/个/小时）</th>
   </tr>
   <tr>
-    <td class="tg-llyw" colspan="2">北京/上海/广州/南京</td>
-    <td class="tg-llyw" colspan="2">成都/重庆</td>
-		<td class="tg-llyw" colspan="2">上海/深圳金融</td>
-    <td class="tg-llyw" colspan="2">中国香港</td>
-    <td class="tg-llyw" colspan="2">新加坡</td>
-		<td class="tg-llyw" colspan="2">孟买</td>
-		<td class="tg-llyw" colspan="2">东京</td>
-		<td class="tg-llyw" colspan="2">首尔</td>
-    <td class="tg-llyw" colspan="2">硅谷</td>
-		<td class="tg-llyw" colspan="2">弗吉尼亚</td>
-    <td class="tg-llyw" colspan="2">多伦多</td>
-		<td class="tg-llyw" colspan="2">法兰克福</td>
-		<td class="tg-llyw" colspan="2">莫斯科</td>
+    <td class="tg-llyw" colspan="1">北京/上海/广州/南京</td>
+    <td class="tg-llyw" colspan="1">成都/重庆</td>
+		<td class="tg-llyw" colspan="1">北京/上海/深圳金融</td>
+    <td class="tg-llyw" colspan="1">中国香港</td>
+    <td class="tg-llyw" colspan="1">新加坡</td>
+    <td class="tg-llyw" colspan="1">泰国</td>
+		<td class="tg-llyw" colspan="1">孟买</td>
+		<td class="tg-llyw" colspan="1">首尔</td>
+		<td class="tg-llyw" colspan="1">日本</td>
+    <td class="tg-llyw" colspan="1">美国硅谷</td>
+		<td class="tg-llyw" colspan="1">弗吉尼亚</td>
+    <td class="tg-llyw" colspan="1">多伦多</td>
+		<td class="tg-llyw" colspan="1">法兰克福</td>
+		<td class="tg-llyw" colspan="1">俄罗斯</td>  
   </tr>
   <tr>
-    <td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-    <td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-    <td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-    <td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-    <td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-    <td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-		<td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-		<td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-		<td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-		<td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-		<td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-		<td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-		<td class="tg-llyw">开源版/基础版</td>
-    <td class="tg-llyw">白金版</td>
-  </tr>
-  <tr>
-	<td class="tg-0pky"  rowspan="13">标准型 S1</td>
-    <td class="tg-0pky">ES.S1.SMALL2</td>
-    <td class="tg-0pky">1</td>
-    <td class="tg-0pky">2</td>
-    <td class="tg-0pky">测试</td>
-    <td class="tg-0pky">0.32</td>
-    <td class="tg-0pky">0.35</td>
-    <td class="tg-0pky">0.31</td>
-    <td class="tg-0pky">0.34</td>
-    <td class="tg-0pky">0.51</td>
-    <td class="tg-0pky">0.57</td>
-    <td class="tg-0pky">0.27</td>
-    <td class="tg-0pky">0.30</td>
-    <td class="tg-0pky">0.24</td>
-    <td class="tg-0pky">0.27</td>
-    <td class="tg-0pky">0.18</td>
-    <td class="tg-0pky">0.20</td>
-		<td class="tg-0pky">0.27</td>
-		<td class="tg-0pky">0.30</td>
-		<td class="tg-0pky">0.26</td>
-    <td class="tg-0pky">0.29</td>
-		<td class="tg-0pky">0.25</td>
-    <td class="tg-0pky">0.28</td>
-		<td class="tg-0pky">0.19</td>
-		<td class="tg-0pky">0.21</td>
-		<td class="tg-0pky">0.20</td>
-		<td class="tg-0pky">0.22</td>
-		<td class="tg-0pky">0.27</td>
-		<td class="tg-0pky">0.30</td>
-		<td class="tg-0pky">0.26</td>
-		<td class="tg-0pky">0.28</td>
-  </tr>
-  <tr>
-    <td class="tg-0pky">ES.S1.MEDIUM4</td>
+    <td class="tg-0pky"  rowspan="14">标准型 S1</td>
+    <td class="tg-0pky">LOGSTASH.S1.MEDIUM4</td>
     <td class="tg-0pky">2</td>
     <td class="tg-0pky">4</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">0.87</td>
-    <td class="tg-0pky">0.97</td>
-    <td class="tg-0pky">0.79</td>
-    <td class="tg-0pky">0.88</td>
-    <td class="tg-0pky">1.40</td>
-    <td class="tg-0pky">1.55</td>
-    <td class="tg-0pky">0.67</td>
-    <td class="tg-0pky">0.75</td>
-    <td class="tg-0pky">0.67</td>
-    <td class="tg-0pky">0.75</td>
-    <td class="tg-0pky">0.52</td>
-    <td class="tg-0pky">0.58</td>
-		<td class="tg-0pky">0.71</td>
-		<td class="tg-0pky">0.78</td>
-		<td class="tg-0pky">0.71</td>
-    <td class="tg-0pky">0.78</td>
-		<td class="tg-0pky">0.64</td>
-    <td class="tg-0pky">0.71</td>
-		<td class="tg-0pky">0.50</td>
-		<td class="tg-0pky">0.55</td>
-		<td class="tg-0pky">0.50</td>
-		<td class="tg-0pky">0.55</td>
-		<td class="tg-0pky">0.65</td>
-		<td class="tg-0pky">0.72</td>
-		<td class="tg-0pky">0.61</td>
-		<td class="tg-0pky">0.68</td>
+    <td class="tg-0pky">0.72</td>
+    <td class="tg-0pky">0.65</td>
+    <td class="tg-0pky">1.15</td>
+    <td class="tg-0pky">0.55</td>
+    <td class="tg-0pky">0.65</td>
+    <td class="tg-0pky">0.54</td>
+    <td class="tg-0pky">0.46</td>
+    <td class="tg-0pky">0.63</td>
+    <td class="tg-0pky">0.63</td>
+    <td class="tg-0pky">0.59</td>
+    <td class="tg-0pky">0.46</td>
+    <td class="tg-0pky">0.46</td>
+		<td class="tg-0pky">0.63</td>
+		<td class="tg-0pky">0.59</td>
   </tr>
   <tr>
-    <td class="tg-0pky">ES.S1.MEDIUM8</td>
+    <td class="tg-0pky">LOGSTASH.S1.MEDIUM8</td>
     <td class="tg-0pky">2</td>
     <td class="tg-0pky">8</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">1.31</td>
-    <td class="tg-0pky">1.45</td>
-    <td class="tg-0pky">1.19</td>
-    <td class="tg-0pky">1.32</td>
-    <td class="tg-0pky">2.09</td>
-    <td class="tg-0pky">2.33</td>
-    <td class="tg-0pky">1.01</td>
-    <td class="tg-0pky">1.12</td>
-    <td class="tg-0pky">1.01</td>
-    <td class="tg-0pky">1.12</td>
-    <td class="tg-0pky">0.78</td>
-    <td class="tg-0pky">0.86</td>
-		<td class="tg-0pky">1.06</td>
-		<td class="tg-0pky">1.18</td>
-		<td class="tg-0pky">1.06</td>
-    <td class="tg-0pky">1.18</td>
-		<td class="tg-0pky">0.95</td>
-    <td class="tg-0pky">1.06</td>
-		<td class="tg-0pky">0.75</td>
-		<td class="tg-0pky">0.83</td>
-		<td class="tg-0pky">0.75</td>
+    <td class="tg-0pky">1.08</td>
+    <td class="tg-0pky">0.98</td>
+    <td class="tg-0pky">1.73</td>
     <td class="tg-0pky">0.83</td>
-		<td class="tg-0pky">0.98</td>
-    <td class="tg-0pky">1.09</td>
-		<td class="tg-0pky">0.92</td>
-		<td class="tg-0pky">1.02</td>
+    <td class="tg-0pky">0.97</td>
+    <td class="tg-0pky">0.8</td>
+    <td class="tg-0pky">0.69</td>
+    <td class="tg-0pky">0.94</td>
+    <td class="tg-0pky">0.94</td>
+    <td class="tg-0pky">0.88</td>
+    <td class="tg-0pky">0.69</td>
+    <td class="tg-0pky">0.69</td>
+		<td class="tg-0pky">0.94</td>
+		<td class="tg-0pky">0.88</td>
   </tr>
   <tr>
-    <td class="tg-0pky">ES.S1.LARGE16</td>
+    <td class="tg-0pky">LOGSTASH.S1.LARGE16</td>
     <td class="tg-0pky">4</td>
     <td class="tg-0pky">16</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">2.61</td>
-    <td class="tg-0pky">2.90</td>
-    <td class="tg-0pky">2.38</td>
-    <td class="tg-0pky">2.64</td>
-    <td class="tg-0pky">4.19</td>
-    <td class="tg-0pky">4.65</td>
-    <td class="tg-0pky">2.01</td>
-    <td class="tg-0pky">2.24</td>
-    <td class="tg-0pky">2.01</td>
-    <td class="tg-0pky">2.24</td>
-    <td class="tg-0pky">1.56</td>
-    <td class="tg-0pky">1.73</td>
-		<td class="tg-0pky">2.12</td>
-		<td class="tg-0pky">2.35</td>
-		<td class="tg-0pky">2.12</td>
-    <td class="tg-0pky">2.35</td>
-		<td class="tg-0pky">1.91</td>
-    <td class="tg-0pky">2.12</td>
-		<td class="tg-0pky">1.49</td>
-		<td class="tg-0pky">1.66</td>
-		<td class="tg-0pky">1.49</td>
+    <td class="tg-0pky">2.15</td>
+    <td class="tg-0pky">1.96</td>
+    <td class="tg-0pky">3.45</td>
     <td class="tg-0pky">1.66</td>
-		<td class="tg-0pky">1.95</td>
-    <td class="tg-0pky">2.17</td>
-		<td class="tg-0pky">1.84</td>
-		<td class="tg-0pky">2.04</td>
+    <td class="tg-0pky">1.95</td>
+    <td class="tg-0pky">1.61</td>
+    <td class="tg-0pky">1.38</td>
+    <td class="tg-0pky">1.88</td>
+    <td class="tg-0pky">1.88</td>
+    <td class="tg-0pky">1.77</td>
+    <td class="tg-0pky">1.38</td>
+    <td class="tg-0pky">1.38</td>
+		<td class="tg-0pky">1.88</td>
+		<td class="tg-0pky">1.77</td>
   </tr>
 	<tr>
-    <td class="tg-0pky">ES.S1.2XLARGE16</td>
+    <td class="tg-0pky">LOGSTASH.S1.2XLARGE16</td>
     <td class="tg-0pky">8</td>
     <td class="tg-0pky">16</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">3.48</td>
-    <td class="tg-0pky">3.87</td>
-    <td class="tg-0pky">3.17</td>
-    <td class="tg-0pky">3.52</td>
-    <td class="tg-0pky">5.58</td>
-    <td class="tg-0pky">6.20</td>
-    <td class="tg-0pky">2.69</td>
-    <td class="tg-0pky">2.99</td>
-    <td class="tg-0pky">2.69</td>
-    <td class="tg-0pky">2.99</td>
-    <td class="tg-0pky">2.07</td>
-    <td class="tg-0pky">2.30</td>
-		<td class="tg-0pky">2.82</td>
-		<td class="tg-0pky">3.13</td>
-		<td class="tg-0pky">2.82</td>
-    <td class="tg-0pky">3.13</td>
-		<td class="tg-0pky">2.54</td>
-    <td class="tg-0pky">2.83</td>
-		<td class="tg-0pky">1.99</td>
-		<td class="tg-0pky">2.21</td>
-		<td class="tg-0pky">1.99</td>
-    <td class="tg-0pky">2.21</td>
-		<td class="tg-0pky">2.60</td>
-    <td class="tg-0pky">2.89</td>
-		<td class="tg-0pky">2.45</td>
-		<td class="tg-0pky">2.72</td>
+    <td class="tg-0pky">2.87</td>
+    <td class="tg-0pky">2.61</td>
+    <td class="tg-0pky">4.6</td>
+    <td class="tg-0pky">2.22</td>
+    <td class="tg-0pky">2.6</td>
+    <td class="tg-0pky">2.14</td>
+    <td class="tg-0pky">1.84</td>
+    <td class="tg-0pky">2.5</td>
+    <td class="tg-0pky">2.5</td>
+    <td class="tg-0pky">2.36</td>
+    <td class="tg-0pky">1.84</td>
+    <td class="tg-0pky">1.84</td>
+		<td class="tg-0pky">2.5</td>
+		<td class="tg-0pky">2.36</td>
   </tr>
   <tr>
-    <td class="tg-0pky">ES.S1.2XLARGE32</td>
+    <td class="tg-0pky">LOGSTASH.S1.2XLARGE32</td>
     <td class="tg-0pky">8</td>
     <td class="tg-0pky">32</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">5.22</td>
-    <td class="tg-0pky">5.80</td>
-    <td class="tg-0pky">4.75</td>
-    <td class="tg-0pky">5.28</td>
-    <td class="tg-0pky">8.37</td>
-    <td class="tg-0pky">9.30</td>
-    <td class="tg-0pky">4.03</td>
-    <td class="tg-0pky">4.48</td>
-    <td class="tg-0pky">4.03</td>
-    <td class="tg-0pky">4.48</td>
-    <td class="tg-0pky">3.11</td>
-    <td class="tg-0pky">3.46</td>
-		<td class="tg-0pky">4.23</td>
-		<td class="tg-0pky">4.70</td>
-		<td class="tg-0pky">4.23</td>
-    <td class="tg-0pky">4.70</td>
-		<td class="tg-0pky">3.82</td>
-    <td class="tg-0pky">4.24</td>
-		<td class="tg-0pky">2.98</td>
-		<td class="tg-0pky">3.31</td>
-		<td class="tg-0pky">2.98</td>
-    <td class="tg-0pky">3.31</td>
-		<td class="tg-0pky">3.91</td>
-    <td class="tg-0pky">4.34</td>
-		<td class="tg-0pky">3.68</td>
-		<td class="tg-0pky">4.09</td>
+    <td class="tg-0pky">4.31</td>
+    <td class="tg-0pky">3.92</td>
+    <td class="tg-0pky">6.9</td>
+    <td class="tg-0pky">3.32</td>
+    <td class="tg-0pky">3.9</td>
+    <td class="tg-0pky">3.21</td>
+    <td class="tg-0pky">2.76</td>
+    <td class="tg-0pky">3.75</td>
+    <td class="tg-0pky">3.75</td>
+    <td class="tg-0pky">3.53</td>
+    <td class="tg-0pky">2.76</td>
+    <td class="tg-0pky">2.76</td>
+		<td class="tg-0pky">3.75</td>
+		<td class="tg-0pky">3.53</td>
   </tr>
   <tr>
-    <td class="tg-0pky">ES.S1.4XLARGE32</td>
+    <td class="tg-0pky">LOGSTASH.S1.4XLARGE32</td>
     <td class="tg-0pky">16</td>
     <td class="tg-0pky">32</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">6.96</td>
-    <td class="tg-0pky">7.74</td>
-    <td class="tg-0pky">6.34</td>
-    <td class="tg-0pky">7.04</td>
-    <td class="tg-0pky">11.16</td>
-    <td class="tg-0pky">12.40</td>
-    <td class="tg-0pky">5.38</td>
-    <td class="tg-0pky">5.98</td>
-    <td class="tg-0pky">5.38</td>
-    <td class="tg-0pky">5.98</td>
-    <td class="tg-0pky">4.15</td>
-    <td class="tg-0pky">4.61</td>
-		<td class="tg-0pky">5.64</td>
-		<td class="tg-0pky">6.27</td>
-		<td class="tg-0pky">5.64	</td>
-    <td class="tg-0pky">6.27</td>
-		<td class="tg-0pky">5.09	</td>
-    <td class="tg-0pky">5.65</td>
-		<td class="tg-0pky">3.97</td>
-		<td class="tg-0pky">4.42</td>
-		<td class="tg-0pky">3.97	</td>
-    <td class="tg-0pky">4.42</td>
-		<td class="tg-0pky">5.21	</td>
-    <td class="tg-0pky">5.79</td>
-		<td class="tg-0pky">4.90</td>
-		<td class="tg-0pky">5.45</td>
+    <td class="tg-0pky">5.74</td>
+    <td class="tg-0pky">5.23</td>
+    <td class="tg-0pky">9.2</td>
+    <td class="tg-0pky">4.43</td>
+    <td class="tg-0pky">5.21</td>
+    <td class="tg-0pky">4.29</td>
+    <td class="tg-0pky">3.68</td>
+    <td class="tg-0pky">5</td>
+    <td class="tg-0pky">5</td>
+    <td class="tg-0pky">4.71</td>
+    <td class="tg-0pky">3.68</td>
+    <td class="tg-0pky">3.68</td>
+		<td class="tg-0pky">5</td>
+		<td class="tg-0pky">4.71</td>
   </tr>
   <tr>
-    <td class="tg-0pky">ES.S1.4XLARGE64</td>
+    <td class="tg-0pky">LOGSTASH.S1.4XLARGE64</td>
     <td class="tg-0pky">16</td>
     <td class="tg-0pky">64</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">10.45</td>
-    <td class="tg-0pky">11.61</td>
-    <td class="tg-0pky">9.51</td>
-    <td class="tg-0pky">10.56</td>
-    <td class="tg-0pky">16.74</td>
-    <td class="tg-0pky">18.60</td>
-    <td class="tg-0pky">8.06</td>
-    <td class="tg-0pky">8.95</td>
-    <td class="tg-0pky">8.06</td>
-    <td class="tg-0pky">8.95</td>
-    <td class="tg-0pky">6.22</td>
-    <td class="tg-0pky">6.91</td>
-		<td class="tg-0pky">8.46</td>
-		<td class="tg-0pky">9.40</td>
-		<td class="tg-0pky">8.46</td>
-    <td class="tg-0pky">9.40</td>
-		<td class="tg-0pky">7.63</td>
-    <td class="tg-0pky">8.48</td>
-		<td class="tg-0pky">5.96</td>
-		<td class="tg-0pky">6.62</td>
-		<td class="tg-0pky">5.96</td>
-    <td class="tg-0pky">6.62</td>
-		<td class="tg-0pky">7.81</td>
-    <td class="tg-0pky">8.68</td>
-		<td class="tg-0pky">7.35</td>
-		<td class="tg-0pky">8.17</td>
+    <td class="tg-0pky">8.61</td>
+    <td class="tg-0pky">7.84</td>
+    <td class="tg-0pky">13.8</td>
+    <td class="tg-0pky">6.64</td>
+    <td class="tg-0pky">7.8</td>
+    <td class="tg-0pky">6.42</td>
+    <td class="tg-0pky">5.52</td>
+    <td class="tg-0pky">7.51</td>
+    <td class="tg-0pky">7.51</td>
+    <td class="tg-0pky">7.07</td>
+    <td class="tg-0pky">5.52</td>
+    <td class="tg-0pky">5.52</td>
+		<td class="tg-0pky">7.51</td>
+		<td class="tg-0pky">7.07</td>
   </tr>
 	<tr>
-    <td class="tg-0pky">ES.S1.6XLARGE48</td>
+    <td class="tg-0pky">LOGSTASH.S1.6XLARGE48</td>
     <td class="tg-0pky">24</td>
     <td class="tg-0pky">48</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">10.45</td>
-    <td class="tg-0pky">11.61</td>
-    <td class="tg-0pky">9.51</td>
-    <td class="tg-0pky">10.56</td>
-    <td class="tg-0pky">16.74</td>
-    <td class="tg-0pky">18.60</td>
-    <td class="tg-0pky">8.07</td>
-    <td class="tg-0pky">8.97</td>
-    <td class="tg-0pky">8.07</td>
-    <td class="tg-0pky">8.97</td>
-    <td class="tg-0pky">6.22</td>
-    <td class="tg-0pky">6.91</td>
-		<td class="tg-0pky">8.46</td>
-    <td class="tg-0pky">9.40</td>
-		<td class="tg-0pky">8.46</td>
-		<td class="tg-0pky">9.40</td>
-		<td class="tg-0pky">7.63</td>
-    <td class="tg-0pky">8.48</td>
-		<td class="tg-0pky">5.96</td>
-		<td class="tg-0pky">6.62</td>
-		<td class="tg-0pky">5.96</td>
-    <td class="tg-0pky">6.62</td>
-		<td class="tg-0pky">7.81</td>
-    <td class="tg-0pky">8.68</td>
-		<td class="tg-0pky">7.35</td>
-		<td class="tg-0pky">8.17</td>
+    <td class="tg-0pky">8.61</td>
+    <td class="tg-0pky">7.84</td>
+    <td class="tg-0pky">13.8</td>
+    <td class="tg-0pky">6.65</td>
+    <td class="tg-0pky">7.81</td>
+    <td class="tg-0pky">6.43</td>
+    <td class="tg-0pky">5.52</td>
+    <td class="tg-0pky">7.51</td>
+    <td class="tg-0pky">7.51</td>
+    <td class="tg-0pky">7.07</td>
+    <td class="tg-0pky">5.52</td>
+    <td class="tg-0pky">5.52</td>
+		<td class="tg-0pky">7.51</td>
+		<td class="tg-0pky">7.07</td>
   </tr>
 	<tr>
-    <td class="tg-0pky">ES.S1.6XLARGE96</td>
+    <td class="tg-0pky">LOGSTASH.S1.6XLARGE96</td>
     <td class="tg-0pky">24</td>
     <td class="tg-0pky">96</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">15.67</td>
-    <td class="tg-0pky">17.41</td>
-    <td class="tg-0pky">14.26</td>
-    <td class="tg-0pky">15.85</td>
-    <td class="tg-0pky">25.11</td>
-    <td class="tg-0pky">27.90</td>
-    <td class="tg-0pky">12.09</td>
-    <td class="tg-0pky">13.43</td>
-    <td class="tg-0pky">12.09</td>
-    <td class="tg-0pky">13.43</td>
-    <td class="tg-0pky">9.33</td>
-    <td class="tg-0pky">10.37</td>
-		<td class="tg-0pky">12.69</td>
-		<td class="tg-0pky">14.10</td>
-		<td class="tg-0pky">12.69</td>
-    <td class="tg-0pky">14.10</td>
-		<td class="tg-0pky">11.45</td>
-    <td class="tg-0pky">12.72</td>
-		<td class="tg-0pky">8.94</td>
-		<td class="tg-0pky">9.94</td>
-		<td class="tg-0pky">8.94</td>
-    <td class="tg-0pky">9.94</td>
-		<td class="tg-0pky">11.72</td>
-    <td class="tg-0pky">13.02</td>
-		<td class="tg-0pky">11.03</td>
-		<td class="tg-0pky">12.26</td>
+    <td class="tg-0pky">12.92</td>
+    <td class="tg-0pky">11.76</td>
+    <td class="tg-0pky">20.7</td>
+    <td class="tg-0pky">9.96</td>
+    <td class="tg-0pky">11.7</td>
+    <td class="tg-0pky">9.63</td>
+    <td class="tg-0pky">8.28</td>
+    <td class="tg-0pky">11.26</td>
+    <td class="tg-0pky">11.26</td>
+    <td class="tg-0pky">10.6</td>
+    <td class="tg-0pky">8.28</td>
+    <td class="tg-0pky">8.28</td>
+		<td class="tg-0pky">11.26</td>
+		<td class="tg-0pky">10.6</td>
   </tr>
-	<tr>
-    <td class="tg-0pky">ES.S1.8XLARGE64</td>
+		<tr>
+    <td class="tg-0pky">LOGSTASH.S1.8XLARGE64</td>
     <td class="tg-0pky">32</td>
     <td class="tg-0pky">64</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">13.93</td>
-    <td class="tg-0pky">15.48</td>
-    <td class="tg-0pky">12.68</td>
-    <td class="tg-0pky">14.09</td>
-    <td class="tg-0pky">22.32</td>
-    <td class="tg-0pky">24.80</td>
-    <td class="tg-0pky">10.76</td>
-    <td class="tg-0pky">11.95</td>
-    <td class="tg-0pky">10.76</td>
-    <td class="tg-0pky">11.95</td>
-    <td class="tg-0pky">8.29</td>
-    <td class="tg-0pky">9.22</td>
-		<td class="tg-0pky">11.28</td>
-		<td class="tg-0pky">12.53</td>
-		<td class="tg-0pky">11.28</td>
-    <td class="tg-0pky">12.53</td>
-		<td class="tg-0pky">10.17</td>
-    <td class="tg-0pky">11.30</td>
-		<td class="tg-0pky">7.95</td>
-		<td class="tg-0pky">8.83</td>
-		<td class="tg-0pky">7.95</td>
-    <td class="tg-0pky">8.83</td>
-		<td class="tg-0pky">10.42</td>
-    <td class="tg-0pky">11.58</td>	
-		<td class="tg-0pky">9.81</td>
-		<td class="tg-0pky">10.90</td>
+    <td class="tg-0pky">11.48</td>
+    <td class="tg-0pky">10.45</td>
+    <td class="tg-0pky">18.4</td>
+    <td class="tg-0pky">8.87</td>
+    <td class="tg-0pky">10.41</td>
+    <td class="tg-0pky">8.57</td>
+    <td class="tg-0pky">7.36</td>
+    <td class="tg-0pky">10.01</td>
+    <td class="tg-0pky">10.01</td>
+    <td class="tg-0pky">9.42</td>
+    <td class="tg-0pky">7.36</td>
+    <td class="tg-0pky">7.36</td>
+		<td class="tg-0pky">10.01</td>
+		<td class="tg-0pky">9.42</td>
   </tr>
-	<tr>
-    <td class="tg-0pky">ES.S1.8XLARGE128</td>
+			<tr>
+    <td class="tg-0pky">LOGSTASH.S1.8XLARGE128</td>
     <td class="tg-0pky">32</td>
     <td class="tg-0pky">128</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">20.89</td>
-    <td class="tg-0pky">23.21</td>
-    <td class="tg-0pky">19.02</td>
-    <td class="tg-0pky">21.13</td>
-    <td class="tg-0pky">33.48</td>
-    <td class="tg-0pky">37.20</td>
-    <td class="tg-0pky">16.12</td>
-    <td class="tg-0pky">17.91</td>
-    <td class="tg-0pky">16.12</td>
-    <td class="tg-0pky">17.91</td>
-    <td class="tg-0pky">12.44</td>
-    <td class="tg-0pky">13.82</td>
-		<td class="tg-0pky">16.92</td>
-		<td class="tg-0pky">18.80</td>
-		<td class="tg-0pky">16.92</td>
-    <td class="tg-0pky">18.80</td>
-		<td class="tg-0pky">15.26</td>
-    <td class="tg-0pky">16.96</td>
-		<td class="tg-0pky">11.92</td>
-		<td class="tg-0pky">13.25</td>
-		<td class="tg-0pky">11.92</td>
-    <td class="tg-0pky">13.25</td>
-		<td class="tg-0pky">15.63</td>
-    <td class="tg-0pky">17.36</td>
-		<td class="tg-0pky">14.71</td>
-		<td class="tg-0pky">16.34</td>
+    <td class="tg-0pky">17.22</td>
+    <td class="tg-0pky">15.68</td>
+    <td class="tg-0pky">27.6</td>
+    <td class="tg-0pky">13.28</td>
+    <td class="tg-0pky">15.6</td>
+    <td class="tg-0pky">12.84</td>
+    <td class="tg-0pky">11.04</td>
+    <td class="tg-0pky">15.01</td>
+    <td class="tg-0pky">15.01</td>
+    <td class="tg-0pky">14.13</td>
+    <td class="tg-0pky">11.04</td>
+    <td class="tg-0pky">11.04</td>
+		<td class="tg-0pky">15.01</td>
+		<td class="tg-0pky">14.13</td>
   </tr>
 	<tr>
-    <td class="tg-0pky">ES.S1.12XLARGE96</td>
+    <td class="tg-0pky">LOGSTASH.S1.12XLARGE96</td>
     <td class="tg-0pky">48</td>
     <td class="tg-0pky">96</td>
     <td class="tg-0pky">生产</td>
-    <td class="tg-0pky">20.89</td>
-    <td class="tg-0pky">23.21</td>
-    <td class="tg-0pky">19.02</td>
-    <td class="tg-0pky">21.13</td>
-    <td class="tg-0pky">33.48</td>
-    <td class="tg-0pky">37.20</td>
-    <td class="tg-0pky">16.14</td>
-    <td class="tg-0pky">17.93</td>
-    <td class="tg-0pky">16.14</td>
-    <td class="tg-0pky">17.93</td>
-    <td class="tg-0pky">12.44</td>
-    <td class="tg-0pky">13.82</td>
-		<td class="tg-0pky">16.92</td>
-		<td class="tg-0pky">18.80</td>
-		<td class="tg-0pky">16.92</td>
-    <td class="tg-0pky">18.80</td>
-		<td class="tg-0pky">15.26</td>
-    <td class="tg-0pky">16.96</td>
-		<td class="tg-0pky">11.92</td>
-		<td class="tg-0pky">13.25</td>
-		<td class="tg-0pky">11.92</td>
-    <td class="tg-0pky">13.25</td>
-		<td class="tg-0pky">15.63</td>
-    <td class="tg-0pky">17.36</td>
-		<td class="tg-0pky">14.71</td>
-		<td class="tg-0pky">16.34</td>
+    <td class="tg-0pky">17.22</td>
+    <td class="tg-0pky">15.68</td>
+    <td class="tg-0pky">27.6</td>
+    <td class="tg-0pky">13.3</td>
+    <td class="tg-0pky">15.62</td>
+    <td class="tg-0pky">12.86</td>
+    <td class="tg-0pky">11.04</td>
+    <td class="tg-0pky">15.01</td>
+    <td class="tg-0pky">15.01</td>
+    <td class="tg-0pky">14.13</td>
+    <td class="tg-0pky">11.04</td>
+    <td class="tg-0pky">11.04</td>
+		<td class="tg-0pky">15.01</td>
+		<td class="tg-0pky">14.13</td>
   </tr>
 </table>
 
+
+
+
+
 ## 节点存储价格
+
 北京、上海、广州地域费用如下：
 
 | 磁盘类型   | 预付费（元/GB/月） | 后付费（元/GB/小时） |
@@ -1244,7 +831,7 @@ Logstash 实例支持以下节点类型：
 ### 包年包月模式费用计算
 >?服务器实例的价格随时间变动，下文中的数值仅作参考，具体价格可查看 Logstash [购买页](https://buy.cloud.tencent.com/logstash)。
 >
-用户在广州二区，购买了一个 Logstash 实例，包含2个节点，每个节点规格是2核4G（LOGSTASH.S1.MEDIUM4），每个节点存储量20G，采用 SSD 云盘，购买时长是1个月，用户所需支付的费用计算如下：
+用户在广州二区，购买了一个 Logstash 实例，包含2个节点，每个节点规格是2核4G（LOGSTASH.S1.MEDIUM4），每个节点存储量20G，采用SSD 云盘，购买时长是1个月，用户所需支付的费用计算如下：
 - 节点2核4G（ES.S1.MEDIUM4）：198.2 元/个/月
 - SSD 云盘20G：1 元/GB/月 × 20 = 20 元/个/月
 - 节点个数：2 个
@@ -1252,9 +839,10 @@ Logstash 实例支持以下节点类型：
 总的费用为：（198.2 + 20）× 2 = 436.4 元/月
 
 ### 按量付费模式费用计算
->?服务器实例的价格随时间变动，下文中的数值仅作参考，具体价格可查看Logstash [购买页](https://buy.cloud.tencent.com/logstash)。
+>?服务器实例的价格随时间变动，下文中的数值仅作参考，具体价格可查看 Logstash [购买页](https://buy.cloud.tencent.com/logstash)。
 >
-用户在广州二区，购买了一个 Logstash 实例，包含2个节点，每个节点规格是2核4G（LOGSTASH.S1.MEDIUM4），每个节点存储量20G，采用 SSD 云盘，购买时长是5小时，用户所需支付的费用计算如下：
+用户在广州二区，购买了一个 Logstash 实例，包含2个节点，每个节点规格是2核4G（LOGSTASH.S1.MEDIUM4），每个节点存储量20G，采用SSD 云盘，购买时长是5小时，用户所需支付的费用计算如下：
+
 - 节点2核4G（ES.S1.MEDIUM4）：0.72 元/个/小时
 - SSD 云盘20G：0.0025 元/GB/小时 × 20 = 0.05 元/个/小时
 - 节点个数：2个
