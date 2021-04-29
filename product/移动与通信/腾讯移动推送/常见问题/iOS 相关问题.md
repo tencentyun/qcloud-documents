@@ -170,7 +170,8 @@ TestFlight 发布预览版，先将 ipa 包上传到 [App Store Connect](https:/
 
 
 ###  Xcode 调试提示“Error Domain=NSCocoaErrorDomain Code=1001 "APNS 请求 token 失败，如何处理？
-**问题描述**：Xcode 调试提示“Error Domain=NSCocoaErrorDomain Code=1001 "APNS请求token失败-->请依次按以下方法解决：优先使用4G网络并重启手机，若多次重启仍然不行，建议更换手机测试!" UserInfo={NSLocalizedDescription=APNS请求token失败-->请依次按以下方法解决：优先使用4G网络并重启手机，若多次重启仍然不行，建议更换手机测试!“，按照提示操作后问题还是存在。
+**问题描述**：
+Xcode 调试提示“Error Domain=NSCocoaErrorDomain Code=1001 "APNS请求token失败-->请依次按以下方法解决：优先使用4G网络并重启手机，若多次重启仍然不行，建议更换手机测试!" UserInfo={NSLocalizedDescription=APNS请求token失败-->请依次按以下方法解决：优先使用4G网络并重启手机，若多次重启仍然不行，建议更换手机测试!“，按照提示操作后问题还是存在。
 
 **排查思路**：
 1. 建议使用 TPNS SDK 的相关方法，避免与其他注册远程通知的方法同时运行。
