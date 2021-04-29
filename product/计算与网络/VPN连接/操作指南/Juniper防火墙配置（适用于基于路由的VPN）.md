@@ -176,7 +176,7 @@ set security ipsec vpn ipsec-vpn-cfgr bind-interface st0.0
 set security ipsec vpn-monitor-options interval 4
 set security ipsec vpn-monitor-options threshold 3
 set security ipsec vpn ipsec-vpn-cfgr vpn-monitor
-# 以上三项为建议配置，设置通道状态监控参数以及调用（实例设置为4s一次 ping 间隔，3次丢失判断通道异常）可根据实际情况选择阈值
+# 以上3项为建议配置，设置通道状态监控参数以及调用（实例设置为4s一次 ping 间隔，3次丢失判断通道异常）可根据实际情况选择阈值
 ```
 6. 应用 IPsec 策略。
 ```
