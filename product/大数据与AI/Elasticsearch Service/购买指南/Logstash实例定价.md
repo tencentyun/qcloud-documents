@@ -8,7 +8,7 @@ Logstash 实例的计费项包括节点机型和节点存储两部分，实例�
 
 ### 节点机型
 
-Logstash 实例 支持以下节点类型：
+Logstash 实例支持以下节点类型：
 
 <table>
   <tr>

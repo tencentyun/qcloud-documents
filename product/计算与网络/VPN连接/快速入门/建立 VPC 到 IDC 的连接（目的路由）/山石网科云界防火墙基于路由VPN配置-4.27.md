@@ -1,8 +1,10 @@
 使用 IPsec VPN 建立腾讯云 VPC 到用户 IDC 的连接时，在配置完腾讯云 VPN 网关后，您还需要在用户 IDC 本地站点的网关设备中进行 VPN 配置。本文以山石防火墙为例介绍如何在本地站点中加载 VPN 配置。
+>?本文仅支持 IKEv1 协议的配置。
+>
 
 ## 前提条件
 请确保您已经在腾讯云 VPC 内创建 VPN，并完成 VPN 通道配置。
->?此处为 VPN3.0 版本，即 VPN 具备路由功能，子网流量基于配置的路由策略传递至 VPN 通道。
+
 
 ## 数据准备
 本文 IPsec VPN 配置数据举例如下：
@@ -30,18 +32,15 @@
 </tr>
 <tr>
 <td rowspan="16">IPsec 连接配置 </td>
-<td rowspan="10">IKE 配置 </td>
+<td rowspan="9">IKE 配置 </td>
 <td>版本</td>
-<td>IKEV1 </td>
+<td>IKEV1</td>
 </tr>
 <tr>
 <td>身份认证方法</td>
-<td>预共享密钥</td>
+<td>预共享密钥，例如123456</td>
 </tr>
-<tr>
-<td >PSK </td>
-<td>123456</td>
-</tr>
+
 <tr>
 <td>加密算法</td>
 <td>DES</td>
@@ -71,7 +70,7 @@
 <td>86400</td>
 </tr>
 <tr>
-<td rowspan="6">IPsec 配置</td>
+<td rowspan="7">IPsec 配置</td>
 <td>加密算法</td>
 <td>AES-128</td>
 </tr>
@@ -92,55 +91,64 @@
 <td>disable</td>
 </tr>
 <tr>
-<td>IPsec sa Lifetime</td>
+<td>IPsec SA 生存周期（s）</td>
 <td>3600s</td>
 </tr>
+<tr>
+<td>IPsec SA 生存周期（KB）</td>
+<td>1843200KB</td>
+</tr>
 </table>
+
 
 ## 操作步骤
 1. 登录 Hillstone 防火墙 Web 界面，选择【网络】>【VPN】>【IPsec VPN】>【P1提议】，在【P1提议】界面，单击【新建】。
    ![](https://main.qcloudimg.com/raw/43808461f76bad5bb62fc6fa2d0e0805.png)
-2. 在弹出的【阶段1提议配置】界面，根据腾讯云 VPN 连接的 IKE 协议信息配置 IDC 的 IKE 协议，并单击【确定】。
+2. [](id:step2)在弹出的【阶段1提议配置】界面，根据腾讯云 VPN 连接的 IKE 协议信息配置 IDC 的 IKE 协议，并单击【确定】。
    ![](https://main.qcloudimg.com/raw/d76cfbb601e20dee37e51589487e1de7.png)
-3. 选择【P2提议】页签，单击【新建】。
+3. 选择【P2 提议】页签，单击【新建】。
    ![](https://main.qcloudimg.com/raw/daf718603d7d8c929947fd5685cc0af9.png)
-4. 在弹出的【阶段2提议配置】界面，根据腾讯云 VPN 连接的 IPsec 协议信息配置 IDC 的 IPsec 协议，并单击【确定】。
+4. [](id:step4)在弹出的【阶段2提议配置】界面，根据腾讯云 VPN 连接的 IPsec 协议信息配置 IDC 的 IPsec 协议，并单击【确定】。
    ![](https://main.qcloudimg.com/raw/b2ef1a3f67a0b65e95095acb6c7d16b9.png)
 5. 选择【VPN 对端列表】页签，单击【新建】。
-    ![](https://main.qcloudimg.com/raw/7f975818c5806ded17ba7f47caabb3be.png)
-6. 在弹出的【VPN 对端配置】界面，配置 VPN 对端的相关参数，并单击【确定】。
-     ![](https://main.qcloudimg.com/raw/cfdafd4be3186d6ce121cf6dbd6fb24f.png)
+   ![](https://main.qcloudimg.com/raw/7f975818c5806ded17ba7f47caabb3be.png)
+6. [](id:step6)在弹出的【VPN 对端配置】界面，配置 VPN 对端的相关参数，并单击【确定】。
+   ![](https://main.qcloudimg.com/raw/cfdafd4be3186d6ce121cf6dbd6fb24f.png)
    + 名称：自定义填写 VPN 对端名称，例如 TO-CLOUDVPN
    + 对端 IP 地址：填写腾讯云 VPN 网关的公网 IP 地址
    + 本端 IP：填写 IDC 本端的公网 IP 地址
-   + 对端 IP：填写 IDC 对端 VPN 网关的公网IP地址
-   + 提议1：选择步骤1创建的P1提议
+   + 对端 IP：填写 IDC 对端 VPN 网关的公网 IP 地址
+   + 提议1：选择[ 步骤2 ](#step2)创建的 P1 提议
    + 预共享密钥：填写与腾讯云 VPN 通道基本配置中一致的预共享密钥，例如本例的123456
 7. 选择【IKE VPN 列表】页签，单击【新建】。
-    ![](https://main.qcloudimg.com/raw/b63869267dba74a334336e5a0d64c4cf.png)
+   ![](https://main.qcloudimg.com/raw/b63869267dba74a334336e5a0d64c4cf.png)
 8. 在弹出的【IKE VPN 配置】界面，进行 IKE VPN 的基本配置和高级配置，完成后单击【确定】。
    + 基本配置
-	    ![](https://main.qcloudimg.com/raw/3e0ca49f5862a537e49a5b98147d9c4c.png)
-      + 对端选项：选择步骤6创建的 VPN 对端
-      + P2提议：选择步骤3创建的P2提议
-      + 代理 ID：选择【手工】，并在【代理 ID 列表】的【本地 IP/掩码】中输入本地 IDC 的内网网段，在【远程 IP/掩码】中输入腾讯云 VPC 的内网网段，然后单击【添加】
+     ![](https://main.qcloudimg.com/raw/3e0ca49f5862a537e49a5b98147d9c4c.png)
+     + 对端选项：选择[ 步骤6 ](#step6)创建的 VPN 对端
+     + P2提议：选择[ 步骤4 ](#step4)创建的P2提议
+     + 代理 ID：选择【手工】，并在【代理 ID 列表】的【本地 IP/掩码】中输入本地 IDC 的内网网段，在【远程 IP/掩码】中输入腾讯云 VPC 的内网网段，然后单击【添加】
    + 高级配置：将【自动连接】勾选设置为【启用】
-       ![](https://main.qcloudimg.com/raw/fe6e12ed82e45827dcd757d75df3f0cb.png)
-9. 选择【网络】>【安全域】，单击【新建】， 在弹出的【安全域配置】界面，输入安全与名称，并在【类型】中选择【三层安全域】，并单击【确定】。
-   ![](https://main.qcloudimg.com/raw/69334e18d2af79c908d80d9e0aa0e256.png)
-10. 选择【网络】>【接口】，依次单击【新建】>【隧道接口】 。
+     ![](https://main.qcloudimg.com/raw/fe6e12ed82e45827dcd757d75df3f0cb.png)
+9. 选择【网络】>【安全域】，单击【新建】 配置安全域。
+     ![](https://main.qcloudimg.com/raw/4858ab1e86ec84b22b42e641294db926.png)
+10. [](id:step10)在弹出的【安全域配置】界面，配置如下参数，完成后，单击【确定】。
+    + 安全域名称：自定义名称，设备默认预设多个安全域，其中包含【VPNhub】
+    + 虚拟路由器：默认选择【trust-vr】
+	![](https://main.qcloudimg.com/raw/bb0999aaf4a33e4186fadec2d4bdd8c5.png)
+11. 选择【网络】>【接口】，依次单击【新建】>【隧道接口】 。
     ![](https://main.qcloudimg.com/raw/f12069e0a277ca48b8fdfdc3e5033beb.png)
-11. 在弹出的【隧道接口】对话框中，配置隧道接口相关参数。
+12. [](id:step12)在弹出的【隧道接口】对话框中，配置隧道接口相关参数。
        ![](https://main.qcloudimg.com/raw/e9631e816b2aa9abe5dc207decb6fc7f.png)
        ![](https://main.qcloudimg.com/raw/f81f93f7a7f72fad805ebb2d79ae54ce.png)
-   + 接口名称：输入【tunnelX】，X的取值范围为1-64，例如 tunnel1
-   + 安全域：选择步骤9创建的安全域
+   + 接口名称：输入【tunnelX】，X的取值范围为1-64，例如tunnel1
+   + 安全域：选择[ 步骤10 ](#step10)创建的安全域
    + 隧道类型：选择【IPsec VPN】
-   + VPN 名称：选择步骤6创建的对端 VPN 名称 
-12. 选择【策略】>【安全策略】，单击【新建】配置安全策略。
+   + VPN名称：选择[ 步骤6 ](#step6)创建的对端 VPN 名称 
+13. 选择【策略】>【策略】，单击【新建】配置策略。
     ![](https://main.qcloudimg.com/raw/ade66ecbc1951e66b921ce16615299f1.png)
-	![](https://main.qcloudimg.com/raw/9b1ec2a54ef7a80da950f446f31a0d3d.png)
-13. 选择【网络】>【路由】，单击【新建】分别配置上行和下行路由，完成后单击【确定】。
-  + 上行路由：目的地址为腾讯云 VPC 的网段，下一跳为步骤11新建的隧道接口，本例为 tunnel1。
-      ![](https://main.qcloudimg.com/raw/65ed16c3573f97395782ececd6b0c129.png)
+    ![](https://main.qcloudimg.com/raw/9b1ec2a54ef7a80da950f446f31a0d3d.png)
+14. 选择【网络】>【路由】，单击【新建】分别配置上行和下行路由，完成后单击【确定】。
+  + 上行路由：目的地址为腾讯云 VPC 的网段，下一跳为[ 步骤12 ](#step12)新建的隧道接口，本例为 tunnel1。
+    ![](https://main.qcloudimg.com/raw/65ed16c3573f97395782ececd6b0c129.png)
   + 下行路由：配置防火墙下行接口路由。
