@@ -30,17 +30,13 @@
 </tr>
 <tr>
 <td rowspan="16">IPsec 连接配置 </td>
-<td rowspan="10">IKE 配置 </td>
+<td rowspan="9">IKE 配置 </td>
 <td>版本</td>
 <td>IKEV1 </td>
 </tr>
 <tr>
 <td>身份认证方法</td>
-<td>预共享密钥</td>
-</tr>
-<tr>
-<td >PSK </td>
-<td>12345</td>
+<td>预共享密钥，例如123456</td>
 </tr>
 <tr>
 <td>加密算法</td>
@@ -71,7 +67,7 @@
 <td>86400</td>
 </tr>
 <tr>
-<td rowspan="6">IPsec 配置</td>
+<td rowspan="7">IPsec 配置</td>
 <td>加密算法</td>
 <td>AES-128</td>
 </tr>
@@ -92,8 +88,12 @@
 <td>disable</td>
 </tr>
 <tr>
-<td>IPsec sa Lifetime</td>
+<td>IPsec SA 生存周期（s）</td>
 <td>3600s</td>
+</tr>
+<tr>
+<td>IPsec SA 生存周期（KB）</td>
+<td>1843200KB</td>
 </tr>
 </table>
 
