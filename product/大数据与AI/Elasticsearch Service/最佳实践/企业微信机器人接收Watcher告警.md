@@ -14,7 +14,7 @@
 1. 准备一台与 ES 集群同 VPC 的并且可以访问 Webhook 地址的 CVM（如通过外网访问）。
 2. 在 CVM 中安装 Nginx，具体安装方法参见 [Nginx 安装](https://www.runoob.com/linux/nginx-install-setup.html)。
 3. 配置 Nginx 代理转发。使用以下配置替换 nginx.conf 文件中 Server 部分的配置。
- - Nginx 服务的默认端口是80，若您需要更改其端口，则需要登录 [腾讯云控制台-安全组]() 放行此端口。
+ - Nginx 服务的默认端口是80，若您需要更改其端口，则需要登录控制台 [安全组](https://console.cloud.tencent.com/cvm/securitygroup) 放行此端口。
  - <企业微信机器人 Webhook 地址>：需替换为接收报警消息的企业微信机器人的 Webhook 地址。
 ```
 server {
