@@ -118,7 +118,7 @@ func onEnterRoom(_ result: Int) {
 >! 
 >- 如果进房失败，SDK 同时还会回调`onError`事件，并返回参数`errCode`（[错误码](https://cloud.tencent.com/document/product/647/32257)）、`errMsg`（错误原因）以及`extraInfo`（保留参数）。
 >- 如果已在某一个房间中，则必须先调用`exitRoom()`退出当前房间，才能进入下一个房间。
->- 各端场景选择上必须要进行统一，否则会出现一些不可预料的问题。
+>- 每个端在应用场景 appScene 上必须要进行统一，否则会出现一些不可预料的问题。
 
 [](id:step6)
 ### 步骤6：订阅远端的音视频流
