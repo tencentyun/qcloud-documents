@@ -142,7 +142,7 @@ atomConsumerFilter=com.tencent.tsf.atom.extensions.dubbo.filter.AtomConsumerFilt
 atomProviderFilter=com.tencent.tsf.atom.extensions.dubbo.filter.AtomProviderFilter
 ```
 
-#### 7. API 上报
+#### 7. API 上报[](id:API上报)
 
 TSF 支持上报 Alibaba Dubbo 程序的 API，在服务治理-接口列表中展示。该接口能够导入 TSF 微服务网关，并通过协议转换的功能转为 HTTP 接口对外暴露。请确保完整版插件依赖（atom-extension-dubbo）版本高于 **1.1.0**。
 
