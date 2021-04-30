@@ -5,6 +5,8 @@
 请确保您已经在腾讯云 VPC 内[ 创建 VPN](https://cloud.tencent.com/document/product/554/52861)，并完成 并完成 [VPN 通道配置](https://cloud.tencent.com/document/product/554/52864)。
 
 ## 数据准备
+>?本文所有 IP、接口等参数取值均仅用于举例，请具体配置时，使用实际值进行替换。
+
 本文 IPsec VPN 配置数据举例如下：
 <table>
 <th colspan="3">配置项</th>
@@ -17,7 +19,7 @@
 </tr>
 <tr>
 <td>VPN 网关公网 IP</td>
-<td>159.75.41.242</td>
+<td>159.xx.xx.242</td>
 </tr>
 <tr>
 <td rowspan="2">IDC 信息 </td>
@@ -26,7 +28,7 @@
 </tr>
 <tr>
 <td>网关公网IP</td>
-<td>120.235.225.76</td>
+<td>120.xx.xx.76</td>
 </tr>
 <tr>
 <td rowspan="16">IPsec 连接配置 </td>
@@ -52,11 +54,11 @@
 </tr>
 <tr>
 <td>本端标识</td>
-<td>IP Address：120.235.225.76</td>
+<td>IP Address：120.xx.xx.76</td>
 </tr>
 <tr>
 <td>远端标识</td>
-<td>IP Address：159.75.41.242</td>
+<td>IP Address：159.xx.xx.242</td>
 </tr>
 <tr>
 <td>DH group</td>
@@ -111,14 +113,14 @@
 2. 配置防火墙网络接口、安全域、地址簿信息，以及自定义服务。
 <dx-codeblock>
 ::: ssh
-set interfaces ge-0/0/2 unit 0 family inet address 172.16.0.1/16  
-# 为内部接口ge-0/0/2定义IP地址
-set interfaces ge-0/0/3 unit 0 family inet address 120.235.225.76/30  
-# 为外部接口ge-0/0/3定义IP地址
-set security zones security-zone trust interfaces ge-0/0/2.0   
-# 绑定ge-0/0/0/2为内部安全区(trust)，对接内部业务区
-set security zones security-zone untrust interfaces ge-0/0/3.0  host-inbound-traffic system-services ike  
-# 绑定ge-0/0/3为外部安全区(untrust)，对接外部广域网，并启用ike服务，表示该区域可以建立VPN
+set interfaces ge-0/0/x unit 0 family inet address 172.16.0.1/16  
+# 为内部接口ge-0/0/x定义IP地址，请更换为实际接口和IP
+set interfaces ge-0/0/y unit 0 family inet address 120.xx.xx.76/30  
+# 为外部接口ge-0/0/y定义IP地址，请更换为实际接口和IP
+set security zones security-zone trust interfaces ge-0/0/x.0   
+# 绑定ge-0/0/x为内部安全区(trust)，对接内部业务区，请更换为实际接口
+set security zones security-zone untrust interfaces ge-0/0/y.0  host-inbound-traffic system-services ike  
+# 绑定ge-0/0/y为外部安全区(untrust)，对接外部广域网，并启用ike服务，表示该区域可以建立VPN
 set security zones security-zone untrust address-book address vpn-peer_subnet 10.1.1.0/24  
 # 定义要访问的VPN对端的业务地址簿，用于后续的访问策略调用，命名可以自定义
 set security zones security-zone trust address-book address vpn-local_subnet 172.16.0.0/16  
@@ -153,12 +155,12 @@ set security ike policy ike-policy-cfgr pre-shared-key ascii-text "TestPassword"
 ::: ssh
 set security ike gateway ike-gate-cfgr ike-policy ike-policy-cfgr
 # 调用之前定义的IKE策略命名
-set security ike gateway ike-gate-cfgr address 159.75.41.242
+set security ike gateway ike-gate-cfgr address 159.xx.xx.242
 # 定义IKE的网关地址信息（对端VPN的公网地址）
-set security ike gateway ike-gate-cfgr local-identity inet 120.235.225.76
-set security ike gateway ike-gate-cfgr remote-identity inet 159.75.41.242
+set security ike gateway ike-gate-cfgr local-identity inet 120.xx.xx.76
+set security ike gateway ike-gate-cfgr remote-identity inet 159.xx.xx.242
 # 定义VPN标记，可以使用FQDN或者IP地址等，本实例使用本端及远端IP地址
-set security ike gateway ike-gate-cfgr external-interface ge-0/0/3
+set security ike gateway ike-gate-cfgr external-interface ge-0/0/y
 # 绑定VPN的接口，即本地的公网出口
 set security ike gateway ike-gate-cfgr version v1-only
 # 定义IKE的版本，v1
@@ -242,16 +244,16 @@ commit complete           # 在配置模式下面修改配置，不会直接生�
 2. 配置防火墙网络接口、安全域、地址簿信息，以及自定义服务。
 <dx-codeblock>
 ::: ssh
-set interfaces ge-0/0/2 unit 0 family inet address 172.16.0.1/16  
-# 为内部接口 ge-0/0/2定义 IP 地址
-set interfaces ge-0/0/3 unit 0 family inet address 120.235.225.76/30  
-# 为外部接口 ge-0/0/3定义 IP 地址
+set interfaces ge-0/0/x unit 0 family inet address 172.16.0.1/16  
+# 为内部接口 ge-0/0/x定义 IP 地址，请更换为实际接口和IP
+set interfaces ge-0/0/y unit 0 family inet address 120.xx.xx.76/30  
+# 为外部接口 ge-0/0/y定义 IP 地址，请更换为实际接口和IP
 set interfaces st0 unit 0 family inet     
 # 定义通道接口，默认不设置 IP 地址，通道接口的 unit 后的参数需要指定，一个 unit 号可以绑定一个 VPN 通道，序号范围：0-16385
-set security zones security-zone trust interfaces ge-0/0/2.0  
-# 绑定 ge-0/0/0/2 为内部安全区(trust)，对接内部业务区
-set security zones security-zone untrust interfaces ge-0/0/3.0  host-inbound-traffic system-services ike
-# 绑定ge-0/0/3为外部安全区(untrust)，对接外部广域网，并启用 ike 服务，表示该区域可以建立 VPN
+set security zones security-zone trust interfaces ge-0/0/x.0  
+# 绑定 ge-0/0/x 为内部安全区(trust)，对接内部业务区
+set security zones security-zone untrust interfaces ge-0/0/y.0  host-inbound-traffic system-services ike
+# 绑定ge-0/0/y为外部安全区(untrust)，对接外部广域网，并启用 ike 服务，表示该区域可以建立 VPN
 set security zones security-zone vpn interfaces st0.0     
 # 绑定通道接口到 vpn 区域(vpn)，作为连接 IPSEC VPN 的逻辑通道,用于后续的路由策略以及访问策略
 set security zones security-zone vpn address-book address vpn-peer_subnet 10.1.1.0/24   
@@ -286,12 +288,12 @@ set security ike policy ike-policy-cfgr pre-shared-key ascii-text "TestPassword"
 ::: ssh
 set security ike gateway ike-gate-cfgr ike-policy ike-policy-cfgr
 # 调用之前定义的 IKE 策略命名
-set security ike gateway ike-gate-cfgr address 159.75.41.242
+set security ike gateway ike-gate-cfgr address 159.xx.xx.242
 # 定义 IKE 的网关地址信息（对端 VPN 的公网地址）
-set security ike gateway ike-gate-cfgr local-identity inet 120.235.225.76
-set security ike gateway ike-gate-cfgr remote-identity inet 159.75.41.242
+set security ike gateway ike-gate-cfgr local-identity inet 120.xx.xx.76
+set security ike gateway ike-gate-cfgr remote-identity inet 159.xx.xx.242
 #定义 VPN 标记，可以使用 FQDN 或者 IP 地址等（本实例使用远端及本端 IP 地址）
-set security ike gateway ike-gate-cfgr external-interface ge-0/0/3
+set security ike gateway ike-gate-cfgr external-interface ge-0/0/y
 # 绑定 VPN 的接口，即本地的公网出口
 set security ike gateway ike-gate-cfgr version v1-only
 # 定义 IKE 的版本，v1
