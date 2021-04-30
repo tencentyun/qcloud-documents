@@ -36,11 +36,9 @@
 1. 进入修改配置页，根据您下载的源码包，选择相应的开发环境。
 2. 找到并打开 `iOS/TRTCScenesDemo/TXLiteAVDemo/Debug/GenerateTestUserSig.h` 文件。
 3. 设置 `GenerateTestUserSig.h` 文件中的相关参数：
-<ul style="margin:0">
-<li>SDKAPPID：默认为0，请设置为实际的 SDKAppID。</li>
-<li>SECRETKEY：默认为空字符串，请设置为实际的密钥信息。</li>
-</ul>
-<img src="https://main.qcloudimg.com/raw/144433d5562569cd6d0e9ad9804d6c48.png">
+	- SDKAPPID：默认为0，请设置为实际的 SDKAppID。
+	- SECRETKEY：默认为空字符串，请设置为实际的密钥信息。
+![](https://main.qcloudimg.com/raw/144433d5562569cd6d0e9ad9804d6c48.png)
 4. 粘贴完成后，单击【已复制粘贴，下一步】即创建成功。
 5. 编译完成后，单击【回到控制台概览】即可。
 
@@ -156,7 +154,7 @@ self.vocieRoom.login(sdkAppId: sdkAppID, userId: userId, userSig: userSig) { [we
 4. 房主收到组件的`onSeatListChange`麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
 5. 房主还会收到麦位表有成员进入的`onAnchorEnterSeat`的事件通知，此时会自动打开麦克风采集。
 
-![](https://main.qcloudimg.com/raw/628f0aa3f0c15e53fec6ac904c8d3943.png)
+![](https://main.qcloudimg.com/raw/178d40c1ae247fbf7d5171dc4cee1a5a.png)
 
 示例代码：
 
@@ -220,7 +218,7 @@ func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
 7. 进房后还会收到麦位表有主播进入的`onAnchorEnterSeat`的事件通知。
 
 
-![](https://main.qcloudimg.com/raw/6e36bc8029a8abbeed69b43e197ba3c0.png)
+![](https://main.qcloudimg.com/raw/78fd2cc28f7f336de6fa58248b28cc14.png)
 
 
 <dx-codeblock>
@@ -271,13 +269,13 @@ func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
 2. `kickSeat`传入对应麦位后，可以踢人下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
 3. `muteSeat`传入对应麦位后，可以静音/解除静音，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
 4. `closeSeat`传入对应麦位后，可以封禁/解禁某个麦位，封禁后听众端将不能再上麦，房间内所有成员会收到`onSeatListChange`和`onSeatClose`的事件通知。
-![](https://main.qcloudimg.com/raw/299e62ae7d20d10622197ad8685d4639.png)
+![](https://main.qcloudimg.com/raw/78a1d790bf994786f5beac8b97660000.png)
 :::
 ::: 听众端
 1. `enterSeat`传入对应的麦位后，可以进行上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
 2. `leaveSeat`主动下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
 
-![](https://main.qcloudimg.com/raw/3ac11818d7d23f61104600ea7235867d.png)
+![](https://main.qcloudimg.com/raw/356fddebf48c7a4ef918104e8f6e64eb.png)
 
 麦位操作后的事件通知顺序如下：callback > onSeatListChange > onAnchorEnterSeat 等独立事件。
 
@@ -328,7 +326,7 @@ func onAnchorEnterSeat(index: Int, user: VoiceRoomUserInfo) {
 3. 房主选择同意后，调用`acceptInvitation`并传入 inviteId。
 4. 听众端收到`onInviteeAccepted`的事件通知，调用`enterSeat`进行上麦。
 
-![](https://main.qcloudimg.com/raw/e2b97c645590c835b54fffbf0ff4ebfd.png)
+![](https://main.qcloudimg.com/raw/9419f9ae95c89b3bedb0839846e7565c.png)
 
 <dx-codeblock>
 ::: Swift Swift
@@ -363,7 +361,7 @@ func onReceiveNewInvitation(identifier: String, inviter: String, cmd: String, co
 3. 听众选择同意后，调用`acceptInvitation`并传入 inviteId。
 4. 房主端收到`onInviteeAccepted`的事件通知，调用`pickSeat`抱听众上麦。
 
-![](https://main.qcloudimg.com/raw/e68e2dd9a8056ad8496cbe3dcfe634f1.png)
+![](https://main.qcloudimg.com/raw/9a22e5d5f4be720775091bfd3ffef48a.png)
 
 
 <dx-codeblock>
@@ -400,8 +398,8 @@ func onReceiveNewInvitation(identifier: String, inviter: String, cmd: String, co
 ### 步骤9：实现文字聊天和弹幕消息
 - 通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和听众均可以收到`onRecvRoomTextMsg`回调。
 即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
-
-```Swift
+<dx-codeblock>
+::: Swift Swift
 // 发送端：发送文本消息
 self.voiceRoom.sendRoomTextMsg(message: message) { (code, message) in
          
@@ -410,10 +408,12 @@ self.voiceRoom.sendRoomTextMsg(message: message) { (code, message) in
 func onRecvRoomTextMsg(message: String, userInfo: VoiceRoomUserInfo) {
     //收到的message信息处理方法        
 }
-```
+:::
+</dx-codeblock>
 - 通过`sendRoomCustomMsg`可以发送自定义（信令）的消息，所有在该房间内的主播和听众均可以收到`onRecvRoomCustomMsg`回调。
  自定义消息常用于传输自定义信令，例如用于点赞消息的发送和广播。
-```swift
+<dx-codeblock>
+::: Swift Swift
 // 例如：发送端：您可以通过自定义Cmd来区分弹幕和点赞消息
 // eg:"CMD_DANMU"表示弹幕消息，"CMD_LIKE"表示点赞消息
 self.vocieRoom.sendRoomCustomMsg(cmd: “CMD_DANMU”, message: "hello world", callback: nil)
@@ -427,5 +427,6 @@ func onRecvRoomCustomMsg(cmd: String, message: String, userInfo: VoiceRoomUserIn
         // 收到点赞消息
     }
 }
-```
+:::
+</dx-codeblock>
 
