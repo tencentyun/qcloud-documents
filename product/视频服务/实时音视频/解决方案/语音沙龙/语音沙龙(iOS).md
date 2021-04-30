@@ -14,7 +14,6 @@
 </table>
 
 
-
 如需快速接入语音沙龙功能，您可以直接基于我们提供的 Demo 进行修改适配，也可以使用我们提供的 TRTCChatSalon 组件并实现自定义 UI 界面。
 
 [](id:DemoUI)
@@ -22,6 +21,7 @@
 ## 复用 Demo 的 UI 界面
 
 [](id:ui.step1)
+
 ### 步骤1：创建新的应用
 
 1. 登录实时音视频控制台，选择【开发辅助】>【[快速跑通Demo](https://console.cloud.tencent.com/trtc/quickstart)】。
@@ -32,12 +32,12 @@
 
 
 [](id:ui.step2)
-### 步骤2：下载 SDK 和 Demo 源码
 
+### 步骤2：下载 SDK 和 Demo 源码
 1. 根据实际业务需求下载 SDK 及配套的 Demo 源码。
 2. 下载完成后，单击【已下载，下一步】。
-![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
-	 
+   ![](https://main.qcloudimg.com/raw/3b115019ddfd0866108ed1add30810d8.png)
+
 [](id:ui.step3)
 ### 步骤3：配置 Demo 工程文件
 
@@ -55,10 +55,13 @@
 >- 正确的 UserSig 签发方式是将 UserSig 的计算代码集成到您的服务端，并提供面向 App 的接口，在需要 UserSig 时由您的 App 向业务服务器发起请求获取动态 UserSig。更多详情请参见 [服务端生成 UserSig](https://cloud.tencent.com/document/product/647/17275#Server)。
 
 [](id:ui.step4)
+
 ### 步骤4：运行 Demo
+
 使用 Xcode（11.0及以上的版本）打开源码工程 `iOS/TRTCScenesDemo/TXLiteAVDemo.xcworkspace`，单击【运行】即可开始调试本 Demo。
 
 [](id:ui.step5)
+
 ### 步骤5：修改 Demo 源代码
 
 源码中的 TRTCChatSalonDemo 文件夹包含两个子文件夹 ui 和 model，ui 文件夹中均为界面代码以及涉及界面相关的逻辑，如下表格列出了各个 swift 文件或文件夹及其所对应的 UI 界面，以便于您进行二次调整：
@@ -71,7 +74,9 @@
 | TRTCChatSalonViewController       | 主房间页面，包括房主和听众两种界面。 |
 
 [](id:model)
+
 ## 实现自定义 UI 界面
+
 [源码](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCChatSalonDemo) 中的 trtcchatsalondemo 文件夹包含两个子文件夹 ui 和 model，model 文件夹中包含可重用的开源组件 TRTCChatSalon，您可以在`TRTCChatSalon.h`文件中看到该组件提供的接口函数，并使用对应接口实现自定义 UI 界面。
 ![](https://main.qcloudimg.com/raw/fcf694c8550664623414604d14ffcd94.png)
 
@@ -82,6 +87,7 @@
 语音沙龙组件 TRTCChatSalon 依赖 TRTC SDK 和 IM SDK，您可以按照如下步骤将两个 SDK 集成到项目中。
 
 **方法一：通过 cocoapods 仓库依赖**
+
 ```
 pod 'TXIMSDK_iOS'
 pod 'TXLiteAVSDK_TRTC'
@@ -92,24 +98,28 @@ pod 'TXLiteAVSDK_TRTC'
 **方法二：通过本地依赖**
 如果您的开发环境访问 cocoapods 仓库较慢，您可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
 
-| SDK | 下载页面 | 集成指引 |
-| -------- | -------- | -------- |
+| SDK      | 下载页面                                                     | 集成指引                                                     |
+| -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | TRTC SDK | [DOWNLOAD](https://cloud.tencent.com/document/product/647/32689) | [集成文档](https://cloud.tencent.com/document/product/647/32173) |
 | IM SDK   | [DOWNLOAD](https://cloud.tencent.com/document/product/269/36887) | [集成文档](https://cloud.tencent.com/document/product/269/32675) |
 
 [](id:model.step2)
+
 ### 步骤2：配置权限
 
 在 `info.plist` 文件中需要添加 `Privacy > Camera Usage Description`， `Privacy > Microphone Usage Description` 申请麦克风权限。
 
 [](id:model.step3)
+
 ### 步骤3：导入 TRTCChatSalon 组件
 
 拷贝 `iOS/TRTCScenesDemo/TXLiteAVDemo/TRTCChatSalonDemo/model` 目录中的所有文件到您的项目中。
 
 
 [](id:model.step4)
+
 ### 步骤4：创建并登录组件
+
 1. 调用 TRTCChatSalon 的 `sharedInstance` 类方法可以创建一个 TRTCChatSalon 的实例对象。
 2. 调用 `setDelegate` 方法注册组件的事件回调通知。
 3. 调用 `login` 方法完成组件的登录，请参考下表填写关键参数：
@@ -155,13 +165,14 @@ self.chatSalon.login(sdkAppID: sdkAppID, userID: userId, userSig: userSig) { [we
 </dx-codeblock>
 
 [](id:model.step5)
+
 ### 步骤5：房主端开播
 
 1. 房主执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
 2. 房主调用 `createRoom` 创建新的语音沙龙，此时传入房间 ID、上麦是否需要房主确认、房间类型等房间属性信息。
 3. 房主会收到有成员进入的 `onAnchorEnterSeat` 的事件通知，此时会自动打开麦克风采集。
 
-![](https://main.qcloudimg.com/raw/0b06ef225f749caa8b1f3a16c2316890.png)
+![](https://main.qcloudimg.com/raw/bfdc392413adacb05325b065bc691c82.png)
 <dx-codeblock>
 ::: Swift Swift
 // 1.房主设置昵称和头像
@@ -197,6 +208,7 @@ func onAnchorEnterSeat(user: ChatSalonUserInfo) {
 
 
 [](id:model.step6)
+
 ### 步骤6：听众端观看
 
 1. 听众端执行 [步骤4](#model.step4) 登录后，可以调用 `setSelfProfile` 设置自己的昵称和头像。
@@ -208,7 +220,7 @@ func onAnchorEnterSeat(user: ChatSalonUserInfo) {
 5. 进房后会收到组件的 `onRoomInfoChange` 房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求房主同意等。
 6. 进房后还会收到麦位表有主播进入的 `onAnchorEnterSeat` 的事件通知。
 
-![](https://main.qcloudimg.com/raw/b08253d1835ca6e571378af76c84e275.png)
+![](https://main.qcloudimg.com/raw/24ba699e25f8a8cb2f892fbbf8d7fa00.png)
 <dx-codeblock>
 ::: Swift Swift
 // 1.听众设置昵称和头像
@@ -245,14 +257,19 @@ func onAnchorEnterSeat(user: ChatSalonUserInfo) {
 </dx-codeblock>
 
 [](id:model.step7)
+
 ### 步骤7：上下麦
+
 <dx-tabs>
 ::: 房主端
+
 1. `pickSeat` 传入听众 userId, 可以抱人上麦，房间内所有成员会收到 `onAnchorEnterSeat` 的事件通知。
 2. `kickSeat` 传入对应用户的 userId 后，可以踢人下麦，房间内所有成员会收到 `onAnchorLeaveSeat` 的事件通知。
 
-![](https://main.qcloudimg.com/raw/5a590df748b3cedd6eccd7d8e3027168.png)
+![](https://main.qcloudimg.com/raw/6e23550a49c88b823dca96941c638394.png)
+
 麦位操作后的事件通知顺序如下：callback > onAnchorEnterSeat 等独立事件。
+
 <dx-codeblock>
 ::: Swift Swift
 // 1.房主抱人上麦位
@@ -269,10 +286,11 @@ func onAnchorEnterSeat(user: ChatSalonUserInfo) {
 
 :::
 ::: 听众端
+
 1. `enterSeat` 可以进行上麦，房间内所有成员会收到 `onAnchorEnterSeat` 的事件通知。
 2. `leaveSeat` 主动下麦，房间内所有成员会收到 `onAnchorLeaveSeat` 的事件通知。
 
-![](https://main.qcloudimg.com/raw/08f7bf725fa05e1d97a69aacdbd3986a.png)
+![](https://main.qcloudimg.com/raw/d6a618277eb66ba629e9172844c57a60.png)
 麦位操作后的事件通知顺序如下：callback  > onAnchorEnterSeat 等独立事件。
 <dx-codeblock>
 ::: Swift Swift
@@ -299,12 +317,13 @@ func onAnchorEnterSeat(user: ChatSalonUserInfo) {
 
 <dx-tabs>
 ::: 听众主动申请上麦
+
 1. 听众端调用 `sendInvitation` 传入房主的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
 2. 房主端收到 `onReceiveNewInvitation` 的事件通知，此时 UI 可以弹窗并询问房主是否同意。
 3. 房主选择同意后，调用 `acceptInvitation` 并传入 inviteId。
 4. 听众端收到 `onInviteeAccepted` 的事件通知，调用`enterSeat`进行上麦。
 
-![](https://main.qcloudimg.com/raw/76f13e8118c49136fcfd99942e56a65e.png)
+![](https://main.qcloudimg.com/raw/1553acebea8b5a35b1b8e82365bdec3c.png)
 <dx-codeblock>
 ::: Swift Swift
 // 听众端视角
@@ -333,12 +352,14 @@ func onReceiveNewInvitation(identifier: String, inviter: String, cmd: String, co
 </dx-codeblock>
 :::
 ::: 房主邀请听众上麦
+
 1. 房主端调用 `sendInvitation` 传入听众的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
 2. 听众端收到 `onReceiveNewInvitation` 的事件通知，此时 UI 可以弹窗并询问听众是否同意上麦。
 3. 听众选择同意后，调用 `acceptInvitation` 并传入 inviteId。
 4. 房主端收到 `onInviteeAccepted` 的事件通知，调用 `pickSeat` 抱听众上麦。
 
-![](https://main.qcloudimg.com/raw/3193dd17c510ca5a6583747c0bde0114.png)
+![](https://main.qcloudimg.com/raw/7b920cb763f049c4d90a84c72ab4c87e.png)
+
 <dx-codeblock>
 ::: Swift Swift
 // 房主端视角
@@ -371,6 +392,7 @@ func onReceiveNewInvitation(identifier: String, inviter: String, cmd: String, co
 
 
 [](id:model.step9)
+
 ### 步骤9：实现文字聊天和弹幕消息
 
 - 通过 `sendRoomTextMsg` 可以发送普通的文本消息，所有在该房间内的主播和听众均可以收到 `onRecvRoomTextMsg` 回调。
