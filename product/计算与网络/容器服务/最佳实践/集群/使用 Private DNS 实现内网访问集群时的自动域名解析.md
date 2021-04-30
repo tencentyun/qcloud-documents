@@ -1,10 +1,10 @@
 
 ## 操作场景
 
-当前开启集群内网访问后，容器服务 TKE 默认的访问方式将通过域名来访问集群，您需要自己在访问机上配置 Host 来进行内网域名解析。如未配置对应的域名解析规则（Host），在访问机上访问对应集群（运行 kubectl get nodes）将会报错“no such host”，如下图所示：
+当前集群开启内网访问后，容器服务 TKE 默认通过域名访问集群，您需要在访问机上配置 Host 来进行内网域名解析。如未配置对应的域名解析规则（Host），在访问机上访问对应集群（运行 kubectl get nodes）时将会报错 “no such host”，如下图所示：
 ![](https://main.qcloudimg.com/raw/2d03150adb99805447c57896cf5866d1.png)
 
-在实际过程中，配置 Host 行为会增加管理访问机上 Host 的人力成本。因此，我们建议您使用腾讯云全新上线的 [私有域解析 Private DNS](https://cloud.tencent.com/document/product/1338) 服务，使用该服务简单便捷，只需要完成以下三步操作即可（预计5分钟左右即可完成）。
+在实际过程中，配置 Host 行为会增加管理访问机上 Host 的人力成本。因此，我们建议您使用腾讯云全新上线的 [私有域解析 Private DNS](https://cloud.tencent.com/document/product/1338) 服务，使用该服务简单便捷，只需要完成以下三步操作即可。
 
 
 
@@ -12,7 +12,7 @@
 #### 收费说明
 
 Private DNS 采用按量付费的计费方式。收费项为：私有域名数量 + 解析请求量，以自然日为单位进行结算。
-了解更多请参见 Private DNS [购买指南](https://cloud.tencent.com/document/product/1338/50523 )。
+了解更多请参见 Private DNS [购买指南](https://cloud.tencent.com/document/product/1338/50523)。
 
 #### 支持地域
 
@@ -23,7 +23,7 @@ Private DNS 目前支持的地域未完全覆盖 TKE 支持地域，具体支持
 
 ## 前提条件
 
-已创建容器服务 TKE [集群](https://cloud.tencent.com/document/product/457/32189)，并已开启内网访问。
+已创建容器集群，并已开启内网访问。详情可参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)，并已开启内网访问。
 
 
 ## 操作步骤
