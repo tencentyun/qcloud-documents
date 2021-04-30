@@ -2,7 +2,7 @@
 
 
 ## 前提条件
-请确保您已经在腾讯云 VPC 内创建 VPN，并完成 VPN 通道配置。
+请确保您已经在腾讯云 VPC 内创建 VPN，并完成 并完成 [VPN 通道配置](https://cloud.tencent.com/document/product/554/52864)。
 
 ## 数据准备
 本文 IPsec VPN 配置数据举例如下：
