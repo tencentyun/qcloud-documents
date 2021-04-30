@@ -194,7 +194,7 @@ mTRTCChatSalon.login(SDKAPPID, userId, userSig, new TRTCChatSalonCallback.Action
 2. 房主调用 `createRoom` 创建新的语音沙龙，此时传入房间 ID、上麦是否需要房主确认、房间类型等房间属性信息。
 3. 房主会收到有成员进入的 `onAnchorEnterSeat` 的事件通知，此时会自动打开麦克风采集。
 
-![](https://main.qcloudimg.com/raw/0b06ef225f749caa8b1f3a16c2316890.png)
+![](https://main.qcloudimg.com/raw/bfdc392413adacb05325b065bc691c82.png)
 <dx-codeblock>
 ::: java java
 // 1.房主设置昵称和头像
@@ -241,7 +241,8 @@ public void onAnchorEnterSeat(TRTCChatSalonDef.UserInfo userInfo) {
 5. 进房后会收到组件的 `onRoomInfoChange` 房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求房主同意等。
 6. 进房后还会收到麦位表有主播进入的 `onAnchorEnterSeat` 的事件通知。
 
-![](https://main.qcloudimg.com/raw/b08253d1835ca6e571378af76c84e275.png)
+![](https://main.qcloudimg.com/raw/24ba699e25f8a8cb2f892fbbf8d7fa00.png)
+
 <dx-codeblock>
 ::: java java
 // 1.听众设置昵称和头像
@@ -296,7 +297,7 @@ public void onAnchorEnterSeat(TRTCChatSalonDef.UserInfo userInfo) {
 1. `pickSeat` 传入听众 userId, 可以抱人上麦，房间内所有成员会收到 `onAnchorEnterSeat` 的事件通知。
 2. `kickSeat` 传入对应用户的 userId 后，可以踢人下麦，房间内所有成员会收到 `onAnchorLeaveSeat` 的事件通知。
 
-![](https://main.qcloudimg.com/raw/5a590df748b3cedd6eccd7d8e3027168.png)
+![](https://main.qcloudimg.com/raw/6e23550a49c88b823dca96941c638394.png)
 麦位操作后的事件通知顺序如下：callback > onAnchorEnterSeat 等独立事件。
 <dx-codeblock>
 ::: java java
@@ -320,7 +321,7 @@ public void onAnchorEnterSeat(TRTCChatSalonDef.UserInfo user) {
 1. `enterSeat` 可以进行上麦，房间内所有成员会收到 `onAnchorEnterSeat` 的事件通知。
 2. `leaveSeat` 主动下麦，房间内所有成员会收到 `onAnchorLeaveSeat` 的事件通知。
 
-![](https://main.qcloudimg.com/raw/08f7bf725fa05e1d97a69aacdbd3986a.png)
+![](https://main.qcloudimg.com/raw/d6a618277eb66ba629e9172844c57a60.png)
 麦位操作后的事件通知顺序如下：callback  > onAnchorEnterSeat 等独立事件。
 <dx-codeblock>
 ::: java java
@@ -354,7 +355,7 @@ public void onAnchorEnterSeat(int index, TRTCChatSalonDef.UserInfo user) {
 3. 房主选择同意后，调用 `acceptInvitation` 并传入 inviteId。
 4. 听众端收到 `onInviteeAccepted` 的事件通知，调用 `enterSeat` 进行上麦。
 
-![](https://main.qcloudimg.com/raw/76f13e8118c49136fcfd99942e56a65e.png)
+![](https://main.qcloudimg.com/raw/1553acebea8b5a35b1b8e82365bdec3c.png)
 
 <dx-codeblock>
 ::: java java
@@ -388,7 +389,7 @@ public void onReceiveNewInvitation(final String id, String inviter, String cmd, 
 3. 听众选择同意后，调用 `acceptInvitation` 并传入 inviteId。
 4. 房主端收到 `onInviteeAccepted` 的事件通知，调用`pickSeat`抱听众上麦。
 
-![](https://main.qcloudimg.com/raw/3193dd17c510ca5a6583747c0bde0114.png)
+![](https://main.qcloudimg.com/raw/7b920cb763f049c4d90a84c72ab4c87e.png)
 
 <dx-codeblock>
 ::: java java
@@ -459,3 +460,4 @@ public void onReceiveNewInvitation(final String id, String inviter, String cmd, 
   });
   :::
   </dx-codeblock>
+
