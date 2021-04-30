@@ -2,8 +2,7 @@
 
 而对于喜欢使用 Windows 服务器的用户，使用 COSBrowser 工具大多只能当做网盘，对服务器上的直接使用程序或者操作并不友好。本文将介绍如何使存储价格低廉的对象存储挂载到 Windows 服务器上映射为本地磁盘。
 
->? 本案例实践适用操作系统：Windows Server 2019 数据中心版 64位 中文版。
->
+>?本案例实践适用操作系统：Windows Server 2019数据中心版64位中文版。
 
 ## 下载与安装
 
@@ -15,8 +14,8 @@
 - 前往 [Rclone 官网](https://rclone.org/downloads/) 或者 [Github](https://github.com/rclone/rclone/releases) 下载 Rclone 工具。
 本实践下载的版本是 rclone-v1.55.0-windows-amd64.zip，该软件无需安装，下载后，只需解压到任一一个英文目录下即可（如果解压到的路径含有中文将有可能会报错）。本实践案例路径举例为 E:\AutoRclone。
 
->? Github 下载速度可能比较慢甚至打不开，可自行在其他官方渠道进行下载。
->
+>?Github 下载速度可能比较慢甚至打不开，可自行在其他官方渠道进行下载。
+
 
 ## 配置 Rclone
 
@@ -35,11 +34,12 @@
 11. 执行到 `secret_access_key>` 时，输入腾讯云 COS 的访问密钥 SecretKey，按 **Enter**。
 12. 根据显示的腾讯云各地域的网关地址，查看存储桶的所属地域，选择对应的地域。
 本实践以广州为例，选择 `cos.ap-guangzhou.myqcloud.com`，输入**4**，按 **Enter**。
-13. 在显示的腾讯云 COS 的权限类型中，根据实际需求选择 private 或者 public-read。
-本实践以 public-read 为例，输入**2**，按 **Enter**。
-14. 在显示的腾讯云对象存储的存储类型，根据实际需求选择。
-默认为 Default，Standard storage class 表示标准存储，Archive storage mode 表示归档存储，Infrequent access storage mode 表示低频存储（Standard_IA）。
- 本实践以 Default 为例，输入**1**，按 **Enter**。
+13. 在显示的腾讯云 COS 的权限类型中，根据实际需求选择 private 或者 public-read。此处选择的权限类型为对象权限类型，仅针对新上传的文件有效。本实践以 public-read 为例，输入**2**，按 **Enter**。
+14. 在显示的腾讯云对象存储的存储类型中，您可根据实际需求选择以何种存储类型将文件上传到 COS。本实践以 Default 为例，输入**1**，按 **Enter**。
+ - Default 表示默认
+ - Standard storage class 表示标准存储（STANDARD）
+ - Infrequent access storage mode 表示低频存储（Standard_IA）
+ - Archive storage mode 表示归档存储（ARCHIVE）
 15. 执行到 `Edit advanced config? (y/n)` 时，按 **Enter**。
 16. 确认信息无误后，按 **Enter**。
 17. 输入**q**，完成配置。
@@ -53,7 +53,7 @@
 ```plaintext
 rclone mount myCOS:/ Y: --cache-dir E:\temp --vfs-cache-mode writes &
 ```
- - myCOS：替换为用户自定义的名称。
+ - myCOS：替换为用户自定义的磁盘名称。
  - Y：替换为您想要挂载后，硬盘的盘符名称即可，请不要与本地的 C、D、E 盘等重复。
  - E:\temp 为本地缓存目录，可自行设置。
 
@@ -61,6 +61,11 @@ rclone mount myCOS:/ Y: --cache-dir E:\temp --vfs-cache-mode writes &
 2. 输入 **exit**，退出终端。
 3. 在本地计算机的【我的电脑】中，即可找到一个名为 myCOS(Y:) 的磁盘。
 打开该磁盘，即可查看包含您整个广州地域的所有存储桶名称。此时，您可以进行上传、下载、新建和删除等本地磁盘的常用操作。
+>!
+>- 在操作当中如遇报错，请在 git bash 软件中查看详细报错信息。
+>- 在挂载磁盘中，若对存储桶进行删除操作，无论存储桶是否存在文件，都将会被删除，请谨慎操作。
+>- 若您对挂载磁盘中的存储桶名称进行更改，会导致 COS 存储桶名称发生改变，请谨慎操作。
+
 
 ## 设置开机自启动挂载硬盘
 
@@ -75,7 +80,6 @@ rclone mount myCOS:/ Y: --cache-dir E:\temp --vfs-cache-mode writes &
 ```plaintext
 CreateObject("WScript.Shell").Run "cmd /c E:\AutoRclone\startup_rclone.bat",0
 ```
->! 请将代码中的路径修改为您实际的路径。
->
+ >! 请将代码中的路径修改为您实际的路径。
 4. 将 startup_rclone.vbs 文件剪切到 %USERPROFILE%\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup 文件夹下。
 5. 重启服务器。

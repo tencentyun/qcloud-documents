@@ -1,34 +1,30 @@
 ## 操作场景
 
-该任务指导您使用 C/C++ 客户端在VPC环境下通过 SASL 接入点接入 CKafka 并使用 PLAIN 机制收发消息。
+该任务指导您使用C/C++客户端在VPC环境下通过SASL接入点接入CKafka并使用PLAIN机制收发消息。
 
 ## 前提条件
 
-- [安装 GCC](https://gcc.gnu.org/install/)
-- [配置 ACL 策略](https://cloud.tencent.com/document/product/597/31528)
+- [安装GCC](https://gcc.gnu.org/install/)
+- [配置ACL策略](https://cloud.tencent.com/document/product/597/31528)
 
 ## 操作步骤
 
-### 步骤一：安装 C/C++依赖库
+#### 步骤一：安装C/C++依赖库
 
-详细操作请参考 [安装 librdkafka](https://github.com/edenhill/librdkafka#installation)。
+- [安装librdkafka](https://github.com/edenhill/librdkafka#installation)
 
-### 步骤二：安装 SSL/SASL依赖
-<dx-codeblock>
-:::  shell script
+#### 步骤二：安装SSL/SASL依赖
+
+```shell script
 yum install openssl openssl-devel
 yum install cyrus-sasl{,-plain}
-:::
-</dx-codeblock>
+```
 
+#### 步骤三：发送消息
 
+1. 创建producer.c 文件
 
-
-### 步骤三：发送消息
-
-1. 创建 producer.c 文件。
-<dx-codeblock>
-:::  C++
+```C++
 /*
  * librdkafka - Apache Kafka C library
  *
@@ -329,16 +325,16 @@ int main (int argc, char **argv) {
 
     return 0;
 }
-:::
-</dx-codeblock>
+```
 
+2. 执行以下命令编译producer.c 
 
-2. 执行以下命令编译 producer.c。 
 ```
 gcc -lrdkafka ./producer.c -o producer
 ```
 
-3. 执行以下命令发送消息。
+3. 执行以下命令发送消息
+
 ```
 ./produce <broker> <topic> <username> <password>  
 ```
@@ -350,14 +346,19 @@ gcc -lrdkafka ./producer.c -o producer
 | username | sasl_plaintext接入方式的用户名称，您可在Ckafka控制台的用户管理信息中获取用户名称，注意配置用户名称时，需要添加实例Id作为前缀 ，格式为${instanceId}#username。 |
 | password | sasl_plaintext接入方式下的用户接入密码。                     |
 
+运行结果如下
 
+![](https://main.qcloudimg.com/raw/a7a4a02e8636045b7aeb852f47270059.png)
 
+  4. 在 Ckafka 控制台【topic 管理】页面，选择对应的 topic，点击【更多】>【消息查询】，查看刚刚发送的消息。
 
-### 步骤四：消费消息
+     ![](https://main.qcloudimg.com/raw/99e5dba05efc4b48692c74749f131571.png)
 
-1. 创建 consumer.c 文件。
-<dx-codeblock>
-:::  C++
+#### 步骤四：消费消息
+
+1. 创建consumer.c 文件
+
+```C++
 /*
  * librdkafka - Apache Kafka C library
  *
@@ -650,24 +651,30 @@ int main (int argc, char **argv) {
     
     return 0;
 }
-:::
-</dx-codeblock>
+    
+```
 
+2. 执行以下命令编译consumer.c 
 
-2. 执行以下命令编译 consumer.c。 
 ```
 gcc -lrdkafka ./consumer.c -o consumer
 ```
 
-3. 执行以下命令发送消息。
+3. 执行以下命令发送消息
+
 ```
 ./consumer <broker> <group.id> <username> <password> <topic1> <topic2>.. 
 ```
 
 | **参数**        | **描述**                                                     |
 | :-------------- | ------------------------------------------------------------ |
-| broker          | 接入点信息，您可在 Ckafka 控制台的实例配置信息或者接入方式中获取接入点信息。 |
+| broker          | 接入点信息，您可在Ckafka控制台的实例配置信息或者接入方式中获取接入点信息。 |
 | group.id        | 消费分组名称，建议您设置有意义的消费分组名称。               |
-| username        | sasl_plaintext 接入方式的用户名称，您可在 Ckafka 控制台的用户管理信息中获取用户名称，注意配置用户名称时，需要添加实例 ID 作为前缀 ，格式为 ${instanceId}#username。 |
-| password        | sasl_plaintext 接入方式下的用户接入密码。                     |
-| topic1 topic2.. | Topic 名称，您可在 Ckafka 控制台的 topic 管理获取主题名称信息。   |
+| username        | sasl_plaintext接入方式的用户名称，您可在Ckafka控制台的用户管理信息中获取用户名称，注意配置用户名称时，需要添加实例Id作为前缀 ，格式为${instanceId}#username。 |
+| password        | sasl_plaintext接入方式下的用户接入密码。                     |
+| topic1 topic2.. | Topic名称，您可在Ckafka控制台的topic管理获取主题名称信息。   |
+
+4. 在 Ckafka 控制台【Consumer Group】页面，选择对应的消费者组名称，在主题名称输入 topic 名称，点击【查询详情】查看消费详情。
+
+   ![](https://main.qcloudimg.com/raw/7d622dfd01e04602b46940dc806b1811.png)
+
