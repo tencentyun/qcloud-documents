@@ -172,7 +172,7 @@ mTRTCVoiceRoom.setDelegate(this);
 mTRTCVoiceRoom.login(SDKAPPID, userId, userSig, new TRTCVoiceRoomCallback.ActionCallback() {
     @Override
     public void onCallback(int code, String msg) {
-        if (code == 0) {
+        if (code == 0) {![](https://main.qcloudimg.com/raw/be8ee8461f8e06295d5ae1ad1502d745.png)
             //登录成功
         }
     }
@@ -188,7 +188,8 @@ mTRTCVoiceRoom.login(SDKAPPID, userId, userSig, new TRTCVoiceRoomCallback.Action
 4. 房主收到组件的`onSeatListChange`麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
 5. 房主还会收到麦位表有成员进入的`onAnchorEnterSeat`的事件通知，此时会自动打开麦克风采集。
 
-![](https://main.qcloudimg.com/raw/628f0aa3f0c15e53fec6ac904c8d3943.png)
+![](https://main.qcloudimg.com/raw/178d40c1ae247fbf7d5171dc4cee1a5a.png)
+
 
 <dx-codeblock>
 ::: java java
@@ -242,7 +243,7 @@ public void onAnchorEnterSeat(TRTCVoiceRoomDef.UserInfo userInfo) {
 6. 进房后会收到组件的`onSeatListChange`麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
 7. 进房后还会收到麦位表有主播进入的`onAnchorEnterSeat`的事件通知。
 
-![](https://main.qcloudimg.com/raw/6e36bc8029a8abbeed69b43e197ba3c0.png)
+![](https://main.qcloudimg.com/raw/b15db932689b947fddca28adadeb7c43.png)
 <dx-codeblock>
 ::: java java
 // 1.听众设置昵称和头像
@@ -301,14 +302,14 @@ public void onAnchorEnterSeat(TRTCVoiceRoomDef.UserInfo userInfo) {
 2. `kickSeat`传入对应麦位后，可以踢人下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
 3. `muteSeat`传入对应麦位后，可以静音/解除静音，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
 4. `closeSeat`传入对应麦位后，可以封禁/解禁某个麦位，封禁后听众端将不能再上麦，房间内所有成员会收到`onSeatListChange`和`onSeatClose`的事件通知。
+![](https://main.qcloudimg.com/raw/78a1d790bf994786f5beac8b97660000.png)
 
-![](https://main.qcloudimg.com/raw/299e62ae7d20d10622197ad8685d4639.png)
 :::
 ::: 听众端
 1. `enterSeat`传入对应的麦位后，可以进行上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
 2. `leaveSeat`主动下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
 
-![](https://main.qcloudimg.com/raw/3ac11818d7d23f61104600ea7235867d.png)
+![](https://main.qcloudimg.com/raw/356fddebf48c7a4ef918104e8f6e64eb.png)
 
 麦位操作后的事件通知顺序如下：callback > onSeatListChange > onAnchorEnterSeat 等独立事件。
 
@@ -373,7 +374,7 @@ public void onAnchorEnterSeat(int index, TRTCVoiceRoomDef.UserInfo user) {
 3. 房主选择同意后，调用`acceptInvitation`并传入 inviteId。
 4. 听众端收到`onInviteeAccepted`的事件通知，调用`enterSeat`进行上麦。
 
-![](https://main.qcloudimg.com/raw/e2b97c645590c835b54fffbf0ff4ebfd.png)
+![](https://main.qcloudimg.com/raw/9419f9ae95c89b3bedb0839846e7565c.png)
 
 <dx-codeblock>
 ::: java java
@@ -407,7 +408,7 @@ public void onReceiveNewInvitation(final String id, String inviter, String cmd, 
 3. 听众选择同意后，调用`acceptInvitation`并传入 inviteId。
 4. 房主端收到`onInviteeAccepted`的事件通知，调用`pickSeat`抱听众上麦。
 
-![](https://main.qcloudimg.com/raw/e68e2dd9a8056ad8496cbe3dcfe634f1.png)
+![](https://main.qcloudimg.com/raw/9a22e5d5f4be720775091bfd3ffef48a.png)
 
 <dx-codeblock>
 ::: java java
@@ -478,3 +479,4 @@ mTRTCVoiceRoom.setDelegate(new TRTCVoiceRoomDelegate() {
 });
 :::
 </dx-codeblock>
+
