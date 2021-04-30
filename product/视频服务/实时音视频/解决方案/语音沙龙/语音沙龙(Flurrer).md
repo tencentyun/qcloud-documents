@@ -150,6 +150,7 @@ lib/TRTCChatSalonDemo/model/
 <td>腾讯云设计的一种安全保护签名，获取方式请参考 <a href="https://cloud.tencent.com/document/product/647/17275">如何计算 UserSig</a>。</td>
 </tr>
 </table>
+
 <dx-codeblock>
 ::: dart dart
 TRTCChatSalon trtcVoiceRoom = await TRTCChatSalon.sharedInstance();
@@ -173,7 +174,7 @@ if (resValue.code == 0) {
 2. 房主调用 `createRoom` 创建新的语音沙龙，此时传入房间 ID、房间名等房间属性信息。
 3. 房主会收到有成员进入的 `TRTCChatSalonDelegate.onAudienceEnter` 的事件通知，此时会自动打开麦克风采集。
 
-![](https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/chatsalon/chatsalon_zbo.png)
+![](https://main.qcloudimg.com/raw/bfdc392413adacb05325b065bc691c82.png)
 
 <dx-codeblock>
 ::: java java
@@ -215,7 +216,7 @@ onVoiceListener(type, param) async {
 4. 进房后会收到组件的 `TRTCChatSalonDelegate.onAudienceEnter` 和 `TRTCChatSalonDelegate.onAudienceExit` 听众进退房通知，监听到事件回调后可以将变化然后刷新到 UI 界面上。
 5. 进房后还会收到麦位表有主播进入的 `TRTCChatSalonDelegate.onAnchorEnterMic` 和 `TRTCChatSalonDelegate.onAnchorLeaveMic` 的事件通知。
 
-![](https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/chatsalon/chatsalon.png)
+![](https://main.qcloudimg.com/raw/24ba699e25f8a8cb2f892fbbf8d7fa00.png)
 <dx-codeblock>
 ::: dart dart
 // 1.听众设置昵称和头像
@@ -263,7 +264,7 @@ onVoiceListener(type, param) async {
 1.  `leaveMic` 主动下麦,房间内所有成员会收到 `onAnchorLeaveMic` 的事件通知。
 2.  `kickMic` 传入对应用户的userId后，可以踢人下麦。房主踢人下麦，房间内所有成员会收到 `onAnchorLeaveMic` 的事件通知。
 
-![](https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/chatsalon/chatsalon-ma-m.png)
+![](https://main.qcloudimg.com/raw/6e23550a49c88b823dca96941c638394.png)
 <dx-codeblock>
 ::: dart dart
 // 1.主动下麦
@@ -278,7 +279,7 @@ trtcVoiceRoom.kickMic(userId);
 1.  `enterMic` 可以进行上麦，房间内所有成员会收到 `onAnchorEnterMic` 的事件通知。
 2.  `leaveMic` 主动下麦，房间内所有成员会收到 `onAnchorLeaveMic` 的事件通知。
 
-![](https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/chatsalon/chatsalon-ma-au.png)
+![](https://main.qcloudimg.com/raw/d6a618277eb66ba629e9172844c57a60.png)
 <dx-codeblock>
 ::: dart dart
 // 1.听众主动上麦
@@ -306,7 +307,7 @@ trtcVoiceRoom.leaveMic();
 3. 房主选择同意后，调用 `agreeToSpeak` 并传入 userId。
 4. 听众端收到 `onAgreeToSpeak` 的事件通知，调用 `enterMic` 进行上麦。
 
-![](https://tccweb-1258344699.cos.ap-nanjing.myqcloud.com/sdk/trtc/chatsalon/chatsalon-si.png)
+![](https://main.qcloudimg.com/raw/1553acebea8b5a35b1b8e82365bdec3c.png)
 <dx-codeblock>
 ::: dart dart
 // 听众端视角
