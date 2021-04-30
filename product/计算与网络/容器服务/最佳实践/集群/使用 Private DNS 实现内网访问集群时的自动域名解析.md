@@ -23,7 +23,7 @@ Private DNS 目前支持的地域未完全覆盖 TKE 支持地域，具体支持
 
 ## 前提条件
 
-已创建容器集群，并已开启内网访问。详情可参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)，并已开启内网访问。
+已创建容器集群，并已开启内网访问。详情可参见 [创建集群](https://cloud.tencent.com/document/product/457/32189)。
 
 
 ## 操作步骤
