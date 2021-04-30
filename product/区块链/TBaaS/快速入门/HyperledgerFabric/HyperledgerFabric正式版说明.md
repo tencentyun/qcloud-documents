@@ -73,6 +73,6 @@
 5. 选择合约所在行右侧的【实例化】，进入“合约管理/实例化合约”页面进行合约实例化。如下图所示：
 >!在“背书策略”中，如没有特殊的合约背书策略要求，可选择【无】。
 >
-![](https://main.qcloudimg.com/raw/ab307bf3d5fbba80deeaeb06aa96055e.png)
+![](https://main.qcloudimg.com/raw/6635883f6c82489b6548bff158c34465.png)
 6. 您可通过智能合约发起交易上链。发起交易后，可在通道详情页或区块链浏览器来查询交易和区块。如下图所示：
 ![](https://main.qcloudimg.com/raw/4da33819b9409e7ea5f5b68760214f1c.png)
