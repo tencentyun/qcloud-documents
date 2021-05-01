@@ -48,7 +48,7 @@
 #### 请求格式
 握手阶段，客户端主动发起 websocket 连接请求，请求 URL 格式为：
 ```
-wss://asr.cloud.tencent.com/asr/v2/<appid>?{请求参数}
+wss://asr.cloud.tencent.com/asr/v2/<1303837166>?{请求参数}
 ```
 其中&lt;appid&gt;需替换为腾讯云注册账号的 AppID，可通过 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi) 获取，{请求参数}格式为
 ```
