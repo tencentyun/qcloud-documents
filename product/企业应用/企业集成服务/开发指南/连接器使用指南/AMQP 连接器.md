@@ -116,7 +116,6 @@ Consumer 操作执行成功后，输出结果会保存在 message 消息体的 p
 | userId         | string                                      |
 | appId          | string                                      |
 
-#### 示例
 例如：执行成功后，message payload 值为 byte 数组，message attribute 值如下：
 
 ```json
@@ -145,7 +144,7 @@ Consumer 操作执行成功后，输出结果会保存在 message 消息体的 p
 
 
 
-##  案例
+####  案例
 1. 按照 rabbitMQ 集群信息，填写 AMQP 连接器配置的连接配置，其他配置保持默认。
    ![image-20210426154407837](https://main.qcloudimg.com/raw/94994df1e398e21b56d39b33e54be92c/image-20210426154407837.png)
 2. 新建流，将 AMQP Consumer 作为 trigger 节点，配置待消费的队列名称。
@@ -221,7 +220,7 @@ Publish 操作执行失败后，错误信息会保存在 message 消息体的 er
 }
 ```
 
-## 案例
+#### 案例
 1. 按照 rabbitMQ 集群信息，填写 AMQP 连接器配置的连接配置，其他配置保持默认。
    ![image-20210426154407837](https://main.qcloudimg.com/raw/94994df1e398e21b56d39b33e54be92c/image-20210426154407837.png)
 2. 新建流，添加 trigger，例如：http_listener。
