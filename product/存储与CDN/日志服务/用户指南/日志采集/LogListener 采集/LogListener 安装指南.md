@@ -18,14 +18,14 @@ LogListener 仅支持64位 Linux 操作系统环境（暂不支持 Windows），
 
 LogListener 最新版本下载地址： [下载 LogListener](https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener-linux-x64-2.5.6.tar.gz)
 
-以安装路径`/usr/local/`为例： 下载 LogListener 安装包并解压，解压路径为`/usr/local/` ，解压完成后进入 LogListener 目录`loglistener/tools`，执行安装命令 。该操作命令如下：
+以安装路径`/usr/local/`为例： 下载 LogListener 安装包并解压，解压路径为`/usr/local/` ，解压完成后进入 LogListener 目录`loglistener-2.5.6/tools`，执行安装命令 。该操作命令如下：
 ```plaintext
 wget https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener-linux-x64-2.5.6.tar.gz && tar -zxvf loglistener-linux-x64-2.5.6.tar.gz -C /usr/local && cd /usr/local/loglistener-2.5.6/tools && ./loglistener.sh install
 ```
 
 ### 2. 初始化 LogListener
 
-在`loglistener/tools`路径下，以 root 权限执行 LogListener 初始化命令（默认使用内网方式访问服务），初始化命令如下：
+在`loglistener-2.5.6/tools`路径下，以 root 权限执行 LogListener 初始化命令（默认使用内网方式访问服务），初始化命令如下：
 ```shell
 ./loglistener.sh init -secretid AKIDPEtPyKabfW8Z3Uspdz83xxxxxxxxxxx -secretkey whHwQfjdLnzzCE1jIf09xxxxxxxxxxxx -region ap-xxxxxx
 ```
