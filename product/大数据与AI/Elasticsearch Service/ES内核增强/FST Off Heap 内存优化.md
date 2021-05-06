@@ -5,7 +5,7 @@ ES 单节点上，倒排索引中的 FST 结构默认常驻堆内内存，占比
 基于 WLFU 淘汰策略，实现精准控制的堆外 cache，堆内基于零拷贝、弱引用实现第二级 cache，性能和堆内访问基本持平。
 
 ## 使用方式
-### 开启、关闭 Off Heap 功能（默认关闭）：
+### 开启、关闭 Off Heap 功能（默认关闭）
 ```
 curl -H "Content-Type:application/json" -XPUT http://localhost:9200/_cluster/settings -d '{
    "persistent" : {
@@ -14,7 +14,7 @@ curl -H "Content-Type:application/json" -XPUT http://localhost:9200/_cluster/set
 }'
 ```
 
-### 调整 Off Heap Cache 大小（默认500MB）：
+### 调整 Off Heap Cache 大小（默认500MB）
 ```
 curl -H "Content-Type:application/json" -XPUT http://localhost:9210/_cluster/settings -d '{
   "persistent" : {
@@ -31,8 +31,8 @@ curl -H "Content-Type:application/json" -XPUT http://localhost:9210/_cluster/set
 
 | 方案对比 | FST **存放位置** | FST 内存占用量                      | **单个 FST 堆内存占用量**       | **单节点最大磁盘数据量** |
 | -------- | ---------------- | ---------------------------------- | ------------------------------- | ------------------------ |
-| 原生方案 | 堆内内存         | 全量存储在内存中，内存占用量大     | MB 级别  （源生 FST 数据结构）    | 10TB  （需调优）         |
-| 优化方案 | 堆外内存         | Cache LRU 淘汰冷数据  内存占用量小 | 100Byte左右  （Cache Key 大小） | 50TB                     |
+| 原生方案 | 堆内内存         | 全量存储在内存中，内存占用量大     | MB 级别（源生 FST 数据结构）    | 10TB（需调优）         |
+| 优化方案 | 堆外内存         | Cache LRU 淘汰冷数据  内存占用量小 | 100Byte左右（Cache Key 大小） | 50TB                     |
 
 | 写入性能对比 | 内存使用量（MB） | GC 时长（s） | TPS     | 90%时延（ms） | 99%时延（ms） |
 | ------------ | ---------------- | ----------- | ------- | ------------- | ------------- |
