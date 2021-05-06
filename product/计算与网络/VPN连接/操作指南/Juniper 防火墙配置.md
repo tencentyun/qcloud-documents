@@ -100,7 +100,7 @@
 ::: 适用于基于&nbsp;SPD&nbsp;策略转发的&nbsp;VPN
 1. 登录防火墙设备的命令行配置界面。
 <dx-codeblock>
-::: ssh
+:::sh
  ssh -p 22 root@172.16.0.1    # 通过 SSH 命令登录防火墙命令行界面
     root@SRX1> configure 
     Entering configuration mode    # 登录之后为操作模式，键入“configure”进入配置模式
@@ -112,7 +112,7 @@
 </dx-codeblock>
 2. 配置防火墙网络接口、安全域、地址簿信息，以及自定义服务。
 <dx-codeblock>
-::: ssh
+:::sh
 set interfaces ge-0/0/x unit 0 family inet address 172.16.0.1/16  
 # 为内部接口ge-0/0/x定义IP地址，请更换为实际接口和IP
 set interfaces ge-0/0/y unit 0 family inet address 120.xx.xx.76/30  
@@ -131,7 +131,7 @@ set applications application tcp_2020 source-port 0-65535 destination-port 2020 
 </dx-codeblock>
 3. 配置 IKE 策略。
 <dx-codeblock>
-::: ssh
+:::sh
 set security ike proposal ike-proposal-cfgr authentication-method pre-shared-keys
 # 定义IPSEC VPN 认证方式（本实例使用共享密钥模式：pre-shared-keys），注意“ike-proposal-cfgr”为定义的命名，后续设置需要调用该命名
 set security ike proposal ike-proposal-cfgr dh-group group2
@@ -152,7 +152,7 @@ set security ike policy ike-policy-cfgr pre-shared-key ascii-text "TestPassword"
 </dx-codeblock>
 4. 配置 IKE 网关、出接口和协议版本。
 <dx-codeblock>
-::: ssh
+:::sh
 set security ike gateway ike-gate-cfgr ike-policy ike-policy-cfgr
 # 调用之前定义的IKE策略命名
 set security ike gateway ike-gate-cfgr address 159.xx.xx.242
@@ -168,7 +168,7 @@ set security ike gateway ike-gate-cfgr version v1-only
 </dx-codeblock>
 5. 配置 IPsec 策略。
 <dx-codeblock>
-::: ssh
+:::sh
 set security ipsec proposal ipsec-proposal-cfgr protocol esp
 # 定义IPSEC阶段的加密协议
 set security ipsec proposal ipsec-proposal-cfgr authentication-algorithm hmac-md5-96
@@ -187,7 +187,7 @@ set security ipsec vpn ipsec-vpn-cfgr vpn-monitor
 </dx-codeblock>
 6. 应用 IPsec 策略。
 <dx-codeblock>
-::: ssh
+:::sh
 set security ipsec vpn ipsec-vpn-cfgr ike gateway ike-gate-cfgr
 # 调用之前定义的 IPsec 策略配置
 set security ipsec vpn ipsec-vpn-cfgr establish-tunnels immediately
@@ -198,7 +198,7 @@ set routing-options static route 10.1.1.0/24 next-hop x.x.x.x
 </dx-codeblock>
 7. 配置出站策略。
 <dx-codeblock>
-:::ssh
+:::sh
 set security policies from-zone trust to-zone vpn policy trust-to-untrust_tcp-2020_permit match source-address vpn-local_subnet
 set security policies from-zone trust to-zone vpn policy trust-to-untrust_tcp-2020_permit match destination-address vpn-peer_subnet
 set security policies from-zone trust to-zone vpn policy trust-to-untrust_tcp-2020_permit match application tcp_2020
@@ -209,7 +209,7 @@ set security policies from-zone untrust to-zone trust policy trust-to-untrust_tc
 </dx-codeblock>
 8. 配置入站策略。
 <dx-codeblock>
-:::ssh
+:::sh
 set security policies from-zone vpn to-zone trust policy untrust-to-trust_tcp-2020_permit match source-address vpn-peer_subnet
 set security policies from-zone vpn to-zone trust policy untrust-to-trust_tcp-2020_permit match destination-address vpn-local_subnet
 set security policies from-zone vpn to-zone trust policy untrust-to-trust_tcp-2020_permit match application tcp_2020
@@ -220,7 +220,7 @@ set security policies from-zone vpn to-zone trust policy untrust-to-trust_tcp-20
 </dx-codeblock>
 9. 保存配置。
 <dx-codeblock>
-:::ssh
+:::sh
 root@SRX1# commit 
 commit complete
 # 在配置模式下面修改配置，不会直接生效，通过“commit”命令，修改的配置才会保存并生效
@@ -231,7 +231,7 @@ commit complete
 ::: 适用于基于路由转发的&nbsp;VPN
 1. 登录防火墙设备的命令行配置界面。
 <dx-codeblock>
-::: ssh
+:::sh
 ssh -p 22 root@172.16.0.1    # 通过 SSH 命令登录防火墙命令行界面
 root@SRX1> configure 
 Entering configuration mode    # 登录之后为操作模式，键入“configure”进入配置模式
@@ -243,7 +243,7 @@ commit complete           # 在配置模式下面修改配置，不会直接生�
 </dx-codeblock>
 2. 配置防火墙网络接口、安全域、地址簿信息，以及自定义服务。
 <dx-codeblock>
-::: ssh
+:::sh
 set interfaces ge-0/0/x unit 0 family inet address 172.16.0.1/16  
 # 为内部接口 ge-0/0/x定义 IP 地址，请更换为实际接口和IP
 set interfaces ge-0/0/y unit 0 family inet address 120.xx.xx.76/30  
@@ -266,7 +266,7 @@ set applications application tcp_2020 source-port 0-65535 destination-port 2020 
 </dx-codeblock>
 3. 配置 IKE 策略。
 <dx-codeblock>
-::: ssh
+:::sh
 set security ike proposal ike-proposal-cfgr authentication-method pre-shared-keys
 # 定义 IPSEC VPN 认证方式（本实例使用共享密钥模式：pre-shared-keys），注意“ike-proposal-cfgr”为定义的命名，后续设置需要调用该命名
 set security ike proposal ike-proposal-cfgr dh-group group2
@@ -285,7 +285,7 @@ set security ike policy ike-policy-cfgr pre-shared-key ascii-text "TestPassword"
 </dx-codeblock>
 4. 配置 IKE 网关、出接口和协议版本。
 <dx-codeblock>
-::: ssh
+::: sh
 set security ike gateway ike-gate-cfgr ike-policy ike-policy-cfgr
 # 调用之前定义的 IKE 策略命名
 set security ike gateway ike-gate-cfgr address 159.xx.xx.242
@@ -301,7 +301,7 @@ set security ike gateway ike-gate-cfgr version v1-only
 </dx-codeblock>
 5. 配置 IPsec 策略。
 <dx-codeblock>
-::: ssh
+:::sh
 set security ipsec proposal ipsec-proposal-cfgr protocol esp
 # 定义 IPSEC 阶段的加密协议
 set security ipsec proposal ipsec-proposal-cfgr authentication-algorithm hmac-md5-96
@@ -325,7 +325,7 @@ set security ipsec vpn ipsec-vpn-cfgr vpn-monitor
 </dx-codeblock>
 6. 应用 IPsec 策略。
 <dx-codeblock>
-::: ssh
+:::sh
 set security ipsec vpn ipsec-vpn-cfgr ike gateway ike-gate-cfgr
 # 调用之前定义的 IPsec 策略配置
 set security ipsec vpn ipsec-vpn-cfgr establish-tunnels immediately
@@ -336,7 +336,7 @@ set routing-options static route 10.1.1.0/24 next-hop st0.0
 </dx-codeblock>
 7. 配置出站策略。
 <dx-codeblock>
-::: ssh
+:::sh
 set security policies from-zone trust to-zone vpn policy trust-to-vpn_tcp-2020_permit match source-address vpn-local_subnet
 set security policies from-zone trust to-zone vpn policy trust-to-vpn_tcp-2020_permit match destination-address vpn-peer_subnet
 set security policies from-zone trust to-zone vpn policy trust-to-vpn_tcp-2020_permit match application tcp_2020
@@ -346,7 +346,7 @@ set security policies from-zone trust to-zone vpn policy trust-to-vpn_tcp-2020_p
 </dx-codeblock>
 8. 配置入站策略。
 <dx-codeblock>
-::: ssh
+:::sh
 set security policies from-zone vpn to-zone trust policy vpn-to-trust_tcp-2020_permit match source-address vpn-peer_subnet
 set security policies from-zone vpn to-zone trust policy vpn-to-trust_tcp-2020_permit match destination-address vpn-local_subnet
 set security policies from-zone vpn to-zone trust policy vpn-to-trust_tcp-2020_permit match application tcp_2020
@@ -356,7 +356,7 @@ set security policies from-zone vpn to-zone trust policy vpn-to-trust_tcp-2020_p
 </dx-codeblock>
 9. 保存配置
 <dx-codeblock>
-::: ssh
+:::sh
 root@SRX1# commit 
 commit complete
 #在配置模式下面修改配置，不会直接生效，通过“commit”命令，修改的配置才会保存并生效
