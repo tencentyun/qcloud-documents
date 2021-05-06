@@ -17,12 +17,13 @@
 </tr>
 <tr>
 <td>Android</td>
-<td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/xiaozhibo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/8b235606b3c881da182b2af8d60d90af.png);background-size: cover;margin:auto">
+<td><a onclick="window.open('https://dldir1.qq.com/hudongzhibo/liteav/xiaozhibo.apk')"><div style="width:130px;height: 130px;background-image:url(https://main.qcloudimg.com/raw/6790ddaf4ffe4afd0ceb96b309a16496.png);background-size: cover;margin:auto">
 </div></a></td>
 <td><a href="https://github.com/tencentyun/MLVBSDK/tree/master/Android/XiaoZhiBo">Github</a></td>
 </tr>
 </tr>
 </table>
+
  
 **小直播 App 展示**
  
