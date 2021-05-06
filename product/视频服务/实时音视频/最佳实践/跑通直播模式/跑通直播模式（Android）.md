@@ -107,7 +107,9 @@ public void onError(int errCode, String errMsg, Bundle extraInfo) {
 | userSig | 字符串 | 基于 userId 可以计算出 userSig，计算方法请参见 [如何计算 UserSig](https://cloud.tencent.com/document/product/647/17275)。| eJyrVareCeYrSy1SslI... |
 | roomId | 数字 | 默认不支持字符串类型的房间号，字符串类型的房间号会影响进房速度。如果您确实需要支持字符串类型的房间号，可以 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们。 | 29834 |
 
->!TRTC 同一时间不支持两个相同的 userId 进入房间，否则会相互干扰。
+>!
+>- TRTC 同一时间不支持两个相同的 userId 进入房间，否则会相互干扰。
+>- 每个端在应用场景 appScene 上必须要进行统一，否则会出现一些不可预料的问题。
 
 [](id:step5)
 ### 步骤5：主播端开启摄像头预览和麦克风采音

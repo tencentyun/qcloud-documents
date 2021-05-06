@@ -88,7 +88,9 @@ param.role = TRTCRoleType.TRTCRoleAnchor; // 设置角色为"主播"
 :::
 </dx-codeblock>
 
->! TRTC 同一时间不支持两个相同的 userId 进入房间，否则会相互干扰。
+>! 
+>- TRTC 同一时间不支持两个相同的 userId 进入房间，否则会相互干扰。
+>- 每个端在应用场景 appScene 上必须要进行统一，否则会出现一些不可预料的问题。
 
 [](id:step5)
 ### 步骤5：主播端开启摄像头预览和麦克风采音

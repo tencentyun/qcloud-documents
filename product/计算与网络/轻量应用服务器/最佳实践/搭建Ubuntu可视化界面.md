@@ -79,7 +79,7 @@ sudo vncserver :1 #生成新的会话
 ![](https://main.qcloudimg.com/raw/df25e2085e9d27d53b1827ccf98a3618.png)
 15. 在弹出的提示框中，单击【Continue】。
 16. 输入 [步骤4](#step04) 设置的 VNC 的密码，单击【OK】。
->?如出现连接超时报错信息，则请检查网网络是否联通，防火墙规则是否放通。其中，防火墙需规则放通 VNC Server 所监听的5901端口，即需在“入站规则”中添加放通协议端口为 `TCP:5901` 的规则，具体操作请参见 [管理防火墙](https://cloud.tencent.com/document/product/1207/44577)。
+>?如出现连接超时报错信息，则请检查网络是否联通，防火墙规则是否放通。其中，防火墙需规则放通 VNC Server 所监听的5901端口，即需在“入站规则”中添加放通协议端口为 `TCP:5901` 的规则，具体操作请参见 [管理防火墙](https://cloud.tencent.com/document/product/1207/44577)。
 
 
 

@@ -128,6 +128,32 @@ cos.getBucket({
 }
 ```
 
+示例三：列出目录下所有文件。
+
+```js
+var bucket = 'examplebucket-1250000000';
+var region = 'ap-beijing';
+var prefix = 'examplefolder/';  /* 要删除的目录，或要删除的前缀 */
+var listFolder = function(marker) {
+    cos.getBucket({
+        Bucket: bucket,
+        Region: region,
+        Prefix: prefix,
+        Marker: marker,
+        MaxKeys: 1000,
+    }, function(err, data) {
+        if (err) {
+            return console.log('list error:', err);
+        } else {
+            console.log('list result:', data.Contents);
+            if (data.IsTruncated === 'true') listFolder(data.NextMarker);
+            else return console.log('list complete');
+        }
+    });
+};
+listFolder();
+```
+
 #### 参数说明
 
 | 参数名       | 参数描述                                                     | 类型   | 是否必填 |
@@ -226,8 +252,25 @@ cos.putObject({
 cos.putObject({
     Bucket: 'examplebucket-1250000000', /* 必须 */
     Region: 'COS_REGION',     /* 存储桶所在地域，必须字段 */
-    Key: 'a/',              /* 必须 */
+    Key: 'examplefolder/',              /* 必须 */
     Body: '',
+}, function(err, data) {
+    console.log(err || data);
+});
+```
+
+上传文件到指定目录：
+
+```js
+var folder = 'examplefolder/';
+cos.putObject({
+    Bucket: 'examplebucket-1250000000', /* 必须 */
+    Region: 'COS_REGION',     /* 存储桶所在地域，必须字段 */
+    Key: folder + 'exampleobject',              /* 必须 */
+    Body: fileObject, // 上传文件对象
+    onProgress: function(progressData) {
+        console.log(JSON.stringify(progressData));
+    }
 }, function(err, data) {
     console.log(err || data);
 });
@@ -601,6 +644,44 @@ cos.deleteMultipleObject({
 }, function(err, data) {
     console.log(err || data);
 });
+```
+
+按前缀删除多个对象（删除指定目录下的文件）：
+
+```js
+var bucket: 'examplebucket-1250000000'; /* 必须 */
+var region: 'ap-beijing';     /* 存储桶所在地域，必须字段 */
+var prefix = 'examplefolder/';  /* 要删除的目录，或要删除的前缀 */
+var deleteFiles = function (marker) {
+    cos.getBucket({
+        Bucket: bucket,
+        Region: region,
+        Prefix: prefix,
+        Marker: marker,
+        MaxKeys: 1000,
+    }, function (listError, listResult) {
+        if (listError) return console.log('list error:', listError);
+        var nextMarker = listResult.NextMarker;
+        var objects = listResult.Contents.map(function (item) {
+            return {Key: item.Key}
+        });
+        cos.deleteMultipleObject({
+            Bucket: bucket,
+            Region: region,
+            Objects: objects,
+        }, function (delError, deleteResult) {
+            if (delError) {
+                console.log('delete error', delError);
+                console.log('delete stop');
+            } else {
+                console.log('delete result', deleteResult);
+                if (listResult.IsTruncated === 'true') deleteFiles(nextMarker);
+                else console.log('delete complete');
+            }
+        });
+    });
+}
+deleteFiles();
 ```
 
 #### 参数说明

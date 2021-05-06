@@ -1,4 +1,4 @@
-使用 IPsec VPN 建立腾讯云 VPC 到用户 IDC 的连接时，在配置完腾讯云 VPN 网关后，您还需在用户 IDC 本地站点的网关设备中进行 VPN 配置。本文以 Juniper 防火墙为例介绍如何在本地站点中加载 VPN 配置。
+使用 IPsec VPN 建立腾讯云 VPC 到用户 IDC 的连接时，在配置完腾讯云 VPN 网关后，您还需在用户 IDC 本地站点的网关设备中进行 VPN 配置。本文以 Juniper 防火墙为例介绍如何在本地站点中进行 VPN 配置。
 
 
 ## 前提条件
@@ -175,7 +175,7 @@ set security ipsec vpn ipsec-vpn-cfgr vpn-monitor
 6. 应用 IPsec 策略。
 ```
 set security ipsec vpn ipsec-vpn-cfgr ike gateway ike-gate-cfgr
-# 调用之前定义的IPEC策略配置
+# 调用之前定义的 IPsec 策略配置
 set security ipsec vpn ipsec-vpn-cfgr establish-tunnels immediately
 # 配置VPN直接建立通道，而不是等待流量触发
 set routing-options static route 10.1.1.0/24 next-hop x.x.x.x

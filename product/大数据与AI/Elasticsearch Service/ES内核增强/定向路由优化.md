@@ -1,0 +1,66 @@
+## 背景
+在规模较大的集群中（100+节点），单个索引一般有超多个分片配置（100+）。
+
+用户一般采用 bulk 写入，ES 默认采用 \_id 作为单个文档写入的 routing，路由打散分片。这样一个 bulk 请求将会被均匀拆分打散为分片数量的子写入请求，发送给每个分片执行写入，协调节点需要等待所有分片写入完毕才会返回给客户端。当分片数过多时，就容易出现长尾子请求，即有可能部分子请求因节点故障或 Old GC、网络抖动等延迟响应，导致整个 bulk 请求响应缓慢而堆积，最终导致节点写入队列打满出现写入拒绝。另一方面，拆分过多的子请求无法提升数据节点写入吞吐，无法充分利用 CPU。
+
+## 优化方案
+在多分片 bulk 写入场景，通过 routing 的方式实现一个 bulk 只写入到一个分片，降低网络开销、提升数据节点 CPU 使用率、避免长尾分片影响整个 bulk 请求。
+
+ES 内核提供索引属性，可以为一个 bulk 请求的写入子请求统一自动添加一个随机 routing，确保子请求只路由到一个分片、且确保索引各个分片数据均衡。
+
+## 使用方法
+新增的索引属性名称：**index.bulk_routing.enabled**，默认值为 false，索引创建时可以指定，也可以后续动态更新。
+
+新建索引时指定开启 bulk routing 优化：
+```
+curl -X PUT "localhost:9200/my-index" -H 'Content-Type: application/json' -d'
+{
+    "settings" : {
+        "index" : {
+            "bulk_routing.enabled" : true
+        }
+    }
+}
+'
+```
+动态更新单个索引方法：
+```
+curl -X PUT "localhost:9200/my-index/_settings?pretty" -H 'Content-Type: application/json' -d'
+{
+  "index.bulk_routing.enabled": true
+}
+'
+```
+一般会为同一类业务的多个索引创建模板，在索引滚动场景可批量生效：
+```
+curl -X PUT "localhost:9200/_template/bulk_routing_template?pretty" -H 'Content-Type: application/json' -d'
+{
+  "index_patterns": ["indices-prefix*"],
+  "settings": {
+    "bulk_routing.enabled": true
+  }
+}
+'
+```
+
+## 优化限制
+### 写入限制
+开启了 bulk routing 优化，只有在如下情况才会将同一索引的子请求路由到一个分片：
+- 用户写入时没有自定义 routing。
+- 用户没有写入的单条文档没有自定义 \_id 字段。
+
+如果有以上情况，该 bulk 请求无法优化，因为会优化会和用户自定义的 routing 和 \_id 冲突。
+
+### 查询限制
+开启优化后，会自动为 bulk 请求中的子请求添加随机 routing。普通的查询无任何影响，但通过 id 获取单条文档（getById）将会受到影响，因为 ES 目前 getById 的实现是默认通过 \_id routing 分片。不过这种问题在用户写入时自定义 routing 场景也同样存在。此时 getById 只能同时携带正确的 routing 才能获取单条原始的文档信息，routing 可以通过普通 query 查询获取。
+
+### 场景限制
+该优化项主要针对多节点、单个索引多分片效果明显，在节点数较少、分片数较少场景例如小于10个分片，该优化可能效果不明显。
+
+## 优化效果
+目前在线上大客户集群验证（100+节点、单索引100+分片），开启多分片场景 bulk routing 优化，拒绝直接降为0，CPU 下降25%，写入速度上升10%。
+
+## 支持版本
+6.8.2、7.5.1、7.10.1
+
+ 

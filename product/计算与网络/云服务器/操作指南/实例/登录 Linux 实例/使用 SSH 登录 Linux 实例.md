@@ -17,7 +17,7 @@ Linux、Mac OS 或 Windows（Windows 10 和 Windows Server 2019 版本）
 
 ## 操作步骤
 <dx-tabs>
-::: 使用密码登录
+::: 使用密码登录[](id:passwordLogin)
 1. 执行以下命令，连接 Linux 云服务器。
 >? 
 > - 如果您的本地电脑为 Mac OS 系统，需先打开系统自带的终端（Terminal），再执行以下命令。
