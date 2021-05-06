@@ -12,13 +12,13 @@
 - 容器服务 TKE 和腾讯云的其他云原生产品进行了整合和优化，帮助用户更好的使用腾讯云上产品。
 
 
-## 服务介绍
+## 最佳实践实例介绍
+本文以 Q 云书城（Q Cloud Book Mall，QCBM）项目为最佳实践实例，详细介绍 Dubbo 应用托管到 TKE 的过程。
 
-### QCBM 介绍
 
-####  QCBM 概述
+### QCBM 概述
 
-本文以 Q 云书城（Q Cloud Book Mall，QCBM）项目为例，详细介绍 Dubbo 应用托管到 TKE 的整个过程。
+
 QCBM 首页如下图展所示：
 ![](https://main.qcloudimg.com/raw/958f718bb6e1656449e8bcdd9dd88ae2.png)
 
@@ -69,14 +69,14 @@ QCBM 实例中用到的组件如下表所示：
 | Dubbo | 2.7.8 | 开源社区| [Github 地址](https://github.com/apache/dubbo)               |
 
 
-
+## 服务介绍
 ### TCR 介绍
 
 腾讯云 [容器镜像服务 TCR](https://cloud.tencent.com/product/tcr) 提供个人版和企业版两种镜像仓库。两者区别如下图所示：
 ![](https://main.qcloudimg.com/raw/169e2d9b46f59b2eeb58a935dc5e0c30.jpeg)
 
 
-QCBM 是一个 Dubbo 容器化的 Demo 项目，因此个人版完全满足需求。但对于企业用户，推荐使用 [容器镜像服务企业版](https://cloud.tencent.com/document/product/1141/39287)。如需使用镜像仓库，请参见 [镜像仓库基本操作](https://cloud.tencent.com/document/product/1141/41811)。
+QCBM 是一个 Dubbo 容器化的 Demo 项目，因此容器镜像服务个人版完全满足需求。但对于企业用户，推荐使用 [容器镜像服务企业版](https://cloud.tencent.com/document/product/1141/39287)。如需使用镜像仓库，请参见 [镜像仓库基本操作](https://cloud.tencent.com/document/product/1141/41811)。
 
 
 ### TSW 介绍
@@ -717,7 +717,7 @@ QCBM 部署在南京地域，因此在创建日志集时应当选择南京地域
 
 
 
-TSW 目前处于内测阶段，只在广州和上海进行了部署，本文选择上海接入（QCBM 部署在南京）。
+TSW 目前处于内测阶段，可在广州和上海进行部署，本文选择上海接入（QCBM 部署在南京）。
 
 
 
