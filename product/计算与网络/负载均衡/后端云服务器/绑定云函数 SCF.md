@@ -80,7 +80,7 @@ def main_handler(event, context):
 3. 在函数页面，单击左侧列表的【触发管理】。
 4. 在“触发管理”页面的触发器中，单击访问路径。
 ![](https://main.qcloudimg.com/raw/d576617f76fa4c9849d196e735dfff85.png)
-5. 在浏览器里打开该访问路径，显示 “Hello CLB”，则说明函数已成功部署。
+5. 在浏览器里打开该访问路径，若显示 “Hello CLB”，则说明函数已成功部署。
 ![](https://main.qcloudimg.com/raw/618b179b55682ff690d5c95b6a260016.png)
 
 
