@@ -9,16 +9,14 @@
 
 ## 操作步骤
 
-#### 步骤一：安装C++依赖库
+### 步骤一：安装 C++ 依赖库
 
-1. 执行以下命令切换到yum源配置目录/etc/yum.repos.d/
-
+1. 执行以下命令切换到 yum 源配置目录 `/etc/yum.repos.d/`。
    ```bash
    cd /etc/yum.repos.d/
    ```
 
-1. 创建yum源配置文件confluent.repo。
-
+2. 创建 yum 源配置文件 confluent.repo。
    ```bash
    [Confluent.dist]
    name=Confluent repository (dist)
@@ -34,35 +32,31 @@
    enabled=1
    ```
 
-1. 执行以下命令安装C++依赖库。
-
+3. 执行以下命令安装 C++ 依赖库。
    ```bash
    yum install librdkafka-devel
    ```
 
-#### 步骤二：安装Node.js依赖库
+### 步骤二：安装 Node.js 依赖库
 
-1. 执行以下命令为预处理器指定OpenSSL头文件路径。
-
+1. 执行以下命令为预处理器指定 OpenSSL 头文件路径。
    ```bash
    export CPPFLAGS=-I/usr/local/opt/openssl/include
    ```
 
-1. 执行以下命令为连接器指定OpenSSL库路径。
-
+2. 执行以下命令为连接器指定 OpenSSL 库路径。
    ```bash
    export LDFLAGS=-L/usr/local/opt/openssl/lib
    ```
 
-1. 执行以下命令安装Node.js依赖库。
-
+3. 执行以下命令安装 Node.js 依赖库。
    ```bash
    npm install i --unsafe-perm node-rdkafka
    ```
 
-#### 步骤三：准备配置
+### 步骤三：准备配置
 
-创建消息队列CKafka配置文件setting.js。
+创建消息队列 CKafka 配置文件 setting.js。
 
 ```js
 module.exports = {
@@ -72,19 +66,18 @@ module.exports = {
 }
 ```
 
-
 | 参数              | 描述                                                         |
 | ----------------- | ------------------------------------------------------------ |
-| bootstrap_servers | 默认接入点，在CKafka控制台实例详情页面的【基本信息】>【接入方式】或【内网IP与端口】获取 |
-| topic_name        | Topic名称，您可在消息队列CKafka控制台的Topic管理页面获取。   |
-| group_id          | 消费者的组 Id，根据业务需求自定义                            |
+| bootstrap_servers | 默认接入点，在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 实例详情页面的【基本信息】>【接入方式】或【内网IP与端口】获取. |
+| topic_name        | Topic 名称，您可在消息队列 CKafka 控制台的 Topic 管理页面获取。   |
+| group_id          | 消费者的组 ID，根据业务需求自定义。                            |
 
-#### 步骤四：发送消息
+### 步骤四：发送消息
 
-1. 编写生产消息程序 producer.js
-
-   ```js
-   const Kafka = require('node-rdkafka');
+1. 编写生产消息程序 producer.js。
+<dx-codeblock>
+:::  js
+const Kafka = require('node-rdkafka');
    const config = require('./setting');
    console.log("features:" + Kafka.features);
    console.log(Kafka.librdkafkaVersion);
@@ -153,29 +146,26 @@ module.exports = {
    })
    
    setInterval(produce, 1000, "Interval");
-   
-   ```
+:::
+</dx-codeblock>
 
 2. 执行以下命令发送消息。
-
    ```bash
    node producer.js
    ```
 
 3. 查看运行结果。
-
    ![](https://main.qcloudimg.com/raw/195f4aee06ba86755407b4a75812c256.png)
 
-4. 在CKafka控制台【topic管理】页面，选择对应的 topic ， 点击【更多】>【消息查询】，查看刚刚发送的消息。
-
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)【topic管理】页面，选择对应的 topic，单击【更多】>【消息查询】，查看刚刚发送的消息。
    ![](https://main.qcloudimg.com/raw/e20a0809942f90e0efd5fd1f217574b0.png)
 
-#### 步骤五：订阅消息
+### 步骤五：订阅消息
 
-1. 创建消费消息程序consumer.js。
-
-   ```js
-   const Kafka = require('node-rdkafka');
+1. 创建消费消息程序 consumer.js。
+<dx-codeblock>
+:::  js
+const Kafka = require('node-rdkafka');
    const config = require('./setting');
    console.log(Kafka.features);
    console.log(Kafka.librdkafkaVersion);
@@ -220,18 +210,17 @@ module.exports = {
    consumer.on('event', function(event) {
            console.log("event:" + event);
    });
-   ```
+:::
+</dx-codeblock>
+
 
 2. 执行以下命令消费消息。
-
    ```bash
    node consumer.js
    ```
 
 3. 查看运行结果
-
    ![](https://main.qcloudimg.com/raw/deecbf58c00e07531b4ea703c4046b46.png)
 
-4. 在CKafka控制台【Consumer Group】页面，选择对应的消费组名称，在主题名称输入topic名称，点击【查询详情】，查看消费详情。
-
+4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka)【Consumer Group】页面，选择对应的消费组名称，在主题名称输入 topic 名称，单击【查询详情】，查看消费详情。
    ![](https://main.qcloudimg.com/raw/3020dcb5f8fd73e02949b20fef4f956f.png)
