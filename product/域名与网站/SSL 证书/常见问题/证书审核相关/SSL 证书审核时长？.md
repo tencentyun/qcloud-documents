@@ -20,7 +20,7 @@
   </tr>
 	  <tr>
     <td>EV 型证书</td>
-    <td>3 - 5个工作日</td>
+    <td>5 - 7个工作日</td>
   </tr>
 </tbody>
 </table>
