@@ -162,9 +162,9 @@ php Producer.php
   ```
 
   4. 在 [CKafka 控制台](https://console.cloud.tencent.com/ckafka) 的【topic 管理】页面，选择对应的 topic，点击【更多】>【消息查询】，查看刚刚发送的消息。
-     ![](https://main.qcloudimg.com/raw/99e5dba05efc4b48692c74749f131571.png)
+![](https://main.qcloudimg.com/raw/3020dcb5f8fd73e02949b20fef4f956f.png)
 
-#### 步骤四：消费消息
+### 步骤四：消费消息
 
 1. 编写消息订阅消费程序 Consumer.php。
 <dx-codeblock>
