@@ -205,22 +205,22 @@ set routing-options static route 10.1.1.0/24 next-hop x.x.x.x
 7. 配置出站策略。
 <dx-codeblock>
 :::sh
-set security policies from-zone trust to-zone vpn policy trust-to-untrust_tcp-2020_permit match source-address vpn-local_subnet
-set security policies from-zone trust to-zone vpn policy trust-to-untrust_tcp-2020_permit match destination-address vpn-peer_subnet
-set security policies from-zone trust to-zone vpn policy trust-to-untrust_tcp-2020_permit match application tcp_2020
-set security policies from-zone untrust to-zone trust policy trust-to-untrust_tcp-2020_permit then permit tunnel ipsec-vpn ipsec-vpn-cfgr
-set security policies from-zone untrust to-zone trust policy trust-to-untrust_tcp-2020_permit then permit tunnel pair-policy untrust-to-trust_tcp-2020_permit
+set security policies from-zone trust to-zone vpn policy trust-to-untrust_any_permit match source-address vpn-local_subnet
+set security policies from-zone trust to-zone vpn policy trust-to-untrust_any_permit match destination-address vpn-peer_subnet
+set security policies from-zone trust to-zone vpn policy trust-to-untrust_any_permit match application any
+set security policies from-zone untrust to-zone trust policy trust-to-untrust_any_permit then permit tunnel ipsec-vpn ipsec-vpn-cfgr
+set security policies from-zone untrust to-zone trust policy trust-to-untrust_any_permit then permit tunnel pair-policy untrust-to-trust_any_permit
 # 定义访问策略，本策略为本地网段访问VPN对端业务网段方向的策略（trust to untrust），指定调用IPSEC VPN 通道。具体的访问权限根据实际业务访问情况来设置
 :::
 </dx-codeblock>
 8. 配置入站策略。
 <dx-codeblock>
 :::sh
-set security policies from-zone vpn to-zone trust policy untrust-to-trust_tcp-2020_permit match source-address vpn-peer_subnet
-set security policies from-zone vpn to-zone trust policy untrust-to-trust_tcp-2020_permit match destination-address vpn-local_subnet
-set security policies from-zone vpn to-zone trust policy untrust-to-trust_tcp-2020_permit match application tcp_2020
-set security policies from-zone vpn to-zone trust policy untrust-to-trust_tcp-2020_permit then permit tunnel ipsec-vpn ipsec-vpn-cfgr
-set security policies from-zone vpn to-zone trust policy untrust-to-trust_tcp-2020_permit then permit tunnel pair-policy trust-to-untrust_tcp-2020_permit
+set security policies from-zone vpn to-zone trust policy untrust-to-trust_any_permit match source-address vpn-peer_subnet
+set security policies from-zone vpn to-zone trust policy untrust-to-trust_any_permit match destination-address vpn-local_subnet
+set security policies from-zone vpn to-zone trust policy untrust-to-trust_any_permit match application any
+set security policies from-zone vpn to-zone trust policy untrust-to-trust_any_permit then permit tunnel ipsec-vpn ipsec-vpn-cfgr
+set security policies from-zone vpn to-zone trust policy untrust-to-trust_any_permit then permit tunnel pair-policy trust-to-untrust_any_permit
 # 定义访问策略，本策略为对端VPN网段访问本地业务网段方向的策略（untrust to trust），指定调用IPSEC VPN 通道。具体的访问权限根据实际业务访问情况来设置
 :::
 </dx-codeblock>
@@ -347,20 +347,20 @@ set routing-options static route 10.1.1.0/24 next-hop st0.0
 7. 配置出站策略。
 <dx-codeblock>
 :::sh
-set security policies from-zone trust to-zone vpn policy trust-to-vpn_tcp-2020_permit match source-address vpn-local_subnet
-set security policies from-zone trust to-zone vpn policy trust-to-vpn_tcp-2020_permit match destination-address vpn-peer_subnet
-set security policies from-zone trust to-zone vpn policy trust-to-vpn_tcp-2020_permit match application tcp_2020
-set security policies from-zone trust to-zone vpn policy trust-to-vpn_tcp-2020_permit then permit
+set security policies from-zone trust to-zone vpn policy trust-to-vpn_any_permit match source-address vpn-local_subnet
+set security policies from-zone trust to-zone vpn policy trust-to-vpn_any_permit match destination-address vpn-peer_subnet
+set security policies from-zone trust to-zone vpn policy trust-to-vpn_any_permit match application any
+set security policies from-zone trust to-zone vpn policy trust-to-vpn_any_permit then permit
 # 定义访问策略，本策略为本地网段访问 VPN 对端业务网段方向的策略（trust to vpn）。具体的访问权限根据实际业务访问情况来设置
 :::
 </dx-codeblock>
 8. 配置入站策略。
 <dx-codeblock>
 :::sh
-set security policies from-zone vpn to-zone trust policy vpn-to-trust_tcp-2020_permit match source-address vpn-peer_subnet
-set security policies from-zone vpn to-zone trust policy vpn-to-trust_tcp-2020_permit match destination-address vpn-local_subnet
-set security policies from-zone vpn to-zone trust policy vpn-to-trust_tcp-2020_permit match application tcp_2020
-set security policies from-zone vpn to-zone trust policy vpn-to-trust_tcp-2020_permit then permit
+set security policies from-zone vpn to-zone trust policy vpn-to-trust_any_permit match source-address vpn-peer_subnet
+set security policies from-zone vpn to-zone trust policy vpn-to-trust_any_permit match destination-address vpn-local_subnet
+set security policies from-zone vpn to-zone trust policy vpn-to-trust_any_permit match application any
+set security policies from-zone vpn to-zone trust policy vpn-to-trust_any_permit then permit
 # 定义访问策略，本策略为对端 VPN 网段访问本地业务网段方向的策略（vpn to trust）。具体的访问权限根据实际业务访问情况来设置
 :::
 </dx-codeblock>
