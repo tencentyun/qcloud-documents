@@ -45,7 +45,7 @@ HTTP Listener 操作配置包括基本配置、高级配置、响应配置三项
 | 响应头            | 表达式，仅支持 dict 和 multimap | 响应的 HTTP 头     | 否           | 无                                 |
 | 响应体            | 表达式                       | 响应的 body 体     | 否           | 正常：msg.payload，错误：msg.error |
 
-### 输出
+## 输出
 
 HTTP Listener 生成的消息中，会将接收到请求的基本信息、Header、Query 参数以及 Path 参数保存在消息的 attributes；接收到请求的 body 保存在消息的 payload；执行失败后，错误信息会保存在生成消息的 error。
 
@@ -55,8 +55,10 @@ HTTP Listener 生成的消息中，会将接收到请求的基本信息、Header
 | ---------- | ------------------------------------------------------------ |
 | payload    | 请求 body 保存在 payload 中，支持所有内置消息类型和自定义消息类型，其中 application/json、application/xml、application/yaml、application/x-www-form-urlencoded、multipart/form-data 等结构的 payload 支持在表达式中结构化访问 |
 | error      | 保存集成流执行结果中的错误，执行失败后，error 为 dict 类型，包含“Code”和“Description”字段：“Code”字段表示错误类型，“Description”字段表示错误具体信息 |
-| attributes | 保存接受到请求的属性值，具体如下个表格所示 |
+| attributes | 保存接收到请求的属性值，具体如下个表格所示 |
 | variables  | 默认为空                                                     |
+
+**attributes 接收请求属性描述：**
 
 | 属性          | 描述                                                         |
 | ----------- | ------------------------------------------------------------ |
