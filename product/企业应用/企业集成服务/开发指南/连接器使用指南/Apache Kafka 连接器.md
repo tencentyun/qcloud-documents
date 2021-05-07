@@ -87,7 +87,7 @@
 
 Apache Kafka 连接器包含 Consumer 和 Publish 两种操作。
 
-### Consumer操作
+### Consumer 操作
 
 #### 输入参数
 None，Consumer 操作没有输入参数。
