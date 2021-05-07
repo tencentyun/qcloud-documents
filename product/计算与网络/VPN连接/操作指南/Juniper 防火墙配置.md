@@ -1,11 +1,13 @@
 使用 IPsec VPN 建立腾讯云 VPC 到用户 IDC 的连接时，在配置完腾讯云 VPN 网关后，您还需在用户 IDC 本地站点的网关设备中进行 VPN 配置。本文以 Juniper 防火墙为例介绍如何在本地站点中进行 VPN 配置。
 
-
+>?
+> + 支持 Juniper SRX 系列防火墙以及 vSRX 系列虚拟防火墙。
+> + 本文所有 IP、接口等参数取值均仅用于举例，请具体配置时，使用实际值进行替换。
 ## 前提条件
 请确保您已经在腾讯云 VPC 内[ 创建 VPN](https://cloud.tencent.com/document/product/554/52861)，并完成 并完成 [VPN 通道配置](https://cloud.tencent.com/document/product/554/52864)。
 
 ## 数据准备
->?本文所有 IP、接口等参数取值均仅用于举例，请具体配置时，使用实际值进行替换。
+
 
 本文 IPsec VPN 配置数据举例如下：
 <table>
@@ -101,13 +103,17 @@
 1. 登录防火墙设备的命令行配置界面。
 <dx-codeblock>
 :::sh
- ssh -p 22 root@172.16.0.1    # 通过 SSH 命令登录防火墙命令行界面
-    root@SRX1> configure 
-    Entering configuration mode    # 登录之后为操作模式，键入“configure”进入配置模式
-    [edit]
-    root@SRX1#                   # “#” 表示已经进入配置模式
-    root@SRX1# commit 
-    commit complete           # 在配置模式下面修改配置，不会直接生效，通过“commit”命令，修改的配置才会保存并生效
+ssh -p 22 root@172.16.0.1   
+# 通过 SSH 命令登录防火墙命令行界面
+root@SRX1> configure 
+Entering configuration mode    
+# 登录之后为操作模式，键入“configure”进入配置模式
+[edit]
+root@SRX1#                   
+# “#” 表示已经进入配置模式
+root@SRX1# commit 
+commit complete           
+# 在配置模式下面修改配置，不会直接生效，通过“commit”命令，修改的配置才会保存并生效
 :::
 </dx-codeblock>
 2. 配置防火墙网络接口、安全域、地址簿信息，以及自定义服务。
@@ -189,6 +195,8 @@ set security ipsec vpn ipsec-vpn-cfgr vpn-monitor
 <dx-codeblock>
 :::sh
 set security ipsec vpn ipsec-vpn-cfgr ike gateway ike-gate-cfgr
+# 调用之前定义的IKE网关配置
+set security ipsec vpn ipsec-vpn-cfgr ike ipsec-policy ipsec-policy-cfgr
 # 调用之前定义的 IPsec 策略配置
 set security ipsec vpn ipsec-vpn-cfgr establish-tunnels immediately
 # 配置VPN直接建立通道，而不是等待流量触发
@@ -232,24 +240,28 @@ commit complete
 1. 登录防火墙设备的命令行配置界面。
 <dx-codeblock>
 :::sh
-ssh -p 22 root@172.16.0.1    # 通过 SSH 命令登录防火墙命令行界面
+ssh -p 22 root@172.16.0.1    
+# 通过 SSH 命令登录防火墙命令行界面
 root@SRX1> configure 
-Entering configuration mode    # 登录之后为操作模式，键入“configure”进入配置模式
+Entering configuration mode    
+# 登录之后为操作模式，键入“configure”进入配置模式
 [edit]
-root@SRX1#                   # “#” 表示已经进入配置模式
+root@SRX1#                   
+# “#” 表示已经进入配置模式
 root@SRX1# commit 
-commit complete           # 在配置模式下面修改配置，不会直接生效，通过“commit”命令，修改的配置才会保存并生效
+commit complete           
+# 在配置模式下面修改配置，不会直接生效，通过“commit”命令，修改的配置才会保存并生效
 :::
 </dx-codeblock>
-2. 配置防火墙网络接口、安全域、地址簿信息，以及自定义服务。
+2. 配置防火墙网络接口、安全域、地址簿信息。
 <dx-codeblock>
 :::sh
 set interfaces ge-0/0/x unit 0 family inet address 172.16.0.1/16  
 # 为内部接口 ge-0/0/x定义 IP 地址，请更换为实际接口和IP
 set interfaces ge-0/0/y unit 0 family inet address 120.xx.xx.76/30  
 # 为外部接口 ge-0/0/y定义 IP 地址，请更换为实际接口和IP
-set interfaces st0 unit 0 family inet     
-# 定义通道接口，默认不设置 IP 地址，通道接口的 unit 后的参数需要指定，一个 unit 号可以绑定一个 VPN 通道，序号范围：0-16385
+set interfaces st0 unit 0 family inet mtu 1398
+# 定义通道接口，默认不设置 IP 地址，通道接口的 unit 后的参数需要指定，一个 unit 号可以绑定一个 VPN 通道，序号范围：0-16385，同时设置通道接口MTU为1398
 set security zones security-zone trust interfaces ge-0/0/x.0  
 # 绑定 ge-0/0/x 为内部安全区(trust)，对接内部业务区
 set security zones security-zone untrust interfaces ge-0/0/y.0  host-inbound-traffic system-services ike
@@ -327,6 +339,8 @@ set security ipsec vpn ipsec-vpn-cfgr vpn-monitor
 <dx-codeblock>
 :::sh
 set security ipsec vpn ipsec-vpn-cfgr ike gateway ike-gate-cfgr
+# 调用之前定义的IKE网关配置
+set security ipsec vpn ipsec-vpn-cfgr ike ipsec-policy ipsec-policy-cfgr
 # 调用之前定义的 IPsec 策略配置
 set security ipsec vpn ipsec-vpn-cfgr establish-tunnels immediately
 # 配置 VPN 直接建立通道，而不是等待流量触发
@@ -364,11 +378,4 @@ commit complete
 </dx-codeblock>
 :::
 </dx-tabs>
-
-
-
-
-
-
-
 
