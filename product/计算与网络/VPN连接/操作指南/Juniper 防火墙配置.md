@@ -131,8 +131,6 @@ set security zones security-zone untrust address-book address vpn-peer_subnet 10
 # 定义要访问的VPN对端的业务地址簿，用于后续的访问策略调用，命名可以自定义
 set security zones security-zone trust address-book address vpn-local_subnet 172.16.0.0/16  
 # 定义本地的业务地址簿，用于后续的访问策略调用，命名可以自定义
-set applications application tcp_2020 source-port 0-65535 destination-port 2020 protocol tcp inactivity-timeout 1800 description vpn-HR-system  
-# 自定义需要访问的业务端口，请根据实际情况选择设置。通常 SRX 系列防火墙内置了大部分常用的协议端口，可以直接在策略中调用，以”junos-“字段开头，例如“junos-ssh” 对应 ssh 协议，本例采用自定义协议端口，如定义一个 TCP 类服务，使用目的端口为 TCP 2020，服务超时时间为1800
 :::
 </dx-codeblock>
 3. 配置 IKE 策略。
@@ -272,8 +270,6 @@ set security zones security-zone vpn address-book address vpn-peer_subnet 10.1.1
 # 定义要访问的 VPN 对端的业务地址簿，用于后续的访问策略调用，命名可以自定义
 set security zones security-zone trust address-book address vpn-local_subnet 172.16.0.0/16   
 # 定义本地的业务地址簿，用于后续的访问策略调用，命名可以自定义
-set applications application tcp_2020 source-port 0-65535 destination-port 2020 protocol tcp inactivity-timeout 1800 description vpn-HR-system
-# 自定义需要访问的业务端口，请根据实际情况选择设置。通常 SRX 系列防火墙内置了大部分常用的协议端口，可以直接在策略中调用，以”junos-“字段开头，例如“junos-ssh” 对应 ssh 协议，本例采用自定义协议端口，如定义一个 TCP 类服务，使用目的端口为 TCP 2020，服务超时时间为1800
 :::
 </dx-codeblock>
 3. 配置 IKE 策略。
