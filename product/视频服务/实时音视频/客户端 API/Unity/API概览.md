@@ -88,7 +88,7 @@
 | [setLogLevel](https://testcomm.qq.com/trtc/api/api/trtc.ITRTCCloud.html#trtc_ITRTCCloud_setLogLevel_trtc_TRTCLogLevel_) | 设置 Log 输出级别。         |
 | [setLogDirPath](https://testcomm.qq.com/trtc/api/api/trtc.ITRTCCloud.html#trtc_ITRTCCloud_setLogDirPath_System_String_) | 修改日志保存路径。          |
 | [setLogCompressEnabled](https://testcomm.qq.com/trtc/api/api/trtc.ITRTCCloud.html#trtc_ITRTCCloud_setLogCompressEnabled_System_Boolean_) | 启用或禁用 Log 的本地压缩。 |
-| [callExperimentalAPI](https://testcomm.qq.com/trtc/api/api/trtc.ITRTCCloud.html#trtc_ITRTCCloud_callExperimentalAPI_System_String_) | 启用或禁用 Log 的本地压缩。 |
+| [callExperimentalAPI](https://testcomm.qq.com/trtc/api/api/trtc.ITRTCCloud.html#trtc_ITRTCCloud_callExperimentalAPI_System_String_) | 调用实验性 API 接口。 |
 
 
 
