@@ -113,7 +113,7 @@ Loglistener 服务日志功能提供采集端运行状态、工作状态、采�
 | CLS_FILE_POS_GET_ERR      | 7       | 获取 file pos 失败                          |
 | CLS_HOST_IP_EXP           | 8       | host ip 线程异常                           |
 | CLS_STAT_EXP              | 9       | 获取进程相关信息异常                      |
-| CLS_UPDATE_EXP            | 10      | cls updata 功能异常                       |
+| CLS_UPDATE_EXP            | 10      | cls update 功能异常                       |
 | CLS_DOSEND_ERR            | 11      | dosend 失败                               |
 | CLS_FILE_ADD_ERR          | 12      | addFileToReadyList get file realpath fail |
 | CLS_FILE_META_ERR         | 13      | addFileToReadyList metadata not found     |
