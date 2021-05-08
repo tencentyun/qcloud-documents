@@ -3,7 +3,7 @@
 
 用户可以将 Flink 内置的 [各项指标](https://ci.apache.org/projects/flink/flink-docs-release-1.11/zh/monitoring/metrics.html)，连同自己定义的业务指标，统一通过 Prometheus Pushgateway 的方式，推送到自建或者腾讯云 Prometheus 服务端，随后即可对 Grafana 面板进行分组、聚合和数据展示。
 
-流计算 Oceanus 建议用户使用腾讯云监控提供的 [Prometheus 服务](https://ci.apache.org/projects/flink/flink-docs-release-1.11/zh/monitoring/metrics.html)，以免去部署、运维开销；同时它还支持腾讯云的 [通知模板](https://console.cloud.tencent.com/monitor/alarm2/notice)，可以通过短信、电话、邮件、企业微信机器人等方式，将告警信息轻松触达不同的接收方。
+流计算 Oceanus 建议用户使用腾讯云监控提供的 [Prometheus 服务](https://console.cloud.tencent.com/monitor/prometheus)，以免去部署、运维开销；同时它还支持腾讯云的 [通知模板](https://console.cloud.tencent.com/monitor/alarm2/notice)，可以通过短信、电话、邮件、企业微信机器人等方式，将告警信息轻松触达不同的接收方。
 
 ## Oceanus Grafana 面板导入方法
 1. 下载 Oceanus Grafana Dashboard 模板并解压到本地。[点此下载 Dashboard](https://oceanus-public-1257058918.cos.ap-guangzhou.myqcloud.com/Oceanus-Prometheus-Dashboard.zip)
