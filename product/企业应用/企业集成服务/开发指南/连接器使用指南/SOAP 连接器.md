@@ -33,9 +33,9 @@
 
 ## 操作配置
 
-### SOAP 请求
+SOAP 请求操作如下：
 
-#### 输入参数
+### 输入参数
 
 | 参数     | 数据类型 | 描述                                   | 是否必填 | 默认值 |
 | -------- | -------- | -------------------------------------- | -------- | ------ |
@@ -45,7 +45,7 @@
 
 ![](https://main.qcloudimg.com/raw/7d10dde7ea7087737a3c2ee9b1481e1a/SOAP2.png)
 
-#### 输出参数
+### 输出参数
 
 **组件输出的 message 信息如下：**
 
@@ -87,7 +87,7 @@ SOAP 请求返回的响应 Response 为 XML 格式，会首先进行一次 Flatt
 }
 ```
 
-#### 案例
+### 案例
 1. 在连接器列表中选择 SOAP 连接器，选择 SOAP 请求操作。
 ![](https://main.qcloudimg.com/raw/5d658fc3501df8b8048accddf9071a92/SOAP3.png)
 ![](https://main.qcloudimg.com/raw/4be3cab5e90c0f36636735cd7a8b692b/SOAP4.png)
