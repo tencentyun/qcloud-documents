@@ -16,7 +16,7 @@ TSF 长期维护 LTS (Long Term Support) 版本，SDK的第三位版本号会根
 
 |SDK 版本号|新增特性|
 |----|----|
-|1.29.x|<li>新增微服务网关增加单元化功能</li><li>微服务网关增加 Dubbo 协议转换功能</li><li>补齐 Spring Cloud Gateway 网关的服务治理能力</li><li>微服务网关支持托管外部 API</li><li>支持云上 Spring Cloud 应用平滑迁移 TSF。</li> <li>调用链支持 CMQ、PostgreSQL</li> |
+|1.29.x|<li>微服务网关增加单元化功能</li><li>微服务网关增加 Dubbo 协议转换功能</li><li>补齐 Spring Cloud Gateway 网关的服务治理能力</li><li>微服务网关支持托管外部 API</li><li>支持云上 Spring Cloud 应用平滑迁移 TSF。</li> <li>调用链支持 CMQ、PostgreSQL</li> |
 |1.23.x|<li>新增 spring cloud gateway 微服务网关，链路追踪和调用监控</li><li>微服务网关路径重写配置和微信小程序登录插件</li> <li>调用链支持 RocketMQ</li> |
 |1.21.x|<li>支持服务熔断</li><li>支持服务容错</li><li>支持全链路灰度发布</li>|
 |1.18.x|<li> 支持微服务网关（zuul1 版）SDK，基于此 SDK 二次研发，无缝集成 TSF 平台服务治理能力</li> <li>增加 swagger-ui 依赖包</li> <li>调用链支持 MySQL JDBC、Redis、MongoDB、CMQ、Kafka</li><li>支持全局命名空间</li><li>新增自定义日志配置需要的 Converter 和 Layout 类，支持用户使用自定义 logback\log4j\log4j2 日志配置</li>|
