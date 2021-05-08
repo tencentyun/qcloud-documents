@@ -3,6 +3,7 @@
 ## 1.29.0-Finchley-RELEASE
 ### 新特性
 - 微服务网关增加单元化功能
+- 微服务网关增加 Dubbo 协议转换功能
 - spring-cloud-tsf-sleuth: 新增 cmq-tcp-client 和 cmq-http-client 调用支持
 
 ### 优化
