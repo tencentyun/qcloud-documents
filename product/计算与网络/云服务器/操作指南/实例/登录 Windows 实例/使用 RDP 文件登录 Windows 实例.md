@@ -16,7 +16,7 @@ Windows，Linux 和 Mac OS 都可以使用 RDP 方式登录云服务器。
 
 ## 操作步骤
 <dx-tabs>
-::: Windows\s系统使用\sRDP\s登录
+::: Windows\s系统使用\sRDP\s登录[](id:windowsRDP)
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在实例的管理页面，选择需要登录的 Windows 云服务器，单击【登录】。如下图所示：
 ![](https://main.qcloudimg.com/raw/038fce530c6c6827796e51d896306a93.png)
@@ -28,7 +28,7 @@ Windows，Linux 和 Mac OS 都可以使用 RDP 方式登录云服务器。
  - 如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。
  - 如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
 :::
-::: Linux\s系统使用\sRDP\s登录
+::: Linux\s系统使用\sRDP\s登录[](id:LinuxRDP)
 >?您需要安装相应的远程桌面连接程序，推荐使用 rdesktop 进行连接。更多详情请参考 [rdesktop 官方说明](http://www.rdesktop.org/)。
 >
 1. 执行以下命令，检查系统是否已安装 rdesktop。
@@ -60,7 +60,7 @@ rdesktop -u Administrator -p <your-password> <hostname or IP address>
    如果您使用系统默认密码登录实例，请前往 [站内信](https://console.cloud.tencent.com/message) 获取。如果您忘记密码，请 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
  - `&lt;hostname or IP address&gt;` 即为您的 Windows 实例公网 IP 或自定义域名。实例公网 IP 获取方法请参见 [获取公网 IP 地址](https://cloud.tencent.com/document/product/213/17940)。
 :::
-::: MacOS\s系统使用\sRDP\s登录
+::: MacOS\s系统使用\sRDP\s登录[](id:MacRDP)
 >?
 >- 以下操作以 Microsoft Remote Desktop for Mac 为例。微软官方已于2017年停止提供 Remote Desktop 客户端的下载链接，转由其子公司 HockeyApp 进行 Beta 版本的发布。您可前往 [Microsoft Remote Desktop Beta](https://install.appcenter.ms/orgs/rdmacios-k2vy/apps/microsoft-remote-desktop-for-mac/distribution_groups/all-users-of-microsoft-remote-desktop-for-mac) 下载 Beta 版本。
 >- 以下操作以连接 Windows Server 2012 R2 操作系统的云服务器为例。

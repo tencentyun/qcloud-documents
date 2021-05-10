@@ -63,7 +63,7 @@ UserSig 计算函数中主要包括 SDKAppID、UserID 以及 UserSig 有效期�
 
 为了简化签名计算难度，方便客户更快速地使用腾讯云服务，即时通信 IM 服务自2019.07.19开始启用新的签名算法，从之前的 ECDSA-SHA256 升级为 HMAC-SHA256。 2019.07.19以后创建的 SDKAppID 均会采用新的 HMAC-SHA256 算法。
 
-如果您的 SDKAppID 是2019.07.19之前创建的，建议升级为 [HMAC-SHA256 算法](#GeneratingdynamicUserSig)。您也可以继续使用老版本的签名算法，ECDSA-SHA256 算法的源码下载链接如下：
+如果您的 SDKAppID 是2019.07.19之前创建的，建议升级为 [HMAC-SHA256 算法](#GeneratingdynamicUserSig)，升级过程不会影响现网业务。您也可以继续使用老版本的签名算法，ECDSA-SHA256 算法的源码下载链接如下：
 
 | 语言版本 | 签名算法 | 下载链接 |
 |:---------:|:---------:|:---------:|

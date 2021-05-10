@@ -516,7 +516,7 @@ spring-cloud-tsf-sleuth bug fixed：
 ### 优化
 - spring-cloud-tsf-consul-discovery 心跳请求增加重试。
 - spring-cloud-tsf-consul-config 支持本地加密配置解析。
-- spring-cloud-tsf-swagger 支持多路径扫码
+- spring-cloud-tsf-swagger 支持多路径扫码。
 
 ### 版本建议
 

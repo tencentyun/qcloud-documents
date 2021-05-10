@@ -3,7 +3,7 @@
 `http://DomainName/timestamp/md5hash/FileName`
 
 **算法说明**
-- timestamp：时间戳，格式为 YYYYMMDDHHMM。
+- timestamp：格式为 YYYYMMDDHHMM。
 - md5hash：MD5（自定义密钥 + timestamp + 文件路径）。
 
 **请求示例**

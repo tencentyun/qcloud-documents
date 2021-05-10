@@ -3,10 +3,10 @@
 ## 创建管道
 登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，选择需要操作的实例，单击实例【ID/名称】，进入实例基本信息页面。切换到“管道管理”页签，单击【新建管道】，创建一个管道。
 ![](https://main.qcloudimg.com/raw/123a56e009cd371e6ce7a498f79d49a1.png)
-进入新建管道页面，单击【引用模板】，同时引用“input-mysql”和“output-elasticsearch”两个模板：
+进入新建管道页面，单击【引用模板】，同时引用“input-jdbc”和“output-elasticsearch”两个模板：
 ![](https://main.qcloudimg.com/raw/b2f664a511a2ba7c603d832627b2b19b.png)
-![](https://main.qcloudimg.com/raw/170208a0b7ed40b5311f4586dc7ce2ba.png)
-在管道配置中，分别针对“input-mysql”和“output-elasticsearch”进行配置，一些关键的配置参数说明如下：
+![](https://main.qcloudimg.com/raw/04ca52f36cf8e76895c50bfa2493613d.png)
+在管道配置中，分别针对“input-jdbc”和“output-elasticsearch”进行配置，一些关键的配置参数说明如下：
 
 ### input-jdbc
 - jdbc\_connection\_string：数据库连接地址
@@ -112,10 +112,10 @@ output {
     }
 }
 ```
-上述配置中指定了 tracking_column 为字段"id"， 需要数据表中包含一个自增的"id"字段，当然可以根据实际情况使用不同的字段。
+上述配置中指定了 tracking_column 为字段"id"，需要数据表中包含一个自增的"id"字段，当然可以根据实际情况使用不同的字段。
 
 ## 查看日志
-在控制台中，查看日志，如果没有 ERROR 级别的日志，则说明管道配置没有问题。
+在控制台中查看日志，如果没有 ERROR 级别的日志，则说明管道配置没有问题。
 ![](https://main.qcloudimg.com/raw/5e7e57882ac53f446b7e108b767a3c4e.png)
 
 ## 查看数据写入情况

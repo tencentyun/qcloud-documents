@@ -2,8 +2,8 @@
 您可以 [下载](https://cloud.tencent.com/document/product/647/17021) 安装我们的 Demo 体验语音聊天室的能力，包括麦位管理、低延时语音互动、文字聊天等 TRTC 在语音聊天场景下的相关能力。
 <table>
      <tr>
-         <th>主播麦位操作</th>  
-         <th>观众麦位操作</th>  
+         <th>房主麦位操作</th>  
+         <th>听众麦位操作</th>  
      </tr>
 <tr>
 <td><img src="https://liteav.sdk.qcloud.com/doc/res/trtc/picture/voiceroom_pick_seat.gif"/></td>
@@ -58,7 +58,7 @@
 |-------|--------|
 | base | UI 使用的基础类。 |
 | list | 列表页和创建房间页。 |
-| room | 主房间页面，包括主播和观众两种界面。 |
+| room | 主房间页面，包括房主和听众两种界面。 |
 | widget | 通用控件。 |
 
 [](id:model)
@@ -80,8 +80,7 @@ dependencies {
        compile 'com.google.code.gson:gson:2.3.1'
 }
 ```
->?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 Github 首页获取。
->
+>?两个 SDK 的最新版本号，可以在 [TRTC](https://github.com/tencentyun/TRTCSDK) 和 [IM](https://github.com/tencentyun/TIMSDK) 的 GitHub 首页获取。
 2. 在 defaultConfig 中，指定 App 使用的 CPU 架构。
 ```
 defaultConfig {
@@ -93,7 +92,7 @@ defaultConfig {
 3. 单击【Sync Now】，自动下载 SDK 并集成到工程里。
 
 **方法二：通过本地 AAR 依赖**
-若您的开发环境访问 maven 仓库较慢，您可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
+若您的开发环境访问 Maven 仓库较慢，您可以直接下载 ZIP 包，并按照集成文档手动集成到您的工程中。
 <table>
 <tr>
 <th>SDK</th>
@@ -114,7 +113,7 @@ defaultConfig {
 
 [](id:model.step2)
 ### 步骤2：配置权限及混淆规则
-在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请相机、读取存储权限）：
+在 AndroidManifest.xml 中配置 App 的权限，SDK 需要以下权限（6.0以上的 Android 系统需要动态申请读取存储权限）：
 ```
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -173,7 +172,7 @@ mTRTCVoiceRoom.setDelegate(this);
 mTRTCVoiceRoom.login(SDKAPPID, userId, userSig, new TRTCVoiceRoomCallback.ActionCallback() {
     @Override
     public void onCallback(int code, String msg) {
-        if (code == 0) {
+        if (code == 0) {![](https://main.qcloudimg.com/raw/be8ee8461f8e06295d5ae1ad1502d745.png)
             //登录成功
         }
     }
@@ -182,25 +181,26 @@ mTRTCVoiceRoom.login(SDKAPPID, userId, userSig, new TRTCVoiceRoomCallback.Action
 </dx-codeblock>
 
 [](id:model.step5)
-### 步骤5：主播端开播
-1. 主播执行 [步骤4](#model.step4) 登录后，可以调用`setSelfProfile`设置自己的昵称和头像。
-2. 主播调用`createRoom`创建新的语音聊天室，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
-3. 主播创建房间成功后，调用`enterSeat`进入座位。
-4. 主播收到组件的`onSeatListChange`麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
-5. 主播还会收到麦位表有成员进入的`onAnchorEnterSeat`的事件通知，此时会自动打开麦克风采集。
+### 步骤5：房主端开播
+1. 房主执行 [步骤4](#model.step4) 登录后，可以调用`setSelfProfile`设置自己的昵称和头像。
+2. 房主调用`createRoom`创建新的语音聊天室，此时传入房间 ID、上麦是否需要房主确认、麦位数等房间属性信息。
+3. 房主创建房间成功后，调用`enterSeat`进入座位。
+4. 房主收到组件的`onSeatListChange`麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
+5. 房主还会收到麦位表有成员进入的`onAnchorEnterSeat`的事件通知，此时会自动打开麦克风采集。
 
-![](https://main.qcloudimg.com/raw/628f0aa3f0c15e53fec6ac904c8d3943.png)
+![](https://main.qcloudimg.com/raw/178d40c1ae247fbf7d5171dc4cee1a5a.png)
+
 
 <dx-codeblock>
 ::: java java
-// 1.主播设置昵称和头像
+// 1.房主设置昵称和头像
 mTRTCVoiceRoom.setSelfProfile("my_name", "my_face_url", null);
 
-// 2.主播调用 createRoom 创建房间
+// 2.房主调用 createRoom 创建房间
 final TRTCVoiceRoomDef.RoomParam roomParam = new TRTCVoiceRoomDef.RoomParam();
 roomParam.roomName = "房间名称";
 roomParam.needRequest = false; // 上麦是否需要房主确认
-roomParam.seatCount = 7; // 房间座位数，这里一共7个座位，房主占了一个后观众剩下6个座位
+roomParam.seatCount = 7; // 房间座位数，这里一共7个座位，房主占了一个后听众剩下6个座位
 roomParam.coverUrl = "房间封面图的 URL 地址";
 mTRTCVoiceRoom.createRoom(mRoomId, roomParam, new TRTCVoiceRoomCallback.ActionCallback() {
     @Override
@@ -232,22 +232,21 @@ public void onAnchorEnterSeat(TRTCVoiceRoomDef.UserInfo userInfo) {
 </dx-codeblock>
 
 [](id:model.step6)
-### 步骤6：观众端观看
-1. 观众端执行 [步骤4](#model.step4) 登录后，可以调用`setSelfProfile`设置自己的昵称和头像。
-2. 观众端向业务后台获取最新的语音聊天室房间列表。
+### 步骤6：听众端观看
+1. 听众端执行 [步骤4](#model.step4) 登录后，可以调用`setSelfProfile`设置自己的昵称和头像。
+2. 听众端向业务后台获取最新的语音聊天室房间列表。
  >?Demo 中的语音聊天室列表仅做演示使用，语音聊天室列表的业务逻辑千差万别，腾讯云暂不提供语音聊天室列表的管理服务，请自行管理您的语音聊天室列表。
- >
-3. 观众端调用`getRoomInfoList`获取房间的详细信息，该信息是在主播端调用`createRoom`创建语音聊天室时设置的简单描述信息。
+3. 听众端调用`getRoomInfoList`获取房间的详细信息，该信息是在房主端调用`createRoom`创建语音聊天室时设置的简单描述信息。
  >!如果您的语音聊天室列表包含了足够全面的信息，可跳过调用`getRoomInfoList`相关步骤。
-4. 观众选择一个语音聊天室，调用`enterRoom`并传入房间号即可进入该房间。
-5. 进房后会收到组件的`onRoomInfoChange`房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求主播同意等。
+4. 听众选择一个语音聊天室，调用`enterRoom`并传入房间号即可进入该房间。
+5. 进房后会收到组件的`onRoomInfoChange`房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求房主同意等。
 6. 进房后会收到组件的`onSeatListChange`麦位表变化事件通知，此时可以将麦位表变化刷新到 UI 界面上。
 7. 进房后还会收到麦位表有主播进入的`onAnchorEnterSeat`的事件通知。
 
-![](https://main.qcloudimg.com/raw/6e36bc8029a8abbeed69b43e197ba3c0.png)
+![](https://main.qcloudimg.com/raw/b15db932689b947fddca28adadeb7c43.png)
 <dx-codeblock>
 ::: java java
-// 1.观众设置昵称和头像
+// 1.听众设置昵称和头像
 mTRTCVoiceRoom.setSelfProfile("my_name", "my_face_url", null);
 
 // 2.假定您从业务后台获取房间列表为 roomList
@@ -263,7 +262,7 @@ mTRTCVoiceRoom.getRoomInfoList(roomList, new TRTCVoiceRoomCallback.RoomInfoCallb
     }
 });
 
-// 4.选择语音聊天室后，传入 roomid 进入房间
+// 4.选择语音聊天室后，传入 roomId 进入房间
 mTRTCVoiceRoom.enterRoom(roomId, new TRTCVoiceRoomCallback.ActionCallback() {
         @Override
         public void onCallback(int code, String msg) {
@@ -298,25 +297,25 @@ public void onAnchorEnterSeat(TRTCVoiceRoomDef.UserInfo userInfo) {
 ### 步骤7：麦位管理
 
 <dx-tabs>
-::: 主播端
-1. `pickSeat`传入对应的麦位和观众 userId, 可以抱人上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
+::: 房主端
+1. `pickSeat`传入对应的麦位和听众 userId, 可以抱人上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
 2. `kickSeat`传入对应麦位后，可以踢人下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
 3. `muteSeat`传入对应麦位后，可以静音/解除静音，房间内所有成员会收到 `onSeatListChange` 和 `onSeatMute` 的事件通知。
-4. `closeSeat`传入对应麦位后，可以封禁/解禁某个麦位，封禁后观众端将不能再上麦，房间内所有成员会收到`onSeatListChange`和`onSeatClose`的事件通知。
+4. `closeSeat`传入对应麦位后，可以封禁/解禁某个麦位，封禁后听众端将不能再上麦，房间内所有成员会收到`onSeatListChange`和`onSeatClose`的事件通知。
+![](https://main.qcloudimg.com/raw/78a1d790bf994786f5beac8b97660000.png)
 
-![](https://main.qcloudimg.com/raw/299e62ae7d20d10622197ad8685d4639.png)
 :::
-::: 观众端
+::: 听众端
 1. `enterSeat`传入对应的麦位后，可以进行上麦，房间内所有成员会收到`onSeatListChange`和`onAnchorEnterSeat`的事件通知。
 2. `leaveSeat`主动下麦，房间内所有成员会收到`onSeatListChange`和`onAnchorLeaveSeat`的事件通知。
 
-![](https://main.qcloudimg.com/raw/3ac11818d7d23f61104600ea7235867d.png)
+![](https://main.qcloudimg.com/raw/356fddebf48c7a4ef918104e8f6e64eb.png)
 
 麦位操作后的事件通知顺序如下：callback > onSeatListChange > onAnchorEnterSeat 等独立事件。
 
 <dx-codeblock>
 ::: java java
-// case1: 主播抱人上1号麦位
+// 1: 房主抱人上1号麦位
 mTRTCVoiceRoom.pickSeat(1, "123", new TRTCVoiceRoomCallback.ActionCallback() {
     @Override
     public void onCallback(int code, String msg) {
@@ -331,7 +330,7 @@ mTRTCVoiceRoom.pickSeat(1, "123", new TRTCVoiceRoomCallback.ActionCallback() {
 public void onSeatListChange(final List<TRTCVoiceRoomDef.SeatInfo> seatInfoList) {
 }
 
-// 4.单个麦位变化的通知，可以在这里判断观众是不是真的上麦成功
+// 4.单个麦位变化的通知，可以在这里判断听众是不是真的上麦成功
 public void onAnchorEnterSeat(int index, TRTCVoiceRoomDef.UserInfo user) {
 }
 :::
@@ -339,7 +338,7 @@ public void onAnchorEnterSeat(int index, TRTCVoiceRoomDef.UserInfo user) {
 
 <dx-codeblock>
 ::: java java
-// case2: 观众主动上2号麦位
+// 1: 听众主动上2号麦位
 mTRTCVoiceRoom.enterSeat(2, new TRTCVoiceRoomCallback.ActionCallback() {
     @Override
     public void onCallback(int code, String msg) {
@@ -365,25 +364,25 @@ public void onAnchorEnterSeat(int index, TRTCVoiceRoomDef.UserInfo user) {
 
 [](id:model.step8)
 ### 步骤8：邀请信令的使用
-在 [麦位管理](#model.step7) 中，观众上下麦、主播抱人上麦都不需要经过对方的同意就可以直接操作。
+在 [麦位管理](#model.step7) 中，听众上下麦、房主抱人上麦都不需要经过对方的同意就可以直接操作。
 如果您的 App 需要对方同意才能进行下一步操作的业务流程，那么邀请信令可以提供相应支持。
 
 <dx-tabs>
-::: 观众主动申请上麦
-1. 观众端调用`sendInvitation`传入主播的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
-2. 主播端收到`onReceiveNewInvitation`的事件通知，此时 UI 可以弹窗并询问主播是否同意。
-3. 主播选择同意后，调用`acceptInvitation`并传入 inviteId。
-4. 观众端收到`onInviteeAccepted`的事件通知，调用`enterSeat`进行上麦。
+::: 听众主动申请上麦
+1. 听众端调用`sendInvitation`传入房主的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
+2. 房主端收到`onReceiveNewInvitation`的事件通知，此时 UI 可以弹窗并询问房主是否同意。
+3. 房主选择同意后，调用`acceptInvitation`并传入 inviteId。
+4. 听众端收到`onInviteeAccepted`的事件通知，调用`enterSeat`进行上麦。
 
-![](https://main.qcloudimg.com/raw/e2b97c645590c835b54fffbf0ff4ebfd.png)
+![](https://main.qcloudimg.com/raw/9419f9ae95c89b3bedb0839846e7565c.png)
 
 <dx-codeblock>
 ::: java java
-// 观众端视角
+// 听众端视角
 // 1.调用 sendInvitation，请求上1号麦位
 String inviteId = mTRTCVoiceRoom.sendInvitation("ENTER_SEAT", ownerUserId, "1", null);
 
-// 4.收到邀请的同意请求, 正式上麦
+// 2.收到邀请的同意请求, 正式上麦
 @Override
 public void onInviteeAccepted(String id, String invitee) {
     if(id.equals(inviteId)) {
@@ -391,33 +390,33 @@ public void onInviteeAccepted(String id, String invitee) {
     }
 }
 
-// 主播端视角
-// 2.主播收到请求
+// 房主端视角
+// 1.房主收到请求
  @Override
 public void onReceiveNewInvitation(final String id, String inviter, String cmd, final String content) {
     if (cmd.equals("ENTER_SEAT")) {
-        // 3.主播同意观众请求
+        // 2.房主同意听众请求
          mTRTCVoiceRoom.acceptInvitation(id, null);
     }
 }
 :::
 </dx-codeblock>
 :::
-::: 主播邀请观众上麦
-1. 主播端调用`sendInvitation`传入观众的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
-2. 观众端收到`onReceiveNewInvitation`的事件通知，此时 UI 可以弹窗并询问观众是否同意上麦。
-3. 观众选择同意后，调用`acceptInvitation`并传入 inviteId。
-4. 主播端收到`onInviteeAccepted`的事件通知，调用`pickSeat`抱观众上麦。
+::: 房主邀请听众上麦
+1. 房主端调用`sendInvitation`传入听众的 userId 和业务的自定义命令字等，此时函数会返回一个 inviteId，记录该 inviteId。
+2. 听众端收到`onReceiveNewInvitation`的事件通知，此时 UI 可以弹窗并询问听众是否同意上麦。
+3. 听众选择同意后，调用`acceptInvitation`并传入 inviteId。
+4. 房主端收到`onInviteeAccepted`的事件通知，调用`pickSeat`抱听众上麦。
 
-![](https://main.qcloudimg.com/raw/e68e2dd9a8056ad8496cbe3dcfe634f1.png)
+![](https://main.qcloudimg.com/raw/9a22e5d5f4be720775091bfd3ffef48a.png)
 
 <dx-codeblock>
 ::: java java
-// 主播端视角
-// 1.主播调用 sendInvitation，请求抱观众123上2号麦
+// 房主端视角
+// 1.房主调用 sendInvitation，请求抱听众“123”上2号麦
 String inviteId = mTRTCVoiceRoom.sendInvitation("PICK_SEAT", "123", "2", null);
 
-// 4.收到邀请的同意请求, 正式上麦
+// 2.收到邀请的同意请求, 正式上麦
 @Override
 public void onInviteeAccepted(String id, String invitee) {
     if(id.equals(inviteId)) {
@@ -425,12 +424,12 @@ public void onInviteeAccepted(String id, String invitee) {
     }
 }
 
-// 观众端视角
-// 2.观众收到请求
+// 听众端视角
+// 1.听众收到请求
  @Override
 public void onReceiveNewInvitation(final String id, String inviter, String cmd, final String content) {
     if (cmd.equals("PICK_SEAT")) {
-        // 3.观众同意主播请求
+        // 2.听众同意房主请求
          mTRTCVoiceRoom.acceptInvitation(id, null);
     }
 }
@@ -442,22 +441,22 @@ public void onReceiveNewInvitation(final String id, String inviter, String cmd, 
 
 [](id:model.step9)
 ### 步骤9：实现文字聊天和弹幕消息
-- 通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和观众均可以收到`onRecvRoomTextMsg`回调。
+- 通过`sendRoomTextMsg`可以发送普通的文本消息，所有在该房间内的主播和听众均可以收到`onRecvRoomTextMsg`回调。
  即时通信 IM 后台有默认的敏感词过滤规则，被判定为敏感词的文本消息不会被云端转发。
-<dx-codeblock>
-::: java java
-// 发送端：发送文本消息
-mTRTCVoiceRoom.sendRoomTextMsg("Hello Word!", null);
-// 接收端：监听文本消息
-mTRTCVoiceRoom.setDelegate(new TRTCVoiceRoomDelegate() {
+ <dx-codeblock>
+ ::: java java
+ // 发送端：发送文本消息
+ mTRTCVoiceRoom.sendRoomTextMsg("Hello Word!", null);
+ // 接收端：监听文本消息
+ mTRTCVoiceRoom.setDelegate(new TRTCVoiceRoomDelegate() {
     @Override
     public void onRecvRoomTextMsg(String message, TRTCVoiceRoomDef.UserInfo userInfo) {
         Log.d(TAG, "收到来自" + userInfo.userName + "的消息:" + message);
     }
-});
-:::
-</dx-codeblock>
-- 通过`sendRoomCustomMsg`可以发送自定义（信令）的消息，所有在该房间内的主播和观众均可以收到`onRecvRoomCustomMsg`回调。
+ });
+ :::
+ </dx-codeblock>
+- 通过`sendRoomCustomMsg`可以发送自定义（信令）的消息，所有在该房间内的主播和听众均可以收到`onRecvRoomCustomMsg`回调。
 自定义消息常用于传输自定义信令，例如用于点赞消息的发送和广播。
 <dx-codeblock>
 ::: java java
@@ -480,3 +479,4 @@ mTRTCVoiceRoom.setDelegate(new TRTCVoiceRoomDelegate() {
 });
 :::
 </dx-codeblock>
+

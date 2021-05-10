@@ -42,7 +42,7 @@ int iv_avt_p2p_init(const iv_p2p_parm_s *pstInitParm);
 | 返回值      | 描述                 |
 | ----------- | -------------------- |
 | IV_ERR_NONE | 成功                 |
-| IV_ERR_*    | 失败，对应相应错误码 |
+| IV_ERR_*    | 失败，对应相应 [错误码](https://cloud.tencent.com/document/product/1131/55056)  |
 
 #### iv_avt_p2p_exit
 
@@ -64,7 +64,7 @@ int iv_avt_p2p_exit(void);
 | 返回值      | 描述                 |
 | ----------- | -------------------- |
 | IV_ERR_NONE | 成功                 |
-| IV_ERR_*    | 失败，对应相应错误码 |
+| IV_ERR_*    | 失败，对应相应 [错误码](https://cloud.tencent.com/document/product/1131/55056)  |
 
 #### iv_avt_p2p_set_buf_watermark
 
@@ -89,7 +89,7 @@ int iv_avt_p2p_set_buf_watermark(size_t low_mark, size_t warn_mark, size_t high_
 | 返回值      | 描述                 |
 | ----------- | -------------------- |
 | IV_ERR_NONE | 成功                 |
-| IV_ERR_*    | 失败，对应相应错误码 |
+| IV_ERR_*    | 失败，对应相应 [错误码](https://cloud.tencent.com/document/product/1131/55056)  |
 
 >? 
 >- 设置 P2P 发送缓冲区的水位告警值（单位：字节），用于链路拥塞感知和码率变化控制。
