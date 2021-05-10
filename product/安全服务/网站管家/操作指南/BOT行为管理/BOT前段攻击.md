@@ -13,9 +13,9 @@
 >- 在 CLBWAF 实例添加的域名，暂时不支持前端对抗。
 ## 操作步骤
 1. 进入前端对抗设置页面
-**步骤一：**登录 [Web 应用防火墙（WAF）控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏中，选择【BOT 行为管理】>【防护设置】点击防护域名接入防护设置页面。
+   步骤一：登录 [Web 应用防火墙（WAF）控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏中，选择【BOT 行为管理】>【防护设置】点击防护域名接入防护设置页面。
 ![](https://main.qcloudimg.com/raw/d1e6b70346c3a8e30767d09995c4a801.png)
-**步骤二：**选择【前端对抗】进入默认设置页面 
+ 步骤二：选择【前端对抗】进入默认设置页面 
 ![](https://main.qcloudimg.com/raw/b9424b5cb24492a897ddd99e1c05fccb.png)
 **字段和操作说明：**
    - **防护开关：**默认为关闭，前端对抗全局开关。开启后 WAF 将对域名指定的页面进行动态安全防护，当前防护只对网页和 H5 页面生效，WAF 将在网页中插入 JS 进行黑产对抗。
