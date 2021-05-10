@@ -43,7 +43,7 @@
 说明页面防调试功能已经启用。
 4. 查看前端对抗防护攻击日志
 BOT 行为管理前端对抗攻击日志属于 BOT 拦截日志的一部分，可以通过查看 BOT 拦截日志进行查看。
-在左侧导航栏中，选择【日志服务】>【攻击日志】，进入“日志查询”页签，选择攻击类型为：Bot 拦截，attack_content 格式为：BOT 类型：xx，BOT 行为：xx 的日志为前端对抗防护产生的攻击日志。（如：BOT 类型：WebDriver，BOT 行为：重放攻击）。
+在左侧导航栏中，选择【日志服务】>【攻击日志】，进入“日志查询”页签，选择攻击类型为：Bot 拦截，attack_content 格式为：BOT 类型：xx，BOT 行为：xx 的日志为前端对抗防护产生的攻击日志。（例如：BOT 类型：WebDriver；BOT 行为：重放攻击）。
 >?
 >- BOT 类型包括：PhantomJS、WebDriver、AppScan、AWVS、LoadRunner、WebInspect、NetSparker、   RSAS、UFT_QTP、HeadlessChrome、NODEJS,HouYiCaiJi 等。
 >- BOT 行为包括：非法客户端、令牌篡改、简单脚本攻击、重放攻击、无效请求头等。
@@ -57,7 +57,9 @@ BOT 行为管理前端对抗攻击日志属于 BOT 拦截日志的一部分，�
  ![](https://main.qcloudimg.com/raw/70b9c0045137cabbc635f1bdaa3c92d4.png)
  2. 单击【添加规则】进入白名单规则添加页面。
 ![](https://main.qcloudimg.com/raw/cafca9b73af23f773f10dff0b6d7b2b7.png)
-
+ 3. 完成白名单规则添加后，您可以在白名单规则管理页面，进行启停、删除等操作。
+ ![](https://main.qcloudimg.com/raw/8c200356444688c60cdf442db685e8e9.png)
+ 
   **字段说明：**
  - **类型：**默认为请求白名单，用户可选择设置响应白名单。
  - **匹配条件：**支持路径后缀匹配、前缀匹配、相等和包含，默认为：路径后缀匹配
@@ -65,8 +67,3 @@ BOT 行为管理前端对抗攻击日志属于 BOT 拦截日志的一部分，�
  - 输入其他匹配条件，请按照实际情况输入白名单路径。
  - **规则描述：**输入规则描述信息。
  - **规则开关：**默认开启，您可根据实际情况调整。
-
-
- 3. 完成白名单规则添加后，您可以在白名单规则管理页面，进行启停、删除等操作。
- ![](https://main.qcloudimg.com/raw/8c200356444688c60cdf442db685e8e9.png)
- 
