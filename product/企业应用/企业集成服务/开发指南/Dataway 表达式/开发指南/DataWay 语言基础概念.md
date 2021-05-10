@@ -14,9 +14,9 @@ def dw_process(msg):
 def func(x):
   return x*x
 ```
-- dw_process 入口函数仅接受一个参数 msg，该参数代表当前表达式需要处理的 EIS 消息。dw_process 的返回值即是表达式的返回值。
+- dw_process 入口函数仅接受一个参数 msg，该参数代表当前表达式需要处理的 EIS 消息，dw_process 的返回值即是表达式的返回值。
 - 内置的 Entity.from_value 函数用于为构造 Entity 类型的返回值，可以指定序列化参数，例如：mime_type、encoding 等。
-- 在 Set Payload 组件中输入上述表达式，假设该组件的输入消息为 json 结构的数据```{"realData": 123}```，经过 DataWay 表达式的计算，得到的输出结果如下：
+- 在 Set Payload 组件中输入上述表达式，假设该组件的输入消息为 json 结构的数据`{"realData": 123}`，经过 DataWay 表达式的计算，得到的输出结果如下：
 ```json
 {
     "square": 9,
@@ -35,9 +35,9 @@ DataWay 基于 Python3.7 语法进行实现，本小节将对 DataWay 的基本�
 | True         | 布尔类型，True 表示真，相对于 False        |
 | False        | 布尔类型，False 表示真，相对于 True        |
 | None         | 空值类型                                 |
-| and          | 逻辑"与"                                 |
-| or           | 逻辑"或"                                 |
-| not          | 逻辑"非"                                 |
+| and          | 逻辑“与”                                |
+| or           | 逻辑“或”                             |
+| not          | 逻辑“非”                              |
 | as           | 自定义命名                               |
 | assert       | 断言，用来测试表达式                     |
 | break        | 终止循环语句                             |
@@ -60,7 +60,7 @@ DataWay 使用缩进来标识代码块，不同的缩进行数代表不同的代
 
 ### 运算符
 
-DataWay 支持常见的运算符：算数运算符、比较运算符、赋值运算符、逻辑运算符、位运算符等。下标列出了常见的运算符。假设变量 a 为5、b 为3。
+DataWay 支持常见的运算符：算数运算符、比较运算符、赋值运算符、逻辑运算符、位运算符等。下表列出了常见的运算符。其中，假设变量 a 为5、b 为3。
 
 | 运算符名称 | 说明                 | 示例                                     |
 | ---------- | -------------------- | ---------------------------------------- |
@@ -92,33 +92,32 @@ DataWay 支持常见的运算符：算数运算符、比较运算符、赋值运
 ### 条件及循环控制语句
 
 - DataWay 通过 if/elif/else 语句来进行条件控制。示例如下，通过判断 a 的值，返回不同的字符串：
-  ```python
-  def dw_process(msg):
-    a = 100
-    if a < 10:
-      return 'a is lower than 10'
-    elif a <= 100 and a >= 10:
-      return 'a is between 10 and 100'
-    else:
-      return 'a is bigger than 100'
-  ```
+```python
+def dw_process(msg):
+  a = 100
+  if a < 10:
+    return 'a is lower than 10'
+  elif a <= 100 and a >= 10:
+    return 'a is between 10 and 100'
+  else:
+    return 'a is bigger than 100'
+```
 DataWay 表达式的运行结果为：`a is between 10 and 100`
-
 - DataWay 通过 for 循环进行循环控制。示例如下，通过 for 循环，得到 a 中元素的乘积：
-  ```python
-  def dw_process(msg):
-    a = [1, 2, 3, 4]
-    num = 1
-    for i in a:
-      num *= i
-    return num
-  ```
+```python
+def dw_process(msg):
+  a = [1, 2, 3, 4]
+  num = 1
+  for i in a:
+    num *= i
+  return num
+```
 DataWay 表达式的运行结果为：`24`
 
 ### 定义函数
 
-在 DataWay 中，可以使用 def 关键词定义函数，后接函数名和参数名列表，以冒号`:`作为定义函数行的结尾，下一行默认缩进；最终以 return 语句结束函数，如果不带 return 相当于返回 None。
-定义一个函数后，可以在另一个函数中调用执行。在 DataWay 中，默认的入口函数 dw_process 函数无需手工声明。如果想自定义函数，直接在 dw_process 入口函数下方定义即可。如下示例，定义了一个函数 test() 用于对列表元素求和， 并在 dw_process() 函数中调用，最终使用 return 语句返回结果。
+- 在 DataWay 中，可以使用 def 关键词定义函数，后接函数名和参数名列表，以冒号“：”作为定义函数行的结尾，下一行默认缩进；最终以 return 语句结束函数，如果不带 return 则相当于返回 None。
+- 定义一个函数后，可以在另一个函数中调用执行。在 DataWay 中，默认的入口函数 dw_process 函数无需手工声明。如果想自定义函数，直接在 dw_process 入口函数下方定义即可。如下示例，定义一个函数 test() 用于对列表元素求和，并在 dw_process() 函数中调用，最终使用 return 语句返回结果。
 ```python
 def dw_process(msg):
   a = [1, 2, 3, 4]
@@ -147,7 +146,7 @@ def dw_process(msg):
 最终的输入结果为: `15.0`
 
 ### 注释
-DataWay 单行注释以`#`开头，多行注释则可以用多个`#` 号，或者 `'''`和`"""`。举例如下，执行下面代码：
+DataWay 单行注释以`#`开头，多行注释则可以用多个`#` 号，或者`'''`和`"""`。举例如下，执行下面代码：
 ```python
 # Dataway 注释
 
@@ -170,10 +169,10 @@ Dataway Hello World!
 >!DataWay 提供语法检查功能，在编写代码时会进行实时语法检查，并给出错误提示。详细的 python 语法说明可以参考 [Python 官方文档](https://docs.python.org/zh-cn/3.5/reference/index.html)。
 
 ## dw_process 入口函数
-dw_process 是 DataWay 的主入口函数，其作用相当于 C/C++语言中的 main 函数。
-dw_process 仅接受一个类型为 [Message](#message-explain) 的参数，而其返回值就是该 DataWay 表达式最终的输出值。
-作为 EIS 数据处理流程的一个环节，dw_process 函数的返回值目前支持的类型有：str/None/bool/float/int/list/dict/Entity/MultiMap/FormDataParts/Message 等。
-关于 DataWay 中数据类型及返回值的详细介绍，可参考 DataWay 类型系统 [DataWay 数据类型系统](#dataway-types)。
+- dw_process 是 DataWay 的主入口函数，其作用相当于 C/C++语言中的 main 函数。
+- dw_process 仅接受一个类型为 [Message](#message-explain) 的参数，而其返回值就是该 DataWay 表达式最终的输出值。
+- 作为 EIS 数据处理流程的一个环节，dw_process 函数的返回值目前支持的类型有：str/None/bool/float/int/list/dict/Entity/MultiMap/FormDataParts/Message 等。
+- 关于 DataWay 中数据类型及返回值的详细介绍，可参考 DataWay 类型系统 [DataWay 数据类型系统](#dataway-types)。
 
 ## <span id='dataway-types'></span>DataWay 数据类型系统
 
@@ -188,19 +187,19 @@ dw_process 仅接受一个类型为 [Message](#message-explain) 的参数，而�
 | set               | 集合，即 Python 集合类型set                                  | 否                        | {1,2,3}                                                      |
 | list              | 列表，序列类型容器，即 Python 原生 list 类型                 | 否                        | [1,2,3]                                                      |
 | dict              | 字典，kv 类型容器，即 Python 原生 dict 类型                  | 否                        | {1:1, 'key': 'value'}                                        |
-| **Entity**        | 即 EIS 中的实体数据，用于代表一个二进制对象，在 DataWay 中以 Entity 类型进行访问，包括blob、mime_type、encoding 等信息 | 是 | http-listener 构造消息中的 payload，如 msg.payload            |
-| **MultiMap**      | 多值 map，类似于 xml 而与 dict 不同，该类型可以支持重复的 key。 |是| application/www-form-urlencoded 格式的数据解析之后得到的对象 |
-| **FormDataParts** | 数组+列表的数据结构，类似于 Python 中的 orderDict 结构       | 是 | multipart/form-data 格式的数据解析后得到的对象               |
-| **Message**       | 即 eis 中的消息，在 dataWay 中以 Message 进行访问            |是| dw_process 入口函数中的 msg 参数                             |
+| Entity      | 即 EIS 中的实体数据，用于代表一个二进制对象，在 DataWay 中以 Entity 类型进行访问，包括blob、mime_type、encoding 等信息 | 是 | http-listener 构造消息中的 payload，如 msg.payload            |
+| MultiMap      | 多值 map，类似于 xml 而与 dict 不同，该类型可以支持重复的 key。 |是| application/www-form-urlencoded 格式的数据解析之后得到的对象 |
+|FormDataParts | 数组+列表的数据结构，类似于 Python 中的 orderDict 结构       | 是 | multipart/form-data 格式的数据解析后得到的对象               |
+| Message       | 即 eis 中的消息，在 dataWay 中以 Message 进行访问            |是| dw_process 入口函数中的 msg 参数                             |
 
 >!1. 上述类型可以在 DataWay 表达式中使用，但 **dw_process 函数的返回值的类型为其中的 str/None/ bool/float/int/list/ dict/Entity/MultiMap/FormDataParts/Message 之一**。
 >2. 需要注意的是，如果 DataWay 表达式输出的值会作为集成流的最终返回结果，则支持的返回值类型还会受到相应连接器组件的限制。如在以 http listener 组件作为第一个组件的流中，其最终的 payload 也需要是一个 Entity 类型。
 
 ## <span id="message-explain"></span>Message 类型及预定义属性
 
-Message 类型是 DataWay 用于表示一条 EIS 消息的数据类型，其中包含 payload、vars、attrs 等属性，称之为**预定义属性(Predefined Properties)**。这些属性是由系统根据当前运行信息及处理的消息生成的，用于在 DataWay 中通过程序化的方式获取上下文信息。
+Message 类型是 DataWay 用于表示一条 EIS 消息的数据类型，其中包含 payload、vars、attrs 等属性，称之为**预定义属性（Predefined Properties）**。这些属性是由系统根据当前运行信息及处理的消息生成的，用于在 DataWay 中通过程序化的方式获取上下文信息。
 
-目前 Message 中包含的属性及其说明如下：
+**目前 Message 中包含的属性及其说明如下：**
 
 | 属性        | 作用                                             | 属性类型                                                     | 属性说明                                                     |
 | ----------- | ------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -214,28 +213,22 @@ Message 类型是 DataWay 用于表示一条 EIS 消息的数据类型，其中�
 ## DataWay IDE 使用
 在 EIS 系统新建一个 Set Variable 组件，单击变量值文本框进入 DataWay 脚本编辑器，该编辑器提供语法检查、格式化、脚本调试、自动联想、代码高亮等类 IDE 功能。
 <img src="https://main.qcloudimg.com/raw/27cb6a575cbd1bdac914981679ff2bc2/ide-%E6%95%B4%E4%BD%93%E9%A1%B5%E9%9D%A2.png" alt="ide-整体页面" style="zoom: 50%;" />
-1. __语法检查__
+### 语法检查
 在 DataWay IDE 中，能够实时对 DataWay 表达式进行语法检查，并通过强提示显示在 IDE 左侧和出错代码底部。当鼠标移动到错误提醒处，会有详细的错误信息说明。用户可以根据语法提示来对 DataWay 脚本进行修改，只有语法检查通过的代码才能够保存成功。
-
 <img src="https://main.qcloudimg.com/raw/46bc25019af93bcb6b73dba766468444/ide-%E8%AF%AD%E6%B3%95%E6%A3%80%E6%9F%A5.png" alt="ide-语法检查" style="zoom:50%;" />
-
-2. __格式化__
+### 格式化
 在 Dataway IDE 中，提供有格式化功能按钮。用户可以单击右上角格式化按钮，一键对 DataWay 代码格式化，以使代码更加简洁规范。
 <img src="https://main.qcloudimg.com/raw/4373c5f877489eb9d67f27d1247a0dc3/ide-%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%89%8D.png" alt="ide-格式化前" style="zoom:50%;" />
- 
  - 单击右上角格式化按钮后，格式化后的代码如下图：
- 
-   <img src="https://main.qcloudimg.com/raw/f46937560a73d88ab0c32cd6d0823582/ide-%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%90%8E.png" alt="ide-格式化后" style="zoom:50%;" />
+![](https://main.qcloudimg.com/raw/f46937560a73d88ab0c32cd6d0823582/ide-%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%90%8E.png)
+### 脚本调试
+在 DataWay IDE 中，提供有 Debug 调试功能按钮。用户可以单击右上角“Debug”图标，在线对 DataWay 脚本进行调试。详细的使用方法可见 [DataWay 脚本调试](https://cloud.tencent.com/document/product/1270/55618)。
+![](https://main.qcloudimg.com/raw/d59d57534cc3616ddc1a994530bf1d61/ide-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.png)
+### 自动联想
+DataWay IDE 能够自动对流中已配置的 payload、vars、attrs 中的变量名进行联想，并展示在 IDE 右侧栏。例如：在 Set Variable 组件前已经创建了一个 Set Payload 和一个 Set Variable 组件，则右侧栏会展示出来，单击对应的联想值会自动加入到左侧编辑框中。
+![](https://main.qcloudimg.com/raw/ae9a1410a37e2a9144e0f3520918c12f/ide-%E8%87%AA%E5%8A%A8%E8%81%94%E6%83%B3.png)
 
-
-3. __脚本调试__
-   在 DataWay IDE 中，提供有 Debug 调试功能按钮。用户可以单击右上角“Debug”，在线对 DataWay 脚本进行调试。详细的使用方法可见 [DataWay调试](#dataway-debug)。
-   <img src="https://main.qcloudimg.com/raw/d59d57534cc3616ddc1a994530bf1d61/ide-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.png" alt="ide-单元测试" style="zoom:50%;" />
-
-4. __自动联想__
-   DataWay IDE 能够自动对流中已配置的 payload、vars、attrs 中的变量名进行联想，并展示在 IDE 右侧栏。例如：在 Set Variable 组件前已经创建了一个 Set Payload 和一个 Set Variable 组件，则右侧栏会展示出来，单击对应的联想值会自动加入到左侧编辑框中。
-   <img src="https://main.qcloudimg.com/raw/ae9a1410a37e2a9144e0f3520918c12f/ide-%E8%87%AA%E5%8A%A8%E8%81%94%E6%83%B3.png" alt="ide-自动联想" style="zoom:50%;" />
-5. __代码高亮__
-   Dataway IDE 默认对 Dataway 代码进行高亮和括号自动匹配。
+### 代码高亮
+Dataway IDE 默认对 Dataway 代码进行高亮和括号自动匹配。
 
 
