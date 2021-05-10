@@ -30,10 +30,10 @@
  - **页面防调试：**默认开启，为了防⽌⽤户查看⻚⾯逻辑，⻚⾯防调试功能在⽤户调⽤浏览器的开发者工具页面时，阻⽌⽤户跟踪⻚⾯逻辑。
 3. 查看前端对抗防护是否开启
 第一种查看方式：通过查看 Web 页面源代码，开启前端对抗防护页面，将会在 Web 返回代码中添加如下内容：
-![](https://main.qcloudimg.com/raw/bb0b8249055db672de91b1d42348e9c5.png)
+ ![](https://main.qcloudimg.com/raw/71d2e25555ee823b9747bbc274402fe1.jpg)
 查询到该内容，说明该页面已经支持前端对抗防护。
 第二种查看方式：通过 curl 访问域名，查看返回内容为不可读页面。
-![](https://main.qcloudimg.com/raw/07f9df5d0919f2874a004a5dcf2afd2a.jpg)
+![](https://main.qcloudimg.com/raw/10d91b35b9117744346bba9682b8ef61.jpg)
 第三种查看方式（针对已经开启页面防调试）：通过试用浏览器的开发者根据查看页面，以下以 Chrome 浏览器为例，出现如下提示：
 ![](https://main.qcloudimg.com/raw/4b1a291de7f56f359f843ae182fba46b.png)
 说明页面防调试功能已经启用。
@@ -51,16 +51,19 @@ BOT 行为管理前端对抗攻击日志属于 BOT 拦截日志的一部分，�
  ![](https://main.qcloudimg.com/raw/70b9c0045137cabbc635f1bdaa3c92d4.png)
  2. 单击【添加规则】进入白名单规则添加页面。
 ![](https://main.qcloudimg.com/raw/cafca9b73af23f773f10dff0b6d7b2b7.png)
- 3. 完成白名单规则添加后，您可以在白名单规则管理页面，进行启停、删除等操作。
+     **字段说明：**
+     - **类型：**默认为请求白名单，用户可选择设置响应白名单。
+    - **匹配条件：**支持路径后缀匹配、前缀匹配、相等和包含，默认为：路径后缀匹配
+    - **匹配内容：**当匹配条件为【路径后缀匹配】，默认给出需要加白的文件后缀名称，包括：ico、gif、bmp、htc、jpg、jpeg、png、tiff、swf、js、css、rm、rmvb、wmv、avi、mkv、mp3、mp4、ogg、wma、zip、exe、rar、eot、woff、woff2、ttf、svg。您可以根据实际情况进行修改。
+    
+ 3.  输入其他匹配条件，请按照实际情况输入白名单路径。
+      - **规则描述**：输入规则描述信息。
+      - **规则开关**：默认开启，您可根据实际情况调整。
+      完成白名单规则添加后，您可以在白名单规则管理页面，进行启停、删除等操作。
  ![](https://main.qcloudimg.com/raw/8c200356444688c60cdf442db685e8e9.png)
  
-  **字段说明：**
- - **类型：**默认为请求白名单，用户可选择设置响应白名单。
- - **匹配条件：**支持路径后缀匹配、前缀匹配、相等和包含，默认为：路径后缀匹配
- - **匹配内容：**当匹配条件为【路径后缀匹配】，默认给出需要加白的文件后缀名称，包括：ico、gif、bmp、htc、jpg、jpeg、png、tiff、swf、js、css、rm、rmvb、wmv、avi、mkv、mp3、mp4、ogg、wma、zip、exe、rar、eot、woff、woff2、ttf、svg。您可以根据实际情况进行修改。
- - 输入其他匹配条件，请按照实际情况输入白名单路径。
- - **规则描述：**输入规则描述信息。
- - **规则开关：**默认开启，您可根据实际情况调整。
+
+
 
 
 
