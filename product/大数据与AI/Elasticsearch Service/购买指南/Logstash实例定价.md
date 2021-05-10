@@ -255,7 +255,7 @@ Logstash 实例支持以下节点类型：
   <tr>
     <td class="tg-0pky">LOGSTASH.S1.8XLARGE128</td>
     <td class="tg-0pky">48</td>
-    <td class="tg-0pky">196</td>
+    <td class="tg-0pky">96</td>
     <td class="tg-0pky">生产</td>
 			<td class="tg-0pky">6.87</td>
     <td class="tg-0pky">6.18</td>

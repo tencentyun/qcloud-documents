@@ -1,11 +1,13 @@
 使用 IPsec VPN 建立腾讯云 VPC 到用户 IDC 的连接时，在配置完腾讯云 VPN 网关后，您还需在用户 IDC 本地站点的网关设备中进行 VPN 配置。本文以 Juniper 防火墙为例介绍如何在本地站点中进行 VPN 配置。
 
-
+>?
+> + 支持 Juniper SRX 系列防火墙以及 vSRX 系列虚拟防火墙。
+> + 本文所有 IP、接口等参数取值均仅用于举例，请具体配置时，使用实际值进行替换。
 ## 前提条件
 请确保您已经在腾讯云 VPC 内[ 创建 VPN](https://cloud.tencent.com/document/product/554/52861)，并完成 并完成 [VPN 通道配置](https://cloud.tencent.com/document/product/554/52864)。
 
 ## 数据准备
->?本文所有 IP、接口等参数取值均仅用于举例，请具体配置时，使用实际值进行替换。
+
 
 本文 IPsec VPN 配置数据举例如下：
 <table>
@@ -101,16 +103,20 @@
 1. 登录防火墙设备的命令行配置界面。
 <dx-codeblock>
 :::sh
- ssh -p 22 root@172.16.0.1    # 通过 SSH 命令登录防火墙命令行界面
-    root@SRX1> configure 
-    Entering configuration mode    # 登录之后为操作模式，键入“configure”进入配置模式
-    [edit]
-    root@SRX1#                   # “#” 表示已经进入配置模式
-    root@SRX1# commit 
-    commit complete           # 在配置模式下面修改配置，不会直接生效，通过“commit”命令，修改的配置才会保存并生效
+ssh -p 22 root@172.16.0.1   
+# 通过 SSH 命令登录防火墙命令行界面
+root@SRX1> configure 
+Entering configuration mode    
+# 登录之后为操作模式，键入“configure”进入配置模式
+[edit]
+root@SRX1#                   
+# “#” 表示已经进入配置模式
+root@SRX1# commit 
+commit complete           
+# 在配置模式下面修改配置，不会直接生效，通过“commit”命令，修改的配置才会保存并生效
 :::
 </dx-codeblock>
-2. 配置防火墙网络接口、安全域、地址簿信息，以及自定义服务。
+2. 配置防火墙网络接口、安全域、地址簿信息。
 <dx-codeblock>
 :::sh
 set interfaces ge-0/0/x unit 0 family inet address 172.16.0.1/16  
@@ -125,8 +131,6 @@ set security zones security-zone untrust address-book address vpn-peer_subnet 10
 # 定义要访问的VPN对端的业务地址簿，用于后续的访问策略调用，命名可以自定义
 set security zones security-zone trust address-book address vpn-local_subnet 172.16.0.0/16  
 # 定义本地的业务地址簿，用于后续的访问策略调用，命名可以自定义
-set applications application tcp_2020 source-port 0-65535 destination-port 2020 protocol tcp inactivity-timeout 1800 description vpn-HR-system  
-# 定义要访问的业务端口，通常 SRX 系列防火墙内置了大部分常用的协议端口，可以直接在策略中调用，以”junos-“字段开头，例如“junos-ssh” 对应 ssh 协议，本例采用自定义协议端口，如定义一个 TCP 类服务，使用目的端口为 TCP 2020，服务超时时间为1800
 :::
 </dx-codeblock>
 3. 配置 IKE 策略。
@@ -189,6 +193,8 @@ set security ipsec vpn ipsec-vpn-cfgr vpn-monitor
 <dx-codeblock>
 :::sh
 set security ipsec vpn ipsec-vpn-cfgr ike gateway ike-gate-cfgr
+# 调用之前定义的IKE网关配置
+set security ipsec vpn ipsec-vpn-cfgr ike ipsec-policy ipsec-policy-cfgr
 # 调用之前定义的 IPsec 策略配置
 set security ipsec vpn ipsec-vpn-cfgr establish-tunnels immediately
 # 配置VPN直接建立通道，而不是等待流量触发
@@ -199,22 +205,22 @@ set routing-options static route 10.1.1.0/24 next-hop x.x.x.x
 7. 配置出站策略。
 <dx-codeblock>
 :::sh
-set security policies from-zone trust to-zone vpn policy trust-to-untrust_tcp-2020_permit match source-address vpn-local_subnet
-set security policies from-zone trust to-zone vpn policy trust-to-untrust_tcp-2020_permit match destination-address vpn-peer_subnet
-set security policies from-zone trust to-zone vpn policy trust-to-untrust_tcp-2020_permit match application tcp_2020
-set security policies from-zone untrust to-zone trust policy trust-to-untrust_tcp-2020_permit then permit tunnel ipsec-vpn ipsec-vpn-cfgr
-set security policies from-zone untrust to-zone trust policy trust-to-untrust_tcp-2020_permit then permit tunnel pair-policy untrust-to-trust_tcp-2020_permit
+set security policies from-zone trust to-zone vpn policy trust-to-untrust_any_permit match source-address vpn-local_subnet
+set security policies from-zone trust to-zone vpn policy trust-to-untrust_any_permit match destination-address vpn-peer_subnet
+set security policies from-zone trust to-zone vpn policy trust-to-untrust_any_permit match application any
+set security policies from-zone untrust to-zone trust policy trust-to-untrust_any_permit then permit tunnel ipsec-vpn ipsec-vpn-cfgr
+set security policies from-zone untrust to-zone trust policy trust-to-untrust_any_permit then permit tunnel pair-policy untrust-to-trust_any_permit
 # 定义访问策略，本策略为本地网段访问VPN对端业务网段方向的策略（trust to untrust），指定调用IPSEC VPN 通道。具体的访问权限根据实际业务访问情况来设置
 :::
 </dx-codeblock>
 8. 配置入站策略。
 <dx-codeblock>
 :::sh
-set security policies from-zone vpn to-zone trust policy untrust-to-trust_tcp-2020_permit match source-address vpn-peer_subnet
-set security policies from-zone vpn to-zone trust policy untrust-to-trust_tcp-2020_permit match destination-address vpn-local_subnet
-set security policies from-zone vpn to-zone trust policy untrust-to-trust_tcp-2020_permit match application tcp_2020
-set security policies from-zone vpn to-zone trust policy untrust-to-trust_tcp-2020_permit then permit tunnel ipsec-vpn ipsec-vpn-cfgr
-set security policies from-zone vpn to-zone trust policy untrust-to-trust_tcp-2020_permit then permit tunnel pair-policy trust-to-untrust_tcp-2020_permit
+set security policies from-zone vpn to-zone trust policy untrust-to-trust_any_permit match source-address vpn-peer_subnet
+set security policies from-zone vpn to-zone trust policy untrust-to-trust_any_permit match destination-address vpn-local_subnet
+set security policies from-zone vpn to-zone trust policy untrust-to-trust_any_permit match application any
+set security policies from-zone vpn to-zone trust policy untrust-to-trust_any_permit then permit tunnel ipsec-vpn ipsec-vpn-cfgr
+set security policies from-zone vpn to-zone trust policy untrust-to-trust_any_permit then permit tunnel pair-policy trust-to-untrust_any_permit
 # 定义访问策略，本策略为对端VPN网段访问本地业务网段方向的策略（untrust to trust），指定调用IPSEC VPN 通道。具体的访问权限根据实际业务访问情况来设置
 :::
 </dx-codeblock>
@@ -232,24 +238,28 @@ commit complete
 1. 登录防火墙设备的命令行配置界面。
 <dx-codeblock>
 :::sh
-ssh -p 22 root@172.16.0.1    # 通过 SSH 命令登录防火墙命令行界面
+ssh -p 22 root@172.16.0.1    
+# 通过 SSH 命令登录防火墙命令行界面
 root@SRX1> configure 
-Entering configuration mode    # 登录之后为操作模式，键入“configure”进入配置模式
+Entering configuration mode    
+# 登录之后为操作模式，键入“configure”进入配置模式
 [edit]
-root@SRX1#                   # “#” 表示已经进入配置模式
+root@SRX1#                   
+# “#” 表示已经进入配置模式
 root@SRX1# commit 
-commit complete           # 在配置模式下面修改配置，不会直接生效，通过“commit”命令，修改的配置才会保存并生效
+commit complete           
+# 在配置模式下面修改配置，不会直接生效，通过“commit”命令，修改的配置才会保存并生效
 :::
 </dx-codeblock>
-2. 配置防火墙网络接口、安全域、地址簿信息，以及自定义服务。
+2. 配置防火墙网络接口、安全域、地址簿信息。
 <dx-codeblock>
 :::sh
 set interfaces ge-0/0/x unit 0 family inet address 172.16.0.1/16  
 # 为内部接口 ge-0/0/x定义 IP 地址，请更换为实际接口和IP
 set interfaces ge-0/0/y unit 0 family inet address 120.xx.xx.76/30  
 # 为外部接口 ge-0/0/y定义 IP 地址，请更换为实际接口和IP
-set interfaces st0 unit 0 family inet     
-# 定义通道接口，默认不设置 IP 地址，通道接口的 unit 后的参数需要指定，一个 unit 号可以绑定一个 VPN 通道，序号范围：0-16385
+set interfaces st0 unit 0 family inet mtu 1398
+# 定义通道接口，默认不设置 IP 地址，通道接口的 unit 后的参数需要指定，一个 unit 号可以绑定一个 VPN 通道，序号范围：0-16385，同时设置通道接口MTU为1398
 set security zones security-zone trust interfaces ge-0/0/x.0  
 # 绑定 ge-0/0/x 为内部安全区(trust)，对接内部业务区
 set security zones security-zone untrust interfaces ge-0/0/y.0  host-inbound-traffic system-services ike
@@ -260,8 +270,6 @@ set security zones security-zone vpn address-book address vpn-peer_subnet 10.1.1
 # 定义要访问的 VPN 对端的业务地址簿，用于后续的访问策略调用，命名可以自定义
 set security zones security-zone trust address-book address vpn-local_subnet 172.16.0.0/16   
 # 定义本地的业务地址簿，用于后续的访问策略调用，命名可以自定义
-set applications application tcp_2020 source-port 0-65535 destination-port 2020 protocol tcp inactivity-timeout 1800 description vpn-HR-system
-# 定义要访问的业务端口，通常 SRX 系列防火墙内置了大部分常用的协议端口，可以直接在策略中调用，以”junos-“字段开头，例如“junos-ssh” 对应 ssh 协议，本例采用自定义协议端口，如定义一个 TCP 类服务，使用目的端口为 TCP 2020，服务超时时间为1800
 :::
 </dx-codeblock>
 3. 配置 IKE 策略。
@@ -327,6 +335,8 @@ set security ipsec vpn ipsec-vpn-cfgr vpn-monitor
 <dx-codeblock>
 :::sh
 set security ipsec vpn ipsec-vpn-cfgr ike gateway ike-gate-cfgr
+# 调用之前定义的IKE网关配置
+set security ipsec vpn ipsec-vpn-cfgr ike ipsec-policy ipsec-policy-cfgr
 # 调用之前定义的 IPsec 策略配置
 set security ipsec vpn ipsec-vpn-cfgr establish-tunnels immediately
 # 配置 VPN 直接建立通道，而不是等待流量触发
@@ -337,20 +347,20 @@ set routing-options static route 10.1.1.0/24 next-hop st0.0
 7. 配置出站策略。
 <dx-codeblock>
 :::sh
-set security policies from-zone trust to-zone vpn policy trust-to-vpn_tcp-2020_permit match source-address vpn-local_subnet
-set security policies from-zone trust to-zone vpn policy trust-to-vpn_tcp-2020_permit match destination-address vpn-peer_subnet
-set security policies from-zone trust to-zone vpn policy trust-to-vpn_tcp-2020_permit match application tcp_2020
-set security policies from-zone trust to-zone vpn policy trust-to-vpn_tcp-2020_permit then permit
+set security policies from-zone trust to-zone vpn policy trust-to-vpn_any_permit match source-address vpn-local_subnet
+set security policies from-zone trust to-zone vpn policy trust-to-vpn_any_permit match destination-address vpn-peer_subnet
+set security policies from-zone trust to-zone vpn policy trust-to-vpn_any_permit match application any
+set security policies from-zone trust to-zone vpn policy trust-to-vpn_any_permit then permit
 # 定义访问策略，本策略为本地网段访问 VPN 对端业务网段方向的策略（trust to vpn）。具体的访问权限根据实际业务访问情况来设置
 :::
 </dx-codeblock>
 8. 配置入站策略。
 <dx-codeblock>
 :::sh
-set security policies from-zone vpn to-zone trust policy vpn-to-trust_tcp-2020_permit match source-address vpn-peer_subnet
-set security policies from-zone vpn to-zone trust policy vpn-to-trust_tcp-2020_permit match destination-address vpn-local_subnet
-set security policies from-zone vpn to-zone trust policy vpn-to-trust_tcp-2020_permit match application tcp_2020
-set security policies from-zone vpn to-zone trust policy vpn-to-trust_tcp-2020_permit then permit
+set security policies from-zone vpn to-zone trust policy vpn-to-trust_any_permit match source-address vpn-peer_subnet
+set security policies from-zone vpn to-zone trust policy vpn-to-trust_any_permit match destination-address vpn-local_subnet
+set security policies from-zone vpn to-zone trust policy vpn-to-trust_any_permit match application any
+set security policies from-zone vpn to-zone trust policy vpn-to-trust_any_permit then permit
 # 定义访问策略，本策略为对端 VPN 网段访问本地业务网段方向的策略（vpn to trust）。具体的访问权限根据实际业务访问情况来设置
 :::
 </dx-codeblock>
@@ -364,11 +374,4 @@ commit complete
 </dx-codeblock>
 :::
 </dx-tabs>
-
-
-
-
-
-
-
 

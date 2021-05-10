@@ -11,8 +11,7 @@
 
 #### 收费说明
 
-Private DNS 采用按量付费的计费方式。收费项为：私有域名数量 + 解析请求量，以自然日为单位进行结算。
-了解更多请参见 Private DNS [购买指南](https://cloud.tencent.com/document/product/1338/50523)。
+Private DNS 采用按量付费的计费方式。收费项为：私有域名数量 + 解析请求量，以自然日为单位进行结算。了解更多请参见 Private DNS [购买指南](https://cloud.tencent.com/document/product/1338/50523)。
 
 #### 支持地域
 

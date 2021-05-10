@@ -137,7 +137,7 @@ Container 节点 Stream 的内容：
 | Audio | Response.MediaInfo.<br>Stream | 音频信息 |  Container |
 | Subtitle | Response.MediaInfo.<br>Stream | 字幕信息 |  Container |
 
-Container 节点 Format 的内容：
+Container 节点 Format 的内容（查询视频信息时，可能部分字段未返回）：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
@@ -150,7 +150,7 @@ Container 节点 Format 的内容：
 | Bitrate | Response.MediaInfo.<br>Format | 比特率，单位为 kbps |  Int |
 | Size | Response.MediaInfo.<br>Format | 大小，单位为 Byte |  Int |
 
-Container 节点 Video 的内容：
+Container 节点 Video 的内容（查询视频信息时，可能部分字段未返回）：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
@@ -161,9 +161,9 @@ Container 节点 Video 的内容：
 | CodecTagString | Response.MediaInfo.<br>Stream.Video | 编码标签名 |  String |
 | CodecTag | Response.MediaInfo.<br>Stream.Video | 编码标签 |  String |
 | Profile | Response.MediaInfo.<br>Stream.Video | 视频编码档位 |  String |
-| Height | Response.MediaInfo.<br>Stream.Video | 视频高 |  Int |
-| Width | Response.MediaInfo.<br>Stream.Video | 视频宽 | Int |
-| HasBFrame | Response.MediaInfo.<br>Stream.Video | 是否有B帧 |  Int |
+| Height | Response.MediaInfo.<br>Stream.Video | 视频高，单位 px |  Int |
+| Width | Response.MediaInfo.<br>Stream.Video | 视频宽，单位 px| Int |
+| HasBFrame | Response.MediaInfo.<br>Stream.Video | 是否有B帧。1表示有，0表示无 |  Int |
 | RefFrames | Response.MediaInfo.<br>Stream.Video | 视频编码的参考帧个数 |  Int |
 | Sar | Response.MediaInfo.<br>Stream.Video | 采样宽高比 |  String |
 | Dar | Response.MediaInfo.<br>Stream.Video | 显示宽高比 |  String |
@@ -179,7 +179,7 @@ Container 节点 Video 的内容：
 | NumFrames | Response.MediaInfo.<br>Stream.Video | 总帧数 |  Int |
 | Language | Response.MediaInfo.<br>Stream.Video | 语言 |  String |
 
-Container 节点 Audio 的内容：
+Container 节点 Audio 的内容（查询视频信息时，可能部分字段未返回）：
 
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
@@ -204,7 +204,7 @@ Container 节点 Subtitle 的内容：
 |节点名称（关键字）|父节点|描述|类型|
 |:---|:-- |:--|:--|
 | Index | Response.MediaInfo.<br>Stream.Subtitle | 该流的编号 |  Int |
-| Language | Response.MediaInfo.<br>Stream.Subtitle | 语言 |  String |
+| Language | Response.MediaInfo.<br>Stream.Subtitle | 语言，und 表示无查询结果 |  String |
 
 #### 错误码
 该请求操作无特殊错误信息，常见的错误信息请参见 [错误码](https://cloud.tencent.com/document/product/460/42867) 文档。
