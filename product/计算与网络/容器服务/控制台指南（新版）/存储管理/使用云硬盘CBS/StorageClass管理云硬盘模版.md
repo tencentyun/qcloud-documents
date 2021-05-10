@@ -130,6 +130,9 @@ parameters:
 #### 创建多实例 StatefulSet
 
 使用云硬盘创建多实例 StatefulSet，YAML 文件示例如下：
+<dx-alert infotype="explain" title="">
+您可通过 `kubectl api-versions` 命令查看当前资源对象的 apiVersion。
+</dx-alert>
 ``` yaml
 apiVersion: apps/v1beta1
 kind: StatefulSet
