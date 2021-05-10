@@ -33,23 +33,30 @@
 ## 跨应用分享
 
 ### 示例代码
-我们在 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCSimpleDemo/) 中的 **Screen** 目录下放置了一份跨应用分享的示例代码，其包含如下一些文件：
+我们在 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTC-API-Example-OC) 中的 **ScreenShare** 目录下放置了一份跨应用分享的示例代码，其包含如下一些文件：
 
 ```
-├─ TRTCSimpleDemo              // TRTC 精简化 Demo
-|  ├─ Screen                   // 演示跨应用屏幕分享功能
-|  |  ├─ RTC                   // 演示 TRTC 以通话模式运行的示例代码，该模式下无角色的概念
-|  |  |  ├─ TXReplayKit_Screen // 录屏进程 Broadcast Upload Extension 代码详见步骤2
-|  |  |  |  ├─ SampleHandler.swift // 用于接收来自系统的录屏数据
-|  |  |  |  ├─ Info.plist                          
-|  |  |  |  ├─ TXReplayKit_Screen.entitlements //用于设置进程间通信的 AppGroup 信息
-|  |  |  
-|  |  ├─ ScreenEntranceViewController.swift    // 功能入口界面
-|  |  ├─ ScreenViewController.swift            // 录屏状态显示界面
-|  |  ├─ TRTCBroadcastExtensionLauncher.swift  // 用于唤起系统录屏的辅助代码
+├─ TRTC-API-Example-OC              // TRTC API Example 
+|  ├─ Basic                   // 演示跨应用屏幕分享功能
+|  |  ├─ ScreenShare                   // 演示跨应用屏幕分享功能
+|  |  |  ├── ScreenAnchorViewController.h
+|  |  |  ├── ScreenAnchorViewController.m       // 主播录屏状态显示界面
+|  |  |  ├── ScreenAnchorViewController.xib
+|  |  |  ├── ScreenAudienceViewController.h
+|  |  |  ├── ScreenAudienceViewController.m     // 观众观看录播界面
+|  |  |  ├── ScreenAudienceViewController.xib
+|  |  |  ├── ScreenEntranceViewController.h
+|  |  |  ├── ScreenEntranceViewController.m     // 功能入口界面
+|  |  |  ├── ScreenEntranceViewController.xib
+|  |  |  ├── TRTCBroadcastExtensionLauncher.h
+|  |  |  ├── TRTCBroadcastExtensionLauncher.m   // 用于唤起系统录屏的辅助代码
+|  |  |  ├── TXReplayKit_Screen   // 录屏进程 Broadcast Upload Extension 代码详见步骤2
+|  |  |  │   ├── Info.plist
+|  |  |  │   ├── SampleHandler.h
+|  |  |  │   └── SampleHandler.m                // 用于接收来自系统的录屏数据
 ```
 
-您可以通过 [README](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTCSimpleDemo/README.md) 中的指引跑通该示例 Demo。
+您可以通过 [README](https://github.com/tencentyun/TRTCSDK/blob/master/iOS/TRTC-API-Example-OC/README.md) 中的指引跑通该示例 Demo。
 
 
 ### 对接步骤
@@ -202,7 +209,7 @@ iOS 系统上的跨应用屏幕分享，需要增加 Extension 录屏进程以�
 截止到 [步骤3](#receive) ，我们的屏幕分享还必须要用户从控制中心中长按录屏按钮来手动启动。您可通过下述方法实现类似腾讯会议的单击按钮即可触发的效果：
 ![](https://main.qcloudimg.com/raw/4a759043c613a558400cce8b539fd7d9.png)
 
-1. 在 [Demo](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCSimpleDemo/Screen) 中寻找 `TRTCBroadcastExtensionLauncher` 这个类，并将其加入到您的工程中。
+1. 在 [Demo](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTC-API-Example-OC/Basic/ScreenShare) 中寻找 `TRTCBroadcastExtensionLauncher` 这个类，并将其加入到您的工程中。
 2. 在您的界面上放置一个按钮，并在按钮的响应函数中调用 `TRTCBroadcastExtensionLauncher` 中的 `launch` 函数，就可以唤起屏幕分享功能了。
 ```
 // 自定义按钮响应方法
