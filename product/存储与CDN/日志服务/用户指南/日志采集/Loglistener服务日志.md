@@ -5,11 +5,10 @@ LogListener 服务日志功能提供采集端运行状态、工作状态、采�
 
 | 默认配置项   | 配置内容                                                     |
 | ------------ | ------------------------------------------------------------ |
-| 日志主题     | 当 LogListener 服务日志开启时，会自动为您创建一个 cls_service_logging 日志集，将所有关联的机器组所产生的日志数据都分类保存到对应的日志主题中。默认为您创建以下3个日志主题：<li>loglistener_status：对应内部 LogListener 心跳状态的日志。</li><li>loglistener_alarm：对应 LogListener 采集指标/错误类型的监控日志。</li><li>loglistener_business ：对应 LogListener 采集的操作日志，每条日志对应一次请求。</li> |
+| 日志主题     | 当 LogListener 服务日志开启时，会自动为您创建一个 cls_service_logging 日志集，将所有关联的机器组所产生的日志数据都分类保存到对应的日志主题中。默认为您创建以下3个日志主题：<li>loglistener_status：对应 LogListener 的心跳状态日志。</li><li>loglistener_alarm：对应 LogListener 的采集指标/错误类型监控日志。</li><li>loglistener_business ：对应 LogListener 的采集操作日志，每条日志对应一次请求。</li> |
 | 地域         | 开启 LogListener 日志服务时，默认在同地域机器组下创建日志集和日志主题 。|
-| 日志主题分区 | 每个日志主题默认创建一个主题分区，不开启自动分裂日志主题分区功能。详情请查看 [分裂主题分区](https://cloud.tencent.com/document/product/614/52204)。 |
 | 日志存储时间 | 默认保存7天，不支持修改存储时间。                            |
-| 索引         | 默认为采集到的所有日志数据开启全文索引和键值索引。支持修改索引配置，如果没有检索分析和监控告警等需求，可以在日志主题索引配置中关闭索引。详情请查看 [配置索引](https://cloud.tencent.com/document/product/614/50922)。 |
+| 索引         | 默认为采集到的所有日志数据开启全文索引和键值索引。支持修改索引配置，详情请查看 [配置索引](https://cloud.tencent.com/document/product/614/50922)。 |
 | 仪表盘       | 默认创建一个同地域下的仪表盘 service_log_dashboard。          |
 
 >?
@@ -20,16 +19,23 @@ LogListener 服务日志功能提供采集端运行状态、工作状态、采�
 ## 应用场景
 
 - **查看 LogListener 状态**
-开通 LogListener 服务日志功能后，用户可以查看 LogListener 运行状态和采集统计情况。用户可以通过 service_log_dashboard 仪表盘，查看活跃 LogListener 数、LogListener 状态分布等统计指标。
+开通 LogListener 服务日志功能后，您可以查看 LogListener 运行状态和采集统计情况。用户可以通过 service_log_dashboard 仪表盘，查看活跃 LogListener 数、LogListener 状态分布等统计指标。
 
 - **采集端监控配置**
-  用户可以按指标/错误类型，配置采集端监控指标，例如：
+您可以按指标/错误类型，配置采集端监控指标，例如：
   - 根据 MEM、CPU、采集速度、采集延时等指标进行监控。
   - 根据 LogListener 解析错误次数的维度进行监控。
 
+- **文件级监控**
+开通Loglistener服务日志功能后，用户可以查看文件及目录的监控日志，例如：
+  - 某个ip上所有文件的采集统计文件。
+  - 某个ip上某个路径下的采集日志量情况，如app1应用日志位于/var/log/app1/，统计这个路径下的日志采集情况。
+  - 某个topic的采集统计情况。
+
+
 ## 前提条件
 
-机器 IP 配置机器组仅在 LogListener 2.5.4 及以上版本支持采集监控服务日志，您可前往升级至 [最新版本](https://cloud.tencent.com/document/product/614/17414)。
+配置机器ip/标识机器组仅在 LogListener 2.5.4 及以上版本支持采集监控服务日志，您可前往升级至 [最新版本](https://cloud.tencent.com/document/product/614/17414)。
 
 ## 操作步骤
 ### 开通服务日志
@@ -47,6 +53,14 @@ LogListener 服务日志功能提供采集端运行状态、工作状态、采�
 
 >? 关闭服务日志功能后，日志集 cls_service_logging 中保存的日志数据不会自动删除，如果您需要删除这部分日志数据，可以手动删除保存服务日志的日志集。
 >
+
+## 服务日志仪表盘
+
+开启 LogListener 服务日志后，日志服务系统会根据记录的日志类型自动创建可视化仪表盘 search_log_dashboard，展示 LogListener 采集监控统计。
+
+#### 采集统计仪表盘
+您可以在日志服务控制台的 [仪表盘](https://console.cloud.tencent.com/cls/dashboard) 页面，单击目标仪表盘的 ID，查看 LogListener 采集相关的统计信息，包括 LogListener 状态展示、LogListener 解析失败率、LogListener 发送成功率等指标信息。
+![](https://main.qcloudimg.com/raw/a833495d8d661b5b34138fa1476720fe.png)
 
 ## 日志类型
 
@@ -93,10 +107,10 @@ LogListener 服务日志功能提供采集端运行状态、工作状态、采�
 
 | 字段         | 监控指标分类          |
 | :----------- | :-------------------- |
-| InstanceId   | Loglistener 唯一标识值 |
+| InstanceId   | LogListener 唯一标识值 |
 | Label        | 机器标示 array        |
 | IP           | 机器组 IP              |
-| Version      | Loglistener 版本      |
+| Version      | LogListener 版本      |
 | AlarmMessage | 触发告警原始日志采样  |
 | Alarmcount   | 告警次数              |
 | HostName     | 主机 hostname          |
@@ -110,7 +124,7 @@ LogListener 服务日志功能提供采集端运行状态、工作状态、采�
 | UnknownError         | 1       | 解析失败                                  |
 | CredInvalid          | 2       | 认证失败                                  |
 | SendFailure          | 3       | 发送失败                                  |
-| RunException         | 4       | agent 运行异常                             |
+| RunException         | 4       | LogListener 运行异常                             |
 | MemLimited           | 5       | 触发 mem limited 限制                       |
 | FileProcException         | 6       | 文件处理异常                              |
 | FilePosGetError      | 7       | 获取 file pos 失败                          |
@@ -169,14 +183,4 @@ LogListener 服务日志功能提供采集端运行状态、工作状态、采�
 	<tr><td>DroppedLogCount</td><td>时间窗口内，丢掉日志条数</td></tr>
 	<tr><td>ProcessBlock</td><td>标记一个统计周期内，当前文件是否触发过采集阻塞（一个文件的滑动窗口10分钟未移动过，即为触发）</td></tr>
 </table>
-
-
-## 服务日志仪表盘
-
-开启 LogListener 服务日志后，日志服务系统会根据记录的日志类型自动创建可视化仪表盘 search_log_dashboard，展示 LogListener 采集监控统计。
-
-#### 采集统计仪表盘
-您可以在日志服务控制台的 [仪表盘](https://console.cloud.tencent.com/cls/dashboard) 页面，单击目标仪表盘的 ID，查看 LogListener 采集相关的统计信息，包括 LogListener 状态展示、LogListener 解析失败率、LogListener 发送成功率等指标信息。
-![](https://main.qcloudimg.com/raw/a833495d8d661b5b34138fa1476720fe.png)
-
 
