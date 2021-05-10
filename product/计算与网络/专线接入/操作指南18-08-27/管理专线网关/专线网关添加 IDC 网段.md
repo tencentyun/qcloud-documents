@@ -21,7 +21,7 @@
 如果[ 创建专线网关](https://cloud.tencent.com/document/product/216/19256) 时没有指定具体的云联网实例，请单击【关联云联网】，在弹出的对话框中选择待关联的云联网实例，单击【确定】即可关联云联网。
 	![](https://main.qcloudimg.com/raw/bb42fe39d2749369dcb201a9cc03d3a4.png)
 5. 配置专线网关到云联网的 IDC 网段。
- - 手动填写（原静态模式，手动模式）。
+ - 自定义发布（原静态模式，手动填写）。
     1. （可选）在【发布规则】区域选择云联网实例。
     当前专线网关未配云联网或者更换云联网情况下可执行本步骤。
 		![](https://main.qcloudimg.com/raw/f50623ebd48351c081b5ea4ca7b21bde.png)
