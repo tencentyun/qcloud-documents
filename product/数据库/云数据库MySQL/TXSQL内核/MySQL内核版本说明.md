@@ -1,6 +1,25 @@
 本文为您介绍 MySQL 内核版本更新动态，如需升级，请参见 [升级内核小版本](https://cloud.tencent.com/document/product/236/45522)。
 
 ## MySQL 8.0
+### 20201230
+#### 新特性：
+- 合并官方 [8.0.19](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-19.html)、[8.0.20](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-20.html)、[8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)、[8.0.22](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-22.html) 变更。
+- 支持动态设置 thread_handling 线程模式或连接池模式。
+
+#### 性能优化：
+- 优化 BINLOG LOCK_done 锁冲突，提升写入性能。
+- 使用 Lock Free Hash 优化 trx_sys mutex 冲突，提升性能。
+- redo log 刷盘优化。
+- buffer pool 初始化时间优化。
+- 大表 drop table 清理 AHI 优化。
+- 审计性能优化。
+
+#### 官方 bug 修复：
+- 修复清理 innodb 临时表时造成的性能抖动问题。
+- 修复核数较多的实例 read only 性能下降的问题。
+- 修复 hash scan 导致1032问题。
+- 修复热点更新功能的并发安全问题。
+
 ### 20200630
 #### 新特性：
 - 支持异步删除大表：异步、缓慢地清理文件，进而避免因删除大表导致业务性能出现抖动情况，该功能需 [提交工单](https://console.cloud.tencent.com/workorder/category) 申请开通。

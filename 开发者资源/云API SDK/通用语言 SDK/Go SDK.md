@@ -70,7 +70,6 @@ package main
 
 import (
          "fmt"
-		 
          "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common"
          "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/errors"
          "github.com/tencentcloud/tencentcloud-sdk-go/tencentcloud/common/profile"

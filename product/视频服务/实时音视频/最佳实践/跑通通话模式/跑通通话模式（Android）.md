@@ -13,8 +13,8 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 ![](https://main.qcloudimg.com/raw/b88a624c0bd67d5d58db331b3d64c51c.gif)
 
 ## 示例代码
-您可以登录 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTCSimpleDemo) 获取本文档相关的示例代码。
-![](https://main.qcloudimg.com/raw/0f4db0e8f6046f69bdef9b041f3a2238.png)
+您可以登录 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/Android/TRTC-API-Example) 获取本文档相关的示例代码。
+![](https://main.qcloudimg.com/raw/cdef573133900a8dce22dcca5242fcfc.png)
 
 >?如果访问 Github 较慢，您也可以直接下载 [TXLiteAVSDK_TRTC_Android_latest.zip](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_Android_latest.zip)。
 
@@ -24,7 +24,7 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 您可以选择以下方式将 **TRTC SDK** 集成到项目中。
 #### 方式一：自动加载（aar）
 TRTC SDK 已发布到 jcenter 库，您可以通过配置 gradle 自动下载更新。
-您只需用 Android Studio 打开待集成 SDK 的工程（TRTCSimpleDemo 已完成集成，示例代码可以供您参考），然后通过简单的步骤修改`app/build.gradle`文件，即可完成 SDK 集成：
+您只需用 Android Studio 打开待集成 SDK 的工程（TRTC-API-Example 已完成集成，示例代码可以供您参考），然后通过简单的步骤修改`app/build.gradle`文件，即可完成 SDK 集成：
 
 1. 在 dependencies 中添加 TRTCSDK 的依赖。
 ```
@@ -140,6 +140,7 @@ public void onEnterRoom(long result) {
 >! 
 >- 如果进房失败，SDK 同时还会回调`onError`事件，并返回参数`errCode`（[错误码](https://cloud.tencent.com/document/product/647/38307)）、`errMsg`（错误原因）以及`extraInfo`（保留参数）。
 >- 如果已在某一个房间中，则必须先调用`exitRoom()`退出当前房间，才能进入下一个房间。
+>- 每个端在应用场景 appScene 上必须要进行统一，否则会出现一些不可预料的问题。
 
 [](id:step6)
 ### 步骤6：订阅远端的音视频流

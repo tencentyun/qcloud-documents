@@ -130,7 +130,7 @@ image/jpx                                       jpx jpf
 2. 检查账号是否配置正确。 
 3. 如果您使用 cp 命令进行拷贝，并且携带了 -p 或 -a 参数，建议您去掉该参数后执行该命令。
 
-确认以上配置正确，请打开机器 `/var/log/messages` 日志文件，找到 s3fs 相关的日志，日志可以帮助您定位问题原因。如果无法解决，请通过 [在线支持](https://cloud.tencent.com/online-service) 或 [提交工单](https://console.cloud.tencent.com/workorder/category) 联系我们，协助您解决问题。
+确认以上配置正确，请打开机器 `/var/log/messages` 日志文件，找到 s3fs 相关的日志，日志可以帮助您定位问题原因。如果无法解决，请 [联系我们](https://cloud.tencent.com/document/product/436/37708)，协助您解决问题。
 
 ### 使用 /etc/fstab 设定 COSFS 开机自动挂载，但是执行 mount -a, 却报错 "wrong fs type, bad option，bad superblock on cosfs"？
 该错误通常是由于您的机器上缺乏 fuse 库所致，建议您执行下列命令安装 fuse 库：

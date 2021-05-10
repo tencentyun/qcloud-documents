@@ -46,7 +46,7 @@
 <li>amd</li>
 <li>支持优先级顺序写法，如 “amd,intel” 表示优先创建 amd 资源 Pod，如果所选地域可用区 amd 资源不足，则会创建 intel 资源 Pod。</li>
 </ul>
-各型号支持的具体配置请参考 <a href="https://console.cloud.tencent.com/cvm/securitygroup" target="_blank">资源规格</a>。</td>
+各型号支持的具体配置请参考 <a href="https://cloud.tencent.com/document/product/457/39808" target="_blank">资源规格</a>。</td>
 <td>否。如果不填写则默认不强制指定 CPU 类型，会根据 <a href="https://cloud.tencent.com/document/product/457/44174" target="_blank">指定资源规格方法</a> 尽量匹配最合适的规格，若匹配到的规格 Intel 和 amd 均支持，则优先选择 Intel。</td>
 </tr>
 <tr>
@@ -61,7 +61,7 @@
 <li>T4</li>
 <li>支持优先级顺序写法，如 “T4,V100” 表示优先创建 T4 资源 Pod，如果所选地域可用区 T4 资源不足，则会创建 V100 资源 Pod。</li>
 </ul>
-各型号支持的具体配置请参考 <a href="https://console.cloud.tencent.com/cvm/securitygroup" target="_blank">资源规格</a>。</td>
+各型号支持的具体配置请参考 <a href="https://cloud.tencent.com/document/product/457/39808">资源规格</a>。</td>
 <td>如需 GPU，则此项为必填项。填写时，请确保为支持的 GPU 型号，否则会报错。</td>
 </tr>
 <tr>

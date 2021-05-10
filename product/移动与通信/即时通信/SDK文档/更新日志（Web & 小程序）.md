@@ -1,3 +1,17 @@
+### 2.10.2 @2021.4.27
+
+**新增**
+
+- 创建消息支持设置 `cloudCustomData`（自定义字段），满足更多样的业务需求。
+- [createGroup](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createGroup) 或 [addGroupMember](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#addGroupMember) 时，如果有用户超过了“单个用户可加入群的上限”，则通过 `overLimitUserIDList` 通知给接入侧。
+
+**修复**
+
+- 在 [控制台](https://console.cloud.tencent.com/im) 创建音视频聊天室（AVChatRoom）并指定群主，群主加入此群后，调用 [发送系统通知](https://cloud.tencent.com/document/product/269/1630) 的 REST API， 群主侧收到重复的群系统通知。
+- [createForwardMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#createForwardMessage) 昵称丢失。
+- [downloadMergerMessage](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#downloadMergerMessage) 偶现出错。
+
+
 ### 2.10.1 @2021.3.19
 
 **新增**

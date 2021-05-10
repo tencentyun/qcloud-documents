@@ -33,7 +33,7 @@ echo "/tmp/cores/core.%h.%e.%p.%t" > /proc/sys/kernel/core_pattern
 
 ### 创建存储桶
 
-登录 [对象存储控制台](https://console.cloud.tencent.com/cos5/bucket)，手动创建 COS 存储桶，用于存储容器 coredump 生成的 core 文件，本文以创建自定义名称为 coredump 的存储桶为例。具体操作步骤请参见 [创建存储桶](https://cloud.tencent.com/document/product/457/44232#.E5.88.9B.E5.BB.BA.E5.AD.98.E5.82.A8.E6.A1.B6.3Cspan-id.3D.22creatbucket.22.3E.3C.2Fspan.3E)。
+登录 [对象存储控制台](https://console.cloud.tencent.com/cos5/bucket)，手动创建 COS 存储桶，用于存储容器 coredump 生成的 core 文件，本文以创建自定义名称为 coredump 的存储桶为例。具体操作步骤请参见 [创建存储桶](https://cloud.tencent.com/document/product/457/44232#.E5.88.9B.E5.BB.BA.E5.AD.98.E5.82.A8.E6.A1.B6.3Ca-id.3D.22creatbucket.22.3E.3C.2Fa.3E)。
 
 ### 创建 Secret[](id:secret)
 可通过以下3种方式创建可以访问对象存储的 Secret，请按需选择：

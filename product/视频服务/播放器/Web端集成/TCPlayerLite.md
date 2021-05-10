@@ -144,7 +144,7 @@ style 支持的样式如下：
 #### 4.3 实现用例
 
 使用 cover 方式显示封面。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
-[视频封面](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-poster.html)
+[视频封面](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-poster.html)
 >!
 >- 在某些移动端设置封面会无效，具体说明请参见 [常见问题](https://cloud.tencent.com/document/product/881/20219)。
 >- 以上示例链接仅用于文档演示，请勿用于生产环境。
@@ -185,7 +185,7 @@ var player = new TcPlayer('id_test_video', {
 ```
 
 #### 5.3 实现用例
-使用多种分辨率的设置及切换功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：[分辨率切换](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-clarity.html)
+使用多种分辨率的设置及切换功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：[分辨率切换](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-clarity.html)
 正常情况将看到如下效果：
 ![](https://main.qcloudimg.com/raw/99c05e75f0d417df33942d18dad2f509.jpg)
 >!
@@ -213,7 +213,7 @@ var player = new TcPlayer('id_test_video', {
 视频播放失败，同时使用自定义提示文案的功能。线上示例如下，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
 
 ```
-https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-error.html
+https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
 ```
 >!以上示例链接仅用于文档演示，请勿用于生产环境。
 
@@ -240,7 +240,7 @@ https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-error.html
 
 ## 源码参考
 如下是一个线上示例代码，在 PC 浏览器中右键单击【查看页面源码】即可查看页面的代码实现：
-[播放示例](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer.html)
+[播放示例](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer.html)
 >!以上示例链接仅用于文档演示，请勿用于生产环境。
 
 ## 参数列表
@@ -266,7 +266,7 @@ https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-error.html
 | live            | Boolean  | false    | **必选**，设置视频是否为直播类型，将决定是否渲染时间轴等控件，以及区分点直播的处理逻辑。  <br> 示例：true  |
 | autoplay        | Boolean  | false    | 是否自动播放。<br>（**备注：该选项只对大部分 PC 平台生效**）  <br> 示例：true |
 | poster        | String / Object| 无 | 预览封面，可以传入一个图片地址或者一个包含图片地址 src 和显示样式 style 的对象。<br>style 可选属性：<br>- default 居中1：1显示。 <br>- stretch 拉伸铺满播放器区域，图片可能会变形。 <br>- cover 优先横向等比拉伸铺满播放器区域，图片某些部分可能无法显示在区域内。    <br> 示例： "`http://www.test.com/myimage.jpg`" 或者<br>{"style": "cover", "src": `http://www.test.com/myimage.jpg`}  [v2.3.0+]|
-| controls        | String   |"default" | default 显示默认控件，none 不显示控件，system 移动端显示系统控件。<br> （备注：如果需要在移动端使用系统全屏，就需要设置为 system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式，[在线示例](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-consoles.html)）  <br> 示例："system"|
+| controls        | String   |"default" | default 显示默认控件，none 不显示控件，system 移动端显示系统控件。<br> （备注：如果需要在移动端使用系统全屏，就需要设置为 system。默认全屏方案是使用 Fullscreen API + 伪全屏的方式，[在线示例](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-consoles.html) ）  <br> 示例："system"|
 | systemFullscreen| Boolean  |false     | 开启后，在不支持 Fullscreen API 的浏览器环境下，尝试使用浏览器提供的 webkitEnterFullScreen 方法进行全屏，如果支持，将进入系统全屏，控件为系统控件。  <br> 示例：true  |
 | flash           | Boolean  | true     | 是否优先使用 Flash 播放视频。<br>（**备注：该选项只对 PC 平台生效**[v2.2.0+]）  <br> 示例：true  |
 | flashUrl        | String   | 无       | 可以设置 flash swf url。 <br>（**备注：该选项只对 PC 平台生效** [v2.2.1+]）  |
@@ -370,7 +370,7 @@ volumechange
 | timeStamp | [Event](https://developer.mozilla.org/zh-CN/docs/Web/API/Event/timeStamp) 实例的时间戳。 |
 
 
-应用案例：通过事件监听，可以进行播放失败重连，[单击访问](https://web-player-1252463788.file.myqcloud.com/demo/tcplayer-reconnect.html) 在线案例。
+应用案例：通过事件监听，可以进行播放失败重连，[单击访问](https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-reconnect.html) 在线案例。
 
 ## 案例展示
 结合了 TcPlayer 和即时通信 IM 的腾讯云 Web 直播互动组件：[体验地址](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblivedemo/index.html)。
@@ -380,16 +380,14 @@ TCPlayerLite 在不断更新及完善中，下面是 TCPlayerLite 发布的主�
 
 | 日期       | 版本  | 更新内容                                                     |
 | :--------- | :---- | :----------------------------------------------------------- |
-| 2016.12.28 | 2.0.0 | 首个版本。                                                   |
-| 2017.03.04 | 2.1.0 | 至2017.06.30，经历数次的迭代开发，逐步趋于稳定，目前文档的功能描述中，如果没有特殊说明，皆基于此版本。 |
-| 2017.06.30 | 2.2.0 | 1. 增加控制播放环境判断的参数： Flash、h5_flv、x5_player。 <br />2. 调整播放器初始化逻辑，优化错误提示效果。<br />3. 增加 flv.js 支持，在符合条件的情况下可以采用 flv.js 播放 FLV。 <br />4. 支持 x5-video-orientation 属性。 <br />5. 增加播放环境判断逻辑，可通过参数调整 H5 与 Flash 的优先级，以及是否启用 TBS 播放。 <br />6. 启用版本号发布方式，避免影响旧版本的使用者。<br />7. 优化事件触发的时间戳，统一为标准时间。<br />8. Bug 修复。 |
-| 2017.12.07 | 2.2.1 | 1. 增加 systemFullscreen 参数。<br />2. 增加 flashUrl 参数。 <br />3. 修复音量 Max 后进行静音切换的 UI 问题。 <br />4. 修复 iOS 11 微信下需要单击两次才能播放的问题。<br />5. 修复 safari 11 系统样式被遮挡的问题。 <br />6. 适配在 x5 内核会触发 seeking，但不会触发 seeked 的情况。 <br />7. 修复进度条拖拽到起始位置，设置 currentTime 失败的问题。 <br />8. 切换清晰度保持音量不变。 <br />9. 修复页面宽度为0，播放器宽度判断失败问题。 <br />10. destroy 方法增加完全销毁播放器节点。 |
-| 2017.12.20 | 2.2.1 | 1. 增加可配置清晰度文案功能。 <br />2.设置默认清晰度。 <br />3. 支持切换清晰度方法。 |
-| 2018.05.03 | 2.2.2 | 1. 优化 loading 组件。 <br />2. 优化 Flash destroy 方法。 <br />3. 默认使用 H5 播放。 <br />4.修复已知问题。 |
-| 2018.12.17 | 2.2.3 | 1. 优化播放逻辑。 <br />2. 解决 iOS 微信没有播放事件触发的情况下，出现 loading 动画的问题。 <br />3. 修复其他已知问题。 |
-| 2019.04.19 | 2.3.0 | 1. 增加部分功能参数选项。 <br />2. 参数 coverpic 改为 poster。 <br />3. destroy 销毁 flv.js 实例。<br />4. 修复其他已知问题。 |
-| 2019.04.26 | 2.3.1 | 1. 增加 fivConfig 参数。 <br />2. 默认加载 flv.1.5.js。 <br />3. 修复其他已知问题。 |
+| 2020.07.01  | 2.3.3 | 1. 修复 X5 环境下切换全屏时，事件派发异常的问题。 <br />2. 规避 hls 切换源时，相关事件触发时机很慢，导致封面显示异常的问题。 |
 | 2019.08.20 | 2.3.2 | 1. 修改默认 hls 版本为0.12.4。 <br />2. 修复其他已知问题。   |
-| 2020.07.1  | 2.3.3 | 1. 修复 X5 环境下切换全屏时，事件派发异常的问题。 <br />2. 规避 hls 切换源时，相关事件触发时机很慢，导致封面显示异常的问题。 |
-
-
+| 2019.04.26 | 2.3.1 | 1. 增加 fivConfig 参数。 <br />2. 默认加载 flv.1.5.js。 <br />3. 修复其他已知问题。 |
+| 2019.04.19 | 2.3.0 | 1. 增加部分功能参数选项。 <br />2. 参数 coverpic 改为 poster。 <br />3. destroy 销毁 flv.js 实例。<br />4. 修复其他已知问题。 |
+| 2018.12.17 | 2.2.3 | 1. 优化播放逻辑。 <br />2. 解决 iOS 微信没有播放事件触发的情况下，出现 loading 动画的问题。 <br />3. 修复其他已知问题。 |
+| 2018.05.03 | 2.2.2 | 1. 优化 loading 组件。 <br />2. 优化 Flash destroy 方法。 <br />3. 默认使用 H5 播放。 <br />4.修复已知问题。 |
+| 2017.12.20 | 2.2.1 | 1. 增加可配置清晰度文案功能。 <br />2.设置默认清晰度。 <br />3. 支持切换清晰度方法。 |
+| 2017.12.07 | 2.2.1 | 1. 增加 systemFullscreen 参数。<br />2. 增加 flashUrl 参数。 <br />3. 修复音量 Max 后进行静音切换的 UI 问题。 <br />4. 修复 iOS 11 微信下需要单击两次才能播放的问题。<br />5. 修复 safari 11 系统样式被遮挡的问题。 <br />6. 适配在 x5 内核会触发 seeking，但不会触发 seeked 的情况。 <br />7. 修复进度条拖拽到起始位置，设置 currentTime 失败的问题。 <br />8. 切换清晰度保持音量不变。 <br />9. 修复页面宽度为0，播放器宽度判断失败问题。 <br />10. destroy 方法增加完全销毁播放器节点。 |
+| 2017.06.30 | 2.2.0 | 1. 增加控制播放环境判断的参数： Flash、h5_flv、x5_player。 <br />2. 调整播放器初始化逻辑，优化错误提示效果。<br />3. 增加 flv.js 支持，在符合条件的情况下可以采用 flv.js 播放 FLV。 <br />4. 支持 x5-video-orientation 属性。 <br />5. 增加播放环境判断逻辑，可通过参数调整 H5 与 Flash 的优先级，以及是否启用 TBS 播放。 <br />6. 启用版本号发布方式，避免影响旧版本的使用者。<br />7. 优化事件触发的时间戳，统一为标准时间。<br />8. Bug 修复。 |
+| 2017.03.04 | 2.1.0 | 至2017.06.30，经历数次的迭代开发，逐步趋于稳定，目前文档的功能描述中，如果没有特殊说明，皆基于此版本。 |
+| 2016.12.28 | 2.0.0 | 首个版本。                                                   |

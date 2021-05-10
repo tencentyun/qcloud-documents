@@ -131,7 +131,7 @@ namespace TencentCloudExamples
             
                 // 通过 client 对象调用 AddSmsTemplate 方法发起请求，注意请求方法名与请求对象是对应的
                 // 返回的 resp 是一个 AddSmsTemplateResponse 类的实例，与请求对象对应
-                AddSmsTemplateResponse resp = client.AddSmsTemplate(req);
+                AddSmsTemplateResponse resp = client.AddSmsTemplateSync(req);
 
                 // 输出 JSON 格式的字符串回包
                 Console.WriteLine(AbstractModel.ToJsonString(resp));
@@ -241,7 +241,7 @@ namespace TencentCloudExamples
 
                 // 通过 client 对象调用 SendSms 方法发起请求，注意请求方法名与请求对象是对应的
                 // 返回的 resp 是一个 SendSmsResponse 类的实例，与请求对象对应
-                SendSmsResponse resp = client.SendSms(req);
+                SendSmsResponse resp = client.SendSmsSync(req);
 
                 // 输出 JSON 格式的字符串回包
                 Console.WriteLine(AbstractModel.ToJsonString(resp));
@@ -338,7 +338,7 @@ namespace TencentCloudExamples
 
                 // 通过 client 对象调用 PullSmsSendStatus 方法发起请求，注意请求方法名与请求对象是对应的
                 // 返回的 resp 是一个 PullSmsSendStatusResponse 类的实例，与请求对象对应
-                PullSmsSendStatusResponse resp = client.PullSmsSendStatus(req);
+                PullSmsSendStatusResponse resp = client.PullSmsSendStatusSync(req);
 
                 // 输出 JSON 格式的字符串回包
                 Console.WriteLine(AbstractModel.ToJsonString(resp));
@@ -440,7 +440,7 @@ namespace TencentCloudExamples
 
                 // 通过 client 对象调用 SendStatusStatistics 方法发起请求，注意请求方法名与请求对象是对应的
                 // 返回的 resp 是一个 SendStatusStatisticsResponse 类的实例，与请求对象对应
-                SendStatusStatisticsResponse resp = client.SendStatusStatistics(req);
+                SendStatusStatisticsResponse resp = client.SendStatusStatisticsSync(req);
 
                 // 输出 JSON 格式的字符串回包
                 Console.WriteLine(AbstractModel.ToJsonString(resp));

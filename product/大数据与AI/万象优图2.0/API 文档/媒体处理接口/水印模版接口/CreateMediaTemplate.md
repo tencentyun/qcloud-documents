@@ -108,8 +108,8 @@ Container 类型 Image 的具体数据描述如下：
 | ------------------  | ------- | -------------------------------------------------------- | --------- | ---- |---| ---- |
 | Url                 | Request.Watermark.<br/>Image | 水印图地址(需要 Urlencode 后传入)   | String    | 是   | 无  | 同 bucket 的水印图片地址 |
 | Mode                 | Request.Watermark.<br/>Image | 尺寸模式    | String    | 是   | 无   | 1. Original：原有尺寸 <br/>  2. Proportion：按比例 <br/> 3. Fixed：固定大小 |
-| Width                | Request.Watermark.<br/>Image | 宽         | String    | 否   | 无   | 1. 当 Mode 为 Original，水印图宽 <br/> 2. 当 Mode 为 Proportion，单位为%，背景图值范围：[100 300]；前景图值范围：[1 100]，相对于视频宽，最大不超过4096px<br/> 3. 当 Mode 为 Fixed，单位为 px，值范围：[8，4096]<br/> 4.若只设置 Width 时，按照水印图比例计算 Height<br/> |
-| Height               | Request.Watermark.<br/>Image | 高         | String    | 否   | 无   | 1. 当 Mode 为 Original，水印图高 <br/> 2. 当 Mode 为 Proportion，单位为%，背景图值范围：[100 300]；前景图值范围：[1 100]，相对于视频高，最大不超过4096px<br/> 3. 当 Mode 为 Fixed，单位为 px，值范围：[8，4096]<br/> 4.若只设置 Height 时，按照水印图比例计算 Width<br/>|
+| Width                | Request.Watermark.<br/>Image | 宽         | String    | 否   | 无   | 1. 当 Mode 为 Original 时，不支持设置水印图宽度 <br/> 2. 当 Mode 为 Proportion，单位为%，背景图值范围：[100 300]；前景图值范围：[1 100]，相对于视频宽，最大不超过4096px<br/> 3. 当 Mode 为 Fixed，单位为 px，值范围：[8，4096]<br/> 4.若只设置 Width 时，按照水印图比例计算 Height<br/> |
+| Height               | Request.Watermark.<br/>Image | 高         | String    | 否   | 无   | 1. 当 Mode 为 Original 时，不支持设置水印图高度 <br/> 2. 当 Mode 为 Proportion，单位为%，背景图值范围：[100 300]；前景图值范围：[1 100]，相对于视频高，最大不超过4096px<br/> 3. 当 Mode 为 Fixed，单位为 px，值范围：[8，4096]<br/> 4.若只设置 Height 时，按照水印图比例计算 Width<br/>|
 | Transparency         | Request.Watermark.<br/>Image | 透明度      | String    | 是   | 无   | 值范围：[1 100]，单位% |
 | Background           | Request.Watermark.<br/>Image | 是否背景图   | String    | 否   | false   | true、false |
 

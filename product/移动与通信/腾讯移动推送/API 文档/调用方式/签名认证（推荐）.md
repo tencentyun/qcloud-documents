@@ -20,7 +20,7 @@
 1. 通过请求时间戳 + AccessId + 请求 body 进行字符拼接，得到原始的待签名字符串：
 `待签名字符串 = ${TimeStamp} + ${AccessId} + ${请求body}`
 2. 通过 SecretKey 作为密钥，对原始待签名字符串进行签名，生成得到签名：
-`Sign = Base64(HMAC_SHA256(待签名字符串, SecretKey))`
+`Sign = Base64(HMAC_SHA256(SecretKey, 待签名字符串))`
 
 ## HTTP 协议拼装方式
 
@@ -51,7 +51,7 @@ Sign: Y2QyMDc3NDY4MmJmNzhiZmRiNDNlMTdkMWQ1ZDU2YjNlNWI3ODlhMTY3MGZjMTUyN2VmNTRjNj
 ```
 2. 根据密钥通过 HMAC-SHA256 算法，生成十六进制 hash，其中示例对应 `secretKey =1452fcebae9f3115ba794fb0fff2fd73`。
 ```
-hashcode= hmac-sha256(待签名字符串， secretKey)
+hashcode= hmac-sha256(SecretKey, 待签名字符串)
 得到 hashcode="cd20774682bf78bfdb43e17d1d5d56b3e5b789a1670fc1527ef54c65d2d7b76d"
 ```
 3. 对 hashcode 进行 base64 编码，得到签名串如下：

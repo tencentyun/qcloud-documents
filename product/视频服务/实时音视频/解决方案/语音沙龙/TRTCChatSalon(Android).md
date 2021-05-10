@@ -1,8 +1,8 @@
 TRTCChatSalon 是基于腾讯云实时音视频（TRTC）和即时通信 IM 服务组合而成的组件，支持以下功能：
 
-- 主播创建新的语音沙龙开播，观众进入语音沙龙收听/互动。
-- 主播可以邀请观众上麦、将座位上的麦上主播踢下麦。
-- 观众可以申请上麦，变成麦上主播，可以和其他人语音互动，也可以随时下麦成为普通的观众。
+- 房主创建新的语音沙龙开播，听众进入语音沙龙收听/互动。
+- 房主可以邀请听众上麦、将座位上的麦上主播踢下麦。
+- 听众可以申请上麦，变成麦上主播，可以和其他人语音互动，也可以随时下麦成为普通的听众。
 - 支持发送各种文本消息和自定义消息，自定义消息可用于实现弹幕、点赞和礼物等。
 
 TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，具体的实现过程请参见 [语音沙龙（Android）](https://cloud.tencent.com/document/product/647/53537)。
@@ -30,10 +30,10 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                                 | 描述                                                         |
 | ----------------------------------- | ------------------------------------------------------------ |
-| [createRoom](#createroom)           | 创建房间（主播调用），若房间不存在，系统将自动创建一个新房间。 |
-| [destroyRoom](#destroyroom)         | 销毁房间（主播调用）。                                       |
-| [enterRoom](#enterroom)             | 进入房间（观众调用）。                                       |
-| [exitRoom](#exitroom)               | 离开房间（观众调用）。                                       |
+| [createRoom](#createroom)           | 创建房间（房主调用），若房间不存在，系统将自动创建一个新房间。 |
+| [destroyRoom](#destroyroom)         | 销毁房间（房主调用）。                                       |
+| [enterRoom](#enterroom)             | 进入房间（听众调用）。                                       |
+| [exitRoom](#exitroom)               | 退出房间（听众调用）。                                       |
 | [getRoomInfoList](#getroominfolist) | 获取房间列表的详细信息。                                     |
 | [getUserInfoList](#getuserinfolist) | 获取指定 userId 的用户信息，如果为 null，则获取房间内所有人的信息。 |
 
@@ -41,10 +41,10 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                     | 描述                               |
 | ----------------------- | ---------------------------------- |
-| [enterSeat](#enterseat) | 主动上麦（观众端和主播均可调用）。 |
-| [leaveSeat](#leaveseat) | 主动下麦（观众端和主播均可调用）。 |
-| [pickSeat](#pickseat)   | 抱人上麦（主播调用）。             |
-| [kickSeat](#kickseat)   | 踢人下麦（主播调用）。             |
+| [enterSeat](#enterseat) | 主动上麦（听众端和房主均可调用）。 |
+| [leaveSeat](#leaveseat) | 主动下麦（主播调用）。 |
+| [pickSeat](#pickseat)   | 抱人上麦（房主调用）。             |
+| [kickSeat](#kickseat)   | 踢人下麦（房主调用）。             |
 
 ### 本地音频操作接口
 
@@ -111,16 +111,16 @@ TRTCChatSalon 是一个开源的 Class，依赖腾讯云的两个闭源 SDK，�
 
 | API                                            | 描述                                   |
 | ---------------------------------------------- | -------------------------------------- |
-| [onAnchorEnterSeat](#onanchorenterseat)        | 有成员上麦（主动上麦/主播抱人上麦）。  |
-| [onAnchorLeaveSeat](#onanchorleaveseat)        | 有成员下麦（主动下麦/主播踢人下麦）。  |
-| [onSeatMute](#onseatmute)                      | 主播禁麦。                             |
+| [onAnchorEnterSeat](#onanchorenterseat)        | 有成员上麦（主动上麦/房主抱人上麦）。  |
+| [onAnchorLeaveSeat](#onanchorleaveseat)        | 有成员下麦（主动下麦/房主踢人下麦）。  |
+| [onSeatMute](#onseatmute)                      | 房主禁麦。                             |
 
-### 观众进出事件回调
+### 听众进出事件回调
 
 | API                                 | 描述               |
 | ----------------------------------- | ------------------ |
-| [onAudienceEnter](#onaudienceenter) | 收到观众进房通知。 |
-| [onAudienceExit](#onaudienceexit)   | 收到观众退房通知。 |
+| [onAudienceEnter](#onaudienceenter) | 收到听众进房通知。 |
+| [onAudienceExit](#onaudienceexit)   | 收到听众退房通知。 |
 
 ### 消息事件回调
 
@@ -249,7 +249,7 @@ public abstract void setSelfProfile(String userName, String avatarURL, TRTCChatS
 
 ### createRoom
 
-创建房间（主播调用）。
+创建房间（房主调用）。
 
 ```java
 public abstract void createRoom(int roomId, TRTCChatSalonDef.RoomParam roomParam, TRTCChatSalonCallback.ActionCallback callback);
@@ -263,17 +263,17 @@ public abstract void createRoom(int roomId, TRTCChatSalonDef.RoomParam roomParam
 | roomParam | RoomParam      | 房间信息，用于房间描述的信息。例如房间名称、麦位信息、封面信息等。 |
 | callback  | ActionCallback | 创建房间的结果回调，成功时 code 为0。                        |
 
-主播开播的正常调用流程如下： 
+房主开播的正常调用流程如下： 
 
-1. 主播调用`createRoom`创建新的语音沙龙，此时传入房间 ID、上麦是否需要房主确认等房间属性信息。
-2. 主播创建房间成功后，调用`enterSeat`进入座位。
-3. 主播还会收到麦位表有成员进入的`onAnchorEnterSeat`的事件通知，此时会自动打开麦克风采集。
+1. 房主调用`createRoom`创建新的语音沙龙，此时传入房间 ID、上麦是否需要房主确认等房间属性信息。
+2. 房主创建房间成功后，调用`enterSeat`进入座位。
+3. 房主还会收到麦位表有成员进入的`onAnchorEnterSeat`的事件通知，此时会自动打开麦克风采集。
 
    
 
 ### destroyRoom
 
-销毁房间（主播调用）。主播在创建房间后，可以调用这个函数来销毁房间。
+销毁房间（房主调用）。房主在创建房间后，可以调用这个函数来销毁房间。
 
 ```java
 public abstract void destroyRoom(TRTCChatSalonCallback.ActionCallback callback);
@@ -288,7 +288,7 @@ public abstract void destroyRoom(TRTCChatSalonCallback.ActionCallback callback);
 
 ### enterRoom
 
-进入房间（观众调用）。
+进入房间（听众调用）。
 
 ```java
 public abstract void enterRoom(int roomId, TRTCChatSalonCallback.ActionCallback callback);
@@ -302,16 +302,16 @@ public abstract void enterRoom(int roomId, TRTCChatSalonCallback.ActionCallback 
 | callback | ActionCallback | 进入房间的结果回调，成功时 code 为0。 |
 
 
-观众进房收听的正常调用流程如下： 
+听众进房收听的正常调用流程如下： 
 
-1. 观众向您的服务端获取最新的语音沙龙列表，可能包含多个语音沙龙房间的 roomId 和房间信息。
-2. 观众选择一个语音沙龙，调用`enterRoom`并传入房间号即可进入该房间。
-3. 进房后会收到组件的`onRoomInfoChange`房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求主播同意等。
+1. 听众向您的服务端获取最新的语音沙龙列表，可能包含多个语音沙龙房间的 roomId 和房间信息。
+2. 听众选择一个语音沙龙，调用`enterRoom`并传入房间号即可进入该房间。
+3. 进房后会收到组件的`onRoomInfoChange`房间属性变化事件通知，此时可以记录房间属性并做相应改变，例如 UI 展示房间名、记录上麦是否需要请求房主同意等。
 4. 进房后还会收到麦位表有主播进入的`onAnchorEnterSeat`的事件通知。
 
 ### exitRoom
 
-离开房间。
+退出房间。
 
 ```java
 public abstract void exitRoom(TRTCChatSalonCallback.ActionCallback callback);
@@ -327,7 +327,7 @@ public abstract void exitRoom(TRTCChatSalonCallback.ActionCallback callback);
 
 ### getRoomInfoList
 
-获取房间列表的详细信息，其中房间名称、房间封面是主播在创建 `createRoom()` 时通过 roomInfo 设置的。
+获取房间列表的详细信息，其中房间名称、房间封面是房主在创建 `createRoom()` 时通过 roomInfo 设置的。
 
 >?如果房间列表和房间信息都由您自行管理，可忽略该函数。
 
@@ -364,7 +364,7 @@ public abstract void getUserInfoList(List<String> userIdList, TRTCChatSalonCallb
 
 ### enterSeat
 
-主动上麦（观众端和主播均可调用）。
+主动上麦（听众端和房主均可调用）。
 
 >?上麦成功后，房间内所有成员会收到`onAnchorEnterSeat`的事件通知。
 
@@ -378,11 +378,11 @@ public abstract void enterSeat(TRTCChatSalonCallback.ActionCallback callback);
 | -------- | -------------- | ---------- |
 | callback | ActionCallback | 操作回调。 |
 
-调用该接口会立即修改麦位表。如果是观众需要主播申请的场景，可以先调用 `sendInvitation` 向主播申请，收到 `onInvitationAccept`后再调用该函数。
+调用该接口会立即修改麦位表。如果是听众申请上麦需要房主同意的场景，可以先调用 `sendInvitation` 向房主申请，收到 `onInvitationAccept`后再调用该函数。
 
 ### leaveSeat
 
-主动下麦（观众端和主播均可调用）。
+主动下麦（主播调用）。
 
 >? 下麦成功后，房间内所有成员会收到`onAnchorLeaveSeat`的事件通知。
 
@@ -398,9 +398,9 @@ public abstract void leaveSeat(TRTCChatSalonCallback.ActionCallback callback);
 
 ### pickSeat
 
-抱人上麦（主播调用）。
+抱人上麦（房主调用）。
 
->? 主播抱人上麦，房间内所有成员会收到`onAnchorEnterSeat`的事件通知。
+>? 房主抱人上麦，房间内所有成员会收到`onAnchorEnterSeat`的事件通知。
 
 ```java
 public abstract void pickSeat(String userId, TRTCChatSalonCallback.ActionCallback callback);
@@ -413,14 +413,14 @@ public abstract void pickSeat(String userId, TRTCChatSalonCallback.ActionCallbac
 | userId   | String         | 用户 ID。  |
 | callback | ActionCallback | 操作回调。 |
 
-调用该接口会立即修改麦位表。如果是主播需要观众同意才能上麦的场景，可以先调用 `sendInvitation` 向观众申请，收到 `onInvitationAccept`后再调用该函数。
+调用该接口会立即修改麦位表。如果是房主需要听众同意，听众才会上麦的场景，可以先调用 `sendInvitation` 向听众申请，收到 `onInvitationAccept`后再调用该函数。
 
 
 ### kickSeat
 
-踢人下麦（主播调用）。
+踢人下麦（房主调用）。
 
->? 主播踢人下麦，房间内所有成员会收到`onAnchorLeaveSeat`的事件通知。
+>? 房主踢人下麦，房间内所有成员会收到`onAnchorLeaveSeat`的事件通知。
 
 ```java
 public abstract void kickSeat(String userId, TRTCChatSalonCallback.ActionCallback callback);
@@ -433,7 +433,7 @@ public abstract void kickSeat(String userId, TRTCChatSalonCallback.ActionCallbac
 | userId   | String         | 需要踢下麦的用户id。 |
 | callback | ActionCallback | 操作回调。           |
 
-调用该接口会立即修改麦位表。如果是主播需要观众同意才能上麦的场景，可以先调用 `sendInvitation` 向观众申请，收到 `onInvitationAccept`后再调用该函数。
+调用该接口会立即修改麦位表。
 
 
 ## 本地音频操作接口
@@ -680,7 +680,8 @@ public abstract void cancelInvitation(String id, TRTCChatSalonCallback.ActionCal
 | id       | String         | 邀请 ID。      |
 | callback | ActionCallback | 发送结果回调。 |
 
-## TRTCChatSalonDelegate事件回调
+[](id:TRTCChatSalonDelegate)
+## TRTCChatSalonDelegate 事件回调
 
 ## 通用事件回调
 
@@ -740,7 +741,7 @@ void onDebugLog(String message);
 
 ### onRoomDestroy
 
-房间被销毁的回调。主播解散房间时，房间内的所有用户都会收到此通知。
+房间被销毁的回调。房主解散房间时，房间内的所有用户都会收到此通知。
 
 ```java
 void onRoomDestroy(String roomId);
@@ -755,7 +756,7 @@ void onRoomDestroy(String roomId);
 
 ### onRoomInfoChange
 
-进房成功后会回调该接口，roomInfo 中的信息在创建房间。
+进房成功后会回调该接口，roomInfo 中的信息在房主创建房间的时候传入。
 
 ```java
 void onRoomInfoChange(TRTCChatSalonDef.RoomInfo roomInfo);
@@ -790,7 +791,7 @@ void onUserVolumeUpdate(String userId, int volume);
 
 ### onAnchorEnterSeat
 
-有成员上麦(主动上麦/主播抱人上麦)。
+有成员上麦(主动上麦/房主抱人上麦)。
 
 ```java
 void onAnchorEnterSeat(TRTCChatSalonDef.UserInfo user);
@@ -804,7 +805,7 @@ void onAnchorEnterSeat(TRTCChatSalonDef.UserInfo user);
 
 ### onAnchorLeaveSeat
 
-有成员下麦(主动下麦/主播踢人下麦)。
+有成员下麦(主动下麦/房主踢人下麦)。
 
 ```java
 void onAnchorLeaveSeat(TRTCChatSalonDef.UserInfo user);
@@ -819,7 +820,7 @@ void onAnchorLeaveSeat(TRTCChatSalonDef.UserInfo user);
 
 ### onSeatMute
 
-主播禁麦。
+房主禁麦。
 
 ```java
 void onSeatMute(String userId, boolean isMute);
@@ -834,11 +835,11 @@ void onSeatMute(String userId, boolean isMute);
 
 
 
-## 观众进出事件回调
+## 听众进出事件回调
 
 ### onAudienceEnter
 
-收到观众进房通知。
+收到听众进房通知。
 
 ```java
 void onAudienceEnter(TRTCChatSalonDef.UserInfo userInfo);
@@ -848,11 +849,11 @@ void onAudienceEnter(TRTCChatSalonDef.UserInfo userInfo);
 
 | 参数     | 类型     | 含义           |
 | -------- | -------- | -------------- |
-| userInfo | UserInfo | 进房观众信息。 |
+| userInfo | UserInfo | 进房听众信息。 |
 
 ### onAudienceExit
 
-收到观众退房通知。
+收到听众退房通知。
 
 ```java
 void onAudienceExit(TRTCChatSalonDef.UserInfo userInfo);
@@ -862,7 +863,7 @@ void onAudienceExit(TRTCChatSalonDef.UserInfo userInfo);
 
 | 参数     | 类型     | 含义           |
 | -------- | -------- | -------------- |
-| userInfo | UserInfo | 退房观众信息。 |
+| userInfo | UserInfo | 退房听众信息。 |
 
    
 

@@ -1,0 +1,55 @@
+## 背景
+Lucene 当前针对 Document Fields 数据的存储，支持两种压缩算法：
+- LZ4 
+- Deflate
+
+LZ4 具有更快的压缩与解压速度，而 Deflate 在压缩率上更占优势。两者在性能与压缩率上存在明显的差异，基于现有的压缩算法，用户不能很好的兼容压缩比和性能，Lucene 默认的压缩算法是 LZ4。
+
+## 优化方案
+整合业内先进的压缩算法 Zstandard（ZSTD），提升压缩率的同时，性能损耗小。
+
+### Zstandard 压缩算法的优势
+Zstandard 压缩算法可以说**兼顾了 LZ4 与 Deflate 两者的优点：**在性能上与 LZ4 相当（针对日志数据的测试中，发现 Zstandard 算法比 LZ4 略优），而压缩率略弱于 Deflate。
+
+如下是关于三种压缩算法的对比测试结果：
+
+| **压缩算法**         | **加载时间(1 Shard)** | **加载时间(5 Shards)** | **Fields(\*fdt)文件大小** | **索引总大小** |
+| -------------------- | --------------------- | ---------------------- | ------------------------- | -------------- |
+| LZ4                  | 1143769ms             | 420447ms               | 4.15 GB                   | 6.3 GB         |
+| Deflate              | 1270408ms             | 448738ms               | 2.56 GB                   | 4.7 GB         |
+| Zstandard(16K Chunk) | 1109414ms             | 415256ms               | 2.93 GB                   | 5.1 GB         |
+| Zstandard(32K Chunk) | 1088959ms             | 406661ms               | 2.67 GB                   | 4.8 GB         |
+
+>!
+1. 测试数据：基于某典型日志应用类数据。
+2. 测试方法：基于 Elasticsearch Rest High Level Client API。
+
+## 使用方式
+### 基于 Rest High Level Client API
+在创建 Index 时，为 CreateIndexRequest 添加"index.codec"配置项，value 设置为"zstandard"：
+```
+CreateIndexRequest createRequest = new CreateIndexRequest(indexName);
+ createRequest.settings(Settings.builder()
+   .put("index.number_of_shards", shards)
+   .put("index.number_of_replicas", replicas)
+   .put("index.codec", "zstandard")
+ );
+```
+
+### 基于 HTTP 请求
+类似的，也在 settings 中添加"index.codec"配置项，并将 value 设置为"zstandard"：
+```
+PUT /newIndex 
+{
+   "settings": {
+     "**index.codec**": "**zstandard**",
+     "index.number_of_shards": 1
+   }
+} 
+```
+
+## 优化效果
+ZSTD 行存压缩率相较 LZ4 提升35%，性能和 LZ4 相当。
+
+## 支持版本
+ 6.8.2、7.5.1、7.10.1
