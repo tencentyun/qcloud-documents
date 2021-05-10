@@ -292,7 +292,7 @@ TRTC SDK 6.6 版本（2019年08月）开始启用新的签名算法 HMAC-SHA256�
 
 参考资料：
 
-- [TWebLive 接口手册](https://webim-1252463788.cos.ap-shanghai.myqcloud.com/tweblive/TWebLive.html)
+- [TWebLive 接口手册](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html#/)
 - [在线 Demo](https://web.sdk.qcloud.com/component/tweblive/demo/latest/index.html#/)
 
 ## 相关文档
