@@ -58,7 +58,6 @@ pod install
 ### 步骤3：初始化 SDK 实例并监听事件回调
 
 1. 使用 [sharedInstance()](https://cloud.tencent.com/document/product/647/32258) 接口创建`TRTCCloud`实例。
-
 <dx-codeblock>
 ::: iOS object-c
 // 创建 trtcCloud 实例
@@ -66,9 +65,7 @@ _trtcCloud = [TRTCCloud sharedInstance];
 _trtcCloud.delegate = self;
 :::
 </dx-codeblock>
-
 2. 设置`delegate`属性注册事件回调，并监听相关事件和错误通知。
-
 <dx-codeblock>
 ::: iOS object-c
 // 错误通知是要监听的，需要捕获并通知用户
