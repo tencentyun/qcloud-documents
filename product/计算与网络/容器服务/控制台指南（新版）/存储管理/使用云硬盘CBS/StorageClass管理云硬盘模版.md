@@ -131,7 +131,7 @@ parameters:
 
 使用云硬盘创建多实例 StatefulSet，YAML 文件示例如下：
 <dx-alert infotype="explain" title="">
-您可通过 `kubectl api-versions` 命令查看当前资源对象的 apiVersion。
+资源对象的 apiVersion 可能因为您集群的 Kubernetes 版本不同而不同，您可通过 `kubectl api-versions` 命令查看当前资源对象的 apiVersion。
 </dx-alert>
 ``` yaml
 apiVersion: apps/v1
