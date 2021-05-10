@@ -1,4 +1,4 @@
-Dataway 使用 Entity 类型可支持多种不同的数据类型，例如：json、csv、xml等。在 Entity.from_value 或 Entity.from_bytes 函数中指定对应的 mime_type 和 encoding 值, 可以得到一个封装不同数据类型的 Entity 对象。通过使用 Entity 选择器，可以读取解析后的结构数据。
+Dataway 使用 Entity 类型可支持多种不同的数据类型，例如：json、csv、xml 等。在 Entity.from_value 或 Entity.from_bytes 函数中指定对应的 mime_type 和 encoding 值，可以得到一个封装不同数据类型的 Entity 对象。通过使用 Entity 选择器，可以读取解析后的结构数据。
 
 不同的 mime_type 在 Entity 中有不同的数据格式，对应关系如下：
 
@@ -59,7 +59,7 @@ DataWay 的脚本输出为一个 dict, 其结果如下：
     "other": "other_default"
 }
 ```
-### 复杂的 JSON 结构使用
+### JSON 结构使用
 本示例将对复杂的 JSON 结构进行解析，并运行在 Set-Payload 组件中。
 #### 输入
 Dataway 的运行环境依赖于组件的运行，假定在 Set-Payload 组件前已经有一个 Transform 组件，对流的运行消息 msg 的 payload 进行设置。msg.payload 为一个 Entity 类型对象，内部结构如下：
@@ -515,7 +515,7 @@ Content-Type: text/plain
 ```
 ## <span id='other-format'></span> 其他类型
 对其他类型的 mime_type，Dataway 不支持直接用 Entity.from_value 函数构造，但支持从上游读取数据，以及使用 Entity.from_bytes 函数构造一个封装的 Entity。
-下面将通过一个示例来说明，假设输入数据为一个二进制 byte 流，我们通过 Set Payload 组件中使用 Dataway 表达式将该二进制 byte 流封装到 msg.payload 中，然后在下游可以使用 [Entity 选择器](#selectors) 语法进行操作。
+下面将通过一个示例来说明，假设输入数据为一个二进制 byte 流，我们通过 Set Payload 组件中使用 Dataway 表达式将该二进制 byte 流封装到 msg.payload 中，然后在下游可以使用 [Entity 选择器](https://cloud.tencent.com/document/product/1270/55573) 语法进行操作。
 **Dataway 表达式**
 ```pythonn
 def dw_process(msg):
