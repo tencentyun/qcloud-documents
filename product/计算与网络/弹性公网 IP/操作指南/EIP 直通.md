@@ -72,7 +72,7 @@ Windows 脚本针对的场景为：主网卡走外网流量，辅助网卡走内
 1. 使用 [ VNC 登录的方式](https://cloud.tencent.com/document/product/213/35704) 登录需要 EIP 直通的云服务器。
 2. 在云服务器的浏览器中打开如下链接下载 EIP 直通脚本。
 ```plaintext
-https://windows-1254277469.cos.ap-guangzhou.myqcloud.com/eip_windows_direct.bat
+https://eip-public-read-1255852779.cos.ap-guangzhou.myqcloud.com/eip_windows_direct.bat
 ```
 
 ### 步骤二：配置辅助网卡
