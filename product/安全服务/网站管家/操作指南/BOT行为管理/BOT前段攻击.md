@@ -17,7 +17,7 @@
 ## 操作步骤
 ### 步骤1：进入前端对抗设置页面
 1. 登录 [Web 应用防火墙（WAF）控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏中，选择【BOT 行为管理】>【防护设置】，单击“防护域名”进入防护设置页面。
-![](https://main.qcloudimg.com/raw/d1e6b70346c3a8e30767d09995c4a801.png)
+ ![](https://main.qcloudimg.com/raw/fb2cd4593d6740e41ddaf47b051067c4.png)
 2. 在防护设置页面，选择【前端对抗】进入默认设置页面。
    - **防护开关：**默认为关闭，前端对抗全局开关。开启后 WAF 将对域名指定的页面进行动态安全防护，当前防护只对网页和 H5 页面生效，WAF 将在网页中插入 JS 进行黑产对抗。APP 和小程序暂不适用该策略。
    - **防护模式：**默认为观察，总开关关闭状态下置灰。总开关开启，可以编辑，您根据需要，对检测出异常行为进行动作只处理，当前支持动作类型包括：观察、验证码、重定向和拦截。
@@ -41,7 +41,7 @@
 
 ### 步骤4. 查看前端对抗防护攻击日志
 BOT 行为管理前端对抗攻击日志属于 BOT 拦截日志的一部分，可以通过查看 BOT 拦截日志进行查看。
-在左侧导航栏中，选择【日志服务】>【攻击日志】，进入“日志查询”页签，选择攻击类型为：Bot 拦截，attack_content 格式为：BOT 类型：xx，BOT 行为：xx 的日志为前端对抗防护产生的攻击日志。（例如：BOT 类型：WebDriver；BOT 行为：重放攻击）。
+在左侧导航栏中，选择【日志服务】>[【攻击日志】](https://console.cloud.tencent.com/guanjia/attack)，进入“日志查询”页签，选择攻击类型为：Bot 拦截，attack_content 格式为：BOT 类型：xx，BOT 行为：xx 的日志为前端对抗防护产生的攻击日志。（例如：BOT 类型：WebDriver；BOT 行为：重放攻击）。
 >?
 >- BOT 类型包括：PhantomJS、WebDriver、AppScan、AWVS、LoadRunner、WebInspect、NetSparker、   RSAS、UFT_QTP、HeadlessChrome、NODEJS,HouYiCaiJi 等。
 >- BOT 行为包括：非法客户端、令牌篡改、简单脚本攻击、重放攻击、无效请求头等。
