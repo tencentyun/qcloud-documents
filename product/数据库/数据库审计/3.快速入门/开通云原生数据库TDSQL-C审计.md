@@ -17,8 +17,8 @@
 >
 
 ## SQL 审计字段
-TencentDB for MySQL 的审计日志中支持如下字段。用户可以在 [TDSQL-C 控制台](https://console.cloud.tencent.com/dls/cynosdb/instance) 的【审计日志】页面单击如下图标，获取并查看完整的 SQL 审计日志。
-![](https://main.qcloudimg.com/raw/a504bd3353af1c0fce27b223bda0003c.png)
+云原生数据库 TDSQL-C 的审计日志中支持如下字段。用户可以在 [TDSQL-C 控制台](https://console.cloud.tencent.com/dls/cynosdb/instance) 的【审计日志】页面单击如下图标，获取并查看完整的 SQL 审计日志。
+![](https://main.qcloudimg.com/raw/6abe06ccce258894303eb8776ec394a9.png)
 
 | 序号 | 字段名        | 字段含义                                                     | 备注                                         |
 | ---- | ------------- | ------------------------------------------------------------ | -------------------------------------- |
