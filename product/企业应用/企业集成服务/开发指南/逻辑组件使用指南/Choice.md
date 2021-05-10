@@ -27,7 +27,9 @@ Choice 是分支选择语句，基于不同的条件执行不同的动作。Choi
 | variable    | 继承 Choice 上一个组件的 variable 信息。  |
 
 ### 输出
-Choice 属于流控类组件，输出的 message 是具体执行的子流生成的 message。组件输出的 message 信息如下：
+Choice 属于流控类组件，输出的 message 是具体执行的子流生成的 message。
+
+组件输出的 message 信息如下：
 
 | message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
