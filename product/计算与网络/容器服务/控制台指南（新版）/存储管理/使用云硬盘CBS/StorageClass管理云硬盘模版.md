@@ -134,7 +134,7 @@ parameters:
 您可通过 `kubectl api-versions` 命令查看当前资源对象的 apiVersion。
 </dx-alert>
 ``` yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
    name: web
