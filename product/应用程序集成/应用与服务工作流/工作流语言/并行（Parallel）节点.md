@@ -9,11 +9,11 @@
 | 字段                    | 描述                                                         |
 | ----------------------- | ------------------------------------------------------------ |
 | Branches（必选）        | Branches 对应的数据为一个数组。数组中的每个元素代表一个工作流的定义。每个分支都必须含有 **States** 和 **StartAt**字段。 |
-| Parameters（可选）      | 指定作为输入传递的键值对集合。更多详情参考 [输入参数]()。    |
-| ResultSeclector（可选） | 指定作为输出数据的键值对集合，并传递给 ResultPath。更多详情参考 [结果选择器]()。 |
-| ResultPath（可选）      | 指定输出结果的存储位置，插入到输入数据的指定地址中。更多详情参考 [结果路径]()。 |
-| Retry（可选）           | 一个称为重试器的对象的数组，定义遇到运行时错误时的重试策略。更多详情参考 [重试策略]()。 |
-| Catch（可选）           | 一个称为捕获器的对象的数组，用于定义错误。如果节点遇到运行错误并且其重试策略已耗尽或者未定义，则执行该节点。更多详情参考 [异常捕获]()。 |
+| Parameters（可选）      | 指定作为输入传递的键值对集合。更多详情参考 [输入参数](https://cloud.tencent.com/document/product/1272/55657#Parameters)。    |
+| ResultSeclector（可选） | 指定作为输出数据的键值对集合，并传递给 ResultPath。更多详情参考 [结果选择器](https://cloud.tencent.com/document/product/1272/55657#ResultSelector)。 |
+| ResultPath（可选）      | 指定输出结果的存储位置，插入到输入数据的指定地址中。更多详情参考 [结果路径](https://cloud.tencent.com/document/product/1272/55657#ResultPath)。 |
+| Retry（可选）           | 一个称为重试器的对象的数组，定义遇到运行时错误时的重试策略。更多详情参考 [重试策略](https://cloud.tencent.com/document/product/1272/55663#Retry)。 |
+| Catch（可选）           | 一个称为捕获器的对象的数组，用于定义错误。如果节点遇到运行错误并且其重试策略已耗尽或者未定义，则执行该节点。更多详情参考 [异常捕获](https://cloud.tencent.com/document/product/1272/55663#Catch)。 |
 
 ## 示例
 
