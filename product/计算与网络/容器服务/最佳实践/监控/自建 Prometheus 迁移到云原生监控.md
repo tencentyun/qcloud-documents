@@ -11,7 +11,7 @@
 ## 前提条件
 
 
-已在自建 Prometheus 集群的一个节点上安装 [Kubectl](https://kubernetes.io/zh/docs/tasks/tools/install-kubectl/) 并配置好 Kubeconfig，保证通过 Kubectl 能够管理集群。
+已在自建 Prometheus 集群的一个节点上安装 [Kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) 并配置好 Kubeconfig，保证通过 Kubectl 能够管理集群。
 
 
 
