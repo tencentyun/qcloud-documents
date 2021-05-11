@@ -4,7 +4,7 @@
 
 ## 参数
 
-除了 [常见字段](https://cloud.tencent.com/document/product/1272/55656#step3) 之外，Task 节点还包含以下字段：
+除了 [常见字段](https://cloud.tencent.com/document/product/1272/51544#step3) 之外，Task 节点还包含以下字段：
 
 | 字段                    | 描述                                                         |
 | ----------------------- | ------------------------------------------------------------ |
