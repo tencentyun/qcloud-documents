@@ -7,24 +7,21 @@
 - 待迁移源端云数据库 MySQL，支持版本：MySQL 5.6、MySQL 5.7。
 - 需要您在源端 MySQL 中创建迁移帐号。
   - 全实例迁移，需要的帐号权限如下：
-  ```
+```
 GRANT SELECT ON *.* TO ‘迁移帐号’;
 CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW     DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO ‘迁移帐号’@‘%’;  
 GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
-  ```
-
+```
   - 部分库表迁移，需要的帐号权限如下：
-
-  ```
+```
 GRANT SELECT ON 待迁移的库.* TO ‘迁移帐号’;
 CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO ‘迁移帐号’@‘%’;  
 GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
-  ```
-
+```
 
 ## 注意事项
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行迁移。
@@ -32,7 +29,7 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 - 目标端 TDSQL MySQL版 的存储空间须是源端 MySQL 数据库所占用存储空间的1.2倍以上。
 - 关于视图：
 	- 全量迁移阶段，源端的视图会忽略，不予迁移。
-	- 增量阶段，源端产生的视图DDL，只会回放在目标实例的第一个分片。
+	- 增量阶段，源端产生的视图 DDL，只会回放在目标实例的第一个分片。
 
 ## 支持迁移类型
 - 结构迁移：目标端 TDSQL MySQL版 实例暂不支持结构迁移，所以需要您在迁移前在目标端完成对应库和分布式表的创建；如果目标端没有对应的表结构，DTS 会自动创建没有 shard  key 的单表。
