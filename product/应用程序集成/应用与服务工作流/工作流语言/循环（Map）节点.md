@@ -4,7 +4,7 @@
 
 ## 参数
 
-除了 [常用字段](https://cloud.tencent.com/document/product/1272/55656#step3)，Map 节点还支持以下字段:
+除了 [常用字段](https://cloud.tencent.com/document/product/1272/51544#step3)，Map 节点还支持以下字段:
 
 | 字段                    | 描述                                                         |
 | ----------------------- | ------------------------------------------------------------ |
