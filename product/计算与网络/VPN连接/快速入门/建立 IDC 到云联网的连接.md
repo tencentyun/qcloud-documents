@@ -25,7 +25,8 @@ CCN 类型的 VPN 网关可以关联至云联网，每个 CCN 型 VPN 网关可�
  - 计费方式：按需选择 VPN 网关的计费方式。
    - 按流量计费：适用于带宽波动较大的场景。
    - 包年包月： 适用于带宽较稳定的场景。
-    ![](https://main.qcloudimg.com/raw/a524d91fc73e82de17efe299d5a26a0e.png)
+		![](https://main.qcloudimg.com/raw/06ad029101174df77c4e450b8a975972.png)
+		
 
 ### 步骤二：关联云联网实例[](id:step2)
 - 若您已创建云联网实例，请按如下操作关联云联网：
