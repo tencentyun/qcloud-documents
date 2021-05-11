@@ -11,7 +11,7 @@
 
 ### 步骤一：安装 C/C++ 依赖库
 
-- [安装librdkafka](https://github.com/edenhill/librdkafka#installation)
+- [安装 librdkafka](https://github.com/edenhill/librdkafka#installation)
 
 ### 步骤二：安装SSL/SASL依赖
 
@@ -19,6 +19,7 @@
 yum install openssl openssl-devel
 yum install cyrus-sasl{,-plain}
 ```
+
 
 ### 步骤三：发送消息
 
