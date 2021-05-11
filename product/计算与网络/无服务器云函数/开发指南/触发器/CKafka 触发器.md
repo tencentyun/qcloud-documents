@@ -44,7 +44,7 @@ CKafka 触发器具有以下特点：
     {
       "Ckafka": {
         "topic": "test-topic",
-        "partition":1,
+        "Partition":1,
         "offset":36,
         "msgKey": "None",
         "msgBody": "Hello from Ckafka!"
@@ -53,7 +53,7 @@ CKafka 触发器具有以下特点：
     {
       "Ckafka": {
         "topic": "test-topic",
-        "partition":1,
+        "Partition":1,
         "offset":37,
         "msgKey": "None",
         "msgBody": "Hello from Ckafka again!"
