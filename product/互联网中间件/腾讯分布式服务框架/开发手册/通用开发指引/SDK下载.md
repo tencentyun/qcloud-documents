@@ -49,17 +49,15 @@ java -version
 #### 2.2 设置 MAVEN_HOME 和 PATH 环境变量
 
 - Windows 系统下
-
 ```
-   新建系统变量   MAVEN_HOME  变量值：E:\Maven\apache-maven-3.3.9
-   编辑系统变量  Path         添加变量值： ;%MAVEN_HOME%\bin
+新建系统变量   MAVEN_HOME  变量值：E:\Maven\apache-maven-3.3.9
+编辑系统变量   Path         添加变量值： ;%MAVEN_HOME%\bin
 ```
 
 - Linux、macOS 系统下
-
 ```
-   export MAVEN_HOME=/usr/local/maven/apache-maven-3.3.9
-   export PATH=$MAVEN_HOME/bin:$PATH
+export MAVEN_HOME=/usr/local/maven/apache-maven-3.3.9
+export PATH=$MAVEN_HOME/bin:$PATH
 ```
 
 #### 2.3 验证 Maven 安装
@@ -181,6 +179,4 @@ java -version
 
 在您的Java工程的`pom.xml`所在目录执行`mvn clean package`即可下载 TSF SDK。
 
-> ！
->
-> 如果无法下载相关依赖，请检查网络是否有防火墙限制。
+>!如果无法下载相关依赖，请检查网络是否有防火墙限制。

@@ -62,6 +62,8 @@ EKS 提供以下型号 GPU Pod 规格，不同的 GPU 卡型号和大小会对�
 ## 支持地域
 下表为 EKS 当前支持的地域、可用区及资源类型，其他地域将相继开放。
 
+
+### 中国
 <table class="table-striped">
 <tbody>
 	<tr>
@@ -129,4 +131,37 @@ EKS 提供以下型号 GPU Pod 规格，不同的 GPU 卡型号和大小会对�
 </tbody>
 </table>
 
-
+### 其他国家和地区	
+<table class="table-striped">
+	<tbody>
+	<tr>
+			<th>地域</th>
+			<th>可用区</th>
+		</tr>
+		<tr>
+			<td>亚太东南（雅加达）<br>ap-jakarta</td>
+			<td>雅加达一区（雅加达节点可用于覆盖亚太东南地区）<br>ap-jakarta-1</td>
+		</tr>
+       <tr>
+			<td  rowspan="2">亚太南部（孟买）<br>ap-mumbai</td>
+			<td>孟买一区（孟买节点可用于覆盖亚太南部地区）<br>ap-mumbai-1</td>
+		</tr>
+       <tr>
+			<td>孟买二区（孟买节点可用于覆盖亚太南部地区）<br>ap-mumbai-2</td>
+		</tr>
+		<tr>
+			<td rowspan="2">美国西部（硅谷）<br>na-siliconvalley</td>
+			<td>硅谷一区（硅谷节点可用于覆盖美国西部）<br>na-siliconvalley-1</td>
+		</tr>
+    <tr>
+			<td>硅谷二区（硅谷节点可用于覆盖美国西部）<br>na-siliconvalley-2</td>
+		</tr>
+		<tr>
+			<td>欧洲地区（法兰克福）<br>eu-frankfurt</td>
+			<td>法兰克福一区（法兰克福节点可用于覆盖欧洲地区）<br>eu-frankfurt-1</td>
+		</tr>
+		<td >欧洲地区（莫斯科）<br>eu-moscow</td>
+		<td>莫斯科一区（莫斯科节点可用区覆盖欧洲地区）<br>eu-moscow-1</td>
+		</tr>
+	</tbody>
+</table>

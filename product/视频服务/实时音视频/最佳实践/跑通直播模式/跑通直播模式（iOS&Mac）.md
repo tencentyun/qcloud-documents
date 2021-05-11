@@ -15,8 +15,8 @@ TRTC 云服务由两种不同类型的服务器节点组成，分别是“接口
 ![](https://main.qcloudimg.com/raw/b88a624c0bd67d5d58db331b3d64c51c.gif)
 
 ## 示例代码
-您可以登录 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTCSimpleDemo) 获取本文档相关的示例代码。
-![](https://main.qcloudimg.com/raw/36d48ade96419f5233c43359e93675b7.png)
+您可以登录 [Github](https://github.com/tencentyun/TRTCSDK/tree/master/iOS/TRTC-API-Example-OC) 获取本文档相关的示例代码。
+![](https://main.qcloudimg.com/raw/91ba84ef5cee887717ba69e97d939fcd.png)
 
 >?如果访问 Github 较慢，您也可以直接下载 [TXLiteAVSDK_TRTC_iOS_latest.zip](https://liteav.sdk.qcloud.com/download/latest/TXLiteAVSDK_TRTC_iOS_latest.zip)。
 
@@ -59,21 +59,21 @@ pod install
 
 1. 使用 [sharedInstance()](https://cloud.tencent.com/document/product/647/32258) 接口创建`TRTCCloud`实例。
 <dx-codeblock>
-::: swift swift
+::: iOS object-c
 // 创建 trtcCloud 实例
-let trtcCloud: TRTCCloud = TRTCCloud.sharedInstance()
-trtcCloud.delegate = self
+_trtcCloud = [TRTCCloud sharedInstance];
+_trtcCloud.delegate = self;
 :::
 </dx-codeblock>
 2. 设置`delegate`属性注册事件回调，并监听相关事件和错误通知。
 <dx-codeblock>
-::: swift swift
+::: iOS object-c
 // 错误通知是要监听的，需要捕获并通知用户
-func onError(_ errCode: TXLiteAVError, errMsg: String?, extInfo: [AnyHashable : Any]?) {
-        if ERR_ROOM_ENTER_FAIL == errCode {
-                toastTip("进房失败[\(errMsg ?? "")]")
-        exitRoom()
-        }
+- (void)onError:(TXLiteAVError)errCode errMsg:(NSString *)errMsg extInfo:(NSDictionary *)extInfo {
+    if (ERR_ROOM_ENTER_FAIL == errCode) {
+        [self toastTip:@"进房失败"];
+        [self.trtcCloud exitRoom];
+    }
 }
 :::
 </dx-codeblock>
@@ -104,17 +104,17 @@ func onError(_ errCode: TXLiteAVError, errMsg: String?, extInfo: [AnyHashable : 
 4. 主播端调用 [startLocalAudio()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a3177329bc84e94727a1be97563800beb) 开启麦克风，SDK 会向系统请求麦克风使用权限。
 
 <dx-codeblock>
-::: swift swift
+::: iOS object-c
 //示例代码：发布本地的音视频流
-trtcCloud.setLocalViewFillMode(TRTCVideoFillMode.fit)
-trtcCloud.startLocalPreview(frontCamera, view: localView)
+[self.trtcCloud startLocalPreview:_isFrontCamera view:self.view];
+
 //设置本地视频编码参数
-let encParams = TRTCVideoEncParam.init()
-encParams.videoResolution = TRTCVideoResolution._960_540
-encParams.videoBitrate    = 1200
-encParams.videoFps        = 15
-trtcCloud.setVideoEncoderParam(encParams)
-trtcCloud.startLocalAudio()
+TRTCVideoEncParam *encParams = [TRTCVideoEncParam new];
+encParams.videoResolution = TRTCVideoResolution_640_360;
+encParams.videoBitrate = 550;
+encParams.videoFps = 15;
+    
+[self.trtcCloud setVideoEncoderParam:encParams];
 :::
 </dx-codeblock>
 
@@ -141,21 +141,22 @@ trtcCloud.startLocalAudio()
 3. 房间创建成功后，主播端开始音视频数据的编码和传输流程。同时，SDK 会回调 [onEnterRoom(result)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#a6960aca54e2eda0f424f4f915908a3c5)  事件，参数`result`大于0时表示进房成功，具体数值为加入房间所消耗的时间，单位为毫秒（ms）；当`result`小于0时表示进房失败，具体数值为进房失败的错误码。
 
 <dx-codeblock>
-::: swift swift
-func enterRoom() {
-    let params = TRTCParams.init()
-    params.sdkAppId = sdkappid
-    params.userId   = userid
-    params.userSig  = usersig
-    params.roomId   = 908
-    trtcCloud.enterRoom(params, appScene: TRTCAppScene.LIVE)
+::: iOS object-c
+- (void)enterRoom() {
+    TRTCParams *params = [TRTCParams new];
+    params.sdkAppId = SDKAppID;
+    params.roomId = _roomId;
+    params.userId = _userId;
+    params.role = TRTCRoleAnchor;
+    params.userSig = [GenerateTestUserSig genTestUserSig:params.userId];
+    [self.trtcCloud enterRoom:params appScene:TRTCAppSceneLIVE];
 }
 
-func onEnterRoom(_ result: Int) {
-    if result > 0 {
-        toastTip("进房成功，总计耗时[\(result)]ms")
+- (void)onEnterRoom:(NSInteger)result {
+    if (result > 0) {
+        [self toastTip:@"进房成功"];
     } else {
-        toastTip("进房失败，错误码[\(result)]")
+        [self toastTip:@"进房失败"];
     }
 }
 :::
@@ -179,16 +180,16 @@ func onEnterRoom(_ result: Int) {
 3. 观众端调用 [startLocalAudio()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a3177329bc84e94727a1be97563800beb) 开启麦克风采音。
 
 <dx-codeblock>
-::: swift swift
+::: iOS object-c
 //示例代码：观众上麦
-trtcCloud.switch(TRTCRoleType.anchor)
-trtcCloud.startLocalAudio()
-trtcCloud.startLocalPreview(frontCamera, view: localView)
+[self.trtcCloud switchRole:TRTCRoleAnchor];
+[self.trtcCloud startLocalAudio:TRTCAudioQualityMusic];
+[self.trtcCloud startLocalPreview:_isFrontCamera view:self.view];
 
 //示例代码：观众下麦
-trtcCloud.switch(TRTCRoleType.audience)
-trtcCloud.stopLocalAudio()
-trtcCloud.stopLocalPreview()
+[self.trtcCloud switchRole:TRTCRoleAudience];
+[self.trtcCloud stopLocalAudio];
+[self.trtcCloud stopLocalPreview];
 :::
 </dx-codeblock>
 
@@ -203,15 +204,14 @@ TRTC 中两个不同音视频房间中的主播，可以在不退出原来的直
 3. 两个房间里的用户通过调用 [startRemoteView(userId, view: view)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#af85283710ba6071e9fd77cc485baed49) 即可显示另一房间里主播的画面，声音会自动播放。
 
 <dx-codeblock>
-::: swift swift
+::: iOS object-c
 //示例代码：跨房连麦 PK
-let jsonDict = [ "roomId" : "978", "userId" : "userB" ]
-guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonDict,
-                 options: JSONSerialization.WritingOptions.prettyPrinted) else {
-    fatalError("JSONSerialization failed")
-}
-let jsonString = String.init(data: jsonData, encoding: String.Encoding.utf8)
-trtcCloud.connectOtherRoom(jsonString)
+NSMutableDictionary * jsonDict = [[NSMutableDictionary alloc] init];
+[jsonDict setObject:@([_otherRoomIdTextField.text intValue]) forKey:@"roomId"];
+[jsonDict setObject:_otherUserIdTextField.text forKey:@"userId"];
+NSData* jsonData = [NSJSONSerialization dataWithJSONObject:jsonDict options:NSJSONWritingPrettyPrinted error:nil];
+NSString* jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+[self.trtcCloud connectOtherRoom:jsonString];
 :::
 </dx-codeblock>
 
@@ -221,12 +221,12 @@ trtcCloud.connectOtherRoom(jsonString)
 调用 [exitRoom()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a715f5b669ad1d7587ae19733d66954f3) 方法退出房间，SDK 在退房时需要关闭和释放摄像头、麦克风等硬件设备，因此退房动作并非瞬间完成的，需收到 [onExitRoom()](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloudDelegate__ios.html#a6a98fcaac43fa754cf9dd80454897bea) 回调后才算真正完成退房操作。
 
 <dx-codeblock>
-::: swift swift
+::: iOS object-c
 // 调用退房后请等待 onExitRoom 事件回调
-trtcCloud.exitRoom()
+[self.trtcCloud exitRoom];
 
-func onExitRoom(_ reason: Int) {
-    print("离开房间[\(roomId)]: reason[\(reason)]")
+- (void)onExitRoom:(NSInteger)reason {
+    NSLog(@"离开房间: reason: %ld", reason)
 }
 :::
 </dx-codeblock>

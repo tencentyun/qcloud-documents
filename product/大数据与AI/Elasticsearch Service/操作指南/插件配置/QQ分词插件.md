@@ -1,7 +1,7 @@
 QQ 分词插件是由腾讯云 ES 团队与腾讯 NLP 团队联合研发的中文分词插件，在腾讯内部广泛应用于 QQ、微信、浏览器等业务。在传统词典分词的基础上，增加了 NER 命名实体识别，同时支持自定义词库功能。QQ 分词插件经过多年的应用实践和不断打磨优化，在分词准确度、分析速度等关键指标上均处于业界领先，您可以在腾讯云 ES 中使用 QQ 分词插件来完成文档的分析和检索。
 
 ### 使用须知
-QQ 分词插件仅支持数据节点规格在2核4G及以上的集群，如果集群未安装 QQ 分词插件，请在插件列表页面安装 QQ 分词插件（analysis-qq）。
+QQ 分词插件仅支持数据节点规格在2核8G及以上的集群，如果集群未安装 QQ 分词插件，请在插件列表页面安装 QQ 分词插件（analysis-qq）。
 
 QQ 分词插件提供如下的分析器（analyzer）和分词器（tokenizer）：
 - 分析器：qq_smart, qq_max, qq_smart_ner, qq_max_ner
@@ -129,8 +129,10 @@ GET index/_search
 
 ### 使用自定义词典
 QQ 分词插件支持自定义词典的配置，词典上传后会触发集群的滚动重启，请确保集群处于 GREEN 状态，并且没有单副本索引。
-1. 在集群列表页，单击集群 ID 进入集群详情页。
+1. 登录 [Elasticsearch Service 控制台](https://console.cloud.tencent.com/es)，在集群列表页，单击集群【ID/名称】进入集群详情页。
+![](https://main.qcloudimg.com/raw/3a8640bd4e23dfa56ec76eda69fdc33f.png)
 2. 单击【插件列表】，进入插件列表管理页面。
+![](https://main.qcloudimg.com/raw/74d7f3915d9055d00c8c4194dd2ac655.png)
 3. 找到 QQ 分词插件（analysis-qq），单击右侧【更新词典】。
 4. 词典文件要求如下。
  - 词典文件必须为utf-8编码，一行一个词，且文件扩展名为`.dic`。

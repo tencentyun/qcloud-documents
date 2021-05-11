@@ -5,20 +5,32 @@
 - 已 [创建 TDSQL MySQL版](https://cloud.tencent.com/document/product/557/10236)，支持版本：MySQL 5.6、MySQL 5.7。
 - 需要您在目标端 TDSQL MySQL版 中创建迁移帐号，需要帐号权限：待迁移对象的全部读写权限。
 - 待迁移源端云数据库 MySQL，支持版本：MySQL 5.6、MySQL 5.7。
-- 需要您在源端 MySQL 中创建迁移帐号，需要的帐号权限如下：
+- 需要您在源端 MySQL 中提前创建好数据库：`__tencentdb__`。
+- 需要您在源端 MySQL 中创建迁移帐号。
+  - 全实例迁移，需要的帐号权限如下：
 ```
+GRANT SELECT ON *.* TO ‘迁移帐号’;
+CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW     DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
+GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO ‘迁移帐号’@‘%’;  
+GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
+```
+  - 部分库表迁移，需要的帐号权限如下：
+```
+GRANT SELECT ON 待迁移的库.* TO ‘迁移帐号’;
 CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO ‘迁移帐号’@‘%’;  
 GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 ```
-- 部分库表迁移：`GRANT SELECT ON 待迁移的库.* TO ‘迁移帐号’;`
-- 全实例迁移：`GRANT SELECT ON *.* TO ‘迁移帐号’;`
 
 ## 注意事项
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行迁移。
 - 源端 MySQL 中待迁移的表支持没有主键或唯一索引，并且不会导致目标数据库中出现重复数据。在全量迁移过程通过有锁迁移来实现，锁表过程中会短暂阻塞写入操作。
 - 目标端 TDSQL MySQL版 的存储空间须是源端 MySQL 数据库所占用存储空间的1.2倍以上。
+- 关于视图：
+	- 全量迁移阶段，源端的视图会忽略，不予迁移。
+	- 增量阶段，源端产生的视图 DDL，只会回放在目标实例的第一个分片。
 
 ## 支持迁移类型
 - 结构迁移：目标端 TDSQL MySQL版 实例暂不支持结构迁移，所以需要您在迁移前在目标端完成对应库和分布式表的创建；如果目标端没有对应的表结构，DTS 会自动创建没有 shard  key 的单表。
@@ -29,7 +41,7 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 | 操作类型 | 支持同步的 SQL 操作                                            |
 | -------- | ------------------------------------------------------------ |
 | DML      | INSERT、UPDATE、DELETE、REPLACE                              |
-| DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE <br>VIEW：CREATE VIEW、ALTER VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX <br>DATABASE：CREATE DATABASE、ALTER DATABASE、DROP DATABASE |
+| DDL      | TABLE：CREATE TABLE、ALTER TABLE、DROP TABLE、TRUNCATE TABLE、RENAEM TABLE <br>VIEW：CREATE VIEW、ALTER VIEW、DROP VIEW<br>INDEX：CREATE INDEX、DROP INDEX |
 
 ## 前置检查
 启动数据迁移任务前，需要进行前置检查，主要检查内容和检查点如下：
