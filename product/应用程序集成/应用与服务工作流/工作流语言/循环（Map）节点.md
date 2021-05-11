@@ -11,11 +11,11 @@
 | Iterator（必选）        | Iterator 字段定义对数组的操作。**StartAt** 字段定义第一个循环的节点，**States** 字段每一个数组中的元素可能进入的状态。 |
 | ItemsPath （可选）      | 指定 map节点的循环路径，默认值为$，指定整个输入。            |
 | MaxConcurrency （可选） | 最大并发量，控制状态机对数组进行循环时，同时计算的元素数量的最大值。 |
-| Parameters（可选）      | 指定作为输入传递的键值对集合。更多详情参考 [输入参数]()。    |
-| ResultSeclector（可选） | 指定作为输出数据的键值对集合，并传递给 ResultPath。更多详情参考 [结果选择器]()。 |
-| ResultPath（可选）      | 指定输出结果的存储位置，插入到输入数据的指定地址中。更多详情参考 [结果路径]()。 |
-| Retry（可选）           | 一个称为重试器的对象的数组，定义遇到运行时错误时的重试策略。更多详情参考 [重试策略]()。 |
-| Catch（可选）           | 一个称为捕获器的对象的数组，用于定义错误。如果节点遇到运行错误并且其重试策略已耗尽或者未定义，则执行该节点。更多详情参考 [异常捕获]()。 |
+| Parameters（可选）      | 指定作为输入传递的键值对集合。更多详情参考 [输入参数](https://cloud.tencent.com/document/product/1272/55657#Parameters)。    |
+| ResultSeclector（可选） | 指定作为输出数据的键值对集合，并传递给 ResultPath。更多详情参考 [结果选择器](https://cloud.tencent.com/document/product/1272/55657#ResultSelector)。 |
+| ResultPath（可选）      | 指定输出结果的存储位置，插入到输入数据的指定地址中。更多详情参考 [结果路径](https://cloud.tencent.com/document/product/1272/55657#ResultPath)。 |
+| Retry（可选）           | 一个称为重试器的对象的数组，定义遇到运行时错误时的重试策略。更多详情参考 [重试策略](https://cloud.tencent.com/document/product/1272/55663#Retry)。 |
+| Catch（可选）           | 一个称为捕获器的对象的数组，用于定义错误。如果节点遇到运行错误并且其重试策略已耗尽或者未定义，则执行该节点。更多详情参考 [异常捕获](https://cloud.tencent.com/document/product/1272/55663#Catch)。 |
 
 ## 示例
 
@@ -63,7 +63,6 @@
 ```
 
 指定一组输入：
-
 ```
 {
   "date": "2021-03-14T01:59:00Z",
@@ -80,7 +79,6 @@
 ```
 
 在 average 函数中，我们对 score 进行求均值后输出：
-
 ```
 'use strict';
    exports.main_handler = async (event, context) => {
@@ -97,7 +95,6 @@
 ```
 
 最终输出信息通过 ResultPath 作用后，如下：
-
 ```
 {
   "date": "2021-03-14T01:59:00Z",
@@ -116,7 +113,6 @@
 ### 示例2：带参数的传递
 
 在上述示例中，如果想要在每次迭代中传递除了迭代数组外的参数，可以通过 Parameters 来定义。
-
 ```
 {
   "Comment": "Map demo",
@@ -159,7 +155,6 @@
 ```
 
 这样我们传递给第一次循环的 Task 节点的输入则变为：
-
 ```
 {
   "class": "No-01",
