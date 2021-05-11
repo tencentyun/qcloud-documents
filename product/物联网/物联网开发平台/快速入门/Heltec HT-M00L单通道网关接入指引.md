@@ -1,10 +1,11 @@
 ## 操作场景
 
 HT-M00L 是 [Heltec Automation](https://heltec.org/) 与“腾讯连连”小程序联名推出的一款低成本的单通道网关。能实现 SF7 - SF12 的全速率监听，支持 LoRaWAN 协议，大幅的降低 LoRa 网关的成本。主要面向智能家居、通信方案评估等应用场景，本文档将实现以下操作：
-- 配置 HT-M00L 单通道网关，使其连接到腾讯云平台。
-- 配置 LoRa 节点，与 HT-M00L 网关通过 LoRaWAN 协议进行通信。
-- 在腾讯云平台上完成数据调试，并最终将节点发送的数据显示到“腾讯连连”小程序中。
-- 配置 LoRaWAN 用户自定义频点。
+- [配置 HT-M00L 单通道网关](#test5)，使其连接到腾讯云平台。
+- [配置 LoRa 节点](#test6)，与 HT-M00L 网关通过 LoRaWAN 协议进行通信。
+- 在腾讯云平台上完成 [数据调试](#test7)。
+- 将节点发送的 [数据显示](#test8) 到“腾讯连连”小程序中。
+- 配置 LoRaWAN 用户 [自定义频点](#test9)。
 
 
 
@@ -18,7 +19,7 @@ HT-M00L 是 [Heltec Automation](https://heltec.org/) 与“腾讯连连”小程
 
 
 
-
+[](id:test5)
 ## 控制台创建设备
 
 [](id:test2)
@@ -52,7 +53,7 @@ HT-M00L 是 [Heltec Automation](https://heltec.org/) 与“腾讯连连”小程
 6. 单击【保存】即可完成设备节点创建。
 
 
-
+[](id:test6)
 ## 配置设备（硬件操作）
 
 [](id:test1)
@@ -93,17 +94,17 @@ CubeCell 支持 Arduino 开发环境，首先安装 [CubeCell Arduino开发环�
 - **因为 HT-M00 是单通道网关，信道掩码必须配置为网关对应的通道。**
 ![](https://main.qcloudimg.com/raw/ffc7c5310b297bdb11620c711c62d84c.png)
 
-
-## 验证通信
+[](id:test7)
+## 数据调试
 
 - 网关正确配置完成后，可在 [物联网开发平台控制台](https://console.cloud.tencent.com/iotexplorer/project/prj-p5atmkhu/gateway/list)>【网络管理】>【LoRa网关管理】>【用户网关】中看到网关处于"在线"状态。
 ![](https://main.qcloudimg.com/raw/8230cd436d64964ff0d327d05dc56115.png)
 - 节点正确配置完成后，可在产品详情页>【设备开发】>【设备名称】>【在线调试】中看到节点的上行数据，可在"属性调试"中看到解析完成的数据。
 ![](https://main.qcloudimg.com/raw/3ac8e8fe2f1da6a5296a8c1017c53b43.png)
 
-&nbsp;
 
-## 展示数据
+[](id:test8)
+## 数据显示
 
 ### 配置面板
 
@@ -116,8 +117,8 @@ CubeCell 支持 Arduino 开发环境，首先安装 [CubeCell Arduino开发环�
 - 设备添加完成后，可在"腾讯连连"小程序点击对应设备查看设备数据。
 ![](https://main.qcloudimg.com/raw/cf901e1ff77cf1400eb655180b94d83d.png)
 
-
-## LoRaWAN 用户自定义频点
+[](id:test9)
+## 配置自定义频点
 
 本文以单信道频点计划为例进行说明。
 
