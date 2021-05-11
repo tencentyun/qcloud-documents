@@ -1,5 +1,27 @@
 基于 Spring Cloud Finchley 版本 SDK，支持 spring boot 2.0.x。
 
+## 1.29.0-Finchley-RELEASE
+### 新特性
+- 微服务网关增加单元化功能
+- 微服务网关增加 Dubbo 协议转换功能
+- spring-cloud-tsf-sleuth: 新增 cmq-tcp-client 和 cmq-http-client 调用支持
+
+### 优化
+- 优化和开源 spring cloud consul 依赖的冲突
+- 支持通过配置 -Dspring.cloud.consul.enabled=false 关闭连接 consul ，适配单元测试场景时的启动
+- actuator 依赖改为 optional
+- spring-cloud-tsf-sleuth: 优化 getProperties 性能
+- spring-cloud-tsf-ratelimit: 优化限流的 httpclient
+  
+### Bug 修复
+- spring-cloud-tsf-logger: 修复自定义日志格式没有服务名的问题
+- spring-cloud-tsf-sleuth: 修复调用链获取ip 偶现获取不到问题
+- spring-cloud-tsf-swagger: 修复 IgnoreGatewayApi 注解导致的潜在空指针异常
+- spring-cloud-tsf-consul-discovery: 修复被调方实例不存在时不断打印异常日志的问题
+
+### 版本建议
+支持向后兼容，建议全量升级。
+
 ## 1.26.1-Finchley-RELEASE（2020-12-31）
 ### 优化
 spring-cloud-tsf-sleuth 新增 CMQ 调用支持。
