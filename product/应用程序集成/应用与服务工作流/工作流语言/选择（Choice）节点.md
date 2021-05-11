@@ -4,7 +4,7 @@
 
 ## 参数
 
-除了 [常见字段](https://github.com/June1991/qcloud-documents/blob/master/product/应用程序集成/应用与服务工作流/工作流语言.md#step3) 之外，Choice 节点还支持以下字段：
+除了 [常见字段](https://cloud.tencent.com/document/product/1272/55656#step3) 之外，Choice 节点还支持以下字段：
 
 | 字段            | 描述                                                |
 | --------------- | --------------------------------------------------- |
@@ -87,7 +87,6 @@ Choice 节点必须定义 "Choices" 键值，它对应一个数组，数组的�
 在此示例中，ChoicesGender 中含有两个分支逻辑，第一个逻辑检查变量 female 的值是否为真，如果为真，即进入此分支逻辑对应的 Next 节点。第二个分支逻辑检查变量 age 对应的值。此分支检查变量 age 的值是否为18，如果等于，则即进入此分支逻辑对应的 Next 节点。Choice 分支逻辑的检查按照 ChoiceGender 定义的顺序，如果进入第一个分支，则不会进入第二个分支。如果所有分支都不符合，则会进入 Default 键名对应的节点。
 
 假设输入此节点的信息为：
-
 ```
 {
 	"name": "John",
