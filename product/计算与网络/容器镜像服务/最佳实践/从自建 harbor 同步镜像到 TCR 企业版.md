@@ -84,7 +84,7 @@ Harbor 支持添加第三方 Registry 并配置数据复制规则，本文以 Ha
  ![](https://main.qcloudimg.com/raw/d05dabf9a1f5a4226348497d5c2cd73c.png)
 	- **名称**：同步规则名称，可根据具体使用场景填写。
 	- **描述**：该复制规则的描述。
-	- **复制模式**：仅支持 “Push-based”。
+	- **复制模式**：默认为 Push-based 模式，仅当前使用 "Tencent TCR" 插件（Harbor 版本 ≥ 2.1.2）时，可选择 Pull-based。其中，Push-based 指将 Harbor 内新增镜像同步至 TCR，Pull-based 指将 TCR 内新增镜像同步至 Harbor。
 	- **源资源过滤器**：可过滤选择需要同步的资源，不填写则默认选择自建 Harbor 内全部容器镜像及 Helm Chart 资源。
 	- **目的 Registry**：选择 [步骤3](#Step3) 中已创建的目标仓库。
 	- **目的 Namespace**：指定目的端的命名空间，不填写则默认同名命名空间，建议保持默认设置。
