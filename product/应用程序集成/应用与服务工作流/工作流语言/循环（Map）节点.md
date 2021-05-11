@@ -9,7 +9,7 @@
 | 字段                    | 描述                                                         |
 | ----------------------- | ------------------------------------------------------------ |
 | Iterator（必选）        | Iterator 字段定义对数组的操作。**StartAt** 字段定义第一个循环的节点，**States** 字段每一个数组中的元素可能进入的状态。 |
-| ItemsPath （可选）      | 指定 map节点的循环路径，默认值为$，指定整个输入。            |
+| ItemsPath （可选）      | 指定 map 节点的循环路径，默认值为$，指定整个输入。            |
 | MaxConcurrency （可选） | 最大并发量，控制状态机对数组进行循环时，同时计算的元素数量的最大值。 |
 | Parameters（可选）      | 指定作为输入传递的键值对集合。更多详情参考 [输入参数](https://cloud.tencent.com/document/product/1272/55657#Parameters)。    |
 | ResultSeclector（可选） | 指定作为输出数据的键值对集合，并传递给 ResultPath。更多详情参考 [结果选择器](https://cloud.tencent.com/document/product/1272/55657#ResultSelector)。 |
