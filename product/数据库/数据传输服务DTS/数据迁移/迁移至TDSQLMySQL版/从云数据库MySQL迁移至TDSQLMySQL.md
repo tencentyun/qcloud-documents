@@ -3,13 +3,9 @@
 
 ## [前提条件](id:qttj)
 - 已 [创建 TDSQL MySQL版](https://cloud.tencent.com/document/product/557/10236)，支持版本：MySQL 5.6、MySQL 5.7。
-
 - 需要您在目标端 TDSQL MySQL版 中创建迁移帐号，需要帐号权限：待迁移对象的全部读写权限。
-
 - 待迁移源端云数据库 MySQL，支持版本：MySQL 5.6、MySQL 5.7。
-
-- 需要您在源端MySQL中提前创建好数据库：`__tencentdb__`。
-
+- 需要您在源端 MySQL 中提前创建好数据库：`__tencentdb__`。
 - 需要您在源端 MySQL 中创建迁移帐号。
   - 全实例迁移，需要的帐号权限如下：
 ```
