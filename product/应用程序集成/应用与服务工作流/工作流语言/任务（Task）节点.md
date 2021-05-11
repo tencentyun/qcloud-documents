@@ -112,6 +112,6 @@ qrn:qcs:asw:{函数所在区域}:{Appid}:sdk:json:qcloud:scf:Invoke/{函数名�
 | :----------------------------------------------------------- | :------- | :------- |
 | [云函数](https://cloud.tencent.com/product/scf)              | 支持     | 不支持   |
 | [应用与服务编排工作流](https://cloud.tencent.com/product/asw) | 支持     | 不支持   |
-| [其他云产品](https://cloud.tencent.com/api/list)             | 支持     |          |
+| [其他云产品](https://cloud.tencent.com/api/list)             | 支持     |  不支持         |
 
 
