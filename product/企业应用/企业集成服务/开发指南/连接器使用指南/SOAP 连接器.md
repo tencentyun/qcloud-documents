@@ -60,12 +60,30 @@ SOAP 请求操作如下：
 **消息的 attributes：**
 
 
-| attributes 信息 | 描述 |
-|---------|---------|
-| attrs.statusCode | 响应的状态码，例如：200 |
-|attrs.reasonPhrase | 响应的文本描述，例如：OK |
-| attrs.headers  | 响应的 Header，结果为 dict<string, list<string>> |
-| attrs.cookies | 响应的 Cookie，结果为 dict<string, string> |
+<table>
+<thead>
+<tr>
+<th>attributes 信息</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>attrs.statusCode</td>
+<td>响应的状态码，例如：200</td>
+</tr>
+<tr>
+<td>attrs.reasonPhrase</td>
+<td>响应的文本描述，例如：OK</td>
+</tr>
+<tr>
+<td>attrs.headers</td>
+<td>响应的 Header，结果为 dict&lt;string, list<string>&gt;</string></td>
+</tr>
+<tr>
+<td>attrs.cookies</td>
+<td>响应的 Cookie，结果为 dict&lt;string, string&gt;</td>
+</tr>
+</tbody></table>
 
 **消息的 Payload：**
 SOAP 请求返回的响应 Response 为 XML 格式，会首先进行一次 Flatten 处理，将 XML 转换为 dict 类型，然后放到消息 payload 中，后续可通过 dataway 表达式直接访问。
