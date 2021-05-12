@@ -44,6 +44,7 @@
 ![](https://main.qcloudimg.com/raw/4b1a291de7f56f359f843ae182fba46b.png)
 说明页面防调试功能已经启用。
 
+
 ### 步骤4：查看前端对抗防护攻击日志
 BOT 行为管理前端对抗攻击日志属于 BOT 拦截日志的一部分，可以通过查看 BOT 拦截日志进行查看。
 - 在左侧导航栏中，选择[【日志服务】](https://console.cloud.tencent.com/guanjia/attack)>【攻击日志】，进入“日志查询”页签，选择攻击类型为：Bot 拦截，单击【确定】。
