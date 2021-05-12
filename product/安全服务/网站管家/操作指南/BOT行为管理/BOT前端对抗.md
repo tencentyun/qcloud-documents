@@ -60,9 +60,11 @@ BOT 行为管理前端对抗攻击日志属于 BOT 拦截日志的一部分，�
  >?
  >- 请求白名单，加白网站RUL页面不需要进行动态安全检测；
  >- 响应白名单，默认 WAF 会根据业务情况对响应页面插入 JS，可指定页面不插入 JS，提高网站兼容性。
- 
+
+
 1. 在前端对抗页面，开启防护开关，选择【白名单】进行白名单设置，单击【添加规则】进入白名单规则添加页面。
 ![](https://main.qcloudimg.com/raw/70b9c0045137cabbc635f1bdaa3c92d4.png)
+
 2. 在弹出的对话框，设置白名单规则，单击【确定】。
  >?
    - 类型：默认为请求白名单，用户可选择设置响应白名单。
@@ -70,8 +72,8 @@ BOT 行为管理前端对抗攻击日志属于 BOT 拦截日志的一部分，�
    - 匹配内容：当匹配条件为【路径后缀匹配】，默认给出需要加白的文件后缀名称，包括：ico、gif、bmp、htc、jpg、jpeg、png、tiff、swf、js、css、rm、rmvb、wmv、avi、mkv、mp3、mp4、ogg、wma、zip、exe、rar、eot、woff、woff2、ttf、svg。您可以根据实际情况进行修改。 输入其他匹配条件，请按照实际情况输入白名单路径。
    - 规则描述：输入规则描述信息。
    - 规则开关：默认开启，您可根据实际情况调整。
-   
-![](https://main.qcloudimg.com/raw/376d338eb1eafcc86da58c8e1c03617e.jpg)
+  
+ ![](https://main.qcloudimg.com/raw/376d338eb1eafcc86da58c8e1c03617e.jpg)
 
 3. 完成白名单规则添加后，您可以在白名单规则管理页面，进行启停、删除等操作。
 ![](https://main.qcloudimg.com/raw/e24dafee44b9f03bf4ba3ca8420ad54a.png)
