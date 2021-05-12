@@ -26,13 +26,52 @@ HTTP Request 操作配置包括基本配置、高级配置两项：
 
 ### 基础配置参数描述
 
-| 参数     | 参数类型      | 描述                                                         | **是否必填** | **默认值** |
-| -------- | ------------- | ------------------------------------------------------------ | ------------ | ---------- |
-| 请求路径 | string/表达式 | 用于指定发送请求的路径                                       | 是           | /          |
-| 请求方法 | string        | 下拉单选指定发送请求的方法，全集为：GET、POST、PUT、PATCH、DELETE、HEAD | 是           | GET        |
-| 请求头   | 表达式        | 用于指定发送请求的请求头，结构为：dict<string,list<string>>  | 否           | 无         |
-| 请求参数 | 表达式        | 用于指定发送请求的请求参数，结构为：dict<string,string >     | 否           | 无         |
-| 请求体   | string/表达式 | 用于指定发送请求的请求体，非 GET、HEAD 方法是设置，支持字面量和表达式，默认是消息的 payload | 否           | 无         |
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>参数类型</th>
+<th>描述</th>
+<th><strong>是否必填</strong></th>
+<th><strong>默认值</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>请求路径</td>
+<td>string/表达式</td>
+<td>用于指定发送请求的路径</td>
+<td>是</td>
+<td>/</td>
+</tr>
+<tr>
+<td>请求方法</td>
+<td>string</td>
+<td>下拉单选指定发送请求的方法，全集为：GET、POST、PUT、PATCH、DELETE、HEAD</td>
+<td>是</td>
+<td>GET</td>
+</tr>
+<tr>
+<td>请求头</td>
+<td>表达式</td>
+<td>用于指定发送请求的请求头，结构为：dict&lt;string,list<string>&gt;</string></td>
+<td>否</td>
+<td>无</td>
+</tr>
+<tr>
+<td>请求参数</td>
+<td>表达式</td>
+<td>用于指定发送请求的请求参数，结构为：dict&lt;string,string&gt;</td>
+<td>否</td>
+<td>无</td>
+</tr>
+<tr>
+<td>请求体</td>
+<td>string/表达式</td>
+<td>用于指定发送请求的请求体，非 GET、HEAD 方法是设置，支持字面量和表达式，默认是消息的 payload</td>
+<td>否</td>
+<td>无</td>
+</tr>
+</tbody></table>
 
 ### 高级配置参数描述
 
@@ -48,12 +87,30 @@ HTTP Request 请求的响应返回后，会将响应结果生成对应的消息�
 
 ### HTTP Request 输出消息描述
 
-| 消息属性   | 值                                                           |
-| ---------- | ------------------------------------------------------------ |
-| payload    | 响应 body 保存在 payload 中，支持所有内置消息类型和自定义消息类型，其中 application/json、application/xml、application/yaml、application/x-www-form-urlencoded、multipart/form-data 等结构的 payload 支持在表达式中结构化访问 |
-| error      | 执行失败后，error 为 dict 类型，包含“Code”和“Description”字段：“Code”字段表示错误类型，“Description”字段表示错误具体信息 |
-| attributes | 保存响应的属性值，具体包括：<br/>statusCode：响应的状态码，例如：200<br/>reasonPhrase：响应的文本描述，例如：OK<br/>headers：响应的 header，结构为： dict<string,list<string>><br/>cookies：响应的 cookie，结构为： dict<string,string>，解析 Cookies 逻辑比较常见，可通过该数据直接读取 |
-| variables  | 默认为空                                                     |
+<table>
+<thead>
+<tr>
+<th>消息属性</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>payload</td>
+<td>响应 body 保存在 payload 中，支持所有内置消息类型和自定义消息类型，其中 application/json、application/xml、application/yaml、application/x-www-form-urlencoded、multipart/form-data 等结构的 payload 支持在表达式中结构化访问</td>
+</tr>
+<tr>
+<td>error</td>
+<td>执行失败后，error 为 dict 类型，包含“Code”和“Description”字段：“Code”字段表示错误类型，“Description”字段表示错误具体信息</td>
+</tr>
+<tr>
+<td>attributes</td>
+<td>保存响应的属性值，具体包括：<br>statusCode：响应的状态码，例如：200<br>reasonPhrase：响应的文本描述，例如：OK<br>headers：响应的 header，结构为： dict&lt;string,list<string>&gt;<br>cookies：响应的 cookie，结构为： dict&lt;string,string&gt;，解析 Cookies 逻辑比较常见，可通过该数据直接读取</string></td>
+</tr>
+<tr>
+<td>variables</td>
+<td>默认为空</td>
+</tr>
+</tbody></table>
 
 ## 案例
 
@@ -67,4 +124,4 @@ HTTP Request 请求的响应返回后，会将响应结果生成对应的消息�
 4. 发布并触发。浏览器访问触发对应流，可以直接跳转至腾讯首页。
 ![image-20210429203519275](https://main.qcloudimg.com/raw/d521e80f6398f1ee02d78fd995cf1390/image-20210429203519275.png)
  - 同时，应用测试模式下可以看到 HTTP Request 对应的 attributes。
-![image-20210426212733856](https://main.qcloudimg.com/raw/4a7099444248e9c65bb8abee04adeff5/image-20210426212733856.png)
+![](https://main.qcloudimg.com/raw/4a7099444248e9c65bb8abee04adeff5/image-20210426212733856.png)

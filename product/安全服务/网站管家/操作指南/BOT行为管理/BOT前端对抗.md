@@ -19,17 +19,21 @@
 ### 步骤1：进入前端对抗设置页面
 1. 登录 [Web 应用防火墙（WAF）控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 防护设置】，单击【防护设置】进入防护设置页面。
  ![](https://main.qcloudimg.com/raw/fb2cd4593d6740e41ddaf47b051067c4.png)
-2. 在 [防护设置](https://console.cloud.tencent.com/guanjia/bot2/config/ucb/*.psd.technicalsupport.cn) 页面，选择【前端对抗】进入默认设置页面。
+2. 在防护设置页面，选择【前端对抗】进入默认设置页面。
    - **防护开关：**默认为关闭。开启后 WAF 将对域名指定的页面进行前端对抗安全防护，识别请求客户端请求中可能存在爬虫行为，可以对识别的为爬虫行为的请求采取不同处置动作。APP 和小程序暂不适用该策略。
+   
    - **防护模式：**默认为观察，总开关关闭状态下模式设置不可编辑。开关开启下，您可以设置对前端对抗模块检出的爬虫行为进行动作处理，动作类型包括：观察、验证码、重定向和拦截。
 ![](https://main.qcloudimg.com/raw/b9424b5cb24492a897ddd99e1c05fccb.png)
 
 ### 步骤2：配置前端对抗策略防护
-在 [【防护设置】]((https://console.cloud.tencent.com/guanjia/bot2/config/ucb/*.psd.technicalsupport.cn)) 页面 ，单击开启【防护开关】，选择策略设置，单击右侧的【设置】进行防护配置。
- - **防护路径：**默认为 /，表示全站生效，设置前端对抗生效的路径，支持目录和具体 URL，支持输入多个路径，请以英文逗号隔开，最多支持10个，至少需要输入1个路径。
- - **自动化工具识别：**默认开启，自动化工具识别能力，开启后辅助进行动态威胁检测。
- - **页面防调试：**默认开启，为了防⽌⽤户查看⻚⾯逻辑，⻚⾯防调试功能在⽤户调⽤浏览器的开发者工具页面时，阻⽌⽤户跟踪⻚⾯逻辑。
+在前端对抗设置页面 ，单击开启【防护开关】，选择策略设置，单击右侧的【设置】进行防护配置。
+>?
+- 防护路径：默认为 /，表示全站生效，设置前端对抗生效的路径，支持目录和具体 URL，支持输入多个路径，请以英文逗号隔开，最多支持10个，至少需要输入1个路径。
+- 自动化工具识别：默认开启，自动化工具识别能力，开启后辅助进行动态威胁检测。
+- 页面防调试：默认开启，为了防⽌⽤户查看⻚⾯逻辑，⻚⾯防调试功能在⽤户调⽤浏览器的开发者工具页面时，阻⽌⽤户跟踪⻚⾯逻辑。
+ 
 ![](https://main.qcloudimg.com/raw/c9697caa925fe306b92b22f185d471c7.jpg)
+
 ### 步骤3：查看前端对抗防护是否开启
 - 查看方式一：通过查看 Web 页面源代码，开启前端对抗防护页面，将会在 Web 返回代码中添加如下内容：
  ![](https://main.qcloudimg.com/raw/71d2e25555ee823b9747bbc274402fe1.jpg)
@@ -42,7 +46,9 @@
 
 ### 步骤4：查看前端对抗防护攻击日志
 BOT 行为管理前端对抗攻击日志属于 BOT 拦截日志的一部分，可以通过查看 BOT 拦截日志进行查看。
-在左侧导航栏中，选择【日志服务】>[【攻击日志】](https://console.cloud.tencent.com/guanjia/attack)，进入“日志查询”页签，选择攻击类型为：Bot 拦截，attack_content 格式为：BOT 类型：xx；BOT 行为：xx 的日志为前端对抗防护产生的攻击日志。（例如：BOT 类型：WebDriver；BOT 行为：重放攻击）。
+- 在左侧导航栏中，选择[【日志服务】](https://console.cloud.tencent.com/guanjia/attack)>【攻击日志】，进入“日志查询”页签，选择攻击类型为：Bot 拦截，单击【确定】。
+![](https://main.qcloudimg.com/raw/5e81f16eaa29a3af6934c67543586763.jpg)
+- 在右下角原始数据中，可查看attack_content 格式为：BOT 类型：xx；BOT 行为：xx 的日志为前端对抗防护产生的攻击日志。（例如：BOT 类型：WebDriver；BOT 行为：重放攻击）。
 >?
 >- BOT 类型包括：PhantomJS、WebDriver、AppScan、AWVS、LoadRunner、WebInspect、NetSparker、   RSAS、UFT_QTP、HeadlessChrome、NODEJS,HouYiCaiJi 等。
 >- BOT 行为包括：非法客户端、令牌篡改、简单脚本攻击、重放攻击、无效请求头等。
@@ -50,16 +56,25 @@ BOT 行为管理前端对抗攻击日志属于 BOT 拦截日志的一部分，�
 ![](https://main.qcloudimg.com/raw/33e79107173f291033a5fb10d4cf64e0.png)
 
 ### 步骤5：设置前端对抗白名单
-指定请求白名单和响应白名单，对不需要进行前端对抗防护页面进行加白，或对可能有兼容性问题的页面进行加白处理。请求白名单，加白网站RUL页面不需要进行动态安全检测；响应白名单，默认 WAF 会根据业务情况对响应页面插入 JS，可指定页面不插入 JS，提高网站兼容性。
+指定请求白名单和响应白名单，对不需要进行前端对抗防护页面进行加白，或对可能有兼容性问题的页面进行加白处理。
+ >?
+ >- 请求白名单，加白网站RUL页面不需要进行动态安全检测；
+ >- 响应白名单，默认 WAF 会根据业务情况对响应页面插入 JS，可指定页面不插入 JS，提高网站兼容性。
+
+
 1. 在前端对抗页面，开启防护开关，选择【白名单】进行白名单设置，单击【添加规则】进入白名单规则添加页面。
 ![](https://main.qcloudimg.com/raw/70b9c0045137cabbc635f1bdaa3c92d4.png)
+
 2. 在弹出的对话框，设置白名单规则，单击【确定】。
-   - **类型：**默认为请求白名单，用户可选择设置响应白名单。
-   - **匹配条件：**支持路径后缀匹配、前缀匹配、相等和包含，默认为：路径后缀匹配
-   - **匹配内容：**当匹配条件为【路径后缀匹配】，默认给出需要加白的文件后缀名称，包括：ico、gif、bmp、htc、jpg、jpeg、png、tiff、swf、js、css、rm、rmvb、wmv、avi、mkv、mp3、mp4、ogg、wma、zip、exe、rar、eot、woff、woff2、ttf、svg。您可以根据实际情况进行修改。 输入其他匹配条件，请按照实际情况输入白名单路径。
-   - **规则描述**：输入规则描述信息。
-   - **规则开关**：默认开启，您可根据实际情况调整。
-![](https://main.qcloudimg.com/raw/376d338eb1eafcc86da58c8e1c03617e.jpg)
+ >?
+   - 类型：默认为请求白名单，用户可选择设置响应白名单。
+   - 匹配条件：支持路径后缀匹配、前缀匹配、相等和包含，默认为：路径后缀匹配
+   - 匹配内容：当匹配条件为【路径后缀匹配】，默认给出需要加白的文件后缀名称，包括：ico、gif、bmp、htc、jpg、jpeg、png、tiff、swf、js、css、rm、rmvb、wmv、avi、mkv、mp3、mp4、ogg、wma、zip、exe、rar、eot、woff、woff2、ttf、svg。您可以根据实际情况进行修改。 输入其他匹配条件，请按照实际情况输入白名单路径。
+   - 规则描述：输入规则描述信息。
+   - 规则开关：默认开启，您可根据实际情况调整。
+  
+ ![](https://main.qcloudimg.com/raw/376d338eb1eafcc86da58c8e1c03617e.jpg)
+
 3. 完成白名单规则添加后，您可以在白名单规则管理页面，进行启停、删除等操作。
 ![](https://main.qcloudimg.com/raw/e24dafee44b9f03bf4ba3ca8420ad54a.png)
  
