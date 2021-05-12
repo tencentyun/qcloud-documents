@@ -63,15 +63,15 @@ spec:
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: cfsclaim
+   name: cfsclaim
 spec:
-  accessModes:
-    - ReadWriteMany
-  volumeMode: Filesystem
-  storageClassName: ""
-  resources:
-    requests:
-      storage: 10Gi
+   accessModes:
+		   - ReadWriteMany
+   volumeMode: Filesystem
+   storageClassName: ""
+   resources:
+     requests:
+       storage: 10Gi
 ```
 
 #### 步骤4：创建 pod
