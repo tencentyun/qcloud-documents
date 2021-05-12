@@ -111,10 +111,9 @@ LogListener 服务日志功能提供采集端运行状态、工作状态、采�
 | Label        | 机器标示 array        |
 | IP           | 机器组 IP              |
 | Version      | LogListener 版本      |
-| AlarmMessage | 触发告警原始日志采样  |
-| Alarmcount   | 告警次数              |
-| HostName     | 主机 hostname          |
-| AlarmType    | 告警类型              |
+| AlarmType.count | 告警类型统计  |
+| AlarmType.example   | 告警类型样例              |
+
 
 **AlarmType ：**
 
