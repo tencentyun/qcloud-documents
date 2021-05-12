@@ -16,11 +16,12 @@
 
 
 ### 步骤二：安装SSL/SASL依赖
-
 ```shell script
 yum install openssl openssl-devel
 yum install cyrus-sasl{,-plain}
 ```
+
+
 
 
 
@@ -351,12 +352,10 @@ gcc -lrdkafka ./producer.c -o producer
 | password | sasl_plaintext 接入方式下的用户接入密码。                     |
 
 运行结果如下：
+<img src="https://main.qcloudimg.com/raw/a7a4a02e8636045b7aeb852f47270059.png" width="700px">
 
-![](https://main.qcloudimg.com/raw/a7a4a02e8636045b7aeb852f47270059.png)
-
-  4. 在 Ckafka 控制台【topic 管理】页面，选择对应的 topic，点击【更多】>【消息查询】，查看刚刚发送的消息。
-
-     ![](https://main.qcloudimg.com/raw/99e5dba05efc4b48692c74749f131571.png)
+  4. 在 [Ckafka 控制台](https://console.cloud.tencent.com/ckafka)【topic 管理】页面，选择对应的 topic，单击【更多】>【消息查询】，查看刚刚发送的消息。
+<img src="https://main.qcloudimg.com/raw/3224bd16d182ca02d3ce4e65e172b540.png" width="700px">
 
 
 
@@ -683,5 +682,5 @@ gcc -lrdkafka ./consumer.c -o consumer
 运行结果如下：
 <img src="https://main.qcloudimg.com/raw/e131edb96559186eeba25beb26994a2e.png" width="700px">
 
-4. 在 Ckafka 控制台【Consumer Group】页面，选择对应的消费者组名称，在主题名称输入 topic 名称，单击【查询详情】查看消费详情。
+4. 在 [Ckafka 控制台](https://console.cloud.tencent.com/ckafka)【Consumer Group】页面，选择对应的消费者组名称，在主题名称输入 topic 名称，单击【查询详情】查看消费详情。
 ![](https://main.qcloudimg.com/raw/3020dcb5f8fd73e02949b20fef4f956f.png)
