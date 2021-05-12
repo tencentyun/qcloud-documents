@@ -12,7 +12,7 @@
 Web UI 地址链接跳转后，会提示输入用户名及密码，即在购买集群时设置的用户名及密码。
 ![](https://main.qcloudimg.com/raw/a0b4159c09c674773b2f3705abbd7d38.png)
 
-### YARN 集成 Ranger
+## YARN 集成 Ranger
 >!请确保 YARN 相关服务运行正常并且当前集群已安装 Ranger。
 >
 EMR Ranger YARN 目前仅支持 Capacity Scheduler 队列的 ACL，不支持 Fair Scheduler 队列的 ACL。Ranger YARN 队列 ACL 与 YARN 自带的 Capacity Scheduler 配置共同生效，且优先级低于 Capacity Scheduler 配置，只有在 YARN 自带的 Capacity Scheduler 配置拒绝校验时才会校验 Ranger YARN 权限。**建议不要在配置文件设置 ACL，而是使用 Ranger 设置 ACL**。
