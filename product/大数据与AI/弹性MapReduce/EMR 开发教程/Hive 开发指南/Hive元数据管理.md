@@ -2,7 +2,7 @@
 
 集群默认是独立自动购买一个 MetaDB 云数据库实例存储单元作为元数据存储地，与其余组件元数据一起存储，并随集群销毁而销毁 MetaDB 云数据库，若需保存元数据，需提前在云数据库中手动保存元数据。
 >!
->1. Hive 元数据与 Sqoop、Hue、Ranger、Oozie、Presto 组件元数据一起存储。
+>1. Hive 元数据与 Hue、Ranger、Oozie、Presto 组件元数据一起存储。
 >2. 集群需要单独购买一个 MetaDB 作为元数据存储单元。
 >3. MetaDB 随集群销毁而销毁，即元数据随集群而销毁。
 
@@ -10,7 +10,7 @@
 集群创建时系统会拉取云上可用的 MetaDB，用于新集群 Hive 组件存储元数据，无需单独购买 MetaDB 存储 Hive 元数据节约成本；并且 Hive 元数据不会随当前集群的销毁而销毁。
 > !
 >1. 可用 MetaDB 实例 ID 为同一账号下 EMR 集群中已有的 MetaDB。
->2. 当选择 Sqoop、Hue、Ranger、Oozie、Presto 一个或多个组件时系统会自动购买一个 MetaDB 用于除 Hive 外的组件元数据存储。
+>2. 当选择 Hue、Ranger、Oozie、Presto 一个或多个组件时系统会自动购买一个 MetaDB 用于除 Hive 外的组件元数据存储。
 >3. 要销毁关联的 EMR-MetaDB 需前往云数据库销毁，销毁后 Hive 元数据库将无法恢复。
 >4. 需保持关联的 EMR-MetaDB 网络与当前新建集群在同一网络环境下。
 >
@@ -22,7 +22,7 @@
 > !
 >1. 请确保自建数据库与 EMR 集群在同一网络下。
 >2. 准确填写数据库用户名和数据库密码。
->3. 当选择 Sqoop、Hue、Ranger、Oozie、Presto 一个或多个组件时系统会自动购买一个 MetaDB 用于除 Hive 外的元数据存储。
+>3. 当选择 Hue、Ranger、Oozie、Presto 一个或多个组件时系统会自动购买一个 MetaDB 用于除 Hive 外的元数据存储。
 >4. 需保证自定义数据库中的 Hive 元数据版本大于等于新集群中的 Hive 版本。
 >
 ![](https://main.qcloudimg.com/raw/2fab5fcaf594325de8c03c524318c201.png)
