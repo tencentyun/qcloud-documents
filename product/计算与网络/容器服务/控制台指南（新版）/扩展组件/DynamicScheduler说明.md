@@ -219,7 +219,7 @@ spec:
         interval: 30s
         rules:
         - record: cpu_usage_active
-          expr: 100*(1-(sum by (instance)(node_cpu_seconds_total{mode="idle"})/(sum by (instance)(node_cpu_seconds_total))))
+          expr: 100 - (avg by (instance) (irate(node_cpu_seconds_total{mode="idle"}[30s])) * 100)
         - record: mem_usage_active
           expr: 100*(1-node_memory_MemAvailable_bytes/node_memory_MemTotal_bytes)
       - name: cpu-usage-5m
