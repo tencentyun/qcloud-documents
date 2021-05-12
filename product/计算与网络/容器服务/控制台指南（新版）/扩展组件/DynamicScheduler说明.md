@@ -141,7 +141,6 @@ Dynamic Scheduler 动态调度器依赖于 Node 当前和过去一段时间的�
 #### 聚合规则配置[](id:Prometheus1)
 
 在 node-exporter 获取节点监控数据后，需要通过 Prometheus 对原始的 node-exporter 采集数据进行聚合计算。为了获取动态调度器中需要的 `cpu_usage_avg_5m`、`cpu_usage_max_avg_1h`、`cpu_usage_max_avg_1d`、`mem_usage_avg_5m`、`mem_usage_max _avg_1h`、`mem_usage_max_avg_1d` 等指标，需要在 Prometheus 的 rules 规则进行如下配置：
-
 ```yaml
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
@@ -153,7 +152,7 @@ spec:
         interval: 30s
         rules:
         - record: cpu_usage_active
-          expr: 100*(1-(sum by (instance)(node_cpu_seconds_total{mode="idle"})/(sum by (instance)(node_cpu_seconds_total))))
+          expr: 100 - (avg by (instance) (irate(node_cpu_seconds_total{mode="idle"}[30s])) * 100)
         - record: mem_usage_active
           expr: 100*(1-node_memory_MemAvailable_bytes/node_memory_MemTotal_bytes)
       - name: cpu-usage-5m
@@ -207,7 +206,6 @@ rule_files:
 2. 与原生托管集群关联后，可以在用户集群查看到每个节点都已安装 node-exporter。如下图所示：
    ![](https://main.qcloudimg.com/raw/e35d4af7eeba15f6d9da62ce79176904.png)
 3. 设置 Prometheus 聚合规则，具体规则内容与上述 [自建Prometheus监控服务](#rules) 中的“聚合规则配置”相同。如下所示：
-
 ```yaml
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
