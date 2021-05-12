@@ -56,7 +56,7 @@ wget https://loglistener-1254077820.cos.ap-shanghai.myqcloud.com/loglistener-lin
 
 ![](https://main.qcloudimg.com/raw/653ebe0400dca5b21b3e25d01f93cb5b.png)
 > ?
-> - 建议使用协作者密钥，需要主账号为该协作者授予日志服务的读写权限。
+> - 若主账号已授权协作者日志服务的读写权限，建议使用协作者密钥。
 > - region 为您所使用的日志服务区域，而非您的业务机器所处的区域。
 > - 云服务器与日志集同地域的情况下，建议使用内网方式访问服务域名。云服务器与日志集在不同地域的情况下，建议使用外网方式访问服务域名。
 
