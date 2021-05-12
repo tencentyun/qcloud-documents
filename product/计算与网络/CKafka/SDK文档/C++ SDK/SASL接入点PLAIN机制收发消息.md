@@ -11,7 +11,9 @@
 
 ### 步骤一：安装 C/C++ 依赖库
 
-- [安装 librdkafka](https://github.com/edenhill/librdkafka#installation)
+[安装 librdkafka](https://github.com/edenhill/librdkafka#installation)
+
+
 
 ### 步骤二：安装SSL/SASL依赖
 
@@ -19,6 +21,7 @@
 yum install openssl openssl-devel
 yum install cyrus-sasl{,-plain}
 ```
+
 
 
 ### 步骤三：发送消息
@@ -354,6 +357,8 @@ gcc -lrdkafka ./producer.c -o producer
   4. 在 Ckafka 控制台【topic 管理】页面，选择对应的 topic，点击【更多】>【消息查询】，查看刚刚发送的消息。
 
      ![](https://main.qcloudimg.com/raw/99e5dba05efc4b48692c74749f131571.png)
+
+
 
 ### 步骤四：消费消息
 
