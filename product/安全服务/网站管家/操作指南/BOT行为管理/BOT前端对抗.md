@@ -44,7 +44,7 @@
 
 ### 步骤4：查看前端对抗防护攻击日志
 BOT 行为管理前端对抗攻击日志属于 BOT 拦截日志的一部分，可以通过查看 BOT 拦截日志进行查看。
-- 在左侧导航栏中，选择【日志服务】>[【攻击日志】](https://console.cloud.tencent.com/guanjia/attack)，进入“日志查询”页签，选择攻击类型为：Bot 拦截。
+- 在左侧导航栏中，选择[【日志服务】](https://console.cloud.tencent.com/guanjia/attack)>【攻击日志】，进入“日志查询”页签，选择攻击类型为：Bot 拦截。
 ![](https://main.qcloudimg.com/raw/5e81f16eaa29a3af6934c67543586763.jpg)
 - 在右下角原始数据中，可查看attack_content 格式为：BOT 类型：xx；BOT 行为：xx 的日志为前端对抗防护产生的攻击日志。（例如：BOT 类型：WebDriver；BOT 行为：重放攻击）。
 >?
