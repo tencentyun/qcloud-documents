@@ -37,6 +37,7 @@ Doris 采用自研的列式存储格式来提升 OLAP 领域的查询效率。�
 
 ### 多维分析
 多维分析要求数据是结构化的，适用于查询相对灵活的场景，例如数据分析条件以及聚合维度等方面不是很确定，一般将此类数据分析定义为多维分析。
+![](https://main.qcloudimg.com/raw/0a06ad799372b6c7cde7d0b0ccb3eca5.png)
 
 ## Doris 架构
 Doris 主要有三个组件：
@@ -44,4 +45,5 @@ Doris 主要有三个组件：
 - BE（Backend）是 Doris 的后端节点。主要负责数据存储与管理、查询计划执行等工作。
 - Broker 是 Doris 集群中一种可选进程，主要用于支持 Doris 读写远端存储上的文件和目录，如 HDFS、腾讯云对象存储 COS 等。
 
+![](https://main.qcloudimg.com/raw/789b86faea8ee495d9470f402b115dcc.png)
  
