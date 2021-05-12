@@ -4,7 +4,7 @@
 开发 JAR 作业需要先在本地开发并编译好 JAR 包，以程序包的形式上传后方可在控制台配置 JAR 作业（JAR 包上传可参考 [程序包管理-创建程序包](https://cloud.tencent.com/document/product/849/48295#.E5.88.9B.E5.BB.BA.E7.A8.8B.E5.BA.8F.E5.8C.85)）。在【开发调试】页面中选择主程序包及其版本，并输入主类和主类入参，单击【作业参数】并在侧边弹出的参数界面中设置参数值，然后单击【保存】保存作业配置和参数信息。
 
 目前流计算 Oceanus 支持运行基于开源 Flink V1.11 开发的 JAR 包，业务代码开发指南请参见 Flink 社区官方文档：[Flink DataStream API 开发指南 ](https://ci.apache.org/projects/flink/flink-docs-release-1.11/zh/dev/datastream_api.html) 和 [Flink Table API & SQL 开发指南](https://ci.apache.org/projects/flink/flink-docs-release-1.11/zh/dev/table/)。
-![](https://main.qcloudimg.com/raw/505a35fe002076257837debb60896ffe.png)
+![](https://main.qcloudimg.com/raw/51c9268ca36b164475de600a61c17bf0.png)
 
 ## 作业参数
 ### 引用程序包
