@@ -15,6 +15,7 @@
 >- 对抗当前处于灰度阶段，如需试用请 [联系我们](https://cloud.tencent.com/act/event/connect-service) 进行开通。在灰度期间您可以免费使用，正式发布后，将按官网公布刊例价正常收取费用。
 >- 在 CLBWAF 实例添加的域名，暂时不支持前端对抗。
 
+
 ## 操作步骤
 ### 步骤1：进入前端对抗设置页面
 1. 登录 [Web 应用防火墙（WAF）控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 防护设置】，单击【防护设置】进入防护设置页面。
