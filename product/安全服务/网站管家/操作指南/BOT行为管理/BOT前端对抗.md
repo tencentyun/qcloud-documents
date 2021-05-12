@@ -25,7 +25,7 @@
 ![](https://main.qcloudimg.com/raw/b9424b5cb24492a897ddd99e1c05fccb.png)
 
 ### 步骤2：配置前端对抗策略防护
-在 [前端对抗](https://console.cloud.tencent.com/guanjia/bot2/config/dcb/*.psd.technicalsupport.cn) 页面，单击开启【防护开关】，选择策略设置，单击右侧的【设置】进行防护配置。
+在 [【防护设置】]((https://console.cloud.tencent.com/guanjia/bot2/config/ucb/*.psd.technicalsupport.cn)) 页面 ，单击开启【防护开关】，选择策略设置，单击右侧的【设置】进行防护配置。
  - **防护路径：**默认为 /，表示全站生效，设置前端对抗生效的路径，支持目录和具体 URL，支持输入多个路径，请以英文逗号隔开，最多支持10个，至少需要输入1个路径。
  - **自动化工具识别：**默认开启，自动化工具识别能力，开启后辅助进行动态威胁检测。
  - **页面防调试：**默认开启，为了防⽌⽤户查看⻚⾯逻辑，⻚⾯防调试功能在⽤户调⽤浏览器的开发者工具页面时，阻⽌⽤户跟踪⻚⾯逻辑。
