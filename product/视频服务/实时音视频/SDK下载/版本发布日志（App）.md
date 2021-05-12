@@ -1,3 +1,13 @@
+### Version 8.6 @ 2021.05.08
+1. 全平台：优化网络流控算法，进一步提升音视频传输质量。
+1. 全平台：优化切换角色上下麦时音频播放的流畅度。
+1. iOS&Mac Windows：优化音频处理模块，提升了 SPEECH 模式和 DEFAULT 模式的语音质量。
+1. iOS&Mac：优化自定义音频采集在高CPU场景下的适应性。
+1. Mac：增加对苹果 M1 架构的原生支持。
+1. iOS & Android ：支持录屏视频通过辅路进行分享，对齐桌面端版本。
+1. Windows：优化内存分配逻辑，提高稳定性。
+
+
 ## Version 8.5 @ 2021.03.24
 **功能新增**
 -  Mac：优化屏幕分享功能，您可以在分享目标窗口的同时指定其他窗口一起分享出去，请参见 API [addIncludedShareWindow](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a2e101f0ff00c8752eea1fa9a1a432233)。
