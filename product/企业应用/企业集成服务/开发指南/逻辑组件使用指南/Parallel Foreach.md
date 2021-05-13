@@ -18,8 +18,7 @@ Parallel Foreach 用于并行执行任务，Parallel Foreach 对数据集上的�
 ### 配置界面
 ![image-20210325142855462](https://main.qcloudimg.com/raw/215cf32c57eee9ea6cc077a9380db08e/image-20210325142855462.png)
 
-### 输入
-**输入到子流中的 message 信息如下：**
+### 输入到子流中的 message
 
 | message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
@@ -32,7 +31,7 @@ Parallel Foreach 用于并行执行任务，Parallel Foreach 对数据集上的�
 
 Parallel Foreach 的输出结果中，不会包含处理逻辑中使用的 variable 变量，最终输出的只有 payload 里的数据，输出的 payload 是个 list 类型变量，里边包含原始数据集中每个元素迭代处理的结果，顺序与原始数据集一致。attribute 的值继承自上一个组件。
 
-**组件输出的 message 信息如下：**
+组件输出的 message 信息如下：
 
 | message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
