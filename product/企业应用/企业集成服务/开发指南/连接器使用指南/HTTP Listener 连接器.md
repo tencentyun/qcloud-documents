@@ -62,17 +62,50 @@ HTTP Listener 生成的消息中，会将接收到请求的基本信息、Header
 
 **attributes 接收请求属性描述：**
 
-| 属性          | 描述                                                         |
-| ----------- | ------------------------------------------------------------ |
-| header      | 请求的 header，结构为：dict<string,list<string>>              |
-| cookies     | 请求的 cookies，结构为：dict<string,string>，解析 Cookies 逻辑比较常见，可通过该数据直接读取 |
-| host        | 请求的 Host，例如：`xxx-$appId.ipaas.sadbox.qcloud.com`          |
-| method      | 请求的 method，例如：GET、POST                                |
-| requestUri  | 请求的原始 URI，包括 query 参数，例如：/api/v1/foo？sss=bbb     |
-| requestPath | 请求的 Path，例如：/api/v1/foo                                |
-| remoteAddr  | 请求是来源 IP，例如：127.0.0.1:1111                           |
-| queryParams | 请求的 query 参数，即 URI 中“？”后面的参数，结构为 dict<string,list<string>> |
-| uriParams   | 请求的 path 参数，当监听路径中包含 {varName} 变量时，可以从该参数中获取，结构为 dict<string,string> |
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>header</td>
+<td>请求的 header，结构为：dict&lt;string,list<string>&gt;</string></td>
+</tr>
+<tr>
+<td>cookies</td>
+<td>请求的 cookies，结构为：dict&lt;string,string&gt;，解析 Cookies 逻辑比较常见，可通过该数据直接读取</td>
+</tr>
+<tr>
+<td>host</td>
+<td>请求的 Host，例如：<code>xxx-$appId.ipaas.sadbox.qcloud.com</code></td>
+</tr>
+<tr>
+<td>method</td>
+<td>请求的 method，例如：GET、POST</td>
+</tr>
+<tr>
+<td>requestUri</td>
+<td>请求的原始 URI，包括 query 参数，例如：/api/v1/foo？sss=bbb</td>
+</tr>
+<tr>
+<td>requestPath</td>
+<td>请求的 Path，例如：/api/v1/foo</td>
+</tr>
+<tr>
+<td>remoteAddr</td>
+<td>请求是来源 IP，例如：127.0.0.1:1111</td>
+</tr>
+<tr>
+<td>queryParams</td>
+<td>请求的 query 参数，即 URI 中“？”后面的参数，结构为 dict&lt;string,list<string>&gt;</string></td>
+</tr>
+<tr>
+<td>uriParams</td>
+<td>请求的 path 参数，当监听路径中包含 {varName} 变量时，可以从该参数中获取，结构为 dict&lt;string,string&gt;</td>
+</tr>
+</tbody></table>
 
 
 ## 案例
