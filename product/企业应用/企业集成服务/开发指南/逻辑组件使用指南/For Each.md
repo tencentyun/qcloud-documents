@@ -11,8 +11,8 @@ For Each 是循环控制结构，类似于编程语言中的 for/foreach，在 F
 | 参数   | 数据类型           | 描述                                                         | 是否必填 | 默认值      |
 | :----- | :----------------- | :----------------------------------------------------------- | :------- | ----------- |
 | 数据集 | string、list、dict、int | 待遍历的数据：<br><li>当类型为 string 时，遍历字符串的每个字符；<br><li>当类型为 list 时，遍历 list 的每个元素；<br><li>当类型为 dict 时，遍历 dict 中的 value；<br><li>当数据集类型为 int 时，例如3，实际遍历的数据集为[0,1,2]。 | 是       | 无          |
-| 计数器 | string             | 计数器是一个变量，该变量存储当前的迭代次数，从0开始，填入变量名称，msg.vars.get('#计数器变量#') 即可使用；例如：当计数器变量使用默认值 counter 时，第1次循环，msg.vars.get('counter') 值为0，第2次循环，msg.vars.get('counter') 值为1。 | 是       | counter     |
-| 根信息 | string             | 根信息同样是一个变量，填入变量名称，根信息中保存主流的 message 信息，msg.vars.get('#根信息名称#').payload 即可访问主流的 payload 数据。当使用默认值 rootMessage 时，使用 msg.vars.get('rootMessage').payload 即可在 For Each 的子流中访问主流的 payload 数据。 | 是       | rootMessage |
+| 计数器 | string             | 计数器是一个变量，该变量存储当前的迭代次数，从0开始，填入变量名称，msg.vars.get('#计数器变量#') 即可使用；例如：当计数器变量使用默认值 counter 时，第1次循环，msg.vars.get('counter') 值为0，第2次循环，msg.vars.get('counter') 值为1。 |否      | counter     |
+| 根信息 | string             | 根信息同样是一个变量，填入变量名称，根信息中保存主流的 message 信息，msg.vars.get('#根信息名称#').payload 即可访问主流的 payload 数据。当使用默认值 rootMessage 时，使用 msg.vars.get('rootMessage').payload 即可在 For Each 的子流中访问主流的 payload 数据。 | 否       | rootMessage |
 
 ### 配置界面
 
