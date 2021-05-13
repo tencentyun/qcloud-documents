@@ -19,52 +19,19 @@
 ## 连接器配置
 <dx-tabs>
 ::: 通用配置标签页-连接配置
-| 参数                | 数据类型 | 描述                                                         | 是否必填 | 默认值    |
-| ------------------- | -------- | ------------------------------------------------------------ | -------- | --------- |
-| 集群地址            | string   | Apache Kafka 集群地址，配置的格式：ip:port,ip:port            | 是       |           |
-| 集群 Kafka 版本       | enum     | 选择 Kafka 集群的版本号                                        | 否       | 1.1       |
-| SASL 安全认证模式    | enum     | 选择连接到 Kafka 集群时的安全认证模式                          | 否       | PlainText |
-| SASL 用户名          | string   | SASL/Plain 和 SASL/SCRAM 安全认证模式下的用户名                 | 否       |           |
-| SASL 密码            | string   | SASL/Plain 和 SASL/SCRAM 安全认证模式下的密码                   | 否       |           |
-| SASL/SCRAM 加密类型  | enum     | SASL/SCRAM 安全认证模式下的加密类型                           | 否       |           |
-| 使能 TLS 安全传输协议 | bool     | 是否使用 TLS 加密和 Kafka 集群间的连接                           | 否       | false     |
-| TLS 客户端证书       | file     | 可选，使用提供的证书对连接进行加密，仅当使能 TLS 安全传输协议设置为 True 才可配置 | 否       |           |
-| TLS 客户端Key        | file     | 可选，使用提供的证书对连接进行加密，需和客户端证书同时提供，仅当使能 TLS 安全传输协议设置为 True 才可配置 | 否       |           |
-| TLS 服务端证书       | file     | 可选，使用提供的证书对连接进行加密，仅当使能TLS安全传输协议设置为 True 才可配置 | 否       |           |
+<table><thead><tr><th>参数</th><th>数据类型</th><th>描述</th><th>是否必填</th><th>默认值</th></tr></thead><tbody><tr><td>集群地址</td><td>string</td><td>Apache Kafka 集群地址，配置的格式：ip:port,ip:port</td><td>是</td><td></td></tr><tr><td>集群 Kafka 版本</td><td>enum</td><td>选择 Kafka 集群的版本号</td><td>否</td><td>1.1</td></tr><tr><td>SASL 安全认证模式</td><td>enum</td><td>选择连接到 Kafka 集群时的安全认证模式</td><td>否</td><td>PlainText</td></tr><tr><td>SASL 用户名</td><td>string</td><td>SASL/Plain 和 SASL/SCRAM 安全认证模式下的用户名</td><td>否</td><td></td></tr><tr><td>SASL 密码</td><td>string</td><td>SASL/Plain 和 SASL/SCRAM 安全认证模式下的密码</td><td>否</td><td></td></tr><tr><td>SASL/SCRAM 加密类型</td><td>enum</td><td>SASL/SCRAM 安全认证模式下的加密类型</td><td>否</td><td></td></tr><tr><td>使能 TLS 安全传输协议</td><td>bool</td><td>是否使用 TLS 加密和 Kafka 集群间的连接</td><td>否</td><td>false</td></tr><tr><td>TLS 客户端证书</td><td>file</td><td>可选，使用提供的证书对连接进行加密，仅当使能 TLS 安全传输协议设置为 True 才可配置</td><td>否</td><td></td></tr><tr><td>TLS 客户端Key</td><td>file</td><td>可选，使用提供的证书对连接进行加密，需和客户端证书同时提供，仅当使能 TLS 安全传输协议设置为 True 才可配置</td><td>否</td><td></td></tr><tr><td>TLS 服务端证书</td><td>file</td><td>可选，使用提供的证书对连接进行加密，仅当使能TLS安全传输协议设置为 True 才可配置</td><td>否</td><td></td></tr></tbody></table>
 
 ![](https://main.qcloudimg.com/raw/70cd309b7f199c8d3b2c947ce5d171bb/image-20210426172832136.png)	
 
 :::
 ::: 通用配置标签页-消费者配置
-| 参数       | 数据类型 | 描述                                                | 是否必填 | 默认值 |
-| ---------- | -------- | --------------------------------------------------- | -------- | ------ |
-| 消费者组   | string   | 消费时的所属的消费者组名称                          | 是       |        |
-| 主题       | string   | 订阅的主题列表，支持正则表达式                      | 是       |        |
-| 消费者数量 | int      | 消费者组内的消费者数量，必须小于主题的 partition 数量 | 否       | 1      |
+<table><thead><tr><th>参数</th><th>数据类型</th><th>描述</th><th>是否必填</th><th>默认值</th></tr></thead><tbody><tr><td>消费者组</td><td>string</td><td>消费时的所属的消费者组名称</td><td>是</td><td></td></tr><tr><td>主题</td><td>string</td><td>订阅的主题列表，支持正则表达式</td><td>是</td><td></td></tr><tr><td>消费者数量</td><td>int</td><td>消费者组内的消费者数量，必须小于主题的 partition 数量</td><td>否</td><td>1</td></tr></tbody></table>
 
 ![](https://main.qcloudimg.com/raw/f94e58a786e90e5fc8a5165316d2edfc/image-20210426172924488.png)	
 
 :::
 ::: 高级配置标签页-消费者组配置
-| 参数                  | 数据类型 | 描述                                                         | 是否必填 | 默认值           |
-| --------------------- | -------- | ------------------------------------------------------------ | -------- | ---------------- |
-| 消息确认模式          | enum     | 消费消息后，在 Kafka 上确认 Offset 的模式，有两种：<br><li>消费后直到触发的流成功结束后才确认 Offset  <br><li>消费后立即确认 Offset | 否       | 流运行成功后确认 |
-| 隔离级别              | enum     | Kafka 的事务隔离级别，可选 Read Uncommitted 和 Read committed    | 否       | Read Uncommitted |
-| 重试阻塞时间          | int      | 重试阻塞时间（毫秒），避免在失败场景下以紧密循环的方式重复发送请求 | 否       | 2000             |
-| 请求超时时间          | int      | 请求超时时间（毫秒）                                    | 否       | 30000            |
-| 会话超时时间          | int      | 会话超时时间（毫秒）                                       | 否       | 10000            |
-| 心跳时间              | int      | 心跳时间（毫秒）                                         | 否       | 3000             |
-| Rebalance 检测频率     | int      | Rebalance 检测频率（毫秒），Kafka 消费者组重平衡检测的间隔时间   | 否       | 60000            |
-| Rebalance 策略         | enum     | Rebalance 策略，按区间划分（Range）和轮询（RoundRobin）两种策略   | 否       | Range            |
-| Rebalance 最大重试次数 | int      | Rebalance 最大重试次数                                        | 否       | 4                |
-| Rebalance 重试阻塞时间 | int      | Rebalance 重试阻塞时间（毫秒）                                 | 否       | 2000             |
-| 最小拉取数据量        | int      | 最小拉取数据量（字节）                                       | 否       | 1                |
-| 默认拉取数据量        | int      | 默认拉取数据量（字节） ，默认为1048756(1024*1024)               | 否       | 1048576          |
-| 最大拉取数据量        | int      | 最大拉取数据量（兆），设置为0时无限制                          | 否       | 0                |
-| 拉取阻塞时间          | int      | 拉取阻塞时间（毫秒）                                           | 否       | 250              |
-| 提交频率              | int      | 提交频率（毫秒）                                         | 否       | 1000             |
-| 初始偏移量            | enum     | 初始偏移量，取值为 Offset Newest 和 Offset Latest               | 否       | Offset Newest    |
-| 偏移量保留的时间      | int      | 偏移量保留的时间（秒），0表示不过期                            | 否       | 0                |
+<table><thead><tr><th>参数</th><th>数据类型</th><th>描述</th><th>是否必填</th><th>默认值</th></tr></thead><tbody><tr><td>消息确认模式</td><td>enum</td><td>消费消息后，在 Kafka 上确认 Offset 的模式，有两种：<br><li>消费后直到触发的流成功结束后才确认 Offset  <br></li><li>消费后立即确认 Offset</li></td><td>否</td><td>流运行成功后确认</td></tr><tr><td>隔离级别</td><td>enum</td><td>Kafka 的事务隔离级别，可选 Read Uncommitted 和 Read committed</td><td>否</td><td>Read Uncommitted</td></tr><tr><td>重试阻塞时间</td><td>int</td><td>重试阻塞时间（毫秒），避免在失败场景下以紧密循环的方式重复发送请求</td><td>否</td><td>2000</td></tr><tr><td>请求超时时间</td><td>int</td><td>请求超时时间（毫秒）</td><td>否</td><td>30000</td></tr><tr><td>会话超时时间</td><td>int</td><td>会话超时时间（毫秒）</td><td>否</td><td>10000</td></tr><tr><td>心跳时间</td><td>int</td><td>心跳时间（毫秒）</td><td>否</td><td>3000</td></tr><tr><td>Rebalance 检测频率</td><td>int</td><td>Rebalance 检测频率（毫秒），Kafka 消费者组重平衡检测的间隔时间</td><td>否</td><td>60000</td></tr><tr><td>Rebalance 策略</td><td>enum</td><td>Rebalance 策略，按区间划分（Range）和轮询（RoundRobin）两种策略</td><td>否</td><td>Range</td></tr><tr><td>Rebalance 最大重试次数</td><td>int</td><td>Rebalance 最大重试次数</td><td>否</td><td>4</td></tr><tr><td>Rebalance 重试阻塞时间</td><td>int</td><td>Rebalance 重试阻塞时间（毫秒）</td><td>否</td><td>2000</td></tr><tr><td>最小拉取数据量</td><td>int</td><td>最小拉取数据量（字节）</td><td>否</td><td>1</td></tr><tr><td>默认拉取数据量</td><td>int</td><td>默认拉取数据量（字节） ，默认为1048756(1024*1024)</td><td>否</td><td>1048576</td></tr><tr><td>最大拉取数据量</td><td>int</td><td>最大拉取数据量（兆），设置为0时无限制</td><td>否</td><td>0</td></tr><tr><td>拉取阻塞时间</td><td>int</td><td>拉取阻塞时间（毫秒）</td><td>否</td><td>250</td></tr><tr><td>提交频率</td><td>int</td><td>提交频率（毫秒）</td><td>否</td><td>1000</td></tr><tr><td>初始偏移量</td><td>enum</td><td>初始偏移量，取值为 Offset Newest 和 Offset Latest</td><td>否</td><td>Offset Newest</td></tr><tr><td>偏移量保留的时间</td><td>int</td><td>偏移量保留的时间（秒），0表示不过期</td><td>否</td><td>0</td></tr></tbody></table>
 
 ![image-20210426173044144](https://main.qcloudimg.com/raw/6ea8a869d66e6eff056a177fe5f1d7de/image-20210426173044144.png)
 :::
@@ -90,13 +57,12 @@
 
 Apache Kafka 连接器包含 Consumer 和 Publish 两种操作。
 
-<dx-tabs>
-::: Consumer 操作
+### Consumer 操作
 #### 输入参数
 None，Consumer 操作没有输入参数。
 ![image-20210426173307712](https://main.qcloudimg.com/raw/2c448cd5f1ef1036401c607764da7653/image-20210426173307712.png)
 
-####  输出参数
+####  输出
 Consumer 操作执行成功后，输出结果会保存在 message 消息体的 payload；执行失败后，错误信息会保存在 message 消息体的 error。
 
 **组件输出的 message 信息如下：**
@@ -141,10 +107,8 @@ Consumer 操作执行成功后，输出结果会保存在 message 消息体的 p
 ![](https://main.qcloudimg.com/raw/ef98f8533e1a436280f0ca8056cff730/image-20210426182730034.png)	
 4. 若配置正确，流发布后，可以看到 kafka 中的流被正确消费，且被发布到 rabbitMQ 中。
 
-:::
-::: Publish 操作
+### Publish 操作
 #### 输入参数
-
 **通用配置**
 
 | 参数                  | 数据类型       | 说明                  | 是否必填 | 默认值 |
