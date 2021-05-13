@@ -2,7 +2,7 @@
 
 ## 简介
 
-Flow Reference 组件用来引用当前应用中的其他集成流。与 Async 不同，Flow Reference 是一个同步动作，当引用的集成流执行完成后，才会继续执行下一个动作，并且 Flow Reference 中的集成流执行完成后，message 会传递到主流中，下一个节点基于子流的 message 继续执行。
+Flow Reference 组件用来引用当前应用中的其他集成流。与 Async 不同，Flow Reference 是一个同步动作，当引用的集成流执行完成后，才会继续执行下一个动作，并且 Flow Reference 中的子流执行完成后，message 会传递到主流中，下一个节点基于该子流的 message 继续执行。当 Flow Reference 引用的子流包含 trigger 节点时，如果该子流的执行由 Flow Reference 触发，则该子流的 trigger 节点不会执行，即该子流从第二个节点开始执行。
 
 ## 操作说明
 
@@ -16,7 +16,7 @@ Flow Reference 组件用来引用当前应用中的其他集成流。与 Async �
 ![image-20210325142105983](https://main.qcloudimg.com/raw/7eaca90631c9f34001f9d726b9ad5cd8/image-20210325142105983.png)
 
 ### 输入
-输入到子流中的 message 信息如下：
+**输入到子流中的 message 信息如下：**
 
 | message 属性 | 值                                            |
 | ----------- | --------------------------------------------- |
