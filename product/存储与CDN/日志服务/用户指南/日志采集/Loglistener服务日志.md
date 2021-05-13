@@ -90,7 +90,7 @@ LogListener 服务日志功能支持记录 LogListener 端运行状态和采集�
 	<tr><td>SendSuccessReqs</td><td>发送成功请求数</td></tr>
 	<tr><td>SendFailureReqs</td><td>发送失败请求数</td></tr>
 	<tr><td>SendTimeoutReqs</td><td>发送超时请求数</td></tr>
-	<tr><td>TotalFinishRsps</td><td>收到的 rsp 丛书</td></tr>
+	<tr><td>TotalFinishRsps</td><td>收到的全部 .rsp 文件</td></tr>
 	<tr><td>TotalSuccessFromStart</td><td>LogListener 启动到现在总的成功数</td></tr>
 	<tr><td>AvgReqSize</td><td>平均请求包大小</td></tr>
 	<tr><td>SendAvgCost	</td><td>平均发送耗时</td></tr>
@@ -131,8 +131,8 @@ LogListener 服务日志功能支持记录 LogListener 端运行状态和采集�
 | StatException              | 9       | 获取进程相关信息异常                      |
 | UpdateException            | 10      | cls update 功能异常                       |
 | DoSendError            | 11      | dosend 失败                               |
-| FileAddError          | 12      | addFileToReadyList get file realpath fail |
-| FileMetaError         | 13      | addFileToReadyList metadata not found     |
+| FileAddError          | 12      | 文件新增失败 |
+| FileMetaError         | 13      | 元数据文件新增失败     |
 | FileOpenError         | 14      | open file 失败                             |
 | FileReadError         | 15      | read file 失败                             |
 | FileStatError         | 16      | stat file 失败                             |
@@ -144,8 +144,8 @@ LogListener 服务日志功能支持记录 LogListener 端运行状态和采集�
 | ReadEventException        | 22      | readEvent 失败                             |
 | ReadFileBugOn        | 23      | 触发 bugon                                 |
 | ReadFileException          | 24      | procReadyFile() 异常                      |
-| ReadFileInodeChange | 25      | file inode changed                        |
-| ReadFileTruncate     | 26      | file truncated                            |
+| ReadFileInodeChange | 25      | file inode 发生变化                        |
+| ReadFileTruncate     | 26      | Readfile 截断                          |
 | WildCardPathException      | 27      | addWildcardPathInotify() 异常             |
 
 
