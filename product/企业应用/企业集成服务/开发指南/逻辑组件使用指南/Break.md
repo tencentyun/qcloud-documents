@@ -11,11 +11,10 @@ Break 组件需要和 For Each 或者 While 组件搭配使用，用来中断循
 
 | message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
-| payload     | 继承上个组件的 payload。                                        |
-| error       |  执行成功后，error 为空；<br>执行失败后，error 为 dict 类型，包含“Code”和“Description”字段：“Code”字段表示错误类型，“Description”字段表示错误具体信息。 |
-| attribute   | 继承上个组件的 attribute 信息。                                  |
-| variable    | 继承上个组件的 variable 信息。                                   |
-
+| payload     | 当在 For Each 组件中使用时，Break 跳出循环后，payload 中的数据继承自 For Each 的上一个组件的 payload；当在 While 组件中使用时，跳出循环后，payload 的数据继承自 Break 的上一个组件输出的 payload。 |
+| error       | 空。                                                           |
+| attribute   | 在 For Each 组件中使用时，Break 跳出循环后，attribute 继承自 For Each 的上一个组件输出的 attribute；在 While 组件中使用时，Break 跳出循环后，attribute 继承自 While 的上一个组件输出的 attribute。 |
+| variable    | 在 For Each 中使用时，Break 跳出循环后，variable 中的变量是 For Each 的上一个组件输出的 variable 变量加上 For Each 子流中声明的 variable 变量；在 While 组件中使用时，variable 中的变量是 While 的上一个组件输出的 variable 变量加上 For Each 子流中声明的 variable 变量。 |
 
 ## 案例
 1. 添加 For Each 组件，设置要遍历的列表。
