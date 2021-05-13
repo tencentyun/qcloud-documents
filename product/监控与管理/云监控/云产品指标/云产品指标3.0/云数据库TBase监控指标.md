@@ -61,7 +61,7 @@ Namespace=QCE/TBASE
 | ------------------------------ | ---------- | -------------------------- | ------------------------------------ |
 | Instances.N.Dimensions.0.Name  | InstanceId | 云数据库实例 ID 的维度名称 | 输入 String 类型维度名称：InstanceId |
 | Instances.N.Dimensions.0.Value | InstanceId | 云数据库实例的具体 ID      | 输入具体实例 ID，例如：ins-mm8bs222  |
-| Instances.N.Dimensions.1.Name  | NodeId     | 云数据库节点的具体 ID      | 输入 String 类型维度名称：NodeId     |
+| Instances.N.Dimensions.1.Name  | NodeId     | 云数据库节点 ID 的维度名称       | 输入 String 类型维度名称：NodeId     |
 | Instances.N.Dimensions.1.Value | NodeId     | 云数据库节点的具体 ID      | 输入具体实例 ID，例如：877adc0ada3e  |
 
 ## 入参说明
