@@ -16,7 +16,6 @@ AMQP 连接器遵从 AMQP 0.9.1 协议。AMQP 协议基本概念如下：
 - **BindingKey** : 绑定键，在消息队列绑定到交换机的过程中，可以指定 BindingKey 参数，用于交换机根据一定的路由规则转发消息到相关消息队列中。
 
 ## 连接器配置
-
 <dx-tabs>
 ::: 连接配置参数
 | 参数                | 数据类型 | 描述                                                         | 是否必填 | 默认值 |
@@ -73,9 +72,7 @@ AMQP 连接器遵从 AMQP 0.9.1 协议。AMQP 协议基本概念如下：
 
 
 ## 操作配置
-AMQP 连接器包含 Consumer 和 Publish 两种操作。
-<dx-tabs>
-::: Consumer 操作
+### Consumer 操作
 #### 输入参数
 
 | 参数       | 数据类型 | 说明                                                         | 是否必填 | 默认值 |
@@ -86,7 +83,7 @@ AMQP 连接器包含 Consumer 和 Publish 两种操作。
 
 ![](https://main.qcloudimg.com/raw/dc3580023f45ca3b9b80ae7556bd2527/image-20210408151251318.png)	
 
-#### 输出参数
+#### 输出
 
 Consumer 操作执行成功后，输出结果会保存在 message 消息体的 payload；执行失败后，错误信息会保存在 Message 消息体的 error。
 
@@ -141,8 +138,6 @@ Consumer 操作执行成功后，输出结果会保存在 message 消息体的 p
 }
 ```
 
-
-
 ####  案例
 1. 按照 rabbitMQ 集群信息，填写 AMQP 连接器配置的连接配置，其他配置保持默认。
    ![image-20210426154407837](https://main.qcloudimg.com/raw/94994df1e398e21b56d39b33e54be92c/image-20210426154407837.png)
@@ -152,8 +147,7 @@ Consumer 操作执行成功后，输出结果会保存在 message 消息体的 p
 ![](https://main.qcloudimg.com/raw/a92e0704ae588ab5c6bb47c0fdb97e5f/image-20210426154934076.png)	
 4. 若参数配置正确，流发布后，即可将 rabbitMQ 的消息消费并发布到 kafka 队列中。
 
-:::
-::: Publish 操作
+### Publish 操作
 #### 输入参数
 
 **通用配置**
@@ -228,8 +222,3 @@ Publish 操作执行失败后，错误信息会保存在 message 消息体的 er
 ![image-20210426160829456](https://main.qcloudimg.com/raw/52ee09fa46761f26bad6bf87afc84916/image-20210426160829456.png)
 ![image-20210426160947755](https://main.qcloudimg.com/raw/7368579eb40d73bae40653831ee16e45/image-20210426160947755.png)
 4. 发布流，触发流后，若连接参数及消息参数配置正确，消息将成功投递到所配置的 rabbitMQ 集群的对应队列中。
-
-:::
-</dx-tabs>
-
-
