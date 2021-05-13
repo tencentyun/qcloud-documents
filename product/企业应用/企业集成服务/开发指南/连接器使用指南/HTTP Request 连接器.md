@@ -88,7 +88,7 @@ HTTP Request 操作配置包括基本配置、高级配置两项：
 
 HTTP Request 请求的响应返回后，会将响应结果生成对应的消息传递给下一个组件。其中，响应的基本信息、Header、Query 参数、Path 参数会放到消息的 attributes 中，响应的 body 会放到消息的 payload 中。
 
-### HTTP Request 输出消息描述
+**HTTP Request 输出消息描述**
 
 <table>
 <thead>
