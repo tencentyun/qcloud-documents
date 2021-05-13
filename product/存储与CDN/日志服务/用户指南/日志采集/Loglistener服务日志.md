@@ -70,7 +70,7 @@ LogListener 服务日志功能支持记录 LogListener 端运行状态和采集�
 	<tr><th>字段</th><th>描述</th></tr>
 	<tr><td>InstanceId</td><td>LogListener 唯一标识值</td></tr>
 	<tr><td>IP</td><td>机器组 IP</td></tr>
-	<tr><td>Label</td><td>机器标示 array</td></tr>
+	<tr><td>Label</td><td>机器标识数组</td></tr>
 	<tr><td>Version</td><td>版本号</td></tr>
 	<tr><td>MemoryUsed</td><td>组件内存使用情况</td></tr>
 	<tr><td>MemMax</td><td>Agent 在该机器上设置的内存使用阈值</td></tr>
@@ -108,7 +108,7 @@ LogListener 服务日志功能支持记录 LogListener 端运行状态和采集�
 | 字段         | 监控指标分类          |
 | :----------- | :-------------------- |
 | InstanceId   | LogListener 唯一标识值 |
-| Label        | 机器标示 array        |
+| Label        | 机器标识数组        |
 | IP           | 机器组 IP              |
 | Version      | LogListener 版本      |
 | AlarmType.count | 告警类型统计  |
@@ -155,7 +155,7 @@ LogListener 服务日志功能支持记录 LogListener 端运行状态和采集�
 <table>
 	<tr><th>字段</th><th>描述</th></tr>
 	<tr><td>InstanceId</td><td>LogListener 唯一标识值</td></tr>
-	<tr><td>Label</td><td>机器标示 array</td></tr>
+	<tr><td>Label</td><td>机器标识数组</td></tr>
 	<tr><td>IP</td><td>	机器组 IP</td></tr>
 	<tr><td>Version</td><td>LogListener 版本</td></tr>
 	<tr><td>TopicId</td><td>文件采集到的目标 topic</td></tr>
