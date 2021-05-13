@@ -117,6 +117,7 @@ TRTCCallingContext.off(EVENT.INVITED)
 
 | 参数|    含义   |
 | --------------- | ---------- | 
+| userID | 希望呼叫用户的 userID | 
 |type| 通话类型，type = 1：语音通话，type = 2：视频通话。|
 
 ```javascript
