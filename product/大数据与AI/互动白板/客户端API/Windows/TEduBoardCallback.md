@@ -228,6 +228,16 @@ virtual void onTEBAddElement(const char *elementId, const char *url)
 只有本地调用 AddElement 时会收到该回调 收到该回调表示元素已经显示出来 
 
 
+### onTEBRemoveElement
+删除白板元素回调 
+``` C++
+virtual void onTEBRemoveElement(const TEduBoardStringList *elementIds)
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementIds | const TEduBoardStringList * | 被删除的元素ID（使用后不需要自行调用 Release 方法释放，SDK 内部自动释放）  |
 ### onTEBBackgroundH5StatusChanged
 设置白板背景 H5 状态改变回调 
 ``` C++
@@ -372,6 +382,18 @@ virtual void onTEBVideoStatusChanged(const char *fileId, TEduBoardVideoStatus st
 | duration | double | 总时长（秒）（仅支持 mp4 格式）  |
 
 
+### onTEBAudioStatusChanged
+音频文件状态回调 
+``` C++
+virtual void onTEBAudioStatusChanged(const char *elementId, TEduBoardAudioStatus status, double progress, double duration)
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | const char * | 元素 ID  |
+| status | TEduBoardAudioStatus | 文件状态  |
+| progress | double | 当前进度（秒）  |
+| duration | double | 总时长（秒）  |
 ### onTEBH5FileStatusChanged
 H5 文件状态回调 
 ``` C++
