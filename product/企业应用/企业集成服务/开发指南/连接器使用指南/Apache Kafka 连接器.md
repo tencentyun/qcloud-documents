@@ -173,7 +173,3 @@ Publish 操作执行成功后，输出属性会保存在 message 消息体的 at
 3. 在流中增加 kafka publish 操作，填写消息内容，将消息发布到 Kafka 集群中。
 ![](https://main.qcloudimg.com/raw/ddce99bb9dd7c50b277f4cd9aab537cf/image-20210426183719986.png)	
 4. 发布流，触发流后，若连接参数及消息参数配置正确，消息将成功投递到所配置的 Kafka 集群的对应队列中。
-
-:::
-</dx-tabs>
-
