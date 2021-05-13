@@ -18,8 +18,7 @@ For Each 是循环控制结构，类似于编程语言中的 for/foreach，在 F
 
 ![image-20210325142639861](https://main.qcloudimg.com/raw/8580d530f9f61e1d1dc352de8aa2d814/image-20210325142639861.png)
 
-### 输入
-**输入到子流中的 message 信息如下：**
+### 输入到子流中的 message
 
 | message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
@@ -30,7 +29,8 @@ For Each 是循环控制结构，类似于编程语言中的 for/foreach，在 F
 
 ### 输出
 For Each 组件输出的 message 中，保留了 For Each 上一个组件的 payload 和 attributes 信息，只有 For Each 中子流使用的 variable 变量会传递出来。
-**组件输出的 message 信息如下：**
+
+组件输出的 message 信息如下：
 
 | message 属性 | 值                                                           |
 | ----------- | ------------------------------------------------------------ |
