@@ -472,7 +472,7 @@ def dw_process(msg):
     return Entity.from_value(
         [('a', ('test', '1233', 'application/json', {'test111':1})),
         ('b', (None, '2333', 'text/plain')),],
-        mime_type="multipart/form-data; boundary=ce560532019a77d83195f9e9873e16a1"
+        mime_type="multipart/form-data; boundary=123"
     )
 ```
 **Dataway 脚本**
@@ -494,22 +494,22 @@ Dataway 脚本的输出结果为一个 dict 类型数据，结果如下。
 ```pythonn
 {
     'k1': 'Entity',
-    'k2': 'multipart/form-data;boundary=ce560532019a77d83195f9e9873e16a1',
+    'k2': 'multipart/form-data;boundary=123',
     'k3': 'utf-8',
-    'k4': b'''--ce560532019a77d83195f9e9873e16a1
+    'k4': b'''--123
 Content-Disposition: form-data; name="a"; filename="test"
 Content-Type: application/json
 test111: 1
 
 1233
---ce560532019a77d83195f9e9873e16a1
+--123
 Content-Disposition: form-data; name="b"
 Content-Type: text/plain
 
 2333
---ce560532019a77d83195f9e9873e16a1--
+--123--
 ''',
-    'k5': 'ce560532019a77d83195f9e9873e16a1',
+    'k5': '123',
     'k6': 'a-text/plain'
 }
 ```
