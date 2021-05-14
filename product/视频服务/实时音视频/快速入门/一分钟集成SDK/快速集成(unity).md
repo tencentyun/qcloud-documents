@@ -2,7 +2,7 @@
 
 ## 环境要求
 * Unity建议版本： 2020.2.1f1c1。
-* 目前支持 Android、iOS、Windows、Mac(Mac还在内测中)平台。
+* 目前支持 Android、iOS、Windows、Mac（Mac 还在内测中）平台。
 * 需要包含 `Android Build Support`、`iOS Build Support`、 `Winodows Build Support` 和 `MacOs Build Support` 模块。
 - 其中 iOS  端开发还需要：
   - Xcode 11.0及以上版本。
