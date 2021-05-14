@@ -3,7 +3,7 @@
 [](id:test)
 ## 测试版 License
 ### 申请测试版 License
-您可以免费申请测试版 License（基础版，免费测试有效期为14天，可续期1次，共28天）体验测试，具体步骤如下：
+您可以免费申请测试版 License（基础版，免费测试有效期为14天，可续期1次，共28天。到期当日的00:00:00截止）体验测试，具体步骤如下：
 1. 登录云直播控制台，在左侧菜单中选择 【直播 SDK】>[【License】](https://console.cloud.tencent.com/live/license)。
 ![](https://main.qcloudimg.com/raw/e16e131d2a235c6f902b9337da1742ec.png)
 2. 单击【立即申请】，填写【Package Name】为 Android 的包名，【Bundle Id】为 iOS 的 Bundle ID。
