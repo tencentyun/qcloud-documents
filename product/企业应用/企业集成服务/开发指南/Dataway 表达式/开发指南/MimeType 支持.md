@@ -356,7 +356,7 @@ HTTP Form-Data表单格式的数据代表 mime-type 为 multipart/form-data 的 
 ### 浏览器中的 multipart/form-data
 在浏览器发送 Content-Type 为 multipart/form-data 的请求时，实际传输的 byte 数组转换成字符串如下所示：
 - 每一项参数由一个 boundary 开头，标识着这一项的开始，例如：--34b21 。
->!–- 为固定开头，34b21 为浏览器随机的一个不超过70位的字符串。
+>! -- 为固定开头，34b21 为浏览器随机的一个不超过70位的字符串。
 - boundary 开头下是 Content-Disposition 和 Content-Type 的固定 headers，其中：
  - Content-Disposition 包含 name 和 filename 两项，name 为参数名，filename 为文件名。
  - Content-Type 即为输入内容的 Content-Type。
