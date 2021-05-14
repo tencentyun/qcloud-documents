@@ -19,7 +19,7 @@
 
 
 ## 配置示例
-若域名`cloud.tencent.com`的 Range 回源配置如下：
+若域名`cloud.tencent.com`的分片回源配置如下：
 ![](https://main.qcloudimg.com/raw/426c2f72f65ac624d6d833bc2ae4db3e.png)
 用户 A 请求资源：`http://cloud.tencent.com/test.apk`，节点收到请求后，发现缓存的`test.apk`文件已过期，此时发起回源请求，节点回源使用 Range 请求，分片获取资源并缓存。若此时用户 B 发起的也为 Range 请求，当节点上存储的分片已满足 Range 中指定的字节段，则会直接返回给用户，无需等所有分片获取完毕。
 
