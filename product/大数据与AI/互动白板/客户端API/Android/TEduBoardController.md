@@ -74,16 +74,16 @@ void init(TEduBoardAuthParam authParam, int roomId, final TEduBoardInitParam ini
 
 
 ### uninit
-反初始化白板，释放内部资源. 
+反初始化白板，释放内部资源 
 ``` Java
 void uninit()
 ```
 
 #### 警告
-此接口与结束计费相关，用户退出课堂时，记得一定调用此接口。 
+此接口与结束计费相关，用户退出课堂时，记得一定调用此接口 
 
 #### 介绍
-在销毁白板对象后，将会结束计费。 
+在销毁白板对象后，将会结束计费 
 
 
 ### setProxyServer
@@ -197,7 +197,6 @@ static String getVersion()
 ```
 #### 返回
 SDK 版本号 
-
 
 
 ## 涂鸦相关接口
