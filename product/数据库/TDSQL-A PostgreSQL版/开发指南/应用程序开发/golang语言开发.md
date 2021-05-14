@@ -1,4 +1,4 @@
-用户可使用golang的pgx接口来连接TDSQL-A PostgreSQL版数据库，进行数据库交互。开发所需要的资源包可前往https://github.com/jackc/pgx进行下载。
+用户可使用 golang 的 pgx 接口来连接 TDSQL-A PostgreSQL版 数据库，进行数据库交互。开发所需要的资源包可前往 [官网](https://github.com/jackc/pgx) 进行下载。
 
 ## 示例1：连接数据库
 ```
@@ -43,7 +43,7 @@ err error --错误信息
 */
 func db_connect() (conn *pgx.Conn, err error) {
 var config pgx.ConnConfig
-config.Host = "127.0.0.1" //数据库主机 host 或 ip
+config.Host = "127.0.0.1" //数据库主机 host 或 IP
 config.User = "dbadmin" //连接用户
 config.Password = "pgsql" //用户密码
 config.Database = "postgres" //连接数据库名
@@ -100,7 +100,7 @@ fmt.Println("详细信息：", error_msg)
 */
 func db_connect() (conn *pgx.Conn, err error) {
 var config pgx.ConnConfig
-config.Host = "127.0.0.1" //数据库主机host 或ip
+config.Host = "127.0.0.1" //数据库主机 host 或 IP
 config.User = "dbadmin" //连接用户
 config.Password = "pgsql" //用户密码
 config.Database = "postgres" //连接数据库名
@@ -190,7 +190,7 @@ err error --错误信息
 */
 func db_connect() (conn *pgx.Conn, err error) {
 var config pgx.ConnConfig
-config.Host = "127.0.0.1" //数据库主机 host 或 ip
+config.Host = "127.0.0.1" //数据库主机 host 或 IP
 config.User = "dbadmin" //连接用户
 config.Password = "pgsql" //用户密码
 config.Database = "postgres" //连接数据库名
@@ -295,7 +295,7 @@ err error --错误信息
 */
 func db_connect() (conn *pgx.Conn, err error) {
 var config pgx.ConnConfig
-config.Host = "127.0.0.1" //数据库主机 host 或 ip
+config.Host = "127.0.0.1" //数据库主机 host 或 IP
 config.User = "dbadmin" //连接用户
 config.Password = "pgsql" //用户密码
 config.Database = "postgres" //连接数据库名
@@ -372,7 +372,7 @@ err error --错误信息
 */
 func db_connect() (conn *pgx.Conn, err error) {
 var config pgx.ConnConfig
-config.Host = "127.0.0.1" //数据库主机 host 或 ip
+config.Host = "127.0.0.1" //数据库主机 host 或 IP
 config.User = "dbadmin" //连接用户
 config.Password = "pgsql" //用户密码
 config.Database = "postgres" //连接数据库名
