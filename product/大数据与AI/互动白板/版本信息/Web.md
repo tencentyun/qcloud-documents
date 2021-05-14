@@ -1,3 +1,56 @@
+### 2.6.0 @ 2021.05.07
+* 链接地址：https://res.qcloudtiw.com/board/2.6.0/TEduBoard.min.js
+
+- 重要特性：
+    1. 支持最新的转码方案，具体请看[新文档转码](../开发指南/新文档转码/快速接入.md)
+
+- 新增接口：
+    1. 增加设置代理服务器(setProxyServer)
+    2. 增加设置单次擦除图层数量(setEraseLayerLimit)
+    3. 增加限制橡皮擦可擦除的数据类型(setEraseLayerType)
+- 新增初始化参数：
+    1. 增加初始化参数，代理服务器配置 proxyServer
+- 优化：
+    1. 涂鸦绘制性能优化
+    2. 涂鸦旋转移动性能优化
+    3. 激光笔移动性能优化
+    4. 激光笔多端同步效果优化
+    5. PPT、图片元素加载
+    6. 涂鸦超出白板区域时框选范围错误
+    7. 优化白板渲染时的重排、重绘操作
+- Bug 修复
+    1. 截图时文本元素被iframe元素遮挡
+    2. 直线碰撞检测计算错误
+    3. 其他若干已知问题
+### 2.5.7 @ 2021.02.02
+* 链接地址：https://res.qcloudtiw.com/board/2.5.7/TEduBoard.min.js
+
+- 新增接口：
+    1. 增加移动白板接口(setScaleAnchor)
+    2. 增加是否在画线过程中显示远端画笔接口(setRemoteCursorVisible)
+    3. 音频元素-设置音量大小(setAudioVolume)
+    4. 音频元素-获取音量大小(getAudioVolume)
+    5. 增加设置缩放工具的缩放比例(setScaleToolRatio)
+    6. 增加添加资源主备域名映射(addBackupDomain)
+    7. 增加删除资源主备域名映射(removeBackupDomain)
+    8. 增加是否同步本地音频操作状态到远端(setSyncAudioStatusEnable)
+    9. 增加删除白板元素接口(removeElement)
+- 新增事件：
+    1. 删除元素事件(TEB_REMOVEELEMENT)
+- 新增初始化参数：
+    1. 增加初始化参数，关闭移动工具的缩放功能 enableScaleTool
+- 优化：
+    1. 添加H5PPT, 图片元素(imageElement)/图片文件(imagesFile)，背景图片，视频等资源支持指定主备Url，需要配合增加备用域名接口使用。
+    2. 静态PPT翻页交互效果优化
+    3. 调整点选框样式
+    4. 激光笔功能性能优化
+- Bug 修复
+    1. 图片旋转后缩放比例不对的问题
+    2. chrome 88版本纵向滚动条缺失
+    3. 滚动条触发异常滚动问题
+    4. 添加自定义元素时点选框范围错误
+    5. 文本工具相关问题
+    6. 其他若干已知问题
 ### 2.5.6 @ 2020.12.14
 * 链接地址：https://res.qcloudtiw.com/board/2.5.6/TEduBoard.min.js
 

@@ -24,8 +24,8 @@ HTTP Request 连接器作为 HTTP 客户端，可以发起 HTTP 请求并将得�
 HTTP Request 操作配置包括基本配置、高级配置两项：
 ![image-20210426210924935](https://main.qcloudimg.com/raw/5ab2b4ee6ca98f500bdf202bf41ea74d/image-20210426210924935.png)
 
-### 基础配置参数描述
-
+<dx-tabs>
+::: 基础配置参数描述
 <table>
 <thead>
 <tr>
@@ -73,19 +73,22 @@ HTTP Request 操作配置包括基本配置、高级配置两项：
 </tr>
 </tbody></table>
 
-### 高级配置参数描述
-
+:::
+::: 高级配置参数描述
 | 参数         | 参数类型 | 描述                                                         | 是否必填 | 默认值     |
 | ------------ | -------- | ------------------------------------------------------------ | -------- | ---------- |
 | 消息属性     | string   | 下拉框选择输出消息绑定的属性，HTTP Request 只支持绑定 payload  | 否       | payload    |
 | 类型选择     | string   | 下拉框选择输出消息 payload 绑定的数据类型，包括 message 内置数据类型和自定义数据类型 | 否       | 空         |
 | 数据消费模式 | string   | 下拉框选择是否对消息数据进行持久化处理：<br/>repeatable：默认处理方式，消息数据可在一次触发中持续重复使用<br/>non-repeatable：数据一次性消费，用于大文件数据的流式高效处理，暂时支持 JSON 数组类型，其超过5M时建议选择该模式 | 否       | repeatable |
+:::
+</dx-tabs>
+
 
 ## 输出
 
 HTTP Request 请求的响应返回后，会将响应结果生成对应的消息传递给下一个组件。其中，响应的基本信息、Header、Query 参数、Path 参数会放到消息的 attributes 中，响应的 body 会放到消息的 payload 中。
 
-### HTTP Request 输出消息描述
+**HTTP Request 输出消息描述**
 
 <table>
 <thead>
@@ -122,6 +125,6 @@ HTTP Request 请求的响应返回后，会将响应结果生成对应的消息�
 3. 使用操作配置。
 ![image-20210426212147841](https://main.qcloudimg.com/raw/78af82d495104beca974fe9c73ed22d5/image-20210426212147841.png)
 4. 发布并触发。浏览器访问触发对应流，可以直接跳转至腾讯首页。
-![image-20210429203519275](https://main.qcloudimg.com/raw/d521e80f6398f1ee02d78fd995cf1390/image-20210429203519275.png)
+![](https://main.qcloudimg.com/raw/1b04a28805e20f3871622c26836cb782.png)
  - 同时，应用测试模式下可以看到 HTTP Request 对应的 attributes。
 ![](https://main.qcloudimg.com/raw/4a7099444248e9c65bb8abee04adeff5/image-20210426212733856.png)

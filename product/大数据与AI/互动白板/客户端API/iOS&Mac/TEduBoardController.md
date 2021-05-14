@@ -132,6 +132,27 @@
 | timestamp | uint64_t | 远端用户毫秒级同步时间戳  |
 
 
+### addBackupDomain:backup:priority:
+添加资源主备域名映射 主备域名均需包含协议类型(支持http/https) 切换域名重试超时默认为5s 多次调用此接口，可为统一主域名添加多个备用域名。如果备用域名已在列表中则不再添加 当主域名不可用时，SDK将按从前往后的顺序从列表中选择一个备用域名并重试，请务必将可用性高的域名添加到列表前面 
+``` Objective-C
+- (void)addBackupDomain:(NSString *)domain backup:(NSString *)backup priority:(NSInteger)priority 
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| domain | NSString * | 主域名 (必填）  |
+| backup | NSString * | 备用域名 (必填)  |
+| priority | NSInteger | 优先级，备用域名优先级相同时，按添加的顺序决定优先级，添加越前优先级越高  |
+### removeBackupDomain:backup:
+删除资源主备域名映射 
+``` Objective-C
+- (void)removeBackupDomain:(NSString *)domain backup:(NSString *)backup 
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| domain | NSString * | 主域名 (必填）  |
+| backup | NSString * | 备用域名 (必填)  |
 ### reset
 重置白板 
 ``` Objective-C
@@ -452,6 +473,15 @@ NSString 版本号字符串
 椭圆绘制模式 
 
 
+### setSystemCursorEnable:
+是否启用原生系统光标 
+``` Objective-C
+- (void)setSystemCursorEnable:(BOOL)enable 
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | BOOL | 启用或禁用，默认禁用  |
 ### undo
 撤销当前白板页上一次动作 
 ``` Objective-C
@@ -503,6 +533,16 @@ NSString 版本号字符串
 | --- | --- | --- |
 | toolType | TEduBoardToolType | 要设置鼠标样式的白板工具类型  |
 | cursorIcon | TEduBoardCursorIcon * | 要设置的鼠标样式  |
+### setToolTypeTitle:style:
+设置画笔和激光笔工具提示语 
+``` Objective-C
+- (void)setToolTypeTitle:(NSString *)title style:(TEduBoardToolTypeTitleStyle *)style 
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| title | NSString * | 提示语  |
+| style | TEduBoardToolTypeTitleStyle * | 如果为空，则使用默认样式  |
 
 
 
@@ -733,6 +773,7 @@ NSString 版本号字符串
 
 ### addImageElement:
 添加图片资源 
+此接口将被废弃，请使用 addElement 添加元素 
 ``` Objective-C
 - (void)addImageElement:(NSString *)url 
 ```
@@ -742,8 +783,6 @@ NSString 版本号字符串
 | --- | --- | --- |
 | url | NSString * | 【必填】图片地址  |
 
-#### 警告
-此接口将被废弃，请使用 addElement 添加元素 支持 png/jpg/gif/svg 格式的本地和网络图片，当 URL 是一个有效的本地文件地址时，该文件会被自动上传到 COS。上传进度回调 onTEBFileUploadProgress，上传结果回调 onTEBFileUploadStatus 
 
 
 ### addElement:type:
@@ -762,7 +801,18 @@ NSString 版本号字符串
 元素 ID 
 
 #### 警告
-（1）当 type = TEDU_BOARD_ELEMENT_IMAGE，支持 png、jpg、gif、svg 格式的本地和网络图片，当 url 是一个有效的本地文件地址时，该文件会被自动上传到 COS，上传进度回调 onTEBFileUploadStatus （2）当 type = TEDU_BOARD_ELEMENT_CUSTOM_GRAPH，仅支持网络 url，请与自定义图形工具 TEDU_BOARD_TOOL_TYPE_BOARD_CUSTOM_GRAPH 配合使用 
+（1）当 type = TEDU_BOARD_ELEMENT_IMAGE，支持 png、jpg、gif、svg 格式的本地和网络图片，当 url 是一个有效的本地文件地址时，该文件会被自动上传到 COS，上传进度回调 onTEBFileUploadStatus （2）当 type = TEDU_BOARD_ELEMENT_CUSTOM_GRAPH，仅支持网络 url，请与自定义图形工具 TEDU_BOARD_TOOL_TYPE_BOARD_CUSTOM_GRAPH 配合使用 （3）当 type = TEDU_BOARD_ELEMENT_AUDIO 或 TEDU_BOARD_ELEMENT_GLOBAL_AUDIO，仅支持网络 url 
+### removeElement:
+删除白板元素 
+``` Objective-C
+- (BOOL)removeElement:(NSString *)elementId 
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | NSString * | 元素 ID  |
+#### 返回
+删除是否成功 
 
 
 ### setNextTextInput:focus:
@@ -849,6 +899,56 @@ Reload 等同于重新加载历史数据，会触发白板初始化时除 onTEBI
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | info | TEduBoardSnapshotInfo * | 快照信息  |
+### setScaleAnchor:yRatio:
+设置缩放锚点 
+``` Objective-C
+- (void)setScaleAnchor:(CGFloat)xRatio yRatio:(CGFloat)yRatio 
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| xRatio | CGFloat | 距离白板左边位置，取值【0, 1】  |
+| yRatio | CGFloat | 距离白板顶部位置，取值【0, 1】  |
+### setRemoteCursorVisible:
+设置远端画笔在本地是否可见 
+``` Objective-C
+- (void)setRemoteCursorVisible:(BOOL)visible 
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| visible | BOOL | 是否可见  |
+### setScaleToolRatio:
+设置缩放工具的缩放比例 
+``` Objective-C
+- (void)setScaleToolRatio:(NSInteger)scale 
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| scale | NSInteger | 最小缩放步长  |
+### setEraseLayerLimit:
+设置橡皮擦单次擦除图层数量 
+``` Objective-C
+- (void)setEraseLayerLimit:(NSInteger)limit 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| limit | NSInteger | 擦除图层数量，默认为0，即不限制图层数量  |
+
+
+### setEraseLayerType:
+限制橡皮擦可擦除的白板元素类型 
+``` Objective-C
+- (void)setEraseLayerType:(NSArray< NSNumber * > *)typeArr 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| typeArr | NSArray< NSNumber * > * | 支持设置多个可擦除类型，整型数组  |
 
 
 
@@ -1042,6 +1142,19 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 
 #### 介绍
 用户在调用 rest api 请求转码时，需要带上 "thumbnail_resolution" 参数，开启缩略图功能，否则返回的缩略图 url 无效 
+### getBoardElementList:
+获取白板中所有元素 
+``` Objective-C
+- (NSArray< TEduBoardElementInfo * > *)getBoardElementList:(NSString *)boardId 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| boardId | NSString * | 白板 ID，如果为空则获取当前白板所有元素  |
+
+#### 返回
+白板元素列表 
 
 
 ### clearFileDraws:
@@ -1179,6 +1292,111 @@ play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认�
 只对当前文件有效 
 
 
+### setSyncAudioStatusEnable:
+是否同步本地音频操作到远端 
+``` Objective-C
+- (void)setSyncAudioStatusEnable:(BOOL)enable 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | BOOL | 【必填】是否同步  |
+
+#### 警告
+全局控制项，对所有视频文件有效
+
+#### 介绍
+play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认为 true 一般情况下学生设置为 false，老师设置为 true 
+
+
+### enableAudioControl:
+是否启用音频控制面板 
+``` Objective-C
+- (void)enableAudioControl:(BOOL)enable 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | BOOL | 启用或禁止  |
+
+#### 警告
+禁止控制面板后，不能通过界面交互方式操作音频元素 
+
+
+### playAudio:
+播放音频 
+``` Objective-C
+- (void)playAudio:(NSString *)elementId 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | NSString * | 调用 addElement 方法返回的元素 ID |
+
+#### 介绍
+触发状态改变回调 onTEBAudioStatusChange 
+
+
+### pauseAudio:
+暂停音频 
+``` Objective-C
+- (void)pauseAudio:(NSString *)elementId 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | NSString * | 调用 addElement 方法返回的元素 ID |
+
+#### 介绍
+触发状态改变回调 onTEBAudioStatusChange 
+
+
+### seekAudio:time:
+跳转 
+``` Objective-C
+- (void)seekAudio:(NSString *)elementId time:(CGFloat)time 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | NSString * | 调用 addElement 方法返回的元素 ID  |
+| time | CGFloat | 播放进度，单位秒 |
+
+#### 介绍
+触发状态改变回调 onTEBAudioStatusChange 
+
+
+### setAudioVolume:volume:
+设置音量 
+``` Objective-C
+- (void)setAudioVolume:(NSString *)elementId volume:(CGFloat)volume 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | NSString * | 调用 addElement 方法返回的元素 ID  |
+| volume | CGFloat | 音频音量，取值范围[0-1]  |
+
+
+### getAudioVolume:
+获取音量 
+``` Objective-C
+- (CGFloat)getAudioVolume:(NSString *)elementId 
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | NSString * | 调用 addElement 方法返回的元素 ID  |
+
+#### 返回
+当前音量，取值范围[0-1] 
 ### addH5File:
 添加 H5 页面 
 ``` Objective-C

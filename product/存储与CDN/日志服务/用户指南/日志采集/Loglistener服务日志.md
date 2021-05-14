@@ -1,5 +1,5 @@
 ## 概述
-LogListener 服务日志功能提供采集端运行状态、工作状态、采集流量等数据的监控，支持记录 LogListener 端运行状态和采集监控的日志数据并配置可视化视图，提供重要指标数据，便于用户观测了解 LogListener 的运行状态和日志采集统计情况。
+LogListener 服务日志功能支持记录 LogListener 端运行状态和采集监控的日志数据并配置可视化视图，提供重要指标数据，便于用户观测了解 LogListener 的运行状态和日志采集统计情况。
 
 #### 默认配置
 
@@ -70,7 +70,7 @@ LogListener 服务日志功能提供采集端运行状态、工作状态、采�
 	<tr><th>字段</th><th>描述</th></tr>
 	<tr><td>InstanceId</td><td>LogListener 唯一标识值</td></tr>
 	<tr><td>IP</td><td>机器组 IP</td></tr>
-	<tr><td>Label</td><td>机器标示 array</td></tr>
+	<tr><td>Label</td><td>机器标识数组</td></tr>
 	<tr><td>Version</td><td>版本号</td></tr>
 	<tr><td>MemoryUsed</td><td>组件内存使用情况</td></tr>
 	<tr><td>MemMax</td><td>Agent 在该机器上设置的内存使用阈值</td></tr>
@@ -90,7 +90,7 @@ LogListener 服务日志功能提供采集端运行状态、工作状态、采�
 	<tr><td>SendSuccessReqs</td><td>发送成功请求数</td></tr>
 	<tr><td>SendFailureReqs</td><td>发送失败请求数</td></tr>
 	<tr><td>SendTimeoutReqs</td><td>发送超时请求数</td></tr>
-	<tr><td>TotalFinishRsps</td><td>收到的 rsp 丛书</td></tr>
+	<tr><td>TotalFinishRsps</td><td>收到的全部 .rsp 文件</td></tr>
 	<tr><td>TotalSuccessFromStart</td><td>LogListener 启动到现在总的成功数</td></tr>
 	<tr><td>AvgReqSize</td><td>平均请求包大小</td></tr>
 	<tr><td>SendAvgCost	</td><td>平均发送耗时</td></tr>
@@ -108,7 +108,7 @@ LogListener 服务日志功能提供采集端运行状态、工作状态、采�
 | 字段         | 监控指标分类          |
 | :----------- | :-------------------- |
 | InstanceId   | LogListener 唯一标识值 |
-| Label        | 机器标示 array        |
+| Label        | 机器标识数组        |
 | IP           | 机器组 IP              |
 | Version      | LogListener 版本      |
 | AlarmType.count | 告警类型统计  |
@@ -131,8 +131,8 @@ LogListener 服务日志功能提供采集端运行状态、工作状态、采�
 | StatException              | 9       | 获取进程相关信息异常                      |
 | UpdateException            | 10      | cls update 功能异常                       |
 | DoSendError            | 11      | dosend 失败                               |
-| FileAddError          | 12      | addFileToReadyList get file realpath fail |
-| FileMetaError         | 13      | addFileToReadyList metadata not found     |
+| FileAddError          | 12      | 文件新增失败 |
+| FileMetaError         | 13      | 元数据文件新增失败     |
 | FileOpenError         | 14      | open file 失败                             |
 | FileReadError         | 15      | read file 失败                             |
 | FileStatError         | 16      | stat file 失败                             |
@@ -144,8 +144,8 @@ LogListener 服务日志功能提供采集端运行状态、工作状态、采�
 | ReadEventException        | 22      | readEvent 失败                             |
 | ReadFileBugOn        | 23      | 触发 bugon                                 |
 | ReadFileException          | 24      | procReadyFile() 异常                      |
-| ReadFileInodeChange | 25      | file inode changed                        |
-| ReadFileTruncate     | 26      | file truncated                            |
+| ReadFileInodeChange | 25      | file inode 发生变化                        |
+| ReadFileTruncate     | 26      | Readfile 截断                          |
 | WildCardPathException      | 27      | addWildcardPathInotify() 异常             |
 
 
@@ -155,7 +155,7 @@ LogListener 服务日志功能提供采集端运行状态、工作状态、采�
 <table>
 	<tr><th>字段</th><th>描述</th></tr>
 	<tr><td>InstanceId</td><td>LogListener 唯一标识值</td></tr>
-	<tr><td>Label</td><td>机器标示 array</td></tr>
+	<tr><td>Label</td><td>机器标识数组</td></tr>
 	<tr><td>IP</td><td>	机器组 IP</td></tr>
 	<tr><td>Version</td><td>LogListener 版本</td></tr>
 	<tr><td>TopicId</td><td>文件采集到的目标 topic</td></tr>

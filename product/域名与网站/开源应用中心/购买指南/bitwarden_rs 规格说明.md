@@ -19,7 +19,7 @@
   <tr>
     <td>文件存储（CFS）</td>
     <td>按照实际容量付费，DAU 1000的站点预估消耗量在5GB以下</td>
-    <td><ul style="margin:0"><li><b>存储空间0 - 10TB：</b><ul><li>0.35元/GB/月</li><li>0.00048611元/GB/时</li></ul></li><li><b>存储空间10TB以上：</b><ul><li>0.33 元/GB/月</li><li>0.00045833 元/GB/时</li></ul></li><li>具体可查看 <a href= "https://cloud.tencent.com/document/product/1003/30493#.E8.AE.A1.E8.B4.B9.E8.AF.B4.E6.98.8E">计费说明</a></li></ul></td>
+    <td><ul style="margin:0"><li><b>存储空间0 - 10TB：</b><ul><li>0.35元/GB/月</li><li>0.00048611元/GB/时</li></ul></li><li><b>存储空间10TB以上：</b><ul><li>0.33 元/GB/月</li><li>0.00045833 元/GB/时</li></ul></li><li>具体可查看 <a href="https://cloud.tencent.com/document/product/582/47378#.E5.90.8E.E4.BB.98.E8.B4.B9.E4.BB.B7.E6.A0.BC.E8.AF.A6.E6.83.85">计费说明</a></li></ul></td>
   </tr>
 	  <tr>
 </tbody>
