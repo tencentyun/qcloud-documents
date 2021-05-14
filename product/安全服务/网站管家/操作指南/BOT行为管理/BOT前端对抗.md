@@ -78,4 +78,3 @@ BOT 行为管理前端对抗攻击日志属于 BOT 拦截日志的一部分，�
 
 3. 完成白名单规则添加后，您可以在白名单规则管理页面，进行启停、删除等操作。
 ![](https://main.qcloudimg.com/raw/e24dafee44b9f03bf4ba3ca8420ad54a.png)
- 
