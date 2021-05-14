@@ -18,6 +18,7 @@ TCPlayerLite 的视频播放能力本身不是网页代码实现的，而是靠�
 
 视频协议|用途|URL 地址格式|PC 浏览器|移动浏览器
 -----------|-----|-------------|-------------|----------------
+WebRTC|只适用直播|`webrtc://xxx.liveplay.myqcloud.com/live/xxx`|支持|支持 
 HLS（M3U8）|可用于直播|`http://xxx.liveplay.myqcloud.com/xxx.m3u8`|支持|支持
 HLS（M3U8）|可用于点播|`http://xxx.vod.myqcloud.com/xxx.m3u8`|支持|支持
 FLV|可用于直播|`http://xxx.liveplay.myqcloud.com/xxx.flv`|支持|不支持
@@ -25,7 +26,10 @@ FLV|可用于点播|`http://xxx.vod.myqcloud.com/xxx.flv`|支持|不支持
 RTMP|只适用直播|`rtmp://xxx.liveplay.myqcloud.com/live/xxx`|支持|不支持
 MP4|只适用点播|`http://xxx.vod.myqcloud.com/xxx.mp4`|支持|支持
 
->! 播放 RTMP 格式的视频必须启用 Flash，目前浏览器默认禁用 Flash，需用户手动开启。
+
+>!
+> - 播放 RTMP 格式的视频必须启用 Flash，目前浏览器默认禁用 Flash，需用户手动开启。
+> - 在不支持 WebRTC 的浏览器环境，传入播放器的 WebRTC 地址会自动进行协议转换来更好的支持媒体播放，默认在移动端转换为 HLS，pc端转换为 FLV。
 
 **功能支持**
 
@@ -83,7 +87,7 @@ var player = new TcPlayer('id_test_video', {
 
 这段代码可以支持在 PC 及手机浏览器上播放 HLS（M3U8）协议的直播视频，虽然 HLS（M3U8）协议的视频兼容性不错，但部分 Android 手机依然不支持，其延迟较高，大约20秒以上的延迟。
 
-#### 3.2 PC 上实现更低延迟
+#### 3.2 实现更低延迟
 PC 浏览器支持 Flash，其 Javascript 代码如下：
 ```javascript
 var player =  new TcPlayer('id_test_video', {
@@ -95,7 +99,7 @@ var player =  new TcPlayer('id_test_video', {
 "height" : '320'//视频的显示高度，请尽量使用视频分辨率高度
 });
 ```
-这段代码中增加了 FLV 的播放地址，Web 播放器如果发现当前的浏览器是 PC 浏览器，会主动选择 FLV 链路，从而实现更低的延迟。前提条件是 FLV 和 HLS（M3U8）这两个地址都是可以出流的，如果您使用腾讯云的视频直播服务，则无需考虑，因为腾讯云的直播频道默认支持 FLV、RTMP 和 HLS（M3U8）播放协议。
+这段代码中增加了 FLV 的播放地址，Web 播放器如果发现当前的浏览器是 PC 浏览器，会主动选择 FLV 链路，从而实现更低的延迟。如果对延迟有更高的要求，可以使用 WebRTC 拉流地址，基于 WebRTC 的播放系统可以实现超低延迟（500ms），前提条件是拉流地址都是可以出流的，如果您使用腾讯云的视频直播服务，则无需考虑，因为腾讯云的直播频道默认支持 WebRTC、FLV、RTMP 和 HLS（M3U8）播放协议。
 
 #### 3.3 无法播放怎么办？
 如果您发现视频无法播放，可能存在如下原因：
@@ -231,6 +235,9 @@ https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
 | 13  | 直播已结束，请稍后再来。| RTMP 正常播放过程中触发事件（NetConnection.Connect.Closed）。<br>Flash 提示的错误。  |
 | 1001   | 网络错误，请检查网络配置或者播放链接是否正确。|  网络已断开（NetConnection.Connect.Closed）。<br>Flash 提示的错误。              |
 | 1002   | 获取视频失败，请检查播放链接是否有效。|  拉取播放文件失败（NetStream.Play.StreamNotFound），可能是服务器错误或者视频文件不存在。<br>Flash 提示的错误。     |
+| 2001 | 调用 WebRTC 接口失败 | 播放 WebRTC 时提示的错误 |
+| 2002 | 调用拉流接口失败 | 播放 WebRTC 时提示的错误 |
+| 2003 | 连接服务器失败，并且连接重试次数已超过设定值 | 播放 WebRTC 时提示的错误，可用于确定是否为停止推流状态 |
 | 2032   | 获取视频失败，请检查播放链接是否有效。|   Flash 提示的错误。              |
 | 2048   | 无法加载视频文件，跨域访问被拒绝。 | 请求 M3U8 文件失败，可能是网络错误或者跨域问题。<br>Flash 提示的错误。 |
 
@@ -248,6 +255,9 @@ https://web.sdk.qcloud.com/player/tcplayerlite/tcplayer-error.html
 
 | 参数             | 类型     | 默认值   | 参数说明
 |-----------------|--------- |--------  |-------------------------------------------- |
+| webrtc | String | 无 | 原画 WebRTC 播放 URL。 <br> 示例： `webrtc://5664.liveplay.myqcloud.com/live/5664_harchar1` |
+| webrtc_hd | String | 无 | 高清 WebRTC 播放 URL。 <br> 示例： `webrtc://5664.liveplay.myqcloud.com/live/5664_harchar1_hd` |
+| webrtc_sd | String | 无 | 标清 WebRTC 播放 URL。 <br> 示例： `webrtc://5664.liveplay.myqcloud.com/live/5664_harchar1_sd` |
 | m3u8            | String   | 无       |  原画 M3U8 播放 URL。  <br> 示例：`http://2157.liveplay.myqcloud.com/2157_358535a.m3u8` |
 | m3u8_hd         | String   | 无       |  高清 M3U8 播放 URL。  <br> 示例：`http://2157.liveplay.myqcloud.com/2157_358535ahd.m3u8` |
 | m3u8_sd         | String   | 无       |  标清 M3U8 播放 URL。  <br> 示例：`http://2157.liveplay.myqcloud.com/2157_358535asd.m3u8`  |
@@ -344,6 +354,7 @@ seeking
 seeked
 resize
 volumechange
+webrtcstatupdate
 ```
 >! 
 >- 如果通过系统控制栏进行全屏，将无法监听到 fullscreen 事件。
