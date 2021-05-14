@@ -8,6 +8,7 @@
 ``` Java
 TEduBoardController(Context context)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -23,6 +24,7 @@ TEduBoardController(Context context)
 ``` Java
 void addCallback(TEduBoardCallback callback)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -35,9 +37,11 @@ void addCallback(TEduBoardCallback callback)
 
 ### removeCallback
 删除事件回调监听 
+
 ``` Java
 void removeCallback(TEduBoardCallback callback)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -53,6 +57,7 @@ void removeCallback(TEduBoardCallback callback)
 ``` Java
 void init(TEduBoardAuthParam authParam, int roomId, final TEduBoardInitParam initParam)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -73,6 +78,7 @@ void init(TEduBoardAuthParam authParam, int roomId, final TEduBoardInitParam ini
 ``` Java
 void uninit()
 ```
+
 #### 警告
 此接口与结束计费相关，用户退出课堂时，记得一定调用此接口。 
 
@@ -85,16 +91,19 @@ void uninit()
 ``` Java
 void setProxyServer(HashMap< String, String > serverMaps)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| serverMaps | HashMap< String, String > | key 类型为TEduBoardServiceType example:key:TEduBoard.TEduBoardServiceType.ALL , value: [https://proxy.your-domain.com:your-port](https://proxy.your-domain.com:your-port)  |
+| serverMaps | HashMap< String, String > | key 类型为 TEduBoardServiceType example:key:TEduBoard.TEduBoardServiceType.ALL ，value：[https://proxy.your-domain.com:your-port](https://proxy.your-domain.com:your-port)   |
+
 ### getBoardRenderView
 获取白板渲染 View 
 ``` Java
 View getBoardRenderView()
 ```
+
 #### 返回
 白板渲染 View 
 
@@ -110,6 +119,7 @@ View getBoardRenderView()
 ``` Java
 void addSyncData(String data)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -125,6 +135,7 @@ void addSyncData(String data)
 ``` Java
 void setDataSyncEnable(boolean enable)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -140,6 +151,7 @@ void setDataSyncEnable(boolean enable)
 ``` Java
 boolean isDataSyncEnable()
 ```
+
 #### 返回
 是否开启数据同步，true 表示开启，false 表示关闭 
 
@@ -149,6 +161,7 @@ boolean isDataSyncEnable()
 ``` Java
 void reset()
 ```
+
 #### 介绍
 调用该接口后将会删除所有的白板页和文件 
 
@@ -158,6 +171,7 @@ void reset()
 ``` Java
 long getSyncTime()
 ```
+
 #### 返回
 毫秒级同步时间戳 
 
@@ -167,6 +181,7 @@ long getSyncTime()
 ``` Java
 void syncRemoteTime(String userId, long timestamp)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -192,6 +207,7 @@ SDK 版本号
 ``` Java
 void setDrawEnable(boolean enable)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -207,6 +223,7 @@ void setDrawEnable(boolean enable)
 ``` Java
 boolean isDrawEnable()
 ```
+
 #### 返回
 是否允许涂鸦，true 表示白板可以涂鸦，false 表示白板不能涂鸦 
 
@@ -216,6 +233,7 @@ boolean isDrawEnable()
 ``` Java
 void setAccessibleUsers(List< String > users)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -235,11 +253,12 @@ void setAccessibleUsers(List< String > users)
 ``` Java
 void setSystemCursorEnable(boolean isEnable)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| isEnable | boolean |  |
+| isEnable | boolean | 是否启用，默认false |
 
 
 ### setToolTypeTitle
@@ -247,17 +266,20 @@ void setSystemCursorEnable(boolean isEnable)
 ``` Java
 void setToolTypeTitle(String text, TEduBoardToolTypeTitleStyle titleStyle)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| text | String |  |
-| titleStyle | TEduBoardToolTypeTitleStyle |  |
+| text | String | 提示语 |
+| titleStyle | TEduBoardToolTypeTitleStyle | 提示语样式 |
+
 ### setGlobalBackgroundColor
 设置所有白板的背景色 
 ``` Java
 void setGlobalBackgroundColor(TEduBoardColor color)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -273,6 +295,7 @@ void setGlobalBackgroundColor(TEduBoardColor color)
 ``` Java
 TEduBoardColor getGlobalBackgroundColor()
 ```
+
 #### 返回
 全局背景色 
 
@@ -282,6 +305,7 @@ TEduBoardColor getGlobalBackgroundColor()
 ``` Java
 void setBackgroundColor(TEduBoardColor color)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -297,6 +321,7 @@ void setBackgroundColor(TEduBoardColor color)
 ``` Java
 TEduBoardColor getBackgroundColor()
 ```
+
 #### 返回
 当前白板页的背景色 
 
@@ -306,6 +331,7 @@ TEduBoardColor getBackgroundColor()
 ``` Java
 void setToolType(int type)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -318,6 +344,7 @@ void setToolType(int type)
 ``` Java
 int getToolType()
 ```
+
 #### 返回
 正在使用的白板工具 
 
@@ -327,6 +354,7 @@ int getToolType()
 ``` Java
 void setZoomCursorIcon(TEduBoardController.TEduBoardCursorIcon zoomInIconUrl, TEduBoardController.TEduBoardCursorIcon zoomOutIconUrl)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -340,6 +368,7 @@ void setZoomCursorIcon(TEduBoardController.TEduBoardCursorIcon zoomInIconUrl, TE
 ``` Java
 void setCursorIcon(int type, TEduBoardCursorIcon icon)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -353,6 +382,7 @@ void setCursorIcon(int type, TEduBoardCursorIcon icon)
 ``` Java
 void setBrushColor(TEduBoardColor color)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -368,6 +398,7 @@ void setBrushColor(TEduBoardColor color)
 ``` Java
 TEduBoardColor getBrushColor()
 ```
+
 #### 返回
 画笔颜色 
 
@@ -377,6 +408,7 @@ TEduBoardColor getBrushColor()
 ``` Java
 void setBrushThin(int thin)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -392,6 +424,7 @@ void setBrushThin(int thin)
 ``` Java
 int getBrushThin()
 ```
+
 #### 返回
 画笔粗细 
 
@@ -401,6 +434,7 @@ int getBrushThin()
 ``` Java
 void setTextColor(TEduBoardColor color)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -413,6 +447,7 @@ void setTextColor(TEduBoardColor color)
 ``` Java
 TEduBoardColor getTextColor()
 ```
+
 #### 返回
 文本颜色 
 
@@ -422,17 +457,20 @@ TEduBoardColor getTextColor()
 ``` Java
 void setTextValue(String id, String text)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| id | String |  |
-| text | String |  |
+| id | String | 【必填】文本组件 id  |
+| text | String | 内容 |
+
 ### setTextSize
 设置文本大小 
 ``` Java
 void setTextSize(int size)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -457,6 +495,7 @@ int getTextSize()
 ``` Java
 void setTextStyle(int style)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -469,6 +508,7 @@ void setTextStyle(int style)
 ``` Java
 int getTextStyle()
 ```
+
 #### 返回
 文本样式 
 
@@ -478,6 +518,7 @@ int getTextStyle()
 ``` Java
 void clear(boolean clearBackground)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -490,6 +531,7 @@ void clear(boolean clearBackground)
 ``` Java
 void clear(boolean clearBackground, boolean clearSelectedOnly)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -506,6 +548,7 @@ void clear(boolean clearBackground, boolean clearSelectedOnly)
 ``` Java
 void setLineStyle(TEduBoardLineStyle style)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -521,6 +564,7 @@ void setLineStyle(TEduBoardLineStyle style)
 ``` Java
 TEduBoardLineStyle getLineStyle()
 ```
+
 #### 返回
 直线样式 
 
@@ -530,6 +574,7 @@ TEduBoardLineStyle getLineStyle()
 ``` Java
 void setNextTextInput(String textContent, boolean keepFocus)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -543,6 +588,7 @@ void setNextTextInput(String textContent, boolean keepFocus)
 ``` Java
 void setOvalDrawMode(int drawMode)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -555,6 +601,7 @@ void setOvalDrawMode(int drawMode)
 ``` Java
 int getOvalDrawMode()
 ```
+
 #### 返回
 椭圆绘制模式 
 
@@ -564,6 +611,7 @@ int getOvalDrawMode()
 ``` Java
 void setBackgroundImage(String url, int mode)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -580,6 +628,7 @@ void setBackgroundImage(String url, int mode)
 ``` Java
 void setBackgroundH5(String url)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -607,6 +656,7 @@ void redo()
 ``` Java
 void setHandwritingEnable(boolean enable)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -622,6 +672,7 @@ void setHandwritingEnable(boolean enable)
 ``` Java
 boolean isHandwritingEnable()
 ```
+
 #### 返回
 是否开启笔锋 
 
@@ -631,6 +682,7 @@ boolean isHandwritingEnable()
 ``` Java
 void setEraseLayerLimit(int limit)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -643,6 +695,7 @@ void setEraseLayerLimit(int limit)
 ``` Java
 void setEraseLayerType(List< Integer > typeArray)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -656,6 +709,7 @@ void setEraseLayerType(List< Integer > typeArray)
 ``` Java
 String addBoard(String url)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -674,6 +728,7 @@ String addBoard(String url)
 ``` Java
 void deleteBoard(String boardId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -695,6 +750,7 @@ void prevStep()
 ``` Java
 void nextStep()
 ```
+
 #### 介绍
 每个 Step 对应 PPT 的一个动画效果，若当前没有未展示的动画效果，则该接口调用会导致向后翻页 
 
@@ -704,6 +760,7 @@ void nextStep()
 ``` Java
 void prevBoard()
 ```
+
 #### 介绍
 若当前白板页为当前文件的第一页，则该接口调用无效 
 
@@ -713,6 +770,7 @@ void prevBoard()
 ``` Java
 void nextBoard()
 ```
+
 #### 介绍
 若当前白板页为当前文件的最后一页，则该接口调用无效 
 
@@ -722,6 +780,7 @@ void nextBoard()
 ``` Java
 void gotoBoard(String boardId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -737,6 +796,7 @@ void gotoBoard(String boardId)
 ``` Java
 void prevBoard(boolean resetStep)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -752,6 +812,7 @@ void prevBoard(boolean resetStep)
 ``` Java
 void nextBoard(boolean resetStep)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -783,6 +844,7 @@ void gotoBoard(String boardId, boolean resetStep)
 ``` Java
 String getCurrentBoard()
 ```
+
 #### 返回
 当前白板页 ID 
 
@@ -792,6 +854,7 @@ String getCurrentBoard()
 ``` Java
 List<String> getBoardList()
 ```
+
 #### 返回
 所有文件的白板列表 
 
@@ -801,6 +864,7 @@ List<String> getBoardList()
 ``` Java
 void setBoardRatio(String ratio)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -816,6 +880,7 @@ void setBoardRatio(String ratio)
 ``` Java
 String getBoardRatio()
 ```
+
 #### 返回
 白板宽高比，格式与 setBoardRatio 接口参数格式一致 
 
@@ -825,6 +890,7 @@ String getBoardRatio()
 ``` Java
 void setBoardScale(int scale)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -840,6 +906,7 @@ void setBoardScale(int scale)
 ``` Java
 int getBoardScale()
 ```
+
 #### 返回
 白板缩放比例，格式与 SetBoardScale 接口参数格式一致 
 
@@ -849,6 +916,7 @@ int getBoardScale()
 ``` Java
 void setScaleAnchor(float xRatio, float yRatio)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -862,11 +930,12 @@ void setScaleAnchor(float xRatio, float yRatio)
 ``` Java
 void setScaleToolRatio(int ratio)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| ratio | int |  |
+| ratio | int | 设置缩放工具的缩放比例 |
 
 
 ### setRemoteCursorVisible
@@ -874,16 +943,19 @@ void setScaleToolRatio(int ratio)
 ``` Java
 void setRemoteCursorVisible(boolean isShow)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | isShow | boolean | true: 可见 false: 不可见  |
+
 ### setBoardContentFitMode
 设置白板内容自适应模式 
 ``` Java
 void setBoardContentFitMode(int mode)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -899,6 +971,7 @@ void setBoardContentFitMode(int mode)
 ``` Java
 int getBoardContentFitMode()
 ```
+
 #### 返回
 白板内容自适应模式 
 
@@ -908,6 +981,7 @@ int getBoardContentFitMode()
 ``` Java
 void refresh()
 ```
+
 #### 警告
 如果当前白板包含PPT/H5/图片/视频时，刷新白板将会触发对应的回调 
 
@@ -917,11 +991,14 @@ void refresh()
 ``` Java
 void syncAndReload()
 ```
+
 #### 警告
-Reload 等同于重新加载历史数据，会触发白板初始化时除 onTEBInit 之外的所有回调。 
+Reload 等同于重新加载历史数据，会触发白板初始化时除 onTEBInit 之外的所有回调
 
 #### 介绍
-接口用途：此接口主要用于网络恢复后，同步本地数据到远端，拉取远端数据到本地 调用时机：在网络恢复后调用 使用限制： （1）仅支持2.4.9及以上版本 （2）如果历史数据还没有加载完成，则不允许重复调用，否则回调告警 TEDU_BOARD_WARNING_ILLEGAL_OPERATION 
+- 接口用途：此接口主要用于网络恢复后，同步本地数据到远端，拉取远端数据到本地 
+- 调用时机：在网络恢复后调用 
+- 使用限制：（1）仅支持2.4.9及以上版本 （2）如果历史数据还没有加载完成，则不允许重复调用，否则回调告警 TEDU_BOARD_WARNING_ILLEGAL_OPERATION 
 
 
 
@@ -932,17 +1009,18 @@ Reload 等同于重新加载历史数据，会触发白板初始化时除 onTEBI
 ``` Java
 String addImagesFile(List< String > urls)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| urls | List< String > | 要使用的图片URL列表，编码格式为 UTF8  |
+| urls | List< String > | 要使用的图片 URL 列表，编码格式为 UTF8  |
 
 #### 返回
 新增加文件 Id 
 
 #### 警告
-当传入文件的 URL 重复时，返回 URL 对应的 文件 ID 
+当传入文件的 URL 重复时，返回 URL 对应的文件 ID 
 
 
 ### applyFileTranscode
@@ -969,6 +1047,7 @@ void applyFileTranscode(final String path, final TEduBoardTranscodeConfig config
 ``` Java
 void getFileTranscodeProgress(final String taskId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -987,6 +1066,7 @@ void getFileTranscodeProgress(final String taskId)
 ``` Java
 String addTranscodeFile(final TEduBoardTranscodeFileResult result, boolean needSwitch)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1012,6 +1092,7 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 ``` Java
 String addElement(int type, String url)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1020,7 +1101,7 @@ String addElement(int type, String url)
 | url | String | 网页或者图片的 url，只支持 https 协议的网址或者图片 url  |
 
 #### 返回
-元素ID 
+元素 ID 
 
 #### 警告
 （1）当 type = TEDU_BOARD_ELEMENT_IMAGE，支持 png、jpg、gif、svg 格式的本地和网络图片，当 url 是一个有效的本地文件地址时，该文件会被自动上传到 COS，上传进度回调 onTEBFileUploadStatus （2）当 type = TEDU_BOARD_ELEMENT_CUSTOM_GRAPH，仅支持网络 url，请与自定义图形工具 TEDU_BOARD_TOOL_TYPE_BOARD_CUSTOM_GRAPH 配合使用 
@@ -1034,7 +1115,7 @@ void removeElement(String id)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| id | String | 元素id  |
+| id | String | 元素 id  |
 
 
 ### addImageElement
@@ -1043,6 +1124,7 @@ void removeElement(String id)
 ``` Java
 void addImageElement(String url)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1056,6 +1138,7 @@ void addImageElement(String url)
 ``` Java
 void deleteFile(String fileId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1071,6 +1154,7 @@ void deleteFile(String fileId)
 ``` Java
 void switchFile(String fileId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1085,6 +1169,7 @@ void switchFile(String fileId)
 ``` Java
 void switchFile(String fileId, String boardId, int stepIndex)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1104,6 +1189,7 @@ void switchFile(String fileId, String boardId, int stepIndex)
 ``` Java
 String getCurrentFile()
 ```
+
 #### 返回
 当前文件 ID 
 
@@ -1113,6 +1199,7 @@ String getCurrentFile()
 ``` Java
 List<TEduBoardFileInfo> getFileInfoList()
 ```
+
 #### 返回
 文件信息列表 
 
@@ -1122,6 +1209,7 @@ List<TEduBoardFileInfo> getFileInfoList()
 ``` Java
 TEduBoardFileInfo getFileInfo(String fid)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1130,11 +1218,13 @@ TEduBoardFileInfo getFileInfo(String fid)
 
 #### 返回
 文件信息 
+
 ### getBoardElementList
 获取白板当中所有元素 
 ``` Java
 List<TEduBoardElementInfo> getBoardElementList(String boardId)
 ```
+
 #### 参数
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
@@ -1146,6 +1236,7 @@ List<TEduBoardElementInfo> getBoardElementList(String boardId)
 ``` Java
 List<String> getFileBoardList(String fileId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1161,6 +1252,7 @@ List<String> getFileBoardList(String fileId)
 ``` Java
 void clearFileDraws(String fileId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1173,6 +1265,7 @@ void clearFileDraws(String fileId)
 ``` Java
 List<String> getThumbnailImages(String fileId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1190,6 +1283,7 @@ List<String> getThumbnailImages(String fileId)
 ``` Java
 String addVideoFile(String url)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1200,7 +1294,7 @@ String addVideoFile(String url)
 文件 ID 
 
 #### 警告
-当传入文件的 URL 重复时，返回 URL 对应的 文件 ID 
+当传入文件的 URL 重复时，返回 URL 对应的文件 ID 
 在 TBS 环境下，受限于 X5 内核和视频资源I帧间隔，在 Android 平台下无法精准同步。例如：10秒的视频，I帧间隔5秒，seek 到4秒位置，在 TBS 上从0秒开始播放。 移动端支持 mp4/m3u8，桌面端支持 mp4/m3u8/flv/rtmp；触发状态改变回调 onTEBVideoStatusChange 
 
 
@@ -1209,6 +1303,7 @@ String addVideoFile(String url)
 ``` Java
 void showVideoControl(boolean show)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1224,6 +1319,7 @@ void showVideoControl(boolean show)
 ``` Java
 void playVideo()
 ```
+
 #### 警告
 只对当前文件有效
 
@@ -1236,6 +1332,7 @@ void playVideo()
 ``` Java
 void pauseVideo()
 ```
+
 #### 警告
 只对当前文件有效
 
@@ -1248,6 +1345,7 @@ void pauseVideo()
 ``` Java
 void seekVideo(float time)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1266,6 +1364,7 @@ void seekVideo(float time)
 ``` Java
 void setSyncVideoStatusEnable(boolean enable)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1284,6 +1383,7 @@ play/pause/seek 接口以及控制栏事件的触发是否影响远端，默认�
 ``` Java
 void startSyncVideoStatus(int interval)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1294,7 +1394,7 @@ void startSyncVideoStatus(int interval)
 只对当前文件有效
 
 #### 介绍
-一般在老师端视频加载完成后调用，切换文件后内部自动销毁定时器， 
+一般在老师端视频加载完成后调用，切换文件后内部自动销毁定时器
 
 
 ### stopSyncVideoStatus
@@ -1302,6 +1402,7 @@ void startSyncVideoStatus(int interval)
 ``` Java
 void stopSyncVideoStatus()
 ```
+
 #### 警告
 只对当前文件有效 
 
@@ -1311,6 +1412,7 @@ void stopSyncVideoStatus()
 ``` Java
 void enableAudioControl(boolean isEnable)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1323,11 +1425,12 @@ void enableAudioControl(boolean isEnable)
 ``` Java
 void playAudio(String elementId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| elementId | String | addElement返回的元素ID  |
+| elementId | String | addElement 返回的元素 ID  |
 
 
 ### pauseAudio
@@ -1335,11 +1438,12 @@ void playAudio(String elementId)
 ``` Java
 void pauseAudio(String elementId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| elementId | String | addElement返回的元素ID  |
+| elementId | String | addElement 返回的元素 ID  |
 
 
 ### seekAudio
@@ -1347,11 +1451,12 @@ void pauseAudio(String elementId)
 ``` Java
 void seekAudio(String elementId, float time)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| elementId | String | 调用addElement返回的元素ID  |
+| elementId | String | 调用 addElement 返回的元素 ID  |
 | time | float | 播放进度  |
 
 
@@ -1360,11 +1465,12 @@ void seekAudio(String elementId, float time)
 ``` Java
 void setAudioVolume(String elementId, float volume)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| elementId | String | 元素ID  |
+| elementId | String | 元素 ID  |
 | volume | float | 音频音量 ，取值范围[0-1]  |
 
 
@@ -1373,11 +1479,12 @@ void setAudioVolume(String elementId, float volume)
 ``` Java
 float getAudioVolume(String elementId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| elementId | String | 元素ID  |
+| elementId | String | 元素 ID  |
 
 
 ### setSyncAudioStatusEnable
@@ -1385,11 +1492,13 @@ float getAudioVolume(String elementId)
 ``` Java
 void setSyncAudioStatusEnable(boolean isEnable)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| isEnable | boolean |  |
+| isEnable | boolean |  【必填】是否同步|
+
 ### addH5File
 添加 H5 页面 
 ``` Java
@@ -1413,6 +1522,7 @@ String addH5File(String url)
 ``` Java
 void snapshot(TEduBoardSnapshotInfo info)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1425,6 +1535,7 @@ void snapshot(TEduBoardSnapshotInfo info)
 ``` Java
 void addBackupDomain(String domain, String backup, int priority)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1439,7 +1550,8 @@ void addBackupDomain(String domain, String backup, int priority)
 ``` Java
 void removeBackupDomain(String domain, String backup)
 ```
-#### 参数
+
+### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
