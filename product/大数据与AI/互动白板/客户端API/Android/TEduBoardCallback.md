@@ -146,6 +146,15 @@ void onTEBAddElement(final String id, final String url)
 | url | final String |  |
 
 
+### onTEBDeleteElement
+删除元素回调 
+``` Java
+void onTEBDeleteElement(final List< String > id)
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| id | final List< String > | 元素id  |
 ### onTEBBackgroundH5StatusChanged
 设置白板背景 H5 状态改变回调 
 ``` Java
@@ -361,6 +370,18 @@ void onTEBVideoStatusChanged(String fileId, int status, float progress, float du
 | duration | float | 总时长（秒）（仅支持 mp4 格式）  |
 
 
+### onTEBAudioStatusChanged
+音频文件状态回调 
+``` Java
+void onTEBAudioStatusChanged(String elementId, int status, float progress, float duration)
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | String | 元素 ID  |
+| status | int | 文件状态  |
+| progress | float | 当前进度（秒）  |
+| duration | float | 总时长（秒）  |
 ### onTEBSnapshot
 白板快照 
 ``` Java
@@ -389,4 +410,17 @@ void onTEBH5PPTStatusChanged(final int statusCode, final String fid, final Strin
 | describeMsg | final String | 事件描述信息  |
 
 
+### onTEBTextComponentStatusChange
+文本组件状态回调 
+``` Java
+void onTEBTextComponentStatusChange(String status, String id, String value, int left, int top)
+```
+#### 参数
 
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| status | String | 文本组件状态（focus：获得焦点，blur：失去焦点）  |
+| id | String | 文本组件id  |
+| value | String | 文本内容  |
+| left | int | 文本组件水平偏移  |
+| top | int | 文本组件垂直偏移  |

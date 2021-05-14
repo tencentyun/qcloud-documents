@@ -6,17 +6,58 @@
 ### TEduBoard
 白板构造函数 
 ``` Javascript
-TEduBoard(TEduBoardInitParam initParams)
+new TEduBoard(initParams)
 ```
+
+> 注意：强烈建议在初始化白板对象之前先判断白板对象是否存在，如果存在先销毁白板对象，然后再重新创建，避免页面中存在多个白板对象相互干扰，导致白板出现异常的行为。
+
+```
+// 1. 先判断白板对象是否存在
+if (this.teduBoard) {
+   // 2. 如果白板对象已经存在，则先销毁
+   this.teduBoard.destroy();
+}
+// 3. 创建白板对象
+this.teduBoard = new TEduBoard(initParams)
+```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| initParams | TEduBoardInitParam | 【必填】白板初始化参数  |
+| initParams | object | 【必填】白板初始化参数  |
+| `initParams.id` |	string |	【必填】白板渲染的 dom 节点 ID |
+| initParams.classId |	number |	【必填】课堂 ID |
+| initParams.sdkAppId |	number |	【必填】腾讯云应用的唯一标识，可登录 实时音视频控制台 查看 |
+| initParams.userId |	string |	【必填】用户名 |
+| initParams.userSig |	string |	【必填】登录鉴权信息 |
+| initParams.ratio |	string |	【可选】默认白板宽高比（可传格式如“4:3”、“16:9”的字符串），默认值 "16:9" |
+| initParams.drawEnable |	boolean |	【可选】是否允许涂鸦，默认值 true |
+| initParams.textStyle |	number |	【可选】文本样式（0：常规；1：粗体；2：斜体；3：粗斜体），默认值 TEduBoard.TEduBoardTextStyle.TEDU_BOARD_TEXT_STYLE_NORMAL 文本样式 |
+| initParams.textSize |	number |	【可选】文本大小，默认值 320，实际像素值取值(textSize * 白板的高度 / 10000)px |
+| initParams.textColor |	string |	【可选】文本颜色，默认值 #000000 |
+| initParams.brushColor |	string |	【可选】画笔颜色，默认值 #ff0000 |
+| initParams.brushThin |	number |	【可选】画笔粗细，默认值 100，实际像素值取值(brushThin * 白板的高度 / 10000)px |
+| initParams.toolType |	number |	【可选】白板工具，默认值 TEduBoard.TEduBoardToolType.TEDU_BOARD_TOOL_TYPE_PEN 工具类型 |
+| initParams.globalBackgroundColor |	string |	【可选】全局背景色，默认值 #ffffff |
+| initParams.boardContentFitMode |	number |	【可选】内容自适应模式，默认值 TEduBoard.TEduBoardContentFitMode.TEDU_BOARD_CONTENT_FIT_MODE_NONE 白板内容自适应模式 |
+| initParams.dataSyncEnable |	boolean |	【可选】是否启用数据同步，禁用后将导致本地白板操作不会被同步给远端，默认值 true |
+| initParams.scale |	number |	【可选】白板默认缩放系数，实际缩放倍数为 scale/100，默认值 100 |
+| initParams.preloadDepth |	number |	【可选】图片预加载深度，默认值 5，表示预加载当前页前后5页的图片 |
+| initParams.progressEnable |	boolean |	【可选】是否启用SDK内置Loading图标，默认值 false |
+| initParams.progressBarUrl |	string |	【可选】自定义加载图标，在 progressEnable = true 时生效，支持 jpg、gif、png、svg |
+| initParams.systemCursorEnable |	string |	【可选】是否启用原生系统光标，默认false，该参数说明具体请看setSystemCursorEnable 接口 |
+| initParams.enableScaleTool |	boolean |	【可选】是否启用白板缩放移动工具的缩放功能，当设置为false，切换到缩放移动工具时缩放功能不可用 |
+| initParams.syncFps |	number |	【可选】信令同步频率，该值的允许范围为 [5, 20]，默认5帧 |
+| initParams.proxyServer |	string |	【可选】是否为白板服务设置代理服务器，传入一个JSON格式字符串。白板服务类型可参考{@link TEduBoard.TEduBoardServiceType 服务类型}，JSON格式可参考<a href="#setProxyServer">setProxyServer</a>接口|
 
+> 更多配置参数，请查看[互动白板API文档](https://doc.qcloudtiw.com/web/TEduBoard.html)。
 
 ### destroy
-销毁白板 
+
+> 销毁白板
+- 退出课堂请务必调用
+
 ``` Javascript
 void destroy()
 ```
@@ -970,7 +1011,7 @@ String addVODFile(String appId, String vodId, String extParam)
 | --- | --- | --- |
 | appId | String | 点播应用ID  |
 | vodId | String | 点播文件ID  |
-| extParam | String | 点播视频额外参数，如 plugins、hlsConfig 等，具体请参考 [云点播-开发文档](https://cloud.tencent.com/document/product/266/14603)  |
+| extParam | String | 点播视频额外参数，如 plugins、hlsConfig 等，具体请参考 [https://cloud.tencent.com/document/product/266/14603](https://cloud.tencent.com/document/product/266/14603)  |
 
 #### 返回
 白板文件 ID 
@@ -988,7 +1029,7 @@ String addVODFile(String appId, String vodId, String extParam)
 
 
 ### setVODExtParam
-设置点播视频的额外参数，如 plugins、hlsConfig 等，具体请参考 [云点播-开发文档](https://cloud.tencent.com/document/product/266/14603) 
+设置点播视频的额外参数，如 plugins、hlsConfig 等，具体请参考 [https://cloud.tencent.com/document/product/266/14603](https://cloud.tencent.com/document/product/266/14603) 
 ``` Javascript
 String setVODExtParam(String fileId, Object extParam)
 ```

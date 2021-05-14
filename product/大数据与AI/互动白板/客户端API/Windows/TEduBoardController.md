@@ -46,13 +46,21 @@ EDUSDK_API void DestroyTEduBoardController(TEduBoardController **ppBoardControll
 ppBoardController 指针会被自动置空 
 
 
+### ClearTEduBoardSDKEnv
+清理白板SDK环境，在不使用白板后调用以释放资源 
+``` C++
+EDUSDK_API void ClearTEduBoardSDKEnv()
+```
+#### 警告
+该接口必须在主线程调用 
 
+>? 请在确保不再使用白板功能时才调用该接口（建议在应用程序退出前调用），调用了该接口之后，CreateTEduBoardController接口不再有效 
 ## 日志相关接口
 
 ### GetTEduBoardVersion
 获取 SDK 版本号 
 ``` C++
-const EDUSDK_API char* GetTEduBoardVersion()
+EDUSDK_API const char* GetTEduBoardVersion()
 ```
 #### 返回
 SDK 版本号
@@ -61,27 +69,27 @@ SDK 版本号
 返回值内存由 SDK 内部管理，用户不需要自己释放 
 
 
-### SetTEduBoardLogFilePath
-设置白板日志文件路径 
+### SetTEduBoardLogFileDir
+设置白板日志文件存储目录路径 
 ``` C++
-EDUSDK_API bool SetTEduBoardLogFilePath(const char *logFilePath)
+EDUSDK_API bool SetTEduBoardLogFileDir(const char *logDir)
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| logFilePath | const char * | 要设置的白板日志文件路径，包含文件名及文件后缀，UTF8 编码，为空或 nullptr 表示使用默认路径  |
+| logDir | const char * | 要设置的白板日志文件存储目录路径，UTF8 编码，为空或 nullptr 表示使用默认路径  |
 
 #### 返回
-设置白板日志文件路径是否成功 
+设置白板日志文件存储目录是否成功 
 
 #### 警告
 该接口必须要在第一次调用 CreateTEduBoardController 之前调用才有效，否则将会失败
 
 #### 介绍
 
-- 默认路径，Windows下为："%AppData%/../Local/TEduBoard/teduboard.log"
-- 默认路径，Linux下为："~/TEduBoard/teduboard.log" 
+- 默认路径，Windows下为："%AppData%/../Local/TEduBoard"
+- 默认路径，Linux下为："~/TEduBoard" 
 
 
 
@@ -306,6 +314,60 @@ virtual void SyncRemoteTime(const char *userId, uint64_t timestamp)=0
 | timestamp | uint64_t | 远端用户毫秒级同步时间戳  |
 
 
+### SetSystemCursorEnable
+是否启用原生系统光标 
+``` C++
+virtual void SetSystemCursorEnable(bool enable)=0
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | bool | 启用或禁用，默认禁用  |
+
+
+### AddBackupDomain
+添加备用域名 
+``` C++
+virtual void AddBackupDomain(const char *domain, const char *backup, uint32_t priority=0)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| domain | const char * | 要添加备用域名的主域名  |
+| backup | const char * | 要添加的备用域名  |
+| priority | uint32_t | 备用域名优先级，数字越大优先级越高 |
+
+#### 介绍
+主备域名均需要包含协议类型（支持http/https） 当使用主域名访问资源超时后，按优先级逐个尝试使用备用域名去访问，资源访问超时时间默认为5秒 多次调用此接口，可以为同一个主域名添加多个备用域名，重复添加相同的备用域名会被忽略 
+
+
+### RemoveBackupDomain
+删除备用域名 
+``` C++
+virtual void RemoveBackupDomain(const char *domain, const char *backup)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| domain | const char * | 要删除备用域名的主域名  |
+| backup | const char * | 要删除的备用域名，nullptr或空字符串表示删除主域名对应的所有备用域名  |
+
+
+### SetProxyServer
+设置服务的代理服务器 
+``` C++
+virtual void SetProxyServer(const char *settingStr)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| settingStr | const char * | 代理服务器配置字符串，字符串内容为一个JSON对象，格式参考如下： |
+
+#### 介绍
+{ '服务类型': '代理服务器地址', ... }
 ### CallExperimentalAPI
 调用白板实验性接口 
 ``` C++
@@ -441,6 +503,32 @@ virtual bool IsHandwritingEnable()=0
 是否开启笔锋特性 
 
 
+### SetEraseLayerLimit
+设置橡皮擦单次擦除图层数量 
+``` C++
+virtual void SetEraseLayerLimit(uint32_t limit=0)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| limit | uint32_t | 擦除图层数量，默认为0，即不限制图层数量 |
+
+#### 介绍
+单次擦除：鼠标/手指按下 -> 鼠标/手指移动 -> 鼠标/手指抬起。 
+
+
+### SetEraseLayerType
+限制橡皮擦可擦除的白板元素类型 
+``` C++
+virtual void SetEraseLayerType(const TEduBoardErasableElementType *typeArr=nullptr, uint32_t typeArrCount=0)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| typeArr | const TEduBoardErasableElementType * | 限制可擦除的白板元素类型数组，默认为nullptr则不限制元素类型  |
+| typeArrCount | uint32_t | 要限制的可擦除的白板元素类型数量  |
 ### SetAccessibleUsers
 设置允许操作哪些用户绘制的图形 
 ``` C++
@@ -528,6 +616,17 @@ virtual TEduBoardToolType GetToolType()=0
 ```
 #### 返回
 正在使用的白板工具 
+### SetToolTypeTitle
+设置画笔和激光笔工具提示语 
+``` C++
+virtual void SetToolTypeTitle(const char *title, const TEduBoardToolTypeTitleStyle *style)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| title | const char * | 提示语  |
+| style | const TEduBoardToolTypeTitleStyle * | 提示语样式，如果为nullptr，则使用默认样式  |
 
 
 ### SetCursorIcon
@@ -800,20 +899,21 @@ virtual void AddImageElement(const char *url)=0
 ### AddElement
 添加白板元素 
 ``` C++
-virtual const char* AddElement(TEduBoardElementType type, const char *url)=0
+virtual const char* AddElement(TEduBoardElementType type, const char *url, const TEduBoardElementOptions &options=TEduBoardElementOptions())=0
 ```
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| type | TEduBoardElementType | 白板元素类型  |
-| url | const char * | 要使用的元素 URL，编码格式为 UTF8，为 nullptr 表示不指定 URL  |
+| type | TEduBoardElementType | 元素类型，当设置TEDU_BOARD_ELEMENT_IMAGE时，等价于addImageElement方法  |
+| url | const char * | 网页或者图片的 url，只支持 https 协议的网址或者图片 url，编码格式为 UTF8，为 nullptr 表示不指定URL  |
+| options | const TEduBoardElementOptions & | 元素参数  |
 
 #### 返回
 元素 ID，用于后续删除操作
 
-#### 介绍
-添加到白板的元素浮动在白板背景之上，支持拖动、缩放、删除 
+#### 警告
+（1）当 type = TEDU_BOARD_ELEMENT_IMAGE，支持 png、jpg、gif、svg 格式的本地和网络图片，当 url 是一个有效的本地文件地址时，该文件会被自动上传到 COS，上传进度回调 onTEBFileUploadStatus （2）当 type = TEDU_BOARD_ELEMENT_CUSTOM_GRAPH，仅支持网络 url，请与自定义图形工具 TEDU_BOARD_TOOL_TYPE_BOARD_CUSTOM_GRAPH 配合使用 （3）当 type = TEDU_BOARD_ELEMENT_AUDIO 或 TEDU_BOARD_ELEMENT_GLOBAL_AUDIO，仅支持网络 url 
 
 
 ### RemoveElement
@@ -829,6 +929,17 @@ virtual bool RemoveElement(const char *elementId)=0
 
 #### 返回
 删除操作是否成功 
+### GetBoardElementList
+获取白板中所有元素 
+``` C++
+virtual TEduBoardElementInfoList* GetBoardElementList(const char *boardId)=0
+```
+#### 参数
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| boardId | const char * | 白板 ID，如果为空则获取当前白板所有元素  |
+#### 返回
+白板元素列表 
 
 
 ### DeleteBoard
@@ -979,6 +1090,60 @@ virtual uint32_t GetBoardScale()=0
 白板缩放比例，格式与 SetBoardScale 接口参数格式一致 
 
 
+### SetFileScale
+设置文件缩放比例 
+``` C++
+virtual void SetFileScale(const char *fileId, uint32_t scale)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fileId | const char * | 文件ID  |
+| scale | uint32_t | 要设置的文件缩放比例 |
+
+#### 介绍
+支持范围: [100，1600]，实际缩放比为: scale/100 
+
+
+### GetFileScale
+获取文件缩放比例 
+``` C++
+virtual uint32_t GetFileScale(const char *fileId)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| fileId | const char * | 文件ID  |
+
+#### 返回
+文件缩放比例，格式与 SetFileScale 接口参数格式一致 
+
+
+### SetScaleToolRatio
+设置白板缩放工具的缩放比例 
+``` C++
+virtual void SetScaleToolRatio(uint32_t scale)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| scale | uint32_t | 如果设置为50，则每次滚轮滚动（或鼠标点击），缩放会在原来基础上进行50的缩放。 等价于 teduBoard.setBoardScale(teduBoard.getBoardScale() + 50) 或 teduBoard.setBoardScale(teduBoard.getBoardScale() - 50)  |
+
+
+### SetScaleAnchor
+移动当前白板缩放展示位置 
+``` C++
+virtual void SetScaleAnchor(double xRatio, double yRation)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| xRatio | double | 白板左上角X坐标，取值[0, 1]  |
+| yRation | double | 白板左上角Y坐标，取值[0, 1]  |
 ### SetBoardContentFitMode
 设置白板内容自适应模式 
 ``` C++
@@ -1039,6 +1204,16 @@ virtual void SetZoomCursorIcon(const TEduBoardCursorIcon &zoomIn, const TEduBoar
 | --- | --- | --- |
 | zoomIn | const TEduBoardCursorIcon & | 放大工具图标  |
 | zoomOut | const TEduBoardCursorIcon & | 缩小工具图标  |
+### SetRemoteCursorVisible
+设置远端画笔在本地是否可见 
+``` C++
+virtual void SetRemoteCursorVisible(bool visible)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| visible | bool | 远端画笔在本地是否可见  |
 
 
 
@@ -1249,6 +1424,93 @@ virtual void StopSyncVideoStatus()=0
 只对当前文件有效 
 
 
+### EnableAudioControl
+是否启用音频控制面板 
+``` C++
+virtual void EnableAudioControl(bool enable)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| enable | bool | 启用或禁止  |
+
+#### 警告
+禁止控制面板后，不能通过界面交互方式操作音频元素 
+
+
+### PlayAudio
+播放音频 
+``` C++
+virtual void PlayAudio(const char *elementId)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | const char * | 调用 addElement 方法返回的元素 ID |
+
+#### 介绍
+触发状态改变回调 onTEBAudioStatusChange 
+
+
+### PauseAudio
+暂停音频 
+``` C++
+virtual void PauseAudio(const char *elementId)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | const char * | 调用 addElement 方法返回的元素 ID |
+
+#### 介绍
+触发状态改变回调 onTEBAudioStatusChange 
+
+
+### SeekAudio
+跳转 
+``` C++
+virtual void SeekAudio(const char *elementId, double time)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | const char * | 调用 addElement 方法返回的元素 ID  |
+| time | double | 播放进度，单位秒 |
+
+#### 介绍
+触发状态改变回调 onTEBAudioStatusChange 
+
+
+### SetAudioVolume
+设置音频播放音量 
+``` C++
+virtual void SetAudioVolume(const char *elementId, double volume)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | const char * | 调用 addElement 返回的元素 ID  |
+| volume | double | 音频音量，取值范围[0-1]  |
+
+
+### GetAudioVolume
+获取音频播放音量 
+``` C++
+virtual double GetAudioVolume(const char *elementId)=0
+```
+#### 参数
+
+| 参数 | 类型 | 含义 |
+| --- | --- | --- |
+| elementId | const char * | 调用 addElement 返回的元素 ID  |
+
+#### 返回
+当前音量 
 ### AddH5File
 添加 H5 页面 
 ``` C++

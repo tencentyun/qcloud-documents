@@ -11,14 +11,21 @@
 
 ### 步骤一：安装 C/C++ 依赖库
 
-- [安装 librdkafka](https://github.com/edenhill/librdkafka#installation)
+[安装 librdkafka](https://github.com/edenhill/librdkafka#installation)
 
-### 步骤二：安装SSL/SASL依赖
 
-```shell script
+
+### 步骤二：安装 SSL/SASL依赖
+<dx-codeblock>
+:::  shell script
 yum install openssl openssl-devel
 yum install cyrus-sasl{,-plain}
-```
+:::
+</dx-codeblock>
+
+
+
+
 
 
 ### 步骤三：发送消息
@@ -330,13 +337,13 @@ int main (int argc, char **argv) {
 
 2. 执行以下命令编译 producer.c。 
 
-```
+ ```
 gcc -lrdkafka ./producer.c -o producer
 ```
 
 3. 执行以下命令发送消息。
 
-```
+ ```
 ./produce <broker> <topic> <username> <password>  
 ```
 
@@ -348,12 +355,12 @@ gcc -lrdkafka ./producer.c -o producer
 | password | sasl_plaintext 接入方式下的用户接入密码。                     |
 
 运行结果如下：
+<img src="https://main.qcloudimg.com/raw/a7a4a02e8636045b7aeb852f47270059.png" width="600px">
 
-![](https://main.qcloudimg.com/raw/a7a4a02e8636045b7aeb852f47270059.png)
+  4. 在 [Ckafka 控制台](https://console.cloud.tencent.com/ckafka)【topic 管理】页面，选择对应的 topic，单击【更多】>【消息查询】，查看刚刚发送的消息。
+<img src="https://main.qcloudimg.com/raw/3224bd16d182ca02d3ce4e65e172b540.png" width="700px">
 
-  4. 在 Ckafka 控制台【topic 管理】页面，选择对应的 topic，点击【更多】>【消息查询】，查看刚刚发送的消息。
 
-     ![](https://main.qcloudimg.com/raw/99e5dba05efc4b48692c74749f131571.png)
 
 ### 步骤四：消费消息
 
@@ -675,5 +682,8 @@ gcc -lrdkafka ./consumer.c -o consumer
 | password        | sasl_plaintext 接入方式下的用户接入密码。                     |
 | topic1 topic2.. | Topic 名称，您可在 Ckafka 控制台的【topic管理】中获取主题名称信息。   |
 
-4. 在 Ckafka 控制台【Consumer Group】页面，选择对应的消费者组名称，在主题名称输入 topic 名称，单击【查询详情】查看消费详情。
-![](https://main.qcloudimg.com/raw/baa096c009af248f9036d1f1d1f6e324.png)
+运行结果如下：
+<img src="https://main.qcloudimg.com/raw/e131edb96559186eeba25beb26994a2e.png" width="700px">
+
+4. 在 [Ckafka 控制台](https://console.cloud.tencent.com/ckafka)【Consumer Group】页面，选择对应的消费者组名称，在主题名称输入 topic 名称，单击【查询详情】查看消费详情。
+![](https://main.qcloudimg.com/raw/3020dcb5f8fd73e02949b20fef4f956f.png)

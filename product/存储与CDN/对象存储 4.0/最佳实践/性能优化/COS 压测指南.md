@@ -75,7 +75,8 @@ yum install nmap-ncat java curl java-1.8.0-openjdk-devel -y
 |  参数     |    描述       |
 |-----------|----------------|
 |    accesskey、secretkey    |    密钥信息，分别替换为用户的 SecretId  和 SecretKey  |
-|      cprefix         |       存储桶名称，例如 examplebucket            |
+|      cprefix         |      存储桶名称前缀，例如 examplebucket            |
+|  containers |   为存储桶名称数值区间，最后的存储桶名称由 cprefix 和 containers 组成，例如：examplebucket1，examplebucket2   |
 |    csuffix          |      用户的 APPID，需注意 APPID 前面带上符号`-`，例如 -1250000000      |
 |     runtime        |    压测运行时间     |
 |     ratio       |       读和写的比例     |
