@@ -65,7 +65,7 @@ public static Connection GetConnection(String username, String passwd)
 ```
 
 ## 示例代码
-连接、建表、batch 插入、更新等 java 连接 demo。
+连接、建表、batch 插入、更新等 Java 连接 demo。
 ```
 package Demo;
 import java.sql.*;
