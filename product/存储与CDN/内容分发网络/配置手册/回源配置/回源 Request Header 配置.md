@@ -13,7 +13,7 @@
 ### 查看配置
 
 登录 [CDN 控制台](https://console.cloud.tencent.com/cdn)，在菜单栏里选择【域名管理】，单击域名右侧【管理】，即可在【回源配置】中看到回源 Request Header 配置，默认情况下为关闭状态，无任何配置：
-![img](https://main.qcloudimg.com/raw/59069be8821b2987df5d0b3eeaae55d0.png)
+![](https://main.qcloudimg.com/raw/9d5777902e46cdbe037a7ea9eb78d567.png)
 
 ### 操作类型
 
@@ -44,7 +44,7 @@
 ## 配置示例
 
 若加速域名 `cloud.tencent.com` 的回源 Request Header 配置如下：
-![img](https://main.qcloudimg.com/raw/6c02e4901530e26def6b7c51c8916b36.png)
+![](https://main.qcloudimg.com/raw/cd018a8767ffdbd57862db197af48141.png)
 若访问资源为：`http://cloud.tencent.com/test/test.mp4`
 
 1. 命中 `*` 规则，增加头部 `X-Forward-For:$client_ip` 头部，回源时将 $client_ip 替换为真实客户端 IP。
