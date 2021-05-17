@@ -6,8 +6,8 @@ HTTPDNS 的主要功能是为了有效的避免由于运营商传统 LocalDns �
 
 | 名称       | 适用说明           |
 | ------------- |-------------|
-| MSDKDns.framework | 适用 “Build Setting->C++ Language Dialect” 配置为 **“GNU++98”**，“Build Setting->C++ Standard Library” 为 **“libstdc++(GNU C++ standard library)”** 的工程。 |
-| MSDKDns_C11.framework | 适用于该两项配置分别为 **“GNU++11”** 和 **“libc++(LLVM C++ standard library with C++11 support)”** 的工程。 |
+| MSDKDns.xcframework | 适用 “Build Setting->C++ Language Dialect” 配置为 **“GNU++98”**，“Build Setting->C++ Standard Library” 为 **“libstdc++(GNU C++ standard library)”** 的工程。 |
+| MSDKDns_C11.xcframework | 适用于该两项配置分别为 **“GNU++11”** 和 **“libc++(LLVM C++ standard library with C++11 support)”** 的工程。 |
 
 ## 3. SDK 集成
 HTTPDNS 提供两种集成方式供 iOS 开发者选择：
@@ -59,37 +59,85 @@ HTTPDNS 提供两种集成方式供 iOS 开发者选择：
 
 ### 4.1 设置业务基本信息
 
-#### 接口声明
+#### 类型定义
+
+```c++
+
+/**
+	加密方式
+**/
+typedef enum {
+    HttpDnsEncryptTypeDES = 0, // DES 加密
+    HttpDnsEncryptTypeAES = 1, // AES 加密
+    HttpDnsEncryptTypeHTTPS = 2 // HTTPS 加密
+} HttpDnsEncryptType;
+
+/**
+	配置结构体
+**/
+struct DnsConfig {
+    NSString* appId; // 应用ID，腾讯云控制台（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
+    int dnsId; // 授权ID，腾讯云控制台（https://console.cloud.tencent.com/httpdns）申请后，通过邮件发送，用于域名解析鉴权
+    NSString* dnsKey; // 加密密钥，加密方式为AES、DES时必传。腾讯云控制台（https://console.cloud.tencent.com/httpdns）申请后，通过邮件发送，用于域名解析鉴权
+    NSString* token; // 加密方式为 HTTPS 时必传
+    NSString* dnsIp; // HTTPDNS 服务器IP
+    BOOL debug; // 是否开启Debug日志，YES：开启，NO：关闭。建议联调阶段开启，正式上线前关闭
+    int timeout; // 超时时间，单位ms，如设置0，则设置为默认值2000ms
+    HttpDnsEncryptType encryptType; // 控制加密方式
+    NSString* routeIp; // 查询线路IP地址
+};
 ```
+
+#### 接口声明
+
+```objc
 /**
  设置业务基本信息（腾讯云业务使用）
 
- @param appkey  业务appkey，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于上报
- @param dnsid   dns解析id，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
- @param dnsKey  dns解析key，腾讯云官网（https://console.cloud.tencent.com/httpdns）申请获得，用于域名解析鉴权
- @param debug   是否开启Debug日志，YES：开启，NO：关闭。建议联调阶段开启，正式上线前关闭
- @param timeout 超时时间，单位ms，如设置0，则设置为默认值2000ms
- @param useHttp 是否使用http路解析，YES：使用http路解析，NO：使用https路解析，强烈建议使用http路解析，解析速度更快
-
+ @param config 业务配置结构体
  @return YES:设置成功 NO:设置失败
  */
-- (BOOL) WGSetDnsAppKey:(NSString *) appkey DnsID:(int)dnsid DnsKey:(NSString *)dnsKey Debug:(BOOL)debug TimeOut:(int)timeout UseHttp:(BOOL)useHttp;
+- (BOOL) initConfig:(DnsConfig *)config;
 ```
 #### 示例代码
 
 接口调用示例：
-```
-[[MSDKDns sharedInstance] WGSetDnsAppKey: @"业务appkey，由腾讯云官网申请获得" DnsID:dns解析id DnsKey:@"dns解析key" Debug:YES TimeOut:1000 UseHttp:YES];
+```objc
+	DNSConfig *config = new DnsConfig();
+	config->dnsIp = @"HTTPDNS 服务器IP";
+	config->dnsId = @"dns解析id";
+	config->dnsKey = @"加密密钥";
+	config->encryptType = HttpDnsEncryptTypeDES;
+	config->debug = YES;
+	config->timeout = 2000;
+	config->routeIp = @"查询线路ip";
+	[[MSDKDns sharedInstance] initConfig: config];
 ```
 ### 4.2 域名解析接口
 
-获取 IP 共有两个接口，同步接口 **WGGetHostByName**，异步接口 **WGGetHostByNameAsync**，引入头文件，调用相应接口即可。
+获取 IP 共有四个接口：
+- 同步接口 
+	-	单个查询 **WGGetHostByName:**；
+	- 批量查询 **WGGetHostsByNames:**；
+- 异步接口 
+	- 单个查询 **WGGetHostByNameAsync:returnIps:**；
+	- 批量查询 **WGGetHostsByNamesAsync:returnIps:**；
 
-返回的地址格式为 NSArray，固定长度为2，其中第一个值为 ipv4 地址，第二个值为 ipv6 地址。以下为返回格式的详细说明：
+引入头文件，调用相应接口即可。
+
+返回的地址格式为：
+
+单个查询接口返回 NSArray，固定长度为2，其中第一个值为 ipv4 地址，第二个值为 ipv6 地址。以下为返回格式的详细说明：
 - ipv4 下，仅返回 ipv4 地址，即返回格式为：[ipv4, 0]。
 - ipv6 下，仅返回 ipv6 地址，即返回格式为：[0, ipv6]。
 - 双栈网络下，返回解析到 ipv4&ipv6（如果存在）地址，即返回格式为：[ipv4, ipv6]。
 - 解析失败，返回[0, 0]，业务重新调用 WGGetHostByName 接口即可。
+
+批量查询接口返回 NSDictionary, key 为查询的域名，value 为 NSArray，固定长度为2，其他第一个值为 ipv4 地址，第二个值为 ipv6 地址。以下为返回格式的详细说明：
+- ipv4 下，仅返回 ipv4 地址，即返回格式为：{"queryDomain" : [ipv4, 0]}。
+- ipv6 下，仅返回 ipv6 地址，即返回格式为：{"queryDomain" : [0, ipv6]}。
+- 双栈网络下，返回解析到 ipv4&ipv6（如果存在）地址，即返回格式为：{"queryDomain" : [ipv4, ipv6]}。
+- 解析失败，返回{"queryDomain" : [0, 0]}，业务重新调用 WGGetHostByNames 接口即可。
 
 >!
 >- 使用 ipv6 地址进行 URL 请求时，需添加方框号[ ]进行处理，例如：`http://[64:ff9b::b6fe:7475]/`。
@@ -97,22 +145,32 @@ HTTPDNS 提供两种集成方式供 iOS 开发者选择：
 >- 如 IPv4 地址为0，则直接使用 IPv6 地址连接。
 >- 如 IPv4 和 IPv6 地址都不为0，则由客户端决定优先使用哪个地址进行连接，但优先地址连接失败时应切换为另一个地址。 
 
-#### 同步解析接口: WGGetHostByName
+#### 同步解析接口: WGGetHostByName、WGGetHostByNames
 
 ##### 接口声明
-```
+
+```objc
 /**
  域名同步解析（通用接口）
  @param domain 域名 
  @return 查询到的IP数组，超时（1s）或者未未查询到返回[0,0]数组
 */
 - (NSArray *) WGGetHostByName:(NSString *) domain;
+
+/**
+ 域名批量同步解析（通用接口）
+ @param domains 域名数组
+ @return 查询到的IP字典
+ */
+- (NSDictionary *) WGGetHostsByNames:(NSArray *) domains;
 ```
 ##### 示例代码
 
 接口调用示例：
-```
-NSArray *ipsArray = [[MSDKDns sharedInstance] WGGetHostByName: @"www.qq.com"];
+
+```objc
+// 单个域名查询
+NSArray *ipsArray = [[MSDKDns sharedInstance] WGGetHostByName: @"qq.com"];
 if (ipsArray && ipsArray.count > 1) {
 	NSString *ipv4 = ipsArray[0];
 	NSString *ipv6 = ipsArray[1];
@@ -124,27 +182,71 @@ if (ipsArray && ipsArray.count > 1) {
 		//异常情况返回为0,0，建议重试一次
 	}
 }
+
+// 批量域名查询
+NSDictionary *ipsDict = [[MSDKDns sharedInstance] WGGetHostByNames: @[@"qq.com", @"dnspod.cn"]];
+NSArray *ips = [ipsDict objectForKey: @"qq.com"];
+if (ips && ips.count > 1) {
+	NSString *ipv4 = ips[0];
+	NSString *ipv6 = ips[1];
+	if (![ipv6 isEqualToString:@"0"]) {
+		//TODO 使用ipv6地址进行URL连接时，注意格式，ipv6需加方框号[]进行处理，例如：http://[64:ff9b::b6fe:7475]/
+	} else if (![ipv4 isEqualToString:@"0"]){
+		//使用ipv4地址进行连接
+	} else {
+		//异常情况返回为0,0，建议重试一次
+	}
+}
 ```
-#### 异步解析接口: WGGetHostByNameAsync
+#### 异步解析接口: WGGetHostByNameAsync、WGGetHostByNamesAsync
 
 ##### 接口声明
-```
+
+```objc
 /**
  域名异步解析（通用接口）
  @param domain  域名
  @param handler 返回查询到的IP数组，超时（1s）或者未未查询到返回[0,0]数组
  */
  - (void) WGGetHostByNameAsync:(NSString *) domain returnIps:(void (^)(NSArray *ipsArray))handler;
+
+ /**
+ 域名批量异步解析（通用接口）
+
+ @param domains  域名数组
+ @param handler 返回查询到的IP数组，超时（1s）或者未未查询到返回[0,0]数组
+ */
+- (void) WGGetHostsByNamesAsync:(NSArray *) domains returnIps:(void (^)(NSDictionary * ipsDictionary))handler;
 ```
 ##### 示例代码
 
 - 接口调用示例1：等待完整解析过程结束后，拿到结果，进行连接操作。
-```
-[[MSDKDns sharedInstance] WGGetHostByNameAsync:domain returnIps:^(NSArray *ipsArray) {
+
+```objc
+// 单个域名查询
+[[MSDKDns sharedInstance] WGGetHostByNameAsync:@"qq.com" returnIps:^(NSArray *ipsArray) {
 	//等待完整解析过程结束后，拿到结果，进行连接操作
 	if (ipsArray && ipsArray.count > 1) {
 		NSString *ipv4 = ipsArray[0];
 		NSString *ipv6 = ipsArray[1];
+		if (![ipv6 isEqualToString:@"0"]) {
+			//使用建议：当ipv6地址存在时，优先使用ipv6地址
+			//TODO 使用ipv6地址进行URL连接时，注意格式，ipv6需加方框号[]进行处理，例如：http://[64:ff9b::b6fe:7475]/
+		} else if (![ipv4 isEqualToString:@"0"]){
+			//使用ipv4地址进行连接
+		} else {
+			//异常情况返回为0,0，建议重试一次
+		}
+	}
+}];
+
+// 批量域名查询
+[[MSDKDns sharedInstance] WGGetHostByNamesAsync:@[@"qq.com", @"dnspod.cn"] returnIps:^(NSDictionary *ipsDict) {
+	//等待完整解析过程结束后，拿到结果，进行连接操作
+	NSArray *ips = [ipsDict objectForKey: @"qq.com"];
+	if (ips && ips.count > 1) {
+		NSString *ipv4 = ips[0];
+		NSString *ipv6 = ips[1];
 		if (![ipv6 isEqualToString:@"0"]) {
 			//使用建议：当ipv6地址存在时，优先使用ipv6地址
 			//TODO 使用ipv6地址进行URL连接时，注意格式，ipv6需加方框号[]进行处理，例如：http://[64:ff9b::b6fe:7475]/
