@@ -16,7 +16,11 @@
 ## 解决思路
 等待攻击结束后进行自助解封或者自动解封。
 - 自助解封操作详情，请参见 [自助解封操作](#zzjfcz)。
-- 自动解封操作详情，请参见 XXX
+- 自动解封操作详情，请参见 [自动解封操作](#zdjfcz)。
+>?
+>- 若需尽快解封，待攻击结束后，您可以选择自助解封。
+>- 若对解封时间无要求，您可以待系统后台为您自动解封。
+
 
 ## 处理步骤
 ### [自助解封操作](id:zzjfcz)
@@ -24,8 +28,7 @@
 2. 在解封操作页面，找到状态为“自动解封中”的防护 IP，在右侧操作栏中，单击【解封】。
 ![](https://main.qcloudimg.com/raw/e4c7d9a99ae69d1aac98de90a0790bd4.png)
 
-### 解封操作记录
-1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/ddos/unblock/log)，在左侧导航中，选择【自助解封】>【解封操作记录】，进入解封操作记录页面。
-2. 在解封操作记录页面，根据时间范围筛选，可查看所有解封操作记录，包括自动解封、手工自助解封等操作记录。
-![](https://main.qcloudimg.com/raw/a2f86c6e26cc3b1d14bbcf5a663d882f.png)
+### [自动解封操作](id:zdjfcz)
+登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/ddos/unblock/list)，在左侧导航中，选择【自助解封】>【解封操作】，进入解封操作页面，即可查看预计解封时间。
+![](https://main.qcloudimg.com/raw/ece0777a4f8355b6b4946704a7fafb5d.png)
 
