@@ -1,10 +1,4 @@
-
-
-为了方便用户在云监控 Prometheus 监控服务，会不断优化或新增预设的 Grafana Dashboard，用户可以更新预设 Grafana Dashboard。
-
-
-
-
+为了方便用户在 Prometheus 监控服务，会不断优化或新增预设的 Grafana Dashboard，用户可以更新预设 Grafana Dashboard。
 
 ## 操作步骤
 

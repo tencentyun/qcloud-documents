@@ -1,8 +1,8 @@
 ## 功能介绍
 
-云监控 Prometheus 服务在继承开源 Prometheus 监控能力的同时 ，还提供高可用的 Prometheus 监控服务及与开源可视化的 Grafana。为您减少用户的开发及运维成本。
+ Prometheus 监控服务在继承开源 Prometheus 监控能力的同时 ，还提供高可用的 Prometheus 托管服务及与开源可视化的 Grafana。为您减少用户的开发及运维成本。
 
-对于已创建腾讯云 [容器服务 TKE](https://cloud.tencent.com/document/product/457) 的用户，您可以在云监控创建 Prometheus 实例并安装 Prometheus 监控插件对其进行监控，同时 Prometheus 监控服务集成 Grafana 及预定义 Dashboard 来查看不同维度的性能指标数据。
+对于已创建腾讯云 [容器服务 TKE](https://cloud.tencent.com/document/product/457) 的用户，您可以在 [ Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus) 创建 Prometheus 实例并安装 Prometheus 监控插件对其进行监控，同时 Prometheus 监控服务集成 Grafana 及预定义 Dashboard 来查看不同维度的性能指标数据。
 
 ## 前提条件
 
@@ -18,7 +18,7 @@
 
 ### 集成容器服务 TKE
 
-云监控 Prometheus 监控服务已经深度集成了腾讯云容器服务  TKE，用户只需要一键安装就可以对 Kubernetes 集群及运行在上面的服务进行监控。
+Prometheus 监控服务已经深度集成了腾讯云容器服务  TKE，用户只需要一键安装就可以对 Kubernetes 集群及运行在上面的服务进行监控。
 
 1. 在实例列表中，选择需要集成的 Prometheus 实例，单击【实例 ID】或者右侧的【管理】，进入 Prometheus 实例管理页。
 2. 单击【集成容器服务】> 选择对应的容器集群 > 单击【安装】来进行自动化集成，在安装弹框中可以选择需要集成的基础监控组件。
@@ -30,13 +30,13 @@
 
 ### 集成中心
 
-为了方便用户接入，云监控 Prometheus 监控服务对常用的`开发语言`/`中间件`/`大数据`进行了集成，用户只需根据指引即可对相应的组件进行监控，同时提供了开箱即用的 Grafana 监控大盘。
+为了方便用户接入，Prometheus 监控服务对常用的`开发语言`/`中间件`/`大数据`进行了集成，用户只需根据指引即可对相应的组件进行监控，同时提供了开箱即用的 Grafana 监控大盘。
 ![](https://main.qcloudimg.com/raw/c1564d7abcd674b1958fb8c6208e9aab.png)
 
 
 ### Grafana 查看监控数据
 
-配合 Prometheus，云监控提供了开箱即用的 Grafana 服务供用户使用，同时也集成了丰富的 Kubernetes 基础监控的 Dashboard，以及常用服务监控的 Dashboard，用户可以开箱即用。
+Prometheus 监控服务提供了开箱即用的 Grafana ，同时也集成了丰富的 Kubernetes 基础监控的 Dashboard，以及常用服务监控的 Dashboard，用户可以开箱即用。
 
 1. 在 [Prometheus 实例](https://console.cloud.tencent.com/monitor/prometheus) 列表，找到对应的 Prometheus 实例，单击实例 ID 右侧【<img src="https://main.qcloudimg.com/raw/978c842f0c093a31df8d5240dd01016d.png" width="2%">】 图标，打开您的专属 Grafana，输入账号密码，即可进行 Grafana 可视化大屏操作区。
 2. 进入 Grafana，单击【<img src="https://main.qcloudimg.com/raw/7e3fff6131aa085987552a9725e9ae54.png" width="2%">】图表，展开监控面板。

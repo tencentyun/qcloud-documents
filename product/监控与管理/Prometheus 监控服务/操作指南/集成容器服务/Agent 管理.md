@@ -1,4 +1,4 @@
-本身 Prometheus 是 [Cloud Native Computing Foundation（CNCF）](https://cncf.io/)  下毕业的第2个项目，所以与 Kubernetes 有着深度的集成，但是还是有一定的学习成本，云监控 Prometheus 监控服务为了降低用户的学习及使用成本，与腾讯云上的容器服务 TKE 做了深度的集成，可一键安装 Agent 的同时提供原生的 Prometheus 服务。
+本身 Prometheus 是 [Cloud Native Computing Foundation（CNCF）](https://cncf.io/)  下毕业的第2个项目，所以与 Kubernetes 有着深度的集成，但是还是有一定的学习成本， Prometheus 监控服务为了降低用户的学习及使用成本，与腾讯云上的容器服务 TKE 做了深度的集成，可一键安装 Agent 的同时提供原生的 Prometheus 服务。
 
 ## 准备工作
 
