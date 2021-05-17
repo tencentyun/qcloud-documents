@@ -187,13 +187,13 @@ Dataway Hello World!
 | set               | 集合，即 Python 集合类型set                                  | 否                        | {1,2,3}                                                      |
 | list              | 列表，序列类型容器，即 Python 原生 list 类型                 | 否                        | [1,2,3]                                                      |
 | dict              | 字典，kv 类型容器，即 Python 原生 dict 类型                  | 否                        | {1:1, 'key': 'value'}                                        |
-| Entity      | 即 EIS 中的实体数据，用于代表一个二进制对象，在 DataWay 中以 Entity 类型进行访问，包括blob、mime_type、encoding 等信息 | 是 | http-listener 构造消息中的 payload，如 msg.payload            |
+| Entity      | 即 EIS 中的实体数据，用于代表一个二进制对象，在 DataWay 中以 Entity 类型进行访问，包括blob、mime_type、encoding 等信息 | 是 | HTTP-listener 构造消息中的 payload，如 msg.payload            |
 | MultiMap      | 多值 map，类似于 xml 而与 dict 不同，该类型可以支持重复的 key。 |是| application/www-form-urlencoded 格式的数据解析之后得到的对象 |
 |FormDataParts | 数组+列表的数据结构，类似于 Python 中的 orderDict 结构       | 是 | multipart/form-data 格式的数据解析后得到的对象               |
 | Message       | 即 eis 中的消息，在 dataWay 中以 Message 进行访问            |是| dw_process 入口函数中的 msg 参数                             |
 
 >!1. 上述类型可以在 DataWay 表达式中使用，但 **dw_process 函数的返回值的类型为其中的 str/None/ bool/float/int/list/ dict/Entity/MultiMap/FormDataParts/Message 之一**。
->2. 需要注意的是，如果 DataWay 表达式输出的值会作为集成流的最终返回结果，则支持的返回值类型还会受到相应连接器组件的限制。如在以 http listener 组件作为第一个组件的流中，其最终的 payload 也需要是一个 Entity 类型。
+>2. 需要注意的是，如果 DataWay 表达式输出的值会作为集成流的最终返回结果，则支持的返回值类型还会受到相应连接器组件的限制。如在以 HTTP listener 组件作为第一个组件的流中，其最终的 payload 也需要是一个 Entity 类型。
 
 ## <span id="message-explain"></span>Message 类型及预定义属性
 
@@ -204,8 +204,8 @@ Message 类型是 DataWay 用于表示一条 EIS 消息的数据类型，其中�
 | 属性        | 作用                                             | 属性类型                                                     | 属性说明                                                     |
 | ----------- | ------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | msg.vars    | 当前消息上下文中的变量                           | dict 类型，键为 str 类型，代表变量名，值为允许的任意类型，代表变量值 | vars 会在消息处理的所有环节共享，因此可用于在不同的处理节点之间进行数据的传递 |
-| msg.payload | 当前消息的载荷数据                               | 任意类型                                                     | payload 是一条消息对象的负载数据，一般是由上一个组件通过 Set-Payload 或者 Transform 组件生成的，其可能的数据类型即是上文中列举的 DataWay 中支持的返回值类型。http listener 组件会根据用户发送的原始消息来构造 payload 的内容，因此 listener 组件处理之后，payload 都是 Entity 类型，除非在下游通过 set-payload 或者 transform 组件对 payload 进行重新赋值 |
-| msg.attrs   | 当前消息的属性数据，如消息来源、消息的头部信息等 | dict 类型，键为 str，代表属性名，值为任意类型，代表属性值    | 如果 trigger 组件为 http listener，则请求的 headers 将会被设置到 msg.attrs 中 |
+| msg.payload | 当前消息的载荷数据                               | 任意类型                                                     | payload 是一条消息对象的负载数据，一般是由上一个组件通过 Set-Payload 或者 Transform 组件生成的，其可能的数据类型即是上文中列举的 DataWay 中支持的返回值类型。HTTP listener 组件会根据用户发送的原始消息来构造 payload 的内容，因此 listener 组件处理之后，payload 都是 Entity 类型，除非在下游通过 set-payload 或者 transform 组件对 payload 进行重新赋值 |
+| msg.attrs   | 当前消息的属性数据，如消息来源、消息的头部信息等 | dict 类型，键为 str，代表属性名，值为任意类型，代表属性值    | 如果 trigger 组件为 HTTP listener，则请求的 headers 将会被设置到 msg.attrs 中 |
 | msg.id      | 当前消息的唯一标识 id                            | str 类型                                                     | 经过一个逻辑组件，msg.id 可能会变化                           |
 | msg.seq_id  | 当前消息的序列号                                 | str 类型                                                     | 消息在流中流转时，msg.seq_id 保持不变                         |
 | msg.error   | 当前处理上下文中的错误信息                       | dict 类型，键为 str，代表错误属性名；值为 str，代表属性值    | 包含的内容有：msg.error['code']：错误类型；msg.error['desc']：错误描述字符串 |
