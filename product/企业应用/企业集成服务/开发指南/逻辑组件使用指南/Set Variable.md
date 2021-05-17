@@ -32,5 +32,5 @@ Set Variable 的作用是声明一个变量，并保存在 message 的 variables
 ## 案例
 1. 添加 Set Variable 组件。
    ![image-20210330173246414](https://main.qcloudimg.com/raw/ebcfb27b5dfd9ffe740c0311fcd33b8c/image-20210330173246414.png)
-2. 在”变量名“处填入变量名称，"变量值"处填入要保存的值。
+2. 在“变量名”处填入变量名称，“变量值”处填入要保存的值。
    ![image-20210330173406979](https://main.qcloudimg.com/raw/21b359895028f4f61d3c0a2a0c5231bc/image-20210330173406979.png)

@@ -13,7 +13,7 @@ EIP 直通功能适用于云服务器内需要查看公网 IP 的场景，例如
 
 
 ## 操作步骤
->!您需要先在 EIP 控制台开启直通功能，然后再运行 EIP 直通脚本，否则可能会导致 EIP 直通失败或出现故障。
+>!您将 EIP 直通脚本下载到云服务器以后，需要先在 EIP 控制台开启直通功能，然后再运行 EIP 直通脚本，否则可能会导致 EIP 直通失败或出现故障。
 >
 腾讯云提供了配置 IP 的 EIP 直通脚本，让内网流量走内网 IP，外网流量走公网 IP。如有其他业务场景，请根据具体业务场景配置路由。
 
@@ -71,9 +71,12 @@ Windows 脚本针对的场景为：主网卡走外网流量，辅助网卡走内
 由于 EIP 直通过程会导致网络中断，您需先下载 EIP 直通脚本到云服务器中。
 1. 使用 [ VNC 登录的方式](https://cloud.tencent.com/document/product/213/35704) 登录需要 EIP 直通的云服务器。
 2. 在云服务器的浏览器中打开如下链接下载 EIP 直通脚本。
-```plaintext
-https://windows-1254277469.cos.ap-guangzhou.myqcloud.com/eip_windows_direct.bat
-```
+<dx-codeblock>
+:::  sh
+https://eip-public-read-1255852779.cos.ap-guangzhou.myqcloud.com/eip_windows_direct.bat
+:::
+</dx-codeblock>
+
 
 ### 步骤二：配置辅助网卡
 由于 Windows 脚本针对的场景为辅助网卡走内网流量，因此，需为云服务器配置辅助网卡。

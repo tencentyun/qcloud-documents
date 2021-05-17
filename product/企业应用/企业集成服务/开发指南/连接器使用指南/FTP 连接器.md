@@ -12,8 +12,6 @@
 
 ## 连接器配置
 
-### FTP 连接器配置参数
-
 #### 通用配置
 
 | 参数             | 数据类型 | 描述                                                         | 是否必填 | 默认值 |
@@ -39,9 +37,8 @@
 ![](https://main.qcloudimg.com/raw/7b352f574862cebf9bc5c03c1092537a/FTP1.png)
 
 ## 操作配置
-
-### 读取文件
-
+<dx-tabs>
+::: 读取文件
 #### 输入参数
 
 | 参数                 | 数据类型 | 描述                                                         | 是否必填 | 默认值 |
@@ -53,7 +50,7 @@
 
 ![](https://main.qcloudimg.com/raw/6dcad4f7c7650b9827c405a0b75b6b9c/FTP2.png)
 
-#### 输出参数
+#### 输出
 
 **组件输出的 message 信息如下：**
 
@@ -89,8 +86,8 @@
 ![](https://main.qcloudimg.com/raw/d4dcdb5b32cc72e302e65063477d3444/FTP-Read4.png)
 ![](https://main.qcloudimg.com/raw/1da6e32cc74c659e598facaacedc0b35/FTP-Read5.png)
 
-### 写文件
-
+:::
+::: 写文件
 #### 输入参数
 
 | 参数               | 数据类型                             | 描述                                                         | 是否必填 | 默认值     |
@@ -104,7 +101,7 @@
 
 ![](https://main.qcloudimg.com/raw/472c2444549a3f905da83ecf4895e419/FTP3.png)
 
-#### 输出参数
+#### 输出
 
 **组件输出的 message 信息如下：**
 
@@ -137,8 +134,8 @@ FTP 写文件操作，若执行成功则 payload 为空；若执行失败时输�
 ![](https://main.qcloudimg.com/raw/7cdb0ff46805fce4551479ac432c1c49/FTP-Write4.png)
 ![](https://main.qcloudimg.com/raw/3858ec4979ae74cca24d28f391d3cf0a/FTP-Write5.png)
 
-### 删除文件
-
+:::
+::: 删除文件
 #### 输入参数
 
 | 参数         | 数据类型 | 描述                                                         | 是否必填 | 默认值 |
@@ -147,7 +144,7 @@ FTP 写文件操作，若执行成功则 payload 为空；若执行失败时输�
 
 ![](https://main.qcloudimg.com/raw/e0caa699dc2613e820c3a4f67be93acb/FTP4.png)
 
-#### 输出参数
+#### 输出
 
 **组件输出的 message 信息如下：**
 
@@ -180,8 +177,8 @@ FTP 删除文件操作，若执行成功则 payload 为空；若执行失败时�
 ![](https://main.qcloudimg.com/raw/7cdb0ff46805fce4551479ac432c1c49/FTP-Write4.png)
 ![](https://main.qcloudimg.com/raw/3858ec4979ae74cca24d28f391d3cf0a/FTP-Write5.png)
 
-### 复制文件
-
+:::
+::: 复制文件
 #### 输入参数
 
 | 参数         | 数据类型 | 描述                                                         | 是否必填 | 默认值 |
@@ -194,7 +191,7 @@ FTP 删除文件操作，若执行成功则 payload 为空；若执行失败时�
 
 ![](https://main.qcloudimg.com/raw/8f4ee381355c08bcab38f7ad2d4700ab/FTP5.png)
 
-#### 输出参数
+#### 输出
 
 **组件输出的 message 信息如下：**
 
@@ -226,9 +223,8 @@ FTP 复制文件操作，若执行成功则 payload 为空；若执行失败时�
  - 当操作执行失败时，FTP 输出消息 error 中会设置详细返错信息。
 ![](https://main.qcloudimg.com/raw/7cdb0ff46805fce4551479ac432c1c49/FTP-Write4.png)
 ![](https://main.qcloudimg.com/raw/3858ec4979ae74cca24d28f391d3cf0a/FTP-Write5.png)
-
-### 重命名文件
-
+:::
+::: 重命名文件
 #### 输入参数 
 
 | 参数       | 数据类型 | 描述                                                         | 是否必填 | 默认值 |
@@ -239,7 +235,7 @@ FTP 复制文件操作，若执行成功则 payload 为空；若执行失败时�
 
 ![](https://main.qcloudimg.com/raw/1cfdd0dfab059940d1d133b54db5ad25/FTP6.png)
 
-#### 输出参数
+#### 输出
 
 **组件输出的 message 信息如下：**
 
@@ -271,9 +267,8 @@ FTP 重命名文件操作，若执行成功则 payload 为空；若执行失败�
  - 当操作执行失败时，FTP 输出消息 error 中会设置详细返错信息。
 ![](https://main.qcloudimg.com/raw/7cdb0ff46805fce4551479ac432c1c49/FTP-Write4.png)
 ![](https://main.qcloudimg.com/raw/3858ec4979ae74cca24d28f391d3cf0a/FTP-Write5.png)
-
-### 移动文件
-
+:::
+::: 移动文件
 #### 输入参数
 
 | 参数         | 数据类型 | 描述                                                         | 是否必填 | 默认值 |
@@ -286,7 +281,7 @@ FTP 重命名文件操作，若执行成功则 payload 为空；若执行失败�
 
 ![](https://main.qcloudimg.com/raw/0ce16f230d94ac5d0df0367da02f8547/FTP7.png)
 
-#### 输出参数
+#### 输出
 
 **组件输出的 message 信息如下：**
 
@@ -318,8 +313,8 @@ FTP 移动文件操作，若执行成功则 payload 为空；若执行失败时�
  - 当操作执行失败时，FTP 输出消息 error 中会设置详细返错信息。
 ![](https://main.qcloudimg.com/raw/7cdb0ff46805fce4551479ac432c1c49/FTP-Write4.png)
 ![](https://main.qcloudimg.com/raw/3858ec4979ae74cca24d28f391d3cf0a/FTP-Write5.png)
-
-### 目录遍历
+:::
+::: 目录遍历
 #### 输入参数
 
 | 参数                 | 数据类型 | 描述                                                         | 是否必填 | 默认值 |
@@ -340,7 +335,7 @@ FTP 移动文件操作，若执行成功则 payload 为空；若执行失败时�
 
 ![](https://main.qcloudimg.com/raw/2762b5e157dbae1d447e045a443dbd37/FTP8.png)
 
-#### 输出参数
+#### 输出
 
 **组件输出的 message 信息如下：**
 
@@ -384,9 +379,8 @@ FTP 移动文件操作，若执行成功则 payload 为空；若执行失败时�
  - 当操作执行失败时，FTP 输出消息 error 中会设置详细返错信息。
 ![](https://main.qcloudimg.com/raw/e2bdabb230c1a8a37b335daf4e043827/FTP-List4.png)
 ![](https://main.qcloudimg.com/raw/e59c6d2bde1b374e0a161043a3a78181/FTP-List5.png)
-
-### 目录创建
-
+:::
+::: 目录创建
 #### 输入参数
 
 | 参数         | 数据类型 | 描述                                                         | 是否必填 | 默认值 |
@@ -395,7 +389,7 @@ FTP 移动文件操作，若执行成功则 payload 为空；若执行失败时�
 
 ![](https://main.qcloudimg.com/raw/9e1c84c6f01ede55fa2a14fb1000954b/FTP9.png)
 
-#### 输出参数
+#### 输出
 
 **组件输出的 message 信息如下：**
 
@@ -427,3 +421,8 @@ FTP 目录创建操作，若执行成功则 payload 为空；若执行失败时�
  - 当操作执行失败时，FTP 输出消息 error 中会设置详细返错信息。
 ![](https://main.qcloudimg.com/raw/7cdb0ff46805fce4551479ac432c1c49/FTP-Write4.png)
 ![](https://main.qcloudimg.com/raw/3858ec4979ae74cca24d28f391d3cf0a/FTP-Write5.png)
+
+:::
+</dx-tabs>
+
+
