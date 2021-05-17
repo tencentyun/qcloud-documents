@@ -23,7 +23,7 @@
        <groupId>org.apache.pulsar</groupId>
        <artifactId>pulsar-client</artifactId>
        <version>${pulsar.version}</version>
-       </dependency>
+   </dependency>
    ```
 
    **创建Client**
