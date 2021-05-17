@@ -139,8 +139,8 @@ rm ~/Library/Caches/CocoaPods/search_index.json
 
 **添加依赖库：**选中 IMDemo 的【Target】，在【General】面板中的 【Embedded Binaries】和【Linked Frameworks and Libraries】添加依赖库。若使用标准版 SDK，请选择 ImSDK.framework；若使用精简版 SDK，请选择 ImSDK_Smart.framework。
 ![](https://main.qcloudimg.com/raw/3a1cc30c280362be2d99058dde347d4f.png)
-**设置链接参数：**在【Build Setting】-【Other Linker Flags】添加 `-ObjC`。
-
+**设置链接参数：**在【Build Setting】>【Other Linker Flags】添加 `-ObjC`。
+>?手动集成需要在【TARGET】>【General】>【Frameworks】> Libraries and Embedded Content，将 ImSDK.framework 修改为 Embed&Sing。
 ## 引用 IM SDK
 项目代码中使用 SDK 有两种方式：
 

@@ -9,7 +9,7 @@
 new TEduBoard(initParams)
 ```
 
-> 注意：强烈建议在初始化白板对象之前先判断白板对象是否存在，如果存在先销毁白板对象，然后再重新创建，避免页面中存在多个白板对象相互干扰，导致白板出现异常的行为。
+>!强烈建议在初始化白板对象之前先判断白板对象是否存在，如果存在先销毁白板对象，然后再重新创建，避免页面中存在多个白板对象相互干扰，导致白板出现异常的行为。
 
 ```
 // 1. 先判断白板对象是否存在
@@ -28,7 +28,7 @@ this.teduBoard = new TEduBoard(initParams)
 | initParams | object | 【必填】白板初始化参数  |
 | `initParams.id` |	string |	【必填】白板渲染的 dom 节点 ID |
 | initParams.classId |	number |	【必填】课堂 ID |
-| initParams.sdkAppId |	number |	【必填】腾讯云应用的唯一标识，可登录 实时音视频控制台 查看 |
+| initParams.sdkAppId |	number |	【必填】腾讯云应用的唯一标识，可登录 [实时音视频控制台](https://console.cloud.tencent.com/trtc) 查看 |
 | initParams.userId |	string |	【必填】用户名 |
 | initParams.userSig |	string |	【必填】登录鉴权信息 |
 | initParams.ratio |	string |	【可选】默认白板宽高比（可传格式如“4:3”、“16:9”的字符串），默认值 "16:9" |
@@ -44,19 +44,18 @@ this.teduBoard = new TEduBoard(initParams)
 | initParams.dataSyncEnable |	boolean |	【可选】是否启用数据同步，禁用后将导致本地白板操作不会被同步给远端，默认值 true |
 | initParams.scale |	number |	【可选】白板默认缩放系数，实际缩放倍数为 scale/100，默认值 100 |
 | initParams.preloadDepth |	number |	【可选】图片预加载深度，默认值 5，表示预加载当前页前后5页的图片 |
-| initParams.progressEnable |	boolean |	【可选】是否启用SDK内置Loading图标，默认值 false |
+| initParams.progressEnable |	boolean |	【可选】是否启用 SDK 内置 Loading 图标，默认值 false |
 | initParams.progressBarUrl |	string |	【可选】自定义加载图标，在 progressEnable = true 时生效，支持 jpg、gif、png、svg |
-| initParams.systemCursorEnable |	string |	【可选】是否启用原生系统光标，默认false，该参数说明具体请看setSystemCursorEnable 接口 |
-| initParams.enableScaleTool |	boolean |	【可选】是否启用白板缩放移动工具的缩放功能，当设置为false，切换到缩放移动工具时缩放功能不可用 |
+| initParams.systemCursorEnable |	string |	【可选】是否启用原生系统光标，默认 false，该参数说明具体请看 setSystemCursorEnable 接口 |
+| initParams.enableScaleTool |	boolean |	【可选】是否启用白板缩放移动工具的缩放功能，当设置为 false，切换到缩放移动工具时缩放功能不可用 |
 | initParams.syncFps |	number |	【可选】信令同步频率，该值的允许范围为 [5, 20]，默认5帧 |
-| initParams.proxyServer |	string |	【可选】是否为白板服务设置代理服务器，传入一个JSON格式字符串。白板服务类型可参考{@link TEduBoard.TEduBoardServiceType 服务类型}，JSON格式可参考<a href="#setProxyServer">setProxyServer</a>接口|
+| initParams.proxyServer |	string |	【可选】是否为白板服务设置代理服务器，传入一个JSON格式字符串。白板服务类型可参考{@link TEduBoard.TEduBoardServiceType 服务类型}，JSON 格式可参考 <a href="#setProxyServer">setProxyServer</a> 接口|
 
-> 更多配置参数，请查看[互动白板API文档](https://doc.qcloudtiw.com/web/TEduBoard.html)。
+更多配置参数，请查看 [互动白板 API 文档](https://doc.qcloudtiw.com/web/TEduBoard.html)。
 
 ### destroy
 
-> 销毁白板
-- 退出课堂请务必调用
+>!销毁白板：退出课堂请务必调用
 
 ``` Javascript
 void destroy()
@@ -70,6 +69,7 @@ void destroy()
 ``` Javascript
 void on(String name, Function callback)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -83,6 +83,7 @@ void on(String name, Function callback)
 ``` Javascript
 void off(String name, Function callback)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -99,13 +100,14 @@ void off(String name, Function callback)
 ``` Javascript
 void addSyncData(Object data)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | data | Object | 【必填】接收到的房间内其他人发送的同步数据  |
 
->? 该接口用于多个白板间的数据同步 
+>?该接口用于多个白板间的数据同步 
 
 
 ### getVersion
@@ -122,6 +124,7 @@ SDK 版本号
 ``` Javascript
 void setDataSyncEnable(Boolean enable)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -137,6 +140,7 @@ void setDataSyncEnable(Boolean enable)
 ``` Javascript
 Boolean isDataSyncEnable()
 ```
+
 #### 返回
 是否开启数据同步，true 表示开启，false 表示关闭 
 
@@ -146,6 +150,7 @@ Boolean isDataSyncEnable()
 ``` Javascript
 void reset()
 ```
+
 #### 介绍
 调用该接口后将会删除所有的白板页和文件 
 
@@ -155,6 +160,7 @@ void reset()
 ``` Javascript
 Number getSyncTime()
 ```
+
 #### 返回
 毫秒级同步时间戳 
 
@@ -164,6 +170,7 @@ Number getSyncTime()
 ``` Javascript
 void syncRemoteTime(String userId, Number timestamp)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -180,6 +187,7 @@ void syncRemoteTime(String userId, Number timestamp)
 ``` Javascript
 void setDrawEnable(Boolean enable)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -195,6 +203,7 @@ void setDrawEnable(Boolean enable)
 ``` Javascript
 Boolean isDrawEnable()
 ```
+
 #### 返回
 是否允许涂鸦，true 表示白板可以涂鸦，false 表示白板不能涂鸦 
 
@@ -204,6 +213,7 @@ Boolean isDrawEnable()
 ``` Javascript
 void setAccessibleUsers(Array users)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -223,6 +233,7 @@ void setAccessibleUsers(Array users)
 ``` Javascript
 void setGlobalBackgroundColor(Color color)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -230,7 +241,7 @@ void setGlobalBackgroundColor(Color color)
 | color | Color | 【必填】要设置的全局背景色 |
 
 #### 介绍
-调用该接口将导致所有白板的背景色发生改变 新创建白板的默认背景色取全局背景色 
+调用该接口将导致所有白板的背景色发生改变，新创建白板的默认背景色取全局背景色 
 
 
 ### getGlobalBackgroundColor
@@ -238,6 +249,7 @@ void setGlobalBackgroundColor(Color color)
 ``` Javascript
 Color getGlobalBackgroundColor()
 ```
+
 #### 返回
 全局背景色 
 
@@ -247,6 +259,7 @@ Color getGlobalBackgroundColor()
 ``` Javascript
 void setBackgroundColor(Color color)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -262,6 +275,7 @@ void setBackgroundColor(Color color)
 ``` Javascript
 Color getBackgroundColor()
 ```
+
 #### 返回
 当前白板页的背景色 
 
@@ -271,6 +285,7 @@ Color getBackgroundColor()
 ``` Javascript
 void setToolType(TEduBoardToolType type)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -283,6 +298,7 @@ void setToolType(TEduBoardToolType type)
 ``` Javascript
 void setNextTextInput(String textContent, bool keepFocus)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -296,6 +312,7 @@ void setNextTextInput(String textContent, bool keepFocus)
 ``` Javascript
 TEduBoardToolType getToolType()
 ```
+
 #### 返回
 正在使用的白板工具 
 
@@ -305,6 +322,7 @@ TEduBoardToolType getToolType()
 ``` Javascript
 void setCursorIcon(TEduBoardToolType toolType, TEduBoardCursorIcon cursorIcon)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -318,6 +336,7 @@ void setCursorIcon(TEduBoardToolType toolType, TEduBoardCursorIcon cursorIcon)
 ``` Javascript
 void setZoomCursorIcon(TEduBoardCursorIcon zoomInCursorIcon, TEduBoardCursorIcon zoomOutCursorIcon)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -331,6 +350,7 @@ void setZoomCursorIcon(TEduBoardCursorIcon zoomInCursorIcon, TEduBoardCursorIcon
 ``` Javascript
 void setBrushColor(Color color)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -346,6 +366,7 @@ void setBrushColor(Color color)
 ``` Javascript
 Color getBrushColor()
 ```
+
 #### 返回
 画笔颜色 
 
@@ -355,6 +376,7 @@ Color getBrushColor()
 ``` Javascript
 void setBrushThin(Number thin)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -370,6 +392,7 @@ void setBrushThin(Number thin)
 ``` Javascript
 Number getBrushThin()
 ```
+
 #### 返回
 画笔粗细 
 
@@ -379,6 +402,7 @@ Number getBrushThin()
 ``` Javascript
 void setTextColor(Color color)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -391,6 +415,7 @@ void setTextColor(Color color)
 ``` Javascript
 Color getTextColor()
 ```
+
 #### 返回
 文本颜色 
 
@@ -400,6 +425,7 @@ Color getTextColor()
 ``` Javascript
 void setTextSize(Number size)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -415,6 +441,7 @@ void setTextSize(Number size)
 ``` Javascript
 Number getTextSize()
 ```
+
 #### 返回
 文本大小 
 
@@ -424,6 +451,7 @@ Number getTextSize()
 ``` Javascript
 void setTextStyle(TEduBoardTextStyle style)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -436,6 +464,7 @@ void setTextStyle(TEduBoardTextStyle style)
 ``` Javascript
 TEduBoardTextStyle getTextStyle()
 ```
+
 #### 返回
 文本样式 
 
@@ -457,6 +486,7 @@ void setLineStyle(TEduBoardLineStyle style)
 ``` Javascript
 TEduBoardLineStyle getLineStyle()
 ```
+
 #### 返回
 直线样式 
 
@@ -466,6 +496,7 @@ TEduBoardLineStyle getLineStyle()
 ``` Javascript
 void setOvalDrawMode(TEduBoardOvalDrawMode drawMode)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -478,6 +509,7 @@ void setOvalDrawMode(TEduBoardOvalDrawMode drawMode)
 ``` Javascript
 TEduBoardOvalDrawMode getOvalDrawMode()
 ```
+
 #### 返回
 椭圆绘制模式 
 
@@ -487,6 +519,7 @@ TEduBoardOvalDrawMode getOvalDrawMode()
 ``` Javascript
 void clear(Boolean clearBackground, Boolean clearSelectedOnly)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -503,6 +536,7 @@ void clear(Boolean clearBackground, Boolean clearSelectedOnly)
 ``` Javascript
 void setBackgroundImage(String url, TEduBoardImageFitMode mode)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -526,6 +560,7 @@ void setBackgroundImage(String url, TEduBoardImageFitMode mode)
 ``` Javascript
 void setBackgroundH5(String url)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -562,6 +597,7 @@ void resize()
 ``` Javascript
 String addBoard(String url, TEduBoardImageFitMode mode)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -581,6 +617,7 @@ String addBoard(String url, TEduBoardImageFitMode mode)
 ``` Javascript
 void deleteBoard(String boardId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -602,6 +639,7 @@ void prevStep()
 ``` Javascript
 void nextStep()
 ```
+
 #### 介绍
 每个 Step 对应 PPT 的一个动画效果，若当前没有未展示的动画效果，则该接口调用会导致向后翻页 
 
@@ -611,6 +649,7 @@ void nextStep()
 ``` Javascript
 void prevBoard(Boolean resetStep)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -626,6 +665,7 @@ void prevBoard(Boolean resetStep)
 ``` Javascript
 void nextBoard(Boolean resetStep)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -641,6 +681,7 @@ void nextBoard(Boolean resetStep)
 ``` Javascript
 void gotoBoard(String boardId, Boolean resetStep)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -657,6 +698,7 @@ void gotoBoard(String boardId, Boolean resetStep)
 ``` Javascript
 String getCurrentBoard()
 ```
+
 #### 返回
 当前白板页 ID 
 
@@ -666,6 +708,7 @@ String getCurrentBoard()
 ``` Javascript
 Array getBoardList()
 ```
+
 #### 返回
 所有文件的白板列表 
 
@@ -675,6 +718,7 @@ Array getBoardList()
 ``` Javascript
 void setBoardRatio(String ratio)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -690,6 +734,7 @@ void setBoardRatio(String ratio)
 ``` Javascript
 String getBoardRatio()
 ```
+
 #### 返回
 白板宽高比，格式与 SetBoardRatio 接口参数格式一致 
 
@@ -699,6 +744,7 @@ String getBoardRatio()
 ``` Javascript
 void setBoardScale(Number scale)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -714,6 +760,7 @@ void setBoardScale(Number scale)
 ``` Javascript
 Number getBoardScale()
 ```
+
 #### 返回
 白板缩放比例，格式与 SetBoardScale 接口参数格式一致 
 
@@ -723,6 +770,7 @@ Number getBoardScale()
 ``` Javascript
 void setBoardContentFitMode(TEduBoardContentFitMode mode)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -730,7 +778,7 @@ void setBoardContentFitMode(TEduBoardContentFitMode mode)
 | mode | TEduBoardContentFitMode | 【必填】要设置的白板内容自适应模式 |
 
 #### 介绍
-设置自适应模式后会影响所有后续白板内容操作,受影响接口包括：AddTranscodeFile 
+设置自适应模式后会影响所有后续白板内容操作，受影响接口包括：AddTranscodeFile 
 
 
 ### getBoardContentFitMode
@@ -738,6 +786,7 @@ void setBoardContentFitMode(TEduBoardContentFitMode mode)
 ``` Javascript
 TEduBoardContentFitMode getBoardContentFitMode()
 ```
+
 #### 返回
 白板内容自适应模式 
 
@@ -750,6 +799,7 @@ TEduBoardContentFitMode getBoardContentFitMode()
 ``` Javascript
 void applyFileTranscode(Object fileObj, TEduBoardTranscodeConfig config)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -761,7 +811,7 @@ void applyFileTranscode(Object fileObj, TEduBoardTranscodeConfig config)
 本接口设计用于在接入阶段快速体验转码功能，原则上不建议在生产环境中使用，生产环境中的转码请求建议使用后台服务接口发起
 
 #### 介绍
-fileObj参数格式如下： 
+fileObj 参数格式如下： 
 ``` 
 {
    data: document.getElementById('uploadFile').files[0], //取自 input 标签的 fileObject 对象
@@ -772,7 +822,7 @@ fileObj参数格式如下：
 - 本接口支持支持 PPT、PDF、Word 文件转码
 - PPT 文档默认转为 H5 动画，能够还原 PPT 原有动画效果，其它文档转码为静态图片
 - PPT 动画转码耗时约1秒/页，所有文档的静态转码耗时约0.5秒/页
-- 转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
+- 转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该 [回调说明](TEduBoard.EVENT.TEB_TRANSCODEPROGRESS) 文档 
 
 
 ### getFileTranscodeProgress
@@ -780,6 +830,7 @@ fileObj参数格式如下：
 ``` Javascript
 void getFileTranscodeProgress(Object data)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -796,7 +847,7 @@ data 参数格式如下：
     taskId: "xxxxx" //从 TEB_TRANSCODEPROGRESS 回调拿到的 taskId
 }
 ```
- 转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
+转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该回调说明文档 
 
 
 ### addTranscodeFile
@@ -804,6 +855,7 @@ data 参数格式如下：
 ``` Javascript
 String addTranscodeFile(TEduBoardTranscodeFileResult result, bool needSwitch)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -829,15 +881,16 @@ TEduBoardTranscodeFileResult 的字段信息主要来自：
 ``` Javascript
 String addImagesFile(Array urls, bool needSwitch)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| urls | Array | 要使用的背景图片URL列表，编码格式为 UTF8  |
+| urls | Array | 要使用的背景图片 URL 列表，编码格式为 UTF8  |
 | needSwitch | bool | Boolean 添加转码文件，是否需要立刻跳转到该文件，默认为 true  |
 
 #### 返回
-新增加文件 Id 
+新增加文件 ID 
 
 #### 警告
 当传入文件的 URL 重复时，返回该 URL 对应的文件 ID 
@@ -848,6 +901,7 @@ String addImagesFile(Array urls, bool needSwitch)
 ``` Javascript
 void deleteFile(String fileId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -881,6 +935,7 @@ void switchFile(String fileId, String boardId, Number stepIndex)
 ``` Javascript
 String getCurrentFile()
 ```
+
 #### 返回
 当前文件 ID 
 
@@ -890,6 +945,7 @@ String getCurrentFile()
 ``` Javascript
 TEduBoardFileInfo getFileInfo(String fileId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -905,6 +961,7 @@ TEduBoardFileInfo getFileInfo(String fileId)
 ``` Javascript
 Array getFileInfoList()
 ```
+
 #### 返回
 文件信息列表 
 
@@ -914,6 +971,7 @@ Array getFileInfoList()
 ``` Javascript
 Array getFileBoardList(String fileId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -929,6 +987,7 @@ Array getFileBoardList(String fileId)
 ``` Javascript
 Array getThumbnailImages(String fileId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -936,7 +995,7 @@ Array getThumbnailImages(String fileId)
 | fileId | String | 【必填】文件 ID  |
 
 #### 返回
-缩略图URL列表 
+缩略图 URL 列表 
 
 >? 用户在调用 rest api 请求转码时，需要带上 "thumbnail_resolution" 参数，开启缩略图功能，否则返回的缩略图 url 无效 
 
@@ -946,6 +1005,7 @@ Array getThumbnailImages(String fileId)
 ``` Javascript
 void clearFileDraws(String fileId)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -958,6 +1018,7 @@ void clearFileDraws(String fileId)
 ``` Javascript
 boolean hasVideoPermission()
 ```
+
 #### 返回
 是否授权 
 
@@ -970,8 +1031,9 @@ boolean hasVideoPermission()
 ``` Javascript
 String applyVideoPermission()
 ```
+
 #### 警告
-手机端h5如果要播放视频文件必须在初始化白板前引导用户点击授权，否则无法播放。 
+手机端 H5 如果要播放视频文件必须在初始化白板前引导用户点击授权，否则无法播放。 
 
 
 ### addVideoFile
@@ -979,6 +1041,7 @@ String applyVideoPermission()
 ``` Javascript
 String addVideoFile(String url)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1005,13 +1068,14 @@ String addVideoFile(String url)
 ``` Javascript
 String addVODFile(String appId, String vodId, String extParam)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| appId | String | 点播应用ID  |
-| vodId | String | 点播文件ID  |
-| extParam | String | 点播视频额外参数，如 plugins、hlsConfig 等，具体请参考 [https://cloud.tencent.com/document/product/266/14603](https://cloud.tencent.com/document/product/266/14603)  |
+| appId | String | 点播应用 ID  |
+| vodId | String | 点播文件 ID  |
+| extParam | String | 点播视频额外参数，如 plugins、hlsConfig 等，具体请参考云点播 [开发文档](https://cloud.tencent.com/document/product/266/14603)  |
 
 #### 返回
 白板文件 ID 
@@ -1033,6 +1097,7 @@ String addVODFile(String appId, String vodId, String extParam)
 ``` Javascript
 String setVODExtParam(String fileId, Object extParam)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1049,6 +1114,7 @@ String setVODExtParam(String fileId, Object extParam)
 ``` Javascript
 void showVideoControl(bool show)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1064,6 +1130,7 @@ void showVideoControl(bool show)
 ``` Javascript
 void playVideo()
 ```
+
 #### 警告
 只对当前文件有效 @info 触发状态改变回调 TEB_VIDEO_STATUS_CHANGED，一般情况在使用自定义视频控制栏时使用 
 
@@ -1073,6 +1140,7 @@ void playVideo()
 ``` Javascript
 void pauseVideo()
 ```
+
 #### 警告
 只对当前文件有效 @info 触发状态改变回调 TEB_VIDEO_STATUS_CHANGED，一般情况在使用自定义视频控制栏时使用 
 
@@ -1082,6 +1150,7 @@ void pauseVideo()
 ``` Javascript
 void seekVideo(float time)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1097,6 +1166,7 @@ void seekVideo(float time)
 ``` Javascript
 void muteVideo(boolean muted)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1112,6 +1182,7 @@ void muteVideo(boolean muted)
 ``` Javascript
 void setSyncVideoStatusEnable(bool enable)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1129,6 +1200,7 @@ void setSyncVideoStatusEnable(bool enable)
 ``` Javascript
 void startSyncVideoStatus(int interval)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1146,6 +1218,7 @@ void startSyncVideoStatus(int interval)
 ``` Javascript
 void stopSyncVideoStatus()
 ```
+
 #### 警告
 只对当前文件有效 
 
@@ -1155,6 +1228,7 @@ void stopSyncVideoStatus()
 ``` Javascript
 String addH5File(String url)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1173,6 +1247,7 @@ String addH5File(String url)
 ``` Javascript
 void addImageElement(String url)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1195,6 +1270,7 @@ void addImageElement(String url)
 ``` Javascript
 void setHandwritingEnable(Boolean enable)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1210,6 +1286,7 @@ void setHandwritingEnable(Boolean enable)
 ``` Javascript
 Boolean isHandwritingEnable()
 ```
+
 #### 返回
 是否开启笔锋 
 
@@ -1219,15 +1296,17 @@ Boolean isHandwritingEnable()
 ``` Javascript
 String addElement(TEduBoardElementType type, String url)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
 | type | TEduBoardElementType | 元素类型，当设置 TEduBoard.TEduBoardElementType.TEDU_BOARD_ELEMENT_IMAGE 时，等价于 addImageElement 方法  |
-| url | String |   |
+| url | String |  支持设置在线图片，url 只支持 https 协议图片的 url |
 
 #### 返回
-元素ID 1.支持设置在线图片，url 只支持 https 协议图片的url。 2.也支持从本地上传一个图片，此时 url 为 object 对象： （1）url.data 【必填】文件对象，一般为 document.getElementById('uploadFile').files[0]。 （2）url.userData 【必填】透传数据，会在文件上传进度回调中带回 
+- 元素 ID：1. 支持设置在线图片，url 只支持 HTTPS 协议图片的 url。 2. 也支持从本地上传一个图片，此时 url 为 object。
+- 对象：1. url.data 【必填】文件对象，一般为 document.getElementById('uploadFile').files[0]。2. url.userData 【必填】透传数据，会在文件上传进度回调中带回。
 
 
 ### refresh
@@ -1244,6 +1323,7 @@ void refresh()
 ``` Javascript
 void addAckData(Object data)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
@@ -1256,11 +1336,14 @@ void addAckData(Object data)
 ``` Javascript
 Boolean syncAndReload()
 ```
+
 #### 警告
 reload 等同于重新加载历史数据，会触发白板初始化时除 onTEBInit 之外的所有回调。 
 
 #### 介绍
-接口用途：此接口主要用于网络恢复后，同步本地数据到远端，拉取远端数据到本地 调用时机：在网络恢复后调用 使用限制： （1）仅支持2.4.9及以上版本 （2）如果历史数据还没有加载完成，则不允许重复调用，否则回调告警 TEDU_BOARD_WARNING_ILLEGAL_OPERATION （3）此接口需要配合 addAckData 一起使用，在白板数据发送成功后，请调用 addAckData 接口完成确认 
+- 接口用途：此接口主要用于网络恢复后，同步本地数据到远端，拉取远端数据到本地 
+- 调用时机：在网络恢复后调用 
+- 使用限制：（1）仅支持2.4.9及以上版本 （2）如果历史数据还没有加载完成，则不允许重复调用，否则回调告警 TEDU_BOARD_WARNING_ILLEGAL_OPERATION （3）此接口需要配合 addAckData 一起使用，在白板数据发送成功后，请调用 addAckData 接口完成确认 
 
 
 ### snapshot
@@ -1268,11 +1351,13 @@ reload 等同于重新加载历史数据，会触发白板初始化时除 onTEBI
 ``` Javascript
 void snapshot(TEduBoardSnapshotInfo param)
 ```
+
 #### 参数
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| param | TEduBoardSnapshotInfo | 快照参数 
+| param | TEduBoardSnapshotInfo | 快照参数| 
+
 ``` 
 {
    //接口调用--userData透传数据，会在 TEB_SNAPSHOT 事件回调中带回
@@ -1281,7 +1366,6 @@ void snapshot(TEduBoardSnapshotInfo param)
    teduBoard.on(TEduBoard.EVENT.TEB_SNAPSHOT, ({image, userData}) => {});
 }
 ```
-  |
 
 
 
