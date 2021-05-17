@@ -282,11 +282,9 @@ PiggyMetrics 项目采用个人版镜像仓库（建议企业客户使用企业�
 
 
 1. 执行以下命令登录腾讯云 registry。
-
 ```sh
  docker login --username=[腾讯云账号 ID] ccr.ccs.tencentyun.com
 ```
-
  <dx-alert infotype="explain" title="">
 
 - 腾讯云账号 ID 可在 [账号信息](https://console.cloud.tencent.com/developer) 页面获取。
@@ -296,16 +294,17 @@ PiggyMetrics 项目采用个人版镜像仓库（建议企业客户使用企业�
 
 ```sh
  sudo docker login --username=[腾讯云账号 ID] ccr.ccs.tencentyun.com
-​```如下图所示：
+```如下图所示：
 ![](https://main.qcloudimg.com/raw/d34997020efabeb1f52f3eb9327f20cb.png)
 </dx-alert>
 2. 执行以下命令将本地生成的镜像推送至 TKE 的镜像仓库中。
-​```sh
+```sh
 docker push ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]
-​```如下图所示：
+```
+ 如下图所示：
 ![](https://main.qcloudimg.com/raw/466adcd0ebf9adf2c16421885a0c6567.png)
 3. 在 [我的镜像](https://console.cloud.tencent.com/tke2/registry/user/self?rid=1) 中可以查看上传的所有镜像，下图展示的是上传到腾讯云镜像仓库中 PiggyMetrics 的 9 个镜像。
-	 ![](https://main.qcloudimg.com/raw/bbe50d859ab272ddeffdcd339d43213b.png)
+![](https://main.qcloudimg.com/raw/bbe50d859ab272ddeffdcd339d43213b.png)
 <dx-alert infotype="explain" title="">
 默认镜像类型为“私有”，如需提供镜像给他人使用，可在【镜像信息】中将镜像类型设置为公有。如下图所示：
 ![](https://main.qcloudimg.com/raw/88b73306c07a4ea281cef52a77d3246c.png)
