@@ -166,7 +166,7 @@ def dw_process(msg):
 ```python
 Dataway Hello World!
 ```
->!DataWay 提供语法检查功能，在编写代码时会进行实时语法检查，并给出错误提示。详细的 python 语法说明可以参考 [Python 官方文档](https://docs.python.org/zh-cn/3.5/reference/index.html)。
+>!DataWay 提供语法检查功能，在编写代码时会进行实时语法检查，并给出错误提示。详细的 Python 语法说明可以参考 [Python 官方文档](https://docs.python.org/zh-cn/3.5/reference/index.html)。
 
 ## dw_process 入口函数
 - dw_process 是 DataWay 的主入口函数，其作用相当于 C/C++语言中的 main 函数。
