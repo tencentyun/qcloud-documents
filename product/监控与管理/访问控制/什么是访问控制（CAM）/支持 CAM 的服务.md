@@ -29,6 +29,7 @@
 | [批量计算](https://cloud.tencent.com/document/product/599)   | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/599/40011) |
 | [边缘计算机器](https://cloud.tencent.com/document/product/1108) | 资源级   | &#10003; | &#10003;         | -        | -                                                            |
 | [容器镜像服务](https://cloud.tencent.com/document/product/1141) | 资源级   | &#10003; | -                | &#10003; | [访问管理指南](https://cloud.tencent.com/document/product/1141/40718) |
+| [	轻量应用服务器](https://cloud.tencent.com/document/product/1207) | 资源级   | &#10003; | &#10003;  | -  | - |
 
 > ?<sup>1</sup> 云服务器中 [GPU 云服务器](https://cloud.tencent.com/document/product/560)、[ FPGA 云服务器](https://cloud.tencent.com/document/product/565)、[专用宿主机](https://cloud.tencent.com/document/product/416)  均已支持使用 CAM。
 
@@ -133,6 +134,9 @@
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | -------- |
 | [样本智能分析平台](https://cloud.tencent.com/document/product/1012) | 资源级   | -        | &#10003;         | -        | -        |
 | [云防火墙](https://cloud.tencent.com/document/product/1132)  | 操作级   | &#10003; | -                | &#10003; | -        |
+| [	DDoS 防护](https://cloud.tencent.com/product/ddos)  | 操作级   | &#10003; | -                | -      | -        |
+
+>?<sup>1</sup> DDoS 防护中 [DDoS 基础防护](https://cloud.tencent.com/document/product/1020)、[DDOS 高防包](https://cloud.tencent.com/document/product/1021)、[DDoS 高防 IP](https://cloud.tencent.com/document/product/1014) 均已支持使用 CAM。
 
 ## 数据安全
 
@@ -163,6 +167,7 @@
 | [视频内容安全](https://cloud.tencent.com/document/product/1265) | 操作级   | &#10003; | -                | -        | -        |
 | [联邦学习](https://cloud.tencent.com/document/product/1192)  | 服务级   | &#10003; | -                | -        | -        |
 | [全栈式风控引擎](https://cloud.tencent.com/document/product/1343) | 操作级   | &#10003; | -                | -        | -        |
+| 安全营销运营平台 | 资源级   | &#10003; | -                | -        | -        |
 
 > ?<sup>1</sup> 天御业务安全防护中活动防刷、登录保护、注册保护、行业风险评估、置信度评分均已支持使用 CAM。
 
@@ -189,12 +194,14 @@
 | [网络资产风险监测系统](https://cloud.tencent.com/document/product/1088) | 服务级   | &#10003; | -                | &#10003; | -        |
 | [小程序应用安全](https://cloud.tencent.com/document/product/1223) | 操作级   | &#10003; | -                | -        | -        |
 | [软件定义边界](https://cloud.tencent.com/document/product/1309) | 操作级   | &#10003; | -                | -        | -        |
+| [应用级智能网关](https://cloud.tencent.com/document/product/1075) | 服务级   | &#10003; | -                | -        | -        |
 
 ## 身份安全
 
 | 服务             | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档 |
 | ---------------- | -------- | -------- | ---------------- | -------- | -------- |
 | 数字身份管控平台 | 操作级   | &#10003; | -                | -        | -        |
+| 数字身份管控平台（员工版） | 操作级   | &#10003; | -                | -        | -        |
 
 ## 视频服务
 
@@ -327,6 +334,7 @@
 | [智能钛机器学习平台](https://cloud.tencent.com/document/product/851) | 操作级   | &#10003; | -                | &#10003; | -        |
 | [ 智能钛弹性模型服务 ](https://cloud.tencent.com/document/product/1120) | 服务级   | &#10003; | -                | &#10003; | -        |
 | [智能对话平台 ](https://cloud.tencent.com/document/product/1060) | 服务级   | &#10003; | -                | -        | -        |
+| 腾讯觅影开放实验平台 | 服务级   | &#10003; | -                |  &#10003;       | -        |
 
 ## 游戏服务
 
@@ -363,7 +371,7 @@
 | [短信](https://cloud.tencent.com/document/product/382)      | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/382/46984) |
 | [语音消息](https://cloud.tencent.com/document/product/1128) | 资源级   | &#10003; | &#10003;         | -        | [访问管理指南](https://cloud.tencent.com/document/product/1128/49451) |
 | [号码保护](https://cloud.tencent.com/document/product/610)  | 服务级   | -        | -                | -        | -                                                            |
-| [邮件推送](https://cloud.tencent.com/document/product/1288) | 服务级   | -        | -                | -        | -                                                            |
+| [邮件推送](https://cloud.tencent.com/document/product/1288) | 服务级   | &#10003;        | -                | -        | -                                                            |
 
 ## 物联网  
 
@@ -389,6 +397,8 @@
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | -------- |
 | [企业集成服务](https://cloud.tencent.com/document/product/1270) | 操作级   | &#10003; | -                | -        | -        |
 | [品牌经营管家](https://cloud.tencent.com/document/product/1296) | 服务级   | &#10003; | -                | -        | -        |
+| [	区块链可信取证](https://cloud.tencent.com/document/product/1259) | 服务级   | &#10003; | -                | -        | -        |
+| 云桌面 | 操作级   | -    | -                | -        | -        |
 
 ## 企业服务
 
@@ -405,6 +415,15 @@
 | 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档 |
 | ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | -------- |
 | [汽车精准获客服务](https://cloud.tencent.com/document/product/1244/52041) | 操作级   | &#10003; | -                | -        | -        |
+
+
+## 医疗服务
+| 服务                                                         | 授权粒度 | 控制台   | 根据标签进行授权 | 服务角色 | 参考文档 |
+| ------------------------------------------------------------ | -------- | -------- | ---------------- | -------- | -------- |
+| 	医疗报告结构化 | 服务级   | &#10003; | -                | -        | -        |
+
+
+
 
 ## 云资源管理
 
