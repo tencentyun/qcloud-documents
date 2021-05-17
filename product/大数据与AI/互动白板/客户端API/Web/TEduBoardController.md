@@ -46,10 +46,10 @@ this.teduBoard = new TEduBoard(initParams)
 | initParams.preloadDepth |	number |	【可选】图片预加载深度，默认值 5，表示预加载当前页前后5页的图片 |
 | initParams.progressEnable |	boolean |	【可选】是否启用 SDK 内置 Loading 图标，默认值 false |
 | initParams.progressBarUrl |	string |	【可选】自定义加载图标，在 progressEnable = true 时生效，支持 jpg、gif、png、svg |
-| initParams.systemCursorEnable |	string |	【可选】是否启用原生系统光标，默认false，该参数说明具体请看setSystemCursorEnable 接口 |
+| initParams.systemCursorEnable |	string |	【可选】是否启用原生系统光标，默认 false，该参数说明具体请看 setSystemCursorEnable 接口 |
 | initParams.enableScaleTool |	boolean |	【可选】是否启用白板缩放移动工具的缩放功能，当设置为 false，切换到缩放移动工具时缩放功能不可用 |
 | initParams.syncFps |	number |	【可选】信令同步频率，该值的允许范围为 [5, 20]，默认5帧 |
-| initParams.proxyServer |	string |	【可选】是否为白板服务设置代理服务器，传入一个JSON格式字符串。白板服务类型可参考{@link TEduBoard.TEduBoardServiceType 服务类型}，JSON格式可参考 <a href="#setProxyServer">setProxyServer</a> 接口|
+| initParams.proxyServer |	string |	【可选】是否为白板服务设置代理服务器，传入一个JSON格式字符串。白板服务类型可参考{@link TEduBoard.TEduBoardServiceType 服务类型}，JSON 格式可参考 <a href="#setProxyServer">setProxyServer</a> 接口|
 
 更多配置参数，请查看 [互动白板 API 文档](https://doc.qcloudtiw.com/web/TEduBoard.html)。
 
