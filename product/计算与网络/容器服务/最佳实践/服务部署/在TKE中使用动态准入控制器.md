@@ -50,6 +50,11 @@ O = default
 OU = websever
 CN = webserver.default.svc
 
+subjectAltName = @alt_names
+
+[ alt_names ]
+DNS.1 = webserver.default.svc
+
 [ v3_ext ]
 authorityKeyIdentifier=keyid,issuer:always
 basicConstraints=CA:FALSE
@@ -91,13 +96,13 @@ cat <<EOF | kubectl apply -f -
 apiVersion: certificates.k8s.io/v1beta1
 kind: CertificateSigningRequest
 metadata:
-  name: ${USERNAME}
+   name: ${USERNAME}
 spec:
-  request: $(cat ${USERNAME}.csr | base64 | tr -d '\n')
-  usages:
-  - digital signature
-  - key encipherment
-  - server auth
+   request: $(cat ${USERNAME}.csr | base64 | tr -d '\n')
+   usages:
+   - digital signature
+   - key encipherment
+   - server auth
 EOF
 # 证书审批允许信任
 kubectl certificate approve ${USERNAME}
