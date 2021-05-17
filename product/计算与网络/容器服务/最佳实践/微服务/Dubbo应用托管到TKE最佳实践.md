@@ -269,15 +269,16 @@ docker push ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]
 3. 在 [我的镜像](https://console.cloud.tencent.com/tke2/registry/user/self?rid=1) 中可以查看上传的所有镜像，下图展示的是上传到腾讯云镜像仓库中 QCBM 的5个镜像。
    ![](https://main.qcloudimg.com/raw/05c412370fb69e675bfb9149b33063a6.png)
 
->?默认镜像类型为“私有”，如需提供镜像给他人使用，可在【镜像信息】中将镜像类型设置为公有。如下图所示：
->![](https://main.qcloudimg.com/raw/88b73306c07a4ea281cef52a77d3246c.png)
+<dx-alert infotype="explain" title="">
+默认镜像类型为“私有”，如需提供镜像给他人使用，可在【镜像信息】中将镜像类型设置为公有。如下图所示：
+![](https://main.qcloudimg.com/raw/88b73306c07a4ea281cef52a77d3246c.png)
+</dx-alert>
 
 
 
 
 
-
-### 在 TKE 上部署服务
+### 在 TKE 上部署服务      
 
 #### 创建 k8s 集群 QCBM
 
