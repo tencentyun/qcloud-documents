@@ -1,32 +1,37 @@
 
-本文主要介绍通过 DTS 数据迁移功能从腾讯云数据库 MySQL 迁移数据至腾讯云 TDSQL MySQL版 实例。TDSQL MySQL版 是腾讯自研的分布式数据库，具备强一致高可用、全球部署架构、分布式水平扩展、高性能、企业级安全等特性，是云上分布式数据库的最佳选择。
+本文主要介绍通过 DTS 数据迁移功能从公网自建 MySQL 迁移数据至腾讯云 TDSQL MySQL版 实例。TDSQL MySQL版 是腾讯自研的分布式数据库，具备强一致高可用、全球部署架构、分布式水平扩展、高性能、企业级安全等特性，是云上分布式数据库的最佳选择。
 
 ## [前提条件](id:qttj)
 - 已 [创建 TDSQL MySQL版](https://cloud.tencent.com/document/product/557/10236)，支持版本：MySQL 5.6、MySQL 5.7。
 - 需要您在目标端 TDSQL MySQL版 中创建迁移帐号，需要帐号权限：待迁移对象的全部读写权限。
-- 待迁移源端云数据库 MySQL，支持版本：MySQL 5.6、MySQL 5.7。
-- 需要您在源端 MySQL 中提前创建好数据库：`__tencentdb__`。
-- 需要您在源端 MySQL 中创建迁移帐号。
-  - 全实例迁移，需要的帐号权限如下：
-```
-GRANT SELECT ON *.* TO ‘迁移帐号’;
+- 待迁移源端自建 MySQL，支持版本：MySQL 5.6、MySQL 5.7。
+- 需要您在源端MySQL中提前创建好数据库：`__tencentdb__`。
+- 需要您在源端实例中创建迁移帐号。
+  - “整个实例”迁移，需要的帐号权限如下：
+  ```
 CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
-GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW     DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
+GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO ‘迁移帐号’@‘%’;  
-```
-  - 部分库表迁移，需要的帐号权限如下：
-```
-GRANT SELECT ON 待迁移的库.* TO ‘迁移帐号’;
+GRANT SELECT ON *.* TO ‘迁移帐号’;
+  ```
+  - “指定对象”迁移，需要的帐号权限如下：
+
+  ```
 CREATE USER ‘迁移帐号’@‘%’ IDENTIFIED BY ‘迁移密码’;  
 GRANT RELOAD,LOCK TABLES,REPLICATION CLIENT,REPLICATION SLAVE,SHOW DATABASES,SHOW VIEW,PROCESS ON *.* TO ‘迁移帐号’@‘%’;  
 GRANT ALL PRIVILEGES ON `__tencentdb__`.* TO ‘迁移帐号’@‘%’;  
 GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
-```
+GRANT SELECT ON 待迁移的库.* TO ‘迁移帐号’;
+  ```
+
+
+
 
 ## 注意事项
 - DTS 在执行全量数据迁移时，会占用一定源端实例资源，可能会导致源实例负载上升，增加数据库自身压力。如果您数据库配置过低，建议您在业务低峰期进行迁移。
 - 源端 MySQL 中待迁移的表支持没有主键或唯一索引，并且不会导致目标数据库中出现重复数据。在全量迁移过程通过有锁迁移来实现，锁表过程中会短暂阻塞写入操作。
-- 目标端 TDSQL MySQL版 的存储空间须是源端 MySQL 数据库所占用存储空间的1.2倍以上。
+- TDSQL MySQL版 的存储空间须是源端自建 MySQL 数据库所占用存储空间的1.2倍以上。
+- 源端自建 MySQL 如果是非 GTID 实例，DTS 不支持源端 HA（Highly Available）切换，一旦源端自建 MySQL 发生切换可能会导致 DTS 增量同步中断。
 - 关于视图：
 	- 全量迁移阶段，源端的视图会忽略，不予迁移。
 	- 增量阶段，源端产生的视图 DDL，只会回放在目标实例的第一个分片。
@@ -34,7 +39,7 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 ## 支持迁移类型
 - 结构迁移：目标端 TDSQL MySQL版 实例暂不支持结构迁移，所以需要您在迁移前在目标端完成对应库和分布式表的创建；如果目标端没有对应的表结构，DTS 会自动创建没有 shard  key 的单表。
 - 全量迁移：DTS 支持将源端 MySQL 数据库迁移对象中的全量数据，全部迁移到目标端 TDSQL MySQL版。
-- 增量同步：在全量数据迁移的基础上，DTS 会读取并解析源端 MySQL 数据库的 binlog 信息，将源端 MySQL 中的增量更新同步到目标 TDSQL MySQL版。通过增量数据同步完成自建应用在不停服的情况下平滑迁移到腾讯云。
+- 增量同步：在全量数据迁移的基础上，DTS 会读取并解析源端自建 MySQL 数据库的 binlog 信息，将源端自建 MySQL 中的增量更新同步到目标 TDSQL MySQL版。通过增量数据同步完成自建应用在不停服的情况下平滑迁移到腾讯云。
 
 ## 增量同步支持的 SQL 操作
 | 操作类型 | 支持同步的 SQL 操作                                            |
@@ -79,16 +84,18 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 <td>标签</td>
 <td>标签用于从不同维度对资源分类管理。如现有标签不符合您的要求，请前往控制台管理标签。</td></tr>
 <tr>
-<td rowspan=7>源库设置</td>
+<td rowspan=8>源库设置</td>
 <td>源库类型</td><td>选择“MySQL”。</td></tr>
 <tr>
 <td>服务提供商</td><td>选择“普通”。</td></tr>
 <tr>
-<td>接入类型</td><td>选择“云数据库”。</td></tr>
+<td>接入类型</td><td>选择“公网”。</td></tr>
 <tr>
-<td>所属地域</td><td>源端云数据库 MySQL 实例所属的地域。</td></tr>
+<td>所属地域</td><td>源库所属地域为 DTS 服务出口地域，选择离自建实例最近的一个地域即可。</td></tr>
 <tr>
-<td>实例 ID</td><td>源端云数据库 MySQL 实例 ID。</td></tr>
+<td>主机地址</td><td>源库 MySQL 访问 IP 地址或域名。</td></tr>
+<tr>
+<td>端口</td><td>源库 MySQL 访问端口。</td></tr>
 <tr>
 <td>帐号</td><td>源库 MySQL 的数据库帐号，帐号权限需要满足要求。</td></tr>
 <tr>
@@ -120,7 +127,7 @@ GRANT SELECT ON `mysql`.* TO ‘迁移帐号’@‘%’;
 <td>指定对象</td>
 <td>在源库对象中选择待迁移的对象，然后将其移到已选对象框中。</td></tr>
 </tbody></table>
-<img src="https://main.qcloudimg.com/raw/51d26749a5a208f84c3750e9afc9ea32.png"  style="margin:0;">
+<img src="https://main.qcloudimg.com/raw/1101e817e99b5a53cc4a088c55b84810.png"  style="margin:0;">
 5. 在校验任务页面，进行校验，校验任务通过后，单击【启动任务】。
  -  校验任务通过后，根据选择的运行模式启动迁移任务。
  -  如果校验任务不通过，可以查看具体检查项和失败原因，待问题解决后重新发起校验任务。
