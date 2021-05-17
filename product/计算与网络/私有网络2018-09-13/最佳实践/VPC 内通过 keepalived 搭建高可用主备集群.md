@@ -15,7 +15,7 @@
 
 ## 注意事项
 + 推荐使用单播方式进行 VRRP 通信。
-+ 强烈推荐使用 Keepalived（**1.2.24版本及以上**）。
++ 推荐使用 Keepalived（**1.2.24版本及以上**）。
 + 确保已经配置以下 garp 相关参数。因为 keepalived 依赖 ARP 报文更新 IP 信息，如果缺少以下参数，会导致某些场景下，主设备不发送 ARP 导致通信异常。
    ```plaintext
   garp_master_delay 1
@@ -23,7 +23,11 @@
   ```
 + 确保同一 VPC 下的每个主备集群需要配置不同的 vrrp router id。
 + 确定没有采用 strict 模式，即需要删除“vrrp_strict” 配置。
-+ 控制单个网卡上配置的 VIP 数量，建议目前在单个网卡绑定的高可用虚拟 IP 数量不超过5个。如果需要使用多个虚拟 IP，建议在 keepalived 配置文件的 global_defs 段落添加或修改配置“vrrp_garp_master_repeat 1”。
++ 控制单个网卡上配置的 VIP 数量，建议目前在单个网卡绑定的高可用虚拟 IP 数量不超过5个。如果需要使用多个虚拟 IP，建议在 keepalived 配置文件的 global_defs 段落添加或修改配置 “vrrp_garp_master_repeat 1”。
++ 通过调节 adver_int 参数的大小，在抗网络抖动及灾害恢复速度进行平衡取舍。当 advert_int 参数过小，容易受网络抖动影响发生频繁倒换和暂时 **双主（脑裂）** 直到网络恢复。当 advert_int 参数过大，会导致主机器故障后，主备倒换慢（即服务暂停时间长）。**请充分评估双主（脑裂）对业务的影响！**
++ track_script 脚本的具体执行项（如 checkhaproxy ）中的 interval 参数请适当提高，避免脚本执行超时导致 FAULT 状态的发生。
++ 可选：注意日志打印导致的磁盘使用量上涨，可以通过 logrotate 等工具解决。
+
 
 ## 操作步骤
 
@@ -48,7 +52,7 @@
 ![](https://main.qcloudimg.com/raw/a3d894863e5405477aa9910487c5f198.png)
 
 ### 步骤2：在主服务器和备服务器上安装 keepalived 软件（推荐1.2.24版本及以上）
-本文以 CentOS 7.6镜像类型服务器为例提供 keepalived 的安装方法，如有其他需求，请联系技术支持人员。
+本文以 CentOS 7.6镜像类型服务器为例提供 keepalived 的安装方法。
 1. 查看 keepalived 软件包版本号是否符合要求。
    ```plaintext
    yum list keepalived
@@ -73,6 +77,7 @@
 
 ### 步骤3：配置 keepalived，绑定高可用 VIP 到主备云服务器
 1. 登录主节点云服务器 HAVIP-01，执行 `vim /etc/keepalived/keepalived.conf`，修改相关配置。
+   HAVIP-01 和 HAVIP-02 在本例中将被配置成“等权重节点”，即 state 均为 BACKUP，priority 均为 100。优点是可以减少抖动造成的倒换次数。
 
    ```plaintext
    ! Configuration File for keepalived
@@ -97,13 +102,13 @@
    }
    vrrp_instance VI_1 {
    #注意主备参数选择
-   state BACKUP                # 设置初始状态为“备“
+   state BACKUP                # 设置初始状态均为“备“
        interface eth0          # 设置绑定 VIP 的网卡 例如 eth0  
        virtual_router_id 51    # 配置集群 virtual_router_id 值
-       nopreempt               # 设置非抢占模式
-       preempt_delay 10
-       priority 100              # 设置优先级，值越大优先级越高
-       advert_int 1        
+       nopreempt               # 设置非抢占模式，
+       # preempt_delay 10      # 仅 state MASTER 时生效    
+       priority 100            # 两设备是相同值的等权重节点
+       advert_int 5        
        authentication {
            auth_type PASS
            auth_pass 1111
@@ -158,13 +163,13 @@
    }
    vrrp_instance VI_1 {
    #注意主备参数选择
-   state BACKUP                # 设置初始状态为“备“
+   state BACKUP                # 设置初始状态均为“备“
        interface eth0          # 设置绑定 VIP 的网卡 例如 eth0  
        virtual_router_id 51    # 配置集群 virtual_router_id 值
        nopreempt               # 设置非抢占模式
-       preempt_delay 10
-       priority 50              # 设置优先级，值越大优先级越高
-       advert_int 1        
+       # preempt_delay 10      # 仅 state MASTER 时生效   
+       priority 100              # 两设备是相同值的等权重节点
+       advert_int 5       
        authentication {
            auth_type PASS
            auth_pass 1111
@@ -201,12 +206,12 @@
    ```
 
 6. 检查两台云服务器的主备状态，并确认 HAVIP 已经正确的绑定到主备服务器。
->?此示例中 HAVIP-01 的优先级更高，所以正常情况下，HAVIP-01 将被选择为主节点。
+>?此示例中 HAVIP-01 先启动 keepalived 服务，所以正常情况下，HAVIP-01 将被选择为主节点。
 >
 登录 [高可用虚拟 IP](https://console.cloud.tencent.com/vpc/havip) 控制台，可以看到 HAVIP 绑定的云服务器为主节点云 HAVIP-01，如下图所示。
 ![](https://main.qcloudimg.com/raw/6c6755680da646ab26d5774873af82d5.png)
 
-### 步骤4：**VIP绑定弹性公网IP（可选）**  
+### 步骤4：**VIP 绑定弹性公网 IP（可选）**  
 
 1. 在 [高可用虚拟 IP](https://console.cloud.tencent.com/vpc/havip) 控制台，单击 [步骤一 ](#step1)中申请的 HAVIP 所在行的【绑定】。
 ![](https://main.qcloudimg.com/raw/79e1e4c95b29f660997b987a8487bab4.png)
@@ -218,43 +223,43 @@ keepalived 主要日志仍然记录在“/var/log/message”中，可以通过�
 
 1. 登录云服务器，执行 `vim /etc/keepalived/notify_action.sh` 命令添加脚本“notify_action.sh”，脚本内容如下：
 
-   ```plaintext
+   ````plaintext
    #!/bin/bash
    #/etc/keepalived/notify_action.sh
    log_file=/var/log/keepalived.log
    log_write()
    {
-       echo "[`date '+%Y-%m-%d %T'`] $1" >$log_file
+       echo "[`date '+%Y-%m-%d %T'`] $1" >> $log_file
    }
    
    [ ! -d /var/keepalived/ ] && mkdir -p /var/keepalived/
    
    case "$1" in
        "MASTER" )
-           echo -n "$1" /var/keepalived/state
+           echo -n "$1" > /var/keepalived/state
            log_write " notify_master"
            echo -n "0" /var/keepalived/vip_check_failed_count
            ;;
    
        "BACKUP" )
-           echo -n "$1" /var/keepalived/state
+           echo -n "$1" > /var/keepalived/state
            log_write " notify_backup"
            ;;
    
        "FAULT" )
-           echo -n "$1" /var/keepalived/state
+           echo -n "$1" > /var/keepalived/state
            log_write " notify_fault"
            ;;
    
        "STOP" )
-           echo -n "$1" /var/keepalived/state
+           echo -n "$1" > /var/keepalived/state
            log_write " notify_stop"
            ;;
        *)
            log_write "notify_action.sh: STATE ERROR!!!"
            ;;
    esac
-   ```
+   ````
 
 2. 执行 `chmod a+x /etc/keepalived/notify_action.sh` 修改脚本权限。
 
@@ -264,3 +269,4 @@ keepalived 主要日志仍然记录在“/var/log/message”中，可以通过�
 
 - 如果完成了主备切换，则可以看到控制台的绑定主机已经切换为 backup 云服务器。
 - 另外，也可以从 VPC 内 ping VIP 的方式，查看网络中断到恢复的时间间隔，每切换一次，ping 中断的时间大约为4秒。从公网侧 ping HAVIP 绑定的 EIP，可以查看网络中断到恢复的时间间隔，每切换一次，ping 中断的时间大致为4秒。
+- 使用 ip addr show 检查 havip 是否出现主设备网卡上。
