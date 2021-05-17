@@ -155,7 +155,7 @@ virtual void onTEBAudioCallbackPacket(const float **buffer, int64_t pts)
 
 | 参数 | 类型 | 含义 |
 | --- | --- | --- |
-| buffer | const float| 音频数据数组，格式为 buffer[channels][channelSize]  |
+| buffer | const float **| 音频数据数组，格式为 buffer[channels][channelSize]  |
 | pts | int64_t | 音频包时间戳  |
 
 #### 警告
