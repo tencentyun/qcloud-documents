@@ -318,7 +318,7 @@ teduBoard.on(TEduBoard.EVENT.TEB_SNAPSHOT, ({image, userData}) => {
 --------- | --------- | ----- | --------- | --------- |
 | boardContentFitMode | Number | 否 | 0 | 0 不自动调整白板宽高比，文件等比例缩放居中显示，文件宽高<=白板宽高<br/> 1 自动调整白板宽高比与文件一致，文件铺满白板，白板等比例缩放居中显示，白板宽高<=容器宽高<br/> 2 自动调整白板宽高比与文件一致，文件铺满白板，白板等比例缩放居中显示，白板宽高>=容器宽高 |
 | dataSyncEnable | Boolean | 否 | true | 是否数据同步 |
-| scale | Number | 否 | 100 | 实际缩放比为scale/100 |
+| scale | Number | 否 | 100 | 实际缩放比为 scale/100 |
 | preloadDepth | Number | 否 | 5 | 预加载深度，预加载前后 preloadDepth 页白板 |
 | smoothLevel | Number | 否 | 0.1 | 平滑级别，取值0～1之间的浮点数，0表示不启用平滑 |
 
@@ -339,7 +339,7 @@ teduBoard.on(TEduBoard.EVENT.TEB_SNAPSHOT, ({image, userData}) => {
 
 1. bug 修复
     - 文字输入在 mac 中的兼容性问题
-    - 修复PPT动画在 iPhone 显示异常的问题
+    - 修复 PPT 动画在 iPhone 显示异常的问题
 
 ### 2.0.0.1 @ 2019.05.15
 
