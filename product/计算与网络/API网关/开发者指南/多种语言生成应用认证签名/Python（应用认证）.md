@@ -16,7 +16,7 @@ API 网关提供 Python 2.7 和 Python 3 两个版本的示例代码，请您根
 
 ## 注意事项
 
-- 应用生命周期管理，以及API向应用授权、应用绑定API等操作请您参考 [应用管理](https://cloud.tencent.com/document/product/628/55087)。
+- 应用生命周期管理，以及 API 向应用授权、应用绑定 API 等操作请您参考 [应用管理](https://cloud.tencent.com/document/product/628/55087)。
 - 应用生成签名过程请您参考 [应用认证方式](https://cloud.tencent.com/document/product/628/55088)。
 
 
