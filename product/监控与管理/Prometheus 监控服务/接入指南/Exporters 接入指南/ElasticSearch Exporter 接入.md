@@ -56,7 +56,7 @@
 
 [](id:step1)
 
-#### 使用 Secret 管理 ElasticSearch 连接串
+#### 使用 Secret 管理 ElasticSearch 连接串[](id:step1)
 
 1. 在左侧菜单中选择【工作负载】>【Deployment】，进入 Deployment 页面。
 2. 在页面右上角单击【YAML创建资源】，创建 YAML 配置，配置说明如下：
@@ -80,7 +80,7 @@ stringData:
 
 [](id:step2)
 
-#### 部署 ElasticSearch Exporter
+#### 部署 ElasticSearch Exporter[](id:step2)
 
 在 Deployment 管理页面，单击【新建】，选择对应的**命名空间**来进行部署服务。可以通过控制台的方式创建，如下以 YAML 的方式部署 Exporter，YAML 配置示例如下：
 
@@ -136,7 +136,7 @@ spec:
 
 [](id:step3)
 
-#### 验证
+#### 验证[](id:step3)
 
 
 1. 在 Deployment 页面单击上述步骤创建的 Deployment，进入 Deployment 管理页面。
