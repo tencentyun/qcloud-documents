@@ -6,7 +6,7 @@
 
 1. 在 [API 网关控制台](https://console.cloud.tencent.com/apigateway/index?rid=1)，创建一个 API，选择鉴权类型为“应用认证”（参考 [创建 API 概述](https://cloud.tencent.com/document/product/628/11795)）。
 2. 将 API 所在服务发布至发布环境（参考 [服务发布与下线](https://cloud.tencent.com/document/product/628/11809)）。
-3. 在控制台 [应用管理](https://console.cloud.tencent.com/apigateway/app) 界面创建密钥对。
+3. 在控制台 [应用管理](https://console.cloud.tencent.com/apigateway/app) 界面创建应用。
 4. 在应用列表中选中已经创建好的应用，单击【绑定API】，选择服务和 API 后单击【提交】，即可将应用与 API 建立绑定关系。
 5. 参考 [示例代码](#示例代码)，使用 Python 语言生成签名内容。
 
@@ -16,7 +16,7 @@ API 网关提供 Python 2.7 和 Python 3 两个版本的示例代码，请您根
 
 ## 注意事项
 
-- 应用生命周期管理，以及API向应用授权、应用绑定API等操作请您参考 [应用管理](https://cloud.tencent.com/document/product/628/55087)。
+- 应用生命周期管理，以及 API 向应用授权、应用绑定 API 等操作请您参考 [应用管理](https://cloud.tencent.com/document/product/628/55087)。
 - 应用生成签名过程请您参考 [应用认证方式](https://cloud.tencent.com/document/product/628/55088)。
 
 

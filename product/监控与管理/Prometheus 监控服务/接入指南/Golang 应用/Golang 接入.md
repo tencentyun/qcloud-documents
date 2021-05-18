@@ -110,7 +110,7 @@ myapp_processed_ops_total 666
 
 上述我们提供了两个示例展示如何使用 Prometheus Golang 库来暴露应用的指标数据，但暴露的监控指标数据为文本类型，需要搭建维护额外的 Prometheus 服务来抓取指标，可能还需要额外的 Grafana 来对数据进行可视化展示。
 
-通过使用 Prometheus 监控服务可以直接省去如上步骤，只需简单的单击操作即可使用。详情请参见 [快速使用指南](https://cloud.tencent.com/document/product/248/48688)。
+通过使用 Prometheus 监控服务可以直接省去如上步骤，只需简单的单击操作即可使用。详情请参见 [快速使用指南](https://cloud.tencent.com/document/product/1416/55778)。
 
 ### 打包部署应用
 

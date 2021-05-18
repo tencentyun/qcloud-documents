@@ -3,12 +3,12 @@ SDK 3.0是云 API 3.0平台的配套工具，您可以通过 SDK 使用所有 [�
 
 |平台| SDK 文档 | Github 地址|
 |------------|-------------|------------------|
-|Java |[Java SDK 文档 ](https://cloud.tencent.com/document/product/382/) | [Java SDK](https://github.com/TencentCloud/tencentcloud-sdk-java)|
-|PHP | [PHP SDK 文档](https://cloud.tencent.com/document/product/382/)  | [PHP SDK](https://github.com/TencentCloud/tencentcloud-sdk-php)|
-|Python | [Python SDK 文档](https://cloud.tencent.com/document/product/382/)   | [Python SDK](https://github.com/TencentCloud/tencentcloud-sdk-python)|
-|JavaScript  | [Node.js SDK 文档](https://cloud.tencent.com/document/product/382/)   | [Node.js SDK](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)|
-|C# | [C# SDK 文档](https://cloud.tencent.com/document/product/382/)  | [C# SDK](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)|
-|Go | [Go SDK 文档](https://cloud.tencent.com/document/product/382/)  | [Go SDK](https://github.com/TencentCloud/tencentcloud-sdk-go)|
+|Java |[Java SDK 文档 ](https://cloud.tencent.com/document/product/382/43194) | [Java SDK](https://github.com/TencentCloud/tencentcloud-sdk-java)|
+|PHP | [PHP SDK 文档](https://cloud.tencent.com/document/product/382/43195)  | [PHP SDK](https://github.com/TencentCloud/tencentcloud-sdk-php)|
+|Python | [Python SDK 文档](https://cloud.tencent.com/document/product/382/43196)   | [Python SDK](https://github.com/TencentCloud/tencentcloud-sdk-python)|
+|JavaScript  | [Node.js SDK 文档](https://cloud.tencent.com/document/product/382/43197)   | [Node.js SDK](https://github.com/TencentCloud/tencentcloud-sdk-nodejs)|
+|C# | [C# SDK 文档](https://cloud.tencent.com/document/product/382/43198)  | [C# SDK](https://github.com/TencentCloud/tencentcloud-sdk-dotnet)|
+|Go | [Go SDK 文档](https://cloud.tencent.com/document/product/382/43199)  | [Go SDK](https://github.com/TencentCloud/tencentcloud-sdk-go)|
 
 >!
 - 本章节短信 SDK 均为最新 SDK 3.0，后续短信相关新增功能都会在此章节更新。我们强烈推荐您使用最新的 SDK 3.0 以及配套的 API 3.0 接口。

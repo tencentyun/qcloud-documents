@@ -2,7 +2,7 @@
 
 ## 前提条件
 
-已创建 [ Prometheus 实例](https://cloud.tencent.com/document/product/248/48690)。
+已创建 [ Prometheus 实例](https://cloud.tencent.com/document/product/1416/55982)。
 
 ## 操作步骤
 
