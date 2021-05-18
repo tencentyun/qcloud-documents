@@ -13,7 +13,8 @@
 
    **添加 Maven 依赖**
    按照 [Pulsar 官方文档](http://pulsar.apache.org/docs/en/client-libraries-java/) 添加 Maven 依赖。
-   ```xml
+<dx-codeblock>
+:::  xml
    <!-- in your <properties> block -->
    <pulsar.version>2.6.1</pulsar.version>
    <!-- in your <dependencies> block -->
@@ -22,7 +23,9 @@
        <artifactId>pulsar-client</artifactId>
        <version>${pulsar.version}</version>
    </dependency>
-   ```
+:::
+</dx-codeblock>
+
    **创建 Client**
    ```java
    PulsarClient client = PulsarClient.builder()
