@@ -3,16 +3,16 @@
 ## 准备工作
 
 - 创建 [腾讯云容器服务—托管版集群](https://cloud.tencent.com/document/product/457/32189#TemplateCreation)：在腾讯云容器服务中创建 Kubernetes 集群。
-- 服务角色授权：集成过程中需要用户授权之后来操作腾讯云容器服务 (TKE)，具体的授权操作请参见 [服务授权相关角色权限说明](https://cloud.tencent.com/document/product/248/48706)。
+- 服务角色授权：集成过程中需要用户授权之后来操作腾讯云容器服务 (TKE)，具体的授权操作请参见 [服务授权相关角色权限说明](https://cloud.tencent.com/document/product/1416/56023)。
 - 已经进入到集成容器服务管理页面。
 
 ## 操作步骤
 
-### 安装 Agent
+### 安装 Agent[](id:install_agent)
 
 1. 用户成功授权服务角色之后，可以列出当前地域与 Prometheus 服务相同私有网络 VPC 下的容器服务 TKE 集群列表信息。
  >?由于网络的原因，不在同一私有网络 VPC 下的容器服务 TKE 集群不会显示在列表中。
-2. 在集群列表中选择对应的容器集群 > 单击【安装】来进行自动化集成，在安装弹框中可以选择需要集成的 [基础监控](https://cloud.tencent.com/document/product/248/48857) 组件，整个集成安装操作为异步操作，大概需要2 - 3分钟左右，监控状态显示“已安装”即装成功。
+2. 在集群列表中选择对应的容器集群 > 单击【安装】来进行自动化集成，在安装弹框中可以选择需要集成的 [基础监控](https://cloud.tencent.com/document/product/1416/56002) 组件，整个集成安装操作为异步操作，大概需要2 - 3分钟左右，监控状态显示“已安装”即装成功。
 ![](https://main.qcloudimg.com/raw/28f3e59892f17700f7eb90850b8d7c60.png)
 
 ### 卸载监控组件
