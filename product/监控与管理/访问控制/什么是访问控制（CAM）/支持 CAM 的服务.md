@@ -1,3 +1,23 @@
+<style>
+table th:nth-of-type(1) {
+width: 27%;        
+}
+table th:nth-of-type(2) {
+width: 15%;        
+}
+table th:nth-of-type(3) {
+width:12%;        
+}
+table th:nth-of-type(4) {
+width: 13%;        
+}
+table th:nth-of-type(5) {
+width: 15%;        
+}
+table th:nth-of-type(6) {
+width: 18%;        
+}
+</style>
 ## 简介 
 
 访问管理已经支持对多数腾讯云产品服务进行权限管理。本文主要介绍支持访问管理 CAM 的产品服务的相关信息。具体维度包括授权粒度、控制台、根据标签进行授权、参考文档等。
