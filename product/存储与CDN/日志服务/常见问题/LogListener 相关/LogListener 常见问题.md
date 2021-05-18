@@ -18,7 +18,7 @@ LogListener 低于2.3.0版本不支持监听软连接方式的日志文件和 NF
 
 ### LogListener 初始化的时候是否可以自动加入机器组？
 
-标识机器组机支持, 参考文档 [配置标识机器组](https://cloud.tencent.com/document/product/614/17412#.E9.85.8D.E7.BD.AE.E6.9C.BA.E5.99.A8.E6.A0.87.E8.AF.86.E6.9C.BA.E5.99.A8.E7.BB.84)。
+标识机器组机支持, 参考文档 [管理机器组](https://cloud.tencent.com/document/product/614/17412)。
 
 ### LogListener 日志上传策略是什么？
 
