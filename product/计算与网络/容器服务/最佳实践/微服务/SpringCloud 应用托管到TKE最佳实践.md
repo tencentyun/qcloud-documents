@@ -17,7 +17,8 @@
 
 本文最佳实践通过 fork  GitHub 上的开源项目 [PiggyMetrics](https://github.com/sqshq/piggymetrics) ，对其进行修改以适应腾讯云产品，并以最终修改后的版本为例，详细介绍 SpringCloud 应用托管到 TKE 的整个过程。
 
->?修改后的 PiggyMetrics 部署项目托管在 [GitHub](https://github.com/TencentCloud/container-demo/tree/main/springcloud-on-tke) 上。
+>?修改后的 PiggyMetrics 部署项目托管在 [GitHub](https://github.com/TencentCloud/container-demo/tree/main/springcloud-on-tke) 上。在 [搭建基础服务集群](#create) 后，可直接下载部署工程并在 TKE 上进行部署。
+
 
 
 PiggyMetrics 首页如下图所示：
@@ -42,7 +43,7 @@ PiggyMetrics 微服务组成如下：
 
 
 
-### PiggyMetrics 部署架构和组件
+### PiggyMetrics 部署架构和组件[](id:deploy)
 
 
 本文最佳实践实例模拟将原先部署在云服务器 CVM 的应用进行容器化，并托管到容器服务 TKE 的场景。在该场景中需要采用一个 VPC，并划分为以下两个子网：
@@ -122,7 +123,7 @@ TSW 在架构上分为以下四大模块：
 
 ## 操作步骤
 
-### 基础服务集群搭建
+### 基础服务集群搭建[](id:create)
 
 - 在 [Mongodb 控制台](https://console.cloud.tencent.com/mongodb) 创建实例，并执行以下命令进行初始化：
   <dx-codeblock>
@@ -172,6 +173,9 @@ cd mongodb-linux-x86_64-3.6.18/bin
 │   └── account-service.jar
 └── account-service.iml
 ```
+
+
+>? 此处使用 skywalking-agent 作为 TSW 接入客户端，向 TSW 后台上报调用链信息。下载 Skywalking-agent 详情可参见 [PiggyMetrics 部署架构和组件](#deploy)。
 
 account-service 的 Dockerfile 如下所示：
 
@@ -249,11 +253,9 @@ sudo docker tag [ImageId] ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像
 </dx-codeblock>
 
 2. 构建完成后，可执行以下命令查看本地仓库中的所有镜像。
-
 ```sh
-docker images
+docker images | grep piggymetrics
 ```
-
  示例如下图所示：
  ![](https://main.qcloudimg.com/raw/64ebfe03265b1d95ebe6bb5a3cf02bf1.png)
 
