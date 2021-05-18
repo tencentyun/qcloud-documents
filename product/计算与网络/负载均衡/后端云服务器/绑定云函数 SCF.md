@@ -39,20 +39,50 @@
 2. [配置 HTTP 监听器](https://cloud.tencent.com/document/product/214/36384) 或 [配置 HTTPS 监听器](https://cloud.tencent.com/document/product/214/36385)
 
 ## 操作步骤
-1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)。
+
+### 步骤一：创建函数
+1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，在左侧导航栏单击【函数服务】。
+2. 在“函数服务”页面，单击【新建】。
+3. 在“新建”函数服务页面，创建方式选择“自定义创建”，输入函数名称，地域选择与 CLB 实例相同的地域，运行环境选择“Python3.6”，在函数代码输入框中输入如下代码（本文以 Hello CLB 为例），单击【完成】。
+>!CLB 绑定 SCF 时，需按照特定响应集成格式返回，详情请参见 [集成响应](https://cloud.tencent.com/document/product/583/52635#.E9.9B.86.E6.88.90.E5.93.8D.E5.BA.94)。
+```plaintext
+# -*- coding: utf8 -*-
+import json
+def main_handler(event, context):
+
+    return {
+        "isBase64Encoded": False,
+        "statusCode": 200,
+        "headers": {"Content-Type":"text/html"},
+        "body": "<html><body><h1>Hello CLB</h1></body></html>"
+   }
+```
+
+### 步骤二：部署函数
+1. 在“函数服务”页面的列表中，单击刚才创建的函数名。
+2. 在“函数管理”页面，单击【函数代码】页签，在页签底部单击【部署】。
+![](https://main.qcloudimg.com/raw/aafe1535c4b30327601fdaa405c13da3.png)
+
+### 步骤三：配置触发器
+1. 登录 [负载均衡控制台](https://console.cloud.tencent.com/clb)，在左侧导航栏单击【实例管理】。
 2. 在“实例管理”页面的“负载均衡”页签中，单击目标实例右侧“操作”列的【配置监听器】。
 3. 在 HTTP/HTTPS 监听器列表中，选择需要绑定云函数 SCF 的监听器，分别单击目标监听器左侧的【+】和展开的域名左侧的【+】，然后选中展开的 URL 路径，单击【绑定】。
 ![](https://main.qcloudimg.com/raw/15cd2745ad1a5eb5708cc822d4a55cfa.png)
-4. 在弹出的“绑定后端服务”对话框中，目标类型选择“云函数 SCF”。
-	- 若未进行过角色授权，则单击【CLB_QCSRole】跳转至“角色管理”页面，单击【同意授权】。返回“绑定后端服务”对话框，选择命名空间、函数名和版本/别名，设置权重后，单击【确认】。
-	![](https://main.qcloudimg.com/raw/c1d825bba7479458059222406eb64f14.png)
-	- 若已进行过角色授权，则直接选择命名空间、函数名和版本/别名，设置权重后，单击【确认】。
-![](https://main.qcloudimg.com/raw/12286261c9c84316b4634fce0ee5aa96.png)
-5. 返回“监听器管理”页签，在“转发规则详情”区域单击函数名。
-![](https://main.qcloudimg.com/raw/2da69c0e92fe34a744a48c4a8c7cdb05.png)
-6. 在“函数代码”页签，编辑函数代码。需要按照特定响应集成格式返回，详情请参见 [集成响应](https://cloud.tencent.com/document/product/583/52635#.E9.9B.86.E6.88.90.E5.93.8D.E5.BA.94)。
-![](https://main.qcloudimg.com/raw/d0560171044434579e07b8dbcc963c10.png)
+4. 在弹出的“绑定后端服务”对话框中，目标类型选择“云函数 SCF”，选择命名空间、函数名和版本/别名，设置权重后，单击【确认】。
+![](https://main.qcloudimg.com/raw/9d26cf3049532375b08f42c8d57c3792.png)
+5. 返回“监听器管理”页签，在“转发规则详情”区域显示负载均衡已绑定的云函数，即已创建 CLB 触发器。
+![](https://main.qcloudimg.com/raw/074f018af5f3772714710e32ef7fcee0.png)
 >? 您还可以选择在 SCF 控制台创建 CLB 触发器，从而将负载均衡 CLB 与云函数 SCF 绑定，详情请参见 [创建触发器](https://cloud.tencent.com/document/product/583/30230#.E9.80.9A.E8.BF.87.E6.8E.A7.E5.88.B6.E5.8F.B0.E5.AE.8C.E6.88.90.E8.A7.A6.E5.8F.91.E5.99.A8.E5.88.9B.E5.BB.BA)。
+
+## 结果验证
+1. 登录 [云函数控制台](https://console.cloud.tencent.com/scf)，在左侧导航栏单击【函数服务】。
+2. 在“函数服务”页面的列表中，单击刚才创建的函数名。
+3. 在函数页面，单击左侧列表的【触发管理】。
+4. 在“触发管理”页面的触发器中，单击访问路径。
+![](https://main.qcloudimg.com/raw/d576617f76fa4c9849d196e735dfff85.png)
+5. 在浏览器里打开该访问路径，若显示 “Hello CLB”，则说明函数已成功部署。
+![](https://main.qcloudimg.com/raw/618b179b55682ff690d5c95b6a260016.png)
+
 
 ## 相关文档
 [创建 SCF 函数](https://cloud.tencent.com/document/product/583/37509)

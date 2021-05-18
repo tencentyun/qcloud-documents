@@ -53,12 +53,12 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 | enable_live | Boolean      | 是否开启直播（会议创建人才有权限查询）。   |
 | live_config | 直播信息对象 | 会议的直播配置（会议创建人才有权限查询）。 |
 |enable_doc_upload_permission    | Boolean       | 是否允许成员上传文档，默认为允许。                                                     |
-|guests   | Guest数组     | 会议嘉宾列表。                                                     |
+|guests   | Guest数组     | 会议嘉宾列表（会议创建人才有权限查询）。                                                     |
 |has_vote   | Boolean     | 是否有投票（会议创建人和主持人才有权限查询）。                                                     |
 
 <span id="settings"></span>
 
-**会议对象**
+**用户对象**
 
 | 参数名称 | 参数类型 | 参数描述  |
 | -------- | -------- | --------- |

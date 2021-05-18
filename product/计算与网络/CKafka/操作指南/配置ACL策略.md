@@ -44,4 +44,4 @@
 
 ## 后续处理
 
-完成授权后，用户可以通过 SASL 接入点接入消息队列 CKafka 并使用 PLAIN 机制消费消息。
+完成授权后，用户可以通过 SASL 接入点接入消息队列 CKafka 并使用 PLAIN 机制消费消息（参考 [SDK 文档](https://cloud.tencent.com/document/product/597/54816)）。

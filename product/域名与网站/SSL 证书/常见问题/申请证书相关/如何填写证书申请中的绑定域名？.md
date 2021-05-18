@@ -35,6 +35,12 @@
 </tbody>
 </table>
 
+>?
+>- 您绑定域名为主域时，部分品牌可赠送 www. 子域，如绑定域名为 `tencent.com`，则可赠送 `www.tencent.com`。
+>- 您绑定普通域名和通配符泛域名时，部分品牌可赠送相对的上级域，如绑定域名为 `*.tencent.com`，则可赠送 `tencent.com`。
+>- 普通域名以及通配符泛域名需为三级域名及以上，才可赠送上级域。
+
+
 ### 什么是泛域名？
 带通配符的域名，例如：`*.tencent.com`、`*.cloud.tencent.com` 均为泛域名，包含同一级的全部子域名。
 >!域名不支持跨级，例如 `*.tencent.com` 不包含 `*.cloud.tencent.com` 下一层级域名。

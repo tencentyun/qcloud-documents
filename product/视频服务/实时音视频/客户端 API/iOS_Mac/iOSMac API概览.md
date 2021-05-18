@@ -149,7 +149,7 @@
 | [setMixedPlayAudioFrameDelegateFormat](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a24ad642b88cd3b2ca2d3044d72817090) | 设置送入扬声器播放的音频数据回调的 AudioFrame 格式。 |
 | [enableCustomVideoCapture](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#ade46563b03208042e61bcc693e4a5d062) | 启用自定义视频采集模式。 |
 | [sendCustomVideoData](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a76e8101153afc009f374bc2b242c68312) | 向 SDK 中指定 streamType 投送自己采集的视频数据。 |
-| [enableMixExternalAudioFrame](https://cloud.tencent.com/document/product/647/32259#enablemixexternalaudioframe) | 控制外部音频是否要混入推流和混入播放。 |
+| [enableMixExternalAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#a1101d883d65882f735e3d17f874a25cb) | 控制外部音频是否要混入推流和混入播放。 |
 | [mixExternalAudioFrame](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TRTCCloud__ios.html#ad1ecf9e33044cc83d109b36287b54e97) | 向 SDK 投送自己附加的音频数据。 |
 
 

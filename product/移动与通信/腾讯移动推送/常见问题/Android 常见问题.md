@@ -1,4 +1,3 @@
-
 ### 如何关闭 TPNS 的保活功能？
 
 如需关闭联合保活功能，请在应用初始化的时候，例如 Application 或 LauncherActivity 的 onCreate 中调用如下接口，并传递 false 值：
@@ -115,16 +114,18 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 >
 
 
+### 为什么关闭应用时，onNotifactionClickedResult、onNotificationShowedResult 获取的 title 和 content 为空？
+
+由于厂商通道推送的 title 和 content 是拼接在 intent 中下发的，因此，在使用 onNotifactionClickedResult、onNotificationShowedResult 方法时，无法获取 title 和 content。如需获取参数，请使用 intent 的方式，详情请参考 [通知点击跳转](https://cloud.tencent.com/document/product/548/48572)。
+
+
 ### 应用接入了厂商通道，但在调试过程中遇到 other push Token 为空的问题，如何解决？
 
 
 在应用运行日志中观察到如下类似日志： 
-
 ```
 [OtherPushClient] handleUpdateToken other push token is :  other push type: huawei
 ```
-
-
 
 表示您的应用注册该厂商通道失败，您可以通过获取厂商通道注册失败的返回码来进行问题定位和排查，详情请参见 [厂商通道注册失败排查指南](https://cloud.tencent.com/document/product/548/45659)。
 
@@ -132,11 +133,10 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 
 目前 IM 已使用 TPNS 提供的厂商 jar 包，请按照下方表格替换相关依赖包，替换后即可解决。
 
-
  | 推送通道 | 系统要求 | 条件说明 |
  | --------------- | ------| -------------------------------------------- | 
  | 小米推送| MIUI|使用小米推送，添加依赖：`implementation 'com.tencent.tpns:xiaomi:1.2.1.3-release'`|
- | 华为推送| EMUI|使用华为推送，添加依赖：<li>`implementation 'com.tencent.tpns:huawei:1.2.1.3-release'`<li>`implementation 'com.huawei.hms:push:5.0.2.300'`| 
+ | 华为推送| EMUI|使用华为推送，添加依赖：<li>`implementation 'com.tencent.tpns:huawei:1.2.1.3-release'`</li><li>`implementation 'com.huawei.hms:push:5.0.2.300'`</li>| 
 | Google FCM 推送| Android 4.1及以上|手机端需安装 Google Play Services 且在中国大陆地区以外使用。添加依赖：`implementation 'com.google.firebase:firebase-messaging:20.2.3'`| 
 | 魅族推送 | Flyme| 使用魅族推送，添加依赖：`implementation 'com.tencent.tpns:meizu:1.2.1.3-release'` | 
 | OPPO 推送| ColorOS |并非所有 OPPO 机型和版本都支持使用 OPPO 推送，使用 OPPO 推送，添加依赖：`implementation 'com.tencent.tpns:oppo:1.2.1.3-release'`| 
@@ -180,8 +180,6 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 以上两种情况，需要在 drawable 不同分辨率的文件夹下对应放置一张名称必须为 stat_sys_third_app_notify 的图片，详情请参考 [TPNS Android SDK](https://console.cloud.tencent.com/tpns/sdkdownload) 中魅族厂商依赖目录的 flyme-notification-res 文件夹。
 
 
-
-
 ### 使用控制台快速集成时出现异常，如何解决？
 
 1. 如果集成出现异常， 则将 `tpns-configs.json `文件中的 `"debug"` 字段置为` true`,  运行命令： 
@@ -190,10 +188,9 @@ XGPushConfig.enablePullUpOtherApp(Context context, boolean pullUp);
 ```
 并通过` "TpnsPlugin" `关键字进行分析。
 2. 单击【sync projects】。
-   ![](https://main.qcloudimg.com/raw/5fecbe6b63374e7e0e58c4b2cd215acb.png)
+![](https://main.qcloudimg.com/raw/5fecbe6b63374e7e0e58c4b2cd215acb.png)
 3. 在项目的 External Libraries 中查看是否有相关依赖。
-   ![](https://main.qcloudimg.com/raw/485c7595f1b478a6fad725d38deb87b4.png)
-
+![](https://main.qcloudimg.com/raw/485c7595f1b478a6fad725d38deb87b4.png)
 
 
 ### Android 拓展库 V4 到 AndroidX 如何转换？
@@ -215,7 +212,6 @@ android.useAndroidX=trueandroid.enableJetifier=true
 2. 魅族推送 SDK：`http://norma-external-collect.meizu.com/android/exchange/getpublickey.do，http://norma-external-collect.meizu.com/push/android/external/add.do`
 
 以上 HTTP URL 均来自各厂商推送 SDK，TPNS 项目组无法明确其目的或控制其行为，但正在积极与厂商服务提供者联系并推动 HTTPS 改造；开发者当前可以自行评估选择是否继续使用以上厂商提供的推送服务。
-
 
 
 ### Android 版本4.4.4编译报错，怎么办？
