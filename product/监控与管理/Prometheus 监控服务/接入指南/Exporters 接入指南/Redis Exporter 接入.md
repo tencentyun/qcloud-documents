@@ -11,7 +11,7 @@
 
 
 - 在 Proemtheus 实例对应地域及私有网络 VPC 下，创建腾讯云容器服务 [Kubernetes 集群](https://cloud.tencent.com/document/product/457/32189#.E4.BD.BF.E7.94.A8.E6.A8.A1.E6.9D.BF.E6.96.B0.E5.BB.BA.E9.9B.86.E7.BE.A4.3Cspan-id.3D.22templatecreation.22.3E.3C.2Fspan.3E)，并为集群创建 [命名空间](https://cloud.tencent.com/document/product/1141/41803)。
-- 在【[ Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)】  >【选择“对应的 Prometheus 实例”】 >【集成容器服务】中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/248/48859)。
+- 在【[ Prometheus 监控服务控制台](https://console.cloud.tencent.com/monitor/prometheus)】  >【选择“对应的 Prometheus 实例”】 >【集成容器服务】中找到对应容器集群完成集成操作，详情请参见 [Agent 管理](https://cloud.tencent.com/document/product/1416/56000)。
 
 
 
@@ -25,9 +25,8 @@
 3. 执行以下 [使用 Secret 管理 Redis 密码](#step1) > [部署 Redis Exporter](#step2) > [验证](#step3) 步骤完成 Exporter 部署。
 
 
-[](id:step1)
 
-#### 使用 Secret 管理 Redis 密码
+#### 使用 Secret 管理 Redis 密码[](id:step1)
 
 1. 在左侧菜单中选择【工作负载】>【Deployment】，进入 Deployment 页面。
 2. 在页面右上角单击【YAML创建资源】，创建 YAML 配置，配置说明如下：
@@ -45,9 +44,7 @@ stringData:
 :::
 </dx-codeblock>
 
-[](id:step2)
-
-#### 部署 Redis Exporter
+#### 部署 Redis Exporter[](id:step2)
 
 在 Deployment 管理页面，单击【新建】，选择对应的**命名空间**来进行部署服务。可以通过控制台的方式创建，如下以 YAML 的方式部署 Exporter，YAML 配置示例如下：
 >?更多 Exporter 详细参数介绍请参见 [redis_exporter](https://github.com/oliver006/redis_exporter)。
@@ -102,9 +99,7 @@ spec:
 
 
 
-[](id:step3)
-
-#### 验证
+#### 验证[](id:step3)
 
 1. 在 Deployment 页面单击上述步骤创建的 Deployment，进入 Deployment 管理页面。
 2. 单击【日志】页签，可以查看到 Exporter 成功启动并暴露对应的访问地址，如下图所示：
