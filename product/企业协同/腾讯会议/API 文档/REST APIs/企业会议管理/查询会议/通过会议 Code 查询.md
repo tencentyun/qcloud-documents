@@ -58,7 +58,7 @@ https://api.meeting.qq.com/v1/meetings?meeting_code={meetingCode}&userid={userid
 
 <span id="settings"></span>
 
-**会议对象**
+**用户对象**
 
 | 参数名称 | 参数类型 | 参数描述  |
 | -------- | -------- | --------- |
