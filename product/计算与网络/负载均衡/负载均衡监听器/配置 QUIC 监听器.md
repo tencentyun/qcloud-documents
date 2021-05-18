@@ -15,7 +15,7 @@
 2. 在左侧导航栏，单击【实例管理】。
 3. 在 CLB 实例列表页单击目标实例右侧“操作”列的【配置监听器】。
 ![](https://main.qcloudimg.com/raw/376f020caf12788e492e7f7300465ea8.png)
-4. 在“监听器管理”页签的“TCP/UDP/TCP SSL/QUIC监听器”区域中，单击【新建】，在弹出的“创建监听器”对话框中配置 QUIC 监听器。
+4. 在“监听器管理”页签的“TCP/UDP/TCP SSL/QUIC 监听器”区域中，单击【新建】，在弹出的“创建监听器”对话框中配置 QUIC 监听器。
  1. 基本配置
   ![](https://main.qcloudimg.com/raw/14bf5e7f25905a6d9100093ab2236c97.png)
 <table>
@@ -34,7 +34,7 @@
 <tr>
 <td>监听协议端口</td>
 <td><ul><li>监听协议：CLB 支持的协议包括 TCP、UDP、TCP SSL、QUIC、HTTP、HTTPS，本例选择 QUIC。</li><li>监听端口：用来接收请求并向后端服务器转发请求的端口，端口范围为1 - 65535。</li><li>同一个负载均衡实例内，监听端口不可重复。</li></ul></td>
-<td>QUIC:443</td>
+<td>QUIC：443</td>
 </tr>
 <tr>
 <td>SSL 解析方式</td>
@@ -52,7 +52,6 @@
 <td>加权轮询</td>
 </tr>
 </tbody></table>
-
  2. 健康检查
  QUIC 监听器支持 TCP 和 HTTP 类型的健康检查，详情请参见 [TCP/HTTP 健康检查](https://cloud.tencent.com/document/product/214/50011#tcp-ssl-quic)。
  3. 会话保持（暂不支持）
