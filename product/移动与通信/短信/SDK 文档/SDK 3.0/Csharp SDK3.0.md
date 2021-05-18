@@ -80,40 +80,40 @@ namespace TencentCloudExamples
                  * 实例化一个客户端配置对象，可以指定超时时间等配置 */
                 ClientProfile clientProfile = new ClientProfile();
                 /* SDK默认用TC3-HMAC-SHA256进行签名
-	             * 非必要请不要修改这个字段 */
+                 * 非必要请不要修改这个字段 */
                 clientProfile.SignMethod = ClientProfile.SIGN_TC3SHA256;
                 /* 非必要步骤
                  * 实例化一个客户端配置对象，可以指定超时时间等配置 */
                 HttpProfile httpProfile = new HttpProfile();
                 /* SDK默认使用POST方法。
-	             * 如果你一定要使用GET方法，可以在这里设置。GET方法无法处理一些较大的请求 */
+                 * 如果你一定要使用GET方法，可以在这里设置。GET方法无法处理一些较大的请求 */
                 httpProfile.ReqMethod = "GET";
                 /* SDK有默认的超时时间，非必要请不要进行调整
-	             * 如有需要请在代码中查阅以获取最新的默认值 */
+                 * 如有需要请在代码中查阅以获取最新的默认值 */
                 httpProfile.Timeout = 10; // 请求连接超时时间，单位为秒(默认60秒)
                 /* SDK会自动指定域名。通常是不需要特地指定域名的，但是如果你访问的是金融区的服务
-	             * 则必须手动指定域名，例如sms的上海金融区域名： sms.ap-shanghai-fsi.tencentcloudapi.com */
+                 * 则必须手动指定域名，例如sms的上海金融区域名： sms.ap-shanghai-fsi.tencentcloudapi.com */
                 httpProfile.Endpoint = "sms.tencentcloudapi.com";
                 // 代理服务器，当你的环境下有代理服务器时设定
                 httpProfile.WebProxy = Environment.GetEnvironmentVariable("HTTPS_PROXY");
 
                 clientProfile.HttpProfile = httpProfile;
                 /* 实例化要请求产品(以sms为例)的client对象
-	             * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
+                 * 第二个参数是地域信息，可以直接填写字符串ap-guangzhou，或者引用预设的常量 */
                 SmsClient client = new SmsClient(cred, "ap-guangzhou", clientProfile);
 
                 /* 实例化一个请求对象，根据调用的接口和实际情况，可以进一步设置请求参数
-	             * 你可以直接查询SDK源码确定SendSmsRequest有哪些属性可以设置
-	             * 属性可能是基本类型，也可能引用了另一个数据结构
-	             * 推荐使用IDE进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明 */
+                 * 你可以直接查询SDK源码确定SendSmsRequest有哪些属性可以设置
+                 * 属性可能是基本类型，也可能引用了另一个数据结构
+                 * 推荐使用IDE进行开发，可以方便的跳转查阅各个接口和数据结构的文档说明 */
                 SendSmsRequest req = new SendSmsRequest();
 
                 /* 基本类型的设置:
-	             * SDK采用的是指针风格指定参数，即使对于基本类型你也需要用指针来对参数赋值。
-	             * SDK提供对基本类型的指针引用封装函数
-	             * 帮助链接：
-	             * 短信控制台: https://console.cloud.tencent.com/smsv2
-	             * sms helper: https://cloud.tencent.com/document/product/382/3773 */
+                 * SDK采用的是指针风格指定参数，即使对于基本类型你也需要用指针来对参数赋值。
+                 * SDK提供对基本类型的指针引用封装函数
+                 * 帮助链接：
+                 * 短信控制台: https://console.cloud.tencent.com/smsv2
+                 * sms helper: https://cloud.tencent.com/document/product/382/3773 */
 
                 req.SmsSdkAppId = "1400787878";
                 /* 短信签名内容: 使用 UTF-8 编码，必须填写已审核通过的签名，签名信息可登录 [短信控制台] 查看 */
