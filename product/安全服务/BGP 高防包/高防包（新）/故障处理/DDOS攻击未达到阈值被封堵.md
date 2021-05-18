@@ -18,8 +18,10 @@
 
 ## 处理步骤
 1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/ddos/unblock/list)，在左侧导航中，选择【高防包】页面，查看自助解封剩余次数。
-  - 若自助解封剩余次数为0，则跳转到 [步骤5](#step5)。
+  - 若自助解封剩余次数为0，则跳转到 [步骤5](#step5)，或等待自动解封。
   - 若自助解封剩余次数不为0，则跳转到 [步骤2](#step2)。
+  >?自动解封时间，请参考控制台 [解封操作](https://console.cloud.tencent.com/ddos/unblock/list) 页面的“预计解封时间”项。
+  >
  ![](https://main.qcloudimg.com/raw/60cd49ffe14db07d0861911c963edb49.png)
 2. [](id:step2)查看攻击是否已停止，请单击 [防护概览](https://console.cloud.tencent.com/ddos/antiddos-native/overview/ddos) 查看。
  - 若是，则跳转到 [步骤3](#step3)。
