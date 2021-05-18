@@ -175,4 +175,4 @@ grep metrics /usr/local/service/flink/log/flink-hadoop-client-*.log
 ### 告警接入
 
 1. 登录 [ Prometheus  监控控制台](https://console.cloud.tencent.com/monitor/prometheus)，选择对应 Prometheus 实例进入管理页面。
-2. 单击告警策略，可以添加相应的告警策略，详情请参见 [新建告警策略](https://cloud.tencent.com/document/product/248/48952)。
+2. 单击告警策略，可以添加相应的告警策略，详情请参见 [新建告警策略](https://cloud.tencent.com/document/product/1416/56009)。
