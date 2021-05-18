@@ -60,6 +60,7 @@ authorityKeyIdentifier=keyid,issuer:always
 basicConstraints=CA:FALSE
 keyUsage=keyEncipherment,dataEncipherment
 extendedKeyUsage=serverAuth,clientAuth
+subjectAltName=@alt_names
 ```
 5. 执行以下命令，基于配置文件 `csr.conf` 生成证书签名请求。
 ```bash
