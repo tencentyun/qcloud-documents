@@ -64,11 +64,11 @@ use TencentCloud\Common\Profile\HttpProfile;
 
 try {
     /* 必要步骤：
-	 * 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey。
-	 * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
-	 * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
-	 * 以免泄露密钥对危及你的财产安全。
-	 * CAM密匙查询: https://console.cloud.tencent.com/cam/capi*/
+     * 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey。
+     * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
+     * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
+     * 以免泄露密钥对危及你的财产安全。
+     * CAM密匙查询: https://console.cloud.tencent.com/cam/capi*/
 
     $cred = new Credential("xxx", "xxx");
     //$cred = new Credential(getenv("TENCENTCLOUD_SECRET_ID"), getenv("TENCENTCLOUD_SECRET_KEY"));
@@ -94,9 +94,9 @@ try {
     /* 填充请求参数,这里request对象的成员变量即对应接口的入参
      * 你可以通过官网接口文档或跳转到request对象的定义处查看请求参数的定义
      * 基本类型的设置:
-	 * 帮助链接：
-	 * 短信控制台: https://console.cloud.tencent.com/smsv2
-	 * sms helper: https://cloud.tencent.com/document/product/382/3773 */
+     * 帮助链接：
+     * 短信控制台: https://console.cloud.tencent.com/smsv2
+     * sms helper: https://cloud.tencent.com/document/product/382/3773 */
 
     /* 短信应用ID: 短信SdkAppId在 [短信控制台] 添加应用后生成的实际SdkAppId，示例如1400006666 */
     $req->SmsSdkAppId = "1400787878";
@@ -105,7 +105,7 @@ try {
     /* 短信码号扩展号: 默认未开通，如需开通请联系 [sms helper] */
     $req->ExtendCode = "0";
     /* 下发手机号码，采用 E.164 标准，+[国家或地区码][手机号]
-	 * 示例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号，最多不要超过200个手机号*/
+     * 示例如：+8613711112222， 其中前面有一个+号 ，86为国家码，13711112222为手机号，最多不要超过200个手机号*/
     $req->PhoneNumberSet = array("+8613711112222");
     /* 国际/港澳台短信 SenderId: 国内短信填空，默认未开通，如需开通请联系 [sms helper] */
     $req->SenderId = "xxx";
@@ -151,11 +151,11 @@ use TencentCloud\Common\Profile\HttpProfile;
 
 try {
     /* 必要步骤：
-	 * 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey。
-	 * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
-	 * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
-	 * 以免泄露密钥对危及你的财产安全。
-	 * CAM密匙查询: https://console.cloud.tencent.com/cam/capi*/
+     * 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey。
+     * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
+     * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
+     * 以免泄露密钥对危及你的财产安全。
+     * CAM密匙查询: https://console.cloud.tencent.com/cam/capi*/
 
     $cred = new Credential("xxx", "xxx");
     //$cred = new Credential(getenv("TENCENTCLOUD_SECRET_ID"), getenv("TENCENTCLOUD_SECRET_KEY"));
@@ -181,13 +181,13 @@ try {
     /* 填充请求参数,这里request对象的成员变量即对应接口的入参
      * 你可以通过官网接口文档或跳转到request对象的定义处查看请求参数的定义
      * 基本类型的设置:
-	 * 帮助链接：
-	 * 短信控制台: https://console.cloud.tencent.com/sms/smslist
-	 * sms helper: https://cloud.tencent.com/document/product/382/3773 */
+     * 帮助链接：
+     * 短信控制台: https://console.cloud.tencent.com/sms/smslist
+     * sms helper: https://cloud.tencent.com/document/product/382/3773 */
 
     /* 短信应用ID: 短信SdkAppId在 [短信控制台] 添加应用后生成的实际SdkAppId，示例如1400006666 */
     $req->SmsSdkAppId = "1400787878";
-	/* 拉取最大条数，最多100条 */
+    /* 拉取最大条数，最多100条 */
     $req->Limit = 10;
 
 
@@ -225,11 +225,11 @@ use TencentCloud\Common\Profile\HttpProfile;
 
 try {
     /* 必要步骤：
-	 * 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey。
-	 * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
-	 * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
-	 * 以免泄露密钥对危及你的财产安全。
-	 * CAM密匙查询: https://console.cloud.tencent.com/cam/capi*/
+     * 实例化一个认证对象，入参需要传入腾讯云账户密钥对secretId，secretKey。
+     * 这里采用的是从环境变量读取的方式，需要在环境变量中先设置这两个值。
+     * 你也可以直接在代码中写死密钥对，但是小心不要将代码复制、上传或者分享给他人，
+     * 以免泄露密钥对危及你的财产安全。
+     * CAM密匙查询: https://console.cloud.tencent.com/cam/capi*/
 
     $cred = new Credential("xxx", "xxx");
     //$cred = new Credential(getenv("TENCENTCLOUD_SECRET_ID"), getenv("TENCENTCLOUD_SECRET_KEY"));
@@ -255,9 +255,9 @@ try {
     /* 填充请求参数,这里request对象的成员变量即对应接口的入参
      * 你可以通过官网接口文档或跳转到request对象的定义处查看请求参数的定义
      * 基本类型的设置:
-	 * 帮助链接：
-	 * 短信控制台: https://console.cloud.tencent.com/smsv2
-	 * sms helper: https://cloud.tencent.com/document/product/382/3773 */
+     * 帮助链接：
+     * 短信控制台: https://console.cloud.tencent.com/smsv2
+     * sms helper: https://cloud.tencent.com/document/product/382/3773 */
 
     /* 短信应用ID: 短信SdkAppId在 [短信控制台] 添加应用后生成的实际SdkAppId，示例如1400006666 */
     $req->SmsSdkAppId = "1400787878";
@@ -268,7 +268,7 @@ try {
     /* 开始时间，yyyymmddhh 需要拉取的起始时间，精确到小时 */
     $req->BeginTime = "2019122500";
     /* 结束时间，yyyymmddhh 需要拉取的截止时间，精确到小时
-	 * 注：EndTime 必须大于 BeginTime */
+     * 注：EndTime 必须大于 BeginTime */
     $req->EndTime = "2019122523";
 
     // 通过client对象调用SendStatusStatistics方法发起请求。注意请求方法名与请求对象是对应的
