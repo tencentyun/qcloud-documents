@@ -24,11 +24,26 @@
 
 ## 处理步骤
 ### [自助解封操作](id:zzjfcz)
-1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/ddos/unblock/list)，在左侧导航中，选择【自助解封】>【解封操作】，进入解封操作页面。
-2. 在解封操作页面，找到状态为“自动解封中”的防护 IP，在右侧操作栏中，单击【解封】。
+1. 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/ddos/unblock/list)，在左侧导航中，选择【高防包】页面，查看自助解封剩余次数。
+  - 若自助解封剩余次数为0，则跳转到 [步骤5](#step5)。
+  - 若自助解封剩余次数不为0，则跳转到 [步骤2](#step2)。
+ ![](https://main.qcloudimg.com/raw/60cd49ffe14db07d0861911c963edb49.png)
+2. [](id:step2)查看攻击是否已停止，请单击 [防护概览](https://console.cloud.tencent.com/ddos/antiddos-native/overview/ddos) 查看。
+ - 若是，则跳转到 [步骤3](#step3)。
+ - 若否，待攻击停止时，继续执行解封操作，执行 [步骤3](#step3)。
+>?攻击如果持续进行未停止，则无法进行解封，需等待攻击结束自助解封或自动解封。
+3. 在左侧导航中，选择【自助解封】>【解封操作】，进入解封操作页面。
+4. 在解封操作页面，找到状态为“自动解封中”的防护 IP，在右侧操作栏中，单击【解封】。
 ![](https://main.qcloudimg.com/raw/e4c7d9a99ae69d1aac98de90a0790bd4.png)
+5. [](id:step5)不同用户增加自动解封次数建议如下：
+ -  如果是 DDoS 基础防护用户，建议用户购买 [高防包](https://cloud.tencent.com/document/product/1021/43894)，[首次绑定设备](https://cloud.tencent.com/document/product/1021/43898) 可进行解封。 
+ - 如果是 DDoS 高防用户，建议用户 [升级防护套餐](https://cloud.tencent.com/document/product/1021/43908)，可提前解除封堵。
+ 
+
 
 ### [自动解封操作](id:zdjfcz)
+>?若无须尽快解封，您可以待系统后台为您自动解封，预计解封时间如下图所示。
+
 登录 [DDoS 防护管理控制台](https://console.cloud.tencent.com/ddos/unblock/list)，在左侧导航中，选择【自助解封】>【解封操作】，进入解封操作页面，即可查看预计解封时间。
 ![](https://main.qcloudimg.com/raw/ece0777a4f8355b6b4946704a7fafb5d.png)
 
