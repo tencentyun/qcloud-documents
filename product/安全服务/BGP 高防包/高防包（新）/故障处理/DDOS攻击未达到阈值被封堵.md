@@ -30,6 +30,6 @@
 3. [](id:step3)在左侧导航中，选择【自助解封】>【解封操作】，进入解封操作页面。
 4. 在解封操作页面，找到状态为“自动解封中”的防护 IP，在右侧操作栏中，单击【解封】。
   ![](https://main.qcloudimg.com/raw/5c29fca1c03855c4ebcfb8e821cfaae9.png)
-5. [](id:step5)不同DDoS防护产品的用户，建议如下：：
+5. [](id:step5)不同DDoS防护产品的用户，建议如下：
  -  如果是 DDoS 基础防护用户，建议用户购买 [高防包](https://cloud.tencent.com/document/product/1021/43894)，[首次绑定设备](https://cloud.tencent.com/document/product/1021/43898) 可进行解封。 
  - 如果是 DDoS 高防用户，建议用户 [升级防护套餐](https://cloud.tencent.com/document/product/1021/43908)，可提前解除封堵。
