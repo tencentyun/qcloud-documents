@@ -9,7 +9,7 @@
 > ?同一个地域仅支持购买一个实例。
 > ![](https://main.qcloudimg.com/raw/70581925a1e8283af17ade35fe004837.png)
 > 
-### （可选）账户初始化设置
+### 账户初始化设置（可选）
 1. 登录 [云访问安全代理控制台](https://console.cloud.tencent.com/casb)，在 CASB 实例页面右下角，单击【初始化】，进行初始化操作。
 	>?
 	>- 仅首次使用 CASB 实例需要进行以下操作操作。
