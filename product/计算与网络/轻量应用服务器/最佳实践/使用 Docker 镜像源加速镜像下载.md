@@ -10,8 +10,7 @@
 |---------|---------|
 | CentOS | 参考 [Docker 官方文档 - 在 CentOS 中安装 Docker](https://docs.docker.com/engine/install/centos/) 进行安装。 |
 | Ubuntu | 参考 [Docker 官方文档 - 在 Ubuntu 中安装 Docker](https://docs.docker.com/engine/install/ubuntu/) 进行安装。 |
-| Windows | 参考 [Docker 官方文档 - 在 Windows 中安装 Docker](https://docs.docker.com/docker-for-windows/install/) 进行安装。 |
-
+| Windows | 参考 [Docker 官方文档 - 在 Windows 中安装 Docker](https://docs.docker.com/docker-for-windows/install/) 进行安装，仅支持使用 Windows Server 2019 镜像的实例安装。 |
 
 ### 使用腾讯云 Docker 镜像源加速镜像下载
 
