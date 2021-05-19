@@ -402,6 +402,23 @@ XGPushConfig.getToken(getApplicationContext());
 
 ![](https://main.qcloudimg.com/raw/854020af14428df9972629e7dbbee55f.png)
 
+### 获获取 TPNS 运行日志交互建议
+
+SDK 提供日志上报接口。如用户在应用上线后遇到推送相关问题，可以通过引导用户操作触发此接口，上传 SDK 运行日志并获取回调返回的日志文件下载地址，方便问题排查。详情参考 [日志上报接口](https://cloud.tencent.com/document/product/548/36659#.E6.96.B0.E5.A2.9E.E6.97.A5.E5.BF.97.E4.B8.8A.E6.8A.A5.E6.8E.A5.E5.8F.A3)。
+
+示例代码如下：
+```java
+XGPushManager.uploadLogFile(context, new HttpRequestCallback() {
+    @Override
+    public void onSuccess(String result) {
+        Log.d("TPush", "上传成功，文件地址：" + result);
+    }
+        @Override
+    public void onFailure(int errCode, String errMsg) {
+        Log.d("TPush", "上传失败，错误码：" + errCode + ",错误信息：" + errMsg);
+    }
+});
+
 ### 隐私协议声明建议
 
 您可在申请 App 权限使用时，使用以下内容声明授权的用途：
