@@ -518,6 +518,8 @@ Content-Type: text/plain
 下面将通过一个示例来说明，假设输入数据为一个二进制 byte 流，我们通过 Set Payload 组件中使用 Dataway 表达式将该二进制 byte 流封装到 msg.payload 中，然后在下游可以使用 [Entity 选择器](https://cloud.tencent.com/document/product/1270/55573) 语法进行操作。
 **Dataway 表达式**
 ```pythonn
-def dw_process(msg):    b = msg.payload    return Entity.from_bytes(b, mime_type='application/octet-stream')
+def dw_process(msg): 
+    b = msg.payload
+    return Entity.from_bytes(b, mime_type='application/octet-stream')
 ```
 
