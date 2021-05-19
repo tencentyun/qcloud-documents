@@ -320,7 +320,7 @@ docker push ccr.ccs.tencentyun.com/[namespace]/[ImageName]:[镜像版本号]
 #### 创建 K8s 集群 PiggyMetrics
 
 1. 实际部署前，需要新建一个 K8S 集群。有关集群的创建，请参见 [创建集群](https://cloud.tencent.com/document/product/457/54231) 文档。
->!在创建集群时，在“选择机型” 页面建议开启“置放群组功能”，该功能可将 CVM 打散到到不同母机上，增加系统可靠性。如下图所示：
+>!在创建集群时，在“选择机型” 页面建议开启“置放群组功能”，该功能可将 CVM 打散到不同母机上，增加系统可靠性。如下图所示：
 ![](https://main.qcloudimg.com/raw/6aba7922f3b7247cda8cb8e5b8959578.jpg)
 2. 创建完成后，在容器服务控制台的 [集群管理](https://console.cloud.tencent.com/tke2/cluster) 页面可以看到新建的集群信息。本文新建的集群名称为 piggyMetrics。如下图所示：
 ![](https://main.qcloudimg.com/raw/1157a6c99171ef8080c860eae636881a.png)
