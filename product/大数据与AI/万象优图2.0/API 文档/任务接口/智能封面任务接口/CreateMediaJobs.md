@@ -43,44 +43,46 @@ Content-Type: application/xml
     </Output>
   </Operation>
   <QueueId></QueueId>
+  <CallBack></CallBack>
 </Request>
 ```
 
 具体的数据描述如下：
 
-| 节点名称（关键字） | 父节点 | 描述           | 类型      | 必选 |
+| 节点名称（关键字） | 父节点 | 描述           | 类型      | 是否必选 |
 | ------------------ | ------ | -------------- | --------- | ---- |
 | Request            | 无     | 保存请求的容器 | Container | 是   |
 
 Container 类型 Request 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 必选 |
+| 节点名称（关键字） | 父节点  | 描述                                                     | 类型      | 是否必选 |
 | ------------------ | ------- | -------------------------------------------------------- | --------- | ---- |
 | Tag                | Request | 创建任务的 Tag：Transcode（转码）、Animation（动图）、SmartCover（智能封面）、Snapshot（截图）、Concat（拼接）                             | String    | 是   |
 | Input              | Request | 待操作的媒体信息                                         | Container | 是   |
 | Operation          | Request | 操作规则，支持对单个文件执行多个不同任务，最多可填写6个                                               | Container | 是   |
 | QueueId            | Request | 任务所在的队列 ID                                         | String    | 是   |
+| CallBack           | Request | 回调地址                 | String    | 是   |
 
 Container 类型 Input 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点        | 描述            | 类型   | 必选 |
+| 节点名称（关键字） | 父节点        | 描述            | 类型   | 是否必选 |
 | ------------------ | ------------- | --------------- | ------ | ---- |
-| Object             | Request.Input | 媒体文件的名字 | String | 是   |
+| Object             | Request.Input | 媒体文件名 | String | 是   |
 
 Container 类型 Operation 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 必选 |
+| 节点名称（关键字） | 父节点            | 描述                                                         | 类型      | 是否必选 |
 | ------------------ | ----------------- | ------------------------------------------------------------ | --------- | ---- |
 | SmartCover                   | Request.Operation | 当 Tag 为 SmartCover 时有效，目前为空        | Container | 否   |
 | Output                       | Request.Operation | 结果输出地址                                | Container | 是   |
 
 Container 类型 Output 的具体数据描述如下：
 
-| 节点名称（关键字） | 父节点                   | 描述                                                         | 类型   | 必选 |
+| 节点名称（关键字） | 父节点                   | 描述                                                         | 类型   | 是否必选 |
 | ------------------ | ------------------------ | ------------------------------------------------------------ | ------ | ---- |
-| Region             | Request.Operation.Output | 存储桶的园区                                                 | String | 是   |
+| Region             | Request.Operation.Output | 存储桶的地域                                                | String | 是   |
 | Bucket             | Request.Operation.Output | 存储结果的存储桶                                             | String | 是   |
-| Object             | Request.Operation.Output | 结果文件的名字。<br/>**当任务类型为 SmartCover 时，必须包含 ${Number} 参数。**<br/>如 Object 为 my-new-cover-${Number}.jpg，对应实际3张输出结果时，分别为<br/>my-new-cover-0.jpg<br/>my-new-cover-1.jpg<br/>my-new-cover-2.jpg | String | 是   |
+| Object             | Request.Operation.Output | 输出结果的文件名。<br/>**当任务类型为 SmartCover 时，必须包含 ${Number} 参数。**<br/>如 Object 为 my-new-cover-${Number}.jpg，对应实际3张输出结果时，分别为<br/>my-new-cover-0.jpg<br/>my-new-cover-1.jpg<br/>my-new-cover-2.jpg | String | 是   |
 
 
 
@@ -197,6 +199,7 @@ Content-Type: application/xml
     </Output>
   </Operation>
   <QueueId>p893bcda225bf4945a378da6662e81a89</QueueId>
+  <CallBack>https://www.callback.com</CallBack>
 </Request>
 ```
 
