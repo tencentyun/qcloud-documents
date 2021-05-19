@@ -10,7 +10,7 @@ List Multipart Uploads 用于查询正在进行中的分块上传任务。单次
             <div class="rno-api-explorer-title">
                 推荐使用 API Explorer
             </div>
-            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=ListParts&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=ListMultipartUploads&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
         </div>
         <div class="rno-api-explorer-body">
             <div class="rno-api-explorer-cont">
