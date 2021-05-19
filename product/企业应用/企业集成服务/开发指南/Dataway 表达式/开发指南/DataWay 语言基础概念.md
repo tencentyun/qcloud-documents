@@ -3,6 +3,7 @@ DataWay 语言是一门在 EIS 中用于对数据进行自定义转换与处理�
 
 ## 脚本结构
 - 完整的 DataWay 脚本符合语法定义的 Python3 代码段，其中包含入口函数定义 def dw_process(msg) ，例如：
+
 ```python
 def dw_process(msg):  
     sq = func(3)
@@ -19,6 +20,7 @@ def func(x):
 - dw_process 入口函数仅接受一个参数 msg，该参数代表当前表达式需要处理的 EIS 消息，dw_process 的返回值即是表达式的返回值。
 - 内置的 Entity.from_value 函数用于为构造 Entity 类型的返回值，可以指定序列化参数，例如：mime_type、encoding 等。
 - 在 Set Payload 组件中输入上述表达式，假设该组件的输入消息为 json 结构的数据`{"realData": 123}`，经过 DataWay 表达式的计算，得到的输出结果如下：
+
 ```json
 {    
     "square": 9,
@@ -94,6 +96,7 @@ DataWay 支持常见的运算符：算数运算符、比较运算符、赋值运
 ### 条件及循环控制语句
 - DataWay 通过 if/elif/else 语句来进行条件控制。示例如下：
  - 通过判断 a 的值，返回不同的字符串：
+ 
 ```python
 def dw_process(msg):  
     a = 100
@@ -104,9 +107,11 @@ def dw_process(msg):
     else:
         return 'a is bigger than 100'
 ```
+
  - DataWay 表达式的运行结果为：`a is between 10 and 100`
 - DataWay 通过 for 循环进行循环控制。示例如下：
  - 通过 for 循环，得到 a 中元素的乘积：
+ 
 ```python
 def dw_process(msg): 
     a = [1, 2, 3, 4]
@@ -115,12 +120,14 @@ def dw_process(msg):
         num *= i
     return num
 ```
+
  - DataWay 表达式的运行结果为：`24`
 
 ### 定义函数
 
 - 在 DataWay 中，可以使用 def 关键词定义函数，后接函数名和参数名列表，以冒号“：”作为定义函数行的结尾，下一行默认缩进；最终以 return 语句结束函数，如果不带 return 则相当于返回 None。
 - 定义一个函数后，可以在另一个函数中调用执行。在 DataWay 中，默认的入口函数 dw_process 函数无需手工声明。如果想自定义函数，直接在 dw_process 入口函数下方定义即可。如下示例，定义一个函数 test() 用于对列表元素求和，并在 dw_process() 函数中调用，最终使用 return 语句返回结果。
+
 ```python
 def dw_process(msg): 
     a = [1, 2, 3, 4]
@@ -132,11 +139,13 @@ def add_list(alist):
         sum += i
     return sum
 ```
+
 最终的输出结果为：`10`
 
 ### 模块调用
 
 DataWay 内置多个第三方模块，例如：time、json、math、base64、hmac、random、 hashlib、Crypto、socket、struct、decimal 和 datetime 等，使用时直接引用模块名即可，无需使用 import 关键字。具体的函数说明可参考 [DataWay 函数参考](https://cloud.tencent.com/document/product/1270/55568)。具体示例如下，接收一个 json 类型字符串，转换成一个 dict 字典：
+
 ```python
 def dw_process(msg):
     jsonStr = '{"a": 1, "b": 2, "c": 3}'
@@ -146,10 +155,12 @@ def dw_process(msg):
         num += math.pow(v, 2)
     return num
 ```
+
 最终的输入结果为: `15.0`
 
 ### 注释
 DataWay 单行注释以`#`开头，多行注释则可以用多个`#` 号，或者`'''`和`"""`。举例如下，执行下面代码：
+
 ```python
 # Dataway 注释
 
@@ -165,10 +176,13 @@ Dataway 注释
 def dw_process(msg):
     return 'Dataway Hello World!'
 ```
+
 输出结果为：
+
 ```python
 Dataway Hello World!
 ```
+
 >!DataWay 提供语法检查功能，在编写代码时会进行实时语法检查，并给出错误提示。详细的 Python 语法说明可以参考 [Python 官方文档](https://docs.python.org/zh-cn/3.5/reference/index.html)。
 
 ## dw_process 入口函数
