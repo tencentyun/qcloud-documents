@@ -9,6 +9,7 @@
 提供了如下安装方法，您可根据自己所使用的系统进行选择：
 - 前往 [Github](https://github.com/billziss-gh/winfsp/releases) 下载 Winfsp。
 待下载完成后，按步骤默认安装即可。
+>?WinFsp 支持 Windows 7/Server 2012和以上版本。
 - 前往 [Git 官网](https://gitforwindows.org/) 或者 [Github](https://github.com/git-for-windows/git/releases/) 下载 Git 工具。
 本实践下载的版本为 Git-2.31.1-64-bit.exe，下载完成后，按步骤默认安装即可。
 - 前往 [Rclone 官网](https://rclone.org/downloads/) 或者 [Github](https://github.com/rclone/rclone/releases) 下载 Rclone 工具。
