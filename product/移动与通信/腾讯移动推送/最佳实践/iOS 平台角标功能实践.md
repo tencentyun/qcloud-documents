@@ -11,7 +11,7 @@
 ### 实现方法
 
 此类场景建议使用角标自增方案，如下：
-**第一步：**创建推送（TPNS RestAPI 地址：v3/push/app）时，设置应用角标数 badge_type = -2，角标数字自动加1。
+**第一步：**[通过 API 创建推送](https://cloud.tencent.com/document/product/548/39064#ios-.E9.80.9A.E7.9F.A5.E6.B6.88.E6.81.AF) 时，设置应用角标数 badge_type = -2，角标数字自动加1。
 **第二步：**当 App 启动时，先调用「清空应用角标并清空通知栏」方法来清空本地角标数和通知栏消息，实现代码如下图：
 ![](https://main.qcloudimg.com/raw/076ca2d56865d332b0821dca8ffcfdbb.png)
 **第三步：**清空云端角标数，实现代码如下图：
