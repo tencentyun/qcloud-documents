@@ -1,3 +1,10 @@
+### 2.11.0 @2021.5.19
+
+**新增**
+
+支持 WebSocket，[升级指引](https://web.sdk.qcloud.com/im/doc/zh-cn/tutorial-02-upgradeguideline.html)。
+
+
 ### 2.10.2 @2021.4.27
 
 **新增**
