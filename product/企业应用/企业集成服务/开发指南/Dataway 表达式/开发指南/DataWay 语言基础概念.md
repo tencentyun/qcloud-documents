@@ -94,8 +94,7 @@ DataWay 支持常见的运算符：算数运算符、比较运算符、赋值运
 | <<         | 右移运算符           | a >> 1 = 2 (0101 >> 1 = 0010)            |
 
 ### 条件及循环控制语句
-- DataWay 通过 if/elif/else 语句来进行条件控制。示例如下：
- - 通过判断 a 的值，返回不同的字符串：
+- DataWay 通过 if/elif/else 语句来进行条件控制。示例如下：通过判断 a 的值，返回不同的字符串：
  
 ```python
 def dw_process(msg):  
@@ -107,10 +106,8 @@ def dw_process(msg):
     else:
         return 'a is bigger than 100'
 ```
-
- - DataWay 表达式的运行结果为：`a is between 10 and 100`
-- DataWay 通过 for 循环进行循环控制。示例如下：
- - 通过 for 循环，得到 a 中元素的乘积：
+DataWay 表达式的运行结果为：`a is between 10 and 100`
+- DataWay 通过 for 循环进行循环控制。示例如下：通过 for 循环，得到 a 中元素的乘积：
  
 ```python
 def dw_process(msg): 
@@ -120,8 +117,7 @@ def dw_process(msg):
         num *= i
     return num
 ```
-
- - DataWay 表达式的运行结果为：`24`
+DataWay 表达式的运行结果为：`24`
 
 ### 定义函数
 
@@ -230,17 +226,21 @@ Message 类型是 DataWay 用于表示一条 EIS 消息的数据类型，其中�
 ## DataWay IDE 使用
 在 EIS 系统新建一个 Set Variable 组件，单击变量值文本框进入 DataWay 脚本编辑器，该编辑器提供语法检查、格式化、脚本调试、自动联想、代码高亮等类 IDE 功能。
 <img src="https://main.qcloudimg.com/raw/27cb6a575cbd1bdac914981679ff2bc2/ide-%E6%95%B4%E4%BD%93%E9%A1%B5%E9%9D%A2.png" alt="ide-整体页面" style="zoom: 50%;" />
+
 ### 语法检查
 在 DataWay IDE 中，能够实时对 DataWay 表达式进行语法检查，并通过强提示显示在 IDE 左侧和出错代码底部。当鼠标移动到错误提醒处，会有详细的错误信息说明。用户可以根据语法提示来对 DataWay 脚本进行修改，只有语法检查通过的代码才能够保存成功。
 <img src="https://main.qcloudimg.com/raw/46bc25019af93bcb6b73dba766468444/ide-%E8%AF%AD%E6%B3%95%E6%A3%80%E6%9F%A5.png" alt="ide-语法检查" style="zoom:50%;" />
+
 ### 格式化
 在 Dataway IDE 中，提供有格式化功能按钮。用户可以单击右上角格式化按钮，一键对 DataWay 代码格式化，以使代码更加简洁规范。
 <img src="https://main.qcloudimg.com/raw/4373c5f877489eb9d67f27d1247a0dc3/ide-%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%89%8D.png" alt="ide-格式化前" style="zoom:50%;" />
  - 单击右上角格式化按钮后，格式化后的代码如下图：
 ![](https://main.qcloudimg.com/raw/f46937560a73d88ab0c32cd6d0823582/ide-%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%90%8E.png)
+
 ### 脚本调试
 在 DataWay IDE 中，提供有 Debug 调试功能按钮。用户可以单击右上角“Debug”图标，在线对 DataWay 脚本进行调试。详细的使用方法可见 [DataWay 脚本调试](https://cloud.tencent.com/document/product/1270/55618)。
 ![](https://main.qcloudimg.com/raw/d59d57534cc3616ddc1a994530bf1d61/ide-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95.png)
+
 ### 自动联想
 DataWay IDE 能够自动对流中已配置的 payload、vars、attrs 中的变量名进行联想，并展示在 IDE 右侧栏。例如：在 Set Variable 组件前已经创建了一个 Set Payload 和一个 Set Variable 组件，则右侧栏会展示出来，单击对应的联想值会自动加入到左侧编辑框中。
 ![](https://main.qcloudimg.com/raw/ae9a1410a37e2a9144e0f3520918c12f/ide-%E8%87%AA%E5%8A%A8%E8%81%94%E6%83%B3.png)
