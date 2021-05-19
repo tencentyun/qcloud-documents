@@ -13,7 +13,7 @@ iOS SDK 接入请观看视频：
 - 进入 [API 密钥管理页面](https://console.cloud.tencent.com/cam/capi)，获取 AppID、SecretID 与 SecretKey。
 
 ### SDK 导入
-iOS SDK 压缩包名称为：QCloudSDK_iOS_v2.4.6.zip，压缩包中包含 Sample Code 和 QCloudSDK。
+下载并解压 iOS SDK 压缩包，压缩包中包含 Sample Code 和 QCloudSDK。
 
 ### 工程配置
 在工程` info.plist` 添加以下设置：
