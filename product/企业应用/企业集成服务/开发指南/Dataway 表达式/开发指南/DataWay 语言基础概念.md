@@ -4,14 +4,26 @@ DataWay 语言是一门在 EIS 中用于对数据进行自定义转换与处理�
 ## 脚本结构
 - 完整的 DataWay 脚本符合语法定义的 Python3 代码段，其中包含入口函数定义 def dw_process(msg) ，例如：
 ```python
-def dw_process(msg):    sq = func(3)    val = {        'square': sq,        'data': msg.payload['realData'] + 1    }    return Entity.from_value(val, mime_type='application/json')def func(x):    return x*x
+def dw_process(msg):  
+    sq = func(3)
+    val = {        
+        'square': sq,        
+        'data': msg.payload['realData'] + 1
+    }
+    return Entity.from_value(val, mime_type='application/json')
+
+def func(x):
+    return x*x
 ```
 
 - dw_process 入口函数仅接受一个参数 msg，该参数代表当前表达式需要处理的 EIS 消息，dw_process 的返回值即是表达式的返回值。
 - 内置的 Entity.from_value 函数用于为构造 Entity 类型的返回值，可以指定序列化参数，例如：mime_type、encoding 等。
 - 在 Set Payload 组件中输入上述表达式，假设该组件的输入消息为 json 结构的数据`{"realData": 123}`，经过 DataWay 表达式的计算，得到的输出结果如下：
 ```json
-{    "square": 9,    "data": 124}
+{    
+    "square": 9,
+    "data": 124
+}
 ```
 
 ## 基本语法说明
@@ -83,13 +95,25 @@ DataWay 支持常见的运算符：算数运算符、比较运算符、赋值运
 - DataWay 通过 if/elif/else 语句来进行条件控制。示例如下：
  - 通过判断 a 的值，返回不同的字符串：
 ```python
-def dw_process(msg):    a = 100    if a < 10:        return 'a is lower than 10'    elif a <= 100 and a >= 10:        return 'a is between 10 and 100'    else:        return 'a is bigger than 100'
+def dw_process(msg):  
+    a = 100
+    if a < 10:
+        return 'a is lower than 10'
+    elif a <= 100 and a >= 10:
+        return 'a is between 10 and 100'
+    else:
+        return 'a is bigger than 100'
 ```
  - DataWay 表达式的运行结果为：`a is between 10 and 100`
 - DataWay 通过 for 循环进行循环控制。示例如下：
  - 通过 for 循环，得到 a 中元素的乘积：
 ```python
-def dw_process(msg):    a = [1, 2, 3, 4]    num = 1    for i in a:        num *= i    return num
+def dw_process(msg): 
+    a = [1, 2, 3, 4]
+    num = 1
+    for i in a:
+        num *= i
+    return num
 ```
  - DataWay 表达式的运行结果为：`24`
 
@@ -98,7 +122,15 @@ def dw_process(msg):    a = [1, 2, 3, 4]    num = 1    for i in a:        num *=
 - 在 DataWay 中，可以使用 def 关键词定义函数，后接函数名和参数名列表，以冒号“：”作为定义函数行的结尾，下一行默认缩进；最终以 return 语句结束函数，如果不带 return 则相当于返回 None。
 - 定义一个函数后，可以在另一个函数中调用执行。在 DataWay 中，默认的入口函数 dw_process 函数无需手工声明。如果想自定义函数，直接在 dw_process 入口函数下方定义即可。如下示例，定义一个函数 test() 用于对列表元素求和，并在 dw_process() 函数中调用，最终使用 return 语句返回结果。
 ```python
-def dw_process(msg):    a = [1, 2, 3, 4]    return add_list(a)def add_list(alist):    sum = 0    for i in reversed(alist):        sum += i    return sum
+def dw_process(msg): 
+    a = [1, 2, 3, 4]
+    return add_list(a)
+
+def add_list(alist):
+    sum = 0
+    for i in reversed(alist):
+        sum += i
+    return sum
 ```
 最终的输出结果为：`10`
 
@@ -106,7 +138,13 @@ def dw_process(msg):    a = [1, 2, 3, 4]    return add_list(a)def add_list(alist
 
 DataWay 内置多个第三方模块，例如：time、json、math、base64、hmac、random、 hashlib、Crypto、socket、struct、decimal 和 datetime 等，使用时直接引用模块名即可，无需使用 import 关键字。具体的函数说明可参考 [DataWay 函数参考](https://cloud.tencent.com/document/product/1270/55568)。具体示例如下，接收一个 json 类型字符串，转换成一个 dict 字典：
 ```python
-def dw_process(msg):    jsonStr = '{"a": 1, "b": 2, "c": 3}'    jsonDict = json.loads(jsonStr)  # 转换成一个dict    num = 1    for k, v in jsonDict.items():   # 对dict进行遍历        num += math.pow(v, 2)    return num
+def dw_process(msg):
+    jsonStr = '{"a": 1, "b": 2, "c": 3}'
+    jsonDict = json.loads(jsonStr)  # 转换成一个dict
+    num = 1
+    for k, v in jsonDict.items():   # 对dict进行遍历
+        num += math.pow(v, 2)
+    return num
 ```
 最终的输入结果为: `15.0`
 
