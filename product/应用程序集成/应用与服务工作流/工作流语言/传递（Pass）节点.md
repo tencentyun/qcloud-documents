@@ -9,7 +9,7 @@
 | 字段                   | 描述                                                         |
 | ---------------------- | ------------------------------------------------------------ |
 | Result（可选）         | 当前节点的输出数据，并传递到下一个节点。如果存在 ResultPath 字段，则按照 ResultPath 的内容进行筛选后输出。 |
-| ResultPath（可选）     | 指定输出数据在输入数据的存储位置。然后将输出数据插入到输入数据中，并将合并后的数据作为最后输出数据。 如果存在 OutputPath 字段，将进行再次内容进行筛选后输出。 更多关于结果路径的信息参见 [输入与输出](https://cloud.tencent.com/document/product/1272/55657) 。 |
+| ResultPath（可选）     | 指定输出数据在输入数据的存储位置。然后将输出数据插入到输入数据中，并将合并后的数据作为最后输出数据。 如果存在 OutputPath 字段，将再次对内容进行筛选后输出。 更多关于结果路径的信息参见 [输入与输出](https://cloud.tencent.com/document/product/1272/55657) 。 |
 | Parameters（可选）     | 指定作为输入传递的键值对集合。有关更多信息，请参阅 [输入与输出](https://cloud.tencent.com/document/product/1272/55657)。 |
 | ResultSelector（可选） | 指定作为输出数据的键值对集合，并传递给ResultPath。有关更多信息，请参阅 [输入与输出](https://cloud.tencent.com/document/product/1272/55657)。 |
 
