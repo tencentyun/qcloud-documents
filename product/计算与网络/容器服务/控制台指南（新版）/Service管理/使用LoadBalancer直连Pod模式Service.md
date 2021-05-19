@@ -12,7 +12,7 @@
 >
 
 
-## 容器网络模式是 VPC-CNI
+## 容器网络模式为 VPC-CNI
 
 ### 使用限制
 
@@ -97,7 +97,7 @@ service.cloud.tencent.com/tke-service-config: [tke-service-configName]
 
 
 
-## 容器网络模式是 GlobalRouter 模式
+## 容器网络模式为 GlobalRouter 
 
 ### 使用限制
 
