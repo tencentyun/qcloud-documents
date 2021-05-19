@@ -50,7 +50,7 @@ EMR Ranger YARN 目前仅支持 Capacity Scheduler 队列的 ACL，不支持 Fai
 <td>资源使用的用户名</td>
 </tr>
 <tr>
-<td>Passwrod</td>
+<td>Password</td>
 <td>是</td>
 <td>用户密码</td>
 </tr>
