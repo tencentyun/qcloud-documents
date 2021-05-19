@@ -42,12 +42,13 @@
 1. 基本信息设置完成后，在 [实例列表](https://console.cloud.tencent.com/casb) 左侧操作栏，单击 ID/名称处的“实例名”，进入“基本信息”页面。
 2. 在基本信息页面右上角操作栏中，单击【安全组】进入安全组页面。
 ![](https://main.qcloudimg.com/raw/0115a337644a15dd919dec2b54fabc4c.png)
-2. 在安全组页面中，单击【编辑】，进入“绑定安全组”页面。
+3. 在安全组页面中，单击【编辑】，进入“绑定安全组”页面。
 ![](https://main.qcloudimg.com/raw/9f7d77b56fbb5c28e6602448befaac17.png)
-3. 在绑定安全组页面中，选择所需的安全组，单击【确定】即完成安全组配置，并可预览“入站规则”及“出站规则”。
+4. 在绑定安全组页面中，选择所需的安全组，单击【确定】即完成安全组配置。
 > !在进行操作前，需已完成安全组配置，详情请参见 [创建安全组](https://cloud.tencent.com/document/product/215/20398)。
 > 
 ![](https://main.qcloudimg.com/raw/f5de699737a94153c0b6e57a43796205.png)
+4. 完成安全组配置后，单击“入站规则”或“出站规则”，即可预览“入站规则”及“出站规则”
 ![](https://main.qcloudimg.com/raw/38c3cc5ab866fc25f22e157d2e98418b.png)
 
 ### 设置Proxy 资源
