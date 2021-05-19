@@ -6,6 +6,23 @@ COS 支持用户以生命周期配置的方式来管理 Bucket 中 Object 的生
 - **转换操作：**定义对象转换为另一个存储类的时间。例如，您可以选择在对象创建30天后将其转换为低频存储（STANDARD_IA，适用于不常访问）存储类别。同时也支持将数据沉降到智能分层存储（INTELLIGENT_TIERING，访问模式不固定）和归档存储（ARCHIVE，成本更低）。具体参数查看请求示例说明中 Transition 项。
 - **过期操作：**指定 Object 的过期时间。COS 将会自动为用户删除过期的 Object。
 
+
+<div class="rno-api-explorer">
+    <div class="rno-api-explorer-inner">
+        <div class="rno-api-explorer-hd">
+            <div class="rno-api-explorer-title">
+                推荐使用 API Explorer
+            </div>
+            <a href="https://console.cloud.tencent.com/api/explorer?Product=cos&Version=2018-11-26&Action=PutBucketLifecycle&SignVersion=" class="rno-api-explorer-btn" hotrep="doc.api.explorerbtn" target="_blank"><i class="rno-icon-explorer"></i>点击调试</a>
+        </div>
+        <div class="rno-api-explorer-body">
+            <div class="rno-api-explorer-cont">
+                API Explorer 提供了在线调用、签名验证、SDK 代码生成和快速检索接口等能力。您可查看每次调用的请求内容和返回结果以及自动生成 SDK 调用示例。
+            </div>
+        </div>
+    </div>
+</div>
+
 #### 细节分析
 
 PUT Bucket lifecycle 用于为 Bucket 创建一个新的生命周期配置。如果该 Bucket 已配置生命周期，使用该接口创建新的配置的同时则会覆盖原有的配置。
