@@ -22,7 +22,7 @@ Prometheus 监控服务已经深度集成了腾讯云容器服务  TKE，用户�
 
 1. 在实例列表中，选择需要集成的 Prometheus 实例，单击【实例 ID】或者右侧的【管理】，进入 Prometheus 实例管理页。
 2. 单击【集成容器服务】> 选择对应的容器集群 > 单击【安装】来进行自动化集成，在安装弹框中可以选择需要集成的基础监控组件。
-	 ![](https://main.qcloudimg.com/raw/68aaf7354f31b7e5b47ec264a109ab09.png)
+![](https://main.qcloudimg.com/raw/f18800745d34376a61049f47a0ae12d1.png)
 3. 整体集成操作为异步操作，大概需要2 - 3分钟，监控状态显示“已安装”即安装成功。
   >?集成过程中需要用户授权之后来操作腾讯云容器服务 TKE，具体的授权操作请参见 [服务授权相关角色权限说明](https://cloud.tencent.com/document/product/1416/56023)。
 
