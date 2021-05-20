@@ -60,6 +60,6 @@ TencentOS Server 全面开源。您可前往 [腾讯云软件源](http://mirrors
 ### TencentOS Server 如何保证系统的安全？
 TencentOS Server 版本与 RHEL7 和 RHEL8 二进制兼容，遵从 RHEL 的安全规范。腾讯云从以下方面保证 TencentOS Server 系统的安全性：
 - 使用腾讯自研的漏洞扫描工具和业内标准的漏洞扫描与安全检测工具，定期进行安全扫描。
-- 与腾讯安全团队合作，支持对T encentOS Server 的安全扫描和安全加固。
+- 与腾讯安全团队合作，支持对 TencentOS Server 的安全扫描和安全加固。
 - 定期评估 RHEL 和社区的 CVE 补丁，定期更新用户态软件包，修补安全漏洞。
 - 通过腾讯云的主机安全功能，定期对系统进行安全体检，并发布用户安全警告和修复方案。

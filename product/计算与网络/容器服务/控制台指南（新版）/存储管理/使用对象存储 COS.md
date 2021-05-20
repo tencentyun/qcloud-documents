@@ -131,14 +131,14 @@ apiVersion: v1
 kind: Secret
 type: Opaque
 metadata:
-  name: cos-secret
-  # Replaced by your secret namespace.
-  namespace: kube-system
+   name: cos-secret
+   # Replaced by your secret namespace.
+   namespace: kube-system
 data:
-  # Replaced by your temporary secret file content. You can generate a temporary secret key with these docs:
-  # Note: The value must be encoded by base64.
-  SecretId: VWVEJxRk5Fb0JGbDA4M...(base64 encode)
-  SecretKey: Qa3p4ZTVCMFlQek...(base64 encode)
+   # Replaced by your temporary secret file content. You can generate a temporary secret key with these docs:
+   # Note: The value must be encoded by base64.
+   SecretId: VWVEJxRk5Fb0JGbDA4M...(base64 encode)
+   SecretKey: Qa3p4ZTVCMFlQek...(base64 encode)
 ```
 
 #### 创建支持 COS-CSI 动态配置的 PV[](id:StepTwo)
@@ -147,29 +147,29 @@ data:
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: "cos-pv"
+   name: "cos-pv"
 spec:
-  accessModes:
-  - ReadWriteMany
-  capacity:
-    storage: 1Gi
-  csi:
-    driver: com.tencent.cloud.csi.cosfs
-    # Specify a unique volumeHandle like bucket name.(this value must different from other pv's volumeHandle)
-    volumeHandle: xxx
-    volumeAttributes:
-      # Replaced by the url of your region.
-      url: "http://cos.ap-guangzhou.myqcloud.com"
-      # Replaced by the bucket name you want to use.
-      bucket: "testbucket-1010101010"
-      # You can specify sub-directory of bucket in cosfs command in here.
-	  path: /costest
-      # You can specify any other options used by the cosfs command in here.
-      #additional_args: "-oallow_other"
-    nodePublishSecretRef:
-      # Replaced by the name and namespace of your secret.
-      name: cos-secret
-      namespace: kube-system
+   accessModes:
+   - ReadWriteMany
+   capacity:
+     storage: 1Gi
+   csi:
+     driver: com.tencent.cloud.csi.cosfs
+     # Specify a unique volumeHandle like bucket name.(this value must different from other pv's volumeHandle)
+     volumeHandle: xxx
+     volumeAttributes:
+       # Replaced by the url of your region.
+       url: "http://cos.ap-guangzhou.myqcloud.com"
+       # Replaced by the bucket name you want to use.
+       bucket: "testbucket-1010101010"
+       # You can specify sub-directory of bucket in cosfs command in here.
+	          path: /costest
+       # You can specify any other options used by the cosfs command in here.
+       #additional_args: "-oallow_other"
+     nodePublishSecretRef:
+       # Replaced by the name and namespace of your secret.
+       name: cos-secret
+       namespace: kube-system
 ```
 
 #### 创建 PVC 绑定 PV
@@ -179,17 +179,17 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-    name: cos-pvc
+   name: cos-pvc
 spec:
-  accessModes:
-  - ReadWriteMany
-  resources:
-    requests:
-      storage: 1Gi
-  # You can specify the pv name manually or just let kubernetes to bind the pv and pvc.
-  # volumeName: cos-pv
-  # Currently cos only supports static provisioning, the StorageClass name should be empty.
-  storageClassName: ""
+   accessModes:
+   - ReadWriteMany
+   resources:
+     requests:
+       storage: 1Gi
+   # You can specify the pv name manually or just let kubernetes to bind the pv and pvc.
+   # volumeName: cos-pv
+   # Currently cos only supports static provisioning, the StorageClass name should be empty.
+   storageClassName: ""
 ```
 
 #### 创建 Pod 使用 PVC
@@ -198,24 +198,24 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-    name: pod-cos
+   name: pod-cos
 spec:
-  containers:
-  - name: pod-cos
-    command: ["tail", "-f", "/etc/hosts"]
-    image: "centos:latest"
-    volumeMounts:
-    - mountPath: /data
-      name: cos
-    resources:
-      requests:
-        memory: "128Mi"
-        cpu: "0.1"
-  volumes:
-  - name: cos
-    persistentVolumeClaim:
-      # Replaced by your pvc name.
-      claimName: cos-pvc
+   containers:
+   - name: pod-cos
+     command: ["tail", "-f", "/etc/hosts"]
+     image: "centos:latest"
+     volumeMounts:
+     - mountPath: /data
+       name: cos
+     resources:
+       requests:
+         memory: "128Mi"
+         cpu: "0.1"
+   volumes:
+   - name: cos
+     persistentVolumeClaim:
+       # Replaced by your pvc name.
+       claimName: cos-pvc
 ```
 
 ## 相关信息

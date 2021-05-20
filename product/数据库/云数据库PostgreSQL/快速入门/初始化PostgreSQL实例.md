@@ -10,7 +10,7 @@
 <div style="background-color:#00A4FF; width: 170px; height: 35px; line-height:35px; text-align:center;"><a href="https://buy.cloud.tencent.com/pgsql" target="_blank"  style="color: white; font-size:16px;" hotrep="document.guide.3128.btn3">点此进入购买页面</a></div>
 
 ## 操作步骤
-1. 登录 [PostgreSQL 控制台](https://console.cloud.tencent.com/pgsql)，在实例列表，选择状态为“待初始化”的 PostgreSQL 实例，在“操作”列单击【初始化】。
+1. 登录 [PostgreSQL 控制台](https://console.cloud.tencent.com/pgsql)，在实例列表，选择状态为“待初始化”的实例，在“操作”列单击【初始化】。
 ![](https://main.qcloudimg.com/raw/8f108e72117b02f6503c59c892fa1d0e.png)
 2. 在弹出的初始化对话框，配置初始化相关参数，单击【确定】开始初始化。
  - **管理员用户名**：帐号名需要1-16个字符，由字母、数字或特殊字符组成；以字母开头，字母或数字结尾；特殊字符为\_；不区分大小写；不能为: postgres，不能以 pg\_ 开头。

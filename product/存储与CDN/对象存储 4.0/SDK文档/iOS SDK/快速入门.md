@@ -393,9 +393,9 @@ put.body =  url;
 [put setSendProcessBlock:^(int64_t bytesSent,
                             int64_t totalBytesSent,
                             int64_t totalBytesExpectedToSend) {
-    //      bytesSent                   新增字节数
-    //      totalBytesSent              本次上传的总字节数
-    //      totalBytesExpectedToSend    本地上传的目标字节数
+    //      bytesSent                 本次要发送的字节数（一个大文件可能要分多次发送）
+    //      totalBytesSent            已发送的字节数
+    //      totalBytesExpectedToSend  本次上传要发送的总字节数（即一个文件大小）
 }];
 
 //监听上传结果
@@ -435,9 +435,9 @@ put.setFinish { (result, error) in
 //监听上传进度
 put.sendProcessBlock = { (bytesSent, totalBytesSent,
     totalBytesExpectedToSend) in
-    //      bytesSent                   新增字节数
-    //      totalBytesSent              本次上传的总字节数
-    //      totalBytesExpectedToSend    本地上传的目标字节数
+    //      bytesSent                 本次要发送的字节数（一个大文件可能要分多次发送）
+    //      totalBytesSent            已发送的字节数
+    //      totalBytesExpectedToSend  本次上传要发送的总字节数（即一个文件大小）
 };
 //设置上传参数
 put.initMultipleUploadFinishBlock = {(multipleUploadInitResult, resumeData) in
@@ -479,9 +479,9 @@ request.downloadingURL = [NSURL fileURLWithPath:@"Local File Path"];
 [request setDownProcessBlock:^(int64_t bytesDownload,
                                 int64_t totalBytesDownload,
                                 int64_t totalBytesExpectedToDownload) {
-    //      bytesDownload                   新增字节数
-    //      totalBytesDownload              本次下载接收的总字节数
-    //      totalBytesExpectedToDownload    本次下载的目标字节数
+    //      bytesDownload                   本次要下载的字节数（一个大文件可能要分多次发送）
+    //      totalBytesDownload              已下载的字节数
+    //      totalBytesExpectedToDownload    本次要下载的总字节数（即一个文件大小）
 }];
 
 [[QCloudCOSTransferMangerService defaultCOSTransferManager] DownloadObject:request];
@@ -505,9 +505,9 @@ request.downloadingURL = NSURL.fileURL(withPath: "Local File Path") as URL?;
 //监听下载进度
 request.sendProcessBlock = { (bytesDownload, totalBytesDownload,
     totalBytesExpectedToDownload) in
-    //      bytesDownload                   新增字节数
-    //      totalBytesDownload              本次下载接收的总字节数
-    //      totalBytesExpectedToDownload    本次下载的目标字节数
+    //      bytesDownload                   本次要下载的字节数（一个大文件可能要分多次发送）
+    //      totalBytesDownload              已下载的字节数
+    //      totalBytesExpectedToDownload    本次要下载的总字节数（即一个文件大小）
 }
 
 //监听下载结果

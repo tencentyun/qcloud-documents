@@ -46,14 +46,14 @@
 ## 操作步骤
 
 ### 步骤1：确认操作权限
-1. 调用 [getGroupProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupProfile) 接口查看所在群组类型，确认是否支持禁言/取消禁言操作。
+1. 调用 [getGroupProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupProfile) 接口查看所在群组类型，确认是否支持禁言/取消禁言操作。
  >!若为群组类型为 Private 或 Work（好友工作群）则不支持禁言。
  >
-2. 调用 [getGroupMemberProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberProfile) 接口查看指定的 userID 在当前群的成员角色，确认是否有权限进行禁言/取消禁言操作。
+2. 调用 [getGroupMemberProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupMemberProfile) 接口查看指定的 userID 在当前群的成员角色，确认是否有权限进行禁言/取消禁言操作。
 
 ### 步骤2：禁言/取消禁言群成员
 #### 禁言/取消禁言单个用户
-App 管理员、群主或群管理员调用接口 [setGroupMemberMuteTime](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#setGroupMemberMuteTime) 可禁言/取消禁言指定群组内的指定成员，单次调用仅支持禁言/取消禁言单个群成员。
+App 管理员、群主或群管理员调用接口 [setGroupMemberMuteTime](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#setGroupMemberMuteTime) 可禁言/取消禁言指定群组内的指定成员，单次调用仅支持禁言/取消禁言单个群成员。
 请求参数如下表所示。
 
 | 名称      | 类型     | 描述    |
@@ -74,7 +74,7 @@ let promise = tim.setGroupMemberMuteTime({
 #### 禁言/取消禁言全体成员
 >!使用该功能需将 SDK 升级至2.6.2及以上版本。全体禁言或取消全体禁言，暂无相关的群提示消息下发。
  
-App 管理员或群主调用 [updateGroupProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#updateGroupProfile) 接口可禁言/取消禁言指定群的全体管理员和普通成员。
+App 管理员或群主调用 [updateGroupProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#updateGroupProfile) 接口可禁言/取消禁言指定群的全体管理员和普通成员。
 请求参数如下表所示。
 
 | 名称      | 类型     | 描述    |
@@ -98,7 +98,7 @@ promise.then(function(imResponse) {
 
 
 ### 步骤3：监听处理 TIM.EVENT.MESSAGE_RECEIVED 事件
-禁言后，该群成员收到的被禁言 [群提示消息](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html#.GroupTipPayload)，可通过遍历 event.data 获取相关数据并渲染到页面。
+禁言后，该群成员收到的被禁言 [群提示消息](https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html#.GroupTipPayload)，可通过遍历 event.data 获取相关数据并渲染到页面。
 >?在收到禁言/取消禁言的相关通知时，建议您自行实现 disable/enable 输入框或输入区域的状态。
 
 <pre>
@@ -115,7 +115,7 @@ tim.on(TIM.EVENT.MESSAGE_RECEIVED, function(event) {
       case TIM.TYPES.MSG_GRP_TIP:
         this._handleGroupTip(message);
         break;
-      case TIM.TYPES.MSG_TEXT: // 文本消息，更多消息类型请参考 <a href="https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/Message.html">Message</a>
+      case TIM.TYPES.MSG_TEXT: // 文本消息，更多消息类型请参考 <a href="https://web.sdk.qcloud.com/im/doc/zh-cn/Message.html">Message</a>
         break;
       default:
         break;
@@ -147,7 +147,7 @@ _handleGroupTip(message) {
 
 ### 步骤4：判断禁言状态
 
-- 2.6.2及以上版本 SDK，调用 [getGroupMemberList](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberList) 接口可以拉取群成员禁言截止时间戳（muteUntil），您根据该值即可判断群成员是否被禁言，以及禁言的剩余时间。取消禁言后，该群成员的 GroupMember.muteUntil * 1000 <= Date.now()。
+- 2.6.2及以上版本 SDK，调用 [getGroupMemberList](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupMemberList) 接口可以拉取群成员禁言截止时间戳（muteUntil），您根据该值即可判断群成员是否被禁言，以及禁言的剩余时间。取消禁言后，该群成员的 GroupMember.muteUntil * 1000 <= Date.now()。
 ```javascript
 // 从v2.6.2 起，getGroupMemberList 接口支持拉取群成员禁言截止时间戳。
 let promise = tim.getGroupMemberList({ groupID: 'group1', count: 30, offset:0 }); // 从0开始拉取30个群成员
@@ -164,5 +164,5 @@ promise.then(function(imResponse) {
   console.warn('getGroupMemberProfile error:', imError);
 });
 ```
-- 2.6.2以下版本 SDK， 调用 [getGroupMemberProfile](https://imsdk-1252463788.file.myqcloud.com/IM_DOC/Web/SDK.html#getGroupMemberProfile) 接口可以查询群成员禁言截止时间戳（muteUntil）等详细资料。
+- 2.6.2以下版本 SDK， 调用 [getGroupMemberProfile](https://web.sdk.qcloud.com/im/doc/zh-cn/SDK.html#getGroupMemberProfile) 接口可以查询群成员禁言截止时间戳（muteUntil）等详细资料。
 

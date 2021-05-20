@@ -13,7 +13,7 @@
 3. 选择左侧菜单栏中的【存储】>【StorageClass】，进入 “StorageClass” 页面。如下图所示：
 ![](https://main.qcloudimg.com/raw/9e4085b33612d7c234c9e868d941e561.png)
 4. 单击【新建】进入“新建StorageClass” 页面，参考以下信息进行创建。如下图所示：
-![](https://main.qcloudimg.com/raw/0ec304e86847fbb976e627f97a8c0f80.png)
+![](https://main.qcloudimg.com/raw/e3984211f83d506aa1116ffc39f47747.png)
 主要参数信息如下：
 	- **名称**：自定义，本文以 `cbs-test` 为例。
 	- **Provisioner**：选择【云硬盘CBS】。
@@ -130,8 +130,11 @@ parameters:
 #### 创建多实例 StatefulSet
 
 使用云硬盘创建多实例 StatefulSet，YAML 文件示例如下：
+<dx-alert infotype="explain" title="">
+资源对象的 apiVersion 可能因为您集群的 Kubernetes 版本不同而不同，您可通过 `kubectl api-versions` 命令查看当前资源对象的 apiVersion。
+</dx-alert>
 ``` yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: StatefulSet
 metadata:
    name: web

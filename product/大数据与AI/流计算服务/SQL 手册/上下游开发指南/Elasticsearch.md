@@ -8,8 +8,9 @@ Elasticsearch 只支持写入，可以作为 Tuple 数据流的目的表（Sink�
 
 如果希望将 JDBC 数据库的变动记录，将其作为流式源表消费，可以使用 [Debezium](https://debezium.io/documentation/reference/1.2/tutorial.html)、[Canal](https://github.com/alibaba/canal) 等，对 JDBC 据库的变更进行捕获和订阅，然后 Flink 即可对这些变更事件进行进一步的处理。可参见 [Kafka](https://cloud.tencent.com/document/product/849/48310)。
 
-## 示例：用作 Elasticsearch 6 数据目的（Sink）
-当写入 Elasticsearch 6.x 版本时，请在作业内置 Connector 中选择 `flink-connector-elasticsearch6`。
+## 示例
+### 用作 Elasticsearch 6 数据目的（Sink）
+当写入 Elasticsearch 6.x 版本时，需要在作业内置 Connector 中选择 `flink-connector-elasticsearch6`。
 >!目前该语法不支持用户名和密码鉴权。如果需要此功能，请使用 Flink 1.10 的旧语法。
 
 ```sql
@@ -23,12 +24,12 @@ CREATE TABLE `Data-Input` (
     'index' = 'my-index',                  -- Elasticsearch 的 Index 名
     'document-type' = '_doc',              -- Elasticsearch 的 Document 类型
     'sink.bulk-flush.max-actions' = '1',   -- 每条数据都刷新
-    'format' = 'json'                      -- 输出数据格式, 目前只支持 'json'
+    'format' = 'json'                      -- 输出数据格式，目前只支持 'json'
 );
 ```
 
-## 示例：用作 Elasticsearch 7 数据目的（Sink）
-当写入 Elasticsearch 7.x 版本时，请在作业内置 Connector 中选择 `flink-connector-elasticsearch7`。
+### 用作 Elasticsearch 7 数据目的（Sink）
+当写入 Elasticsearch 7.x 版本时，需要在作业内置 Connector 中选择 `flink-connector-elasticsearch7`。
 >!目前该语法不支持用户名和密码鉴权。如果需要此功能，请使用 Flink 1.10 旧语法。
 
 ```sql
@@ -41,7 +42,7 @@ CREATE TABLE `Data-Output` (
     'hosts' = 'http://10.28.28.94:9200',   -- Elasticsearch 的连接地址
     'index' = 'my-index',                  -- Elasticsearch 的 Index 名
     'sink.bulk-flush.max-actions' = '1',   -- 每条数据都刷新
-    'format' = 'json'                      -- 输出数据格式, 目前只支持 'json'
+    'format' = 'json'                      -- 输出数据格式，目前只支持 'json'
 );
 ```
 

@@ -11,20 +11,21 @@ Android 超级播放器 SDK 是腾讯云开源的一款播放器组件，简单�
 本文档部分内容为腾讯云专属能力，使用前请开通 [腾讯云](https://cloud.tencent.com) 相关服务，未注册用户可注册账号 [免费试用](https://cloud.tencent.com/login)。
 
 ## 快速集成
-
 ### aar 集成
-
 1. 下载 SDK + Demo 开发包，项目地址为 [Android](https://github.com/tencentyun/SuperPlayer_Android)。
-2. 导入`SDK/LiteAVSDK_XXX.aar` 以及 `Demo/superplayerkit` 这个 module 复制到工程中。
-3. 在`app/build.gralde`中添加依赖：
-```java
-compile(name: 'LiteAVSDK_Professional', ext: 'aar')
-compile(name: 'libsuperplayer', ext: 'aar')
+2. 导入`SDK/LiteAVSDK_XXX.aar`以及`Demo/superplayerkit`这个 module 复制到工程中。
+3. 在`app/build.gradle`中添加依赖：
+<dx-codeblock>
+::: java java
+compile(name: 'LiteAVSDK_Player_7.4.9211', ext: 'aar')
+compile project(':superplayerkit')
 // 超级播放器弹幕集成的第三方库
 compile 'com.github.ctiao:DanmakuFlameMaster:0.5.3'
-```
-4. 在项目`build.gralde`中添加：
-```
+:::
+</dx-codeblock>
+4. 在项目`build.gradle`中添加：
+<dx-codeblock>
+::: java java
 ...
 allprojects {
     repositories {
@@ -35,8 +36,9 @@ allprojects {
     }
 }
 ...
-```
-5. 权限声明：
+:::
+</dx-codeblock>
+5. 权限声明。
 ```java
 <!--网络权限-->
 <uses-permission android:name="android.permission.INTERNET" />
@@ -48,8 +50,6 @@ allprojects {
 <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 ```
-
->! `lib_tcsuperplayer.aar`以 moudle 方式开源，您可在 Demo/lib_tcsuperplayer 中找到所有源代码。
 
 ### 使用播放器
 

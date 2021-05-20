@@ -25,7 +25,7 @@
 [](id:step2)
 ### 2. 压缩视频
  - 压缩视频会减小视频文件的大小，同时也会降低视频的清晰度，您可以按需决定是否进行压缩。
- - 对视频进行压缩，使用 TXVideoEditer.generateVideo(int videoCompressed, String videoOutputPath) 接口，支持4种分辨率的压缩，后续会增加自定义码率的压缩。
+ - 对视频进行压缩，使用 [TXVideoEditer.generateVideo(int videoCompressed, String videoOutputPath)](https://liteav.sdk.qcloud.com/doc/api/zh-cn/group__TXVideoEditer__android.html#af3f16bcb21f26c608c980b91671e386e) 接口，支持4种分辨率的压缩，后续会增加自定义码率的压缩。
 
 [](id:step3)
 ### 3. 发布视频

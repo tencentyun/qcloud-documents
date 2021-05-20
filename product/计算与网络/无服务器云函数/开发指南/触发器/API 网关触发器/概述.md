@@ -50,10 +50,10 @@ API 网关中，一条 API 规则仅能绑定一个云函数，但一个云函�
     "stage": "release"
   },
   "headers": {
-    "Accept-Language": "en-US,en,cn",
-    "Accept": "text/html,application/xml,application/json",
-    "Host": "service-3ei3tii4-251000691.ap-guangzhou.apigateway.myqloud.com",
-    "User-Agent": "User Agent String"
+    "accept-Language": "en-US,en,cn",
+    "accept": "text/html,application/xml,application/json",
+    "host": "service-3ei3tii4-251000691.ap-guangzhou.apigateway.myqloud.com",
+    "user-Agent": "User Agent String"
   },
   "body": "{\"test\":\"body\"}",
   "pathParameters": {

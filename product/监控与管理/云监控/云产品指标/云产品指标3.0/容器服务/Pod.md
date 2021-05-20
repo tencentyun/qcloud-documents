@@ -1,7 +1,10 @@
+## 注意事项
+下列所有指标必入参 `tke_cluster_instance_id` 维度，选填维度中必须选一项入参，非必选维度可不入参。
+
 ## 命名空间
 Namespace=QCE/TKE
 ## 监控指标
-| 指标英文名                          | 指标中文名                           | 指标单位 | 维度                                                         | 统计周期                                                     |
+| 指标英文名                          | 指标中文名                           | 指标单位 | 维度                                                         | 统计粒度                                                     |
 | ----------------------------------- | ------------------------------------ | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | K8sPodCpu<br/>CoreUsed              | CPU使用量                            | MB       | 必填维度：tke_cluster_instance_id、<br>选填维度（必选其中任一维度）：workload_name、un_instance_id、node<br>非必选：node_role、workload_kind、namespace、pod_name | 60s、<br/>300s、<br/>3600s、<br/>8640060s、<br/>300s、<br/>3600s、<br/>86400 |
 | K8sPodMem<br/>NoCacheBytes          | 内存使用量（不包含cache）            | MB       | 必填维度：tke_cluster_instance_id、<br>选填维度（必选其中任一维度）：workload_name、un_instance_id、node<br>非必选：node_role、workload_kind、namespace、pod_name | 60s、<br/>300s、<br/>3600s、<br/>86400                       |
@@ -43,9 +46,6 @@ Namespace=QCE/TKE
 | K8sPodRateMem<br/>NoCacheResource   | 内存利用率（占Pod规格，不包含cache） | %        | 必填维度：tke_cluster_instance_id、<br>选填维度（必选其中任一维度）：workload_name、un_instance_id、node<br>非必选：node_role、workload_kind、namespace、pod_name | 60s、<br/>300s、<br/>3600s、 86400                           |
 
 ## 各维度对应参数总览
-
-> ?tke_cluster_instance_id 为必填维度，其余为选填参数，选填参数必选一项或多项入参。
-
 <table>
     <thead>
         <tr>
@@ -161,9 +161,6 @@ Namespace=QCE/TKE
 
 
 ## 入参说明
-
-> ?tke_cluster_instance_id 为必填维度，其余为选填参数，选填参数必选一项或多项入参。
-
 **根据命名空间入参取值如下：**
 &Namespace=QCE/TKE
 &Instances.N.Dimensions.0.Name=tke_cluster_instance_id

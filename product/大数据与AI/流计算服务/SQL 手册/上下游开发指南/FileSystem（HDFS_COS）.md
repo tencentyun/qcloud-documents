@@ -1,19 +1,16 @@
 ## 介绍
-
 FileSystem connector 提供了对 HDFS 和 COS 等常见文件系统的写入支持。
 
 ## 使用范围
+FileSystem 支持作为 Append-Only 数据流的目的表 (Sink)，目前还不支持 Upsert 数据流的目的表。FileSystem 目前支持以下格式的数据写入：
+- CSV
+- JSON
+- Avro
+- Parquet
+- Orc
 
-FileSystem 支持作为 Append-Only 数据流的目的表 (Sink)，目前还不支持 Upsert 数据流的目的表。
-
-FileSystem 目前支持以下格式的数据写入
-* CSV
-* JSON
-* Avro
-* Parquet
-* Orc
-
-## 示例：用作数据目的
+## 示例
+**用作数据目的**
 
 ```sql
 CREATE TABLE `DataOutput` (
