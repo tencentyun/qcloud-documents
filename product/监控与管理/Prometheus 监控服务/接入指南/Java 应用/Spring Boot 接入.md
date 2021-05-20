@@ -40,7 +40,7 @@
 
 编辑 `resources` 目录下的 `application.yml` 文件，修改 `actuator` 相关的配置来暴露 Prometheus 协议的指标数据。
 
-````
+```
 management:
   endpoints:
     web:
@@ -57,7 +57,7 @@ management:
     tags:
       # 必须加上对应的应用名，因为需要以应用的维度来查看对应的监控
       application: spring-boot-mvc-demo
-````
+```
 
 #### 步骤3：本地验证
 
