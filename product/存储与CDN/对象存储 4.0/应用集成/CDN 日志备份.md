@@ -2,9 +2,9 @@
 
 将域名接入 [内容分发网络（Content Delivery Network，CDN）](https://cloud.tencent.com/document/product/228/2939) 后，所有用户侧资源请求将调度至 CDN 节点进行响应，若节点已缓存该资源，则直接返回内容，若 CDN 节点均未缓存该资源，会将请求透传至域名配置的源站，拉取所需资源。
 
-由于 CDN 节点响应了绝大部分的用户请求，为了方便客户对用户访问进行分析，CDN 对全网访问日志进行了小时粒度打包。
+由于 CDN 节点响应了绝大部分的用户请求，为了方便客户对用户访问进行分析，CDN 按照小时粒度对全网访问日志进行打包。
 
-CDN 日志备份是腾讯云对象存储（Cloud Object Storage，COS）基于 [云函数（Serverless Cloud Function，SCF）](https://cloud.tencent.com/document/product/583) 为用户提供了将 CDN 日志转存至 COS 的功能，可以协助用户将 CDN 日志进行转存以便于进行访问行为分析、服务质量监控等。
+CDN 日志备份是腾讯云对象存储（Cloud Object Storage，COS）基于 [云函数（Serverless Cloud Function，SCF）](https://cloud.tencent.com/document/product/583) 为用户提供的将 CDN 日志转存至 COS 的功能，可以协助用户将 CDN 日志进行转存以便于进行访问行为分析、服务质量监控等。
 
 用户在指定存储桶配置了日志备份规则后，云函数会按照一定的时间粒度获取 CDN 日志并转存至 COS 存储桶中。
 
