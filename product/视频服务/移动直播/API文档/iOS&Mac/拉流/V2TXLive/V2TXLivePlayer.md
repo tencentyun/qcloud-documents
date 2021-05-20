@@ -8,7 +8,7 @@ __介绍__
 
 播放器包含如下能力：
 
-- 支持RTMP、HTTP-FLV、TRTC、WebRTC 协议。
+- 支持 RTMP、HTTP-FLV、TRTC、WebRTC 协议。
 - 屏幕截图，可以截取当前直播流的视频画面。
 - 延时调节，可以设置播放器缓存自动调整的最小和最大时间。
 - 自定义的视频数据处理，您可以根据项目需要处理直播流中的视频数据后，再进行渲染以及播放。
@@ -63,7 +63,7 @@ __介绍__
 
 | 参数 | 类型 | 含义 |
 |-----|-----|-----|
-| url | NSString * | 音视频流的播放地址，支持 RTMP, HTTP-FLV, TRTC, WebRTC 协议。|
+| url | NSString * | 音视频流的播放地址，支持 RTMP、HTTP-FLV、TRTC、WebRTC 协议。|
 
 #### 返回
 
@@ -128,10 +128,10 @@ __介绍__
 
 | 取值                | 含义            |
 | ------------------- | --------------- |
-| V2TXLiveRotation0   | 不旋转          |
-| V2TXLiveRotation90  | 顺时针旋转90度  |
-| V2TXLiveRotation180 | 顺时针旋转180度 |
-| V2TXLiveRotation270 | 顺时针旋转270度 |
+| V2TXLiveRotation0   | 不旋转。          |
+| V2TXLiveRotation90  | 顺时针旋转90度。  |
+| V2TXLiveRotation180 | 顺时针旋转180度。 |
+| V2TXLiveRotation270 | 顺时针旋转270度。 |
 
 ***
 
@@ -211,7 +211,7 @@ __介绍__
 
 ***
 
-### enableCustomRendering:pixelFormat:bufferType:
+### enableCustomRendering
 
 设置视频自定义渲染回调。
 通过该方法，可以获取解码后的每一帧视频画面，进行自定义渲染处理，添加自定义显示效果。
@@ -332,7 +332,7 @@ __介绍__
 
 
 ## 更多实用接口
-### setCacheParams:maxTime:
+### setCacheParams
 
 设置播放器缓存自动调整的最小和最大时间（ 单位：秒）。
 ```
