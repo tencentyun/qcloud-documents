@@ -49,7 +49,6 @@ curl http://localhost:2112/metrics
 ## 应用层面指标
 
 1. 上述示例仅仅暴露了一些基础的内置指标。应用层面的指标还需要额外添加（后续我们将提供一些 SDK 方便接入）。如下示例暴露了一个名为 `myapp_processed_ops_total` 的 [计数类型](https://prometheus.io/docs/concepts/metric_types/#counter) 指标，用于对目前已经完成的操作进行计数。如下每两秒操作一次，同时计数器加1：
-
 ```go
 package main
 
@@ -84,22 +83,13 @@ func main() {
         http.Handle("/metrics", promhttp.Handler())
         http.ListenAndServe(":2112", nil)
 }
-```
-
-2. 执行以下命令启动应用：
-
+```2. 执行以下命令启动应用：
 ```bash
 go run main.go
-```
-
-3. 执行以下命令，访问暴露的指标：
-
+```3. 执行以下命令，访问暴露的指标：
 ```bash
 curl http://localhost:2112/metrics
-```
-
-从输出结果我们可以看到 `myapp_processed_ops_total` 计数器相关的信息，包括帮助文档、类型信息、指标名和当前值，如下所示：
-
+```从输出结果我们可以看到 `myapp_processed_ops_total` 计数器相关的信息，包括帮助文档、类型信息、指标名和当前值，如下所示：
 ```
 # HELP myapp_processed_ops_total The total number of processed events
 # TYPE myapp_processed_ops_total counter
@@ -115,7 +105,6 @@ myapp_processed_ops_total 666
 ### 打包部署应用
 
 1. Golang 应用一般可以使用如下形式的 Dockerfile（按需修改）：
-
 ```dockerfile
 FROM golang:alpine AS builder
 RUN apk add --no-cache ca-certificates \
@@ -133,12 +122,8 @@ COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs
 COPY --from=builder /go-build/golang-exe /usr/bin/golang-exe
 ENV TZ Asia/Shanghai
 CMD ["golang-exe"]
-```
-
-2. 镜像可以使用 [腾讯云的镜像仓库](https://cloud.tencent.com/document/product/457/9117)，或者使用其它公有或者自有镜像仓库。
-
+```2. 镜像可以使用 [腾讯云的镜像仓库](https://cloud.tencent.com/document/product/457/9117)，或者使用其它公有或者自有镜像仓库。
 3. 需要根据应用类型定义一个 Kubernetes 的资源，这里我们使用 [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)，示例如下：
-
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -161,10 +146,7 @@ spec:
         image: nginx:1.14.2
         ports:
         - containerPort: 80
-```
-
-4. 同时需要 Kubernetes [Service](https://kubernetes.io/docs/concepts/services-networking/service/) 做服务发现和负载均衡。
-
+```4. 同时需要 Kubernetes [Service](https://kubernetes.io/docs/concepts/services-networking/service/) 做服务发现和负载均衡。
 ```yaml
 apiVersion: v1
 kind: Service
@@ -177,10 +159,7 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-```
-
->!必须添加一个 Label 来标明目前的应用，Label 名不一定为 `app`，但是必须有类似含义的 Label 存在，其它名字的 Label 我们可以在后面添加数据采集任务的时候做 relabel 来达成目的。
-
+```>!必须添加一个 Label 来标明目前的应用，Label 名不一定为 `app`，但是必须有类似含义的 Label 存在，其它名字的 Label 我们可以在后面添加数据采集任务的时候做 relabel 来达成目的。
 5. 可以通过 [容器服务控制台](https://console.cloud.tencent.com/tke2/) 或者直接使用 [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) 将这些资源定义提交给 Kubernetes，然后等待创建成功。
 
 ### 添加数据采集任务
