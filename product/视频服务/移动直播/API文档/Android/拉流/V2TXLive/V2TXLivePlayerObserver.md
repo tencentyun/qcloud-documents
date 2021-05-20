@@ -5,7 +5,7 @@
 
 **介绍**
 
-可以接收 V2TXLivePlayer 播放器的一些回调通知，包括播放器状态、播放音量回调、音视频首帧回调、统计数据、警告和错误信息等。
+可以接收 [V2TXLivePlayer](https://cloud.tencent.com/document/product/454/56045?!editLang=zh&!preview) 播放器的一些回调通知，包括播放器状态、播放音量回调、音视频首帧回调、统计数据、警告和错误信息等。
 
 
 ## SDK 基础回调
