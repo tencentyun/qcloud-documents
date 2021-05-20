@@ -15,10 +15,11 @@
 
 
 ## 处理步骤
-1. [注册与登录](https://cloud.tencent.com/document/product/243/19142#.E6.B3.A8.E5.86.8C.E4.B8.8E.E7.99.BB.E5.BD.95) 
-2. [填写开办者主体信息](https://cloud.tencent.com/document/product/243/19142#.E5.A1.AB.E5.86.99.E5.BC.80.E5.8A.9E.E8.80.85.E4.B8.BB.E4.BD.93.E4.BF.A1.E6.81.AF) 
-3. [填写新办网站信息](https://cloud.tencent.com/document/product/243/19142#.E5.A1.AB.E5.86.99.E6.96.B0.E5.8A.9E.E7.BD.91.E7.AB.99.E4.BF.A1.E6.81.AF)
-4. [同意责任书并提交审核](https://cloud.tencent.com/document/product/243/19142#.E5.90.8C.E6.84.8F.E8.B4.A3.E4.BB.BB.E4.B9.A6.E5.B9.B6.E6.8F.90.E4.BA.A4.E5.AE.A1.E6.A0.B8)
-5. [违规处理](https://cloud.tencent.com/document/product/243/19142#.E8.BF.9D.E8.A7.84.E5.A4.84.E7.90.86)
-
+主要为如下五大步骤：
+1、注册与登录
+2、填写开办者主体信息
+3、填写新办网站信息
+4、同意责任书并提交审核
+5、违规处理
+详细请参见 [公安备案流程](https://cloud.tencent.com/document/product/243/19142)。
 
