@@ -3,7 +3,7 @@
 白板错误事件 [TEB_ERROR](https://doc.qcloudtiw.com/web/TEduBoard.html#.event:TEB_ERROR)
 
 >!1. 白板错误事件一定要监听。
-2. 白板错误事件属于白板致命错误，只能重新初始化白板才能解决，在重新初始化之前请先调用 destroy 方法进行销毁当前实例。
+>2. 白板错误事件属于白板致命错误，只能重新初始化白板才能解决，在重新初始化之前请先调用 destroy 方法进行销毁当前实例。
 
 | 属性 | 类型 | 描述 |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ teduBoard.on(TEduBoard.EVENT.TEB_ERROR, (errorCode, errorMessage) => {
 白板警告事件 [TEB_WARNING](https://doc.qcloudtiw.com/web/TEduBoard.html#.event:TEB_WARNING)
 
 >!1. 白板警告事件一定要监听。
-2. 警告事件不是致命事件，不影响白板运行，但需要您针对警告码找出原因并修复。
+>2. 警告事件不是致命事件，不影响白板运行，但需要您针对警告码找出原因并修复。
 
 
 | 属性 | 类型 | 描述 |
