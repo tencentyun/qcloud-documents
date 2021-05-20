@@ -5,9 +5,13 @@
 APIGW 连接器实现方式为 **Push 模型**，APIGW 会监控请求并生成调用事件投递至事件集，并将相关事件通过事件规则路由到更多服务。
 
 
+## 前提条件
+
+已 [创建事件集](https://cloud.tencent.com/document/product/1359/56080)。
+
+
 
 ## 操作步骤
-
 
 
 1. 登录 [事件总线控制台](https://console.cloud.tencent.com/eb/)，选择左侧导航栏中的【事件集】。
