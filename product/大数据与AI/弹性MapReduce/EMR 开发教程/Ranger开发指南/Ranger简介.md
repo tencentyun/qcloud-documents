@@ -22,5 +22,5 @@ Ranger 主要是由 Ranger Admin、Ranger UserSync、Ranger Plugin 三个组件�
 | Yarn        | ResourceManager      | EMR-V 2.0.1 及以上版本 |
 | Presto      | All Coordinator      | EMR-V 2.0.1 及以上版本 |
 | Impala      | All Daemon           | EMR-V 2.2.0 及以上版本 |
-| Kudu        | All Master           | EMR-V 3.1.0 版本      |
+| Kudu        | All Master           | EMR-V 3.2.0 版本      |
 
