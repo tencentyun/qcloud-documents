@@ -37,14 +37,12 @@ metadata:
 :::
 ::: kubernetes.io/ingress.internetChargeType
 **说明：**
-指定创建负载均衡时，负载均衡的付费类型。请配合 `kubernetes.io/ingress.internetMaxBandwidthOut` 注解一起使用。
-
+指定创建负载均衡时，负载均衡的付费类型。请配合 `kubernetes.io/ingress.internetMaxBandwidthOut` 注解一起使用。    
 **可选值：**
-- TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费。
-- BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费。
-
-**使用示例：**
-`kubernetes.io/ingress.internetChargeType: "TRAFFIC_POSTPAID_BY_HOUR"`
+<li>TRAFFIC_POSTPAID_BY_HOUR 按流量按小时后计费。</li>
+<li>BANDWIDTH_POSTPAID_BY_HOUR 按带宽按小时后计费。  </li>    
+<b>使用示例：</b><br>
+<code>kubernetes.io/ingress.internetChargeType: "TRAFFIC_POSTPAID_BY_HOUR"</code>
 :::
 ::: kubernetes.io/ingress.internetMaxBandwidthOut
 **说明：**
@@ -117,10 +115,10 @@ metadata:
 :::
 ::: ingress.cloud.tencent.com/rewrite-support
 **说明：**
-- 可以配合 `kubernetes.io/ingress.http-rules`、`kubernetes.io/ingress.https-rules` 实现手动重定向能力。
-- 可以配合 `ingress.cloud.tencent.com/auto-rewrite` 实现自动重定向能力。
-**使用示例：**
-`ingress.cloud.tencent.com/rewrite-support: "true"`
+<li>可以配合 <code>kubernetes.io/ingress.http-rules</code>、<code>kubernetes.io/ingress.https-rules</code> 实现手动重定向能力。</li>
+<li>可以配合 <code>ingress.cloud.tencent.com/auto-rewrite</code> 实现自动重定向能力。</li>
+<b>使用示例：</b><br>
+<code>ingress.cloud.tencent.com/rewrite-support: "true"</code>
 :::
 ::: ingress.cloud.tencent.com/auto-rewrite
 **说明：**
@@ -143,8 +141,9 @@ Ingress 跨域绑定功能，指定需要从哪个地域接入。需要和 `kube
 **说明：**
 Ingress 跨域绑定功能，指定需要接入的 VPC。可以和 `ingress.cloud.tencent.com/cross-region-id` 注解配合指定其他地域 VPC。
 >! 适用于 TKE 创建并管理的负载均衡，对使用已有负载均衡的场景该注解无效。
+>
 **使用示例：**
-创建异地接入的负载均衡:
+创建异地接入的负载均衡：
 `ingress.cloud.tencent.com/cross-region-id: "ap-guangzhou"`
 `ingress.cloud.tencent.com/cross-vpc-id: "vpc-646vhcjj"`
 :::
