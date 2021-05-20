@@ -822,7 +822,7 @@ fileObj 参数格式如下：
 - 本接口支持支持 PPT、PDF、Word 文件转码
 - PPT 文档默认转为 H5 动画，能够还原 PPT 原有动画效果，其它文档转码为静态图片
 - PPT 动画转码耗时约1秒/页，所有文档的静态转码耗时约0.5秒/页
-- 转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该 [回调说明](TEduBoard.EVENT.TEB_TRANSCODEPROGRESS) 文档 
+- 转码进度和结果将会通过 onTEBFileTranscodeProgress 回调返回，详情参见该 [回调说明](https://cloud.tencent.com/document/product/1137/40001#teduboard.event.teb_fileuploadprogress) 文档 
 
 
 ### getFileTranscodeProgress
